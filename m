@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE123C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2CFC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 13:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qN1qLB688cXUuZ/HXgT/LV4b04RQzcH3V2EM2BOQMbg=; b=f7czZDtJ3M5ozQhxGq+s+1+yIo
-	2j7quBXyx7W/pS/Na7+4n0m4B7+I4U4eSzClW+wHV56GC0Vc6wBRSHm+bG49/LmyXSV8M4bJ1m7XH
-	EUlbZ5wnKfm6I0RTsOeKjQLCJdBsWFEr+4julLCNJA4ZRDyDl3KEJMhsQAISPGQ3U76yFzqWg9fSb
-	Z+KUQYSv3NEXUS39L0wtO98sxPfMez5DVOYyIemS3QvmU/hu5HGWF1D1LjaGg2B0lQfGE6lsMynWh
-	zJQ1WdEWNbpWdPYcJY3HMw4DwpFcEhNYNSPgsv9zze0ADYkLdfz6rWgM6T1nLqwPZn0qnPyywi+WR
-	ilIGmhaQ==;
+	bh=3t+9Hbrx3b4pdy+1CD6jYpc+HxoCZtIYl3kVPAq1eqM=; b=jGf3luBDIqIOa66HQ+8hDUsw+c
+	v/tMGBrQj5Z62IwSpPKjA7onPJ31yjTPk50zrhos+rSBVyms5vNPCYIxHuBVJCwODmsT8gsXRGqwV
+	ubftQVRmbLj5InRgXSOhoLoW4VJZfti7Lfxw6gI5F7FgDDJ+4efny95EXAnIXJo/OljAZsiGO5Mfg
+	cgU/8QcJrlWJDLXgYOzP5oNRd+C53LXWAYX07BcTw0rFXvyG9rL4lfWqiWXoDOt7Jb3Sih3QqGByi
+	Mvq8LdqNqWdUc1/VzfHr35plZbTRVfJsgWGH3khP5R+70C5dNIC1vrXPDCvelBccwTQDnK9mvzn+A
+	e6qJyOEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFvSp-00000003aBd-3NOR;
-	Fri, 16 May 2025 13:51:03 +0000
+	id 1uFvUq-00000003aWt-23LJ;
+	Fri, 16 May 2025 13:53:08 +0000
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFvIp-00000003Xmj-2vRK
+	id 1uFvIr-00000003Xn8-1RNh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 13:40:44 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43eea5a5d80so11975755e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 06:40:43 -0700 (PDT)
+	Fri, 16 May 2025 13:40:46 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43eed325461so11867205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 06:40:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747402842; x=1748007642; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1747402844; x=1748007644; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qN1qLB688cXUuZ/HXgT/LV4b04RQzcH3V2EM2BOQMbg=;
-        b=YiAUeZXgbBKaZW7fD4A0JCwPXDOh4uJEcjGMOqk8mzXKfJXl369zO9k/HZQzhJTFlK
-         6J8awmxu0se8r4VUTQwazBNGeWbUY4HSNIPJtAeqVDaq2OkEHxTliLkH6vEAhD7i8dOH
-         IPfcDECyde8NaILimvcBylrJNwPHlfcrPqgJFO3W8PJmw8t2jH5k/maSHGHf/ml5j/sf
-         UigGkY0/3eEmzkL44fg2u0v0GHPhTm6x3LpnjH78vnzzvMliH40Jk1ME1NpNmkFFN1Nm
-         FYqdsBnHxhnGPdgHf0QXvremYBdz/6Em3s3n0AlAoeDkIJx2hmJ5VGcszpe796iz7bLq
-         cMSQ==
+        bh=3t+9Hbrx3b4pdy+1CD6jYpc+HxoCZtIYl3kVPAq1eqM=;
+        b=k4MdiSgWWnqxiIGDvCGdrvToZJM7wrjaqrlkr7yETV7ultRKKU7gQ0KknaFFu6h9dv
+         +TvVHOLj4ybacbrLw9vBFbXly0uvwYKWFv42Fh8RB+08yOH+wHZg9Fgg2KCt501+03rE
+         V86h6YDIKEpNDSOW0C9rn1z+VdnKJf/Zr+HpZSBPQWl3RKgTIONLkkxyMJmw6ulpSsJK
+         Ji+J7KlztuSEep5Jq//nCSP0cRY1wESWaIa4aYvUOsHJPyVb0pdnqfLZsbqvW6C0OzZG
+         JPABk2gW7IdXqguWSEhXqYu2ZeYcTSDc87JQz/E5tSSAd+Vw1LByNwbV4GItdJblXOEL
+         rUXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747402842; x=1748007642;
+        d=1e100.net; s=20230601; t=1747402844; x=1748007644;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qN1qLB688cXUuZ/HXgT/LV4b04RQzcH3V2EM2BOQMbg=;
-        b=vHVzS/ZDIJcueMZNz9dibPGkpfK6sGH29VToNAQ6oDpzJhofK2JgwLDo3rzxeOvdnl
-         TnFeFmIf6dCw6pFp/+Z+28JpkAtTOD8Lqn3GwfVE5c+YDHXYXKX7BEMuPBR+srteTQkI
-         /9YhKvyNrEalN28p/uym3EVuuUxpCkLL8RUHGoLvp9aLiXuaQIsVw/03Peu/Oh8qqQ55
-         QhJDNbTlQB1rwJqSndb49gw0z+oc57JNJkB2Wd6ykEL7TyemS21ucdz0k0U6/EqxZcD1
-         vNSKHVSV5yznMXgMMlNJ4r54xRSvpYIOGep1sZN/kGp/wxYtHX3YN1/9EdftKBoBwcyI
-         wAsw==
-X-Forwarded-Encrypted: i=1; AJvYcCXQcxV7ZHsmSBpNGRxmVLsqU/fKZsPiJ5mircn5Nu9RlwUuYV69JW9VwLOUok7uFm4Q3SkxEAUkOJRGZ57icNDG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaxkSk/wD6JDNDanpQWB6ZZwMmXtBz6LHHquN7hPi1fdrJPM1u
-	XmBba7uIQlg55GkB7mQzT6FT05UYO/sdwW/i4FH87jaKu0tTcDwtlUPKspqdSvO40kkBgNWHIZV
-	C0NKrxio4cBcCm65Epq/QDA==
-X-Google-Smtp-Source: AGHT+IFb0Ij3JAOsUyjNFzFS5ss/HuZjvc5vWhAsggz5dTMhe7SD0zTpYBX4PqyTUjGk2jMHuKx1WSKXkXFzSm0+
-X-Received: from wmbbh10.prod.google.com ([2002:a05:600c:3d0a:b0:43e:9aac:5a49])
+        bh=3t+9Hbrx3b4pdy+1CD6jYpc+HxoCZtIYl3kVPAq1eqM=;
+        b=UNe3R/8tXAvzsYNd/S7j3uwiGtuwmo1g5q7UKzjz6ZKq9C6zOWwhcuic7DM4OVNeIs
+         C4fPgVHZ6hp85Boazco9RWhvOfW8/Te2F9BToUekLI7SbSIaFt9wTMLvdq8ZKh2eOFmM
+         4bfmmPGbf72z3puLMU8miFwG4Z/GEaCceaOW8NWvH07NMSnlPrRl1SpOPdgb+Id6y3fC
+         58cbVQBJyWIdGBg0mm4xlAu38qBvtrAAub2Ki2yNVhVDB6rVT/FkJ0SsvimZTCD8qIcO
+         wcu+46ct2100hdHtcqdq+VjLF8mtsa2iboY8SVk/HlSYGU1SEBe7wkCLHeUGN73KaZnN
+         ouXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVOBucrQNcnkBjtLibv25oagPDVRoQlGtMHaLk1FXZXOW5drPG0LrnW+rQGNsXkVMjq2HzjUqq9eJCdGZD93F12@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXpzB40P4AYB5vqiaZOLmbchki+2wS76hpxIInMEtJGwg8E6Mr
+	C1SYhYfZNjD23r7GtQlPDc3ofGOHSOwpZ77e8MXLmnoA0lD5m/QQ8yFgv6ZGHVSDy7vAAP61i4k
+	xxSrXxn66+I9A43rtbi5O2g==
+X-Google-Smtp-Source: AGHT+IHBk0uTFQehW6fZF3OCY0h82+X4e1sass1zittKFrmN//RLeJcEgCwGWBGBCezpJMkuQurUbPrGR+5L4tEP
+X-Received: from wmbei9.prod.google.com ([2002:a05:600c:3f09:b0:441:b607:4ec0])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1d28:b0:43d:ea:51d2 with SMTP id 5b1f17b1804b1-442fefee236mr24868925e9.14.1747402841965;
- Fri, 16 May 2025 06:40:41 -0700 (PDT)
-Date: Fri, 16 May 2025 14:40:10 +0100
+ 2002:a05:600c:64c5:b0:43c:ea1a:720a with SMTP id 5b1f17b1804b1-442fefdad81mr26193435e9.1.1747402843791;
+ Fri, 16 May 2025 06:40:43 -0700 (PDT)
+Date: Fri, 16 May 2025 14:40:11 +0100
 In-Reply-To: <20250516134031.661124-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20250516134031.661124-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.49.0.1101.gccaa498523-goog
-Message-ID: <20250516134031.661124-5-vdonnefort@google.com>
-Subject: [PATCH v5 04/25] tracing: Add reset to trace remotes
+Message-ID: <20250516134031.661124-6-vdonnefort@google.com>
+Subject: [PATCH v5 05/25] tracing: Add init callback to trace remotes
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -77,8 +77,9 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_064043_733437_7B0B67C7 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20250516_064045_380051_5B1ED0C3 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,109 +94,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For standard trace instance, "trace" files allow to do non-consuming
-read of the ring-buffers. This is however not applicable to ring-buffer
-remotes due to the lack of support in the meta-page. Nonetheless this
-file is still useful to reset a ring-buffer so let's add a write-only
-version.
+Add a .init call back so the trace remote callers can add entries to the
+tracefs directory.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
 diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
-index de043a6f2fe0..1aa99da3c96a 100644
+index 1aa99da3c96a..82d26d97a536 100644
 --- a/include/linux/trace_remote.h
 +++ b/include/linux/trace_remote.h
-@@ -11,6 +11,7 @@ struct trace_remote_callbacks {
- 	void	(*unload_trace_buffer)(struct trace_buffer_desc *desc, void *priv);
- 	int	(*enable_tracing)(bool enable, void *priv);
- 	int	(*swap_reader_page)(unsigned int cpu, void *priv);
-+	int	(*reset)(unsigned int cpu, void *priv);
- };
+@@ -3,9 +3,11 @@
+ #ifndef _LINUX_TRACE_REMOTE_H
+ #define _LINUX_TRACE_REMOTE_H
  
- int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv);
++#include <linux/dcache.h>
+ #include <linux/ring_buffer.h>
+ 
+ struct trace_remote_callbacks {
++	int	(*init)(struct dentry *d, void *priv);
+ 	struct trace_buffer_desc *
+ 		(*load_trace_buffer)(unsigned long size, void *priv);
+ 	void	(*unload_trace_buffer)(struct trace_buffer_desc *desc, void *priv);
 diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
-index 1a4786b7970c..18b2930186cc 100644
+index 18b2930186cc..8f8eb1f1e889 100644
 --- a/kernel/trace/trace_remote.c
 +++ b/kernel/trace/trace_remote.c
-@@ -63,6 +63,7 @@ static int trace_remote_load(struct trace_remote *remote)
- 	rb_remote->desc = remote->trace_buffer_desc;
- 	rb_remote->swap_reader_page = remote->cbs->swap_reader_page;
- 	rb_remote->priv = remote->priv;
-+	rb_remote->reset = remote->cbs->reset;
- 	remote->trace_buffer = ring_buffer_remote(rb_remote);
- 	if (!remote->trace_buffer) {
- 		remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
-@@ -136,6 +137,21 @@ static int trace_remote_disable_tracing(struct trace_remote *remote)
- 	return 0;
- }
- 
-+static void trace_remote_reset(struct trace_remote *remote, int cpu)
-+{
-+	lockdep_assert_held(&remote->lock);
-+
-+	if (!trace_remote_loaded(remote))
-+		return;
-+
-+	if (cpu == RING_BUFFER_ALL_CPUS)
-+		ring_buffer_reset(remote->trace_buffer);
-+	else
-+		ring_buffer_reset_cpu(remote->trace_buffer, cpu);
-+
-+	trace_remote_try_unload(remote);
-+}
-+
- static ssize_t
- tracing_on_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
+@@ -482,6 +482,7 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
+ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv)
  {
-@@ -370,6 +386,26 @@ static const struct file_operations trace_pipe_fops = {
- 	.release	= trace_pipe_release,
- };
+ 	struct trace_remote *remote;
++	int ret;
  
-+static ssize_t trace_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
-+{
-+	struct inode *inode = file_inode(filp);
-+	struct trace_remote *remote = inode->i_private;
-+	int cpu = RING_BUFFER_ALL_CPUS;
-+
-+	if (inode->i_cdev)
-+		cpu = (long)inode->i_cdev - 1;
-+
-+	guard(mutex)(&remote->lock);
-+
-+	trace_remote_reset(remote, cpu);
-+
-+	return cnt;
-+}
-+
-+static const struct file_operations trace_fops = {
-+	.write		= trace_write,
-+};
-+
- static int trace_remote_init_tracefs(const char *name, struct trace_remote *remote)
- {
- 	struct dentry *remote_d, *percpu_d;
-@@ -400,7 +436,9 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
- 	    !trace_create_file("buffer_size_kb", TRACEFS_MODE_WRITE, remote_d, remote,
- 			       &buffer_size_kb_fops) ||
- 	    !trace_create_file("trace_pipe", TRACEFS_MODE_READ, remote_d, remote,
--			       &trace_pipe_fops))
-+			       &trace_pipe_fops) ||
-+	    !trace_create_file("trace", 0200, remote_d, remote,
-+			       &trace_fops))
- 		goto err;
- 
- 	percpu_d = tracefs_create_dir("per_cpu", remote_d);
-@@ -422,7 +460,9 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
- 		}
- 
- 		if (!trace_create_cpu_file("trace_pipe", TRACEFS_MODE_READ, cpu_d, remote, cpu,
--					   &trace_pipe_fops))
-+					   &trace_pipe_fops) ||
-+		    !trace_create_cpu_file("trace", 0200, cpu_d, remote, cpu,
-+					   &trace_fops))
- 			goto err;
+ 	remote = kzalloc(sizeof(*remote), GFP_KERNEL);
+ 	if (!remote)
+@@ -498,7 +499,11 @@ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs,
+ 		return -ENOMEM;
  	}
  
+-	return 0;
++	ret = cbs->init ? cbs->init(remote->dentry, priv) : 0;
++	if (ret)
++		pr_err("Init failed for trace remote '%s' (%d)\n", name, ret);
++
++	return ret;
+ }
+ 
+ void trace_remote_free_buffer(struct trace_buffer_desc *desc)
 -- 
 2.49.0.1101.gccaa498523-goog
 
