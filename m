@@ -4,120 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2C4C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 09:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE06C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 May 2025 09:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICAnzqRn8f548e/xF9gHUGpMoaEnzr4UV/vlaT50lSk=; b=USLK3DAzXZLKjfNcOAOCncT1wz
-	XNl9oMTWwi5i1XY6Num5GZ3TgufQxqT2/6h6mIXoSR6fTHcjVyL57Ky7WGAMZv6z2SWv8e5AbbdMI
-	92Ud2MyROJgUlWeuPG6Rk98KBeYHk2cTqBV1jKCdW/j6PkP2MIkyALso7hgO9gpwcueKN+w7yIPzP
-	TdnKviZFc2VBheZY0XyA2AVYAz4TW4VA0SCFDwqKtzAGOLyMtomxkt6NsJxOiMlkq2MrnNy8+xlsr
-	mQrfIBp9K3lZUlFtzYp7NpDmdwgnnp2ONPuZy4eekRx7lbIxuK3yJJzPP0tOGNZnqon3uv15hZBLc
-	AQwuv6pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w/bSlJSdmlkbWHZjun7hsykkC3laoNdDkksj4oYoPL0=; b=PeLE9B6464fZ4t0UcXzZSVTob/
+	1R6hx62Nh5075oViqMh3OZbWzB4as/cyQpHQq/e24/bgHlld0JEINf0zUEPX8Af1DgRCPl7H8iITB
+	T0SWdcvHJAIXquXFQyPH5JRx3DtV+cm1+G8wI4W7wOcPQ6BBgtVIRYlzfwuXq8V92Oo2B2OVRvxKg
+	9Hdgtdi+2R5Dkv4Rxs0JBbEr/YUa4O4M3cLahL9/LlzaI5Xi72vyOD3JI8502Zl1jeTVu79abdcEH
+	n2ouViq56Mi6j4nAcanNAN2ls/MPBJfTjBk34szIP1Et0sCwQQ2aodceQC4pluplhmVtdeuuGpgdf
+	Pk0J7ahg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFrjq-000000033AM-3Ynk;
-	Fri, 16 May 2025 09:52:22 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1uFrlq-000000033Tb-2h17;
+	Fri, 16 May 2025 09:54:26 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFrho-000000032u7-22Im
+	id 1uFrhw-000000032vp-3n80
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 May 2025 09:50:17 +0000
-Received: from phl-compute-06.internal (phl-compute-06.phl.internal [10.202.2.46])
-	by mailfout.stl.internal (Postfix) with ESMTP id 524571140104;
-	Fri, 16 May 2025 05:50:15 -0400 (EDT)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-06.internal (MEProxy); Fri, 16 May 2025 05:50:15 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
-	 t=1747389015; x=1747475415; bh=ICAnzqRn8f548e/xF9gHUGpMoaEnzr4U
-	V/vlaT50lSk=; b=GEx+yCQH6hcWVDweddJQzydxrrzZeZdKPGUKJdP46h1wvpVF
-	4Kpd5MNYEEXeMaGtZadn11Tr6PPhJMd4qXvZjvFy8wdjJKZMNTydgjYhRnLiUHEg
-	rY4YdrJDV8hw1aXQ2NGw0IKDKdU7C7ljRCCowjjwUDN1c1dD32iCnbVkq/cNRtsN
-	WlF5AtKfS4WOzEijOB0iIMrfOeI46MiQAe9dxNVaaBY8scu0OxnFm44V23vjxotz
-	LDU6QvpeMpav/fE9TS1l5F0AcujKL+vPuO7C+dMCHoj9mRHJg81n2j1PZvsCbktI
-	HYCogxEyhRKqiFwKBPveRoqMEALnFXK8RqOE1w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1747389015; x=
-	1747475415; bh=ICAnzqRn8f548e/xF9gHUGpMoaEnzr4UV/vlaT50lSk=; b=U
-	mgyP2smkPYT4zFKGycsILpZGr1Vl6Iy4PZING0yw38DZ965IDdQZolchV+hsZURE
-	Ibs9r0scwq+nNxmkj1W4eVx3fONWHaFMR/Hyq1hXgrpnGh5YKwLmyBWj7mJOnAoM
-	9yZIisSXkJe3IE8P0i2CJPn6fi/yd1FSwsVbcsYQ76i0gULwCcnRx8ZrnvVkI9+A
-	RrsbAtXltYeTMWo3cLXHR/waAE1VMQKfTYh9+QSSe0IUV++OfxvIFsYYChhETJQH
-	FLSHsrPpZhFjTuAL0TpidTDia7Vyzst/wxybqh9v6zSAB90YkBKXQmzjDzDfGiCh
-	DNnYikGwvKQ6/MHeng0aQ==
-X-ME-Sender: <xms:VgonaOAJcFfpMwmNAZqnNyXo2Oth442oIk7wlq6Fzy16oe3M6baPSA>
-    <xme:VgonaIiQCYbSvHRBkR4pzGe5rkX8pjWQDjTddI4nP1QZXZRqp_JrqKH0_ZyiUHQPz
-    sj7JrlNQ0VwfMrzmA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefuddvgeefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftfihrghnucghrghlkhhlihhnfdcuoehrhigrnhesthgvshhtth
-    horghsthdrtghomheqnecuggftrfgrthhtvghrnhepjefhueekjeejgfduvdffheevveej
-    hfdtuddthfduuddvveefjeffgfdvleefuefgnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhn
-    sggprhgtphhtthhopedvgedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghnug
-    hrvgdrphhriiihfigrrhgrsegrrhhmrdgtohhmpdhrtghpthhtohepmhhtuhhrqhhuvght
-    thgvsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopeifvghnshestghsihgvrdhorh
-    hgpdhrtghpthhtohepuggrnhhivghlsehffhiflhhlrdgthhdprhgtphhtthhopegrihhr
-    lhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvg
-    gtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhikhhutghhrghnleeksehgmhgrihhl
-    rdgtohhmpdhrtghpthhtohepmhgrtghrohgrlhhphhgrkedvsehgmhgrihhlrdgtohhmpd
-    hrtghpthhtohepshhimhhonhhsrdhphhhilhhiphhpvgesghhmrghilhdrtghomh
-X-ME-Proxy: <xmx:VgonaBkSrc6upcBvaEARz4TVu4qk0C-Y9CBwKCoMyEVJqNMl7C118A>
-    <xmx:VgonaMyW4h-Kg4A4Xl9joK7Sj0IeX-CytUlAHPn_MsDGRgvcZnHCFg>
-    <xmx:VgonaDRBSU9tKa7_dqw48bEbsHl2uo8GTbdALULRsfPSDaWEnu4LPg>
-    <xmx:VgonaHYXnEeePGIQMdCtqv36fx2DNs_4rwUjRiW4DrsW7cxH8ecxPA>
-    <xmx:VwonaDe0fJJ5QBICmoOWjLcBLnNmwHyH09TKXiPR3IYwFeRpljAmSHPT>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 49704C40061; Fri, 16 May 2025 05:50:14 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 16 May 2025 09:50:26 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so15146365e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 May 2025 02:50:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1747389023; x=1747993823; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=w/bSlJSdmlkbWHZjun7hsykkC3laoNdDkksj4oYoPL0=;
+        b=fQPK6A7aYSk8zfpJU6WYeNavmuL8S47K48QM992XS+QjlQwd4hmIL8GeNB44HhNaSE
+         7sFWlNil4PYusfpM4wSVmZAWQMqsFQjpjIZODdPv2G4Vq9nKGIdehGaidv7XwzihoOLS
+         KxiYUBT1sk9hWN1IAviXr9Pib7FGDfmaR3OJEIcrJANipskfu00JW3LhfHZ/GRjYhxWW
+         y+ZeHr7SpUqpCl+CwYiDbAhxRir0lIsxFs/M+ybDR5MlrwojiBZT/5TX9ysd58X0IpCA
+         PP2pPgH2uT+Tf9jiPW54/uBeW+51Ik41sLaa2rK2EAeaFdqhEPH5JZROmvLlhmz6Qtbx
+         X3Vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747389023; x=1747993823;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w/bSlJSdmlkbWHZjun7hsykkC3laoNdDkksj4oYoPL0=;
+        b=Di3P2JpwSYfkB3ONuv+9SHGy61+0pHlWU2mnV+xlAbIqct2fPV/9BiZIifwCZ1DPeF
+         a6gSSCjXFng3sDNBUvkC2iaooO2V6L73R3ngSzJiVxLimoTit2W3NVHxdlztj8BHMy19
+         42QSd6U8EIwvtgcS0A/tbS9FtehXVyoNCFjNJbbygIiIDlTZFVH52r9gv12KLri2FGyV
+         ETDTN5jV+zSIKUQWM+GrX5TVzmCQp4xgHj0jzdInZTks2oPY2Ypexs+TZTCL/O9lqZI+
+         WkqK8oc5NHx4UcUR/zqHy1zpiQn4YIJrsFOaXmQzPibSfyuJdxk1vzOAXEEAYnm7l9h4
+         WW+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVlY87qCJp1HcQ5LT11ZAjDoacqwU5b49GRn2P2/A9uIm0o2BMMN+BQgCUVAjQkD2BKbL3VA3NXeX4hPcUHPWGN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJqqvziAjOZbCtEDXgTZQvfaeUEVMqyAyCb6ARJ/lQJdTXj9IK
+	3Dm2qtlL29ZgRWT1F+Pky824Ly+pf5kSFEKQniCEYgkkVEp4ORHyzmHBIiMrcvDOY9U=
+X-Gm-Gg: ASbGncvcv17pL3WvlRX0lAX2JXpynldCjCQ0+D3cFEUF3vI8HAlUuyhj+b0dxWv2IDH
+	8xuZIouVEbBOtDWv0agNaPh5O1U6sdaKA6NYw4oqRKpqVtBiG3NY9CgBN3ZXKmgcS9ZRQmpEnmK
+	OPt8RnW0dXW2ukLsPFJ1bi3malyUEtYnFETGfVzup1mtvBmwtVmyG03EU4cdGhKBNO8CG5vpgKL
+	y8m7g3AZai/O8ZA1iYCGeuPS9yX+WfM9fEePfAujUKQ7KigBG3a3dmShDYS+pQZ7JwHHIazUZCX
+	/mcSBCbD0IRib8e+G8//cxre7kXkb3OulpvgNl758jzbAFnhj2vn0lByQlwPI6NSlzYO0/mAxyI
+	uACVMVdkv4F/zFRn5zrk8cGJPtKlG
+X-Google-Smtp-Source: AGHT+IG8U8vuqf70rCyQDtiOWmQQMlATnOz4eXDJINSunO9kjrn7q2b9sgtlTI0vMJw9CTIra++GNw==
+X-Received: by 2002:a05:600c:4f42:b0:43d:abd:ad1c with SMTP id 5b1f17b1804b1-442fd60b64dmr24944235e9.6.1747389022959;
+        Fri, 16 May 2025 02:50:22 -0700 (PDT)
+Received: from localhost (p200300f65f00780800000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f00:7808::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-442fd51583dsm26876685e9.22.2025.05.16.02.50.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 02:50:22 -0700 (PDT)
+Date: Fri, 16 May 2025 11:50:20 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	Ahmad Fatoum <a.fatoum@pengutronix.de>
+Subject: Re: [PATCH] ARM: dts: stm32: Add nvmem-cells to ethernet nodes for
+ constant mac-addresses
+Message-ID: <k5sznrkn6shjn3d5uj675sktkgwf3aivfr7hchialln433ktjs@u42bfyo7tnej>
+References: <20250328171406.3307778-2-u.kleine-koenig@baylibre.com>
+ <xvhstvgs5bpfebeolozdbxh2empviijqq6hg2k2kuav5xykpqw@a3jgkrqzj4xm>
 MIME-Version: 1.0
-X-ThreadId: Tf495426756189e99
-Date: Fri, 16 May 2025 21:49:54 +1200
-From: "Ryan Walklin" <ryan@testtoast.com>
-To: "Maxime Ripard" <mripard@kernel.org>
-Cc: "Chen-Yu Tsai" <wens@csie.org>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
- "Thomas Zimmermann" <tzimmermann@suse.de>,
- "David Airlie" <airlied@gmail.com>, "Daniel Vetter" <daniel@ffwll.ch>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Samuel Holland" <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Michael Turquette" <mturquette@baylibre.com>,
- "Stephen Boyd" <sboyd@kernel.org>, "Andre Przywara" <andre.przywara@arm.com>,
- "Chris Morgan" <macroalpha82@gmail.com>,
- "Hironori KIKUCHI" <kikuchan98@gmail.com>,
- "Philippe Simons" <simons.philippe@gmail.com>,
- "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, "Chris Morgan" <macromorgan@hotmail.com>
-Message-Id: <70232334-a0c5-454c-8e1f-551860d74cba@app.fastmail.com>
-In-Reply-To: <nze2olzqtgagrkiws2dt3uptehyvcgw7kai5ceycroaroin7jb@xeoddccn5uqh>
-References: <20250511104042.24249-1-ryan@testtoast.com>
- <20250511104042.24249-11-ryan@testtoast.com>
- <nze2olzqtgagrkiws2dt3uptehyvcgw7kai5ceycroaroin7jb@xeoddccn5uqh>
-Subject: Re: [PATCH v10 10/11] drm: sun4i: de33: mixer: add Display Engine 3.3 (DE33)
- support
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6opi2kcagpe26yym"
+Content-Disposition: inline
+In-Reply-To: <xvhstvgs5bpfebeolozdbxh2empviijqq6hg2k2kuav5xykpqw@a3jgkrqzj4xm>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_025016_577775_1A8B14E9 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250516_025024_942435_7BC927A3 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,78 +103,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 May 2025, at 3:07 AM, Maxime Ripard wrote:
-> On Sun, May 11, 2025 at 10:31:19PM +1200, Ryan Walklin wrote:
 
->> +enum sun8i_mixer_type {
->> +	sun8i_mixer_de2,
->> +	sun8i_mixer_de3,
->> +	sun8i_mixer_de33,
->> +};
->
-> enum variants typically have their name in upper-case.
+--6opi2kcagpe26yym
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] ARM: dts: stm32: Add nvmem-cells to ethernet nodes for
+ constant mac-addresses
+MIME-Version: 1.0
 
-Ah of course, will correct, thanks.
+Hello,
 
-> With that fixed,
-> Acked-by: Maxime Ripard <mripard@kernel.org>
->
-> Maxime
+On Thu, Apr 24, 2025 at 05:07:00PM +0200, Uwe Kleine-K=F6nig wrote:
+> On Fri, Mar 28, 2025 at 06:14:05PM +0100, Uwe Kleine-K=F6nig wrote:
+> > The efuse device tree description already has the two labels pointing to
+> > the efuse nodes that specify the mac-addresses to be used. Wire them up
+> > to the ethernet nodes. This is enough to make barebox pick the right
+> > mac-addresses and pass them to Linux.
+> >=20
+> > Suggested-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+> > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+>=20
+> I wonder if this patch is on someone's radar?!
 
-Thanks for the review! Will submit a v11 with the enum fixed and without the clock bits Chen-Yu has already picked up.
+I still wonder. Is this just due to -ENOTIME for the maintainers, or are
+there doubts about this patch?
 
-Regards,
+Best regards
+Uwe
 
-Ryan
+--6opi2kcagpe26yym
+Content-Type: application/pgp-signature; name="signature.asc"
 
->
->>  /**
->>   * struct sun8i_mixer_cfg - mixer HW configuration
->>   * @vi_num: number of VI channels
->> @@ -171,8 +180,9 @@ struct sun8i_mixer_cfg {
->>  	int		scaler_mask;
->>  	int		ccsc;
->>  	unsigned long	mod_rate;
->> -	unsigned int	is_de3 : 1;
->> +	unsigned int	de_type;
->>  	unsigned int	scanline_yuv;
->> +	unsigned int	map[6];
->>  };
->>  
->>  struct sun8i_mixer {
->> @@ -184,6 +194,9 @@ struct sun8i_mixer {
->>  
->>  	struct clk			*bus_clk;
->>  	struct clk			*mod_clk;
->> +
->> +	struct regmap			*top_regs;
->> +	struct regmap			*disp_regs;
->>  };
->>  
->>  enum {
->> @@ -220,13 +233,16 @@ sun8i_blender_base(struct sun8i_mixer *mixer)
->>  static inline struct regmap *
->>  sun8i_blender_regmap(struct sun8i_mixer *mixer)
->>  {
->> -	return mixer->engine.regs;
->> +	return mixer->cfg->de_type == sun8i_mixer_de33 ?
->> +		mixer->disp_regs : mixer->engine.regs;
->>  }
->>  
->>  static inline u32
->>  sun8i_channel_base(struct sun8i_mixer *mixer, int channel)
->>  {
->> -	if (mixer->cfg->is_de3)
->> +	if (mixer->cfg->de_type == sun8i_mixer_de33)
->> +		return mixer->cfg->map[channel] * 0x20000 + DE2_CH_SIZE;
->> +	else if (mixer->cfg->de_type == sun8i_mixer_de3)
->>  		return DE3_CH_BASE + channel * DE3_CH_SIZE;
->>  	else
->>  		return DE2_CH_BASE + channel * DE2_CH_SIZE;
->> -- 
->> 2.49.0
->> 
->
-> Attachments:
-> * signature.asc
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgnCloACgkQj4D7WH0S
+/k7CMQf/WwQ49zZfeEgNvOM7sUOEODuoH5TsG5AeMQFlVrrfQhA4KJYPKKM36JLN
+aGpv/eqpwjRlZY6ur8W4bTvjTMfO8vWhQgHTJV6uR5ZWkOcaTxjrjLtmCj2yRF2J
+jeip+Wm6yq9kgdADVApinoD38wgz8V1oUyT/JpQZNUe20lnsxAKYo4mb0L5mjWu9
+Np9Vfgu3cPmB9liK2DFaCJ7j6NGXhkCiILu2+9egPMCdF+m8ZYhCBryCULuP2lub
+aZ8EW1P2lBercWsbHqq1HZ15EiHZpJbcxRD/yt5qBhrRbSLD0oHixaDXF+yJM5ws
+pGB/wSviPXFOMFjOvhbUMlI7zcIaEA==
+=riy4
+-----END PGP SIGNATURE-----
+
+--6opi2kcagpe26yym--
 
