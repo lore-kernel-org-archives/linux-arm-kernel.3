@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE67C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 May 2025 20:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F83C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 May 2025 20:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/cOJMi2ml2Dp8lrtNuYE1nMsJo8SReHGLhNAZZYs7mA=; b=NMskJTe3VKGqJlG3gPpf2PTZnf
-	VsZlE7wqjJfEZDzXOsbq4dDm2a99E5kLp+A8ksmfFePj/K/hNLIwrwJwylQndKSPggoMJE1VqGZ+7
-	w/Hpr8BOA6P2O8vrVRJzRyMGBW0JBdkPrZ7V4uOs8glFje7HJ7VOGAeT3ZcKIWMfJ1nS4CUBN2wuz
-	fknlcYD8UyLismk95LSToC/qd9uN0LfzhIRogNd/KIaPFhj98FMLtxLj6dvJw0txFRF9i9g13hNK8
-	EoIO5kMDN9KYZ9CNPW9ctFjhS3HUWRhq8ob+KqxG58+sSEtylzwfdyZcoXc8QLx2u614h97wTfNdn
-	hNQCtpyw==;
+	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=pxpKeHhye1m2c4bUTmoVNlR5SF
+	DY8ReCUUA4jYj2o6u3/puqrJG//rcKMyON4nNWtEvdCRg9i/75bjYbbD0QI1A2LSqQXpWtdTnCuyB
+	B8+8plD8wXKTsLDtIddTkfriBaHsWkCfa2umutn4+M03XksqQvZikpfhpD0G50gzVUVp79YKLxleu
+	5oJc9vZ3dfP4C4d8Q50l8AQkZSNRVAXFjrR9zFgIwsWqHtB7g2c7IWElpuHOycsvjEkM9Bas9q6Qr
+	0Xw3UI3VfI8AB3MDr0f995V/3FMSJYlfvaGw+JPF8mCbzspHWb6JPGtbEVMp8lwyuXdG9WX2O2nbu
+	u3QlnZFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGNii-00000006Dqm-1r4M;
-	Sat, 17 May 2025 20:01:20 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uGO5g-00000006FUb-2gqO;
+	Sat, 17 May 2025 20:25:04 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGNgi-00000006DjI-0cGV
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 May 2025 19:59:17 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1747511951;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/cOJMi2ml2Dp8lrtNuYE1nMsJo8SReHGLhNAZZYs7mA=;
-	b=BvzHe/Is/iUohMKl4tjyZLLBxYfCPG4fsE2hUs7sNxxB/71P5mSsJCWVXZJ7UYj5rliT0Y
-	o9cj9gZRSQxuYv37Gx81jUw1DL1W86Jif4rsjcO9XBjfXPscv8fjERO1uGlAYnzLZggN6y
-	yD9RXdQhwYAiX3b7wLPOYGb964rfXY6JTwpqB8GrdFu7tUvGnbMBM7Rv7WHsneHHbWfqx4
-	W7tUgWGijs3hCci0eFpKor22Kb2FAqXu2kaXRkT2XYIfDXSesbRXZ4a1iAIT0P5x5pju/H
-	j8bmkPt2w39KNxtr056gA6yeS/9RNgUyjEZ6+NZQ+tUE95vvLSZCn8hVlBIeqA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1747511951;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/cOJMi2ml2Dp8lrtNuYE1nMsJo8SReHGLhNAZZYs7mA=;
-	b=Q+y/llOjEkB2TiNhdwBI655KmbK0Cs4EuOmVpDDGx4mdz/3dHT06/oY46OZ4rzZ/I6jOyH
-	/kQer4hUoksDHSDA==
-To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] irqchip/msi-lib: Honor the MSI_FLAG_PCI_MSI_MASK_PARENT
- flag
-In-Reply-To: <20250517103011.2573288-1-maz@kernel.org>
-References: <20250517103011.2573288-1-maz@kernel.org>
-Date: Sat, 17 May 2025 21:59:10 +0200
-Message-ID: <875xhzhuup.ffs@tglx>
+	id 1uGO3f-00000006FLi-25LO;
+	Sat, 17 May 2025 20:23:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1E149A4E921;
+	Sat, 17 May 2025 20:22:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E558C4CEE3;
+	Sat, 17 May 2025 20:22:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747513377;
+	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Qqm9uzjHX3E3Tkba0SIwo+dHYvchdHyrS9w0HmsSqMTrFW33pa6KOeJ4Iea68h2eU
+	 D6TbH7GEuMGIgSLA6VZ5O4+UVvE/wnR/mLIszDIMlLqE+yqVgyVfhz1KkrJCkl7cML
+	 YcMyTYJhBbZN7BWxuUOyEwfgBsymCbRM4La4MemLak7ZDAOEDFvryhDMZEq0a85j5B
+	 IZ+3S5vmFLAuo7GCDc8X2KnIc+y3dLq4ZbpVCs7Y4Bptl1LNeByDLCweulplxso4R1
+	 PZOTvIez9c5CzOWftnhE4zP4xw3Ougnu0YlWSe2ocoXUXkdfc9mmK+3f8z3hLGbJx4
+	 FQtmHkJy2Rk9g==
+Date: Sat, 17 May 2025 15:22:55 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Oded Gabbay <ogabbay@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Simona Vetter <simona@ffwll.ch>, linux-rockchip@lists.infradead.org, 
+ linux-doc@vger.kernel.org
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+In-Reply-To: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
+ <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+Message-ID: <174742024812.3649303.12389396177218408388.robh@kernel.org>
+Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250517_125916_324164_0D00338A 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20250517_132259_675965_69899FBA 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250517202255.sVeMpQEN6eXgQF42B9DyhWECFJsm_q51Ytkhc-nMJSs@z>
 
-On Sat, May 17 2025 at 11:30, Marc Zyngier wrote:
-> +	/*
-> +	 * If the parent domain insists on being in charge of masking, obey
-> +	 * blindly. The default mask/unmask become the shutdown/enable
-> +	 * callbacks, ensuring that we correctly start/stop the interrupt.
-> + 	 * We make a point in not using the irq_disable() in order to
-> +	 * preserve the "lazy disable" behaviour.
-> +	 */
-> +	if (info->flags & MSI_FLAG_PCI_MSI_MASK_PARENT) {
-> +		chip->irq_shutdown	= chip->irq_mask;
-> +		chip->irq_enable	= chip->irq_unmask;
 
-This is only correct, when the chip does not have dedicated
-irq_shutdown/enable callbacks. And I really hate the asymmetry of this.
+On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
+> Add the bindings for the Neural Processing Unit IP from Rockchip.
+> 
+> v2:
+> - Adapt to new node structure (one node per core, each with its own
+>   IOMMU)
+> - Several misc. fixes from Sebastian Reichel
+> 
+> v3:
+> - Split register block in its constituent subblocks, and only require
+>   the ones that the kernel would ever use (Nicolas Frattaroli)
+> - Group supplies (Rob Herring)
+> - Explain the way in which the top core is special (Rob Herring)
+> 
+> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
+>  1 file changed, 162 insertions(+)
+> 
 
-> +		chip->irq_mask		= irq_chip_mask_parent;
-> +		chip->irq_unmask	= irq_chip_unmask_parent;
-> +	}
+My bot found errors running 'make dt_binding_check' on your patch:
 
-I'm still trying to understand, what's the actual problem is you are
-trying to solve.
+yamllint warnings/errors:
 
-MSIs are edge type interrupts, so the interrupt handling hotpath usually
-does not mask at all. The only time masking happens is when it's lazy
-disabled or during affinity changes, which is not the end of the world.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too long
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too short
+	False schema does not allow 3
+	1 was expected
+	3 is greater than the maximum of 2
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core-top', 'rockchip,rknn-core-top'] is too long
+	'rockchip,rk3588-rknn-core-top' is not one of ['rockchip,rk3588-rknn-core']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): reg: [[0, 4255842304, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core', 'rockchip,rknn-core'] is too long
+	'rockchip,rk3588-rknn-core' is not one of ['rockchip,rk3588-rknn-core-top']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): reg: [[0, 4255907840, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
 
-Thanks,
+doc reference errors (make refcheckdocs):
 
-        tglx
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
