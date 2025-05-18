@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B89D4C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D16C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2uaQXKeZrx7VfH/3dDY8LD5mrbSCPAo4RzuDLB/xMM0=; b=LpVLd/646MWlabmyNC6ZUNTGjP
-	v3jPye0z1jtdyccQ5NeIDk8rYBV1o5wdgd3YJYP9ijLy3RWIQlkf65enJtpDPrZjV5yBWaxBpvtEQ
-	FuNL3IeLSzij3aeU/e6jUtxapSHPn4bZoIlnNyJktUlmG7dKR8nuIuAhC6/IlOyhl3hVF4jOGkKoH
-	bmwCOP4khZn1dWaqny8OAu0mG3KtVRYG5Jrdm6BmZNXMCu7SzOEY9hypur6xsbbvejfnh9X1JBFWF
-	7nR3EvNgkkDQZq5s4Pf4OaFW5/1SlvSueh0GHYN/texYv4/tbbMntR8DtJ+rD4CgA9nLjGhYrmGRE
-	EgNthkfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=THMlj3AhMYULtOmiSh+mVB/En26gWO8Blx9/pCJw39Q=; b=fJXGUlZxBAtoUjDCQftw/k/LlU
+	cK5dNLaE45M4dn10jEMypYO2AAH47A0eShrrfgk7QtQb0PzUDNaXrlUpszLz2qiL3P+TNKBhWd+34
+	zXMJOquTRDx4luAnnkl/2tEZ5h3Uk5djwR3G3F7h/gK6XTAV/LBaOo6V5xc/HilgAL86g0/6pMtdR
+	X1ApyeFdhQfHopXKOQXXr6PNY2i1as8ZLUy3kJXSq3QaqPaccoTyaHB43laJiMbgqM4FH0uIWpF/i
+	4SRg7lMr/+RoYrpRrWaUKqzNZea8UVYgP8eqPilguUGv7q3T/xrd8whK5AzbXxNroJUfi4XDsZcf4
+	56h/jSxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmnc-00000007f1N-180t;
-	Sun, 18 May 2025 22:48:04 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uGmw0-00000007fd1-0HfV;
+	Sun, 18 May 2025 22:56:44 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGml2-00000007ef1-2n4w
+	id 1uGmtz-00000007fQU-27Wo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 May 2025 22:45:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=2uaQXKeZrx7VfH/3dDY8LD5mrbSCPAo4RzuDLB/xMM0=; b=XTHzvlpHcAAYniK+TGI6Dqqb8f
-	31BJBkgoHrGuN89wszLyuGW7D42kiPlfK5dQ2M0o9TsrXtaas+DYQxxxZcy/RzOLHuEwIVadF55ou
-	89wbdxruVBtgwsxD6K+0BQyIWdPHiZkgYMrcd3YAhKDJIvYqh+U54rJo9g+IsRP2f1Fc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uGmkm-00Cx21-1J; Mon, 19 May 2025 00:45:08 +0200
-Date: Mon, 19 May 2025 00:45:08 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: weishangjuan@eswincomputing.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
-	yong.liang.choong@linux.intel.com, rmk+kernel@armlinux.org.uk,
-	jszhang@kernel.org, inochiama@gmail.com, jan.petrous@oss.nxp.com,
-	dfustini@tenstorrent.com, 0x1207@gmail.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, lizhi2@eswincomputing.com
-Subject: Re: [PATCH v1 2/2] ethernet: eswin: Add eic7700 ethernet driver
-Message-ID: <251dfe22-3050-4784-82d8-a1fd52243728@lunn.ch>
-References: <20250516010849.784-1-weishangjuan@eswincomputing.com>
- <20250516011130.818-1-weishangjuan@eswincomputing.com>
+	Sun, 18 May 2025 22:54:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1747608879;
+ bh=THMlj3AhMYULtOmiSh+mVB/En26gWO8Blx9/pCJw39Q=;
+ b=ZQuUIrLJPoXRWtx8YX6XHKHgAMy4K0Ry4sK8eV9dzyHWX+9CbY7+Qurt4IotcoXn82EK2O9t1
+ nQm1dmatG6RVaSYk4EjvunXEcVCHJFjSd+MvGwwY8xuxa50WpqaxCtE5f5qjVHTAo5eQA0df6yU
+ aNEN9C7F7YpfQnwvYuc97NY22MWsang+4kAWSbPuwr/Nt/jDTfQLBzUrvfPwZo4ZH2A8rmYj9ey
+ ndlDXYt49yLtZDiLu89rksuy3sx7niB5170j1rvcBQowopbrE43MxGJneri60wfk+nxOcBkTjFN
+ eYRduwOww5VbjLV4x6i6UdM6U0j9OxaFYms6I6BlvI/g==
+X-Forward-Email-ID: 682a6529db63046e3392f299
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.0.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	linux-rockchip@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH 0/3] rockchip: Add GPU support for RK3528
+Date: Sun, 18 May 2025 22:54:10 +0000
+Message-ID: <20250518225418.682182-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250516011130.818-1-weishangjuan@eswincomputing.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_154524_707282_39B1131D 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20250518_155439_583172_C623613A 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +79,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +/* RTL8211F PHY Configurations for LEDs */
-> +#define PHY_ADDR				0
-> +#define PHY_PAGE_SWITCH_REG		31
-> +#define PHY_LED_CFG_REG			16
-> +#define PHY_LED_PAGE_CFG		0xd04
+This series adds support for the Mali-450 MP2 GPU in the RK3528 SoC.
 
-The PHY driver is responsible for the PHY LEDs, not the MAC driver.
+The clock used for the GPU can use normal PLL to support a rate of 100,
+300 or 500 MHz. Or it can use PVTPLL to reach rates up to 800 MHz.
 
-> +static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
-> +				   struct plat_stmmacenet_data *plat_dat)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	u32 burst_map = 0;
-> +	u32 bit_index = 0;
-> +	u32 a_index = 0;
-> +
-> +	if (!plat_dat->axi) {
-> +		plat_dat->axi = kzalloc(sizeof(*plat_dat->axi), GFP_KERNEL);
-> +
-> +		if (!plat_dat->axi)
-> +			return -ENOMEM;
-> +	}
-> +
-> +	plat_dat->axi->axi_lpi_en = device_property_read_bool(dev,
-> +							      "snps,en-lpi");
+The TF-A SCMI_CLK_GPU is used to switch use between normal PLL and
+PVTPLL. When a rate of up to 300 MHz is requested TF-A switch to use
+normal PLL, and for rates above 300 MHz the PVTPLL is used.
 
-Please look at the work Russell King has been doing recently, and make
-sure you are not adding stuff he has been busy cleaning up.
+The PVTPLL can only operate when the power domain, regulators and clocks
+are enabled, an opp-suspend for 300 MHz is used to ensure normal PLL is
+selected before GPU is PM runtime suspended.
 
-> +static void dwc_qos_fix_speed(void *priv, int speed, unsigned int mode)
-> +{
-> +	unsigned long rate = 125000000;
-> +	int i, err, data = 0;
-> +	struct dwc_qos_priv *dwc_priv = (struct dwc_qos_priv *)priv;
-> +
-> +	switch (speed) {
-> +	case SPEED_1000:
-> +		rate = 125000000;
-> +
-> +		for (i = 0; i < 3; i++)
-> +			regmap_write(dwc_priv->hsp_regmap,
-> +				     dwc_priv->dly_hsp_reg[i],
-> +				     dwc_priv->dly_param_1000m[i]);
-> +
-> +		if (dwc_priv->stmpriv) {
-> +			data = mdiobus_read(dwc_priv->stmpriv->mii, PHY_ADDR,
-> +					    PHY_PAGE_SWITCH_REG);
-> +			mdiobus_write(dwc_priv->stmpriv->mii, PHY_ADDR,
-> +				      PHY_PAGE_SWITCH_REG, PHY_LED_PAGE_CFG);
-> +			mdiobus_write(dwc_priv->stmpriv->mii, PHY_ADDR,
-> +				      PHY_LED_CFG_REG, dwc_priv->phyled_cfgs[0]);
-> +			mdiobus_write(dwc_priv->stmpriv->mii, PHY_ADDR,
-> +				      PHY_PAGE_SWITCH_REG, data);
+Driver init at boot:
 
-Please remove all this LED code.
+  lima ff700000.gpu: gp - mali450 version major 0 minor 0
+  lima ff700000.gpu: pp0 - mali450 version major 0 minor 0
+  lima ff700000.gpu: pp1 - mali450 version major 0 minor 0
+  lima ff700000.gpu: l2_cache0 8K, 4-way, 64byte cache line, 128bit external bus
+  lima ff700000.gpu: l2_cache1 64K, 4-way, 64byte cache line, 128bit external bus
+  lima ff700000.gpu: bus rate = 297000000
+  lima ff700000.gpu: mod rate = 300000000
+  [drm] Initialized lima 1.1.0 for ff700000.gpu n minor 0
 
-> +	dwc_priv->dev = &pdev->dev;
-> +	dwc_priv->phy_reset = devm_gpiod_get(&pdev->dev, "rst", GPIOD_OUT_LOW);
-> +	if (IS_ERR(dwc_priv->phy_reset)) {
-> +		dev_err(&pdev->dev, "Reset gpio not specified\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	gpiod_set_value(dwc_priv->phy_reset, 0);
+glmark2-es2-gbm (cebbb63edfba502905470c904f8e6f1c6ce28ba9):
 
-Please allow phylib to control the PHY reset line.
+  =======================================================
+      glmark2 2023.01
+  =======================================================
+      GL_VENDOR:      Mesa
+      GL_RENDERER:    Mali450
+      GL_VERSION:     OpenGL ES 2.0 Mesa 25.0.4
+      Surface Config: buf=32 r=8 g=8 b=8 a=8 depth=24 stencil=0 samples=0
+      Surface Size:  800x600 fullscreen
+  =======================================================
+  [build] use-vbo=false: FPS: 572 FrameTime: 1.751 ms
+  [build] use-vbo=true: FPS: 715 FrameTime: 1.400 ms
+  [texture] texture-filter=nearest: FPS: 735 FrameTime: 1.361 ms
+  [texture] texture-filter=linear: FPS: 744 FrameTime: 1.346 ms
+  [texture] texture-filter=mipmap: FPS: 758 FrameTime: 1.320 ms
+  [shading] shading=gouraud: FPS: 444 FrameTime: 2.255 ms
+  [shading] shading=blinn-phong-inf: FPS: 442 FrameTime: 2.267 ms
+  [shading] shading=phong: FPS: 314 FrameTime: 3.186 ms
+  [shading] shading=cel: FPS: 258 FrameTime: 3.877 ms
+  [bump] bump-render=high-poly: FPS: 98 FrameTime: 10.279 ms
+  [bump] bump-render=normals: FPS: 694 FrameTime: 1.443 ms
+  [bump] bump-render=height: FPS: 551 FrameTime: 1.818 ms
+  [effect2d] kernel=0,1,0;1,-4,1;0,1,0;: FPS: 161 FrameTime: 6.246 ms
+  [effect2d] kernel=1,1,1,1,1;1,1,1,1,1;1,1,1,1,1;: FPS: 47 FrameTime: 21.692 ms
+  [pulsar] light=false:quads=5:texture=false: FPS: 1031 FrameTime: 0.970 ms
+  [desktop] blur-radius=5:effect=blur:passes=1:separable=true:windows=4: FPS: 78 FrameTime: 12.986 ms
+  [desktop] effect=shadow:windows=4: FPS: 331 FrameTime: 3.023 ms
+  [buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction=0.5:update-method=map: FPS: 161 FrameTime: 6.220 ms
+  [buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction=0.5:update-method=subdata: FPS: 160 FrameTime: 6.285 ms
+  [buffer] columns=200:interleave=true:update-dispersion=0.9:update-fraction=0.5:update-method=map: FPS: 237 FrameTime: 4.231 ms
+  [ideas] speed=duration: FPS: 184 FrameTime: 5.461 ms
+  [jellyfish] <default>: FPS: 200 FrameTime: 5.006 ms
+  Error: SceneTerrain requires Vertex Texture Fetch support, but GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS is 0
+  [terrain] <default>: Unsupported
+  [shadow] <default>: FPS: 214 FrameTime: 4.691 ms
+  [refract] <default>: FPS: 23 FrameTime: 43.776 ms
+  [conditionals] fragment-steps=0:vertex-steps=0: FPS: 725 FrameTime: 1.380 ms
+  [conditionals] fragment-steps=5:vertex-steps=0: FPS: 356 FrameTime: 2.816 ms
+  [conditionals] fragment-steps=0:vertex-steps=5: FPS: 728 FrameTime: 1.375 ms
+  [function] fragment-complexity=low:fragment-steps=5: FPS: 482 FrameTime: 2.077 ms
+  [function] fragment-complexity=medium:fragment-steps=5: FPS: 233 FrameTime: 4.298 ms
+  [loop] fragment-loop=false:fragment-steps=5:vertex-steps=5: FPS: 482 FrameTime: 2.079 ms
+  [loop] fragment-steps=5:fragment-uniform=false:vertex-steps=5: FPS: 482 FrameTime: 2.076 ms
+  [loop] fragment-steps=5:fragment-uniform=true:vertex-steps=5: FPS: 165 FrameTime: 6.076 ms
+  =======================================================
+                                    glmark2 Score: 399
+  ======================================================
 
-> +	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "eswin,dly_hsp_reg",
-> +						  &dwc_priv->dly_hsp_reg[0], 3, 0);
-> +	if (ret != 3) {
-> +		dev_err(&pdev->dev, "can't get delay hsp reg.ret(%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "dly-param-1000m",
-> +						  &dwc_priv->dly_param_1000m[0], 3, 0);
-> +	if (ret != 3) {
-> +		dev_err(&pdev->dev, "can't get delay param for 1Gbps mode (%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "dly-param-100m",
-> +						  &dwc_priv->dly_param_100m[0], 3, 0);
-> +	if (ret != 3) {
-> +		dev_err(&pdev->dev, "can't get delay param for 100Mbps mode (%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "dly-param-10m",
-> +						  &dwc_priv->dly_param_10m[0], 3, 0);
-> +	if (ret != 3) {
-> +		dev_err(&pdev->dev, "can't get delay param for 10Mbps mode (%d)\n", ret);
-> +		return ret;
-> +	}
+Trying to use a GPU clock rate above 300 MHz when the GPU is PM runtime
+suspended may cause the system to freeze or an SError. E.g. trying to
+use a different devfreq governor or set min_freq above 300 MHz.
 
-What are these delay parameters?
+Similar issues also exist on RK3576 and RK3588 when SCMI_CLK_GPU is used
+for devfreq, a separate series will be sent to mitigate these issues.
 
+This series depends on patch 1-4 of the series "rockchip: Add power
+controller support for RK3528" [1].
 
-    Andrew
+[1] https://lore.kernel.org/r/20250518220707.669515-1-jonas@kwiboo.se
 
----
-pw-bot: cr
+Jonas Karlman (3):
+  dt-bindings: gpu: mali-utgard: Add Rockchip RK3528 compatible
+  arm64: dts: rockchip: Add GPU node for RK3528
+  arm64: dts: rockchip: Enable GPU on Radxa E20C
+
+ .../bindings/gpu/arm,mali-utgard.yaml         |  2 +
+ .../boot/dts/rockchip/rk3528-radxa-e20c.dts   |  5 ++
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 58 +++++++++++++++++++
+ 3 files changed, 65 insertions(+)
+
+-- 
+2.49.0
+
 
