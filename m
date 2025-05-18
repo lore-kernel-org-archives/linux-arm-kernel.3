@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2361EC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 16:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A27C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 16:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=16lKLKeXiKEhT1aqzPTlfh1MfJCWJqXdbVQD33iMWeM=; b=ln7iq4rmd85tCT
-	XTk9vVYaueA/Oczu6ohOLKCDsLLLwdcZTh1QxO71gtbKkz/1AEsEiDzs4aRq05rzRJTBMW1DjfcI9
-	PwUurPPf7tqCQe3an/Dukqk4PRkxwlgvbfn0GixGTQLPkTiR3Om+j5W6HJufBnBvAhKD5kHQc1f6i
-	BeeIgDgL60/x3PZuUrI0M84KylOpzwVzEaKW4KkEONHY2wXnKLmecUHbtGVFyx/s+TLWnTZCcWw3C
-	ELNMYmr+0ZZUbHLedSZtlnNRM65EUZyFRdVUzUGX2iaTz8UlCWZXqyWeJPnOhHWYNdm2wNiqGO3j9
-	uc06rVw68E55BLeGUvpg==;
+	List-Owner; bh=H8auBAsWmzOyx9AlQEKXQW3lYZT3R7zY1mzxA5CFuTA=; b=1Rbx6UsINYSK5Y
+	ZFmxMufc57LebWnFVyj+dqF+s3jxKDxAX94UoI46KMSh29+1euuh054kqolTsvHOYgYI3zT1BkSpT
+	ilu5FDs0Oji/wVXEAlTNuNh6t3HQlI80vBKSFpw6dG2OL9znv2Gk1LH0TJ4OHp9/LCIW6bMjo+6PD
+	AwRVnrIqszqchDv8aUgrGdlCtrDlJJtv/wZkrQWtC5TMG9ARpb6Hxqjx05R2YjJNfXNQVivtH28Ip
+	j+7ZLjh/Y0RGJzGKh0WPZ/nZWU2i18b9pQto8NplAZTxXn+rS7670l2cypGYwjy/vU8WMaMk+Edo5
+	8oz30YR8ykcHDvDcWb3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGhEB-00000007JEW-0SQ4;
-	Sun, 18 May 2025 16:51:07 +0000
-Received: from mail-il1-f181.google.com ([209.85.166.181])
+	id 1uGhG9-00000007JLc-3MRI;
+	Sun, 18 May 2025 16:53:09 +0000
+Received: from mail-io1-f44.google.com ([209.85.166.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGh8n-00000007If8-0a6I
+	id 1uGh9i-00000007IrL-0q8E
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 May 2025 16:45:34 +0000
-Received: by mail-il1-f181.google.com with SMTP id e9e14a558f8ab-3db8356ee37so10497125ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 09:45:32 -0700 (PDT)
+	Sun, 18 May 2025 16:46:31 +0000
+Received: by mail-io1-f44.google.com with SMTP id ca18e2360f4ac-85e73562577so403205439f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 09:46:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747586728; x=1748191528;
+        d=1e100.net; s=20230601; t=1747586784; x=1748191584;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=16lKLKeXiKEhT1aqzPTlfh1MfJCWJqXdbVQD33iMWeM=;
-        b=hzv29qQf37oZTaAYNk13TLVYuxsZZ+De3KDaiZ8vvmOvw04qNRVFsOJMNk782Bu0YI
-         d5Q7kO3+TdV8jvNlvvWKi3tl7c9WusqTh2/Szb6VenlwtLOUsFRe5uT7fi0F+khFttHh
-         ujiBn//C26LWl5xcO9X0KdCQKb8f69jxSD+vazpkq3me4Js9QXOqGfokiZZwGbJB7o74
-         fK4sQ99Zd25GRXVwS5P+B67m96LCnHx3OmV4iCgKWTd0AbNrGvWTmBtN02mNOBDZHLHA
-         d8uDqu0qH1HtEHfB+8QTKcuKOeR6XvJvgYp1zy0R5R2OiEi9qmt6Dc46BAmGK9yVxuMn
-         jSbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVQeHXwVeLCbB/hvrydfx0XBV9fAVSdgsSzBvorEbWmeZuwY4JyI8th4N06ArrnrpRnI26NvL9zmZwVoWqC89Xi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkppjwwqaPSRWYpby0ht2RGypoYJ7qj0lZTa7gmrMPQABZlDmc
-	jIxeWX8omaZtz3y6klHpHsPZTBWZ8bEQKwpCzhAMGI7sd6LmtuuSctw8Nf1jP3ktJDA=
-X-Gm-Gg: ASbGnctMeudKzk7JZoheYBhzt6LNj1+WwdTdqt/xmEaipOHdLKttCWGC72BOpnjqzEY
-	gMe+WHO/gls42Bn5SJQjYbC1JmkUXqjSuSnOO4yoWSgWTp/qA+TtA+kXkXZ4sAILomCC1i3cti2
-	ntaBrw1BVcIpEr4dVo/CiN2j9yUFJ0H6fha5beZ9KAyX7SA7nqSxVTG7F9YAlPLQY2VRbqNpGWe
-	GFloZObl1QXRp5E4Cl2eHbz8X6JxevpCRf3+ujSIe80VlbI4y+TV9UIQA5Rx3t9dEXUWsT5MY96
-	CQZbd8LYm5f3QzjSPSG6VLXLXbM6LAJP70t6QWLoPg0TOWFV+bo3DM8u9gorfs45cyIgB5C9Cwo
-	KqM2WhGn5ih7JXOck868=
-X-Google-Smtp-Source: AGHT+IFhd72atBkFZhB8X02NmcSbUsgl2lYYQ0xb9tGlIadYtUOPgfev/0/9Q3y9Ma/ZK9X3X4dxqA==
-X-Received: by 2002:a05:6e02:2144:b0:3d3:f27a:9101 with SMTP id e9e14a558f8ab-3db85722413mr95064405ab.1.1747586727974;
-        Sun, 18 May 2025 09:45:27 -0700 (PDT)
-Received: from mail-il1-f174.google.com (mail-il1-f174.google.com. [209.85.166.174])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3dc61e15b2csm6870345ab.58.2025.05.18.09.45.26
+        bh=H8auBAsWmzOyx9AlQEKXQW3lYZT3R7zY1mzxA5CFuTA=;
+        b=gXXuZMPrDUMILgz5mD5TnrTL5U0YJ/pcs7V7sMJtW/RsImZVM75rCbGMSxJa3sFI3T
+         LbUh7ByzBGmiSTiCdA1FkwXGvr0eVDMahxggPB6oHicMBl9C0yeam6jSnx+1YqqO2K5+
+         CwsDRSEvzXOmz4CeyVix/pd49XKpjH7udVJ/9Vkz4uCL1m94AIe4L+AeBMam+8Mfbzhw
+         +9oLoj0OBSOQBU0Z+b6aI+OfAnhFKmueCoWlz3OMyv/4Fa0Ijtcuy2C+vqsgXmYF90cF
+         S3/+WoUVVlzJNxcUKsGQIiB2oKd0NTFvqTUo4T36iFk3x56yB4H6WsjF7bArdWnkS+g8
+         LJKw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5taacvW/FioWPnTlDYmsjBDsmVHvY7D56Cn5I5Atgw2eZGW9aLvRWDXDD+SyIVwc9UW4ZcKxYBGMLu0onqIzp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yymjgyp9dPpVghSOeXfw6pnYDplGLwvfWkUCFSGXrZtKvl+pGVr
+	aATtkumk3r8CHGqHNdw8urNowLLdpnuiQ5+Ue5T7YmFE96XwahgJJene5EaKLkasLxk=
+X-Gm-Gg: ASbGncsHV0A3f3UrnIM8J6+o9zKWTQOvSlz3FkkhDsAW0OI50AnFWEd/IUrfrrmxz/J
+	r6eFlt64bIllkGrA10Nb9ib6C+34UIN8JqGXgIdAD0NwtpsiJSL1FlIOmaMvIUqBbOIs07zKmys
+	UsTY/5tJ19EfsRA2xDQCzspDBKkH0ycA3cKKpJtL8I8n8VFW4rShuJukQ7Z+YBP3sKZBYuQhm27
+	zXcc+VKCq5yhH3Igm6sz4nRNe/DbjaoLqUPv0VMuX5wnTOVohMP7miWSF/AaFYzZnEBvptPk5cn
+	S9TUlw3urfEOiLQ9nGbr/vz9gku8k+cMi47UCoXsF3cShqv/23EjvqQgrwoLE7I2BtLODxZD/RG
+	mKoGrajtq
+X-Google-Smtp-Source: AGHT+IHejHotF+XlB/M+SKekNtKRHVrhhZ0PMwZbymV6QzwfcVlSK6tSLdixYuFcKcXx3FfSHFP/FQ==
+X-Received: by 2002:a05:6602:3a81:b0:867:3889:45e2 with SMTP id ca18e2360f4ac-86a2322a6cfmr1191105739f.10.1747586784160;
+        Sun, 18 May 2025 09:46:24 -0700 (PDT)
+Received: from mail-il1-f182.google.com (mail-il1-f182.google.com. [209.85.166.182])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-86a2372cc53sm135209939f.44.2025.05.18.09.46.23
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 18 May 2025 09:45:26 -0700 (PDT)
-Received: by mail-il1-f174.google.com with SMTP id e9e14a558f8ab-3d817bc6eb0so22474435ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 09:45:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVTushAbrxJbfDEKJ0dUoLTToTTYHuUzsWh6eW0J6fekxHw0ePWDbOlUSzToAFIubnRvNKgO2bo/eXw5eCP3z0+@lists.infradead.org
-X-Received: by 2002:a05:6e02:351d:b0:3d0:47cf:869c with SMTP id
- e9e14a558f8ab-3db857b6555mr99202655ab.19.1747586726194; Sun, 18 May 2025
- 09:45:26 -0700 (PDT)
+        Sun, 18 May 2025 09:46:23 -0700 (PDT)
+Received: by mail-il1-f182.google.com with SMTP id e9e14a558f8ab-3dc6f6530c5so1220025ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 09:46:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUf2wCuc1c5Em3Vs10GXet7pb/79LUb7XXfwfCEGU2t1FUmSR80nPTCrsYYjktr78LvojNM0WoHy25nUF4uegyO@lists.infradead.org
+X-Received: by 2002:a05:6e02:3c02:b0:3d8:1dc7:ca7a with SMTP id
+ e9e14a558f8ab-3db84296d9amr115461995ab.5.1747586782845; Sun, 18 May 2025
+ 09:46:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250516105101.11650-1-ryan@testtoast.com> <20250516105101.11650-7-ryan@testtoast.com>
-In-Reply-To: <20250516105101.11650-7-ryan@testtoast.com>
+References: <20250516105101.11650-1-ryan@testtoast.com> <20250516105101.11650-8-ryan@testtoast.com>
+In-Reply-To: <20250516105101.11650-8-ryan@testtoast.com>
 From: Chen-Yu Tsai <wens@csie.org>
-Date: Mon, 19 May 2025 00:45:12 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65S2B2tatzJP3fJKcEYaoX-UGG2MtQX1VbUoTK4xTsyxg@mail.gmail.com>
-X-Gm-Features: AX0GCFslyTJW3_SklNq3JULGeTuerD-gifQjm7kfUwjIWTbHbiDIUF58cpuqmoU
-Message-ID: <CAGb2v65S2B2tatzJP3fJKcEYaoX-UGG2MtQX1VbUoTK4xTsyxg@mail.gmail.com>
-Subject: Re: [PATCH v11 6/8] drm: sun4i: de33: mixer: add Display Engine 3.3
- (DE33) support
+Date: Mon, 19 May 2025 00:46:08 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66Lw9bne9Zch4kyAbWx4Zz=VPh3EJAta0M6XxdaSi-d7w@mail.gmail.com>
+X-Gm-Features: AX0GCFt32y8vwGnO09UOLDY6RStkxid4HewGHZjKOLQgFiYtO_lDbLwjct7FmIQ
+Message-ID: <CAGb2v66Lw9bne9Zch4kyAbWx4Zz=VPh3EJAta0M6XxdaSi-d7w@mail.gmail.com>
+Subject: Re: [PATCH v11 7/8] drm: sun4i: de33: vi_scaler: add Display Engine
+ 3.3 (DE33) support
 To: Ryan Walklin <ryan@testtoast.com>
 Cc: Maxime Ripard <mripard@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
@@ -85,13 +85,12 @@ Cc: Maxime Ripard <mripard@kernel.org>,
 	Hironori KIKUCHI <kikuchan98@gmail.com>, Philippe Simons <simons.philippe@gmail.com>, 
 	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, dri-devel@lists.freedesktop.org, 
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	Chris Morgan <macromorgan@hotmail.com>
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_094533_175880_F705B024 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20250518_094630_243720_BB0FF5A8 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,32 +111,14 @@ rote:
 >
 > From: Jernej Skrabec <jernej.skrabec@gmail.com>
 >
-> The DE33 is a newer version of the Allwinner Display Engine IP block,
-> found in the H616, H618, H700 and T507 SoCs. DE2 and DE3 are already
-> supported by the mainline driver.
+> The vi_scaler appears to be used in preference to the ui_scaler module
+> for hardware video scaling in the DE33.
 >
-> Notable features (from the H616 datasheet and implemented):
-> - 4096 x 2048 (4K) output support
->
-> Other features (implemented but not in this patchset):
-> - AFBC ARM Frame Buffer Compression support
-> - YUV pipeline support
->
-> The DE2 and DE3 engines have a blender register range within the
-> mixer engine register map, whereas the DE33 separates this out into
-> a separate display group, and adds a top register map.
->
-> The DE33 also appears to remove the global double buffer control
-> register, present in the DE2 and DE3.
->
-> Extend the mixer to support the DE33.
+> Enable support for this scaler.
 >
 > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 > Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-> Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
 > Acked-by: Maxime Ripard <mripard@kernel.org>
 
 Reviewed-by: Chen-Yu Tsai <wens@csie.org>
-
-Code looks OK, though I have not tried to check the register offsets.
 
