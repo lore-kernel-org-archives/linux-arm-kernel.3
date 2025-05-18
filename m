@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFC7C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A987C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A7bB8TX5zrgicF4aqvA9YeLanxwK8tkQjn9Eghl3sAg=; b=xF5/SMwzy8L59/vnn7dxgTt40R
-	cEWnusWgH2USLnLu3/VC0Yo4wpPYMsJMqykdVs0bppVHIssNIeOVKc1myag3YQJwotZHDqHyA3ruS
-	X0XqyE19nfbw76l4tzySOWlBnhqG9WnxzdECsQWknQhdJRyQXernEFaKYDf+E8XMljyc+OTxTyri6
-	PStiZAlRV/Nt4XUpyvPLqvKAlW7k9ePhkW8Gv9N5bwD3TxTHq/HG62T4mco5mTmj4lv1ugI8esj0l
-	bOnjoOqk0dqd86zNQgOyRHKMg1wLZrLKDQnYND9iYCV6iV0v3ppbyE7WRM6/KEdDlSXAl3vozPZX8
-	I85ja9Uw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bhPt7fBQetiRYT1MgQ8GKwCup58p63/+Za+k3J/ZaT4=; b=gaEsQuCaarngtfL5SKz6/XQgx1
+	rAOzsA0YxYVi6Lqg4ilZJHMAlVpkytCsPnGlKNvK9NzQIYkfkdMgQ9x9OokjOktkkCuQRAUiJ4IdD
+	YcBvJAVpYy/Mv8bs36S6kTbpYSyw7phGGZlU1nGTy3SO6n00Ote2S7RhrxptWBbWj7Q1NcX7iBVGk
+	LvQHJ9VE92edq2Abk/4hwgzJemIQpIVh3UUlZ7XdOBbwGgTnG+fwrmOjeL9J0AMHVJrkEKzoSz9u1
+	/4ZUt1NS6ta4XblOVPh0IDGEklsOR1vPLr6A/pHYc4o6LLJ/c/oQp/9FP43lyXxxEJX0sDiOOgViS
+	mP+OaKVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmLy-00000007c3i-33nU;
-	Sun, 18 May 2025 22:19:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uGmNx-00000007cIJ-0hFa;
+	Sun, 18 May 2025 22:21:33 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGm8A-00000007aGC-2LSc;
-	Sun, 18 May 2025 22:05:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=A7bB8TX5zrgicF4aqvA9YeLanxwK8tkQjn9Eghl3sAg=; b=Luskou3/gyzaVfbtulZq2IYHk+
-	xIytXRKcXYoUmOsjxbk8O8ReZxFORpsvQF03cusH7EFifQ1kvg5KhZJfziTMG6mtZyFnheuNVEzlg
-	BShyOctseNHDrT/RTphrRMkdKH4Rrt2ltQyAZQDtV5+EY8fKjG9Njlj+/3sw5m6EQLgDVma7ClcHe
-	+KyTzoUntP0wjS+QMGxeRo+fkUK3R2lsCfYV2BoT6vyUgDNb40NeeQ9scS+HJUt12c9ibZnbWfPyr
-	uEe9CPqbskGPCTFOat6xNexTdTnsvRtZslApkg8RwwDvorjATJoq6/agUgKzQNvIlVbSiI6eD/iaH
-	0y/unB6g==;
-Received: from i53875a50.versanet.de ([83.135.90.80] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uGm81-0004gv-Aa; Mon, 19 May 2025 00:05:05 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ziyao@disroot.org,
-	kever.yang@rock-chips.com,
-	nicolas.frattaroli@collabora.com,
+	id 1uGmAD-00000007ac6-2I7I
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 18 May 2025 22:07:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1747606039;
+ bh=bhPt7fBQetiRYT1MgQ8GKwCup58p63/+Za+k3J/ZaT4=;
+ b=cA2GqzUoCvkrlIZUMs4Eqm3A1tNfcsf7XoX7szahIrfqNk+Nr/UNyO31HWoP+AkFiL5lvKwbY
+ BdXfRWL4gtqY9bYf2yv18N/OFvzzwPa+2gQOGTVHb7Lh9773Ivamrcj8TDMQ+xm5brUPqWc1OSV
+ r0igPLn1Sc81IkM6Ocyoa7SgJItqhqtFWi5k6kPwtQIav8IR7QZtmbZuwKEu9JQnnXtkGItoZ+i
+ eJhAXe4JLIi7IZ5wdCH8tiBmMmfS7fQ0csjdaxdC0ep3oopM6XyRqdmCIqtrRYaBf3lfZ4qCgUZ
+ sB1oszsHMPPgHrwv8Ba4ByAKEU0ox0eJ9mpDQJzoMVfA==
+X-Forward-Email-ID: 682a5a1178cae75fbd8d4660
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.0.3
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	linux-rockchip@lists.infradead.org,
+	linux-pm@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 6/6] arm64: dts: rockchip: move rk3562 pinctrl node outside the soc node
-Date: Mon, 19 May 2025 00:04:48 +0200
-Message-ID: <20250518220449.2722673-7-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250518220449.2722673-1-heiko@sntech.de>
-References: <20250518220449.2722673-1-heiko@sntech.de>
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH 0/9] rockchip: Add power controller support for RK3528
+Date: Sun, 18 May 2025 22:06:47 +0000
+Message-ID: <20250518220707.669515-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_150514_613150_067AA0E9 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20250518_150721_726124_2E005EFF 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,173 +80,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The non-mmio pinctrl node is not supposed to be inside the soc simple-bus
-as dtc points out:
+The Rockchip RK3528 support multiple power domains, one PD_GPU that can
+fully be powered down, and other that can be idle requested.
 
-../arch/arm64/boot/dts/rockchip/rk3562.dtsi:1115.20-1181.5: Warning (simple_bus_reg): /soc/pinctrl: missing or empty reg/ranges property
+Vendor kernel flag all power domains on RK3528 as always-on, this takes
+a different route and instead tries to describe all devices power-domain
+in the device tree, even for controllers with unsupported runtime status.
 
-Move the pinctrl node outside and adapt the indentation.
+The PD_RKVDEC is used by RKVDEC and DDRPHY CRU, and is kept disabled to
+prevent a full system reset when trying to read current rate of the
+SCMI_CLK_DDR clock.
 
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/arm64/boot/dts/rockchip/rk3562.dtsi | 136 +++++++++++------------
- 1 file changed, 68 insertions(+), 68 deletions(-)
+Patch 1-4 prepares and makes it possible to use the PD_GPU power domain
+for a separate "Add GPU support for RK3528" series.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3562.dtsi b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
-index 292e82ec5d45..def504ffa326 100644
---- a/arch/arm64/boot/dts/rockchip/rk3562.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3562.dtsi
-@@ -218,6 +218,74 @@ scmi_clk: protocol@14 {
- 		};
- 	};
- 
-+	pinctrl: pinctrl {
-+		compatible = "rockchip,rk3562-pinctrl";
-+		rockchip,grf = <&ioc_grf>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		gpio0: gpio@ff260000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0x0 0xff260000 0x0 0x100>;
-+			clocks = <&cru PCLK_PMU0_GPIO0>, <&cru DBCLK_PMU0_GPIO0>;
-+			gpio-controller;
-+			gpio-ranges = <&pinctrl 0 0 32>;
-+			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#gpio-cells = <2>;
-+			#interrupt-cells = <2>;
-+		};
-+
-+		gpio1: gpio@ff620000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0x0 0xff620000 0x0 0x100>;
-+			clocks = <&cru PCLK_PERI_GPIO1>, <&cru DCLK_PERI_GPIO1>;
-+			gpio-controller;
-+			gpio-ranges = <&pinctrl 0 32 32>;
-+			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#gpio-cells = <2>;
-+			#interrupt-cells = <2>;
-+		};
-+
-+		gpio2: gpio@ff630000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0x0 0xff630000 0x0 0x100>;
-+			clocks = <&cru PCLK_PERI_GPIO2>, <&cru DCLK_PERI_GPIO2>;
-+			gpio-controller;
-+			gpio-ranges = <&pinctrl 0 64 32>;
-+			interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#gpio-cells = <2>;
-+			#interrupt-cells = <2>;
-+		};
-+
-+		gpio3: gpio@ffac0000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0x0 0xffac0000 0x0 0x100>;
-+			clocks = <&cru PCLK_GPIO3_VCCIO156>, <&cru DCLK_BUS_GPIO3>;
-+			gpio-controller;
-+			gpio-ranges = <&pinctrl 0 96 32>;
-+			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#gpio-cells = <2>;
-+			#interrupt-cells = <2>;
-+		};
-+
-+		gpio4: gpio@ffad0000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0x0 0xffad0000 0x0 0x100>;
-+			clocks = <&cru PCLK_GPIO4_VCCIO156>, <&cru DCLK_BUS_GPIO4>;
-+			gpio-controller;
-+			gpio-ranges = <&pinctrl 0 128 32>;
-+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#gpio-cells = <2>;
-+			#interrupt-cells = <2>;
-+		};
-+	};
-+
- 	psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
-@@ -1111,74 +1179,6 @@ saradc1: adc@ffaa0000 {
- 			#io-channel-cells = <1>;
- 			status = "disabled";
- 		};
--
--		pinctrl: pinctrl {
--			compatible = "rockchip,rk3562-pinctrl";
--			rockchip,grf = <&ioc_grf>;
--			#address-cells = <2>;
--			#size-cells = <2>;
--			ranges;
--
--			gpio0: gpio@ff260000 {
--				compatible = "rockchip,gpio-bank";
--				reg = <0x0 0xff260000 0x0 0x100>;
--				clocks = <&cru PCLK_PMU0_GPIO0>, <&cru DBCLK_PMU0_GPIO0>;
--				gpio-controller;
--				gpio-ranges = <&pinctrl 0 0 32>;
--				interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
--				interrupt-controller;
--				#gpio-cells = <2>;
--				#interrupt-cells = <2>;
--			};
--
--			gpio1: gpio@ff620000 {
--				compatible = "rockchip,gpio-bank";
--				reg = <0x0 0xff620000 0x0 0x100>;
--				clocks = <&cru PCLK_PERI_GPIO1>, <&cru DCLK_PERI_GPIO1>;
--				gpio-controller;
--				gpio-ranges = <&pinctrl 0 32 32>;
--				interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
--				interrupt-controller;
--				#gpio-cells = <2>;
--				#interrupt-cells = <2>;
--			};
--
--			gpio2: gpio@ff630000 {
--				compatible = "rockchip,gpio-bank";
--				reg = <0x0 0xff630000 0x0 0x100>;
--				clocks = <&cru PCLK_PERI_GPIO2>, <&cru DCLK_PERI_GPIO2>;
--				gpio-controller;
--				gpio-ranges = <&pinctrl 0 64 32>;
--				interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
--				interrupt-controller;
--				#gpio-cells = <2>;
--				#interrupt-cells = <2>;
--			};
--
--			gpio3: gpio@ffac0000 {
--				compatible = "rockchip,gpio-bank";
--				reg = <0x0 0xffac0000 0x0 0x100>;
--				clocks = <&cru PCLK_GPIO3_VCCIO156>, <&cru DCLK_BUS_GPIO3>;
--				gpio-controller;
--				gpio-ranges = <&pinctrl 0 96 32>;
--				interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
--				interrupt-controller;
--				#gpio-cells = <2>;
--				#interrupt-cells = <2>;
--			};
--
--			gpio4: gpio@ffad0000 {
--				compatible = "rockchip,gpio-bank";
--				reg = <0x0 0xffad0000 0x0 0x100>;
--				clocks = <&cru PCLK_GPIO4_VCCIO156>, <&cru DCLK_BUS_GPIO4>;
--				gpio-controller;
--				gpio-ranges = <&pinctrl 0 128 32>;
--				interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
--				interrupt-controller;
--				#gpio-cells = <2>;
--				#interrupt-cells = <2>;
--			};
--		};
- 	};
- };
- 
+Patch 7-9 updates dt-bindings for controllers not supporting use of the
+power-domains prop and enables the PD_RKVENC, PD_VO and PD_VPU domains.
+
+pm_genpd_summary on a Radxa E20C after this:
+
+  domain                          status          children        performance
+      /device                         runtime status                  managed by
+  ------------------------------------------------------------------------------
+  vpu                             on                              0
+      ffaf0000.gpio                   unsupported                 0           SW
+      ffb10000.gpio                   unsupported                 0           SW
+      ffbe0000.ethernet               active                      0           SW
+      ffae0000.adc                    unsupported                 0           SW
+      ffbf0000.mmc                    suspended                   0           SW
+  vo                              on                              0
+      ffb00000.gpio                   unsupported                 0           SW
+      ffc30000.mmc                    suspended                   0           SW
+  venc                            on                              0
+      ffb20000.gpio                   unsupported                 0           SW
+      ffa58000.i2c                    unsupported                 0           SW
+  gpu                             off-0                           0
+      ff700000.gpu                    suspended                   0           SW
+
+Jonas Karlman (9):
+  dt-bindings: power: rockchip: Add support for RK3528
+  pmdomain: rockchip: Add support for RK3528
+  dt-bindings: rockchip: pmu: Add compatible for RK3528
+  arm64: dts: rockchip: Add power controller for RK3528
+  dt-bindings: mmc: sdhci-of-dwcmhsc: Allow use of a power-domain
+  dt-bindings: gpio: rockchip: Allow use of a power-domain
+  dt-bindings: i2c: i2c-rk3x: Allow use of a power-domain
+  dt-bindings: iio: adc: rockchip-saradc: Allow use of a power-domain
+  arm64: dts: rockchip: Enable more power domains for RK3528
+
+ .../devicetree/bindings/arm/rockchip/pmu.yaml |  2 +
+ .../bindings/gpio/rockchip,gpio-bank.yaml     |  3 +
+ .../devicetree/bindings/i2c/i2c-rk3x.yaml     |  3 +
+ .../bindings/iio/adc/rockchip-saradc.yaml     |  3 +
+ .../bindings/mmc/snps,dwcmshc-sdhci.yaml      |  4 -
+ .../power/rockchip,power-controller.yaml      |  1 +
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 87 +++++++++++++++++++
+ drivers/pmdomain/rockchip/pm-domains.c        | 27 ++++++
+ .../dt-bindings/power/rockchip,rk3528-power.h | 19 ++++
+ 9 files changed, 145 insertions(+), 4 deletions(-)
+ create mode 100644 include/dt-bindings/power/rockchip,rk3528-power.h
+
 -- 
-2.47.2
+2.49.0
 
 
