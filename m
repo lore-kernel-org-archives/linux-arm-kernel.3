@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D3EC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8502C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASi1sp/JbXHU8LqWjIYUcHi05JGXzMPUEeRdSNWaNOk=; b=mvDpG+GRtVcSOS9x0ScNuFIpDL
-	nT4fr8GvVqQYCVj8UBpRoigf+qeadLSuAEXjpJrqvCpEf6/qDtGsH0A9SQf6dYKyGedhEU4HXRvHo
-	jZM0tHU+XlnDIqGiu5de1yAV1KrdBKdxwj7Mk3WwWqT/uJuiTMEf4yFyh3IS15Y6YjMh07AguhN8G
-	aKmXAPd5fpaR6+GREOiNLUyUrPSY+9zZQuYkgNF94AhrhW7ShAJ9wiT+n7GFv09o5d0DHFDl26U5t
-	KXcfHr0/jU1tJAaNpLVyL1GjZm9S5tFhZsWvqgn5jsCl0o7YsL2zqv/csnkZlKfkktC8Z0ky8vm3X
-	PQG0GQRw==;
+	bh=XdJ8idrCkjaMANhXmNVJs+MC4XORO5o90qIWLcWpGNw=; b=WFtj7Fy9RIFXn6kZJlqsqD0ZXc
+	4KvnU3o1WhscCjLiMDIf9hNW4wVoKU9ggkVAw2LjXk3B41E56fSNQwQqcCbUlupUHpDdhLhnbyzNJ
+	Srzhet2qtmfa+uj/seSMUIyk8HQKV5LHt2M6HnvfmR/huE5gIJKq0OYHW/+aT5gLIECULh/2Hd3oI
+	1YMQf1XfQKLchwHyjCK/3xB4sLJbFclE9Hw4UeyYZV+2zoQ3Q0hW96UjKpOtaRCvaHN4JU23BikT+
+	VlTNNx6Hx4jrm3Zj53BRQohLjzGqq+m2ceFDb3yjO4v0gOiU0g0WXgGqO0eDkpuYPJSXZMFUj4Jfb
+	r3uHLaJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmPu-00000007cVN-1wL1;
-	Sun, 18 May 2025 22:23:34 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uGmRs-00000007cer-3L2J;
+	Sun, 18 May 2025 22:25:36 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmAE-00000007act-0mnF
+	id 1uGmAJ-00000007aej-0rGE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 May 2025 22:07:23 +0000
+	Sun, 18 May 2025 22:07:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1747606041; bh=ASi1sp/JbXHU8LqWjIYUcHi05JGXzMPUEeRdSNWaNOk=;
- b=pI3/MPnaPJYzcrutjWtmKjdyjMXoEFfpRZIoU+Z06px4/FZ6stPZcIXy3xchQjNhiB3yQ+0BV
- mibYcBuo/mIJS0CbQIHJQkdmW29mfxOKOCl5oUQd42zJ3EVKtguHDO6e36WwzeSa3MXCPqy9tSM
- S+UrJ40/XQvS8m98qHjxZQ+u+H0aTiF33LIz7G8Nphx9E1sMc7jy0HbpWlwnDUJp8cI+tCwWsLR
- AetaftDJOqW2urfo779J6WuL4p6wQRZDpw57sPhGKN+LFwtWFE0j3XllFMqPEAnqFy7o05dzgra
- 8gMCPZOVgNv7QGykZoFNMdFq4XBbV4akAczlJ72XwPMw==
-X-Forward-Email-ID: 682a5a1678cae75fbd8d467a
+ t=1747606046; bh=XdJ8idrCkjaMANhXmNVJs+MC4XORO5o90qIWLcWpGNw=;
+ b=FXWGIdb25UZAWT54VDLjs91gPi17m2EhR7YFdU5EKW66JNoELbvbqBljOdv9lt5bSkhtJOGLm
+ OJOq+2iVTJK+tFr+nJbQGDPqN/sjf8HO4l+o/Cc0dxC7NNnBygB8BQ4e51nvIE8jEYjxLiMOp2u
+ sol6IASFtLpasJtz8cIlsLsh34IUnvzFIVxMFzz23gQZT0DF3wy7W3KeH1HdTdRllSeCyKWjcVM
+ s6cw6sEbYief1O6tuTyYlHm1C+p4G4Oc5ba1Gv2Vvq3zOfDoMTBthkETjoFoX914t2B9YShdOhV
+ zzjy3xNDWPeyEtQOnI2qWUDP3SWeNrwM4s7iYLxEAwMA==
+X-Forward-Email-ID: 682a5a1a78cae75fbd8d4697
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
+ 149.28.215.223
 X-Forward-Email-Version: 1.0.3
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -46,12 +46,11 @@ X-Report-Abuse: abuse@forwardemail.net
 X-Report-Abuse-To: abuse@forwardemail.net
 From: Jonas Karlman <jonas@kwiboo.se>
 To: Heiko Stuebner <heiko@sntech.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Elaine Zhang <zhangqing@rock-chips.com>
-Cc: Yao Zi <ziyao@disroot.org>,
+	Yao Zi <ziyao@disroot.org>,
 	Chukun Pan <amadeus@jmu.edu.cn>,
 	linux-rockchip@lists.infradead.org,
 	linux-pm@vger.kernel.org,
@@ -59,17 +58,17 @@ Cc: Yao Zi <ziyao@disroot.org>,
 	linux-arm-kernel@lists.infradead.org,
 	Jonas Karlman <jonas@kwiboo.se>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/9] dt-bindings: power: rockchip: Add support for RK3528
-Date: Sun, 18 May 2025 22:06:48 +0000
-Message-ID: <20250518220707.669515-2-jonas@kwiboo.se>
+Subject: [PATCH 2/9] pmdomain: rockchip: Add support for RK3528
+Date: Sun, 18 May 2025 22:06:49 +0000
+Message-ID: <20250518220707.669515-3-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250518220707.669515-1-jonas@kwiboo.se>
 References: <20250518220707.669515-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_150722_321277_8FF85546 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250518_150727_275559_3E8B243F 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +83,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible string and power domains for RK3528 SoC.
+Add configuration and power domains for RK3528 SoC.
+
+Only PD_GPU can fully be powered down. PD_RKVDEC, PD_RKVENC, PD_VO and
+PD_VPU are used by miscellaneous devices in RK3528.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
- .../power/rockchip,power-controller.yaml      |  1 +
- .../dt-bindings/power/rockchip,rk3528-power.h | 19 +++++++++++++++++++
- 2 files changed, 20 insertions(+)
- create mode 100644 include/dt-bindings/power/rockchip,rk3528-power.h
+ drivers/pmdomain/rockchip/pm-domains.c | 27 ++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
-index f494b7710c09..a884e49c995f 100644
---- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
-+++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
-@@ -40,6 +40,7 @@ properties:
-       - rockchip,rk3366-power-controller
-       - rockchip,rk3368-power-controller
-       - rockchip,rk3399-power-controller
-+      - rockchip,rk3528-power-controller
-       - rockchip,rk3562-power-controller
-       - rockchip,rk3568-power-controller
-       - rockchip,rk3576-power-controller
-diff --git a/include/dt-bindings/power/rockchip,rk3528-power.h b/include/dt-bindings/power/rockchip,rk3528-power.h
-new file mode 100644
-index 000000000000..318923cdaaf6
---- /dev/null
-+++ b/include/dt-bindings/power/rockchip,rk3528-power.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-+#ifndef __DT_BINDINGS_POWER_RK3528_POWER_H__
-+#define __DT_BINDINGS_POWER_RK3528_POWER_H__
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index 4cce407bb1eb..242570c505fb 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -35,6 +35,7 @@
+ #include <dt-bindings/power/rk3366-power.h>
+ #include <dt-bindings/power/rk3368-power.h>
+ #include <dt-bindings/power/rk3399-power.h>
++#include <dt-bindings/power/rockchip,rk3528-power.h>
+ #include <dt-bindings/power/rockchip,rk3562-power.h>
+ #include <dt-bindings/power/rk3568-power.h>
+ #include <dt-bindings/power/rockchip,rk3576-power.h>
+@@ -216,6 +217,9 @@ struct rockchip_pmu {
+ #define DOMAIN_RK3399(name, pwr, status, req, wakeup)		\
+ 	DOMAIN(name, pwr, status, req, req, req, wakeup)
+ 
++#define DOMAIN_RK3528(name, pwr, req)		\
++	DOMAIN_M(name, pwr, pwr, req, req, req, false)
 +
-+#define RK3528_PD_PMU		0
-+#define RK3528_PD_BUS		1
-+#define RK3528_PD_DDR		2
-+#define RK3528_PD_MSCH		3
+ #define DOMAIN_RK3562(name, pwr, req, g_mask, mem, wakeup)		\
+ 	DOMAIN_M_G_SD(name, pwr, pwr, req, req, req, g_mask, mem, wakeup, false)
+ 
+@@ -1215,6 +1219,14 @@ static const struct rockchip_domain_info rk3399_pm_domains[] = {
+ 	[RK3399_PD_SDIOAUDIO]	= DOMAIN_RK3399("sdioaudio", BIT(31), BIT(31), BIT(29), true),
+ };
+ 
++static const struct rockchip_domain_info rk3528_pm_domains[] = {
++	[RK3528_PD_GPU]		= DOMAIN_RK3528("gpu",  BIT(0), BIT(4)),
++	[RK3528_PD_RKVDEC]	= DOMAIN_RK3528("vdec",      0, BIT(5)),
++	[RK3528_PD_RKVENC]	= DOMAIN_RK3528("venc",      0, BIT(6)),
++	[RK3528_PD_VO]		= DOMAIN_RK3528("vo",        0, BIT(7)),
++	[RK3528_PD_VPU]		= DOMAIN_RK3528("vpu",       0, BIT(8)),
++};
 +
-+/* VD_GPU */
-+#define RK3528_PD_GPU		4
+ static const struct rockchip_domain_info rk3562_pm_domains[] = {
+ 					     /* name           pwr     req     g_mask  mem wakeup */
+ 	[RK3562_PD_GPU]		= DOMAIN_RK3562("gpu",         BIT(0), BIT(1), BIT(1), 0, false),
+@@ -1428,6 +1440,17 @@ static const struct rockchip_pmu_info rk3399_pmu = {
+ 	.domain_info = rk3399_pm_domains,
+ };
+ 
++static const struct rockchip_pmu_info rk3528_pmu = {
++	.pwr_offset = 0x1210,
++	.status_offset = 0x1230,
++	.req_offset = 0x1110,
++	.idle_offset = 0x1128,
++	.ack_offset = 0x1120,
 +
-+/* VD_LOGIC */
-+#define RK3528_PD_RKVDEC	5
-+#define RK3528_PD_RKVENC	6
-+#define RK3528_PD_VO		7
-+#define RK3528_PD_VPU		8
++	.num_domains = ARRAY_SIZE(rk3528_pm_domains),
++	.domain_info = rk3528_pm_domains,
++};
 +
-+#endif
+ static const struct rockchip_pmu_info rk3562_pmu = {
+ 	.pwr_offset = 0x210,
+ 	.status_offset = 0x230,
+@@ -1538,6 +1561,10 @@ static const struct of_device_id rockchip_pm_domain_dt_match[] = {
+ 		.compatible = "rockchip,rk3399-power-controller",
+ 		.data = (void *)&rk3399_pmu,
+ 	},
++	{
++		.compatible = "rockchip,rk3528-power-controller",
++		.data = (void *)&rk3528_pmu,
++	},
+ 	{
+ 		.compatible = "rockchip,rk3562-power-controller",
+ 		.data = (void *)&rk3562_pmu,
 -- 
 2.49.0
 
