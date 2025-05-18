@@ -4,73 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E903C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 05:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86688C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 05:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=W2/tfwHG9wUJ4hjQ0Q8FgbdAIZ
-	XAiMTSXXPAjapLMgYAsSeltZnsusEpGAiOXAzuV4budGui5DUMWDlg+GfGC2qhDvjdxiV2l0t9czO
-	rmC7GH7xDrUo7Mzq4R0cP9llHmq2TPrNfiz0hksMppTJSb7Rc4csol4QsPEvmpvEguU7khswbVtJQ
-	GqLCSfRCvTGHfetUkEMQTQP5Xw1oIvVJ6n90RW+Rxs1iAGD4dsekPcH2FLdokCWpqJ4tdyHhRb9Fn
-	MK7enZdTaxDM9SF0HF//cd4O8fFo362fkPVJyMhFe95hMigT+yzu9/lq65tq1unnCa2g9rYogl0p8
-	beObb6Aw==;
+	bh=nKlxtIgssqSkxqfKtBG6FY7RwwRkwbGS8IJNv4B3Gh4=; b=mcBYWw/KYxoBHNhxUWysGVSJmC
+	/9ycNWZhx1qtQ3ApO3U2TNyyP0ahelDO6SVeMehCJnGZQ+lnL47ayoSHiV99Q+ibuPq8S34aw2udt
+	P/g5/MHLnWzqG8JgQs1FbM5ptjY4V9RBUZenj+okErbAO9noj5+TVsPhi9jFqxGBtNSXBnSH+fC2k
+	Yx69S2Iu9wjvYJkzA2zc8vLJCSR1lk79Ls+20GkCOrNtv/Rzxbd/JfhyTQdhDLFYp0CHgnbhed+of
+	tr9LlTEalsmvWKOYYfHZLBTsFGqSkmpK/+6GUTrsT7oY+iGt7gGTDb1pBCuvXpdeWfd1COuxvk3TW
+	A0XrwrEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGWYW-00000006kmz-10pc;
-	Sun, 18 May 2025 05:27:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uGWui-00000006lyf-38xJ;
+	Sun, 18 May 2025 05:50:20 +0000
+Received: from mail-bn7nam10on20604.outbound.protection.outlook.com ([2a01:111:f403:2009::604] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGWWW-00000006kfE-1RMO;
-	Sun, 18 May 2025 05:25:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B4BB443F39;
-	Sun, 18 May 2025 05:25:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5340BC4CEE7;
-	Sun, 18 May 2025 05:25:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747545918;
-	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Uddf+1dieisNoH5HrzBDXIHf+XM/7yA77U2KRhS2q6tR81GDcVB9v/mYh2h62VqaD
-	 WTib9Ay53Y38HQv8TLgBawwLp7oz+us2AswrD2zSr8m5xFh0y7/oihlt4vWTbJ10tH
-	 0CbPcK0vEmciqRnw1GgZ9yTKetxtG5j/7qnutrwu9q6tWgEDaA8c3HBOYLsm3jtnbn
-	 g7y18sq64MRK10QUcXvN4ufwWBBFUN9R3Su6qXvNNeebYXuGCm8NY04ZlLW6FWJ+9S
-	 0huaTBXXSON7Szj16/+FuQDS90G59z8qRvp2eokPZt8XQYzpavBIy23PGf+6nR7Nqd
-	 YVLFdoAHoDDZw==
-Date: Sun, 18 May 2025 00:25:16 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uGWsi-00000006lbB-0gdS
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 18 May 2025 05:48:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bVG5OovA7gTBLeFPPYd6wTczbvJTk1A2awMe81Y4dFe0gW6QvI6h1Fwje6/SncRX/S3aOlxSjqV033ZN/sUe7jFsjWypVPvoVTlTAko5QRefGFaO6+sR+2aq5+9XFWVTBRJBb4IUnIrX8fQfg4d+sDJR4noEmFwxaAMKcWMWn/fh5L2SMoCI5DmyjLm/swsb8OthuWho7G6aKJ0EgMcI9E98isbxfBk7QE6POwf+rO7oUx1hzS6KioYVG0HClOQALEDbjlHrSobkEV97aSIKQO1D6X+gBAHGzXkj7H/mQWBWPX107EYqx2TlCRmaoP/sk9CZ3bqhFArQZX2BNIU4bQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nKlxtIgssqSkxqfKtBG6FY7RwwRkwbGS8IJNv4B3Gh4=;
+ b=p8GTpkLGcNvxn3J6egxjI+Mi0Qjs00jkFWMkgSXco2EOxnbx4AYGPa/9zsJkwEC5PXSSe7ed1amKs5BNikC5wJJzENpswX7zLf9nFV09m5eSJ2qNj36A0em3TOpsH7afm3ItAxRxPJNOoJzJJA8jBIL44vuEbzGMgGAWEi3daM8QeVa7IJtVqe7hvUpg5YSpiSu9L3pV7CkMkYwCCniRYy5ET6bVi6vztR5Evp4lcutNIjGiJZUwZqSNNW3midZ6S4IDVMk92AXR8GRVUcx3gRAA9WHou1WwJ3tRzWRm5szExIiCQi7Jc8FSxOsJ/+eWeBNVvrBy9qqf3bjXTP6drQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nKlxtIgssqSkxqfKtBG6FY7RwwRkwbGS8IJNv4B3Gh4=;
+ b=IJIL0nge7Lf7u6o14QY4J23t5xYqMXrbH58hg2K46YT7MswvmYMl/GqanMDlei7PsN4lrWxZLq8s/IfEFi5/yfkJO5LyJuhCaU0MSZG0cgLem8RhKjSNllR/ngmsEcOYHFe0YefXpywzlnCn96qjbHnmN2wggkDw04i985um/RdBN9mB8yoMWNzyIc+MWgEVqzDYSG3SolKSOEr18yKbpQCXwJGsXcvaZ1N3XEIAnch1HC6oPEVpafEE4TxdWJD+klDOyhocYTX5nxyp+hiTLb9WfWmx+TRbt4Q+R03XnvMxgALRgXTVdvUzVQPpa6ktOZE7fUTi4xEaZiFTV/GIBA==
+Received: from CH0PR07CA0025.namprd07.prod.outlook.com (2603:10b6:610:32::30)
+ by CH3PR12MB7667.namprd12.prod.outlook.com (2603:10b6:610:14f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Sun, 18 May
+ 2025 05:48:07 +0000
+Received: from DS3PEPF0000C381.namprd04.prod.outlook.com
+ (2603:10b6:610:32:cafe::f2) by CH0PR07CA0025.outlook.office365.com
+ (2603:10b6:610:32::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.26 via Frontend Transport; Sun,
+ 18 May 2025 05:48:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS3PEPF0000C381.mail.protection.outlook.com (10.167.23.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8746.27 via Frontend Transport; Sun, 18 May 2025 05:48:06 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sat, 17 May
+ 2025 22:48:00 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Sat, 17 May
+ 2025 22:47:59 -0700
+Received: from localhost.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Sat, 17 May 2025 22:47:58 -0700
+From: <ankita@nvidia.com>
+To: <ankita@nvidia.com>, <jgg@nvidia.com>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<ryan.roberts@arm.com>, <shahuang@redhat.com>, <lpieralisi@kernel.org>,
+	<david@redhat.com>
+CC: <aniketa@nvidia.com>, <cjia@nvidia.com>, <kwankhede@nvidia.com>,
+	<kjaju@nvidia.com>, <targupta@nvidia.com>, <vsethi@nvidia.com>,
+	<acurrid@nvidia.com>, <apopple@nvidia.com>, <jhubbard@nvidia.com>,
+	<danw@nvidia.com>, <zhiw@nvidia.com>, <mochs@nvidia.com>,
+	<udhoke@nvidia.com>, <dnigam@nvidia.com>, <alex.williamson@redhat.com>,
+	<sebastianene@google.com>, <coltonlewis@google.com>, <kevin.tian@intel.com>,
+	<yi.l.liu@intel.com>, <ardb@kernel.org>, <akpm@linux-foundation.org>,
+	<gshan@redhat.com>, <linux-mm@kvack.org>, <ddutile@redhat.com>,
+	<tabba@google.com>, <qperret@google.com>, <seanjc@google.com>,
+	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <maobibo@loongson.cn>
+Subject: [PATCH v4 2/5] KVM: arm64: Make stage2_has_fwb global scope
+Date: Sun, 18 May 2025 05:47:51 +0000
+Message-ID: <20250518054754.5345-3-ankita@nvidia.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250518054754.5345-1-ankita@nvidia.com>
+References: <20250518054754.5345-1-ankita@nvidia.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
- Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Oded Gabbay <ogabbay@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Jonathan Corbet <corbet@lwn.net>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Simona Vetter <simona@ffwll.ch>, linux-rockchip@lists.infradead.org, 
- linux-doc@vger.kernel.org
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-In-Reply-To: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
-References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
- <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
-Message-ID: <174742024812.3649303.12389396177218408388.robh@kernel.org>
-Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF0000C381:EE_|CH3PR12MB7667:EE_
+X-MS-Office365-Filtering-Correlation-Id: c48f7870-68cb-4244-c805-08dd95cf905f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Dv7CAc6UQgLW/DRJaI4c9jBYxRnaiu+tZPDVRX8qN0IhbB7jM6FI20rAwidu?=
+ =?us-ascii?Q?s9PD/N+ckj8qTunG2HEPma/Xc0tMnYkVv5aBxv5l7b+BpKjlYoP+QFH72e8N?=
+ =?us-ascii?Q?at5vYLhAHMExJOzQwUFemBYVN2KRwyWNgeZyD26kdlP7wArCEfq7A4p19ZvJ?=
+ =?us-ascii?Q?ZkOMZgR7DumzmZ04xKa7gamdcMUUAwUrRFzOcQaszmNWe8zQbCitwlLadfDW?=
+ =?us-ascii?Q?4JVRcmO6kwbZW7Gsbl/Sb/Pi1lSHqfI5MjlEes5LrKjZ1B0QVrbjgTIm7CAa?=
+ =?us-ascii?Q?CFQaLlYNVYYTmYzGzelGMjrSvJpuxV2rBybl9+jj2tXR2TE/lotGie+wc5uq?=
+ =?us-ascii?Q?eWmrsC5Crg4ljxsxVwEhVLMlbDDc/uDMUBkFnBY/xcLLbrRm2Ad96j4Hns9z?=
+ =?us-ascii?Q?bXSfGaXje5tlRpLJFTvbTWXL0oLcDui2fRqkWFnJlZ0j3SK5K1fgoSmYYGkN?=
+ =?us-ascii?Q?HwzrPx8NddFkwce/xKIBD6xtMGYeNAE/oJrYivov/OqFUU6C2WRqzDvQbBw8?=
+ =?us-ascii?Q?yU2cc3/QuXzX0fwZe/Awh71vRcjdFmhMp6cwMibL1TCGx5J2cEq1CMMgpJMz?=
+ =?us-ascii?Q?WcINcUuhb/8AXZc4BZlzcjZAXuR8lo/2ujAgTUkGbC5ne+TM0PO22vf0okep?=
+ =?us-ascii?Q?4u0HpYZEwMSww35YJgGrPKNFcM3QYB+spekQUXBBa3vFQtApID299ZOa3sUr?=
+ =?us-ascii?Q?Tk4ocUFAHyGMQ5pP7q65ziGc2YIf7Yj3FRm+/ZkAEOue3CqC+hF1M7IrX7LM?=
+ =?us-ascii?Q?FJGbv2zO5GJsyL4xHNmVfDwf8lfDNnLong/DOC0dj3x9oZkhkZj7MUO8PsVQ?=
+ =?us-ascii?Q?9x+rxGuH5ruw6mz5npZeZhfEK6yE+fPS8EalY9e2lACxPqPuNnIzaoelDxbM?=
+ =?us-ascii?Q?IsgS7dLg+u13mM70jN8vmX8NEybn13pPBFKakQ/BeQfTHnCLRrg0Eosiqwyt?=
+ =?us-ascii?Q?iiauJQCdoyat4LpEReHCb+a9uIhm1lqMRYOhugin9Uex4si9gCmmncEAyObf?=
+ =?us-ascii?Q?oGE+BY9+7oEO1YCH9MWgRfUGj/7DQCM5g6hQw6kQG1592m/+o+dWK+KLQSjJ?=
+ =?us-ascii?Q?QRfhtwH3w2GCXY4siIKgoj5RNlkL7oFD0u9Ec24+0vcTDdayyQ0GHBj+KHfO?=
+ =?us-ascii?Q?jTmGi5YRzKVe+/QTpn84x83HfWniEvnK2QGtdkqSe42EUcxRN7Hpx/WqYCN4?=
+ =?us-ascii?Q?ABWP24kWcqPI3t5eRyToy0WI2wxlDsjiyfvWhiKFmOfIyHUDy5MlkllFwz26?=
+ =?us-ascii?Q?gwASPNL9C2Ga/xiUpR5QVnfwslibolmpGuT7CC9a54e/LqAZr1v9gmQ1wXY5?=
+ =?us-ascii?Q?37cyvEKOPdz9gmneVlXqqtrfFve9JN1HNUIkcPPZBUc8jP21y1ZLMtQO2uD4?=
+ =?us-ascii?Q?TRkLraeGdwHeajkl1jI2chBDT+Y1+tcgz2FzCVKI0MDMl67oT+sYsJiNKhjE?=
+ =?us-ascii?Q?LmaOPJchpfZitUoWmlOYFZ2S6Ye6bk4kWxPtjP1+w9deiUgy+nrzP1ew8fP6?=
+ =?us-ascii?Q?Cyyq/VQznUIjjJkjsaCGj6g4PnqtEUmIyRr3K8fnR7wvp1eSZmvaHjj/XA?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2025 05:48:06.8862
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c48f7870-68cb-4244-c805-08dd95cf905f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C381.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250517_222520_569457_C5477057 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250517_224816_194609_FE6C42F0 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +163,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20250518052516.ZnijHrNJj2EzWQ5gU1d2PhgrfG8skrpsp_Bxe7deDlo@z>
 
+From: Ankit Agrawal <ankita@nvidia.com>
 
-On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
-> Add the bindings for the Neural Processing Unit IP from Rockchip.
-> 
-> v2:
-> - Adapt to new node structure (one node per core, each with its own
->   IOMMU)
-> - Several misc. fixes from Sebastian Reichel
-> 
-> v3:
-> - Split register block in its constituent subblocks, and only require
->   the ones that the kernel would ever use (Nicolas Frattaroli)
-> - Group supplies (Rob Herring)
-> - Explain the way in which the top core is special (Rob Herring)
-> 
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
->  1 file changed, 162 insertions(+)
-> 
+Change the scope of stage2_has_fwb as it will be used in
+broader KVM code to determine whether the FWB feature is
+supported by the hardware.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
+---
+ arch/arm64/include/asm/kvm_pgtable.h | 8 ++++++++
+ arch/arm64/kvm/hyp/pgtable.c         | 2 +-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
-	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too long
-	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too short
-	False schema does not allow 3
-	1 was expected
-	3 is greater than the maximum of 2
-	hint: "minItems" is only needed if less than the "items" list length
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): compatible: 'oneOf' conditional failed, one must be fixed:
-	['rockchip,rk3588-rknn-core-top', 'rockchip,rknn-core-top'] is too long
-	'rockchip,rk3588-rknn-core-top' is not one of ['rockchip,rk3588-rknn-core']
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): reg: [[0, 4255842304, 0, 36864]] is too short
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): compatible: 'oneOf' conditional failed, one must be fixed:
-	['rockchip,rk3588-rknn-core', 'rockchip,rknn-core'] is too long
-	'rockchip,rk3588-rknn-core' is not one of ['rockchip,rk3588-rknn-core-top']
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): reg: [[0, 4255907840, 0, 36864]] is too short
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 6b9d274052c7..f21e2fae2bfe 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -507,6 +507,14 @@ u64 kvm_pgtable_hyp_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
+  */
+ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift);
+ 
++/**
++ * stage2_has_fwb() - Determine whether FWB is supported
++ * @pgt:    Page-table structure initialised by kvm_pgtable_stage2_init*()
++ *
++ * Return: True if FWB is supported.
++ */
++bool stage2_has_fwb(struct kvm_pgtable *pgt);
++
+ /**
+  * kvm_pgtable_stage2_pgd_size() - Helper to compute size of a stage-2 PGD
+  * @vtcr:	Content of the VTCR register.
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index df5cc74a7dd0..ee6b98fefd61 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -637,7 +637,7 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+ 	return vtcr;
+ }
+ 
+-static bool stage2_has_fwb(struct kvm_pgtable *pgt)
++bool stage2_has_fwb(struct kvm_pgtable *pgt)
+ {
+ 	if (!cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
+ 		return false;
+-- 
+2.34.1
 
 
