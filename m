@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED1DC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC03C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GBMtNI6cTtuuD6FKdLMsNoUStz5+7O3bDHN29nw5LRw=; b=Gs0NOkDAPSEcFjd0KDQFF2/nDy
-	S+0fdP0Nbdka5DIA2QMpmD3b4xWnYAA8zBIDZwdaqPtqWsH8LL0HYKvJtu4wIwkxT9tbf/Nj+07o+
-	1v2eoywU2I+IumUrlqxmzJwOwBM/jgp2E/XnXeKgLE+AAMUcjhlrDfzxAtep97fl20lL0Cb/WHWzV
-	3zgZ+o1VFcbEulJHvZe3LYVMBa8uQgLb1O9df8dRjiEBnp43Vdhm0QIyK+5lkUljqp6NB0+UU7eSb
-	YioQz08SwEPpDcWn1d17sH3zpXHJEvVBhOTnIe7dwIszdSFCHFfLkpbl/Qmd/WoJmLpEtNdCaHE3l
-	OZybAVpg==;
+	bh=4c0/h5O89NEh//kKOA3P/rcNgyur1rYbiL5S7VTGzjg=; b=IK8I3zjbGpw5dD6Zszx+HUvC3g
+	TExFbJqRWWRP3XJ7yQj5ujKvodduNl1xv2yQl99pYVJHSxGDAYFIcfO1YgMdHaMkFGbBXajWV9njh
+	2i5/hUjqJX71Jw2wXWoVr413D6wLX/FuYR7UGfPR6R6ZSa/wRMl0n9xKiVs+nTClqT+PII6SYhJHf
+	3plSqiidwmn2pcfL0+EFHHOsZJHOaSveYzMKV1QV8N3G1yr3C+Jthd3c/fd6wqx2ox6vmTlXNNPOS
+	jWQ+KH2NtbPq2D7gOgKfZMN61cJA1DkiVPS39+T9/2jdNhrNtLV2fxoKVeypyNzbgiBUVRNs34xDX
+	mzwEVLSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmI3-00000007bf1-39Sz;
-	Sun, 18 May 2025 22:15:27 +0000
+	id 1uGmK0-00000007bmA-1scG;
+	Sun, 18 May 2025 22:17:28 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGm8A-00000007aG7-1MUg;
+	id 1uGm89-00000007aF1-0LdQ;
 	Sun, 18 May 2025 22:05:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=GBMtNI6cTtuuD6FKdLMsNoUStz5+7O3bDHN29nw5LRw=; b=BIDI9BIFqqrHzG9df7pynEaLxP
-	gchll30OIePpoSQ0XgeGkB1/cF7YXTk6kioXpeBZfcxcC4pOWpE3BeCtdRDnAxENlyfDjQg2JdMlR
-	KKFf0ulV3w+81HTR1eezkPFakVARPsUDNIElbIQhjjkOErBxIrqipPtzwuejnP51BlMKiCjxNArSk
-	5O35CJbz4zb3uUuPKfmJrVbmW+5dtnIWcWVjYX0nB5RqF6Un/z6r2OJNC8OEW65pap25nlvzqi5SM
-	/fE41RP0nOmHQ39EaGctpElz3D1fCUSDEyobqzfWB+r7zTUlvbmrWB5IpCr+wPVO667yHrE/8UgVa
-	4+b0gyJQ==;
+	bh=4c0/h5O89NEh//kKOA3P/rcNgyur1rYbiL5S7VTGzjg=; b=MJjarBC7NH33DQTOZsIoRh8/Dr
+	EyDCga3YnmDAsQSuCgBmij5Oj/ddu2Fm9St1FwiP5rXY1p8BNHD0NqzKZpViLXqp3TgHQYZIUxFFg
+	E+0eGXMet+nAh64Jv5yllYcUlFV37ttNuKbz0z5H9r2NbIZRtOTZOtNcO4Yc4+rVXvSdwa96SKK9M
+	2Q2QMdHxHLJT4E0SCJXH9JMCtUe8I5s9r+LJDQChWsAUhQLamBzBEddhoFQ/IknEqgMondS0k/RKO
+	edWJuv3YEh/G5K9HJEn03O6zwlq/VDCNKmM0eAF7bevLuN7v8Vs7l1nRSwC2lk8L4ac22kuVhRoWH
+	iRRsNoYQ==;
 Received: from i53875a50.versanet.de ([83.135.90.80] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uGm7z-0004gv-SL; Mon, 19 May 2025 00:05:03 +0200
+	id 1uGm7y-0004gv-Sm; Mon, 19 May 2025 00:05:02 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -53,18 +53,19 @@ Cc: robh@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/6] arm64: dts: rockchip: remove a double-empty line from rk3576 core dtsi
-Date: Mon, 19 May 2025 00:04:45 +0200
-Message-ID: <20250518220449.2722673-4-heiko@sntech.de>
+	linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH 1/6] arm64: dts: rockchip: fix rk3576 pcie unit addresses
+Date: Mon, 19 May 2025 00:04:43 +0200
+Message-ID: <20250518220449.2722673-2-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250518220449.2722673-1-heiko@sntech.de>
 References: <20250518220449.2722673-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_150514_382470_492F9896 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20250518_150513_259095_FACF429D 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +80,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two empty lines between nodes, is one too many.
+The rk3576 pcie nodes currently use the apb register as their unit address
+which is the second reg area defined in the binding.
 
+As can be seen by the dtc warnings like
+
+../arch/arm64/boot/dts/rockchip/rk3576.dtsi:1346.24-1398.5: Warning (simple_bus_reg): /soc/pcie@2a200000: simple-bus unit address format error, expected "22000000"
+../arch/arm64/boot/dts/rockchip/rk3576.dtsi:1400.24-1452.5: Warning (simple_bus_reg): /soc/pcie@2a210000: simple-bus unit address format error, expected "22400000"
+
+using the first reg area as the unit address seems to be preferred.
+This is the dbi area per the binding, so adapt the unit address accordingly
+and move the nodes to their new position.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202505150745.PQT9TLYX-lkp@intel.com/
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 216 +++++++++++------------
+ 1 file changed, 108 insertions(+), 108 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 0e0a37849874..b6e946e68b09 100644
+index 79800959b797..3b62e037772a 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
 +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -2000,7 +2000,6 @@ i2c5: i2c@2ac80000 {
- 			status = "disabled";
+@@ -466,6 +466,114 @@ soc {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
++		pcie0: pcie@22000000 {
++			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
++			reg = <0x0 0x22000000 0x0 0x00400000>,
++			      <0x0 0x2a200000 0x0 0x00010000>,
++			      <0x0 0x20000000 0x0 0x00100000>;
++			reg-names = "dbi", "apb", "config";
++			bus-range = <0x0 0xf>;
++			clocks = <&cru ACLK_PCIE0_MST>, <&cru ACLK_PCIE0_SLV>,
++				 <&cru ACLK_PCIE0_DBI>, <&cru PCLK_PCIE0>,
++				 <&cru CLK_PCIE0_AUX>;
++			clock-names = "aclk_mst", "aclk_slv",
++				      "aclk_dbi", "pclk",
++				      "aux";
++			device_type = "pci";
++			interrupts = <GIC_SPI 281 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 282 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 279 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 280 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 278 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 283 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0 0 0 7>;
++			interrupt-map = <0 0 0 1 &pcie0_intc 0>,
++					<0 0 0 2 &pcie0_intc 1>,
++					<0 0 0 3 &pcie0_intc 2>,
++					<0 0 0 4 &pcie0_intc 3>;
++			linux,pci-domain = <0>;
++			max-link-speed = <2>;
++			num-ib-windows = <8>;
++			num-viewport = <8>;
++			num-ob-windows = <2>;
++			num-lanes = <1>;
++			phys = <&combphy0_ps PHY_TYPE_PCIE>;
++			phy-names = "pcie-phy";
++			power-domains = <&power RK3576_PD_PHP>;
++			ranges = <0x01000000 0x0 0x20100000 0x0 0x20100000 0x0 0x00100000
++				  0x02000000 0x0 0x20200000 0x0 0x20200000 0x0 0x00e00000
++				  0x03000000 0x9 0x00000000 0x9 0x00000000 0x0 0x80000000>;
++			resets = <&cru SRST_PCIE0_POWER_UP>, <&cru SRST_P_PCIE0>;
++			reset-names = "pwr", "pipe";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			status = "disabled";
++
++			pcie0_intc: legacy-interrupt-controller {
++				interrupt-controller;
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-parent = <&gic>;
++				interrupts = <GIC_SPI 280 IRQ_TYPE_EDGE_RISING>;
++			};
++		};
++
++		pcie1: pcie@22400000 {
++			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
++			reg = <0x0 0x22400000 0x0 0x00400000>,
++			      <0x0 0x2a210000 0x0 0x00010000>,
++			      <0x0 0x21000000 0x0 0x00100000>;
++			reg-names = "dbi", "apb", "config";
++			bus-range = <0x20 0x2f>;
++			clocks = <&cru ACLK_PCIE1_MST>, <&cru ACLK_PCIE1_SLV>,
++				 <&cru ACLK_PCIE1_DBI>, <&cru PCLK_PCIE1>,
++				 <&cru CLK_PCIE1_AUX>;
++			clock-names = "aclk_mst", "aclk_slv",
++				      "aclk_dbi", "pclk",
++				      "aux";
++			device_type = "pci";
++			interrupts = <GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 269 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0 0 0 7>;
++			interrupt-map = <0 0 0 1 &pcie1_intc 0>,
++					<0 0 0 2 &pcie1_intc 1>,
++					<0 0 0 3 &pcie1_intc 2>,
++					<0 0 0 4 &pcie1_intc 3>;
++			linux,pci-domain = <0>;
++			max-link-speed = <2>;
++			num-ib-windows = <8>;
++			num-viewport = <8>;
++			num-ob-windows = <2>;
++			num-lanes = <1>;
++			phys = <&combphy1_psu PHY_TYPE_PCIE>;
++			phy-names = "pcie-phy";
++			power-domains = <&power RK3576_PD_SUBPHP>;
++			ranges = <0x01000000 0x0 0x21100000 0x0 0x21100000 0x0 0x00100000
++				  0x02000000 0x0 0x21200000 0x0 0x21200000 0x0 0x00e00000
++				  0x03000000 0x9 0x80000000 0x9 0x80000000 0x0 0x80000000>;
++			resets = <&cru SRST_PCIE1_POWER_UP>, <&cru SRST_P_PCIE1>;
++			reset-names = "pwr", "pipe";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			status = "disabled";
++
++			pcie1_intc: legacy-interrupt-controller {
++				interrupt-controller;
++				#address-cells = <0>;
++				#interrupt-cells = <1>;
++				interrupt-parent = <&gic>;
++				interrupts = <GIC_SPI 266 IRQ_TYPE_EDGE_RISING>;
++			};
++		};
++
+ 		usb_drd0_dwc3: usb@23000000 {
+ 			compatible = "rockchip,rk3576-dwc3", "snps,dwc3";
+ 			reg = <0x0 0x23000000 0x0 0x400000>;
+@@ -1343,114 +1451,6 @@ qos_npu_m1ro: qos@27f22100 {
+ 			reg = <0x0 0x27f22100 0x0 0x20>;
  		};
  
+-		pcie0: pcie@2a200000 {
+-			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
+-			reg = <0x0 0x22000000 0x0 0x00400000>,
+-			      <0x0 0x2a200000 0x0 0x00010000>,
+-			      <0x0 0x20000000 0x0 0x00100000>;
+-			reg-names = "dbi", "apb", "config";
+-			bus-range = <0x0 0xf>;
+-			clocks = <&cru ACLK_PCIE0_MST>, <&cru ACLK_PCIE0_SLV>,
+-				 <&cru ACLK_PCIE0_DBI>, <&cru PCLK_PCIE0>,
+-				 <&cru CLK_PCIE0_AUX>;
+-			clock-names = "aclk_mst", "aclk_slv",
+-				      "aclk_dbi", "pclk",
+-				      "aux";
+-			device_type = "pci";
+-			interrupts = <GIC_SPI 281 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 282 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 279 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 280 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 278 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 283 IRQ_TYPE_LEVEL_HIGH>;
+-			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
+-			#interrupt-cells = <1>;
+-			interrupt-map-mask = <0 0 0 7>;
+-			interrupt-map = <0 0 0 1 &pcie0_intc 0>,
+-					<0 0 0 2 &pcie0_intc 1>,
+-					<0 0 0 3 &pcie0_intc 2>,
+-					<0 0 0 4 &pcie0_intc 3>;
+-			linux,pci-domain = <0>;
+-			max-link-speed = <2>;
+-			num-ib-windows = <8>;
+-			num-viewport = <8>;
+-			num-ob-windows = <2>;
+-			num-lanes = <1>;
+-			phys = <&combphy0_ps PHY_TYPE_PCIE>;
+-			phy-names = "pcie-phy";
+-			power-domains = <&power RK3576_PD_PHP>;
+-			ranges = <0x01000000 0x0 0x20100000 0x0 0x20100000 0x0 0x00100000
+-				  0x02000000 0x0 0x20200000 0x0 0x20200000 0x0 0x00e00000
+-				  0x03000000 0x9 0x00000000 0x9 0x00000000 0x0 0x80000000>;
+-			resets = <&cru SRST_PCIE0_POWER_UP>, <&cru SRST_P_PCIE0>;
+-			reset-names = "pwr", "pipe";
+-			#address-cells = <3>;
+-			#size-cells = <2>;
+-			status = "disabled";
 -
- 		i2c6: i2c@2ac90000 {
- 			compatible = "rockchip,rk3576-i2c", "rockchip,rk3399-i2c";
- 			reg = <0x0 0x2ac90000 0x0 0x1000>;
+-			pcie0_intc: legacy-interrupt-controller {
+-				interrupt-controller;
+-				#address-cells = <0>;
+-				#interrupt-cells = <1>;
+-				interrupt-parent = <&gic>;
+-				interrupts = <GIC_SPI 280 IRQ_TYPE_EDGE_RISING>;
+-			};
+-		};
+-
+-		pcie1: pcie@2a210000 {
+-			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
+-			reg = <0x0 0x22400000 0x0 0x00400000>,
+-			      <0x0 0x2a210000 0x0 0x00010000>,
+-			      <0x0 0x21000000 0x0 0x00100000>;
+-			reg-names = "dbi", "apb", "config";
+-			bus-range = <0x20 0x2f>;
+-			clocks = <&cru ACLK_PCIE1_MST>, <&cru ACLK_PCIE1_SLV>,
+-				 <&cru ACLK_PCIE1_DBI>, <&cru PCLK_PCIE1>,
+-				 <&cru CLK_PCIE1_AUX>;
+-			clock-names = "aclk_mst", "aclk_slv",
+-				      "aclk_dbi", "pclk",
+-				      "aux";
+-			device_type = "pci";
+-			interrupts = <GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
+-				     <GIC_SPI 269 IRQ_TYPE_LEVEL_HIGH>;
+-			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
+-			#interrupt-cells = <1>;
+-			interrupt-map-mask = <0 0 0 7>;
+-			interrupt-map = <0 0 0 1 &pcie1_intc 0>,
+-					<0 0 0 2 &pcie1_intc 1>,
+-					<0 0 0 3 &pcie1_intc 2>,
+-					<0 0 0 4 &pcie1_intc 3>;
+-			linux,pci-domain = <0>;
+-			max-link-speed = <2>;
+-			num-ib-windows = <8>;
+-			num-viewport = <8>;
+-			num-ob-windows = <2>;
+-			num-lanes = <1>;
+-			phys = <&combphy1_psu PHY_TYPE_PCIE>;
+-			phy-names = "pcie-phy";
+-			power-domains = <&power RK3576_PD_SUBPHP>;
+-			ranges = <0x01000000 0x0 0x21100000 0x0 0x21100000 0x0 0x00100000
+-				  0x02000000 0x0 0x21200000 0x0 0x21200000 0x0 0x00e00000
+-				  0x03000000 0x9 0x80000000 0x9 0x80000000 0x0 0x80000000>;
+-			resets = <&cru SRST_PCIE1_POWER_UP>, <&cru SRST_P_PCIE1>;
+-			reset-names = "pwr", "pipe";
+-			#address-cells = <3>;
+-			#size-cells = <2>;
+-			status = "disabled";
+-
+-			pcie1_intc: legacy-interrupt-controller {
+-				interrupt-controller;
+-				#address-cells = <0>;
+-				#interrupt-cells = <1>;
+-				interrupt-parent = <&gic>;
+-				interrupts = <GIC_SPI 266 IRQ_TYPE_EDGE_RISING>;
+-			};
+-		};
+-
+ 		gmac0: ethernet@2a220000 {
+ 			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
+ 			reg = <0x0 0x2a220000 0x0 0x10000>;
 -- 
 2.47.2
 
