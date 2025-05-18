@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D16C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D461FC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=THMlj3AhMYULtOmiSh+mVB/En26gWO8Blx9/pCJw39Q=; b=fJXGUlZxBAtoUjDCQftw/k/LlU
-	cK5dNLaE45M4dn10jEMypYO2AAH47A0eShrrfgk7QtQb0PzUDNaXrlUpszLz2qiL3P+TNKBhWd+34
-	zXMJOquTRDx4luAnnkl/2tEZ5h3Uk5djwR3G3F7h/gK6XTAV/LBaOo6V5xc/HilgAL86g0/6pMtdR
-	X1ApyeFdhQfHopXKOQXXr6PNY2i1as8ZLUy3kJXSq3QaqPaccoTyaHB43laJiMbgqM4FH0uIWpF/i
-	4SRg7lMr/+RoYrpRrWaUKqzNZea8UVYgP8eqPilguUGv7q3T/xrd8whK5AzbXxNroJUfi4XDsZcf4
-	56h/jSxQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VnllxYvJ8y+xBCgppgUdhper3bPIjDGyHOTBW41WvLw=; b=uxmNtlBx6jbqKnGtkcjWLq4a9R
+	ZB1zU10h9ufUDDDSq2Qmc/ybkMcGcTj4oLmUbzVq+Ir1hc3tiyOGH1VlrskWNN/iZbV3VJ/wxms8O
+	7EgrgM8rm84rcwFny5zmGaco9jtmWUBx26g9D/cn/3ni8KLlIFZmexcA3p9E6GoQdelGB92ZK8ib/
+	z0R1Z2EdJQouAE0EFdsuQrlXl29DF/PcgrUZDlJUGUN3P2XUK7N2TP35EnZXsUN3PD7aI1Ua5jOkY
+	mXMRmNuzmylsuo8jTyqYs0Ho4VZ9G97pz/stjjuyBlrJx7VeUPitDirWyRMbt8BnSSyJhfj665UZp
+	ssEpDauQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmw0-00000007fd1-0HfV;
-	Sun, 18 May 2025 22:56:44 +0000
+	id 1uGmxy-00000007fp4-3Zbf;
+	Sun, 18 May 2025 22:58:46 +0000
 Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmtz-00000007fQU-27Wo
+	id 1uGmu5-00000007fRT-3YnB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 May 2025 22:54:40 +0000
+	Sun, 18 May 2025 22:54:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From; q=dns/txt; s=fe-e1b5cab7be; t=1747608879;
- bh=THMlj3AhMYULtOmiSh+mVB/En26gWO8Blx9/pCJw39Q=;
- b=ZQuUIrLJPoXRWtx8YX6XHKHgAMy4K0Ry4sK8eV9dzyHWX+9CbY7+Qurt4IotcoXn82EK2O9t1
- nQm1dmatG6RVaSYk4EjvunXEcVCHJFjSd+MvGwwY8xuxa50WpqaxCtE5f5qjVHTAo5eQA0df6yU
- aNEN9C7F7YpfQnwvYuc97NY22MWsang+4kAWSbPuwr/Nt/jDTfQLBzUrvfPwZo4ZH2A8rmYj9ey
- ndlDXYt49yLtZDiLu89rksuy3sx7niB5170j1rvcBQowopbrE43MxGJneri60wfk+nxOcBkTjFN
- eYRduwOww5VbjLV4x6i6UdM6U0j9OxaFYms6I6BlvI/g==
-X-Forward-Email-ID: 682a6529db63046e3392f299
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
+ t=1747608885; bh=VnllxYvJ8y+xBCgppgUdhper3bPIjDGyHOTBW41WvLw=;
+ b=Rty+drlTLiwSzq6KrhKdhkyXZxXEVbWMYitohKp5faRl6cd9aFsoQUxjAzBgXCn3Hlisz+TWr
+ 6HdA7tDkXjDmIRIKIoHkNS/aH0MwMwQ9yn3EK/3JyUwTUKK0mqHwLl0td2P0f3Ygn0c1Gdcg0bi
+ HbEYFJW2lp/bEseHRtyNg78CWPFKZhS9XvZwaDIWNQ6X2b6v4cosUs7DSxBpoajCB8DMcfT+xxg
+ FJNFjxGkCl3pr0qLX9hxj0FAGNbPOVSRsuAUpBQ3VOfbu+n9m5tzBs14pabm1Ug7bAMrDFQYhti
+ Om6nkIKr1eAjlXkzfHqVN+uZkSqo0Rz6Ir153AI2+tng==
+X-Forward-Email-ID: 682a652edb63046e3392f2ae
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  149.28.215.223
 X-Forward-Email-Version: 1.0.3
@@ -48,23 +48,32 @@ From: Jonas Karlman <jonas@kwiboo.se>
 To: Heiko Stuebner <heiko@sntech.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
+	Conor Dooley <conor+dt@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
 Cc: Yao Zi <ziyao@disroot.org>,
 	Chukun Pan <amadeus@jmu.edu.cn>,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 0/3] rockchip: Add GPU support for RK3528
-Date: Sun, 18 May 2025 22:54:10 +0000
-Message-ID: <20250518225418.682182-1-jonas@kwiboo.se>
+	Jonas Karlman <jonas@kwiboo.se>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/3] dt-bindings: gpu: mali-utgard: Add Rockchip RK3528 compatible
+Date: Sun, 18 May 2025 22:54:11 +0000
+Message-ID: <20250518225418.682182-2-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250518225418.682182-1-jonas@kwiboo.se>
+References: <20250518225418.682182-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_155439_583172_C623613A 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20250518_155445_915256_3EC490AC 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,101 +88,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the Mali-450 MP2 GPU in the RK3528 SoC.
+Rockchip RK3528 SoC has a Mali-450 MP2. Add a compatible for it.
 
-The clock used for the GPU can use normal PLL to support a rate of 100,
-300 or 500 MHz. Or it can use PVTPLL to reach rates up to 800 MHz.
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The TF-A SCMI_CLK_GPU is used to switch use between normal PLL and
-PVTPLL. When a rate of up to 300 MHz is requested TF-A switch to use
-normal PLL, and for rates above 300 MHz the PVTPLL is used.
-
-The PVTPLL can only operate when the power domain, regulators and clocks
-are enabled, an opp-suspend for 300 MHz is used to ensure normal PLL is
-selected before GPU is PM runtime suspended.
-
-Driver init at boot:
-
-  lima ff700000.gpu: gp - mali450 version major 0 minor 0
-  lima ff700000.gpu: pp0 - mali450 version major 0 minor 0
-  lima ff700000.gpu: pp1 - mali450 version major 0 minor 0
-  lima ff700000.gpu: l2_cache0 8K, 4-way, 64byte cache line, 128bit external bus
-  lima ff700000.gpu: l2_cache1 64K, 4-way, 64byte cache line, 128bit external bus
-  lima ff700000.gpu: bus rate = 297000000
-  lima ff700000.gpu: mod rate = 300000000
-  [drm] Initialized lima 1.1.0 for ff700000.gpu n minor 0
-
-glmark2-es2-gbm (cebbb63edfba502905470c904f8e6f1c6ce28ba9):
-
-  =======================================================
-      glmark2 2023.01
-  =======================================================
-      GL_VENDOR:      Mesa
-      GL_RENDERER:    Mali450
-      GL_VERSION:     OpenGL ES 2.0 Mesa 25.0.4
-      Surface Config: buf=32 r=8 g=8 b=8 a=8 depth=24 stencil=0 samples=0
-      Surface Size:  800x600 fullscreen
-  =======================================================
-  [build] use-vbo=false: FPS: 572 FrameTime: 1.751 ms
-  [build] use-vbo=true: FPS: 715 FrameTime: 1.400 ms
-  [texture] texture-filter=nearest: FPS: 735 FrameTime: 1.361 ms
-  [texture] texture-filter=linear: FPS: 744 FrameTime: 1.346 ms
-  [texture] texture-filter=mipmap: FPS: 758 FrameTime: 1.320 ms
-  [shading] shading=gouraud: FPS: 444 FrameTime: 2.255 ms
-  [shading] shading=blinn-phong-inf: FPS: 442 FrameTime: 2.267 ms
-  [shading] shading=phong: FPS: 314 FrameTime: 3.186 ms
-  [shading] shading=cel: FPS: 258 FrameTime: 3.877 ms
-  [bump] bump-render=high-poly: FPS: 98 FrameTime: 10.279 ms
-  [bump] bump-render=normals: FPS: 694 FrameTime: 1.443 ms
-  [bump] bump-render=height: FPS: 551 FrameTime: 1.818 ms
-  [effect2d] kernel=0,1,0;1,-4,1;0,1,0;: FPS: 161 FrameTime: 6.246 ms
-  [effect2d] kernel=1,1,1,1,1;1,1,1,1,1;1,1,1,1,1;: FPS: 47 FrameTime: 21.692 ms
-  [pulsar] light=false:quads=5:texture=false: FPS: 1031 FrameTime: 0.970 ms
-  [desktop] blur-radius=5:effect=blur:passes=1:separable=true:windows=4: FPS: 78 FrameTime: 12.986 ms
-  [desktop] effect=shadow:windows=4: FPS: 331 FrameTime: 3.023 ms
-  [buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction=0.5:update-method=map: FPS: 161 FrameTime: 6.220 ms
-  [buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction=0.5:update-method=subdata: FPS: 160 FrameTime: 6.285 ms
-  [buffer] columns=200:interleave=true:update-dispersion=0.9:update-fraction=0.5:update-method=map: FPS: 237 FrameTime: 4.231 ms
-  [ideas] speed=duration: FPS: 184 FrameTime: 5.461 ms
-  [jellyfish] <default>: FPS: 200 FrameTime: 5.006 ms
-  Error: SceneTerrain requires Vertex Texture Fetch support, but GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS is 0
-  [terrain] <default>: Unsupported
-  [shadow] <default>: FPS: 214 FrameTime: 4.691 ms
-  [refract] <default>: FPS: 23 FrameTime: 43.776 ms
-  [conditionals] fragment-steps=0:vertex-steps=0: FPS: 725 FrameTime: 1.380 ms
-  [conditionals] fragment-steps=5:vertex-steps=0: FPS: 356 FrameTime: 2.816 ms
-  [conditionals] fragment-steps=0:vertex-steps=5: FPS: 728 FrameTime: 1.375 ms
-  [function] fragment-complexity=low:fragment-steps=5: FPS: 482 FrameTime: 2.077 ms
-  [function] fragment-complexity=medium:fragment-steps=5: FPS: 233 FrameTime: 4.298 ms
-  [loop] fragment-loop=false:fragment-steps=5:vertex-steps=5: FPS: 482 FrameTime: 2.079 ms
-  [loop] fragment-steps=5:fragment-uniform=false:vertex-steps=5: FPS: 482 FrameTime: 2.076 ms
-  [loop] fragment-steps=5:fragment-uniform=true:vertex-steps=5: FPS: 165 FrameTime: 6.076 ms
-  =======================================================
-                                    glmark2 Score: 399
-  ======================================================
-
-Trying to use a GPU clock rate above 300 MHz when the GPU is PM runtime
-suspended may cause the system to freeze or an SError. E.g. trying to
-use a different devfreq governor or set min_freq above 300 MHz.
-
-Similar issues also exist on RK3576 and RK3588 when SCMI_CLK_GPU is used
-for devfreq, a separate series will be sent to mitigate these issues.
-
-This series depends on patch 1-4 of the series "rockchip: Add power
-controller support for RK3528" [1].
-
-[1] https://lore.kernel.org/r/20250518220707.669515-1-jonas@kwiboo.se
-
-Jonas Karlman (3):
-  dt-bindings: gpu: mali-utgard: Add Rockchip RK3528 compatible
-  arm64: dts: rockchip: Add GPU node for RK3528
-  arm64: dts: rockchip: Enable GPU on Radxa E20C
-
- .../bindings/gpu/arm,mali-utgard.yaml         |  2 +
- .../boot/dts/rockchip/rk3528-radxa-e20c.dts   |  5 ++
- arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 58 +++++++++++++++++++
- 3 files changed, 65 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
+index 9318817ea135..c8d0d9192d92 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-utgard.yaml
+@@ -47,6 +47,7 @@ properties:
+               - hisilicon,hi6220-mali
+               - mediatek,mt7623-mali
+               - rockchip,rk3328-mali
++              - rockchip,rk3528-mali
+           - const: arm,mali-450
+ 
+       # "arm,mali-300"
+@@ -148,6 +149,7 @@ allOf:
+               - rockchip,rk3188-mali
+               - rockchip,rk3228-mali
+               - rockchip,rk3328-mali
++              - rockchip,rk3528-mali
+     then:
+       required:
+         - resets
 -- 
 2.49.0
 
