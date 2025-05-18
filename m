@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1B8C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 08:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC6D0C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 09:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=fWzuS16IfvJKbJTa2dGfGMLuqX
-	hZNeEHl4K/WiZ90IQ/dRR0inqt41MlaEnRROP6dLAlFH7MylNN/iXldxVifJXVwtGDcGoys4e2XN4
-	MHjwc6iRI+4faqc3pN0bz3XQ9Mki3WWTr2IL3ITh3XPQq778GSNYNzW95Kaw7cl4IcKUOVZSyi6f0
-	xziwhKP4UqkttoG4gw2/YYW7gGxmtNfQtojqkRPGZ4RyfkGiWQLUtnm0XiabD5EbSxT4FEGRnOFZX
-	P02zuB1ZQkS2kYMjthIoMoPNDyBTe+d5Hnmgivwv01XaStHh1pJKSQ73v1W1ROUR+FZvsO9mzS6Zw
-	oR1wtmdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BNXyBGuoJC4ONR3bPoLfKKuzOJ3jcXvPaWtk/2/Z8mU=; b=odyr8PMyo3l+Dg3Rw8cxYmoDx6
+	k6YolmwzNO3DCWvlMIgPF2u22sgjn0baW/9XiT8aPPtApB476oZrARCpc8j545oT8VHfVbPPXLKgp
+	S31aqH4nLStPVjjpJL2RkyJii5p5CmFqQT4RNcnXHf1vT1nAb9NfyQUMqawHzigIfTubVrab2w6kz
+	wK8PrkHIJIy7rLf6icuA0T0csgrd/tkcg2VmeN2sJCb8LuFUTJDhSx3S18vrEwsAnO+VrS8qwoB9a
+	rH4/dQx4YshP3uNHOpSp6UZuvVFCHdygVKXY1XrLEPE8OqA0InzMLMAk87aP8yrhUB2Uf62uhunYu
+	ckwtJZAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGZNe-00000006txB-1CWN;
-	Sun, 18 May 2025 08:28:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uGa7x-00000006wGa-40Up;
+	Sun, 18 May 2025 09:16:13 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGZLd-00000006tmh-11DH;
-	Sun, 18 May 2025 08:26:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B35C05C0515;
-	Sun, 18 May 2025 08:23:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2DE0C4CEE7;
-	Sun, 18 May 2025 08:26:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747556775;
-	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=nXYaW30I4Xlg79aei0wNTbmz3GBTwaeNmwi3PsAPGh+gk8O/puY4Fh9hmGfh7MZUW
-	 vI3ISnu4M+YikKxsM8gd2CUzPtTB7fpMBNEoEv440zM0RqhkXVTl5f9CWCnlJCVWKg
-	 bJOSn3LwVHPjM10d6VwAkdO/Mu6ZBCJL5lqcUxLQWWh/IknJMwPYdIeXh+zUzYT8Xe
-	 TVzF27aSR42+Dq9Am2HMAg13mmfN7ySitZoyqLgUqm7x3pVcMgfsXhDMp9P4LniH61
-	 TPn96tT3Gd4ZCBfbQom5t6YNWbvVjRnkurb7aw1rek2acCnfHrYzLStajjc2aEy7EO
-	 CYQvM1LLJVaWw==
-Date: Sun, 18 May 2025 03:26:13 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uGa5x-00000006w9p-22bl;
+	Sun, 18 May 2025 09:14:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=BNXyBGuoJC4ONR3bPoLfKKuzOJ3jcXvPaWtk/2/Z8mU=; b=crynOXSZ3VXIllU58NSl5JJUDr
+	zrclRfp1E4xkqk+UYx4bt2psKRH9Gcik8IHVq5jMasoB7ZgflfAC+P1tOd+VqA/mQwR69RCgKBhST
+	PdgeWks/wVtoPVARTbFwMzOPUqdaxKH4NvSOK0usRkI7FwdS43DPZs8IdbdZEZe3Geajwl1Y4rqRN
+	Wce3AcFOeHxE7YFQMkN8rhS7+fiXZPc/N01bKv5Oa5uOBKc9j4mLph3jIJRdoljZ0bUmVt5W0Ijo7
+	QduP42dBqV7AvbQllaKAvqObnxqm+nDeOCgj+EnVlOZY+aCzcK3+WnExDMQ9/PzaLcfjrJulRkJEH
+	QpJqPvYA==;
+Received: from i53875a50.versanet.de ([83.135.90.80] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uGa5w-0002GA-8d; Sun, 18 May 2025 11:14:08 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts64 changes for 6.16 #2
+Date: Sun, 18 May 2025 11:14:07 +0200
+Message-ID: <3998939.iIbC2pHGDl@phil>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
- Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Oded Gabbay <ogabbay@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Jonathan Corbet <corbet@lwn.net>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Simona Vetter <simona@ffwll.ch>, linux-rockchip@lists.infradead.org, 
- linux-doc@vger.kernel.org
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-In-Reply-To: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
-References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
- <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
-Message-ID: <174742024812.3649303.12389396177218408388.robh@kernel.org>
-Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_012617_364586_C357FE6A 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250518_021409_681986_788294BB 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +68,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20250518082613.UwW3NE7cjUUIymJESrDalI6_Hs_cQGY9ghCatF9aRCM@z>
+
+Hi soc maintainers,
+
+please find below and in the next PR some more
+Rockchip changes aimed at 6.16 .
+
+Please pull.
+
+Thanks
+Heiko
 
 
-On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
-> Add the bindings for the Neural Processing Unit IP from Rockchip.
-> 
-> v2:
-> - Adapt to new node structure (one node per core, each with its own
->   IOMMU)
-> - Several misc. fixes from Sebastian Reichel
-> 
-> v3:
-> - Split register block in its constituent subblocks, and only require
->   the ones that the kernel would ever use (Nicolas Frattaroli)
-> - Group supplies (Rob Herring)
-> - Explain the way in which the top core is special (Rob Herring)
-> 
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
->  1 file changed, 162 insertions(+)
-> 
+The following changes since commit a706a593cb19796f31d3a888423ef1a71885ae72:
 
-My bot found errors running 'make dt_binding_check' on your patch:
+  arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3566-rock3c (2025-05-07 08:31:09 +0200)
 
-yamllint warnings/errors:
+are available in the Git repository at:
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
-	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too long
-	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too short
-	False schema does not allow 3
-	1 was expected
-	3 is greater than the maximum of 2
-	hint: "minItems" is only needed if less than the "items" list length
-	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): compatible: 'oneOf' conditional failed, one must be fixed:
-	['rockchip,rk3588-rknn-core-top', 'rockchip,rknn-core-top'] is too long
-	'rockchip,rk3588-rknn-core-top' is not one of ['rockchip,rk3588-rknn-core']
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): reg: [[0, 4255842304, 0, 36864]] is too short
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): compatible: 'oneOf' conditional failed, one must be fixed:
-	['rockchip,rk3588-rknn-core', 'rockchip,rknn-core'] is too long
-	'rockchip,rk3588-rknn-core' is not one of ['rockchip,rk3588-rknn-core-top']
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): reg: [[0, 4255907840, 0, 36864]] is too short
-	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.16-rockchip-dts64-2
 
-doc reference errors (make refcheckdocs):
+for you to fetch changes up to 1631cbdb808963354ef6b6454bc617cd15f90718:
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net
+  arm64: dts: rockchip: Improve LED config for NanoPi R5S (2025-05-15 14:57:44 +0200)
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+----------------------------------------------------------------
+New SoC the RK3562 (4xA53, Mali-G52) with one evaluation board.
+New boards:
+ - Cobra and PP1516 from Theobroma-Systems (build around the PX30)
+ - Radxa Rock 5B+ (rk3588)
+ - Rockchip RK3399 industrial eval board
+New peripherals:
+ - GMAC + SDMMC/SDIO on rk3528
+ - SAI + HDMI-audio on rk3576
+Interesting general updates:
+ - move rk3528 i2c + uart aliases as requested
+ - rk3568 PCIe3 MSI to use GIC ITS
+ - update deprecated dwmac reset properties on some px30 boards
+ - updates for cypress usb hubs on some Theobroma boards
+   Binding taken with Greg's blessing
+   https://lore.kernel.org/all/2025051550-polish-prude-ed56@gregkh/
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+----------------------------------------------------------------
+Chaoyi Chen (2):
+      dt-bindings: arm: rockchip: Add rk3399 industry evaluation board
+      arm64: dts: rockchip: Add rk3399-evb-ind board
 
-pip3 install dtschema --upgrade
+Chukun Pan (1):
+      arm64: dts: rockchip: Move rk3568 PCIe3 MSI to use GIC ITS
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Diederik de Haas (1):
+      arm64: dts: rockchip: Improve LED config for NanoPi R5S
+
+FUKAUMI Naoki (1):
+      dt-bindings: arm: rockchip: Add Radxa ROCK 5B+
+
+Finley Xiao (2):
+      arm64: dts: rockchip: add core dtsi for RK3562 SoC
+      arm64: dts: rockchip: Add RK3562 evb2 devicetree
+
+Heiko Stuebner (9):
+      Merge branch 'v6.16-shared/clkids' into v6.16-armsoc/dts64
+      arm64: dts: rockchip: drop wrong spdif clock from edp1 on rk3588
+      arm64: dts: rockchip: move rk3528 i2c+uart aliases to board files
+      arm64: dts: rockchip: add basic mdio node to px30
+      arm64: dts: rockchip: move reset to dedicated eth-phy node on ringneck
+      dt-bindings: arm: rockchip: add PX30-Cobra boards from Theobroma Systems
+      arm64: dts: rockchip: add px30-cobra base dtsi and board variants
+      dt-bindings: arm: rockchip: add PX30-PP1516 boards from Theobroma Systems
+      arm64: dts: rockchip: add px30-pp1516 base dtsi and board variants
+
+Jonas Karlman (2):
+      arm64: dts: rockchip: Add GMAC nodes for RK3528
+      arm64: dts: rockchip: Enable Ethernet controller on Radxa E20C
+
+Kever Yang (3):
+      dt-bindings: rockchip: pmu: Add rk3562 compatible
+      dt-bindings: soc: rockchip: Add rk3562 syscon compatibles
+      dt-bindings: arm: rockchip: Add rk3562 evb2 board
+
+Lukasz Czechowski (2):
+      dt-bindings: usb: cypress,hx3: Add support for all variants
+      arm64: dts: rockchip: fix internal USB hub instability on RK3399 Puma
+
+Nicolas Frattaroli (5):
+      dt-bindings: clock: rk3576: add IOC gated clocks
+      arm64: dts: rockchip: Add RK3576 SAI nodes
+      arm64: dts: rockchip: Add RK3576 HDMI audio
+      arm64: dts: rockchip: Add analog audio on RK3576 Sige5
+      arm64: dts: rockchip: Enable HDMI audio on Sige5
+
+Peter Robinson (1):
+      arm64: dts: rockchip: Update eMMC for NanoPi R5 series
+
+Quentin Schulz (2):
+      arm64: dts: rockchip: disable unrouted USB controllers and PHY on RK3399 Puma
+      arm64: dts: rockchip: disable unrouted USB controllers and PHY on RK3399 Puma with Haikou
+
+Sebastian Reichel (2):
+      arm64: dts: rockchip: move rock 5b to include file
+      arm64: dts: rockchip: add Rock 5B+
+
+Yao Zi (3):
+      dt-bindings: clock: Add GRF clock definition for RK3528
+      arm64: dts: rockchip: Add SDMMC/SDIO controllers for RK3528
+      arm64: dts: rockchip: Enable SD-card interface on Radxa E20C
+
+ .../devicetree/bindings/arm/rockchip.yaml          |   33 +
+ .../devicetree/bindings/arm/rockchip/pmu.yaml      |    2 +
+ .../devicetree/bindings/soc/rockchip/grf.yaml      |    7 +
+ .../devicetree/bindings/usb/cypress,hx3.yaml       |   19 +-
+ arch/arm64/boot/dts/rockchip/Makefile              |    9 +
+ .../dts/rockchip/px30-cobra-ltk050h3146w-a2.dts    |   39 +
+ .../boot/dts/rockchip/px30-cobra-ltk050h3146w.dts  |   39 +
+ .../boot/dts/rockchip/px30-cobra-ltk050h3148w.dts  |   39 +
+ .../boot/dts/rockchip/px30-cobra-ltk500hd1829.dts  |   73 +
+ arch/arm64/boot/dts/rockchip/px30-cobra.dtsi       |  566 +++++
+ .../dts/rockchip/px30-pp1516-ltk050h3146w-a2.dts   |   39 +
+ .../boot/dts/rockchip/px30-pp1516-ltk050h3148w.dts |   39 +
+ arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi      |  602 +++++
+ arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi    |   22 +-
+ arch/arm64/boot/dts/rockchip/px30.dtsi             |    6 +
+ arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts    |  494 ++++
+ .../arm64/boot/dts/rockchip/rk3399-puma-haikou.dts |    8 -
+ arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi      |   48 +-
+ arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts |   62 +
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi           |  190 +-
+ arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts   |  456 ++++
+ arch/arm64/boot/dts/rockchip/rk3562-pinctrl.dtsi   | 2352 ++++++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3562.dtsi           | 1185 ++++++++++
+ arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts |   18 +-
+ .../arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dtsi |    5 +-
+ arch/arm64/boot/dts/rockchip/rk3568.dtsi           |    8 +-
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |   64 +
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  217 ++
+ arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi     |    4 +-
+ .../boot/dts/rockchip/rk3588-rock-5b-plus.dts      |  113 +
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |  953 +-------
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi   |  945 ++++++++
+ include/dt-bindings/clock/rockchip,rk3528-cru.h    |    6 +
+ include/dt-bindings/clock/rockchip,rk3576-cru.h    |   10 +
+ 34 files changed, 7664 insertions(+), 1008 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3146w-a2.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3146w.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk050h3148w.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra-ltk500hd1829.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/px30-cobra.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3146w-a2.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516-ltk050h3148w.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3562-evb2-v10.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3562-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3562.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+
+
 
 
