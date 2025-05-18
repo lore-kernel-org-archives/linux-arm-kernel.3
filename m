@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E45A4C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFB5C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HuTIFNEhjuQ85+QQGzAj+OEG2nYx+LsLsWxFAqZ7y7U=; b=B8U6gQD+so7Bt3A35Ia5tz09kG
-	2O+EgFbry48oeR90nH3ECbGHImGUX665XfCCb9vPKcb9ABmrlR5KOnYNzAjGwZp4vDuMAKvAr1axJ
-	+wZUQfKxANm52xYE81uAZZZJJwp/43EET/HoNAWTu1yf5u+VS27lYQk/xwEPsLu/MAznuMIdyOJVj
-	IUMqv84NMzqmudadbIlfbF79ixYHCj8uH87GKcicy4gZHRRXRrjCAoLO9y6A2B4p1qvm2mbgdAaZ8
-	AR1GnXP3SSHc31GiRIJZ2Rp1nyOp68sp+kCk2OUQv6KwbR0GDjfNbNIiK86PBcQEVOnAgAVoYFT5Q
-	XgzJO+9Q==;
+	bh=kri/rf6JyQa2611OX6tgyLofpFbOtaP/i+pbrhIk82I=; b=GQt8tv0EtTSNdGoy/Qt+m+C+Du
+	+sWVJXtLkFMOLQDjyoYaUyhxth/cD+URPPWkeANjGo/vXz33gSL5a+SM4RsHFP3VhpQ79XTHpYOLE
+	tMliECujDwPWNqQgfg1NWSwv+ONCxTTP/ZnQAI+bGamMxSo9b/F3obxuSFQajUpRYqeNB3O6ds708
+	Y4a4p2IQDfXWqS/9ykYzwCpUN8x2ZxtcaXsfGB9K+j0hfXIH3wy+jderUgz/gjotq+FtL/QdMg80S
+	Kt7s2fLyM1533P8eF4AuLtZwsf7hkQUZPf+7LQOacJuu5JKODvvHgMqRZp2XL9VE3BAT+JdeKjqee
+	12hEcecg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGx4Q-00000008dxo-3esN;
-	Mon, 19 May 2025 09:46:06 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uGx4N-00000008dv3-3bNH;
+	Mon, 19 May 2025 09:46:03 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwot-00000008ZVf-1dyM
+	id 1uGwod-00000008ZRA-0bLW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 09:30:04 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250519093000epoutp0229c26683ca3bea118f3e3227a3352ff8~A47Aek_Ei0861508615epoutp02E
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 09:30:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250519093000epoutp0229c26683ca3bea118f3e3227a3352ff8~A47Aek_Ei0861508615epoutp02E
+	Mon, 19 May 2025 09:29:48 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250519092944epoutp0498dfa93b5fc59d67d43606041e3a339f~A46xkiT7H1579015790epoutp04U
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 09:29:44 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250519092944epoutp0498dfa93b5fc59d67d43606041e3a339f~A46xkiT7H1579015790epoutp04U
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747647001;
-	bh=HuTIFNEhjuQ85+QQGzAj+OEG2nYx+LsLsWxFAqZ7y7U=;
+	s=mail20170921; t=1747646985;
+	bh=kri/rf6JyQa2611OX6tgyLofpFbOtaP/i+pbrhIk82I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IvLgBCEl5pTCow6NOOqjyk6Gmz8F/b/2sdeNFArtgBhv15nlINVfFavUliJs/EWOT
-	 fZuunkwRM5gX0G972BkdGNIL8myI5mWSisEf+ES0Ov/9zf99PI4qV9bfTSp6OPUDCV
-	 4Oe3mNf/5ogWJF0M0tugqgwH9fc64pfQ/sLffbpI=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	b=m+pb/Pg96GLP6EsD0mNwsbJajFPGlab8S4FDbKmBmbeO21wh/t/ZzoEf4+5Ewl8PY
+	 hE2/OqyDj8FIXWMa5VuEO2cms3yb8LzfrNc1GD3IarX4U4bo65KgxptJTG8f5Pnmg4
+	 sIJ4EwNF/Mv2avcrsmLZ8mVWPgjgHaKJpAh7OMnU=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
 	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250519093000epcas5p3c547f22a4a3250d09ced6e4c9d37dbc1~A46--ak0E1502815028epcas5p3U;
-	Mon, 19 May 2025 09:30:00 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.182]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4b1C863Wsfz6B9m4; Mon, 19 May
-	2025 09:29:58 +0000 (GMT)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250518193252epcas5p3e4d1d329f1e5616e842801ceb26728b6~AtgF5nFzO0813608136epcas5p3D;
-	Sun, 18 May 2025 19:32:52 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250518193252epsmtrp2afa5e6b63a5605d32da707ac5717baef~AtgF4rZI70226302263epsmtrp2b;
-	Sun, 18 May 2025 19:32:52 +0000 (GMT)
-X-AuditID: b6c32a2a-d63ff70000002265-dc-682a35e4c1eb
+	20250519092944epcas5p30963fd58c3ff137b3485a8519631fbc5~A46w8LK1C2598025980epcas5p36;
+	Mon, 19 May 2025 09:29:44 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.183]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4b1C7p322cz3hhTD; Mon, 19 May
+	2025 09:29:42 +0000 (GMT)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250518193239epcas5p4cb4112382560f38ad9708e000eb2335f~Atf54DPB01869218692epcas5p44;
+	Sun, 18 May 2025 19:32:39 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250518193239epsmtrp152a40df9dae4832cff5cfad71e4b6d0e~Atf53Bh3b2445124451epsmtrp1e;
+	Sun, 18 May 2025 19:32:39 +0000 (GMT)
+X-AuditID: b6c32a29-566fe7000000223e-2a-682a35d78a58
 Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	16.6B.08805.4E53A286; Mon, 19 May 2025 04:32:52 +0900 (KST)
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	92.C1.08766.7D53A286; Mon, 19 May 2025 04:32:39 +0900 (KST)
 Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
 	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250518193249epsmtip1c2eae81d2f215bb8b46b8b517bb25941~AtgCoIpr01176111761epsmtip1I;
-	Sun, 18 May 2025 19:32:49 +0000 (GMT)
+	20250518193236epsmtip1a2a9de1995dc37a809fae778aa737597~Atf3CuesD1176111761epsmtip1F;
+	Sun, 18 May 2025 19:32:36 +0000 (GMT)
 From: Shradha Todi <shradha.t@samsung.com>
 To: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.or,
@@ -70,43 +70,42 @@ Cc: manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org, kw@linux.com,
 	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
 	vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de,
 	m.szyprowski@samsung.com, jh80.chung@samsung.com, Shradha Todi
-	<shradha.t@samsung.com>
-Subject: [PATCH 07/10] dt-bindings: phy: Add PHY bindings support for FSD
- SoC
-Date: Mon, 19 May 2025 01:01:49 +0530
-Message-ID: <20250518193152.63476-8-shradha.t@samsung.com>
+	<shradha.t@samsung.com>, Pankaj Dubey <pankaj.dubey@samsung.com>
+Subject: [PATCH 04/10] PCI: exynos: Add platform device private data
+Date: Mon, 19 May 2025 01:01:46 +0530
+Message-ID: <20250518193152.63476-5-shradha.t@samsung.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250518193152.63476-1-shradha.t@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrAIsWRmVeSWpSXmKPExsWy7bCSnO4TU60Mg2lXuCwezNvGZvF30jF2
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrOIsWRmVeSWpSXmKPExsWy7bCSnO51U60Mg/M7TCwezNvGZvF30jF2
 	iyVNGRZr9p5jsph/5ByrxY1fbawWK77MZLc42vqf2eLlrHtsFg09v1ktNj2+xmpxedccNouz
-	846zWUxY9Y3F4uz3BUwWLX9aWCzWHrnLbnG3pZPV4v+eHewWvYdrLXbeOcHsIOrx+9ckRo+d
-	s+6yeyzYVOqxaVUnm8eda3vYPJ5cmc7ksXlJvUffllWMHke+Tmfx+LxJLoArissmJTUnsyy1
-	SN8ugSuj/fV0poId7BXfj09ibWDsYuti5OSQEDCR6Pr7nbGLkYtDSGA3o8T+SbdZIRKSEp8v
-	rmOCsIUlVv57zg5iCwl8YpTYfj4ZxGYT0JJo/NrFDGKLCJxglOi7ZQkyiFngPZPEzAW/wJqF
-	BXwlrrzbAGazCKhK7HnbztLFyMHBK2Al8aG7GsSUEJCX6O+QAKngFLCW2LZ+KhPEKiuJhU92
-	MoLYvAKCEidnPmEBsZmBypu3zmaewCgwC0lqFpLUAkamVYySqQXFuem5xYYFRnmp5XrFibnF
-	pXnpesn5uZsYwZGopbWDcc+qD3qHGJk4GA8xSnAwK4nwrtqskSHEm5JYWZValB9fVJqTWnyI
-	UZqDRUmc99vr3hQhgfTEktTs1NSC1CKYLBMHp1QDE6vGcv9Wqw0nbHbsjLePvrcp82FWTYj6
-	lfmS91a0FCTJ3nwg9He/FOPnptxOl6s2vqKXn3AEb+486bBm5blFahdkVMrTZq66HKf6Yek1
-	7d3nPQTO5nhP31r+85N94frIorMfrx+LiTnokOBsfV/npvtOj86mfWzLF2ZNuHD5VkrF0+9l
-	/Knf257XvxfmuzKFgbGq9F/B3wf+52927NHdUPGjfa2j1alzPjzpCgcd8vsNtonmXDjq8PhN
-	o8GvC68OR0xdd1508qfU7siH1+98POt2mzNr7onpZoJmErsUBX8VlVeeDP/xpDhL3CH6MR+j
-	WdVLQZOJG/20b5zdk77utOeR0lgjs3uW+vFR3zjd2pVYijMSDbWYi4oTAV1WeJEzAwAA
-X-CMS-MailID: 20250518193252epcas5p3e4d1d329f1e5616e842801ceb26728b6
+	846zWUxY9Y3F4uz3BUwWLX9aWCzWHrnLbnG3pZPVYtHWL+wW//fsYLfoPVxrsfPOCWYHMY/f
+	vyYxeuycdZfdY8GmUo9NqzrZPO5c28Pm8eTKdCaPzUvqPfq2rGL0OPJ1OovH501yAVxRXDYp
+	qTmZZalF+nYJXBmXemYzF+yWqpj0ZTl7A+NH0S5GTg4JAROJxkPHWbsYuTiEBHYzStz61sMM
+	kZCU+HxxHROELSyx8t9zdoiiT4wSS162sYMk2AS0JBq/doE1iAicYJTou2UJUsQsMItZYua3
+	HhaQhLCAi0T7jSVgDSwCqhJ7vneDxXkFrCTOzDnD1sXIAbRBXqK/QwIkzClgLbFt/VSwxUJA
+	JQuf7GSEKBeUODnzCVgrM1B589bZzBMYBWYhSc1CklrAyLSKUTK1oDg3PbfYsMAwL7Vcrzgx
+	t7g0L10vOT93EyM4LrU0dzBuX/VB7xAjEwfjIUYJDmYlEd5VmzUyhHhTEiurUovy44tKc1KL
+	DzFKc7AoifOKv+hNERJITyxJzU5NLUgtgskycXBKNTBJ3jbb0f/2823ZD813PxRuWhH1nmO+
+	+p2nPJarszRDvv2v/n9DwyJqfvDEu5fPcLx2tfxyoUnuUMuxI5ZdmexxM+RcF1ycOvlCZMnG
+	vOzyJb7vd7113xPYXuJexunxxV9qh0uE++WHEkHzi71eM3ScPLa56Z2fgRnHnEflpw4waQvl
+	ufqp6+vm8a86P+WdbnFfHsMTRy3fr9xt8ScXnudevidm7xru5vRJm/w0Cndx1JuGcq/pa+Wp
+	+jr5xmnPV1ubHNZ5yq5ua+Pyjn+W7v4n8N3BiaoJxpvfVpxR3WyqO+kM8+2am4vUZ1/h7CmI
+	tBGZ9JNx8qNPC3VPl81Y+k9zjvqjnafuzJq9fdKZ6a9SlFiKMxINtZiLihMB8uCLLjoDAAA=
+X-CMS-MailID: 20250518193239epcas5p4cb4112382560f38ad9708e000eb2335f
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: REQ_APPROVE
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250518193252epcas5p3e4d1d329f1e5616e842801ceb26728b6
+X-CMS-RootMailID: 20250518193239epcas5p4cb4112382560f38ad9708e000eb2335f
 References: <20250518193152.63476-1-shradha.t@samsung.com>
-	<CGME20250518193252epcas5p3e4d1d329f1e5616e842801ceb26728b6@epcas5p3.samsung.com>
+	<CGME20250518193239epcas5p4cb4112382560f38ad9708e000eb2335f@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_023003_742791_D895D89C 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20250519_022947_499940_77854D04 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,34 +120,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document PHY device tree bindings for Tesla FSD SoCs.
+In order to extend this driver to all Samsung manufactured SoCs having
+DWC PCIe controller, add private data structure which will hold platform
+device specific information. It holds function ops like DWC host ops,
+DWC generic ops, and PCI read/write ops which will be used as driver
+data for different compatibles.
 
+Suggested-by: Pankaj Dubey <pankaj.dubey@samsung.com>
 Signed-off-by: Shradha Todi <shradha.t@samsung.com>
 ---
- .../devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml  | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ drivers/pci/controller/dwc/pci-exynos.c | 32 ++++++++++++++++++++-----
+ 1 file changed, 26 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-index 41df8bb08ff7..3a5bff0fb82d 100644
---- a/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-@@ -15,10 +15,14 @@ properties:
-     const: 0
+diff --git a/drivers/pci/controller/dwc/pci-exynos.c b/drivers/pci/controller/dwc/pci-exynos.c
+index 286f4987d56f..540612e76f4b 100644
+--- a/drivers/pci/controller/dwc/pci-exynos.c
++++ b/drivers/pci/controller/dwc/pci-exynos.c
+@@ -49,9 +49,16 @@
+ #define EXYNOS_PCIE_ELBI_SLV_ARMISC		0x120
+ #define EXYNOS_PCIE_ELBI_SLV_DBI_ENABLE		BIT(21)
  
-   compatible:
--    const: samsung,exynos5433-pcie-phy
-+    oneOf:
-+      - enum:
-+          - samsung,exynos5433-pcie-phy
-+          - tesla,fsd-pcie-phy
++struct samsung_pcie_pdata {
++	struct pci_ops				*pci_ops;
++	const struct dw_pcie_ops		*dwc_ops;
++	const struct dw_pcie_host_ops		*host_ops;
++};
++
+ struct exynos_pcie {
+ 	struct dw_pcie			pci;
+ 	void __iomem			*elbi_base;
++	const struct samsung_pcie_pdata	*pdata;
+ 	struct clk_bulk_data		*clks;
+ 	struct phy			*phy;
+ 	struct regulator_bulk_data	supplies[2];
+@@ -220,7 +227,7 @@ static int exynos_pcie_host_init(struct dw_pcie_rp *pp)
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct exynos_pcie *ep = to_exynos_pcie(pci);
  
-   reg:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
+-	pp->bridge->ops = &exynos_pci_ops;
++	pp->bridge->ops = ep->pdata->pci_ops;
  
-   samsung,pmu-syscon:
-     $ref: /schemas/types.yaml#/definitions/phandle
+ 	exynos_pcie_assert_core_reset(ep);
+ 
+@@ -268,7 +275,7 @@ static int exynos_add_pcie_port(struct exynos_pcie *ep,
+ 	return 0;
+ }
+ 
+-static const struct dw_pcie_ops dw_pcie_ops = {
++static const struct dw_pcie_ops exynos_dw_pcie_ops = {
+ 	.read_dbi = exynos_pcie_read_dbi,
+ 	.write_dbi = exynos_pcie_write_dbi,
+ 	.link_up = exynos_pcie_link_up,
+@@ -279,6 +286,7 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct exynos_pcie *ep;
++	const struct samsung_pcie_pdata *pdata;
+ 	struct device_node *np = dev->of_node;
+ 	int ret;
+ 
+@@ -286,8 +294,11 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+ 	if (!ep)
+ 		return -ENOMEM;
+ 
++	pdata = of_device_get_match_data(dev);
++
++	ep->pdata = pdata;
+ 	ep->pci.dev = dev;
+-	ep->pci.ops = &dw_pcie_ops;
++	ep->pci.ops = pdata->dwc_ops;
+ 
+ 	ep->phy = devm_of_phy_get(dev, np, NULL);
+ 	if (IS_ERR(ep->phy))
+@@ -363,9 +374,9 @@ static int exynos_pcie_resume_noirq(struct device *dev)
+ 		return ret;
+ 
+ 	/* exynos_pcie_host_init controls ep->phy */
+-	exynos_pcie_host_init(pp);
++	ep->pdata->host_ops->init(pp);
+ 	dw_pcie_setup_rc(pp);
+-	exynos_pcie_start_link(pci);
++	ep->pdata->dwc_ops->start_link(pci);
+ 	return dw_pcie_wait_for_link(pci);
+ }
+ 
+@@ -374,8 +385,17 @@ static const struct dev_pm_ops exynos_pcie_pm_ops = {
+ 				  exynos_pcie_resume_noirq)
+ };
+ 
++static const struct samsung_pcie_pdata exynos_5433_pcie_rc_pdata = {
++	.dwc_ops		= &exynos_dw_pcie_ops,
++	.pci_ops		= &exynos_pci_ops,
++	.host_ops		= &exynos_pcie_host_ops,
++};
++
+ static const struct of_device_id exynos_pcie_of_match[] = {
+-	{ .compatible = "samsung,exynos5433-pcie", },
++	{
++		.compatible = "samsung,exynos5433-pcie",
++		.data = (void *) &exynos_5433_pcie_rc_pdata,
++	},
+ 	{ },
+ };
+ 
 -- 
 2.49.0
 
