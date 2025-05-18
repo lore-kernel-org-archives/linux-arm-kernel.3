@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34367C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:04:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E71DC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+xC9UkJXY5JOXOk/2b7g0F3PoOZpaKShkIk0Mc9SNGk=; b=IdQy5i5S5hi5FjrDeEePYRbpLT
-	8wuQrIuYg+r6+WY4+4Yyf4GBA/s1X84yNJa8ArP2qDuku+uCcJlV6PaEtVbNyI8oWUgTNKukhyJeP
-	RPPV+QY8vBBMoV5W4XBEWVVtMLRM1N7oTY46nuhfnq5ZN5YGJHWaDjVxjCvXjurrp60bkPRJssNh2
-	RKZOyLbR1Ls/7NJqukwwyGeblT8tSuOT6cgxOGOFDfhXxfFS9JQr8AeHpCbGL+IVAV5R6eUZDe32x
-	8nP+wfeFUub8WQQI6WlP77DRgopAT6HNuQGLpMK4FmLF1WFsD6Q4pF3KZBs/N8aukV6fpa78BsmZc
-	adcKAMfg==;
+	bh=3vhXblRFFwM/P/okDicuxONQXGTlkPhFwvYUgdAVGKI=; b=S3gDxoe+AuahVrCpdUsXFbnktR
+	eEPfegc7lf3CwVxzF3yzqF9ZHgnnFWVQ0UMx/1BLP+HsGLIGYqNq2z8w2PcjkmMPbuFwp7gv+69iK
+	5h+ECJTye956aNVdHL79wyz84XJzneTU+STtWHKC9NE+JUdDIhBCTakotVyMr9fHl4YmPc0QuDty+
+	UfCQFF1swQ73kPYKJFjkdBKhE2OiH1Qr/+tjTSRxhR/o4gojsS1Af4U43D1aaQM/fLeoGi3iGn5B/
+	bmjSHN9M71n6eYZRwPRfikImF6HfJCRGdAGqgyVmxuYBNzv6DRSun8lxJ+LNWxjGmCq0Rn/3yHRQH
+	6YoFnwlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGm6u-00000007a7H-0YqI;
-	Sun, 18 May 2025 22:03:56 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uGmA9-00000007aai-0yD5;
+	Sun, 18 May 2025 22:07:17 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGm2w-00000007Zpn-0v4j;
-	Sun, 18 May 2025 21:59:51 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43ea40a6e98so38967755e9.1;
-        Sun, 18 May 2025 14:59:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747605588; x=1748210388; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+xC9UkJXY5JOXOk/2b7g0F3PoOZpaKShkIk0Mc9SNGk=;
-        b=GDF+QAaQW0YHSDlNPJb0ZtJVunAigeVQ6gGa5u4nXn9JM5hP/9roQa2htXsdIZ6BhY
-         7QMbXcgTN3kPr3Lc2V92+ufBqB9XaQJsXNtiEEwNGot5QOA8HMlXSrlRxq8tROv9eJHf
-         0aO8LQvjnuKMtAVz0PurMfPZ04cLhPE0k57TZwigfbxsR4zo410V7DdCgE3lXGiRXlQO
-         5W0NkfLtAmIZj5h32R/G2MNu+eFL5A4FYewKK5KH8HbCiwa9kHx9adp8+a31SEfn7k3I
-         saFnc/ePF8Nr4hcybdDzK+WOnPqii1fk4GW+whnYl/kdK/kcXH3lbFGPaFjj5OzeWg8/
-         qi+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747605588; x=1748210388;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+xC9UkJXY5JOXOk/2b7g0F3PoOZpaKShkIk0Mc9SNGk=;
-        b=ZyKwPbDd8mqBZf10zizSKb8jAwx5DdmMkm1JgRVnLrDYKSmxggeUG8mDp6XyvP4LPG
-         PcNRwgF4baizdMlnuz55RRR9pXs8lrTY/5PdgHAY74k0RiF1f9fYwo7f3xBVkGVh6AWg
-         xPSva73iBtRdCMaFSgKBis8BtAb+OmOdZ6kUtkWu79AiSdCt6ROR+o0AF+PkZYYhTp5M
-         XcfjgF9XRo+ewJH4Zlcdt68eDKFtSs0KNMSgH+m2UKmyGcjEB4BX0xKWQ+LdRJZVJHuv
-         5sxsNBSUtD3IuiV9Y0J7A5fOO+CERE1Et0eEx4LTeK+VbWw2AQGHaIt4r5Mj7htgRIlH
-         3y3A==
-X-Forwarded-Encrypted: i=1; AJvYcCUCu0MGW6txvBdizWtm2c3q8X5Y+zb0N0sPomcWd+/XKC4FIPZQmDwB9KUhpn1vRSoA8n8pK8tJT0n4jupS4o4/@lists.infradead.org, AJvYcCUSQxCrsZ9C+Toe+DmfUer9C3Bb3yBWBfiMyjGy3VT/2fuaNAxELw9vI6JtCHmIHCRWnhKBq+0khwdDoXUEcpg=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZUEK3xyVagNJkfdj8COyJU0dzM6IJ4hXat3wdgomLsuj30vu0
-	KegKh8Vh3coWHCBeKLYnvUDbKFMMRTcYKOi3JQh8TZKR4uzPOkqi1Ho1
-X-Gm-Gg: ASbGncvlqOBUKKsOwQb6jSGnzvmzt+TsPPdT6tDAGYi6NyMTplaNVPVcs0b6dxd3S+M
-	53OFFS8f1fcTyLb6Y9WHTm43489BZ1brzJSzuRDKAwKDaEROEWS7vLunRv32YAtKkpsQjhfn/vH
-	dNKupHS4YdbecVgPeJUw1atH2H9sgTjfXTb3BjwJs1SwHa8HY/2OvP2enRbDWtKsstxYcy8DAaX
-	RJrbThrgT7Dya7R1EbQ1AzjdUmzn0ZlBTSsnnidTBvKO2Xp5c7QOxoAHKjkmiYgdSBjQJnzMglr
-	ThZF4OGsOX3OUc4oEeYtjuXe6KvWK4u7LC40tTa8OicX9KWi3gEyVpkhWt7N+83elXIMxUO7Oev
-	gub/16JJIMu+WG7Cip/BD2egHDHg0fN5iItspb/z4YxzMNWeJxo5b7Gzf6Y78e3hziAysGk14H4
-	kjBfSw+Umklg==
-X-Google-Smtp-Source: AGHT+IFvLBK7QKQLjbsresGOshkAq1Y2KEzfkr14fsl/n+XnbtnLa4n6aQg00/piBwhOnMY4ArgxzQ==
-X-Received: by 2002:a05:600c:3e18:b0:440:6852:5b31 with SMTP id 5b1f17b1804b1-44302ae93ffmr91509075e9.10.1747605588447;
-        Sun, 18 May 2025 14:59:48 -0700 (PDT)
-Received: from cypher.home.roving-it.com (2.c.4.1.7.3.6.4.2.a.a.3.0.f.c.2.1.8.6.2.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:2681:2cf0:3aa2:4637:14c2])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-442f39ef81csm185711995e9.34.2025.05.18.14.59.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 May 2025 14:59:48 -0700 (PDT)
-From: Peter Robinson <pbrobinson@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
+	id 1uGm89-00000007aF2-0MCY;
+	Sun, 18 May 2025 22:05:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=3vhXblRFFwM/P/okDicuxONQXGTlkPhFwvYUgdAVGKI=; b=AaF+5M+UvBJEspTTK4LVn+ALh8
+	1tcASx13Vmu96SIhGVcZoqQwS68qSQPmMXWw+DQCIb1gvy9MBuot+KgEdqmLiQ/2JWxUuMEVhSCgW
+	RCrWq6IYtvVYaSxB/Uo9+CQiuY1CahOj+KBDGiS45wDrHvDGX4GoGbnRRZfY48eOIXWB9fGh/rgf0
+	d72g2mrulIATZXkK89mFQ5qWQY+O8e8kPWKqviIbrCeWT8wjIRw37pkSnW4kveR633QUkk5EVNjbY
+	AsZ7L5eoYjXTpiPdA1VxT+0M53HSZEkr6Cw8SUEHbSS87Ol3UMX42n3yyDJwxdEnntVftpCoJHnvW
+	aq5ibW2Q==;
+Received: from i53875a50.versanet.de ([83.135.90.80] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uGm80-0004gv-Bq; Mon, 19 May 2025 00:05:04 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ziyao@disroot.org,
+	kever.yang@rock-chips.com,
+	nicolas.frattaroli@collabora.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	Peter Geis <pgwipeout@gmail.com>
-Cc: Peter Robinson <pbrobinson@gmail.com>
-Subject: [PATCH 2/2] arm64: dts: rockchip: add overlay for RockPro64 screen
-Date: Sun, 18 May 2025 22:59:34 +0100
-Message-ID: <20250518215944.178582-2-pbrobinson@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250518215944.178582-1-pbrobinson@gmail.com>
-References: <20250518215944.178582-1-pbrobinson@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 4/6] arm64: dts: rockchip: move rk3528 pinctrl node outside the soc node
+Date: Mon, 19 May 2025 00:04:46 +0200
+Message-ID: <20250518220449.2722673-5-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250518220449.2722673-1-heiko@sntech.de>
+References: <20250518220449.2722673-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_145950_255909_C75BC6A8 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20250518_150513_144364_143C5258 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,145 +79,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Pine64 touch panel is a panel consisting of the Feiyang fy07024di26a30d
-panel with a Goodix gt911 touch screen. Add a device tree overlay to
-allow the display to be easily used on the device.
+The non-mmio pinctrl node is not supposed to be inside the soc simple-bus
+as dtc points out:
 
-This was previously included in the main device tree but left disabled
-by default which still required rebuilding the DT to use the device, now
-overlays can go upstream the overlay is the best way to handle the
-add on devices.
+../arch/arm64/boot/dts/rockchip/rk3528.dtsi:870.20-936.5: Warning (simple_bus_reg): /soc/pinctrl: missing or empty reg/ranges property
 
-Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+Move the pinctrl node outside and adapt the indentation.
+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/arm64/boot/dts/rockchip/Makefile         |  9 ++
- .../dts/rockchip/rk3399-rockpro64-screen.dtso | 89 +++++++++++++++++++
- 2 files changed, 98 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi | 136 +++++++++++------------
+ 1 file changed, 68 insertions(+), 68 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 3e8771ef69ba1..c7b13bff3ac20 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -77,6 +77,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rock-pi-4c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rock960.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rockpro64-v2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rockpro64.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rockpro64-screen.dtso
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
-@@ -209,6 +210,14 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-puma-haikou-haikou-video-demo.dtb
- rk3399-puma-haikou-haikou-video-demo-dtbs := rk3399-puma-haikou.dtb \
- 	rk3399-puma-haikou-video-demo.dtbo
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+index b2724c969a76..d1c72b52aa4e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+@@ -95,6 +95,74 @@ scmi_clk: protocol@14 {
+ 		};
+ 	};
  
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rockpro64-screen.dtb
-+rk3399-rockpro64-screen-dtbs := rk3399-rockpro64.dtb \
-+	rk3399-rockpro64-screen.dtbo
++	pinctrl: pinctrl {
++		compatible = "rockchip,rk3528-pinctrl";
++		rockchip,grf = <&ioc_grf>;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
 +
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-rockpro64-screen.dtb
-+rk3399-rockpro64-v2-screen-dtbs := rk3399-rockpro64-v2.dtb \
-+	rk3399-rockpro64-screen.dtbo
++		gpio0: gpio@ff610000 {
++			compatible = "rockchip,gpio-bank";
++			reg = <0x0 0xff610000 0x0 0x200>;
++			clocks = <&cru PCLK_GPIO0>, <&cru DBCLK_GPIO0>;
++			interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>;
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl 0 0 32>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++		};
 +
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
- rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
- 	rk3568-wolfvision-pf5-display-vz.dtbo \
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
-new file mode 100644
-index 0000000000000..26899cd67fc9b
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso
-@@ -0,0 +1,89 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2017 Fuzhou Rockchip Electronics Co., Ltd.
-+ * Copyright (c) 2025 Peter Robinson <pbrobinson@gmail.com>
-+ */
++		gpio1: gpio@ffaf0000 {
++			compatible = "rockchip,gpio-bank";
++			reg = <0x0 0xffaf0000 0x0 0x200>;
++			clocks = <&cru PCLK_GPIO1>, <&cru DBCLK_GPIO1>;
++			interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>;
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl 0 32 32>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++		};
 +
-+/dts-v1/;
-+/plugin/;
++		gpio2: gpio@ffb00000 {
++			compatible = "rockchip,gpio-bank";
++			reg = <0x0 0xffb00000 0x0 0x200>;
++			clocks = <&cru PCLK_GPIO2>, <&cru DBCLK_GPIO2>;
++			interrupts = <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>;
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl 0 64 32>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++		};
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
++		gpio3: gpio@ffb10000 {
++			compatible = "rockchip,gpio-bank";
++			reg = <0x0 0xffb10000 0x0 0x200>;
++			clocks = <&cru PCLK_GPIO3>, <&cru DBCLK_GPIO3>;
++			interrupts = <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>;
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl 0 96 32>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++		};
 +
-+&{/} {
-+	avdd: regulator-avdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "avdd";
-+		regulator-min-microvolt = <11000000>;
-+		regulator-max-microvolt = <11000000>;
-+		vin-supply = <&vcc3v3_s0>;
-+	};
-+
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		brightness-levels = <0 4 8 16 32 64 128 255>;
-+		default-brightness-level = <5>;
-+		pwms = <&pwm0 0 1000000 0>;
-+		status = "okay";
-+	};
-+};
-+
-+&i2c4 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	touch: touchscreen@5d {
-+		compatible = "goodix,gt911";
-+		reg = <0x5d>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <RK_PD5 IRQ_TYPE_EDGE_FALLING>;
-+		AVDD28-supply = <&vcc3v0_touch>;
-+		VDDIO-supply = <&vcc3v0_touch>;
-+		irq-gpios = <&gpio4 RK_PD5 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_HIGH>;
-+		status = "okay";
-+	};
-+};
-+
-+&mipi_dsi {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	clock-master;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		mipi_out: port@1 {
-+			reg = <1>;
-+
-+			mipi_out_panel: endpoint {
-+				remote-endpoint = <&mipi_in_panel>;
-+			};
++		gpio4: gpio@ffb20000 {
++			compatible = "rockchip,gpio-bank";
++			reg = <0x0 0xffb20000 0x0 0x200>;
++			clocks = <&cru PCLK_GPIO4>, <&cru DBCLK_GPIO4>;
++			interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
++			gpio-controller;
++			#gpio-cells = <2>;
++			gpio-ranges = <&pinctrl 0 128 32>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
 +		};
 +	};
 +
-+	mipi_panel: panel@0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		compatible = "feiyang,fy07024di26a30d";
-+		reg = <0>;
-+		avdd-supply = <&avdd>;
-+		backlight = <&backlight>;
-+		dvdd-supply = <&vcc3v3_s0>;
-+
-+		port {
-+			mipi_in_panel: endpoint {
-+				remote-endpoint = <&mipi_out_panel>;
-+			};
-+		};
-+	};
-+};
-+
-+&pwm0 {
-+	status = "okay";
-+};
+ 	psci {
+ 		compatible = "arm,psci-1.0", "arm,psci-0.2";
+ 		method = "smc";
+@@ -866,74 +934,6 @@ dmac: dma-controller@ffd60000 {
+ 			#dma-cells = <1>;
+ 			arm,pl330-periph-burst;
+ 		};
+-
+-		pinctrl: pinctrl {
+-			compatible = "rockchip,rk3528-pinctrl";
+-			rockchip,grf = <&ioc_grf>;
+-			#address-cells = <2>;
+-			#size-cells = <2>;
+-			ranges;
+-
+-			gpio0: gpio@ff610000 {
+-				compatible = "rockchip,gpio-bank";
+-				reg = <0x0 0xff610000 0x0 0x200>;
+-				clocks = <&cru PCLK_GPIO0>, <&cru DBCLK_GPIO0>;
+-				interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>;
+-				gpio-controller;
+-				#gpio-cells = <2>;
+-				gpio-ranges = <&pinctrl 0 0 32>;
+-				interrupt-controller;
+-				#interrupt-cells = <2>;
+-			};
+-
+-			gpio1: gpio@ffaf0000 {
+-				compatible = "rockchip,gpio-bank";
+-				reg = <0x0 0xffaf0000 0x0 0x200>;
+-				clocks = <&cru PCLK_GPIO1>, <&cru DBCLK_GPIO1>;
+-				interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>;
+-				gpio-controller;
+-				#gpio-cells = <2>;
+-				gpio-ranges = <&pinctrl 0 32 32>;
+-				interrupt-controller;
+-				#interrupt-cells = <2>;
+-			};
+-
+-			gpio2: gpio@ffb00000 {
+-				compatible = "rockchip,gpio-bank";
+-				reg = <0x0 0xffb00000 0x0 0x200>;
+-				clocks = <&cru PCLK_GPIO2>, <&cru DBCLK_GPIO2>;
+-				interrupts = <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>;
+-				gpio-controller;
+-				#gpio-cells = <2>;
+-				gpio-ranges = <&pinctrl 0 64 32>;
+-				interrupt-controller;
+-				#interrupt-cells = <2>;
+-			};
+-
+-			gpio3: gpio@ffb10000 {
+-				compatible = "rockchip,gpio-bank";
+-				reg = <0x0 0xffb10000 0x0 0x200>;
+-				clocks = <&cru PCLK_GPIO3>, <&cru DBCLK_GPIO3>;
+-				interrupts = <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>;
+-				gpio-controller;
+-				#gpio-cells = <2>;
+-				gpio-ranges = <&pinctrl 0 96 32>;
+-				interrupt-controller;
+-				#interrupt-cells = <2>;
+-			};
+-
+-			gpio4: gpio@ffb20000 {
+-				compatible = "rockchip,gpio-bank";
+-				reg = <0x0 0xffb20000 0x0 0x200>;
+-				clocks = <&cru PCLK_GPIO4>, <&cru DBCLK_GPIO4>;
+-				interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
+-				gpio-controller;
+-				#gpio-cells = <2>;
+-				gpio-ranges = <&pinctrl 0 128 32>;
+-				interrupt-controller;
+-				#interrupt-cells = <2>;
+-			};
+-		};
+ 	};
+ };
+ 
 -- 
-2.49.0
+2.47.2
 
 
