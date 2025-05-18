@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A27C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 16:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5865C3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 16:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H8auBAsWmzOyx9AlQEKXQW3lYZT3R7zY1mzxA5CFuTA=; b=1Rbx6UsINYSK5Y
-	ZFmxMufc57LebWnFVyj+dqF+s3jxKDxAX94UoI46KMSh29+1euuh054kqolTsvHOYgYI3zT1BkSpT
-	ilu5FDs0Oji/wVXEAlTNuNh6t3HQlI80vBKSFpw6dG2OL9znv2Gk1LH0TJ4OHp9/LCIW6bMjo+6PD
-	AwRVnrIqszqchDv8aUgrGdlCtrDlJJtv/wZkrQWtC5TMG9ARpb6Hxqjx05R2YjJNfXNQVivtH28Ip
-	j+7ZLjh/Y0RGJzGKh0WPZ/nZWU2i18b9pQto8NplAZTxXn+rS7670l2cypGYwjy/vU8WMaMk+Edo5
-	8oz30YR8ykcHDvDcWb3Q==;
+	List-Owner; bh=FMCSgP1jqOSpYfOyIfGCKgapP8IcMXQbC49KZ7zqoq0=; b=WhJc/A4VTz+Q/i
+	xEBe+8zaeGyXFNJ6+fpA4TsRbbibLDZM8GKCvF9MHOgMqyNUdZKbBc1iFRRXNhIcamvJ/WVVnjmD0
+	7LLw1zfeqMLJCP8yLLZhoaO5Q2vGWVqBPykJtaxqnhnFSoN80C7PM6sbPtHgYa+4mhw6G28mvof20
+	oEzsgQrR3QYzWgD+529lc7ZSglA84d4sx3SqAiIHMOOteKN7S/4+xGMdkrzxttKIswOEURiUcg9tb
+	/mBHR64q+SO8ZbUbwD22tsCrFaqib8aDwf9apuDFAna9054kZRNBWlVblRCojqY6Y7lqJvW7ySko8
+	QHy6UZ5wznAneVTsJoUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGhG9-00000007JLc-3MRI;
-	Sun, 18 May 2025 16:53:09 +0000
-Received: from mail-io1-f44.google.com ([209.85.166.44])
+	id 1uGhI8-00000007JUc-2L8j;
+	Sun, 18 May 2025 16:55:12 +0000
+Received: from mail-lj1-f178.google.com ([209.85.208.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGh9i-00000007IrL-0q8E
+	id 1uGhE1-00000007JDO-1Qho
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 May 2025 16:46:31 +0000
-Received: by mail-io1-f44.google.com with SMTP id ca18e2360f4ac-85e73562577so403205439f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 09:46:29 -0700 (PDT)
+	Sun, 18 May 2025 16:50:58 +0000
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-327fcd87a3cso28951131fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 09:50:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747586784; x=1748191584;
+        d=1e100.net; s=20230601; t=1747587051; x=1748191851;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=H8auBAsWmzOyx9AlQEKXQW3lYZT3R7zY1mzxA5CFuTA=;
-        b=gXXuZMPrDUMILgz5mD5TnrTL5U0YJ/pcs7V7sMJtW/RsImZVM75rCbGMSxJa3sFI3T
-         LbUh7ByzBGmiSTiCdA1FkwXGvr0eVDMahxggPB6oHicMBl9C0yeam6jSnx+1YqqO2K5+
-         CwsDRSEvzXOmz4CeyVix/pd49XKpjH7udVJ/9Vkz4uCL1m94AIe4L+AeBMam+8Mfbzhw
-         +9oLoj0OBSOQBU0Z+b6aI+OfAnhFKmueCoWlz3OMyv/4Fa0Ijtcuy2C+vqsgXmYF90cF
-         S3/+WoUVVlzJNxcUKsGQIiB2oKd0NTFvqTUo4T36iFk3x56yB4H6WsjF7bArdWnkS+g8
-         LJKw==
-X-Forwarded-Encrypted: i=1; AJvYcCW5taacvW/FioWPnTlDYmsjBDsmVHvY7D56Cn5I5Atgw2eZGW9aLvRWDXDD+SyIVwc9UW4ZcKxYBGMLu0onqIzp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymjgyp9dPpVghSOeXfw6pnYDplGLwvfWkUCFSGXrZtKvl+pGVr
-	aATtkumk3r8CHGqHNdw8urNowLLdpnuiQ5+Ue5T7YmFE96XwahgJJene5EaKLkasLxk=
-X-Gm-Gg: ASbGncsHV0A3f3UrnIM8J6+o9zKWTQOvSlz3FkkhDsAW0OI50AnFWEd/IUrfrrmxz/J
-	r6eFlt64bIllkGrA10Nb9ib6C+34UIN8JqGXgIdAD0NwtpsiJSL1FlIOmaMvIUqBbOIs07zKmys
-	UsTY/5tJ19EfsRA2xDQCzspDBKkH0ycA3cKKpJtL8I8n8VFW4rShuJukQ7Z+YBP3sKZBYuQhm27
-	zXcc+VKCq5yhH3Igm6sz4nRNe/DbjaoLqUPv0VMuX5wnTOVohMP7miWSF/AaFYzZnEBvptPk5cn
-	S9TUlw3urfEOiLQ9nGbr/vz9gku8k+cMi47UCoXsF3cShqv/23EjvqQgrwoLE7I2BtLODxZD/RG
-	mKoGrajtq
-X-Google-Smtp-Source: AGHT+IHejHotF+XlB/M+SKekNtKRHVrhhZ0PMwZbymV6QzwfcVlSK6tSLdixYuFcKcXx3FfSHFP/FQ==
-X-Received: by 2002:a05:6602:3a81:b0:867:3889:45e2 with SMTP id ca18e2360f4ac-86a2322a6cfmr1191105739f.10.1747586784160;
-        Sun, 18 May 2025 09:46:24 -0700 (PDT)
-Received: from mail-il1-f182.google.com (mail-il1-f182.google.com. [209.85.166.182])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-86a2372cc53sm135209939f.44.2025.05.18.09.46.23
+        bh=FMCSgP1jqOSpYfOyIfGCKgapP8IcMXQbC49KZ7zqoq0=;
+        b=w93Z8IUild2WHpnauvR6kKIGcJelD6oi2WcN9wMWvjahxeAgjX5SWur5wv4rQHkQSc
+         N28SlLib8oc9zyrLHUfv1+WtZNFCE6YR3UO5emIP4JqJ8mtRwkK3iSehCAX90ymGK8MC
+         xdc4NSrarhkO+aaPd/SosDd0SO5HLoi8NiGUjcYALdxlZwqTwSxHFp63ugu4t9mjF6RA
+         tRdpLNt2xgF2SUdzPxXhVfQOm/wikMRrceEkiYgnuI5wIyqj0s1Rl42At+Z2sARa4AJw
+         z1D+ZaJfjVEAMctNWzgZrGZcP/yxs2zEiCIrL2ExjmjgPEEmfRFWiAjisSIDMWLiUwFg
+         lwCA==
+X-Forwarded-Encrypted: i=1; AJvYcCW9vSqnJkpU3u3x+GoBH/JDmz1A91pN/I61oFPQghawAQuL6v85aeiICNSMvYAil404q2vShFZ+dcm2BIBlessW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3kBAKkg7Xa+ZmZDXnAc6SlR7SP37U48ynAbQOUI58RDDZQN+g
+	mBtrqfavLKJm58QOQBextcVT3UvC8icnoRqgxK4H+hD3azgGItAohppAePvh7FLWtfM=
+X-Gm-Gg: ASbGncsNrov23pa6R9P0/N0MYBNly+6z2/OPWzS03CvSaLRpRRV+qQ4uMHnEMeBEgXF
+	Tt3rDrD3u3H+EVYnBIaBd/4jrL/zWoSG2xpFOHCTnbltIskzXXTeY+W+xVV6Y/RNPDzFKqlxB/j
+	TGd9HJKkqllrLowD2V8KwDjLkieT3lOzMBlhxS46a0LUm9oAnb/fvSG9E2rQ0FuhXhqQbwHDK0i
+	zQ39ebrhsezRpByjfzBlXcdpGnBWvIVdn6EhERI5pzqlZtJVlnTPa9DNLCOXQ3aCE0TjeqayCBB
+	FKC+lRy4ZCQ992wRGGjhBfNO5iuFVb7qPoGegrAAboaAB+lsA2NSwF6iGF7uDI8wOO8XEu31oJ+
+	sZcSKrhwp
+X-Google-Smtp-Source: AGHT+IG2Cydcedh1RV4wqpTCGDiIk/2rtz0Sxxh7wm6696leelG2UCU2ncA/tpzYHAbjDXnieiPvmw==
+X-Received: by 2002:a2e:8a88:0:b0:328:685:7cc4 with SMTP id 38308e7fff4ca-32809782356mr26567141fa.30.1747587051206;
+        Sun, 18 May 2025 09:50:51 -0700 (PDT)
+Received: from mail-lj1-f174.google.com (mail-lj1-f174.google.com. [209.85.208.174])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-328085cf95bsm15362141fa.108.2025.05.18.09.50.50
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 18 May 2025 09:46:23 -0700 (PDT)
-Received: by mail-il1-f182.google.com with SMTP id e9e14a558f8ab-3dc6f6530c5so1220025ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 09:46:23 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUf2wCuc1c5Em3Vs10GXet7pb/79LUb7XXfwfCEGU2t1FUmSR80nPTCrsYYjktr78LvojNM0WoHy25nUF4uegyO@lists.infradead.org
-X-Received: by 2002:a05:6e02:3c02:b0:3d8:1dc7:ca7a with SMTP id
- e9e14a558f8ab-3db84296d9amr115461995ab.5.1747586782845; Sun, 18 May 2025
- 09:46:22 -0700 (PDT)
+        Sun, 18 May 2025 09:50:50 -0700 (PDT)
+Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-327fcd87a3cso28950671fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 09:50:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCX9mHP/iaGlmVL/FbOisRb03DhY8+V+lijoLGRfKkVjxkVq9/5nClkSbDa1dTJgr2B02gDvURZnb4VydGKaIAM4@lists.infradead.org
+X-Received: by 2002:a2e:8a88:0:b0:328:685:7cc4 with SMTP id
+ 38308e7fff4ca-32809782356mr26567051fa.30.1747587050098; Sun, 18 May 2025
+ 09:50:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250516105101.11650-1-ryan@testtoast.com> <20250516105101.11650-8-ryan@testtoast.com>
-In-Reply-To: <20250516105101.11650-8-ryan@testtoast.com>
+References: <20250516105101.11650-1-ryan@testtoast.com> <20250516105101.11650-7-ryan@testtoast.com>
+In-Reply-To: <20250516105101.11650-7-ryan@testtoast.com>
 From: Chen-Yu Tsai <wens@csie.org>
-Date: Mon, 19 May 2025 00:46:08 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66Lw9bne9Zch4kyAbWx4Zz=VPh3EJAta0M6XxdaSi-d7w@mail.gmail.com>
-X-Gm-Features: AX0GCFt32y8vwGnO09UOLDY6RStkxid4HewGHZjKOLQgFiYtO_lDbLwjct7FmIQ
-Message-ID: <CAGb2v66Lw9bne9Zch4kyAbWx4Zz=VPh3EJAta0M6XxdaSi-d7w@mail.gmail.com>
-Subject: Re: [PATCH v11 7/8] drm: sun4i: de33: vi_scaler: add Display Engine
- 3.3 (DE33) support
+Date: Mon, 19 May 2025 00:50:37 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67oQhoM9aFnOX9njcF3USmEz_80oqfrmY7jrMboHT8fEA@mail.gmail.com>
+X-Gm-Features: AX0GCFthsimZ1Vpr-P15pdmflifaZ2Czon48jDxa1m9hAkmxkrKyvTCzCS0vxW4
+Message-ID: <CAGb2v67oQhoM9aFnOX9njcF3USmEz_80oqfrmY7jrMboHT8fEA@mail.gmail.com>
+Subject: Re: [PATCH v11 6/8] drm: sun4i: de33: mixer: add Display Engine 3.3
+ (DE33) support
 To: Ryan Walklin <ryan@testtoast.com>
 Cc: Maxime Ripard <mripard@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
@@ -85,12 +85,13 @@ Cc: Maxime Ripard <mripard@kernel.org>,
 	Hironori KIKUCHI <kikuchan98@gmail.com>, Philippe Simons <simons.philippe@gmail.com>, 
 	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, dri-devel@lists.freedesktop.org, 
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	Chris Morgan <macromorgan@hotmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_094630_243720_BB0FF5A8 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250518_095057_381753_5EB716B8 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,19 +107,99 @@ Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
+
 On Fri, May 16, 2025 at 6:52=E2=80=AFPM Ryan Walklin <ryan@testtoast.com> w=
 rote:
 >
 > From: Jernej Skrabec <jernej.skrabec@gmail.com>
 >
-> The vi_scaler appears to be used in preference to the ui_scaler module
-> for hardware video scaling in the DE33.
+> The DE33 is a newer version of the Allwinner Display Engine IP block,
+> found in the H616, H618, H700 and T507 SoCs. DE2 and DE3 are already
+> supported by the mainline driver.
 >
-> Enable support for this scaler.
+> Notable features (from the H616 datasheet and implemented):
+> - 4096 x 2048 (4K) output support
+>
+> Other features (implemented but not in this patchset):
+> - AFBC ARM Frame Buffer Compression support
+> - YUV pipeline support
+>
+> The DE2 and DE3 engines have a blender register range within the
+> mixer engine register map, whereas the DE33 separates this out into
+> a separate display group, and adds a top register map.
+>
+> The DE33 also appears to remove the global double buffer control
+> register, present in the DE2 and DE3.
+>
+> Extend the mixer to support the DE33.
 >
 > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 > Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+> Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
 > Acked-by: Maxime Ripard <mripard@kernel.org>
+>
+> ---
+> Changelog v4..v5:
+> - Whitespace fixes
+> - Correct strict mode warnings from checkpatch.pl
+>
+> Changelog v7..v8:
+> - Add top/disp regmaps to mixer for DE33
+> - Remove YUV-specific code
+> - Remove use of global double buffer
+> - Remove unneeded if/then parentheses and fix an alignment issue as sugge=
+sted by checkpatch.pl
+>
+> Changelog v9..v10:
+> - Use names from vendor BSP kernel for register blocks.
+>
+> Changelog v10..v11:
+> - move before vi_scaler patch as vi_scaler code references new DE33 enum.
+>
+> Changelog v10..v11:
+> - Convert de_type enum to uppercase
+> ---
+>  drivers/gpu/drm/sun4i/sun8i_mixer.c | 82 +++++++++++++++++++++++++----
+>  drivers/gpu/drm/sun4i/sun8i_mixer.h | 15 +++++-
+>  2 files changed, 84 insertions(+), 13 deletions(-)
+>
 
-Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+[...]
+
+> diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.h b/drivers/gpu/drm/sun4i/=
+sun8i_mixer.h
+> index b75008d05fc9..870f9b9daf0d 100644
+> --- a/drivers/gpu/drm/sun4i/sun8i_mixer.h
+> +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.h
+> @@ -21,6 +21,9 @@
+>  #define SUN8I_MIXER_GLOBAL_DBUFF               0x8
+>  #define SUN8I_MIXER_GLOBAL_SIZE                        0xc
+>
+> +#define SUN50I_MIXER_GLOBAL_SIZE               0x8
+> +#define SUN50I_MIXER_GLOBAL_CLK                        0xc
+> +
+>  #define SUN8I_MIXER_GLOBAL_CTL_RT_EN           BIT(0)
+>
+>  #define SUN8I_MIXER_GLOBAL_DBUFF_ENABLE                BIT(0)
+> @@ -154,6 +157,7 @@ enum {
+>  enum sun8i_mixer_type {
+>         SUN8I_MIXER_DE2,
+>         SUN8I_MIXER_DE3,
+> +       SUN8I_MIXER_DE33,
+>  };
+>
+>  /**
+> @@ -178,6 +182,7 @@ struct sun8i_mixer_cfg {
+>         unsigned long   mod_rate;
+>         unsigned int    de_type;
+>         unsigned int    scanline_yuv;
+> +       unsigned int    map[6];
+
+This needs a corresponding change to the kernel-doc immediately
+before it, or the doc generation build will produce a warning.
+
+You can keep the reviewed-by after fixing it.
+
+ChenYu
 
