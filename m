@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7055C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 23:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7563DC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 23:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jaXXZuk1frfcedeOEDAUivp9EQrzh8hsZwc4skzNAyM=; b=V7n8pDcD/Pnr5eslgIovcCpWrI
-	rpJ7E327vorERyvW2sqP2O7UPTaE6jie74Jn6kRM7jWJHLfj+NkERuab/FCzjcsTmG+NcdjSLZHtq
-	pQxcoC7m1OsApt7XmCbW9lNUdy0FjWAq4tXFyvqHRBlaXn8Rlo00oErgyk7qQuPP91AKZeXqRiSn8
-	4opNMeExUtGz+R3JaLB3q+A7yOMxUxyjXk4lxCDrzAl2n2dEVEj/JdOYKeDNxnCo0AkRyzLUQturt
-	QrnrZoE9uXNovMLD0pJQ02Ou0+K7fa9IM3+NY78YiXp7FmlSQglD8tJC+2nIRI6nfhAwB/Qo4M9y3
-	5UxDPiXA==;
+	bh=L371iAHTquiamr1qOBIkRG8ZfA4URTmo9Yt5n9upXbQ=; b=tIWnTbj5klKSabqmGUTagv8FTU
+	IJo3ujdjaNiR6NTRF98RRcNuSw+tqLA0BArkuCxc20t7Ygm/4swlqu203jS1r3gjswlz72QrQXGfb
+	/ZkAIrNAQ/x2AthhTTstCneCLzLufU9Kd8092t5r2tzlnFV6olBb3a34QQWvgS6M37XW3r7A0fc+Q
+	CA9l6ohjdIZnoP/S2P67cFd6aLZD3l661SBBxNNDBZKJIhSFwcKo9IHIKw+gaGxFfyk8GtS5HENK1
+	hG6tm+p3x5wNJ+IIqxfuR0clm9LVeCgFVjuVwKqGPYDnozWUckw08Fv+QIoz1EVzC3iV8pEqh0e/V
+	D8jEiy1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmzw-00000007fxR-3gt9;
-	Sun, 18 May 2025 23:00:48 +0000
+	id 1uGn1v-00000007g5y-0o8I;
+	Sun, 18 May 2025 23:02:51 +0000
 Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmu8-00000007fRy-0Dz5
+	id 1uGmuD-00000007fTE-1wNA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 May 2025 22:54:49 +0000
+	Sun, 18 May 2025 22:54:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1747608887; bh=jaXXZuk1frfcedeOEDAUivp9EQrzh8hsZwc4skzNAyM=;
- b=cgVmHOGJBjWZIPzdq0R1+y7f8tiyODhwsqanlGm90HZsYwzUHFfzFeGCgzGw8iRjAWhyLOT30
- UzMQS5CStKh9Jqpe8Lj3Gq3p+SATlMB8gIF3mt3K1ml5tR/1qV0mWhhk3H8knhE1bUJUbX1ZizT
- FFsyX0UxOyPhOecXYsdM68PX+4XZqJDqFOzsihe4T7UZNWdG8ApU+ipxBD4jpeJuQMY3m0Tm84P
- 7QHB39HYh9ndcK58zBhIVGHAXEXiege/LnLvf82Vz5Mw5IeHARpjWu673hfgqQxJJ5/tcjB4g6r
- z8znVs64R1KrSO0MCKf4U/B8YssE/Y4wB4Bks2P4QW8A==
-X-Forward-Email-ID: 682a6532db63046e3392f2c3
+ t=1747608893; bh=L371iAHTquiamr1qOBIkRG8ZfA4URTmo9Yt5n9upXbQ=;
+ b=ubVIW0vD82alIIAHHoLg5S6NuhzO/TaQmGmpwF8VermGVguCi7IMtFPhv175ZRC0b2cYxfhVr
+ P9thoaZxNdGLuagYJ++T+1GcT7s1N6+/rNlFDV6dExFv0da1ZBXsz0HERiicdj17c3P8s78SQvq
+ 3GVD1edfoEQt93/MeZMWbF1JZtlcnDWwNkDWHKt8FKNfUMIftdGrzNeYdnuHzAHnA75bdhREmJ6
+ XcR5prOMWIUxNmT/VmEdGuklesmfu6lTGOclOameDe6mIhVzVR3PD07AJAVktFJ8K34LN8z9bv+
+ 4Rm14sr6aAXzvL/RrelWCEMbgeanLfRgnZF8U4pXcwrg==
+X-Forward-Email-ID: 682a6536db63046e3392f2dd
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  149.28.215.223
 X-Forward-Email-Version: 1.0.3
@@ -57,17 +57,17 @@ Cc: Yao Zi <ziyao@disroot.org>,
 	linux-arm-kernel@lists.infradead.org,
 	Jonas Karlman <jonas@kwiboo.se>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] arm64: dts: rockchip: Add GPU node for RK3528
-Date: Sun, 18 May 2025 22:54:12 +0000
-Message-ID: <20250518225418.682182-3-jonas@kwiboo.se>
+Subject: [PATCH 3/3] arm64: dts: rockchip: Enable GPU on Radxa E20C
+Date: Sun, 18 May 2025 22:54:13 +0000
+Message-ID: <20250518225418.682182-4-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250518225418.682182-1-jonas@kwiboo.se>
 References: <20250518225418.682182-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_155448_118826_374433BB 
-X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-CacheID: sfid-20250518_155453_526771_D0A54CCC 
+X-CRM114-Status: UNSURE (   8.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,89 +83,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a GPU node and a opp-table for the Mali-450 MP2 in the RK3528 SoC.
+Enable the Mali-450 MP2 GPU on the Radxa E20C.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 58 ++++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index 791cb9b1e8f1..548ac6d4793f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -96,6 +96,36 @@ scmi_clk: protocol@14 {
- 		};
- 	};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+index 9f6ccd9dd1f7..e4333674a0ec 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+@@ -198,6 +198,11 @@ &gmac1 {
+ 	status = "okay";
+ };
  
-+	gpu_opp_table: opp-table-gpu {
-+		compatible = "operating-points-v2";
++&gpu {
++	mali-supply = <&vdd_logic>;
++	status = "okay";
++};
 +
-+		opp-300000000 {
-+			opp-hz = /bits/ 64 <300000000>;
-+			opp-microvolt = <875000 875000 1000000>;
-+			opp-suspend;
-+		};
-+
-+		opp-500000000 {
-+			opp-hz = /bits/ 64 <500000000>;
-+			opp-microvolt = <875000 875000 1000000>;
-+		};
-+
-+		opp-600000000 {
-+			opp-hz = /bits/ 64 <600000000>;
-+			opp-microvolt = <875000 875000 1000000>;
-+		};
-+
-+		opp-700000000 {
-+			opp-hz = /bits/ 64 <700000000>;
-+			opp-microvolt = <900000 900000 1000000>;
-+		};
-+
-+		opp-800000000 {
-+			opp-hz = /bits/ 64 <800000000>;
-+			opp-microvolt = <950000 950000 1000000>;
-+		};
-+	};
-+
- 	psci {
- 		compatible = "arm,psci-1.0", "arm,psci-0.2";
- 		method = "smc";
-@@ -433,6 +463,34 @@ power-domain@RK3528_PD_VPU {
- 			};
- 		};
- 
-+		gpu: gpu@ff700000 {
-+			compatible = "rockchip,rk3528-mali", "arm,mali-450";
-+			reg = <0x0 0xff700000 0x0 0x40000>;
-+			assigned-clocks = <&cru ACLK_GPU_MALI>,
-+					  <&scmi_clk SCMI_CLK_GPU>;
-+			assigned-clock-rates = <297000000>, <300000000>;
-+			clocks = <&cru ACLK_GPU_MALI>, <&scmi_clk SCMI_CLK_GPU>;
-+			clock-names = "bus", "core";
-+			interrupts = <GIC_SPI 88 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "gp",
-+					  "gpmmu",
-+					  "pp",
-+					  "pp0",
-+					  "ppmmu0",
-+					  "pp1",
-+					  "ppmmu1";
-+			operating-points-v2 = <&gpu_opp_table>;
-+			power-domains = <&power RK3528_PD_GPU>;
-+			resets = <&cru SRST_A_GPU>;
-+			status = "disabled";
-+		};
-+
- 		uart0: serial@ff9f0000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xff9f0000 0x0 0x100>;
+ &i2c1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c1m0_xfer>;
 -- 
 2.49.0
 
