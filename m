@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2336BC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B89D4C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 22:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9PAtzibwPGzPsb2gvUMPS4izyL4nfJ85lKJcGMeMkIY=; b=2wTNOQIHYx8gUguO8lCqRUZU92
-	CyAIJyD48Wy1yNvDF9dbTwG5b85fBtQ/WEXjN58zpSi6hLJC2/vzmJz8N7uaacbs02lkpl4c9BqUA
-	cbrjNv9/u6Mhf5bcOxerK1R7VCqGCV29VTP4IFoIoJeqe5MhK1z1mC7RImdWquf0LEZrldAt0oT+G
-	n29soqiVgd4sXkR0EfgO5xk5gE9WWS63DKVZ8Tsq+FIxCkYxxRVCrXC4Htqh25Pq1mYnd8s1R/yYg
-	fjp9cqSRKyeFYC++IdIU2cDxb7hUc+EhD6VkG2mtM4cWaDIai978k1PRV0mbkU0KBE7y2VEvZ7TJG
-	FKBVsWxw==;
+	bh=2uaQXKeZrx7VfH/3dDY8LD5mrbSCPAo4RzuDLB/xMM0=; b=LpVLd/646MWlabmyNC6ZUNTGjP
+	v3jPye0z1jtdyccQ5NeIDk8rYBV1o5wdgd3YJYP9ijLy3RWIQlkf65enJtpDPrZjV5yBWaxBpvtEQ
+	FuNL3IeLSzij3aeU/e6jUtxapSHPn4bZoIlnNyJktUlmG7dKR8nuIuAhC6/IlOyhl3hVF4jOGkKoH
+	bmwCOP4khZn1dWaqny8OAu0mG3KtVRYG5Jrdm6BmZNXMCu7SzOEY9hypur6xsbbvejfnh9X1JBFWF
+	7nR3EvNgkkDQZq5s4Pf4OaFW5/1SlvSueh0GHYN/texYv4/tbbMntR8DtJ+rD4CgA9nLjGhYrmGRE
+	EgNthkfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmlc-00000007ejV-1zRP;
-	Sun, 18 May 2025 22:46:00 +0000
+	id 1uGmnc-00000007f1N-180t;
+	Sun, 18 May 2025 22:48:04 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGmeQ-00000007dk4-1C7c
+	id 1uGml2-00000007ef1-2n4w
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 May 2025 22:38:35 +0000
+	Sun, 18 May 2025 22:45:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=9PAtzibwPGzPsb2gvUMPS4izyL4nfJ85lKJcGMeMkIY=; b=u9It1wTng+n27k/Da9wot3ipbE
-	nkgw93z5yood/RlJjxLZBNSayr0VihjFpH/DTgZN7LxwMLqSt+tX+zWsdW+hrzeOFHIPK7L/wJwSf
-	JuxxLpQFWBMFnRxHoYOZgzGvYxQ/L6ebDJ39lmuxrWpq+EXU5WltIGdq21ljuvLHxrxk=;
+	bh=2uaQXKeZrx7VfH/3dDY8LD5mrbSCPAo4RzuDLB/xMM0=; b=XTHzvlpHcAAYniK+TGI6Dqqb8f
+	31BJBkgoHrGuN89wszLyuGW7D42kiPlfK5dQ2M0o9TsrXtaas+DYQxxxZcy/RzOLHuEwIVadF55ou
+	89wbdxruVBtgwsxD6K+0BQyIWdPHiZkgYMrcd3YAhKDJIvYqh+U54rJo9g+IsRP2f1Fc=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1uGme5-00Cwv3-Rh; Mon, 19 May 2025 00:38:13 +0200
-Date: Mon, 19 May 2025 00:38:13 +0200
+	id 1uGmkm-00Cx21-1J; Mon, 19 May 2025 00:45:08 +0200
+Date: Mon, 19 May 2025 00:45:08 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: weishangjuan@eswincomputing.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -53,18 +53,17 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
 	linmin@eswincomputing.com, lizhi2@eswincomputing.com
-Subject: Re: [PATCH v1 1/2] ethernet: eswin: Document for eic7700 SoC
-Message-ID: <c9f0cb9e-26e9-43cb-bf67-3fd27033f55c@lunn.ch>
+Subject: Re: [PATCH v1 2/2] ethernet: eswin: Add eic7700 ethernet driver
+Message-ID: <251dfe22-3050-4784-82d8-a1fd52243728@lunn.ch>
 References: <20250516010849.784-1-weishangjuan@eswincomputing.com>
- <20250516011040.801-1-weishangjuan@eswincomputing.com>
+ <20250516011130.818-1-weishangjuan@eswincomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250516011040.801-1-weishangjuan@eswincomputing.com>
+In-Reply-To: <20250516011130.818-1-weishangjuan@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_153834_319611_AFBEBD1D 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250518_154524_707282_39B1131D 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +78,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +  phy-mode:
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum: [mii, gmii, rgmii, rmii, sgmii]
+> +/* RTL8211F PHY Configurations for LEDs */
+> +#define PHY_ADDR				0
+> +#define PHY_PAGE_SWITCH_REG		31
+> +#define PHY_LED_CFG_REG			16
+> +#define PHY_LED_PAGE_CFG		0xd04
 
-In theory, all four rgmii modes should be listed. In practice, only
-rgmii-id is likely to be used.
+The PHY driver is responsible for the PHY LEDs, not the MAC driver.
 
-> +examples:
-> +  - |
-> +    gmac0: ethernet@50400000 {
-> +        compatible = "eswin,eic7700-qos-eth";
-> +        reg = <0x0 0x50400000 0x0 0x10000>;
-> +        interrupt-parent = <&plic>;
-> +        interrupt-names = "macirq";
-> +        interrupts = <61>;
-> +        phy-mode = "rgmii";
+> +static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
+> +				   struct plat_stmmacenet_data *plat_dat)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	u32 burst_map = 0;
+> +	u32 bit_index = 0;
+> +	u32 a_index = 0;
+> +
+> +	if (!plat_dat->axi) {
+> +		plat_dat->axi = kzalloc(sizeof(*plat_dat->axi), GFP_KERNEL);
+> +
+> +		if (!plat_dat->axi)
+> +			return -ENOMEM;
+> +	}
+> +
+> +	plat_dat->axi->axi_lpi_en = device_property_read_bool(dev,
+> +							      "snps,en-lpi");
 
-Please don't use rgmii in an example. It is probably wrong, unless you
-have an unusual PCB design.
+Please look at the work Russell King has been doing recently, and make
+sure you are not adding stuff he has been busy cleaning up.
 
-	Andrew
+> +static void dwc_qos_fix_speed(void *priv, int speed, unsigned int mode)
+> +{
+> +	unsigned long rate = 125000000;
+> +	int i, err, data = 0;
+> +	struct dwc_qos_priv *dwc_priv = (struct dwc_qos_priv *)priv;
+> +
+> +	switch (speed) {
+> +	case SPEED_1000:
+> +		rate = 125000000;
+> +
+> +		for (i = 0; i < 3; i++)
+> +			regmap_write(dwc_priv->hsp_regmap,
+> +				     dwc_priv->dly_hsp_reg[i],
+> +				     dwc_priv->dly_param_1000m[i]);
+> +
+> +		if (dwc_priv->stmpriv) {
+> +			data = mdiobus_read(dwc_priv->stmpriv->mii, PHY_ADDR,
+> +					    PHY_PAGE_SWITCH_REG);
+> +			mdiobus_write(dwc_priv->stmpriv->mii, PHY_ADDR,
+> +				      PHY_PAGE_SWITCH_REG, PHY_LED_PAGE_CFG);
+> +			mdiobus_write(dwc_priv->stmpriv->mii, PHY_ADDR,
+> +				      PHY_LED_CFG_REG, dwc_priv->phyled_cfgs[0]);
+> +			mdiobus_write(dwc_priv->stmpriv->mii, PHY_ADDR,
+> +				      PHY_PAGE_SWITCH_REG, data);
+
+Please remove all this LED code.
+
+> +	dwc_priv->dev = &pdev->dev;
+> +	dwc_priv->phy_reset = devm_gpiod_get(&pdev->dev, "rst", GPIOD_OUT_LOW);
+> +	if (IS_ERR(dwc_priv->phy_reset)) {
+> +		dev_err(&pdev->dev, "Reset gpio not specified\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	gpiod_set_value(dwc_priv->phy_reset, 0);
+
+Please allow phylib to control the PHY reset line.
+
+> +	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "eswin,dly_hsp_reg",
+> +						  &dwc_priv->dly_hsp_reg[0], 3, 0);
+> +	if (ret != 3) {
+> +		dev_err(&pdev->dev, "can't get delay hsp reg.ret(%d)\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "dly-param-1000m",
+> +						  &dwc_priv->dly_param_1000m[0], 3, 0);
+> +	if (ret != 3) {
+> +		dev_err(&pdev->dev, "can't get delay param for 1Gbps mode (%d)\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "dly-param-100m",
+> +						  &dwc_priv->dly_param_100m[0], 3, 0);
+> +	if (ret != 3) {
+> +		dev_err(&pdev->dev, "can't get delay param for 100Mbps mode (%d)\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = of_property_read_variable_u32_array(pdev->dev.of_node, "dly-param-10m",
+> +						  &dwc_priv->dly_param_10m[0], 3, 0);
+> +	if (ret != 3) {
+> +		dev_err(&pdev->dev, "can't get delay param for 10Mbps mode (%d)\n", ret);
+> +		return ret;
+> +	}
+
+What are these delay parameters?
+
+
+    Andrew
+
+---
+pw-bot: cr
 
