@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0A2C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 07:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1B8C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 May 2025 08:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9xXKUONkmURg37S37TyS1+VxcJ9ZCVsI3Afzmew324=; b=44oer1mAn4CvMYM9D7mOq+aIzw
-	WMzc8bdckEuNvd1zGcvOK9MAgio8LUpPzVvwpG2GI6hOlY3cNb2WvpbA9rQZmIR0JEq8q5OjCwYWb
-	jGsLyVoGNEQyo9x3I9gnht8hXparfC56dorRnIajdk+LrO/AAaxqTOEwz5WXiaBmmBLaBQQPMOHmK
-	eHMAlKQb+1RErlFYMVHWXe7tBeacQyaps/0mmWB+FgIOpMa+xAeGxLQfxwVkxBm6A7MUoGeYc4gSG
-	vYezDRHXBnLeRqI6XnzFb4zNbovuITb+tdrK2sd9WWKiDGKcA2IFXvHd+ZQrILsLf8LwvHJbsFHKU
-	scJZShIw==;
+	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=fWzuS16IfvJKbJTa2dGfGMLuqX
+	hZNeEHl4K/WiZ90IQ/dRR0inqt41MlaEnRROP6dLAlFH7MylNN/iXldxVifJXVwtGDcGoys4e2XN4
+	MHjwc6iRI+4faqc3pN0bz3XQ9Mki3WWTr2IL3ITh3XPQq778GSNYNzW95Kaw7cl4IcKUOVZSyi6f0
+	xziwhKP4UqkttoG4gw2/YYW7gGxmtNfQtojqkRPGZ4RyfkGiWQLUtnm0XiabD5EbSxT4FEGRnOFZX
+	P02zuB1ZQkS2kYMjthIoMoPNDyBTe+d5Hnmgivwv01XaStHh1pJKSQ73v1W1ROUR+FZvsO9mzS6Zw
+	oR1wtmdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGYgV-00000006rGu-1eFO;
-	Sun, 18 May 2025 07:43:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uGZNe-00000006txB-1CWN;
+	Sun, 18 May 2025 08:28:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGYeU-00000006rAR-0hEA
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 May 2025 07:41:43 +0000
+	id 1uGZLd-00000006tmh-11DH;
+	Sun, 18 May 2025 08:26:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BB4BA5C1377;
-	Sun, 18 May 2025 07:39:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74234C4CEE7;
-	Sun, 18 May 2025 07:41:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B35C05C0515;
+	Sun, 18 May 2025 08:23:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2DE0C4CEE7;
+	Sun, 18 May 2025 08:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747554099;
-	bh=AHAwzXBAnTp88J/0aYWfanpi1Ub+Fzwmq0oMxgOjE18=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uhcg1tpwj28HVLQcJ0DPOi/La9tamrh21D3DiZmOBN872Lec2tPGsNDK4EEQsODE+
-	 DNyK2ZPmM9lCGXzpRS+NmSOBdi3uT6Oclzg4GwoGglOpxwRD4J3DxIqUBInkdz+fSp
-	 qWNBrdwc/8WcA464+En/fqJ9aD4KyzrcfB7h2unt1hPyT5cFTKTFKKYHvPa6Yrlv2P
-	 w22z4TpxnqQZyMIYdm7NH1ez3ZqWuiW+jGNEM/Hoon67SM9y3VVA3JZ5nWEsQEtdip
-	 NJdagNLvNgukzO9jaRFMzixZNP7Y8rCr9bbwel5x7j0zEfmOnZ0eiut/eei4Cy1NgA
-	 /iG+ncIAMuLxw==
-Date: Sun, 18 May 2025 16:41:34 +0900
-From: William Breathitt Gray <wbg@kernel.org>
-To: Dharma Balasubiramani <dharma.b@microchip.com>
-Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] counter: microchip-tcb-capture: Add watch validation
- support
-Message-ID: <aCmPLn16Ykabvhjv@ishi>
-References: <CV37uwi-rAqU3els0ckl4KLz5ortFAdc7XXy7ex6-MMhxvptyeMh8vTBXQuZliairKQ1Dy4yM3MyE8o7EZ6VfA==@protonmail.internalid>
- <20250515-counter-tcb-v1-1-e547061ed80f@microchip.com>
+	s=k20201202; t=1747556775;
+	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=nXYaW30I4Xlg79aei0wNTbmz3GBTwaeNmwi3PsAPGh+gk8O/puY4Fh9hmGfh7MZUW
+	 vI3ISnu4M+YikKxsM8gd2CUzPtTB7fpMBNEoEv440zM0RqhkXVTl5f9CWCnlJCVWKg
+	 bJOSn3LwVHPjM10d6VwAkdO/Mu6ZBCJL5lqcUxLQWWh/IknJMwPYdIeXh+zUzYT8Xe
+	 TVzF27aSR42+Dq9Am2HMAg13mmfN7ySitZoyqLgUqm7x3pVcMgfsXhDMp9P4LniH61
+	 TPn96tT3Gd4ZCBfbQom5t6YNWbvVjRnkurb7aw1rek2acCnfHrYzLStajjc2aEy7EO
+	 CYQvM1LLJVaWw==
+Date: Sun, 18 May 2025 03:26:13 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TSzCOtGHpFOIyFHN"
-Content-Disposition: inline
-In-Reply-To: <20250515-counter-tcb-v1-1-e547061ed80f@microchip.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Oded Gabbay <ogabbay@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Simona Vetter <simona@ffwll.ch>, linux-rockchip@lists.infradead.org, 
+ linux-doc@vger.kernel.org
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+In-Reply-To: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
+ <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+Message-ID: <174742024812.3649303.12389396177218408388.robh@kernel.org>
+Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_004142_313606_A97496AC 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20250518_012617_364586_C357FE6A 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,126 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250518082613.UwW3NE7cjUUIymJESrDalI6_Hs_cQGY9ghCatF9aRCM@z>
 
 
---TSzCOtGHpFOIyFHN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, May 15, 2025 at 10:28:25AM +0530, Dharma Balasubiramani wrote:
-> Introduce a watch validation callback to restrict supported event and
-> channel combinations. This allows userspace to receive notifications only
-> for valid event types and sources. Specifically, enable the following
-> supported events on channels RA, RB, and RC:
->=20
->   - COUNTER_EVENT_CAPTURE
->   - COUNTER_EVENT_CHANGE_OF_STATE
->   - COUNTER_EVENT_OVERFLOW
->   - COUNTER_EVENT_THRESHOLD
->=20
-> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
+> Add the bindings for the Neural Processing Unit IP from Rockchip.
+> 
+> v2:
+> - Adapt to new node structure (one node per core, each with its own
+>   IOMMU)
+> - Several misc. fixes from Sebastian Reichel
+> 
+> v3:
+> - Split register block in its constituent subblocks, and only require
+>   the ones that the kernel would ever use (Nicolas Frattaroli)
+> - Group supplies (Rob Herring)
+> - Explain the way in which the top core is special (Rob Herring)
+> 
+> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->  drivers/counter/microchip-tcb-capture.c | 28 +++++++++++++++++++++++++---
->  1 file changed, 25 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/mi=
-crochip-tcb-capture.c
-> index 1de3c50b9804..179ff5595143 100644
-> --- a/drivers/counter/microchip-tcb-capture.c
-> +++ b/drivers/counter/microchip-tcb-capture.c
-> @@ -337,6 +337,27 @@ static struct counter_comp mchp_tc_count_ext[] =3D {
->  	COUNTER_COMP_COMPARE(mchp_tc_count_compare_read, mchp_tc_count_compare_=
-write),
->  };
->=20
-> +static int mchp_tc_watch_validate(struct counter_device *counter,
-> +				  const struct counter_watch *watch)
-> +{
-> +	switch (watch->channel) {
-> +	case COUNTER_MCHP_EVCHN_RA:
-> +	case COUNTER_MCHP_EVCHN_RB:
-> +	case COUNTER_MCHP_EVCHN_RC:
+>  .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
+>  1 file changed, 162 insertions(+)
+> 
 
-Hello Dharma,
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Include COUNTER_MCHP_EVCHN_CV as well for the sake of completeness. I
-know COUNTER_MCHP_EVCHN_CV and COUNTER_MCHP_EVCHN_RA have the same
-underlying channel id, but we're abstracting this fact so it's good to
-maintain the consistency of the abstraction across all callbacks.
+yamllint warnings/errors:
 
-> +		switch (watch->event) {
-> +		case COUNTER_EVENT_CAPTURE:
-> +		case COUNTER_EVENT_CHANGE_OF_STATE:
-> +		case COUNTER_EVENT_OVERFLOW:
-> +		case COUNTER_EVENT_THRESHOLD:
-> +			return 0;
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too long
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too short
+	False schema does not allow 3
+	1 was expected
+	3 is greater than the maximum of 2
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core-top', 'rockchip,rknn-core-top'] is too long
+	'rockchip,rk3588-rknn-core-top' is not one of ['rockchip,rk3588-rknn-core']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): reg: [[0, 4255842304, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core', 'rockchip,rknn-core'] is too long
+	'rockchip,rk3588-rknn-core' is not one of ['rockchip,rk3588-rknn-core-top']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): reg: [[0, 4255907840, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
 
-The watch_validate callback is used to ensure that the requested watch
-configuration is valid: i.e. the watch event is appropriate for the
-watch channel.=20
+doc reference errors (make refcheckdocs):
 
-Looking at include/uapi/linux/counter/microchip-tcb-capture.h:
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net
 
-     * Channel 0:
-     * - CV register changed
-     * - CV overflowed
-     * - RA captured
-     * Channel 1:
-     * - RB captured
-     * Channel 2:
-     * - RC compare triggered
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-If I'm understanding correctly, channel 0 supports only the
-CHANGE_OF_STATE, OVERFLOW, and CAPTURE events; channel 1 supports only
-CAPTURE events; and channel 2 supports only THRESHOLD events.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-Adjust the code to ensure those limitations.
+pip3 install dtschema --upgrade
 
-> +		default:
-> +			return -EINVAL;
-> +		}
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-> +
->  static struct counter_count mchp_tc_counts[] =3D {
->  	{
->  		.id =3D 0,
-> @@ -351,12 +372,13 @@ static struct counter_count mchp_tc_counts[] =3D {
->  };
->=20
->  static const struct counter_ops mchp_tc_ops =3D {
-> -	.signal_read    =3D mchp_tc_count_signal_read,
-> +	.action_read    =3D mchp_tc_count_action_read,
-> +	.action_write   =3D mchp_tc_count_action_write,
->  	.count_read     =3D mchp_tc_count_read,
->  	.function_read  =3D mchp_tc_count_function_read,
->  	.function_write =3D mchp_tc_count_function_write,
-> -	.action_read    =3D mchp_tc_count_action_read,
-> -	.action_write   =3D mchp_tc_count_action_write
-> +	.signal_read    =3D mchp_tc_count_signal_read,
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-It's nice to alphabetize the counter_ops callbacks, but it's also
-unrelated to the watch_validate implementation. Move the alphabetization
-cleanup to a separate patch so that this patch remains dedicated to
-just watch_validate changes.
-
-Thanks,
-
-William Breathitt Gray
-
---TSzCOtGHpFOIyFHN
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCaCmPLgAKCRC1SFbKvhIj
-K/U6AP9sLI94pWH9oxJ5ojO2ldb52ppFei+ym7sypqbu+AOh9QD/Xqg8FFHAJS9e
-RltMKxTbESVr1UyIV3cfgwTc/eZ3sAw=
-=0BaO
------END PGP SIGNATURE-----
-
---TSzCOtGHpFOIyFHN--
 
