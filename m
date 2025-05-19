@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2334EC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7809BC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yxfqDtwX38e5KDkvK8AycwoYR63YZ8MZMQlRXD88gjw=; b=fcuslCwBFQP15Kn+9HFEJhMP5F
-	MYFnI7L4/RkTDxpPPfa3Cu/nkmGwQwGZRnCZbNsQ3edn6Wi+JYMMuoeb+hh9ShOgibsvDxVZgTRtF
-	XdaV97n6arkY3Rklw93qia/Y/8sLEammQOKIrfAYrzcUUlfduGaID2iLTbG/sVx1g4yvmOFbq01Kj
-	LlVyHwXM403dhE0FZZJOPqKDmQax7reyKTYqwuuRQxzmxXNATGEtqHBo6TrcoJ1k9BQa8RGSueCob
-	UkRuYItVvqeqwzou9vQi8VfBxNRqzm4D1SDGCEuKouX/8qrHGmHW2MA6qofwDsQGtAI81yqiR76Ra
-	ZnKsLikQ==;
+	bh=2wADUTH6wrn4QqjRXW3GogegKwrALuLScsRQU3AVWT8=; b=QcDJGc3EMVoq2+3jZUQM0Rl47W
+	r+rnndutd0gWdL1ep8XJ+T19DTuGpIx34LQkkJX+HNzGSIKw6J+g00h0YSX4bA7o3eFtwLUeskQZM
+	EVlhjboPArjOsX9A8VOeet7qW8lv+zqvH185pwPLJG+uSFfaM0graZkLHBMKqLI5knsYafuhv+iuv
+	IK9xQJeOjgSnyyHTrItkqIu1CiaaTzuFUnVmjUiu4565cJlns84J8veOmz0om7oamuWwjgCkaYfaS
+	Sog1Y/DWGgBJT7np1PID85uwfU1G+1uLQBSMJNWUXoV8niqFMmkn6/jP7KRiTQzSo+c18H5OHF361
+	OJzk1DeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH828-0000000AXzP-4A0Y;
-	Mon, 19 May 2025 21:28:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uH84G-0000000AYXZ-0h2o;
+	Mon, 19 May 2025 21:30:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7wH-0000000AW3H-2GPY;
-	Mon, 19 May 2025 21:22:26 +0000
+	id 1uH7wJ-0000000AW4n-1iKR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 May 2025 21:22:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D7A14AB3C;
+	by dfw.source.kernel.org (Postfix) with ESMTP id ACC855C05CD;
+	Mon, 19 May 2025 21:20:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 746E4C4CEE4;
 	Mon, 19 May 2025 21:22:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9C5BC4CEE9;
-	Mon, 19 May 2025 21:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747689745;
-	bh=G736kJmx7ZAHce0+/nkrSSIWUxgBCRg1Sk81e42FNXE=;
+	s=k20201202; t=1747689746;
+	bh=cw6Tkijcuttb9ZLMtOBWn44aOyeM3pb3rshzRVE8F0o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oLYz38OcO9vokB5OkrtdlwDJJXK7G7WfAD83pKcdBquS3B7ui5eIkZBQ97I+yLHru
-	 4x9HkgEJXAXdUcHcGRtr/yBya0JTDHIIRQO6NXUGUx+rzTr3D4Jvw8fDAjWd5qtbVo
-	 BCNUhkSjBLw2s7XGCMczTTPrDe5MhC5OkQktk9In6cko2Wd3Ru9ZMMjSAOQuxpiX9i
-	 sslAFTGLpMCmIWkpO0V5QTJvhDMPJwlGJDoHwKmb/WV/NSm5GHqqTeUKk7ZcyyFgO1
-	 REVVLfdLMMY87O6wQyGhOiuze3UfSCV54Tpep0rUymQh5hY8D9rgoLjITqaafzSZIU
-	 sdygTqjA9HRSw==
+	b=oXlvh++HoFlZzlhRFKHtN4xARnAzfoWTM6LyP5lcEtWyZsIwOROcdAh5XwD6lNtF4
+	 6OR8wa7J3bGD9xkUwS/CycAf7em1LaVn6Ys+QYAeXMMn+0AHQWhjoVjDGaAq8qSy1T
+	 Va49KwNMnu2cDGKlmVV6fGNg/zBYAZjB2AFYJiSr3yihRcXc8Wt2lrWNCcVUZu7AWt
+	 UNJHaiUVYVOXQkjGZW9FohxBBUzpvgcu+adVg+QnER+05jqXge+id8p8PkQNfL365I
+	 b9khkGVw71vNZXVRwKTTw/YfNd7jTP8AqZVmE2Y/er5IEJsWNf1kCjRe8iBoHgxqle
+	 saSDpCxSOxxCQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Algea Cao <algea.cao@rock-chips.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Vinod Koul <vkoul@kernel.org>,
+Cc: Alessandro Grassi <alessandro.grassi@mailbox.org>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	kishon@ti.com,
-	linux-kernel@vger.kernel.org,
+	mripard@kernel.org,
+	wens@csie.org,
+	linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 10/18] phy: phy-rockchip-samsung-hdptx: Fix PHY PLL output 50.25MHz error
-Date: Mon, 19 May 2025 17:21:59 -0400
-Message-Id: <20250519212208.1986028-10-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.12 11/18] spi: spi-sun4i: fix early activation
+Date: Mon, 19 May 2025 17:22:00 -0400
+Message-Id: <20250519212208.1986028-11-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250519212208.1986028-1-sashal@kernel.org>
 References: <20250519212208.1986028-1-sashal@kernel.org>
@@ -65,8 +65,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.29
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_142225_604763_8C00E1BA 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250519_142227_489861_E57D75F4 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Algea Cao <algea.cao@rock-chips.com>
+From: Alessandro Grassi <alessandro.grassi@mailbox.org>
 
-[ Upstream commit f9475055b11c0c70979bd1667a76b2ebae638eb7 ]
+[ Upstream commit fb98bd0a13de2c9d96cb5c00c81b5ca118ac9d71 ]
 
-When using HDMI PLL frequency division coefficient at 50.25MHz
-that is calculated by rk_hdptx_phy_clk_pll_calc(), it fails to
-get PHY LANE lock. Although the calculated values are within the
-allowable range of PHY PLL configuration.
+The SPI interface is activated before the CPOL setting is applied. In
+that moment, the clock idles high and CS goes low. After a short delay,
+CPOL and other settings are applied, which may cause the clock to change
+state and idle low. This transition is not part of a clock cycle, and it
+can confuse the receiving device.
 
-In order to fix the PHY LANE lock error and provide the expected
-50.25MHz output, manually compute the required PHY PLL frequency
-division coefficient and add it to ropll_tmds_cfg configuration
-table.
+To prevent this unexpected transition, activate the interface while CPOL
+and the other settings are being applied.
 
-Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
-Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Acked-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20250427095124.3354439-1-algea.cao@rock-chips.com
-Signed-off-by: Vinod Koul <vkoul@kernel.org>
+Signed-off-by: Alessandro Grassi <alessandro.grassi@mailbox.org>
+Link: https://patch.msgid.link/20250502095520.13825-1-alessandro.grassi@mailbox.org
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/spi/spi-sun4i.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index be6f1ca9095aa..23a022da3f72d 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -328,6 +328,8 @@ static const struct ropll_config ropll_tmds_cfg[] = {
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
- 	{ 650000, 162, 162, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 54, 0, 16, 4, 1,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
-+	{ 502500, 84, 84, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 11, 1, 4, 5,
-+	  4, 11, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
- 	{ 337500, 0x70, 0x70, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 0x2, 0, 0x01, 5,
- 	  1, 1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
- 	{ 400000, 100, 100, 1, 1, 11, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
+diff --git a/drivers/spi/spi-sun4i.c b/drivers/spi/spi-sun4i.c
+index 2ee6755b43f54..3019f57e65841 100644
+--- a/drivers/spi/spi-sun4i.c
++++ b/drivers/spi/spi-sun4i.c
+@@ -264,6 +264,9 @@ static int sun4i_spi_transfer_one(struct spi_controller *host,
+ 	else
+ 		reg |= SUN4I_CTL_DHB;
+ 
++	/* Now that the settings are correct, enable the interface */
++	reg |= SUN4I_CTL_ENABLE;
++
+ 	sun4i_spi_write(sspi, SUN4I_CTL_REG, reg);
+ 
+ 	/* Ensure that we have a parent clock fast enough */
+@@ -404,7 +407,7 @@ static int sun4i_spi_runtime_resume(struct device *dev)
+ 	}
+ 
+ 	sun4i_spi_write(sspi, SUN4I_CTL_REG,
+-			SUN4I_CTL_ENABLE | SUN4I_CTL_MASTER | SUN4I_CTL_TP);
++			SUN4I_CTL_MASTER | SUN4I_CTL_TP);
+ 
+ 	return 0;
+ 
 -- 
 2.39.5
 
