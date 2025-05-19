@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF64C3DA6D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 974CCC2D0CD
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:11:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x4HrioBoIX7nIyaKUGc9hwTLw2XDvzbEycVJsaLc24U=; b=yPcIaQcPJkmDwUyonz+aWQs0fX
-	8wF/lbhbGdMHNGbjgddt0gNYoP1oB4z4wy3UtvW2A5OKTt1D5+LoeCZweo1Gph6S/JHv3q9IgfaY6
-	N+NlL7KzoE9EEqJP7OINkPwsNd2k+tbQett30rmqVSvIauWet6BbnQ5rzMGA/CtouJzfwx3tjecm8
-	HJfdBhomZr9rCrH30tIeu+DJoG34PXfppJ8jXTb5LJ7UWNuhWuQr2Mn0mGJwCZaNr4Yeg86fWo1Vt
-	V4LnQujS1G++ZlwRVLALMgbx6vE2E7FemlUjaFx1ARZLnft4HR9NtK+wTZmn+kJKPC5RnyASFvtOP
-	sXacduxQ==;
+	bh=VwQInU0BL1914wpsZlAYnKCHkRSUkFmFPhaLTIKOJvw=; b=XGehfOHklcaWBBE491boNItTX8
+	Vnm8T/9ieqm29E6ekSOvkBCT8C4XxDGw0kdj3K4FZxcYV6b/lh9LR6Nl/87SsQ4uruHQYPr2e37Nn
+	4D0peovMd6nelxJcu8N0MKf+xVNkQYzIomDhM5k5YE1BEO4RicaIGUUELsYNhhRmnJr4k13EtEGPl
+	CHQZ4u2hSvo45esBkadTiboDnPMGF84X+k/C0l7R4VfkqpEuJojg2A4yBM+FysQLKrGWbwaPncp94
+	xs+dwDRC9tLvtj0EE6q06Dr1G2iZ5MZUApHlrXN/2X20s6WhnS46yNu1ovp9OuANMAKVUD5UCy+9G
+	TOo5U2zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH29S-00000009XXc-0Nl5;
-	Mon, 19 May 2025 15:11:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uH29R-00000009XXA-20T4;
+	Mon, 19 May 2025 15:11:37 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH1Na-00000009QnL-1UrR
+	id 1uH1LW-00000009QaW-3OgX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 14:22:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81721629C4;
-	Mon, 19 May 2025 14:22:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C429C4CEE4;
-	Mon, 19 May 2025 14:22:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747664529;
-	bh=rwYuCyW7EYGc7OitizTfiKDPCb/T39R026WxPZkwQM8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i5Xj6nrfuCj5Ihu0HSp/hyuNFZjqhkmvCxUBGOJRY6X4GDuLfpfVz+Ter7WXX0rLn
-	 MY7JcML+KD/q9MWRnw0vP1KOk12uX0bg9WBY6fv1DpiKbnhUQWt2EEwSuciUunCikX
-	 tOT3pbTQEbtygWX9E3SGdZQFXj6duB9Y20hACsVZt6tSY+35WecfS0F6lixmtmN3rB
-	 PKFda22fylwc0ZxSIV9X27bhaDY+mtv/fne3lGt3reYIUJ+ZDn7Pq559o0/m8AHjDq
-	 s4K63IUc01DKyJj2JGhAzggEj6YN/PQ4WhaGDPYhpnq7ZN4c+Nw//pf57YXBI/QNPr
-	 ZJ75iVorAOjNw==
-Date: Mon, 19 May 2025 15:22:03 +0100
-From: Will Deacon <will@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: Petr Mladek <pmladek@suse.com>, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
-	indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com,
-	irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org,
-	peterz@infradead.org, roman.gushchin@linux.dev, rostedt@goodmis.org,
-	kernel-team@meta.com
-Subject: Re: [PATCH v3 0/2] arm64: livepatch: Enable livepatch without sframe
-Message-ID: <20250519142202.GD16991@willie-the-truck>
-References: <20250320171559.3423224-1-song@kernel.org>
- <Z_fhAyzPLNtPf5fG@pathway.suse.cz>
- <CAPhsuW4MAcVpXmZVQauoaYe0o3tDvvZfgmCrYFFyFojYpNiWWg@mail.gmail.com>
+	Mon, 19 May 2025 14:20:04 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id 3f1490d57ef6-e7b943bcf0cso1390435276.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 07:20:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747664402; x=1748269202; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=VwQInU0BL1914wpsZlAYnKCHkRSUkFmFPhaLTIKOJvw=;
+        b=TJqKKAMkRRKFiIDyT0ZMJR+/1H3iz5wUWBKIsHRSG8D/+epBNY4WiAVhuOgaq4U7aL
+         bYcxz4y4t/l/gSfyrB70Xqtr6KtftfdocibMgr3CgO72YkYYt3NLWQSuJAtS1yGeEfEg
+         0nn5v3GJqHaaYBiBGeu378Z76NLRlV8zOJ3EST+GPmcqZuP0+e6w8JLoAO+6K0Z7VNyp
+         dr4VxlA0SrNo5TcTbF0iAdDf5Q/CjZ6x0n4ohuKnNnyClcIc36cey8zQKcxIcRG3NvST
+         LJA5F7oaNWPPU63+P5hFUUXK0UdL+n2OqJoEQAPr+eJxdsDGqiGskokfv345ol2Abzn8
+         iqTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747664402; x=1748269202;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VwQInU0BL1914wpsZlAYnKCHkRSUkFmFPhaLTIKOJvw=;
+        b=W0QtGArpSiTLY8hrVgaFXB5jI3LYhzyEYwIOoSHaJ2ZSbJ6fUSleGxQIXsT6uznzee
+         6EuHN0zRhBVI5nTzlY/s8K679WxJLU6bsTMfrARmqFEl9rY0YMvQL1wFLlW89UwwQCVU
+         CivkcFdRK50piLxBSo9aIqoP227EFXEy2ELZLwj7GP6U8gaRRSyEvVbSR3AhlgBcL+K/
+         fanyBhCSeZ3Tun1oBJIvkkTDzCyVqTX56N3IhDxpPlzNsARH4el7bYMroXMBYRyjTVDo
+         vV0P8+jn2EGTbjT3FaJH880nd0juRnZoNgYDbLEiLGZsE1F5P3AOOfu6fbSk5Gh8z9O1
+         VgtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWRjdRK0vkdxmyUMbMlmYUrsnFL1ZkE1tBxoQHg0/2Tb5djZuzXY04shChBl3YAZ4rHWUNigEqtD3n+8Txqt/NY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYUPy/YsK4jWtW10anDlU5zawh/Q7i2/lLi88lCgfUGb+IKIRE
+	ikdi8ChKnKolw2hU5ARCYkDV3XlW4hEM8jcC2WemKIp9Empupj+71qUy95qqmM27N50C4Gi5OB3
+	T9fS0UNThXMyusbPFRAzxW+oTgrf8ki0bzXLbRQcckA==
+X-Gm-Gg: ASbGncu800tYU4JwjBZbZQDZ5VCZpd2lLA7tS184b0I9UrkwbyndxDuCx8SmDmBEFZk
+	u4+IolMrhO4gWiiH+rqqDu6IrsCGgO1PNvInVZrJmFc0TLBs3ygnWUSxPzGPXF4PBj2D1dKjZfe
+	io0o1Rj90Q8OZuS1e4FpWWRVg8plgy0tfDrg==
+X-Google-Smtp-Source: AGHT+IGVX5yoYnItadKdZEWYQJ/USDnrDlwuwkIIEH6RYqaUPWRWklz3ss+nUUlHYUuwh48nx0lmjtA1sqsNK6i35fA=
+X-Received: by 2002:a05:6902:140c:b0:e7b:5a74:f6d7 with SMTP id
+ 3f1490d57ef6-e7b6d715875mr16156878276.46.1747664401556; Mon, 19 May 2025
+ 07:20:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAPhsuW4MAcVpXmZVQauoaYe0o3tDvvZfgmCrYFFyFojYpNiWWg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20250318230042.3138542-1-sbellary@baylibre.com> <20250318230042.3138542-3-sbellary@baylibre.com>
+In-Reply-To: <20250318230042.3138542-3-sbellary@baylibre.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 19 May 2025 16:19:25 +0200
+X-Gm-Features: AX0GCFuLITcWApASOkr6vaKuGc_781MXCq425ewvVNK_o0ULs7kwJTkxaVmgo8s
+Message-ID: <CAPDyKFq-0XEgw2SX_4JoGXnrCF+S_HYjEw8cG_RX+usWTEFg5A@mail.gmail.com>
+Subject: Re: [PATCH 2/4] pmdomain: ti: Fix STANDBY handling of PER power domain
+To: Sukrut Bellary <sbellary@baylibre.com>
+Cc: Kevin Hilman <khilman@baylibre.com>, Russell King <linux@armlinux.org.uk>, 
+	Rob Herring <robh@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Nishanth Menon <nm@ti.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, 
+	Bajjuri Praneeth <praneeth@ti.com>, Raghavendra Vignesh <vigneshr@ti.com>, Bin Liu <b-liu@ti.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-omap@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250519_072002_861769_2B35C160 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,41 +99,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 09:53:36AM -0700, Song Liu wrote:
-> On Thu, Apr 10, 2025 at 8:17 AM Petr Mladek <pmladek@suse.com> wrote:
-> >
-> [...]
-> > >
-> > > [1] https://lore.kernel.org/live-patching/20250127213310.2496133-1-wnliu@google.com/
-> > > [2] https://lore.kernel.org/live-patching/20250129232936.1795412-1-song@kernel.org/
-> > > [3] https://sourceware.org/bugzilla/show_bug.cgi?id=32589
-> > > [4] https://lore.kernel.org/linux-arm-kernel/20241017092538.1859841-1-mark.rutland@arm.com/
-> > >
-> > > Changes v2 => v3:
-> > > 1. Remove a redundant check for -ENOENT. (Josh Poimboeuf)
-> > > 2. Add Tested-by and Acked-by on v1. (I forgot to add them in v2.)
-> >
-> > The approach and both patches look reasonable:
-> >
-> > Reviewed-by: Petr Mladek <pmladek@suse.com>
-> >
-> > Is anyone, Arm people, Mark, against pushing this into linux-next,
-> > please?
-> 
-> Ping.
-> 
-> ARM folks, please share your thoughts on this work. To fully support
-> livepatching of kernel modules, we also need [1]. We hope we can
-> land this in the 6.16 kernel.
-> 
-> Thanks,
-> Song
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20250412010940.1686376-1-dylanbhatch@google.com/
+On Wed, 19 Mar 2025 at 00:00, Sukrut Bellary <sbellary@baylibre.com> wrote:
+>
+> Per AM335x TRM[1](section 8.1.4.3 Power mode), in case of STANDBY,
+> PER domain should be ON. So, fix the PER power domain handling on standby.
+>
+> [1] https://www.ti.com/lit/ug/spruh73q/spruh73q.pdf
+>
+> Signed-off-by: Sukrut Bellary <sbellary@baylibre.com>
+
+Applied for next, thanks!
+
+Kind regards
+Uffe
 
 
-FWIW: I reviewed the patch above ([1]) already but didn't hear anything
-back.
-
-Will
+> ---
+>  drivers/pmdomain/ti/omap_prm.c | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pmdomain/ti/omap_prm.c b/drivers/pmdomain/ti/omap_prm.c
+> index b8ceb3c2b81c..7e36e675a8c6 100644
+> --- a/drivers/pmdomain/ti/omap_prm.c
+> +++ b/drivers/pmdomain/ti/omap_prm.c
+> @@ -18,7 +18,9 @@
+>  #include <linux/pm_domain.h>
+>  #include <linux/reset-controller.h>
+>  #include <linux/delay.h>
+> -
+> +#if IS_ENABLED(CONFIG_SUSPEND)
+> +#include <linux/suspend.h>
+> +#endif
+>  #include <linux/platform_data/ti-prm.h>
+>
+>  enum omap_prm_domain_mode {
+> @@ -88,6 +90,7 @@ struct omap_reset_data {
+>  #define OMAP_PRM_HAS_RSTST     BIT(1)
+>  #define OMAP_PRM_HAS_NO_CLKDM  BIT(2)
+>  #define OMAP_PRM_RET_WHEN_IDLE BIT(3)
+> +#define OMAP_PRM_ON_WHEN_STANDBY       BIT(4)
+>
+>  #define OMAP_PRM_HAS_RESETS    (OMAP_PRM_HAS_RSTCTRL | OMAP_PRM_HAS_RSTST)
+>
+> @@ -404,7 +407,8 @@ static const struct omap_prm_data am3_prm_data[] = {
+>                 .name = "per", .base = 0x44e00c00,
+>                 .pwrstctrl = 0xc, .pwrstst = 0x8, .dmap = &omap_prm_noinact,
+>                 .rstctrl = 0x0, .rstmap = am3_per_rst_map,
+> -               .flags = OMAP_PRM_HAS_RSTCTRL, .clkdm_name = "pruss_ocp"
+> +               .flags = OMAP_PRM_HAS_RSTCTRL | OMAP_PRM_ON_WHEN_STANDBY,
+> +               .clkdm_name = "pruss_ocp",
+>         },
+>         {
+>                 .name = "wkup", .base = 0x44e00d00,
+> --
+> 2.34.1
+>
 
