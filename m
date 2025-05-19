@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7809BC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:30:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CA6C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2wADUTH6wrn4QqjRXW3GogegKwrALuLScsRQU3AVWT8=; b=QcDJGc3EMVoq2+3jZUQM0Rl47W
-	r+rnndutd0gWdL1ep8XJ+T19DTuGpIx34LQkkJX+HNzGSIKw6J+g00h0YSX4bA7o3eFtwLUeskQZM
-	EVlhjboPArjOsX9A8VOeet7qW8lv+zqvH185pwPLJG+uSFfaM0graZkLHBMKqLI5knsYafuhv+iuv
-	IK9xQJeOjgSnyyHTrItkqIu1CiaaTzuFUnVmjUiu4565cJlns84J8veOmz0om7oamuWwjgCkaYfaS
-	Sog1Y/DWGgBJT7np1PID85uwfU1G+1uLQBSMJNWUXoV8niqFMmkn6/jP7KRiTQzSo+c18H5OHF361
-	OJzk1DeQ==;
+	bh=4savt1oZzFHTdK2FXDzF5yFP5dIEMWAQtiWse0iDXzw=; b=rgcqzXhEedNUbEme6xMUajRLE9
+	q4QsVT0uDB4BiOCeLHllRtExy9KQUAPbQCdWKhogR/gyMZvgRz6x1sPQsun1GYn5MbphRf1xSPlPr
+	87kQsZkZMaoYOOabVDCdtZqeYDZXmwYyukVFA9GC396Sak56Hqvm9aCHSl+KIF2zUe09rxDz9NS7A
+	pD2Keu/EhpkR/GbA7Kre4HoskAWOO57Aoi3ZelnY8cxtkWzyd8wVu/v4GBXStiRTbY4kYG28PQjy6
+	aVVsMfsAtkDnX2iTVUhqqwmJ2cF6cgT7SHeWACIAVi0eKYSDUQZ7lKyXBQrm2bUh6uYDo8U1JWxp6
+	G8mDxctA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH84G-0000000AYXZ-0h2o;
-	Mon, 19 May 2025 21:30:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uH86M-0000000AZ9G-3bCq;
+	Mon, 19 May 2025 21:32:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7wJ-0000000AW4n-1iKR
+	id 1uH7wh-0000000AWH2-3KnJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 21:22:28 +0000
+	Mon, 19 May 2025 21:22:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ACC855C05CD;
-	Mon, 19 May 2025 21:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 746E4C4CEE4;
-	Mon, 19 May 2025 21:22:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3C145629E3;
+	Mon, 19 May 2025 21:22:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4374C4CEE4;
+	Mon, 19 May 2025 21:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747689746;
-	bh=cw6Tkijcuttb9ZLMtOBWn44aOyeM3pb3rshzRVE8F0o=;
+	s=k20201202; t=1747689770;
+	bh=D7IBcVOI+yPkwGYr35IJjIYa1iRv9LBRLXIHo2RAt/c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oXlvh++HoFlZzlhRFKHtN4xARnAzfoWTM6LyP5lcEtWyZsIwOROcdAh5XwD6lNtF4
-	 6OR8wa7J3bGD9xkUwS/CycAf7em1LaVn6Ys+QYAeXMMn+0AHQWhjoVjDGaAq8qSy1T
-	 Va49KwNMnu2cDGKlmVV6fGNg/zBYAZjB2AFYJiSr3yihRcXc8Wt2lrWNCcVUZu7AWt
-	 UNJHaiUVYVOXQkjGZW9FohxBBUzpvgcu+adVg+QnER+05jqXge+id8p8PkQNfL365I
-	 b9khkGVw71vNZXVRwKTTw/YfNd7jTP8AqZVmE2Y/er5IEJsWNf1kCjRe8iBoHgxqle
-	 saSDpCxSOxxCQ==
+	b=guL1eDFNIKRtaBNuiuxhOr6ObFUgfWKK+PzlaoM8mA4ukHV7llx4ZN3KCqOr0iaVa
+	 PXiNKGRW0Co6C2yL8cI96uBdTtC2LfHbfJQZZxbkpF/SVRs45C5Wvarx//J1EzMVer
+	 Ri8MdXJA3xQbk1TDQnh2gM7I+zFA0sA/ujKVD5eK7bNqGZE+vjgDloMetLk4U/s1iL
+	 1nLo3c8THNh/MT3XhBrBodkq2AGd2Xi3+ZvMfhFpeJMFDSV48wXzNyvap4Zc4CGJz7
+	 hx/ZnAK1lNghfOm80w3q+UX9rIy19nzAXSn7dnQya6pO1Y+6iQQDJQp85oFp8Ij0KA
+	 jhrq+8IPNPYgQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -53,20 +53,17 @@ Cc: Alessandro Grassi <alessandro.grassi@mailbox.org>,
 	linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.12 11/18] spi: spi-sun4i: fix early activation
-Date: Mon, 19 May 2025 17:22:00 -0400
-Message-Id: <20250519212208.1986028-11-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 08/11] spi: spi-sun4i: fix early activation
+Date: Mon, 19 May 2025 17:22:34 -0400
+Message-Id: <20250519212237.1986368-8-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250519212208.1986028-1-sashal@kernel.org>
-References: <20250519212208.1986028-1-sashal@kernel.org>
+In-Reply-To: <20250519212237.1986368-1-sashal@kernel.org>
+References: <20250519212237.1986368-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.29
+X-stable-base: Linux 6.6.91
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_142227_489861_E57D75F4 
-X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,10 +100,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/spi/spi-sun4i.c b/drivers/spi/spi-sun4i.c
-index 2ee6755b43f54..3019f57e65841 100644
+index b8947265d329e..5b2cb225a4198 100644
 --- a/drivers/spi/spi-sun4i.c
 +++ b/drivers/spi/spi-sun4i.c
-@@ -264,6 +264,9 @@ static int sun4i_spi_transfer_one(struct spi_controller *host,
+@@ -263,6 +263,9 @@ static int sun4i_spi_transfer_one(struct spi_master *master,
  	else
  		reg |= SUN4I_CTL_DHB;
  
@@ -116,7 +113,7 @@ index 2ee6755b43f54..3019f57e65841 100644
  	sun4i_spi_write(sspi, SUN4I_CTL_REG, reg);
  
  	/* Ensure that we have a parent clock fast enough */
-@@ -404,7 +407,7 @@ static int sun4i_spi_runtime_resume(struct device *dev)
+@@ -403,7 +406,7 @@ static int sun4i_spi_runtime_resume(struct device *dev)
  	}
  
  	sun4i_spi_write(sspi, SUN4I_CTL_REG,
