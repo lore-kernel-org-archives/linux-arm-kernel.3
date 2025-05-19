@@ -4,138 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC839C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 14:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FB7C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 14:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PdV8uO80/mflHpZW6Zmyg39cv5SMy1ND2QAP2t8eHzY=; b=NxiET88Z/srxXu2VytWHlIlzcI
-	qKAWF1bqFdowj7MU6SHM6935JhNQhgxfHNkvJ9uCyewLIJ0p1pDjbYFABM24yAZ+Osj3T4rOsBCMb
-	WZI/HFZc65hCO1F+x8RQsNTaTE9LbVZ0qIzv9HidkXQQfQblJfilbdAH1lXb77culYS4oXhN0Gl3K
-	vOBBCNO9fiawYTXVJ8nXFeSLNVCRdWdmBVbQrxR5v1izPpeotWDJvN4h0T3ePsdIWMZe/nQsbBqpU
-	3EjHyZ0+mqXTllFbxYFI6a9hc+sozHNgfnLnVXZZKTtMtVxCA+XOTlmg32i0yxhGGd0h8faT+tyBn
-	YHSM+a+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GRBvgTHgZntCXNJBY5rtdZ4n3FATvNkFDQYn5xNJfuw=; b=zQ/V2kjs+KBzzL9QHbHQlidxKI
+	Kxa4B7vNfCM+fWRXivwA1vHZ/LfvN5PpLacWqzUSMgZOuq49Mtb9DoPx0rKYzrzfM/HG8jD/kVRfV
+	EBQVMxwx1I9VGmu7Oj4g3b5et6IHS/Yq7yQ9Yro0jkVAu36Otc5MiU5aiUzMJWZGaWtflALxUk7b/
+	E26yljSbqZ3mOKkwbtVGd077URD0J9IvyEseRru2TJXJYM+3fLdHlurYnYI6u7Why25LOdS/ArQXU
+	V1mxfnMtCTeoS/sLVd0+gsA42NiGeNBN0k0heL1Hzvj5ZM5JxKjVSQhOT24dlfkIf4/u6XAgRfvuG
+	uM949wrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH195-00000009OlN-2CPz;
-	Mon, 19 May 2025 14:07:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uH19d-00000009P03-3NMP;
+	Mon, 19 May 2025 14:07:45 +0000
+Received: from mail-ua1-f41.google.com ([209.85.222.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH0ng-00000009K27-3Pk8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 May 2025 13:45:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=PdV8uO80/mflHpZW6Zmyg39cv5SMy1ND2QAP2t8eHzY=; b=ln9gZILGHpbP6HJ6lr7Ot4YEFL
-	ASgYfOfHk2wPOTx325rLHimZElZ/gWi+xDyb6QEb7lXuOF/xlDVsWhe0ik6dA8noilOng0xAEXK80
-	kcmq1yilB4g2WioF6Q/kPDjCYQzRSOElTU6K8ozi9KrL9v3rNUV4/9y8ZMf+8cQw+ELC5qCCY1cG5
-	6huIlAreJBtteaIYz9j7hzP7tFZU8vqKJZSSrQnFBaAuWKjBEzB9XGo0J/ZFu4XEaO/QFTU31DE/f
-	GhDdwAJks+pg9/cq3PUSQwo6w2QPpyvdyRqqOploTSHT9D9GXnvHwIjERejO6L7pv2yfvIiy/bYHE
-	NKjKVVog==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uH0nc-00000000dpN-25vW
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 13:45:03 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54J9IUfw028604;
-	Mon, 19 May 2025 13:44:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	PdV8uO80/mflHpZW6Zmyg39cv5SMy1ND2QAP2t8eHzY=; b=prEs2AZG6sM1zEGe
-	VlkKyMnGGYxkLQMT3wdOmMthss1lBfNyEtDD15+kpRauYm9ctxxE1rtGyBG7Fv0f
-	7mJCkiJOnbNqwy/6kx5b3EJw/fdr4USRKjSBQQZQ0jHR3qMi+DE0bCsRrQ4toQWM
-	XQpE8v6IZupkHpPDe9Et6SnwT6edFLhvkgEDwG+tYmfYg686FX3HielgtSb5ymMw
-	H/6iWbGkmnrSAkUBtyDQyIUB5N69MUsS4VuPSWbwetCUd2aJT9KZy84qdFiXZdPk
-	mqWtVNNGCrWJyKA02Gb/R93mSzgTlfhvNmEC0JXDbA8nvT4pFil22EVufRp+SY2P
-	LCv/Dw==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46pju7cgmc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 19 May 2025 13:44:32 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54JDiVn1028686
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 19 May 2025 13:44:31 GMT
-Received: from [10.253.10.117] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 19 May
- 2025 06:44:23 -0700
-Message-ID: <1e3ba498-2bfb-4cab-ba13-5ab2c5b03ef9@quicinc.com>
-Date: Mon, 19 May 2025 21:44:20 +0800
+	id 1uH00V-00000009DfK-0two;
+	Mon, 19 May 2025 12:54:16 +0000
+Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-86d5e3ddb66so1038226241.2;
+        Mon, 19 May 2025 05:54:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747659252; x=1748264052;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GRBvgTHgZntCXNJBY5rtdZ4n3FATvNkFDQYn5xNJfuw=;
+        b=TDtpPsS10pa07Nv7hWQCFxYDo889lz3qCEoO7flTFy+dk/+YMw3I1g++9NZHuBQ3Yd
+         7GYekatPCrz+25IpJxBf98lCzWsetOBCZNQyhVT1dpyFTyy+cXnu+97qDNmD1mEX3kKo
+         d9cM0Kcvthm01YslSZ4hGk0nCs/7l6GvABY3oK4GUOJrrThET68j9Eic8m7c8wTMbKnj
+         4f6lWZEDTPFIVRTBWsz28TOGtjs1+FrvQCvfjG5Cz41xV5ro+Qoygwk1akuyDz8mp1rW
+         uuHUG/+Hd5zCllQyAcdDi9mw/W4NC5MDAyW39SxZcL6+Ib/3X18Jqk5K6JAPrj1N6bo8
+         ftzw==
+X-Forwarded-Encrypted: i=1; AJvYcCVoAFOMbmrVRCLMtfZyd13S3Vw/4yT2fWZLNEcrRMq6D80gBvMv8EW3krkRlzQYfpWcC9KoNE3FeH7Bl+JK8jk=@lists.infradead.org, AJvYcCWIDg1g5enkBx59U/edBToLficIP4u3dtsZ11jpwl7LXq5qmMW5SUQgjLTEptNiljnLplQPQpEfQr1/ct7WP/nw@lists.infradead.org, AJvYcCXLbQ9pMajpiLCl9BypcYWuPJ51rhNwFVvwkR3xL0VfealS5pOuuq+1v1GmPItVmGSmi41Q9cMecXeJ+28=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZi+/zVG233LPuZMfSIWrsLOtnWSMTVXtIG76h7YRoK5h1TYOl
+	8MwH/3hdMLj9eydoujTcmE8mhP+FkyH7k6WaO9eB041ZoxG1q6wauZEPRwJOu5KU
+X-Gm-Gg: ASbGncsDxpTurbVBVZ4EX4sTBm0spkSWr+jC5t+N3UdkwlFDXkIKHENpbQ0cURK3Tm0
+	Z94YmHm6agmf7kKDA26c+o/3mpXG3nrOfdK0HUNetjQKB5LGLIYOtyCW8N5YNHnREdp43qFixR4
+	KjEj5uUANWsrElHfvj48E4FVjqpcImAqbQ2j1C6O8YG42wIJY8DY34LeFzEV5QH1k8PYJc6vR43
+	OpPvPk3piu7khw9ZNINFaa+WRE/k1cKOWT0osBJyUyDhw9hVxng1VoXhM9f8wLofb4tB3iCxaEi
+	FNs/U4ZxbXkqlQk3vehyGY322BXyteoDCLecEvBlduqNhOu8xgUzJ0PsPTorAxuqdwPgWm8cYLE
+	b8EQE1n79NojeAQ==
+X-Google-Smtp-Source: AGHT+IFaXbNDLlYcLP1pwxr7DH97DBlr5IyRrv4pD2XRtPVt9pyFnrYg+IImNpjMJjWDUpAF/qircA==
+X-Received: by 2002:a05:6102:2c0f:b0:4c5:904d:f358 with SMTP id ada2fe7eead31-4dfa6c495a4mr12257888137.23.1747659252592;
+        Mon, 19 May 2025 05:54:12 -0700 (PDT)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4e144511052sm5219269137.26.2025.05.19.05.54.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 May 2025 05:54:12 -0700 (PDT)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-87bfd1499f0so448965241.0;
+        Mon, 19 May 2025 05:54:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV+QnKdat7eyT83sC5e2pKJUeDvfqYqeOx/ZM8sb46HbogoYKQvjJsPu/L4XzcCGYHrpbk8V2fuPb2hXEtI3H4N@lists.infradead.org, AJvYcCVEiKtCEjbtji+MuZoGaaixPMoCZzHHHnYWiSWXRPelCq+OriE6Wh1fkG2J7ApRXBsLR3iM5VHVkrZnMKs=@lists.infradead.org, AJvYcCVrhT/KJJpaiQrJWfg8Esegp6QswcQvdPOFqOxO9o8u+DTTv3rjGYtbDh/eRjU+IcslDmktVlpAyxaQiG/6/zI=@lists.infradead.org
+X-Received: by 2002:a05:6102:50a4:b0:4bc:82f:b4e0 with SMTP id
+ ada2fe7eead31-4dfa6c4654bmr11600429137.22.1747659251869; Mon, 19 May 2025
+ 05:54:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [cocci] [PATCH v3 2/6] coccinelle: misc: Add field_modify script
-To: Markus Elfring <Markus.Elfring@web.de>, <cocci@inria.fr>,
-        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-        "Catalin
- Marinas" <catalin.marinas@arm.com>,
-        Joey Gouly <joey.gouly@arm.com>,
-        "Julia
- Lawall" <Julia.Lawall@inria.fr>, Marc Zyngier <maz@kernel.org>,
-        Nicolas Palix
-	<nicolas.palix@imag.fr>,
-        Oliver Upton <oliver.upton@linux.dev>,
-        "Rasmus
- Villemoes" <linux@rasmusvillemoes.dk>,
-        Suzuki Poulouse
-	<suzuki.poulose@arm.com>,
-        Will Deacon <will@kernel.org>, Yury Norov
-	<yury.norov@gmail.com>,
-        Zenghui Yu <yuzenghui@huawei.com>
-CC: LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-        "Kiran
- Kumar C.S.K" <quic_kkumarcs@quicinc.com>,
-        Lei Wei <quic_leiwei@quicinc.com>, Pavithra R <quic_pavir@quicinc.com>,
-        Suruchi Agarwal
-	<quic_suruchia@quicinc.com>,
-        <quic_linchen@quicinc.com>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
- <20250417-field_modify-v3-2-6f7992aafcb7@quicinc.com>
- <a1be0efc-a4c9-461d-a01a-8fb830b2c68d@web.de>
- <0ee48e2f-58db-49b0-b651-dcc0e517465e@quicinc.com>
- <43712874-6f1d-435c-98b2-30ac44d25309@web.de>
-Content-Language: en-US
-From: Luo Jie <quic_luoj@quicinc.com>
-In-Reply-To: <43712874-6f1d-435c-98b2-30ac44d25309@web.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=XKEwSRhE c=1 sm=1 tr=0 ts=682b35c0 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=NEAV23lmAAAA:8
- a=c3S3xlzBOW1yjAwqZsgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: DDx5Kpyrf6pBeNUIV-O76BAavKioXic-
-X-Proofpoint-GUID: DDx5Kpyrf6pBeNUIV-O76BAavKioXic-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTE5MDEyNyBTYWx0ZWRfX8LBxompbvgoH
- 3i7uWyfrxx5T3Tfgsvy7ubiVJ6v1qhIGwf4jf/Xj3Xy1N8bv6dH9EU/v4+YK8hk3EOZKpGwsXpO
- zKPXnFqYrqWOXyiJzvXGm6Lg+ocGxkUpkTDXJZ/O5AXvVsS8FpVHPcnvp90SgtTIkcdhMEupjQ2
- uOj/n9xXrmiGEGLnLbuK3/1L9NHPSOpmoaK3yrzHw6a5A4PoIXXRCzpq8QAa9ZmTuW4GdgZaAci
- EHCwTjF+Lk7iDIzSmtS2qgKhzHtqhTC9bWvgCDe3sDRnz3V+dDqppGyupxR8VK2WXx2IejHyv8w
- JFBhRBjRDa880TK7422aleYlIMa6BgheyGcrQ8t5EswA8UqaJ1amugbbjV7lOzAkyz96FklOAvx
- XIva8OfJHDHpw248ZP7AXaRVN54826XqkLx8ayhxETvYMM/RYgIieue2XoBPYKPK+9fivQ+l
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-19_06,2025-05-16_03,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 impostorscore=0 clxscore=1015
- spamscore=0 suspectscore=0 malwarescore=0 adultscore=0 mlxscore=0
- mlxlogscore=999 phishscore=0 bulkscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505070000 definitions=main-2505190127
+References: <20250519121512.5657-1-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20250519121512.5657-1-wsa+renesas@sang-engineering.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 19 May 2025 14:54:00 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUOXZOe++Zpk_fGnPuGtQARN1fLQvTr0YX108OzZi4YmA@mail.gmail.com>
+X-Gm-Features: AX0GCFs8QnZ4h0I_0NgB8aYbEDIYXLj_xXnsltgGbg-TV1xw1OOT1Ne11-uflm8
+Message-ID: <CAMuHMdUOXZOe++Zpk_fGnPuGtQARN1fLQvTr0YX108OzZi4YmA@mail.gmail.com>
+Subject: Re: [PATCH 0/7] archs: use proper node names for GPIO based I2C busses
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-renesas-soc@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Conor Dooley <conor+dt@kernel.org>, 
+	devicetree@vger.kernel.org, Huacai Chen <chenhuacai@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	loongarch@lists.linux.dev, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, WANG Xuerui <kernel@xen0n.name>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_144501_180407_35943C04 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250519_055415_250273_AD2A3888 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,48 +104,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Wolfram,
 
+On Mon, 19 May 2025 at 14:15, Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
+> A lot of boards across various archs have a superfluous '-' in their
+> node name for GPIO based I2C busses. 'dtbs_check' complains, so fix
+> them.
+>
+> Based on linux-next as of 20250516. Build bots are happy. ARM patches
+> depend on another cleanup series[1], the rest has no dependencies. I
+> suggest that patches go via their subsystem trees.
+>
+> Tested on Calao USB boards using AT91 chipsets and a Renesas Lager board
+> using R-Car H2.
 
-On 4/24/2025 12:35 AM, Markus Elfring wrote:
-> …
->>> -reg &= ~mask;
->>> -reg |= FIELD_PREP
->>> +       FIELD_MODIFY
->>>                     (mask,
->>> +                  &reg,
->>>                      val
->>>                     );
-> …
->> With this code variant, there is no space prior to &reg, here is the
->> example code changes generated by the SmPL code as below, is this expected?
-> …
->> +++ b/drivers/phy/starfive/phy-jh7110-dphy-tx.c
->> @@ -244,8 +244,7 @@ static int stf_dphy_configure(struct phy
->>          i = stf_dphy_get_config_index(bitrate);
->>
->>          tmp = readl(dphy->topsys + STF_DPHY_APBIFSAIF_SYSCFG(100));
->> -       tmp &= ~STF_DPHY_REFCLK_IN_SEL;
->> -       tmp |= FIELD_PREP(STF_DPHY_REFCLK_IN_SEL, STF_DPHY_REFCLK_12M);
->> +       FIELD_MODIFY(STF_DPHY_REFCLK_IN_SEL,&tmp, STF_DPHY_REFCLK_12M);
->>          writel(tmp, dphy->topsys + STF_DPHY_APBIFSAIF_SYSCFG(100));
-> 
-> The Coccinelle software is still evolving somehow.
-> Thus your test result can trigger further development considerations.
-> I hope that clarifications and corresponding improvements can be achieved
-> also according to such source code layout concerns.
-> 
-> Regards,
-> Markus
+Thanks for your series!
 
-OK, understand. I will keep the original patch as below for now, as we
-need to ensure the script generates code with the expected style.
-+- reg &= ~mask;
-+- reg |= FIELD_PREP(mask, val);
-++ FIELD_MODIFY(mask, &reg, val);
+>   arm64: dts: exynos: use proper node names for GPIO based I2C busses
+>   arm64: dts: mediatek: use proper node names for GPIO based I2C busses
+>   ARM: dts: microchip: use proper node names for GPIO based I2C busses
+>   ARM: dts: samsung: use proper node names for GPIO based I2C busses
+>   ARM: dts: stm32: use proper node names for GPIO based I2C busses
+>   LoongArch: dts: use proper node names for GPIO based I2C busses
+>   riscv: dts: allwinner: use proper node names for GPIO based I2C busses
 
-In addition, below case is filed to request this improvement on the
-coccinelle project.
-https://github.com/coccinelle/coccinelle/issues/397
+Hmmm... which of these changes affect the R-Car board? ;-)
+Am I missing something?
 
-Thanks.
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
