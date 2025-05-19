@@ -4,54 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4830C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1550C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n7Hv2hdAx0Pt2wkqhDEIzVP009P1CgpW1A1M0O6cjIY=; b=n+qIDwdu4F3JpR+88p9SzV6YXW
-	UJq378Tnu7HThpON+x+Va5D274iT0v0FrxqBquaS+jcbcm2R3KOPchUyGUAAUyQqXboU67Sy4Nm2E
-	QLA5LUb3Y4tVVW+lV0CuvuX9nKGvDJBaUiTTfx/DCECAmI9PHSfb1Hxm0DN4tD6eRRnz3R3TQ9Yoj
-	py2OLKsrqICsed20d2Jv9tKUAG/nZf32E7ZFMQPPBdg8pe6dphgJ1vHnLpkB55Dt2voQ+S7mYYwPD
-	Npz8LS9G3iJFbh/cYnXdecsbsFsZo1y2LcFyaQ1B2OGaqfjk9vCE5FbZPaANdrKslJXb3Fhk2r326
-	IEWECwzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=42i6vc0A5NR2zHZsuIFeYTro4T
+	UlXiz4q7JbcNAYc4niVotLmvzwlwJSu+SSCnvvQYhFQsvrBk53yMGL3QbJLmBpZuSsb9QfASCSnnB
+	7CEmKlf2TZLZ4Y03DTBqPXRDgua8G3/+e0gvxFNH40QPfXVwvdBcaKFQK26r1h4hy7dqDL06SKcnL
+	4SHc0FJN/cMEnTbrW6gCz/gDiICpG1+h4ZmdAM367K/q0cd5rPdkeiuM4eW650jHBeQKTU/Yhr2t4
+	kcEqTnL61ANzQaDXvCW3yQ78a6vYz8CsaNK7Sefw6TdHPrZZcST40ScK2675FD7sVXfCpWI8z5hKJ
+	aYs8pkuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwWJ-00000008URd-14Uk;
-	Mon, 19 May 2025 09:10:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwUF-00000008Try-43yx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 09:08:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 543B51655;
-	Mon, 19 May 2025 02:08:28 -0700 (PDT)
-Received: from [10.57.95.69] (unknown [10.57.95.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BEE2E3F6A8;
-	Mon, 19 May 2025 02:08:39 -0700 (PDT)
-Message-ID: <5763d921-f8a8-4ca6-b5b5-ad96eb5cda11@arm.com>
-Date: Mon, 19 May 2025 10:08:38 +0100
+	id 1uGwgE-00000008Wso-1tHR;
+	Mon, 19 May 2025 09:21:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uGwe9-00000008VaP-0VUj;
+	Mon, 19 May 2025 09:18:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B025744340;
+	Mon, 19 May 2025 09:18:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 377E3C4CEF0;
+	Mon, 19 May 2025 09:18:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747646336;
+	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=rtLIIpFQVtYo6VXTO0s1zvBVtvBa82kjvThqya8pE2en+MjB9S8VGf6I9jeN66TP/
+	 FNdd0ocloPoy/nXYzhNvor2c/qUUdvfZ6mMsAF7hRSTjyapp3fve7gUCQiqr8EJXMI
+	 es1PVIoWZ6q+TCUOHnKunlgYB7WSzOwfz85wzGYSiJN4fbCsRbZPSTN4ebQtqEY4Eu
+	 3VbwrgOE+Haz3Wi8Fbj+wumy3Zir2TJJl/01H55fiNMgX8TDWBg+XhQuiu8o7ck/Pa
+	 Ir9YRaU1/knWPYpFA8luAyaRqbte37FCnIdxHuU56r0nWAKXHjjFwwyCpSI+gtCiVN
+	 UfbpjWM/IqYtw==
+Date: Mon, 19 May 2025 04:18:54 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: Restrict pagetable teardown to avoid false
- warning
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: david@redhat.com, anshuman.khandual@arm.com, mark.rutland@arm.com,
- yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <20250518095445.31044-1-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250518095445.31044-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Oded Gabbay <ogabbay@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Simona Vetter <simona@ffwll.ch>, linux-rockchip@lists.infradead.org, 
+ linux-doc@vger.kernel.org
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+In-Reply-To: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
+ <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+Message-ID: <174742024812.3649303.12389396177218408388.robh@kernel.org>
+Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_020844_055265_F5D96441 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20250519_021857_217419_A5F46216 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,64 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250519091854.4N503AqWihyMKXc1-PIzsqgwz-uLM4j2_0Vhqo73YPo@z>
 
-On 18/05/2025 10:54, Dev Jain wrote:
-> Commit 9c006972c3fe removes the pxd_present() checks because the caller
 
-nit: please use the standard format for describing commits: Commit 9c006972c3fe
-("arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table()")
-
-> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller only
-> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
-> pmd_free_pte_page(), wherein the pmd may be none. Thus it is possible to
-> hit a warning in the latter, since pmd_none => !pmd_table(). Thus, add
-> a pmd_present() check in pud_free_pmd_page().
+On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
+> Add the bindings for the Neural Processing Unit IP from Rockchip.
 > 
-> This problem was found by code inspection.
+> v2:
+> - Adapt to new node structure (one node per core, each with its own
+>   IOMMU)
+> - Several misc. fixes from Sebastian Reichel
 > 
-> This patch is based on 6.15-rc6.
-
-nit: please remove this to below the "---", its not part of the commit log.
-
+> v3:
+> - Split register block in its constituent subblocks, and only require
+>   the ones that the kernel would ever use (Nicolas Frattaroli)
+> - Group supplies (Rob Herring)
+> - Explain the way in which the top core is special (Rob Herring)
 > 
-> Fixes: 9c006972c3fe (arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table())
-> 
-
-nit: remove empty line; the tags should all be in a single block with no empty
-lines.
-
-> Cc: <stable@vger.kernel.org>
-> Reported-by: Ryan Roberts <ryan.roberts@arm.com> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
-> v1->v2:
->  - Enforce check in caller
+>  .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
+>  1 file changed, 162 insertions(+)
 > 
->  arch/arm64/mm/mmu.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index ea6695d53fb9..5b1f4cd238ca 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1286,7 +1286,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->  	next = addr;
->  	end = addr + PUD_SIZE;
->  	do {
-> -		pmd_free_pte_page(pmdp, next);
-> +		if (pmd_present(*pmdp))
 
-pmd_free_pte_page() is using READ_ONCE() to access the *pmdp to ensure it can't
-be torn. I suspect we don't technically need that in these functions because
-there can be no race with a writer. But the arm64 arch code always uses
-READ_ONCE() for dereferencing pgtable entries for safely. Perhaps we should be
-consistent here?
+My bot found errors running 'make dt_binding_check' on your patch:
 
-		if (pmd_present(READ_ONCE(*pmdp)))
+yamllint warnings/errors:
 
-> +			pmd_free_pte_page(pmdp, next);
->  	} while (pmdp++, next += PMD_SIZE, next != end);
->  
->  	pud_clear(pudp);
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too long
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too short
+	False schema does not allow 3
+	1 was expected
+	3 is greater than the maximum of 2
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core-top', 'rockchip,rknn-core-top'] is too long
+	'rockchip,rk3588-rknn-core-top' is not one of ['rockchip,rk3588-rknn-core']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): reg: [[0, 4255842304, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core', 'rockchip,rknn-core'] is too long
+	'rockchip,rk3588-rknn-core' is not one of ['rockchip,rk3588-rknn-core-top']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): reg: [[0, 4255907840, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
