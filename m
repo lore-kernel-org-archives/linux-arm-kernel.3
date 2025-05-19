@@ -4,69 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A11C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFA1C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AthOD4LNfl4ytx8L1jBhPqKmtC06S3idEgadJoZm9YI=; b=iFrRExS7P3vDuHjlpr9zB5kXNF
-	82TBNBa1o2R0TlSmtyM0S65HaCIsrk24uk+9xkIX+4sKR8/or8LdeHu9E4XcLxTZkO7kBRUpB0+3F
-	W1HaSviRXO/hWVaDT0d/hGwusDZtQ3zy6vvQWOlRPUw4rx1mJ8U/UiyIaeGWB4bnVLiuonzri1zps
-	H2oMBczG9YdV7dnYmVXq6PGDDjWOQFlic5dNWhb84iMGx6M8gEPW6AQ5zA/9vhgVAXkgXwuQe+8rj
-	CveaxYFpDm4XJxzfWvOr/ShnOvvmdIi+hBJgUiBwrt+RemFx0CqVcQ0WQKuB6SlNVLiCVggIAm4gU
-	N93+LYTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IF+8Y5XDtCDzaYIkXfRn+LH/SIQenJqpfbsdfUWufDI=; b=v7uD5tOjU22fIYcGYK6SnhG+hg
+	/pFjSA/GKri/8Pd+d/c2cIJsBMP0h4lBWQNNWUnMwwAjoifBZzUItVS9+SprjD5WvhqwGDPKGZQwR
+	m3ekt6Zvq5Ns7lNElNJC9sj4Er0hmgUR5elSwsmtjaWgPMhCJOru7MoNj0s1bcGwMG1ph8w3XnLo4
+	DWbUEgL0KuCK1qq9WYPD4Yc26eQYFp54chJlt1PYK7NNd5WnInHQBui1wDVIzbG0cncmjwKNQR5kQ
+	e5rsE/KyLXJfP92aj2rImTLbANjLsEsiAFqw4G3arI290nXdVQz/+JIV9x9SsvssMCLViP3dMB2yu
+	9kaJxZSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH3dn-00000009ri3-3VHO;
-	Mon, 19 May 2025 16:47:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uH3fp-00000009rwv-27wj;
+	Mon, 19 May 2025 16:49:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH2yE-00000009ila-2Ejb
+	id 1uH32e-00000009k8E-2WI2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 16:04:07 +0000
+	Mon, 19 May 2025 16:08:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CDA715C3B0F;
-	Mon, 19 May 2025 16:01:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1739C4CEE4;
-	Mon, 19 May 2025 16:04:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747670645;
-	bh=YiciytpzBKZU6jliaO65tJGGDGQootlSrvvGG35Ktdk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KnpeEQF9AXAlhGeeYGGwNM4vuPj26g+dg4Nt2tEQBNl1/zoUhsV8N1BECbhcTHrLb
-	 d1dePDbkxEQTbZ7zgcDvRdOFdzyCu8xJogzBh7JYRBEy2W/+vY1D0/rIHP28LcXuZ/
-	 r6H87jLQl8kAo/VND+R6hsCxqLQAW9OdFt6eqtmDd+AYGwWhhzPYpBL0OFmP8jtxQp
-	 fP8NgT9rQGdTOPxyo2qfRfqDJzbzHhbe/fihZESj2dT2RLZh4Eybspg/KsLUHLQ2UP
-	 Pi0xJ+rE1RDQc4aqzslBxTEH6wppS3apYCaNuS5LSVrp7yf4KuwE+QUo1KyIIgmn6/
-	 CZQGHysnqEe7A==
-Date: Mon, 19 May 2025 17:04:00 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Stefan Agner <stefan@agner.ch>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] dt-bindings: gpio: vf610: add ngpios and
- gpio-reserved-ranges
-Message-ID: <20250519-bucked-revolt-2b93a9a31422@spud>
-References: <20250519-gpio-dts-v2-0-b9e77173e9c5@nxp.com>
- <20250519-gpio-dts-v2-2-b9e77173e9c5@nxp.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 54AB75C4B2B;
+	Mon, 19 May 2025 16:06:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93023C4CEE9;
+	Mon, 19 May 2025 16:08:38 +0000 (UTC)
+Date: Mon, 19 May 2025 12:08:37 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Will Deacon <will@kernel.org>
+Cc: Nam Cao <namcao@linutronix.de>, Gabriele Monaco <gmonaco@redhat.com>,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ john.ogness@linutronix.de, Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 17/22] arm64: mm: Add page fault trace points
+Message-ID: <20250519120837.794f6738@batman.local.home>
+In-Reply-To: <20250519151238.GB17177@willie-the-truck>
+References: <cover.1745999587.git.namcao@linutronix.de>
+	<554038c996662282df8a9d0482ef06f8d44fccc5.1745999587.git.namcao@linutronix.de>
+	<20250516140449.GB13612@willie-the-truck>
+	<3E29A42D-8A6A-4342-8C60-2BEF1EDCD640@goodmis.org>
+	<20250519151238.GB17177@willie-the-truck>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="2cAhBHrdr3ZQFzJw"
-Content-Disposition: inline
-In-Reply-To: <20250519-gpio-dts-v2-2-b9e77173e9c5@nxp.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_090406_615082_C2CEFDD6 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20250519_090840_693602_DDA67038 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,58 +68,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 19 May 2025 16:12:39 +0100
+Will Deacon <will@kernel.org> wrote:
 
---2cAhBHrdr3ZQFzJw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> > Perf events work for perf only. My question is why isn't this a tracepoint
+> > that perf could hook into?  
+> 
+> Well, the perf event came first in this case, so we're stuck with it :/
 
-On Mon, May 19, 2025 at 02:03:43PM +0800, Haibo Chen wrote:
-> Add optional ngpios and gpio-reserved-ranges property
->=20
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-> ---
->  Documentation/devicetree/bindings/gpio/gpio-vf610.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml b/Doc=
-umentation/devicetree/bindings/gpio/gpio-vf610.yaml
-> index 4fb32e9aec0a341a50088f3e4352ed4d36f649d3..5b98228466c6414be681c4941=
-7bbdd82f2c45756 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
-> @@ -70,6 +70,12 @@ properties:
->      minItems: 1
->      maxItems: 4
-> =20
-> +  gpio-reserved-ranges: true
-> +
-> +  ngpios:
-> +    minimum: 1
-> +    maximum: 32
+I wonder what effort it will take to convert perf events to tracepoints ;-)
 
-Do these platforms have a default? I'd expect one to be added that
-contains the default value from what the driver does now.
+Note, I'm talking about tracepoints and not trace events, where the
+latter is exposed to tracefs and the former is not.
 
-> +
->  patternProperties:
->    "^.+-hog(-[0-9]+)?$":
->      type: object
->=20
-> --=20
-> 2.34.1
->=20
+> 
+> I was hoping we could settle for a generic helper that could emit both
+> the trace event and the perf event (so that the ordering of the two is
+> portable across architectures) but, judging by Nam's reply, the trace
+> event is needed before kprobes gets a look in.
 
---2cAhBHrdr3ZQFzJw
-Content-Type: application/pgp-signature; name="signature.asc"
+Perhaps we could add a helper function that does both (perf and
+tracepoint) and hide the implementation from the code that calls it?
 
------BEGIN PGP SIGNATURE-----
+But I'm currently still on PTO so I haven't looked at the details yet.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCtWcAAKCRB4tDGHoIJi
-0t2uAQC9WN2OYYXOrp610MPdWdT0m5i4i1tZeyTZdr3aD+wm0wD/fSCYfaimi/PV
-1bDpFQcFtXElQhb4Wvjp3cwIUlEZNQs=
-=IjWH
------END PGP SIGNATURE-----
-
---2cAhBHrdr3ZQFzJw--
+-- Steve
 
