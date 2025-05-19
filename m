@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78EA7C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 07:14:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A220C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 07:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ud0bfFxC8Gxw5d9VcJBlfTpRkEMLget3hZ7Og/mZPYQ=; b=hj0XFMRhorMQdFh7rNibAlxNn8
-	gSDP9RDDcX3xOH+scZEnsW4QZe+/Ei8TXexSEm0Cip1g/Pc5c+Yz5Wt4IDmR+A+5P4W2brRv4y8Gx
-	RyJXDNLPCuLX41wUiTFT0TsGaVt/CR7Hh0DrurZ8E97/8uw6879Rv0JPwfsi5UqXpA/BLhCXVB0kN
-	Eq9cXc8PhJswDMKU3C8TlPmbMZddqHH3fkrYAMzINhEKEy6UuEO2DeklrHY2bZUBB23MIUsvlv48K
-	v8MBeOhguCSD5ZT7cWfUkIFLr/RMjww3pvTsxiwbcNcK5z0U8slWG5Zl9BZy9exdZ/pEUaZd7geUU
-	Bs7ciViw==;
+	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=ZjtuieIEOpSaUuUX18X3GMGUtG
+	WstwWM/a1iVclQLt1ZEFTAyo6zc2D3IYcRZEKY137VaNI8DSvWztsj2kru21Yc7b5sVC4kYIUfqHv
+	uH5Kye4Otw3KdDFSGgHDIYZlrx5VKpIVdhLi9mlYXkeAVX2ojZb3k+xcbJGg2anck5wTTV9T5wVCk
+	KrhTLk7POcBgBk64vZ1vu8txsj285MvHs6GqaVgOps6IYeDJoDssRHZtxOFFWpSPrkewg3QxhYvBw
+	6srvvtY4lMsFC+Z/EH9y49feHgF7ilC7rx5cEIuJ3T0Rpz63WG22NOFuYTCEpGg2xmJdmj+tCc2/+
+	RhRYYgKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGuho-00000008C9y-1O8r;
-	Mon, 19 May 2025 07:14:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uGunM-00000008D23-3uov;
+	Mon, 19 May 2025 07:20:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGufl-00000008BnP-0aW9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 07:12:30 +0000
+	id 1uGulJ-00000008Cog-2gHn;
+	Mon, 19 May 2025 07:18:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2B17E5C4B9E;
-	Mon, 19 May 2025 07:10:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CADEC4CEE4;
-	Mon, 19 May 2025 07:12:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0ADEB43AAF;
+	Mon, 19 May 2025 07:18:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3C78C4CEE4;
+	Mon, 19 May 2025 07:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747638748;
-	bh=berpNQksN4I5+X+UnGQ86pZZ6eKvZ+gP0gHo+g2EPzI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=TuiWXUBGZsSZbyblobntkQU4Wznr+TWCnb5Om/fbKKu4Wj/tkEJ8hkh/bVtxH/lBj
-	 hQOY0ES7+kWcdPF+KPPeWd27Y29lpI/p24NIJwwX9Url6vJX0ydoZovy0bEV5a3uVv
-	 GiOS5dCJycbaIk03zOBEgzTT2f/rkfaApk7IHg+r1Rwkp7fCLYrPQB0X+hhlmcA/0C
-	 MDYeb6+PzLD4iEv0kOcjjD6pk9DbwFBTpfqpAgfBeDTURvf/5bdboag/qM3obGDSiW
-	 f8jOtMzhVufYnX5IR+gFOeUDhA8urvnQoEaSEsTvirDgUU+VXI7qjPjvEHjMlPDIf+
-	 4uQtzMe1O6CTw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uGufh-00G8VH-PX;
-	Mon, 19 May 2025 08:12:25 +0100
-Date: Mon, 19 May 2025 08:12:24 +0100
-Message-ID: <86y0utdqg7.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Youngmin Nam <youngmin.nam@samsung.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner
-	<tglx@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	junhosj.choi@samsung.com,
-	hajun.sung@samsung.com,
-	joonki.min@samsung.com,
-	d7271.choe@samsung.com,
-	jkkkkk.choi@samsung.com,
-	jt1217.kim@samsung.com,
-	qperret@google.com,
-	willdeacon@google.com,
-	dhyun.cha@samsung.com,
-	kn_hong.choi@samsung.com,
-	mankyum.kim@samsung.com
-Subject: Re: [QUESTION] arch_counter_register() restricts CNTPT access when booted in EL1, even if EL2 is supported
-In-Reply-To: <aCqM1Z2ApdvGYfb9@perf>
-References: <CGME20250516064924epcas2p24c8f3dc1860768b2b7bed30a41528770@epcas2p2.samsung.com>
-	<aCbhBttvi8mvsyGE@perf>
-	<86frh4gazr.wl-maz@kernel.org>
-	<aCqM1Z2ApdvGYfb9@perf>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: youngmin.nam@samsung.com, daniel.lezcano@linaro.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, junhosj.choi@samsung.com, hajun.sung@samsung.com, joonki.min@samsung.com, d7271.choe@samsung.com, jkkkkk.choi@samsung.com, jt1217.kim@samsung.com, qperret@google.com, willdeacon@google.com, dhyun.cha@samsung.com, kn_hong.choi@samsung.com, mankyum.kim@samsung.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1747639092;
+	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=VTELbrBISofftmki5GL5K5nGm+lxjdgs5GkfKNFZ1DAL4fqNFwwJw0MioLwU5rfp9
+	 jA4zz2b+jc/kOXPU0fsIJSOpw+7Wc1oST5tlUCfG/CttzNA0AAp/1yi6IElOjtRWQB
+	 +vhtQhkCWpr8ak7UayLarOZHSfQcOgC4h7XoqvRDhVfVoxGtHUmQxXklmq/uP1MUv6
+	 Xd2PRMxocR0bYmpVo3j9QuAvctorvp4ItO4+m5qmiMHs7Exoedc+kgGAjuyF4/5l/r
+	 gcSS7pO8DmFlMmRsBiZQaag6LaONO6UszngnZtBA3XwzYY7f5qZv8yfoXvMFcVVvwK
+	 qUB0be5VuahNw==
+Date: Mon, 19 May 2025 02:18:10 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Oded Gabbay <ogabbay@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Simona Vetter <simona@ffwll.ch>, linux-rockchip@lists.infradead.org, 
+ linux-doc@vger.kernel.org
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+In-Reply-To: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
+ <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+Message-ID: <174742024812.3649303.12389396177218408388.robh@kernel.org>
+Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_001229_263572_D15FE14F 
-X-CRM114-Status: GOOD (  39.69  )
+X-CRM114-CacheID: sfid-20250519_001813_715259_9B06B70F 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,90 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250519071810.uLOHtUKGzjUUh5nQJu2DN-KOenxHxftuRMZGShr2vbU@z>
 
-On Mon, 19 May 2025 02:43:49 +0100,
-Youngmin Nam <youngmin.nam@samsung.com> wrote:
->=20
-> [1  <text/plain; utf-8 (8bit)>]
-> On Fri, May 16, 2025 at 10:28:56AM +0100, Marc Zyngier wrote:
-> > On Fri, 16 May 2025 07:53:58 +0100,
-> > Youngmin Nam <youngmin.nam@samsung.com> wrote:
-> > >=20
-> > > [1  <text/plain; utf-8 (8bit)>]
-> > > Hi arm arch timer experts,
-> > >=20
-> > > While reviewing the arm_arch_timer code in Linux 6.12,
-> > > I noticed that the function arch_counter_register() restricts the
-> > > use of the physical counter (cntpct_el0) on systems where the kernel
-> > > is running in EL1, even if EL2 is supported and cntpct_el0 is
-> > > accessible.
-> > >=20
-> > > In our case:
-> > > - We are not using pKVM.
-> > > - The kernel is booted in EL1.
-> > > - We disabled VIRT_PPI and explicitly selected PHYS_NONSECURE_PPI for=
- the timer refering to below code.
-> >=20
-> > That's not legal. The architecture guarantees that there is a virtual
-> > timer and a physical timer. No ifs, no buts.
-> >=20
-> > [...]
-> >=20
-> > > As I understand it, `is_hyp_mode_available()` checks whether the
-> > > kernel booted into EL2 =E2=80=94 not whether EL2 is *supported* by the
-> > > hardware.
-> > >=20
-> > > Therefore, even on systems where EL2 exists and `cntpct_el0` is
-> > > accessible from EL1, the kernel still forces the use of `cntvct_el0`
-> > > if the boot EL is EL1.
-> >=20
-> > Yes, because it isn't architecturally valid to not have a virtual
-> > timer. This isn't about EL2 being present of not. The switch to the
-> > physical timer is purely an optimisation for KVM so that it doesn't
-> > have to switch the virtual timer back and forth when running a guest,
-> > as the virtual timer is the most likely used timer.
-> >=20
->=20
-> Thanks for the clarification.
->=20
-> As a follow-up question:
->=20
-> We are working on a system that uses a vendor-specific hypervisor instead=
- of KVM.
-> In this setup, we also want to optimize timer virtualization overhead and=
- are considering using
-> the physical timer (CNTPT) in the host context for performance reasons, j=
-ust like KVM does.
->=20
-> Would it be acceptable (from the upstream kernel's perspective) to make a=
- similar switch
-> to the physical timer in this case ?
 
-No. Your hypervisor already has *two* private timers it can freely
-make use of (virtual and physical EL2 timers), and doesn't need to
-encroach on something that a guest (be it Linux or any other guest)
-relies on.
+On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
+> Add the bindings for the Neural Processing Unit IP from Rockchip.
+> 
+> v2:
+> - Adapt to new node structure (one node per core, each with its own
+>   IOMMU)
+> - Several misc. fixes from Sebastian Reichel
+> 
+> v3:
+> - Split register block in its constituent subblocks, and only require
+>   the ones that the kernel would ever use (Nicolas Frattaroli)
+> - Group supplies (Rob Herring)
+> - Explain the way in which the top core is special (Rob Herring)
+> 
+> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
+>  1 file changed, 162 insertions(+)
+> 
 
-The alternative is to trap and emulate the EL1 timer for the guest so
-that it *appears* to be functional. But that's obviously bad from a
-performance perspective.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> Or is this kind of optimization strictly tied to KVM's internal behavior
-> and not something the kernel is expected to support generically?
+yamllint warnings/errors:
 
-It is purely Linux/KVM specific, and only works because we own both
-side of that equation, meaning we can enforce whatever is required to
-make the two work together. This obviously isn't possible with third
-party software. Look at it from a different point of view: how would
-you make this work with, say, Windows? or MacOS?
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too long
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too short
+	False schema does not allow 3
+	1 was expected
+	3 is greater than the maximum of 2
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core-top', 'rockchip,rknn-core-top'] is too long
+	'rockchip,rk3588-rknn-core-top' is not one of ['rockchip,rk3588-rknn-core']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): reg: [[0, 4255842304, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core', 'rockchip,rknn-core'] is too long
+	'rockchip,rk3588-rknn-core' is not one of ['rockchip,rk3588-rknn-core-top']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): reg: [[0, 4255907840, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
 
-On the bright side, the architecture already gives you everything you
-need to implement your hypervisor. Just use it correctly.
+doc reference errors (make refcheckdocs):
 
-Thanks,
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net
 
-	M.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
---=20
-Without deviation from the norm, progress is not possible.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
