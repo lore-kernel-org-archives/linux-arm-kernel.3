@@ -4,70 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC39C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 06:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13169C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 06:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/n/mXlMeAaA4RWOAepTMGMqDJKZPu7fd68J8iVYr8Yc=; b=U/raOP/p0JgF80s52svjzdLpWm
-	SplPy1E2cX6etYahqX8k8a12G74ngeKoTAYdZE3xYyn/ntMH2yIo+2KpReiAKVhmqHg/aen3XTa8k
-	30WNLIWT35B6hr8YwOetKhBFY6tON6/ilLXBT1zqoEpbex3iUefs48shR1fPNMqJouIesWn63iq5i
-	z15szSmUI4KWvj167oHvxZ/5vb2NNKggyZ8ne7WMB3rhy9YxxzGhT4/J7UQJJVmyD5k1K6HO7SiaN
-	rLZKLI9bJ+UJs+8wGjaYr53pwv+b5Cc1HIakrxfFTOZrKFyKjMstR2yt+Gzsj1STQwVVLJzGObY5x
-	ItqvXHnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zmih8O01GdluSEf+8GMoW+3uK9Ncp8kLJDQuqUouzDc=; b=v7VxvcN9ihJ47q+u1fY0jH3s/8
+	ZeYql2DBTMTd/4QAlP4tOZVqMGEOG+matl5NQJ4706u/cdV5lFLuuC3u13S8WxbqIVXjmDQ87NpXh
+	tjVtggrIjSjtB/BipmsJr27dy/KpwOItbBPesflgBWyVvHVIlscZeRL9saeIncLj9GLfe1NcAt3It
+	oj9jIhsWxvSL1fJVrHdTuLybLP90jIo9eOXPSmara6oORCzNY0UChaEaqzB2HQVC5ciZ+h1NQkcLr
+	o/2I8LRw/fzng+ickxwXoeigPTs3nCGWwsJhXC7lvRpHMLluOFsUUtcM9Qrd99RskaNTc1MXzP6f5
+	NSCFrpUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGu7Y-000000087p8-0Hbn;
-	Mon, 19 May 2025 06:37:08 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1uGuDP-000000088Gz-0Mw6;
+	Mon, 19 May 2025 06:43:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGu3U-000000087Fg-39mC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 06:32:58 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowABXavWO0Cpo9YxPAQ--.11520S2;
-	Mon, 19 May 2025 14:32:46 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: gregkh@linuxfoundation.org,
-	vz@mleia.com,
-	piotr.wojtaszczyk@timesys.com,
-	liyuesong@vivo.com,
-	u.kleine-koenig@baylibre.com
-Cc: linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] usb: gadget: lpc32xx_udc: Use USB API functions rather than constants
-Date: Mon, 19 May 2025 14:31:20 +0800
-Message-Id: <20250519063120.724793-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1uGuBN-0000000885M-0eQx;
+	Mon, 19 May 2025 06:41:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 50DCBA42DE8;
+	Mon, 19 May 2025 06:41:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63780C4CEE4;
+	Mon, 19 May 2025 06:41:03 +0000 (UTC)
+Date: Mon, 19 May 2025 08:41:01 +0200
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: "paul-pl.chen" <paul-pl.chen@mediatek.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	chunkuang.hu@kernel.org, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, 
+	p.zabel@pengutronix.de, jason-jh.lin@mediatek.com, nancy.lin@mediatek.com, 
+	singo.chang@mediatek.com, xiandong.wang@mediatek.com, sirius.wang@mediatek.com, 
+	sunny.shen@mediatek.com, fshao@chromium.org, treapking@chromium.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v3 03/17] dt-bindings: display: mediatek: add BLENDER
+ yaml for MT8196
+Message-ID: <20250519-orthodox-wolf-of-piety-7cecfd@kuoka>
+References: <20250515093454.1729720-1-paul-pl.chen@mediatek.com>
+ <20250515093454.1729720-4-paul-pl.chen@mediatek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowABXavWO0Cpo9YxPAQ--.11520S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7JFWkKry8XFy3AF17uF1Dtrb_yoWfCFgEkw
-	48ur13Ww17Xay5Cr1xG343JrWI9an5X3WDuFn5K3s0yFW3KF4UXrWUJrZ5JF47ZrW2gF9r
-	C3yqy3yYyF4SqjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbVxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4UJVWxJr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AK
-	xVWUtVW8ZwCY02Avz4vE14v_GF1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjfU5UDGDUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250515093454.1729720-4-paul-pl.chen@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_233257_159924_5688315A 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250518_234105_263521_C0F1071B 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +69,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the function usb_endpoint_type() rather than constants.
+On Thu, May 15, 2025 at 05:34:15PM GMT, paul-pl.chen wrote:
+> From: Paul-pl Chen <paul-pl.chen@mediatek.com>
+> 
+> Add mediatek,blender.yaml to support BLENDER for MT8196.
+> MediaTek display overlap blender, namely OVL_BLENDER or BLENDER,
+> executes the alpha blending function for overlapping layers
+> from different sources.
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
 
-The Coccinelle semantic patch is as follows:
+No blank line between tags, wrong order of tags.
 
-@@ struct usb_endpoint_descriptor *epd; @@
+> Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
 
-- (epd->bmAttributes & \(USB_ENDPOINT_XFERTYPE_MASK\|3\))
-+ usb_endpoint_type(epd)
+If you are the author, what does this SoB mean? When was this patch
+written, by whom and when was the review given?
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/usb/gadget/udc/lpc32xx_udc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Can you start using b4?
 
-diff --git a/drivers/usb/gadget/udc/lpc32xx_udc.c b/drivers/usb/gadget/udc/lpc32xx_udc.c
-index 89d6daf2bda7..1a7d3c4f652f 100644
---- a/drivers/usb/gadget/udc/lpc32xx_udc.c
-+++ b/drivers/usb/gadget/udc/lpc32xx_udc.c
-@@ -1629,7 +1629,7 @@ static int lpc32xx_ep_enable(struct usb_ep *_ep,
- 		return -ESHUTDOWN;
- 	}
- 
--	tmp = desc->bmAttributes & USB_ENDPOINT_XFERTYPE_MASK;
-+	tmp = usb_endpoint_type(desc);
- 	switch (tmp) {
- 	case USB_ENDPOINT_XFER_CONTROL:
- 		return -EINVAL;
--- 
-2.25.1
+You did not provide proper lore links to previous versions and tags are
+not correctly added.
+
+Best regards,
+Krzysztof
 
 
