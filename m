@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F39C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C83C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=osMpaW2iqfgJDgFue3AuRHUHha
-	PyJqAEKyLdqwrjsSkH2JLMMEQdheIx1ok3aF5yy9feERbbVEbG6aee0+/eI+7rgcWrP8CUa9PMkzk
-	H+aiuEuxo+KMIWMj9FRIhpmmlhb15q+L3L7hDZCdHOAHaEmGCUoX7g9QiPGwjArNv7lWIZgPoIcqB
-	aw3Lc6tKe9EAh5utUBceDh341Gys0WGe05aiSPYjoa/C3O0zdJ4zSpS062QUe+aqgr8lroBMO6vS1
-	LiSNimBIZWER8UuZ/BLeGy3a8K6ZvPDYXQEgP6fb6vrNi4/a3l8Iy/cevNv3iI5zlF2DbbEJJaI0D
-	gvO7qJ9Q==;
+	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=S3aZ9e+h/PpMuWYYiGhBKN+nmP
+	Snx3PsK9aMU7sfLnfgEsx9oGxFE+4rxyNq/j50zOcFc4WAqW1WM55lszcWyKnatKO3v1Axbh7EK1X
+	XGFe2DXLU3BqsekWZHqc7tYwBWE2U2u0DZYwoL2ki6EaGyDRUa9/aWOmxzm1GfCqBSblvjph3veBV
+	f/DCpvisWO79SkONEWuXF0EwmxC5aZQKpg4sdNPu8y2mFOeIuoMFvXHVdMb2kVzMb2BrN25PnKhgw
+	dbWisEzh4HVpBbHUZAFrH8Dw/KS1SwWlsQffBwRbYFRMQf29al+cr3qQznjrhY/7PC088SGdh5joF
+	ogAR1pAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGxEO-00000008gq7-1Pxl;
-	Mon, 19 May 2025 09:56:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uGxH3-00000008i1i-3YSr;
+	Mon, 19 May 2025 09:59:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwsr-00000008abH-12TD;
-	Mon, 19 May 2025 09:34:10 +0000
+	id 1uGx7X-00000008fCE-2kDo;
+	Mon, 19 May 2025 09:49:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 76CEA4A931;
-	Mon, 19 May 2025 09:34:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D6E4C4CEE4;
-	Mon, 19 May 2025 09:34:08 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D5EC5A48E0F;
+	Mon, 19 May 2025 09:49:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E635C4CEE4;
+	Mon, 19 May 2025 09:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747647248;
+	s=k20201202; t=1747648158;
 	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=WVWCbBnTkk0ktrvABJxuaYyiplG2vJKmYpK4HgwTkwCIEtblM/AJ0+VyDW34WxQAa
-	 IpTEtWMVIuEdhVeYrBWqFMipUtdZn81FnjSXJ/HE3Pz0OdLCbGCxi969dgJztpZTv3
-	 vwILvrmwOiogJwIVgIyV/qGCvBXf/llm7L6Elezxs0w1wYR49dRbu3y3gKgAT6fSZ3
-	 i8vzRM0IMik4HSs5wZAZrd9o9YO3hugJ6ZxI58aEZVzRObKvZc8L/3XzuUq4tC3GNf
-	 WPrunVGCIB+xLmoWb3ESebQy498xiKiknOqZFZc0uZDmOkoWrdanoq/D8PJPfp8Tus
-	 uRMTlv160j9Qg==
-Date: Mon, 19 May 2025 04:34:06 -0500
+	b=nPuhYqwj8v/tc/7qY5bU12RGUyTz/xO6Ql3LT74ISSeq7WZoLRR+VNfpx7PLosa8j
+	 I4mqqESu2fgtWqh1hHc0AxkBIE6xybCKMWICzlbmf7bmzSSQ0uuQW1quP0BXUoxnRG
+	 zK/0ewt2JP1JguFmBG7lWJoNZoSheONy/RM9FuHoqD3QMBG8aDjJewYj/0ZiTr+1Hm
+	 exIduw0kwbx5Pccf/AWDIyoT1o2DO6SKfVD/N9Xi4DDkrODxTRgoE4NVQAra3jdqbE
+	 Y3A+nAIoEXk8lJH8Nk+dAfx9jP9gxmlheBCQgUbn6S1B7gTZTxzx76QdIw4j7x6aZw
+	 rOexiIGSWWjeQ==
+Date: Mon, 19 May 2025 04:49:16 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
@@ -69,8 +69,8 @@ References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
 Message-ID: <174742024812.3649303.12389396177218408388.robh@kernel.org>
 Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_023409_318295_0203003B 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250519_024919_819783_B33A9373 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,7 +84,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20250519093406.C9_2H_OveoiX61opXZdF_DwFhTbc0aQItLf3MJOTyQ4@z>
+Message-ID: <20250519094916.s-lTtQQCfePV2P4zcxpHhoowylR8bjDyQgmrMYMdYyk@z>
 
 
 On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
