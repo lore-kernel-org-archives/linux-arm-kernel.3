@@ -4,69 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499C6C3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 12:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5778C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 12:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uaBVwUV7aElBCII+pwox4x6oSohZUw70T7BmwRHYa7Y=; b=IU5f+DXIKZVD+FN4qNVObukKRP
-	L2J2coae9G3e1aO6AGMcSDbkxcpfQyGvaon59SJlDt0/V67YoBhFkqB7ee+80Kyk28BD9adxO12g0
-	BRXobrAcEfeaH4asoWfPGLKJWObGKirMpcLOpSVhvuSvx4PPck1zrBgC8RtrMarL0FvdpvaFgpgLx
-	ukVNbkHErhmEgp+55SeH1mmxoWif6274DNgPmwCI8Xf5CVJj4wSs0PSXuH/wI2UVSu/nXcpJ7G8iP
-	dgHh96YQI68JCtBjRpMcYBmQLKV4Q9/hGl3KKlT32pG2oyPtprOS4wDgzR1E1XJV1ZHmcgltbIan9
-	uGE853bw==;
+	bh=GMZxfN46qBFe0l9X6tDmqZc8eIicmoFcaHSnxcRX8Zg=; b=l+6mW+U6PcErK8ZhEI59W0ZhF+
+	ALDo1ONiT1ZsixhtH8d1b2miCM0cCDI4ZmzaZOeS0T08NrZKGyHME63g4NgVwVtgEfoiZWZEqTLsr
+	FN18NBZLEXiYYj8iYPrGv4L6D5J0v9R08zZxhZijY1ibECS/pDhzKCQb1/UDC2k5iB3dgyZ6/aKV2
+	AJvoQdGU1Oik8OIFqbsucmv0x9ukCAzdvETuygYZisXmU/jPtLg6V02XdmdiY/sJOV/6Y41pevjFi
+	eoEmrrkM3OqHGDh44YXIKkg9Aw8QcvAFzXlnbRmu+zBK4w8amjzFcxAKck3oFAcr5vH45Yl5n0+xD
+	XDlZRkKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGzHp-0000000961R-1Va6;
-	Mon, 19 May 2025 12:08:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uGzJp-000000096DJ-26oN;
+	Mon, 19 May 2025 12:10:09 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGzFB-000000095cA-48Pw
+	id 1uGzGg-000000095sy-36hK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 12:05:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8B8755C1025;
-	Mon, 19 May 2025 12:03:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06AB0C4CEE4;
-	Mon, 19 May 2025 12:05:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747656320;
-	bh=uaBVwUV7aElBCII+pwox4x6oSohZUw70T7BmwRHYa7Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ll/nAuUjNrOyw8j2ZkTdy2sagqzkbs1Prucq/UAr/aTQL658hbos9KEspxJJnQb+J
-	 zD3GHS564rMkVJmZl/Rm0enKRTfyCOEU2TwazlDhPahb8hisgBip9BtNm4ww68llte
-	 l1N89ijETKpKJ/OBKTVhdIY5VXe1vhVDQ7gT2Qrdhh0xPHdZBn35WRxJXObcEX+5e3
-	 pha845Cjb6Bm9LwuHHefAJxX694ZkKlRVoTNNbdRhzbjxs2kknGOHx2M23ip/2NVjg
-	 Giw8VfnIjmuNt8LlG2/yXVZg1fFAzAkw0RmSZlY2abGtBzRFC8XNB0FFgHT7WRwIpD
-	 V1r1gdk9dU91g==
-Date: Mon, 19 May 2025 13:05:12 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Abel Vesa <abelvesa@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Mon, 19 May 2025 12:06:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747656415; x=1779192415;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=X9JYOmBZRRIrcEoIxM35PaaiyYlkP8TFD/KMSQVTS0U=;
+  b=JdCRGhaEn+qI5doIMAOdkK0za+kEkIfrP8JdhCuUHib+5Zy1cJhOLby0
+   gtnGpWi68AnCrpxljfa3tGYGIF6LvWDc87kmR9j+8xoLUbc7jDalbXFHW
+   QsHe1k6dWhj4xmgheqLsboyUME2sDZ6bwymPNUIGq6ThSds2CrEuuBpOj
+   cDGImTriG7+F4UVsOOdSOHo05afZRfYHejrP5mypqeyb3gsMenT6Qim4L
+   j7nAOoMDr520kZ81eN/KLsF9D0yAxdpcL8GBDbzHsSM7hMB4vc57N2OOa
+   wW/zBoAvwvv2Ii4vWueLeWTvPCOupbvrJH2E33X9phy8kmoUSZ6vkh2Kk
+   g==;
+X-CSE-ConnectionGUID: cQ2pOMPZQ9qvtO+SKxx4SA==
+X-CSE-MsgGUID: fUOCxmlDRbK4DsscfeyD1g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11438"; a="53225187"
+X-IronPort-AV: E=Sophos;i="6.15,300,1739865600"; 
+   d="scan'208";a="53225187"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2025 05:06:54 -0700
+X-CSE-ConnectionGUID: WMsdqKWhTEWrSxf4sLI6yQ==
+X-CSE-MsgGUID: iTaMPZPKSmWRJ7+uxsle8Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,300,1739865600"; 
+   d="scan'208";a="144112208"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2025 05:06:38 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uGzGL-000000031iT-3wdP;
+	Mon, 19 May 2025 15:06:33 +0300
+Date: Mon, 19 May 2025 15:06:33 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [linux-next, 1/1] clk: imx: imx8mm-anatop: probe only on i.MX8MM
- platforms
-Message-ID: <64488c18-d86d-490d-828f-7c82f654876e@sirena.org.uk>
-References: <20250516134945.14692-1-dario.binacchi@amarulasolutions.com>
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v2 05/26] bus: simple-pm-bus: Populate child nodes at
+ probe
+Message-ID: <aCseyW1iZgZNZNqd@smile.fi.intel.com>
+References: <20250507071315.394857-1-herve.codina@bootlin.com>
+ <20250507071315.394857-6-herve.codina@bootlin.com>
+ <aBy_aBkC7NpicXho@smile.fi.intel.com>
+ <20250519135818.01db3341@bootlin.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AmBTndPcfU5+JRsO"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250516134945.14692-1-dario.binacchi@amarulasolutions.com>
-X-Cookie: We have ears, earther...FOUR OF THEM!
+In-Reply-To: <20250519135818.01db3341@bootlin.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_050522_080137_DE69BCE9 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20250519_050654_826838_D66CD7E2 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +122,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, May 19, 2025 at 01:58:18PM +0200, Herve Codina wrote:
+> On Thu, 8 May 2025 17:27:52 +0300
+> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+> > On Wed, May 07, 2025 at 09:12:47AM +0200, Herve Codina wrote:
 
---AmBTndPcfU5+JRsO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+...
 
-On Fri, May 16, 2025 at 03:49:27PM +0200, Dario Binacchi wrote:
-> Commit 9c1e388af87c ("clk: imx: add support for i.MX8MM anatop clock
-> driver") breaks boot on i.MX8M{P,N} platforms.
+> > >  		if (of_property_match_string(np, "compatible", match->compatible) == 0)  
+> > 
+> > Side note, there is an fwnode_is_device_compatible() API for such cases. And IIRC
+> > there is also OF variant of it.
+> 
+> fwnode_device_is_compatible() checked for all compatible string. I mean, if
+> we have compatible = "foo,custom-bus", "simple-bus";
+> fwnode_device_is_compatible() checking against "simple-bus" returns true.
+> 
+> Here, we want "simple-bus" as the first position in the compatible string.
+> In other word, we want to match the more specific compatible string as
+> mentioned in the comment.
 
-=2E..
+I admit I'm not an expert in DT, but why is the compatibility position
+dependent?
 
-> In the imx8mp.dtsi device tree, the anatop compatible string is:
->=20
-> compatible =3D "fsl,imx8mp-anatop", "fsl,imx8mm-anatop";
->=20
-> So, in configurations like arm64 defconfig, where CONFIG_CLK_IMX8MP and
-> CONFIG_CLK_IMX8MM as well as CONFIG_CLK_IMX8MN are enabled, the driver
-> for the i.MX8MM anatop is incorrectly loaded.
->=20
-> The patch fixes the regression by ensuring that the i.MX8MM anatop
-> driver only probes on i.MX8MM platforms.
+...
 
-This *works* so=20
+> > > +	if (pdev->dev.of_node)  
+> > 
+> > Why do you need this check? AFAICS it dups the one the call has already in it.
+> 
+> of_platform_populate() was called only if an OF node is present.
+> I want to call of_platform_depopulate() on removal also only if an OF node
+> is present.
+> 
+> I don't see the other call that duplicated this check.
+> 
+> Can you clarify?
 
-Tested-by: Mark Brown <broonie@kernel.org>
+The of_...() is already NULL-aware (AFAICS), why do you need the duplicated
+check?
 
-and we probably need it for existing built DTs, but shouldn't there also
-be a patch to the DT source since the two blocks clearly don't seem to
-be compatible.
+> > > +		of_platform_depopulate(&pdev->dev);  
 
---AmBTndPcfU5+JRsO
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+With Best Regards,
+Andy Shevchenko
 
------BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgrHncACgkQJNaLcl1U
-h9CqPwf6AnDPQlXq5+ODftAO94GVICXfG0CkD34290bl/C//PcNtkKwFLwEi08Ny
-hv5H6y1Y2VNYHSE7dtfY1W8hzHczRKcnWqzVhN8Qqp2rpqA5GR4Cl6llJGMwkMFS
-T0whNbLSVTJrrzHluALbF629AnThigYlhGGMGoCsgNEZsVtnwnBzv8jsFKP38EWS
-4r2onOssrGcIDte2DdWzkOSJnm7xIwOTU10zBz4rVZwi2DpuFyivispFSJugv5j3
-cl7zgoT9UrdntwYvZRktpd6Nhq0gq0C6ABaSMuX4WPvshOqfjRyb9t++FLg3v1YH
-IKj/y81cV70tRM6qd4PID7u9fbsxmA==
-=9WUQ
------END PGP SIGNATURE-----
-
---AmBTndPcfU5+JRsO--
 
