@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EFAC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 20:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A128C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 20:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nGlArTtgUOUj740Mzo3b0ERQs4AjG6k/geZL7DXeETU=; b=AqFQoQxRxFsyQmat7IExguJnz7
-	Kew2DjLatqmDKnjgZI4+pbtkzoIBejfEUcEeaZoarKEQL9xQs5GXCECUnm403AE1GSTJvPq/fldA7
-	R8SaZwgGVEKTbYJDgo+pDs8F+saX+HxdmSiRsvdn9pItamJlFrVv231j/17hjLDBbxZdygoCusHYV
-	nThkJUMnQ1YCb0qlMLbmrA76ogNAbahWNCpTz4pLpQmx8i13NQTXJa/mN91nKweSdGvWU4TGbdWzX
-	lHIr+ac3jhAYvOg3I7GkvofDI9AC9SudMOWp1pS6BQwDaXXutmRBOzOqL0b6CbgYBRn5+mFgbRWZ7
-	0+mbJ1mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xi0fa9hZtQ3xUfjh/Fd+6H85XEzvRV9KyKLSSoEBIho=; b=am6Ixe8n205uGkppiTfPlRQhoB
+	VJxFKB3Mu9gReMAuqnYt53YsdCtT1c/b+32d9Lo0d0O3kG1pcrONTxVZqPJ27bXhuLEI/8ePp5m+7
+	hUBJHM1zEDuTFgDtdTbtRip5c3xy5rb9byv3DOoDbQur1eCvStnSWsyaB6NjMR8uGA0kLzI9Sxpqj
+	g2E6KORv4QFq8iDFWgNUg8Io5DNtuXDpuPy+KhdbQhusMoYX56nzX4/Byt4uZ/VtZedwsFhQAMFqG
+	xz05gWJ6FIVmWECT+4GPVi8KQ82rRPlwH9keL2kNQ+i3VOwYEsHtKatMpm5O8L6f1QNbjhCDocl8y
+	TI0u2TiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7U9-0000000ARwp-3CIL;
-	Mon, 19 May 2025 20:53:21 +0000
-Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
+	id 1uH7WG-0000000ASRo-1wRI;
+	Mon, 19 May 2025 20:55:32 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7Rz-0000000ARcO-0nT0
+	id 1uH7T9-0000000ARkK-0HKa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 20:51:09 +0000
-Message-ID: <96b21aa0-97d8-415d-9fbf-529b0434b25f@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1747687861;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nGlArTtgUOUj740Mzo3b0ERQs4AjG6k/geZL7DXeETU=;
-	b=XemC90L8DlP7lHEfQe/6YT5nXiboLVsNPfxid6qDytTG7ortwy1b/PntPkjfe1V5VbOnxD
-	dbz+wvnu+qAUoWapyohMluzeBpJJjslsLapo2BoHMkJiMmpKrSDCoJhSPh/LAnah16WxiK
-	S7A6quHCGMTVCddnc0juwgsYeTNbKNE=
-Date: Mon, 19 May 2025 16:50:57 -0400
+	Mon, 19 May 2025 20:52:20 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E433C1039728C;
+	Mon, 19 May 2025 22:52:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1747687934; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=xi0fa9hZtQ3xUfjh/Fd+6H85XEzvRV9KyKLSSoEBIho=;
+	b=MdKEOgQ2NYMapNfr6nWpzieFKGxPSRJvQ75R1YB86etandc2/tz4Gw51ZJxeKtPDcCGFZm
+	jps1OdMdqB19S7kvfimr8bHMPMia877rQmTJ0/EMDs81TVfUyi8P7ogE5ksjtvTzzzMdjd
+	SxuV+oa002NkrORXIibfJc2D6cDRzgS89bkKjuiVmE4mKMwnLlAswiicF780OX3xQ0uYiI
+	4FD0zTngteBD5df6JzSt5bsNDpA2+yF2qwg5EQvU9/ATfcdAOLVX3n85Cdyb6BOPFKixc5
+	V27CH5iBzELG9fL7mGxX3yGwyf2NqPflDDyDitP7wOF1dKfUIuSSz/uQQV+6pw==
+Date: Mon, 19 May 2025 22:52:08 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v11 4/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250519225208.50d60df5@wsk>
+In-Reply-To: <20250516075402.5104a0b6@wsk>
+References: <20250504145538.3881294-1-lukma@denx.de>
+	<20250504145538.3881294-5-lukma@denx.de>
+	<61ebe754-d895-47cb-a4b2-bb2650b9ff7b@redhat.com>
+	<20250513073109.485fec95@wsk>
+	<20250516075402.5104a0b6@wsk>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: cacheinfo: Report cache sets, ways, and line size
-To: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, Radu Rendec <rrendec@redhat.com>,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org
-References: <20250509233735.641419-1-sean.anderson@linux.dev>
- <20250510-fresh-magenta-owl-c36fb7@sudeepholla>
- <f63c2be5-50e4-4c47-8a56-9a570977a6cf@linux.dev>
- <aCIVec7zl3tIh73h@J2N7QTR9R3>
- <d67d893e-9c7e-487e-a14b-419a7cdc6158@linux.dev>
- <20250514123823.GA10606@willie-the-truck>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <20250514123823.GA10606@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: multipart/signed; boundary="Sig_/TOeu=qW_6zT9zkkN5+sCnzY";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_135108_452337_A57F92D1 
-X-CRM114-Status: GOOD (  34.04  )
+X-CRM114-CacheID: sfid-20250519_135219_400760_393F2DC5 
+X-CRM114-Status: GOOD (  40.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,88 +82,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/14/25 08:38, Will Deacon wrote:
-> On Mon, May 12, 2025 at 11:56:28AM -0400, Sean Anderson wrote:
->> On 5/12/25 11:36, Mark Rutland wrote:
->> > On Mon, May 12, 2025 at 11:28:36AM -0400, Sean Anderson wrote:
->> >> On 5/10/25 03:04, Sudeep Holla wrote:
->> >> > On Fri, May 09, 2025 at 07:37:35PM -0400, Sean Anderson wrote:
->> >> >> Cache geometry is exposed through the Cache Size ID register. There is
->> >> >> one register for each cache, and they are selected through the Cache
->> >> >> Size Selection register. If FEAT_CCIDX is implemented, the layout of
->> >> >> CCSIDR changes to allow a larger number of sets and ways.
->> >> >> 
->> >> > 
->> >> > Please refer
->> >> > Commit a8d4636f96ad ("arm64: cacheinfo: Remove CCSIDR-based cache information probing")
->> >> > 
->> >> 
->> >> | The CCSIDR_EL1.{NumSets,Associativity,LineSize} fields are only for use
->> >> | in conjunction with set/way cache maintenance and are not guaranteed to
->> >> | represent the actual microarchitectural features of a design.
->> >> | 
->> >> | The architecture explicitly states:
->> >> | 
->> >> | | You cannot make any inference about the actual sizes of caches based
->> >> | | on these parameters.
->> >> 
->> >> However, on many cores (A53, A72, and surely others that I haven't
->> >> checked) these *do* expose the actual microarchitectural features of the
->> >> design. Maybe a whitelist would be suitable.
->> > 
->> > Then we have to maintain a whitelist forever,
->> 
->> There's no maintenance involved. The silicon is already fabbed, so it's
->> not like it's going to change any time soon.
-> 
-> The list is going to change though and it introduces divergent behaviour
-> that I'd much rather avoid. The mechanism is there for firmware to
-> provide the information and it's hardly onerous compared with other
-> (critical) things that it's tasked to provide such as interrupt routing
-> and GPIOs.
+--Sig_/TOeu=qW_6zT9zkkN5+sCnzY
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-The mechanism is also there for us to discover the cache sizes without
-requiring any devicetree involvement.
+Hi Paolo,
 
->> > and running an old/distro
->> > kernel on new HW won't give you useful values unless you provide
->> > equivalent values in DT, in which case the kernel doesn't need to read
->> > the registers anyway.
->> 
->> Conversely (and far more likely IMO), running an old/distro devicetree
->> on a new kernel won't give you usefult values. Bootloaders tend not be
->> be updated very often (if ever), whereas kernels can (ideally) be
->> updated without changing userspace.
-> 
-> Updating the device-tree shouldn't require updating the bootloader.
+> Hi Paolo,
+>=20
+> > Hi Paolo,
+> >  =20
+> > > On 5/4/25 4:55 PM, Lukasz Majewski wrote:   =20
+> > > > +		/* This does 16 byte alignment, exactly what we
+> > > > need.
+> > > > +		 * The packet length includes FCS, but we don't
+> > > > want to
+> > > > +		 * include that when passing upstream as it
+> > > > messes up
+> > > > +		 * bridging applications.
+> > > > +		 */
+> > > > +		skb =3D netdev_alloc_skb(pndev, pkt_len +
+> > > > NET_IP_ALIGN);
+> > > > +		if (unlikely(!skb)) {
+> > > > +			dev_dbg(&fep->pdev->dev,
+> > > > +				"%s: Memory squeeze, dropping
+> > > > packet.\n",
+> > > > +				pndev->name);
+> > > > +			pndev->stats.rx_dropped++;
+> > > > +			goto err_mem;
+> > > > +		} else {
+> > > > +			skb_reserve(skb, NET_IP_ALIGN);
+> > > > +			skb_put(skb, pkt_len);      /* Make
+> > > > room */
+> > > > +			skb_copy_to_linear_data(skb, data,
+> > > > pkt_len);
+> > > > +			skb->protocol =3D eth_type_trans(skb,
+> > > > pndev);
+> > > > +			napi_gro_receive(&fep->napi, skb);
+> > > > +		}
+> > > > +
+> > > > +		bdp->cbd_bufaddr =3D
+> > > > dma_map_single(&fep->pdev->dev, data,
+> > > > +
+> > > > bdp->cbd_datlen,
+> > > > +
+> > > > DMA_FROM_DEVICE);
+> > > > +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
+> > > > +
+> > > > bdp->cbd_bufaddr))) {
+> > > > +			dev_err(&fep->pdev->dev,
+> > > > +				"Failed to map descriptor rx
+> > > > buffer\n");
+> > > > +			pndev->stats.rx_errors++;
+> > > > +			pndev->stats.rx_dropped++;
+> > > > +			dev_kfree_skb_any(skb);
+> > > > +			goto err_mem;
+> > > > +		}     =20
+> > >=20
+> > > This is doing the mapping and ev. dropping the skb _after_ pushing
+> > > the skb up the stack, you must attempt the mapping first.   =20
+> >=20
+> > I've double check it - the code seems to be correct.
+> >=20
+> > This code is a part of mtip_switch_rx() function, which handles
+> > receiving data.
+> >=20
+> > First, on probe, the initial dma memory is mapped for MTIP received
+> > data.
+> >=20
+> > When we receive data, it is processed and afterwards it is "pushed"
+> > up to the network stack.
+> >=20
+> > As a last step we do map memory for next, incoming data and leave
+> > the function.
+> >=20
+> > Hence, IMHO, the order is OK and this part shall be left as is. =20
+>=20
+> Is the explanation sufficient?
 
-Very often the release cycle for the devicetree is tied to the bootloader.
-So they may not be updated very often.
+I would do appreciate your feedback as your OK is required to prepare
+v12, so I would had the opportunity to have this patch set accepted to
+net-next before cut-off date.
 
->> > The architecture explcitly tells us not to use the values in this way,
->> > and it's possible to place the values into DT when you know they're
->> > meaningful.
->> 
->> Well, maybe we can just use these registers for the hundreds of existing
->> devicetrees that lack values.
-> 
-> The fact that the device-tree files tend to omit this information is
-> quite telling as to how useful it actually is. What would you like to
-> use it for?
+Thanks in advance for your help.
 
-Say you have a program that works on batches of data. You may want to
-adjust the size of the batch to fit in the L1 (or L2) cache. One way to
-do this is to benchmark various batch sizes and select an appropriate
-size. But it would be more convenient to the user to pick a batch size
-automatically without having to run a benchmark, just by reading from
-sysfs.
+>=20
+> >  =20
+> > >    =20
+> > > > +static void mtip_free_buffers(struct net_device *dev)
+> > > > +{
+> > > > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > > > +	struct switch_enet_private *fep =3D priv->fep;
+> > > > +	struct sk_buff *skb;
+> > > > +	struct cbd_t *bdp;
+> > > > +	int i;
+> > > > +
+> > > > +	bdp =3D fep->rx_bd_base;
+> > > > +	for (i =3D 0; i < RX_RING_SIZE; i++) {
+> > > > +		skb =3D fep->rx_skbuff[i];
+> > > > +
+> > > > +		if (bdp->cbd_bufaddr)
+> > > > +			dma_unmap_single(&fep->pdev->dev,
+> > > > bdp->cbd_bufaddr,
+> > > > +					 MTIP_SWITCH_RX_FRSIZE,
+> > > > +					 DMA_FROM_DEVICE);
+> > > > +		if (skb)
+> > > > +			dev_kfree_skb(skb);     =20
+> > >=20
+> > > I suspect that on error paths mtip_free_buffers() can be invoked
+> > > multiple consecutive times with any successful allocation in
+> > > between: skb will be freed twice. Likely you need to clear
+> > > fep->rx_skbuff[i] here.   =20
+> >=20
+> > +1 - I will add it with v12.
+> >  =20
+> > >=20
+> > > Side note: this patch is way too big for a proper review: you need
+> > > to break it in multiple smaller ones, introducing the basic
+> > > features separately.
+> > >=20
+> > > Cheers,
+> > >=20
+> > > Paolo
+> > >    =20
+> >=20
+> >=20
+> >=20
+> >=20
+> > Best regards,
+> >=20
+> > Lukasz Majewski
+> >=20
+> > --
+> >=20
+> > DENX Software Engineering GmbH,      Managing Director: Erika Unter
+> > HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell,
+> > Germany Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email:
+> > lukma@denx.de =20
+>=20
+>=20
+>=20
+>=20
+> Best regards,
+>=20
+> Lukasz Majewski
+>=20
+> --
+>=20
+> DENX Software Engineering GmbH,      Managing Director: Erika Unter
+> HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+> Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email:
+> lukma@denx.de
 
-> Short of having an immediate functional or performance benefit by
-> exposing this stuff, I wonder if we could add a kselftest for it
-> instead?
 
-I'm not sure how well that will improve adoption. Do people even run
-kselftest during board bringup?
 
---Sean
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/TOeu=qW_6zT9zkkN5+sCnzY
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgrmfgACgkQAR8vZIA0
+zr09nAf+PrG7I521kkXUYZKC2dEjxU/q4ixwas9hAklmPl5J8w3C7wiM5/X4unzo
+vgyoBo1oGToGHEV79FZkeZxn/MF9YXMrKl2WEAaLyNhHpKeusus4my0xt1Ao/Q9R
+dkyM0jAeOSnUNpcIl0zhOmgEyBzPFPeRMz263XvTekvJet3E/gTAPHHc1Cg2PfA1
+EyxCnsiGy4aHuPJGg+zMhVHxWkt1awEIwSwEZu5O4OtjpUAqfllFn4eiapelBHb7
+Z7IM3C1tqdvKGO8lU9nqIoBnYpU9ZzZcg4N27morc9NfrAbF0KlJr/a+pxbM7ptD
+rXo54/GaGqwWVq3BcFVpWi3OD+9oJA==
+=WWM9
+-----END PGP SIGNATURE-----
+
+--Sig_/TOeu=qW_6zT9zkkN5+sCnzY--
 
