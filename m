@@ -4,97 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A267BC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0753EC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xfCxvNrNXH6YMvxiBWl55URv30Vk5ImyK9KqXeiCoPg=; b=k/Ya4mvNFHjbQ9B0HXHt8Rzr2W
-	GOFeLSd/prlnlEGCgliIeXXvMfU0QofaPJ9MqxzFCkfsLa/g2fiTwPVE50lhUYauf0g/i6T5gRxvG
-	FMgEajThLNrUkGVJ3tdtnQzL0VROq2rVinWwGqKN5DYqU+3DgKSaa4H7vvQWPFnHXqZK3DTuUhj+e
-	ZIWk1lZ39/Xxi142+CNvHpuQ5plK0b9PSN24t+TlpWV+r9R/T4khlMCjkfHzxANFYR+erVkFFJPla
-	zGae37LYWDmMVGJ6qeJNfhHLijxCFxGO2JCFH+//Kw/+SIqFhbKSYUtpJGApqJYj6khFzjHo6LTY8
-	RTevku7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BbZyNy60AG+bFaAqmr0yh2auwJm4njPkSBqBc2hz4UU=; b=EtafU4mpHTkE9f/EDCWpda21vW
+	o5ItBfrDALqqZ6mN/aRCo4DdV+yhfhL3NmoG8AOehmtQRuQsUl6bjsGeO0slSWbWL9KtzGJWrodWg
+	3jTHeVP3641EQ0vgBd1plOsg5KtmJmMMNEuY3EiFmKu0/Jc5gEvBfsdVwtHhSWfYlXsLuuT16RBfT
+	5N7JZ0POAamGED3ftsri81QX7NP2+46QoMiEv2IyeWQMe5pxTwXhnGnzWnmuXwr2urCe3OsTdVqwS
+	ggAB23x5frL1EmPWj4ofAOFvOvBnFA4FDvEP4riup55Rw0KTADSUv40Qq84jYRs2JEqVa8owhCOJt
+	68UMuoDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7s0-0000000AVOJ-04Pz;
-	Mon, 19 May 2025 21:18:00 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1uH7xv-0000000AWeb-2en9;
+	Mon, 19 May 2025 21:24:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7pq-0000000AV6u-3Caz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 21:15:47 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ad5273c1fd7so809634866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 14:15:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747689345; x=1748294145; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xfCxvNrNXH6YMvxiBWl55URv30Vk5ImyK9KqXeiCoPg=;
-        b=QvRUrtG5hNc12dYIr6rLzwRn0xSzz2yIuAwuB9Gq9ugdozZcxDVucuMn5mXr1M7Boh
-         zpJOFxRQ5jDMvokew20sN9g03n/BmUTp5BUIF0AWF5XIrRON5jZKXKQIanzi1YUmcuc7
-         HsIeNQRoNuCG//KxWeZlNqSl45rR2p6Ft9eCqI8YTZktVPBgwFS/UGjMwEGY9pDShZdk
-         HjdcQWOdP1vnIhZarwtF06V3kClnUIeX+eMTJd06WvTJIxsiJ0Ov9xkDRTwAd7fsUSh+
-         C7AmVRs1EA7zMeSwapKT/oYGc2W62GNYxPj68ookcRZktT19qjV4q+/vt7UQSwR+UvOO
-         0TQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747689345; x=1748294145;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xfCxvNrNXH6YMvxiBWl55URv30Vk5ImyK9KqXeiCoPg=;
-        b=d77e08OxRWy+tn9TCqAVMoO3PIXSn0pLrSEqikuc/XEjcBaXFXO2OtVisbC6fqUacg
-         jei59TkjewayTz9VUA/Gbe3Aq1nZqY2aNOjNsZ1KuBS/jtfH6kLTE29Gqcmvj/8cSAKG
-         7f3VAx3nsWbwTzWRfwJIaVUeqbZrruDfKQOq0OjL1pFEqOQwmbglIZyM+zP5aQnswWdn
-         8EfiXvi4rOU+iLNm4J9jtjsOlUSjBalVFt+KCyaaZ8FDFqnZkaRkoDDucyuuxdX+0rTc
-         LSdbh+X9OQRFVmN/YhKmggEpjDS/TYLUi442f+OoBXBK/rZd2rYeuEzS5+ioiBSy26sA
-         JQgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9aRAHS7njM+MbmRDwgCHR/fRB2qJlXetwUYddZnKAK3I8UZeZ5wtae2IXE8KTYp3PqKIHqXwoXAg0oc+t7k1J@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIo+wX30Wk3kE+21dEia4ryUetL89crXFXJTLwpyraCKPEgdEc
-	poFvZvrZsZvjYDYt5AYG7pMhTpwwdvi5oGHssg2S5FxhXU8mZYkvNqcGWlyER20rkmtghp9XU4A
-	E9Zv3XkpkFK8lVYhZwn0657JwHeOxiGI=
-X-Gm-Gg: ASbGnct6dtkE544v4PPBK0i1r+VMVI4KeroLpu2EwHc6HOX28joSS4M9U6GpTeHK10y
-	abrhePTHU0Zxfzg+CYT2jPa7+Z5bqGdk+kuX6oNQut4MITGLl4PW/hSxLQ1SGsBPLTn8+Kq3w5X
-	BDgr3z5dBRtVH4ucdmiDw8fqjr//j1QCA=
-X-Google-Smtp-Source: AGHT+IEdHJ5TsiYJUOSilPNO+z3JABvgvB65Ct1aB4PjJ2fABaDgZlQuvx2XmPkklIghfrLSC+0u0HMeQGgesMbdSWY=
-X-Received: by 2002:a17:907:94d0:b0:ad2:2949:bdfc with SMTP id
- a640c23a62f3a-ad536b7ca51mr1349013266b.3.1747689344467; Mon, 19 May 2025
- 14:15:44 -0700 (PDT)
+	id 1uH7vn-0000000AVqt-0ePa;
+	Mon, 19 May 2025 21:21:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3C100629E7;
+	Mon, 19 May 2025 21:21:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA0D2C4CEEB;
+	Mon, 19 May 2025 21:21:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747689713;
+	bh=LfKgBqTTScbLaiJqyKNCt7VK1YfWHS/A9Ldo7X3cW8I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SUAHtZMwI/VCF73YO+p6zauBAiqt9pV5v5wNGaHCj1yY/xJJ63SuX2yntmbL47aiS
+	 MzZNOUbfHTlUKcikt8phH7ardFj3bf7ABwUu1ymFfqjCdEevRzFrdlGJ7kUYIogTLV
+	 k7C9eGYfX0xF8iMqqiQnNiNHMo8ncM74vSRAIyZIKWIbtNyfq0aQArmzIclzc+T5Y6
+	 N3hQHeRCFjZ5JIba0AdKEdEeE+NKNvA2hav9DlJmUFwfYCJLRNwOEi25LcbhrFHzYP
+	 zTgqTtgYSHT+ogHKLb4JJFxUizdsgX32UAN8ahiIUDvcQfA1ITQgywbqQJP/eW47R9
+	 dQjRmLaLFPWHw==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Algea Cao <algea.cao@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	kishon@ti.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 14/23] phy: phy-rockchip-samsung-hdptx: Fix PHY PLL output 50.25MHz error
+Date: Mon, 19 May 2025 17:21:21 -0400
+Message-Id: <20250519212131.1985647-14-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250519212131.1985647-1-sashal@kernel.org>
+References: <20250519212131.1985647-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <20250519175348.11924-1-robdclark@gmail.com>
-In-Reply-To: <20250519175348.11924-1-robdclark@gmail.com>
-From: Dave Airlie <airlied@gmail.com>
-Date: Tue, 20 May 2025 07:15:32 +1000
-X-Gm-Features: AX0GCFs4JnXwsJdajW1l7s7toaeaNTWjF5f0e497pSZ8wodPL0eA75PFrE0O5i4
-Message-ID: <CAPM=9tw183FMOT8uUacqegnb5CREAyr8KbXxO2mCuFK-SmUB1A@mail.gmail.com>
-Subject: Re: [Linaro-mm-sig] [PATCH v5 00/40] drm/msm: sparse / "VM_BIND" support
-To: Rob Clark <robdclark@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	linux-arm-msm@vger.kernel.org, Connor Abbott <cwabbott0@gmail.com>, 
-	Rob Clark <robdclark@chromium.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
-	Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <barnabas.czeman@mainlining.org>, 
-	Christopher Snowhill <chris@kode54.net>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Eugene Lepshy <fekz115@gmail.com>, 
-	"open list:IOMMU SUBSYSTEM" <iommu@lists.linux.dev>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Jessica Zhang <quic_jesszhan@quicinc.com>, Joao Martins <joao.m.martins@oracle.com>, 
-	Jonathan Marek <jonathan@marek.ca>, Jun Nie <jun.nie@linaro.org>, 
-	Kevin Tian <kevin.tian@intel.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	"moderated list:DMA BUFFER SHARING FRAMEWORK:Keyword:bdma_?:buf|fence|resvb" <linaro-mm-sig@lists.linaro.org>, 
-	"m oderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:DMA BUFFER SHARING FRAMEWORK:Keyword:bdma_?:buf|fence|resvb" <linux-media@vger.kernel.org>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, Nicolin Chen <nicolinc@nvidia.com>, 
-	"Rob Herring (Arm)" <robh@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Sean Paul <sean@poorly.run>, 
-	Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_141546_803846_5CCFF5E1 
-X-CRM114-Status: GOOD (  13.75  )
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.14.7
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,27 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 May 2025 at 03:54, Rob Clark <robdclark@gmail.com> wrote:
->
-> From: Rob Clark <robdclark@chromium.org>
->
-> Conversion to DRM GPU VA Manager[1], and adding support for Vulkan Sparse
-> Memory[2] in the form of:
->
-> 1. A new VM_BIND submitqueue type for executing VM MSM_SUBMIT_BO_OP_MAP/
->    MAP_NULL/UNMAP commands
->
-> 2. A new VM_BIND ioctl to allow submitting batches of one or more
->    MAP/MAP_NULL/UNMAP commands to a VM_BIND submitqueue
->
-> I did not implement support for synchronous VM_BIND commands.  Since
-> userspace could just immediately wait for the `SUBMIT` to complete, I don't
-> think we need this extra complexity in the kernel.  Synchronous/immediate
-> VM_BIND operations could be implemented with a 2nd VM_BIND submitqueue.
+From: Algea Cao <algea.cao@rock-chips.com>
 
-This seems suboptimal for Vulkan userspaces. non-sparse binds are all
-synchronous, you are adding an extra ioctl to wait, or do you manage
-these via a different mechanism?
+[ Upstream commit f9475055b11c0c70979bd1667a76b2ebae638eb7 ]
 
-Dave.
+When using HDMI PLL frequency division coefficient at 50.25MHz
+that is calculated by rk_hdptx_phy_clk_pll_calc(), it fails to
+get PHY LANE lock. Although the calculated values are within the
+allowable range of PHY PLL configuration.
+
+In order to fix the PHY LANE lock error and provide the expected
+50.25MHz output, manually compute the required PHY PLL frequency
+division coefficient and add it to ropll_tmds_cfg configuration
+table.
+
+Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
+Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Acked-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/r/20250427095124.3354439-1-algea.cao@rock-chips.com
+Signed-off-by: Vinod Koul <vkoul@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index 2fb4f297fda3d..88d265220e2c4 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -325,6 +325,8 @@ static const struct ropll_config ropll_tmds_cfg[] = {
+ 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
+ 	{ 650000, 162, 162, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 54, 0, 16, 4, 1,
+ 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
++	{ 502500, 84, 84, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 11, 1, 4, 5,
++	  4, 11, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
+ 	{ 337500, 0x70, 0x70, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 0x2, 0, 0x01, 5,
+ 	  1, 1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
+ 	{ 400000, 100, 100, 1, 1, 11, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
+-- 
+2.39.5
+
 
