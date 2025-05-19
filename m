@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EBDC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BEB6C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xPEYHOAa9cIet4iZua5k6szVG47y0INiUwKTR9frvBc=; b=Y6Iy4wqykjH+BotyIeyMn0XDTK
-	vyzLGaexBpSPrw5uzWnQBKdGoOhp/ybyLudtRQhNPpMAdKuBYQw7YB8mateUrGKAC0tMVUZ/02UNz
-	0kMPc0cozW9prumvtvgH5FncHwjm76ZNIjE8YeO/Owlsm6Q93BQfDYghPdCnzM8rLRGbUXBEwn8lA
-	FGdZpT4ijz3iyfyvVxN7BW5v+O6n28bYDE1AXFr/7MugjyMgP14KQlwQORiHPWvoxKGhT3dN8jzd8
-	t0UNusGILdbWLu5SFwaKJK9rzlvzLSyL/lVMhqyILlGT5eBo9Xt3lY2afQem4hMtpNo3o/naVxylC
-	uYGEZThg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gih8bOum/VT0Jh5nC/x3gfLzjyszCTEB4SsxxREB758=; b=q7VaDy7FpHTKgixoEmICrFC9hM
+	6tmpKjXSXskNK8V5feklDr0T4RMAefCmt0xNLMt7iig6/M0R0jD+OylnvwqYCPTqHvTKA2dRcdFRl
+	LbmND7cZ2R0L2uGZeZZO7wDaKv6z8kCzIbcu/dQZziD95SH6hJqj0qfFGh4fdM7v2iQn6F7y8AupS
+	v0AY2pB8hb08IRy5E0dbpfZfLh6fUqjW0MYdLhlEjZVLLdzwMecM4fy86QukV5Ma69bdkgA/WuZTv
+	s8HHTN4x9XrMCQd3bEk/eBdbOfFwD4lh60EUPNZZDFeA/cU96U/vsuEsCApGiLxPUb5y5OO2zaeTN
+	r5rFehZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH8Qd-0000000Af1Z-28NH;
-	Mon, 19 May 2025 21:53:47 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1uH8Vn-0000000AgAF-2wUL;
+	Mon, 19 May 2025 21:59:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH8OV-0000000AekB-1g5g
+	id 1uH8Td-0000000AffG-337k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 21:51:36 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-85e46f5c50fso465542639f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 14:51:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747691494; x=1748296294; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xPEYHOAa9cIet4iZua5k6szVG47y0INiUwKTR9frvBc=;
-        b=HPsbOE2yRLGy9BVFXdkfetMUvsz9dQvluYvbUe86X2GpuZHXoTn6YWKVX1I/8HtLPi
-         qxs4Y7rT1Dm/rWVfjIybNasu76hPN4GYdyjZJIXxTUXQOGYKafRECStxegLnGyzXmE4X
-         xAnVk+zbOzRYDVsF5ewVIdwCuz5P7BzVAfYKw5c/XOfIlnWxFsuzag9F9A3WQ2WIWjRt
-         ts/fWk6CyQ97Dh/Txil6ti0Esvm7t6MndHGnRq+S/ZEpr8jCGjip8COH6sebPU7/LMF1
-         Pv5II9w7DyJlqnoWND1KzJMVd/ukVtDPJOy0sd/KZzz/d3aVcIEbtJsdc1XuFdvS3OjR
-         mp+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747691494; x=1748296294;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xPEYHOAa9cIet4iZua5k6szVG47y0INiUwKTR9frvBc=;
-        b=Z/h4AwUaXVq1wmhYrMl7z/X6ZUOBv8kmxvdJ7Lt9yus1XjXnmTNbqpjRwnb1INwpKe
-         YfO+Q4Jy9yDcglXcPM63CsgeE3Aein3LzhFdOOSFTHJcLH8Lyw3f3EhiZtzOwl4NLcAC
-         YnWeE8tRfutxIoJGtkeWUh5ewGjrqU59uOCDT2DmSK5B31PAsk0f3mqX3ZflmxWqApVO
-         gnKIT+ZKATQ8uYc+3xr2OenRHFqLTbQiRqyhc0O6USO099Tz6B5YlE3tcmbkBY9LYkga
-         vxQidiM7Onw2PTWndrCVm8BL7cYz7EOyJSMhaUTwwKlYSipepomDtAXD0ZeIjrQ8Rail
-         K1Vg==
-X-Forwarded-Encrypted: i=1; AJvYcCVv8hJ68po40z1CdWcCcyG9fLB6K8a0CGJkn8qGb8OkGL3CYuRf2nZXJVQGdgt1pzegwl93Ojd/R4CwJqs16Ybv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjCA+0CcKmcKlPgD0HuWBw+4BYAAvN7P7WVVlTRgyN+0pzyRQc
-	QliGuKhGLFFlD7sBrky0qFrLpkqQTdhprfQSFok4GnuYt31aDTC+LlNC3YnfxnVNmCjRNileE9b
-	THXqVsSUy5EPDE3NE6g4oEUpTzvNZdAI=
-X-Gm-Gg: ASbGncu5cRhVS0IVds9lXMjg99M1/e0xTF2IkPttno6UK7oKokb+3JrUl88y9fOhMup
-	r4nFN0mOL7TpfbaRn3P3QXeqKDH9pL+Sf+treyU6vLMRzUxCXpka8zzCegn6m0hYY0obm6kf81s
-	sjYBh4q4lH62vQ4sKVV9pTKxaD6orQBt0BA/l8fWmAXYJ4z0RFgDAdEB4zhR1NTQuhmsmrewV19
-	2WAdw==
-X-Google-Smtp-Source: AGHT+IH7GskHnBBBnN3dCWe5+4wA68V6kn1SwK+BKY5czWCCWv4gMQRXKFVR4ovK9isr0sjORC+Rjt5sK8DipW7Cf4U=
-X-Received: by 2002:a05:6602:6cce:b0:86a:93c:f5fb with SMTP id
- ca18e2360f4ac-86a231901efmr1968076439f.1.1747691494249; Mon, 19 May 2025
- 14:51:34 -0700 (PDT)
+	Mon, 19 May 2025 21:56:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2AB83444B0;
+	Mon, 19 May 2025 21:56:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6853C4CEE4;
+	Mon, 19 May 2025 21:56:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747691813;
+	bh=G/udjNOlZf5UZB0lntyyPqplVnxx+IfVlpycxwLSers=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nu7elZZO8YqPcuNtMtp5sqtcZInfD7DMrpPlmrSWymeWoZDVi8ldUf3dIg1UbBQGA
+	 L3ctZKe1k5K6Rj8aZhmnWFijoqZ8XQ5NgZz7EchEHAaCx2N97S+QH+j2uxryCz7ca+
+	 lrBbBeSw/rge4wYpIS2ETtVm8QVLMpMvzVprpwR9rEKbc6bKKZxJnHXnIc4kXFq+Ec
+	 WykFkcGPTa6bmMM/Y5n9ssDikJ2HErrqV7ZEJYbRgOMrN7RomlXhxLcUR0e/9Z5KdJ
+	 0XN6xz6yCWTEmgWZ0uzrrK0P2gi/ZXa+XB2j39ezM5be++R0hjGS0wy7wF92/wPTbU
+	 i9rKjkEVOsXbQ==
+Date: Mon, 19 May 2025 16:56:51 -0500
+From: Rob Herring <robh@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v21 4/4] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+Message-ID: <20250519215651.GB2650608-robh@kernel.org>
+References: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
+ <20250407-arm-brbe-v19-v21-4-ff187ff6c928@kernel.org>
+ <20250519150621.GA17177@willie-the-truck>
 MIME-Version: 1.0
-References: <20250519175348.11924-1-robdclark@gmail.com> <CAPM=9tw183FMOT8uUacqegnb5CREAyr8KbXxO2mCuFK-SmUB1A@mail.gmail.com>
- <CAF6AEGuDTGVq7sw4oVuHb+cOE_DuKbEPO956oddVcsV2boieoQ@mail.gmail.com> <CAPM=9twuSfvQ0_NUdRmp0_VtTE_Br7GAysRw+XOoX7BTxUBGYQ@mail.gmail.com>
-In-Reply-To: <CAPM=9twuSfvQ0_NUdRmp0_VtTE_Br7GAysRw+XOoX7BTxUBGYQ@mail.gmail.com>
-From: Rob Clark <robdclark@gmail.com>
-Date: Mon, 19 May 2025 14:51:20 -0700
-X-Gm-Features: AX0GCFvmTvCANqDHHj2TPhXNkmFs3wC8dEXWRCEtBjip_pfclRDeM3uxGEixFZM
-Message-ID: <CAF6AEGs1hNGMMBjZuXoGjxF+JA1AHY_wx=gmqK4z=zShYoR6=w@mail.gmail.com>
-Subject: Re: [Linaro-mm-sig] [PATCH v5 00/40] drm/msm: sparse / "VM_BIND" support
-To: Dave Airlie <airlied@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	linux-arm-msm@vger.kernel.org, Connor Abbott <cwabbott0@gmail.com>, 
-	Rob Clark <robdclark@chromium.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
-	Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <barnabas.czeman@mainlining.org>, 
-	Christopher Snowhill <chris@kode54.net>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Eugene Lepshy <fekz115@gmail.com>, 
-	"open list:IOMMU SUBSYSTEM" <iommu@lists.linux.dev>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Jessica Zhang <quic_jesszhan@quicinc.com>, Joao Martins <joao.m.martins@oracle.com>, 
-	Jonathan Marek <jonathan@marek.ca>, Jun Nie <jun.nie@linaro.org>, 
-	Kevin Tian <kevin.tian@intel.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	"moderated list:DMA BUFFER SHARING FRAMEWORK:Keyword:bdma_?:buf|fence|resvb" <linaro-mm-sig@lists.linaro.org>, 
-	"m oderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:DMA BUFFER SHARING FRAMEWORK:Keyword:bdma_?:buf|fence|resvb" <linux-media@vger.kernel.org>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, Nicolin Chen <nicolinc@nvidia.com>, 
-	"Rob Herring (Arm)" <robh@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Sean Paul <sean@poorly.run>, 
-	Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250519150621.GA17177@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_145135_442067_483A9DF1 
-X-CRM114-Status: GOOD (  30.75  )
+X-CRM114-CacheID: sfid-20250519_145653_807627_B2395BCA 
+X-CRM114-Status: GOOD (  40.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,66 +84,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 2:45=E2=80=AFPM Dave Airlie <airlied@gmail.com> wro=
-te:
->
-> On Tue, 20 May 2025 at 07:25, Rob Clark <robdclark@gmail.com> wrote:
-> >
-> > On Mon, May 19, 2025 at 2:15=E2=80=AFPM Dave Airlie <airlied@gmail.com>=
- wrote:
-> > >
-> > > On Tue, 20 May 2025 at 03:54, Rob Clark <robdclark@gmail.com> wrote:
-> > > >
-> > > > From: Rob Clark <robdclark@chromium.org>
-> > > >
-> > > > Conversion to DRM GPU VA Manager[1], and adding support for Vulkan =
-Sparse
-> > > > Memory[2] in the form of:
-> > > >
-> > > > 1. A new VM_BIND submitqueue type for executing VM MSM_SUBMIT_BO_OP=
-_MAP/
-> > > >    MAP_NULL/UNMAP commands
-> > > >
-> > > > 2. A new VM_BIND ioctl to allow submitting batches of one or more
-> > > >    MAP/MAP_NULL/UNMAP commands to a VM_BIND submitqueue
-> > > >
-> > > > I did not implement support for synchronous VM_BIND commands.  Sinc=
-e
-> > > > userspace could just immediately wait for the `SUBMIT` to complete,=
- I don't
-> > > > think we need this extra complexity in the kernel.  Synchronous/imm=
-ediate
-> > > > VM_BIND operations could be implemented with a 2nd VM_BIND submitqu=
-eue.
-> > >
-> > > This seems suboptimal for Vulkan userspaces. non-sparse binds are all
-> > > synchronous, you are adding an extra ioctl to wait, or do you manage
-> > > these via a different mechanism?
-> >
-> > Normally it's just an extra in-fence for the SUBMIT ioctl to ensure
-> > the binds happen before cmd execution
-> >
-> > When it comes to UAPI, it's easier to add something later, than to
-> > take something away, so I don't see a problem adding synchronous binds
-> > later if that proves to be needed.  But I don't think it is.
->
-> I'm not 100% sure that is conformant behaviour to the vulkan spec,
->
-> Two questions come to mind:
-> 1. where is this out fence stored? vulkan being explicit with no
-> guarantee of threads doing things, seems like you'd need to use a lock
-> in the vulkan driver to store it, esp if multiple threads bind memory.
+On Mon, May 19, 2025 at 04:06:22PM +0100, Will Deacon wrote:
+> Hey Rob,
+> 
+> On Mon, Apr 07, 2025 at 12:41:33PM -0500, Rob Herring (Arm) wrote:
+> > From: Anshuman Khandual <anshuman.khandual@arm.com>
+> > 
+> > The ARMv9.2 architecture introduces the optional Branch Record Buffer
+> > Extension (BRBE), which records information about branches as they are
+> > executed into set of branch record registers. BRBE is similar to x86's
+> > Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffer
+> > (BHRB).
+> 
+> Since you picked this up from v19, the driver has changed considerably
+> and I presume you will be continuing to extend it in future as the
+> architecture progresses. Perhaps having you listed as Author (and
+> crucially, in git blame :p) with Anshuman as a Co-developed-by: would be
+> more appropriate?
 
-turnip is protected dev->vm_bind_fence_fd with a u_rwlock
+Shrug.
 
-> 2. If it's fine to lazy bind on the hw side, do you also handle the
-> case where something is bound and immediately freed, where does the
-> fence go then, do you wait for the fence before destroying things?
+> > ---
+> >  drivers/perf/Kconfig         |  11 +
+> >  drivers/perf/Makefile        |   1 +
+> >  drivers/perf/arm_brbe.c      | 802 +++++++++++++++++++++++++++++++++++++++++++
+> >  drivers/perf/arm_brbe.h      |  47 +++
+> >  drivers/perf/arm_pmu.c       |  15 +-
+> >  drivers/perf/arm_pmuv3.c     | 129 ++++++-
+> >  include/linux/perf/arm_pmu.h |   8 +
+> >  7 files changed, 1006 insertions(+), 7 deletions(-)
+> 
+> Do you know if James Clark's tests [1] are going to be respun for the
+> perf tool? It would be handy to have some way to test this new
+> functionality.
 
-right no turnip is just relying on the UNMAP/unbind going thru the
-same queue.. but I guess it could also use vm_bind_fence_fd as an
-in-fence.
+Yes. I dropped them here because I've been told by Arnaldo in the past 
+to send userspace stuff separately.
 
-BR,
--R
+> > diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+> > index 4e268de351c4..3be60ff4236d 100644
+> > --- a/drivers/perf/Kconfig
+> > +++ b/drivers/perf/Kconfig
+> > @@ -223,6 +223,17 @@ config ARM_SPE_PMU
+> >  	  Extension, which provides periodic sampling of operations in
+> >  	  the CPU pipeline and reports this via the perf AUX interface.
+> >  
+> > +config ARM64_BRBE
+> > +	bool "Enable support for branch stack sampling using FEAT_BRBE"
+> > +	depends on ARM_PMUV3 && ARM64
+> > +	default y
+> > +	help
+> > +	  Enable perf support for Branch Record Buffer Extension (BRBE) which
+> > +	  records all branches taken in an execution path. This supports some
+> > +	  branch types and privilege based filtering. It captures additional
+> > +	  relevant information such as cycle count, misprediction and branch
+> > +	  type, branch privilege level etc.
+> 
+> It's a shame that this can't be modular, but I suppose the tight
+> integration with the CPU PMU driver precludes that. Oh well.
+> 
+> > diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
+> > new file mode 100644
+> > index 000000000000..2f254bd40af3
+> > --- /dev/null
+> > +++ b/drivers/perf/arm_brbe.c
+> 
+> (The driver code looks fine to me but I'd like an Ack from Mark on the
+> UAPI).
+> 
+> > diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+> > index 2f33e69a8caf..df9867c0dc57 100644
+> > --- a/drivers/perf/arm_pmu.c
+> > +++ b/drivers/perf/arm_pmu.c
+> > @@ -99,7 +99,7 @@ static const struct pmu_irq_ops percpu_pmunmi_ops = {
+> >  	.free_pmuirq = armpmu_free_percpu_pmunmi
+> >  };
+> >  
+> > -static DEFINE_PER_CPU(struct arm_pmu *, cpu_armpmu);
+> > +DEFINE_PER_CPU(struct arm_pmu *, cpu_armpmu);
+> >  static DEFINE_PER_CPU(int, cpu_irq);
+> >  static DEFINE_PER_CPU(const struct pmu_irq_ops *, cpu_irq_ops);
+> >  
+> > @@ -317,6 +317,11 @@ armpmu_del(struct perf_event *event, int flags)
+> >  	struct hw_perf_event *hwc = &event->hw;
+> >  	int idx = hwc->idx;
+> >  
+> > +	if (has_branch_stack(event)) {
+> > +		hw_events->branch_users--;
+> > +		perf_sched_cb_dec(event->pmu);
+> > +	}
+> 
+> Shouldn't we decrement this *after* calling armpmu_stop()?
+
+Logically, that would make more sense. It's all serialized by the perf 
+core though, so we can't get .sched_task() during this.
+
+> > +
+> >  	armpmu_stop(event, PERF_EF_UPDATE);
+> >  	hw_events->events[idx] = NULL;
+> >  	armpmu->clear_event_idx(hw_events, event);
+> 
+> [...]
+> 
+> > +static int branch_records_alloc(struct arm_pmu *armpmu)
+> > +{
+> > +	struct perf_branch_stack *branch_stack_cpu;
+> > +	struct perf_branch_stack __percpu *branch_stack;
+> > +	size_t size = struct_size(branch_stack_cpu, entries, brbe_num_branch_records(armpmu));
+> > +	int cpu;
+> > +
+> > +	branch_stack = __alloc_percpu_gfp(size, __alignof__(*branch_stack_cpu),
+> > +					  GFP_KERNEL);
+> > +	if (!branch_stack)
+> > +		return -ENOMEM;
+> > +
+> > +	for_each_possible_cpu(cpu) {
+> > +		struct pmu_hw_events *events_cpu;
+> > +
+> > +		events_cpu = per_cpu_ptr(armpmu->hw_events, cpu);
+> > +		branch_stack_cpu = per_cpu_ptr(branch_stack, cpu);
+> > +		events_cpu->branch_stack = branch_stack_cpu;
+> > +	}
+> > +	return 0;
+> >  }
+> 
+> How does this work in a heterogeneous system? Shouldn't we at least
+> scope the allocation to the CPUs associated with this PMU?
+
+Leaks memory, that's how.
+
+As a bonus, it could overrun some memory too if the record sizes are 
+different though mostly overrunning into other BRBE buffers...
+
+I think we just need to loop over cpu_pmu->supported_cpus and call 
+kmalloc(). Since events_cpu is already percpu, we don't need a percpu 
+allocation of the branch stack buffers.
+
+I'm assuming it is safe to assume all CPUs either have BRBE or they 
+don't? Different record sizes at least should work fine (other than the 
+above issue). 
+
+BTW, I was scratching my head how armpmu_alloc() works with 
+for_each_possible_cpu(), but I guess the hotplug callbacks overwrite the 
+events->percpu_pmu value. I think we could just remove the loop there. 
+I'll investigate that.
+
+Rob
 
