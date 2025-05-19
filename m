@@ -4,72 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE16FC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 17:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC127C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 17:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=clyOHWY2IVfI9AZJ05BeTXpQUTL0uNha47hEQW+o2gA=; b=jScdLds3cpdVdTp5zdbgOmeK7Z
-	8nBdevHypMHnxVJ0OdjomT/Uaj6WIJGzx0rcoTHIMaku7S6xa+qh3vIVKartvGh1Yc/eDxem0Cmym
-	n061Jjhhq2aUqXTGDDekR+qr2/Lg6V70SMxsZ/NbqP67Ez9UYRncO8hIPQZaIb/3RsyzhBQ1dWc88
-	Xp+Rh1fRcRdoQpxjGTP7fmcHd06ypclnfZ0g5Es9Vj2hRX/WeRNamVl4gz8Qk2dzcYR5rjS4K2vIQ
-	dofSRlrMPdZWLpmJOH/49leisA3VbfD52byYvUC/z8yD1en8JBXdrb1zo+hoCtTR4Qh6yT1tRWZYj
-	28wdZtIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/5BArQx0hRBlgBGAB+Rnop+oLO8pn80ii8FzIJcNt34=; b=FX0SwXgr0aNh4XArCzIl6hwp4F
+	B3mXI7fRvGnyl9XEdskn8y20sJGeq9a2LPoJlpAW9Ax3lpWHMHb31F7ek31GdbfRAxUGXmMpa86pq
+	zBCmu4k7kL6aP1gOZViM/svsw2o7IvDy68Pvnh3w2vqm0J4VAEuCBUoxR4CUVu/vDgNMRSv+yuuQr
+	JNmIBLg30OA42Sq70Z+Spo96YulEUaiyGM19G3ZB7ZVRiwpC/hquc4SHQiT6EhlxsJoIcVFoVr6kN
+	zNBA6dVZtC8mvd2y0aPlpp8j+GK2qhOVDZawZIKfq0sdZJY1UwD3kr0yunlwxqHBYRXmNPnwlDeRh
+	7CfNtDyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH4YB-0000000A07j-3b3V;
-	Mon, 19 May 2025 17:45:19 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1uH4aC-0000000A0aw-2fYW;
+	Mon, 19 May 2025 17:47:24 +0000
+Received: from mail-sn1nam02on20612.outbound.protection.outlook.com ([2a01:111:f403:2406::612] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH3u6-00000009u8j-0mRD
+	id 1uH3vd-00000009uQl-0B98
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 17:03:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1747674232;
- bh=clyOHWY2IVfI9AZJ05BeTXpQUTL0uNha47hEQW+o2gA=;
- b=yti78IdkElfs+9nkTJhiaWNfDXAmFtgSxHPmDB8WZGFnk6O7MAqMqlgCR78SLG00G7uhH6Zja
- PVcw2Dt0J884HusntSndfmOOy8t1NViiBVEEKcrGVgtjfAYxEyy8fmd5JbKEJRZKthWpglPJ2XG
- Rr+m8i6uOo+hGK2e/RJFOkK/dehFqDC1xCt2eZs+IqgmKb72S1wHnpToWb/yqGeqSzbZm/oUdfx
- c3vLplWLqDUhbRWTfBp9nuLqzH/YEuxjHSOT3P3sE+3PuqVcqz6oHAOOD5V7VjZ4Hs2fcz6Lxoa
- r5NiYvUPJtqAugi26ZALYuUmHi1EvKMsRdau2+C3xZFA==
-X-Forward-Email-ID: 682b646ef094abf9f55cc97f
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.0.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <2d0524a9-50ff-4b49-bee9-8158c4c5b88b@kwiboo.se>
-Date: Mon, 19 May 2025 19:03:37 +0200
-MIME-Version: 1.0
+	Mon, 19 May 2025 17:05:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s6hB6TVg9t4Xz0UHrtZqrPOqrZxNPdDQAM3MaM5feQrmbDnsGbEmdIgLbrTyFCoXoH2nWNu+uHpt9FZwTV6/jbLrSSkBDzQOZh+wvjVzI5t8lRSZLcZz9OErb+qrRE7cQQ7JyW8xyQYKj4Xhzb8i2XHaIauMsUzDwtX/I7zU8NY4w0SX+d9cqK3OIBZHHWE2pstpKBeAvySRyPjDkYLkAWJZf2te2c0FT+9rKY7I+cEZ3pmCwKMirnNXKn4ylwzwBb0d4462g3diIPoqp1fBX6mabfPDtZ8u7dd4O7cyI0a4OEl0fAxhF5+LhoIa/OIgPd2HYMGM1KmOhYPBmls9ZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/5BArQx0hRBlgBGAB+Rnop+oLO8pn80ii8FzIJcNt34=;
+ b=mXA6lbh7QwES/c/vXLw689iIPq5m0tiXthhU5ZXG7O2hlDMFMft2wTQzizs8asr/mo8ZqO5XjQu2GVogvt02lA++MLDzkmZ/XjciAIJjOwmPmvsoOQDiJN7F/rMKogy2fJqM9pl4T2Ndi8trhjyIoJ54/y/+s6uiuHVqMkUCx0+Au1svPohxZnLORvjN99OZcppmho261fDCiGXVCZJv3/MDglc75W6RAqT5afmIdbHABEFLJtowYf10Q0uCvCkcxuiwXQ5Hs8KuBPv/JKXN6DREa9kY/Yn5oYe2Uxpacvtyaa/ANFq792SKtmsUyoqezcIDw1DfCFjId8nlsZOrUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/5BArQx0hRBlgBGAB+Rnop+oLO8pn80ii8FzIJcNt34=;
+ b=mKt5Jq25UUKZv0FOwdBEvEYRiTate9lHoYyUhcgkaUSMYwQR17iPcj4gmLJri2yB42f7DvyhIlxq7nHkVYGPTo6ChxOsHfSWMfYs2m+/kDC/RT9sd1qlRA40r6DGNCZD18/WQ7FpkMzflW9lPTNSlsHftnTv3nwqhV4thjLx1ZY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from IA1PR12MB6043.namprd12.prod.outlook.com (2603:10b6:208:3d5::20)
+ by PH7PR12MB6540.namprd12.prod.outlook.com (2603:10b6:510:213::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Mon, 19 May
+ 2025 17:05:24 +0000
+Received: from IA1PR12MB6043.namprd12.prod.outlook.com
+ ([fe80::73e4:a06a:f737:e9be]) by IA1PR12MB6043.namprd12.prod.outlook.com
+ ([fe80::73e4:a06a:f737:e9be%4]) with mapi id 15.20.8746.029; Mon, 19 May 2025
+ 17:05:24 +0000
+Message-ID: <c0af7aa9-a991-4d20-a2bd-c6065f04fc3d@amd.com>
+Date: Mon, 19 May 2025 22:35:11 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/9] dt-bindings: mmc: sdhci-of-dwcmhsc: Allow use of a
- power-domain
-To: Conor Dooley <conor@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, Ulf Hansson <ulf.hansson@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
- Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- linux-rockchip@lists.infradead.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250518220707.669515-1-jonas@kwiboo.se>
- <20250518220707.669515-6-jonas@kwiboo.se>
- <20250519-caress-traps-f61f0c6067b4@spud>
+Subject: Re: [PATCH v4 10/23] iommufd/viommu: Introduce IOMMUFD_OBJ_HW_QUEUE
+ and its related struct
+To: "Tian, Kevin" <kevin.tian@intel.com>, Nicolin Chen <nicolinc@nvidia.com>
+Cc: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
+ "will@kernel.org" <will@kernel.org>,
+ "bagasdotme@gmail.com" <bagasdotme@gmail.com>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+ "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
+ "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+ "shuah@kernel.org" <shuah@kernel.org>,
+ "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+ "nathan@kernel.org" <nathan@kernel.org>,
+ "peterz@infradead.org" <peterz@infradead.org>, "Liu, Yi L"
+ <yi.l.liu@intel.com>, "mshavit@google.com" <mshavit@google.com>,
+ "praan@google.com" <praan@google.com>,
+ "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
+ "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+ "patches@lists.linux.dev" <patches@lists.linux.dev>,
+ "mochs@nvidia.com" <mochs@nvidia.com>,
+ "alok.a.tiwari@oracle.com" <alok.a.tiwari@oracle.com>
+References: <cover.1746757630.git.nicolinc@nvidia.com>
+ <bedd9de4e24bb89f18f4b13b52c5fdb6db6bd889.1746757630.git.nicolinc@nvidia.com>
+ <BN9PR11MB52765915FACBF590E09EC46E8C90A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aCajRTEU3vPQAzpD@Asurada-Nvidia>
+ <BN9PR11MB527678D4598D453EE1EBF4588C93A@BN9PR11MB5276.namprd11.prod.outlook.com>
 Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250519-caress-traps-f61f0c6067b4@spud>
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <BN9PR11MB527678D4598D453EE1EBF4588C93A@BN9PR11MB5276.namprd11.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4PR01CA0011.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:272::6) To IA1PR12MB6043.namprd12.prod.outlook.com
+ (2603:10b6:208:3d5::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR12MB6043:EE_|PH7PR12MB6540:EE_
+X-MS-Office365-Filtering-Correlation-Id: 87102a01-aa2a-4805-c279-08dd96f75841
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RDRxKy95OHlacEc2eWlvZ0ZoQVlvZDFYcFBhN1FjWFphTkxCYnkxRWFOZDRm?=
+ =?utf-8?B?dkNyWHJyQ2YrcjBRaE9oOUljai9CbDNmSjZDdFowc293UVUweHZEazdyU0do?=
+ =?utf-8?B?eXR5bUZqbEo2RWpzMDRLM1I2SVJKZXRMY05XWnJFc3ZwK2xaRjZMU3VoVTY1?=
+ =?utf-8?B?QU9pOVdNTG1uUXp6MHBtL1RicjlwQ1RwMEJQSGZGK2lYUXdyQzRYb3l2VVQ1?=
+ =?utf-8?B?ZllFYUVrd1praTBXRzNxUnVDbFlxM1dmbFVPUGxhb0NYMFlkQkM2YkZjVlFp?=
+ =?utf-8?B?cmdIQm1sUDVjbWV6dFF6MGtTSDNWYkoyTFV4RytQQlFGNklkSVFGT0d1MmlQ?=
+ =?utf-8?B?YzJNUGhTL2ZHOFhHYXcvWkpuODBSY3BDdTArMXRGWG1FTmdjYTRIc21hZnpS?=
+ =?utf-8?B?elZuNlo2bWZOTFFTeWN2ejdFZHVVWnd6NkhRc3BzWVZ0bVpFSm9VZVVldTNQ?=
+ =?utf-8?B?SFphWjBiZW45Qmh6cld2VlBDMUF3RlJFU1hXT1VNYkllYWtXSStVcGRlaW1Z?=
+ =?utf-8?B?ZVlEL0tZS2NRbk5FSG1MVldLWFZadmcwZnMvelArdkJaK1ZOMlMwbjYwMWFL?=
+ =?utf-8?B?dEZnNlFmcVZCWWdXUlVXMjBSZWlaNlRlaGYwSjZNZ3Zyc2JGbTkrVG81MEwz?=
+ =?utf-8?B?VFN1YzhVSHo1OS93WVdFRlBvUTg0Smh3L0hySFJBdHRsQk4yYXdWZEJyMFF3?=
+ =?utf-8?B?dEFCazJ6cXB4SGtpUFZhR1JWQlB4UE1wcUZuOThEZThlaUZaa0l6czRoaUtn?=
+ =?utf-8?B?ZGhHTkthd0R6UEN4WFplV3cvZHBXdVRlMDl6bFZnZWRSN054dHIzV2MvWGlQ?=
+ =?utf-8?B?NVp5QnFUcjFibVd6TUc1RjRsd0RvSXE2TTJBRXlab2k4TzNnWFRUOEVobmph?=
+ =?utf-8?B?UnA5dEtNcEg5aGJJVWxucndBenhnUTBlMTZDZTRhT0pVc1pVa0tRQ0U4c21G?=
+ =?utf-8?B?aTd5U1lqT2ZZeFRXL0VqNllCVDUraThmUHVaTzM1NTAwUjZuTUJ5bWpSZnpZ?=
+ =?utf-8?B?VGMyRmRHWHJXZS81V1RNeEJUbUJkZFRoZVpDRGg0MjVUNm9pRkFoSG9hQ0ky?=
+ =?utf-8?B?OGpHZ3AydU5nNklad2VvVXVwUFZMMWh0SjhxdWxkM3VrK3lRUTVIUnBKaFM4?=
+ =?utf-8?B?bnJ3SjI3VCtTMG5tNVdqUHYxbzYyaXdyUmtSbmpzNW9xOW5rQXdpd1JYWUtl?=
+ =?utf-8?B?bFMyNE1WWkUzS0JLV2dIbkFaeUVVVWpqaVhaWDVoVGZ2UU8xdDFaUEJnRGE3?=
+ =?utf-8?B?ZTl3ZnlWNjNkaFdGUGlsSVVPRmRBbDFITjF6bDRxZGNDQjAybXJ4Wnl4QWpB?=
+ =?utf-8?B?QTFDcENpdk1rNUJ4SDJ6TFIwTmhubWtiSElkeklYazI4QVEya1NUeTdHN0Rn?=
+ =?utf-8?B?RjhicFEwSTgxSUNDdDFRQWRySkNUcGV1MmladFB3bExKVXZTTDQ1UnVQbkg0?=
+ =?utf-8?B?bmppUkJ0YThwVHJjNkZEWUFtTGszM3J1dTFSMDdJNU5CYUJNWHZwNWN5bklW?=
+ =?utf-8?B?Qy9zTTk2bFIvYTQ2bGNnRWs2L2xMK2xtU3JWTnhRd1dxc1VsMDdlS2FudlZD?=
+ =?utf-8?B?NEJNa0dDNDY2WFZKUnRJMUxrWmlTNTc3dlVPVlJKdm1EenY2N1NkUEczdVZG?=
+ =?utf-8?B?NWxZc244RFhJVGYyV0Zyc2lyQ3NuWDgyWUh2MmV5cTVsbys2dHA4N1RuRzJN?=
+ =?utf-8?B?a3UxbXl4YW1VRjQyVW9JS3hpV0dJdjAvZGovTUFwRUtTR2pRQ1BiamVFazVa?=
+ =?utf-8?B?NHhlSjF0Y1R3VnZnblVCSnpEaGlQQmdEVVU4bnovbEU2WlBDWjNMZmxGNWlQ?=
+ =?utf-8?B?OWp5Nks1c1MrUEF0SU5aSHE2UGJPWGdWR0ozMCs0ZkQ0RFlXNDA1VGtpSnFv?=
+ =?utf-8?Q?Jbeo6UvO49BXL?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB6043.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M3lnbHVWK1NBQ0xTNTE4VkwzOHY5SXRyUmpacnFaNERHVUlWVTlzK20yY2N4?=
+ =?utf-8?B?L1p3UmV6QXgzeHRVMHU5SGVuNFRyOE0yUW04dktwd0hEYTB4c05PZWFCVVR1?=
+ =?utf-8?B?YnYrUEtVN0ZlbFJ6czR3eUs5Ty9uUDFrWkRmVC9qNTRtaUxlOVpZc0E5aHR3?=
+ =?utf-8?B?TTJlRnJMVUJVYUo3OUloVlJRSVR5SVdKS3ZiSGpjcmhIa0lSWFhwUW1QY0p0?=
+ =?utf-8?B?c2lURlVONHdPUjRQQjE2cyt6OElpYTF2OC93MmF3ckVwMGZuOFpsTVhTSGhs?=
+ =?utf-8?B?ankyQ2J6TUs5eDVPYS9pbTRGZGg4SXlKK3AwdEJ6Z0hpNEQwcW1aUERJdURx?=
+ =?utf-8?B?NndrWiticnIrQ1pNcnJneTlrTVZPWTl3SmtQZEU2UHFsZS9zZndBaXJjc1NG?=
+ =?utf-8?B?Y0syUmxDK3h4aTVyR2hOYnRkWkhVaDhGRnJBamV2dXRETFd6b0tOc2laVzNz?=
+ =?utf-8?B?VFROQWxyRzNMcm9jQ1hWWFdpTUVyU2lrYVN4dFhLVFlLeENsUkgxOUdKck5L?=
+ =?utf-8?B?d2R2ZkF0NzJXV2o4YVFnZTNoVXJVcW1Xb2tuL0paNm5IcllZM01tam9TelVM?=
+ =?utf-8?B?YmJET3BncFk1dk9iRU45S1JVVWdGNDFWMzNucnREMldKb0JwSndIR013REtv?=
+ =?utf-8?B?TGJNUEphc2ZMOXRHTkI5RnJYUzR0U1orUU1TVnVMNzcrL1RLemhrKzdybUlY?=
+ =?utf-8?B?TW9jN0o3MWFRL2VHZVNsMHBzRFJRZmt0ajRPUitpOGUvaW5pdnhxWWlwdWo0?=
+ =?utf-8?B?dThWcStXVG9qaHNDb1VkeWNtRVVKSjdxVmo2NHluZmlkdVJRM1J1T3NGNklM?=
+ =?utf-8?B?V05BcmNxL2lWZnNBbmZFL2w3RGltWERrZWpRYU1BbnZnVFJTUmJUZzdrSmFQ?=
+ =?utf-8?B?dmluaUR0d0p0RzRRRWxwQUpCTWJnVGtoaUNwV0dxaXFSYmM0ZFVnOUJKbnZ6?=
+ =?utf-8?B?cnM5cVBYVWtSaXl2bDJvTVFQdDZMK29idEdabmhXVFJld2hNMmN5Q0hKd2hp?=
+ =?utf-8?B?TWhTTHVxNEZ1MTZTeG1kMlNHbU8yVHpacUZlc1lBT3NyMWMvRHR2b1NteUpV?=
+ =?utf-8?B?cFJqSUdpYzhGcEYyYm1rNVFFeHdYbHB4eFBKOHowV0RLVHprY1dlYUJ0amo3?=
+ =?utf-8?B?R2pHU08zaVhyZkxORG9wK3oxYmFRQThYdFlaOUFNbEp1MUxYclJOR1k0Mmpz?=
+ =?utf-8?B?M0FhMk8rQjNwTTh1amQvb1pSbDVMNkN4VzNjWGQ3dUFISkNMd0JhNVlGV1Z0?=
+ =?utf-8?B?dXpCYW5jdmMvR09nUm1ZM1FrdVBGa2tGb3ZyMHdsV1FZU1Y1WjNLT2pOTnY1?=
+ =?utf-8?B?T0taVGNUZXExMVpLOGllQy9BR1g1cWM4bkZOdDJOQUdTM0dlV3BScitPY0Fo?=
+ =?utf-8?B?QnpQWWoxSnpORnc2Ulp0ajJNOTJsSGVURVA1Q2hwZ083Ym1FUzUxQ0p1SU9n?=
+ =?utf-8?B?UG1tN3VFMDBMZ0djcnhqQ0E3anBGY2ZuTEZXbnJmWkhjNWFlWHVJOXJhNFhp?=
+ =?utf-8?B?R3hLbnNuY1pZRW9KMmU3QUhJdEY2OUhkaGJ5UE9FbTZGL2tpb2QzSmNkOUJW?=
+ =?utf-8?B?QUxReER3cE1NWUo4SzVINkVWREZIdXk1UEl2VHVlaHBDRkg2NWcyR1BjcVlK?=
+ =?utf-8?B?S3BmUnY0MEp5ai9iNUxsdmhQbHM2Q2JJcUdhTzAyRm5rZXRYT1VYVnMrUC9h?=
+ =?utf-8?B?WC9kaFZxVmtYbFB0Y3JlUnRqdWRoaVFqa3VEUnhEVWFEZUZnb0Q2UGFKT3Nt?=
+ =?utf-8?B?ZXRJbGpnSmtHb1NlVmFwQmlUQ1V3Vk84d0MxaSt4L2pieDQyUTZzSk9NT1E3?=
+ =?utf-8?B?dHNDMHpMek56V0Z5R2lnOGVCbkpFN1hvd25RYW9mN20yajNLQ3pVM0poV1ky?=
+ =?utf-8?B?Y3FyMzRleHdDUkd0aEVUem5Na3I5TGQwVWVScFRzNVlJUUpPYWxRTkhGU0w5?=
+ =?utf-8?B?d256Q2xnMTNiQldtNXlNZVAxdjlmSUZNQ2w1NHl3bWgyRjJHODVpa2hhMnB4?=
+ =?utf-8?B?SjJoU1RmUGluK2NOcVQxSXRBZ2xzOXRPNHlwdVpHdTdlUTA5UGFmRzNkaTd6?=
+ =?utf-8?B?N3ZSWXliWmp6b3RNZ3IzQ00xOEVKeDNkdkxJSTl6TDFRL20vb1BISzk4Wm4y?=
+ =?utf-8?Q?Afr27TJyAi0ne0y4YLc4e14CE?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87102a01-aa2a-4805-c279-08dd96f75841
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB6043.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2025 17:05:24.1841
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +6paPEi7pG64LXccT4GlfXsyGMpp18+KJr3HFvBS5MaT7DSKxBpU1bXYBSrH0/b/HzS9wAohgH45CF0Vt7a1Lw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6540
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_100354_586012_6A3EDCBF 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250519_100529_087210_E02E6338 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +201,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Kevin, Nicolin,
 
-On 2025-05-19 18:12, Conor Dooley wrote:
-> On Sun, May 18, 2025 at 10:06:52PM +0000, Jonas Karlman wrote:
->> The commit 7e856617a1f3 ("dt-bindings: mmc: Add support for rk3576
->> eMMC") limited use of power-domains to Rockchip RK3576.
+
+On 5/16/2025 8:29 AM, Tian, Kevin wrote:
+>> From: Nicolin Chen <nicolinc@nvidia.com>
+>> Sent: Friday, May 16, 2025 10:30 AM
 >>
->> Remove the power-domains: false to allow use of power-domains with more
->> controllers, e.g. with SDHCI on Rockchip RK3528.
+>> On Thu, May 15, 2025 at 05:58:41AM +0000, Tian, Kevin wrote:
+>>>> From: Nicolin Chen <nicolinc@nvidia.com>
+>>>> Sent: Friday, May 9, 2025 11:03 AM
+>>>>
+>>>> Add IOMMUFD_OBJ_HW_QUEUE with an iommufd_hw_queue structure,
+>>>> representing
+>>>> a HW-accelerated queue type of IOMMU's physical queue that can be
+>> passed
+>>>> through to a user space VM for direct hardware control, such as:
+>>>>  - NVIDIA's Virtual Command Queue
+>>>>  - AMD vIOMMU's Command Buffer, Event Log Buffer, and PPR Log Buffer
+>>>>
+>>>> Introduce an allocator iommufd_hw_queue_alloc(). And add a pair of
+>>>> viommu
+>>>> ops for iommufd to forward user space ioctls to IOMMU drivers.
+>>>>
+>>>> Given that the first user of this HW QUEUE (tegra241-cmdqv) will need to
+>>>> ensure the queue memory to be physically contiguous, add a flag
+>> property
+>>>> in iommufd_viommu_ops and
+>>>> IOMMUFD_VIOMMU_FLAG_HW_QUEUE_READS_PA to allow
+>>>> driver to flag it so that the core will validate the physical pages of a
+>>>> given guest queue.
+>>>
+>>> 'READS' is confusing here. What about xxx_CONTIG_PAS?
+>>
+>> Combining Jason's first comments here:
+>> https://lore.kernel.org/linux-
+>> iommu/20250515160620.GJ382960@nvidia.com/
+>>
+>> So, pinning should be optional too. And I think there would be
+>> unlikely a case where HW needs contiguous physical pages while
+>> not requiring to pin the pages, right?
+
+AMD IOMMU needs contiguous GPA space for buffer (like command buffer), not
+contiguous physical address.
+
+
+>>
+>> So, we need an flag that could indicate to do both tests. Yet,
+>> "xxx_CONTIG_PAS" doesn't sound very fitting, compared to this
+>> "IOMMUFD_VIOMMU_FLAG_HW_QUEUE_READS_PA".
+>>
+>> Perhaps, we should just add some comments to clarify a bit. Or
+>> do you have some better naming?
+>>
 > 
-> Meanwhile, you're allowing it for all devices, even ones where it is not
-> valid. I'm not keen on that.
+> let's wait until that open is closed, i.e. whether we still let the core
+> manage it and whether AMD requires pinning even when IOVA
+> is used.
 
-All Rockchip variants technically belong to a power-domain, not just the
-RK3576. E.g. for RK3588 a PD_NVM0 domain (not described in DT), for
-RK3568 a VD_LOGIC ALIVE / BIU_SECURE_FLASH idle-only domain, and as
-shown in this series for the RK3528 the PD_VPU idle-only domain.
+I think we may still want to pin those buffer address.
 
-Any suggestion on how to best allow describing these links?
+-Vasant
 
-Regards,
-Jonas
-
-> 
->>
->> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
->> ---
->>  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 4 ----
->>  1 file changed, 4 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
->> index 5fb347167004..f882219a0a26 100644
->> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
->> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
->> @@ -120,10 +120,6 @@ allOf:
->>        required:
->>          - power-domains
->>  
->> -    else:
->> -      properties:
->> -        power-domains: false
->> -
->>  unevaluatedProperties: false
->>  
->>  examples:
->> -- 
->> 2.49.0
->>
 
 
