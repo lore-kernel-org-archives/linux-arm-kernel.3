@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E2C5C3ABD8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2E6C3ABDD
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E8zgaF3nulMiQiwbL4R1lWJxh4xru2nZDCsB/h+5Z9k=; b=wFqyGeiPWu/28fMVjqFxcBuGQh
-	EI3dB1nTGJqOhPMrwMqhV78h2E0KqIL8SzBvYmlEdGZ/A+WzZYB048Gz8qfAeNA7xGGp+zEZL7yUN
-	l7whOg9x4Ym0RIkR7aOJXuByy8dHMM5pk6EMZtZrxEbaKoLPgGah61jw/WcHMl9k796uQksga7Zrr
-	OSgzO3rivTHllMtm9T9h45uOn6WG9vnJh3gJhFV8N9T7gXiEVHcJR6HRNrlce6eJQkmdgLrk8xgsD
-	g5oEOZpb0mnb7+9f/2ZmTmd4/1vMUJonT9Aluf+IVvkaMkm5EKs5u0um3pmG4tEqydklFaL1k1IIW
-	Ok6l4pLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QvgQgjjSSLAddxWgnb/Li9VuTBO73l27lsGts11ef60=; b=bBQEBZf0Ut+H9doXBCdATEupxk
+	a6kwHpMR51RaqASvI8oLzo1rkgXh+lvOfroD531rh5q3AUWuKX5f664a3/AbEPIImTpvUTln/Bxh3
+	zpHnHND5NHI6IEUV+BcUjbhtiSn3QOPLR0imcmhxGf+/AssFEk54FB2yQTMWTqOyF1h2SYPrnsNj9
+	4snXt+l87LxW1FCu7noc78Y9O6Au95519Of9ReGCQ2bq3nqnxI63zzqg7DQLOJRh35VmImz3jY2qp
+	Of/AW9gy0RDxjDDCNaXwI5A4nRK0bAYrZPj9ci+7gls5XK8sSGSx38Ai0AO4FGISuGFTBl7YnE0BJ
+	EHhkIRbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH29V-00000009Xbt-2VMw;
-	Mon, 19 May 2025 15:11:41 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1uH29J-00000009XON-1c1s;
+	Mon, 19 May 2025 15:11:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH1QA-00000009RGw-1UHm
+	id 1uH19G-00000009Ors-0YTK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 14:24:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5BAC243B1E;
-	Mon, 19 May 2025 14:24:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1747664686;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=E8zgaF3nulMiQiwbL4R1lWJxh4xru2nZDCsB/h+5Z9k=;
-	b=cX20EnD8RXp6UsCYebQkq4d6GN5gAVUPkROwO2M9xsaoIFMPiZrGzjcMGG4YTOF5ZypiKz
-	bNzqWh8AkHA8XYDSAQ+3a+nDeOH7p34OQpSx1w2sckJXKNw/MmTrQnlFjpeTjxePK9qOXy
-	LjGKyGaLiyvKnZmv5MeTXtWmMiRy+lpWT8GlGUW5eFPT4GQzv1CZE80uaoTmYNYgbWWWvF
-	GyDT7nN62WBBIL5eZamr3cahrUEnZkbj6zWX2gjxxdVdaohcrdr/MlAe+6v8/5f5ZN2U7b
-	/n9OKyZSluLwCkHI5eDaTgSmsroyx0m1a0ohba3j+bpVa5SO8dvefi5a7LthKA==
-Date: Mon, 19 May 2025 16:24:43 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Andi
- Shyti <andi.shyti@kernel.org>, Wolfram Sang
- <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
- Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
- Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana
- Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, Mark
- Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, Daniel Scally
- <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, Allan Nielsen
- <allan.nielsen@microchip.com>, Horatiu Vultur
- <horatiu.vultur@microchip.com>, Steen Hegelund
- <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v2 05/26] bus: simple-pm-bus: Populate child nodes at
- probe
-Message-ID: <20250519162443.20396e73@bootlin.com>
-In-Reply-To: <aCseyW1iZgZNZNqd@smile.fi.intel.com>
-References: <20250507071315.394857-1-herve.codina@bootlin.com>
-	<20250507071315.394857-6-herve.codina@bootlin.com>
-	<aBy_aBkC7NpicXho@smile.fi.intel.com>
-	<20250519135818.01db3341@bootlin.com>
-	<aCseyW1iZgZNZNqd@smile.fi.intel.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Mon, 19 May 2025 14:07:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DC1840BCC;
+	Mon, 19 May 2025 14:07:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94EC2C4CEE4;
+	Mon, 19 May 2025 14:07:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747663641;
+	bh=Vjxx3sdINLSP5xcLk8gOYpfc7PhkgV2RnCzn4FnV044=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OUGyJqZBxfE0T2+hgIza/5xrQaClypfGHZhlPS1OYpQeM8FkeJOsiGDVJqL52nuf4
+	 yYhKAwzAS7Tf31lG5xoLcEgQRssYWn/b0k8H5zsT96akuXDLsx0FNB67Wp/tujIhYg
+	 Ifak/vE8mTwOLZSLDJtGDHbKbWJ8CN23U+zQNrOxnkQPym0MxrkldTS6iHxQ1poH9e
+	 SbKan18lTHozANPl1Gg2U+bCVFx1oHv0KEEhbb4C3hfCqAi6hOMCm77yMnGrqJqJ8r
+	 ZP3eTjXHstTzFVTU6Lc4olp0eh9QxVMCJ1Uq55V3qLLxT9Ca2CYoqXs1YOrjmDEI69
+	 bJX2rLrdgnXlQ==
+Date: Mon, 19 May 2025 15:07:15 +0100
+From: Will Deacon <will@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v21 2/4] arm64: Handle BRBE booting requirements
+Message-ID: <20250519140713.GA16991@willie-the-truck>
+References: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
+ <20250407-arm-brbe-v19-v21-2-ff187ff6c928@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefvdduiedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeguddprhgtphhtthhopegrnhgurhhihidrshhhvghvtghhvghnkhhosehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhto
- hepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggv
-X-GND-Sasl: herve.codina@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250407-arm-brbe-v19-v21-2-ff187ff6c928@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_072450_701861_A64247B2 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20250519_070722_217893_FBC0BD07 
+X-CRM114-Status: GOOD (  36.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,62 +83,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-
-On Mon, 19 May 2025 15:06:33 +0300
-Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-
-> On Mon, May 19, 2025 at 01:58:18PM +0200, Herve Codina wrote:
-> > On Thu, 8 May 2025 17:27:52 +0300
-> > Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:  
-> > > On Wed, May 07, 2025 at 09:12:47AM +0200, Herve Codina wrote:  
+On Mon, Apr 07, 2025 at 12:41:31PM -0500, Rob Herring (Arm) wrote:
+> From: Anshuman Khandual <anshuman.khandual@arm.com>
 > 
-> ...
+> To use the Branch Record Buffer Extension (BRBE), some configuration is
+> necessary at EL3 and EL2. This patch documents the requirements and adds
+> the initial EL2 setup code, which largely consists of configuring the
+> fine-grained traps and initializing a couple of BRBE control registers.
 > 
-> > > >  		if (of_property_match_string(np, "compatible", match->compatible) == 0)    
-> > > 
-> > > Side note, there is an fwnode_is_device_compatible() API for such cases. And IIRC
-> > > there is also OF variant of it.  
-> > 
-> > fwnode_device_is_compatible() checked for all compatible string. I mean, if
-> > we have compatible = "foo,custom-bus", "simple-bus";
-> > fwnode_device_is_compatible() checking against "simple-bus" returns true.
-> > 
-> > Here, we want "simple-bus" as the first position in the compatible string.
-> > In other word, we want to match the more specific compatible string as
-> > mentioned in the comment.  
+> Before this patch, __init_el2_fgt() would initialize HDFGRTR_EL2 and
+> HDFGWTR_EL2 with the same value, relying on the read/write trap controls
+> for a register occupying the same bit position in either register. The
+> 'nBRBIDR' trap control only exists in bit 59 of HDFGRTR_EL2, while bit
+> 59 of HDFGWTR_EL2 is RES0, and so this assumption no longer holds.
 > 
-> I admit I'm not an expert in DT, but why is the compatibility position
-> dependent?
+> To handle HDFGRTR_EL2 and HDFGWTR_EL2 having (slightly) different bit
+> layouts, __init_el2_fgt() is changed to accumulate the HDFGRTR_EL2 and
+> HDFGWTR_EL2 control bits separately. While making this change the
+> open-coded value (1 << 62) is replaced with
+> HDFG{R,W}TR_EL2_nPMSNEVFR_EL1_MASK.
 > 
-> ...
+> The BRBCR_EL1 and BRBCR_EL2 registers are unusual and require special
+> initialisation: even though they are subject to E2H renaming, both have
+> an effect regardless of HCR_EL2.TGE, even when running at EL2, and
+> consequently both need to be initialised. This is handled in
+> __init_el2_brbe() with a comment to explain the situation.
 > 
-> > > > +	if (pdev->dev.of_node)    
-> > > 
-> > > Why do you need this check? AFAICS it dups the one the call has already in it.  
-> > 
-> > of_platform_populate() was called only if an OF node is present.
-> > I want to call of_platform_depopulate() on removal also only if an OF node
-> > is present.
-> > 
-> > I don't see the other call that duplicated this check.
-> > 
-> > Can you clarify?  
-> 
-> The of_...() is already NULL-aware (AFAICS), why do you need the duplicated
-> check?
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> [Mark: rewrite commit message, fix typo in comment]
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
+> Tested-by: James Clark <james.clark@linaro.org>
+> ---
+> v20:
+>  - Document that MDCR_EL3.SBRBE can be 0b01 also
+>  - Fix "HDFGWTR_EL2 is RES0" in commit msg
+> ---
+>  Documentation/arch/arm64/booting.rst | 21 +++++++++
+>  arch/arm64/include/asm/el2_setup.h   | 86 ++++++++++++++++++++++++++++++++++--
+>  2 files changed, 104 insertions(+), 3 deletions(-)
 
-Oh, I see. I was focused on previous of_device_get_match_data() call.
-My bad.
+It would be good to have an Ack from the kvm/arm64 side on this, but in
+the meantime I've left some comments inline.
 
-Indeed, you're right, I can call directly of_platform_depopulate() without
-checking pdev->dev.of_node before the call. The check is already present
-in of_platform_depopulate() itself.
+> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+> index dee7b6de864f..a627c1e0e4a0 100644
+> --- a/Documentation/arch/arm64/booting.rst
+> +++ b/Documentation/arch/arm64/booting.rst
+> @@ -358,6 +358,27 @@ Before jumping into the kernel, the following conditions must be met:
+>  
+>      - HWFGWTR_EL2.nSMPRI_EL1 (bit 54) must be initialised to 0b01.
+>  
+> +  For CPUs with feature Branch Record Buffer Extension (FEAT_BRBE):
 
-I will do that in the next iteration.
+This doesn't make sense ^^^
 
-Thanks for pointing out.
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index ebceaae3c749..e7fcba1e7d8e 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -189,6 +189,39 @@
+>  .Lskip_set_cptr_\@:
+>  .endm
+>  
+> +/*
+> + * Configure BRBE to permit recording cycle counts and branch mispredicts.
+> + *
+> + * At any EL, to record cycle counts BRBE requires that both BRBCR_EL2.CC=1 and
+> + * BRBCR_EL1.CC=1.
+> + *
+> + * At any EL, to record branch mispredicts BRBE requires that both
+> + * BRBCR_EL2.MPRED=1 and BRBCR_EL1.MPRED=1.
+> + *
+> + * When HCR_EL2.E2H=1, the BRBCR_EL1 encoding is redirected to BRBCR_EL2, but
+> + * the {CC,MPRED} bits in the real BRBCR_EL1 register still apply.
+> + *
+> + * Set {CC,MPRED} in both BRBCR_EL2 and BRBCR_EL1 so that at runtime we only
+> + * need to enable/disable these in BRBCR_EL1 regardless of whether the kernel
+> + * ends up executing in EL1 or EL2.
+> + */
+> +.macro __init_el2_brbe
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_\@
+> +
+> +	mov_q	x0, BRBCR_ELx_CC | BRBCR_ELx_MPRED
+> +	msr_s	SYS_BRBCR_EL2, x0
+> +
+> +	__check_hvhe .Lset_brbe_nvhe_\@, x1
+> +	msr_s	SYS_BRBCR_EL12, x0	// VHE
+> +	b	.Lskip_brbe_\@
+> +
+> +.Lset_brbe_nvhe_\@:
+> +	msr_s	SYS_BRBCR_EL1, x0	// NVHE
+> +.Lskip_brbe_\@:
 
-Best regards,
-Hervé
+Why do we have to poke BRBCR_EL12/BRBCR_EL1 here rather than in the BRBE
+driver code?
+
+> +.endm
+> +
+>  /* Disable any fine grained traps */
+>  .macro __init_el2_fgt
+>  	mrs	x1, id_aa64mmfr0_el1
+> @@ -196,16 +229,48 @@
+>  	cbz	x1, .Lskip_fgt_\@
+>  
+>  	mov	x0, xzr
+> +	mov	x2, xzr
+>  	mrs	x1, id_aa64dfr0_el1
+>  	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+>  	cmp	x1, #3
+>  	b.lt	.Lskip_spe_fgt_\@
+> +
+>  	/* Disable PMSNEVFR_EL1 read and write traps */
+> -	orr	x0, x0, #(1 << 62)
+> +	orr	x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
+> +	orr	x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
+>  
+>  .Lskip_spe_fgt_\@:
+> +#ifdef CONFIG_ARM64_BRBE
+
+Why is this gated on CONFIG_ARM64_BRBE?
+
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_reg_fgt_\@
+> +
+> +	/*
+> +	 * Disable read traps for the following registers
+> +	 *
+> +	 * [BRBSRC|BRBTGT|RBINF]_EL1
+> +	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
+> +	 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBDATA_MASK
+> +
+> +	/*
+> +	 * Disable write traps for the following registers
+> +	 *
+> +	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
+> +	 */
+> +	orr	x2, x2, #HDFGWTR_EL2_nBRBDATA_MASK
+> +
+> +	/* Disable read and write traps for [BRBCR|BRBFCR]_EL1 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBCTL_MASK
+> +	orr	x2, x2, #HDFGWTR_EL2_nBRBCTL_MASK
+> +
+> +	/* Disable read traps for BRBIDR_EL1 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBIDR_MASK
+> +
+> +.Lskip_brbe_reg_fgt_\@:
+
+I think this label should become .Lset_debug_fgt_\@:. That way, we have
+a clear point at which we're done with HDFG*TR_EL2. We can zero x0 and
+x2 and from then on we can focus on HFG*TR + HFGITR.
+
+nit: the existing .Lskip_debug_fgt_\@ label looks to be misnamed -- it
+should probably be .Lskip_sme_fgt_\@ ?
+
+> +#endif /* CONFIG_ARM64_BRBE */
+>  	msr_s	SYS_HDFGRTR_EL2, x0
+> -	msr_s	SYS_HDFGWTR_EL2, x0
+> +	msr_s	SYS_HDFGWTR_EL2, x2
+
+nit: It would be cleaner to use x0/x1 for the pair of trap registers
+but I can see that would be a more invasive change.
+
+>  	mov	x0, xzr
+>  	mrs	x1, id_aa64pfr1_el1
+> @@ -246,7 +311,21 @@
+>  .Lset_fgt_\@:
+>  	msr_s	SYS_HFGRTR_EL2, x0
+>  	msr_s	SYS_HFGWTR_EL2, x0
+> -	msr_s	SYS_HFGITR_EL2, xzr
+> +	mov	x0, xzr
+> +#ifdef CONFIG_ARM64_BRBE
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_insn_fgt_\@
+
+It would probably scale better if we unconditionally stick x2 in
+HFGITR_EL2 and zero that register in '.Lset_debug_fgt_\@'. We still have
+two checks for BRBE, but at least '.Lset_fgt_\@' could just stick to
+writing the registers.
+
+Will
 
