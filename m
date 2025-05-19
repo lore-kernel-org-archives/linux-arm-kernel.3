@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9ABC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 18:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9B5C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 18:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7omkwwv22LywzPK9OnluDC1evnMI2mYZ/bT9rkSvGw8=; b=QE0IsbW57vkxvHzkk+uOxEVTxu
-	j6kxz2pn+jTgQetcjAS2fOqB6hy9SD5rjGmZKswSBzP0PYTzjCrB+SRiYG395YMzvulCtVrIBEJmC
-	dLiCwd9UuW/9X7z/qvpTmVJdmhATrJloD4O+lkxuqJj+NEq90vmsYe/J+OMUpHKo1ozESgJf6V19U
-	EbHYHcjVuGOYf9w9STrjqS52vT/74DQIN1mjtumKrlKMA+VK7kfWy/4h1NuxuxUYXmrEegrk0F2+c
-	A9ENHAxnvLEPcoviJl4i+KtZL5k0TI4HSM6IPCVGVrAuMhrvphL5/Rvn8Z4oSJNknrf3RJacBjlNs
-	FYlBHtig==;
+	bh=a1uDXUypTxPVrOjDkyW8a3QEFjfv2DCfH/Ibxzs5fII=; b=FEowW4SuHALXmvkt4ULyjTwfc4
+	9W36QuFOHhbz+70lIQUGNdUkJkLOmZeBKt/5qRaJHPerRCYMaReh4RKuDYXM1M5HFuSihLbXhDRa9
+	oA1PYJ2gvsEAd52w192hDhtEmwhpQ9JK4prEdZau7gA/hx54em/0cv+3c49tzhpZ0lRV7x7StVic1
+	ppcIZxVzXUrNbhAq+AqCHfNdU5N9VY+SyB3zJ34fANcTuUjXG9dAFKCEk63/CLvr+TWU+BC0+qxzD
+	CfF02ZEMBluePOGBcjrig/NkoFRVmg4JNjW3NQksKCBdCno1iQEawt9LWZHDPqOfrKgBRNCh61RX4
+	E2wvrzpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH4oL-0000000A4AS-2xl3;
-	Mon, 19 May 2025 18:02:01 +0000
-Received: from mail-vk1-xa32.google.com ([2607:f8b0:4864:20::a32])
+	id 1uH4qM-0000000A4ZK-1g4H;
+	Mon, 19 May 2025 18:04:06 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH46F-00000009wF7-0Lu6
+	id 1uH46G-00000009wFl-44dQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 17:16:28 +0000
-Received: by mail-vk1-xa32.google.com with SMTP id 71dfb90a1353d-527b70bd90dso1696300e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 10:16:26 -0700 (PDT)
+	Mon, 19 May 2025 17:16:30 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3dc6dbb3d58so10639825ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 10:16:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747674986; x=1748279786; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747674988; x=1748279788; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7omkwwv22LywzPK9OnluDC1evnMI2mYZ/bT9rkSvGw8=;
-        b=Db/2PwQnQvSAIMAOYQeOebfbeMKXVag84sqjK6fQr2lHfSaFKvpp/KYokbNIrvL0L2
-         yJeGR2j9ajR3YPPaqXVO4i7908Hni8WVtXUxWITH/2eYjBH+VGq/NpCA1fc8pg0yLzg8
-         uEo8ZXs96nc8fBpUqudWm5CAft3t1je4Zb1A8JbMqD6JRT9R21VgwOApPGLmj3AjZqx/
-         KYXXQfZfDxSqcFp0noL1JWbuhooYYkr6pXZzHn3efvvS3+IC/+i/iQvv/jKmkPuUTsEl
-         6UYTDI6B22aQJVlWqLNQUXfiSH7eB+4J2CTt4dtRE5Vh2iQ4nCyqhdJVQW2m2SyUiDMN
-         WzIQ==
+        bh=a1uDXUypTxPVrOjDkyW8a3QEFjfv2DCfH/Ibxzs5fII=;
+        b=HA0sv960NYPjLLcPLS1cOKdAw7X2eNWeojOoKDUEUPcaG6QJZDiWnfa2zmJ7MxTaKr
+         mp1c+lFfBP2+6xW3OP22Enbn/LbzWpBYfR2K01O8+dzxCMYfuspGsXWJCbdB+S0dPjto
+         D6tx1qQ5NX3ppWJzq+YYRYnEM5prd7E1Z2J2+i5bX8jcXduUlyjZ7rFuX0XDG/+1U3L4
+         ByLk2+4YT6CfIT2SR/QEbChgfmd+4iVKkAtL5of5BI03VXTHv4Z/FpLNfHT2T8jyxkIv
+         LS3t4ZJFDOOHSowzVoeLuG1t0ASNTA0otVQQ4t1SAS8WsAscvXdUc0bZovfXduUn+VtI
+         Bwxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747674986; x=1748279786;
+        d=1e100.net; s=20230601; t=1747674988; x=1748279788;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7omkwwv22LywzPK9OnluDC1evnMI2mYZ/bT9rkSvGw8=;
-        b=bZ6nx3oNXjn45XUKHh87CIC53AfBeBdAfC93C0msA8D46NtHrUbT7lo85OWJ/e8xM3
-         AsFd6C7u2TkPwad0JJoo5tWdfkQxKCpHXEhd5nkmsuxNXd6bTa4yVPXjINmv9xFOeajn
-         AYFogBoKZhPrcKn6dzBkMTaw9xNUgYfk3+KDNZrO8Ts69vD/B7qbZDZQyTYqJZ4hl3Fu
-         iLJuWaWQzuT2dpQrfyFgXKpwEMQJvrdcgF1q58sG2gStdzvjzL8d9kZ3WR4MAax9g59V
-         YJp9aTz/OU+iFc2qZ/0TPQPTNGlXU05wFqeI146Qu/KQklufMAd8U96tMBhH6mr5+44Q
-         +XHg==
-X-Forwarded-Encrypted: i=1; AJvYcCUHhqVkp7rPMm8wlXzeVWsrt3YEELIsnbjJDNMqSSP6dDIeEacp4Ze6ZJG7yrbaEJEMlplEexXuGlswyoKkaRUj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6CSdJiZ1pA1jASHsJfltAMNhCK1xjqMFicH9RezKj1AP7E3Qq
-	Yg3wnPfBg8l3q5VhKMuBf+eOM1H7eEMMQBUEubQosgt/KFM+NeP7R1iR
-X-Gm-Gg: ASbGnctUug4qDTkr94kJX7i1PrncwUQs+7dmq/2Val41VfGIMefbojpennQpIcQw2MD
-	N+XldT/HghxPO6EVPJ2cbaE69Qbx8T6pdncI1amkQAjvop6PTgtb8QeLhPaFBxaRaKKole0C3z2
-	8+TjOzg1nbeUyu7hZdOyUcEsc0sssU2spXh6y1l2jcqwRp40sfieox6DEOq5x8V4oKm9K4nIlD+
-	RNDkhJ7rev0W5Eq/v9avqJJ7xImRaoAASYjRfyn/dRUynszoqusJ5IRAsRAKv5VOroc2Wjr5kfy
-	9cv9Okn7Q4VmqP8IaWwcZjgmrVTTKpGzXbgIYKA2hN6jaGkC004HHPa9OqESXu6uEH3NmKjXMOE
-	xwVDU3qwk
-X-Google-Smtp-Source: AGHT+IE6q6gZqSe9Ip0nuMzYQBfcuFkViraMC2BkT8AsUnpaWIwgC9BeYahAGarm+vPPXTf/z60teQ==
-X-Received: by 2002:a05:6122:8c0f:b0:520:3536:feb5 with SMTP id 71dfb90a1353d-52dba97c622mr12664280e0c.11.1747674985608;
-        Mon, 19 May 2025 10:16:25 -0700 (PDT)
+        bh=a1uDXUypTxPVrOjDkyW8a3QEFjfv2DCfH/Ibxzs5fII=;
+        b=JhsTJRPzeUq1KbgTo6wRfMc1zcYqlp9HeJzrCOJPASvI/5SJGYKAIvNqWvOAubKx4y
+         CmopeX+Jpx+YgkWHM4grK0xo3GiWw6AnX+dHnnLaV3kmWn5GOyBaENsVsgGVkKqMNrZ+
+         bc6bAzlvOHn4ugj24ZGMwmyqkdiS/AcjNIas8qFTjTUJ2hAtzl+pLpWaun3HH0WHlQz8
+         Rx6kIPuu17jNz73lL9njUeBblmV0LdRV7W8mv4j52CxBSzkAnZoUFddnqJiStkbWeuWu
+         siRZt0nhh2wa42A/VWaGsETD2WdmWy2FPOM8HbKNs0lQIqYzPs2fNbqGRChDl/Yjs3fo
+         seiw==
+X-Forwarded-Encrypted: i=1; AJvYcCV2XFbxQHwTyVLaQ+NUpuqK3nw03Cnv9vogpS/3e2OT97Qrfps81W0ahci3/swsXFt0XbAoIKF9KP3ayomqvwRL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAlAOZGUkrlBA4nQL8ar4ctBIDdcrojI/t4yVadXcGEB4EscrK
+	c8KEkeemw22dl7XVDAUeQnzOjfkmc00hmjq1nKrqkYVp3vres83NlzKFJE3zECj+4QY=
+X-Gm-Gg: ASbGnctztb8aR/BnaHC567QRAcoE6yQV0aH/0LdKo37sEYRcVCQlJjz/Xl/E16q1TAu
+	cEJan0gSI9UoBlrmIGfByPr/gIgW6pqX0b0R4xtKRfEpfknnbv7u2tSvg44ffFDNFDfHv420r8y
+	j/oBCDkXzQU6TR50yibIk6cGJNdVMT4RN38AJAlGDR6ulsb+ji7LA46slHf1c8NONxc5b8det6c
+	Mepuhg/nmMVP1UoZoyHhHF+pw4BhaXFpR91Lc/rmizA+A2V8Q/PLkFQBuwFy7U38AllJDWwCfrC
+	8OeIrT9sU4d3E4yNS9yUzwP9uA5/t1TkPx+UuGlDSG7kVFe9P1yh6nomiHzdIQTMDjasoHXY7Sh
+	6+CiaTI8Q
+X-Google-Smtp-Source: AGHT+IGcPhmxLm05zfOvv98rT+S8AoJqTq1ZTmACNFyaA4DcN6+SVqyHcTRF8Wm1vE2yc2bqeR6yjA==
+X-Received: by 2002:a05:6122:310f:b0:528:bd71:8932 with SMTP id 71dfb90a1353d-52dba9513ddmr11512958e0c.11.1747674976187;
+        Mon, 19 May 2025 10:16:16 -0700 (PDT)
 Received: from hiagof-nb.corp.toradex.com ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52dbab4e983sm7003647e0c.31.2025.05.19.10.16.21
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52dbab4e983sm7003647e0c.31.2025.05.19.10.16.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 May 2025 10:16:25 -0700 (PDT)
+        Mon, 19 May 2025 10:16:15 -0700 (PDT)
 From: Hiago De Franco <hiagofranco@gmail.com>
 To: Mathieu Poirier <mathieu.poirier@linaro.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
@@ -87,17 +87,17 @@ Cc: Shawn Guo <shawnguo@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v3 3/3] remoteproc: imx_rproc: add power mode check for remote core attachment
-Date: Mon, 19 May 2025 14:15:14 -0300
-Message-Id: <20250519171514.61974-4-hiagofranco@gmail.com>
+Subject: [PATCH v3 1/3] firmware: imx: introduce imx_sc_pm_get_resource_power_mode()
+Date: Mon, 19 May 2025 14:15:12 -0300
+Message-Id: <20250519171514.61974-2-hiagofranco@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250519171514.61974-1-hiagofranco@gmail.com>
 References: <20250519171514.61974-1-hiagofranco@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_101627_123626_55B9C961 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250519_101629_010513_BE265FEC 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,51 +114,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hiago De Franco <hiago.franco@toradex.com>
 
-When the remote core is started before Linux boots (e.g., by the
-bootloader), the driver currently is not able to attach because it only
-checks for cores running in different partitions. If the core was kicked
-by the bootloader, it is in the same partition as Linux and it is
-already up and running.
+This SCU API returns the power mode of a given resource.
 
-This adds power mode verification through the SCU interface, enabling
-the driver to detect when the remote core is already running and
-properly attach to it.
+As example, remoteproc/imx_rproc.c can now use this function to check
+the power mode of the remote core to properly set "attached" or
+"offline" modes.
+
+Since there is no proper firmware/imx file to place this function, also
+introduce firmware/imx/power.c file to keep all the PM functions inside.
 
 Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
 Suggested-by: Peng Fan <peng.fan@nxp.com>
 ---
-v3: Unchanged.
-v2: Dropped unecessary include. Removed the imx_rproc_is_on function, as
-suggested.
-v1: https://lore.kernel.org/lkml/20250505154849.64889-4-hiagofranco@gmail.com/
+v3: New patch.
 ---
- drivers/remoteproc/imx_rproc.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/firmware/imx/Makefile       |  2 +-
+ drivers/firmware/imx/power.c        | 52 +++++++++++++++++++++++++++++
+ include/linux/firmware/imx/svc/pm.h |  9 +++++
+ 3 files changed, 62 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/firmware/imx/power.c
 
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 627e57a88db2..9b6e9e41b7fc 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -949,6 +949,19 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
- 			if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
- 				return -EINVAL;
- 
-+			/*
-+			 * If remote core is already running (e.g. kicked by
-+			 * the bootloader), attach to it.
-+			 */
-+			ret = imx_sc_pm_get_resource_power_mode(priv->ipc_handle,
-+								priv->rsrc_id);
-+			if (ret < 0)
-+				dev_err(dev, "failed to get power resource %d mode, ret %d\n",
-+					priv->rsrc_id, ret);
+diff --git a/drivers/firmware/imx/Makefile b/drivers/firmware/imx/Makefile
+index 8d046c341be8..5f5548e34459 100644
+--- a/drivers/firmware/imx/Makefile
++++ b/drivers/firmware/imx/Makefile
+@@ -1,4 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ obj-$(CONFIG_IMX_DSP)		+= imx-dsp.o
+-obj-$(CONFIG_IMX_SCU)		+= imx-scu.o misc.o imx-scu-irq.o rm.o imx-scu-soc.o
++obj-$(CONFIG_IMX_SCU)		+= imx-scu.o misc.o imx-scu-irq.o rm.o imx-scu-soc.o power.o
+ obj-${CONFIG_IMX_SCMI_MISC_DRV}	+= sm-misc.o
+diff --git a/drivers/firmware/imx/power.c b/drivers/firmware/imx/power.c
+new file mode 100644
+index 000000000000..b982cebba72a
+--- /dev/null
++++ b/drivers/firmware/imx/power.c
+@@ -0,0 +1,52 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * File containing client-side RPC functions for the PM (Power Management)
++ * service. These function are ported to clients that communicate to the SC.
++ */
 +
-+			if (ret == IMX_SC_PM_PW_MODE_ON)
-+				priv->rproc->state = RPROC_DETACHED;
++#include <linux/firmware/imx/svc/pm.h>
 +
- 			return imx_rproc_attach_pd(priv);
- 		}
++struct imx_sc_msg_req_get_resource_power_mode {
++	struct imx_sc_rpc_msg hdr;
++	union {
++		struct {
++			u16 resource;
++		} req;
++		struct {
++			u8 mode;
++		} resp;
++	} data;
++} __packed __aligned(4);
++
++/**
++ * imx_sc_pm_get_resource_power_mode - Get power mode from a given resource.
++ * @ipc: IPC handle.
++ * @resource: Resource to check the power mode.
++ *
++ * Return: Returns < 0 for errors or the following for success:
++ * * %IMX_SC_PM_PW_MODE_OFF	- Power off
++ * * %IMX_SC_PM_PW_MODE_STBY	- Power in standby
++ * * %IMX_SC_PM_PW_MODE_LP	- Power in low-power
++ * * %IMX_SC_PM_PW_MODE_ON	- Power on
++ *
++ */
++int imx_sc_pm_get_resource_power_mode(struct imx_sc_ipc *ipc, u32 resource)
++{
++	struct imx_sc_msg_req_get_resource_power_mode msg;
++	struct imx_sc_rpc_msg *hdr = &msg.hdr;
++	int ret;
++
++	hdr->ver = IMX_SC_RPC_VERSION;
++	hdr->svc = IMX_SC_RPC_SVC_PM;
++	hdr->func = IMX_SC_PM_FUNC_GET_RESOURCE_POWER_MODE;
++	hdr->size = 2;
++
++	msg.data.req.resource = resource;
++
++	ret = imx_scu_call_rpc(ipc, &msg, true);
++	if (ret)
++		return ret;
++
++	return msg.data.resp.mode;
++}
++EXPORT_SYMBOL(imx_sc_pm_get_resource_power_mode);
+diff --git a/include/linux/firmware/imx/svc/pm.h b/include/linux/firmware/imx/svc/pm.h
+index 1f6975dd37b0..56e93a953295 100644
+--- a/include/linux/firmware/imx/svc/pm.h
++++ b/include/linux/firmware/imx/svc/pm.h
+@@ -82,4 +82,13 @@ enum imx_sc_pm_func {
+ #define IMX_SC_PM_PARENT_PLL2	3	/* Parent in PLL2 or PLL0/4 */
+ #define IMX_SC_PM_PARENT_BYPS	4	/* Parent is a bypass clock. */
  
++#if IS_ENABLED(CONFIG_IMX_SCU)
++int imx_sc_pm_get_resource_power_mode(struct imx_sc_ipc *ipc, u32 resource);
++#else
++static inline int imx_sc_pm_get_resource_power_mode(struct imx_sc_ipc *ipc,
++						    u32 resource)
++{
++	return -EOPNOTSUPP;
++}
++#endif
+ #endif /* _SC_PM_API_H */
 -- 
 2.39.5
 
