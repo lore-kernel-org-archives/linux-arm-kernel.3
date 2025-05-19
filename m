@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F336AC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 08:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DA4C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 08:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4xDbXaFiXjjPLwOIeH7ETthFjn9WSJxyoSC/RyFK+8Q=; b=qtGaHZ9Z8JstyND2K8MNB0dDZS
-	oeGQk2/ghf5948nKCyuAJgeV3EdBsDckwTzNr5fbAlr4YM+i9ZLo8L73bMMDy76bcogvVKLMMjB+H
-	8cD6XJsFs5VbMofldRiKv0pUvlDpcZcqr78vrqUViCfUIZ+CFxZV5NPR4R/xn+C/gccq3sgJr3AXm
-	HO7w66qCLwGBGQ3omoEEnd6E/K+4ULBxM7TOCxjSe3ihWgHMBKetr7PjrVg6DgkzdQDYl3lVmGe3F
-	pdRaovATowtp8PhIbwPSQxLNGxw2m1T37cCON9aNrULOIJXqgwOAqApFCLvEs1LUWFpwkC1R6ngl6
-	kh93ALHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8hTC/OP0orcM6FbeOlNENWSTcaGgp3V5Z1uYO+r6tCk=; b=aLsOgCBh7HclUOP1GVIGsztum/
+	N5bwI4L7Z28nH15oEHDJQgG+U4CZYsCdOV2gbVf2dQwxa3j9Qim0gWAl8wq4J/um0dvm9D/2eUN+l
+	QbRcFXRZdZxKiXR3LklzYv8uEnyZiXUhEeLxfM2PuusV9dJl5bZE/boqJXMUnrZRv55b4KQKmrAN/
+	89mJ6sLwgofu72uGINwZS2i9Ck5yvGQtjChzV5ApE0pGCq54aWNDnK+nIT/ewCCm6/Khzc4ahqTOA
+	f3ongiCxX1sdIp5xhq+Bdn6nM8Tg6IDOLoQedF1HbKsk2ZhLSogFZ2AfDjHUCrQG65z842E2tvJ9d
+	yLvku5UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGvSu-00000008IDW-3hqB;
-	Mon, 19 May 2025 08:03:17 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uGvUv-00000008IVp-0zAT;
+	Mon, 19 May 2025 08:05:21 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGvFW-00000008Gbg-3OzX
+	id 1uGvMO-00000008HMR-0RCE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 07:49:28 +0000
-Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250519074918epoutp02533e2e7b14e65e2bb6bb74cb49b0ae44~A3jExB-820299102991epoutp02m
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 07:49:18 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250519074918epoutp02533e2e7b14e65e2bb6bb74cb49b0ae44~A3jExB-820299102991epoutp02m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747640958;
-	bh=4xDbXaFiXjjPLwOIeH7ETthFjn9WSJxyoSC/RyFK+8Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HGjLiBkhx2qWIdDqVjs5/5lu1pomw4YYWFgyp0DpHyGbNRySnUs0tU3t0nVZ835Ao
-	 ls8kO8YYCB2oSJNNUKhxG7PBdgoX/6DYJZx+2nwreZ3VcZUKLehOXoX8RWXKVWv6u2
-	 9qhi5PHhsnOHscribw3xdd6Ll3mPX834l0tW/Ero=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250519074917epcas2p43eae1add4550fa7a4091b7ebd6193509~A3jEGEBK80407704077epcas2p4R;
-	Mon, 19 May 2025 07:49:17 +0000 (GMT)
-Received: from epcas2p1.samsung.com (unknown [182.195.36.101]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4b18vw4sTBz2SSKd; Mon, 19 May
-	2025 07:49:16 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250519074915epcas2p4ee77d7320363e980b4af70d0dbe3e5d7~A3jCmhAbx0726107261epcas2p4z;
-	Mon, 19 May 2025 07:49:15 +0000 (GMT)
-Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250519074915epsmtrp1048df9cbd92f1f2a2da77df17ae15a98~A3jClnqwX0631106311epsmtrp1o;
-	Mon, 19 May 2025 07:49:15 +0000 (GMT)
-X-AuditID: b6c32a28-46cef70000001e8a-99-682ae27b7482
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	58.68.07818.B72EA286; Mon, 19 May 2025 16:49:15 +0900 (KST)
-Received: from perf (unknown [10.229.95.91]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250519074915epsmtip2f110c71e19f4b1c2f2b54bb8a846c8e2~A3jCU42SM1921019210epsmtip2j;
-	Mon, 19 May 2025 07:49:15 +0000 (GMT)
-Date: Mon, 19 May 2025 16:53:51 +0900
-From: Youngmin Nam <youngmin.nam@samsung.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner
-	<tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, junhosj.choi@samsung.com,
-	hajun.sung@samsung.com, joonki.min@samsung.com, d7271.choe@samsung.com,
-	jkkkkk.choi@samsung.com, jt1217.kim@samsung.com, qperret@google.com,
-	willdeacon@google.com, dhyun.cha@samsung.com, kn_hong.choi@samsung.com,
-	mankyum.kim@samsung.com, Youngmin Nam <youngmin.nam@samsung.com>
-Subject: Re: [QUESTION] arch_counter_register() restricts CNTPT access when
- booted in EL1, even if EL2 is supported
-Message-ID: <aCrjj1A8udt1UJLc@perf>
+	Mon, 19 May 2025 07:56:34 +0000
+X-QQ-mid: esmtpsz16t1747641306te62f64f6
+X-QQ-Originating-IP: KUSRsfj2034q0KpgVunyHgpIxpYlaY5rKNO7LaI+oTw=
+Received: from localhost.localdomain ( [182.245.65.132])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 19 May 2025 15:55:04 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 7114426328788078209
+EX-QQ-RecipientCnt: 16
+From: Hsun Lai <i@chainsx.cn>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: i@chainsx.cn,
+	heiko@sntech.de,
+	andrew@lunn.ch,
+	inindev@gmail.com,
+	quentin.schulz@cherry.de,
+	jonas@kwiboo.se,
+	sfr@canb.auug.org.au,
+	nicolas.frattaroli@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	krzysztof.kozlowski@linaro.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v4 1/2] dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
+Date: Mon, 19 May 2025 15:54:31 +0800
+Message-Id: <20250519075432.2239713-2-i@chainsx.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250519075432.2239713-1-i@chainsx.cn>
+References: <20250519075432.2239713-1-i@chainsx.cn>
 MIME-Version: 1.0
-In-Reply-To: <86y0utdqg7.wl-maz@kernel.org>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrIIsWRmVeSWpSXmKPExsWy7bCSvG71I60Mg65VRhbX9k5kt5j3Wdbi
-	9YXfTBZN+y8xW5w/OJ3d4urud8wWEybvYbf43dTMajHh/WZGi02Pr7FaXN41h83i2rWn7BY7
-	55xktTizaRuLxeZNU5kt2n++ZrFYfOATu4Ogx4JNpR6bVnWyedy5tofN4925c+wem5fUe/Rt
-	WcXo8XmTXAB7FJdNSmpOZllqkb5dAldG9+2HrAUnZCtOP+lnbWD8INbFyMEhIWAi8a+JpYuR
-	i0NIYDejxISbTaxdjJxAcRmJ2ysvQ9nCEvdbjrBCFN1nlOhdcIwdJMEioCrx/nITI4jNJqAr
-	se3EPzBbREBR4tOFk4wgDcwCN5kljvcdYwZJCAuUShzZdoWpi5Gdg1dAWWKqBcTMy4wSf64u
-	YQMp4RUQlDg58wkLiM0soC7xZ94lZpBDmQWkJZb/44AIy0s0b50NNpFTQFvi/ddTrBMYBWch
-	6Z6FpHsWQvcsJN0LGFlWMUqmFhTnpucmGxYY5qWW6xUn5haX5qXrJefnbmIEx6KWxg7Gd9+a
-	9A8xMnEwHmKU4GBWEuFdtVkjQ4g3JbGyKrUoP76oNCe1+BCjNAeLkjjvSsOIdCGB9MSS1OzU
-	1ILUIpgsEwenVAOT7b0J//cej0qaWPbZ1Ktwyf4HIk7rFX69X/tiw9Y1xo73/KW9659KXF41
-	qbxxdfmEpytdNvsJlr57NpPBct9Sy2Y/zb1bbblLzlxymlpycNH3Rr3KR9Hqcnediu/ETIrk
-	674pdXfd/Z3i/DMYs58vVG42VPIrTDs4xS3opLSAYcQbM+sZwT0l6Tcmqk5pLG5p5FwvEbdF
-	VdBGgL3ywAO7FqOrN63r5nxoqp4bsspYZ8Lm5TZPMkpc3ebflz11UHaTxwH/VMPYFyLvX3be
-	Y9tXdj/ShDWjSi0wenPO0d2Lo19ZXFhjK+O7Yum7k81cd/YE3emYJHy5aqHcknUz10nk1Ho+
-	vaF1sEO76OH67fJdSizFGYmGWsxFxYkABKOiUjQDAAA=
-X-CMS-MailID: 20250519074915epcas2p4ee77d7320363e980b4af70d0dbe3e5d7
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----oRxFN-IW6TEbmBusn.EXIiq7I5yRwYOXOizBgewo77BvK4Z6=_703b9_"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250516064924epcas2p24c8f3dc1860768b2b7bed30a41528770
-References: <CGME20250516064924epcas2p24c8f3dc1860768b2b7bed30a41528770@epcas2p2.samsung.com>
-	<aCbhBttvi8mvsyGE@perf> <86frh4gazr.wl-maz@kernel.org>
-	<aCqM1Z2ApdvGYfb9@perf> <86y0utdqg7.wl-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:chainsx.cn:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NQR8mRxMnur9bMPIsjcw3XRVG27vGYRIITfIHYWO33BOjMSmKSwxvFLZ
+	+6RXEuYxoGBTfqsAH+9jgqzymz8PtUKPhPfwJP4afUU/qyEQuJuQLiqtfs+4eCk6Gg4dF51
+	hDmSf4t6Rn6LlKn+AJJe+MuO228PZUdBcxkoNDUoqtYCqosDA+AYQ8Haph81nQOftaYe0aR
+	wsaYqjssr3aMLA2c+OILa6c68kcR0VaBERu3XpV3ef2s7Bl1otxQKuxexOYdRdCTuuHjUQH
+	1xqY5OU2gxSZVEP0G/JGwr+MuPjVHtfwrrc5TkPb7YgNCTDeupq0A0nXdwHqKdxfG/3La0U
+	bj+yVyrf4UQLZ3aZr7kEKFblJdI29ZT9oahJqY94tXwaHMVOlx+W6p30EhQeuIvgw3t2413
+	n8s484zjXwbOXS2q5c+9FHyULig5iNneIQmw4S8HnCuZMMFfnws85jrI/7mUlxJ22RS4gH9
+	VUooZO/OH4I+2CO4jAXn/p4Om9CmxoIPdBQUidDegmdC3O1Y6SCI595s8wME4X+0yw3+4j1
+	pdOM46VdlV48Z9gyXFXYYHHg54gdqfnNH3Jb9hBYkEySRhqM44ALWzOn07vpJeQ3+UDlVA5
+	SCO3+Ff0HkNjaY5Gp5w4W7saB+A9VUpK9D7VjPBVVLvcrT84xx0Dpf1mWTOzN/n/+K/jn1C
+	/FGphNJT47vSywekeEoLi2RXtuZn/ilJmymTA+ShLgBmSynyuMTNTszsgfu1Et1vSFFlyN6
+	/dg5BN99VyddsoM5n1IDpT1qjfI1Xzx++O5ms6A8ohbDz4iwArKyruX2dKIEut+nYwRDbUl
+	f8p7Bum2EbAuQOJLdhGL+SJeXjMhafQLxQi7/7bO7R4L8guPrxrSKcX4nF75XBD/IP8ppoY
+	D8uXR5d5jL/Pc9Xdf9uldTCHasu2gZDw1+Iw+drM/5N3apmu6cWO+aDr0m+FrcR/f+6vxQs
+	IXIOPHiEyHXaI+wOWY1OaLsUMPqFt68cu2cYo0iFlc38tj1cx8uQw3dwAX/Ea0QmTtL5K+r
+	HvHZuT8YLnxhT6Cr1Q
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_004927_489790_8B4083B4 
-X-CRM114-Status: GOOD (  47.25  )
+X-CRM114-CacheID: sfid-20250519_005632_643526_F5DD3546 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,107 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------oRxFN-IW6TEbmBusn.EXIiq7I5yRwYOXOizBgewo77BvK4Z6=_703b9_
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Content-Disposition: inline
+This documents Firefly ROC-RK3588S-PC which is a SBC based on RK3588S SoC.
 
-On Mon, May 19, 2025 at 08:12:24AM +0100, Marc Zyngier wrote:
-> On Mon, 19 May 2025 02:43:49 +0100,
-> Youngmin Nam <youngmin.nam@samsung.com> wrote:
-> > 
-> > [1  <text/plain; utf-8 (8bit)>]
-> > On Fri, May 16, 2025 at 10:28:56AM +0100, Marc Zyngier wrote:
-> > > On Fri, 16 May 2025 07:53:58 +0100,
-> > > Youngmin Nam <youngmin.nam@samsung.com> wrote:
-> > > > 
-> > > > [1  <text/plain; utf-8 (8bit)>]
-> > > > Hi arm arch timer experts,
-> > > > 
-> > > > While reviewing the arm_arch_timer code in Linux 6.12,
-> > > > I noticed that the function arch_counter_register() restricts the
-> > > > use of the physical counter (cntpct_el0) on systems where the kernel
-> > > > is running in EL1, even if EL2 is supported and cntpct_el0 is
-> > > > accessible.
-> > > > 
-> > > > In our case:
-> > > > - We are not using pKVM.
-> > > > - The kernel is booted in EL1.
-> > > > - We disabled VIRT_PPI and explicitly selected PHYS_NONSECURE_PPI for the timer refering to below code.
-> > > 
-> > > That's not legal. The architecture guarantees that there is a virtual
-> > > timer and a physical timer. No ifs, no buts.
-> > > 
-> > > [...]
-> > > 
-> > > > As I understand it, `is_hyp_mode_available()` checks whether the
-> > > > kernel booted into EL2 — not whether EL2 is *supported* by the
-> > > > hardware.
-> > > > 
-> > > > Therefore, even on systems where EL2 exists and `cntpct_el0` is
-> > > > accessible from EL1, the kernel still forces the use of `cntvct_el0`
-> > > > if the boot EL is EL1.
-> > > 
-> > > Yes, because it isn't architecturally valid to not have a virtual
-> > > timer. This isn't about EL2 being present of not. The switch to the
-> > > physical timer is purely an optimisation for KVM so that it doesn't
-> > > have to switch the virtual timer back and forth when running a guest,
-> > > as the virtual timer is the most likely used timer.
-> > > 
-> > 
-> > Thanks for the clarification.
-> > 
-> > As a follow-up question:
-> > 
-> > We are working on a system that uses a vendor-specific hypervisor instead of KVM.
-> > In this setup, we also want to optimize timer virtualization overhead and are considering using
-> > the physical timer (CNTPT) in the host context for performance reasons, just like KVM does.
-> > 
-> > Would it be acceptable (from the upstream kernel's perspective) to make a similar switch
-> > to the physical timer in this case ?
-> 
-> No. Your hypervisor already has *two* private timers it can freely
-> make use of (virtual and physical EL2 timers), and doesn't need to
-> encroach on something that a guest (be it Linux or any other guest)
-> relies on.
-> 
-> The alternative is to trap and emulate the EL1 timer for the guest so
-> that it *appears* to be functional. But that's obviously bad from a
-> performance perspective.
-> 
-> > Or is this kind of optimization strictly tied to KVM's internal behavior
-> > and not something the kernel is expected to support generically?
-> 
-> It is purely Linux/KVM specific, and only works because we own both
-> side of that equation, meaning we can enforce whatever is required to
-> make the two work together. This obviously isn't possible with third
-> party software. Look at it from a different point of view: how would
-> you make this work with, say, Windows? or MacOS?
-> 
-> On the bright side, the architecture already gives you everything you
-> need to implement your hypervisor. Just use it correctly.
-> 
-> Thanks,
-> 
-> 	M.
+Link: https://wiki.t-firefly.com/en/Station-M3/index.html
 
-Hi Marc,
+Signed-off-by: Hsun Lai <i@chainsx.cn>
+---
 
-Thank you very much for the detailed explanation and your time.
-Your clarification about the architectural intent and KVM-specific behavior
-was really helpful and made things much clearer on our side.
+(no changes since v1)
 
-Best regards,
-Youngmin
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
-> 
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 115c3ca43..701d68aca 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -258,6 +258,11 @@ properties:
+           - const: firefly,rk3566-roc-pc
+           - const: rockchip,rk3566
+ 
++      - description: Firefly Station M3
++        items:
++          - const: firefly,rk3588s-roc-pc
++          - const: rockchip,rk3588s
++
+       - description: Firefly Station P2
+         items:
+           - const: firefly,rk3568-roc-pc
+-- 
+2.34.1
 
-------oRxFN-IW6TEbmBusn.EXIiq7I5yRwYOXOizBgewo77BvK4Z6=_703b9_
-Content-Type: text/plain; charset="utf-8"
-
-
-------oRxFN-IW6TEbmBusn.EXIiq7I5yRwYOXOizBgewo77BvK4Z6=_703b9_--
 
