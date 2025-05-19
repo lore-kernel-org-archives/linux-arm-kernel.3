@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E878C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 20:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38923C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 20:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IGxVumKTNG01Ss/jT9EJGoIzPH02Ea1K0yvcJQNJe34=; b=ToW0fI18cfSkvy79vaWYuN3c4/
-	7kycwzi/2wN63nOaVjbNlmWqNXUw1GjIgMx7uQXOTR9jDYe1hCOS7ClvuWD9YMM4p3CKnqVUfpkU2
-	RQFVUbz2qfJptPj2VuRIXpDY58lHJenhhg9cmz07XwwMBqK/1a13DbqjXlH9UMLirVlKyYefSBGYd
-	hN4TN7Sb3m7ZJQT+6f6X6GyyjePccnDkcysI/+t9Om698juRLn6oBzA8zixO09kPMWHqsx9FvTfOi
-	PprYRi4/bwWopVmKpZRwCYZJ1CX3dGFURna3iRWeN2JW3KEY2bMlRTdzEB2gEdMuACBAk23fSr9K/
-	pfB3nYTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O/0IcdVQE5Us1JeC/7Mie5tysbAZM3UKBVkJQ6942JA=; b=K/k+yN7zdYRrdI9T4UNnBmcbvd
+	nE84oxBAf/pxXX78NLvHN6oDVbUR9RbKoi3T6UPp/gY6E5cl6GhrBZhBEtVODEhbPlYX1FJRwogvE
+	3l7QReTqE1YG7oMhfv5BZ+Bv+TtYb0WCErzy8O0B7ZEKNVnbXrmbImQ7v0B1FoyKC4tf0ZBC5USoi
+	ACTmxIV7l+4oS+syzaaTudvP0uSl1Y3OdcrjVwJLUgsEc3e9q5E7IisgcDZozrRt8bEz5bdWyAaVf
+	ij2qpSLRpzsuu+iERLI7e/vWhGxtVqTBVxMCBeAEq1OmnwShiNwQfbk1qGsc6sE3tDtHlcntyRBvE
+	S8Hh0IIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7Dv-0000000AQ29-2QMc;
-	Mon, 19 May 2025 20:36:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uH7Ho-0000000AQan-119s;
+	Mon, 19 May 2025 20:40:36 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH79h-0000000APJP-2Z0h;
-	Mon, 19 May 2025 20:32:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=IGxVumKTNG01Ss/jT9EJGoIzPH02Ea1K0yvcJQNJe34=; b=rsBBKH7/qcMCObS8cpNOvXb2W6
-	262WrIW3ITgFARIiLB8Wlt3i6T+/+WVZ+56j/RNzmdOlBmYbX7nT3jJKjMBRnAYDfOZbJXB+B3Iht
-	dTJLN/brpL/W36GPmeV73Qr2pgi4V7XSxk7e9cj5qVp8+23PewBgzX1UdrGp5KhLSCf1+llNqYKQL
-	EagMLNJOvyTmwlTsbFsT1H2h4fbfFuARQYfZIiXvrLRgJx5VfEteKMI/o2y49Fg7cf94ZFqJeaVhY
-	+hC+82wsKbp94GvM2rZjrRaZzHx+AyxoDmAxMBHhBpLvgIWCPeVO1R3Fbvp3DQJAvccmUMJUmtVrl
-	ks/ScQ7w==;
-Received: from i53875bdb.versanet.de ([83.135.91.219] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uH79S-0001JQ-Gq; Mon, 19 May 2025 22:31:58 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Yao Zi <ziyao@disroot.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: (subset) [PATCH 0/3] rockchip: Add GPU support for RK3528
-Date: Mon, 19 May 2025 22:31:46 +0200
-Message-ID: <174768669419.2818279.16363867607908655473.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250518225418.682182-1-jonas@kwiboo.se>
-References: <20250518225418.682182-1-jonas@kwiboo.se>
+	id 1uH7Ff-0000000AQMa-1dGn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 May 2025 20:38:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=O/0IcdVQE5Us1JeC/7Mie5tysbAZM3UKBVkJQ6942JA=; b=GP0qDkXtjwpwP4f1GOOTvWNQDw
+	MEnvFI+0pp6nHGYpcvjNmLUV2j4HbrlArpvjLp3VunvgL2GEYDmFpxnbdIcx9sKh4lyiSKCY0cCTK
+	pfmWqr1u4mtpz89N18QVW5tFQ3+tK/RFBduWyxlFtN192Ydmw1L86QUUfE5pbmopBKyQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uH7Fc-00D3Sq-9r; Mon, 19 May 2025 22:38:20 +0200
+Date: Mon, 19 May 2025 22:38:20 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Corentin Labbe <clabbe.montjoie@gmail.com>
+Subject: Re: [PATCH] net: dwmac-sun8i: Use parsed internal PHY address
+ instead of 1
+Message-ID: <0ee2c181-1ab2-4d81-89f0-9d2992464a88@lunn.ch>
+References: <20250519164936.4172658-1-paulk@sys-base.io>
+ <d89565fc-e338-4a58-b547-99f5ae87b559@lunn.ch>
+ <aCuLwuSliICh86SP@collins>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aCuLwuSliICh86SP@collins>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_133213_649000_651D517E 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250519_133823_427124_676ACF31 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +79,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 18 May 2025 22:54:10 +0000, Jonas Karlman wrote:
-> This series adds support for the Mali-450 MP2 GPU in the RK3528 SoC.
+> There's actually only two users of this (this code path for internal PHYs is
+> only used by two chips), which are platform dtsi files that have the address
+> already set to 1.
 > 
-> The clock used for the GPU can use normal PLL to support a rate of 100,
-> 300 or 500 MHz. Or it can use PVTPLL to reach rates up to 800 MHz.
-> 
-> The TF-A SCMI_CLK_GPU is used to switch use between normal PLL and
-> PVTPLL. When a rate of up to 300 MHz is requested TF-A switch to use
-> normal PLL, and for rates above 300 MHz the PVTPLL is used.
-> 
-> [...]
+> I have actually tested both with hardware and they work fine.
 
-Applied, thanks!
+O.K.
 
-[1/3] dt-bindings: gpu: mali-utgard: Add Rockchip RK3528 compatible
-      commit: 6f446bbe412ab3d75651d1cc52e31aaf801dbea8
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+This is something to think about for patches in general. What
+questions are reviewers likely to ask, and can you answer them in the
+commit message?
+
+    Andrew
 
