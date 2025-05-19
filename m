@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BF3C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41875C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5g0ChK+VU2x5v032q51hIsX3hlUPkCrfaGOtPqHgaN4=; b=AV5VcffXmsF+6ogsBQ5HajkxzN
-	zFVyva0M6KHNKKKfAUUjIcFlr6wFsCdqh4bcYy66zPQGCYUs9UswVhL2NYZkDlDDMe24bG1ICTbBO
-	6Qo6+Z7SWKslh/lBc+1YKH4Eb9izst6GxXojJf3N9n0BTuo5LomvGXE5AHtNRRI2OutkGXIYRCd8E
-	wHbnPvJI+fBOQLeTAtsW5JpX9pZ6Quqw3lam2g6RpSU0IxKkEkS+Z7nbzfJY/RdIBoPhQH99f1CG7
-	z7btxnIsGEhVcal4DqcqxDPkHhFiQNkR5Hq/dBHCqM1M4L2X0sF4bLsuPVpprFN/O3WOMM6wc9S89
-	pIn6FIdg==;
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+VBvSn0/1OEly0dhJhpJ5/xbewUf32J5agAZ9eTZnMo=; b=eqYDfHs+qAIrXvaOehKa0Kxe+o
+	lyoy7XI50wvlDlqO8Hk1L1hOhXZ/NFVtnj4h3LOr8Mf0+Sol+ooHhXe9YTa6ME8La2iGjfA9xJ+e5
+	yp2HKr7JRAqPB2nCoIgGiFLHLmOdQc9OK7mUyAjAIa6qBywqd/U2NLVZNDA5rBg1oy06M/zcXpqqO
+	7XuXf/kmlDX6FY7QAnJ8Ti8qRenet1cToS/0/FuGviuh8IftV6GAJ1MF4gsg6gTPy7hIt6RDSjg8V
+	Tutl1QLzVWK8xSpclKUBTXMZzL65xOLPSsJGBz9Z57F2ebYjxMOpgzyGcznuAa4eGlM2k8hiMRxzI
+	qeXeAH9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH6aS-0000000AIJC-2RBX;
-	Mon, 19 May 2025 19:55:48 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1uH6aV-0000000AIP2-0mkt;
+	Mon, 19 May 2025 19:55:51 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH5dw-0000000ABKe-2871
+	id 1uH5e1-0000000ABMW-1Xtp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 18:55:21 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-af9564001cbso3104522a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 11:55:19 -0700 (PDT)
+	Mon, 19 May 2025 18:55:26 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-30e9e8d3e85so3209424a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 11:55:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747680918; x=1748285718; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5g0ChK+VU2x5v032q51hIsX3hlUPkCrfaGOtPqHgaN4=;
-        b=bwrnlNbWjevFNYJQuwpEFhqYRrsryNpW6JWuQk2DAWhAdofTAl1NgsVsejeg21bY1l
-         PCD8GEITTFH2piyiyTvBDg9CONuRigv8mRfOC7rdVNnEU/ECinB11p9c8t2i/1Lvszvb
-         fXrjetWv0UfMrxUcSxmHDh1Vu8N/YccniWYRyguOB6e2S5VmkAY+DtnlJrzwnhW/OSs6
-         am83mdgh+gi77oiPfew9URhqzWZDVcBUU0lI/7M+V3eVzbuwZCr/CuUN0IRVqs9oa6UD
-         UOBUn+5azL46znt0TTf8OmuIxpVA7Gf7owYqrmNPSSZOuZRqwJULsVbA25/rY0h9OcmP
-         EJpQ==
+        d=google.com; s=20230601; t=1747680924; x=1748285724; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=+VBvSn0/1OEly0dhJhpJ5/xbewUf32J5agAZ9eTZnMo=;
+        b=ZFK2gZiXWKfIvA5w6NEISqmlqGSuZeHif9N/Q6R19bRHv81gsXIK4VEMKnarcqKvg2
+         8JgzypVb375W3caBeYhZyd+cKZqc750BeIbkCVvXo6ZJLJHqDRnP3/1/GBbMqbZ8Q110
+         ys5TjmQ6G/rrZRssMVNf2JOyzW9pNM+8twPDh/Bjz4SwGDPin45yXsE3xHvTzdq6VhhE
+         wbI7fMyQot9jjmcVklnl0W8iED00DuHriN+fgrObp22b09Mr2b+vS1Qzr+3XPeunRlEv
+         d3Nk1OiLKPTCnZYQgbDhfKPAlrNC7d7zn5cpMmGknoZc9T0lgDyTO5ZsS7E8Il0F8vlv
+         Ndvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747680918; x=1748285718;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5g0ChK+VU2x5v032q51hIsX3hlUPkCrfaGOtPqHgaN4=;
-        b=UL+UPFKeLyvX0aEjvaiAtgv8DztSe7zn7XDxrs+fACCR1FsWmsS6bHnSEVPD3vyLIx
-         VYOQjSQLZq0JJ23C4uAZpnAD1GtVn9SvVMfufNqIAhn2HDkrCHsEm/z/ItBUNZwoP3tU
-         2E1hmQThIBCOA+w+CYHC+Q4YusLGM1dgeNcbUBvYGTwMDkCg9F7tEjis/qTVeTSIR+Ad
-         Sb0N4SHEc8z4jcmXxgB6FewZYEOpM/VY92OVrI1HS4lOiVRsZDUu6Vz4IxgngKz2v0om
-         i9+SoVkLr7/LCzzg0AytQA/fnB4BE8B6I1xW+y5zp1LnrkxIZTErtd7YxoK6vwrtedMT
-         cU0g==
-X-Forwarded-Encrypted: i=1; AJvYcCVdWywooQaAy2YIeCqSngajLcBAajQ2fklx1vZNcdTr5UH17MZ83pGCZnog4IbarrBIU7IVMPxj93nK6UNGiZQX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwbszY3YgbRnbgTUjCcxY/GvDGS3iNYZc8quqnRBmvG+NA6v3l
-	AMJNeeBjOqIXqHwwke+Qo7M2KaHiPp1vNc7FpCFA/nzzmWo17c2rWUHOkb0mGkkFmXIixtBa7dD
-	FpaSQRw==
-X-Google-Smtp-Source: AGHT+IFREGE+bVXqGWSTvcQtoaMDWNnydT+jkDJYEQ3EGIJqIQGkri2TmVqBm1NbHON/mC+PC5tsJfUk/NE=
-X-Received: from plpd8.prod.google.com ([2002:a17:903:1b68:b0:230:136b:a034])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e5ca:b0:223:f9a4:3f9c
- with SMTP id d9443c01a7336-231d43d5526mr191572235ad.9.1747680918570; Mon, 19
- May 2025 11:55:18 -0700 (PDT)
-Date: Mon, 19 May 2025 11:55:02 -0700
+        d=1e100.net; s=20230601; t=1747680924; x=1748285724;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+VBvSn0/1OEly0dhJhpJ5/xbewUf32J5agAZ9eTZnMo=;
+        b=ttiH5svuB1jXZaUiLb7KRLq7FAKZOgLj5jAvlXLo0KGziXdw81B60LytjTbBq34hMM
+         1zA/ld+5qmhxOVOSMONOPxoi5JbkajL/V1x0x6DFNgfQH6QKZZ0yjp5L+4KcAzSZGGOK
+         t4PXrspF1bkXrMy2nbIbObr6niTp3L3usSxZVfvDrY37nuEh5orfOSG2K98AHWOXeSk7
+         IyRJZY0rzx0M3kAF+eW5PcYW/twjeyI0o1jL90XVC6dHib6cRqemaguagU1CUS/LRH44
+         Fe5NZ3G2/NQbmNpg4our/RHjmyUAOpoQZsEZMviFz+J2SlKrsk6TVJulaj9ZdDZbf0a3
+         GSUg==
+X-Forwarded-Encrypted: i=1; AJvYcCU1AzpUOI6DGYvI5UGSXTaJ2wI/LsHHPXhMvKHP9GwupE8DQkf53uEOKsW1GdRbDkIgY4YQaIx/EY2dEcBMUgBc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYYyVVAEboqbFY5FjpGpZIh81L23lWRaR04ppAoNM58/C4rYfh
+	J/XZUJ9s4MDP0cm22SF+bF4uQ/FOUBgHt/UomQnaqEud6hz4gdyg7+xe4+DTfS4STPrT2Nnya8M
+	83kpU6g==
+X-Google-Smtp-Source: AGHT+IGXg/F9gxTP1pqaycZUwOUHp+ak6N7UkX/Xq88IlBNICngR1I/Ww9ctAKD/SX/RDw3McfSZyBJElK0=
+X-Received: from pjg13.prod.google.com ([2002:a17:90b:3f4d:b0:2ea:9d23:79a0])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3c08:b0:30e:6a10:bb41
+ with SMTP id 98e67ed59e1d1-30e7d5a85c1mr21315362a91.27.1747680923944; Mon, 19
+ May 2025 11:55:23 -0700 (PDT)
+Date: Mon, 19 May 2025 11:55:05 -0700
+In-Reply-To: <20250519185514.2678456-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20250519185514.2678456-1-seanjc@google.com>
 X-Mailer: git-send-email 2.49.0.1101.gccaa498523-goog
-Message-ID: <20250519185514.2678456-1-seanjc@google.com>
-Subject: [PATCH v2 00/12] KVM: Make irqfd registration globally unique
+Message-ID: <20250519185514.2678456-4-seanjc@google.com>
+Subject: [PATCH v2 03/12] KVM: Initialize irqfd waitqueue callback when adding
+ to the queue
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
 	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
@@ -77,8 +81,8 @@ Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_115520_571189_F456E5C0 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250519_115525_403200_21E4B5BE 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,72 +98,48 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ingo/Peter,
+Initialize the irqfd waitqueue callback immediately prior to inserting the
+irqfd into the eventfd's waitqueue.  Pre-initializing the state in a
+completely different context is all kinds of confusing, and incorrectly
+suggests that the waitqueue function needs to be initialize prior to
+vfs_poll().
 
-Any objection to taking this through the KVM tree? (6.17 or later)
-Assuming no one objects to the KVM changes...
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ virt/kvm/eventfd.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-
-Rework KVM's irqfd registration to require that an eventfd is bound to at
-most one irqfd throughout the entire system.  KVM currently disallows
-binding an eventfd to multiple irqfds for a single VM, but doesn't reject
-attempts to bind an eventfd to multiple VMs.
-
-This is obvious an ABI change, but I'm fairly confident that it won't
-break userspace, because binding an eventfd to multiple irqfds hasn't
-truly worked since commit e8dbf19508a1 ("kvm/eventfd: Use priority waitqueue
-to catch events before userspace").  A somewhat undocumented, and perhaps
-even unintentional, side effect of suppressing eventfd notifications for
-userspace is that the priority+exclusive behavior also suppresses eventfd
-notifications for any subsequent waiters, even if they are priority waiters.
-I.e. only the first VM with an irqfd+eventfd binding will get notifications.
-
-And for IRQ bypass, a.k.a. device posted interrupts, globally unique
-bindings are a hard requirement (at least on x86; I assume other archs are
-the same).  KVM and the IRQ bypass manager kinda sorta handle this, but in
-the absolute worst way possible (IMO).  Instead of surfacing an error to
-userspace, KVM silently ignores IRQ bypass registration errors.
-
-The motivation for this series is to harden against userspace goofs.  AFAIK,
-we (Google) have never actually had a bug where userspace tries to assign
-an eventfd to multiple VMs, but the possibility has come up in more than one
-bug investigation (our intra-host, a.k.a. copyless, migration scheme
-transfers eventfds from the old to the new VM when updating the host VMM).
-
-v2: Use guard(spinlock_irqsave). [Prateek]
-
-v1: https://lore.kernel.org/all/20250401204425.904001-1-seanjc@google.com
-
-Sean Christopherson (12):
-  KVM: Use a local struct to do the initial vfs_poll() on an irqfd
-  KVM: Acquire SCRU lock outside of irqfds.lock during assignment
-  KVM: Initialize irqfd waitqueue callback when adding to the queue
-  KVM: Add irqfd to KVM's list via the vfs_poll() callback
-  KVM: Add irqfd to eventfd's waitqueue while holding irqfds.lock
-  sched/wait: Add a waitqueue helper for fully exclusive priority
-    waiters
-  KVM: Disallow binding multiple irqfds to an eventfd with a priority
-    waiter
-  sched/wait: Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority()
-  KVM: Drop sanity check that per-VM list of irqfds is unique
-  KVM: selftests: Assert that eventfd() succeeds in Xen shinfo test
-  KVM: selftests: Add utilities to create eventfds and do KVM_IRQFD
-  KVM: selftests: Add a KVM_IRQFD test to verify uniqueness requirements
-
- include/linux/kvm_irqfd.h                     |   1 -
- include/linux/wait.h                          |   2 +
- kernel/sched/wait.c                           |  22 ++-
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- tools/testing/selftests/kvm/arm64/vgic_irq.c  |  12 +-
- .../testing/selftests/kvm/include/kvm_util.h  |  40 ++++++
- tools/testing/selftests/kvm/irqfd_test.c      | 130 ++++++++++++++++++
- .../selftests/kvm/x86/xen_shinfo_test.c       |  21 +--
- virt/kvm/eventfd.c                            | 130 +++++++++++++-----
- 9 files changed, 294 insertions(+), 65 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/irqfd_test.c
-
-
-base-commit: 7ef51a41466bc846ad794d505e2e34ff97157f7f
+diff --git a/virt/kvm/eventfd.c b/virt/kvm/eventfd.c
+index 42c02c35e542..8b9a87daa2bb 100644
+--- a/virt/kvm/eventfd.c
++++ b/virt/kvm/eventfd.c
+@@ -256,6 +256,13 @@ static void kvm_irqfd_register(struct file *file, wait_queue_head_t *wqh,
+ 	struct kvm_irqfd_pt *p = container_of(pt, struct kvm_irqfd_pt, pt);
+ 	struct kvm_kernel_irqfd *irqfd = p->irqfd;
+ 
++	/*
++	 * Add the irqfd as a priority waiter on the eventfd, with a custom
++	 * wake-up handler, so that KVM *and only KVM* is notified whenever the
++	 * underlying eventfd is signaled.
++	 */
++	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
++
+ 	add_wait_queue_priority(wqh, &irqfd->wait);
+ }
+ 
+@@ -395,12 +402,6 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ 		mutex_unlock(&kvm->irqfds.resampler_lock);
+ 	}
+ 
+-	/*
+-	 * Install our own custom wake-up handling so we are notified via
+-	 * a callback whenever someone signals the underlying eventfd
+-	 */
+-	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
+-
+ 	/*
+ 	 * Set the irqfd routing and add it to KVM's list before registering
+ 	 * the irqfd with the eventfd, so that the routing information is valid
 -- 
 2.49.0.1101.gccaa498523-goog
 
