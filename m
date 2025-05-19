@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843F4C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 07:40:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FF3C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 07:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z7nRriuV9vS+4k4680rkW86JxjvMbZ7a06K/lzDLNBo=; b=jKvTKVqv7h0+iKLx12mxiizL5E
-	KReLDiCoqLxZINNgvpNMHiYv89KVDIV/6F902n+7Kdd+Ca7Qe0LknFqKdooNK6rE6emFwBV20TKvH
-	ROGmWRKz3ohWFzAfaCBMdwyzCJUYRC0j7CDDhMFTPZUn/T+ylDM8NEpPvYvepLrGLkjzCf9Tdeayd
-	DCgHOEuAYWNO3EshqQ25IDSTsou4Js90BnwQA8Kz7oCmQPVnR3flnS+2/CN6MeBbonYZ8d7wDWgqV
-	Bt8IPEqqGGRhXJ3WsYzfEB7wsULB6L4QCRST6PhzmN1+n3NhuTeGCelm4v+RVoJTNAiCZpmK7Wa5R
-	xa4LCwaw==;
+	bh=vRwlAFhQaOa6OKdw30la2cac+LHun1qtiEK+lD7gygs=; b=T0u75REXst9OHnY02nMHD5qXY/
+	UM+PacRTea+YgGob9oGmxWg1uQxaLrz/t/t0USx3tkglEotmuOdfKk6owi/eLnXCATQxQPLIB+BQK
+	m9XV1NXUiJhJc4+tBfJu3jtwHxnAQRNU24se9BYaFHNRvkAG/djjo3+JXb/rTaAFcT5+nUTfspEw9
+	63Ow9SHCOd0kcT6FWHHPl3ZAJ8H31dhdykwoPx+Z2J5BwnTqMiutUKpnsEV7XNAjzMKi0ubYBF7k6
+	qatsfQnR7nPRnGaz+DYZkJm42HAI2FIGR04usepaQKhWirC9obWtVf+9iHA751wfo1pyppO/AwqkT
+	CL8qUTsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGv6u-00000008FOV-3l2i;
-	Mon, 19 May 2025 07:40:32 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGv4s-00000008FCS-2On4;
-	Mon, 19 May 2025 07:38:27 +0000
-X-UUID: 3cd2b7de348411f0bed96b30c12bc3d6-20250519
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Z7nRriuV9vS+4k4680rkW86JxjvMbZ7a06K/lzDLNBo=;
-	b=a3wFtYUmcH5zYvLJAPaUVjKH0MWg2JQRmpLx4yRd7jJU/KmUxK/T2YPPuDE/DJERAZgR1a9gDKvCzGSOw81kr4GZUsYCEVzi21yTAHmMlyCuLPQ6ena91pLaGnMafoE0ZdDw/Q6wjTZU4tXFY7WDcMDOVF8LlxZe42w2CDb81C0=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:718dadc2-a4d5-4c65-80a8-038e892bbb94,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:94a8e197-7410-4084-8094-24619d975b02,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 3cd2b7de348411f0bed96b30c12bc3d6-20250519
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <bo.ye@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1879578343; Mon, 19 May 2025 00:38:20 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 19 May 2025 15:38:17 +0800
-Received: from mcddlt001.gcn.mediatek.inc (10.19.240.15) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 19 May 2025 15:38:16 +0800
-From: Bo Ye <bo.ye@mediatek.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
-	Bart Van Assche <bvanassche@acm.org>, "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
-	<martin.petersen@oracle.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: <xiujuan.tan@mediatek.com>, Qilin Tan <qilin.tan@mediatek.com>, Bosser Ye
-	<bo.ye@mediatek.com>, <linux-scsi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH] scsi: ufs: preventing bus hang crash during emergency power off
-Date: Mon, 19 May 2025 15:38:13 +0800
-Message-ID: <20250519073814.167264-1-bo.ye@mediatek.com>
-X-Mailer: git-send-email 2.17.0
+	id 1uGvGr-00000008GqI-2akk;
+	Mon, 19 May 2025 07:50:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uGvEo-00000008GPP-2uwP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 May 2025 07:48:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2580D14BF;
+	Mon, 19 May 2025 00:48:28 -0700 (PDT)
+Received: from K4MQJ0H1H2.blr.arm.com (unknown [10.164.18.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6A31F3F6A8;
+	Mon, 19 May 2025 00:48:34 -0700 (PDT)
+From: Dev Jain <dev.jain@arm.com>
+To: akpm@linux-foundation.org
+Cc: ryan.roberts@arm.com,
+	david@redhat.com,
+	willy@infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Liam.Howlett@oracle.com,
+	lorenzo.stoakes@oracle.com,
+	vbabka@suse.cz,
+	jannh@google.com,
+	anshuman.khandual@arm.com,
+	peterx@redhat.com,
+	joey.gouly@arm.com,
+	ioworker0@gmail.com,
+	baohua@kernel.org,
+	kevin.brodsky@arm.com,
+	quic_zhenhuah@quicinc.com,
+	christophe.leroy@csgroup.eu,
+	yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	hughd@google.com,
+	yang@os.amperecomputing.com,
+	ziy@nvidia.com,
+	Dev Jain <dev.jain@arm.com>
+Subject: [PATCH v3 0/5] Optimize mprotect() for large folios
+Date: Mon, 19 May 2025 13:18:19 +0530
+Message-Id: <20250519074824.42909-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-Content-Type: text/plain
-X-MTK: N
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_003826_614730_DDDBAF71 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250519_004842_850094_90FAE690 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +83,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Qilin Tan <qilin.tan@mediatek.com>
+This patchset optimizes the mprotect() system call for large folios
+by PTE-batching.
 
-When kernel_power_off is called directly without freezing userspace,
-it may cause UFS crashes:
+We use the following test cases to measure performance, mprotect()'ing
+the mapped memory to read-only then read-write 40 times:
 
-Callback:
-    ...... 0xBFFFFFC080C6156C()
-    vmlinux readl() + 52
-    vmlinux ufshcd_add_command_trace() + 552
-    vmlinux ufshcd_send_command() + 84
+Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
+pte-mapping those THPs
+Test case 2: Mapping 1G of memory with 64K mTHPs
+Test case 3: Mapping 1G of memory with 4K pages
 
-When kernel_power_off is executed, ufshcd_wl_shutdown is also called
-to turn off the UFS reference clock, VCC, and VCCQ. If I/O requests
-are still being sent to the UFS host and accessing the interrupt
-status register at this time, AP read timeouts may occur, causing bus
-hang crashes.
+Average execution time on arm64, Apple M3:
+Before the patchset:
+T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
 
-The root cause is that scsi_device_quiesce and blk_mq_freeze_queue
-only drain the requests in the request queue but don't guarantee that
-all requests have been dispatched to the UFS host and completed.
-Requests may remain pending in the hardware dispatch queue and be
-rescheduled later. If the UFS reference clock has already been turned
-off at this point, a bus hang crash will occur.
+After the patchset:
+T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.3 seconds
 
-Example of the race condition:
-Thread 1                                                   Thread 2
-kernel_power_off
--> ufshcd_wl_shutdown
- -> scsi_device_quiesce(sdev)
-  -> blk_mq_freeze_queue(q)
-   -> blk_mq_run_hw_queue(htx, false)
-    -> blk_mq_delay_run_hw_queue(hctx, 0)                blk_mq_run_work_fn
- -> ufshcd_suspend(hba) // disable ref clk                -> blk_mq_dispatch_rq_list
-                                                           -> blk_mq_run_hw_queue()
-                                                            -> ufshcd_send_command()
-                                                             -> ufshcd_add_command_trace()
-                                                              -> ufshcd_readl(hba, REG_INTERRUPT_STATUS)
+Observing T1/T2 and T3 before the patchset, we also remove the regression
+introduced by ptep_get() on a contpte block. And, for large folios we get
+an almost 74% performance improvement, albeit the trade-off being a slight
+degradation in the small folio case.
 
-When Thread-2's dispatch request is delayed due to heavy CPU load,
-the interrupt status register may be read after the reference clock
-is disabled, resulting in a bus hang crash.
+Here is the test program:
 
-To avoid this issue, call ufshcd_wait_for_doorbell_clr to wait until
-all requests are processed before disabling the reference clock.
+ #define _GNU_SOURCE
+ #include <sys/mman.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <stdio.h>
+ #include <unistd.h>
 
-Signed-off-by: Qilin Tan <qilin.tan@mediatek.com>
-Signed-off-by: Bosser Ye <bo.ye@mediatek.com>
----
- drivers/ufs/core/ufshcd.c | 1 +
- 1 file changed, 1 insertion(+)
+ #define SIZE (1024*1024*1024)
 
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index 7735421e3991..a1013aea8e90 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -10262,6 +10262,7 @@ static void ufshcd_wl_shutdown(struct device *dev)
- 		scsi_device_set_state(sdev, SDEV_OFFLINE);
- 		mutex_unlock(&sdev->state_mutex);
- 	}
-+	ufshcd_wait_for_doorbell_clr(hba, 5 * USEC_PER_SEC);
- 	__ufshcd_wl_suspend(hba, UFS_SHUTDOWN_PM);
- 
- 	/*
+unsigned long pmdsize = (1UL << 21);
+unsigned long pagesize = (1UL << 12);
+
+static void pte_map_thps(char *mem, size_t size)
+{
+	size_t offs;
+	int ret = 0;
+
+
+	/* PTE-map each THP by temporarily splitting the VMAs. */
+	for (offs = 0; offs < size; offs += pmdsize) {
+		ret |= madvise(mem + offs, pagesize, MADV_DONTFORK);
+		ret |= madvise(mem + offs, pagesize, MADV_DOFORK);
+	}
+
+	if (ret) {
+		fprintf(stderr, "ERROR: mprotect() failed\n");
+		exit(1);
+	}
+}
+
+int main(int argc, char *argv[])
+{
+	char *p;
+        int ret = 0;
+	p = mmap((1UL << 30), SIZE, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+	if (p != (1UL << 30)) {
+		perror("mmap");
+		return 1;
+	}
+
+
+
+	memset(p, 0, SIZE);
+	if (madvise(p, SIZE, MADV_NOHUGEPAGE))
+		perror("madvise");
+	explicit_bzero(p, SIZE);
+	pte_map_thps(p, SIZE);
+
+	for (int loops = 0; loops < 40; loops++) {
+		if (mprotect(p, SIZE, PROT_READ))
+			perror("mprotect"), exit(1);
+		if (mprotect(p, SIZE, PROT_READ|PROT_WRITE))
+			perror("mprotect"), exit(1);
+		explicit_bzero(p, SIZE);
+	}
+}
+
+The patchset is rebased onto mm-unstable (9ead4336d7c07f085def6ab372245640a22af5bd).
+
+v2->v3:
+ - Add comments for the new APIs (Ryan, Lorenzo)
+ - Instead of refactoring, use a "skip_batch" label
+ - Move arm64 patches at the end (Ryan)
+ - In can_change_pte_writable(), check AnonExclusive page-by-page (David H)
+ - Resolve implicit declaration; tested build on x86 (Lance Yang)
+
+v1->v2:
+ - Rebase onto mm-unstable (6ebffe676fcf: util_macros.h: make the header more resilient)
+ - Abridge the anon-exclusive condition (Lance Yang)
+  
+Dev Jain (5):
+  mm: Optimize mprotect() by batch-skipping PTEs
+  mm: Add batched versions of ptep_modify_prot_start/commit
+  mm: Optimize mprotect() by PTE batching
+  arm64: Add batched version of ptep_modify_prot_start
+  arm64: Add batched version of ptep_modify_prot_commit
+
+ arch/arm64/include/asm/pgtable.h |  10 ++
+ arch/arm64/mm/mmu.c              |  21 ++++-
+ include/linux/mm.h               |   7 +-
+ include/linux/pgtable.h          |  79 ++++++++++++++++
+ mm/mprotect.c                    | 154 +++++++++++++++++++++++++------
+ mm/pgtable-generic.c             |  16 +++-
+ 6 files changed, 246 insertions(+), 41 deletions(-)
+
 -- 
-2.17.0
+2.30.2
 
 
