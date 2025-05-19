@@ -4,101 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9763AC54795
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 12:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C3BC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 12:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bGruH2OWyN5Kdhy7bKxvrOX/NNRx5g3JGk/NfDWwg9E=; b=P3mW+TQEKT24OzshMKrVh+x/zB
-	KUay+QjbQTkvMC+hrebsGvgERtHbcEronkejEc+eQlqcovvLBGEdr70jG1jycoSxFxtsLBq2NFVqf
-	waGPcLN/0+06lLEBTFpXN5YKC0jx4/DWrfhEo6lvGc/U/WgM+Glnr8R86oVvjBdWoafG9bZ1EjH7G
-	5n4Op+8ulkNZmznRZncQM07cHobMoMqXaxJvZ5bHB9oJp/UaQJfMR9eL2X1ZAD12Bp8M9X+XO78nW
-	extAgCDRT9ohnBh5VpSQz0eckGo0FHgPGbQ/Eshf5vjgfjx9aw5Knka9X6bqgBcZgG68HsPsrZIYO
-	H9ToCLOQ==;
+	bh=ftDhpzUCFCgv9VuWBrFfvAn7gkRBGVdQ8LoorzEtpsw=; b=tofO8/lwWiM7jykvdE4ZJxfffb
+	CWurmM92wMpJLhT5ow+XppszBcWhPXir2YvyjC+odRVUN/euU8KQh0DoKbq0yYiPBXNqD8ACwv86k
+	mJVEhviefHIjbgrCNGaSbkXMAJIS4hBTUXZ21/FVUh0m2ZdqsgzROKedBP/T86zhMTqyqewy5Furs
+	TYjCJcz6puyVgKnc35IOn4I6/RHoHbC7GIxkxpm1h9LiBy1MeTyAg4MpqpnrvXVCaKNuUbGt0Bqyz
+	5KFbaJcJ2531mH9TWbPyOVufUN/Pd+4oEp7nNGKkBO1MWR6rWUnrlYIUseYhvfiKCChJv625Sy3Ip
+	TI7dwsKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGzuY-00000009CRt-2qMD;
-	Mon, 19 May 2025 12:48:06 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1uGzwb-00000009D7G-0DRb;
+	Mon, 19 May 2025 12:50:13 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGzkE-00000009Aol-1Cq0
+	id 1uGzsi-00000009CCF-1pKD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 12:37:27 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-601968db16bso4124036a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 05:37:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747658244; x=1748263044; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bGruH2OWyN5Kdhy7bKxvrOX/NNRx5g3JGk/NfDWwg9E=;
-        b=QIj9SF+DOY2/9I73xrudBKshkEUepVBPXwtHsbfxwonPsjLb9R11/wKOQ1TYCYkjb0
-         6KBzZKTIhsvruMgVxJ1DnwPlB3/6vI510uEzJHrkdByy/M2EAbO8unIl0TWJhsdroZKO
-         0X5WIBeynZNi4H4smblPPKIRjyIiZm37kuFRGRnTh4Q21KVr4ZrHzZXt2XnANLfgBupJ
-         dK8C8gnG6SRmtUZ006OSuYUXxDrA3eidsN4se17JGib3xqAlmFOdQUPA8YgCOCZgOsXi
-         cmAELB+zmCzwwoIb1D6K9X2SrK35CCYKSSoInOwlNVve4GdCD3UDw7SOCzKkegiAl3Lx
-         3uYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747658244; x=1748263044;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bGruH2OWyN5Kdhy7bKxvrOX/NNRx5g3JGk/NfDWwg9E=;
-        b=kgCNwWYCWR8eZ2/ECIIaDCKI0dD+YNDPZjZ9dcPGyb+pQtVgYZ6q5JkjIbXF5KyFmw
-         Kl2kluCysXCtW4UFWL0iBfISdUVxwZDlQECFU6Hqo6PqZgWQUAwCsIXi9R31fRLU0nI7
-         pZMs6xqM6PvhyHaPPhDBgeNE0B0M+oWcD6G79py4bQzMdnOs4mHmOlR9/hmmg60zhLj7
-         kgocg8YRrRBqkh0T3fiut378i7WqOjK8/a0l/Uze+JNgpA05Ev+ZY/ensqcr3aOht0wL
-         Oz5hxIbu3oYHQ4uNKx5nM/Bk+qNe43kuIBNqC8abBQgsuNJWa8hLqy/dt1vfsVeGyXq5
-         PQUw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4JZRBYRlbVG7i9wMp/m7fMYy/K+9W7GVfx8HD1WHLur0d6f4ABAUnhNeGxF5cTzGSOf22dFzU/0XvbsRAZpGQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjMhEO6BnLE8gjRf2gUUVDev50OubdmFahe73dAbiIGvBUWkub
-	tkY2lmsd6SiewWu8IsXWdkpDeFxQxIHxDvZT4R8kkQozUvL3RtBQQaXhzb/jm94u2w==
-X-Gm-Gg: ASbGnctIXe6fvpe8jQY4gv+oY8BHtxCEjGN0djL1KQW6C+MgwbJAvaatZtNhz8mHCgS
-	+MMsF0XB3SXMmBHnJDKWSY1nhBD6IdrPlor2QsJgBOIsCIQ0jr9Nq1QpF1jjL69iGmgbx6bOiE1
-	egl2c/bRpCErhER9R0XToaHFDiW3QVbQD5T12ucgUddREOyVcvFA3dfayn2K65WAOBdYtNaSoCf
-	RCkfL1+vrNymMyLHbFnxqnhvN/Y1Pu3uQNW0rXuN9wswquhXVSluanzte2u2G7gvB6sgoEOUchH
-	L7sYjesigPYlYVLqLUINk+InY0bt4ZK1qQbe9i0e5+1aeTcVrRwOVt5MLRDtyibMHcPkbZFdsTp
-	7JTjZROWZFC+skX3cB2Tx+W/JrotsPLyowwcEE1S5zDAnPPJrfMsUkBiNx2j9+FZZSR8=
-X-Google-Smtp-Source: AGHT+IEJuSH8cyFiHfFYB8+TPURo7EpATg7AlDroWHzASyTyrwqYV4s/mzXF21Rux5m6FuouAAfVig==
-X-Received: by 2002:a17:907:1b0f:b0:ad5:5293:f236 with SMTP id a640c23a62f3a-ad55293f282mr759959666b.3.1747658244437;
-        Mon, 19 May 2025 05:37:24 -0700 (PDT)
-Received: from thinkpad.homenet.telecomitalia.it (host-87-20-215-169.retail.telecomitalia.it. [87.20.215.169])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d4967e2sm580970466b.128.2025.05.19.05.37.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 May 2025 05:37:23 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Krishna chaitanya chundru <quic_krichai@quicinc.com>,
-	Niklas Cassel <cassel@kernel.org>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Hans Zhang <18255117159@163.com>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] PCI: dwc: Link Up IRQ fixes
-Date: Mon, 19 May 2025 13:37:18 +0100
-Message-ID: <174765807809.8857.13152215627311569796.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250506073934.433176-6-cassel@kernel.org>
-References: <20250506073934.433176-6-cassel@kernel.org>
+	Mon, 19 May 2025 12:46:14 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4F2CF43B16;
+	Mon, 19 May 2025 12:46:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1747658768;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ftDhpzUCFCgv9VuWBrFfvAn7gkRBGVdQ8LoorzEtpsw=;
+	b=ILHAtyQvoP+l2aYzHP8Fne8YPi4v3LTOIJmtiweeGuqExqV7XVp/RAGwvlWo+2bozMnJxz
+	xvT2E0qMBoy/JD4wgc6RIcO0JDORVOwgN+JNpzL1Jh2kQ9iNH8Xp0BDG2RJ2h6CvUeVnHW
+	vzQNNTOebdoZy+NCYZ6DHctXLI07e0mzrWnLh5MnJ4sUL7vHKuUvljTnyHJnOMrjTvBAGD
+	pzOqJu4GyhIFiwLVotKe5XZ8jGxnwS6gzpXVsb3qlCYp/gJCXGvOD90J5VhE2H+5Xg2AFQ
+	/Ki2TGqtfWeo7+6iL1S2bR5R9EEHx8pr6jLf0w3i/oScnDNxEkwd0ylP3bzyyA==
+Date: Mon, 19 May 2025 14:46:02 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang
+ <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, Derek
+ Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>,
+ Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Saravana
+ Kannan <saravanak@google.com>, Bjorn Helgaas <bhelgaas@google.com>, Mark
+ Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
+ <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, Geert
+ Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, Allan Nielsen
+ <allan.nielsen@microchip.com>, Horatiu Vultur
+ <horatiu.vultur@microchip.com>, Steen Hegelund
+ <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v2 05/26] bus: simple-pm-bus: Populate child nodes at
+ probe
+Message-ID: <20250519144602.0399c9c5@bootlin.com>
+In-Reply-To: <CAJZ5v0iL9-JzTzE7pYTJGuB1BbrE6L12K2FKNpQ8dhX9GureJw@mail.gmail.com>
+References: <20250507071315.394857-1-herve.codina@bootlin.com>
+	<20250507071315.394857-6-herve.codina@bootlin.com>
+	<CAJZ5v0iL9-JzTzE7pYTJGuB1BbrE6L12K2FKNpQ8dhX9GureJw@mail.gmail.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefvddugedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjefflefhieduteegffeifeeggfffvdeuvdeutddvfeduudeukeffleehheffkeetnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeguddprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgp
+ dhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_053726_328305_16E3F4DA 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20250519_054613_096724_1078E486 
+X-CRM114-Status: GOOD (  47.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,30 +101,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Rafael,
 
-On Tue, 06 May 2025 09:39:35 +0200, Niklas Cassel wrote:
-> Commit 8d3bf19f1b58 ("PCI: dwc: Don't wait for link up if driver can detect
-> Link Up event") added support for DWC to not wait for link up before
-> enumerating the bus. However, we cannot simply enumerate the bus after
-> receiving a Link Up IRQ, we still need to wait PCIE_T_RRS_READY_MS time
-> to allow a device to become ready after deasserting PERST. To avoid
-> bringing back an conditional delay during probe, perform the wait in the
-> threaded IRQ handler instead.
+On Fri, 16 May 2025 21:22:20 +0200
+"Rafael J. Wysocki" <rafael@kernel.org> wrote:
+
+> On Wed, May 7, 2025 at 9:13 AM Herve Codina <herve.codina@bootlin.com> wrote:
+> >
+> > The simple-pm-bus drivers handles several simple bus. When it is used  
 > 
-> [...]
+> s/drivers/driver/ (I think)
+> s/simple bus/simple busses/
 
-Applied to controller/dw-rockchip, thanks!
+Will be fixed.
 
-[1/4] PCI: dw-rockchip: Do not enumerate bus before endpoint devices are ready
-      commit: c1c9c4b6130defb671c45b53ec12fcd92afea971
-[3/4] PCI: dw-rockchip: Replace PERST sleep time with proper macro
-      commit: 9ad44a6f6f8775786a9543427c82625d96a340b4
-[4/4] PCI: qcom: Replace PERST sleep time with proper macro
-      commit: be0b42befa87d81780aa0f003644b0ad520b0234
+> 
+> > with busses other than a compatible "simple-pm-bus", it don't populate  
+> 
+> s/it don't/it doesn't/
 
-(I do need to change the name of the topic-branch now...)
+Will be fixed.
+
+> 
+> > its child devices during its probe.
+> >
+> > This confuses fw_devlink and results in wrong or missing devlinks.  
+> 
+> Well, fair enough, but doesn't it do that for a reason?
+
+I think devlink is confused just because "simple-bus" or similar handled
+by this driver didn't follow the devlink rule: "Child nodes should be
+created during parent probe".
+
+Suppose the following:
+   foo@0 {
+	compatible = "vendor,foo"
+
+	bar@0 {
+		compatible = "simple-bus";
+
+		baz@100 {
+			compatible = "vendor,baz"
+		};
+	};
+   };
+
+The foo driver probe() calls from of_platform_default_populate() to create
+the bar device.
+
+The bar is create and thanks to its compatible string, the simple-bus
+probe() is called. Without my modification, the baz device was not created
+during the simple-bus probe().
+
+of_platform_default_populate() called from foo probe() creates the baz
+device thanks to the recursive of_platform_bus_create() call.
+
+This leads the baz device created outside the bar probe() call.
+This "out of bus probe()" device creation confuses devlink.
+
+> 
+> > Once a driver is bound to a device and the probe() has been called,
+> > device_links_driver_bound() is called.
+> >
+> > This function performs operation based on the following assumption:
+> >     If a child firmware node of the bound device is not added as a
+> >     device, it will never be added.
+> >
+> > Among operations done on fw_devlinks of those "never be added" devices,
+> > device_links_driver_bound() changes their supplier.
+> >
+> > With devices attached to a simple-bus compatible device, this change
+> > leads to wrong devlinks where supplier of devices points to the device
+> > parent (i.e. simple-bus compatible device) instead of the device itself
+> > (i.e. simple-bus child).
+> >
+> > When the device attached to the simple-bus is removed, because devlinks
+> > are not correct, its consumers are not removed first.
+> >
+> > In order to have correct devlinks created, make the simple-pm-bus driver
+> > compliant with the devlink assumption and create its child devices
+> > during its probe.
+> >
+> > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> > ---
+> >  drivers/bus/simple-pm-bus.c | 23 ++++++++++++++---------
+> >  1 file changed, 14 insertions(+), 9 deletions(-)
+> >
+> > diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
+> > index d8e029e7e53f..93c6ba605d7a 100644
+> > --- a/drivers/bus/simple-pm-bus.c
+> > +++ b/drivers/bus/simple-pm-bus.c
+> > @@ -42,14 +42,14 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
+> >         match = of_match_device(dev->driver->of_match_table, dev);
+> >         /*
+> >          * These are transparent bus devices (not simple-pm-bus matches) that
+> > -        * have their child nodes populated automatically.  So, don't need to
+> > -        * do anything more. We only match with the device if this driver is
+> > -        * the most specific match because we don't want to incorrectly bind to
+> > -        * a device that has a more specific driver.
+> > +        * have their child nodes populated automatically. So, don't need to
+> > +        * do anything more except populate child nodes.  
+> 
+> The above part of the comment has become hard to grasp after the
+> change.  In particular, why populate child notes if they are populated
+> automatically?
+
+What do you thing about:
+	/*
+	 * These are transparent bus devices (not simple-pm-bus matches) that
+	 * have their child nodes be populated automatically. So, don't need to
+	 * do anything more except populate child nodes. We only match with the
+	 * device if this driver is the most specific match because we don't
+	 * want to incorrectly bind to a device that has a more specific driver.
+	 */
+
+> 
+> > + We only match with the
+> > +        * device if this driver is the most specific match because we don't
+> > +        * want to incorrectly bind to a device that has a more specific driver.
+> >          */
+> >         if (match && match->data) {
+> >                 if (of_property_match_string(np, "compatible", match->compatible) == 0)
+> > -                       return 0;
+> > +                       goto populate;  
+> 
+> Doesn't this interfere with anything, like the automatic population of
+> child nodes mentioned in the comment?
+
+I don't think so.
+
+Device population is protected against multiple calls with OF_POPULATED_BUS
+flag:
+  https://elixir.bootlin.com/linux/v6.15-rc6/source/drivers/of/platform.c#L349
+
+> 
+> >                 else
+> >                         return -ENODEV;
+> >         }
+> > @@ -64,13 +64,14 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
+> >
+> >         dev_set_drvdata(&pdev->dev, bus);
+> >
+> > -       dev_dbg(&pdev->dev, "%s\n", __func__);
+> > -
+> >         pm_runtime_enable(&pdev->dev);
+> >
+> > +populate:
+> >         if (np)
+> >                 of_platform_populate(np, NULL, lookup, &pdev->dev);
+> >
+> > +       dev_dbg(&pdev->dev, "%s\n", __func__);  
+> 
+> So how to distinguish between devices that only have child nodes
+> populated and the ones that have drvdata set?
+
+Hum, I don't see your point.
+Can you clarify ?
+
+> 
+> > +
+> >         return 0;
+> >  }
+> >
+> > @@ -78,12 +79,16 @@ static void simple_pm_bus_remove(struct platform_device *pdev)
+> >  {
+> >         const void *data = of_device_get_match_data(&pdev->dev);
+> >
+> > -       if (pdev->driver_override || data)
+> > +       if (pdev->driver_override)
+> >                 return;
+> >
+> >         dev_dbg(&pdev->dev, "%s\n", __func__);
+> >
+> > -       pm_runtime_disable(&pdev->dev);
+> > +       if (pdev->dev.of_node)
+> > +               of_platform_depopulate(&pdev->dev);
+> > +
+> > +       if (!data)
+> > +               pm_runtime_disable(&pdev->dev);
+> >  }
+> >
+> >  static int simple_pm_bus_runtime_suspend(struct device *dev)
+> > --  
+
+Thanks for your feedback.
 
 Best regards,
--- 
-Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Hervé
 
