@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E4EC54799
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 17:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74EFC54756
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 17:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6URoQYvkyARkq+de1O/CjFhagN+Qpuz7SPoxi6whFsw=; b=I7vQqS9zFpYEO613O3+iWJYmt6
-	0IhzfyC1Qh1vmtPtR7hFQCwnSx14xlMDpbGXRRhOm0JLGyuDB28OTOwUuw0UnkVR/n60amxsAxlqj
-	8dPX3Mh57/4SHLmSHB8xghMFYApDxilSWUoNO0KXwIa45MYDGn5/jcen4slgXgAVS3oi7y5TwkNzG
-	YVxrjh7rdAZWbOQ9OHQhfT/bbAg/sXinBL8bEqx+/uLFtWlZ/JYCBbRzTzUP9vcaCLfHvs+6u5Id1
-	+SGHYEXdtbb3/Ogtg5pR/6xm276HIctL2dHPyp+5zjHcr1ROs0E+thx/fv+jOGWHWn4VBXXfs8X3E
-	vUjTumlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WO+3IyFvCCK/4tEYVBTK7x1BGidnVIKOJDEzSmiLFVQ=; b=V5VXmkjzYuWuTop09rNQXecTnZ
+	kfyNqri95eeCnqXMUdbx+z5T0/cJC5X4f4TUqkcPqLN19/XyAZjN7FDgbcSBLXFHVhxO7sgg00oTu
+	X/qX/iYLaNkwBOk+kYosl33lN0WMLMe32QHJk7JGwMqzeUp/xKXIWWgXCr9AtEcd7h9wx2JkTQwvY
+	yTp05ivPRXEavlrO+1hSgrWRBPhHiRfcrqcS19BbWIvdkPgzI17rGhxN+G75TWL8EupTcVBCrh2qb
+	U3cD9nY9g2R1z3DbEE61o/1POry8PbIZtjE0JzMQ6sMWj5J+dg4B8yRzsGtX16ObZXZn6zBrRcsgp
+	Z+5K356g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH4G4-00000009xYy-1OoW;
-	Mon, 19 May 2025 17:26:36 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1uH4I6-00000009xxJ-2yEe;
+	Mon, 19 May 2025 17:28:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH3LT-00000009o8c-33JA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 16:28:09 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7339843959;
-	Mon, 19 May 2025 16:28:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1747672084;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6URoQYvkyARkq+de1O/CjFhagN+Qpuz7SPoxi6whFsw=;
-	b=QCzgwoSzlGB5vwrvQ1ZVP9ydVTuDYM1OFRB48DoP8doFxQvmyt1ArlNphGXSwLVlmTGkcq
-	cRMLQtlcxoLyAkoHP1YycLBl3qb1V8IBZCznf8/L+rhArjrJFFB7d0BdK8F/ZOg4Kiqrur
-	fyj2PLk38D5/kiIxX81cSGAPHrdPaK4gnshejSAMrmCkzi1Cn+WD8nhmrqYkEKhcFx1Hyu
-	a6ble7i9bBUUhToQe8FeYz0j0gRMwlG/B+mVs980YRqIEbxvN6R2Laj2Ak2zbeMv24cIfa
-	Hf1iAMYHvpWzDjjhm/hzaXZOSYr8jwqI0WGWclrbf5Q2AMdB7FO68ttgUNVg7Q==
-Date: Mon, 19 May 2025 18:28:01 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alim
- Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 1/7] arm64: dts: exynos: use proper node names for GPIO
- based I2C busses
-Message-ID: <20250519182801.09263bd3@bootlin.com>
-In-Reply-To: <e5a3ce2b-4ebe-44c9-9bf5-9f460d5e7fe8@kernel.org>
-References: <20250519121512.5657-1-wsa+renesas@sang-engineering.com>
-	<20250519121512.5657-2-wsa+renesas@sang-engineering.com>
-	<006ee7d6-1289-4f4a-819d-9a5e5120db99@kernel.org>
-	<aCtD7BH5N_uPGkq7@shikoro>
-	<3f6e1b74-5d19-4194-b98b-91ab6f10446c@kernel.org>
-	<aCtK1-Yn6u8-n8mU@shikoro>
-	<e5a3ce2b-4ebe-44c9-9bf5-9f460d5e7fe8@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1uH3Wa-00000009q4u-1FHF;
+	Mon, 19 May 2025 16:39:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C28024AAA1;
+	Mon, 19 May 2025 16:39:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31193C4CEE4;
+	Mon, 19 May 2025 16:39:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747672775;
+	bh=GX9Qj2ylG5i74myAAsHfk2ONtONtLM/ds6uhY2pLujQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tRHp0jDqfAOLN1wEFih56Maz86WsbkL/gu6gA+5rOc/aO64DCVaZ0DfysUKuSoHy6
+	 fJAPNV6o9ertPmlCBxSpHolI9X3sp39HesR24mMb/sChtjyDRF0/5WvUg7u1do1v5S
+	 28EpEMut/7CPrAs0iTBPNOgjTxKeuZ+evOLwhzvygU5CkPYfyZYMHYgdrbDPAOROLD
+	 0o3ftPGARPKXvF/QnlhWGwJ7E1qCi4D9u15OBcWd2ag9ffLO4k7SkNpZW3GAUHqhE5
+	 LjpQ7mbT3FFzUWdvtd1S+TNyHXxcNLz6Ykqg6OkY+1XSRvINiO2e5JyjQGvGvpCJlc
+	 cAV8MYSAsT8fQ==
+Date: Mon, 19 May 2025 17:39:29 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>, Jonas Karlman <jonas@kwiboo.se>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/5] dt-bindings: phy: rockchip: naneng-combphy: Add
+ RK3528 variant
+Message-ID: <20250519-smell-exhume-df5ee34e31bb@spud>
+References: <20250519161612.14261-1-ziyao@disroot.org>
+ <20250519161612.14261-3-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefvddukeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedutddprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfihsrgdorhgvnhgvshgrshesshgrnhhgqdgvnhhgihhnvggvrhhinhhgrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhgvnhgvshgrshdqshhotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhor
- hhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrlhhimhdrrghkhhhtrghrsehsrghmshhunhhgrdgtohhmpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: herve.codina@bootlin.com
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="TLrji4TZnIyWLWDI"
+Content-Disposition: inline
+In-Reply-To: <20250519161612.14261-3-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_092808_201264_EBFA5A6A 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20250519_093936_352430_1310BA21 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +86,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 May 2025 18:11:29 +0200
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-> On 19/05/2025 17:14, Wolfram Sang wrote:
-> >   
-> >> ... so clearly the suffix is "-foo" or "-0", as we usually prefer. This
-> >> should be replaced into i2c-X, by dropping "gpio", instead of using less
-> >> favored suffixing (one without -).  
-> > 
-> > Hmm, I can't automate this because it will then need to be aligned with
-> > the bus numbering of other existing non-GPIO-busses. Which is highly
-> > individual per board. That means we need to drop this series?  
-> 
-> I think either we use i2c-X or commit 57138f5b8c92 ("schemas: i2c: Avoid
-> extra characters in i2c nodename pattern") from Herve was not correct
-> and needs to be fixed.
-> 
+--TLrji4TZnIyWLWDI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I don't know if relevant for this case but Rob did the fix
-  647181a ("schemas: i2c: Allow for 'i2c-.*' node names")
-on top of my commit.
+On Mon, May 19, 2025 at 04:16:08PM +0000, Yao Zi wrote:
+> Rockchip RK3528 ships one naneng-combphy which operates in either PCIe
+> or USB 3 mode. Document its compatible string.
+>=20
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
 
-Best regards,
-Hervé
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+> ---
+>  .../devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-co=
+mbphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-comb=
+phy.yaml
+> index 888e6b2aac5a..969d7b1850d6 100644
+> --- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.y=
+aml
+> +++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.y=
+aml
+> @@ -12,6 +12,7 @@ maintainers:
+>  properties:
+>    compatible:
+>      enum:
+> +      - rockchip,rk3528-naneng-combphy
+>        - rockchip,rk3562-naneng-combphy
+>        - rockchip,rk3568-naneng-combphy
+>        - rockchip,rk3576-naneng-combphy
+> @@ -102,7 +103,9 @@ allOf:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: rockchip,rk3588-naneng-combphy
+> +            enum:
+> +              - rockchip,rk3528-naneng-combphy
+> +              - rockchip,rk3588-naneng-combphy
+>      then:
+>        properties:
+>          resets:
+> --=20
+> 2.49.0
+>=20
+
+--TLrji4TZnIyWLWDI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCtewQAKCRB4tDGHoIJi
+0lfYAQCtx96m/d5SWp3Mrz93mwH0LkNmQvVyWrBwI/VYaC49sgEAuh+Qt21wI2md
+Nx9jIB2xPDYbGdylaq36IjXZQc6inwQ=
+=eg7H
+-----END PGP SIGNATURE-----
+
+--TLrji4TZnIyWLWDI--
 
