@@ -4,71 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73386C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1081BC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jvOqIgHJQ3Ll/RHVA8cD9ICeCOfstAGBwUx57/J6p7M=; b=jZKHpm9kUz56tXMS5HH6EKmS7T
-	OENSz/6QJaBWabDMMtxlXpGYrNJEYwSEdhC68+M1k5QGBJdzIQ6FO7LLIQMIFEmeocu/+TOwWUc/w
-	GraSHlSB6hhAi9/euHFEaCd9AXD/g+UbvpnXtaKwNcpj9NZmuWXQOe5Xm4cgEVe3i3aCA8iJsNYD9
-	eMpMu9dHm05yIpbN5WnC1s/PnoRfQQdJkPxzFQWBhVnUTvFvLvFwYTcT4SwMSiWNeSCUQ4Yb3z/TN
-	iBVYlu7VI1ZtxANITVtEvj0qijtYULLLXp7WHCGfzqzmfBjnCGVAehHuLSB8uBauLlHA6XKPb0zxR
-	B7iHI/9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BfNTL7NM/RiOpYrt03YM7Bvw7PjliRH2M+2/x02gV8U=; b=rlm4LGMFF+BFxntlQJMZD5r1vu
+	kWdt6JrMetSmBM3aC9nOQnyyp2n8s2vTDofomy6PKh+Ulz9IDYNyhCrfHSAEAnCzz6gblXFNajJpz
+	dXAFu/mViHUUz7AMJPJmIyjrk4AxN+MzMR1WpgJmVvHvhrX+OPK/iBgLLBcQGQdSHVH38mLAYWwSk
+	aNkPES8hZ/tL1lE/q+N9KR+FuecqVT/BCTJSEmgQ48TWfOq+23RRYKZshKq7bcZW2padxwydQhOYD
+	lvnosi25WGyOmY/h+al5J6g9WkdaljPTBQYC4FhAxg+9QGOZMR8OEXFYhuq4yiqjkOdRgETG0mwJN
+	u7Atbw5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH3La-00000009o9T-37pL;
-	Mon, 19 May 2025 16:28:14 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1uH3Nb-00000009oJX-23Yu;
+	Mon, 19 May 2025 16:30:19 +0000
+Received: from mail-vi1eur05on20628.outbound.protection.outlook.com ([2a01:111:f403:2613::628] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH2Lj-00000009bWI-39pS
+	id 1uH2OQ-00000009bwM-2N4G
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 15:24:21 +0000
-Received: from localhost.localdomain (unknown [124.16.141.245])
-	by APP-01 (Coremail) with SMTP id qwCowABn1MMZTStokbplAQ--.53700S2;
-	Mon, 19 May 2025 23:24:11 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: sgoutham@marvell.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH] net: cavium: thunder: Add log for verification fail in bgx_poll_for_link()
-Date: Mon, 19 May 2025 23:23:48 +0800
-Message-ID: <20250519152348.2839-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.42.0.windows.2
+	Mon, 19 May 2025 15:27:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QYKjp8+d1qsphrVJkHncmC8Hc04/ttdCykFpJTxMW5W1TOYgJeLXdcVUeyB2Gv0/wMHE59IvuZ+SHJAjp9dWWs7G8uFH5j+jt8Rp/FEY7mre4I7Q/a6eJZY42v35nTfjt94JBl/g25UAUQpMUxGyplNsAaqUd4uaUa4ROKbxVSiRTQl50ff7dkv9EM3gocr13m60Ea3MdUP+Q6khvuunh4AXMrsZA8F469++NCMpfXvO0bXCWFrpuhpSkKrSGhFrkJJRsMTBWrmSTXVqfhLcM6qNE1Feq0Pbba4H6pROyiYdi9wm5CZ3I9zdF/gAV8/hN+hq1MWJU+ykLlw822Ue8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BfNTL7NM/RiOpYrt03YM7Bvw7PjliRH2M+2/x02gV8U=;
+ b=ZGatQV8lx2nxAfJ+gb59hr6M2n0eOc1Bf6mvXVK0cAWdX/ERQ6ltmVPHnQMTDqbtvEQf0RPVG9oa9d0pPGt7m3m36sTVa58MTB958xupuj8TQJKpX54s6Y/UiNd6pmb3AXX8aZJ2EtjEYcZqspMAZ7bJ+rnyg95U8cO12PIbneiSO62Cr9lTZBE2pH/TLw4GUBvgauKl+rMLCdTEPGuRowvjpFjW/Z9GVSwQ1rCg8NK/HzykYS2kbvzNJQQgY+8e/7REnML19Kqdstk+zkYcGIRF9ok7m/3QgUTnGna1sXjWiDOYty2nTX5bIggHpE+STD5eglba67+eiVE+gIOPKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BfNTL7NM/RiOpYrt03YM7Bvw7PjliRH2M+2/x02gV8U=;
+ b=htLklbLeSXiB0b3CO4lJmcZBQ39lJh6cR0K62CxgnlxOj/S5/JwKfzXiaARSZGz1th7QPSL3rWfXFXTbm0rkwSH653v4hvaBec5wZ+C35rMqh+L6bYeoEIA4YFXUMRiu5ME4pw2Y0hNlw7BjQ0hIl06xF/en6PZ+EZ0Otq153BUGvRg30KFFOFJ6zlUK2bOVD4nHmnCx89PpvIcCSww7bY8OT7WFF25Q6qW3zRBkiWp+/eGXXwlfKXb8wpOnl/ETMSAjROrbeRf+vY3UV6JLD82Sh171I60EsfbvRPWq69baEn1PvTqQe3LU//9jmJcEPMH2Yma6jUHMTc1Jn3ZiYQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU4PR04MB10531.eurprd04.prod.outlook.com (2603:10a6:10:55a::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Mon, 19 May
+ 2025 15:26:55 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Mon, 19 May 2025
+ 15:26:55 +0000
+Date: Mon, 19 May 2025 11:26:44 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Haibo Chen <haibo.chen@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Stefan Agner <stefan@agner.ch>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] dt-bindings: gpio: vf610: add ngpios and
+ gpio-reserved-ranges
+Message-ID: <aCtNtKHay9IXmCgD@lizhi-Precision-Tower-5810>
+References: <20250519-gpio-dts-v2-0-b9e77173e9c5@nxp.com>
+ <20250519-gpio-dts-v2-2-b9e77173e9c5@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250519-gpio-dts-v2-2-b9e77173e9c5@nxp.com>
+X-ClientProxiedBy: PH7P220CA0048.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32b::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowABn1MMZTStokbplAQ--.53700S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4xZryrWw1kKr13ZFyfCrg_yoW8GFWxpa
-	17tasI9F97Aw1Uu3Wvvws8CrZ8WaykKF93AFW5Cwn3uF17try5ZrWDG3yayFsFqrW8KFWY
-	qF1jv3s7CF98Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
-	sGvfC2KfnxnUUI43ZEXa7VU1TqcUUUUUU==
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAgHA2grSfIIhQAAs1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10531:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2632e2f8-65ac-413a-7c5b-08dd96e99640
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xy6EEDtf5pXU8iGAA62E933frNqMuLoyPR6QnjvLqfvUttiik4qii1jL44jI?=
+ =?us-ascii?Q?biYOxy6jXLlCuzOJ0jcyPQyckEieORG72h/Zu+SPgLyB59/JgR6B958iyOI/?=
+ =?us-ascii?Q?feosdYECRSs21+UpA/jIDP2ApOwlEg0hTbvGh4rJiwQKa9rF4GtSRbg+zAdo?=
+ =?us-ascii?Q?uK6kuUTS5zdXAGFgbAkgie8V/VDKsQeC6owrQ3xa8B4PQWwILV+j1qluGBHK?=
+ =?us-ascii?Q?MxXpCjh3qtpJw640M+XntBBi6fr8Y+cezcuHyqTVYKumDv1MUmPBwCzJ9OuY?=
+ =?us-ascii?Q?PEVYp2cvTkHMABMvZD5MrBPZzLOrXCCNUV0Cu+BA6U+DZjq3omndGo6rauKB?=
+ =?us-ascii?Q?oPK7gnGsebo1651BDDdgEJSv2g45AlwEid702lWhysFjQI69R5QMhKsuiyYv?=
+ =?us-ascii?Q?vJgG74sn9IQbRjAiqvEjeMKDOIJo4t0FPnZ0btCMayBTfKdd7FG0iiHQyruA?=
+ =?us-ascii?Q?Ci5+Ayw+SHToo7ej6NruUDboMt5IuUVGoOfn6AYZW6jkRI5M/8M/CtSEUnc8?=
+ =?us-ascii?Q?WRMOW1ww7JXqChr40tLGiSqCQ0HaL1EBj5G+6BEHMT94x4b/MHXkY11uU+uA?=
+ =?us-ascii?Q?ucOakpU+MqvDFLDSh6neMaeeBJP9wg2n5EzNcjHdAo82hTUQpwkeimB40fMT?=
+ =?us-ascii?Q?6vDACkjf71j36UtBIYz0IngEl5Y4xflfM/bjVRsHVxibsxoGoNFrpcsstiz4?=
+ =?us-ascii?Q?ipm6I6infCkByjLeaIaH7hpT095jeicddElHnI46JD6v6zwuE2E6coXhnhhx?=
+ =?us-ascii?Q?xlZIMmGFDgdtEv41lfG/4UaG3WtHWZja9+MnENa4XSE16n7AgbY0hUjb/lZq?=
+ =?us-ascii?Q?yHYIldQXXmD5ZZ7/C6xmqK/bQEFBBI7TanfLihRQmC9bpfrpy6le7Xx5TpwA?=
+ =?us-ascii?Q?F903g1XUrGzb12cMIRCFejfo7qmDZ2n+4pjOiiLc+8QbGbuIygWlq45KJBi9?=
+ =?us-ascii?Q?D5+DRu+ciCcHeguKzcIlzUl3c8kOHMI98N8ldd73WMzjaMEsoYmQCEAb1/+v?=
+ =?us-ascii?Q?pxW0vIV4UpzlswikEMSddORPYkAbEIuqaIgsIprX8jud8YkITORFTKyM7Ktj?=
+ =?us-ascii?Q?imvOoK+QvNVzgYAypAuTFMWcXsavOdS9mqnmpOuQaz8SL3jWf5DY2bKTORO3?=
+ =?us-ascii?Q?mrHiqzC7PTT4nK4+uM28IJD/HA4ZYBnHcYb42A4qyRZPeulY/Kx8f52O1aLN?=
+ =?us-ascii?Q?Hea3ValSK6wgTBGXVC7TgG8L5uTLuqR3u1h0V/xhVZSaFIBmCKF5d+7oMHc/?=
+ =?us-ascii?Q?sxkLAqOhMSYSMZi0gGgodPWO3K7t7lpAQZd82AoLC8hfF+cIwKLRVmZbRERb?=
+ =?us-ascii?Q?xaSoDVdJBEic98iXjagPhxNnWWy/5u4p5QtaHEGft/0gYJbK4wZq3sMecnlX?=
+ =?us-ascii?Q?oP+vEcOS9l8WL3EamDPiSOvp8T1NuwrLkKn+C5UlwKSO8seJIGEJLU6+rZxY?=
+ =?us-ascii?Q?86vNdTIGY/FjPdPtinThRtUAodlHJ39YEJgAd/H+41/IaXQy3gTKqg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CQIe7OAVIjzIxOtS4DRTgT4JP5VmC8qyN6pAD7gCUEx3vKloI0+ddB8Q3b1e?=
+ =?us-ascii?Q?rYIM7WK2wGS6DOKQSgwYhDlLQE80kNL4rXXmb3UIV4vEz67R3ajmgubjdqMx?=
+ =?us-ascii?Q?+BuImWgKsUE2aNT2/ChvDgO8r7XPmiq0DXzchlVO6rZBw9HfjpSqWkzudJoy?=
+ =?us-ascii?Q?zI0WfCPnhaavAl3dEiIsDCfvEs2HyuWAIJuPmVtKDfhlnA+6vMs24OqG4DA5?=
+ =?us-ascii?Q?PeRwkDFEJXINqumqAJMo+MTkTvP0bxia3A1GNKFTm08ZMWNcuV2hI5sNdNDw?=
+ =?us-ascii?Q?a64hHUDYt0RuIO+llqgj8VG+s1ZqwmjvZ+eDRL9rQ92+SELlclygpAmJ6haI?=
+ =?us-ascii?Q?T1TtPSOVq1XqU1ViWaPelwfUGb95rdluHp2FA5RVAejvwk1nd3hWiamURV1x?=
+ =?us-ascii?Q?IxVmiTsMr5eBWeaLO6c+hi1sfOomHbKLjN/8kkKOOrSCcdEZ7ZINo4G4P9io?=
+ =?us-ascii?Q?edGGMRfAGnE5hkLp96BcUdDvstSm83Y65wkk80Sy9XsgO3ld/ewFvgO1yP99?=
+ =?us-ascii?Q?oyv0YxiTeBTZ8DrBu2SseKI3/R/ZwRxLKjurkmUWYzNvJ5NMp07HXOHQyiE9?=
+ =?us-ascii?Q?Zi0vm1RmIBqjxErD7y3ZtsFyiRhIuUANH/IPQwBLJtrNmJ3Sh0Bxv3691EHZ?=
+ =?us-ascii?Q?5GOijBhtRrHBzITZ6m0liQjp9I8RLqXmAPfYLTVCevGt62hsXm235y7dC3R8?=
+ =?us-ascii?Q?5i7YoWtnHWApJgRa/qaB1x/NjSgNzxeAUN6AXyfijzBZNvHYPzEeObA1Xr/3?=
+ =?us-ascii?Q?IzPdiuoeFDrPTtFBNB09tbGN9Z1+6ZIqy3K7Cxhpbwysoaba1HTNnAy4QBEq?=
+ =?us-ascii?Q?/ucMDyOvrC+jcvHoInmNvy49V1ZudbHtwFytDWHZvfDx85VlGGjoXi1S1Tzi?=
+ =?us-ascii?Q?j5JCDP4rFUTgDshCRcDqUAJPRSuxwv5LmV2DU1Fju47Hws1a1INDImoRvzNV?=
+ =?us-ascii?Q?o+ArmsUaYnJtH8pIixqMyyCjlFr7LRjYDWRld0L0jyNzSerW6DyF6m/zWLsk?=
+ =?us-ascii?Q?QN1h3lBJ3hN12TU4IAyavLbP9Bh4rM6NA6W0SyoZ5wPjX9dZ3Ru9y0lGXc57?=
+ =?us-ascii?Q?+OOSsbvUDD1bdaZ5r5eq0zZvi6gFqEiBi8XGTyUIzpJF/tsqK4MLxIkYp6JB?=
+ =?us-ascii?Q?aIWV2XScseIezwGnPywVxsiScPF8Bd7NKVyyLWFqmWBAT+MKn1dqcRbojKXh?=
+ =?us-ascii?Q?rfeimfoP3n1aQ7uiQaTo7O8y2pqYrgijIwzM3yrOhDI9haH+aEhIdqnWiMPK?=
+ =?us-ascii?Q?dqMMCZ946jYLZyD/Afb/1uekSdXTjAxnxhiEoMPVUY/9DjgcxdzruyeRTT9A?=
+ =?us-ascii?Q?7aKFcoeCzNA0zycgMsCXNt9uVb6p8mim/pQ4mPTHsCgSHjawo2sFz90iAwr1?=
+ =?us-ascii?Q?T2kVu+QdsEb2IzVgexalut9DEqytaltg5W4/p1b2M+VK0dp9/2YBK+JEUvhJ?=
+ =?us-ascii?Q?JHwA+R58XTM+LHsNmZC3yy5VGtzAdffTX9QZHjPcM0HyYU+KDyZ0GjHdPFzj?=
+ =?us-ascii?Q?p3TkL60fSoxBlOwqD6WxBccsKXofJZILC5uuYdNLtPF6sfGGr9NkU9u4apWg?=
+ =?us-ascii?Q?8qBg5FP/G6fhP4Ta/JNLIUQRVVhVgzt4jfHzykW6?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2632e2f8-65ac-413a-7c5b-08dd96e99640
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2025 15:26:55.1062
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pKENm9El8eI3LjHYTRO06zb5XH8kMT1yv2FbtuRAumaOt7q8hmg8aO2fKDc2/g5lmwH1S2gWLbxZDiLbYxun4A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10531
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_082420_152196_D77D9B9E 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20250519_082706_620929_D6423983 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,34 +164,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bgx_poll_for_link() calls bgx_poll_reg() but does not handle the
-return value. The link setting is not verified if the polling operation
-times out. It helps to debug if the link polling fails.
+On Mon, May 19, 2025 at 02:03:43PM +0800, Haibo Chen wrote:
+> Add optional ngpios and gpio-reserved-ranges property
 
-Add a time out error log for bgx_poll_reg().
+Nit: Add "." after sentense.
 
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/net/ethernet/cavium/thunder/thunder_bgx.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-index 608cc6af5af1..eadc58de35ac 100644
---- a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-+++ b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-@@ -1007,8 +1007,9 @@ static void bgx_poll_for_link(struct work_struct *work)
- 	/* Receive link is latching low. Force it high and verify it */
- 	bgx_reg_modify(lmac->bgx, lmac->lmacid,
- 		       BGX_SPUX_STATUS1, SPU_STATUS1_RCV_LNK);
--	bgx_poll_reg(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1,
--		     SPU_STATUS1_RCV_LNK, false);
-+	if (bgx_poll_reg(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1,
-+			 SPU_STATUS1_RCV_LNK, false))
-+		dev_err(lmac->bgx->pdev->dev, "BXG verification fail with time out.\n");
- 
- 	spu_link = bgx_reg_read(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1);
- 	smu_link = bgx_reg_read(lmac->bgx, lmac->lmacid, BGX_SMUX_RX_CTL);
--- 
-2.42.0.windows.2
-
+>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/gpio/gpio-vf610.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml b/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
+> index 4fb32e9aec0a341a50088f3e4352ed4d36f649d3..5b98228466c6414be681c49417bbdd82f2c45756 100644
+> --- a/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
+> @@ -70,6 +70,12 @@ properties:
+>      minItems: 1
+>      maxItems: 4
+>
+> +  gpio-reserved-ranges: true
+> +
+> +  ngpios:
+> +    minimum: 1
+> +    maximum: 32
+> +
+>  patternProperties:
+>    "^.+-hog(-[0-9]+)?$":
+>      type: object
+>
+> --
+> 2.34.1
+>
 
