@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FF3C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 07:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB809C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 07:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vRwlAFhQaOa6OKdw30la2cac+LHun1qtiEK+lD7gygs=; b=T0u75REXst9OHnY02nMHD5qXY/
-	UM+PacRTea+YgGob9oGmxWg1uQxaLrz/t/t0USx3tkglEotmuOdfKk6owi/eLnXCATQxQPLIB+BQK
-	m9XV1NXUiJhJc4+tBfJu3jtwHxnAQRNU24se9BYaFHNRvkAG/djjo3+JXb/rTaAFcT5+nUTfspEw9
-	63Ow9SHCOd0kcT6FWHHPl3ZAJ8H31dhdykwoPx+Z2J5BwnTqMiutUKpnsEV7XNAjzMKi0ubYBF7k6
-	qatsfQnR7nPRnGaz+DYZkJm42HAI2FIGR04usepaQKhWirC9obWtVf+9iHA751wfo1pyppO/AwqkT
-	CL8qUTsQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dj6t1QtJ/3TjO2Q3bAtCDbyF4+BBNIY3eGFJJVh8W28=; b=Z5E4sAqG3HGZMHTYWBlaU5bWU/
+	4T6S8guT50i0CSJTR1c/TA5J5gux2q2+nLWBAiE+aA07x54YdfGmpGg3vXGXla/8N68n36nyB2Ane
+	JkGYDcGAZ9kEEwo7uSwu+ll2cS5WyACk2pCoqLyCHaQRJTLXjILMBRBBvHSyvX/3dAidLdVPhkaGr
+	8LXm++AMjAekD9iYxtA5ETprpMUT5Ns9ydMkcUXmMnXlxX64KtI3nYffmY0iapkWlslc3ylHkwHwv
+	V3+mNTULVA38W9HMz5F+bPZoyQ84tHtpx5dM0gX0ICH0dVo0EsXngC4pZBEObakt5nNpLlnZ3dNER
+	latNsRDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGvGr-00000008GqI-2akk;
-	Mon, 19 May 2025 07:50:49 +0000
+	id 1uGvIr-00000008H2o-1DIp;
+	Mon, 19 May 2025 07:52:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGvEo-00000008GPP-2uwP
+	id 1uGvEu-00000008GQn-2pm7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 07:48:43 +0000
+	Mon, 19 May 2025 07:48:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2580D14BF;
-	Mon, 19 May 2025 00:48:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5444B168F;
+	Mon, 19 May 2025 00:48:35 -0700 (PDT)
 Received: from K4MQJ0H1H2.blr.arm.com (unknown [10.164.18.48])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6A31F3F6A8;
-	Mon, 19 May 2025 00:48:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9E5D03F6A8;
+	Mon, 19 May 2025 00:48:41 -0700 (PDT)
 From: Dev Jain <dev.jain@arm.com>
 To: akpm@linux-foundation.org
 Cc: ryan.roberts@arm.com,
@@ -60,15 +60,17 @@ Cc: ryan.roberts@arm.com,
 	yang@os.amperecomputing.com,
 	ziy@nvidia.com,
 	Dev Jain <dev.jain@arm.com>
-Subject: [PATCH v3 0/5] Optimize mprotect() for large folios
-Date: Mon, 19 May 2025 13:18:19 +0530
-Message-Id: <20250519074824.42909-1-dev.jain@arm.com>
+Subject: [PATCH v3 1/5] mm: Optimize mprotect() by batch-skipping PTEs
+Date: Mon, 19 May 2025 13:18:20 +0530
+Message-Id: <20250519074824.42909-2-dev.jain@arm.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20250519074824.42909-1-dev.jain@arm.com>
+References: <20250519074824.42909-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_004842_850094_90FAE690 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20250519_004848_848307_3A66FA60 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,116 +85,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset optimizes the mprotect() system call for large folios
-by PTE-batching.
+In case of prot_numa, there are various cases in which we can skip to the
+next iteration. Since the skip condition is based on the folio and not
+the PTEs, we can skip a PTE batch.
 
-We use the following test cases to measure performance, mprotect()'ing
-the mapped memory to read-only then read-write 40 times:
+Signed-off-by: Dev Jain <dev.jain@arm.com>
+---
+ mm/mprotect.c | 36 +++++++++++++++++++++++++++++-------
+ 1 file changed, 29 insertions(+), 7 deletions(-)
 
-Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
-pte-mapping those THPs
-Test case 2: Mapping 1G of memory with 64K mTHPs
-Test case 3: Mapping 1G of memory with 4K pages
-
-Average execution time on arm64, Apple M3:
-Before the patchset:
-T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
-
-After the patchset:
-T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.3 seconds
-
-Observing T1/T2 and T3 before the patchset, we also remove the regression
-introduced by ptep_get() on a contpte block. And, for large folios we get
-an almost 74% performance improvement, albeit the trade-off being a slight
-degradation in the small folio case.
-
-Here is the test program:
-
- #define _GNU_SOURCE
- #include <sys/mman.h>
- #include <stdlib.h>
- #include <string.h>
- #include <stdio.h>
- #include <unistd.h>
-
- #define SIZE (1024*1024*1024)
-
-unsigned long pmdsize = (1UL << 21);
-unsigned long pagesize = (1UL << 12);
-
-static void pte_map_thps(char *mem, size_t size)
-{
-	size_t offs;
-	int ret = 0;
-
-
-	/* PTE-map each THP by temporarily splitting the VMAs. */
-	for (offs = 0; offs < size; offs += pmdsize) {
-		ret |= madvise(mem + offs, pagesize, MADV_DONTFORK);
-		ret |= madvise(mem + offs, pagesize, MADV_DOFORK);
-	}
-
-	if (ret) {
-		fprintf(stderr, "ERROR: mprotect() failed\n");
-		exit(1);
-	}
-}
-
-int main(int argc, char *argv[])
-{
-	char *p;
-        int ret = 0;
-	p = mmap((1UL << 30), SIZE, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-	if (p != (1UL << 30)) {
-		perror("mmap");
-		return 1;
-	}
-
-
-
-	memset(p, 0, SIZE);
-	if (madvise(p, SIZE, MADV_NOHUGEPAGE))
-		perror("madvise");
-	explicit_bzero(p, SIZE);
-	pte_map_thps(p, SIZE);
-
-	for (int loops = 0; loops < 40; loops++) {
-		if (mprotect(p, SIZE, PROT_READ))
-			perror("mprotect"), exit(1);
-		if (mprotect(p, SIZE, PROT_READ|PROT_WRITE))
-			perror("mprotect"), exit(1);
-		explicit_bzero(p, SIZE);
-	}
-}
-
-The patchset is rebased onto mm-unstable (9ead4336d7c07f085def6ab372245640a22af5bd).
-
-v2->v3:
- - Add comments for the new APIs (Ryan, Lorenzo)
- - Instead of refactoring, use a "skip_batch" label
- - Move arm64 patches at the end (Ryan)
- - In can_change_pte_writable(), check AnonExclusive page-by-page (David H)
- - Resolve implicit declaration; tested build on x86 (Lance Yang)
-
-v1->v2:
- - Rebase onto mm-unstable (6ebffe676fcf: util_macros.h: make the header more resilient)
- - Abridge the anon-exclusive condition (Lance Yang)
-  
-Dev Jain (5):
-  mm: Optimize mprotect() by batch-skipping PTEs
-  mm: Add batched versions of ptep_modify_prot_start/commit
-  mm: Optimize mprotect() by PTE batching
-  arm64: Add batched version of ptep_modify_prot_start
-  arm64: Add batched version of ptep_modify_prot_commit
-
- arch/arm64/include/asm/pgtable.h |  10 ++
- arch/arm64/mm/mmu.c              |  21 ++++-
- include/linux/mm.h               |   7 +-
- include/linux/pgtable.h          |  79 ++++++++++++++++
- mm/mprotect.c                    | 154 +++++++++++++++++++++++++------
- mm/pgtable-generic.c             |  16 +++-
- 6 files changed, 246 insertions(+), 41 deletions(-)
-
+diff --git a/mm/mprotect.c b/mm/mprotect.c
+index 88608d0dc2c2..1ee160ed0b14 100644
+--- a/mm/mprotect.c
++++ b/mm/mprotect.c
+@@ -83,6 +83,18 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+ 	return pte_dirty(pte);
+ }
+ 
++static int mprotect_batch(struct folio *folio, unsigned long addr, pte_t *ptep,
++		pte_t pte, int max_nr_ptes)
++{
++	const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
++
++	if (!folio_test_large(folio) || (max_nr_ptes == 1))
++		return 1;
++
++	return folio_pte_batch(folio, addr, ptep, pte, max_nr_ptes, flags,
++			       NULL, NULL, NULL);
++}
++
+ static long change_pte_range(struct mmu_gather *tlb,
+ 		struct vm_area_struct *vma, pmd_t *pmd, unsigned long addr,
+ 		unsigned long end, pgprot_t newprot, unsigned long cp_flags)
+@@ -94,6 +106,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+ 	bool prot_numa = cp_flags & MM_CP_PROT_NUMA;
+ 	bool uffd_wp = cp_flags & MM_CP_UFFD_WP;
+ 	bool uffd_wp_resolve = cp_flags & MM_CP_UFFD_WP_RESOLVE;
++	int nr_ptes;
+ 
+ 	tlb_change_page_size(tlb, PAGE_SIZE);
+ 	pte = pte_offset_map_lock(vma->vm_mm, pmd, addr, &ptl);
+@@ -108,8 +121,10 @@ static long change_pte_range(struct mmu_gather *tlb,
+ 	flush_tlb_batched_pending(vma->vm_mm);
+ 	arch_enter_lazy_mmu_mode();
+ 	do {
++		nr_ptes = 1;
+ 		oldpte = ptep_get(pte);
+ 		if (pte_present(oldpte)) {
++			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
+ 			pte_t ptent;
+ 
+ 			/*
+@@ -126,15 +141,18 @@ static long change_pte_range(struct mmu_gather *tlb,
+ 					continue;
+ 
+ 				folio = vm_normal_folio(vma, addr, oldpte);
+-				if (!folio || folio_is_zone_device(folio) ||
+-				    folio_test_ksm(folio))
++				if (!folio)
+ 					continue;
+ 
++				if (folio_is_zone_device(folio) ||
++				    folio_test_ksm(folio))
++					goto skip_batch;
++
+ 				/* Also skip shared copy-on-write pages */
+ 				if (is_cow_mapping(vma->vm_flags) &&
+ 				    (folio_maybe_dma_pinned(folio) ||
+ 				     folio_maybe_mapped_shared(folio)))
+-					continue;
++					goto skip_batch;
+ 
+ 				/*
+ 				 * While migration can move some dirty pages,
+@@ -143,7 +161,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+ 				 */
+ 				if (folio_is_file_lru(folio) &&
+ 				    folio_test_dirty(folio))
+-					continue;
++					goto skip_batch;
+ 
+ 				/*
+ 				 * Don't mess with PTEs if page is already on the node
+@@ -151,7 +169,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+ 				 */
+ 				nid = folio_nid(folio);
+ 				if (target_node == nid)
+-					continue;
++					goto skip_batch;
+ 				toptier = node_is_toptier(nid);
+ 
+ 				/*
+@@ -159,8 +177,12 @@ static long change_pte_range(struct mmu_gather *tlb,
+ 				 * balancing is disabled
+ 				 */
+ 				if (!(sysctl_numa_balancing_mode & NUMA_BALANCING_NORMAL) &&
+-				    toptier)
++				    toptier) {
++skip_batch:
++					nr_ptes = mprotect_batch(folio, addr, pte,
++								 oldpte, max_nr_ptes);
+ 					continue;
++				}
+ 				if (folio_use_access_time(folio))
+ 					folio_xchg_access_time(folio,
+ 						jiffies_to_msecs(jiffies));
+@@ -280,7 +302,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+ 				pages++;
+ 			}
+ 		}
+-	} while (pte++, addr += PAGE_SIZE, addr != end);
++	} while (pte += nr_ptes, addr += nr_ptes * PAGE_SIZE, addr != end);
+ 	arch_leave_lazy_mmu_mode();
+ 	pte_unmap_unlock(pte - 1, ptl);
+ 
 -- 
 2.30.2
 
