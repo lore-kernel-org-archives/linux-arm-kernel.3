@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D99C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 06:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E77C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 06:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9pXogEibdXNcbMHpkPgCjf3pBVnnzDvSETO3JukhnEE=; b=e2u2HibKnxqMzrZ7XJdMAxpphG
-	sZYhMQMdWAZy+SUUVRfivSZkFUlUcij903DBTxZqk/6w0PvJmsyYJMdHakFR1TCWHe/4zOD2Tg7kS
-	qNClTQU2hyVGnuO+ZEMi7p1CwctEHFPoVZ9nZ35nt4wUQ3HZ2yXOnTCWIRN16SvB6RHglK4xqXkr8
-	Z7lyk2m+eh+fF04xuoQVcurEe0ER86Fk65+El+/6mdEsvHBKalQehZeLtTIgZofFUtsQO1DTex4CR
-	9uLpJH+3HQ+I+qlMG1DXl8ZaXlJekaXOLJlOwOwvsj5eGJKT7YyIrmJJytMs/pwyFWu1856+H0NjQ
-	VXb4IsUg==;
+	bh=lhHYjmCMutIDKukGAa75Rr1EW7l4l/pdX9zADNq2Ijw=; b=VSPOK7OZIoqx/oKtyLgFI/bT3W
+	+h7OwZaWKNqHDouBCXop02M72y/KvxedUNo10LRC20uqFsLp3Ql9UMqneB+P/y2PBNqWY7hPvHRvu
+	SVsK67eu/d2wZT804sYpPwb70FtMbZNC93gRh0IllxxSQX997jaFeiavJ7mPLIZ4AVRfE7He4DMxX
+	pN04ry8LPiHjK7BflCpN8Bkb/PFGiRSBeePIktsBOeQgNpkb6CRTYsdLB2SAeK9FbNkKoaqrOx9nM
+	UiniymMfOthlpwtVLNf8CmmNon8VE7lnP498sKC31qLYq9eE9vuBZmKG1d9j9xmftmP+me+i/zC7O
+	UKm0t7/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGtpS-000000085qh-2TCM;
-	Mon, 19 May 2025 06:18:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uGtrs-0000000869Y-3PKH;
+	Mon, 19 May 2025 06:20:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGthj-000000084sp-1udu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 06:10:28 +0000
+	id 1uGtnr-000000085ZJ-0mB3;
+	Mon, 19 May 2025 06:16:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2DA8C4433F;
-	Mon, 19 May 2025 06:10:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B994C4CEED;
-	Mon, 19 May 2025 06:10:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D81A2A401B0;
+	Mon, 19 May 2025 06:16:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E9BAC4CEED;
+	Mon, 19 May 2025 06:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747635026;
-	bh=9pXogEibdXNcbMHpkPgCjf3pBVnnzDvSETO3JukhnEE=;
+	s=k20201202; t=1747635405;
+	bh=dlgLA40Szymf/zFAS7OTwhjGxh9yBOb/OBp5HVJ7YXY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YL2XzJQhhJgi6WC0GQyZ/fNYP/roEqWntvDAPGXipOXGY9XdbeUWq138mBftlI1GZ
-	 uMgJ53wyUUjLuiyoW/rycf6rxz0hHgh3czKLMp5ThLOhLs+oHG9YJ+Ng9OVGj4qFqX
-	 JqIsqZeo3qeWjuzjFcQacyni361tkTQOrWvw85vIXjZaq610O4OwIblrUfx+v4hBgG
-	 IcJebynEyZtrsCE/Oa10Z45zyMLLZEq2DpCzkqIAGmv5+CecEcPN0sfyo5lazmEf+l
-	 Z4CMNT4GdX4Ny9BhPtCvRQTfMlTq0VF896wlZzP2euBpFf3iyO3pUrEBR4bLstEZ2h
-	 wGgsio9PoJjpw==
-Message-ID: <7a5f60e9-376c-440e-a369-5c8d5e10c72a@kernel.org>
-Date: Mon, 19 May 2025 08:10:21 +0200
+	b=jYxN50iAznMC4SOuGKU6QigD0ZBuxgVp2sLNOYwxdPon0c8yiePSLSddq6KLLzRRM
+	 rqrdKD3G/1lu+BuK27/S88EsuGVkvte9JGMsEghOZtzqq1L1z/Yll2EkkOOZ8idHy6
+	 N0wXHKCZxQBr2uMs1WtA1t+CEmzFNPGejxXrktzvphIOEhJM9h3cLarUvMTLRh7LBO
+	 1Jn3UxXx4hS0GR8ghlJAk1o3il7B4yYCmK8BtR5EHGejLXeCD4Va9umyzIj23jD0LD
+	 b1mVTyfKYzbCmBSPthFi7TpzJJAPJNlElq0OSCk1kI0DoQw177rlFoJqzqhbmlsOpX
+	 Pkkb0rmwnw9xw==
+Message-ID: <20a565da-296c-4920-b962-e9de9af464d9@kernel.org>
+Date: Mon, 19 May 2025 08:16:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm: dts: aspeed: yosemite4: add gpio name for uart
- mux sel
-To: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>, patrick@stwcx.xyz,
+Subject: Re: [PATCH v4 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
+To: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Marshall Zhan <marshall.zhan.wiwynn@gmail.com>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20250519024850.2894895-1-delphine_cc_chiu@wiwynn.com>
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250519012632.94-1-kernel@airkyi.com>
+ <20250519012632.94-3-kernel@airkyi.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,13 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250519024850.2894895-1-delphine_cc_chiu@wiwynn.com>
+In-Reply-To: <20250519012632.94-3-kernel@airkyi.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_231027_537948_9D38C604 
-X-CRM114-Status: UNSURE (   6.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250518_231647_374270_B76CDB25 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,13 +125,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2025 04:48, Delphine CC Chiu wrote:
-> WIWYNN PROPRIETARY
-> This email (and any attachments) contains proprietary or confidential information and is for the sole use of its intended recipient. Any unauthorized review, use, copying or distribution of this email or the content of this email is strictly prohibited. If you are not the intended recipient, please notify the sender and delete this email immediately.
+On 19/05/2025 03:26, Chaoyi Chen wrote:
+> +maintainers:
+> +  - Andy Yan <andy.yan@rock-chip.com>
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +  - Sandy Huang <hjc@rock-chips.com>
+> +
+> +allOf:
+> +  - $ref: /schemas/sound/dai-common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: rockchip,rk3399-cdn-dp
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: DP core work clock
+> +      - description: APB clock
+> +      - description: SPDIF interface clock
+> +      - description: GRF clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: core-clk
+> +      - const: pclk
+> +      - const: spdif
+> +      - const: grf
+> +
+> +  extcon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      maxItems: 1
+> +    maxItems: 2
+
+Instead of this, list the items. Old binding said only "specifier", so
+this is technically a change, which should be explained in commit msg.
+
+> +    description:
+> +      List of phandle to the extcon device providing the cable state for the DP PHY.
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  phys:
+> +    items:
+> +      maxItems: 1
+> +    maxItems: 2
+> +    description: |
+> +      List of phandle to the PHY device for DP output.
+> +      RK3399 have two DP-TPYEC PHY, specifying one PHY which want to use,
+> +      or specify two PHYs here to let the driver determine which PHY to use.
 
 
-We cannot test proprietary patches. Start working with the community in
-the open.
+You do not allow one phy, so your description is not accurate. OTOH,
+original binding did not allow two phandles, so that's another change in
+the binding. You need to document all changes done to the binding in the
+commit msg.
+
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Input of the CDN DP
+> +        properties:
+> +          endpoint@0:
+> +            description: Connection to the VOPB
+> +          endpoint@1:
+> +            description: Connection to the VOPL
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Output of the CDN DP
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 4
+> +
+> +  reset-names:
+> +    items:
+> +      - const: spdif
+> +      - const: dptx
+> +      - const: apb
+> +      - const: core
+> +
+> +  rockchip,grf:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to GRF register to control HPD.
+> +
+> +  "#sound-dai-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - phys
+> +  - ports
+> +  - resets
+> +  - reset-names
+> +  - rockchip,grf
+
+
+sound-dai-cells was a required property.
 
 Best regards,
 Krzysztof
