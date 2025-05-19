@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FACC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D11C5C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z5aL9xiFeyTvSORT0lwy0cZ020BuHmC4opJbIgNSM9Q=; b=JJnHLJpTxAmnYMO2Eb06th1bPl
-	RYGZB5noaAxcOYXJswha1sHWRBjHXh8rqbKXZ48DwIK9wckE/8VyYe7x2qQXzGAfkVmhtAeWYn1wH
-	39XrPeWMcJI8BW9soSisOZyLgZ4GXwHOMvBP27eueJKGrfpj3OrHMsCsprZ/ebZXYFGPzsCmSFNoF
-	YD98qCnyx+JsIEh/h9yvhDVMunjekSuI8OrwNL7syMYkQcd+Rz6AeNb0OCMMAzHwdWh0CP3+VNzQS
-	F1WTiLd62rJQhroZoOZZNG0MHxBGhYnNhaWAY5Zo+L1ZerHGAwbffBYhMcXNST/NQSfHABp+dVDTI
-	FyQQMFVQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OZv7t8lDV0iXHfFqBM3llVIlQFfOfljI9UC5k/uzgbw=; b=nXh7aJGiGRgH2XFSyT3fy9Yh5c
+	dB9+H3qB34xnh18CIw9WUldBomK61Dn48V+SWrEKF8a2cto2O878fwBY/Y0RDl8wWMxwgLyyHUAOq
+	kr7YijM00kbgAFuUJv5+oJz3YXRr6AU6k4CU4l98Dw5LdblrwfouIZ923wo1Pbqqc7gPpnjQSZjA0
+	xKRbIdW/7M5vPVWSGENSWtjrFkvRj3FxLxNn43ffPQTTlHIU5/pE+yhsJnDyt6Ky4czKD1I4d+tEE
+	3J6P6AvcqPkAug01I1/6vqasCtPl10UBtMLGceVUM2Cg8c7YpTP0WiBBsorGhk3GveDRxL3ZefxzS
+	11xS5AAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwRb-00000008TCg-2cM0;
-	Mon, 19 May 2025 09:05:59 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1uGwTc-00000008Tc5-3581;
+	Mon, 19 May 2025 09:08:04 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwJu-00000008S28-1z02
+	id 1uGwOM-00000008SXV-208f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 08:58:04 +0000
-X-QQ-mid: esmtpsz19t1747644981t575a3957
-X-QQ-Originating-IP: pCj0VqU38uxtKMOih4dtpbkZZpPgbevf1huby6Q/fnE=
-Received: from localhost.localdomain ( [182.245.65.180])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 19 May 2025 16:56:19 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3928078300355608272
-EX-QQ-RecipientCnt: 16
-From: Hsun Lai <i@chainsx.cn>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: i@chainsx.cn,
-	heiko@sntech.de,
-	andrew@lunn.ch,
-	inindev@gmail.com,
-	quentin.schulz@cherry.de,
-	jonas@kwiboo.se,
-	sfr@canb.auug.org.au,
-	nicolas.frattaroli@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	krzysztof.kozlowski@linaro.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v3 1/3] dt-bindings: vendor-prefixes: Add SakuraPi prefix
-Date: Mon, 19 May 2025 16:56:12 +0800
-Message-Id: <20250519085614.2245892-2-i@chainsx.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250519085614.2245892-1-i@chainsx.cn>
-References: <20250519085614.2245892-1-i@chainsx.cn>
+	Mon, 19 May 2025 09:02:39 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43d2d952eb1so32143585e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 02:02:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1747645356; x=1748250156; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OZv7t8lDV0iXHfFqBM3llVIlQFfOfljI9UC5k/uzgbw=;
+        b=yt8np1yP2gToR6o9O/FBoCFGDR3Xmd0PPf+jlriiUhqL8yMUGqsksgYA75LIsZZ7TJ
+         364g9Jwjx5cSpKm2JX1DqsKBdZe/1ylu7qwIFdGmaBl3TQ3d2oT3FYYE9BRAjpVk6B5C
+         h8Tz+oZA75VsL7XV+qFpFoxZ5zF8ZcUzEexhaQCoLz3Ys2DjveWm4mh7v3dzeM5cLeP4
+         QETEzrjtNMT1DIuSEBDl6RTcDx3zIoesrBLlLtf6eN58th1vawR5MCn4Mk4zAuddvff9
+         fhUDkHmLJeLmyv4Y5oon4BvbTXlccS6hCW6xowFDPXeMZQzs/HAdvLNurla9ZMLQK8U9
+         0g4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747645356; x=1748250156;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OZv7t8lDV0iXHfFqBM3llVIlQFfOfljI9UC5k/uzgbw=;
+        b=dKqNdqf2y3C/UwtupznxSSGQqdH5/LbqlyZPEMDGDyKKFhQoYdr9swY35E9MvWCjYr
+         GsQ3oxvMjjx06Ga22APeD74ib+nlcJOI4CyhZEeFTPrx5X6IM9HJn+u0VbjEibvIX4T5
+         VALO+3GDqfnM9vVt2V4czaXcsz+Y1Sb0Zc95TuJLlDx5ItR4i4iBVuUAbZlyOfZneYAl
+         Ga9QTFhhn3eEl/G6ZvDC+Oc33jMjjS10Jvyp13qh9WJJC2lhD1LVa2hWhmLyVTGsSW94
+         /0lziAI30a/OF43BXE1YQEwbp+y7EIjmyp6WtVPfEAqAUmyPpiHvlUk1PFS0DALlg2Zk
+         NXQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXQw6OnnWz2MQQ5Mnea4gkEoR2+EbIeNPaEPcI9PbRxVy3Bs7BriPr39gYTPONAuH3qyTX0J3SPtMpKHInzCNyo@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywyg8Iptb0NyEzA4GTDxRhH2sPonfOAbkFWl4PT3FM39NC9ISE6
+	nBxKKH7Opfcg5Oh13Ozb+2IZ/G3NwaFAaT2xmKLrXVycKVHVJ2lgNTJ/4WnnqqLNWgY=
+X-Gm-Gg: ASbGncuGyfTeQhVpLWWMwCE9PPQBKW7sk4Up20X8HW86+E1CoOgjGaByyBkv0foK+hl
+	6dS1WUkQ8BCrG8MJ4PIOKm8/3Na6jASpNJo9p6ydlNn3W+8JpZCdbNQhFyz5PjRolSKbZqTkvik
+	lJgyLo/drCbulHzYfEoQqYE4Ouf44MKxnxSD/osiX5TxIbscoUAqbtl/bQxagLmHv3ys52Qpuoh
+	EPeJF1XRSSoYZPnHs04tnP3Xb0LTPn40/xZGBM4G6n2t66XV4fP/MF7A1rzc2lLne3VIoK0i5te
+	/VnvPAmptvxT4+BXepEzsFlTZoJn48JdFwA/TsMCtBcWjumllWA=
+X-Google-Smtp-Source: AGHT+IFoYsaKW2NEe2NClmKIGXOT1IxL6UwFv/4s+ZsDYhRJPYQuPfae+I/E+1pAu02D6qEp1lVAtQ==
+X-Received: by 2002:a05:600c:3114:b0:442:d9f2:ded8 with SMTP id 5b1f17b1804b1-442fd6444c4mr126185075e9.15.1747645355859;
+        Mon, 19 May 2025 02:02:35 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:fc90:23dd:2853:309])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a360b0b766sm11640130f8f.56.2025.05.19.02.02.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 May 2025 02:02:35 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: arm@kernel.org,
+	soc@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Arnd Bergmann <arnd@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [GIT PULL] ARM: davinci updates for v6.16-rc1
+Date: Mon, 19 May 2025 11:02:32 +0200
+Message-ID: <20250519090232.13147-1-brgl@bgdev.pl>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:chainsx.cn:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: N4xNDYS0Y2xMphm81jZAdhqXE9xoNPhXJCZKjkbSMJaNvjtudRsqF4nM
-	3YU2b3BtfC5VPdwPqPyXobySAXu1viX+4KU4UXQYSF3O5C5T0MuzOlTb8o3pEulp2QsyyOT
-	0qOMSOjfM1o3MF+lp0dyZojqWihyvt4HH5cHPhlFuKMuaeA3UE0dXqlI84aG7Gn9iPJxqme
-	gcH4LmA0elqj8alBEevAlOb9nI22NT22v7OeBofqm3oFc/K3VAaicBxZi2tYYRckYABRUIy
-	Q/Mhwehpd1u94RoLKM8QqRrCaNBIRsv8PNHj0NllakaRLVR7DlzTzOQv4oeBAqabJqx2a63
-	jk4mn6ZfFeWOQDQtIH+dPtpQYlyG31JWDjiRKx9MowP1fCz3AvleemjnB4Q3iKgqLgZmpHU
-	Nh2T6SA6ArBrBeyiSoPgK5TgFZZ3pQPc3Y0QxlpfdozmhQjFlgd9E5LdDGdErvbsMel4ZtD
-	8cz+KwPElRXKi88Tzg2XZU95wCIMjbw7tKr6J9Zn43w3TK42OXEaloHOWw5T5ds/OKdUJxJ
-	xgfgcSjFdaoOpJVZrgQnobMIMtaToVC48ZPFEySpfI5qteeJfIyt/LNUdMvrigvpc5Wl2yq
-	mfhoMo5MSFdw/EmJKf29iqIdSe/Gd8coJI8oirwibhbKT33Uf6ACyPw+vmQ+jmKwFV1nRS8
-	u89gaid5l0OjDSQkkvnbKcEhr/2Ek4I4XF34vevtOn6YqfUofUl61HAZQC2IngppDo4AtIa
-	vdGPfGhelC4i5QuAiYvX/8PyP5qFfvxtVeY4sUctlmkiaKyJOVlaVH6EIDGBMiGvR+E5vUO
-	8VCdMwuRpUTgnHvM2W3FkGzlY8V2q4LRz+GRCD5kKy4A/rA4D+zse+VQ75onizBBVxrm9L3
-	n0FI/PpDNJLkAl9Uk9TOtIvcWejXcn35SvO/+jONdyOgTPNOTrl0h2c74hg7bMhMFuRSaAl
-	O8ZT1yrHMbWkVZ1hjhkdi0n3EVgxVRewBUFz0O5bQs5SooUM2y6XDh1SRjuv+sXSTSMY5/I
-	UZaWLUI1Jhpeu0awT38BEPwI4HCU7woBdoqz7+NQ==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_015803_336648_A1EADA8F 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250519_020238_514980_4F759074 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +96,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add vendor prefix for SakuraPi.org, which produces
-development boards like the SakuraPi-RK3308B.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Signed-off-by: Hsun Lai <i@chainsx.cn>
----
+Hi Arnd,
 
-(no changes since v1)
+Sorry for the late PR but it completely fell out of my mind during Connect
+last week. I hope this can still make v6.16-rc1.
 
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+There are only two commits here, one is a tiny DTS update and the second
+removes da830 support. This has been in next for many weeks without any
+issues reported.
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 3e7450c3f..744d01a76 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1299,6 +1299,8 @@ patternProperties:
-   "^rve,.*":
-     description: Recharge Véhicule Électrique (RVE) inc.
-   "^saef,.*":
-+    description: SakuraPi.org
-+  "^sakurapi,.*":
-     description: Saef Technology Limited
-   "^samsung,.*":
-     description: Samsung Semiconductor
--- 
-2.34.1
+Thanks,
+Bartosz
 
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git davinci-updates-for-v6.16-rc1
+
+for you to fetch changes up to 55da73fa7a68ccbe23c94ecc070d2ee0013f4fbd:
+
+  ARM: dts: davinci: da850-evm: Increase fifo threshold (2025-05-14 17:37:54 +0200)
+
+----------------------------------------------------------------
+TI DaVinci updates for v6.16-rc1
+
+- remove support for the da830 SoC
+- increase the panel FIFO threshold in da850-evm
+
+----------------------------------------------------------------
+Adam Ford (1):
+      ARM: dts: davinci: da850-evm: Increase fifo threshold
+
+Bartosz Golaszewski (1):
+      ARM: davinci: remove support for da830
+
+ arch/arm/boot/dts/ti/davinci/da850-evm.dts |   2 +-
+ arch/arm/configs/davinci_all_defconfig     |   1 -
+ arch/arm/configs/multi_v5_defconfig        |   1 -
+ arch/arm/mach-davinci/Kconfig              |   7 -
+ arch/arm/mach-davinci/Makefile             |   1 -
+ arch/arm/mach-davinci/cputype.h            |   1 -
+ arch/arm/mach-davinci/da830.c              | 506 -----------------------------
+ arch/arm/mach-davinci/da850.c              |   1 -
+ arch/arm/mach-davinci/da8xx.h              |   2 -
+ arch/arm/mach-davinci/devices-da8xx.c      |   1 -
+ arch/arm/mach-davinci/irqs.h               |  27 --
+ arch/arm/mach-davinci/mux.h                | 404 -----------------------
+ arch/arm/mach-davinci/psc.h                |   3 -
+ 13 files changed, 1 insertion(+), 956 deletions(-)
+ delete mode 100644 arch/arm/mach-davinci/da830.c
 
