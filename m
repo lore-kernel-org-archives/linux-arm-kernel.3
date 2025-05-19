@@ -4,72 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BEB6C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 21:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA50BC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 22:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gih8bOum/VT0Jh5nC/x3gfLzjyszCTEB4SsxxREB758=; b=q7VaDy7FpHTKgixoEmICrFC9hM
-	6tmpKjXSXskNK8V5feklDr0T4RMAefCmt0xNLMt7iig6/M0R0jD+OylnvwqYCPTqHvTKA2dRcdFRl
-	LbmND7cZ2R0L2uGZeZZO7wDaKv6z8kCzIbcu/dQZziD95SH6hJqj0qfFGh4fdM7v2iQn6F7y8AupS
-	v0AY2pB8hb08IRy5E0dbpfZfLh6fUqjW0MYdLhlEjZVLLdzwMecM4fy86QukV5Ma69bdkgA/WuZTv
-	s8HHTN4x9XrMCQd3bEk/eBdbOfFwD4lh60EUPNZZDFeA/cU96U/vsuEsCApGiLxPUb5y5OO2zaeTN
-	r5rFehZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T8g9hmVvqjn8rXNSXykqDJITIJDGdI8Suwi98GQc/zA=; b=QrKgtQNPhtPwPOzzBLnEw8i1FC
+	Pz1wvPZiNLwWd0bEcZcAE3FkbN7L/YvYYsqaCgskYNf5TPDN6Aoi+cVCeiQdmjBESQFDlLTQQgEaw
+	px8PG+VaZ7OV3i9BPFGTOpZ1oyc+1L2BikiD1h3mENDDHiagwjlHaAOPHa8L1nPDq57h0lWuzgnF6
+	dsJA9UASIQO7gJ7CxQ2dM5Lp7hizYESXsU9ZOJNWI4RKftHh/AogcaOQxSm5QpxgiohU4aHo7EStT
+	0NU5THiWjIuIb5zxmbYU4i7pDWiLMFw9zaTuI4WRwBDOpv/mehA9upcp7UfuTFaKz/X0TFTof1Wwt
+	jSPqOWJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH8Vn-0000000AgAF-2wUL;
-	Mon, 19 May 2025 21:59:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uH8dS-0000000AhoJ-2kFi;
+	Mon, 19 May 2025 22:07:02 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH8Td-0000000AffG-337k
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 21:56:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2AB83444B0;
-	Mon, 19 May 2025 21:56:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6853C4CEE4;
-	Mon, 19 May 2025 21:56:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747691813;
-	bh=G/udjNOlZf5UZB0lntyyPqplVnxx+IfVlpycxwLSers=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nu7elZZO8YqPcuNtMtp5sqtcZInfD7DMrpPlmrSWymeWoZDVi8ldUf3dIg1UbBQGA
-	 L3ctZKe1k5K6Rj8aZhmnWFijoqZ8XQ5NgZz7EchEHAaCx2N97S+QH+j2uxryCz7ca+
-	 lrBbBeSw/rge4wYpIS2ETtVm8QVLMpMvzVprpwR9rEKbc6bKKZxJnHXnIc4kXFq+Ec
-	 WykFkcGPTa6bmMM/Y5n9ssDikJ2HErrqV7ZEJYbRgOMrN7RomlXhxLcUR0e/9Z5KdJ
-	 0XN6xz6yCWTEmgWZ0uzrrK0P2gi/ZXa+XB2j39ezM5be++R0hjGS0wy7wF92/wPTbU
-	 i9rKjkEVOsXbQ==
-Date: Mon, 19 May 2025 16:56:51 -0500
-From: Rob Herring <robh@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v21 4/4] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-Message-ID: <20250519215651.GB2650608-robh@kernel.org>
-References: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
- <20250407-arm-brbe-v19-v21-4-ff187ff6c928@kernel.org>
- <20250519150621.GA17177@willie-the-truck>
+	id 1uH8bJ-0000000AhTp-2XBl;
+	Mon, 19 May 2025 22:04:51 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54JHmmtt027166;
+	Mon, 19 May 2025 22:04:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	T8g9hmVvqjn8rXNSXykqDJITIJDGdI8Suwi98GQc/zA=; b=Zx91c72BFkw4dnbv
+	pjjVQNEwoUp4uvmhh0pAqmcR/IvsJZ2Mi6AfKsTmTW+pYrLSW8S4STQ8I6YO1qMN
+	m0wVTJorpC6PJ5OYV5m4hqj19onpE4j2xr+ZOk2VLVqKAFDr/Yu9YzujgiZXYTz8
+	bmnydtbKQMK/y1YCC6R2E1qDbbbEyLYEFpeAeq2AC4Xm5uHHZTD22nD+aHoPXVaK
+	HrnlF371qSbAabnD2+Re6+rI/tjFbs3adXLdlHRmMsgpUcN0HBFcBTOPuUF2QB4a
+	nwXxDDP05qzSsGNflUehxd2wAC42T/0kNwTSS1m7DANlXrkhckexYSxkjQ/GS1FX
+	6BwMHw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46pkr9wqnm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 19 May 2025 22:04:35 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54JM4YkV014811
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 19 May 2025 22:04:34 GMT
+Received: from [10.110.43.57] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 19 May
+ 2025 15:04:33 -0700
+Message-ID: <f3727b53-8da3-d4f6-575b-108a8d6898e5@quicinc.com>
+Date: Mon, 19 May 2025 15:04:27 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250519150621.GA17177@willie-the-truck>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCH v4 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Vinod Koul
+	<vkoul@kernel.org>
+CC: Melody Olvera <melody.olvera@oss.qualcomm.com>,
+        Kishon Vijay Abraham I
+	<kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "Bjorn
+ Andersson" <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250409-sm8750_usb_master-v4-0-6ec621c98be6@oss.qualcomm.com>
+ <20250409-sm8750_usb_master-v4-6-6ec621c98be6@oss.qualcomm.com>
+ <Z/exOF4T+0vNLQwg@vaman> <0517c37d-b1ba-466e-bffd-9f47b0d458d5@quicinc.com>
+ <aCRVaNDQP/PdAXPR@vaman> <5183b76b-8043-4309-b25d-e1ae505f929e@quicinc.com>
+ <6fa4959c-d733-4d50-904f-caf933e02da9@oss.qualcomm.com>
+Content-Language: en-US
+From: Wesley Cheng <quic_wcheng@quicinc.com>
+In-Reply-To: <6fa4959c-d733-4d50-904f-caf933e02da9@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 7tkQXt10AubyxISGwOFWZdq0ny_YbYf5
+X-Proofpoint-ORIG-GUID: 7tkQXt10AubyxISGwOFWZdq0ny_YbYf5
+X-Authority-Analysis: v=2.4 cv=DdAXqutW c=1 sm=1 tr=0 ts=682baaf3 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=jJrOw3FHAAAA:8
+ a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=WksZTEnvWCXEbMr8NocA:9 a=QEXdDO2ut3YA:10
+ a=-FEs8UIgK8oA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTE5MDIwNSBTYWx0ZWRfX4Vcchgh/WruK
+ V7ZkJSFPodRTjs/iAtlDkF49Z8ENM9Zur72GPcH4aOTTlSSaRnzyDOiHS5u2ZXWWH8JRmXIGkWM
+ ZEgCmEEKBHkqm8vHsn9ce/iNhHwwxRho/3tVIz29aSph9km0aEVfVQ3L4C6V9eBAXXLeaSiP3aE
+ qnX2/7ZN4n9frNYVvm8aP5J6jVZixiPXsGjgN9HT2Tfj9bAGHHy+NG0mju7X81XgZ5J70ZTAMiR
+ Z3RY8ONHh9RnFFgPzukmH2ZXwxKT/mQZQeVfciu8HENPNxD94UEnz2Y+q4l5rf99kgG0ujiy38D
+ 7eU5UxSLU7UXkgM44okzqJID/bHMPJXZAKvW0R5ZNR8FHfsfPnTyE3b0hq6PRbajL6YKtgn62mr
+ oyUZboS50pTuJRFG9RwdImoQvNmT9L9GfZEGE8zOBbHjPsEVJBU/wVs6ldIuw7LR1sxn9MAi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-19_09,2025-05-16_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxlogscore=999 clxscore=1015 phishscore=0 adultscore=0 mlxscore=0
+ spamscore=0 malwarescore=0 suspectscore=0 priorityscore=1501 bulkscore=0
+ impostorscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505070000 definitions=main-2505190205
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_145653_807627_B2395BCA 
-X-CRM114-Status: GOOD (  40.48  )
+X-CRM114-CacheID: sfid-20250519_150449_670889_7A524CEE 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,150 +133,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 04:06:22PM +0100, Will Deacon wrote:
-> Hey Rob,
+Hi Konrad,
+
+On 5/17/2025 11:28 AM, Konrad Dybcio wrote:
+> On 5/14/25 8:24 PM, Wesley Cheng wrote:
+>> Hi Vinod,
+>>
+>> On 5/14/2025 1:33 AM, Vinod Koul wrote:
+>>> On 16-04-25, 15:45, Wesley Cheng wrote:
+>>>> Hi Vinod,
+>>>>
+>>>> On 4/10/2025 4:53 AM, Vinod Koul wrote:
+>>>>> On 09-04-25, 10:48, Melody Olvera wrote:
+>>>>>
+>>>>>> +static int m31eusb2_phy_write_readback(void __iomem *base, u32 offset,
+>>>>>> +					const u32 mask, u32 val)
+>>>>>> +{
+>>>>>> +	u32 write_val;
+>>>>>> +	u32 tmp;
+>>>>>> +
+>>>>>> +	tmp = readl_relaxed(base + offset);
+>>>>>> +	tmp &= ~mask;
+>>>>>> +	write_val = tmp | val;
+>>>>>> +
+>>>>>> +	writel_relaxed(write_val, base + offset);
+>>>>>> +
+>>>>>> +	tmp = readl_relaxed(base + offset);
+>>>>>
+>>>>> Why are you using _relaxed version here?
+>>>>>
+>>>>
+>>>> No particular reason.  I think someone pointed this out previously, and I
+>>>> was open to use the non-relaxed variants, but I assume using the relaxed vs
+>>>> non-relaxed apis comes down to preference in this case.
+>>>
+>>> Nope you cant! There _needs_ to be a specific reasons!
+>>> When you are doing read, modify, write, it is very important to know the
+>>> right version to use...
+>>>
+>>
+>> I mean, its a write readback, which ensures the bus transaction is complete
+>> based on [1], hence why **in this situation** it is up to preference.
+>>
+>> Otherwise, w/o the readback then we'd need to ensure writes are made
+>> depending on the required sequencing (in spots where the sequence is
+>> strictly defined), and that can be enforced using barriers.  If you feel
+>> like using the non-relaxed variant is preferred let me know.  I can replace
+>> it and remove the readback.
 > 
-> On Mon, Apr 07, 2025 at 12:41:33PM -0500, Rob Herring (Arm) wrote:
-> > From: Anshuman Khandual <anshuman.khandual@arm.com>
-> > 
-> > The ARMv9.2 architecture introduces the optional Branch Record Buffer
-> > Extension (BRBE), which records information about branches as they are
-> > executed into set of branch record registers. BRBE is similar to x86's
-> > Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffer
-> > (BHRB).
+> Readback is stronger on arm64, as otherwise the writes may be buffered and
+> not observable at the other endpoint even though the instruction has been
+> issued, even if a barrier has been issued
 > 
-> Since you picked this up from v19, the driver has changed considerably
-> and I presume you will be continuing to extend it in future as the
-> architecture progresses. Perhaps having you listed as Author (and
-> crucially, in git blame :p) with Anshuman as a Co-developed-by: would be
-> more appropriate?
-
-Shrug.
-
-> > ---
-> >  drivers/perf/Kconfig         |  11 +
-> >  drivers/perf/Makefile        |   1 +
-> >  drivers/perf/arm_brbe.c      | 802 +++++++++++++++++++++++++++++++++++++++++++
-> >  drivers/perf/arm_brbe.h      |  47 +++
-> >  drivers/perf/arm_pmu.c       |  15 +-
-> >  drivers/perf/arm_pmuv3.c     | 129 ++++++-
-> >  include/linux/perf/arm_pmu.h |   8 +
-> >  7 files changed, 1006 insertions(+), 7 deletions(-)
+> Some resources:
 > 
-> Do you know if James Clark's tests [1] are going to be respun for the
-> perf tool? It would be handy to have some way to test this new
-> functionality.
-
-Yes. I dropped them here because I've been told by Arnaldo in the past 
-to send userspace stuff separately.
-
-> > diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-> > index 4e268de351c4..3be60ff4236d 100644
-> > --- a/drivers/perf/Kconfig
-> > +++ b/drivers/perf/Kconfig
-> > @@ -223,6 +223,17 @@ config ARM_SPE_PMU
-> >  	  Extension, which provides periodic sampling of operations in
-> >  	  the CPU pipeline and reports this via the perf AUX interface.
-> >  
-> > +config ARM64_BRBE
-> > +	bool "Enable support for branch stack sampling using FEAT_BRBE"
-> > +	depends on ARM_PMUV3 && ARM64
-> > +	default y
-> > +	help
-> > +	  Enable perf support for Branch Record Buffer Extension (BRBE) which
-> > +	  records all branches taken in an execution path. This supports some
-> > +	  branch types and privilege based filtering. It captures additional
-> > +	  relevant information such as cycle count, misprediction and branch
-> > +	  type, branch privilege level etc.
+> https://youtu.be/i6DayghhA8Q
+> https://lore.kernel.org/linux-arm-msm/20240618153419.GC2354@willie-the-truck/
+> https://developer.arm.com/documentation/ddi0487/latest sec B2.6.9
 > 
-> It's a shame that this can't be modular, but I suppose the tight
-> integration with the CPU PMU driver precludes that. Oh well.
+> There's been a real bug observed (pun not intended):
+> Commit 2f8cf2c3f3e3 ("clk: qcom: reset: Ensure write completion on reset de/assertion")
 > 
-> > diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
-> > new file mode 100644
-> > index 000000000000..2f254bd40af3
-> > --- /dev/null
-> > +++ b/drivers/perf/arm_brbe.c
-> 
-> (The driver code looks fine to me but I'd like an Ack from Mark on the
-> UAPI).
-> 
-> > diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-> > index 2f33e69a8caf..df9867c0dc57 100644
-> > --- a/drivers/perf/arm_pmu.c
-> > +++ b/drivers/perf/arm_pmu.c
-> > @@ -99,7 +99,7 @@ static const struct pmu_irq_ops percpu_pmunmi_ops = {
-> >  	.free_pmuirq = armpmu_free_percpu_pmunmi
-> >  };
-> >  
-> > -static DEFINE_PER_CPU(struct arm_pmu *, cpu_armpmu);
-> > +DEFINE_PER_CPU(struct arm_pmu *, cpu_armpmu);
-> >  static DEFINE_PER_CPU(int, cpu_irq);
-> >  static DEFINE_PER_CPU(const struct pmu_irq_ops *, cpu_irq_ops);
-> >  
-> > @@ -317,6 +317,11 @@ armpmu_del(struct perf_event *event, int flags)
-> >  	struct hw_perf_event *hwc = &event->hw;
-> >  	int idx = hwc->idx;
-> >  
-> > +	if (has_branch_stack(event)) {
-> > +		hw_events->branch_users--;
-> > +		perf_sched_cb_dec(event->pmu);
-> > +	}
-> 
-> Shouldn't we decrement this *after* calling armpmu_stop()?
 
-Logically, that would make more sense. It's all serialized by the perf 
-core though, so we can't get .sched_task() during this.
+Thanks for sharing.  Useful info...The way I interpret it, even between 
+relaxed and non-relaxed variants, a readback is always desired.
 
-> > +
-> >  	armpmu_stop(event, PERF_EF_UPDATE);
-> >  	hw_events->events[idx] = NULL;
-> >  	armpmu->clear_event_idx(hw_events, event);
-> 
-> [...]
-> 
-> > +static int branch_records_alloc(struct arm_pmu *armpmu)
-> > +{
-> > +	struct perf_branch_stack *branch_stack_cpu;
-> > +	struct perf_branch_stack __percpu *branch_stack;
-> > +	size_t size = struct_size(branch_stack_cpu, entries, brbe_num_branch_records(armpmu));
-> > +	int cpu;
-> > +
-> > +	branch_stack = __alloc_percpu_gfp(size, __alignof__(*branch_stack_cpu),
-> > +					  GFP_KERNEL);
-> > +	if (!branch_stack)
-> > +		return -ENOMEM;
-> > +
-> > +	for_each_possible_cpu(cpu) {
-> > +		struct pmu_hw_events *events_cpu;
-> > +
-> > +		events_cpu = per_cpu_ptr(armpmu->hw_events, cpu);
-> > +		branch_stack_cpu = per_cpu_ptr(branch_stack, cpu);
-> > +		events_cpu->branch_stack = branch_stack_cpu;
-> > +	}
-> > +	return 0;
-> >  }
-> 
-> How does this work in a heterogeneous system? Shouldn't we at least
-> scope the allocation to the CPUs associated with this PMU?
-
-Leaks memory, that's how.
-
-As a bonus, it could overrun some memory too if the record sizes are 
-different though mostly overrunning into other BRBE buffers...
-
-I think we just need to loop over cpu_pmu->supported_cpus and call 
-kmalloc(). Since events_cpu is already percpu, we don't need a percpu 
-allocation of the branch stack buffers.
-
-I'm assuming it is safe to assume all CPUs either have BRBE or they 
-don't? Different record sizes at least should work fine (other than the 
-above issue). 
-
-BTW, I was scratching my head how armpmu_alloc() works with 
-for_each_possible_cpu(), but I guess the hotplug callbacks overwrite the 
-events->percpu_pmu value. I think we could just remove the loop there. 
-I'll investigate that.
-
-Rob
+Thanks
+Wesley Cheng
 
