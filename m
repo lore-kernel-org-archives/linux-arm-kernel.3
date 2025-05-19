@@ -4,147 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148B4C54795
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D36C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8e41vySFPErNQnVoah4f6Ip/F82no6PvmvBg7vNienE=; b=DrPpF1ifYeHAy/hlfblPFIZYg4
-	O84tboDspN+CmXQbEf1X7TDlyXiDLD7JCWEwYvMusJffDB8q15Qbuw7ItDPWY+goqZmis+kkCJQss
-	enG6wu6ZGarcZu0xNs+OvI86/0aDufxmZG8mFMC/8PUJlrhvC0VgV6J3cAWdlI0tRVNGIoE/hjeFb
-	yPnjKVOqNrqPV+0EePLRbaHHDgVAzNp1uZ1z8DX8kKgUNXpbFJzw1OAihqeIbGTtFFJ3r2iI2vxR0
-	S94uozt+E5qLXoU7xNTmJ69UVuHzUfyQeJZa4uK5lwy6wpa3k2kANzjwAJj0/jMw2+eZsWzSprnR+
-	Vdljv4VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HyMjGq7CIo1Ix6y7J/Aaf3P2JOQ8ZABmbRvvSeNXTAo=; b=k+pll+oiit/BKUZFJ9IZX77qQp
+	bUFWDOGKF3rgz4Rr06kA7JDxR0f8PbdHegXIMhYIsZNJ2QEVI9oaEJwwBEn8CfhKtlIH4YfmZAqKa
+	vdpcw2wWv9Ser0BH30jYBzn9dApzmDe9QiF0X0wwXIegUy01RpTia6dMA+xvc9NoBh7iPp0oj6Dza
+	KLU0V0/E5LUZpAEVb4e1CzQ9wQtGp6bjm4WSPGOj5GtiYEhTimlHI6Q7pljwETYnSPdMdeinJUM/O
+	mGdP7B/AwgaJMlc00430hMegk6rdEtzplE14Uu3y9nTQMwPVbjQ0B1ACVSbC1p6daeJniFAi4GJ04
+	ebQd8Xvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH6aK-0000000AI2A-2VOt;
-	Mon, 19 May 2025 19:55:40 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uH6aE-0000000AHqi-34wW;
+	Mon, 19 May 2025 19:55:34 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH5Rl-0000000AA4m-01p0
+	id 1uH4wT-0000000A65X-0Orh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 18:42:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XMXFSShHRJWwTuuiAL90+oxsC7VSGO3n5+LJw9j/MSJzw1+XWBZ2R0sn6cmfBr5dH+oY4tqy7Z37HxPP3kMbgiyZ2XdtgLpJcs0DfWTUrrrfOQtAMfZPD2h5e+pED7Co9oz5xvTZyhl1I3U5oZUHwq7zPLp/9+WWMJhsof0wpBuBEQPCSxnMsV4fYyj/qWFr9ELa868yfxho/Iee89OiiObpkSUa3M1RVnW41SJAt5Qb8N2omNiZJ49GSO7EznPHMd4fcnI6pW+Q7pS4+6SxENCkt+Cb5w6yVxfO0ZNlCs2v7f62ETDXvIGrDaeJRKb52unm1fkwFTllP43hhXiZQw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8e41vySFPErNQnVoah4f6Ip/F82no6PvmvBg7vNienE=;
- b=WyJi8WUARRk6oDNHA2kRoI2qr2vwMEOs1hLJSqqRmuQ9Fg08ctOq6oTBdyYDAYlDGcS8UnF48uxwKkwG0OvEyhz3T91LJlgi37TomtQJZLzEBYLAPcxUOURYsUF0LorSDj4bsEhSciMeOqm//8sO/rpYC0/FdcsQHgLArk0yXxQfdrJPtGyt9PANbbv1lQ+ONIXND/ZD/QiELy8xltv7ESizxnYlg1MmeDcRsTNfPMqyvwZ9sjEcPMZUZCecmpdaId1cHjZ9sJ3iRxdjlJgPyAlmiYDKsi6WJeJ2kbvt+MWSrh1miS1e01xUPRQfxGCCuUZ2PRCarUUjHLS7+bYIwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8e41vySFPErNQnVoah4f6Ip/F82no6PvmvBg7vNienE=;
- b=mzs6Udy4tVdx6l/4FVT3Y62oMnlxhXQXlQcvBQyzmeuVcWmo8YzkLx6GECBG0EBPEeTpek8rw7XDUT8pm+ZVXjAStFamts4jO/FmY/lulj2I3H171RZFEeBHgupm0wmiO5q4t6ST4cTWawkLSVLmkZwhg9SdBomllD88RVri1bwgAb3mudaZrKj5fB0reyADKsa4dRz0P1xH4ORv+XL8OIJjZoZFUxykdpd5LNzU+IQr/OTXSq5FeZvnuuk9PXc9ix86+xTt95fvXrVGC616rglVdmJG1NJOv/mSwcJfic1xkMkxlYIVNqA0CY0pUGDlirx1t8BOLOQU/3i+d6wqyQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA4PR04MB9440.eurprd04.prod.outlook.com (2603:10a6:102:2ac::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Mon, 19 May
- 2025 18:42:40 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Mon, 19 May 2025
- 18:42:40 +0000
-Date: Mon, 19 May 2025 14:42:30 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com, carlos.song@nxp.com
-Subject: Re: [PATCH 1/6] arm64: dts: imx94: Add micfil and mqs device nodes
-Message-ID: <aCt7lrPW08tR6oPL@lizhi-Precision-Tower-5810>
-References: <20250515051900.2353627-1-shengjiu.wang@nxp.com>
- <20250515051900.2353627-2-shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250515051900.2353627-2-shengjiu.wang@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0033.namprd03.prod.outlook.com
- (2603:10b6:a03:33e::8) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 19 May 2025 18:10:26 +0000
+Message-ID: <cdfbbdca-001b-4ed5-92ff-40fd3a8e3341@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1747678219;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HyMjGq7CIo1Ix6y7J/Aaf3P2JOQ8ZABmbRvvSeNXTAo=;
+	b=gaHdvqY2JIJOTR1JlRCXgG+/mlzaSw8i0xZPPOWLqYrV6iHZ+ccjsICnzaPZpPTTlvlOZN
+	aH+50Syp1uUDXoH4dA5AdjOxbhraOvIDQEhVn6YvuAO2xlzHxavxYYIEBIdvpbPUony6Ar
+	fWHy5JZBBV7cAXL3OBsmijryUGvpnLQ=
+Date: Mon, 19 May 2025 14:10:12 -0400
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA4PR04MB9440:EE_
-X-MS-Office365-Filtering-Correlation-Id: 351f8bb8-11c2-4868-620f-08dd9704eed8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YombQzz676UMS3u8TR/86sb/ZPeRVm78ejez2FSddG2fni/owHuGdPrkD/KR?=
- =?us-ascii?Q?unJ3blruPJhxGvS6udGwapeUb/FXbZFwiK6EEsH8pE+Vgst8LWgp+ulmHWA5?=
- =?us-ascii?Q?xRDQ1O1qU0ZGkx3WQu9UeIkgIVJYlWhd0mYqdpfx/jI4LLrVUNz3zQVOXMW/?=
- =?us-ascii?Q?tU91rhjBDjleos8uVvbRcJXlTvNoyldRKQdkO+oPSrgJ/Jg9715uLF30iOMq?=
- =?us-ascii?Q?8kkJA/wQnwSMUKsRW1uTFgFhiM5Jt25t3hSuX6uuqAs2Z6IyhsCZSck3LHfC?=
- =?us-ascii?Q?EvQcDkApZQFd3SiHJsEeqAY+ec4nHXGXFnIwAV3m8/iShvgnNAHNTiIVA/82?=
- =?us-ascii?Q?8raOmev7KJyKhm9fvQqJCK3zO2MtZDy84ZZFMSfCPQhd39CpmANUU7ufyp63?=
- =?us-ascii?Q?BkmoqAoDsFPaujelNZ9JtJFUHwSIE8WkEF/N5RfeXF8AkvLOog7nIGE/5e1E?=
- =?us-ascii?Q?x4api5G0x4EeNNlbnrbeDVunrnICXL4TD61FpiBTroUqaDuUSfTDgQXynLN5?=
- =?us-ascii?Q?s8CbUu/gVe+/dxqFxWsVZXi8Jweh8JEAecw6kQZGw/2rOcCHG3ITcyRuQza1?=
- =?us-ascii?Q?krTT/NzyGCbmFy7KZsN1Dn5071Lh5vBEHPsiEgy8UD6Vod+XQ8aBXkIufLdY?=
- =?us-ascii?Q?5tSagvfZ4403WLSTnbm8tbVzfqrYozFfEmvO2ErVX6DI1yhgQoaYrlqmtseW?=
- =?us-ascii?Q?oxScy6g3wDekrx78j3m/GNNuJMQh4a19TMsM1J6fHo6/PtzNmfjFsSV98NMT?=
- =?us-ascii?Q?Fx0etnAORTTRm4qaOwqPqQxW/Qqu7Snz1day1kf9XrkJxbQpaCJxO/fTomHj?=
- =?us-ascii?Q?tcoEK6gvwzEyXKILKBnHv6lrNpTjHKlTzFugluXnzaUlrfWpwP2hZPSbYUUg?=
- =?us-ascii?Q?QB8IsnDdqfHCTpmxzDLV9sElOncTi/RXFlPhlpAatZLiSJYbAd0bv1LcpnXD?=
- =?us-ascii?Q?KWSvEQrGU12myYaV26hKGd1qm0pqe76PTJCyyvpUTzbf/kzE1I9L+060/L3y?=
- =?us-ascii?Q?HNYAI9nfnNtixEjaUBadhgT4tDiBFFg0hNWDBeEWwnaudjyH6M5VJNesILEu?=
- =?us-ascii?Q?QOploSFIpWci/dmtibM2USDGEK0EM+IAurA94DZ6q5lpz8+afMl/fwn6Aev3?=
- =?us-ascii?Q?9Och/ajFeSkTtUBhKHgw5h11YdKSn6zvEah/hgO+6UIESUdYp0ohv3DjzPvW?=
- =?us-ascii?Q?t5ZMyH4jmH0MRZFoxE1IURVMQwuDyM3wgVP9QqH+IeJP1AWIoWJLviPOTIZd?=
- =?us-ascii?Q?caXux4LqKRfxjZePJlWWifgEX5W0UVG39NprqkA76CXizDPRA3GDVsPzGnzb?=
- =?us-ascii?Q?eRKSZ6MLI5reJ20o+Ww7Uza5tg0NqI8kAV8IDf9WOdcTvyzpWJMEkiID9KJz?=
- =?us-ascii?Q?37DGYd+ayf9sLC5tY0u1gs1c9H4CkpvonSg9T772/EZXNPj+gUy1o3qX9mKy?=
- =?us-ascii?Q?1fuS8R0b8jFU6ZImmskVkQ7Mie8pjBJ/fGxCi5wBcCNYcv0UjTcnIw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wavLVP1HAhoTRl9WXoGAvw3ZRBRtd6U+kI11rE4y+SnM/GgWC3NMvmDyxd5K?=
- =?us-ascii?Q?jsJ2xwcyr7Ct10T11omJjOTEiPP/67wxImMFsyDusIngl6MaDAcM1DNMCrLY?=
- =?us-ascii?Q?73VTg4pyX7SGAH7J6hnOdmuKkSQy4y+3qBzirDJV4gYNYD+VAe4fa/8Q7Dm/?=
- =?us-ascii?Q?HYkfn5FNpfmy75nut3PQtu8uWmc6fl/h33eBM2MhZiDUYl0VXrFDxKi7VieR?=
- =?us-ascii?Q?1Ii5d0oEGGpYvNgDDkqFlbElMEG3m9kZzySuTzR4uQc6gM0yDAoZiI6tkDBz?=
- =?us-ascii?Q?18qnzBosYSGO2ctFCOQ3vbE7aSP8aiyw5dlwPS6JU+0gvXZpBX7InrJHr8nm?=
- =?us-ascii?Q?ZkdvI2siwkXEe3eGXbxT6cgmr+j7B4Q9m4n/5rlVjxa/aGiKIrxCYERFvIOz?=
- =?us-ascii?Q?eRILby8DI1IRVrsLPOmUFQzcud18ImC3xoZHGnn3T/n+qRi008iv0rLYypw0?=
- =?us-ascii?Q?OrrX8FkuLXZC2t/xltxtJ9bgaWd/OhSRtmyyrFkExjcHFh6bGdsWURODIKsN?=
- =?us-ascii?Q?WrNvxIUmeQaPkxUTfIRr7KmatAshGrH5NYf6C7K8AZ7aKdIpXbio7SMlszmV?=
- =?us-ascii?Q?LLXRkTWUOSp4dZsNFIMw1+TG+Hpu9mCk1jUzvrgVuQKPQu0uAFslVlL9gY9q?=
- =?us-ascii?Q?dsczsVThtvjDv01oIwM7E8dtqk43AOL+Tl6C1KL+TKIOHlmP1wjc8EHBo2L5?=
- =?us-ascii?Q?v9LDQQVCm6csarEedQFYsJ0HCL/2eIpqPOtNHJC3dCRnXVVrhU3BMcul9EKE?=
- =?us-ascii?Q?l8sI+IRQRPJ1Ezshe8KiKSwvRTcXl0baol7oXjdA9HgL/ts+FQwcEtSf/CLj?=
- =?us-ascii?Q?D/HmVcqryy4h/hH7i/5oghkhgJNXzWQtcZ6r33DfM5H1FMymOkuFUGTV/oEL?=
- =?us-ascii?Q?wuVnYFa6FPutHg6W7g0OyWkDrG2dS4bYrvcnIisIt0C8hXQalI+uas07ZqNg?=
- =?us-ascii?Q?szsluI9FIfJ1vO+Q8mOmVkYZyKRLl1OK76AUhTvaQk8uQVkgOuG24FWQZ65A?=
- =?us-ascii?Q?lOxRFiv3BI7ZfyQpzSbs08GI1LvkYXiIH/NtWKsdcWFNHFLVRnz18yeeWfr5?=
- =?us-ascii?Q?smQoSG2gi9ekQdoj5ZNIhQufJO3VWxfft1BSy+18ysiu0Cpec61/ORZM3NPi?=
- =?us-ascii?Q?DT3uuPRLDi+fGvbeWLJNfAz2bkO4VKc2479v9zARRr9N2cApfcnIB8ADTILk?=
- =?us-ascii?Q?p4t4YqBxLH+Ee24GiQjNkpd8peJBy9sGRwREinSzvEPJsRvwnURFy47dUalx?=
- =?us-ascii?Q?KmQ9fnQIk1p+yoiQ3kFmNVnD6uWVTqp4Be7cPxvN0nX+R/rB7/Bvnh7du/3n?=
- =?us-ascii?Q?dyfrVLIwBv77hxyvqRblQs0Pah0QqTGzsitexuxw0P38HFI3++1FYmQlPONi?=
- =?us-ascii?Q?82bq6qD4n4BfqnO+KzQWUC3gOVrYtl6wvviIzjC+z8cLkVYLnYMMO2cPQ9Vo?=
- =?us-ascii?Q?jzivHtwJSC/O15bu5Cqo29weuwtnuActNn7HDhyWHnysEnmyoJVzuxH55nNP?=
- =?us-ascii?Q?yabnQKdnDmJmzkkQAhCZR8Uu4bGlV8azLFNATN0pkxsds3m8Jzo9yD3yF4as?=
- =?us-ascii?Q?6lDPQlPgKZBPM0jGzJo=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 351f8bb8-11c2-4868-620f-08dd9704eed8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2025 18:42:40.0956
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7odWeUFymxvuVFckt8WU/HAEEZ6o2uVkFgwRuV57pax+jGKfUpL4HrS7ND1kMA4sMfOxhZgZluQlqsPNY8viJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9440
+Subject: Re: [net-next PATCH v4 03/11] net: phylink: introduce internal
+ phylink PCS handling
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+References: <20250511201250.3789083-1-ansuelsmth@gmail.com>
+ <20250511201250.3789083-4-ansuelsmth@gmail.com>
+ <5d004048-ef8f-42ad-8f17-d1e4d495f57f@linux.dev>
+ <aCOXfw-krDZo9phk@makrotopia.org>
+ <7b50d202-e7f6-41cb-b868-6e6b33d4a2b9@linux.dev>
+ <aCQHZnAstBXbYzgy@makrotopia.org>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <aCQHZnAstBXbYzgy@makrotopia.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_114245_058471_7720DAD2 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20250519_111025_350911_6B830B22 
+X-CRM114-Status: GOOD (  45.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,71 +87,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 01:18:55PM +0800, Shengjiu Wang wrote:
-> Add micfil and mqs device nodes
->
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx94.dtsi | 30 ++++++++++++++++++++++++
->  1 file changed, 30 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
-> index 3661ea48d7d2..77297dde5c95 100644
-> --- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-> @@ -108,6 +108,16 @@ scmi_misc: protocol@84 {
->  		};
->  	};
->
-> +	mqs1: mqs1 {
-> +		compatible = "fsl,imx943-aonmix-mqs";
-> +		status = "disabled";
-> +	};
-> +
-> +	mqs2: mqs2 {
-> +		compatible = "fsl,imx943-wakeupmix-mqs";
-> +		status = "disabled";
-> +	};
-> +
->  	pmu {
->  		compatible = "arm,cortex-a55-pmu";
->  		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIGH)>;
-> @@ -1045,6 +1055,26 @@ sai1: sai@443b0000 {
->  				status = "disabled";
->  			};
->
-> +			micfil: micfil@44520000 {
-> +				compatible = "fsl,imx943-micfil";
-> +				reg = <0x44520000 0x10000>;
-> +				interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>,
-> +					     <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>,
-> +					     <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>,
-> +					     <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-> +				clocks = <&scmi_clk IMX94_CLK_BUSAON>,
-> +					 <&scmi_clk IMX94_CLK_PDM>,
-> +					 <&scmi_clk IMX94_CLK_AUDIOPLL1>,
-> +					 <&scmi_clk IMX94_CLK_AUDIOPLL2>,
-> +					 <&dummy>;
-> +				clock-names = "ipg_clk", "ipg_clk_app",
-> +					      "pll8k", "pll11k", "clkext3";
-> +				dmas = <&edma1 6 0 5>;
+On 5/13/25 23:00, Daniel Golle wrote:
+> On Tue, May 13, 2025 at 03:23:32PM -0400, Sean Anderson wrote:
+>> On 5/13/25 15:03, Daniel Golle wrote:
+>> > just instead of having many
+>> > more or less identical implementations of .mac_select_pcs, this
+>> > functionality is moved into phylink. As a nice side-effect that also
+>> > makes managing the life-cycle of the PCS more easy, so we won't need all
+>> > the wrappers for all the PCS OPs.
+>> 
+>> I think the wrapper approach is very obviously correct. This way has me
+>> worried about exciting new concurrency bugs.
+> 
+> You may not be surprised to read that this was also our starting point 2
+> months ago, I had implemented support for standalone PCS very similar to
+> the approach you have published now, using refcnt'ed instances and
+> locked wrapper functions for all OPs. My approach, like yours, was to
+> create a new subsystem for standalone PCS drivers which is orthogonal to
+> phylink and only requires very few very small changes to phylink itself.
+> It was a draft and not as complete and well-documented like your series
+> now, of course.
+> 
+> I've then shared that implementation with Christian and some other
+> experienced OpenWrt developers and we concluded that having phylink handle
+> the PCS lifecycle and PCS selection would be the better and more elegant
+> approach for multiple reasons:
+>  - The lifetime management of the wrapper instances becomes tricky:
+>    We would either have to live with them being allocated by the
+>    MAC-driver (imagine test-case doing unbind and then bind in a loop
+>    for a while -- we would end up oom). Or we need some kind of garbage
+>    collecting mechanism which frees the wrapper once refcnt is zero --
+>    and as .select_pcs would 'get' the PCS (ie. bump refcnt) we'd need a
+>    'put' equivalent (eg. a .pcs_destroy() OP) in phylink.
+> 
+>    Russell repeatedly pointed me to the possibility of a PCS
+>    "disappearing" (and potentially "reappearing" some time later), and
+>    in this case it is unclear who would then ever call pcs_put(), or
+>    even notify the Ethernet driver or phylink about the PCS now being
+>    available (again). Using device_link_add(), like it is done in
+>    pcs-rzn1-miic.c, prevents the worst (ie. use-after-free), but also
+>    impacts all other netdevs exposed by the same Ethernet driver
+>    instance, and has a few other rather ugly implications.
 
-there are include/dt-bindings/dma/fsl-edma.h
-5 suppose should be
+SRCU neatly solves the lifetime management issues. The wrapper lives as
+long as anyone (provider or user) holds a reference. A PCS can disappear
+at any point and everything still works (although the link goes down).
+Device links are only an optimization; they cannot be relied on for
+correctness.
 
-FSL_EDMA_MULTI_FIFO | FSL_EDMA_RX
+>  - phylink currently expects .mac_select_pcs to never fail. But we may
+>    need a mechanism similar to probe deferral in case the PCS is not
+>    yet available.
 
-Frank
+Which is why you grab the PCS in probe. If you want to be more dynamic,
+you can do it in netdev open like is done for PHYs.
 
-> +				dma-names = "rx";
-> +				#sound-dai-cells = <0>;
-> +				status = "disabled";
-> +			};
-> +
->  			adc1: adc@44530000 {
->  				compatible = "nxp,imx94-adc", "nxp,imx93-adc";
->  				reg = <0x44530000 0x10000>;
-> --
-> 2.34.1
->
+>    Your series partially solves this in patch 11/11 "of: property: Add
+>    device link support for PCS", but also that still won't make the link
+>    come back in case of a PCS showing up late to the party, eg. due to
+>    constraints such as phy drivers (drivers/phy, not drivers/net/phy)
+>    waiting for nvmem providers, or PCS instances "going away" and
+>    "coming back" later.
+
+This all works correctly due to device links. The only case that doesn't
+work automatically is something like
+
+MAC built-in
+  MDIO built-in
+    PCS module
+
+where the PCS module gets loaded late. In that case you have to manually
+re-probe the MAC. I think the best way to address this would be to grab
+the PCS in netdev open so that the MAC can probe without the PCS.
+
+>  - removal of a PCS instance (eg. via sysfs unbind) would still
+>    require changes to phylink. there is no phylink function to
+>    impair the link in this case, and using dev_close() is a bit ugly,
+>    and also won't bring the link back up once the PCS (re-)appears.
+
+This works just fine. There are two cases:
+
+- If the PCS has an IRQ, we notify phylink and then it polls the PCS
+  (see below).
+- If the PCS is polled, phylink will call pcs_get_state and see that the
+  link is down.
+
+Either way, the link goes down. But bringing the link back up is pretty
+unusual anyway. Unlike PHYs (which theoretically can be on removable
+busses) PCSs are generally permanently attached to their MACs. The only
+removable scenario I can think of is if the PCS is on an FPGA and the
+MAC is not.
+
+So if the PCS goes away, the MAC is likely to follow shortly after
+(since the whole thing is on a removable bus). Or someone has manually
+removed the PCS, in which case I think it's reasonable to have them
+manually remove the MAC as well. If you really want to support this,
+then just grab the PCS in netdev open.
+
+>  - phylink anyway is the only user of PCS drivers, and will very likely
+>    always be. So why create another subsystem?
+
+To avoid adding overhead for the majority of PCSs where the PCS is built
+into the MAC and literally can't be removed. We only pay the price for
+dynamicism on the drivers where it matters.
+
+> All that being said I also see potential problems with Christians
+> current implementation as it doesn't prevent the Ethernet driver to
+> still store a pointer to struct phylink_pcs (returned eg. from
+> fwnode_pcs_get()).
+> 
+> Hence I would like to see an even more tight integration with phylink,
+> in the sense that pointers to 'struct phylink_pcs' should never be
+> exposed to the MAC driver, as only in that way we can be sure that
+> phylink, and only phylink, is responsible for reacting to a PCS "going
+> away".
+
+OK, but then how does the MAC select the PCS? If there are multiple PCSs
+then ultimately someone has to configure a mux somewhere.
+
+> Ie. instead of fwnode_phylink_pcs_parse() handing pointers to struct
+> phylink_pcs to the Ethernet driver, so it can use it to populate struct
+> phylink_config available_pcs member, this should be the responsibility
+> of phylink alltogether, directly populating the list of available PCS in
+> phylink's private structure.
+> 
+> Similarly, there should not be fwnode_pcs_get() but rather phylink
+> providing a function fwnode_phylink_pcs_register(phylink, fwnode) which
+> directly adds the PCS referenced to the internal list of available PCS.
+
+This is difficult to work with for existing drivers. Many of them have
+non-standard ways of looking up their PCS that they need to support for
+backwards-compatibility. And some of them create the PCS themselves
+(such as if they are PCI devices with internal MDIO busses). It's much
+easier for the MAC to create or look up the PCS itself and then hand it
+off to phylink.
+
+> I hope we can pick the best of all the suggested implementations, and
+> together come up with something even better.
+
+Sure. And I think we were starting from a clean slate then this would be
+the obvious way to do things. But we must support existing drivers and
+provide an upgrade path for them. This is why I favor an incremental
+approach.
+
+--Sean
 
