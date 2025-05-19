@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B4BC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 02:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF20C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 02:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8PiyfYLTOpYLPEaywpUplwwoVhHTcOz1zbW+p8rVbu4=; b=TVDWt0k3oLIZ3GGTMRHfknto1/
-	ogpkqTNHz4eWGMiOPaGJwsHHLl/zgTAVfe8DYHV+YeeBUvekkHplGLws0xDRKVDOQd8cBa0GHIXRf
-	s/hYwWgJd+FK3Gsq6aCevnwy5SeLEX59nA89P4Fns32SW5NGZ1weLeXoCxVOoGLOtVXtikMDyJUg4
-	Bs9NIb38pkNPeQtsSBxp1FraYIjz4AZ1xxnHtxcvN/Z+HfE5INil5893CifOHQhN/gNVIPSGH84Z7
-	AkKpW4XPue2Hyz9EdU197ObqoI76wwJ4sUdaoYRvCEpKnUv4wqFcACTWsCAGoKHtqftHpd4jaHe/K
-	Iacwkkmw==;
+	bh=V9KiaqIE2kZ8tUorevF8S25fszFbrGeBV5a4/fMO0ww=; b=njqIfRuRgb6YEns9ZTZ7H8+9yt
+	SAb0swu+9i0o0LBLrrEgPouNPek9Q3+mqisf8nzsiAWq3Rec3wFDRpq+FD2yZ0Iq8VgZIq69jKGEI
+	QHzD6GbSkiQQcH3XnxKCjCriXgliguMYO4xLLEYJmhdgqUukYFwTfOAzvus60H/fh4VPIajC3UD1M
+	w7D3Z5jMD11xV3AhtWAT40mwcd3zSgLBwwB52tjN7aMDp0LP1l8M/Yrn561ZCzwB4+Gt+Jbfmp5Vy
+	JdpYVW7VXmxUw+z4LjIqUWdX80VgobbJ7I7kH+g8bjmjSJzoVCrIV2cbaxJUfjHyP/rlUzycThoGL
+	SdfGMmPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGq1P-00000007pJc-0wXe;
-	Mon, 19 May 2025 02:14:31 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1uGq3M-00000007pT6-44QB;
+	Mon, 19 May 2025 02:16:32 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGpzN-00000007pFI-08ud
+	id 1uGq11-00000007pHy-1HXj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 02:12:26 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ac2bb7ca40bso670687566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 19:12:24 -0700 (PDT)
+	Mon, 19 May 2025 02:14:09 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ad1d1f57a01so672250166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 May 2025 19:14:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jms.id.au; s=google; t=1747620743; x=1748225543; darn=lists.infradead.org;
+        d=jms.id.au; s=google; t=1747620845; x=1748225645; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=8PiyfYLTOpYLPEaywpUplwwoVhHTcOz1zbW+p8rVbu4=;
-        b=QmNFX4Rv1mTstRF4nCwCqoGmqVNvCUWRmNaAGS7z2HcQdcVIJ2yxpPijY/+WvmRpLn
-         BrplEzrl8iOKs/OWsP6t4qcTHLQ8CXOjJqR5tjq4j8ON9wbLV7jEULKSdSyv9VHPWgr4
-         LJkRYvIiXoGM4yjAFTHvZT82AwDX7MjurUAAQ=
+        bh=V9KiaqIE2kZ8tUorevF8S25fszFbrGeBV5a4/fMO0ww=;
+        b=TWZ45VYR+duHh9YE9xFZJhVcM0gP/Q+WV88+BIXMRzkdW2I/pocc1r8S1JbCfxorFj
+         6cnmV+ewo/iwcQpto1vQ4vHiFqnKsX5PDuwG1WeaXISyflITRGyC6DiywezPhr5y1b6y
+         mch4Fjo71X+VfgNcKxuIc2Mwsp1eO6xmDQ/Ug=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747620743; x=1748225543;
+        d=1e100.net; s=20230601; t=1747620845; x=1748225645;
         h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=8PiyfYLTOpYLPEaywpUplwwoVhHTcOz1zbW+p8rVbu4=;
-        b=MNCv8MLh6UDTRO7XOFftmwcRdvxgOG2OUQ9eHZ4+FikEgvc/VmJaMz4yjtE1h1TqJ6
-         0y9HSAgwFMpLO3yhAI8qksQdXlP5inHhxeG4WawwSOrQ73mlvAyMIhnJ4EWah6PR8tLo
-         fvMnSw178njBtB8yUo0zZT3kYpaoArBmkuviTKEE4CFxpslITkmCNVvC2YifEgHLKcXx
-         SC2aNoDYOmgwVSqNm7uQlbBAkKVVlPzJc+I1Vx19H8eRerDq7je9JBrRGQlxDIeE90/E
-         USYGUkNJDGSa+NToUykKm5lowlZzhPvzrHX1n66iYkIi7J+SODb3kaqHOyhlmKsMJKXB
-         fH7Q==
-X-Gm-Message-State: AOJu0Yy3m7S58e4JZF64I5V5wgnb87yS+g/5j2NrnIJ+peLP8NAYuFeD
-	25YBmANPkEwRxQJTtVF4JxX6AzMm91n4lknwHUZMOZna3bCkQd/m8pCXHkSbzvItye0KrB6VSq6
-	EkmkehTiduLnWMuNdGp5pC0drQ0RD8NEwpX0jnE4=
-X-Gm-Gg: ASbGncux3ti1A7PDWMziL7QxI6j/8n4KBEJIFzxEredaeiHFPabo4SWLonngxscVlev
-	BmqUQuZwRp80RglqF+nysfD9heWaCRVnIeejkZNuSjvurmXFcjaC0fc728/D2drAvvD2ABlEx2e
-	hdCmPwpYnYLWrE5oVoMcREYN4+53SkdS3dxui0IMD5jUA=
-X-Google-Smtp-Source: AGHT+IGNShkus28bhfx7W2x1K+4ajDa/8mB60w6pvvUIwPVMUfU1MM2zJ00ko3u+od4Dr2jP2v5Xp0zGToAGigcNZlA=
-X-Received: by 2002:a17:907:9728:b0:ad5:5302:4023 with SMTP id
- a640c23a62f3a-ad55302638cmr525379466b.44.1747620742721; Sun, 18 May 2025
- 19:12:22 -0700 (PDT)
+        bh=V9KiaqIE2kZ8tUorevF8S25fszFbrGeBV5a4/fMO0ww=;
+        b=sfv9dJIAwxDaZBcWFspAN80J4nLjAZlYa888ifzYca9ZO9TvseNHysBxVTFT4G+3rh
+         H09snzLbRqYOMTWH4jEUou8iTswR6A8hgVkoCiAgwNZLNvLPCQPNPT9hCVCd+VNJcI4Q
+         TkD1IIUZTn6bPa+JULWQWCVqO3LeQPmmYdODXV6tl7KNFa2dUvZ08db0gb0R7Frq1jGM
+         1BimqM/D3974pLcDXtu48sPKzZiOFS4Jb8+T7dWQmTKhFzFDtfh5tyqdHCbsPDj5vcoA
+         Rmd0a3ZUF/x50BBxIDIj2wGHSHrBz78VOC/aYf82fJfXC1jPFJ6/ZAYXVbNP1W05i3uJ
+         QpcA==
+X-Gm-Message-State: AOJu0YzuGyAM9dFSP2hTfo7kjnLM1v8IYSIvTrHPsomk70NANu2kICG4
+	na/jYMvBPOzDrHJbSyYBZyhBeLz9iiaTFWwfvSv0Fv5BQTqmgw48YiRgcBAlffQj8PMfgM9v40B
+	7FRKPM1jNuCAZkODQYlX63GKX7RjfJWw=
+X-Gm-Gg: ASbGncs2U+amNu8YuTbLPSc8Sic+rIojkMe2z9hpxRw1ATtYeKD0U4Us84Ydzyf7waK
+	LVQuQM9HKSKwdd+JTOYo308VJX/mvm9mpktpTOoN2y72dYDqnTJiSS3i2aADNGS1mFZTGiAi8cr
+	rOZKnB/c9e4RA8YCwwZF3fwu/BaFXtqukN
+X-Google-Smtp-Source: AGHT+IHcXZRPApdD/mdAKFv4vQL1CkTYBUUPaeCGWfYuku4UTJAUPIBrCltTcsJicRUaDh2+x3T816AElhch/rnZxT4=
+X-Received: by 2002:a17:907:3f1c:b0:ad5:5b2e:655b with SMTP id
+ a640c23a62f3a-ad55b2e7968mr400215466b.25.1747620845390; Sun, 18 May 2025
+ 19:14:05 -0700 (PDT)
 MIME-Version: 1.0
 From: Joel Stanley <joel@jms.id.au>
-Date: Mon, 19 May 2025 11:42:11 +0930
-X-Gm-Features: AX0GCFvrkD8u8H305xamS26PUCKs_SenW2FoEiTxH9Jfwr-FWKT13dQX4G_y6MY
-Message-ID: <CACPK8XdYLf6s=GtB5bsEw4zj0JjUBob-6GhdJzivX51y+E=KEA@mail.gmail.com>
-Subject: [GIT PULL] ARM: aspeed: devicetree changes for 6.16
-To: arm <arm@kernel.org>
+Date: Mon, 19 May 2025 11:43:53 +0930
+X-Gm-Features: AX0GCFv8wkXV3Qs9a1kPtAmOB7n3fcMkhgCOuZ6hZZjhSaUdY799d7N4FvECxgg
+Message-ID: <CACPK8Xe=f_hNNWUGL670x4-OeKgDB+2P+mxp5BaTLW==T5jE_A@mail.gmail.com>
+Subject: [GIT PULL] ARM: nuvoton: soc changes for 6.14
+To: SoC Team <soc@kernel.org>
 Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, linux-aspeed <linux-aspeed@lists.ozlabs.org>
+	Andrew Jeffery <andrew@codeconstruct.com.au>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250518_191225_451377_5636E09C 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20250518_191407_363779_B8FF020F 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,17 +86,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Hello Arnd,
 
-Here's the Aspeed pull request for 6.16. Andrew has prepared the
+Here's the Nuvoton 32 bit arm pull request for 6.16. Andrew has prepared the
 patches and created the tag, so all credit goes to him.
-
-There's a change that Andrew calls out in the tag I didn't really
-like: it breaks old userspace by moving things around. The argument is
-that userspace was "wrong" to be using the paths under /sys. I think
-the cart is leading the horse if we let the yaml checking take a
-higher priority than breaking userspace. But I haven't the time to
-fight that battle, so here we are.
 
 The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
@@ -104,107 +98,31 @@ The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 are available in the Git repository at:
 
   https://git.kernel.org/pub/scm/linux/kernel/git/joel/bmc
-tags/aspeed-6.16-devicetree
+tags/nuvoton-arm-6.16-devicetree
 
-for you to fetch changes up to 13c9c6eabf033ed4f369ad4d29bdc58ed4a411e3:
+for you to fetch changes up to 7efb8b92165fea427a03df87e14d519b8acf57f8:
 
-  ARM: dts: aspeed: Rework APB nodes (2025-04-08 10:58:33 +0930)
-
-----------------------------------------------------------------
-ASPEED devicetree updates for v6.16
-
-Significant changes:
-
-- The APB nodes in the ASPEED SoC DTSIs were reworked to eliminate a large
-  volume of warnings from `make dtbs_check`. The changes to the node names are
-  naturally reflected in sysfs, which may impact some userspace applications.
-  The impacts are called out in the commit message, along with arguments for
-  the change.
-
-Removed platforms:
-
-- IBM's Swift BMC
-
-New platforms:
-
-- NVIDIA's GB200NVL BMC
-
-  NVIDIA GB200 NVL72 connects 36 Grace CPUs and 72 Blackwell GPUs in an NVIDIA
-  NVLink-connected, liquid-cooled, rack-scale design.
-
-Updated BMC platforms:
-
-- Bletchley (Meta): Fixes for GPIO hog name, remove ethernet-phy node
-- Catalina (Meta): Various sensors added, MCTP support for NIC management
-- System1 (IBM): IPMB and various GPIO-related updates
-
-The System1 series includes a devicetree binding patch for IPMI IPMB devices.
+  ARM: dts: nuvoton: Add MMC Nodes (2025-04-08 11:29:38 +0930)
 
 ----------------------------------------------------------------
-Andrew Jeffery (1):
-      ARM: dts: aspeed: Rework APB nodes
+Nuvoton ARM devicetree updates for v6.16
 
-Joel Stanley (1):
-      ARM: dts: aspeed: Remove swift machine
+- MMC, OHCI, UDC and EDAC blocks added to the NPCM7XX DTSI
+- Fixes for GPIO hog names in the NPCM730 and RunBMC Olympus platforms
 
+----------------------------------------------------------------
 Krzysztof Kozlowski (1):
-      ARM: dts: aspeed: Align GPIO hog name with bindings
+      ARM: dts: nuvoton: Align GPIO hog name with bindings
 
-Ninad Palsule (8):
-      dt-bindings: ipmi: Add binding for IPMB device
-      ARM: dts: aspeed: system1: Add IPMB device
-      ARM: dts: aspeed: system1: Add GPIO line name
-      ARM: dts: aspeed: system1: Reduce sgpio speed
-      ARM: dts: aspeed: system1: Update LED gpio name
-      ARM: dts: aspeed: system1: Remove VRs max8952
-      ARM: dts: aspeed: system1: Mark GPIO line high/low
-      ARM: dts: aspeed: system1: Disable gpio pull down
+William A. Kennington III (4):
+      ARM: dts: nuvoton: Add EDAC node
+      ARM: dts: nuvoton: Add UDC nodes
+      ARM: dts: nuvoton: Add OHCI node
+      ARM: dts: nuvoton: Add MMC Nodes
 
-Potin Lai (11):
-      ARM: dts: aspeed: bletchley: remove unused ethernet-phy node
-      ARM: dts: aspeed: catalina: Add IO Mezz board thermal sensor nodes
-      ARM: dts: aspeed: catalina: Add Front IO board remote thermal sensor
-      ARM: dts: aspeed: catalina: Add MP5990 power sensor node
-      ARM: dts: aspeed: catalina: Add fan controller support
-      ARM: dts: aspeed: catalina: Add second source fan controller support
-      ARM: dts: aspeed: catalina: Add second source HSC node support
-      ARM: dts: aspeed: catalina: Remove INA238 and INA230 nodes
-      ARM: dts: aspeed: catalina: Enable multi-master on additional I2C buses
-      ARM: dts: aspeed: catalina: Update CBC FRU EEPROM I2C bus and address
-      ARM: dts: aspeed: catalina: Enable MCTP support for NIC management
-
-Willie Thai (2):
-      dt-bindings: arm: aspeed: add Nvidia's GB200NVL BMC
-      ARM: dts: aspeed: Add device tree for Nvidia's GB200NVL BMC
-
- .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
- .../devicetree/bindings/ipmi/ipmb-dev.yaml         |   56 +
- arch/arm/boot/dts/aspeed/Makefile                  |    2 +-
- .../boot/dts/aspeed/aspeed-bmc-ampere-mtjade.dts   |    2 +-
- .../aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts  |    4 +-
- .../dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dts     |    2 +-
- .../boot/dts/aspeed/aspeed-bmc-bytedance-g220a.dts |    4 +-
- .../boot/dts/aspeed/aspeed-bmc-delta-ahe50dc.dts   |    2 +-
- .../dts/aspeed/aspeed-bmc-facebook-bletchley.dts   |    5 -
- .../dts/aspeed/aspeed-bmc-facebook-catalina.dts    |  197 +++-
- .../arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dts |    2 +-
- .../arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts |    2 +-
- .../arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts |    4 +-
- .../arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts |  139 ++-
- .../boot/dts/aspeed/aspeed-bmc-lenovo-hr630.dts    |   46 +-
- .../boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts |   68 +-
- .../dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts  | 1128 ++++++++++++++++++++
- .../arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dts |   14 +-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts |   10 +-
- .../boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts    |   40 +-
- .../arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts |    6 +-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-swift.dts  |  974 -----------------
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts  |    8 +-
- arch/arm/boot/dts/aspeed/aspeed-g4.dtsi            |   93 +-
- arch/arm/boot/dts/aspeed/aspeed-g5.dtsi            |  109 +-
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi            |  249 +++--
- 26 files changed, 1773 insertions(+), 1394 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-dev.yaml
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
- delete mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-opp-swift.dts
+ .../boot/dts/nuvoton/nuvoton-common-npcm7xx.dtsi   | 108 +++++++++++++++++++
+ arch/arm/boot/dts/nuvoton/nuvoton-npcm730-gbs.dts  |  12 +--
+ .../dts/nuvoton/nuvoton-npcm750-runbmc-olympus.dts | 120 ++++++++++-----------
+ arch/arm/boot/dts/nuvoton/nuvoton-npcm750.dtsi     |  65 +++++++++++
+ 4 files changed, 239 insertions(+), 66 deletions(-)
 
