@@ -4,105 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1897C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FDBC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DaQWvWsw3oOgXKm2fONwUyOY8e59GUzYmRtivJS0iws=; b=tXOmuoJRK38ivPyJwUPxvtuNs9
-	sRxzxdR+L/qRlBIWyZ+UsX3ZyUcX/iWIoRc6OlkUzH4FVQWbrSrvv4VN35oLV6Wrb9yhEaqKdKErN
-	HTFLLw8xgPf5tmP+ZunhsS2wvjCa8SxZcHE1V5BIVOYcsagAVOCfhS7JEb/rVc3eC1/Ur6NB9/aYh
-	OUkw6HblI4S7oucAT0dTQrgS6y8fG3PSYkmDCrxTtq6VgBEXH0B7MBc2le6nisfILLHDNyGwA7elV
-	T5L5XJUQbhZ4QuFjsTZUEAouoL58j+sDYUxOyheRR9u7/SICI0/6BtA1Ka+6s4+R8oCEIv4ueU7/r
-	uU/hANdA==;
+	bh=ZjqV+cH4sOitO4AXGtSVteqaTppV2dw8kTUi/aGt1lc=; b=L5ITlx6Seo0VS95YdND9Ehbwlp
+	YC05lTGdmzSuEBHY7EOU739n/JPvNknSA2y03lzqg6c+k/KA4Lisuob1Bi5ctdmf5W5B5pJtqtDXt
+	f63zu3Z+PR2LP0BiypTFyMVfN2IkmspGZY3Q8ytXf7BW9z6/70bMfYDzY5UXxMRAgWySNwEc8tigm
+	wnNoCUk0bosqhAstzHqCy17yUs2o6KCNY6LM7FIIJkffDD9w/3pFeX4ea/62cZmuoKeG3IFi29DDg
+	tNc05dT47OQDtiGpqrXoTAmX7HATXLhi2PQo3CQkV3EKCtEAej5WF//4LEeD8bUFelitSmIQmkgbN
+	vbWkJXlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH2i0-00000009fEX-3PnS;
-	Mon, 19 May 2025 15:47:21 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1uH2k2-00000009fiq-2QnI;
+	Mon, 19 May 2025 15:49:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH1mD-00000009Ulx-4AZD
+	id 1uH1o6-00000009Uv0-1dzh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 14:47:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=DaQW
-	vWsw3oOgXKm2fONwUyOY8e59GUzYmRtivJS0iws=; b=Oa2i8hLGt0Jdgu81TAxR
-	42Sq/n5Fy06uXNsziux+wldXdqK8G8Z80rUrQNuT+3gELRNOV36sDV4bOgtcWFQh
-	WbtOMLrjM7t15wXZOZGj2mmPwRKmvpu2+zfGlbhbsoFIUsdd+G4+5ABdYKF1nVCn
-	7T/xLeRYiPSx0ZpyRsIPHve6rda6mcFtludrKaa4PHiNj4F2AUcmMx5oVi3zJrp1
-	mu7hWjngUZV4Zm/vwcgGsj8VzBCyLNjjOQk7bm1s8O2gjN16+gLSZcN3cthfmLlK
-	klzN7Nm/6Isc29qsKwJvByK1Bt0iBEM4smkLBBvfsSVe+gJqoRJ7qdwld5sGuLry
-	EQ==
-Received: (qmail 2526926 invoked from network); 19 May 2025 16:47:34 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 19 May 2025 16:47:34 +0200
-X-UD-Smtp-Session: l3s3148p1@veEiNn41guhZz6uL
-Date: Mon, 19 May 2025 16:47:30 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: linux-renesas-soc@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	loongarch@lists.linux.dev,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>,
-	WANG Xuerui <kernel@xen0n.name>
-Subject: Re: [PATCH 0/7] archs: use proper node names for GPIO based I2C
- busses
-Message-ID: <aCtEgg55uuXQ87HP@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-renesas-soc@vger.kernel.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	loongarch@lists.linux.dev,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>,
-	WANG Xuerui <kernel@xen0n.name>
-References: <20250519121512.5657-1-wsa+renesas@sang-engineering.com>
- <CAMuHMdUOXZOe++Zpk_fGnPuGtQARN1fLQvTr0YX108OzZi4YmA@mail.gmail.com>
+	Mon, 19 May 2025 14:49:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8303BA4DE97;
+	Mon, 19 May 2025 14:49:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACBACC4CEEF;
+	Mon, 19 May 2025 14:49:31 +0000 (UTC)
+Date: Mon, 19 May 2025 15:49:29 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Nam Cao <namcao@linutronix.de>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	john.ogness@linutronix.de, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 17/22] arm64: mm: Add page fault trace points
+Message-ID: <aCtE-RvyN6XJQjTo@arm.com>
+References: <cover.1747046848.git.namcao@linutronix.de>
+ <f5fccde2326a896e5c568ef06a4dbd9aa7465f6a.1747046848.git.namcao@linutronix.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="N7Vk71n9RCcoPa7f"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdUOXZOe++Zpk_fGnPuGtQARN1fLQvTr0YX108OzZi4YmA@mail.gmail.com>
+In-Reply-To: <f5fccde2326a896e5c568ef06a4dbd9aa7465f6a.1747046848.git.namcao@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_074738_306516_D83541FD 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250519_074934_496980_4757D6A5 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,42 +65,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, May 12, 2025 at 12:51:00PM +0200, Nam Cao wrote:
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index ec0a337891dd..55094030e377 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -44,6 +44,9 @@
+>  #include <asm/tlbflush.h>
+>  #include <asm/traps.h>
+>  
+> +#define CREATE_TRACE_POINTS
+> +#include <trace/events/exceptions.h>
+> +
+>  struct fault_info {
+>  	int	(*fn)(unsigned long far, unsigned long esr,
+>  		      struct pt_regs *regs);
+> @@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+>  	if (kprobe_page_fault(regs, esr))
+>  		return 0;
+>  
+> +	if (user_mode(regs))
+> +		trace_page_fault_user(addr, regs, esr);
+> +	else
+> +		trace_page_fault_kernel(addr, regs, esr);
 
---N7Vk71n9RCcoPa7f
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+What are the semantics for these tracepoints? When are they supposed to
+be called? In the RV context context I guess you only care about the
+benign, recoverable faults that would affect timing. These tracepoints
+were generalised from the x86 code but I don't know enough about it to
+tell when they would be invoked.
 
+For arm64, we also have the do_translation_fault() path for example that
+may or may not need to log such trace events.
 
-> Hmmm... which of these changes affect the R-Car board? ;-)
-
-Right, in this series, none :)
-
-> Am I missing something?
-
-I tested another series on top of this series with Lager. After the
-EmbeddedRecipes break, I forgot that only the next series affects Lager.
-Sorry for the confusion!
-
-
---N7Vk71n9RCcoPa7f
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmgrRIIACgkQFA3kzBSg
-KbbgVRAAmUME4MmnnZpUQF8oA9Puxa4+zkHCjVgbOIgusPPh2aR5/c0/7PUXw2Bx
-ukaYwg8/xwbBBinpd9xhp1DmqZGsGGSJO5XLiNKrX6OBBaMNZpd4v5Ei9z8E4UJL
-UlVumquQLHo1ZDXbOfcDNkMfUrNnX7TtnZ0c30giIbm6nonKr8s+QYV0q7lC/DpI
-Oltxl6kw1P/dWfnL2NJz5TyspBwEIHcocL7D1PIIfvtZEgVQnHSZFrh6fQBpcX4F
-54FtZCi9DDbf0HZm9EfFzz3ZwRIZlzRW1Y9tgxl2qpX2Qp7jAM8wTVt10o4l4ETp
-M7tnC4Z1Kuu8H49QB/LjJg3QzJbwbxpEFXATgxtu6AzlkNx/IiNXWalPyfnSu77v
-ZOMT0GEooVmBZQsDZdOhW5MlPHkOZ2J5CSaGL/OvuFv5yU32ptbpaIbg2zrz8TCa
-k80QJ6g6yYIyWnYYWW3qOMlp3UFBecMKI9ySmCdrgJBFA/1dPeaj2oaS/QcTWMh9
-ZF2/zsYXssh8d3RBIUeNSXjkPtqa25SQkSadSMtBp1qnf7krcS0BaYwKcFFEmMAL
-oxBozBVc2c1cTc5A0ASRTNBObEw6GNwm117KzDjFvKaToLfpJjh6miCw7u9VDYV0
-SwabTA88Llt75S083kfsEK4rmvosJnLWTNuClppH+ziwVhboPa4=
-=DyAR
------END PGP SIGNATURE-----
-
---N7Vk71n9RCcoPa7f--
+-- 
+Catalin
 
