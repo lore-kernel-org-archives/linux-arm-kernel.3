@@ -4,110 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5778C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 12:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E7DC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 12:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMZxfN46qBFe0l9X6tDmqZc8eIicmoFcaHSnxcRX8Zg=; b=l+6mW+U6PcErK8ZhEI59W0ZhF+
-	ALDo1ONiT1ZsixhtH8d1b2miCM0cCDI4ZmzaZOeS0T08NrZKGyHME63g4NgVwVtgEfoiZWZEqTLsr
-	FN18NBZLEXiYYj8iYPrGv4L6D5J0v9R08zZxhZijY1ibECS/pDhzKCQb1/UDC2k5iB3dgyZ6/aKV2
-	AJvoQdGU1Oik8OIFqbsucmv0x9ukCAzdvETuygYZisXmU/jPtLg6V02XdmdiY/sJOV/6Y41pevjFi
-	eoEmrrkM3OqHGDh44YXIKkg9Aw8QcvAFzXlnbRmu+zBK4w8amjzFcxAKck3oFAcr5vH45Yl5n0+xD
-	XDlZRkKg==;
+	bh=6baiB+VhScKnBJFcGjroRlH3n+JmifYkI1E83/dxc7w=; b=rYCwPbS2KYzQ6eeckO1fsBNH/K
+	6m/IvM+dlAV/DY7YJhmnsxOUBwcyzvNFz1ecKtILl/H8ARbXC3c+XDmwGeJ4fBhTBEV2LI02hSq9f
+	OBwOGM28IFblU/QsRpKnkwTgcpalc8QOKdXKx2dLiW5SZezIovGZhT/e/k4t+jnAAxrvKXCrRzVjD
+	64BADvRWqS9pwF0ghr2HgJqOuVDMUEJnAVTkDC7qrUDHMdhrs5SHcHpGn1TzU3G9BY2C3Q4OTvg+Z
+	M2rzE2Ez+WftWA7ldu96ayxOGULVgJOllJwE83q3grGNb5ZYKL8S9myVAtusWNBndqLF0012aiz+z
+	gonW6fNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGzJp-000000096DJ-26oN;
-	Mon, 19 May 2025 12:10:09 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1uGzML-000000096Zy-3WLD;
+	Mon, 19 May 2025 12:12:45 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGzGg-000000095sy-36hK
+	id 1uGzK0-000000096Gd-1wmx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 12:06:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747656415; x=1779192415;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=X9JYOmBZRRIrcEoIxM35PaaiyYlkP8TFD/KMSQVTS0U=;
-  b=JdCRGhaEn+qI5doIMAOdkK0za+kEkIfrP8JdhCuUHib+5Zy1cJhOLby0
-   gtnGpWi68AnCrpxljfa3tGYGIF6LvWDc87kmR9j+8xoLUbc7jDalbXFHW
-   QsHe1k6dWhj4xmgheqLsboyUME2sDZ6bwymPNUIGq6ThSds2CrEuuBpOj
-   cDGImTriG7+F4UVsOOdSOHo05afZRfYHejrP5mypqeyb3gsMenT6Qim4L
-   j7nAOoMDr520kZ81eN/KLsF9D0yAxdpcL8GBDbzHsSM7hMB4vc57N2OOa
-   wW/zBoAvwvv2Ii4vWueLeWTvPCOupbvrJH2E33X9phy8kmoUSZ6vkh2Kk
-   g==;
-X-CSE-ConnectionGUID: cQ2pOMPZQ9qvtO+SKxx4SA==
-X-CSE-MsgGUID: fUOCxmlDRbK4DsscfeyD1g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11438"; a="53225187"
-X-IronPort-AV: E=Sophos;i="6.15,300,1739865600"; 
-   d="scan'208";a="53225187"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2025 05:06:54 -0700
-X-CSE-ConnectionGUID: WMsdqKWhTEWrSxf4sLI6yQ==
-X-CSE-MsgGUID: iTaMPZPKSmWRJ7+uxsle8Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,300,1739865600"; 
-   d="scan'208";a="144112208"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2025 05:06:38 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uGzGL-000000031iT-3wdP;
-	Mon, 19 May 2025 15:06:33 +0300
-Date: Mon, 19 May 2025 15:06:33 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v2 05/26] bus: simple-pm-bus: Populate child nodes at
- probe
-Message-ID: <aCseyW1iZgZNZNqd@smile.fi.intel.com>
-References: <20250507071315.394857-1-herve.codina@bootlin.com>
- <20250507071315.394857-6-herve.codina@bootlin.com>
- <aBy_aBkC7NpicXho@smile.fi.intel.com>
- <20250519135818.01db3341@bootlin.com>
+	Mon, 19 May 2025 12:10:22 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ac3eb3fdd2eso799598766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 05:10:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747656618; x=1748261418; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=6baiB+VhScKnBJFcGjroRlH3n+JmifYkI1E83/dxc7w=;
+        b=DCLdnbfALANyocZoXA6nqCmpug4Nvut7ixIh6T4EbsL6kbZktWANZjiKqEc/0IDjKO
+         QCLGdfkv+lzEos7vEgskQvr2xNWt3g5zc9IfVBZnZ1n4/0bArvju5XKjECdl+OnJnpjs
+         /IVp9edoh4SacH6PP8sFLe3gc0f9NJLX0du11gZKSq2C3P753ha6hShlGqCHqcBVncsN
+         zI9Nq7Gd0TjXwGTEr0x4Jo23+KwWs0hpqUMpcTeGC+iEqXJAyu9hAHUHMt9dJ7+qxqcn
+         gdOGp0XAw7xJKYWNqFukn3cDJjkEB44+bSvhYZ8FruGy8kvJcDZWCKfxIlzlMA26exvZ
+         cxXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747656618; x=1748261418;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6baiB+VhScKnBJFcGjroRlH3n+JmifYkI1E83/dxc7w=;
+        b=EPSZHxgjxAR09BWrclBLiHNtZFCMySduvn8NVbfwLvRIt1nTQip+BFncvNZBd6NBxS
+         J/stOJcDQfDePC2xMpl0J6U360Y1noJ4Wuug3L6/ysJawU4Lirm6wipqWLIpyrJPbRHU
+         xENfXx15ZBm7wJnqc9dd2haJaXRDFO7Nm7q+rFSgWA1/anW6BEwzKhfKTbbKuXZVAxdn
+         YIYKHCTKUg9w4yLwnkOm+jFFZoE7kvAHQJYS8g0TfRaaSrme5b/8rzCaCewx/7QP1yNn
+         02Ny/Vbpng9eZxJasN4ft5TjN7cavUUH3dz02afw4chN6dRphpkTzjDZuhZtNoUFoxGI
+         +rMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUBNbRFHdqKV+moAv+fZVdFrIohoVuRZ/tAb4qRwhlxiYdyAPSY5C1rbzZro48rcciI2PnkH0aqS/4t8K2oAbkD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxkOPN7fBkxFRqRBolc/v82A4Ld5E6RNMQ19vG5I7Ps1RoZCqW
+	0mq+t1ERo9M4sC0bJoGnEsWN252YtBGxJMBiD9JTB/z6KFYJr9oU+8/49i/wgrDoCA==
+X-Gm-Gg: ASbGncu4TnRUsZmeCG2cXGDz5VhZeqYgtPsQEmT/ucXQEBAYqGV3qqNohDEnfOoK2jo
+	bZTUnHhbiA+7dBp3f00hFBOtH3Gm+UOaWN+EKYjrtX9h7cjogbOePZ/6Sn+VgWDnLS6HyfaOJvr
+	7QQfJST22wEiHbKKzmUHA7wG19KrVzM9+V3oYIqr2wtOBtCF/BPpkl/qe1r5utr3BE2USXoO9pw
+	BFRkNS4SkkuW3/Qfe7dCYcuvce1W+QUzVDZrQRzE6ZP370YFLnFKNBEHKaPFbW7cSYfaTukTzJ4
+	h6CUloYjb0QKfqPrsseUUzQ1B+fLRHQxscdg/HBhoHNyKhpA1KmxW8wbVCx9tRp/C3SuIrb3wqQ
+	Owh1W6Wk+bHiikL72zfheOXC+M0Vw7hOU3Q==
+X-Google-Smtp-Source: AGHT+IHpTwdnK5YFZhkdVK9LBLESGLHcc/FhT6MMJ8mFqjOpeOo+JiJr1fFrHlhNHE5cLqHy2HqRNQ==
+X-Received: by 2002:a17:907:7f16:b0:ad5:5210:749c with SMTP id a640c23a62f3a-ad5521075fbmr644487766b.22.1747656618307;
+        Mon, 19 May 2025 05:10:18 -0700 (PDT)
+Received: from thinkpad (host-87-20-215-169.retail.telecomitalia.it. [87.20.215.169])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d04e80asm580893166b.2.2025.05.19.05.10.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 May 2025 05:10:17 -0700 (PDT)
+Date: Mon, 19 May 2025 13:10:16 +0100
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Laszlo Fiat <laszlo.fiat@proton.me>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Krishna chaitanya chundru <quic_krichai@quicinc.com>, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Damien Le Moal <dlemoal@kernel.org>, 
+	Hans Zhang <18255117159@163.com>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>, "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>
+Subject: Re: [PATCH v2 0/4] PCI: dwc: Link Up IRQ fixes
+Message-ID: <jbl77lwvxvjeeaed5jiavv3nwfctjqpuhvbzha2fucsdgoulss@u6xjrckk4so3>
+References: <20250506073934.433176-6-cassel@kernel.org>
+ <7zcrjlv5aobb22q5tyexca236gnly6aqhmidx6yri6j7wowteh@mylkqbwehak7>
+ <aCNSBqWM-HM2vX7K@ryzen>
+ <fCMPjWu_crgW5GkH4DJd17WBjnCAsb363N9N_h6ld1i8NqNNGR9PTpQWAO9-kwv4DUL6um48dwP0GJ8GmdL4uQf-WniBepwuxTEhjmbBnug=@proton.me>
+ <aCcMrtTus-QTNNiu@ryzen>
+ <5l0eAX7zaDMDMp1vJhvB9MVKXSPn3Ra0ZiP5e2q1E4rwmADBB6MlREZO9cuD_zvclAOhhBE0-NFthVbOajeSCfYjchT-83OgLbjclOgx3T4=@proton.me>
+ <aCr9cYhtcBJZ-9Fj@ryzen>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250519135818.01db3341@bootlin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aCr9cYhtcBJZ-9Fj@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_050654_826838_D66CD7E2 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20250519_051020_502992_3C8E769E 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,51 +112,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 01:58:18PM +0200, Herve Codina wrote:
-> On Thu, 8 May 2025 17:27:52 +0300
-> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-> > On Wed, May 07, 2025 at 09:12:47AM +0200, Herve Codina wrote:
-
-...
-
-> > >  		if (of_property_match_string(np, "compatible", match->compatible) == 0)  
+On Mon, May 19, 2025 at 11:44:17AM +0200, Niklas Cassel wrote:
+> On Fri, May 16, 2025 at 06:48:59PM +0000, Laszlo Fiat wrote:
 > > 
-> > Side note, there is an fwnode_is_device_compatible() API for such cases. And IIRC
-> > there is also OF variant of it.
-> 
-> fwnode_device_is_compatible() checked for all compatible string. I mean, if
-> we have compatible = "foo,custom-bus", "simple-bus";
-> fwnode_device_is_compatible() checking against "simple-bus" returns true.
-> 
-> Here, we want "simple-bus" as the first position in the compatible string.
-> In other word, we want to match the more specific compatible string as
-> mentioned in the comment.
-
-I admit I'm not an expert in DT, but why is the compatibility position
-dependent?
-
-...
-
-> > > +	if (pdev->dev.of_node)  
+> > I have compiled a vanilla 6.12.28, that booted fine, as expeced. Then compiled a  version with the patch directly above.
 > > 
-> > Why do you need this check? AFAICS it dups the one the call has already in it.
+> > >  We expect the link to come up, but that you will not be able to mount rootfs.
+> > >  
+> > 
+> > That is exactly what happened. 
+> > 
+> > >  If that is the case, we are certain that the this patch series is 100% needed
+> > >  for your device to have the same functional behavior as before.
+> > 
+> > That is the case.
 > 
-> of_platform_populate() was called only if an OF node is present.
-> I want to call of_platform_depopulate() on removal also only if an OF node
-> is present.
+> Laszlo,
 > 
-> I don't see the other call that duplicated this check.
+> Thank you for verifying!
 > 
-> Can you clarify?
+> > 
+> > Bye,
+> > 
+> > Laszlo Fiat 
+> 
+> Mani, Krzysztof,
+> 
+> It does indeed seem like the reason for this regression is that this weird
+> NVMe drive requires some additional time after link up to be ready.
+> 
+> This series does re-add a similar delay, but in the 'link up' IRQ thread,
+> so even with this series, things are nicer than before (where we had an
+> unconditional delay after starting the link).
+> 
+> Do you require any additional changes?
+> 
 
-The of_...() is already NULL-aware (AFAICS), why do you need the duplicated
-check?
+No. Sorry for the delay in getting back. I was at Linaro Connect last week and
+had to take some vacation for the first half of this week.
 
-> > > +		of_platform_depopulate(&pdev->dev);  
+It is fine with me to add the delay only in the Rockchip platform where the
+issue was reported (next time please mention the issue that triggered the series
+in the cover letter). But I do not want to add the same in Qcom platform as the
+delay is not strictly required as per the spec (if I understood it properly).
+
+So I'll merge rest of the 3 patches.
+
+- Mani
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+மணிவண்ணன் சதாசிவம்
 
