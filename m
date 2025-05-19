@@ -4,70 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB06C54795
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE42C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9HMc0DzIN5ocrXZLGX5hiW5AlfZP52hbSKBuKVVgxw8=; b=biFrVBZYl6+Sgz++ySgD1gApuE
-	rxpt3iQpuoajBF3PJk+GfBJRvf/mfKJlZs3BqCbCy2y3B+38QH2Bd1XS2PjqTDV3kI2e0FAJi5S2V
-	H2MuanQ+H2R08BU70zm/For2M9IlvF3JSUXr7MK2rxQS+wIFYeo0Ade3sVST+07BKoO5MuC/QbxGm
-	bKDruyLb+VXEccWgcbz0AENgNTSgc3/7OFojpDJB2WpSyCM429SY2T293quWHTdMqVgOT8+Lxn1FX
-	Rp66PORahlud3sYOvodVeQE6PNwqBAZ/XRAKO1jmiOPZfqG7zrMpz3VCc1hvk5L8CH/L9O/gTc4do
-	YFIGcb7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=olmyOiZ4AZpQG+1RvKaFgx8JulkkA0im6G05rF3jGsc=; b=kwu5hi+bq6sVhp8qe2y93KrvhS
+	hO+KuMZHlm1vV1UzzW1XOEhjfasLL2aEvLk4d1y1isDmixrXyYg97chU0eJLP9X0kuFtm8CDL32wE
+	gttSW2+/F9mAW+5mgV0JaRyCi24hRG7oHyLJQpVH/tOLZeGlXYQ0L8TQtq9Y+CQ25JctXO7p+HRU7
+	B0w9UFpZkzXjhnDRjJc9iGqqZq7d2b8m/IrbCAHlgx7LSslidJaUHV+Y3MCXQb8runjhmvtbPUleE
+	cFE63+Mf7itS1luyp3oWzcRzNeYrfXGU3uFiVOmw7g/Jfr6BZdlmjk6zl3cKcU6uKqweKy/krF6ey
+	DpZxdObA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH3bm-00000009r1I-1ROW;
-	Mon, 19 May 2025 16:44:58 +0000
-Received: from mail3-relais-sop.national.inria.fr ([192.134.164.104])
+	id 1uH3bp-00000009r4d-0cbQ;
+	Mon, 19 May 2025 16:45:01 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH2ax-00000009e7J-08D3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 15:40:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=date:from:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=9HMc0DzIN5ocrXZLGX5hiW5AlfZP52hbSKBuKVVgxw8=;
-  b=BiEOr8lh1wbmqmPbg972i+TnuDfMlW9JpMOq4PXcQ00yckg/fDp/evN6
-   TXLX0ltcbAsPdK/AvMslBPE98gezKlPvAAn38pHMJ8h5Roa+VDDC1nD+K
-   WenDR9H3KIIeDXGfFefWZUTHbtRM9ZVPCq9Z9K9SJ9xzSjm0enLCaf/MB
-   U=;
-Authentication-Results: mail3-relais-sop.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=julia.lawall@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.15,301,1739833200"; 
-   d="scan'208";a="116972886"
-Received: from unknown (HELO hadrien) ([194.182.8.86])
-  by mail3-relais-sop.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2025 17:39:53 +0200
-Date: Mon, 19 May 2025 17:39:52 +0200 (CEST)
-From: Julia Lawall <julia.lawall@inria.fr>
-To: Luo Jie <quic_luoj@quicinc.com>
-cc: Markus Elfring <Markus.Elfring@web.de>, cocci@inria.fr, 
-    linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-    Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-    Julia Lawall <Julia.Lawall@inria.fr>, Marc Zyngier <maz@kernel.org>, 
-    Nicolas Palix <nicolas.palix@imag.fr>, 
-    Oliver Upton <oliver.upton@linux.dev>, 
-    Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
-    Suzuki Poulouse <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
-    Yury Norov <yury.norov@gmail.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-    LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
-    "Kiran Kumar C.S.K" <quic_kkumarcs@quicinc.com>, 
-    Lei Wei <quic_leiwei@quicinc.com>, Pavithra R <quic_pavir@quicinc.com>, 
-    Suruchi Agarwal <quic_suruchia@quicinc.com>, quic_linchen@quicinc.com
-Subject: Re: [cocci] [PATCH v3 2/6] coccinelle: misc: Add field_modify
- script
-In-Reply-To: <1e3ba498-2bfb-4cab-ba13-5ab2c5b03ef9@quicinc.com>
-Message-ID: <6fe2aed9-f29e-4a77-5f47-855cfefe1973@inria.fr>
-References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com> <20250417-field_modify-v3-2-6f7992aafcb7@quicinc.com> <a1be0efc-a4c9-461d-a01a-8fb830b2c68d@web.de> <0ee48e2f-58db-49b0-b651-dcc0e517465e@quicinc.com> <43712874-6f1d-435c-98b2-30ac44d25309@web.de>
- <1e3ba498-2bfb-4cab-ba13-5ab2c5b03ef9@quicinc.com>
+	id 1uH2dl-00000009ea3-2qXH;
+	Mon, 19 May 2025 15:42:59 +0000
+Received: from localhost.localdomain (unknown [124.16.141.245])
+	by APP-01 (Coremail) with SMTP id qwCowAAHcL96UStoD9NmAQ--.49806S2;
+	Mon, 19 May 2025 23:42:52 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com,
+	wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	ruanjinjie@huawei.com,
+	u.kleine-koenig@baylibre.com
+Cc: linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] mtd: nand: sunxi: Add randomizer configuration before randomizer enable
+Date: Mon, 19 May 2025 23:42:24 +0800
+Message-ID: <20250519154225.2928-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.42.0.windows.2
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-477211006-1747669194=:4212"
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAAHcL96UStoD9NmAQ--.49806S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrKrW7XF4rGr1DtFy8GF4xtFb_yoWDtFc_W3
+	y2v34kKr1Uur93JF1fuF4xCry7tw4UWr4vqwnIqrW3A3W3XryIq3s0vrn7AF1kXF18uFy5
+	Aaykt3WxA34jqjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbf8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_XrWl42xK82IYc2Ij64vIr4
+	1l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK
+	67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI
+	8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAv
+	wI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14
+	v26r4UJVWxJrUvcSsGvfC2KfnxnUUI43ZEXa7VUbrgA7UUUUU==
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgoHA2grSSUO0QABs5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_084003_461948_B0578EFA 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20250519_084258_107856_B5B83593 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,68 +87,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+In sunxi_nfc_hw_ecc_read_chunk(), the sunxi_nfc_randomizer_enable() is
+called without the config of randomizer. A proper implementation can be
+found in sunxi_nfc_hw_ecc_read_chunks_dma().
 
---8323329-477211006-1747669194=:4212
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8BIT
+Add sunxi_nfc_randomizer_config() before the start of randomization.
 
+Fixes: 4be4e03efc7f ("mtd: nand: sunxi: add randomizer support")
+Cc: stable@vger.kernel.org # v4.6
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/mtd/nand/raw/sunxi_nand.c | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
+index fab371e3e9b7..9179719f639e 100644
+--- a/drivers/mtd/nand/raw/sunxi_nand.c
++++ b/drivers/mtd/nand/raw/sunxi_nand.c
+@@ -817,6 +817,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 	if (ret)
+ 		return ret;
+ 
++	sunxi_nfc_randomizer_config(nand, page, false);
+ 	sunxi_nfc_randomizer_enable(nand);
+ 	writel(NFC_DATA_TRANS | NFC_DATA_SWAP_METHOD | NFC_ECC_OP,
+ 	       nfc->regs + NFC_REG_CMD);
+-- 
+2.42.0.windows.2
 
-On Mon, 19 May 2025, Luo Jie wrote:
-
->
->
-> On 4/24/2025 12:35 AM, Markus Elfring wrote:
-> > …
-> > > > -reg &= ~mask;
-> > > > -reg |= FIELD_PREP
-> > > > +       FIELD_MODIFY
-> > > >                     (mask,
-> > > > +                  &reg,
-> > > >                      val
-> > > >                     );
-> > …
-> > > With this code variant, there is no space prior to &reg, here is the
-> > > example code changes generated by the SmPL code as below, is this
-> > > expected?
-> > …
-> > > +++ b/drivers/phy/starfive/phy-jh7110-dphy-tx.c
-> > > @@ -244,8 +244,7 @@ static int stf_dphy_configure(struct phy
-> > >          i = stf_dphy_get_config_index(bitrate);
-> > >
-> > >          tmp = readl(dphy->topsys + STF_DPHY_APBIFSAIF_SYSCFG(100));
-> > > -       tmp &= ~STF_DPHY_REFCLK_IN_SEL;
-> > > -       tmp |= FIELD_PREP(STF_DPHY_REFCLK_IN_SEL, STF_DPHY_REFCLK_12M);
-> > > +       FIELD_MODIFY(STF_DPHY_REFCLK_IN_SEL,&tmp, STF_DPHY_REFCLK_12M);
-> > >          writel(tmp, dphy->topsys + STF_DPHY_APBIFSAIF_SYSCFG(100));
-> >
-> > The Coccinelle software is still evolving somehow.
-> > Thus your test result can trigger further development considerations.
-> > I hope that clarifications and corresponding improvements can be achieved
-> > also according to such source code layout concerns.
-> >
-> > Regards,
-> > Markus
->
-> OK, understand. I will keep the original patch as below for now, as we
-> need to ensure the script generates code with the expected style.
-> +- reg &= ~mask;
-> +- reg |= FIELD_PREP(mask, val);
-> ++ FIELD_MODIFY(mask, &reg, val);
->
-> In addition, below case is filed to request this improvement on the
-> coccinelle project.
-> https://github.com/coccinelle/coccinelle/issues/397
-
-Thanks for the report.
-
-julia
-
-
->
-> Thanks.
->
---8323329-477211006-1747669194=:4212--
 
