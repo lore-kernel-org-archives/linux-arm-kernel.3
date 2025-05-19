@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D52B2C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC54C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8QH/9LVe3MmbHWlOj063nhwVhTp3uZCqQntnbYL1uY=; b=R+TxH6bSPeNAocYmfig0eOQ+xF
-	C7PFggCDFR9Nk5ztQ85pE4U0ioYbIKSMiA7CBV2Afsb7PAc0FXrWHtpZVPZefvhCqLu32EU6vK1di
-	li2cInEu1lSzUYQf1chRwGDCO+rL7pOTI43df8kdkTEDKdVBz+76rgTGVJmwH0VN5xeNl99DAh/fb
-	LJ2KSJ4eURBKbVrQgzMXqVlkjC68Yl+JQ6HGpBQ7ssbx/M3+6xECf9wjttTDxsW2VOa5p2b84sHCM
-	UvYbACHcPxiZYy9mEccvqDEQ0gT1jBKA0+528dzixecUsdQ6fvZflKbZsyJRwJRrhxkQ4pjyMC6Vy
-	29itbKVg==;
+	bh=UmNwSFajsb2gQxcRHVej6ZPnsmaY+xQpujk6JzYISKs=; b=ihTFMnB7HPYVWXE1bUfT9jAOsd
+	C9PJ0iuypyEW9lxxTi7Im9/Nsaf45v6A5FA9RA3201AhnTzZsx/jfhPZsfyQlIcqvojqk0CLBeObi
+	XbRqOHJVOZIYVcUG4pzS/rGfrIhcHXffyqy9brT1pNjBCt8pnPmg9Qw0F9Yv8fRAKgntbqptJOpRM
+	v7/DmrnOLcONdOuAWAIizNipkeoKxPflmjxmInSnRCNkM/2g8tKsN3SMxvslTGFa12DHFbX10+rmo
+	u1AlYL0cuyyQE5uk3E3zB7S03+CU8pizNcd8R/l45sFPrj1JrJ4oJdZVwn+UpjmxB30CFl4sECvnE
+	vwQm0AIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH3nu-00000009t73-0Q3X;
-	Mon, 19 May 2025 16:57:30 +0000
+	id 1uH3pu-00000009tPe-0axD;
+	Mon, 19 May 2025 16:59:34 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH37H-00000009l4p-01Nx;
-	Mon, 19 May 2025 16:13:28 +0000
+	id 1uH37U-00000009l7w-1gF5;
+	Mon, 19 May 2025 16:13:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4263E5C5482;
-	Mon, 19 May 2025 16:11:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D255C4CEEF;
-	Mon, 19 May 2025 16:13:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA25E5C0619;
+	Mon, 19 May 2025 16:11:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC58EC4CEE4;
+	Mon, 19 May 2025 16:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747671206;
-	bh=Y8QH/9LVe3MmbHWlOj063nhwVhTp3uZCqQntnbYL1uY=;
+	s=k20201202; t=1747671219;
+	bh=UmNwSFajsb2gQxcRHVej6ZPnsmaY+xQpujk6JzYISKs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EFm9Y2BMK0pI8ND6m4ateyB1xw/cY4e6wk1fsrwURzShlnB96HUOA/CJfZwPJHk/h
-	 SFdv1zaTZH/QPv1ukEJDR/mh1GpqTLmqCUSK0EhituJdfZ7Q+17XUG8t4toMOoa2ch
-	 fnI9O2VrbgMiDHTpQFwn8VQ3ucskEBA0x/W1jdACyYmLSbj4VvZrbjteRmkzuDa7Y4
-	 JqTXRhHe0fm6KYy2c/uR7kccbZiPTMFdsNvmsgkiHIMch1qZ4uoK9oWSQnGDzXCcSG
-	 og3A2EMnsNSLX15ldhXtpwypx6caxq8/oLoGWcUF/e9Ob+YAyGKBiMBJQuB2zkT9hc
-	 3f0oKHkRmkMyQ==
-Date: Mon, 19 May 2025 17:13:21 +0100
+	b=UINxs4j2cfiBSaoEdJJzkYN5Tx/PcgIPy5rq7TgNkhzZWdE0eFaMBD/IR74uAEqfe
+	 RaHFXyBaZBDYPMcruzgeZPwiM5kiQwGl+q3FHuKuJs5DsZ4myHbx9y8rfSbS85sx+J
+	 s72IUKxA6vHx4c/8uvqIcGmwhWg5eP0ya+IIKR5P9qHJ6v3bE+v1ChVN64/OHyGV/N
+	 7x2enUtRQ/76g7/x3L1LJRLRHUsy9Gx3Xw5LknZhfT+yJKK9QWCynjXE8yuUjkuZSW
+	 lITbzVYEzjDNJ1TA12QgOtQghbdbh03fpytLjL2EGZq0z1b0eopROxjtpkhYBJ354g
+	 p8vdiQDuQiCrg==
+Date: Mon, 19 May 2025 17:13:34 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Jonas Karlman <jonas@kwiboo.se>
 Cc: Heiko Stuebner <heiko@sntech.de>, Ulf Hansson <ulf.hansson@linaro.org>,
@@ -52,18 +52,18 @@ Cc: Heiko Stuebner <heiko@sntech.de>, Ulf Hansson <ulf.hansson@linaro.org>,
 	Chukun Pan <amadeus@jmu.edu.cn>, linux-rockchip@lists.infradead.org,
 	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/9] dt-bindings: power: rockchip: Add support for RK3528
-Message-ID: <20250519-outmost-carving-54f2a03fbf4f@spud>
+Subject: Re: [PATCH 3/9] dt-bindings: rockchip: pmu: Add compatible for RK3528
+Message-ID: <20250519-backer-resisting-dd1b7b51c552@spud>
 References: <20250518220707.669515-1-jonas@kwiboo.se>
- <20250518220707.669515-2-jonas@kwiboo.se>
+ <20250518220707.669515-4-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="g+A+7+z+9ImO7h3U"
+	protocol="application/pgp-signature"; boundary="oHpkP4t8DDp0/UVF"
 Content-Disposition: inline
-In-Reply-To: <20250518220707.669515-2-jonas@kwiboo.se>
+In-Reply-To: <20250518220707.669515-4-jonas@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_091327_082631_CDF26A11 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250519_091340_477377_7C65DEB1 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +79,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---g+A+7+z+9ImO7h3U
+--oHpkP4t8DDp0/UVF
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, May 18, 2025 at 10:06:48PM +0000, Jonas Karlman wrote:
-> Add the compatible string and power domains for RK3528 SoC.
+On Sun, May 18, 2025 at 10:06:50PM +0000, Jonas Karlman wrote:
+> Add the compatible for the pmu mfd on RK3528 SoC.
 >=20
 > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---g+A+7+z+9ImO7h3U
+--oHpkP4t8DDp0/UVF
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCtYoQAKCRB4tDGHoIJi
-0uOOAP0Xv7AajQHtPvRmMN/HO2YRdDgNFtBlbcgkBdB3XHiCJwD/c9JjYp9l9fGH
-eMrCbnVSV5zQIFlnmFNCL0CBXf2x6QE=
-=+jD7
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCtYrgAKCRB4tDGHoIJi
+0pqNAP9W6yAd8hmNkjtk/3p3P81h6tv3qfTuReMFreJQxi7OXQD9EBF1xQlvXWqT
+Fol2XJSQwjgip0XWN/RFdwalToSoYwc=
+=1zv7
 -----END PGP SIGNATURE-----
 
---g+A+7+z+9ImO7h3U--
+--oHpkP4t8DDp0/UVF--
 
