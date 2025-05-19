@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C057C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73386C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 16:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c9+MVoVuKsWqAtYpnzD1CwBAlGOa2SeRMa5cvBapTOY=; b=A+tZC+6bt6rzkzY8sEYdarSor/
-	9XOOLzWDArpTkfV++1iCiK1JYjAjjIaCZLpTII+xlgNTynYNoJmJunzFetC6Dc0N5IM3bw7snZlHi
-	+qInrSgHjFD/8y8ZoegLGMpJLDZvQ074i1YG/sQNmFf8oSG+PSqr2lrb6vVlRGrFOyscVGlRWQlyi
-	fg5OHpQoaBP39FX7R3iziXzd+MM0/X3FegWgqJbNiIi2YWiZkfBkSvWlTNs3uD9r2RMz+d822QziZ
-	axDT4GPdHMppWCCGOVdGE2OXwQ85DPG4cIs5t4BYCaYk8wA9W4U+lkb9oolTa0DTpXsV9LFj+vFmg
-	OQti48XA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jvOqIgHJQ3Ll/RHVA8cD9ICeCOfstAGBwUx57/J6p7M=; b=jZKHpm9kUz56tXMS5HH6EKmS7T
+	OENSz/6QJaBWabDMMtxlXpGYrNJEYwSEdhC68+M1k5QGBJdzIQ6FO7LLIQMIFEmeocu/+TOwWUc/w
+	GraSHlSB6hhAi9/euHFEaCd9AXD/g+UbvpnXtaKwNcpj9NZmuWXQOe5Xm4cgEVe3i3aCA8iJsNYD9
+	eMpMu9dHm05yIpbN5WnC1s/PnoRfQQdJkPxzFQWBhVnUTvFvLvFwYTcT4SwMSiWNeSCUQ4Yb3z/TN
+	iBVYlu7VI1ZtxANITVtEvj0qijtYULLLXp7WHCGfzqzmfBjnCGVAehHuLSB8uBauLlHA6XKPb0zxR
+	B7iHI/9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH3Jb-00000009nyB-0JkC;
-	Mon, 19 May 2025 16:26:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uH3La-00000009o9T-37pL;
+	Mon, 19 May 2025 16:28:14 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH2Ji-00000009b9N-2Nqx
+	id 1uH2Lj-00000009bWI-39pS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 15:22:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04395629C7;
-	Mon, 19 May 2025 15:22:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE869C4CEE4;
-	Mon, 19 May 2025 15:22:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747668133;
-	bh=s9dzKebIdZy4b9g1q/MYH+pyp2xnRZ2ePgm1nnvc1FY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CkmnGYOKI83Z98Kd1zCEKTEDbu8XrjAGeMJnSeRccWybQnf2T81+uewEttmwAi5J+
-	 roGXHAtdCXeFi4HW+8VaHH//TQZUTv0p2ZHJ5JpOt0+icn104qKs8IHXSOfnEgg+T5
-	 Nc4BX77308W6VWIVSXkTp5KdSNgVyVf1nzOvj9vvZQBgP/HVPyk02Tc5EVIJjohk1i
-	 7z+7sxYZOaF29dbIS8JJWt5zwl6MgNbk+MxOl7qXPhnO+mV68W2wAZn685nOefHwIo
-	 6abFYzFPw94Tsor4xCIzM2OOeNhOnt9zXtHU8NENjR7z3/ggg7avxqhE+r+xR5m6i+
-	 djotxESeXZ0Mg==
-From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
-	ilkka@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] perf/arm-cmn: Add CMN S3 ACPI binding
-Date: Mon, 19 May 2025 16:22:08 +0100
-Message-Id: <174765431517.1659777.133438662977545374.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <7dafe147f186423020af49d7037552ee59c60e97.1747652164.git.robin.murphy@arm.com>
-References: <7dafe147f186423020af49d7037552ee59c60e97.1747652164.git.robin.murphy@arm.com>
+	Mon, 19 May 2025 15:24:21 +0000
+Received: from localhost.localdomain (unknown [124.16.141.245])
+	by APP-01 (Coremail) with SMTP id qwCowABn1MMZTStokbplAQ--.53700S2;
+	Mon, 19 May 2025 23:24:11 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: sgoutham@marvell.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>
+Subject: [PATCH] net: cavium: thunder: Add log for verification fail in bgx_poll_for_link()
+Date: Mon, 19 May 2025 23:23:48 +0800
+Message-ID: <20250519152348.2839-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.42.0.windows.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowABn1MMZTStokbplAQ--.53700S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4xZryrWw1kKr13ZFyfCrg_yoW8GFWxpa
+	17tasI9F97Aw1Uu3Wvvws8CrZ8WaykKF93AFW5Cwn3uF17try5ZrWDG3yayFsFqrW8KFWY
+	qF1jv3s7CF98Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VU1TqcUUUUUU==
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAgHA2grSfIIhQAAs1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250519_082420_152196_D77D9B9E 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,23 +83,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 May 2025 11:56:04 +0100, Robin Murphy wrote:
-> An ACPI binding for CMN S3 was not yet finalised when the driver support
-> was originally written, but v1.2 of DEN0093 "ACPI for Arm Components"
-> has at last been published; support ACPI systems using the proper HID.
-> 
-> 
+The bgx_poll_for_link() calls bgx_poll_reg() but does not handle the
+return value. The link setting is not verified if the polling operation
+times out. It helps to debug if the link polling fails.
 
-Applied to will (for-next/perf), thanks!
+Add a time out error log for bgx_poll_reg().
 
-[1/1] perf/arm-cmn: Add CMN S3 ACPI binding
-      https://git.kernel.org/will/c/8c138a189f6d
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/net/ethernet/cavium/thunder/thunder_bgx.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Cheers,
+diff --git a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
+index 608cc6af5af1..eadc58de35ac 100644
+--- a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
++++ b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
+@@ -1007,8 +1007,9 @@ static void bgx_poll_for_link(struct work_struct *work)
+ 	/* Receive link is latching low. Force it high and verify it */
+ 	bgx_reg_modify(lmac->bgx, lmac->lmacid,
+ 		       BGX_SPUX_STATUS1, SPU_STATUS1_RCV_LNK);
+-	bgx_poll_reg(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1,
+-		     SPU_STATUS1_RCV_LNK, false);
++	if (bgx_poll_reg(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1,
++			 SPU_STATUS1_RCV_LNK, false))
++		dev_err(lmac->bgx->pdev->dev, "BXG verification fail with time out.\n");
+ 
+ 	spu_link = bgx_reg_read(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1);
+ 	smu_link = bgx_reg_read(lmac->bgx, lmac->lmacid, BGX_SMUX_RX_CTL);
 -- 
-Will
+2.42.0.windows.2
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
