@@ -4,121 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA50BC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 22:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A257C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 22:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T8g9hmVvqjn8rXNSXykqDJITIJDGdI8Suwi98GQc/zA=; b=QrKgtQNPhtPwPOzzBLnEw8i1FC
-	Pz1wvPZiNLwWd0bEcZcAE3FkbN7L/YvYYsqaCgskYNf5TPDN6Aoi+cVCeiQdmjBESQFDlLTQQgEaw
-	px8PG+VaZ7OV3i9BPFGTOpZ1oyc+1L2BikiD1h3mENDDHiagwjlHaAOPHa8L1nPDq57h0lWuzgnF6
-	dsJA9UASIQO7gJ7CxQ2dM5Lp7hizYESXsU9ZOJNWI4RKftHh/AogcaOQxSm5QpxgiohU4aHo7EStT
-	0NU5THiWjIuIb5zxmbYU4i7pDWiLMFw9zaTuI4WRwBDOpv/mehA9upcp7UfuTFaKz/X0TFTof1Wwt
-	jSPqOWJg==;
+	bh=G22uQtTerCT2IQLmvJfExO7LKRCrhoW6/tlkev0t9aE=; b=Y6ePrJuWzfAS+caTdgV0AEHnYg
+	OLXH1mXux/TEW2WKTGaqmHSea76z41PC1dTVTY5Y5cczsxzqy7huHwa9gbKwKX9hhcucExTHPaGPx
+	7g5emFS8XV/5QcJhOXaL3xJ1OKqFvk/2XIW1gzrUs07VSsTt9mqBgrqaIMh5bPol1Gtu71Pja3FHX
+	0JEDBBYApYoPnszAp0G57uZPcV6LYUm9f93GsWJt1CRvveDtlkhVPn5y2bAudj0Y32qM+r7KhXVF8
+	1xlCbVVombNAcDx6CsohP0naTMSMJjROtPDNSmIDknJYufvh9mqI7XqCBrWpC0iLUlDGfpHZcCG/r
+	fBUdHjwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH8dS-0000000AhoJ-2kFi;
-	Mon, 19 May 2025 22:07:02 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uH8vE-0000000AjYh-3OHM;
+	Mon, 19 May 2025 22:25:24 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH8bJ-0000000AhTp-2XBl;
-	Mon, 19 May 2025 22:04:51 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54JHmmtt027166;
-	Mon, 19 May 2025 22:04:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	T8g9hmVvqjn8rXNSXykqDJITIJDGdI8Suwi98GQc/zA=; b=Zx91c72BFkw4dnbv
-	pjjVQNEwoUp4uvmhh0pAqmcR/IvsJZ2Mi6AfKsTmTW+pYrLSW8S4STQ8I6YO1qMN
-	m0wVTJorpC6PJ5OYV5m4hqj19onpE4j2xr+ZOk2VLVqKAFDr/Yu9YzujgiZXYTz8
-	bmnydtbKQMK/y1YCC6R2E1qDbbbEyLYEFpeAeq2AC4Xm5uHHZTD22nD+aHoPXVaK
-	HrnlF371qSbAabnD2+Re6+rI/tjFbs3adXLdlHRmMsgpUcN0HBFcBTOPuUF2QB4a
-	nwXxDDP05qzSsGNflUehxd2wAC42T/0kNwTSS1m7DANlXrkhckexYSxkjQ/GS1FX
-	6BwMHw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46pkr9wqnm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 19 May 2025 22:04:35 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54JM4YkV014811
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 19 May 2025 22:04:34 GMT
-Received: from [10.110.43.57] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 19 May
- 2025 15:04:33 -0700
-Message-ID: <f3727b53-8da3-d4f6-575b-108a8d6898e5@quicinc.com>
-Date: Mon, 19 May 2025 15:04:27 -0700
+	id 1uH8t7-0000000AjJb-09ri
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 May 2025 22:23:14 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-30e930e00a0so755023a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 15:23:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747693392; x=1748298192; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G22uQtTerCT2IQLmvJfExO7LKRCrhoW6/tlkev0t9aE=;
+        b=agWQZswSovG54Pv+igAJ9HOa+0h1zu47+75JRgtORxqTrTNHGPsmXrLAkH91F7P16U
+         9A0djYkAyEZrDelxv0azNaZYpZEPqP6O3voRDk+0r93RRkdyBgAlhTu4t/+W3FFCdKLv
+         HRF0KQE4ECtJLgswUSJf6SywJffOEGJXe0dF/LPawXK0M6tXHxLL1/b3Ar/4HpgPYtyh
+         uenEAqG28fmIhQz8+IyZ1bKo+rQtF6Tl/h77ZDi1LkMqcRb6IbLO91UoCpswkbnyiZeG
+         trr9o7OqjCGoIuy5gG/UqsSJJksDYpBENBASOvhuq1wSCYrnGTD/Oq/sJpS0NAVHlGhl
+         4kww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747693392; x=1748298192;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=G22uQtTerCT2IQLmvJfExO7LKRCrhoW6/tlkev0t9aE=;
+        b=lUoP5BhTazXjlXcAq10nWewwTAVE3RrJwc1tmKMEL0TwgRYZL/go7zGvuQgy5B2atM
+         vtjBsr2r2/JX3pGIvnvkU5BAJfOaXGP9UqQiPH6o7AV4WNoDMVXyjDsboPkojaGtawmE
+         2Yw8yV5te3hw2jAJqriR2dRGzLotJO2w9k6a+zMSDaIyPIeoTUGHYmArPvKY5l0lhdaF
+         qX9i0Bww5NUyzvDAaNVEpcU93DvZ3LaBwKf5bc62oQxvVM6ma2XMY6edmsOP6ITCVQhZ
+         SNA7Sc/3YhuxigxUoHyT4MbcHEl3yTyLL7nB53HmkzlYfsSI8laP5tX2s+cGzuFDhD0g
+         GKSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUgvglmO1KQTde1M44R+gyJpmrbZFgpYy9yAzQ2Wx+q4mZxhffCfqVo6hiOKli6dcBV0kplr7lb7N4laVMe8+Sq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhIwYDykED0/OOVOvSkVFwwlsKHjaIx1NgEtSmL5yScnAyxXE6
+	T2CUwiUXqWNrN1SsY4vObyTXkdLLO61o6+SW3IhorhS9Su0zjhayXOR5ne3vqXcYnQrFqiU5z9v
+	mwwD0qZdYBLzua3S2WzrmGPdWfqOuH/I=
+X-Gm-Gg: ASbGnctKyQsQPg9W+G9/DnNwbBP0OS4uaz2SrwGiOgeRcLGCleCRBYJmXh/zYFu3y/N
+	6bs9+bGCLOJX7x0Yl8BBF0reZVKJlq9zrZz/i8ENB64p2yagIEr3WdXtQ4ZgmG4ZQyQqpuxfCp+
+	nGZulEq8RIUA81ppD6cPVvYuS/DwrsekBc
+X-Google-Smtp-Source: AGHT+IHzzYJdNjGnggVED+WkMWpZnSPWu15906SWYLh7fgSNgz1VKnuTByR3QO+KIJPYuFChXuYVwQZLc03eivgxOW4=
+X-Received: by 2002:a17:90b:3e8b:b0:30e:7127:644c with SMTP id
+ 98e67ed59e1d1-30e7d622f13mr8368159a91.6.1747693391512; Mon, 19 May 2025
+ 15:23:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH v4 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Vinod Koul
-	<vkoul@kernel.org>
-CC: Melody Olvera <melody.olvera@oss.qualcomm.com>,
-        Kishon Vijay Abraham I
-	<kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250409-sm8750_usb_master-v4-0-6ec621c98be6@oss.qualcomm.com>
- <20250409-sm8750_usb_master-v4-6-6ec621c98be6@oss.qualcomm.com>
- <Z/exOF4T+0vNLQwg@vaman> <0517c37d-b1ba-466e-bffd-9f47b0d458d5@quicinc.com>
- <aCRVaNDQP/PdAXPR@vaman> <5183b76b-8043-4309-b25d-e1ae505f929e@quicinc.com>
- <6fa4959c-d733-4d50-904f-caf933e02da9@oss.qualcomm.com>
-Content-Language: en-US
-From: Wesley Cheng <quic_wcheng@quicinc.com>
-In-Reply-To: <6fa4959c-d733-4d50-904f-caf933e02da9@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 7tkQXt10AubyxISGwOFWZdq0ny_YbYf5
-X-Proofpoint-ORIG-GUID: 7tkQXt10AubyxISGwOFWZdq0ny_YbYf5
-X-Authority-Analysis: v=2.4 cv=DdAXqutW c=1 sm=1 tr=0 ts=682baaf3 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=jJrOw3FHAAAA:8
- a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=WksZTEnvWCXEbMr8NocA:9 a=QEXdDO2ut3YA:10
- a=-FEs8UIgK8oA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTE5MDIwNSBTYWx0ZWRfX4Vcchgh/WruK
- V7ZkJSFPodRTjs/iAtlDkF49Z8ENM9Zur72GPcH4aOTTlSSaRnzyDOiHS5u2ZXWWH8JRmXIGkWM
- ZEgCmEEKBHkqm8vHsn9ce/iNhHwwxRho/3tVIz29aSph9km0aEVfVQ3L4C6V9eBAXXLeaSiP3aE
- qnX2/7ZN4n9frNYVvm8aP5J6jVZixiPXsGjgN9HT2Tfj9bAGHHy+NG0mju7X81XgZ5J70ZTAMiR
- Z3RY8ONHh9RnFFgPzukmH2ZXwxKT/mQZQeVfciu8HENPNxD94UEnz2Y+q4l5rf99kgG0ujiy38D
- 7eU5UxSLU7UXkgM44okzqJID/bHMPJXZAKvW0R5ZNR8FHfsfPnTyE3b0hq6PRbajL6YKtgn62mr
- oyUZboS50pTuJRFG9RwdImoQvNmT9L9GfZEGE8zOBbHjPsEVJBU/wVs6ldIuw7LR1sxn9MAi
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-19_09,2025-05-16_03,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=999 clxscore=1015 phishscore=0 adultscore=0 mlxscore=0
- spamscore=0 malwarescore=0 suspectscore=0 priorityscore=1501 bulkscore=0
- impostorscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505070000 definitions=main-2505190205
+References: <20250519175348.11924-1-robdclark@gmail.com> <CAPM=9tw183FMOT8uUacqegnb5CREAyr8KbXxO2mCuFK-SmUB1A@mail.gmail.com>
+ <CAF6AEGuDTGVq7sw4oVuHb+cOE_DuKbEPO956oddVcsV2boieoQ@mail.gmail.com>
+ <CAPM=9twuSfvQ0_NUdRmp0_VtTE_Br7GAysRw+XOoX7BTxUBGYQ@mail.gmail.com> <CAF6AEGs1hNGMMBjZuXoGjxF+JA1AHY_wx=gmqK4z=zShYoR6=w@mail.gmail.com>
+In-Reply-To: <CAF6AEGs1hNGMMBjZuXoGjxF+JA1AHY_wx=gmqK4z=zShYoR6=w@mail.gmail.com>
+From: Connor Abbott <cwabbott0@gmail.com>
+Date: Mon, 19 May 2025 18:23:00 -0400
+X-Gm-Features: AX0GCFuLTqHkTFoflT1PTGQWqYxrqs7RNvsrTX0PlbvFOcOu3Zb_RqPfkkrC9DU
+Message-ID: <CACu1E7EJp1fvQZV0=qeAqH97qaeoiaybHqxfYa7hFmi9P048kw@mail.gmail.com>
+Subject: Re: [Linaro-mm-sig] [PATCH v5 00/40] drm/msm: sparse / "VM_BIND" support
+To: Rob Clark <robdclark@gmail.com>
+Cc: Dave Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-arm-msm@vger.kernel.org, 
+	Rob Clark <robdclark@chromium.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
+	Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?QmFybmFiw6FzIEN6w6ltw6Fu?= <barnabas.czeman@mainlining.org>, 
+	Christopher Snowhill <chris@kode54.net>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Eugene Lepshy <fekz115@gmail.com>, 
+	"open list:IOMMU SUBSYSTEM" <iommu@lists.linux.dev>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	Jessica Zhang <quic_jesszhan@quicinc.com>, Joao Martins <joao.m.martins@oracle.com>, 
+	Jonathan Marek <jonathan@marek.ca>, Jun Nie <jun.nie@linaro.org>, 
+	Kevin Tian <kevin.tian@intel.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	"moderated list:DMA BUFFER SHARING FRAMEWORK:Keyword:bdma_?:buf|fence|resvb" <linaro-mm-sig@lists.linaro.org>, 
+	"m oderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:DMA BUFFER SHARING FRAMEWORK:Keyword:bdma_?:buf|fence|resvb" <linux-media@vger.kernel.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, Nicolin Chen <nicolinc@nvidia.com>, 
+	"Rob Herring (Arm)" <robh@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Sean Paul <sean@poorly.run>, 
+	Will Deacon <will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_150449_670889_7A524CEE 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20250519_152313_078765_3DD662BC 
+X-CRM114-Status: GOOD (  36.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,71 +113,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Konrad,
+On Mon, May 19, 2025 at 5:51=E2=80=AFPM Rob Clark <robdclark@gmail.com> wro=
+te:
+>
+> On Mon, May 19, 2025 at 2:45=E2=80=AFPM Dave Airlie <airlied@gmail.com> w=
+rote:
+> >
+> > On Tue, 20 May 2025 at 07:25, Rob Clark <robdclark@gmail.com> wrote:
+> > >
+> > > On Mon, May 19, 2025 at 2:15=E2=80=AFPM Dave Airlie <airlied@gmail.co=
+m> wrote:
+> > > >
+> > > > On Tue, 20 May 2025 at 03:54, Rob Clark <robdclark@gmail.com> wrote=
+:
+> > > > >
+> > > > > From: Rob Clark <robdclark@chromium.org>
+> > > > >
+> > > > > Conversion to DRM GPU VA Manager[1], and adding support for Vulka=
+n Sparse
+> > > > > Memory[2] in the form of:
+> > > > >
+> > > > > 1. A new VM_BIND submitqueue type for executing VM MSM_SUBMIT_BO_=
+OP_MAP/
+> > > > >    MAP_NULL/UNMAP commands
+> > > > >
+> > > > > 2. A new VM_BIND ioctl to allow submitting batches of one or more
+> > > > >    MAP/MAP_NULL/UNMAP commands to a VM_BIND submitqueue
+> > > > >
+> > > > > I did not implement support for synchronous VM_BIND commands.  Si=
+nce
+> > > > > userspace could just immediately wait for the `SUBMIT` to complet=
+e, I don't
+> > > > > think we need this extra complexity in the kernel.  Synchronous/i=
+mmediate
+> > > > > VM_BIND operations could be implemented with a 2nd VM_BIND submit=
+queue.
+> > > >
+> > > > This seems suboptimal for Vulkan userspaces. non-sparse binds are a=
+ll
+> > > > synchronous, you are adding an extra ioctl to wait, or do you manag=
+e
+> > > > these via a different mechanism?
+> > >
+> > > Normally it's just an extra in-fence for the SUBMIT ioctl to ensure
+> > > the binds happen before cmd execution
+> > >
+> > > When it comes to UAPI, it's easier to add something later, than to
+> > > take something away, so I don't see a problem adding synchronous bind=
+s
+> > > later if that proves to be needed.  But I don't think it is.
+> >
+> > I'm not 100% sure that is conformant behaviour to the vulkan spec,
+> >
+> > Two questions come to mind:
+> > 1. where is this out fence stored? vulkan being explicit with no
+> > guarantee of threads doing things, seems like you'd need to use a lock
+> > in the vulkan driver to store it, esp if multiple threads bind memory.
+>
+> turnip is protected dev->vm_bind_fence_fd with a u_rwlock
 
-On 5/17/2025 11:28 AM, Konrad Dybcio wrote:
-> On 5/14/25 8:24 PM, Wesley Cheng wrote:
->> Hi Vinod,
->>
->> On 5/14/2025 1:33 AM, Vinod Koul wrote:
->>> On 16-04-25, 15:45, Wesley Cheng wrote:
->>>> Hi Vinod,
->>>>
->>>> On 4/10/2025 4:53 AM, Vinod Koul wrote:
->>>>> On 09-04-25, 10:48, Melody Olvera wrote:
->>>>>
->>>>>> +static int m31eusb2_phy_write_readback(void __iomem *base, u32 offset,
->>>>>> +					const u32 mask, u32 val)
->>>>>> +{
->>>>>> +	u32 write_val;
->>>>>> +	u32 tmp;
->>>>>> +
->>>>>> +	tmp = readl_relaxed(base + offset);
->>>>>> +	tmp &= ~mask;
->>>>>> +	write_val = tmp | val;
->>>>>> +
->>>>>> +	writel_relaxed(write_val, base + offset);
->>>>>> +
->>>>>> +	tmp = readl_relaxed(base + offset);
->>>>>
->>>>> Why are you using _relaxed version here?
->>>>>
->>>>
->>>> No particular reason.  I think someone pointed this out previously, and I
->>>> was open to use the non-relaxed variants, but I assume using the relaxed vs
->>>> non-relaxed apis comes down to preference in this case.
->>>
->>> Nope you cant! There _needs_ to be a specific reasons!
->>> When you are doing read, modify, write, it is very important to know the
->>> right version to use...
->>>
->>
->> I mean, its a write readback, which ensures the bus transaction is complete
->> based on [1], hence why **in this situation** it is up to preference.
->>
->> Otherwise, w/o the readback then we'd need to ensure writes are made
->> depending on the required sequencing (in spots where the sequence is
->> strictly defined), and that can be enforced using barriers.  If you feel
->> like using the non-relaxed variant is preferred let me know.  I can replace
->> it and remove the readback.
-> 
-> Readback is stronger on arm64, as otherwise the writes may be buffered and
-> not observable at the other endpoint even though the instruction has been
-> issued, even if a barrier has been issued
-> 
-> Some resources:
-> 
-> https://youtu.be/i6DayghhA8Q
-> https://lore.kernel.org/linux-arm-msm/20240618153419.GC2354@willie-the-truck/
-> https://developer.arm.com/documentation/ddi0487/latest sec B2.6.9
-> 
-> There's been a real bug observed (pun not intended):
-> Commit 2f8cf2c3f3e3 ("clk: qcom: reset: Ensure write completion on reset de/assertion")
-> 
+To add to that, it doesn't really matter the exact order the fence
+gets updated because a Vulkan app can't use anything in a submit until
+after we return from the turnip function that allocates + binds the BO
+and then the Vulkan-level object is returned to the user. We just have
+to make sure that the fence is "new enough" when we return the BO. It
+doesn't matter if multiple threads are creating/destroying objects,
+the thread doing the VkQueueSubmit() must have observed the creation
+of all resources used in the submit and will therefore see a new
+enough fence.
 
-Thanks for sharing.  Useful info...The way I interpret it, even between 
-relaxed and non-relaxed variants, a readback is always desired.
+>
+> > 2. If it's fine to lazy bind on the hw side, do you also handle the
+> > case where something is bound and immediately freed, where does the
+> > fence go then, do you wait for the fence before destroying things?
+>
+> right no turnip is just relying on the UNMAP/unbind going thru the
+> same queue.. but I guess it could also use vm_bind_fence_fd as an
+> in-fence.
+>
+> BR,
+> -R
 
-Thanks
-Wesley Cheng
+Yeah, we always submit all non-sparse map/unmap on the same queue so
+they're always synchronized wrt each other. We destroy the GEM object
+right away after submitting the final unmap and rely on the kernel to
+hold a reference to the BO in the unmap job.
+
+Connor
 
