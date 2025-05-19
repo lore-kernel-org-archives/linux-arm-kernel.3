@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB9DC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E10BC3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7p77ze5zoo7hs8NG8yNFWbOWv/K/k6K+sWR4S5HDBE4=; b=yX9Iybhk2TGCRSEbNimtm9ekG7
-	kebG0QWi4z4PdOarbN0CGyET2Y17wIFMEjBXE1Hd4i/5H1qUP11nxPUI6XaIfwSVNabJyrlBK5iM+
-	+TWJZCbi49lDZ8svX1f7wr9/nKNNk++D6u01jNcaWlkXw+mRKCPa68N1qQkmsNJtqP18iDtMqoL7h
-	vo7jEf0jeYWsqV6NlzIS3dkLrWp1qT4f4ipzwyJiPE3kLaH9atGIqg185SCfFo6AgUzL1rJCrRD2p
-	80mDE/ZrHqnR34tE6s5wHQm1IKK6/MR/+3uW5gHWC6R7JAdXViANxPDWhiM18urjqtZgD1JLLBDxJ
-	mkOLtiLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CmGAnLS/NEWC0m080CBn1UiyJaS/KFlnJ1TZ/Bc5c1s=; b=CVFKJMtV5Tw49u+7dmuUNLApQ9
+	skXtirsKY4YGntGX9Efsg5GH16ujIXfClJCgpprfLiGgvzV+law3kt3+/YMQUTmMHBInLJmv6kuO5
+	oQUlMuhTA1yZ5JPWALAkFYjjcdWZLbAFgGm27bbfKJMFX1G7eR1oXeQreTzKjM2Dmu9oNc4+FfQtE
+	MpEid1yM4cwEvYObcpt48d0WIb1LJePV0sWvzlxeuzJFEvw1Z377VAri2mkblGGCQnBz+avl67zdy
+	LdJUDXtp7uDEiMrRePfA9pRLQXc5zOyNQtLnPbKgVAfS7pDnbx6O/pIpBOQWwzwIDaTSDPSgAHzdd
+	CpaXI+gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH29Z-00000009XhH-07XK;
+	id 1uH29Z-00000009XiA-3caA;
 	Mon, 19 May 2025 15:11:45 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH1WU-00000009S5I-2Uc1
+	id 1uH1Z7-00000009SHx-4AsF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 14:31:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 43B2A43A59;
-	Mon, 19 May 2025 14:31:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1747665074;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7p77ze5zoo7hs8NG8yNFWbOWv/K/k6K+sWR4S5HDBE4=;
-	b=AyjLQwJWGcKUmZ6VaNk5ITKrFlhDRR+c8R3gN9SFpsJd1QrDAjYpDS6DisqQrWl8tZaD2G
-	HOjNhJu89qWQtct5Och1x9MJjr9G3QicjuSGVzX3icRZNC74Q5tHQ9y/kNHHYDvG3qYvEt
-	x9t2lBlrwavkxkTuFtVsmgjjvf19KXEox53TddBZK2Teunada8WIESJhokZf2JfO8Z91cs
-	8/BJuJDURo3fAJbtA5daLcEhduOUNeBmG6SYUWtXWHq4jpXyBCvczcXIilzSAXS6/R2TUW
-	7fbxS/B2r4ojjoOwyRlp1pT3weMN1IEEq7xTgUlfirUikKer6qLZTAbbbzU4pA==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, Andrew Lunn
- <andrew@lunn.ch>, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/4] ARM: dts: marvell: kirkwood: use recent scl/sda
- gpio bindings
-In-Reply-To: <20250519112107.2980-3-wsa+renesas@sang-engineering.com>
-References: <20250519112107.2980-1-wsa+renesas@sang-engineering.com>
- <20250519112107.2980-3-wsa+renesas@sang-engineering.com>
-Date: Mon, 19 May 2025 16:31:13 +0200
-Message-ID: <87h61gpt8u.fsf@BLaptop.bootlin.com>
+	Mon, 19 May 2025 14:34:07 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ad574992fcaso164106366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 07:34:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747665244; x=1748270044; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CmGAnLS/NEWC0m080CBn1UiyJaS/KFlnJ1TZ/Bc5c1s=;
+        b=nY6nfV7EQ+L7G95nRYN+6BdFHExT8Mfo1ZPfcaANwO4nXWWOLoP/T2lMmeIiwW8PMA
+         9Zr6HPUbkimgw1Pnt6uX/Vv21uvU5NiW/qhM1xsSNYUrO839eEEEk/ViF2fW7fe442Au
+         lAWjoHNXCyYegMRIiFC5lpP6jlk9wofcwbjGlHwwHfdl7eG3Ov/flt9yaHTnvf0VQK1d
+         pSRuJCpOL55zYxm3O4RArS4YqkgUhZ/IZQawps8Hf8EMspuVkqGODiF/aWBlNr8EfTKg
+         +vUYUbRzBWL68CFQP4MalsfYS/T3eQRTFdG8UPFnpVnPWRr0MjG5pyEVAGWgUWhnJpx8
+         Ac4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747665244; x=1748270044;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CmGAnLS/NEWC0m080CBn1UiyJaS/KFlnJ1TZ/Bc5c1s=;
+        b=R956qXURyMB3KXi3lsOMr3cReGgRvxlmZ0QoaCSFxHBKzmpWhIprTaLAjJz3T8cum7
+         7MyVjhYuAc+50wj/seiNU/5ifrui19wPE5uySjAF8df0wqBL6lumOZyggWCHqhzAjZkN
+         q1fKV0FIq9Kk5KwONffxYmIZjZbbwd6Au9FRS6Y6E+lHuJuJtbmmLsWBn81a2vqRvVdt
+         FHds/N85gkBqW7sU32jYEr53gOAE54DRFd6+nb55l0AO/SKTaFY8WEjEryY0++DXd9Cc
+         6cbJ/cRhgMljYMoAYF/BHgVaY/5VoDbuVldVH/PR6ZkL49nCikbpNJcjfvcky+nSveBB
+         5JAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXntn4F+AUazYEaczTc76Gjx7JCUoBvJ6Tdn1FYe38c2rWf5NIPLG94wpv+pLDnomg0zDug+M9QeNUG2oiu7xzn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF5A5DQ/QMrc509+JQ0clQ+8hkIgBvcdI/IH7WVjM1HXtvhtoJ
+	7arnUik4t/vsFdQowhyhaUT05kp1aM5zyqlr2X1h2ur2ETZ0zA0O2shkFwR+AyExOw==
+X-Gm-Gg: ASbGncu2jXW3fsL7t5zTXivb+Wtd8CpNot+8ghQ5f249VB3G4X7EPhqNeC1NDsFN+Bu
+	/RYnWE7iiBEYYKt3c6epdAtnZbklYP/zHovJCTqejObjK/L5U5rccHsLWCPq4eKIU/xHJcOAY2W
+	+pKtEfI+o3iDcSklDCPG1UX8Nn7mdV4FrKOCivWBo793JK6jy+M4uyjN8wqTkRl4gidNLqf9rag
+	OVvRd5Uu6xGxWKEQCQZx5DkJeeaVbOc3pLSmbExm02K0JsrZA14LHF5f1VYgJLYXv92lb0XcaSI
+	nRvMkBh8RQMOrZZa/WOXfHYK86L88p0utADGp6MJcHP2oUP7a4eiTMvsp5Lrl93StaJC6LPvPAd
+	6PkEY/qRRGw==
+X-Google-Smtp-Source: AGHT+IFE+1r+T6jz9dM4N+qGxperYjlRM0Iv/bL9K0RKQrkNyUXEkMkSDlbXHKfSpRXLx2HecBekhg==
+X-Received: by 2002:a17:906:dc95:b0:ad5:5447:6ec2 with SMTP id a640c23a62f3a-ad55447bff9mr850796666b.53.1747665244323;
+        Mon, 19 May 2025 07:34:04 -0700 (PDT)
+Received: from google.com (68.57.204.35.bc.googleusercontent.com. [35.204.57.68])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d43840esm594158466b.87.2025.05.19.07.34.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 May 2025 07:34:03 -0700 (PDT)
+Date: Mon, 19 May 2025 14:34:00 +0000
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Vincent Donnefort <vdonnefort@google.com>, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: Re: [PATCH v4 09/10] KVM: arm64: Stage-2 huge mappings for np-guests
+Message-ID: <aCtBWPe9Vjy04Srg@google.com>
+References: <20250509131706.2336138-1-vdonnefort@google.com>
+ <20250509131706.2336138-10-vdonnefort@google.com>
+ <865xi0fzwk.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefvdduieefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhffkfggtgfgsehtqhertddttdejnecuhfhrohhmpefirhgvghhorhihucevnffgoffgpffvuceoghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgffhgedvhefgtdejvdethfdvieekgfetuefhueekteetgfdvueeutedttdekgeevnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemudeksggtmegtvggrleemudhftgdvmeejvgehudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemudeksggtmegtvggrleemudhftgdvmeejvgehuddphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepkedprhgtphhtthhopeifshgrodhrvghnvghsrghssehsrghnghdqvghnghhinhgvvghrihhnghdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrr
- gguvggrugdrohhrghdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehsvggsrghsthhirghnrdhhvghsshgvlhgsrghrthhhsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: gregory.clement@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <865xi0fzwk.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_073122_764285_3AE3792E 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20250519_073406_049908_6330BE4D 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +102,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Wolfram Sang <wsa+renesas@sang-engineering.com> writes:
+On Friday 16 May 2025 at 14:28:27 (+0100), Marc Zyngier wrote:
+> On Fri, 09 May 2025 14:17:05 +0100,
+> Vincent Donnefort <vdonnefort@google.com> wrote:
+> > 
+> > Now np-guests hypercalls with range are supported, we can let the
+> > hypervisor to install block mappings whenever the Stage-1 allows it,
+> > that is when backed by either Hugetlbfs or THPs. The size of those block
+> > mappings is limited to PMD_SIZE.
+> > 
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > index 78fb9cea2034..97e0fea9db4e 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -167,7 +167,7 @@ int kvm_host_prepare_stage2(void *pgt_pool_base)
+> >  static bool guest_stage2_force_pte_cb(u64 addr, u64 end,
+> >  				      enum kvm_pgtable_prot prot)
+> >  {
+> > -	return true;
+> > +	return false;
+> >  }
+> 
+> Can we get rid of this callback now? And of the .force_pte_cb field in
+> the kvm_pgtable struct?
 
-> We have dedictaded bindings for scl/sda nowadays. Switch away from the
-> deprecated plain 'gpios' property.
->
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+I think it is still needed for the host side -- see the comment in
+host_stage2_force_pte_cb(). In short, it is not safe to put down a
+RO block mapping for the host. Re-mapping one page RW in the middle of
+the block for example would cause us to 'lose' the RO permission for
+the 511 other pages (assuming 4K pages obv) when we zap the block and
+we have no way to reconstruct that lazily as we do for guests.
 
-Applied on mvebu/dt
+One way to solve this is to teach pgtable.c to inherit the block
+permission/attributes/sw bits/ ... for all the PTEs in the newly
+installed table when we zap a block. That is actually quite cheap
+and easy to do in particular for KVM_PGTABLE_S2_IDMAP page-tables
+(a.k.a the host) -- Android does that downstream FWIW.
 
 Thanks,
-
-Gregory
-
-> ---
->  arch/arm/boot/dts/marvell/kirkwood-km_common.dtsi | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/marvell/kirkwood-km_common.dtsi b/arch/arm=
-/boot/dts/marvell/kirkwood-km_common.dtsi
-> index 52baffe45f12..259cb3d5f16d 100644
-> --- a/arch/arm/boot/dts/marvell/kirkwood-km_common.dtsi
-> +++ b/arch/arm/boot/dts/marvell/kirkwood-km_common.dtsi
-> @@ -27,8 +27,8 @@ serial@12000 {
->=20=20
->  	i2c {
->  		compatible =3D "i2c-gpio";
-> -		gpios =3D < &gpio0 8 GPIO_ACTIVE_HIGH		/* sda */
-> -			  &gpio0 9 GPIO_ACTIVE_HIGH>;		/* scl */
-> +		sda-gpios =3D <&gpio0 8 GPIO_ACTIVE_HIGH>;
-> +		scl-gpios =3D <&gpio0 9 GPIO_ACTIVE_HIGH>;
->  		i2c-gpio,delay-us =3D <2>;	/* ~100 kHz */
->  	};
->  };
-> --=20
-> 2.47.2
->
-
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Quentin
 
