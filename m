@@ -4,147 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF35AC54799
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0ABC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OiQ20UwFL9OZ8gt6jmQKPhpd6Gpphuw77WNXAr7/NcM=; b=kk2Urm3//EqQWthM38ni/JHtRP
-	LeKppW7GAfa5hI3mQ1dT+njn0BBq4KWR2YlIOvsWtUrHJiDLd8OkFKQG7uFOllghg4qHde9u/EEcx
-	b/EIyTPhiRuxdpPMBuLOiv3X1xCLQmCFU4EWE+6x+Mp2u2tIlolOtOeKwFfbzo6SaXJc/Yi9NGDXp
-	U0ZqcWrZr6ulL83t2jdHjG8PLfn4+uKxJFXEEkLWuEfSNz2MtZ2jXSuuNxTnCgRqRECqkgpwNpL3N
-	mYigG0bJ4zukI9JjxSsQGaZjI9kCwz0TmapqgcErdoh6u99lZ0hgPYCfbC5MfVw0SZW+7xkJf8gAV
-	hMbTcokA==;
+	bh=/8I4SWUDCIRTZj3Sh/4b5wvaTLCOFYR5oPMTXs4Ribs=; b=o2fM5QK4gJRRyyOReiCpAEgmCO
+	69DlPa9Mvl5WSohNmjctRnSc5XVLxVdV+P0JpnJ8lsDPmoRWTbuo8gcERWi8LhMVXuk+oAKMzQxYJ
+	mYovUu65oM344tUeh6pwVfuW6ssRBeyhTVoDUyUtA//CDCs2WUI/6SWCSCv35vbZbpbimvTvTZP+c
+	O0BVP2229hwm8ZOqS3aEm5i3zIWOI8KQ9wIb2+NhVJn8tecAL61UxuTEkjy43bxSmBntbFxfmt1I+
+	epXzUGO2gj+VVW700IXv4xhIWXEu9R6fdqkO8uJ4rQPZl5qslaycBTTdB90yiWAQkEtdJAtH/OuFp
+	emKBNe1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH6aM-0000000AI68-1lUY;
-	Mon, 19 May 2025 19:55:42 +0000
-Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uH6aN-0000000AI81-1QKI;
+	Mon, 19 May 2025 19:55:44 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH5Wi-0000000AAhZ-24Hy
+	id 1uH5ZQ-0000000AAxr-2tTK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 18:47:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l38TT5owdTzgwaRYwFywzSMz2d0R5TX/+K8UjRD273uH9hs5bUKyw+vqALRgh989FSJ2DlPZrkvLDVmWvaYgsaXkCdMwpENXr4njk1OqjilU2N6ay1gU4dVbTdLKnQwoSUts3AhZjr2FVlr7NZTYVzlQMzeJoLNW3wuZ5xOKMtOassMHugrM8y2wOfWXm7lBrabTSY+iOgJMmJ3JJY5slPx3HyuRVh4mr0oJqIPms1r6/SGiWxNv6Ih+8STrm8kH66+QHDqWfqyCg+ER3UdkkF7vp+hFCZtiVnwatpIUghC1DFfRh/uSIb/hEFOwT/2RAqUqZETeCHWcHFrPhuiCvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OiQ20UwFL9OZ8gt6jmQKPhpd6Gpphuw77WNXAr7/NcM=;
- b=Jt9/1wy+rPNOVnAGSZeyD9yidU4xbD4e3f6Rq/JiDBCRP5SYuk3RnkLmWT2nqNEdqIf8Frx4XiQ7VAQBnERK/GOIcbcXJ99tAmzzfnPEq2keXaNSJhHZ4c52A7cP2z8aMymmSUeFFX3mO+Z8h563QU6UJtiSS7hcV2xAXAAG1jZmYsYtOtUjKdjWQwu9+ef9CoLUpmzp+R4Krbqd4dsJozrlg+Ms5FVAz5BTtwK7TIWdy29+Gk0vLvcVxT3ImIiq8EMSpICGgDJujzZjeITm6ZPm6MesB89IicmNOWDLV1/5sqAaXsFexLSK4gFVREkW1Z975QuyKcMdYxzoVXbjSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OiQ20UwFL9OZ8gt6jmQKPhpd6Gpphuw77WNXAr7/NcM=;
- b=BErnjr6Beb5DGIBNEHoGcu6G7edRW2xwnJZAD3Dnl7Q8zlYT2L/xkbXMR2UF1wVe+SDX+5vFCupxpFbXRpUR2bZLgqbiGWQSX3+0fr5fofY87XRk7yi/4laTWBDwFNrGMVEaTp0wBw2B+uybG/ciuoqiPQXviKyRMsztLeXtOHV1gkNIEIy5zsJKJ9LIPMya8cQG1foQYRHPB3T4/ChF8TkCS2UNrpslRNk53K5FZ4nGFklk9LXLdcYj5AUO/xG/rd3/S8mcQPI9P5VTRjWWxLhBirBRu/Y3JYKW/EFrdgsR8rWzUtDbASoJ3bhOdIZFyzR4tN9/CSbQK+B1EaEYDw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA4PR04MB9440.eurprd04.prod.outlook.com (2603:10a6:102:2ac::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Mon, 19 May
- 2025 18:47:47 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Mon, 19 May 2025
- 18:47:47 +0000
-Date: Mon, 19 May 2025 14:47:41 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com, carlos.song@nxp.com
-Subject: Re: [PATCH 3/6] arm64: dts: imx943-evk: add i2c io expander support
-Message-ID: <aCt8zXnIZCkh8/HO@lizhi-Precision-Tower-5810>
-References: <20250515051900.2353627-1-shengjiu.wang@nxp.com>
- <20250515051900.2353627-4-shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250515051900.2353627-4-shengjiu.wang@nxp.com>
-X-ClientProxiedBy: AM0PR06CA0088.eurprd06.prod.outlook.com
- (2603:10a6:208:fa::29) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 19 May 2025 18:50:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=/8I4
+	SWUDCIRTZj3Sh/4b5wvaTLCOFYR5oPMTXs4Ribs=; b=DOZIW3VWJI5Ettv3r7wM
+	X+w4ad4y4+DAO9ZtCPahs8xUgOFCFzMFnLZrPoSY3IAxkDJ5rZav+V1xBWxrFq6Y
+	rDBJp149eJ7/7z4kQtK7xUMRDbksB2dDqS7iB867e7CRoSUJ26J+ajXCUl/6+Z3s
+	AjMbvbxE6aCyapWGSsQpvIRQnCkc16dJBcZQIUdKWrWeG1wA2p+wcN6GdB+XZa8t
+	F+dgHXoyB2xKmTEOPNsejNv5i+SMm78i8ayHFhneVta9xzkVsKTXc91W5057u0mN
+	tJWvOBQCVzxlK0n3XSXwtwJO/41Y0WeV6YZwPOn0vAQVbZ0AoiFmKzdB4C0hMYfs
+	nA==
+Received: (qmail 2603142 invoked from network); 19 May 2025 20:50:36 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 19 May 2025 20:50:36 +0200
+X-UD-Smtp-Session: l3s3148p1@vph1m4E1ONRZz6uL
+Date: Mon, 19 May 2025 20:50:35 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	Herve Codina <herve.codina@bootlin.com>
+Subject: Re: [PATCH 1/7] arm64: dts: exynos: use proper node names for GPIO
+ based I2C busses
+Message-ID: <aCt9e-rrOOR0C5HI@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	Herve Codina <herve.codina@bootlin.com>
+References: <20250519121512.5657-1-wsa+renesas@sang-engineering.com>
+ <20250519121512.5657-2-wsa+renesas@sang-engineering.com>
+ <006ee7d6-1289-4f4a-819d-9a5e5120db99@kernel.org>
+ <aCtD7BH5N_uPGkq7@shikoro>
+ <3f6e1b74-5d19-4194-b98b-91ab6f10446c@kernel.org>
+ <aCtK1-Yn6u8-n8mU@shikoro>
+ <e5a3ce2b-4ebe-44c9-9bf5-9f460d5e7fe8@kernel.org>
+ <aCtbg0_vD07g394k@shikoro>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA4PR04MB9440:EE_
-X-MS-Office365-Filtering-Correlation-Id: 17341689-33fe-4e2a-b127-08dd9705a5c3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HfxYiCfY0TDGt8VZ23UMYSy51SYHYpx8zy6W5pSz5gsqCCfoMzgJ7qNp/4CU?=
- =?us-ascii?Q?Z+1+XzFpmaHn6/LBSFEV3YIFtZtCUcIfNHrPtWy6bPhdD9pBJa+1NBIMjA5S?=
- =?us-ascii?Q?4SNs3+hHaQ2tvC4B6dfUdavP0uaG9+MYPEPAKXV8lDaq1IgxXq9lI9QoMoRs?=
- =?us-ascii?Q?I0E3qbbDhUbMXOuYHA+IWdN3lH2sF2jDuUojCAx3017sAb//gfSNzMB5sX5o?=
- =?us-ascii?Q?vp1bALRVR/gy/bgGuY8pdst3EkIzIZevpbejw1z/hYWQKAAxSj2O//QUYMeN?=
- =?us-ascii?Q?VtmoosaDENJM2V8F8wMn6suJMG8kVasflNJEfgnIV+LXdlYjJ1hmSwMRRL9Y?=
- =?us-ascii?Q?bCgE04eaVuv0gUhmbs3+l9+maCxwCP2sdmiNkw7pU6Xr1RIYE3J8TgB9a6GR?=
- =?us-ascii?Q?829EJcZy+Ossn7wvJnC1F+aBoUvRHSoPMdQgnPFWC66GFI6iWBXQcwoSFqz1?=
- =?us-ascii?Q?ae7cdIJsnR27YuDqjN80F6+riMtlkoKOmrMLRB9R7D66aRPBuHzvnpr0CoNi?=
- =?us-ascii?Q?w9Wv6YdlfHDhrxGEiTByK3H5JBR6Uk0I4fDW1M05ahSSeq25PVi5l32N+ak8?=
- =?us-ascii?Q?gKtqLCTTlf6KsLE9L9mRjAoB5ekvVSp8CelSmgXe6IyEzEwfjT2jt721jmAz?=
- =?us-ascii?Q?xw37J1yXvoFaZnA7uiBbsUehXKhVtN/PAnsCzSO5w69tye3ZJjZk5fdiiBe/?=
- =?us-ascii?Q?dq38wvUwqBkk+wvumEUJPZAZAX5q4fbbBaRLPYVcuUnM3H4fTOq50D5HoOqd?=
- =?us-ascii?Q?PFH9fJxVTIzQYwhV+HzVifESKWYhfIRSBTcpzUllrJchsv53uIGBwxiujS+a?=
- =?us-ascii?Q?Gxgv3EIhQ87xNFMtnS9mCOZcF69/xgYpB3SbKNbcE/T6MABU71Hq2jGyda20?=
- =?us-ascii?Q?FvaoVvHIU0SlXATjcDANFQvMejghhBcL15J8eZBtHI2p6ZZH9Q6aUGOjk9rL?=
- =?us-ascii?Q?zflfAWxfe1glrvIFfuy5q60yXoREnsMd66BDLek0l2paxb9+0zZYtaYQQqQe?=
- =?us-ascii?Q?k5ehN7aFaNZA/SfhHrlifGgj5d/tw+IF44T2uYI6jxt7/x9bFbeFJnCu1fNT?=
- =?us-ascii?Q?EfXoQR8kej3qOJT0Fnx5hjtX4hVyVDDFibHMKzVO1dd9ARdumN4my8riW9Xh?=
- =?us-ascii?Q?1acQ67nSQEj/etCxxQs00Irbhu/W7T6uWn8c99zeQELlgeAUX2Et47uAwbbM?=
- =?us-ascii?Q?zAxklOq7Vz0Nw49hu9vIdpMdHkuFm3TJ5mjkbfwbnMlqFQwBSQ/E8TMMBkmE?=
- =?us-ascii?Q?pAClT+w1oiY5hnJiSOntH7HImhHXsUh2g+827oeHCmNIndtOdCj3Qnef0irR?=
- =?us-ascii?Q?NKNSDv9CmGX6lE8YXxmruvvrqsWuPdcL+3v0qGPLmVHazP68bCLaq0upyaPn?=
- =?us-ascii?Q?rnxP/iyv+Kh0aFPDkGfXZZhU83OkVbASn4a56EnlN0AxQ721nMyS0mSGhkI0?=
- =?us-ascii?Q?27QeT53db31PzSXbYH0AaPDxHmqTVWlOoDESCCyi8t8JwbnjNyijGw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JMvx71Y+gsyO3uQ/Hobvx7S5quVzhbpzhZHJPVUEsEVBJoxTaqPjbLj4wSF/?=
- =?us-ascii?Q?2qemfP7Jtv5GTtBtMn2pUoA5E7kTOOMM4gzKHQKwbAknNEq+YYt/7XRrmN+9?=
- =?us-ascii?Q?XqLvWSxO/Myb5Dj2m3cT7yjtU2OjIdYnWHmas5uCO2xZnapvKd84x6oEAfHR?=
- =?us-ascii?Q?xhMuNvtvcgHt98t6f7ZhqcCuwqPPPgNNbHjPWlpegFLbZyk5Xvc+Y6fbPzBp?=
- =?us-ascii?Q?S4YjZmW6VCDjdYLOKvuE/ayE7QPPbecm+7GDck2nusxJ1jWfXp1jGsgjO24l?=
- =?us-ascii?Q?5EbpyPZav81PQol3HidwpWLiYBoDuoogCQQstxOVUAVbX/DWq3f9ZznFRNEe?=
- =?us-ascii?Q?qkUpTcwnkvtH4w26hsfXhpoTbaLV4k1QhwXNCVYLfnvkZzNTTMsjvs/Y0hS/?=
- =?us-ascii?Q?kXAP+8M8lY7LUQRsXn2QdgVCCP14uxDym41W9au6ZhoycEUcnWel2I0fj4V3?=
- =?us-ascii?Q?98Urgt3GdmOQMnJKF06tO0bnbRRpZAfUs1BTnlLjzS5xbWIqOLexNZdKVjwq?=
- =?us-ascii?Q?JCj8+l92qowN//gXntB2BDe8g+fqnj+AWx1l9lTVyIzEhxDczpaCILXShKNX?=
- =?us-ascii?Q?q+AZ4kur1uQQbW/+qPSxGUbizHVw2gH9sGvNTDIzWq5mKOSg4koGdoMr8ZEq?=
- =?us-ascii?Q?rPhOtTjKk5zGOg/fKn4XT9TQzsG+ZW4iRo2o4RNiOyYlfteMfYJFBBpGh9+T?=
- =?us-ascii?Q?J6Lgy9DSgLxDRKidUPTJVZfM+EI7Ty+DpmzMOOPHlVg3WV6Lb52PIFblA5oN?=
- =?us-ascii?Q?kCLfEsP7qWkYUyHQyK1H2IU6WeFilJmR4m3Fw/ijDXvJRPzICQDT55v0v//H?=
- =?us-ascii?Q?hGY9KZCKWORJjeaMJ/XCyeS4fgYXbhqiEspfjLKljCKm9vrw0HI0RvyyQSEL?=
- =?us-ascii?Q?pjgCxwsgcUL1JYvMzbXX0LC7fd2kXM/A3sfEW1Yj0O/mp7feYROPQsyVVLuF?=
- =?us-ascii?Q?FMnVEAKtdbHggn3c3zuz65WHZSm6EnI/IymKtAFMvtmMShT6qNSfJ9ETvq9A?=
- =?us-ascii?Q?0mB/lGiqldBkC+HzoJJJJwue7Zx0oa4wCGSGyz7fFAgkq9Tlk4+IOjOXGhDO?=
- =?us-ascii?Q?u7yuUQGOpmFGzMAN9VaJBIzbpVdQdQsAstIlT7vc6KYkZi4KGfIpmPbIFrJk?=
- =?us-ascii?Q?mQHnL7gcsBtqm4PZkYoPNsl6fPjXYKAH7fzTM9HkECNMKUtALZCTuovpQisU?=
- =?us-ascii?Q?w09jMRbzRkJArbKfaHdMM+BanMh256Ra1Pf2rgKqlHSS3NQnpjfNgtLp+JtV?=
- =?us-ascii?Q?vQ87ln7+x9eJNOweU42dcRC71dWyX5oJSsoHQWkrEAEvThACcJC/wyRSKwFm?=
- =?us-ascii?Q?PePBy8r1RF9GhxBcQ5Z1X28k0e6nATKWKbeI/1pmiUYGWSX3eCszsTRSwu/r?=
- =?us-ascii?Q?QhOrgT0QIwUcfM3fPk7N4FGPa/8nUtandTcvuKfzVWyWjd3D/QZvFVZTHtHp?=
- =?us-ascii?Q?LD6YMtWfqa0QgmiVBTlYv4YxZvV3GbnwePCjM5Lw/zoojqYJ2Ui7ShtE0GWP?=
- =?us-ascii?Q?Ddg5UcXIsmwXUor2ZMfOMltgjEWXeKqSLExOpDcYqUpzKjOLKP9MVJyKfV16?=
- =?us-ascii?Q?yK2OElG0J48iUwHUWdIqr/kAqRpm9ex6HDjkO8gG?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 17341689-33fe-4e2a-b127-08dd9705a5c3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2025 18:47:47.0450
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oHxHybgIEdaNdqu/jJo4Wv0+w4kKpaIlphJIad4XFltMNftA3WI6fmJNXbg4EDLVvbSq2EQAhzLJC/FvuFc1rA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9440
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WXFEbYeipUFU1N3a"
+Content-Disposition: inline
+In-Reply-To: <aCtbg0_vD07g394k@shikoro>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_114752_535962_4D587635 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20250519_115041_600947_25B3DD52 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,182 +92,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 01:18:57PM +0800, Shengjiu Wang wrote:
-> From: Carlos Song <carlos.song@nxp.com>
->
-> Add i2c io expander support for imx943 evk board.
->
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+--WXFEbYeipUFU1N3a
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> ---
->  arch/arm64/boot/dts/freescale/imx943-evk.dts | 105 +++++++++++++++++++
->  1 file changed, 105 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index a566b9d8b813..ff6e9ac5477f 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -62,6 +62,13 @@ &lpi2c3 {
->  	pinctrl-names = "default";
->  	status = "okay";
->
-> +	pca9670_i2c3: gpio@23 {
-> +		compatible = "nxp,pca9670";
-> +		reg = <0x23>;
-> +		#gpio-cells = <2>;
-> +		gpio-controller;
-> +	};
-> +
->  	pca9548_i2c3: i2c-mux@77 {
->  		compatible = "nxp,pca9548";
->  		reg = <0x77>;
-> @@ -102,18 +109,63 @@ i2c@5 {
->  			reg = <5>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			pcal6416_i2c3_u46: gpio@20 {
-> +				compatible = "nxp,pcal6416";
-> +				reg = <0x20>;
-> +				#gpio-cells = <2>;
-> +				gpio-controller;
-> +
-> +				sd-card-on-hog {
-> +					gpios = <13 GPIO_ACTIVE_HIGH>;
-> +					gpio-hog;
-> +					output-high;
-> +				};
-> +			};
-> +
-> +			pcal6416_i2c3_u171: gpio@21 {
-> +				compatible = "nxp,pcal6416";
-> +				reg = <0x21>;
-> +				#gpio-cells = <2>;
-> +				gpio-controller;
-> +			};
->  		};
->
->  		i2c@6 {
->  			reg = <6>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			pcal6416_i2c3_u48: gpio@20 {
-> +				compatible = "nxp,pcal6416";
-> +				reg = <0x20>;
-> +				#interrupt-cells = <2>;
-> +				interrupt-controller;
-> +				interrupt-parent = <&gpio3>;
-> +				interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
-> +				#gpio-cells = <2>;
-> +				gpio-controller;
-> +				pinctrl-0 = <&pinctrl_ioexpander_int>;
-> +				pinctrl-names = "default";
-> +			};
->  		};
->
->  		i2c@7 {
->  			reg = <7>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			pcal6408_i2c3_u172: gpio@20 {
-> +				compatible = "nxp,pcal6408";
-> +				reg = <0x20>;
-> +				#interrupt-cells = <2>;
-> +				interrupt-controller;
-> +				interrupt-parent = <&gpio3>;
-> +				/* shared int pin with u48 */
-> +				interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
-> +				#gpio-cells = <2>;
-> +				gpio-controller;
-> +			};
->  		};
->  	};
->  };
-> @@ -147,18 +199,59 @@ i2c@1 {
->  			reg = <1>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			pcal6416_i2c6_u50: gpio@21 {
-> +				compatible = "nxp,pcal6416";
-> +				reg = <0x21>;
-> +				#gpio-cells = <2>;
-> +				gpio-controller;
-> +			};
->  		};
->
->  		i2c@2 {
->  			reg = <2>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			pcal6408_i2c6_u170: gpio@20 {
-> +				compatible = "nxp,pcal6408";
-> +				reg = <0x20>;
-> +				#interrupt-cells = <2>;
-> +				interrupt-controller;
-> +				interrupt-parent = <&gpio4>;
-> +				interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-> +				#gpio-cells = <2>;
-> +				gpio-controller;
-> +				pinctrl-0 = <&pinctrl_ioexpander_int2>;
-> +				pinctrl-names = "default";
-> +			};
->  		};
->
->  		i2c@3 {
->  			reg = <3>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			pcal6416_i2c6_u44: gpio@20 {
-> +				compatible = "nxp,pcal6416";
-> +				reg = <0x20>;
-> +				#gpio-cells = <2>;
-> +				gpio-controller;
-> +
-> +				/* eMMC IOMUX selection */
-> +				sd1-sel-hog {
-> +					gpios = <0 GPIO_ACTIVE_HIGH>;
-> +					gpio-hog;
-> +					output-high;
-> +				};
-> +
-> +				/* SD card IOMUX selection */
-> +				sd2-sel-hog {
-> +					gpios = <1 GPIO_ACTIVE_HIGH>;
-> +					gpio-hog;
-> +					output-high;
-> +				};
-> +			};
->  		};
->  	};
->  };
-> @@ -171,6 +264,18 @@ &lpuart1 {
->
->  &scmi_iomuxc {
->
-> +	pinctrl_ioexpander_int2: ioexpanderint2grp {
-> +		fsl,pins = <
-> +			IMX94_PAD_CCM_CLKO4__GPIO4_IO3		0x31e
-> +		>;
-> +	};
-> +
-> +	pinctrl_ioexpander_int: ioexpanderintgrp {
-> +		fsl,pins = <
-> +			IMX94_PAD_GPIO_IO45__GPIO3_IO13		0x31e
-> +		>;
-> +	};
-> +
->  	pinctrl_lpi2c3: lpi2c3grp {
->  		fsl,pins = <
->  			IMX94_PAD_GPIO_IO16__LPI2C3_SDA		0x40000b9e
-> --
-> 2.34.1
->
+On Mon, May 19, 2025 at 06:25:39PM +0200, Wolfram Sang wrote:
+>=20
+> > I think either we use i2c-X or commit 57138f5b8c92 ("schemas: i2c: Avoid
+> > extra characters in i2c nodename pattern") from Herve was not correct
+> > and needs to be fixed.
+>=20
+> I will look if I can fix dt-schema instead. Thanks for the pointer!
+
+Found it! Patch sent.
+
+
+--WXFEbYeipUFU1N3a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmgrfXsACgkQFA3kzBSg
+KbaZcQ//SdIH9JF6XLo4IUQMXcSxWyKNFCRI6fHKx5mLUOvqKnNbQi0zRPpssStd
+dDLZZhMIVhmnb81NdZYAhf51ZcizGpb6JhoE2Ki/Q3czg3mROel0i5M00mOI4ELV
+PUfpfTm4k4mZGsxSzaJt1rHvDJnCt4epll0PZ9zHwHmUe8QT7Tf9C5qi0F3BLx3W
+XqgqN0Tuy8HmOXLqo4ZEeX8TbiuIbI8BRD0ONGPb7TZMHMpLVS7dhDH4v0ek8/Sk
+jn1OYMI7P7ahAMJAtHp4r9JO3lw9nqiUZkYJsGiHVteuSqCRx5xsuMiRfXJr9VVg
+KfvUf+vq14MrYQiCy57tNVq+Ma4nioo5cVWf92zmlHaVxWXDxire9jVwU26H1jvt
+bfX+JnYAEe4BRck+zOzEW8RzthLEFtt+o+oqz1Eb2PbBDfGYvbYLJTr7OU6n7Snc
++1rdad/nbnFtUXFkmJUGuMghZjkLrMUv4Ok/f4XmZWvySuaBHdYtgZx+Y/AyVEbl
+Gti58GL88aL0u+SdsFBk0K0IngEfrmJoJlvzBR5/9pX5miHDK74+jEI54wzHWC44
+pldcix6/0kyzVed2HJArMJh39ytDwlsP+kNCEWQqMXddPgJVjQpHCdHUU7pGp8WP
+MSkmFPIX/fp5yq9gZd/AJErEZOiJAvCzr/Tk8IKjw7EEoEhuk3I=
+=59J0
+-----END PGP SIGNATURE-----
+
+--WXFEbYeipUFU1N3a--
 
