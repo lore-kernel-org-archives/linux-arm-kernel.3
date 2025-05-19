@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2E6C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E1FC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvgQgjjSSLAddxWgnb/Li9VuTBO73l27lsGts11ef60=; b=bBQEBZf0Ut+H9doXBCdATEupxk
-	a6kwHpMR51RaqASvI8oLzo1rkgXh+lvOfroD531rh5q3AUWuKX5f664a3/AbEPIImTpvUTln/Bxh3
-	zpHnHND5NHI6IEUV+BcUjbhtiSn3QOPLR0imcmhxGf+/AssFEk54FB2yQTMWTqOyF1h2SYPrnsNj9
-	4snXt+l87LxW1FCu7noc78Y9O6Au95519Of9ReGCQ2bq3nqnxI63zzqg7DQLOJRh35VmImz3jY2qp
-	Of/AW9gy0RDxjDDCNaXwI5A4nRK0bAYrZPj9ci+7gls5XK8sSGSx38Ai0AO4FGISuGFTBl7YnE0BJ
-	EHhkIRbg==;
+	bh=RUKR1PkGl2Z2FdwJEXA1r2jMzNvP7ZTsOC9uD4WdqUE=; b=VckuS4fhz5KLZ4+BV35xs/LWHS
+	H3+nHOJbt4z/3/uSuTGkg6g0w+FOwTGRzhYv2thB39JKV6mZuAlDnAhEyeWT+9Bz3u0gIJsq7Nw1O
+	KqQWMo9r/0hndYWInD0vy4LMBDD11dmsHgWlDPrmJTKJbAtl/LhLSwPm463BhEe5Z+PEmHV8UEZ/0
+	e1k4GknRcr6OEtrDWlXT12JWsEZoXi1N+mcR0yxEDEJHjk5n8vFALEUb+9hV+M1W3bVyiE3ESxXDk
+	COnBgwTximQ3Tq6D3wZLpwaiuzbCalEfnYEQ0nhWs2caKI6dNtCFsLHDgct7UUlEmuZemL6VM7v7v
+	rxM/WdxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH29J-00000009XON-1c1s;
-	Mon, 19 May 2025 15:11:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uH29Y-00000009Xfj-1AXI;
+	Mon, 19 May 2025 15:11:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH19G-00000009Ors-0YTK
+	id 1uH1W9-00000009S2R-0Whz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 14:07:24 +0000
+	Mon, 19 May 2025 14:31:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9DC1840BCC;
-	Mon, 19 May 2025 14:07:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94EC2C4CEE4;
-	Mon, 19 May 2025 14:07:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 318F25C059C;
+	Mon, 19 May 2025 14:28:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08FF5C4CEE9;
+	Mon, 19 May 2025 14:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747663641;
-	bh=Vjxx3sdINLSP5xcLk8gOYpfc7PhkgV2RnCzn4FnV044=;
+	s=k20201202; t=1747665059;
+	bh=Frb3sunV2ENhXKid51T6ZwuAujvRL92OYErynI1QNPY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OUGyJqZBxfE0T2+hgIza/5xrQaClypfGHZhlPS1OYpQeM8FkeJOsiGDVJqL52nuf4
-	 yYhKAwzAS7Tf31lG5xoLcEgQRssYWn/b0k8H5zsT96akuXDLsx0FNB67Wp/tujIhYg
-	 Ifak/vE8mTwOLZSLDJtGDHbKbWJ8CN23U+zQNrOxnkQPym0MxrkldTS6iHxQ1poH9e
-	 SbKan18lTHozANPl1Gg2U+bCVFx1oHv0KEEhbb4C3hfCqAi6hOMCm77yMnGrqJqJ8r
-	 ZP3eTjXHstTzFVTU6Lc4olp0eh9QxVMCJ1Uq55V3qLLxT9Ca2CYoqXs1YOrjmDEI69
-	 bJX2rLrdgnXlQ==
-Date: Mon, 19 May 2025 15:07:15 +0100
-From: Will Deacon <will@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v21 2/4] arm64: Handle BRBE booting requirements
-Message-ID: <20250519140713.GA16991@willie-the-truck>
-References: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
- <20250407-arm-brbe-v19-v21-2-ff187ff6c928@kernel.org>
+	b=UAb1fYLrBeKJGnk2IJ9S1cu3ZQ3cApkn8ZujBtE+RYvjtEGHDElYpRjBunsn+80Lq
+	 gk7PazzgHIQVQeI56zkZ+8NeyF76SQ4V6VAjBrO2S6sP6NETgdLs0GB0cY/v1XW3kl
+	 UU8egKVe04gTYI2DRfThddoiJq5HBN/WKwoMb1ryiTypcmq+CbsmfU/exzmlli70pH
+	 Nw21n1gWRQG6dQB+diYGstG0SuBCeHEz3DksU3sPA68uI0TctlFgFWF7MKKpWGeJhg
+	 cRV6BdKStlFX/HTNWaHq/prv34ePzJGq9QgL32YnwjMLeYHIVEy8Jt+thx6TpIfxVu
+	 yuNctDG18pERA==
+Date: Mon, 19 May 2025 15:30:54 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-amarula@amarulasolutions.com" <linux-amarula@amarulasolutions.com>,
+	Abel Vesa <abelvesa@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Subject: Re: [linux-next, 1/1] clk: imx: imx8mm-anatop: probe only on i.MX8MM
+ platforms
+Message-ID: <1ca1fe0b-2337-4aa6-b36d-f4d11df7b0f5@sirena.org.uk>
+References: <20250516134945.14692-1-dario.binacchi@amarulasolutions.com>
+ <PAXPR04MB8459312B18CBAEDF9192A188889CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <c929b7d8-6348-4978-824e-6902d0364a00@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5tcNGpct1qXGitB4"
 Content-Disposition: inline
-In-Reply-To: <20250407-arm-brbe-v19-v21-2-ff187ff6c928@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <c929b7d8-6348-4978-824e-6902d0364a00@linaro.org>
+X-Cookie: We have ears, earther...FOUR OF THEM!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_070722_217893_FBC0BD07 
-X-CRM114-Status: GOOD (  36.78  )
+X-CRM114-CacheID: sfid-20250519_073101_208613_9AE134F8 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,192 +86,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 12:41:31PM -0500, Rob Herring (Arm) wrote:
-> From: Anshuman Khandual <anshuman.khandual@arm.com>
-> 
-> To use the Branch Record Buffer Extension (BRBE), some configuration is
-> necessary at EL3 and EL2. This patch documents the requirements and adds
-> the initial EL2 setup code, which largely consists of configuring the
-> fine-grained traps and initializing a couple of BRBE control registers.
-> 
-> Before this patch, __init_el2_fgt() would initialize HDFGRTR_EL2 and
-> HDFGWTR_EL2 with the same value, relying on the read/write trap controls
-> for a register occupying the same bit position in either register. The
-> 'nBRBIDR' trap control only exists in bit 59 of HDFGRTR_EL2, while bit
-> 59 of HDFGWTR_EL2 is RES0, and so this assumption no longer holds.
-> 
-> To handle HDFGRTR_EL2 and HDFGWTR_EL2 having (slightly) different bit
-> layouts, __init_el2_fgt() is changed to accumulate the HDFGRTR_EL2 and
-> HDFGWTR_EL2 control bits separately. While making this change the
-> open-coded value (1 << 62) is replaced with
-> HDFG{R,W}TR_EL2_nPMSNEVFR_EL1_MASK.
-> 
-> The BRBCR_EL1 and BRBCR_EL2 registers are unusual and require special
-> initialisation: even though they are subject to E2H renaming, both have
-> an effect regardless of HCR_EL2.TGE, even when running at EL2, and
-> consequently both need to be initialised. This is handled in
-> __init_el2_brbe() with a comment to explain the situation.
-> 
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oliver.upton@linux.dev>
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> [Mark: rewrite commit message, fix typo in comment]
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
-> Tested-by: James Clark <james.clark@linaro.org>
-> ---
-> v20:
->  - Document that MDCR_EL3.SBRBE can be 0b01 also
->  - Fix "HDFGWTR_EL2 is RES0" in commit msg
-> ---
->  Documentation/arch/arm64/booting.rst | 21 +++++++++
->  arch/arm64/include/asm/el2_setup.h   | 86 ++++++++++++++++++++++++++++++++++--
->  2 files changed, 104 insertions(+), 3 deletions(-)
 
-It would be good to have an Ack from the kvm/arm64 side on this, but in
-the meantime I've left some comments inline.
+--5tcNGpct1qXGitB4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-> index dee7b6de864f..a627c1e0e4a0 100644
-> --- a/Documentation/arch/arm64/booting.rst
-> +++ b/Documentation/arch/arm64/booting.rst
-> @@ -358,6 +358,27 @@ Before jumping into the kernel, the following conditions must be met:
->  
->      - HWFGWTR_EL2.nSMPRI_EL1 (bit 54) must be initialised to 0b01.
->  
-> +  For CPUs with feature Branch Record Buffer Extension (FEAT_BRBE):
+On Mon, May 19, 2025 at 04:13:14PM +0200, Krzysztof Kozlowski wrote:
 
-This doesn't make sense ^^^
+> You claim with this:
 
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index ebceaae3c749..e7fcba1e7d8e 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -189,6 +189,39 @@
->  .Lskip_set_cptr_\@:
->  .endm
->  
-> +/*
-> + * Configure BRBE to permit recording cycle counts and branch mispredicts.
-> + *
-> + * At any EL, to record cycle counts BRBE requires that both BRBCR_EL2.CC=1 and
-> + * BRBCR_EL1.CC=1.
-> + *
-> + * At any EL, to record branch mispredicts BRBE requires that both
-> + * BRBCR_EL2.MPRED=1 and BRBCR_EL1.MPRED=1.
-> + *
-> + * When HCR_EL2.E2H=1, the BRBCR_EL1 encoding is redirected to BRBCR_EL2, but
-> + * the {CC,MPRED} bits in the real BRBCR_EL1 register still apply.
-> + *
-> + * Set {CC,MPRED} in both BRBCR_EL2 and BRBCR_EL1 so that at runtime we only
-> + * need to enable/disable these in BRBCR_EL1 regardless of whether the kernel
-> + * ends up executing in EL1 or EL2.
-> + */
-> +.macro __init_el2_brbe
-> +	mrs	x1, id_aa64dfr0_el1
-> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-> +	cbz	x1, .Lskip_brbe_\@
-> +
-> +	mov_q	x0, BRBCR_ELx_CC | BRBCR_ELx_MPRED
-> +	msr_s	SYS_BRBCR_EL2, x0
-> +
-> +	__check_hvhe .Lset_brbe_nvhe_\@, x1
-> +	msr_s	SYS_BRBCR_EL12, x0	// VHE
-> +	b	.Lskip_brbe_\@
-> +
-> +.Lset_brbe_nvhe_\@:
-> +	msr_s	SYS_BRBCR_EL1, x0	// NVHE
-> +.Lskip_brbe_\@:
+> 	compatible = "fsl,imx8mp-anatop", "fsl,imx8mm-anatop";
 
-Why do we have to poke BRBCR_EL12/BRBCR_EL1 here rather than in the BRBE
-driver code?
+> That 8mp is fully compatible with 8mm, yet here you claim that 8mm is
+> not handled. So it is both compatible and not compatible.
 
-> +.endm
-> +
->  /* Disable any fine grained traps */
->  .macro __init_el2_fgt
->  	mrs	x1, id_aa64mmfr0_el1
-> @@ -196,16 +229,48 @@
->  	cbz	x1, .Lskip_fgt_\@
->  
->  	mov	x0, xzr
-> +	mov	x2, xzr
->  	mrs	x1, id_aa64dfr0_el1
->  	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
->  	cmp	x1, #3
->  	b.lt	.Lskip_spe_fgt_\@
-> +
->  	/* Disable PMSNEVFR_EL1 read and write traps */
-> -	orr	x0, x0, #(1 << 62)
-> +	orr	x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
-> +	orr	x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
->  
->  .Lskip_spe_fgt_\@:
-> +#ifdef CONFIG_ARM64_BRBE
+Note that binding for anatop and the above compatible list are in
+mainline so this is a preexisting issue, whatever differences there are
+in the versions in the two SoCs aren't triggering problems with the code
+that's in mainline.  The series adding actual clock drivers triggers the
+issue but the claim that the two were compatible wasn't introduced by
+it.  Given this if people are shipping DTBs based on the existing kernel
+we might need something like this patch to work around them, even if we
+fix the existing binding and .dtsi files.
 
-Why is this gated on CONFIG_ARM64_BRBE?
+--5tcNGpct1qXGitB4
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +	mrs	x1, id_aa64dfr0_el1
-> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-> +	cbz	x1, .Lskip_brbe_reg_fgt_\@
-> +
-> +	/*
-> +	 * Disable read traps for the following registers
-> +	 *
-> +	 * [BRBSRC|BRBTGT|RBINF]_EL1
-> +	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
-> +	 */
-> +	orr	x0, x0, #HDFGRTR_EL2_nBRBDATA_MASK
-> +
-> +	/*
-> +	 * Disable write traps for the following registers
-> +	 *
-> +	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
-> +	 */
-> +	orr	x2, x2, #HDFGWTR_EL2_nBRBDATA_MASK
-> +
-> +	/* Disable read and write traps for [BRBCR|BRBFCR]_EL1 */
-> +	orr	x0, x0, #HDFGRTR_EL2_nBRBCTL_MASK
-> +	orr	x2, x2, #HDFGWTR_EL2_nBRBCTL_MASK
-> +
-> +	/* Disable read traps for BRBIDR_EL1 */
-> +	orr	x0, x0, #HDFGRTR_EL2_nBRBIDR_MASK
-> +
-> +.Lskip_brbe_reg_fgt_\@:
+-----BEGIN PGP SIGNATURE-----
 
-I think this label should become .Lset_debug_fgt_\@:. That way, we have
-a clear point at which we're done with HDFG*TR_EL2. We can zero x0 and
-x2 and from then on we can focus on HFG*TR + HFGITR.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgrQJ0ACgkQJNaLcl1U
+h9DtDAf/YOhQ/EgQbcTye6iDeHwoQtdcs7hIDQQaJYA6f9Io0CcGpfOSYQHlbN/n
+OIcXaNe+qIC2nc94z8vn5LvGkFTEb4qHUtW8PJKzXrRurP72HvOAk0oEdJN9OylP
+6Lerjp0Z88s3h6t/aeXVedjzsnbDiil9dXtbAnR7QEzma03NJfWdsf/ecwcPFgXc
+JsPSniUHinFE4f0bSq5iRPshTdBpwmHMgjbEI2jedSom27U8693k4uRhmq0qZ+ht
+plwHnVPkcsH2V4dZe5XGr2pQ82CEyPZkfHYjfjSBBiDMAgOPgrIlUbjXCfuRgCYL
+iEz7t/xV12xq7v9pp8sssHCZ2JSf0A==
+=Lhqe
+-----END PGP SIGNATURE-----
 
-nit: the existing .Lskip_debug_fgt_\@ label looks to be misnamed -- it
-should probably be .Lskip_sme_fgt_\@ ?
-
-> +#endif /* CONFIG_ARM64_BRBE */
->  	msr_s	SYS_HDFGRTR_EL2, x0
-> -	msr_s	SYS_HDFGWTR_EL2, x0
-> +	msr_s	SYS_HDFGWTR_EL2, x2
-
-nit: It would be cleaner to use x0/x1 for the pair of trap registers
-but I can see that would be a more invasive change.
-
->  	mov	x0, xzr
->  	mrs	x1, id_aa64pfr1_el1
-> @@ -246,7 +311,21 @@
->  .Lset_fgt_\@:
->  	msr_s	SYS_HFGRTR_EL2, x0
->  	msr_s	SYS_HFGWTR_EL2, x0
-> -	msr_s	SYS_HFGITR_EL2, xzr
-> +	mov	x0, xzr
-> +#ifdef CONFIG_ARM64_BRBE
-> +	mrs	x1, id_aa64dfr0_el1
-> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
-> +	cbz	x1, .Lskip_brbe_insn_fgt_\@
-
-It would probably scale better if we unconditionally stick x2 in
-HFGITR_EL2 and zero that register in '.Lset_debug_fgt_\@'. We still have
-two checks for BRBE, but at least '.Lset_fgt_\@' could just stick to
-writing the registers.
-
-Will
+--5tcNGpct1qXGitB4--
 
