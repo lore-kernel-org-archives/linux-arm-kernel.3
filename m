@@ -4,109 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3031C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E57C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3JXJPK8Pxeu+1hTQ6X+A9fh/NPx5Fi27JyhWAictUa0=; b=YM6rZ3aHuOrzfjeQ/Tx5EzCvR8
-	S/eDknpv+x060bNnscOAf9eJ1Qk3LnwhkpUL/hyosNm7m+lzOVPoh5t642WdU790i5Lw8aESIi25h
-	aL09umKdQfEoy6yuYELCoo3me/rIN0eigh1iMdyo0bbrAoRj1BEpmNU6rCvfh1P3FeQO0lL/p/bHu
-	wnJW1duaChMydlhKZUhxcEkV6AsCHb9U0hZQkdWEuC8dxPcUvybNFUvXveQ5AA55VzkhcCcGwLMEY
-	wbPRFNZfvS7bQITaZzDrBkeKD3MwLiqc6F1HNOcsQUfHekSo2XbjIKuL7Nq1F2JhVV31r0+aV6nV9
-	fAXBJ+UQ==;
+	bh=tc8YNKSeq7k1vxFlsOxTkep+W6q3rUU1xbqG+VpnWx0=; b=Y0eKvj1AU7ZVudkqC8bT4Tuvdk
+	ea6CkdP3b241d3a1T6VINF/P6VQSrx9phF/vK21mIZL428Kzh1e3Iqkv24UIRtT48lSGGk0S84nsf
+	gND1lNk+IDuwmbqjYojoP0ZnuKjqbA0+lm9hD7Qs983DzplDPQYLWlLW9SdKED5p9QdXKS0PSvhe+
+	5/xjudWWkc2QQzyVU5tz3z3I0OuGVAzvuBnKKZ+OoWq9z9ihjtJg3zzIVFj4w9kOxB2xkVSPWMgLn
+	ArfWsijkCdSSjxii0kYvKbl7aiFZ/nqR3kaI6ugNH09UjuQLfAXodK1t5ywWsMUA2QzMuuN0N5Jn1
+	7VwZKnxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGxAM-00000008fpu-3Cqs;
-	Mon, 19 May 2025 09:52:15 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1uGxCO-00000008gJd-05Iw;
+	Mon, 19 May 2025 09:54:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwp6-00000008Zbp-33YB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 09:30:18 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250519093015epoutp03cefa699bc260a07572c216ca55b47441~A47NkciMd2908929089epoutp03N
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 09:30:15 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250519093015epoutp03cefa699bc260a07572c216ca55b47441~A47NkciMd2908929089epoutp03N
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1747647015;
-	bh=3JXJPK8Pxeu+1hTQ6X+A9fh/NPx5Fi27JyhWAictUa0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mWrJuSD1Bu1XE6n79VK8PSLESyAOwgwXCTZkqyuntj1p2LE+Bl8EeACGopzO2DfL5
-	 U87wbJNIy+0Xx+jvEkYgftCnk/KsGbuXrIVfHhfsvp2QxZ44dbr63YUUkDxVxaGtp9
-	 UlAhs9j8nF2JtL+3LW9NDKsysZfF+ZFQGNkysMRk=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250519093014epcas5p499efbb243762f4c0d7b482ab6d6e64dd~A47NDNaaO0739507395epcas5p47;
-	Mon, 19 May 2025 09:30:14 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.177]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4b1C8N23NWz6B9mW; Mon, 19 May
-	2025 09:30:12 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250518193305epcas5p263b59196e93ef504eab8537f82c37342~AtgRoIaZN2822528225epcas5p2x;
-	Sun, 18 May 2025 19:33:05 +0000 (GMT)
-Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250518193305epsmtrp158ea8f08c187125ab00047b623695cfc~AtgRmSg2r2903229032epsmtrp1D;
-	Sun, 18 May 2025 19:33:05 +0000 (GMT)
-X-AuditID: b6c32a28-46cef70000001e8a-02-682a35f1b01d
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	63.6A.07818.1F53A286; Mon, 19 May 2025 04:33:05 +0900 (KST)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250518193302epsmtip183267af4e412e5df727520c6d803b916~AtgO3rs881176111761epsmtip1O;
-	Sun, 18 May 2025 19:33:02 +0000 (GMT)
-From: Shradha Todi <shradha.t@samsung.com>
-To: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.or,
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
-Cc: manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
-	vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de,
-	m.szyprowski@samsung.com, jh80.chung@samsung.com, Shradha Todi
-	<shradha.t@samsung.com>
-Subject: [PATCH 10/10] misc: pci_endpoint_test: Add driver data for FSD PCIe
- controllers
-Date: Mon, 19 May 2025 01:01:52 +0530
-Message-ID: <20250518193152.63476-11-shradha.t@samsung.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250518193152.63476-1-shradha.t@samsung.com>
+	id 1uGwpx-00000008Zv0-3yOY;
+	Mon, 19 May 2025 09:31:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 045AA629CF;
+	Mon, 19 May 2025 09:31:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20991C4CEE4;
+	Mon, 19 May 2025 09:31:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747647068;
+	bh=0eMiHVabjIiN5pvOO8SCZgtZ6g98PmL/kA90czRvkU4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eWoEfpqPQY9jGgzx7LfIM7FIAH7Xl93mZbSr47HnFA12kd/3XeG61CT0lgy2FQwAG
+	 S9563jHhM3EIaqrJyszUIrkODeMKrenbdlzDz6NLlw9/IImV33iWsFi2J2EiS5Yqxb
+	 FS5Bp8U0KUYqSlkFmC1glX0Yoagnv/bkr337x08PhibMl6SpJDeO4PyE80v1ky9gOr
+	 8bi6QZqC70fcUMXLWq+BTPpQX9b9OCdw009xHmFnwduAYBsRHWmDxo9lS8bv6m8U0n
+	 cPqlblv/BSQv2Tv1RYzkaU3u7buM1B5zH67WxTqwcM5Jf8PNXBwSMhNN/PxxmaQMiE
+	 20lO8b90ZU1Dg==
+Message-ID: <9e6da234-1b47-48e9-b948-d9de73a88999@kernel.org>
+Date: Mon, 19 May 2025 11:31:03 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrAIsWRmVeSWpSXmKPExsWy7bCSnO5HU60Mg+kHhC0ezNvGZvF30jF2
-	iyVNGRZr9p5jsph/5ByrxY1fbawWK77MZLc42vqf2eLlrHtsFg09v1ktNj2+xmpxedccNouz
-	846zWUxY9Y3F4uz3BUwWLX9aWCzWHrnLbnG3pZPV4v+eHewWvYdrLXbeOcHsIOrx+9ckRo+d
-	s+6yeyzYVOqxaVUnm8eda3vYPJ5cmc7ksXlJvUffllWMHke+Tmfx+LxJLoArissmJTUnsyy1
-	SN8ugStjyYJ9LAV3uSoOrd/F3sDYy9nFyMEhIWAiMX02YxcjJ4eQwG5GicY3+iC2hICkxOeL
-	65ggbGGJlf+es3cxcgHVfGKU+Ny2iA0kwSagJdH4tYsZxBYROMEo0XfLEqSIWeA9k8TMBb/A
-	uoUFIiQuXNsG1sAioCrxeOtHdhCbV8Ba4sydLewQR8hL9HdIgIQ5gcLb1k9lgjjISmLhk52M
-	EOWCEidnPmEBsZmBypu3zmaewCgwC0lqFpLUAkamVYySqQXFuem5yYYFhnmp5XrFibnFpXnp
-	esn5uZsYwZGopbGD8d23Jv1DjEwcjIcYJTiYlUR4V23WyBDiTUmsrEotyo8vKs1JLT7EKM3B
-	oiTOu9IwIl1IID2xJDU7NbUgtQgmy8TBKdXAFN7Ve33a3sO3D+05uOWgFm//iZDJhpbn2HJn
-	Bwd9bWFqfTnrgfqXdTPuPMx+UzDlT46Y14SjMr4VBSs/7VgT+b8xTPTSKj7uE+pn90Yoteqt
-	nfuOzeJbmaFz01FbwcthpWziLN+nTvz7dbX+VAPRqA9mN1/9sYtQmcKx4Cz/0We3Zjl7hey+
-	nGrdn9T4PLq674le9MkXa8RL9s/SaxXcY73NcG1nb8TSW6nJBUqCu0WPFx/2nCHZVmrZyPz2
-	k/UMMcX6HBXhNMm+C9bd7nuvsxoc/LKeOdDE/esO3h5VrZ7p3Qf+rPn1ycK7+vv81iq31NS1
-	V1i37Te5pbtBZfu+d1KGrZM6V3RKqwh2LFp8QomlOCPRUIu5qDgRAORarhIzAwAA
-X-CMS-MailID: 20250518193305epcas5p263b59196e93ef504eab8537f82c37342
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250518193305epcas5p263b59196e93ef504eab8537f82c37342
-References: <20250518193152.63476-1-shradha.t@samsung.com>
-	<CGME20250518193305epcas5p263b59196e93ef504eab8537f82c37342@epcas5p2.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_023017_078528_5C73D5BD 
-X-CRM114-Status: GOOD (  15.56  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: vendor-prefixes: Add SakuraPi prefix
+To: Hsun Lai <i@chainsx.cn>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: heiko@sntech.de, andrew@lunn.ch, inindev@gmail.com,
+ quentin.schulz@cherry.de, jonas@kwiboo.se, sfr@canb.auug.org.au,
+ nicolas.frattaroli@collabora.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ krzysztof.kozlowski@linaro.org, linux-rockchip@lists.infradead.org
+References: <20250519085614.2245892-1-i@chainsx.cn>
+ <20250519085614.2245892-2-i@chainsx.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250519085614.2245892-2-i@chainsx.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,44 +117,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dma_map_single() might not return a 4KB aligned address, so add the
-default_data as driver data for FSD PCIe controllers to make it
-4KB aligned.
+On 19/05/2025 10:56, Hsun Lai wrote:
+> Add vendor prefix for SakuraPi.org, which produces
+> development boards like the SakuraPi-RK3308B.
+> 
+> Signed-off-by: Hsun Lai <i@chainsx.cn>
+> ---
+> 
+> (no changes since v1)
 
-Signed-off-by: Shradha Todi <shradha.t@samsung.com>
----
- drivers/misc/pci_endpoint_test.c | 3 +++
- include/linux/pci_ids.h          | 2 ++
- 2 files changed, 5 insertions(+)
 
-diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
-index c4e5e2c977be..d94a94231ee5 100644
---- a/drivers/misc/pci_endpoint_test.c
-+++ b/drivers/misc/pci_endpoint_test.c
-@@ -1110,6 +1110,9 @@ static const struct pci_device_id pci_endpoint_test_tbl[] = {
- 	{ PCI_DEVICE(PCI_VENDOR_ID_FREESCALE, PCI_DEVICE_ID_LS1088A),
- 	  .driver_data = (kernel_ulong_t)&default_data,
- 	},
-+	{ PCI_DEVICE(PCI_VENDOR_ID_TESLA, 0x7777),
-+	  .driver_data = (kernel_ulong_t)&default_data,
-+	},
- 	{ PCI_DEVICE_DATA(SYNOPSYS, EDDA, NULL) },
- 	{ PCI_DEVICE(PCI_VENDOR_ID_TI, PCI_DEVICE_ID_TI_AM654),
- 	  .driver_data = (kernel_ulong_t)&am654_data
-diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
-index 2e28182c3af0..e0afc5aa1c0e 100644
---- a/include/linux/pci_ids.h
-+++ b/include/linux/pci_ids.h
-@@ -167,6 +167,8 @@
- 
- #define PCI_VENDOR_ID_SOLIDIGM		0x025e
- 
-+#define PCI_VENDOR_ID_TESLA		0x014a
-+
- #define PCI_VENDOR_ID_TTTECH		0x0357
- #define PCI_DEVICE_ID_TTTECH_MC322	0x000a
- 
--- 
-2.49.0
+You ignored comments twice. Repeating same mistake, even though it was
+pointed out, feels like we are wasting our time, so please avoid that.
+Go back and respond to comments, then implement them.
 
+Best regards,
+Krzysztof
 
