@@ -4,147 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47DDC54795
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC571C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ek15NoYJ7i9U8JHKXyjxvtbxJt6Rm74AghsIxqbM5EY=; b=CBYnSSyC869C1gtU2HN6RyhadK
-	3lS+4AF9gCZZbVJO4GdLkxqQzFXww6AZcjtPElygvDCqaRidbFw/+uZdBH5nQJSr6g4kt5/nXtlAX
-	xTRXC52XtaqwYhyrdzhz2gphCy5JUCMtkoj6I+JyIjgHt1fvOa+yM7Hf5kDJ7HQsVG9N4VMSj2Vwi
-	wOOuPRSMPLiiGIlqKn/zoCQaLWTU7no5tY0sUeLlr8gZe5C85kYIUiA4oicDXrCOfDQtmuLR9JI+t
-	x9+zo1QhKtNc5twweJVlEzdZ8NMU0xPPDg5hvuQSqH9RID2VjdgOomD/vKLLiMV95NdvIqft9xI65
-	9JyqSAmg==;
+	bh=ID0K77cu4OHC+wFfljvoyA4ejd82lVYZb+u9j8jbS6w=; b=qtNsl1DwdgS7cMB1WpShGFwKXU
+	Tgyiy95yEZZCWKkokaR3PRNEDDIFeRnlyO1ooA8RwVf5rRrazuAbNucIFdsudFS5bBH7gYbDNe/zh
+	cfsg9qxaNMYOixEUfk9vfdYgdJcjrB21Tvt1RViSGlrVSGG31PCvOwOaAxhKWPebtVenuwsvaH2G4
+	XfDdghkp3K074HGcTeCjk8FRB2idsw72ATBbYznB7A02zcbeXts0IC4b8EKvlVJin1Jm9mJtlY/Px
+	g6ZfZuzWZmnKLe+/rqUGjUpnmc3LvRALSpUlzfOK4JTxfGn0ZkrCEiqo2Ka1o4+57VtGys5G2i3Bh
+	dJ/anu7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH6aP-0000000AIBn-1zrf;
-	Mon, 19 May 2025 19:55:45 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uH6aT-0000000AILN-1vDR;
+	Mon, 19 May 2025 19:55:49 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH5bA-0000000AB51-3WSh
+	id 1uH5dx-0000000ABKv-0o6N
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 18:52:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eQjvKL964wfUV4IaD+5AusCsYj2i5lRYNrAhIrIai7yDFnknl6bPOGFrBvM/AMKV73e8gmageqbxW27/OGRp8gascDlS2jaaFAq61tpPWAMoFwm7vMEQKBT33PffR7l31pHy0v2NCPE6ZL0ni/lZGd0ThEVXA+5NsYVXzOZSQB+Nz5Gr53rbNkDXEZtF9dMuqzstrGrE39C7RiWkyVj2wdfMX5nSN2vB+fJSfhics46/ifDAKjx9rnoyjtJ5rcE+4qnejyPueISIqzwkdSDuAaXbNIC57cSPYdfe2aC27JXB3mKodsWG9jxcgPNGmJl5cRvV5pn6LYmRyc9PKOxWsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ek15NoYJ7i9U8JHKXyjxvtbxJt6Rm74AghsIxqbM5EY=;
- b=BhFrX9ehT2lIq98+rz7he6aawSKMBRRdOyttJ62vl69OhIUW7lYwdJ793SncGWqSbe0HEsretGjSwKcf5PJVYqzwtqhRBsh5vqiRU5+oVNI6zLHYQ29bzBZ6ik1j0NyF97Ev+iJVbmZWCsYvtBcN5kazywr24Rmi4SP10aIH3krlHDcn9MS5v2XuPXpp/+SL+XbAUHfWILektQBzSxBWEriMk53Vzo2SImdDadO67s5nt4D3RAErvl+Gz0c7pc5wNNnFwrZD5qp3aVb3Kil6fR3IS/qxn95j6d7krywExDasx01Nv+4quq0MP5xdslZmpOHJTpn12yELCTYSclhkMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ek15NoYJ7i9U8JHKXyjxvtbxJt6Rm74AghsIxqbM5EY=;
- b=AbOFejr8+EwQ/WYy1SCcwjm8Y2DAjbETJbqwQxi077IF0/PovbAEkHA0IEwWFYADfrrDN/xJPKqbJIZGCs89qpy2nDuKZjJXJvVOAHCwVQaOnNCVfYSkw69rCvjGFhpas6n2JWvKmbJ8/4W/M/U/UQJzIGwWQ7BCXSn30qkd8O0xEEKWgEKndzUvW/tn0ObxzzX2SyeJU19ZhJKVb0Lde9lu1KON0lH0sWb2+UgAJyeTipBuRMeulbqbjuBygqGhBt22fipHqMEJHyTZqZBCMx2mBhYPfCw4cAi/JJ16u6gJGArGlVNBZvgw2nL4hSYzAbINqcjrfSamjRT6Ewls1g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GV1PR04MB10799.eurprd04.prod.outlook.com (2603:10a6:150:20f::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Mon, 19 May
- 2025 18:52:23 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Mon, 19 May 2025
- 18:52:22 +0000
-Date: Mon, 19 May 2025 14:52:14 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com, carlos.song@nxp.com
-Subject: Re: [PATCH 4/6] arm64: dts: imx943-evk: add sound-wm8962 support
-Message-ID: <aCt93j4jwbkkY/ml@lizhi-Precision-Tower-5810>
-References: <20250515051900.2353627-1-shengjiu.wang@nxp.com>
- <20250515051900.2353627-5-shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250515051900.2353627-5-shengjiu.wang@nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0112.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::27) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV1PR04MB10799:EE_
-X-MS-Office365-Filtering-Correlation-Id: acd734e4-3930-4bda-f170-08dd97064a2d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yLu6blqAx522zrgA1l91s7n8ZRT/fn06VenvkwXJlGox3UDlRutpm2jANbfr?=
- =?us-ascii?Q?XqbdJyK7KvtEQ8sBA/XpXCm5H5oiWovoaOdehe0AJxXGkLT1etMXdKOs/QLs?=
- =?us-ascii?Q?JKzSdMOBax/Tv1yiUX87x3maeYFMd6tf5TJSbbKNuMn1IKMWZOxTYRxE3JcB?=
- =?us-ascii?Q?Axxu/ENy6dPzH9ZZLt3A9WaRvzlmppWoGfOBwridQDgSXqUr1yFxzujE40H8?=
- =?us-ascii?Q?ekwvCPIsb+y3VuXGGUnKyuvIXRGsP/Kl30a+lEbYfQUb/PIT/p9tVeofX6e3?=
- =?us-ascii?Q?c5IVK5NF0b09TwxRDXc99kElJv6ebddv37rRkW302tNUqPdDrZG5qjeWM4ZU?=
- =?us-ascii?Q?omHzZ7F2gXejrDf5u0L3egaFdylG0y5xv/OWOJ9agcQQezGUZFd7TQVqIg3c?=
- =?us-ascii?Q?hxFWnzKVvT+9hWcyKBSl69GdRZfcFLFtk8itTFPyBCkPIxpS7nwzvYGQbLbH?=
- =?us-ascii?Q?w4Ve3XlYURoahPgc4sSQssoTv8ucR/UMyLOpaB/sGwdMkaAs1fFUHpVSoOsV?=
- =?us-ascii?Q?6mksl7BLx3bVWd/CVtvqnDCnxePWc8DSfM3RYts5CG2GCq2pf1vF9tqy/dzR?=
- =?us-ascii?Q?78MqGSVlrxiPY2hw5mN/SNk+hRMWxMcYKhN1OMNgZgnHF8gcW96dnZmzUTJT?=
- =?us-ascii?Q?oihzkAsJiLqsWrRadagsPsVs9mPbytaKR7BY8dP4lOMiBm8HuKsGkNxlumAy?=
- =?us-ascii?Q?Q12ch8mCYqZhWF7dEvnPB6ufG7B2zyfCB80xQiaGY6AIYF1iZLPCAkVX+Lta?=
- =?us-ascii?Q?nWMcUYJBfJ5hM9p4sMbLIsxkv+sgMYJEosEzEC5nYWsGCbO06JnOzPvLCUjq?=
- =?us-ascii?Q?emp4gD0WJECVbB3iszMnTnugGk1Mm2BZpku96Dya6dIeP/OFXrQB6uP4CO9h?=
- =?us-ascii?Q?rVmE8ggP5F6Miol0BZPqfLlJV96pZyCGO7j5NKqpIOLIjF5k9ILEjEV+zgyl?=
- =?us-ascii?Q?bRi4xlSLkbnk+rYpflx+7MT2qL70aLiEZnaTZM+VHkIPz4TOdDPjScL/mksX?=
- =?us-ascii?Q?SJl1dspuZB9UNkR1WyXAOvlMbInxcM9jbLmn88qFNStDdJwJxob3mbGhai9Z?=
- =?us-ascii?Q?1A9oNhXBGEMvRcUBbKUOaIXSh8EnmncloIFJGR5/Td8ZnDXuDwOBYJkhPTwC?=
- =?us-ascii?Q?tkk050IEYO1kPD4shbXZDlL5unvlqG5C2dEpwj3lB3K4jJLl2z+FJtCxfWfi?=
- =?us-ascii?Q?ou9JVLU8brOZtwJ7d1Atp4roShMMLZRzuHFT3CL1iHYIq57mbuG6dXXO/708?=
- =?us-ascii?Q?cFVJHLQcgPUXf1z0NehLwTDxCtKUIH01Hvi+1oH0g4YFAidiXhfGhGdUC7no?=
- =?us-ascii?Q?zITW+rotKmDH+/ZyvLCh17TsPjGPgcw9ABfEX///bhJEyHYopUmOb2bS/fhd?=
- =?us-ascii?Q?Rg97fDu3BgVYVBH5rNXX/WA826ADc4pdwMBX1Iq7OgkASzgyUgsxgkflUgwD?=
- =?us-ascii?Q?yEJGPIIFMIg8IiSADbwrhHUPFyhPuk/kd/HchI3mrqK0jF2orUu1Kw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/5vKsCh6rO6kgx/EhNVFMfvuGl2yxGz0RQDeYGLrTHjDA2wbTCPJwZj+yTOC?=
- =?us-ascii?Q?RYihyH8YRDYtvYjvYpiAz/5UP8aDF1SxuHmF55w2w0dlFBOmIFMTvR0lCS1Q?=
- =?us-ascii?Q?ud+YG62UIBq8QbMitF7LzCpPfyexjjfniezZiipfp6W0DQmhiT8Nhe2CKVIZ?=
- =?us-ascii?Q?+RI0oi5A7NT9lsOzgmBS5eqP86MmDXcVBCmWJw4ErgYZN00unwFZerWQOxjy?=
- =?us-ascii?Q?HoXV+bL6yl9+gEqaJrrrEqc/XuP4aHAYjRYRu7zbxQz03nUmAApCYZ+ZWUDK?=
- =?us-ascii?Q?JdwHVBPw2D0RLvY+1bq2ILzj2bqHw2++C2J8SkbPWS1unNJTehV7uCvTzUJV?=
- =?us-ascii?Q?O6R6JdVjORRGGPiKVAGOG7fSM6VpYk0YlL2t4ZE6vpREzES359jJSCyuYQTs?=
- =?us-ascii?Q?7up+F85o1gFuRPM7+f3ZQs6MWXn4FUOEaqAfEvBWZELTHK7kYLDAdCXu3JpG?=
- =?us-ascii?Q?x8GYKHw5ZMoeawghuI95qwneGIFUM6QbsyV5d2GlsaOVh6gpNl7V0KWTNMzr?=
- =?us-ascii?Q?lsQyZcoke+WhqQcu2MTfl1PfghhjDQ3ODV6AfdQBf+kjvLRKRp0tvaeI7t2y?=
- =?us-ascii?Q?4od5hj5zzlGw46xBvt2yDpyvdLyx/SxojUFvYp1Za6OuA37SQ6h4FtSBXEZt?=
- =?us-ascii?Q?oE4a5NhizLVwrVkk10DpRCQCeMunm0aFDEeGaHjKybiHb2PxiIS+JQ90Llat?=
- =?us-ascii?Q?9zLMvVH41Hg7xima6m6C4waO8htpTZpNiKMttkqokkaegL1DUNjF1zywpxPR?=
- =?us-ascii?Q?ZkZ+Q86285CLTbFvKGoFh7KnzULyqpZ8xTbAvAWW71AWP0D9LsK81sLC7TLF?=
- =?us-ascii?Q?IKNhCjyrcipRyvmQw5fOYZj2x+9vUs4MAR4BHxSkuWaRmwm9hBJuXAVMR14Y?=
- =?us-ascii?Q?DfSwf9Mx0MpisuQmUajvfPNum6D4op5buxzBnn9XhLSDHRgnwXFU5qbjoiCO?=
- =?us-ascii?Q?aoSGX6rJw6zqZYX6dzmZaMCuW5M14YSAFJLO6HH2xs/c+rHlvq3v0pjPBRw7?=
- =?us-ascii?Q?ZYudId+uyLgUS65tTJ9tpkxcBz67IDgpqpl0ldZe5ZWRuVtAxv5eEgJhWoYe?=
- =?us-ascii?Q?HRO3ZdcHPqmEOaFVOUaMpN8zoQBuAb/pUSQRDpNktn37QvTBcLFkOvJTwlY8?=
- =?us-ascii?Q?iTmS3z1T8CJQ4UHbCMOUq8+zICbm4RqKxv0Yd+4GA41RpC1utLzX0vsCpPIL?=
- =?us-ascii?Q?AWIzi/HFsDI0YxHg5zArQoCX6+2UNwPr3V51gDBNbEosORe0Yif0xdcVbLVI?=
- =?us-ascii?Q?31Ji/ZtXQ7a1yUmd70uq1Mi7gh1eUTDIbE9SOmM914SGW6+IanoSvbrLAma9?=
- =?us-ascii?Q?boC8XIJDcTaYHkgMUiudH1pFAd8lUJTa3IGGvwoIdGq2jikBprhOd6HN2y2E?=
- =?us-ascii?Q?AXGsawNG5B0veCjMtyMenhNFaN6C8v3yE0iPpjlUjf/tj/IM63GfD+6xPg8I?=
- =?us-ascii?Q?WhrAU9WQbOyNQrJSgcVfy8/SDhBdJeRnL42sMGtRWRgDpqiqMoR7OJmnn9A+?=
- =?us-ascii?Q?yAFJnG+uZKKxB+B7TDoydN9Kz8ezwb2rx2UII8BDrE1reh96V2p3/+z0FGBu?=
- =?us-ascii?Q?Ngo9ZP5gWoT8y3lk7Nt6Qp558o03MkmApOcHz+8b?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: acd734e4-3930-4bda-f170-08dd97064a2d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2025 18:52:22.8615
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2xoEl5LnWizZriOdQlsB76bhrj5zvrwH3mVxAYS9beaNFAFTII56MMzwuVmpVTGDO90OXhIWnPsMhq8rwRl2CQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10799
+	Mon, 19 May 2025 18:55:22 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-af9564001cbso3104543a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 11:55:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747680920; x=1748285720; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=ID0K77cu4OHC+wFfljvoyA4ejd82lVYZb+u9j8jbS6w=;
+        b=JtgiCVi9ZN4ifIQ+nFn0NrXuaEnSv6Lib+GShqa8e0hv7c9+T2kAXxsGU7TVKyanbe
+         qB8w7hvjb1ZH5e4WGHfNkrI4BDQxhe9r5EIcBTnQmfZy7ZKITp9COlv0RgIzAg2OLZvn
+         JGZ304ywSwFnnx3SlM1cCj3v/iiJh7hVV1A4wia1qNRtB8Sa0wfdxRew7pJVyYkuduff
+         TYbFB6qM4z8+pWdi/ypSkZQpdu3mlZ5e7dibiGuvYpM9k+ScJZbWAGVTAEk9QQnu/b5X
+         bD3lR0IcgaVWkfeEXmaQ6tD75jQr/K7Kfk+n1IgFfCMPIFym8nWp/Lzcqkliad/wxIg+
+         J3uA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747680920; x=1748285720;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ID0K77cu4OHC+wFfljvoyA4ejd82lVYZb+u9j8jbS6w=;
+        b=Ph52qmkDVMCem7jr0rVfK3vVrwJpolf6e7RPdO5Q6ldUhjIZhMtJF7HvoI4R0byK7p
+         sZJCbzLH9HUtahZKVDumTTENp5HgGQkME71uE5oSiOXN4Hzk0MhNLi/0/p7jnJwo7lET
+         imKVdoaHj7MBQZ2ISiWh766h337OueH7Gfg0bPVFRpDqzoXlA4rhcM3r8XZTC+YE/sf2
+         iIBxYniJLhUsAgI7sxC/XVed3OnAnd059BHNKATN0+vJU1hrIjO9+cPfvJGtjjM0/XlI
+         C57xOLQUWbyOC0wOjfbxssPLmOWLGCXZ7Nl8QjR2oaB6lqBydWxjQ8FXTR5f73dnPuOa
+         lnKg==
+X-Forwarded-Encrypted: i=1; AJvYcCU2RXAkSZGu9QsqCQg8EURUii8Om68UZD8Ou7V0Z1+w0Rhip8Gxyl05COyzjwtQPnE3xwb4cwufzJuWr5CmRPTY@lists.infradead.org
+X-Gm-Message-State: AOJu0YypF3xcso+F8cAS4RPFBsmUPLx9HBGWCkLsqBRzeXm+j2IzAE8M
+	ZlAataWsIjS+x5GDjIxn7q/d2jyNtCRibnKpLrJ4HyAaEj1QtZB4SuID8ImqYzKS/OrlYIA2FVC
+	xRqyGaA==
+X-Google-Smtp-Source: AGHT+IEaLF1s48wE5AIuvexHP+HKA2rzrNNO6wCebHCQJZafvZj5yhtA+uxhZqD9qAgjgxLgy4Xu2cmiqA0=
+X-Received: from pjtu3.prod.google.com ([2002:a17:90a:c883:b0:2ff:6e58:8a0a])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:d604:b0:30a:9316:75a2
+ with SMTP id 98e67ed59e1d1-30e7d52adcfmr23209313a91.10.1747680920311; Mon, 19
+ May 2025 11:55:20 -0700 (PDT)
+Date: Mon, 19 May 2025 11:55:03 -0700
+In-Reply-To: <20250519185514.2678456-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250519185514.2678456-1-seanjc@google.com>
+X-Mailer: git-send-email 2.49.0.1101.gccaa498523-goog
+Message-ID: <20250519185514.2678456-2-seanjc@google.com>
+Subject: [PATCH v2 01/12] KVM: Use a local struct to do the initial vfs_poll()
+ on an irqfd
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	K Prateek Nayak <kprateek.nayak@amd.com>, David Matlack <dmatlack@google.com>, 
+	Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_115228_881772_DAAD45E8 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20250519_115521_229297_456FDF6E 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,149 +94,99 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 01:18:58PM +0800, Shengjiu Wang wrote:
-> Add wm8962 sound card which connects to sai1.
+Use a function-local struct for the poll_table passed to vfs_poll(), as
+nothing in the vfs_poll() callchain grabs a long-term reference to the
+structure, i.e. its lifetime doesn't need to be tied to the irqfd.  Using
+a local structure will also allow propagating failures out of the polling
+callback without further polluting kvm_kernel_irqfd.
 
-Add WM8962 codec connected to SAI1 interface. Or
-Enable WM8962 audio codec via SAI1.
+Opportunstically rename irqfd_ptable_queue_proc() to kvm_irqfd_register()
+to capture what it actually does.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ include/linux/kvm_irqfd.h |  1 -
+ virt/kvm/eventfd.c        | 26 +++++++++++++++++---------
+ 2 files changed, 17 insertions(+), 10 deletions(-)
 
->
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx943-evk.dts | 79 ++++++++++++++++++++
->  1 file changed, 79 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index ff6e9ac5477f..da08aaa95904 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -36,6 +36,15 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
->  		enable-active-high;
->  	};
->
-> +	reg_audio_pwr: regulator-wm8962-pwr {
-> +		compatible = "regulator-fixed";
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-name = "audio-pwr";
-> +		gpio = <&pcal6416_i2c3_u171 12 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +	};
-> +
->  	reserved-memory {
->  		ranges;
->  		#address-cells = <2>;
-> @@ -50,6 +59,21 @@ linux,cma {
->  		};
->  	};
->
-> +	sound-wm8962 {
-> +		compatible = "fsl,imx-audio-wm8962";
-> +		audio-codec = <&wm8962>;
-> +		audio-cpu = <&sai1>;
-> +		audio-routing = "Headphone Jack", "HPOUTL",
-> +			"Headphone Jack", "HPOUTR",
-> +			"Ext Spk", "SPKOUTL",
-> +			"Ext Spk", "SPKOUTR",
-> +			"AMIC", "MICBIAS",
-> +			"IN3R", "AMIC",
-> +			"IN1R", "AMIC";
-> +		hp-det-gpio = <&pcal6416_i2c3_u48 14 GPIO_ACTIVE_HIGH>;
-> +		model = "wm8962-audio";
-> +	};
-> +
->  	memory@80000000 {
->  		reg = <0x0 0x80000000 0x0 0x80000000>;
->  		device_type = "memory";
-> @@ -103,6 +127,28 @@ i2c@4 {
->  			reg = <4>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			wm8962: codec@1a {
-> +				compatible = "wlf,wm8962";
-> +				reg = <0x1a>;
-> +				clocks = <&scmi_clk IMX94_CLK_SAI1>;
-> +				AVDD-supply = <&reg_audio_pwr>;
-> +				CPVDD-supply = <&reg_audio_pwr>;
-> +				DBVDD-supply = <&reg_audio_pwr>;
-> +				DCVDD-supply = <&reg_audio_pwr>;
-> +				gpio-cfg = <
-> +					0x0000 /* 0:Default */
-> +					0x0000 /* 1:Default */
-> +					0x0000 /* 2:FN_DMICCLK */
-> +					0x0000 /* 3:Default */
-> +					0x0000 /* 4:FN_DMICCDAT */
-> +					0x0000 /* 5:Default */
-> +				>;
-> +				MICVDD-supply = <&reg_audio_pwr>;
-> +				PLLVDD-supply = <&reg_audio_pwr>;
-> +				SPKVDD1-supply = <&reg_audio_pwr>;
-> +				SPKVDD2-supply = <&reg_audio_pwr>;
-> +			};
->  		};
->
->  		i2c@5 {
-> @@ -128,6 +174,12 @@ pcal6416_i2c3_u171: gpio@21 {
->  				reg = <0x21>;
->  				#gpio-cells = <2>;
->  				gpio-controller;
-> +
-> +				audio-pwren-hog {
-> +					gpios = <12 GPIO_ACTIVE_HIGH>;
-> +					gpio-hog;
-> +					output-high;
-> +				};
->  			};
->  		};
->
-> @@ -262,6 +314,23 @@ &lpuart1 {
->  	status = "okay";
->  };
->
-> +&sai1 {
-> +	assigned-clocks = <&scmi_clk IMX94_CLK_AUDIOPLL1_VCO>,
-> +			  <&scmi_clk IMX94_CLK_AUDIOPLL2_VCO>,
-> +			  <&scmi_clk IMX94_CLK_AUDIOPLL1>,
-> +			  <&scmi_clk IMX94_CLK_AUDIOPLL2>,
-> +			  <&scmi_clk IMX94_CLK_SAI1>;
-> +	assigned-clock-parents = <0>, <0>, <0>, <0>,
-> +				 <&scmi_clk IMX94_CLK_AUDIOPLL1>;
-> +	assigned-clock-rates = <3932160000>,
-> +			       <3612672000>, <393216000>,
-> +			       <361267200>, <12288000>;
-> +	pinctrl-0 = <&pinctrl_sai1>;
-> +	pinctrl-names = "default";
-> +	fsl,sai-mclk-direction-output;
-> +	status = "okay";
-> +};
-> +
->  &scmi_iomuxc {
->
->  	pinctrl_ioexpander_int2: ioexpanderint2grp {
-> @@ -297,6 +366,16 @@ IMX94_PAD_GPIO_IO28__LPI2C6_SCL		0x40000b9e
->  		>;
->  	};
->
-> +	pinctrl_sai1: sai1grp {
-> +		fsl,pins = <
-> +			IMX94_PAD_SAI1_TXFS__SAI1_TX_SYNC	0x31e
-> +			IMX94_PAD_SAI1_TXC__SAI1_TX_BCLK	0x31e
-> +			IMX94_PAD_SAI1_TXD0__SAI1_TX_DATA0	0x31e
-> +			IMX94_PAD_SAI1_RXD0__SAI1_RX_DATA0	0x31e
-> +			IMX94_PAD_I2C2_SDA__SAI1_MCLK		0x31e
-> +		>;
-> +	};
-> +
->  	pinctrl_uart1: uart1grp {
->  		fsl,pins = <
->  			IMX94_PAD_UART1_TXD__LPUART1_TX		0x31e
-> --
-> 2.34.1
->
+diff --git a/include/linux/kvm_irqfd.h b/include/linux/kvm_irqfd.h
+index 8ad43692e3bb..44fd2a20b09e 100644
+--- a/include/linux/kvm_irqfd.h
++++ b/include/linux/kvm_irqfd.h
+@@ -55,7 +55,6 @@ struct kvm_kernel_irqfd {
+ 	/* Used for setup/shutdown */
+ 	struct eventfd_ctx *eventfd;
+ 	struct list_head list;
+-	poll_table pt;
+ 	struct work_struct shutdown;
+ 	struct irq_bypass_consumer consumer;
+ 	struct irq_bypass_producer *producer;
+diff --git a/virt/kvm/eventfd.c b/virt/kvm/eventfd.c
+index 11e5d1e3f12e..39e42b19d9f7 100644
+--- a/virt/kvm/eventfd.c
++++ b/virt/kvm/eventfd.c
+@@ -245,12 +245,17 @@ irqfd_wakeup(wait_queue_entry_t *wait, unsigned mode, int sync, void *key)
+ 	return ret;
+ }
+ 
+-static void
+-irqfd_ptable_queue_proc(struct file *file, wait_queue_head_t *wqh,
+-			poll_table *pt)
++struct kvm_irqfd_pt {
++	struct kvm_kernel_irqfd *irqfd;
++	poll_table pt;
++};
++
++static void kvm_irqfd_register(struct file *file, wait_queue_head_t *wqh,
++			       poll_table *pt)
+ {
+-	struct kvm_kernel_irqfd *irqfd =
+-		container_of(pt, struct kvm_kernel_irqfd, pt);
++	struct kvm_irqfd_pt *p = container_of(pt, struct kvm_irqfd_pt, pt);
++	struct kvm_kernel_irqfd *irqfd = p->irqfd;
++
+ 	add_wait_queue_priority(wqh, &irqfd->wait);
+ }
+ 
+@@ -305,6 +310,7 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ {
+ 	struct kvm_kernel_irqfd *irqfd, *tmp;
+ 	struct eventfd_ctx *eventfd = NULL, *resamplefd = NULL;
++	struct kvm_irqfd_pt irqfd_pt;
+ 	int ret;
+ 	__poll_t events;
+ 	int idx;
+@@ -394,7 +400,6 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ 	 * a callback whenever someone signals the underlying eventfd
+ 	 */
+ 	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
+-	init_poll_funcptr(&irqfd->pt, irqfd_ptable_queue_proc);
+ 
+ 	spin_lock_irq(&kvm->irqfds.lock);
+ 
+@@ -416,11 +421,14 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ 	spin_unlock_irq(&kvm->irqfds.lock);
+ 
+ 	/*
+-	 * Check if there was an event already pending on the eventfd
+-	 * before we registered, and trigger it as if we didn't miss it.
++	 * Register the irqfd with the eventfd by polling on the eventfd.  If
++	 * there was en event pending on the eventfd prior to registering,
++	 * manually trigger IRQ injection.
+ 	 */
+-	events = vfs_poll(fd_file(f), &irqfd->pt);
++	irqfd_pt.irqfd = irqfd;
++	init_poll_funcptr(&irqfd_pt.pt, kvm_irqfd_register);
+ 
++	events = vfs_poll(fd_file(f), &irqfd_pt.pt);
+ 	if (events & EPOLLIN)
+ 		schedule_work(&irqfd->inject);
+ 
+-- 
+2.49.0.1101.gccaa498523-goog
+
 
