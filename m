@@ -4,103 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B839C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 18:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EAEC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 18:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Kju3FsnY+thKUhdFoN0W1nIETGgDAQsnSzsAx6S2Zw=; b=kadLv53FbSfWtrz4udeEB2NAY2
-	HMqC7mC8fxPvnjuIkH5X/XtTnzqwuVRIluvrKXK6phkFAUHFTDOnqcuNs58eoqb1gH9TdmkkJcvRo
-	8NteDSAsBEKmH+KP7Erfjrf1gpaQEaIlnococomFeO9ZYbEdgaZKNzYbc7XvTlzPNNeEt93H0gC2v
-	ByQlQKw7P34UToM6oHtnqUA2LizKnv+BYQSMQGL90N+ivcj9hYj5lkJkV36Bz7+OgTjwWNz0qaoqx
-	X220FvLP+Tlntn8Gt4ZCMHiUGtY9Ptdo2SYoA/z80RC4qDCWsbWDZJw4t97juVm6zZGBjHE1XMwdy
-	jGxlakdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3+2Xg/uggCTSqikptKPCAP1nn1t0v7JyN7gZBzcxxVg=; b=nmhkPsLTEIbgCZq2jmn+2yM6GH
+	FrW58fOTnY8oV0Nk7o93DIK6L3ty1qbJV4RZ2ziSqpVxxnptiLAw4i9iNg+RRPC+sa0HLHFOI+HHO
+	e39/3AcdjimEHVXk3DAjprc3tZcOnGmE1wNwelSrVWrS8VMz4TKIcvYOZCIvlxVFwEW8x/+wnEAYx
+	DUiYZjvF/Ca6R2V/vzjxvCM9FV1PakJZyIRif6cfIRL+QdPpS116ZT27UXhElEdFjnKJ6CBo3IZak
+	VYO0oy/cM86xIYxBA5oZcI6rjMCVOsPdbeoMdez687QbIAbRExjGjOP+Hry+TmaJZDs3Vk6JPmGkI
+	YkTNbQ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH50U-0000000A6qi-3tKE;
-	Mon, 19 May 2025 18:14:34 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH4K0-00000009yF7-1Kv5
+	id 1uH52W-0000000A75Q-2e0F;
+	Mon, 19 May 2025 18:16:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uH4PE-00000009yzE-2V2C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 17:30:41 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6020053cbd5so866433a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 10:30:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747675838; x=1748280638; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=9Kju3FsnY+thKUhdFoN0W1nIETGgDAQsnSzsAx6S2Zw=;
-        b=qld4+AEQL5KHCIvhD0KkK/hpnSplEZ7S79xQUDl2fdtO0u8VJuZN1N0voufwyRvzrW
-         XMAe4kPDk9jncSqvjr2XkZvlcIddX7g/GvuYYyFpg7IE8jBCRCwtUUzCE9J+YlVMdqHY
-         MvFr+cMPCTAxM+BhBr8uDUYqLTLFvB1D1nYdIB8Pko5M9Cp00nsruQfXEnNLETExsh9Z
-         BWeqWIS/p9haDpCiJUEqXzuVSryYQe3KPIPRW/g63QLBP1hwl9ELGQpw7mrPBtXEB8ya
-         tt1//ekzzFOCQrMRW9ArJPEvk/lYE4YjlWktNgnZqrBSn+UnZKRMaslB512eyKNqGqQR
-         AwQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747675838; x=1748280638;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9Kju3FsnY+thKUhdFoN0W1nIETGgDAQsnSzsAx6S2Zw=;
-        b=qct9q8ZqtefYALDam4mqQLV8GqwtCoD0XEPjKH+LgPgfY1hZLiUZWKYnVf5k66uDmo
-         4jFiR+1lwVxYJZOFHyYwkMnsQ8SuCxgf2lsQotaUoUgSYpJBwg6FqIW+lRqrTlAkgiQT
-         fxmRd0ZBqeQp59Dtp7LMKuyxry6JmTVWjRIhebmmpmKHYlOTmIBQpKl/0qRgV2wim6aB
-         rS9NXHqv4ko69R6vS0x4wz18Ub7ACM+BvntIXx3pIp1O62/E61VB6O6MgrnZr7P8knwg
-         sBqn/zGpd9U/WBBJrp7zxa5tfecXm+m9GDaIq37qHA2tD6VGFFD3sSRNk2W70tQdIKyn
-         mAtA==
-X-Forwarded-Encrypted: i=1; AJvYcCW2kaO85UkV/SdsgAC85sVB8O7iJMHAcOfhm8iIWy1TYKEkmo3X97lr30hPtOj0sUW7s6jWbvHJexHZSIucDUvR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPOuJ1zPTS/rDRhJHtDQJwCA6I/hFstvu9zXKNgPU3/sbFtVlP
-	minrB+rl54KwsBNzK4gpPbE6b0TU1lELIkcveMhgOwy/eP0s5/e/t9UiZyDUQPZbBw==
-X-Gm-Gg: ASbGnct2J2J67t0VdDZLTi1gf+zXmL4lps2erUE3QZgATlk88QwVG0FbM8YTR2g/JUE
-	hMXB61U6ddHOccXJOvopqXrYQWPwS2EfCSA1+FC7kNTD47W9fdcFDyYZiKj7LHdRikK9JC6wOq7
-	gMVbuy4btyp8bSFz/UuREHVj9CMoZBbk9AI3wL5wZCN2PgiVhNdVIHcDZKp00BTIX+vqs0KZATR
-	OooKdnik7cUayrQ8B9LffUJrl7e7DVSevvJIcyMrUghMUod50YnTV6/js+7WWzMYli0dUN3eHBo
-	c9r07O4HIOuhNcEenuPqM8YTxiYLb7JR8j4YKmJyvQlWCRAH2KxKL0zMJkX+yqEZem1uS/REyhe
-	gPUlCkBURh7sx5khrRw7EwBYyVUpb6wS6oQ==
-X-Google-Smtp-Source: AGHT+IFQdXd+uR03JzjdJ/zz2g+tjiE8hNNLW3q4qi5/22Vnca/ILj0cjruXvBC5L68agXPI5CtSjA==
-X-Received: by 2002:a17:907:6d01:b0:ad5:58f7:6c8 with SMTP id a640c23a62f3a-ad558f74558mr760304166b.49.1747675838502;
-        Mon, 19 May 2025 10:30:38 -0700 (PDT)
-Received: from thinkpad (host-87-20-215-169.retail.telecomitalia.it. [87.20.215.169])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d4382c0sm625083466b.90.2025.05.19.10.30.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 May 2025 10:30:37 -0700 (PDT)
-Date: Mon, 19 May 2025 18:30:36 +0100
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Marek Vasut <marek.vasut@mailbox.org>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-arm-kernel@lists.infradead.org, 
-	Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, Aradhya Bhatia <a-bhatia1@ti.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Heiko Stuebner <heiko@sntech.de>, 
-	Junhao Xie <bigfoot@classfun.cn>, Kever Yang <kever.yang@rock-chips.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: PCI: rcar-gen4-pci-host: Document
- optional aux clock
-Message-ID: <y246ietlwyaix7q3wulviy7wysqkwczspgtj26gducxbay4qrl@im3iht4kvhuj>
-References: <20250406144822.21784-1-marek.vasut+renesas@mailbox.org>
- <20250406144822.21784-2-marek.vasut+renesas@mailbox.org>
- <2ny7jhcp2g5ixo75donutncxnjdawzev3mw7cytvhbk6szl3ue@vixax5lwpycw>
- <84cc6341-a2c1-4e3c-8c9e-2bc6589c52a6@mailbox.org>
- <ne4injlr4nwvufjdg7uuisxwipqfwd5voohktnbjjvod5om3p3@eriso5cw77ov>
- <CAL_Jsq+GdeKFPVpEOz+588QxkF-Uq=oNF5WJU+TK31Q6mkqaDA@mail.gmail.com>
+	Mon, 19 May 2025 17:36:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 323FD1655;
+	Mon, 19 May 2025 10:35:50 -0700 (PDT)
+Received: from [10.57.50.157] (unknown [10.57.50.157])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C790F3F673;
+	Mon, 19 May 2025 10:35:59 -0700 (PDT)
+Message-ID: <3a04995a-524c-4d07-8c8b-82930f9bca72@arm.com>
+Date: Mon, 19 May 2025 18:35:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_Jsq+GdeKFPVpEOz+588QxkF-Uq=oNF5WJU+TK31Q6mkqaDA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 20/43] arm64: RME: Runtime faulting of memory
+Content-Language: en-GB
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-21-steven.price@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250416134208.383984-21-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_103040_358289_87A651A2 
-X-CRM114-Status: GOOD (  27.59  )
+X-CRM114-CacheID: sfid-20250519_103604_733027_1DBDA118 
+X-CRM114-Status: GOOD (  33.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,59 +75,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 10:04:09AM -0500, Rob Herring wrote:
-> On Thu, May 15, 2025 at 6:57 AM Manivannan Sadhasivam
-> <manivannan.sadhasivam@linaro.org> wrote:
-> >
-> > On Mon, May 12, 2025 at 10:42:20PM +0200, Marek Vasut wrote:
-> > > On 5/9/25 9:37 PM, Manivannan Sadhasivam wrote:
-> > > > On Sun, Apr 06, 2025 at 04:45:21PM +0200, Marek Vasut wrote:
-> > > > > Document 'aux' clock which are used to supply the PCIe bus. This
-> > > > > is useful in case of a hardware setup, where the PCIe controller
-> > > > > input clock and the PCIe bus clock are supplied from the same
-> > > > > clock synthesiser, but from different differential clock outputs:
-> > > >
-> > > > How different is this clock from the 'reference clock'? I'm not sure what you
-> > > > mean by 'PCIe bus clock' here. AFAIK, endpoint only takes the reference clock
-> > > > and the binding already has 'ref' clock for that purpose. So I don't understand
-> > > > how this new clock is connected to the endpoint device.
-> > >
-> > > See the ASCII art below , CLK_DIF0 is 'ref' clock that feeds the controller
-> > > side, CLK_DIF1 is the bus (or 'aux') clock which feeds the bus (or endpoint)
-> > > side. Both clock come from the same clock synthesizer, but from two separate
-> > > clock outputs of the synthesizer.
-> > >
-> >
-> > Okay. So separate refclks are suppplied to the host and endpoint here and no,
-> > you should not call the other one as 'aux' clock, it is still the refclk. In
-> > this case, you should describe the endpoint refclk in the PCIe bridge node:
-> >
-> >                 pcie@... {
-> >                         clock = <refclk_host>;
-> >                         ...
-> >
-> >                         pcie@0 {
-> >                                 device_type = "pci";
-> >                                 reg = <0x0 0x0 0x0 0x0 0x0>;
-> >                                 bus-range = <0x01 0xff>;
-> >                                 clock = <refclk_ep>;
-> >                                 ...
-> >                         };
-> >                 };
-> >
-> >
-> > and use the pwrctrl driver PCI_PWRCTRL_SLOT to enable it. Right now, the slot
-> > pwrctrl driver is not handling the refclk, but I can submit a patch for that.
+Hi Steven
+
+On 16/04/2025 14:41, Steven Price wrote:
+> At runtime if the realm guest accesses memory which hasn't yet been
+> mapped then KVM needs to either populate the region or fault the guest.
 > 
-> There's another discussion about PCIe clocks here[1]. Seems there's a
-> variety of options here with spread-spectrum layered on top.
+> For memory in the lower (protected) region of IPA a fresh page is
+> provided to the RMM which will zero the contents. For memory in the
+> upper (shared) region of IPA, the memory from the memslot is mapped
+> into the realm VM non secure.
 > 
+> Signed-off-by: Steven Price <steven.price@arm.com>
 
-The other discussion is separate IMO. It just concerns how the endpoint detects
-local clock vs supplied clock.
+Please find some comments below.
 
-- Mani
+...
 
--- 
-மணிவண்ணன் சதாசிவம்
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index f6af3ea6ea8a..b6959cd17a6c 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+> @@ -714,6 +714,186 @@ static int realm_create_protected_data_page(struct realm *realm,
+>   	return -ENXIO;
+>   }
+>   
+> +static int fold_rtt(struct realm *realm, unsigned long addr, int level)
+> +{
+> +	phys_addr_t rtt_addr;
+> +	int ret;
+> +
+> +	ret = realm_rtt_fold(realm, addr, level, &rtt_addr);
+> +	if (ret)
+> +		return ret;
+> +
+> +	free_delegated_granule(rtt_addr);
+> +
+> +	return 0;
+> +}
+> +
+> +int realm_map_protected(struct realm *realm,
+> +			unsigned long ipa,
+> +			kvm_pfn_t pfn,
+> +			unsigned long map_size,
+> +			struct kvm_mmu_memory_cache *memcache)
+> +{
+> +	phys_addr_t phys = __pfn_to_phys(pfn);
+> +	phys_addr_t rd = virt_to_phys(realm->rd);
+> +	unsigned long base_ipa = ipa;
+> +	unsigned long size;
+> +	int map_level;
+> +	int ret = 0;
+> +
+> +	if (WARN_ON(!IS_ALIGNED(map_size, RMM_PAGE_SIZE)))
+> +		return -EINVAL;
+> +
+> +	if (WARN_ON(!IS_ALIGNED(ipa, map_size)))
+> +		return -EINVAL;
+> +
+> +	if (IS_ALIGNED(map_size, RMM_L2_BLOCK_SIZE))
+> +		map_level = 2;
+
+minor nit : RMM_RTT_BLOCK_LEVEL
+
+> +	else
+> +		map_level = 3;
+
+minor nit:  RMM_RTT_MAX_LEVEL ?
+
+> +
+> +	if (map_level < RMM_RTT_MAX_LEVEL) {
+> +		/*
+> +		 * A temporary RTT is needed during the map, precreate it,
+> +		 * however if there is an error (e.g. missing parent tables)
+> +		 * this will be handled below.
+> +		 */
+> +		realm_create_rtt_levels(realm, ipa, map_level,
+> +					RMM_RTT_MAX_LEVEL, memcache);
+> +	}
+> +
+> +	for (size = 0; size < map_size; size += RMM_PAGE_SIZE) {
+> +		if (rmi_granule_delegate(phys)) {
+> +			/*
+> +			 * It's likely we raced with another VCPU on the same
+> +			 * fault. Assume the other VCPU has handled the fault
+> +			 * and return to the guest.
+> +			 */
+> +			return 0;
+> +		}
+> +
+> +		ret = rmi_data_create_unknown(rd, phys, ipa);
+> +
+> +		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+> +			/* Create missing RTTs and retry */
+> +			int level = RMI_RETURN_INDEX(ret);
+> +
+> +			WARN_ON(level == RMM_RTT_MAX_LEVEL);
+> +
+> +			ret = realm_create_rtt_levels(realm, ipa, level,
+> +						      RMM_RTT_MAX_LEVEL,
+> +						      memcache);
+> +			if (ret)
+> +				goto err_undelegate;
+> +
+> +			ret = rmi_data_create_unknown(rd, phys, ipa);
+> +		}
+> +
+> +		if (WARN_ON(ret))
+> +			goto err_undelegate;
+> +
+> +		phys += RMM_PAGE_SIZE;
+> +		ipa += RMM_PAGE_SIZE;
+> +	}
+> +
+> +	if (map_size == RMM_L2_BLOCK_SIZE) {
+> +		ret = fold_rtt(realm, base_ipa, map_level + 1);
+> +		if (WARN_ON(ret))
+> +			goto err;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_undelegate:
+> +	if (WARN_ON(rmi_granule_undelegate(phys))) {
+> +		/* Page can't be returned to NS world so is lost */
+> +		get_page(phys_to_page(phys));
+> +	}
+> +err:
+> +	while (size > 0) {
+> +		unsigned long data, top;
+> +
+> +		phys -= RMM_PAGE_SIZE;
+> +		size -= RMM_PAGE_SIZE;
+> +		ipa -= RMM_PAGE_SIZE;
+> +
+> +		WARN_ON(rmi_data_destroy(rd, ipa, &data, &top));
+> +
+> +		if (WARN_ON(rmi_granule_undelegate(phys))) {
+> +			/* Page can't be returned to NS world so is lost */
+> +			get_page(phys_to_page(phys));
+> +		}
+> +	}
+> +	return -ENXIO;
+> +}
+> +
+> +int realm_map_non_secure(struct realm *realm,
+> +			 unsigned long ipa,
+> +			 kvm_pfn_t pfn,
+> +			 unsigned long size,
+> +			 struct kvm_mmu_memory_cache *memcache)
+> +{
+> +	phys_addr_t rd = virt_to_phys(realm->rd);
+> +	phys_addr_t phys = __pfn_to_phys(pfn);
+> +	unsigned long offset;
+> +	int map_size, map_level;
+> +	int ret = 0;
+> +
+> +	if (WARN_ON(!IS_ALIGNED(size, RMM_PAGE_SIZE)))
+> +		return -EINVAL;
+> +
+> +	if (WARN_ON(!IS_ALIGNED(ipa, size)))
+> +		return -EINVAL;
+> +
+> +	if (IS_ALIGNED(size, RMM_L2_BLOCK_SIZE)) {
+> +		map_level = 2;
+> +		map_size = RMM_L2_BLOCK_SIZE;
+
+Same here, stick to the symbols than digits.
+
+> +	} else {
+> +		map_level = 3;
+> +		map_size = RMM_PAGE_SIZE;
+> +	}
+> +
+> +	for (offset = 0; offset < size; offset += map_size) {
+> +		/*
+> +		 * realm_map_ipa() enforces that the memory is writable,
+
+The function names seems to be obsolete, please fix.
+
+> +		 * so for now we permit both read and write.
+> +		 */
+> +		unsigned long desc = phys |
+> +				     PTE_S2_MEMATTR(MT_S2_FWB_NORMAL) |
+> +				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R |
+> +				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+> +		ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
+> +
+> +		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+
+Could we hit the following case and end up in failure ?
+
+* Initially a single page is shared and the S2 is mapped
+* Later the Realm shares the entire L2 block and encounters a fault
+   at a new IPA within the L2 block.
+
+In this case, we may try to L2 mapping when there is a L3 mapping and
+we could encounter (RMI_ERROR_RTT, 2).
+
+
+> +			/* Create missing RTTs and retry */
+> +			int level = RMI_RETURN_INDEX(ret);
+
+So we should probably go down the rtt create step, with the following
+check.
+
+			if (level < map_level) {
+
+> +
+> +			ret = realm_create_rtt_levels(realm, ipa, level,
+> +						      map_level, memcache);
+> +			if (ret)
+> +				return -ENXIO;
+> +
+> +			ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
+
+
+		} else {
+
+Otherwise, may be we need to do some more hard work to fix it up.
+
+1. If map_level == 3, something is terribly wrong or we raced with 
+another thread ?
+
+2. If map_level < 3 and we didn't race :
+
+   a. Going one level down and creating the mappings there and then 
+folding. But we could endup dealing with ERROR_RTT,3 as in (1).
+
+   b. Easiest is to destroy the table at "map_level + 1" and retry the map.
+
+
+Suzuki
+
+
+
+> +		}
+> +		/*
+> +		 * RMI_ERROR_RTT can be reported for two reasons: either the
+> +		 * RTT tables are not there, or there is an RTTE already
+> +		 * present for the address.  The call to
+> +		 * realm_create_rtt_levels() above handles the first case, and
+> +		 * in the second case this indicates that another thread has
+> +		 * already populated the RTTE for us, so we can ignore the
+> +		 * error and continue.
+> +		 */
+> +		if (ret && RMI_RETURN_STATUS(ret) != RMI_ERROR_RTT)
+> +			return -ENXIO;
+> +
+> +		ipa += map_size;
+> +		phys += map_size;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static int populate_region(struct kvm *kvm,
+>   			   phys_addr_t ipa_base,
+>   			   phys_addr_t ipa_end,
+
 
