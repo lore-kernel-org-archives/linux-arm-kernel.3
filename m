@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38923C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 20:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EFAC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 20:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O/0IcdVQE5Us1JeC/7Mie5tysbAZM3UKBVkJQ6942JA=; b=K/k+yN7zdYRrdI9T4UNnBmcbvd
-	nE84oxBAf/pxXX78NLvHN6oDVbUR9RbKoi3T6UPp/gY6E5cl6GhrBZhBEtVODEhbPlYX1FJRwogvE
-	3l7QReTqE1YG7oMhfv5BZ+Bv+TtYb0WCErzy8O0B7ZEKNVnbXrmbImQ7v0B1FoyKC4tf0ZBC5USoi
-	ACTmxIV7l+4oS+syzaaTudvP0uSl1Y3OdcrjVwJLUgsEc3e9q5E7IisgcDZozrRt8bEz5bdWyAaVf
-	ij2qpSLRpzsuu+iERLI7e/vWhGxtVqTBVxMCBeAEq1OmnwShiNwQfbk1qGsc6sE3tDtHlcntyRBvE
-	S8Hh0IIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nGlArTtgUOUj740Mzo3b0ERQs4AjG6k/geZL7DXeETU=; b=AqFQoQxRxFsyQmat7IExguJnz7
+	Kew2DjLatqmDKnjgZI4+pbtkzoIBejfEUcEeaZoarKEQL9xQs5GXCECUnm403AE1GSTJvPq/fldA7
+	R8SaZwgGVEKTbYJDgo+pDs8F+saX+HxdmSiRsvdn9pItamJlFrVv231j/17hjLDBbxZdygoCusHYV
+	nThkJUMnQ1YCb0qlMLbmrA76ogNAbahWNCpTz4pLpQmx8i13NQTXJa/mN91nKweSdGvWU4TGbdWzX
+	lHIr+ac3jhAYvOg3I7GkvofDI9AC9SudMOWp1pS6BQwDaXXutmRBOzOqL0b6CbgYBRn5+mFgbRWZ7
+	0+mbJ1mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7Ho-0000000AQan-119s;
-	Mon, 19 May 2025 20:40:36 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uH7U9-0000000ARwp-3CIL;
+	Mon, 19 May 2025 20:53:21 +0000
+Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH7Ff-0000000AQMa-1dGn
+	id 1uH7Rz-0000000ARcO-0nT0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 20:38:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=O/0IcdVQE5Us1JeC/7Mie5tysbAZM3UKBVkJQ6942JA=; b=GP0qDkXtjwpwP4f1GOOTvWNQDw
-	MEnvFI+0pp6nHGYpcvjNmLUV2j4HbrlArpvjLp3VunvgL2GEYDmFpxnbdIcx9sKh4lyiSKCY0cCTK
-	pfmWqr1u4mtpz89N18QVW5tFQ3+tK/RFBduWyxlFtN192Ydmw1L86QUUfE5pbmopBKyQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uH7Fc-00D3Sq-9r; Mon, 19 May 2025 22:38:20 +0200
-Date: Mon, 19 May 2025 22:38:20 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Corentin Labbe <clabbe.montjoie@gmail.com>
-Subject: Re: [PATCH] net: dwmac-sun8i: Use parsed internal PHY address
- instead of 1
-Message-ID: <0ee2c181-1ab2-4d81-89f0-9d2992464a88@lunn.ch>
-References: <20250519164936.4172658-1-paulk@sys-base.io>
- <d89565fc-e338-4a58-b547-99f5ae87b559@lunn.ch>
- <aCuLwuSliICh86SP@collins>
+	Mon, 19 May 2025 20:51:09 +0000
+Message-ID: <96b21aa0-97d8-415d-9fbf-529b0434b25f@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1747687861;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nGlArTtgUOUj740Mzo3b0ERQs4AjG6k/geZL7DXeETU=;
+	b=XemC90L8DlP7lHEfQe/6YT5nXiboLVsNPfxid6qDytTG7ortwy1b/PntPkjfe1V5VbOnxD
+	dbz+wvnu+qAUoWapyohMluzeBpJJjslsLapo2BoHMkJiMmpKrSDCoJhSPh/LAnah16WxiK
+	S7A6quHCGMTVCddnc0juwgsYeTNbKNE=
+Date: Mon, 19 May 2025 16:50:57 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aCuLwuSliICh86SP@collins>
+Subject: Re: [PATCH] arm64: cacheinfo: Report cache sets, ways, and line size
+To: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org, Radu Rendec <rrendec@redhat.com>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org
+References: <20250509233735.641419-1-sean.anderson@linux.dev>
+ <20250510-fresh-magenta-owl-c36fb7@sudeepholla>
+ <f63c2be5-50e4-4c47-8a56-9a570977a6cf@linux.dev>
+ <aCIVec7zl3tIh73h@J2N7QTR9R3>
+ <d67d893e-9c7e-487e-a14b-419a7cdc6158@linux.dev>
+ <20250514123823.GA10606@willie-the-truck>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20250514123823.GA10606@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_133823_427124_676ACF31 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250519_135108_452337_A57F92D1 
+X-CRM114-Status: GOOD (  34.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +77,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> There's actually only two users of this (this code path for internal PHYs is
-> only used by two chips), which are platform dtsi files that have the address
-> already set to 1.
+On 5/14/25 08:38, Will Deacon wrote:
+> On Mon, May 12, 2025 at 11:56:28AM -0400, Sean Anderson wrote:
+>> On 5/12/25 11:36, Mark Rutland wrote:
+>> > On Mon, May 12, 2025 at 11:28:36AM -0400, Sean Anderson wrote:
+>> >> On 5/10/25 03:04, Sudeep Holla wrote:
+>> >> > On Fri, May 09, 2025 at 07:37:35PM -0400, Sean Anderson wrote:
+>> >> >> Cache geometry is exposed through the Cache Size ID register. There is
+>> >> >> one register for each cache, and they are selected through the Cache
+>> >> >> Size Selection register. If FEAT_CCIDX is implemented, the layout of
+>> >> >> CCSIDR changes to allow a larger number of sets and ways.
+>> >> >> 
+>> >> > 
+>> >> > Please refer
+>> >> > Commit a8d4636f96ad ("arm64: cacheinfo: Remove CCSIDR-based cache information probing")
+>> >> > 
+>> >> 
+>> >> | The CCSIDR_EL1.{NumSets,Associativity,LineSize} fields are only for use
+>> >> | in conjunction with set/way cache maintenance and are not guaranteed to
+>> >> | represent the actual microarchitectural features of a design.
+>> >> | 
+>> >> | The architecture explicitly states:
+>> >> | 
+>> >> | | You cannot make any inference about the actual sizes of caches based
+>> >> | | on these parameters.
+>> >> 
+>> >> However, on many cores (A53, A72, and surely others that I haven't
+>> >> checked) these *do* expose the actual microarchitectural features of the
+>> >> design. Maybe a whitelist would be suitable.
+>> > 
+>> > Then we have to maintain a whitelist forever,
+>> 
+>> There's no maintenance involved. The silicon is already fabbed, so it's
+>> not like it's going to change any time soon.
 > 
-> I have actually tested both with hardware and they work fine.
+> The list is going to change though and it introduces divergent behaviour
+> that I'd much rather avoid. The mechanism is there for firmware to
+> provide the information and it's hardly onerous compared with other
+> (critical) things that it's tasked to provide such as interrupt routing
+> and GPIOs.
 
-O.K.
+The mechanism is also there for us to discover the cache sizes without
+requiring any devicetree involvement.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>> > and running an old/distro
+>> > kernel on new HW won't give you useful values unless you provide
+>> > equivalent values in DT, in which case the kernel doesn't need to read
+>> > the registers anyway.
+>> 
+>> Conversely (and far more likely IMO), running an old/distro devicetree
+>> on a new kernel won't give you usefult values. Bootloaders tend not be
+>> be updated very often (if ever), whereas kernels can (ideally) be
+>> updated without changing userspace.
+> 
+> Updating the device-tree shouldn't require updating the bootloader.
 
-This is something to think about for patches in general. What
-questions are reviewers likely to ask, and can you answer them in the
-commit message?
+Very often the release cycle for the devicetree is tied to the bootloader.
+So they may not be updated very often.
 
-    Andrew
+>> > The architecture explcitly tells us not to use the values in this way,
+>> > and it's possible to place the values into DT when you know they're
+>> > meaningful.
+>> 
+>> Well, maybe we can just use these registers for the hundreds of existing
+>> devicetrees that lack values.
+> 
+> The fact that the device-tree files tend to omit this information is
+> quite telling as to how useful it actually is. What would you like to
+> use it for?
+
+Say you have a program that works on batches of data. You may want to
+adjust the size of the batch to fit in the L1 (or L2) cache. One way to
+do this is to benchmark various batch sizes and select an appropriate
+size. But it would be more convenient to the user to pick a batch size
+automatically without having to run a benchmark, just by reading from
+sysfs.
+
+> Short of having an immediate functional or performance benefit by
+> exposing this stuff, I wonder if we could add a kselftest for it
+> instead?
+
+I'm not sure how well that will improve adoption. Do people even run
+kselftest during board bringup?
+
+--Sean
 
