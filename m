@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B4FC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B0BC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 15:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UrmWeUmLByyoivKUnjW0HYxeJNUjIXdEBolOtGcXn28=; b=Xz7WPrQ9YR2xrAN81b4kbcTCd8
-	4zbP7rZnCfoQ4WQMAbGNt5y9gFTgicbLEPmj859gd4Vi27XEkpKcUhlgHC7k9JnStmG/t4+n8Ru5Y
-	aFCybU4Em4tt5nz+gPMS2xIDdPoIJ0523YdG/D8rtZtCX6l5SDc///vXffWxW6qkHiIqhcu+QRhHU
-	HGSOVORJnjMQC6K7JEYLMjEHzRlNU03yLItoobN2CEkBPFrS2yyGfaED059CZeLD9cWMDdNRCJrnh
-	Loa9OKygwN80BbOGj3DgdBsmgG8ajk3mlYbexZPai1YEdsAje7wMUKHpWPoNYjk8eorVM5tiyYtMW
-	643Oc15A==;
+	bh=QSIIDWdlqzl+xIuuE81sCKCMdcV/4Mu0UdNur2XU8WE=; b=EHuBLBQf6d5CeImCx8TYd+dA1v
+	79r7vSp5YQ3BTZJm7aOq9t7MzSxo+7+N4lx5K0248Ngg3QgqqGmcjnGANSWmEMWZ6jXwOYr6nNdZ5
+	EzoLNnar6PdMOdxlmgzyq1L0NYsSJuZ7S/YXQqg9JqNTCkLVDXUxr3bVMPbRTH2Q9iAqQsQS53eqB
+	mH1tFJOSHsbWCypwt6kjyhAuzhKMS0OY1rEQmCCXy7kF824/fRALIQwFNQJyGPzY5dt3MbeKt8p6u
+	WQR6v88wTg5162Rwbflm+3Whx6fpdJCd7fvJfAJYgpQ8zrsEJxyo2jrXeaU6m4RpEIwaOzZif52Wm
+	Ope1VuMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH2dz-00000009edy-1gql;
-	Mon, 19 May 2025 15:43:11 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1uH2g1-00000009f1W-0QYz;
+	Mon, 19 May 2025 15:45:17 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH1jm-00000009UF3-0oLl
+	id 1uH1ku-00000009UZp-0lOW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 14:45:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=UrmW
-	eUmLByyoivKUnjW0HYxeJNUjIXdEBolOtGcXn28=; b=UvrGl7XHCWhHVGmfw0ZZ
-	eJlzTB01m5VNbLVZcUgDRODfrkbJGsivp7nJsTbVcq4HWE0TZe4LGWUgaDc/uYgJ
-	6yGmH6tjW7Es4BOpLZVJuKU/Vs0Eiq++RvqtAaFx9TUI4Jx1x2ed5MKPH5FgZG3n
-	AiVF+BfCmVkDSKUobDjmxkz3wKJ9KcRk25+JaQm8EqWnVN55a35qyq8q5xNV/lrL
-	LvEPibqXamG5KT37cXN7BmvdBXEfrYIOxFtZFkt8X81NOc7AHtMQXcD+ApnWFlQy
-	dcAwZf7ppV175f3sqsMkw3/GIm7enOWK3g3MIhyXvmEwCUyd6erKknOwGH8Eh07U
-	lA==
-Received: (qmail 2526168 invoked from network); 19 May 2025 16:45:01 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 19 May 2025 16:45:01 +0200
-X-UD-Smtp-Session: l3s3148p1@v7AuLX41Ao1Zz6uL
-Date: Mon, 19 May 2025 16:45:00 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 1/7] arm64: dts: exynos: use proper node names for GPIO
- based I2C busses
-Message-ID: <aCtD7BH5N_uPGkq7@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-References: <20250519121512.5657-1-wsa+renesas@sang-engineering.com>
- <20250519121512.5657-2-wsa+renesas@sang-engineering.com>
- <006ee7d6-1289-4f4a-819d-9a5e5120db99@kernel.org>
+	Mon, 19 May 2025 14:46:17 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-601a5747638so3620151a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 07:46:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747665974; x=1748270774; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QSIIDWdlqzl+xIuuE81sCKCMdcV/4Mu0UdNur2XU8WE=;
+        b=h3Y5p3C6IcEW/LB2uC9ZMh0E+ZJXDhTc7VP3AAbH/v+jBHH7Qvbe4HcAd6Ze7MRpAC
+         VUDS1fFs865K70NyAayA7YRjV2hQhuluTaKKg5Xo6ynoeBMPPvA6DxhM2SGhIC8b/3Yk
+         oB8l0h2pHY+tvoLw1u62wDE6wnJXMVKah6Jw7lLm8wqvFctXITDes9egbB2JG8vkcQQe
+         GHGzCVtdtsxu8vbqylqyum+kKzfConkrf6Pq1N0q5kUkGhCAxctlDsiZ3ryRyYwoue3c
+         cqAbxnLcdM9Jsb1o2qpfiaGIbRwQeWjbPw3YLfk0/hMALDWlcn0n7Wcjud1kpDfOYvpP
+         Ffpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747665974; x=1748270774;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QSIIDWdlqzl+xIuuE81sCKCMdcV/4Mu0UdNur2XU8WE=;
+        b=l+ONYwiB6Py2/OvxZPD6kSYVs7ERxUfBglPEWH9LtlNTpyTc9tof9yOaGk52tEYhyS
+         o23JU3gW2CW32lo/Um2Ful9j+cbqrWnxmbQJAApzlGdVm8Wr0OKXHmJDZMh5vvPkEbC2
+         dXMZ10nuqvX/e7OdCoUXUwbB1RmlRCVOsIebjuyRHa74Zc2L050kBo9cGlbcEUQkiisE
+         9s8OwEqE/a5u2ak4rm7kJSJcWi/u9YJ+eQBhXluhueAF2nto8F1nH2Z6Gx/isJLuW9Bn
+         5UUrN02lAxkjQ0F3zePwPo4cPQ0J+7aw/0C3DlwlbAWK16rqkzdYiK5/afSOz4Hq9b1+
+         93fw==
+X-Forwarded-Encrypted: i=1; AJvYcCWitTJHu8pnRAWOcFXufw0F+TpiI6LV+FIEQ43HpJ54I2NqboVvFKlfvzY2DLmThxQpz9iwQk+oKeJP0WxoudKG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwngiXLuWmZky8pEotTXv0WuiSKogfwUbCuD9+5uMyB/ILPamBA
+	Odo1gsOCwJ+EN47IZXOOcnEP72+4CtJ9mf2CmukycfE49+NpvOsQqBEOW3d9EZtTLg==
+X-Gm-Gg: ASbGncugSVZYkwWHZ0iPOyMBwZOiwYYl/htbv9B+kF+YAQZwucldwXU6zdWxfD2UhOx
+	sTDQ+R/1IPsYUllNK/yZViKH70QVsvkcGhqJsacD9dzgN2iaznZmClLR7nUBHdDKk/84MycHRFN
+	K2bAbU2a5GVDLB57Q0MoGQynqrZd0Yd6u12EHc8nmbXUBEahFYbnfepOdg/2F9/z6EJNPMGTw0c
+	K0QhmwYQXO3F6KxLWi7Xka7Oh+COZiGz2hq7vQ7twWqnoY/r3yDRweRFD+niac7W4flykqIx7f7
+	cuR3b4wZIylAb7s3gwrgpEj17uYjHwwuTX4Gd24Fl01qfeEgG47mOUDMhb1+5//2clFXd6PEDB+
+	HHk6ulSvtbg==
+X-Google-Smtp-Source: AGHT+IEC3KHkrShBXny3Q7Ir1m0+6kZ8RmzKZn0Y25hUeD6jm+0Maqs5MW8iW3AbNc6hR400bbV0fQ==
+X-Received: by 2002:a05:6402:4415:b0:5fb:1c08:d8f7 with SMTP id 4fb4d7f45d1cf-6008a5a8caemr11231023a12.12.1747665974299;
+        Mon, 19 May 2025 07:46:14 -0700 (PDT)
+Received: from google.com (68.57.204.35.bc.googleusercontent.com. [35.204.57.68])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6005a6e5383sm5849380a12.37.2025.05.19.07.46.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 May 2025 07:46:13 -0700 (PDT)
+Date: Mon, 19 May 2025 14:46:10 +0000
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Vincent Donnefort <vdonnefort@google.com>, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: Re: [PATCH v4 02/10] KVM: arm64: Introduce for_each_hyp_page
+Message-ID: <aCtEMoZSCfRAPHXN@google.com>
+References: <20250509131706.2336138-1-vdonnefort@google.com>
+ <20250509131706.2336138-3-vdonnefort@google.com>
+ <86a57cg1bj.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="F3FdI+VratxAxGc4"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <006ee7d6-1289-4f4a-819d-9a5e5120db99@kernel.org>
+In-Reply-To: <86a57cg1bj.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_074507_098784_3B6384AE 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20250519_074616_224672_C63692C1 
+X-CRM114-Status: GOOD (  21.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +102,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Friday 16 May 2025 at 13:57:52 (+0100), Marc Zyngier wrote:
+> On Fri, 09 May 2025 14:16:58 +0100,
+> Vincent Donnefort <vdonnefort@google.com> wrote:
+> > 
+> > Add a helper to iterate over the hypervisor vmemmap. This will be
+> > particularly handy with the introduction of huge mapping support
+> > for the np-guest stage-2.
+> > 
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/memory.h b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > index eb0c2ebd1743..676a0a13c741 100644
+> > --- a/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > +++ b/arch/arm64/kvm/hyp/include/nvhe/memory.h
+> > @@ -96,24 +96,24 @@ static inline struct hyp_page *hyp_phys_to_page(phys_addr_t phys)
+> >  #define hyp_page_to_virt(page)	__hyp_va(hyp_page_to_phys(page))
+> >  #define hyp_page_to_pool(page)	(((struct hyp_page *)page)->pool)
+> >  
+> > -static inline enum pkvm_page_state get_host_state(phys_addr_t phys)
+> > +static inline enum pkvm_page_state get_host_state(struct hyp_page *p)
+> >  {
+> > -	return (enum pkvm_page_state)hyp_phys_to_page(phys)->__host_state;
+> > +	return (enum pkvm_page_state)p->__host_state;
+> 
+> I'm not quite sure why we have this cast the first place. If we are so
+> keen on type consistency, why isn't __host_state an enum pkvm_page_state
+> the first place?
 
---F3FdI+VratxAxGc4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Purely for cosmetic reasons TBH. The *hyp* state (as you've seen below)
+really needs accessors with some logic to decode whatever we store in
+hyp_page (the _complement_ of the hyp state in practice). So we
+introduced accessors for the *host* state for consistency and obfuscated
+the __host_state type in hyp_page to encourage the usage of these
+accessors. None of that is strictly necessary, though. And the explicit
+cast can go, it is already implicit from the return type of the accessor
+and the compiler should be happy enough I think.
 
+> >  }
+> >  
+> > -static inline void set_host_state(phys_addr_t phys, enum pkvm_page_state state)
+> > +static inline void set_host_state(struct hyp_page *p, enum pkvm_page_state state)
+> >  {
+> > -	hyp_phys_to_page(phys)->__host_state = state;
+> > +	p->__host_state = state;
+> >  }
+> >  
+> > -static inline enum pkvm_page_state get_hyp_state(phys_addr_t phys)
+> > +static inline enum pkvm_page_state get_hyp_state(struct hyp_page *p)
+> >  {
+> > -	return hyp_phys_to_page(phys)->__hyp_state_comp ^ PKVM_PAGE_STATE_MASK;
+> > +	return p->__hyp_state_comp ^ PKVM_PAGE_STATE_MASK;
+> 
+> And we don't seem that bothered here.
 
-> You did not paste the warning in commit msg, so I don't know the
-> rationale, but at first glance this is not correct. "-0" is the
-> preferred suffix. "0" is not.
-
-Here is an example:
-
-.../Kernel/linux/arch/arm/boot/dts/microchip/usb_a9g20.dtb: i2c-gpio-0 (i2c-gpio): $nodename:0: 'i2c-gpio-0' does not match '^i2c(@.+|-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-gpio.yaml#
-
-
---F3FdI+VratxAxGc4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmgrQ+gACgkQFA3kzBSg
-KbZ+0w//fJN6gr8h255gSX5XlD0NasDlY/nwsFPA7mhKJRNT8ilrz2kqXp0QhkXp
-g9zenBViHaEvMNSRvWWvD/BgYkIelK64OfDlXizr1Fzyy61N8drRWbJvQYgSfDrb
-elymxNHWClKUNyBLYY94YJivMXnDXPT/RqTto3MNjSEHEVHVxJ8LS0NyOU7y+B+/
-rk05XLraVxvwZQxIi4Z+jb+eIMsp+RO3sPyi+pjbACjG6F0KmF+v7JaIFygU0MEb
-N7d9f99FkkHOa0CR6vHwgOzryISIssFy7l8dXYxw+TONJOTW3Yr+kYnN3HqOVKE9
-H5Ti1DOmZCtcLq8A+DJmKQmGmVIs1NSBmO1E/Bk3xIYKvgVqdvcDzDrYLgpaAXtR
-dKfZmaaow07S36ZmPqKmznli22qpk1ahXoPpku+YAZ0Prb9LomU3QLDSkOst22k9
-QWcdET2ypyYfUhRicR2z+b4ec1c0kLngDidCyQ78sZivAgmCMGIi1zzGMxGsmUKW
-dxXYpkNic8iwKPQglW+QdykN9sHoncEUm9DFPfMXkQRuuxYAhMDPmPbeOGU8V0Am
-A5Vtx7qrmmTLhh5Urs+mGsGaUTeZAaQ51Np3TOX3JmYD5NwUoFr1J5f8cOJ0PE/W
-VZzVluKAq4dXR1bguNmwDEib/gqGt4MW7DZqSwdCQ8qdc7s8Tqs=
-=l7oR
------END PGP SIGNATURE-----
-
---F3FdI+VratxAxGc4--
+Cheers,
+Quentin
 
