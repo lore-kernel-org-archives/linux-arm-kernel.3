@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA300C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 08:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB0CC54754
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 08:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t/k62NGDDYYiEZcY3g4rv/NbFRxjHY8ftixszCG/oSM=; b=As66PBT4qnCwXMgiuD2GVQiZEU
-	enbocbXFIeC3pfeQNiYK1GiREEt1SCC+ysRwma+bfcf4DQJOI+QoJmkgSuco4+uaAy+pRXZw0ObIp
-	AUsOrCMrVcD3cQouXX0JFqaGVTxiEq8kNDU1F9iuIMTdaDFCH/LHIVM3RPFSVZqYL1Q4aNONKwQxJ
-	t7eSNmeV0d6spXIJgGS0Oy7mGNoyHmy0oOmIr5dhet8cpGYGrsYAhNIg8dzoTVuUWpqOWpypjfME7
-	EF8qSSEYIz3gO9ORjd0uzffKhx3cCvovXBWx/CZpQD7nE5XMQFrwysDwpJbg0ne7epRCKaLRxkXE4
-	eze7CMZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f3hCyHLWA/bSLmME++ghrMJ3oK9+IxO5NB8bH0587ZM=; b=aJy3SZEKJjxh+FhJa/W0RkksVH
+	9a4c07j+Ce3Iz6xWddEk3lIRA/DZHKE4wkjoXIQZpzO5EGUcqebG/l6DtnSyJCph7ZL43Fykb8Nj+
+	x59UOVH6dxQqboZ+SE27ZpG3J3S+2H77AZQkkywyBaCUIg1/6dSqV5Gxvn+NMqNg4Wr1zw0Bj6rOp
+	ij5i+F9oLsajkMkjD0s2BWpe4nz0GZCGVCol/ZSnH1no1SoUFp+kP3OW3zRLVKQQ4GDr/sE3RD0O2
+	4Q72X9c/jSVIQaEiYBcZMtjBoNBJPOdkXdEiQ77nnQvZ1A2IjvgaulBmoOo+5Bhi3/x8/NR9nTB7q
+	pn92GQAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGvpe-00000008Lg4-3FP8;
-	Mon, 19 May 2025 08:26:46 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uGvrf-00000008Lya-3YEQ;
+	Mon, 19 May 2025 08:28:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGvk5-00000008Kx2-29Np
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 08:21:03 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43edb40f357so32680365e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 01:21:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1747642859; x=1748247659; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=t/k62NGDDYYiEZcY3g4rv/NbFRxjHY8ftixszCG/oSM=;
-        b=m56TbQfIBan9KqBfSADLDo9PUffrM35QdnahT1oXO7tG+BYZjvoAF4WIq9TBKe3mJp
-         Ir4+caqoi1FAitynhzw8Q1849zG8shauMDpnmDxmwbsGcuW1oE5fpcCBW6+bHpdKfvbz
-         uXwTr1gi+4iAx+HXyXfWoiS99WZQKSVsJDagXTs24x3N0QiAjlafTL8AL40W5UZLxq8t
-         xvMMKyBV1UWyYIPP325rXXPP1mClD/wFun5ewWLPCsl4jk77a2VvImq6i4eB7hE6Bdlh
-         3rZrtfohoy+iNbfIjPod+JZ8r4QLof6lAQMcwygLc9KuqeJxPFSgjx9okUTC9q9wjQFj
-         b3PA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747642859; x=1748247659;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=t/k62NGDDYYiEZcY3g4rv/NbFRxjHY8ftixszCG/oSM=;
-        b=m9OrZHyXzYAi1tBJpg2rix84yaMpdqNl1YilsZsPmfomUi4QuLcg/FnEGeS1d6stgN
-         y4Lr2nHu+03SWWQ9mgBr5luVTQvCcCoJOKLFtjF074xqe4gL3jrOCfy2dj7mNjUQ7slu
-         37BLjKl2sP11ZK+HaN0eJ2x+BCz7DUZ5pkymg0viwbMvhwrcoJV8ZuNygVVZfIv7uLXw
-         hqejVSh/Z0PT7P654xcFhuKqKmdj6sXNEnL0hHkRxOnMfiI0YrRNiyNhi5X4wQtYz0dF
-         OJMhKeDkfK3eifm9mSOiKYpUG76hvU167xKJO76+IBj6iCFVQEBRAx7o8ZYM6uia4/X3
-         Ck9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXA6erq9ZtwUd95aOWWFRoPj7UTEkdClUTvElu7KQbQELLabFyaRNsMuOoZFqmDgGFV749tEMSdns+4Tc2q0lRu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWaAM9pj1jV+22h/FVrYUD9gIuCQhVCOBTHkkigtWcnSgh96zO
-	jY3I7nHONA6pT0KlVR+9kDeA91bZ9z1OY8pHncRQKZKIEMaESm1UJIXboRhRW4kr0mw=
-X-Gm-Gg: ASbGncvDER1QOJcTbo9yStRP8cZhbY608VJmCqdIitPvJtATXXN1SakBtC+gVK43/Ln
-	ClW9WyC9cOgaaYza4LhLEn4t7bQ0l+OJeM7AErmjnksMcvceKZ1/mUiuyLyuf9jR1xvePBsF48G
-	E3d1eqk3w+yYoQJSB9x5EFZfPVZcoBrUIzDQ9sQGPISliK0uMQN1PNxm6qItYJ1RkxjGaRqthfx
-	LpZrSfH59nJ+LmsxoQO3dmZ6vhx6bD3jLE+4hC41YYt/zUmagt0uj6UGGny+cZioGvJhpxyOCiQ
-	1Xu9tzR2l1wqZn1I0Pdd/+WZiRN9mYPZ9qdfyhtlsXgr6JbPCTtHh1Q=
-X-Google-Smtp-Source: AGHT+IFGzPPtx3PF8r11/vjc9a7/gcX2mANQelOTEbdI5fy6+2ZiOLqEmQuRVs3+LIEHWfWk7aen0w==
-X-Received: by 2002:a05:600c:628d:b0:441:d438:159d with SMTP id 5b1f17b1804b1-442fd60cee6mr100229085e9.6.1747642859405;
-        Mon, 19 May 2025 01:20:59 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:e0a:e50:3860:9e23:ebb5:83ee:38e7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442fd50eda6sm127139875e9.13.2025.05.19.01.20.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 May 2025 01:20:59 -0700 (PDT)
-From: Guillaume La Roque <glaroque@baylibre.com>
-Date: Mon, 19 May 2025 10:20:56 +0200
-Subject: [PATCH v2] arm64: Kconfig.platforms: remove useless select for
- ARCH_K3
+	id 1uGvmv-00000008LHi-3v7a;
+	Mon, 19 May 2025 08:23:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CAE04A911;
+	Mon, 19 May 2025 08:23:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5F15C4CEE4;
+	Mon, 19 May 2025 08:23:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747643037;
+	bh=jPOmJuNtUtPeHXYDoq8UpiU1fLg1uJ77a4E3sjVJxEo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U5qQz9lNLqp+uykE3Gz6g6L7CJRrAXbzYGYaN2AituvPUZtSU3ZLuMsv+052yLqbP
+	 wi6+DQX8s2nnJ8Dq4bFlxQNO2Y1G/L8J8txqx8fibr7BmN5pwMWmbLDbrnI4rU9rHj
+	 dhehp1GkPvrZrFdbeemWlPN+2tbR4EPvx1N8SpAatTWH1y8NZET04N45u4Q4Hbu5Sm
+	 l6suFuy8dbBQajdGwrCvBmHmcCitoA8oczhABPantwJH0JIZjHwPY7kEmc+nA2D0A9
+	 rySdHlUDG9vdaO6MQu3yGdNLuZ5LgNBAVf8EHBi0eVNSG1txUF5VbDZhlRmyRW0REB
+	 BbFt9Ks5Whxdw==
+Date: Mon, 19 May 2025 10:23:54 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
+Message-ID: <20250519-tall-glistening-quokka-9ffa6f@kuoka>
+References: <20250519012632.94-1-kernel@airkyi.com>
+ <20250519012632.94-3-kernel@airkyi.com>
+ <20a565da-296c-4920-b962-e9de9af464d9@kernel.org>
+ <632f9f4d-ec0f-4512-a153-d2abfd9f6841@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250519-kconfig-v2-1-56c1a0137a0f@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAOfpKmgC/2XMSw7CIBSF4a00dyyGR1tbR+7DdADIbW9UMGCIT
- cPexU4d/icn3wbJRXIJzs0G0WVKFHwNeWjALtrPjtGtNkguO97xlt1t8Egz6wcUakSDSp2gvl/
- RIX126TrVXii9Q1x3OIvf+m9kwQTThkvRY4t6HC5Grw8y0R1teMJUSvkCb6YuMKEAAAA=
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Nishanth Menon <nm@ti.com>
-Cc: Andrew Davis <afd@ti.com>, vishalm@ti.com, linux-omap@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Guillaume La Roque <glaroque@baylibre.com>
-X-Mailer: b4 0.14.1
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <632f9f4d-ec0f-4512-a153-d2abfd9f6841@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_012101_818438_42BB922B 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20250519_012358_012272_A9CF2ED8 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +80,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
-select on ARCH_K3 are not needed anymore.
-Select MAILBOX by default is not needed anymore[3],
-PM_GENERIC_DOMAIN if PM was enabled by default so not needed.
+On Mon, May 19, 2025 at 02:56:03PM GMT, Chaoyi Chen wrote:
+> Hi Krzysztof,
+> 
+> On 2025/5/19 14:16, Krzysztof Kozlowski wrote:
+> > On 19/05/2025 03:26, Chaoyi Chen wrote:
+> > > +maintainers:
+> > > +  - Andy Yan <andy.yan@rock-chip.com>
+> > > +  - Heiko Stuebner <heiko@sntech.de>
+> > > +  - Sandy Huang <hjc@rock-chips.com>
+> > > +
+> > > +allOf:
+> > > +  - $ref: /schemas/sound/dai-common.yaml#
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    items:
+> > > +      - const: rockchip,rk3399-cdn-dp
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +
+> > > +  clocks:
+> > > +    items:
+> > > +      - description: DP core work clock
+> > > +      - description: APB clock
+> > > +      - description: SPDIF interface clock
+> > > +      - description: GRF clock
+> > > +
+> > > +  clock-names:
+> > > +    items:
+> > > +      - const: core-clk
+> > > +      - const: pclk
+> > > +      - const: spdif
+> > > +      - const: grf
+> > > +
+> > > +  extcon:
+> > > +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> > > +    items:
+> > > +      maxItems: 1
+> > > +    maxItems: 2
+> > Instead of this, list the items. Old binding said only "specifier", so
+> > this is technically a change, which should be explained in commit msg.
+> 
+> Will fix in v5.
+> 
+> 
+> > 
+> > > +    description:
+> > > +      List of phandle to the extcon device providing the cable state for the DP PHY.
+> > > +
+> > > +  interrupts:
+> > > +    maxItems: 1
+> > > +
+> > > +  phys:
+> > > +    items:
+> > > +      maxItems: 1
+> > > +    maxItems: 2
+> > > +    description: |
+> > > +      List of phandle to the PHY device for DP output.
+> > > +      RK3399 have two DP-TPYEC PHY, specifying one PHY which want to use,
+> > > +      or specify two PHYs here to let the driver determine which PHY to use.
+> > 
+> > You do not allow one phy, so your description is not accurate. OTOH,
+> > original binding did not allow two phandles, so that's another change in
+> > the binding. You need to document all changes done to the binding in the
+> > commit msg.
+> 
+> Oh, the original binding example use two phandles. I think only one PHY can
 
-Remove it and give possibility to enable this driver in modules.
+Example is not the binding, just an example.
 
-[1] https://lore.kernel.org/all/20180828005311.8529-1-nm@ti.com/
-[2] https://lore.kernel.org/all/20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com/
-[3] https://lore.kernel.org/all/20250507135213.g6li6ufp3cosxoys@stinging/
+> also pass the dtb check here, or maybe I'm missing something else?
 
-Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
----
-Changes in v2:
-- Remove some other config after comment from Nishanth. 
-- Link to v1: https://lore.kernel.org/r/20250504-kconfig-v1-1-ab0216f4fa98@baylibre.com
----
- arch/arm64/Kconfig.platforms | 4 ----
- 1 file changed, 4 deletions(-)
+You think or you tested it? What is the minItems value? 2, so even if
+this works it's rather a bug in dtschema.
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 8b76821f190f..bf9e3d76b4c0 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -135,11 +135,7 @@ config ARCH_SPARX5
- 
- config ARCH_K3
- 	bool "Texas Instruments Inc. K3 multicore SoC architecture"
--	select PM_GENERIC_DOMAINS if PM
--	select MAILBOX
- 	select SOC_TI
--	select TI_MESSAGE_MANAGER
--	select TI_SCI_PROTOCOL
- 	select TI_K3_SOCINFO
- 	help
- 	  This enables support for Texas Instruments' K3 multicore SoC
-
----
-base-commit: e8ab83e34bdc458b5cd77f201e4ed04807978fb1
-change-id: 20250504-kconfig-68f139fbf337
+Also, inner maxItems:1 is not really correct. Why can't this work with
+different phy providers?
 
 Best regards,
--- 
-Guillaume La Roque <glaroque@baylibre.com>
+Krzysztof
 
 
