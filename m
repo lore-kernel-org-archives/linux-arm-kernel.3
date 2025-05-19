@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D002DC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 13:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACB6C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 13:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zX2HuKhDwN/4IWGs7cDEhcJDkcpkpgPsdgaTCRsfZG0=; b=UQG3jXjBktjmM3/eSaKVUtycnk
-	M/W4a8fCpB1ubpPsf5KElK7B5JpjjR5KduXlxC8CuHi01duTw5b8UvuOctNkSsLfKlBmYhmy+jWZ1
-	jeeILVpnmhiGsZ8G8OFoFsxHX1VBtqRVPyoBnomW1ip3zvA1/1cvvzTRmM6qzVaXLuplVYCuopvUo
-	4QEuY/equvlRqVJeK/OMhqshu8qspb9wjzaE9DN54vLpR/N9Zop3q6ZEj4x7hv+aPJG4d8yOMCyzt
-	+4Vu/btJn/Ds8qMbOp/o8Wk+WUbfm+pIgB5aqE0E3SS5mn/ephel4wLwloeEttYcMr8FkU0asC69P
-	PK0p5pzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=y2iDm7AFMMtjAMcYjTVMDQj0KlbNPAJT0z73iR1jFKk=; b=yvfBAaiTYLTnlP
+	rvSn+5HBbG+kAIWhjB8w6i836fwZElOhy7vFP1Q6qg/7Tu5Ilf4KxHVq3ivv7xgbH6WDCiuOYlmJF
+	YxNmVnIOtPItQ4XbvN3f9C21apQc0Ak5dQN3VBaia6ranJjWdvThrTyQiuk5TwFuwfX41PS6EMbuK
+	0y8d4KpdUYz96HNvDjX2/kI/JI6fBboNrnLJWJ5F+EBjmiQRlG6rK3lYx90D7b1sLIWGf40gpdYP9
+	2GjZboblL3e+/8INFeEeSTzVqVGiRiCN5L2f5gXUkH4lwSxrX09mzgEN26GarRv+W8MoNgoRR+8zM
+	VcjwqFh4iJnLUHNPcsmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH0m4-00000009JZL-2ECH;
-	Mon, 19 May 2025 13:43:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uH0oe-00000009KER-15O1;
+	Mon, 19 May 2025 13:46:04 +0000
+Received: from mail-wm1-f47.google.com ([209.85.128.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH0k3-00000009JRh-19Tb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 May 2025 13:41:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zX2HuKhDwN/4IWGs7cDEhcJDkcpkpgPsdgaTCRsfZG0=; b=AjpXYTrmtvZvghC4Y2ookrdmPa
-	h1jXFW3KdzGAHhCua7Kd9AhaLJ9BaTEnwegWClCATGNUV5O2yIy/TWAh5fwk928WUmQtbpxnM71jB
-	/ZPAB/Dd2V24ou9WOfZNgXKo9CotP+DdKtdMvDpSeADdHhk9AYYMY5xjMd4AtdFj/DYoguBWWFlnC
-	GTcyGIqdO9m/kwiEpayPMcJ3VLyK+EjUTmsujvqJ03D35YjTxXJnRBYbcYSLY5SV/lZYY/NQWnskP
-	ibYfpxqzRIomoN5hWihp4u0lJDFjdxAakaAyLEiuXERZnZqVX2CsmsTQqGnDknO9AonKHf7+j4BqE
-	YJT3IXFw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uH0jz-00000000dgh-18fl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 13:41:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 486291655;
-	Mon, 19 May 2025 06:40:59 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 939DF3F6A8;
-	Mon, 19 May 2025 06:41:09 -0700 (PDT)
-Date: Mon, 19 May 2025 14:41:06 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Song Liu <song@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
-	indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com,
-	irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org,
-	peterz@infradead.org, roman.gushchin@linux.dev, rostedt@goodmis.org,
-	will@kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH v3 1/2] arm64: Implement arch_stack_walk_reliable
-Message-ID: <aCs08i3u9C9MWy4M@J2N7QTR9R3>
-References: <20250320171559.3423224-1-song@kernel.org>
- <20250320171559.3423224-2-song@kernel.org>
+	id 1uH0mZ-00000009Jf9-1I81;
+	Mon, 19 May 2025 13:43:56 +0000
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-43d04dc73b7so48231455e9.3;
+        Mon, 19 May 2025 06:43:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747662233; x=1748267033;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=y2iDm7AFMMtjAMcYjTVMDQj0KlbNPAJT0z73iR1jFKk=;
+        b=g4Xq6zwVdC9J6YNuk1uhclH25sblbfaN5WE009YUhAyu65qqIlsviHc2WkPq7e0pHN
+         9siZeiYMGxDyXRvDoWh8OgwRN0zbg81PVSWkZBEyoggGR8Q4BGq+zTkPzW2K0pExA10i
+         eZlaDY4osLIdeJKF9DjxoiixaeLeDi8x72bC4BrXqzFDsIQeLhOQb9atirsu2jCCkyto
+         Qjmn05ZUSwEZsueAZbJTKFZB+Fj8Psf4zbvX3UuBF44nvKxZ3+f0SjJ8rhFJo5gue/LG
+         zo11Xnq8UPOnLzXLqbATLEA1ln9xsoWf0HPhIYXTrIVo/0qKbkZzo7fuTw4M8ZapSlSr
+         8jgg==
+X-Forwarded-Encrypted: i=1; AJvYcCVL++svIiST1fAa8v/irIP96udFX3sB/gyZT0T6vwCblT7AC3944QP8O/XfdpJS4SUiE/p8pBSqsYL7QsWGYTY=@lists.infradead.org, AJvYcCVM6B/2FGTWiMdeiCDkKak0DZiYNZhhJT0oZpiCJU+OtxNyqYZ9E/0ez6Y6MiSZHntgj1f8Ir7PGFFLKmhKNpEl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA30F0tVUA45mcTVvfYbrXN4yLsc5pRidGXP5JUJ7ml84aH3ri
+	CJAUT5fogD7rsAsAEjPVxnE8vj2uTjuFLsAxeRaqoRtNIxVhI63h6aSN
+X-Gm-Gg: ASbGncs0qrQd/wzofPKerffcr58NZWDtJUuMZluiZNFRUu7gFr7xYoqLEBVeQyR0HlG
+	24yQtDDYx4oD+2D/2hSMOpkkBu6ltCPFuFY1aZszy7W/cX/XbOHtxOs/9JSd0xRUoaaDrCMzneD
+	/9hmbSU9ILRIxhRMc2S/nqYBSc5yGLc8tamRGKHu0UhRIWkzCuPwDqZbS9dJE2g0z4v+VhdIbOp
+	j1P3xxkGWT20DvBt++SoHrvbXT/0Jcjy5zQ5E2dWJUH/4ccLmtuuyVyKylTyHf57fbqkTUscqa4
+	sVgJAh/xTvzRL8f1Nd0zba0SvrJT+arnoJmqDnLbV8qSqYBnpNUv1Gp9Zc9A4kduKqWyncwP9zx
+	egQb668xHlw==
+X-Google-Smtp-Source: AGHT+IGz9sr1GGSvtPUN+7MYE3oLrizZuU8xFUXM1pTYI0T7p9vNGQVR6GSJnDp0kkH0OTjmfvI/5g==
+X-Received: by 2002:a05:6000:2913:b0:3a3:655e:d472 with SMTP id ffacd0b85a97d-3a3655ed55cmr5479104f8f.47.1747662232893;
+        Mon, 19 May 2025 06:43:52 -0700 (PDT)
+Received: from [10.42.0.1] (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f8ab839esm171263005e9.17.2025.05.19.06.43.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 May 2025 06:43:52 -0700 (PDT)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Subject: [PATCH v4 00/10] New DRM accel driver for Rockchip's RKNN NPU
+Date: Mon, 19 May 2025 15:43:32 +0200
+Message-Id: <20250519-6-10-rocket-v4-0-d6dff6b4c0ae@tomeuvizoso.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250320171559.3423224-2-song@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIQ1K2gC/23O0QrCIBTG8VcZXmfombrqqveILjY9axLNUJNq7
+ N1zg4jRLv8fnB9nIAG9xUAOxUA8Jhus63OITUF0V/cXpNbkJsBAMMWBKsoZ9U5fMdJ9yZXBVnO
+ hK5Iv7h5b+5y10zl3Z0N0/jXjiU/rupM4ZZQphmKHWINkx+hu+Ej27YLb9hjJpCX4CpIByKUAW
+ TDCNLqtp3/4ulD+BMnVUiizUOW51vusm+ZfGMfxAx/82SowAQAA
+X-Change-ID: 20240612-6-10-rocket-9316defc14c7
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+ Tomeu Vizoso <tomeu@tomeuvizoso.net>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_144115_832103_E3F1225F 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20250519_064355_351479_5B46BC3B 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,129 +102,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 10:15:58AM -0700, Song Liu wrote:
-> With proper exception boundary detection, it is possible to implment
-> arch_stack_walk_reliable without sframe.
-> 
-> Note that, arch_stack_walk_reliable does not guarantee getting reliable
-> stack in all scenarios. Instead, it can reliably detect when the stack
-> trace is not reliable, which is enough to provide reliable livepatching.
-> 
-> Signed-off-by: Song Liu <song@kernel.org>
-> ---
->  arch/arm64/Kconfig             |  2 +-
->  arch/arm64/kernel/stacktrace.c | 66 +++++++++++++++++++++++++---------
->  2 files changed, 51 insertions(+), 17 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 701d980ea921..31d5e1ee6089 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -276,6 +276,7 @@ config ARM64
->  	select HAVE_SOFTIRQ_ON_OWN_STACK
->  	select USER_STACKTRACE_SUPPORT
->  	select VDSO_GETRANDOM
-> +	select HAVE_RELIABLE_STACKTRACE
->  	help
->  	  ARM 64-bit (AArch64) Linux support.
->  
-> @@ -2500,4 +2501,3 @@ endmenu # "CPU Power Management"
->  source "drivers/acpi/Kconfig"
->  
->  source "arch/arm64/kvm/Kconfig"
-> -
-> diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-> index 1d9d51d7627f..7e07911d8694 100644
-> --- a/arch/arm64/kernel/stacktrace.c
-> +++ b/arch/arm64/kernel/stacktrace.c
-> @@ -56,6 +56,7 @@ struct kunwind_state {
->  	enum kunwind_source source;
->  	union unwind_flags flags;
->  	struct pt_regs *regs;
-> +	bool end_on_unreliable;
->  };
->  
->  static __always_inline void
-> @@ -230,8 +231,26 @@ kunwind_next_frame_record(struct kunwind_state *state)
->  	new_fp = READ_ONCE(record->fp);
->  	new_pc = READ_ONCE(record->lr);
->  
-> -	if (!new_fp && !new_pc)
-> -		return kunwind_next_frame_record_meta(state);
-> +	if (!new_fp && !new_pc) {
-> +		int ret;
-> +
-> +		ret = kunwind_next_frame_record_meta(state);
-> +		if (ret < 0) {
-> +			/*
-> +			 * This covers two different conditions:
-> +			 *  1. ret == -ENOENT, unwinding is done.
-> +			 *  2. ret == -EINVAL, unwinding hit error.
-> +			 */
-> +			return ret;
-> +		}
-> +		/*
-> +		 * Searching across exception boundaries. The stack is now
-> +		 * unreliable.
-> +		 */
-> +		if (state->end_on_unreliable)
-> +			return -EINVAL;
-> +		return 0;
-> +	}
+This series adds a new driver for the NPU that Rockchip includes in its
+newer SoCs, developed by them on the NVDLA base.
 
-My original expectation for this this was that we'd propogate the
-errors, and then all the reliability logic would live un a consume_entry
-wrapper like we have for BPF, e.g.
+In its current form, it supports the specific NPU in the RK3588 SoC.
 
-| static __always_inline bool
-| arch_reliable_kunwind_consume_entry(const struct kunwind_state *state, void *cookie)
-| {
-|         struct kunwind_consume_entry_data *data = cookie;
-| 
-|         /*  
-|          * When unwinding across an exception boundary, the PC will be
-|          * reliable, but we do not know whether the FP is live, and so we
-|          * cannot perform the *next* unwind reliably.
-|          *
-|          * Give up as soon as we hit an exception boundary.
-|          */
-|         if (state->source == KUNWIND_SOURCE_REGS_PC)
-|                 return false;
-| 
-|         return data->consume_entry(data->cookie, state->common.pc);
-| }
-| 
-| noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn consume_entry,
-|                                               void *cookie,
-|                                               struct task_struct *task)
-| {
-|         int ret;
-|         struct kunwind_consume_entry_data data = { 
-|                 .consume_entry = consume_entry,
-|                 .cookie = cookie,
-|         };  
-| 
-|         ret = kunwind_stack_walk(arch_reliable_kunwind_consume_entry, &data,
-|                                  task, NULL);
-|         return ret == -ENOENT ? 0 : ret;
-| }
+The userspace driver is part of Mesa and an initial draft can be found at:
 
-... and then in future we can add anything spdecific to reliable
-stacktrace there.
+https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
 
-That aside, this generally looks good to me. The only thing that I note
-is that we're lacking a check on the return value of
-kretprobe_find_ret_addr(), and we should return -EINVAL when that is
-NULL, but that should never happen in normal operation.
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+---
+Changes in v4:
+- Several fixes to DT bindings.
+- Link to v3: https://lore.kernel.org/r/20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net
 
-I've pushed a arm64/stacktrace-updates branch [1] with fixups for those
-as two separate commits atop this one. If that looks good to you I
-suggest we post that as a series and ask Will and Catalin to take that
-as-is.
+Changes in v3:
+- Reference in the device tree only the register blocks that are
+  actually used.
+- Several style and robustness fixes suggested in the mailing list.
+- Added patches from Nicolas Frattaroli that add support to the NPU for
+  the Rock 5B board.
+- Link to v2: https://lore.kernel.org/r/20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net
 
-I'll look at the actual patching bits now.
+Changes in v2:
+- Drop patch adding the rk3588 compatible to rockchip-iommu (Sebastian Reichel)
+- Drop patch adding support for multiple power domains to rockchip-iommu (Sebastian Reichel)
+- Link to v1: https://lore.kernel.org/r/20240612-6-10-rocket-v1-0-060e48eea250@tomeuvizoso.net
 
-Mark.
+---
+Nicolas Frattaroli (2):
+      arm64: dts: rockchip: add pd_npu label for RK3588 power domains
+      arm64: dts: rockchip: enable NPU on ROCK 5B
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/ arm64/stacktrace-updates
+Tomeu Vizoso (8):
+      dt-bindings: npu: rockchip,rknn: Add bindings
+      arm64: dts: rockchip: Add nodes for NPU and its MMU to rk3588s
+      arm64: dts: rockchip: Enable the NPU on quartzpro64
+      accel/rocket: Add registers header
+      accel/rocket: Add a new driver for Rockchip's NPU
+      accel/rocket: Add IOCTL for BO creation
+      accel/rocket: Add job submission IOCTL
+      accel/rocket: Add IOCTLs for synchronizing memory accesses
+
+ Documentation/accel/index.rst                      |    1 +
+ Documentation/accel/rocket/index.rst               |   25 +
+ .../bindings/npu/rockchip,rknn-core.yaml           |  149 +
+ MAINTAINERS                                        |   10 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |   87 +-
+ .../arm64/boot/dts/rockchip/rk3588-quartzpro64.dts |   30 +
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |   56 +
+ drivers/accel/Kconfig                              |    1 +
+ drivers/accel/Makefile                             |    1 +
+ drivers/accel/rocket/Kconfig                       |   25 +
+ drivers/accel/rocket/Makefile                      |   10 +
+ drivers/accel/rocket/rocket_core.c                 |  103 +
+ drivers/accel/rocket/rocket_core.h                 |   59 +
+ drivers/accel/rocket/rocket_device.c               |   45 +
+ drivers/accel/rocket/rocket_device.h               |   31 +
+ drivers/accel/rocket/rocket_drv.c                  |  337 ++
+ drivers/accel/rocket/rocket_drv.h                  |   17 +
+ drivers/accel/rocket/rocket_gem.c                  |  211 +
+ drivers/accel/rocket/rocket_gem.h                  |   31 +
+ drivers/accel/rocket/rocket_job.c                  |  723 ++++
+ drivers/accel/rocket/rocket_job.h                  |   50 +
+ drivers/accel/rocket/rocket_registers.h            | 4425 ++++++++++++++++++++
+ include/uapi/drm/rocket_accel.h                    |  145 +
+ 23 files changed, 6571 insertions(+), 1 deletion(-)
+---
+base-commit: a6d708809579ed3d902465785666085ff07a1d7c
+change-id: 20240612-6-10-rocket-9316defc14c7
+
+Best regards,
+-- 
+Tomeu Vizoso <tomeu@tomeuvizoso.net>
+
 
