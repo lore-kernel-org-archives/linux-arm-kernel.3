@@ -4,98 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C14C54756
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5A7C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 19:55:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kXQcDRAe4EWVXNL5yTAKMixST4qgC4DZfdrTRe+HbCQ=; b=Lw1z5BTpvqejw09WtGuQynb4oZ
-	JVN08jS9U7n4xIpCVbs4ZlxYIrN1EXQAq8toOpt71WMioPq6xbpE/eRCiBJJdPt+fAQNEEhuth7I5
-	yzYCq7Eyq9tJpKHsPss4fh/MbgY0Kpkc921tjxOvkSaeFeelEmG0xBMAe3Rk9X43vojQixX0sBra/
-	DkPURx9WM11RetHmh7VklZgEnTmNnQzTQkuMBxudHZ0m3EUHzeBRbgxrJlRaulIDf7xFcnVca8R6Y
-	DTbzuIQ9lVT99Hb7sdeIh6EEQ033sEdHU82qeNT0EOFpkl7abDmyMDVW+h7bUbDAp3qMIYQFlC+0l
-	w/BVF5Lg==;
+	bh=fvvBh5svCV/gZ257yhSwygzBE3ff7TCAySKX8vXVTtI=; b=3lMwqpxWTDt3TDxl4UpcjA2472
+	Xy1OxP/LtbiRN6Pcp1xqtDrSFqPppAqZNUyC3enOa7B/7AHhQCZIGa1v5Plvg8+qF8lN9A4QZ1/8q
+	gQKxOPb0McWPpHzbpsH15YyMi3cqy1aMNQYGuktYt272Ul0qSsvnmiaQdLfUJvuNgCd+CSsPaJ+2Y
+	cu4GywAPm7aMMef0O+Nyjb8PWGUODUlvZVnuYuZF1i9Am3KIFvAbPYMZFTgeW5jOEUwqN1zUtW2Gu
+	WGLyEQXH/Bc7BDX+Oqrcx5tDMXdTkUlREX8crqC9ScYfaH4NNZfm3T0vU5tLzlqZCUKU3j8XT2epS
+	GzmzLAhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH6aC-0000000AHn3-2fwQ;
-	Mon, 19 May 2025 19:55:32 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1uH6aF-0000000AHsE-3J8L;
+	Mon, 19 May 2025 19:55:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH4gz-0000000A2J6-2TqK
+	id 1uH4x3-0000000A6Iu-31lv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 17:54:26 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-231e21d3b63so41048595ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 10:54:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747677265; x=1748282065; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kXQcDRAe4EWVXNL5yTAKMixST4qgC4DZfdrTRe+HbCQ=;
-        b=ZiHASSNb4RatpmgxmNJE9+8si6Q/oMWBcUbgbK/scuFX9xKjM3Kz+bj6K7KRXEMTGC
-         W6fTHD5u0E5TXkHFZnUWRXrs9Vzr554EZhAyAoTMz3TxRVGCTN2CcdTMMXdZHwx+LKff
-         pR4x0dWM+tbb7AV8eLL2aHw9VCmxfcgchK/Kl9efPtB3egcFcdrt1VR0AZSZxhCcf4H7
-         9I+N7FbD19KF/KIKa0DRzBCdjoE1iRuRS+mmVbDQPxUjHj7MONnsJ8jk4KnTyiDF7H1m
-         MX5dnUcWbBxpm5yZooTG6cAnnOiQGoJRqssc/TJRHo3w4AuWDcAT97Dxu1J7JieZVf4B
-         TDLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747677265; x=1748282065;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kXQcDRAe4EWVXNL5yTAKMixST4qgC4DZfdrTRe+HbCQ=;
-        b=a/+dX1Z3IpX1AH6rijHRN08W/hkw9u9bq9kXuCQK1EqluBX6Nmn4V5dCiJtMm7u1n/
-         y7c5MWDhiazduG6rL5jXKXb4ejeB7VIR2qFEHNrheRQipOdtzhB74ixH0DqTho33Qo9F
-         aXayk4G2EBiFpCbJrGwn/a81vDpkRrAs9vTLBzI0jKT3feNEeGUFb4W/YzseCIBDF6aF
-         KN55xl2lFM99AnY3G4+JpvQ89YCyMrRChIUldmF/TysuZKqq7N2XoLZLb0bmm7Ws6KHn
-         ebGirf7N6thP+87TA4v2BBEiJKiW2KT7/o9Lznk8v9LZADEaIfsdCdDCyIllcFAOyJQ+
-         rz0A==
-X-Forwarded-Encrypted: i=1; AJvYcCUiB4DY0Zdvqn96m+JeDJaWAQX5WUJKiPSZuKmYwADxOqJqaY1ENkd/LDURcR64dUUVDEwnCdakrx5j6gfCi+A3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVgNrqvMIKa+ryWd0eDCTW4WLZwm40Q2E1pjB/zncsJWnGYE59
-	/S4VAh61UXGUuirQLoU3He3mfLr41lIXt8t8NukIRrnSuWxSUGS5iNTB
-X-Gm-Gg: ASbGnctJti9V2S8XuPnRKX4ZrkjtaSlG69m+NUPF/ZqPTlZoHtH0MaOaoWD9w4onxlx
-	Kqe4h6HTFXenISN5IQD6hTS37S8uOKwE5LHE+RpxgDOZsmXaqmnVSrDAZHSaVlJ8rzOEAJ8E3nB
-	c/DCe3/rAQfsvr/AfJLUwGrOxnkbiOxDD2GJfa0CvP529PObubAT35j229einSmRxaC80YoDagi
-	+nAl1ZRKAofRWy2x2ImBQg/gTOrIzvVk8/zekELh+UcAhT/6XWskX1UR8vWccJHZTo2t74CratQ
-	Ia3XcG3pl9vDx2DYjPi3h3PlTwrmM0wR+Lbte+kKT85Qj7Eveq9avuygufbV2CIdsELP03o/Emp
-	YaG2rxB9B7xU5X++ktVKfM4bI7g==
-X-Google-Smtp-Source: AGHT+IH9o+jDU8SCOf6p2dYQ3xG9pg+wpXFHI4AQ16YbWVrsnqHFvIYpaqIH85X0Xd/j1VubslNPjQ==
-X-Received: by 2002:a17:902:ea12:b0:231:c6d0:f784 with SMTP id d9443c01a7336-231de37623amr210055535ad.28.1747677264644;
-        Mon, 19 May 2025 10:54:24 -0700 (PDT)
-Received: from localhost ([2a00:79e0:3e00:2601:3afc:446b:f0df:eadc])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4e9605csm62543565ad.123.2025.05.19.10.54.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 May 2025 10:54:24 -0700 (PDT)
-From: Rob Clark <robdclark@gmail.com>
-To: dri-devel@lists.freedesktop.org
-Cc: freedreno@lists.freedesktop.org,
-	linux-arm-msm@vger.kernel.org,
-	Connor Abbott <cwabbott0@gmail.com>,
-	Rob Clark <robdclark@chromium.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Joao Martins <joao.m.martins@oracle.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
-	iommu@lists.linux.dev (open list:IOMMU SUBSYSTEM),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v5 05/40] iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()
-Date: Mon, 19 May 2025 10:51:28 -0700
-Message-ID: <20250519175348.11924-6-robdclark@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250519175348.11924-1-robdclark@gmail.com>
-References: <20250519175348.11924-1-robdclark@gmail.com>
+	Mon, 19 May 2025 18:11:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B4663A4E4FE;
+	Mon, 19 May 2025 18:11:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1DFCC4CEE4;
+	Mon, 19 May 2025 18:10:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747678260;
+	bh=Ky0fmrfwge+IY4bSNOH9mQDS8ka4IUPbsfw3eKleRxk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Kd5pJ6yelJj3HiptDntqzlSkkzCz4Ly3ITUxCG5bMXaERsrxgVRrZC38BM8fdFfLr
+	 uFJq+ofiXiDkFkts6enro4IFFEGz+aj7cEtZUORRgS4yAif5q0bcUdM1FsepI4nELr
+	 uEtWofpfKOGvJwcd9aG/kTCtOsOpTySXQqK4K9eaSWUg+O/bG+Nq2FvZp9wyYEfZYV
+	 pG6Hjz3hlfH4d4PzUTTrr0eYPI2i6+/RB9uMsvQNizZ1gDOg78Lv7VLTUUQUWoY/Vs
+	 feF3MEXIE+Aw8/QpMsrVDUvp/fBPhJoUH7kV78h6IJap9ygK0KICxsqKMkieX7VIxt
+	 EJY2oCsaGPHMA==
+Message-ID: <b35b5145-ce7f-464d-aba7-c5f9021836de@kernel.org>
+Date: Mon, 19 May 2025 20:10:57 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] MAINTAINERS: Add ARM64 defconfig to its section
+To: Fabio Estevam <festevam@gmail.com>
+Cc: arnd@arndb.de, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Fabio Estevam <festevam@denx.de>
+References: <20250516183035.685914-1-festevam@gmail.com>
+ <175cdb8a-4fcb-4492-8d64-e59896b2448f@kernel.org>
+ <2c72c0a3-6b30-4525-b27f-6627f6a078c2@kernel.org>
+ <CAOMZO5CZvjrXV3k3hHWCWo2CRsOvR7Epw+RW8=Q=Y1qjGctVmg@mail.gmail.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAOMZO5CZvjrXV3k3hHWCWo2CRsOvR7Epw+RW8=Q=Y1qjGctVmg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_105425_634381_6F47CF8D 
-X-CRM114-Status: GOOD (  22.11  )
+X-CRM114-CacheID: sfid-20250519_111101_882048_97C172B8 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,159 +119,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rob Clark <robdclark@chromium.org>
+On 19/05/2025 20:06, Fabio Estevam wrote:
+> On Mon, May 19, 2025 at 2:37 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> 
+>> P.S. We have it explicitly documented in maintainer-soc profile, so with
+>> this change probably you need to update that document (with its own
+>> rationale).
+> 
+> The reason I submitted this change was that Arnd asked me to resend a
+> patch that touched arm64 defconfig with soc@lists.linux.dev on Cc:
+> 
+> https://lore.kernel.org/linux-arm-kernel/ece2df8d-acaa-4554-8c82-24ed45f3a8a4@app.fastmail.com/
 
-In situations where mapping/unmapping sequence can be controlled by
-userspace, attempting to map over a region that has not yet been
-unmapped is an error.  But not something that should spam dmesg.
 
-Now that there is a quirk, we can also drop the selftest_running
-flag, and use the quirk instead for selftests.
+Yeah, I understand, I saw it, but that was an exception. One of the very
+few cases of defconfig not belonging to vendor SoC maintainer... and
+even not originating from such subsystem (Ard's patch).
 
-Signed-off-by: Rob Clark <robdclark@chromium.org>
-Acked-by: Robin Murphy <robin.murphy@arm.com>
-Signed-off-by: Rob Clark <robdclark@chromium.org>
----
- drivers/iommu/io-pgtable-arm.c | 27 ++++++++++++++-------------
- include/linux/io-pgtable.h     |  8 ++++++++
- 2 files changed, 22 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index f27965caf6a1..a535d88f8943 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -253,8 +253,6 @@ static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
- 	       (data->start_level == 1) && (oas == 40);
- }
- 
--static bool selftest_running = false;
--
- static dma_addr_t __arm_lpae_dma_addr(void *pages)
- {
- 	return (dma_addr_t)virt_to_phys(pages);
-@@ -373,7 +371,7 @@ static int arm_lpae_init_pte(struct arm_lpae_io_pgtable *data,
- 	for (i = 0; i < num_entries; i++)
- 		if (iopte_leaf(ptep[i], lvl, data->iop.fmt)) {
- 			/* We require an unmap first */
--			WARN_ON(!selftest_running);
-+			WARN_ON(!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_NO_WARN_ON));
- 			return -EEXIST;
- 		} else if (iopte_type(ptep[i]) == ARM_LPAE_PTE_TYPE_TABLE) {
- 			/*
-@@ -475,7 +473,7 @@ static int __arm_lpae_map(struct arm_lpae_io_pgtable *data, unsigned long iova,
- 		cptep = iopte_deref(pte, data);
- 	} else if (pte) {
- 		/* We require an unmap first */
--		WARN_ON(!selftest_running);
-+		WARN_ON(!(cfg->quirks & IO_PGTABLE_QUIRK_NO_WARN_ON));
- 		return -EEXIST;
- 	}
- 
-@@ -649,8 +647,10 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
- 	unmap_idx_start = ARM_LPAE_LVL_IDX(iova, lvl, data);
- 	ptep += unmap_idx_start;
- 	pte = READ_ONCE(*ptep);
--	if (WARN_ON(!pte))
--		return 0;
-+	if (!pte) {
-+		WARN_ON(!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_NO_WARN_ON));
-+		return -ENOENT;
-+	}
- 
- 	/* If the size matches this level, we're in the right place */
- 	if (size == ARM_LPAE_BLOCK_SIZE(lvl, data)) {
-@@ -660,8 +660,10 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
- 		/* Find and handle non-leaf entries */
- 		for (i = 0; i < num_entries; i++) {
- 			pte = READ_ONCE(ptep[i]);
--			if (WARN_ON(!pte))
-+			if (!pte) {
-+				WARN_ON(!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_NO_WARN_ON));
- 				break;
-+			}
- 
- 			if (!iopte_leaf(pte, lvl, iop->fmt)) {
- 				__arm_lpae_clear_pte(&ptep[i], &iop->cfg, 1);
-@@ -976,7 +978,8 @@ arm_64_lpae_alloc_pgtable_s1(struct io_pgtable_cfg *cfg, void *cookie)
- 	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_NS |
- 			    IO_PGTABLE_QUIRK_ARM_TTBR1 |
- 			    IO_PGTABLE_QUIRK_ARM_OUTER_WBWA |
--			    IO_PGTABLE_QUIRK_ARM_HD))
-+			    IO_PGTABLE_QUIRK_ARM_HD |
-+			    IO_PGTABLE_QUIRK_NO_WARN_ON))
- 		return NULL;
- 
- 	data = arm_lpae_alloc_pgtable(cfg);
-@@ -1079,7 +1082,8 @@ arm_64_lpae_alloc_pgtable_s2(struct io_pgtable_cfg *cfg, void *cookie)
- 	struct arm_lpae_io_pgtable *data;
- 	typeof(&cfg->arm_lpae_s2_cfg.vtcr) vtcr = &cfg->arm_lpae_s2_cfg.vtcr;
- 
--	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_S2FWB))
-+	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_S2FWB |
-+			    IO_PGTABLE_QUIRK_NO_WARN_ON))
- 		return NULL;
- 
- 	data = arm_lpae_alloc_pgtable(cfg);
-@@ -1320,7 +1324,6 @@ static void __init arm_lpae_dump_ops(struct io_pgtable_ops *ops)
- #define __FAIL(ops, i)	({						\
- 		WARN(1, "selftest: test failed for fmt idx %d\n", (i));	\
- 		arm_lpae_dump_ops(ops);					\
--		selftest_running = false;				\
- 		-EFAULT;						\
- })
- 
-@@ -1336,8 +1339,6 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 	size_t size, mapped;
- 	struct io_pgtable_ops *ops;
- 
--	selftest_running = true;
--
- 	for (i = 0; i < ARRAY_SIZE(fmts); ++i) {
- 		cfg_cookie = cfg;
- 		ops = alloc_io_pgtable_ops(fmts[i], cfg, cfg);
-@@ -1426,7 +1427,6 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
- 		free_io_pgtable_ops(ops);
- 	}
- 
--	selftest_running = false;
- 	return 0;
- }
- 
-@@ -1448,6 +1448,7 @@ static int __init arm_lpae_do_selftests(void)
- 		.tlb = &dummy_tlb_ops,
- 		.coherent_walk = true,
- 		.iommu_dev = &dev,
-+		.quirks = IO_PGTABLE_QUIRK_NO_WARN_ON,
- 	};
- 
- 	/* __arm_lpae_alloc_pages() merely needs dev_to_node() to work */
-diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
-index bba2a51c87d2..639b8f4fb87d 100644
---- a/include/linux/io-pgtable.h
-+++ b/include/linux/io-pgtable.h
-@@ -88,6 +88,13 @@ struct io_pgtable_cfg {
- 	 *
- 	 * IO_PGTABLE_QUIRK_ARM_HD: Enables dirty tracking in stage 1 pagetable.
- 	 * IO_PGTABLE_QUIRK_ARM_S2FWB: Use the FWB format for the MemAttrs bits
-+	 *
-+	 * IO_PGTABLE_QUIRK_NO_WARN_ON: Do not WARN_ON() on conflicting
-+	 *	mappings, but silently return -EEXISTS.  Normally an attempt
-+	 *	to map over an existing mapping would indicate some sort of
-+	 *	kernel bug, which would justify the WARN_ON().  But for GPU
-+	 *	drivers, this could be under control of userspace.  Which
-+	 *	deserves an error return, but not to spam dmesg.
- 	 */
- 	#define IO_PGTABLE_QUIRK_ARM_NS			BIT(0)
- 	#define IO_PGTABLE_QUIRK_NO_PERMS		BIT(1)
-@@ -97,6 +104,7 @@ struct io_pgtable_cfg {
- 	#define IO_PGTABLE_QUIRK_ARM_OUTER_WBWA		BIT(6)
- 	#define IO_PGTABLE_QUIRK_ARM_HD			BIT(7)
- 	#define IO_PGTABLE_QUIRK_ARM_S2FWB		BIT(8)
-+	#define IO_PGTABLE_QUIRK_NO_WARN_ON		BIT(9)
- 	unsigned long			quirks;
- 	unsigned long			pgsize_bitmap;
- 	unsigned int			ias;
--- 
-2.49.0
-
+Best regards,
+Krzysztof
 
