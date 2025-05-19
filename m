@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B6DC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3ECAC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 09:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GiKU6reIrnI6SCKZDx6HjIur86vJTQOeiaKBcGcpB+g=; b=Olw/LeYuktgeo36OzJMsrfqQVV
-	L8AeEVVHV9/dW5Y3vRLI6dOjsXvEzbBVAljViUKV4a8JCZ90WSQNtJJdN6ELT4OqgU5CHaiA8gxxu
-	FuFYeHdtfbKx+OOAXtu82bLGsFKLKoPcegNstJY4xJCW5AoFdEhtjWXOocm2v5muaO02jWIj/tpJS
-	/bn3haPa/OgEqIA67sDtEXO8+XkVxuHMne956H0aRL8RK1Tm1bGgPDQ5cqF24EaBm+J4RSafNKqF2
-	bWkNKUEjaw6ao8HQb5RIrmZi4Lmp3inudIPYh7cV3rNUmwwCzYJcsSK2FqUGFytdE23xytU8den+m
-	csXbm7Dw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5j6I9ztdVG+4vvmFQn5xcv51hqrbyd+Ypoj07f13Flo=; b=PgI4Q5qHg2cgUbz0Ooam4bdztH
+	z9VfNgPoFyB2cWVH23fc9/+PuvX6WGARrx1mo0UzypY8Q/zpJqR3m1DvuaNqaE0WCnT3vnVK4o8Bg
+	5kChgNTAOOcfT1sBbYIRwaTrNFqUsN6Fs4EQdnYUk2kTyKR+FW2kIz0BHMXHctjgf44nubW4T6izu
+	L/z9kXI6SXTtJ+FXxFtoOmpbOT4OUMyKOl1wGydiPR+9ajZe7wl9qd7qenymTGHsKXJJRz9bLViQZ
+	7YXpuOwfEE9zcRfd7UNRTTb3GFjBJX/ZfBaxEoi25bYhylOiarAEFKv7rceRQH5sT1e2UBqFPLDDM
+	A2XXR5yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwNb-00000008SQB-0cV7;
-	Mon, 19 May 2025 09:01:51 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1uGwPa-00000008Sm0-3vIV;
+	Mon, 19 May 2025 09:03:54 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwJr-00000008S21-3ECs
+	id 1uGwJs-00000008S23-30Pm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 08:58:01 +0000
-X-QQ-mid: esmtpsz19t1747644985t3448e8f9
-X-QQ-Originating-IP: KewNoiMQncWF6172/GixGn+r8xA+9YghBeeHMdJoq/U=
+	Mon, 19 May 2025 08:58:02 +0000
+X-QQ-mid: esmtpsz19t1747644978tb41e14ad
+X-QQ-Originating-IP: eDuQ10kV/w2x2ssHfOTwlUZRzAh8CxixkPLa9o2Ye5M=
 Received: from localhost.localdomain ( [182.245.65.180])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 19 May 2025 16:56:23 +0800 (CST)
+	id ; Mon, 19 May 2025 16:56:15 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1955181229310767366
-EX-QQ-RecipientCnt: 17
+X-BIZMAIL-ID: 4209043980013137046
+EX-QQ-RecipientCnt: 16
 From: Hsun Lai <i@chainsx.cn>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -52,40 +52,36 @@ Cc: i@chainsx.cn,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	krzysztof.kozlowski@linaro.org,
-	linux-rockchip@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 2/3] dt-bindings: arm: rockchip: Add Sakura Pi RK3308B
-Date: Mon, 19 May 2025 16:56:13 +0800
-Message-Id: <20250519085614.2245892-3-i@chainsx.cn>
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v3 0/3] Add support for Sakura Pi RK3308B
+Date: Mon, 19 May 2025 16:56:11 +0800
+Message-Id: <20250519085614.2245892-1-i@chainsx.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250519085614.2245892-1-i@chainsx.cn>
-References: <20250519085614.2245892-1-i@chainsx.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:chainsx.cn:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: N3l5ASPewLWqsmztmqC0zrnAU/l8hYwnDNMeGscg6+cVcXUuP2G5kTpR
-	dq8TXZ8rQ0IMXRepwOK6hrPNWwDa1YusvsLt7eE0CX5UyRi8bEwdV2qfMosjG49yytAyuyz
-	VJWrUxAQ54/AwvKRfi7flBDnxagj3sGy1HdXz980HDbxC5bVmSorMz+tUIwDR/yQfazYwor
-	xH2B+Gmn98l9Ts11gQXjpBKiiAEFuNtKfUADZbrHzshEMNzelr5Xq49agO7bkRu9nmny5Nx
-	B8DwYHhArMFoLOLr4dZ9AhcVSuNgFwhtrwL90RLF+DrMb4nUxfQomlYkR70iDqvIjqsplY4
-	4HMHwYE7lVBVHm6/swYPvNu6R3ydGbYLp6cINlSMwZc9SyHi/MpWpFkcGXDDH+ky1zEihZe
-	cypz0lvdLPhTCUJc2Bi+o9Yw1Wotu4++r7qgytSeicunJuY9a8B9r8w05411rsjWQjab360
-	el4a3HVGuw3aoCiV/ivbNHUtN2ZG/h+zQ6gbbhUdAxu13tFTuGHsrwSZyKL7Go3NT6ifKGV
-	RhdzWuRs6zSC3HXqKfA4YcfEDKKVdlhoXLwAGlyVsgL9nDNcPMKwm+p6TSDuuWAsq1Y9ccg
-	MxiwHwzqkWOzAQ3vgf7tJL0O4ydeFTfgX82/AruSCfnKQZMrev1W9NUNYiq8hULzrPwBZfb
-	f0pFBQfcYbfMPyXD+MqLP6+d8J1Wp/y9EOQNgzl04sfWB3E3uUpS27+iBFs0zdfif8xbbah
-	hax4EgxqdoIPLbA/GrsDWG2qET75EAdY+Gw8ANJ/HH3oEzInnxbeDm+lvMZILUB1i2SWbpN
-	3aQpz5JHPA2/kI0F3sG1ZxFaLoUBHBuo2TYwsKpYkCC3id+Oph5VqbWX0dbsz9jfbvgQEA4
-	UQas9sfwF4t4gEuSCU0AORnVxjPkCzRbevmTx3uaJ9frwf2c9MmXRXpXIjS7LQeCCsAnJc2
-	uhOTlfl4PzM2lGQrbEGzYWFGG3OtX5RC97zyjV4S79ssNgg/fw+gNVbCtin0G8P0qCWSMb6
-	8k/NQ9cjvEXgYGH9ahXudmZdYj+eV0GcAsF0N9YA==
-X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+X-QQ-XMAILINFO: OAOHw7tUGLQOoAlHLz1QGnMbFPS6TYA3VAkD4Vqij/ET0vOAw24ak/EJ
+	j32cSKdlr+dCcymSyFBFMntzfOPWiL4hVa4CB0UJveTQz9BjKV5+Jw/FmCkzLeV+JJv6d89
+	K87udEgq9sP899Ge7jBDYbkWIIYZithKx3aOaL9SDhghYswLzWJygI5zaxE/9s5Dmia8QUa
+	d/w9Z1/XrsS58f1qUqLSbHjmDfHN9ZTYa//XCYa1sUMf90QQ5nZ3vCWolpUjOhlrj8JKso8
+	NHXuw3/Y0dMoQrzk0GDhxP+YX8mTy1Bp/PqlZanlAZF4LVXrnq8NtpvQTjvxNdvky+Kgkcr
+	nZFvGasgaMXuSwz8IGEMac+xiAqDZnmlKTDoZTSsc5TYO7XPjaVh8rebapTkZQmLWljTwAF
+	NMaUHR1HkgEayjacIp26kCr4bfZwoHU69vV4eW0vjkDDNsanNimSDStVVbwWGXpKrHnYCty
+	QZu9MRs/z00Rma2CF54sIdjzkc0AYbePPNHg606TRUyKSKkscuqhFZYx76Knh590zMDssIt
+	fXOjYlWYTXRBvWzQ8woU4C8k53zBeT2uw5ks1odDgafzBOpfYe/y9vgxNxQWZ6YJtYHgmxL
+	fDNkfeW5iokHOAqseLpG/OzAAYGPJ9Dv/1tSq+50jOPGULLeKIF/y6pdZi1yB4auXLCS/NS
+	rU8X2zo1dSWD8Q6x6qHF+EQYU2rArbVgDWFkmPc+m5lvmiIi2+pdb1bdSe9FPiEtuCyl45a
+	oLxVkjgQkJIJDSA741LefjNxG3hlwrQXftq7zl1gchxw8PU6DilFJKCC/GLMfazpIXA4IOR
+	Ev19S7Er9g7hlT3jUY+TIdZqAZZ0scZ0u07fQ65xYF5dEsRYmGq+qwboqQqEgQw461uJSVF
+	r3PG/EhmT3KWRB8QDYafifFhPO74zQe3MbDPhZCdRHchR8EHffLXxidiLN3663TuG6ielWh
+	6Vf3gE12nYiu2H6fa+b9MZQP16kv4uJDoIjv0TIzzbWppqLlHv2OTrIOx2DFj4Rl2zrx53B
+	8IK8Y/SI27qJxUCeqF
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_015800_307834_4F9B42FF 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250519_015801_187613_E05B7473 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,37 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds device tree binding support for
-Sakura Pi RK3308B, with compatibility for the
-Rockchip RK3308 SoC.
+This series add support for Sakura Pi RK3308B.
 
-Link: https://docs.sakurapi.org/article/sakurapi-rk3308b/introduce
+Info of device can be found at:
+https://docs.sakurapi.org/article/sakurapi-rk3308b/introduce
 
-Signed-off-by: Hsun Lai <i@chainsx.cn>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
+Changes in v3:
+- Remove empty i2c controller (Heiko Stuebner, v1)
+- Remove unused spi nodes (Heiko Stuebner, v1)
+- Sort nodes alphabetically (Heiko Stuebner, v1)
+- Put status as last property (Heiko Stuebner, v1)
 
-(no changes since v1)
+Changes in v2:
+- Update the names of the regulators (Heiko Stuebner, v1)
 
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+Changes in v1:
+- Add support for Sakura Pi RK3308B
+- Patch 2: Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 115c3ca43..c64adc0d0 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -1109,6 +1109,11 @@ properties:
-           - const: rockchip,rk3588-toybrick-x0
-           - const: rockchip,rk3588
- 
-+      - description: Sakura Pi RK3308B
-+        items:
-+          - const: sakurapi,rk3308-sakurapi-rk3308b
-+          - const: rockchip,rk3308
-+
-       - description: Sinovoip RK3308 Banana Pi P2 Pro
-         items:
-           - const: sinovoip,rk3308-bpi-p2pro
+Hsun Lai (3):
+  dt-bindings: vendor-prefixes: Add SakuraPi prefix
+  dt-bindings: arm: rockchip: Add Sakura Pi RK3308B
+  arm64: dts: rockchip: add DTs for Sakura Pi RK3308B
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3308-sakurapi-rk3308b.dts  | 274 ++++++++++++++++++
+ 4 files changed, 282 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts
+
 -- 
 2.34.1
 
