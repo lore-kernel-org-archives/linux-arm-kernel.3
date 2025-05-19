@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE006C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 07:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78EA7C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 07:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5C+sWikW3ydGFnveQzoDKvShWdykmNgCR1Yj91FES6M=; b=NIUvrDLWsMTO0QKoCggCdc0jgO
-	toZfAqs87Ll351rlv6NWTuVwX0e0h0QwbMjy1tYo+Uwt3i5jbxv+mmsklymrx3Eg3cUso7H6gYFV3
-	UYNFpGRCCqfRYVgsQsjeuFcxkJlFFNR9yhI/HjSsXCsZzeZbq3Kv40o1wqmGne5O/5oN6Ep0SySeK
-	yDgDI1wGPv8hQGE2gHDdxeHG07Ae6xj2pLwbpydL3Jp3LX4YKFJHJsQGSkPmZH0pffZ4k19QA3RSx
-	ZYA893pY+qKovLC23SeRoTKZQxVpQfx2955biSjd39C1QefuaX7CVA4DYf5+PloF4LreznSnGSBOF
-	92CVWyWw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ud0bfFxC8Gxw5d9VcJBlfTpRkEMLget3hZ7Og/mZPYQ=; b=hj0XFMRhorMQdFh7rNibAlxNn8
+	gSDP9RDDcX3xOH+scZEnsW4QZe+/Ei8TXexSEm0Cip1g/Pc5c+Yz5Wt4IDmR+A+5P4W2brRv4y8Gx
+	RyJXDNLPCuLX41wUiTFT0TsGaVt/CR7Hh0DrurZ8E97/8uw6879Rv0JPwfsi5UqXpA/BLhCXVB0kN
+	Eq9cXc8PhJswDMKU3C8TlPmbMZddqHH3fkrYAMzINhEKEy6UuEO2DeklrHY2bZUBB23MIUsvlv48K
+	v8MBeOhguCSD5ZT7cWfUkIFLr/RMjww3pvTsxiwbcNcK5z0U8slWG5Zl9BZy9exdZ/pEUaZd7geUU
+	Bs7ciViw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGuax-00000008AxD-2spV;
-	Mon, 19 May 2025 07:07:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uGuho-00000008C9y-1O8r;
+	Mon, 19 May 2025 07:14:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGuXi-00000008ATJ-24Ju
+	id 1uGufl-00000008BnP-0aW9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 07:04:12 +0000
+	Mon, 19 May 2025 07:12:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 49BD65C4B7C;
-	Mon, 19 May 2025 07:01:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01F8EC4CEED;
-	Mon, 19 May 2025 07:04:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2B17E5C4B9E;
+	Mon, 19 May 2025 07:10:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CADEC4CEE4;
+	Mon, 19 May 2025 07:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747638249;
-	bh=cDw2N1Mdxs2LWWEBQ4N2j84UnkVJ9i6iMGcYABUbhko=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MdR80dEYtyEEkSFobE97EkC0XL3p+bTCus707WtssnqSKalDPqSaZou6YOSquFCBU
-	 RuMuVhuX2wEbmYcc9Y0tgjPvmzShate7YudiLDEPkYG+SpHzrEBg6k5GGmvoShyHcB
-	 l06WDZqs6Mqm1JWDVUAyKKhQ3tcqiwOyNI43JNm2chkl8QMkYP8v80UFfVOE4JCwGN
-	 11PmENyFD2GOn7Y9UiOdNdq2DOyH347oWb8G5gz9oiVK4moTIXqDZ3xqhYTyGYoKue
-	 5s4vykNtRJVEZV4paMtXUYgeaHnPtHisXo5gM14NshUAlZICMixVjI7OJKiVcg2knz
-	 C3HHpZ0OizqJw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	s=k20201202; t=1747638748;
+	bh=berpNQksN4I5+X+UnGQ86pZZ6eKvZ+gP0gHo+g2EPzI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=TuiWXUBGZsSZbyblobntkQU4Wznr+TWCnb5Om/fbKKu4Wj/tkEJ8hkh/bVtxH/lBj
+	 hQOY0ES7+kWcdPF+KPPeWd27Y29lpI/p24NIJwwX9Url6vJX0ydoZovy0bEV5a3uVv
+	 GiOS5dCJycbaIk03zOBEgzTT2f/rkfaApk7IHg+r1Rwkp7fCLYrPQB0X+hhlmcA/0C
+	 MDYeb6+PzLD4iEv0kOcjjD6pk9DbwFBTpfqpAgfBeDTURvf/5bdboag/qM3obGDSiW
+	 f8jOtMzhVufYnX5IR+gFOeUDhA8urvnQoEaSEsTvirDgUU+VXI7qjPjvEHjMlPDIf+
+	 4uQtzMe1O6CTw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uGuXe-00G8Jz-DZ;
-	Mon, 19 May 2025 08:04:06 +0100
+	id 1uGufh-00G8VH-PX;
+	Mon, 19 May 2025 08:12:25 +0100
+Date: Mon, 19 May 2025 08:12:24 +0100
+Message-ID: <86y0utdqg7.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
+To: Youngmin Nam <youngmin.nam@samsung.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner
+	<tglx@linutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: Re: [PATCH v4 00/17] KVM: arm64: Recursive NV support
-Date: Mon, 19 May 2025 08:04:02 +0100
-Message-Id: <174763823024.3048822.12064289612158911186.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250514103501.2225951-1-maz@kernel.org>
-References: <20250514103501.2225951-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	linux-kernel@vger.kernel.org,
+	junhosj.choi@samsung.com,
+	hajun.sung@samsung.com,
+	joonki.min@samsung.com,
+	d7271.choe@samsung.com,
+	jkkkkk.choi@samsung.com,
+	jt1217.kim@samsung.com,
+	qperret@google.com,
+	willdeacon@google.com,
+	dhyun.cha@samsung.com,
+	kn_hong.choi@samsung.com,
+	mankyum.kim@samsung.com
+Subject: Re: [QUESTION] arch_counter_register() restricts CNTPT access when booted in EL1, even if EL2 is supported
+In-Reply-To: <aCqM1Z2ApdvGYfb9@perf>
+References: <CGME20250516064924epcas2p24c8f3dc1860768b2b7bed30a41528770@epcas2p2.samsung.com>
+	<aCbhBttvi8mvsyGE@perf>
+	<86frh4gazr.wl-maz@kernel.org>
+	<aCqM1Z2ApdvGYfb9@perf>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com, gankulkarni@os.amperecomputing.com
+X-SA-Exim-Rcpt-To: youngmin.nam@samsung.com, daniel.lezcano@linaro.org, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, junhosj.choi@samsung.com, hajun.sung@samsung.com, joonki.min@samsung.com, d7271.choe@samsung.com, jkkkkk.choi@samsung.com, jt1217.kim@samsung.com, qperret@google.com, willdeacon@google.com, dhyun.cha@samsung.com, kn_hong.choi@samsung.com, mankyum.kim@samsung.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_000410_618020_136C0ED1 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20250519_001229_263572_D15FE14F 
+X-CRM114-Status: GOOD (  39.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +101,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 May 2025 11:34:43 +0100, Marc Zyngier wrote:
-> This is probably the most interesting bit of the whole NV adventure.
-> So far, everything else has been a walk in the park, but this one is
-> where the real fun takes place.
-> 
-> With FEAT_NV2, most of the NV support revolves around tricking a guest
-> into accessing memory while it tries to access system registers. The
-> hypervisor's job is to handle the context switch of the actual
-> registers with the state in memory as needed.
-> 
-> [...]
+On Mon, 19 May 2025 02:43:49 +0100,
+Youngmin Nam <youngmin.nam@samsung.com> wrote:
+>=20
+> [1  <text/plain; utf-8 (8bit)>]
+> On Fri, May 16, 2025 at 10:28:56AM +0100, Marc Zyngier wrote:
+> > On Fri, 16 May 2025 07:53:58 +0100,
+> > Youngmin Nam <youngmin.nam@samsung.com> wrote:
+> > >=20
+> > > [1  <text/plain; utf-8 (8bit)>]
+> > > Hi arm arch timer experts,
+> > >=20
+> > > While reviewing the arm_arch_timer code in Linux 6.12,
+> > > I noticed that the function arch_counter_register() restricts the
+> > > use of the physical counter (cntpct_el0) on systems where the kernel
+> > > is running in EL1, even if EL2 is supported and cntpct_el0 is
+> > > accessible.
+> > >=20
+> > > In our case:
+> > > - We are not using pKVM.
+> > > - The kernel is booted in EL1.
+> > > - We disabled VIRT_PPI and explicitly selected PHYS_NONSECURE_PPI for=
+ the timer refering to below code.
+> >=20
+> > That's not legal. The architecture guarantees that there is a virtual
+> > timer and a physical timer. No ifs, no buts.
+> >=20
+> > [...]
+> >=20
+> > > As I understand it, `is_hyp_mode_available()` checks whether the
+> > > kernel booted into EL2 =E2=80=94 not whether EL2 is *supported* by the
+> > > hardware.
+> > >=20
+> > > Therefore, even on systems where EL2 exists and `cntpct_el0` is
+> > > accessible from EL1, the kernel still forces the use of `cntvct_el0`
+> > > if the boot EL is EL1.
+> >=20
+> > Yes, because it isn't architecturally valid to not have a virtual
+> > timer. This isn't about EL2 being present of not. The switch to the
+> > physical timer is purely an optimisation for KVM so that it doesn't
+> > have to switch the virtual timer back and forth when running a guest,
+> > as the virtual timer is the most likely used timer.
+> >=20
+>=20
+> Thanks for the clarification.
+>=20
+> As a follow-up question:
+>=20
+> We are working on a system that uses a vendor-specific hypervisor instead=
+ of KVM.
+> In this setup, we also want to optimize timer virtualization overhead and=
+ are considering using
+> the physical timer (CNTPT) in the host context for performance reasons, j=
+ust like KVM does.
+>=20
+> Would it be acceptable (from the upstream kernel's perspective) to make a=
+ similar switch
+> to the physical timer in this case ?
 
-Applied to next, thanks!
+No. Your hypervisor already has *two* private timers it can freely
+make use of (virtual and physical EL2 timers), and doesn't need to
+encroach on something that a guest (be it Linux or any other guest)
+relies on.
 
-[01/17] arm64: sysreg: Add layout for VNCR_EL2
-        commit: fb3066904a4e2562cbcf71b26b0f0dc7a262280c
-[02/17] KVM: arm64: nv: Allocate VNCR page when required
-        commit: 469c4713d48028186e4bbf4b74ebce273af9a394
-[03/17] KVM: arm64: nv: Extract translation helper from the AT code
-        commit: 34fa9dece52757727ed2ffd5cf4713c6cd0b707f
-[04/17] KVM: arm64: nv: Snapshot S1 ASID tagging information during walk
-        commit: a0ec2b822caba9ccdefa397918071e591b19e144
-[05/17] KVM: arm64: nv: Move TLBI range decoding to a helper
-        commit: 85bba00425ae0b4b30938ebfdde6d986e5423aff
-[06/17] KVM: arm64: nv: Don't adjust PSTATE.M when L2 is nesting
-        commit: bd914a981446df475be27ef9c5e86961e6f39c5a
-[07/17] KVM: arm64: nv: Add pseudo-TLB backing VNCR_EL2
-        commit: ea8d3cf46d57bc1e131ca66ebc3e9aabe40234ef
-[08/17] KVM: arm64: nv: Add userspace and guest handling of VNCR_EL2
-        commit: 6fb75733f148ecd6c1898df0098b37f70a80f002
-[09/17] KVM: arm64: nv: Handle VNCR_EL2-triggered faults
-        commit: 069a05e53549685d2b5e54ceb51db1fd04aa50d7
-[10/17] KVM: arm64: nv: Handle mapping of VNCR_EL2 at EL2
-        commit: 2a359e072596fcb2e9e85017a865e3618a2fe5b5
-[11/17] KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers
-        commit: 7270cc9157f474dfc46750a34c9d7defc686b2eb
-[12/17] KVM: arm64: nv: Program host's VNCR_EL2 to the fixmap address
-        commit: 73e1b621b25d7d45cebf9940cad3b377d3b94791
-[13/17] KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2
-        commit: 4ffa72ad8f37e73bbb6c0baa88557bcb4fd39929
-[14/17] KVM: arm64: nv: Plumb TLBI S1E2 into system instruction dispatch
-        commit: aa98df31f6b42d3379869b82588bebaec4ce474b
-[15/17] KVM: arm64: nv: Remove dead code from ERET handling
-        commit: 6ec4c371d4223adae6f9c0f7f1bd014d381b2170
-[16/17] KVM: arm64: Allow userspace to request KVM_ARM_VCPU_EL2*
-        commit: a7484c80e5ca1ae0c397bb8003bc588f0dcf43f4
-[17/17] KVM: arm64: Document NV caps and vcpu flags
-        commit: 29d1697c8c8f64e4d8bb988f957ca1d4980937dc
+The alternative is to trap and emulate the EL1 timer for the guest so
+that it *appears* to be functional. But that's obviously bad from a
+performance perspective.
 
-Cheers,
+> Or is this kind of optimization strictly tied to KVM's internal behavior
+> and not something the kernel is expected to support generically?
+
+It is purely Linux/KVM specific, and only works because we own both
+side of that equation, meaning we can enforce whatever is required to
+make the two work together. This obviously isn't possible with third
+party software. Look at it from a different point of view: how would
+you make this work with, say, Windows? or MacOS?
+
+On the bright side, the architecture already gives you everything you
+need to implement your hypervisor. Just use it correctly.
+
+Thanks,
 
 	M.
--- 
+
+--=20
 Without deviation from the norm, progress is not possible.
-
-
 
