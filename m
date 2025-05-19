@@ -4,89 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9348FC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 10:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02001C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 10:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/aIx7AvdzS5nlXdZ8v4o/L4Qip57mcjCKYS6Puq9LQ=; b=S7X8fFJKIRpefgmHeR6kT1h2b+
-	oqFMlFTOMxaa2yE7yo0/E2zC4OgOxkCbeAXObCFdNJYE7w0/REiBhwW3EhLrfIf1rQp94Sky1urN1
-	oWALdOLn+Kl5Hq4GF9gkyWtm6eiit3ZdQ45S+lEKSUmzFRvSznWVBw1kmpLv11FHxxfT8xHR8X4Ta
-	oxPXP4c3flBHrkYGP0QPa9ZbQjO0ZheuibztPeyH1gl1aY62547m9Oy4iZY14bDcNK/HiN/624yiS
-	lIpez1qx/gz3su1vblY4B1VlM2Aj6523JqWTsoXfqksH+Qh+ysTAj7OrW6ABvQgvolNCZv0MG4c9O
-	gTgja8jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pDXMH2EQyW2omp6T+HBZCfP4i2cSnVMwsotT6o6R7ho=; b=vhcNghvPMhaJlL+QArG9AA+ijF
+	OQnmQln6ITVPEzvwXC69hWdsix95TKZSxMKwyNJNwZdSzahXs5B+lx2Vo0To0eeFgeObZhjbbc+d3
+	2vnHofcY02X7i+nEtG8FvBCzz1tbal10zCqBBgPyeZ6TzBlKfEw3SLCv5Qd/yd/EulsdcPMtkFGTF
+	IPhVSp8IK73VNEswt1ps6fo1MM0fw/z4+zxXV2n52Sk24Ns6q/q1QTmx55g/K66X9suvO4YQoJhVL
+	KAv1b8ngROvlYR25NeoCZjkIF7qa8TbmkycAjgbBPh01U7w74GT79Uk+8bR3CxbhX3XnHALHBk1mv
+	XjdKmr6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGxwt-00000008q1e-0xZZ;
-	Mon, 19 May 2025 10:42:23 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGxuq-00000008pVy-1NGj
+	id 1uGyCQ-00000008uED-4AUm;
+	Mon, 19 May 2025 10:58:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uGyAM-00000008thG-0FRY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 10:40:17 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22e16234307so39270055ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 03:40:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747651215; x=1748256015; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=i/aIx7AvdzS5nlXdZ8v4o/L4Qip57mcjCKYS6Puq9LQ=;
-        b=vDgwE+tvUDJRyki97J0mRFOLEQ+/UY5gOGyqkQa31XGUbytNpp1Vj9QH/YEZrcFMhE
-         CWBI5GztijfKLyrZ9vtowFTuU/a1pf43amFHbEIpGq5ZVbhE6z4LaPHI5mnvfWhAoOEi
-         GVwlD0vOluqBS7ZkkFfu7wmzOE7nirdFzUOnbwJPDDC596Uluj9i4PbeM50ySXQfp1K2
-         qgZUW3fHcxg7BsPoOtOQafaCzEz4T1gX9gdqkiLiFJ6gjf/RfVUX29dq/Ws7VM+TZTSI
-         SwfTofaR54EEHUmm5XZCzB+lIoZy7fZOVEvdIpUwT4sZuaqXmR63pDi7dqvOufRp2UUq
-         jkEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747651215; x=1748256015;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i/aIx7AvdzS5nlXdZ8v4o/L4Qip57mcjCKYS6Puq9LQ=;
-        b=UqyYN0fUXWxCq0BNlu7/xW+pDrJ+3h/vOeelNLM2HmduCsOTHxL+2Jz5303vwHeaaW
-         cJjRO9he/xQ6S5ttr9fTd5Rw195pvih/6qdAYICryyK9AF85uRCU2+iWx5XQpKQTu26o
-         h0MzOKtoVHb8mPhbwoxC8gZtHI/0zOnGKysJnZBCNpWYqNFr9yCyQaduAbCvU2VPtet7
-         uQuMXv45ibNbxdfCNnpaEZ8qBYGMHCP4CvBLxMK/xTlDklGzEv78ErlRv3UneqUTDAm3
-         wadS3kHwZAZVe4FaAD1JTCTdmYkJbSL5a90gXs+EoHfCKI75ehwswoRlqtmfZ5MbK3p6
-         +h8g==
-X-Forwarded-Encrypted: i=1; AJvYcCW/bXzVV2Jd4DLSaDU+GAFNK21mtBY7g7wtgKXG2nMazyv7JEim3+oGXkkWK3Zm1L3GdG0bH8aDrAYzAIisZOQF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxjZpPK5hA+vdRyTbWyZdVjingObjK8u5srRu1ONwO1ATSAOMC
-	1qkpKyrngdbS/UIZfBdOz7xpVWuoIuq8jm6MHn4kGVNKTEU54/S6hiGhMDqv4pC2KjI=
-X-Gm-Gg: ASbGncvc1uTrd6CGRnOW06ApfGVarqE2i+hlNbG1ljhnzqVY92/2egfdX1OyPJOPk/C
-	i8jwOjoY4vYlqiyzKJlXLwRshhwSgsDJANmrwSc46H4oHSLkj+PI0F/k+KcR0joFqLyoEN0EEMh
-	iStQ9wCWRZQAuCH0o8DDrnVvU1QjyLvcs+WiUWAp2WdIQjBZNfzo7EJwl6K/Lo7yXK02kdkUu6R
-	cw53JD9RIh9B3wUqCu8nOEV3flGnomZBu2ggGAcI8/iD/1xCF+3QY3uqxfFTRCPOMOwgEHQLCD7
-	WFErdzfFGWSOD/Nzmc0lucd+0R7mkq2k8hY+idFdj1ek84k2NKFk
-X-Google-Smtp-Source: AGHT+IGV+/iosPw4tJfGLDNquYrwXS7YO+74bIwXmyBHISJk19CDoPFblHZ0P+89TKUcqBjFApznxA==
-X-Received: by 2002:a17:902:c209:b0:231:bc7e:a54f with SMTP id d9443c01a7336-231bc7ea667mr160254935ad.26.1747651215411;
-        Mon, 19 May 2025 03:40:15 -0700 (PDT)
-Received: from localhost ([122.172.81.72])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4e97fa6sm56235095ad.135.2025.05.19.03.40.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 May 2025 03:40:14 -0700 (PDT)
-Date: Mon, 19 May 2025 16:10:12 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Mike Tipton <quic_mdtipton@quicinc.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@oss.nxp.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4] cpufreq: scmi: Skip SCMI devices that aren't used by
- the CPUs
-Message-ID: <20250519104012.acyfoffelestwgtt@vireshk-i7>
-References: <20250515035312.3119884-1-quic_mdtipton@quicinc.com>
+	Mon, 19 May 2025 10:56:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 704CB1655;
+	Mon, 19 May 2025 03:56:01 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 715913F6A8;
+	Mon, 19 May 2025 03:56:13 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org
+Cc: mark.rutland@arm.com,
+	ilkka@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] perf/arm-cmn: Add CMN S3 ACPI binding
+Date: Mon, 19 May 2025 11:56:04 +0100
+Message-Id: <7dafe147f186423020af49d7037552ee59c60e97.1747652164.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250515035312.3119884-1-quic_mdtipton@quicinc.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_034016_368498_34896063 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20250519_035618_137993_D06439EC 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,27 +64,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14-05-25, 20:53, Mike Tipton wrote:
-> Currently, all SCMI devices with performance domains attempt to register
-> a cpufreq driver, even if their performance domains aren't used to
-> control the CPUs. The cpufreq framework only supports registering a
-> single driver, so only the first device will succeed. And if that device
-> isn't used for the CPUs, then cpufreq will scale the wrong domains.
-> 
-> To avoid this, return early from scmi_cpufreq_probe() if the probing
-> SCMI device isn't referenced by the CPU device phandles.
-> 
-> This keeps the existing assumption that all CPUs are controlled by a
-> single SCMI device.
-> 
-> Signed-off-by: Mike Tipton <quic_mdtipton@quicinc.com>
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> Tested-by: Cristian Marussi <cristian.marussi@arm.com>
+An ACPI binding for CMN S3 was not yet finalised when the driver support
+was originally written, but v1.2 of DEN0093 "ACPI for Arm Components"
+has at last been published; support ACPI systems using the proper HID.
 
-Applied. Thanks.
+Cc: stable@vger.kernel.org
+Fixes: 0dc2f4963f7e ("perf/arm-cmn: Support CMN S3")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm-cmn.c | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index e385f187a084..403850b1040d 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -2651,6 +2651,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
+ 	{ "ARMHC600", PART_CMN600 },
+ 	{ "ARMHC650" },
+ 	{ "ARMHC700" },
++	{ "ARMHC003" },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
 -- 
-viresh
+2.39.2.101.g768bb238c484.dirty
+
 
