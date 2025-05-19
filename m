@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4296AC3ABD8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 12:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3261CC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 12:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vrK7lgexJPet3LciwomGJulr6bHo4CUHRAIGKlU8QPk=; b=JLVXyQdCJHzPlxPT3BcOQ1PM8e
-	SMzFpykz2Adb4D+N5BsNjVKCgIFzKynBqSEAKUgPGNkN5r+ni5Xf4l8zD8osSj5NGHNZ5MC/Mvf8M
-	OXgpqsHgeU7PPFJeyPjGM0QOtDm1oZT0IIaE5mubwH+5q58HtzupyZGZ8SdmigQMw2hbhNtIpvVNr
-	5Brh4B1ErSlggMQ9TEfFK3m4g3gQGXoYPVZWqsA5TdByr+uc1t7Z48wJhIdXoXDLnObWjs1mj67Cu
-	BNhrNqVw1uYzRX+ufSvE6EQbrUdBxLncq47mELM3JwIdT7AgHj8PDiHh799PUBaIEtDp7HqKm0Nyj
-	ZTycoKfA==;
+	bh=B7Zhmo/JpzcMaAMKKOwzh6ja2t6tkPpPMCDNoaM6o58=; b=Trj0etjOxIP16KYbUoqPjeK5Fw
+	+KyUexL5qC4ukNYwxNCsqaSN7jVcqdOzO/YsCTbfMJYndl15uD0YUqHFj7YecbX8M5D0BIW1La10Q
+	2EpPc/yXNcjuVk27G8fVbh120R1W21P5JCKaIZlJ1le6rH6Qk50vrvr2hzQDoe0yIVg9at4URQSa5
+	1DKyDCfQGAFiGF64dhLG2zi0De2uEbsQJ6ci9vfqMHS6s6UjGVbcq+DakW4bA/MATsYttDdB8rIwI
+	5ZioaaeRhNJZqoPyrqWgDSDn5+pZXzlp32mfWx+1XJWCW4O+5KAtacvGsomCcUN+HB6JH1eHF+tS3
+	U8UVKX7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGzmT-00000009BFB-49bH;
-	Mon, 19 May 2025 12:39:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uGzoV-00000009BTm-2pTc;
+	Mon, 19 May 2025 12:41:51 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGzd4-000000099Vx-3tQ4
+	id 1uGzf9-000000099vC-41dj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 12:30:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 60E074A983;
-	Mon, 19 May 2025 12:30:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD0C3C4CEE4;
-	Mon, 19 May 2025 12:30:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747657802;
-	bh=cR68oHfl1t9ywt/NWwZVHzu9vBeDFFwhdFjq16MJ57w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ihtr0SvYpqY3g7eCmAA8tspChbubtaRSjSCEHzk7dF2AtdmnuJCPJRKqRn0qLfIcp
-	 cwkycvCpuRe6jv3Khd7Iw2jGEKD0sIOCHNSdNWr4Z8KTyDqeYWtqHNbPM4ENcWiDpV
-	 SE9ZcMZpjUIg3Fmv37RV4pk+fMvgS7X9xaR+gsGStQqSiO10EDQdKnx/YqgXn8Yss0
-	 nrj5+1jOUqOOQqpWfWN5NXwE764qjq+Te8SgXSp11P01s5736sIy28eqFq3rj9MMhL
-	 Ge+u17FbhsS+FTOBr+l8l9tz1j7tmHqV9T1LhXvrVMigxAyzrqBLOl/7lD5PHYjUag
-	 FykWGyDtVzx5A==
-Date: Mon, 19 May 2025 13:29:57 +0100
-From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, allen.wang@hj-micro.com,
-	peter.du@hj-micro.com, andy.xu@hj-micro.com
-Subject: Re: [PATCH 3/3] perf/arm-ni: Support sharing IRQs within an NI
- instance
-Message-ID: <20250519122956.GA16848@willie-the-truck>
-References: <cover.1747149165.git.robin.murphy@arm.com>
- <c7ac53d0f608d92d96e4e2827e253a9cb2a337bb.1747149165.git.robin.murphy@arm.com>
+	Mon, 19 May 2025 12:32:13 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e694601f624so3078023276.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 May 2025 05:32:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747657931; x=1748262731; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=B7Zhmo/JpzcMaAMKKOwzh6ja2t6tkPpPMCDNoaM6o58=;
+        b=x9+JV+sqdwU+O4luJr0jLpdLt8OddGsLUTv6FWubD7KReGQGeq6BWg+YJuy8QjNhPd
+         bO0V2EMhorjPQKXCMX8uYgC4T6QYV4YJkBgOgm9GDjwoMlD3pl5w0TsZbGw0Cg96Ulpv
+         6jcDkQ9Dd27KCXP20m0l33o+NucGR6uRR7DNGmEMXPK7e0FJfICLVQcs1EEEUTGhiokZ
+         QcCnaZnCrHrD5y1hipGzFo5RVpuUhJHpXh4YTcaPqVJXIZxoO1fCzad0T0ojyplCt/5B
+         czU5zI5Efr87Vpp6AFeSog8awsPXOBKTZJBJLjBu7ABFzRY4b123rEUXTxxjPLQKuYFJ
+         FYfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747657931; x=1748262731;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B7Zhmo/JpzcMaAMKKOwzh6ja2t6tkPpPMCDNoaM6o58=;
+        b=eA2Y6WvZEdNV6mNkRK6dqZAG/IbVCMjwoOGOVDQ9q335W2GosDo1lqc5N09opUnImr
+         L/Dd0QU7vsLvjT5/PZ3PVkvAUhiB6iYkaA1sgz9r8zkqtyvZIJIqzgX0k5lqsXwZ975p
+         o7g1m9Z5E1kjEIde5yFuVbr14gtAdboAGJNKuNYUBkJ2/uxQwKTCRLtPLKRXEOCE1+uS
+         jaZJ2Wf6KTaANyTV2rO6dubbJfYCDsHwo/EdQjrba2E30m/bTeuBl8B4j0jM+QxSFkuv
+         uE7qfR+1rwfFQPjw9u8JFtFR0Mc2d75G31dq7jNwKXau5dr4jlQHnEHq4wGlXLwFzQzv
+         +DJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVI2vFD9Knyq8lTzb3SiG16eyUTbBn25+awI20kG8weIqxYeVYa46dkfozpbukF77DCdRd0NHaKMARasi/KrznL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzjg+twXvat+m951urEyQk0dejd20fZhBIt0d4Ab5khls9rYd05
+	OWVyCFvIA8XpAUBZ4312JC7Bfbtv4kZespcaN8+tlC20rRm/55r/eBYw7Gyd3pZdR/qJ8RL6ay7
+	EUkjbT1T+8iU5YjFtEwQwHXUkFPKeBdHHlwwY8lXQJw==
+X-Gm-Gg: ASbGncsBIE33wtY5RzzGrFBgF2dNwJpmZvRXTQqSPi1rxER2vcRG9sXIgzURXxKuosE
+	1Q76pTfyGkoY/KFy0b2d+D91QumKEJeJ/kW1wgSY/nZvjrO27JoPZpSJr0eHVdWtxpQLIGIVFU/
+	T3xPZPmvmKzrWbOsIbFjaV+vBHIfIb69VMPg==
+X-Google-Smtp-Source: AGHT+IHMRf8bcz5aIkiyV4tAaS8tGQtUKO6bhUpbLyg9woenXTM/y8WVzmZJnfWYm+84x/Es23zMYwq7B9ivClzWPz0=
+X-Received: by 2002:a05:6902:1b03:b0:e7b:8524:3f5e with SMTP id
+ 3f1490d57ef6-e7b85243fb8mr12802970276.10.1747657930730; Mon, 19 May 2025
+ 05:32:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c7ac53d0f608d92d96e4e2827e253a9cb2a337bb.1747149165.git.robin.murphy@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20250514094903.1771642-1-ziniu.wang_1@nxp.com>
+ <20250514094903.1771642-2-ziniu.wang_1@nxp.com> <0bda0bba-cfc6-403d-b36f-9c625e5bafb2@intel.com>
+In-Reply-To: <0bda0bba-cfc6-403d-b36f-9c625e5bafb2@intel.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 19 May 2025 14:31:34 +0200
+X-Gm-Features: AX0GCFtU3S8coUHVXTKQU7bBOE0kHTmWJQ63OQyAYKI9Qe1enSPXNA1WeuzFizU
+Message-ID: <CAPDyKFp+ATxghU2g1XxVLB1Oy4TkFvUqj6SpyKCV_ro9bayXtQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] mmc: host: sdhci-esdhc-imx: refactor the system PM logic
+To: ziniu.wang_1@nxp.com, Adrian Hunter <adrian.hunter@intel.com>
+Cc: linux-mmc@vger.kernel.org, haibo.chen@nxp.com, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	imx@lists.linux.dev, s32@nxp.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_053003_007889_09591FAC 
-X-CRM114-Status: GOOD (  30.77  )
+X-CRM114-CacheID: sfid-20250519_053212_021282_4276BA83 
+X-CRM114-Status: GOOD (  33.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,149 +95,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 13, 2025 at 04:39:00PM +0100, Robin Murphy wrote:
-> From: Shouping Wang <allen.wang@hj-micro.com>
-> 
-> NI-700 has a distinct PMU interrupt output for each Clock Domain,
-> however some integrations may still combine these together externally.
-> The initial driver didn't attempt to support this, in anticipation of a
-> more general solution for IRQ sharing between system PMU instances, but
-> that's still a way off, so let's make this intermediate step for now to
-> at least allow sharing IRQs within an individual NI instance.
-> 
-> Now that CPU affinity and migration are cleaned up, it's fairly
-> straightforward to adopt similar logic to arm-cmn, to identify CDs with
-> a common interrupt and loop over them directly in the handler.
-> 
-> Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
-> [ rm: Rework for affinity handling, cosmetics, new commit message ]
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->  drivers/perf/arm-ni.c | 78 ++++++++++++++++++++++++++++---------------
->  1 file changed, 51 insertions(+), 27 deletions(-)
-> 
-> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-> index 168750e78fc4..ca033c8785ff 100644
-> --- a/drivers/perf/arm-ni.c
-> +++ b/drivers/perf/arm-ni.c
-> @@ -102,6 +102,7 @@ struct arm_ni_unit {
->  struct arm_ni_cd {
->  	void __iomem *pmu_base;
->  	u16 id;
-> +	s8 irq_friend;
+On Thu, 15 May 2025 at 14:53, Adrian Hunter <adrian.hunter@intel.com> wrote:
+>
+> On 14/05/2025 12:49, ziniu.wang_1@nxp.com wrote:
+> > From: Luke Wang <ziniu.wang_1@nxp.com>
+> >
+> > Current suspend/resume logic has one issue. In suspend, will config
+> > register when call sdhci_suspend_host(), but at this time, can't
+> > guarantee host in runtime resume state. If not, the per clock is gate
+> > off, access register will hang.
+> >
+> > In sdhci_esdhc_suspend/sdhci_esdhc_resume, remove sdhci_suspend_host()
+> > and sdhci_resume_host(), all are handled in runtime PM callbacks except
+> > the wakeup irq setting. For wakeup irq setting, use pm_runtime_get_sync()
+> > in sdhci_esdhc_suspend() to make sure clock gate on.
+> >
+> > Remove pinctrl_pm_select_default_state() in sdhci_esdhc_resume, because
+> > pm_runtime_force_resume() already config the pinctrl state according to
+> > ios timing, and here config the default pinctrl state again is wrong for
+> > SDIO3.0 device if it keep power in suspend.
+> >
+> > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> > Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+>
+> Looks OK to me, at least, although Ulf may still have comments.
+> Otherwise, for both patches:
 
-Why not just store the pointer to the cd as opposed to a relative offset?
+Looks good to me too!
 
->  	int num_units;
->  	int irq;
->  	struct pmu pmu;
-> @@ -448,33 +449,37 @@ static irqreturn_t arm_ni_handle_irq(int irq, void *dev_id)
->  {
->  	struct arm_ni_cd *cd = dev_id;
->  	irqreturn_t ret = IRQ_NONE;
-> -	u32 reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
->  
-> -	if (reg & (1U << NI_CCNT_IDX)) {
-> -		ret = IRQ_HANDLED;
-> -		if (!(WARN_ON(!cd->ccnt))) {
-> -			arm_ni_event_read(cd->ccnt);
-> -			arm_ni_init_ccnt(cd);
-> +	for (;;) {
+>
+> Acked-by: Adrian Hunter <adrian.hunter@intel.com>
 
-Could this be a do { ... } while (cd) loop instead?
+Both patches applied for next, thanks!
 
-> +		u32 reg = readl_relaxed(cd->pmu_base + NI_PMOVSCLR);
-> +
-> +		if (reg & (1U << NI_CCNT_IDX)) {
-> +			ret = IRQ_HANDLED;
-> +			if (!(WARN_ON(!cd->ccnt))) {
-> +				arm_ni_event_read(cd->ccnt);
-> +				arm_ni_init_ccnt(cd);
-> +			}
->  		}
-> -	}
-> -	for (int i = 0; i < NI_NUM_COUNTERS; i++) {
-> -		if (!(reg & (1U << i)))
-> -			continue;
-> -		ret = IRQ_HANDLED;
-> -		if (!(WARN_ON(!cd->evcnt[i]))) {
-> -			arm_ni_event_read(cd->evcnt[i]);
-> -			arm_ni_init_evcnt(cd, i);
-> +		for (int i = 0; i < NI_NUM_COUNTERS; i++) {
-> +			if (!(reg & (1U << i)))
-> +				continue;
-> +			ret = IRQ_HANDLED;
-> +			if (!(WARN_ON(!cd->evcnt[i]))) {
-> +				arm_ni_event_read(cd->evcnt[i]);
-> +				arm_ni_init_evcnt(cd, i);
-> +			}
->  		}
-> +		writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
-> +		if (!cd->irq_friend)
-> +			return ret;
-> +		cd += cd->irq_friend;
->  	}
-> -	writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
-> -	return ret;
->  }
->  
->  static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_start)
->  {
->  	struct arm_ni_cd *cd = ni->cds + node->id;
->  	const char *name;
-> -	int err;
->  
->  	cd->id = node->id;
->  	cd->num_units = node->num_components;
-> @@ -534,20 +539,11 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
->  		       cd->pmu_base + NI_PMCR);
->  	writel_relaxed(U32_MAX, cd->pmu_base + NI_PMCNTENCLR);
->  	writel_relaxed(U32_MAX, cd->pmu_base + NI_PMOVSCLR);
-> -	writel_relaxed(U32_MAX, cd->pmu_base + NI_PMINTENSET);
->  
->  	cd->irq = platform_get_irq(to_platform_device(ni->dev), cd->id);
->  	if (cd->irq < 0)
->  		return cd->irq;
->  
-> -	err = devm_request_irq(ni->dev, cd->irq, arm_ni_handle_irq,
-> -			       IRQF_NOBALANCING | IRQF_NO_THREAD,
-> -			       dev_name(ni->dev), cd);
-> -	if (err)
-> -		return err;
-> -
-> -	irq_set_affinity(cd->irq, cpumask_of(ni->cpu));
-> -
->  	cd->pmu = (struct pmu) {
->  		.module = THIS_MODULE,
->  		.parent = ni->dev,
-> @@ -593,6 +589,30 @@ static void arm_ni_probe_domain(void __iomem *base, struct arm_ni_node *node)
->  	node->num_components = readl_relaxed(base + NI_CHILD_NODE_INFO);
->  }
->  
-> +static int arm_ni_init_irqs(struct arm_ni *ni)
-> +{
-> +	int err;
-> +
-> +	ni_for_each_cd(ni, cd) {
-> +		for (struct arm_ni_cd *prev = cd; prev-- > ni->cds; ) {
-> +			if (prev->irq == cd->irq) {
-> +				prev->irq_friend = cd - prev;
+Kind regards
+Uffe
 
-Can't this race with the read of `irq_friend` in the interrupt handler?
 
-Similarly, how do you handle the race between the interrupt firing on
-one CD and the friend CD being torn down on e.g. the remove path?
-
-> +				goto enable_irq;
-> +			}
-> +		}
-> +		err = devm_request_irq(ni->dev, cd->irq, arm_ni_handle_irq,
-> +				       IRQF_NOBALANCING | IRQF_NO_THREAD,
-> +				       dev_name(ni->dev), cd);
-
-What's the reason not to use IRQF_SHARED and register multiple handlers?
-I'm sure there is one, but capturing that in a comment would help to
-justify the manual multiplexing.
-
-Will
+>
+> > ---
+> >  drivers/mmc/host/sdhci-esdhc-imx.c | 50 ++++++++++++++++++------------
+> >  1 file changed, 30 insertions(+), 20 deletions(-)
+> >
+> > diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> > index c0160c69a027..7611682f10c3 100644
+> > --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> > +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> > @@ -2009,11 +2009,14 @@ static int sdhci_esdhc_suspend(struct device *dev)
+> >       struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
+> >       int ret;
+> >
+> > -     if (host->mmc->caps2 & MMC_CAP2_CQE) {
+> > -             ret = cqhci_suspend(host->mmc);
+> > -             if (ret)
+> > -                     return ret;
+> > -     }
+> > +     /*
+> > +      * Switch to runtime resume for two reasons:
+> > +      * 1, there is register access (e.g., wakeup control register), so
+> > +      *    need to make sure gate on ipg clock.
+> > +      * 2, make sure the pm_runtime_force_resume() in sdhci_esdhc_resume() really
+> > +      *    invoke its ->runtime_resume callback (needs_force_resume = 1).
+> > +      */
+> > +     pm_runtime_get_sync(dev);
+> >
+> >       if ((imx_data->socdata->flags & ESDHC_FLAG_STATE_LOST_IN_LPMODE) &&
+> >               (host->tuning_mode != SDHCI_TUNING_MODE_1)) {
+> > @@ -2021,9 +2024,6 @@ static int sdhci_esdhc_suspend(struct device *dev)
+> >               mmc_retune_needed(host->mmc);
+> >       }
+> >
+> > -     if (host->tuning_mode != SDHCI_TUNING_MODE_3)
+> > -             mmc_retune_needed(host->mmc);
+> > -
+> >       /*
+> >        * For the device need to keep power during system PM, need
+> >        * to save the tuning delay value just in case the usdhc
+> > @@ -2033,9 +2033,13 @@ static int sdhci_esdhc_suspend(struct device *dev)
+> >           esdhc_is_usdhc(imx_data))
+> >               sdhc_esdhc_tuning_save(host);
+> >
+> > -     ret = sdhci_suspend_host(host);
+> > -     if (ret)
+> > -             return ret;
+> > +     if (device_may_wakeup(dev)) {
+> > +             /* The irqs of imx are not shared. It is safe to disable */
+> > +             disable_irq(host->irq);
+> > +             ret = sdhci_enable_irq_wakeups(host);
+> > +             if (!ret)
+> > +                     dev_warn(dev, "Failed to enable irq wakeup\n");
+> > +     }
+> >
+> >       ret = pinctrl_pm_select_sleep_state(dev);
+> >       if (ret)
+> > @@ -2043,6 +2047,12 @@ static int sdhci_esdhc_suspend(struct device *dev)
+> >
+> >       ret = mmc_gpio_set_cd_wake(host->mmc, true);
+> >
+> > +     /*
+> > +      * Make sure invoke runtime_suspend to gate off clock.
+> > +      * uSDHC IP supports in-band SDIO wakeup even without clock.
+> > +      */
+> > +     pm_runtime_force_suspend(dev);
+> > +
+> >       return ret;
+> >  }
+> >
+> > @@ -2053,16 +2063,19 @@ static int sdhci_esdhc_resume(struct device *dev)
+> >       struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
+> >       int ret;
+> >
+> > -     ret = pinctrl_pm_select_default_state(dev);
+> > +     pm_runtime_force_resume(dev);
+> > +
+> > +     ret = mmc_gpio_set_cd_wake(host->mmc, false);
+> >       if (ret)
+> >               return ret;
+> >
+> >       /* re-initialize hw state in case it's lost in low power mode */
+> >       sdhci_esdhc_imx_hwinit(host);
+> >
+> > -     ret = sdhci_resume_host(host);
+> > -     if (ret)
+> > -             return ret;
+> > +     if (host->irq_wake_enabled) {
+> > +             sdhci_disable_irq_wakeups(host);
+> > +             enable_irq(host->irq);
+> > +     }
+> >
+> >       /*
+> >        * restore the saved tuning delay value for the device which keep
+> > @@ -2072,11 +2085,8 @@ static int sdhci_esdhc_resume(struct device *dev)
+> >           esdhc_is_usdhc(imx_data))
+> >               sdhc_esdhc_tuning_restore(host);
+> >
+> > -     if (host->mmc->caps2 & MMC_CAP2_CQE)
+> > -             ret = cqhci_resume(host->mmc);
+> > -
+> > -     if (!ret)
+> > -             ret = mmc_gpio_set_cd_wake(host->mmc, false);
+> > +     pm_runtime_mark_last_busy(dev);
+> > +     pm_runtime_put_autosuspend(dev);
+> >
+> >       return ret;
+> >  }
+>
 
