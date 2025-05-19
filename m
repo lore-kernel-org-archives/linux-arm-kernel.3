@@ -4,117 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E286C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 08:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55582C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 08:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h4WEKd3n1TW/7ktw930q3xo17kz++gETwFfNVmlmZII=; b=eEHwJbMwq34DGRBjVsk+0rtD/q
-	89m+QnD8cX+5dmne6eI97RANfCPITW2MpMSJxrSMWVKFV6fPXwH0RxEx1PJAek8ELV/GFL6hjLu1v
-	uD31V9r23q80xIgddYW+rsk1HAY+cDr8TIaV4f8HFnGVmCE47izvaC96PZQBS9b6zFwgD0PGPpPBC
-	7n8hznM/p07Do7xJ4nfpXAv3P4sBJXoajl2mq3VDcgRryFlen90ZnTLsfV0f4yPPzgg5pULWdtjFl
-	iLi31R+3Yepn4JvTk7fTZ11YuVl89D94f1mTpxTDCFii8uTKluTJHRO6aomXrwXJ18O3ZAjTFIdH9
-	2pgKi4/A==;
+	bh=R2HfCroDQOnqrhUpmZfRg8hpurk9rvjUBz3QEtfnoss=; b=v5zRaLhdbBaoPzgDNUC+TZzQ8Z
+	tKEaXBy23QbyNv+J01duJm5NmuLD37f+Ej3bts8KYbDvp0dItWCITbXUNDpv+Pf9FDO+B3/E9SfKk
+	eJzLAUd/v/vNlKsF3Ev5uvGFiEagZ5bbF7cowsQFJUv2HLOP/p2XUniEVfuhLFyXnoKQXk84TPFNH
+	QEOSqkSdOJhev8LaiA0CAiYahBvAxXjjofDuwwZPJVDY00+NUu9p8X0anTF5iQkYwBW52i8oPboSd
+	qPbZqa48aAFFEZMicQfOKiswlsCz0j6YsEYmUC0+n4wRK5SmapxOXqZgyDwq9jbjckqlrk/eTfmaU
+	nCGpXPLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwCK-00000008QJA-1UyM;
-	Mon, 19 May 2025 08:50:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uGwLa-00000008SCT-1hAU;
+	Mon, 19 May 2025 08:59:46 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwAI-00000008PrX-3gMv;
-	Mon, 19 May 2025 08:48:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D92CA6112E;
-	Mon, 19 May 2025 08:48:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25C08C4CEE4;
-	Mon, 19 May 2025 08:47:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747644485;
-	bh=e2P5kIf12pmhzIP6nIe0ke4cFpoL7ha0XqwOXr3qDxQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vJ0jq/7VyJqgSVlYbHkY5RMeRQrUJfL5za0MN+a/59F4KhWyWMMQ6dl/a3ckFH8Uc
-	 MNrm9ChLSNlVW4O6+z9boGrKsTkOgr15pBcs+uSILRksNIjMBms7HbKKZTPMmPBX3x
-	 tWj6/UBUq0hQurFJ3nA8cWXrs1Pdxz3sL8rZ2QELa8k8msyHR1U58i518qoWNG68bk
-	 wOdflOyC3mVuyOpm33gLCbhCqiCICYX09t2Z8POZTv+x9iImZd6AhnTtjAeWgi1NSI
-	 sVjzkX0GuisIjD98xnvir5VDUrBCWTUzpjZ2WWODwSZW9xUbd5PvXxtKTU6ozPUOdK
-	 5LOc0kJBgm3hg==
-Message-ID: <f8cf2c4e-0ae2-4799-bda8-654b4f515846@kernel.org>
-Date: Mon, 19 May 2025 10:47:57 +0200
+	id 1uGwJX-00000008RvH-1RPN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 May 2025 08:57:41 +0000
+X-QQ-mid: esmtpsz19t1747644988t9b802add
+X-QQ-Originating-IP: mEZBgbcquZ2Du2McekxoKZ2hM/Tuu43HWG7JYXN3+cc=
+Received: from localhost.localdomain ( [182.245.65.180])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 19 May 2025 16:56:26 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3363981724281907959
+EX-QQ-RecipientCnt: 16
+From: Hsun Lai <i@chainsx.cn>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: i@chainsx.cn,
+	heiko@sntech.de,
+	andrew@lunn.ch,
+	inindev@gmail.com,
+	quentin.schulz@cherry.de,
+	jonas@kwiboo.se,
+	sfr@canb.auug.org.au,
+	nicolas.frattaroli@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	krzysztof.kozlowski@linaro.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v3 3/3] arm64: dts: rockchip: add DTs for Sakura Pi RK3308B
+Date: Mon, 19 May 2025 16:56:14 +0800
+Message-Id: <20250519085614.2245892-4-i@chainsx.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250519085614.2245892-1-i@chainsx.cn>
+References: <20250519085614.2245892-1-i@chainsx.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/10] arm64: dts: rockchip: Add nodes for NPU and its
- MMU to rk3588s
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-doc@vger.kernel.org, linux-media@vger.kernel.org,
- linaro-mm-sig@lists.linaro.org
-References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
- <20250516-6-10-rocket-v3-2-7051ac9225db@tomeuvizoso.net>
- <4bd79c88-7da5-4bf0-9300-cfdb296c8919@kernel.org>
- <CAAObsKDsO=5uK3BEn6BOgatb+y73jc-Se6mmSbhwG9P_1nVtwg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAAObsKDsO=5uK3BEn6BOgatb+y73jc-Se6mmSbhwG9P_1nVtwg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:chainsx.cn:qybglogicsvrsz:qybglogicsvrsz3a-0
+X-QQ-XMAILINFO: NeHZ50d3l/WZZBo4YE/OKnFBKKlHsCK+G/18RXdoZqdCgd2iF6/26mLy
+	jTqp4gA2Jco3W5Q+79a4qBRP8hAu/N3hm73M7vnuFurZCvok8NT4+thxD7sBDf/IyMEBRTg
+	7Ul7yfA2s33+cDSz0/p5zSh7rMGxaocnUZMFatJijCbOr5iz39R2f3ykixWrLW6aEzTx9k7
+	O6pj9qPO0pXGmCvFI/gn25q9gPpmFASsYnpA5FduWY+Hqxq+wt0bMnycXacfwx9buLjmTRk
+	09B2AA55TSgRkLSaPN8Ke9BMZxGEkRJKciK50tZce2SM0wqYK3JniL8f3CFEomlBbdPN1eR
+	Lu0spl4JxTcPcY9bCMOccJKC9rRuUDSJXB5R0uTYP4MELn34NTV+LSRUxNuP/iNRnjF5+lg
+	xHEhdCn949dd6AmvHyNJ79TW4tP/V7DMcuR2clWxXzR5I4DNuj5bgkgabwIudKtWSDYWuGz
+	WZ88O/0qt9eTRhCpjDG1YBadMZxuOwtqDk8S6y2x9sKQgRCOn115z24qwE1ltT03ugUSN+c
+	16t3FIp9yxlV6SBA/AQTk72NiHGrfwd06KseWm5MtRZ6X2y6F+sx/PzfwhVw33DE0Mywahf
+	Suhn5AnA3t1/np4GGRAI2de8bmqpBn8cmxKwIk/p5jlaTvRrr4ddd+3bnj9YqYw3w/iSBN1
+	BkVUU+45FyJoMm+xu2U40x9znJ58kM46s6EXZEVlz3cJ5KNgDqydENYU0zp2bCzRnt8Pryb
+	gZlB/xANSHCcnx5JxU+H02AvsRY7uaHmPAWOTq3iA8wMbYK1yVlM4e7G3Nat0FlvgCNmp+s
+	WszQ5sIPymLSaq8YaChtNe67WYJW8nkIL1vtTvPebLdTfJSetcCNRSGEXNh6XTdCIAw3LZu
+	J/omb3QJG4BoIt3nbF979uvYabp0GohKILkWr1oC64qyyIfSwwzQu7XXx0mazthxIS9xnXT
+	er8PPVFGI7d4+LgcPYHLI4WcIlADFe8ijtZ6coSTdATix/d8n7/1OFsenrjhU89kjULZyfb
+	WgeBR/w1QDmuyCg8XB
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250519_015740_000401_4EA1E2E6 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,61 +98,334 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2025 10:27, Tomeu Vizoso wrote:
-> On Mon, May 19, 2025 at 8:08 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 16/05/2025 18:53, Tomeu Vizoso wrote:
->>> See Chapter 36 "RKNN" from the RK3588 TRM (Part 1).
->>>
->>> This is a derivative of NVIDIA's NVDLA, but with its own front-end
->>> processor.
->>>
->>> The IP is divided in three cores, programmed independently. The first
->>> core though is special, requiring to be powered on before any of the
->>> others can be used.
->>>
->>> The IOMMU of the first core is also special in that it has two subunits
->>> (read/write?) that need to be programmed in sync.
->>>
->>> v2:
->>> - Have one device for each NPU core (Sebastian Reichel)
->>> - Have one device for each IOMMU (Sebastian Reichel)
->>> - Correctly sort nodes (Diederik de Haas)
->>> - Add rockchip,iommu compatible to IOMMU nodes (Sebastian Reichel)
->>>
->>> v3:
->>> - Adapt to a split of the register block in the DT bindings (Nicolas
->>>   Frattaroli)
->>>
->>> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
->>> ---
->>>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 85 +++++++++++++++++++++++++++
->>>  1 file changed, 85 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
->>> index 1e18ad93ba0ebdad31642b88ff0f90ef4e8dc76f..7b961ab838212fad8e4a70390fdc917a828433a9 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
->>> @@ -1136,6 +1136,91 @@ power-domain@RK3588_PD_SDMMC {
->>>               };
->>>       };
->>>
->>> +     rknn_core_top: npu-core@fdab0000 {
->>
->> npu@
->>
->>> +             compatible = "rockchip,rk3588-rknn-core-top", "rockchip,rknn-core-top";
->>
->> You never tested this. Test before sending instead of relying on us or
->> after merging.
-> 
-> Can you please extend on this? I have tested this series before
-> sending and I don't understand what you mean here.
+The Sakura Pi RK3308B is a SBC based on the Rockchip RK3308 SoC.
 
-I mean exactly that: it was not tested, because warnings are clearly
-visible/expected. I also found now Rob's report which even shows you the
-warnings, so how come you still claim this was tested?
+Link: https://github.com/Sakura-Pi
+Link: https://docs.sakurapi.org/article/sakurapi-rk3308b/introduce
 
-Best regards,
-Krzysztof
+The device contains the following hardware that is tested/working:
+ - 4 or 8GB eMMC
+ - SDMMC card slot
+ - Realtek SDIO WiFi 5/BT
+ - 256 or 512MB of RAM
+ - USB 2.0 port
+ - OTG port
+
+Signed-off-by: Hsun Lai <i@chainsx.cn>
+
+---
+
+Changes in v3:
+- Remove empty i2c controller (Heiko Stuebner, v1)
+- Remove unused spi nodes (Heiko Stuebner, v1)
+- Sort nodes alphabetically (Heiko Stuebner, v1)
+- Put status as last property (Heiko Stuebner, v1)
+
+Changes in v2:
+- Update the names of the regulators (Heiko Stuebner, v1)
+
+Changes in v1:
+- Add support for Sakura Pi RK3308B
+- Patch 2: Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3308-sakurapi-rk3308b.dts  | 274 ++++++++++++++++++
+ 2 files changed, 275 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts
+
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index e63c3f5eb..c9017bdc3 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -12,6 +12,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-evb.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-roc-cc.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-rock-pi-s.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-rock-s0.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-sakurapi-rk3308b.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3318-a95x-z2.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3326-anbernic-rg351m.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3326-anbernic-rg351v.dtb
+diff --git a/arch/arm64/boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts b/arch/arm64/boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts
+new file mode 100644
+index 000000000..b9032d4e7
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts
+@@ -0,0 +1,274 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2019 Akash Gajjar <akash@openedev.com>
++ * Copyright (c) 2019 Jagan Teki <jagan@openedev.com>
++ * Copyright (C) 2024 TheSnowfield <thesnowfield@sakurapi.org>
++ * Copyright (C) 2025 Hsun Lai <i@chainsx.cn>
++ */
++
++/dts-v1/;
++#include "rk3308.dtsi"
++#include <dt-bindings/leds/common.h>
++
++/ {
++	model = "Sakura Pi RK3308B";
++	compatible = "sakurapi,rk3308-sakurapi-rk3308b", "rockchip,rk3308";
++
++	aliases {
++		mmc0 = &emmc;
++		mmc1 = &sdmmc;
++		mmc2 = &sdio;
++	};
++
++	chosen {
++		stdout-path = "serial2:1500000n8";
++	};
++
++	sdio_pwrseq: sdio-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		pinctrl-0 = <&wifi_enable_h>;
++		pinctrl-names = "default";
++		/*
++		 * On the module itself this is one of these (depending
++		 * on the actual card populated):
++		 * - SDIO_RESET_L_WL_REG_ON
++		 * - PDN (power down when low)
++		 */
++		reset-gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_LOW>;
++	};
++
++	vcc5v0_sys: regulator-vcc5v0-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_sys";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	vdd_core: regulator-vdd-core {
++		compatible = "pwm-regulator";
++		pwms = <&pwm0 0 5000 1>;
++		regulator-name = "vdd_core";
++		regulator-min-microvolt = <827000>;
++		regulator-max-microvolt = <1340000>;
++		regulator-settling-time-up-us = <250>;
++		regulator-always-on;
++		regulator-boot-on;
++		pwm-supply = <&vcc5v0_sys>;
++	};
++
++	vdd_log: regulator-vdd-log {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd_log";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1050000>;
++		regulator-max-microvolt = <1050000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_ddr: regulator-vcc-ddr {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_ddr";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1500000>;
++		regulator-max-microvolt = <1500000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_1v8: regulator-vcc-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_1v8";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc_io>;
++	};
++
++	vcc_io: regulator-vcc-io {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_io";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc_phy: regulator-vcc-phy-regulator {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_phy";
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	vcc5v0_otg: regulator-vcc5v0-otg {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_otg";
++		regulator-always-on;
++		gpio = <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		pinctrl-names = "default";
++		pinctrl-0 = <&otg_vbus_drv>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++};
++
++&cpu0 {
++	cpu-supply = <&vdd_core>;
++};
++
++&emmc {
++	bus-width = <8>;
++	cap-mmc-highspeed;
++	non-removable;
++	status = "okay";
++};
++
++&i2c1 {
++	status = "okay";
++};
++
++&sdmmc {
++	cap-mmc-highspeed;
++	cap-sd-highspeed;
++	disable-wp;
++	pinctrl-0 = <&sdmmc_clk &sdmmc_cmd &sdmmc_det &sdmmc_bus4>;
++	card-detect-delay = <800>;
++	status = "okay";
++};
++
++&sdio {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	cap-sd-highspeed;
++	cap-sdio-irq;
++	keep-power-in-suspend;
++	mmc-pwrseq = <&sdio_pwrseq>;
++	non-removable;
++	no-mmc;
++	no-sd;
++	status = "okay";
++
++	brcmf: wifi@1 {
++		compatible = "brcm,bcm43455-fmac", "brcm,bcm4329-fmac";
++		reg = <1>;
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PA3 GPIO_ACTIVE_HIGH>;
++		interrupt-names = "host-wake";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_host_wake>;
++	};
++};
++
++&dmac0 {
++	status = "okay";
++};
++
++&pinctrl {
++	pinctrl-names = "default";
++	pinctrl-0 = <&rtc_32k>;
++
++	usb {
++		otg_vbus_drv: otg-vbus-drv {
++			rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	sdio-pwrseq {
++		wifi_enable_h: wifi-enable-h {
++			rockchip,pins = <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	wifi {
++		wifi_host_wake: wifi-host-wake {
++			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++	};
++
++	bluetooth {
++		bt_reg_on: bt-reg-on {
++			rockchip,pins = <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		bt_wake_host: bt-wake-host {
++			rockchip,pins = <4 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		host_wake_bt: host-wake-bt {
++			rockchip,pins = <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
++
++&pwm0 {
++	status = "okay";
++	pinctrl-0 = <&pwm0_pin_pull_down>;
++};
++
++&saradc {
++	vref-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&pwm3 {
++	status = "okay";
++};
++
++&i2c1 {
++	status = "okay";
++};
++
++&uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart2m0_xfer>;
++	status = "okay";
++};
++
++&uart4 {
++	pinctrl-names = "default";
++	uart-has-rtscts;
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm4345c5";
++		clocks = <&cru SCLK_RTC32K>;
++		clock-names = "lpo";
++		pinctrl-names = "default";
++		pinctrl-0 = <&host_wake_bt &bt_wake_host &bt_reg_on>;
++		device-wakeup-gpios = <&gpio4 RK_PB4 GPIO_ACTIVE_HIGH>;
++		host-wakeup-gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
++		shutdown-gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
++		max-speed = <1500000>;
++	};
++};
++
++&usb20_otg {
++	dr_mode = "peripheral";
++	status = "okay";
++};
++
++&u2phy {
++	status = "okay";
++};
++
++&u2phy_otg {
++	status = "okay";
++};
++
++&u2phy_host {
++	status = "okay";
++};
++
++&usb_host_ehci {
++	status = "okay";
++};
++
++&usb_host_ohci{
++	status = "okay";
++};
+-- 
+2.34.1
+
 
