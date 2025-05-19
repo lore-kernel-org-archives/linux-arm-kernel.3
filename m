@@ -4,101 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F2FC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 14:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC839C3ABD8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 14:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anhtEfC+aYWJeJvUly60jdWH8rm+sVcW8pcF9vb2eMk=; b=Q81DHMofssdeXMHV/Hc+S5gMqv
-	wtUYfVrNsOvfVolBgSMwV4IYSIutq1gTjc+lpO/HmADePmWdRv9lx78kdAa054V/iWNF6PHbwSvXP
-	BE1IPpuQ5+URg47+Jxl0qzTN+zBJus5wZrsAKsOeTj4ZQAMDvgd+6j+2aCc3jbi8kPzYhmk7f44Yx
-	RbMy8+BX/mJxFGxRRPlAgDX2KoMrgkbpKsq4WHmcN3v3uOVTv0OFc8HWC8v09ygWt7nB+xTiLUp7Y
-	eNj3cIh0g+dMv4pftLwQYk9qHuvsJ5KTAk0Hf0ZxWf6diTCg7FjVCqiMcBE9i3pMPsz5A9Em6CvU2
-	vkZ4aspA==;
+	bh=PdV8uO80/mflHpZW6Zmyg39cv5SMy1ND2QAP2t8eHzY=; b=NxiET88Z/srxXu2VytWHlIlzcI
+	qKAWF1bqFdowj7MU6SHM6935JhNQhgxfHNkvJ9uCyewLIJ0p1pDjbYFABM24yAZ+Osj3T4rOsBCMb
+	WZI/HFZc65hCO1F+x8RQsNTaTE9LbVZ0qIzv9HidkXQQfQblJfilbdAH1lXb77culYS4oXhN0Gl3K
+	vOBBCNO9fiawYTXVJ8nXFeSLNVCRdWdmBVbQrxR5v1izPpeotWDJvN4h0T3ePsdIWMZe/nQsbBqpU
+	3EjHyZ0+mqXTllFbxYFI6a9hc+sozHNgfnLnVXZZKTtMtVxCA+XOTlmg32i0yxhGGd0h8faT+tyBn
+	YHSM+a+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH173-00000009OLj-09sL;
-	Mon, 19 May 2025 14:05:05 +0000
+	id 1uH195-00000009OlN-2CPz;
+	Mon, 19 May 2025 14:07:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH0mx-00000009Jr2-4BH9;
-	Mon, 19 May 2025 13:44:20 +0000
+	id 1uH0ng-00000009K27-3Pk8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 19 May 2025 13:45:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=anhtEfC+aYWJeJvUly60jdWH8rm+sVcW8pcF9vb2eMk=; b=brghd4IJBB86FQK4rduTxNZp0B
-	oEtkE5GL/D6eHQmVcQsQlFUoZpM9R/0a2J2z6zTA4VPHHyi4oxE8SRlI/rbcv4CcWa3v7ytM/prdC
-	dF90OXMEMFViAzJf/f9ldfgPbioiz/jTxf/P1PytKaRA1Fgr8iX9cQtmutwpr4TGpxJc9Ptw08QfB
-	ey8e3PeBWQjSaOxNqXeOmVa0o986E/mczKXGCdTs/akuQoUXodseg4YjngWHBQROsTprHJEmLIMfZ
-	qi/Vuky4+LAFI8OQ8kF2l1BW0rQKyXU1G7Cns1Y3LCnCc9q9Yzxj1fHuNhDoNd14MCVYJ6U+Yhk+z
-	/tY6BdhA==;
-Received: from mail-wm1-f49.google.com ([209.85.128.49])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=PdV8uO80/mflHpZW6Zmyg39cv5SMy1ND2QAP2t8eHzY=; b=ln9gZILGHpbP6HJ6lr7Ot4YEFL
+	ASgYfOfHk2wPOTx325rLHimZElZ/gWi+xDyb6QEb7lXuOF/xlDVsWhe0ik6dA8noilOng0xAEXK80
+	kcmq1yilB4g2WioF6Q/kPDjCYQzRSOElTU6K8ozi9KrL9v3rNUV4/9y8ZMf+8cQw+ELC5qCCY1cG5
+	6huIlAreJBtteaIYz9j7hzP7tFZU8vqKJZSSrQnFBaAuWKjBEzB9XGo0J/ZFu4XEaO/QFTU31DE/f
+	GhDdwAJks+pg9/cq3PUSQwo6w2QPpyvdyRqqOploTSHT9D9GXnvHwIjERejO6L7pv2yfvIiy/bYHE
+	NKjKVVog==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uH0mu-00000000dlQ-3UUd;
-	Mon, 19 May 2025 13:44:18 +0000
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-43cec5cd73bso29562665e9.3;
-        Mon, 19 May 2025 06:44:16 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747662255; x=1748267055;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=anhtEfC+aYWJeJvUly60jdWH8rm+sVcW8pcF9vb2eMk=;
-        b=j1HSsPUaaq+/BV9a+2PTwoG+9rQ3kTxPPBRw0DmdtLzPk5rzf75TVVOQt/iVHyREUL
-         EkCMS8mDU8wpYV+Op2fadVMUjnhLZezsz68c0uNiCE7YTSZKCWlX+2h0jqmP3MtfnX8l
-         PP0BYsWAixcWRsDJXiZrLCttY+t6zq56u6XwXd9xQO2jgs1N5wORv3PpztoF6c0zmMwS
-         kBeAc3grhNRYZEXyg+BOhELp7ZKBNmvQhyfScYxxl4zMw1sPB8dcULqtlrL2WgSEdOdO
-         rO18m4Anv/Y9mxJ7qovjczkVN2thchu5fgxXPsnAIU9X004opte2iGF4KOjRExH9FPfm
-         /UkA==
-X-Forwarded-Encrypted: i=1; AJvYcCVl6r4HGF1g7GSMUKPyFU0MMk90XOOACV8hGNr84ksXB6bdFfcn41Pxu+eWjAZbxq4MH7caP0lzBVsuTDkROEA/@lists.infradead.org, AJvYcCXh4+Hm7h39uIKGFj8av6L8+bo3CFka5dtyULYTkCaq8KrkZ6eSBS6eQaSUMvB7+GJVWESY21zhXmXlUiDV2FM=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwK2t1/Vc5ZbPi8suGiIm94kwKHmcj1pKv7PkARJzJWtOPhPzl/
-	ujpk3brZZqglMv+shuKnKnHOfvTv5pHa3b0BOf4xcQvDs273i9cA42Cq
-X-Gm-Gg: ASbGncuFuwjdFCrGhUoZ74i/GF2zzUSmy+U7cP/W1oc8Rqo+zpdtri2+fz3sRpT8ls6
-	p7He5P0AdeTL8As6ewl4Ji2FoKriJC6JoonapMoMv4A7DM/0o4OZMY0c5oyJvtO1PrWLNTaRzYT
-	Gnbs+a+7ezcPo5ZneX/nuqUlqKk4KQ4PgZPOYY4Ldts6VCOYE9egFjlchhmo6qeLFNNktNZbQ2U
-	VwI62myRkMh8zNkTQ4Ob+sRiWlO5J0NU+fMjXDZOnjK7iquisCDlGK6l3MAFuTQsQqP0d1ERGCA
-	esoC/TXk+MKH86P6X0oVvl3fktKDTuUnCNEpqVbfTvWhofdqzF0svZhO8jzQF6uDCHCDpTgSkqN
-	DRJJKJXtw3g==
-X-Google-Smtp-Source: AGHT+IEWSM8pwbQ+eewtaNC0pityD3poeCoFUie9piHQXV3RLcUMbKhDhTRCudb5lKuMqUm4AA1Amw==
-X-Received: by 2002:a05:600c:529b:b0:43c:e7ae:4bcf with SMTP id 5b1f17b1804b1-442fd5a347emr129006045e9.0.1747662255196;
-        Mon, 19 May 2025 06:44:15 -0700 (PDT)
-Received: from [10.42.0.1] (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442f8ab839esm171263005e9.17.2025.05.19.06.44.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 May 2025 06:44:14 -0700 (PDT)
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Mon, 19 May 2025 15:43:42 +0200
-Subject: [PATCH v4 10/10] arm64: dts: rockchip: enable NPU on ROCK 5B
+	id 1uH0nc-00000000dpN-25vW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 May 2025 13:45:03 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54J9IUfw028604;
+	Mon, 19 May 2025 13:44:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PdV8uO80/mflHpZW6Zmyg39cv5SMy1ND2QAP2t8eHzY=; b=prEs2AZG6sM1zEGe
+	VlkKyMnGGYxkLQMT3wdOmMthss1lBfNyEtDD15+kpRauYm9ctxxE1rtGyBG7Fv0f
+	7mJCkiJOnbNqwy/6kx5b3EJw/fdr4USRKjSBQQZQ0jHR3qMi+DE0bCsRrQ4toQWM
+	XQpE8v6IZupkHpPDe9Et6SnwT6edFLhvkgEDwG+tYmfYg686FX3HielgtSb5ymMw
+	H/6iWbGkmnrSAkUBtyDQyIUB5N69MUsS4VuPSWbwetCUd2aJT9KZy84qdFiXZdPk
+	mqWtVNNGCrWJyKA02Gb/R93mSzgTlfhvNmEC0JXDbA8nvT4pFil22EVufRp+SY2P
+	LCv/Dw==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46pju7cgmc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 19 May 2025 13:44:32 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54JDiVn1028686
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 19 May 2025 13:44:31 GMT
+Received: from [10.253.10.117] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 19 May
+ 2025 06:44:23 -0700
+Message-ID: <1e3ba498-2bfb-4cab-ba13-5ab2c5b03ef9@quicinc.com>
+Date: Mon, 19 May 2025 21:44:20 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250519-6-10-rocket-v4-10-d6dff6b4c0ae@tomeuvizoso.net>
-References: <20250519-6-10-rocket-v4-0-d6dff6b4c0ae@tomeuvizoso.net>
-In-Reply-To: <20250519-6-10-rocket-v4-0-d6dff6b4c0ae@tomeuvizoso.net>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
- Tomeu Vizoso <tomeu@tomeuvizoso.net>
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [cocci] [PATCH v3 2/6] coccinelle: misc: Add field_modify script
+To: Markus Elfring <Markus.Elfring@web.de>, <cocci@inria.fr>,
+        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+        "Catalin
+ Marinas" <catalin.marinas@arm.com>,
+        Joey Gouly <joey.gouly@arm.com>,
+        "Julia
+ Lawall" <Julia.Lawall@inria.fr>, Marc Zyngier <maz@kernel.org>,
+        Nicolas Palix
+	<nicolas.palix@imag.fr>,
+        Oliver Upton <oliver.upton@linux.dev>,
+        "Rasmus
+ Villemoes" <linux@rasmusvillemoes.dk>,
+        Suzuki Poulouse
+	<suzuki.poulose@arm.com>,
+        Will Deacon <will@kernel.org>, Yury Norov
+	<yury.norov@gmail.com>,
+        Zenghui Yu <yuzenghui@huawei.com>
+CC: LKML <linux-kernel@vger.kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+        "Kiran
+ Kumar C.S.K" <quic_kkumarcs@quicinc.com>,
+        Lei Wei <quic_leiwei@quicinc.com>, Pavithra R <quic_pavir@quicinc.com>,
+        Suruchi Agarwal
+	<quic_suruchia@quicinc.com>,
+        <quic_linchen@quicinc.com>
+References: <20250417-field_modify-v3-0-6f7992aafcb7@quicinc.com>
+ <20250417-field_modify-v3-2-6f7992aafcb7@quicinc.com>
+ <a1be0efc-a4c9-461d-a01a-8fb830b2c68d@web.de>
+ <0ee48e2f-58db-49b0-b651-dcc0e517465e@quicinc.com>
+ <43712874-6f1d-435c-98b2-30ac44d25309@web.de>
+Content-Language: en-US
+From: Luo Jie <quic_luoj@quicinc.com>
+In-Reply-To: <43712874-6f1d-435c-98b2-30ac44d25309@web.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=XKEwSRhE c=1 sm=1 tr=0 ts=682b35c0 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=NEAV23lmAAAA:8
+ a=c3S3xlzBOW1yjAwqZsgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: DDx5Kpyrf6pBeNUIV-O76BAavKioXic-
+X-Proofpoint-GUID: DDx5Kpyrf6pBeNUIV-O76BAavKioXic-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTE5MDEyNyBTYWx0ZWRfX8LBxompbvgoH
+ 3i7uWyfrxx5T3Tfgsvy7ubiVJ6v1qhIGwf4jf/Xj3Xy1N8bv6dH9EU/v4+YK8hk3EOZKpGwsXpO
+ zKPXnFqYrqWOXyiJzvXGm6Lg+ocGxkUpkTDXJZ/O5AXvVsS8FpVHPcnvp90SgtTIkcdhMEupjQ2
+ uOj/n9xXrmiGEGLnLbuK3/1L9NHPSOpmoaK3yrzHw6a5A4PoIXXRCzpq8QAa9ZmTuW4GdgZaAci
+ EHCwTjF+Lk7iDIzSmtS2qgKhzHtqhTC9bWvgCDe3sDRnz3V+dDqppGyupxR8VK2WXx2IejHyv8w
+ JFBhRBjRDa880TK7422aleYlIMa6BgheyGcrQ8t5EswA8UqaJ1amugbbjV7lOzAkyz96FklOAvx
+ XIva8OfJHDHpw248ZP7AXaRVN54826XqkLx8ayhxETvYMM/RYgIieue2XoBPYKPK+9fivQ+l
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-19_06,2025-05-16_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 priorityscore=1501 impostorscore=0 clxscore=1015
+ spamscore=0 suspectscore=0 malwarescore=0 adultscore=0 mlxscore=0
+ mlxlogscore=999 phishscore=0 bulkscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505070000 definitions=main-2505190127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_144417_441063_804A0049 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250519_144501_180407_35943C04 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,101 +150,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-The NPU on the ROCK5B uses the same regulator for both the sram-supply
-and the npu's supply. Add this regulator, and enable all the NPU bits.
-Also add the regulator as a domain-supply to the pd_npu power domain.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
----
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 56 +++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+On 4/24/2025 12:35 AM, Markus Elfring wrote:
+> …
+>>> -reg &= ~mask;
+>>> -reg |= FIELD_PREP
+>>> +       FIELD_MODIFY
+>>>                     (mask,
+>>> +                  &reg,
+>>>                      val
+>>>                     );
+> …
+>> With this code variant, there is no space prior to &reg, here is the
+>> example code changes generated by the SmPL code as below, is this expected?
+> …
+>> +++ b/drivers/phy/starfive/phy-jh7110-dphy-tx.c
+>> @@ -244,8 +244,7 @@ static int stf_dphy_configure(struct phy
+>>          i = stf_dphy_get_config_index(bitrate);
+>>
+>>          tmp = readl(dphy->topsys + STF_DPHY_APBIFSAIF_SYSCFG(100));
+>> -       tmp &= ~STF_DPHY_REFCLK_IN_SEL;
+>> -       tmp |= FIELD_PREP(STF_DPHY_REFCLK_IN_SEL, STF_DPHY_REFCLK_12M);
+>> +       FIELD_MODIFY(STF_DPHY_REFCLK_IN_SEL,&tmp, STF_DPHY_REFCLK_12M);
+>>          writel(tmp, dphy->topsys + STF_DPHY_APBIFSAIF_SYSCFG(100));
+> 
+> The Coccinelle software is still evolving somehow.
+> Thus your test result can trigger further development considerations.
+> I hope that clarifications and corresponding improvements can be achieved
+> also according to such source code layout concerns.
+> 
+> Regards,
+> Markus
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index d22068475c5dc6cb885f878f3f527a66edf1ba70..49500f7cbcb14af4919a6c1997e9e53a01d84973 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -316,6 +316,28 @@ regulator-state-mem {
- 	};
- };
- 
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m2_xfer>;
-+	status = "okay";
-+
-+	vdd_npu_s0: regulator@42 {
-+		compatible = "rockchip,rk8602";
-+		reg = <0x42>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_npu_s0";
-+		regulator-boot-on;
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <950000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+};
-+
- &i2c6 {
- 	status = "okay";
- 
-@@ -440,6 +462,10 @@ &pd_gpu {
- 	domain-supply = <&vdd_gpu_s0>;
- };
- 
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
- &pinctrl {
- 	hdmirx {
- 		hdmirx_hpd: hdmirx-5v-detection {
-@@ -500,6 +526,36 @@ &pwm1 {
- 	status = "okay";
- };
- 
-+&rknn_core_top {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_1 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_2 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_top {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_1 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_2 {
-+	status = "okay";
-+};
-+
- &saradc {
- 	vref-supply = <&avcc_1v8_s0>;
- 	status = "okay";
+OK, understand. I will keep the original patch as below for now, as we
+need to ensure the script generates code with the expected style.
++- reg &= ~mask;
++- reg |= FIELD_PREP(mask, val);
+++ FIELD_MODIFY(mask, &reg, val);
 
--- 
-2.49.0
+In addition, below case is filed to request this improvement on the
+coccinelle project.
+https://github.com/coccinelle/coccinelle/issues/397
 
+Thanks.
 
