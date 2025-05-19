@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC8F3C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 11:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC086C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 May 2025 11:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cFr9VUb0cj8rwbbjZXrPXjG5Re+YcSIhPghSrgnatjw=; b=sWEuda8UhohjNH6Ip++8v1pAQe
-	UUspJW+ZQSr5PUdFyFYzhpCa4cwro8nHY2BB2EKBXK6DdJ+YJ0GWejtHVbJRIMj2GpoNuleD8oMED
-	ozc0wwuzzsNXMzh5kWVNAibPCXonV9FCJJtb/jouE+QETu3LSpL/Nj9CQzHs1B1HHtVJD9DE8Oek+
-	TTPm22utrFLx3LeOgkebnwBH7Z9hoJQkZ4hPnq7SFMw5Kb2OuQoa47Nf6AJ+Zh5jDAsIDCLcHDeDY
-	kdp/JZdtAFR0eCbZnrKf6mMWCAP850lhKtTTUuBTpLDQGwa1XONwN7CmjllADoyhildyL6BikZhpQ
-	8BjArpOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ip58NLkviUPod1JhaEY83D9bZunZIEqj2J9EbwOaOng=; b=rtfN/HXB/kAf/e9d9EV64XOnVd
+	kcUaW6Zd27s7gYnhP6h0wf1+ZTS6gprPhB/dmuPtb5PXjvqoi6XWOBYa8xxvIfIISNPB7I2g9/AVy
+	k6/xRkZOvIa887TQS9upNObL/swmisJd5zZxRVsm+LaDv+ATNfPHxe83dqF0VGfmKRGl2n/8HbCto
+	5k757OX9GcRKkJkkN6ldsMscpXrncSOmpue3hAIjm8tsTOw2lW983mN+RrZSruLRSd5Z/UzUM5pQx
+	NwUwwEbmeLrSKwNUyo9b6qQ/mCnrFSAxpqNJUy+NROq4/Ayn0/0zmr5vVgdl45kYDCPjywp9EhYi1
+	bxp9X2Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGyjK-000000090F6-3MRy;
-	Mon, 19 May 2025 11:32:26 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1uGyny-000000091CN-1JyG;
+	Mon, 19 May 2025 11:37:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGyYZ-00000008yad-2Umh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 May 2025 11:21:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=cFr9VUb0cj8rwbbjZXrPXjG5Re+YcSIhPghSrgnatjw=; b=EUFBgE
-	BTgoE8AtOfKHRt6Zr1dyV7/kHE/2mTiCOd0xjmUA21PHHSYN6+d8gbxm4xLj2YTO
-	PdeuosKYiEpZuKccC/KZ0ppKElylCzbsjRmpY4JfQPoLAnnrLMKdJ+vJCuFzH1pK
-	Z+vi+MHGuRMMZ819XwraxHjCP4F/n9JeX3GnCG9oaUkD8c0jDCMVaakohvA7eAgd
-	PhdhcL0gIVErvb4DMs3Xz4p6VVElqqOa7mPsFzo2obuZGn2lsmn/vjzMjqlZLffB
-	hfqVr7kvpXPhyelw9PqLudHgnPsfO/zDD3nPcLjjtcPXS+Whwcl1ArFz+deMnckG
-	MiphKQsK2JKfJgFw==
-Received: (qmail 2456994 invoked from network); 19 May 2025 13:21:17 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 19 May 2025 13:21:17 +0200
-X-UD-Smtp-Session: l3s3148p1@GdSYVHs1DN5Zz6+V
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org
-Subject: [PATCH 4/4] ARM: dts: stm32: use recent scl/sda gpio bindings
-Date: Mon, 19 May 2025 13:21:06 +0200
-Message-ID: <20250519112107.2980-5-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250519112107.2980-1-wsa+renesas@sang-engineering.com>
-References: <20250519112107.2980-1-wsa+renesas@sang-engineering.com>
-MIME-Version: 1.0
+	id 1uGylv-000000090kD-10zc;
+	Mon, 19 May 2025 11:35:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C660C4A7AB;
+	Mon, 19 May 2025 11:35:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7039CC4CEE4;
+	Mon, 19 May 2025 11:35:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747654506;
+	bh=AWPQKMivdFQ6QmrVDoYacp12BqW2VCLe3IzFWlx64xM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=ARPAoil1c3u/sCK9+f+i48JmtcFrCNOMjZ6ahQ/YV4lHg3OLLaN6VBASpD2BNL/nn
+	 m/JTsTiEBQYZqejNrOIPrAJzGrjaiKAZrVW9x3+8tUYf/kjADGOCAlZb4EueHQqzzM
+	 n5bFO40gnwgq7xHiZsMFYwzyRKmSFL6GjQRwOuMmVRpZP3SMmx7d3ryLvUSUdGVj9+
+	 oJEsalgbnnggpqNAaLqNA9zCToPpwZYrwsWG8ft9ICn8Nn/ANbxhhzV/hEyYR8XIWN
+	 wooCesYp61Z3hQcFBI3PYDJTAAsfwkymlvT0LzoQ/AlVt71QgKse+J3pQRqWu7AvoX
+	 H/TFzFrT3uCNQ==
+Date: Mon, 19 May 2025 06:35:04 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: David Airlie <airlied@gmail.com>, devicetree@vger.kernel.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Maxime Ripard <mripard@kernel.org>, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Oded Gabbay <ogabbay@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Simona Vetter <simona@ffwll.ch>, linux-rockchip@lists.infradead.org, 
+ linux-doc@vger.kernel.org
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+In-Reply-To: <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+References: <20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net>
+ <20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net>
+Message-ID: <174742024812.3649303.12389396177218408388.robh@kernel.org>
+Subject: Re: [PATCH v3 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_042119_904274_DAACCE65 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250519_043507_325719_C6D41A2D 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,31 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250519113504.Lby1cz0N8EyNYnHYjLFUeOJrm8ppsYgPDjIW92dXM98@z>
 
-We have dedictaded bindings for scl/sda nowadays. Switch away from the
-deprecated plain 'gpios' property.
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
- arch/arm/boot/dts/st/ste-nomadik-s8815.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On Fri, 16 May 2025 18:53:15 +0200, Tomeu Vizoso wrote:
+> Add the bindings for the Neural Processing Unit IP from Rockchip.
+> 
+> v2:
+> - Adapt to new node structure (one node per core, each with its own
+>   IOMMU)
+> - Several misc. fixes from Sebastian Reichel
+> 
+> v3:
+> - Split register block in its constituent subblocks, and only require
+>   the ones that the kernel would ever use (Nicolas Frattaroli)
+> - Group supplies (Rob Herring)
+> - Explain the way in which the top core is special (Rob Herring)
+> 
+> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  .../bindings/npu/rockchip,rknn-core.yaml           | 162 +++++++++++++++++++++
+>  1 file changed, 162 insertions(+)
+> 
 
-diff --git a/arch/arm/boot/dts/st/ste-nomadik-s8815.dts b/arch/arm/boot/dts/st/ste-nomadik-s8815.dts
-index c905c2643a12..aeb58d2c08a1 100644
---- a/arch/arm/boot/dts/st/ste-nomadik-s8815.dts
-+++ b/arch/arm/boot/dts/st/ste-nomadik-s8815.dts
-@@ -117,8 +117,8 @@ lis3lv02dl@1d {
- 	/* GPIO I2C connected to the USB portions of the STw4811 only */
- 	gpio-i2c {
- 		compatible = "i2c-gpio";
--		gpios = <&gpio2 10 0>, /* sda */
--			<&gpio2 9 0>; /* scl */
-+		sda-gpios = <&gpio2 10 0>;
-+		scl-gpios = <&gpio2 9 0>;
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		pinctrl-names = "default";
--- 
-2.47.2
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml: properties:reg-names: 'oneOf' conditional failed, one must be fixed:
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too long
+	[{'const': 'pc'}, {'const': 'cna'}, {'const': 'core'}] is too short
+	False schema does not allow 3
+	1 was expected
+	3 is greater than the maximum of 2
+	hint: "minItems" is only needed if less than the "items" list length
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core-top', 'rockchip,rknn-core-top'] is too long
+	'rockchip,rk3588-rknn-core-top' is not one of ['rockchip,rk3588-rknn-core']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdab0000 (rockchip,rk3588-rknn-core-top): reg: [[0, 4255842304, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3588-rknn-core', 'rockchip,rknn-core'] is too long
+	'rockchip,rk3588-rknn-core' is not one of ['rockchip,rk3588-rknn-core-top']
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/npu/rockchip,rknn-core.example.dtb: npu-core@fdac0000 (rockchip,rk3588-rknn-core): reg: [[0, 4255907840, 0, 36864]] is too short
+	from schema $id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250516-6-10-rocket-v3-1-7051ac9225db@tomeuvizoso.net
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
