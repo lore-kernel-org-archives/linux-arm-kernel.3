@@ -4,64 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D7CC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 17:12:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1EEC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 17:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Upxs0eolX3bE6dRsPWc13CKdlnx9VgCXOXIrYLb1tE=; b=k8Yk3SpNtNzJojCXmHnoJhmt4A
-	DTE6+bKiTFkDNj8NR3FHtwoVfkm+Xe+5KbqD63VSY5DTkKOJB1LuILqMDvvYymLNet5bySSJ4f+Zz
-	mbfIqJNoi+wJNCfvYe3Ad/Su+Byv34JjSb2vqsL4Si2UuE98OGj2Qz8XHz4BGAObkdcQHgDRnbW2g
-	+TpsILOhfK8MueXGE6gH2w2IBxu347UXsEiSC7GMCeAWcERRmz3SOdeJDO/G2lG418tIkICCITwB8
-	veXSqIeOCisAFuzZHY/AAcMI9z2GJP+WLkWV1OLP/JapD7M9IAZOUVENjxLVEkjGkvpkWp3IFNBTU
-	saaEFjQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6Gu7fSXqVz6YXitjQqcMz8WKZlHClHLtMRV+5If/JFQ=; b=tk+t/oIp2hCNxNMcdZ9ucvmYfP
+	4bfcWr5PSNpKTvcuDItEULTYg3IV4gXsw7LeigrN1X18Dd6ovqdrEGqI/TYqnMQL0DdlzLXLWc7aV
+	KCbmagtjFU2M+L+BjywPQyzqI5xfqxYweSXGHwVP1j99nCsfy/izhupzNsj666/78rU0/nutPCTkg
+	soTilSdqotqSXiOF9Ce0Cst+3jQeDf7hBdEeiENteWsxcl+6HmcTxTPpmes2Cp1z2biQhtiwDC8g4
+	NkPPxz5htob8ogOCLQvCxzrKemASIJyujEl5Hu9pvLLZZVkF+TfviVei3qxMnvqe4lYEa4GdrZTqu
+	NbtvTQqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQWC-0000000Defz-0HVS;
-	Tue, 20 May 2025 17:12:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQT0-0000000DeBc-1sQi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 17:09:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA7B15C596D;
-	Tue, 20 May 2025 17:07:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82013C4CEE9;
-	Tue, 20 May 2025 17:09:18 +0000 (UTC)
-Date: Tue, 20 May 2025 18:09:15 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: ankita@nvidia.com
-Cc: jgg@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	will@kernel.org, ryan.roberts@arm.com, shahuang@redhat.com,
-	lpieralisi@kernel.org, david@redhat.com, aniketa@nvidia.com,
-	cjia@nvidia.com, kwankhede@nvidia.com, kjaju@nvidia.com,
-	targupta@nvidia.com, vsethi@nvidia.com, acurrid@nvidia.com,
-	apopple@nvidia.com, jhubbard@nvidia.com, danw@nvidia.com,
-	zhiw@nvidia.com, mochs@nvidia.com, udhoke@nvidia.com,
-	dnigam@nvidia.com, alex.williamson@redhat.com,
-	sebastianene@google.com, coltonlewis@google.com,
-	kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org,
-	akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org,
-	ddutile@redhat.com, tabba@google.com, qperret@google.com,
-	seanjc@google.com, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	maobibo@loongson.cn
-Subject: Re: [PATCH v4 1/5] KVM: arm64: Block cacheable PFNMAP mapping
-Message-ID: <aCy3OwBe1HLa4O-7@arm.com>
-References: <20250518054754.5345-1-ankita@nvidia.com>
- <20250518054754.5345-2-ankita@nvidia.com>
+	id 1uHQYJ-0000000DeqE-3W0j;
+	Tue, 20 May 2025 17:14:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHQU3-0000000DeO5-3Sdx;
+	Tue, 20 May 2025 17:10:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 370541516;
+	Tue, 20 May 2025 10:10:16 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6CB553F5A1;
+	Tue, 20 May 2025 10:10:28 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: ulf.hansson@linaro.org,
+	heiko@sntech.de,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	sudeep.holla@arm.com
+Cc: linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/2] firmware: smccc: Stub out get_conduit()
+Date: Tue, 20 May 2025 18:10:16 +0100
+Message-Id: <ab0476382e3342161beda94a45ddadb49b026dcd.1747760015.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250518054754.5345-2-ankita@nvidia.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_100926_833007_1BE62DF9 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20250520_101031_926130_DAD9C192 
+X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,56 +65,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 18, 2025 at 05:47:50AM +0000, ankita@nvidia.com wrote:
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 2feb6c6b63af..eaac4db61828 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1466,6 +1466,15 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
->  	return vma->vm_flags & VM_MTE_ALLOWED;
->  }
->  
-> +/*
-> + * Determine the memory region cacheability from VMA's pgprot. This
-> + * is used to set the stage 2 PTEs.
-> + */
-> +static unsigned long mapping_type(pgprot_t page_prot)
-> +{
-> +	return FIELD_GET(PTE_ATTRINDX_MASK, pgprot_val(page_prot));
-> +}
-> +
->  static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  			  struct kvm_s2_trans *nested,
->  			  struct kvm_memory_slot *memslot, unsigned long hva,
-> @@ -1612,6 +1621,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  
->  	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
->  
-> +	if ((vma->vm_flags & VM_PFNMAP) &&
-> +	    mapping_type(vma->vm_page_prot) == MT_NORMAL)
-> +		return -EINVAL;
-> +
->  	/* Don't use the VMA after the unlock -- it may have vanished */
->  	vma = NULL;
->  
-> @@ -2207,6 +2220,12 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->  				ret = -EINVAL;
->  				break;
->  			}
-> +
-> +			/* Cacheable PFNMAP is not allowed */
-> +			if (mapping_type(vma->vm_page_prot) == MT_NORMAL) {
-> +				ret = -EINVAL;
-> +				break;
-> +			}
+Various callers use arm_smccc_1_1_get_conduit() to guard their
+arm_smccc_smc() calls - since the latter is already stubbed out to
+support optional usage in !HAVE_ARM_SMCCC configs, do the equivalent
+for the former as well to make life easier.
 
-Should we capture MT_NORMAL_TAGGED as well? Presumably no driver sets
-VM_MTE_ALLOWED but the same could be set about MT_NORMAL in the
-vm_page_prot.
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ include/linux/arm-smccc.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-That said, we might as well invert the check, allow if MT_DEVICE_* or
-MT_NORMAL_NC (the latter based on VM_ALLOW_ANY_UNCACHED).
-
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index a3863da1510e..97dc4d47c664 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -315,7 +315,14 @@ enum arm_smccc_conduit {
+  *
+  * When SMCCCv1.1 is not present, returns SMCCC_CONDUIT_NONE.
+  */
++#ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
+ enum arm_smccc_conduit arm_smccc_1_1_get_conduit(void);
++#else
++static inline enum arm_smccc_conduit arm_smccc_1_1_get_conduit(void)
++{
++	return SMCCC_CONDUIT_NONE;
++}
++#endif
+ 
+ /**
+  * arm_smccc_get_version()
 -- 
-Catalin
+2.39.2.101.g768bb238c484.dirty
+
 
