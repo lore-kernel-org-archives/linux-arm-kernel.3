@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA8FC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 10:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9663FC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 10:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bEfqdcgr5TL7agY2SeC7Rt9BtUOPUzbfT1nrDl5zw9s=; b=AzWFFxQBWSkkNoLK3UgiTb2vK7
-	Y0miuSY3SvQJb7S4Or09TET4wqQUEXaqYmthqMK8W6LhwYHEJEkND8Yk9LniuWATSN/hz9JI177QJ
-	L5UHWz8IFGkM3bBMujsqQ5eY2g5ZaQxKtISSWmY8J37oG2b2sDvML5Cap0eQWYDQYvUc32JzudUZG
-	vP3jPyeOVmBq0d6Wwz6Jehl2sdpGiyWupe50O9mQd9p5sgUFdG4fNfP1P9RPcYkiwcDtvlrbL4ZmV
-	wO5c7EPuhE9CcXmP0ENUT8Y1OeGF1p02FqsELVlhaX0FYQCLENy8mn20LUX2nHTI6w+p9UV3x3U1b
-	Tsd/PZAA==;
+	bh=g/qiRQAj3p/Erq+O1jTYWqtuscfZfQGd1J5JzHXwaNE=; b=ACo7jmvdXfO4/+KYnnW2bPNsM6
+	r7gNti3kr2xP7U0L/HxC1zOYoq/54V23WSgXukhYYTSczc2da9pU0n6MuQ8Pt8DQkpL+q65Pku7bE
+	/4bWRAn4ZzCzpeKqFoUIqVU43eT7NwlwZtKPcylg4sM4wgRkE3cwI+ZVs66uGIU2ajGD2uqKyNErs
+	a+knxo947uOgVMZnyqZsjMtiLp+dZIRnPZoRNp6RkwFHINjS08GLZMwokDtyWp3e1yKL7/OB6pBvn
+	4QfzGHLB9eXL6z1OOzzdI2QoC5HO0k/H+M1PfGxyw6l16oOVJGUJXkMZv5RUDuDQ43gPuWNKI4IoI
+	gdZzQ4Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJxG-0000000CInM-19oN;
-	Tue, 20 May 2025 10:12:14 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uHJzI-0000000CIzq-1xP4;
+	Tue, 20 May 2025 10:14:20 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJW2-0000000CEcd-3B1O;
-	Tue, 20 May 2025 09:44:08 +0000
+	id 1uHJWm-0000000CEyo-1ZeO;
+	Tue, 20 May 2025 09:44:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747734244;
-	bh=WaDOA0nhLVn0g1cG6OcvRA1CfBIZaKfZuXaM3IJmSSg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=RcxKMs/DjTuhcwv/Qud8AMpfWEmOOzGLo49z2+n6mJc88iW3vTfZ+KlmoTtlUBNcs
-	 43h5nuWQQLmqIhpXxFqipz+NA0PZJyrNR3jL+m80XnC3/4AZ2KBG8MBgDbdbPljq3v
-	 NyCEzRaIXHGzZdNyGaxc/l47F5btNls6+WFL91w22LKDT8oeznNK4OCO/0jbp2WLqc
-	 kyj7/DpBnYBu7l2sDaZVEhFMjmTDxsnJ0d6KqdEmMADBCmUnU9gipUxKD7mb83Ukfb
-	 uc3O0tyJWrwCMs1RYGG1qsZlRyIjTG1HBCDHbDPhkKxuWf3uEjKtemXBvaE94/b686
-	 4A7IWsWhC/b4g==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	s=mail; t=1747734291;
+	bh=gjINz9uiF82laonOGCkrVhCsstIccSKEkL8/9FoB2Jg=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=qki1B+iDnNJlHSVPEnvwDNvY0SpzsE5W7asy3yFGY/r5+EirpGYlvGx7VXNrf8Ba4
+	 WVtVPwJyC5X6HGSdFJbptixBER+eIZWxo1EGRC4RDJXLmAiNoOEnMiSnLVd2mmi4hm
+	 bhBYuOWiPFpQc1geBJuQghbL3dCy7ZdmKdaoSEkwlIgxrqzyZvvqNg9pBy4xOsfrGj
+	 /xdTpTGrVvwEmyECRYlv9GcJLBsAortbL/JeIFH18uDfAROifqW1H44tRZLECycdTs
+	 1P0bXlJHa4NTZ0ft75F1P63lE7gkSabQccoc695xbEE50a6PWhKiEj9cG6XT99IORX
+	 xuvQQ3bMcCeVg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 52E7F17E0FD3;
-	Tue, 20 May 2025 11:44:03 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org, 
- Vignesh Raman <vignesh.raman@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, 
- nfraprado@collabora.com, krzk@kernel.org, daniels@collabora.com, 
- airlied@gmail.com, simona.vetter@ffwll.ch, arnd@kernel.org, 
- ck.hu@mediatek.com, laura.nao@collabora.com, matthias.bgg@gmail.com, 
- tzimmermann@suse.de, mripard@kernel.org, lumag@kernel.org, 
- ville.syrjala@linux.intel.com, jani.nikula@intel.com, arnd@arndb.de, 
- geert+renesas@glider.be, wenst@chromium.org, 
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250512131933.1247830-1-vignesh.raman@collabora.com>
-References: <20250512131933.1247830-1-vignesh.raman@collabora.com>
-Subject: Re: [PATCH v4] arm64: defconfig: mediatek: enable PHY drivers
-Message-Id: <174773424323.2901578.2896521674718860573.b4-ty@collabora.com>
-Date: Tue, 20 May 2025 11:44:03 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 92DD717E1045;
+	Tue, 20 May 2025 11:44:50 +0200 (CEST)
+Message-ID: <c3162ca8-2539-409f-885e-a08696c72e27@collabora.com>
+Date: Tue, 20 May 2025 11:44:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable configs for MediaTek Genio EVK
+ boards
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
+References: <20250513-genio-defconfig-v1-1-c3862f91b6b2@collabora.com>
+ <174773424476.2901578.7109647684484482687.b4-ty@collabora.com>
+Content-Language: en-US
+In-Reply-To: <174773424476.2901578.7109647684484482687.b4-ty@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_024406_948474_3999369E 
-X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-CacheID: sfid-20250520_024452_559080_47C45397 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,24 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 18:49:24 +0530, Vignesh Raman wrote:
-> The mediatek display driver fails to probe on mt8173-elm-hana and
-> mt8183-kukui-jacuzzi-juniper-sku16 in v6.14-rc4 due to missing PHY
-> configurations.
+Il 20/05/25 11:44, AngeloGioacchino Del Regno ha scritto:
+> On Tue, 13 May 2025 16:59:41 -0400, Nícolas F. R. A. Prado wrote:
+>> Enable the missing configs to get all devices on the MediaTek Genio
+>> 1200, 700, 510 and 350 EVK boards probing, as indicated by the DT
+>> kselftest.
+>>
+>> This includes support for:
+>>
+>> Genio 1200/700/510/350:
+>> * MT6359/MT6357 PMICs Auxiliary ADC
+>>
+>> [...]
 > 
-> Commit 924d66011f24 ("drm/mediatek: stop selecting foreign drivers")
-> stopped selecting the MediaTek PHY drivers, requiring them to be
-> explicitly enabled in defconfig.
+> Applied to v6.15-next/dts64, thanks!
+
+Wrong branch, it's v6.15-next/defconfig, sorry :-)
+
 > 
-> [...]
-
-Applied to v6.15-next/dts64, thanks!
-
-[1/1] arm64: defconfig: mediatek: enable PHY drivers
-      (no commit info)
-
-Cheers,
-Angelo
+> [1/1] arm64: defconfig: Enable configs for MediaTek Genio EVK boards
+>        (no commit info)
+> 
+> Cheers,
+> Angelo
+> 
+> 
 
 
 
