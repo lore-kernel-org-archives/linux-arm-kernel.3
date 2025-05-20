@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36EADC3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 04:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127FBC3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 04:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8ETlp9qz3bJhFa4EIWRrMESKcgInIfcI4yRF4EIaahA=; b=D0+XMDnkM9h6c4qThBHlBPQ1ps
-	IU2BwOd4G1sU04N4++CLS4pYioxHLMKmfE/rUPJF0bKqpP/RcZfX8s+Beu/b1dRHgoRWeUQRY7Uay
-	tP/5Rj0qJ+h9Rkc6PuANEQx/l0M3BPmSAcP2xVxw78AuI7O7v7HxC7V3PfA7q5LMF1G1dksus7Whn
-	/Ru+iPBSNYzbrB2ueT54sV6B6toNEmqw2KlGmLyvhlf+0faLipmg3Ws88Iejwh8kSQR4FRz77B4/Z
-	DSLoFpucG8Qx2weoUPe62lUUZ1kRj0yPCgL/XjfaTGch1MT43Eenn9Ss+pbelpzIolqsqWo0XqESI
-	Z4Fb56XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PT9ZmWcNjsByWM4NKCa01tRV+Ynb0XOy/pgCXZGVIa0=; b=1qCSnmt1igBgl1gH77fje99h3d
+	cGwulgvEPx7+HN/WlZnhVOuiF3D7+XSAUnZNab0sPNgYy88q9kQW/BFpx5oH2O+udvxpFceV62gn7
+	2TZTRenedDF0BicCYAOozMOYXWVGcX/X5AhgGbCEMI24GXcIiOmPJoJU5gn+Ffmtdg+MVR8iy3/W0
+	eeFzXgd2msNSxJvN5G+jM0LHPaeWKHcEG7BYvEZu13jOvyI6ga4CSVnufldN8VTUmPYn1XsWpRMda
+	HCF150XKkgdFp884Qx02I6a6gzXw6r6uyJN3rhTBVEfPsghq+tFnQzcK/ucuq81lYvp7JNECjQ6YY
+	g3oO7t+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHEJi-0000000BTiv-3c9v;
-	Tue, 20 May 2025 04:11:02 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uHElr-0000000BVQg-43LB;
+	Tue, 20 May 2025 04:40:07 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHEFx-0000000BTNM-3zDR
+	id 1uHEjl-0000000BVGJ-1VQp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 04:07:11 +0000
+	Tue, 20 May 2025 04:37:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1747714030; x=1779250030;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=nJ6KedU+uwmf+BdiivShjd5wAvlcvkmQJNTkCjp/w7U=;
-  b=VTPm+l1ZsG+sk4dGamLMuJxNECouVEcbQN/nwUrWPFqtHmNhepSi6YSE
-   j95viCGkttu/N2cIrJQArhz84gMwyt5QPu5uj79LDIipYWw4uzzNL9JaD
-   82c/OX3Kqa9cWlA+dNva4T4CI879LOaHvy8Zg1iHOE8EzWULBKOoQXpV9
-   WuAK1vrm2PeYzgXg/+GYmNI8Tpq9YHwKZoUyChCEPT9PNhx1OrludgoXT
-   YOHYYTLMW6dI88bYx72qdy3fHBDGbghNNPa9caTkfv4kXHtuH8aVi0HEu
-   wEQ0UilVRnHPtUQYourv1YemBzxKTTypXcNosTfayFPXUjUzyubBWDBd3
-   g==;
-X-CSE-ConnectionGUID: htdO05ITRmGW9JMUEmdDwA==
-X-CSE-MsgGUID: SA2rPMYOTAikDw/z7EgqDw==
-X-IronPort-AV: E=Sophos;i="6.15,302,1739862000"; 
-   d="scan'208";a="42370416"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 May 2025 21:07:06 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 19 May 2025 21:06:51 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Mon, 19 May 2025 21:06:49 -0700
-From: Dharma Balasubiramani <dharma.b@microchip.com>
-Date: Tue, 20 May 2025 09:36:42 +0530
-Subject: [PATCH v2] counter: microchip-tcb-capture: Add watch validation
- support
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747715878; x=1779251878;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/HWugewSwF3nvEChZSyWKJu4IdZ646uM+bCDPZacNpw=;
+  b=JgCFVIIy0/doQac0EJf3QukBgb9Q4ktT9plteGrRPD8PWogJi537MIao
+   LI4/G02fyKJnzCXtzs/upp/WliBTzv0Du+p4R6c9Ocb07rZpLnkjNRi9v
+   Vafp3eQTvevKuq4TrCWAumOfE/F+CfNEE7iWIEaWi2viQnmmxGgfiZ4qj
+   7gu86kHRHWc7eoCYuX/Mtm0K8dBAidNKcgv3pvl3fWK783lDeG5JRidpH
+   O+jLvn7XH6n9otZWkS5zA/kSXGs9KneYlsDgANJKRZ4loMnkergoiAR4x
+   tFfuZS488ihj1R4Y27R0TyYiHfJEvMyQUZc9kCtePkJOFgHm7xpuqXvvY
+   Q==;
+X-CSE-ConnectionGUID: qZh4CtGlQymLtLSMOnt6nA==
+X-CSE-MsgGUID: bPL9HeGZSwCoiQsk3GpqCA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11438"; a="49615548"
+X-IronPort-AV: E=Sophos;i="6.15,302,1739865600"; 
+   d="scan'208";a="49615548"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2025 21:37:52 -0700
+X-CSE-ConnectionGUID: /shfJDbpQOOib6SfJMhTpw==
+X-CSE-MsgGUID: CdGruJYmTL2xxLLcWAqHPw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,302,1739865600"; 
+   d="scan'208";a="144324829"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 19 May 2025 21:37:49 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uHEja-000MA4-1X;
+	Tue, 20 May 2025 04:37:46 +0000
+Date: Tue, 20 May 2025 12:37:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Wentao Liang <vulab@iscas.ac.cn>, sgoutham@marvell.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>
+Subject: Re: [PATCH] net: cavium: thunder: Add log for verification fail in
+ bgx_poll_for_link()
+Message-ID: <202505201239.5YN7PGlt-lkp@intel.com>
+References: <20250519152348.2839-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250520-counter-tcb-v2-1-a0617d2d220a@microchip.com>
-X-B4-Tracking: v=1; b=H4sIANH/K2gC/23Myw6DIBCF4Vcxsy4NQ8ReVr5H40JwLLNQDFDSx
- vDupa67/E9yvh0iBaYI92aHQJkj+7WGOjVg3bg+SfBUG5RUWmrUwvrXmiiIZI0w3Uh4a7VCaaA
- +tkAzvw/tMdR2HJMPnwPP+Fv/OxkFCtLtRXZI01XO/cI2eOt4O1u/wFBK+QJc/o4mqgAAAA==
-To: Kamel Bouhara <kamel.bouhara@bootlin.com>, William Breathitt Gray
-	<wbg@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
-	<dharma.b@microchip.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747714007; l=3393;
- i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
- bh=nJ6KedU+uwmf+BdiivShjd5wAvlcvkmQJNTkCjp/w7U=;
- b=sdEXf/+Re7V9JjOqNQgcwsFvPcFR9hosuiKoqjZJkUxIZEMam5GP0cCbMCYEFUnZvzeNfuyuL
- uAG79cGYJKwB1dQyP7faOWZroB84akV8zRoJBlN+Ivlnny6sLWwiltU
-X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
- pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250519152348.2839-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_210710_285425_506CEB5E 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20250519_213757_450970_9B5B93EA 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,99 +91,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Timer Counter Block (TCB) exposes several kinds of events to the
-Counter framework, but not every event is meaningful on every hardware
-channel. Add a `watch_validate()` callback so userspace may register only
-the combinations actually supported:
+Hi Wentao,
 
-* Channel 0 (COUNTER_MCHP_EVCHN_CV, COUNTER_MCHP_EVCHN_RA)
-   - COUNTER_EVENT_CAPTURE
-   - COUNTER_EVENT_CHANGE_OF_STATE
-   - COUNTER_EVENT_OVERFLOW
+kernel test robot noticed the following build errors:
 
-* Channel 1 (COUNTER_MCHP_EVCHN_RB)
-   - COUNTER_EVENT_CAPTURE
+[auto build test ERROR on net-next/main]
+[also build test ERROR on net/main linus/master v6.15-rc7 next-20250516]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-* Channel 2 (COUNTER_MCHP_EVCHN_RC)
-   - COUNTER_EVENT_THRESHOLD
+url:    https://github.com/intel-lab-lkp/linux/commits/Wentao-Liang/net-cavium-thunder-Add-log-for-verification-fail-in-bgx_poll_for_link/20250519-232542
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20250519152348.2839-1-vulab%40iscas.ac.cn
+patch subject: [PATCH] net: cavium: thunder: Add log for verification fail in bgx_poll_for_link()
+config: sparc-randconfig-002-20250520 (https://download.01.org/0day-ci/archive/20250520/202505201239.5YN7PGlt-lkp@intel.com/config)
+compiler: sparc64-linux-gcc (GCC) 12.4.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250520/202505201239.5YN7PGlt-lkp@intel.com/reproduce)
 
-Any other request is rejected with `-EINVAL`, preventing undefined
-behaviour in userspace.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505201239.5YN7PGlt-lkp@intel.com/
 
-Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
----
-Tested the code on target (sam9x60_curiosity) using the following commands
+All errors (new ones prefixed by >>):
 
-valid ones:
-./counter_watch_events -d -wevt_change_of_state,chan=0
-./counter_watch_events -d -wevt_ovf,chan=0
-./counter_watch_events -d -wevt_capture,chan=0
-./counter_watch_events -d -wevt_capture,chan=1
-./counter_watch_events -d -wevt_threshold,chan=2
+   In file included from include/linux/device.h:15,
+                    from include/linux/acpi.h:14,
+                    from drivers/net/ethernet/cavium/thunder/thunder_bgx.c:6:
+   drivers/net/ethernet/cavium/thunder/thunder_bgx.c: In function 'bgx_poll_for_link':
+>> drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1012:40: error: incompatible type for argument 1 of '_dev_err'
+    1012 |                 dev_err(lmac->bgx->pdev->dev, "BXG verification fail with time out.\n");
+         |                         ~~~~~~~~~~~~~~~^~~~~
+         |                                        |
+         |                                        struct device
+   include/linux/dev_printk.h:110:25: note: in definition of macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                         ^~~
+   drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1012:17: note: in expansion of macro 'dev_err'
+    1012 |                 dev_err(lmac->bgx->pdev->dev, "BXG verification fail with time out.\n");
+         |                 ^~~~~~~
+   include/linux/dev_printk.h:50:36: note: expected 'const struct device *' but argument is of type 'struct device'
+      50 | void _dev_err(const struct device *dev, const char *fmt, ...);
+         |               ~~~~~~~~~~~~~~~~~~~~~^~~
 
-invalid ones:
-./counter_watch_events -d -wevt_threshold,chan=0
-./counter_watch_events -d -wevt_threshold,chan=1
-Error adding watches[0]: Invalid argument
----
-Changes in v2:
-- Include COUNTER_MCHP_EVCHN_CV as well for the sake of completeness.
-- Adjust the code to ensure channel limitations.
-- Drop sorting in this patch, will be taken care seperately.
-- Link to v1: https://lore.kernel.org/r/20250515-counter-tcb-v1-1-e547061ed80f@microchip.com
----
- drivers/counter/microchip-tcb-capture.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index 1de3c50b9804..fe817f4f1edc 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -337,6 +337,27 @@ static struct counter_comp mchp_tc_count_ext[] = {
- 	COUNTER_COMP_COMPARE(mchp_tc_count_compare_read, mchp_tc_count_compare_write),
- };
- 
-+static int mchp_tc_watch_validate(struct counter_device *counter,
-+				  const struct counter_watch *watch)
-+{
-+	if (watch->channel == COUNTER_MCHP_EVCHN_CV || watch->channel == COUNTER_MCHP_EVCHN_RA) {
-+		switch (watch->event) {
-+		case COUNTER_EVENT_CHANGE_OF_STATE:
-+		case COUNTER_EVENT_OVERFLOW:
-+		case COUNTER_EVENT_CAPTURE:
-+			return 0;
-+		default:
-+			return -EINVAL;
-+		}
-+	} else if (watch->channel == COUNTER_MCHP_EVCHN_RB) {
-+		return (watch->event == COUNTER_EVENT_CAPTURE) ? 0 : -EINVAL;
-+	} else if (watch->channel == COUNTER_MCHP_EVCHN_RC) {
-+		return (watch->event == COUNTER_EVENT_THRESHOLD) ? 0 : -EINVAL;
-+	} else {
-+		return -EINVAL;
-+	}
-+}
-+
- static struct counter_count mchp_tc_counts[] = {
- 	{
- 		.id = 0,
-@@ -356,7 +377,8 @@ static const struct counter_ops mchp_tc_ops = {
- 	.function_read  = mchp_tc_count_function_read,
- 	.function_write = mchp_tc_count_function_write,
- 	.action_read    = mchp_tc_count_action_read,
--	.action_write   = mchp_tc_count_action_write
-+	.action_write   = mchp_tc_count_action_write,
-+	.watch_validate = mchp_tc_watch_validate,
- };
- 
- static const struct atmel_tcb_config tcb_rm9200_config = {
+vim +/_dev_err +1012 drivers/net/ethernet/cavium/thunder/thunder_bgx.c
 
----
-base-commit: 8566fc3b96539e3235909d6bdda198e1282beaed
-change-id: 20250515-counter-tcb-b6ae1945210b
+   995	
+   996	static void bgx_poll_for_link(struct work_struct *work)
+   997	{
+   998		struct lmac *lmac;
+   999		u64 spu_link, smu_link;
+  1000	
+  1001		lmac = container_of(work, struct lmac, dwork.work);
+  1002		if (lmac->is_sgmii) {
+  1003			bgx_poll_for_sgmii_link(lmac);
+  1004			return;
+  1005		}
+  1006	
+  1007		/* Receive link is latching low. Force it high and verify it */
+  1008		bgx_reg_modify(lmac->bgx, lmac->lmacid,
+  1009			       BGX_SPUX_STATUS1, SPU_STATUS1_RCV_LNK);
+  1010		if (bgx_poll_reg(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1,
+  1011				 SPU_STATUS1_RCV_LNK, false))
+> 1012			dev_err(lmac->bgx->pdev->dev, "BXG verification fail with time out.\n");
+  1013	
+  1014		spu_link = bgx_reg_read(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1);
+  1015		smu_link = bgx_reg_read(lmac->bgx, lmac->lmacid, BGX_SMUX_RX_CTL);
+  1016	
+  1017		if ((spu_link & SPU_STATUS1_RCV_LNK) &&
+  1018		    !(smu_link & SMU_RX_CTL_STATUS)) {
+  1019			lmac->link_up = true;
+  1020			if (lmac->lmac_type == BGX_MODE_XLAUI)
+  1021				lmac->last_speed = SPEED_40000;
+  1022			else
+  1023				lmac->last_speed = SPEED_10000;
+  1024			lmac->last_duplex = DUPLEX_FULL;
+  1025		} else {
+  1026			lmac->link_up = false;
+  1027			lmac->last_speed = SPEED_UNKNOWN;
+  1028			lmac->last_duplex = DUPLEX_UNKNOWN;
+  1029		}
+  1030	
+  1031		if (lmac->last_link != lmac->link_up) {
+  1032			if (lmac->link_up) {
+  1033				if (bgx_xaui_check_link(lmac)) {
+  1034					/* Errors, clear link_up state */
+  1035					lmac->link_up = false;
+  1036					lmac->last_speed = SPEED_UNKNOWN;
+  1037					lmac->last_duplex = DUPLEX_UNKNOWN;
+  1038				}
+  1039			}
+  1040			lmac->last_link = lmac->link_up;
+  1041		}
+  1042	
+  1043		queue_delayed_work(lmac->check_link, &lmac->dwork, HZ * 2);
+  1044	}
+  1045	
 
-Best regards,
 -- 
-Dharma Balasubiramani <dharma.b@microchip.com>
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
