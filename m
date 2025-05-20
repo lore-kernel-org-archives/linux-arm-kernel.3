@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 864FBC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C9D0C5479B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HMOcSA5wqcgE8nAmktqndleVw9SAFaq1v/vrcxDjvJ0=; b=mRhz/ErATDzDsINmhchaTdXC++
-	tTdCvZq7C4jokksuqsUVEWwgtfy+6gdU5iYrUhmLENLRUmHMFiWpwGG96KCSTV02u5Nm+x3k6upA5
-	2T4SrppmYzph/zxYYYWo2FKqePD9NsYQcmaq/I+4JeEFMZ7OCyY3djz9iymdAQRxunaCLBfFetrlF
-	QOTsAxUUn3t5aa0dAnW1VQ0HYNTkd+P8SAe0aptPSuAo9j3SheSuYL5rpZG++uKoz8vJqqGYxPwtY
-	x6FiHqzte/N3fm6FERb9XEh3cKe2kWdmL88n29KVjyBinEUer54xr++9nap8XEeUuZlr/IepOVaHZ
-	8wOI2FZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YSUYksmF2JYd7KqdCds1uC+4VC991TcWHjWmqBK+XDM=; b=YlvgoR0x3xRAq1uDuZsSU90lmJ
+	JJEoSnP/pxE4nZs+TPWKJXt8AzIk/AZ3MXQRTOLDE4s5/fsqYls4K0sXNXQr9cEM6apIjDVKuVSGO
+	E++zxWyywNV1pXGi8C5QzECPCtMDh0GdH+H62T1LSJKjYIOsm8a+IIyyaJv+TlN+StCw3OJwkCUs4
+	snL5eib/NCCdCYCRo5cZ75pkI5PiF0Lk/1hLT+LlppmcsRoxfqzeHYCnX405lE3ImrXe/zQzU1eZU
+	y7icYE8cafPQc9CzGySenMiflwcPjT7CcuUygdrcnJ8Fe0m+uFVsN3VDnOlXzlMl2rj5ydaC+p6eE
+	/S7YwNCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHLId-0000000Cfgp-1TPm;
-	Tue, 20 May 2025 11:38:23 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uHLIc-0000000CfgK-3O7z;
+	Tue, 20 May 2025 11:38:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHL83-0000000CdjL-0SjU;
-	Tue, 20 May 2025 11:27:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747740445;
-	bh=F8a6adaotmO9OFJk2lV6zJwLtEE1bNQqk3sdSWmUODU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=P8SRquc/6RmoHWKXfMC2MT4Sn7ljY4RBbPhkcOcQhdXZGtrP8Fogm9M1uF7Q788oT
-	 2ILTvSGALDAITwCMLhIiQ8UCK7Urew5Go0Ec0U+9AV4epkUXSvdAfaeke0psbGaibE
-	 eb0BpNpsx3Z9UvzEU13Hx8che2VE3ZpRzEFtCjakFxVqug05oXEwY4dRyUDSPyxXg8
-	 pMGmjfNS9i4Mn67v3Lzp7y1ySHoCAKKaDWnAebNRyMNnmyf8Pcn7B9vkxIapgo5tOl
-	 YavD0qx5ieU9Ku39uxV/OvxJQDUkJsH3NZBXOllcNQ3Q2fkZbwoqCxinhCrBtoYjdf
-	 vcRqi6I2hPm4g==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D0F2217E0E89;
-	Tue, 20 May 2025 13:27:23 +0200 (CEST)
-Message-ID: <7a563716-a7c6-446d-b66d-bc71c6207ef6@collabora.com>
-Date: Tue, 20 May 2025 13:27:23 +0200
+	id 1uHL2S-0000000CcG2-2dLu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 May 2025 11:21:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 156A5629EC;
+	Tue, 20 May 2025 11:21:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA94BC4CEE9;
+	Tue, 20 May 2025 11:21:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747740099;
+	bh=VP8Ww81JTL3HdjFwEW1wz4XYyan8mTwPcBHvMdWi3Xg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SP4NIiQE0Isk/Myz4Ms31E6tJBlGZlOQSN7Tyjq98LTiqFufY8oOY2m/WL2Pe4FRH
+	 XmQDsQhVk/ShPui1inXG+br/Cisd+19YiVLb8X/AJDgfmHrO+GyMoySOOhiZ5VrpT/
+	 V/V13W8tqzd6iw9dFp6Oq+QHaRr4bhzhWieiRI6MVNLzCfiZ8BMvjrSWqyre4aUh+N
+	 AMjQyXrtB4iU43n8gETQHAWpTHv+8RncE0oHcl1rF2tRJzTMT5R64pBZ8G2KEWsrgJ
+	 0Tofn2UUyiiKsAp8fIFfeCtnm02WjbZIE6BIRdWTenNVFrTDoHQc+Q4t4sa6hZupxz
+	 PJV9RWVy7PlQQ==
+Date: Tue, 20 May 2025 20:21:36 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: Dharma.B@microchip.com
+Cc: kamel.bouhara@bootlin.com, linux-arm-kernel@lists.infradead.org,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] counter: microchip-tcb-capture: Add watch validation
+ support
+Message-ID: <aCxlwAgX2A0dVn5l@ishi>
+References: <CV37uwi-rAqU3els0ckl4KLz5ortFAdc7XXy7ex6-MMhxvptyeMh8vTBXQuZliairKQ1Dy4yM3MyE8o7EZ6VfA==@protonmail.internalid>
+ <20250515-counter-tcb-v1-1-e547061ed80f@microchip.com>
+ <aCmPLn16Ykabvhjv@ishi>
+ <axFMnvsS0JXIwXl665iZU5CeLOIRgZCScixNFgE72GD8NpyMB3FfJDDNxIDSJrPhov-HLXkGiOPEr8fNsltCIw==@protonmail.internalid>
+ <823cefaf-b225-4531-8733-5d90d3ccceb3@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/14] arm64: dts: mediatek: mt7988: add cci node
-To: Frank Wunderlich <linux@fw-web.de>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
- =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
- Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250516180147.10416-1-linux@fw-web.de>
- <20250516180147.10416-8-linux@fw-web.de>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250516180147.10416-8-linux@fw-web.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_042727_374378_BACAC89B 
-X-CRM114-Status: GOOD (  15.51  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rqjICBkGZt6gvoAZ"
+Content-Disposition: inline
+In-Reply-To: <823cefaf-b225-4531-8733-5d90d3ccceb3@microchip.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,99 +74,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 16/05/25 20:01, Frank Wunderlich ha scritto:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> Add cci devicetree node for cpu frequency scaling.
-> 
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
->   arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 33 +++++++++++++++++++++++
->   1 file changed, 33 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> index ab6fc09940b8..64466acb0e71 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> @@ -12,6 +12,35 @@ / {
->   	#address-cells = <2>;
->   	#size-cells = <2>;
->   
-> +	cci: cci {
-> +		compatible = "mediatek,mt8183-cci";
 
-While you can keep the mediatek,mt8183-cci fallback, this needs its own compatible
-as "mediatek,mt7988-cci", therefore, I had to drop this patch from the ones that I
-picked.
+--rqjICBkGZt6gvoAZ
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Please add the new compatible both here and in the binding.
+On Mon, May 19, 2025 at 10:47:50AM +0000, Dharma.B@microchip.com wrote:
+> On 18/05/25 1:11 pm, William Breathitt Gray wrote:
+> > Include COUNTER_MCHP_EVCHN_CV as well for the sake of completeness. I
+> > know COUNTER_MCHP_EVCHN_CV and COUNTER_MCHP_EVCHN_RA have the same
+> > underlying channel id, but we're abstracting this fact so it's good to
+> > maintain the consistency of the abstraction across all callbacks.
+>=20
+> To avoid the compiler error due to COUNTER_MCHP_EVCHN_CV and
+> COUNTER_MCHP_EVCHN_RA sharing the same underlying value, would it be
+> sufficient to include a comment indicating that both represent the same
+> channel ID? Or would you prefer that I duplicate the logic explicitly
+> for the sake of abstraction consistency, despite the shared value?
 
-Cheers,
-Angelo
+I see you use a conditional check in the v2 patch you submitted. That
+solution works well to address both so we'll go with that way as you
+have it.
 
-> +		clocks = <&mcusys CLK_MCU_BUS_DIV_SEL>,
-> +			 <&topckgen CLK_TOP_XTAL>;
-> +		clock-names = "cci", "intermediate";
-> +		operating-points-v2 = <&cci_opp>;
-> +	};
-> +
-> +	cci_opp: opp-table-cci {
-> +		compatible = "operating-points-v2";
-> +		opp-shared;
-> +		opp-480000000 {
-> +			opp-hz = /bits/ 64 <480000000>;
-> +			opp-microvolt = <850000>;
-> +		};
-> +		opp-660000000 {
-> +			opp-hz = /bits/ 64 <660000000>;
-> +			opp-microvolt = <850000>;
-> +		};
-> +		opp-900000000 {
-> +			opp-hz = /bits/ 64 <900000000>;
-> +			opp-microvolt = <850000>;
-> +		};
-> +		opp-1080000000 {
-> +			opp-hz = /bits/ 64 <1080000000>;
-> +			opp-microvolt = <900000>;
-> +		};
-> +	};
-> +
->   	cpus {
->   		#address-cells = <1>;
->   		#size-cells = <0>;
-> @@ -25,6 +54,7 @@ cpu0: cpu@0 {
->   				 <&topckgen CLK_TOP_XTAL>;
->   			clock-names = "cpu", "intermediate";
->   			operating-points-v2 = <&cluster0_opp>;
-> +			mediatek,cci = <&cci>;
->   		};
->   
->   		cpu1: cpu@1 {
-> @@ -36,6 +66,7 @@ cpu1: cpu@1 {
->   				 <&topckgen CLK_TOP_XTAL>;
->   			clock-names = "cpu", "intermediate";
->   			operating-points-v2 = <&cluster0_opp>;
-> +			mediatek,cci = <&cci>;
->   		};
->   
->   		cpu2: cpu@2 {
-> @@ -47,6 +78,7 @@ cpu2: cpu@2 {
->   				 <&topckgen CLK_TOP_XTAL>;
->   			clock-names = "cpu", "intermediate";
->   			operating-points-v2 = <&cluster0_opp>;
-> +			mediatek,cci = <&cci>;
->   		};
->   
->   		cpu3: cpu@3 {
-> @@ -58,6 +90,7 @@ cpu3: cpu@3 {
->   				 <&topckgen CLK_TOP_XTAL>;
->   			clock-names = "cpu", "intermediate";
->   			operating-points-v2 = <&cluster0_opp>;
-> +			mediatek,cci = <&cci>;
->   		};
->   
->   		cluster0_opp: opp-table-0 {
+> >> +		switch (watch->event) {
+> >> +		case COUNTER_EVENT_CAPTURE:
+> >> +		case COUNTER_EVENT_CHANGE_OF_STATE:
+> >> +		case COUNTER_EVENT_OVERFLOW:
+> >> +		case COUNTER_EVENT_THRESHOLD:
+> >> +			return 0;
+> >
+> > The watch_validate callback is used to ensure that the requested watch
+> > configuration is valid: i.e. the watch event is appropriate for the
+> > watch channel.
+> >
+> > Looking at include/uapi/linux/counter/microchip-tcb-capture.h:
+> >
+> >       * Channel 0:
+> >       * - CV register changed
+> >       * - CV overflowed
+> >       * - RA captured
+> >       * Channel 1:
+> >       * - RB captured
+> >       * Channel 2:
+> >       * - RC compare triggered
+> >
+> > If I'm understanding correctly, channel 0 supports only the
+> > CHANGE_OF_STATE, OVERFLOW, and CAPTURE events; channel 1 supports only
+> > CAPTURE events; and channel 2 supports only THRESHOLD events.
+>=20
+> Shouldn't it be
+>=20
+> /*
+>   * Channel 0 (EVCHN_CV):
+>   *   - CV register changed             =E2=86=92 COUNTER_EVENT_CHANGE_OF=
+_STATE
+>   *   - CV overflowed                   =E2=86=92 COUNTER_EVENT_OVERFLOW
+>   *
+>   * Channel 1 (EVCHN_RA):
+>   *   - RA captured                     =E2=86=92 COUNTER_EVENT_CAPTURE
+>   *
+>   * Channel 2 (EVCHN_RB):
+>   *   - RB captured                     =E2=86=92 COUNTER_EVENT_CAPTURE
+>   *
+>   * Channel 3 (EVCHN_RC):
+>   *   - RC compare threshold reached    =E2=86=92 COUNTER_EVENT_THRESHOLD
+>   */
 
+These Counter event channels are established ultimately by where you
+push the events via counter_push_event(). So in theory, when these
+events were introduced we could have arranged them onto four channels as
+you describe. Unfortunately, we can't change it now (unless a serious
+defect is found) because it'll break the ABI for existing programs.
 
+> Could you please help me understand whether these are logical channels
+> or hardware channels related to the reg?
+
+You can consider these Counter event channels as "logical" and not
+necessarily tied to the underlying the hardware registers.
+
+I regret naming this functionality "channel" because it has caused
+confusion before in other drivers as well. The origin of the term was
+because I envisioned these Counter "event channels" providing a flow of
+events streamed from the driver to userspace (much like a water channel
+provides a flow of water). Notice how that concept lies completely on
+the software side; i.e. between userspace and kernel -- not necessarily
+between kernel and hardware.
+
+In practice, we are limited to the capabilities of the hardware so that
+does factor into how much freedom we have in defining our Counter events
+channels. So let's walkthrough a scenario where we might want to offer
+muliple Counter event channels for a driver rather than funneling all
+events through a single channel.
+
+Suppose a hypothetical device has two Counts that increase independent
+of each other and can overflow back to a value of 0. This device is able
+to issue an interrupt when either Count overflows. Now imagine we have a
+race between these two Counts to see which overflows first: to determine
+that the race ended we just need to check that a COUNTER_EVENT_OVERFLOW
+event has been pushed; but what do we do if we want to determine the
+winner of the race?
+
+One solution is to check the values of both Counts: when a Count
+overflows it starts over at 0, so the winner will have a Count value of
+0. That is correct, but if one Count did not increase during the race
+while the other Count did then both Counts will be 0 at the end: the
+winner cannot be differentiated in this case.
+
+That's a scenario where a second Counter event channel is useful: to
+differentiate between events of the same type (in this case
+COUNTER_EVENT_OVERFLOW). So if we dedicate the first Counter event
+channel to the first Count and the second Counter event channel to the
+second Count, we can definitely determine that a COUNTER_EVENT_OVERFLOW
+watched on a particular channel represents an overflow for that
+particular Count.
+
+I hope that helps showcase why we offer multiple Counter event channels
+even though we as driver authors have the freedom to define these
+channels arbitrarily and push events to channels as we see fit.
+
+William Breathitt Gray
+
+--rqjICBkGZt6gvoAZ
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCaCxlwAAKCRC1SFbKvhIj
+K9J/AP9EJEJ/slOmCTj5jItJbQx764BuYxsp0iY0I9o2v4SknQEAnz7GnM9Jk5td
+L4mlThLciBUBhwwubveFfJVmPZL4dQE=
+=MtAs
+-----END PGP SIGNATURE-----
+
+--rqjICBkGZt6gvoAZ--
 
