@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3ABDC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 10:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C0FC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 10:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3EgUvtajMBMNThJ7mV5vCDPFFmnv2HebuYoPXVNWVw=; b=nIlbpCl8+76KmrRHfCsbmT2lA6
-	3G0sIag7kWgP9wYZTZM6uXurYK/UhEUInprinhYVOYhTzyfuT2wtHuOW2+nMZtEToeUYMh+k6F92V
-	jRf0fKdOzELeHLw35Jko71voTk2fJBxPObmRoYSDTn7z+aSAT6J+nGlut8dIrseg46oPo9AIrwu8N
-	jmCEyvTy8+UwjbM0R6H11FwpnvcTxDy47rI8GVrXYiHqR1Njl0ZWBxQTH77A7PokzEjX3C9JV4ck4
-	DMXepCafq/5rtAfaz+Sx6+azhATptMAfqSZEdoP8p/y+gd64LyC8w48xEaiBHEYMhFF8CeAlhMPpF
-	IZff3SYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z9bj0pK/36YxFSeDnQKdvUzzS+P61NQjbOaVJiyLB9k=; b=gubNzRPPqfS2Qy9KuWC4N0fFqH
+	w00WesVcWrouQCFmApfqwiw2uHXPpozsud10nje93n0I0xbsMzk+KZyToqbiyA/tTRRVWVbOjlCRe
+	cpd624ON8FrK4S7cGBrF4IlH7lyfwxhLkEsWMVcnRVpniGsqV+/M/AkoOvckiJ+p+q+O3bFpJ1IF/
+	i5un/dQrZKfYG/nS446NIMSrCxMi/6NJ4+Ixe23Vl26SjxhfVtkxGTBHTzZW0/E7upOj/mFbaYw1F
+	4qMbIilOnP5u6in+M+MxjTJWgDIRe5JLqrhtL0gQzzqEU+INK8E1tpBlioT2pCogG4tf+5xfSxv6a
+	+pTpwomQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHKC0-0000000CLF4-2Bpz;
-	Tue, 20 May 2025 10:27:28 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJmh-0000000CH70-0H2F;
-	Tue, 20 May 2025 10:01:20 +0000
-Received: from amadeus-Vostro-3710.lan (unknown [IPV6:240e:3b3:2c04:7a30:290:8105:3706:5628])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 15b895911;
-	Tue, 20 May 2025 18:01:08 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Yao Zi <ziyao@disroot.org>,
-	Rob Herring <robh@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-spi@vger.kernel.org
-Subject: [PATCH 1/2] spi: dt-bindings: Add rk3528-spi compatible
-Date: Tue, 20 May 2025 18:01:01 +0800
-Message-Id: <20250520100102.1226725-2-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250520100102.1226725-1-amadeus@jmu.edu.cn>
-References: <20250520100102.1226725-1-amadeus@jmu.edu.cn>
+	id 1uHKE5-0000000CM0X-12b8;
+	Tue, 20 May 2025 10:29:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHJsI-0000000CHtB-1JEf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 May 2025 10:07:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0354E1BC0;
+	Tue, 20 May 2025 03:06:52 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0246C3F6A8;
+	Tue, 20 May 2025 03:07:05 -0700 (PDT)
+Date: Tue, 20 May 2025 11:07:01 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 02/10] perf: arm_spe: Support FEAT_SPEv1p4 filters
+Message-ID: <20250520100701.GL412060@e132581.arm.com>
+References: <20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org>
+ <20250506-james-perf-feat_spe_eft-v1-2-dd480e8e4851@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDTR5OVkofGEIaSENCGUtITFYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJT0seQUgZSEFJGEtPQUwaSEtBSUJLQUNKS05BSExLTUFOTUlDWVdZFhoPEh
-	UdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQktLWQY+
-X-HM-Tid: 0a96ed23c87403a2kunm0a9e35a49fab4
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PRQ6Pyo6QjErDBpKPQgwNioQ
-	GjAKCQxVSlVKTE9MTEhOSU1CSUJCVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUlP
-	Sx5BSBlIQUkYS09BTBpIS0FJQktBQ0pLTkFITEtNQU5NSUNZV1kIAVlBSkxOSzcG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250506-james-perf-feat_spe_eft-v1-2-dd480e8e4851@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_030119_265462_F15AB7B5 
-X-CRM114-Status: UNSURE (   7.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250520_030706_401778_10D057E8 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +78,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds a compatible string for the SPI controller on RK3528.
+On Tue, May 06, 2025 at 12:41:34PM +0100, James Clark wrote:
+> FEAT_SPEv1p4 (optional from Armv8.8) adds some new filter bits, so
+> remove them from the previous version's RES0 bits using
+> PMSEVFR_EL1_RES0_V1P4_EXCL. It also makes some previously available bits
+> unavailable again, so add those back using PMSEVFR_EL1_RES0_V1P4_INCL.
+> E.g:
+> 
+>   E[30], bit [30]
+>   When FEAT_SPEv1p4 is _not_ implemented ...
 
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- Documentation/devicetree/bindings/spi/spi-rockchip.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Yes, that's the case. I reviewed the bits below one by one, and they
+all look correct to me.
 
-diff --git a/Documentation/devicetree/bindings/spi/spi-rockchip.yaml b/Documentation/devicetree/bindings/spi/spi-rockchip.yaml
-index 104f5ffdd04e..748faf7f7081 100644
---- a/Documentation/devicetree/bindings/spi/spi-rockchip.yaml
-+++ b/Documentation/devicetree/bindings/spi/spi-rockchip.yaml
-@@ -34,6 +34,7 @@ properties:
-               - rockchip,rk3328-spi
-               - rockchip,rk3368-spi
-               - rockchip,rk3399-spi
-+              - rockchip,rk3528-spi
-               - rockchip,rk3562-spi
-               - rockchip,rk3568-spi
-               - rockchip,rk3576-spi
--- 
-2.25.1
+> FEAT_SPE_V1P3 has the same filters as V1P2 so explicitly add it to the
+> switch.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+
+> ---
+>  arch/arm64/include/asm/sysreg.h | 7 +++++++
+>  drivers/perf/arm_spe_pmu.c      | 5 ++++-
+>  2 files changed, 11 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 2639d3633073..e24042e914a4 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -354,6 +354,13 @@
+>  	(PMSEVFR_EL1_RES0_IMP & ~(BIT_ULL(18) | BIT_ULL(17) | BIT_ULL(11)))
+>  #define PMSEVFR_EL1_RES0_V1P2	\
+>  	(PMSEVFR_EL1_RES0_V1P1 & ~BIT_ULL(6))
+> +#define PMSEVFR_EL1_RES0_V1P4_EXCL \
+> +	(BIT_ULL(2) | BIT_ULL(4) | GENMASK_ULL(10, 8) | GENMASK_ULL(23, 19))
+> +#define PMSEVFR_EL1_RES0_V1P4_INCL \
+> +	(GENMASK_ULL(31, 26))
+> +#define PMSEVFR_EL1_RES0_V1P4	\
+> +	(PMSEVFR_EL1_RES0_V1P4_INCL | \
+> +	(PMSEVFR_EL1_RES0_V1P2 & ~PMSEVFR_EL1_RES0_V1P4_EXCL))
+>  
+>  /* Buffer error reporting */
+>  #define PMBSR_EL1_FAULT_FSC_SHIFT	PMBSR_EL1_MSS_SHIFT
+> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+> index 3efed8839a4e..d9f6d229dce8 100644
+> --- a/drivers/perf/arm_spe_pmu.c
+> +++ b/drivers/perf/arm_spe_pmu.c
+> @@ -701,9 +701,12 @@ static u64 arm_spe_pmsevfr_res0(u16 pmsver)
+>  	case ID_AA64DFR0_EL1_PMSVer_V1P1:
+>  		return PMSEVFR_EL1_RES0_V1P1;
+>  	case ID_AA64DFR0_EL1_PMSVer_V1P2:
+> +	case ID_AA64DFR0_EL1_PMSVer_V1P3:
+> +		return PMSEVFR_EL1_RES0_V1P2;
+> +	case ID_AA64DFR0_EL1_PMSVer_V1P4:
+>  	/* Return the highest version we support in default */
+>  	default:
+> -		return PMSEVFR_EL1_RES0_V1P2;
+> +		return PMSEVFR_EL1_RES0_V1P4;
+>  	}
+>  }
+>  
+> 
+> -- 
+> 2.34.1
+> 
 
