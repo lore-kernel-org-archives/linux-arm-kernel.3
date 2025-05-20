@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0494C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 06:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31DD2C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 06:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uVPa/Mq55TU532D1KZ7GBrznPDtMYp5lXvGro3KW/gU=; b=TdULBmK7X5iMfb6dlA3+yixVZ+
-	e87GfmQE/gDBZ6y8OQrfkEJRmIv+Uxx0vjKLymyrk0wPCnJ+JvMrxM5/CwGxkeEhfaxdVexUn1JTL
-	3bGoh46STfy2Gu2f+ifkolYnR4sbJYMrwKJVkT8rsCtM/0UaOrfwTTX0OlhQz7GYGs988QPS05rng
-	9+8kVNjii4N1m/62+GG2ctrwu5fH6sGll8cff+YGrcjEeYvqxgL4KvI7dLCbF26g1cJCjts+J8RvM
-	+flEzIGrWx7A1ceJGl9oD6qZnjWiPfYKl3fs/EUL/tHG7BBCCysiM8KR4Xpga7iFzituLdYEKB+HL
-	jvjnTdfg==;
+	bh=PyqnBbxkdYpGDEi0/j5M2kON6RniZNeHCfZpzo0i034=; b=pHxvezZuNuePALkVIoFYw+wvA/
+	7WIKuaW7pbHIheJdjUbeuSNcGGSkIqpdrTBzijLlrpylPkwMMo46U37s3oPjRoPdk3JJy285Gf6eS
+	PSR9uZkciT20fTjOjHHcowpDzHDwMQrD4UFr4qMONCknXtG+iewpLVz8iKGosxUKldOFjnH3bFC3P
+	bLUKKqt5zcSRLS86UO+J49AXb0WCQ7XcEcHBN0/yu3kMHQFmuUaQloxeoVC8tMhaFDfYNe97Q3TMc
+	2HeezFUmpm7laC4OFUQ6Vf4RK8WgA9c5dPR6FXZaN2XTZtJATCvLBHsaEQKGfFvy6koOKkWB92zwP
+	bPMfjyCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHGlX-0000000Bler-42fn;
-	Tue, 20 May 2025 06:47:55 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uHGnc-0000000Bm8F-3V8E;
+	Tue, 20 May 2025 06:50:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHGYx-0000000BiUn-2eWP
+	id 1uHGYx-0000000BiUq-2edk
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 20 May 2025 06:35:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0663FA4DCB9;
-	Tue, 20 May 2025 06:34:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 918DBC4CEEF;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0B8245C48EC;
+	Tue, 20 May 2025 06:32:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A2969C4CEF3;
 	Tue, 20 May 2025 06:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747722893;
-	bh=xj1/d4nkyU14Uz0z2ygXiCJS8S9VEH7Pg1iUVkAGGlY=;
+	bh=OL7PYd2KFiQcNdgb/Lbozay8dDafpJiTxMPrWeltM+w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KilYpwdG18NBtpo1GQlMo5gyKIVpDIzKGHGuzh6ZcbSFh31+nPdoXJZyc0jE4SAgP
-	 nMCtvWhS797w9FvvEtL/oT+zuG35zTmS1PhIhZwXt/dVEsP236LRfz447O3ORmuB0e
-	 wuFPqRcILoO+/b6C7JXQImMuYEQCSkNLeosmVExQVGgCCFyqi0B7KF0pcjJoeHfWMU
-	 5KP6sG/9VYDR4u/GcZR771ik/pSotk7P/r84fA46rQ6GWqnImR0ulp/vhHw5TU6w6F
-	 SP3uApiQNy2DGajiyYqdZwcxEE39Gb1Bs2iaBTYXPnLYHltLu1o1eWvi9zSauzvNoZ
-	 gAgPttk0R020A==
+	b=r+x2S6dBp1h2Gh0VLJmwt0cMvj7FfCPTFpaeOxaM7o0Ki5cAWcvV54kKx4fA+VKa+
+	 XeWG8TcwZwK+Z++fhOTPdd6yaOvqTTyRKspLk+8JsFsflTHwrT4BGAQHBKIisJQr81
+	 12Eu8wNWNkI5D7mJoVwaAFBaj7xvwipgv5P0HuKwmuCoIUvzI68eWi5R0gr4+8KhiZ
+	 crCRy7I7Z5NiakMYgazX4cT7ZL0ZvK4cGGpRP+L8TODI5bEtnCRCbnbT6L1AA0dOyi
+	 e0vf4ybGY8rIv7snkEhDBRN70l3H1XjutMvGHzzIalttA0CYqjE4IXrwrnt2SVLk8X
+	 uWR/+viPQB1DQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C917C3ABDD;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F9BFC3DA6D;
 	Tue, 20 May 2025 06:34:53 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Tue, 20 May 2025 08:34:50 +0200
-Subject: [PATCH v7 1/8] dt-bindings: arm: fsl: Add GOcontroll Moduline
- Display
+Date: Tue, 20 May 2025 08:34:51 +0200
+Subject: [PATCH v7 2/8] arm64: dts: imx8mp: Add pinctrl config definitions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250520-initial_display-v7-1-a8f0195420aa@gocontroll.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250520-initial_display-v7-2-a8f0195420aa@gocontroll.com>
 References: <20250520-initial_display-v7-0-a8f0195420aa@gocontroll.com>
 In-Reply-To: <20250520-initial_display-v7-0-a8f0195420aa@gocontroll.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,22 +61,21 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Fabio Estevam <festevam@gmail.com>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
+ Maud Spierings <maudspierings@gocontroll.com>, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747722892; l=1206;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747722892; l=2173;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=7LK5io9tXyJrf5fT7pNPykcX/YAUSsMUIEqjia8Pbmw=;
- b=cIHZnnDGBjVlYMnVnr15Baq4iQ5GbRfwYKNbHYbdVGdz2NiZmnj/8g7K+USmDmACK1Wfw54nU
- 9mGdbQk82PJCpaLR0dm6eiTs9UOtXpmvbvshhKjgsbXkThhhe4ws8Hl
+ bh=Tp5BCMz7EOT7+F0/OBD2pVg95lMHmhItqzrfsEeT2Qg=;
+ b=Fvv9QmJtkNdpF50/rV09T9k9rGfKN06swbAAe/QozLyrakSgDxDMP7MXbVzh4cuj1OxMnibGX
+ 5E6Q3b6Lu+RBgzOyPzvfg7xbQTgmN6i5DhaYi7UUiQfzaCNVl1b4sEW
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_233456_907062_90BC7881 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250519_233456_923258_87666D01 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +93,68 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maud Spierings <maudspierings@gocontroll.com>
 
-Document the compatible strings for the Moduline Display controller.
+Currently to configure each IOMUXC_SW_PAD_CTL_PAD the raw value of this
+register is written in the dts, these values are not obvious. Add defines
+which describe the fields of this register which can be or-ed together to
+produce readable settings.
 
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
- 1 file changed, 1 insertion(+)
+This patch has already been sent in a different group of patches: [1]
+It was requested there to submit it along with a user, this series also
+includes some users for it.
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 1b90870958a22e49355dd1f932bf3d84cd864b5f..ecde2123ea0fae38ef233929c7ad343812851a58 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1095,6 +1095,7 @@ properties:
-               - gateworks,imx8mp-gw74xx   # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw75xx-2x # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw82xx-2x # i.MX8MP Gateworks Board
-+              - gocontroll,moduline-display # GOcontroll Moduline Display controller
-               - skov,imx8mp-skov-basic # SKOV i.MX8MP baseboard without frontplate
-               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
-               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
+[1]: https://lore.kernel.org/all/20250218-pinctrl_defines-v2-2-c554cad0e1d2@gocontroll.com/
+---
+ arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h | 33 ++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
+index 0fef066471ba607be02d0ab15da5a048a8a213a7..16f5899de415263da40928078c4c381099728fd5 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
++++ b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
+@@ -6,6 +6,39 @@
+ #ifndef __DTS_IMX8MP_PINFUNC_H
+ #define __DTS_IMX8MP_PINFUNC_H
+ 
++/* Drive Strength */
++#define MX8MP_DSE_X1		0x0
++#define MX8MP_DSE_X2		0x4
++#define MX8MP_DSE_X4		0x2
++#define MX8MP_DSE_X6		0x6
++
++/* Slew Rate */
++#define MX8MP_FSEL_FAST		0x10
++#define MX8MP_FSEL_SLOW		0x0
++
++/* Open Drain */
++#define MX8MP_ODE_ENABLE	0x20
++#define MX8MP_ODE_DISABLE	0x0
++
++#define MX8MP_PULL_DOWN		0x0
++#define MX8MP_PULL_UP		0x40
++
++/* Hysteresis */
++#define MX8MP_HYS_CMOS		0x0
++#define MX8MP_HYS_SCHMITT	0x80
++
++#define MX8MP_PULL_ENABLE	0x100
++#define MX8MP_PULL_DISABLE	0x0
++
++/* SION force input mode */
++#define MX8MP_SION		0x40000000
++
++/* long defaults */
++#define MX8MP_USDHC_DATA_DEFAULT (MX8MP_FSEL_FAST | MX8MP_PULL_UP | \
++				  MX8MP_HYS_SCHMITT | MX8MP_PULL_ENABLE)
++#define MX8MP_I2C_DEFAULT (MX8MP_DSE_X6 | MX8MP_PULL_UP | MX8MP_HYS_SCHMITT | \
++			   MX8MP_PULL_ENABLE | MX8MP_SION)
++
+ /*
+  * The pin function ID is a tuple of
+  * <mux_reg conf_reg input_reg mux_mode input_val>
 
 -- 
 2.49.0
