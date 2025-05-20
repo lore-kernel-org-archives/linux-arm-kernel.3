@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16BEC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FB9C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1F5c072ZBuMKZrs+rUzKDMiQaUMHosj4i8OhnS4exJU=; b=QEUDx7HRAp2aA6N73mqgjWglqM
-	yXN5nnROR3gy2optcRKjy7yD1If7jFHPblJfetuMF+wcir07KPsYdKlJm0xRM4OvzvexpoX/WPU8o
-	CQQBmTZEKCqxbVSipxFePjbGsLXr0c/GGs69aKxSAEM3GtYFvVu4gkKNHOSxWBsU8Row+rdzwSgGf
-	ENAGtpnE7/TMuBkDNr6oKEhghOVhKEhbW+QjUr/gVpSR42bsoqXrRax1oHM9mQBFzuwBJd5JJWIKI
-	MRD7zcVQ0lfiT5VYzDZpNOiiizMHCQzFCm8tqTgcVJ/6T+EK9w675pJSEC2SHzj5UaCInSBCXeaHP
-	2jQwD46A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=waKLIQkYaWCBpdgBoR5/9FlrJ27z2r4fX7MeV8jSSuc=; b=3k396e+RQDuRMzrdJN9NAm4fR0
+	yKabV1W9c0fFtgJEJ+hWSOoz94g4LK2ktkKzXJl8m8uhNirFyhdTwC7XRRyyv0q3Mhbk+x6O6sXYd
+	eNkAaV83Ykux+SfASyeewsC6bv3F4kyDyozJkcuWxyhXcRdV3MAmguPqGXpjTTDdHMMLyvAbR5511
+	xN+0paRdBZPGZjQb0x/L0Y8mkn+5r1If+VOknmBUiELU/z6Z2OyjEJnlceBoP94LcjbTM5ANDx1cW
+	cbbgzRnoAHRck9ekKG6SSloH8lr/E//t5YY4+A2qGr2lzXjv1QkV9xlE3n2YORmzZoijPuL4M/20X
+	m6r3Pv5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHPRK-0000000DRfD-2Vv6;
-	Tue, 20 May 2025 16:03:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHP01-0000000DMwQ-43Nx
+	id 1uHPTR-0000000DS3f-1qLz;
+	Tue, 20 May 2025 16:05:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHP0G-0000000DN0a-0GJB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 15:35:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC9FE1516;
-	Tue, 20 May 2025 08:35:11 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 724793F6A8;
-	Tue, 20 May 2025 08:35:24 -0700 (PDT)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: Re: (subset) [PATCH v2 0/2] coresight: etm4x: Fix timestamp regression
-Date: Tue, 20 May 2025 16:35:14 +0100
-Message-ID: <174775429687.297706.1519446554064234648.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250519174945.2245271-1-leo.yan@arm.com>
-References: <20250519174945.2245271-1-leo.yan@arm.com>
+	Tue, 20 May 2025 15:35:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 38C67A4EC01;
+	Tue, 20 May 2025 15:35:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1DFEC4CEE9;
+	Tue, 20 May 2025 15:35:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747755338;
+	bh=fCwS5f6sTZqQ+a6z9g0Xx+sH5gACbVRMIIr2p3PM8V4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KUET9wxAp6R0VYkFNldSl3k81H+HPUgCCdZI0sx5VCYlSUVJQNXObCW1Xq/rTJ1B7
+	 +n1J90Br0qU5ydxMnSjQWFjTH/31QNGsPm6TnBuCQjNP+nBXMMuQVZAksloekGi8Pj
+	 aY2MYmYXbDDrBOcq4QebvNFlvAeumBra7fVdH1EGmL00NIDv8tbp5MoBHUcE1GdbOY
+	 27zq7zDfGRjnoP0j55gBuFVEM8qXtLYx4TwyUQxW3bIXgG8wvvPBL6iw9Pm3KAm4Ag
+	 Fa1Wlt94iJ3Yb+tDe7RgMUfYON2Y3832A0RPIg+F92o2pcAG8z4LNyCzQzAQLkFnIA
+	 ru528iTdK9qdg==
+Date: Tue, 20 May 2025 16:35:34 +0100
+From: Will Deacon <will@kernel.org>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: Re: [PATCH v2 01/11] arm64: debug: clean up single_step_handler logic
+Message-ID: <20250520153533.GA18901@willie-the-truck>
+References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
+ <20250512174326.133905-2-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250512174326.133905-2-ada.coupriediaz@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_083526_043279_D36FC3D8 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250520_083540_171850_F9A29DB8 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,25 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 19 May 2025 18:49:43 +0100, Leo Yan wrote:
-> The timestamp appears all zeros with latest kernel, which is caused by
-> wrong bit field setting. The first patch fixes the regression.
+On Mon, May 12, 2025 at 06:43:16PM +0100, Ada Couprie Diaz wrote:
+> Remove the unnecessary boolean which always checks if the handler was found
+> and return early instead.
 > 
-> The second patch refactors the ts_source_show() function.  It simplifies
-> the code for directly returning the TS value.
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> ---
+>  arch/arm64/kernel/debug-monitors.c | 10 ++++------
+>  1 file changed, 4 insertions(+), 6 deletions(-)
 > 
-> Changes from v1:
-> - Retained the older condition check (Suzuki).
-> 
-> [...]
+> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+> index 58f047de3e1c..676fa0231935 100644
+> --- a/arch/arm64/kernel/debug-monitors.c
+> +++ b/arch/arm64/kernel/debug-monitors.c
+> @@ -241,8 +241,6 @@ static void send_user_sigtrap(int si_code)
+>  static int single_step_handler(unsigned long unused, unsigned long esr,
+>  			       struct pt_regs *regs)
+>  {
+> -	bool handler_found = false;
+> -
+>  	/*
+>  	 * If we are stepping a pending breakpoint, call the hw_breakpoint
+>  	 * handler first.
+> @@ -250,10 +248,10 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
+>  	if (!reinstall_suspended_bps(regs))
+>  		return 0;
+>  
+> -	if (!handler_found && call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
+> -		handler_found = true;
+> +	if (call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
+> +		return 0;
+>  
+> -	if (!handler_found && user_mode(regs)) {
+> +	if (user_mode(regs)) {
+>  		send_user_sigtrap(TRAP_TRACE);
+>  
+>  		/*
+> @@ -263,7 +261,7 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
+>  		 * to the active-not-pending state).
+>  		 */
+>  		user_rewind_single_step(current);
+> -	} else if (!handler_found) {
+> +	} else {
 
-Applied, thanks!
+Crikey, this code is totally bizarre! Thanks for cleaning it up.
 
-[1/2] coresight: etm4x: Fix timestamp bit field handling
-      https://git.kernel.org/coresight/c/ee811bc7
-
-Best regards,
--- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+Will
 
