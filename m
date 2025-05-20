@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE0FC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 02:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63713C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 02:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TG25CVsnDwhCFXgyB/K9JRU4GH4Ogzyglcx6OoMkrzY=; b=mL1RFbDDziXz9a
-	FEUzZtQ9Q8K1dxVm3ImM7RzLF2ZuH++jyYDZzbPsqAk4jXkTyDKLAab1NL45gO6B3+LNTY/sCM6GJ
-	mM6WMH1dC9x3nqo9/gXRN67ugYKlMF7uo6ddMo4VOhmhBFVvHrjwfZisWaeBYOyx7FWCWDUWvGTRr
-	6Ow+GrpTGnYXrt+x+tl4oce0ItXghcAVD+nTBzwauw/lPwKCH0ylbXQsFUh2pjYDkl7WftzdkFUzx
-	UFqoY+eiKjinu+ARWpzOKtU4PWts8IA7DIDsesSAuYT+sdbWfSf9rQQNvcQVx2g4Vfqw7rtMoykci
-	W8RufOakQEWYeTuP6nXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7qPOuqTuj/d+FwVWY6XC7uE9L6l32jBqR6EHP0kpME8=; b=sUrLTgqiJFLs91BWb78lFrsyBr
+	E6RH0Q+LIuGE+Tuq+pjQ2Q/NYu1lYzGleK8+wGZamJO4d0IhaWgpf6B0/7zIsPBbbr1Q0TMH2idnU
+	Yb6OayySNLERPWL7ADlx5xfLi42O3Auez3mBwO0EXesxF+uW+UAvAHjwWLt5UdTQTL/0/g4+7qvR6
+	jJeTqRBpmQt/XvuM+DTtxMYHzubcwFAiihnENWQ9avlKJ+0R78vxupokDqx8ultO+gemF0iWIjD2J
+	NkvFOaB176ZlQ0vpZGlT6RZRReoWjpARBubfUccHg+O52Cbaco0pCexvHFV0eSModOu3iZNOhIm7l
+	uADX9M6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHCev-0000000BKbL-1XYY;
-	Tue, 20 May 2025 02:24:49 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uHCyU-0000000BM50-3xYL;
+	Tue, 20 May 2025 02:45:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHCcp-0000000BKUY-06B0
+	id 1uHCwP-0000000BLtZ-3Eu3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 02:22:42 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4b1dWL4Qffz10WGF;
-	Tue, 20 May 2025 10:18:06 +0800 (CST)
-Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
-	by mail.maildlp.com (Postfix) with ESMTPS id ADA00140121;
-	Tue, 20 May 2025 10:22:27 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemo100006.china.huawei.com
- (7.202.195.47) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 20 May
- 2025 10:22:26 +0800
-Message-ID: <42bb418d-5e6a-8922-268c-8b6e2a48d578@hisilicon.com>
-Date: Tue, 20 May 2025 10:22:26 +0800
+	Tue, 20 May 2025 02:42:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AD25F6113B;
+	Tue, 20 May 2025 02:42:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B478CC4CEE4;
+	Tue, 20 May 2025 02:42:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747708972;
+	bh=zQpunA4UKCo0q3mvvJsKk1YpJ4ueKKrLShl1Ahbk5gA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hVUfasAeSsMQGkML85hMA/TUkaXE1JpZQkwp5qeMMgQx9qYwN9/M4FA9aU3aDqgHi
+	 qhbkcoXqqKcxA1KT8MiIe4QbbWzsul12ObTQmTmuwdRkCRU4AVBG3/V4grQ2Z9+ohV
+	 bfhh80CyDvPa+weCiGL+s7BANJl58eO7BkrsbSyvjb8jcgMJfVamBiDSh671icD3kN
+	 UhdghL3TRpVyaiYVCLHZ1ZiXLoTY21CVTRAFjgYMalqfdVnxpcwEIErm7OFTjxYd96
+	 nbrEywOEj5inr5+5MxRDYsneMEXUTsu8F8WK8PDROQTnfUn4tlYHAhuiHE5vo66c/J
+	 SezwbTjgP/Uvg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Juerg Haefliger <juerg.haefliger@canonical.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Dzmitry Sankouski <dsankouski@gmail.com>,
+	Kaushal Kumar <quic_kaushalk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Manikanta Mylavarapu <quic_mmanikan@quicinc.com>,
+	Nitheesh Sekar <quic_nsekar@quicinc.com>,
+	Praveenkumar I <quic_ipkumar@quicinc.com>,
+	Sibi Sankar <quic_sibis@quicinc.com>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Abhinaba Rakshit <quic_arakshit@quicinc.com>,
+	Ajit Pandey <quic_ajipan@quicinc.com>,
+	Alok Tiwari <alok.a.tiwari@oracle.com>,
+	Dikshita Agarwal <quic_dikshita@quicinc.com>,
+	George Moussalem <george.moussalem@outlook.com>,
+	Jens Glathe <jens.glathe@oldschoolsolutions.biz>,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Maud Spierings <maud_spierings@hotmail.com>,
+	Melody Olvera <melody.olvera@oss.qualcomm.com>,
+	Nirmesh Kumar Singh <quic_nkumarsi@quicinc.com>,
+	Pengyu Luo <mitltlatltl@gmail.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Varadarajan Narayanan <quic_varada@quicinc.com>,
+	Viken Dadhaniya <quic_vdadhani@quicinc.com>,
+	Xilin Wu <sophon@radxa.com>
+Subject: [GIT PULL] More Qualcomm Arm64 DeviceTree updates for v6.16
+Date: Mon, 19 May 2025 21:42:47 -0500
+Message-ID: <20250520024248.38904-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1] PM / devfreq: Add HiSilicon uncore frequency scaling
- driver
-To: "lihuisong (C)" <lihuisong@huawei.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>, <cw00.choi@samsung.com>
-References: <20250506021434.944386-1-zhanjie9@hisilicon.com>
- <8ef46e21-4ad0-46ef-bfb3-fc56094ef79d@huawei.com>
- <4f910767-9a96-6229-18cb-0119574eca00@hisilicon.com>
- <74894849-4e0b-47b7-8749-fd10d30b5709@huawei.com>
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <74894849-4e0b-47b7-8749-fd10d30b5709@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemo100006.china.huawei.com (7.202.195.47)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_192239_394318_94C15509 
-X-CRM114-Status: GOOD (  31.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,274 +94,232 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Jie Zhan <zhanjie9@hisilicon.com>, yubowen8@huawei.com, zhenglifeng1@huawei.com, linux-pm@vger.kernel.org, liwei728@huawei.com, linuxarm@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+The following changes since commit a18226be95c7ae7c9ec22fd31a6124bef5675c64:
 
-On 20/05/2025 09:36, lihuisong (C) wrote:
-> 
-> 在 2025/5/19 16:03, Jie Zhan 写道:
->> Hi Huisong,
->>
->> Thanks for reviewing.
->>
->> On 12/05/2025 10:17, lihuisong (C) wrote:
->>> Hi Jie,
->>>
->>> There are some trivia advice. please have a look.
->>>
->>> /Huisong
->>> 在 2025/5/6 10:14, Jie Zhan 写道:
->>>> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
->>>> the devfreq framework.  The uncore domain contains shared computing
->>>> resources, including system interconnects and L3 cache.  The uncore
->>>> frequency significantly impacts the system-wide performance as well as
->>>> power consumption.  This driver adds support for runtime management of
->>>> uncore frequency from kernel and userspace.  The main function includes
->>>> setting and getting frequencies, changing frequency scaling policies, and
->>>> querying the list of CPUs whose performance is significantly related to
->>>> this uncore frequency domain, etc.  The driver communicates with a platform
->>>> controller through an ACPI PCC mailbox to take the actual actions of
->>>> frequency scaling.
->>>>
->>>> Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->>>> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->>>> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
->>>> ---
->>>>    drivers/devfreq/Kconfig            |  11 +
->>>>    drivers/devfreq/Makefile           |   1 +
->>>>    drivers/devfreq/hisi_uncore_freq.c | 722 +++++++++++++++++++++++++++++
->>>>    3 files changed, 734 insertions(+)
->>>>    create mode 100644 drivers/devfreq/hisi_uncore_freq.c
->>>>
->> ...
->>
->>>> +
->>>> +static int hisi_uncore_request_pcc_chan(struct hisi_uncore_freq *uncore)
->>>> +{
->>>> +    struct pcc_mbox_chan *pcc_chan;
->>>> +    int rc;
->>>> +
->>>> +    uncore->cl = (struct mbox_client) {
->>>> +        .dev = uncore->dev,
->>>> +        .tx_block = false,
->>>> +        .knows_txdone = true,
->>>> +    };
->>>> +
->>>> +    pcc_chan = pcc_mbox_request_channel(&uncore->cl, uncore->chan_id);
->>>> +    if (IS_ERR(pcc_chan)) {
->>>> +        dev_err(uncore->dev, "Failed to request PCC channel %u\n",
->>>> +            uncore->chan_id);
->>>> +        return -ENODEV;
->>>> +    }
->>>> +
->>>> +    if (!pcc_chan->shmem_base_addr) {
->>>> +        dev_err(uncore->dev, "Invalid PCC shared memory address\n");
->>>> +        rc = -EINVAL;
->>>> +        goto err_pcc_chan_free;
->>>> +    }
->>>> +
->>>> +    if (pcc_chan->shmem_size < sizeof(struct hisi_uncore_pcc_shmem)) {
->>>> +        dev_err(uncore->dev, "Invalid PCC shared memory size (%lluB)\n",
->>>> +            pcc_chan->shmem_size);
->>>> +        rc = -EINVAL;
->>>> +        goto err_pcc_chan_free;
->>>> +    }
->>>> +
->>>> +    uncore->pcc_shmem_addr = ioremap(pcc_chan->shmem_base_addr,
->>>> +                     pcc_chan->shmem_size);
->>> Now driver doesn't need to ioremap repeatly because of Sudeep's work.
->>> Please see the patch:
->>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa362ffafa51b08cf8e2fcca38e056332f6b9b05
->> Cool. Now we can use pcc_chan->shmem. Will update the code based on that.
->>
->>>> +    if (!uncore->pcc_shmem_addr) {
->>>> +        rc = -ENOMEM;
->>>> +        goto err_pcc_chan_free;
->>>> +    }
->>>> +
->> ...
->>
->>>> +static int hisi_uncore_cmd_send(struct hisi_uncore_freq *uncore,
->>>> +                u8 cmd, u32 *data)
->>>> +{
->>>> +    struct hisi_uncore_pcc_shmem __iomem *addr;
->>>> +    struct hisi_uncore_pcc_shmem shmem;
->>>> +    struct pcc_mbox_chan *pchan;
->>>> +    unsigned int mrtt;
->>>> +    s64 time_delta;
->>>> +    u16 status;
->>>> +    int rc;
->>>> +
->>>> +    guard(mutex)(&uncore->pcc_lock);
->>>> +
->>>> +    pchan = uncore->pchan;
->>>> +    addr = uncore->pcc_shmem_addr;
->>>> +
->>>> +    if (!pchan || !addr)
->>>> +        return -ENODEV;
->>> This parameter validation seems redundant. From driver point, it always be ok.
->> uncore->pchan could be NULL if hisi_uncore_cmd_send() if called after
->> hisi_uncore_free_pcc_chan().
->>
->> In the driver detaching processor, the drv->remove() is called before devm
->> resources free, i.e. where devfreq device is freed.
->> Hence the devfreq governor, e.g. simpleondemand, could possibly issue a
->> freq request after the driver is removed.
->>
->> The checking and setting uncore->pchan = NULL in this driver is trying to
->> protect against the above case.  It actually happened during our tests so
->> it's not redundant unless we get a better way to solve that.
->>
->>>> +
->>>> +    /* Handle the Minimum Request Turnaround Time (MRTT) */
->>>> +    mrtt = pchan->min_turnaround_time;
->>>> +    time_delta = ktime_us_delta(ktime_get(),
->>>> +                    uncore->last_cmd_cmpl_time);
->>>> +    if (mrtt > time_delta)
->>>> +        udelay(mrtt - time_delta);
->>>> +
->>>> +    /* Copy data */
->>>> +    shmem.head = (struct acpi_pcct_shared_memory) {
->>>> +        .signature = PCC_SIGNATURE | uncore->chan_id,
->>>> +        .command = cmd,
->>>> +        .status = 0,
->>>> +    };
->>>> +    shmem.pcc_data.data = *data;
->>>> +    memcpy_toio(addr, &shmem, sizeof(shmem));
->>>> +
->>>> +    /* Ring doorbell */
->>>> +    rc = mbox_send_message(pchan->mchan, &cmd);
->>>> +    if (rc < 0) {
->>>> +        dev_err(uncore->dev, "Failed to send mbox message, %d\n", rc);
->>>> +        return rc;
->>>> +    }
->>>> +
->>>> +    /* Wait status */
->>>> +    rc = readw_poll_timeout(&addr->head.status, status,
->>>> +                status & (PCC_STATUS_CMD_COMPLETE |
->>>> +                      PCC_STATUS_ERROR),
->>>> +                HUCF_PCC_POLL_INTERVAL_US,
->>>> +                pchan->latency * HUCF_PCC_POLL_TIMEOUT_NUM);
->>>> +    if (rc) {
->>>> +        dev_err(uncore->dev, "PCC channel response timeout, cmd=%u\n", cmd);
->>>> +        goto exit;
->>>> +    }
->>>> +
->>>> +    if (status & PCC_STATUS_ERROR) {
->>>> +        dev_err(uncore->dev, "PCC cmd error, cmd=%u\n", cmd);
->>>> +        rc = -EIO;
->>>> +        goto exit;
->>>> +    }
->>>> +
->>>> +exit:
->>>> +    uncore->last_cmd_cmpl_time = ktime_get();
->>>> +
->>>> +    /* Copy data back */
->>>> +    memcpy_fromio(data, &addr->pcc_data.data, sizeof(*data));
->>>> +
->>>> +    /* Clear mailbox active req */
->>>> +    mbox_client_txdone(pchan->mchan, rc);
->>>> +
->>>> +    return rc;
->>>> +}
->>>> +
->>>> +static int hisi_uncore_target(struct device *dev, unsigned long *freq,
->>>> +                  u32 flags)
->>>> +{
->>>> +    struct hisi_uncore_freq *uncore = dev_get_drvdata(dev);
->>>> +    struct dev_pm_opp *opp;
->>>> +    u32 data;
->>>> +
->>>> +    /*
->>>> +     * ->target() might be called after drv->remove() and before governor
->>>> +     * stopped, so it's necessary to check here, but no need to warn.
->>>> +     */
->>>> +    if (!uncore || !uncore->pchan)
->>>> +        return 0;
->>> If have the following tips, this check can be removed, right?
->> See below.
->>
->> ...
-> We need to resolve the issue completely.🙂
->>>> +
->>>> +static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
->>>> +{
->>>> +    struct devfreq_dev_profile *profile;
->>>> +    unsigned long freq;
->>>> +    u32 data;
->>>> +    int rc;
->>>> +
->>>> +    rc = hisi_uncore_get_cur_freq(uncore->dev, &freq);
->>>> +    if (rc) {
->>>> +        dev_err(uncore->dev, "Failed to get plat init freq (%d)\n", rc);
->>>> +        return rc;
->>>> +    }
->>>> +
->>>> +    profile = devm_kzalloc(uncore->dev, sizeof(*profile), GFP_KERNEL);
->>>> +    if (!profile)
->>>> +        return -ENOMEM;
->>>> +
->>>> +    profile->initial_freq = freq;
->>>> +    profile->polling_ms = DEFAULT_POLLING_MS;
->>>> +    profile->timer = DEVFREQ_TIMER_DELAYED;
->>>> +    profile->target = hisi_uncore_target;
->>>> +    profile->get_dev_status = hisi_uncore_get_dev_status;
->>>> +    profile->get_cur_freq = hisi_uncore_get_cur_freq;
->>>> +
->>>> +    rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_MODE, &data);
->>>> +    if (rc) {
->>>> +        dev_err(uncore->dev, "Failed to get operate mode (%d)\n", rc);
->>>> +        return rc;
->>>> +    }
->>>> +
->>>> +    if (data == HUCF_MODE_PLATFORM)
->>>> +        uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
->>>> +                              hisi_platform_governor.name, NULL);
->>>> +    else
->>>> +        uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
->>>> +                              DEVFREQ_GOV_PERFORMANCE, NULL);
->>> This code creates sysfs file which will be freed after .remove() executed.
->>> However, the PCC channel is released in .remove().
->>> This may lead to UAF issue.
->> Not only those sysfs files, the whole devfreq device & governor is still
->> there after drv->remove().  That's the main cause of issues when
->> registering a devfreq device by devm_devfreq_add_device().
->>
->> However, at the moment, we have prevented against any UAF issues?
-> I understand you. But please see two options below again.
->>
->>> We have tow options:
->>> *option 1:*
->>> hisi_uncore_free_pcc_chan() also move to the last release instead of the .remove() by devm_add_action_or_reset() or devm_add_action().
->> I don't quite understand what this means.
->> hisi_uncore_free_pcc_chan() is currently the last step of drv->remove().
->> If we let it be managed by devm, it can't be guaranteed that the pcc chan
->> is freed after devfreq device is removed.
-> This option is just to let hisi_uncore_free_pcc_chan() to call after removing all sysfs files created in devfreq.
->>
->>> *option 2:*
->>> Use devfreq_add_device() to replace devm_devfreq_add_device() and .remove() in driver call devfreq_remove_device() to delete these sysfs files.
->>>
->>> There are the resources  dependency between these interfaces. And there is a potential release sequence in .remove, devm_xxx, and even the devm_xxx release inside.
->>> I prefer to explicitly free interfaces that have resource dependencies in driver.
->>>
->>>
->> This looks like a possible plan, but we will need to go back to the raw
->> ABIs.
-> 
-> Yeah, this option is simple.
-> 
-> Whether driver selects the raw ABI or devm_ prefixed ABI, which should be open, I think. This depends on the user's preference.
-> 
+  arm64: dts: qcom: sdm845-xiaomi-beryllium-ebbg: introduce touchscreen support (2025-05-11 17:34:23 -0500)
 
-Sure, understood now.
-Option 1: Add the devm resources in a correct order and let devm manage the
-release sequence.
-Option 2: Explicitly define the release sequence in the driver remove.
+are available in the Git repository at:
 
-Since currently only one devfreq driver uses the non-devm ABI, I may prefer
-to try the Option 1 first.
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-for-6.16-2
+
+for you to fetch changes up to 654ac800d4ac6bd4bffa7e98997a1e0d336999b1:
+
+  arm64: dts: qcom: sm4450: Add RPMh power domains support (2025-05-19 15:33:51 -0500)
+
+----------------------------------------------------------------
+More Qualcomm Arm64 DeviceTree updates for v6.16
+
+Support for CPU frequency scaling is enabled on the X Elite platform.
+Also on X Elite, support for the HP EliteBook Ultra G1q is introduced.
+
+Support for the QCS6490 RB3gen2 Industrial Mezzanine is also added.
+
+PCIe controllers and PHYs are described and enabled across IPQ5018,
+IPQ5332, and IPQ5424. On IPQ9474 the missing MHI register range is
+added. The TCSR block is described and used to enable download mode
+flags on IPQ5018.
+
+The venus video encoder/decoder is enabled on the MSM8998-based Lenovo
+Miix 630 laptop.
+
+The crypto engine is enabled on QCM2290 and QCS615. Bluetooth is enabled
+on the QCM2210-based RB1 board.
+
+The Fairphone FP5 gains Displayport sound support.
+
+SAR2130P display nodes are added.
+
+On 8cx Gen3 the sensor remoteproc (SLPI) is introduced and this is
+enabled on Lenovo Thinkpad X13s and the CRD.
+
+The SDM845-based Samsung Galaxy S9 gains graphics, modem and initial
+sound support.
+
+On SDX75 the QPIC BAM and NAND support is added, and these are enabled
+on the IDP board.
+
+LLCC is added for SM8750. SM8550 gains Iris video decoder support.
+
+For X Elite, Lenovo ThinkPad T14s support for the SDX62 modem, as well
+as audio headset, is added. ASUS Vivobook S 15 gains Bluetooth support,
+Microsoft Surface Laptop 7 models gets support for DP over USB Type-C,
+HP Omnibook X 14 gains audio support. The devkit gets the USB multiport
+controller and the two USB Type-A ports described.
+
+Additionally a variety of Devicetree fixes are introduced, primarily
+identified through binding validation.
+
+----------------------------------------------------------------
+Abel Vesa (1):
+      arm64: dts: qcom: x1e001de-devkit: Enable support for both Type-A USB ports
+
+Abhinaba Rakshit (1):
+      arm64: dts: qcom: qcs615: add QCrypto nodes
+
+Ajit Pandey (1):
+      arm64: dts: qcom: sm4450: Add RPMh power domains support
+
+Alok Tiwari (1):
+      arm64: dts: qcom: sm8350: Fix typo in pil_camera_mem node
+
+Dikshita Agarwal (1):
+      arm64: dts: qcom: sm8550: add iris DT node
+
+Dmitry Baryshkov (5):
+      arm64: dts: qcom: msm8998-lenovo-miix-630: add Venus node
+      arm64: dts: qcom: sc8280xp-lenovo-thinkpad-x13s: enable sensors DSP
+      arm64: dts: qcom: qcm2290: fix (some) of QUP interconnects
+      arm64: dts: qcom: qrb2210-rb1: add Bluetooth support
+      arm64: dts: qcom: sar2130p: add display nodes
+
+Dzmitry Sankouski (3):
+      arm64: dts: qcom: sdm845-starqltechn: add initial sound support
+      arm64: dts: qcom: sdm845-starqltechn: add graphics support
+      arm64: dts: qcom: sdm845-starqltechn: add modem support
+
+George Moussalem (1):
+      arm64: dts: qcom: ipq5018: enable the download mode support
+
+Jens Glathe (1):
+      arm64: dts: qcom: x1e80100-lenovo-yoga-slim7x: add retimers, dp altmode support
+
+Johan Hovold (2):
+      arm64: dts: qcom: x1e78100-t14s: enable SDX62 modem
+      arm64: dts: qcom: x1e80100-hp-x14: drop bogus USB retimer
+
+Juerg Haefliger (4):
+      arm64: dts: qcom: x1e80100-hp-omnibook-x14: Enable SMB2360 0 and 1
+      arm64: dts: qcom: x1e80100-hp-omnibook-x14: add sound label
+      dt-bindings: arm: qcom: Document HP EliteBook Ultra G1q
+      arm64: dts: qcom: x1e80100-hp-elitebook-ultra-g1q: DT for HP EliteBook Ultra G1q
+
+Kaushal Kumar (3):
+      arm64: dts: qcom: sdx75: Add QPIC BAM support
+      arm64: dts: qcom: sdx75: Add QPIC NAND support
+      arm64: dts: qcom: sdx75-idp: Enable QPIC BAM & QPIC NAND support
+
+Konrad Dybcio (15):
+      arm64: dts: qcom: x1e80100-romulus: Enable DP over Type-C
+      arm64: dts: qcom: sc8280xp: Fix node order
+      arm64: dts: qcom: sc8280xp: Add SLPI
+      arm64: dts: qcom: sc8280xp-crd: Enable SLPI
+      arm64: dts: qcom: sc7180: Add specific APPS RSC compatible
+      arm64: dts: qcom: sdm845: Add specific APPS RSC compatible
+      arm64: dts: qcom: msm8998: Remove mdss_hdmi_phy phandle argument
+      arm64: dts: qcom: qcs615: Remove disallowed property from AOSS_QMP node
+      arm64: dts: qcom: msm8998-fxtec: Add QUSB2PHY VDD supply
+      arm64: dts: qcom: msm8998-mtp: Add QUSB2PHY VDD supply
+      arm64: dts: qcom: msm8998-yoshino: Add QUSB2PHY VDD supply
+      arm64: dts: qcom: sm6350-pdx213: Wire up USB regulators
+      arm64: dts: qcom: msm8996-oneplus: Add SLPI VDD_PX
+      arm64: dts: qcom: sa8775p: Clean up the PSCI PDs
+      arm64: dts: qcom: qcs615: Fix up UFS clocks
+
+Krishna Chaitanya Chundru (1):
+      arm64: dts: qcom: x1e80100: Add PCIe lane equalization preset properties
+
+Loic Poulain (1):
+      arm64: dts: qcom: qcm2290: Add crypto engine
+
+Luca Weiss (1):
+      arm64: dts: qcom: qcm6490-fairphone-fp5: Add DisplayPort sound support
+
+Manikanta Mylavarapu (2):
+      arm64: dts: qcom: ipq5424: Add PCIe PHYs and controller nodes
+      arm64: dts: qcom: ipq5424: Enable PCIe PHYs and controllers
+
+Maud Spierings (1):
+      arm64: dts: qcom: x1e80100-vivobook-s15: Add bluetooth
+
+Melody Olvera (1):
+      arm64: dts: qcom: sm8750: Add LLCC node
+
+Nirmesh Kumar Singh (1):
+      arm64: dts: qcom: Add industrial mezzanine support for qcs6490-rb3gen2
+
+Nitheesh Sekar (2):
+      arm64: dts: qcom: ipq5018: Add PCIe related nodes
+      arm64: dts: qcom: ipq5018: Enable PCIe
+
+Pengyu Luo (1):
+      arm64: dts: qcom: sm8650: add the missing l2 cache node
+
+Praveenkumar I (2):
+      arm64: dts: qcom: ipq5332: Add PCIe related nodes
+      arm64: dts: qcom: ipq5332-rdp441: Enable PCIe phys and controllers
+
+Sibi Sankar (2):
+      arm64: dts: qcom: x1e80100: Add cpucp mailbox and sram nodes
+      arm64: dts: qcom: x1e80100: Enable cpufreq
+
+Srinivas Kandagatla (1):
+      arm64: dts: qcom: x1e78100-t14s: Enable audio headset support
+
+Varadarajan Narayanan (1):
+      arm64: dts: qcom: ipq9574: Add MHI to pcie nodes
+
+Viken Dadhaniya (1):
+      arm64: dts: qcom: sa8775p: Add default pin configurations for QUP SEs
+
+Xilin Wu (1):
+      arm64: dts: qcom: sc7280: Mark FastRPC context banks as dma-coherent
+
+ Documentation/devicetree/bindings/arm/qcom.yaml    |   1 +
+ arch/arm64/boot/dts/qcom/Makefile                  |   4 +
+ arch/arm64/boot/dts/qcom/ipq5018-rdp432-c2.dts     |  40 ++
+ arch/arm64/boot/dts/qcom/ipq5018.dtsi              | 246 ++++++-
+ arch/arm64/boot/dts/qcom/ipq5332-rdp441.dts        |  76 +++
+ arch/arm64/boot/dts/qcom/ipq5332.dtsi              | 252 ++++++-
+ arch/arm64/boot/dts/qcom/ipq5424-rdp466.dts        |  41 +-
+ arch/arm64/boot/dts/qcom/ipq5424.dtsi              | 525 +++++++++++++-
+ arch/arm64/boot/dts/qcom/ipq9574.dtsi              |  40 +-
+ .../boot/dts/qcom/msm8996-oneplus-common.dtsi      |   5 +
+ arch/arm64/boot/dts/qcom/msm8996-oneplus3.dts      |   2 +
+ arch/arm64/boot/dts/qcom/msm8996-oneplus3t.dts     |   2 +
+ arch/arm64/boot/dts/qcom/msm8998-fxtec-pro1.dts    |   1 +
+ .../boot/dts/qcom/msm8998-lenovo-miix-630.dts      |   6 +
+ arch/arm64/boot/dts/qcom/msm8998-mtp.dts           |   1 +
+ .../boot/dts/qcom/msm8998-sony-xperia-yoshino.dtsi |   1 +
+ arch/arm64/boot/dts/qcom/msm8998.dtsi              |   2 +-
+ arch/arm64/boot/dts/qcom/qcm2290.dtsi              |  40 +-
+ arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts |  31 +
+ arch/arm64/boot/dts/qcom/qcs615.dtsi               |  40 +-
+ .../qcom/qcs6490-rb3gen2-industrial-mezzanine.dtso |  21 +
+ arch/arm64/boot/dts/qcom/qrb2210-rb1.dts           |  83 +++
+ arch/arm64/boot/dts/qcom/sa8775p-ride.dtsi         | 133 ++--
+ arch/arm64/boot/dts/qcom/sa8775p.dtsi              | 757 ++++++++++++++++++++-
+ arch/arm64/boot/dts/qcom/sar2130p.dtsi             | 394 +++++++++++
+ arch/arm64/boot/dts/qcom/sc7180.dtsi               |   2 +-
+ arch/arm64/boot/dts/qcom/sc7280.dtsi               |  15 +
+ arch/arm64/boot/dts/qcom/sc8280xp-crd.dts          |   6 +
+ .../dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts     |   6 +
+ arch/arm64/boot/dts/qcom/sc8280xp.dtsi             | 709 ++++++++++---------
+ .../boot/dts/qcom/sdm845-samsung-starqltechn.dts   | 329 +++++++++
+ arch/arm64/boot/dts/qcom/sdm845.dtsi               |   2 +-
+ arch/arm64/boot/dts/qcom/sdx75-idp.dts             |  18 +
+ arch/arm64/boot/dts/qcom/sdx75.dtsi                |  33 +
+ arch/arm64/boot/dts/qcom/sm4450.dtsi               |  68 ++
+ .../dts/qcom/sm6350-sony-xperia-lena-pdx213.dts    |   7 +
+ arch/arm64/boot/dts/qcom/sm8350.dtsi               |   2 +-
+ arch/arm64/boot/dts/qcom/sm8550-hdk.dts            |   4 +
+ arch/arm64/boot/dts/qcom/sm8550-mtp.dts            |   4 +
+ arch/arm64/boot/dts/qcom/sm8550-qrd.dts            |   4 +
+ arch/arm64/boot/dts/qcom/sm8550.dtsi               |  81 +++
+ arch/arm64/boot/dts/qcom/sm8650.dtsi               |   9 +-
+ arch/arm64/boot/dts/qcom/sm8750.dtsi               |  18 +
+ arch/arm64/boot/dts/qcom/x1e001de-devkit.dts       |  86 +++
+ .../dts/qcom/x1e78100-lenovo-thinkpad-t14s.dtsi    |  90 +++
+ .../boot/dts/qcom/x1e80100-asus-vivobook-s15.dts   | 167 +++++
+ .../dts/qcom/x1e80100-hp-elitebook-ultra-g1q.dts   |  30 +
+ .../boot/dts/qcom/x1e80100-hp-omnibook-x14.dts     | 156 +----
+ .../boot/dts/qcom/x1e80100-lenovo-yoga-slim7x.dts  | 476 ++++++++++++-
+ .../boot/dts/qcom/x1e80100-microsoft-romulus.dtsi  |  18 +
+ arch/arm64/boot/dts/qcom/x1e80100.dtsi             | 100 ++-
+ 51 files changed, 4574 insertions(+), 610 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/qcom/qcs6490-rb3gen2-industrial-mezzanine.dtso
+ create mode 100644 arch/arm64/boot/dts/qcom/x1e80100-hp-elitebook-ultra-g1q.dts
 
