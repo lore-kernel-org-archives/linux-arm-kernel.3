@@ -4,79 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 127FBC3ABDA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 04:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36B49C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 06:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PT9ZmWcNjsByWM4NKCa01tRV+Ynb0XOy/pgCXZGVIa0=; b=1qCSnmt1igBgl1gH77fje99h3d
-	cGwulgvEPx7+HN/WlZnhVOuiF3D7+XSAUnZNab0sPNgYy88q9kQW/BFpx5oH2O+udvxpFceV62gn7
-	2TZTRenedDF0BicCYAOozMOYXWVGcX/X5AhgGbCEMI24GXcIiOmPJoJU5gn+Ffmtdg+MVR8iy3/W0
-	eeFzXgd2msNSxJvN5G+jM0LHPaeWKHcEG7BYvEZu13jOvyI6ga4CSVnufldN8VTUmPYn1XsWpRMda
-	HCF150XKkgdFp884Qx02I6a6gzXw6r6uyJN3rhTBVEfPsghq+tFnQzcK/ucuq81lYvp7JNECjQ6YY
-	g3oO7t+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E6aIr13F3ZZN1XhoRGRhvUOq+gz5F9zPu6XdJte96Zk=; b=O2Sosi2RM6Q5H5Hko7uHNxVUhw
+	U+qxZ/i6q20gJEPBtYd+Ld5i+ilNwhmTfekpQJBlO8SADCKWjtPHueoJCgzOi9BhQZy1YKG+G4Tif
+	mCe2NNDNRy77md+FykjqQiqKToFYoTYTdATulgH3Une7FmLobb49UHMim17cZet1Vd4jHCp8BZhtw
+	ktfj0KDK2ZZ6apYR3oJmniaJ4+ACnhbNDab13BVWu4febBL6KedABiBTvClWdXgyodJghdrR8m9dT
+	U8HB6zsKbIfJa99wTt6pL/xyMguFRfV8drQ0+7/ICQkFJIcfVi301vTGODdwnpTa2vpPrKuX+tKsT
+	EHfGZbHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHElr-0000000BVQg-43LB;
-	Tue, 20 May 2025 04:40:07 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1uHGQC-0000000Bh26-1yPb;
+	Tue, 20 May 2025 06:25:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHEjl-0000000BVGJ-1VQp
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 04:37:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747715878; x=1779251878;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/HWugewSwF3nvEChZSyWKJu4IdZ646uM+bCDPZacNpw=;
-  b=JgCFVIIy0/doQac0EJf3QukBgb9Q4ktT9plteGrRPD8PWogJi537MIao
-   LI4/G02fyKJnzCXtzs/upp/WliBTzv0Du+p4R6c9Ocb07rZpLnkjNRi9v
-   Vafp3eQTvevKuq4TrCWAumOfE/F+CfNEE7iWIEaWi2viQnmmxGgfiZ4qj
-   7gu86kHRHWc7eoCYuX/Mtm0K8dBAidNKcgv3pvl3fWK783lDeG5JRidpH
-   O+jLvn7XH6n9otZWkS5zA/kSXGs9KneYlsDgANJKRZ4loMnkergoiAR4x
-   tFfuZS488ihj1R4Y27R0TyYiHfJEvMyQUZc9kCtePkJOFgHm7xpuqXvvY
-   Q==;
-X-CSE-ConnectionGUID: qZh4CtGlQymLtLSMOnt6nA==
-X-CSE-MsgGUID: bPL9HeGZSwCoiQsk3GpqCA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11438"; a="49615548"
-X-IronPort-AV: E=Sophos;i="6.15,302,1739865600"; 
-   d="scan'208";a="49615548"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2025 21:37:52 -0700
-X-CSE-ConnectionGUID: /shfJDbpQOOib6SfJMhTpw==
-X-CSE-MsgGUID: CdGruJYmTL2xxLLcWAqHPw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,302,1739865600"; 
-   d="scan'208";a="144324829"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 19 May 2025 21:37:49 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uHEja-000MA4-1X;
-	Tue, 20 May 2025 04:37:46 +0000
-Date: Tue, 20 May 2025 12:37:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: Wentao Liang <vulab@iscas.ac.cn>, sgoutham@marvell.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: Re: [PATCH] net: cavium: thunder: Add log for verification fail in
- bgx_poll_for_link()
-Message-ID: <202505201239.5YN7PGlt-lkp@intel.com>
-References: <20250519152348.2839-1-vulab@iscas.ac.cn>
+	id 1uHGO4-0000000Bgl1-2WRZ;
+	Tue, 20 May 2025 06:23:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DEB9C5C0418;
+	Tue, 20 May 2025 06:21:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 752A1C4CEE9;
+	Tue, 20 May 2025 06:23:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747722219;
+	bh=a4cM29D/lt6Z3xEwijmpBJ3nK1B5wF/Hb8tX6ibY+b8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ThMuYKXy40SRK/sabOtIUA8uciD9dxFYBvXCGpowJXCt8i0pE6cKemYV4QqxaNpO2
+	 67xTxyNl+ytscbyTB9XrEx6hpbUyPu30Ffz+WGDM00DAephEXMVRSvzWjdR2Q7I4mN
+	 FtOjjmGiahVsYeYMNzta62AZ72DatNXCKm9M1JAib5EDGYv7YP5+i7HQsV3v6w9ENi
+	 J5Dyi6EY+fWrRIfEE+F5y1qarvBPBfcA0bUrOuG2ghBuhDicZxqSytm21wG9cIJCSB
+	 DCFGwZMBLdlbShWLeNBinD1NSt6/HI7dvT2LOSvv/7VHtsnqYt/muboHdXOjYnHZtR
+	 0SuTQCQR7AMzA==
+Message-ID: <0870dee6-0435-4bcd-bc07-20964177d092@kernel.org>
+Date: Tue, 20 May 2025 08:23:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250519152348.2839-1-vulab@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
+To: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250520024718.142-1-kernel@airkyi.com>
+ <20250520024718.142-3-kernel@airkyi.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250520024718.142-3-kernel@airkyi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_213757_450970_9B5B93EA 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250519_232340_736628_E3526503 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +125,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wentao,
+On 20/05/2025 04:47, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> Convert cdn-dp-rockchip.txt to yaml.
+> 
+> Add new "port@1" property which represents the CDN DP output to keep
+> the same style as the other display interfaces.
+> 
+> This patch also changes the constraints for "phys" and "extcon". For
+> the original binding, only one phy and the corresponding extcon can
+> be specified. In the new binding, one or two phys can be specified.
+> Since the RK3399 has two DP-USB PHYs, specifying one allows output
+> via the corresponding PHY, while specifying two lets the driver
+> choose one PHY for output. This rule also applies to extcon, which
+> provides the cable state for the corresponding PHY.
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
+> 
 
-kernel test robot noticed the following build errors:
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-[auto build test ERROR on net-next/main]
-[also build test ERROR on net/main linus/master v6.15-rc7 next-20250516]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Wentao-Liang/net-cavium-thunder-Add-log-for-verification-fail-in-bgx_poll_for_link/20250519-232542
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20250519152348.2839-1-vulab%40iscas.ac.cn
-patch subject: [PATCH] net: cavium: thunder: Add log for verification fail in bgx_poll_for_link()
-config: sparc-randconfig-002-20250520 (https://download.01.org/0day-ci/archive/20250520/202505201239.5YN7PGlt-lkp@intel.com/config)
-compiler: sparc64-linux-gcc (GCC) 12.4.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250520/202505201239.5YN7PGlt-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505201239.5YN7PGlt-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/device.h:15,
-                    from include/linux/acpi.h:14,
-                    from drivers/net/ethernet/cavium/thunder/thunder_bgx.c:6:
-   drivers/net/ethernet/cavium/thunder/thunder_bgx.c: In function 'bgx_poll_for_link':
->> drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1012:40: error: incompatible type for argument 1 of '_dev_err'
-    1012 |                 dev_err(lmac->bgx->pdev->dev, "BXG verification fail with time out.\n");
-         |                         ~~~~~~~~~~~~~~~^~~~~
-         |                                        |
-         |                                        struct device
-   include/linux/dev_printk.h:110:25: note: in definition of macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                         ^~~
-   drivers/net/ethernet/cavium/thunder/thunder_bgx.c:1012:17: note: in expansion of macro 'dev_err'
-    1012 |                 dev_err(lmac->bgx->pdev->dev, "BXG verification fail with time out.\n");
-         |                 ^~~~~~~
-   include/linux/dev_printk.h:50:36: note: expected 'const struct device *' but argument is of type 'struct device'
-      50 | void _dev_err(const struct device *dev, const char *fmt, ...);
-         |               ~~~~~~~~~~~~~~~~~~~~~^~~
-
-
-vim +/_dev_err +1012 drivers/net/ethernet/cavium/thunder/thunder_bgx.c
-
-   995	
-   996	static void bgx_poll_for_link(struct work_struct *work)
-   997	{
-   998		struct lmac *lmac;
-   999		u64 spu_link, smu_link;
-  1000	
-  1001		lmac = container_of(work, struct lmac, dwork.work);
-  1002		if (lmac->is_sgmii) {
-  1003			bgx_poll_for_sgmii_link(lmac);
-  1004			return;
-  1005		}
-  1006	
-  1007		/* Receive link is latching low. Force it high and verify it */
-  1008		bgx_reg_modify(lmac->bgx, lmac->lmacid,
-  1009			       BGX_SPUX_STATUS1, SPU_STATUS1_RCV_LNK);
-  1010		if (bgx_poll_reg(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1,
-  1011				 SPU_STATUS1_RCV_LNK, false))
-> 1012			dev_err(lmac->bgx->pdev->dev, "BXG verification fail with time out.\n");
-  1013	
-  1014		spu_link = bgx_reg_read(lmac->bgx, lmac->lmacid, BGX_SPUX_STATUS1);
-  1015		smu_link = bgx_reg_read(lmac->bgx, lmac->lmacid, BGX_SMUX_RX_CTL);
-  1016	
-  1017		if ((spu_link & SPU_STATUS1_RCV_LNK) &&
-  1018		    !(smu_link & SMU_RX_CTL_STATUS)) {
-  1019			lmac->link_up = true;
-  1020			if (lmac->lmac_type == BGX_MODE_XLAUI)
-  1021				lmac->last_speed = SPEED_40000;
-  1022			else
-  1023				lmac->last_speed = SPEED_10000;
-  1024			lmac->last_duplex = DUPLEX_FULL;
-  1025		} else {
-  1026			lmac->link_up = false;
-  1027			lmac->last_speed = SPEED_UNKNOWN;
-  1028			lmac->last_duplex = DUPLEX_UNKNOWN;
-  1029		}
-  1030	
-  1031		if (lmac->last_link != lmac->link_up) {
-  1032			if (lmac->link_up) {
-  1033				if (bgx_xaui_check_link(lmac)) {
-  1034					/* Errors, clear link_up state */
-  1035					lmac->link_up = false;
-  1036					lmac->last_speed = SPEED_UNKNOWN;
-  1037					lmac->last_duplex = DUPLEX_UNKNOWN;
-  1038				}
-  1039			}
-  1040			lmac->last_link = lmac->link_up;
-  1041		}
-  1042	
-  1043		queue_delayed_work(lmac->check_link, &lmac->dwork, HZ * 2);
-  1044	}
-  1045	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Krzysztof
 
