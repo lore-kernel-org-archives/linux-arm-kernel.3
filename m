@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A392C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 02:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA83C54754
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 02:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AbLzH+MA3bJOt84nDVXTF5oPLCOKH82ypWIYuFzcxQk=; b=gxapG1SJUj3+7z1SAVUhxP25fC
-	olfekaHLFMerfnpQoc9YVJKPu+przrJG/oCHxerXbEAa9BDc6RUP46XtbtDhhMzg2uNub68i0JiR4
-	dSiQ4LTlOFMWU3VNuanl2uW4PI88yuPVaGlRnzTYlr1V3iWN85xwyEye1ARlJKMEvue41RMN4hQCP
-	/LATxir/DXYqTZXfrTKKBRRPwuF+sgYmZ2oY066JW68udEXHrcN2NPPmroLPt9GoiK4ogP1hQX+Mz
-	mCZX94VZSlZFUeM9AkAB8qSDETW1/MYKNDFdQStpbBm5q9p3spJe8vhjjJ+X0dSFCdXj2ZwICohAe
-	6UvqU4uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0FmmGTT7/kkpo68LJtWYV6x4TUVBTBuFVK+exAKFKeg=; b=toMd38T6O1+W73bTkQhCOgMmit
+	1AvndSV5dy7QbrNe6ak1YVpfSgWosakX3gk9SGC5x7TBfu1JC3Qn4X8WG8YgzojTVhSUwvmaEU900
+	M/u0eCS9AoLKE0nk0JjwdfnW3eJHWxt2rhIW6FJZR1ObgPTBME2yFSr4+3G/T1uebGUP0H6F3gmG/
+	jrHgYRW32D49lSTI2QeYcEL8X5LHUYxHu3kiLgHWIfd4fUAoUIJzU7UoMWV0NpMk6JxUXt7IKAbE5
+	czZp5hna8ICvMCOVgkJNaDUFlL3inRRM37PsHH9Y9M3IK2CHA5mzHnceVIoJoiZ5eCneVehmk79zd
+	ggTVMZZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHD2n-0000000BMtx-3V1U;
-	Tue, 20 May 2025 02:49:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uHD4u-0000000BNDk-0irC;
+	Tue, 20 May 2025 02:51:40 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHD0g-0000000BMXO-2xXw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 02:47:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 093F743EFE;
-	Tue, 20 May 2025 02:47:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D0C4C4CEE4;
-	Tue, 20 May 2025 02:47:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747709237;
-	bh=bRSWeSF5IC9AgzEPcvUNyYRCBX/EO3Fvj60XVxbDLH0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=u410h3WojVBxNfioA2Y9cSjgexGbulubu8V4lxWnMwUJHxpuyIQPl3zqv3Qt0OQpm
-	 IrNPEMRPBi0ikIBIEHhTcKxT/RmIu3sQCnxI5Mu/hyMNHEpsc+nz2CoMKyrxglaQpI
-	 AGEvUQ73IbkHs0o+jtLxtXfbIk0donxI7KUCZ6rcPhufPMz3If5X+2hUN4SMC3t70a
-	 pOiN4UuX1f5CsUsNVDunM8p6f4tpfR/sVzY/mHT2eW+DzFWI7YLu56OBBjQYokeE5i
-	 7Xcw7PHvttOFx7sevvHbgoL6FoH4FCO6g08SC8Jn6BWgKXuBWVJz3i9kl6HXWW/IA0
-	 GYDnn0oHlXTAw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
+	id 1uHD2M-0000000BMiy-3uaV;
+	Tue, 20 May 2025 02:49:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1747709279;
+	bh=0FmmGTT7/kkpo68LJtWYV6x4TUVBTBuFVK+exAKFKeg=;
+	h=From:To:Subject:Date:Message-Id;
+	b=hZILU21vfhR4lSohELg9hcdh+ySZFFlZfht9yoouDIvJIZEi/FW7eK62x2M3FElTm
+	 9pqko348SaHwIgHF++oc4o+BAywLb+YEd7T3RAoGHaLF3jI90kIl4LKpaNFWKkNQDu
+	 KuPvxo3g1ou/9w9Ikk9bDyT927mmOQscjEeDQ7Z4=
+X-QQ-mid: zesmtpgz1t1747709277t3ccaccd6
+X-QQ-Originating-IP: WX5ZmZyYWICN6Vqork4Xt6+hfJpYFO7s+3xRsU6gpoA=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 20 May 2025 10:47:55 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15235635931531597864
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Rudraksha Gupta <guptarud@gmail.com>
-Subject: [GIT PULL] More Arm32 DeviceTree updates for v6.16
-Date: Mon, 19 May 2025 21:47:14 -0500
-Message-ID: <20250520024716.39418-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.49.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 2/2] dt-bindings: display: rockchip: Convert cdn-dp-rockchip.txt to yaml
+Date: Tue, 20 May 2025 10:47:18 +0800
+Message-Id: <20250520024718.142-3-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20250520024718.142-1-kernel@airkyi.com>
+References: <20250520024718.142-1-kernel@airkyi.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: MB5+LsFw85NozL2HVEmoswXUY6YRhBzAM6fZxWee0X7zsCwlLOjQuetM
+	g+j+fQaWABw8/+vpJsUDBaS1nq8XGKsUFBG0EDPS8hBlrmRAt3bUxgXQ+w79uM2kTd+EIt3
+	mzSxyOBsgfxdUAQxt+/nvd+w4RdFd+LiRVnFamQVuCTAJ6bUAZZItC87EkVXgvlfeuYqrPv
+	dKKfCutKWuwcylLOr1rrk++rhne2nol54iiKp78RPtKhKLD5pGKNclv8dH3V/fqZ4cQrZob
+	9qpuhfAMkQi3Md7y7QF3KVxpYDUd0ulV+O1Z4zO2XFVCyjr19wtdlx3rbEHYFjOdwFDO2vJ
+	rJ47AXo8GB1v4jJrg9Bf9PBYe9FqjY7EIOwGKEW3fjlXxTpKr9Fns+UqTUon/n3+5aRoUYa
+	Z/DXM7YJA91qDRp0OP48gUwdqBoqoP5ul+GHYdO/egqhZzgmW4ncuHqVPU87C3rZEAf7+VR
+	TUtNnrEL1YBE/6bO7Gg2+0gE4xqDsbY3XEuFT8jTc1j6iodrgnT6Dqqa1ox9cBB7ntG8uxh
+	ySbi2EYTwsKDL1ne7z59GLRofxbrFsGN3hDexM/SuIEuT4cPGVYiUCPVCpKQanUqRqvjub+
+	v3qkT7eitKyZHM7nVZp0XchhntJA+7Ayb2nEVLPPxHpav8u8pK5PfpMY1kxWTA8JBmNNHMP
+	82VZo1q8WA0r/XJRWbil/9VTpLtLZfNBH6Me+WdfaXOZ70OiXioWbWPkxRkRniNQ10oHpAV
+	qEmbEHT/E2zPUlDrUgWN+EJSnXtE35d7wS9YoprMdDX55RDoqDWYzqj754R268YECkLQVGA
+	vPnvajd+cutcVpjbqvsbZMrTB7lkPZLgQirWbaj6No2kWnv4EqoEvj3e5K25J6u5hXRYQpp
+	osaDAIldXpqDSUCkk7rgMI2al9YBEMTGiuvLjqMvojEfKvJJcTazRgg+9x9AZtxCvvKN4H4
+	+ZcBVHOSWjgxBWQIr4tlV0T3TNCzbx2RedSmZGqS+Y7h+gaY3sslUTllbihSHIF7LE2FILw
+	/FxHhaLckJixyD3n26
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_194718_764434_114A4FD4 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250519_194903_354623_830A9FAC 
+X-CRM114-Status: GOOD (  24.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +103,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-The following changes since commit f2420037d90a8354594b3da541e19dcbb60c75e1:
+Convert cdn-dp-rockchip.txt to yaml.
 
-  ARM: dts: qcom: apq8064: move replicator out of soc node (2025-05-13 17:00:59 +0100)
+Add new "port@1" property which represents the CDN DP output to keep
+the same style as the other display interfaces.
 
-are available in the Git repository at:
+This patch also changes the constraints for "phys" and "extcon". For
+the original binding, only one phy and the corresponding extcon can
+be specified. In the new binding, one or two phys can be specified.
+Since the RK3399 has two DP-USB PHYs, specifying one allows output
+via the corresponding PHY, while specifying two lets the driver
+choose one PHY for output. This rule also applies to extcon, which
+provides the cable state for the corresponding PHY.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-6.16-2
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
 
-for you to fetch changes up to b2c547cffe2f67e18a3a276905649cc95aa7f293:
+Changes in v5:
+- Fix constraints on extcon and phys
+- Add commit about changes to extcon and phys
+- Add "#sound-dai-cells" to required properties
 
-  ARM: dts: qcom: apq8064-ifc6410: drop HDMI HPD GPIO (2025-05-17 17:32:35 -0500)
+Changes in v4:
+- Add commit about port@1 node
 
-----------------------------------------------------------------
-More Arm32 DeviceTree updates for v6.16
+Changes in v3:
+- Add more description about phy/extcon
+- Fix some coding style
 
-This adds missing LVDS clocks to APQ8064 display controller. The unused HDMI HPD
-gpio on ifc6410 is dropped (chip uses pinmuxed hpd function).
+Changes in v2:
+- Rename binding file name to match compatible
+- Add more description about grf/phy/extcon
+- Fix coding style
 
-Missing timer clocks are added to MSM8960 to address bindings warning.
+ .../display/rockchip/cdn-dp-rockchip.txt      |  74 --------
+ .../rockchip/rockchip,rk3399-cdn-dp.yaml      | 168 ++++++++++++++++++
+ 2 files changed, 168 insertions(+), 74 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
+ create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml
 
-----------------------------------------------------------------
-Dmitry Baryshkov (2):
-      ARM: dts: qcom: apq8064: link LVDS clocks
-      ARM: dts: qcom: apq8064-ifc6410: drop HDMI HPD GPIO
+diff --git a/Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt b/Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
+deleted file mode 100644
+index 8df7d2e393d6..000000000000
+--- a/Documentation/devicetree/bindings/display/rockchip/cdn-dp-rockchip.txt
++++ /dev/null
+@@ -1,74 +0,0 @@
+-Rockchip RK3399 specific extensions to the cdn Display Port
+-================================
+-
+-Required properties:
+-- compatible: must be "rockchip,rk3399-cdn-dp"
+-
+-- reg: physical base address of the controller and length
+-
+-- clocks: from common clock binding: handle to dp clock.
+-
+-- clock-names: from common clock binding:
+-	       Required elements: "core-clk" "pclk" "spdif" "grf"
+-
+-- resets : a list of phandle + reset specifier pairs
+-- reset-names : string of reset names
+-		Required elements: "apb", "core", "dptx", "spdif"
+-- power-domains : power-domain property defined with a phandle
+-		  to respective power domain.
+-- assigned-clocks: main clock, should be <&cru SCLK_DP_CORE>
+-- assigned-clock-rates : the DP core clk frequency, shall be: 100000000
+-
+-- rockchip,grf: this soc should set GRF regs, so need get grf here.
+-
+-- ports: contain a port nodes with endpoint definitions as defined in
+-	 Documentation/devicetree/bindings/media/video-interfaces.txt.
+-	 contained 2 endpoints, connecting to the output of vop.
+-
+-- phys: from general PHY binding: the phandle for the PHY device.
+-
+-- extcon: extcon specifier for the Power Delivery
+-
+-- #sound-dai-cells = it must be 1 if your system is using 2 DAIs: I2S, SPDIF
+-
+--------------------------------------------------------------------------------
+-
+-Example:
+-	cdn_dp: dp@fec00000 {
+-		compatible = "rockchip,rk3399-cdn-dp";
+-		reg = <0x0 0xfec00000 0x0 0x100000>;
+-		interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
+-		clocks = <&cru SCLK_DP_CORE>, <&cru PCLK_DP_CTRL>,
+-			 <&cru SCLK_SPDIF_REC_DPTX>, <&cru PCLK_VIO_GRF>;
+-		clock-names = "core-clk", "pclk", "spdif", "grf";
+-		assigned-clocks = <&cru SCLK_DP_CORE>;
+-		assigned-clock-rates = <100000000>;
+-		power-domains = <&power RK3399_PD_HDCP>;
+-		phys = <&tcphy0_dp>, <&tcphy1_dp>;
+-		resets = <&cru SRST_DPTX_SPDIF_REC>;
+-		reset-names = "spdif";
+-		extcon = <&fusb0>, <&fusb1>;
+-		rockchip,grf = <&grf>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		#sound-dai-cells = <1>;
+-
+-		ports {
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-
+-			dp_in: port {
+-				#address-cells = <1>;
+-				#size-cells = <0>;
+-				dp_in_vopb: endpoint@0 {
+-					reg = <0>;
+-					remote-endpoint = <&vopb_out_dp>;
+-				};
+-
+-				dp_in_vopl: endpoint@1 {
+-					reg = <1>;
+-					remote-endpoint = <&vopl_out_dp>;
+-				};
+-			};
+-		};
+-	};
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml
+new file mode 100644
+index 000000000000..5649e008f14a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3399-cdn-dp.yaml
+@@ -0,0 +1,168 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/rockchip/rockchip,rk3399-cdn-dp.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip RK3399 specific extensions to the CDN Display Port
++
++maintainers:
++  - Andy Yan <andy.yan@rock-chip.com>
++  - Heiko Stuebner <heiko@sntech.de>
++  - Sandy Huang <hjc@rock-chips.com>
++
++allOf:
++  - $ref: /schemas/sound/dai-common.yaml#
++
++properties:
++  compatible:
++    items:
++      - const: rockchip,rk3399-cdn-dp
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: DP core work clock
++      - description: APB clock
++      - description: SPDIF interface clock
++      - description: GRF clock
++
++  clock-names:
++    items:
++      - const: core-clk
++      - const: pclk
++      - const: spdif
++      - const: grf
++
++  extcon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    minItems: 1
++    items:
++      - description: Extcon device providing the cable state for DP PHY device 0
++      - description: Extcon device providing the cable state for DP PHY device 1
++    description:
++      List of phandle to the extcon device providing the cable state for the DP PHY.
++
++  interrupts:
++    maxItems: 1
++
++  phys:
++    minItems: 1
++    items:
++      - description: DP output to the DP PHY device 0
++      - description: DP output to the DP PHY deivce 1
++    description: |
++      List of phandle to the PHY device for DP output.
++      RK3399 have two DP-USB PHY, specifying one PHY which want to use,
++      or specify two PHYs here to let the driver determine which PHY to use.
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Input of the CDN DP
++        properties:
++          endpoint@0:
++            description: Connection to the VOPB
++          endpoint@1:
++            description: Connection to the VOPL
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Output of the CDN DP
++
++    required:
++      - port@0
++      - port@1
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    maxItems: 4
++
++  reset-names:
++    items:
++      - const: spdif
++      - const: dptx
++      - const: apb
++      - const: core
++
++  rockchip,grf:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to GRF register to control HPD.
++
++  "#sound-dai-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - phys
++  - ports
++  - resets
++  - reset-names
++  - rockchip,grf
++  - "#sound-dai-cells"
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rk3399-cru.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/power/rk3399-power.h>
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        dp@fec00000 {
++            compatible = "rockchip,rk3399-cdn-dp";
++            reg = <0x0 0xfec00000 0x0 0x100000>;
++            assigned-clocks = <&cru SCLK_DP_CORE>;
++            assigned-clock-rates = <100000000>;
++            interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
++            clocks = <&cru SCLK_DP_CORE>, <&cru PCLK_DP_CTRL>, <&cru SCLK_SPDIF_REC_DPTX>,
++                    <&cru PCLK_VIO_GRF>;
++            clock-names = "core-clk", "pclk", "spdif", "grf";
++            power-domains = <&power RK3399_PD_HDCP>;
++            phys = <&tcphy0_dp>, <&tcphy1_dp>;
++            resets = <&cru SRST_DPTX_SPDIF_REC>, <&cru SRST_P_UPHY0_DPTX>,
++                    <&cru SRST_P_UPHY0_APB>, <&cru SRST_DP_CORE>;
++            reset-names = "spdif", "dptx", "apb", "core";
++            rockchip,grf = <&grf>;
++            #sound-dai-cells = <1>;
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                dp_in: port@0 {
++                    reg = <0>;
++                    #address-cells = <1>;
++                    #size-cells = <0>;
++
++                    dp_in_vopb: endpoint@0 {
++                        reg = <0>;
++                        remote-endpoint = <&vopb_out_dp>;
++                    };
++
++                    dp_in_vopl: endpoint@1 {
++                        reg = <1>;
++                        remote-endpoint = <&vopl_out_dp>;
++                    };
++                };
++
++                dp_out: port@1 {
++                    reg = <1>;
++                };
++            };
++        };
++    };
+--
+2.49.0
 
-Rudraksha Gupta (1):
-      ARM: dts: qcom-msm8960: add missing clocks to the timer node
-
- arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts |  1 -
- arch/arm/boot/dts/qcom/qcom-apq8064.dtsi        | 16 ++++++++++++----
- arch/arm/boot/dts/qcom/qcom-msm8960.dtsi        |  2 ++
- 3 files changed, 14 insertions(+), 5 deletions(-)
 
