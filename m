@@ -4,95 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6126C54799
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 10:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4975C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 10:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8eV/b8y5mk2obyefKPJMTlOdN01tVjbRhdILiqDQGZo=; b=onmgbQ0J0YTMgTeGIEBj1m+FAW
-	LjuK/AClDQ0/yQ7trRMpcQk769LgIjcxK5PUDG1IVUJBLbY4VnFeKcWhdQlJU6cZbkNINzgXK3GBl
-	zeBinFGJj1DSn78kSnvaImBbM20U5GQZ3EkyAxcgygY1y1WUiR0S1P5Y4iKo/s3xo+APx3WUwcilm
-	f+AhwNsj90GOlFHTSrmTClMI1LVr4EB5gh1nwlDDgeDd3TgQjys/ulz1JwXOEikVEY3aoG5A5n7E1
-	XJ5dk4e4+Ujwor5TgQNAt0LVT2LwB8nF+F6/rRnf3BbdF1TNCpRr5oBXtwqBif6ZUbdXVvgQURJI6
-	uAgBmyBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+6U7XfvmslP7rfRDReTWwtMdL8W6VWEA8Gb7vUddPcE=; b=KzcVXkQFHbKVI6esrFyb74Pych
+	Mqj8JR2oexjbchQfCzT+q1WcuLwHusM/hBlc8ycXGzXH4JEJ9QXzL40bnF+c7TeW5HNbR+bgCNvgu
+	JUxwlpo2a8I5pt2E9NOyi4AzkZrl/2TPJU2C2n4q5bEzGY2teSccZAalvG19KErald6YuQPtS26UN
+	UcH9Ze2QjOhu68vqYjGIaMEmXYM8+O5U8Sm16n9ZOiDXP2KV0OcV7XwsWGr+Q+BFVTRKiN1nSJaCP
+	Qqa4osWyGpbzFhlaef6Ow9kfK4+0UkWLygF7Xa/lGZF59y8IOTX3zZ3+VcgV5G9n6PZpracAj4m7A
+	kpkgYRlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJt3-0000000CI3N-14vS;
-	Tue, 20 May 2025 10:07:53 +0000
-Received: from desiato.infradead.org ([90.155.92.199])
+	id 1uHJt7-0000000CI6K-09nw;
+	Tue, 20 May 2025 10:07:57 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHIin-0000000C58W-2AIY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 20 May 2025 08:53:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=8eV/b8y5mk2obyefKPJMTlOdN01tVjbRhdILiqDQGZo=; b=Yw02emzRag4bHfQux3XNYSvtD4
-	wHjNrixzU4izNVZFCUrRhqL1RfXMtosMxPKVBAcDB2Zq5Qb0gXm1JB1k28r0ryazgplO3H6Jqyg/9
-	11iAH42bqW0Kz1lr8XIF+fkmu9nOJiVUQca5W/qMWKH4FfD0xOqL9CfqT6jaWvATk+oUmamCyHlDV
-	x4gaWOvjl/SWNxCZs01qpf9DW8CmCbvpImCKh05mGQWsqdSA+ATJ0oCbm+tOXJ7Y1abt6PgOxZudx
-	vH78xAL0YEv/IzMgOgqoeE7U5l7bVMIpdfLJnYeSyKuRP/KESnhMt6/wpbKUA2NOMnp7cOaILlezc
-	3ceRgGSQ==;
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uHIii-00000000joY-1LYa
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 08:53:11 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43cf172ffe1so40584515e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 01:53:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747731185; x=1748335985; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8eV/b8y5mk2obyefKPJMTlOdN01tVjbRhdILiqDQGZo=;
-        b=b0PYlJtQ7YCQ+oZf9wVJdNM/ibh/0CZ8gflHSItD/epaRm93IpsTz2B0NQ6Qu2UfBA
-         KCP3pW1HbAiy1MBSeoz10bdPEqx0pPnZ9+Gx0eiZQFTwCvmzZPfcLLo5wVpYKjQVtEcu
-         eUW1egWMnj6l6xFAvSrfszaYkaD0ail33qLOeUxlOv7xC/L63VD0VvxuMuXX1ypJlAG0
-         hB4rT5Unh+SSQ8SZ8Kkw+OHiKb+cJ9/OYcDorEh2r9+BDfOsvSBADsCXKtYVjiMEClsZ
-         VgUVjWazfmHvcJDYVK6/jcunJ92JNTFDax1uEJ01rbxcU70ga4eLyy6ZWYo4Ff4aRJm4
-         wh5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747731185; x=1748335985;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8eV/b8y5mk2obyefKPJMTlOdN01tVjbRhdILiqDQGZo=;
-        b=Kyp8O7hC7WYdcP/Ge8+mhyepxLSnuulLBHycaQaZmyUtxLkx44ojEE53zU8dnD5giP
-         MiSIZxDPmOYEZh7A+KyJ88xIL3Cn1z4HOOBn4uZLLfCMVb+7rN6LeN8Wd3OtQlrwdzQ1
-         ga6MdmCzl1sjYwiSAqOKEOq+HMO1YIfEqQJpYzQ6svKoTS15+gzUETasKZChC5XT1OeL
-         XitJF41iijxdVnx0XSHCACKa2PDQMhfOesHfVT4/93kHejzj9v66jvxf4zkMiFx6xTk3
-         ut2zVCar8d4ci4xjALWTemrRFjPYsCEUYdNCdEoNDFqOPgFPgYHrK8n7ZXXvXoxHVU5x
-         CChg==
-X-Forwarded-Encrypted: i=1; AJvYcCWTaNX1wPDHnszk4TlgSsG5FHyj0GYTmgaXSqhJjJXMJJO/Ujhk6h/c0c2tTgA5+nApEpm5lp3Pinz+D+wyk4OW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqzqreD3fI+CbLhXckXPdQ0bHMg+LmF4MdhVI+dGA+DcHnCrj3
-	C2KzcO8eXrJUf7I3RVL94BDuEO/0YV+7MZKtcNE95d+DqeQHFqaE4SxKKxEvFPY58LIuuH2Sr/h
-	1w4eDC1A1oYghwxfW7pJ7vw==
-X-Google-Smtp-Source: AGHT+IGNQClPtb39kNDrZ/LoRUA+zgeQ/ywPgjx7YyU7q28JnkGlV8/zAlfQAZoYxyadZaqXQgpd/gTa3iD3bses
-X-Received: from wmrn15.prod.google.com ([2002:a05:600c:500f:b0:442:ea0c:c453])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:548d:b0:439:9424:1b70 with SMTP id 5b1f17b1804b1-442ff03c228mr142671705e9.30.1747731185777;
- Tue, 20 May 2025 01:53:05 -0700 (PDT)
-Date: Tue, 20 May 2025 09:51:54 +0100
-In-Reply-To: <20250520085201.3059786-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20250520085201.3059786-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.49.0.1143.g0be31eac6b-goog
-Message-ID: <20250520085201.3059786-4-vdonnefort@google.com>
-Subject: [PATCH v5 03/10] KVM: arm64: Add a range to __pkvm_host_share_guest()
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1uHJTM-0000000CE5y-3LO9;
+	Tue, 20 May 2025 09:41:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F4OCwbeU3lKL3CHCixOf02uj5zgITddVZa9DW50+29oajNwHfauV2y/caaTgSDceF9xZZxuc1hoY7TXXWxPNrNAPbnWCzXsYe81Tr+EdpPTGFrGM3AoGhDw/q5YXwzretWEWxrNltaXvHbK+XnaQaXCTTxJoL0GbteD9WJYVk0MlfD+rk2cvBav9g9zw6KpF2Kmv2WMuH1BgpJZyxfaJErgSt02jxjpWY4B2AZsJ0ZYM1z3bvjmwguYf8UCbhiWff2Fmtuxq9XvE5UGq1pIlID1xV1jT0OlmDXN/xD179EGIFw0GhvGU865z2s+qLzS8czKU5fNt+e4eqCuIE91JWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+6U7XfvmslP7rfRDReTWwtMdL8W6VWEA8Gb7vUddPcE=;
+ b=l8dROi5gxP2d2TSQ1NgINKkFwqfkxHxN4KR+3DioYINArfrbwl1VPEucDMjK1zwylTApyUQuUlx3ScDYUxUaKOfLsUFmlBXRhA9d4OFtfu+UbidiWPEjer6kZx7rmtufjQZmhIJV98igr/ucxV8+vESI3LUrGYHfJJ6cfTvI62ZpZeJBQe/UGlfoJpX1E1pjM3nyV0rotqrW6OnjXUlwUTF3Sj3MGuAvHcTTxf1q00Bp+W7TtMYEpMerHR9uGRpJTsVi1g+Mdb0mTx5l9huXQ0ampHhL/PiXYsn1WmlMb0eHWRcPoyX4sZ9N7uAb4jfhHYAwjsIQDdg/60TUYpbIWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+6U7XfvmslP7rfRDReTWwtMdL8W6VWEA8Gb7vUddPcE=;
+ b=DgqFhN4Zu3/KZtE/tNveUXPjvLlV1LBcivLkRPG9y11ad3O+5asbeSOXWnJmccg/XJq39ZSLNKiEMEHz6Z1JrOJfWZFRuozuH/tk2Bu6t81fbxNdEllkcApcfB/seXBlaZV0+zjaRJxMHqcJ/a45C7mMPjUhuPycnCoYBXKBRFT6lRv+9wUcWRmHNNLflPVZJKI5tpPB8WFGAcp7VVKmhaI96EsIH05mmjGcyG5MVq66vHAwfhBlAtCjnHDs4J68W3EoIKk/plvTkvMFCd2T9oVREJMEgJCJylNIjJZPx+TF46/B7zQazfrktO6IoUzG9nGHJIQyaxSnRI9bGLAPOQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from KL1PR06MB6273.apcprd06.prod.outlook.com (2603:1096:820:ec::10)
+ by TYZPR06MB5507.apcprd06.prod.outlook.com (2603:1096:400:289::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Tue, 20 May
+ 2025 09:41:04 +0000
+Received: from KL1PR06MB6273.apcprd06.prod.outlook.com
+ ([fe80::9d21:d819:94e4:d09]) by KL1PR06MB6273.apcprd06.prod.outlook.com
+ ([fe80::9d21:d819:94e4:d09%7]) with mapi id 15.20.8746.030; Tue, 20 May 2025
+ 09:41:03 +0000
+From: Huan Tang <tanghuan@vivo.com>
+To: alim.akhtar@samsung.com,
+	avri.altman@wdc.com,
+	bvanassche@acm.org,
+	James.Bottomley@HansenPartnership.com,
+	martin.petersen@oracle.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	peter.wang@mediatek.com,
+	manivannan.sadhasivam@linaro.org,
+	quic_nguyenb@quicinc.com,
+	luhongfei@vivo.com,
+	tanghuan@vivo.com,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: opensource.kernel@vivo.com,
+	Wenxing Cheng <wenxing.cheng@vivo.com>
+Subject: [PATCH v5] ufs: core: Add HID support
+Date: Tue, 20 May 2025 17:40:54 +0800
+Message-Id: <20250520094054.313-1-tanghuan@vivo.com>
+X-Mailer: git-send-email 2.25.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0043.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::12) To KL1PR06MB6273.apcprd06.prod.outlook.com
+ (2603:1096:820:ec::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR06MB6273:EE_|TYZPR06MB5507:EE_
+X-MS-Office365-Filtering-Correlation-Id: c45359c9-9c0d-4c31-aff5-08dd97826fd7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?V0C6PuLvJGk8SY4pxZKYlN+/bxG4qq07z0po3X9RuXlOIEs/0fkB7/kqKTcy?=
+ =?us-ascii?Q?3fZ+UHGhMGjZ44OeuqqR9xpGhIvDlLKA0tGX9kMYaZ+mPXWosfJGYqx/kfKi?=
+ =?us-ascii?Q?egfgzBwozYuAsx8/9N96Q9nj7z4l5DBur26hOlF73Gp9AGnXcF4UeqJ53na8?=
+ =?us-ascii?Q?t2rkQ0IV2BY8gPUSoIfKV61Bd9KdkGs+ifh4SDEzUPSfbpEyxZIITiYErqzZ?=
+ =?us-ascii?Q?lzzdE1OhIIpozDVoNcO2pby/FZkk074T3HLauqJvSgeXrgFnPD7NjeFdB6zG?=
+ =?us-ascii?Q?X1OWIvJO1PUALK/WLw48JNtgFoNIzIAa7po5pifYLWNTchmF9yEKG5gEnb7Y?=
+ =?us-ascii?Q?GvwxpTvtJBspLPVl4FY7Y7xs1h4OCzDCQq2QPG04N9Wbc/mJxNSSLWx9Kvsg?=
+ =?us-ascii?Q?H8Un9yGLemFUCZjSklBvBd+uzZdYBBnbetpzFuva/M0/NGdUVx4++K33ctq6?=
+ =?us-ascii?Q?hOi0Fi8KK4dsOXvJRvOdPUhcoNzh8E6owjl585GTnSJcMY+zcTBI0AMRVX7M?=
+ =?us-ascii?Q?V8L4jXpvAlKzkC40DiMjdHAPLvuXuGzoStAwhIp7dRnbJL9s3QL7fVXDMklc?=
+ =?us-ascii?Q?rGFjC+8ryhWmdZ+D9weobos37JhtWMsePcuhTXLKvk1iiE1X32/gy5YD12Eg?=
+ =?us-ascii?Q?+/cL3UATl1u+ERjxU9hvV3kMr8Z8Dg+utFIcsxal61+cbtnpDPLyMhRqaGzG?=
+ =?us-ascii?Q?ihVYO+0Ri1IAnlYQSF3vCH7nBDWG5TrszQUJ/GxFeB90kSwaUNCx1N2QGfzp?=
+ =?us-ascii?Q?yPpcD72eOPRQ+cpVNYvqcn5hf8ZhKhRcRmRaW5OmR0bhRKLPQnGYjkd0vrPA?=
+ =?us-ascii?Q?pzVxQgelJQXiYaFYDy5cDl6wJFPfr5+j1ekTOZq4OQOeXhaBSMS6CRQMZKRw?=
+ =?us-ascii?Q?mppwAPJ1OvMFduNZ/HGxv0GPN4B3MPUD9FPxCFYmOW8F79sqfNnqP/ETxoBT?=
+ =?us-ascii?Q?bFi8/l4RCW0ew9WrAuRmaaufF2sqe/N9G+Y6e3HD3FgeRctCWb3HASO4WYsk?=
+ =?us-ascii?Q?S+n8cCOJadlcPEAJZfb3nv0AqC6mSY85SKiHNWHNQXiM4JstdqHEY5Pn1HKv?=
+ =?us-ascii?Q?BO5Xevo4l7N3ICV4a3TVleTFPLiTcZFbG0FGp8egu8l8ReYyoD+qHz35rKNx?=
+ =?us-ascii?Q?dDeUwQxF/FgNaCv3nyXaaaiEYSbQXOzS5KNK1kxXjVQUGdes140/0QKiYXCv?=
+ =?us-ascii?Q?lCmvcQfJD+TSzaOH5pJAb9Spp6DBY86xhWq1Xme0DcTjeCNefGf6dhbSy50u?=
+ =?us-ascii?Q?IXR1LWTHxcmb2vtNOeaEgwpfKoW0PipTJLrwMUX9sGSHvRlxHzYFQ7uqwfIC?=
+ =?us-ascii?Q?KwQSVAJwRxVXP/6dVrMp/pACLCOG2kBGQJ+S9YOxgcItW0kCKLQNZ5WuJDXO?=
+ =?us-ascii?Q?zTyPoFqizLyweCqzcOn+V/HjKxc0nEkU4oJFu/eyMRkgFYJimSNIeVDM/JGl?=
+ =?us-ascii?Q?+4+0kDofg05cFjFJB9wWE/TAlIv3LvTLF2uRSAgT1lXuTj7tTE3l+X6Pxi42?=
+ =?us-ascii?Q?pyqwBppE5EM6wf8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR06MB6273.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WHtUI4s1x2DT/INLkOy2l7P5WvK3qQ0MVTazkiT62Xey0jH1Itc9gvcpw0g6?=
+ =?us-ascii?Q?6459t9RroS40+Z/WuRm5S5HYHJHfniu8Uv3MhYyCpunxhPfZuIX/u6aE//rx?=
+ =?us-ascii?Q?i//XJrltNzOukZXEOnoCH/VDbvwmS5KcumSof/4VUKqPYTuZHoEfJ8kNaMG7?=
+ =?us-ascii?Q?7DEyrQpuheudJuOSvTm/I/mwfvTXnhVbo9AzqWzYlMkaGB7NFubUJ7eDfsW6?=
+ =?us-ascii?Q?g/P0buA4aB7kjKZRoqOgxMw6gq4F0w3HTH9ANfKWb8iWrZRWC2tZ1TZr+U6x?=
+ =?us-ascii?Q?6FhHUWI2DusWHEPJdYKMGuQDDoGhos0uB/3YYDQomeOGMxVpR8ODzfclLpTJ?=
+ =?us-ascii?Q?KHoofeBVQhDIAXOLpVss00asK1BjEiklVWJ9gDoqhtP2T+9crFlD/zNDGvFS?=
+ =?us-ascii?Q?UBtdC0AtMIfQIxXVvglapobfCNk1PxkL/uvCKvXdhcYxUcREAy7Ne6c16+P5?=
+ =?us-ascii?Q?I+okDzhN+HDO1qUD6N1QZxTm5/LekYNo9dxDEysdOGSuTeNGRu9ki0I2yC1/?=
+ =?us-ascii?Q?7+4svjgMt1VxXv+P3Mt9GuXNFR3k6vmcnhHTLxQTt94s5pHMiJxBp3qYaAPi?=
+ =?us-ascii?Q?yzuhJiD+2wnueGXN3K82OBVwCEkvnMf1lstO2QXIl+twEcZtH9pcdyq3qhjf?=
+ =?us-ascii?Q?o+OHvzYPuire7hjOlwnFk0qfnXHX4Dz0miIFgyupDQi9E6tk+3HxGvMUH3rP?=
+ =?us-ascii?Q?RWonkgC8hZmsn3Aw42nvWhtBVseMDLZxxISyXdDowYHKaqtxGE/hO280kU0W?=
+ =?us-ascii?Q?XsLO4YeohW95d1JXEEy6pyTmfnZ+nFFzGTvfXTwcNzvFkf3T8rGe9yMfBnK2?=
+ =?us-ascii?Q?S7rAA4JOSJT4JW62Zi13Flcj3xXWPaDy9PnL1rlWKcgYGIi12LTS79bKIZLF?=
+ =?us-ascii?Q?RFqlF/UX/1ai4sr12iy0N9Jhx7x6y1Wp+fI9xGRZsjJlCZz16UTpCW4+HrmX?=
+ =?us-ascii?Q?5xwI010GlPOG3yD8RAINqojVe8gGd7ncQu6aawEPDffHSZru+q1H/d6aymLe?=
+ =?us-ascii?Q?3upyU4oKPYCSjBIaReBhpKybRQm1ofQKH0xHM+h2rhF14hdhHPJkm8KMyzDK?=
+ =?us-ascii?Q?WJyZoZ9kDcYiXMcQ4Vhit0sTMICR6OUuiM0LPhP1K0nZvnVbWwXtzskvNLdv?=
+ =?us-ascii?Q?rUfO2/V9iwc80LamnWlY5z65n6Yz16Tt8evKNATqE5i2GJHDMNs2XuugOO6x?=
+ =?us-ascii?Q?HHOR/5lEAs4zznFHkra1Wb/ujOpZQsUjnKv3CtbetS8uKwn3UGr2FGQzOfE7?=
+ =?us-ascii?Q?o7r7F1+lA/qo2Ovyd5E6s1jKquRWFCdjtMCvHOweSCWsZmPz4KGGe2fjOLWq?=
+ =?us-ascii?Q?wwqtaeDn4H0efHulGcaK+zeXiYLuV4hAB4oC41Ydhc75K1HWvX0Xbjgejpte?=
+ =?us-ascii?Q?EQ2tUeSfZHJxt3ZcIIfSV1BGlV0zFqSCqEuS9Jg2wJUKKlYOCvkw3kHixHaJ?=
+ =?us-ascii?Q?2x1/CRfOdJLy1fbUD704Te64aBwD8qEPZzTddDb0I4SsbdtlD98mfgqXMZSv?=
+ =?us-ascii?Q?bCnI4J7g7VC2Y5+8CBaHLJnrsyRbM1FwbqCZfSeTdsfrr610DN6/tkrARZP+?=
+ =?us-ascii?Q?TpKMbhPeTCim0od+PremsxVtHDeJEamZT2UyS4Ru?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c45359c9-9c0d-4c31-aff5-08dd97826fd7
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR06MB6273.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2025 09:41:03.7061
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XOQAM5kIojbaWLhto2gVMy4BfsRywsD6l1M/4yvBc9ljK/3OBODD5IEgI6Pi4Ag5vXKPJ/r69/SxgdnsOtcosQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5507
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_095308_977776_67BB8B5E 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20250520_024120_946586_454B9D4E 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,248 +169,435 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for supporting stage-2 huge mappings for np-guest. Add a
-nr_pages argument to the __pkvm_host_share_guest hypercall. This range
-supports only two values: 1 or PMD_SIZE / PAGE_SIZE (that is 512 on a
-4K-pages system).
+Follow JESD220G, support HID(Host Initiated Defragmentation)
+through sysfs, the relevant sysfs nodes are as follows:
+	1.analysis_trigger
+	2.defrag_trigger
+	3.fragmented_size
+	4.defrag_size
+	5.progress_ratio
+	6.state
+The detailed definition	of the six nodes can be	found in the sysfs
+documentation.
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+HID's execution policy is given to user-space.
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 26016eb9323f..47aa7b01114f 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -39,7 +39,7 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
- int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
- int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
--int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
-+int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu *vcpu,
- 			    enum kvm_pgtable_prot prot);
- int __pkvm_host_unshare_guest(u64 gfn, struct pkvm_hyp_vm *hyp_vm);
- int __pkvm_host_relax_perms_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu, enum kvm_pgtable_prot prot);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 59db9606e6e1..4d3d215955c3 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -245,7 +245,8 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
- {
- 	DECLARE_REG(u64, pfn, host_ctxt, 1);
- 	DECLARE_REG(u64, gfn, host_ctxt, 2);
--	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 3);
-+	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
-+	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 4);
- 	struct pkvm_hyp_vcpu *hyp_vcpu;
- 	int ret = -EINVAL;
+Signed-off-by: Huan Tang <tanghuan@vivo.com>
+Signed-off-by: Wenxing Cheng <wenxing.cheng@vivo.com>
+---
+Changelog
+===
+v4 - > v5:
+	1.Fixed a typo in "indicates"
+	2."DEFRAG_IS_NOT_REQUIRED" -> "DEFRAG_NOT_REQUIRED"
+	3.Fix some coding style issues
+v3 - > v4:
+	1.Move the changelog description under "---"
+v2 - > v3:
+	1.Remove the "ufs_" prefix from directory name
+	2.Remove the "hid_" prefix from node names
+	3.Make "ufs" appear only once in the HID group name
+	4.Add "is_visible" callback for "ufs_sysfs_hid_group"
+v1 - > v2:
+	1.Refactor the HID code according to Bart and Peter and
+	Arvi's suggestions
+
+v4
+	https://lore.kernel.org/all/20250520063512.213-1-tanghuan@vivo.com/
+v3
+	https://lore.kernel.org/all/20250519022912.292-1-tanghuan@vivo.com/
+v2
+	https://lore.kernel.org/all/20250512131519.138-1-tanghuan@vivo.com/
+v1
+	https://lore.kernel.org/all/20250417125008.123-1-tanghuan@vivo.com/
+
+ Documentation/ABI/testing/sysfs-driver-ufs |  83 +++++++++
+ drivers/ufs/core/ufs-sysfs.c               | 192 +++++++++++++++++++++
+ drivers/ufs/core/ufshcd.c                  |   4 +
+ include/ufs/ufs.h                          |  25 +++
+ 4 files changed, 304 insertions(+)
+
+diff --git a/Documentation/ABI/testing/sysfs-driver-ufs b/Documentation/ABI/testing/sysfs-driver-ufs
+index d4140dc6c5ba..f3de8c521bbd 100644
+--- a/Documentation/ABI/testing/sysfs-driver-ufs
++++ b/Documentation/ABI/testing/sysfs-driver-ufs
+@@ -1685,3 +1685,86 @@ Description:
+ 		================  ========================================
  
-@@ -260,7 +261,7 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
- 	if (ret)
- 		goto out;
- 
--	ret = __pkvm_host_share_guest(pfn, gfn, hyp_vcpu, prot);
-+	ret = __pkvm_host_share_guest(pfn, gfn, nr_pages, hyp_vcpu, prot);
- out:
- 	cpu_reg(host_ctxt, 1) =  ret;
- }
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 1018a6f66359..8e0847aa090d 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -695,10 +695,9 @@ static enum pkvm_page_state guest_get_page_state(kvm_pte_t pte, u64 addr)
- 	return pkvm_getstate(kvm_pgtable_stage2_pte_prot(pte));
- }
- 
--static int __guest_check_page_state_range(struct pkvm_hyp_vcpu *vcpu, u64 addr,
-+static int __guest_check_page_state_range(struct pkvm_hyp_vm *vm, u64 addr,
- 					  u64 size, enum pkvm_page_state state)
- {
--	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
- 	struct check_walk_data d = {
- 		.desired	= state,
- 		.get_page_state	= guest_get_page_state,
-@@ -907,48 +906,72 @@ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages)
- 	return ret;
- }
- 
--int __pkvm_host_share_guest(u64 pfn, u64 gfn, struct pkvm_hyp_vcpu *vcpu,
-+static int __guest_check_transition_size(u64 phys, u64 ipa, u64 nr_pages, u64 *size)
-+{
-+	if (nr_pages == 1) {
-+		*size = PAGE_SIZE;
-+		return 0;
-+	}
+ 		The file is read only.
 +
-+	return -EINVAL;
++What:		/sys/bus/platform/drivers/ufshcd/*/hid/analysis_trigger
++What:		/sys/bus/platform/devices/*.ufs/hid/analysis_trigger
++Date:		May 2025
++Contact:	Huan Tang <tanghuan@vivo.com>
++Description:
++		The host can enable or disable HID analysis operation.
++
++		=======  =========================================
++		disable   disable HID analysis operation
++		enable    enable HID analysis operation
++		=======  =========================================
++
++		The file is write only.
++
++What:		/sys/bus/platform/drivers/ufshcd/*/hid/defrag_trigger
++What:		/sys/bus/platform/devices/*.ufs/hid/defrag_trigger
++Date:		May 2025
++Contact:	Huan Tang <tanghuan@vivo.com>
++Description:
++		The host can enable or disable HID defragmentation operation.
++
++		=======  =========================================
++		disable   disable HID defragmentation operation
++		enable    enable HID defragmentation operation
++		=======  =========================================
++
++		The attribute is write only.
++
++What:		/sys/bus/platform/drivers/ufshcd/*/hid/fragmented_size
++What:		/sys/bus/platform/devices/*.ufs/hid/fragmented_size
++Date:		May 2025
++Contact:	Huan Tang <tanghuan@vivo.com>
++Description:
++		The total fragmented size in the device is reported through
++		this attribute.
++
++		The attribute is read only.
++
++What:		/sys/bus/platform/drivers/ufshcd/*/hid/defrag_size
++What:		/sys/bus/platform/devices/*.ufs/hid/defrag_size
++Date:		May 2025
++Contact:	Huan Tang <tanghuan@vivo.com>
++Description:
++		The host sets the size to be defragmented by an HID
++		defragmentation operation.
++
++		The attribute is read/write.
++
++What:		/sys/bus/platform/drivers/ufshcd/*/hid/progress_ratio
++What:		/sys/bus/platform/devices/*.ufs/hid/progress_ratio
++Date:		May 2025
++Contact:	Huan Tang <tanghuan@vivo.com>
++Description:
++		Defragmentation progress is reported by this attribute,
++		indicates the ratio of the completed defragmentation size
++		over the requested defragmentation size.
++
++		====  ============================================
++		1     1%
++		...
++		100   100%
++		====  ============================================
++
++		The attribute is read only.
++
++What:		/sys/bus/platform/drivers/ufshcd/*/hid/state
++What:		/sys/bus/platform/devices/*.ufs/hid/state
++Date:		May 2025
++Contact:	Huan Tang <tanghuan@vivo.com>
++Description:
++		The HID state is reported by this attribute.
++
++		====================   ===========================
++		idle			Idle (analysis required)
++		analysis_in_progress    Analysis in progress
++		defrag_required      	Defrag required
++		defrag_in_progress      Defrag in progress
++		defrag_completed      	Defrag completed
++		defrag_not_required     Defrag is not required
++		====================   ===========================
++
++		The attribute is read only.
+diff --git a/drivers/ufs/core/ufs-sysfs.c b/drivers/ufs/core/ufs-sysfs.c
+index de8b6acd4058..978374b12931 100644
+--- a/drivers/ufs/core/ufs-sysfs.c
++++ b/drivers/ufs/core/ufs-sysfs.c
+@@ -87,6 +87,26 @@ static const char *ufs_wb_resize_status_to_string(enum wb_resize_status status)
+ 	}
+ }
+ 
++static const char *ufs_hid_state_to_string(enum ufs_hid_state state)
++{
++	switch (state) {
++	case HID_IDLE:
++		return "idle";
++	case ANALYSIS_IN_PROGRESS:
++		return "analysis_in_progress";
++	case DEFRAG_REQUIRED:
++		return "defrag_required";
++	case DEFRAG_IN_PROGRESS:
++		return "defrag_in_progress";
++	case DEFRAG_COMPLETED:
++		return "defrag_completed";
++	case DEFRAG_NOT_REQUIRED:
++		return "defrag_not_required";
++	default:
++		return "unknown";
++	}
 +}
 +
-+int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu *vcpu,
- 			    enum kvm_pgtable_prot prot)
+ static const char *ufshcd_uic_link_state_to_string(
+ 			enum uic_link_state state)
  {
- 	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
- 	u64 phys = hyp_pfn_to_phys(pfn);
- 	u64 ipa = hyp_pfn_to_phys(gfn);
--	struct hyp_page *page;
-+	u64 size;
- 	int ret;
+@@ -1763,6 +1783,177 @@ static const struct attribute_group ufs_sysfs_attributes_group = {
+ 	.attrs = ufs_sysfs_attributes,
+ };
  
- 	if (prot & ~KVM_PGTABLE_PROT_RWX)
- 		return -EINVAL;
- 
--	ret = check_range_allowed_memory(phys, phys + PAGE_SIZE);
-+	ret = __guest_check_transition_size(phys, ipa, nr_pages, &size);
++static int hid_query_attr(struct ufs_hba *hba, enum query_opcode opcode,
++			enum attr_idn idn, u32 *attr_val)
++{
++	int ret;
++
++	down(&hba->host_sem);
++	if (!ufshcd_is_user_access_allowed(hba)) {
++		up(&hba->host_sem);
++		return -EBUSY;
++	}
++
++	ufshcd_rpm_get_sync(hba);
++	ret = ufshcd_query_attr(hba, opcode, idn, 0, 0, attr_val);
++	ufshcd_rpm_put_sync(hba);
++
++	up(&hba->host_sem);
++	return ret;
++}
++
++static const char * const hid_trigger_mode[] = {"disable", "enable"};
++
++static ssize_t analysis_trigger_store(struct device *dev,
++		struct device_attribute *attr, const char *buf, size_t count)
++{
++	struct ufs_hba *hba = dev_get_drvdata(dev);
++	int mode;
++	int ret;
++
++	mode = sysfs_match_string(hid_trigger_mode, buf);
++	if (mode < 0)
++		return -EINVAL;
++
++	ret = hid_query_attr(hba, UPIU_QUERY_OPCODE_WRITE_ATTR,
++			QUERY_ATTR_IDN_HID_DEFRAG_OPERATION, &mode);
++
++	return ret < 0 ? ret : count;
++}
++
++static DEVICE_ATTR_WO(analysis_trigger);
++
++static ssize_t defrag_trigger_store(struct device *dev,
++		struct device_attribute *attr, const char *buf, size_t count)
++{
++	struct ufs_hba *hba = dev_get_drvdata(dev);
++	int mode;
++	int ret;
++
++	mode = sysfs_match_string(hid_trigger_mode, buf);
++	if (mode < 0)
++		return -EINVAL;
++
++	if (mode)
++		mode = HID_ANALYSIS_AND_DEFRAG_ENABLE;
++
++	ret = hid_query_attr(hba, UPIU_QUERY_OPCODE_WRITE_ATTR,
++			QUERY_ATTR_IDN_HID_DEFRAG_OPERATION, &mode);
++
++	return ret < 0 ? ret : count;
++}
++
++static DEVICE_ATTR_WO(defrag_trigger);
++
++static ssize_t fragmented_size_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++	struct ufs_hba *hba = dev_get_drvdata(dev);
++	u32 value;
++	int ret;
++
++	ret = hid_query_attr(hba, UPIU_QUERY_OPCODE_READ_ATTR,
++			QUERY_ATTR_IDN_HID_AVAILABLE_SIZE, &value);
 +	if (ret)
 +		return ret;
 +
-+	ret = check_range_allowed_memory(phys, phys + size);
- 	if (ret)
- 		return ret;
- 
- 	host_lock_component();
- 	guest_lock_component(vm);
- 
--	ret = __guest_check_page_state_range(vcpu, ipa, PAGE_SIZE, PKVM_NOPAGE);
-+	ret = __guest_check_page_state_range(vm, ipa, size, PKVM_NOPAGE);
- 	if (ret)
- 		goto unlock;
- 
--	page = hyp_phys_to_page(phys);
--	switch (get_host_state(page)) {
--	case PKVM_PAGE_OWNED:
--		WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_OWNED));
--		break;
--	case PKVM_PAGE_SHARED_OWNED:
--		if (page->host_share_guest_count)
--			break;
--		/* Only host to np-guest multi-sharing is tolerated */
--		fallthrough;
--	default:
--		ret = -EPERM;
--		goto unlock;
-+	for_each_hyp_page(page, phys, size) {
-+		switch (get_host_state(page)) {
-+		case PKVM_PAGE_OWNED:
-+			continue;
-+		case PKVM_PAGE_SHARED_OWNED:
-+			if (page->host_share_guest_count == U32_MAX) {
-+				ret = -EBUSY;
-+				goto unlock;
-+			}
++	return sysfs_emit(buf, "%u\n", value);
++}
 +
-+			/* Only host to np-guest multi-sharing is tolerated */
-+			if (page->host_share_guest_count)
-+				continue;
++static DEVICE_ATTR_RO(fragmented_size);
 +
-+			fallthrough;
-+		default:
-+			ret = -EPERM;
-+			goto unlock;
-+		}
- 	}
- 
--	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
-+	for_each_hyp_page(page, phys, size) {
-+		set_host_state(page, PKVM_PAGE_SHARED_OWNED);
-+		page->host_share_guest_count++;
-+	}
++static ssize_t defrag_size_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++	struct ufs_hba *hba = dev_get_drvdata(dev);
++	u32 value;
++	int ret;
 +
-+	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, size, phys,
- 				       pkvm_mkstate(prot, PKVM_PAGE_SHARED_BORROWED),
- 				       &vcpu->vcpu.arch.pkvm_memcache, 0));
--	page->host_share_guest_count++;
- 
- unlock:
- 	guest_unlock_component(vm);
-@@ -1169,6 +1192,9 @@ static void assert_page_state(void)
- 	struct pkvm_hyp_vcpu *vcpu = &selftest_vcpu;
- 	u64 phys = hyp_virt_to_phys(virt);
- 	u64 ipa[2] = { selftest_ipa(), selftest_ipa() + PAGE_SIZE };
-+	struct pkvm_hyp_vm *vm;
++	ret = hid_query_attr(hba, UPIU_QUERY_OPCODE_READ_ATTR,
++			QUERY_ATTR_IDN_HID_SIZE, &value);
++	if (ret)
++		return ret;
 +
-+	vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
++	return sysfs_emit(buf, "%u\n", value);
++}
++
++static ssize_t defrag_size_store(struct device *dev,
++		struct device_attribute *attr, const char *buf, size_t count)
++{
++	struct ufs_hba *hba = dev_get_drvdata(dev);
++	u32 value;
++	int ret;
++
++	if (kstrtou32(buf, 0, &value))
++		return -EINVAL;
++
++	ret = hid_query_attr(hba, UPIU_QUERY_OPCODE_WRITE_ATTR,
++			QUERY_ATTR_IDN_HID_SIZE, &value);
++
++	return ret < 0 ? ret : count;
++}
++
++static DEVICE_ATTR_RW(defrag_size);
++
++static ssize_t progress_ratio_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++	struct ufs_hba *hba = dev_get_drvdata(dev);
++	u32 value;
++	int ret;
++
++	ret = hid_query_attr(hba, UPIU_QUERY_OPCODE_READ_ATTR,
++			QUERY_ATTR_IDN_HID_PROGRESS_RATIO, &value);
++	if (ret)
++		return ret;
++
++	return sysfs_emit(buf, "%u\n", value);
++}
++
++static DEVICE_ATTR_RO(progress_ratio);
++
++static ssize_t state_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++	struct ufs_hba *hba = dev_get_drvdata(dev);
++	u32 value;
++	int ret;
++
++	ret = hid_query_attr(hba, UPIU_QUERY_OPCODE_READ_ATTR,
++			QUERY_ATTR_IDN_HID_STATE, &value);
++	if (ret)
++		return ret;
++
++	return sysfs_emit(buf, "%s\n", ufs_hid_state_to_string(value));
++}
++
++static DEVICE_ATTR_RO(state);
++
++static struct attribute *ufs_sysfs_hid[] = {
++	&dev_attr_analysis_trigger.attr,
++	&dev_attr_defrag_trigger.attr,
++	&dev_attr_fragmented_size.attr,
++	&dev_attr_defrag_size.attr,
++	&dev_attr_progress_ratio.attr,
++	&dev_attr_state.attr,
++	NULL,
++};
++
++static umode_t ufs_sysfs_hid_is_visible(struct kobject *kobj,
++		struct attribute *attr, int n)
++{
++	struct device *dev = container_of(kobj, struct device, kobj);
++	struct ufs_hba *hba = dev_get_drvdata(dev);
++
++	return	hba->dev_info.hid_sup ? attr->mode : 0;
++}
++
++static const struct attribute_group ufs_sysfs_hid_group = {
++	.name = "hid",
++	.attrs = ufs_sysfs_hid,
++	.is_visible = ufs_sysfs_hid_is_visible,
++};
++
+ static const struct attribute_group *ufs_sysfs_groups[] = {
+ 	&ufs_sysfs_default_group,
+ 	&ufs_sysfs_capabilities_group,
+@@ -1777,6 +1968,7 @@ static const struct attribute_group *ufs_sysfs_groups[] = {
+ 	&ufs_sysfs_string_descriptors_group,
+ 	&ufs_sysfs_flags_group,
+ 	&ufs_sysfs_attributes_group,
++	&ufs_sysfs_hid_group,
+ 	NULL,
+ };
  
- 	host_lock_component();
- 	WARN_ON(__host_check_page_state_range(phys, size, selftest_state.host));
-@@ -1179,8 +1205,8 @@ static void assert_page_state(void)
- 	hyp_unlock_component();
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index 3e2097e65964..8ccd923a5761 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -8390,6 +8390,10 @@ static int ufs_get_device_desc(struct ufs_hba *hba)
  
- 	guest_lock_component(&selftest_vm);
--	WARN_ON(__guest_check_page_state_range(vcpu, ipa[0], size, selftest_state.guest[0]));
--	WARN_ON(__guest_check_page_state_range(vcpu, ipa[1], size, selftest_state.guest[1]));
-+	WARN_ON(__guest_check_page_state_range(vm, ipa[0], size, selftest_state.guest[0]));
-+	WARN_ON(__guest_check_page_state_range(vm, ipa[1], size, selftest_state.guest[1]));
- 	guest_unlock_component(&selftest_vm);
- }
+ 	dev_info->rtt_cap = desc_buf[DEVICE_DESC_PARAM_RTT_CAP];
  
-@@ -1218,7 +1244,7 @@ void pkvm_ownership_selftest(void *base)
- 	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
- 	assert_transition_res(-EPERM,	__pkvm_host_unshare_ffa, pfn, 1);
- 	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
--	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
- 	assert_transition_res(-ENOENT,	__pkvm_host_unshare_guest, gfn, vm);
++	dev_info->hid_sup = get_unaligned_be32(desc_buf +
++				DEVICE_DESC_PARAM_EXT_UFS_FEATURE_SUP) &
++				UFS_DEV_HID_SUPPORT;
++
+ 	model_index = desc_buf[DEVICE_DESC_PARAM_PRDCT_NAME];
  
- 	selftest_state.host = PKVM_PAGE_OWNED;
-@@ -1237,7 +1263,7 @@ void pkvm_ownership_selftest(void *base)
- 	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
- 	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
- 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
--	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
- 	assert_transition_res(-ENOENT,	__pkvm_host_unshare_guest, gfn, vm);
+ 	err = ufshcd_read_string_desc(hba, model_index,
+diff --git a/include/ufs/ufs.h b/include/ufs/ufs.h
+index c0c59a8f7256..63af47c4e9ed 100644
+--- a/include/ufs/ufs.h
++++ b/include/ufs/ufs.h
+@@ -182,6 +182,11 @@ enum attr_idn {
+ 	QUERY_ATTR_IDN_CURR_WB_BUFF_SIZE        = 0x1F,
+ 	QUERY_ATTR_IDN_TIMESTAMP		= 0x30,
+ 	QUERY_ATTR_IDN_DEV_LVL_EXCEPTION_ID     = 0x34,
++	QUERY_ATTR_IDN_HID_DEFRAG_OPERATION	= 0x35,
++	QUERY_ATTR_IDN_HID_AVAILABLE_SIZE	= 0x36,
++	QUERY_ATTR_IDN_HID_SIZE			= 0x37,
++	QUERY_ATTR_IDN_HID_PROGRESS_RATIO	= 0x38,
++	QUERY_ATTR_IDN_HID_STATE		= 0x39,
+ 	QUERY_ATTR_IDN_WB_BUF_RESIZE_HINT	= 0x3C,
+ 	QUERY_ATTR_IDN_WB_BUF_RESIZE_EN		= 0x3D,
+ 	QUERY_ATTR_IDN_WB_BUF_RESIZE_STATUS	= 0x3E,
+@@ -401,6 +406,7 @@ enum {
+ 	UFS_DEV_HPB_SUPPORT		= BIT(7),
+ 	UFS_DEV_WRITE_BOOSTER_SUP	= BIT(8),
+ 	UFS_DEV_LVL_EXCEPTION_SUP       = BIT(12),
++	UFS_DEV_HID_SUPPORT		= BIT(13),
+ };
+ #define UFS_DEV_HPB_SUPPORT_VERSION		0x310
  
- 	assert_transition_res(0,	hyp_pin_shared_mem, virt, virt + size);
-@@ -1249,7 +1275,7 @@ void pkvm_ownership_selftest(void *base)
- 	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
- 	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
- 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
--	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
- 	assert_transition_res(-ENOENT,	__pkvm_host_unshare_guest, gfn, vm);
+@@ -466,6 +472,23 @@ enum ufs_ref_clk_freq {
+ 	REF_CLK_FREQ_INVAL	= -1,
+ };
  
- 	hyp_unpin_shared_mem(virt, virt + size);
-@@ -1268,7 +1294,7 @@ void pkvm_ownership_selftest(void *base)
- 	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
- 	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
- 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
--	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
- 	assert_transition_res(-ENOENT,	__pkvm_host_unshare_guest, gfn, vm);
- 	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
++/* bDefragOperation attribute values */
++enum ufs_hid_defrag_operation {
++	HID_ANALYSIS_AND_DEFRAG_DISABLE	= 0,
++	HID_ANALYSIS_ENABLE		= 1,
++	HID_ANALYSIS_AND_DEFRAG_ENABLE	= 2,
++};
++
++/* bHIDState attribute values */
++enum ufs_hid_state {
++	HID_IDLE		= 0,
++	ANALYSIS_IN_PROGRESS	= 1,
++	DEFRAG_REQUIRED		= 2,
++	DEFRAG_IN_PROGRESS	= 3,
++	DEFRAG_COMPLETED	= 4,
++	DEFRAG_NOT_REQUIRED	= 5,
++};
++
+ /* bWriteBoosterBufferResizeEn attribute */
+ enum wb_resize_en {
+ 	WB_RESIZE_EN_IDLE	= 0,
+@@ -625,6 +648,8 @@ struct ufs_dev_info {
+ 	u32 rtc_update_period;
  
-@@ -1279,8 +1305,8 @@ void pkvm_ownership_selftest(void *base)
+ 	u8 rtt_cap; /* bDeviceRTTCap */
++
++	bool hid_sup;
+ };
  
- 	selftest_state.host = PKVM_PAGE_SHARED_OWNED;
- 	selftest_state.guest[0] = PKVM_PAGE_SHARED_BORROWED;
--	assert_transition_res(0,	__pkvm_host_share_guest, pfn, gfn, vcpu, prot);
--	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, vcpu, prot);
-+	assert_transition_res(0,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
- 	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
- 	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
- 	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
-@@ -1289,7 +1315,7 @@ void pkvm_ownership_selftest(void *base)
- 	assert_transition_res(-EPERM,	hyp_pin_shared_mem, virt, virt + size);
- 
- 	selftest_state.guest[1] = PKVM_PAGE_SHARED_BORROWED;
--	assert_transition_res(0,	__pkvm_host_share_guest, pfn, gfn + 1, vcpu, prot);
-+	assert_transition_res(0,	__pkvm_host_share_guest, pfn, gfn + 1, 1, vcpu, prot);
- 	WARN_ON(hyp_virt_to_page(virt)->host_share_guest_count != 2);
- 
- 	selftest_state.guest[0] = PKVM_NOPAGE;
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 83a737484046..0285e2cd2e7f 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -347,7 +347,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 		return -EINVAL;
- 
- 	lockdep_assert_held_write(&kvm->mmu_lock);
--	ret = kvm_call_hyp_nvhe(__pkvm_host_share_guest, pfn, gfn, prot);
-+	ret = kvm_call_hyp_nvhe(__pkvm_host_share_guest, pfn, gfn, 1, prot);
- 	if (ret) {
- 		/* Is the gfn already mapped due to a racing vCPU? */
- 		if (ret == -EPERM)
+ /*
 -- 
-2.49.0.1143.g0be31eac6b-goog
+2.48.1
 
 
