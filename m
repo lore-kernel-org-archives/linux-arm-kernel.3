@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B7CC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 17:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3916BC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 17:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIUvLK1S42QgYg+SAg3Tn3A6SIynEt7/M9md1vrgLgQ=; b=p+N8tv8suB7sf0UM+hh36mm+7N
-	VJMfKYYSW5nRtnYxqjeiKdD3UKsUuLMzDfqu472kQg5UZ5tG+zQR8xbr5E/WVgRz9UND2jSXEPntH
-	wZeQYmtk1BRAS1+0VYishfifLMRq29EsRKpQm1BCP0nuKjRluLOPi6pBHtwgIJbzKFcDAFqn0mnLW
-	q0090TfzVxTEpnvS5n7Ev3jaMDBgCs1FXG08WxMR8hiuigYNEjz63J2YunSoNrTuWhEe/WH/TBHgq
-	ABE0/rFL+uAnTGCy/G7XcaCJM1Xw1Go/FLhmu0xKRkFxGRpDZiem56ymrPfWXRBXmiU5pBE3uMMnR
-	yZ9Ym+pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1atJoeJZpQi4iXcinOZPKw7W7XsZAF/nspMP+bzqfBE=; b=n7uUptBMfAHILTU9v2sTUGDJcI
+	jyMNAIOd6l48uRPa6Q/egHWGd3Zv4Klk86n/UZrnJyX8raFDGlbxYzokDzXItLWIdWRRkpKWYvQ6h
+	NqfHmeUkYm2ve7vrP9oQo8U9/eRMqgmeElSkn7nl2ppECaPXGUcgnxCsmGPXNj0gqM9b+gW4CzUPu
+	gMqATfOxiGnP8tND/Sopx5PgAmfo52U3Np6wmEXX8ygM+0ymr1QpuYpR46aRjNtHVkb18j7E3vNAY
+	A4Fo9fBcDAfqbQCV/wZgyxKkg+NK/wT30reYaEoG9Xed5U22Jp84LXNfFGzU+oFvapFmuglQagoW7
+	GUK/Y2qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQNu-0000000DdQZ-1oQW;
-	Tue, 20 May 2025 17:04:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uHQU1-0000000DeNC-3OxM;
+	Tue, 20 May 2025 17:10:29 +0000
+Received: from mxout2.routing.net ([2a03:2900:1:a::b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQJc-0000000DcrD-3t14
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 16:59:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3A9CFA4ED25;
-	Tue, 20 May 2025 16:59:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7817C4CEE9;
-	Tue, 20 May 2025 16:59:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747760383;
-	bh=rvb+JvLP9AqVMlLPcfXOshYXZFt9qnylINp/JhwpzUQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pRRw5ClbR5L9sOA88r+gzytWoyyLI1bluB62y9vvaC6fXNKI+eopauA5dzSOidLIa
-	 KJv3fAuoZbYfnsocZ3N/jtv7obEADwEhczh67OVwquHwCuc5SlUYZx1558N0NaulqV
-	 bILU4u76Bl918mbwshLr6BAFa/eIUOB9nuO6ZxqoieNu18rhqyiMnWX8KbtLaHP4Vn
-	 H9i+fJfDJS/p8d7fF/HcjuR8Z8FNHq4LyMGheU4Krczw6iyIhfdweIPVzb1D9Ua2Aa
-	 FltXZJh8GnbZs8ssz8I0vhoLcBaB0FVgPoG0kRQyXXsuqrrfad2IlXYpfhnkipMlke
-	 B054ROGB1Ip1A==
-Date: Tue, 20 May 2025 17:59:39 +0100
-From: Will Deacon <will@kernel.org>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: Re: [PATCH v2 08/11] arm64: debug: split hardware watchpoint
- exception entry
-Message-ID: <20250520165938.GA19257@willie-the-truck>
-References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
- <20250512174326.133905-9-ada.coupriediaz@arm.com>
+	id 1uHQRq-0000000Dduu-0Ybd;
+	Tue, 20 May 2025 17:08:15 +0000
+Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
+	by mxout2.routing.net (Postfix) with ESMTP id B507E60201;
+	Tue, 20 May 2025 17:08:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1747760889;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1atJoeJZpQi4iXcinOZPKw7W7XsZAF/nspMP+bzqfBE=;
+	b=tn1Bihvj0KwV8hHaE37t3Vohm7jwgCgsfyOBKhhM64BV6mMF/uSfwvpDZOzV9Zd927FjDp
+	ib0UEXhYcEnzEi8tYnH92766++nlm16whVN09VOVY30MPcDVElsWjeFk9P0mifh80ZunPC
+	wrjFBJfjm9W2bBtdd4KkbouGffuy3kc=
+Received: from webmail.hosting.de (unknown [134.0.26.148])
+	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id BEBF83601DF;
+	Tue, 20 May 2025 17:08:08 +0000 (UTC)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512174326.133905-9-ada.coupriediaz@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Date: Tue, 20 May 2025 19:08:08 +0200
+From: "Frank Wunderlich (linux)" <linux@fw-web.de>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Frank Wunderlich <frank-w@public-files.de>, =?UTF-8?Q?Ar=C4=B1n=C3=A7_?=
+ =?UTF-8?Q?=C3=9CNAL?= <arinc.unal@arinc9.com>, Landen Chao
+ <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>, Sean Wang
+ <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>, Lorenzo
+ Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2 06/14] arm64: dts: mediatek: mt7988: add cci node
+In-Reply-To: <7a563716-a7c6-446d-b66d-bc71c6207ef6@collabora.com>
+References: <20250516180147.10416-1-linux@fw-web.de>
+ <20250516180147.10416-8-linux@fw-web.de>
+ <7a563716-a7c6-446d-b66d-bc71c6207ef6@collabora.com>
+Message-ID: <6c0dd946bdebd8461307a3e08e60a27f@fw-web.de>
+X-Sender: linux@fw-web.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Mail-ID: 1e75dd63-5eea-4a06-acca-51b6c01efd9c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_095945_097319_793D82D4 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20250520_100814_475960_0ABC39FC 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +87,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 06:43:23PM +0100, Ada Couprie Diaz wrote:
-> Currently all debug exceptions share common entry code and are routed
-> to `do_debug_exception()`, which calls dynamically-registered
-> handlers for each specific debug exception. This is unfortunate as
-> different debug exceptions have different entry handling requirements,
-> and it would be better to handle these distinct requirements earlier.
+Am 2025-05-20 13:27, schrieb AngeloGioacchino Del Regno:
+> Il 16/05/25 20:01, Frank Wunderlich ha scritto:
+>> From: Frank Wunderlich <frank-w@public-files.de>
+>> 
+>> Add cci devicetree node for cpu frequency scaling.
+>> --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+>> +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+>> @@ -12,6 +12,35 @@ / {
+>>   	#address-cells = <2>;
+>>   	#size-cells = <2>;
+>>   +	cci: cci {
+>> +		compatible = "mediatek,mt8183-cci";
 > 
-> Hardware watchpoints are the only debug exceptions that will write
-> FAR_EL1, so we need to preserve it and pass it down.
-> However, they cannot be used to maliciously train branch predictors, so
-> we can omit calling `arm64_bp_hardening()`, nor do they need to handle
-> the Cortex-A76 erratum #1463225, as it only applies to single stepping
-> exceptions.
+> While you can keep the mediatek,mt8183-cci fallback, this needs its own 
+> compatible
+> as "mediatek,mt7988-cci", therefore, I had to drop this patch from the 
+> ones that I
+> picked.
 > 
-> Split the hardware watchpoint exception entry and adjust the behaviour
-> to match the lack of needed mitigations.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
->  arch/arm64/include/asm/exception.h |  2 ++
->  arch/arm64/kernel/entry-common.c   | 31 +++++++++++++++++++++++++++++-
->  arch/arm64/kernel/hw_breakpoint.c  | 14 ++++++++++----
->  3 files changed, 42 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-> index cbcd832bf58e..eb465c375d34 100644
-> --- a/arch/arm64/include/asm/exception.h
-> +++ b/arch/arm64/include/asm/exception.h
-> @@ -63,6 +63,8 @@ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
->  			struct pt_regs *regs);
->  void do_breakpoint(unsigned long esr, struct pt_regs *regs);
->  void do_softstep(unsigned long esr, struct pt_regs *regs);
-> +void do_watchpoint(unsigned long addr, unsigned long esr,
-> +			struct pt_regs *regs);
->  void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
->  void do_sve_acc(unsigned long esr, struct pt_regs *regs);
->  void do_sme_acc(unsigned long esr, struct pt_regs *regs);
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 8814ad24e707..6e70130d2741 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -530,10 +530,20 @@ static void noinstr el1_softstp(struct pt_regs *regs, unsigned long esr)
->  	arm64_exit_el1_dbg(regs);
->  }
->  
-> -static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
-> +static void noinstr el1_watchpt(struct pt_regs *regs, unsigned long esr)
->  {
-> +	/* Only watchpoints write FAR_EL1 */
+> Please add the new compatible both here and in the binding.
 
-nit: But maybe scope the comment (here and in the el0 handler) for debug
-exceptions?
-e.g.
+Hi,
 
-	/* Watchpoints are the only debug exception to write FAR_EL1 */
+should i add the binding with 2 const (like the bpi-r4-2g5 compatible) 
+or first as enum
+to allow easier addition of further SoC bindings with same fallback?
 
-?
+currently i changed binding like this (2nd variant):
 
-Will
+properties:
+   compatible:
+     oneOf:
+       - items:
+           - enum:
+               - mediatek,mt8183-cci
+               - mediatek,mt8186-cci
+       - items:
+           - enum:
+               - mediatek,mt7988-cci
+           - const: mediatek,mt8183-cci
+
+but noticed that these boards are missing the required proc-supply:
+
+   DTC [C] arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dtb
+arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dtb: cci: 'proc-supply' is a 
+required property
+	from schema $id: 
+http://devicetree.org/schemas/interconnect/mediatek,cci.yaml#
+   DTC [C] arch/arm64/boot/dts/mediatek/mt8186-evb.dtb
+arch/arm64/boot/dts/mediatek/mt8186-evb.dtb: cci: 'proc-supply' is a 
+required property
+	from schema $id: 
+http://devicetree.org/schemas/interconnect/mediatek,cci.yaml#
+
+the others are clean so far. But because i do not have these boards i 
+cannot fix this without
+anyone telling me the proc-supply for them.
+
+In mt7988a.dtsi i can put both compatible on 1 line as there are only 75 
+chars, or should i
+add linebreak here for better readability?
+
+> Cheers,
+> Angelo
+
+regards Frank
 
