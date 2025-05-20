@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21AFBC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162AAC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4L9qnis4sATAo1JSfQWB0FTWBo6YyBEgT3dui7yw7M=; b=GgKzre7pOOXOZwR3jZPjddeBRQ
-	UBWc5SsnfJ+1vcDGqY+mHNuzX6C6tJSM//np3AHa/s6tqo5OsHPgThMrq+TKpSn63WHRuYcysTBz8
-	A6UvmZemiKrFSVUitsFawOZvI/DPvBgIh/1pQBmL9OgnefINaJadDD6TATgox3Im6bMAh5jZCABzk
-	chzGbuZTyEM8kgB2tSHNdL9O/DYBf0l6tQX8NALMoWj407mf19xM6up6bXU+SBEBvDVw02Od9cxPX
-	GGV0r4+CyubdpY/wWfWqo3t/CztabSfQN0PyhG+thYggx8VvYi8C1Q9tAlH/VSbaoZutFqk8uP5qc
-	IcvliWUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FR+qGUdvWVOKl5Lsw4ScgczUCqfv231LVCou7CB4FXU=; b=VKHTvk5bcqZUQ97iTq4rqIOOoA
+	OuzVXvg8Sru7nH3pzaXxJvaJPLHNQIUcYrJXfIe6TglqngK2ggC2+G2JGepBKQi3ymlqVQqAXuBXM
+	baxiXX6HENaRg63kFYgqRRO8L+qBoZ9AghQAng/3AqVCsji+sMmUs4FIu2X/Zg+cRVOMb9C7oi43k
+	DMl8bRzIMU1JCzbCtx0c9Y4wFkkScnJ0aV3xFlCwWxvQQIAHESkeLRNoAKZtIZhR5B+Tew5L8Nyjl
+	T6Jr7CufUWXnGhJAzIUMs152PDnfDiT+i9oWHvcYXqyCCS5kL3AfJVJvO6UC/K1XVjAOGWD+daFa2
+	vbsdXd7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHKzj-0000000CbXr-1bb0;
-	Tue, 20 May 2025 11:18:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHKmG-0000000CVcE-1cAz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 11:04:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 387571516;
-	Tue, 20 May 2025 04:04:42 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 397943F6A8;
-	Tue, 20 May 2025 04:04:55 -0700 (PDT)
-Date: Tue, 20 May 2025 12:04:50 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 04/10] arm64/boot: Enable EL2 requirements for
- SPE_FEAT_FDS
-Message-ID: <20250520110450.GN412060@e132581.arm.com>
-References: <20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org>
- <20250506-james-perf-feat_spe_eft-v1-4-dd480e8e4851@linaro.org>
+	id 1uHL1o-0000000Cc0N-0hni;
+	Tue, 20 May 2025 11:21:00 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHKrF-0000000CXue-2uWE;
+	Tue, 20 May 2025 11:10:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747739404;
+	bh=Xj2HD2MawbrtSBmFoR2etpcm9AJMpw2lNkY9iw6DYso=;
+	h=From:To:Cc:Subject:Date:From;
+	b=iTReMvdVCpaCDVMuwX3W1czc++LprkMXOfYNLuwlLmxVk6948s9N/63vebV2laGb6
+	 iIc6fDwRS+Jl0AqaAssQTditjtaCyj7TsQsNtU+E0ytyh0EEb3BH3tvNoWTq/RSH16
+	 pWOwS+f42f2Xbef1NehzBQkih4pVNEepvmINY9sIpUpJchz8vqYWmyDglQLh7eOY29
+	 2gv9dpirPGSIzem8EtxOWIRFTMv9/QdcgeQWD6317wf+yS6ZVJSDA4+pHcad3Yfz3P
+	 XWx1w009+HKJX41OotXwUK7fVl1xLjZ4xhZQYm1Auozo2MFG3EVXs3F8C+B06TY78L
+	 0fhkmqzptb78Q==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9313B17E0FD3;
+	Tue, 20 May 2025 13:10:03 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] Revert "arm64: dts: mediatek: mt8390-genio-common: Add firmware-name for scp0"
+Date: Tue, 20 May 2025 13:10:02 +0200
+Message-ID: <20250520111002.282841-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250506-james-perf-feat_spe_eft-v1-4-dd480e8e4851@linaro.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_040456_515419_F6578618 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20250520_041005_901241_61D64A69 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,76 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 12:41:36PM +0100, James Clark wrote:
-> SPE data source filtering (optional from Armv8.8) requires that traps to
-> the filter register PMSDSFR be disabled. Document the requirements and
-> disable the traps if the feature is present.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  Documentation/arch/arm64/booting.rst | 11 +++++++++++
->  arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
->  2 files changed, 25 insertions(+)
-> 
-> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-> index dee7b6de864f..8da6801da9a0 100644
-> --- a/Documentation/arch/arm64/booting.rst
-> +++ b/Documentation/arch/arm64/booting.rst
-> @@ -404,6 +404,17 @@ Before jumping into the kernel, the following conditions must be met:
->      - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
->      - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
->  
-> +  For CPUs with SPE data source filtering (SPE_FEAT_FDS):
+As clearly seen on other non-MediaTek platforms, this is known to
+eventually produce regressions in the future, as drivers may break
+ABI and stop working with older firmware versions.
 
-For alignment with Arm ARM:
+Although the firmware-name property was used in multiple MediaTek
+devicetrees for the System Companion Processor (SCP) node, avoid
+doing the same on MT8390 to lessen eventual ABI breakages that may
+happen with a driver update to change the firmware retrieval logic
+for the SCP.
 
-s/SPE_FEAT_FDS/FEAT_SPE_FDS
+This reverts commit 2f0066dae66f30386ecd6408410e27a4d6818c15.
 
-> +
-> +  - If EL3 is present:
-> +
-> +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
-> +
-> +  - If the kernel is entered at EL1 and EL2 is present:
-> +
-> +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
-> +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
-> +
->    For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
->  
->    - If the kernel is entered at EL1 and EL2 is present:
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index ebceaae3c749..155b45092f5e 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -275,6 +275,20 @@
->  	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
->  	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
->  .Lskip_pmuv3p9_\@:
-> +	mrs	x1, id_aa64dfr0_el1
-> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
-> +	/* If SPE is implemented, we can read PMSIDR and */
-> +	cmp	x1, #ID_AA64DFR0_EL1_PMSVer_IMP
-> +	b.lt	.Lskip_spefds_\@
-> +
-> +	mrs_s	x1, SYS_PMSIDR_EL1
-> +	and	x1, x1, PMSIDR_EL1_FDS_SHIFT
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
 
-Should be:
+As strongly suggested by Arnd, I'm sending this revert. Driver changes
+will follow as soon as possible, and most probably not in this cycle as
+those should - at this point - be carefully engineered.
 
-        and     x1, x1, #(1 << PMSIDR_EL1_FDS_SHIFT)
+ arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-> +	/* if FEAT_SPE_FDS is implemented, */
-> +	cbz	x1, .Lskip_spefds_\@
-> +	/* disable traps to PMSDSFR. */
-> +	orr	x0, x0, #HDFGRTR2_EL2_nPMSDSFR_EL1
-> +
-> +.Lskip_spefds_\@:
->  	msr_s   SYS_HDFGRTR2_EL2, x0
->  	msr_s   SYS_HDFGWTR2_EL2, x0
->  	msr_s   SYS_HFGRTR2_EL2, xzr
-> 
-> -- 
-> 2.34.1
-> 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+index aa8dd12a84ea..eaf45d42cd34 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+@@ -1177,7 +1177,6 @@ &scp_cluster {
+ };
+ 
+ &scp_c0 {
+-	firmware-name = "mediatek/mt8188/scp.img";
+ 	memory-region = <&scp_mem>;
+ 	status = "okay";
+ };
+-- 
+2.49.0
+
 
