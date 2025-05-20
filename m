@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF5AC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69568C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+bA5hB3P244m3E1IkxB45PPLYHEAFdiborJEATZb2e4=; b=OZCH4wnjrZxTfgaAoYCRhvAIjn
-	Z6kUhckUynRqn7N/LmmMkDY7ee5EXhXJs+b7NJav1EHZ5Uye4blrcrhGrCwxUmfmLyejyi8VefAao
-	s0K19tp4C5PyEJ7HIygV60RTrC3h5iqkTG3C/3/chQHJ69U/3Y+Kz7nQDLiFKpmqxn5PzxZh0CvTJ
-	f5cdw2LwdrH+zeX04VtOfXBDbnh3oHMJnayzxvxvVhg9RWVR884WkRAkX0uisphyKAmqjMBdzFKjh
-	DI7XqeUdqSqSMnA0FJFAe1NDW1mtBQr0o+uFD841Z7NPJMT/7toQJ7QoiI6kKzDS8KeeGSr7Dj/IG
-	B8TFKjTQ==;
+	bh=NLHQu01znICve73PRKiUqGXlEoXbgUBhtxBnnuUPUyM=; b=2UCO4TXi7y4L1vv43rst3UfQvO
+	F/IA8AGvLZXcu4xwNmr8/ZI6bfFwnIHzdx6Qz6uF8FordlkUOIzZHOcQOA9WuVmchDijuouyX9zrp
+	VgxuqKzStTfP/lat7eKaSljjWWtW9k2T/Be443UN6aLu8mGZxl8ZMveRDS/U5KX4JPdnzaxpz1E9d
+	+o9cLEZ0Sj0rDCkdKqSFKU/m3Q35KrEqx0QM86iAoC3Q9TAOMTaYGcI/epw+4QGoyaXJdBVZN4nfC
+	IJcbd6iT60d8uYIgjD8E811Zd7mDSXSvr5B7LLW5KkbETl0t3Slz4OT1cAzILK5Su7TbVPyTOfkmR
+	D2/L2ywg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHPe6-0000000DUI8-1TNk;
-	Tue, 20 May 2025 16:16:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uHPiY-0000000DW9W-0vYT;
+	Tue, 20 May 2025 16:21:26 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHP1I-0000000DNDC-0Dxl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 15:36:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEEFF452D2;
-	Tue, 20 May 2025 15:36:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A1CAC4CEE9;
-	Tue, 20 May 2025 15:36:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747755403;
-	bh=Conk5wmTRBFgJqeOey3vIZLSaIYd1LtCQeoGQUNeNO8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MypPgrEl0zXVAW6TJEV5KlrD7m47IwuWJGbKb32pXOJXKfBv3t6hHNu70Pqsejp8P
-	 /8gUMVYI9IVDWM9LBQYBbMDRiN6bSRcwwndsU4FhJ4RhtFAZ6gHO2jhkhuIF6uONAn
-	 rwstbVffTJlSYhqu3UISHizcLzhhsYY/7+fI9UqaxtEcpTgfqq/eBXyZPfLSVnYBhh
-	 Lili5GN+9HzOMg1rCLwZaH78zgBVeK8X69eacgDi4J0zvJH55t2aopAgGY0d3ng0z8
-	 VctSg/jelKqI1g+vrOTo3KhqckJIQc+nqWFWM06y3REsXmNzzJYeL5ukDonEDDOVAg
-	 hX+uvfbyyzxmg==
-Date: Tue, 20 May 2025 16:36:39 +0100
-From: Will Deacon <will@kernel.org>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: Re: [PATCH v2 06/11] arm64: debug: split hardware breakpoint
- exeception entry
-Message-ID: <20250520153638.GF18901@willie-the-truck>
-References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
- <20250512174326.133905-7-ada.coupriediaz@arm.com>
+	id 1uHPPg-0000000DRFG-3NwN;
+	Tue, 20 May 2025 16:01:57 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6020ff8d51dso1450597a12.2;
+        Tue, 20 May 2025 09:01:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747756915; x=1748361715; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=NLHQu01znICve73PRKiUqGXlEoXbgUBhtxBnnuUPUyM=;
+        b=gVUWV0XSp/DfJVjgQQXGquu5mj7voR7VrhHy/3r/zDTqKbHVXOrXtwWr956C1VWUSI
+         5SIL7IjwZ7HLDUxbfZoqFcjByr5ZZAs7muJROsskCpmnfnctG5o4vf1wTSRzL+9oWC+6
+         GsFRQsSwFr1KDo0dIZjI560npzdC7SEAqiGm+3cgqRsh+X6fP9z+BVQz8Lqfs0Awoedb
+         /Y/JktyDvXxywyONygv8w4KQA20FXaZdy4bzTFE8XQlHXPrvRMSMevXIDwz5JP0SCt5G
+         xJyFBjS7OC6RAD8NK2ri8aJ1pMd3ZXmGoYBuLKVrfZBMyW3CsBfU4x+n2R1Kxyz5e2Vv
+         chPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747756915; x=1748361715;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NLHQu01znICve73PRKiUqGXlEoXbgUBhtxBnnuUPUyM=;
+        b=AK0SBgRZ8J8V0s3cposnMyEV2uzj7BP2WsAA+CBiNaxvEnXWxxx1tmEMXCXnnwT9tX
+         d2vbLEIq/3J/TlaQuvtNCwI5v8Wjem9Luo9j3IGCVv5wetdMnR8Q17fShxWhGzRWT2PG
+         supR8wvekoV28ywGPPuO8/3U0JTfUAjesJk0uTMIJ2SfW8H3wDgcShJ6eo2JVjlwX2uZ
+         GlTbLTJhS9afY8LxDTorHDwBQNuAfaBPUee38n/v3CssaGTDqcuTThhhp9VCp8yr/Aqa
+         oIx2QSgHptGk/aqfzZGyIuPCDkDkp05HkO/pHX/IuL3XYRk56+UaSPC7CBWMICGRjXGl
+         8/Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCVUPJ6rVa6mqh1QOg1F2YUm10KpM6A6sz82iZh+v6TYnGI+0XobmMF+nc9FVMH7KzNuzH0ysKOs1q1k9Oc3P8M=@lists.infradead.org, AJvYcCWl95DIc7BUj5IumSwh1Nk6AmcmXqIERKNhFJTVGO9IvwWGDIOAkgZlzrDy/ffOd6fkSvnhvGzV8PZmhX0R8r5Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeBqzt48Oqf/v6z2hfkegBWrXDKFiiNMNhJbsjBRZsBBIRT0RG
+	zRaYmVyR5VNH+SmxN9wOIT9chKct4bE0RXziHGGXLiVKthWkRULnaYCj5vGPOQyeuOQ=
+X-Gm-Gg: ASbGncsBjJnPoZdRjt6kfmhnJ6RgAeAFh/Mx0XpNlNuXNJ8Zy5R/rkgANXLcTun5X0L
+	T+igR6RNnOmMz/CjsPex1pNrYBFcgCVzxOikBL7oG8WNbgGZNSvsL19atyMXG60EK32VKNbRF98
+	MDdPCDdpBPGeKkxwD4m9bCXmHOnWMtCP+CdAQGlGnsywXbYZ5jN4BSlh9snq6f37hMEDI6F/ZfZ
+	jp6DfkyJg2qjGLAJIQ+stlidRl4Fz1FReBRVOMfEQc78TRNoj/hXc3jUU/8A+iucPBV6ckZQOfb
+	JqzAI3E3wnJkmJWGOMdfSVo9Q2tMXvDwVdQTvDuw9Fji7B/j5LQBJw==
+X-Google-Smtp-Source: AGHT+IHyQCwN+N8keILzdY8urJ4nceUZZMCFLVcZ2JJ//X1ZPm39zCCDWnYiM9DBHR4AHkitjLt/Mg==
+X-Received: by 2002:a17:907:db02:b0:ad5:27b6:7fd1 with SMTP id a640c23a62f3a-ad52d48da04mr1704960866b.17.1747756914001;
+        Tue, 20 May 2025 09:01:54 -0700 (PDT)
+Received: from [10.176.234.34] ([137.201.254.41])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d4ca654sm740504266b.158.2025.05.20.09.01.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 May 2025 09:01:52 -0700 (PDT)
+Message-ID: <32c36b58dcdbb09403fa9dccff28b6bee76882e0.camel@gmail.com>
+Subject: Re: [PATCH v5] ufs: core: Add HID support
+From: Bean Huo <huobean@gmail.com>
+To: Huan Tang <tanghuan@vivo.com>, alim.akhtar@samsung.com,
+ avri.altman@wdc.com,  bvanassche@acm.org,
+ James.Bottomley@HansenPartnership.com,  martin.petersen@oracle.com,
+ matthias.bgg@gmail.com,  angelogioacchino.delregno@collabora.com,
+ peter.wang@mediatek.com,  manivannan.sadhasivam@linaro.org,
+ quic_nguyenb@quicinc.com, luhongfei@vivo.com,  linux-scsi@vger.kernel.org,
+ linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: opensource.kernel@vivo.com, Wenxing Cheng <wenxing.cheng@vivo.com>
+Date: Tue, 20 May 2025 18:01:50 +0200
+In-Reply-To: <20250520094054.313-1-tanghuan@vivo.com>
+References: <20250520094054.313-1-tanghuan@vivo.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.44.4-0ubuntu2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512174326.133905-7-ada.coupriediaz@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_083644_139102_2C2819F8 
-X-CRM114-Status: GOOD (  25.62  )
+X-CRM114-CacheID: sfid-20250520_090156_862653_B608DDDB 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,94 +104,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-nit: typo in $subject ("exeception").
+T24gVHVlLCAyMDI1LTA1LTIwIGF0IDE3OjQwICswODAwLCBIdWFuIFRhbmcgd3JvdGU6Cj4gQEAg
+LTg3LDYgKzg3LDI2IEBAIHN0YXRpYyBjb25zdCBjaGFyICp1ZnNfd2JfcmVzaXplX3N0YXR1c190
+b19zdHJpbmcoZW51bSB3Yl9yZXNpemVfc3RhdHVzIHN0YXR1cykKPiDCoMKgwqDCoMKgwqDCoMKg
+fQo+IMKgfQo+IMKgCj4gK3N0YXRpYyBjb25zdCBjaGFyICp1ZnNfaGlkX3N0YXRlX3RvX3N0cmlu
+ZyhlbnVtIHVmc19oaWRfc3RhdGUgc3RhdGUpCj4gK3sKPiArwqDCoMKgwqDCoMKgwqBzd2l0Y2gg
+KHN0YXRlKSB7Cj4gK8KgwqDCoMKgwqDCoMKgY2FzZSBISURfSURMRToKPiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgcmV0dXJuICJpZGxlIjsKPiArwqDCoMKgwqDCoMKgwqBjYXNlIEFO
+QUxZU0lTX0lOX1BST0dSRVNTOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXR1
+cm4gImFuYWx5c2lzX2luX3Byb2dyZXNzIjsKPiArwqDCoMKgwqDCoMKgwqBjYXNlIERFRlJBR19S
+RVFVSVJFRDoKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmV0dXJuICJkZWZyYWdf
+cmVxdWlyZWQiOwo+ICvCoMKgwqDCoMKgwqDCoGNhc2UgREVGUkFHX0lOX1BST0dSRVNTOgo+ICvC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXR1cm4gImRlZnJhZ19pbl9wcm9ncmVzcyI7
+Cj4gK8KgwqDCoMKgwqDCoMKgY2FzZSBERUZSQUdfQ09NUExFVEVEOgo+ICvCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqByZXR1cm4gImRlZnJhZ19jb21wbGV0ZWQiOwo+ICvCoMKgwqDCoMKg
+wqDCoGNhc2UgREVGUkFHX05PVF9SRVFVSVJFRDoKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgcmV0dXJuICJkZWZyYWdfbm90X3JlcXVpcmVkIjsKPiArwqDCoMKgwqDCoMKgwqBkZWZh
+dWx0Ogo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZXR1cm4gInVua25vd24iOwo+
+ICvCoMKgwqDCoMKgwqDCoH0KPiArfQoKVGhlIGVudW0gdWZzX2hpZF9zdGF0ZSB2YWx1ZXMgYXJl
+IGNvbnRpZ3VvdXMgYW5kIHN0YXJ0IGZyb20gMCwgbWF5YmUgY2hhbmdlIHN3aXRjaC1zdGF0ZSB0
+byA6CgojZGVmaW5lIE5VTV9VRlNfSElEX1NUQVRFUyA2CnN0YXRpYyBjb25zdCBjaGFyICp1ZnNf
+aGlkX3N0YXRlc1tOVU1fVUZTX0hJRF9TVEFURVNdID0gewogICAgImlkbGUiLAogICAgImFuYWx5
+c2lzX2luX3Byb2dyZXNzIiwKICAgICJkZWZyYWdfcmVxdWlyZWQiLAogICAgImRlZnJhZ19pbl9w
+cm9ncmVzcyIsCiAgICAiZGVmcmFnX2NvbXBsZXRlZCIsCiAgICAiZGVmcmFnX25vdF9yZXF1aXJl
+ZCIKfTsKCnN0YXRpYyBjb25zdCBjaGFyICp1ZnNfaGlkX3N0YXRlX3RvX3N0cmluZyhlbnVtIHVm
+c19oaWRfc3RhdGUgc3RhdGUpIHsKICAgIGlmICgodW5zaWduZWQgaW50KXN0YXRlIDwgTlVNX1VG
+U19ISURfU1RBVEVTKQogICAgICAgIHJldHVybiB1ZnNfaGlkX3N0YXRlc1tzdGF0ZV07CiAgICBy
+ZXR1cm4gInVua25vd24iOwp9Cgo=
 
-On Mon, May 12, 2025 at 06:43:21PM +0100, Ada Couprie Diaz wrote:
-> Currently all debug exceptions share common entry code and are routed
-> to `do_debug_exception()`, which calls dynamically-registered
-> handlers for each specific debug exception. This is unfortunate as
-> different debug exceptions have different entry handling requirements,
-> and it would be better to handle these distinct requirements earlier.
-> 
-> Hardware breakpoints exceptions are generated by the hardware after user
-> configuration. As such, they can be exploited when training branch
-> predictors outisde of the userspace VA range: they still need to call
-
-"outisde"
-
-> `arm64_apply_bp_hardening()` if needed to mitigate against this attack.
-> Move the call to `arm64_apply_bp_hardening()` to `entry-common.c` as
-> it is needed for exceptions coming from EL0 only.
-> 
-> However, they do not need to handle the Cortex-A76 erratum #1463225 as
-> it only applies to single stepping exceptions.
-> It does not set an address in FAR_EL1 either, only the hardware
-> watchpoint does.
->
-> Split the hardware breakpoint exception entry, adjust
-> the function signature, and handling of the Cortex-A76 erratum to fit
-> the behaviour of the exception.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
->  arch/arm64/include/asm/exception.h |  1 +
->  arch/arm64/kernel/entry-common.c   | 28 ++++++++++++++++++++++++++++
->  arch/arm64/kernel/hw_breakpoint.c  | 15 +++++++++++----
->  3 files changed, 40 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-> index d48fc16584cd..c593fe639697 100644
-> --- a/arch/arm64/include/asm/exception.h
-> +++ b/arch/arm64/include/asm/exception.h
-> @@ -61,6 +61,7 @@ void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
->  void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
->  void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
->  			struct pt_regs *regs);
-> +void do_breakpoint(unsigned long esr, struct pt_regs *regs);
->  void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
->  void do_sve_acc(unsigned long esr, struct pt_regs *regs);
->  void do_sme_acc(unsigned long esr, struct pt_regs *regs);
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 92d78b329e67..6ff52fc94da7 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -503,6 +503,15 @@ static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
->  	exit_to_kernel_mode(regs);
->  }
->  
-> +static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
-> +{
-> +	arm64_enter_el1_dbg(regs);
-> +	debug_exception_enter(regs);
-> +	do_breakpoint(esr, regs);
-> +	debug_exception_exit(regs);
-> +	arm64_exit_el1_dbg(regs);
-> +}
-> +
->  static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long far = read_sysreg(far_el1);
-> @@ -552,6 +561,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
->  		el1_mops(regs, esr);
->  		break;
->  	case ESR_ELx_EC_BREAKPT_CUR:
-> +		el1_breakpt(regs, esr);
-> +		break;
->  	case ESR_ELx_EC_SOFTSTP_CUR:
->  	case ESR_ELx_EC_WATCHPT_CUR:
->  	case ESR_ELx_EC_BRK64:
-> @@ -746,6 +757,19 @@ static void noinstr el0_inv(struct pt_regs *regs, unsigned long esr)
->  	exit_to_user_mode(regs);
->  }
->  
-> +static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
-> +{
-> +	if (!is_ttbr0_addr(regs->pc))
-> +		arm64_apply_bp_hardening();
-
-I think this is a change in behaviour, as arm64_apply_bp_hardening() is
-now called before enter_from_user_mode() and debug_exception_enter().
-Is that safe and intentional?
-
-Will
 
