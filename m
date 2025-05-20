@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B5AC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF5AC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DAcE/ZEvJhsxfpVLads3jYRvGAx3uiSebGd+h6delzs=; b=XS32bRKiMhYD2OGLloy3jzD3w0
-	nydpDG4HAOX6+pJvZmPiMW0koJ3tjSadi+DLF2qKtlevsSYfV5XJ8WRqGPfVtNbC1whZ0kiNMy7RM
-	JLXat6fB3J3RzCT4U9HjJ+dVSgUPWURY+AtvaU7MvHsgh1/4WWEw2PNhKMFDQjyF0/6qnrSeRnPWV
-	K6xIa2oNIlbxB0FDKNkG6YwAy78s5R3GRinozpRvdCjxu6CvA0T6ki6tD3w2LZGKnxQWClCpq6uAe
-	+r6XwX+7OhZMTJOawY2+0wd+B/fXLcPQl88jnYWgVZUx5Of02uLSXhzv7WHKd76YedIjEiLSDGvZ4
-	wquXFFQA==;
+	bh=+bA5hB3P244m3E1IkxB45PPLYHEAFdiborJEATZb2e4=; b=OZCH4wnjrZxTfgaAoYCRhvAIjn
+	Z6kUhckUynRqn7N/LmmMkDY7ee5EXhXJs+b7NJav1EHZ5Uye4blrcrhGrCwxUmfmLyejyi8VefAao
+	s0K19tp4C5PyEJ7HIygV60RTrC3h5iqkTG3C/3/chQHJ69U/3Y+Kz7nQDLiFKpmqxn5PzxZh0CvTJ
+	f5cdw2LwdrH+zeX04VtOfXBDbnh3oHMJnayzxvxvVhg9RWVR884WkRAkX0uisphyKAmqjMBdzFKjh
+	DI7XqeUdqSqSMnA0FJFAe1NDW1mtBQr0o+uFD841Z7NPJMT/7toQJ7QoiI6kKzDS8KeeGSr7Dj/IG
+	B8TFKjTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHPby-0000000DTl8-2Ree;
-	Tue, 20 May 2025 16:14:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uHPe6-0000000DUI8-1TNk;
+	Tue, 20 May 2025 16:16:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHP0z-0000000DNBV-04Mo
+	id 1uHP1I-0000000DNDC-0Dxl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 15:36:26 +0000
+	Tue, 20 May 2025 15:36:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 32AA05C51B9;
-	Tue, 20 May 2025 15:34:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF07EC4CEE9;
-	Tue, 20 May 2025 15:36:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BEEFF452D2;
+	Tue, 20 May 2025 15:36:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A1CAC4CEE9;
+	Tue, 20 May 2025 15:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747755384;
-	bh=z1oLcAfDC7HA7EWSzuTVentAA2Fs7TrZ9xCwfYAvd/0=;
+	s=k20201202; t=1747755403;
+	bh=Conk5wmTRBFgJqeOey3vIZLSaIYd1LtCQeoGQUNeNO8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sxgXxTglWlTDXD2kcalA5nO/tRW1a6XTo/596FVZgFxjD3CjzOzRV/eq1iBEEqcdM
-	 46d42bT4kUFmIfEG9s2h5HEBjZleZpIdsQKayyHWmKVrtUSgpwP0QPW3sFMaRr8AWY
-	 Dw0ZNl5+6V//rD2gfS+Oi0sQNmtmvIxi2daohBBRBI/TWx7MoxMeVrC2r/V23jaEEW
-	 PClTmavX2qhDN7kxYy3cZQ33iZ4iaWqHw1BsqW0WoEwmsev7zI/js0n6t1dEuRY5wK
-	 bjimKkLImKr/5SVzKLi4BatsBaGE6bkBmrwSGsER2AMhpxuTc5oddUPmGR0hhGAlUS
-	 h3Ez0bh1JvbQQ==
-Date: Tue, 20 May 2025 16:36:19 +0100
+	b=MypPgrEl0zXVAW6TJEV5KlrD7m47IwuWJGbKb32pXOJXKfBv3t6hHNu70Pqsejp8P
+	 /8gUMVYI9IVDWM9LBQYBbMDRiN6bSRcwwndsU4FhJ4RhtFAZ6gHO2jhkhuIF6uONAn
+	 rwstbVffTJlSYhqu3UISHizcLzhhsYY/7+fI9UqaxtEcpTgfqq/eBXyZPfLSVnYBhh
+	 Lili5GN+9HzOMg1rCLwZaH78zgBVeK8X69eacgDi4J0zvJH55t2aopAgGY0d3ng0z8
+	 VctSg/jelKqI1g+vrOTo3KhqckJIQc+nqWFWM06y3REsXmNzzJYeL5ukDonEDDOVAg
+	 hX+uvfbyyzxmg==
+Date: Tue, 20 May 2025 16:36:39 +0100
 From: Will Deacon <will@kernel.org>
 To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -50,19 +50,19 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: Re: [PATCH v2 05/11] arm64: entry: Add entry and exit functions for
- debug exceptions
-Message-ID: <20250520153619.GE18901@willie-the-truck>
+Subject: Re: [PATCH v2 06/11] arm64: debug: split hardware breakpoint
+ exeception entry
+Message-ID: <20250520153638.GF18901@willie-the-truck>
 References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
- <20250512174326.133905-6-ada.coupriediaz@arm.com>
+ <20250512174326.133905-7-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250512174326.133905-6-ada.coupriediaz@arm.com>
+In-Reply-To: <20250512174326.133905-7-ada.coupriediaz@arm.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_083625_097484_F96F8735 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20250520_083644_139102_2C2819F8 
+X-CRM114-Status: GOOD (  25.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +77,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 06:43:20PM +0100, Ada Couprie Diaz wrote:
-> Duplicate the `debug_exception_entry()` and `debug_exception_exit()`
+nit: typo in $subject ("exeception").
 
-nit: it's debug_exception_enter().
+On Mon, May 12, 2025 at 06:43:21PM +0100, Ada Couprie Diaz wrote:
+> Currently all debug exceptions share common entry code and are routed
+> to `do_debug_exception()`, which calls dynamically-registered
+> handlers for each specific debug exception. This is unfortunate as
+> different debug exceptions have different entry handling requirements,
+> and it would be better to handle these distinct requirements earlier.
+> 
+> Hardware breakpoints exceptions are generated by the hardware after user
+> configuration. As such, they can be exploited when training branch
+> predictors outisde of the userspace VA range: they still need to call
 
-> functions from mm/fault.c, as they are needed to split
-> the debug exceptions entry paths from the current unified one.
-> The original will be removed in a cleanup patch.
+"outisde"
+
+> `arm64_apply_bp_hardening()` if needed to mitigate against this attack.
+> Move the call to `arm64_apply_bp_hardening()` to `entry-common.c` as
+> it is needed for exceptions coming from EL0 only.
+> 
+> However, they do not need to handle the Cortex-A76 erratum #1463225 as
+> it only applies to single stepping exceptions.
+> It does not set an address in FAR_EL1 either, only the hardware
+> watchpoint does.
+>
+> Split the hardware breakpoint exception entry, adjust
+> the function signature, and handling of the Cortex-A76 erratum to fit
+> the behaviour of the exception.
 > 
 > Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > ---
->  arch/arm64/kernel/entry-common.c | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
+>  arch/arm64/include/asm/exception.h |  1 +
+>  arch/arm64/kernel/entry-common.c   | 28 ++++++++++++++++++++++++++++
+>  arch/arm64/kernel/hw_breakpoint.c  | 15 +++++++++++----
+>  3 files changed, 40 insertions(+), 4 deletions(-)
 > 
+> diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
+> index d48fc16584cd..c593fe639697 100644
+> --- a/arch/arm64/include/asm/exception.h
+> +++ b/arch/arm64/include/asm/exception.h
+> @@ -61,6 +61,7 @@ void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
+>  void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
+>  void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+>  			struct pt_regs *regs);
+> +void do_breakpoint(unsigned long esr, struct pt_regs *regs);
+>  void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
+>  void do_sve_acc(unsigned long esr, struct pt_regs *regs);
+>  void do_sme_acc(unsigned long esr, struct pt_regs *regs);
 > diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index b260ddc4d3e9..92d78b329e67 100644
+> index 92d78b329e67..6ff52fc94da7 100644
 > --- a/arch/arm64/kernel/entry-common.c
 > +++ b/arch/arm64/kernel/entry-common.c
-> @@ -418,6 +418,28 @@ static inline void fp_user_discard(void)
->  	}
+> @@ -503,6 +503,15 @@ static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
+>  	exit_to_kernel_mode(regs);
 >  }
 >  
-> +/*
-> + * In debug exception context, we explicitly disable preemption despite
-> + * having interrupts disabled.
-> + * This serves two purposes: it makes it much less likely that we would
-> + * accidentally schedule in exception context and it will force a warning
-> + * if we somehow manage to schedule by accident.
-> + */
-> +static void debug_exception_enter(struct pt_regs *regs)
+> +static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
 > +{
-> +	preempt_disable();
-> +
-> +	/* This code is a bit fragile.  Test it. */
-> +	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
+> +	arm64_enter_el1_dbg(regs);
+> +	debug_exception_enter(regs);
+> +	do_breakpoint(esr, regs);
+> +	debug_exception_exit(regs);
+> +	arm64_exit_el1_dbg(regs);
 > +}
-> +NOKPROBE_SYMBOL(debug_exception_enter);
 > +
-> +static void debug_exception_exit(struct pt_regs *regs)
+>  static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
+>  {
+>  	unsigned long far = read_sysreg(far_el1);
+> @@ -552,6 +561,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
+>  		el1_mops(regs, esr);
+>  		break;
+>  	case ESR_ELx_EC_BREAKPT_CUR:
+> +		el1_breakpt(regs, esr);
+> +		break;
+>  	case ESR_ELx_EC_SOFTSTP_CUR:
+>  	case ESR_ELx_EC_WATCHPT_CUR:
+>  	case ESR_ELx_EC_BRK64:
+> @@ -746,6 +757,19 @@ static void noinstr el0_inv(struct pt_regs *regs, unsigned long esr)
+>  	exit_to_user_mode(regs);
+>  }
+>  
+> +static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
 > +{
-> +	preempt_enable_no_resched();
-> +}
-> +NOKPROBE_SYMBOL(debug_exception_exit);
+> +	if (!is_ttbr0_addr(regs->pc))
+> +		arm64_apply_bp_hardening();
 
-Could you make these externally visible (i.e. drop the 'static') so that
-you can remove the definitions from mm/fault.c at the same time? Then
-you could add the 'static' back at the end when there are no more
-external callers.
+I think this is a change in behaviour, as arm64_apply_bp_hardening() is
+now called before enter_from_user_mode() and debug_exception_enter().
+Is that safe and intentional?
 
 Will
 
