@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560CEC54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 19:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96152C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 19:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=COSAydh429reoE4aNbcE1igiH3jcPkkYbLhSryVScJk=; b=hDZ3IuKHV0QcwHNSCvwFlrthsZ
-	y1heSPgIFjfGIHfYy3hNR2TBUqufgD17sNnlJb1gKgoZecHjSTzE2JeW5/dPVA1AYJVYYiMWs50hy
-	fETfl0dZY2YSCVNeabZH8/VGDIqis3p0EVG3dWM7PpVVPSirYGCWhgZtlWEcbRp/KwGQ4PwYUKpGh
-	PQsZVPZSvUqTjg32Xltfl+NySsMwvkhtE5mLkxt+fI4ab//Xbo7m8giTO96E6/EZE6hfK43MZhaJm
-	7B2CU4RNII9OECVxpad+hXJHgxkrLcaUM7oceGEfivffuxV00FH67xdZeuIA55xLVoCPIJSBiFQTG
-	OvQwMrug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GGN2DKtoUxJ0wp+1EIu6zodshBKTS+vpa4PsMQJFvI4=; b=Ssd+P8slOdcTHKl1GUZKbavbgB
+	LoPQTuC/NEe3CuP4P4w0HAM8u2+XJWJ8GFcZyoBVOUbusEUNcc6s1J+uCgvkH0vJm0PvyS2YO/FaO
+	I6VrwuMt+L20aBblvlA7Ht+1Vml5DYAnQsVb8J/GLmmvrIyop9y69Dle0MBDOGFpivk/UgeepdWk3
+	5spvhgwRiTzOrUKKMf0aFWdb5NnfGX5230K6HeFlXelxnpYLexpPfAoDkkWrb4Qr5SMbPASJtQKse
+	NcHpB18oZuSQUI5CjNxd7yHTwKCrStn6aPTZ5/shBjNS/yPYuY/h6AAMFwXUCwwll/65kx4Ui8mCL
+	wwnBQ6EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSmI-0000000Dwxs-3pS9;
-	Tue, 20 May 2025 19:37:30 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uHSoR-0000000DxUY-3XVB;
+	Tue, 20 May 2025 19:39:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSTh-0000000DuWc-3Giq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 20 May 2025 19:18:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=COSAydh429reoE4aNbcE1igiH3jcPkkYbLhSryVScJk=; b=QVSFD4DNGku4hxVzqgOTd7h1SA
-	l940GeDOLM8U52ViwNfh1bhUSna+J+WxE0VfoFFVLJVNTsHGTq5K4fx0pBFEwPabOpcYB0Xq6xe09
-	eO4C+WWflHoOEjOBYLUImVskrgLOI8y1OJrfbvg+0ap8qrV/kr6YTs6gu+PVQ0hdONEzQGLxlrGOW
-	FTodT4PWuvOoTN1pe/BX1sQ9zOIDMnuKM5YRkVXMFCITxab1B6SOXT6S47cTzIDwOI4mzSGJHnJBr
-	IcrE733soLpXYqAvTDHwC3mJIjMsGpKyp+nWjwuuw9bkwJpgBRVI0P1q0ug1Ufp8wF/bdGuN1j5kV
-	JAABW/5w==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSTg-00000003kOT-2YEA;
-	Tue, 20 May 2025 19:18:16 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 395B3300677; Tue, 20 May 2025 21:18:16 +0200 (CEST)
-Date: Tue, 20 May 2025 21:18:16 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, K Prateek Nayak <kprateek.nayak@amd.com>,
-	David Matlack <dmatlack@google.com>,
-	Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-Subject: Re: [PATCH v2 08/12] sched/wait: Drop WQ_FLAG_EXCLUSIVE from
- add_wait_queue_priority()
-Message-ID: <20250520191816.GJ16434@noisy.programming.kicks-ass.net>
-References: <20250519185514.2678456-1-seanjc@google.com>
- <20250519185514.2678456-9-seanjc@google.com>
+	id 1uHSX4-0000000Durn-1CX0;
+	Tue, 20 May 2025 19:21:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CC89A5C5A7A;
+	Tue, 20 May 2025 19:19:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A873FC4CEE9;
+	Tue, 20 May 2025 19:21:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747768903;
+	bh=vs3CFjXmqEXOSPVSSq2eRt847mz0iU3nVHHR5d/56uk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tTelEoS/+Ch4CXVNu8XnwfONMGSWq32RyBUgHsQLJycqZhkyFy3NXwHEqtfi+hb7h
+	 TyOmRv4IMy4Gd2WTDz27ccWRdaPPu+r3YIKz8DvEFJidFUb9IxOpj6oHQWyRbFp8eX
+	 MMT0xXZsFI9kL+JS1iv/TQPw7dbxO5rOJo8xFhixQY2N5YYe5tuvGzTj9W6NymERve
+	 FV7KENOfVGyPWgENAPjQCx0e+4yOdxsA8GpricQpQ1d+oO/ZlZ1uArSJ/Ow2IOHqEq
+	 HFwmH9TW0CaBA7evhoWPwCeEuCwBp/3xgXqXWqgLPiJLR+kDExmTJDGvCBClEPQxDL
+	 u3iA1N+Lpl9LQ==
+Date: Tue, 20 May 2025 12:21:41 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Jinjian Song <jinjian.song@fibocom.com>
+Cc: andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com,
+ chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
+ corbet@lwn.net, danielwinkler@google.com, davem@davemloft.net,
+ edumazet@google.com, haijun.liu@mediatek.com, helgaas@kernel.org,
+ horms@kernel.org, johannes@sipsolutions.net, korneld@google.com,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ loic.poulain@linaro.org, m.chetan.kumar@linux.intel.com,
+ matthias.bgg@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
+ rafael.wang@fibocom.com, ricardo.martinez@linux.intel.com,
+ ryazanov.s.a@gmail.com
+Subject: Re: [net-next v1] net: wwan: t7xx: Parameterize data plane RX BAT
+ and FAG count
+Message-ID: <20250520122141.025616c9@kernel.org>
+In-Reply-To: <20250516084320.66998caf@kernel.org>
+References: <20250514104728.10869-1-jinjian.song@fibocom.com>
+	<20250515180858.2568d930@kernel.org>
+	<20250516084320.66998caf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250519185514.2678456-9-seanjc@google.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250520_122146_376096_E2926DBE 
+X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +83,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 11:55:10AM -0700, Sean Christopherson wrote:
-> Drop the setting of WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() to
-> differentiate it from add_wait_queue_priority_exclusive().  The one and
-> only user add_wait_queue_priority(), Xen privcmd's irqfd_wakeup(),
-> unconditionally returns '0', i.e. doesn't actually operate in exclusive
-> mode.
+On Tue, 20 May 2025 10:59:34 +0800 Jinjian Song wrote:
+>   If it's not feasible to directly add parameters for configuring this RX buffer(BAT/FAG) to 
+> the mtk_t7xx driver, would it be allowed to add aparameter for a default configuration 
+> ratio (1/2, 1/4)? Or is it not recommended to use driver parameters for mtk_t7xx driver.
 
-I find:
-
-drivers/hv/mshv_eventfd.c:      add_wait_queue_priority(wqh, &irqfd->irqfd_wait);
-drivers/xen/privcmd.c:  add_wait_queue_priority(wqh, &kirqfd->wait);
-
-I mean, it might still be true and all, but hyperv seems to also use
-this now.
+Looks into devlink params then
 
