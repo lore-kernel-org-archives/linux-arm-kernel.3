@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2C0C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 20:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA35C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 20:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VsWblo70W25KLjzab3RDQK4+FjMs+JwITco0BGNeUJc=; b=HzgsZmp/c2lk/50pDDHM/VD3U4
-	K5hIsKfgdWfSdnU4fQfoGrtEjIqQS5mkifYChA1Mzex3m7g5A9PGnjlzJp1TOXHp9K48BManxHEAO
-	NifWd+U6zmXTw8BeIxYpTnWeXXdtK4CUeU/qOyyIslP7d3tlYyTE/WYmfzVDW/aOOZHY6GPJ5ITCI
-	2GqeIYotEMVJ1SVonTGDvG9yQCBnH+RT7oTAG5Nz1mOxv11tx5xtyuokh1UkUn5Eq5vTwLbfKiDmP
-	oFwPnTfJK1+21YDUrrnQIcBqYzrFldSPgaKIgGPAA4p/7P+i+YU0s3UVvOzknie2bMPY6kBE1DwIO
-	qVCGnbbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6NZunTCfGj3/9fwiLPX4VVecAWjO4p91vdh24q/vCI8=; b=PoaNn7CzJbcENEnK8xXQ79OjLu
+	CMEMV1zgpkobeV65KC72OWt6eFBfe6urQ0LctZqsf6jyyV/Roh8g6uDXtdpMnDK7VveXFeKclU1SX
+	46OsDkjbiapRQkqQrHolPwF5kBnH9RLpcPJE9PLhHmkX1ycSJai/C+67r+tGuixoZcA+J3L4qv2mN
+	NqbQ+k8qV5R3NdgCg1mjKy/yX88ejwOdJPB/8ZpXJyd1BOGUAWVxdevPs9bQPWaIizAfZ0Z0I/gVH
+	yjNiMJl4exzic5jZRimfuXsh3+ZucbuKrXTmhMsNto1CCNtYd2LjGpwoIJJz82Haiuz79/UmFopWl
+	950+yV3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHTVt-0000000E4pJ-1MTv;
-	Tue, 20 May 2025 20:24:37 +0000
-Received: from 004.mia.mailroute.net ([199.89.3.7])
+	id 1uHTqT-0000000E6yJ-2x8y;
+	Tue, 20 May 2025 20:45:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHTTj-0000000E4hE-27MX;
-	Tue, 20 May 2025 20:22:24 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 004.mia.mailroute.net (Postfix) with ESMTP id 4b25ZQ3hKWzm0yVW;
-	Tue, 20 May 2025 20:22:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1747772539; x=1750364540; bh=VsWblo70W25KLjzab3RDQK4+
-	FjMs+JwITco0BGNeUJc=; b=pBIR+Zvh4Q7rLh9RZvGG64FHSWIbR18L0w0sCyiM
-	btVI41klJaHxTtmoaFZ6deEOiM4BBh/9lMca/kD4klUMO1jrxUUspO1xf7FKxWOZ
-	7BiZxUpK1YolQgYDd47Xpo61TBOTzc0Rb/J9WhyCu+9ht7x0VrOc8lpQUE6iSCqi
-	I1xit/mlup5HSQCdSWhXFffbAt+mIoI8CYgvHAuerAuMSh2yNU/GjK27St8Sqpz3
-	U1ZS/0A6QluC4E3gwz+7+hVgZbJUcPQHefRU8Jr1aq8pg24Cwx6LDqk+KIVH5YvT
-	f/1Bxnb9oiW3DoqWwusNrFo267n5iMO2RbE9FC+PSzvzbg==
-X-Virus-Scanned: by MailRoute
-Received: from 004.mia.mailroute.net ([127.0.0.1])
- by localhost (004.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id g1LDX6Kg9hux; Tue, 20 May 2025 20:22:19 +0000 (UTC)
-Received: from [100.66.154.22] (unknown [104.135.204.82])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 004.mia.mailroute.net (Postfix) with ESMTPSA id 4b25Z71qClzm0pKq;
-	Tue, 20 May 2025 20:22:05 +0000 (UTC)
-Message-ID: <b0ec5b8a-b303-4e5b-bca9-4524eba9fa31@acm.org>
-Date: Tue, 20 May 2025 13:22:05 -0700
+	id 1uHToH-0000000E6T8-0ky5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 May 2025 20:43:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 599F75C5AA2;
+	Tue, 20 May 2025 20:41:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0E35C4CEE9;
+	Tue, 20 May 2025 20:43:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747773816;
+	bh=QKRukmbuEwwuWzb3b6AjUBX0NaLEkAeTqogcvnWc3BU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fYQmjl10u8d+o/qHPxX+Z4MEajH6bpHF2ohSk/NMgfeyJ5W5YUMRkuFGZjq/d0jsx
+	 BaG0g/U2ABvNahgnQkduP/YtmH25pTyvP7MW/rqC0N8a5r01uuYJ0bsgP71CUbd45o
+	 dSBdU9zjTGvwXGTJqqKmGtOlW4OTSbwBVx3tsTKrhmPESN0Pr9xBKrrdf4j2o8NpJC
+	 nm4LNnLsxDAiZkg3dmhPe0NVMch4yJadifVjnodGrZuvk50Y92jkjqRGEMj0HNJqN8
+	 vsNcIC94Lfy1pUknXFU9sxrXGI95oXCzy6czSad81gv8n6YlT8qYoWlImEAE1gXGtI
+	 1R1MsPbymYs0Q==
+Date: Tue, 20 May 2025 15:43:34 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	devicetree@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
+Message-ID: <174777381319.1323810.4064448957148847478.robh@kernel.org>
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] ufs: core: Add HID support
-To: Bean Huo <huobean@gmail.com>, Huan Tang <tanghuan@vivo.com>,
- alim.akhtar@samsung.com, avri.altman@wdc.com,
- James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- peter.wang@mediatek.com, manivannan.sadhasivam@linaro.org,
- quic_nguyenb@quicinc.com, luhongfei@vivo.com, linux-scsi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Cc: opensource.kernel@vivo.com, Wenxing Cheng <wenxing.cheng@vivo.com>
-References: <20250520094054.313-1-tanghuan@vivo.com>
- <32c36b58dcdbb09403fa9dccff28b6bee76882e0.camel@gmail.com>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <32c36b58dcdbb09403fa9dccff28b6bee76882e0.camel@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_132223_618669_890C9369 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20250520_134337_262379_4B5E92EA 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +82,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/20/25 9:01 AM, Bean Huo wrote:
-> On Tue, 2025-05-20 at 17:40 +0800, Huan Tang wrote:
->> @@ -87,6 +87,26 @@ static const char *ufs_wb_resize_status_to_string(e=
-num wb_resize_status status)
->>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
->>  =C2=A0}
->>  =20
->> +static const char *ufs_hid_state_to_string(enum ufs_hid_state state)
->> +{
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0switch (state) {
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0case HID_IDLE:
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0return "idle";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0case ANALYSIS_IN_PROGRESS:
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0return "analysis_in_progress";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0case DEFRAG_REQUIRED:
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0return "defrag_required";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0case DEFRAG_IN_PROGRESS:
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0return "defrag_in_progress";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0case DEFRAG_COMPLETED:
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0return "defrag_completed";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0case DEFRAG_NOT_REQUIRED:
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0return "defrag_not_required";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0default:
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0return "unknown";
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
->> +}
->=20
-> The enum ufs_hid_state values are contiguous and start from 0, maybe ch=
-ange switch-state to :
->=20
-> #define NUM_UFS_HID_STATES 6
-> static const char *ufs_hid_states[NUM_UFS_HID_STATES] =3D {
->      "idle",
->      "analysis_in_progress",
->      "defrag_required",
->      "defrag_in_progress",
->      "defrag_completed",
->      "defrag_not_required"
-> };
 
-If this change is made, please use the designated initializer syntax
-([label] =3D "text"). This will make it easier to verify that the
-enumeration labels and the strings match.
+On Tue, 13 May 2025 19:47:54 +0200, Lorenzo Pieralisi wrote:
+> The GICv5 interrupt controller architecture is composed of:
+> 
+> - one or more Interrupt Routing Service (IRS)
+> - zero or more Interrupt Translation Service (ITS)
+> - zero or more Interrupt Wire Bridge (IWB)
+> 
+> Describe a GICv5 implementation by specifying a top level node
+> corresponding to the GICv5 system component.
+> 
+> IRS nodes are added as GICv5 system component children.
+> 
+> An ITS is associated with an IRS so ITS nodes are described
+> as IRS children - use the hierarchy explicitly in the device
+> tree to define the association.
+> 
+> IWB nodes are described as a separate schema.
+> 
+> An IWB is connected to a single ITS, the connection is made explicit
+> through the msi-parent property and therefore is not required to be
+> explicit through a parent-child relationship in the device tree.
+> 
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> ---
+>  .../interrupt-controller/arm,gic-v5-iwb.yaml       |  78 ++++++++
+>  .../bindings/interrupt-controller/arm,gic-v5.yaml  | 202 +++++++++++++++++++++
+>  MAINTAINERS                                        |   7 +
+>  3 files changed, 287 insertions(+)
+> 
 
-Thanks,
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-Bart.
 
