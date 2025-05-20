@@ -4,90 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA70C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 12:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7347CC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 12:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEOAQ4+huP5P2UxwDkmIJwHky2Zn8+jD9WJaoKTnTcI=; b=oOeDtols7lu9vBkm+BaAgeB6MJ
-	F7bETwu3pmGSQZ5mianusvRBP0v3uDrWoE5MNr1XQya83qslDaqd4DZjjLG8aj/rBKfKQ3dKbHpoA
-	MNDyVD4It/hCF3gKtwpfauovTQRYssDZ5UYk+7rjz1XXcNl0DbrO89phc/n3Wp3netomF1MFjZWgF
-	QwnsYWPLuuHzm/wCCLqHBOv2XeDFGS5QZUaGNDdm/Ausx5eidzov4JZ5gkthE4tqL8ig2OBkjGeWh
-	UH3PRjXe61qQkRu+Dy5vonEAQxSLyw8UsHm2//R5w2RdUNY4yKCD6v3L75E4dUdh2h5ZecYgOTjA0
-	goabXQRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PxurCwMuEKIGoYXTWrOi91D71CqokKrlhNK1pPhzgKc=; b=S3wcp4/rEl9nvO+zdcFfnUUpeL
+	qwF7CHQANAKow3vMEHRdD0knS5UvFqyAkfnDvHVG79EuvvlJbJyTYIF3u4c5z4NoEeleACFTVQCp9
+	dJ/w2LIa20tqg/i8Z3InLp/vz7dEK0BYstok3TCLWiyZERFuR0j/LvgWVtHKJ/N0SgaGXbbdHxxmJ
+	EjF7BaiisBMJvk6fnYf2ZFAxm/dIIez9R/lwBoS+LypSJGmHUuiSvu4aPm7inFIfb69rnBz8kF5aq
+	QP8GSwL91JAPzisqTtenAg5js27UkoCSissZmFL6O5Cp2HRpb3UYpwvCSqPH+dlxkNGof7yNEKRg7
+	TGrSeLVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHM1P-0000000CqgH-0EWM;
-	Tue, 20 May 2025 12:24:39 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1uHM3V-0000000Cr8n-37pC;
+	Tue, 20 May 2025 12:26:49 +0000
+Received: from mail-vi1eur03on2062f.outbound.protection.outlook.com ([2a01:111:f403:260c::62f] helo=outbound.mail.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHLzH-0000000CqQu-17H8
+	id 1uHM09-0000000CqWC-3Jfa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 12:22:28 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-70dd29b0d34so14659257b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 05:22:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747743746; x=1748348546; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=MEOAQ4+huP5P2UxwDkmIJwHky2Zn8+jD9WJaoKTnTcI=;
-        b=a3RZ1U54Xho4DIT6+MbijSVdBHuh9WMNJbwPj1m9bO9jLYwROjzVrWKoV/tHYu4TL/
-         k37d4S6NxflzlrEVJs0q6pgCgdxS9Ua5/OSIV0qGdD8gVtmXrSg2MX+1XTtil8CnRc1H
-         SmcVqCWnLAjn7DflWB63oLPeFa85wzwcfJBnuE4DpdsuEbvES1gCR82r+kZg/9692rYZ
-         oVKnyTNUjWpl12Fk6FC+L6TPYb6mCrKvdPo3jRRQWFySkeY+PQXfXzxck1xDefLvAo7v
-         7R6Ma7U2FaooTWBlTtU4SaA/ESDtDHBFGhcT322jv7ABRXOBKOdEg1N+xlzMn/Z7yvaW
-         /MDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747743746; x=1748348546;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MEOAQ4+huP5P2UxwDkmIJwHky2Zn8+jD9WJaoKTnTcI=;
-        b=X1UnGcL1PlblXRZNpwQG/7T3zCrGXTkNVPVosgF8pmPp4QpUGjx8IjpUJ1BdeChy0O
-         xJ4D8ZjewcZ4mA+RMcZnxy9JWgLu5ZY0UMy5gptCfULk7ujScpnC5oQryZSSXeFR9iOk
-         XuJXbthnvnGaxyO7UqqczB52SXBoXeqOE8kjMPeUj9muimLzXggNSOUj9RSVs1Ox26gT
-         PD3cLaWRGmgSpOUBQjcPyDLX9cgIzwLWZJWHNQXknc2Hysv1auqsVs9+s+o+H12vNTrE
-         2+infqS6EU4J1OjnVSLSc1wcjIbdUXb/zmtUW6hDxTNUb2cfn7YV3rNVEYeQOztwsOEV
-         DtiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX33lLYShZWFAe8MGtzsEUV+A+NaBG/llp57++IM6YGDXo916HWG4qntZeo+RFcU9XTYg0p1dH96hSLkbi/lqpy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMTTyiIoUjZ7wvZPWdnu9N9XhSncoEIpX4Fe5FAtsEldMF8BAO
-	qxL7AQiaV+ldYRJoUtaQOL3wbQlslh+xa9bXo3OGSKc0T1944fxemdgek9iS/JjOhaet5uAEe3a
-	MlHMAs2MFfRuYMRQqv5xJnSfrrc+6QRSgJ8HnANivKg==
-X-Gm-Gg: ASbGncsrBup0Q8nQlO3KHQsG6yfuStkOfJVHkQwCIxZFvDGGdWM1a7EbGHBaICnJBJY
-	10rC+vJLBPb3Jj5PEupW1hi9rQ0a79Zqe76CeA49hA9SXqL2KMgzino0DPqtVo4Xv1G6HXRCjRr
-	QbpejbTGbru68XCL5gNbXq61MjoUueQ0xiQg==
-X-Google-Smtp-Source: AGHT+IEoqQjb+R4v4FqIJ9NsaAJz8P+torT+l2h/KrsSDMTfNo1fSuoB13kxgbLiWRiK4DxnCXAbwKmJB14az3T0qSA=
-X-Received: by 2002:a05:690c:ed1:b0:70d:d1a6:fcfc with SMTP id
- 00721157ae682-70dd1a6ffb1mr74617027b3.13.1747743745677; Tue, 20 May 2025
- 05:22:25 -0700 (PDT)
+	Tue, 20 May 2025 12:23:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jL6CmezI6GhUGR+FX7ukb8d2PrUfQbqoCVUAwC9HjUUCkVcetS1RkB2swp3a/lJStM1giXU8RTfUvUgJ+aR2I6AG9tHDjmWDWX9DnmrtLz46ks9TVsFVEU+rOOhl+nb9x+WudwlosXEo5tiqcB+UZzgLZGFks2eQFPIvI3LnWvCdYaw5CIMhjyvLXHTQjeTpmqLsQgtjufG+lVSEIqZZDuTC30mYrSIL9YMzuVj//XTmNhVmc/UWBbpR9sINuXXFgNOvmPxJ9SaH9Q1El5AhFqrSp3LxXctIR0pXXQllPpgb+mcCst66IMI5INby8IlNKthtSu9WnDbw19h0JKZDeA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PxurCwMuEKIGoYXTWrOi91D71CqokKrlhNK1pPhzgKc=;
+ b=O8onhOqFejpulPpYToW506Jiuy5ytS8LMuZV33zNCIRIRk+Knf1j2VtI05+jBySrZYzCSzL3RNQA6NmqCL2At0Lns6PFDwEXot64R5r1x+l2yYGAKZ2r4/dxxXS5H26lfYmOfUMlUXL7eIcza1LMoVg3CdL08M0a/eHydB5hB/s5jVTx6mXeqUtEADY7MeZGER1yRHeSjYPN617XoULno0cM4N08rQbaJZDiWsHJm2VW47cdK0Ru0OVBOofqDBdi15n42RVqktDDYHPBiR1L61f7ZcE+T2Ujr15Kambo2/dMstY2H+yQ3LD1Ier9cAZKpbFZ4tfP7uPvmhS2tI1cfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 193.8.40.94) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=leica-geosystems.com; dmarc=pass (p=reject sp=reject pct=100)
+ action=none header.from=leica-geosystems.com; dkim=none (message not signed);
+ arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=leica-geosystems.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PxurCwMuEKIGoYXTWrOi91D71CqokKrlhNK1pPhzgKc=;
+ b=Iqd+m/QstM+bAu8Zy+8Z0XTMTEQb/GgrnZErzRHOLPP61IBnuIkcxnhD0G5PzclP9i1RYkN3p707J+4LQTCxfgglS/8RsUpqcUnPBeBY4oqKF8S11BfakMBt8CrEVGYLf2EIgnQkDrhNcP4fW2b5CsvH71uiK5uaHln4kSYJCZg=
+Received: from DB7PR05CA0053.eurprd05.prod.outlook.com (2603:10a6:10:2e::30)
+ by PAXPR06MB7757.eurprd06.prod.outlook.com (2603:10a6:102:157::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.31; Tue, 20 May
+ 2025 12:23:12 +0000
+Received: from DU6PEPF00009526.eurprd02.prod.outlook.com
+ (2603:10a6:10:2e:cafe::29) by DB7PR05CA0053.outlook.office365.com
+ (2603:10a6:10:2e::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.18 via Frontend Transport; Tue,
+ 20 May 2025 12:23:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 193.8.40.94)
+ smtp.mailfrom=leica-geosystems.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=leica-geosystems.com;
+Received-SPF: Pass (protection.outlook.com: domain of leica-geosystems.com
+ designates 193.8.40.94 as permitted sender) receiver=protection.outlook.com;
+ client-ip=193.8.40.94; helo=hexagon.com; pr=C
+Received: from hexagon.com (193.8.40.94) by
+ DU6PEPF00009526.mail.protection.outlook.com (10.167.8.7) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8769.18 via Frontend Transport; Tue, 20 May 2025 12:23:12 +0000
+Received: from aherlnxbspsrv01.lgs-net.com ([10.60.34.116]) by hexagon.com with Microsoft SMTPSVC(10.0.17763.1697);
+	 Tue, 20 May 2025 14:23:12 +0200
+From: Lukasz Kucharczyk <lukasz.kucharczyk@leica-geosystems.com>
+To: Oleksij Rempel <o.rempel@pengutronix.de>,
+	stefan.eichenberger@toradex.com,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: linux-i2c@vger.kernel.org (open list:FREESCALE IMX I2C DRIVER),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list),
+	bsp-development.geo@leica-geosystems.com,
+	customers.leicageo@pengutronix.de,
+	Lukasz Kucharczyk <lukasz.kucharczyk@leica-geosystems.com>
+Subject: [PATCH] i2c: imx: fix emulated smbus block read
+Date: Tue, 20 May 2025 14:22:52 +0200
+Message-Id: <20250520122252.1475403-1-lukasz.kucharczyk@leica-geosystems.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250507160056.11876-1-hiagofranco@gmail.com> <20250507160056.11876-4-hiagofranco@gmail.com>
- <CAPDyKFrHD1hVCfOK-JV5FJM+Cd9DoKKZGKcC94fxx6_9Bsri1g@mail.gmail.com>
- <20250508202826.33bke6atcvqdkfa4@hiago-nb> <CAPDyKFr3yF=yYZ=Xo5FicvSbDPOTx7+fMwc8dMCLYKPBMEtCKA@mail.gmail.com>
- <20250509191308.6i3ydftzork3sv5c@hiago-nb> <CAPDyKFpnLzk5YR3piksGhdB8ZoGNCzmweBTxm_rDX5=vjLFxqQ@mail.gmail.com>
- <20250519172357.vfnwehrbkk24vkge@hiago-nb>
-In-Reply-To: <20250519172357.vfnwehrbkk24vkge@hiago-nb>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 20 May 2025 14:21:49 +0200
-X-Gm-Features: AX0GCFvecIGQgQvYviOe7hMAhu1Tk0oNxkZ2kd0dxrSn8Ur7tJ7dhdnhpp02IIc
-Message-ID: <CAPDyKFpGcgMzOUHf-JTRTLBviFdLdbjZKrMm8yd37ZqJ1nfkHw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-To: Hiago De Franco <hiagofranco@gmail.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, linux-pm@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com, 
-	Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-OriginalArrivalTime: 20 May 2025 12:23:12.0237 (UTC) FILETIME=[F430E1D0:01DBC981]
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF00009526:EE_|PAXPR06MB7757:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 97ed4d0f-09f3-43da-c801-08dd979916de
+X-SET-LOWER-SCL-SCANNER: YES
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EHZs4XzNt/DJG2f5hvuNisLDXLwpuRLTDlW1ghEeGSEG+vOXaGbcvStB7f/l?=
+ =?us-ascii?Q?wAVQoUbBgEFXulfN0Q/9vrFMo/c7HJNXMrW8gPV7HPRiY7hq4pQ1YW5p0y+9?=
+ =?us-ascii?Q?VK7sx3qa9kBY2QddtdliSEIF1XGYCoq4XLxogfhlg4rvoNpPkFS5K0N7pjaR?=
+ =?us-ascii?Q?9HGEdsON/nnbRpm/r/1yAxh9WJtEpboCT39ZALLMGYNHP9QphPzgehFznW8L?=
+ =?us-ascii?Q?Ywc74dfEmrb3wMEwy1bl/p5AJ+jg0HD8dgh7UDTR21IeeLttc0np93BvIIwQ?=
+ =?us-ascii?Q?apzHKYYq4IOcy59ljlVu63FZl/zZ28TGOtOQeH8cy2aQJVKUjdaY06/sKzff?=
+ =?us-ascii?Q?riHq4YWWfmRMwDwiHiobzmtOt+iGWax2mrUApOuh0sPtMC1+CVkaICgHADID?=
+ =?us-ascii?Q?bGczzZXQhw5JwI3QE9RxcL+9QoVxKHgdma4hNGTAilKEHCKd/AfQPAoObFgJ?=
+ =?us-ascii?Q?8mLV4x788Lsyv1Knt+XCF03uyW3I7foHw3QoZ284vtvUZs78brm7i0KR/g6V?=
+ =?us-ascii?Q?vjYU78aWNewwZJ3d8PH1aqxSjGO4aDLQHhe2w8pOnLulJcxL0y0P5H2LCZ8l?=
+ =?us-ascii?Q?OdwQVF+tLbEtk1gNBI4pJmsL6q+4VLXjmgdfK183amMZmv+f674kxteGK9Sq?=
+ =?us-ascii?Q?1y26LjQrgEJ2a8fDv+zJOJ2ocRIBFq6H3mCIw89pWW8qLUWGSldFtheR/9QJ?=
+ =?us-ascii?Q?hV0xv0qXBsFmY/LH75m8s9UWsZaZkFHy4os4cmaj4D9xu/CPyW58NO4bzex3?=
+ =?us-ascii?Q?VfxTRtKNMXAgVR5WGM7P8tR/HI01ynxmPjFSDeOwpCvVk/+WKAOMNgutqeAG?=
+ =?us-ascii?Q?ktCAF+9gObCalzWM3krY2EaAhA6lFy0RKFiQ7aiv2tLEUWBDJrxD1xdmsqoo?=
+ =?us-ascii?Q?FPkGVKZbPGld2SzuR1S2agfTA8gQza035pPzr3DFbSaVrwNyY5ASYE8U6pd1?=
+ =?us-ascii?Q?ZQK3sdjzuFRjJa7V7DWfOLuysEABmCMf9wqkR78UYXzG7Vk60CF0Tunu8cRx?=
+ =?us-ascii?Q?5jP3LIfv1cFogchL8sRz4gLcW65GKpl3T1juQjc4SB7w3WYl/NejBFdcW4sq?=
+ =?us-ascii?Q?G1EixAt3pAjSZ7bpcUjKudAmY/C77PzbXRYRWOJ4ZlJbo4XC4AGq5VmIbuWk?=
+ =?us-ascii?Q?KoGxOYgsi+KpAC7Q6iPdosEfs109+wX2iQ1TSN62AyXzdGtUIcf74hNtghv8?=
+ =?us-ascii?Q?PDrFL6tPDG/HoKzOSA6u/j1lQDJFEQ9FKrFdUSL21SzxUG6IJTE6tR18LSaR?=
+ =?us-ascii?Q?MM0zM6nrk2X5uucsAINjF4QfWMTINFstij/rfdFUqvYe1v4u3y+rbeWsM/kz?=
+ =?us-ascii?Q?nkdbjo+7mXq0nnWn2wuIrxJrLb3JnVER+uS8nnrQzAL2Gui+HpZRWhGqT02W?=
+ =?us-ascii?Q?OxY7QsAX4OR0aWVzZYs1EA9sWZb45mLRpseqghDLiEyldeIYMXJ+SYqMUsbE?=
+ =?us-ascii?Q?if04kRpEjviQGmRnehYfDS+4oW0jv39u6+N0fHQ0Lg8q5Shwgr8y6Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:193.8.40.94;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:hexagon.com;PTR:ahersrvdom50.leica-geosystems.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: leica-geosystems.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2025 12:23:12.5311
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97ed4d0f-09f3-43da-c801-08dd979916de
+X-MS-Exchange-CrossTenant-Id: 1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a;Ip=[193.8.40.94];Helo=[hexagon.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009526.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR06MB7757
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_052227_322081_842AD9F3 
-X-CRM114-Status: GOOD (  57.91  )
+X-CRM114-CacheID: sfid-20250520_052321_879491_E6545BCB 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,146 +150,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 May 2025 at 19:24, Hiago De Franco <hiagofranco@gmail.com> wrote:
->
-> Hi Ulf,
->
-> On Mon, May 19, 2025 at 04:33:30PM +0200, Ulf Hansson wrote:
-> > On Fri, 9 May 2025 at 21:13, Hiago De Franco <hiagofranco@gmail.com> wrote:
-> > >
-> > > On Fri, May 09, 2025 at 12:37:02PM +0200, Ulf Hansson wrote:
-> > > > On Thu, 8 May 2025 at 22:28, Hiago De Franco <hiagofranco@gmail.com> wrote:
-> > > > >
-> > > > > Hello,
-> > > > >
-> > > > > On Thu, May 08, 2025 at 12:03:33PM +0200, Ulf Hansson wrote:
-> > > > > > On Wed, 7 May 2025 at 18:02, Hiago De Franco <hiagofranco@gmail.com> wrote:
-> > > > > > >
-> > > > > > > From: Hiago De Franco <hiago.franco@toradex.com>
-> > > > > > >
-> > > > > > > When the remote core is started before Linux boots (e.g., by the
-> > > > > > > bootloader), the driver currently is not able to attach because it only
-> > > > > > > checks for cores running in different partitions. If the core was kicked
-> > > > > > > by the bootloader, it is in the same partition as Linux and it is
-> > > > > > > already up and running.
-> > > > > > >
-> > > > > > > This adds power mode verification through the SCU interface, enabling
-> > > > > > > the driver to detect when the remote core is already running and
-> > > > > > > properly attach to it.
-> > > > > > >
-> > > > > > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > > > > > > Suggested-by: Peng Fan <peng.fan@nxp.com>
-> > > > > > > ---
-> > > > > > > v2: Dropped unecessary include. Removed the imx_rproc_is_on function, as
-> > > > > > > suggested.
-> > > > > > > ---
-> > > > > > >  drivers/remoteproc/imx_rproc.c | 13 +++++++++++++
-> > > > > > >  1 file changed, 13 insertions(+)
-> > > > > > >
-> > > > > > > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> > > > > > > index 627e57a88db2..9b6e9e41b7fc 100644
-> > > > > > > --- a/drivers/remoteproc/imx_rproc.c
-> > > > > > > +++ b/drivers/remoteproc/imx_rproc.c
-> > > > > > > @@ -949,6 +949,19 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
-> > > > > > >                         if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
-> > > > > > >                                 return -EINVAL;
-> > > > > > >
-> > > > > > > +                       /*
-> > > > > > > +                        * If remote core is already running (e.g. kicked by
-> > > > > > > +                        * the bootloader), attach to it.
-> > > > > > > +                        */
-> > > > > > > +                       ret = imx_sc_pm_get_resource_power_mode(priv->ipc_handle,
-> > > > > > > +                                                               priv->rsrc_id);
-> > > > > > > +                       if (ret < 0)
-> > > > > > > +                               dev_err(dev, "failed to get power resource %d mode, ret %d\n",
-> > > > > > > +                                       priv->rsrc_id, ret);
-> > > > > > > +
-> > > > > > > +                       if (ret == IMX_SC_PM_PW_MODE_ON)
-> > > > > > > +                               priv->rproc->state = RPROC_DETACHED;
-> > > > > > > +
-> > > > > > >                         return imx_rproc_attach_pd(priv);
-> > > > > >
-> > > > > > Why is it important to potentially set "priv->rproc->state =
-> > > > > > RPROC_DETACHED" before calling imx_rproc_attach_pd()?
-> > > > > >
-> > > > > > Would it be possible to do it the other way around? First calling
-> > > > > > imx_rproc_attach_pd() then get the power-mode to know if
-> > > > > > RPROC_DETACHED should be set or not?
-> > > > > >
-> > > > > > The main reason why I ask, is because of how we handle the single PM
-> > > > > > domain case. In that case, the PM domain has already been attached
-> > > > > > (and powered-on) before we reach this point.
-> > > > >
-> > > > > I am not sure if I understood correcly, let me know if I missed
-> > > > > something. From my understanding in this case it does not matter, since
-> > > > > the RPROC_DETACHED will only be a flag to trigger the attach callback
-> > > > > from rproc_validate(), when rproc_add() is called inside
-> > > > > remoteproc_core.c.
-> > > >
-> > > > Okay, I see.
-> > > >
-> > > > To me, it sounds like we should introduce a new genpd helper function
-> > > > instead. Something along the lines of this (drivers/pmdomain/core.c)
-> > > >
-> > > > bool dev_pm_genpd_is_on(struct device *dev)
-> > > > {
-> > > >         struct generic_pm_domain *genpd;
-> > > >         bool is_on;
-> > > >
-> > > >         genpd = dev_to_genpd_safe(dev);
-> > > >         if (!genpd)
-> > > >                 return false;
-> > > >
-> > > >         genpd_lock(genpd);
-> > > >         is_on = genpd_status_on(genpd);
-> > > >         genpd_unlock(genpd);
-> > > >
-> > > >         return is_on;
-> > > > }
-> > > >
-> > > > After imx_rproc_attach_pd() has run, we have the devices that
-> > > > correspond to the genpd(s). Those can then be passed as in-parameters
-> > > > to the above function to get the power-state of their PM domains
-> > > > (genpds). Based on that, we can decide if priv->rproc->state should be
-> > > > to RPROC_DETACHED or not. Right?
-> > >
-> > > Got your idea, I think it should work yes, I am not so sure how. From
-> > > what I can see these power domains are managed by
-> > > drivers/pmdomain/imx/scu-pd.c and by enabling the debug messages I can
-> > > see the power mode is correct when the remote core is powered on:
-> > >
-> > > [    0.317369] imx-scu-pd system-controller:power-controller: cm40-pid0 : IMX_SC_PM_PW_MODE_ON
-> > >
-> > > and powered off:
-> > >
-> > > [    0.314953] imx-scu-pd system-controller:power-controller: cm40-pid0 : IMX_SC_PM_PW_MODE_OFF
-> > >
-> > > But I cannot see how to integrate this into the dev_pm_genpd_is_on() you
-> > > proposed. For a quick check, I added this function and it always return
-> > > NULL at dev_to_genpd_safe(). Can you help me to understand this part?
-> >
-> > As your device has multiple PM domains and those gets attached with
-> > dev_pm_domain_attach_list(), the device(s) that you should use with
-> > dev_pm_genpd_is_on() are in imx_rproc->pd_list->pd_devs[n].
->
-> Ok got it, thanks for sharing.
->
-> I just send the v3 with the changes Peng proposed (here
-> https://lore.kernel.org/lkml/20250519171514.61974-1-hiagofranco@gmail.com/T/#t),
-> but I am a bit confused which path we should take, the initial approach
-> proposed or using these PD functions. Maybe we can discuss this in the
-> new v3 patch series?
+Acknowledge the byte count submitted by the target.
+When I2C_SMBUS_BLOCK_DATA read operation is executed by
+i2c_smbus_xfer_emulated(), the length of the second (read) message is set
+to 1. Length of the block is supposed to be obtained from the target by the
+underlying bus driver.
+The i2c_imx_isr_read() function should emit the acknowledge on i2c bus
+after reading the first byte (i.e., byte count) while processing such
+message (as defined in Section 6.5.7 of System Management Bus
+Specification [1]). Without this acknowledge, the target does not submit
+subsequent bytes and the controller only reads 0xff's.
 
-I think it would be better if we can avoid sharing low-level firmware
-functions for PM domains. I am worried that they may become abused for
-other future use-cases.
+In addition, store the length of block data obtained from the target in
+the buffer provided by i2c_smbus_xfer_emulated() - otherwise the first
+byte of actual data is erroneously interpreted as length of the data
+block.
 
-So, if possible, I would rather make us try to use
-dev_pm_genpd_is_on() (or something along those lines), but let's see
-what Peng thinks about it before we make the decision.
+[1] https://smbus.org/specs/SMBus_3_3_20240512.pdf
 
-[...]
+Fixes: 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
+Signed-off-by: Lukasz Kucharczyk <lukasz.kucharczyk@leica-geosystems.com>
+---
+ drivers/i2c/busses/i2c-imx.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Kind regards
-Uffe
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index ee0d25b498cb..4bf550a3b98d 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -1008,7 +1008,7 @@ static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
+ 	/* setup bus to read data */
+ 	temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+ 	temp &= ~I2CR_MTX;
+-	if (i2c_imx->msg->len - 1)
++	if ((i2c_imx->msg->len - 1) || (i2c_imx->msg->flags & I2C_M_RECV_LEN))
+ 		temp &= ~I2CR_TXAK;
+ 
+ 	imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
+@@ -1063,6 +1063,7 @@ static inline void i2c_imx_isr_read_block_data_len(struct imx_i2c_struct *i2c_im
+ 		wake_up(&i2c_imx->queue);
+ 	}
+ 	i2c_imx->msg->len += len;
++	i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = len;
+ }
+ 
+ static irqreturn_t i2c_imx_master_isr(struct imx_i2c_struct *i2c_imx, unsigned int status)
+-- 
+2.34.1
+
 
