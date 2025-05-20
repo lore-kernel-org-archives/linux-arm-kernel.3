@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDDDC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 19:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3E7C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 19:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lvaowTnmN7oLC96D2HQ8Iw/m6LXgQG1UkyHMoTmfSNI=; b=K9yn9rr1MWdNtJDLfiwu89rXjQ
-	F5dSLkx0i5cPH51DqVWdvCDGCyLJ4UAG9O2Nb/fG7L0tWEPks+tJ4wbw8nKS8w/Tvz7Vjr2D0UKu9
-	MAjzSMI7VHe4CvQHD/RrvHEG+bL0IZG/dV2gdq9YOPH0Tp5b9FxAfULsvMSiMAmJmsnVFFLeF2PBM
-	UWCnuGgRr/ndH0F3tWWJNaBsZd7oP7P93n+ubM84XgoshH3qXIVB9GQ/hM0GFdYv1GNGA6RAecqpR
-	YskP7h1ms3eAY/V1MPSoOXT4n26wH0iPDnTZwNpY8RPSeKENIZqHTNT3hyFfZSyVtK5HlhhwO5w23
-	6cJi5KTA==;
+	bh=Ii8Ima0T9o2vsm/Kvny8YHfjV8PP21HFA5Cwpdauwc4=; b=gbUUdIR1Y4O6f7CGaXkj6oZPIW
+	YFyz8tmtec+tOdb7A2SJt0jbbgNwu3CO3mJ4eCujxvoBOaYKJK7J9H49Zd7xRgvoIGig9fWjb6E8R
+	CDUUO0ovbEQ1eUXjPYij3Pxy0CxMO+VnmdwaIEvVv0hjHOw6bPgX4qS2flpMqd5bcWSafo34JiK3Q
+	JjTauIN4SLfc0rwvOsyynWg8Px1eB94Q2o1RNjq0KWz/dEa37BHr/iieyiHf4V1E81NkJS3wHWz6v
+	o8sJ3zJaDbLWi+ACoJnfAKYv9XkVeyXgikyWTcqqMZrqJEqqTPbMH2blAMHA9RuaTYVEcDgNagyeD
+	6vPaxJ+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSOy-0000000Du3D-2gOT;
-	Tue, 20 May 2025 19:13:24 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1uHSR5-0000000DuFK-1itA;
+	Tue, 20 May 2025 19:15:35 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSKj-0000000DtUe-2Drb
+	id 1uHSKl-0000000DtV5-0Zje
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 19:09:02 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-479009c951cso12610231cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 12:09:01 -0700 (PDT)
+	Tue, 20 May 2025 19:09:04 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7cd43fd56bcso76914685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 12:09:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747768140; x=1748372940; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747768142; x=1748372942; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lvaowTnmN7oLC96D2HQ8Iw/m6LXgQG1UkyHMoTmfSNI=;
-        b=DGcjoFmKtCUvq6s9KW/+PncTFO1cGIifr0iDvVU2kHGXfanuzpRYQ0oWGNNgKHEnST
-         MOe4VI07Rr+mu1D0qwHSCGVDCo2QqJ8eah8hbUIKNvg7gBXPle4Oi0kEVLqMXCL/ZskC
-         j4bryjJLxTn/vEYBJX9/IpPFCysOnOzePZPuFlU1RunjcnXRkl4Hnb/ZcPMmSZfoVJ4u
-         BRFiUruDn7yhc5JW3tz0jv4pOv3B2fFPuIw8/rUN/h5FSc6/ZIwTWjBp66rggygrRB58
-         t7hEW8rkHJnf95u193A3XRWH1cikrQ6nKsByC/fAEwJBLzAoW9KZlCx4a0JiD4UmCu+N
-         mp0A==
+        bh=Ii8Ima0T9o2vsm/Kvny8YHfjV8PP21HFA5Cwpdauwc4=;
+        b=TubsPXknfTbPLBj+gle+OXoRWxRX48eop0n3XsJdNUzwsvoBKQq9EpVQimQbxMcShV
+         UUHiXIDq8wcuGuLY9rPvSyo3D4OALiRYNLy5MquKZcLGNg2Z1o8y1wpcIhhm8+++9YXa
+         bwHH18dUF9kXbm5ZtbY+zLYf9A51zbQR8am2UC/r1g6GdJfs8wvPfeNZL5x+4yy+0Sa7
+         aP6sbyj9mk4Id77teUGP6EGbSfqYLV5aKAWtNol172AQbj1zUg3m8z/crn33dleNbYqp
+         ekS9OmsmwPFfU1Zkr9UGIqmZw8azJ4PwNT7QgvhWgkaPr1NkuslS5yh/r7eKTXMooOYs
+         pkZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747768140; x=1748372940;
+        d=1e100.net; s=20230601; t=1747768142; x=1748372942;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lvaowTnmN7oLC96D2HQ8Iw/m6LXgQG1UkyHMoTmfSNI=;
-        b=h2nlYwYtPlCRQuxYYImtPawyeNNVaq+JUpQhyJQ0z4vt/3pX9Ybu8GRY5ihlYM8u7H
-         t62jg0FWlIr9PxeH0IhgkmIGkYn3tNr95a81eV9n+qbtl9ySuaKpm1IpMuKcdp/+R68C
-         BM8f1akrpk3AQIV6KKjJwAHZ4LGUdCLr3srHdGkpbF1tyrzV8AallwQnFc2V24Vsn5ep
-         r/7Z0GDo3pesFFgg4xwcOL0PnFlGNGsTh10WUf0TZI8Z2CK2nhdB6+NxKSJebv7+Le0r
-         z7cmvUOYyHWsPwH/QvKfD8atQzQnsLpIzbGt8CH+rlAbckOptu3hcv+0woZK4aejclwf
-         H2VA==
-X-Forwarded-Encrypted: i=1; AJvYcCVG7fWNdJP5NS7oMJtsHcwPVX8dWgWmaDVJBNx5AKWJdxCYWaQFQtoVG94dWesJTEuaVvb2KzgRTo3c2GWxlOJk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8xuij8YBzy8DAi7DODmCYD7tkUxU7K35JF+s5a5rjHpYNxZYp
-	KP4dSz/gCgKjzVtqjgtFyU02qCja0MGNHkAmkg8HiL2Hpuw9HdLyHbeY
-X-Gm-Gg: ASbGnctWTv18pY+y1yRiuUOadID7a0MJBv8cSalCSBYPz4XEbnACGKZ0QFouJn0wh0o
-	MzvIDwdQqgHs+bmUUsfdYE+ytPFoj9YOvWTiUqmUxTojjKEjDg9gZThITzIBaEBUzkXZnWxi/n3
-	Vg+3dFryR4sXbIqbGAWR7zv3vLrdS/YbfwyyT+jxQv8UrKwycA+bjJn4AoHTbR1KVACVe2tnkr6
-	yNizDT1NIjWk3fWjWrZ6T0k52d8Ha2PF6cwmwYIpny8DR6ly6kqtNavCYOhnqOXREafQVlxjL5O
-	Opg1qHLKKUJSCCCUsSLjv5jf65TDF82jNu0RmQSqnQwijhCcDd9eod4H/QGc2MuqLWtExFhxG5u
-	yjE26sUPVm+LTsf3hF2NL6nWTjywULQ==
-X-Google-Smtp-Source: AGHT+IHrhoVKr8ZuMW3LLmVacxqlRwznTBlrPPx7593+XpI6zjzFhRF7/0TUgT772pugTudEsg+iFQ==
-X-Received: by 2002:a05:622a:22a4:b0:494:b869:ac06 with SMTP id d75a77b69052e-494b869b287mr85977441cf.6.1747768140371;
-        Tue, 20 May 2025 12:09:00 -0700 (PDT)
+        bh=Ii8Ima0T9o2vsm/Kvny8YHfjV8PP21HFA5Cwpdauwc4=;
+        b=U/+iKLY/D8XFobl477rxz28h9qtqn8P8UoI9qvU5GKFpx2G25y+zr9hpxJPI1jWGfQ
+         u0ll2Aw0plGYtq7MrObqegJ/VJQ3PuKpUi+cxBzGZoUANANkhsABE3SRFBn0iqlnPbcZ
+         P1vgcyV8yuDxW4Hf/HbvMZWrMb8lVWKgpVbhCSJWX0mbNCWImTOABDllREwX55bFte8c
+         KMYmFNYKH6XwjgvY/pREE/86nAWJi8Hzg2L9hd9Snw5Qm//0uTXyNnSZcg60cpm3rQm0
+         Dqqcr1kvsGW0FfuZQthtxd/4oxX+PHR+JBBNql+Jh26/6i8cjtDGDZ72ZMerL2H1iQ9r
+         +eNA==
+X-Forwarded-Encrypted: i=1; AJvYcCUuAMjkytMiQmkBsVB0MjKVADLfHsXlMwwfUNDAgMjPyOFKuyeSAnTBpvKPIt5rdIOjq8z5yU7o4iZc0SXll+lc@lists.infradead.org
+X-Gm-Message-State: AOJu0YywkVubTncuuPO28Al8bmBuj5DawGGhcnQ0dejHovs670SW638L
+	7353L12vJzhuT30gwfPV1ATBNg7CKYCX7yGuNBcM98+zxURpAscVa+iS
+X-Gm-Gg: ASbGncvaOPDtHgv+ZFhfctjQUo/XQ9EAit08tXzy6MZqmD/jbJ6cB5fGJ4LcRL+NpSj
+	DlymlgjlP//uxjGfZIdT9cnt0V9Hqb+F2H1Ft0N7cNjuH9oy6+Na9tk6nXVmECCmX/LQWzupAAl
+	aCMG84fEIjzUIvD4MjrzOLZ2VabJHjN4JcSlSh6rWwzNe1PQklVgiFXvCwnWq2IPlzomB3x26Ru
+	vyFnP03uQNXZi2YyP/QfG6k5lcnhPlpQPe+BPxkRyts65q/PkuEOJppltrROjYJLeNeagSy9Wqp
+	RKkx8EZg5Mzen5faQa1L7YqbIrigVDYcHpMdeaTsPEWPrY+MxdVcuwsgh2mXt6JWfChJCKNtiNY
+	JdfUCqkLvvfaSUH/FB5A=
+X-Google-Smtp-Source: AGHT+IFjLmYqaKLHPS+01zHa2///cFu/CXjL/ulMSueMZ2cjR11HyScFFNVGZ0K50+a/0b0pvW5/Nw==
+X-Received: by 2002:a05:622a:1444:b0:471:ea1a:d9e with SMTP id d75a77b69052e-494ae3f24abmr103477651cf.12.1747768141896;
+        Tue, 20 May 2025 12:09:01 -0700 (PDT)
 Received: from [192.168.124.1] (syn-067-243-142-039.res.spectrum.com. [67.243.142.39])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-494ae445b99sm76554051cf.48.2025.05.20.12.08.59
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-494ae445b99sm76554051cf.48.2025.05.20.12.09.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 May 2025 12:08:59 -0700 (PDT)
+        Tue, 20 May 2025 12:09:01 -0700 (PDT)
 From: Connor Abbott <cwabbott0@gmail.com>
-Date: Tue, 20 May 2025 15:08:54 -0400
-Subject: [PATCH v8 1/7] iommu/arm-smmu-qcom: Enable threaded IRQ for Adreno
- SMMUv2/MMU500
+Date: Tue, 20 May 2025 15:08:55 -0400
+Subject: [PATCH v8 2/7] iommu/arm-smmu: Move handing of RESUME to the
+ context fault handler
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250520-msm-gpu-fault-fixes-next-v8-1-fce6ee218787@gmail.com>
+Message-Id: <20250520-msm-gpu-fault-fixes-next-v8-2-fce6ee218787@gmail.com>
 References: <20250520-msm-gpu-fault-fixes-next-v8-0-fce6ee218787@gmail.com>
 In-Reply-To: <20250520-msm-gpu-fault-fixes-next-v8-0-fce6ee218787@gmail.com>
 To: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
@@ -89,16 +89,16 @@ Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org, 
  Connor Abbott <cwabbott0@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747768138; l=2173;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747768138; l=5304;
  i=cwabbott0@gmail.com; s=20240426; h=from:subject:message-id;
- bh=ZBvYKn5K11+lNsz4zT1zMYa5IeR/X4du0GnqkshS5cY=;
- b=ViPeijvXoIUFv2QAC6sXPESomfVyzJ6s9UWCJTU2K3EndiqfiDH0VcJPIhmS25TOOhh6IVZsY
- tWgr3r9EDqOCOO+X64zLIEayNFmirrauIr4/BJjbDt38yQUW2T81wXA
+ bh=xmVtxKp7l1nH9HRMvlhp+AXA8iIyclW4FjVkhjfpiJg=;
+ b=R9Qrdk+aCSBCIG9HTDvSktf7A7GtrulqV4E10X0kJ7Yd5pExhrEumGzEbGK+ajvv2fm2NcdnU
+ zCVQ7U/1Bn6Coy3wGGCl4TjDEVPJPXR5CoRuRTG6lRNa2ucwCE6WGoU
 X-Developer-Key: i=cwabbott0@gmail.com; a=ed25519;
  pk=dkpOeRSXLzVgqhy0Idr3nsBr4ranyERLMnoAgR4cHmY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_120901_561762_1083BAA6 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250520_120903_172715_DC7C72C5 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,52 +113,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The recommended flow for stall-on-fault in SMMUv2 is the following:
+The upper layer fault handler is now expected to handle everything
+required to retry the transaction or dump state related to it, since we
+enable threaded IRQs. This means that we can take charge of writing
+RESUME, making sure that we always write it after writing FSR as
+recommended by the specification.
 
-1. Resolve the fault.
-2. Write to FSR to clear the fault bits.
-3. Write RESUME to retry or fail the transaction.
+The iommu handler should write -EAGAIN if a transaction needs to be
+retried. This avoids tricky cross-tree changes in drm/msm, since it
+never wants to retry the transaction and it already returns 0 from its
+fault handler. Therefore it will continue to correctly terminate the
+transaction without any changes required.
 
-MMU500 is designed with this sequence in mind. For example,
-experimentally we have seen on MMU500 that writing RESUME does not clear
-FSR.SS unless the original fault is cleared in FSR, so 2 must come
-before 3. FSR.SS is allowed to signal a fault (and does on MMU500) so
-that if we try to do 2 -> 1 -> 3 (while exiting from the fault handler
-after 2) we can get duplicate faults without hacks to disable
-interrupts.
+devcoredumps from drm/msm will temporarily be broken until it is fixed
+to collect devcoredumps inside its fault handler, but fixing that first
+would actually be worse because MMU-500 ignores writes to RESUME unless
+all fields of FSR (except SS of course) are clear and raises an
+interrupt when only SS is asserted. Right now, things happen to work
+most of the time if we collect a devcoredump, because RESUME is written
+asynchronously in the fault worker after the fault handler clears FSR
+and finishes, although there will be some spurious faults, but if this
+is changed before this commit fixes the FSR/RESUME write order then SS
+will never be cleared, the interrupt will never be cleared, and the
+whole system will hang every time a fault happens. It will therefore
+help bisectability if this commit goes first.
 
-However, resolving the fault typically requires lengthy operations that
-can stall, like bringing in pages from disk. The only current user,
-drm/msm, dumps GPU state before failing the transaction which indeed can
-stall. Therefore, from now on we will require implementations that want
-to use stall-on-fault to also enable threaded IRQs. Do that with the
-Adreno MMU implementations.
+I've changed the TBU path to also accept -EAGAIN and do the same thing,
+while keeping the old -EBUSY behavior. Although the old path was broken
+because you'd get a storm of interrupts due to returning IRQ_NONE that
+would eventually result in the interrupt being disabled, and I think it
+was dead code anyway, so it should eventually be deleted. Note that
+drm/msm never uses TBU so this is untested.
 
 Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
 ---
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c |  9 +++++++++
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c       | 14 --------------
+ drivers/iommu/arm/arm-smmu/arm-smmu.c            |  6 ++++++
+ 3 files changed, 15 insertions(+), 14 deletions(-)
 
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+index d03b2239baad48680eb6c3201c85f924ec4a0e07..65e0ef6539fe70aabffa0c8fbe444c34c620d367 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+@@ -406,6 +406,12 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
+ 			arm_smmu_print_context_fault_info(smmu, idx, &cfi);
+ 
+ 		arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
++
++		if (cfi.fsr & ARM_SMMU_CB_FSR_SS) {
++			arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_RESUME,
++					  ret == -EAGAIN ? 0 : ARM_SMMU_RESUME_TERMINATE);
++		}
++
+ 		return IRQ_HANDLED;
+ 	}
+ 
+@@ -416,6 +422,9 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
+ 	if (!tmp || tmp == -EBUSY) {
+ 		ret = IRQ_HANDLED;
+ 		resume = ARM_SMMU_RESUME_TERMINATE;
++	} else if (tmp == -EAGAIN) {
++		ret = IRQ_HANDLED;
++		resume = 0;
+ 	} else {
+ 		phys_addr_t phys_atos = qcom_smmu_verify_fault(smmu_domain, cfi.iova, cfi.fsr);
+ 
 diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index 59d02687280e8d37b5e944619fcfe4ebd1bd6926..4d3b99babd3584ec971bef30cd533c35904fe7f5 100644
+index 4d3b99babd3584ec971bef30cd533c35904fe7f5..c84730d33a30c013a37e603d10319fb83203eaa5 100644
 --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
 +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -585,6 +585,7 @@ static const struct arm_smmu_impl qcom_adreno_smmu_v2_impl = {
- 	.alloc_context_bank = qcom_adreno_smmu_alloc_context_bank,
- 	.write_sctlr = qcom_adreno_smmu_write_sctlr,
- 	.tlb_sync = qcom_smmu_tlb_sync,
-+	.context_fault_needs_threaded_irq = true,
- };
+@@ -120,19 +120,6 @@ static void qcom_adreno_smmu_set_stall(const void *cookie, bool enabled)
+ 		qsmmu->stall_enabled &= ~BIT(cfg->cbndx);
+ }
  
- static const struct arm_smmu_impl qcom_adreno_smmu_500_impl = {
-@@ -594,6 +595,7 @@ static const struct arm_smmu_impl qcom_adreno_smmu_500_impl = {
- 	.alloc_context_bank = qcom_adreno_smmu_alloc_context_bank,
- 	.write_sctlr = qcom_adreno_smmu_write_sctlr,
- 	.tlb_sync = qcom_smmu_tlb_sync,
-+	.context_fault_needs_threaded_irq = true,
- };
+-static void qcom_adreno_smmu_resume_translation(const void *cookie, bool terminate)
+-{
+-	struct arm_smmu_domain *smmu_domain = (void *)cookie;
+-	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+-	struct arm_smmu_device *smmu = smmu_domain->smmu;
+-	u32 reg = 0;
+-
+-	if (terminate)
+-		reg |= ARM_SMMU_RESUME_TERMINATE;
+-
+-	arm_smmu_cb_write(smmu, cfg->cbndx, ARM_SMMU_CB_RESUME, reg);
+-}
+-
+ static void qcom_adreno_smmu_set_prr_bit(const void *cookie, bool set)
+ {
+ 	struct arm_smmu_domain *smmu_domain = (void *)cookie;
+@@ -337,7 +324,6 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
+ 	priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
+ 	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
+ 	priv->set_stall = qcom_adreno_smmu_set_stall;
+-	priv->resume_translation = qcom_adreno_smmu_resume_translation;
+ 	priv->set_prr_bit = NULL;
+ 	priv->set_prr_addr = NULL;
  
- static struct arm_smmu_device *qcom_smmu_create(struct arm_smmu_device *smmu,
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+index 8f439c265a23f16bd11801a93dae12fd476ddfb2..8d95b14c7d5a4040bb8add56475e297beb16b162 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+@@ -474,6 +474,12 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+ 		arm_smmu_print_context_fault_info(smmu, idx, &cfi);
+ 
+ 	arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
++
++	if (cfi.fsr & ARM_SMMU_CB_FSR_SS) {
++		arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_RESUME,
++				  ret == -EAGAIN ? 0 : ARM_SMMU_RESUME_TERMINATE);
++	}
++
+ 	return IRQ_HANDLED;
+ }
+ 
 
 -- 
 2.47.1
