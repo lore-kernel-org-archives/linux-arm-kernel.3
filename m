@@ -4,55 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5FCC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85E4C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=juD2MVrUpayXi0rOd/W/tCe7s83yAYtXEMUeAd+jPas=; b=lN67mvc/7d0N7iaFw/bOBtlLcB
-	mqoYhL7eSYyCKfHxyYf3WFcuER/liBNPU8XnbedZ5cQ7rSGjeqy+bY3CJd0YPnWXWt5V/+aAda7p+
-	RWHrgutd/V1v9L/co3+N2bHmrFwdQa/4CLoIgXP+NxTKgMhtKwqqf+ik6hSl0rGj7g5kWPryQed43
-	4TyjNNGDinC2F7uPgzyi8Z5ebXiPhlV39tDv2twKBt7HfLE6hPxkrifrb+ufoTJHOMRx2FenmuaD6
-	MEQ7b9oaYNoRNspXa7DVrXIzGaKSu1HE+iaEvTZLF6sHiUpXle7pfcpLzNGgkTYZk1bKBITYVBsTC
-	Wz5S+GGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w0LsP1fiZLjpi1gUjPOfQqurrRWtv9lamy0l+H19eNs=; b=44GCbmm2IyA1p3FU7ENMkvA2Gt
+	5NRk23dm+ywamC1xprgq9MrqcY9eD8pH1sSixEXfhHyQkjPWPHklU8O+0by1as/vgbYfA8YviTTbp
+	+XBLoOmYiDPoH7py2p91FPhisUp0XE3uuu6vB4F8YZZhn6DAhz0ZT9UzpykwM/KhbwaOjfN5vcCdU
+	V/7f3ioVP3ZbKbipOMxN07Y4Wipw6YMwR4kiz8t0WPWipVAsPbBuJ626Z7PpYKpGiL35O7CQ1KfhL
+	fqEPi2vRyEMkFwWkl9/zLvrk7fv5fY6yip6F3KocgBQRuDw3eW76GlSBLCzPmKJznjRKrC/+y9eer
+	A+nMRYig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHlQ-0000000BvSM-1c0D;
-	Tue, 20 May 2025 07:51:52 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uHHsc-0000000BwmE-03tl;
+	Tue, 20 May 2025 07:59:18 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHhn-0000000Buhy-0c12
+	id 1uHHqT-0000000BwRb-2d0p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 07:48:09 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4b1mpX0YSZznfl1;
-	Tue, 20 May 2025 15:46:44 +0800 (CST)
-Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
-	by mail.maildlp.com (Postfix) with ESMTPS id DAFE8180B68;
-	Tue, 20 May 2025 15:47:59 +0800 (CST)
-Received: from localhost.localdomain (10.90.31.46) by
- kwepemo100006.china.huawei.com (7.202.195.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 20 May 2025 15:47:59 +0800
-From: Jie Zhan <zhanjie9@hisilicon.com>
-To: <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>
-Subject: [PATCH v2] PM / devfreq: Add HiSilicon uncore frequency scaling driver
-Date: Tue, 20 May 2025 15:41:20 +0800
-Message-ID: <20250520074120.4187096-1-zhanjie9@hisilicon.com>
-X-Mailer: git-send-email 2.30.0
+	Tue, 20 May 2025 07:57:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=w0LsP1fiZLjpi1gUjPOfQqurrRWtv9lamy0l+H19eNs=; b=cAQXddps1vtWNSjTgqR6JR92O/
+	A1Ul4BSViUPWt9tLuHIctuBmrLCSjqBtoB5E9M0C4nC/WRRgMLHV8aUYGnJqG8dOmaBlyIpGhvkKI
+	pBptnZMQrLeWndGWsrFddQG3KuNkECU8Wv8GhmXG0ZA54ru0m/WPNJoQuct2xKoQbriAx+G0jMD+3
+	ogJWW5IueXiow4jsKv7Lhtpi2zB2ObuAG2fnvW0pR5+5SdZIeRgrz3VanAZlcJWK3+HntLxuc8n//
+	24MKYDkz1Fru7hNdy3blghtKO8NwnazWBxz2YB7lC1O6zCvTWYWF2wpnfToYGqiMp73irFST3y1UP
+	Q/WlkGow==;
+Received: from [89.212.21.243] (port=52674 helo=[192.168.69.116])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uHHqP-009yd6-21;
+	Tue, 20 May 2025 09:57:01 +0200
+Message-ID: <e986fcf0-fe2b-43de-9d46-8ea60d97ca14@norik.com>
+Date: Tue, 20 May 2025 09:56:59 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemo100006.china.huawei.com (7.202.195.47)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Upstream] [PATCH] arm64: dts: freescale: imx93-phycore-som:
+ Delay the phy reset by a gpio
+To: Christoph Stoidner <c.stoidner@phytec.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de
+References: <20250520073450.388989-1-c.stoidner@phytec.de>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <20250520073450.388989-1-c.stoidner@phytec.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_004807_512438_B497A893 
-X-CRM114-Status: GOOD (  30.14  )
+X-CRM114-CacheID: sfid-20250520_005706_136867_CE58F811 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,816 +100,92 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: zhanjie9@hisilicon.com, yubowen8@huawei.com, linux-pm@vger.kernel.org, zhenglifeng1@huawei.com, liwei728@huawei.com, linuxarm@huawei.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
-the devfreq framework.  The uncore domain contains shared computing
-resources, including system interconnects and L3 cache.  The uncore
-frequency significantly impacts the system-wide performance as well as
-power consumption.  This driver adds support for runtime management of
-uncore frequency from kernel and userspace.  The main function includes
-setting and getting frequencies, changing frequency scaling policies, and
-querying the list of CPUs whose performance is significantly related to
-this uncore frequency domain, etc.  The driver communicates with a platform
-controller through an ACPI PCC mailbox to take the actual actions of
-frequency scaling.
+Hi Christoph,
 
-Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
----
-v2:
-- Make devm manage the release sequence, remove drv->remove()
-- Warn on !uncore or !uncore->pchan as they're no longer expected
-- Remove ioremap of pcc shared memory because it's done by the pcc driver
-- Fix compiler warning of discarding 'const'
-- Minor trivial coding style changes
+On 20. 05. 25 09:34, Christoph Stoidner wrote:
+> According to the datasheet the phy needs to be held in reset until the
+> reference clock got stable. Even though no issue was observed, fix this
+> as the software should always comply with the specification.
+> 
+> Fix this in the bootloader, as this is the point where the reference
+> clock gets initialized and stable first.
 
-v1:
-https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/
----
- drivers/devfreq/Kconfig            |  11 +
- drivers/devfreq/Makefile           |   1 +
- drivers/devfreq/hisi_uncore_freq.c | 733 +++++++++++++++++++++++++++++
- 3 files changed, 745 insertions(+)
- create mode 100644 drivers/devfreq/hisi_uncore_freq.c
+I would remove this paragraph about the "Fix this in the bootloader..."
 
-diff --git a/drivers/devfreq/Kconfig b/drivers/devfreq/Kconfig
-index 3c4862a752b5..7ab09739bf21 100644
---- a/drivers/devfreq/Kconfig
-+++ b/drivers/devfreq/Kconfig
-@@ -90,6 +90,17 @@ config ARM_EXYNOS_BUS_DEVFREQ
- 	  and adjusts the operating frequencies and voltages with OPP support.
- 	  This does not yet operate with optimal voltages.
- 
-+config ARM_HISI_UNCORE_DEVFREQ
-+	tristate "HiSilicon uncore DEVFREQ Driver"
-+	depends on (PCC && ACPI && ACPI_PPTT) || COMPILE_TEST
-+	select DEVFREQ_GOV_PERFORMANCE
-+	select DEVFREQ_GOV_USERSPACE
-+	help
-+	  This adds a DEVFREQ driver that manages uncore frequency scaling for
-+	  HiSilicon Kunpeng SoCs. This enables runtime management of uncore
-+	  frequency scaling from kernel and userspace. The uncore domain
-+	  contains system interconnects and L3 cache.
-+
- config ARM_IMX_BUS_DEVFREQ
- 	tristate "i.MX Generic Bus DEVFREQ Driver"
- 	depends on ARCH_MXC || COMPILE_TEST
-diff --git a/drivers/devfreq/Makefile b/drivers/devfreq/Makefile
-index bf40d04928d0..404179d79a9d 100644
---- a/drivers/devfreq/Makefile
-+++ b/drivers/devfreq/Makefile
-@@ -9,6 +9,7 @@ obj-$(CONFIG_DEVFREQ_GOV_PASSIVE)	+= governor_passive.o
- 
- # DEVFREQ Drivers
- obj-$(CONFIG_ARM_EXYNOS_BUS_DEVFREQ)	+= exynos-bus.o
-+obj-$(CONFIG_ARM_HISI_UNCORE_DEVFREQ)	+= hisi_uncore_freq.o
- obj-$(CONFIG_ARM_IMX_BUS_DEVFREQ)	+= imx-bus.o
- obj-$(CONFIG_ARM_IMX8M_DDRC_DEVFREQ)	+= imx8m-ddrc.o
- obj-$(CONFIG_ARM_MEDIATEK_CCI_DEVFREQ)	+= mtk-cci-devfreq.o
-diff --git a/drivers/devfreq/hisi_uncore_freq.c b/drivers/devfreq/hisi_uncore_freq.c
-new file mode 100644
-index 000000000000..5f22dcd6b90b
---- /dev/null
-+++ b/drivers/devfreq/hisi_uncore_freq.c
-@@ -0,0 +1,733 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * HiSilicon uncore frequency scaling driver
-+ *
-+ * Copyright (c) 2025 HiSilicon Co., Ltd
-+ */
-+
-+#include <linux/acpi.h>
-+#include <linux/bits.h>
-+#include <linux/devfreq.h>
-+#include <linux/device.h>
-+#include <linux/dev_printk.h>
-+#include <linux/errno.h>
-+#include <linux/iopoll.h>
-+#include <linux/kernel.h>
-+#include <linux/ktime.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/module.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/mutex.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_opp.h>
-+#include <linux/property.h>
-+#include <linux/topology.h>
-+#include <linux/units.h>
-+#include <acpi/pcc.h>
-+
-+#include "governor.h"
-+
-+struct hisi_uncore_pcc_data {
-+	u16 status;
-+	u16 resv;
-+	u32 data;
-+};
-+
-+struct hisi_uncore_pcc_shmem {
-+	struct acpi_pcct_shared_memory head;
-+	struct hisi_uncore_pcc_data pcc_data;
-+};
-+
-+enum hisi_uncore_pcc_cmd_type {
-+	HUCF_PCC_CMD_GET_CAP = 0,
-+	HUCF_PCC_CMD_GET_FREQ,
-+	HUCF_PCC_CMD_SET_FREQ,
-+	HUCF_PCC_CMD_GET_MODE,
-+	HUCF_PCC_CMD_SET_MODE,
-+	HUCF_PCC_CMD_GET_PLAT_FREQ_NUM,
-+	HUCF_PCC_CMD_GET_PLAT_FREQ_BY_IDX,
-+	HUCF_PCC_CMD_MAX = 256,
-+};
-+
-+static int hisi_platform_gov_usage;
-+static DEFINE_MUTEX(hisi_platform_gov_usage_lock);
-+
-+enum hisi_uncore_freq_mode {
-+	HUCF_MODE_PLATFORM = 0,
-+	HUCF_MODE_OS,
-+	HUCF_MODE_MAX,
-+};
-+
-+#define HUCF_CAP_PLATFORM_CTRL	BIT(0)
-+
-+/**
-+ * struct hisi_uncore_freq - hisi uncore frequency scaling device data
-+ * @dev:		device of this frequency scaling driver
-+ * @cl:			mailbox client object
-+ * @pchan:		PCC mailbox channel
-+ * @chan_id:		PCC channel ID
-+ * @last_cmd_cmpl_time:	timestamp of the last completed PCC command
-+ * @pcc_lock:		PCC channel lock
-+ * @devfreq:		devfreq data of this hisi_uncore_freq device
-+ * @related_cpus:	CPUs whose performance is majorly affected by this
-+ *			uncore frequency domain
-+ * @cap:		capabililty flag
-+ */
-+struct hisi_uncore_freq {
-+	struct device *dev;
-+	struct mbox_client cl;
-+	struct pcc_mbox_chan *pchan;
-+	int chan_id;
-+	ktime_t last_cmd_cmpl_time;
-+	struct mutex pcc_lock;
-+	struct devfreq *devfreq;
-+	struct cpumask related_cpus;
-+	u32 cap;
-+};
-+
-+/* PCC channel timeout = PCC nominal latency * NUM */
-+#define HUCF_PCC_POLL_TIMEOUT_NUM	1000
-+#define HUCF_PCC_POLL_INTERVAL_US	5
-+
-+/* Default polling interval in ms for devfreq governors*/
-+#define DEFAULT_POLLING_MS 100
-+
-+static int hisi_uncore_request_pcc_chan(struct hisi_uncore_freq *uncore)
-+{
-+	struct pcc_mbox_chan *pcc_chan;
-+	int rc;
-+
-+	uncore->cl = (struct mbox_client) {
-+		.dev = uncore->dev,
-+		.tx_block = false,
-+		.knows_txdone = true,
-+	};
-+
-+	pcc_chan = pcc_mbox_request_channel(&uncore->cl, uncore->chan_id);
-+	if (IS_ERR(pcc_chan)) {
-+		dev_err(uncore->dev, "Failed to request PCC channel %u\n",
-+			uncore->chan_id);
-+		return PTR_ERR(pcc_chan);
-+	}
-+
-+	if (!pcc_chan->shmem_base_addr) {
-+		dev_err(uncore->dev, "Invalid PCC shared memory address\n");
-+		rc = -EINVAL;
-+		goto err_pcc_chan_free;
-+	}
-+
-+	if (pcc_chan->shmem_size < sizeof(struct hisi_uncore_pcc_shmem)) {
-+		dev_err(uncore->dev, "Invalid PCC shared memory size (%lluB)\n",
-+			pcc_chan->shmem_size);
-+		rc = -EINVAL;
-+		goto err_pcc_chan_free;
-+	}
-+
-+	mutex_init(&uncore->pcc_lock);
-+	uncore->pchan = pcc_chan;
-+
-+	return 0;
-+
-+err_pcc_chan_free:
-+	pcc_mbox_free_channel(pcc_chan);
-+
-+	return rc;
-+}
-+
-+static void hisi_uncore_free_pcc_chan(struct hisi_uncore_freq *uncore)
-+{
-+	if (uncore->pchan) {
-+		guard(mutex)(&uncore->pcc_lock);
-+		pcc_mbox_free_channel(uncore->pchan);
-+		uncore->pchan = NULL;
-+	}
-+}
-+
-+static void devm_hisi_uncore_free_pcc_chan(void *data)
-+{
-+	hisi_uncore_free_pcc_chan(data);
-+}
-+
-+static acpi_status hisi_uncore_pcc_reg_scan(struct acpi_resource *res,
-+					    void *ctx)
-+{
-+	struct acpi_resource_generic_register *reg;
-+	struct hisi_uncore_freq *uncore;
-+
-+	if (!res || res->type != ACPI_RESOURCE_TYPE_GENERIC_REGISTER)
-+		return AE_OK;
-+
-+	reg = &res->data.generic_reg;
-+	if (reg->space_id != ACPI_ADR_SPACE_PLATFORM_COMM)
-+		return AE_OK;
-+
-+	if (!ctx)
-+		return AE_ERROR;
-+
-+	uncore = ctx;
-+	/* PCC subspace ID stored in Access Size */
-+	uncore->chan_id = reg->access_size;
-+
-+	return AE_CTRL_TERMINATE;
-+}
-+
-+static int hisi_uncore_init_pcc_chan(struct hisi_uncore_freq *uncore)
-+{
-+	acpi_handle handle = ACPI_HANDLE(uncore->dev);
-+	acpi_status status;
-+	int rc;
-+
-+	uncore->chan_id = -1;
-+	status = acpi_walk_resources(handle, METHOD_NAME__CRS,
-+				     hisi_uncore_pcc_reg_scan, uncore);
-+	if (ACPI_FAILURE(status) || uncore->chan_id < 0) {
-+		dev_err(uncore->dev, "Failed to get a PCC channel\n");
-+		return -ENODEV;
-+	}
-+
-+	rc = hisi_uncore_request_pcc_chan(uncore);
-+	if (rc)
-+		return rc;
-+
-+	return devm_add_action_or_reset(uncore->dev,
-+					devm_hisi_uncore_free_pcc_chan,
-+					uncore);
-+}
-+
-+static int hisi_uncore_cmd_send(struct hisi_uncore_freq *uncore,
-+				u8 cmd, u32 *data)
-+{
-+	struct hisi_uncore_pcc_shmem __iomem *addr;
-+	struct hisi_uncore_pcc_shmem shmem;
-+	struct pcc_mbox_chan *pchan;
-+	unsigned int mrtt;
-+	s64 time_delta;
-+	u16 status;
-+	int rc;
-+
-+	guard(mutex)(&uncore->pcc_lock);
-+
-+	pchan = uncore->pchan;
-+	if (!pchan)
-+		return -ENODEV;
-+
-+	addr = (struct hisi_uncore_pcc_shmem __iomem *)pchan->shmem;
-+	if (!addr)
-+		return -EINVAL;
-+
-+	/* Handle the Minimum Request Turnaround Time (MRTT) */
-+	mrtt = pchan->min_turnaround_time;
-+	time_delta = ktime_us_delta(ktime_get(),
-+				    uncore->last_cmd_cmpl_time);
-+	if (mrtt > time_delta)
-+		udelay(mrtt - time_delta);
-+
-+	/* Copy data */
-+	shmem.head = (struct acpi_pcct_shared_memory) {
-+		.signature = PCC_SIGNATURE | uncore->chan_id,
-+		.command = cmd,
-+		.status = 0,
-+	};
-+	shmem.pcc_data.data = *data;
-+	memcpy_toio(addr, &shmem, sizeof(shmem));
-+
-+	/* Ring doorbell */
-+	rc = mbox_send_message(pchan->mchan, &cmd);
-+	if (rc < 0) {
-+		dev_err(uncore->dev, "Failed to send mbox message, %d\n", rc);
-+		return rc;
-+	}
-+
-+	/* Wait status */
-+	rc = readw_poll_timeout(&addr->head.status, status,
-+				status & (PCC_STATUS_CMD_COMPLETE |
-+					  PCC_STATUS_ERROR),
-+				HUCF_PCC_POLL_INTERVAL_US,
-+				pchan->latency * HUCF_PCC_POLL_TIMEOUT_NUM);
-+	if (rc) {
-+		dev_err(uncore->dev, "PCC channel response timeout, cmd=%u\n", cmd);
-+		goto exit;
-+	}
-+
-+	if (status & PCC_STATUS_ERROR) {
-+		dev_err(uncore->dev, "PCC cmd error, cmd=%u\n", cmd);
-+		rc = -EIO;
-+		goto exit;
-+	}
-+
-+exit:
-+	uncore->last_cmd_cmpl_time = ktime_get();
-+
-+	/* Copy data back */
-+	memcpy_fromio(data, &addr->pcc_data.data, sizeof(*data));
-+
-+	/* Clear mailbox active req */
-+	mbox_client_txdone(pchan->mchan, rc);
-+
-+	return rc;
-+}
-+
-+static int hisi_uncore_target(struct device *dev, unsigned long *freq,
-+			      u32 flags)
-+{
-+	struct hisi_uncore_freq *uncore = dev_get_drvdata(dev);
-+	struct dev_pm_opp *opp;
-+	u32 data;
-+
-+	if (WARN_ON(!uncore || !uncore->pchan))
-+		return -ENODEV;
-+
-+	opp = devfreq_recommended_opp(dev, freq, flags);
-+	if (IS_ERR(opp)) {
-+		dev_err(dev, "Failed to get opp for freq %lu hz\n", *freq);
-+		return PTR_ERR(opp);
-+	}
-+	dev_pm_opp_put(opp);
-+
-+	data = (u32)(dev_pm_opp_get_freq(opp) / HZ_PER_MHZ);
-+
-+	return hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_FREQ, &data);
-+}
-+
-+static int hisi_uncore_get_dev_status(struct device *dev,
-+				      struct devfreq_dev_status *stat)
-+{
-+	/* Not used */
-+	return 0;
-+}
-+
-+static int hisi_uncore_get_cur_freq(struct device *dev, unsigned long *freq)
-+{
-+	struct hisi_uncore_freq *uncore = dev_get_drvdata(dev);
-+	u32 data = 0;
-+	int rc;
-+
-+	if (WARN_ON(!uncore || !uncore->pchan))
-+		return -ENODEV;
-+
-+	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_FREQ, &data);
-+
-+	/*
-+	 * Upon a failure, 'data' remains 0 and 'freq' is set to 0 rather than a
-+	 * random value.  devfreq shouldn't use 'freq' in that case though.
-+	 */
-+	*freq = data * HZ_PER_MHZ;
-+
-+	return rc;
-+}
-+
-+static void devm_hisi_uncore_remove_opp(void *data)
-+{
-+	struct hisi_uncore_freq *uncore = data;
-+
-+	dev_pm_opp_remove_all_dynamic(uncore->dev);
-+}
-+
-+static int hisi_uncore_init_opp(struct hisi_uncore_freq *uncore)
-+{
-+	unsigned long freq_mhz;
-+	u32 data = 0, num, index;
-+	int rc;
-+
-+	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_PLAT_FREQ_NUM,
-+				  &data);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to get plat freq num\n");
-+		return rc;
-+	}
-+	num = data;
-+
-+	for (index = 0; index < num; index++) {
-+		data = index;
-+		rc = hisi_uncore_cmd_send(uncore,
-+					  HUCF_PCC_CMD_GET_PLAT_FREQ_BY_IDX,
-+					  &data);
-+		if (rc) {
-+			dev_err(uncore->dev, "Failed to get plat freq at index %u\n", index);
-+			dev_pm_opp_remove_all_dynamic(uncore->dev);
-+			return rc;
-+		}
-+		freq_mhz = data;
-+
-+		/* Don't care OPP votlage, take 1V as default */
-+		rc = dev_pm_opp_add(uncore->dev,
-+				    freq_mhz * HZ_PER_MHZ, 1000000);
-+		if (rc) {
-+			dev_err(uncore->dev, "Add OPP %lu failed (%d)\n",
-+				freq_mhz, rc);
-+			dev_pm_opp_remove_all_dynamic(uncore->dev);
-+			return rc;
-+		}
-+	}
-+
-+	return devm_add_action_or_reset(uncore->dev,
-+					devm_hisi_uncore_remove_opp, uncore);
-+}
-+
-+static int hisi_platform_gov_func(struct devfreq *df, unsigned long *freq)
-+{
-+	/*
-+	 * Platform-controlled mode doesn't care the frequency issued from
-+	 * devfreq, so just pick the max freq.
-+	 */
-+	*freq = DEVFREQ_MAX_FREQ;
-+
-+	return 0;
-+}
-+
-+static int hisi_platform_gov_handler(struct devfreq *df, unsigned int event,
-+				     void *val)
-+{
-+	struct hisi_uncore_freq *uncore = dev_get_drvdata(df->dev.parent);
-+	int rc = 0;
-+	u32 data;
-+
-+	if (WARN_ON(!uncore || !uncore->pchan))
-+		return -ENODEV;
-+
-+	switch (event) {
-+	case DEVFREQ_GOV_START:
-+		data = HUCF_MODE_PLATFORM;
-+		rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
-+		break;
-+	case DEVFREQ_GOV_STOP:
-+		data = HUCF_MODE_OS;
-+		rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	if (rc)
-+		dev_err(uncore->dev, "Failed to set operate mode (%d)\n", rc);
-+
-+	return rc;
-+}
-+
-+/*
-+ * In the platform-controlled mode, the platform decides the uncore frequency
-+ * and ignores the frequency issued from the driver.
-+ * Thus, create a pseudo 'hisi_platform' governor that stops devfreq monitor
-+ * from working so as to save meaningless overhead.
-+ */
-+static struct devfreq_governor hisi_platform_governor = {
-+	.name = "hisi_platform",
-+	/*
-+	 * Set interrupt_driven to skip the devfreq monitor mechanism, though
-+	 * this governor not interrupt-driven.
-+	 */
-+	.flags = DEVFREQ_GOV_FLAG_IRQ_DRIVEN,
-+	.get_target_freq = hisi_platform_gov_func,
-+	.event_handler = hisi_platform_gov_handler,
-+};
-+
-+static void hisi_uncore_remove_platform_gov(struct hisi_uncore_freq *uncore)
-+{
-+	u32 data = HUCF_MODE_PLATFORM;
-+	int rc;
-+
-+	if (!(uncore->cap & HUCF_CAP_PLATFORM_CTRL))
-+		return;
-+
-+	guard(mutex)(&hisi_platform_gov_usage_lock);
-+
-+	if (--hisi_platform_gov_usage == 0) {
-+		rc = devfreq_remove_governor(&hisi_platform_governor);
-+		if (rc)
-+			dev_err(uncore->dev, "Failed to remove hisi_platform gov (%d)\n", rc);
-+	}
-+
-+	/*
-+	 * Set to the platform-controlled mode, if supported, so as to have a
-+	 * certain behaviour when the driver is detached.
-+	 */
-+	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
-+	if (rc)
-+		dev_err(uncore->dev, "Failed to set platform mode on exit (%d)\n", rc);
-+}
-+
-+static void devm_hisi_uncore_remove_platform_gov(void *data)
-+{
-+	hisi_uncore_remove_platform_gov(data);
-+}
-+
-+static int hisi_uncore_add_platform_gov(struct hisi_uncore_freq *uncore)
-+{
-+	int rc = 0;
-+
-+	if (!(uncore->cap & HUCF_CAP_PLATFORM_CTRL))
-+		return 0;
-+
-+	guard(mutex)(&hisi_platform_gov_usage_lock);
-+
-+	if (hisi_platform_gov_usage == 0) {
-+		rc = devfreq_add_governor(&hisi_platform_governor);
-+		if (rc)
-+			return rc;
-+	}
-+	hisi_platform_gov_usage++;
-+
-+	return devm_add_action_or_reset(uncore->dev,
-+					devm_hisi_uncore_remove_platform_gov,
-+					uncore);
-+}
-+
-+static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
-+{
-+	struct devfreq_dev_profile *profile;
-+	unsigned long freq;
-+	u32 data;
-+	int rc;
-+
-+	rc = hisi_uncore_get_cur_freq(uncore->dev, &freq);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to get plat init freq (%d)\n", rc);
-+		return rc;
-+	}
-+
-+	profile = devm_kzalloc(uncore->dev, sizeof(*profile), GFP_KERNEL);
-+	if (!profile)
-+		return -ENOMEM;
-+
-+	profile->initial_freq = freq;
-+	profile->polling_ms = DEFAULT_POLLING_MS;
-+	profile->timer = DEVFREQ_TIMER_DELAYED;
-+	profile->target = hisi_uncore_target;
-+	profile->get_dev_status = hisi_uncore_get_dev_status;
-+	profile->get_cur_freq = hisi_uncore_get_cur_freq;
-+
-+	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_MODE, &data);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to get operate mode (%d)\n", rc);
-+		return rc;
-+	}
-+
-+	if (data == HUCF_MODE_PLATFORM)
-+		uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
-+					  hisi_platform_governor.name, NULL);
-+	else
-+		uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
-+					  DEVFREQ_GOV_PERFORMANCE, NULL);
-+	if (IS_ERR(uncore->devfreq)) {
-+		dev_err(uncore->dev, "Failed to add devfreq device\n");
-+		return PTR_ERR(uncore->devfreq);
-+	}
-+
-+	return 0;
-+}
-+
-+static int hisi_uncore_mark_related_cpus(struct hisi_uncore_freq *uncore,
-+				 char *property, int (*get_topo_id)(int cpu),
-+				 const struct cpumask *(*get_cpumask)(int cpu))
-+{
-+	unsigned int i, cpu;
-+	size_t len;
-+	u32 *num;
-+	int rc;
-+
-+	rc = device_property_count_u32(uncore->dev, property);
-+	if (rc < 0)
-+		return rc;
-+	if (rc == 0)
-+		return -EINVAL;
-+
-+	len = rc;
-+	num = kcalloc(len, sizeof(*num), GFP_KERNEL);
-+	if (!num)
-+		return -ENOMEM;
-+
-+	rc = device_property_read_u32_array(uncore->dev, property, num, len);
-+	if (rc)
-+		goto out;
-+
-+	for (i = 0; i < len; i++) {
-+		for_each_possible_cpu(cpu) {
-+			if (get_topo_id(cpu) == num[i]) {
-+				cpumask_or(&uncore->related_cpus,
-+					   &uncore->related_cpus,
-+					   get_cpumask(cpu));
-+				break;
-+			}
-+		}
-+	}
-+
-+out:
-+	kfree(num);
-+
-+	return rc;
-+}
-+
-+static int get_package_id(int cpu)
-+{
-+	return topology_physical_package_id(cpu);
-+}
-+
-+static const struct cpumask *get_package_cpumask(int cpu)
-+{
-+	return topology_core_cpumask(cpu);
-+}
-+
-+static int get_cluster_id(int cpu)
-+{
-+	return topology_cluster_id(cpu);
-+}
-+
-+static const struct cpumask *get_cluster_cpumask(int cpu)
-+{
-+	return topology_cluster_cpumask(cpu);
-+}
-+
-+static int hisi_uncore_mark_related_cpus_wrap(struct hisi_uncore_freq *uncore)
-+{
-+	int rc;
-+
-+	cpumask_clear(&uncore->related_cpus);
-+
-+	rc = hisi_uncore_mark_related_cpus(uncore, "related-package",
-+					   get_package_id,
-+					   get_package_cpumask);
-+	if (rc == 0)
-+		return rc;
-+
-+	return hisi_uncore_mark_related_cpus(uncore, "related-cluster",
-+					     get_cluster_id,
-+					     get_cluster_cpumask);
-+}
-+
-+static ssize_t related_cpus_show(struct device *dev,
-+				 struct device_attribute *attr, char *buf)
-+{
-+	struct hisi_uncore_freq *uncore = dev_get_drvdata(dev->parent);
-+
-+	return cpumap_print_to_pagebuf(true, buf, &uncore->related_cpus);
-+}
-+
-+DEVICE_ATTR_RO(related_cpus);
-+
-+static struct device_attribute *attr_group[] = {
-+	&dev_attr_related_cpus,
-+	NULL,
-+};
-+
-+static void hisi_uncore_remove_dev_interface(struct hisi_uncore_freq *uncore)
-+{
-+	struct device_attribute **attr = attr_group;
-+
-+	while (attr && *attr) {
-+		device_remove_file(&uncore->devfreq->dev, *attr);
-+		attr++;
-+	}
-+}
-+
-+static void devm_hisi_uncore_remove_dev_interface(void *data)
-+{
-+	hisi_uncore_remove_dev_interface(data);
-+}
-+
-+static int hisi_uncore_init_dev_interface(struct hisi_uncore_freq *uncore)
-+{
-+	struct device_attribute **attr = attr_group;
-+	int rc;
-+
-+	rc = hisi_uncore_mark_related_cpus_wrap(uncore);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to mark related cpus (%d)\n", rc);
-+		return rc;
-+	}
-+
-+	while (attr && *attr) {
-+		rc = device_create_file(&uncore->devfreq->dev, *attr);
-+		if (rc) {
-+			hisi_uncore_remove_dev_interface(uncore);
-+			return rc;
-+		}
-+		attr++;
-+	}
-+
-+	return devm_add_action_or_reset(uncore->dev,
-+					devm_hisi_uncore_remove_dev_interface,
-+					uncore);
-+}
-+
-+static int hisi_uncore_freq_probe(struct platform_device *pdev)
-+{
-+	struct hisi_uncore_freq *uncore;
-+	u32 cap;
-+	int rc;
-+
-+	uncore = devm_kzalloc(&pdev->dev, sizeof(*uncore), GFP_KERNEL);
-+	if (!uncore)
-+		return -ENOMEM;
-+
-+	uncore->dev = &pdev->dev;
-+	platform_set_drvdata(pdev, uncore);
-+
-+	rc = hisi_uncore_init_pcc_chan(uncore);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to init PCC channel (%d)", rc);
-+		return rc;
-+	}
-+
-+	rc = hisi_uncore_init_opp(uncore);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to init OPP (%d)\n", rc);
-+		goto err_free_pcc_chan;
-+	}
-+
-+	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_CAP, &cap);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to get capability (%d)\n", rc);
-+		goto err_free_opp;
-+	}
-+	uncore->cap = cap;
-+
-+	rc = hisi_uncore_add_platform_gov(uncore);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to add hisi_platform governor (%d)\n", rc);
-+		goto err_free_opp;
-+	}
-+
-+	rc = hisi_uncore_devfreq_register(uncore);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to register devfreq (%d)\n", rc);
-+		goto err_remove_platform_gov;
-+	}
-+
-+	rc = hisi_uncore_init_dev_interface(uncore);
-+	if (rc) {
-+		dev_err(uncore->dev, "Failed to init custom device interfaces (%d)\n", rc);
-+		goto err_remove_platform_gov;
-+	}
-+
-+	return 0;
-+
-+err_remove_platform_gov:
-+	hisi_uncore_remove_platform_gov(uncore);
-+
-+err_free_opp:
-+	dev_pm_opp_remove_all_dynamic(uncore->dev);
-+
-+err_free_pcc_chan:
-+	hisi_uncore_free_pcc_chan(uncore);
-+
-+	return rc;
-+}
-+
-+static const struct acpi_device_id hisi_uncore_freq_acpi_match[] = {
-+	{ "HISI04F1", },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(acpi, hisi_uncore_freq_acpi_match);
-+
-+static struct platform_driver hisi_uncore_freq_drv = {
-+	.probe	= hisi_uncore_freq_probe,
-+	.driver = {
-+		.name	= "hisi_uncore_freq",
-+		.acpi_match_table = hisi_uncore_freq_acpi_match,
-+	},
-+};
-+module_platform_driver(hisi_uncore_freq_drv);
-+
-+MODULE_DESCRIPTION("HiSilicon uncore frequency scaling driver");
-+MODULE_AUTHOR("Jie Zhan <zhanjie9@hisilicon.com>");
-+MODULE_LICENSE("GPL");
+Doesn't patch apply to both the kernel and the bootloader FEC driver?
+
+> 
+> Use gpio4 23, which is connected to the phy reset pin. On the same pin
+> RX_ER was used before, but this signal is optional and can be dropped.
+> 
+> Note: This comes into effect with the phyCOREs SOM hardware revision 4.
+> In revisions before, this gpio is not connected, and the phy reset is
+> managed with the global hardware reset circuit.
+> 
+> Signed-off-by: Christoph Stoidner <c.stoidner@phytec.de>
+> ---
+>  arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> index 88c2657b50e6..f8e2f3f3baa8 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> @@ -58,6 +58,9 @@ &fec {
+>  				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+>  				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>;
+>  	assigned-clock-rates = <100000000>, <50000000>, <50000000>;
+> +	phy-reset-gpios = <&gpio4 23 GPIO_ACTIVE_HIGH>;
+> +	phy-reset-duration = <1>;
+> +	phy-reset-post-delay = <0>;
+>  	status = "okay";
+>  
+>  	mdio: mdio {
+> @@ -91,14 +94,16 @@ pinctrl_fec: fecgrp {
+>  		fsl,pins = <
+>  			MX93_PAD_ENET2_MDC__ENET1_MDC			0x50e
+>  			MX93_PAD_ENET2_MDIO__ENET1_MDIO			0x502
+> -			MX93_PAD_ENET2_RD0__ENET1_RGMII_RD0		0x57e
+> -			MX93_PAD_ENET2_RD1__ENET1_RGMII_RD1		0x57e
+> -			MX93_PAD_ENET2_RXC__ENET1_RX_ER			0x5fe
+> +			/* the three pins below are connected to PHYs straps,
+> +			 * that is what the pull-up/down setting is for. */
+
+I would remove this comment and maybe move it to the commit msg why are
+you changing the PD/PU configuration.
+
+Anyway, if you decide to keep it, you need to fix the following warning:
+
+WARNING: Block comments use a trailing */ on a separate line
+#46: FILE: arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi:98:
++                        * that is what the pull-up/down setting is for. */
+
+BR,
+Primoz
+
+> +			MX93_PAD_ENET2_RD0__ENET1_RGMII_RD0		0x37e
+> +			MX93_PAD_ENET2_RD1__ENET1_RGMII_RD1		0x37e
+>  			MX93_PAD_ENET2_RX_CTL__ENET1_RGMII_RX_CTL	0x57e
+>  			MX93_PAD_ENET2_TD0__ENET1_RGMII_TD0		0x50e
+>  			MX93_PAD_ENET2_TD1__ENET1_RGMII_TD1		0x50e
+>  			MX93_PAD_ENET2_TX_CTL__ENET1_RGMII_TX_CTL	0x50e
+>  			MX93_PAD_ENET2_TD2__ENET1_TX_CLK		0x4000050e
+> +			MX93_PAD_ENET2_RXC__GPIO4_IO23			0x51e
+>  		>;
+>  	};
+>  
+
 -- 
-2.33.0
-
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
