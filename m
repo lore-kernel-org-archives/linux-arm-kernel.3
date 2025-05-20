@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C936C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B894C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 12:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=woxzwAyZ6RrLC2mMTQgPFYg8FiXfzXKqL5cuFeASkfI=; b=jsEnjacXT5stdTp6SENxxE0Teq
-	VGiQrgATJDUK9odwLa1mLc+7I7roKfnNswwW9GamXjQ5ECTj6nq1ih+4lbRSjF8BPVOvfvIijeTPC
-	XvjQW5CQREUrXiVLGCDIacazt76YocLjEaSKiw4no/7kDR5rGLKYtVqzso67LRWoNNbAAUMK1cmHS
-	lDbqovNMjFzhAG1qnb1o3xBek/0/hhH2EGor0l7BrT9WdOUMCzUJC9lpEXXG244i7Cup+L1KN40BH
-	dItZF3oFtm+Ss57CYqSDeTm6riAOdWk4F4y8841JrYqYP93kqep7BdW7KzpXjCaX0tMmQq6n6YaPG
-	gEMTcs0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=91WBueY131sZSsyId6mcsaWv/Rp/Hr4fyR1YmtF+OYk=; b=wLyFw+W2AI0JbZfyVg3rSTiRPX
+	p8BQWI6Ucfb3yIrv9iox3QLd8bUZH4Oq2YgxlKEAmn3gQ+h3w4evxPd7cbfe//jH0iUZTWvl0ec72
+	YJCNeecJJ4Dx3YPSVz8KKGTOqSYPNPT1+ERprrLiPaQEvgWFolK50uLtUTwWsitJl7xC1l0Xouyyz
+	Q4Nch+Mzd+Yf2bACykpHP2k61/wAoB+PndCSkIDmKCgDfMB0th8H2G7dlVgoJruqi7QUkcvZS4tos
+	Ymev7qK+Lz+b0UVTGY9mnNonW+31MEof9zVuI5QXRlnIKTPG8u/W5u95Y3TD9o99Lg2z95l9+Y55Q
+	P01/7XtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHLcs-0000000ClAm-1BIr;
-	Tue, 20 May 2025 11:59:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uHLez-0000000CmM7-49tW;
+	Tue, 20 May 2025 12:01:30 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHLY8-0000000CjSN-2KWk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 11:54:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B1173614BA;
-	Tue, 20 May 2025 11:54:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3ACFC4CEE9;
-	Tue, 20 May 2025 11:54:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747742062;
-	bh=0LB3gKrRF3SFVit9CC5sVVaVIhIAGpiL+nMDYFs/lN0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PqcfLobAhQV2FBZve5MIeToYTg1PPfb92clxkq7Wb74DVWYgxkqB9QmQmmLJJDapG
-	 sJyzIuO9JBHVt63utHY+PbNK5toAhJOfXlTnWEJ3ypvh+PtAXPfCBEAYCefYkpCAUt
-	 8CUdvLIrh21EmJ5MErPP8/NfNxs/cCcKQHpdhF5ovtLnTd/j/9z8kzmEkwMB47KTc0
-	 th9Izo7Wa8K6YRfsT2alL9ECLXtJwfutgARtGzOtxcJegOL1WT34roEW2Kg1dOyCRm
-	 ukWFTV0L7RspaL4L4ftEPvdx+3y4Ew1lgrmC0Z8V9BBOE/8gp+BU1VE5ZXBUZGaa84
-	 4rJ/86STpNoxA==
-Date: Tue, 20 May 2025 20:54:19 +0900
-From: William Breathitt Gray <wbg@kernel.org>
-To: Dharma Balasubiramani <dharma.b@microchip.com>
-Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] counter: microchip-tcb-capture: Add watch validation
- support
-Message-ID: <aCxtaya-1SXkPiob@ishi>
-References: <F_LcZtjhYzQUlCmEka_20DiefdWFYYoq-u3JOct5ctrcMrJfTi3APjAWNAK97Mpluwkqgr9rQ-35KzO0Uuifow==@protonmail.internalid>
- <20250520-counter-tcb-v2-1-a0617d2d220a@microchip.com>
+	id 1uHLYy-0000000CjcA-1DsT;
+	Tue, 20 May 2025 11:55:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747742114;
+	bh=5RUqzLMaMG5lBzncssnhHrZkrCiokJ9qjd2PNJ/2yKU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BH8osOYNE7umJPQkBEZqyCmHfgRY16TdRs2HA7tz8P7i5G1ORAwxVBwf5J7EaHD7t
+	 XtvvFJRY/KMIdb+/byxSxyM77NPEozPuxAz1Og+VhFJrz9BYTCdW+UvHcX3810mpmZ
+	 X6FJlJdKPEZdbkKNoLxZa7xxiC9Y54n8tyYqvsyfijatmWygpWMCyAChgviL3OvgBq
+	 4gJfIB1QsnR7ftaC6l9v4nZBNtVtbAlbH6lMTatgsRIu7XivtkIVwqqDgZw1EXIjXy
+	 HaK5Bz7V5dyqHytCdpCxpx6gNex0rlT0egjiajJfzypwdb7dr3ieooKjIaVcIw0l9y
+	 MF/SBS8B/IyQQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3AE0D17E0E2D;
+	Tue, 20 May 2025 13:55:13 +0200 (CEST)
+Message-ID: <c83aa789-662a-455d-a535-237d42df3eb9@collabora.com>
+Date: Tue, 20 May 2025 13:55:12 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="35KqwYMATj7rtnUi"
-Content-Disposition: inline
-In-Reply-To: <20250520-counter-tcb-v2-1-a0617d2d220a@microchip.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/14] arm64: dts: mediatek: mt7988: add cci node
+To: Frank Wunderlich <linux@fw-web.de>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+ =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+ Landen Chao <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250516180147.10416-1-linux@fw-web.de>
+ <20250516180147.10416-8-linux@fw-web.de>
+ <7a563716-a7c6-446d-b66d-bc71c6207ef6@collabora.com>
+ <4BEF26F3-957D-4BB4-BF7B-69DCFCC513DC@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <4BEF26F3-957D-4BB4-BF7B-69DCFCC513DC@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250520_045516_508924_0427E02D 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,142 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 20/05/25 13:53, Frank Wunderlich ha scritto:
+> Am 20. Mai 2025 13:27:23 MESZ schrieb AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>:
+>> Il 16/05/25 20:01, Frank Wunderlich ha scritto:
+>>> From: Frank Wunderlich <frank-w@public-files.de>
+>>>
+>>> Add cci devicetree node for cpu frequency scaling.
+>>>
+>>> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+>>> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+>>> ---
+>>>    arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 33 +++++++++++++++++++++++
+>>>    1 file changed, 33 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+>>> index ab6fc09940b8..64466acb0e71 100644
+>>> --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+>>> +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+>>> @@ -12,6 +12,35 @@ / {
+>>>    	#address-cells = <2>;
+>>>    	#size-cells = <2>;
+>>>    +	cci: cci {
+>>> +		compatible = "mediatek,mt8183-cci";
+>>
+>> While you can keep the mediatek,mt8183-cci fallback, this needs its own compatible
+>> as "mediatek,mt7988-cci", therefore, I had to drop this patch from the ones that I
+>> picked.
+>>
+>> Please add the new compatible both here and in the binding.
+> 
+> Ok,but you have to drop last one too (add proc-supply) else there are build-errors.
+> 
 
---35KqwYMATj7rtnUi
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Many many thanks for the reminder, but yes, I already dropped that one too ;-)
 
-On Tue, May 20, 2025 at 09:36:42AM +0530, Dharma Balasubiramani wrote:
-> The Timer Counter Block (TCB) exposes several kinds of events to the
-> Counter framework, but not every event is meaningful on every hardware
-> channel. Add a `watch_validate()` callback so userspace may register only
-> the combinations actually supported:
->=20
-> * Channel 0 (COUNTER_MCHP_EVCHN_CV, COUNTER_MCHP_EVCHN_RA)
->    - COUNTER_EVENT_CAPTURE
->    - COUNTER_EVENT_CHANGE_OF_STATE
->    - COUNTER_EVENT_OVERFLOW
->=20
-> * Channel 1 (COUNTER_MCHP_EVCHN_RB)
->    - COUNTER_EVENT_CAPTURE
->=20
-> * Channel 2 (COUNTER_MCHP_EVCHN_RC)
->    - COUNTER_EVENT_THRESHOLD
->=20
-> Any other request is rejected with `-EINVAL`, preventing undefined
-> behaviour in userspace.
+>> Cheers,
+>> Angelo
+>>
+> 
+> 
+> regards Frank
 
-Hi Dharma
-
-The requesting an invalid watch configuration wouldn't necessarily lead
-to undefined beaviour in userspace -- at least as far as the Counter
-character device interface is concerned. What would happen is that the
-requested event is never pushed to that particular channel, so userspace
-is left watching for an event that never arrives for that particular
-watch: not an ideal situation, but not undefined.
-
->=20
-> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
-> ---
-> Tested the code on target (sam9x60_curiosity) using the following commands
->=20
-> valid ones:
-> ./counter_watch_events -d -wevt_change_of_state,chan=3D0
-> ./counter_watch_events -d -wevt_ovf,chan=3D0
-> ./counter_watch_events -d -wevt_capture,chan=3D0
-> ./counter_watch_events -d -wevt_capture,chan=3D1
-> ./counter_watch_events -d -wevt_threshold,chan=3D2
->=20
-> invalid ones:
-> ./counter_watch_events -d -wevt_threshold,chan=3D0
-> ./counter_watch_events -d -wevt_threshold,chan=3D1
-> Error adding watches[0]: Invalid argument
-> ---
-> Changes in v2:
-> - Include COUNTER_MCHP_EVCHN_CV as well for the sake of completeness.
-> - Adjust the code to ensure channel limitations.
-> - Drop sorting in this patch, will be taken care seperately.
-> - Link to v1: https://lore.kernel.org/r/20250515-counter-tcb-v1-1-e547061=
-ed80f@microchip.com
-
-Thank you for the changes. I have a minor adjustment suggestion below
-that I believe makes the code look a little nicer.
-
-> ---
->  drivers/counter/microchip-tcb-capture.c | 24 +++++++++++++++++++++++-
->  1 file changed, 23 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/mi=
-crochip-tcb-capture.c
-> index 1de3c50b9804..fe817f4f1edc 100644
-> --- a/drivers/counter/microchip-tcb-capture.c
-> +++ b/drivers/counter/microchip-tcb-capture.c
-> @@ -337,6 +337,27 @@ static struct counter_comp mchp_tc_count_ext[] =3D {
->  	COUNTER_COMP_COMPARE(mchp_tc_count_compare_read, mchp_tc_count_compare_=
-write),
->  };
->=20
-> +static int mchp_tc_watch_validate(struct counter_device *counter,
-> +				  const struct counter_watch *watch)
-> +{
-> +	if (watch->channel =3D=3D COUNTER_MCHP_EVCHN_CV || watch->channel =3D=
-=3D COUNTER_MCHP_EVCHN_RA) {
-> +		switch (watch->event) {
-> +		case COUNTER_EVENT_CHANGE_OF_STATE:
-> +		case COUNTER_EVENT_OVERFLOW:
-> +		case COUNTER_EVENT_CAPTURE:
-> +			return 0;
-> +		default:
-> +			return -EINVAL;
-> +		}
-> +	} else if (watch->channel =3D=3D COUNTER_MCHP_EVCHN_RB) {
-> +		return (watch->event =3D=3D COUNTER_EVENT_CAPTURE) ? 0 : -EINVAL;
-> +	} else if (watch->channel =3D=3D COUNTER_MCHP_EVCHN_RC) {
-> +		return (watch->event =3D=3D COUNTER_EVENT_THRESHOLD) ? 0 : -EINVAL;
-> +	} else {
-> +		return -EINVAL;
-> +	}
-
-You can use the early returns to avoid the else statements, and some
-other additional cleanups can be done as well:
-
-    if (watch->channel =3D=3D COUNTER_MCHP_EVCHN_CV || watch->channel =3D=
-=3D COUNTER_MCHP_EVCHN_RA)
-    	switch (watch->event) {
-    	case COUNTER_EVENT_CHANGE_OF_STATE:
-    	case COUNTER_EVENT_OVERFLOW:
-    	case COUNTER_EVENT_CAPTURE:
-    		return 0;
-    	default:
-    		return -EINVAL;
-    	}
-   =20
-    if (watch->channel =3D=3D COUNTER_MCHP_EVCHN_RB && watch->event =3D=3D =
-COUNTER_EVENT_CAPTURE)
-    	return 0;
-   =20
-    if (watch->channel =3D=3D COUNTER_MCHP_EVCHN_RC && watch->event =3D=3D =
-COUNTER_EVENT_THRESHOLD)
-    	return 0;
-   =20
-    return -EINVAL;
-
-I think something like that looks a bit closer to the Linux kernel style
-present in the other drivers, so that we're all consistent.
-
-William Breathitt Gray
-
---35KqwYMATj7rtnUi
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCaCxtawAKCRC1SFbKvhIj
-K7HiAP44UJ7XosMcMhno78Iqokz8eFSyozTDzQrtDg4VKOEBrgEAxV0xujh56HbW
-6qwUGvsDhrhwAhNzaC9eiCW4MtlD3QA=
-=mwXK
------END PGP SIGNATURE-----
-
---35KqwYMATj7rtnUi--
 
