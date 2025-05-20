@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96152C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 19:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F27C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 19:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGN2DKtoUxJ0wp+1EIu6zodshBKTS+vpa4PsMQJFvI4=; b=Ssd+P8slOdcTHKl1GUZKbavbgB
-	LoPQTuC/NEe3CuP4P4w0HAM8u2+XJWJ8GFcZyoBVOUbusEUNcc6s1J+uCgvkH0vJm0PvyS2YO/FaO
-	I6VrwuMt+L20aBblvlA7Ht+1Vml5DYAnQsVb8J/GLmmvrIyop9y69Dle0MBDOGFpivk/UgeepdWk3
-	5spvhgwRiTzOrUKKMf0aFWdb5NnfGX5230K6HeFlXelxnpYLexpPfAoDkkWrb4Qr5SMbPASJtQKse
-	NcHpB18oZuSQUI5CjNxd7yHTwKCrStn6aPTZ5/shBjNS/yPYuY/h6AAMFwXUCwwll/65kx4Ui8mCL
-	wwnBQ6EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OaGn2ueXT/ncMwVr6k78VIvGPTsfJDcVet1zMdDM6Jo=; b=iDp2lwbh9Nc0ZZQ4GvfJ+bY/KV
+	CWAlKuPY5utydCkoMSUzM8g5FAR7YkTwDpylZMbaWxPtEmsOfXrvn6yw4W763F2kpsVFQrGmO6aAP
+	mdu7B6mH5/JoKJeRY7RUTMIdJDK1vEVX8uE1gp1HaGnadaZIUo2b/HCS+tqipY2GOU2d43TrYbajZ
+	mcQx8v2IS1H6duChXZWeWmTH7J4hpYUMRjwBMRqRShbLAAmDtbIQE/h6MJ6D/cM1rKELJbplXbIoN
+	vj/PQioh7subLTZ++Ux5krpsEFrqC2KYtL+Oi8yRJl0cUVjvN+pVyqgnIG2wmCA1j9Wt/VNoQitNO
+	RqHYuQjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSoR-0000000DxUY-3XVB;
-	Tue, 20 May 2025 19:39:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uHSqY-0000000Dxnf-3ite;
+	Tue, 20 May 2025 19:41:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSX4-0000000Durn-1CX0;
-	Tue, 20 May 2025 19:21:47 +0000
+	id 1uHSaI-0000000DvO7-1EVJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 May 2025 19:25:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CC89A5C5A7A;
-	Tue, 20 May 2025 19:19:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A873FC4CEE9;
-	Tue, 20 May 2025 19:21:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EE2A629E5;
+	Tue, 20 May 2025 19:25:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFCD4C4CEE9;
+	Tue, 20 May 2025 19:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747768903;
-	bh=vs3CFjXmqEXOSPVSSq2eRt847mz0iU3nVHHR5d/56uk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=tTelEoS/+Ch4CXVNu8XnwfONMGSWq32RyBUgHsQLJycqZhkyFy3NXwHEqtfi+hb7h
-	 TyOmRv4IMy4Gd2WTDz27ccWRdaPPu+r3YIKz8DvEFJidFUb9IxOpj6oHQWyRbFp8eX
-	 MMT0xXZsFI9kL+JS1iv/TQPw7dbxO5rOJo8xFhixQY2N5YYe5tuvGzTj9W6NymERve
-	 FV7KENOfVGyPWgENAPjQCx0e+4yOdxsA8GpricQpQ1d+oO/ZlZ1uArSJ/Ow2IOHqEq
-	 HFwmH9TW0CaBA7evhoWPwCeEuCwBp/3xgXqXWqgLPiJLR+kDExmTJDGvCBClEPQxDL
-	 u3iA1N+Lpl9LQ==
-Date: Tue, 20 May 2025 12:21:41 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Jinjian Song <jinjian.song@fibocom.com>
-Cc: andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com,
- chandrashekar.devegowda@intel.com, chiranjeevi.rapolu@linux.intel.com,
- corbet@lwn.net, danielwinkler@google.com, davem@davemloft.net,
- edumazet@google.com, haijun.liu@mediatek.com, helgaas@kernel.org,
- horms@kernel.org, johannes@sipsolutions.net, korneld@google.com,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- loic.poulain@linaro.org, m.chetan.kumar@linux.intel.com,
- matthias.bgg@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
- rafael.wang@fibocom.com, ricardo.martinez@linux.intel.com,
- ryazanov.s.a@gmail.com
-Subject: Re: [net-next v1] net: wwan: t7xx: Parameterize data plane RX BAT
- and FAG count
-Message-ID: <20250520122141.025616c9@kernel.org>
-In-Reply-To: <20250516084320.66998caf@kernel.org>
-References: <20250514104728.10869-1-jinjian.song@fibocom.com>
-	<20250515180858.2568d930@kernel.org>
-	<20250516084320.66998caf@kernel.org>
+	s=k20201202; t=1747769105;
+	bh=/YQuD/zXoYuchGtOXAaMXzL86e5ZTR1Z9Yg6aUdHmaE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Pm03hirfXqvWbK011PvyDZTeKD4xh9DP40C0ABh/Ysw6K4+tq4abcOoIoCf0F1gGc
+	 82Fb5HnxBy+bQUH3IAzfuz7EN9Eawm4UUWq11H8MUAh9KZiAY5m8NovoXz4SzLnNK1
+	 wpxVLlCHpD9kfgNJOyrsuhqRgJipU4kGxs+WJxB/8/ZeA31BTTxj3ICMMZgXuUUXrF
+	 Adh5Gst1HVJ3QHntXwLLmU0CdobimUXECalSIWjuUQxydJ9lr7Nkcmc207/6o6AQgk
+	 K8Vp1fJwqpaY+pGsUqiWunkC3ZR6CajLGe+VGkn02DtTXzO9niJ0MdzAePbONXYh2F
+	 WLiAll5knHuOw==
+Date: Tue, 20 May 2025 14:25:03 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_122146_376096_E2926DBE 
-X-CRM114-Status: UNSURE (   6.63  )
-X-CRM114-Notice: Please train this message.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-gpio@vger.kernel.org, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+To: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+In-Reply-To: <20250520-hdp-upstream-v2-1-53f6b8b5ffc8@foss.st.com>
+References: <20250520-hdp-upstream-v2-0-53f6b8b5ffc8@foss.st.com>
+ <20250520-hdp-upstream-v2-1-53f6b8b5ffc8@foss.st.com>
+Message-Id: <174776907517.1215979.15639504513287893325.robh@kernel.org>
+Subject: Re: [PATCH v2 1/8] dt-bindings: pinctrl: stm32: Introduce HDP
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,10 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 May 2025 10:59:34 +0800 Jinjian Song wrote:
->   If it's not feasible to directly add parameters for configuring this RX buffer(BAT/FAG) to 
-> the mtk_t7xx driver, would it be allowed to add aparameter for a default configuration 
-> ratio (1/2, 1/4)? Or is it not recommended to use driver parameters for mtk_t7xx driver.
 
-Looks into devlink params then
+On Tue, 20 May 2025 17:02:28 +0200, Clément Le Goffic wrote:
+> 'HDP' stands for Hardware Debug Port, it is an hardware block in
+> STMicrolectronics' MPUs that let the user decide which internal SoC's
+> signal to observe.
+> It provides 8 ports and for each port there is up to 16 different
+> signals that can be output.
+> Signals are different for each MPU.
+> 
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> ---
+>  .../bindings/pinctrl/st,stm32-pinctrl-hdp.yaml     | 188 +++++++++++++++++++++
+>  1 file changed, 188 insertions(+)
+> 
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.example.dtb: /example-0/pinctrl@54090000: failed to match any schema with compatible: ['st,stm32mp15-hdp']
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250520-hdp-upstream-v2-1-53f6b8b5ffc8@foss.st.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
