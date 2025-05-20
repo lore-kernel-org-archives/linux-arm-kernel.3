@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B086C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 22:00:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB682C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 22:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bHvnk6eJiZC4DTGMLSqijxExjKpOHRj4wKmfj14AumI=; b=FU4hJZc0FmYCJWEdeBAW3jfqP6
-	nGisZOunKtLI0YBNZ7JHaE2DtYGkfIf8e3uxsDfULRE2nfPGxRIaXxrshXAX/ay+f1zZA7Qe/aH5K
-	IG/ImxWNKbaVOSoFHWtXDZepNJ00KmJH7TrebYlKd/5a9e6KCYboaXn8atnjTecdRIq7xE41ncytm
-	GkQnP33waffPSaIQhBlUTjbmalFRLrbm5G+LDqUo+LyfSFw4APtOFYPbTGuf4/7muHgGs75qWgnJ3
-	QC3BOWAW85DqTWJSvmGQi069QPkIJc6x5GoLsbLDxUwKJT3SlS4nfS3nvKyCUoWeF2j3EG0J2Xz4O
-	CD5wYB/Q==;
+	bh=ratdE9jXoB0SJ0Y0w3wsjguEzkshW/vmeLVeCaT31+I=; b=LRcoKpob5VWrHuqKT4OULPD0Gw
+	6IRwNfNX6QkUx2YXH9Ic6P3fHUi1ekj8Q9WB409gf3TK9Ivz+FpnIh/TExYXOglfZRLU44PV+aKw2
+	oFB3CeYLJFL7exJai3Z6do5fXw0fQl+W6OeR3gHaPchVrqAIIVCjbORvn1ZmEcg5KIiLTJ0XMHAqu
+	h1a7Ux9vTe0fs0KognmJUqL/VF1mMZWEJ5/Vix9EKeoJf4FpZVBM1inPX0Qr2RUvDJUrrXSzsBqQM
+	+dN+dAsSjXgNyNhyw+DzoeEdVo7UR5pjMuNxPWz11CSmAoaq3q4PDIpJpzmjnfWU5jM44jjVX0+RY
+	z0CzvoOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHV09-0000000EEbQ-3RWe;
-	Tue, 20 May 2025 21:59:57 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1uHVBL-0000000EFDV-13Lx;
+	Tue, 20 May 2025 22:11:31 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHUy1-0000000EEV1-1k93
+	id 1uHV9D-0000000EF5A-11lA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 21:57:46 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-329119a3a8eso31733171fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 14:57:44 -0700 (PDT)
+	Tue, 20 May 2025 22:09:20 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-3280b1a25b1so40134281fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 15:09:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747778263; x=1748383063; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1747778957; x=1748383757; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bHvnk6eJiZC4DTGMLSqijxExjKpOHRj4wKmfj14AumI=;
-        b=n+J4DPuM+8ICIMWliwXKdVBO392gYximZ2gUbIt67F6EwU6Tgg+8YBl2eKHxhjKsml
-         yg6xnE1oaiyJEoPrDy2hKyjRWIhYstAL9UBXjmMBf0H7mJr5d/v6Sd0nFGPH1AgfMObr
-         aHie/jmwpTYwb+ZigFi0ll/fRbOvhY2R5+YCFmYrX2vV/JOLMiDcWhW8/rZVU7AvasXh
-         OQHmSi7YFPAUSp61iDAKe2g3UtCiiHXlJwGSUCxGRX72aIqpKnnCuLT7rSXJluMgKrif
-         GzLPxJLEpl32WVCpKGXuWea71eZlCAFaoBMjt0nGu6N553opdNWO8FeDTtd1gyaqiGk4
-         nW1g==
+        bh=ratdE9jXoB0SJ0Y0w3wsjguEzkshW/vmeLVeCaT31+I=;
+        b=H1Ci7GstGDNsGx8jdfniRh8K3co9z1m9n0TGHGc2d+y/f071uL5e1UozE/NKzY9Vz3
+         DB9+V732QACD2tlfHam8FeFmOI1C1E75EflPmmrUzeLM1ZtBi2cbiTLQoAInO1sh3YgG
+         j7Ir2inMqWu4ZaGmYBwzelIfDMaj3qF6T0FnmyKc8pyJQud6OlgnF78SAVZPunbVi3Eg
+         gD7wVyKJSwZqQ/E7pLljoe7tKUYHEzhIuU7N2RKkiSzhvu9JgcJkfDEHsvui8v0N9AUi
+         DaaN8xFFFmcSuQHHCOOSZwwkWEaogEKfEw6Lw3K76kdAtYvMdUEFOawOaDzQX46ggo0b
+         1UYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747778263; x=1748383063;
+        d=1e100.net; s=20230601; t=1747778957; x=1748383757;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bHvnk6eJiZC4DTGMLSqijxExjKpOHRj4wKmfj14AumI=;
-        b=v897dfBk7YOdVdJXGozHF12DZ262oehCmtL3X/UpWTpyv9/Ljvc+OKbetviQl9upLi
-         kDBaiZ9nuK5bn9ep/WPSwmKgBrUZ+QI1Diw0OJQRkeTyH5P7OjTjb1i7tpvRYNcreOrq
-         VEaOhh/m+Fjh45kh/NFJICrcutesJ4ImjQguymUkX0W15hqD/OiKSojT6v5v/Up8U+IJ
-         8zjx5AZMOngpPPNgiJo6CJs0qqlXeTsZKNQ+plTUu8yoK+6xgNje3g63pt4Qr244fdhJ
-         ZH5VVHT/tlO04eRMheH0f0h+x7dRKx5WyF3gS4zmbKEB5qdhTIASNAjx9E/p08f7VlgS
-         N0zg==
-X-Forwarded-Encrypted: i=1; AJvYcCX/aXFrwdUwcPDXrrmiO2XLwXppl5JifmLXdMFvK3dcKAhQjC+zBlVV2EjdVGkL+kh9Y6gAOI08fqLeRxXSGFd3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlclBx4cyXYp0mSm6tFn+xL3Be+KwNwN/39mtLYj3Ato5fN4HQ
-	rc6Sy+R6Ufo/nCo7uFjkKUEV19P4w0fEbd4+zE3R4nUM4odvB/SjOwa9AfV8Uh/yd9frvjytUgt
-	ulafs+JUK6g3f4kP0bYIGdPPTDdxrTATAEw9z6PJVTQ==
-X-Gm-Gg: ASbGnctjviG3cfGOHLO3N0X1JsjEvy3xHNNtxv4jrgpxpZuL4CPc3qpNQlHWjl4Kl7I
-	5MDL10FQtw54hMm1A7S8qMoQPxHfWXZFWZJO4lWP6y9N+/koF7icmzZZ257Of7UichF0M0huzeF
-	GopPlknl4Wy+cuk9Px8NbXQIV0ZC2kde/6
-X-Google-Smtp-Source: AGHT+IFzz0NXs8cF08Snmi4Ha7S7U5h0KKvjptJb+slPp5Gi4FWC7Nsw049EmovcMdDEvihhptYlSs6FgkwmCbzFvc0=
-X-Received: by 2002:a05:651c:54b:b0:329:1550:1446 with SMTP id
- 38308e7fff4ca-329155015ccmr33138651fa.0.1747778263381; Tue, 20 May 2025
- 14:57:43 -0700 (PDT)
+        bh=ratdE9jXoB0SJ0Y0w3wsjguEzkshW/vmeLVeCaT31+I=;
+        b=fPfPVG1MUMS4Cos79DPs3frzRY7QlfsLVPMYyp877GBTlk2DV6JEkyrHHSE7hzh02R
+         zi8qpO5Y0N/+PHPnS1naReGB7/FCA024Ldg+6FW/fYBJxqnsBOd7lSWKulk+vWppnjpQ
+         yrjRcpCbZgfCXuDMnuyQDtmNmb6DENfmsE3A8DfoYNR0z07k0BUKc1ihM6azhOfgfPQ0
+         uS3Q/g8cgHifkGzUUwUHOiKFVzX/OH0Nujzp3T3gii9i7jELtbzj7tQpWPohKWe75dfa
+         913Le1Yj7gaFe+0YEaEmiCsjHiKv6g1nPNOVrxDXtv+NKNS7QOounkzkNg78fldannEr
+         n0kg==
+X-Forwarded-Encrypted: i=1; AJvYcCUAXI6valwDwNrkdHSCj7hMsk9WPrehVjeMu/iF3g0u8OzyaAWylbTdlVo0XDzvY5xAcpR+3HrMICpzj5M0E0BF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3oHA/8sRrEVS3s1/wheofCeWLXjoWFcjBBSMowK1lzrpq2gxb
+	B7198dSLbGQsbUTjf2kLc94cZgN4db9AQQXCFp4hYOY0cLtzLI7yOUdyjnFoQTlF++jMSv9atUH
+	IlTadz4g/JN5l3Ry34bI2iWg1Wbv9tF1evJAmfRDSCg==
+X-Gm-Gg: ASbGnculijy+DgeKMdgHrVYHIMow2CG37tW3bBFb0DwB7/mKuIOUPVpmBOcXGY1e5bk
+	aki4Lcl3tJkQyo2hFHuyGseprakflyKeA74mLetVw6sWJoHuU4fEBxyLf9zZObV5yVRFQVuADem
+	9/JwFJskU6HgDsgrR1w+6Posj50B1C93UWqSzzPsE/Rxs=
+X-Google-Smtp-Source: AGHT+IHDDQJhnWX2kmTO5v1Pk0nimoh123FoAZWbqbQl+FUgai9VCQfwTjo/Tn4PNUMetJyi+2gPAW5SomZT1SLUvWQ=
+X-Received: by 2002:a2e:8a87:0:b0:30b:d05a:c103 with SMTP id
+ 38308e7fff4ca-328077a2e75mr64717311fa.29.1747778957098; Tue, 20 May 2025
+ 15:09:17 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250519-gpio-dts-v2-0-b9e77173e9c5@nxp.com>
-In-Reply-To: <20250519-gpio-dts-v2-0-b9e77173e9c5@nxp.com>
+References: <20250520-gpio-dts-v3-0-04771c6cf325@nxp.com>
+In-Reply-To: <20250520-gpio-dts-v3-0-04771c6cf325@nxp.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 20 May 2025 23:57:32 +0200
-X-Gm-Features: AX0GCFvwSq-oMiFu75DMDv5s_mCNJqSxwG-LnpvLIXP8m8Y6ivyc6Hrx1bC20zQ
-Message-ID: <CACRpkdb4OeD_yaUsGJ9Ugz3LZTCMdz1hbH-cX__ixEPr3Snd_w@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] Add 'ngpios' and 'gpio-reserved-ranges' for
+Date: Wed, 21 May 2025 00:09:05 +0200
+X-Gm-Features: AX0GCFuwZ5Uj2GFu8v9SUCd9XbxxK9oH9Hmv5mkp9JeCnQEfeHNWxb9r3Wl8bto
+Message-ID: <CACRpkda6D_OayG2DDFG6+sQ5vyYCrTojHs2H1ZVUMw4rpbuC9g@mail.gmail.com>
+Subject: Re: [PATCH v3 0/3] Add 'ngpios' and 'gpio-reserved-ranges' for
  vf610-gpio driver
 To: Haibo Chen <haibo.chen@nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -80,12 +80,13 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>, Stefan Agner <stefan@agner.ch>, 
 	Bartosz Golaszewski <brgl@bgdev.pl>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org
+	linux-gpio@vger.kernel.org, peng.fan@nxp.com, wahrenst@gmx.net, 
+	conor@kernel.org, Frank Li <Frank.Li@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_145745_477269_79DF929F 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20250520_150919_289489_9C404A28 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,7 +101,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 8:01=E2=80=AFAM Haibo Chen <haibo.chen@nxp.com> wro=
+On Tue, May 20, 2025 at 5:44=E2=80=AFAM Haibo Chen <haibo.chen@nxp.com> wro=
 te:
 
 > Not all GPIO ports have 32 pads, so add 'ngpios' property to specify
@@ -112,7 +113,6 @@ te:
 >
 > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
 
-The series:
 Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
 Yours,
