@@ -4,173 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20497C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 629CDC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NmUouS4eryI2AeaEz8rINWBrFXAnXM/wV66IMcEQSR4=; b=ZhDNLYlHNwkIsiO96ipU1rzPl3
-	SZDBkBi6ZzAmx2QsiWI0QSrqxfey8WG/5Y5RZ7LlXd5Dy9QwAhnm3+8v5ruBuyl9EKs5TOaUhKF5p
-	jzUimoczAgGwhBZmy/tSaDv8xjYHVpy1izj50iN80eJOGlcBr3Uc7N9w46mO3qQ17wsh/dUxbZEzS
-	foKcRxy0gjTjps0yzgH3nMJlzjJlZ6Fd2cAhlMvM/HVm52r/1j6rWK1MoaK0z8VrMpJCjLe0fxLGj
-	VmPRPfRXzvUHmbWXfikExTrPUNNLOzKU3FCIROR2uSA5EvRij5oiHjpMf7f0LI7uENCuYMCCj42wO
-	zjYjYjNw==;
+	bh=yjKHjFuUpboypPf+u4/gKsKPzIH//xv/KJXp1KB93Kc=; b=ufnAR2vUZrW6MwP8DOnGDsCDf3
+	syR2LhkjHBOFNl6WfvcsqAt88Sb5IhRkC7gvJ2prZMY/IpHIDoK226DMa4BwaoidpXeI/hy3qgHVH
+	MYlgiQ5u+L611JgBnIbYIAVZ+ltKCROlW3PDlHGzYWc5+NOkQhf7hvzv7lNwPic1FV5Xq8Pqa2FwF
+	mdXZYSNP73aoNqvLoSsRrf9vhTb4x4iqvPHg1kSegp/gMJXTSig1UqL9dns9b1VGQjg9R7WXScYJ6
+	0zlVGW0XXyRnoyqujs948uL7jpBuAhILA9sshTsgwpy0JAP6W6m5tt5Rn/7Wpaz94maa2DHsWUsF8
+	QTG185Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHH5N-0000000BoNx-1SYh;
-	Tue, 20 May 2025 07:08:25 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1uHHJC-0000000BqBp-3fKG;
+	Tue, 20 May 2025 07:22:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHH3C-0000000BoAx-1Aw1;
-	Tue, 20 May 2025 07:06:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AFcR/kRi8s9QmH7b/RvZKdPFWZLgsu8YbJrI9RYENeoBpvHWaMYjqhkd67QSTOoHSdxvTTaFB6EyO4Rrl5ULZDLyzMWD5U/WXbYuuxSvhNY3IspOEvmlv2cHzCWJrBYMvR2p0E1a4KBb4LDyfEHf/aP2yWTo2aS+4Qpf1QxvNYIib0UaswKVxhtfiRggEcJdVmu6Oeu43O2gqpZaqOUkzr7uXKIOfy7VHTxvcHmtJJ7aciphPAEVN314FxJDTLRll736Bi/HEbBeOeifXl6tBwGy33vaslROTImkEDh/4/ZZfzmC++l+AJ4Vd7+ZlNOjnT4K1uj+q0t5XXZz1eYj8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NmUouS4eryI2AeaEz8rINWBrFXAnXM/wV66IMcEQSR4=;
- b=sr3ne/iF3UOILz2Ja96ipCf+PPIq2Y2/tI2Jdlnv7wMRphbIqrBf/MbHmjCqICEPQaRAGhwxQvkNJ2g4CiiVHciS73FoOxtGFZ6ELWtSeP/t6YXUV6VMngL9CfB6xUG2NEVkr18aNo9P9nNZ/0+FhBJT6dS+fMy0wBIjUWMfIAWEcWLcAxUdihtFu5t5XyQbNBZNKnR6PiOAaKz3XhAL/dpi8B5BT0nQ3ZVl0iRJ0Sa2fm7/T2mR5BMtd9FvHx02wuWTLXLuPz3seWZkIJ1UCCt2BDGbdGNw3DWG4T7FTO0V5oBuXJY7pvKISr7Ud+1vKAfWquIf7t76bH2pC1rIsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fibocom.com; dmarc=pass action=none header.from=fibocom.com;
- dkim=pass header.d=fibocom.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=fibocomcorp.onmicrosoft.com; s=selector1-fibocomcorp-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NmUouS4eryI2AeaEz8rINWBrFXAnXM/wV66IMcEQSR4=;
- b=xVFltCi1WNPMGTBJlcU7NK+jLE+5NrGcshE/fa7A3HIV/C4R9vlEYLmfKJ1GNC0mvLISuZLbaJrZsqz9kWB4Rb/skX20qs7n1SiiBi7K536dygXkau/76pseV5m6W1ykRHppe144ROjj/74FXAyagFqoUuZInExZTPNO4fLWP3U=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fibocom.com;
-Received: from TY0PR02MB5766.apcprd02.prod.outlook.com (2603:1096:400:1b5::6)
- by SG2PR02MB5673.apcprd02.prod.outlook.com (2603:1096:4:1cc::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Tue, 20 May
- 2025 07:05:45 +0000
-Received: from TY0PR02MB5766.apcprd02.prod.outlook.com
- ([fe80::f53d:47b:3b04:9a8b]) by TY0PR02MB5766.apcprd02.prod.outlook.com
- ([fe80::f53d:47b:3b04:9a8b%5]) with mapi id 15.20.8746.030; Tue, 20 May 2025
- 07:05:45 +0000
-From: Jinjian Song <jinjian.song@fibocom.com>
-To: kuba@kernel.org
-Cc: andrew+netdev@lunn.ch,
-	angelogioacchino.delregno@collabora.com,
-	chandrashekar.devegowda@intel.com,
-	chiranjeevi.rapolu@linux.intel.com,
-	corbet@lwn.net,
-	danielwinkler@google.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	haijun.liu@mediatek.com,
-	helgaas@kernel.org,
-	horms@kernel.org,
-	jinjian.song@fibocom.com,
-	johannes@sipsolutions.net,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	loic.poulain@linaro.org,
-	m.chetan.kumar@linux.intel.com,
-	matthias.bgg@gmail.com,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	ricardo.martinez@linux.intel.com,
-	ryazanov.s.a@gmail.com,
-	liuqf@fibocom.com
-Subject: Re: [net v1] net: wwan: t7xx: Fix napi rx poll issue
-Date: Tue, 20 May 2025 15:05:34 +0800
-Message-ID: <20250516084842.26c80cb5@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250516084842.26c80cb5@kernel.org>
-References: <20250515031743.246178-1-jinjian.song@fibocom.com> <20250515175251.58b5123f@kernel.org>
-Precedence: bulk
-X-Mailing-List: linux-doc@vger.kernel.org
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TYCP286CA0159.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:383::18) To TY0PR02MB5766.apcprd02.prod.outlook.com
- (2603:1096:400:1b5::6)
+	id 1uHHH5-0000000Bpmg-2YCH;
+	Tue, 20 May 2025 07:20:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 172EB49B55;
+	Tue, 20 May 2025 07:20:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B04AC4CEE9;
+	Tue, 20 May 2025 07:20:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747725630;
+	bh=5pfW76gzsZFj7G6lA9ya03YxgKxR658S/A6U1aae8yA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CzksAmSc4WrKjvyZ2M3isCeiTFwYp9AjNBsOsXciiiYrDr5mAYU3pADnvkXIGFOMP
+	 UGu7XfQnUuq64tXk4O/SnlGIceW8W3yH1ZG5RgTjDnoKdAZPDhIDM7u4zqY86Dh0qt
+	 ZlTnuOH9Dai3iAuxh5Ht0Og3A9BnR1yObnJxFhzLB85L7gNO7JOfvPlFQFe18p8jZ0
+	 HdVJwmu9Xw0dkBROtUyJ6WgLY9GOnCs7MOQtdLGj2nTgQn2ay096Jfz/FFnkdm2c7n
+	 fX08CvBEjofIgSUjRArIWCBZVT0GlAMrAVNncPc+lImXwb+j3xtLmvSETiTuDzSGtH
+	 p7zDyuGgG6Hew==
+Date: Tue, 20 May 2025 09:20:28 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
+Message-ID: <20250520-sexy-pronghorn-of-tact-f9cddf@kuoka>
+References: <20250520024718.142-1-kernel@airkyi.com>
+ <20250520024718.142-3-kernel@airkyi.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY0PR02MB5766:EE_|SG2PR02MB5673:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7714b799-1fe7-4e2c-1d6f-08dd976cbd5f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|4022899009|366016|1800799024|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+oyX+2L+vBc8vdE9JwL0Bgu4qWePO3pG/D3YuP9FIe5Vpn+6PFVI+b/amMrR?=
- =?us-ascii?Q?Dm1bryOQc3TR+Q3fdcyiDEdB+WdWtKGafTfZ6sUoqe0vY4HsbXfnL18q7v55?=
- =?us-ascii?Q?TEhm5SqQMMyTcnwhb7a/cnwnLVGhXnYEHv5kpK7cojoiG4oVUtDi0owlWrCG?=
- =?us-ascii?Q?k0uSK/6sQTDE+rzvw5jOpQw/1gegglCCF7ECnze77mLZQ7via6tC9dpqS/fK?=
- =?us-ascii?Q?kMaxx0Ux56LE3VdHI1mGkcJNVc/xYDiWxk/i7AQiR+gKVvndrwhx34zOam4Q?=
- =?us-ascii?Q?IoqnwIFXKkc/pyZEb61c4snJ4X774Z6BzEfvrvEkIC/hlzFhXzA63+2cf0LY?=
- =?us-ascii?Q?OEUGAxwHj+lHt72zjGjjW8FzloOPZUvpx/SHkdllWnGFYBIDIS5MBr6Pj0gh?=
- =?us-ascii?Q?WRRRunKJjnPZg/wvkbrNWc2D0nD5mXIMiH6IqYw8hnCtGK5HDlrMOfHTPLmX?=
- =?us-ascii?Q?VZUdpyWscFKtLUGVEOLMavlrnacY++kACsjx1wusrP0y8BHB4m/1E9coZmWc?=
- =?us-ascii?Q?WPBBgyuQhjTpWzTA8NqQyuPcONBhkoGBt+0AoX3kIwZGs1GLc1vkCeYBhy49?=
- =?us-ascii?Q?iMPAGTJokRNnoPAUiy8PKX6d/hbHvvy+3D+EU7tHFunkrHP2lQU55o6SK7ar?=
- =?us-ascii?Q?IoQkP1DA4O/JTd5EEPs1OLNJu9hM5zjTnuKMaM5jrb0xzmBQ+8+30uhKrm9G?=
- =?us-ascii?Q?DYkyAqjDT4Is1ZQsBXfeStST78TRyH1KueTkkB5+Xi/rvqaBFkdqAm4y/WVd?=
- =?us-ascii?Q?HTW2UtaThCZsCjyUdGECSWEAKYlPS2mMh5xjycmnASeaPrVDKiFbJW+0antN?=
- =?us-ascii?Q?WiDKWyEAergRnl0y7pTu3wXqbg/S+IeHfATdqUB7jn3bOgVlATasjwcxQZXz?=
- =?us-ascii?Q?wIWwpQAyVgFmcfCdxM6a7oslyv11DFfN+fMa9nlah6qWiyHxCC8eJoFx5AYY?=
- =?us-ascii?Q?xC/lgN/54VpccxCoivjjeeb5u8pD5LwiU48HA8LVstz4S8noqRPtKfHWJp5C?=
- =?us-ascii?Q?6j4LIK+lCHQkd6G3WuYUONRaRX09Oa43DMQaZ5w1M/1Cx2pNb5zYueafGmY6?=
- =?us-ascii?Q?+Iro87g98kFsYgFcJ+9VsRq6ichQZQivDJ3GLIQj+gpwroIqteztRX4yycYt?=
- =?us-ascii?Q?N/6DCt14P+ha5L1PMJWD2oV0DXk5V5r7wqoO+pcW0IXqvjOUBTaK5JH53k4C?=
- =?us-ascii?Q?Hw5LGlahE0zgacsOv5G9ff9FTTpVDMhu1lN1dYRx1ug0Ur8rW37tDUC4Bg10?=
- =?us-ascii?Q?ZTt4dznNEYL/OfZ832X/Nt6Pz+q5wu83VKigUxuc8xHUinltP8i7VlQirpnP?=
- =?us-ascii?Q?q7PDmYErczWqRlvGW4/zVzAUOtiDQtGwBDi3WB7u9Dsy337IijMBn/wB+1nA?=
- =?us-ascii?Q?ltFS7NViBNCZxab7yxasFX9lg9eIyfzjHfesvVR+ueK+sbza4eg8quhSCfQ4?=
- =?us-ascii?Q?YJRsicq2cDDJpZpyM+2u5FmnLjkobV3WgZe+O6XWbyDW9ZYK0fMHZA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY0PR02MB5766.apcprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(4022899009)(366016)(1800799024)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oC7thKeshSt8CSsSDO4dPBzhmkLQfhM28Akcu7BwdGqwjvSlw9Reb2zA5iz4?=
- =?us-ascii?Q?DRYBQiETg5DKRLkQbnUGBCPSs5BlIC608ZeduYdWAkpivZDJkSF1h6u5bZqI?=
- =?us-ascii?Q?oQfuaWilfXUYhWrf2GFaiNru9LtkGXIZK3y4NXtW1CBjDB+g0pq1EqEBrb06?=
- =?us-ascii?Q?8wX1r5bVTSV9W3NmZkui/6UgrjsbJK/MWzwIA2cPYEQi+9EE4Ri/Yaf0QsbA?=
- =?us-ascii?Q?CLNQavJKypuMsAahNSbLWOVertIryZNDj3sYfY4ERArkCvxbV7TYjB85r3Td?=
- =?us-ascii?Q?rdYpf4uom4LHVSYAMsMIvmVU7Q1lHcEqwRg7hF6sFNV2PIZxWgwNOUf5xeox?=
- =?us-ascii?Q?bEcYYo5/Niw+G0iFgtlW93D2Jc9V/d6tsQwD2Me1JHJ+/d/b/93HCpUlxEjp?=
- =?us-ascii?Q?c4wNp53OiGqxn3XB/jF4SWJAX8tu9Ik2Ocwqf0KU9rUrmOLXwldSgIKVmcPG?=
- =?us-ascii?Q?QivBPZUTR3Ul2UpbIloUEnh7jJ0OcUnCeu/kur/3MgvOBbCLpgUAR+OoeFxR?=
- =?us-ascii?Q?bgibzbMs3pnbIyfN8JsCVwXi5VfYp5/TXgBMv5DR/DPBgNkYzEca3jkZrWwT?=
- =?us-ascii?Q?j6EExsQ9oTFB6us/fulMaFY/yE5vPn6QHQc+ZubNfP5SzxsSuItwSUMFxeGv?=
- =?us-ascii?Q?pRLAd0Xnh7HnWKF7CPhfq+Les2PY7SwRnjYf9nVkrNJqOrA3HHLghAQ3ORjF?=
- =?us-ascii?Q?CEzsd1glsGDQaIHdsLVDMEvtg/Z9jl2KTjPLzh9/6d0m/h38J0Jzkg5i9YR5?=
- =?us-ascii?Q?5OxKsrxWqtqqLB+FRRUAH6Ew/pmdZrAEjmmfU3Jjq2X+WrffTt+POCU9fNpL?=
- =?us-ascii?Q?igxxBb+w2zwCJ9o7kGMWKbwxPeQY2qTGkQ5sZBIfRR16UE6hyO5pM06Gc35X?=
- =?us-ascii?Q?thJztXwyz+Ajs4T2AOUlKT/5IwL0OiyKOliM4/Y3dkPCCYrGCshJqDqRtYfc?=
- =?us-ascii?Q?PKuM+7EB74aMXT+w1Oa33F837h/3B9iex4qpuKKzgKojEUNsWTDD4GLADbVa?=
- =?us-ascii?Q?gtCLd+P3mTZE1+Tz0sMnj6b29TtUK9Q+9OBsvuizUxIHlwmKUReqyKM8g596?=
- =?us-ascii?Q?UrlzoENGR7c8tqmTV3/5sx15N93HvW7UkP5hM6SZfaUL4r7u9aUtwAwBgsDV?=
- =?us-ascii?Q?JCmMdv3dBr454a83GPqmPPZqX+qWvZ1cc1nmTriXHDiF73+RkEi8fHoh7QEK?=
- =?us-ascii?Q?316p4XDAUGl0h/esp9T1K4jKriSK3kXsU3xViE35uiLXpBPaKvy8dpR5VuJ2?=
- =?us-ascii?Q?HC/5XT0vumBaHKPrLqKj5Ce7WnnF8WHPDnd3sc5LxdCEgz7n2zh29q9z29I5?=
- =?us-ascii?Q?lPJMnpfEhfuSFUZpSQeZfMXS0A2WSfsEEC3cY9CrIEZBzCTSzmEkNNyBoBL0?=
- =?us-ascii?Q?GqB0552w+nlzDTlPwWqqDx+BlmpGi0YmlQ+4yRpQ/S/5+J4kuWlH/0AEGfCu?=
- =?us-ascii?Q?rC050VoXGdzUAdkVYBlDrCO33Od3NlOQk7n5JuUnbzaddAzqdd85rcdBh8wJ?=
- =?us-ascii?Q?wTh99kUs+ruo03cdo614iO/P+tHPBfSxi7r9f/tiRhxEQVULoKM7biMqIklN?=
- =?us-ascii?Q?SiPeFDc99UG48GhBJrhxtGBXWaZ+CJajt5AyTy6kN85pDbj3NCVcpEzSa0WY?=
- =?us-ascii?Q?JA=3D=3D?=
-X-OriginatorOrg: fibocom.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7714b799-1fe7-4e2c-1d6f-08dd976cbd5f
-X-MS-Exchange-CrossTenant-AuthSource: TY0PR02MB5766.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2025 07:05:44.9644
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 889bfe61-8c21-436b-bc07-3908050c8236
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 79LZqJvmDLORSHM6ugnYlq7gDsBxCG+8L3cUfQYf7m9J/sHTdvgafJTalAOytSOPe/d3h9RbUatOFAxRm5huKVkL31ul+Q7TOZLL9/Lw1qI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR02MB5673
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250520024718.142-3-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_000610_318043_997DE4BF 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250520_002031_664017_04E81A4F 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
+Precedence: list
 List-Id: <linux-arm-kernel.lists.infradead.org>
 List-Unsubscribe: <http://lists.infradead.org/mailman/options/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=unsubscribe>
@@ -181,43 +77,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20250520070534.1oUA0bV-tYQJcBqo26IFITRR0AUqa3Ri2TNPBChlzVE@z>
 
->On Fri, 16 May 2025 15:30:38 +0800 Jinjian Song wrote:
->> It seems that a judgment is made every time ccmni_inst[x] is used in the driver,
->> and the synchronization on the 2 way might have been done when NAPI triggers
->> polling by napi_schedule and when WWAN trigger dellink. 
->
->Synchronization is about ensuring that the condition validating
->by the if() remains true for as long as necessary.
->You need to wrap the read with READ_ONCE() and write with WRITE_ONCE().
->The rest if fine because netdev unregister sync against NAPIs in flight.
->
+On Tue, May 20, 2025 at 10:47:18AM GMT, Chaoyi Chen wrote:
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  phys:
+> +    minItems: 1
+> +    items:
+> +      - description: DP output to the DP PHY device 0
+> +      - description: DP output to the DP PHY deivce 1
 
-Hi Jakub,
-  I think I got your point.
-  I can use the atomic_t usage in struct t7xx_ccmni to synchronization.
-  
-  static void t7xx_ccmni_wwan_dellink(...) {
+Typo here.
 
-  [...]
+> +    description: |
+> +      List of phandle to the PHY device for DP output.
+> +      RK3399 have two DP-USB PHY, specifying one PHY which want to use,
+> +      or specify two PHYs here to let the driver determine which PHY to use.
 
-  if (WARN_ON(ctlb->ccmni_inst[if_id] != ccmni))
-    return;
+Best regards,
+Krzysztof
 
-  unregister_netdevice(dev);
-
-  //Add here use this variable(ccmnii->usage) to synchronization
-
-  if (atomic_read(&ccmni->usage) == 0)
-     ccmni == NULL;
-
-  }
-
-  How about this modify?
-
-Thanks.
-
-Jinjian,
-Best Regards.
 
