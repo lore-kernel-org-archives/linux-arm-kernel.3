@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D130C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 22:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A34BC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 22:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8HKYrw1mX2rWYU9hhnTeFvSQNlJmWd9SuBazr4xA8xE=; b=oI44eAxQZVQsgw31GZC5mOlbwp
-	kq8AyI1kZZcfsPHsCitBO1X/DA0p/ouwrQf6WV2Dtf5cbLqJino137BAWh2nkQDxwkUK06PgJDiiJ
-	fTDbjl13qKCPeC5EFqrP24lRjkUXXFuUcomag9tR3jaC1L/oGlF3Qy1Xn0S3OT9FVPDz9ELfK+eau
-	lR8e30LmhJSsbq3zNhZEoIxV109v79ru4amtHvx6UngtmfwZ73YsJPexfqfV76e3KZJ5C5+f9k2NB
-	jaoVGZdrG0cHwp5tLxE/oD77DliGzP41Z84NGKQIsDwfy/5ckZfRM8XI0yFfXtSVU0r6duzXhHBYu
-	IajUyb5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PSFnRhdA6dv0Ibd3iDpTetyUbHtuWoDiaLttMv9a8UA=; b=RPGCvvv5GTO1Ubv3YHOlkXelgl
+	b4sVL2pasKPzaYWho/yCEgik/EBRaeYZzwtwpUY7hzGP0UXArIdMkD93Jwq1nEkpHNKo8PHG2L4TO
+	d/7/2YcROMb7CferTcAB5QTPb1yPUcqJgTOngTWmyLUteQPCQB9ityZkudhZNuTp8k8WJt0sDAqt1
+	fTLgYIbRmT+H0SWcbodjrAOjmFxq81e1YU1KAYzUevhOvz2OyHrMo4aiAvtVqC4hce/sOvEwU9FAb
+	jWp79QIaNly+NrAA1qrxbXElSsmy3QOJLVFlPSafkdpdNChuuxU25q+fsyvqzm+edEroI5IHeH9XJ
+	xTOLs3RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHVLk-0000000EFqc-1Ozt;
-	Tue, 20 May 2025 22:22:16 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1uHVNx-0000000EG1O-07zY;
+	Tue, 20 May 2025 22:24:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHVJb-0000000EFhA-1sFv
+	id 1uHVLn-0000000EFrG-3xxi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 22:20:04 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-30e9b2e7a34so3152748a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 15:20:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747779602; x=1748384402; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8HKYrw1mX2rWYU9hhnTeFvSQNlJmWd9SuBazr4xA8xE=;
-        b=OMdsPV+T8FYdq2vWl/mLrw7HmQDnv0NZO+sh2pqslx62NF4SfXiDMD4rnP/PMUY8XI
-         peCF8dMHpsAn4Mj/cZ8LLn2bSd581DMoH3BKsnn/7yVzwV9JVlysyWAfCzydnCvSmF/e
-         AbBOXxIKLr6upKpq160/XPJOPvvhCRHbxJv7H1VgFlb9/0lDPVl2E2c01f+dMiA/em78
-         PwbAvAcVwGgfM+D4P6lbdyNA+IVMvanbftUV0NuRQq5msum/qqc+mx6wvJmsC+p8A7XI
-         Tm1cG4z2X8tAfA6p1eZz1+KUr4P1TIfBfBQw7xE7oce1ai9FM4u+adGtJ7ZGmz9fJpvA
-         fceg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747779602; x=1748384402;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8HKYrw1mX2rWYU9hhnTeFvSQNlJmWd9SuBazr4xA8xE=;
-        b=gPJnG/UXGB0xkP5uW6zqm4yMPD98PmLRgpDVQzm954or9HdtpuOy5RfVQK8LpRmuew
-         DMHED8ITDjL/vX7/S4Yz5X3cG1dk2NM2Dt1Y7NYlvyOaCyYzNzLwF8McSi7wJDutroQA
-         eRrElLPjUcPgOvNoQFQd2XgH6AxtCMDCNeSq5DORLXpqoW9/TZ8ibTSXGVp8NJAllNhI
-         zGFzS93UQMz1gtd30WoTgMTussO7ydhIIncfalkuwZGMw5qlXntc8n2Rb61w2bB2rynF
-         rn3oO62xWzmwKIDHWYVk6tXzIrnil4PTJ1fD+KBz4wlu5D0e6FgPZsR668fgjZYYEt8c
-         zgFw==
-X-Forwarded-Encrypted: i=1; AJvYcCVlDwmzlZdPHyc/kXpQ7Vmx52LSfBk4Ox/2QhHP6wSaDqSB9CVr7aOpCH7oIHV6PDJcE9MuM8DVSET4iF/RRilW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1JuUXPYlWY2pPOt5RZwcH3OjuU3w5WoBVR1kkUAhO0Q++aLPa
-	01UmdtdSqfEMAdjULhdalEbPX3RrHBVloicvCpYNiOXz9sH2PPplmGcU2yIuiaQxf2pDO7y7+QD
-	rysvHgQ==
-X-Google-Smtp-Source: AGHT+IGm0Qd18FrnDfhlG7/JjUl4lMpy15ihv5+w3UyMikyFwPD+eN8+5DcFhlZu44RxRjwOsuD2Z657iBM=
-X-Received: from pjoo5.prod.google.com ([2002:a17:90b:5825:b0:2fc:e37d:85dc])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5188:b0:305:5f28:2d5c
- with SMTP id 98e67ed59e1d1-30e7d558d26mr28473120a91.15.1747779602268; Tue, 20
- May 2025 15:20:02 -0700 (PDT)
-Date: Tue, 20 May 2025 15:20:00 -0700
-In-Reply-To: <20250520191816.GJ16434@noisy.programming.kicks-ass.net>
-Mime-Version: 1.0
-References: <20250519185514.2678456-1-seanjc@google.com> <20250519185514.2678456-9-seanjc@google.com>
- <20250520191816.GJ16434@noisy.programming.kicks-ass.net>
-Message-ID: <aC0AEJX0FIMl9lDy@google.com>
-Subject: Re: [PATCH v2 08/12] sched/wait: Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority()
-From: Sean Christopherson <seanjc@google.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	David Matlack <dmatlack@google.com>, Juergen Gross <jgross@suse.com>, 
-	Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-Content-Type: text/plain; charset="us-ascii"
+	Tue, 20 May 2025 22:22:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D8464AECC
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 22:22:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C646C4CEF2
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 22:22:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747779739;
+	bh=PSFnRhdA6dv0Ibd3iDpTetyUbHtuWoDiaLttMv9a8UA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=uqEQU7Qx052CYgFoK14TYHm07pqL9HttCt0RkS5DIje8K9StJYmkNw9g+u8tq/2wr
+	 5RGm2y07KmQKKlHfkI1YJiunsSMpznKqf/w90actLrdnMjGb1VjKjpKSU4aDlVbR16
+	 XrvTMp7yjpCiU37oOD8ximJLfxaqKVdiRePRN/Yq6OIODft51LuYb3uRnt5BWxjJ24
+	 RfLjGHALLZyGQyg5sDTBh8GEDc+MD3xMZibDeL98zsHY2qUrhRHqmtJ0RkN9/ZC1N9
+	 34lihYFSdcOg5sPQX+YgaFbGCT5bMgac90T6OXSipHOkysUbowsKJq6bQYrbJr8RFD
+	 7SGYVaSrjqcjA==
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-acacb8743a7so1021453666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 15:22:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWSuH+ikYcyw8TCvKrymqWKr2GN+2ZNoXQk3aMxi6phIflr3urZnqEogv+nMJX+MzH7VMcxCg3nSBaNaiFGi04W@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7LO1hsUFPSOtZt4MU4iiafJ8CfI5QRjD5yOfC+c9Sr+kBmoNd
+	y61XfAQh54/P1ZwVFws3t+FQEzGNB1InfXJxyHFxp4HdRdn0/4gQG2o4rg6gycVRSCnf3aXdprc
+	yoJXQknUbuaaged9BxfXyluRgzsEE+g==
+X-Google-Smtp-Source: AGHT+IGov0hihbX3nMjv/1exgX1GdOXfquBDi24JqrrM+xtngJD67Rk/E6K9Ejlx6ygNLKgOhEILcowTjixD7Xd6Yss=
+X-Received: by 2002:a17:907:3f08:b0:ad5:67f3:73ea with SMTP id
+ a640c23a62f3a-ad567f37579mr886028566b.21.1747779737495; Tue, 20 May 2025
+ 15:22:17 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
+ <20250407-arm-brbe-v19-v21-4-ff187ff6c928@kernel.org> <20250519150621.GA17177@willie-the-truck>
+ <20250519215651.GB2650608-robh@kernel.org>
+In-Reply-To: <20250519215651.GB2650608-robh@kernel.org>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 20 May 2025 17:22:06 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqL2KgLQGXRLZJ3txuvytqbRRkdK1nM=5_URO2gH_nZMWw@mail.gmail.com>
+X-Gm-Features: AX0GCFtFzlmCBASIuU0YBO76uu_wIfpgFX6QwQXx6mNBYPf-UQnVG91SPo_aQCM
+Message-ID: <CAL_JsqL2KgLQGXRLZJ3txuvytqbRRkdK1nM=5_URO2gH_nZMWw@mail.gmail.com>
+Subject: Re: [PATCH v21 4/4] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+To: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, James Clark <james.clark@linaro.org>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_152003_490191_5BDAFE05 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20250520_152220_026665_9AB2CCDF 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +92,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025, Peter Zijlstra wrote:
-> On Mon, May 19, 2025 at 11:55:10AM -0700, Sean Christopherson wrote:
-> > Drop the setting of WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() to
-> > differentiate it from add_wait_queue_priority_exclusive().  The one and
-> > only user add_wait_queue_priority(), Xen privcmd's irqfd_wakeup(),
-> > unconditionally returns '0', i.e. doesn't actually operate in exclusive
-> > mode.
-> 
-> I find:
-> 
-> drivers/hv/mshv_eventfd.c:      add_wait_queue_priority(wqh, &irqfd->irqfd_wait);
-> drivers/xen/privcmd.c:  add_wait_queue_priority(wqh, &kirqfd->wait);
-> 
-> I mean, it might still be true and all, but hyperv seems to also use
-> this now.
+On Mon, May 19, 2025 at 4:59=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
+:
+>
+> On Mon, May 19, 2025 at 04:06:22PM +0100, Will Deacon wrote:
+> > Hey Rob,
+> >
+> > On Mon, Apr 07, 2025 at 12:41:33PM -0500, Rob Herring (Arm) wrote:
+> > > From: Anshuman Khandual <anshuman.khandual@arm.com>
+> > >
+> > > The ARMv9.2 architecture introduces the optional Branch Record Buffer
+> > > Extension (BRBE), which records information about branches as they ar=
+e
+> > > executed into set of branch record registers. BRBE is similar to x86'=
+s
+> > > Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffer
+> > > (BHRB).
+> >
+> > Since you picked this up from v19, the driver has changed considerably
+> > and I presume you will be continuing to extend it in future as the
+> > architecture progresses. Perhaps having you listed as Author (and
+> > crucially, in git blame :p) with Anshuman as a Co-developed-by: would b=
+e
+> > more appropriate?
+>
+> Shrug.
 
-Oh FFS, another "heavily inspired by KVM".  I should have bribed someone to take
-this series when I had the chance.  *sigh*
+I did a comparison to v18 arm_brbe.c. It was 1134 lines. I (and Mark)
+have removed 332 lines and changed 369 lines. So a little more than
+half remains, but the unchanged parts are a lot of 1 line helper
+functions, brackets and whitespace. So given the more complex parts
+have changed, I will change the authorship.
 
-Unfortunately, the Hyper-V code does actually operate in exclusive mode.  Unless
-you have a better idea, I'll tweak the series to:
-
-  1. Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() and have the callers
-     explicitly set the flag, 
-  2. Add a patch to drop WQ_FLAG_EXCLUSIVE from Xen privcmd entirely.
-  3. Introduce add_wait_queue_priority_exclusive() and switch KVM to use it.
-
-That has an added bonus of introducing the Xen change in a dedicated patch, i.e.
-is probably a sequence anyways.
-
-Alternatively, I could rewrite the Hyper-V code a la the KVM changes, but I'm not
-feeling very charitable at the moment (the complete lack of documentation for
-their ioctl doesn't help).
+Rob
 
