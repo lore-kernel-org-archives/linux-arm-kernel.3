@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67258C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F06DEC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VXNWF5d42ExcW7fSb5Pp8BqxYkRqWCdR/2Uwti83pgs=; b=2YW00SMWPuGcvdVZ+p6dRSuP1q
-	dGT+MNe427KJ95LJtPHx+bK+UnivBT9VkbvZlGBxJkRkkDFO4OxGGafQSU3p0j+knV3+UvZOy/Xgu
-	PEVSUL2bIyXB0OQBD87UfdiJuNI28v4cXHsQc0udeM6TD6wZ2N2NkhPSOPF75re8T1Rh/+8G1mONb
-	BD0AVZsVd1zkmPJJrRJ8Od1psJExVU12sIMYGmeMkG+UyTwpZ7sdWMpA6bRnwWh2aGIYkKmCmkv2b
-	NU9pLBaidAlG7RbVcXYZ3w6QVhQO+o6JlAM0D8lkkxA79CgCEOxB4X76JnLOaki81xSNyXKbTzx92
-	o6kVnU9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V1OJe/PA8FnxE9FSJvdQpOlWo3h8Hc8FZ6ajz7FeFDU=; b=UaXeMLCPbHf+dRTGt7hk67v391
+	ph5AtBjwn2NF71ftNYOO2U1+Pb03rGZks5+h7ESkY12pLQZ6mvpP3WaobB55SkkC6ANQrxhOc+CbO
+	Jyuk9YlMS83m+MObnYDX6sJbBzX0IFQdHuUxY/Rfg6jJVGPnUOeAM2HxOsmWLeK0/PyjLT+VSCQT9
+	n50+Nn9R8a8+sKHK5x+bk/B1WIgZ4KLnM37TZC0jAwAz49rtpYZgtY4NMXq6IbHNue1dBJenjyzeX
+	g02+oawj3bjFrdv4+eNVtfV5ue5/QEGnWqB2/qLfm+bBFtklsqMhoUMO9gf9gxP0GfuaEL5XDvWUp
+	TzR0jSvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHO6p-0000000DBtf-2MvG;
-	Tue, 20 May 2025 14:38:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uHOC0-0000000DCrT-0v8Y;
+	Tue, 20 May 2025 14:43:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHO2K-0000000DAwK-2vfT;
-	Tue, 20 May 2025 14:33:45 +0000
+	id 1uHO9t-0000000DCQk-1AR9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 May 2025 14:41:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 773FBA4EB3B;
-	Tue, 20 May 2025 14:33:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA936C4CEE9;
-	Tue, 20 May 2025 14:33:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7480862A2B;
+	Tue, 20 May 2025 14:41:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27CCDC4CEE9;
+	Tue, 20 May 2025 14:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747751623;
-	bh=UQfJvh5021ymW/G9gh8EoO5JxCDWd0uvGKSwEiCv7E0=;
-	h=From:Date:Subject:To:Cc:From;
-	b=aQ+9q0fJXMJ5lhQGGKqFh6loEs0vjEb6JRqQQ5HsCoHvFfDZLI16YBJz0tutRCM3F
-	 jCgySkrVHzmVJEPK13z5akCdb/IH66xjUKCxxxCp3nl76laRzsvYEEMJtBiNgIYHW/
-	 ck2j5KHcbe0Mb4He57DsNDw80uLol8KERhGPire9X24KCs5oSSCZ2aYpiqCK7XefYJ
-	 gXi+IwmPZNZf3mEjtCclQRmaL6XmtQqD03EN2C0MZPspPBcolP2QdcJABVkvjg73ZF
-	 OI6hdwF0MYYvT6ptoLHaINQgLLLbFBD/ts4WtYXqWUue2P3O+Lv2Oo65na/u600bnx
-	 Uvb6XyGha8GqA==
-From: Simon Horman <horms@kernel.org>
-Date: Tue, 20 May 2025 15:33:33 +0100
-Subject: [PATCH net-next] net: ethernet: mtk_eth_soc: Correct spelling
+	s=k20201202; t=1747752092;
+	bh=c6QyZgO3sFxt8cd7kKsM7NkPczhKjzK8imzKP37Lmms=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AsNaiSBkLzeja5cdsVrAxHQp9eo8wSoGVBl13A/nxgWXE4px0E1foWrckPlDpOIj3
+	 Rcb2FIGOIZEgA9weQ0G8K/Rv9CikcDnliCiJoVeXykI2/MHd6fiA4HC9Pq5ijdxGHG
+	 E2KDhEY9UOcJvFWEhdYGwALbcbNwa7BEnCTqLSFaG0xcZ2o0j/xSNKnKMMEKwDGFhi
+	 u7jpG593iPRDIiIX8ilepulujVsxNgbYa355KFMXr4S3OtcxnCWlPehHO4naQNsYCR
+	 KHacbor01tHpfd6d9E2a8tfs3eeWNPkFLOIrzODZFv+Uew4ZYL3PyI8yubQazWvTIZ
+	 JOlr3UhNoXFow==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uHO9p-00GbpR-TB;
+	Tue, 20 May 2025 15:41:29 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] KVM: arm64: nv: Hold mmu_lock when invalidating VNCR SW-TLB before translating
+Date: Tue, 20 May 2025 15:41:16 +0100
+Message-Id: <20250520144116.3667978-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250520-mtk-spell-v1-1-2b0d5b4a4528@kernel.org>
-X-B4-Tracking: v=1; b=H4sIALySLGgC/x3MQQqEMBAF0atIr22IjYp6FXERxz/aqFGSIIJ49
- wmzfFDUQwFeEajLHvK4NOjhEoo8o89i3QzWKZnESGUqMbzHlcOJbeNxktKiltY2llJ/enz1/r9
- 6cojscEca3vcHWMSozGUAAAA=
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.14.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_073344_880717_93BC76D8 
-X-CRM114-Status: GOOD (  11.40  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +79,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct spelling of platforms, various, and initial.
-As flagged by codespell.
+When translating a VNCR translation fault, we start by marking the
+current SW-managed TLB as invalid, so that we can populate it
+in place. This is, however, done without the mmu_lock held.
 
-Signed-off-by: Simon Horman <horms@kernel.org>
+A consequence of this is that another CPU dealing with TLBI
+emulation can observe a translation still flagged as valid, but
+with invalid walk results (such as pgshift being 0). Bad things
+can result from this, such as a BUG() in pgshift_level_to_ttl().
+
+Fix it by taking the mmu_lock for write to perform this local
+invalidation, and use invalidate_vncr() instead of open-coding
+the write to the 'valid' flag.
+
+Fixes: 069a05e535496 ("KVM: arm64: nv: Handle VNCR_EL2-triggered faults")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/net/ethernet/mediatek/mtk_eth_soc.h | 4 ++--
- drivers/net/ethernet/mediatek/mtk_wed.c     | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/nested.c | 25 ++++++++++++++++++-------
+ 1 file changed, 18 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-index 2d4b9964d3db..6f72a8c8ae1e 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -1178,7 +1178,7 @@ struct mtk_reg_map {
- };
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 6a9fd4e0e789c..56b732003caa7 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1179,13 +1179,24 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu)
  
- /* struct mtk_eth_data -	This is the structure holding all differences
-- *				among various plaforms
-+ *				among various platforms
-  * @reg_map			Soc register map.
-  * @ana_rgc3:                   The offset for register ANA_RGC3 related to
-  *				sgmiisys syscon
-@@ -1278,7 +1278,7 @@ struct mtk_soc_data {
-  * @mii_bus:		If there is a bus we need to create an instance for it
-  * @pending_work:	The workqueue used to reset the dma ring
-  * @state:		Initialization and runtime state of the device
-- * @soc:		Holding specific data among vaious SoCs
-+ * @soc:		Holding specific data among various SoCs
-  */
+ 	vt = vcpu->arch.vncr_tlb;
  
- struct mtk_eth {
-diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
-index e212a4ba9275..351dd152f4f3 100644
---- a/drivers/net/ethernet/mediatek/mtk_wed.c
-+++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-@@ -2000,7 +2000,7 @@ mtk_wed_configure_irq(struct mtk_wed_device *dev, u32 irq_mask)
- 		if (mtk_wed_is_v3_or_greater(dev->hw))
- 			wed_set(dev, MTK_WED_CTRL, MTK_WED_CTRL_TX_TKID_ALI_EN);
+-	vt->wi = (struct s1_walk_info) {
+-		.regime	= TR_EL20,
+-		.as_el0	= false,
+-		.pan	= false,
+-	};
+-	vt->wr = (struct s1_walk_result){};
+-	vt->valid = false;
++	/*
++	 * If we're about to walk the EL2 S1 PTs, we must invalidate the
++	 * current TLB, as it could be sampled from another vcpu doing a
++	 * TLBI *IS. A real CPU wouldn't do that, but we only keep a single
++	 * translation, so not much of a choice.
++	 *
++	 * We also prepare the next walk wilst we're at it.
++	 */
++	scoped_guard(write_lock, &vcpu->kvm->mmu_lock) {
++		invalidate_vncr(vt);
++
++		vt->wi = (struct s1_walk_info) {
++			.regime	= TR_EL20,
++			.as_el0	= false,
++			.pan	= false,
++		};
++		vt->wr = (struct s1_walk_result){};
++	}
  
--		/* initail tx interrupt trigger */
-+		/* initial tx interrupt trigger */
- 		wed_w32(dev, MTK_WED_WPDMA_INT_CTRL_TX,
- 			MTK_WED_WPDMA_INT_CTRL_TX0_DONE_EN |
- 			MTK_WED_WPDMA_INT_CTRL_TX0_DONE_CLR |
-@@ -2011,7 +2011,7 @@ mtk_wed_configure_irq(struct mtk_wed_device *dev, u32 irq_mask)
- 			FIELD_PREP(MTK_WED_WPDMA_INT_CTRL_TX1_DONE_TRIG,
- 				   dev->wlan.tx_tbit[1]));
+ 	guard(srcu)(&vcpu->kvm->srcu);
  
--		/* initail txfree interrupt trigger */
-+		/* initial txfree interrupt trigger */
- 		wed_w32(dev, MTK_WED_WPDMA_INT_CTRL_TX_FREE,
- 			MTK_WED_WPDMA_INT_CTRL_TX_FREE_DONE_EN |
- 			MTK_WED_WPDMA_INT_CTRL_TX_FREE_DONE_CLR |
+-- 
+2.39.2
 
 
