@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3916BC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 17:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D7CC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 17:12:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1atJoeJZpQi4iXcinOZPKw7W7XsZAF/nspMP+bzqfBE=; b=n7uUptBMfAHILTU9v2sTUGDJcI
-	jyMNAIOd6l48uRPa6Q/egHWGd3Zv4Klk86n/UZrnJyX8raFDGlbxYzokDzXItLWIdWRRkpKWYvQ6h
-	NqfHmeUkYm2ve7vrP9oQo8U9/eRMqgmeElSkn7nl2ppECaPXGUcgnxCsmGPXNj0gqM9b+gW4CzUPu
-	gMqATfOxiGnP8tND/Sopx5PgAmfo52U3Np6wmEXX8ygM+0ymr1QpuYpR46aRjNtHVkb18j7E3vNAY
-	A4Fo9fBcDAfqbQCV/wZgyxKkg+NK/wT30reYaEoG9Xed5U22Jp84LXNfFGzU+oFvapFmuglQagoW7
-	GUK/Y2qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Upxs0eolX3bE6dRsPWc13CKdlnx9VgCXOXIrYLb1tE=; b=k8Yk3SpNtNzJojCXmHnoJhmt4A
+	DTE6+bKiTFkDNj8NR3FHtwoVfkm+Xe+5KbqD63VSY5DTkKOJB1LuILqMDvvYymLNet5bySSJ4f+Zz
+	mbfIqJNoi+wJNCfvYe3Ad/Su+Byv34JjSb2vqsL4Si2UuE98OGj2Qz8XHz4BGAObkdcQHgDRnbW2g
+	+TpsILOhfK8MueXGE6gH2w2IBxu347UXsEiSC7GMCeAWcERRmz3SOdeJDO/G2lG418tIkICCITwB8
+	veXSqIeOCisAFuzZHY/AAcMI9z2GJP+WLkWV1OLP/JapD7M9IAZOUVENjxLVEkjGkvpkWp3IFNBTU
+	saaEFjQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQU1-0000000DeNC-3OxM;
-	Tue, 20 May 2025 17:10:29 +0000
-Received: from mxout2.routing.net ([2a03:2900:1:a::b])
+	id 1uHQWC-0000000Defz-0HVS;
+	Tue, 20 May 2025 17:12:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQRq-0000000Dduu-0Ybd;
-	Tue, 20 May 2025 17:08:15 +0000
-Received: from mxbox3.masterlogin.de (unknown [192.168.10.78])
-	by mxout2.routing.net (Postfix) with ESMTP id B507E60201;
-	Tue, 20 May 2025 17:08:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1747760889;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1atJoeJZpQi4iXcinOZPKw7W7XsZAF/nspMP+bzqfBE=;
-	b=tn1Bihvj0KwV8hHaE37t3Vohm7jwgCgsfyOBKhhM64BV6mMF/uSfwvpDZOzV9Zd927FjDp
-	ib0UEXhYcEnzEi8tYnH92766++nlm16whVN09VOVY30MPcDVElsWjeFk9P0mifh80ZunPC
-	wrjFBJfjm9W2bBtdd4KkbouGffuy3kc=
-Received: from webmail.hosting.de (unknown [134.0.26.148])
-	by mxbox3.masterlogin.de (Postfix) with ESMTPSA id BEBF83601DF;
-	Tue, 20 May 2025 17:08:08 +0000 (UTC)
+	id 1uHQT0-0000000DeBc-1sQi
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 May 2025 17:09:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA7B15C596D;
+	Tue, 20 May 2025 17:07:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82013C4CEE9;
+	Tue, 20 May 2025 17:09:18 +0000 (UTC)
+Date: Tue, 20 May 2025 18:09:15 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: ankita@nvidia.com
+Cc: jgg@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	will@kernel.org, ryan.roberts@arm.com, shahuang@redhat.com,
+	lpieralisi@kernel.org, david@redhat.com, aniketa@nvidia.com,
+	cjia@nvidia.com, kwankhede@nvidia.com, kjaju@nvidia.com,
+	targupta@nvidia.com, vsethi@nvidia.com, acurrid@nvidia.com,
+	apopple@nvidia.com, jhubbard@nvidia.com, danw@nvidia.com,
+	zhiw@nvidia.com, mochs@nvidia.com, udhoke@nvidia.com,
+	dnigam@nvidia.com, alex.williamson@redhat.com,
+	sebastianene@google.com, coltonlewis@google.com,
+	kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org,
+	akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org,
+	ddutile@redhat.com, tabba@google.com, qperret@google.com,
+	seanjc@google.com, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	maobibo@loongson.cn
+Subject: Re: [PATCH v4 1/5] KVM: arm64: Block cacheable PFNMAP mapping
+Message-ID: <aCy3OwBe1HLa4O-7@arm.com>
+References: <20250518054754.5345-1-ankita@nvidia.com>
+ <20250518054754.5345-2-ankita@nvidia.com>
 MIME-Version: 1.0
-Date: Tue, 20 May 2025 19:08:08 +0200
-From: "Frank Wunderlich (linux)" <linux@fw-web.de>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Frank Wunderlich <frank-w@public-files.de>, =?UTF-8?Q?Ar=C4=B1n=C3=A7_?=
- =?UTF-8?Q?=C3=9CNAL?= <arinc.unal@arinc9.com>, Landen Chao
- <Landen.Chao@mediatek.com>, DENG Qingfang <dqfext@gmail.com>, Sean Wang
- <sean.wang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>, Lorenzo
- Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 06/14] arm64: dts: mediatek: mt7988: add cci node
-In-Reply-To: <7a563716-a7c6-446d-b66d-bc71c6207ef6@collabora.com>
-References: <20250516180147.10416-1-linux@fw-web.de>
- <20250516180147.10416-8-linux@fw-web.de>
- <7a563716-a7c6-446d-b66d-bc71c6207ef6@collabora.com>
-Message-ID: <6c0dd946bdebd8461307a3e08e60a27f@fw-web.de>
-X-Sender: linux@fw-web.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Mail-ID: 1e75dd63-5eea-4a06-acca-51b6c01efd9c
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250518054754.5345-2-ankita@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_100814_475960_0ABC39FC 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250520_100926_833007_1BE62DF9 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +76,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 2025-05-20 13:27, schrieb AngeloGioacchino Del Regno:
-> Il 16/05/25 20:01, Frank Wunderlich ha scritto:
->> From: Frank Wunderlich <frank-w@public-files.de>
->> 
->> Add cci devicetree node for cpu frequency scaling.
->> --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
->> +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
->> @@ -12,6 +12,35 @@ / {
->>   	#address-cells = <2>;
->>   	#size-cells = <2>;
->>   +	cci: cci {
->> +		compatible = "mediatek,mt8183-cci";
-> 
-> While you can keep the mediatek,mt8183-cci fallback, this needs its own 
-> compatible
-> as "mediatek,mt7988-cci", therefore, I had to drop this patch from the 
-> ones that I
-> picked.
-> 
-> Please add the new compatible both here and in the binding.
+On Sun, May 18, 2025 at 05:47:50AM +0000, ankita@nvidia.com wrote:
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 2feb6c6b63af..eaac4db61828 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1466,6 +1466,15 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
+>  	return vma->vm_flags & VM_MTE_ALLOWED;
+>  }
+>  
+> +/*
+> + * Determine the memory region cacheability from VMA's pgprot. This
+> + * is used to set the stage 2 PTEs.
+> + */
+> +static unsigned long mapping_type(pgprot_t page_prot)
+> +{
+> +	return FIELD_GET(PTE_ATTRINDX_MASK, pgprot_val(page_prot));
+> +}
+> +
+>  static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  			  struct kvm_s2_trans *nested,
+>  			  struct kvm_memory_slot *memslot, unsigned long hva,
+> @@ -1612,6 +1621,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  
+>  	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
+>  
+> +	if ((vma->vm_flags & VM_PFNMAP) &&
+> +	    mapping_type(vma->vm_page_prot) == MT_NORMAL)
+> +		return -EINVAL;
+> +
+>  	/* Don't use the VMA after the unlock -- it may have vanished */
+>  	vma = NULL;
+>  
+> @@ -2207,6 +2220,12 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>  				ret = -EINVAL;
+>  				break;
+>  			}
+> +
+> +			/* Cacheable PFNMAP is not allowed */
+> +			if (mapping_type(vma->vm_page_prot) == MT_NORMAL) {
+> +				ret = -EINVAL;
+> +				break;
+> +			}
 
-Hi,
+Should we capture MT_NORMAL_TAGGED as well? Presumably no driver sets
+VM_MTE_ALLOWED but the same could be set about MT_NORMAL in the
+vm_page_prot.
 
-should i add the binding with 2 const (like the bpi-r4-2g5 compatible) 
-or first as enum
-to allow easier addition of further SoC bindings with same fallback?
+That said, we might as well invert the check, allow if MT_DEVICE_* or
+MT_NORMAL_NC (the latter based on VM_ALLOW_ANY_UNCACHED).
 
-currently i changed binding like this (2nd variant):
-
-properties:
-   compatible:
-     oneOf:
-       - items:
-           - enum:
-               - mediatek,mt8183-cci
-               - mediatek,mt8186-cci
-       - items:
-           - enum:
-               - mediatek,mt7988-cci
-           - const: mediatek,mt8183-cci
-
-but noticed that these boards are missing the required proc-supply:
-
-   DTC [C] arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dtb
-arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dtb: cci: 'proc-supply' is a 
-required property
-	from schema $id: 
-http://devicetree.org/schemas/interconnect/mediatek,cci.yaml#
-   DTC [C] arch/arm64/boot/dts/mediatek/mt8186-evb.dtb
-arch/arm64/boot/dts/mediatek/mt8186-evb.dtb: cci: 'proc-supply' is a 
-required property
-	from schema $id: 
-http://devicetree.org/schemas/interconnect/mediatek,cci.yaml#
-
-the others are clean so far. But because i do not have these boards i 
-cannot fix this without
-anyone telling me the proc-supply for them.
-
-In mt7988a.dtsi i can put both compatible on 1 line as there are only 75 
-chars, or should i
-add linebreak here for better readability?
-
-> Cheers,
-> Angelo
-
-regards Frank
+-- 
+Catalin
 
