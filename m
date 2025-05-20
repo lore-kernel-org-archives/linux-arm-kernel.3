@@ -4,98 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBFDC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CCDC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ybC/xEWalGJ0RhCZjvyrvjbHro7QE2FQq7vzTeEzDcM=; b=nUnj940IbVSGxbku8fODV0H1of
-	3Es/Qt7OGBMpCmx4f9s1x0XZ7eN45f+gCzCHyaOiIBcc599aZq39RHEuTl9E3oXEaAe+nCAOe9iPg
-	VEhHyUG8gIvFcgNN69YE0NR1TpfC10Z7C593vtgmXgUv4M/VOttTxOPoAkbdRr5yoRIhzEJc7lyxZ
-	K00+9Hdqw+I8ySpNnqrgtQbC76hjB4yRteMRIcbMTlCZsgvHO1VyX5hSg8z3iSprMS4BGXfcpvGXa
-	z+fwMPt5tIp1PAy+Hc7ZLXa+bOX+zUQLODyu+uzbNiQ1c8WyIrSWIPbU2H7qx2Z3rXgPDyh+i305y
-	HYOEkvyw==;
+	bh=yjUBBHVw1ydUK2XOgvfP7pnewWiYehu7g9bzmhYmqv0=; b=4ce/N4gzQEhkVmmFDD+xy0AlXh
+	sbD/1iARa0MqvBBEF5vOQLIVog1ROt1wJxut909m/OZRjDF0RHTaIEMeMZ//4a9Oyl764i62Aga94
+	PRviw5H410bObCjBIG/0w3kO9eAnHV6v1mVEB36K59ZB0eqhkJ7MzhKdBgjjt7HqJX/DxBIOIaE9K
+	OJZ7vTJjELHVWSxxG3NoJ8lbEFS36PgsV0fv785uQTxjR/ZOOdf+1f/M3IeDP6iAb+qGiILAmUq3U
+	s9PiCqfTX0iSc2u6/zs8J1A90KTBh3sJThbyuNxZJPPAWzqxZR3a/s71nayvs3lvQ2ne5mHnTWSBh
+	lIp8kGFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHPkg-0000000DWkI-2lE3;
-	Tue, 20 May 2025 16:23:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHPUh-0000000DSG1-1VE6
+	id 1uHPmn-0000000DX5M-37zL;
+	Tue, 20 May 2025 16:25:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHPXe-0000000DSo9-3jtx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 16:07:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1747757224;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ybC/xEWalGJ0RhCZjvyrvjbHro7QE2FQq7vzTeEzDcM=;
-	b=UQbBYW2u/4yIQco5/AwfaZxL/4BGmOJlklfWyS2ORduuCa63/Zr0t3pvlDiCQl4vITwHUW
-	+tdYVpRpioygrcrEwv0GsHTX5lP/I7XnlOEiUC8kK5vkPrZDv1Qa1BCHeAfKgA9594vL/C
-	uYmqn/jxvcWorHmbCiuvqarLBG7gXNE=
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com
- [209.85.210.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-261-ZviBykU5Mg-5AlxVLE7wlw-1; Tue, 20 May 2025 12:07:03 -0400
-X-MC-Unique: ZviBykU5Mg-5AlxVLE7wlw-1
-X-Mimecast-MFC-AGG-ID: ZviBykU5Mg-5AlxVLE7wlw_1747757222
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-72b87bd96a9so2818914a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 09:07:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747757222; x=1748362022;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ybC/xEWalGJ0RhCZjvyrvjbHro7QE2FQq7vzTeEzDcM=;
-        b=ckpBcfGVfvPJeHqYJaMWIyj+6FP7hzPCuuwlXHMr3BkmmQXD01nfJM7Ps1rC1LGwzI
-         JTm8M6BvYFtT4cJeivhf34553Ec+E8mQ1JAUWtuwWFrIoxVSVnbPsiQMn7aPo9iTTReC
-         ZxBczSKhAQFbBiPmTSPjcWPgrU5GZ8sjRW+zmL3mw8iZ79evFr8v++JC6w0jYqzK3Sez
-         SLMt7HfW3qADx0yKjLe7l9KUTyulytAGmxvIbAvnXXwDYmKWjFpa3mo2Fvd5X5rvv7sz
-         rtH8/7up2tirZExylA18TQ/KSY99Cvn2B+Bsgg21Gwf4HJZiIabn7vee56tpeLAEG7rp
-         x+qg==
-X-Forwarded-Encrypted: i=1; AJvYcCWG4FuNNGkuEfVxKuH+NNpucbQcNq4kJOaQjwup52h4csHZkxxHPdKLrpAMdYZQDP2a5U72F7WjtRjaGPVLGD13@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbiBTjjtQwcIIHlHo4XxIfwxDPdzBcxeiSUIaTx4PZ+zf3LZvX
-	yF/DNYZOlMpjC6wfVfeQtS1TQ4Bzc0TK80kLeEKpxskPEtX1CtWJJCYAsppN3OSe2ZESHkZDTMh
-	AGLVmjMv4Ys4C8NuSXuZNwvT2gV7k2VA50AQ6ke5r1KmU9vjWP36of5hn5SBcRwFVn+vGuwsMbS
-	UUN4Vtj8FHThOxsW+DN/TKqoETt+UtW9NIfdCB43P1OIg/6yxCbfw=
-X-Gm-Gg: ASbGncta6Sm5ZYyJBloaLxj/Z+Y1QrbJBx0AD2umwSZBf1sx3RzTP5wGt0p+6rrFvwx
-	H8c9lQxrrP2fsFkU2FjvWdFWIP8cVUSZ7obUrKTNRs0ILAMik9drnw7D+oYBs92ScqDs=
-X-Received: by 2002:a05:6830:658c:b0:727:372e:600e with SMTP id 46e09a7af769-734f6b1a0cdmr10030124a34.14.1747757222613;
-        Tue, 20 May 2025 09:07:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF1ly9i72+pYbDKe5Sks+06FCcNtf9xBC0iJ/paWfH1AFYyUe0Qn2IrAf+QY1o3hDZlmKZQmCGNGBhAxWj1dLY=
-X-Received: by 2002:a05:6830:658c:b0:727:372e:600e with SMTP id
- 46e09a7af769-734f6b1a0cdmr10030067a34.14.1747757222132; Tue, 20 May 2025
- 09:07:02 -0700 (PDT)
+	Tue, 20 May 2025 16:10:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0BCAB1516;
+	Tue, 20 May 2025 09:09:56 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 211903F5A1;
+	Tue, 20 May 2025 09:10:09 -0700 (PDT)
+Date: Tue, 20 May 2025 17:10:03 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 07/10] perf: arm_spe: Add support for filtering on data
+ source
+Message-ID: <20250520161003.GT412060@e132581.arm.com>
+References: <20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org>
+ <20250506-james-perf-feat_spe_eft-v1-7-dd480e8e4851@linaro.org>
+ <20250520134632.GR412060@e132581.arm.com>
+ <443141db-6950-4a15-83be-ad9e9c0e03a0@linaro.org>
 MIME-Version: 1.0
-References: <20250514134630.137621-1-sgarzare@redhat.com> <20250514134630.137621-5-sgarzare@redhat.com>
- <aCVHQ-LRqHeEVEAW@kernel.org>
-In-Reply-To: <aCVHQ-LRqHeEVEAW@kernel.org>
-From: Stefano Garzarella <sgarzare@redhat.com>
-Date: Tue, 20 May 2025 18:06:50 +0200
-X-Gm-Features: AX0GCFsTmlbq93tR0wE4C3RUpx9Z1D4kjkNOv4wLeycQRtYZ5zeOxDpm0iB8eVA
-Message-ID: <CAGxU2F5AsNY5mQPd=qajW1seFYHSYpB0Fa1iuR_f2QavtoB6sA@mail.gmail.com>
-Subject: Re: [PATCH v5 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, Peter Huewe <peterhuewe@gmx.de>, 
-	Jens Wiklander <jens.wiklander@linaro.org>, linux-integrity@vger.kernel.org, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Nicholas Piggin <npiggin@gmail.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dNwspijT-CBCfRIJZ-xzF0TRoKtZEU2Ghxv0C4e79Mc_1747757222
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <443141db-6950-4a15-83be-ad9e9c0e03a0@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_090707_470679_B3AE8E94 
-X-CRM114-Status: GOOD (  34.84  )
+X-CRM114-CacheID: sfid-20250520_091011_023992_ED4C6B01 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,101 +81,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 May 2025 at 03:45, Jarkko Sakkinen <jarkko@kernel.org> wrote:
->
-> On Wed, May 14, 2025 at 03:46:30PM +0200, Stefano Garzarella wrote:
-> > From: Stefano Garzarella <sgarzare@redhat.com>
-> >
-> > This driver does not support interrupts, and receiving the response is
-> > synchronous with sending the command.
-> >
-> > Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
-> > ->send() already fills the provided buffer with a response, and ->recv()
-> > is not implemented.
-> >
-> > Keep using the same pre-allocated buffer to avoid having to allocate
-> > it for each command. We need the buffer to have the header required by
-> > the SVSM protocol and the command contiguous in memory.
-> >
-> > Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
-> > ---
-> > v5:
-> > - changed order and parameter names to match tpm_try_transmit() [Jarkko]
-> > v4:
-> > - reworked commit description [Jarkko]
-> > ---
-> >  drivers/char/tpm/tpm_svsm.c | 27 +++++++++++----------------
-> >  1 file changed, 11 insertions(+), 16 deletions(-)
-> >
-> > diff --git a/drivers/char/tpm/tpm_svsm.c b/drivers/char/tpm/tpm_svsm.c
-> > index 0847cbf450b4..f5ba0f64850b 100644
-> > --- a/drivers/char/tpm/tpm_svsm.c
-> > +++ b/drivers/char/tpm/tpm_svsm.c
-> > @@ -26,37 +26,31 @@ struct tpm_svsm_priv {
-> >  };
-> >
-> >  static int tpm_svsm_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
-> > -                      size_t len)
-> > +                      size_t cmd_len)
-> >  {
-> >       struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
-> >       int ret;
-> >
-> > -     ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, len);
-> > +     ret = svsm_vtpm_cmd_request_fill(priv->buffer, 0, buf, cmd_len);
-> >       if (ret)
-> >               return ret;
-> >
-> >       /*
-> >        * The SVSM call uses the same buffer for the command and for the
-> > -      * response, so after this call, the buffer will contain the response
-> > -      * that can be used by .recv() op.
-> > +      * response, so after this call, the buffer will contain the response.
-> > +      *
-> > +      * Note: we have to use an internal buffer because the device in SVSM
-> > +      * expects the svsm_vtpm header + data to be physically contiguous.
-> >        */
-> > -     return snp_svsm_vtpm_send_command(priv->buffer);
-> > -}
-> > -
-> > -static int tpm_svsm_recv(struct tpm_chip *chip, u8 *buf, size_t len)
-> > -{
-> > -     struct tpm_svsm_priv *priv = dev_get_drvdata(&chip->dev);
-> > +     ret = snp_svsm_vtpm_send_command(priv->buffer);
-> > +     if (ret)
-> > +             return ret;
-> >
-> > -     /*
-> > -      * The internal buffer contains the response after we send the command
-> > -      * to SVSM.
-> > -      */
-> > -     return svsm_vtpm_cmd_response_parse(priv->buffer, buf, len);
-> > +     return svsm_vtpm_cmd_response_parse(priv->buffer, buf, bufsiz);
-> >  }
-> >
-> >  static struct tpm_class_ops tpm_chip_ops = {
-> >       .flags = TPM_OPS_AUTO_STARTUP,
-> > -     .recv = tpm_svsm_recv,
-> >       .send = tpm_svsm_send,
-> >  };
-> >
-> > @@ -85,6 +79,7 @@ static int __init tpm_svsm_probe(struct platform_device *pdev)
-> >
-> >       dev_set_drvdata(&chip->dev, priv);
-> >
-> > +     chip->flags |= TPM_CHIP_FLAG_SYNC;
-> >       err = tpm2_probe(chip);
-> >       if (err)
-> >               return err;
-> > --
-> > 2.49.0
-> >
-> >
->
-> I can pick this for 6.16.
+On Tue, May 20, 2025 at 04:00:59PM +0100, James Clark wrote:
+> On 20/05/2025 2:46 pm, Leo Yan wrote:
+> > On Tue, May 06, 2025 at 12:41:39PM +0100, James Clark wrote:
+> > > SPE_FEAT_FDS adds the ability to filter on the data source of packets.
+> > > Like the other existing filters, enable filtering with PMSFCR_EL1.FDS
+> > > when any of the filter bits are set.
+> > > 
+> > > Each bit maps to data sources 0-63 described by bits[0:5] in the data
+> > > source packet (although the full range of data source is 16 bits so
+> > > higher value data sources can't be filtered on). The filter is an OR of
+> > > all the bits, so for example setting bits 0 and 3 filters packets from
+> > > data sources 0 OR 3.
+> > 
+> > As Arm ARM says:
+> > 
+> >    0b0 : If PMSFCR_EL1.FDS is 1, do not record load operations that have
+> >          bits [5:0] of the Data Source packet set to <m>.
+> >    0b1 : Load operations with Data Source <m> are unaffected by
+> >          PMSFCR_EL1.FDS.
+> > 
+> > We need extra handling for this configuration (0b0 means filtering,
+> > 0b1 means no affaction):
+> > 
+> > - By default, the driver should set all bits in the 'data_src_filter'
+> >    field.
+> > 
+> > - The perf tool needs an extra patch in userspace to initialize all
+> >    bits in config4 unless user specify other values.
+> > 
+> 
+> Did you take into account PMSFCR_EL1.FDS being set automatically?
 
-Great, thanks!
+Good point. TBH, I did not give it enough consideration until your
+remdinding, but let me elaborate on why I suggested the approach above.
 
-Stefano
+> I think the wording is slightly confusing but I tested it on the model and it works.
+> 
+> If PMSFCR_EL1.FDS == 0 then PMSDSFR_EL1 does nothing, and if the data source
+> filter isn't set by the user then FDS isn't set so there's no need to set
+> all the bits in the filter to 1. Once the user asks for any filter then we
+> set FDS, at which point it's whatever filter they asked for. They can set
+> all the bits if they want, or just one.
+> 
+> This is same way PMSFCR_EL1.FT already works. If the user asks for any
+> filter then it's set automatically, but we don't allow the user to ask for
+> "no filters" but with FT set.
+> 
+> So the only thing we can't do is filter out samples with _any_ data source.
+> Which would be PMSFCR_EL1.FDS == 1 and PMSDSFR_EL1 == 0. But I don't think
+> that's useful, and there are other filters to get you all or most of the way
+> there.
 
+My suggestion is coming for handling the case you mentioned.  Let us see
+the combinations:
+
+ PMSFCR_EL1.FDS == 0
+ PMSDSFR_EL1 == 0xFFFF,FFFF,FFFF,FFFF
+   No filtering on data source
+
+ PMSFCR_EL1.FDS == 1
+ PMSDSFR_EL1 == 0xFFFF,FFFF,FFFF,FFFF
+   No filtering on data source
+
+ PMSFCR_EL1.FDS == 0
+ PMSDSFR_EL1 == 0x0
+   No filtering on data source
+
+ PMSFCR_EL1.FDS == 1
+ PMSDSFR_EL1 == 0x0
+   Filtering on all data source
+
+If 'PMSFCR_EL1.FDS == 0 and PMSDSFR_EL1 == 0xFFFF,FFFF,FFFF,FFFF' is
+initialized state, when a user set all bits to '1' for the data source
+filter, then no matter we enable or disable FDS bit, it can work as
+expected for disabling filtering.
+
+If 'PMSFCR_EL1.FDS == 0 and PMSDSFR_EL1 == 0x0' is the init state, as
+you said, when user passed 0xFFFF,FFFF,FFFF,FFFF for data filter, we
+cannot distinguish it from the init state, as a result, we will fail
+to handle this case.
+
+How about you think?
+
+Thanks,
+Leo
 
