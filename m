@@ -4,68 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF133C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C05CC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DDzWPlTvccStUDT1dFuGuLR7WVSyN8ZEudleAhnUrXg=; b=q7CKmR9ruHDSjm1kTHyrlzpiek
-	+XaN9wOvKOh0iraNVf/ag4NJqV+ugcKcgpW6Ui/6lcu50G3lg1GPi/oTvbUwOH5vJlZQ5BEGSq2xa
-	TuJJR3wwWILSW1DnaIVMPxY8iyERanN/mG9dL1N3FsfQQiYxSJDo5mHWL3LUUMuJOYj6N0hNvMdfc
-	R0QfYmXChEZvA2AxtaQt79bhE+pPNMYAYVelGLTnh0oTXQZaAVt6MgNGdya4+ZxMJPstQJ2Rqo+Hl
-	3/HRJgLpS+VwTKm/VV9c8XobhDbaIyUn3cNnac1ao7X8nEAjDaqUabPQo+l0cEBkT2ydzqCluj3cd
-	k1nedlmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2uZLHbxCZSGFaoPD2HjsSQPs1GfgUUi/JHnbAVOktuM=; b=jalTvi15nrtqy7elGLYZQnNsqu
+	3eIkYjUy9GRKNcRX1eCPRxR+DcrLA5j360p7y8zJ3zSz2+rNejV5nbxZX97OBrOy8GOXE8i3549Vl
+	dcEEiRrOFz13MbaazdTiZMMkmMyVL3ppXRFiYNFsfIO/CGDOMNYwIf0ylyypJpOPf31XN5n+tPBAJ
+	VFil5doTv8LYw6sABhDgy4Vleu3FBUUFn7CpsZc9Yw8BKB9xnBWnAV7hFw19ZTjVWn9Ve5Db615+b
+	mRStZhM0UGqEgEd3IHda/bZfOome8EIuA6qCaFAcGR8OttqYJUrXZATNx1mkxTj7QkdtxCrxpDQ1E
+	XnzgT1cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHWC-0000000Brt7-3pce;
-	Tue, 20 May 2025 07:36:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uHHYH-0000000BsMD-3yyn;
+	Tue, 20 May 2025 07:38:17 +0000
+Received: from mail-am0eur02on2072e.outbound.protection.outlook.com ([2a01:111:f403:2606::72e] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHU5-0000000BrbI-2Dri;
-	Tue, 20 May 2025 07:33:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C533644C8D;
-	Tue, 20 May 2025 07:33:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17977C4CEE9;
-	Tue, 20 May 2025 07:33:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747726436;
-	bh=IxJDbHhoIBlRsEC8dNmFDP5+Wyd+qkC2iRVS4ulVwEw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c3/DTfV+WGGKr8thDEznVcCK6Zt+adMAj/Cp+a9oYEBzujm0rNmpnQvHujGxblbzi
-	 cPh3hPmAPQ+Ds/hoPqR3FXN0l6Krw+/cXqSSq0OGKZfAT+PKGA5pHB91ODH4rF2ef+
-	 OcVj5zo4rUd7pOzBJWdv0jpI41xu75b4hsVLuDATYt8piVeUv3/p4RhV/IAZtAogxd
-	 gvxlAINrqfxUu/KVKoTmVFOwjfPpYkoIVxI+CuFf/HEK6l75v+66vi6nt/n89dDcwW
-	 ANzssYus/nb/5ItchaWbUuPm8l7t9JrbwU8qo1yTqYDbXcv/ToHcTGXa1ggFbQ3a7p
-	 uTCz7CLBHQcAg==
-Date: Tue, 20 May 2025 09:33:54 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Jeff Hugo <jeff.hugo@oss.qualcomm.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-doc@vger.kernel.org, linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-Subject: Re: [PATCH v4 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
-Message-ID: <20250520-hypnotic-pink-lori-dece51@kuoka>
-References: <20250519-6-10-rocket-v4-0-d6dff6b4c0ae@tomeuvizoso.net>
- <20250519-6-10-rocket-v4-1-d6dff6b4c0ae@tomeuvizoso.net>
+	id 1uHHVR-0000000BrmZ-074L
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 May 2025 07:35:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hJULVp+19iNUgto+ORE05EwQbYHJowfb8kqP14HnkJAFk7D4Pc7jzzHaQgcFWTFn8pAkmyJ1UWKgZA8RtF+4au5Ww5odvSoIXSmtgd8F4fG5GTJ4yMojwN23w+hJb7DhQZoLdFZt6M44JI5AumOCVr77kdi2x0Bte78ZVPd/Bzcm9MDAWFhU2o807xa3hFSafOVeUEm7aVGybjp8x35YcmqCpQgxEnRrOZCOXTIlQggPa9rRbkQiEOlN+MPf5GyqwGhFx5+dw1bN6ww4YZ6lz9FxU3V9VdOVk4N2QtYQXmz1aANn0GxSGM3EsfxIcPwCUReaaNmGDysIgGLHn2RWdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2uZLHbxCZSGFaoPD2HjsSQPs1GfgUUi/JHnbAVOktuM=;
+ b=K8HHznAWMnE62x0OCzL4ouI/BpTCmWE36DMAbAxghUZwlPP3Xumgg2OlF4w6p18cQtk+dHR4tcZmegnmxvkcr5FIuTBycawlPPrABg8LZa3e7p11UkEXdULkILFEKf2frlKVaKPzVem1FpoEobFuxorrM/luV1BIgBKbd9QqLu245LV2RJoth1rwVxXPW8yATZLZQWOH8wpTtonYc9qdM2KsvXIao3rZZFEPdW6ja91XgGBbxudof22hoGZu2XAqmjEpcub3KOe296epDuHoeNCMkwsxsI700kjTDey6D1IM7ErnAbSlX4BIl7gmTI17jw/ExPkNTF5oSc5bl0CQRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=kernel.org smtp.mailfrom=phytec.de;
+ dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=phytec.de; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2uZLHbxCZSGFaoPD2HjsSQPs1GfgUUi/JHnbAVOktuM=;
+ b=rE/vY/Si7DbU7Il6BBfCA4yafdMD6Vfq81w4+IbvCd81PE9YhKosh7a/qlX0/csMFURuSMYtaZoBZbOqOqYnRu8gAe4c1VgnngQUCz7AfA3R870HdHjJUdaU46dxq/fzSswecwN8rWroz8oGds3NUecLD4cgXI2IO8w80aGp1PK5NKCqlXH4O1sQ7sQ6j7L4PHf40prvhDFWagS3Vgpf3tfJJf4LVw7YQjlhX5bbMSxaiI8dI2mjbkSjyHtcGmr5oRdBHE/cz21+uWUUOWoTToMUoCgCwojWsviq6X4w5ZIievdur/95eGRtSaqEK/BfQ8krrt3UPrk7mdHVqX4hyw==
+Received: from CWLP123CA0087.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:5b::27)
+ by AS8P195MB2098.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:56b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Tue, 20 May
+ 2025 07:35:10 +0000
+Received: from AMS0EPF000001B7.eurprd05.prod.outlook.com
+ (2603:10a6:401:5b:cafe::1a) by CWLP123CA0087.outlook.office365.com
+ (2603:10a6:401:5b::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.30 via Frontend Transport; Tue,
+ 20 May 2025 07:35:10 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Diagnostix.phytec.de (91.26.50.189) by
+ AMS0EPF000001B7.mail.protection.outlook.com (10.167.16.171) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8769.18 via Frontend Transport; Tue, 20 May 2025 07:35:10 +0000
+Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
+ (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 20 May
+ 2025 09:35:09 +0200
+Received: from llp-stoidner.phytec.de (172.25.39.157) by Florix.phytec.de
+ (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 20 May
+ 2025 09:35:09 +0200
+From: Christoph Stoidner <c.stoidner@phytec.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<upstream@lists.phytec.de>, Christoph Stoidner <c.stoidner@phytec.de>
+Subject: [PATCH] arm64: dts: freescale: imx93-phycore-som: Delay the phy reset by a gpio
+Date: Tue, 20 May 2025 09:34:50 +0200
+Message-ID: <20250520073450.388989-1-c.stoidner@phytec.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250519-6-10-rocket-v4-1-d6dff6b4c0ae@tomeuvizoso.net>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.25.39.157]
+X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
+ (172.25.0.13)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF000001B7:EE_|AS8P195MB2098:EE_
+X-MS-Office365-Filtering-Correlation-Id: 94e5bed4-d9f9-46e1-8f7b-08dd9770d9b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VyWlP7/z/qRbVq37CoDUH4zigNdriwxSoNPsJitVUcgNDq7+Bv2OUz855A16?=
+ =?us-ascii?Q?6LlX1svRP5p5CLL+U+Ni/YxUE4UZXXc2EA9Ik+lxCXtxg1W2DH8nAukACx/5?=
+ =?us-ascii?Q?/qjdqM9r/+ItwTV+EZ5AomtJGpE557+OqE/rGCeJC1qmZVFHwUfdv7YYmyIr?=
+ =?us-ascii?Q?D6B24dqMQWWsOpHFYpAymlS2F2Nqur9r773b1dMwTt8dslLeyl3wplZxseYT?=
+ =?us-ascii?Q?lY90LuuMzBAzguEzMAoj32+gO2AgAtDXLACJHOumezf6sRoEOWhmRPh6LCeo?=
+ =?us-ascii?Q?3kRrI7rBfwz48soaBEnoepvMx7PreOeRgKwOFGiaes8M6n2hWjAW8D0MB+Ph?=
+ =?us-ascii?Q?oBCxb/7XIM93oP74EMR7E9DW5fGvnJmDK97RpL4eajcWsc+VrnPJdlkBK6Mk?=
+ =?us-ascii?Q?+YCbKfLIHnnOexhHOOdKEOfrYFrQBFX0FZAoHNIo/waQRDbLvUZ6TpNeIoyK?=
+ =?us-ascii?Q?L3hf9y11IrqevpRLT7flBP2cfEZ7Q6N09b2Xwe9+Gia6KPMq/J7P0LoLGJqn?=
+ =?us-ascii?Q?RUhUr8f1ajkU2i4U8levdqTq7MEA4oGnHNVL7r5BPH5k0jlirhayYLKJnlQj?=
+ =?us-ascii?Q?u1ntutkjAbHee0lzGfp7PdWgpdxzTFXnsn7/3L/5a7VajwAK0WVvW+f5GLq3?=
+ =?us-ascii?Q?tMrJsf75S+hHpo7u46Mwxkdkif3qm3Aqwaz37Bucxu891ZoUpYaGVcpi7Lhr?=
+ =?us-ascii?Q?9wmKMSU14uNY4kHphffP61MN87gmudm5CXaWcKh/KFc5G1IpE57DIoriiDHF?=
+ =?us-ascii?Q?S5f/IopAduzUqOO+OAtiusDlYT/tq8vzxdCYgnr41cfVS9QJluTxdevUup+/?=
+ =?us-ascii?Q?A3++ypmu7v4eB2MU8q8vjGniBYmscsK2bcN86+ILcS2oxN9GI0r/tg/36E9M?=
+ =?us-ascii?Q?ErgBsQydtb3bsTPfH2ewj1Ec9YQYW6h4p+Mwm7Ax3oVToMfPju97VRimWynB?=
+ =?us-ascii?Q?QDbrhSh2kmQpVPN0AUivgJToSioEofK6Ad7etP9FpMYuTBYWE+DcEgV+b9jI?=
+ =?us-ascii?Q?8idVAwRK5sfPNNATQWDYlyWJwzCjURIlNY2Xctqdylkb+FSch5XAEyCl+qBS?=
+ =?us-ascii?Q?YZ88NXayisl+gJY7qdUm6EJ4YQuAPLIezIPf/o+eg4U9W1r4nGfFrtf0DHZM?=
+ =?us-ascii?Q?itE0lAh8Vvc99K0Wjk0bwSVCAD3mr7uLwnW+LHXAr07F7JybWYJkrYnnGIVs?=
+ =?us-ascii?Q?L0xMnSJ27onzKJ24kZe1omo4VOxD0uex/MEEOBqze9WMbgcLB5a99y2RQSHf?=
+ =?us-ascii?Q?hi+pUg8W/7ckT5rKMpfOzv2FW4qfgAlBkVjeBN9doLWLgNpkH0SuYbCB0BbO?=
+ =?us-ascii?Q?8kkpdkyUoHE0DetiFQA+JWQzQNZdBlf7TP02floY4bMFbY0ZFghXkb+6ueae?=
+ =?us-ascii?Q?YboAs8KowZLsYFr84ebElw3jXHHyntEEWog0BUZ8wPgV28H00W5/yFbdDXJ7?=
+ =?us-ascii?Q?HaqEM6txaOPGc3kEoL21IdK6k8LE+NSVxEVP/LGHNrv/dFS6IP3YtLTaw54x?=
+ =?us-ascii?Q?P9VtayDgZUI8BWnVwT+WvvrBmDMgM/7qZ5dN?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026)(7416014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2025 07:35:10.0447
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94e5bed4-d9f9-46e1-8f7b-08dd9770d9b1
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B7.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P195MB2098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_003357_616275_ECF9BB89 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20250520_003521_391725_F9400106 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,92 +149,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 03:43:33PM GMT, Tomeu Vizoso wrote:
-> Add the bindings for the Neural Processing Unit IP from Rockchip.
-> 
-> v2:
-> - Adapt to new node structure (one node per core, each with its own
->   IOMMU)
-> - Several misc. fixes from Sebastian Reichel
-> 
-> v3:
-> - Split register block in its constituent subblocks, and only require
->   the ones that the kernel would ever use (Nicolas Frattaroli)
-> - Group supplies (Rob Herring)
-> - Explain the way in which the top core is special (Rob Herring)
-> 
-> v4:
-> - Change required node name to npu@ (Rob Herring and Krzysztof Kozlowski)
-> - Remove unneeded items: (Krzysztof Kozlowski)
-> - Fix use of minItems/maxItems (Krzysztof Kozlowski)
-> - Add reg-names to list of required properties (Krzysztof Kozlowski)
-> - Fix example (Krzysztof Kozlowski)
-> 
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+According to the datasheet the phy needs to be held in reset until the
+reference clock got stable. Even though no issue was observed, fix this
+as the software should always comply with the specification.
 
-This order of SoB is still odd. You as person sending it should be the
-last signing person. Are you sure you are using b4 for managing
-trailers? I would expect it to re-order these on every update and this
-is already v4.
+Fix this in the bootloader, as this is the point where the reference
+clock gets initialized and stable first.
 
-> ---
->  .../bindings/npu/rockchip,rknn-core.yaml           | 149 +++++++++++++++++++++
+Use gpio4 23, which is connected to the phy reset pin. On the same pin
+RX_ER was used before, but this signal is optional and can be dropped.
 
-Filename matching compatible, so rockchip,rk3588-rknn-core.yaml
+Note: This comes into effect with the phyCOREs SOM hardware revision 4.
+In revisions before, this gpio is not connected, and the phy reset is
+managed with the global hardware reset circuit.
 
->  1 file changed, 149 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..fafd0b01da215c7396262012988e364ef07ea137
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
-> @@ -0,0 +1,149 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Neural Processing Unit IP from Rockchip
-> +
-> +maintainers:
-> +  - Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> +
-> +description:
-> +  Rockchip IP for accelerating inference of neural networks, based on NVIDIA's
-> +  open source NVDLA IP.
-> +
-> +  There is to be a node per each core in the NPU. In Rockchip's design there
-> +  will be one core that is special and needs to be powered on before any of the
-> +  other cores can be used. This special core is called the top core and should
-> +  have the compatible string that corresponds to top cores.
-> +
-> +properties:
-> +  $nodename:
-> +    pattern: '^npu@[a-f0-9]+$'
-> +
-> +  compatible:
-> +    oneOf:
+Signed-off-by: Christoph Stoidner <c.stoidner@phytec.de>
+---
+ arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-Drop... if you followed my advice you would notice it is not necessary.
-
-> +      - enum:
-> +          - rockchip,rk3588-rknn-core-top
-> +      - enum:
-> +          - rockchip,rk3588-rknn-core
-
-My comments were only partially implemented. This syntax is really not
-readable and not necessary and I asked to make it part of previous enum.
-This is just one enum:
-
-compatible:
-  enum:
-    - foo
-    - bar
-
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 88c2657b50e6..f8e2f3f3baa8 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -58,6 +58,9 @@ &fec {
+ 				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
+ 				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>;
+ 	assigned-clock-rates = <100000000>, <50000000>, <50000000>;
++	phy-reset-gpios = <&gpio4 23 GPIO_ACTIVE_HIGH>;
++	phy-reset-duration = <1>;
++	phy-reset-post-delay = <0>;
+ 	status = "okay";
+ 
+ 	mdio: mdio {
+@@ -91,14 +94,16 @@ pinctrl_fec: fecgrp {
+ 		fsl,pins = <
+ 			MX93_PAD_ENET2_MDC__ENET1_MDC			0x50e
+ 			MX93_PAD_ENET2_MDIO__ENET1_MDIO			0x502
+-			MX93_PAD_ENET2_RD0__ENET1_RGMII_RD0		0x57e
+-			MX93_PAD_ENET2_RD1__ENET1_RGMII_RD1		0x57e
+-			MX93_PAD_ENET2_RXC__ENET1_RX_ER			0x5fe
++			/* the three pins below are connected to PHYs straps,
++			 * that is what the pull-up/down setting is for. */
++			MX93_PAD_ENET2_RD0__ENET1_RGMII_RD0		0x37e
++			MX93_PAD_ENET2_RD1__ENET1_RGMII_RD1		0x37e
+ 			MX93_PAD_ENET2_RX_CTL__ENET1_RGMII_RX_CTL	0x57e
+ 			MX93_PAD_ENET2_TD0__ENET1_RGMII_TD0		0x50e
+ 			MX93_PAD_ENET2_TD1__ENET1_RGMII_TD1		0x50e
+ 			MX93_PAD_ENET2_TX_CTL__ENET1_RGMII_TX_CTL	0x50e
+ 			MX93_PAD_ENET2_TD2__ENET1_TX_CLK		0x4000050e
++			MX93_PAD_ENET2_RXC__GPIO4_IO23			0x51e
+ 		>;
+ 	};
+ 
+-- 
+2.43.0
 
 
