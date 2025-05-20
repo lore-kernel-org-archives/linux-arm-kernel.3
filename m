@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9164EC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 22:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF0FC54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 22:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F+0KGjJEeMGYRbcevFKEOSgGE0ujrUpdmrmtWjYGodk=; b=pgtupDaE4HKzOd1hZlGevrCvBa
-	IB3G/8JWGYCSPYJ9uBqU7K2KrLGiA2yiMmHt7kHvp66BZfrWfud+wrTbrIcFSrO4clDU3mu+DyG5z
-	Bsjv2+PwpBb4rGLueDuSQWWpW6zr9D/L/vM9qa5eZz6JThr5tK3pmZlLBph5rgwPWps3K9mfhL1u+
-	Gxuj8Om77oNf/rfOSstdJe0lK7WfSL4Nb1iMLcN6D9kp4jBptYvH32lZpZg8jLsIJTGyd30qLyuut
-	HQo6PEl6rWza+C7j0TkqVEFYnXDQ16ZbKRieHeINrjkdpUdPqtSG1RXsYwvnHVqna2kT3PUZwbwzo
-	WCTlHOuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DlpgK8+tZkkDHiRWgBwHzi2Y0cqlH2RIldw1jLBTIb4=; b=sTpRlv7nMJnKHCTT+7j7N/7TzU
+	xx6GFM1KC6rPHzKy3pHtSFpwpIxksGC7GwllexyNqEAmD+SH+74a+wVtnBlmhV9rvPveMl9XeB4o6
+	yGRg4bzq8FSsxAjyovrwk61zrxB9WYK7H1XguULtsq+29t9771iykFIc5UEeFJLMtJ/0WZzS7Tnod
+	dEnTA39D0u4ObvNU3Awil1VbMCBHmO2j0ama+w04+1CQYF+ElIGkvBRZURvhQvSoPKPsDhLi6y3To
+	opTJ2O1pd6qMwnQWc+7vD6NZmnYPkbBqNtAiaCkKxgxKJJQWitYQFSfAf4xyaFiPDIv8UweK3LIL0
+	09OewgqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHVke-0000000EJb3-18zb;
-	Tue, 20 May 2025 22:48:00 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHVf5-0000000EIub-21He
+	id 1uHVmm-0000000EJqu-0G9z;
+	Tue, 20 May 2025 22:50:12 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHVfF-0000000EIvb-4Ajt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 22:42:16 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-32805a565e6so60440481fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 15:42:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747780933; x=1748385733; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F+0KGjJEeMGYRbcevFKEOSgGE0ujrUpdmrmtWjYGodk=;
-        b=spfhbEzVNb0HsPalYUfYZkfXWLKqe1694WvJn3goNYwRgFjmSqzTiyXOnK0Is64Aqd
-         6Qh4TCNEVTr6rTjovuOygexsAHnZ9pKZSETi52rfOEIoDVSvJno98opTQekIsE5zRDPe
-         hLea9HVi5SWfSi0fxwNpIlSUDhKXnM1gQcCMwYxb0TPaxTLlumzmT+OreejlDama5N+l
-         uavUqUwYX94US5CZ4WpQwUBvEs/ukayTr4BfCDDK0iEAWnlYmUj5dp5Z1ASKQXpWjkmr
-         AwYvE3jLn3leUdSuLgq0e4IoB5hezn2jntscq3OH+L0HidfhXaVWPoa3N6wjeHbG2fKf
-         U4bA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747780933; x=1748385733;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=F+0KGjJEeMGYRbcevFKEOSgGE0ujrUpdmrmtWjYGodk=;
-        b=f4gmFZ6rL9MJyHxQK48VLp8y8JRS4+mMCwAnkbzVi/hXDp6/sxtJfTmBB5m+S6A/gD
-         dm/sPm8HIW3hw2Bq1eiCBmNlY02repdNpiedZyFhboyk2pQyx+FFMgRc18b4kcJbyVBJ
-         dlfy0As7lMHZa1qxX7y+3SCMOc9bXVFpTGCK5w8RgrfW2vQfSWO4ZoliRI7WqbOj4wfI
-         +cJIFFISQVkrZ9y5pFyIlaExqurrYlYch+Zf1csGzocso/8OjEk9fJvUo/t8cUl96fiH
-         UXNEoe9C2aSDk3j7jZ0nk79l/dZw2Ao/VS+leSqsBbjVduxNJ94+XPAy7lnjexZNS1Wg
-         p12g==
-X-Forwarded-Encrypted: i=1; AJvYcCVXNHYYdTpkIT03UsmFpzlrKUTIrdH8WodVv3XXPRtD4lBNeb1aOlOZSlw9bv4Ia0z80ldH7LcfitVhDoduUJL4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIqyqxlMz4bTsdBXK9YiheQW83U4vu5a0dJ7hT4NG5w8u3mAM3
-	t/43jQJQsUOn8zSqTTFIhUUtYedxrfCc1gSwklPVy3s2SqjWddIQcyWBjLAaR1asnB4APwwV+t5
-	j4TgT8RoEuOh+PY0AU0S0TakV2O+CS1RMBtQWO3pn7w==
-X-Gm-Gg: ASbGncv8pZjnF2gk7XniHszn3k+QcWcygAFw5IEGLkbjgrD3ARksBFmxHQhrT7DLKSN
-	Z6keq4rqHO/v1vG3hraFUAtoJT0AzCOl6svB6mCsHPw1fnGU7GwbTfObNKRaxOnMZPl6YpawUSW
-	hpR18lbybxZtHWL0oFAw3SyqLlnPFTq4OY
-X-Google-Smtp-Source: AGHT+IHsUCF87aJBJgdi8mRkNqubc6I4D9fZMCMetg4kSiJqDTe01fpVuT5acGVm0IsXULfYXw603PwqUKvGmPST+r8=
-X-Received: by 2002:a05:651c:20d5:b0:328:d50:d7cc with SMTP id
- 38308e7fff4ca-3280d50d846mr35144561fa.20.1747780933368; Tue, 20 May 2025
- 15:42:13 -0700 (PDT)
+	Tue, 20 May 2025 22:42:27 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1152)
+	id 9616F2067864; Tue, 20 May 2025 15:42:24 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9616F2067864
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1747780944;
+	bh=DlpgK8+tZkkDHiRWgBwHzi2Y0cqlH2RIldw1jLBTIb4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bvUGCBR4iqg/M7Vg3HP94282EcXsXC5noJNb1o/uDAj1lfvSmUtR3/enibqZKqGml
+	 IvzwXSS/YTm9/i/m4JJRERdIp388+J5wxgwzStIpmjQ4uI+6mrY/MlL8XjdktFOfqI
+	 o3HYFu1SfU5/WDFlksRh6wBlNWwZk7zhBZ5f0IOI=
+Date: Tue, 20 May 2025 15:42:24 -0700
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Jacob Pan <jacob.pan@linux.microsoft.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev, will@kernel.org,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
+Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
+Message-ID: <20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
+ <20250410230008.GA6905@ziepe.ca>
+ <67fff12d.650a0220.208c7c.d69dSMTPIN_ADDED_BROKEN@mx.google.com>
+ <20250416181759.GF493866@ziepe.ca>
 MIME-Version: 1.0
-References: <20250520-genio-350-eint-null-ptr-deref-fix-v2-1-6a3ca966a7ba@collabora.com>
-In-Reply-To: <20250520-genio-350-eint-null-ptr-deref-fix-v2-1-6a3ca966a7ba@collabora.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 21 May 2025 00:42:01 +0200
-X-Gm-Features: AX0GCFsxq2qbIdoCh-TtdqObwj9pvVqees80rU3HdDEUCMiHs8dNAK0ZulTRIX8
-Message-ID: <CACRpkdYor2+rCZGsZLw=_Wna=0KnyXBaVtx-VahmN6Ky-zZ-Dg@mail.gmail.com>
-Subject: Re: [PATCH v2] pinctrl: mediatek: eint: Fix invalid pointer
- dereference for v1 platforms
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Hao Chang <ot_chhao.chang@mediatek.com>, Qingliang Li <qingliang.li@mediatek.com>, 
-	kernel@collabora.com, linux-mediatek@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Chen-Yu Tsai <wenst@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250416181759.GF493866@ziepe.ca>
+User-Agent: Mutt/1.5.21 (2010-09-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_154215_533209_80011AE3 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250520_154226_062600_05D5CEC3 
+X-CRM114-Status: GOOD (  24.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +73,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 11:16=E2=80=AFPM N=C3=ADcolas F. R. A. Prado
-<nfraprado@collabora.com> wrote:
+Hi Jason,
 
-> Commit 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple
-> addresses") introduced an access to the 'soc' field of struct
-> mtk_pinctrl in mtk_eint_do_init() and for that an include of
-> pinctrl-mtk-common-v2.h.
->
-> However, pinctrl drivers relying on the v1 common driver include
-> pinctrl-mtk-common.h instead, which provides another definition of
-> struct mtk_pinctrl that does not contain an 'soc' field.
->
-> Since mtk_eint_do_init() can be called both by v1 and v2 drivers, it
-> will now try to dereference an invalid pointer when called on v1
-> platforms. This has been observed on Genio 350 EVK (MT8365), which
-> crashes very early in boot (the kernel trace can only be seen with
-> earlycon).
->
-> In order to fix this, since 'struct mtk_pinctrl' was only needed to get
-> a 'struct mtk_eint_pin', make 'struct mtk_eint_pin' a parameter
-> of mtk_eint_do_init() so that callers need to supply it, removing
-> mtk_eint_do_init()'s dependency on any particular 'struct mtk_pinctrl'.
->
-> Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple ad=
-dresses")
-> Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@colla=
-bora.com>
-> Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+apologies for the delayed response.
 
-Patch applied for v6.16.
+> On Wed, Apr 16, 2025 at 11:04:27AM -0700, Jacob Pan wrote:
+> 
+> > Per last discussion "SMMU driver have a list of potential addresses and
+> > select the first one that does not intersect with the non-working IOVA
+> > ranges.". If we don't know what the "non-working IOVA" is, how do we
+> > know it does not intersect the "potential addresses"?
+> 
+> I had understood from previous discussions that this platform is
+> properly creating IOMMU_RESV_RESERVED regions for the IOVA that
+> doesn't work. Otherwise everything is broken..
+> 
+> Presumably that happens through iommu_dma_get_resv_regions() calling
+> of_iommu_get_resv_regions() on a DT platform. There is a schema
+> describing how to do this, so platform firmware should be able to do it..
+> 
+> So the fix seems trivial enough to me:
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index b4c21aaed1266a..ebba18579151bc 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -3562,17 +3562,29 @@ static int arm_smmu_of_xlate(struct device *dev,
+>  static void arm_smmu_get_resv_regions(struct device *dev,
+>  				      struct list_head *head)
+>  {
+> -	struct iommu_resv_region *region;
+> -	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
+> -
+> -	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
+> -					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
+> -	if (!region)
+> -		return;
+> -
+> -	list_add_tail(&region->list, head);
+> +	static const u64 msi_bases[] = { MSI_IOVA_BASE, 0x12340000 };
+>  
+>  	iommu_dma_get_resv_regions(dev, head);
 
-If it is needed for v6.15- then I think at this point it will need to
-be backported to stable. It also does not apply cleanly on Torvald's
-tree, just on my devel branch.
+my understand is, this hook is not called for all the devices, eg: pcie dts node
+doesn't use [1] "iommus" property instead it uses "iommu-map" property
+as a consequence, [1] while loop exits prematurely and iommu_dma_get_resv_regions()
+is not called, so there is no IOVA reservation for the pcie device. 
 
-Yours,
-Linus Walleij
+Did i miss something? Please let me know.
+
+[1] https://elixir.bootlin.com/linux/v6.15-rc7/source/drivers/of/device.c#L161
+
+Thanks,
+Shyam
 
