@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 539D6C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 09:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23EE4C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 09:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JbSp3peXdCYNTVSglrOvDustK5E9hdfInY7j/gm6Ntk=; b=cV9dH8O33zAtAhCgogPIg2aeT2
-	GMDKN04YryI0Q4sGOJLRrxmb++BMRwx5H6/kJ18WuP0KJsGvuwEHItywsFpsEWR1rJC+uTj0Wg1FQ
-	cClYJe8zwkOvcGxrEnxZTIojeo3hT9hVsyiauF2J3HzyuXufaBSI5w958GDeHIdG4/PxanP8U+w7w
-	9VPWNkfJTI1T4rtUscgK2kP/ZzGPbOmDvAMiBMTumZGdN7OvKt1E+6ET92uOngDT0IXw1b7+B4XqJ
-	uoDR2EFx1dkRejoz0J5PR0gnsDw0MoVpg97jACP0wwmWSo4TBgxTN4n0EIwa/cjhNMeHYIoijoH5t
-	cdWNAA5g==;
+	bh=5LKba7DknBhbjPo7db2iJgXAGczza2OID/T8xJSknic=; b=d0tZOsHv2OI6fLUqq+raH6+IR7
+	QE3ui3dyQkPv1/Ycf/3KxfuxK/kuJqexlWaky4hF+thW7XVsXBCsP/ef+EwbKbfiibyCmPPBWeWvU
+	e02D4+8ZSB/emiFV3QDXg3/XExA7l48phkl2rIMZhzsQC/oVcJKR/X0AutWx9LceKACJowOHKhLXc
+	fDkoaA42y4p8zDvrwHBEqD6tMfBueDNwAvRV3R6vO7KwdB98WuBmi35a/jrXDru7M9sC7pUlQBOR9
+	a3x/NKG8DGK5VhYQSGo7aTnpC2RkbwlTtZJAWKnLS2SoeUQdpaYWwXjIfUNUpgcjcYkXHdjJVj0V/
+	CksLee5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJaX-0000000CFhs-1jtx;
-	Tue, 20 May 2025 09:48:45 +0000
+	id 1uHJcb-0000000CFvv-0Sdz;
+	Tue, 20 May 2025 09:50:53 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJHW-0000000CC6K-1PbV
+	id 1uHJHX-0000000CC6K-2ub6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 09:29:07 +0000
+	Tue, 20 May 2025 09:29:08 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 20 May
@@ -43,9 +43,9 @@ CC: <linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
 	<andrew@codeconstruct.com.au>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
 	<p.zabel@pengutronix.de>, <BMC-SW@aspeedtech.com>
-Subject: [net 3/4] ARM: dts: aspeed-g6: Add resets property for MAC controllers
-Date: Tue, 20 May 2025 17:28:47 +0800
-Message-ID: <20250520092848.531070-4-jacky_chou@aspeedtech.com>
+Subject: [net 4/4] net: ftgmac100: Add optional reset control for RMII mode on Aspeed SoCs
+Date: Tue, 20 May 2025 17:28:48 +0800
+Message-ID: <20250520092848.531070-5-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250520092848.531070-1-jacky_chou@aspeedtech.com>
 References: <20250520092848.531070-1-jacky_chou@aspeedtech.com>
@@ -53,9 +53,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_022906_372684_59ECA72D 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250520_022907_732767_A0ECA83D 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,50 +69,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the "resets" property to the MAC nodes in the AST2600 device tree,
-using the appropriate ASPEED_RESET_MACx definitions.
+On Aspeed SoCs, the internal MAC reset is insufficient to fully reset the
+RMII interface; only the SoC-level reset line can properly reset the RMII
+logic. This patch adds support for an optional "resets" property in the
+device tree, allowing the driver to assert and deassert the SoC reset line
+when operating in RMII mode. This ensures the MAC and RMII interface are
+correctly reset and initialized.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/net/ethernet/faraday/ftgmac100.c | 26 ++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 8ed715bd53aa..f9fe89665e49 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -236,6 +236,7 @@ mac0: ethernet@1e660000 {
- 			reg = <0x1e660000 0x180>;
- 			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&syscon ASPEED_CLK_GATE_MAC1CLK>;
-+			resets = <&syscon ASPEED_RESET_MAC1>;
- 			status = "disabled";
- 		};
+diff --git a/drivers/net/ethernet/faraday/ftgmac100.c b/drivers/net/ethernet/faraday/ftgmac100.c
+index 17ec35e75a65..01c4db6e5b91 100644
+--- a/drivers/net/ethernet/faraday/ftgmac100.c
++++ b/drivers/net/ethernet/faraday/ftgmac100.c
+@@ -9,6 +9,7 @@
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
  
-@@ -244,6 +245,7 @@ mac1: ethernet@1e680000 {
- 			reg = <0x1e680000 0x180>;
- 			interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&syscon ASPEED_CLK_GATE_MAC2CLK>;
-+			resets = <&syscon ASPEED_RESET_MAC2>;
- 			status = "disabled";
- 		};
+ #include <linux/clk.h>
++#include <linux/reset.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/etherdevice.h>
+ #include <linux/ethtool.h>
+@@ -101,6 +102,8 @@ struct ftgmac100 {
  
-@@ -252,6 +254,7 @@ mac2: ethernet@1e670000 {
- 			reg = <0x1e670000 0x180>;
- 			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&syscon ASPEED_CLK_GATE_MAC3CLK>;
-+			resets = <&syscon ASPEED_RESET_MAC3>;
- 			status = "disabled";
- 		};
+ 	/* AST2500/AST2600 RMII ref clock gate */
+ 	struct clk *rclk;
++	/* Aspeed reset control */
++	struct reset_control *rst;
  
-@@ -260,6 +263,7 @@ mac3: ethernet@1e690000 {
- 			reg = <0x1e690000 0x180>;
- 			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&syscon ASPEED_CLK_GATE_MAC4CLK>;
-+			resets = <&syscon ASPEED_RESET_MAC4>;
- 			status = "disabled";
- 		};
+ 	/* Link management */
+ 	int cur_speed;
+@@ -148,6 +151,23 @@ static int ftgmac100_reset_and_config_mac(struct ftgmac100 *priv)
+ {
+ 	u32 maccr = 0;
  
++	/* Aspeed RMII needs SCU reset to clear status */
++	if (priv->is_aspeed && priv->netdev->phydev->interface == PHY_INTERFACE_MODE_RMII) {
++		int err;
++
++		err = reset_control_assert(priv->rst);
++		if (err) {
++			dev_err(priv->dev, "Failed to reset mac (%d)\n", err);
++			return err;
++		}
++		usleep_range(10000, 20000);
++		err = reset_control_deassert(priv->rst);
++		if (err) {
++			dev_err(priv->dev, "Failed to deassert mac reset (%d)\n", err);
++			return err;
++		}
++	}
++
+ 	switch (priv->cur_speed) {
+ 	case SPEED_10:
+ 	case 0: /* no link */
+@@ -1968,6 +1988,12 @@ static int ftgmac100_probe(struct platform_device *pdev)
+ 
+ 	}
+ 
++	priv->rst = devm_reset_control_get_optional_exclusive(priv->dev, NULL);
++	if (IS_ERR(priv->rst)) {
++		err = PTR_ERR(priv->rst);
++		goto err_phy_connect;
++	}
++
+ 	if (priv->is_aspeed) {
+ 		err = ftgmac100_setup_clk(priv);
+ 		if (err)
 -- 
 2.34.1
 
