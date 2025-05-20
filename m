@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10572C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 19:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473B2C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 19:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fPVY7/yEjYy3C4aANvZc397M1LSMjW03j2yss+TPgDk=; b=sJNE8vwKgvI5dmq2s5+NLcqnQa
-	4YVUJj4k+S7r5KVVRbok3cwF41pAO3/w3UrU1p5FVjN8JOTJaGMdP12WnXB+OntShk8iTZktZifD7
-	nEhlnw1IlTGsSE7mYzIcwQhXiDDfwUrMqq1rOwhBnLb8UpI/oL+N2HLSu6Movn5MkHOr8Za7N5yqy
-	Oo2L5eXv4/WwP0wFSljWV0LjOe+rWlAuHTo34JJAtoM4qgxtkmqa1B6++HM0CbzIDA88vJYz1hd7z
-	AEZVP1UashcpAWeWklHgAOE6sCHCNNv5DpmEIGKgbp+g5oj4Dy3pF6U0AbKT6RfGVUCXCQNQAptbu
-	vP7bQCeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hEvWhj0+guveI8exFmndtaZkhhgMISsWFFe3Ku103qo=; b=Cra20oYVvvX6V7c5yOCSQ3ogOe
+	rErji4Bn0Ptw+8EIbJBFBOVXg8nw193139QXe/ftkjjENeyA/GPFS+foH9kkdYygRY2G2iS1jA04S
+	Pco2iuBaR0e6TzL+b44h2MmqXSNOqS8xygKBglYV9lbJXHW3pfW1RGQBI9HuL0LPqf2/27g3lXZtM
+	47M4MofrvyGrB5y9OE72JhfTzUEpNegZZSTnM8fJLO9Q+7z2PTnlQcfWyZi6MTnlDim3tF/1sw8Ty
+	xQLVxuEETLPEELIEscwN+8d0GX8V3eUssiCOjXH4Vxz6m6osGQFnT891854DbduVwEIBFw/1ltcuM
+	lUkjlpxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSwu-0000000DzDd-36lJ;
-	Tue, 20 May 2025 19:48:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHSm3-0000000DwvV-42WT
+	id 1uHSz2-0000000Dzm3-2WKL;
+	Tue, 20 May 2025 19:50:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHSoc-0000000DxWf-1j5A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 19:37:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E04D629EA;
-	Tue, 20 May 2025 19:37:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 703F6C4CEE9;
-	Tue, 20 May 2025 19:37:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747769833;
-	bh=aywi1GPz22dLfETlq+3Qb24G7PwlbMvJ4MbfKzQwohs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dYPYMk2wGXRYJymk1VSxI1xOCQcDM9i0qRRWNne2/ztSJoJkS7INaq2tyk6kQO4yY
-	 6Sia2yuauftOr3NdXcXI3WqFc7OR1u2AU7TWbta8gu7li208fZC7A5nMF/hSWHvMUB
-	 J4zVlZn4eevkU962iGENtOmHJFqR9uWhXnYGBWmsGyf86/mMf48UAkCOr6S2Ehbi4B
-	 D3LYwNWlo5WCxOjglCJ1krYa6WLU3E1K+5itiBd4f3fUA3cUcGMKNcLJcAWv1M5PGH
-	 jKMr6PpHLnouZTvSyzuLZiCUx11+n4kCpl6tBDUgUAVynikrdfapwIXLJiDjhuB3X8
-	 Os7t6KnqQHpsg==
-Date: Tue, 20 May 2025 14:37:11 -0500
-From: Rob Herring <robh@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/8] dt-bindings: pinctrl: stm32: Introduce HDP
-Message-ID: <20250520193711.GA1227434-robh@kernel.org>
-References: <20250520-hdp-upstream-v2-0-53f6b8b5ffc8@foss.st.com>
- <20250520-hdp-upstream-v2-1-53f6b8b5ffc8@foss.st.com>
+	Tue, 20 May 2025 19:39:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D533339;
+	Tue, 20 May 2025 12:39:35 -0700 (PDT)
+Received: from [10.57.93.184] (unknown [10.57.93.184])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86A723F6A8;
+	Tue, 20 May 2025 12:39:47 -0700 (PDT)
+Message-ID: <a64cd485-310f-4d4c-a3da-2d8c35d7f343@arm.com>
+Date: Tue, 20 May 2025 20:39:45 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: Restrict pagetable teardown to avoid false
+ warning
+Content-Language: en-GB
+To: David Hildenbrand <david@redhat.com>, Dev Jain <dev.jain@arm.com>
+Cc: anshuman.khandual@arm.com, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ mark.rutland@arm.com, stable@vger.kernel.org, will@kernel.org,
+ yang@os.amperecomputing.com
+References: <df7eb016-bea4-489d-aecb-1a47eb5e33b2@arm.com>
+ <20250520090501.27273-1-dev.jain@arm.com>
+ <021dfe38-f786-46d0-a43f-769aff07b3f0@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <021dfe38-f786-46d0-a43f-769aff07b3f0@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250520-hdp-upstream-v2-1-53f6b8b5ffc8@foss.st.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250520_123954_611131_D50025FE 
+X-CRM114-Status: GOOD (  28.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,224 +69,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 05:02:28PM +0200, Cl�ment Le Goffic wrote:
-> 'HDP' stands for Hardware Debug Port, it is an hardware block in
-> STMicrolectronics' MPUs that let the user decide which internal SoC's
-> signal to observe.
-> It provides 8 ports and for each port there is up to 16 different
-> signals that can be output.
-> Signals are different for each MPU.
+On 20/05/2025 10:10, David Hildenbrand wrote:
+> On 20.05.25 11:05, Dev Jain wrote:
+>> On 19/05/2025 13:16, David Hildenbrand wrote:
+>>> On 19.05.25 11:08, Ryan Roberts wrote:
+>>>> On 18/05/2025 10:54, Dev Jain wrote:
+>>>>> Commit 9c006972c3fe removes the pxd_present() checks because the caller
+>>>>
+>>>> nit: please use the standard format for describing commits: Commit 9c006972c3fe
+>>>> ("arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table()")
+>>>>
+>>>>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller only
+>>>>> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
+>>>>> pmd_free_pte_page(), wherein the pmd may be none. Thus it is possible to
+>>>>> hit a warning in the latter, since pmd_none => !pmd_table(). Thus, add
+>>>>> a pmd_present() check in pud_free_pmd_page().
+>>>>>
+>>>>> This problem was found by code inspection.
+>>>>>
+>>>>> This patch is based on 6.15-rc6.
+>>>>
+>>>> nit: please remove this to below the "---", its not part of the commit log.
+>>>>
+>>>>>
+>>>>> Fixes: 9c006972c3fe (arm64: mmu: drop pXd_present() checks from
+>>>>> pXd_free_pYd_table())
+>>>>>
+>>>>
+>>>> nit: remove empty line; the tags should all be in a single block with no empty
+>>>> lines.
+>>>>
+>>>>> Cc: <stable@vger.kernel.org>
+>>>>> Reported-by: Ryan Roberts <ryan.roberts@arm.com>
+>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>>> ---
+>>>>> v1->v2:
+>>>>>    - Enforce check in caller
+>>>>>
+>>>>>    arch/arm64/mm/mmu.c | 3 ++-
+>>>>>    1 file changed, 2 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>>> index ea6695d53fb9..5b1f4cd238ca 100644
+>>>>> --- a/arch/arm64/mm/mmu.c
+>>>>> +++ b/arch/arm64/mm/mmu.c
+>>>>> @@ -1286,7 +1286,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>>>>>        next = addr;
+>>>>>        end = addr + PUD_SIZE;
+>>>>>        do {
+>>>>> -        pmd_free_pte_page(pmdp, next);
+>>>>> +        if (pmd_present(*pmdp))
+>>>>
+>>>> pmd_free_pte_page() is using READ_ONCE() to access the *pmdp to ensure it can't
+>>>> be torn. I suspect we don't technically need that in these functions because
+>>>> there can be no race with a writer.
+>>>
+>>> Yeah, if there is no proper locking in place the function would already
+>>> seriously mess up (double freeing etc).
+>>
+>> Indeed; there is no locking, but this portion of the vmalloc VA space has been
+>> allocated to us exclusively, so we know there can be no one else racing.
+>>
+>>>
+>>>> But the arm64 arch code always uses
+>>>> READ_ONCE() for dereferencing pgtable entries for safely. Perhaps we should be
+>>>> consistent here?
+>>>
+>>> mm/vmalloc.c:   if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
+>>
+>> Yes, I saw that. I know that we don't technically need READ_ONCE(). I'm just
+>> proposng that for arm64 code we should be consistent with what it already does.
+>> See Commit 20a004e7b017 ("arm64: mm: Use READ_ONCE/WRITE_ONCE when accessing
+>> page tables")
+>>
+>> So I'll just use pmdp_get()?
 > 
-> Signed-off-by: Cl�ment Le Goffic <clement.legoffic@foss.st.com>
-> ---
->  .../bindings/pinctrl/st,stm32-pinctrl-hdp.yaml     | 188 +++++++++++++++++++++
->  1 file changed, 188 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml
-> new file mode 100644
-> index 000000000000..6251e9c16ced
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml
-> @@ -0,0 +1,188 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) STMicroelectronics 2025.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pinctrl/st,stm32-pinctrl-hdp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32 Hardware Debug Port Mux/Config
-> +
-> +maintainers:
-> +  - Cl�ment LE GOFFIC <clement.legoffic@foss.st.com>
-> +
-> +description:
-> +  STMicroelectronics's STM32 MPUs integrate a Hardware Debug Port (HDP).
-> +  It allows to output internal signals on SoC's GPIO.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - st,stm32mp131-hdp
-> +      - st,stm32mp151-hdp
-> +      - st,stm32mp251-hdp
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +patternProperties:
-> +  "^hdp[0-7]-pins$":
-> +    type: object
-> +    $ref: pinmux-node.yaml#
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      pins:
-> +        enum: [ HDP0, HDP1, HDP2, HDP3, HDP4, HDP5, HDP6, HDP7 ]
+> Maybe that's the cleanest approach. 
 
-This can be:
+Yeah let's do that.
 
-pattern: '^HDP[0-7]$'
+> Likely also common code should use that at
+> some point @Ryan?
 
+This is a bit of a can of worms... :)
 
-> +
-> +      function:
-> +        maxItems: 1
+Potted history: I converted all non-arch and arm64 code to use ptep_get() a
+while back. That was necessary because for contpte mappings, arm64 needs to do
+more than just read the pte, so that provided the needed hook.
 
-This is always 1 item, so just 'function: true' here.
+Anshuman had a go at converting all generic code to use pXdp_get() last year as
+a means to help arm64 move to supporting 128-bit pgtables - the arm64 compiler
+doesn't gurrantee to emit ldp ("load pair") when dereferencing a 128-bit type
+but it does guarrantee to emit ldr ("load register") when dereferencing a 64-bit
+type, so we don't get single-copy atomicity for *pmdp with 128-bit pgtables but
+we do for 64-bit. So we thought we would just convert all the accesses to
+pXdp_get() which would allow us to wrap and make the guarrantee.
 
-> +
-> +    required:
-> +      - function
-> +      - pins
-> +
-> +allOf:
-> +  - $ref: pinctrl.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp131-hdp
-> +    then:
-> +      patternProperties:
-> +        "^hdp[0-7]-pins$":
-> +          properties:
-> +            function:
-> +              enum: [ pwr_pwrwake_sys, pwr_stop_forbidden, pwr_stdby_wakeup, pwr_encomp_vddcore,
-> +                      bsec_out_sec_niden, aiec_sys_wakeup, none, ddrctrl_lp_req,
-> +                      pwr_ddr_ret_enable_n, dts_clk_ptat, sram3ctrl_tamp_erase_act, gpoval0,
-> +                      pwr_sel_vth_vddcpu, pwr_mpu_ram_lowspeed, ca7_naxierrirq, pwr_okin_mr,
-> +                      bsec_out_sec_dbgen, aiec_c1_wakeup, rcc_pwrds_mpu, ddrctrl_dfi_ctrlupd_req,
-> +                      ddrctrl_cactive_ddrc_asr, sram3ctrl_hw_erase_act, nic400_s0_bready, gpoval1,
-> +                      pwr_pwrwake_mpu, pwr_mpu_clock_disable_ack, ca7_ndbgreset_i,
-> +                      bsec_in_rstcore_n, bsec_out_sec_bsc_dis, ddrctrl_dfi_init_complete,
-> +                      ddrctrl_perf_op_is_refresh, ddrctrl_gskp_dfi_lp_req, sram3ctrl_sw_erase_act,
-> +                      nic400_s0_bvalid, gpoval2, pwr_sel_vth_vddcore, pwr_mpu_clock_disable_req,
-> +                      ca7_npmuirq0, ca7_nfiqout0, bsec_out_sec_dftlock, bsec_out_sec_jtag_dis,
-> +                      rcc_pwrds_sys, sram3ctrl_tamp_erase_req, ddrctrl_stat_ddrc_reg_selfref_type0,
-> +                      dts_valobus1_0, dts_valobus2_0, tamp_potential_tamp_erfcfg, nic400_s0_wready,
-> +                      nic400_s0_rready, gpoval3, pwr_stop2_active, ca7_nl2reset_i,
-> +                      ca7_npreset_varm_i, bsec_out_sec_dften, bsec_out_sec_dbgswenable,
-> +                      eth1_out_pmt_intr_o, eth2_out_pmt_intr_o, ddrctrl_stat_ddrc_reg_selfref_type1,
-> +                      ddrctrl_cactive_0, dts_valobus1_1, dts_valobus2_1, tamp_nreset_sram_ercfg,
-> +                      nic400_s0_wlast, nic400_s0_rlast, gpoval4, ca7_standbywfil2,
-> +                      pwr_vth_vddcore_ack, ca7_ncorereset_i, ca7_nirqout0, bsec_in_pwrok,
-> +                      bsec_out_sec_deviceen, eth1_out_lpi_intr_o, eth2_out_lpi_intr_o,
-> +                      ddrctrl_cactive_ddrc, ddrctrl_wr_credit_cnt, dts_valobus1_2, dts_valobus2_2,
-> +                      pka_pka_itamp_out, nic400_s0_wvalid, nic400_s0_rvalid, gpoval5,
-> +                      ca7_standbywfe0, pwr_vth_vddcpu_ack, ca7_evento, bsec_in_tamper_det,
-> +                      bsec_out_sec_spniden, eth1_out_mac_speed_o1, eth2_out_mac_speed_o1,
-> +                      ddrctrl_csysack_ddrc, ddrctrl_lpr_credit_cnt, dts_valobus1_3, dts_valobus2_3,
-> +                      saes_tamper_out, nic400_s0_awready, nic400_s0_arready, gpoval6,
-> +                      ca7_standbywfi0, pwr_rcc_vcpu_rdy, ca7_eventi, ca7_dbgack0, bsec_out_fuse_ok,
-> +                      bsec_out_sec_spiden, eth1_out_mac_speed_o0, eth2_out_mac_speed_o0,
-> +                      ddrctrl_csysreq_ddrc, ddrctrl_hpr_credit_cnt, dts_valobus1_4, dts_valobus2_4,
-> +                      rng_tamper_out, nic400_s0_awavalid, nic400_s0_aravalid, gpoval7 ]
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp151-hdp
-> +    then:
-> +      patternProperties:
-> +        "^hdp[0-7]-pins$":
-> +          properties:
-> +            function:
-> +              enum: [ pwr_pwrwake_sys, cm4_sleepdeep, pwr_stdby_wkup, pwr_encomp_vddcore,
-> +                      bsec_out_sec_niden, none, rcc_cm4_sleepdeep, gpu_dbg7, ddrctrl_lp_req,
-> +                      pwr_ddr_ret_enable_n, dts_clk_ptat, gpoval0, pwr_pwrwake_mcu, cm4_halted,
-> +                      ca7_naxierrirq, pwr_okin_mr, bsec_out_sec_dbgen, exti_sys_wakeup,
-> +                      rcc_pwrds_mpu, gpu_dbg6, ddrctrl_dfi_ctrlupd_req, ddrctrl_cactive_ddrc_asr,
-> +                      gpoval1, pwr_pwrwake_mpu, cm4_rxev, ca7_npmuirq1, ca7_nfiqout1,
-> +                      bsec_in_rstcore_n, exti_c2_wakeup, rcc_pwrds_mcu, gpu_dbg5,
-> +                      ddrctrl_dfi_init_complete, ddrctrl_perf_op_is_refresh,
-> +                      ddrctrl_gskp_dfi_lp_req, gpoval2, pwr_sel_vth_vddcore, cm4_txev, ca7_npmuirq0,
-> +                      ca7_nfiqout0, bsec_out_sec_dftlock, exti_c1_wakeup, rcc_pwrds_sys, gpu_dbg4,
-> +                      ddrctrl_stat_ddrc_reg_selfref_type0, ddrctrl_cactive_1, dts_valobus1_0,
-> +                      dts_valobus2_0, gpoval3, pwr_mpu_pdds_not_cstbydis, cm4_sleeping, ca7_nreset1,
-> +                      ca7_nirqout1, bsec_out_sec_dften, bsec_out_sec_dbgswenable,
-> +                      eth_out_pmt_intr_o, gpu_dbg3, ddrctrl_stat_ddrc_reg_selfref_type1,
-> +                      ddrctrl_cactive_0, dts_valobus1_1, dts_valobus2_1, gpoval4, ca7_standbywfil2,
-> +                      pwr_vth_vddcore_ack, ca7_nreset0, ca7_nirqout0, bsec_in_pwrok,
-> +                      bsec_out_sec_deviceen, eth_out_lpi_intr_o, gpu_dbg2, ddrctrl_cactive_ddrc,
-> +                      ddrctrl_wr_credit_cnt, dts_valobus1_2, dts_valobus2_2, gpoval5,
-> +                      ca7_standbywfi1, ca7_standbywfe1, ca7_evento, ca7_dbgack1,
-> +                      bsec_out_sec_spniden, eth_out_mac_speed_o1, gpu_dbg1, ddrctrl_csysack_ddrc,
-> +                      ddrctrl_lpr_credit_cnt, dts_valobus1_3, dts_valobus2_3, gpoval6,
-> +                      ca7_standbywfi0, ca7_standbywfe0, ca7_dbgack0, bsec_out_fuse_ok,
-> +                      bsec_out_sec_spiden, eth_out_mac_speed_o0, gpu_dbg0, ddrctrl_csysreq_ddrc,
-> +                      ddrctrl_hpr_credit_cnt, dts_valobus1_4, dts_valobus2_4, gpoval7 ]
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp251-hdp
-> +    then:
-> +      patternProperties:
-> +        "^hdp[0-7]-pins$":
-> +          properties:
-> +            function:
-> +              enum: [ pwr_pwrwake_sys, cpu2_sleep_deep, bsec_out_tst_sdr_unlock_or_disable_scan,
-> +                      bsec_out_nidenm, bsec_out_nidena, cpu2_state_0, rcc_pwrds_sys, gpu_dbg7,
-> +                      ddrss_csysreq_ddrc, ddrss_dfi_phyupd_req, cpu3_sleep_deep,
-> +                      d2_gbl_per_clk_bus_req, pcie_usb_cxpl_debug_info_ei_0,
-> +                      pcie_usb_cxpl_debug_info_ei_8, d3_state_0, gpoval0, pwr_pwrwake_cpu2,
-> +                      cpu2_halted, cpu2_state_1, bsec_out_dbgenm, bsec_out_dbgena, exti1_sys_wakeup,
-> +                      rcc_pwrds_cpu2, gpu_dbg6, ddrss_csysack_ddrc, ddrss_dfi_phymstr_req,
-> +                      cpu3_halted, d2_gbl_per_dma_req, pcie_usb_cxpl_debug_info_ei_1,
-> +                      pcie_usb_cxpl_debug_info_ei_9, d3_state_1, gpoval1, pwr_pwrwake_cpu1,
-> +                      cpu2_rxev, cpu1_npumirq1, cpu1_nfiqout1, bsec_out_shdbgen, exti1_cpu2_wakeup,
-> +                      rcc_pwrds_cpu1, gpu_dbg5, ddrss_cactive_ddrc, ddrss_dfi_lp_req, cpu3_rxev,
-> +                      hpdma1_clk_bus_req, pcie_usb_cxpl_debug_info_ei_2,
-> +                      pcie_usb_cxpl_debug_info_ei_10, d3_state_2, gpoval2, pwr_sel_vth_vddcpu,
-> +                      cpu2_txev, cpu1_npumirq0, cpu1_nfiqout0, bsec_out_ddbgen, exti1_cpu1_wakeup,
-> +                      cpu3_state_0, gpu_dbg4, ddrss_mcdcg_en, ddrss_dfi_freq_0, cpu3_txev,
-> +                      hpdma2_clk_bus_req, pcie_usb_cxpl_debug_info_ei_3,
-> +                      pcie_usb_cxpl_debug_info_ei_11, d1_state_0, gpoval3, pwr_sel_vth_vddcore,
-> +                      cpu2_sleeping, cpu1_evento, cpu1_nirqout1, bsec_out_spnidena, exti2_d3_wakeup,
-> +                      eth1_out_pmt_intr_o, gpu_dbg3, ddrss_dphycg_en, ddrss_obsp0, cpu3_sleeping,
-> +                      hpdma3_clk_bus_req, pcie_usb_cxpl_debug_info_ei_4,
-> +                      pcie_usb_cxpl_debug_info_ei_12, d1_state_1, gpoval4, cpu1_standby_wfil2,
-> +                      none, cpu1_nirqout0, bsec_out_spidena, exti2_cpu3_wakeup, eth1_out_lpi_intr_o,
-> +                      gpu_dbg2, ddrctrl_dfi_init_start, ddrss_obsp1, cpu3_state_1,
-> +                      d3_gbl_per_clk_bus_req, pcie_usb_cxpl_debug_info_ei_5,
-> +                      pcie_usb_cxpl_debug_info_ei_13, d1_state_2, gpoval5, cpu1_standby_wfi1,
-> +                      cpu1_standby_wfe1, cpu1_halted1, cpu1_naxierrirq, bsec_out_spnidenm,
-> +                      exti2_cpu2_wakeup, eth2_out_pmt_intr_o, gpu_dbg1, ddrss_dfi_init_complete,
-> +                      ddrss_obsp2, d2_state_0, d3_gbl_per_dma_req, pcie_usb_cxpl_debug_info_ei_6,
-> +                      pcie_usb_cxpl_debug_info_ei_14, cpu1_state_0, gpoval6, cpu1_standby_wfi0,
-> +                      cpu1_standby_wfe0, cpu1_halted0, bsec_out_spidenm, exti2_cpu1__wakeup,
-> +                      eth2_out_lpi_intr_o, gpu_dbg0, ddrss_dfi_ctrlupd_req, ddrss_obsp3, d2_state_1,
-> +                      lpdma1_clk_bus_req, pcie_usb_cxpl_debug_info_ei_7,
-> +                      pcie_usb_cxpl_debug_info_ei_15, cpu1_state_1, gpoval7 ]
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/stm32mp1-clks.h>
-> +
-> +    pinctrl@54090000 {
-> +      compatible = "st,stm32mp15-hdp";
-> +      reg = <0x54090000 0x400>;
-> +      clocks = <&rcc HDP>;
-> +      pinctrl-names = "default";
-> +      pinctrl-0 = <&hdp2_gpo>;
-> +      hdp2_gpo: hdp2-pins {
-> +        function = "gpoval2";
-> +        pins = "HDP2";
-> +      };
-> +    };
-> 
-> -- 
-> 2.43.0
-> 
+Some places (GUP, ...) were already using READ_ONCE() so we thought we would
+just default pXdp_get() to READ_ONCE() (even for the previously *pmdp case). But
+that caused issues with folded pgtable levels; the compiler was no longer able
+to optimize out the loads and arm32 and powerpc complained.
+
+We looked at implementing pXdp_get() as either READ_ONCE(*pXdp) or *pXdp
+depending on if the level was folded, but I never really convinced myself that
+it was definitely safe for cases that were previously unconditionally
+READ_ONCE(*pXdp).
+
+So that leaves us with needing 2 variants of the accessors, which is horrible IMHO.
+
+But ultimately I don't think the vast majority of existing *pXdp accesses even
+need single-copy atomicity guarrantees, so perhaps from the arm64 128-bit
+pgtables PoV it simpler just to leave it all as is and make READ_ONCE() work
+with 128-bit types (but that has a downside because arm64 can only support the
+required READ_ONCE() semantics if the HW supports it, which we don't know until
+boot time. READ_ONCE() wants the compiler to raise an error if trying to use it
+with an unsupported type).
+
+In general, it would be nice to use accessors everywhere, but I haven't figured
+how to make it all work with a single accessor per level so I'm now trying to
+side step it.
+
+In hindsight I'm not sure you really asked for all this detail :)
+
+Thanks,
+Ryan
+
 
