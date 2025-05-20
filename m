@@ -4,75 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA49C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61498C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4dCIrl5EiWe1t4GespSaZVCa3vu0xn86m7iaUbSsYE8=; b=lkD4SU1I9IvJuAfKQD6m0O6lBq
-	FPhPGebHDXoZZ6FbhfBHX1eMd630JKApGFt0au/XpnrnSm1MVW+7hn4WaF6O6lW4aKkr36iliiII+
-	QXP+1jOEOid9umUHVl75VnIwGqPL1l2Jyu1Grp5S8dSs3KbVi1oGyo9PPxpRy9B4AVK24j6VfHmS0
-	OSVAzU8Ztj6oLwvbsOKnFeJFUwz9t7ELm755WUjiPZlIBBEaekMVkgvCsgHP5L1NM57W1az752yj+
-	g71OMNuDzAYL4IGjQZdGZEdomc2PYGe9Y+PL769W+3+a8YFj7LCTsWF2KR+K7U8vGDl2i4g467du/
-	I/mN69/g==;
+	bh=/TjQf2bsD9B+3ZtSLqggdahfBZJn2LeQ0M92uMrIdNA=; b=IIZSf/oWl28XnIrbJliBkh/tm1
+	zewfnZ5w9EjMlEF/29wQ+dauGN7b9q8mhATqVKJB0l9kftjRhvyeRLGK9zOy8S1EA47QgAgiWz1m5
+	vci+U6cjsF/nzkRV1n/t+34Jp0jL2FXktdoP671uRiCzfR4j0SY2wLOfC11TN7c1V1PlhN5nhaJbT
+	0/fq0hM8JDdBTrPOnbyI62BkSpjYidn8/HRSnJjKEZnpLBJKrzwGqczIZnJRh1hLGw4NDa9iVL/IA
+	dDIBk6EPEIxy8iqMKIY1OFY7vzFeZ8AkZgyXcygZz7B2iYJwv6xOCZyjacoQqbPK1PPNBPLBulmN1
+	3JH+wnww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHNei-0000000D72M-2Kik;
-	Tue, 20 May 2025 14:09:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uHNmQ-0000000D8DZ-2MIo;
+	Tue, 20 May 2025 14:17:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHNbk-0000000D6av-1Q9w
+	id 1uHNkJ-0000000D7tn-0a0p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 14:06:18 +0000
+	Tue, 20 May 2025 14:15:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D8EE4376D;
-	Tue, 20 May 2025 14:06:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55123C4CEEA;
-	Tue, 20 May 2025 14:06:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747749975;
-	bh=FUqSs96axAp0W6GBkmXg9C3eBD616pCiipr3QPKpK+Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CMWSAyXuMbLx1/hbp6qcHRyhEmrh+SwjzHgggk6nisBANRAgI0i2pSTllwRw20cOO
-	 4A4Oxub/EL3+D9pSsqqSiyc5uZupxkGtEnvqvT1Ke5BlHfmfJSMU627RwkoS5Txqfe
-	 YTXqS/bp+ydnNVd4pr2lPAKgC69XUrspKcOqi7sYJoaiSUWIcUIOW5D7q5k9y0SMgd
-	 qGnGkmP//B2jNxvIw6zidR5e7qDCX4kaEgzkbNP3zWYjZzikqMPSNJNFk16pAtyD0g
-	 c1V0am5JaXH8EZDohQWKaZa7ba4ir0qmi1nz7/IuD+8tqOKskzTtyNYlOINeVPNOCv
-	 dTHtLvUkValbw==
-Date: Tue, 20 May 2025 15:06:10 +0100
-From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Rob Clark <robdclark@gmail.com>, dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
-	Connor Abbott <cwabbott0@gmail.com>,
-	Rob Clark <robdclark@chromium.org>, Joerg Roedel <joro@8bytes.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Joao Martins <joao.m.martins@oracle.com>,
-	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-	"open list:IOMMU SUBSYSTEM" <iommu@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 05/40] iommu/io-pgtable-arm: Add quirk to quiet
- WARN_ON()
-Message-ID: <20250520140609.GB18711@willie-the-truck>
-References: <20250514175527.42488-1-robdclark@gmail.com>
- <20250514175527.42488-6-robdclark@gmail.com>
- <20250515143309.GA12165@willie-the-truck>
- <CAF6AEGsnOD8fZmTXAEZZNrdK-NXdUJF51s51EhYQ6Ed7dCFM0A@mail.gmail.com>
- <20250520113146.GA18435@willie-the-truck>
- <def13dd2-3a23-4091-a732-e4c079df7f41@arm.com>
+	by tor.source.kernel.org (Postfix) with ESMTP id 66A2662A07;
+	Tue, 20 May 2025 14:15:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991D0C4CEEF;
+	Tue, 20 May 2025 14:15:04 +0000 (UTC)
+Date: Tue, 20 May 2025 15:15:01 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Nam Cao <namcao@linutronix.de>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	john.ogness@linutronix.de, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 17/22] arm64: mm: Add page fault trace points
+Message-ID: <aCyOZVVioijWpEPY@arm.com>
+References: <cover.1747046848.git.namcao@linutronix.de>
+ <f5fccde2326a896e5c568ef06a4dbd9aa7465f6a.1747046848.git.namcao@linutronix.de>
+ <aCtE-RvyN6XJQjTo@arm.com>
+ <20250520122548.lkvaylSB@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <def13dd2-3a23-4091-a732-e4c079df7f41@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_070616_419467_878B4C38 
-X-CRM114-Status: GOOD (  31.19  )
+In-Reply-To: <20250520122548.lkvaylSB@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +64,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 02:06:09PM +0100, Robin Murphy wrote:
-> On 2025-05-20 12:31 pm, Will Deacon wrote:
-> > On Thu, May 15, 2025 at 07:48:39AM -0700, Rob Clark wrote:
-> > > On Thu, May 15, 2025 at 7:33 AM Will Deacon <will@kernel.org> wrote:
-> > > > On Wed, May 14, 2025 at 10:53:19AM -0700, Rob Clark wrote:
-> > > > > diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
-> > > > > index bba2a51c87d2..639b8f4fb87d 100644
-> > > > > --- a/include/linux/io-pgtable.h
-> > > > > +++ b/include/linux/io-pgtable.h
-> > > > > @@ -88,6 +88,13 @@ struct io_pgtable_cfg {
-> > > > >         *
-> > > > >         * IO_PGTABLE_QUIRK_ARM_HD: Enables dirty tracking in stage 1 pagetable.
-> > > > >         * IO_PGTABLE_QUIRK_ARM_S2FWB: Use the FWB format for the MemAttrs bits
-> > > > > +      *
-> > > > > +      * IO_PGTABLE_QUIRK_NO_WARN_ON: Do not WARN_ON() on conflicting
-> > > > > +      *      mappings, but silently return -EEXISTS.  Normally an attempt
-> > > > > +      *      to map over an existing mapping would indicate some sort of
-> > > > > +      *      kernel bug, which would justify the WARN_ON().  But for GPU
-> > > > > +      *      drivers, this could be under control of userspace.  Which
-> > > > > +      *      deserves an error return, but not to spam dmesg.
-> > > > >         */
-> > > > >        #define IO_PGTABLE_QUIRK_ARM_NS                 BIT(0)
-> > > > >        #define IO_PGTABLE_QUIRK_NO_PERMS               BIT(1)
-> > > > > @@ -97,6 +104,7 @@ struct io_pgtable_cfg {
-> > > > >        #define IO_PGTABLE_QUIRK_ARM_OUTER_WBWA         BIT(6)
-> > > > >        #define IO_PGTABLE_QUIRK_ARM_HD                 BIT(7)
-> > > > >        #define IO_PGTABLE_QUIRK_ARM_S2FWB              BIT(8)
-> > > > > +     #define IO_PGTABLE_QUIRK_NO_WARN_ON             BIT(9)
-> > > > 
-> > > > This feels a bit fragile to me:
-> > > >    * IOMMU-API users of io-pgtable shouldn't be passing this quirk
-> > > >      but might end up doing so to paper over driver bugs.
-> > > > 
-> > > >    * Low-level users of io-pgtable who expose page-table operations to
-> > > >      userspace need to pass the quirk, but might well not bother because
-> > > >      well-behaved userspace doesn't trigger the warning.
-> > > > 
-> > > > So overall, it's all a bit unsatisfactory. Is there a way we could have
-> > > > the warnings only when invoked via the IOMMU API?
-> > > 
-> > > iommu drivers _not_ setting this flag seems like a good way to achieve that ;-)
-> > > 
-> > > The alternative is to move the warns to the iommu driver... but they
-> > > could just as easily remove the WARN_ON()s as they could set the
-> > > NO_WARN_ON quirk, so :shrug:?
+On Tue, May 20, 2025 at 02:25:48PM +0200, Nam Cao wrote:
+> On Mon, May 19, 2025 at 03:49:29PM +0100, Catalin Marinas wrote:
+> > On Mon, May 12, 2025 at 12:51:00PM +0200, Nam Cao wrote:
+> > > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> > > index ec0a337891dd..55094030e377 100644
+> > > --- a/arch/arm64/mm/fault.c
+> > > +++ b/arch/arm64/mm/fault.c
+> > > @@ -44,6 +44,9 @@
+> > >  #include <asm/tlbflush.h>
+> > >  #include <asm/traps.h>
+> > >  
+> > > +#define CREATE_TRACE_POINTS
+> > > +#include <trace/events/exceptions.h>
+> > > +
+> > >  struct fault_info {
+> > >  	int	(*fn)(unsigned long far, unsigned long esr,
+> > >  		      struct pt_regs *regs);
+> > > @@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+> > >  	if (kprobe_page_fault(regs, esr))
+> > >  		return 0;
+> > >  
+> > > +	if (user_mode(regs))
+> > > +		trace_page_fault_user(addr, regs, esr);
+> > > +	else
+> > > +		trace_page_fault_kernel(addr, regs, esr);
 > > 
-> > Bah, I also don't have a good idea to improve this, so I guess I'll take
-> > what you have for now.
+> > What are the semantics for these tracepoints? When are they supposed to
+> > be called? In the RV context context I guess you only care about the
+> > benign, recoverable faults that would affect timing. These tracepoints
+> > were generalised from the x86 code but I don't know enough about it to
+> > tell when they would be invoked.
+> > 
+> > For arm64, we also have the do_translation_fault() path for example that
+> > may or may not need to log such trace events.
 > 
-> Hmm, just a nit on reflection, how about fixing up the name to just
-> IO_PGTABLE_QUIRK_NO_WARN? Given that it's already quite long, and we have a
-> well-established DMA_ATTR_NO_WARN with equivalent semantics over in the DMA
-> API.
+> These tracepoints are invoked for x86 page fault exceptions. Are arm64's
+> translation faults considered equivalent to x86 page faults?
 
-Sure, I'll do that now...
+Probably. We route permission or access flag faults via do_page_fault()
+directly while missing page table entries via do_translation_fault().
+The latter end up in do_page_fault() only if the faulting address is in
+the user address range.
 
-Will
+My point was that we may not always invoke the trace callbacks if, for
+example, the user tries to access the kernel space (and results in a
+SIGSEGV). While that's fine for RV, I wanted to know what is expected of
+these trace points in general. Do we need to log such SIGSEGV-generating
+events? We do log them if there's a permission fault.
+
+-- 
+Catalin
 
