@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9663FC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 10:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60926C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 10:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g/qiRQAj3p/Erq+O1jTYWqtuscfZfQGd1J5JzHXwaNE=; b=ACo7jmvdXfO4/+KYnnW2bPNsM6
-	r7gNti3kr2xP7U0L/HxC1zOYoq/54V23WSgXukhYYTSczc2da9pU0n6MuQ8Pt8DQkpL+q65Pku7bE
-	/4bWRAn4ZzCzpeKqFoUIqVU43eT7NwlwZtKPcylg4sM4wgRkE3cwI+ZVs66uGIU2ajGD2uqKyNErs
-	a+knxo947uOgVMZnyqZsjMtiLp+dZIRnPZoRNp6RkwFHINjS08GLZMwokDtyWp3e1yKL7/OB6pBvn
-	4QfzGHLB9eXL6z1OOzzdI2QoC5HO0k/H+M1PfGxyw6l16oOVJGUJXkMZv5RUDuDQ43gPuWNKI4IoI
-	gdZzQ4Jw==;
+	bh=Q8f48gVEq76eu7Jzd10P5hjnjlUphuf3Sf3hfwkaBwg=; b=puffVoVa6kJySnLkeWjGgu+ZjO
+	lEhm3eDzf1fexGCK/AmvPhyNgFMowLoKOpeKQJxb+i4CMsdW0bPiDxGIEiJHDyZMI+G+vk7/UaPYO
+	NNgHvZDOYYTzI4/XvG9Pjl01lwkFbtUoySGyvTePWQqeM3P4mfhoZ2cYXn5zC4i4EIbB3kLxorB3y
+	1R1mHVfN9ht0FbzYd/QVXZ4lA1hogUPhCKD9UgEPjTsYAp99m7JKy7GewzGMqjjjxu09CFkcjGxtu
+	wWXBNQHntQBDYSER/P7lZazIlmhgGlR2JjKZpZtf+F0tNJhS0lNHO9is6viLXtWqKgWUf+7jaUR3z
+	kH3wx4/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJzI-0000000CIzq-1xP4;
-	Tue, 20 May 2025 10:14:20 +0000
+	id 1uHK1L-0000000CJGD-26fT;
+	Tue, 20 May 2025 10:16:27 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJWm-0000000CEyo-1ZeO;
-	Tue, 20 May 2025 09:44:54 +0000
+	id 1uHJZV-0000000CFXG-1BxY;
+	Tue, 20 May 2025 09:47:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747734291;
-	bh=gjINz9uiF82laonOGCkrVhCsstIccSKEkL8/9FoB2Jg=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=qki1B+iDnNJlHSVPEnvwDNvY0SpzsE5W7asy3yFGY/r5+EirpGYlvGx7VXNrf8Ba4
-	 WVtVPwJyC5X6HGSdFJbptixBER+eIZWxo1EGRC4RDJXLmAiNoOEnMiSnLVd2mmi4hm
-	 bhBYuOWiPFpQc1geBJuQghbL3dCy7ZdmKdaoSEkwlIgxrqzyZvvqNg9pBy4xOsfrGj
-	 /xdTpTGrVvwEmyECRYlv9GcJLBsAortbL/JeIFH18uDfAROifqW1H44tRZLECycdTs
-	 1P0bXlJHa4NTZ0ft75F1P63lE7gkSabQccoc695xbEE50a6PWhKiEj9cG6XT99IORX
-	 xuvQQ3bMcCeVg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	s=mail; t=1747734459;
+	bh=DBGPnEJJRtWOLGffcQvnQBXkpXJUe5Cw+ywavZ+qnQM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=JdXto/qrBmxynP/97NRajMT4XAPSguV97LWyK+veoB3dQMr6PTLPvBIPPRnD12YkJ
+	 zJhIgVozU9XrSkEdCjIoX1rpdUa5Eknpb1LFMPA87J4thSNPkJNPQvyZcRgfCmeAzN
+	 Tx/WRs1DZ1ynCgwjA+kmTkufmibYOeN/5/BgDs6NPtyV062Eqc0jygDx8N9ncA218B
+	 nuuri5LlXOYNrq1lvqid6nsBVM5tSiyteGMe9RKpZ82nT2Oyj7PdWgPBpYB950sYlG
+	 EHIoP4e/nykfRacACrf5QI2iGbVlyxOlT13LG+1v5Xri9+BJENvdX+NwCmfCGF64x4
+	 JSxn25fNmZMew==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 92DD717E1045;
-	Tue, 20 May 2025 11:44:50 +0200 (CEST)
-Message-ID: <c3162ca8-2539-409f-885e-a08696c72e27@collabora.com>
-Date: Tue, 20 May 2025 11:44:49 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable configs for MediaTek Genio EVK
- boards
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFB6417E0256;
+	Tue, 20 May 2025 11:47:38 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org
-References: <20250513-genio-defconfig-v1-1-c3862f91b6b2@collabora.com>
- <174773424476.2901578.7109647684484482687.b4-ty@collabora.com>
-Content-Language: en-US
-In-Reply-To: <174773424476.2901578.7109647684484482687.b4-ty@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Frank Wunderlich <linux@fw-web.de>
+Cc: Frank Wunderlich <frank-w@public-files.de>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Daniel Golle <daniel@makrotopia.org>, Sean Wang <sean.wang@mediatek.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-phy@lists.infradead.org
+In-Reply-To: <20250422132438.15735-1-linux@fw-web.de>
+References: <20250422132438.15735-1-linux@fw-web.de>
+Subject: Re: (subset) [PATCH v4 0/8] Add Bananapi R4 variants and add xsphy
+Message-Id: <174773445869.2947010.18205156294642701979.b4-ty@collabora.com>
+Date: Tue, 20 May 2025 11:47:38 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_024452_559080_47C45397 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20250520_024741_496678_150C89D6 
+X-CRM114-Status: UNSURE (   7.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,31 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 20/05/25 11:44, AngeloGioacchino Del Regno ha scritto:
-> On Tue, 13 May 2025 16:59:41 -0400, Nícolas F. R. A. Prado wrote:
->> Enable the missing configs to get all devices on the MediaTek Genio
->> 1200, 700, 510 and 350 EVK boards probing, as indicated by the DT
->> kselftest.
->>
->> This includes support for:
->>
->> Genio 1200/700/510/350:
->> * MT6359/MT6357 PMICs Auxiliary ADC
->>
->> [...]
+On Tue, 22 Apr 2025 15:24:23 +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Applied to v6.15-next/dts64, thanks!
+> With this series i continue the mt7988/bananapi-r4 dts upstream work
+> 
+> changes in v4:
+> - changes based on review comments in v3 (mostly bindings)
+> - changed topmisc unit address to match reg
+> 
+> [...]
 
-Wrong branch, it's v6.15-next/defconfig, sorry :-)
+Applied to v6.15-next/dts64, thanks!
 
-> 
-> [1/1] arm64: defconfig: Enable configs for MediaTek Genio EVK boards
->        (no commit info)
-> 
-> Cheers,
-> Angelo
-> 
-> 
+[1/8] dt-bindings: arm: mediatek: add bpi-r4 2g5 phy variant
+      commit: dedef1ddbd1bb8e36530626f75eaba786a818dfe
+[2/8] arm64: dts: mediatek: mt7988a-bpi-r4: allow hw variants of bpi-r4
+      commit: 2bec30e8fc935b0868e87c32685e6f04190b1390
+[7/8] arm64: dts: mediatek: mt7988: Add xsphy for ssusb0/pcie2
+      commit: 45885a2c0bd8a6e91adb2c8897880dca228850e8
+[8/8] arm64: dts: mediatek: mt7988a-bpi-r4: enable xsphy
+      commit: ba0f084948e1f273c6264b1c8cc3cbed814f3b62
+
+Cheers,
+Angelo
 
 
 
