@@ -4,67 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C39C4C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A9AC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gdTzpBJvoYsNWliM/1oXVWDbtMb4A/dOnWqbf+hd+0g=; b=MphzUVZjl6mHUALxXr1Pxj4oxb
-	hlVOz5Z5h3c45BLQpmrDfbxZneeBTdGaohfuhwJVmHpQPVo3GRquPOuDg3Q5+ko/Uk7O/C0wMS1Fv
-	XznO3vcQQULqOzdwMPA6t509iofVBp1rjVFqGZ8v1JcHUYrMP07Da2cLNTsXjHY1kBmPYgxg/qAQE
-	YEsNUiGfpN0cMyNqsxlX9wpzCA5Cv18aoNqjHJHRySY60OVuAqRkAHcKiuQrt20jU4Oqum1csrrMH
-	kqSwfbAxytGBQOJgH69un3NMxyHreR58mxtPiLxOfBgM0gl8lj7+0TLbESEZrA7Dfm7YhEM4OH7IN
-	/YQp7zBQ==;
+	bh=Ye8PCZ1i4EUKeCPrSp+vS4Bbl8vtgczZniWkr1Nh0GE=; b=HLvDqL0xB+Ax77pEkxEKubR9Pg
+	pNyQLtp0Vb3xa06AfrJclFgpw4oLm4s318E59fC83TgmcvtJgbyCfPl6NsClTBobSaUvyCQd5GKr6
+	X4DcCDNT6yVgr7dBgkp03Pv0XymbVUHeer9I6xNM1oD1a3bp/poXOaJKrmUWDGc80z1FPgdRmT66m
+	REdE5zK2wOi/mMPA+ho/Q/ud62MirRjh4y7+/Cg8+R9aOveMmRukrk/XHWeG625NFy7osFyKuCepp
+	KN/tIFHit8ji1u9j7vHrLpnh+zhVMYumyAzYJzQkeQOvScK27ZnqxJdm5FuaRLFAZFZBV/idAN/sZ
+	OOqbwsnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHNyU-0000000DAGD-15bV;
-	Tue, 20 May 2025 14:29:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHNwO-0000000D9xa-2ynF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 14:27:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50AD2152B;
-	Tue, 20 May 2025 07:27:20 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F2DF3F6A8;
-	Tue, 20 May 2025 07:27:33 -0700 (PDT)
-Date: Tue, 20 May 2025 15:27:29 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 10/10] perf docs: arm-spe: Document new SPE filtering
- features
-Message-ID: <20250520142729.GS412060@e132581.arm.com>
-References: <20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org>
- <20250506-james-perf-feat_spe_eft-v1-10-dd480e8e4851@linaro.org>
+	id 1uHO0Z-0000000DAcI-42cM;
+	Tue, 20 May 2025 14:31:55 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHNwk-0000000DA1S-1li4;
+	Tue, 20 May 2025 14:27:59 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ad56cbc7b07so330570366b.0;
+        Tue, 20 May 2025 07:27:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747751277; x=1748356077; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ye8PCZ1i4EUKeCPrSp+vS4Bbl8vtgczZniWkr1Nh0GE=;
+        b=nivhtjWyd0OafiwXVsx3ayjQoLavr2MIhaGegSY53iCQqAaro9AFN0ZJXWBGAxVaDk
+         w/DBsR2Dh3V7svnfZlWk0jDIQvRhsuj0ORZKdcd1Pe4glD4EA8pKlREZy1me7ESL1ONp
+         cJfJknAjHiMknm187jTGShhXr2AWbUKymk6/Mncuvh5L1lcwhe9XtCDoQUPGi8lloOy1
+         PSSWajVoR1Hi1frvjBfalsfclD91w4J1OZGD5Amazn65vIbcPSzlio1DRg2o4GMXj0my
+         FKKjvX6GVkOilCDaqRLit9irSchuRWGurYtwCePu4UK8lOdh2mUl84yGT8L/hH36DUi4
+         BKjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747751277; x=1748356077;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ye8PCZ1i4EUKeCPrSp+vS4Bbl8vtgczZniWkr1Nh0GE=;
+        b=nuUJ5PAmDhGAhoXH7gqQj+McKdrcWXXKn5Ot87gRYkoRNI7XYkzwt2ea6x5Ke2GsER
+         Lk3cgjEVdSgoG3AuiQ46/c+Jg0dzyF+pnGCjOt78GSUASUylab4+giIh+f5sgN2ogE1L
+         r3CdCq4+Xc51Y64CzPRQKnMDUfj7nIDi1VNMLLuW+GzEj9TeuqBbHIheeHK4JKVVZ9xk
+         PN38Ne5R1VdTZaQxx9h+L9Lrlj31CwfKib9g1bvBBynWT55YZc2O5Wp523CqG8LKlJd7
+         AnqI//XMC1RMZcPSz2izH6F8rufFuzKx3Jh6AJNndquls5ByJw8jMB+6LqNqgRFu0Y4k
+         zXWw==
+X-Forwarded-Encrypted: i=1; AJvYcCWaVBp5ELl92CzGePp31idodo6xdV7JTaV4bmAD1BWiv/QPjSvwQ59zX8rjYplqR1FjE/+nNRjNnjpDSic/@lists.infradead.org, AJvYcCXLFhOblgSTqPl1fJ6lZiVJRCyvnfExfkL+3Z+R73s5yJO05TANMFZbRyzpkomqmycWJ9+O8eDSRhqQ5rPADjBv1g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRX5sPjeH+5htIjQscjhQ+KBu1ZfBy91+1+D974PY9cY3Ej8hV
+	ERTJmU8tLqmfUEUjAY42UM+LndonhhmmAj/BbcAdu4AmZxerVAm46PWfrXwxJTuuBbLn9oqjlTO
+	+Pe6flKbQrlBnVV1LDQnPmisFFavLqwE=
+X-Gm-Gg: ASbGncvByQPu2dZ4fnjxSOJOoqfdF++E44H726VRgCCydalK/RRS8RYisLatmZfBl7Q
+	B4KZfLZiDhMsJR86NW7NATrtq7Bb/xrPH9xKuAx7syhpy5JlLDVpMrHcrJrPLXDBFOMf9JvVFWp
+	wgQAM4X0jdSxVAmY98aJg1tG6e4qBqKHa1wCQep3j3TA==
+X-Google-Smtp-Source: AGHT+IFZgpPsbCjQ4M57nv2zRvt3oeZ+tcbZ/YAX5E0FusXZLDlDws/m7F2i/u/CIk/aP2/Q7JUqtolBCf+hMq9BjJc=
+X-Received: by 2002:a17:907:d9f:b0:ad5:8414:497 with SMTP id
+ a640c23a62f3a-ad58414049cmr464555166b.16.1747751276504; Tue, 20 May 2025
+ 07:27:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250506-james-perf-feat_spe_eft-v1-10-dd480e8e4851@linaro.org>
+References: <20250520091842.7504-1-linux.amoon@gmail.com> <872b7da3-b771-4df3-9b1a-21ca48c36045@linaro.org>
+In-Reply-To: <872b7da3-b771-4df3-9b1a-21ca48c36045@linaro.org>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Tue, 20 May 2025 19:57:37 +0530
+X-Gm-Features: AX0GCFuk9qchRZpZBJtUb0YknJh95nQU5vmvBDf2Ydkc7hsmi9ejA79lugkbvVI
+Message-ID: <CANAwSgQrg06aZayOSFh1h1=bxqyvRje1aU-+NBNSoKrPeTAaDg@mail.gmail.com>
+Subject: Re: [PATCH v1] arm64: dts: amlogic: Update USB hub power and reset properties
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/Amlogic Meson SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Amlogic Meson SoC support" <linux-amlogic@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, Wayne Schroeder <raz@chewies.net>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_072736_830640_52949F20 
-X-CRM114-Status: GOOD (  37.42  )
+X-CRM114-CacheID: sfid-20250520_072758_460404_02C66A20 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,186 +98,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 12:41:42PM +0100, James Clark wrote:
-> FEAT_SPE_EFT and FEAT_SPE_FDS etc have new user facing format attributes
-> so document them. Also document existing 'event_filter' bits that were
-> missing from the doc and the fact that latency values are stored in the
-> weight field.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  tools/perf/Documentation/perf-arm-spe.txt | 86 ++++++++++++++++++++++++++++---
->  1 file changed, 78 insertions(+), 8 deletions(-)
-> 
-> diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
-> index 37afade4f1b2..a90da9f36d93 100644
-> --- a/tools/perf/Documentation/perf-arm-spe.txt
-> +++ b/tools/perf/Documentation/perf-arm-spe.txt
-> @@ -141,27 +141,60 @@ Config parameters
->  These are placed between the // in the event and comma separated. For example '-e
->  arm_spe/load_filter=1,min_latency=10/'
->  
-> -  branch_filter=1     - collect branches only (PMSFCR.B)
-> -  event_filter=<mask> - filter on specific events (PMSEVFR) - see bitfield description below
-> +  event_filter=<mask> - logical AND filter on specific events (PMSEVFR) - see bitfield description below
-> +  inv_event_filter=<mask> - logical AND to filter out specific events (PMSNEVFR, FEAT_SPEv1p2) - see bitfield description below
+Hi Neil,
 
-According to Arm ARM for PMSNEVFR_EL1: "The overall inverted filter is
-the logical OR of these filters."
-
-Note for the subtle differences.  PMSEVFR_EL1 (Event filter) uses AND
-logic but PMSNEVFR_EL1 (Inverted Event filter) uses OR logic.
-
->    jitter=1            - use jitter to avoid resonance when sampling (PMSIRR.RND)
-> -  load_filter=1       - collect loads only (PMSFCR.LD)
->    min_latency=<n>     - collect only samples with this latency or higher* (PMSLATFR)
->    pa_enable=1         - collect physical address (as well as VA) of loads/stores (PMSCR.PA) - requires privilege
->    pct_enable=1        - collect physical timestamp instead of virtual timestamp (PMSCR.PCT) - requires privilege
-> -  store_filter=1      - collect stores only (PMSFCR.ST)
->    ts_enable=1         - enable timestamping with value of generic timer (PMSCR.TS)
->    discard=1           - enable SPE PMU events but don't collect sample data - see 'Discard mode' (PMBLIMITR.FM = DISCARD)
-> +  data_src_filter=<mask> - mask to filter from 0-63 possible data sources (PMSDSFR, FEAT_SPE_FDS) - See 'Data source filtering'
->  
->  +++*+++ Latency is the total latency from the point at which sampling started on that instruction, rather
->  than only the execution latency.
->  
-> -Only some events can be filtered on; these include:
-> +Only some events can be filtered on using 'event_filter' bits. The overall
-> +filter is the logical AND of these bits, for example if bits 3 and 5 are set
-> +only samples that have both L1D cache refill and TLB walk are recorded. When
-> +FEAT_SPEv1p2 is implemented 'inv_event_filter' can also be used to filter on
-> +events that do _not_ have the target bit set. Filter bits for both event_filter
-> +and inv_event_filter are:
-
-Could we clarify what result if the same bit is set for both
-event_filter and inv_event_filter?  Even if it is undefined.
-
-> -  bit 1     - instruction retired (i.e. omit speculative instructions)
-> +  bit 1     - Instruction retired (i.e. omit speculative instructions)
-> +  bit 2     - L1D access (FEAT_SPEv1p4)
->    bit 3     - L1D refill
-> +  bit 4     - TLB access (FEAT_SPEv1p4)
->    bit 5     - TLB refill
-> -  bit 7     - mispredict
-> -  bit 11    - misaligned access
-> +  bit 6     - Not taken event (FEAT_SPEv1p2)
-> +  bit 7     - Mispredict
-> +  bit 8     - Last level cache access (FEAT_SPEv1p4)
-> +  bit 9     - Last level cache miss (FEAT_SPEv1p4)
-> +  bit 10    - Remote access (FEAT_SPEv1p4)
-> +  bit 11    - Misaligned access (FEAT_SPEv1p1)
-> +  bit 12-15 - IMPLEMENTATION DEFINED events (when implemented)
-> +  bit 16    - FEAT_TME transactions
-
-Transaction (FEAT_TME)
-
-> +  bit 17    - Partial or empty SME or SVE predicate (FEAT_SPEv1p1)
-> +  bit 18    - Empty SME or SVE predicate (FEAT_SPEv1p1)
-> +  bit 19    - L2D access (FEAT_SPEv1p4)
-> +  bit 20    - L2D miss (FEAT_SPEv1p4)
-> +  bit 21    - Cache data modified (FEAT_SPEv1p4)
-> +  bit 22    - Recently fetched (FEAT_SPEv1p4)
-> +  bit 23    - Data snooped (FEAT_SPEv1p4)
-> +  bit 24    - Streaming SVE mode event when FEAT_SPE_SME is implemented, or
-> +              IMPLEMENTATION DEFINED event 24 (when implemented)
-
-IMPLEMENTATION DEFINED event 24 (only versions less than FEAT_SPEv1p4)
-
-> +  bit 25    - SMCU or external coprocessor operation event when FEAT_SPE_SME is implemented, or
-> +              IMPLEMENTATION DEFINED event 25 (when implemented)
-
-IMPLEMENTATION DEFINED event 24 (only versions less than FEAT_SPEv1p4)
-
-> +  bit 26-31 - IMPLEMENTATION DEFINED events (only versions less than FEAT_SPEv1p4)
-> +  bit 48-63 - IMPLEMENTATION DEFINED events (when implemented)
-> +
-> +For IMPLEMENTATION DEFINED bits, refer to the CPU TRM if these bits are
-> +implemented.
-> +
-> +The driver will reject events if requested filter bits require unimplemented SPE
-> +versions, but will not reject filter bits for unimplemented IMPDEF bits or when
-> +their related feature is not present (e.g. SME). For example, if FEAT_SPEv1p2 is
-> +not implemented, filtering on "Not taken event" (bit 6) will be rejected.
->  
->  So to sample just retired instructions:
->  
-> @@ -171,6 +204,29 @@ or just mispredicted branches:
->  
->    perf record -e arm_spe/event_filter=0x80/ -- ./mybench
->  
-> +When set, the following filters can be used to select samples that match any of
-> +the operation types (OR filtering). If only one is set then only samples of that
-> +type are collected:
-> +
-> +  branch_filter=1     - Collect branches (PMSFCR.B)
-> +  load_filter=1       - Collect loads (PMSFCR.LD)
-> +  store_filter=1      - Collect stores (PMSFCR.ST)
-
-Could we move the 'simd_filter' and 'float_filter' at here?  Something
-like:
-
-When extended filtering is supported (FEAT_SPE_EFT), SIMD and float
-pointer operations can be collected:
-
-    simd_filter=1         - Collect SIMD loads, stores and operations (PMSFCR.SIMD)
-    float_filter=1        - Collect floating point loads, stores and operations (PMSFCR.FP)
-
-Then we can talk about filter mask bits.
-
-> +When extended filtering is supported (FEAT_SPE_EFT), operation type filters can
-> +be changed to AND and also new filters are added. For example samples could be
-> +selected if they are store AND SIMD by setting
-> +'store_filter=1,simd_filter=1,store_filter_mask=1,simd_filter_mask=1'. The new
-> +filters are as follows:
-> +
-> +  branch_filter_mask=1  - Change branch filter behavior from OR to AND (PMSFCR.Bm)
-> +  load_filter_mask=1    - Change load filter behavior from OR to AND (PMSFCR.LDm)
-> +  store_filter_mask=1   - Change store filter behavior from OR to AND (PMSFCR.STm)
-> +  simd_filter_mask=1    - Change SIMD filter behavior from OR to AND (PMSFCR.SIMDm)
-> +  float_filter_mask=1   - Change floating point filter behavior from OR to AND (PMSFCR.FPm)
-> +
-> +  simd_filter=1         - Collect SIMD loads, stores and operations (PMSFCR.SIMD)
-> +  float_filter=1        - Collect floating point loads, stores and operations (PMSFCR.FP)
-> +
->  Viewing the data
->  ~~~~~~~~~~~~~~~~~
->  
-> @@ -204,6 +260,10 @@ Memory access details are also stored on the samples and this can be viewed with
->  
->    perf report --mem-mode
->  
-> +The latency value from the SPE sample is stored in the 'weight' field of the
-> +Perf samples and can be displayed in Perf script and report outputs by enabling
-> +its display from the command line.
-> +
->  Common errors
->  ~~~~~~~~~~~~~
->  
-> @@ -247,6 +307,16 @@ to minimize output. Then run perf stat:
->    perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
->    perf stat -e SAMPLE_FEED_LD
->  
-> +Data source filtering
-> +~~~~~~~~~~~~~~~~~~~~~
-> +
-> +When FEAT_SPE_FDS is present, 'data_src_filter' can be used as a mask to filter
-> +a subset (0 - 63) of possible data source IDs. The full range of data sources is
-> +0 - 65 535 although these are unlikely to be used in practice. Data sources are
-
-s/65 535/65535/
-
-> +IMPDEF so refer to the TRM for the mappings. Each bit N of the filter maps to
-> +data source N. The filter is an OR of all the bits, so for example setting bits
-> +0 and 3 filters on packets from data sources 0 OR 3.
-
-Please correct this, as setting the bit to 1 means no effect.
-
-> +
->  SEE ALSO
->  --------
->  
-> 
-> -- 
-> 2.34.1
-> 
+On Tue, 20 May 2025 at 18:02, Neil Armstrong <neil.armstrong@linaro.org> wrote:
+>
+> On 20/05/2025 11:18, Anand Moon wrote:
+> > Add missing reset-gpios property to the USB 2.0 hub node to
+> > ensure proper reset handling. Also update the vdd-supply for
+> > both USB 2.0 and 3.0 hubs to use the shared hub_5v regulator
+> > for consistent power management.
+> >
+> > Fixes: ccff36934137 ("arm64: dts: amlogic: Used onboard usb hub reset on odroid n2")
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > ---
+> >   arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi | 5 +++--
+> >   1 file changed, 3 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
+> > index 3bca8023638d..ad959f8bc1ac 100644
+> > --- a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
+> > +++ b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
+> > @@ -42,7 +42,8 @@ hub_2_0: hub@1 {
+> >                       compatible = "usb5e3,610";
+> >                       reg = <1>;
+> >                       peer-hub = <&hub_3_0>;
+> > -                     vdd-supply = <&usb_pwr_en>;
+> > +                     reset-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_LOW>;
+> > +                     vdd-supply = <&hub_5v>;
+> >               };
+> >
+> >               /* 3.0 hub on port 4 */
+> > @@ -51,7 +52,7 @@ hub_3_0: hub@2 {
+> >                       reg = <2>;
+> >                       peer-hub = <&hub_2_0>;
+> >                       reset-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_LOW>;
+> > -                     vdd-supply = <&vcc_5v>;
+> > +                     vdd-supply = <&hub_5v>;
+>
+> In this case, also remove the &usb2_phy1 phy-supply since now it's managed by the hub reset control.
+>
+Ok I will update in the next version.
+> Neil
+>
+Thank
+-Anand
 
