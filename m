@@ -4,51 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF55C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB40DC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/l7rVvT7IdNaigLF2y6iQdv9L3NaIAZJJfWm8xB9zQ=; b=pzlhUTuETFphQxZvW99XjWj1Ja
-	niP3np/LYXdabH8C3UgJVCuRG6uQQ2UeqerunYogEEzq5TRK7UHFUxR4+JeEdl052awln/cQVJn3w
-	3zB4aRetKPrfcx1r6evp/j7qY5mss4Bkdljhlq3SXUABmoDrQaj4HKIPD2mqsaWij1tmYowcM7WKk
-	V/sCAu/Irt2xNu3vKnZB+s6WGrrLozNDpXgbqTIrLhBk4SSMhkC+U3cLONsK0yYCC4kEnL49Mgf/w
-	bmhtq6e24FSUgEYHAWqcHpCeJnrpPBM0hd0BeZ7/q0aPjHhREqtK0f3ioNe4z71RczqmTgZqJ1IXN
-	P7g3lXmw==;
+	bh=1zvb7qEz87TpKWPgeGo0UomcgrwZxPfDz2Ux8vLISyc=; b=ziNyQhkHlY1h+7A+HNxBX+iyHp
+	yobzl0M03FFoPrgtvDU1fwVXmp583gWe+i4jZGw1rhSP7Fs5m/JwHWdgUUACZVmPXFnAP+F2lU7Jp
+	LXIeIN2gMWxIo+E5oQGpnLH509laXaEDCZ7jxyZTynejCJOp0bcy59yQlhINt+ElJtWpYsSrPZPix
+	dadpAl1RpdaKcWrOY4261sJxPLGdf4RbQYgomGR7OKR2qAzaG+lW7qhTNBH4SFVdBLG2x+h95jP/z
+	13fz6zB5sS6Ueqp0wKK/vur518qzB20YnZ/NYx27lnD6q2hxxofayhvLyF/DX+KNaIDbx/Rj0dRFd
+	FbO2kvXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHev-0000000Btdq-3nC4;
-	Tue, 20 May 2025 07:45:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uHHhE-0000000BuRV-2VDk;
+	Tue, 20 May 2025 07:47:32 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHcm-0000000Bt7o-1mOv;
-	Tue, 20 May 2025 07:42:57 +0000
+	id 1uHHf6-0000000BtmG-0UWm;
+	Tue, 20 May 2025 07:45:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9228BA4DEAC;
-	Tue, 20 May 2025 07:42:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E466C4CEEF;
-	Tue, 20 May 2025 07:42:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 62787A4DFBE;
+	Tue, 20 May 2025 07:45:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C03EC4CEE9;
+	Tue, 20 May 2025 07:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747726975;
-	bh=We+cooXol/fNixHdbPL5YUpqXHGi1HULXp8uxcV/F3o=;
+	s=k20201202; t=1747727119;
+	bh=xk8IMs+O+5nMbwmtVbXL7vN3XIeGEwoPkHYOFjHo2n0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tvWWdfz+KPUpt6Ym0juySnOuAYIGqeEqzMRrQabicXt7wN+R2UTeYjF3uL6XGFfFx
-	 X4+aZcKAK/G5KZJK3Ubed5xrtpTK6GgbivCAHZetAhUEWkrEiXTGjN9ejK3PLGUlRk
-	 itz2U0rgWumrfDgb4Dkfg+YPLFNtD2Y8ztC5Jr5rakrbCg4W33GnzBJ+OMmyahANx1
-	 l+nPH2nVDdam6zWjLWD93wJsk0RhR38TtxX1wAUfdl5h3Jge8wckHTnKZnVPu4fdhe
-	 mfDX1hJgGQffiq5t9eWfJf5EvQg6wq+AWZUAh1Ec+HAHYeEarqp4Cwdg5vyR5ENP+6
-	 u0sf4pCi6la7A==
-Message-ID: <1f63af35-7d10-434b-b802-115611ce2ed6@kernel.org>
-Date: Tue, 20 May 2025 09:42:48 +0200
+	b=SuGhHI1Tl71rAsEAPIy0ux3u3l9tfB6V8grWjBmFHuqh4640p564ghd51PIiR2r34
+	 eUua9YeW8JqBK/o+3SnfZASghy5XwzrYWcTdpa76kSrxNh59EJO5EY/5NAleMkEYMh
+	 xwmf1aH7kD/oIXxyoHFdWR+WS/lhuTbI0jstZAQAA322mHNX+IbR8nLwRO2BA3sEeR
+	 sL6Xuo5d/w7g5ijBzm+sQagI1vrN3lPQNjjNcxbnvUFJvgC8Cr8hEiVs1P877n10bt
+	 Pa6gFI+agN5UcDXBnManU2UsBzAVN5HZpJ6Jn5368P4I+tCCwNalenUP4CvfjoNzT5
+	 cnFPozd0B8NIA==
+Message-ID: <0615877e-247a-419b-b4d6-de377cb40914@kernel.org>
+Date: Tue, 20 May 2025 09:45:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] phy: exyons5-usbdrd: support HS phy for
- ExynosAutov920
-To: Neil Armstrong <neil.armstrong@linaro.org>,
- Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
+Subject: Re: [PATCH v2 1/2] dt-bindings: phy: samsung,usb3-drd-phy: add
+ dt-schema for ExynosAutov920
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
  kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
  kauschluss@disroot.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com
@@ -58,9 +57,8 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
  selvarasu.g@samsung.com
 References: <20250516102650.2144487-1-pritam.sutar@samsung.com>
- <CGME20250516101803epcas5p2d9403d89d840dcad88a03d437a48aceb@epcas5p2.samsung.com>
- <20250516102650.2144487-3-pritam.sutar@samsung.com>
- <a5c1a064-d760-4140-9e78-d74823b400a8@linaro.org>
+ <CGME20250516101800epcas5p49fdae57cdf1fbec0427720ee38b0f925@epcas5p4.samsung.com>
+ <20250516102650.2144487-2-pritam.sutar@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <a5c1a064-d760-4140-9e78-d74823b400a8@linaro.org>
+In-Reply-To: <20250516102650.2144487-2-pritam.sutar@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_004256_611971_5BF19270 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20250520_004520_285434_A2AE83C4 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,119 +124,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2025 09:39, neil.armstrong@linaro.org wrote:
->> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
->> index 634c4310c660..b440b56c6595 100644
->> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
->> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
->> @@ -177,6 +177,9 @@
->>   #define HSPHYPLLTUNE_PLL_P_TUNE			GENMASK(3, 0)
->>   
->>   /* Exynos850: USB DRD PHY registers */
->> +#define EXYNOSAUTOv920_DRD_CTRL_VER		0x00
->> +#define CTRL_VER_MAJOR_VERSION			GENMASK(31, 24)
->> +
->>   #define EXYNOS850_DRD_LINKCTRL			0x04
->>   #define LINKCTRL_FORCE_RXELECIDLE		BIT(18)
->>   #define LINKCTRL_FORCE_PHYSTATUS		BIT(17)
->> @@ -1772,6 +1775,10 @@ static const char * const exynos5_regulator_names[] = {
->>   	"vbus", "vbus-boost",
->>   };
->>   
->> +static const char * const exynosautov920_clk_names[] = {
->> +	"ext_xtal",
->> +};
->> +
->>   static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy = {
->>   	.phy_cfg		= phy_cfg_exynos5,
->>   	.phy_ops		= &exynos5_usbdrd_phy_ops,
->> @@ -1847,6 +1854,81 @@ static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
->>   	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
->>   };
->>   
->> +static void exynosautov920_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
->> +{
->> +	u32 version;
->> +
->> +	version = readl(phy_drd->reg_phy + EXYNOSAUTOv920_DRD_CTRL_VER);
->> +	dev_info(phy_drd->dev, "usbphy: version:0x%x\n", version);
+On 16/05/2025 12:26, Pritam Manohar Sutar wrote:
+> Add a dedicated compatible for USB phy found in this SoC
 > 
-> Please do not add mode info to boot log, use dev_dbg instead.
+> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> ---
+>  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 27 +++++++++++++++++++
+>  1 file changed, 27 insertions(+)
 
-Just drop entirely, not even worth dbg (see coding style, driver
-development debugging guide). It is fixed per given compatible, isn't
-it? If not, there is entire commit msg to explain unusual things.
+A nit, subject: drop second/last, redundant "dt-schema for". The
+"dt-bindings" prefix is already stating that these are bindings in
+dtschema format.
+See also:
+https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
 > 
->> +
->> +	if (FIELD_GET(CTRL_VER_MAJOR_VERSION, version) == 0x3)
->> +		/* utmi init for exynosautov920 HS phy */
->> +		exynos850_usbdrd_utmi_init(phy_drd);
->> +}
->> +
->> +static int exynosautov920_usbdrd_phy_init(struct phy *phy)
->> +{
->> +	struct phy_usb_instance *inst = phy_get_drvdata(phy);
->> +	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
->> +	int ret = 0;
->> +
->> +	ret = clk_bulk_prepare_enable(phy_drd->drv_data->n_clks, phy_drd->clks);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/* UTMI or PIPE3 specific init */
->> +	inst->phy_cfg->phy_init(phy_drd);
->> +
->> +	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks, phy_drd->clks);
->> +
->> +	return 0;
->> +}
->> +
->> +static void exynosautov920_v3p1_phy_dis(struct phy *phy)
->> +{
->> +	struct phy_usb_instance *inst = phy_get_drvdata(phy);
->> +	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
->> +	void __iomem *reg_phy = phy_drd->reg_phy;
->> +	u32 version;
->> +
->> +	version = readl(reg_phy + EXYNOSAUTOv920_DRD_CTRL_VER);
->> +
->> +	if (FIELD_GET(CTRL_VER_MAJOR_VERSION, version) == 0x3)
->> +		exynos850_usbdrd_phy_exit(phy);
->> +}
->> +
->> +static int exynosautov920_usbdrd_phy_exit(struct phy *phy)
->> +{
->> +	struct phy_usb_instance *inst = phy_get_drvdata(phy);
->> +
->> +	if (inst->phy_cfg->id == EXYNOS5_DRDPHY_UTMI)
->> +		exynosautov920_v3p1_phy_dis(phy);
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct phy_ops exynosautov920_usbdrd_phy_ops = {
->> +	.init		= exynosautov920_usbdrd_phy_init,
->> +	.exit		= exynosautov920_usbdrd_phy_exit,
-> 
-> <snip>
-> 
->> +		.id		= EXYNOS5_DRDPHY_UTMI,
->> +		.phy_init	= exynosautov920_usbdrd_utmi_init,
-> 
-> <snip>
-> 
->> +	}, {
->> +		.compatible = "samsung,exynosautov920-usb31drd-phy",
->> +		.data = &exynosautov920_usb31drd_phy
-> 
-> All those new ops are only called when matching this compatible, it it really
-> necessary to check the version ? is there "samsung,exynosautov920-usb31drd-phy" PHYs
-> with version different from 3 in the wild ?
+> diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> index fdddddc7d611..c50f4218ded9 100644
+> --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> @@ -32,6 +32,7 @@ properties:
+>        - samsung,exynos7-usbdrd-phy
+>        - samsung,exynos7870-usbdrd-phy
+>        - samsung,exynos850-usbdrd-phy
+> +      - samsung,exynosautov920-usb31drd-phy
+>  
+>    clocks:
+>      minItems: 2
+> @@ -204,6 +205,32 @@ allOf:
+>          reg-names:
+>            maxItems: 1
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: samsung,exynosautov920-usb31drd-phy
+> +    then:
+> +      $ref: /schemas/usb/usb-switch.yaml#
+> +
+> +      properties:
+> +        clocks:
+> +          items:
 
+Why there is no main PHY clock?
 
-Yeah, this looks like downstream code. Anyway this would need
-explanation in the commit msg.
+> +            - description: ext_xtal clock
+> +            - description: reference clock
+
+Both external oscillator and reference clocks? What are these clocks?
+
+> +
+> +        clock-names:
+> +          items:
+> +            - const: ext_xtal
+> +            - const: ref
+> +
+> +        reg:
+> +          minItems: 1
+
+No, there is no such syntax. Drop.
+
+> +          maxItems: 1
+> +
+> +        reg-names:
+> +          minItems: 1
+
+No, look at existing code and do the same.
+
+> +
+>  unevaluatedProperties: false
+>  
+>  examples:
+
 
 Best regards,
 Krzysztof
