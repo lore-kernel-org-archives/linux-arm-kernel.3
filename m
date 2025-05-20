@@ -4,53 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6AE4C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB22C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6h4CDsU5Y4vzgEhZFP9XVBoQdkH1ySwJjqkH2k22fbs=; b=QqmAINESOp6XW7aqm3mYT4C4y9
-	SMA5YFv4I3bZwEh2Lm5s81YiLD3XIUnxe3Cwy5FScVhmJikLkQJr8SnJINGLDNMm3FvjtV3MxiIC5
-	S+8RWKMzQHa/MV04mF7I35ZvXHIrDO6bQcXfeurkYvg1aIPPyEvc3gB1ccudvGS6WBUI4TwYfgzjQ
-	zk3DFDzCtI2sA9zoHQuTcPHb/xeOh+JrSxatBSOivaR2T2UEhHujCZhtn/NS5GXCIenwX/19jDAFU
-	66pcwkh9upUZvhw3jH6v1K7/nx5EraXC9HzAuUjP20+PE1n1VWkmoL63i+Q/1yggQRwChEO4lvo1e
-	5eZjEBfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IHQQ72WR0uJaCYKSMFe0s4zfbhTKw+KEo8c67zUoozQ=; b=XR3I7jQQLXiaJT7bw3GikUyKz5
+	yum/e8ZYTSReh31SEdDcprOpsitWh9lVPJhzu8uczucC6NkDenUHhDm+PLd+9Ys3Dgy1OT+4c0J4p
+	jzRocWrrd8QYMG+Ba694BX870Ur7oaA6Cu1oWtVV3lbazoCzhvneobkcPD39u8Xna56i7gbOAfuVj
+	QILQhIOQfssJ8sESdWFHBqcypTFicBtwTgBoZkNnklWd+vnmf8VihRGFfR6WdCo7UaTB2pxA8sl/n
+	LyJrKXlwn5hQjtlumGACA4L8++rjxFuYS6rsMX8Rx/sepL7OOn54JVLNItaM+vW9PnaykUpfit+QN
+	G+yQ9Tjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHLIc-0000000Cfg1-18mb;
-	Tue, 20 May 2025 11:38:22 +0000
-Received: from [195.187.100.5] (helo=ni.piap.pl)
+	id 1uHLM4-0000000CgiM-46is;
+	Tue, 20 May 2025 11:41:56 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHL0D-0000000CbhT-0CfT
+	id 1uHLJv-0000000CgIX-3TYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 11:19:22 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 6D479C405A49;
-	Tue, 20 May 2025 13:19:12 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 6D479C405A49
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,  Shawn Guo
- <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
-  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
- <festevam@gmail.com>,  linux-media@vger.kernel.org,  imx@lists.linux.dev,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i.MX8 ISI crossbar: simplify a couple of error messages
-In-Reply-To: <20250509091549.GD28896@pendragon.ideasonboard.com> (Laurent
-	Pinchart's message of "Fri, 9 May 2025 11:15:49 +0200")
-References: <m3plgi9pwu.fsf@t19.piap.pl>
-	<20250509091549.GD28896@pendragon.ideasonboard.com>
-Date: Tue, 20 May 2025 13:19:12 +0200
-Message-ID: <m3sekz8r7z.fsf@t19.piap.pl>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+	Tue, 20 May 2025 11:39:45 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1747741170;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IHQQ72WR0uJaCYKSMFe0s4zfbhTKw+KEo8c67zUoozQ=;
+	b=AoqykRfGY0eNCQZe3pCtucLUbH68xSCZYcf3tGww1k2ClaBe+2D684FSiAgrlzUvmz3tgV
+	Uw+YIrjBvbQwnjaJEd8lo43Jajl75GPwqBu3ud+WKe0VdbC8GWvKOgTypBKOvJ0Tzjg36f
+	/dJ9+8ZMtGBXieBs3wpobQ7kyz23IaCZzhpnOlCDfrTdsbR3Lxilt/Kwqmed94GObnEn14
+	8TSDFjBuH3AnyoM4AdRbQeFZNMB7RbklFaE1CycjsIBnDSe1b4HpZ1Y5igJT2tDSk1FJ92
+	iOuwkmr2RjIvNhGoARaTAc8k4IYIv1q9dUcWrKkCMd/41P11jN2BmOqi1KndUQ==
+Content-Type: multipart/signed;
+ boundary=d0bc349ebc3c06724e8275064f50ac7acc361a9610a706c47518c54416fd;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 20 May 2025 13:39:18 +0200
+Message-Id: <DA0YJ89890ND.3NKPS3RWC012P@cknow.org>
+Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 3/5] phy: rockchip: naneng-combphy: Add SoC prefix to
+ register definitions
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Yao Zi" <ziyao@disroot.org>, "Vinod Koul" <vkoul@kernel.org>, "Kishon
+ Vijay Abraham I" <kishon@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Frank Wang"
+ <frank.wang@rock-chips.com>, "Andy Yan" <andy.yan@rock-chips.com>,
+ "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Detlev Casanova"
+ <detlev.casanova@collabora.com>, "Shresth Prasad"
+ <shresthprasad7@gmail.com>, "Chukun Pan" <amadeus@jmu.edu.cn>, "Jonas
+ Karlman" <jonas@kwiboo.se>
+References: <20250519161612.14261-1-ziyao@disroot.org>
+ <20250519161612.14261-4-ziyao@disroot.org>
+ <DA0DU2P8UWSV.3U07EFFLKBPXQ@cknow.org> <aCv8vRu8gjrvK8wr@pie.lan>
+ <DA0UO4TYFWAU.DOE3O1UBNN6U@cknow.org> <aCxjqDr3VivDCrBx@pie.lan>
+In-Reply-To: <aCxjqDr3VivDCrBx@pie.lan>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_041921_256402_76CD9A11 
-X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-CacheID: sfid-20250520_043944_016054_2C9E9CE0 
+X-CRM114-Status: UNSURE (   7.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,71 +84,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+--d0bc349ebc3c06724e8275064f50ac7acc361a9610a706c47518c54416fd
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Laurent Pinchart <laurent.pinchart@ideasonboard.com> writes:
+On Tue May 20, 2025 at 1:12 PM CEST, Yao Zi wrote:
+> If putting RK3528 at first really confuses you, I'd like to add some
+> extra comments to explicitly split these two kinds of register layouts
+> apart and claim they aren't compatible. Although to me it's somehow
+> obvious, as most definitions are prefixed with either RK3528 or RK3568.
 
-> The goal was indeed to save memory.
->
->> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
->> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
->> @@ -352,9 +352,8 @@ static int mxc_isi_crossbar_enable_streams(struct v4=
-l2_subdev *sd,
->>                                                sink_streams);
->>               if (ret) {
->>                       dev_err(xbar->isi->dev,
->> -                             "failed to %s streams 0x%llx on '%s':%u: %=
-d\n",
->> -                             "enable", sink_streams, remote_sd->name,
->> -                             remote_pad, ret);
->> +                             "failed to enable streams 0x%llx on '%s':%=
-u: %d\n",
->> +                             sink_streams, remote_sd->name, remote_pad,=
- ret);
->>                       mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
->>                       return ret;
->>               }
->> @@ -392,9 +391,8 @@ static int mxc_isi_crossbar_disable_streams(struct v=
-4l2_subdev *sd,
->>                                                 sink_streams);
->>               if (ret)
->>                       dev_err(xbar->isi->dev,
->> -                             "failed to %s streams 0x%llx on '%s':%u: %=
-d\n",
->> -                             "disable", sink_streams, remote_sd->name,
->> -                             remote_pad, ret);
->> +                             "failed to disable streams 0x%llx on '%s':=
-%u: %d\n",
->> +                             sink_streams, remote_sd->name, remote_pad,=
- ret);
+No need. This is just another PEBKAC issue.
 
-It appears the current code saves (in my default build) 8 bytes of
-memory, at the cost of readability and inability to search with grep:
+Cheers,
+  Diederik
 
-Current:
-Name          Size      File off
-.text         00000bf4  00000040
-.data         00000000  00000c34
-.rodata.str1.8 000001b8 00000c38
-__jump_table  00000030  00000df0
-.rodata       000001b8  00000e20
+--d0bc349ebc3c06724e8275064f50ac7acc361a9610a706c47518c54416fd
+Content-Type: application/pgp-signature; name="signature.asc"
 
-With patch:
-Name          Size      File off
-.text         00000bd4  00000040
-.data         00000000  00000c14
-.rodata.str1.8 000001e0 00000c18
-__jump_table  00000030  00000df8
-.rodata       000001b8  00000e28
+-----BEGIN PGP SIGNATURE-----
 
-Built as a module it doesn't even save that - the number of pages stays
-the same.
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaCxp6wAKCRDXblvOeH7b
+boWnAQC5MIhxImiAlK1tUu+xrN+HsDpoKbj77BWe5c4WxhafxwD/Ulo4r6l68aWF
+xF7+bQnpCwX2RacAOaELrsdy8/Z02Qo=
+=ZrQ3
+-----END PGP SIGNATURE-----
 
-Just FYI.
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+--d0bc349ebc3c06724e8275064f50ac7acc361a9610a706c47518c54416fd--
 
