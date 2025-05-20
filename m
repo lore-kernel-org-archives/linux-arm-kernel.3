@@ -4,64 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D3EC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 01:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7156C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 01:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PAR9cSGXCmxJ7Ui7p/1wOzK3oL1x4QyafBn/NxfgDIg=; b=o0mjVPN59jnyzR
-	9O3qyLE6FFDWupAvzOw+Nl5zgTEofEG3vMkHCwiWQzkpYSoGZ/YCV+zrlGQf6hb+MBbmCa/jvDRcC
-	3t6CjvCCtBvm50VKYjEdUWjr8pqB+32nOwDOjFfoYH2zkt9kGUDmB1j5KbfUZ0DBkA92y+XXJCl3n
-	99qEKHCNHxqE+6BWHGP45pJn5Yv9d17STG5qv1BV0XL+RFFOd9y+OyRge/EInYN0OFRFaNt10kv1z
-	d4jdqsfjj1/hVuSCskVY0GJPNwWL95s4ykW08pGtZMaVXdnK9A5IKOUeoy3Dw/s7t9qJWY7QgA+gn
-	2Q2vnPmfzBno8eufbg4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jHU/2IIIymsxzv/RYUECo/R/P/APdWRlsqPrkqJuw0o=; b=lQZsmjbuewA7gmNRlwCpKEPETY
+	IZOif6A89t7cH1Mg1jsHD6z3j4dqEADghMbZMzx9ybFHlwic11csYQTnkNs3tLNnGRdBFdVxx1AVt
+	eKMG1mtVKjDW1WSjxQhsv3pWX7bAsM8vYQXeTMmu7bxfkkBLn8Uo6tmB8Zaz6BB05p48JS57tX9nw
+	cwviqj5IC5SlHOspnJvug8cSlZQtyBxWnYO/YWOeW8m3qHr0Uds9woeomJRZxzEHjBisiu116eBpI
+	elms8gBFWC4owQ7pbM/tuyEo83m/ajtZgudJ6tbIsTl1YHAuAGe2xs/ANm72hfkqJSKlOSJCcaroy
+	MU2JBOUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHBwP-0000000BGDI-3Eax;
-	Tue, 20 May 2025 01:38:49 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1uHCED-0000000BHbK-2ckB;
+	Tue, 20 May 2025 01:57:13 +0000
+Received: from mail-am6eur05on20615.outbound.protection.outlook.com ([2a01:111:f403:2612::615] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHBuG-0000000BFzT-2nrN
+	id 1uHCC6-0000000BHNc-0iJ5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 01:36:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4b1cVt6GjPz2CdX3;
-	Tue, 20 May 2025 09:32:38 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 29E481402C4;
-	Tue, 20 May 2025 09:36:20 +0800 (CST)
-Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 20 May 2025 09:36:19 +0800
-Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
- (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 20 May
- 2025 09:36:18 +0800
-Message-ID: <74894849-4e0b-47b7-8749-fd10d30b5709@huawei.com>
-Date: Tue, 20 May 2025 09:36:18 +0800
+	Tue, 20 May 2025 01:55:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OJ3UD2cNEG2uxZBsTGh7jl0JoYlY2xLbFzHGhfa34yHMwRupsEgWBoGu/CpW/Byz19OwCTFriJ0kqvny31F8f39QbiyXvXcJMSU1ndjfa5yun5MDj+40YTp1/kS1fwsYrWj69dqwNzhIJcCHMGjKe29viQtMzE6p0jojM1ZccggUFE/pBOogMUAjxYHzt2tYBDtwpwcJ3RwtCsmB3/jwyWTw8ca13CkiG4BA0JpwD+r6En3OstugP7QaNus6UUxLy4H5hNDqmxaCBB3tKCrqFrSTNKwi9od1lzTKuexFzllZNq5b8UGF3VtNpaaGFOz8YJKowUSxkLx16IhMA/5TdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jHU/2IIIymsxzv/RYUECo/R/P/APdWRlsqPrkqJuw0o=;
+ b=gIIZ6lGR0Bf8cNMwGXDgaAMxbkbG4InBP5GEzvChEabQSc2536h6QB31dg9QgffnZEFQUqcAJow51AlxL8cJDs8UHJ1BuM+pVu/4wdxT+ZOcKDluT4QoRArLcGm3Mogcq/+5msyXiTK0rMnDMVhvYm39AHERWDwKJTEvcPrbXnCCPsoq3uiZlCx9KXDjHe+fTbsrV9Ier2+GB/Q95L9PcSaHyBV7N6jOnmxk8bVLvH7hqW/SWEMZXLdujNtq98KID6L1LmfrY/FptgVccjXxn+lzSbehWcRwt+ZflEAnBvq7dpbM6/EfQlSplzZmTtYs81jG0L16O5Igr+z3HzkldA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jHU/2IIIymsxzv/RYUECo/R/P/APdWRlsqPrkqJuw0o=;
+ b=HTAldZwCyjE/gfkGe3k51W6Aqb6IeUAW8FiT0pgYJJIfJCI9PAGqULuMA+MOOly38/XNFcIqH3cc35FD9y0MZkyfDc+l61kQfoQd/ya0scv0wtfcpUpncSjmiT8iyBGEQCgfu8AUDceFIqNl2u3/qkOuoQ+sagvjDkUSX2YGZ1BYvHwzlfFulDEu+F8KsaibbYkrJr+i8yEDFz/oN1/FutCTFTd5xrwD5y6gGxlsJd5NKDPhcWz4k8XsTZuN2Cp+JC17gRKsSJgiVuiU1SRnoIbWDWgkim2OWqVXrO2vN/X0OIsldYMoFphtZ8nz7td19TY0ketrvvqnNOq6OAah3Q==
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
+ by PA4PR04MB9487.eurprd04.prod.outlook.com (2603:10a6:102:27c::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Tue, 20 May
+ 2025 01:54:53 +0000
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::4fa3:7420:14ed:5334]) by DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::4fa3:7420:14ed:5334%4]) with mapi id 15.20.8722.031; Tue, 20 May 2025
+ 01:54:53 +0000
+From: Bough Chen <haibo.chen@nxp.com>
+To: Stefan Wahren <wahrenst@gmx.net>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Rob Herring <robh@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Stefan Agner <stefan@agner.ch>, Linus
+ Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>
+Subject: RE: [PATCH v2 2/2] dt-bindings: gpio: vf610: add ngpios and
+ gpio-reserved-ranges
+Thread-Topic: [PATCH v2 2/2] dt-bindings: gpio: vf610: add ngpios and
+ gpio-reserved-ranges
+Thread-Index: AQHbyIOJtotboVfnW0K2Klb8iuZMaLPaBXkAgAC9pQA=
+Date: Tue, 20 May 2025 01:54:53 +0000
+Message-ID: <DU0PR04MB949675A358EB06A6C9A4FE1D909FA@DU0PR04MB9496.eurprd04.prod.outlook.com>
+References: <20250519-gpio-dts-v2-0-b9e77173e9c5@nxp.com>
+ <20250519-gpio-dts-v2-2-b9e77173e9c5@nxp.com>
+ <bba21f5c-9644-4563-976a-a4cfdaf2546c@gmx.net>
+In-Reply-To: <bba21f5c-9644-4563-976a-a4cfdaf2546c@gmx.net>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU0PR04MB9496:EE_|PA4PR04MB9487:EE_
+x-ms-office365-filtering-correlation-id: 6f3b1b00-789e-4bb7-1afe-08dd97415062
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?RDZLMklTQnM0eGtTUjNvZzIwVnNpMmJkN0k2TjBrbldWQ2JibW9uVHJ0WXVB?=
+ =?utf-8?B?UUhBSTAxY2hzbFp1QSsrOTEyTUkxQXBTbWtxcnZFMTZ0NVRXcm5Vd2JxK250?=
+ =?utf-8?B?a1M5cWtNTC9lQUhXVStvM1FCM1QycEh5dXNRZVB5ZGpiZ2hEeS96RU56dmFE?=
+ =?utf-8?B?RHVaKzdrV2xjWVR0MWNBTmZzWU5CdGcvY2lKM2UrMGtGSGFGaDUxbWtyZnBy?=
+ =?utf-8?B?K0VDWGlqTm5wR0ZZNVRLVnRXOWtMQ2JnUXA0b3JBZTc3bVc0a0lOTCt2c2Z3?=
+ =?utf-8?B?QUtFTGtTVHV6ZlJQckdOclVmWWUvL2hxU24rQ0sxNnZGeVhhdW5PK1lMajVG?=
+ =?utf-8?B?RDJZcW9EMGttOFBBSG9zRGZrY3dTelI3L0xLUDdaL1I2QVhxTzRrUWN1SUlO?=
+ =?utf-8?B?YmxDYkEyMjZJSlgwQnBhTkRjdnVtaEZzOFRlcW9SZEpkMUZsMkduWVF3ZlRm?=
+ =?utf-8?B?REhyb1FOc0F0K25mTEhvK1N0ejJTL3daZHE2clRtbkVzTzZHd0gvTXUyZ2VF?=
+ =?utf-8?B?bHJvRWprOFlFM3B5RHE4TkhDWTRjNURidGFJUlQ1UFBpU1ZsbW1UZkZlcUhw?=
+ =?utf-8?B?TXpNQUhSSXRXVzdxYjdwQmJBOUY1VjQxNTlCSmRwNzl6U3lPaDNDeWRqR09U?=
+ =?utf-8?B?MU5ObnBVbVE2b3hEcTlEbXhsK2J2NWxtc282cG52Q2pWQmNZNHA1VndvcU5N?=
+ =?utf-8?B?aDBtMUVnR1VGeG9tNk5PNGtuU3JteVZHVEFTUDVCTE9JNWYzQy82azRnOXlP?=
+ =?utf-8?B?TTVVVHpJRExlQ1F4MU1aeHdpSm9aSWxrOFRLUzJTSWJUVHVNZGh5YVdVRWVw?=
+ =?utf-8?B?eUFDZzNJT3RTcUFEVzN3dTBsZWtONlBPcG1sWkdVOFgyRmxqOHRFSnltQVhq?=
+ =?utf-8?B?eUFHOUpMaFNrWWxZVFhQQVY5UXRzazQ3NFJjOURVR0d4N1lmNmZjU3h4WmpO?=
+ =?utf-8?B?bzBSVGsyM1ZKYkJQNGxlNDgwZWFNUytUUUJLc0grMUdibW8yakMwaGVJUVIw?=
+ =?utf-8?B?dkswRWdLc3liWXZNamxRWlpjVlJhUmlybk94ZEFERHgvbEVkVXRGb2lXMmd6?=
+ =?utf-8?B?UzhqaVAwbXFPNTlHWE9oOTdLRXl3eC9NQU5uUDBWVnJZTjROYk5odm9lSzZQ?=
+ =?utf-8?B?R1dmeW9RbUVyRHBKbEJVT24rYWhuL1V6UUZOaWhMeUhReDJMT01ZZ1VTcDk1?=
+ =?utf-8?B?Z1FNa2lUa0ZBUlhReEtlSnpoUW5JeEdEU1RmM1FWMC9wcVpQQkRRVVZlZjd1?=
+ =?utf-8?B?emRoQm9kVzl3TmQxbDYzWkRlRXBZQjdTM3ZvVXJnR2RMZ05zTXp2UTNxMGRN?=
+ =?utf-8?B?OXNmVkxMd2RPMFJ5TDR5WU8rb3UzMUxKQ1ZXandMUXdvWkhnaGpvY1ZRd1Y5?=
+ =?utf-8?B?UXltSER2TjFFaDArbHBvZktCVVo5cllxYlN3bWNvTDVZSFdRQXpaY2J2Y1Ev?=
+ =?utf-8?B?eXpDSDJUeEE3QTFpVDlwN3E2NXJ4Nm1SME4xbjVycnVwRzVOTWRSTzVZTWg4?=
+ =?utf-8?B?eEJyT1I3QWNmcWxGVVR4MTI0MHN3S3oyMFZQQThsZlpXV2pUYVVFcVpCNVJU?=
+ =?utf-8?B?emRncWhQVjZEM0owQ2c1TUxXWTMwUjN4dzdiWmpIM1pITEI2R0dhSzRTZmNh?=
+ =?utf-8?B?RlpxVTlVZzYyYUxaUlFjS1AwWjYzR0dGSFpocGh3bzd0enJkKzFLNjNMS1hJ?=
+ =?utf-8?B?ditTQ1k5bkZhY3NVVGN5cm0rT05pNS9Zano3cC9BNEUrQTltRWVCYk5JdnZZ?=
+ =?utf-8?B?dlhyUE9WZEsxR0lnWnNlMVQ5V0xXQkk5UkRXS3RNSEY2NFFCaSsveGdoMEEy?=
+ =?utf-8?B?b01PZUZPc3Vna2RyakoyRlBKSXRwS1J2cHVjS3kxbUpuYlZHejdvNVBTOEtv?=
+ =?utf-8?B?amxsWWsvRDlnR0FuSFNmb0dMWXlqOTVmUDQzdXhWVFFralQxZDUyYnU2OHZR?=
+ =?utf-8?B?blF0bFJ1bmlHdHh2QXdjNGdwbHBUVFE1VXJFVzQ5dVhjaXhrWDloTWZDLzFK?=
+ =?utf-8?Q?KjlCgzCsXVp3qBCA6SOk+XRnzBNmZE=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?a1lmY2lvSXVJN1BWa1JtQVVaTFduMHBiTEZVVzh1UVZVVWJKTkxzNzNwRHNi?=
+ =?utf-8?B?NTNwZ1puZk8ybGc3YXRUZ1llSHdZbmc5eWhqMTR6bWFLU1JxTlFKdWw0MU1M?=
+ =?utf-8?B?c3F0T1FoU245UDhmWnlRUE52YndlVWVwSlZtdVhXT3o5WUxwcVg3MWc2a096?=
+ =?utf-8?B?V2ZFZUNCZVl4Rkd4akYyYXRXcnBtQTR0N0tTL1AxTlBnYTBYYUFiUXl4VHVE?=
+ =?utf-8?B?U2pQVnFRbFBNQzlrc1hzc2xkd1N6UERDcG5kM2VFVWZlWk83M0RaZ1dPM1Iz?=
+ =?utf-8?B?RS9zOGVOQzBUa2N6ZGpGVGk3c215RlQ5Q2phYmdMVHlpamV5N2FnaDhvdkNE?=
+ =?utf-8?B?a1pza2I5eUxDaTVNWEZRYXN0SjdrazhsSlBONlRMMGpTTzlJK0crMHVjV0R2?=
+ =?utf-8?B?R3dzN2ZqQVE2eDViTzlNMjNCMVlEaUpNZXZUM0xHWWxqSEc1YU5SRTZEN285?=
+ =?utf-8?B?S2FWTkkxV1BPSXRaVGJObnBDVC8zYTMvdDZVQmZPdXVhdHZNTElxaTZ5enZx?=
+ =?utf-8?B?MkttcjNtZTAveTdrL0hVRVBITCtqOXVIaFkySC9TMjk1QUdDdEhNcEtaamFT?=
+ =?utf-8?B?ajR6ZklJUDhYRXBMWnZ2TFhpUmNEcCtGaFozTlcwdkVad2F4WWloM0ZpV0po?=
+ =?utf-8?B?T3hlY3VNU3FONFBEN2Mwd2hTRS9obVltdm9MWHVtVnFtaXdsQjVkMWlwZStZ?=
+ =?utf-8?B?SFIvVUNOMlMySXFMbmFiNkhjblh1T2xSeCtpK2kwM2Y3MjVhRzBIWkpCTHBV?=
+ =?utf-8?B?UTBDMjRSSWhhR2FBMTZWRVByZlRza25IWEpZeGd5bXoxOWtkK005RmhpREwv?=
+ =?utf-8?B?eWhkMjhFLzhCZVB5cko0VENYejdiMm93WURTd1dVaDk4RHIwUW9QczlIb1Nw?=
+ =?utf-8?B?Wkk4SGlIQS9MZ2QyYTJDcWpudHVwZ2NkNGc3TS9scW15N09JNXUwRzhIYi9I?=
+ =?utf-8?B?NThITEVWb1JoY040cTFKVDlIWGorTUVCNzh3SWFUb25YY2FlVEtjQWh0bDN5?=
+ =?utf-8?B?OUZSbWJMeHNqZldiWStJOSs4ZDZkd0FSM1JpRXZzYzkwOWdYblhibEZkanRv?=
+ =?utf-8?B?bzN2akM4T1psN3FMZ2lwWmZSc2ExSi9yK2dhdlRCd3ZBc1RMN3JTVjE3dFRo?=
+ =?utf-8?B?M01UUFlSTzVTR1JrZmtCTnR3M3ZDSlB0ekxiYkJ5TnpEWXhjKytqUjFzYTNJ?=
+ =?utf-8?B?eHpVUzRQRm83MzV0blVuVzBISTJNek8vS0owcDQ3N1owWHduVzlRWGw5QXRn?=
+ =?utf-8?B?VUJwMllFalpMYW1nVXdvQmNjcDl1Wmh2aER4QUlJUlcrSzhSWFlLWlV0UW5N?=
+ =?utf-8?B?OCt3ZlFlakR1UnpUeGY1bDhoUG1NMEhpVmdWdlg4dE5vaUducjhVSyt3WCtm?=
+ =?utf-8?B?Ym9NS2x6VkpITUZub2gxcjNCSDcvSjZIUkxNRDl1c1ZpcnFaUi9XWU9nK2o3?=
+ =?utf-8?B?UkFnQXBCL2MxbklRZ1V3ZzdPeHRydmtJUkNXU0JXWUJJa1NGZ2xZVlZ3Y1Fy?=
+ =?utf-8?B?M095RGFaVVlaOStRQ0lDbk5iUGd1RkJjODFIYzNPYjhTVUl2RU1MSnVPZWl0?=
+ =?utf-8?B?SnRiTEtaaCtzV3dibllpU0FoWm1JOWRpRXg4TTZrMTEvcVdVMVR4MzZzeWdi?=
+ =?utf-8?B?MDVmcGw1QXJNcWozRCsrZUtqYy81T1MwYS8xWkNpQXEzS3dQTTZ0QmxvdGYz?=
+ =?utf-8?B?LzlDK3VtYm5Kd2NpVTB1SVZZQ0UwV1hmZllheWJ4Nm5vQlJaUUUyempsUC9B?=
+ =?utf-8?B?dWJSZmJlQ1BmNVJGcGczd2R1bnhmQUNSUUFDc1dFQVAza2JzRGN1N2hGZVNR?=
+ =?utf-8?B?Wnk0SmxFbk04M0htU3NpTEM5ejRVem5mdFlkM2NkYzRpMmNKd3RHOVUwN1lG?=
+ =?utf-8?B?aFlGNzdIK0FEaE12MTlvUVNtVE04VytqbzRqNjZnbmgwOHhyeTdDZnJwN0JX?=
+ =?utf-8?B?bktiVVJpVW1EQ3l1OFJnb3krQmRLblQ4ZG1jU0F1cm1ralVKMUZWUko5VHhu?=
+ =?utf-8?B?T3JVdkpyY2xZbTU4cmtEVlJtRmVjSTMwUFJ1RHZRc0Z1N0hwd3M1bzlQbjZ4?=
+ =?utf-8?B?UWc2Uk45bTNlK0xKYitnYllMQkpKbW9icnBXbnd3VS83R1NWMkZIZ2hMM0o5?=
+ =?utf-8?Q?lwvI=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] PM / devfreq: Add HiSilicon uncore frequency scaling
- driver
-To: Jie Zhan <zhanjie9@hisilicon.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>, <cw00.choi@samsung.com>
-References: <20250506021434.944386-1-zhanjie9@hisilicon.com>
- <8ef46e21-4ad0-46ef-bfb3-fc56094ef79d@huawei.com>
- <4f910767-9a96-6229-18cb-0119574eca00@hisilicon.com>
-From: "lihuisong (C)" <lihuisong@huawei.com>
-In-Reply-To: <4f910767-9a96-6229-18cb-0119574eca00@hisilicon.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.59]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemn100009.china.huawei.com (7.202.194.112)
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6f3b1b00-789e-4bb7-1afe-08dd97415062
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 May 2025 01:54:53.3269
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 5ibdXhsjgIBoJX9JEna4rx+W1RZCJRAeKkpYauaGPzQn5/el8aFj1lAt+bu+7lHkWTRjXG2WNZp0ySDhFEsAHw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9487
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_183637_017710_A33D2201 
-X-CRM114-Status: GOOD (  37.07  )
+X-CRM114-CacheID: sfid-20250519_185502_247055_5D066B65 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,267 +186,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: yubowen8@huawei.com, zhenglifeng1@huawei.com, linux-pm@vger.kernel.org, liwei728@huawei.com, linuxarm@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-在 2025/5/19 16:03, Jie Zhan 写道:
-> Hi Huisong,
->
-> Thanks for reviewing.
->
-> On 12/05/2025 10:17, lihuisong (C) wrote:
->> Hi Jie,
->>
->> There are some trivia advice. please have a look.
->>
->> /Huisong
->> 在 2025/5/6 10:14, Jie Zhan 写道:
->>> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
->>> the devfreq framework.  The uncore domain contains shared computing
->>> resources, including system interconnects and L3 cache.  The uncore
->>> frequency significantly impacts the system-wide performance as well as
->>> power consumption.  This driver adds support for runtime management of
->>> uncore frequency from kernel and userspace.  The main function includes
->>> setting and getting frequencies, changing frequency scaling policies, and
->>> querying the list of CPUs whose performance is significantly related to
->>> this uncore frequency domain, etc.  The driver communicates with a platform
->>> controller through an ACPI PCC mailbox to take the actual actions of
->>> frequency scaling.
->>>
->>> Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->>> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->>> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
->>> ---
->>>    drivers/devfreq/Kconfig            |  11 +
->>>    drivers/devfreq/Makefile           |   1 +
->>>    drivers/devfreq/hisi_uncore_freq.c | 722 +++++++++++++++++++++++++++++
->>>    3 files changed, 734 insertions(+)
->>>    create mode 100644 drivers/devfreq/hisi_uncore_freq.c
->>>
-> ...
->
->>> +
->>> +static int hisi_uncore_request_pcc_chan(struct hisi_uncore_freq *uncore)
->>> +{
->>> +    struct pcc_mbox_chan *pcc_chan;
->>> +    int rc;
->>> +
->>> +    uncore->cl = (struct mbox_client) {
->>> +        .dev = uncore->dev,
->>> +        .tx_block = false,
->>> +        .knows_txdone = true,
->>> +    };
->>> +
->>> +    pcc_chan = pcc_mbox_request_channel(&uncore->cl, uncore->chan_id);
->>> +    if (IS_ERR(pcc_chan)) {
->>> +        dev_err(uncore->dev, "Failed to request PCC channel %u\n",
->>> +            uncore->chan_id);
->>> +        return -ENODEV;
->>> +    }
->>> +
->>> +    if (!pcc_chan->shmem_base_addr) {
->>> +        dev_err(uncore->dev, "Invalid PCC shared memory address\n");
->>> +        rc = -EINVAL;
->>> +        goto err_pcc_chan_free;
->>> +    }
->>> +
->>> +    if (pcc_chan->shmem_size < sizeof(struct hisi_uncore_pcc_shmem)) {
->>> +        dev_err(uncore->dev, "Invalid PCC shared memory size (%lluB)\n",
->>> +            pcc_chan->shmem_size);
->>> +        rc = -EINVAL;
->>> +        goto err_pcc_chan_free;
->>> +    }
->>> +
->>> +    uncore->pcc_shmem_addr = ioremap(pcc_chan->shmem_base_addr,
->>> +                     pcc_chan->shmem_size);
->> Now driver doesn't need to ioremap repeatly because of Sudeep's work.
->> Please see the patch:
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa362ffafa51b08cf8e2fcca38e056332f6b9b05
-> Cool. Now we can use pcc_chan->shmem. Will update the code based on that.
->
->>> +    if (!uncore->pcc_shmem_addr) {
->>> +        rc = -ENOMEM;
->>> +        goto err_pcc_chan_free;
->>> +    }
->>> +
-> ...
->
->>> +static int hisi_uncore_cmd_send(struct hisi_uncore_freq *uncore,
->>> +                u8 cmd, u32 *data)
->>> +{
->>> +    struct hisi_uncore_pcc_shmem __iomem *addr;
->>> +    struct hisi_uncore_pcc_shmem shmem;
->>> +    struct pcc_mbox_chan *pchan;
->>> +    unsigned int mrtt;
->>> +    s64 time_delta;
->>> +    u16 status;
->>> +    int rc;
->>> +
->>> +    guard(mutex)(&uncore->pcc_lock);
->>> +
->>> +    pchan = uncore->pchan;
->>> +    addr = uncore->pcc_shmem_addr;
->>> +
->>> +    if (!pchan || !addr)
->>> +        return -ENODEV;
->> This parameter validation seems redundant. From driver point, it always be ok.
-> uncore->pchan could be NULL if hisi_uncore_cmd_send() if called after
-> hisi_uncore_free_pcc_chan().
->
-> In the driver detaching processor, the drv->remove() is called before devm
-> resources free, i.e. where devfreq device is freed.
-> Hence the devfreq governor, e.g. simpleondemand, could possibly issue a
-> freq request after the driver is removed.
->
-> The checking and setting uncore->pchan = NULL in this driver is trying to
-> protect against the above case.  It actually happened during our tests so
-> it's not redundant unless we get a better way to solve that.
->
->>> +
->>> +    /* Handle the Minimum Request Turnaround Time (MRTT) */
->>> +    mrtt = pchan->min_turnaround_time;
->>> +    time_delta = ktime_us_delta(ktime_get(),
->>> +                    uncore->last_cmd_cmpl_time);
->>> +    if (mrtt > time_delta)
->>> +        udelay(mrtt - time_delta);
->>> +
->>> +    /* Copy data */
->>> +    shmem.head = (struct acpi_pcct_shared_memory) {
->>> +        .signature = PCC_SIGNATURE | uncore->chan_id,
->>> +        .command = cmd,
->>> +        .status = 0,
->>> +    };
->>> +    shmem.pcc_data.data = *data;
->>> +    memcpy_toio(addr, &shmem, sizeof(shmem));
->>> +
->>> +    /* Ring doorbell */
->>> +    rc = mbox_send_message(pchan->mchan, &cmd);
->>> +    if (rc < 0) {
->>> +        dev_err(uncore->dev, "Failed to send mbox message, %d\n", rc);
->>> +        return rc;
->>> +    }
->>> +
->>> +    /* Wait status */
->>> +    rc = readw_poll_timeout(&addr->head.status, status,
->>> +                status & (PCC_STATUS_CMD_COMPLETE |
->>> +                      PCC_STATUS_ERROR),
->>> +                HUCF_PCC_POLL_INTERVAL_US,
->>> +                pchan->latency * HUCF_PCC_POLL_TIMEOUT_NUM);
->>> +    if (rc) {
->>> +        dev_err(uncore->dev, "PCC channel response timeout, cmd=%u\n", cmd);
->>> +        goto exit;
->>> +    }
->>> +
->>> +    if (status & PCC_STATUS_ERROR) {
->>> +        dev_err(uncore->dev, "PCC cmd error, cmd=%u\n", cmd);
->>> +        rc = -EIO;
->>> +        goto exit;
->>> +    }
->>> +
->>> +exit:
->>> +    uncore->last_cmd_cmpl_time = ktime_get();
->>> +
->>> +    /* Copy data back */
->>> +    memcpy_fromio(data, &addr->pcc_data.data, sizeof(*data));
->>> +
->>> +    /* Clear mailbox active req */
->>> +    mbox_client_txdone(pchan->mchan, rc);
->>> +
->>> +    return rc;
->>> +}
->>> +
->>> +static int hisi_uncore_target(struct device *dev, unsigned long *freq,
->>> +                  u32 flags)
->>> +{
->>> +    struct hisi_uncore_freq *uncore = dev_get_drvdata(dev);
->>> +    struct dev_pm_opp *opp;
->>> +    u32 data;
->>> +
->>> +    /*
->>> +     * ->target() might be called after drv->remove() and before governor
->>> +     * stopped, so it's necessary to check here, but no need to warn.
->>> +     */
->>> +    if (!uncore || !uncore->pchan)
->>> +        return 0;
->> If have the following tips, this check can be removed, right?
-> See below.
->
-> ...
-We need to resolve the issue completely.🙂
->>> +
->>> +static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
->>> +{
->>> +    struct devfreq_dev_profile *profile;
->>> +    unsigned long freq;
->>> +    u32 data;
->>> +    int rc;
->>> +
->>> +    rc = hisi_uncore_get_cur_freq(uncore->dev, &freq);
->>> +    if (rc) {
->>> +        dev_err(uncore->dev, "Failed to get plat init freq (%d)\n", rc);
->>> +        return rc;
->>> +    }
->>> +
->>> +    profile = devm_kzalloc(uncore->dev, sizeof(*profile), GFP_KERNEL);
->>> +    if (!profile)
->>> +        return -ENOMEM;
->>> +
->>> +    profile->initial_freq = freq;
->>> +    profile->polling_ms = DEFAULT_POLLING_MS;
->>> +    profile->timer = DEVFREQ_TIMER_DELAYED;
->>> +    profile->target = hisi_uncore_target;
->>> +    profile->get_dev_status = hisi_uncore_get_dev_status;
->>> +    profile->get_cur_freq = hisi_uncore_get_cur_freq;
->>> +
->>> +    rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_MODE, &data);
->>> +    if (rc) {
->>> +        dev_err(uncore->dev, "Failed to get operate mode (%d)\n", rc);
->>> +        return rc;
->>> +    }
->>> +
->>> +    if (data == HUCF_MODE_PLATFORM)
->>> +        uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
->>> +                              hisi_platform_governor.name, NULL);
->>> +    else
->>> +        uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
->>> +                              DEVFREQ_GOV_PERFORMANCE, NULL);
->> This code creates sysfs file which will be freed after .remove() executed.
->> However, the PCC channel is released in .remove().
->> This may lead to UAF issue.
-> Not only those sysfs files, the whole devfreq device & governor is still
-> there after drv->remove().  That's the main cause of issues when
-> registering a devfreq device by devm_devfreq_add_device().
->
-> However, at the moment, we have prevented against any UAF issues?
-I understand you. But please see two options below again.
->
->> We have tow options:
->> *option 1:*
->> hisi_uncore_free_pcc_chan() also move to the last release instead of the .remove() by devm_add_action_or_reset() or devm_add_action().
-> I don't quite understand what this means.
-> hisi_uncore_free_pcc_chan() is currently the last step of drv->remove().
-> If we let it be managed by devm, it can't be guaranteed that the pcc chan
-> is freed after devfreq device is removed.
-This option is just to let hisi_uncore_free_pcc_chan() to call after 
-removing all sysfs files created in devfreq.
->
->> *option 2:*
->> Use devfreq_add_device() to replace devm_devfreq_add_device() and .remove() in driver call devfreq_remove_device() to delete these sysfs files.
->>
->> There are the resources  dependency between these interfaces. And there is a potential release sequence in .remove, devm_xxx, and even the devm_xxx release inside.
->> I prefer to explicitly free interfaces that have resource dependencies in driver.
->>
->>
-> This looks like a possible plan, but we will need to go back to the raw
-> ABIs.
-
-Yeah, this option is simple.
-
-Whether driver selects the raw ABI or devm_ prefixed ABI, which should 
-be open, I think. This depends on the user's preference.
-
->
-> ...
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBTdGVmYW4gV2FocmVuIDx3YWhy
+ZW5zdEBnbXgubmV0Pg0KPiBTZW50OiAyMDI15bm0NeaciDE55pelIDIyOjM1DQo+IFRvOiBCb3Vn
+aCBDaGVuIDxoYWliby5jaGVuQG54cC5jb20+OyBLcnp5c3p0b2YgS296bG93c2tpDQo+IDxrcnpr
+K2R0QGtlcm5lbC5vcmc+OyBDb25vciBEb29sZXkgPGNvbm9yK2R0QGtlcm5lbC5vcmc+OyBTaGF3
+biBHdW8NCj4gPHNoYXduZ3VvQGtlcm5lbC5vcmc+OyBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwu
+b3JnPjsgU2FzY2hhIEhhdWVyDQo+IDxzLmhhdWVyQHBlbmd1dHJvbml4LmRlPjsgUGVuZ3V0cm9u
+aXggS2VybmVsIFRlYW0NCj4gPGtlcm5lbEBwZW5ndXRyb25peC5kZT47IEZhYmlvIEVzdGV2YW0g
+PGZlc3RldmFtQGdtYWlsLmNvbT47IFN0ZWZhbg0KPiBBZ25lciA8c3RlZmFuQGFnbmVyLmNoPjsg
+TGludXMgV2FsbGVpaiA8bGludXMud2FsbGVpakBsaW5hcm8ub3JnPjsgQmFydG9zeg0KPiBHb2xh
+c3pld3NraSA8YnJnbEBiZ2Rldi5wbD4NCj4gQ2M6IGRldmljZXRyZWVAdmdlci5rZXJuZWwub3Jn
+OyBpbXhAbGlzdHMubGludXguZGV2Ow0KPiBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVh
+ZC5vcmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7DQo+IGxpbnV4LWdwaW9Admdlci5r
+ZXJuZWwub3JnDQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjIgMi8yXSBkdC1iaW5kaW5nczogZ3Bp
+bzogdmY2MTA6IGFkZCBuZ3Bpb3MgYW5kDQo+IGdwaW8tcmVzZXJ2ZWQtcmFuZ2VzDQo+IA0KPiBI
+aSBIYWlibywNCj4gDQo+IEFtIDE5LjA1LjI1IHVtIDA4OjAzIHNjaHJpZWIgSGFpYm8gQ2hlbjoN
+Cj4gPiBBZGQgb3B0aW9uYWwgbmdwaW9zIGFuZCBncGlvLXJlc2VydmVkLXJhbmdlcyBwcm9wZXJ0
+eQ0KPiA+DQo+ID4gU2lnbmVkLW9mZi1ieTogSGFpYm8gQ2hlbiA8aGFpYm8uY2hlbkBueHAuY29t
+Pg0KPiBjb3VsZCB5b3UgcGxlYXNlIG1vdmUgdGhlIGJpbmRpbmcgY2hhbmdlcyBiZWZvcmUgdGhl
+IERUUyBjaGFuZ2VzLCB0byBhdm9pZA0KPiB0ZW1wb3JhcnkgRFQgYnVpbGQgd2FybmluZ3MuDQoN
+Ck9rYXksIHRoYW5rcyBmb3IgdGhpcyBzdWdnZXN0aW9uLg0KDQpSZWdhcmRzDQpIYWlibyBDaGVu
+DQo+IA0KPiBUaGFua3MNCj4gPiAtLS0NCj4gPiAgIERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
+aW5kaW5ncy9ncGlvL2dwaW8tdmY2MTAueWFtbCB8IDYgKysrKysrDQo+ID4gICAxIGZpbGUgY2hh
+bmdlZCwgNiBpbnNlcnRpb25zKCspDQo+ID4NCj4gPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlv
+bi9kZXZpY2V0cmVlL2JpbmRpbmdzL2dwaW8vZ3Bpby12ZjYxMC55YW1sDQo+ID4gYi9Eb2N1bWVu
+dGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZ3Bpby9ncGlvLXZmNjEwLnlhbWwNCj4gPiBpbmRl
+eA0KPiA+DQo+IDRmYjMyZTlhZWMwYTM0MWE1MDA4OGYzZTQzNTJlZDRkMzZmNjQ5ZDMuLjViOTgy
+Mjg0NjZjNjQxNGJlNjgxYzQ5NA0KPiAxN2JiDQo+ID4gZGQ4MmYyYzQ1NzU2IDEwMDY0NA0KPiA+
+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9ncGlvL2dwaW8tdmY2MTAu
+eWFtbA0KPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9ncGlvL2dw
+aW8tdmY2MTAueWFtbA0KPiA+IEBAIC03MCw2ICs3MCwxMiBAQCBwcm9wZXJ0aWVzOg0KPiA+ICAg
+ICAgIG1pbkl0ZW1zOiAxDQo+ID4gICAgICAgbWF4SXRlbXM6IDQNCj4gPg0KPiA+ICsgIGdwaW8t
+cmVzZXJ2ZWQtcmFuZ2VzOiB0cnVlDQo+ID4gKw0KPiA+ICsgIG5ncGlvczoNCj4gPiArICAgIG1p
+bmltdW06IDENCj4gPiArICAgIG1heGltdW06IDMyDQo+ID4gKw0KPiA+ICAgcGF0dGVyblByb3Bl
+cnRpZXM6DQo+ID4gICAgICJeListaG9nKC1bMC05XSspPyQiOg0KPiA+ICAgICAgIHR5cGU6IG9i
+amVjdA0KPiA+DQoNCg==
 
