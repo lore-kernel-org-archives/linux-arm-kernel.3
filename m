@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4987EC54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 22:16:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D130C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 22:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0KKxr0NhS0ebwaZO5bcBif23znaAXOSTxXvDT9vZo0g=; b=PBOrRm1Ywkuws8C2taxvr6hvGK
-	tymKa8IFxQm78vi/3SuxBRRexP8rBokT3iyW9jNsMaMVNAnAZuup2+2NfUjNmiPRkPtWNUBsbC/5G
-	990swVzWkJqsdsUuHC50lhfhQHPIWXv/1Jn12i9Kjrla081M+5F3jEabLQAW6cO3iVWohSjW4UR7x
-	8IEu4hQdbO/3vY3iyENDmtolyvbrWNU9VKWrxO6R540vxjyHKuk7hHaTS72vRpqJMKZYSFB5Qi/BL
-	vuOxEydAPZ6XjCMaIrBqDCfmZj6V44/Om+yvEYlSJlgsINyGVUL8Ub6tnJFCqDthgvYN1fhgHhjwM
-	2Epdbzww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8HKYrw1mX2rWYU9hhnTeFvSQNlJmWd9SuBazr4xA8xE=; b=oI44eAxQZVQsgw31GZC5mOlbwp
+	kq8AyI1kZZcfsPHsCitBO1X/DA0p/ouwrQf6WV2Dtf5cbLqJino137BAWh2nkQDxwkUK06PgJDiiJ
+	fTDbjl13qKCPeC5EFqrP24lRjkUXXFuUcomag9tR3jaC1L/oGlF3Qy1Xn0S3OT9FVPDz9ELfK+eau
+	lR8e30LmhJSsbq3zNhZEoIxV109v79ru4amtHvx6UngtmfwZ73YsJPexfqfV76e3KZJ5C5+f9k2NB
+	jaoVGZdrG0cHwp5tLxE/oD77DliGzP41Z84NGKQIsDwfy/5ckZfRM8XI0yFfXtSVU0r6duzXhHBYu
+	IajUyb5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHVGD-0000000EFVY-0suQ;
-	Tue, 20 May 2025 22:16:33 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1uHVLk-0000000EFqc-1Ozt;
+	Tue, 20 May 2025 22:22:16 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHVE3-0000000EFNP-2VQ4
+	id 1uHVJb-0000000EFhA-1sFv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 22:14:21 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-328114b26e1so26433621fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 15:14:19 -0700 (PDT)
+	Tue, 20 May 2025 22:20:04 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-30e9b2e7a34so3152748a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 15:20:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747779257; x=1748384057; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0KKxr0NhS0ebwaZO5bcBif23znaAXOSTxXvDT9vZo0g=;
-        b=RXWhPkzZWxXSNQN8joNQo3KZVZ749tu2XEvRiMF9jLFv47oQxVRVQKDv3QYmgm4Vg6
-         HF9vI44KI8SH6jZQgrWqeH46Anse0ej06xxyEuCnRrCjGfb3Nvz1HJ/DZfQiJOoEBCmS
-         70ujRmUH+1BpSV8sWJ/Tl8B9ewynhChothyOA6lH4+cInBqXJowY7NM9Zq8mXoOU2f0h
-         +tXpcHiQiwIqo+6iuTKYdpr0S6fj+Rw8gXyqodW7T/haDuUzdY+F/3FUOtj05LSwwZgm
-         Acxnz6WlPrM0Qgmbq+KbzDShhr6e8GVVopaqOU/92jb/L52Bx3O29GqTUhJaPZGm/iOy
-         qbbg==
+        d=google.com; s=20230601; t=1747779602; x=1748384402; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8HKYrw1mX2rWYU9hhnTeFvSQNlJmWd9SuBazr4xA8xE=;
+        b=OMdsPV+T8FYdq2vWl/mLrw7HmQDnv0NZO+sh2pqslx62NF4SfXiDMD4rnP/PMUY8XI
+         peCF8dMHpsAn4Mj/cZ8LLn2bSd581DMoH3BKsnn/7yVzwV9JVlysyWAfCzydnCvSmF/e
+         AbBOXxIKLr6upKpq160/XPJOPvvhCRHbxJv7H1VgFlb9/0lDPVl2E2c01f+dMiA/em78
+         PwbAvAcVwGgfM+D4P6lbdyNA+IVMvanbftUV0NuRQq5msum/qqc+mx6wvJmsC+p8A7XI
+         Tm1cG4z2X8tAfA6p1eZz1+KUr4P1TIfBfBQw7xE7oce1ai9FM4u+adGtJ7ZGmz9fJpvA
+         fceg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747779257; x=1748384057;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0KKxr0NhS0ebwaZO5bcBif23znaAXOSTxXvDT9vZo0g=;
-        b=UAYCrrf16QcKOrrDbgH+6x++Ui6DccrV9d0Q7Q7SdlQxu0sKjbRTJtnd4FngeDTO3F
-         nIJ312ZONGT3htLivbyQRnfnDWuGbS2x0k9GzTBd6ToV/viLhZuhdC/+4Qk1EAld/whF
-         I+u2NONIQqh6LMP5x4FNrzZE89D6fV/M+NGjn6x12bnGHXV8Zl0sF4xezWx+9ZB+mqHH
-         Gl/aSc7X4Qxbqqt9aPvEYXetM+bNWxYYFfv/668ZcDEthFA0lqr/dG0qRTmPn/Rd5vd5
-         8Pfj/vLOFKBUDBNmykYqT4kgImI95EVBr35GBcyTSrJq90ATeXq/v4u9l85oKvRJ808p
-         rQ8g==
-X-Forwarded-Encrypted: i=1; AJvYcCWqgm8EQTnITrGYl2LcqlHceu2QV+RQegW45nKZInSKEvqcxI63cIdtIAkQIHZ0ICtofnB5uMgD6DDm/EJdM/cY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzj6JeeLU9cxgQXyHlI/Jr5oX20+sB5RyM8mtlpP4nyowkxfC/z
-	nSo9nwmjnA2vX4ksjDGUHPFFG3zU9bfbrs62zH8LFzMIyJsuuL/eV1k56lMsCmXRViPbi9R4eFB
-	gPw1mKi16TLxR1GZ/mfkFFptz5VI+Yn3slY7h2jqvVw==
-X-Gm-Gg: ASbGnctEUdVT7YE/FKP+VFxg8WFRsDATJficTHIG6W3ZEx2SVacDpuCdGR1H5LwYjRm
-	3ZkvkhfqnBVG3combLpAD2EDPZBPEatlzeU+xbgTYee5SsUI2wkNgUd3ABmx21QQSyOJlgu+xPr
-	dSFc+1dz/YFmgaUAQ8KpmgvbUzCeokHYku
-X-Google-Smtp-Source: AGHT+IE2I9dkpHJtUzuV3F55HIcCy4H/0xE0bIT2P9EiCFLTqHbK469GeJi8kQXTq+VvjFFqjzVGAT63GH/fgS+P2nQ=
-X-Received: by 2002:a2e:bc1a:0:b0:318:7f36:da6f with SMTP id
- 38308e7fff4ca-3280974b19dmr60101281fa.26.1747779257574; Tue, 20 May 2025
- 15:14:17 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250520-gpio-dts-v3-0-04771c6cf325@nxp.com> <20250520-gpio-dts-v3-2-04771c6cf325@nxp.com>
- <f0017caf-8fd7-4046-ab7c-71c6560b7a95@gmx.net>
-In-Reply-To: <f0017caf-8fd7-4046-ab7c-71c6560b7a95@gmx.net>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 21 May 2025 00:14:06 +0200
-X-Gm-Features: AX0GCFujWmK7RjwxHirjq3655UF2TsXAVvYT5SDx5SrWKMcU6UcS_lP2iMrNx4c
-Message-ID: <CACRpkda1OKXnma11wKTrBsO_AAXrifVK8RDCKmufdHXBMmtMbQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] ARM: dts: add ngpios for vf610 compatible gpio controllers
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Haibo Chen <haibo.chen@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Stefan Agner <stefan@agner.ch>, Bartosz Golaszewski <brgl@bgdev.pl>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, peng.fan@nxp.com, 
-	conor@kernel.org, Frank Li <Frank.Li@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20230601; t=1747779602; x=1748384402;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8HKYrw1mX2rWYU9hhnTeFvSQNlJmWd9SuBazr4xA8xE=;
+        b=gPJnG/UXGB0xkP5uW6zqm4yMPD98PmLRgpDVQzm954or9HdtpuOy5RfVQK8LpRmuew
+         DMHED8ITDjL/vX7/S4Yz5X3cG1dk2NM2Dt1Y7NYlvyOaCyYzNzLwF8McSi7wJDutroQA
+         eRrElLPjUcPgOvNoQFQd2XgH6AxtCMDCNeSq5DORLXpqoW9/TZ8ibTSXGVp8NJAllNhI
+         zGFzS93UQMz1gtd30WoTgMTussO7ydhIIncfalkuwZGMw5qlXntc8n2Rb61w2bB2rynF
+         rn3oO62xWzmwKIDHWYVk6tXzIrnil4PTJ1fD+KBz4wlu5D0e6FgPZsR668fgjZYYEt8c
+         zgFw==
+X-Forwarded-Encrypted: i=1; AJvYcCVlDwmzlZdPHyc/kXpQ7Vmx52LSfBk4Ox/2QhHP6wSaDqSB9CVr7aOpCH7oIHV6PDJcE9MuM8DVSET4iF/RRilW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1JuUXPYlWY2pPOt5RZwcH3OjuU3w5WoBVR1kkUAhO0Q++aLPa
+	01UmdtdSqfEMAdjULhdalEbPX3RrHBVloicvCpYNiOXz9sH2PPplmGcU2yIuiaQxf2pDO7y7+QD
+	rysvHgQ==
+X-Google-Smtp-Source: AGHT+IGm0Qd18FrnDfhlG7/JjUl4lMpy15ihv5+w3UyMikyFwPD+eN8+5DcFhlZu44RxRjwOsuD2Z657iBM=
+X-Received: from pjoo5.prod.google.com ([2002:a17:90b:5825:b0:2fc:e37d:85dc])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5188:b0:305:5f28:2d5c
+ with SMTP id 98e67ed59e1d1-30e7d558d26mr28473120a91.15.1747779602268; Tue, 20
+ May 2025 15:20:02 -0700 (PDT)
+Date: Tue, 20 May 2025 15:20:00 -0700
+In-Reply-To: <20250520191816.GJ16434@noisy.programming.kicks-ass.net>
+Mime-Version: 1.0
+References: <20250519185514.2678456-1-seanjc@google.com> <20250519185514.2678456-9-seanjc@google.com>
+ <20250520191816.GJ16434@noisy.programming.kicks-ass.net>
+Message-ID: <aC0AEJX0FIMl9lDy@google.com>
+Subject: Re: [PATCH v2 08/12] sched/wait: Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority()
+From: Sean Christopherson <seanjc@google.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	David Matlack <dmatlack@google.com>, Juergen Gross <jgross@suse.com>, 
+	Stefano Stabellini <sstabellini@kernel.org>, 
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_151419_649212_9E2FF417 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250520_152003_490191_5BDAFE05 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,26 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 12:54=E2=80=AFPM Stefan Wahren <wahrenst@gmx.net> w=
-rote:
+On Tue, May 20, 2025, Peter Zijlstra wrote:
+> On Mon, May 19, 2025 at 11:55:10AM -0700, Sean Christopherson wrote:
+> > Drop the setting of WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() to
+> > differentiate it from add_wait_queue_priority_exclusive().  The one and
+> > only user add_wait_queue_priority(), Xen privcmd's irqfd_wakeup(),
+> > unconditionally returns '0', i.e. doesn't actually operate in exclusive
+> > mode.
+> 
+> I find:
+> 
+> drivers/hv/mshv_eventfd.c:      add_wait_queue_priority(wqh, &irqfd->irqfd_wait);
+> drivers/xen/privcmd.c:  add_wait_queue_priority(wqh, &kirqfd->wait);
+> 
+> I mean, it might still be true and all, but hyperv seems to also use
+> this now.
 
-> sorry for asking this dumb question: why do we need the redundant ngpio
-> property in case there is already gpio-ranges defined? AFAIU the last
-> cell already contains the necessary information. Or do I missed something=
-?
+Oh FFS, another "heavily inspired by KVM".  I should have bribed someone to take
+this series when I had the chance.  *sigh*
 
-Not all GPIOs on a gpio controller have to be present in
-a range.
+Unfortunately, the Hyper-V code does actually operate in exclusive mode.  Unless
+you have a better idea, I'll tweak the series to:
 
-The ranges can be multiple and have holes in them.
+  1. Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() and have the callers
+     explicitly set the flag, 
+  2. Add a patch to drop WQ_FLAG_EXCLUSIVE from Xen privcmd entirely.
+  3. Introduce add_wait_queue_priority_exclusive() and switch KVM to use it.
 
-The ranges are also optional.
+That has an added bonus of introducing the Xen change in a dedicated patch, i.e.
+is probably a sequence anyways.
 
-The fact that this DTS file, for this SoC and on this controller
-happens to have a range mapped right over all of the pins
-is merely a coinicidence and not a general rule of any kind,
-it just apophenia playing games on us.
-
-Yours,
-Linus Walleij
+Alternatively, I could rewrite the Hyper-V code a la the KVM changes, but I'm not
+feeling very charitable at the moment (the complete lack of documentation for
+their ioctl doesn't help).
 
