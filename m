@@ -4,167 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31913C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 23:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB80C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 23:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3y6kf6aOS8RC2LXRpAyZvCSolrqJwt6gbeedkJ510dU=; b=VrD5j4NCVJ9fVNhGr3Ms0iJclN
-	yIi16FO+lLxy0AFLYA9sBGCiHBusp5yaF37WspEJ1r1/Yyshbf2SP1kJJ0+YFZ4GnKkzebavRZo5j
-	lMzKW4Xage8MNwj9LVqIPEfrbkv/BDaYZWX2B44g9EDg0Ui3uOHmOqjFntgGvq+Os3qigFkShBt1w
-	U2FM22I35KbCuFtNEfWaRCxafIPh77Pk+pAZ0dIfpz440KQfO4/21BkcoF17Gq/pGHHDnCKHACPyj
-	slawAszeFhBw85QBB/qlFERXQeLpvt1FKzKaeueortdrpuNVcKeTM25an0w5F4QBWSbeYXCh8bPB1
-	qDHz7P0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cRuU/m5dc5FtJi/f3Rrw2anhfRohi0i8yf3iq1OlqJ0=; b=daDa4xcbiNGJ57Q9/XiAEjnOqn
+	x9nXZm3gU8bXeGHLJAP02ayaxFsgdKF/TiBFlKfGLLFRxLjEl7I1nfc1wzEp0S6/B8Sug/ZS4oeGL
+	hrC0fVT2NnxR8xE0ZqrffApq6IHEr7yCdqgJdUG1W/LQEDEkxeufFEyWqSMfZynkQV2YxNHezokEY
+	xOFwE266x8FJRaN4hv7P4KsUSecwu4q9hV26lARztriSaajC7vWRU+kHP3d5USTJGBnFd5NEU76za
+	bQUdnJ6d8jNzM4u94gmrSDOgBDBoqP6+uYLku2ll7GnMkF1mXjBPcvWA6f3+zTkkdzWIYY6rrCItf
+	g+QBuE5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHWUc-0000000ENcM-0AWB;
-	Tue, 20 May 2025 23:35:30 +0000
-Received: from mail-bn7nam10on20620.outbound.protection.outlook.com ([2a01:111:f403:2009::620] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1uHWaO-0000000EO4v-1cDz;
+	Tue, 20 May 2025 23:41:28 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHWSQ-0000000ENS6-2D6w;
-	Tue, 20 May 2025 23:33:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KQTwLsdhln7VyQOfUFKHPDycoNgCZzXxDp35Xepe7Yk0rjH2Ml24w8cezPvDbeuKeFNsEC0k+LiBBfrsy91PR6LEUyrUU1uMcMS3lyiDHbKKv6OPu7LljTvRAEVfKU1d+yoI+S80SIxUP50ChnBRwJVzJK7SsyrJVbdeyXy8e4k1LjKxtB05TkG2icvjZnSDLmL6+0zVnko7o6sbQpIXvBPnKV3nZBOPZrZVS0eYq5brmBAwb+vGYUbuLRVggxInQfqPzspdcJU8ms45AYRwhTe07dvldye3yMdToIknXk05VuOgq/bdEJDfB06YjmXy/bYjp8BMzUwXM39xOUqIDg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3y6kf6aOS8RC2LXRpAyZvCSolrqJwt6gbeedkJ510dU=;
- b=EykwqeWAwi3O+gL2AYnj0dbvSi48EnbB7mgIdQl/6P0d6pJtz9TAEkICad/LEqFUqf86iDssmSwTcGLssUMCU/vPssKjRxcH1zsv5Eq35m/s7cBfBEEZt2wHWQxfS1qCB0z/RA6ExVu1Wp3wfGf4HJ+RzWNQaxHUX6Cr0zYywPMXnOjQUQWxXzmvmV+1rjf1xHD46rlK9BkRHJsYOUQIL+IMk5txkeP2JPFqHlD1WviYFBgytASnipkes99GqhPnQw1wm3M8SRhhpsEm1grV4JKwqG7ydpQviJBpaeTVvSMxeDTat1Zyg+kYo+rFWIGhkLRPCUyQQAsAtcgWaaIMkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3y6kf6aOS8RC2LXRpAyZvCSolrqJwt6gbeedkJ510dU=;
- b=JKaanhsQ1pvnMHw+OhvCRAEtNsNDBn5xz8LSu3ebgyorNP3if4op/gzgeVnb9oRcvD1CfULXDQbDe+5dHJU5zGRz6B9lbgEOh/U1efUxqQ5SxuxD04Pfv5AKdNViDksdxPqo/8stlLlfv3He9NDVkvtZxWgN44GmlRYVWMUiygc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS0PR12MB6583.namprd12.prod.outlook.com (2603:10b6:8:d1::12) by
- MW5PR12MB5600.namprd12.prod.outlook.com (2603:10b6:303:195::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.31; Tue, 20 May
- 2025 23:32:50 +0000
-Received: from DS0PR12MB6583.namprd12.prod.outlook.com
- ([fe80::c8a9:4b0d:e1c7:aecb]) by DS0PR12MB6583.namprd12.prod.outlook.com
- ([fe80::c8a9:4b0d:e1c7:aecb%6]) with mapi id 15.20.8746.030; Tue, 20 May 2025
- 23:32:49 +0000
-Message-ID: <d2eef52b-8500-4858-96b4-1b95d533ec8c@amd.com>
-Date: Tue, 20 May 2025 16:32:47 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: ethernet: mtk_eth_soc: Correct spelling
-To: Simon Horman <horms@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- Sean Wang <sean.wang@mediatek.com>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250520-mtk-spell-v1-1-2b0d5b4a4528@kernel.org>
-Content-Language: en-US
-From: "Nelson, Shannon" <shannon.nelson@amd.com>
-In-Reply-To: <20250520-mtk-spell-v1-1-2b0d5b4a4528@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PH1PEPF000132E9.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:518:1::30) To DS0PR12MB6583.namprd12.prod.outlook.com
- (2603:10b6:8:d1::12)
+	id 1uHWYE-0000000ENpO-48Vt
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 May 2025 23:39:16 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-443d4bff5dfso222935e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 16:39:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1747784352; x=1748389152; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cRuU/m5dc5FtJi/f3Rrw2anhfRohi0i8yf3iq1OlqJ0=;
+        b=d/ylXy/NCiw1OoyzeEwgmVGqwVkW8Qe5gLOd+fL7qkSal606obg6Ow87kAmTbR69vB
+         ypLmhSvxC4sRjIqNpOhPgZk5QhdH3LUaQc5atrlDEe8Wg2xVLBHZLtc2EdEnuINOYzRt
+         tZxUXY2MmTEz3KVJkz5bkQKUCiF1PmbNzcJMQ8P+wx6WnUCvFPUvNgWi6T7Y40oYK0fP
+         4cfuBDTWEHmwl1mJOMKtgYj73kiG12xDp7gLzjrDq74uxnpVi8gg/Unsh3iH/lkirmIL
+         aoGniBALhY5ZraiYYaGyqcplkktksDiXhSfh5JMv+jdsUE3ryKaZhq30rwSEiVEiZ+Aa
+         1XQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747784352; x=1748389152;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cRuU/m5dc5FtJi/f3Rrw2anhfRohi0i8yf3iq1OlqJ0=;
+        b=ZvQ2wTlA1Z/8KH3USkXpTiKBGmSVvdfKKLoDykoNRSgGGS5XCGtW7LUgH4FaA5hV9x
+         QnBkriQx4DIuYJiEAKf9+8C1KmFNJdGDsqwZYQJYOvqk+3cFlwnOCRujCAIaWAZiH6o8
+         VG1zd/swTGiwakSWwzXQ+wcfjdmN6EDXGd5S/s94R9EtbFDaOHQ5U8TWQCdsDTKP3UR7
+         K9Seg99KHVyjVcUeuSs+ChftinDYGbMEZQZXzQH4Mp+Gq/hzAMsUcugGId4qCpyNlqm0
+         HyWeQx/KYbiOa7wcGq3a9PMacGz0c0NW1ASy4MnwanZpPTrE/tOwWhvmED8cTizfsftx
+         OR+g==
+X-Forwarded-Encrypted: i=1; AJvYcCV2A6NiyOTvryWLfWYP1yNqi8LlaEhraBis13u3vPQzxu+jM83SY2BKFTJ1caVvkNc3UP3Euv/EltYAm80HPSbT@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywx546sXO/Oc9G0CyeoGp+BsNn8VcRvRYJ0sDFmvsPJUwR/ia+b
+	wQtBS1yYXjlGxMgc3BJA12Nu/knnPvfZArZM6tk0G1gqhtC5QbzEVEYg4LmENLcr/Ha00ZN2saZ
+	CZoDuKqMEBexol0yyVZDtfvqSSsuzyMKkww/+8EuK
+X-Gm-Gg: ASbGncvb3068O232Ts2bd2iGrRsy8foZ4oZl74eJ+NshOHZYSWg0F8NDj+s0wEW5NrP
+	p4HzzGRC0aOL+jVlWwmPpspTKjPgivpgtYWAbEbqOJG+goT/aCaYdl6YhjATvsFa3PEIehY+syJ
+	h8Oaki8WhC9oI3ZJi4KlnO+23ySxIpq0ssUYkqMCTKkJqIVzLbrQfoYwuTdu8ioZLRR68zfqRt
+X-Google-Smtp-Source: AGHT+IEmTo+oS9URXfIuKouUY0B0Y62o5TMKaVmZC8slqtUcsFC1AZMBLwucs8WQvvTTsv5lG6xeERtZDgSchwhBuX8=
+X-Received: by 2002:a05:600c:2e49:b0:439:961d:fc7d with SMTP id
+ 5b1f17b1804b1-443ae3dbdfdmr4250875e9.6.1747784352208; Tue, 20 May 2025
+ 16:39:12 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB6583:EE_|MW5PR12MB5600:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4967730a-c41b-44c7-f1f1-08dd97f6a240
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NFdpaUxadm5qcXkrb2xYSVJSM25OTTljSnBpN01Zc05YS281dXRVV1BRSXlm?=
- =?utf-8?B?ZGtESitONzVuZ0JxVmhMU3RQNkRTalVtYjgxeTZkWnp2SVo5SzlFV0RESUdS?=
- =?utf-8?B?dTlaTWhBSHZwbHpTb1VWRjFLYXlQOTJqY1NYMy9EZm9QUDZ1S0VHOWVaL24y?=
- =?utf-8?B?RGVnbjJBZndKbWxBOGYxdlVjTmRGYzd0dlJXeWxKL0FDaEFLV2doOW4rT2FG?=
- =?utf-8?B?WVNxK2pCeGFRd1ZxVExDd3hpaDlWOHIrRk0yRzNQS0RpSVlnWURXd0xnUUZp?=
- =?utf-8?B?RURhMWFyenJjYzlYeGJHbjdNaTVhbDBvNnMvUVczNFJxYklEMXN2emkwKzVL?=
- =?utf-8?B?TlA0amRWVExyNGF2aWpzRkI2cm1UaExGOUgybDJ5aklLa1RtNVdZc1M4MXRq?=
- =?utf-8?B?V1lBbmVQT0NBdzQrR2NpY2lHSmF2dGVVd0h0OGhQNnJZU0phTkh6ZGU0M2Fl?=
- =?utf-8?B?SWl0MmpMZlgyZnhaZ3drRlRqQkVxZE1HWlJTRmJPSVlzWWY3Rm1kY2FtYTE3?=
- =?utf-8?B?QmNBblNQVFNQck9JOXZabGEva2hGakJjMUdDemhYUFdLWEV0QjJXdnJGY29i?=
- =?utf-8?B?VUJJMk5paWU1TWxBZm9EM0JqZlkwQzVZSmlBK0dPL1pXZ1BaMmpzV1FmM1lm?=
- =?utf-8?B?QlBLNk1oWHlaYU1MNUh0K0ZreTJUZnkxWUozeStXTHNyTUc3WmpSaEZXVk5B?=
- =?utf-8?B?WERWSWNXbW5oSWcwUzdUeWFGUVJrZHQvOFBEY3VPY0V3QjBUdWYra01naEZK?=
- =?utf-8?B?RXVFaHpsU051NVNHZjdzYVpHSnBvSXJTWnNHcEdzWUFzSU9QNmJFUWRQWm00?=
- =?utf-8?B?cnV4cmZJWENxYS9DdUNTS21YaXdkUGxJcGZUa21PbHYxYVArZFUyN3d2MEVm?=
- =?utf-8?B?UTlybjhicVg0SE5tNWRRQ1JKV2M1T05jSG1RNDNyQnoxQU92QTZMRWhSSDdF?=
- =?utf-8?B?RmtZNUloTTQ2dm92NGtsdUszd2c1dUNyTmF6dThzTUNKOS9ZTkFlUjBzZ0RX?=
- =?utf-8?B?b1l1L2FyaTJja1p2K1dKQ1IzcE5TbnlhZGVzVGZyOGY4Nkx4Vm1MQ3ZKQVZS?=
- =?utf-8?B?TWo2TzNUN1dRTUZBSmxZbnRMWEthbW5vdmU3dndsZVZKV2pNYVRWRU1VeHQz?=
- =?utf-8?B?emtUVEcrWWhLS3ljU2Uvb3lqanJVRk1rZGJZWWVTcDAvbFVQNXhROVlheXZT?=
- =?utf-8?B?QXhPZjY0Ty8wKy8wRXpYNk5md1ZlZ0RQRi9haDE5QXZ3M05xR1JWQ3N3RExL?=
- =?utf-8?B?RmJQRUZMVzNrMjZPMEdxRnZjTmdyQjRSRGF4QktSK09qYmJ0eTNPbXlPZjFt?=
- =?utf-8?B?R3JxZzEvRlFBWUwrWkQrclFNK0tNMFBOang1ZndiL01xeFhZY3VBMmN6Z2Zo?=
- =?utf-8?B?TkdPN1pFYzNsWUZsdDdlajA5UTNhVEd5aHQ1K2Nva3lTcm5UbWRLd3hBMzBp?=
- =?utf-8?B?NXQ3Tlp0Tzdnd3Ixc0s5YXdGWTR0NDd6RmZscy90NkMxdVhJZEJXbi9OaWk3?=
- =?utf-8?B?ZWtlck9TTFVoRkJLTytDT1F4Z2ZWNHFZWkxoRzJYMS9CUm94M3F4OXlIVXhq?=
- =?utf-8?B?V0dyRlZsL2YrbVdFalFkSzJ4YTczN2NnVFNNcHNPRDhYSVNyZmQyTjZoQ2dT?=
- =?utf-8?B?QVZ2Mnp3VW9VUWhiSnZnZDNrZ2FuQXZJTTl4OXJ5SVAxMVFhUmllM3BFVzdD?=
- =?utf-8?B?MXNSbkloZWtMQzh0YmcvdVF0K3luUm1XM0JZTEovVjJmd00zVlBydmpFYVk3?=
- =?utf-8?B?MGoxR09YRTJnUlFpbWdtZnVQMUR3aWIyT1VOSGlEb2RvUHFUUE1qazRob1Ji?=
- =?utf-8?B?OUZtaTVRVVlGTTlBUkNDUG9hN1lQM2dwUkVIbFprVVhqeXYzWGxLZkE0a2Yw?=
- =?utf-8?B?b29VTnJKaEx1bVo2ZkpMWkt2T2c4L0VRRndtMGlhdzBGSTFKUE9TYitycG5K?=
- =?utf-8?Q?vN1L4IW/hBE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6583.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b1RrV0lsTjRpOHBja1MwY3NtL1NqN29xUzk5VzhQdVR2SEdza0FJSTZVY2Fw?=
- =?utf-8?B?dm01WmxuWDRicm83UUlwYkxHVXZ1a1JqM1lqV3FKdUo1elVkeXB6VU10TlRq?=
- =?utf-8?B?bFlUQ2UxeEcrYjhqTzhTYlFjdGVzZEhPaUtyQUxuS3MvSHNVMCszZUt4ZXVa?=
- =?utf-8?B?cHYzNWN2MStsVHBjTU9tckpWdW1RTUVXaVIxWldQcFBxUmpNVitYTVYzMzl1?=
- =?utf-8?B?MTFOeFR0aEIrRjlaQ3ZjQ0hiVFMwQjF6U2MvbmZjOTFCUjdTUjRNZW9MUTZX?=
- =?utf-8?B?ZEEya0o3T1M1MXFmQUJuMTM5NXZDdVZUS21PcjZiZEVxMTBGMUVsdlV0N1pR?=
- =?utf-8?B?WEpBOHYzampBU0lhQis3VnFvV0hwZGxOSEpXcTR4d2JpNVV1eGhHS0ZVUjJN?=
- =?utf-8?B?aTExSGJVYXB6VnB2Ti9wUVhmUysrVW5yK3JCZ2VRa0NTcmRyYTNDOXBJdEJy?=
- =?utf-8?B?R1Fzc2d5aFBENFBBdE5PbnJyYkNiTWViUjFDY2VtcVJ2YjNHYmRjWWNGTVlv?=
- =?utf-8?B?SjdTRVBWM2Y2SDJucEdGMi9TSk4vbFRVVnNKN29QYSsxdUxSK2VqMlZraTdO?=
- =?utf-8?B?eks2bWc3Nk5iRHpXV1VJMlFyWUMxVE5vbFpXaGpIblVjQXY5ZDVSbWdFU0ZW?=
- =?utf-8?B?NzlldFlYUGMwT3VjQy9rTHRGc3hTbWVva3JocUxXSXovRXZGKzhDK0dEeVJu?=
- =?utf-8?B?aHJjUXNJNHBPWXFGUnAyTFZkVmVCUU96VDlGNy9kVkV5SGFyU0lxT3FzZkpQ?=
- =?utf-8?B?eDFDVm9NSEliNGphNEplUFdwaVdXVFVBK25vOE11YlpwYllhS3F0L1NoM2ky?=
- =?utf-8?B?cngvRU1SaFV0dWFzc1dQZTREOE5rUVFJeXVIb2VsSTlndHZqM0ZJWTJvdWk5?=
- =?utf-8?B?QXpyUEplemdOSGpPTCtQdXp1S1hCVHYvZkk4bzNla2NPSFdpOHl3VzEyeENW?=
- =?utf-8?B?TFJwMS9lRnEwME9iNEM1UVF3blVCSnQ4OWhpVkZNcXV4bFJjVlBjaEZlQjJM?=
- =?utf-8?B?b2plZzBsSkpPNDdxTWRMT0hTQnQ0Y1BKcjlMSm5SNi9MVWdQUnJlUE85S2ZL?=
- =?utf-8?B?TVFlU2RacUcvRWtrWFd1WC9MOVZHTGkxckVuS2xuYncyTC9TaGdsMVAzejk3?=
- =?utf-8?B?cjVKUU5UUjMzUUR1K2FYTWZtOVd3bnBpOFp5ZndBSkZxRmYwRGNmQ3pVMnJ6?=
- =?utf-8?B?Ni9LQkJ6SWd2MmlhU0hMK2owYmd6dEU0N3dQQ3k3aFpneWswaWdLWGZpVnVZ?=
- =?utf-8?B?MFFOcUpRSm9mTUtlMWhPQ1MvWS9aVHExL0VsV01NTDQzS2pobzJsN3ArQUtj?=
- =?utf-8?B?YnRDR0lRMU9ya2ptenpJZnBXbkNqczBXYzMwelZDWkxxT09oUlFqOWpycVNm?=
- =?utf-8?B?MGdFaUxiam40ZnpSbnVyRGRQalh5YXV0ejVkSlR2cG4zdnlJb1l6OXN3MW9G?=
- =?utf-8?B?TmJEWHRnNEJLTDB2azRWYVdGSEFTUUJpYU4rbHVZZDBMRjlzVnRRYlpaaGlz?=
- =?utf-8?B?L0czLzg4b3lDMXYweEFIOHBKWFhFaDVFUDhWcXE0OC80VkR3bG9JVUphOTFY?=
- =?utf-8?B?Q2MrTmNLQTJlekQwdmhTTEZQNmh2WU45RFkxb0ExMnIrejVmTkVxM2hrSVVS?=
- =?utf-8?B?UWZ3ejR4ZFc4S3pIUE8vOTk1ZzYvSkMrN2dvQ1Y2TlpRNkQxQS9uZktNdzlG?=
- =?utf-8?B?MjByQUVMYzFscTdYclEyNFJ1Q3lWK3Rvc3FlWlZENHllOE1qU25URFBtQnQv?=
- =?utf-8?B?REc2NnhzZXBxSnIyM2pJeGI0KzBYcXJkZys5VFI3U2FHeUxNNFFZZjg0UGtR?=
- =?utf-8?B?eE5ROEZmdHFBNlJwL1JqdVVjNFVacFZNdEZ6SjhMc1Y5NnZSZFE3SkQwYmIv?=
- =?utf-8?B?akR1ZTVPV2h3RWFuZXNjdWQ4K0hocXUvWXR4d2puaVJ5QkVYUTAwWll2NGpn?=
- =?utf-8?B?b1BMekVOdkJ6ZHZXbStXNnhCc1RsYUxTNWNuMGkweG5oNi83WndBS2Nmc3Fv?=
- =?utf-8?B?UzlOYTJQelNLNGlvc2cwZWtHcmVjd0YvTDBBVWdIUU1oSlFQVzNKSzZQTjBz?=
- =?utf-8?B?TnJrMzdxWENMZ0hTejBaMlk3MHduVDNUdHlOMDVsQzk0L0ZrKzZ2ZTQ3WlFu?=
- =?utf-8?Q?/zk2wIddXjPxhMOUhTa+6XX7B?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4967730a-c41b-44c7-f1f1-08dd97f6a240
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6583.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2025 23:32:49.8659
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iuvnrFXjaQrW9Qcx3Cm2RiUEjqDhYzN1CTAXa4eX91n4Zyr3ymk+p6m0yhXl9odHjNjrYmx+386qj8CiR8qm4w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR12MB5600
+References: <20250505161412.1926643-1-jiaqiyan@google.com> <20250505161412.1926643-3-jiaqiyan@google.com>
+ <86zffcefk9.wl-maz@kernel.org>
+In-Reply-To: <86zffcefk9.wl-maz@kernel.org>
+From: Jiaqi Yan <jiaqiyan@google.com>
+Date: Tue, 20 May 2025 16:39:00 -0700
+X-Gm-Features: AX0GCFtfiDim2rVM9--MtRE7iY2zI_cJEhnOXz73-OdjqCpU57FjKEAM9M0zDCo
+Message-ID: <CACw3F52v_WSR=HkmeW7be+YRFkUzA-n-=mVHHw4wvJK7ongkYQ@mail.gmail.com>
+Subject: Re: [PATCH v1 2/6] KVM: arm64: Set FnV for VCPU when FAR_EL2 is invalid
+To: Marc Zyngier <maz@kernel.org>
+Cc: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, duenwen@google.com, rananta@google.com, 
+	jthoughton@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_163314_564497_8D05753B 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20250520_163915_025571_B8D031D0 
+X-CRM114-Status: GOOD (  30.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,68 +100,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/20/2025 7:33 AM, Simon Horman wrote:
-> 
-> Correct spelling of platforms, various, and initial.
-> As flagged by codespell.
-> 
-> Signed-off-by: Simon Horman <horms@kernel.org>
+On Fri, May 16, 2025 at 8:33=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
+:
+>
+> On Mon, 05 May 2025 17:14:08 +0100,
+> Jiaqi Yan <jiaqiyan@google.com> wrote:
+> >
+> > Certain microarchitectures (e.g. Neoverse V2) do not keep track of
+> > the faulting address for a memory load that consumes poisoned data
+> > and results in a synchronous external abort (SEA). This means the
+> > faulting guest physical address is unavailable when KVM handles such
 
-Thanks,
+Actually this is not relevant to the code, I think it is just
+sufficient to say "This means that FAR_EL2 holds a garbage value and
+therefore kvm_vcpu_get_hfar holds a garbage value too".
 
-Reviewed-by: Shannon Nelson <shannon.nelson@amd.com>
+> > SEA in EL2, and FAR_EL2 just holds a garbage value.
+>
+> I don't understand. FAR_ELx holds a *virtual* address, and never a
+> physical address (that'd be PFAR_ELx).
+
+Sorry my writing is misleading. If you are still interested, the
+scenario I meant to describe is
+1. There is a SEA taken by KVM when memory load from the guest
+consumes poisoned data.
+2. The guest physical address (or IPA) of the poisoned data will not
+be available in HPFAR_EL2 per architecture register documentation [1].
+3. Although HPFAR_EL2 is unusable, KVM can still attempt address
+translation with the guest virtual address in FAR_EL2 to get the
+poisoned IPA.
+4. However, FAR_EL2 is not valid on certain microarchitectures (e.g.
+Neoverse V2), so in the end it is just impossible for KVM to know the
+poisoned IPA.
+
+Does this clarify things? But again, it is confusing and will be removed.
+
+[1] https://developer.arm.com/documentation/ddi0601/2025-03/AArch64-Registe=
+rs/HPFAR-EL2--Hypervisor-IPA-Fault-Address-Register?lang=3Den
 
 
-> ---
->   drivers/net/ethernet/mediatek/mtk_eth_soc.h | 4 ++--
->   drivers/net/ethernet/mediatek/mtk_wed.c     | 4 ++--
->   2 files changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-> index 2d4b9964d3db..6f72a8c8ae1e 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-> @@ -1178,7 +1178,7 @@ struct mtk_reg_map {
->   };
-> 
->   /* struct mtk_eth_data -       This is the structure holding all differences
-> - *                             among various plaforms
-> + *                             among various platforms
->    * @reg_map                    Soc register map.
->    * @ana_rgc3:                   The offset for register ANA_RGC3 related to
->    *                             sgmiisys syscon
-> @@ -1278,7 +1278,7 @@ struct mtk_soc_data {
->    * @mii_bus:           If there is a bus we need to create an instance for it
->    * @pending_work:      The workqueue used to reset the dma ring
->    * @state:             Initialization and runtime state of the device
-> - * @soc:               Holding specific data among vaious SoCs
-> + * @soc:               Holding specific data among various SoCs
->    */
-> 
->   struct mtk_eth {
-> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
-> index e212a4ba9275..351dd152f4f3 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_wed.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-> @@ -2000,7 +2000,7 @@ mtk_wed_configure_irq(struct mtk_wed_device *dev, u32 irq_mask)
->                  if (mtk_wed_is_v3_or_greater(dev->hw))
->                          wed_set(dev, MTK_WED_CTRL, MTK_WED_CTRL_TX_TKID_ALI_EN);
-> 
-> -               /* initail tx interrupt trigger */
-> +               /* initial tx interrupt trigger */
->                  wed_w32(dev, MTK_WED_WPDMA_INT_CTRL_TX,
->                          MTK_WED_WPDMA_INT_CTRL_TX0_DONE_EN |
->                          MTK_WED_WPDMA_INT_CTRL_TX0_DONE_CLR |
-> @@ -2011,7 +2011,7 @@ mtk_wed_configure_irq(struct mtk_wed_device *dev, u32 irq_mask)
->                          FIELD_PREP(MTK_WED_WPDMA_INT_CTRL_TX1_DONE_TRIG,
->                                     dev->wlan.tx_tbit[1]));
-> 
-> -               /* initail txfree interrupt trigger */
-> +               /* initial txfree interrupt trigger */
->                  wed_w32(dev, MTK_WED_WPDMA_INT_CTRL_TX_FREE,
->                          MTK_WED_WPDMA_INT_CTRL_TX_FREE_DONE_EN |
->                          MTK_WED_WPDMA_INT_CTRL_TX_FREE_DONE_CLR |
-> 
-> 
+>
+> >
+> > In case VMM later asks KVM to synchronously inject a SEA into the
+> > guest, KVM should set FnV bit
+> > - in VCPU's ESR_EL1 to let guest kernel know that FAR_EL1 is invalid
+> >   and holds garbage value
+> > - in VCPU's ESR_EL2 to let nested virtualization know that FAR_EL2
+> >   is invalid and holds garbage value
+> >
+> > Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+> > ---
+> >  arch/arm64/kvm/inject_fault.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >
+> > diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_faul=
+t.c
+> > index a640e839848e6..b4f9a09952ead 100644
+> > --- a/arch/arm64/kvm/inject_fault.c
+> > +++ b/arch/arm64/kvm/inject_fault.c
+> > @@ -81,6 +81,9 @@ static void inject_abt64(struct kvm_vcpu *vcpu, bool =
+is_iabt, unsigned long addr
+> >       if (!is_iabt)
+> >               esr |=3D ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT;
+> >
+> > +     if (!kvm_vcpu_sea_far_valid(vcpu))
+> > +             esr |=3D ESR_ELx_FnV;
+> > +
+>
+> I don't understand what this has anything to do with the uarch details
+> you talk about in the commit message. If the VMM inject an exception,
+> surely it has populated the exception context itself. I don't even see
+> how we'd end-up here (__kvm_arm_vcpu_set_events? seems unlikely).
+>
 
+KVM_SET_VCPU_EVENTS is indeed the case this commit wants to fix.
+Instead of populating the exception registers itself, VMM can use
+KVM_SET_VCPU_EVENTS to let KVM do that per existing KVM doc [2], e.g.
+when VMM handles the KVM_EXIT_ARM_SEA introduced in the previous
+commit. The intent is to tell guest, for example, to not use FAR_EL1.
+
+[2] https://www.kernel.org/doc/html/v5.10/virt/kvm/api.html#id3
+
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
