@@ -4,72 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BE6C54799
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED4DC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IjZMD2eULGDwifJ6Eg5o2azP2kaC3eB2jYmU3yHnbXU=; b=jw/aFqd9pP7SKBmVAvtJGLVTgk
-	C5fTmoI8ugGqdktkiNVNy18P/Fp+2XPMH1TG5Pqf5aMBgNc05VSOU61nuyxMa04x9Y91RTEb+kAhv
-	hdP84AtxO8Q4bS/rzbkqLiwkwC3M46brLoMykxZYOwVLrzQAnUhk2T8h3nv6G8y8Zg7JwFhECsuIe
-	DACczy7TqT8djOlqROV/DAZaXWNtgiKGDklSV8gDKQZNDUq5+B9KAizACaqxGTWtQ8nFBLciIHF5V
-	tnfNiH0jUeFd1O0vCdcdxkCzm3j7i9jfBOcxO2huRI9v+9r+5pnHZi5HnUysCj7lt4TOxHy2WmNXi
-	pScEYhIw==;
+	bh=TT2xkWfmRv0GSyyjB8NHPoKAs97BDlbBMy3S8w3PonU=; b=X4TYu2I+pcvlHiWIKIB0KXMD70
+	vYnYZMGPM8XVJVUi6RwL+S1jDXgU4ZJjnyqQzMnL7VhSZwYArVMcJsFG0CKwsMvkn/ZOwgblIu2vW
+	r/7petwDSkeBY/zb2eLcm6B1ra7ehxqLnKKTPGP7Tm5gu3cI8hlE0u9B5eIFiy3M7dO2WKIY9mAp2
+	5iTOT4C9BEEzKDSo857PxrqYsOiZw/fHeYNYGCRXXgIpO0lEhnLLoBxawxR1gk+c+FLLfcMlyEY+x
+	3tZF/HoRZ6+tVLCLuJjGaj2uh6VpAlWGkERXIPhjg03dADDEnqjjhoBWBWjoXo7YW/Q9G/pVImuIN
+	diRHzY3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHKvZ-0000000CZxD-1aAM;
-	Tue, 20 May 2025 11:14:33 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uHKxe-0000000Cavj-3QKT;
+	Tue, 20 May 2025 11:16:42 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHKZ1-0000000CSKP-3VPH
+	id 1uHKcd-0000000CSre-40kK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 10:51:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1747738274;
- bh=IjZMD2eULGDwifJ6Eg5o2azP2kaC3eB2jYmU3yHnbXU=;
- b=lwMF1BHhGUaiZGNdahHOMDXdD/YEeEIUfzLu8ar2HT91SU2wGpYhJxZNAGcqMk5GNKKtHOz2F
- AVc8XGobUPFGvUoM5+sH92vEaOemxcrQj6m/t4rmHJuW7crfvDXURg8VtBBGmiftaj2C9S8mVek
- 02Cr5XdHjO2EvbDqeMRVO+xJtaoBXHq4HBJNyPjOFp0xZlg+Q7H7IbLaDX/C3pkEzTmUMOdUDzL
- SyjV2h26yth3oj5naqE8rFxKQJpjpBAslSU/vqAWYAti+k8+RaX0hCruWBtfDaNHEm97+TUAJI4
- zewbjeUG4XN+Fe96yqaUB4N0YlmPwhzq4vws5Ns5ORfg==
-X-Forward-Email-ID: 682c5e9c356c24cb84e6ffc4
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.0.3
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <28b03818-0290-412a-8d1e-9b88a163d387@kwiboo.se>
-Date: Tue, 20 May 2025 12:51:03 +0200
+	Tue, 20 May 2025 10:55:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1747738492; x=1748343292; i=wahrenst@gmx.net;
+	bh=TT2xkWfmRv0GSyyjB8NHPoKAs97BDlbBMy3S8w3PonU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=f5OtOc+hn1NjVYTN+ZPwGD2Qy/qnFTYq14Ld6LmqvIIQK5nDltkEg7zrL8AAhlQt
+	 JKnRLbANzffZRjaSCQaSa0tyjdkba703usKpOuUecBHXBurPuPymcay1bpV0RtQzE
+	 UVR53BcwfU/kx2sbKCPmOXy3k1dbBeENVJHvbd74vO6/mSj21Y56FWMg05Mm+6fe+
+	 P2XYFV9wRAiVn6zX07tpXc6ehjqv5so99Y6MioH7YaGEAuIkjz7xg3zMiRYz1OQM/
+	 tQGIV5fo9VhqyyodCcEDFiqQQej2vcTcx0MU13EjLLi21YJ5sd9XttFhhIil0vlYk
+	 WuDD9Mv3mvn+oZNhkA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MRTRH-1ucPhm3Cwn-00O2G5; Tue, 20
+ May 2025 12:54:51 +0200
+Message-ID: <f0017caf-8fd7-4046-ab7c-71c6560b7a95@gmx.net>
+Date: Tue, 20 May 2025 12:54:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add spi nodes for RK3528
-To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
-Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
- Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>
-References: <20250520100102.1226725-1-amadeus@jmu.edu.cn>
- <20250520100102.1226725-3-amadeus@jmu.edu.cn>
+Subject: Re: [PATCH v3 2/3] ARM: dts: add ngpios for vf610 compatible gpio
+ controllers
+To: Haibo Chen <haibo.chen@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Stefan Agner <stefan@agner.ch>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, peng.fan@nxp.com, conor@kernel.org,
+ Frank Li <Frank.Li@nxp.com>
+References: <20250520-gpio-dts-v3-0-04771c6cf325@nxp.com>
+ <20250520-gpio-dts-v3-2-04771c6cf325@nxp.com>
 Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250520100102.1226725-3-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250520-gpio-dts-v3-2-04771c6cf325@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:xrkl7NJAqZnlTaTEnX/cpkGwTW+zKvSKuh/hDiAPK7+MOCaf2yi
+ 1LSOS8uyvmobKOQO4SbcnnT2r6QgfpWyxp+PllMX8Oh98+98AMlHVGYF8t37PPv/twH0Yhb
+ aYpgIdqZw0RWW50rnjO87u6w/9vC4NDNMH1cxFFq/HynPB+bN1dKvao5Q28BVKNO4KgKzvo
+ ZFSgwTWU9lIullCEOTZNw==
+UI-OutboundReport: notjunk:1;M01:P0:ssFXhHaeEuM=;Gx4eRypxVFkb9GRqF9fl4ZVUEQu
+ 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
+ 1XEpMxhRDAL0s2dT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_035116_274561_098759F0 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20250520_035500_306530_FD6A964A 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,68 +146,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-05-20 12:01, Chukun Pan wrote:
-> There are 2 SPI controllers on the RK3528 SoC, describe it.
-> 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+Hi,
+
+Am 20.05.25 um 05:46 schrieb Haibo Chen:
+> After commit da5dd31efd24 ("gpio: vf610: Switch to gpio-mmio"),
+> the vf610 GPIO driver no longer uses the static number 32 for
+> gc->ngpio. This allows users to configure the number of GPIOs
+> per port.
+>
+> And some gpio controllers did have less pads. So add 'ngpios' here,
+> this can save some memory when request bitmap, and also show user
+> more accurate information when use gpio tools.
+sorry for asking this dumb question: why do we need the redundant ngpio=20
+property in case there is already gpio-ranges defined? AFAIU the last=20
+cell already contains the necessary information. Or do I missed something?
+
+Best regards
+>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 28 ++++++++++++++++++++++++
->  1 file changed, 28 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> index b2724c969a76..4d60c09219f9 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> @@ -371,6 +371,34 @@ ioc_grf: syscon@ff540000 {
->  			reg = <0x0 0xff540000 0x0 0x40000>;
->  		};
->  
-> +		spi0: spi@ff9c0000 {
-> +			compatible = "rockchip,rk3528-spi",
-> +				     "rockchip,rk3066-spi";
-> +			reg = <0x0 0xff9c0000 0x0 0x1000>;
-> +			clocks = <&cru CLK_SPI0>, <&cru PCLK_SPI0>;
-> +			clock-names = "spiclk", "apb_pclk";
-> +			interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
-> +			dmas = <&dmac 25>, <&dmac 24>;
-> +			dma-names = "tx", "rx";
-
-This is missing power-domains after "rockchip: Add power controller
-support for RK3528" [1], spi0 depend on pclk_rkvenc_root:
-
-	power-domains = <&power RK3528_PD_RKVENC>;
-
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
-> +		spi1: spi@ff9d0000 {
-> +			compatible = "rockchip,rk3528-spi",
-> +				     "rockchip,rk3066-spi";
-> +			reg = <0x0 0xff9d0000 0x0 0x1000>;
-> +			clocks = <&cru CLK_SPI1>, <&cru PCLK_SPI1>;
-> +			clock-names = "spiclk", "apb_pclk";
-> +			interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
-> +			dmas = <&dmac 31>, <&dmac 30>;
-> +			dma-names = "tx", "rx";
-
-Same here, spi1 depend on pclk_vpu_root:
-
-	power-domains = <&power RK3528_PD_VPU>;
-
-[1] https://lore.kernel.org/r/20250518220707.669515-1-jonas@kwiboo.se
-
-Regards,
-Jonas
-
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
->  		uart0: serial@ff9f0000 {
->  			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
->  			reg = <0x0 0xff9f0000 0x0 0x100>;
+>   arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi | 4 ++++
+>   arch/arm/boot/dts/nxp/vf/vfxxx.dtsi    | 5 +++++
+>   2 files changed, 9 insertions(+)
+>
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi b/arch/arm/boot/dts/=
+nxp/imx/imx7ulp.dtsi
+> index 3c6ef7bfba60986b797bb01b843830d364c96d45..880b9a4f32b0846a773dbf9a=
+d30715c84ac2fda6 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
+> +++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
+> @@ -399,6 +399,7 @@ gpio_ptc: gpio@40ae0000 {
+>   				 <&pcc3 IMX7ULP_CLK_PCTLC>;
+>   			clock-names =3D "gpio", "port";
+>   			gpio-ranges =3D <&iomuxc1 0 0 20>;
+> +			ngpios =3D <20>;
+>   		};
+>  =20
+>   		gpio_ptd: gpio@40af0000 {
+> @@ -413,6 +414,7 @@ gpio_ptd: gpio@40af0000 {
+>   				 <&pcc3 IMX7ULP_CLK_PCTLD>;
+>   			clock-names =3D "gpio", "port";
+>   			gpio-ranges =3D <&iomuxc1 0 32 12>;
+> +			ngpios =3D <12>;
+>   		};
+>  =20
+>   		gpio_pte: gpio@40b00000 {
+> @@ -427,6 +429,7 @@ gpio_pte: gpio@40b00000 {
+>   				 <&pcc3 IMX7ULP_CLK_PCTLE>;
+>   			clock-names =3D "gpio", "port";
+>   			gpio-ranges =3D <&iomuxc1 0 64 16>;
+> +			ngpios =3D <16>;
+>   		};
+>  =20
+>   		gpio_ptf: gpio@40b10000 {
+> @@ -441,6 +444,7 @@ gpio_ptf: gpio@40b10000 {
+>   				 <&pcc3 IMX7ULP_CLK_PCTLF>;
+>   			clock-names =3D "gpio", "port";
+>   			gpio-ranges =3D <&iomuxc1 0 96 20>;
+> +			ngpios =3D <20>;
+>   		};
+>   	};
+>  =20
+> diff --git a/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi b/arch/arm/boot/dts/nxp=
+/vf/vfxxx.dtsi
+> index 597f20be82f1ee044e14bfaf3bd05cff37a8ad39..a275821c35d41e97eb2139a0=
+81ef5765d07672aa 100644
+> --- a/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi
+> +++ b/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi
+> @@ -318,6 +318,7 @@ gpio0: gpio@40049000 {
+>   				interrupt-controller;
+>   				#interrupt-cells =3D <2>;
+>   				gpio-ranges =3D <&iomuxc 0 0 32>;
+> +				ngpios =3D <32>;
+>   			};
+>  =20
+>   			gpio1: gpio@4004a000 {
+> @@ -329,6 +330,7 @@ gpio1: gpio@4004a000 {
+>   				interrupt-controller;
+>   				#interrupt-cells =3D <2>;
+>   				gpio-ranges =3D <&iomuxc 0 32 32>;
+> +				ngpios =3D <32>;
+>   			};
+>  =20
+>   			gpio2: gpio@4004b000 {
+> @@ -340,6 +342,7 @@ gpio2: gpio@4004b000 {
+>   				interrupt-controller;
+>   				#interrupt-cells =3D <2>;
+>   				gpio-ranges =3D <&iomuxc 0 64 32>;
+> +				ngpios =3D <32>;
+>   			};
+>  =20
+>   			gpio3: gpio@4004c000 {
+> @@ -351,6 +354,7 @@ gpio3: gpio@4004c000 {
+>   				interrupt-controller;
+>   				#interrupt-cells =3D <2>;
+>   				gpio-ranges =3D <&iomuxc 0 96 32>;
+> +				ngpios =3D <32>;
+>   			};
+>  =20
+>   			gpio4: gpio@4004d000 {
+> @@ -362,6 +366,7 @@ gpio4: gpio@4004d000 {
+>   				interrupt-controller;
+>   				#interrupt-cells =3D <2>;
+>   				gpio-ranges =3D <&iomuxc 0 128 7>;
+> +				ngpios =3D <7>;
+>   			};
+>  =20
+>   			anatop: anatop@40050000 {
+>
 
 
