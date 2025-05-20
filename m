@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634D0C5479B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 13:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E34C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 13:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XfD1s22Ic364TvVTHCagUpXijjIYK42cBGG9M8zpn10=; b=HBfHuYnlUzCDxsUFA2YZFcjc5R
-	B/je868SkqCNXVTDQvkoId3cM2weU9m+R+xlwlCjnUZHgI8KktxRyko6snR7gjT5GXo9JgslwipK2
-	AE48KVulqr3aaZPsqJeP6EhcPBYX+1ovk+039MkXf+rCi3vKHOteM8eRdK9FbpkMd4YuYkpCIWGvP
-	RxOoKUlWaDM0S3rHVmzpRvyUThA4OoXHeJQzNEMSYucsn1xY8VsOm+yv9gAtr3hdhtrPFy4sUp0RN
-	r+MRWBko01OR/pEBnz0WoLxtH/wedBcjzNoJUcpi98EVk3YzBiXejSesT4PIVJa3qK1lZqtsIdXrU
-	mptSLknQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SdcnrUmWq7v6a3i92pL8fQL4v54u0gfSQOAZg2wF6X8=; b=T88lQQ6ljRjQlBL+3oaqBg1q6T
+	9qANZ0nsZpKHzBz9UHu9X8mMmdr3194yib322jsX6i8LeLBiKc0EafcZTOu5LItG1jerBlowrGywm
+	saEKGYZ3I11tHr4sppIgs30uCOt+3TfTQd9mIXgkOK/s8IGK1OFL/+892FqB7LsIW9lyQxJqQL5Kf
+	ilsyUG9HuXvnDc1h/0p8jneHvSdNo+SClvEXiCJGySaxzo2a3iVCrXglIYTIrsE42ec3ccziLFymW
+	EfONeO/K7gZrTsStTqQa8gHvbN03xjIDmOz+mraBBZOurtvNzs9HmljbxN4ALG5m54bJL3n/2j8Lr
+	//Xw+44A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHN9K-0000000D2K7-134e;
-	Tue, 20 May 2025 13:36:54 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1uHNGH-0000000D3Bn-49KY;
+	Tue, 20 May 2025 13:44:05 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHN7D-0000000D1v7-0ieZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 13:34:44 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-551efcb745eso3240996e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 06:34:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747748081; x=1748352881; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XfD1s22Ic364TvVTHCagUpXijjIYK42cBGG9M8zpn10=;
-        b=UHYtZNBpmqn9eQ0m0cnWRrsSajl/A7xJctdA3lkWEgpj2c/vhtQFuxi+bZuDmzPXTV
-         8IAd2NlSvyGL3L7nBmWjb5A7dscX/rTGJdNigDnE2pM4MGA7Wp8S+DYASXuSlFprwhr3
-         /+2BuoZw5zYXA4pXQg/IMqPuCOZl5gQZLl9Zrd0lkOTai/ZKKcC7N0o8nOvp5eLQ4jgb
-         URj5ONdCY2nvOOYtlumnd0y25e36ZwYDLzTDgGqgreH8G6WhC8Yshz4qobZq7dLXviL9
-         zj6qBI22A3+bS2wrOIjC7amybhBZtjSr+a0yzUvXsdSQ6skwhDNtJMBZVS/vIp0IuyOL
-         PIMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747748081; x=1748352881;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XfD1s22Ic364TvVTHCagUpXijjIYK42cBGG9M8zpn10=;
-        b=ozujyptTjQfQmYLDOdFq2n96HuYEGGG/W3MWr07olrEtlo5x4V1vnIveXtKNG05EHC
-         U3+ZcJ5VccG2Q0+leTR3EDcaZP9XzfWo3VFvhN0MxpmNWdNuH3ScDW13cq4Rf4pzKiDk
-         gNE0LCZVdtA78llFx0D7dKPfTCWaky+hZg/IGOKBmMJkAcD2CZafE9Gzqm3AtlGyvH6h
-         uPIQEwQggib7MtGl2HUC9CxXNTDgSsFXX/ZSBI3hEnP7E+Zf1OB7StsYZbxqM/gwB4/k
-         WZ7fzzwePYt7YKABQBxjhwK6TZksEfGgZXnbpbGXxB5p0TPjtw9pQLgvqxMd36j6UI7V
-         hNgg==
-X-Forwarded-Encrypted: i=1; AJvYcCWONrheKs87WxyYogOYV/InScXhGMkhy/iEPLjl6bX3C8+AmlSiMCASjLwAN5bxvhH7hVrfOYrnnCIyYNBMGZ2W@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ3AftiRX8hMKFI9rXl0meULX8WoYMByfLhzDzM2+IEVmFos5f
-	65s0z+hmvsH+QW1fGoB3SZyrKAbzT+mzuEFSKHBucmRPdMcKZys6hNmoAbVtV7fdV/UXF2YM5hs
-	8JRKJK5XOb3x744r/Nz4Kko7WE3AkZhA=
-X-Gm-Gg: ASbGncsSvX9j3mdM6FdLAzpqLHElXnpjHQIQHgyv6nNI12Wqtba8ZvJ2jC+yk3uxoJc
-	WNjSzN66pA1R16tZ3mMV5tjgDL4yS50w473UlbhBDCIS5rp0Fa/8b9bO0b0zfUnHpo/31Xt8Dvf
-	16B1b2IJM1Dp1bIDgL5QWZ8EqTJEfj9uXBYBm4dZuG77Putz0Ued5NHmKBIJQAz7U=
-X-Google-Smtp-Source: AGHT+IGOdVh5BabNP6weiWFLJXZ3ZVMdQGC/USr/zeCgTmal+W0BVS9hJ31uxCQihRwgnGjI33KrTTR4UAo6HbnMaFc=
-X-Received: by 2002:a05:6512:4602:b0:549:490e:240d with SMTP id
- 2adb3069b0e04-550e71d7d90mr5140507e87.28.1747748080897; Tue, 20 May 2025
- 06:34:40 -0700 (PDT)
+	id 1uHNEB-0000000D2zY-3kAg;
+	Tue, 20 May 2025 13:41:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 76C36A4EA80;
+	Tue, 20 May 2025 13:41:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFF75C4CEE9;
+	Tue, 20 May 2025 13:41:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747748513;
+	bh=aF9DEQjUc4Qwge2M0Bizos2dw0TZnxr1SLShOtIxmfs=;
+	h=From:Date:Subject:To:Cc:From;
+	b=rFmrfRJKFsr5GIgctEUfS0qkuxKMbUtxBFt1UH6ndA/NAjfoZACEau5FExCWGFkfE
+	 WcCYydLLrzXWe/gpTax6YixO7E8VZTaicuDCA3IgZ8a9BCncIOZ0VlsEcnv3D0xr1w
+	 XzhZNps+u4Fzvs0OAmonW4ckmGKS6zhHPDhul+lcn7HiVQ3YVdcPSNKezX7eaJnyvp
+	 qObncCv2wTHUFkB76LgzwEWvJtUByvdt8/w9MAvC/op4IAPqqHfhqMTpXqtXux1yOU
+	 Nqrs6td/3zqzrfHmOn4nIbNNjRfOuy4hNz804d7ICBP6YuGKRv5+fqjhd0kNmA0QOT
+	 vGPW33t/rkNqg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 20 May 2025 15:41:35 +0200
+Subject: [PATCH] arm64: dts: airoha: en7581: Add ethernet nodes to EN7581
+ SoC evaluation board
 MIME-Version: 1.0
-References: <20250520115143.409413-1-c.stoidner@phytec.de>
-In-Reply-To: <20250520115143.409413-1-c.stoidner@phytec.de>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 20 May 2025 10:34:29 -0300
-X-Gm-Features: AX0GCFu-SKgKDmlyHEywfDCC8Hm0Dm6pbXAwBI2nvYfhldnFsrevIPgWdHRuit4
-Message-ID: <CAOMZO5D8giOiBCeV5AP1pL+hCFQt9bs3gFsr2mCgMSSbcbCovw@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: freescale: imx93-phycore-som: Delay the
- phy reset by a gpio
-To: Christoph Stoidner <c.stoidner@phytec.de>
-Cc: Primoz Fiser <primoz.fiser@norik.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	upstream@lists.phytec.de
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250520-en7581-net-v1-1-5317f8e829ad@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAI6GLGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDUyMD3dQ8c1MLQ9281BJdkxSLNKOklOQ04yRTJaCGgqLUtMwKsGHRsbW
+ 1ANCnKgZcAAAA
+X-Change-ID: 20250520-en7581-net-4d8f2bdcf3b5
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_063443_209770_92D1989E 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250520_064156_066385_DCB152D9 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,24 +79,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 8:52=E2=80=AFAM Christoph Stoidner <c.stoidner@phyt=
-ec.de> wrote:
+Introduce ethernet controller nodes to EN7581 SoC and EN7581 evaluation
+board.
 
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/=
-arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-> index 88c2657b50e6..c08f4b8a65a6 100644
-> --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-> @@ -58,6 +58,9 @@ &fec {
->                                  <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
->                                  <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>;
->         assigned-clock-rates =3D <100000000>, <50000000>, <50000000>;
-> +       phy-reset-gpios =3D <&gpio4 23 GPIO_ACTIVE_HIGH>;
-> +       phy-reset-duration =3D <1>;
-> +       phy-reset-post-delay =3D <0>;
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ arch/arm64/boot/dts/airoha/en7581-evb.dts |  8 +++++
+ arch/arm64/boot/dts/airoha/en7581.dtsi    | 49 +++++++++++++++++++++++++++++++
+ 2 files changed, 57 insertions(+)
 
-These properties are marked as deprecated in fsl,fec.yaml.
+diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/dts/airoha/en7581-evb.dts
+index 99d2c4f1fc5a9638f551c6d725eeea568943cc68..dae9968a4ff68e8b34d02b237a168a80d184bcb0 100644
+--- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
++++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
+@@ -98,3 +98,11 @@ &pcie1 {
+ &i2c0 {
+ 	status = "okay";
+ };
++
++&eth {
++	status = "okay";
++};
++
++&gdm1 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
+index 536ece69b935add88fb73ca6bd3f1ecd842cad7a..ff6908a76e8eb6cf91343495d1fe531a868e41fb 100644
+--- a/arch/arm64/boot/dts/airoha/en7581.dtsi
++++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+@@ -346,5 +346,54 @@ i2c1: i2c@1fbf8100 {
+ 
+ 			status = "disabled";
+ 		};
++
++		eth: ethernet@1fb50000 {
++			compatible = "airoha,en7581-eth";
++			reg = <0 0x1fb50000 0 0x2600>,
++			      <0 0x1fb54000 0 0x2000>,
++			      <0 0x1fb56000 0 0x2000>;
++			reg-names = "fe", "qdma0", "qdma1";
++
++			resets = <&scuclk EN7581_FE_RST>,
++				 <&scuclk EN7581_FE_PDMA_RST>,
++				 <&scuclk EN7581_FE_QDMA_RST>,
++				 <&scuclk EN7581_XSI_MAC_RST>,
++				 <&scuclk EN7581_DUAL_HSI0_MAC_RST>,
++				 <&scuclk EN7581_DUAL_HSI1_MAC_RST>,
++				 <&scuclk EN7581_HSI_MAC_RST>,
++				 <&scuclk EN7581_XFP_MAC_RST>;
++			reset-names = "fe", "pdma", "qdma",
++				      "xsi-mac", "hsi0-mac", "hsi1-mac",
++				      "hsi-mac", "xfp-mac";
++
++			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
++
++			status = "disabled";
++
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			gdm1: ethernet@1 {
++				compatible = "airoha,eth-mac";
++				reg = <1>;
++				phy-mode = "internal";
++				status = "disabled";
++
++				fixed-link {
++					speed = <10000>;
++					full-duplex;
++					pause;
++				};
++			};
++		};
+ 	};
+ };
 
-It would be better to place the properties described by
-ethernet-phy.yaml under the ethernet-phy@1 node.
+---
+base-commit: 357bbde68e750ea3da2450c0c2076ff2465de559
+change-id: 20250520-en7581-net-4d8f2bdcf3b5
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
