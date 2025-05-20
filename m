@@ -4,52 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61498C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD35C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TjQf2bsD9B+3ZtSLqggdahfBZJn2LeQ0M92uMrIdNA=; b=IIZSf/oWl28XnIrbJliBkh/tm1
-	zewfnZ5w9EjMlEF/29wQ+dauGN7b9q8mhATqVKJB0l9kftjRhvyeRLGK9zOy8S1EA47QgAgiWz1m5
-	vci+U6cjsF/nzkRV1n/t+34Jp0jL2FXktdoP671uRiCzfR4j0SY2wLOfC11TN7c1V1PlhN5nhaJbT
-	0/fq0hM8JDdBTrPOnbyI62BkSpjYidn8/HRSnJjKEZnpLBJKrzwGqczIZnJRh1hLGw4NDa9iVL/IA
-	dDIBk6EPEIxy8iqMKIY1OFY7vzFeZ8AkZgyXcygZz7B2iYJwv6xOCZyjacoQqbPK1PPNBPLBulmN1
-	3JH+wnww==;
+	bh=8rFwTJRGtxqflVNaCdpfI+LQag0jWewHcCtUY5KbEzU=; b=0ssK5rIrLAhxk+4GnI6Q/1+ep3
+	L+DUA+dO9t+zeCSX6+wHEONiSMIg0mnYWdHgLqtj3d1Gu2xopeLA55dPhTyEpVuOSXkURzPZUXt4+
+	QoWW5zQ9o5/zNVZEEV+YGXvIi4Mnq+Kk325K1xCT8od5Dki1KgUQoSnAxHh0f9ofa32zi72nT4Ufj
+	LYZo6zyI7H/93AYqqqdxwdSNeLkvJNzD+48KnQWp1v5GURHvSXPUfyvKknULj+rE27WaObrO8ZUnd
+	xeGWpc14QK99jXZ4TdqFncPO9tG+HZG/a2kQSaqZ340MdLH11XStqz8MXlMP2K0RcaFUizG7lu/B8
+	rsNHQmPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHNmQ-0000000D8DZ-2MIo;
-	Tue, 20 May 2025 14:17:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uHNqG-0000000D8rY-2EBN;
+	Tue, 20 May 2025 14:21:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHNkJ-0000000D7tn-0a0p
+	id 1uHNo9-0000000D8Xd-1X1r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 14:15:07 +0000
+	Tue, 20 May 2025 14:19:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66A2662A07;
-	Tue, 20 May 2025 14:15:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991D0C4CEEF;
-	Tue, 20 May 2025 14:15:04 +0000 (UTC)
-Date: Tue, 20 May 2025 15:15:01 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Nam Cao <namcao@linutronix.de>
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	john.ogness@linutronix.de, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 17/22] arm64: mm: Add page fault trace points
-Message-ID: <aCyOZVVioijWpEPY@arm.com>
-References: <cover.1747046848.git.namcao@linutronix.de>
- <f5fccde2326a896e5c568ef06a4dbd9aa7465f6a.1747046848.git.namcao@linutronix.de>
- <aCtE-RvyN6XJQjTo@arm.com>
- <20250520122548.lkvaylSB@linutronix.de>
+	by tor.source.kernel.org (Postfix) with ESMTP id 9B37D62A23;
+	Tue, 20 May 2025 14:19:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A241C4CEE9;
+	Tue, 20 May 2025 14:19:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747750743;
+	bh=PImC0z23eYKw/vXRVR7ONqgOkNS50/feSR50iDqb2S4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Xoe6kfQRYp0a+bxJMj2n383/MzThfYUb+3NqLxYyAjpZq9cZvg/58X4ngv99tjHBm
+	 bFdRgVblrYVt8pKtJhcgSce+lxTAB1Ru4DzEB1lZdHx2WHK80U9fN0QIkgLk/yIhNF
+	 1ieIXJMQpqJnmeaA1EUp/mKxFNzpWI392lagsxqeogfTRGiglGCFXiOprBznAfSIEx
+	 2bJRBXCbD7K4uEBg+5MGLr/QuosEz2jqoX4MB/JR171XwQkFtDmiZMm3LZPvKn8paM
+	 HZEHxRDWn0gBgeCAPgdLu++7AhmEtC3xpOIv5n+2zCFUQy6Di/NwF49W65rk6gPvbb
+	 9gLnVcGm3Nl4w==
+Date: Tue, 20 May 2025 15:18:57 +0100
+From: Will Deacon <will@kernel.org>
+To: Connor Abbott <cwabbott0@gmail.com>
+Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v6 0/7] iommu/arm-smmu, drm/msm: Fixes for stall-on-fault
+Message-ID: <20250520141857.GC18711@willie-the-truck>
+References: <20250515-msm-gpu-fault-fixes-next-v6-0-4fe2a583a878@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250520122548.lkvaylSB@linutronix.de>
+In-Reply-To: <20250515-msm-gpu-fault-fixes-next-v6-0-4fe2a583a878@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,55 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 02:25:48PM +0200, Nam Cao wrote:
-> On Mon, May 19, 2025 at 03:49:29PM +0100, Catalin Marinas wrote:
-> > On Mon, May 12, 2025 at 12:51:00PM +0200, Nam Cao wrote:
-> > > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> > > index ec0a337891dd..55094030e377 100644
-> > > --- a/arch/arm64/mm/fault.c
-> > > +++ b/arch/arm64/mm/fault.c
-> > > @@ -44,6 +44,9 @@
-> > >  #include <asm/tlbflush.h>
-> > >  #include <asm/traps.h>
-> > >  
-> > > +#define CREATE_TRACE_POINTS
-> > > +#include <trace/events/exceptions.h>
-> > > +
-> > >  struct fault_info {
-> > >  	int	(*fn)(unsigned long far, unsigned long esr,
-> > >  		      struct pt_regs *regs);
-> > > @@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
-> > >  	if (kprobe_page_fault(regs, esr))
-> > >  		return 0;
-> > >  
-> > > +	if (user_mode(regs))
-> > > +		trace_page_fault_user(addr, regs, esr);
-> > > +	else
-> > > +		trace_page_fault_kernel(addr, regs, esr);
-> > 
-> > What are the semantics for these tracepoints? When are they supposed to
-> > be called? In the RV context context I guess you only care about the
-> > benign, recoverable faults that would affect timing. These tracepoints
-> > were generalised from the x86 code but I don't know enough about it to
-> > tell when they would be invoked.
-> > 
-> > For arm64, we also have the do_translation_fault() path for example that
-> > may or may not need to log such trace events.
+Hi Connor,
+
+On Thu, May 15, 2025 at 03:58:42PM -0400, Connor Abbott wrote:
+> drm/msm uses the stall-on-fault model to record the GPU state on the
+> first GPU page fault to help debugging. On systems where the GPU is
+> paired with a MMU-500, there were two problems:
 > 
-> These tracepoints are invoked for x86 page fault exceptions. Are arm64's
-> translation faults considered equivalent to x86 page faults?
+> 1. The MMU-500 doesn't de-assert its interrupt line until the fault is
+>    resumed, which led to a storm of interrupts until the fault handler
+>    was called. If we got unlucky and the fault handler was on the same
+>    CPU as the interrupt, there was a deadlock.
+> 2. The GPU is capable of generating page faults much faster than we can
+>    resume them. GMU (GPU Management Unit) shares the same context bank
+>    as the GPU, so if there was a sudden spurt of page faults it would be
+>    effectively starved and would trigger a watchdog reset, made even
+>    worse because the GPU cannot be reset while there's a pending
+>    transaction leaving the GPU permanently wedged.
+> 
+> Patches 1-2 and 4 fix the first problem by switching the IRQ to be a
+> threaded IRQ and then making drm/msm do its devcoredump work
+> synchronously in the threaded IRQ. Patch 4 is dependent on patches 1-2.
+> Patch 6 fixes the second problem and is dependent on patch 3. Patch 5 is
+> a cleanup for patch 4 and patch 7 is a subsequent further cleanup to get
+> rid of the resume_fault() callback once we switch resuming to being done
+> by the SMMU's fault handler.
 
-Probably. We route permission or access flag faults via do_page_fault()
-directly while missing page table entries via do_translation_fault().
-The latter end up in do_page_fault() only if the faulting address is in
-the user address range.
+Thanks for reworking this; I think it looks much better now from the
+SMMU standpoint.
 
-My point was that we may not always invoke the trace callbacks if, for
-example, the user tries to access the kernel space (and results in a
-SIGSEGV). While that's fine for RV, I wanted to know what is expected of
-these trace points in general. Do we need to log such SIGSEGV-generating
-events? We do log them if there's a permission fault.
+> I've organized the series in the order that it should be picked up:
+> 
+> - Patches 1-3 need to be applied to the iommu tree first.
 
--- 
-Catalin
+Which kernel version did you base these on? I can't see to apply the
+second patch, as you seem to have a stale copy of arm-smmu-qcom.c?
+
+Will
 
