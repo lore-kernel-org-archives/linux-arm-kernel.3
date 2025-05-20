@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C05C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F65C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 11:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b9QoX60CFv/E0b2LYl9tFv8gtYkA9h10l3n2VsNXUWQ=; b=tMsu2iE3YjrI0ZywBB4ogTI8pY
-	yli2sn1Q523fcPyS1PqDh8+pqB/kPZFxcrSJust6j9C8NSNjA2FJI3SjSCJnKrnuxyDtpAVViCAKi
-	T6HACxldMGayIIF9OsuXnPh3mC+WEmAo7sMBRhRa4FksXAusJBzcnW5MNywCq/PteGsJDQOvXL2dU
-	bQLGuL6BXR7oVZfyFW967jIROvImS6sxewlI5V+wt2/Fa9Ek4C1/+Bxj2aOZCGTdE4o6iJZhljU+L
-	9ZqWXSsnDKO3zorEfxQ+xUvfczj0PdK7PpFWTUIJ3rIOBipMaj2RijtAfFqPkyLzfocaG/siDBlPn
-	iymshXAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=72RAk1vbHImwOZfMxJXtUWwsftjJO9P1wTMbTuoJ4rQ=; b=YnrFp7s3zdiRnqoHWvf6fvOHPF
+	GyEc5l5q3ozQZil3J+PNvf6Ex2H+dgXYv4wvSZJp/msDxWIQBP7aeNuK+MBk85XNndZwnYammPOFe
+	GlQB9XAs/PghPkHuHuczExex2prwcIEwkDkLlnPoklY0liPUSaZHOp52pKu7nUoo10ExBZ658+dpz
+	Np7jj3kTIhqWI0ZiDyb5A/VdCf2tNfWYpfxMexga4P4GdslkfXZc029CuNpyZXMKPCJRmS39ZvUX3
+	TKjf8JFVF3SDVzi9xOt8ltYqB6DtsIXLj+Z8aR/RJJFPzLkKHN0h3753wX53gQt/Fof44O03S2eR6
+	2fgYNCiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHLQI-0000000ChvE-1W2W;
-	Tue, 20 May 2025 11:46:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHLNL-0000000CgyT-3RQ5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 11:43:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E8121516;
-	Tue, 20 May 2025 04:43:01 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72D593F6A8;
-	Tue, 20 May 2025 04:43:14 -0700 (PDT)
-Date: Tue, 20 May 2025 12:43:09 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 07/10] perf: arm_spe: Add support for filtering on data
- source
-Message-ID: <20250520114309.GO412060@e132581.arm.com>
-References: <20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org>
- <20250506-james-perf-feat_spe_eft-v1-7-dd480e8e4851@linaro.org>
+	id 1uHLSO-0000000CiNW-0EfM;
+	Tue, 20 May 2025 11:48:28 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHLO6-0000000Ch5f-0fac;
+	Tue, 20 May 2025 11:44:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747741440;
+	bh=NvPfBC95cpbMqHq/ZrYCPGXtxnr17MynHiOainBiTNU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=jkxhWHN5DwKKgttNYOkJj9NOfHV2KtPzj/f4MdbTcBFtfN92s5uU+E8I+o4Rgk+Z2
+	 /tvsDe0HZXvvg6743JdQny3hW5CB1fjzhvjY9DflofRllOPCAKVJp0+2Aciid6Qgki
+	 X0CzQfVSDu7WyGhwcVfugG3aSQjcynEQnfP6zbkGqr5BdB10Lk2OjaZKR93Kb9fKG/
+	 E0uES9Zc0BaDGIGQzCKneLfrHkzqShOASWeAIgO24egAOGNs+wcRD965iPNcV92e9e
+	 iWP0KW3WO9oCxzSGF5aPCN+0OiZBE7GtsEROmPTq6fvV36LxHILYU9VJhbb5mOuqq9
+	 duAvD6Yz++bVg==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 39A8817E00AD;
+	Tue, 20 May 2025 13:44:00 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: arm-soc <arm@kernel.org>,
+	soc <soc@kernel.org>
+Cc: matthias.bgg@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [GIT,PULL,1/2] Additional MediaTek ARM64 DTS updates for v6.16
+Date: Tue, 20 May 2025 13:43:51 +0200
+Message-ID: <20250520114356.1194450-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250506-james-perf-feat_spe_eft-v1-7-dd480e8e4851@linaro.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_044315_950051_31A2023B 
-X-CRM114-Status: GOOD (  28.34  )
+X-CRM114-CacheID: sfid-20250520_044402_350800_90D7881E 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,139 +72,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 12:41:39PM +0100, James Clark wrote:
-> SPE_FEAT_FDS adds the ability to filter on the data source of packets.
-> Like the other existing filters, enable filtering with PMSFCR_EL1.FDS
-> when any of the filter bits are set.
-> 
-> Each bit maps to data sources 0-63 described by bits[0:5] in the data
-> source packet (although the full range of data source is 16 bits so
-> higher value data sources can't be filtered on). The filter is an OR of
-> all the bits, so for example setting bits 0 and 3 filters packets from
-> data sources 0 OR 3.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  drivers/perf/arm_spe_pmu.c | 31 +++++++++++++++++++++++++++++++
->  1 file changed, 31 insertions(+)
-> 
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index 9309b846f642..d04318411f77 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -87,6 +87,7 @@ struct arm_spe_pmu {
->  #define SPE_PMU_FEAT_INV_FILT_EVT		(1UL << 6)
->  #define SPE_PMU_FEAT_DISCARD			(1UL << 7)
->  #define SPE_PMU_FEAT_EFT			(1UL << 8)
-> +#define SPE_PMU_FEAT_FDS			(1UL << 9)
->  #define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
->  	u64					features;
->  
-> @@ -232,6 +233,10 @@ static const struct attribute_group arm_spe_pmu_cap_group = {
->  #define ATTR_CFG_FLD_inv_event_filter_LO	0
->  #define ATTR_CFG_FLD_inv_event_filter_HI	63
->  
-> +#define ATTR_CFG_FLD_data_src_filter_CFG	config4	/* PMSDSFR_EL1 */
-> +#define ATTR_CFG_FLD_data_src_filter_LO	0
-> +#define ATTR_CFG_FLD_data_src_filter_HI	63
-> +
->  GEN_PMU_FORMAT_ATTR(ts_enable);
->  GEN_PMU_FORMAT_ATTR(pa_enable);
->  GEN_PMU_FORMAT_ATTR(pct_enable);
-> @@ -248,6 +253,7 @@ GEN_PMU_FORMAT_ATTR(float_filter);
->  GEN_PMU_FORMAT_ATTR(float_filter_mask);
->  GEN_PMU_FORMAT_ATTR(event_filter);
->  GEN_PMU_FORMAT_ATTR(inv_event_filter);
-> +GEN_PMU_FORMAT_ATTR(data_src_filter);
->  GEN_PMU_FORMAT_ATTR(min_latency);
->  GEN_PMU_FORMAT_ATTR(discard);
->  
-> @@ -268,6 +274,7 @@ static struct attribute *arm_spe_pmu_formats_attr[] = {
->  	&format_attr_float_filter_mask.attr,
->  	&format_attr_event_filter.attr,
->  	&format_attr_inv_event_filter.attr,
-> +	&format_attr_data_src_filter.attr,
->  	&format_attr_min_latency.attr,
->  	&format_attr_discard.attr,
->  	NULL,
-> @@ -286,6 +293,9 @@ static umode_t arm_spe_pmu_format_attr_is_visible(struct kobject *kobj,
->  	if (attr == &format_attr_inv_event_filter.attr && !(spe_pmu->features & SPE_PMU_FEAT_INV_FILT_EVT))
->  		return 0;
->  
-> +	if (attr == &format_attr_data_src_filter.attr && !(spe_pmu->features & SPE_PMU_FEAT_FDS))
-> +		return 0;
-> +
->  	if ((attr == &format_attr_branch_filter_mask.attr ||
->  	     attr == &format_attr_load_filter_mask.attr ||
->  	     attr == &format_attr_store_filter_mask.attr ||
-> @@ -406,6 +416,9 @@ static u64 arm_spe_event_to_pmsfcr(struct perf_event *event)
->  	if (ATTR_CFG_GET_FLD(attr, inv_event_filter))
->  		reg |= PMSFCR_EL1_FnE;
->  
-> +	if (ATTR_CFG_GET_FLD(attr, data_src_filter))
-> +		reg |= PMSFCR_EL1_FDS;
-> +
->  	if (ATTR_CFG_GET_FLD(attr, min_latency))
->  		reg |= PMSFCR_EL1_FL;
->  
-> @@ -430,6 +443,12 @@ static u64 arm_spe_event_to_pmslatfr(struct perf_event *event)
->  	return FIELD_PREP(PMSLATFR_EL1_MINLAT, ATTR_CFG_GET_FLD(attr, min_latency));
->  }
->  
-> +static u64 arm_spe_event_to_pmsdsfr(struct perf_event *event)
-> +{
-> +	struct perf_event_attr *attr = &event->attr;
-> +	return ATTR_CFG_GET_FLD(attr, data_src_filter);
-> +}
+The following changes since commit 1fe38d2a19950fa6dbc384ee8967c057aef9faf4:
 
-Seems to me, arm_spe_event_to_pmsdsfr() is not needed as it does not do
-any conversion from event config to register value.  So simply read the
-field value in opened code would be fine.
+  arm64: dts: mt6359: Add missing 'compatible' property to regulators node (2025-05-06 10:35:45 +0200)
 
-I am fine to keep it and would leave SPE driver maintainers to decide
-which is preferring.  Otherwise, LGTM:
+are available in the Git repository at:
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts64-for-v6.16-2
 
-> +
->  static void arm_spe_pmu_pad_buf(struct perf_output_handle *handle, int len)
->  {
->  	struct arm_spe_pmu_buf *buf = perf_get_aux(handle);
-> @@ -788,6 +807,10 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
->  	if (arm_spe_event_to_pmsnevfr(event) & arm_spe_pmsevfr_res0(spe_pmu->pmsver))
->  		return -EOPNOTSUPP;
->  
-> +	if (arm_spe_event_to_pmsdsfr(event) &&
-> +	    !(spe_pmu->features & SPE_PMU_FEAT_FDS))
-> +		return -EOPNOTSUPP;
-> +
->  	if (attr->exclude_idle)
->  		return -EOPNOTSUPP;
->  
-> @@ -857,6 +880,11 @@ static void arm_spe_pmu_start(struct perf_event *event, int flags)
->  		write_sysreg_s(reg, SYS_PMSNEVFR_EL1);
->  	}
->  
-> +	if (spe_pmu->features & SPE_PMU_FEAT_FDS) {
-> +		reg = arm_spe_event_to_pmsdsfr(event);
-> +		write_sysreg_s(reg, SYS_PMSDSFR_EL1);
-> +	}
-> +
->  	reg = arm_spe_event_to_pmslatfr(event);
->  	write_sysreg_s(reg, SYS_PMSLATFR_EL1);
->  
-> @@ -1116,6 +1144,9 @@ static void __arm_spe_pmu_dev_probe(void *info)
->  	if (FIELD_GET(PMSIDR_EL1_EFT, reg))
->  		spe_pmu->features |= SPE_PMU_FEAT_EFT;
->  
-> +	if (FIELD_GET(PMSIDR_EL1_FDS, reg))
-> +		spe_pmu->features |= SPE_PMU_FEAT_FDS;
-> +
->  	/* This field has a spaced out encoding, so just use a look-up */
->  	fld = FIELD_GET(PMSIDR_EL1_INTERVAL, reg);
->  	switch (fld) {
-> 
-> -- 
-> 2.34.1
-> 
+for you to fetch changes up to 99af08feb7fad3df79bda1628e4ee8b6eb1f6a32:
+
+  Revert "arm64: dts: mediatek: mt8390-genio-common: Add firmware-name for scp0" (2025-05-20 13:25:02 +0200)
+
+----------------------------------------------------------------
+Additional MediaTek ARM64 DTS updates for v6.16
+
+This addresses devicetree binding warnings happening on	the
+MDP3 nodes in mt8188 dts, reverts the commit adding the SCP
+firmware-name as strongly suggested by Arnd, and also adds
+some more late commits.
+
+In particular:
+ - MT6359 PMIC
+   - Renamed PMIC RTC node to fix dtbs_check warning
+ - MT7988(A)
+   - Support for SPI controllers was added to SoC and BPI-R4
+   - Support for XSPHY, USB and	PCIe2 was added	as well
+   - Fan and cooling maps were added to	BPI-R4 machine
+   - Added BananaPi R4 2G5 machine variant
+ - MT8365
+   - Added touchscreen support to MT8365 Genio EVK
+ - MT8188
+   - Addressed dtbs_check warnings for MDP3 nodes
+ - MT8390 (Genio)
+   - Reverted SCP firmware-name	addition
+
+----------------------------------------------------------------
+AngeloGioacchino Del Regno (2):
+      arm64: dts: mediatek: mt8188: Address binding warnings for MDP3 nodes
+      Revert "arm64: dts: mediatek: mt8390-genio-common: Add firmware-name for scp0"
+
+Frank Wunderlich (9):
+      dt-bindings: arm: mediatek: add bpi-r4 2g5 phy variant
+      arm64: dts: mediatek: mt7988a-bpi-r4: allow hw variants of bpi-r4
+      arm64: dts: mediatek: mt7988: Add xsphy for ssusb0/pcie2
+      arm64: dts: mediatek: mt7988a-bpi-r4: enable xsphy
+      arm64: dts: mediatek: mt7988: add spi controllers
+      arm64: dts: mediatek: mt7988: move uart0 and spi1 pins to soc dtsi
+      arm64: dts: mediatek: mt7988: add phy calibration efuse subnodes
+      arm64: dts: mediatek: mt7988a-bpi-r4: Add fan and coolingmaps
+      arm64: dts: mediatek: mt7988a-bpi-r4: configure spi-nodes
+
+Julien Massot (2):
+      arm64: dts: mediatek: mt8188: Add missing #reset-cells property
+      arm64: dts: mt6359: Rename RTC node to match binding expectations
+
+Lorenzo Bianconi (2):
+      arm64: dts: airoha: en7581: Add gpio-ranges property for gpio controller
+      arm64: dts: airoha: en7581: Add PCIe nodes to EN7581 SoC evaluation board
+
+Louis-Alexis Eyraud (1):
+      arm64: dts: mt8365-evk: Add goodix touchscreen support
+
+ Documentation/devicetree/bindings/arm/mediatek.yaml         |   4 +
+ arch/arm64/boot/dts/airoha/en7581-evb.dts                   |  30 ++
+ arch/arm64/boot/dts/airoha/en7581.dtsi                      | 105 ++++++
+ arch/arm64/boot/dts/mediatek/Makefile                       |   2 +
+ arch/arm64/boot/dts/mediatek/mt6359.dtsi                    |   2 +-
+ .../arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts |  11 +
+ arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts    | 400 +----------------------
+ arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi   | 450 ++++++++++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt7988a.dtsi                   | 115 +++++++
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi                    |  86 +++--
+ arch/arm64/boot/dts/mediatek/mt8365-evk.dts                 |  40 +++
+ arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi       |   1 -
+ 12 files changed, 804 insertions(+), 442 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
+
 
