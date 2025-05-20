@@ -4,130 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C350C54754
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 04:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36EADC3ABDA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 04:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xHQ9PjkVRFQYPfJnACZEp48qV1JwY3YsU1pngAMcgeo=; b=BdRXG50LZMTVQde5RMY//sRtri
-	hOMkIjOww/dDTzKntalDvW3tqmzCbPChhsp4OotUIvLA9PPxBRstlnqRMMUOGlxnNj8nUXpWVuYgQ
-	/wL6UBI6XBmP9yAKTyMabaN97x9483A2i++Ia+QbobVts1OwJof+bnOfMoLmm6Iyzkv+1CHz3mXJ/
-	aXiCEpgK9w+sCvEmAjWMCxlkpCXQsxchupGxTOvKhWlteU2cYMT2gkkHEyM8Vp7ACBi7244MrdTF7
-	h4F3hPO8XixJ7SoYOlvrvnCzYLTIVRTZE+TEfhvFpjG6qPqcyN+S0sNoVl+DocapjKEAd1U7Gc0+u
-	8SAE6p0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8ETlp9qz3bJhFa4EIWRrMESKcgInIfcI4yRF4EIaahA=; b=D0+XMDnkM9h6c4qThBHlBPQ1ps
+	IU2BwOd4G1sU04N4++CLS4pYioxHLMKmfE/rUPJF0bKqpP/RcZfX8s+Beu/b1dRHgoRWeUQRY7Uay
+	tP/5Rj0qJ+h9Rkc6PuANEQx/l0M3BPmSAcP2xVxw78AuI7O7v7HxC7V3PfA7q5LMF1G1dksus7Whn
+	/Ru+iPBSNYzbrB2ueT54sV6B6toNEmqw2KlGmLyvhlf+0faLipmg3Ws88Iejwh8kSQR4FRz77B4/Z
+	DSLoFpucG8Qx2weoUPe62lUUZ1kRj0yPCgL/XjfaTGch1MT43Eenn9Ss+pbelpzIolqsqWo0XqESI
+	Z4Fb56XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHEHd-0000000BTWL-2unB;
-	Tue, 20 May 2025 04:08:53 +0000
-Received: from mail-eastasiaazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c400::3] helo=HK3PR03CU002.outbound.protection.outlook.com)
+	id 1uHEJi-0000000BTiv-3c9v;
+	Tue, 20 May 2025 04:11:02 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHEFV-0000000BTFv-45qN
+	id 1uHEFx-0000000BTNM-3zDR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 04:06:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YUhXYLqbIWkSQCoN77P4fCVkBS4JvmuiloV9cbCZY6eRI5E85K4JC3Hx9Nb939qtTCepRDe20sveDpS/ujQ8Ff81FtFoB/U2OAiJ1gD9A8eyAqeMZAkg9MN9xgmEFLfC92qPX+KY4jvBbv2Z/m+/iIv5NmU1TlckR7uDsfgjBlsAXxbcqFQl02kI574bgb9eRAtUHH0QuEa3zbHtweRgsHNtzWQ1sEsu2Hy/gdtFv4r0ncZ2eDTZqGr0A7Wv+Le2+CXY/tBGPgEZ6hKEpMKk+o3yAWn93KCEGtR/8IPeQ19JNFB4pFzg7jRuBLmZ2x/yz2/8fNIbDZO+LJAL1Vzw9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xHQ9PjkVRFQYPfJnACZEp48qV1JwY3YsU1pngAMcgeo=;
- b=YWht9kUCsqxHg1ppH7eBFUZ3faBAdP08JFTMLp6xVHWQ90zae8qx+BLU+fh3VxOZnkvVVssIGfrQgzBzxHQRzqdSBmeLF9g5pqBLyggmUQLaDPReO1tnLURHoLfEpR+cR+dnqmJVYqjUemau/zwv2XI8TKVYZBHaFZf9M9y38iQB6XZ16SKnGK5K+V9ol1IZBoj8/bQsyItC1rUWpttdhNSezueNAYYdscPV/KoH0Wo3oGlRgej13TuV5vhVrJa2ynuDB2mptxPxhCDNS/oZupTrIktIL8jMRiKRSVdlL7X4P9yz9+ieHermk7dq30Zrb+UHnOYAcKi30pMERHzhEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2PR04CA0214.apcprd04.prod.outlook.com (2603:1096:4:187::17)
- by KU2PPF6B67D0B99.apcprd06.prod.outlook.com (2603:1096:d18::49c) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.31; Tue, 20 May
- 2025 04:06:27 +0000
-Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
- (2603:1096:4:187:cafe::f0) by SG2PR04CA0214.outlook.office365.com
- (2603:1096:4:187::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.31 via Frontend Transport; Tue,
- 20 May 2025 04:06:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8769.18 via Frontend Transport; Tue, 20 May 2025 04:06:27 +0000
-Received: from gchen (unknown [172.20.64.84])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id C8DF240A5BFE;
-	Tue, 20 May 2025 12:06:24 +0800 (CST)
-Date: Tue, 20 May 2025 04:05:38 +0000
-From: Guomin chen <guomin.chen@cixtech.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: peter.chen@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	arnd@arndb.de, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
-	maz@kernel.org, sudeep.holla@arm.com, kajetan.puchalski@arm.com,
-	eballetb@redhat.com, Gary Yang <gary.yang@cixtech.com>,
-	Lihua Liu <Lihua.Liu@cixtech.com>
-Subject: Re: [PATCH v8 5/9] mailbox: add CIX mailbox driver
-Message-ID: <aCv/ksNjpYcOMZCj@gchen>
-References: <20250513020327.414017-1-peter.chen@cixtech.com>
- <20250513020327.414017-6-peter.chen@cixtech.com>
- <CABb+yY2fj13YDCYD9B-Hwta47=+CLy6eGSOOc_ez2HrR4-xbjg@mail.gmail.com>
+	Tue, 20 May 2025 04:07:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1747714030; x=1779250030;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=nJ6KedU+uwmf+BdiivShjd5wAvlcvkmQJNTkCjp/w7U=;
+  b=VTPm+l1ZsG+sk4dGamLMuJxNECouVEcbQN/nwUrWPFqtHmNhepSi6YSE
+   j95viCGkttu/N2cIrJQArhz84gMwyt5QPu5uj79LDIipYWw4uzzNL9JaD
+   82c/OX3Kqa9cWlA+dNva4T4CI879LOaHvy8Zg1iHOE8EzWULBKOoQXpV9
+   WuAK1vrm2PeYzgXg/+GYmNI8Tpq9YHwKZoUyChCEPT9PNhx1OrludgoXT
+   YOHYYTLMW6dI88bYx72qdy3fHBDGbghNNPa9caTkfv4kXHtuH8aVi0HEu
+   wEQ0UilVRnHPtUQYourv1YemBzxKTTypXcNosTfayFPXUjUzyubBWDBd3
+   g==;
+X-CSE-ConnectionGUID: htdO05ITRmGW9JMUEmdDwA==
+X-CSE-MsgGUID: SA2rPMYOTAikDw/z7EgqDw==
+X-IronPort-AV: E=Sophos;i="6.15,302,1739862000"; 
+   d="scan'208";a="42370416"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 May 2025 21:07:06 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 19 May 2025 21:06:51 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Mon, 19 May 2025 21:06:49 -0700
+From: Dharma Balasubiramani <dharma.b@microchip.com>
+Date: Tue, 20 May 2025 09:36:42 +0530
+Subject: [PATCH v2] counter: microchip-tcb-capture: Add watch validation
+ support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CABb+yY2fj13YDCYD9B-Hwta47=+CLy6eGSOOc_ez2HrR4-xbjg@mail.gmail.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|KU2PPF6B67D0B99:EE_
-X-MS-Office365-Filtering-Correlation-Id: 194e9ad2-0fe5-4edd-ba1f-08dd9753b186
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KzPg9oziBBUDuwiGMOhWM+ijPuGHqZuGDWaq+O9eFQm2uNr3E8+3NX8kPmO1?=
- =?us-ascii?Q?BDgP3nTvzv6h+HEv1Jq1FsQs3BARlxfN6JW3PBNHhdZeb5zd6oswAaau22Ko?=
- =?us-ascii?Q?3ZZGfPWjbl1MvgSyZColJmj20WzfozWl+0C0EDCu4CaX3arjb1Xf2VFyXpr9?=
- =?us-ascii?Q?cbFlfh9qCg/YfIsYlO4vIZJZYku6ZteVplro//NQYMxD5Nkwoh0o9uhQGE0C?=
- =?us-ascii?Q?9DO95I+twztMwSN2oqJJcj0fzFHmYHZr67o6k8SFD5NOsKinUckAJLwdxJfJ?=
- =?us-ascii?Q?Z+PayVobsVx+ffFQbDLqNtvkMlMf1pp1PiQl2i5DgOHlv49avt9K2gJXHxEc?=
- =?us-ascii?Q?ZNGLWy+z+/t1EM0JrrUTZr5ZPh236hNANyc3xit41RZ2ZzuiULB2mOWoFplO?=
- =?us-ascii?Q?1gD7avTsEMnJYI1DKtf/QSvOfhCyv6NlA8ruZu6MY67KV8Q3R5IMfGv6pqFk?=
- =?us-ascii?Q?f4C7nvY43W+Ztp1L9sI5d6mEFemJjU7B3/5KL6hgRiSIWWdemB5D/yhweH/T?=
- =?us-ascii?Q?iO2OqVuYyd5Bd6whe/d009gvEp9/wlicQcxUFTK+OTFNktj/Q/Mp2VHtoa/C?=
- =?us-ascii?Q?Uz4IsKIZz89leef7GknFJ2FFrCDFvb7GI6q3wYcUeWsZJY8zH2BUXtTiX6zb?=
- =?us-ascii?Q?mBw6wh7uSQhZ2bFrxuIZriiZG6B6kGzp9PRikytulDLoV7v58eNlNaD+vrUU?=
- =?us-ascii?Q?4usw2S2sK4mg48Nq4wNuMTxeOLTYOMYAjKY1Sg+kAbwTdY1WpohOas8eyGg4?=
- =?us-ascii?Q?sG0vylbsLx8CZMQB9uCtpXR6QVLKrcJa2LVqx5JxZqOg7/4ZJk8JZ1u4egeX?=
- =?us-ascii?Q?fMaW9d6G3Ftx2IxAtozUDrVlk6Qh2rzmJgX4O7n+rNnGR+3AxZ4JLefJcZu4?=
- =?us-ascii?Q?UUuDG3bb5wfg4LqD21+JFiE/O2rutqkqqBkISpUkiamVzEJIl2NqSMZNH5JP?=
- =?us-ascii?Q?D4SRRZ1QNa1XAnl7iNTRKtnCMMtc0a5F9+RQjAqnBpmJcq3p/svQrIw//B1T?=
- =?us-ascii?Q?IwTV2qgTErQu+NErQHZB7SvkFDKFcWISL05f0cRW8EYNjfngjZTiKTUAuLVh?=
- =?us-ascii?Q?vaBkurBzu2mFoHNp6Ti72DmhjVXax0wTBrdUtTKsUVVnHadPF17/L2Er5u4K?=
- =?us-ascii?Q?fvUNeyndT8p2BI5sMV8vLgctCeL9f9es5PtvGl/HJdtMLXZiZxme2egOOKaw?=
- =?us-ascii?Q?qEhtIsWiUyQssWD23lGeytYh4Owm9o//f0ULJKmK05jPufPVhZhF8K7haG63?=
- =?us-ascii?Q?dUD3iAJJhklem0EFrYi8KuEy5o15kDL/LshF5VBBqUWwd9Ptiyq2RbpJJuTU?=
- =?us-ascii?Q?QDuaQAC+hvhnzw6Gcv8JgThZjQ9pp1Qpy9CoZDID8BEA4R6+fppyYJe65LkT?=
- =?us-ascii?Q?+Qzo4Q8tKUl/xh6RsPEVeVcSH/mtYHlAUCXFBhRdQg79DPx/fcsKjVtWeY+u?=
- =?us-ascii?Q?bcMEigpZHsXFwFrrZ2pq0hWRjJWGb+WvfTXCXqxj1Z79wk8tPiQpf6szRO8o?=
- =?us-ascii?Q?mjZx/Zwwe05COfOXyB3lRVLpVIPfRrB8unoV?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2025 04:06:27.1084
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 194e9ad2-0fe5-4edd-ba1f-08dd9753b186
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPF6B67D0B99
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250520-counter-tcb-v2-1-a0617d2d220a@microchip.com>
+X-B4-Tracking: v=1; b=H4sIANH/K2gC/23Myw6DIBCF4Vcxsy4NQ8ReVr5H40JwLLNQDFDSx
+ vDupa67/E9yvh0iBaYI92aHQJkj+7WGOjVg3bg+SfBUG5RUWmrUwvrXmiiIZI0w3Uh4a7VCaaA
+ +tkAzvw/tMdR2HJMPnwPP+Fv/OxkFCtLtRXZI01XO/cI2eOt4O1u/wFBK+QJc/o4mqgAAAA==
+To: Kamel Bouhara <kamel.bouhara@bootlin.com>, William Breathitt Gray
+	<wbg@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
+	<dharma.b@microchip.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747714007; l=3393;
+ i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
+ bh=nJ6KedU+uwmf+BdiivShjd5wAvlcvkmQJNTkCjp/w7U=;
+ b=sdEXf/+Re7V9JjOqNQgcwsFvPcFR9hosuiKoqjZJkUxIZEMam5GP0cCbMCYEFUnZvzeNfuyuL
+ uAG79cGYJKwB1dQyP7faOWZroB84akV8zRoJBlN+Ivlnny6sLWwiltU
+X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
+ pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_210642_019366_D5337B50 
-X-CRM114-Status: GOOD (  32.60  )
+X-CRM114-CacheID: sfid-20250519_210710_285425_506CEB5E 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,145 +95,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 12:46:54PM -0500, Jassi Brar wrote:
-> [Some people who received this message don't often get email from jassisinghbrar@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> 
-> EXTERNAL EMAIL
-> 
-> Hi,
-> 
-Hi Jassi 
-  Thank you for your feedback.
-> > diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.c
-> > new file mode 100644
-> > index 000000000000..c2783dd7d145
-> > --- /dev/null
-> > +++ b/drivers/mailbox/cix-mailbox.c
-> > @@ -0,0 +1,632 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright 2025 Cix Technology Group Co., Ltd.
-> > + */
-> > +
-> > +#include <linux/device.h>
-> > +#include <linux/err.h>
-> > +#include <linux/io.h>
-> > +#include <linux/interrupt.h>
-> > +#include <linux/kernel.h>
-> > +#include <linux/mailbox_controller.h>
-> > +#include <linux/module.h>
-> > +#include <linux/platform_device.h>
-> > +
-> > +#include "mailbox.h"
-> > +
-> > +/* Register define */
-> > +#define REG_MSG(n)     (0x0 + 0x4*(n))                 /* 0x0~0x7c */
-> > +#define REG_DB_ACK     REG_MSG(CIX_MBOX_MSG_LEN)       /* 0x80 */
-> > +#define ERR_COMP       (REG_DB_ACK + 0x4)              /* 0x84 */
-> > +#define ERR_COMP_CLR   (REG_DB_ACK + 0x8)              /* 0x88 */
-> > +#define REG_F_INT(IDX) (ERR_COMP_CLR + 0x4*(IDX+1))    /* 0x8c~0xa8 */
-> > +#define FIFO_WR                (REG_F_INT(MBOX_FAST_IDX+1))    /* 0xac */
-> > +#define FIFO_RD                (FIFO_WR + 0x4)                 /* 0xb0 */
-> > +#define FIFO_STAS      (FIFO_WR + 0x8)                 /* 0xb4 */
-> > +#define FIFO_WM                (FIFO_WR + 0xc)                 /* 0xb8 */
-> > +#define INT_ENABLE     (FIFO_WR + 0x10)                /* 0xbc */
-> > +#define INT_ENABLE_SIDE_B      (FIFO_WR + 0x14)        /* 0xc0 */
-> > +#define INT_CLEAR      (FIFO_WR + 0x18)                /* 0xc4 */
-> > +#define INT_STATUS     (FIFO_WR + 0x1c)                /* 0xc8 */
-> > +#define FIFO_RST       (FIFO_WR + 0x20)                /* 0xcc */
-> > +
-> > +/* [0~7] Fast channel
-> > + * [8] doorbell base channel
-> > + * [9]fifo base channel
-> > + * [10] register base channel
-> > + */
-> > +#define CIX_MBOX_CHANS         (11)
-> > +
-> > +/*
-> > + * The maximum transmission size is 32 words or 128 bytes.
-> > + */
-> > +#define CIX_MBOX_MSG_LEN       (32)    /* Max length = 32 words */
-> > +#define MBOX_MSG_LEN_MASK      (0x7fL) /* Max length = 128 bytes */
-> > +
-> >
-> Move these above register defines where these are used.
-> Also, no need for brackets around numbers. Here and elsewhere.
-> ....
-Okay, I will move these two macros to the beginning and
-remove the brackets around numbers.
+The Timer Counter Block (TCB) exposes several kinds of events to the
+Counter framework, but not every event is meaningful on every hardware
+channel. Add a `watch_validate()` callback so userspace may register only
+the combinations actually supported:
 
-> > +
-> > +static void cix_mbox_isr_reg(struct mbox_chan *chan)
-> > +{
-> > +       struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
-> > +       u32 int_status;
-> > +       u32 data[CIX_MBOX_MSG_LEN];
-> > +       int i;
-> > +       u32 len;
-> >
-> cosmetic: tidy these up by merging and sorting in reverse christmas tree.
-> 
-Okay, I will make an overall adjustment according to this rule.
+* Channel 0 (COUNTER_MCHP_EVCHN_CV, COUNTER_MCHP_EVCHN_RA)
+   - COUNTER_EVENT_CAPTURE
+   - COUNTER_EVENT_CHANGE_OF_STATE
+   - COUNTER_EVENT_OVERFLOW
 
-> > +
-> > +       int_status = cix_mbox_read(priv, INT_STATUS);
-> > +
-> > +       if (priv->dir == MBOX_RX) {
-> > +               /* rx interrupt is triggered */
-> > +               if (int_status & DB_INT) {
-> > +                       cix_mbox_write(priv, DB_INT, INT_CLEAR);
-> > +                       data[0] = cix_mbox_read(priv, REG_MSG(0));
-> > +                       len = mbox_get_msg_size(data);
-> > +                       for (i = 0; i < len; i++)
-> > +                               data[i] = cix_mbox_read(priv, REG_MSG(i));
-> > +
-> > +                       /* trigger ack interrupt */
-> > +                       cix_mbox_write(priv, DB_ACK_INT_BIT, REG_DB_ACK);
-> > +                       mbox_chan_received_data(chan, data);
-> > +               }
-> > +       } else {
-> > +               /* tx ack interrupt is triggered */
-> > +               if (int_status & ACK_INT) {
-> > +                       cix_mbox_write(priv, ACK_INT, INT_CLEAR);
-> > +                       mbox_chan_txdone(chan, 0);
-> > +               }
-> > +       }
-> > +}
-> > +
-> > +static void cix_mbox_isr_fifo(struct mbox_chan *chan)
-> > +{
-> > +       struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
-> > +       u32 data[CIX_MBOX_MSG_LEN] = { 0 };
-> >
-> Is it really needed? Can we do with just zeroing the byte after valid data?
-> At least move it under "FIFO waterMark interrupt is generated", so it
-> is only done when needed.
-Yes, In some cases it is not necessary.
-I will move this under "FIFO waterMark interrupt is generated." 
+* Channel 1 (COUNTER_MCHP_EVCHN_RB)
+   - COUNTER_EVENT_CAPTURE
 
-> > +
-> > +static int cix_mbox_startup(struct mbox_chan *chan)
-> > +{
-> > +       struct cix_mbox_priv *priv = to_cix_mbox_priv(chan->mbox);
-> > +       struct cix_mbox_con_priv *cp = chan->con_priv;
-> > +       int ret;
-> > +       int index = cp->index;
-> > +       u32 val_32;
-> > +
-> > +       ret = request_irq(priv->irq, cix_mbox_isr, 0,
-> > +                         dev_name(priv->dev), chan);
-> >
-> Can we do this later just before returning from the function? Or
-> atleast free the irq before error returns.
-This cannot be done before the return, as it needs to be registered
-before the interrupt enable register. 
-However, I do need to free this IRQ before the error return.
+* Channel 2 (COUNTER_MCHP_EVCHN_RC)
+   - COUNTER_EVENT_THRESHOLD
 
-> Also please make sure you run scripts/checkpatch and have all warnings cleared.
-I have already run scripts/checkpatch to perform the check. 
-The warning you mentioned is due to the need to update the MAINTAINERS file for
-the newly added files, right?
+Any other request is rejected with `-EINVAL`, preventing undefined
+behaviour in userspace.
 
-Thanks
-Guomin Chen
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+---
+Tested the code on target (sam9x60_curiosity) using the following commands
+
+valid ones:
+./counter_watch_events -d -wevt_change_of_state,chan=0
+./counter_watch_events -d -wevt_ovf,chan=0
+./counter_watch_events -d -wevt_capture,chan=0
+./counter_watch_events -d -wevt_capture,chan=1
+./counter_watch_events -d -wevt_threshold,chan=2
+
+invalid ones:
+./counter_watch_events -d -wevt_threshold,chan=0
+./counter_watch_events -d -wevt_threshold,chan=1
+Error adding watches[0]: Invalid argument
+---
+Changes in v2:
+- Include COUNTER_MCHP_EVCHN_CV as well for the sake of completeness.
+- Adjust the code to ensure channel limitations.
+- Drop sorting in this patch, will be taken care seperately.
+- Link to v1: https://lore.kernel.org/r/20250515-counter-tcb-v1-1-e547061ed80f@microchip.com
+---
+ drivers/counter/microchip-tcb-capture.c | 24 +++++++++++++++++++++++-
+ 1 file changed, 23 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 1de3c50b9804..fe817f4f1edc 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -337,6 +337,27 @@ static struct counter_comp mchp_tc_count_ext[] = {
+ 	COUNTER_COMP_COMPARE(mchp_tc_count_compare_read, mchp_tc_count_compare_write),
+ };
+ 
++static int mchp_tc_watch_validate(struct counter_device *counter,
++				  const struct counter_watch *watch)
++{
++	if (watch->channel == COUNTER_MCHP_EVCHN_CV || watch->channel == COUNTER_MCHP_EVCHN_RA) {
++		switch (watch->event) {
++		case COUNTER_EVENT_CHANGE_OF_STATE:
++		case COUNTER_EVENT_OVERFLOW:
++		case COUNTER_EVENT_CAPTURE:
++			return 0;
++		default:
++			return -EINVAL;
++		}
++	} else if (watch->channel == COUNTER_MCHP_EVCHN_RB) {
++		return (watch->event == COUNTER_EVENT_CAPTURE) ? 0 : -EINVAL;
++	} else if (watch->channel == COUNTER_MCHP_EVCHN_RC) {
++		return (watch->event == COUNTER_EVENT_THRESHOLD) ? 0 : -EINVAL;
++	} else {
++		return -EINVAL;
++	}
++}
++
+ static struct counter_count mchp_tc_counts[] = {
+ 	{
+ 		.id = 0,
+@@ -356,7 +377,8 @@ static const struct counter_ops mchp_tc_ops = {
+ 	.function_read  = mchp_tc_count_function_read,
+ 	.function_write = mchp_tc_count_function_write,
+ 	.action_read    = mchp_tc_count_action_read,
+-	.action_write   = mchp_tc_count_action_write
++	.action_write   = mchp_tc_count_action_write,
++	.watch_validate = mchp_tc_watch_validate,
+ };
+ 
+ static const struct atmel_tcb_config tcb_rm9200_config = {
+
+---
+base-commit: 8566fc3b96539e3235909d6bdda198e1282beaed
+change-id: 20250515-counter-tcb-b6ae1945210b
+
+Best regards,
+-- 
+Dharma Balasubiramani <dharma.b@microchip.com>
+
 
