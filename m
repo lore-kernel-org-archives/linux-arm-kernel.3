@@ -4,89 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79909C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 17:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A3DC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 17:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U/cXnZFhK26rMDhHireAeksGXzd4YCvpdsNWOevRhCw=; b=O3UWTmzuduhDyi88vCzGCVz2US
-	SNMGgdlQ9sdJhF3mar0XktaLGhOIs8UJusEZYhx2zN5GozHrlify6QHM6H7FC17FiLXVl1zWswNki
-	dzORhAyfhQFXua1N3i2d39/WPRSZJdiKkUD9mtjqUxZv1f2GPyXBkDOjvAJ7oKmTlrkBbImSUDJx4
-	oSSX8y3cA/HncToXKo14Sps48K0PI+3eMM3XYFiiFXPyfcu1psV5j/B0EP3jV2xj+/2uVUrKc0Pgz
-	bHqjnCxbs9giM4NTFi+3GSF0KYiXtHe2rKwTbS2BwzZ9WL8R9E1pKvS6O1oplT6amxim3Vdtx4lRM
-	y5QOMlpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NQzNVxSYCC2FNoqYgqHcnaCCKOuJ/N1MxANOboKaTNU=; b=06gGwrxHz7yt+h
+	lVPiCCQL5ygJafTYvkmP6r/gyJG0P2goWAduCf60Wh6WQqSst0dtCkRLDpZvnUt+olkoP2LP+lhy2
+	o22us3D65DIXmfcbCxuRXEOzPA1lRs4XjQ+uU3KccJpSi3GBJkjUuOm0wTy41XuqWkhD+sQD57gwM
+	wVlXC2fln7P5MoX1sJ5/2+3eKhMcDKcprWZI9g4J6oOrbnungpLEQoze6cBYfAB1zuEWi3GSyYjG3
+	Gfmhwj7kNgnn+su+E+WMo3ZSZiUvEr5ggPX5rhuHsyM9YeQtueuAPQ6TMX70wqAHH7h3d6Apv274q
+	t7DzF2DDCIXNWiqQxPEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHR0P-0000000Dhul-46KL;
-	Tue, 20 May 2025 17:43:57 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1uHR3a-0000000DiQE-3cmI;
+	Tue, 20 May 2025 17:47:14 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQvw-0000000DhH6-1k4N
+	id 1uHR1R-0000000Di9j-23BY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 17:39:22 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4768f90bf36so58992791cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 10:39:19 -0700 (PDT)
+	Tue, 20 May 2025 17:45:02 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6f8adf56370so9292766d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 10:45:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747762758; x=1748367558; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U/cXnZFhK26rMDhHireAeksGXzd4YCvpdsNWOevRhCw=;
-        b=cBhMV2F0nmXn468hgeftWP0jBQIMGDaWnmRYDt2N6ngdA0g/3J1DuJO17uNHlo/4lC
-         g8XFEEZIYQ+GC04mzrk7AjuiqeNyiiebuSCIKJQFAM9OdkerLHW8POKy8SsSxgCYzTr5
-         ZUhf6EI/R5xVuOXxTw168RPZabL0dW9y6qipzepfYFGdoK8Rky6567fG529BQV43Oiit
-         EuMB2wH1uyOm+UQnx+ErciVB+CZqyo8VzlLPZoRXa+sGyWDihaMl4TyvIgrvqz2abIk1
-         m62wRSoH7j2L1WQOwLfp3QDmPy6dIo0skmRA5V4hDBJpgc9jLYdpvhpIvyQI8BVamKn4
-         upyA==
+        d=gmail.com; s=20230601; t=1747763100; x=1748367900; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NQzNVxSYCC2FNoqYgqHcnaCCKOuJ/N1MxANOboKaTNU=;
+        b=Xg2Rcjf1Q8a02csM5B1js7xT/pjTGFvXZmwRIiC6GIaOFyvrwD1aK7e1KxzOVfLQQg
+         1y97gPe2E4KQ29khUyi/CjRrkU6pSoNgi3Q3vrax+0g1j/XlNjv9HsdawZclMI//+V+6
+         2uqQn4yfl+LCZDXfF1lrOUSPTmRW1lhoJJmHh13gtIqNgqn6NfhGglf/D/DMzLK3l/ow
+         nIaMswtmwuDrKn07UxrNA5Cf8sNi4Joi2qpeDjFz3LQVxncvSY/LMLYGyDX/G5NfZWDe
+         JNZqXeqZohND5PPTdl+bpe6ap8oWxAqt8r1B3o+5eapFXButLdi/5/5QWEY1Y0bLfj1I
+         Cm5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747762758; x=1748367558;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U/cXnZFhK26rMDhHireAeksGXzd4YCvpdsNWOevRhCw=;
-        b=vI4cPhI65X+K+9O1P9mrXH7Lb7ZQXSh+2V3B2uHbPyEKFeqYcRaRdrnXlDD4Zb7I6Q
-         8WqxybLKt7XidIn7P8hCPuxrgPrs8jUYB2RumNlE2xT2T5mzmrdb3HXLghSvvMWzE5AF
-         dF8hndCcHyoezjJCLIJ9S+XEJicl9eiMlaLZrIbwzjXet8gqk1Amn6IfgaY9NRtma5Ae
-         qd/Sq3o2j+GeEMBoV7yQFDXuxfbfinD+9wcS8dq31SQSqkPSbt6CIpoBSoBe929xNMXx
-         xoIbN55jI9JWHhB/BDtDaK9Iymrl9JQfsyU5gTxzilWgifPjLTCl36Xwm6ajgnhANcnO
-         V64Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVFoLvk68fz2SXUCjRMzvSF2NGxLTKftCkWpIIAuA/9dPki9bIz8/olrlaitKb1Qbo1gfAsfdENVcyn3P/U97uO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yww/NkkBR91A2yrYq+eTLu866tVOOmKR9RWRDvNGrCuUM4xfO2c
-	XHaPhDy9YFvcUGoKBzWstZDBLoCZORAh1RkEZvBkfApA15UvXGeZSq4jnJ3BIXVLc7gsN//qKAV
-	cGVQV/qtiGwHgCujPdSfUbYD3gmcNEII=
-X-Gm-Gg: ASbGnct1QcpoJ0nckz02PbzLc+Oxr0nowT5ZqkThUaazLYnG2gzzb590p1EPDSHIJNP
-	NOnJ/uxkM277InBCTjsVU1tdouEdHBQDoZ/1FDf7MI+aTnSWydSYMCZV/f11ebxtQionycA4PBP
-	wT7KNFa46V7s1E2O8UH+SC+NhAZ2inVGZDYvX8WbgowNlTgf4H+eeSQzcXv8/6DwBpkw==
-X-Google-Smtp-Source: AGHT+IGCy8Dky2uDFs544GvIZ3DEH0oxECMeS+ZNPaiNhH+aATrtk0AVPWaVxOrcPA3K24xoB0ESl3vOs26Sf6ozux0=
-X-Received: by 2002:a05:622a:6202:b0:476:76df:d26d with SMTP id
- d75a77b69052e-494b074f915mr256312981cf.8.1747762758261; Tue, 20 May 2025
- 10:39:18 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1747763100; x=1748367900;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NQzNVxSYCC2FNoqYgqHcnaCCKOuJ/N1MxANOboKaTNU=;
+        b=uN3f3vzek54OZetDis84eztZ5wIWAM0fwkbs5Qs/f1VydOKISTOo7AqjlsXprju6VC
+         LX+9sbFJAAGeXcCxgXq5KcGXCzo0F9dtnaYEQscF2CqiMFeKojRVPVou+BEyjAvDw3qp
+         MhaxEOvD0Bi0q4onTJSaHVe+3y+JinZDTE+0+qgDLrk64Xk9Y0fjwV3uP4Jwsjk4hJfD
+         pBIZneXHN1QLgK0y7U7f3qEZNRHiPytd6l1m62IyRolA7vxPFMsUaFpuUhpYkFNR/FEX
+         jbkeHss9NS5BX7qa51v/RLjSh4IriiD6xKu7wg3V1WD70VR5Bsz54HYdPdl3mPYBM64u
+         pO8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXCUYiRSp4gn8lxl63N+MxDskj3SWfVNtNj8iokE9X8bRSI429Orlrng22Rok73S56j6wXtno+gG6K6F5Jtaq2l@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpxA+xE2aqwypmhmnkYjaridtroIlI2xS/zutCyajxHVtjrsTn
+	JGb0HGwCAcjMphzwM93W+jd+QaMkrVPpSNEGare4FDg73+KLWF9NJsDp
+X-Gm-Gg: ASbGncvndO70RCRKTVTD/Vc65IMQJxmk2XyjArn0aFOl3/ycgNLQLn4GEGuYqJ2sjgY
+	5tgOwEzj/WwNuLKDLB1jN9/KWl3c5etj9UGYHT/beKevcXCo1CfQxUt8OrTu85SGKXeroca3qhf
+	3KDWRQn9JGP8P+J0cPvIbkr6Aq0JtXb5GDhEV5/rJzj9Y7AM4dLedKlNIs+COZUDuhfKlIF0q8F
+	QK14WEzT1w1zazIzeSNBFFKkICDbxOeIfQqnmM4CsTsvX4onOjVVEcldWuVZ9vHMQEScF3RJQpY
+	78n+wjOV1uO29f74zrVfTgT3zmgoRZN/dbGzgkztltFNYGWrHBgRmM+9O8xVTPDfa9Byu0TS7Ds
+	LNyA0HGkXosMmFZH/cWM=
+X-Google-Smtp-Source: AGHT+IFMsjsAlp/KmRWJUce4mkstVxqQCTLw9Ds84YBX1CPbtRzn3h6pU65n5IYZAossuniw2u+bEw==
+X-Received: by 2002:ad4:5941:0:b0:6e4:4034:5ae8 with SMTP id 6a1803df08f44-6f8b0881b97mr96409666d6.5.1747763099887;
+        Tue, 20 May 2025 10:44:59 -0700 (PDT)
+Received: from [192.168.124.1] (syn-067-243-142-039.res.spectrum.com. [67.243.142.39])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f8b096ddb4sm74126586d6.78.2025.05.20.10.44.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 May 2025 10:44:59 -0700 (PDT)
+From: Connor Abbott <cwabbott0@gmail.com>
+Subject: [PATCH v7 0/7] iommu/arm-smmu, drm/msm: Fixes for stall-on-fault
+Date: Tue, 20 May 2025 13:44:49 -0400
+Message-Id: <20250520-msm-gpu-fault-fixes-next-v7-0-96cd1cc9ae05@gmail.com>
 MIME-Version: 1.0
-References: <20250515-vt8500-timer-updates-v3-3-2197a1b062bd@gmail.com>
- <202505180911.hDevFA1N-lkp@intel.com> <CABjd4YwJgZiq9_jKGa70GaxaW8TT=JuwDioU6jH=J_O=t+QT8w@mail.gmail.com>
- <f74dbbcb-1628-4280-92e8-d89823a3a318@roeck-us.net>
-In-Reply-To: <f74dbbcb-1628-4280-92e8-d89823a3a318@roeck-us.net>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Tue, 20 May 2025 21:39:15 +0400
-X-Gm-Features: AX0GCFu2VdGiOaPdTGNsD9E3jaLA46XfuVGvrGU1UJ1V9x-G8SIxw9EzEocSyA4
-Message-ID: <CABjd4YyXwznntcLVcYL6qx16YEwv4_VWzrXrE7_QHmQxiE0pXQ@mail.gmail.com>
-Subject: Re: [PATCH v3 3/4] clocksource/drivers/timer-vt8500: Prepare for
- watchdog functionality
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: kernel test robot <lkp@intel.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, oe-kbuild-all@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJG/LGgC/43QzW6DMAwH8Fepcl4mx/nuae8x7RCCoZEKVISiT
+ hXvvtBLEQe049+Wf5b9ZJnGRJmdT0820pxyGvoS7MeJxUvoW+KpLpkhoAYhLO9yx9vbnTfhfp1
+ 4kx6UeU+PiXtDErwDlCRYGb+N9OqW6e+fki8pT8P4+9o0i7X6D3QWHHgVfSUlVrqG6qvtQrp+x
+ qFjKzrjBkI4gLBAtZEmKkALCveQ3EJ4AMkCQWgCgNBOo9hD6g1JUAeQWk8joSqStlFR7iG9gYQ
+ /gHSBvNWmPMDXtYt7yLwhLfQBZAqkGsKgnQzOui20LMsfL98kES0CAAA=
+X-Change-ID: 20250117-msm-gpu-fault-fixes-next-96e3098023e1
+To: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>, 
+ Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Marijn Suijten <marijn.suijten@somainline.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org, 
+ Connor Abbott <cwabbott0@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747763098; l=5530;
+ i=cwabbott0@gmail.com; s=20240426; h=from:subject:message-id;
+ bh=PfUViJW6wIlPq1eq8mbT7TIDbT/guCIxVWkThk/PvMg=;
+ b=5U797NgALzxcffx0leSrLRx1UFnLBJFlcaQFBXdBnTf3m7QtKC4YUXE3mTgPy90CLhOCn90dd
+ v0Vi2w8OTqSCx9eFDdF5aGe4NS03I/NHUey6Cy2chM88n0n9EJx2tgP
+X-Developer-Key: i=cwabbott0@gmail.com; a=ed25519;
+ pk=dkpOeRSXLzVgqhy0Idr3nsBr4ranyERLMnoAgR4cHmY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_103920_459129_6C4F560E 
-X-CRM114-Status: GOOD (  37.88  )
+X-CRM114-CacheID: sfid-20250520_104501_541054_719DB4FC 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,127 +115,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 5:34=E2=80=AFPM Guenter Roeck <linux@roeck-us.net> =
-wrote:
->
-> On 5/19/25 04:34, Alexey Charkov wrote:
-> > On Sun, May 18, 2025 at 5:24=E2=80=AFAM kernel test robot <lkp@intel.co=
-m> wrote:
-> >>
-> >> Hi Alexey,
-> >>
-> >> kernel test robot noticed the following build warnings:
-> >>
-> >> [auto build test WARNING on 92a09c47464d040866cf2b4cd052bc60555185fb]
-> >>
-> >> url:    https://github.com/intel-lab-lkp/linux/commits/Alexey-Charkov/=
-dt-bindings-timer-via-vt8500-timer-Convert-to-YAML/20250516-025729
-> >> base:   92a09c47464d040866cf2b4cd052bc60555185fb
-> >> patch link:    https://lore.kernel.org/r/20250515-vt8500-timer-updates=
--v3-3-2197a1b062bd%40gmail.com
-> >> patch subject: [PATCH v3 3/4] clocksource/drivers/timer-vt8500: Prepar=
-e for watchdog functionality
-> >> config: loongarch-randconfig-r123-20250517 (https://download.01.org/0d=
-ay-ci/archive/20250518/202505180911.hDevFA1N-lkp@intel.com/config)
-> >> compiler: loongarch64-linux-gcc (GCC) 14.2.0
-> >> reproduce: (https://download.01.org/0day-ci/archive/20250518/202505180=
-911.hDevFA1N-lkp@intel.com/reproduce)
-> >>
-> >> If you fix the issue in a separate patch/commit (i.e. not just a new v=
-ersion of
-> >> the same patch/commit), kindly add following tags
-> >> | Reported-by: kernel test robot <lkp@intel.com>
-> >> | Closes: https://lore.kernel.org/oe-kbuild-all/202505180911.hDevFA1N-=
-lkp@intel.com/
-> >>
-> >> sparse warnings: (new ones prefixed by >>)
-> >>>> drivers/clocksource/timer-vt8500.c:201:51: sparse: sparse: incorrect=
- type in assignment (different address spaces) @@     expected void *platfo=
-rm_data @@     got void [noderef] __iomem *static [assigned] [toplevel] reg=
-base @@
-> >>     drivers/clocksource/timer-vt8500.c:201:51: sparse:     expected vo=
-id *platform_data
-> >>     drivers/clocksource/timer-vt8500.c:201:51: sparse:     got void [n=
-oderef] __iomem *static [assigned] [toplevel] regbase
-> >>
-> >> vim +201 drivers/clocksource/timer-vt8500.c
-> >>
-> >>     175
-> >>     176  /*
-> >>     177   * This probe gets called after the timer is already up and r=
-unning. This will create
-> >>     178   * the watchdog device as a child since the registers are sha=
-red.
-> >>     179   */
-> >>     180  static int vt8500_timer_probe(struct platform_device *pdev)
-> >>     181  {
-> >>     182          struct platform_device *vt8500_watchdog_device;
-> >>     183          struct device *dev =3D &pdev->dev;
-> >>     184          int ret;
-> >>     185
-> >>     186          if (!sys_timer_ch) {
-> >>     187                  dev_info(dev, "Not enabling watchdog: only on=
-e irq was given");
-> >>     188                  return 0;
-> >>     189          }
-> >>     190
-> >>     191          if (!regbase)
-> >>     192                  return dev_err_probe(dev, -ENOMEM,
-> >>     193                          "Timer not initialized, cannot create=
- watchdog");
-> >>     194
-> >>     195          vt8500_watchdog_device =3D platform_device_alloc("vt8=
-500-wdt", -1);
-> >>     196          if (!vt8500_watchdog_device)
-> >>     197                  return dev_err_probe(dev, -ENOMEM,
-> >>     198                          "Failed to allocate vt8500-wdt");
-> >>     199
-> >>     200          /* Pass the base address as platform data and nothing=
- else */
-> >>   > 201          vt8500_watchdog_device->dev.platform_data =3D regbase=
-;
-> >
-> > Frankly, given that this driver only applies to VT8500 (which is ARM
-> > based), the warning appears a bit overzealous. After all, on ARM MMIO
-> > addresses are in the same physical address space as normal memory
-> > addresses, and furthermore this platform_data is never dereferenced
-> > directly anyway.
->
-> Guess we'll need AI compilers in the future to help them know that.
-> I for my part would argue that "this warning can be ignored" is the
-> source of many problems flying under the radar.
->
-> >
-> > I could silence the warning either by more aggressive casting or by
-> > wrapping the pointer into some struct, but both of those sound a bit
-> > overreaching. Would appreciate guidance from the list on how to best
-> > approach this.
-> >
->
-> First of all, I am quite sure that using platform drivers for this is the
-> wrong approach to start with. This seems to be a perfect candidate for
-> an auxiliary driver.
+drm/msm uses the stall-on-fault model to record the GPU state on the
+first GPU page fault to help debugging. On systems where the GPU is
+paired with a MMU-500, there were two problems:
 
-TIL: auxiliary bus :)
+1. The MMU-500 doesn't de-assert its interrupt line until the fault is
+   resumed, which led to a storm of interrupts until the fault handler
+   was called. If we got unlucky and the fault handler was on the same
+   CPU as the interrupt, there was a deadlock.
+2. The GPU is capable of generating page faults much faster than we can
+   resume them. GMU (GPU Management Unit) shares the same context bank
+   as the GPU, so if there was a sudden spurt of page faults it would be
+   effectively starved and would trigger a watchdog reset, made even
+   worse because the GPU cannot be reset while there's a pending
+   transaction leaving the GPU permanently wedged.
 
-Thanks for the pointer Guenter, it does indeed look like a more
-appropriate choice. I'll try and port the driver to use that instead,
-and resubmit.
+Patches 1-2 and 4 fix the first problem by switching the IRQ to be a
+threaded IRQ and then making drm/msm do its devcoredump work
+synchronously in the threaded IRQ. Patch 4 is dependent on patches 1-2.
+Patch 6 fixes the second problem and is dependent on patch 3. Patch 5 is
+a cleanup for patch 4 and patch 7 is a subsequent further cleanup to get
+rid of the resume_fault() callback once we switch resuming to being done
+by the SMMU's fault handler.
 
-> Second, I do consider passing an iomem pointer as platform data to be
-> inherently unsafe. I would very much prefer either passing a regmap
-> pointer or, if that doesn't work, a data structure.
+I've organized the series in the order that it should be picked up:
 
-I guess it resolves itself with the auxiliary driver approach, as I
-can then just upcast the auxiliary device pointer to the parent's
-enclosing private struct, which can then contain both a timer read
-function and the specific pointers to the two registers the watchdog
-needs. No need then for the child to do its arbitrary offsets into the
-parent's iomem region - just use what's given directly. It's still
-going to be iomem pointer access, but on the other hand putting a
-layer of indirection (i.e. regmap) into the system timer code sounds a
-bit scary to me.
+- Patches 1-3 need to be applied to the iommu tree first.
+- Patches 4-6, which depend on 1-3 should be taken by drm/msm. We will
+  probably want to create an immutable tag and merge it into drm/msm to
+  be able to take them in the same cycle and avoid the temporary
+  regression noted in patch 2.
+- Patch 7 can be applied to the iommu tree later, it's just a smaller
+  cleanup dependent on the changes landing in drm/msm.
+
+Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+---
+Changes in v7:
+- Rebase on v6.15-rc2.
+- Add debugfs entry for whether stall-on-fault is enabled to help igt
+  tests that want to wait until the cooldown period is over to collect a
+  devcoredump (Rob).
+- Link to v6: https://lore.kernel.org/r/20250515-msm-gpu-fault-fixes-next-v6-0-4fe2a583a878@gmail.com
+
+Changes in v6:
+- Rewrite to use a threaded IRQ instead in iommu/arm-smmu (Will). As a
+  result we can drop most of the previous changes and instead move
+  writing RESUME to the fault handler.
+- Link to v5: https://lore.kernel.org/r/20250319-msm-gpu-fault-fixes-next-v5-0-97561209dd8c@gmail.com
+
+Changes in v5:
+- Don't read CONTEXTIDR for stage 2 domains.
+- Clarify that we don't need TLB invalidation when changing
+  SMMU_CBn_SCTLR.CFCFG.
+- Link to v4: https://lore.kernel.org/r/20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com
+
+Changes in v4:
+- Add patches 1-2, which fix reading registers in drm/msm when
+  acknowledging the fault early. This was Robin's preferred solution
+  compared to making drm/msm's fault handler tell arm-smmu to resume the
+  fault.
+- Link to v3: https://lore.kernel.org/r/20250122-msm-gpu-fault-fixes-next-v3-0-0afa00158521@gmail.com
+
+Changes in v3:
+- Acknowledge the fault before resuming the transaction in patch 1.
+- Add suggested extra context to commit messages.
+- Link to v2: https://lore.kernel.org/r/20250120-msm-gpu-fault-fixes-next-v2-0-d636c4027042@gmail.com
+
+Changes in v2:
+- Remove unnecessary _irqsave when locking in IRQ handler (Robin)
+- Reuse existing spinlock for CFIE manipulation (Robin)
+- Lock CFCFG manipulation against concurrent CFIE manipulation
+- Don't use timer to re-enable stall-on-fault. (Rob)
+- Use more descriptive name for the function that re-enables
+  stall-on-fault if the cooldown period has ended. (Rob)
+- Link to v1: https://lore.kernel.org/r/20250117-msm-gpu-fault-fixes-next-v1-0-bc9b332b5d0b@gmail.com
+
+---
+Connor Abbott (7):
+      iommu/arm-smmu-qcom: Enable threaded IRQ for Adreno SMMUv2/MMU500
+      iommu/arm-smmu: Move handing of RESUME to the context fault handler
+      iommu/arm-smmu-qcom: Make set_stall work when the device is on
+      drm/msm: Don't use a worker to capture fault devcoredump
+      drm/msm: Delete resume_translation()
+      drm/msm: Temporarily disable stall-on-fault after a page fault
+      iommu/smmu-arm-qcom: Delete resume_translation()
+
+ drivers/gpu/drm/msm/adreno/a2xx_gpummu.c         |  5 ---
+ drivers/gpu/drm/msm/adreno/a5xx_gpu.c            |  2 +
+ drivers/gpu/drm/msm/adreno/a6xx_gpu.c            |  4 ++
+ drivers/gpu/drm/msm/adreno/adreno_gpu.c          | 54 +++++++++++++++++++-----
+ drivers/gpu/drm/msm/adreno/adreno_gpu.h          |  2 +
+ drivers/gpu/drm/msm/msm_debugfs.c                |  3 ++
+ drivers/gpu/drm/msm/msm_drv.c                    |  4 ++
+ drivers/gpu/drm/msm/msm_drv.h                    | 23 ++++++++++
+ drivers/gpu/drm/msm/msm_gpu.c                    | 20 ++++-----
+ drivers/gpu/drm/msm/msm_gpu.h                    |  8 +---
+ drivers/gpu/drm/msm/msm_iommu.c                  | 12 ++----
+ drivers/gpu/drm/msm/msm_mmu.h                    |  2 +-
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c |  9 ++++
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c       | 43 +++++++++++++------
+ drivers/iommu/arm/arm-smmu/arm-smmu.c            |  6 +++
+ include/linux/adreno-smmu-priv.h                 |  8 ++--
+ 16 files changed, 144 insertions(+), 61 deletions(-)
+---
+base-commit: 8ffd015db85fea3e15a77027fda6c02ced4d2444
+change-id: 20250117-msm-gpu-fault-fixes-next-96e3098023e1
 
 Best regards,
-Alexey
+-- 
+Connor Abbott <cwabbott0@gmail.com>
+
 
