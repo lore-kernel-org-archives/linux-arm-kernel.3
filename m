@@ -4,58 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16DCC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 09:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31991C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 09:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q6hN8clUXqHF54vif6K3GnNrSQmWL82ab7vlFINAuAw=; b=uSMbqX/3ieBJdm80X6xjebSqmk
-	j0RZInBVXSTeAA0e4UFsux4L8N0rstfkBPN/JCfke100Uz2SoaNWd/d0hgH+EH/dTPEf+TuONAmu+
-	t2HIWRXuYycWtRUohnki9x0G36dn3aGSrnQnpq8jQPVSGk4XP+CkgCdzpP+debRO46iSGjms0HPN+
-	Nm97zjumS8e2gWaaaPr1IJQq8Hi+9m+GIHMt/uw3Bu3nkAhvLFUVbEOf+bu82GfRCv+Fi3PRX76oo
-	xadon3aPVm2KqVRkvClGj5YRzHcik4YV4BVLD+k5IcT+nC4VOXYhIYQOVmRWP0lURpDjCiX6l3Xe7
-	S3qkNG6A==;
+	bh=PSR1/u0V+jGJxOjEFN3NNH+g3uaL+3CXLAVsxo/mjXA=; b=uAHFFsGVfX033S7dhwvYMpyiYg
+	STjU0CKmC6a2vqyUQLecQLuC7wW55wZUVIDspHme+JOoayBgKcZ+EJ2iXGhMWSS66kW9OIqLUBupe
+	WE/6G8WfMfCCejJubLdEE5pEQtykNzkbrpTi+B69pLzuVNzlHB8Nmt4XhnN5ZCr7MAKBQK3U1dJYx
+	g6L/AfLSZjdSHwULQT9JeQJTitX3Gujz0B0LtdejjgJeOPQT2CDqLRKnoI2vtV1qfoPv4JvpaLvV8
+	iF1sEhqw62iXsUSCUQo4QBD9rRFxaEuobMapCmNr48NEyaPX56HYH98r6gI5zLzAoRNreYF6lXi2P
+	2aGF3Aow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHIwZ-0000000C8M9-2g1t;
-	Tue, 20 May 2025 09:07:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHIuR-0000000C896-40Ou
+	id 1uHJ1J-0000000C95a-2CUs;
+	Tue, 20 May 2025 09:12:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHIzC-0000000C8np-3xvk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 09:05:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 602C3153B;
-	Tue, 20 May 2025 02:04:59 -0700 (PDT)
-Received: from MacBook-Pro.blr.arm.com (unknown [10.164.18.48])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 365303F5A1;
-	Tue, 20 May 2025 02:05:08 -0700 (PDT)
-From: Dev Jain <dev.jain@arm.com>
-To: ryan.roberts@arm.com
-Cc: anshuman.khandual@arm.com,
-	catalin.marinas@arm.com,
-	david@redhat.com,
-	dev.jain@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	mark.rutland@arm.com,
-	stable@vger.kernel.org,
-	will@kernel.org,
-	yang@os.amperecomputing.com
-Subject: Re: [PATCH v2] arm64: Restrict pagetable teardown to avoid false warning
-Date: Tue, 20 May 2025 14:35:01 +0530
-Message-Id: <20250520090501.27273-1-dev.jain@arm.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <df7eb016-bea4-489d-aecb-1a47eb5e33b2@arm.com>
-References: <df7eb016-bea4-489d-aecb-1a47eb5e33b2@arm.com>
+	Tue, 20 May 2025 09:10:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1747732208;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=PSR1/u0V+jGJxOjEFN3NNH+g3uaL+3CXLAVsxo/mjXA=;
+	b=iFS60y68GT4M+9gWLvpuOHNQG/W+/UXWaO9Iprtr5RKirX5PV1Ih2V4FXfG2H8PEnhMquc
+	VVY5he5My9LgFvLWASfJoBj7vCZnVVTvWnj4mP0WCajRycBm417Ld4xNbSdRJNjmEfa5Ut
+	cUwWS3hqQlRx9x//kHNLxbCUcHGzdg0=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-338-PCWR2v8xMjGhOwb32caYOQ-1; Tue, 20 May 2025 05:10:07 -0400
+X-MC-Unique: PCWR2v8xMjGhOwb32caYOQ-1
+X-Mimecast-MFC-AGG-ID: PCWR2v8xMjGhOwb32caYOQ_1747732206
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-43cf446681cso32964235e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 02:10:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747732206; x=1748337006;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=PSR1/u0V+jGJxOjEFN3NNH+g3uaL+3CXLAVsxo/mjXA=;
+        b=b+3gGPg8ZUXH4QzOry/oqBQyYnND4deeeXFpWYBVyvJ33KA/a+og2KF0XCYWXoe4B8
+         iMYwaNqpJkPNMNwwcs8s7gLKwdiB00HsvnGb36SBOgpNiRCd8ZHQ8HI4oqluui4Hj4wR
+         e55SiJwBCmyh9jHGsUn+14VZYFgFS0v0ph5Z72LZvn8RVzTuoq6V6bVSJSQE7keKSgZX
+         lg4CzNK5kReDARWbRIQSo7oO1k1RKowoy0CE+fXpC6nuAn7VwXfTHtEbamkuv1dfed5d
+         mpUEjw0mFJlQtggZ54EczgkTio85fui6WefQYnFfyKGOUHk00Y1n4e4J05VbL/4m8J7Q
+         HFhA==
+X-Forwarded-Encrypted: i=1; AJvYcCVW9zwkB70xr02kKid1FFKz32a6XQ1/s9upj4RcRJFQLKv/PDzuDbJmpAZUkN7FauplVBqPlbsWa9v5g/ON3ycQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7xoUecWDU700ExqfCIxYXr9xldQaSH5FjpVL41X5wbD/v0yB5
+	D4Lwu6xe9bSmY+J26CkMbv5aLiG6NYQEr+VeK8lPcjQ4RiEHMFIadke3rBdFdtB5mdrACgxwjP2
+	HMk2F1ZeNFkG53coozINjKWAftNbJnr1RoVIV0MDeBBrOz7CZSSX6urjmZ32I/tg6WnNDwAkpvU
+	nj
+X-Gm-Gg: ASbGncsWy9R9+a+m0YMiVCRq98wODqjx4UEwB8YehqM6KsTPQDWvDeB3aQxBd4ntxsk
+	9+FRbtldd92YPMyST7nsd8WR7IsK9qpnsSptfH0bbXThNcqi2QfXdyx+1LLxd5UrVi5B8HV9g+o
+	aPKdO4nqfK7mGgzX8rXCPKKST1cOod5m5zVux7uDotvgYMDbuBbCocKmwrFpY3277+BWbftc7VM
+	IEbyVd8BPlCLd8DBzSQGd85/lUd5GElYs17PNlWTOp3kYdsqTKi38OwdUyoEMYZTn4n+l9UHZUS
+	lzNqulSkWNszA2skvo0S1A35/BVHESDnbFPCN4oav94S7aoXdmDBXOHTLT4SZxE35tP6dvr4nJx
+	KiIjYP5O8XYd3NBGfeqPTZOzHlHg8eZLDlCk/Zzw=
+X-Received: by 2002:a05:600c:5008:b0:442:f482:c429 with SMTP id 5b1f17b1804b1-442fd622da0mr155950835e9.8.1747732206184;
+        Tue, 20 May 2025 02:10:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFg+fp/L4WVymGk9SPSBtpbctVG+Z2wbaOjNHfL4pL3y/IW6svbACJGKerPgXy0imMXlFDQmw==
+X-Received: by 2002:a05:600c:5008:b0:442:f482:c429 with SMTP id 5b1f17b1804b1-442fd622da0mr155950525e9.8.1747732205777;
+        Tue, 20 May 2025 02:10:05 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f16:e400:525a:df91:1f90:a6a8? (p200300d82f16e400525adf911f90a6a8.dip0.t-ipconnect.de. [2003:d8:2f16:e400:525a:df91:1f90:a6a8])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f1825457sm24064175e9.1.2025.05.20.02.10.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 20 May 2025 02:10:05 -0700 (PDT)
+Message-ID: <021dfe38-f786-46d0-a43f-769aff07b3f0@redhat.com>
+Date: Tue, 20 May 2025 11:10:04 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: Restrict pagetable teardown to avoid false
+ warning
+To: Dev Jain <dev.jain@arm.com>, ryan.roberts@arm.com
+Cc: anshuman.khandual@arm.com, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ mark.rutland@arm.com, stable@vger.kernel.org, will@kernel.org,
+ yang@os.amperecomputing.com
+References: <df7eb016-bea4-489d-aecb-1a47eb5e33b2@arm.com>
+ <20250520090501.27273-1-dev.jain@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <20250520090501.27273-1-dev.jain@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: PIlNR6VU9JCwBSFlTd-nFx7zQnyUgQ75UYAdJRbs_WU_1747732206
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_020516_037685_D0BACE17 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20250520_021011_061968_E1BB96A8 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,88 +161,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2025 13:16, David Hildenbrand wrote:
-> On 19.05.25 11:08, Ryan Roberts wrote:
->> On 18/05/2025 10:54, Dev Jain wrote:
->>> Commit 9c006972c3fe removes the pxd_present() checks because the caller
->>
->> nit: please use the standard format for describing commits: Commit 9c006972c3fe
->> ("arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table()")
->>
->>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller only
->>> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
->>> pmd_free_pte_page(), wherein the pmd may be none. Thus it is possible to
->>> hit a warning in the latter, since pmd_none => !pmd_table(). Thus, add
->>> a pmd_present() check in pud_free_pmd_page().
+On 20.05.25 11:05, Dev Jain wrote:
+> On 19/05/2025 13:16, David Hildenbrand wrote:
+>> On 19.05.25 11:08, Ryan Roberts wrote:
+>>> On 18/05/2025 10:54, Dev Jain wrote:
+>>>> Commit 9c006972c3fe removes the pxd_present() checks because the caller
 >>>
->>> This problem was found by code inspection.
+>>> nit: please use the standard format for describing commits: Commit 9c006972c3fe
+>>> ("arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table()")
 >>>
->>> This patch is based on 6.15-rc6.
->>
->> nit: please remove this to below the "---", its not part of the commit log.
->>
+>>>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller only
+>>>> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
+>>>> pmd_free_pte_page(), wherein the pmd may be none. Thus it is possible to
+>>>> hit a warning in the latter, since pmd_none => !pmd_table(). Thus, add
+>>>> a pmd_present() check in pud_free_pmd_page().
+>>>>
+>>>> This problem was found by code inspection.
+>>>>
+>>>> This patch is based on 6.15-rc6.
 >>>
->>> Fixes: 9c006972c3fe (arm64: mmu: drop pXd_present() checks from
->>> pXd_free_pYd_table())
+>>> nit: please remove this to below the "---", its not part of the commit log.
 >>>
->>
->> nit: remove empty line; the tags should all be in a single block with no empty
->> lines.
->>
->>> Cc: <stable@vger.kernel.org>
->>> Reported-by: Ryan Roberts <ryan.roberts@arm.com>
->>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>> ---
->>> v1->v2:
->>>   - Enforce check in caller
+>>>>
+>>>> Fixes: 9c006972c3fe (arm64: mmu: drop pXd_present() checks from
+>>>> pXd_free_pYd_table())
+>>>>
 >>>
->>>   arch/arm64/mm/mmu.c | 3 ++-
->>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>> nit: remove empty line; the tags should all be in a single block with no empty
+>>> lines.
 >>>
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index ea6695d53fb9..5b1f4cd238ca 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -1286,7 +1286,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->>>       next = addr;
->>>       end = addr + PUD_SIZE;
->>>       do {
->>> -        pmd_free_pte_page(pmdp, next);
->>> +        if (pmd_present(*pmdp))
+>>>> Cc: <stable@vger.kernel.org>
+>>>> Reported-by: Ryan Roberts <ryan.roberts@arm.com>
+>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>> ---
+>>>> v1->v2:
+>>>>    - Enforce check in caller
+>>>>
+>>>>    arch/arm64/mm/mmu.c | 3 ++-
+>>>>    1 file changed, 2 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>> index ea6695d53fb9..5b1f4cd238ca 100644
+>>>> --- a/arch/arm64/mm/mmu.c
+>>>> +++ b/arch/arm64/mm/mmu.c
+>>>> @@ -1286,7 +1286,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>>>>        next = addr;
+>>>>        end = addr + PUD_SIZE;
+>>>>        do {
+>>>> -        pmd_free_pte_page(pmdp, next);
+>>>> +        if (pmd_present(*pmdp))
+>>>
+>>> pmd_free_pte_page() is using READ_ONCE() to access the *pmdp to ensure it can't
+>>> be torn. I suspect we don't technically need that in these functions because
+>>> there can be no race with a writer.
 >>
->> pmd_free_pte_page() is using READ_ONCE() to access the *pmdp to ensure it can't
->> be torn. I suspect we don't technically need that in these functions because
->> there can be no race with a writer.
+>> Yeah, if there is no proper locking in place the function would already
+>> seriously mess up (double freeing etc).
 > 
-> Yeah, if there is no proper locking in place the function would already
-> seriously mess up (double freeing etc).
+> Indeed; there is no locking, but this portion of the vmalloc VA space has been
+> allocated to us exclusively, so we know there can be no one else racing.
+> 
+>>
+>>> But the arm64 arch code always uses
+>>> READ_ONCE() for dereferencing pgtable entries for safely. Perhaps we should be
+>>> consistent here?
+>>
+>> mm/vmalloc.c:   if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
+> 
+> Yes, I saw that. I know that we don't technically need READ_ONCE(). I'm just
+> proposng that for arm64 code we should be consistent with what it already does.
+> See Commit 20a004e7b017 ("arm64: mm: Use READ_ONCE/WRITE_ONCE when accessing
+> page tables")
+> 
+> So I'll just use pmdp_get()?
 
-Indeed; there is no locking, but this portion of the vmalloc VA space has been
-allocated to us exclusively, so we know there can be no one else racing.
+Maybe that's the cleanest approach. Likely also common code should use 
+that at some point @Ryan?
 
-> 
->> But the arm64 arch code always uses
->> READ_ONCE() for dereferencing pgtable entries for safely. Perhaps we should be
->> consistent here?
-> 
-> mm/vmalloc.c:   if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
+-- 
+Cheers,
 
-Yes, I saw that. I know that we don't technically need READ_ONCE(). I'm just
-proposng that for arm64 code we should be consistent with what it already does.
-See Commit 20a004e7b017 ("arm64: mm: Use READ_ONCE/WRITE_ONCE when accessing
-page tables")
-
-So I'll just use pmdp_get()? (Hopefully my reply comes fine, I am replying
-from the terminal)
-
-Thanks,
-Ryan
-
-> 
-> 
-> :)
-> 
-> Acked-by: David Hildenbrand <david@redhat.com>
-> 
+David / dhildenb
 
 
