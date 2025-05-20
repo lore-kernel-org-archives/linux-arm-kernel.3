@@ -4,137 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C05CC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E7FAC54756
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 07:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2uZLHbxCZSGFaoPD2HjsSQPs1GfgUUi/JHnbAVOktuM=; b=jalTvi15nrtqy7elGLYZQnNsqu
-	3eIkYjUy9GRKNcRX1eCPRxR+DcrLA5j360p7y8zJ3zSz2+rNejV5nbxZX97OBrOy8GOXE8i3549Vl
-	dcEEiRrOFz13MbaazdTiZMMkmMyVL3ppXRFiYNFsfIO/CGDOMNYwIf0ylyypJpOPf31XN5n+tPBAJ
-	VFil5doTv8LYw6sABhDgy4Vleu3FBUUFn7CpsZc9Yw8BKB9xnBWnAV7hFw19ZTjVWn9Ve5Db615+b
-	mRStZhM0UGqEgEd3IHda/bZfOome8EIuA6qCaFAcGR8OttqYJUrXZATNx1mkxTj7QkdtxCrxpDQ1E
-	XnzgT1cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZdIl5ruFle3dZRSvSQf0JxqGm5gQ6Pf3iT7nEU/r+qM=; b=BjoJgRfHwwKwDIhrY9OiT8MRk9
+	7LhnP85xIMamo8qhDULrtFsZzkiTQgrhyth2Lvx1U5jj4pcM65UVhqBOM3CIoDvha/KIM6WPsAnsz
+	KZBL+UrUThs3EjM80jpFG+CTXyOR4g9hqWpCIWGUNvSJ+E27x0tHuVRj5gr9fOBmGUZMXgxMS5dVg
+	7HWoHF6+Pr7JiKXbnBrW9YkUr/6oLUsQIq72gyJCHtWAU+J9NcnkZ8ehQsbE2znqShDXGuibzPHqH
+	WX6YxgfM9MIRf2LRgqA5PelnBMXkzfFQPAubYgfP9QQtXhLWOqJLI5eAz+n+nc9NneqOdv1wMQEv4
+	HGYkk4SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHYH-0000000BsMD-3yyn;
-	Tue, 20 May 2025 07:38:17 +0000
-Received: from mail-am0eur02on2072e.outbound.protection.outlook.com ([2a01:111:f403:2606::72e] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1uHHaN-0000000BsdA-2ueU;
+	Tue, 20 May 2025 07:40:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHVR-0000000BrmZ-074L
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 07:35:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hJULVp+19iNUgto+ORE05EwQbYHJowfb8kqP14HnkJAFk7D4Pc7jzzHaQgcFWTFn8pAkmyJ1UWKgZA8RtF+4au5Ww5odvSoIXSmtgd8F4fG5GTJ4yMojwN23w+hJb7DhQZoLdFZt6M44JI5AumOCVr77kdi2x0Bte78ZVPd/Bzcm9MDAWFhU2o807xa3hFSafOVeUEm7aVGybjp8x35YcmqCpQgxEnRrOZCOXTIlQggPa9rRbkQiEOlN+MPf5GyqwGhFx5+dw1bN6ww4YZ6lz9FxU3V9VdOVk4N2QtYQXmz1aANn0GxSGM3EsfxIcPwCUReaaNmGDysIgGLHn2RWdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2uZLHbxCZSGFaoPD2HjsSQPs1GfgUUi/JHnbAVOktuM=;
- b=K8HHznAWMnE62x0OCzL4ouI/BpTCmWE36DMAbAxghUZwlPP3Xumgg2OlF4w6p18cQtk+dHR4tcZmegnmxvkcr5FIuTBycawlPPrABg8LZa3e7p11UkEXdULkILFEKf2frlKVaKPzVem1FpoEobFuxorrM/luV1BIgBKbd9QqLu245LV2RJoth1rwVxXPW8yATZLZQWOH8wpTtonYc9qdM2KsvXIao3rZZFEPdW6ja91XgGBbxudof22hoGZu2XAqmjEpcub3KOe296epDuHoeNCMkwsxsI700kjTDey6D1IM7ErnAbSlX4BIl7gmTI17jw/ExPkNTF5oSc5bl0CQRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=kernel.org smtp.mailfrom=phytec.de;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.de; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2uZLHbxCZSGFaoPD2HjsSQPs1GfgUUi/JHnbAVOktuM=;
- b=rE/vY/Si7DbU7Il6BBfCA4yafdMD6Vfq81w4+IbvCd81PE9YhKosh7a/qlX0/csMFURuSMYtaZoBZbOqOqYnRu8gAe4c1VgnngQUCz7AfA3R870HdHjJUdaU46dxq/fzSswecwN8rWroz8oGds3NUecLD4cgXI2IO8w80aGp1PK5NKCqlXH4O1sQ7sQ6j7L4PHf40prvhDFWagS3Vgpf3tfJJf4LVw7YQjlhX5bbMSxaiI8dI2mjbkSjyHtcGmr5oRdBHE/cz21+uWUUOWoTToMUoCgCwojWsviq6X4w5ZIievdur/95eGRtSaqEK/BfQ8krrt3UPrk7mdHVqX4hyw==
-Received: from CWLP123CA0087.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:5b::27)
- by AS8P195MB2098.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:56b::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Tue, 20 May
- 2025 07:35:10 +0000
-Received: from AMS0EPF000001B7.eurprd05.prod.outlook.com
- (2603:10a6:401:5b:cafe::1a) by CWLP123CA0087.outlook.office365.com
- (2603:10a6:401:5b::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.30 via Frontend Transport; Tue,
- 20 May 2025 07:35:10 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- AMS0EPF000001B7.mail.protection.outlook.com (10.167.16.171) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8769.18 via Frontend Transport; Tue, 20 May 2025 07:35:10 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 20 May
- 2025 09:35:09 +0200
-Received: from llp-stoidner.phytec.de (172.25.39.157) by Florix.phytec.de
- (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 20 May
- 2025 09:35:09 +0200
-From: Christoph Stoidner <c.stoidner@phytec.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<upstream@lists.phytec.de>, Christoph Stoidner <c.stoidner@phytec.de>
-Subject: [PATCH] arm64: dts: freescale: imx93-phycore-som: Delay the phy reset by a gpio
-Date: Tue, 20 May 2025 09:34:50 +0200
-Message-ID: <20250520073450.388989-1-c.stoidner@phytec.de>
-X-Mailer: git-send-email 2.43.0
+	id 1uHHXj-0000000BsFT-3SPL;
+	Tue, 20 May 2025 07:37:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2CF8961155;
+	Tue, 20 May 2025 07:37:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48570C4CEE9;
+	Tue, 20 May 2025 07:37:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747726662;
+	bh=fVyiR8D7qQA0+vUTgX2LRrLxivKrGYmC1L9B3HBhIp4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dBCD7X/Ibe+2sYG6xP8sVpZb/vvzfhqkfWycoZsODdRu0VlV9AzpwEbDry/P8F/Ki
+	 160DahL5vOyYPwKvMHogsbRJjloc+9RW95QTgbAOYkHGrvyU6pZOIzBMpLDSRvv58+
+	 BUnXAyXUkB275DFTYj37RQ48hOiD4G6tZPHThU8pDoh7Q96nKggGXnvCvaWTssLPXy
+	 D4Lxnato7ApFWIGCt02TmsNFsgVWDS05ddVMquc+IEx925tVwN1KoOstszxYB9LJSg
+	 931bNAa+VGLwHHpB9NalKtr0s4Ta9DlL0WsQCce7tNWGaAiywZjHqBSPLO//shlkOy
+	 Xncs2LCkxJUOg==
+Date: Tue, 20 May 2025 09:37:40 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	Jeff Hugo <jeff.hugo@oss.qualcomm.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-doc@vger.kernel.org, linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
+Subject: Re: [PATCH v4 05/10] accel/rocket: Add a new driver for Rockchip's
+ NPU
+Message-ID: <20250520-silent-prophetic-cricket-fa0fa9@kuoka>
+References: <20250519-6-10-rocket-v4-0-d6dff6b4c0ae@tomeuvizoso.net>
+ <20250519-6-10-rocket-v4-5-d6dff6b4c0ae@tomeuvizoso.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.39.157]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001B7:EE_|AS8P195MB2098:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94e5bed4-d9f9-46e1-8f7b-08dd9770d9b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VyWlP7/z/qRbVq37CoDUH4zigNdriwxSoNPsJitVUcgNDq7+Bv2OUz855A16?=
- =?us-ascii?Q?6LlX1svRP5p5CLL+U+Ni/YxUE4UZXXc2EA9Ik+lxCXtxg1W2DH8nAukACx/5?=
- =?us-ascii?Q?/qjdqM9r/+ItwTV+EZ5AomtJGpE557+OqE/rGCeJC1qmZVFHwUfdv7YYmyIr?=
- =?us-ascii?Q?D6B24dqMQWWsOpHFYpAymlS2F2Nqur9r773b1dMwTt8dslLeyl3wplZxseYT?=
- =?us-ascii?Q?lY90LuuMzBAzguEzMAoj32+gO2AgAtDXLACJHOumezf6sRoEOWhmRPh6LCeo?=
- =?us-ascii?Q?3kRrI7rBfwz48soaBEnoepvMx7PreOeRgKwOFGiaes8M6n2hWjAW8D0MB+Ph?=
- =?us-ascii?Q?oBCxb/7XIM93oP74EMR7E9DW5fGvnJmDK97RpL4eajcWsc+VrnPJdlkBK6Mk?=
- =?us-ascii?Q?+YCbKfLIHnnOexhHOOdKEOfrYFrQBFX0FZAoHNIo/waQRDbLvUZ6TpNeIoyK?=
- =?us-ascii?Q?L3hf9y11IrqevpRLT7flBP2cfEZ7Q6N09b2Xwe9+Gia6KPMq/J7P0LoLGJqn?=
- =?us-ascii?Q?RUhUr8f1ajkU2i4U8levdqTq7MEA4oGnHNVL7r5BPH5k0jlirhayYLKJnlQj?=
- =?us-ascii?Q?u1ntutkjAbHee0lzGfp7PdWgpdxzTFXnsn7/3L/5a7VajwAK0WVvW+f5GLq3?=
- =?us-ascii?Q?tMrJsf75S+hHpo7u46Mwxkdkif3qm3Aqwaz37Bucxu891ZoUpYaGVcpi7Lhr?=
- =?us-ascii?Q?9wmKMSU14uNY4kHphffP61MN87gmudm5CXaWcKh/KFc5G1IpE57DIoriiDHF?=
- =?us-ascii?Q?S5f/IopAduzUqOO+OAtiusDlYT/tq8vzxdCYgnr41cfVS9QJluTxdevUup+/?=
- =?us-ascii?Q?A3++ypmu7v4eB2MU8q8vjGniBYmscsK2bcN86+ILcS2oxN9GI0r/tg/36E9M?=
- =?us-ascii?Q?ErgBsQydtb3bsTPfH2ewj1Ec9YQYW6h4p+Mwm7Ax3oVToMfPju97VRimWynB?=
- =?us-ascii?Q?QDbrhSh2kmQpVPN0AUivgJToSioEofK6Ad7etP9FpMYuTBYWE+DcEgV+b9jI?=
- =?us-ascii?Q?8idVAwRK5sfPNNATQWDYlyWJwzCjURIlNY2Xctqdylkb+FSch5XAEyCl+qBS?=
- =?us-ascii?Q?YZ88NXayisl+gJY7qdUm6EJ4YQuAPLIezIPf/o+eg4U9W1r4nGfFrtf0DHZM?=
- =?us-ascii?Q?itE0lAh8Vvc99K0Wjk0bwSVCAD3mr7uLwnW+LHXAr07F7JybWYJkrYnnGIVs?=
- =?us-ascii?Q?L0xMnSJ27onzKJ24kZe1omo4VOxD0uex/MEEOBqze9WMbgcLB5a99y2RQSHf?=
- =?us-ascii?Q?hi+pUg8W/7ckT5rKMpfOzv2FW4qfgAlBkVjeBN9doLWLgNpkH0SuYbCB0BbO?=
- =?us-ascii?Q?8kkpdkyUoHE0DetiFQA+JWQzQNZdBlf7TP02floY4bMFbY0ZFghXkb+6ueae?=
- =?us-ascii?Q?YboAs8KowZLsYFr84ebElw3jXHHyntEEWog0BUZ8wPgV28H00W5/yFbdDXJ7?=
- =?us-ascii?Q?HaqEM6txaOPGc3kEoL21IdK6k8LE+NSVxEVP/LGHNrv/dFS6IP3YtLTaw54x?=
- =?us-ascii?Q?P9VtayDgZUI8BWnVwT+WvvrBmDMgM/7qZ5dN?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026)(7416014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2025 07:35:10.0447
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94e5bed4-d9f9-46e1-8f7b-08dd9770d9b1
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B7.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P195MB2098
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_003521_391725_F9400106 
-X-CRM114-Status: GOOD (  12.83  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250519-6-10-rocket-v4-5-d6dff6b4c0ae@tomeuvizoso.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,60 +78,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the datasheet the phy needs to be held in reset until the
-reference clock got stable. Even though no issue was observed, fix this
-as the software should always comply with the specification.
+On Mon, May 19, 2025 at 03:43:37PM GMT, Tomeu Vizoso wrote:
+> +#endif
+> diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..bb469ac87d36249157f4ba9d9f7106ad558309e4
+> --- /dev/null
+> +++ b/drivers/accel/rocket/rocket_device.c
+> @@ -0,0 +1,39 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/* Copyright 2024-2025 Tomeu Vizoso <tomeu@tomeuvizoso.net> */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/dev_printk.h>
+> +
+> +#include "rocket_device.h"
+> +
+> +int rocket_device_init(struct rocket_device *rdev)
+> +{
+> +	struct device *dev = rdev->cores[0].dev;
+> +	int err;
+> +
+> +	rdev->clk_npu = devm_clk_get(dev, "npu");
+> +	if (IS_ERR(rdev->clk_npu)) {
+> +		err = PTR_ERR(rdev->clk_npu);
+> +		dev_err(dev, "devm_clk_get failed %d for clock npu\n", err);
+> +		return err;
+> +	}
 
-Fix this in the bootloader, as this is the point where the reference
-clock gets initialized and stable first.
+That's probe path? so use standard syntax:
 
-Use gpio4 23, which is connected to the phy reset pin. On the same pin
-RX_ER was used before, but this signal is optional and can be dropped.
+return dev_err_probe(). One line instead of four.
 
-Note: This comes into effect with the phyCOREs SOM hardware revision 4.
-In revisions before, this gpio is not connected, and the phy reset is
-managed with the global hardware reset circuit.
+> +
+> +	rdev->pclk = devm_clk_get(dev, "pclk");
+> +	if (IS_ERR(rdev->pclk)) {
+> +		err = PTR_ERR(rdev->pclk);
+> +		dev_err(dev, "devm_clk_get failed %d for clock pclk\n", err);
+> +		return err;
 
-Signed-off-by: Christoph Stoidner <c.stoidner@phytec.de>
----
- arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+Same here... except that this should be blk API and entire function gets
+smaller.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-index 88c2657b50e6..f8e2f3f3baa8 100644
---- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-@@ -58,6 +58,9 @@ &fec {
- 				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
- 				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>;
- 	assigned-clock-rates = <100000000>, <50000000>, <50000000>;
-+	phy-reset-gpios = <&gpio4 23 GPIO_ACTIVE_HIGH>;
-+	phy-reset-duration = <1>;
-+	phy-reset-post-delay = <0>;
- 	status = "okay";
- 
- 	mdio: mdio {
-@@ -91,14 +94,16 @@ pinctrl_fec: fecgrp {
- 		fsl,pins = <
- 			MX93_PAD_ENET2_MDC__ENET1_MDC			0x50e
- 			MX93_PAD_ENET2_MDIO__ENET1_MDIO			0x502
--			MX93_PAD_ENET2_RD0__ENET1_RGMII_RD0		0x57e
--			MX93_PAD_ENET2_RD1__ENET1_RGMII_RD1		0x57e
--			MX93_PAD_ENET2_RXC__ENET1_RX_ER			0x5fe
-+			/* the three pins below are connected to PHYs straps,
-+			 * that is what the pull-up/down setting is for. */
-+			MX93_PAD_ENET2_RD0__ENET1_RGMII_RD0		0x37e
-+			MX93_PAD_ENET2_RD1__ENET1_RGMII_RD1		0x37e
- 			MX93_PAD_ENET2_RX_CTL__ENET1_RGMII_RX_CTL	0x57e
- 			MX93_PAD_ENET2_TD0__ENET1_RGMII_TD0		0x50e
- 			MX93_PAD_ENET2_TD1__ENET1_RGMII_TD1		0x50e
- 			MX93_PAD_ENET2_TX_CTL__ENET1_RGMII_TX_CTL	0x50e
- 			MX93_PAD_ENET2_TD2__ENET1_TX_CLK		0x4000050e
-+			MX93_PAD_ENET2_RXC__GPIO4_IO23			0x51e
- 		>;
- 	};
- 
--- 
-2.43.0
+> +	}
+> +
+> +	/* Initialize core 0 (top) */
+> +	err = rocket_core_init(&rdev->cores[0]);
+> +	if (err)
+> +		return err;
+> +
+> +	return 0;
+> +}
+
+...
+
+> +static int rocket_device_runtime_resume(struct device *dev)
+> +{
+> +	struct rocket_device *rdev = dev_get_drvdata(dev);
+> +	int core = find_core_for_dev(dev);
+> +	int err = 0;
+> +
+> +	if (core < 0)
+> +		return -ENODEV;
+> +
+> +	if (core == 0) {
+> +		err = clk_prepare_enable(rdev->clk_npu);
+> +		if (err) {
+> +			dev_err(dev, "clk_prepare_enable failed %d for clock npu\n", err);
+> +			return err;
+> +		}
+> +
+> +		err = clk_prepare_enable(rdev->pclk);
+> +		if (err) {
+> +			dev_err(dev, "clk_prepare_enable failed %d for clock pclk\n", err);
+> +			goto error_clk_npu;
+> +		}
+> +	}
+> +
+> +	err = clk_prepare_enable(rdev->cores[core].a_clk);
+> +	if (err) {
+> +		dev_err(dev, "clk_prepare_enable failed %d for a_clk in core %d\n", err, core);
+> +		goto error_pclk;
+> +	}
+> +
+> +	err = clk_prepare_enable(rdev->cores[core].h_clk);
+> +	if (err) {
+> +		dev_err(dev, "clk_prepare_enable failed %d for h_clk in core %d\n", err, core);
+> +		goto error_a_clk;
+> +	}
+
+All four above calls could be just one call with bulk API.
+
+> +
+> +	return 0;
+> +
+> +error_a_clk:
+> +	clk_disable_unprepare(rdev->cores[core].a_clk);
+> +
+> +error_pclk:
+> +	if (core == 0)
+> +		clk_disable_unprepare(rdev->pclk);
+> +
+> +error_clk_npu:
+> +	if (core == 0)
+> +		clk_disable_unprepare(rdev->clk_npu);
+
+And all this would be gone...
+
+> +
+> +	return err;
+
+Best regards,
+Krzysztof
 
 
