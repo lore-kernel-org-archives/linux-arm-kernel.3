@@ -4,55 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B9BC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 12:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21AAC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 12:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wmv4q5kslyW7LYhJvUJq2hJb6r93CoDTZkX0OsjJ1v0=; b=Yl4KFqOvYYurbIKFRNtQuFf5bK
-	TOPgafHrUP5cAZzcKs3vF3p8Fpx9WQeB+LK/5B2KhuvEgt/SuefkkmdGfZ2XtxuKdWfvvjq5c5ARx
-	2kFJW7YWjRytbgiUQ1MhaBTE6xDzmzSGuheXl4pKib/mExrGd7WhCyF5mUIuOxwisQF8TOUmWDtJZ
-	nEtgDF2YDBHfLdENK+EUyz58gWTiUGdf/HRjbGZ02xEgbw7n9gJ0rdqvOztAOA+p5NIx2Vyhg39mX
-	spllW6IyySN9Jcsxuymw1jPLQAhaO3n0Fs9vQAuylOd9A4g93nNR8dj0agTxZfiDTDGRI1+KnJou1
-	5OaOB8mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=88lOLN3//BdORRDyk/6LjlOBy9fkXDogVmGs1sgPhyI=; b=uRbWOomKAKA6XSxrwKv7Mkzw9P
+	aIS/jwMiu8uH3XoLimfREgaG+bioaTCIerdgfJ5jI8Gems6XBZP1foIEWVYLnm2exPDg+REgBpvnz
+	dO8etyt8cu8503cubKIrQyWDaOpdL8Ph0BD/4XlqihndOPHUmdo0bNK0D/ErvqE7rZ+ezh9Gt8szT
+	1Byl0bXn74xm29vb5zrrX6tWOFidUG+FzXz3KzifZh+UbCOVttc3znmFCab5uF3cRSAOv0ZL5t0B9
+	qgFVEWhCUdDwWa2Zj8gEAYRB/WglLHgF1twAKARB5fWBFP2UzGV589FCXTLyxt7s1gAuzzcuB0am3
+	5pezKZaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHMFH-0000000CtBt-11zn;
-	Tue, 20 May 2025 12:38:59 +0000
-Received: from ni.piap.pl ([195.187.100.5])
+	id 1uHMLG-0000000CuVD-1AzG;
+	Tue, 20 May 2025 12:45:10 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHMBo-0000000Csc9-0r3H
+	id 1uHMJ9-0000000Ctuy-1nSg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 12:35:25 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id A255FC405A49;
-	Tue, 20 May 2025 14:35:18 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl A255FC405A49
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,  Martin Kepplinger
- <martink@posteo.de>,  Purism Kernel Team <kernel@puri.sm>,  Mauro Carvalho
- Chehab <mchehab@kernel.org>,  Shawn Guo <shawnguo@kernel.org>,  Sascha
- Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team
- <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,
-  linux-media@vger.kernel.org,  imx@lists.linux.dev,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
-In-Reply-To: <20250509103733.GE28896@pendragon.ideasonboard.com> (Laurent
-	Pinchart's message of "Fri, 9 May 2025 12:37:33 +0200")
-References: <m3h61u9jy2.fsf@t19.piap.pl>
-	<20250509103733.GE28896@pendragon.ideasonboard.com>
-Date: Tue, 20 May 2025 14:35:18 +0200
-Message-ID: <m3o6vn8np5.fsf@t19.piap.pl>
+	Tue, 20 May 2025 12:43:00 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e7b85f1cbacso3247451276.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 May 2025 05:42:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747744978; x=1748349778; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=88lOLN3//BdORRDyk/6LjlOBy9fkXDogVmGs1sgPhyI=;
+        b=uJGVsVu5beKG+6hSJ5wwykWfPXyDr3sQ/ZGUNqw4LdiehiRWJM1i05aZ4SgnpphSAo
+         i63ry3CuKjnNGAlsElf3MYLLZvIdLxl3Bb3gQTYkKShZ6vdGE+VXGDepEVyIy2Na47W/
+         c9u8iXZVuBXJxnO4Iw3Lr/A9bRlkNeuQA4toS42+PEfztAV3Hh4lmsKx/P0PaS/jVKv9
+         GM93UTSCZfp4HXD+DDFbEKxR05/RrBByyu3YabHIjCdI/gwDrSu/umbw8+QLRSfIaSGY
+         ck7hZkGCVwW+Mhr86xVGW9Ou4JeI+M3oM3DrciNUOGPkiPkkZc5AimSPAc5w7H4CdK17
+         fXhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747744978; x=1748349778;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=88lOLN3//BdORRDyk/6LjlOBy9fkXDogVmGs1sgPhyI=;
+        b=TblXhKTYQYHqcooBfPdPaIxVBrMwVHONpnq8Dya3GBa0xLeGhN3andKltPgTku5eew
+         F+A4e/PKmEpIgfPW8gyyWfoVZUBnB6I7KI+miQeYHaBrE01Qt/n03uMUw2D29+yUiJef
+         GOy5C8pVame4ekGrDUt+9BgSobyr6mSZxok/hYzoGZtMZzbQRvjsj3IbZJLg5iPJGehg
+         0LWLFCWJYSws0qdkWJ6tkzX+3oowQUdB6NeyjT6o6w26sFnwR7k8M9u02f/EefWeWvZV
+         VriegzbivqgLflIA69DBV0BxK3mlBNhaWulmoWTwWFuzAoY0oWKoSRy8e9Yp0rpjLulT
+         9owg==
+X-Forwarded-Encrypted: i=1; AJvYcCVcU1OgUSGv7oLP4MreH2DoLKu7/UUcs0bq+4w1eZdU+OT3fOb+hCAnP+cwAJYcYH3ZM7px0+BRQDDPSEDwycq6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yztke6I2N7ANevVoMrzdM80AubBFjYqo5UxdR5PH/6PHL6A/gdK
+	trM2RSD/cnaA0+o5/YR+wL6IHDO38Kr+8+ZxqFcxxOUCufYd6R07mKT4JPFIhKU3as0tBJNkqwn
+	AecUzLqTG8SRMAauZ3PG8CXYqUgpd3133hP2gE1yzpA==
+X-Gm-Gg: ASbGncudJCULou08nf6wfx8/JJhHpuuilkWQY6SnLQxlFVGcFOqbGbl3gT9wtT7d3tw
+	EbNOLvMavsuRzp468B4GKQPp9iCPxxaXo1j84fARD66AeHB7U9fNRJfs8+zaG2QjWWjRVNqb3aL
+	GAjrYWKXTCxrhq+NBdtSZalZShqOa4PcnPYw==
+X-Google-Smtp-Source: AGHT+IGhT+v8r+0GZsiYhs7CHph95cb2P8MRGP6RGC8fZ7dFYUwqCE9+mfUsNw7SyUvETHMbFtvpOAcTqK/Ng1hl+qE=
+X-Received: by 2002:a05:6902:1201:b0:e79:774:866f with SMTP id
+ 3f1490d57ef6-e7b69e80915mr20083103276.17.1747744978059; Tue, 20 May 2025
+ 05:42:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+References: <20250518220707.669515-1-jonas@kwiboo.se> <20250518220707.669515-6-jonas@kwiboo.se>
+In-Reply-To: <20250518220707.669515-6-jonas@kwiboo.se>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 20 May 2025 14:42:20 +0200
+X-Gm-Features: AX0GCFs3Un2EF18YwTSrDKI84LtGeBLBa79SYyXbjLKaJiwIZzX41KzumIQh4bM
+Message-ID: <CAPDyKFqu-ox90dEnK8L0C8CqXJDsvgGwH00__nfQcOYu8hNM9Q@mail.gmail.com>
+Subject: Re: [PATCH 5/9] dt-bindings: mmc: sdhci-of-dwcmhsc: Allow use of a power-domain
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>, 
+	linux-rockchip@lists.infradead.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_053524_402227_2FD5DB42 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20250520_054259_471432_50B183B1 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,82 +96,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Laurent Pinchart <laurent.pinchart@ideasonboard.com> writes:
-
->> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
->> @@ -654,8 +654,7 @@ static void mipi_csis_set_params(struct mipi_csis_de=
-vice *csis,
->>       val =3D mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
->>       val &=3D ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
->>       val |=3D (lanes - 1) << MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET;
->> -     if (csis->info->version =3D=3D MIPI_CSIS_V3_3)
->> -             val |=3D MIPI_CSIS_CMN_CTRL_INTER_MODE;
->> +     val |=3D MIPI_CSIS_CMN_CTRL_INTER_MODE; /* enable filtering by DT =
-*/
+On Mon, 19 May 2025 at 00:07, Jonas Karlman <jonas@kwiboo.se> wrote:
 >
-> The condition was added because the CSIS in the i.MX8MM doesn't
-> implement the INTERLEAVE_MODE field. We can't remove it unconditionally.
+> The commit 7e856617a1f3 ("dt-bindings: mmc: Add support for rk3576
+> eMMC") limited use of power-domains to Rockchip RK3576.
+>
+> Remove the power-domains: false to allow use of power-domains with more
+> controllers, e.g. with SDHCI on Rockchip RK3528.
+>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 
-Is this confirmed (and not just an incidental omission from the docs)?
-Same version (3.6.3), and even earlier version (3.3) has it... It would
-mean MM can't work with those sensors producing extra packets.
+Applied for next, thanks!
 
-I wonder what version is shown in the #0 register on 8MM (8MP shows
-3060301).
+Kind regards
+Uffe
 
-> You mentioned i.MX8MP, that's a platform where I'd like to see proper
-> support for *capturing* embedded data, not just dropping it. Have you
-> looked at how this could be implemented ?
 
-I had a brief look at it, but a) the embedded data is not very
-interesting in case of my IMX290, b) I don't want to interleave it with
-my image data (DMA buffers and what not) and I don't see a way to store
-it independently.
-
-If you want to store it along the image, the currect code does that -
-more or less correctly. This is the problem.
-
-The RM says "13.5.2.6.6 Null and Blanking Data
-For both the null and blanking data types CSIS V3.6.3 ignore the content
-of the packet payload data." which is half-truth, e.g. it needs the
-MIPI_CSIS_CMN_CTRL_INTER_MODE to do that, otherwise it messes it up.
-
-Several CSIC registers are named XXXXXn, suggesting more than one
-register, but the docs say only #0 exists. Nevertheless, the actual
-hardware seems to contain 3 packs of registers (the 4th one is weirder):
-
-32E40000:  3060301     4705    F0000 DEADCAFE
-32E40010: FFFFFFFF        0        0        0
-32E40020:       F0  900001F DEADCAFE DEADCAFE
-32E40030:      1F4        0        0        0
-32E40040:       B0  4380780        0 DEADCAFE <<< ISP_CONFIG0
-32E40050:      8FD 80008000        0 DEADCAFE <<< ISP_CONFIG1
-32E40060:      8FE 80008000        0 DEADCAFE <<< ISP_CONFIG2
-32E40070:      8FF 80008000        0 DEADCAFE ???
-32E40080:       B0  4380780        0 DEADCAFE <<< SHADOW_CONFIG0
-32E40090:      8FD 80008000        0 DEADCAFE <<< SHADOW_CONFIG1
-32E400A0:      8FE 80008000        0 DEADCAFE <<< SHADOW_CONFIG2
-32E400B0:        0        0        0 DEADCAFE
-32E400C0:        0 7FFFFFFF        0       E4
-32E400D0:        0        0        0 DEADCAFE
-32E400E0: DEADCAFE DEADCAFE DEADCAFE DEADCAFE
-32E400F0: DEADCAFE DEADCAFE DEADCAFE DEADCAFE
-32E40100:     22E1     22E1     22E1        0 <<< FRAME_COUNTER*
-32E40110:        0        0        0        0 <<< LINE_INTERRUPT_RATIO*
-32E40120:        0 DEADCAFE DEADCAFE DEADCAFE
-
-This is the first CSI. The 3 frame counters are visibly active as well.
-
-The manual states (MIPI_CSIx_ISP_CONFIGn) "NOTE: Not described types are
-ignored" and even if not, I can't see what could we do with this extra
-data.
-
-Perhaps the CSIC internally has 3 output ports, but only the first one
-is connected to ISI and ISP?
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+> ---
+>  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 4 ----
+>  1 file changed, 4 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> index 5fb347167004..f882219a0a26 100644
+> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> @@ -120,10 +120,6 @@ allOf:
+>        required:
+>          - power-domains
+>
+> -    else:
+> -      properties:
+> -        power-domains: false
+> -
+>  unevaluatedProperties: false
+>
+>  examples:
+> --
+> 2.49.0
+>
 
