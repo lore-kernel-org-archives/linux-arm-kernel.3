@@ -4,93 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE14BC3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 102F4C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 16:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1F6X9EV1C5vmDv+kWUIO7P6gLsw5zSPMtfSPMJ/1GQ=; b=GG3B1oScUKI2mN4cOdtezTJ2/X
-	TTBgYudohzmNh2kpcuh0olQHJbR1dIr9PsJFQLU99anbi/DQRbDxel7nRaQVAwFjVaqKYMzq7D8DZ
-	/88Z4GK6LZjJH2alS+2rL1IZWqE9HJayP0JNCXfzhfNW4DERTDddEXxxVdXzvRL6kvIBvlCklrD4I
-	AtMJbT/l6mIUJOBZVs9SIcwkORkqmN2clCSVfRoKyGV2StDg3l7ixgDduhQfNiHDqXY9EjBrSOUBJ
-	1nZuyxiJYng+0J1y4mjbxL89LwSN6fGXFttwNY7Q2PE8bB4r7FyV3LkSbk6PErhGnlx4v44MZPv6l
-	sg8srDtw==;
+	bh=8+DLjrItuk1zRshcyb4tCPGWIcuyiHMAv5jYt2HhgJo=; b=bdhPTaNO8ZKLVnwRtrb4540s8b
+	BxIF4x2QLjonXWfh1eg8I0fdLdwZf98ZtctgWEJtn0UAz5mBC+ag1YkkivL/EGY3cCGoUKRkIsiyq
+	OVhGdzovYc0t6YJIZl0UEtOgVaMU+Z5ubU65u2goARfQNb9CQh5oHa0hpRA/vRyJB31mdKdg+URqG
+	9uXkYFYNkLcaDXE91d6qlOaDErGAmW7CkqPm1PlxqjXU9CdPMXZCxLrU3r/VXQtSIXfsUTVygSKW9
+	Zse69cBPmepbCxbpGanVFQk0fyIJE5NdCYSNmuHZGyvMf7xZadMiXm1tqwPIlxFYVga150/DG1S+F
+	3b08tj/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHPr4-0000000DXpV-3VzQ;
-	Tue, 20 May 2025 16:30:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHP6M-0000000DNtr-3VKQ
+	id 1uHPtE-0000000DYBa-2Mj3;
+	Tue, 20 May 2025 16:32:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHP6V-0000000DNxU-2yyQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 15:42:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3429B5C56C3;
-	Tue, 20 May 2025 15:39:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28519C4CEE9;
-	Tue, 20 May 2025 15:41:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747755717;
-	bh=iM0kAw4/nWyGDWNAeRKHD+BaGigBrgJDfwS7US+j1/o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=t27D2+viqHtztdjdMHjpCAUF8Lu+Bh7vLVPgZNSS1odAFu1XXczgWH7kHbfpaBEGr
-	 HEgBUnBfyhAlQkRsvW0C1tYawmvIA2hhoWpcy/PRroqBUwvn/C+VhepxJ5F3DgVnk7
-	 1ZgMlfNhmBf5urqytVfLAomqHfodvYUYiRraCDn+hSn2x4zPupzSmDhaAXxKomruqa
-	 bI/OVbbtIx/+vBz5qyGqCRXiZmCcGflHovDOa/EhQt+4pZ1p8jYO/qh2UHJe8qMBk7
-	 mIG95JCsWo4nvdkFHHIHx9aLAvsD2D+vH5hbprSknGWT0DJ1oCdco1SCgGuSqjDRbz
-	 kdqVr+fGe9V7w==
-From: Will Deacon <will@kernel.org>
-To: dri-devel@lists.freedesktop.org,
-	Rob Clark <robdclark@gmail.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	freedreno@lists.freedesktop.org,
-	linux-arm-msm@vger.kernel.org,
-	Connor Abbott <cwabbott0@gmail.com>,
-	Rob Clark <robdclark@chromium.org>,
-	Abhinav Kumar <quic_abhinavk@quicinc.com>,
-	=?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?UTF-8?q?Barnab=C3=A1s=20Cz=C3=A9m=C3=A1n?= <barnabas.czeman@mainlining.org>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <ckoenig.leichtzumerken@gmail.com>,
-	Christopher Snowhill <chris@kode54.net>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Eugene Lepshy <fekz115@gmail.com>,
-	iommu@lists.linux.dev,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jessica Zhang <quic_jesszhan@quicinc.com>,
-	Joao Martins <joao.m.martins@oracle.com>,
-	Jonathan Marek <jonathan@marek.ca>,
-	Jun Nie <jun.nie@linaro.org>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	linaro-mm-sig@lists.linaro.org,
+	Tue, 20 May 2025 15:42:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 435B81516;
+	Tue, 20 May 2025 08:41:53 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 88F8F3F6A8;
+	Tue, 20 May 2025 08:42:05 -0700 (PDT)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	leo.yan@arm.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sean Paul <sean@poorly.run>
-Subject: Re: [PATCH v5 00/40] drm/msm: sparse / "VM_BIND" support
-Date: Tue, 20 May 2025 16:41:47 +0100
-Message-Id: <174774086363.2165484.11245120942986308301.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250519175348.11924-1-robdclark@gmail.com>
-References: <20250519175348.11924-1-robdclark@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 0/3] coresight: prevent deactivate active config while enabling the config
+Date: Tue, 20 May 2025 16:41:56 +0100
+Message-ID: <174775569626.300098.16572506497364238562.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250514161951.3427590-1-yeoreum.yun@arm.com>
+References: <20250514161951.3427590-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_084158_954105_C6B8A058 
-X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-CacheID: sfid-20250520_084207_793246_D910A582 
+X-CRM114-Status: UNSURE (   7.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,28 +70,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 May 2025 10:51:23 -0700, Rob Clark wrote:
-> Conversion to DRM GPU VA Manager[1], and adding support for Vulkan Sparse
-> Memory[2] in the form of:
+
+On Wed, 14 May 2025 17:19:48 +0100, Yeoreum Yun wrote:
+> While enable active config via cscfg_csdev_enable_active_config(),
+> active config could be deactivated via configfs' sysfs interface.
+> This could make UAF issue in below scenario:
 > 
-> 1. A new VM_BIND submitqueue type for executing VM MSM_SUBMIT_BO_OP_MAP/
->    MAP_NULL/UNMAP commands
-> 
-> 2. A new VM_BIND ioctl to allow submitting batches of one or more
->    MAP/MAP_NULL/UNMAP commands to a VM_BIND submitqueue
+> CPU0                                          CPU1
+> (sysfs enable)                                load module
+>                                               cscfg_load_config_sets()
+>                                               activate config. // sysfs
+>                                               (sys_active_cnt == 1)
+> ...
+> cscfg_csdev_enable_active_config()
+> lock(csdev->cscfg_csdev_lock)
+> // here load config activate by CPU1
+> unlock(csdev->cscfg_csdev_lock)
 > 
 > [...]
 
-Applied io-pgtable change to iommu (arm/smmu/updates), thanks!
+Applied, thanks!
 
-[05/40] iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()
-        https://git.kernel.org/iommu/c/3318f7b5cefb
+[1/3] coresight/etm4: fix missing disable active config
+      https://git.kernel.org/coresight/c/895b12b7
+[2/3] coresight: holding cscfg_csdev_lock while removing cscfg from csdev
+      https://git.kernel.org/coresight/c/53b9e265
+[3/3] coresight: prevent deactivate active config while enabling the config
+      https://git.kernel.org/coresight/c/408c97c4
 
-Cheers,
+Best regards,
 -- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
