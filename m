@@ -4,178 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4C4C3ABDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 09:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC502C3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 09:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hrlEaJUBwFUAOI5IE9bQNnQCLUYbdhXxQlL5y8DVKic=; b=Pqgg2TEUNzIggj8LJ2kWFzUfuz
-	wlZtTjnrQFWOUjUVYa4nUFVOWqVyYnEckusfcTplYosc5Gh77gXVFwy+JRL3S0wH6c0m+UMpPc+6/
-	2CaqY20WaqE/mtNqALhFNeztUxrx3LlZis8TDNfZHoX9JTX4ioNncRalMZMHJp2/qyAjbv6e459d6
-	3LQR83szE5hfrOyUn0DN6AHl07dAb/hP1xqkuodLfHz0ODvuk1zo2U+/d5Za9+2NY0UnqQTcqIKhD
-	CQ8qn3a9dOZsKsU+y6P3ay+ke1cfGZW/9xu2SAFAp6G8Agzk+HF9hHzrnNyJxcGTRVX2RtGRi0jub
-	0k4EIgqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VM3HsyLoVrKp1KWGybA63P5qMS/hOikKi8uzVtfXrwo=; b=mGrK3XtBz5XeZdqSUnFT2farzZ
+	Hmce9KhB6Cm1R1VR81sfKDbg5V1Jftm7EtwPJqCKG6B8dZFM1pSl6DlhrAvLFT/QTyg1POYSfCqhI
+	uxUy5OszPYiC1kX3JV/5FPloCLYXYwbGe2zNfX06Ol1aL5JRIeexwx6OQcV5rr7PCpLMqy+BdaIKw
+	DnbzwTMO1m3hp/a7ELQGouKZU4tSywBsk4+/2Z1oiSTvTaUKj54chc9ygAbcvZLxkzxRmkXXo8XGh
+	ahKx4tXRbl8rUpHX82bKxeXJ7UMjMOhSYjCROyQG7D0YEn2cFdbBulvKurKPZQfGAwpBDkHKcpAn3
+	qxbfSwIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJM1-0000000CCrv-3d5p;
-	Tue, 20 May 2025 09:33:45 +0000
-Received: from mail-db8eur05on20629.outbound.protection.outlook.com ([2a01:111:f403:2614::629] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHJ5R-0000000CA1A-2kXY
+	id 1uHJO5-0000000CDCY-2QE4;
+	Tue, 20 May 2025 09:35:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHJ70-0000000CAO2-2jFg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 09:16:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pwCMQC+YqUmbv/YQa6M+s5OjFUXpg6AqBpbAaP83Jpzfzu0KJ6ldATK6jqBEVEOD8dNG8UwNvPxXoOz+4sv746KIcuPde6moxb2XgoLx8JLkW/6VWdKVRMw00iNOQ0mLMzEv0tSFN5HuAj32/bRmP7nWgt0NucaUAGVTC5U8EID/xBVgqOX9Z4LQQj0m3J+LJOf+qhKADIf+1q/rPEIXB+N5xMPvqogM/pZt+K0CBd+1mXaKENoyyLwK/pp1E3LYA2Jgw6eBRADFdE94oK71xcHDWBisVHyUX3iFuVcfOB8Fce7Wx74eES3rM4EFzM3QcKrImide3tcDQuFpqqU4ag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hrlEaJUBwFUAOI5IE9bQNnQCLUYbdhXxQlL5y8DVKic=;
- b=mAtiYV5KQP1rLnUsax602RwMu7IKQsTHpM1+iK/CQwKM/zEwKXNTNME/Apf6mAsBYRkDG+fXlrxtpemVRRkGstOA6MC1uh56dUOeJBl0FkWekSVnH5B3GpmaKk4RboGbuc0Ut/BtY0fqNM2Oq3TOVetRFDjQ3NFe61/jp7zkpcZMsCf89xd6XQ6Wtg0XrFIuxKTkOWBUCMkrJfyMhsTJPLVofxiP5uphktYr8+0vdN5g+0WO9SvcJuOeXHCm6q0dZnbKKtvhTlfqrd6Y6FbUAdTAebSI7oocnF7Qvil8UzTIMT3KopvCqkdiBR1gPq6PkZPETgbAndQv5RiPi8vzvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hrlEaJUBwFUAOI5IE9bQNnQCLUYbdhXxQlL5y8DVKic=;
- b=ocORBZpglmvVXe/ltRk/GcfJcWali+JTwstXP5/0iPEHVqPaK3JxZCMCtfqhDtG/NyQGVeTtMVam8/krUnxEiHGmAWc1VqZDExCJCnBS02fWGU9iGyMXT8Y2+3TrSGs1fdO3h5ENFFSi3ksHmfBIw0X3tcYvlYvv3L0ZHQiH68RxvA7W02MRJ+PHTiZvJ4+VxxNHaUqSp/9CvfMoBlFgLAP0V/wlCRXGuX945lgqFJxrE9Q2IhJb/2GyO/tw8PE3TcFlixM+nrY0DZzR/V8dX49HJ4nmYBu1XOW0zRPEKBoKCEAD/Igi5ON/3edTZTZd0TPU9wlqgReh3ltTgs5fZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15)
- by VI2PR04MB10906.eurprd04.prod.outlook.com (2603:10a6:800:277::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Tue, 20 May
- 2025 09:01:11 +0000
-Received: from DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::708f:69ee:15df:6ebd]) by DU0PR04MB9251.eurprd04.prod.outlook.com
- ([fe80::708f:69ee:15df:6ebd%5]) with mapi id 15.20.8746.030; Tue, 20 May 2025
- 09:01:10 +0000
-Message-ID: <6027483f-336b-4fad-a969-dfef1c454de7@oss.nxp.com>
-Date: Tue, 20 May 2025 12:01:06 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 3/4] arm64: defconfig: add S32G RTC module support
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, NXP S32 Linux <s32@nxp.com>,
- imx@lists.linux.dev, Christophe Lizzi <clizzi@redhat.com>,
- Alberto Ruiz <aruizrui@redhat.com>, Enric Balletbo <eballetb@redhat.com>,
- Eric Chanudet <echanude@redhat.com>
-References: <20250403103346.3064895-1-ciprianmarian.costea@oss.nxp.com>
- <20250403103346.3064895-4-ciprianmarian.costea@oss.nxp.com>
- <c4a80c1f-56a0-4cdf-afbd-cb2c13cc0b8b@kernel.org>
- <6ebb8c15-9ff1-4bf3-bbf3-c91aa387d873@oss.nxp.com>
- <dec769ad-5144-4503-9714-d9c83a4c242c@kernel.org>
- <b7d82f31-05d1-4331-809b-e865d21c958c@oss.nxp.com>
- <2025040408532288b38dea@mail.local>
-Content-Language: en-US
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <2025040408532288b38dea@mail.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P189CA0032.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dd::18) To DU0PR04MB9251.eurprd04.prod.outlook.com
- (2603:10a6:10:352::15)
+	Tue, 20 May 2025 09:18:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6F33152B;
+	Tue, 20 May 2025 02:18:00 -0700 (PDT)
+Received: from [10.164.18.48] (unknown [10.164.18.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC7A83F5A1;
+	Tue, 20 May 2025 02:18:07 -0700 (PDT)
+Message-ID: <cc646daf-980e-4299-af5e-65742bb06bf9@arm.com>
+Date: Tue, 20 May 2025 14:48:05 +0530
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9251:EE_|VI2PR04MB10906:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1840981e-c0d4-468c-abed-08dd977cdd30
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VUNuY1h2dmZ5alduWE4zWTdleTBZUzkwUWVENzZxSzR4eDRxejJINUtTYXpX?=
- =?utf-8?B?ZUY4Mnhvd1NCbnI2c0Q1cHI5a0l6Qm9QdEU2c0tzVk42ZndMR3RLYStUUyt4?=
- =?utf-8?B?Qkd5dkx5SlpXOCt2NjB6YndLSG9XRHlXdWpYd3B3UGNwZWFXL2JWUjJYbStU?=
- =?utf-8?B?cTZhVE8xL20xek81YVpKbExhMSs5VHlPQTdKTy82b3hLWmF2d2NyVmpsR1lB?=
- =?utf-8?B?Z3dDZTNJVjcxdDhNZDAwd1o3RWdsdGVuQklhd2N4UlVzNVlRMktiUkdlTitl?=
- =?utf-8?B?VUx2NG1mcHROK01HRzdvZm43SkNWV01GbFFuQWZwNUtqYjRib3RSWVhtR0Fv?=
- =?utf-8?B?S201V1lxYkR0QzVjVDAzeGFpYTJnNGNTRXdSWndHbDBkditXaFdPK2xnS0ZM?=
- =?utf-8?B?a3NMMUhoc3BlaFY0TnNWd281NDFvZlpJWnJCbE9TbEhFUWgyNWJaK0tEOTAy?=
- =?utf-8?B?SytqZ0lwTTR0YTluRWdFSHVCNHpEL0ZBVGNyYUQ5bXBROGNQZE13Q2FiUnli?=
- =?utf-8?B?Yi9DcVRJNkExL0J6YkRLVHpXYXJncEdRUHI0RlBYcjdnTVlPeGN6Nkw2bDFy?=
- =?utf-8?B?RWtma0sydWc1RC9RM2prbUR0eVE5OG1YSkxnNmdqMlJzU1R5UHlGemFwM1M1?=
- =?utf-8?B?WEVSTFlmcHNGR1p3dDVyT2RnZDlScG5zM3ljSVBDS1o1OEdmRkxseFU1c3pQ?=
- =?utf-8?B?UFdIczdYK0xvc0R1OUx3dmxNUTk3bWo2N3hPVDEwNWJDRXpwaHQ2NUV1MUpo?=
- =?utf-8?B?SVd2US9ZWG8yaWs3bXoyeUxuWkVReDBZay9ZZU1ySzh2elQyOHViY0JXZkM1?=
- =?utf-8?B?ZFJVeHAzSlZyeFVzd2lYZU9LZTNTb2ZWMlM0V3ZRRWtXTzhkT1BuMmJBa0FU?=
- =?utf-8?B?aW05UDgxNzJzQmtYNVl5Z0Nacm1STG5ZbytXWEQ0M200d1B2TjhmaU5zbHlx?=
- =?utf-8?B?SzFDYndjc2N0NWJRc213KzlFbDJHQzZwbWc2NE9YQ2VBVTNZb0ZybWpTZCs3?=
- =?utf-8?B?MmJBWWN3VWZQM29hV2cyNDJhMm9CUGNSZFNwOXFjZit5YjFwY250SEUyVnNn?=
- =?utf-8?B?QjVKaG1tYzc0UjYzb3pRMkFZMktxQU83TVl0ckFMSjc3SnA2MzB5T1IybWhp?=
- =?utf-8?B?TU1GcmxGMmpZY08vcG9ydlpUREI2aVcyb1p1cFVOYXNmKzFwSlE1RGEyUWFG?=
- =?utf-8?B?UjRscFV2MXhOTmJyTkxsV2hLWWY2bmxnUDJTbzJpUGl3WGpxRmFOZEFBbkFu?=
- =?utf-8?B?TmtHd3ZJNlJZU0FwNGVJYUFyUUNsN2F3azNMbFBvYTBnS0hQOEpRLzlhVFdT?=
- =?utf-8?B?TmUxNGtuRVY5VUNxWit1QkE0SDVOL0M0dWxxUTgvUjFUdDFhb1U0R2lXK3pR?=
- =?utf-8?B?eVBKbjJwU3Fldk9Bc3ZtckNPM09rRFRDSERhUUZyY2xya2wxSTIyRGk5QlVm?=
- =?utf-8?B?SHgrU3VFeUV3S0J1UjFMM3YvQXdLOE9lc0Z2NUNyS0ZvZzI5UDdLdG9wVW5K?=
- =?utf-8?B?d1hSeHFYbUtWMmFPcGNNY0dDUGtBYVBiOXhWQkk0MXBudmFiZjh6Y3JOSkxR?=
- =?utf-8?B?VXZ0OWNFem9FNGxBcnRGOVlVZllYalFucWJPdGI0ZnlSc1VxM0FTZHpabFRw?=
- =?utf-8?B?WHdpQisrZ01UOS9zbUZlRE9UL05rQ1dIZVJTL1NnV1pINWxjajlRZGxrY3ky?=
- =?utf-8?B?YTd0MzUybHcyTXNubHJiN2syWGRXVmh3cW1sajVQazNIeEdPUFdEUWxlZXFw?=
- =?utf-8?B?a1UrWGNYa3pTS01CTFV1bU5weEJWSHAreWJackV0c0JFVUdCZ3k4eEpCRnMz?=
- =?utf-8?B?VTl5ZGtSMDVxRENQLzdJU2NQeWhFejNjc3ByRjNaVUhjTzRNNVNwNDJpYjNJ?=
- =?utf-8?B?RURSaG9ZdERONFFEYk9KRTk5Lzd3SUtObWgyTFVCTldvbVE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9251.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YlZQQUlHcUQvSWFiemV6QzM0OFViV214b1dhMUJlcEJ2MTZ0YlFUUVBHTWR6?=
- =?utf-8?B?TmMvNURJSzZKRWo3Ny81dkszZHR2U3BiR3MwZXhUMDNMQXZvT0UwNjZvMEZz?=
- =?utf-8?B?TXY2WGFVbGNYL1JMZW1hb05hbHpsUzZqOE1tZ3E5NDdZem9hVXlWSnNKeGNP?=
- =?utf-8?B?em5ySHhmWTlnRjNjY3RSbURjdEdReGt4cnNGNkswZ2JxZXNRWWJHMFcrNjN2?=
- =?utf-8?B?dXdBMHpwSWRXTVUxZm5yWmxkdG9PWk5nTDNIU213dWtzOHZyTDBSeFFBMzdN?=
- =?utf-8?B?NWtxSE5wOFVKRnE1aGlCL21HZWI0L0h3M2RvL0JVWXVYTXhxdUZVQThMa0Jr?=
- =?utf-8?B?MlRyMjkvU3Zld21KbDBnSytveVhNRXY1c2lYV3I3WFhGRTdnYUs4S2o3Mkwy?=
- =?utf-8?B?Tyt6SFR2OW8xbUo3RFlCdzdPMG9CM2NSZjZLdlFJM2dxSzJjNWl5UXhJYWJK?=
- =?utf-8?B?cSsxSGY1dEtsNDZZNEpVMk5rcXRyRjNVcDR5Q09mUkd5QXlpeHNXTnU5bVFF?=
- =?utf-8?B?Mmg3V0lDVkZaRks3M3p4TW5RVmZ2R1pSTURkdmltb0hvdmlLOUd6N3RkMFFw?=
- =?utf-8?B?M3A3dldBV2dvV3ZRcU9QOWV4eWVTSzZpU3ZaVmN5UWhSeEdZUER3S2xrdHdC?=
- =?utf-8?B?eUo0eERpQzFncXluVWxiOURGaTIreWxCRy94VmFSOXgvNkhhYmdSbk9DU3RT?=
- =?utf-8?B?dlZHWllQaXBOY1dsRktIc0VRK3lENEtESEk1bkRWanM1anB2aElsVUdjYjBp?=
- =?utf-8?B?bWZVZ0FMejJ0R0Zaa2kwMmhWcGdjUkx4T1dMSlBtREEwaTdBcUtObmZLOEFF?=
- =?utf-8?B?TU5Rend2T0t2a2thTXM4MWROODZxM0JNTGd1emI4c3B3ZVNTcTYvYmNicFlu?=
- =?utf-8?B?UWpKNXJIQ2k1WU5iVERYRmIxZ1BhbXJqQ2V6eEFVQTVjcHRUb3RlOGdNWG5T?=
- =?utf-8?B?V1hMQm5GMlFTRnFGOVJXWVErMU9uR0lsNFB2WHNIVFJ0eEVxZlJDczJ2b2Ux?=
- =?utf-8?B?eDk5Z2lwOWhlaTloY1lJcGo4c0NzYXduZ0F2ZERucjF3L1B2dEhyYllTb3lt?=
- =?utf-8?B?ejUzVi81Y3VBODU3VHVJcGhIOTFKR0tRTm5IZlZnamVmNkxnRkVGQm4rbTBj?=
- =?utf-8?B?WGhuejFCR0crRGhyVC9CSUwyaGw4eXBIM0l5T2hUUjVBdXZESXg2Z05iM0VR?=
- =?utf-8?B?QVBxRm5rd2pPSndOZXBYNUxST3pTd2tVM3NDcW1Pb0tPeDExNVBJSlV5V2lZ?=
- =?utf-8?B?LzYwSlVneFBnNG84SHRzekhKeFdqd05hcitHSkRIVG9XMVZmaXRVQWNOQm1Z?=
- =?utf-8?B?dGxvanh3REQ3WVBDczk3N2tVZEVhbTU3bk1ZMHR2SEV3M201dFRlcENWeHJB?=
- =?utf-8?B?UWhOckpQWVJ5V2N5SkRKNEE1SDJuNWpQM3owRU1nYjdjVGNhQndnc3Y0djhI?=
- =?utf-8?B?c0Q2ZDlwU1M2M09TdmdySnRVVUVHajVXaFBWaEJRRCs1cHV4bzBidE9kZXd2?=
- =?utf-8?B?OUhMdVBxdGtTakVNSFB3QlBISHl0bjZxRFA3THo4VkhHVHl2cU0vTmFYSnhO?=
- =?utf-8?B?U1M5WnUwTWZQbXh2c1JnZ2dFMnVFZXpaQlIreFQ2REFPQXo1YldwN0hGdXhN?=
- =?utf-8?B?RCtxTC9iZmVtNHpMek40MmtzOSt4SG5pUWc1ZWczRXdLOFFKMzFSVXFtbUdx?=
- =?utf-8?B?UEdldWtTZHo5MFd0bThMUUFxOEZrN1lMWkhSZGdUVzNZQWJ6TXBQRE5kcWhD?=
- =?utf-8?B?STdYRlJLamtBMGdRSXJldTFyNzFDUmt3bWVMd3pGMHhHeW5Vbk1HQ3g4aERQ?=
- =?utf-8?B?dHNWMjQybmU1cENZMXFuVXVsUERsUEsrZzYvcXFQZW4xL1ViWmFTYnM3SVhu?=
- =?utf-8?B?Zzc2dkxXc1BudXNzaVFuRnZGclN6eUdaQnV3aFd5R2MrYzRrb2hxQldRQzFj?=
- =?utf-8?B?L2dGQkcwSzhmM2FWZlQ4L1VPUk80ajA5Y2FtQ2JBb1hsUW8zZ0tQQVlMQmds?=
- =?utf-8?B?Y1VmeFcxd0JmUUF0WEJCdlRSWnE3NVQ3alpsRUEzNGhoN3IzTTZpMTBGUElT?=
- =?utf-8?B?NHlLMnVtemdpRWlESEQzL0V5LzJFaVh1NUhPMGlULzVkb1JMb3lwYWU5dlVB?=
- =?utf-8?B?bGUvcHBQclhpa2EvV3RXUzFXcVVVZC85MVN3ZEpnSDYyY3BPaDlPVktQR0dt?=
- =?utf-8?Q?KOAlWf9LDDbeZK3Jzbn7+uA=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1840981e-c0d4-468c-abed-08dd977cdd30
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9251.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2025 09:01:10.5338
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 80EL+uB+td5o9V548UQOq9ttBnv9+luOHP5wjAd83fdTGTdDYEoj5keN+PQyK0K5vm6gh4wiTjbPhfo9s/k/gqa+RJvsTm1a8IqdXB9khCU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10906
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] mm: Optimize mprotect() by PTE batching
+To: Barry Song <21cnbao@gmail.com>
+Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
+ willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+ lorenzo.stoakes@oracle.com, vbabka@suse.cz, jannh@google.com,
+ anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
+ ioworker0@gmail.com, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250519074824.42909-1-dev.jain@arm.com>
+ <20250519074824.42909-4-dev.jain@arm.com>
+ <CAGsJ_4yY7OXm68vLvWL1Oh=315jR5bX4BDKsaKrqKhEfxVdibg@mail.gmail.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <CAGsJ_4yY7OXm68vLvWL1Oh=315jR5bX4BDKsaKrqKhEfxVdibg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_021637_692084_D9863474 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20250520_021814_781393_876D7575 
+X-CRM114-Status: GOOD (  33.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,29 +73,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/4/2025 11:53 AM, Alexandre Belloni wrote:
-[ ... ]
+Hi, sorry for the late reply, my Thunderbird is not working and I am not
+being able to receive emails. I am manually downloading the mbox and 
+then replying, so my email response may be slow :(
+
+On 19/05/25 1:48 pm, Barry Song wrote:
+> On Mon, May 19, 2025 at 7:49 PM Dev Jain <dev.jain@arm.com> wrote:
 >>
->> Ok. I will send out a V10 in which I will drop this current patch from the
->> patchset. Also, I will send the DTS patch which adds S32G274A-EVB,
->> S32G274-RDB2 and S32G399A-RDB3 usage of the RTC after this patchset gets
->> accepted.
+>> Use folio_pte_batch to batch process a large folio. Reuse the folio from prot_numa
+>> case if possible. Since modify_prot_start_ptes() gathers access/dirty bits,
+>> it lets us batch around pte_needs_flush() (for parisc, the definition includes
+>> the access bit).
+>> For all cases other than the PageAnonExclusive case, if the case holds true
+>> for one pte in the batch, one can confirm that that case will hold true for
+>> other ptes in the batch too; for pte_needs_soft_dirty_wp(), we do not pass
+>> FPB_IGNORE_SOFT_DIRTY. modify_prot_start_ptes() collects the dirty and access bits
+>> across the batch, therefore batching across pte_dirty(): this is correct since
+>> the dirty bit on the PTE really is just an indication that the folio got written
+>> to, so even if the PTE is not actually dirty (but one of the PTEs in the batch is),
+>> the wp-fault optimization can be made.
+>> The crux now is how to batch around the PageAnonExclusive case; we must check
+>> the corresponding condition for every single page. Therefore, from the large
+>> folio batch, we process sub batches of ptes mapping pages with the same PageAnonExclusive
+>> condition, and process that sub batch, then determine and process the next sub batch,
+>> and so on. Note that this does not cause any extra overhead; if suppose the size of
+>> the folio batch is 512, then the sub batch processing in total will take 512 iterations,
+>> which is the same as what we would have done before.
+>>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>>   include/linux/mm.h |   7 ++-
+>>   mm/mprotect.c      | 126 +++++++++++++++++++++++++++++++++++----------
+>>   2 files changed, 104 insertions(+), 29 deletions(-)
+>>
+>> diff --git a/include/linux/mm.h b/include/linux/mm.h
+>> index 43748c8f3454..7d5b96f005dc 100644
+>> --- a/include/linux/mm.h
+>> +++ b/include/linux/mm.h
+>> @@ -2542,8 +2542,11 @@ int get_cmdline(struct task_struct *task, char *buffer, int buflen);
+>>   #define  MM_CP_UFFD_WP_ALL                 (MM_CP_UFFD_WP | \
+>>                                              MM_CP_UFFD_WP_RESOLVE)
+>>
+>> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+>> -                            pte_t pte);
+>> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned long addr,
+>> +                            pte_t pte, int max_len, int *len);
+>> +#define can_change_pte_writable(vma, addr, pte)        \
+>> +       can_change_ptes_writable(vma, addr, pte, 1, NULL)
+>> +
+>>   extern long change_protection(struct mmu_gather *tlb,
+>>                                struct vm_area_struct *vma, unsigned long start,
+>>                                unsigned long end, unsigned long cp_flags);
+>> diff --git a/mm/mprotect.c b/mm/mprotect.c
+>> index 124612ce3d24..6cd8cdc168fa 100644
+>> --- a/mm/mprotect.c
+>> +++ b/mm/mprotect.c
+>> @@ -40,25 +40,36 @@
+>>
+>>   #include "internal.h"
+>>
+>> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+>> -                            pte_t pte)
+>> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned long addr,
+>> +                            pte_t pte, int max_len, int *len)
+>>   {
+>>          struct page *page;
+>> +       bool temp_ret;
+>> +       bool ret;
+>> +       int i;
+>>
+>> -       if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
+>> -               return false;
+>> +       if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE))) {
+>> +               ret = false;
+>> +               goto out;
+>> +       }
+>>
+>>          /* Don't touch entries that are not even readable. */
+>> -       if (pte_protnone(pte))
+>> -               return false;
+>> +       if (pte_protnone(pte)) {
+>> +               ret = false;
+>> +               goto out;
+>> +       }
+>>
+>>          /* Do we need write faults for softdirty tracking? */
+>> -       if (pte_needs_soft_dirty_wp(vma, pte))
+>> -               return false;
+>> +       if (pte_needs_soft_dirty_wp(vma, pte)) {
+>> +               ret = false;
+>> +               goto out;
+>> +       }
+>>
+>>          /* Do we need write faults for uffd-wp tracking? */
+>> -       if (userfaultfd_pte_wp(vma, pte))
+>> -               return false;
+>> +       if (userfaultfd_pte_wp(vma, pte)) {
+>> +               ret = false;
+>> +               goto out;
+>> +       }
+>>
+>>          if (!(vma->vm_flags & VM_SHARED)) {
+>>                  /*
+>> @@ -68,7 +79,19 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+>>                   * any additional checks while holding the PT lock.
+>>                   */
+>>                  page = vm_normal_page(vma, addr, pte);
+>> -               return page && PageAnon(page) && PageAnonExclusive(page);
+>> +               ret = (page && PageAnon(page) && PageAnonExclusive(page));
+>> +               if (!len)
+>> +                       return ret;
+>> +
+>> +               /* Check how many consecutive pages are AnonExclusive or not */
+>> +               for (i = 1; i < max_len; ++i) {
+>> +                       ++page;
+>> +                       temp_ret = (page && PageAnon(page) && PageAnonExclusive(page));
+>> +                       if (temp_ret != ret)
+> 
+> Do we really need to do PageAnon for each subpage which is:
+> folio_test_anon(page_folio(page))
+> 
+> since we have checked subpage[0] ?
+
+You are correct. I just wrote it like that for consistency, I'll change
+it in v4.
+
+> 
+>> +                               break;
+>> +               }
+>> +               *len = i;
+>> +               return ret;
+>>          }
+>>
+>>          VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
+>> @@ -80,21 +103,55 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+>>           * FS was already notified and we can simply mark the PTE writable
+>>           * just like the write-fault handler would do.
+>>           */
+>> -       return pte_dirty(pte);
+>> +       ret = pte_dirty(pte);
+>> +
+>> +out:
+>> +       /* The entire batch is guaranteed to have the same return value */
+>> +       if (len)
+>> +               *len = max_len;
+>> +       return ret;
+>>   }
+>>
+>>   static int mprotect_batch(struct folio *folio, unsigned long addr, pte_t *ptep,
+>> -               pte_t pte, int max_nr_ptes)
+>> +               pte_t pte, int max_nr_ptes, bool ignore_soft_dirty)
+>>   {
+>> -       const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+>> +       fpb_t flags = FPB_IGNORE_DIRTY;
+>>
+>> -       if (!folio_test_large(folio) || (max_nr_ptes == 1))
+>> +       if (ignore_soft_dirty)
+>> +               flags |= FPB_IGNORE_SOFT_DIRTY;
+>> +
+>> +       if (!folio || !folio_test_large(folio) || (max_nr_ptes == 1))
+>>                  return 1;
+>>
+>>          return folio_pte_batch(folio, addr, ptep, pte, max_nr_ptes, flags,
+>>                                 NULL, NULL, NULL);
+>>   }
+>>
+>> +/**
+>> + * modify_sub_batch - Identifies a sub-batch which has the same return value
+>> + * of can_change_pte_writable(), from within a folio batch. max_len is the
+>> + * max length of the possible sub-batch. sub_batch_idx is the offset from
+>> + * the start of the original folio batch.
+>> + */
+>> +static int modify_sub_batch(struct vm_area_struct *vma, struct mmu_gather *tlb,
+>> +               unsigned long addr, pte_t *ptep, pte_t oldpte, pte_t ptent,
+>> +               int max_len, int sub_batch_idx)
+>> +{
+>> +       unsigned long new_addr = addr + sub_batch_idx * PAGE_SIZE;
+>> +       pte_t new_oldpte = pte_advance_pfn(oldpte, sub_batch_idx);
+>> +       pte_t new_ptent = pte_advance_pfn(ptent, sub_batch_idx);
+>> +       pte_t *new_ptep = ptep + sub_batch_idx;
+>> +       int len = 1;
+>> +
+>> +       if (can_change_ptes_writable(vma, new_addr, new_ptent, max_len, &len))
+>> +               new_ptent = pte_mkwrite(new_ptent, vma);
+>> +
+>> +       modify_prot_commit_ptes(vma, new_addr, new_ptep, new_oldpte, new_ptent, len);
+>> +       if (pte_needs_flush(new_oldpte, new_ptent))
+>> +               tlb_flush_pte_range(tlb, new_addr, len * PAGE_SIZE);
+>> +       return len;
+>> +}
+>> +
+>>   static long change_pte_range(struct mmu_gather *tlb,
+>>                  struct vm_area_struct *vma, pmd_t *pmd, unsigned long addr,
+>>                  unsigned long end, pgprot_t newprot, unsigned long cp_flags)
+>> @@ -106,7 +163,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>          bool prot_numa = cp_flags & MM_CP_PROT_NUMA;
+>>          bool uffd_wp = cp_flags & MM_CP_UFFD_WP;
+>>          bool uffd_wp_resolve = cp_flags & MM_CP_UFFD_WP_RESOLVE;
+>> -       int nr_ptes;
+>> +       int sub_batch_idx, max_len, len, nr_ptes;
+>>
+>>          tlb_change_page_size(tlb, PAGE_SIZE);
+>>          pte = pte_offset_map_lock(vma->vm_mm, pmd, addr, &ptl);
+>> @@ -121,10 +178,12 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>          flush_tlb_batched_pending(vma->vm_mm);
+>>          arch_enter_lazy_mmu_mode();
+>>          do {
+>> +               sub_batch_idx = 0;
+>>                  nr_ptes = 1;
+>>                  oldpte = ptep_get(pte);
+>>                  if (pte_present(oldpte)) {
+>>                          int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
+>> +                       struct folio *folio = NULL;
+>>                          pte_t ptent;
+>>
+>>                          /*
+>> @@ -132,7 +191,6 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>                           * pages. See similar comment in change_huge_pmd.
+>>                           */
+>>                          if (prot_numa) {
+>> -                               struct folio *folio;
+>>                                  int nid;
+>>                                  bool toptier;
+>>
+>> @@ -180,7 +238,8 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>                                      toptier) {
+>>   skip_batch:
+>>                                          nr_ptes = mprotect_batch(folio, addr, pte,
+>> -                                                                oldpte, max_nr_ptes);
+>> +                                                                oldpte, max_nr_ptes,
+>> +                                                                true);
+>>                                          continue;
+>>                                  }
+>>                                  if (folio_use_access_time(folio))
+>> @@ -188,6 +247,11 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>                                                  jiffies_to_msecs(jiffies));
+>>                          }
+>>
+>> +                       if (!folio)
+>> +                               folio = vm_normal_folio(vma, addr, oldpte);
+>> +
+>> +                       nr_ptes = mprotect_batch(folio, addr, pte, oldpte,
+>> +                                                max_nr_ptes, false);
+>>                          oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
+>>                          ptent = pte_modify(oldpte, newprot);
+>>
+>> @@ -209,15 +273,23 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>                           * example, if a PTE is already dirty and no other
+>>                           * COW or special handling is required.
+>>                           */
+>> -                       if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+>> -                           !pte_write(ptent) &&
+>> -                           can_change_pte_writable(vma, addr, ptent))
+>> -                               ptent = pte_mkwrite(ptent, vma);
+>> -
+>> -                       modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
+>> -                       if (pte_needs_flush(oldpte, ptent))
+>> -                               tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
+>> -                       pages++;
+>> +                       if (cp_flags & MM_CP_TRY_CHANGE_WRITABLE) {
+>> +                               max_len = nr_ptes;
+>> +                               while (sub_batch_idx < nr_ptes) {
+>> +
+>> +                                       /* Get length of sub batch */
+>> +                                       len = modify_sub_batch(vma, tlb, addr, pte,
+>> +                                                              oldpte, ptent, max_len,
+>> +                                                              sub_batch_idx);
+>> +                                       sub_batch_idx += len;
+>> +                                       max_len -= len;
+>> +                               }
+>> +                       } else {
+>> +                               modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
+>> +                               if (pte_needs_flush(oldpte, ptent))
+>> +                                       tlb_flush_pte_range(tlb, addr, nr_ptes * PAGE_SIZE);
+>> +                       }
+>> +                       pages += nr_ptes;
+>>                  } else if (is_swap_pte(oldpte)) {
+>>                          swp_entry_t entry = pte_to_swp_entry(oldpte);
+>>                          pte_t newpte;
+>> --
+>> 2.30.2
 >>
 > 
-> I don't need V10, I can apply V9 without 3/4 and 4/4
-> 
->> Best Regards,
->> Ciprian
->>
-
-Hello Alexandre,
-
-Sorry for bothering. I am writing to ask about the status of this 
-patchset since it has been hanging for a while.
-
-Are there any more changes required from your point of view ?
-
-Regards,
-Ciprian
+> Thanks
+> barry
 
 
