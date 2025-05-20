@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0636C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF97FC3ABDD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 May 2025 14:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RT+HPlhcuk/pySSVcjY3DaH4g16kjYMQ2/8qrwSmd8s=; b=iPIc1jZn9YsGe6E9ncX9FY4T3h
-	ZZyKbI/ug+BsMognBFf2U/BlXOAVEQJRyBDSkM1tr8KzolH5+2BsKK7TynuzSJ1Upm9lMVCxPX2eQ
-	Md7q5Axk0Gs/lyuEzo+xUS/J3GTyx4uLlVZ9NINcj4m37Vfa07mR4JFdLuu9DjkTxW31bWiiwKDtS
-	B2XoNQE7N5Xbq2mqO/W7r+GW/PZ6lNhKkqzJr83/vQS86bPC0VjtRsSG9NIfI63zV4DatsK5312ct
-	zPdKkP0pyum8IX0aOzyS7tLtsRMbGd6ERn3WNx1AydrN3kX5OR4Mh8XAb+a0vTe/dOijn/Rhm9mGs
-	Bt1nxSEw==;
+	bh=60oYgzAqshuD6yLOKdWI/2Zup0hrKz6aeKRaimHYHAU=; b=vSm0/N+bz5DUVOna1O855mPhR/
+	1TVOwNxI5thg2WSZAlp78DfKcLHCGSb0rbmllijmxOLkUXq3kgKh0SE/2gSjk6LWJKqIoymLsDb74
+	ukOf+2nyJ2uSvQx+IxdfQVMd4JBtLxRUa4NtTD2abtTkqhNpbm8XejDr6JggktyECV3gsiiIrHIdT
+	vdh3zkZmWxvdkoNjmYgUyla7Ca/snIDBiXZYhf/QyBx4gLum3ynjcW+r3xyIPHAKa7XeAY+3vaa+y
+	HQdk+Se24/XGZuzS16L+oaQUk7aiH0jNqKPBj6HILjWWHcCF+bdJ6syATaU33Ill/zLpJzDxR96J8
+	FyzKsrvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHO2f-0000000DB0z-0577;
-	Tue, 20 May 2025 14:34:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uHO4k-0000000DBUs-3Sq0;
+	Tue, 20 May 2025 14:36:14 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHNxc-0000000DAAF-1ndi
+	id 1uHNzA-0000000DANG-032t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 May 2025 14:28:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D717845142;
-	Tue, 20 May 2025 14:28:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC8C2C4CEE9;
-	Tue, 20 May 2025 14:28:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747751331;
-	bh=RT+HPlhcuk/pySSVcjY3DaH4g16kjYMQ2/8qrwSmd8s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n1S/SWLvz3cIyclj3BPJe0OrNjBmWv1N8+sit7t6sVSXBnIbhqwpnwhHF8r9U0O8D
-	 mrxG5z3euaL2pDtdTUYRVcd2ebCfATINAkd7UTSKcKl9m0d9mjgR/XEXMHaPAuQrEv
-	 V5Yud/38PwijNXDaK9gpYC4GmYmKyAXDVJEVd2AJv0LQkc8w6gQUTqqOPa/JEez8c3
-	 v7z+MTeN31ObDI/OpbqS9VsjfA2XKYRaar2wtpAVXFZKy8npxHR3T6nGTUiM9VviEc
-	 ZXauznCkYWlEfJcPIu92q+6+bQ+j8oUTnl0LqhacdZoNF9VwFMxL/DQrzbVukyb8yl
-	 Ne+53ipCE2e+Q==
-Date: Tue, 20 May 2025 15:28:45 +0100
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Song Liu <song@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-toolchains@vger.kernel.org,
-	live-patching@vger.kernel.org, indu.bhagat@oracle.com,
-	puranjay@kernel.org, wnliu@google.com, irogers@google.com,
-	joe.lawrence@redhat.com, jpoimboe@kernel.org, peterz@infradead.org,
-	roman.gushchin@linux.dev, rostedt@goodmis.org, kernel-team@meta.com
-Subject: Re: [PATCH v3 1/2] arm64: Implement arch_stack_walk_reliable
-Message-ID: <20250520142845.GA18846@willie-the-truck>
-References: <20250320171559.3423224-1-song@kernel.org>
- <20250320171559.3423224-2-song@kernel.org>
- <aCs08i3u9C9MWy4M@J2N7QTR9R3>
+	Tue, 20 May 2025 14:30:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=60oYgzAqshuD6yLOKdWI/2Zup0hrKz6aeKRaimHYHAU=; b=b1+f6y/qH2058NF2o/xrWpwO2L
+	8MoTZG0nKc3MTgGQfRLBEdPRafkGWEK3ijxCQ9bcpbumoeiNLv86XQr9TWXw/ZqLfeeD6OQBg83P1
+	CaOiweBnQ5dCVPAv5On3ryybfKlhWBMlvWfjvQ0OfkUjmAvZBizf7FXaqJj3BJ71oYsM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uHNz0-00D8Jc-Gt; Tue, 20 May 2025 16:30:18 +0200
+Date: Tue, 20 May 2025 16:30:18 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+	andrew@codeconstruct.com.au, mturquette@baylibre.com,
+	sboyd@kernel.org, p.zabel@pengutronix.de, BMC-SW@aspeedtech.com
+Subject: Re: [net 0/4] net: ftgmac100: Add SoC reset support for RMII mode
+Message-ID: <cfb44996-ad63-43cd-bbc5-07f70939d019@lunn.ch>
+References: <20250520092848.531070-1-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aCs08i3u9C9MWy4M@J2N7QTR9R3>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250520092848.531070-1-jacky_chou@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_072852_483568_667AA5C5 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250520_073028_045552_AA52EE16 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,13 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 02:41:06PM +0100, Mark Rutland wrote:
-> I've pushed a arm64/stacktrace-updates branch [1] with fixups for those
-> as two separate commits atop this one. If that looks good to you I
-> suggest we post that as a series and ask Will and Catalin to take that
-> as-is.
+On Tue, May 20, 2025 at 05:28:44PM +0800, Jacky Chou wrote:
+> This patch series adds support for an optional reset line to the
+> ftgmac100 ethernet controller, as used on Aspeed SoCs. On these SoCs,
+> the internal MAC reset is not sufficient to reset the RMII interface.
+> By providing a SoC-level reset via the device tree "resets" property,
+> the driver can properly reset both the MAC and RMII logic, ensuring
+> correct operation in RMII mode.
 
-Yes, please post those to the list for review.
+What tree is this for? You have net in the subject, but no Fixes:
+tags?
 
-Will
+https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+
+	Andrew
 
