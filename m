@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC8BC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 18:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B537C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 19:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9hN/ALYj6MAmLNmuqeaYYS+ymrl+13ez5PlAjoRPF8=; b=NgjuzGUIYadiOJ698paNOgmCG3
-	7nLpRTbud+NVsW4peFhWKM/dwjwbL7Yq1akgd04Vlg1NUam1gQhWFo2ZrxvzYx47uEc+jdRWTjk8U
-	xAvq0XJ80FUFYHPWu7TzrqEAjslBG3/tAE9bsbB5WMCqtpvCsIWPLzNn6CrhsjztG0s9XHaKXZ0p9
-	IKFmg/zdKhA2TMyht+PlJD3OVWAEIT5Pw6MXz4JPEPGxcjtta5qB49Mep+qfsE/53FacaizemX/DE
-	SPKOn+nozfESoqjzQN2ivDNQ39w8AdQ8NZ4xAJgrgRnFMJ/+PoeymVKp31c1Gl15kGwb+qGvPNSuW
-	oioJ3iaQ==;
+	bh=skjzg2uz8BH+niRisjzH3Un/beL40R1SkUTg5asWY6o=; b=HfTUpmSgc4mK89C4JfOt+OFftu
+	gU7aQvB2AZa5GFA9e1f/Kf1BE8BCiV4af2m5XM5jOK/As5vbfedFNUYhiPahgvbTk4gS1yUcD5Ean
+	nk0BAkoYDCChxMl9PSjBcDzcILmp38fjztAVbV73SpD9jjXMLVYgxWEQ35pFJbLwy4In92ALGLRJv
+	+/6G5qVULeO6DSWMWxVoMsum07/D+Hps5oqpi7/s41kwPWKCwh2XK67Yq8Rm6V4GHIVmOgxj/QgcA
+	N7vazqPgCHpm6TxYiBiqeg39dhrIa3HSCJDhqWfh33ndrQTCj+zRiS6tv8c6EfsFlkndtbs1mwzHf
+	VR6Oeiug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHoOK-0000000Gfjt-0Vxt;
-	Wed, 21 May 2025 18:42:12 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1uHoku-0000000Gha1-3H7x;
+	Wed, 21 May 2025 19:05:32 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHoM5-0000000GfTC-40as
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 18:39:55 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-7c922734cc2so803471085a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 11:39:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1747852793; x=1748457593; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=C9hN/ALYj6MAmLNmuqeaYYS+ymrl+13ez5PlAjoRPF8=;
-        b=GmQVJE9ui7bgw0kJ7rlRCGNi/2psY0n1tXC2LJnk8591cBElgi05clyi/cCzmdagWt
-         /RAfv2/x8vVWmkSENgo/NVs3wxRO6fp6i8WOEP3wCjaWM4nsNmkAPAqWnwaRI8XyQN/0
-         4oOblqAWg/bFMGyJdUIkhYex0QDTBSLkPz4RzFS6Rj8mG+65i2OE4wK6Vu58OMHiYB+B
-         mo4jLUg7M+bZ1N50qUOIj5eEkDNFtwyzEv91a49qkIyxSVRaMMhvraSK/8Yao65k/qv+
-         50Y7+QggE01H4uz0KTJZIpqBo+onyCHnqkm7+wwQGE+jycpJkE8dHwxZy37VhQnBSUcD
-         8iLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747852793; x=1748457593;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=C9hN/ALYj6MAmLNmuqeaYYS+ymrl+13ez5PlAjoRPF8=;
-        b=IvPbCJvRoFqtoE1oAEIZ+y8H3rhnWlDOHw3JmekpRu0VurjtDolZxqfPG5j8VnYP/W
-         +MSIX7d1QFMwqG+NH2MtpMigapG1zDgywozKcTCsFgkm2AJrAwVfWi1cq7ErpQ1ydIZy
-         z92WrA60L3PbTKBIYrQuYztts1a9T230R2Fs33icn5Xp5ZYfsc7bRuVaH9cN11YybNWc
-         ec3EJ7+nl+gsUTOIfIzEQ5KuLEg6MgZl1h7+i/Wk/8z5NfCCxCOPo6jRQlWkyB7n7204
-         6lB9GXqs5bDPDf/msw+rO12T2yDwSdk3L2yvED4wyYs/I5hv7DDTsCmLw8xs+lDAfGyc
-         CLsw==
-X-Forwarded-Encrypted: i=1; AJvYcCVHduPFV3evp7hFB5dpSZn52UhQqjX+2fEq/so0Jh4vQYL1lyDS3BBKuCpXrn0mwJ4knPdQoevZleFmDrbZ7nJE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrY41NnIbgmoZ1oZzlL823fdvW+IEAbflswPR0gxi20uUyt/le
-	XV1h3U3mvFFaWL3wpshekdL3+mmstgDdD3gNBqpfiOmfaVsml/JWh5P7Wz+CciT9OI4=
-X-Gm-Gg: ASbGncsSYI2LW9ZgYdRsY/f9zDITbdg4vMsA7YPLPf79x1vcsMdpb9quoQuXvzejKzR
-	HYZZNInKNSWDR5s07LMM8hQHVr8P7w9BDsiOWi4wXXhkvUedBUo2UyUUi8b78hUz15o2UrpJ6ZK
-	UOx0xH9GSme5wUfR284C/Z05Rk6MhuPJJoRMA1F1LF3g9eceZCz+1TqqE0Dmuz62tW8xi3dZ3v5
-	QnLUQarTUl6iXMQH+bfHGcXQ/rXp5OJEdBxIF2rsUv+fiUGDT5GRVy/ulF+K+gEUDN8KiF+0BT0
-	CUnJeLjs+tbD47cc/9sGFYyi0HK6BXW77SGN7fKhXQQadTwZaTe/epnb
-X-Google-Smtp-Source: AGHT+IEH1yg96f+6LtDU7dk/LUCmzgUoLgGpjjtmworILuCaY55up0WZsaGhvzPy17yVEqZT5x/cRQ==
-X-Received: by 2002:a05:620a:1982:b0:7c5:d71c:6a47 with SMTP id af79cd13be357-7cd46af8c77mr3443038785a.8.1747852792554;
-        Wed, 21 May 2025 11:39:52 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:17:b2fc::c41? ([2606:6d00:17:b2fc::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cd467bc2dbsm913992085a.15.2025.05.21.11.39.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 May 2025 11:39:52 -0700 (PDT)
-Message-ID: <0f751cf4a8998b6c6b9046d4e1cb25646709f75a.camel@ndufresne.ca>
-Subject: Re: [PATCH v4] media: amphion: Add H264 and HEVC profile and level
- control
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>, mchehab@kernel.org, 
-	hverkuil-cisco@xs4all.nl
-Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-imx@nxp.com, xiahong.bao@nxp.com,
- eagle.zhou@nxp.com, 	imx@lists.linux.dev, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org
-Date: Wed, 21 May 2025 14:39:51 -0400
-In-Reply-To: <36d644aa-5143-4a5a-a01e-a67792288ba3@oss.nxp.com>
-References: <20250512020137.211-1-ming.qian@oss.nxp.com>
-	 <3e794e17ab846e29fb5922dc94b969b8cf9334a8.camel@ndufresne.ca>
-	 <36d644aa-5143-4a5a-a01e-a67792288ba3@oss.nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1 (3.56.1-1.fc42) 
+	id 1uHoij-0000000GhPC-1MWF;
+	Wed, 21 May 2025 19:03:18 +0000
+Received: from pendragon.ideasonboard.com (179.218-130-109.adsl-dyn.isp.belgacom.be [109.130.218.179])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 01FD36AF;
+	Wed, 21 May 2025 21:02:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1747854173;
+	bh=vPvuwM/u6pIaMk4JleeZDQfpq6e7V/QhYzjGPzUWzvU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b2z2+Tyww+BF+od3NVjTp2B0clH/Tgpur5Oa7hsMZDItXAFI7fJ7LGL4PZr9IZrXk
+	 spTxfIW7+zUmBa3KN3286SE5SoeKNG1AzVLCfiAVx8wfgAXRaqAJABKFIwuViNMDGw
+	 kbahZi1oSnS+ziSLw/Qks9hTKeTtMqYOQD2bXpHU=
+Date: Wed, 21 May 2025 21:03:08 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Paul Elder <paul.elder@ideasonboard.com>
+Cc: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Ondrej Jirman <megi@xff.cz>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	stefan.klug@ideasonboard.com
+Subject: Re: [PATCH] RKISP1: correct histogram window size
+Message-ID: <20250521190308.GB6792@pendragon.ideasonboard.com>
+References: <m3tt5u9q7h.fsf@t19.piap.pl>
+ <aB31Eg6oRpcHHEsb@pyrite.rasen.tech>
+ <m3jz6b8lb1.fsf@t19.piap.pl>
+ <20250521101042.GC12514@pendragon.ideasonboard.com>
+ <174784811736.14042.11404187248848039485@calcite>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <174784811736.14042.11404187248848039485@calcite>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_113954_271572_07289D04 
-X-CRM114-Status: GOOD (  32.13  )
+X-CRM114-CacheID: sfid-20250521_120317_830439_DC1984E3 
+X-CRM114-Status: GOOD (  49.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,425 +78,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, May 21, 2025 at 07:21:57PM +0200, Paul Elder wrote:
+> Quoting Laurent Pinchart (2025-05-21 12:10:42)
+> > On Tue, May 20, 2025 at 03:26:58PM +0200, Krzysztof Hałasa wrote:
+> > > Paul Elder <paul.elder@ideasonboard.com> writes:
+> > > 
+> > > >> Without the patch (i.MX8MP, all-white RGGB-12 full HD input from
+> > > >> the sensor, YUV NV12 output from ISP, full range, histogram Y mode).
+> > > >> HIST_STEPSIZE = 3 (lowest permitted):
+> > > >
+> > > > According to the datasheet, the histogram bins are 16-bit integer with a
+> > > > 4-bit fractional part. To prevent overflowing the 16-bit integer
+> > > > counter, the step size should be 10.
+> > 
+> > That would be for combined RGB mode, as every pixel is accounted for
+> > three times in that mode. In other modes, a step size of 8 should be
+> > fine.
+> 
+> Ah, right.
+> 
+> > > >
+> > > > Do you have any other information on this? Is it known that it's stable
+> > > > and consistent to use all 20 bits anyway?
+> > 
+> > The documentation states that the width of the bin counter registers is
+> > 20 bits wide including a 4-bit fractional part, and that the software
+> > should use only the upper 16 bits of the bin counters. The fractional
+> > part is caused by the weights. There's a corresponding todo comment in
+> > libcamera:
+> > 
+> >         ...
+> >          *
+> >          * \todo Take into account weights. That is, if the weights are low
+> >          * enough we can potentially reduce the predivider to increase
+> >          * precision. This needs some investigation however, as this hardware
+> >          * behavior is undocumented and is only an educated guess.
+> >          */
+> >         int count = mode == RKISP1_CIF_ISP_HISTOGRAM_MODE_RGB_COMBINED ? 3 : 1;
+> >         double factor = size.width * size.height * count / 65536.0;
+> >         double root = std::sqrt(factor);
+> >         uint8_t predivider = static_cast<uint8_t>(std::ceil(root));
+> > 
+> >         return std::clamp<uint8_t>(predivider, 3, 127);
+> > 
+> > libcamera sets the default weights to 1, and discards the 4 fractional
+> > bits. It seems that the 
+> 
+> (what did you mean to finish saying...?)
 
-Le mercredi 21 mai 2025 =C3=A0 09:23 +0800, Ming Qian(OSS) a =C3=A9crit=C2=
-=A0:
->=20
-> Hi Nicolas,
->=20
-> On 2025/5/21 5:04, Nicolas Dufresne wrote:
-> > Hi Ming,
-> >=20
-> > got one final question below...
-> >=20
-> > Le lundi 12 mai 2025 =C3=A0 10:01 +0800, ming.qian@oss.nxp.com=C2=A0a =
-=C3=A9crit :
-> > > From: Ming Qian <ming.qian@oss.nxp.com>
-> > >=20
-> > > For format H264 and HEVC, the firmware can report the parsed profile =
-idc
-> > > and level idc to driver, these information may be useful.
-> > > Implement the H264 and HEVC profile and level control to report them.
-> > >=20
-> > > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> > > ---
-> > > v4
-> > > - Fix a building warning reported by kernel test robot
-> > >=20
-> > > v3
-> > > - Check H264 Constrained Baseline Profile
-> > > - Check H264 Level 1b
-> > > - Remove support for V4L2_MPEG_VIDEO_H264_PROFILE_MULTIVIEW_HIGH
-> > > - Remove support for V4L2_MPEG_VIDEO_H264_PROFILE_STEREO_HIGH
-> > >=20
-> > > v2
-> > > - Add support for V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE
-> > > ---
-> > > =C2=A0 drivers/media/platform/amphion/vdec.c=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 59 +++++++++
-> > > =C2=A0 drivers/media/platform/amphion/vpu_defs.h=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 12 ++
-> > > =C2=A0 drivers/media/platform/amphion/vpu_helpers.c | 123 +++++++++++=
-++++++++
-> > > =C2=A0 drivers/media/platform/amphion/vpu_helpers.h |=C2=A0=C2=A0 7 +=
-+
-> > > =C2=A0 drivers/media/platform/amphion/vpu_malone.c=C2=A0 |=C2=A0=C2=
-=A0 5 +-
-> > > =C2=A0 5 files changed, 205 insertions(+), 1 deletion(-)
-> > >=20
-> > > diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/pl=
-atform/amphion/vdec.c
-> > > index 85d518823159..55067d9405c2 100644
-> > > --- a/drivers/media/platform/amphion/vdec.c
-> > > +++ b/drivers/media/platform/amphion/vdec.c
-> > > @@ -232,6 +232,35 @@ static int vdec_ctrl_init(struct vpu_inst *inst)
-> > > =C2=A0=C2=A0			=C2=A0 V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE,
-> > > =C2=A0=C2=A0			=C2=A0 0, 1, 1, 0);
-> > > =C2=A0=20
-> > > +	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_CID_MPEG_VIDEO_H264_PRO=
-FILE,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG_VIDEO_H264_PROFILE=
-_MULTIVIEW_HIGH,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ~((1 << V4L2_MPEG_VIDEO_H264=
-_PROFILE_BASELINE) |
-> > > +				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE) |
-> > > +				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_MAIN) |
-> > > +				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_EXTENDED) |
-> > > +				 (1 << V4L2_MPEG_VIDEO_H264_PROFILE_HIGH)),
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG_VIDEO_H264_PROFILE=
-_MAIN);
-> > > +
-> > > +	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_CID_MPEG_VIDEO_H264_LEV=
-EL,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_6=
-_2,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_4=
-_0);
-> > > +
-> > > +	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_CID_MPEG_VIDEO_HEVC_PRO=
-FILE,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG_VIDEO_HEVC_PROFILE=
-_MAIN_10,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ~((1 << V4L2_MPEG_VIDEO_HEVC=
-_PROFILE_MAIN) |
-> > > +				 (1 << V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10)),
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG_VIDEO_HEVC_PROFILE=
-_MAIN);
-> > > +
-> > > +	v4l2_ctrl_new_std_menu(&inst->ctrl_handler, NULL,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_CID_MPEG_VIDEO_HEVC_LEV=
-EL,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG_VIDEO_HEVC_LEVEL_6=
-_2,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 0,
-> > > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG_VIDEO_HEVC_LEVEL_4=
-);
-> > > +
-> > > =C2=A0=C2=A0	ctrl =3D v4l2_ctrl_new_std(&inst->ctrl_handler, &vdec_ct=
-rl_ops,
-> > > =C2=A0=C2=A0				 V4L2_CID_MIN_BUFFERS_FOR_CAPTURE, 1, 32, 1, 2);
-> > > =C2=A0=C2=A0	if (ctrl)
-> > > @@ -1166,6 +1195,35 @@ static void vdec_clear_slots(struct vpu_inst *=
-inst)
-> > > =C2=A0=C2=A0	}
-> > > =C2=A0 }
-> > > =C2=A0=20
-> > > +static void vdec_update_v4l2_ctrl(struct vpu_inst *inst, u32 id, u32=
- val)
-> > > +{
-> > > +	struct v4l2_ctrl *ctrl =3D v4l2_ctrl_find(&inst->ctrl_handler, id);
-> > > +
-> > > +	if (ctrl)
-> > > +		v4l2_ctrl_s_ctrl(ctrl, val);
-> > > +}
-> > > +
-> > > +static void vdec_update_v4l2_profile_level(struct vpu_inst *inst, st=
-ruct vpu_dec_codec_info *hdr)
-> > > +{
-> > > +	switch (inst->out_format.pixfmt) {
-> > > +	case V4L2_PIX_FMT_H264:
-> > > +	case V4L2_PIX_FMT_H264_MVC:
-> > > +		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_H264_PROFILE,
-> > > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vpu_get_h264_v4l2_profile(hdr));
-> > > +		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_H264_LEVEL,
-> > > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vpu_get_h264_v4l2_level(hdr));
-> > > +		break;
-> > > +	case V4L2_PIX_FMT_HEVC:
-> > > +		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
-> > > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vpu_get_hevc_v4l2_profile(hdr));
-> > > +		vdec_update_v4l2_ctrl(inst, V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
-> > > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vpu_get_hevc_v4l2_level(hdr));
-> > > +		break;
-> > > +	default:
-> > > +		return;
-> > > +	}
-> > > +}
-> > > +
-> > > =C2=A0 static void vdec_event_seq_hdr(struct vpu_inst *inst, struct v=
-pu_dec_codec_info *hdr)
-> > > =C2=A0 {
-> > > =C2=A0=C2=A0	struct vdec_t *vdec =3D inst->priv;
-> > > @@ -1189,6 +1247,7 @@ static void vdec_event_seq_hdr(struct vpu_inst =
-*inst, struct vpu_dec_codec_info
-> > > =C2=A0=C2=A0	vdec_init_crop(inst);
-> > > =C2=A0=C2=A0	vdec_init_mbi(inst);
-> > > =C2=A0=C2=A0	vdec_init_dcp(inst);
-> > > +	vdec_update_v4l2_profile_level(inst, hdr);
-> > > =C2=A0=C2=A0	if (!vdec->seq_hdr_found) {
-> > > =C2=A0=C2=A0		vdec->seq_tag =3D vdec->codec_info.tag;
-> > > =C2=A0=C2=A0		if (vdec->is_source_changed) {
-> > > diff --git a/drivers/media/platform/amphion/vpu_defs.h b/drivers/medi=
-a/platform/amphion/vpu_defs.h
-> > > index 428d988cf2f7..f56245ae2205 100644
-> > > --- a/drivers/media/platform/amphion/vpu_defs.h
-> > > +++ b/drivers/media/platform/amphion/vpu_defs.h
-> > > @@ -134,6 +134,7 @@ struct vpu_dec_codec_info {
-> > > =C2=A0=C2=A0	u32 decoded_height;
-> > > =C2=A0=C2=A0	struct v4l2_fract frame_rate;
-> > > =C2=A0=C2=A0	u32 dsp_asp_ratio;
-> > > +	u32 profile_idc;
-> > > =C2=A0=C2=A0	u32 level_idc;
-> > > =C2=A0=C2=A0	u32 bit_depth_luma;
-> > > =C2=A0=C2=A0	u32 bit_depth_chroma;
-> > > @@ -147,6 +148,17 @@ struct vpu_dec_codec_info {
-> > > =C2=A0=C2=A0	u32 mbi_size;
-> > > =C2=A0=C2=A0	u32 dcp_size;
-> > > =C2=A0=C2=A0	u32 stride;
-> > > +	union {
-> > > +		struct {
-> > > +			u32 constraint_set5_flag : 1;
-> > > +			u32 constraint_set4_flag : 1;
-> > > +			u32 constraint_set3_flag : 1;
-> > > +			u32 constraint_set2_flag : 1;
-> > > +			u32 constraint_set1_flag : 1;
-> > > +			u32 constraint_set0_flag : 1;
-> > > +		};
-> > > +		u32 constraint_set_flags;
-> >=20
-> > Shouldn't this be u8 all over to match the fact the firmware reports th=
-is over a single byte ?
-> >=20
-> > Nicolas
-> >=20
->=20
-> firmware use u32 to transmit message data:
-> 	struct vpu_rpc_event_header {
-> 		u32 index;
-> 		u32 id;
-> 		u32 num;
-> 	};
->=20
-> 	struct vpu_rpc_event {
-> 		struct vpu_rpc_event_header hdr;
-> 		u32 data[128];
-> 	};
->=20
-> And in amphion vpu decoder firmware 1.10.0, it increase the data number o=
-f
-> SEQ_HDR_FOUND event from 28 to 29. the constraint_set_flags is stored in
-> the data[28], so although only 6 bits are used, u32 is still used here.
->=20
-> 	if (pkt->hdr.num > 28)
-> 		info->constraint_set_flags =3D pkt->data[28];
+Oops. Ignore that, I split my reasoning to two paragraphs and forgot to
+delete that half line.
 
-Ack, I should have checked the definition instead of assuming. Patch queued=
-.
+> > I expect that each pixel contributes to its bin by adding the weight
+> > value corresponding to its zone. Setting all weights to 1, I would
+> > expect that the 4 fractional bits could be used to increase the bin size
+> > to 1048575 pixels (20 bits), and therefore decrease the predivider from
+> > 10 to 3.
+> 
+> True. I suppose if all the weights are 1 then we can squeeze out more bit
+> precision then. But that's a todo for libcamera.
+> 
+> > > Interesting. I only have those mrv_*.h files which come with
+> > > isp-imx-4.2.2.* package(s). Here we have (among others):
+> > > 
+> > > /*! Register: isp_hist_prop: Histogram properties (0x00000000)*/
+> > > /*! Slice: stepsize:*/
+> > > /*! histogram predivider, process every (stepsize)th pixel, all other pixels are skipped */
+> > > /* 0,1,2: not allowed */
+> > > /* 3: process every third input pixel */
+> > > /* 4: process every fourth input pixel */
+> > > /* ...*/
+> > > /* 7FH: process every 127th pixel */
+> > > #define MRV_HIST_STEPSIZE_MASK 0x000003F8
+> > > #define MRV_HIST_STEPSIZE_SHIFT 3
+> > > 
+> > > In case of my IMX290 1920x1080 sensor, 1 doesn't work well (it stops
+> > > counting before reaching $((1920x1080)) in each bin, and even if no bin
+> > > reaches this magic value, the total count may be invalid (not equal to
+> > > the number of pixels). IIRC, 2 worked well. Maybe with higher
+> > > resolutions, I don't know.
+> > > 
+> > > I'm currently using "3" per the .h file:
+> > > isp_hist_prop:
+> > > 32E12400: 1Dh
+> > > histogram_measurement_result:
+> > > 32E12414: 0 0 1 1004 569 476 633 1197 2373 2212 1923 2945 3632 3025 5821 204589
+> > > which sums to 518400 = 1920*1080/9.
+> > > 
+> > > Setting "2", the same input scene:
+> > > 32E12400: 15h
+> > > 32E12414: 0 0 0 2194 1263 1096 1406 2528 5228 5052 4291 6354 8322 6943 13201 460522
+> > > which sums to 518400 = 1920*1080/4.
+> 
+> Yes, these look good (although I think you might've copy&pasted the wrong
+> number for the sum)
+> 
+> > > Setting "1", the same input scene:
+> > > 32E12400: Dh
+> > > 32E12414: 0 0 25 9046 4924 4317 5435 10655 20781 18965 16051 24716 32681 28368 54301 1048559
+> > > which sums to 1278824 which is rather less than 2073600.
+> > > The last number (1048559) is the magic one, no bin can go higher. Less lights and:
+> 
+> Oh? I would've expected 2^20-1 = 1048575 to be the magic number, but ok I
+> suppose the hardware caps at 1048559 instead. It probably overflowed and that's
+> why the sum is so low.
+> 
+> > > 32E12400: Dh
+> > > 32E12414: 0 0 0 0 0 0 184 3059 11970 75298 114898 211444 429772 439922 400358 386695
+> > > total = 2073600. But don't rely on it too much, the "1" has problems.
+> 
+> That's interesting. My guess would be that in practice a divider of 1 would
+> still work as long as you make sure that it doesn't overflow. Maybe the usage
+> documentation was based on a rule-of-thumb.
+> 
+> > > In short, those are integer values. One may use them as fractionals with
+> > > some clever step size, I guess.
+> > > 
+> > > >> isp_hist_h_size: 383 (= 1920 / 5 - 1)
+> > > >> isp_hist_v_size: 215 (= 1080 / 5 - 1)
+> > > >> histogram_measurement_result[16]: 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 229401
+> > > >>
+> > > >> Apparently the histogram is missing the last column (3-pixel wide,
+> > > >> though only single pixels count) and the last (same idea) row
+> > > >> of the input image: 1917 * 1077 / 3 / 3 = 229401
+> > > >
+> > > > I don't quite understand this. With a sub-window width of
+> > > > 1920 / 5 - 1 = 383, shouldn't the resulting total window width be
+> > > > 383 * 5 = 1915? Same idea for the height.
+> > > 
+> > > It would, but the stepsize = 3 makes it ignore only the last one
+> > > - i.e., normally the counted ones are 0, 3, ... 1914, 1917 (which makes
+> > > 1920/3) and with 383, it ends at 1914, thus only 3 pixels (1 really,
+> > > instead of 2) are missing from calculations (not 5). I guess the same
+> > > vertically, 1080 divides / 3 and 1075 doesn't.
+> 
+> Ah ok, I see. Thanks for the clarification.
+> 
+> > > 
+> > > > The fix looks fine though. Although, I'm wondering if there's a reason
+> > > > why there was a -1 in the first place. Does anybody know?
+> > > 
+> > > There is slight chance it's different on some other SoC, but I would be
+> > > surprised.
+> > 
+> > The documented constraint is
+> > 
+> >     hist_h_offset + hist_h_size x 5 should be less than or equal to the
+> >     horizontal size of the picture.
+> > 
+> > (and similar for the vertical direction). The initial -1 seems to be a
+> > bug.
+> 
+> Ok.
+> 
+> Looks go to me.
+> 
+> Reviewed-by: Paul ELder <paul.elder@ideasonboard.com>
 
-regards
-Nicolas
+Should we update the commit message as you initially proposed ?
 
->=20
-> Regards,
-> Ming
->=20
-> > > +	};
-> > > =C2=A0 };
-> > > =C2=A0=20
-> > > =C2=A0 struct vpu_dec_pic_info {
-> > > diff --git a/drivers/media/platform/amphion/vpu_helpers.c b/drivers/m=
-edia/platform/amphion/vpu_helpers.c
-> > > index d12310af9ebc..886d5632388e 100644
-> > > --- a/drivers/media/platform/amphion/vpu_helpers.c
-> > > +++ b/drivers/media/platform/amphion/vpu_helpers.c
-> > > @@ -509,3 +509,126 @@ const char *vpu_codec_state_name(enum vpu_codec=
-_state state)
-> > > =C2=A0=C2=A0	}
-> > > =C2=A0=C2=A0	return "<unknown>";
-> > > =C2=A0 }
-> > > +
-> > > +struct codec_id_mapping {
-> > > +	u32 id;
-> > > +	u32 v4l2_id;
-> > > +};
-> > > +
-> > > +static struct codec_id_mapping h264_profiles[] =3D {
-> > > +	{66,=C2=A0 V4L2_MPEG_VIDEO_H264_PROFILE_BASELINE},
-> > > +	{77,=C2=A0 V4L2_MPEG_VIDEO_H264_PROFILE_MAIN},
-> > > +	{88,=C2=A0 V4L2_MPEG_VIDEO_H264_PROFILE_EXTENDED},
-> > > +	{100, V4L2_MPEG_VIDEO_H264_PROFILE_HIGH}
-> > > +};
-> > > +
-> > > +static struct codec_id_mapping h264_levels[] =3D {
-> > > +	{10,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_1_0},
-> > > +	{9,=C2=A0=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_1B},
-> > > +	{11,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_1_1},
-> > > +	{12,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_1_2},
-> > > +	{13,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_1_3},
-> > > +	{20,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_2_0},
-> > > +	{21,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_2_1},
-> > > +	{22,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_2_2},
-> > > +	{30,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_3_0},
-> > > +	{31,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_3_1},
-> > > +	{32,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_3_2},
-> > > +	{40,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_4_0},
-> > > +	{41,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_4_1},
-> > > +	{42,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_4_2},
-> > > +	{50,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_5_0},
-> > > +	{51,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_5_1},
-> > > +	{52,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_5_2},
-> > > +	{60,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_6_0},
-> > > +	{61,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_6_1},
-> > > +	{62,=C2=A0 V4L2_MPEG_VIDEO_H264_LEVEL_6_2}
-> > > +};
-> > > +
-> > > +static struct codec_id_mapping hevc_profiles[] =3D {
-> > > +	{1,=C2=A0=C2=A0 V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN},
-> > > +	{2,=C2=A0=C2=A0 V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10}
-> > > +};
-> > > +
-> > > +static struct codec_id_mapping hevc_levels[] =3D {
-> > > +	{30,=C2=A0 V4L2_MPEG_VIDEO_HEVC_LEVEL_1},
-> > > +	{60,=C2=A0 V4L2_MPEG_VIDEO_HEVC_LEVEL_2},
-> > > +	{63,=C2=A0 V4L2_MPEG_VIDEO_HEVC_LEVEL_2_1},
-> > > +	{90,=C2=A0 V4L2_MPEG_VIDEO_HEVC_LEVEL_3},
-> > > +	{93,=C2=A0 V4L2_MPEG_VIDEO_HEVC_LEVEL_3_1},
-> > > +	{120, V4L2_MPEG_VIDEO_HEVC_LEVEL_4},
-> > > +	{123, V4L2_MPEG_VIDEO_HEVC_LEVEL_4_1},
-> > > +	{150, V4L2_MPEG_VIDEO_HEVC_LEVEL_5},
-> > > +	{153, V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1},
-> > > +	{156, V4L2_MPEG_VIDEO_HEVC_LEVEL_5_2},
-> > > +	{180, V4L2_MPEG_VIDEO_HEVC_LEVEL_6},
-> > > +	{183, V4L2_MPEG_VIDEO_HEVC_LEVEL_6_1},
-> > > +	{186, V4L2_MPEG_VIDEO_HEVC_LEVEL_6_2}
-> > > +};
-> > > +
-> > > +static u32 vpu_find_v4l2_id(u32 id, struct codec_id_mapping *array, =
-u32 array_sz)
-> > > +{
-> > > +	u32 i;
-> > > +
-> > > +	if (!array || !array_sz)
-> > > +		return 0;
-> > > +
-> > > +	for (i =3D 0; i < array_sz; i++) {
-> > > +		if (id =3D=3D array[i].id)
-> > > +			return array[i].v4l2_id;
-> > > +	}
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +u32 vpu_get_h264_v4l2_profile(struct vpu_dec_codec_info *hdr)
-> > > +{
-> > > +	if (!hdr)
-> > > +		return 0;
-> > > +
-> > > +	/*
-> > > +	 * In H.264 Document section A.2.1.1 Constrained Baseline profile
-> > > +	 * Conformance of a bitstream to the Constrained Baseline profile i=
-s indicated by
-> > > +	 * profile_idc being equal to 66 with constraint_set1_flag being eq=
-ual to 1.
-> > > +	 */
-> > > +	if (hdr->profile_idc =3D=3D 66 && hdr->constraint_set1_flag)
-> > > +		return V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE;
-> > > +
-> > > +	return vpu_find_v4l2_id(hdr->profile_idc, h264_profiles, ARRAY_SIZE=
-(h264_profiles));
-> > > +}
-> > > +
-> > > +u32 vpu_get_h264_v4l2_level(struct vpu_dec_codec_info *hdr)
-> > > +{
-> > > +	if (!hdr)
-> > > +		return 0;
-> > > +
-> > > +	/*
-> > > +	 * In H.264 Document section 7.4.2.1.1 Sequence parameter set data =
-semantics
-> > > +	 * If profile_idc is equal to 66, 77, or 88 and level_idc is equal =
-to 11,
-> > > +	 * constraint_set3_flag equal to 1 indicates that the coded video s=
-equence
-> > > +	 * obeys all constraints specified in Annex A for level 1b
-> > > +	 * and constraint_set3_flag equal to 0 indicates that the coded vid=
-eo sequence
-> > > +	 * obeys all constraints specified in Annex A for level 1.1.
-> > > +	 */
-> > > +	if (hdr->level_idc =3D=3D 11 && hdr->constraint_set3_flag &&
-> > > +	=C2=A0=C2=A0=C2=A0 (hdr->profile_idc =3D=3D 66 || hdr->profile_idc =
-=3D=3D 77 || hdr->profile_idc =3D=3D 88))
-> > > +		return V4L2_MPEG_VIDEO_H264_LEVEL_1B;
-> > > +
-> > > +	return vpu_find_v4l2_id(hdr->level_idc, h264_levels, ARRAY_SIZE(h26=
-4_levels));
-> > > +}
-> > > +
-> > > +u32 vpu_get_hevc_v4l2_profile(struct vpu_dec_codec_info *hdr)
-> > > +{
-> > > +	if (!hdr)
-> > > +		return 0;
-> > > +
-> > > +	return vpu_find_v4l2_id(hdr->profile_idc, hevc_profiles, ARRAY_SIZE=
-(hevc_profiles));
-> > > +}
-> > > +
-> > > +u32 vpu_get_hevc_v4l2_level(struct vpu_dec_codec_info *hdr)
-> > > +{
-> > > +	if (!hdr)
-> > > +		return 0;
-> > > +
-> > > +	return vpu_find_v4l2_id(hdr->level_idc, hevc_levels, ARRAY_SIZE(hev=
-c_levels));
-> > > +}
-> > > diff --git a/drivers/media/platform/amphion/vpu_helpers.h b/drivers/m=
-edia/platform/amphion/vpu_helpers.h
-> > > index 0eaddb07190d..6c0554ccf3b3 100644
-> > > --- a/drivers/media/platform/amphion/vpu_helpers.h
-> > > +++ b/drivers/media/platform/amphion/vpu_helpers.h
-> > > @@ -6,6 +6,8 @@
-> > > =C2=A0 #ifndef _AMPHION_VPU_HELPERS_H
-> > > =C2=A0 #define _AMPHION_VPU_HELPERS_H
-> > > =C2=A0=20
-> > > +#include "vpu_defs.h"
-> > > +
-> > > =C2=A0 struct vpu_pair {
-> > > =C2=A0=C2=A0	u32 src;
-> > > =C2=A0=C2=A0	u32 dst;
-> > > @@ -70,4 +72,9 @@ int vpu_color_get_default(u32 primaries, u32 *ptran=
-sfers, u32 *pmatrix, u32 *pfu
-> > > =C2=A0=20
-> > > =C2=A0 int vpu_find_dst_by_src(struct vpu_pair *pairs, u32 cnt, u32 s=
-rc);
-> > > =C2=A0 int vpu_find_src_by_dst(struct vpu_pair *pairs, u32 cnt, u32 d=
-st);
-> > > +
-> > > +u32 vpu_get_h264_v4l2_profile(struct vpu_dec_codec_info *hdr);
-> > > +u32 vpu_get_h264_v4l2_level(struct vpu_dec_codec_info *hdr);
-> > > +u32 vpu_get_hevc_v4l2_profile(struct vpu_dec_codec_info *hdr);
-> > > +u32 vpu_get_hevc_v4l2_level(struct vpu_dec_codec_info *hdr);
-> > > =C2=A0 #endif
-> > > diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/me=
-dia/platform/amphion/vpu_malone.c
-> > > index feca7d4220ed..ba688566dffd 100644
-> > > --- a/drivers/media/platform/amphion/vpu_malone.c
-> > > +++ b/drivers/media/platform/amphion/vpu_malone.c
-> > > @@ -908,7 +908,8 @@ static void vpu_malone_unpack_seq_hdr(struct vpu_=
-rpc_event *pkt,
-> > > =C2=A0=C2=A0	info->frame_rate.numerator =3D 1000;
-> > > =C2=A0=C2=A0	info->frame_rate.denominator =3D pkt->data[8];
-> > > =C2=A0=C2=A0	info->dsp_asp_ratio =3D pkt->data[9];
-> > > -	info->level_idc =3D pkt->data[10];
-> > > +	info->profile_idc =3D (pkt->data[10] >> 8) & 0xff;
-> > > +	info->level_idc =3D pkt->data[10] & 0xff;
-> > > =C2=A0=C2=A0	info->bit_depth_luma =3D pkt->data[13];
-> > > =C2=A0=C2=A0	info->bit_depth_chroma =3D pkt->data[14];
-> > > =C2=A0=C2=A0	info->chroma_fmt =3D pkt->data[15];
-> > > @@ -925,6 +926,8 @@ static void vpu_malone_unpack_seq_hdr(struct vpu_=
-rpc_event *pkt,
-> > > =C2=A0=C2=A0		info->pixfmt =3D V4L2_PIX_FMT_NV12M_10BE_8L128;
-> > > =C2=A0=C2=A0	else
-> > > =C2=A0=C2=A0		info->pixfmt =3D V4L2_PIX_FMT_NV12M_8L128;
-> > > +	if (pkt->hdr.num > 28)
-> > > +		info->constraint_set_flags =3D pkt->data[28];
-> > > =C2=A0=C2=A0	if (info->frame_rate.numerator && info->frame_rate.denom=
-inator) {
-> > > =C2=A0=C2=A0		unsigned long n, d;
-> > > =C2=A0=20
-> > >=20
-> > > base-commit: b64b134942c8cf4801ea288b3fd38b509aedec21
+-- 
+Regards,
+
+Laurent Pinchart
 
