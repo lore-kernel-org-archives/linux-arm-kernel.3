@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58931C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 072CBC54E92
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qnXyfi4eFUm3Dhw6TUTy/FtA5tseEgd/6lkBd9XA0SA=; b=YviuanQrfS/3KfJGl0npQZovk1
-	gPWxMzTxEw9wM6GR3zEMS00zE11C2ZfReoldTnxBe0pY5c/YBcWa+bVkj5CQ91uQANM6nB881qX+0
-	/NE/b8o4Qr8u16PcYMGGCxqXsm+VyTvfvEzyTiyX4m7sHPijt6F6CiBKqLUaBRGogS7YLOfulnMI+
-	/gr3HdSwsf3FrFwak1d1D4xu1LjBvHwBVwcVXBgf4cDOBfclbsYZLbh3l6bZ59GDowacPBaPtWTfJ
-	yOQXR6t2Rol+6iqhNQ+n0NGfOi1YiTPWkZ/5+xXI0Jy+A5xcBLh0u1Y1TsCDL3El6TstQr5b+avoT
-	SCd82LKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iYphr+s8ZpVmh40/VHWpD8elDPZUvDEUCDnWwPhAd2M=; b=13iRNVFt/Bz8S/ixfYLQYYTuN/
+	0p6ZaOcO8XaamrWvY7/GF/YQx+W91nux7JBpDrCHPuKczfSIL87D3kl9Z2Zcd1M0F+v0xpefgYoLT
+	M9K8Htm0NnonHYw7cIWztUrvlD00NTLhcgZkyjjMSmOGQxUS7hn99hUuONInXzOPJHKyjyYMgncFj
+	ubh6Hpm3BsfYefO+vvEDaKyLy5iICOLtT/G+GFGZk4r3gEINICI8KH3ZQ+pmFW8ENg6+ARVwy+BcI
+	iS2O+b2VHRsjeJxEiV77q2vZ3azmldmmb0It5O+pyU39NkV8DemxJubWvBWP/xcZmGWMC4pt/ynjk
+	e62Qikew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHghi-0000000FSkV-1Gx3;
-	Wed, 21 May 2025 10:29:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfu3-0000000FLeC-2lWg
+	id 1uHghg-0000000FSiC-1nnB;
+	Wed, 21 May 2025 10:29:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHfsi-0000000FLGT-1A5O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 09:38:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B4C9B6000A;
-	Wed, 21 May 2025 09:38:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D5A3C4CEE4;
-	Wed, 21 May 2025 09:38:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747820302;
-	bh=trtJxy+t7bBns8gjZ4v7aEoLs4ZD0K1117ubmU9QMzI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UA+xWgKDGhO/odDbWno48lciTkr5TcJqBkfWNojtOhqT+ROUantWrpp6GJQmxzErD
-	 Y67EuD2go3pBjv6q++E1HxCPPK+9SpisNlOPAuZu7MvjWvEiQtsigPBUd4UJ2Qw1o0
-	 405ERIsi/HXLTk2/upEglaasc/PN4TWfmzUG4aiMh93ViwTyyCr4OzjWY+lc2xVcyF
-	 AJVbOoTxSJxda4KcuaqqKspomV8lV4p33gM0a0f4liCBOoUj0370jhyhORyW67Cpgv
-	 kFrNuubm99E5mXNsBveRx/JEzHObjw3LDj8NGwjn3WodLHULDqcmvhoIOHxzZeW1iw
-	 dD9yfnfJYBSnw==
-Date: Wed, 21 May 2025 10:38:17 +0100
-From: Will Deacon <will@kernel.org>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: Re: [PATCH v2 11/11] arm64: debug: remove debug exception
- registration infrastructure
-Message-ID: <20250521093817.GA20245@willie-the-truck>
-References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
- <20250512174326.133905-12-ada.coupriediaz@arm.com>
+	Wed, 21 May 2025 09:37:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCA4A1515;
+	Wed, 21 May 2025 02:36:45 -0700 (PDT)
+Received: from [10.57.50.40] (unknown [10.57.50.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F39DC3F6A8;
+	Wed, 21 May 2025 02:36:56 -0700 (PDT)
+Message-ID: <c057dcd5-6a75-4689-8812-6e62bf79e9b1@arm.com>
+Date: Wed, 21 May 2025 10:36:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512174326.133905-12-ada.coupriediaz@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v22 4/5] KVM: arm64: nvhe: Disable branch generation in
+ nVHE guests
+Content-Language: en-GB
+To: "Rob Herring (Arm)" <robh@kernel.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ James Clark <james.clark@linaro.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
+ <20250520-arm-brbe-v19-v22-4-c1ddde38e7f8@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250520-arm-brbe-v19-v22-4-c1ddde38e7f8@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250521_023700_362527_8DCCFC45 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,70 +73,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 06:43:26PM +0100, Ada Couprie Diaz wrote:
-> Now that debug exceptions are handled individually and without the need
-> for dynamic registration, remove the unused registration infrastructure.
+On 20/05/2025 23:27, Rob Herring (Arm) wrote:
+> From: Anshuman Khandual <anshuman.khandual@arm.com>
 > 
-> Remove `early_brk64` as it has been made redundant by
-> (arm64: debug: split brk64 exception entry) and is not used anymore.
+> While BRBE can record branches within guests, the host recording
+> branches in guests is not supported by perf (though events are).
+> Support for BRBE in guests will supported by providing direct access
+> to BRBE within the guests. That is how x86 LBR works for guests.
+> Therefore, BRBE needs to be disabled on guest entry and restored on
+> exit.
 > 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
->  arch/arm64/include/asm/debug-monitors.h |  2 -
->  arch/arm64/include/asm/exception.h      |  2 -
->  arch/arm64/include/asm/system_misc.h    |  4 --
->  arch/arm64/kernel/debug-monitors.c      |  3 -
->  arch/arm64/kernel/traps.c               | 26 +--------
->  arch/arm64/mm/fault.c                   | 75 -------------------------
->  6 files changed, 1 insertion(+), 111 deletions(-)
+> For nVHE, this requires explicit handling for guests. Before
+> entering a guest, save the BRBE state and disable the it. When
+> returning to the host, restore the state.
+> 
+> For VHE, it is not necessary. We initialize
+> BRBCR_EL1.{E1BRE,E0BRE}=={0,0} at boot time, and HCR_EL2.TGE==1 while
+> running in the host. We configure BRBCR_EL2.{E2BRE,E0HBRE} to enable
+> branch recording in the host. When entering the guest, we set
+> HCR_EL2.TGE==0 which means BRBCR_EL1 is used instead of BRBCR_EL2.
+> Consequently for VHE, BRBE recording is disabled at EL1 and EL0 when
+> running a guest.
+> 
+> Should recording in guests (by the host) ever be desired, the perf ABI
+> will need to be extended to distinguish guest addresses (struct
+> perf_branch_entry.priv) for starters. BRBE records would also need to be
+> invalidated on guest entry/exit as guest/host EL1 and EL0 records can't
+> be distinguished.
+> 
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Co-developed-by: Rob Herring (Arm) <robh@kernel.org>
+> Tested-by: James Clark <james.clark@linaro.org>
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-[...]
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index 53f0b2281f14..a5f344e556df 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -346,9 +346,6 @@ int aarch32_break_handler(struct pt_regs *regs)
->  }
->  NOKPROBE_SYMBOL(aarch32_break_handler);
->  
-> -void __init debug_traps_init(void)
-> -{}
-> -
->  /* Re-enable single step for syscall restarting. */
->  void user_rewind_single_step(struct task_struct *task)
->  {
-> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-> index 50d7a6a75f45..ce20f46e08cb 100644
-> --- a/arch/arm64/kernel/traps.c
-> +++ b/arch/arm64/kernel/traps.c
-> @@ -1101,29 +1101,5 @@ int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
->  }
->  #endif
->  
-> -/*
-> - * Initial handler for AArch64 BRK exceptions
-> - * This handler only used until debug_traps_init().
-> - */
-> -int __init early_brk64(unsigned long addr, unsigned long esr,
-> -		struct pt_regs *regs)
-> -{
-> -#ifdef CONFIG_CFI_CLANG
-> -	if (esr_is_cfi_brk(esr))
-> -		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
-> -#endif
-> -#ifdef CONFIG_KASAN_SW_TAGS
-> -	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
-> -		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
-> -#endif
-> -#ifdef CONFIG_UBSAN_TRAP
-> -	if ((esr_brk_comment(esr) & ~UBSAN_BRK_MASK) == UBSAN_BRK_IMM)
-> -		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
-> -#endif
-> -	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
 
-The early bug handler is now only called if the brk immediate matches,
-but I couldn't spot any problems with that.
-
-Will
 
