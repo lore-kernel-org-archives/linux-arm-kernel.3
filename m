@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F716C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 18:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67748C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 18:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nmwhXdVEpIzIDWoO509+TEzX77/XL2vGScOaCiCg+P4=; b=xzF1N/NWhCkUQz
-	H6DXczhXZml1tsorKOp+GEYldPkwce82LaBWmz7TTmkvKTRanSkr58yprjeswWaYPOgy6J/nqB7Uh
-	MAetBFF01LOqRWTmzUP52V9Ma8OlgSijuenobV2VJrqF6mW9JcaRFqsigfd4xea8AxPu194fSva1f
-	P7U15pqKGUnhfFuLaUh5ktBYXK1oO5xtBOLChB8JwwaLFa6G1R0XgBqmY6F+IiPzIMIhAOE7ToOHB
-	REbI07Gv/DK8atWKL59V6mN5qGJtUpjslQBvTbF/vKo6bQLLxfkBvGHrg5eFdsJaQolT1qixVcqsA
-	2n/Zk9XenM3TpzbB6Guw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MjLMBlisobMsFr+5HBXUEdXHhEOEGqVYPUicHiCYiEQ=; b=sCO61eebOhDccsGcwty7YnidsO
+	aaMAWZR17lD7zZCZJ4BeVtAo7NsUx5B6p4VRDKiKEZRS1LdPgPJXKGIjIbwxNRsgyG0S7BCu/N0Zl
+	SpVc489hUysfRSxbH4VT5hWvC0G/HzxQE2j0pnodWSpyE9rNMJDS6IFPGD8Y1i2CBHxWDkIQBW2Ov
+	QAvaFYDKr3hp76IIHvJNnhLolyG7RR7UJotMLZu206B5kmpVdAG2/tswujtROeNBYQNCl/FQRDB1q
+	OdyK8XluCpLYQtUDiznP2+qzjw8pJfd3wixanPqFdFrFs0ONbMEGs6wwm+KQtzpFGpHwcLQ2hGEnj
+	Uhqt69/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHoE1-0000000Gepq-0zdi;
-	Wed, 21 May 2025 18:31:33 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uHoMB-0000000GfTq-1gmE;
+	Wed, 21 May 2025 18:39:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHoBq-0000000GekT-2kms
+	id 1uHoK0-0000000GfJm-2XIW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 18:29:20 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4b2g0G4r57z6GD8h;
-	Thu, 22 May 2025 02:28:14 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5A19914020A;
-	Thu, 22 May 2025 02:29:08 +0800 (CST)
-Received: from localhost (10.195.34.206) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 21 May
- 2025 20:29:07 +0200
-Date: Wed, 21 May 2025 19:29:04 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Jie Zhan <zhanjie9@hisilicon.com>, <linuxarm@huawei.com>
-Subject: Re: [PATCH v3] PM / devfreq: Add HiSilicon uncore frequency scaling
- driver
-Message-ID: <20250521192842.0000251b@huawei.com>
-In-Reply-To: <20250521104956.2780150-1-zhanjie9@hisilicon.com>
-References: <20250521104956.2780150-1-zhanjie9@hisilicon.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 21 May 2025 18:37:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 413FFA4F1EF;
+	Wed, 21 May 2025 18:37:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1811C4CEE4;
+	Wed, 21 May 2025 18:37:39 +0000 (UTC)
+Date: Wed, 21 May 2025 19:37:37 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
+	akpm@linux-foundation.org, mark.rutland@arm.com,
+	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v2 1/7] asm-generic: barrier: add
+ smp_cond_load_relaxed_timewait()
+Message-ID: <aC4dcZ2veeavM2dR@arm.com>
+References: <20250502085223.1316925-1-ankur.a.arora@oracle.com>
+ <20250502085223.1316925-2-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.195.34.206]
-X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250502085223.1316925-2-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_112918_987883_8ABD66C4 
-X-CRM114-Status: GOOD (  40.88  )
+X-CRM114-CacheID: sfid-20250521_113744_774703_282569A9 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,515 +66,124 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: yubowen8@huawei.com, linux-pm@vger.kernel.org, zhenglifeng1@huawei.com, liwei728@huawei.com, cw00.choi@samsung.com, kyungmin.park@samsung.com, myungjoo.ham@samsung.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 May 2025 18:49:56 +0800
-Jie Zhan <zhanjie9@hisilicon.com> wrote:
+Hi Ankur,
 
-> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
-> the devfreq framework.  The uncore domain contains shared computing
-> resources, including system interconnects and L3 cache.  The uncore
-> frequency significantly impacts the system-wide performance as well as
-> power consumption.  This driver adds support for runtime management of
-> uncore frequency from kernel and userspace.  The main function includes
-> setting and getting frequencies, changing frequency scaling policies, and
-> querying the list of CPUs whose performance is significantly related to
-> this uncore frequency domain, etc.  The driver communicates with a platform
-> controller through an ACPI PCC mailbox to take the actual actions of
-> frequency scaling.
-> 
-> Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+Sorry, it took me some time to get back to this series (well, I tried
+once and got stuck on what wait_policy is supposed to mean, so decided
+to wait until I had more coffee ;)).
 
-Minor comments inline.
+On Fri, May 02, 2025 at 01:52:17AM -0700, Ankur Arora wrote:
+> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+> index d4f581c1e21d..a7be98e906f4 100644
+> --- a/include/asm-generic/barrier.h
+> +++ b/include/asm-generic/barrier.h
+> @@ -273,6 +273,64 @@ do {									\
+>  })
+>  #endif
+>  
+> +/*
+> + * Non-spin primitive that allows waiting for stores to an address,
+> + * with support for a timeout. This works in conjunction with an
+> + * architecturally defined wait_policy.
+> + */
+> +#ifndef __smp_timewait_store
+> +#define __smp_timewait_store(ptr, val) do { } while (0)
+> +#endif
+> +
+> +#ifndef __smp_cond_load_relaxed_timewait
+> +#define __smp_cond_load_relaxed_timewait(ptr, cond_expr, wait_policy,	\
+> +					 time_expr, time_end) ({	\
+> +	typeof(ptr) __PTR = (ptr);					\
+> +	__unqual_scalar_typeof(*ptr) VAL;				\
+> +	u32 __n = 0, __spin = 0;					\
+> +	u64 __prev = 0, __end = (time_end);				\
+> +	bool __wait = false;						\
+> +									\
+> +	for (;;) {							\
+> +		VAL = READ_ONCE(*__PTR);				\
+> +		if (cond_expr)						\
+> +			break;						\
+> +		cpu_relax();						\
+> +		if (++__n < __spin)					\
+> +			continue;					\
+> +		if (!(__prev = wait_policy((time_expr), __prev, __end,	\
+> +					  &__spin, &__wait)))		\
+> +			break;						\
+> +		if (__wait)						\
+> +			__smp_timewait_store(__PTR, VAL);		\
+> +		__n = 0;						\
+> +	}								\
+> +	(typeof(*ptr))VAL;						\
+> +})
+> +#endif
+> +
+> +/**
+> + * smp_cond_load_relaxed_timewait() - (Spin) wait for cond with no ordering
+> + * guarantees until a timeout expires.
+> + * @ptr: pointer to the variable to wait on
+> + * @cond: boolean expression to wait for
+> + * @wait_policy: policy handler that adjusts the number of times we spin or
+> + *  wait for cacheline to change (depends on architecture, not supported in
+> + *  generic code.) before evaluating the time-expr.
+> + * @time_expr: monotonic expression that evaluates to the current time
+> + * @time_end: compared against time_expr
+> + *
+> + * Equivalent to using READ_ONCE() on the condition variable.
+> + */
+> +#define smp_cond_load_relaxed_timewait(ptr, cond_expr, wait_policy,	\
+> +					 time_expr, time_end) ({	\
+> +	__unqual_scalar_typeof(*ptr) _val;;				\
+> +	_val = __smp_cond_load_relaxed_timewait(ptr, cond_expr,		\
+> +					      wait_policy, time_expr,	\
+> +					      time_end);		\
+> +	(typeof(*ptr))_val;						\
+> +})
 
-Is the userspace ABI documented already?
+IIUC, a generic user of this interface would need a wait_policy() that
+is aware of the arch details (event stream, WFET etc.), given the
+__smp_timewait_store() implementation in patch 3. This becomes clearer
+in patch 7 where one needs to create rqspinlock_cond_timewait().
 
-> diff --git a/drivers/devfreq/hisi_uncore_freq.c b/drivers/devfreq/hisi_uncore_freq.c
-> new file mode 100644
-> index 000000000000..1e9ee4827c3f
-> --- /dev/null
-> +++ b/drivers/devfreq/hisi_uncore_freq.c
+The __spin count can be arch specific, not part of some wait_policy,
+even if such policy is most likely implemented in the arch code (as the
+generic caller has no clue what it means). The __wait decision, again, I
+don't think it should be the caller of this API to decide how to handle,
+it's something internal to the API implementation based on whether the
+event stream (or later WFET) is available.
 
-> +/* PCC channel timeout = PCC nominal latency * NUM */
-> +#define HUCF_PCC_POLL_TIMEOUT_NUM	1000
-> +#define HUCF_PCC_POLL_INTERVAL_US	5
-> +
-> +/* Default polling interval in ms for devfreq governors*/
-> +#define DEFAULT_POLLING_MS 100
-> +
-> +static int hisi_uncore_request_pcc_chan(struct hisi_uncore_freq *uncore)
-> +{
-> +	struct pcc_mbox_chan *pcc_chan;
-> +	int rc;
-> +
-> +	uncore->cl = (struct mbox_client) {
-> +		.dev = uncore->dev,
-> +		.tx_block = false,
-> +		.knows_txdone = true,
-> +	};
-> +
-> +	pcc_chan = pcc_mbox_request_channel(&uncore->cl, uncore->chan_id);
-> +	if (IS_ERR(pcc_chan)) {
-> +		dev_err(uncore->dev, "Failed to request PCC channel %u\n",
-> +			uncore->chan_id);
-> +		return PTR_ERR(pcc_chan);
-> +	}
-> +
-> +	if (!pcc_chan->shmem_base_addr) {
-> +		dev_err(uncore->dev, "Invalid PCC shared memory address\n");
-> +		rc = -EINVAL;
-> +		goto err_pcc_chan_free;
-> +	}
-> +
-> +	if (pcc_chan->shmem_size < sizeof(struct hisi_uncore_pcc_shmem)) {
-> +		dev_err(uncore->dev, "Invalid PCC shared memory size (%lluB)\n",
-> +			pcc_chan->shmem_size);
-> +		rc = -EINVAL;
-> +		goto err_pcc_chan_free;
-> +	}
-> +
-> +	mutex_init(&uncore->pcc_lock);
-For new code maybe use
-	rc = devm_mutex_init()
-	if (rc)
-		goto err_pcc_chan_free;
+The ___cond_timewait() implementation in patch 4 sets __wait if either
+the event stream of WFET is available. However, __smp_timewait_store()
+only uses WFE as per the __cmpwait_relaxed() implementation. So you
+can't really decouple wait_policy() from how the spinning is done, in an
+arch-specific way. In this implementation, wait_policy() would need to
+say how to wait - WFE, WFET. That's not captured (and I don't think it
+should, we can't expand the API every time we have a new method of
+waiting).
 
-> +	uncore->pchan = pcc_chan;
-> +
-> +	return 0;
-> +
-> +err_pcc_chan_free:
-> +	pcc_mbox_free_channel(pcc_chan);
-> +
-> +	return rc;
-> +}
-> +
-> +static void hisi_uncore_free_pcc_chan(struct hisi_uncore_freq *uncore)
-If only called from devm don't bother with separate function.
-> +{
-> +	if (uncore->pchan) {
+I still think this interface can be simpler and fairly generic, not with
+wait_policy specific to rqspinlock or poll_idle. Maybe you can keep a
+policy argument for an internal __smp_cond_load_relaxed_timewait() if
+it's easier to structure the code this way but definitely not for
+smp_cond_*().
 
-Given nothing to do if this isn't set, why register the cleanup if it isn't?
+Another aspect I'm not keen on is the arbitrary fine/coarse constants.
+Can we not have the caller pass a slack value (in ns or 0 if it doesn't
+care) to smp_cond_load_relaxed_timewait() and let the arch code decide
+which policy to use?
 
-> +		guard(mutex)(&uncore->pcc_lock);
-> +		pcc_mbox_free_channel(uncore->pchan);
-> +		uncore->pchan = NULL;
-> +	}
-> +}
-> +
-> +static void devm_hisi_uncore_free_pcc_chan(void *data)
-> +{
-> +	hisi_uncore_free_pcc_chan(data);
-> +}
-> +
-> +static acpi_status hisi_uncore_pcc_reg_scan(struct acpi_resource *res,
-> +					    void *ctx)
-> +{
-> +	struct acpi_resource_generic_register *reg;
-> +	struct hisi_uncore_freq *uncore;
-> +
-> +	if (!res || res->type != ACPI_RESOURCE_TYPE_GENERIC_REGISTER)
-> +		return AE_OK;
-> +
-> +	reg = &res->data.generic_reg;
-> +	if (reg->space_id != ACPI_ADR_SPACE_PLATFORM_COMM)
-> +		return AE_OK;
-> +
-> +	if (!ctx)
-> +		return AE_ERROR;
-> +
-> +	uncore = ctx;
-> +	/* PCC subspace ID stored in Access Size */
-> +	uncore->chan_id = reg->access_size;
-> +
-> +	return AE_CTRL_TERMINATE;
-> +}
-> +
-> +static int hisi_uncore_init_pcc_chan(struct hisi_uncore_freq *uncore)
-> +{
-> +	acpi_handle handle = ACPI_HANDLE(uncore->dev);
-> +	acpi_status status;
-> +	int rc;
-> +
-> +	uncore->chan_id = -1;
-> +	status = acpi_walk_resources(handle, METHOD_NAME__CRS,
-> +				     hisi_uncore_pcc_reg_scan, uncore);
-> +	if (ACPI_FAILURE(status) || uncore->chan_id < 0) {
-> +		dev_err(uncore->dev, "Failed to get a PCC channel\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	rc = hisi_uncore_request_pcc_chan(uncore);
-> +	if (rc)
-> +		return rc;
-> +
-> +	return devm_add_action_or_reset(uncore->dev,
-> +					devm_hisi_uncore_free_pcc_chan,
-> +					uncore);
-> +}
-> +
-> +static int hisi_uncore_cmd_send(struct hisi_uncore_freq *uncore,
-> +				u8 cmd, u32 *data)
-> +{
-> +	struct hisi_uncore_pcc_shmem __iomem *addr;
-> +	struct hisi_uncore_pcc_shmem shmem;
-> +	struct pcc_mbox_chan *pchan;
-> +	unsigned int mrtt;
-> +	s64 time_delta;
-> +	u16 status;
-> +	int rc;
-> +
-> +	guard(mutex)(&uncore->pcc_lock);
-> +
-> +	pchan = uncore->pchan;
-> +	if (!pchan)
-> +		return -ENODEV;
-> +
-> +	addr = (struct hisi_uncore_pcc_shmem __iomem *)pchan->shmem;
-> +	if (!addr)
-> +		return -EINVAL;
-> +
-> +	/* Handle the Minimum Request Turnaround Time (MRTT) */
-> +	mrtt = pchan->min_turnaround_time;
-> +	time_delta = ktime_us_delta(ktime_get(),
-> +				    uncore->last_cmd_cmpl_time);
-> +	if (mrtt > time_delta)
-> +		udelay(mrtt - time_delta);
-> +
-> +	/* Copy data */
-> +	shmem.head = (struct acpi_pcct_shared_memory) {
-> +		.signature = PCC_SIGNATURE | uncore->chan_id,
-> +		.command = cmd,
-> +		.status = 0,
-Why explicitly set status?  Just leave the c spec defined setting
-of other fields to do that maybe?
+In summary, I see the API something like:
 
-> +	};
-> +	shmem.pcc_data.data = *data;
-> +	memcpy_toio(addr, &shmem, sizeof(shmem));
-> +
-> +	/* Ring doorbell */
-> +	rc = mbox_send_message(pchan->mchan, &cmd);
-> +	if (rc < 0) {
-> +		dev_err(uncore->dev, "Failed to send mbox message, %d\n", rc);
-> +		return rc;
-> +	}
-> +
-> +	/* Wait status */
-> +	rc = readw_poll_timeout(&addr->head.status, status,
-> +				status & (PCC_STATUS_CMD_COMPLETE |
-> +					  PCC_STATUS_ERROR),
-> +				HUCF_PCC_POLL_INTERVAL_US,
-> +				pchan->latency * HUCF_PCC_POLL_TIMEOUT_NUM);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "PCC channel response timeout, cmd=%u\n", cmd);
-> +		goto exit;
-> +	}
-> +
-> +	if (status & PCC_STATUS_ERROR) {
-> +		dev_err(uncore->dev, "PCC cmd error, cmd=%u\n", cmd);
-> +		rc = -EIO;
-> +		goto exit;
+#define smp_cond_load_relaxed_timewait(ptr, cond_expr,
+				       time_expr, time_end, slack_ns)
 
-goto not doing anything here...
+We can even drop time_end if we capture it in time_expr returning a bool
+(like we do with cond_expr).
 
-I'd be tempted to use an else if (status & PCC_STATUS_ERROR)
-and get rid of the label entirely.
+Thanks.
 
-
-> +	}
-> +
-> +exit:
-> +	uncore->last_cmd_cmpl_time = ktime_get();
-> +
-> +	/* Copy data back */
-> +	memcpy_fromio(data, &addr->pcc_data.data, sizeof(*data));
-> +
-> +	/* Clear mailbox active req */
-> +	mbox_client_txdone(pchan->mchan, rc);
-> +
-> +	return rc;
-> +}
-
-> +static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
-> +{
-> +	struct devfreq_dev_profile *profile;
-> +	unsigned long freq;
-> +	u32 data;
-> +	int rc;
-> +
-> +	rc = hisi_uncore_get_cur_freq(uncore->dev, &freq);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to get plat init freq (%d)\n", rc);
-> +		return rc;
-> +	}
-> +
-> +	profile = devm_kzalloc(uncore->dev, sizeof(*profile), GFP_KERNEL);
-> +	if (!profile)
-> +		return -ENOMEM;
-> +
-> +	profile->initial_freq = freq;
-> +	profile->polling_ms = DEFAULT_POLLING_MS;
-> +	profile->timer = DEVFREQ_TIMER_DELAYED;
-> +	profile->target = hisi_uncore_target;
-> +	profile->get_dev_status = hisi_uncore_get_dev_status;
-> +	profile->get_cur_freq = hisi_uncore_get_cur_freq;
-
-	*profile = (struct devfreq_dev_profile) {
-		.initial_freq = ...
-etc
-	};
-makes this sort of fill things in code easier to read.
-
-> +
-> +	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_MODE, &data);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to get operate mode (%d)\n", rc);
-
-return dev_err_probe(); and similar places.
-
-> +		return rc;
-> +	}
-> +
-> +	if (data == HUCF_MODE_PLATFORM)
-> +		uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
-> +					  hisi_platform_governor.name, NULL);
-> +	else
-> +		uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
-> +					  DEVFREQ_GOV_PERFORMANCE, NULL);
-> +	if (IS_ERR(uncore->devfreq)) {
-> +		dev_err(uncore->dev, "Failed to add devfreq device\n");
-> +		return PTR_ERR(uncore->devfreq);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int hisi_uncore_mark_related_cpus(struct hisi_uncore_freq *uncore,
-> +				 char *property, int (*get_topo_id)(int cpu),
-> +				 const struct cpumask *(*get_cpumask)(int cpu))
-> +{
-> +	unsigned int i, cpu;
-> +	size_t len;
-> +	u32 *num;
-> +	int rc;
-> +
-> +	rc = device_property_count_u32(uncore->dev, property);
-> +	if (rc < 0)
-> +		return rc;
-> +	if (rc == 0)
-> +		return -EINVAL;
-> +
-> +	len = rc;
-> +	num = kcalloc(len, sizeof(*num), GFP_KERNEL);
-Freed in all path so include cleanup.h and use
-
-	u32 *num __free(kfree) = kcalloc(len, ..
-
-and no need for goto as it'll get freed automagically.
-
-
-> +	if (!num)
-> +		return -ENOMEM;
-> +
-> +	rc = device_property_read_u32_array(uncore->dev, property, num, len);
-> +	if (rc)
-> +		goto out;
-> +
-> +	for (i = 0; i < len; i++) {
-> +		for_each_possible_cpu(cpu) {
-> +			if (get_topo_id(cpu) == num[i]) {
-> +				cpumask_or(&uncore->related_cpus,
-> +					   &uncore->related_cpus,
-> +					   get_cpumask(cpu));
-> +				break;
-> +			}
-> +		}
-> +	}
-> +
-> +out:
-> +	kfree(num);
-> +
-> +	return rc;
-> +}
-> +
-
-> +static ssize_t related_cpus_show(struct device *dev,
-> +				 struct device_attribute *attr, char *buf)
-> +{
-> +	struct hisi_uncore_freq *uncore = dev_get_drvdata(dev->parent);
-> +
-> +	return cpumap_print_to_pagebuf(true, buf, &uncore->related_cpus);
-> +}
-> +
-> +DEVICE_ATTR_RO(related_cpus);
-> +
-> +static struct device_attribute *attr_group[] = {
-> +	&dev_attr_related_cpus,
-> +	NULL,
-
-No comma on a terminating NULL. We don't want it to be easy to stick
-things afterwards.
-
-> +};
-> +
-> +static void hisi_uncore_remove_dev_interface(struct hisi_uncore_freq *uncore)
-> +{
-> +	struct device_attribute **attr = attr_group;
-> +
-> +	while (attr && *attr) {
-> +		device_remove_file(&uncore->devfreq->dev, *attr);
-> +		attr++;
-With dev_groups approach you shouldn't need anything manual for this.
-
-> +	}
-> +}
-> +
-> +static void devm_hisi_uncore_remove_dev_interface(void *data)
-> +{
-> +	hisi_uncore_remove_dev_interface(data);
-> +}
-> +
-> +static int hisi_uncore_init_dev_interface(struct hisi_uncore_freq *uncore)
-> +{
-> +	struct device_attribute **attr = attr_group;
-> +	int rc;
-> +
-> +	rc = hisi_uncore_mark_related_cpus_wrap(uncore);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to mark related cpus (%d)\n", rc);
-> +		return rc;
-
-return dev_err_probe() as below.
-
-> +	}
-> +
-> +	while (attr && *attr) {
-
-How would attr not be true?
-
-> +		rc = device_create_file(&uncore->devfreq->dev, *attr);
-
-Normally we do a lot to avoid device_create_file as it causes
-races with udev - it's unusual to add attributes directly to a platform
-device from a driver... Why does it need to happen here?
-Can use use dev_groups in the platform_driver.driver instead?
-
-
-> +		if (rc) {
-> +			hisi_uncore_remove_dev_interface(uncore);
-> +			return rc;
-> +		}
-> +		attr++;
-> +	}
-> +
-> +	return devm_add_action_or_reset(uncore->dev,
-> +					devm_hisi_uncore_remove_dev_interface,
-> +					uncore);
-> +}
-> +
-> +static int hisi_uncore_freq_probe(struct platform_device *pdev)
-> +{
-> +	struct hisi_uncore_freq *uncore;
-> +	u32 cap;
-> +	int rc;
-> +
-> +	uncore = devm_kzalloc(&pdev->dev, sizeof(*uncore), GFP_KERNEL);
-
-I'd define
-
-	struct device *dev = &pdev->dev;
-
-and use that for all the places you have pdev->dev or uncore->dev
-Slightly shorter lines in lots of places.
-
-> +	if (!uncore)
-> +		return -ENOMEM;
-> +
-> +	uncore->dev = &pdev->dev;
-> +	platform_set_drvdata(pdev, uncore);
-> +
-> +	rc = hisi_uncore_init_pcc_chan(uncore);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to init PCC channel (%d)", rc);
-> +		return rc;
-
-Might as well use
-
-		return dev_err_probe(dev, rc, "Failed to init PCC channel\n");
-
-Should have \n on error messages really. (they get fixed up if you don't
-but convention is have it still I think).
-
-dev_err_probe() just pretty prints the return value and saves a bunch of
-code by allowing you to return it's return value.
-
-Use it for every case of dev_err that is only called from probe.
-
-> +	}
-> +
-> +	rc = hisi_uncore_init_opp(uncore);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to init OPP (%d)\n", rc);
-> +		return rc;
-> +	}
-> +
-> +	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_CAP, &cap);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to get capability (%d)\n", rc);
-> +		return rc;
-> +	}
-> +	uncore->cap = cap;
-> +
-> +	rc = hisi_uncore_add_platform_gov(uncore);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to add hisi_platform governor (%d)\n", rc);
-> +		return rc;
-> +	}
-> +
-> +	rc = hisi_uncore_devfreq_register(uncore);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to register devfreq (%d)\n", rc);
-> +		return rc;
-> +	}
-> +
-> +	rc = hisi_uncore_init_dev_interface(uncore);
-> +	if (rc) {
-> +		dev_err(uncore->dev, "Failed to init custom device interfaces (%d)\n", rc);
-> +		return rc;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct acpi_device_id hisi_uncore_freq_acpi_match[] = {
-> +	{ "HISI04F1", },
-> +	{ },
-
-No need for that trailing comma on a terminating entry.
-
-> +};
-> +MODULE_DEVICE_TABLE(acpi, hisi_uncore_freq_acpi_match);
-> +
-> +static struct platform_driver hisi_uncore_freq_drv = {
-> +	.probe	= hisi_uncore_freq_probe,
-> +	.driver = {
-> +		.name	= "hisi_uncore_freq",
-
-No point in using a tab if it doesn't align with anything else!
-(generally I dislike trying to force alignment, but here it's really pointless!)
-
-> +		.acpi_match_table = hisi_uncore_freq_acpi_match,
-> +	},
-> +};
-> +module_platform_driver(hisi_uncore_freq_drv);
-> +
-> +MODULE_DESCRIPTION("HiSilicon uncore frequency scaling driver");
-> +MODULE_AUTHOR("Jie Zhan <zhanjie9@hisilicon.com>");
-> +MODULE_LICENSE("GPL");
-
+-- 
+Catalin
 
