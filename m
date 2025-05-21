@@ -4,66 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B37C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66480C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6+kcGTIhXXcs94RjHFAOh1Tc+Y6SJXAXKGul0eBNLk=; b=2SQ/g1gbNitErIeisfc7hsBtag
-	wLzakbVwlAiIGa0UmULjPaTXAs47FF3soJet+azgoh7J+E+OatREPd2PnEzw5xMC/4gZ7dHTalV18
-	hC+Lg1TMz7JV0bx2TW+EHONyAr5zlESM/aX2/IzpZzAXihAdndY2FJczv7yurCJ8oQVDl8JWleU4U
-	uySL4pMCFkegRPKS7Y1lwN8fliNlEdVQtt6wyv/mZieAQcl85Nzv0rd8hKHXn2Triq7f8eUSCSrdI
-	1boEfOTzp1LAT4NTrnd7j4Lr/UPfgaFEDpCViB1QuWvNNUKkaJl6imDR+R3xbqEapoNZSgOu/7yH+
-	16Yv+pNA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9Br03zaPymWOmp5DzQkScr+PbTLXI2KHvIOqgBOpOx4=; b=29B8M8IiQ8e61LfTpBEkaDUzgG
+	VXHM6BPhOJsHyC7LxVlXD/pSNPniDBwF6teRrEj2BQdSU/mzkOsnDky6DWnrqtCcPVLKeVsT2ix7L
+	niqLXCpt+df17Gq/qkaHoqg2SKDG8h8DHDLw+hhnFz5VzXSRsmIQoX1yL5cdnk+EIegOdQbRuF0se
+	CwxOihjQyAgFOTiS/znv2F8IxFjDsC65/i5u4Qf5JDd4YvN1zGjl+oa+qeO8of08G4nJ7Glo2ZTO6
+	ThQCpBxC59v4dfsW+Zzp9c5JHqQ9sGmXN68Ml3x+n+UeBaACLiVzMiMBV5YOtQYRooH4LpDGAe1X7
+	oJqKWWBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfqg-0000000FKsB-3N0D;
-	Wed, 21 May 2025 09:34:54 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uHfsh-0000000FLGR-3pwR;
+	Wed, 21 May 2025 09:36:59 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfiS-0000000FJ6W-391Z;
-	Wed, 21 May 2025 09:26:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747819582;
-	bh=ZOpY/97Ajk1+AuKUdRW8yZtKpNrYH5Zl/G/U2z+Pzyw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aPjLRi73TKSd6G/BjOpJGab4gaFrJiIEj1xZD070Y7LlyE0OH0h/VmZg71+Hg/qP3
-	 +hfsHj3aOx+42qiffBTrkuL1KkpjP3BGQ4dGSTnRd+xENmz0cYf+Jwo87aSZTH9vG5
-	 oKdXARLPjySUfLo5Ri6ddTtmLtHtDJMSmdBrvbWPEpd2ZqpUYbJQKt09CeH84Z9w78
-	 HWdoOHDcUFVs+pKbqVYzuaKQYQOO1SQcD8vgP7akuVFvNTpHlHpTihMsH5K4/Wz/gD
-	 T1JrMuQpmJUKrV3qktg5Uzf0hEw9CWYykGKc3fSVUCfIOw1X46+CPom/EtlM3NaYeY
-	 95DxLunFkj97g==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BD8B517E02BE;
-	Wed, 21 May 2025 11:26:21 +0200 (CEST)
-Message-ID: <9c594eaa-9ddc-4340-ac0d-d911073764ac@collabora.com>
-Date: Wed, 21 May 2025 11:26:21 +0200
+	id 1uHfkW-0000000FJUa-01L9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 09:28:33 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-602039559d8so4244998a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 02:28:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1747819710; x=1748424510; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9Br03zaPymWOmp5DzQkScr+PbTLXI2KHvIOqgBOpOx4=;
+        b=JEAIgpmpRq1xoq49VqErVLQY4XP1BsE8lUo3TPI2WzjWlQjvaWDdu7CHVKDNAM1MDp
+         Qc5FmO2JjeR9EJqlTTzm/FcoQox6vCmGwy3UZHhHB4S1GmfA1OXIwzScxXxFXlEKKHU0
+         Cx+o4I+zRUvSjOveCKmdNJfjt+zyi16pdij+g=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747819710; x=1748424510;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9Br03zaPymWOmp5DzQkScr+PbTLXI2KHvIOqgBOpOx4=;
+        b=qWrr4HTRUwu3tFCJObw7oLovYO42x8w2QFXqoygSdPMOwwetEXnIBN/Dp6CviIqLOC
+         JtPOJnDyD3mefHYLWz53VeM5Bf5XW7HIDPorlWt+ciyxS0Bbz6rgg6fUqOVaf3oOPbdb
+         0wqIWsM3OjbTmibkUiGo37oU1MnTFFduLUnaVZe6kGWliez9tSOzZqth9RwMqwGY1S+L
+         EMbOERQF9kMmKxEqUhyWAfImjirNrBrI6qeXe7kDZIMUSkmOz5dmk3BZLlVusEzTvzFR
+         w0VA0gHD9WL7nTKELsHAgNqtB089ZdduMi0bF7ghyWqRqVAO9oqHYozY9+GD136Pf2Xh
+         N4wg==
+X-Forwarded-Encrypted: i=1; AJvYcCV29kCqYVgtusc75HrGcAe84HAdLYZAdAEwkvdvlAAvFQy0Gt75fJFD7eOMUwAllBo/bfVKZm7zE2BVxHjARGxX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzLwk6g6LbGO7pDmz6zRKyJqXb25Tq2z/REqQd+Ntp/8YaoOgz
+	QW7Oel8XdElvjyL83OyQUBLhnl+hY4PIkodFb/7eNcS8Zv3H5HOWVzTMkF1bctLDygc=
+X-Gm-Gg: ASbGncvVQv1Q8E23B44dBOuXtytcFzlq+pgwmZz4ZCMbC3bhGQZkis53LH4YlPjb8B/
+	njfARdFz39eV1lOFmRdGQgfoEbOi+znibnzaREYjnxTdxQdCmYsPPNpy9iWODURQerYphUoYB+v
+	vBvXy0c0jiCrqNhERw2Rt6Y7zEavZspjyJnOLpdnHmgTls8z2ZH4ZDVyP4CftHbC+93Wr8fT6Gj
+	7r/u2lXjtK8IVK1oF9BdecEVgZskkU6kjy4H4w6UkKt1gG4RU3yMuSZSuaqRMlhJB2A5Xz3zAuw
+	omxf8MFsEY5Tc/jMiUqQQiEsk18mvPsbPh8j5upGDtJKNAIfS5DZgiQgYKOP32pevKAB+cc6i3z
+	rbourB9AjROji
+X-Google-Smtp-Source: AGHT+IE9Rsd+fMS6VUFvdncItJY6md4j6oNw2IpDZyEuTisqE10/bRSVI7wzKmHIESJJG3Xl38x7OA==
+X-Received: by 2002:a17:906:dc94:b0:ad2:3723:6bf5 with SMTP id a640c23a62f3a-ad536b81a94mr1643951266b.22.1747819709868;
+        Wed, 21 May 2025 02:28:29 -0700 (PDT)
+Received: from localhost.localdomain ([2001:b07:6474:ebbf:cfc5:5070:d6f4:1d86])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d275d9fsm867442466b.74.2025.05.21.02.28.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 May 2025 02:28:29 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	michael@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@denx.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Heiko Schocher <hs@denx.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 0/3] Support i.MX28 Amarula rmm board
+Date: Wed, 21 May 2025 11:28:19 +0200
+Message-ID: <20250521092826.1035448-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] memory: mtk-smi: Add ostd setting for mt8186
-To: Friday Yang <friday.yang@mediatek.com>, Yong Wu <yong.wu@mediatek.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250521091626.4283-1-friday.yang@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250521091626.4283-1-friday.yang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_022624_944787_0ACC6FBB 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20250521_022832_047056_25F4FCE7 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,92 +113,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 21/05/25 11:16, Friday Yang ha scritto:
-> Add initial ostd setting for mt8186. All the settings come from DE.
-> These settings help adjust Multimedia HW's bandwidth limits to achieve
-> a balanced bandwidth requirement. Without this, the VENC HW works
-> abnormal while stress testing.
-> 
-> Fixes: 86a010bfc739 ("memory: mtk-smi: mt8186: Add smi support")
-> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+The series adds support for i.MX28 Amarula rmm board.
 
-I agree about this commit and you can get my
+The board includes the following resources:
+ - 256 Mbytes NAND Flash
+ - 256 Mbytes SRAM
+ - LCD-TFT controller
+ - CAN
+ - USB 2.0 high-speed/full-speed
+ - Ethernet MAC
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-...but I still have a question.
+Dario Binacchi (3):
+  ARM: dts: imx28: add pwm7 muxing options
+  dt-bindings: arm: fsl: add i.MX28 Amarula rmm board
+  ARM: dts: mxs: support i.MX28 Amarula rmm board
 
-This driver is getting lots of those big OSTD arrays, and I can foresee this
-getting bigger and bigger with every new SoC getting supported in there.
+ .../devicetree/bindings/arm/fsl.yaml          |   1 +
+ arch/arm/boot/dts/nxp/mxs/Makefile            |   1 +
+ .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 302 ++++++++++++++++++
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |  10 +
+ 4 files changed, 314 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
 
-I'd like to understand how we can improve that, hence, can you please describe
-how the OSTD values are calculated and how are they limiting the bandwidth?
+-- 
+2.43.0
 
-I'm thinking that we can do something such that we get this runtime calculated
-instead of just holding fixed values, so that we may eventually replace all those
-big arrays with just a few values (foreseeing 3-4 values) and performing a big
-cleanup (which may bring further improvements in the future).
-
-Cheers,
-Angelo
-
-> ---
->   drivers/memory/mtk-smi.c | 33 +++++++++++++++++++++++++++++++++
->   1 file changed, 33 insertions(+)
-> 
-> diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
-> index c086c22511f7..733e22f695ab 100644
-> --- a/drivers/memory/mtk-smi.c
-> +++ b/drivers/memory/mtk-smi.c
-> @@ -320,6 +320,38 @@ static const u8 mtk_smi_larb_mt6893_ostd[][SMI_LARB_PORT_NR_MAX] = {
->   	[20] = {0x9, 0x9, 0x5, 0x5, 0x1, 0x1},
->   };
-> 
-> +static const u8 mtk_smi_larb_mt8186_ostd[][SMI_LARB_PORT_NR_MAX] = {
-> +	[0] = {0x2, 0x1, 0x8, 0x1,},
-> +	[1] = {0x1, 0x3, 0x1, 0x1,},
-> +	[2] = {0x6, 0x1, 0x4, 0x1,},
-> +	[3] = {},
-> +	[4] = {0xf, 0x1, 0x5, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
-> +	       0x1, 0x1, 0x1,},
-> +	[5] = {},
-> +	[6] = {},
-> +	[7] = {0x1, 0x3, 0x1, 0x1, 0x1, 0x3, 0x2, 0xd, 0x7, 0x5, 0x3,
-> +	       0x1, 0x5,},
-> +	[8] = {0x1, 0x2, 0x2,},
-> +	[9] = {0x9, 0x7, 0xf, 0x8, 0x1, 0x8, 0x9, 0x3, 0x3, 0xb, 0x7, 0x4,
-> +	       0x9, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
-> +	       0x1, 0x1, 0x1, 0x1, 0x1,},
-> +	[10] = {},
-> +	[11] = {0x9, 0x7, 0xf, 0x8, 0x1, 0x8, 0x9, 0x3, 0x3, 0xb, 0x7, 0x4,
-> +		0x9, 0x1, 0x1, 0x1, 0x1, 0x1, 0x8, 0x7, 0x7, 0x1, 0x6, 0x2,
-> +		0xf, 0x8, 0x1, 0x1, 0x1,},
-> +	[12] = {},
-> +	[13] = {0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x6, 0x6, 0x6, 0x1, 0x1, 0x1,},
-> +	[14] = {0x1, 0x1, 0x1, 0x1, 0x1, 0x1,},
-> +	[15] = {},
-> +	[16] = {0x28, 0x14, 0x2, 0xc, 0x18, 0x1, 0x14, 0x1, 0x4, 0x4, 0x4,
-> +		0x2, 0x4, 0x2, 0x8, 0x4, 0x4,},
-> +	[17] = {0x28, 0x14, 0x2, 0xc, 0x18, 0x1, 0x14, 0x1, 0x4, 0x4, 0x4,
-> +		0x2, 0x4, 0x2, 0x8, 0x4, 0x4,},
-> +	[18] = {},
-> +	[19] = {0x1, 0x1, 0x1, 0x1,},
-> +	[20] = {0x2, 0x2, 0x2, 0x2, 0x1, 0x1,},
-> +};
-> +
->   static const u8 mtk_smi_larb_mt8188_ostd[][SMI_LARB_PORT_NR_MAX] = {
->   	[0] = {0x02, 0x18, 0x22, 0x22, 0x01, 0x02, 0x0a,},
->   	[1] = {0x12, 0x02, 0x14, 0x14, 0x01, 0x18, 0x0a,},
-> @@ -491,6 +523,7 @@ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8183 = {
->   static const struct mtk_smi_larb_gen mtk_smi_larb_mt8186 = {
->   	.config_port                = mtk_smi_larb_config_port_gen2_general,
->   	.flags_general	            = MTK_SMI_FLAG_SLEEP_CTL,
-> +	.ostd			    = mtk_smi_larb_mt8186_ostd,
->   };
-> 
->   static const struct mtk_smi_larb_gen mtk_smi_larb_mt8188 = {
-> --
-> 2.46.0
-> 
-
+base-commit: 4a95bc121ccdaee04c4d72f84dbfa6b880a514b6
+branch: imx28-amarula-rmm
 
