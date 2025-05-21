@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE74DC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F4BC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Olra4gYfmU26QXLSZoYONDuJKBUusYrRdN/NXz7ie4U=; b=rDtawdw8xRLatr6qvdQjLdgwzz
-	BnC8sMqAWImRh6ZaEtRi2vychYIIr6cbCT7NgB5Pb1CQ3rLCjaqszkduzBLJ5SPtg44wBzI8tARmm
-	OE0ni8Ok4H6ecdIZ4AUKoZGMvb2bZXxTRKz9sN6uNAslPm9j4513Ivs2ugL74DuOYatPzFe9ozz5U
-	Y0Fh1YFhUJlKcfz3S0PyEdaDi+osh8NlN6s9mTXCkQwSVQuKnONm+QrPDYTQu3UVhFEKUedP51255
-	nkCzYpW3uybo5llVFzesRpZ7PVQUB2ko+BXogudzVUaZLHhbrn+7NU8pe3L8eCiGGxktzZQUTLNE0
-	3d3SOZWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ErhD3FiTYRRx1Wog3nvjmKw38ovKw5T5g6iYA9/bOnY=; b=mBXZ4Ph2Apr3vhNU+AFFfQJSUA
+	ZcCelIpAqNe13TrY/Xfe76bxlcHzoeLLjaSGaIAJSu9cYY+bLsI7ZjlhFr/YFEJxoNc7aTzTFGWDt
+	ejPdWb8OPaSUliqv4G5Kdr4aGhK7t5BUrw96e3/8flEmaAgTlvvUZV5n0/WHggwN63jqrMrwnBjtt
+	DcarL/MYIWyNwlit0uM9VR0xuEFGnm6LBAkCJQgezwWvl/GV9sUhbpf1LWUJdP/kLkbGllVqSiVsW
+	hWyI8sxjoAJc9wP0qoiZbTYilAc+rg1HRVA3NsWNX24cst++v1Xwhquz2jeXVZRnaQOwF2+0wl1A3
+	vKlSNw4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHi3G-0000000FhGE-3YyL;
-	Wed, 21 May 2025 11:56:02 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uHi5H-0000000FhjV-1sTg;
+	Wed, 21 May 2025 11:58:07 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhsw-0000000FfLx-3yBb
+	id 1uHi07-0000000Fghg-12FR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 11:45:25 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uHhsc-00018T-H7; Wed, 21 May 2025 13:45:02 +0200
-Message-ID: <721420c6-5e65-48a4-81c5-b161d0df8cfd@pengutronix.de>
-Date: Wed, 21 May 2025 13:44:59 +0200
+	Wed, 21 May 2025 11:52:48 +0000
+Received: from pendragon.ideasonboard.com (179.218-130-109.adsl-dyn.isp.belgacom.be [109.130.218.179])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BA70F6AF;
+	Wed, 21 May 2025 13:52:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1747828343;
+	bh=1lIpQjeZWM4B9/XmD81iy/IEh/WiTrtNntrczpbhpoc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hm4IfOYrhHp6JXpwuzKAnBrmQUO7WP7cZNSiyOc+Hg7tHFzZg007Q3hUcH/qEBJQq
+	 NbITT004qqSDRlaZtWqFId+aM//kCbBT6OkLm8MUKXH1BL3HB0NR5aavDJrwL4JF/l
+	 CzRzezaXpeAnAUStyKWW3yVhYil0hHAHNAvkQ/f8=
+Date: Wed, 21 May 2025 13:52:39 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	bcm-kernel-feedback-list@broadcom.com, kernel-list@raspberrypi.com,
+	linux-staging@lists.linux.dev
+Subject: Re: [PATCH RFC 2/2] staging: vc04_services: Document VCHIQ character
+ device
+Message-ID: <20250521115239.GI12514@pendragon.ideasonboard.com>
+References: <20250509221152.13564-1-wahrenst@gmx.net>
+ <20250509221152.13564-3-wahrenst@gmx.net>
+ <2025052121-glisten-serpent-8ede@gregkh>
+ <20250521112815.GA25453@pendragon.ideasonboard.com>
+ <4cac2c68-a975-4b68-92c4-91e90ffe8041@gmx.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mmc: sdhci-esdhc-imx: inherit pins_100mhz from
- pins_200mhz when unconfigured
-To: ziniu.wang_1@nxp.com, haibo.chen@nxp.com, adrian.hunter@intel.com,
- ulf.hansson@linaro.org, linux-mmc@vger.kernel.org
-Cc: imx@lists.linux.dev, s32@nxp.com, shawnguo@kernel.org,
- s.hauer@pengutronix.de, linux-kernel@vger.kernel.org, kernel@pengutronix.de,
- festevam@gmail.com, linux-arm-kernel@lists.infradead.org
-References: <20250521112042.266111-1-ziniu.wang_1@nxp.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20250521112042.266111-1-ziniu.wang_1@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <4cac2c68-a975-4b68-92c4-91e90ffe8041@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_044522_979291_00DE1DE6 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20250521_045247_421599_4CC64F58 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,70 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luke,
+On Wed, May 21, 2025 at 01:39:15PM +0200, Stefan Wahren wrote:
+> Am 21.05.25 um 13:28 schrieb Laurent Pinchart:
+> > On Wed, May 21, 2025 at 01:20:54PM +0200, Greg KH wrote:
+> >> On Sat, May 10, 2025 at 12:11:52AM +0200, Stefan Wahren wrote:
+> >>> From: Phil Elwell <phil@raspberrypi.com>
+> >>>
+> >>> Document the IOCTLs for the VCHIQ character device, which provide
+> >>> a userspace interface to access the VideoCore VPU of the
+> >>> Raspberry Pi. Several ARM side libraries make use of it like EGL,
+> >>> MMAL and OpenMAX.
+> >>>
+> >>> Link: https://github.com/raspberrypi/linux/pull/6801
+> >>> Signed-off-by: Phil Elwell <phil@raspberrypi.com>
+> >>> [wahrenst@gmx.net: Rewrite commit log]
+> >>> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+> >>> ---
+> >>>   .../vc04_services/Documentation/vchiq-cdev    | 87 +++++++++++++++++++
+> >>>   1 file changed, 87 insertions(+)
+> >>>   create mode 100644 drivers/staging/vc04_services/Documentation/vchiq-cdev
+> >>>
+> >>> diff --git a/drivers/staging/vc04_services/Documentation/vchiq-cdev b/drivers/staging/vc04_services/Documentation/vchiq-cdev
+> >>> new file mode 100644
+> >>> index 000000000000..99ab2567643e
+> >>> --- /dev/null
+> >>> +++ b/drivers/staging/vc04_services/Documentation/vchiq-cdev
+> >>> @@ -0,0 +1,87 @@
+> >>> +What:		/dev/vchiq
+> >>> +Date:		October 2016
+> >>> +KernelVersion:	4.9
+> >>> +Contact:	kernel-list@raspberrypi.com
+> >>> +Description:
+> >>> +		The ioctl interface for the VCHIQ character device.
+> >>> +		Following actions are supported:
+> >>> +
+> >>> +		* VCHIQ_IOC_CONNECT:
+> >>> +		  Establish/confirm the link to the VPU peer.
+> >>
+> >> I understand the need, but this does not document the parameters to the
+> >> ioctls, so it's not all that useful.  How about just a normal
+> >> documentation file with this all written out?
+> >
+> > That would be my preference too, somewhere in
+> > Documentation/userspace-api/.
+>
+> could you please point me to a comparable IOCTL documenation to better 
+> understand your expectations?
 
-Thanks for your patch.
-
-On 21.05.25 13:20, ziniu.wang_1@nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
-> 
-> On some new i.MX platforms, hardware guidelines recommend using identical
-> pin configurations for SDR50/DDR50 (100MHz) and SDR104/HS400 (200MHz)
-> modes. But defining two identical pinctrl for 100MHz and 200MHz in dts
-> creates redundancy.
-
-I am not convinced this is an improvement. If 200mhz is missing, it's understood
-that it's not supported. Now if 100mhz is missing, it means something different
-depending on whether state_200mhz exists or not. This is more mental overhead
-than having:
-
-  pinctrl-names = "default", "state_100mhz", "state_200mhz";
-  pinctrl-0 = <&pinctrl_usdhc1>;        
-  pinctrl-1 = <&pinctrl_usdhc1_uhs>;   
-  pinctrl-2 = <&pinctrl_usdhc1_uhs>;
-
-where it's directly evident that you share pinctrl states.
-
-> In this case, omit explicit 100MHz configuration,
-> driver will inherit 100MHz pinctrl from 200MHz.
-> 
-> Preserves existing behavior if 100MHz is configured but 200MHz not (e.g,
-> imx8mp-navq.dts usdhc1 supports SDR50/DDR50 but SDR104/HS400 not).
-
-This conflicts with the binding, which doesn't allow for state_200mhz
-to exist without state_100mhz, so that would need adaptation.
-
-As noted before though, I don't think we really need to change anything
-here though.
-
-Thanks,
-Ahmad
-
-> 
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-> ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index f206b562a6e3..dfd8be5000c8 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -1810,6 +1810,9 @@ sdhci_esdhc_imx_probe_dt(struct platform_device *pdev,
->  						ESDHC_PINCTRL_STATE_100MHZ);
->  		imx_data->pins_200mhz = pinctrl_lookup_state(imx_data->pinctrl,
->  						ESDHC_PINCTRL_STATE_200MHZ);
-> +
-> +		if (IS_ERR_OR_NULL(imx_data->pins_100mhz))
-> +			imx_data->pins_100mhz = imx_data->pins_200mhz;
->  	}
->  
->  	/* call to generic mmc_of_parse to support additional capabilities */
-
+Documentation/userspace-api/gpio/ seems to be a good example. You can
+split ioctls in different files, see gpio-get-chipinfo-ioctl.rst for
+instance. If several ioctls are closely related they can also be
+documented in the same file, see for instance
+Documentation/userspace-api/media/v4l/vidioc-g-ctrl.rst.
 
 -- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Regards,
+
+Laurent Pinchart
 
