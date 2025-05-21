@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2A1C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 16:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859F5C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 16:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3g+CVDtzdZuER6lgO4bsBUK1VAcbEEFUD1kAdD51SmY=; b=Sa3hGRBOyqVakzVrG+p4TEBbxo
-	kqS/tNHyBLLb89pYDmpA2s4uUn5lcJj7Xf9ynNktAkePuHoz2nYI7D7fgt+Bi9iX9cyA1PGX+7ndw
-	G4G/9qyZA4Pctwp6x+ppW+2HpZ0653gBHmLxHKMzq2wekXhGyvUC0b3YvHr3duedY19TYLpqK/rVl
-	2suXEAbLVKLQUHvs1r/tYFMPPrY6YSIU2j+zn0v3Jk4To4OFVp4yEW4e1lmcGU1zhX1UlVVIpMJDm
-	5wc7gNXholDGvbk1Nwdg12ZMleapIumlnrO58G6/wdC05g5ouCPsS/yXDLM0rzGJZ8i9Gd7MNxrfD
-	nFD44vfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=stjouTnv41obxBgX2Jr5Nggfpjmbw9/xN8oNI4sNVwc=; b=s7+LvN01Y/beR59mpMfw6hOre1
+	3HN/gm17OnH8zc56TQFQ7BkNUsZPbNeJkwcTA3462UVyQuPHPYxnnfmMxitscZH8xAWctlGnmmSo6
+	J+Z5PekiAIWuj3Wr1POjIOoubZv50fUHLNUz0Cg3LZ47QJTtK+lUI1QxP5H0GDylXJgk4PeWh1UMS
+	TO4Xcm80Wf2409XySyiL+PyqpboNtghUpzBde0QPboCkeAU1ytzfAJaQYlZtXBA8sU2cB0nRyy1G2
+	Hke6bPC6RYYJX4xGUs3pY0zvr851U5zRmZeD5kZ/nIFDE2zQBa4GXUKaCrHidWaIkfmM4orpboG7c
+	oALPVMRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHmIf-0000000GSqs-2mPS;
-	Wed, 21 May 2025 16:28:13 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uHmSZ-0000000GTuw-1QQv;
+	Wed, 21 May 2025 16:38:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHmGT-0000000GSTE-4C06;
-	Wed, 21 May 2025 16:25:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=3g+CVDtzdZuER6lgO4bsBUK1VAcbEEFUD1kAdD51SmY=; b=0QceTirrCVNAGS9NMWkA8dWXud
-	0Ijic96VpnfzbUaQU8WJs5bQ73IwhTxqB43HicBwXfhvTmqdOadYRKNSzRumKnoBPVDo/7llJYeqz
-	dGI/DJAJ00kGGqHhjvBCjIK6VuSsPV/jCXtT+Pftb7iM+fYbYKWek5nWH7/IqjQB+Qds=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uHmGM-00DKBr-7Y; Wed, 21 May 2025 18:25:50 +0200
-Date: Wed, 21 May 2025 18:25:50 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Quentin Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: support Ethernet Switch
- adapter for RK3588 Jaguar
-Message-ID: <657a085c-4214-4096-8a68-047d57a40d60@lunn.ch>
-References: <20250521-jaguar-mezz-eth-switch-v1-0-9b5c48ebb867@cherry.de>
- <20250521-jaguar-mezz-eth-switch-v1-2-9b5c48ebb867@cherry.de>
+	id 1uHmQO-0000000GTkE-3rfB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 16:36:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9F0FAA4F1B1
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 16:36:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EAC0C4CEF3
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 16:36:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747845371;
+	bh=stjouTnv41obxBgX2Jr5Nggfpjmbw9/xN8oNI4sNVwc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=vDLKdPbEIU26V6KMz3z56YmwIdivFxoektboJeuUtpxwxCMa4CctHRYjXkRSVdAPM
+	 9Ap6NH7r2VFPRm8S7ZI82Y7b3F/cOA/etal8VMnPn9FToe/mn9jlVKtBXZRNrhnP9g
+	 olH9yzEWrPPAxNrvrMJdw+k4bp7oNzDl8KE95d7gH17mJuVvTU/+/oGngErwaYl6rq
+	 Tddf29gaoDbwxw/eK/ui0TJLnlmNx5ikWgb8KVVA+ojtYhpIPb2dW/Kavmvtd4HCAU
+	 RnO+ilku3BiPS023TjgRjhUumyAImKZRVnwGNGpmH7j1s1CR/g1JlGNbX9bL36j5gL
+	 g8i5/MdPnulZQ==
+Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-477282401b3so76135571cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 09:36:11 -0700 (PDT)
+X-Gm-Message-State: AOJu0YxZCgA6uCZr+U7IeAPePrzY2fqdYnkf/q3DLSBJT2ShiNdawonc
+	sErkplF41/hXjOVwOyacjCuzcAMJAyKT8xYgB7ETWZrA1t1kEC/oReERCFCOylW3T6ab4wem0+B
+	YHz6UA9rdlWCikf6PCqLkNedfwh7fNWY=
+X-Google-Smtp-Source: AGHT+IGyh00A3mWyVANHITaMtbIel7e5S066XRZnxKBJkbXNpdZjwMjgOzjc/fL2tuyzW2TJCVsZfJq+3vsse3D7gYc=
+X-Received: by 2002:ac8:5fca:0:b0:494:b1f9:d677 with SMTP id
+ d75a77b69052e-494b1f9dbe3mr270777971cf.48.1747845370341; Wed, 21 May 2025
+ 09:36:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250521-jaguar-mezz-eth-switch-v1-2-9b5c48ebb867@cherry.de>
+References: <20250521111000.2237470-1-mark.rutland@arm.com> <20250521111000.2237470-2-mark.rutland@arm.com>
+In-Reply-To: <20250521111000.2237470-2-mark.rutland@arm.com>
+From: Song Liu <song@kernel.org>
+Date: Wed, 21 May 2025 09:35:58 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW7C0Efu5PB8QKtOLM7yuE=NzNpZbnM_Yn56iTENj9gKHQ@mail.gmail.com>
+X-Gm-Features: AX0GCFsUpTu85P307gw4zinTlAbyNsZvOSFEnWi_mt2apNOhLnL8DNMMObdam50
+Message-ID: <CAPhsuW7C0Efu5PB8QKtOLM7yuE=NzNpZbnM_Yn56iTENj9gKHQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: stacktrace: Check kretprobe_find_ret_addr()
+ return value
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, andrea.porta@suse.com, 
+	catalin.marinas@arm.com, jpoimboe@kernel.org, leitao@debian.org, 
+	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
+	mbenes@suse.cz, pmladek@suse.com, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_092558_037814_0E2BB5A7 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250521_093613_027834_78ED511F 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,37 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac1 {
-> +	clock_in_out = "output";
-> +	phy-mode = "rgmii";
+On Wed, May 21, 2025 at 4:10=E2=80=AFAM Mark Rutland <mark.rutland@arm.com>=
+ wrote:
+>
+> If kretprobe_find_ret_addr() fails to find the original return address,
+> it returns 0. Check for this case so that a reliable stacktrace won't
+> silently ignore it.
+>
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Andrea della Porta <andrea.porta@suse.com>
+> Cc: Breno Leitao <leitao@debian.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Josh Poimboeuf <jpoimboe@kernel.org>
+> Cc: Miroslav Benes <mbenes@suse.cz>
+> Cc: Petr Mladek <pmladek@suse.com>
+> Cc: Song Liu <song@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
 
-Does the PCB have extra long clock lines to implement the 2ns delays?
+Reviewed-and-tested-by: Song Liu <song@kernel.org>
 
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac1_rx_bus2
-> +		     &gmac1_tx_bus2
-> +		     &gmac1_rgmii_clk
-> +		     &gmac1_rgmii_bus
-> +		     &eth1_pins>;
-> +	rx_delay = <0x30>;
-> +	tx_delay = <0x30>;
+Tested with livepatch changes [1][2] and modified kpatch
+framework.
 
-Since this has a switch on the other end, its a bit more complicated
-with RGMII delays. Normally, the MAC does nothing and passed rgmii-id
-to the PHY, and the PHY then does the delays. However, here you don't
-have a PHY. So you have the MAC add the delays. This looks O.K. I
-would prefer that the driver used the standardized
-rx-internal-delay-ps & tx-internal-delay-ps rather than these vendor
-properties. But that is probably out of scope for this patchset.
+Thanks,
+Song
 
-> +			port@5 {
-> +				reg = <5>;
-> +				ethernet = <&gmac1>;
-> +				label = "CPU";
-> +				phy-mode = "rgmii";
-
-Again, this probably should be rgmii-id to correctly describe the PCB,
-but i don't know if the switch takes any notice of it.
-
-	Andrew
+[1] https://lore.kernel.org/live-patching/20250320171559.3423224-3-song@ker=
+nel.org/
+[2] https://lore.kernel.org/linux-arm-kernel/20250412010940.1686376-1-dylan=
+bhatch@google.com/
 
