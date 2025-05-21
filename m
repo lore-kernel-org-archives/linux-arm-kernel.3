@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 228E7C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 19:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB579C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 19:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s2O2NEhEDrof0k2clYi/h8T/O8CwPa1AQ2twHE/TVh4=; b=X/hkMQeM7QyBMUh5TFLgJBe/yr
-	/fjZ8zMBsCpWMF07PpaGL9xGqVOInqg2C1BKy4oF0PhxeTgxH0dyVDnO+VfNaU0w5TwBq7a/y3sxe
-	Z/tFbL+Uo9bMbEqHQV0488rPQ4sMRCjtQPkd7qUmOfpYS1uwIAZchNNEQzk/EAGQZ42HzryJ+awd5
-	30OCGw/ZjHhYIFXzyfTGi0BK+bS0KqDknOPx8w74cvTvmBcZbbuyq97wKt1oymxvjTL17kKybuIub
-	eepl6TK/7E4jXf2XzV71MJ00EsiHDYl9klrvR7djh5KKxNwyovhyBNztdBDFzpGbCsnKSztvvIhVI
-	3efg5DOg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GQO4jco3qDDu6aUbyz3fLT71Hl1dviYtO5U7MzI5ak8=; b=FluxikhKeC8/lzzz12HDja1gTl
+	9WwrztwTvK4k5NiF0uItgmMqQAeDSqdnUIOGpNfk5SrkttDylB3DL3rNptQ74ktUHz3RiUytF9EhI
+	OdymeDYd9jzOVvgi3Z29Gb+KN+WgrGJQ9U635cYYC/fSgG9AjXNscsedw1HloEVZ79eSIiTgISkzZ
+	0gbR+ZMQrGkNC25GdOYKXCjwf3TznoVuP8VPeUJf5Oyy59N76L4NBfPDkeV99FBVsl3xT3LwLmqJl
+	vhc0LON0BzN9R9fycHphkWvD8WVt7n5VfwwcNqI6/cp9xjU+JNBYN91StN6w86wB76/pJbNEGrZ1U
+	lgxbkshg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHpOz-0000000GkNY-2jFN;
-	Wed, 21 May 2025 19:46:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uHpR7-0000000GkgL-1WoJ;
+	Wed, 21 May 2025 19:49:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHpEG-0000000GjBy-3zv8
+	id 1uHpEG-0000000GjC0-3tCW
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 21 May 2025 19:35:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3C6345C5721;
-	Wed, 21 May 2025 19:33:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 00428C4CEE4;
-	Wed, 21 May 2025 19:35:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B7566A4F2ED;
+	Wed, 21 May 2025 19:35:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0F7AEC4CEEA;
+	Wed, 21 May 2025 19:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747856151;
-	bh=YCdymVDth/prPqkIK7W4QDnBSw+ChQ0vJvm38czsFpg=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=a2GoH/v7NCUwJStHohhcwr7SDmdK+nqKj00Ld255vw6AaGS7s2evcP2kdLUZ/05SL
-	 2g20KNGo37e6VbYkYB8+46wQLYBrmvwRYRgISjAdK9QIWeB1RBluxINAWT9FOpiPUY
-	 kRjkkFJrwjzJHhgV3ecyN1rt1LnPgR5+YEQharZlZqTIuEqvy0JEdq5VgKS8bDW8m3
-	 8dBIuQQHgdFjnPZ08lcAqhEzv8dDOZTzmLdJG/HX8F00S0t0uENuDlxDe4r5jAWz9n
-	 itthYIeR1peS47wUKaIaftFlSc5D60TnvetGhfh9pjCzprCVbNPWXb7xlasEzHFSf5
-	 23F8xhPYlCSfA==
+	bh=8a8vQY24kpOTOSPqYHfBqqeVHZ2y0yNa9wTnorDnezo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=gPixCLITPfzRV8uPt7V2t9f6V9qhU2M2YG+Mc3CWFguXc0Bsj5xok3L0UCMq1cGo2
+	 pckvkX7/20Y2Rp6+Puhb3XO/dEycnFDSJZ7Dal9HBGiSiTxXRUG5HeNudBYfqZ3/tI
+	 xC0P+19Hw8KHRkanrGaae7ppIcicQmWcXJXrSBWj6Kjmi1RXn3VasF0F0X2ws6JCd8
+	 HncP052XNRzgj5hVZkv4RnxyW77O0aNh9vwb0cKbfjRD95kTiUlnVNf3XusS/lAgT0
+	 ZgdAFy4gZKP0veZCXJ3aXtatqDDDtdDj/GHoRQehc9He44+8XifXZLO1rB5dNiYI4N
+	 pBE2JhRXoDQVA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E0E08C54E90;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F0533C54E65;
 	Wed, 21 May 2025 19:35:50 +0000 (UTC)
 From: =?utf-8?q?Andr=C3=A9_Apitzsch_via_B4_Relay?= <devnull+git.apitzsch.eu@kernel.org>
-Subject: [PATCH v3 0/5] media: i2c: imx214: Add support for more clock
- frequencies
-Date: Wed, 21 May 2025 21:34:23 +0200
-Message-Id: <20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@apitzsch.eu>
+Date: Wed, 21 May 2025 21:34:24 +0200
+Subject: [PATCH v3 1/5] media: i2c: imx214: Reorder imx214_parse_fwnode
+ call
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAL8qLmgC/2XM0QqCMBTG8VeRXbfY5qbVVe8RIbad5QHTsdmwx
- HdvShAV5+p/4PtNJIBHCOSQTcRDxIB9lyLfZEQ3dXcFiiY1EUwoJllB8TYKLiutQ+XaloKswTD
- Yg8oFSSPnweK4gqdz6gbD0PvH6ke+fN8UV79U5JRRk5uylDtQ9mKOtcPhGXSzhTtZsCg+QLo/Q
- CTAJlsJVnBr+Tcwz/MLkEYpUO8AAAA=
-X-Change-ID: 20250406-imx214_ccs_pll-e4aed0e9e532
+Message-Id: <20250521-imx214_ccs_pll-v3-1-bfb4a2b53d14@apitzsch.eu>
+References: <20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@apitzsch.eu>
+In-Reply-To: <20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@apitzsch.eu>
 To: Ricardo Ribalda <ribalda@kernel.org>, 
  Sakari Ailus <sakari.ailus@linux.intel.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -74,19 +71,19 @@ Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>, 
  Ricardo Ribalda <ribalda@chromium.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747856148; l=1895;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747856148; l=1201;
  i=git@apitzsch.eu; s=20240325; h=from:subject:message-id;
- bh=YCdymVDth/prPqkIK7W4QDnBSw+ChQ0vJvm38czsFpg=;
- b=syVQLuePuGfp3dACqYgN2W+Ayfo4zcFv5KgkcjstEAWtm0hlQX+CxxZbPIZe6GwMN6KyO86Ns
- /0lOZW8RTyTAklCrce5sVjlA8tuwqb/AzmNUrP5MyZOt5LtV/+4+vuG
+ bh=JSOcAgvTpyrSY1gtujk/NN7HrGG2Tbe4hfXbnAXabfw=;
+ b=cTQcAJeyjcHdCIB0CKYBFarIoEIQzEvH4tse6dqUe0Kr4oM9poMtr0ShJH2LQBm/nX4vg6mQZ
+ dUqisuK/dOPApTwt5EGLeYXIPjbI1DoU/UFdNy0b08rFtHEn1K/PyiT
 X-Developer-Key: i=git@apitzsch.eu; a=ed25519;
  pk=wxovcZRfvNYBMcTw4QFFtNEP4qv39gnBfnfyImXZxiU=
 X-Endpoint-Received: by B4 Relay for git@apitzsch.eu/20240325 with
  auth_id=142
 X-Original-From: =?utf-8?q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_123553_086324_B281662D 
-X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-CacheID: sfid-20250521_123553_120248_0B7F373B 
+X-CRM114-Status: UNSURE (   9.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,52 +100,48 @@ Reply-To: git@apitzsch.eu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx214 driver currently supports only a 24 MHz external clock. But
-there are devices, like Qualcomm-MSM8916-based phones, which cannot
-provide this frequency. To make the sensor usable by those devices, add
-support for additional clock frequencies.
+From: André Apitzsch <git@apitzsch.eu>
 
-This series supersedes
-https://lore.kernel.org/linux-media/20250308-imx214_clk_freq-v1-0-467a4c083c35@apitzsch.eu/
+Reorder imx214_parse_fwnode call to reduce goto paths in upcoming
+patches.
 
+No functional change intended.
+
+Acked-by: Ricardo Ribalda <ribalda@chromium.org>
 Signed-off-by: André Apitzsch <git@apitzsch.eu>
 ---
-Changes in v3:
-- Limit range of pll_ip_clk_freq_hz (Sakari)
-- Drop unneeded 'ret'
-- Use pll.pixel_rate_csi for bit rate calculation
-- Add patch that deprecates the clock-frequency property
-- Link to v2: https://lore.kernel.org/r/20250505-imx214_ccs_pll-v2-0-f50452061ff1@apitzsch.eu
+ drivers/media/i2c/imx214.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Changes in v2:
-- Add A-b tags
-- Switch to v4l2_ctrl_s_ctrl_int64() to acquire the control handler mutex
-- Add error handling for v4l2_ctrl_s_ctrl_int64() and
-  imx214_pll_update()
-- Replace "read clock frequency from dt" patch by "remove hard-coded
-  external clock frequency" patch
-- Link to v1:
-  https://lore.kernel.org/r/20250415-imx214_ccs_pll-v1-0-d3d7748e5fbd@apitzsch.eu
+diff --git a/drivers/media/i2c/imx214.c b/drivers/media/i2c/imx214.c
+index dd7bc45523d8b5fcb3ec95728a6d32c4fddede72..0199195dcb7d12dc2ff253fe3eb77ddbcd0812a9 100644
+--- a/drivers/media/i2c/imx214.c
++++ b/drivers/media/i2c/imx214.c
+@@ -1261,10 +1261,6 @@ static int imx214_probe(struct i2c_client *client)
+ 	struct imx214 *imx214;
+ 	int ret;
+ 
+-	ret = imx214_parse_fwnode(dev);
+-	if (ret)
+-		return ret;
+-
+ 	imx214 = devm_kzalloc(dev, sizeof(*imx214), GFP_KERNEL);
+ 	if (!imx214)
+ 		return -ENOMEM;
+@@ -1295,6 +1291,10 @@ static int imx214_probe(struct i2c_client *client)
+ 		return dev_err_probe(dev, PTR_ERR(imx214->regmap),
+ 				     "failed to initialize CCI\n");
+ 
++	ret = imx214_parse_fwnode(dev);
++	if (ret)
++		return ret;
++
+ 	v4l2_i2c_subdev_init(&imx214->sd, client, &imx214_subdev_ops);
+ 	imx214->sd.internal_ops = &imx214_internal_ops;
+ 
 
----
-André Apitzsch (5):
-      media: i2c: imx214: Reorder imx214_parse_fwnode call
-      media: i2c: imx214: Prepare for variable clock frequency
-      media: i2c: imx214: Make use of CCS PLL calculator
-      media: dt-bindings: sony,imx214: Deprecate property clock-frequency
-      media: i2c: imx214: Remove hard-coded external clock frequency
-
- .../devicetree/bindings/media/i2c/sony,imx214.yaml |  29 ++-
- drivers/media/i2c/Kconfig                          |   1 +
- drivers/media/i2c/imx214.c                         | 263 ++++++++++++++++-----
- 3 files changed, 217 insertions(+), 76 deletions(-)
----
-base-commit: ae0384b772a260975af192746d900c328392e525
-change-id: 20250406-imx214_ccs_pll-e4aed0e9e532
-
-Best regards,
 -- 
-André Apitzsch <git@apitzsch.eu>
+2.49.0
 
 
 
