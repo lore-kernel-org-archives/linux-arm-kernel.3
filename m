@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56892C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEF4C54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCriohMtpdgga+15fhZtUqqdolp/0hvV02y6KvXfswU=; b=kWk9+MzSIMKwHqOexcPIxJc4SE
-	gGwLX9SvU3X1s8xpF9dFPm5gMka911d2rC9+9yFSd3sdm9KIGlTyWjatzc0Qkbt6/oDiz2NhKGcuq
-	sTjVXbVXPKSXu9rNOQQBv9Ra77V5lMD3bhVZGgJJYM0Vr1+MN7lD4KqPdLmaWkajzV8V76v0C5Z0R
-	SYo0/h5MEVvQ7eQhoT4nXYP6if2v/XDHSOgaaVbWsPS3HGPQVG1vN97muZRoNiSju/ntnFbh+dD3p
-	cEx5OhAy+1ae7JKYVw5fkEP6MZn8GvH6vzn39oYQhejtJN9OSMfBJUkEs1iqiqa8wzNn9rf7iX5rY
-	OlOkKI5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c85a1fkXYOjGQY9mFkBp2xWKtyhivAgjHXdDuA8rKKw=; b=QZgztD7cRRm+RThc5hAbs/YLDW
+	di9Og9F1mVAFttCUBJi8Lox0rEf9G0ERvNxNnB5fUMeaB2EUP319SyVC5Z+7wcW985mHKrk1V9ezA
+	cL9vU6yi8LjqHPANXC3w6NiFsT+87jDVzFNG1djA/aWsu7dpSlHmlw9dzgAUSOs88ofs8Bnre6TYj
+	lEUBERxDVtXG6uT1bfRrDahyhSF+ZBOR8mIuPZL4FS/Jyw7uyPOEDc8Xx+avlI6csJ2bY5x9UE/P6
+	0jIbFWRSO5biPKJcLGOEDrTRFfMjO3tGXS1Yy/Jon4LZNXWKV/vOaSbC1eyljqEWHrQMAEXpalLW+
+	rzNzIL9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhGU-0000000Fa2t-4AzN;
-	Wed, 21 May 2025 11:05:38 +0000
+	id 1uHhIV-0000000FaHW-2wYR;
+	Wed, 21 May 2025 11:07:43 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhCU-0000000FZU5-37Wz
+	id 1uHhEF-0000000FZmh-1lNb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 11:01:31 +0000
+	Wed, 21 May 2025 11:03:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 02B3A5C2C03;
-	Wed, 21 May 2025 10:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4B5FC4CEEA;
-	Wed, 21 May 2025 11:01:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BC7B25C5762;
+	Wed, 21 May 2025 11:01:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0738DC4CEEA;
+	Wed, 21 May 2025 11:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747825289;
-	bh=zaBsSd8mPSFOHTfY9yBi6h2zBc3yt1iHjwy2YomFPvo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=f4RBRtASQQgroR+gBiVGxYwzyKX+2Z2a/XJYsfTkAtQHULvNOVEA9DfovmNx95Y2Q
-	 vNEuMaMetzT9fP6nhxy3iFh51g7xGiiU6UEnMRyCBIDyM7sAJ5fVSOeGJ9V8vkRZE+
-	 2kfgkjYP+7BuwQ5tfV7JTRpcF206VmTSw/xBdO2GPiYz3beUNMM1LeMXnpu/P5qwLG
-	 1mQRNzWA1Dvv0jL6fbum1URW9C4hueLcAls2JmmpSq4ihv14RvS+tsW4gpsnuG2+Pi
-	 /5J2FVPnM79L7sc/cYIdcD/P91JWRVsqISGIc2DKZkYPe+L2ISU8YgYlRgbYctj5Y4
-	 BrHSMlibZchqg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uHhCR-00Gu8c-1S;
-	Wed, 21 May 2025 12:01:27 +0100
-Date: Wed, 21 May 2025 12:01:26 +0100
-Message-ID: <86tt5edy7t.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	qperret@google.com,
+	s=k20201202; t=1747825398;
+	bh=QAUAYNKmlM0RlaNjGicH9GqKIAhlrFtqHhssH2BVJ88=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=VtShJ3KJfMOydCfX5LajLrW/grN0PgqMTvj8HUyAMTJ5FEC1IsFZMNmbHkxRz87Xz
+	 UkbWY81F+ziNXmhvlfU2JLD4NvHSCGjDlybRT19p8UrwW8Vp2AUaLTBRl5HY4FPEhF
+	 L0ceKaiyVl6ctqBuDIzw9rSu7lzWfTWsV+KFVhJd2VhtLoxMRuSdqUXMbaUFMlYUY6
+	 fGlMt/nulJ2DFsJ+T3D5JJwWcjlqWF7qjCGOk+W3Jc+HVrSyPIVzDEkc8ZlOPlP+pX
+	 sYB71O1EVTh1ixylTXJDmFRLmL3fcachHtO1Vu8T/T7obmGPUSweDn6Tz+Cd1fzFlR
+	 EGKRY/rOOkROw==
+From: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Leo Yan <leo.yan@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v5 10/10] KVM: arm64: np-guest CMOs with PMD_SIZE fixmap
-In-Reply-To: <20250520085201.3059786-11-vdonnefort@google.com>
-References: <20250520085201.3059786-1-vdonnefort@google.com>
-	<20250520085201.3059786-11-vdonnefort@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Mark Brown <broonie@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>
+Subject: Re: [PATCH v22 0/5] arm64/perf: Enable branch stack sampling
+Date: Wed, 21 May 2025 12:01:18 +0100
+Message-Id: <174782307035.3423409.3825975640964405604.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
+References: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_040130_866155_6673801F 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20250521_040319_499136_D4419796 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,100 +91,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 May 2025 09:52:01 +0100,
-Vincent Donnefort <vdonnefort@google.com> wrote:
+On Tue, 20 May 2025 17:27:35 -0500, Rob Herring (Arm) wrote:
+> This series enables perf branch stack sampling support on arm64 via a
+> v9.2 arch feature called Branch Record Buffer Extension (BRBE). Details
+> on BRBE can be found in the Arm ARM[1] chapter D18.
 > 
-> With the introduction of stage-2 huge mappings in the pKVM hypervisor,
-> guest pages CMO is needed for PMD_SIZE size. Fixmap only supports
-> PAGE_SIZE and iterating over the huge-page is time consuming (mostly due
-> to TLBI on hyp_fixmap_unmap) which is a problem for EL2 latency.
+> I've picked up this series from Anshuman. v19 and later versions have
+> been reworked quite a bit by Mark and myself. The bulk of those changes
+> are in patch 5.
 > 
-> Introduce a shared PMD_SIZE fixmap (hyp_fixblock_map/hyp_fixblock_unmap)
-> to improve guest page CMOs when stage-2 huge mappings are installed.
-> 
-> On a Pixel6, the iterative solution resulted in a latency of ~700us,
-> while the PMD_SIZE fixmap reduces it to ~100us.
-> 
-> Because of the horrendous private range allocation that would be
-> necessary, this is disabled for 64KiB pages systems.
-> 
-> Suggested-by: Quentin Perret <qperret@google.com>
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> Signed-off-by: Quentin Perret <qperret@google.com>
-> 
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 1b43bcd2a679..2888b5d03757 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -59,6 +59,11 @@ typedef u64 kvm_pte_t;
->  
->  #define KVM_PHYS_INVALID		(-1ULL)
->  
-> +#define KVM_PTE_TYPE			BIT(1)
-> +#define KVM_PTE_TYPE_BLOCK		0
-> +#define KVM_PTE_TYPE_PAGE		1
-> +#define KVM_PTE_TYPE_TABLE		1
-> +
->  #define KVM_PTE_LEAF_ATTR_LO		GENMASK(11, 2)
->  
->  #define KVM_PTE_LEAF_ATTR_LO_S1_ATTRIDX	GENMASK(4, 2)
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> index 230e4f2527de..6e83ce35c2f2 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-> @@ -13,9 +13,11 @@
->  extern struct kvm_pgtable pkvm_pgtable;
->  extern hyp_spinlock_t pkvm_pgd_lock;
->  
-> -int hyp_create_pcpu_fixmap(void);
-> +int hyp_create_fixmap(void);
->  void *hyp_fixmap_map(phys_addr_t phys);
->  void hyp_fixmap_unmap(void);
-> +void *hyp_fixblock_map(phys_addr_t phys, size_t *size);
-> +void hyp_fixblock_unmap(void);
->  
->  int hyp_create_idmap(u32 hyp_va_bits);
->  int hyp_map_vectors(void);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 1490820b9ebe..962948534179 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -216,34 +216,42 @@ static void guest_s2_put_page(void *addr)
->  	hyp_put_page(&current_vm->pool, addr);
->  }
->  
-> -static void clean_dcache_guest_page(void *va, size_t size)
-> +static void __apply_guest_page(void *va, size_t size,
-> +			       void (*func)(void *addr, size_t size))
->  {
->  	size += va - PTR_ALIGN_DOWN(va, PAGE_SIZE);
->  	va = PTR_ALIGN_DOWN(va, PAGE_SIZE);
->  	size = PAGE_ALIGN(size);
->  
->  	while (size) {
-> -		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
-> -					  PAGE_SIZE);
-> -		hyp_fixmap_unmap();
-> -		va += PAGE_SIZE;
-> -		size -= PAGE_SIZE;
-> +		size_t map_size = PAGE_SIZE;
-> +		void *map;
-> +
-> +		if (size >= PMD_SIZE)
-> +			map = hyp_fixblock_map(__hyp_pa(va), &map_size);
+> [...]
 
-You seem to consider that if size if PMD_SIZE (or more), then va must
-be PMD aligned. I don't think this is correct.
+Applied the '__init_el2_fgt' label cleanup to arm64 (for-next/entry), thanks!
 
-Such an iterator should start by doing PAGE_SIZEd operations until va
-is PMD-aligned. Only at this point can it perform PMD_SIZEd
-operations, until the remaining size is less than PMD_SIZE. And at
-that point, it's PAGE_SIZE all over again until the end.
+[2/5] arm64: el2_setup.h: Make __init_el2_fgt labels consistent, again
+      https://git.kernel.org/arm64/c/54b8070548c6
 
-Does that make sense to you?
-
-	M.
-
+Cheers,
 -- 
-Without deviation from the norm, progress is not possible.
+Will
+
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
