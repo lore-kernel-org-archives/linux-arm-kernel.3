@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59154C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 06:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 879F2C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 06:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EDGbOLCIB2LrcQ8cq6pOHWIv6OjG2GMJZjGpsonN3m8=; b=1wqzKEPK4oWuPV06ZvHyeA6NpS
-	i0uvvhe/K4ky9AU31H+XVTfVeyZB/t6RjZRIhZEof/Nc8vpiEzJMCPynFUOAD8tcOk3g4yqbeEiPW
-	j/7x6IVBe8kRbX/oTg0zlxU9QDp2R9heBvcnO7UoYGAAfC/pk287WKeUpPrqSYxmY2OREOxpQzbrR
-	qFt+BcSqe6rLadHyJ1wQZjiJaKR5QqD4k3EP50ApkC9MwMwtt8uAGuff1Gmauxyav/FnmmBaUeE17
-	fssS67tQCRIDMV4ahvcnQbzLHtbtn9ghKbs0PMMql2hmPjwJkNByQYTKrVFp3XIArppXIefRUu5I4
-	uthMP9lg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=evbOXmHnW0WCHWQX9clhz8jUt8kOoWPEaeDta7WskKA=; b=ebS/RgPs1gg1htTYp/MnmJc5cW
+	Sx7JKlHP78Wj/0syyPZ5xKppjWUH1QeH7+62YoeKyWmbku9MhhrfgLhAOFv2dzc+ECT/CSOOUeRGI
+	GKQ3SYb7MG6G3dLEetFMAV3va7EHiymwuZQYTCp86Moc+fZAF5m61B7hv21RXFkhUvBNuSOXXbi5Z
+	Sj9YgivbXPIV8XA7Xc1P7edpu3KcJ745cSmBAPKgqmNHBXELfypyUvNFX9EfoMPfI68loJ0Aie28L
+	+no8A7sKx3DNJUjYJDoRJSC6/TODv+P8aXvaQdI52R63IA1h5Ejq1ZwMpRR6T6njZtV/YHqgymGVU
+	qTJp9Mow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHd7h-0000000ExC3-0XFg;
-	Wed, 21 May 2025 06:40:17 +0000
+	id 1uHdCD-0000000ExTy-31Hy;
+	Wed, 21 May 2025 06:44:57 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHd1f-0000000EwWC-2lVU;
-	Wed, 21 May 2025 06:34:04 +0000
-X-UUID: 923d9b0a360d11f0bed96b30c12bc3d6-20250520
+	id 1uHdAB-0000000ExJx-0x7D;
+	Wed, 21 May 2025 06:42:52 +0000
+X-UUID: cdfc91d6360e11f0bed96b30c12bc3d6-20250520
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=EDGbOLCIB2LrcQ8cq6pOHWIv6OjG2GMJZjGpsonN3m8=;
-	b=BDHLy3cYgikTiyCqyf+NZwdjgzRw0/X1OC1zgJLvAvHOc/7GbAC4Z0zzeBKCvHphBIqWu6GXFB+2Q9Z0TDmGQeTPu1gmdDjSnM8/wdx/ltPstG0/Yu+PmM+EPjxZF7MG9Yk8lR9mNnNp1mLfqW6t1W3kIu21SYnjp9ybFTnHCHU=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=evbOXmHnW0WCHWQX9clhz8jUt8kOoWPEaeDta7WskKA=;
+	b=AmO0W2Ux4IawCG5nzesAzR60nItBQO2B7x9NOJCrUkdS9GoBZPFKdBAmvI9SyDEjiceDYaOCvFCZ/dL8qNyKxwfX0TCDOzfFvwnHrbvsEzQxGTkIgJTqDgRyCgBYqrXYFVdiLMWBgZiFjQF+0e7ah2CigVypbckWLIsD4OyRKPA=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:7c6d23db-a612-4fb3-89d0-2c34b95c2b45,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:649bf158-eac4-4b21-88a4-d582445d304a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.2.1,REQID:3221aefb-6f19-4e4a-9f63-c43ab5006b33,IP:0,UR
+	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:0ef645f,CLOUDID:a1b41cf1-2ded-45ed-94e2-b3e9fa87100d,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 923d9b0a360d11f0bed96b30c12bc3d6-20250520
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <friday.yang@mediatek.com>)
+X-UUID: cdfc91d6360e11f0bed96b30c12bc3d6-20250520
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <kuyo.chang@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1811633366; Tue, 20 May 2025 23:33:56 -0700
+	with ESMTP id 82608156; Tue, 20 May 2025 23:42:46 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 21 May 2025 14:33:52 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ 15.2.1258.39; Wed, 21 May 2025 14:42:43 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Wed, 21 May 2025 14:33:52 +0800
-From: Friday Yang <friday.yang@mediatek.com>
-To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rob Herring" <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ 15.2.1258.39 via Frontend Transport; Wed, 21 May 2025 14:42:42 +0800
+From: Kuyo Chang <kuyo.chang@mediatek.com>
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, "Mel
+ Gorman" <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
 	"Matthias Brugger" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>
-CC: Friday Yang <friday.yang@mediatek.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v8 2/2] memory: mtk-smi: mt8188: Add SMI reset and clamp for MT8188
-Date: Wed, 21 May 2025 14:33:36 +0800
-Message-ID: <20250521063347.31578-3-friday.yang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250521063347.31578-1-friday.yang@mediatek.com>
-References: <20250521063347.31578-1-friday.yang@mediatek.com>
+	<angelogioacchino.delregno@collabora.com>
+CC: kuyo chang <kuyo.chang@mediatek.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+Subject: [PATCH 1/1] [Bug] list_add corruption during CPU hotplug stress test
+Date: Wed, 21 May 2025 14:42:18 +0800
+Message-ID: <20250521064238.3173224-1-kuyo.chang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_233403_709446_91295743 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20250520_234251_270850_E835917C 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,263 +88,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Friday Yang" <friday.yang@mediatek.com>
+From: kuyo chang <kuyo.chang@mediatek.com>
 
-To prevent handling glitch signals during MTCMOS on/off transitions,
-SMI requires clamp and reset operations. Parse the reset settings for
-SMI LARBs and the clamp settings for the SMI Sub-Common. Register
-genpd callback for the SMI LARBs located in image, camera and IPE
-subsystems, and apply reset and clamp operations within the callback.
+The commit (stop_machine, sched: Fix migrate_swap() vs. active_balance() deadlock)
+introduces wake_q_add rather than wake_up_process.
+However, it encounters sporadic failures during CPU hotplug stress test.
 
-Signed-off-by: Friday Yang <friday.yang@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Acked-by: Rob Herring <robh@kernel.org>
+The kernel log shows list add fail as below
+kmemleak: list_add corruption. prev->next should be next (ffffff82812c7a00), but was 0000000000000000. (prev=ffffff82812c3208).
+kmemleak: kernel BUG at lib/list_debug.c:34!
+kmemleak: Call trace:
+kmemleak:  __list_add_valid_or_report+0x11c/0x144
+kmemleak:  cpu_stop_queue_work+0x440/0x474
+kmemleak:  stop_one_cpu_nowait_rec+0xe4/0x138
+kmemleak:  balance_push+0x1f4/0x3e4
+kmemleak:  __schedule+0x1adc/0x23bc
+kmemleak:  preempt_schedule_common+0x68/0xd0
+kmemleak:  preempt_schedule+0x60/0x80
+kmemleak:  _raw_spin_unlock_irqrestore+0x9c/0xa0
+kmemleak:  scan_gray_list+0x220/0x3e4
+kmemleak:  kmemleak_scan+0x410/0x740
+kmemleak:  kmemleak_scan_thread+0xb0/0xdc
+kmemleak:  kthread+0x2bc/0x494
+kmemleak:  ret_from_fork+0x10/0x20
 
+Because the reproduction rate is very low, I designed a simple debug patch to help find the root cause of these sporadic failures.
+The purpose of this debug patch is to record the status of push_work at balance_push, cpu_stopper, and cpu_stop_work.
+In the regular case, we queue the push_work to stopper->works and set work->exec_state = WORK_QUEUE.
+Then, we call wake_q_add for the stopper and set cpu_stopper.stopper_wakeq = WAKEQ_ADD_OK.
+Finally, we wake up the stopper, which picks up the work from cpu_stop_work to execute.
+We then set stopper->exec_state = WORK_PREP_EXEC to indicate that the push_work has been consumed.
+
+However, in the failure case, by memory dump
+cpu_stopper.stopper_wakeq = WAKEQ_ADD_FAIL
+stopper->exec_state = WORK_QUEUE.
+cpu_stopper.enabled = TRUE
+
+Here is the failure sequence that leads to the bug.
+CPU0
+1st balance_push
+stop_one_cpu_nowait
+cpu_stop_queue_work
+__cpu_stop_queue_work
+list_add_tail  -> fist add work
+wake_q_add   -> returns failure
+wake_up_q(&wakeq); -> it doesn't wake up the stopper.
+2nd balance_push
+stop_one_cpu_nowait
+cpu_stop_queue_work
+__cpu_stop_queue_work
+list_add_tail  -> A double list add is detected, which triggers kernel bugs.
+
+Should we add queue status tracking in __cpu_stop_queue_work,
+or is there a better place to do this?
+
+Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
 ---
- drivers/memory/mtk-smi.c | 133 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 133 insertions(+)
+ include/linux/sched/wake_q.h |  1 +
+ include/linux/stop_machine.h | 20 ++++++++++++++++++++
+ kernel/sched/core.c          | 15 ++++++++++++++-
+ kernel/stop_machine.c        | 36 ++++++++++++++++++++++++++++++++++--
+ 4 files changed, 69 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
-index c086c22511f7..f3745f549629 100644
---- a/drivers/memory/mtk-smi.c
-+++ b/drivers/memory/mtk-smi.c
-@@ -10,11 +10,15 @@
- #include <linux/err.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
- #include <linux/soc/mediatek/mtk_sip_svc.h>
- #include <soc/mediatek/smi.h>
- #include <dt-bindings/memory/mt2701-larb-port.h>
-@@ -36,6 +40,12 @@
- #define SMI_DCM				0x300
- #define SMI_DUMMY			0x444
-
-+#define SMI_COMMON_CLAMP_EN		0x3c0
-+#define SMI_COMMON_CLAMP_EN_SET		0x3c4
-+#define SMI_COMMON_CLAMP_EN_CLR		0x3c8
-+
-+#define SMI_SUB_COMM_INPORT_NR		(8)
-+
- /* SMI LARB */
- #define SMI_LARB_SLP_CON                0xc
- #define SLP_PROT_EN                     BIT(0)
-@@ -134,6 +144,7 @@ struct mtk_smi_larb_gen {
- 	unsigned int			larb_direct_to_common_mask;
- 	unsigned int			flags_general;
- 	const u8			(*ostd)[SMI_LARB_PORT_NR_MAX];
-+	const u8			*clamp_port;
- };
-
- struct mtk_smi {
-@@ -150,6 +161,7 @@ struct mtk_smi {
- };
-
- struct mtk_smi_larb { /* larb: local arbiter */
-+	struct device			*dev;
- 	struct mtk_smi			smi;
- 	void __iomem			*base;
- 	struct device			*smi_common_dev; /* common or sub-common dev */
-@@ -157,6 +169,10 @@ struct mtk_smi_larb { /* larb: local arbiter */
- 	int				larbid;
- 	u32				*mmu;
- 	unsigned char			*bank;
-+	struct regmap			*sub_comm_syscon;
-+	u8				sub_comm_inport;
-+	struct notifier_block		nb;
-+	struct reset_control		*rst_con;
- };
-
- static int
-@@ -446,6 +462,19 @@ static const u8 mtk_smi_larb_mt8195_ostd[][SMI_LARB_PORT_NR_MAX] = {
- 	[28] = {0x1a, 0x0e, 0x0a, 0x0a, 0x0c, 0x0e, 0x10,},
- };
-
-+static const u8 mtk_smi_larb_clamp_port_mt8188[MTK_LARB_NR_MAX] = {
-+	[9]	= BIT(1), /* larb10 */
-+	[10]	= BIT(2), /* larb11a */
-+	[11]	= BIT(2), /* larb11b */
-+	[12]	= BIT(3), /* larb11c */
-+	[13]	= BIT(0), /* larb12 */
-+	[16]	= BIT(1), /* larb15 */
-+	[17]	= BIT(2), /* larb16a */
-+	[18]	= BIT(2), /* larb16b */
-+	[19]	= BIT(3), /* larb17a */
-+	[20]	= BIT(3), /* larb17b */
+diff --git a/include/linux/sched/wake_q.h b/include/linux/sched/wake_q.h
+index 0f28b4623ad4..083ced4bb5dc 100644
+--- a/include/linux/sched/wake_q.h
++++ b/include/linux/sched/wake_q.h
+@@ -60,6 +60,7 @@ static inline bool wake_q_empty(struct wake_q_head *head)
+ }
+ 
+ extern void wake_q_add(struct wake_q_head *head, struct task_struct *task);
++extern bool wake_q_add_ret(struct wake_q_head *head, struct task_struct *task);
+ extern void wake_q_add_safe(struct wake_q_head *head, struct task_struct *task);
+ extern void wake_up_q(struct wake_q_head *head);
+ 
+diff --git a/include/linux/stop_machine.h b/include/linux/stop_machine.h
+index 3132262a404d..6daec44dcb99 100644
+--- a/include/linux/stop_machine.h
++++ b/include/linux/stop_machine.h
+@@ -21,18 +21,38 @@ typedef int (*cpu_stop_fn_t)(void *arg);
+ 
+ #ifdef CONFIG_SMP
+ 
++enum work_state {
++	WORK_INIT = 0,
++	WORK_READY,
++	WORK_QUEUE,
++	WORK_PREP_EXEC,
 +};
 +
- static const struct mtk_smi_larb_gen mtk_smi_larb_mt2701 = {
- 	.port_in_larb = {
- 		LARB0_PORT_OFFSET, LARB1_PORT_OFFSET,
-@@ -498,6 +527,7 @@ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8188 = {
- 	.flags_general	            = MTK_SMI_FLAG_THRT_UPDATE | MTK_SMI_FLAG_SW_FLAG |
- 				      MTK_SMI_FLAG_SLEEP_CTL | MTK_SMI_FLAG_CFG_PORT_SEC_CTL,
- 	.ostd		            = mtk_smi_larb_mt8188_ostd,
-+	.clamp_port                 = mtk_smi_larb_clamp_port_mt8188,
++enum stopper_wakeq_state {
++	WAKEQ_ADD_FAIL = 0,
++	WAKEQ_ADD_OK,
++};
++
++enum work_rec {
++	WORK_NO_REC = 0,
++	WORK_REC,
++};
+ struct cpu_stop_work {
+ 	struct list_head	list;		/* cpu_stopper->works */
+ 	cpu_stop_fn_t		fn;
+ 	unsigned long		caller;
+ 	void			*arg;
+ 	struct cpu_stop_done	*done;
++	enum work_rec		rec;
++	enum work_state exec_state;
  };
-
- static const struct mtk_smi_larb_gen mtk_smi_larb_mt8192 = {
-@@ -549,6 +579,46 @@ static void mtk_smi_larb_sleep_ctrl_disable(struct mtk_smi_larb *larb)
- 	writel_relaxed(0, larb->base + SMI_LARB_SLP_CON);
+ 
+ int stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg);
+ int stop_two_cpus(unsigned int cpu1, unsigned int cpu2, cpu_stop_fn_t fn, void *arg);
+ bool stop_one_cpu_nowait(unsigned int cpu, cpu_stop_fn_t fn, void *arg,
+ 			 struct cpu_stop_work *work_buf);
++bool stop_one_cpu_nowait_rec(unsigned int cpu, cpu_stop_fn_t fn, void *arg,
++			struct cpu_stop_work *work_buf);
+ void stop_machine_park(int cpu);
+ void stop_machine_unpark(int cpu);
+ void stop_machine_yield(const struct cpumask *cpumask);
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index c81cf642dba0..a617f51d3e5a 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -1037,6 +1037,19 @@ void wake_q_add(struct wake_q_head *head, struct task_struct *task)
+ 		get_task_struct(task);
  }
-
-+static int mtk_smi_larb_clamp_protect_enable(struct device *dev, bool enable)
+ 
++/**
++ * wake_q_add_ret() - queue a wakeup for 'later' waking. record status.
++ */
++bool wake_q_add_ret(struct wake_q_head *head, struct task_struct *task)
 +{
-+	struct mtk_smi_larb *larb = dev_get_drvdata(dev);
-+	u32 reg;
-+	int ret;
++	bool ret = false;
 +
-+	/* sub_comm_syscon could be NULL if larb directly linked to SMI common */
-+	if (!larb->sub_comm_syscon)
-+		return -EINVAL;
-+
-+	reg = enable ? SMI_COMMON_CLAMP_EN_SET : SMI_COMMON_CLAMP_EN_CLR;
-+
-+	ret = regmap_write(larb->sub_comm_syscon, reg,
-+			   larb->sub_comm_inport);
++	ret = __wake_q_add(head, task);
 +	if (ret)
-+		dev_err(dev, "Unable to %s clamp for input port %d: %d\n",
-+			enable ? "enable" : "disable",
-+			larb->sub_comm_inport, ret);
-+
++		get_task_struct(task);
 +	return ret;
 +}
 +
-+static int mtk_smi_genpd_callback(struct notifier_block *nb,
-+				  unsigned long flags, void *data)
-+{
-+	struct mtk_smi_larb *larb = container_of(nb, struct mtk_smi_larb, nb);
-+	struct device *dev = larb->dev;
-+
-+	if (flags == GENPD_NOTIFY_PRE_ON || flags == GENPD_NOTIFY_PRE_OFF) {
-+		/* disable related SMI sub-common port */
-+		mtk_smi_larb_clamp_protect_enable(dev, true);
-+	} else if (flags == GENPD_NOTIFY_ON) {
-+		/* enable related SMI sub-common port */
-+		reset_control_reset(larb->rst_con);
-+		mtk_smi_larb_clamp_protect_enable(dev, false);
-+	}
-+
-+	return NOTIFY_OK;
-+}
-+
- static int mtk_smi_device_link_common(struct device *dev, struct device **com_dev)
- {
- 	struct platform_device *smi_com_pdev;
-@@ -605,6 +675,53 @@ static int mtk_smi_dts_clk_init(struct device *dev, struct mtk_smi *smi,
- 	return ret;
- }
-
-+static int mtk_smi_larb_parse_clamp_optional(struct mtk_smi_larb *larb)
-+{
-+	struct device *dev = larb->dev;
-+	const struct mtk_smi_larb_gen *larb_gen = larb->larb_gen;
-+	u32 larb_id;
-+	int ret;
-+
-+	/*
-+	 * Only SMI LARBs in camera, image and IPE subsys need to
-+	 * apply clamp and reset operations, others can be skipped.
-+	 */
-+	ret = of_property_read_u32(dev->of_node, "mediatek,larb-id", &larb_id);
-+	if (ret)
-+		return -EINVAL;
-+	if (!larb_gen->clamp_port || !larb_gen->clamp_port[larb_id])
-+		return 0;
-+
-+	larb->sub_comm_inport = larb_gen->clamp_port[larb_id];
-+	larb->sub_comm_syscon = syscon_regmap_lookup_by_phandle(dev->of_node,
-+								"mediatek,smi");
-+	if (IS_ERR(larb->sub_comm_syscon)) {
-+		larb->sub_comm_syscon = NULL;
-+		return dev_err_probe(dev, -EINVAL,
-+				     "Unknown clamp port for larb %d\n", larb_id);
-+	}
-+
-+	return 0;
-+}
-+
-+static int mtk_smi_larb_parse_reset_optional(struct mtk_smi_larb *larb)
-+{
-+	struct device *dev = larb->dev;
-+	int ret;
-+
-+	larb->rst_con = devm_reset_control_get_optional_exclusive(dev, "larb");
-+	if (!larb->rst_con)
-+		return 0;
-+
-+	larb->nb.notifier_call = mtk_smi_genpd_callback;
-+	ret = dev_pm_genpd_add_notifier(dev, &larb->nb);
-+	if (ret)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "Failed to add genpd callback %d\n", ret);
-+
-+	return 0;
-+}
-+
- static int mtk_smi_larb_probe(struct platform_device *pdev)
- {
- 	struct mtk_smi_larb *larb;
-@@ -615,6 +732,7 @@ static int mtk_smi_larb_probe(struct platform_device *pdev)
- 	if (!larb)
- 		return -ENOMEM;
-
-+	larb->dev = dev;
- 	larb->larb_gen = of_device_get_match_data(dev);
- 	larb->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(larb->base))
-@@ -631,6 +749,14 @@ static int mtk_smi_larb_probe(struct platform_device *pdev)
- 	if (ret < 0)
- 		return ret;
-
-+	ret = mtk_smi_larb_parse_clamp_optional(larb);
-+	if (ret)
-+		goto err_link_remove;
-+
-+	ret = mtk_smi_larb_parse_reset_optional(larb);
-+	if (ret)
-+		goto err_link_remove;
-+
- 	pm_runtime_enable(dev);
- 	platform_set_drvdata(pdev, larb);
- 	ret = component_add(dev, &mtk_smi_larb_component_ops);
-@@ -640,6 +766,7 @@ static int mtk_smi_larb_probe(struct platform_device *pdev)
-
- err_pm_disable:
- 	pm_runtime_disable(dev);
-+err_link_remove:
- 	device_link_remove(dev, larb->smi_common_dev);
- 	return ret;
- }
-@@ -770,6 +897,11 @@ static const struct mtk_smi_common_plat mtk_smi_common_mt8188_vpp = {
- 	.init     = mtk_smi_common_mt8195_init,
+ /**
+  * wake_q_add_safe() - safely queue a wakeup for 'later' waking.
+  * @head: the wake_q_head to add @task to
+@@ -8100,7 +8113,7 @@ static void balance_push(struct rq *rq)
+ 	 */
+ 	preempt_disable();
+ 	raw_spin_rq_unlock(rq);
+-	stop_one_cpu_nowait(rq->cpu, __balance_push_cpu_stop, push_task,
++	stop_one_cpu_nowait_rec(rq->cpu, __balance_push_cpu_stop, push_task,
+ 			    this_cpu_ptr(&push_work));
+ 	preempt_enable();
+ 	/*
+diff --git a/kernel/stop_machine.c b/kernel/stop_machine.c
+index 5d2d0562115b..3a2c48ed2182 100644
+--- a/kernel/stop_machine.c
++++ b/kernel/stop_machine.c
+@@ -42,6 +42,8 @@ struct cpu_stopper {
+ 	struct list_head	works;		/* list of pending works */
+ 
+ 	struct cpu_stop_work	stop_work;	/* for stop_cpus */
++	enum stopper_wakeq_state stopper_wakeq;		/* for stopper wakeup */
++	enum work_state exec_state;			/* for stopper exec state */
+ 	unsigned long		caller;
+ 	cpu_stop_fn_t		fn;
  };
-
-+static const struct mtk_smi_common_plat mtk_smi_sub_common_mt8188 = {
-+	.type     = MTK_SMI_GEN2_SUB_COMM,
-+	.has_gals = true,
-+};
+@@ -85,8 +87,18 @@ static void __cpu_stop_queue_work(struct cpu_stopper *stopper,
+ 					struct cpu_stop_work *work,
+ 					struct wake_q_head *wakeq)
+ {
++	bool wake_flag;
 +
- static const struct mtk_smi_common_plat mtk_smi_common_mt8192 = {
- 	.type     = MTK_SMI_GEN2,
- 	.has_gals = true,
-@@ -814,6 +946,7 @@ static const struct of_device_id mtk_smi_common_of_ids[] = {
- 	{.compatible = "mediatek,mt8186-smi-common", .data = &mtk_smi_common_mt8186},
- 	{.compatible = "mediatek,mt8188-smi-common-vdo", .data = &mtk_smi_common_mt8188_vdo},
- 	{.compatible = "mediatek,mt8188-smi-common-vpp", .data = &mtk_smi_common_mt8188_vpp},
-+	{.compatible = "mediatek,mt8188-smi-sub-common", .data = &mtk_smi_sub_common_mt8188},
- 	{.compatible = "mediatek,mt8192-smi-common", .data = &mtk_smi_common_mt8192},
- 	{.compatible = "mediatek,mt8195-smi-common-vdo", .data = &mtk_smi_common_mt8195_vdo},
- 	{.compatible = "mediatek,mt8195-smi-common-vpp", .data = &mtk_smi_common_mt8195_vpp},
---
-2.46.0
+ 	list_add_tail(&work->list, &stopper->works);
+-	wake_q_add(wakeq, stopper->thread);
++	wake_flag = wake_q_add_ret(wakeq, stopper->thread);
++	if (work->rec == WORK_REC) {
++		work->exec_state = WORK_QUEUE;
++		stopper->exec_state = WORK_QUEUE;
++		if (wake_flag)
++			stopper->stopper_wakeq = WAKEQ_ADD_OK;
++		else
++			stopper->stopper_wakeq = WAKEQ_ADD_FAIL;
++	}
+ }
+ 
+ /* queue @work to @stopper.  if offline, @work is completed immediately */
+@@ -141,6 +153,8 @@ int stop_one_cpu(unsigned int cpu, cpu_stop_fn_t fn, void *arg)
+ 	struct cpu_stop_done done;
+ 	struct cpu_stop_work work = { .fn = fn, .arg = arg, .done = &done, .caller = _RET_IP_ };
+ 
++	work.rec = WORK_NO_REC;
++	work.exec_state = WORK_INIT;
+ 	cpu_stop_init_done(&done, 1);
+ 	if (!cpu_stop_queue_work(cpu, &work))
+ 		return -ENOENT;
+@@ -350,6 +364,8 @@ int stop_two_cpus(unsigned int cpu1, unsigned int cpu2, cpu_stop_fn_t fn, void *
+ 		.arg = &msdata,
+ 		.done = &done,
+ 		.caller = _RET_IP_,
++		.rec = WORK_NO_REC,
++		.exec_state = WORK_INIT,
+ 	};
+ 
+ 	cpu_stop_init_done(&done, 2);
+@@ -386,6 +402,17 @@ bool stop_one_cpu_nowait(unsigned int cpu, cpu_stop_fn_t fn, void *arg,
+ 			struct cpu_stop_work *work_buf)
+ {
+ 	*work_buf = (struct cpu_stop_work){ .fn = fn, .arg = arg, .caller = _RET_IP_, };
++	work_buf->rec = WORK_NO_REC;
++	work_buf->exec_state = WORK_INIT;
++	return cpu_stop_queue_work(cpu, work_buf);
++}
++
++bool stop_one_cpu_nowait_rec(unsigned int cpu, cpu_stop_fn_t fn, void *arg,
++			struct cpu_stop_work *work_buf)
++{
++	*work_buf = (struct cpu_stop_work){ .fn = fn, .arg = arg, .caller = _RET_IP_, };
++	work_buf->rec = WORK_REC;
++	work_buf->exec_state = WORK_READY;
+ 	return cpu_stop_queue_work(cpu, work_buf);
+ }
+ 
+@@ -411,6 +438,8 @@ static bool queue_stop_cpus_work(const struct cpumask *cpumask,
+ 		work->arg = arg;
+ 		work->done = done;
+ 		work->caller = _RET_IP_;
++		work->rec = WORK_NO_REC;
++		work->exec_state = WORK_INIT;
+ 		if (cpu_stop_queue_work(cpu, work))
+ 			queued = true;
+ 	}
+@@ -496,6 +525,8 @@ static void cpu_stopper_thread(unsigned int cpu)
+ 		work = list_first_entry(&stopper->works,
+ 					struct cpu_stop_work, list);
+ 		list_del_init(&work->list);
++		if (work->rec == WORK_REC)
++			stopper->exec_state = WORK_PREP_EXEC;
+ 	}
+ 	raw_spin_unlock_irq(&stopper->lock);
+ 
+@@ -572,7 +603,8 @@ static int __init cpu_stop_init(void)
+ 
+ 	for_each_possible_cpu(cpu) {
+ 		struct cpu_stopper *stopper = &per_cpu(cpu_stopper, cpu);
+-
++		stopper->exec_state = WORK_INIT;
++		stopper->stopper_wakeq = WAKEQ_ADD_OK;
+ 		raw_spin_lock_init(&stopper->lock);
+ 		INIT_LIST_HEAD(&stopper->works);
+ 	}
+-- 
+2.45.2
 
 
