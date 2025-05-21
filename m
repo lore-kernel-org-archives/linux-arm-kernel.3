@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEF4C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F967C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c85a1fkXYOjGQY9mFkBp2xWKtyhivAgjHXdDuA8rKKw=; b=QZgztD7cRRm+RThc5hAbs/YLDW
-	di9Og9F1mVAFttCUBJi8Lox0rEf9G0ERvNxNnB5fUMeaB2EUP319SyVC5Z+7wcW985mHKrk1V9ezA
-	cL9vU6yi8LjqHPANXC3w6NiFsT+87jDVzFNG1djA/aWsu7dpSlHmlw9dzgAUSOs88ofs8Bnre6TYj
-	lEUBERxDVtXG6uT1bfRrDahyhSF+ZBOR8mIuPZL4FS/Jyw7uyPOEDc8Xx+avlI6csJ2bY5x9UE/P6
-	0jIbFWRSO5biPKJcLGOEDrTRFfMjO3tGXS1Yy/Jon4LZNXWKV/vOaSbC1eyljqEWHrQMAEXpalLW+
-	rzNzIL9w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eqnSca8eJzqmZ6YsrF+7WoFJa9dofdUpXG/pyLmPj9Y=; b=DgM2nS7AYaRFOBtivd1SinKOQZ
+	sroWs3ksLnBW32r07j3sN4tVwqr6yX4EKNioGvpBfBH2KYbVJjfPzqxAZJURGhy4X7hSGYQRq9BgC
+	oWwRgirSEgdD3FYcjiYyydHf96CX+Vo6nGkbbV8ULwiU4hS6aZtJMqpcanlLZC3ROqL+ClyAmMsVW
+	yNBLSN66def0wawW+LFrfVg0xOyAYUw44FQETS4JEyyaQLVk71kp06FQSK1xByj7sH/q2KTAA7xvN
+	PYTWS74eJUTE/70aXw1dMbppG5IwZI+mLR8geRezowF+tw/9i+6o7pTz2hJjIRXSlI2cVtgmDhTJr
+	9rQBSgwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhIV-0000000FaHW-2wYR;
-	Wed, 21 May 2025 11:07:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uHhKW-0000000FaXW-1ZE3;
+	Wed, 21 May 2025 11:09:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhEF-0000000FZmh-1lNb
+	id 1uHhFn-0000000Fa0n-3KC9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 11:03:20 +0000
+	Wed, 21 May 2025 11:04:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BC7B25C5762;
-	Wed, 21 May 2025 11:01:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0738DC4CEEA;
-	Wed, 21 May 2025 11:03:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D0EBC6000A;
+	Wed, 21 May 2025 11:04:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8672CC4CEE4;
+	Wed, 21 May 2025 11:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747825398;
-	bh=QAUAYNKmlM0RlaNjGicH9GqKIAhlrFtqHhssH2BVJ88=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VtShJ3KJfMOydCfX5LajLrW/grN0PgqMTvj8HUyAMTJ5FEC1IsFZMNmbHkxRz87Xz
-	 UkbWY81F+ziNXmhvlfU2JLD4NvHSCGjDlybRT19p8UrwW8Vp2AUaLTBRl5HY4FPEhF
-	 L0ceKaiyVl6ctqBuDIzw9rSu7lzWfTWsV+KFVhJd2VhtLoxMRuSdqUXMbaUFMlYUY6
-	 fGlMt/nulJ2DFsJ+T3D5JJwWcjlqWF7qjCGOk+W3Jc+HVrSyPIVzDEkc8ZlOPlP+pX
-	 sYB71O1EVTh1ixylTXJDmFRLmL3fcachHtO1Vu8T/T7obmGPUSweDn6Tz+Cd1fzFlR
-	 EGKRY/rOOkROw==
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
+	s=k20201202; t=1747825492;
+	bh=WJdu57W6UhDvcHCfpgC+UA9weTaVsrZwvOCeKead1G0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=f2db5NFhShu2tICwJNJQFax1HAv25M/sDmZZRWTxQsEPnxBJ8HCEWWC77Sj+kfS3n
+	 yQHXYydq8WtpxCjpmlUeizYLrSs0NQ36I1EcDoYj5QMxk55tXWa0NIHnkkmpwbXMzy
+	 kfJYEEmMWA6odT5O7UdPZ5h/4T2iMp7mVipKM4jscO3pd6QeXmj3Rk10OMoA/sgyHS
+	 z4VDlw1O+z+Ewo4xv5cWDTy+/BhaK8+1ZnfWgjmxLHnTFyCszOrA5882mOIRccLR+c
+	 lsD+TXJp8ObQZPghLFMdSMU36zwZvnOEcJWWFZTgqqu9X8mdGc6emjKDp9uAWdLPOz
+	 fBKdtbK6ZRVIA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uHhFi-00GuEZ-Ca;
+	Wed, 21 May 2025 12:04:50 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Leo Yan <leo.yan@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Mark Brown <broonie@kernel.org>,
-	Dave Martin <Dave.Martin@arm.com>
-Subject: Re: [PATCH v22 0/5] arm64/perf: Enable branch stack sampling
-Date: Wed, 21 May 2025 12:01:18 +0100
-Message-Id: <174782307035.3423409.3825975640964405604.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
-References: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] KVM: arm64: nv: Release faulted-in VNCR page from mmu_lock critical section
+Date: Wed, 21 May 2025 12:04:35 +0100
+Message-Id: <20250521110435.66273-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_040319_499136_D4419796 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,27 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 May 2025 17:27:35 -0500, Rob Herring (Arm) wrote:
-> This series enables perf branch stack sampling support on arm64 via a
-> v9.2 arch feature called Branch Record Buffer Extension (BRBE). Details
-> on BRBE can be found in the Arm ARM[1] chapter D18.
-> 
-> I've picked up this series from Anshuman. v19 and later versions have
-> been reworked quite a bit by Mark and myself. The bulk of those changes
-> are in patch 5.
-> 
-> [...]
+The conversion to kvm_release_faultin_page() missed the requirement
+for this to be called within a critical section with mmu_lock held
+for write. Move this call up to satisfy this requirement.
 
-Applied the '__init_el2_fgt' label cleanup to arm64 (for-next/entry), thanks!
+Fixes: 069a05e535496 ("KVM: arm64: nv: Handle VNCR_EL2-triggered faults")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/nested.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[2/5] arm64: el2_setup.h: Make __init_el2_fgt labels consistent, again
-      https://git.kernel.org/arm64/c/54b8070548c6
-
-Cheers,
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 2381663d2ee98..e7e71f1615f19 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1228,9 +1228,9 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu)
+ 		vt->cpu = -1;
+ 
+ 		kvm_make_request(KVM_REQ_MAP_L1_VNCR_EL2, vcpu);
++		kvm_release_faultin_page(vcpu->kvm, page, false, vt->wr.pw);
+ 	}
+ 
+-	kvm_release_faultin_page(vcpu->kvm, page, false, vt->wr.pw);
+ 	if (vt->wr.pw)
+ 		mark_page_dirty(vcpu->kvm, gfn);
+ 
 -- 
-Will
+2.39.2
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
