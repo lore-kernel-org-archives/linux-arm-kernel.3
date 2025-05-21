@@ -4,61 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC3DC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE994C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ow1YsBKMJyJO4Jy9CGela0xfrQwwwKForTk6v9nzhdI=; b=PYdGbj08eR0jaNiWM0H4+huXSM
-	pAvlmFaEb+KIA1aCU0GcMH5PFz0pLglexLgvqhcldMEu0wImU585W1YNwRCsUT21XcssozGx/aKdh
-	Bks94x2GfA6JEcZXP1Jw5oQqZU1KpghPdujbLfPpwuznzjiVgZV+laO9MJLpr2KACreBcpJ812tQ8
-	S61AIkYYJ5MrGmuIGmkQUZwM2D0Whnvex5dJ9p38otG2tAP6RjW/6kN2xY4An83OIOR3hmyAiykuA
-	KEFGI2yxUvgMKjujArv33FZmkmaR68atFFW5j3EKCkuepMUYuWiAxTiU92bkYVPCI+Q54JGA4GZOK
-	UDAHRekw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=docwtRrkJh2FF47a5H7t9L+ufhsx5WjribxeOoiGRiI=; b=3/d+5R6lEYHfet79DoaCMsQekw
+	8tqoNkVnTqZzVjp/ujh2dvPqg1G9hs300JsXa3tljFZ5Lgxxmf+6Px8RZ4En7IPXdyYvnet5a+Orj
+	irxoE0eocXQ6Ms13sdAizus1gKHWUARSw91h9LbPQAzk45YGfv9/UD0kJ/TWhVWdsFxg+feuWybR3
+	OT8mPmMvjZpgejDvsFm+Y/UPWHKucb2ZU54hG7xhHUXdMlIFCzDbr6+gxJH/qbgt7eXItBOU7W8zQ
+	JoyFs511FD2ZS2P+ZtMc7eVZn3IMtyfM9ZdxFlvoYcE2lz6iwPNvfS47xma3w4OOcYzkafq1SsLKj
+	Ik7KX+Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhUd-0000000FbvF-0P1u;
-	Wed, 21 May 2025 11:20:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhQe-0000000FbQQ-0uGH
+	id 1uHhWd-0000000FcHJ-3OOp;
+	Wed, 21 May 2025 11:22:19 +0000
+Received: from mail-db8eur05on20611.outbound.protection.outlook.com ([2a01:111:f403:2614::611] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHhTt-0000000FbnQ-128A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 11:16:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA2FC263D;
-	Wed, 21 May 2025 04:15:53 -0700 (PDT)
-Received: from [10.57.94.227] (unknown [10.57.94.227])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A21A3F6A8;
-	Wed, 21 May 2025 04:16:03 -0700 (PDT)
-Message-ID: <59242559-5e90-4422-82f7-179a44eb968a@arm.com>
-Date: Wed, 21 May 2025 12:16:02 +0100
+	Wed, 21 May 2025 11:19:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UdQVoSGeeaWD5EjHjE5apFBNe/0h5ZI5SVyiS6njN+ccfyBpBvR5ols0hZJcbycop1IN66L1KXgd9qEKHkjhX16tJBft5UJo5SWLh+HIxTxc6/PpJe0wB7yqzISSMPdlpozht7GgvNGDtcDO8p+R/ZCcTV5+ROw+7vQ34DEE8eBhvqdqMPJa2eBinVVG3tCBwK2F1lOWY4Qq5+HnT47BQIqhyzM7NCvN2Zfr+F1G+eKS3HJsXbP0edDRP1/CmxoMSjnPj84fvI6KDKW3jVA7dlVkFyESkCEOce7zNrKNbYnNYDS1q6ZYVYuqcakCq8T3KVXshTimZPit5xebIAF9ig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=docwtRrkJh2FF47a5H7t9L+ufhsx5WjribxeOoiGRiI=;
+ b=G9LL9Cw9lsUVEGVbwHF64jSs2SnNz4AtlRaTPhCRpW8vO6BslDRZNUSC6ohyS3R348vRjKoOSad7s7GgqnCi0GYS2NSkVND2N+13qNilHMBh9/wE28xWDcDMA1fXwaSfL9jr7BFp242EB3zP5EzAXEd1fHTkhfJS8HFdY6jX9iicz4aeigu64oK/iSakerMFUGJmFVFOVkpX4MRVc5TTYQJAVRZZTsKFfp7EHRvfxaUg8fAjgApmhtAg+p88oM2dle+KFljfryKPdIrXDQEsZFdMAFzYwiivZG0XpH/J/5UJP6fx7V8YlMJS9OOU1i5TveVAif7FMuyyraH6t+JoNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=docwtRrkJh2FF47a5H7t9L+ufhsx5WjribxeOoiGRiI=;
+ b=S9ESdQ0+AZElpUUy98TrYXlNuciCVPdR+gk3xppSbJ46xAzzWwbcAoGhIOLOCY+cT7ft9vnHtiZB6pmV5jtlTq5GYClCDI0bq4Pj0CMIQJzwbbtyGJYGCtPDKv0RJyV9QFUx3JkILS0+isdwK8DuRmYOcyAevwAfnP+KA4M2Sxz41cdNVexB5YNz5s4MAnFXxJVJZ9nY8AIbHSBn7uv0OxfopBThpiXcp9PT1qh9o8YNtPXhawTNVTYFbcT6NO6EN0L5HHUtIN6w9AFXl3qiZZKaM7K8apGy55CQ9FjaRM3gJQMO8mp+cgNkH5CTltxqZyQ4HVsMSahtgT9bZ/gcLA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
+ by GVXPR04MB10048.eurprd04.prod.outlook.com (2603:10a6:150:118::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Wed, 21 May
+ 2025 11:19:23 +0000
+Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
+ ([fe80::4db:3dc0:c292:493a]) by DU2PR04MB8567.eurprd04.prod.outlook.com
+ ([fe80::4db:3dc0:c292:493a%3]) with mapi id 15.20.8769.019; Wed, 21 May 2025
+ 11:19:23 +0000
+From: ziniu.wang_1@nxp.com
+To: haibo.chen@nxp.com,
+	adrian.hunter@intel.com,
+	ulf.hansson@linaro.org,
+	linux-mmc@vger.kernel.org
+Cc: shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	s32@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] mmc: sdhci-esdhc-imx: inherit pins_100mhz from pins_200mhz when unconfigured
+Date: Wed, 21 May 2025 19:20:42 +0800
+Message-Id: <20250521112042.266111-1-ziniu.wang_1@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR04CA0005.apcprd04.prod.outlook.com
+ (2603:1096:4:197::16) To DU2PR04MB8567.eurprd04.prod.outlook.com
+ (2603:10a6:10:2d6::21)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/5] mm: Add batched versions of
- ptep_modify_prot_start/commit
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
- jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
- joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250519074824.42909-1-dev.jain@arm.com>
- <20250519074824.42909-3-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250519074824.42909-3-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8567:EE_|GVXPR04MB10048:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5cb1c269-caf3-4bdb-a58b-08dd9859569c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?y/X5OcM1ugaOgZfhkD3I9JwOpjZykYSTrod3UrHKMHzAFh55GbnbS98RhhYH?=
+ =?us-ascii?Q?JUPOroPWFdTQ36m2jbthaA/BN/JsYgC+adQZ8MN63PkFES29D+PfXzxv9A1I?=
+ =?us-ascii?Q?qmGFWdX05Cc2nmWwjYB5dVkBH5gl8mYkk+DYoJoueT1+pdkI7MjXdAc3lu7J?=
+ =?us-ascii?Q?7aMaYGxSfL9YxBAwdm8R8aZeeA/2UKxkaFVBylwVvv58c2eI/tUv/Oq4AbRO?=
+ =?us-ascii?Q?J66KFOy4MKXx9mK2vhfPumSrKKftrWiTmNlv+baYAFVS0YsS1oj7RHKOP1bW?=
+ =?us-ascii?Q?HWTCGFwARgu3JAQadu7LPgo4wjsGGfDzKa8QcJfJSFmZu29MinsOXeTSJQb9?=
+ =?us-ascii?Q?quzCcDepnK/nQcTc1yKRw5oZdyDqwC6pCBTwNVND9A3xHU/twrUlWVp0SRbj?=
+ =?us-ascii?Q?6UfxUwt9ElDdc5yeFnvisMxqAqoVW1S/3LJaYdmz1++PEchzxqIS36cXDxkI?=
+ =?us-ascii?Q?jlqSmW7fkMMSN0xV3wZ25uYmDynOjP1FVD+IoDvwAm2kFoNYC2p7z/RhUx3r?=
+ =?us-ascii?Q?bfEBvBwJqE79Rn3YZ2AuK/CWG2hI550LUGwrnsq41tZSgFa8c4SG8A4F1uoo?=
+ =?us-ascii?Q?tgXXcEjx4zwNlWTWc9uZwAVNNVGWhs3+Hcy/Xneqki2+p6rmQQ+hdUf4yQcp?=
+ =?us-ascii?Q?XbOgwPC0qmBIBTZDIUvS9LNBNS28YKByhSTBdNNz82D17Ujp7XDfbiJEfngi?=
+ =?us-ascii?Q?eBNNMTHpcNgeGDoeGs7GQSbUUCLMpENwDXazP4gCrrKtzPCq4u2fJJmAzYtD?=
+ =?us-ascii?Q?jQ85/HlGpgwMJNLddYG4v7YvzcDwBJLuvhqxrmmAUS2MzYO76AFclZUXUifM?=
+ =?us-ascii?Q?L/tawdet8bW+WgUyCvBCzjkKn8XOwwfgaak9igLVi1Z6N8LUHhdvdFMty3/a?=
+ =?us-ascii?Q?qbYoqonz7nJudvLAN09jW36hJpn3aynD4bopqjggd9yrMDI3ZBKFnMwUpBW9?=
+ =?us-ascii?Q?J1dhidHwl8+JrDn/fjvoBsf1PLrMoXYRRoCu28bQU3hB2nSLvSAvP3CptS3B?=
+ =?us-ascii?Q?LRsqQrb1DxHP8jdKOoYQC55/66RLhxMnjuAhbI0Wgqs2fM4Tqr2h7MKiecvj?=
+ =?us-ascii?Q?nZWZcsNXYqA2/BBelXRr+7CNULwivO3DqeULEAK5Zy6wojxzb4E45nW0hnqM?=
+ =?us-ascii?Q?+/NloPrJDdzdwb3L3XAqkAmbc4J5rrp1kuv4Wzw7amhk/59Ty0bM6fLiM52I?=
+ =?us-ascii?Q?fygTeaxCre84oDwy69vcMFo2f8HOatxKUzkXg+zSHBgS+Dn4Zb2/ke7dl+Id?=
+ =?us-ascii?Q?twAziN12rum1naPnpMFHGru+DRqrs0OBpZ2FnR/5G+nCooXRBjzkrfKL0cgS?=
+ =?us-ascii?Q?CVjqcDteIv/gTthsTpk4BI05EMWktjQmM3nrrMic/ttSTmwIcfILyghBBByO?=
+ =?us-ascii?Q?BPxaQUrMYTA/VWaWahvD0dbYXvfTHM7KLoNc17moPGlWG7jmZKOthit4ntWB?=
+ =?us-ascii?Q?vYzmQUKfOiCRiDN4q85x769QcoApmm+nBvGgc3wNXfk/D70pLdJFKQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A7JKBziagTv2MGyNO+jHJZAPjJxmX6pkb8jJcGupuK3VqAIGE2pRsTfIHfAK?=
+ =?us-ascii?Q?jAU39SGw4a0WWpozmsFGPfA3bIhbj3aIVwed0e/gsuVFBdP6FP4sY11E9R1Y?=
+ =?us-ascii?Q?hV98HJJGfOVDir4d3fEBFRjrSxfaniTBBBNhBaDyXmRFxLeqXZrtYhgVCfAY?=
+ =?us-ascii?Q?coHE6T2vPOWYTCqcuNUInH8+R1bOr+zcOAzE7KrR4IDyXHA5FAXLEXrXL7wG?=
+ =?us-ascii?Q?YgGtwB3i+f6pwYtgqHjfH+5zR8McC5pYvegXmHVAhQdKxVfHl3anWcwKL72/?=
+ =?us-ascii?Q?6uVbCzHX3QQMSgJV5HpIKLmEb4ZgwXr9Iy42gn5mzp2pU48mlE1Xqwva7za8?=
+ =?us-ascii?Q?EAWKv8k2pk/ge7clqiSe+eJW4C/j74yucKT9hahGbBSrb7TFRrolsfx7nRwL?=
+ =?us-ascii?Q?Lbov4VQsScX4E5kiyiI8b4jrUK0JFmjGYF9jLGYjkLFEtTGwcdLk+I6TXDmV?=
+ =?us-ascii?Q?I/aDLuh5GEtdit5DfQ4L93w6U7n07KZcoQbBEp8seUMxRiFdQzbDxrn7Onip?=
+ =?us-ascii?Q?yDf0Fe32ZrBgvcnXgelx2IKBoKSE86i+d29BPE+H/V0/0+c8kFF5fTlnfji6?=
+ =?us-ascii?Q?NSwGcbYQHS7+SOAGonulUAqIFfBoueWt86ia9ncA94C8NqS7CeG0D64EbGd6?=
+ =?us-ascii?Q?GXq57PBieP936z3ZsVfWphFWRLoqg9nlZ9JBgJMAcUHgBOcFE7IYa7MFSg7o?=
+ =?us-ascii?Q?XH2Iv2MLVU45iaMvNZa6Nf2hhSErpzQaIJtPkIHAXR2Tv7CE7clN/aK+ubaK?=
+ =?us-ascii?Q?Mu3bVTlEGzbKKRDZP8Q47d7sfnQlLi2zhPxiaTESrfTnRvwGmLg0+Z8yDTz4?=
+ =?us-ascii?Q?yurJrY1KWA8n61W6xc4NGzH3o7DoJTT0vh9OSDRw4cnxv/vcbPosmf/qx86K?=
+ =?us-ascii?Q?/OCC3/cHomGU2uAdh4tBmOGMnKGp3bdu5D1oJEF8VgAbMkY5cs+i9KLN73sE?=
+ =?us-ascii?Q?W9rc5rD23mZe/RgUBfHqr3Y6hWHp6qjZsdzjU+R5FbGjszNAyXbNHJj4ducD?=
+ =?us-ascii?Q?wjnpHL3u9JES4YY4r2nNyhs6AD2iKSpEJmrCBCXyBnCYWwip9fBWUCT+fieL?=
+ =?us-ascii?Q?+NEAg+QRMcTIg5jk8JVZVQx9eCtm9RyXCKjYJhi+cxQhZXhDspucZuu9GgZN?=
+ =?us-ascii?Q?lMlX7aE3HCe+4xWESfnW7WjWSJ1YYgGjHXo8na/Ixh6LtUdz9QWgPXHscm/L?=
+ =?us-ascii?Q?/LDcUZfVfAvKlFNh2Gh3G89b1LC4w+tWber9ynN92T2RzgRBBqONEeWua9NH?=
+ =?us-ascii?Q?T7uteBPUzQtf9+iHWxd1ILYvbKDAH9CQY0Hz8vbyQcdfCP63+54JCPsTbPQ7?=
+ =?us-ascii?Q?4nxkoqhq1kMmJKkZ5hLlhRwe4FRLkOSghaFbgvE53lo5JGeBCFIL7vL4PTPn?=
+ =?us-ascii?Q?GNtW9rILqERq0hOiAlTEVlFoonjKjY5lbko/Mdg8dFHVkDz5XjEVvpONG0ff?=
+ =?us-ascii?Q?MdyMZ54hPY1FivPtah6P4KbjVaL0x7DyAbO4Xpj3K8taaWmXtXVGXsJFV2fX?=
+ =?us-ascii?Q?b8o8FEm5yMwRJFmfiOgeTunwocvd4xkC4qEnou+ppAOg3lnfaacc056T5Jk7?=
+ =?us-ascii?Q?yHumhfjab+EAaFOmJ52wFQ/IhJyymTE0HjQLxG4G?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5cb1c269-caf3-4bdb-a58b-08dd9859569c
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2025 11:19:23.3062
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dNTjCSgN325RpjHkZhv+FjtJvXgwNajqQw98ZtSbJj7A5dHX61u7dpvcTSLp0D9LVLdUluiv5c96DrtSqR3kRw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10048
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_041608_355424_5E39ADB4 
-X-CRM114-Status: GOOD (  36.21  )
+X-CRM114-CacheID: sfid-20250521_041929_304449_F3140775 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,186 +163,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2025 08:48, Dev Jain wrote:
-> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
-> Architecture can override these helpers; in case not, they are implemented
-> as a simple loop over the corresponding single pte helpers.
-> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
->  include/linux/pgtable.h | 75 +++++++++++++++++++++++++++++++++++++++++
->  mm/mprotect.c           |  4 +--
->  2 files changed, 77 insertions(+), 2 deletions(-)
-> 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index b50447ef1c92..e40ed57e034d 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -1333,6 +1333,81 @@ static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
->  	__ptep_modify_prot_commit(vma, addr, ptep, pte);
->  }
->  #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
-> +
-> +/**
-> + * modify_prot_start_ptes - Start a pte protection read-modify-write transaction
-> + * over a batch of ptes, which protects against asynchronous hardware modifications
+From: Luke Wang <ziniu.wang_1@nxp.com>
 
-nit: This overflows the 80 char soft limit.
+On some new i.MX platforms, hardware guidelines recommend using identical
+pin configurations for SDR50/DDR50 (100MHz) and SDR104/HS400 (200MHz)
+modes. But defining two identical pinctrl for 100MHz and 200MHz in dts
+creates redundancy. In this case, omit explicit 100MHz configuration,
+driver will inherit 100MHz pinctrl from 200MHz.
 
-> + * to the ptes. The intention is not to prevent the hardware from making pte
-> + * updates, but to prevent any updates it may make from being lost.
-> + * Please see the comment above ptep_modify_prot_start() for full description.
-> + *
-> + * @vma: The virtual memory area the pages are mapped into.
-> + * @addr: Address the first page is mapped at.
-> + * @ptep: Page table pointer for the first entry.
-> + * @nr: Number of entries.
-> + *
-> + * May be overridden by the architecture; otherwise, implemented as a simple
-> + * loop over ptep_modify_prot_start(), collecting the a/d bits of the mapped
-> + * folio.
+Preserves existing behavior if 100MHz is configured but 200MHz not (e.g,
+imx8mp-navq.dts usdhc1 supports SDR50/DDR50 but SDR104/HS400 not).
 
-nit: "mapped folio" is a bit confusing given we are operating on ptes. Perhaps
-"collecting the a/d bits from each pte in the batch" is clearer.
+Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+---
+ drivers/mmc/host/sdhci-esdhc-imx.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-> + *
-> + * Note that PTE bits in the PTE range besides the PFN can differ.
-
-nit: Perhaps "batch" would be more consistent than "range"?
-
-> + *
-> + * Context: The caller holds the page table lock.  The PTEs map consecutive
-> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
-> + */
-> +#ifndef modify_prot_start_ptes
-> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
-> +		unsigned long addr, pte_t *ptep, unsigned int nr)
-
-I thought David H suggested modify_prot_ptes_start() and
-modify_prot_ptes_commit(), which we settled on? I'm personally fine with either
-though.
-
-> +{
-> +	pte_t pte, tmp_pte;
-> +
-> +	pte = ptep_modify_prot_start(vma, addr, ptep);
-> +	while (--nr) {
-
-I thought we agreed to make the loop logic a bit more standard. I don't recall
-exactly what was finally agreed, but I would think something like this would be
-better:
-
-	for (i = 1; i < nr; i++) {
-
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +		tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-> +		if (pte_dirty(tmp_pte))
-> +			pte = pte_mkdirty(pte);
-> +		if (pte_young(tmp_pte))
-> +			pte = pte_mkyoung(pte);
-> +	}
-> +	return pte;
-> +}
-> +#endif
-> +
-> +/**
-> + * modify_prot_commit_ptes - Commit an update to a batch of ptes, leaving any
-> + * hardware-controlled bits in the PTE unmodified.
-> + *
-> + * @vma: The virtual memory area the pages are mapped into.
-> + * @addr: Address the first page is mapped at.
-> + * @ptep: Page table pointer for the first entry.
-
-You've missed pte and old_pte params here.
-
-> + * @nr: Number of entries.
-> + *
-> + * May be overridden by the architecture; otherwise, implemented as a simple
-> + * loop over ptep_modify_prot_commit().
-> + *
-> + * Note that PTE bits in the PTE range besides the PFN can differ.
-
-How can it? All the applied bits other than the PFN will be exactly the same for
-the range because they all come from pte. I think this line can be dropped.
-
-> + *
-> + * Context: The caller holds the page table lock.  The PTEs map consecutive
-> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
-
-The middle sentance doesn't apply; the PTEs will all initially be none if using
-the default version of modify_prot_start_ptes(). I think that can be dropped.
-But I think you need to explain that this will be the case on exit.
-
-> + */
-> +#ifndef modify_prot_commit_ptes
-> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
-> +		pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < nr; ++i) {
-> +		ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +		old_pte = pte_next_pfn(old_pte);
-> +		pte = pte_next_pfn(pte);
-> +	}
-> +}
-> +#endif
-
-I have some general concerns about the correctness of batching these functions.
-The support was originally added by Commit 1ea0704e0da6 ("mm: add a
-ptep_modify_prot transaction abstraction"), and the intent was to make it easier
-to defer the pte updates for XEN on x86.
-
-Your default implementations of the batched versions will match the number of
-ptep_modify_prot_start() calls with the same number of ptep_modify_prot_commit()
-calls, even if modify_prot_commit_ptes() is called incrementally for sub-batches
-of the batch used for modify_prot_start_ptes(). That's a requirement and you've
-met it. But in the batched case, there are 2 differences;
-
-  - You can now have multiple PTEs within a start-commit block at one time. I
-hope none of the specialized implementations care about that (i.e. XEN).
-
-  - when calling ptep_modify_prot_commit(), old_pte may not be exactly what
-ptep_modify_prot_start() returned for that pte. You have collected the A/D bits,
-and according to your docs "PTE bits in the PTE range besides the PFN can
-differ" when calling modify_prot_start_ptes() so R/W and other things could
-differ here.
-
-I'm not sure if these are problems in practice; they probably are not. But have
-you checked the XEN implementation (and any other specialized implementations)
-are definitely compatible with your batched semantics?
-
-Thanks,
-Ryan
-
-> +
->  #endif /* CONFIG_MMU */
->  
->  /*
-> diff --git a/mm/mprotect.c b/mm/mprotect.c
-> index 1ee160ed0b14..124612ce3d24 100644
-> --- a/mm/mprotect.c
-> +++ b/mm/mprotect.c
-> @@ -188,7 +188,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->  						jiffies_to_msecs(jiffies));
->  			}
->  
-> -			oldpte = ptep_modify_prot_start(vma, addr, pte);
-> +			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
->  			ptent = pte_modify(oldpte, newprot);
->  
->  			if (uffd_wp)
-> @@ -214,7 +214,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->  			    can_change_pte_writable(vma, addr, ptent))
->  				ptent = pte_mkwrite(ptent, vma);
->  
-> -			ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
-> +			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
->  			if (pte_needs_flush(oldpte, ptent))
->  				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
->  			pages++;
+diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+index f206b562a6e3..dfd8be5000c8 100644
+--- a/drivers/mmc/host/sdhci-esdhc-imx.c
++++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+@@ -1810,6 +1810,9 @@ sdhci_esdhc_imx_probe_dt(struct platform_device *pdev,
+ 						ESDHC_PINCTRL_STATE_100MHZ);
+ 		imx_data->pins_200mhz = pinctrl_lookup_state(imx_data->pinctrl,
+ 						ESDHC_PINCTRL_STATE_200MHZ);
++
++		if (IS_ERR_OR_NULL(imx_data->pins_100mhz))
++			imx_data->pins_100mhz = imx_data->pins_200mhz;
+ 	}
+ 
+ 	/* call to generic mmc_of_parse to support additional capabilities */
+-- 
+2.34.1
 
 
