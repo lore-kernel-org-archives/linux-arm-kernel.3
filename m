@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE9EC54E92
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5484FC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FGYWoiXLj7kVP6+nn/sldwQfSwMDUHep4uz4UhkXmfU=; b=eoOBHIlshopjQ1AEgGXFPwN6KU
-	EXyO6F/PlxkjtE4oHNIWeh5oV+Y41/HuTX60EP3WTYi2/UWxcrT3M7tbAcHsii3mWM5l8QtJKZbGu
-	9P++1Q6TiwPQQa3DCqtCfkbOExCv7FMpozVxNHq18zWugoTuT/YXh61ekdSP8gkdOtOAQ41NWKjrW
-	+5bG22uSzXnAb2n8hw1CQiCHC12nRGBJ2zuV1SZa2EM8mK1fwngETwOLOkeTBE+Y6ftSWcjZJe4KD
-	PsKcCR+1dO5mmJNcIuxjusDbo4AzWXyFxAwytzY0DNasDFDz2jUgwE8FOTxafdvN+3Bd4krRpYU+H
-	xoNXTBew==;
+	bh=kITGBLaEuByWDlQ4ttUZ92NcpoYq1LnLyXeZLXQ06VQ=; b=LvXBfkw3gJYUhIHH9/Eir0HKI/
+	JeLdzwhpEv6AS3T3lkvgwlg1NqJlVzzTr6Va3QwgEvt7VwADowJgown1+wkyGoFie2V6xK5AX9RWT
+	70/BoThmqlwWBhaAuDdQNtEKEp2CORCilb9dxDCzuxEcmWmaFC/5hauikI89WealJW5Nc2A5ZE/zl
+	C85lnH/JzV7fZr94J83O4TZ5MysEuJa0zOpIu+KvygxhEiyEBqU9RRNQSUjMSjhLaGY76W3ag0F3R
+	ZVUXyN5Guy3cri8oWLIC5pwVVtYHcNaWXaL1Dk4y3j+gvhslWm/aKykjQzBVfviAweXl61IwVmE1h
+	1zWllbdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfaG-0000000FHQx-0Ve1;
-	Wed, 21 May 2025 09:17:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uHfcH-0000000FHoR-3S8P;
+	Wed, 21 May 2025 09:20:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfRS-0000000FGAh-0ZrZ
+	id 1uHfRr-0000000FGCO-3nuS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 09:08:51 +0000
+	Wed, 21 May 2025 09:09:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 171AA449D2;
-	Wed, 21 May 2025 09:08:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA87C4CEE4;
-	Wed, 21 May 2025 09:08:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 43D8443B67;
+	Wed, 21 May 2025 09:09:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C42CC4CEE4;
+	Wed, 21 May 2025 09:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747818529;
-	bh=Q8ICU0HW7kHVJWjIv6+77XsYzfgUxCqB0oF7lY2UNWw=;
+	s=k20201202; t=1747818555;
+	bh=rQWeD7Zv9S8lUfwgwcqjvMT3NtNYxB+ORXu2V9AzkaM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Vj/fm0Hu82tp28P2AwLohhiM6Cy6S2LVIJ3vloHt11uteg5LI6qt6mxud8ArjJzVy
-	 gHTRele2W9LOj5Yf2AELLU7O3Oq3H4Sw6+/xcG0l8ckyzvnYlLRo5GLVakpv/GkqYy
-	 +TizPivmuGtlPLEwc8VeMm9Y15WCzyylhlCVkSK600OVit+oAw191hS8ckg0VWJeWC
-	 Cnq+ykSekqtfSt+XRGfkPWMzI5ekS4UAYhCWj9//P7R1FrxC+RtB4beTzrt2tLZ/gP
-	 sKBQbyLU62zv7W8KmYsFYKj/QtRiMUHADq2EWVFnR2bwl/NRAfg3q0WDL+4EISWTPD
-	 842g8YQLkwDJw==
+	b=Xn9Uwkn6mweXruw9RicrdMOuWK+snyHBEQ9ymv6cVIFJJ/n12Qbx4bthyH8LdXujB
+	 kkiNJRLevZHe2P8JflQXN0pbI1S8mbqKt8SJbEJ1yIzedDS34lS6OgA3G2zk1sQDrb
+	 CtZ/+6k4E5xJq085hXQDR43k5boJ80Tgg7XjyX53C40YNpPq56Su9gXZWd6RsFv2B3
+	 O+Q8jhKk5Wamqn3DTpSJ4mXu5BnzNQYXzc4XgmNs+sukudYGMaFaCMThDvufi85PR+
+	 A+/Tzuup5+JsPgnXmBW2WsGkuN/FafeRJvg2pIh9x+Q7vk6i+Y/o71h959EQ7yMwku
+	 pPTgfrPf0e4gw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uHfRO-00Grjx-JP;
-	Wed, 21 May 2025 10:08:46 +0100
+	id 1uHfRo-00GrlR-NR;
+	Wed, 21 May 2025 10:09:12 +0100
 From: Marc Zyngier <maz@kernel.org>
-To: KVMARM <kvmarm@lists.linux.dev>,
-	ARMLinux <linux-arm-kernel@lists.infradead.org>,
-	Jing Zhang <jingzhangos@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: Re: [PATCH v2] KVM: arm64: vgic-its: Add debugfs interface to expose ITS tables
-Date: Wed, 21 May 2025 10:08:43 +0100
-Message-Id: <174781851463.4059676.13869760892502643353.b4-ty@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Hold mmu_lock when invalidating VNCR SW-TLB before translating
+Date: Wed, 21 May 2025 10:09:09 +0100
+Message-Id: <174781853950.4059800.1864401181776978793.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250220224247.2017205-1-jingzhangos@google.com>
-References: <20250220224247.2017205-1-jingzhangos@google.com>
+In-Reply-To: <20250520144116.3667978-1-maz@kernel.org>
+References: <20250520144116.3667978-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jingzhangos@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_020850_202216_7FF6297C 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250521_020915_962494_EB26E514 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,20 +86,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Feb 2025 14:42:46 -0800, Jing Zhang wrote:
-> This commit introduces a debugfs interface to display the contents of the
-> VGIC Interrupt Translation Service (ITS) tables.
+On Tue, 20 May 2025 15:41:16 +0100, Marc Zyngier wrote:
+> When translating a VNCR translation fault, we start by marking the
+> current SW-managed TLB as invalid, so that we can populate it
+> in place. This is, however, done without the mmu_lock held.
 > 
-> The ITS tables map Device/Event IDs to Interrupt IDs and target processors.
-> Exposing this information through debugfs allows for easier inspection and
-> debugging of the interrupt routing configuration.
+> A consequence of this is that another CPU dealing with TLBI
+> emulation can observe a translation still flagged as valid, but
+> with invalid walk results (such as pgshift being 0). Bad things
+> can result from this, such as a BUG() in pgshift_level_to_ttl().
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/1] KVM: arm64: vgic-its: Add debugfs interface to expose ITS tables
-      commit: 30deb51a677b96f0faf20373995fe0fb4a78b8b8
+[1/1] KVM: arm64: nv: Hold mmu_lock when invalidating VNCR SW-TLB before translating
+      commit: d43548f422f27219eff5ce1897336af2c4f15091
 
 Cheers,
 
