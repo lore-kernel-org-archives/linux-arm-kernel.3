@@ -4,156 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DA3C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 17:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34358C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 17:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iN+OoEWxf46UqFRSXFVkIJv4b4zVS7JR/Amkb9kE4Ig=; b=zB8+HYzfaxJAGemONbOT/uXDY8
-	ugZFksnOp70+lIUejT2bomffqYKzKpADXSBvCLPTQXxQWw0xInfSnhVk8zLcC8UBkIdaS74hJ8lut
-	8CSvFrqWt90bgrfdfxxFs8CKbQCSZ/Vvyz4J4WEFNOGXBCLyhu2QJLGuFim8AMfcG9tn64sNgy75u
-	Aox4wl9cHF3B8OT+uelyKQUgdfnFAqGWCj0iySQ6M+6AexJ7LTyG4CM0t7PdLJD232l6mNrhTsplm
-	oIPQpAE5/bWbF+SYR04G79iFYKXen6VSznNGRuCtJmIx252OAzKcevn9JF5uuzd8fOuoaigzvAa1L
-	c4cueDtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z2RtpehMoltKaAyI33ch9sMq6uy/YngHP0qu0/KZx5s=; b=nEjmgOwWabrSm9PWcbqmz6XrBE
+	Fu3p9eaQAVksJEtMA5fbx2BOCQKDcJ/BiUI0S+XdFBTxk+ZgD5wdqsyNf8dE8vlJqjGLAwE3K8k3X
+	1bRPzMIvBwZnC+XnWz+z6FenGjK/L0nzO7OCiffVkj7189Mu5XFlxqDd19Eb26i14vOzIsHTMB1nF
+	1DR3xVd/iejNb0aBubTJFms4e/7A8IO0iJeJFcQrzPPlIhlHpn5REcy8dZ+GcDjI6eFujfAR4m4VC
+	pR9xNRK7jYwI22YePXDOkx00dofFIcvNFyqwQd5XM6mIJTIeJJM+iZ/z0GTmPc+hgYU4M+G1K4RT9
+	K1iKGB+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHnRa-0000000Gb1R-0GzY;
-	Wed, 21 May 2025 17:41:30 +0000
-Received: from mail-vi1eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2613::621] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1uHnUQ-0000000GbdX-2aE6;
+	Wed, 21 May 2025 17:44:26 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHnLC-0000000GaEw-0vsd
+	id 1uHnSE-0000000GbOP-3bdT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 17:34:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TIc3FfRRKiU+un1V8e3/bwnyGOaQXUeSdTQqbMegfhhlYruwKbJ99J8SWD73lnWeeP3BRCspmqY8YglAUMMvQY8J3/xgXIfitpn1VzDwA5ZYJLOL38NSN9AI2SYxZkx2wY5mL9VoYy1T7FzMYOFm1Ez3J9CTsFeQS9JRmF2xnPviyXHYXTe7J2lpj0C2TF8t0X1IZHGEwtH9rW8d0IPE0rkD5w0WQA4nT3L3jLqRRHFcfM+JBzIomjDf0G1M5lBo41DM2kFOfzlRIOBpp5+hMPM8BRNXz8X70l+oOYpxCc5tALrf+H+q2iFmwJRgQnsVD37n3fYvNDe6rtPWNXqKfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iN+OoEWxf46UqFRSXFVkIJv4b4zVS7JR/Amkb9kE4Ig=;
- b=CktfmbyJnfQR2YaFa336sGzLUyNPZJcKUVMH2jpKnbws1C/K3tyAlHKXe2/R/NQaxjrOwysp+rTGaKkp34XqljXel4cm2FMojOmJWmjSRlkfjwQ2pW2RX6DytEi6fszbx3y6i/D+DLpFtqtGQX+biX12+mknUU4VHljgGXYu4ht5NGP7h12iwCP1KF4yHWwhdC990a/NvNbfbv2WlxOBGR319OaU/DwY3mNKelipfDWdXhN8C1ai5AXghThZJdrPT3jYwUJndcICej64T99C6rZmc0Oh7HplSVrgmk1sc+O/D2esCQj030RjCrtneSahdZSThgx+awM6KHIjkdh/gA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iN+OoEWxf46UqFRSXFVkIJv4b4zVS7JR/Amkb9kE4Ig=;
- b=TeSHdOojNMESKjSdzfqyIpqsYkM5M9mKcSx18YFcV+wYP2cHEvQM/CqrAHF6wCL5X7QutZmwz0tnFyyHuGn8E2TQL0kdPRJRIvC6mIg6ir9kHO/caCOZMYaPr7fVlTuW4fLkvJKTJlA2TP0VqyiHqcn4UBKOSH2MgutR9P2bc6thh/b7PT12s9VYVcloP7Hi3KOK3l8FhXf8WjuTGV7E7OMhxaikOSvedq8160HyQsoHbdV+rk2Nu5cxFfsmHwQ109xd6gCOqfFRzefGjfQa9CgUiKh3NRoDAWPKRFQb5kmxrZ5T4wCteduuZj8k3N8ngnwomwfRf9NiQDq5lUjJ2A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VE1PR04MB7389.eurprd04.prod.outlook.com (2603:10a6:800:1b1::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.31; Wed, 21 May
- 2025 17:34:52 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 21 May 2025
- 17:34:51 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: mirela.rabulea@nxp.com,
-	mchehab@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Wed, 21 May 2025 17:42:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747849331; x=1779385331;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=zILedU8aIBwOZV+2G1TrvBXeLPQ8UB3Yl8VhAYL566s=;
+  b=e5DMnP09Z4OecB4fo38ituLoL73p91OgAkLzcYNPMMEQ42zyh/AyTfsN
+   SpYVdokDFlNH/8KSTb4kGnYhwdbqERUSJs4OOZeHTKzLOqhjk3n4hS77Y
+   khSqy9l0hR+0E+EuWGYX6mSz+df8aC91Z6zdZVtxeOR47S/BYuDkNu4VN
+   7IOPwapETwmZmyVyAfR9++eKYqu1ApmSBsNqT5pRgmVSlHrqRPglPfQXa
+   VtNXfL0Ndw4emq5SoV2wIO+WdwwvijjKiqDq+DYKvqFrFMqtnx8pQCKSC
+   +hxK4KliQ6rNJfchR7bqujqg8dLIK0Yt5FuL82N/0bQAZ2TRTKmF+u/jM
+   A==;
+X-CSE-ConnectionGUID: yJ+OyUNLRCS+yENKoDkqaQ==
+X-CSE-MsgGUID: kBT+c1t/QfGPBfrBLEUVNA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11440"; a="61252111"
+X-IronPort-AV: E=Sophos;i="6.15,304,1739865600"; 
+   d="scan'208";a="61252111"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 May 2025 10:42:04 -0700
+X-CSE-ConnectionGUID: qNbmyK/7TbGW6UT8eUGwcg==
+X-CSE-MsgGUID: ECERoRRvSN6yuz91U4AnZw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,304,1739865600"; 
+   d="scan'208";a="171042032"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by orviesa002.jf.intel.com with ESMTP; 21 May 2025 10:41:57 -0700
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id DC1DA368; Wed, 21 May 2025 20:41:55 +0300 (EEST)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	linux-alpha@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	ming.qian@nxp.com
-Subject: [PATCH RESEND 2/2] arm64: dts: imx95: add jpeg encode and decode nodes
-Date: Wed, 21 May 2025 13:34:04 -0400
-Message-Id: <20250521173444.310641-2-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250521-95_jpeg-v1-0-392de5d29672@nxp.com>
-References: <20250521-95_jpeg-v1-0-392de5d29672@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0P220CA0010.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:41b::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	linux-arm-kernel@lists.infradead.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org
+Cc: Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Ian Molton <spyro@f2s.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Denis Efremov <efremov@linux.com>
+Subject: [PATCH v1 1/1] floppy: Remove unused CROSS_64K() macro from arch/ code
+Date: Wed, 21 May 2025 20:41:52 +0300
+Message-ID: <20250521174152.1339379-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VE1PR04MB7389:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1fc054e-4173-4d24-bc40-08dd988dcad7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yvjm+XNi7NErvCryQ4adLqTETc/sCgz2ktZ7MpfjyQwHwVu9+a2INcpK7Fwo?=
- =?us-ascii?Q?zYa7UyvSXkjx5iR3mk7aenBHiO+iR0JxO91NjRDiIOWghfmkTjosp8M+1Mu+?=
- =?us-ascii?Q?YJ6oOPN3YjEFEYkZN62UMt967Dm13jCgoqlStJuj0Jg80uvnqtEQketjGiAn?=
- =?us-ascii?Q?r1R6/rbGbjt5wYfr39GNmNZSKbe3YypzClqVfbIpQk4QhNFtF7+25LuZszV5?=
- =?us-ascii?Q?qrB5NYoV9UkEJYUWP6NEI1prMDt4QYBm7SAP/LUDvG8BDGPlH7FPNbQhysvr?=
- =?us-ascii?Q?Z5mOtHNn5BAJ5LpCmYA7ErTL0YDYGnH3KstyDP0c9ULiAgVw8gAlN2ORsBA5?=
- =?us-ascii?Q?hXbMLiQgB4s3wuANyhbKvy/mgl9jUeI8t3SCImWbuxfwskJsucUbYDeoiY8Y?=
- =?us-ascii?Q?/ncIB3wz01iNGwKut1ckycZ8nqum2r08RdypWV/oczMEGcJPD1NPQ/0x2DRB?=
- =?us-ascii?Q?aEeLdPiR+SJ5qXg3qsiC1K0Fafp4rEHUonYzCP11BMy52850e/Tg+0x9TEnE?=
- =?us-ascii?Q?Nm5qc9DpGRGD9BE4RmeR+mbhdW3JKBJkP1IYwQ+1EjzEG3ajG/vAEG6dQwi6?=
- =?us-ascii?Q?d5tuMG1YScrBo2UmBO6XvW/k1C9nMSU+Hx6/j5T6y3wtEskPwDmy6p7mgO1m?=
- =?us-ascii?Q?kuSAe911R+eaMtCEXWewzs0ESeB4WEnuLesploIbmU2FifurK/82qM0q6AT3?=
- =?us-ascii?Q?reAj64PKETgj+CPuCwEolc0NOAwL8MSDdtdRqmYsyzGKi7I3UyKUnsR9bXQX?=
- =?us-ascii?Q?Qd4uz+SbgDXS90ceq+pQ2/n/HCa9eaBtGbtqSTmU6CwSkzp1373fZvozmrXn?=
- =?us-ascii?Q?USIAlp6HFx9xIc95MNqs1rheQOQpvwlIQMEoVOFicqryDhMWSysS/KORnMbz?=
- =?us-ascii?Q?7uCUoG7P5GGLBBJR36YaYlsI56nUPtykCftGADu6Cf4/iBy+4OJB25Sch7sp?=
- =?us-ascii?Q?cEyHU+yASz1PFqr0NEI8XSGmWfeNvTrC6nCyc7tYDzdzpVU2raX8aj1pQZoE?=
- =?us-ascii?Q?7Q0wYgsjiCHjGDBrkIEceTcA2tHj88TvvPdVbIO2WdF3swmUuKB2BPkECuHv?=
- =?us-ascii?Q?7HC6Dsr7og87vJj49iqk6oltQBc7sWYXTS5AY4VAEzj/pX+2ZEBo9pD5Zw2N?=
- =?us-ascii?Q?APdW0fdSStoGA1aZ/UXod3G2Jq6FMRiQSIospvUqAuM1nRTJcrgm3phOJdxy?=
- =?us-ascii?Q?I3SAKx7TTc+Nz1Vujbt5q9Q7qbk5ouG4+y7j4ZHC+1nsw90VBtLqHfsIgE4v?=
- =?us-ascii?Q?41azeB0wv2RL1vfdMVAkoNLx+AShT3WGv94NzB6fZHDYNkOE2qA5AT7HB74B?=
- =?us-ascii?Q?UCqqhVcu5eLS1wcniGkuUXD8uFuJ0mbiJr+bF6SkkSU8qGRuGTEK2tBc4c6X?=
- =?us-ascii?Q?hxFod1YydmLGXSV5rTQ17d19weniySaColjN1gRM+JH21AHrYAqoy5o2wggm?=
- =?us-ascii?Q?Glj3kAm62cLp752rZU9xNVd3kkVcx7GMDLse3PmCNmC1E4Cb5zF7wQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kyQ1oRiOZrG4lzRkx4k4ZxSi7Q3KKyzATxpfSu5bAh0Wn0HDMXa5udby+Aoz?=
- =?us-ascii?Q?Dr3SStnKiiJhAqvFlAp/uD0bBLyhBLNEMKiywfwUb8iqUSdcx7zEsFVnGeT4?=
- =?us-ascii?Q?kLdJAGfTurFrnqWvVhEbEB88OUilDCSXqHY1/450qv83l1GiAow/w8e9RSp6?=
- =?us-ascii?Q?ySO5AUQr1M/hqEJ4KLSAFoA9Tcn19oFH3phREX7xGpz3Ufq4aCM4/g/kmRbW?=
- =?us-ascii?Q?AAhtXpXxf+lRSoaWTuAX6tOdvgJN7L/vt9Z6OfYaJWiEOJUBRefJmOl5q4fF?=
- =?us-ascii?Q?qhO8NCSQcMmLjkveclLcZnaQUb0LSfmvIdH6aYlgX1y9uB8z2Q4iLto9QNqr?=
- =?us-ascii?Q?d7MRy1HvGALIbciwEhCMRtH2MkE7aFLz1AuGG4CXOwrkZaQUMoEzCMoVDFI/?=
- =?us-ascii?Q?1Rzp27kRApI+abUd7R3PmrReIeSdPFrwuyrOTlQ2SmaHJBLdtGRVRC0vrYzA?=
- =?us-ascii?Q?n5xAn3KwLA6nMw/WaILNuYjIH2HqLbBSgs657i63YsyJz7zrYST2sBswBSh3?=
- =?us-ascii?Q?BFXiSh9sZpIHa0QAKqDh53qzcbbG3TGrMPZT06UkBk4L22wfimR0W0EbOeWr?=
- =?us-ascii?Q?N479YV89y0RKhC7gcgqpY5E4VZHYPQMKEV93uiFVf6rs4ZcVIaUnsItJ+g16?=
- =?us-ascii?Q?wNxIeqRWuoiBDjDK8wkjjKLwGV+OGnDX50MpRk1UgYSz5Y7zxbEYACMS6DLr?=
- =?us-ascii?Q?VlagJsjhwCJbZnffz+WxrLdFm6jtzvRtDfDDE2ZD/wBy8i/ya80HCzSYD53S?=
- =?us-ascii?Q?oxihAjbMzbUe5zHH7TbTP3a32hLbr43gqP2+hmotLZZjroLND/Z3QNEGZCjM?=
- =?us-ascii?Q?y6FnyzKVbTKtcigQoq3ocIyneYVP/JJsyGdy2bMzh20yFyl3G7lmEpPw330w?=
- =?us-ascii?Q?BgOHUDWbXDrhwKKN4TsLJUzHlronqBziBZd/HCXJ9cs/LRwxaYP3ZrCmyC78?=
- =?us-ascii?Q?f54ZVthN5wlGtNM/RE0BGp3kwO0Tu5FukSnQomKKV+TWjO88xzOTRXW+/rZm?=
- =?us-ascii?Q?PZ+PS2uoTR2ctaa5Fazro2XCZUGORI80QDUZaTU0BODSizmZPpBioMlY8hzi?=
- =?us-ascii?Q?j1fKZyfiAZ5Epv/Lm5QeSC+6pJoi3bT0CYVp2gt2WeT+cfdAm6NL0iEdcAdY?=
- =?us-ascii?Q?a2OumkMYpPV/wxMT9QY/a7vnbuGuoSr+UGuL0fadEtXeIX1klLDoT47SamXr?=
- =?us-ascii?Q?jZY+RnntYnrMxrEF/20REGgqHwSx5DxBnQSSq0UCxAxA4aCp5lnh6qYNv+rM?=
- =?us-ascii?Q?EarSewR1XUnbw2knLNamO8mKYuiuwhBHtnIZpvrg4AaNmyWvOuznIz8hfl8o?=
- =?us-ascii?Q?GRgBfkzplxql6c2vBwZ3EbHDc57NCYoL0fr2A7L0KXdWlCEnjcNuBJCTnMxK?=
- =?us-ascii?Q?hWUIeW/yAS8WEmKKDFkewsqlFasW5AndivYcpGhkrb8G2kPcmjbgM6j+Vn9N?=
- =?us-ascii?Q?xVwGzqLeGAePSzbr/lrg8vs/EeigQ3AYmlWLd1Ll+ypzp8dOaQHoTnRFtNQ3?=
- =?us-ascii?Q?P22p5ahdS/4Ik1Ap9hbd39a1gyQCvf2r1KHWAZWBzHGBQRsWSRFaDgUoWyk/?=
- =?us-ascii?Q?T1V94LrcydWXEe5mHVm+OLTXBP0s4I2S3RkI9F7+?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1fc054e-4173-4d24-bc40-08dd988dcad7
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2025 17:34:51.8782
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gniTEGxjc8AgQuYhCWmxXwZiR+H3fLwwyVY8b4FYCnIbQZoJtiRM5d1n8ndapgnjXnP6/MnLkODr4vXubT5CkA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7389
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_103454_262650_FE739836 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250521_104210_939032_332F3837 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,76 +111,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add jpeg encode\decode and related nodes for i.MX95.
+Since the commit 3d86739c6343 ("floppy: always use the track buffer")
+the CROSS_64K() is not used by the driver, remove the leftovers.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- arch/arm64/boot/dts/freescale/imx95.dtsi | 44 ++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+ arch/alpha/include/asm/floppy.h    | 19 -------------------
+ arch/arm/include/asm/floppy.h      |  2 --
+ arch/m68k/include/asm/floppy.h     |  4 ----
+ arch/mips/include/asm/floppy.h     | 15 ---------------
+ arch/parisc/include/asm/floppy.h   |  6 +-----
+ arch/powerpc/include/asm/floppy.h  |  5 -----
+ arch/sparc/include/asm/floppy_32.h |  3 ---
+ arch/sparc/include/asm/floppy_64.h |  3 ---
+ arch/x86/include/asm/floppy.h      |  5 +----
+ 9 files changed, 2 insertions(+), 60 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 632631a291122..d38bbe8b16d7e 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -3,6 +3,7 @@
-  * Copyright 2024 NXP
-  */
+diff --git a/arch/alpha/include/asm/floppy.h b/arch/alpha/include/asm/floppy.h
+index 64b42d9591fc..5a6239e65097 100644
+--- a/arch/alpha/include/asm/floppy.h
++++ b/arch/alpha/include/asm/floppy.h
+@@ -90,25 +90,6 @@ static int FDC2 = -1;
+ #define N_FDC 2
+ #define N_DRIVE 8
  
-+#include <dt-bindings/clock/nxp,imx95-clock.h>
- #include <dt-bindings/dma/fsl-edma.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
-@@ -1801,6 +1802,49 @@ pcie1_ep: pcie-ep@4c380000 {
- 			status = "disabled";
- 		};
+-/*
+- * Most Alphas have no problems with floppy DMA crossing 64k borders,
+- * except for certain ones, like XL and RUFFIAN.
+- *
+- * However, the test is simple and fast, and this *is* floppy, after all,
+- * so we do it for all platforms, just to make sure.
+- *
+- * This is advantageous in other circumstances as well, as in moving
+- * about the PCI DMA windows and forcing the floppy to start doing
+- * scatter-gather when it never had before, and there *is* a problem
+- * on that platform... ;-}
+- */
+-
+-static inline unsigned long CROSS_64KB(void *a, unsigned long s)
+-{
+-	unsigned long p = (unsigned long)a;
+-	return ((p + s - 1) ^ p) & ~0xffffUL;
+-}
+-
+ #define EXTRA_FLOPPY_PARAMS
  
-+		vpu_blk_ctrl: clock-controller@4c410000 {
-+			compatible = "nxp,imx95-vpu-csr", "syscon";
-+			reg = <0x0 0x4c410000 0x0 0x10000>;
-+			#clock-cells = <1>;
-+			clocks = <&scmi_clk IMX95_CLK_VPUAPB>;
-+			power-domains = <&scmi_devpd IMX95_PD_VPU>;
-+			assigned-clocks = <&scmi_clk IMX95_CLK_VPUAPB>,
-+					  <&scmi_clk IMX95_CLK_VPU>,
-+					  <&scmi_clk IMX95_CLK_VPUJPEG>;
-+			assigned-clock-parents = <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>,
-+						 <&scmi_clk IMX95_CLK_SYSPLL1_PFD2>,
-+						 <&scmi_clk IMX95_CLK_SYSPLL1_PFD0>;
-+			assigned-clock-rates = <133333333>, <667000000>, <500000000>;
-+		};
-+
-+		jpegdec: jpegdec@4c500000 {
-+			compatible = "nxp,imx95-jpgdec", "nxp,imx8qxp-jpgdec";
-+			reg = <0x0 0x4C500000 0x0 0x00050000>;
-+			interrupts = <GIC_SPI 295 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 296 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 297 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&scmi_clk IMX95_CLK_VPU>,
-+				 <&vpu_blk_ctrl IMX95_CLK_VPUBLK_JPEG_DEC>;
-+			assigned-clocks = <&vpu_blk_ctrl IMX95_CLK_VPUBLK_JPEG_DEC>;
-+			assigned-clock-parents = <&scmi_clk IMX95_CLK_VPUJPEG>;
-+			power-domains = <&scmi_devpd IMX95_PD_VPU>;
-+		};
-+
-+		jpegenc: jpegenc@4c550000 {
-+			compatible = "nxp,imx95-jpgenc", "nxp,imx8qxp-jpgenc";
-+			reg = <0x0 0x4C550000 0x0 0x00050000>;
-+			interrupts = <GIC_SPI 291 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 292 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 293 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 294 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&scmi_clk IMX95_CLK_VPU>,
-+				 <&vpu_blk_ctrl IMX95_CLK_VPUBLK_JPEG_ENC>;
-+			assigned-clocks = <&vpu_blk_ctrl IMX95_CLK_VPUBLK_JPEG_DEC>;
-+			assigned-clock-parents = <&scmi_clk IMX95_CLK_VPUJPEG>;
-+			power-domains = <&scmi_devpd IMX95_PD_VPU>;
-+		};
-+
- 		netcmix_blk_ctrl: syscon@4c810000 {
- 			compatible = "nxp,imx95-netcmix-blk-ctrl", "syscon";
- 			reg = <0x0 0x4c810000 0x0 0x8>;
+ #endif /* __ASM_ALPHA_FLOPPY_H */
+diff --git a/arch/arm/include/asm/floppy.h b/arch/arm/include/asm/floppy.h
+index e1cb04ed5008..e579f77162e9 100644
+--- a/arch/arm/include/asm/floppy.h
++++ b/arch/arm/include/asm/floppy.h
+@@ -65,8 +65,6 @@ static unsigned char floppy_selects[4] = { 0x10, 0x21, 0x23, 0x33 };
+ #define N_FDC 1
+ #define N_DRIVE 4
+ 
+-#define CROSS_64KB(a,s) (0)
+-
+ /*
+  * This allows people to reverse the order of
+  * fd0 and fd1, in case their hardware is
+diff --git a/arch/m68k/include/asm/floppy.h b/arch/m68k/include/asm/floppy.h
+index a4d0fea47c6b..dea98bbc0932 100644
+--- a/arch/m68k/include/asm/floppy.h
++++ b/arch/m68k/include/asm/floppy.h
+@@ -107,13 +107,9 @@ static void fd_free_irq(void)
+ 
+ #define fd_free_dma()             /* nothing */
+ 
+-/* No 64k boundary crossing problems on Q40 - no DMA at all */
+-#define CROSS_64KB(a,s) (0)
+-
+ #define DMA_MODE_READ  0x44    /* i386 look-alike */
+ #define DMA_MODE_WRITE 0x48
+ 
+-
+ static int m68k_floppy_init(void)
+ {
+   use_virtual_dma =1;
+diff --git a/arch/mips/include/asm/floppy.h b/arch/mips/include/asm/floppy.h
+index 021d09ae5670..44da2ff91f65 100644
+--- a/arch/mips/include/asm/floppy.h
++++ b/arch/mips/include/asm/floppy.h
+@@ -34,21 +34,6 @@ static inline void fd_cacheflush(char * addr, long size)
+ #define N_FDC 1			/* do you *really* want a second controller? */
+ #define N_DRIVE 8
+ 
+-/*
+- * The DMA channel used by the floppy controller cannot access data at
+- * addresses >= 16MB
+- *
+- * Went back to the 1MB limit, as some people had problems with the floppy
+- * driver otherwise. It doesn't matter much for performance anyway, as most
+- * floppy accesses go through the track buffer.
+- *
+- * On MIPSes using vdma, this actually means that *all* transfers go thru
+- * the * track buffer since 0x1000000 is always smaller than KSEG0/1.
+- * Actually this needs to be a bit more complicated since the so much different
+- * hardware available with MIPS CPUs ...
+- */
+-#define CROSS_64KB(a, s) ((unsigned long)(a)/K_64 != ((unsigned long)(a) + (s) - 1) / K_64)
+-
+ #define EXTRA_FLOPPY_PARAMS
+ 
+ #include <floppy.h>
+diff --git a/arch/parisc/include/asm/floppy.h b/arch/parisc/include/asm/floppy.h
+index b318a7df52f6..df20dbef3ada 100644
+--- a/arch/parisc/include/asm/floppy.h
++++ b/arch/parisc/include/asm/floppy.h
+@@ -22,13 +22,9 @@
+ #define _CROSS_64KB(a,s,vdma) \
+ (!(vdma) && ((unsigned long)(a)/K_64 != ((unsigned long)(a) + (s) - 1) / K_64))
+ 
+-#define CROSS_64KB(a,s) _CROSS_64KB(a,s,use_virtual_dma & 1)
+-
+-
+ #define SW fd_routine[use_virtual_dma&1]
+ #define CSW fd_routine[can_use_virtual_dma & 1]
+ 
+-
+ #define fd_inb(base, reg)		readb((base) + (reg))
+ #define fd_outb(value, base, reg)	writeb(value, (base) + (reg))
+ 
+@@ -206,7 +202,7 @@ static int vdma_dma_setup(char *addr, unsigned long size, int mode, int io)
+ static int hard_dma_setup(char *addr, unsigned long size, int mode, int io)
+ {
+ #ifdef FLOPPY_SANITY_CHECK
+-	if (CROSS_64KB(addr, size)) {
++	if (_CROSS_64KB(addr, size, use_virtual_dma & 1)) {
+ 		printk("DMA crossing 64-K boundary %p-%p\n", addr, addr+size);
+ 		return -1;
+ 	}
+diff --git a/arch/powerpc/include/asm/floppy.h b/arch/powerpc/include/asm/floppy.h
+index f8ce178b43b7..048c0c5cdf30 100644
+--- a/arch/powerpc/include/asm/floppy.h
++++ b/arch/powerpc/include/asm/floppy.h
+@@ -203,11 +203,6 @@ static int FDC2 = -1;
+ #define N_FDC 2			/* Don't change this! */
+ #define N_DRIVE 8
+ 
+-/*
+- * The PowerPC has no problems with floppy DMA crossing 64k borders.
+- */
+-#define CROSS_64KB(a,s)	(0)
+-
+ #define EXTRA_FLOPPY_PARAMS
+ 
+ #endif /* __KERNEL__ */
+diff --git a/arch/sparc/include/asm/floppy_32.h b/arch/sparc/include/asm/floppy_32.h
+index 836f6575aa1d..7251d1fed7a4 100644
+--- a/arch/sparc/include/asm/floppy_32.h
++++ b/arch/sparc/include/asm/floppy_32.h
+@@ -96,9 +96,6 @@ static struct sun_floppy_ops sun_fdops;
+ #define N_FDC    1
+ #define N_DRIVE  8
+ 
+-/* No 64k boundary crossing problems on the Sparc. */
+-#define CROSS_64KB(a,s) (0)
+-
+ /* Routines unique to each controller type on a Sun. */
+ static void sun_set_dor(unsigned char value, int fdc_82077)
+ {
+diff --git a/arch/sparc/include/asm/floppy_64.h b/arch/sparc/include/asm/floppy_64.h
+index b0f633ce3518..135f9a49b6ba 100644
+--- a/arch/sparc/include/asm/floppy_64.h
++++ b/arch/sparc/include/asm/floppy_64.h
+@@ -95,9 +95,6 @@ static int sun_floppy_types[2] = { 0, 0 };
+ #define N_FDC    1
+ #define N_DRIVE  8
+ 
+-/* No 64k boundary crossing problems on the Sparc. */
+-#define CROSS_64KB(a,s) (0)
+-
+ static unsigned char sun_82077_fd_inb(unsigned long base, unsigned int reg)
+ {
+ 	udelay(5);
+diff --git a/arch/x86/include/asm/floppy.h b/arch/x86/include/asm/floppy.h
+index 6ec3fc969ad5..e76cb74bbed2 100644
+--- a/arch/x86/include/asm/floppy.h
++++ b/arch/x86/include/asm/floppy.h
+@@ -24,9 +24,6 @@
+ 	(!(vdma) &&							\
+ 	 ((unsigned long)(a)/K_64 != ((unsigned long)(a) + (s) - 1) / K_64))
+ 
+-#define CROSS_64KB(a, s) _CROSS_64KB(a, s, use_virtual_dma & 1)
+-
+-
+ #define SW fd_routine[use_virtual_dma & 1]
+ #define CSW fd_routine[can_use_virtual_dma & 1]
+ 
+@@ -206,7 +203,7 @@ static int vdma_dma_setup(char *addr, unsigned long size, int mode, int io)
+ static int hard_dma_setup(char *addr, unsigned long size, int mode, int io)
+ {
+ #ifdef FLOPPY_SANITY_CHECK
+-	if (CROSS_64KB(addr, size)) {
++	if (_CROSS_64KB(addr, size, use_virtual_dma & 1)) {
+ 		printk("DMA crossing 64-K boundary %p-%p\n", addr, addr+size);
+ 		return -1;
+ 	}
 -- 
-2.34.1
+2.47.2
 
 
