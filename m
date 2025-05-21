@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA82AC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC3DC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OIURXDk/31vyLyONnKEzi5byuR3Ty4QIUpEbqaN617Y=; b=wA69yNKvOWur3AeP0gDTmh4IIr
-	zWiiJaxLP7o83rlPfoPCgC+prnDyWrOyVXNm0pZ7gj18tB7uwgFO6o4iBXfiatQn6I3lqlS7CDLeF
-	4RzKswfM6XaMlkQYn4UMAch5ynxY9rWc9U3YVTV9xrsY+C/957DLlNrX1H9FlM1s68E0gJcDXyn/s
-	+QBe0UXKsOr1vXPxZhqX9MK1JC5/F8tTT7ZIfT8zrHG311FBpNoxyWSImd2LhGdA3oUo9B8LbPOof
-	6jkktTh7X4RJIDtf9kwuJSHEgO11VlyAZ+cxhCYXFuzek0vRHxJs34NBwtQCxEEnIqC3j7lVrB2RP
-	F8EhP/zg==;
+	bh=Ow1YsBKMJyJO4Jy9CGela0xfrQwwwKForTk6v9nzhdI=; b=PYdGbj08eR0jaNiWM0H4+huXSM
+	pAvlmFaEb+KIA1aCU0GcMH5PFz0pLglexLgvqhcldMEu0wImU585W1YNwRCsUT21XcssozGx/aKdh
+	Bks94x2GfA6JEcZXP1Jw5oQqZU1KpghPdujbLfPpwuznzjiVgZV+laO9MJLpr2KACreBcpJ812tQ8
+	S61AIkYYJ5MrGmuIGmkQUZwM2D0Whnvex5dJ9p38otG2tAP6RjW/6kN2xY4An83OIOR3hmyAiykuA
+	KEFGI2yxUvgMKjujArv33FZmkmaR68atFFW5j3EKCkuepMUYuWiAxTiU92bkYVPCI+Q54JGA4GZOK
+	UDAHRekw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhSb-0000000FbhT-1haQ;
-	Wed, 21 May 2025 11:18:09 +0000
+	id 1uHhUd-0000000FbvF-0P1u;
+	Wed, 21 May 2025 11:20:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhKy-0000000FafJ-1rpA
+	id 1uHhQe-0000000FbQQ-0uGH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 11:10:17 +0000
+	Wed, 21 May 2025 11:16:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62FAD25E9;
-	Wed, 21 May 2025 04:10:02 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 249DD3F6A8;
-	Wed, 21 May 2025 04:10:14 -0700 (PDT)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: andrea.porta@suse.com,
-	catalin.marinas@arm.com,
-	jpoimboe@kernel.org,
-	leitao@debian.org,
-	linux-toolchains@vger.kernel.org,
-	live-patching@vger.kernel.org,
-	mark.rutland@arm.com,
-	mbenes@suse.cz,
-	pmladek@suse.com,
-	song@kernel.org,
-	will@kernel.org
-Subject: [PATCH 2/2] arm64: stacktrace: Implement arch_stack_walk_reliable()
-Date: Wed, 21 May 2025 12:10:00 +0100
-Message-Id: <20250521111000.2237470-3-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20250521111000.2237470-1-mark.rutland@arm.com>
-References: <20250521111000.2237470-1-mark.rutland@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA2FC263D;
+	Wed, 21 May 2025 04:15:53 -0700 (PDT)
+Received: from [10.57.94.227] (unknown [10.57.94.227])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A21A3F6A8;
+	Wed, 21 May 2025 04:16:03 -0700 (PDT)
+Message-ID: <59242559-5e90-4422-82f7-179a44eb968a@arm.com>
+Date: Wed, 21 May 2025 12:16:02 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/5] mm: Add batched versions of
+ ptep_modify_prot_start/commit
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
+Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
+ jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
+ joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250519074824.42909-1-dev.jain@arm.com>
+ <20250519074824.42909-3-dev.jain@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250519074824.42909-3-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_041016_569749_905724A3 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20250521_041608_355424_5E39ADB4 
+X-CRM114-Status: GOOD (  36.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,156 +73,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Song Liu <song@kernel.org>
+On 19/05/2025 08:48, Dev Jain wrote:
+> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
+> Architecture can override these helpers; in case not, they are implemented
+> as a simple loop over the corresponding single pte helpers.
+> 
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  include/linux/pgtable.h | 75 +++++++++++++++++++++++++++++++++++++++++
+>  mm/mprotect.c           |  4 +--
+>  2 files changed, 77 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index b50447ef1c92..e40ed57e034d 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -1333,6 +1333,81 @@ static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
+>  	__ptep_modify_prot_commit(vma, addr, ptep, pte);
+>  }
+>  #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
+> +
+> +/**
+> + * modify_prot_start_ptes - Start a pte protection read-modify-write transaction
+> + * over a batch of ptes, which protects against asynchronous hardware modifications
 
-Add arch_stack_walk_reliable(), which will be used during kernel live
-patching to detect when threads have completed executing old versions of
-functions.
+nit: This overflows the 80 char soft limit.
 
-Note that arch_stack_walk_reliable() only needs to guarantee that it
-returns an error code when it cannot provide a reliable stacktrace. It
-is not required to provide a reliable stacktrace in all scenarios so
-long as it returns said error code.
+> + * to the ptes. The intention is not to prevent the hardware from making pte
+> + * updates, but to prevent any updates it may make from being lost.
+> + * Please see the comment above ptep_modify_prot_start() for full description.
+> + *
+> + * @vma: The virtual memory area the pages are mapped into.
+> + * @addr: Address the first page is mapped at.
+> + * @ptep: Page table pointer for the first entry.
+> + * @nr: Number of entries.
+> + *
+> + * May be overridden by the architecture; otherwise, implemented as a simple
+> + * loop over ptep_modify_prot_start(), collecting the a/d bits of the mapped
+> + * folio.
 
-At present we can only reliably unwind up to an exception boundary. In
-future we should be able to improve this with additional data from the
-compiler (e.g. sframe).
+nit: "mapped folio" is a bit confusing given we are operating on ptes. Perhaps
+"collecting the a/d bits from each pte in the batch" is clearer.
 
-Signed-off-by: Song Liu <song@kernel.org>
-Link: https://lore.kernel.org/r/20250320171559.3423224-2-song@kernel.org
-[ Mark: Simplify logic, clarify commit message ]
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>
-Cc: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Miroslav Benes <mbenes@suse.cz>
-Cc: Petr Mladek <pmladek@suse.com>
-Cc: Song Liu <song@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/Kconfig             |  2 +-
- arch/arm64/kernel/stacktrace.c | 53 +++++++++++++++++++++++++++-------
- 2 files changed, 44 insertions(+), 11 deletions(-)
+> + *
+> + * Note that PTE bits in the PTE range besides the PFN can differ.
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index a182295e6f08b..7a3463bafb274 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -279,6 +279,7 @@ config ARM64
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
- 	select USER_STACKTRACE_SUPPORT
- 	select VDSO_GETRANDOM
-+	select HAVE_RELIABLE_STACKTRACE
- 	help
- 	  ARM 64-bit (AArch64) Linux support.
- 
-@@ -2512,4 +2513,3 @@ endmenu # "CPU Power Management"
- source "drivers/acpi/Kconfig"
- 
- source "arch/arm64/kvm/Kconfig"
--
-diff --git a/arch/arm64/kernel/stacktrace.c b/arch/arm64/kernel/stacktrace.c
-index f6494c0942144..acf682afbd478 100644
---- a/arch/arm64/kernel/stacktrace.c
-+++ b/arch/arm64/kernel/stacktrace.c
-@@ -279,21 +279,24 @@ kunwind_next(struct kunwind_state *state)
- 
- typedef bool (*kunwind_consume_fn)(const struct kunwind_state *state, void *cookie);
- 
--static __always_inline void
-+static __always_inline int
- do_kunwind(struct kunwind_state *state, kunwind_consume_fn consume_state,
- 	   void *cookie)
- {
--	if (kunwind_recover_return_address(state))
--		return;
-+	int ret;
- 
--	while (1) {
--		int ret;
-+	ret = kunwind_recover_return_address(state);
-+	if (ret)
-+		return ret;
- 
-+	while (1) {
- 		if (!consume_state(state, cookie))
--			break;
-+			return -EINVAL;
- 		ret = kunwind_next(state);
-+		if (ret == -ENOENT)
-+			return 0;
- 		if (ret < 0)
--			break;
-+			return ret;
- 	}
- }
- 
-@@ -326,7 +329,7 @@ do_kunwind(struct kunwind_state *state, kunwind_consume_fn consume_state,
- 			: stackinfo_get_unknown();		\
- 	})
- 
--static __always_inline void
-+static __always_inline int
- kunwind_stack_walk(kunwind_consume_fn consume_state,
- 		   void *cookie, struct task_struct *task,
- 		   struct pt_regs *regs)
-@@ -354,7 +357,7 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
- 
- 	if (regs) {
- 		if (task != current)
--			return;
-+			return -EINVAL;
- 		kunwind_init_from_regs(&state, regs);
- 	} else if (task == current) {
- 		kunwind_init_from_caller(&state);
-@@ -362,7 +365,7 @@ kunwind_stack_walk(kunwind_consume_fn consume_state,
- 		kunwind_init_from_task(&state, task);
- 	}
- 
--	do_kunwind(&state, consume_state, cookie);
-+	return do_kunwind(&state, consume_state, cookie);
- }
- 
- struct kunwind_consume_entry_data {
-@@ -389,6 +392,36 @@ noinline noinstr void arch_stack_walk(stack_trace_consume_fn consume_entry,
- 	kunwind_stack_walk(arch_kunwind_consume_entry, &data, task, regs);
- }
- 
-+static __always_inline bool
-+arch_reliable_kunwind_consume_entry(const struct kunwind_state *state, void *cookie)
-+{
-+	/*
-+	 * At an exception boundary we can reliably consume the saved PC. We do
-+	 * not know whether the LR was live when the exception was taken, and
-+	 * so we cannot perform the next unwind step reliably.
-+	 *
-+	 * All that matters is whether the *entire* unwind is reliable, so give
-+	 * up as soon as we hit an exception boundary.
-+	 */
-+	if (state->source == KUNWIND_SOURCE_REGS_PC)
-+		return false;
-+
-+	return arch_kunwind_consume_entry(state, cookie);
-+}
-+
-+noinline noinstr int arch_stack_walk_reliable(stack_trace_consume_fn consume_entry,
-+					      void *cookie,
-+					      struct task_struct *task)
-+{
-+	struct kunwind_consume_entry_data data = {
-+		.consume_entry = consume_entry,
-+		.cookie = cookie,
-+	};
-+
-+	return kunwind_stack_walk(arch_reliable_kunwind_consume_entry, &data,
-+				  task, NULL);
-+}
-+
- struct bpf_unwind_consume_entry_data {
- 	bool (*consume_entry)(void *cookie, u64 ip, u64 sp, u64 fp);
- 	void *cookie;
--- 
-2.30.2
+nit: Perhaps "batch" would be more consistent than "range"?
+
+> + *
+> + * Context: The caller holds the page table lock.  The PTEs map consecutive
+> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
+> + */
+> +#ifndef modify_prot_start_ptes
+> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+> +		unsigned long addr, pte_t *ptep, unsigned int nr)
+
+I thought David H suggested modify_prot_ptes_start() and
+modify_prot_ptes_commit(), which we settled on? I'm personally fine with either
+though.
+
+> +{
+> +	pte_t pte, tmp_pte;
+> +
+> +	pte = ptep_modify_prot_start(vma, addr, ptep);
+> +	while (--nr) {
+
+I thought we agreed to make the loop logic a bit more standard. I don't recall
+exactly what was finally agreed, but I would think something like this would be
+better:
+
+	for (i = 1; i < nr; i++) {
+
+> +		ptep++;
+> +		addr += PAGE_SIZE;
+> +		tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+> +		if (pte_dirty(tmp_pte))
+> +			pte = pte_mkdirty(pte);
+> +		if (pte_young(tmp_pte))
+> +			pte = pte_mkyoung(pte);
+> +	}
+> +	return pte;
+> +}
+> +#endif
+> +
+> +/**
+> + * modify_prot_commit_ptes - Commit an update to a batch of ptes, leaving any
+> + * hardware-controlled bits in the PTE unmodified.
+> + *
+> + * @vma: The virtual memory area the pages are mapped into.
+> + * @addr: Address the first page is mapped at.
+> + * @ptep: Page table pointer for the first entry.
+
+You've missed pte and old_pte params here.
+
+> + * @nr: Number of entries.
+> + *
+> + * May be overridden by the architecture; otherwise, implemented as a simple
+> + * loop over ptep_modify_prot_commit().
+> + *
+> + * Note that PTE bits in the PTE range besides the PFN can differ.
+
+How can it? All the applied bits other than the PFN will be exactly the same for
+the range because they all come from pte. I think this line can be dropped.
+
+> + *
+> + * Context: The caller holds the page table lock.  The PTEs map consecutive
+> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
+
+The middle sentance doesn't apply; the PTEs will all initially be none if using
+the default version of modify_prot_start_ptes(). I think that can be dropped.
+But I think you need to explain that this will be the case on exit.
+
+> + */
+> +#ifndef modify_prot_commit_ptes
+> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
+> +		pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < nr; ++i) {
+> +		ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+> +		ptep++;
+> +		addr += PAGE_SIZE;
+> +		old_pte = pte_next_pfn(old_pte);
+> +		pte = pte_next_pfn(pte);
+> +	}
+> +}
+> +#endif
+
+I have some general concerns about the correctness of batching these functions.
+The support was originally added by Commit 1ea0704e0da6 ("mm: add a
+ptep_modify_prot transaction abstraction"), and the intent was to make it easier
+to defer the pte updates for XEN on x86.
+
+Your default implementations of the batched versions will match the number of
+ptep_modify_prot_start() calls with the same number of ptep_modify_prot_commit()
+calls, even if modify_prot_commit_ptes() is called incrementally for sub-batches
+of the batch used for modify_prot_start_ptes(). That's a requirement and you've
+met it. But in the batched case, there are 2 differences;
+
+  - You can now have multiple PTEs within a start-commit block at one time. I
+hope none of the specialized implementations care about that (i.e. XEN).
+
+  - when calling ptep_modify_prot_commit(), old_pte may not be exactly what
+ptep_modify_prot_start() returned for that pte. You have collected the A/D bits,
+and according to your docs "PTE bits in the PTE range besides the PFN can
+differ" when calling modify_prot_start_ptes() so R/W and other things could
+differ here.
+
+I'm not sure if these are problems in practice; they probably are not. But have
+you checked the XEN implementation (and any other specialized implementations)
+are definitely compatible with your batched semantics?
+
+Thanks,
+Ryan
+
+> +
+>  #endif /* CONFIG_MMU */
+>  
+>  /*
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index 1ee160ed0b14..124612ce3d24 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -188,7 +188,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  						jiffies_to_msecs(jiffies));
+>  			}
+>  
+> -			oldpte = ptep_modify_prot_start(vma, addr, pte);
+> +			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
+>  			ptent = pte_modify(oldpte, newprot);
+>  
+>  			if (uffd_wp)
+> @@ -214,7 +214,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  			    can_change_pte_writable(vma, addr, ptent))
+>  				ptent = pte_mkwrite(ptent, vma);
+>  
+> -			ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
+> +			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
+>  			if (pte_needs_flush(oldpte, ptent))
+>  				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
+>  			pages++;
 
 
