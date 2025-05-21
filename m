@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD632C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A453BC54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rww57mlubvtdeeYsi/V5z+WJ/fnA69/dGryxrqrN8Ps=; b=fEf5LmNtfnSA+kqyEFcHMHgCr0
-	rPwi4Tqsgeq3ogIwR8+dUE/IuTDnjHjqZWX2IezvcJli10vvVOkohfYEHc/coSPn4RLI1Zbz8BWf1
-	mXlnTrhxGBYoMJ5EXIGlAohyleu87j/YGPXrrnSgPg3995SCWjco6V7hmhbfSxibfyke6Eu2/9ONl
-	khJIc/ScS8mpH4OLoU8SM22ZHILvqm41EDW6OAbHMuu7iCTfkT+Nh9cDl8tFQ1ZphNeqg6ZljBRRL
-	OmyHGifsl63bdykQEKP0yCA9u4auNEVtWxHfPZxUhf5OBsmkePhizKwYQECNOy0vbpP0GbzcNRUWb
-	todAIs+g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=whQyW0ip/MJuDd+Y8Jfp9nrkxQwEltJRp9mCDh0fGn0=; b=C4mTOdpSegt+wWlaYNtmOtmsZK
+	4WUOALcR3xZfcV+IejdEiurwB7bJ1hCb39ViwZF/Zciz4zFv/s2G07MuJtJ/nrK9GjCuU5FHTYy05
+	VkWIrQtH4+ObXSQ5RUe+GDXGO8OBLG9PJwsOaCOpnWx/DVfKWaXCc1v3gdE1nRddOI0Pqaa3KNORd
+	lhIu3paFXRHjz6OC6NzCzPqgkzmXZKA/YwwQGEvw4xxbA4Ew5FOfgxDDVbys6X+46ykKMUxcBIub1
+	5Ml3YPB7pZw+hGmQJlNkz1t2g+Eghid/pc2p+F2pWeGdnIDixTyaSWnlwSjDH3aUD6Y3zedCapeaz
+	eQIUyIfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHkNY-0000000G6Pz-1i6a;
-	Wed, 21 May 2025 14:25:08 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHk4G-0000000G2c3-0aCa
+	id 1uHkPh-0000000G6rk-3tJC;
+	Wed, 21 May 2025 14:27:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHkDC-0000000G4UI-3WTf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 14:05:13 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-442f9043f56so38938255e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 07:05:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747836310; x=1748441110; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Rww57mlubvtdeeYsi/V5z+WJ/fnA69/dGryxrqrN8Ps=;
-        b=A3LIgYKoxEcAgljnr0V2/M496xvhTOwt9OsyrcxqXd2Dj3Q/9BV/Gny6fGDQl7bAUk
-         TdeL8vgVJTJC7Al+moQpQ7FzsvSB+x2ikkKZso10QTETPQQidIu0O13dOD556esmGGMn
-         RGvt/gSktsEMdfTYC5oDgXf20/KrKvTQWrSjCk9Ny8BRvlcHf25jhAPegRb2kSzWr84t
-         ubfxn9JtZz/uVN3ZN8XUriuT/iouj5ezwxB37+TaU1qOVIhZDl53qEIsRHpqG4xEXFdu
-         47dszh3eJF+0dAlMSCpEteUee5uxkqT8BMV9Qw9+WqTCvOmxoxzoABliFTCPffTNTbE+
-         tAqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747836310; x=1748441110;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rww57mlubvtdeeYsi/V5z+WJ/fnA69/dGryxrqrN8Ps=;
-        b=wTSCxDnFj2Xw/nzr+X7D5VckebURK0fp7/kPWrNBnctKD4fOXQe6dOXVTlFpgho9nL
-         M0DuQFnTpGvqSsenAKga8i+NjljYEJtnIUKgqUzXJLtyXpzjm+ZgoANrg3tpbw7bHYxZ
-         SjHdbPkZLPW1XY8dMeEE3ysCY21q2NUqVuH+1g9IlSrCTCICW2wv+5EnTPdsNTF2jXnF
-         TfEhdWZoy9B7EzbpJSxSFIeKIF0YLjPU73SIg1wdV5Sn+RliSOfItUQiilsA/4+1t7iF
-         iDYMCmhWVEDi62L6ekOJ3WK1UJMo4zULZTtKYbXq48S1EsljjVLlDwCAl2V2i1xbtZWl
-         hjQA==
-X-Forwarded-Encrypted: i=1; AJvYcCX2CO6470mR4B2eMlCgpFwEsALQx14JIz5ATg7hpxrTETzhmSQegbBy7JhNMOsSeZnS6RJeeBFU8neXqjkln5Rv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIRWvIBpTdwKNFXDPXbqOGM9zkq+Cp0lz+6np5knUV4fq1O/3O
-	tJFhArVEhQb/WkZBvghUGhZz/gmzGut9RhsFueum/pem9hTcmfEicvLgTroQ5+xaoj4=
-X-Gm-Gg: ASbGncuH7oxtcuD2H7+K2xhoLV9YV+9tNGRFLpHw9ewm+jCNUKAeTo877ZuMnnPnyGM
-	jMEDNei8djScJHjEFYDLSTHqXEHXrHNP/I8pumDyGcmKKikN5ZtQ0eMSykP0JOIynuwqHiWIjV2
-	7itf31DHQbJ3LiBh8NDVpHPtIRgCHjlxqOGaF25bG4/p9GaRvPv3UcHWPutWpMo+LtoarEGqnaS
-	pUgNA6Z2bNa181xYQsg5wdXlL9RQXmkUiKtdc8PN4XbfUKgG0/HqmQ5WO9oitUOGxpPsBg/c6F2
-	nyl8HeqK8pur9fE4ZllIIcMztCGbjQUvBDMZ8IkckmWKhVwY/qUEcb3G
-X-Google-Smtp-Source: AGHT+IEhO6m6M9YiDETIrH4hAOKT3SSy+/T07XPcXoqmSRVYMiVL6aVDIILf6rgW73lHFGyhOQgTjg==
-X-Received: by 2002:a05:600c:8708:b0:43c:fa3f:8e5d with SMTP id 5b1f17b1804b1-442fd60b92bmr228369365e9.2.1747836309852;
-        Wed, 21 May 2025 07:05:09 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35ca5a03fsm19576583f8f.22.2025.05.21.07.05.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 May 2025 07:05:08 -0700 (PDT)
-Message-ID: <bbd6fb9d-72eb-468a-bae5-7e4f9fedbc1b@linaro.org>
-Date: Wed, 21 May 2025 15:05:08 +0100
+	Wed, 21 May 2025 14:14:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 267E11515;
+	Wed, 21 May 2025 07:14:12 -0700 (PDT)
+Received: from [10.57.94.227] (unknown [10.57.94.227])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C36F3F5A1;
+	Wed, 21 May 2025 07:14:22 -0700 (PDT)
+Message-ID: <eb57601d-abac-492a-8e62-dc1c406af572@arm.com>
+Date: Wed, 21 May 2025 15:14:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] coresight: etm4x: Refactor trace filter
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250521125406.2594620-1-leo.yan@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250521125406.2594620-1-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v3 4/5] arm64: Add batched version of
+ ptep_modify_prot_start
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
+Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
+ jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
+ joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250519074824.42909-1-dev.jain@arm.com>
+ <20250519074824.42909-5-dev.jain@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250519074824.42909-5-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_070512_204836_8F5FDF91 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20250521_071426_984114_D0FFDC1E 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +73,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 19/05/2025 08:48, Dev Jain wrote:
+> Override the generic definition to use get_and_clear_full_ptes(). This helper
+> does a TLBI only for the starting and ending contpte block of the range, whereas
+> the current implementation will call ptep_get_and_clear() for every contpte block,
+> thus doing a TLBI on every contpte block. Therefore, we have a performance win.
+> The arm64 definition of pte_accessible() allows us to batch around it in clear_flush_ptes():
+> #define pte_accessible(mm, pte)	\
+> 	(mm_tlb_flush_pending(mm) ? pte_present(pte) : pte_valid(pte))
+> 
+> All ptes are obviously present in the folio batch, and they are also valid.
+> 
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+
+Please squash this with the 
+
+> ---
+>  arch/arm64/include/asm/pgtable.h |  5 +++++
+>  arch/arm64/mm/mmu.c              | 12 +++++++++---
+>  include/linux/pgtable.h          |  4 ++++
+>  mm/pgtable-generic.c             | 16 +++++++++++-----
+>  4 files changed, 29 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 2a77f11b78d5..8872ea5f0642 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1553,6 +1553,11 @@ extern void ptep_modify_prot_commit(struct vm_area_struct *vma,
+>  				    unsigned long addr, pte_t *ptep,
+>  				    pte_t old_pte, pte_t new_pte);
+>  
+> +#define modify_prot_start_ptes modify_prot_start_ptes
+> +extern pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+> +				    unsigned long addr, pte_t *ptep,
+> +				    unsigned int nr);
+> +
+>  #ifdef CONFIG_ARM64_CONTPTE
+>  
+>  /*
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 8fcf59ba39db..fe60be8774f4 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1523,7 +1523,8 @@ static int __init prevent_bootmem_remove_init(void)
+>  early_initcall(prevent_bootmem_remove_init);
+>  #endif
+>  
+> -pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
+> +pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
+> +			     pte_t *ptep, unsigned int nr)
+>  {
+>  	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
+>  		/*
+> @@ -1532,9 +1533,14 @@ pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte
+>  		 * in cases where cpu is affected with errata #2645198.
+>  		 */
+>  		if (pte_user_exec(ptep_get(ptep)))
+> -			return ptep_clear_flush(vma, addr, ptep);
+> +			return clear_flush_ptes(vma, addr, ptep, nr);
+>  	}
+> -	return ptep_get_and_clear(vma->vm_mm, addr, ptep);
+> +	return get_and_clear_full_ptes(vma->vm_mm, addr, ptep, nr, 0);
+> +}
+
+I think we can do this more precisely with respect to tlbis and also without 
+needing to create a new clear_flush_ptes() helper:
 
 
-On 21/05/2025 1:54 pm, Leo Yan wrote:
-> This series is minor refactoring for trace filter and comes from the
-> previous patch set [1].
-> 
-> The first patch introduces a new helper has_feat_trf() for detecing if
-> FEAT_TRF is implemented. This is more readable.
-> 
-> The second patch refactors the ts_source_show() function.  It simplifies
-> to directly return the TS value when FEAT_TRF is implemented.
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20250519174945.2245271-1-leo.yan@arm.com/
-> 
-> Changes from v2:
-> - Added the has_feat_trf() helper for more readable (James Clark)
-> 
-> 
-> Leo Yan (2):
->    coresight: etm4x: Introduce has_feat_trf() helper
->    coresight: etm4x: Refactor returning TS field
-> 
->   drivers/hwtracing/coresight/coresight-etm4x-core.c  |  8 ++++----
->   drivers/hwtracing/coresight/coresight-etm4x-sysfs.c | 18 +++---------------
->   drivers/hwtracing/coresight/coresight-etm4x.h       |  9 +++++++++
->   3 files changed, 16 insertions(+), 19 deletions(-)
-> 
+pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
+			     pte_t *ptep, unsigned int nr)
+{
+	pte_t pte = get_and_clear_full_ptes(vma->vm_mm, addr, ptep, nr, 0);
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
+		/*
+		 * Break-before-make (BBM) is required for all user space mappings
+		 * when the permission changes from executable to non-executable
+		 * in cases where cpu is affected with errata #2645198.
+		 */
+		if (pte_accessible(vma->vm_mm, pte) && pte_user_exec(pte))
+			__flush_tlb_range(vma, addr, nr * PAGE_SIZE,
+					  PAGE_SIZE, true, 3);
+	}
+
+	return pte;
+}
+
+
+> +
+> +pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
+> +{
+> +	return modify_prot_start_ptes(vma, addr, ptep, 1);
+>  }
+>  
+>  void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep,
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index e40ed57e034d..41f4a8de5c28 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -828,6 +828,10 @@ extern pte_t ptep_clear_flush(struct vm_area_struct *vma,
+>  			      pte_t *ptep);
+>  #endif
+>  
+> +extern pte_t clear_flush_ptes(struct vm_area_struct *vma,
+> +			      unsigned long address,
+> +			      pte_t *ptep, unsigned int nr);
+> +
+>  #ifndef __HAVE_ARCH_PMDP_HUGE_CLEAR_FLUSH
+>  extern pmd_t pmdp_huge_clear_flush(struct vm_area_struct *vma,
+>  			      unsigned long address,
+> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> index 5a882f2b10f9..e238f88c3cac 100644
+> --- a/mm/pgtable-generic.c
+> +++ b/mm/pgtable-generic.c
+> @@ -90,17 +90,23 @@ int ptep_clear_flush_young(struct vm_area_struct *vma,
+>  }
+>  #endif
+>  
+> -#ifndef __HAVE_ARCH_PTEP_CLEAR_FLUSH
+> -pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long address,
+> -		       pte_t *ptep)
+> +pte_t clear_flush_ptes(struct vm_area_struct *vma, unsigned long address,
+> +		       pte_t *ptep, unsigned int nr)
+>  {
+>  	struct mm_struct *mm = (vma)->vm_mm;
+>  	pte_t pte;
+> -	pte = ptep_get_and_clear(mm, address, ptep);
+> +	pte = get_and_clear_full_ptes(mm, address, ptep, nr, 0);
+>  	if (pte_accessible(mm, pte))
+> -		flush_tlb_page(vma, address);
+> +		flush_tlb_range(vma, address, address + nr * PAGE_SIZE);
+>  	return pte;
+>  }
+
+Let's not create a new generic helper if only arm64 is using it. We would 
+also want to add a doc header to describe this helper. My proposal avoids 
+this.
+
+Thanks,
+Ryan
+
+> +
+> +#ifndef __HAVE_ARCH_PTEP_CLEAR_FLUSH
+> +pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long address,
+> +		       pte_t *ptep)
+> +{
+> +	return clear_flush_ptes(vma, address, ptep, 1);
+> +}
+>  #endif
+>  
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
 
 
