@@ -4,55 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8995C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B89B8C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czn8DyEOHQKmuKutXsr9Pgt/snHtWTqHV4ecMB1aqqY=; b=XRcsjLdugxQEdEt5y5Qs12N9u/
-	PKDmhyjrh1EOe4tyTkYxYg0nbjUO1ayrVVeQJFYrtPMtvxj84QFbU2Z5MCryl36uLj7/qn2bLmGfb
-	E4glXcJjTvdOXFmyxsEYoeBYakCeSSEDGUdOrr5ePJjMdLRUKwDwzEAnJ/kVVoUy/8DbFnIFvSz03
-	pvjH8Nzaf98n5jbnQ09yJfW8m9k/d4q6FFNyUtMNFTJyXbONdQMxBzmtbqhB/p42GE6JRDOkyT0DG
-	Y5wNy6/bAF+gp4i8L8b7J9pbM/51Rq9oUPWP3T0RdSMpA5tI5m6MsmL9jDvkD0md2izmc4PzUYkkH
-	sdu5GR0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LNgPqmDBeMzAZxt/N4624fE1ZMVlerBvs5HHjs6qOhs=; b=bP20px8ll1r1sHXuZGTM88PMPY
+	+YW19ezcvfvnqZbc6eCJ8GeBEDuscG7wkE6wEjo49rpKLhZ7TJ6eopaMTd/JXvacpml5yep7IpSSe
+	sg5juNcPOixjGH0vCb7WnmZVtyKRCzrm1evtA9HvAF169aBcmJ6tOZb7bybhWOlM14lCrvbfJHNts
+	eHAYjYfg938tI4wCOnkCBjwr9LL7Z4kma4Kb5V4SLwOlLfn9yeemRX5f0AVNPCKb1Pnno5YyhKwjd
+	MJUAvA6qDoVDMEnuytf9vSKlM0eGtVZvvAVAVi0V6Igw8z1fpYhVqWvh73KRjD8Hx1RYV81ngZa8q
+	oZgkLAow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHliv-0000000GMBM-3doI;
-	Wed, 21 May 2025 15:51:17 +0000
-Received: from smtp-190d.mail.infomaniak.ch ([185.125.25.13])
+	id 1uHll5-0000000GMly-2Ya2;
+	Wed, 21 May 2025 15:53:31 +0000
+Received: from mail-db8eur05on20630.outbound.protection.outlook.com ([2a01:111:f403:2614::630] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHlcP-0000000GKGV-2mCY
+	id 1uHle7-0000000GKhe-1kS0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 15:44:36 +0000
-Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10::a6b])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4b2bMM2m0Lz13xf;
-	Wed, 21 May 2025 17:44:31 +0200 (CEST)
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4b2bML5VjLzMhT;
-	Wed, 21 May 2025 17:44:30 +0200 (CEST)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Wed, 21 May 2025 17:44:20 +0200
-Subject: [PATCH 2/2] arm64: dts: rockchip: support Ethernet Switch adapter
- for RK3588 Jaguar
+	Wed, 21 May 2025 15:46:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NYLAtXRWOWwdyrov4oU+ijztADWowURT+YSli8hN/p2dQ6/nAhj9e1OxnwRn+DtxVKPEVVpfUYGcV/hpdA/eUf+jW8rgYCU0Ax4os1YS0qM6ka5DsSrGzYu+2Rkqfx1626kSShf/aztnToAAmfQ49ceBaFuGJsRK8GMGvEJ8EATCi6/OnblWDxGbw2f/wWDgCgzIz2Qm7hckG28xfJvOL/Vrl2k6qo1XkluIAFXuz8c4xG0NiIXqmFg9O4G3cPbOcbMP/61kJihqyMtVXitHZ4spo1gpyxTyyGI8CDVCL9Cbj+dMywgUHwZ4FbQ6pLpIyEum4wTBHMwgBmzLKLelYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LNgPqmDBeMzAZxt/N4624fE1ZMVlerBvs5HHjs6qOhs=;
+ b=tr/iSUZjNk3o2BMYs7Ax30gZmWKrfAWzXwneWzSaBcEp0KJY5eOcwCQ6JJG3++bIpXBtiofwSNn6J7DTnZxuy1WY/09o719BvU+IXfBmCMTI0Iq93LmRe5yS5LDAAEHjjA1kV06WR5FVJ/W2F2F80+WsIFL7rzgUbpVEc2cmds7jgtFaWC/lNGqLyUUT/Fu8nM+l+AjfkdQkTM0cw2rd5X+fQHWa3/6fwsQLgXQtXs2aIHWwtcbqPaVtvka1m2ArrEnZIXZBnL0Rk7A3LBShARMdKra2yL5nyP/Zr69hsyt3MbVxVKsRZNlBTyaIUTkPakVQAJZCRzkQJsHhloDXOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LNgPqmDBeMzAZxt/N4624fE1ZMVlerBvs5HHjs6qOhs=;
+ b=NHEdSFd9vFpEI3mhmaiLMRMNDi+Dp2zCH4QRITKpYILCMIAJ2gJwDGEtef977RDXrzt8LaJoe9rcH6Ac69XsnpQntA/G109Eq+it37L4Tad5V8VYB4ZvatBU9LtU6wYXJ4v+IGfJWsw0MO1BU/l2bLiI2CFggXyn4hnGNPVgpgYsqggcVmlA2PUxbLbdNp7TrZrlQJqghFkviL2JHwT/+bZOO76qfsTzf/rLsZf5jr3EJ8mGMBK1FRMxzu1VXhmQIdlqalTs95MJhcKRvbIIFO+gJ1uBRUSS49BdnHdEJQiKSrtxQdrVHhZEZwW6iOOIlvMH9GKu5yuEG+UrnN47Tw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by VI1PR04MB9931.eurprd04.prod.outlook.com (2603:10a6:800:1d4::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Wed, 21 May
+ 2025 15:46:16 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 21 May 2025
+ 15:46:15 +0000
+Date: Wed, 21 May 2025 11:46:08 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: ziniu.wang_1@nxp.com
+Cc: haibo.chen@nxp.com, adrian.hunter@intel.com, ulf.hansson@linaro.org,
+	linux-mmc@vger.kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	imx@lists.linux.dev, s32@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mmc: sdhci-esdhc-imx: inherit pins_100mhz from
+ pins_200mhz when unconfigured
+Message-ID: <aC31QJpomsFWN++7@lizhi-Precision-Tower-5810>
+References: <20250521112042.266111-1-ziniu.wang_1@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250521112042.266111-1-ziniu.wang_1@nxp.com>
+X-ClientProxiedBy: PH8P220CA0032.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:348::10) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250521-jaguar-mezz-eth-switch-v1-2-9b5c48ebb867@cherry.de>
-References: <20250521-jaguar-mezz-eth-switch-v1-0-9b5c48ebb867@cherry.de>
-In-Reply-To: <20250521-jaguar-mezz-eth-switch-v1-0-9b5c48ebb867@cherry.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI1PR04MB9931:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3bdb4787-9b7e-4559-35c1-08dd987e9edd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gNYuBgPsGolYgt0h0AsVSD+AO6k/nbetKX06HMaWZnOr4CNSsGttM9ud6O/u?=
+ =?us-ascii?Q?FfFO+hdcc8iZp5tec4LR8LRM47a6JwJenNWPct29d/OhO26kodSZCQfwslJu?=
+ =?us-ascii?Q?2jwpjjknc6hJcjvk6x2/X5Gx/CvhQx7LdEPinL7VA7AmYEO2/8+4Zzy1A9l5?=
+ =?us-ascii?Q?VELqf6FTtRE8VCSrEL9Zq88pVdteJcmBHXq4zJKR8lHzM7s0ZLYIMHct9Bwv?=
+ =?us-ascii?Q?o7HOtx5TYGjwehB4PfH38K50cR32Mse6TET0n8DQTTKcwuruJvAQwfvtd4/b?=
+ =?us-ascii?Q?ikqwuE3ZWLU8czKlun4fYqZoRj8F3wEdGgcqYRYcKxFJEzpikORhSsgq+nEl?=
+ =?us-ascii?Q?xnlGrxRfJyb+5DmcolwfWgSWXU/UetoTSaSd/+oo0IleLcYMQTrsdd0tjhTq?=
+ =?us-ascii?Q?qsGrahCR+RCvuM2qILjbEf9gUo4mdLskT9nJaGkfzOnzHt5in0h3ZBvxBaiw?=
+ =?us-ascii?Q?ijAloOKjiSyjIj/jmlYKKygBjBuDOqoq5gDQu3faeI6GlbSEoncI+LQks0jk?=
+ =?us-ascii?Q?uAA9QEFHHvraO0Z64xAlOqMl9koKTSNIguCh5OrtxEBlLfs/eW000l2qvKK+?=
+ =?us-ascii?Q?SxsUWJB9aM+71jJ0f1l5Ii7k+X6nYLf8Dxnert1sFUn9BOSH7yeU79GHuqmH?=
+ =?us-ascii?Q?dGUbEIgZYAk6sPig0VlVMzKpW2BgxqTylBiHg5y+SBDvIhrfG1JMM+0ocvL9?=
+ =?us-ascii?Q?e0sF8zKczqUK7JTV7hpCz99ihXWrA7jJCTLi0LmTHvqjVidgfMoqPpUlxFDV?=
+ =?us-ascii?Q?J+PMvkQPNOOlj2+sV4qdvwWiGu4WxecfUKIHCVK9zZyE42nM8tTJLzmVyVvj?=
+ =?us-ascii?Q?Iw0h/Vwg6Jvg3uLo8Q6EkyI9waI+bJPgOpTPdtf1sxPukhSSWW5Wj9PUbTWf?=
+ =?us-ascii?Q?26I9PYK5GW/Z9amPVsrrztccpHu3YrqIE3EK6H7Rb8VZyBCiDYE8U6lBbSbB?=
+ =?us-ascii?Q?p9f3vrbbGzTPWHSQHyHBk9U2byYsCET72F/gR8EWQWB+8Is1MUbSaRg4I9tk?=
+ =?us-ascii?Q?FYLyDYuUgZKapL58MRbvEEz4iotiibvf0fiWxM+3zvJ3sa6xkSVhT4mWiIgL?=
+ =?us-ascii?Q?SczTw2qNt8t/B5TzhFtUshdS1oGj7Vv/thoisEKKNxG4FoXUmJZmwukqWjuw?=
+ =?us-ascii?Q?KCrFSR00dAhMflP6u8ZyqF+a3IjVtOaoWzkprJTrxSS70IsrlWOev2wYG+23?=
+ =?us-ascii?Q?xwWZM4suha8xw0f4eC9GfvzJn9rSladj4osKjiyfNsF4Lp/pIC1731sUCA/g?=
+ =?us-ascii?Q?Mx7yl2ULTa5vJHEpfZYTUL0kU+MeijsUVQ0PfrbV0jgHgN58+2zdlkvffJKe?=
+ =?us-ascii?Q?oOFuQ7P40EHiRWNzmuu79Ospg5BU+9RBsz6kvYfu5PCRUGQElx2fAlseDPwj?=
+ =?us-ascii?Q?8XYhFTHf6reuGUB7jds65pWva8RWhNAOzUTaPCBve5Cpal4GTUkRdaF7kxDV?=
+ =?us-ascii?Q?Frfk4z02LIQ3gakuk5P78a42Jp8J4Mp6Zgndgnue6LFlZmacI4FLIw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DSHrfjX6Bcr6MxrZAXlTWR7imYihgGWiaZoitihqnGyL9FhC0oIyBWfYBt46?=
+ =?us-ascii?Q?4THyr7LZU9eIweH7xwF8+B0NI88GA2+C8odGQCU8aJhk8HYUcgzyZtOtaSW1?=
+ =?us-ascii?Q?PRJqAjl3jDdCtxBxlpZwK4UfzWc8IJvzGqooMHidB/FbVJ/xZlSNCkOUj9gt?=
+ =?us-ascii?Q?wFwQk+GZNaABRtxeaJZRrPNYFpAIUPvx2SIoho4KDyDEXazz47IuZbYlcM47?=
+ =?us-ascii?Q?ao3jNRsBVC2fHXo7NektQLAwFWwlDq3/PU4wjVucqvfnhrQlMSuJqrLSK25V?=
+ =?us-ascii?Q?XTWpBdakedlh/3vE0GVIa5DU4BPpE3ymLRX9gtSJqcz/inL6bLqXBxLW+C7o?=
+ =?us-ascii?Q?IANQXXpkChXvnIP1BGJTebBICaqIhV2WPvXGr093rIG7ylZ17Vil9GfpZgus?=
+ =?us-ascii?Q?k+5Rb1Pd2zsb7IJH2CiLFMlBLt1cfuSdziEmq5u+cMNq2Dfp1YW6yhoXDthF?=
+ =?us-ascii?Q?RBE88h5yojCxIPjKWozFChAQrB2C1u5s2D6CvNYeQhpYDf5XInerH5jFqANT?=
+ =?us-ascii?Q?btLKALYHEGeZl9ygxrcT6VShi+QhVyuCE96CoFaydLzf2YDDRU2jZbA0qW/f?=
+ =?us-ascii?Q?p6XE8/S4wWT6j8ywIdCc5djjnsHe/i8XLuWvMgGduGbWc3tue5UWYZVEVQEF?=
+ =?us-ascii?Q?c2gtXU0Wi6vJf7o+Rzserksd1p4u+3rOmae/QvAouHWeXoGKo9eM5N3dZ+Ao?=
+ =?us-ascii?Q?l3BdsbEM50Sr3o8MNZDuYYZAysxBn6iY3UtebStQ01UojkbF+CMtQfkWO/z+?=
+ =?us-ascii?Q?HkXLzNjQcOnLVd5bf96BYBwPUHbpZVNzsJeZXB5n6LGpNjK4iVmQEXI6ANy+?=
+ =?us-ascii?Q?BBgNRyteQifGBnTD79vcKXxqjkCKWwDennpf9NluHqH9CSDXYpnCGVCsrZvs?=
+ =?us-ascii?Q?s+E5GiaAwtpEdv4TEJH8jxJ3wX5Txbcz3I3u2SC2akYUNni93r1y2Fhktwe9?=
+ =?us-ascii?Q?MHRcGMH2aoSS3/rxFhLgpUalFtcrZjMi7fkWp+F2DnXgphD/35abiHVi811A?=
+ =?us-ascii?Q?y/LceN0gwiz1ekD4oefvP/VY9Gz35b6dRnYZ39PAZ7kNu5yAkxagFzoJy6Hi?=
+ =?us-ascii?Q?LOmCcOQhI5LWqcDVUKyh9voTVGzvRDoLsgSpEA9JXm1AWI3c0FWn4/1sOe70?=
+ =?us-ascii?Q?f0HoqY9KAipzBnTtSULs2uMGedToaUGhx/ZUoqRBRIrn5WV2VLbVY1NTLTpC?=
+ =?us-ascii?Q?ZHQdf7lYaAbQBOu+FVU02/knLKOz718siOGAabqd47PHt0LdV5BzJIs5PPvs?=
+ =?us-ascii?Q?+1eVKu8dNC57DB+3nILI9F2jQknlTewYpIRQaxw6ICzZ3uEgzL8CFcyzQhzn?=
+ =?us-ascii?Q?4eb7oR/LNOGKVs++ukOyTNf+Xx0IT+Oy/NQbMqrYt6ax/sdN+xBBPq97uzrR?=
+ =?us-ascii?Q?MawSG0/OBhwdY5MiwpRao1+KV2yridMfdM9VOHUtuFxYPTT1msw2s3pzTd5s?=
+ =?us-ascii?Q?1d3r0HZYVXx1kfwpRLqf3PF2I8Bv/19cf7lGL/jerMqsaR/Y1WGxsovK0xJE?=
+ =?us-ascii?Q?cedOoPkbsJxv8O4bffQ9OnqICcSBQYopQOETSotnbNW/o4cox1Eb/LCEBuNl?=
+ =?us-ascii?Q?/ENL+2+u097HytPUIzwXzPvhJLkFdXllmLvoq3j5?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3bdb4787-9b7e-4559-35c1-08dd987e9edd
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2025 15:46:15.7998
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oiIhBhSh5DoxvQoZIgKBTgV2XzeIdRvJz0cnjkpSW+38yBenrNHUy0MqW6k23PPsYaBHQFnmM3gmxj6K0/Vweg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9931
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_084433_971438_F923C51D 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20250521_084619_485218_C205F4FA 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,246 +159,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+On Wed, May 21, 2025 at 07:20:42PM +0800, ziniu.wang_1@nxp.com wrote:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
+>
+> On some new i.MX platforms, hardware guidelines recommend using identical
+> pin configurations for SDR50/DDR50 (100MHz) and SDR104/HS400 (200MHz)
+> modes. But defining two identical pinctrl for 100MHz and 200MHz in dts
+> creates redundancy. In this case, omit explicit 100MHz configuration,
+> driver will inherit 100MHz pinctrl from 200MHz.
 
-This adds support for the Ethernet Switch adapter connected through the
-mezzanine connector on RK3588 Jaguar.
+It is quite strange inherit low freq setting from high freq setting.
 
-This adapter has a KSZ9896 Ethernet Switch with 4 1GbE Ethernet
-connectors, two user controllable LEDs, and an M12 12-pin connector
-which exposes the following signals:
- - RS232/RS485 (max 250Kbps/500Kbps, RX pin1, TX pin2)
- - two digital inputs (pin4 routed to GPIO3_C5 on SoC, pin5 to GPIO4_B4)
- - two digital outputs (pin7 routed to GPIO3_D3 on SoC, pin8 to
-   GPIO3_D1)
- - two analog inputs (pin10 to channel1 of ADS1015, pin11 to channel2)
+Orignal method that decide support SDR50/DDR50/SDR104/HS400 abuse the
+pinctrl state usage.
 
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
- arch/arm64/boot/dts/rockchip/Makefile              |   5 +
- .../rockchip/rk3588-jaguar-ethernet-switch.dtso    | 189 +++++++++++++++++++++
- 2 files changed, 194 insertions(+)
+Frank
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 3e8771ef69ba1c1428117cc2ae29b84e13523e21..6d5ad354b77de1c3f995b119f97541f9c2cc9dbd 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -151,6 +151,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-firefly-itx-3588j.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-friendlyelec-cm3588-nas.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-h96-max-v58.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-ethernet-switch.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-mnt-reform2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6.dtb
-@@ -222,6 +223,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6b-wifi.dtb
- rk3588-edgeble-neu6b-wifi-dtbs := rk3588-edgeble-neu6b-io.dtb \
- 	rk3588-edgeble-neu6a-wifi.dtbo
- 
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-ethernet-switch.dtb
-+rk3588-jaguar-ethernet-switch-dtbs := rk3588-jaguar.dtb \
-+	rk3588-jaguar-ethernet-switch.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar-pre-ict-tester.dtb
- rk3588-jaguar-pre-ict-tester-dtbs := rk3588-jaguar.dtb \
- 	rk3588-jaguar-pre-ict-tester.dtbo
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar-ethernet-switch.dtso b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-ethernet-switch.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..cff7655a21007a934019590f3836344b9851e537
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar-ethernet-switch.dtso
-@@ -0,0 +1,189 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2025 Cherry Embedded Solutions GmbH
-+ *
-+ * Device Tree Overlay for the Ethernet Switch adapter for the Mezzanine
-+ * connector on RK3588 Jaguar.
-+ *
-+ * This adapter has a KSZ9896 Ethernet Switch with 4 1GbE Ethernet connectors,
-+ * two user controllable LEDs, and an M12 12-pin connector which exposes the
-+ * following signals:
-+ *  - RS232/RS485 (max 250Kbps/500Kbps, RX pin1, TX pin2)
-+ *  - two digital inputs (pin4 routed to GPIO3_C5 on SoC, pin5 to GPIO4_B4)
-+ *  - two digital outputs (pin7 routed to GPIO3_D3 on SoC, pin8 to GPIO3_D1)
-+ *  - two analog inputs (pin10 to channel1 of ADS1015, pin11 to channel2)
-+ *
-+ * RK3588 Jaguar can be powered entirely through the adapter via the M8 3-pin
-+ * connector (12-24V).
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&{/} {
-+	mezzanine-leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_usr1_pin &led_usr2_pin>;
-+
-+		led-1 {
-+			gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
-+			label = "USR1";
-+		};
-+
-+		led-2 {
-+			gpios = <&gpio3 RK_PC4 GPIO_ACTIVE_HIGH>;
-+			label = "USR2";
-+		};
-+	};
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-mode = "rgmii";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1_rx_bus2
-+		     &gmac1_tx_bus2
-+		     &gmac1_rgmii_clk
-+		     &gmac1_rgmii_bus
-+		     &eth1_pins>;
-+	rx_delay = <0x30>;
-+	tx_delay = <0x30>;
-+	status = "okay";
-+
-+	fixed-link {
-+		speed = <1000>;
-+		full-duplex;
-+	};
-+};
-+
-+&i2c1 {
-+	#address-cells = <1>;
-+	/* ADS1015 can handle high-speed (HS) mode (up to 3.4MHz) on I2C bus,
-+	   but SOC can handle only up to 400kHz. */
-+	clock-frequency = <400000>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	adc@48 {
-+		compatible = "ti,ads1015";
-+		reg = <0x48>;
-+		#address-cells = <1>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <RK_PC7 IRQ_TYPE_EDGE_FALLING>;
-+		pinctrl-0 = <&adc_alert>;
-+		pinctrl-names = "default";
-+		#io-channel-cells = <1>;
-+		#size-cells = <0>;
-+
-+		channel@1 {
-+			reg = <5>; /* Single-ended between AIN1 and GND */
-+			ti,datarate = <0>;
-+			ti,gain = <5>;
-+		};
-+
-+		channel@2 {
-+			reg = <6>; /* Single-ended between AIN2 and GND */
-+			ti,datarate = <0>;
-+			ti,gain = <5>;
-+		};
-+	};
-+
-+	switch@5f {
-+		compatible = "microchip,ksz9896";
-+		reg = <0x5f>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <RK_PB7 IRQ_TYPE_EDGE_FALLING>; /* ETH_INTRP_N */
-+		pinctrl-0 = <&eth_reset_n &eth_intrp_n>;
-+		pinctrl-names = "default";
-+		reset-gpios = <&gpio3 RK_PB6 GPIO_ACTIVE_LOW>; /* ETH_RESET */
-+		microchip,synclko-disable; /* CLKO_25_125 only routed to TP1 */
-+
-+		ethernet-ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			lan1: port@0 {
-+				reg = <0>;
-+				label = "ETH1";
-+			};
-+
-+			lan2: port@1 {
-+				reg = <1>;
-+				label = "ETH2";
-+			};
-+
-+			lan3: port@2 {
-+				reg = <2>;
-+				label = "ETH3";
-+			};
-+
-+			lan4: port@3 {
-+				reg = <3>;
-+				label = "ETH4";
-+			};
-+
-+			port@5 {
-+				reg = <5>;
-+				ethernet = <&gmac1>;
-+				label = "CPU";
-+				phy-mode = "rgmii";
-+				/* Delay done by the MAC via rx_delay/tx_delay */
-+				rx-internal-delay-ps = <0>;
-+				tx-internal-delay-ps = <0>;
-+
-+				fixed-link {
-+					speed = <1000>;
-+					full-duplex;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&pinctrl {
-+	adc {
-+		adc_alert: adc-alert-irq {
-+			rockchip,pins =
-+				<3 RK_PC7 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	ethernet {
-+		eth_intrp_n: eth-intrp-n {
-+			rockchip,pins =
-+				<3 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		eth_reset_n: eth-reset-n {
-+			rockchip,pins =
-+				<3 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		led_usr1_pin: led-usr1-pin {
-+			rockchip,pins =
-+				<1 RK_PC1 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+
-+		led_usr2_pin: led-usr2-pin {
-+			rockchip,pins =
-+				<3 RK_PC4 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
-+
-+&uart9 {
-+	/* GPIO3_D0/EN_RS485_MODE for switching between RS232 and RS485 */
-+	pinctrl-0 = <&uart9m2_xfer &uart9m2_rtsn>;
-+	pinctrl-names = "default";
-+	linux,rs485-enabled-at-boot-time;
-+	status = "okay";
-+};
-
--- 
-2.49.0
-
+>
+> Preserves existing behavior if 100MHz is configured but 200MHz not (e.g,
+> imx8mp-navq.dts usdhc1 supports SDR50/DDR50 but SDR104/HS400 not).
+>
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+> ---
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index f206b562a6e3..dfd8be5000c8 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -1810,6 +1810,9 @@ sdhci_esdhc_imx_probe_dt(struct platform_device *pdev,
+>  						ESDHC_PINCTRL_STATE_100MHZ);
+>  		imx_data->pins_200mhz = pinctrl_lookup_state(imx_data->pinctrl,
+>  						ESDHC_PINCTRL_STATE_200MHZ);
+> +
+> +		if (IS_ERR_OR_NULL(imx_data->pins_100mhz))
+> +			imx_data->pins_100mhz = imx_data->pins_200mhz;
+>  	}
+>
+>  	/* call to generic mmc_of_parse to support additional capabilities */
+> --
+> 2.34.1
+>
 
