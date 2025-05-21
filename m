@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2545EC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE74DC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y0kgKx6XouuiWptvr0pCruAp21uBzd0iJtEg/vmkzqw=; b=Yvdn2yKu11/OGY2VPjrWiF/BDH
-	X7i3N2Gzi+Vm1Y0JxEh5QAv45kz1QH4ogQzTwFLDnBdoHu1OYUt3TnNwYuGAk4843x46bVq0CYubf
-	iyHaDw9n92qtC3ShF2pNWUNDRm7e3gF1bSGf2kxGsGcLvbLb2zN0JZ4r6s9Vvpgio87yHWLtrr8b/
-	dy4ERuW4sfJhi8FN6WuEwZYsDoqf2fsJl9BtzQpDD9SO+96CzvuAbgcF2F48ypjxe3LV6WgCKQCUZ
-	IPWEQPztZBXGYCjEoFOH3ruW1IlCqlA49uh90+tQl9vx+4GfDm/blBkTbAPx04mQ4S1Bb4oSM7HRR
-	Y2GKGcsA==;
+	bh=Olra4gYfmU26QXLSZoYONDuJKBUusYrRdN/NXz7ie4U=; b=rDtawdw8xRLatr6qvdQjLdgwzz
+	BnC8sMqAWImRh6ZaEtRi2vychYIIr6cbCT7NgB5Pb1CQ3rLCjaqszkduzBLJ5SPtg44wBzI8tARmm
+	OE0ni8Ok4H6ecdIZ4AUKoZGMvb2bZXxTRKz9sN6uNAslPm9j4513Ivs2ugL74DuOYatPzFe9ozz5U
+	Y0Fh1YFhUJlKcfz3S0PyEdaDi+osh8NlN6s9mTXCkQwSVQuKnONm+QrPDYTQu3UVhFEKUedP51255
+	nkCzYpW3uybo5llVFzesRpZ7PVQUB2ko+BXogudzVUaZLHhbrn+7NU8pe3L8eCiGGxktzZQUTLNE0
+	3d3SOZWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHi1E-0000000Fgo7-3rXx;
-	Wed, 21 May 2025 11:53:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhsw-0000000FfN2-3heW
+	id 1uHi3G-0000000FhGE-3YyL;
+	Wed, 21 May 2025 11:56:02 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHhsw-0000000FfLx-3yBb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 11:45:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3598C1515;
-	Wed, 21 May 2025 04:45:08 -0700 (PDT)
-Received: from [10.57.94.227] (unknown [10.57.94.227])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4380D3F6A8;
-	Wed, 21 May 2025 04:45:18 -0700 (PDT)
-Message-ID: <7a1ae902-d97c-41ae-a3e7-5b6258ced1c5@arm.com>
-Date: Wed, 21 May 2025 12:45:16 +0100
+	Wed, 21 May 2025 11:45:25 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uHhsc-00018T-H7; Wed, 21 May 2025 13:45:02 +0200
+Message-ID: <721420c6-5e65-48a4-81c5-b161d0df8cfd@pengutronix.de>
+Date: Wed, 21 May 2025 13:44:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/5] mm: Add batched versions of
- ptep_modify_prot_start/commit
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
- jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
- joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250519074824.42909-1-dev.jain@arm.com>
- <20250519074824.42909-3-dev.jain@arm.com>
- <59242559-5e90-4422-82f7-179a44eb968a@arm.com>
-In-Reply-To: <59242559-5e90-4422-82f7-179a44eb968a@arm.com>
+Subject: Re: [PATCH] mmc: sdhci-esdhc-imx: inherit pins_100mhz from
+ pins_200mhz when unconfigured
+To: ziniu.wang_1@nxp.com, haibo.chen@nxp.com, adrian.hunter@intel.com,
+ ulf.hansson@linaro.org, linux-mmc@vger.kernel.org
+Cc: imx@lists.linux.dev, s32@nxp.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, linux-kernel@vger.kernel.org, kernel@pengutronix.de,
+ festevam@gmail.com, linux-arm-kernel@lists.infradead.org
+References: <20250521112042.266111-1-ziniu.wang_1@nxp.com>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <20250521112042.266111-1-ziniu.wang_1@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_044522_968436_0B967917 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20250521_044522_979291_00DE1DE6 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,57 +69,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2025 12:16, Ryan Roberts wrote:
-> On 19/05/2025 08:48, Dev Jain wrote:
->> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
->> Architecture can override these helpers; in case not, they are implemented
->> as a simple loop over the corresponding single pte helpers.
->>
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
+Hi Luke,
 
-[...]
+Thanks for your patch.
 
+On 21.05.25 13:20, ziniu.wang_1@nxp.com wrote:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
 > 
-> I have some general concerns about the correctness of batching these functions.
-> The support was originally added by Commit 1ea0704e0da6 ("mm: add a
-> ptep_modify_prot transaction abstraction"), and the intent was to make it easier
-> to defer the pte updates for XEN on x86.
+> On some new i.MX platforms, hardware guidelines recommend using identical
+> pin configurations for SDR50/DDR50 (100MHz) and SDR104/HS400 (200MHz)
+> modes. But defining two identical pinctrl for 100MHz and 200MHz in dts
+> creates redundancy.
+
+I am not convinced this is an improvement. If 200mhz is missing, it's understood
+that it's not supported. Now if 100mhz is missing, it means something different
+depending on whether state_200mhz exists or not. This is more mental overhead
+than having:
+
+  pinctrl-names = "default", "state_100mhz", "state_200mhz";
+  pinctrl-0 = <&pinctrl_usdhc1>;        
+  pinctrl-1 = <&pinctrl_usdhc1_uhs>;   
+  pinctrl-2 = <&pinctrl_usdhc1_uhs>;
+
+where it's directly evident that you share pinctrl states.
+
+> In this case, omit explicit 100MHz configuration,
+> driver will inherit 100MHz pinctrl from 200MHz.
 > 
-> Your default implementations of the batched versions will match the number of
-> ptep_modify_prot_start() calls with the same number of ptep_modify_prot_commit()
-> calls, even if modify_prot_commit_ptes() is called incrementally for sub-batches
-> of the batch used for modify_prot_start_ptes(). That's a requirement and you've
-> met it. But in the batched case, there are 2 differences;
-> 
->   - You can now have multiple PTEs within a start-commit block at one time. I
-> hope none of the specialized implementations care about that (i.e. XEN).
+> Preserves existing behavior if 100MHz is configured but 200MHz not (e.g,
+> imx8mp-navq.dts usdhc1 supports SDR50/DDR50 but SDR104/HS400 not).
 
-I had a look; this isn't a problem.
+This conflicts with the binding, which doesn't allow for state_200mhz
+to exist without state_100mhz, so that would need adaptation.
 
-> 
->   - when calling ptep_modify_prot_commit(), old_pte may not be exactly what
-> ptep_modify_prot_start() returned for that pte. You have collected the A/D bits,
-> and according to your docs "PTE bits in the PTE range besides the PFN can
-> differ" when calling modify_prot_start_ptes() so R/W and other things could
-> differ here.
-
-It looks like powerpc will break if you provide old_pte which has different
-permissions to the "real" old_pte, see radix__ptep_modify_prot_commit(). So I
-think you need to at least spec modify_prot_start_ptes() to require that all
-bits of the PTE except the PFN, access and dirty are identical. And perhaps you
-can VM_WARN if found to be otherwise? And perhaps modify
-ptep_modify_prot_commit()'s documentation to explcitly allow old_pte's
-access/dirty to be "upgraded" from what was actually read in
-ptep_modify_prot_start()?
-
-XEN/x86 and arm64 don't care about old_pte.
+As noted before though, I don't think we really need to change anything
+here though.
 
 Thanks,
-Ryan
+Ahmad
 
 > 
-> I'm not sure if these are problems in practice; they probably are not. But have
-> you checked the XEN implementation (and any other specialized implementations)
-> are definitely compatible with your batched semantics?
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+> ---
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index f206b562a6e3..dfd8be5000c8 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -1810,6 +1810,9 @@ sdhci_esdhc_imx_probe_dt(struct platform_device *pdev,
+>  						ESDHC_PINCTRL_STATE_100MHZ);
+>  		imx_data->pins_200mhz = pinctrl_lookup_state(imx_data->pinctrl,
+>  						ESDHC_PINCTRL_STATE_200MHZ);
+> +
+> +		if (IS_ERR_OR_NULL(imx_data->pins_100mhz))
+> +			imx_data->pins_100mhz = imx_data->pins_200mhz;
+>  	}
+>  
+>  	/* call to generic mmc_of_parse to support additional capabilities */
+
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
