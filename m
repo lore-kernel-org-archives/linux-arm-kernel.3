@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F40C54ED1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1F7C54E92
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5fxKwOtV0w/VF0Z/prwVeCYeXxPC0FBGZeVJgEqWiU=; b=C2uTp6faI5/zQiUCp18WYj82AE
-	CGmujeDD06mmmTzES7VHdi6bQUfrf/pbmv2Vfp2nUfMaZ1LDhoXXyIesK9HGGpS/36y2J1/i9o83L
-	03jPwyGjHRQczr0cob5tsiA+LJuET6Ly3T5D6FncC+UggtzQHgmzmf2GsUSykN21AWFE0oaGZpzsO
-	XwVCUXIu4Bh5Esp+CdjOIdbrD+sYkeyfEIoJnyh2TbDymX+kP0ILVdh0mBsO17LrtcujqY9gO2txR
-	ILJrGsLaTmr8ktKEYOBR1AAqsmhWjtb9KtRvXq6kb2PARzZna77yAY7P0kx09Z9l+qH8lBou2dDVN
-	upo+m0ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DTWiBkBhS2QuL+xSXWqqij2r9yFJ6qW2raK9TVRAI7Q=; b=idldzPXQKZHrBAUu86NGZYkdZK
+	uCQKPIfUbkF/OaYc76PdsC39DTypOTmSjCya12BhNuaWFxI8HlTpKRMFgGIg1ohzaizmPDGXlgOkD
+	wOBcn0YPYPBWo/FHmjtRonhnPNzcJtl9zxdB7s3dGFgxxzs+fozWD0TjvSJMooxtHaJG2seuDM76u
+	8V2MLsgD0cI/Q8quGXnhexb2pT83bjA+dmiiS3k2O72OTIL93wQCqFuGELwCvQ9MtEf5a3gCkA7fM
+	N7mxcmuCq1WiL4DBWGJKH1iUD/x6gqvL1Knqs8JVALupxIRICm9YEWR44HQ5wTaVusfEGgNsT2U48
+	Ao6oCnmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHghk-0000000FSlz-2FWg;
-	Wed, 21 May 2025 10:29:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uHghj-0000000FSld-3Cfu;
+	Wed, 21 May 2025 10:29:43 +0000
+Received: from sender4-of-o55.zoho.com ([136.143.188.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfx3-0000000FLxW-1VjA;
-	Wed, 21 May 2025 09:41:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 411B86000A;
-	Wed, 21 May 2025 09:41:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C36BC4CEEA;
-	Wed, 21 May 2025 09:41:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747820487;
-	bh=+2ACf2EVUznzds3MDpxXdhMN6A2gN/hs5eEw4sfUYDc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lcfS6tBaeh1ph8fLFgw+Mz//8rf1DUFHHXN3rXWNj51CElqQ6DP+LG/MepdP7wJUO
-	 /7jVlQ1uejYjHZBfKkXwNcnohWb+bVw+rcmaDQiQWaLltKAyORjspTh2oLV3j8MQjk
-	 Mi68gOYvOXxPZamX6GKA0DcKY5nC0ye/v1eadSFN7+y+O64FrrOTfy96J7gytVB8Oo
-	 ZzCF+vARlOq9p6isPWAcn9r4dxIe3I/qTp9/eYYrIabXF2pfmKg+e2yO/LcWL2WQIt
-	 Gfox0cdL72JffPforo3G681RVmJcjMzlhKUBMEwFbe/lv1BfZrZhKnNAfB9tPTawxR
-	 9ipeqIDz4iRGQ==
-Date: Wed, 21 May 2025 11:41:24 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.or, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org, 
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org, 
-	kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com, jh80.chung@samsung.com, 
-	Hrishikesh Dileep <hrishikesh.d@samsung.com>
-Subject: Re: [PATCH 02/10] PCI: exynos: Remove unused MACROs in exynos PCI
- file
-Message-ID: <20250521-succinct-roadrunner-from-avalon-f1fa4c@kuoka>
-References: <20250518193152.63476-1-shradha.t@samsung.com>
- <CGME20250518193230epcas5p3dfb178a6528556c55e9b694ca8f8ad6c@epcas5p3.samsung.com>
- <20250518193152.63476-3-shradha.t@samsung.com>
+	id 1uHfwo-0000000FLuZ-1InC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 09:41:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1747820471; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=agGqAnt3Bc9RFcPTZ0KKHJHUmsmpZfMgKqzqAUcrECb5obxwgVb4Eg8EABux6BLm3kt52wE0XntHtQDdU1iSzogSSCeYjhpKOkRBzUx66aH6pUBQPHvesJOPoxIs+rvwg8Nrzt6LM3FDyKnwInsr6Jq/UJJUxTZRpWQCZURHUGo=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1747820471; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=DTWiBkBhS2QuL+xSXWqqij2r9yFJ6qW2raK9TVRAI7Q=; 
+	b=NA+0SSKzhL9H0xgLq7m+ZKOSusHuzXi2EB7JslWSlK36AsgggbtPNTD25HiigbM63Ez6gLXU9DSv9zcTYPUchGwrmIpQpOcWyyxUsQ0CtR0eLryZI/T43yXf0m9sKupKxEqUaFGgcPbG5R27/+3sx4+U44Ps38whkT2amcz5FcQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=anirudhrb.com;
+	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
+	dmarc=pass header.from=<anirudh@anirudhrb.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747820471;
+	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Transfer-Encoding:Reply-To;
+	bh=DTWiBkBhS2QuL+xSXWqqij2r9yFJ6qW2raK9TVRAI7Q=;
+	b=KUiYpN7i0A9FIjwGvhL8E7tX6SSRdDxx2GwrqhIEkpVVvT113SBHU/KC81lxu7Cf
+	ABLN4oRMA1v8jKXMi5RhjNFU4vhWmW4Y9mX5dcuji9S3pde8taQSeCdkBXm5C8jenie
+	j0sodbh9w1XMZm/1e96MJJ8TOLn/fWN+W/gR41P0=
+Received: by mx.zohomail.com with SMTPS id 1747820468781754.4226643973292;
+	Wed, 21 May 2025 02:41:08 -0700 (PDT)
+From: Anirudh Rayabharam <anirudh@anirudhrb.com>
+To: Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>
+Cc: anirudh@anirudhrb.com,
+	linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] firmware: smccc: support both conduits for getting hyp UUID
+Date: Wed, 21 May 2025 09:40:48 +0000
+Message-Id: <20250521094049.960056-1-anirudh@anirudhrb.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250518193152.63476-3-shradha.t@samsung.com>
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250521_024114_560015_AC59DA01 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +79,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 19, 2025 at 01:01:44AM GMT, Shradha Todi wrote:
-> Some MACROs are defined in the exynos PCI file but are
-> not used anywhere within the file. Remove such unused
-> MACROs.
-> 
-> Suggested-by: Hrishikesh Dileep <hrishikesh.d@samsung.com>
-> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
-> ---
->  drivers/pci/controller/dwc/pci-exynos.c | 2 --
->  1 file changed, 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-exynos.c b/drivers/pci/controller/dwc/pci-exynos.c
-> index 1c70b036376d..990aaa16b132 100644
-> --- a/drivers/pci/controller/dwc/pci-exynos.c
-> +++ b/drivers/pci/controller/dwc/pci-exynos.c
-> @@ -31,8 +31,6 @@
->  #define EXYNOS_IRQ_INTB_ASSERT			BIT(2)
->  #define EXYNOS_IRQ_INTC_ASSERT			BIT(4)
->  #define EXYNOS_IRQ_INTD_ASSERT			BIT(6)
-> -#define EXYNOS_PCIE_IRQ_LEVEL			0x004
+From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
 
-Fix order of patches. Why renaming something just to remove it? No
-point.
+When Linux is running as the root partition under Microsoft Hypervisor
+(MSHV) a.k.a Hyper-V, smc is used as the conduit for smc calls.
 
-Best regards,
-Krzysztof
+Extend arm_smccc_hypervisor_has_uuid() to support this usecase. Use
+arm_smccc_1_1_invoke to retrieve and use the appropriate conduit instead
+of supporting only hvc.
+
+Boot tested on MSHV guest, MSHV root & KVM guest.
+
+Signed-off-by: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
+---
+ drivers/firmware/smccc/smccc.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+index cd65b434dc6e..bdee057db2fd 100644
+--- a/drivers/firmware/smccc/smccc.c
++++ b/drivers/firmware/smccc/smccc.c
+@@ -72,10 +72,7 @@ bool arm_smccc_hypervisor_has_uuid(const uuid_t *hyp_uuid)
+ 	struct arm_smccc_res res = {};
+ 	uuid_t uuid;
+ 
+-	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
+-		return false;
+-
+-	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
++	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
+ 	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+ 		return false;
+ 
+-- 
+2.34.1
 
 
