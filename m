@@ -4,78 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90020C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 16:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D06C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 16:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nqV3lRwJwEi5A0n42n94rqiFtoc8WGmVMSwJFR2qgmU=; b=eXsPlztzBmpN9aOQHZZ+CRb4Ks
-	WkAk/pOIlUfhmXh7Z2FNhJRMqrIdXzYcc0K/UJq6/nh2f97GyskDmMnxFmDs5MxsgJZ+hgkDXAP1c
-	nO8SjCO8C7D8azyNrvb9knNqo3TrqlSUgNddE4hMt7tSXKRu6+VNfMJKBjkT8Wgw/7JhvoqPGLtlV
-	8k6/uBaoOF1obigwDkqWySOQ8823LZznJl46kr0FRdKQT993F1BzWyZcEYt0uhr8qHTxssPpuvWsN
-	e53ANvELzoz+FLC7slWF8qezrJPOzuc3krkdo0rJCrZNa3YhANzYstoJvOhkGJQxMo3910LH78J0+
-	pULTBHgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mMmRvxKHUiZ4bzlqiGpD/VkaqONMq2EdgL1Fk7DWEAs=; b=olJRNV7PqBWzJvW3aRl3lA4ca9
+	WFXq103AmjM81z0hhSwmmQA6xBR2axwFG5+nRpGIg9bqlvD9JGyP4O1vwnRyncdZIgHq5aKdbJQED
+	pF8qdRRLc1Iiqk8R5tv3PdhH/9/GaaORVmdo2NbbB/mwta2yX9eIf67Q8vFApbbkd4sufSpp59xdT
+	rJ/x32C2IL5lan36DtdZgfz9Av6Tj/jyrKxG9X/VdRBoex7yg0LXmSCzkZ3XGrHdcSbK3y09mHYCI
+	/2CVyvk+Fno9nepTlC1gzqHPbFKnUD+R2wkjONsGeb8pA/MRMVAipwygLuXXX9flQdHvsHAQBapN/
+	5Gf6ccTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHmYD-0000000GUaV-1a0r;
-	Wed, 21 May 2025 16:44:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uHmf1-0000000GVWf-3hyQ;
+	Wed, 21 May 2025 16:51:19 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHmW3-0000000GULy-1rbx
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 16:42:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EDDBB4496E;
-	Wed, 21 May 2025 16:42:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C091C4CEE4;
-	Wed, 21 May 2025 16:42:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747845721;
-	bh=fNlJI98IRmJku5DUDB7KU0NTAR5l/AoBK5dNhkMKy3I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W5UxbfYHZeoYDuN5ngewjlWzVx7fvv+BRtndc80ovjhiG8g1I0PHO5ybTj6Lu6x7z
-	 g36JHRBWYtNWkCBo4PMkcy0oVlBeyMphixat7L/44FREl/Q339WNexmioK64JLpHrr
-	 ovP+rgZvQ9g6LwFcH/HDCu9vpS3tLCd/GJAcQWnttlw4kKAxt0ie+p9RLIYWYKjjhH
-	 93rSYCm1Z1xfN5fXmFJkD1WSt0TC4uayOcstPRMB2i+aKB06sSd7LdyWxS+W5yFd8X
-	 bdNdzs+Y/THmEK3YDLZn9UkbD1V8YTXfyH5h5kHwmICgedMJsRAjUNUWn2aXZj8rj/
-	 RKYVBmYwmsZHw==
-Date: Wed, 21 May 2025 19:41:57 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Stefano Garzarella <sgarzare@redhat.com>
-Cc: linuxppc-dev@lists.ozlabs.org, Peter Huewe <peterhuewe@gmx.de>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	linux-integrity@vger.kernel.org,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>
-Subject: Re: [PATCH v5 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
-Message-ID: <aC4CVUXpThAyKQdf@kernel.org>
-References: <20250514134630.137621-1-sgarzare@redhat.com>
- <20250514134630.137621-5-sgarzare@redhat.com>
- <aCVHQ-LRqHeEVEAW@kernel.org>
- <CAGxU2F5AsNY5mQPd=qajW1seFYHSYpB0Fa1iuR_f2QavtoB6sA@mail.gmail.com>
- <aCzf6aoJAC-IdS_n@kernel.org>
- <CAGxU2F6rfqGV_gJk-JxrCk3f9dWtYn_3o9RODh7cVG0X_oQWaA@mail.gmail.com>
- <aC2nBCxkvWWz5y5E@kernel.org>
+	id 1uHmco-0000000GV6t-1Qkg;
+	Wed, 21 May 2025 16:49:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1747846116; x=1748450916; i=markus.elfring@web.de;
+	bh=mMmRvxKHUiZ4bzlqiGpD/VkaqONMq2EdgL1Fk7DWEAs=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=R9qkp0UQLMU4PS8aLGNnM5h9K0LZcxpWp5mQgC7/MZZl4bntVAcJKlRtfX+K+7Nw
+	 4Mwuj1MrF+OPYYVgK8wGwQSF+6mL1ik53T5NWdrqiPNfY4otvzjtxvFBOgC3DrGiy
+	 qdvJGp3gEW9RagYyq0qwliS8MNeCBWOm0evE6ahV/a3g7ryv4f4TY1D5KKJ9TjO1+
+	 XxkrE38w4Q7vs7QB7kRwULrG5cnletAHS+065W+MBe8FsLAVhGVnJxQjTRP0aG8Do
+	 YxA7+ZAnAHMVKsy1po7HrWguNDtHKKGnshZBWblNnsJQ2PmBm809PomU25NRANE3i
+	 ZvtSYxDXZGFlJuQb/Q==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.179]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N4N98-1uyN8v3ZQc-016xzv; Wed, 21
+ May 2025 18:48:35 +0200
+Message-ID: <cc69eb17-d55c-4843-8d90-fd49191c69e2@web.de>
+Date: Wed, 21 May 2025 18:48:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aC2nBCxkvWWz5y5E@kernel.org>
+User-Agent: Mozilla Thunderbird
+To: vulab@iscas.ac.cn, linux-remoteproc@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+References: <20250521142404.1077-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH] remoteproc: mediatek: Add SCP watchdog handler in IRQ
+ processing
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250521142404.1077-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:wLDt5/h2QRTkZczjRvRZMrVMnlTt2L1E/AybcnSxYGSgeOhxHsx
+ pY0dW2RuIKkKw50MOqmzkYU1gmfRgzf0KeCVJ9tRcIB/a46zQy6/1xqtwscqu4IDSruVwqw
+ invgNyZJbcNmqhbEWWGNag6SyqUMwPP4NL2X5wol8nvTr5m4aWu9vh2NxHiY+sEPX8EHPli
+ K/yIzGNo46xfQDrIvJCkQ==
+UI-OutboundReport: notjunk:1;M01:P0:7AM6bwFPyJI=;et9l+tuDsrsw4nQb40EaimU/7/O
+ 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
+ NvI9vJhgOf7wasUIpriVeownWfw9OarXeb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_094203_501134_440BD1D3 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20250521_094902_677242_6B746F7C 
+X-CRM114-Status: UNSURE (   5.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +129,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 01:12:20PM +0300, Jarkko Sakkinen wrote:
-> > I tried, but the last patch (this one) is based on the series merged
-> > on the tip tree, where I introduced tpm_svsm.
-> > I can see that series in linux-next merged with commit
-> > 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07,
-> > but I can't see it in your next tree [1].
-> > 
-> > How do we proceed in such cases?
-> > 
-> > Just to be sure, did I use the right tree?
-> 
-> Thanks for the remark. Lemme check tonight. Hold on doing
-> anything ;-) We'll get there...
+> In mt8195_scp_c1_irq_handler(), only the IPC interrupt bit
+> (MT8192_SCP_IPC_INT_BIT) was checked., but does not handle
+> when this bit is not set. This could lead to unhandled watchdog
+> events. This could lead to unhandled watchdog events. A proper
+=E2=80=A6
 
-I just rebased my branches on top of latest from Linus. That is what I
-need base PR also on, and:
+* You may occasionally put more than 63 characters into text lines
+  of such a change description.
 
-$ git show 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
-fatal: bad object 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
+* Please avoid a duplicate sentence here.
 
-I'd use git cherry-pick on a range to take them from linux-next to a
-mainline tip...
 
-BR, Jarkko
+Regards,
+Markus
 
