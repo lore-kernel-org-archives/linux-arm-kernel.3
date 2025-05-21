@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFC8C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:30:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 201FEC54E92
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1MK7Xrodqhlu8yhuvAl9KhCWFk0Xymqc7fBJim3qekA=; b=G2mlac5bKWMXhv1sEV6sTg83BQ
-	0mOFzbrYDUqcSqwvw/X34nmXPc1JdxaftjOcjBjvUKRReqnBWWnOYvUAMa14crru5Hck7DZx/K8lo
-	PvtsRg4lFBc77srXzKKBseQd6mPHaWnBxjICDdEsTzxEfZRyiyY/X8WgcXRL7BXq+E1mZyBtZYuz3
-	pwKJl8Owa80UK7excw6M6Srm5LHpPEabBY18fPIdSaGAIS0FZ+FtDF8yGBmEfznJO6vo2eJ7VuYqV
-	FQIGRn+P9l2xPWs7i6fn1E/z3tjpqHjNyup3T5nYc3aZWzcLvx99w1AY8jQhP+BoIHqcU3zPzKAOb
-	PuRrZ0eQ==;
+	bh=HhJHdXYshRD74blT0tjNUs/oT2DyVbyz0TuZi98jhZw=; b=pgfBnDmT7mQg9Dicyh9HrHpsMU
+	Fc6eU7UsYuRHrIkha2rNSCUKywEUxqd3WpQUaQOtqmAJm0DmzC7NKSRKDtEsxJB9aXsrUvwJM5zmi
+	s5REhQS7q/OGNBQ4JudlkDGdgjJwoouZduOJnZTKkcI67n6+0JFKVCMoX9cR7F1W32bTajFJlVEtR
+	G3DNsKhO87DhfGOczEfba5uwmw36H1N5erWv2Ux4YmJVdx7BIKUYLrlDvngVgGEkkQwbKKW+mdpEp
+	s1hGn+U1dJCi+7NL5zm7PVxdFHk6CC7pu+gozU6K7ms5nLD/xBuHTHrpKxUlzB9k48btr3bHnPhTm
+	Dapn4zJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHghx-0000000FT4c-1ezL;
-	Wed, 21 May 2025 10:29:57 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uHghz-0000000FT8O-2gmW;
+	Wed, 21 May 2025 10:29:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHgPW-0000000FPal-1Jcc;
-	Wed, 21 May 2025 10:10:55 +0000
-Received: from pendragon.ideasonboard.com (179.218-130-109.adsl-dyn.isp.belgacom.be [109.130.218.179])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 179C76B5;
-	Wed, 21 May 2025 12:10:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747822227;
-	bh=dxAfHCbzu/1/eFKa6ozmSU01XQUjFGYoBCNB5/x0dQI=;
+	id 1uHgQz-0000000FPmV-2fyf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 10:12:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A815C629E2;
+	Wed, 21 May 2025 10:12:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA7E2C4CEED;
+	Wed, 21 May 2025 10:12:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747822344;
+	bh=21cNdzYwUJJBEkAHlt7+sFsml8d7DmKbNlD2kUZGKoQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NbjLX9Gb7voEGiUjcAeGHMkJeBmtKQK2Pd2u3OJRJ2CvlfC9Al3BQ2d2Qxut4L43M
-	 2WI0vWQKJu24p++0F2f3v69dFLLgvq8yzJ7sZrPWaGAJSrLj6+Hm+nPS4hiXBIlET3
-	 qLACFCIacYNE2XZODgeqacGyOovzxS50Z12Q8Ca4=
-Date: Wed, 21 May 2025 12:10:42 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>
-Cc: Paul Elder <paul.elder@ideasonboard.com>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Ondrej Jirman <megi@xff.cz>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	stefan.klug@ideasonboard.com
-Subject: Re: [PATCH] RKISP1: correct histogram window size
-Message-ID: <20250521101042.GC12514@pendragon.ideasonboard.com>
-References: <m3tt5u9q7h.fsf@t19.piap.pl>
- <aB31Eg6oRpcHHEsb@pyrite.rasen.tech>
- <m3jz6b8lb1.fsf@t19.piap.pl>
+	b=YLXOzE9HyCy+kC79+nUGLtvp+0cxfR2TUqkZ6h0MDnnvdFk9pskQlEjRl/46ec7W2
+	 TH/x2jlNbam+Us8NSZrtDSx/HbFXHChCs8KdGoSNvyu+6GIK/tABEAfZ5EIJ9jmwiU
+	 W1JLhNCmMAminpUveLFmvUvUzyFGZbmBJ7QRISsH67ON2Eldjw5CzZuxmWFFKjhaMG
+	 5hnpVMxcr0ovTQjUkq13+jJoGGK4Rsio37/Sc3vS01CWAzkYtLStJsFev+cYzyIB6D
+	 cA1Q961SLiRbMcoD6c9XC2jiHOXhz5nQrAyKFReCRaKuiywBNVKDMxR59cSAmmioWM
+	 B1TrXzju+oOcQ==
+Date: Wed, 21 May 2025 13:12:20 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: linuxppc-dev@lists.ozlabs.org, Peter Huewe <peterhuewe@gmx.de>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	linux-integrity@vger.kernel.org,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>
+Subject: Re: [PATCH v5 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
+Message-ID: <aC2nBCxkvWWz5y5E@kernel.org>
+References: <20250514134630.137621-1-sgarzare@redhat.com>
+ <20250514134630.137621-5-sgarzare@redhat.com>
+ <aCVHQ-LRqHeEVEAW@kernel.org>
+ <CAGxU2F5AsNY5mQPd=qajW1seFYHSYpB0Fa1iuR_f2QavtoB6sA@mail.gmail.com>
+ <aCzf6aoJAC-IdS_n@kernel.org>
+ <CAGxU2F6rfqGV_gJk-JxrCk3f9dWtYn_3o9RODh7cVG0X_oQWaA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <m3jz6b8lb1.fsf@t19.piap.pl>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_031054_492756_9596161B 
-X-CRM114-Status: GOOD (  32.47  )
+In-Reply-To: <CAGxU2F6rfqGV_gJk-JxrCk3f9dWtYn_3o9RODh7cVG0X_oQWaA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,132 +86,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 03:26:58PM +0200, Krzysztof Hałasa wrote:
-> Paul Elder <paul.elder@ideasonboard.com> writes:
+On Wed, May 21, 2025 at 09:13:34AM +0200, Stefano Garzarella wrote:
+> On Tue, 20 May 2025 at 22:02, Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> > On Tue, May 20, 2025 at 06:06:50PM +0200, Stefano Garzarella wrote:
+> > > On Thu, 15 May 2025 at 03:45, Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> > > > On Wed, May 14, 2025 at 03:46:30PM +0200, Stefano Garzarella wrote:
+> > > > > From: Stefano Garzarella <sgarzare@redhat.com>
+> > > > >
+> > > > > This driver does not support interrupts, and receiving the response is
+> > > > > synchronous with sending the command.
+> > > > >
+> > > > > Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
+> > > > > ->send() already fills the provided buffer with a response, and ->recv()
+> > > > > is not implemented.
+> > > > >
+> > > > > Keep using the same pre-allocated buffer to avoid having to allocate
+> > > > > it for each command. We need the buffer to have the header required by
+> > > > > the SVSM protocol and the command contiguous in memory.
+> > > > >
+> > > > > Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+> > > > > ---
+> > > > > v5:
+> > > > > - changed order and parameter names to match tpm_try_transmit() [Jarkko]
+> > > > > v4:
+> > > > > - reworked commit description [Jarkko]
+> > > > > ---
+> > > > >  drivers/char/tpm/tpm_svsm.c | 27 +++++++++++----------------
+> > > > >  1 file changed, 11 insertions(+), 16 deletions(-)
+> > > > >
 > 
-> >> Without the patch (i.MX8MP, all-white RGGB-12 full HD input from
-> >> the sensor, YUV NV12 output from ISP, full range, histogram Y mode).
-> >> HIST_STEPSIZE = 3 (lowest permitted):
+> [...]
+> 
+> > > >
+> > > > I can pick this for 6.16.
+> > >
+> > > Great, thanks!
 > >
-> > According to the datasheet, the histogram bins are 16-bit integer with a
-> > 4-bit fractional part. To prevent overflowing the 16-bit integer
-> > counter, the step size should be 10.
-
-That would be for combined RGB mode, as every pixel is accounted for
-three times in that mode. In other modes, a step size of 8 should be
-fine.
-
-> >
-> > Do you have any other information on this? Is it known that it's stable
-> > and consistent to use all 20 bits anyway?
-
-The documentation states that the width of the bin counter registers is
-20 bits wide including a 4-bit fractional part, and that the software
-should use only the upper 16 bits of the bin counters. The fractional
-part is caused by the weights. There's a corresponding todo comment in
-libcamera:
-
-	...
-	 *
-         * \todo Take into account weights. That is, if the weights are low
-         * enough we can potentially reduce the predivider to increase
-         * precision. This needs some investigation however, as this hardware
-         * behavior is undocumented and is only an educated guess.
-         */
-        int count = mode == RKISP1_CIF_ISP_HISTOGRAM_MODE_RGB_COMBINED ? 3 : 1;
-        double factor = size.width * size.height * count / 65536.0;
-        double root = std::sqrt(factor);
-        uint8_t predivider = static_cast<uint8_t>(std::ceil(root));
-
-        return std::clamp<uint8_t>(predivider, 3, 127);
-
-libcamera sets the default weights to 1, and discards the 4 fractional
-bits. It seems that the 
-
-I expect that each pixel contributes to its bin by adding the weight
-value corresponding to its zone. Setting all weights to 1, I would
-expect that the 4 fractional bits could be used to increase the bin size
-to 1048575 pixels (20 bits), and therefore decrease the predivider from
-10 to 3.
-
-> Interesting. I only have those mrv_*.h files which come with
-> isp-imx-4.2.2.* package(s). Here we have (among others):
+> > Can you rebase this on top of my next branch and send one more version
+> > of the series (fake ancestor crap)?
 > 
-> /*! Register: isp_hist_prop: Histogram properties (0x00000000)*/
-> /*! Slice: stepsize:*/
-> /*! histogram predivider, process every (stepsize)th pixel, all other pixels are skipped */
-> /* 0,1,2: not allowed */
-> /* 3: process every third input pixel */
-> /* 4: process every fourth input pixel */
-> /* ...*/
-> /* 7FH: process every 127th pixel */
-> #define MRV_HIST_STEPSIZE_MASK 0x000003F8
-> #define MRV_HIST_STEPSIZE_SHIFT 3
+> I tried, but the last patch (this one) is based on the series merged
+> on the tip tree, where I introduced tpm_svsm.
+> I can see that series in linux-next merged with commit
+> 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07,
+> but I can't see it in your next tree [1].
 > 
-> In case of my IMX290 1920x1080 sensor, 1 doesn't work well (it stops
-> counting before reaching $((1920x1080)) in each bin, and even if no bin
-> reaches this magic value, the total count may be invalid (not equal to
-> the number of pixels). IIRC, 2 worked well. Maybe with higher
-> resolutions, I don't know.
+> How do we proceed in such cases?
 > 
-> I'm currently using "3" per the .h file:
-> isp_hist_prop:
-> 32E12400: 1Dh
-> histogram_measurement_result:
-> 32E12414: 0 0 1 1004 569 476 633 1197 2373 2212 1923 2945 3632 3025 5821 204589
-> which sums to 518400 = 1920*1080/9.
-> 
-> Setting "2", the same input scene:
-> 32E12400: 15h
-> 32E12414: 0 0 0 2194 1263 1096 1406 2528 5228 5052 4291 6354 8322 6943 13201 460522
-> which sums to 518400 = 1920*1080/4.
-> 
-> Setting "1", the same input scene:
-> 32E12400: Dh
-> 32E12414: 0 0 25 9046 4924 4317 5435 10655 20781 18965 16051 24716 32681 28368 54301 1048559
-> which sums to 1278824 which is rather less than 2073600.
-> The last number (1048559) is the magic one, no bin can go higher. Less lights and:
-> 32E12400: Dh
-> 32E12414: 0 0 0 0 0 0 184 3059 11970 75298 114898 211444 429772 439922 400358 386695
-> total = 2073600. But don't rely on it too much, the "1" has problems.
-> 
-> In short, those are integer values. One may use them as fractionals with
-> some clever step size, I guess.
-> 
-> >> isp_hist_h_size: 383 (= 1920 / 5 - 1)
-> >> isp_hist_v_size: 215 (= 1080 / 5 - 1)
-> >> histogram_measurement_result[16]: 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 229401
-> >>
-> >> Apparently the histogram is missing the last column (3-pixel wide,
-> >> though only single pixels count) and the last (same idea) row
-> >> of the input image: 1917 * 1077 / 3 / 3 = 229401
-> >
-> > I don't quite understand this. With a sub-window width of
-> > 1920 / 5 - 1 = 383, shouldn't the resulting total window width be
-> > 383 * 5 = 1915? Same idea for the height.
-> 
-> It would, but the stepsize = 3 makes it ignore only the last one
-> - i.e., normally the counted ones are 0, 3, ... 1914, 1917 (which makes
-> 1920/3) and with 383, it ends at 1914, thus only 3 pixels (1 really,
-> instead of 2) are missing from calculations (not 5). I guess the same
-> vertically, 1080 divides / 3 and 1075 doesn't.
-> 
-> > The fix looks fine though. Although, I'm wondering if there's a reason
-> > why there was a -1 in the first place. Does anybody know?
-> 
-> There is slight chance it's different on some other SoC, but I would be
-> surprised.
+> Just to be sure, did I use the right tree?
 
-The documented constraint is
+Thanks for the remark. Lemme check tonight. Hold on doing
+anything ;-) We'll get there...
 
-    hist_h_offset + hist_h_size x 5 should be less than or equal to the
-    horizontal size of the picture.
+> 
+> Thanks,
+> Stefano
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/log/?h=next
+> 
+> 
 
-(and similar for the vertical direction). The initial -1 seems to be a
-bug.
-
--- 
-Regards,
-
-Laurent Pinchart
+BR, Jarkko
 
