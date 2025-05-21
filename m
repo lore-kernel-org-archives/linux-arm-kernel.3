@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 750C6C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:09:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00D6C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TSmPZSUiriMz96Sywv4sxQEnAqY0Qa0OY4Z7gR1h+jw=; b=QaONpaR3C+ZLAKmm5GiK6qzyAo
-	STCH/ObCe0fVNgaW8WHQHrtLjDA7cvHGMVD/72yx7YmRKtVXT/swcyzAxbLj6jqT7/O4ARTSwh2Rv
-	AKj7glnix9fEbj1tFEtnYgeqa+E19nOfdk10t6HXJ0h2PFCM4B5JuDJaagsOKE+Pm+1AQ+GtFcKcd
-	3M4wu1ioMn7uotNmLEtsOrfVxAoIHgmPCTj4uCOcZ/RxllGY6isASXBroHfAwHrGKqx84dzmyQB+O
-	mucobH5+81lWBYdrFUt7SHL6y4g682/f8jyMPlSGczj/jqTEQ7nz47AW7+aaryRZzn/jfTto5dmQe
-	pRsqGbBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fhTkCpm/BAX2elS9i7PT6HIx0ee+TW6oevUpwCI+6is=; b=Ub+6eWU+oEs+lNu8a18JhxRqrZ
+	56NPrq2N4GIbqrkyU7BG0zCRSG6Z4dRFmPiQtX2a20E5YJe2jIIf3C1sEeWZ1+zSSvwtrSTEUEtwn
+	UQcySd9k8Wrax2Yaq1248cXzDMOvu5130x+NV2N4miAEM5BEc6FYNfzzfdFOaqUCxZQLvC+IJDkMh
+	ywXB523V3xUkHhD20ekQQ7BePvavgqL3n3CXhmtESIDYgkaXkGmRg5XvQFgfxIbxFlJKfWqbxkrT6
+	LlQO0FZTcxEBa++hgLbEI+6ILP4cvl2Hgj+DEaE/y2JZ/9HM/gAqKwBOudcX53VLPehLPbcs3k3JE
+	+8HNVKEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHl4e-0000000GEWQ-1HsR;
-	Wed, 21 May 2025 15:09:40 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uHlDS-0000000GFkk-11q8;
+	Wed, 21 May 2025 15:18:46 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHl1f-0000000GDuI-05VC
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 15:06:36 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54LDfwNR031547;
-	Wed, 21 May 2025 17:06:20 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=TSmPZSUiriMz96Sywv4sxQ
-	EnAqY0Qa0OY4Z7gR1h+jw=; b=Mufg19jELB0oRxHfJfird2T2YhK7gJVi4aLfNc
-	4yEaZ8LYgEvcuZctFGz/dUGudj5zyUOaLf+HX32vk8G0Wh84sfnhU5dTJ0LfLIRA
-	bh73dNmI16LJNUIniQSjUN73lw0fNoWSpT0Oyc3t96OYKQQ6/HUfnbyYwnNepLSH
-	1ErfL7rzfKX2BwbC+kB1VvAU+l5hYNu6B6lJoUB3DE7K3GtxjrewVELE/623PAiT
-	RHSTncXTXfy9u+IzSeOcyyAvT/8GhxdHOHsueHaYgsjQRSxZyWsCgNRK2U4fnsdf
-	l7Uu4CChn+FPBYrIte6aykDu4LDxAcM/Y6uTLRAsFveizp8w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46rwf44txt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 May 2025 17:06:20 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 275A640049;
-	Wed, 21 May 2025 17:05:21 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C4A76A2AB8E;
-	Wed, 21 May 2025 17:04:25 +0200 (CEST)
-Received: from localhost (10.252.24.31) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 21 May
- 2025 17:04:25 +0200
-From: Olivier Moysan <olivier.moysan@foss.st.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: Olivier Moysan <olivier.moysan@foss.st.com>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] ARM: dts: stm32: add system-clock-direction-out on stm32mp15xx-dkx
-Date: Wed, 21 May 2025 17:04:18 +0200
-Message-ID: <20250521150418.488152-1-olivier.moysan@foss.st.com>
-X-Mailer: git-send-email 2.25.1
+	id 1uHlBF-0000000GFR4-3rXF;
+	Wed, 21 May 2025 15:16:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1747840585;
+	bh=rcecCSZgxXYbmeK45/Qv2JiTu7qRTSgAZkm1G2Upf04=;
+	h=From:To:Cc:Subject:Date:From;
+	b=i6l38Y+D8kDPWlbyUwquPW1SyH14xcmf0O23Ucu9qhRxkQRbFGZrdhiVmQpNE3vZE
+	 eGWl1jUD2+dKK3WWpexvl9YrZuPMOTBn/35BaHGSfL3obFsPmi+kNwLkEtzokD03NA
+	 7iXhWRinAHXlg1QID6KVdVFYL7qrSZp3lVm4CR9mijsPSZNU6uWB7fKmFLrMaJ6sHW
+	 YY9euo++/N+MPN8+HUj76Dw3teuE5EgWLVye494KBSBe060/AIheIvfOarbmv+PTSu
+	 GJu70haZPT3ja7RE5uMSFWNMciJUnifA7/j6papGU4ghSK2QjodvprHbj4ZEVhXHJI
+	 TtG3LzKLoGO5w==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2C19217E0FD4;
+	Wed, 21 May 2025 17:16:25 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: yong.wu@mediatek.com
+Cc: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	iommu@lists.linux.dev,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	robh@kernel.org
+Subject: [PATCH] iommu/mediatek: Fix compatible typo for mediatek,mt6893-iommu-mm
+Date: Wed, 21 May 2025 17:15:48 +0200
+Message-ID: <20250521151548.185910-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.24.31]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-21_04,2025-05-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_080635_343668_4183FEA5 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250521_081630_113407_E02836C4 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,35 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit 5725bce709db
-("ASoC: simple-card-utils: Unify clock direction by clk_direction")
-corrupts the audio on STM32MP15 DK sound cards.
-The parent clock is not correctly set, because set_sai_ck_rate() is not
-executed in stm32_sai_set_sysclk() callback.
-This occurs because set_sysclk() is called with the wrong direction,
-SND_SOC_CLOCK_IN instead of SND_SOC_CLOCK_OUT.
+Fix the "mediatek.mt6893-iommu-mm" compatible string typo, as the
+dot was actually meant to be a comma: "mediatek,mt6893-iommu-mm".
 
-Add system-clock-direction-out property in SAI2A endpoint node of
-STM32MP15XX-DKX device tree, to specify the MCLK clock direction.
-
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+Fixes: f6a1e89ab6e3 ("iommu/mediatek: Add support for Dimensity 1200 MT6893 MM IOMMU")
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/iommu/mtk_iommu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-index a5511b1f0ce3..c74e36676d1b 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-@@ -515,6 +515,7 @@ sai2a_endpoint: endpoint {
- 				remote-endpoint = <&cs42l51_tx_endpoint>;
- 				dai-format = "i2s";
- 				mclk-fs = <256>;
-+				system-clock-direction-out;
- 				dai-tdm-slot-num = <2>;
- 				dai-tdm-slot-width = <32>;
- 			};
+diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
+index 0a54c6521bf5..cb95fecf6016 100644
+--- a/drivers/iommu/mtk_iommu.c
++++ b/drivers/iommu/mtk_iommu.c
+@@ -1791,7 +1791,7 @@ static const struct of_device_id mtk_iommu_of_ids[] = {
+ 	{ .compatible = "mediatek,mt2712-m4u", .data = &mt2712_data},
+ 	{ .compatible = "mediatek,mt6779-m4u", .data = &mt6779_data},
+ 	{ .compatible = "mediatek,mt6795-m4u", .data = &mt6795_data},
+-	{ .compatible = "mediatek.mt6893-iommu-mm", .data = &mt6893_data},
++	{ .compatible = "mediatek,mt6893-iommu-mm", .data = &mt6893_data},
+ 	{ .compatible = "mediatek,mt8167-m4u", .data = &mt8167_data},
+ 	{ .compatible = "mediatek,mt8173-m4u", .data = &mt8173_data},
+ 	{ .compatible = "mediatek,mt8183-m4u", .data = &mt8183_data},
 -- 
-2.25.1
+2.49.0
 
 
