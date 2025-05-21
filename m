@@ -4,57 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D99C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 01:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 447C6C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 01:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xTkM+0D8//f566GySy7EXd19ZJqJeoizAhZSsoZc1/w=; b=ucOn/Y/r3GLcVAi6nkLah/z5CE
-	+zCDAPSF+c0sGQnJ2PJj0fVlCLnK7EY9Mw98h7Vbp4wsumw1c/AHpLvj18JpU36e6bT55T3JM3/sw
-	Na7KexYg1lQ/xNMBCp+vztJdT7/D5Xibmcb4DBpa/PEl3oBQAxjVPkMXp+z5VacCEsZpx1DeZ5X7L
-	dtBe3yJnZWSseNSLPpmFy8CTGhA6FIhkERyLrku6EF6MIbWCmcxoSc0VnDkUBjZwKKEvKWn0tqX36
-	eJSgvERuswTjnQx8dqQZSZ/Vcx4+5tbiYCe+TvGYh3lt3Ix9TNcdFnld/nh+Sr3GM1rrah9N2xxg3
-	IiwoUKeg==;
+	bh=D1l5Y26fE31eA+2VlxwXfT3gELk5pZJS8QoxYnKKdj8=; b=BrmWRMILYWryxoRK3UKCuXAnYD
+	thEM7M2xARuun1LlsvPsD6bxTvbTn2kJzJfBznyeKd2s5RqSOBJ3yNLSCSm6dzbavITTi05cHQw6G
+	ikiL9zrrnlZlAaX67p2SXpO1H/LgpR+z+Pt62X0DosN+ZX+zJjlgYbpKoNZcoIJIYGwF1PN5YqZjE
+	C8fEDtj3kMydYJN84p1yWoMrbOhoa8USL8m4zverUOmuGPLQqT4w8d2kxWvMTarKGPmVO4zi8LYDH
+	B/TEZkHB3E5craX8lS+ZeoeXfBP+WW9TwZ3vqxn2LS2yEJA7fnmOBiMJyNdTwPfpsB0vATtc4NPCI
+	lqojR/Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHYa9-0000000EX71-3dYT;
-	Wed, 21 May 2025 01:49:21 +0000
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	id 1uHYi6-0000000EXtj-3DzQ;
+	Wed, 21 May 2025 01:57:34 +0000
+Received: from mail-vi1eur05on20615.outbound.protection.outlook.com ([2a01:111:f403:2613::615] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHYY3-0000000EWz7-1aRx
+	id 1uHYfu-0000000EXm6-0i0i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 01:47:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1747792025; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=xTkM+0D8//f566GySy7EXd19ZJqJeoizAhZSsoZc1/w=;
-	b=mtarOv1oE6TnE5PvQLHGGAicnsHEt6p/LZrugBFKsPAuErHMADzde6OtwcS7MLeplOl1iDdivWCTCXAZlkt8m5OOwdhz8TJVpZoRWXHAe/lLZh03eQTRB/NDCXNmnzIBbTxAurOHLwGv4FDvolhIABDTQDpHPJWcCTvXjsAqW18=
-Received: from localhost(mailfrom:feng.tang@linux.alibaba.com fp:SMTPD_---0WbPY5eZ_1747792022 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 21 May 2025 09:47:02 +0800
-From: Feng Tang <feng.tang@linux.alibaba.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Feng Tang <feng.tang@linux.alibaba.com>
-Subject: [PATCH RFC] arm64/mm: Lift the cma address limit when CONFIG_DMA_NUMA_CMA=y
-Date: Wed, 21 May 2025 09:47:01 +0800
-Message-Id: <20250521014701.73046-1-feng.tang@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-MIME-Version: 1.0
+	Wed, 21 May 2025 01:55:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=N68PJuWQYZgRo6iOWwRcP3157tE7+vylihhnTqET9hVS3cg6uCqJRbH3ipnMSZl2vGXLAGKm14Xwg7rHPfyy4m1ps8bu03FMnMwWaSeitqQdMjm833Hmm4mu6r60laJdsPoWIe9R2a7LzmNVdEyCAWkOOWR5saSnn4r+K9ZeY3nctEsaEq6D3/DAMQUlxk9fn14d+Dnb6w67oMRLr1EEUTBrEjjy/YN8yGlDiQZRyF8dcM24W3lA8oCEOhZxcvzx4nvYr8jXWh5fZEter6wU34gPguNbQd9SHklgSkhMcZKbYEaPJSdtYEsuhvx+lPaXdSDe6Iw+/jxYaTM9yTSA0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D1l5Y26fE31eA+2VlxwXfT3gELk5pZJS8QoxYnKKdj8=;
+ b=gAz+RWhQYYzRNHDFcfTbr5VO9TeFSrvwHbRL36ayv0IcrPrSM3q2658PvRnMJ7ENs4j73YyHDXIb4Ug0eAWERn+3CvR65t3V1vDlaglQ9u3o2VsZeOm1RBVaWi7+Q6EXrIMYQsHd91ZSnS1QOrsTD+xe2Ab7/foMHA1p6MFXIyfpbxi5/1a2JuBtMxgKOAv9kfEJ02rDsHuXRMOtJybZfqLhuyBwt7KKPNi+wVRhSMfPVLUcnFIlzgohhVYxsxQqJwnJp+OR5Jte4aALw6wOpBGsRnPudVW6U0JWz1gEPS0GuZDfn53G4XLpbSPMcNB0KyXsFZDXuhm+28yV5yAWzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D1l5Y26fE31eA+2VlxwXfT3gELk5pZJS8QoxYnKKdj8=;
+ b=kFJcvYzz8zi3nW1qG8dc3uDP+4ryqZ6o0vJV9psHx454m5hyoWs3A/bWn63QWELvJl0Hiz4oAJ9DRlUJNjOv/DqGQPmAiBCAng6sVBrYB2fsQtXhfH3pARQl7ky1b8Mf4vqVW9PBtCz9HD0vyDGzz2fA9PRjiL8ZNmOHUNNv/NyYLHLa0sHDLVE+8Ztye8ejSuR6qkvKgG+mGovqlgpovLgE+4U0dLxmqfl+ue/L594aHt4dCRD3Q6uUbeCSDSoR7upqydWLnm+GoUMzyOgAC+QGoHuNm8H7rU9ExTkIuONU7tDyyxdb2LcSsb6mOTDoka55BV5UrDlVPc+g9UYloQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by AS8PR04MB8948.eurprd04.prod.outlook.com (2603:10a6:20b:42f::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.31; Wed, 21 May
+ 2025 01:55:09 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%7]) with mapi id 15.20.8722.031; Wed, 21 May 2025
+ 01:55:09 +0000
+From: ming.qian@oss.nxp.com
+To: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl,
+	mirela.rabulea@oss.nxp.com
+Cc: nicolas@ndufresne.ca,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	xiahong.bao@nxp.com,
+	eagle.zhou@nxp.com,
+	linux-imx@nxp.com,
+	imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3] media: imx-jpeg: Account for data_offset when getting image address
+Date: Wed, 21 May 2025 09:54:07 +0800
+Message-ID: <20250521015408.261-1-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.48.1.windows.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0021.apcprd02.prod.outlook.com
+ (2603:1096:4:195::10) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|AS8PR04MB8948:EE_
+X-MS-Office365-Filtering-Correlation-Id: 062635bc-fcec-4b4c-a32a-08dd980a83db
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|52116014|1800799024|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KHn1+pirKjfhhavRBZwqMd52SHVsW8s1jW6hk6fmpz8IAXgrwAuYJ7e21Mxo?=
+ =?us-ascii?Q?2MPMfWI/pLapH8aoWRVdBV9me+hS+zH2jqY/BZ3Qdwl5qceugRL+atxU42Dk?=
+ =?us-ascii?Q?LIMuahBdJ7XK2jQjJPtRgT6kP2fEDBk9Zcyf+n6mbrhkpAQbAPrH8Ez6fT6s?=
+ =?us-ascii?Q?jv3IvtLupjdeTqbmG+9jeK5rvJGFJ/RxJGgslRn8TinzcpGoXRcm/7QtM6ap?=
+ =?us-ascii?Q?aC2/+4/tTBLUuK5nvPh528+jOUuZzhR2y3HRkOv5/HVqnI9aOkf1C0db94Kl?=
+ =?us-ascii?Q?go70yFlphgjmuW3PX1oJ0RdlYzKlaiJyyfTd2bizsNK7lezOb1kfHFEsQr7v?=
+ =?us-ascii?Q?DMQT1pKkYasiOzdPgR75jqyh23VuBx4Rmop2lXpSFYIyuaai+Kic8QU3V5xt?=
+ =?us-ascii?Q?wk5Yy4slmnmq3vSzXjGziHDEYMx4dd38LcALuuz5Do49DQD5nDpFxs/wr+if?=
+ =?us-ascii?Q?6OeAhAbG9KFLvqsZN5tquiY2pJltgy4oYebtLMw0I90NKldvUT9Gx/PWJJCk?=
+ =?us-ascii?Q?LzQ/2l4lUGk8Fx7nY8RsHmjS1qo8sSOhr+ULJzhd9x6gC5DXu2dN7QEVgSbr?=
+ =?us-ascii?Q?7CI21nDcnLanzPKFjL7xRaaO0I7RU1BjZbs6516+jiLytTUg2VarMUjmInmS?=
+ =?us-ascii?Q?QFFPmMGPW6snxaW/PCytwBdWmuBgEuV0yQj6sxow4S/63NoZlJq1cJRZFeAl?=
+ =?us-ascii?Q?mak81t4Oti7ntO4W4mphOzMA5GZKbyhUb85bLnM2tKjKep3ROXh+nEHsz1Hh?=
+ =?us-ascii?Q?OFSG2hfwPspug5yr7zXD7qO8K3oI8pT0+lbwz9glvhDS1vNVSxgASDTOl3Xr?=
+ =?us-ascii?Q?5kptvOnGg0RRTmn7F+2CcZe5YHn3rYbyjVzlWj7yJNDq+gOiM9PSL0eLg3t9?=
+ =?us-ascii?Q?x5XrP4Ds3dGQCvrmDrGxgDHsPwRAR5o+brVQ+ZGbEdFCcVa7pDbTYBq91oU7?=
+ =?us-ascii?Q?w81c8s6Nxqzx14S9GxW97JRi8hMei6ApMakzR75yWiyomyBNYrfcb/gEWesR?=
+ =?us-ascii?Q?N1lZrVnwizrQpKbTjSmfDJHHKZT3uZa5dh1r1gTH0WwMCCeJB/E9vGAJ0fEr?=
+ =?us-ascii?Q?gk0LdF/84EUroaDslaxjSjqw0EhP1RBM4TDtHAGqBDxfJ0d6oaM3NtGxhGME?=
+ =?us-ascii?Q?+tVFcyl7+PZQ6qlgjT3uxlndDYYR9E9q5aVJ1KWOKvOtpeFDh4qYXrHJ9iD6?=
+ =?us-ascii?Q?U87ZdDWU5yebrDy/rIP/Wihd6oXK28SgMb8ftFGEVktQvacOQIZEPWbM83rg?=
+ =?us-ascii?Q?oT9Ljr+E4tQwrnHzwvPngiKLDe66cJS2TFphtgXuePXYopH5FbrHcsvIsyZx?=
+ =?us-ascii?Q?N19dKOkfW1AAVfOYLKVruxxiZ6+985Dk3KCWQ26owBwAyGXuuWoDrnrI+8by?=
+ =?us-ascii?Q?b3v/oszAg8m+4I7kRzGZNICeFIxxWC8NPmL0OMHNcE6LIqE9g3eFks9pYrM1?=
+ =?us-ascii?Q?isOUbqzA86FbIMTWmn986Qt6OEjxAKW+ZlZwlti0GpdaeHDjJZ2o/w=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(52116014)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Y7v5X0bvbvmF12aeaPeUDKmjhdrnsXPSIb+swHIQu5duVp9QGDOkVmxZ9xrI?=
+ =?us-ascii?Q?2KGu1t354AKuWsr5W/ht7llQKc2icz9wbZMYg1mzan7LMNkyag8t/uONyHbb?=
+ =?us-ascii?Q?aqXwGNBp7ZibRtbu+9yIUf9hWYK6k/ysWP6vsu7qdzvWYZqrSbXWN0rXP9F3?=
+ =?us-ascii?Q?M35EutiyyhSatocBqrprcJM/uZDMoO8MkyhUmFrjwCpykEvqMfjlx1f4RUH/?=
+ =?us-ascii?Q?0xP0Nh9Vdl94rpbpCV5sik43AbaLtmiOMqpp41algmxwGLWH1/FXu6Loeeq8?=
+ =?us-ascii?Q?K2FGtxX8zdfvNLC7cNSALhxHfse4K3ov1OeEl5Z28ZrIxaUq3KN7BvcdqzM3?=
+ =?us-ascii?Q?DKMEIXsacsOZ99LIBTF3ym89EBjjhrlqYvm/DbmaqZTsB41RsgrNpAgNo8Yu?=
+ =?us-ascii?Q?vd0dkBkmT7ZLf5h4xhMoPRl7exH2WQajE/TXHGzsIVPp6UiF/pKvOru0QxRu?=
+ =?us-ascii?Q?TK8F+wcHs23dohGGMiDNHPnZYK1ZS+8XvFonPYeug2ynq/Oy32eOq0fvanCy?=
+ =?us-ascii?Q?XFxBBOT8jRUOzxUHA6XqH824UWsK8Lg+WoGNL2hMkycJpWcsoRotPYFywTGz?=
+ =?us-ascii?Q?bk/UxfG83y6vBaepcQ/Xik0AYWQX7lIR9J5HV11ro0OuIpb1UJGSf9nATHAm?=
+ =?us-ascii?Q?rjwEZcA1rrs/atNr2cvyyzAPXm56NvdlL+oIKNnVtSm47zFieftk4ZpIkyJ2?=
+ =?us-ascii?Q?g+cYnFbVbOJh2y6H+vRvtWnxwVllf2KEpGVC2girSPNppgHuKUbiEBJS1174?=
+ =?us-ascii?Q?ZJ7kPsM721FCbm5C12pYQAfTSwmMrRPtzRlWtQoZwbtHU1XQXd0waYFDeNpj?=
+ =?us-ascii?Q?WvMTuc6CoOAI9Ma4QyeoslRewkoMkxl/oU3LHCUx+8prbeLxU+//d9RIOnSj?=
+ =?us-ascii?Q?Izr9VJNLGrYBf207JWNTvkZtqSg0EQermdhSXZHQe90Ny+4RSUkErMIyUZ6Z?=
+ =?us-ascii?Q?XdhO5YalSPdn8ifP1OUKXIGMcs5WRBnf4SWvylWum93D2wESYDDaJKJwXyRe?=
+ =?us-ascii?Q?Usqe07aEPkjZey3S7/ubXmsiFOVw4HDIJ8sj3MW8SLAA6svRovgVbLSDDu4V?=
+ =?us-ascii?Q?20/P4jKBCcahFlwUiVqmqodOMeqSa94x1ZQw9tdKs5My2L9P7zEbVZG1aKuh?=
+ =?us-ascii?Q?pmUbRpnGXQnDybUKd534HY1vMM5KC9EZeWkup6t3nn45xe56Dssok+b4ZxIO?=
+ =?us-ascii?Q?znEJ68kuBJrbaLjIwf4XQNZ2VXopZX6ecIAfIOdvkxX4kVYDhVLNuJPkmW3a?=
+ =?us-ascii?Q?s49w05C9yXJ9tfuChWj2ATG2IrFZVXngY05M5l1SWDJZYGSvwv0CfT3P446d?=
+ =?us-ascii?Q?SH40VRZAOi8yy4/D0B0kqICKh1oH1YqLPGNmRUSZwD4XWWpLaTEfxlNz93wV?=
+ =?us-ascii?Q?Nh2a1T23tbatIh2wEKDDpU+by8XeLvbjotqfV9okQsg+6fD4Ou89soj6uD2l?=
+ =?us-ascii?Q?F/dthxGQmIfvOuXAdo0vX71MUNxww5DxuJy5CKrQjXfhuQoVY7ylvPgncg+L?=
+ =?us-ascii?Q?iVi8BmX0qizhrhPhFgTVtty6obMB0GxWky1jYOvPjJ2DwPD1pHVkTYixStBw?=
+ =?us-ascii?Q?w0CgadRVe3MEeF8vy3eiFakhS5SJ4/zGUqwafTD1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 062635bc-fcec-4b4c-a32a-08dd980a83db
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2025 01:55:08.9544
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Uye58QsAwZ62W7y0wnV0nu9MatzbsdE3DfvyVA8a7zCh6ZxtagFOSXY1ODOQxkIKX/qycjrrlwUnw6Bo74ncOg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8948
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_184712_178508_1C0E7046 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250520_185518_209777_95B42874 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,51 +169,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When porting an cma related usage from x86_64 server to arm64 server,
-the "cma=4G" setup failed on arm64, and the reason is arm64 has 4G (32bit)
-address limit for cma reservation.
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-The limit is reasonable due to device DMA requirement, but for NUMA
-servers which have CONFIG_DMA_NUMA_CMA enabled, the limit is not required
-as that config already allows cma area to be reserved on different NUMA
-nodes whose memory very likely goes beyond 4G limit.
+Applications may set data_offset when it refers to an output queue. So
+driver need to account for it when getting the start address of input
+image in the plane.
 
-Lift the cma limit for platform with such configuration.
+Meanwhile the mxc-jpeg codec requires the address (plane address +
+data_offset) to be 16-aligned.
 
-Signed-off-by: Feng Tang <feng.tang@linux.alibaba.com>
+Fixes: 2db16c6ed72c ("media: imx-jpeg: Add V4L2 driver for i.MX8 JPEG Encoder/Decoder")
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 ---
- arch/arm64/mm/init.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+v3
+- Add Fixes tag, it's a bug fix, as missed consider data_offset
 
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index b99bf3980fc6..661758678cc4 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -312,6 +312,7 @@ void __init arm64_memblock_init(void)
- void __init bootmem_init(void)
+v2
+- Verify the address alignment
+---
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 47 ++++++++++++++-----
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.h    |  1 +
+ 2 files changed, 37 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+index 5c17bc58181e..8681dd193033 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+@@ -598,6 +598,27 @@ static void _bswap16(u16 *a)
+ 	*a = ((*a & 0x00FF) << 8) | ((*a & 0xFF00) >> 8);
+ }
+ 
++static dma_addr_t mxc_jpeg_get_plane_dma_addr(struct vb2_buffer *buf, unsigned int plane_no)
++{
++	if (plane_no >= buf->num_planes)
++		return 0;
++	return vb2_dma_contig_plane_dma_addr(buf, plane_no) + buf->planes[plane_no].data_offset;
++}
++
++static void *mxc_jpeg_get_plane_vaddr(struct vb2_buffer *buf, unsigned int plane_no)
++{
++	if (plane_no >= buf->num_planes)
++		return NULL;
++	return vb2_plane_vaddr(buf, plane_no) + buf->planes[plane_no].data_offset;
++}
++
++static unsigned long mxc_jpeg_get_plane_payload(struct vb2_buffer *buf, unsigned int plane_no)
++{
++	if (plane_no >= buf->num_planes)
++		return 0;
++	return vb2_get_plane_payload(buf, plane_no) - buf->planes[plane_no].data_offset;
++}
++
+ static void print_mxc_buf(struct mxc_jpeg_dev *jpeg, struct vb2_buffer *buf,
+ 			  unsigned long len)
  {
- 	unsigned long min, max;
-+	phys_addr_t cma_limit;
+@@ -610,11 +631,11 @@ static void print_mxc_buf(struct mxc_jpeg_dev *jpeg, struct vb2_buffer *buf,
+ 		return;
  
- 	min = PFN_UP(memblock_start_of_DRAM());
- 	max = PFN_DOWN(memblock_end_of_DRAM());
-@@ -343,8 +344,14 @@ void __init bootmem_init(void)
+ 	for (plane_no = 0; plane_no < buf->num_planes; plane_no++) {
+-		payload = vb2_get_plane_payload(buf, plane_no);
++		payload = mxc_jpeg_get_plane_payload(buf, plane_no);
+ 		if (len == 0)
+ 			len = payload;
+-		dma_addr = vb2_dma_contig_plane_dma_addr(buf, plane_no);
+-		vaddr = vb2_plane_vaddr(buf, plane_no);
++		dma_addr = mxc_jpeg_get_plane_dma_addr(buf, plane_no);
++		vaddr = mxc_jpeg_get_plane_vaddr(buf, plane_no);
+ 		v4l2_dbg(3, debug, &jpeg->v4l2_dev,
+ 			 "plane %d (vaddr=%p dma_addr=%x payload=%ld):",
+ 			  plane_no, vaddr, dma_addr, payload);
+@@ -712,16 +733,15 @@ static void mxc_jpeg_addrs(struct mxc_jpeg_desc *desc,
+ 	struct mxc_jpeg_q_data *q_data;
  
- 	/*
- 	 * Reserve the CMA area after arm64_dma_phys_limit was initialised.
-+	 *
-+	 * When CONFIG_DMA_NUMA_CMA is enabled, system may have CMA reserved
-+	 * area in different NUMA nodes, which likely goes beyond the 32bit
-+	 * limit, thus use (PHYS_MASK+1) as cma limit.
- 	 */
--	dma_contiguous_reserve(arm64_dma_phys_limit);
-+	cma_limit = IS_ENABLED(CONFIG_DMA_NUMA_CMA) ?
-+			(PHYS_MASK + 1) : arm64_dma_phys_limit;
-+	dma_contiguous_reserve(cma_limit);
+ 	q_data = mxc_jpeg_get_q_data(ctx, raw_buf->type);
+-	desc->buf_base0 = vb2_dma_contig_plane_dma_addr(raw_buf, 0);
++	desc->buf_base0 = mxc_jpeg_get_plane_dma_addr(raw_buf, 0);
+ 	desc->buf_base1 = 0;
+ 	if (img_fmt == STM_CTRL_IMAGE_FORMAT(MXC_JPEG_YUV420)) {
+ 		if (raw_buf->num_planes == 2)
+-			desc->buf_base1 = vb2_dma_contig_plane_dma_addr(raw_buf, 1);
++			desc->buf_base1 = mxc_jpeg_get_plane_dma_addr(raw_buf, 1);
+ 		else
+ 			desc->buf_base1 = desc->buf_base0 + q_data->sizeimage[0];
+ 	}
+-	desc->stm_bufbase = vb2_dma_contig_plane_dma_addr(jpeg_buf, 0) +
+-		offset;
++	desc->stm_bufbase = mxc_jpeg_get_plane_dma_addr(jpeg_buf, 0) + offset;
+ }
  
- 	/*
- 	 * request_standard_resources() depends on crashkernel's memory being
+ static bool mxc_jpeg_is_extended_sequential(const struct mxc_jpeg_fmt *fmt)
+@@ -1029,8 +1049,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
+ 			vb2_set_plane_payload(&dst_buf->vb2_buf, 1, payload);
+ 		}
+ 		dev_dbg(dev, "Decoding finished, payload size: %ld + %ld\n",
+-			vb2_get_plane_payload(&dst_buf->vb2_buf, 0),
+-			vb2_get_plane_payload(&dst_buf->vb2_buf, 1));
++			mxc_jpeg_get_plane_payload(&dst_buf->vb2_buf, 0),
++			mxc_jpeg_get_plane_payload(&dst_buf->vb2_buf, 1));
+ 	}
+ 
+ 	/* short preview of the results */
+@@ -1889,8 +1909,8 @@ static int mxc_jpeg_parse(struct mxc_jpeg_ctx *ctx, struct vb2_buffer *vb)
+ 	struct mxc_jpeg_sof *psof = NULL;
+ 	struct mxc_jpeg_sos *psos = NULL;
+ 	struct mxc_jpeg_src_buf *jpeg_src_buf = vb2_to_mxc_buf(vb);
+-	u8 *src_addr = (u8 *)vb2_plane_vaddr(vb, 0);
+-	u32 size = vb2_get_plane_payload(vb, 0);
++	u8 *src_addr = (u8 *)mxc_jpeg_get_plane_vaddr(vb, 0);
++	u32 size = mxc_jpeg_get_plane_payload(vb, 0);
+ 	int ret;
+ 
+ 	memset(&header, 0, sizeof(header));
+@@ -2027,6 +2047,11 @@ static int mxc_jpeg_buf_prepare(struct vb2_buffer *vb)
+ 				i, vb2_plane_size(vb, i), sizeimage);
+ 			return -EINVAL;
+ 		}
++		if (!IS_ALIGNED(mxc_jpeg_get_plane_dma_addr(vb, i), MXC_JPEG_ADDR_ALIGNMENT)) {
++			dev_err(dev, "planes[%d] address is not %d aligned\n",
++				i, MXC_JPEG_ADDR_ALIGNMENT);
++			return -EINVAL;
++		}
+ 	}
+ 	if (V4L2_TYPE_IS_CAPTURE(vb->vb2_queue->type)) {
+ 		vb2_set_plane_payload(vb, 0, 0);
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+index fdde45f7e163..44e46face6d1 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+@@ -30,6 +30,7 @@
+ #define MXC_JPEG_MAX_PLANES		2
+ #define MXC_JPEG_PATTERN_WIDTH		128
+ #define MXC_JPEG_PATTERN_HEIGHT		64
++#define MXC_JPEG_ADDR_ALIGNMENT		16
+ 
+ enum mxc_jpeg_enc_state {
+ 	MXC_JPEG_ENCODING	= 0, /* jpeg encode phase */
+
+base-commit: b64b134942c8cf4801ea288b3fd38b509aedec21
+prerequisite-patch-id: 0000000000000000000000000000000000000000
 -- 
-2.39.5 (Apple Git-154)
+2.43.0-rc1
 
 
