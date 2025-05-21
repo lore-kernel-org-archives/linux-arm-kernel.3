@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9458DC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19E2C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4XNCQGx3Yoz7/BOqlK2VzWgj1mfuyl8aN4mkc2Mh9/Y=; b=IcnuEjA9gDL3iVeJPmSJ39yAC3
-	sMI8FEYNno84Pqr21tmyuxzYwqmpysFQJiMjXCLuQnY/EGx4Oygr29gtHdPJ2GrgMR3NRlUxxtVqY
-	zebQWWxRSqAxXQqLH88qVD8juigZqxZfy13f5K1lYgMdBu7ZmTi9P9t0bSDu3IuC8SenbM7+j1T0F
-	JDqDJ6T0sKDRRz6bn7k1eI5i0ucmsN2LheLiTYvfs75iNflDGP57SL5xp6Bb/hCS6EVZhGkER5coH
-	F0kKfhwshnY6cdys5tBuQ1mw5V/eui6k3RZ10WS8f2AeBWBpp7MwJw6o7sCjdXuTIzU3Tv9naCX+5
-	CLL9E+Vw==;
+	bh=JWTPeu6guknXgD+xPLbcKD6/R/1DRiGD6zvZeqSl37k=; b=f4ndtEgjEivyZaoO2paoaISJdr
+	ZN+shistueY+pgN2z2Nztm3JwWLCJ4zMfNksqAdjg+AhFdTOlxbDhEoemuXYz2vmpqu3KV0Tm43rN
+	9UOpiVaqlGMZe/ACIbHglKiB5rz/9w8KtpWam60JmZKDLdlL/Kf3wNWEedU5D+MSAN/JjLzbxXvt3
+	0Uyp0CohrD2vDD7yIj4laWSpkN1cNX79vZcOoeptOY9SJ9UV3h9b27J1ExkiknIjJgDOjMmpxhz6O
+	yqdaw62WkIkacSPoq9+ig8nAA6Wl2X0LKNzxfuhG2rgKXxX5c6hNfQjvAzks28To7MYLSYktoHjHf
+	DXKvPEAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhfm-0000000FdL3-2HZz;
-	Wed, 21 May 2025 11:31:46 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uHhhn-0000000FdUM-2DSY;
+	Wed, 21 May 2025 11:33:51 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhcV-0000000Fd4N-3pPG
+	id 1uHhdg-0000000FdAl-2q79
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 11:28:25 +0000
-Received: from pendragon.ideasonboard.com (179.218-130-109.adsl-dyn.isp.belgacom.be [109.130.218.179])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 152926AF;
-	Wed, 21 May 2025 13:28:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747826880;
-	bh=9ldtAZOjiwBoSV88KvGA6xuaTmbjwRGIREj/XBztDYk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N2H3Mog7VyzmtlM/z8giI0CLF2vmMNs7RIYDeU/is1pMALM3VHO/3FdpUhY2EwRoR
-	 XFtXEEzohS+fk0Kr4yT1fpFgiPait86avoORJaluvwmAtSgSQXnUWt1w7M3fcpjFrc
-	 dS5f0FWYfe5RQQCbriXeksTCOp5bHqkGoTe39IRE=
-Date: Wed, 21 May 2025 13:28:15 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Stefan Wahren <wahrenst@gmx.net>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com, kernel-list@raspberrypi.com,
-	linux-staging@lists.linux.dev
-Subject: Re: [PATCH RFC 2/2] staging: vc04_services: Document VCHIQ character
- device
-Message-ID: <20250521112815.GA25453@pendragon.ideasonboard.com>
-References: <20250509221152.13564-1-wahrenst@gmx.net>
- <20250509221152.13564-3-wahrenst@gmx.net>
- <2025052121-glisten-serpent-8ede@gregkh>
+	Wed, 21 May 2025 11:29:38 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e733e25bfc7so5865311276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 04:29:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747826975; x=1748431775; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=JWTPeu6guknXgD+xPLbcKD6/R/1DRiGD6zvZeqSl37k=;
+        b=Bum4IgXQU26cEvdxfZ3Y7vcApqkyjyyXjqkbMk3wLANs4twdwXLWJazCmzmOoOL1uM
+         sh3ho5e9DnEDo/hLtKoz+13muheRl43hczo57nb07oif6nJKCC4MDy+fDm5Iy4zhhKH8
+         1M9jNA3nnQz+44JKON+tG86GzlvHAWIfZ822ij7c6NkYmliNcN9b/EqUSjuMEeY3liRy
+         9C6sgrdmzjZpToIcrQqlA+hun7qcvW1cqd+an9ibrCmuM/tj4g3Yo8O+e+/8kSfuVyfG
+         yxuU1gZhLMX5T8TIWSrSSls/zpJLjEh/ExaMKnFeR12wI+RzwlS+uRL4A1kfwXy/FY+m
+         QmdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747826975; x=1748431775;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JWTPeu6guknXgD+xPLbcKD6/R/1DRiGD6zvZeqSl37k=;
+        b=A5PjsmtnWeE2CzKD5Wz4ok3rrheCT4QDKC0dJ08gUzz24dTFepf7Wj8aLgtwqAYm65
+         AzVIrw8bbmtN5vKd1wS+qlAId08rTrVMp3xJIyg13qUkSBNYLp6Pgn9DEChJgQSjaooP
+         zaG/m2tB3hCGLsazreAXV9yLnc5V17AESepOyecD9u2t0hFYE6RWSwM5lXMIhyCRmalW
+         Gy5MTXrscIkbXQ2A0zW91OUJl+xpicthwi3Oy6A8lzevu47N4swhrYB+42IZWUQJkms6
+         /9e5F0fx3Xz2aHXbn/ES3r9KGPUHixAdMdAmp1L49koy4ka7EKBUX5Tx5mrvDhbUp08P
+         t9mw==
+X-Forwarded-Encrypted: i=1; AJvYcCVfgoiKXbQid9NiDHO500BXz/5l9erG53L5RHuR40JX1DnrJTBxoldpyj4/m3CvL7YAvPPmHZOn2pAMyqaUe+SP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxls24CbDunsCs7in8lcZHb8+00SCfa0A5rj1WExJ/1AIs0F1y1
+	D3m0kbWVmOGc9y/EiNqBjhoKwLlRwp0K8zwnpLPEpuxJv+/be2+dEwsPKxff44pBHVj9PuzaQdc
+	8mA1gnISBZRgvLgPpfW+ZZE1E17BMzlAFmTnwGnflCg==
+X-Gm-Gg: ASbGncuERgvg2quo3s07MFFew1XVIaJPpkH8Z7t5DVjdmYl9FYAnpe8nmTlWhiymVYp
+	I8LISkctBd1WplROgBkcxcflHZpe0oU760rzVYeba6F/EdbKGRkbuf4Gdw/aBGx4Pt/vKTt4Vue
+	+qMkPNv7UZZFl5DyjxLRU7qe3HOK17IebOBA==
+X-Google-Smtp-Source: AGHT+IGqrJmtGm+y80TfkZ9qC6RzIIVW40VlzSH0k6DOy6nN+ldVjeL4cXPRTWEI/C6+tWZ4/q4Eo/InDg514PrPZMk=
+X-Received: by 2002:a05:6902:e02:b0:e7d:5e41:a8a4 with SMTP id
+ 3f1490d57ef6-e7d5e41bb16mr2195411276.16.1747826975411; Wed, 21 May 2025
+ 04:29:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <2025052121-glisten-serpent-8ede@gregkh>
+References: <ab0476382e3342161beda94a45ddadb49b026dcd.1747760015.git.robin.murphy@arm.com>
+In-Reply-To: <ab0476382e3342161beda94a45ddadb49b026dcd.1747760015.git.robin.murphy@arm.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 21 May 2025 13:28:59 +0200
+X-Gm-Features: AX0GCFsr2OpsfVkwDXkGW00v2KHCahRA4NOOOfoEOLpP7qgAYz-trCH0jo8qvFs
+Message-ID: <CAPDyKFpT9B55kfGYHzOmb4_cvE-jDMajXBzqB1HLvVB_D+Nokg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] firmware: smccc: Stub out get_conduit()
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: heiko@sntech.de, mark.rutland@arm.com, lpieralisi@kernel.org, 
+	sudeep.holla@arm.com, linux-pm@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_042824_395582_44BA0AFA 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250521_042936_729798_F5B4EAF5 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,50 +93,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 01:20:54PM +0200, Greg KH wrote:
-> On Sat, May 10, 2025 at 12:11:52AM +0200, Stefan Wahren wrote:
-> > From: Phil Elwell <phil@raspberrypi.com>
-> > 
-> > Document the IOCTLs for the VCHIQ character device, which provide
-> > a userspace interface to access the VideoCore VPU of the
-> > Raspberry Pi. Several ARM side libraries make use of it like EGL,
-> > MMAL and OpenMAX.
-> > 
-> > Link: https://github.com/raspberrypi/linux/pull/6801
-> > Signed-off-by: Phil Elwell <phil@raspberrypi.com>
-> > [wahrenst@gmx.net: Rewrite commit log]
-> > Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-> > ---
-> >  .../vc04_services/Documentation/vchiq-cdev    | 87 +++++++++++++++++++
-> >  1 file changed, 87 insertions(+)
-> >  create mode 100644 drivers/staging/vc04_services/Documentation/vchiq-cdev
-> > 
-> > diff --git a/drivers/staging/vc04_services/Documentation/vchiq-cdev b/drivers/staging/vc04_services/Documentation/vchiq-cdev
-> > new file mode 100644
-> > index 000000000000..99ab2567643e
-> > --- /dev/null
-> > +++ b/drivers/staging/vc04_services/Documentation/vchiq-cdev
-> > @@ -0,0 +1,87 @@
-> > +What:		/dev/vchiq
-> > +Date:		October 2016
-> > +KernelVersion:	4.9
-> > +Contact:	kernel-list@raspberrypi.com
-> > +Description:
-> > +		The ioctl interface for the VCHIQ character device.
-> > +		Following actions are supported:
-> > +
-> > +		* VCHIQ_IOC_CONNECT:
-> > +		  Establish/confirm the link to the VPU peer.
-> 
-> I understand the need, but this does not document the parameters to the
-> ioctls, so it's not all that useful.  How about just a normal
-> documentation file with this all written out?
+On Tue, 20 May 2025 at 19:10, Robin Murphy <robin.murphy@arm.com> wrote:
+>
+> Various callers use arm_smccc_1_1_get_conduit() to guard their
+> arm_smccc_smc() calls - since the latter is already stubbed out to
+> support optional usage in !HAVE_ARM_SMCCC configs, do the equivalent
+> for the former as well to make life easier.
+>
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 
-That would be my preference too, somewhere in
-Documentation/userspace-api/.
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 
--- 
-Regards,
+Kind regards
+Uffe
 
-Laurent Pinchart
+> ---
+>  include/linux/arm-smccc.h | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+> index a3863da1510e..97dc4d47c664 100644
+> --- a/include/linux/arm-smccc.h
+> +++ b/include/linux/arm-smccc.h
+> @@ -315,7 +315,14 @@ enum arm_smccc_conduit {
+>   *
+>   * When SMCCCv1.1 is not present, returns SMCCC_CONDUIT_NONE.
+>   */
+> +#ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
+>  enum arm_smccc_conduit arm_smccc_1_1_get_conduit(void);
+> +#else
+> +static inline enum arm_smccc_conduit arm_smccc_1_1_get_conduit(void)
+> +{
+> +       return SMCCC_CONDUIT_NONE;
+> +}
+> +#endif
+>
+>  /**
+>   * arm_smccc_get_version()
+> --
+> 2.39.2.101.g768bb238c484.dirty
+>
+>
 
