@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F11C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 19:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD34C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 19:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3PFkFma3Kf4fkNBVwmjW48fUoa5QXXZ5iJyQiOEnDI8=; b=IEALi/esN6+oy+mUN92hfVSbX9
-	XxeipePtbKDg8xqwwr24idQeS0QGuhEGHy055Ay85GhmPfBmkF/ZTrZ4vk7WLCZ+o8yihF6/Zfvb6
-	os7Zct0oFt8ynpHml8HB9YTFjeGs38j07Z8ZT+fwpF+SUGtVpYLM4Y3cpMacDuXiQ0MUb4dbmCW1w
-	zXiW6M7wwDxhZ8uy006AgjLiUgVQuhZqcXyX+ezMaD/gzHPl4gJSPaQZBlc3d3syskyFg9Vr9GGe/
-	4Y2lnlmUe2AfBGpfitiXqi8DCjCSBISxSQvs2VbEtE0U32U/JT6lecnUXgKq39DunXRpCfVOXIkq3
-	yTK8uDVQ==;
+	bh=hfeTQxnS0245Pui5M39EN1A6489r89nTvw8embQtwS8=; b=lzeVm+xrOfdkWhdLCbrdh4SwRL
+	ZypT3Vsr8lkBXGD4k6TpNLLuM1FgirXN0ji4wy8N0pJcBJTlTESAObCJjw/wt/tKUbR/r3V67f8Xv
+	IiSYbNo6kVmvhf/mK5FLfOF2V9eT9gQhM27vzBrxfM2kTs3Mz3HjIvwmXgpJbDGfYJbR64CGyRs1I
+	7i3BCLtAtPAj8PARsIl7q/bhCNopH8aMxH9uRe2WQ9UFX14GtwlWwwBZa7XvPm5Wk85k19MimHt+3
+	QuR6J/P7HQ5IcD+SdqdL1iZmWK/wmo+15svAyBKHR6YTenEEhPWISw04b9WXO7ErCid3KFEvyl3Za
+	QRjYGF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHpGR-0000000GjWY-23sh;
-	Wed, 21 May 2025 19:38:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uHpIb-0000000GjmL-0nRP;
+	Wed, 21 May 2025 19:40:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHpEG-0000000GjC3-3oHA
+	id 1uHpEG-0000000GjBz-3DMx
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 21 May 2025 19:35:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0360662A16;
-	Wed, 21 May 2025 19:35:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 42BD1C4CEFA;
+	by sea.source.kernel.org (Postfix) with ESMTP id BEA684A6B8;
+	Wed, 21 May 2025 19:35:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 37404C4CEF9;
 	Wed, 21 May 2025 19:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747856151;
-	bh=rl9GZqdLGBfjBJ296zN0oZFwK2zvx5a8miUiRaAwWLs=;
+	bh=LzIVfil1DJZQnhJzkjaE6xz4thMq1eqeBEY6tHDNioQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=HXjUXzLmPZK8JxZv2rMAiyQMypnvz30SOWaF5Le6MSIj0SaMX1eXUlAwi6XVMMbDr
-	 /9o7RnnsdygXgNbIrerqIWF1oXtn+9OaMhes8HqGbzKGCRyBlPPP1nDBqLkmEF62+o
-	 AI+o5suaagx4IDgxqYXEqzpVDMQp2gAAN6wEP+IDuhTdM7IoUT1NftMlQBUMyWnH1S
-	 tfa4W/5+n+X7zGt9wMTcL9eD2sNmUJUud6aHRgFx019iGspx67lrR0y/ybu3+28oDJ
-	 2DJcqVoY5+Cw/lu4eUvpTYpw6aBEsQzjHnGFW62Huf8OJdB/ilu8EV6eFlrvw+EC7H
-	 zsi+hsvUAkHHA==
+	b=RBMH2hs9ZldPQmx1Zw0ayXV5TiQ7GnaK8gxNryAjtbP9LwNMWdel7vG3/R5mb2KAn
+	 ZTIH7ESot6eGUM8oZq5wfowNTm66mh0/UYeakj1BDUW/FagjVB99Nb5kNzClpkXmdM
+	 fHvfgKGe5/HJb8SRIJJOn5pLRn5zxeup8RX1sXx2HGz4c4YW78+vjkYXrXYS/hIxP0
+	 ThUkmWCIirPFwSl97XCoi0oYFUHrhFd1fti9HWj9NOwXBVn5sg5HFjFsUtgOAXeEDt
+	 BeLBn6f1BXZ+9vznFT+zw9VyUBOKecAv7L1cCyX69xt7AmTahMbPSYzybbx3XHU9+U
+	 6HysDS9j+V47A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 37109C54F2E;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 271C9C54E90;
 	Wed, 21 May 2025 19:35:51 +0000 (UTC)
 From: =?utf-8?q?Andr=C3=A9_Apitzsch_via_B4_Relay?= <devnull+git.apitzsch.eu@kernel.org>
-Date: Wed, 21 May 2025 21:34:28 +0200
-Subject: [PATCH v3 5/5] media: i2c: imx214: Remove hard-coded external
- clock frequency
+Date: Wed, 21 May 2025 21:34:27 +0200
+Subject: [PATCH v3 4/5] media: dt-bindings: sony,imx214: Deprecate property
+ clock-frequency
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250521-imx214_ccs_pll-v3-5-bfb4a2b53d14@apitzsch.eu>
+Message-Id: <20250521-imx214_ccs_pll-v3-4-bfb4a2b53d14@apitzsch.eu>
 References: <20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@apitzsch.eu>
 In-Reply-To: <20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@apitzsch.eu>
 To: Ricardo Ribalda <ribalda@kernel.org>, 
@@ -70,16 +70,20 @@ Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  =?utf-8?q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747856148; l=1194;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747856148; l=2752;
  i=git@apitzsch.eu; s=20240325; h=from:subject:message-id;
- bh=81a5knJurFPeQFihfZmv0dfoKheJNZM//Pf1vhwjDog=;
- b=u047Jl0beOhUD9XDWfSja6SNCQ6YB0IeZ8wgFG7Akslb+UIKriMBQ9i130y9Wed440+cMBspz
- QG7lRqWCUyCDV3miprXvcQ6wRM8n0Z/7cCMw+Mji4SqHPK7t5ohzqKG
+ bh=q248WANyfYXH2di2+yApGW8UAy0ZsHlVSh2lDqEYoFQ=;
+ b=fMIHmCJL1v1iZuTSYZ6ENcd5/dOvA5ENzFVPuWEFf9SKGAcd1JBcffZOY/yVDocUHUPdrFgHH
+ 4AhtZB54XUyCdgODHriX/1pv8cUNJJ68/giLLr2Hq07AQeWNhHYWDNS
 X-Developer-Key: i=git@apitzsch.eu; a=ed25519;
  pk=wxovcZRfvNYBMcTw4QFFtNEP4qv39gnBfnfyImXZxiU=
 X-Endpoint-Received: by B4 Relay for git@apitzsch.eu/20240325 with
  auth_id=142
 X-Original-From: =?utf-8?q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250521_123552_845759_D08C1DE8 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +101,93 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: André Apitzsch <git@apitzsch.eu>
 
-Instead rely on the rate set on the clock (using assigned-clock-rates
-etc.)
+Deprecate the clock-frequency property in favor of assigned-clock-rates.
+
+While at it, re-order properties according to coding style and fix the
+link-frequency in the example.  See commit acc294519f17 ("media: i2c:
+imx214: Fix link frequency validation").
 
 Signed-off-by: André Apitzsch <git@apitzsch.eu>
 ---
- drivers/media/i2c/imx214.c | 6 ------
- 1 file changed, 6 deletions(-)
+ .../devicetree/bindings/media/i2c/sony,imx214.yaml | 29 ++++++++++++----------
+ 1 file changed, 16 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/media/i2c/imx214.c b/drivers/media/i2c/imx214.c
-index 19b494c08ece9894de67a4ee34c6f8e6e2708e41..264e897ec6e8e3d2fcd9d58db82090c7dd85d526 100644
---- a/drivers/media/i2c/imx214.c
-+++ b/drivers/media/i2c/imx214.c
-@@ -32,7 +32,6 @@
+diff --git a/Documentation/devicetree/bindings/media/i2c/sony,imx214.yaml b/Documentation/devicetree/bindings/media/i2c/sony,imx214.yaml
+index 0162eec8ca993a7614d29908f89fa9fe6d4b545d..aea99ebf8e9ed15f8066841228d9fdecc822b553 100644
+--- a/Documentation/devicetree/bindings/media/i2c/sony,imx214.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/sony,imx214.yaml
+@@ -33,20 +33,21 @@ properties:
  
- #define IMX214_REG_FAST_STANDBY_CTRL	CCI_REG8(0x0106)
+   clock-frequency:
+     description: Frequency of the xclk clock in Hz.
++    deprecated: true
  
--#define IMX214_DEFAULT_CLK_FREQ	24000000
- #define IMX214_DEFAULT_LINK_FREQ	600000000
- /* Keep wrong link frequency for backward compatibility */
- #define IMX214_DEFAULT_LINK_FREQ_LEGACY	480000000
-@@ -1402,11 +1401,6 @@ static int imx214_probe(struct i2c_client *client)
- 		return dev_err_probe(dev, PTR_ERR(imx214->xclk),
- 				     "failed to get xclk\n");
+   enable-gpios:
+     description: GPIO descriptor for the enable pin.
+     maxItems: 1
  
--	ret = clk_set_rate(imx214->xclk, IMX214_DEFAULT_CLK_FREQ);
--	if (ret)
--		return dev_err_probe(dev, ret,
--				     "failed to set xclk frequency\n");
+-  vdddo-supply:
+-    description: Chip digital IO regulator (1.8V).
 -
- 	ret = imx214_get_regulators(dev, imx214);
- 	if (ret < 0)
- 		return dev_err_probe(dev, ret, "failed to get regulators\n");
+   vdda-supply:
+     description: Chip analog regulator (2.7V).
+ 
+   vddd-supply:
+     description: Chip digital core regulator (1.12V).
+ 
++  vdddo-supply:
++    description: Chip digital IO regulator (1.8V).
++
+   flash-leds: true
+   lens-focus: true
+ 
+@@ -84,11 +85,10 @@ required:
+   - compatible
+   - reg
+   - clocks
+-  - clock-frequency
+   - enable-gpios
+-  - vdddo-supply
+   - vdda-supply
+   - vddd-supply
++  - vdddo-supply
+   - port
+ 
+ unevaluatedProperties: false
+@@ -104,22 +104,25 @@ examples:
+         camera-sensor@1a {
+             compatible = "sony,imx214";
+             reg = <0x1a>;
+-            vdddo-supply = <&pm8994_lvs1>;
+-            vddd-supply = <&camera_vddd_1v12>;
++
++            clocks = <&camera_clk>;
++            assigned-clocks = <&camera_clk>;
++            assigned-clock-rates = <24000000>;
++
++            enable-gpios = <&msmgpio 25 GPIO_ACTIVE_HIGH>;
++
+             vdda-supply = <&pm8994_l17>;
++            vddd-supply = <&camera_vddd_1v12>;
++            vdddo-supply = <&pm8994_lvs1>;
++
+             lens-focus = <&ad5820>;
+-            enable-gpios = <&msmgpio 25 GPIO_ACTIVE_HIGH>;
+-            clocks = <&camera_clk>;
+-            clock-frequency = <24000000>;
+ 
+             port {
+                 imx214_ep: endpoint {
+                     data-lanes = <1 2 3 4>;
+-                    link-frequencies = /bits/ 64 <480000000>;
++                    link-frequencies = /bits/ 64 <600000000>;
+                     remote-endpoint = <&csiphy0_ep>;
+                 };
+             };
+         };
+     };
+-
+-...
 
 -- 
 2.49.0
