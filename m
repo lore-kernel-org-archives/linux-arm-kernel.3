@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DE9C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 07:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CEBC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 07:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3sS9JBwpEHLL80YhkLRp5Vbg+N4VN86mX0gSr5z7PMw=; b=yEw/9BSZBYw49i6TKURfHp39c8
-	DZomO7tZMc+SAxcX4xAjQVK6XKtK7aB8sd2gRd9o7uYhk3EWWNZ7ZjRjnxC1c5W58VhnH3jjma77j
-	4GmqgDrXEHj/VxAepVz3tLfZu0dWEVtLUykuespyBwMenpxAqH8E1lzpYDsDUZNVQwwZXGGTYXx/J
-	RrcIEhgb2K1TkPp82CdGGFmQrGavMSJ1hPKka5S4WV08Qz7YQV/BiqMaSMTcML85P/c9RWUszDYnX
-	iUudoUuvfDy4jA28Yu8IVXZVDngxwLRRUEqlLIlxjeiXt72Vm8NxCeTW5me9lhl3R5TNA9PZhgIBg
-	KRraR2+Q==;
+	bh=MSRkBOBlg/1USG9ps6Ul9fB4YSUCAi2SxPY58nkKv4g=; b=VrcRIUzutnWSPq9EIFNaN0YWrF
+	Euk6LstZh3TQOiXM57q8pxAMTYme7jmaz1VDUIAgC4kCLE/jBZFtOuKzIhPo3MC6xwuB3vlFnMHMs
+	3dVtwMrw+Z3Jg6TTGDuaClyooiu6rliZGaUrxSu/POw20WY7ZgFiCoFP5SSM2BXD+VfQFOtdd/pKQ
+	Hf8EUOQdJZhJcq+QhCaQRf2C2Ny5BhWdyhIu8mj7UQNM5NBL+1u3XOKqp9qZPyfhcwtLDELrl1Uof
+	x+yVOgqmNI1abnRMbNBlSl/h/jJmBJog0Msl2y5KG6W5FHlsWcY7SvLUZ+L2/4dtEolmE4i1LafIr
+	iVyR+Uug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHdeT-0000000F23G-1HA5;
-	Wed, 21 May 2025 07:14:09 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uHdgV-0000000F2Ry-0k0V;
+	Wed, 21 May 2025 07:16:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHdV8-0000000F0au-3khM;
-	Wed, 21 May 2025 07:04:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1747811070; x=1779347070;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=2DeoV9NVpmkJFiAHnImpl+I7mTrck3WLp13yWezHkLk=;
-  b=gieykq6lw9OpeJxXT2XQEfu8PgL1Z3ecAXeKjXpLq2dI5YK4vJHV0LPn
-   9tx2mk6NG/E+ctCnFqel7CM4BTWo0viqpFf+bf3KIi7zdGzZmJ5e7Z1/t
-   lU1sa2N+owhbEocE57U0e5g4pVWfcalVKQolCYYi9xw+UkQKzn2KFKMDZ
-   TJs3mYP/fTyvTA4slBQK2Z8JVLPexAa2Uk3YsQpXYsWIb2LfwaOFV7E6O
-   7HcZ92pljZDu6LbRUG8ijCYKLSgRYhxOQsfWx0mtq+Vi9h9hLmwx0ajMy
-   akvSo+KlEoYOIbt24QvfZgcRACkPKnpQigifmEiJJDc7q50ClmLpS/jl4
-   Q==;
-X-CSE-ConnectionGUID: 3KNJWgZeSmKF61v88cWcwA==
-X-CSE-MsgGUID: QpdtkuDUR3aPep0UaKoi9w==
-X-IronPort-AV: E=Sophos;i="6.15,303,1739862000"; 
-   d="scan'208";a="42432076"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 May 2025 00:04:29 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 21 May 2025 00:04:09 -0700
-Received: from che-lt-i67131.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Wed, 21 May 2025 00:04:02 -0700
-From: Manikandan Muralidharan <manikandan.m@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <tudor.ambarus@linaro.org>,
-	<pratyush@kernel.org>, <mwalle@kernel.org>, <miquel.raynal@bootlin.com>,
-	<richard@nod.at>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mtd@lists.infradead.org>
-CC: Manikandan Muralidharan <manikandan.m@microchip.com>
-Subject: [PATCH v3 2/3] ARM: dts: microchip: sama5d27_wlsom1: update the QSPI partitions using "fixed-partition" binding
-Date: Wed, 21 May 2025 12:33:35 +0530
-Message-ID: <20250521070336.402202-3-manikandan.m@microchip.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250521070336.402202-1-manikandan.m@microchip.com>
-References: <20250521070336.402202-1-manikandan.m@microchip.com>
+	id 1uHdVN-0000000F0f4-2MQe;
+	Wed, 21 May 2025 07:04:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E241F4360E;
+	Wed, 21 May 2025 07:04:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 315C9C4CEE4;
+	Wed, 21 May 2025 07:04:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747811084;
+	bh=rRJzzQvmbbQ9PvIlEeUG2481e8flDDWUv05t0aPKC40=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iDMspO6P8f9Sw2an17DiUgOTUW9EcIUq5t8wwx8mq/5Tt0dG740WLlPoWArBFo5HF
+	 0/DdkmKBBn2T6jAZWLYWpjPNp+VJWFZWAu8DnGN0hJlxROWP0w7Tp2Sq038cRb1H63
+	 pjs/Fo2ChUITXsmvgc+yjTwlCukG+6T4JBz367MY/bwhPvxqy3Z0M0LTyrpHjYwGnc
+	 cnoK3n8ckTgAHfM865pOh+icHa1LwTcP5lUtpdxWzzf6YVvdQfDVukWooOEqvVZbyv
+	 FOFG4pc5Mlo/rkAF8kHH2jgo2gMcu/G3eMfkmsUKUgc1NChmkLpNlzQYA31dxZxtsf
+	 w7JLWUARMxemg==
+Date: Wed, 21 May 2025 09:04:42 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Kyrie Wu <kyrie.wu@mediatek.com>
+Cc: Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v4 01/12] media: dt-bindings: mediatek,jpeg: Add
+ mediatek, mt8196-jpgdec compatible
+Message-ID: <20250521-friendly-hissing-tuna-a534d6@kuoka>
+References: <20250521022322.27576-1-kyrie.wu@mediatek.com>
+ <20250521022322.27576-2-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250521022322.27576-2-kyrie.wu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_000430_994740_F5F75E6B 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250521_000445_619246_E5F74378 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,91 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-update the QSPI partitions using "fixed-partition" binding
+On Wed, May 21, 2025 at 10:23:11AM GMT, Kyrie Wu wrote:
+> Compared to the previous generation IC, the MT8196 uses SMMU
+> instead of IOMMU and supports features such as dynamic voltage
+> and frequency scaling. Therefore, add "mediatek,mt8196-jpgdec"
+> compatible to the binding document.
+> 
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
----
- .../dts/microchip/at91-sama5d27_wlsom1.dtsi   | 54 ++++++++++---------
- 1 file changed, 29 insertions(+), 25 deletions(-)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-index 9543214adc9f..b34c5072425a 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-@@ -229,8 +229,6 @@ &qspi1 {
- 	status = "disabled";
- 
- 	qspi1_flash: flash@0 {
--		#address-cells = <1>;
--		#size-cells = <1>;
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
- 		spi-max-frequency = <104000000>;
-@@ -240,34 +238,40 @@ qspi1_flash: flash@0 {
- 		m25p,fast-read;
- 		status = "disabled";
- 
--		at91bootstrap@0 {
--			label = "at91bootstrap";
--			reg = <0x0 0x40000>;
--		};
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
- 
--		bootloader@40000 {
--			label = "bootloader";
--			reg = <0x40000 0xc0000>;
--		};
-+			at91bootstrap@0 {
-+				label = "at91bootstrap";
-+				reg = <0x0 0x40000>;
-+			};
- 
--		bootloaderenvred@100000 {
--			label = "bootloader env redundant";
--			reg = <0x100000 0x40000>;
--		};
-+			bootloader@40000 {
-+				label = "bootloader";
-+				reg = <0x40000 0xc0000>;
-+			};
- 
--		bootloaderenv@140000 {
--			label = "bootloader env";
--			reg = <0x140000 0x40000>;
--		};
-+			bootloaderenvred@100000 {
-+				label = "bootloader env redundant";
-+				reg = <0x100000 0x40000>;
-+			};
- 
--		dtb@180000 {
--			label = "device tree";
--			reg = <0x180000 0x80000>;
--		};
-+			bootloaderenv@140000 {
-+				label = "bootloader env";
-+				reg = <0x140000 0x40000>;
-+			};
- 
--		kernel@200000 {
--			label = "kernel";
--			reg = <0x200000 0x600000>;
-+			dtb@180000 {
-+				label = "device tree";
-+				reg = <0x180000 0x80000>;
-+			};
-+
-+			kernel@200000 {
-+				label = "kernel";
-+				reg = <0x200000 0x600000>;
-+			};
- 		};
- 	};
- };
--- 
-2.25.1
+Best regards,
+Krzysztof
 
 
