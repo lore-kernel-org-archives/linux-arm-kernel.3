@@ -4,100 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BC9C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 13:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC392C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 13:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YUsodPmJtak7dzPlFPK8l9nfS7vdyCUD4wkq3fhB9qw=; b=v5RrJMrQ7GJUgm3AZCsNGKjg1e
-	brYaCt5cmF4jbuGAnecRJouSZTpG9Nu4DRFTmX4oND0qsKebmewgM2rtqVmZeEiyPypkU1G1inv3p
-	HZMjgzXCkwPgAJuueLtjpSrLvGCcxDOBCabeW0v01yhO4qyulMKNG3VewsoyT3SiDxv3OCFWiGdfv
-	qZ5IQ656My2r9wv5dPY+6UKhamnQiiORvfJpdMBgGU06pffulqANdQlL57c6DjrjbFPj1chWgAW2K
-	9Cu6WxipznNLB+/16WM2PlfHigbGj2fWiTLTR6DokWsIGu4h483U1JJVg7ceeKaBgtROMX91Z2dgW
-	n5YS1gnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5NlX9R+204ssSrldNlLCK7Wn5ZS6iAmLVv1pxs02iZ8=; b=nsOPL2yFnmVn4iXE+tuVRXHLM9
+	PfceIABpi5mnvpUS+SsX11YgSn8gRc5aXalLzZXDWW7eVfrxwHzQJ45RewcQcLCJ/0w/jZ4q0k5T/
+	nRktvv4zbPsh508lC5nlRxTenFAWZ+S0uDWkGbQW/81khcVMedAmJx4CdyfU5sN4U/VZMtVHGRYCX
+	sCE//IDg0qsv9YL2fwPcZU0+VoDa8HgBF7vKLvDAfqOHx7HdJL1VkCc2u/+13mXh3/aawNprRBjs+
+	Kjl4I5XYmnN3AENG/ahPLvx3Cbl8s4JIsTh76StjdNMR8b2XIDv84damR2m4NwiN9Usb/KCxjD7hG
+	xc9ZFIzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHjic-0000000FyNn-1yeJ;
-	Wed, 21 May 2025 13:42:50 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1uHjkm-0000000Fyh6-0xh3;
+	Wed, 21 May 2025 13:45:04 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHj4F-0000000FrXR-2vz7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 13:01:08 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-23274dbcbc2so20333405ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 06:01:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747832467; x=1748437267; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YUsodPmJtak7dzPlFPK8l9nfS7vdyCUD4wkq3fhB9qw=;
-        b=lsn19+ipV6WJd0z2yNxBojAICs6yaeS63EHafJJ1ZTTvOtvp4ku0N5DMPCiEO3OVy4
-         3+Fh9nMDhqwvfhzMmj9fNNwGOa4Spl7xIqExPtSZBcMAR0OIWARUUy47/aAjHIItx6iw
-         C2eNt+YRrPo28hwLFRe+D5U8VSm6YhtJZCR/klrh0XAF3y7r3D15dbNfh1hec2RNqyMq
-         SaXRkt1nu9br9H5TPGAuQXi5NqNmFS8CyFuJ0/vGiunAt38I62hsKTMO+MsXEMJEBmWZ
-         McmpnhQ7QYY1YlXS65vA4lyRLkjYzwkXzbFSobNVRKEe97jx9eUqRUU4xPZQqTAypXHz
-         ps2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747832467; x=1748437267;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YUsodPmJtak7dzPlFPK8l9nfS7vdyCUD4wkq3fhB9qw=;
-        b=pPZtGnska6QDUo1tyM9nx00LUTpVhGDVpK+h0bhl9HmioVyQ3dZj+EOQk3G/JDPXYk
-         G1zc7De1hWgha6yRnu/SB5/6aGXfqkAyGLdpqzuDzLsrO8TENK4efTPyakjK0BYhroLX
-         AEJsOo//w/MlMHghcGh4LC5ySbZKFBe1u3Cs1oulI/fhoQDu0foK88ULdSmEQFoOje4x
-         xctnk1yuuEl5/5WHXbEP73939REUBsJFZJqKy6oX9hACgrDQUXnSVb47RbbYPSG1XNHf
-         ffr2+qJzQwLo8xD4uCuEe+qfOzIBaVPSojQGqgrmjgqMTxf+lRcp62vFidEXlw6uxMKs
-         an6g==
-X-Gm-Message-State: AOJu0YxTHxMPedU5G+0eyOl966mIPC7T//sp5O7ce0AYNztlBWXd80+o
-	JQsMR/vWm9VvnwLAB1q/OVgbrAhqzEEMFTGg2pC5VX2bQv4qFVoix3jvNQIeW0QV0es=
-X-Gm-Gg: ASbGncsAGznKfNxdMLUkmQklklWWhP1J199VfAGvFKzQgXCQy/EQRdohNw3sH/yGZel
-	6BOSC1y9ABk6SM7GRclhfk/qKd8JZewwtscrdPWenqa51cktz1+BjzhfPoWqX+L5tfvnQgVE9IN
-	4YmOMy0I8CmWB/Uix6EJXhTFzf91qMxJ4yvlCkh9hnsBmxU7fRBGPXFNMWYhwKmuKnCvntJKz8h
-	9JmSmI4voZxUcQKaor0e5grrlGSVYXdWRfGR6H5nhwha41xdrw7j5iT8bWUq+6R6QjzOQcdCe6/
-	A/UHwlFef5jNSgR3ilsWGzAg5NEkRRj56X3b/eHXabe2S72zI1RixL5OZwpWfIc=
-X-Google-Smtp-Source: AGHT+IHi9JKW8hrJ0oTUZGRbjiYsmE67PwWiZFYcvvLI4U1V7ygYEi+JkVupxNUINvhANVgU2PeZAg==
-X-Received: by 2002:a17:903:2284:b0:22f:b25b:8e93 with SMTP id d9443c01a7336-231de3b9f2cmr307998035ad.48.1747832466871;
-        Wed, 21 May 2025 06:01:06 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4adb017sm92691165ad.53.2025.05.21.06.00.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 May 2025 06:01:06 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 21 May 2025 17:00:12 +0400
-Subject: [PATCH v5 4/4] watchdog: Add support for VIA/WonderMedia SoC
- watchdog functionality
+	id 1uHj91-0000000FsQp-0Amr;
+	Wed, 21 May 2025 13:06:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1747832758; x=1748437558; i=wahrenst@gmx.net;
+	bh=5NlX9R+204ssSrldNlLCK7Wn5ZS6iAmLVv1pxs02iZ8=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=esaczaRKVVjzl7G8/vLuTeLjPNzxFocHuYJeoY9F+rbjzTLlrI2cVCF7LH4hevT5
+	 8neFSW9isM/k0CRsDL7Qh5iNabeu5FICE0jzi+F7/hCPq9iSjTK8GMjsrLRzmgX1g
+	 Dl1bm+4n37Lk+ZirT1Jpsxs2G5DAL85P2shR6q3YbimKSy65VjGsuylBwlJyw1LkT
+	 CVZtpBzxyXZxE7Qy0nNhxCgPpMOLafET98HgyAHwoo+xhWIagOhf1COLgKTlZ1RlC
+	 cqyUVJxhZj7fugy9eVYQRed7wcdo0cfeh311N/5XANifzEZ9G3uXWIW+QD8hvt0uz
+	 Md+YP1NWLQsjGHx87A==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MLzFr-1uYyud1v9t-00IYDi; Wed, 21
+ May 2025 15:05:58 +0200
+Message-ID: <f25571bf-eee1-43f1-ab54-87d860156b79@gmx.net>
+Date: Wed, 21 May 2025 15:05:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250521-vt8500-timer-updates-v5-4-7e4bd11df72e@gmail.com>
-References: <20250521-vt8500-timer-updates-v5-0-7e4bd11df72e@gmail.com>
-In-Reply-To: <20250521-vt8500-timer-updates-v5-0-7e4bd11df72e@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org, 
- Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747832426; l=5807;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=fg2O/NiYrG5jnAySQDhAJUCwCiNOphjw1AELvkeniPk=;
- b=lPyHbAc5NFVsW+VOhQpf2YBYDPTf4Ebr3BvqCdjt0B+TlJG5YPcpy/khytwwsZQyC7Hi/lIy3
- NeyS5Nvh+ayDb6Z7dhbTmUqbOjMp82ryHbvz0/v7CfcGs3yxL+GxZru
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] firmware/raspberrypi: raise timeout to 3s
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Etienne Buira <etienne.buira@free.fr>, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <e5659e34-511c-4137-9ffe-152bb0777146@gmx.net>
+ <aC2lM6xXCVK_3oWI@Z926fQmE5jqhFMgp6>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <aC2lM6xXCVK_3oWI@Z926fQmE5jqhFMgp6>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:BERvu+VIWoDRGOdt61aRXtusPqlqgLJfPNbmKLSvTGK8LduqpgH
+ rCyi1bhYc7YfQ5qgM/3t9VUMWcZDUXv+JTKT+WEuoXKbodcI8EZEENd879ieTsrqfuLrNy2
+ 4YcNf6DWGrv3n1Sx/6z0ECmZi+YOmfraiZ+doGbYAKQH+KKCB3dwTnbm52C/11D3JcIlGU4
+ HRlI/+eRuhrKvAjtB9VQw==
+UI-OutboundReport: notjunk:1;M01:P0:d5Ey/vNkxYk=;/uQ3A9PqJkZTauPbMo6gNIxL5oM
+ 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
+ TS9o=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_060107_744620_3543B44E 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20250521_060603_383603_A9753BB0 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,168 +138,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VIA/WonderMedia SoCs can use their system timer's first channel as a
-watchdog device which will reset the system if the clocksource counter
-matches the value given in its match register 0 and if the watchdog
-function is enabled.
+Am 21.05.25 um 12:04 schrieb Etienne Buira:
+> Raspberry firmware driver expected said firmware to answer by 1 second.
+> However, some firmware versions are buggy and can take longer with
+> RPI_FIRMWARE_NOTIFY_DISPLAY_DONE.
+> [    2.861407] ------------[ cut here ]------------
+> [    2.865512] Firmware transaction 0x00030066 timeout
+>
+> Raising the timeout to 3 seconds (ought to be enough=C2=AE) doesn't trig=
+ger
+> timeouts anymore for me and proceeds to the next failure.
+>
+> Some details about firmware debugging are available here:
+> Link: https://github.com/raspberrypi/firmware/issues/1970
+>
+> Signed-off-by: Etienne Buira <etienne.buira@free.fr>
+Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
 
-Since the watchdog function is tightly coupled to the timer itself, it
-is implemented as an auxiliary device of the timer device
-
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- MAINTAINERS                   |  1 +
- drivers/watchdog/Kconfig      | 15 ++++++++
- drivers/watchdog/Makefile     |  1 +
- drivers/watchdog/vt8500-wdt.c | 88 +++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 105 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5362095240627f613638197fda275db6edc16cf7..97d1842625dbdf7fdca3556260662dab469ed091 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3447,6 +3447,7 @@ F:	drivers/tty/serial/vt8500_serial.c
- F:	drivers/video/fbdev/vt8500lcdfb.*
- F:	drivers/video/fbdev/wm8505fb*
- F:	drivers/video/fbdev/wmt_ge_rops.*
-+F:	drivers/watchdog/vt8500-wdt.c
- F:	include/linux/vt8500-timer.h
- 
- ARM/ZYNQ ARCHITECTURE
-diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-index 0d8d37f712e8cfb4bf8156853baa13c23a57d6d9..2e59303306feba7e15a015c2fce25b1290dc4cbc 100644
---- a/drivers/watchdog/Kconfig
-+++ b/drivers/watchdog/Kconfig
-@@ -1115,6 +1115,21 @@ config SUNPLUS_WATCHDOG
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called sunplus_wdt.
- 
-+config VT8500_WATCHDOG
-+	tristate "VIA/WonderMedia VT8500 watchdog support"
-+	depends on ARCH_VT8500 || COMPILE_TEST
-+	select WATCHDOG_CORE
-+	select AUXILIARY_BUS
-+	help
-+	  VIA/WonderMedia SoCs can use their system timer as a hardware
-+	  watchdog, as long as the first timer channel is free from other
-+	  uses and respective function is enabled in its registers. To
-+	  make use of it, say Y here and ensure that the device tree
-+	  lists at least two interrupts for the VT8500 timer device.
-+
-+	  To compile this driver as a module, choose M here.
-+	  The module will be called vt8500-wdt.
-+
- # X86 (i386 + ia64 + x86_64) Architecture
- 
- config ACQUIRE_WDT
-diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
-index c9482904bf870a085c7fce2a439ac5089b6e6fee..3072786bf226c357102be3734fe6e701f753d45b 100644
---- a/drivers/watchdog/Makefile
-+++ b/drivers/watchdog/Makefile
-@@ -101,6 +101,7 @@ obj-$(CONFIG_MSC313E_WATCHDOG) += msc313e_wdt.o
- obj-$(CONFIG_APPLE_WATCHDOG) += apple_wdt.o
- obj-$(CONFIG_SUNPLUS_WATCHDOG) += sunplus_wdt.o
- obj-$(CONFIG_MARVELL_GTI_WDT) += marvell_gti_wdt.o
-+obj-$(CONFIG_VT8500_WATCHDOG) += vt8500-wdt.o
- 
- # X86 (i386 + ia64 + x86_64) Architecture
- obj-$(CONFIG_ACQUIRE_WDT) += acquirewdt.o
-diff --git a/drivers/watchdog/vt8500-wdt.c b/drivers/watchdog/vt8500-wdt.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..a47ee714e7c0172e89a31b0d6c064fff338bd5b6
---- /dev/null
-+++ b/drivers/watchdog/vt8500-wdt.c
-@@ -0,0 +1,88 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (C) 2025 Alexey Charkov <alchark@gmail.com */
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/container_of.h>
-+#include <linux/io.h>
-+#include <linux/limits.h>
-+#include <linux/minmax.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+#include <linux/watchdog.h>
-+#include <linux/vt8500-timer.h>
-+
-+static int vt8500_watchdog_start(struct watchdog_device *wdd)
-+{
-+	struct vt8500_wdt_info *info = watchdog_get_drvdata(wdd);
-+	u32 deadline = min(wdd->timeout * 1000, wdd->max_hw_heartbeat_ms);
-+
-+	/* The deadline is matched against the hardware clocksource counter,
-+	 * which is a u32 value incrementing at VT8500_TIMER_HZ and continuing
-+	 * past wraparound. When the return value of timer_next is greater than
-+	 * U32_MAX then the match should occur after the hardware counter wraps
-+	 * around, thus we take only the lower 32 bits of timer_next return val
-+	 */
-+	deadline = info->timer_next((u64)deadline * (VT8500_TIMER_HZ / 1000));
-+	writel(deadline, info->wdt_match);
-+	writel(1, info->wdt_en);
-+	return 0;
-+}
-+
-+static int vt8500_watchdog_stop(struct watchdog_device *wdd)
-+{
-+	struct vt8500_wdt_info *info = watchdog_get_drvdata(wdd);
-+
-+	writel(0, info->wdt_en);
-+	return 0;
-+}
-+
-+static const struct watchdog_ops vt8500_watchdog_ops = {
-+	.start			= vt8500_watchdog_start,
-+	.stop			= vt8500_watchdog_stop,
-+};
-+
-+static const struct watchdog_info vt8500_watchdog_info = {
-+	.identity		= "VIA VT8500 watchdog",
-+	.options		= WDIOF_MAGICCLOSE |
-+				  WDIOF_KEEPALIVEPING |
-+				  WDIOF_SETTIMEOUT,
-+};
-+
-+static int vt8500_wdt_probe(struct auxiliary_device *auxdev,
-+			    const struct auxiliary_device_id *id)
-+{
-+	struct vt8500_wdt_info *info;
-+	struct watchdog_device *wdd;
-+
-+	wdd = devm_kzalloc(&auxdev->dev, sizeof(*wdd), GFP_KERNEL);
-+	if (!wdd)
-+		return -ENOMEM;
-+
-+	wdd->info = &vt8500_watchdog_info;
-+	wdd->ops = &vt8500_watchdog_ops;
-+	wdd->max_hw_heartbeat_ms = U32_MAX / (VT8500_TIMER_HZ / 1000);
-+	wdd->parent = &auxdev->dev;
-+
-+	info = container_of(auxdev, struct vt8500_wdt_info, auxdev);
-+	watchdog_set_drvdata(wdd, info);
-+
-+	return devm_watchdog_register_device(&auxdev->dev, wdd);
-+}
-+
-+static const struct auxiliary_device_id vt8500_wdt_ids[] = {
-+	{ .name = "timer_vt8500.vt8500-wdt" },
-+	{},
-+};
-+
-+MODULE_DEVICE_TABLE(auxiliary, my_auxiliary_id_table);
-+
-+static struct auxiliary_driver vt8500_wdt_driver = {
-+	.name =	"vt8500-wdt",
-+	.probe = vt8500_wdt_probe,
-+	.id_table = vt8500_wdt_ids,
-+};
-+module_auxiliary_driver(vt8500_wdt_driver);
-+
-+MODULE_AUTHOR("Alexey Charkov <alchark@gmail.com>");
-+MODULE_DESCRIPTION("Driver for the VIA VT8500 watchdog timer");
-+MODULE_LICENSE("GPL");
-
--- 
-2.49.0
+Thanks
+>
+> ---
+> v2: coding style
+> v3: commit message
+>
+> Stefan, feel free to edit to your liking if needed, or even take
+> ownership of such one-liner, that would not be stealing.
+>
+>   drivers/firmware/raspberrypi.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/firmware/raspberrypi.c b/drivers/firmware/raspberry=
+pi.c
+> index 7ecde6921a0a..8c45a152e3ba 100644
+> --- a/drivers/firmware/raspberrypi.c
+> +++ b/drivers/firmware/raspberrypi.c
+> @@ -58,7 +58,7 @@ rpi_firmware_transaction(struct rpi_firmware *fw, u32 =
+chan, u32 data)
+>   	reinit_completion(&fw->c);
+>   	ret =3D mbox_send_message(fw->chan, &message);
+>   	if (ret >=3D 0) {
+> -		if (wait_for_completion_timeout(&fw->c, HZ)) {
+> +		if (wait_for_completion_timeout(&fw->c, 3 * HZ)) {
+>   			ret =3D 0;
+>   		} else {
+>   			ret =3D -ETIMEDOUT;
 
 
