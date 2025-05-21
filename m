@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F153EC54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:18:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD7FC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SNeSDBCoNSj2TT1iXWrLoJaEYDNlCgAfWe2+Rg/Sm2g=; b=orskmYIWI2fU5FmL3AiWzBG6KL
-	gp3XtSgv4N7r4YMN+HYw9AHg+TpL4aTgqYGwcqAocSP6f/Q8AIMcviVOfUDpXNRCafNP2lN5X7cRv
-	q5RNqzlVbKJv5Mg5qxm7XDJfoCHkD+tUimdZS0sEitEFfJOonEJKDyT1eKZ7oxNswwh9yYMSBPGZg
-	xD+2mc1mAK9ss9JBBRmAHeKUdO32qn/3YqEqtfnWrRH53q2YTrUf8GpXd1/jZQbOAUSg33fkbH1Ah
-	QtKshyzPWHmnydvVqCrxeuhfHslOc3GlzWy58VEVUu0aqgriDqkHFnKdDmReSHftX5ZoSKsC+5/89
-	tfRbYAAg==;
+	bh=BFViQejvKqbWRgI7UqqoIo4NcKb2IVy6v8UuBdHObNs=; b=kUo0x7HCFSvjW6pLHzZMzbgE1/
+	peahh1pBjFkG5H0p6ZRqyWAVrTIk8kHQ/hf5vBPNKQ+WkrNcffA2ntzAayzIFda+mMi1dm+qaTVNw
+	BGOaoCJrTGWPcb0wqV6ANuIj7c0u1qUMSKH0mExAF/PMb5Gyw2wybqOaGdepv2eQY7adzPp7BO9CQ
+	8GQGKzsm0xGt70O/v2MSkydKihih7dw437gvRMUdzXG/EDUlV7Bn9AJGUpxeosEnE+HHBPjCrQ7NF
+	d0QeLE7s2s7sV4zS3eGLvBtZL3o1aZUPA7I4SqJpmUcZjjr3Gwxm1c2/J0Kdatd9nlhXi3oaIUVtX
+	rVijJ7XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHkH8-0000000G5So-2AgR;
-	Wed, 21 May 2025 14:18:30 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uHkJH-0000000G5eD-2Li6;
+	Wed, 21 May 2025 14:20:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHjxh-0000000G1Mr-0Svc;
-	Wed, 21 May 2025 13:58:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1747835903;
-	bh=8dVODYeuf0JOeF7x0WZGBk7gNGDfNr61/nf0PMQDsyQ=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=mQsU4tIfyxyX2460FiActuCd5ik325aT9ILI51Sgq4jtabuNvcShq0l8VuP6qM3CO
-	 itELbzCwkkpjq/L3a4xV7R4EFne4lDmxi8hTZaM2Y086lp/fh7z9K+I4Q9AEinpQbJ
-	 wQXrC7UC0M8dIqqk+nXKUJwaoG+T8N/ynxBzmKKASKCI9zpevJingKjOKcy7kG9x4s
-	 5aVd/utQJV+VnnIomwHu9BYnz/jfgWfTT4ABIwGMJKIwLm9cfKbP0tBb4c/LSUhPY3
-	 slfp395MQXywIEkhDEaTHRzKuwmlxJ4PQ1heuizHMc4DVLfhFNMXZKCeH8ae0E7f8s
-	 GtwLidslq3gSw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 625FE17E02BE;
-	Wed, 21 May 2025 15:58:22 +0200 (CEST)
-Message-ID: <5e237878-bc8c-4c88-ad9d-469ce4389274@collabora.com>
-Date: Wed, 21 May 2025 15:58:21 +0200
+	id 1uHjzw-0000000G1jN-01bP
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 14:00:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 52C17A4F008;
+	Wed, 21 May 2025 14:00:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7F81C4CEE4;
+	Wed, 21 May 2025 14:00:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747836043;
+	bh=TG7KGt9Z8KkHwG8PtZech7PK1ytDELh9NZgI+4R2pzI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KbALZD/dEscVsNoTk46Tney3bpr9YBapbD6kPiCrP6jYQVYeU1B+lRBw0hGJnMIxA
+	 fxhEojnMsplG0brkRHU0kGSzA5rdSej0MtquM4ljjzCMg9FPzyYqsj6CWuJ/qtqwNZ
+	 Fxb8yRoc6SMYtWQIldMJI9Zxjot0qbS9IkvzCHwhM3q4XLQ5WEcKQCHFerrp3fdCfc
+	 dqxQN6LjTj71cn1owXAGH822pLzILvFd4FnLld/oIDJrS/AXKscTyAjPwLxBMi4rER
+	 bDKJdtaZftPXqHhCUJEqVAWvWy2P/P3VNs41LeT1kV9IV/+5Ic94ygZ6pgDCKo4vnM
+	 RoY6vcigApi+w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uHjzs-00Gxn5-Mt;
+	Wed, 21 May 2025 15:00:40 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: qperret@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v6 00/10] Stage-2 huge mappings for pKVM np-guests
+Date: Wed, 21 May 2025 15:00:36 +0100
+Message-Id: <174783602755.119525.10800483609741009182.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250521124834.1070650-1-vdonnefort@google.com>
+References: <20250521124834.1070650-1-vdonnefort@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] pinctrl: mediatek: eint: Fix invalid pointer
- dereference for v1 platforms
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Sean Wang <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Hao Chang <ot_chhao.chang@mediatek.com>,
- Qingliang Li <qingliang.li@mediatek.com>
-Cc: kernel@collabora.com, linux-mediatek@lists.infradead.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Chen-Yu Tsai <wenst@chromium.org>
-References: <20250520-genio-350-eint-null-ptr-deref-fix-v2-1-6a3ca966a7ba@collabora.com>
- <557a5182-4843-4925-953e-09e3b1e41f0c@collabora.com>
-Content-Language: en-US
-In-Reply-To: <557a5182-4843-4925-953e-09e3b1e41f0c@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, qperret@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_065825_307495_1197EFA7 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20250521_070044_176764_B1CD4834 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,102 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 21/05/25 15:53, AngeloGioacchino Del Regno ha scritto:
-> Il 20/05/25 23:15, Nícolas F. R. A. Prado ha scritto:
->> Commit 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple
->> addresses") introduced an access to the 'soc' field of struct
->> mtk_pinctrl in mtk_eint_do_init() and for that an include of
->> pinctrl-mtk-common-v2.h.
->>
->> However, pinctrl drivers relying on the v1 common driver include
->> pinctrl-mtk-common.h instead, which provides another definition of
->> struct mtk_pinctrl that does not contain an 'soc' field.
->>
->> Since mtk_eint_do_init() can be called both by v1 and v2 drivers, it
->> will now try to dereference an invalid pointer when called on v1
->> platforms. This has been observed on Genio 350 EVK (MT8365), which
->> crashes very early in boot (the kernel trace can only be seen with
->> earlycon).
->>
->> In order to fix this, since 'struct mtk_pinctrl' was only needed to get
->> a 'struct mtk_eint_pin', make 'struct mtk_eint_pin' a parameter
->> of mtk_eint_do_init() so that callers need to supply it, removing
->> mtk_eint_do_init()'s dependency on any particular 'struct mtk_pinctrl'.
->>
->> Fixes: 3ef9f710efcb ("pinctrl: mediatek: Add EINT support for multiple addresses")
->> Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> ---
->> Changes in v2:
->> - Completely changed approach to make mtk_eint_pin a parameter of
->>    mtk_eint_do_init() as suggested by Angelo
->> - Link to v1: https://lore.kernel.org/r/20250519-genio-350-eint-null-ptr-deref- 
->> fix-v1-1-07445d6d22c3@collabora.com
->> ---
->>   drivers/pinctrl/mediatek/mtk-eint.c              | 26 ++++++++++--------------
->>   drivers/pinctrl/mediatek/mtk-eint.h              |  5 +++--
->>   drivers/pinctrl/mediatek/pinctrl-mtk-common-v2.c |  2 +-
->>   drivers/pinctrl/mediatek/pinctrl-mtk-common.c    |  2 +-
->>   4 files changed, 16 insertions(+), 19 deletions(-)
->>
->> diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk- 
->> eint.c
->> index 
->> 16af6a47028e67bb53db4041a37ebbbb8b9a1e43..d906a5e4101fb10968035fc48e9cf4a444d063a9 100644
->> --- a/drivers/pinctrl/mediatek/mtk-eint.c
->> +++ b/drivers/pinctrl/mediatek/mtk-eint.c
->> @@ -22,7 +22,6 @@
->>   #include <linux/platform_device.h>
->>   #include "mtk-eint.h"
->> -#include "pinctrl-mtk-common-v2.h"
->>   #define MTK_EINT_EDGE_SENSITIVE           0
->>   #define MTK_EINT_LEVEL_SENSITIVE          1
->> @@ -505,10 +504,9 @@ int mtk_eint_find_irq(struct mtk_eint *eint, unsigned long 
->> eint_n)
->>   }
->>   EXPORT_SYMBOL_GPL(mtk_eint_find_irq);
->> -int mtk_eint_do_init(struct mtk_eint *eint)
->> +int mtk_eint_do_init(struct mtk_eint *eint, struct mtk_eint_pin *eint_pin)
->>   {
->>       unsigned int size, i, port, virq, inst = 0;
->> -    struct mtk_pinctrl *hw = (struct mtk_pinctrl *)eint->pctl;
->>       /* If clients don't assign a specific regs, let's use generic one */
->>       if (!eint->regs)
->> @@ -519,7 +517,15 @@ int mtk_eint_do_init(struct mtk_eint *eint)
->>       if (!eint->base_pin_num)
->>           return -ENOMEM;
->> -    if (eint->nbase == 1) {
+On Wed, 21 May 2025 13:48:24 +0100, Vincent Donnefort wrote:
+> This series adds support for stage-2 huge mappings (PMD_SIZE) to pKVM
+> np-guests, that is installing PMD-level mappings in the stage-2,
+> whenever the stage-1 is backed by either Hugetlbfs or THPs.
 > 
-> Okay, dropping the nbase == 1 is sane, but that statement was actually documenting
-> the fact that *eint_pin is used only for multi-base EINT case, so please add those
-> comments:
+> The last patch of that series is an optimization for CMOs using a shared
+> PMD_SIZE fixmap.
 > 
->> +    if (eint_pin) {
-> 
->          /* EINT with multiple bases */
-> 
->> +        eint->pins = eint_pin;
->> +        for (i = 0; i < eint->hw->ap_num; i++) {
->> +            inst = eint->pins[i].instance;
->> +            if (inst >= eint->nbase)
->> +                continue;
->> +            eint->base_pin_num[inst]++;
->> +        }
->> +    } else {
-> 
->          /* Single base EINT */
-> 
-> ...after which:
-> 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> 
-> Thanks for fixing this!
-> 
+> [...]
 
-Just acknowledged that Linus already picked this one.
+Applied to next, thanks!
 
-It's fine either way, no worries.
+[01/10] KVM: arm64: Handle huge mappings for np-guest CMOs
+        commit: 944a1ed8cc3ea6c5b16b6aca11475ced0daf68a9
+[02/10] KVM: arm64: Introduce for_each_hyp_page
+        commit: 3db771fa23ed6aecdf28ce4b806309198eea84e2
+[03/10] KVM: arm64: Add a range to __pkvm_host_share_guest()
+        commit: 4274385ebf090461b46b9bddb0f7c526182ba3c0
+[04/10] KVM: arm64: Add a range to __pkvm_host_unshare_guest()
+        commit: f28f1d02f4eaac05c2ad6bf7264a8696dc21d011
+[05/10] KVM: arm64: Add a range to __pkvm_host_wrprotect_guest()
+        commit: 0eb802b3b4ecfb10046bc325f47e7fd741c72ffe
+[06/10] KVM: arm64: Add a range to __pkvm_host_test_clear_young_guest()
+        commit: c4d99a833d34d8041a568f0c076379ae53c47896
+[07/10] KVM: arm64: Convert pkvm_mappings to interval tree
+        commit: b38c9775f73941ee59aebc0a489aa5c22e632def
+[08/10] KVM: arm64: Add a range to pkvm_mappings
+        commit: 3669ddd8fa8b5a46d96b9c54a6fa519a17e4a4fa
+[09/10] KVM: arm64: Stage-2 huge mappings for np-guests
+        commit: db14091d8f75852d960b18834c7bdb1b7c2bb74f
+[10/10] KVM: arm64: np-guest CMOs with PMD_SIZE fixmap
+        commit: c353fde17d8f7e710884532da50393cd22ddbfbe
 
 Cheers,
-Angelo
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
+
 
