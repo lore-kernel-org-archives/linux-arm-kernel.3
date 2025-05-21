@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467FDC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 00:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C770C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 00:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLMVg62D63jw2j3c0Fj1FO3so+LeBh6cMEhUELVQJls=; b=uZQkJnltYEOnsAr5xV3ButSojB
-	xCxWXnhwoc+7vb+Pg5/t4Fzn6wwsNKkPsqezG+YbxuNmoCL3lje+tiN+ozKfK6bFNXouV79Z7TJzn
-	UP4KzzOU5aCt3ZaUm6lkhK/TqHWJJIGbMQx+PHXuV5ZX+9zx6JjSGjigr1rKYANjIIKzKGZxxWNne
-	LM6d3Sx7FFpwSjmS4aD9gmMkZpmdJ36O6pz+//9YRdr1K494bRZWPNh2FQN+M420G2tP0G8Sp88tM
-	sg4mGNlYjh2tOzYd3PYcgc6T+BdyVlFLsD7MUrTaExswBlyWO8l7MJwOT/As8HaxJEUfCZVn11oAw
-	amdLBCpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n4H0VKzwu3OiqJvQ5E2XnZcFIs+ZqlxTTQ2byh7skwc=; b=OQOw8dOVh15TrGrgmfXrm5s+ll
+	Hs0bCyfBaX+SjnoL0wCuIv1O6vtlouu9VuqXhuwSJt4vKsvX3CB7qu7T+8K5sLCzcqKnBDqkLmbIn
+	pLu63dm6B6aDK4PKt8Qkiq+hrEZXjpBGw6dMRC37Q6glSPdBh4LbCP8A4YhCszv0BLrSqT6g6vDOJ
+	ABfmVxl+w1wANOxMvHgRr1D1R+7nQzdv2aq1Xy1uDGQUGoca2KKNuXJ3YtZrW3f3w52IF6IKvdxzc
+	J5nKWHK6c9uXt5EFWvS/st+93nilbjT2QEG56TvS5uOH/tlLdKFihr33wQUjFCQBpl7dFM+qT+eNx
+	iAq0NOww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHWwe-0000000EPnL-0r4R;
-	Wed, 21 May 2025 00:04:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uHXdV-0000000ES6y-2RyB;
+	Wed, 21 May 2025 00:48:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHWuV-0000000EPhK-06hY;
-	Wed, 21 May 2025 00:02:15 +0000
+	id 1uHXbL-0000000ERqz-3rO2;
+	Wed, 21 May 2025 00:46:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 02AFA629D4;
-	Wed, 21 May 2025 00:02:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6979FC4CEE9;
-	Wed, 21 May 2025 00:02:13 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C047B5C5687;
+	Wed, 21 May 2025 00:44:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7795CC4CEE9;
+	Wed, 21 May 2025 00:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747785733;
-	bh=jXl0OotgD+85DVFJREE1im9n5MMc1eZmHD6Z/7IoqVI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xzpch6AxmJmqIKU1MNMhV6r+ZUcFyE6XLvHM/8foZm27SJCHk0oiZzxKvS94j6i/K
-	 1gqDikjs90pIPcOhm2XSK5TxKNJvUREDIvThJh44OOl673K2lmROFMKRbpa3bnbh/1
-	 bCCpoRvoukdb62EywWi100owxVeiKeKDkLxzO/beKegHX5lry/VkVsio4rmowXKUno
-	 MsrSxLt3UGrVCEsi2aKgSw+gl/TARELO0fKD9zI/uxbra9Oc5ez+jXSNNIDAf80xkd
-	 miNqtFsNT3w1dvKqVhTQq0t64LoiJsFxdXzPpQFSl+TKU0Q9eILO9w4f8DipERx8vZ
-	 xDw+67LsUtugw==
-Date: Tue, 20 May 2025 19:02:11 -0500
-From: Rob Herring <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: yong.wu@mediatek.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, iommu@lists.linux.dev,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v1 2/2] iommu/mediatek: Add support for Dimensity 1200
- MT6893 MM IOMMU
-Message-ID: <20250521000211.GA1717916-robh@kernel.org>
-References: <20250410144008.475888-1-angelogioacchino.delregno@collabora.com>
- <20250410144008.475888-3-angelogioacchino.delregno@collabora.com>
+	s=k20201202; t=1747788390;
+	bh=6eRPXWYKV5B62KMfC9wBJCSY8UIUCsWL77sMjILQEIY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=NFUMjet/QWZMEWXWiCRQdYRgMXmihjsvbK2+0tbgtpRxnY6BARb3Xy7W04aBF1a60
+	 OX6mjmlmErYlVQP+07yCnKUIhE9+QyIeD2lacyGr65Nj1sawKAQyWI+MO6ILvvkMEf
+	 CZDgGBWbSF+Oa0PYfy6H2zmkwfNarXiQwY/4xsgoLGsWOTdj/ReJGGCNetjtI7HL3N
+	 p/W9LIGn6AG08wwVEu3ZN5OAiXnpfDJRH/aVvA0C/flmmeA5nqjSNC2GMlq660Gy0u
+	 M6zdBgY19dOfb7OxWxFZAhtrgl13TYw2QMn4uvD8K0b9fp8S6iN472UjQ7IKFsmgKb
+	 eXxqGWuiVrsqw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Stefan Wahren <wahrenst@gmx.net>
+Cc: linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: clock: Convert brcm,bcm2835-cprman to DT schema
+Date: Tue, 20 May 2025 19:46:24 -0500
+Message-ID: <20250521004625.1791913-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250410144008.475888-3-angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250520_174632_043748_8B286360 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,86 +79,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 04:40:08PM +0200, AngeloGioacchino Del Regno wrote:
-> Add support for the two MM IOMMUs found in the MediaTek Dimensity
-> 1200 (MT6893) SoC, used for display, camera, imgsys and vpu.
-> 
-> Since the MT6893 SoC is almost fully compatible with MT8192, also
-> move the mt8192_larb_region_msk before the newly introduced mt6893
-> platform data, as the larb regions from mt8192 are fully reused.
-> 
-> Note that the only difference with MT8192 is that MT6893 needs the
-> SHARE_PGTABLE flag.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  drivers/iommu/mtk_iommu.c | 37 ++++++++++++++++++++++++++-----------
->  1 file changed, 26 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-> index df98d0c65f54..0a54c6521bf5 100644
-> --- a/drivers/iommu/mtk_iommu.c
-> +++ b/drivers/iommu/mtk_iommu.c
-> @@ -1550,6 +1550,31 @@ static const struct mtk_iommu_plat_data mt6795_data = {
->  	.larbid_remap = {{0}, {1}, {2}, {3}, {4}}, /* Linear mapping. */
->  };
->  
-> +static const unsigned int mt8192_larb_region_msk[MT8192_MULTI_REGION_NR_MAX][MTK_LARB_NR_MAX] = {
-> +	[0] = {~0, ~0},				/* Region0: larb0/1 */
-> +	[1] = {0, 0, 0, 0, ~0, ~0, 0, ~0},	/* Region1: larb4/5/7 */
-> +	[2] = {0, 0, ~0, 0, 0, 0, 0, 0,		/* Region2: larb2/9/11/13/14/16/17/18/19/20 */
-> +	       0, ~0, 0, ~0, 0, ~(u32)(BIT(9) | BIT(10)), ~(u32)(BIT(4) | BIT(5)), 0,
-> +	       ~0, ~0, ~0, ~0, ~0},
-> +	[3] = {0},
-> +	[4] = {[13] = BIT(9) | BIT(10)},	/* larb13 port9/10 */
-> +	[5] = {[14] = BIT(4) | BIT(5)},		/* larb14 port4/5 */
-> +};
-> +
-> +static const struct mtk_iommu_plat_data mt6893_data = {
-> +	.m4u_plat     = M4U_MT8192,
-> +	.flags        = HAS_BCLK | OUT_ORDER_WR_EN | HAS_SUB_COMM_2BITS |
-> +			WR_THROT_EN | IOVA_34_EN | SHARE_PGTABLE | MTK_IOMMU_TYPE_MM,
-> +	.inv_sel_reg  = REG_MMU_INV_SEL_GEN2,
-> +	.banks_num    = 1,
-> +	.banks_enable = {true},
-> +	.iova_region  = mt8192_multi_dom,
-> +	.iova_region_nr = ARRAY_SIZE(mt8192_multi_dom),
-> +	.iova_region_larb_msk = mt8192_larb_region_msk,
-> +	.larbid_remap    = {{0}, {1}, {4, 5}, {7}, {2}, {9, 11, 19, 20},
-> +			    {0, 14, 16}, {0, 13, 18, 17}},
-> +};
-> +
->  static const struct mtk_iommu_plat_data mt8167_data = {
->  	.m4u_plat     = M4U_MT8167,
->  	.flags        = RESET_AXI | HAS_LEGACY_IVRP_PADDR | MTK_IOMMU_TYPE_MM,
-> @@ -1673,17 +1698,6 @@ static const struct mtk_iommu_plat_data mt8188_data_vpp = {
->  			   27, 28 /* ccu0 */, MTK_INVALID_LARBID}, {4, 6}},
->  };
->  
-> -static const unsigned int mt8192_larb_region_msk[MT8192_MULTI_REGION_NR_MAX][MTK_LARB_NR_MAX] = {
-> -	[0] = {~0, ~0},				/* Region0: larb0/1 */
-> -	[1] = {0, 0, 0, 0, ~0, ~0, 0, ~0},	/* Region1: larb4/5/7 */
-> -	[2] = {0, 0, ~0, 0, 0, 0, 0, 0,		/* Region2: larb2/9/11/13/14/16/17/18/19/20 */
-> -	       0, ~0, 0, ~0, 0, ~(u32)(BIT(9) | BIT(10)), ~(u32)(BIT(4) | BIT(5)), 0,
-> -	       ~0, ~0, ~0, ~0, ~0},
-> -	[3] = {0},
-> -	[4] = {[13] = BIT(9) | BIT(10)},	/* larb13 port9/10 */
-> -	[5] = {[14] = BIT(4) | BIT(5)},		/* larb14 port4/5 */
-> -};
-> -
->  static const struct mtk_iommu_plat_data mt8192_data = {
->  	.m4u_plat       = M4U_MT8192,
->  	.flags          = HAS_BCLK | HAS_SUB_COMM_2BITS | OUT_ORDER_WR_EN |
-> @@ -1777,6 +1791,7 @@ static const struct of_device_id mtk_iommu_of_ids[] = {
->  	{ .compatible = "mediatek,mt2712-m4u", .data = &mt2712_data},
->  	{ .compatible = "mediatek,mt6779-m4u", .data = &mt6779_data},
->  	{ .compatible = "mediatek,mt6795-m4u", .data = &mt6795_data},
-> +	{ .compatible = "mediatek.mt6893-iommu-mm", .data = &mt6893_data},
+Convert the Broadcom BCM2835 CPRMAN clock binding to DT schema format.
+It's a straight forward conversion.
 
-Are you going to fix the typo>   ^
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/clock/brcm,bcm2835-cprman.txt    | 60 -------------------
+ .../bindings/clock/brcm,bcm2835-cprman.yaml   | 58 ++++++++++++++++++
+ 2 files changed, 58 insertions(+), 60 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/clock/brcm,bcm2835-cprman.txt
+ create mode 100644 Documentation/devicetree/bindings/clock/brcm,bcm2835-cprman.yaml
 
-It is still warning with 'make dt_compatible_check' that it is 
-undocumented.
+diff --git a/Documentation/devicetree/bindings/clock/brcm,bcm2835-cprman.txt b/Documentation/devicetree/bindings/clock/brcm,bcm2835-cprman.txt
+deleted file mode 100644
+index 9e0b03a6519b..000000000000
+--- a/Documentation/devicetree/bindings/clock/brcm,bcm2835-cprman.txt
++++ /dev/null
+@@ -1,60 +0,0 @@
+-Broadcom BCM2835 CPRMAN clocks
+-
+-This binding uses the common clock binding:
+-    Documentation/devicetree/bindings/clock/clock-bindings.txt
+-
+-The CPRMAN clock controller generates clocks in the audio power domain
+-of the BCM2835.  There is a level of PLLs deriving from an external
+-oscillator, a level of PLL dividers that produce channels off of the
+-few PLLs, and a level of mostly-generic clock generators sourcing from
+-the PLL channels.  Most other hardware components source from the
+-clock generators, but a few (like the ARM or HDMI) will source from
+-the PLL dividers directly.
+-
+-Required properties:
+-- compatible:	should be one of the following,
+-	"brcm,bcm2711-cprman"
+-	"brcm,bcm2835-cprman"
+-- #clock-cells:	Should be <1>. The permitted clock-specifier values can be
+-		  found in include/dt-bindings/clock/bcm2835.h
+-- reg:		Specifies base physical address and size of the registers
+-- clocks:	phandles to the parent clocks used as input to the module, in
+-		  the following order:
+-
+-		  - External oscillator
+-		  - DSI0 byte clock
+-		  - DSI0 DDR2 clock
+-		  - DSI0 DDR clock
+-		  - DSI1 byte clock
+-		  - DSI1 DDR2 clock
+-		  - DSI1 DDR clock
+-
+-		  Only external oscillator is required.  The DSI clocks may
+-		  not be present, in which case their children will be
+-		  unusable.
+-
+-Example:
+-
+-	clk_osc: clock@3 {
+-		compatible = "fixed-clock";
+-		reg = <3>;
+-		#clock-cells = <0>;
+-		clock-output-names = "osc";
+-		clock-frequency = <19200000>;
+-	};
+-
+-	clocks: cprman@7e101000 {
+-		compatible = "brcm,bcm2835-cprman";
+-		#clock-cells = <1>;
+-		reg = <0x7e101000 0x2000>;
+-		clocks = <&clk_osc>;
+-	};
+-
+-	i2c0: i2c@7e205000 {
+-		compatible = "brcm,bcm2835-i2c";
+-		reg = <0x7e205000 0x1000>;
+-		interrupts = <2 21>;
+-		clocks = <&clocks BCM2835_CLOCK_VPU>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-	};
+diff --git a/Documentation/devicetree/bindings/clock/brcm,bcm2835-cprman.yaml b/Documentation/devicetree/bindings/clock/brcm,bcm2835-cprman.yaml
+new file mode 100644
+index 000000000000..8586033794ba
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/brcm,bcm2835-cprman.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/brcm,bcm2835-cprman.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom BCM2835 CPRMAN clocks
++
++maintainers:
++  - Stefan Wahren <wahrenst@gmx.net>
++
++description:
++  The CPRMAN clock controller generates clocks in the audio power domain of the
++  BCM2835.  There is a level of PLLs deriving from an external oscillator, a
++  level of PLL dividers that produce channels off of the few PLLs, and a level
++  of mostly-generic clock generators sourcing from the PLL channels.  Most other
++  hardware components source from the clock generators, but a few (like the ARM
++  or HDMI) will source from the PLL dividers directly.
++
++properties:
++  compatible:
++    enum:
++      - brcm,bcm2711-cprman
++      - brcm,bcm2835-cprman
++
++  reg:
++    maxItems: 1
++
++  '#clock-cells':
++    const: 1
++
++  clocks:
++    minItems: 1
++    items:
++      - description: External oscillator clock.
++      - description: DSI0 byte clock.
++      - description: DSI0 DDR2 clock.
++      - description: DSI0 DDR clock.
++      - description: DSI1 byte clock.
++      - description: DSI1 DDR2 clock.
++      - description: DSI1 DDR clock.
++
++additionalProperties: false
++
++required:
++  - compatible
++  - '#clock-cells'
++  - reg
++  - clocks
++
++examples:
++  - |
++    clock-controller@7e101000 {
++        compatible = "brcm,bcm2835-cprman";
++        reg = <0x7e101000 0x2000>;
++        #clock-cells = <1>;
++        clocks = <&clk_osc>;
++    };
+-- 
+2.47.2
 
-Rob
 
