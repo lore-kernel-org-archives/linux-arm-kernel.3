@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 323A3C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 03:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0640FC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 03:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crfwbyD7L64F6BxM4jpSbncsa8/O+6WuQ6y7Q292dZ0=; b=o1puwSjETZIKExfAnJqMGQ9Lc3
-	Ufm/Jf4npIFXz+bsBioXlxC06pk65ofY/KmmRWHR28mgdvoPTmLApSLj1R+amG29Ewi/D4cbyWRpA
-	eRRZnZ+jgmHjXQNAOe5S9JnGLLRwTcJ0kkY9JA1NCWTjGF1oX1Ahvi6ldu2J+2AVPM/yqHsSh+jBh
-	R+NqfPZR9+xAl6e4iuIaGh0UuwKOVVuiQC59BvamIsijqfCy/X1vYbGO0Glcrj3SRvpZrntdChwk9
-	oSGwJzNtYcozbx0iObyOXzIW0+9k52zr2GbNeveLNHEK1++TCb3d2k/PZIrqVmMIUqSFrVyZOg9MX
-	m+3Onc6g==;
+	bh=7WCIQh3oaRxzt6hXv0MZhHX4rd20Xpbs16KCPaZHxFA=; b=A4mb2IkjJTXgtNb9jSa/0b8VH9
+	EDdQTPt45pqXXscQmCSqeK9PrUqCRtLn+s2YemM3QK8s950vsRBSXAXplqZ/e0m1Qewfxx/a/WcK+
+	4PxSWtLC5vgCRbtH1ScBP3k1T+AHB3EiE0Jp5nD9UlfOFNOF75MJlXiFRrYlW3Ld3ArA6ggoxw7se
+	8x/s1jcTodHG1aETWwU/BD7kd+gUhgDrF+bGMrJTgBLOAjR9havEfWjGH+dHIIe9X4V1t4DjoXTLo
+	seGPaAbes5uMVXzFNkuYiTX8FmZZSE4djpuee+K0OARHylW4IgdRIGbESvgT3QyKYjdQTkcT2K6Tk
+	kLpytmjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHaGB-0000000Eh2t-0qZW;
-	Wed, 21 May 2025 03:36:51 +0000
+	id 1uHaID-0000000EhAO-1IFO;
+	Wed, 21 May 2025 03:38:57 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHZzs-0000000EfLY-1Xsr;
+	id 1uHZzs-0000000EfLj-2W0p;
 	Wed, 21 May 2025 03:20:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 34B434A4E9;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A5894A53E;
 	Wed, 21 May 2025 03:19:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 116CDC4CEFA;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2A6D1C4AF0F;
 	Wed, 21 May 2025 03:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747797598;
-	bh=Hj/dtiodyDNGd1NBE4jDypDZMQYKxKPm40P5Dg7K4HU=;
+	bh=Hxa2EX+nSJ0LzGazJMi3CxQ9ZJHR9/MQI2pW4yU8x+c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=O2Vu6rUmu834e9x61i2UfDkiJ3smJb7s3qXaAK7SBIWiyHUv6h4OhukY6IhO7Q/wk
-	 duelz9fGhi8nq4lSEoR2VT/HwwBXS5h/yFHbkFCp5FUalEL0af+4bgkhNV3VrHw3k0
-	 KsXmpXoWJ3BpI92BU+YosUjy8EWAFKxe1h7Js+wLXAuTxE5LMxEriCidp+nEhHnQ8f
-	 bV+LuYrzTjPA/TJEjJnsOvGtapK4ST3kKUQenfHfpETDxiWoaTtWj82RLs4y3lklsv
-	 Zb2/Rf4U4tb+lsmfAGj1/arNk2wNRv9IMGnz8+9W/FTtCkVfFmaQIlrEySgcROoTm5
-	 Ee5UhxLoh+KvA==
+	b=CAEbUwsGBufQfHmO6ggwX0hooCk461Fsi+g3S5FWozrbx6yH2GMwo2ZMANWmuWVyo
+	 zeUOrwA6j0YQUpsiVwbCBVJY2TgUcLLtdHb0/m8Nilq90JA/5FahHQxfymP1vokhf7
+	 KHCfpAZFC5hg5b6L6eEwqBuCgylLKMmDcIIXe+GS0pGT4Sdsuys9cXY55DdDrkp60V
+	 LAUD1dLj6TGnm9Ckh0u+0VMiDES1Ft89vnbQ5tFMJf8v+VT1/6Qo78uw/KmC3jflA3
+	 BERT30wL+v16SSrJ3usyvjxO6ouSIiFh/Ym2bN56Mvr1g1ab+hdltFhICxfpFUoaYq
+	 W87hfr+wi0BSQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0578CC54E92;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 218FFC3ABC9;
 	Wed, 21 May 2025 03:19:58 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Wed, 21 May 2025 11:20:00 +0800
-Subject: [PATCH v2 6/8] dts: arm64: amlogic: add S7 pinctrl node
+Date: Wed, 21 May 2025 11:20:02 +0800
+Subject: [PATCH v2 8/8] dts: arm64: amlogic: add S6 pinctrl node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250521-s6-s7-pinctrl-v2-6-0ce5e3728404@amlogic.com>
+Message-Id: <20250521-s6-s7-pinctrl-v2-8-0ce5e3728404@amlogic.com>
 References: <20250521-s6-s7-pinctrl-v2-0-0ce5e3728404@amlogic.com>
 In-Reply-To: <20250521-s6-s7-pinctrl-v2-0-0ce5e3728404@amlogic.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -64,19 +64,19 @@ Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747797595; l=3129;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747797595; l=3615;
  i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=fjCfY1jseWaBwy2ltob7mgikXcrVQkc9RawMyG1Dk4I=;
- b=L8ZMYTQOjtVZCs8goewOzpjby9CPsZsGv82xLFuzqFPqLBLZj/98aRkcRGDtSQYSgW0uJTH1W
- cj9CsA/QQrAD2PJNJwrN99KKJqnKWl0ZiiENaoPWqKjilMX+MTVnKcV
+ bh=qrXyaWIhl6dY6RYbLmLL01WMo+S+QWiFeDMWvb8QD9A=;
+ b=be2px7TJFHE12t97jPTpVsQBaIMxh//o3rr4yUfe+pD9PCQpkiDCcmv3ucVF+oPgziqUvDIMq
+ bwcgD7WJak9AHWYjOvMozHXsy6dEaKGRLSlJq3VXaMIltnBeCIhAjNw
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
  auth_id=107
 X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_202000_486079_163D8F1A 
-X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-CacheID: sfid-20250520_202000_720951_5F59B5FB 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,32 +95,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Add pinctrl device to support Amlogic S7.
+Add pinctrl device to support Amlogic S6.
 
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi | 81 +++++++++++++++++++++++++++++
- 1 file changed, 81 insertions(+)
+ arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi | 97 +++++++++++++++++++++++++++++
+ 1 file changed, 97 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-index f0c172681bd1..260918b37b9a 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
+index a8c90245c42a..5f602f1170c0 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
 @@ -6,6 +6,7 @@
  #include <dt-bindings/interrupt-controller/irq.h>
  #include <dt-bindings/interrupt-controller/arm-gic.h>
  #include <dt-bindings/gpio/gpio.h>
 +#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
- 
  / {
  	cpus {
-@@ -94,6 +95,86 @@ uart_b: serial@7a000 {
+ 		#address-cells = <2>;
+@@ -92,6 +93,102 @@ uart_b: serial@7a000 {
  				clock-names = "xtal", "pclk", "baud";
  				status = "disabled";
  			};
 +
 +			periphs_pinctrl: pinctrl@4000 {
-+				compatible = "amlogic,pinctrl-s7";
++				compatible = "amlogic,pinctrl-s6";
 +				#address-cells = <2>;
 +				#size-cells = <2>;
 +				ranges = <0x0 0x0 0x0 0x4000 0x0 0x340>;
@@ -130,7 +130,7 @@ index f0c172681bd1..260918b37b9a 100644
 +					reg-names = "gpio", "mux";
 +					gpio-controller;
 +					#gpio-cells = <2>;
-+					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_Z<<8) 13>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_Z<<8) 16>;
 +				};
 +
 +				gpiox: gpio@100 {
@@ -146,15 +146,23 @@ index f0c172681bd1..260918b37b9a 100644
 +					reg-names = "gpio", "mux";
 +					gpio-controller;
 +					#gpio-cells = <2>;
-+					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_H<<8) 12>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_H<<8) 9>;
 +				};
 +
 +				gpiod: gpio@180 {
-+					reg = <0 0x180 0 0x20>, <0 0x40 0 0x8>;
++					reg = <0 0x180 0 0x20>, <0 0x8 0 0x4>;
 +					reg-names = "gpio", "mux";
 +					gpio-controller;
 +					#gpio-cells = <2>;
-+					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 12>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_D<<8) 7>;
++				};
++
++				gpiof: gpio@1a0 {
++					reg = <0 0x1a0 0 0x20>, <0 0x20 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_F<<8) 5>;
 +				};
 +
 +				gpioe: gpio@1c0 {
@@ -162,7 +170,7 @@ index f0c172681bd1..260918b37b9a 100644
 +					reg-names = "gpio", "mux";
 +					gpio-controller;
 +					#gpio-cells = <2>;
-+					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_E<<8) 3>;
 +				};
 +
 +				gpioc: gpio@200 {
@@ -179,6 +187,14 @@ index f0c172681bd1..260918b37b9a 100644
 +					gpio-controller;
 +					#gpio-cells = <2>;
 +					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
++				};
++
++				gpioa: gpio@280 {
++					reg = <0 0x280 0 0x20>, <0 0x40 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_A<<8) 16>;
 +				};
 +
 +				test_n: gpio@2c0 {
