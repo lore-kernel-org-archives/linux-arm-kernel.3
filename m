@@ -4,84 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F03C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAE2C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wrx4aRxpWMNpz3kBZx0QvAIs12jvmJX0PVdxD7GtL1U=; b=dojrXXr/BWce/sfL/xWwUx7pb0
-	4nYvTf1m6AOKA7CP3PzUMeowzv/P8VmV0aLIfFqT2c8LjcJSzNOvO6/P5esoXPr/83S+IG/UWmcJ2
-	3PFAjt2wjuniCpnuyN5DacMJX3lyMx1DzrItIIHmY+aLzzi+/pYmO/jXUe31mlQmzmXf4pWyOyGBg
-	A8rynF9gs0/B32bg71FrC7qh07t2lORk1Snz+8QDnXVhdTFCc/ptHJd6ZfiyrA7wVv/qCihwC7szb
-	X+CGg1ndFtwDHzhDMzpx/a0fEqRvzVbeg+bLa1fwqJvLL+2u9O9lTi/Pa8GrQl3UqjgmWepbmdD2X
-	gXWf5D3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Hj3Ig9qqSChXzvmc2CfcPidrrPzcIdAGU6AhFOvr9w=; b=l4J6TNaILV3RxIS/aDmmd5KAan
+	auavWDYLgNXXC5Hyix07L32SRHufZ52YeQ18ZdWiySzNo+PKRqE04ytXqjZntedjPk64Pu5GpYDxA
+	iwKW2p1G1VIrTNvMf+ae/A1Tqz8L5GQnOoHmT9V9MLnWJanTNmvqFOuNaaP3p7Gdo3pfwdIvGFOCn
+	VB94EfOD99Bw247lHeztvSAKfRR5IwJdSjgsKAnpulNWql/vQiYsv1vR7yts78KiZIQBsQizjFlf7
+	U8ZbVIZULAMfZ82q2YL9jdTAObouzJH3ZrTO7RBtPlK/misUNB+/JKc1Z6N0ghpup76pGh0jJz8DV
+	a4qURuAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHgsj-0000000FWJ5-1k5E;
-	Wed, 21 May 2025 10:41:05 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHgkQ-0000000FVWI-3TPj
+	id 1uHgsk-0000000FWJc-1rb3;
+	Wed, 21 May 2025 10:41:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHgn1-0000000FVrj-1u4V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 10:32:32 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-70a57a8ffc3so62571307b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 03:32:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1747823550; x=1748428350; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wrx4aRxpWMNpz3kBZx0QvAIs12jvmJX0PVdxD7GtL1U=;
-        b=LRcdqGF4Gz1mfjElmZ9PsNGPoZJ7v/66DDW8getCd8Kq6Guk91v6suX0gzUARV+cUg
-         /BLj9F6pRacOnQNCrOr1XreRJuFXdS/st/G+JovIAq3HaMvW60TCINZAjMCzM0+fMCBs
-         IGXwx+2sJHOtoXq4QaivbtLjIVNXSCCVj2LY4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747823550; x=1748428350;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wrx4aRxpWMNpz3kBZx0QvAIs12jvmJX0PVdxD7GtL1U=;
-        b=hPOCGawBirsnoEtWDM3iJSn17+HH6H6799MfiSwPQt4tV/yGOh6CqaBCwQW01YVf6O
-         SG4gyR+VF7FhgLHx4PqGKtqXJKwrddsL4HtZ1v5nTKp9JIOg4/iPfTt19tPHxz6b4RMH
-         grZeAaumCgKLeSYaEYBWDaOPTFl2ya4F6zOjUIF+eJRgT3SFvPOMWesiTAg7P8uRhssH
-         bLI88plxDqzec7WwTd68t2NJb0gibmy3lr8R8KwlsaPriuet9MdKsGRysMkm4A1k25x6
-         8zUJGqLgwiG4piu1aHd/icAfGI4ysG49yfHOB/jPbBu1PEqE5zGTE/0FFiPNsa+pkJrI
-         MLsw==
-X-Forwarded-Encrypted: i=1; AJvYcCWLbZeJmuMif8pcvJf4JlYVW8CKIHPdvugY1wcu39IKYJfJy5Fzzd1gnPBGTjVbSJKVlk636Js82RHNsbPX+Nlv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsZWImt7EnVSkRuOgvTNAX4v7zfZR8p33MUFWTm4f9jQlAB3e7
-	3cR9Lq4m9NWXx7Sq/DR3N2VycJEgVDH+xkx+zyakdQvniIqWgCgx5vyLJ6v0PuRxdOw0P2XhdyZ
-	5WjhsTusqaTe34pWNlw0KMNc5lMZFZgtvZ2NW7Xfn0lPldEutPBuoWPU=
-X-Gm-Gg: ASbGncvz15LqwVapb1/GYqZIJRc6JBkZvwMlRrLbTbjwZiP6oGFHDglbIh7fdkrVwJG
-	tWvs2kOQd/N+9aRsArCt/2q5zOQJ4qJvq55K1tQtlc4YMNCVc6mzGlk1TD5L4Kjmnmoik5SAgR9
-	8mOJtQ7pBTqytstgQzWqRChhVEWko/dbaWXFWsGhLVr/H1ZhXPBsBrsn/C5CzU1mRsUQ==
-X-Google-Smtp-Source: AGHT+IFFal7PqjGJ+LGmx5bNYrc9004KFk4ruAZ0EqygehsuQ0KzsT99Pyli2tqxvHiA6hWSh10r4+jSoSJ6zf3teYw=
-X-Received: by 2002:a05:690c:ed4:b0:6fb:1f78:d9ee with SMTP id
- 00721157ae682-70caaf78e03mr301107987b3.15.1747823549692; Wed, 21 May 2025
- 03:32:29 -0700 (PDT)
+	Wed, 21 May 2025 10:35:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01C041515;
+	Wed, 21 May 2025 03:34:57 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AE603F6A8;
+	Wed, 21 May 2025 03:35:10 -0700 (PDT)
+Date: Wed, 21 May 2025 11:35:08 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: acme@kernel.org, namhyung@kernel.org, catalin.marinas@arm.com,
+	will@kernel.org, peterz@infradead.org, mingo@redhat.com,
+	mark.rutland@arm.com, jolsa@kernel.org, john.g.garry@oracle.com,
+	james.clark@linaro.org, leo.yan@linux.dev, irogers@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, jonathan.cameron@huawei.com,
+	hejunhao3@huawei.com, linuxarm@huawei.com, wangyushan12@huawei.com,
+	caijingtao@huawei.com, xueshan2@huawei.com,
+	prime.zeng@hisilicon.com, yangyicong@hisilicon.com
+Subject: Re: [PATCH v2 2/3] perf arm-spe: Add support for SPE Data Source
+ packet on HiSilicon HIP12
+Message-ID: <20250521103508.GA2565659@e132581.arm.com>
+References: <20250425033845.57671-1-yangyicong@huawei.com>
+ <20250425033845.57671-3-yangyicong@huawei.com>
 MIME-Version: 1.0
-References: <20250521092826.1035448-1-dario.binacchi@amarulasolutions.com>
- <20250521092826.1035448-4-dario.binacchi@amarulasolutions.com> <20250521-quizzical-tidy-worm-1fe67d-mkl@pengutronix.de>
-In-Reply-To: <20250521-quizzical-tidy-worm-1fe67d-mkl@pengutronix.de>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Wed, 21 May 2025 12:32:19 +0200
-X-Gm-Features: AX0GCFtZ6hwSbA_J2rTqW8QnXowGlyqASP2_EDudgcpET604dgwM5KYsyW3Eszo
-Message-ID: <CABGWkvrmuhaF4iHqHRkrNrrHb2gUNDBJKCT-jZ8ZuwZGRvm7Lw@mail.gmail.com>
-Subject: Re: [PATCH 3/3] ARM: dts: mxs: support i.MX28 Amarula rmm board
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-amarula@amarulasolutions.com, Sascha Hauer <s.hauer@pengutronix.de>, 
-	imx@lists.linux.dev, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, michael@amarulasolutions.com, 
-	Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250425033845.57671-3-yangyicong@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_033230_878299_A01E780A 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20250521_033511_574681_51D0EAE8 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,68 +71,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Marc,
+On Fri, Apr 25, 2025 at 11:38:44AM +0800, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> Add data source encoding for HiSilicon HIP12 and coresponding mapping
+> to the perf's memory data source. This will help to synthesize the data
+> and support upper layer tools like perf-mem and perf-c2c.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 
-On Wed, May 21, 2025 at 11:35=E2=80=AFAM Marc Kleine-Budde <mkl@pengutronix=
-.de> wrote:
->
-> On 21.05.2025 11:28:22, Dario Binacchi wrote:
-> > The board includes the following resources:
-> >  - 256 Mbytes NAND Flash
-> >  - 256 Mbytes SRAM
-> >  - LCD-TFT controller
-> >  - CAN
->
-> [...]
->
-> > +&can0 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&can0_pins_a>;
-> > +     xceiver-supply =3D <&reg_3v3>;
->
-> Since v6.15-rc1 (d80bfde3c57a ("can: flexcan: add transceiver
-> capabilities")), the flexcan driver supports CAN transceivers via the
-> phy framework, see drivers/phy/phy-can-transceiver.c. Can you make use
-> of it?
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
-The board uses the SN65HVD233 transceiver, which is not listed among those
-supported by drivers/phy/phy-can-transceiver.c. So I can't use the PHY
-framework.
-Do you agree?
-Or am I missing something?
-
-Thanks and regards,
-Dario
-
->
-> regards,
-> Marc
->
-> --
-> Pengutronix e.K.                 | Marc Kleine-Budde          |
-> Embedded Linux                   | https://www.pengutronix.de |
-> Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-> Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
-
-
---=20
-
-Dario Binacchi
-
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
+> ---
+>  tools/arch/arm64/include/asm/cputype.h        |  2 +
+>  .../util/arm-spe-decoder/arm-spe-decoder.h    | 17 ++++
+>  tools/perf/util/arm-spe.c                     | 96 +++++++++++++++++++
+>  3 files changed, 115 insertions(+)
+> 
+> diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
+> index 488f8e751349..9a5d85cfd1fb 100644
+> --- a/tools/arch/arm64/include/asm/cputype.h
+> +++ b/tools/arch/arm64/include/asm/cputype.h
+> @@ -129,6 +129,7 @@
+>  #define FUJITSU_CPU_PART_A64FX		0x001
+>  
+>  #define HISI_CPU_PART_TSV110		0xD01
+> +#define HISI_CPU_PART_HIP12		0xD06
+>  
+>  #define APPLE_CPU_PART_M1_ICESTORM	0x022
+>  #define APPLE_CPU_PART_M1_FIRESTORM	0x023
+> @@ -202,6 +203,7 @@
+>  #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
+>  #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
+>  #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
+> +#define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
+>  #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
+>  #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
+>  #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
+> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+> index 5d232188643b..881d9f29c138 100644
+> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+> @@ -82,6 +82,23 @@ enum arm_spe_ampereone_data_source {
+>  	ARM_SPE_AMPEREONE_L2D                           = 0x9,
+>  };
+>  
+> +enum arm_spe_hisi_hip_data_source {
+> +	ARM_SPE_HISI_HIP_PEER_CPU		= 0,
+> +	ARM_SPE_HISI_HIP_PEER_CPU_HITM		= 1,
+> +	ARM_SPE_HISI_HIP_L3			= 2,
+> +	ARM_SPE_HISI_HIP_L3_HITM		= 3,
+> +	ARM_SPE_HISI_HIP_PEER_CLUSTER		= 4,
+> +	ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM	= 5,
+> +	ARM_SPE_HISI_HIP_REMOTE_SOCKET		= 6,
+> +	ARM_SPE_HISI_HIP_REMOTE_SOCKET_HITM	= 7,
+> +	ARM_SPE_HISI_HIP_LOCAL_MEM		= 8,
+> +	ARM_SPE_HISI_HIP_REMOTE_MEM		= 9,
+> +	ARM_SPE_HISI_HIP_NC_DEV			= 13,
+> +	ARM_SPE_HISI_HIP_L2			= 16,
+> +	ARM_SPE_HISI_HIP_L2_HITM		= 17,
+> +	ARM_SPE_HISI_HIP_L1			= 18,
+> +};
+> +
+>  struct arm_spe_record {
+>  	enum arm_spe_sample_type type;
+>  	int err;
+> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+> index 2a9775649cc2..d46e0cccac99 100644
+> --- a/tools/perf/util/arm-spe.c
+> +++ b/tools/perf/util/arm-spe.c
+> @@ -571,6 +571,11 @@ static const struct midr_range ampereone_ds_encoding_cpus[] = {
+>  	{},
+>  };
+>  
+> +static const struct midr_range hisi_hip_ds_encoding_cpus[] = {
+> +	MIDR_ALL_VERSIONS(MIDR_HISI_HIP12),
+> +	{},
+> +};
+> +
+>  static void arm_spe__sample_flags(struct arm_spe_queue *speq)
+>  {
+>  	const struct arm_spe_record *record = &speq->decoder->record;
+> @@ -718,9 +723,100 @@ static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *re
+>  	arm_spe__synth_data_source_common(&common_record, data_src);
+>  }
+>  
+> +static void arm_spe__synth_data_source_hisi_hip(const struct arm_spe_record *record,
+> +						union perf_mem_data_src *data_src)
+> +{
+> +	/* Use common synthesis method to handle store operations */
+> +	if (record->op & ARM_SPE_OP_ST) {
+> +		arm_spe__synth_data_source_common(record, data_src);
+> +		return;
+> +	}
+> +
+> +	switch (record->source) {
+> +	case ARM_SPE_HISI_HIP_PEER_CPU:
+> +		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
+> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_PEER_CPU_HITM:
+> +		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_L3:
+> +		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_L3_HITM:
+> +		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_PEER_CLUSTER:
+> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM:
+> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_REMOTE_SOCKET:
+> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
+> +		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
+> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_REMOTE_SOCKET_HITM:
+> +		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+> +		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
+> +		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_LOCAL_MEM:
+> +		data_src->mem_lvl = PERF_MEM_LVL_LOC_RAM | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_RAM;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_REMOTE_MEM:
+> +		data_src->mem_lvl = PERF_MEM_LVL_REM_RAM1 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_RAM;
+> +		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_NC_DEV:
+> +		data_src->mem_lvl = PERF_MEM_LVL_IO | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_IO;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_L2:
+> +		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_L2_HITM:
+> +		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+> +		break;
+> +	case ARM_SPE_HISI_HIP_L1:
+> +		data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_HIT;
+> +		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
+> +		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +}
+> +
+>  static const struct data_source_handle data_source_handles[] = {
+>  	DS(common_ds_encoding_cpus, data_source_common),
+>  	DS(ampereone_ds_encoding_cpus, data_source_ampereone),
+> +	DS(hisi_hip_ds_encoding_cpus, data_source_hisi_hip),
+>  };
+>  
+>  static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
+> 
+> -- 
+> 2.24.0
+> 
 
