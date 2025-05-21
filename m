@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E37C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD632C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FnMSEARNlVgPRWKeN5p+uHnOxtjldaYnJP4wZN+8kzk=; b=eYoy5QA2abI+H3xtUuSscN13sF
-	0ngCwmstiwh+k3UZsb6r0O6G831YOtfN8DO5j155MlfYAzmj4sBz42wP78MfkWiQvHhBjmrfENWBV
-	/6FhZGEgFR64id7pnD8wsgnJmDC6muOk//pWtEOqul1jpPDqg3mv2TmVa3BZaC+CkTnmfyt9q0Hfl
-	bw6S/+ZlePEEeis0KUHLuonLK5SejkrDxs4e/eJinDV1RXxx4NdsY59wZFCBjYyDAH4JQjhfoGdnN
-	Cn3bLg8cFljHJ4wQPapikaTyVLxLwPfEnhJkZaJwjd00iu+mrAU3zBiHozorthewCGdYvFhOrwMl5
-	n7pfniNQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rww57mlubvtdeeYsi/V5z+WJ/fnA69/dGryxrqrN8Ps=; b=fEf5LmNtfnSA+kqyEFcHMHgCr0
+	rPwi4Tqsgeq3ogIwR8+dUE/IuTDnjHjqZWX2IezvcJli10vvVOkohfYEHc/coSPn4RLI1Zbz8BWf1
+	mXlnTrhxGBYoMJ5EXIGlAohyleu87j/YGPXrrnSgPg3995SCWjco6V7hmhbfSxibfyke6Eu2/9ONl
+	khJIc/ScS8mpH4OLoU8SM22ZHILvqm41EDW6OAbHMuu7iCTfkT+Nh9cDl8tFQ1ZphNeqg6ZljBRRL
+	OmyHGifsl63bdykQEKP0yCA9u4auNEVtWxHfPZxUhf5OBsmkePhizKwYQECNOy0vbpP0GbzcNRUWb
+	todAIs+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHkLQ-0000000G5yZ-0Fr8;
-	Wed, 21 May 2025 14:22:56 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1uHkNY-0000000G6Pz-1i6a;
+	Wed, 21 May 2025 14:25:08 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHk3e-0000000G2Uk-2n0b
+	id 1uHk4G-0000000G2c3-0aCa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 14:04:35 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-476a1acf61eso61447031cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 07:04:34 -0700 (PDT)
+	Wed, 21 May 2025 14:05:13 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-442f9043f56so38938255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 07:05:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747836273; x=1748441073; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FnMSEARNlVgPRWKeN5p+uHnOxtjldaYnJP4wZN+8kzk=;
-        b=SUVQLkwqGufOphyaiLOZ3abv6yeCDudPBtTePRIGeuqMDfK/rRQHquydPJrjz3N0wS
-         X1GdG86uthUaEeglaDi7jkJe1eX4Q0rVZMx7iPt6UCoef2Thwk7qYX/riBu2DsjmQQ9c
-         HnvMumVqCpuutw08Ovff2P7snfmAqvxa63kfzFZXWEzqleut6rMi3eF7PJqWBOCAXVXJ
-         WaSYnl/lxRvbG21J3U5qCGGQeIAkuE9bTZfsMUvaUvUTcMEFGI9uPBp97/Q0z84ShR8B
-         ODp2FRf//MKN9+B3phY2cFp4vTjn7ZT6MqxFdJmbD6ENGgmBVClSlJT0c6bmAh4n6v4M
-         FX7A==
+        d=linaro.org; s=google; t=1747836310; x=1748441110; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Rww57mlubvtdeeYsi/V5z+WJ/fnA69/dGryxrqrN8Ps=;
+        b=A3LIgYKoxEcAgljnr0V2/M496xvhTOwt9OsyrcxqXd2Dj3Q/9BV/Gny6fGDQl7bAUk
+         TdeL8vgVJTJC7Al+moQpQ7FzsvSB+x2ikkKZso10QTETPQQidIu0O13dOD556esmGGMn
+         RGvt/gSktsEMdfTYC5oDgXf20/KrKvTQWrSjCk9Ny8BRvlcHf25jhAPegRb2kSzWr84t
+         ubfxn9JtZz/uVN3ZN8XUriuT/iouj5ezwxB37+TaU1qOVIhZDl53qEIsRHpqG4xEXFdu
+         47dszh3eJF+0dAlMSCpEteUee5uxkqT8BMV9Qw9+WqTCvOmxoxzoABliFTCPffTNTbE+
+         tAqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747836273; x=1748441073;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FnMSEARNlVgPRWKeN5p+uHnOxtjldaYnJP4wZN+8kzk=;
-        b=tov9OdHUcp9yIxBBS5XIoMKGgEFV8XyKFDWfDUGITIXQqJvrVwjTEDG2adCjClK4Na
-         gUh4I0uVjHp0WJMxVZh/ntH3AklPwQ+NmyR2c4MNv40Q424KQ6mGzR9oIyES3aRIjikf
-         DtRpyv8lb/8O9HyR5KKNkEwrhRoSnG/aLoZ4gAK0scxuKlXYjexmbAN+gy4/d4RxiLxm
-         lPBwfvDU78zzOxr2jqL1AyYAJ6CWveL8cyQOPvOSbzfQT0iUoABU6SccMWVDYeUyq6Jg
-         ofh6RrrJ8C3x+bI8LmYoyAa9dXUTLEtM8RhTboCYjLbZ4VttUv2OtXuXh7gmGy0MikbD
-         7DYA==
-X-Forwarded-Encrypted: i=1; AJvYcCXO3syP/7LJ7sHwFdhvjgFORXnHnatVfAOQS9U2WXnYD0jl/R0bnikBOJmJnPN5TZ2tnHCB7Tl2CF8efj4hav0a@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFGC/3UKmkXeHItStV3fYY//+Xxg+4PvoEnpIKWTR3NBMH59lJ
-	s/SVqTEpERSqqbUIzCBYCfQRJ34EMz+ZEHimzB5eV01wmFPr/ddgxXfws6NOsannd6LM8gw2L57
-	2WPBb2c46B7+XFqj4SrusnUOwTndnZhw=
-X-Gm-Gg: ASbGncuFUBvWU+fkEm09rlkBghAWxaiaqp5B9+KZ2H92yNK6wpk4Rpq1wOQVRn6+N60
-	+nxP3zSVg+9XAMrgDW9zWz4ULJ4FBi29mQ43C2hogt2tcJQZM2xW7GY1/J3rps94OeYDjQkZvKo
-	d01FtAL2+Gph7DJs/kcyJMX7AUTUfGloa4RuBj0s+WDSIGZvp/QJHvNeq2m4esUHjQhg==
-X-Google-Smtp-Source: AGHT+IG5fKyWSQijXdok293wDNISKRz4c0c0mL1AgaXBBaBchJGfRjQeSJYGuKTki4pnTMQy9k4rmKwSVvXk0HgISaU=
-X-Received: by 2002:a05:622a:5589:b0:476:8288:9558 with SMTP id
- d75a77b69052e-494ae434787mr345964801cf.46.1747836273231; Wed, 21 May 2025
- 07:04:33 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1747836310; x=1748441110;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rww57mlubvtdeeYsi/V5z+WJ/fnA69/dGryxrqrN8Ps=;
+        b=wTSCxDnFj2Xw/nzr+X7D5VckebURK0fp7/kPWrNBnctKD4fOXQe6dOXVTlFpgho9nL
+         M0DuQFnTpGvqSsenAKga8i+NjljYEJtnIUKgqUzXJLtyXpzjm+ZgoANrg3tpbw7bHYxZ
+         SjHdbPkZLPW1XY8dMeEE3ysCY21q2NUqVuH+1g9IlSrCTCICW2wv+5EnTPdsNTF2jXnF
+         TfEhdWZoy9B7EzbpJSxSFIeKIF0YLjPU73SIg1wdV5Sn+RliSOfItUQiilsA/4+1t7iF
+         iDYMCmhWVEDi62L6ekOJ3WK1UJMo4zULZTtKYbXq48S1EsljjVLlDwCAl2V2i1xbtZWl
+         hjQA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2CO6470mR4B2eMlCgpFwEsALQx14JIz5ATg7hpxrTETzhmSQegbBy7JhNMOsSeZnS6RJeeBFU8neXqjkln5Rv@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIRWvIBpTdwKNFXDPXbqOGM9zkq+Cp0lz+6np5knUV4fq1O/3O
+	tJFhArVEhQb/WkZBvghUGhZz/gmzGut9RhsFueum/pem9hTcmfEicvLgTroQ5+xaoj4=
+X-Gm-Gg: ASbGncuH7oxtcuD2H7+K2xhoLV9YV+9tNGRFLpHw9ewm+jCNUKAeTo877ZuMnnPnyGM
+	jMEDNei8djScJHjEFYDLSTHqXEHXrHNP/I8pumDyGcmKKikN5ZtQ0eMSykP0JOIynuwqHiWIjV2
+	7itf31DHQbJ3LiBh8NDVpHPtIRgCHjlxqOGaF25bG4/p9GaRvPv3UcHWPutWpMo+LtoarEGqnaS
+	pUgNA6Z2bNa181xYQsg5wdXlL9RQXmkUiKtdc8PN4XbfUKgG0/HqmQ5WO9oitUOGxpPsBg/c6F2
+	nyl8HeqK8pur9fE4ZllIIcMztCGbjQUvBDMZ8IkckmWKhVwY/qUEcb3G
+X-Google-Smtp-Source: AGHT+IEhO6m6M9YiDETIrH4hAOKT3SSy+/T07XPcXoqmSRVYMiVL6aVDIILf6rgW73lHFGyhOQgTjg==
+X-Received: by 2002:a05:600c:8708:b0:43c:fa3f:8e5d with SMTP id 5b1f17b1804b1-442fd60b92bmr228369365e9.2.1747836309852;
+        Wed, 21 May 2025 07:05:09 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35ca5a03fsm19576583f8f.22.2025.05.21.07.05.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 May 2025 07:05:08 -0700 (PDT)
+Message-ID: <bbd6fb9d-72eb-468a-bae5-7e4f9fedbc1b@linaro.org>
+Date: Wed, 21 May 2025 15:05:08 +0100
 MIME-Version: 1.0
-References: <20250515-wmt-dts-updates-v2-0-246937484cc8@gmail.com>
- <CABjd4YwoVRpJEMss8UN6xT9x4hf6GSjm34GtTHmmnHi8Q42DAQ@mail.gmail.com> <c33a23c6-9883-4f3e-b2e3-6442ca90a7b8@kernel.org>
-In-Reply-To: <c33a23c6-9883-4f3e-b2e3-6442ca90a7b8@kernel.org>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 21 May 2025 18:04:30 +0400
-X-Gm-Features: AX0GCFt4BEGM6IPuCHg8AhY1gdu5ORHuOAa78BDG1xqhEo7D1jh3oHrYQqoxZ6w
-Message-ID: <CABjd4YwGM0=k4Jk07O=Z7oAzk2DNLP8HHmGR8QbWJOiMVuxLUQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] ARM: dts: vt8500: Minor fixups and L2 cache on WM8850
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/2] coresight: etm4x: Refactor trace filter
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250521125406.2594620-1-leo.yan@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250521125406.2594620-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_070434_708183_13D2DCD6 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20250521_070512_204836_8F5FDF91 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +99,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 5:32=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 21/05/2025 15:28, Alexey Charkov wrote:
-> > On Thu, May 15, 2025 at 11:39=E2=80=AFPM Alexey Charkov <alchark@gmail.=
-com> wrote:
-> >>
-> >> Small fixups for VT8500 related device trees to improve correctness in
-> >> light of current guidelines.
-> >>
-> >> While at that, also include a DT node for the PL310 cache controller
-> >> present in WM8850/WM8950.
-> >>
-> >> Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> >> ---
-> >> Alexey Charkov (5):
-> >>       ARM: dts: vt8500: Add node address and reg in CPU nodes
-> >>       ARM: dts: vt8500: Move memory nodes to board dts and fix addr/si=
-ze
-> >>       ARM: dts: vt8500: Use generic node name for the SD/MMC controlle=
-r
-> >>       ARM: dts: vt8500: Fix the unit address of the VT8500 LCD control=
-ler
-> >>       ARM: dts: vt8500: Add L2 cache controller on WM8850/WM8950
-> >
-> > Krzysztof, could you please pick these up for 6.16?
->
-> No, we are at RC7. I closed my tree two weeks ago and sent pull requests
-> already way too late - a week ago.
 
-Got it, thank you. Note taken on the expected cut-off time.
 
-Best regards,
-Alexey
+On 21/05/2025 1:54 pm, Leo Yan wrote:
+> This series is minor refactoring for trace filter and comes from the
+> previous patch set [1].
+> 
+> The first patch introduces a new helper has_feat_trf() for detecing if
+> FEAT_TRF is implemented. This is more readable.
+> 
+> The second patch refactors the ts_source_show() function.  It simplifies
+> to directly return the TS value when FEAT_TRF is implemented.
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/20250519174945.2245271-1-leo.yan@arm.com/
+> 
+> Changes from v2:
+> - Added the has_feat_trf() helper for more readable (James Clark)
+> 
+> 
+> Leo Yan (2):
+>    coresight: etm4x: Introduce has_feat_trf() helper
+>    coresight: etm4x: Refactor returning TS field
+> 
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c  |  8 ++++----
+>   drivers/hwtracing/coresight/coresight-etm4x-sysfs.c | 18 +++---------------
+>   drivers/hwtracing/coresight/coresight-etm4x.h       |  9 +++++++++
+>   3 files changed, 16 insertions(+), 19 deletions(-)
+> 
+
+Reviewed-by: James Clark <james.clark@linaro.org>
+
 
