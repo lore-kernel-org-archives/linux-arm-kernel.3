@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2858FC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 08:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26375C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 08:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwr4z+M06i1mMSwv0rCr5dUsFp06XkoBxQnrw1/GtgI=; b=II3myg77wgeiKFQZbUcs4zykYu
-	kPTPFtqHVe3aLwNc+AxH6DKhnFZcLEVu7iUjrxltbVkq4sJuYNIvUV4+r/ywatWuLUbD3JPAsXkh+
-	wNtNPx+Ij4d9mmvRq5mgat3+yq8ihzMKrHCvEMyXwimIFZbzZDvArNfATF7m7wow4af1h1zji6WS0
-	eEbBQju5QuH2h2gti8CtCerqRZL4WKCiIQNTs7fImI7TDG6R0DtOJLn1tps62VI0WtpMDAFSc+ofx
-	LNvVMFr0SOSvafsiIIA+UHBFPkZekQWzfdTy4/adCX7eaGDGiYhQaz7e6tlq+EiaQwXZvsVAwX8XB
-	t/2u4Rog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
+	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4WnVjYuC1WHRhIny3Oa0eb0x9K0KK1Hy3LLsTKmO6J8=; b=FyPcI4GkcTQFrxSOzwqDKRALUI
+	8Yh4NCvVxPynP7QCIck7c+w2O/4Xg/+/BDQJIOVbbT5AsDlQmXJtkyztBMmo84nWHwL+ObVEwqstl
+	svpTgU2XmMvVDpFkEKsr5prERIqBKOMNAJqP3qJ/MjPZ5sEJL65ilbLfA3T1I4iuvdDDhla0JP9Nm
+	Z5xFtcGpjSUQdflfxTpXAh0DOqGprshwjrlhhAxeq9xBAd9zwtc1Ltav4izaHOPeEwu9/NF6xZwGS
+	wehMsyPJrJ138avCpHwRBqlMq7E84wW5QnDmyhL+C1p5pNWV+ntLDfLENwHIqzcynKpUqaV2ceELk
+	JYf1huJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHebS-0000000F8dG-25yM;
-	Wed, 21 May 2025 08:15:06 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1uHedX-0000000F8pi-0jZk;
+	Wed, 21 May 2025 08:17:15 +0000
+Received: from mxct.zte.com.cn ([183.62.165.209])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHeZP-0000000F8WO-2sgY
+	id 1uHebU-0000000F8dF-12fM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 08:13:00 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-54d6f93316dso7694039e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 01:12:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747815177; x=1748419977; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pwr4z+M06i1mMSwv0rCr5dUsFp06XkoBxQnrw1/GtgI=;
-        b=mtHOk34Vnnivp/tQdptsmzYp4nMW8P1IdGqKbBL9yOzrxMzMkcGfoFWsG08L1nF2I6
-         5cuZENhSpe984LL+qomHsJfnb9afuFRgy7M/XyvtiwgZ+em5zLmbFITTxs3xfa18hmqM
-         iS/XxRLIR7qGGKYUeKOHUs10IrqTJWgBgA80gCruVf3V1Ydf8XznQIuxa0AzkOcKKsLX
-         UDLzA1D9JrNtwkRuJvnVmRFktAfB2cRuNJP0UzBY8N7ofhNNbhIo9UZlkHkp049ym4cz
-         op1J+Lcztd/isboz4/GPUcgZpW7wJzwn1D9xmA5PsEh7sPf/VnzMtnfQdzdN7zlI5x2T
-         bCyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747815177; x=1748419977;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pwr4z+M06i1mMSwv0rCr5dUsFp06XkoBxQnrw1/GtgI=;
-        b=g3uUirD6FRjL4XlTRBspn/HgFEx6aka8Qc0OJHG7rTL1JydiBW9EEqYV1Yvs+RQu+N
-         Na70bSfYhlCRk60h+ANNNJIrw+oFRrXVDCO16VRDg0ixE+n9yFwK6+ypxh+wW8KEjDeo
-         ZfSleCnLS7G5MfFMxOtOPavqq+V/btn64xL0hOQ3wkLv/1spfd39qMKkKAekSXbu1Gzp
-         304/W3ZUhEcGevBsUXLqZ/gJwFR+e2/yubb/imh9hko48zD2pe/Dhi/3EiEL8wdKVgaE
-         i2GbjG18EVaZ6S5Oh1n+8HU0ORR67XJ3SE+DQCsmoRD771UzlfxfbJ/2nY9DCx1+8yzw
-         D17Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXwdkzlR6tcEfYCyOXfYNGXJEJTIAR/3MFsK+ssuCZtEbghThfzQ98EPq3fFyUnw+/9fxL53PftPJ+GTExt5ZlG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL1JSDJ6JlAAwck6+IzYfg/j9O2iS2sxeG3ed4ph34SdsNOwF1
-	VZ3XigKKtVXlH/ffzR7Z3Jl8s8OFoG86loRyT64/ogrUwOVwUJG3HKSGXs7SSRdejoeDr0fjoUO
-	8ODLaK+SK9WQ2jdzSINz9pJVEtIn5YzAYArhe5gB7cg==
-X-Gm-Gg: ASbGncuLX7wRd4/pOiSgnaG28nlZPmCm0EJU6GQh88eqoyeH9hge1rdkfP05QFLHLz/
-	Xf5zwAgFeUGwpfzxgw3QEhygcHY9SibsnhmmigYIcvbFlvmX9ctbpfrN162Iq9ysgSKCriCiVsD
-	KbT4JMnmdOZVbt+POQva+a1JXyDXu8p8o6OWn+qks6y3k=
-X-Google-Smtp-Source: AGHT+IHypaEtLgbAx0hI1pwfX+02JjmtIZJY41Yl+79R8Nfu0dbAldHSIKhHCLmxFeUhAu+kg3UiZtw/f5zBM85OvXE=
-X-Received: by 2002:a05:6512:6805:b0:54d:663b:bda9 with SMTP id
- 2adb3069b0e04-550e726811emr5586519e87.51.1747815177553; Wed, 21 May 2025
- 01:12:57 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250516100423.1685732-1-ping.bai@nxp.com>
-In-Reply-To: <20250516100423.1685732-1-ping.bai@nxp.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 21 May 2025 10:12:46 +0200
-X-Gm-Features: AX0GCFtWAB87B9iw-eCTV-w3vbrXw3ATM0xxduBEOTn9gKp9rC41cR3ebYjTvJQ
-Message-ID: <CACRpkdZ7iymSvvst8Gi3EaeG--2icRgkoKEiJxxjLgC2LCDW_A@mail.gmail.com>
-Subject: Re: [PATCH v2] pinctrl: freescale: Add support for imx943 pinctrl
-To: Jacky Bai <ping.bai@nxp.com>
-Cc: sudeep.holla@arm.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	cristian.marussi@arm.com, aisheng.dong@nxp.com, festevam@gmail.com, 
-	kernel@pengutronix.de, linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 21 May 2025 08:15:09 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mxct.zte.com.cn (FangMail) with ESMTPS id 4b2PNc4bTTz4x6Ct;
+	Wed, 21 May 2025 16:14:56 +0800 (CST)
+Received: from njy2app04.zte.com.cn ([10.40.12.64])
+	by mse-fl1.zte.com.cn with SMTP id 54L8ElAk051014;
+	Wed, 21 May 2025 16:14:47 +0800 (+08)
+	(envelope-from long.yunjian@zte.com.cn)
+Received: from mapi (njb2app05[null])
+	by mapi (Zmail) with MAPI id mid201;
+	Wed, 21 May 2025 16:14:49 +0800 (CST)
+Date: Wed, 21 May 2025 16:14:49 +0800 (CST)
+X-Zmail-TransId: 2afd682d8b79ffffffffaab-bd44e
+X-Mailer: Zmail v1.0
+Message-ID: <20250521161449954uFxEsoI6Zg_7wDu6IAfWk@zte.com.cn>
+Mime-Version: 1.0
+From: <long.yunjian@zte.com.cn>
+To: <sudeep.holla@arm.com>
+Cc: <cristian.marussi@arm.com>, <peng.fan@nxp.com>,
+        <florian.fainelli@broadcom.com>, <fang.yumeng@zte.com.cn>,
+        <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <dan.carpenter@linaro.org>,
+        <christophe.jaillet@wanadoo.fr>, <mou.yi@zte.com.cn>,
+        <ouyang.maochun@zte.com.cn>, <xu.lifeng1@zte.com.cn>
+Subject: =?UTF-8?B?W1BBVENIIHYyXSBmaXJtd2FyZTogYXJtX3NjbWk6IFVzZSBkZXZfZXJyX3Byb2JlKCkgc2ltcGxpZnkgdGhlIGNvZGU=?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL: mse-fl1.zte.com.cn 54L8ElAk051014
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 682D8B80.000/4b2PNc4bTTz4x6Ct
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_011259_731443_B3CA4ED6 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20250521_011508_460460_B774A4ED 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,21 +75,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 12:02=E2=80=AFPM Jacky Bai <ping.bai@nxp.com> wrote=
-:
+From: Yumeng Fang <fang.yumeng@zte.com.cn>
 
-> The i.MX943 System Manager (SM) firmware supports the System Control
-> Management Interface (SCMI) pinctrl protocol, similar to the i.MX95 SM.
-> The base offset for the i.MX943 IOMUXC Daisy input register differs from
-> that of the i.MX95. Update the pinctrl-imx-scmi driver to add support for
-> i.MX943.
->
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+In the probe path, dev_err() can be replaced with dev_err_probe()
+which will check if error code is -EPROBE_DEFER and prints the
+error name. It also sets the defer probe reason which can be
+checked later through debugfs.
 
-Patch applied, expecting the compatible string to come in from
-another tree!
+Signed-off-by: Yumeng Fang <fang.yumeng@zte.com.cn>
+---
+v1 -> v2
+(1) Order the includes alphabetically.
+(2) Delete "ret = PTR_ERR(*)", and then replace ret in dev_err_probe with "PTR_ERR(*)".
 
-Yours,
-Linus Walleij
+ .../firmware/arm_scmi/transports/mailbox.c    | 20 +++++++------------
+ 1 file changed, 7 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index bd041c99b92b..764cbeac2492 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -8,6 +8,7 @@
+
+ #include <linux/err.h>
+ #include <linux/device.h>
++#include <linux/dev_printk.h>
+ #include <linux/mailbox_client.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+@@ -214,31 +215,24 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+
+ 	smbox->chan = mbox_request_channel(cl, tx ? 0 : p2a_chan);
+ 	if (IS_ERR(smbox->chan)) {
+-		ret = PTR_ERR(smbox->chan);
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(cdev,
+-				"failed to request SCMI %s mailbox\n", desc);
+-		return ret;
++		return dev_err_probe(cdev, PTR_ERR(smbox->chan),
++				     "failed to request SCMI %s mailbox\n", desc);
+ 	}
+
+ 	/* Additional unidirectional channel for TX if needed */
+ 	if (tx && a2p_rx_chan) {
+ 		smbox->chan_receiver = mbox_request_channel(cl, a2p_rx_chan);
+ 		if (IS_ERR(smbox->chan_receiver)) {
+-			ret = PTR_ERR(smbox->chan_receiver);
+-			if (ret != -EPROBE_DEFER)
+-				dev_err(cdev, "failed to request SCMI Tx Receiver mailbox\n");
+-			return ret;
++			return dev_err_probe(cdev, PTR_ERR(smbox->chan_receiver),
++					     "failed to request SCMI Tx Receiver mailbox\n");
+ 		}
+ 	}
+
+ 	if (!tx && p2a_rx_chan) {
+ 		smbox->chan_platform_receiver = mbox_request_channel(cl, p2a_rx_chan);
+ 		if (IS_ERR(smbox->chan_platform_receiver)) {
+-			ret = PTR_ERR(smbox->chan_platform_receiver);
+-			if (ret != -EPROBE_DEFER)
+-				dev_err(cdev, "failed to request SCMI P2A Receiver mailbox\n");
+-			return ret;
++			return dev_err_probe(cdev, PTR_ERR(smbox->chan_platform_receiver),
++					     "failed to request SCMI P2A Receiver mailbox\n");
+ 		}
+ 	}
+
+-- 
+2.25.1
 
