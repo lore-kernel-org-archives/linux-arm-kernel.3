@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87746C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 05:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA15CC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 05:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TUNz5zcIp5GjV5yCc7o6GEea66/h6Vd3pAnBkCfynBA=; b=JmoqOAoTFpXmNlEf/eaK0VFbRQ
-	dbJoUlXAWFcc8w/pR6+8YvskHAQ927p48gNFCBxqVeLeNoxzpYertrQaDoDN7nAYvKAw5qMgGWKxz
-	5Tow8DGzFWKCHbwldQRZRq6BTpYOW2CThzPurWk+qwOxYCsuFkUwLdDwjO83qPZ6yBPtLpy3l8h29
-	uoxg1fw90gM3pGRgUzc4theJklHdoXDI0pNYvzunPeLRTSyO0LbvLPpJ1YH7lxC+JvM6Mh3rUljVR
-	hpRZ7afuD59rB6YS1Fd/D5u2QEJITSrxahspxbbRQMAy+oQOGWa2DgTW8BZ/RDfd8xAGMAXn1XQbi
-	wWWpAw5Q==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QAs9qMG1BpKyVXdmPAt4pcX8A8cB6YSnKjGI64Xvzp0=; b=zObz32Wfyou30Z8cnhmJ8zzOHy
+	MgGj4EImyPHUI/oxKRyNmKebCr1S9GSakNUmDXz62klHZsWZN/Xej02oyLxKliJ5a0GqqUgS6DdDx
+	tVZQpFDZKM5C7ZkXj8wOB6XqR/I4f9OBuUp1EbnPcL4fvxKhQH3KIxEtEgZFtH0KQ4yiHHU3WM6pe
+	tlgIwqBKvae9rpkaCKAsdoNGrkbA+8WsfMgXbd9rnhfVUiaM26jSy0WicVBPUm356e9kuvzNySFTn
+	naTrMjVXBrXBV+RLQKQO5QSz21ca3O0ScE15/8v6VfCCsS4DNx89SzHzVTEPRIDVPe+nCXGGip4xu
+	pvwZmQ4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHcH7-0000000EsWx-0ZD7;
-	Wed, 21 May 2025 05:45:57 +0000
+	id 1uHcJ7-0000000EseT-3Bx7;
+	Wed, 21 May 2025 05:48:01 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHcF3-0000000Ervm-1i7c
+	id 1uHcF5-0000000Ervm-09BZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 05:43:50 +0000
+	Wed, 21 May 2025 05:43:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1747806229; x=1779342229;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=EC21TXP6G5n52bTvnTrND4/c9M0afwyTeFu0AcKsBrw=;
-  b=nWTQeqR2GeXIDM8BQIhRo+AG4TVBiUnRAFHihCSAEWVYiuM6R5ujo6UY
-   nZYEnOqL1AsvDAn3Ysmen1ZajKbMCNuCA4oFWG4U9AS98meXczFwwd8g2
-   13rlXDrEu/IJmB52ZaDs4eaqn5TwqjFnfDgXX3/ijVbfs2VtiZbCX+kVK
-   1zXfS6kWqzXDUhW3aAwGbNzkVm/BnzK0z5aARwrMaQyaZ8lAf0hyc7QuJ
-   j0hkpyjE4W8JLIegn9lKCJ9p73CgnErJ7+4gZbvSDNV8Yz34cuSE2M46g
-   8R0c35KXT2CRG8IOru4FF/8yASC95BtZwWNJoPN2sPs7eLSoxgtsGXrKy
-   g==;
+  t=1747806230; x=1779342230;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Jtw7JeQj+gKKTo4+jL9MB/YjLoD9N+YDMSLHz007/3E=;
+  b=KAqs9OvBor6G5j53J8aZYhffDcpcDljsKAmLPMQBRzI1M554byePjldu
+   cPAjzTrHsf8ZrIiJcMyZyb/iCoA1qwMnz+d9/DXVzhASyoMuhsq0TFnXj
+   sUksFgAbdSuowHEpem6Be2uakJ0aLw90/buMnD5mCpGY5xKbUv2Rb7PJQ
+   RWcXCdoujvgM/HuVDbB1w8sqID8vANtMu2Wexcf5UmUcNeKNK7Eb61XUu
+   LkhfF3zwDa1rst6pNEoIBdoAY8SxVdxEHQXI35aFSTI4l5Uxu4lTAd5Q3
+   a7spopo05zYfvDMIfBinIJ5ccJwLH3JchCMaGFRVga/GbfiZECioG9DdT
+   Q==;
 X-CSE-ConnectionGUID: k0o2CMOdRGO0OGeppoCe8w==
-X-CSE-MsgGUID: lw/LZ2bVSAGWY62L5J/plA==
+X-CSE-MsgGUID: t36/8hdiSFObJkHdZAeIwA==
 X-IronPort-AV: E=Sophos;i="6.15,303,1739862000"; 
-   d="scan'208";a="41428745"
+   d="scan'208";a="41428746"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 May 2025 22:43:46 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 20 May 2025 22:43:21 -0700
+ 15.1.2507.44; Tue, 20 May 2025 22:43:28 -0700
 Received: from che-lt-i67131.microchip.com (10.10.85.11) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Tue, 20 May 2025 22:43:17 -0700
+ 15.1.2507.44 via Frontend Transport; Tue, 20 May 2025 22:43:23 -0700
 From: Manikandan Muralidharan <manikandan.m@microchip.com>
 To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
@@ -61,16 +61,18 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
 CC: Manikandan Muralidharan <manikandan.m@microchip.com>
-Subject: [PATCH v2 1/4] ARM: dts: microchip: sam9x60ek: rename spi-cs-setup-ns property to spi-cs-setup-delay-ns
-Date: Wed, 21 May 2025 11:13:06 +0530
-Message-ID: <20250521054309.361894-1-manikandan.m@microchip.com>
+Subject: [PATCH v2 2/4] ARM: dts: microchip: sama5d27_som1: rename spi-cs-setup-ns property to spi-cs-setup-delay-ns
+Date: Wed, 21 May 2025 11:13:07 +0530
+Message-ID: <20250521054309.361894-2-manikandan.m@microchip.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250521054309.361894-1-manikandan.m@microchip.com>
+References: <20250521054309.361894-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_224349_639376_2B9F8BAE 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20250520_224351_133539_97684D06 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +90,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The naming scheme for delay properties includes "delay" in the name,
 so renaming spi-cs-setup-ns property to spi-cs-setup-delay-ns.
 
-Fixes: 2c0a1faa4da5 ("ARM: dts: at91: sam9x60ek: Set sst26vf064b SPI NOR flash at its maximum frequency")
+Fixes: 09ce8651229b ("ARM: dts: at91-sama5d27_som1: Set sst26vf064b SPI NOR flash at its maximum frequency")
 Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 ---
 changes in v2:
 - add fixes tag
 ---
- arch/arm/boot/dts/microchip/at91-sam9x60ek.dts | 2 +-
+ arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts b/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
-index cdc56b53299d..c1ff3248bd8f 100644
---- a/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sam9x60ek.dts
-@@ -609,7 +609,7 @@ flash@0 {
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
- 		spi-max-frequency = <104000000>;
--		spi-cs-setup-ns = <7>;
-+		spi-cs-setup-delay-ns = <7>;
- 		spi-tx-bus-width = <4>;
- 		spi-rx-bus-width = <4>;
- 		m25p,fast-read;
+diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
+index 8ac85dac5a96..13c28e92b17e 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
++++ b/arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi
+@@ -44,7 +44,7 @@ flash@0 {
+ 					compatible = "jedec,spi-nor";
+ 					reg = <0>;
+ 					spi-max-frequency = <104000000>;
+-					spi-cs-setup-ns = <7>;
++					spi-cs-setup-delay-ns = <7>;
+ 					spi-tx-bus-width = <4>;
+ 					spi-rx-bus-width = <4>;
+ 					m25p,fast-read;
 -- 
 2.25.1
 
