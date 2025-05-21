@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D09C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 12:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D98CC3ABC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 12:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPUAYloLSAbFyGO4Cdc+o5XP1rmR0v8B99UqIz0xFLo=; b=BhxFnX0hjgZCXakeJRNVlhhCa5
-	G1pbZwS2HmOK0q4Pe2Q4tf1OvWe2uN/ylsfuWVNoPO0O9a29YfcoHo2apB1eLk8k5UfDH78aYU3Eg
-	mYm3B67DrfoWwARyDu4dZjM65CCw84JA6L9U+aHNLddR91l38WDZ1ep7BCVtCHe+6mGLUWRjg1SY5
-	jpb8X5DEDi6p0L7saEQZfoFpAhbzGAQdgWIRjfwPsw6SjlLJRIONLhH+CinKNGc1yCnRBGNCLPL2+
-	lR4lnrtkLsuyLZzqf9auYX+tinBvgUwBmj6gKdIt+X69p3R9aUS4AcsS1pgtlqzt6/1GpovW0oviF
-	x16id3aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=leH2Hwtpn8bKj0gxFlEX3tMtghWEWhWZN+JSBgnuZRk=; b=lyzaau/WuptnL6mOju6m9DYwhX
+	oiPmfRjpO75Eu+4y06DVQo6hahdK3OZRSh+vgFDrDHxc7ufeNpcpcpctnTa2c6yHo65m7TNb5odht
+	h6Gox5Vn/qHRDkL9D4BnJi7TYrKp2T3xaKsmT3XP8zbY3qRROcCwNMIIoRiGX+Fl5GlxHTfZVhObL
+	fv8AIBqTTYpv7QpDz3FRXM0u8bcOJt65G91xXVTfy+StfQga67R6BkZ4j9HSCW+V0Tb3hzyaCvdFD
+	jtwotLLKs4y/cgQELWg9AfoVWGYtmW7AxeYw+L4u1xhn0AzICiaGQQm+bspSlpfSxUYlFREsHdQXe
+	DM2vrK4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHiIV-0000000Fk5n-49ZG;
-	Wed, 21 May 2025 12:11:47 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHiGS-0000000FjdZ-1LQC;
-	Wed, 21 May 2025 12:09:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=JZVwTUrNLWKvm+fuVVXVr0PsuS5e7WYOOQ/oqiW42ec=; b=Z
-	MJs2UiE1qKvr0j6t+0lg0jpcMiSB9cvAQ+DTE6QoPff27vC71zLMvTBw/QFsy8CU
-	CorljHadzecUJUOYZAQUGs6AmFcH3fW0qz88OUFb8OY3ag++THoMuGWa1hulSUUx
-	n/SdEk2F6OnaFQ58e1pA5wmBVD+L/C97xXuPzPO4LU=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-123 (Coremail) ; Wed, 21 May 2025 20:09:04 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Wed, 21 May 2025 20:09:04 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Chaoyi Chen" <kernel@airkyi.com>
-Cc: "Sandy Huang" <hjc@rock-chips.com>, "Heiko Stuebner" <heiko@sntech.de>,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	"Chaoyi Chen" <chaoyi.chen@rock-chips.com>
-Subject: Re:[PATCH] drm/rockchip: cdn-dp: Convert to drm bridge
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <20250507035148.415-1-kernel@airkyi.com>
-References: <20250507035148.415-1-kernel@airkyi.com>
-X-NTES-SC: AL_Qu2fBfSZtksv4iKZbOkfmkcVgOw9UcO5v/Qk3oZXOJF8jAnp4h0vRHlFF0T18sKdCjuCnh6Rezd+48txc5VhR4MFMMerkLyutevhNsKw4/kocg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1uHiKY-0000000FkWK-0FSr;
+	Wed, 21 May 2025 12:13:54 +0000
+Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHiIN-0000000Fk3A-2kob
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 12:11:41 +0000
+Received: by mail-yb1-xb31.google.com with SMTP id 3f1490d57ef6-e7b6d5aafd6so4573159276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 05:11:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747829498; x=1748434298; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=leH2Hwtpn8bKj0gxFlEX3tMtghWEWhWZN+JSBgnuZRk=;
+        b=LVm26dxZkpmUpDpwMDRQukNARO5TtsiCXnWB98ljt+reXsWZADX0zeN0CyUasc0Eg5
+         +1VQBIJTr4WjDwpsun5Ox6MhtQdYJsVqq9D80JynHcbYE6Sa4QQJlOU2Aa2SLVyi4Sow
+         RMSBdAzz33j9HfrDbUpBguXXRZj656/SMmlhpp/gIs8gDfoJdb5Co5iU1g1JVweLhOOr
+         ED7Tx9PhN6x9xeqVNYstLWz/GJfN8fOyddfV6s/bEyzb6f+eDBajAQ31QDWG6hFFZ/Fa
+         ZdPPAvY5k4biTIV33jzJ8k5qHvwiAV+O0yKvuxky5wqV4CTy0ZbTlx56+2+Zv3RSdatD
+         5ZpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747829498; x=1748434298;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=leH2Hwtpn8bKj0gxFlEX3tMtghWEWhWZN+JSBgnuZRk=;
+        b=MRD6bhzWVjw8zXoi9oBsGLcBH+5cECZjWgrXl3RF1T/C823Xhzo057AdO87cU7By/l
+         oDEsINHPyBj1h2SNEFSAVqBcb66d6GuNE0ou41e2o16xSAohLr5kLyoQ4q67wUCJif7i
+         pZ08nk8EZOl0tfXJcXEFlYEzucsow1JslXXOoQ5EM+0Bs9m0IKCceTV0X9nzZ4RH09lB
+         Z4zpDJR5iB1nTXtxk6Z8tdku9sJi1pVbxcAQg2k18/PUXFry3Zs2xMwsZIGfV8IPvGsH
+         2jO26Y8wfhGWASRgU2xj3sOZPuVxByHuplknGkWEpqA3EjGc9ydic0OY1lJ2HGHch1Qv
+         +PEg==
+X-Forwarded-Encrypted: i=1; AJvYcCV4WALZULirC+oA+nLP+CUXGxcpW1le/aNB3HrXgfUVWvQUjwdSFY+oR7I/RQ9vt8s+kUhrVsG6/STvmKuMwifb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzl3IMhU+NbuEN81kC3w774J4SA/6X2uKdpW4GJ3BgLYGFDgn/h
+	h6reAQoj1SnMB3gJ3/+rmghB+9RjTgeMeeDRh2oWBAEyeuvgzQ16vb0Djwf2Re/XQSFONw+4+Wj
+	P5NiIBwSjJzEa1dRpCZNEs+n9tItt1Yw1A4EerLbg9Q==
+X-Gm-Gg: ASbGncsb1x1vmX/RobNBeEVn0LGUWGYxF0H+YDWS6yzPx7/TEEiw58VIYJpyNEvLUO3
+	qWi4Jt9GY9vYW3+hGDBN56QmFCHiV2qGx0IekXZcH7QpqON3a0XXpsv1sh8aJG8Ckp7XBxnJZec
+	Fj3Lok7vLDF7YAd+OU7SCKbWWBgJ4nqqRhmQ==
+X-Google-Smtp-Source: AGHT+IFK1U1VhHvGbw7ni7gmxP6cQYNFW+g9T99BOXkJgTIb2HoHmfYe7OdY+kneqLkjitX0ZrvP8e97mCZilZjwnvM=
+X-Received: by 2002:a05:6902:228e:b0:e72:85a8:cd14 with SMTP id
+ 3f1490d57ef6-e7b6d55485fmr25867282276.34.1747829498391; Wed, 21 May 2025
+ 05:11:38 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <110d136.9fc9.196f2bf47dd.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eygvCgD3v3pgwi1otd0JAA--.11713W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkBRUXmgtuF38ogABsx
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+References: <20250507160056.11876-1-hiagofranco@gmail.com> <20250507160056.11876-4-hiagofranco@gmail.com>
+ <CAPDyKFrHD1hVCfOK-JV5FJM+Cd9DoKKZGKcC94fxx6_9Bsri1g@mail.gmail.com>
+ <20250508202826.33bke6atcvqdkfa4@hiago-nb> <CAPDyKFr3yF=yYZ=Xo5FicvSbDPOTx7+fMwc8dMCLYKPBMEtCKA@mail.gmail.com>
+ <20250509191308.6i3ydftzork3sv5c@hiago-nb> <CAPDyKFpnLzk5YR3piksGhdB8ZoGNCzmweBTxm_rDX5=vjLFxqQ@mail.gmail.com>
+ <20250519172357.vfnwehrbkk24vkge@hiago-nb> <CAPDyKFpGcgMzOUHf-JTRTLBviFdLdbjZKrMm8yd37ZqJ1nfkHw@mail.gmail.com>
+ <20250521041306.GA28017@nxa18884-linux> <20250521041840.GB28017@nxa18884-linux>
+In-Reply-To: <20250521041840.GB28017@nxa18884-linux>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 21 May 2025 14:11:02 +0200
+X-Gm-Features: AX0GCFs2ejlkWlTvzumqCZeACImuwbiSBdhWlDwwv02fTo8PCrix65GSFR6kMCo
+Message-ID: <CAPDyKFpSb+KsfDr1-=uk4TF4Op1dUQ9rDwPP5sSpMfxDRDhnZA@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
+ remote core attachment
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Hiago De Franco <hiagofranco@gmail.com>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Bjorn Andersson <andersson@kernel.org>, Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com, 
+	Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_050940_692855_5EDDB623 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20250521_051139_713773_4B7E767A 
+X-CRM114-Status: GOOD (  64.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,246 +103,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpIENoYW95ae+8jAoKQXQgMjAyNS0wNS0wNyAxMTo1MTo0OCwgIkNoYW95aSBDaGVuIiA8a2Vy
-bmVsQGFpcmt5aS5jb20+IHdyb3RlOgo+RnJvbTogQ2hhb3lpIENoZW4gPGNoYW95aS5jaGVuQHJv
-Y2stY2hpcHMuY29tPgo+Cj5Db252ZXJ0IGl0IHRvIGRybSBicmlkZ2UgZHJpdmVyLCBpdCB3aWxs
-IGJlIGNvbnZlbmllbnQgZm9yIHVzIHRvCj5taWdyYXRlIHRoZSBjb25uZWN0b3IgcGFydCB0byB0
-aGUgZGlzcGxheSBkcml2ZXIgbGF0ZXIuCj4KPlRlc3RlZCB3aXRoIFJLMzM5OSBFVkIgSU5EIGJv
-YXJkLgo+Cj5TaWduZWQtb2ZmLWJ5OiBDaGFveWkgQ2hlbiA8Y2hhb3lpLmNoZW5Acm9jay1jaGlw
-cy5jb20+Cj4tLS0KPiBkcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvY2RuLWRwLWNvcmUuYyB8IDE2
-MyArKysrKysrKysrKysrLS0tLS0tLS0tLS0tCj4gZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL2Nk
-bi1kcC1jb3JlLmggfCAgIDUgKy0KPiAyIGZpbGVzIGNoYW5nZWQsIDg2IGluc2VydGlvbnMoKyks
-IDgyIGRlbGV0aW9ucygtKQo+Cj5kaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlw
-L2Nkbi1kcC1jb3JlLmMgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvY2RuLWRwLWNvcmUuYwo+
-aW5kZXggMjkyYzMxZGUxOGYxLi5iYzcwZGFlOGZmNzIgMTAwNjQ0Cj4tLS0gYS9kcml2ZXJzL2dw
-dS9kcm0vcm9ja2NoaXAvY2RuLWRwLWNvcmUuYwo+KysrIGIvZHJpdmVycy9ncHUvZHJtL3JvY2tj
-aGlwL2Nkbi1kcC1jb3JlLmMKPkBAIC0yNSw5ICsyNSw5IEBACj4gI2luY2x1ZGUgImNkbi1kcC1j
-b3JlLmgiCj4gI2luY2x1ZGUgImNkbi1kcC1yZWcuaCIKPiAKPi1zdGF0aWMgaW5saW5lIHN0cnVj
-dCBjZG5fZHBfZGV2aWNlICpjb25uZWN0b3JfdG9fZHAoc3RydWN0IGRybV9jb25uZWN0b3IgKmNv
-bm5lY3RvcikKPitzdGF0aWMgaW5saW5lIHN0cnVjdCBjZG5fZHBfZGV2aWNlICpicmlkZ2VfdG9f
-ZHAoc3RydWN0IGRybV9icmlkZ2UgKmJyaWRnZSkKPiB7Cj4tCXJldHVybiBjb250YWluZXJfb2Yo
-Y29ubmVjdG9yLCBzdHJ1Y3QgY2RuX2RwX2RldmljZSwgY29ubmVjdG9yKTsKPisJcmV0dXJuIGNv
-bnRhaW5lcl9vZihicmlkZ2UsIHN0cnVjdCBjZG5fZHBfZGV2aWNlLCBicmlkZ2UpOwo+IH0KPiAK
-PiBzdGF0aWMgaW5saW5lIHN0cnVjdCBjZG5fZHBfZGV2aWNlICplbmNvZGVyX3RvX2RwKHN0cnVj
-dCBkcm1fZW5jb2RlciAqZW5jb2RlcikKPkBAIC0yMzEsOSArMjMxLDkgQEAgc3RhdGljIGJvb2wg
-Y2RuX2RwX2NoZWNrX3NpbmtfY29ubmVjdGlvbihzdHJ1Y3QgY2RuX2RwX2RldmljZSAqZHApCj4g
-fQo+IAo+IHN0YXRpYyBlbnVtIGRybV9jb25uZWN0b3Jfc3RhdHVzCj4tY2RuX2RwX2Nvbm5lY3Rv
-cl9kZXRlY3Qoc3RydWN0IGRybV9jb25uZWN0b3IgKmNvbm5lY3RvciwgYm9vbCBmb3JjZSkKPitj
-ZG5fZHBfYnJpZGdlX2RldGVjdChzdHJ1Y3QgZHJtX2JyaWRnZSAqYnJpZGdlKQo+IHsKPi0Jc3Ry
-dWN0IGNkbl9kcF9kZXZpY2UgKmRwID0gY29ubmVjdG9yX3RvX2RwKGNvbm5lY3Rvcik7Cj4rCXN0
-cnVjdCBjZG5fZHBfZGV2aWNlICpkcCA9IGJyaWRnZV90b19kcChicmlkZ2UpOwo+IAllbnVtIGRy
-bV9jb25uZWN0b3Jfc3RhdHVzIHN0YXR1cyA9IGNvbm5lY3Rvcl9zdGF0dXNfZGlzY29ubmVjdGVk
-Owo+IAo+IAltdXRleF9sb2NrKCZkcC0+bG9jayk7Cj5AQCAtMjQ0LDQxICsyNDQsMjYgQEAgY2Ru
-X2RwX2Nvbm5lY3Rvcl9kZXRlY3Qoc3RydWN0IGRybV9jb25uZWN0b3IgKmNvbm5lY3RvciwgYm9v
-bCBmb3JjZSkKPiAJcmV0dXJuIHN0YXR1czsKPiB9Cj4gCj4tc3RhdGljIHZvaWQgY2RuX2RwX2Nv
-bm5lY3Rvcl9kZXN0cm95KHN0cnVjdCBkcm1fY29ubmVjdG9yICpjb25uZWN0b3IpCj4rc3RhdGlj
-IGNvbnN0IHN0cnVjdCBkcm1fZWRpZCAqCj4rY2RuX2RwX2Nvbm5lY3Rvcl9lZGlkX3JlYWQoc3Ry
-dWN0IGRybV9icmlkZ2UgKmJyaWRnZSwgc3RydWN0IGRybV9jb25uZWN0b3IgKmNvbm5lY3RvcikK
-ClRoaXMgc2hvdWxkIGJlIGNkbl9kcF9icmlkZ2VfZWRpZF9yZWFkCgo+IHsKPi0JZHJtX2Nvbm5l
-Y3Rvcl91bnJlZ2lzdGVyKGNvbm5lY3Rvcik7Cj4tCWRybV9jb25uZWN0b3JfY2xlYW51cChjb25u
-ZWN0b3IpOwo+LX0KPi0KPi1zdGF0aWMgY29uc3Qgc3RydWN0IGRybV9jb25uZWN0b3JfZnVuY3Mg
-Y2RuX2RwX2F0b21pY19jb25uZWN0b3JfZnVuY3MgPSB7Cj4tCS5kZXRlY3QgPSBjZG5fZHBfY29u
-bmVjdG9yX2RldGVjdCwKPi0JLmRlc3Ryb3kgPSBjZG5fZHBfY29ubmVjdG9yX2Rlc3Ryb3ksCj4t
-CS5maWxsX21vZGVzID0gZHJtX2hlbHBlcl9wcm9iZV9zaW5nbGVfY29ubmVjdG9yX21vZGVzLAo+
-LQkucmVzZXQgPSBkcm1fYXRvbWljX2hlbHBlcl9jb25uZWN0b3JfcmVzZXQsCj4tCS5hdG9taWNf
-ZHVwbGljYXRlX3N0YXRlID0gZHJtX2F0b21pY19oZWxwZXJfY29ubmVjdG9yX2R1cGxpY2F0ZV9z
-dGF0ZSwKPi0JLmF0b21pY19kZXN0cm95X3N0YXRlID0gZHJtX2F0b21pY19oZWxwZXJfY29ubmVj
-dG9yX2Rlc3Ryb3lfc3RhdGUsCj4tfTsKPi0KPi1zdGF0aWMgaW50IGNkbl9kcF9jb25uZWN0b3Jf
-Z2V0X21vZGVzKHN0cnVjdCBkcm1fY29ubmVjdG9yICpjb25uZWN0b3IpCj4tewo+LQlzdHJ1Y3Qg
-Y2RuX2RwX2RldmljZSAqZHAgPSBjb25uZWN0b3JfdG9fZHAoY29ubmVjdG9yKTsKPi0JaW50IHJl
-dCA9IDA7Cj4rCXN0cnVjdCBjZG5fZHBfZGV2aWNlICpkcCA9IGJyaWRnZV90b19kcChicmlkZ2Up
-Owo+Kwljb25zdCBzdHJ1Y3QgZHJtX2VkaWQgKmRybV9lZGlkOwo+IAo+IAltdXRleF9sb2NrKCZk
-cC0+bG9jayk7Cj4tCj4tCXJldCA9IGRybV9lZGlkX2Nvbm5lY3Rvcl9hZGRfbW9kZXMoY29ubmVj
-dG9yKTsKPi0KPisJZHJtX2VkaWQgPSBkcm1fZWRpZF9yZWFkX2N1c3RvbShkcC0+Y29ubmVjdG9y
-LAo+KwkJCQkJY2RuX2RwX2dldF9lZGlkX2Jsb2NrLCBkcCk7CgpVc2UgZHJtX2VkaWRfcmVhZF9k
-ZGMKCj4gCW11dGV4X3VubG9jaygmZHAtPmxvY2spOwo+IAo+LQlyZXR1cm4gcmV0Owo+KwlyZXR1
-cm4gZHJtX2VkaWQ7Cj4gfQo+IAo+IHN0YXRpYyBlbnVtIGRybV9tb2RlX3N0YXR1cwo+LWNkbl9k
-cF9jb25uZWN0b3JfbW9kZV92YWxpZChzdHJ1Y3QgZHJtX2Nvbm5lY3RvciAqY29ubmVjdG9yLAo+
-LQkJCSAgICBjb25zdCBzdHJ1Y3QgZHJtX2Rpc3BsYXlfbW9kZSAqbW9kZSkKPitjZG5fZHBfYnJp
-ZGdlX21vZGVfdmFsaWQoc3RydWN0IGRybV9icmlkZ2UgKmJyaWRnZSwKPisJCQkgY29uc3Qgc3Ry
-dWN0IGRybV9kaXNwbGF5X2luZm8gKmRpc3BsYXlfaW5mbywKPisJCQkgY29uc3Qgc3RydWN0IGRy
-bV9kaXNwbGF5X21vZGUgKm1vZGUpCj4gewo+LQlzdHJ1Y3QgY2RuX2RwX2RldmljZSAqZHAgPSBj
-b25uZWN0b3JfdG9fZHAoY29ubmVjdG9yKTsKPi0Jc3RydWN0IGRybV9kaXNwbGF5X2luZm8gKmRp
-c3BsYXlfaW5mbyA9ICZkcC0+Y29ubmVjdG9yLmRpc3BsYXlfaW5mbzsKPisJc3RydWN0IGNkbl9k
-cF9kZXZpY2UgKmRwID0gYnJpZGdlX3RvX2RwKGJyaWRnZSk7Cj4gCXUzMiByZXF1ZXN0ZWQsIGFj
-dHVhbCwgcmF0ZSwgc2lua19tYXgsIHNvdXJjZV9tYXggPSAwOwo+IAl1OCBsYW5lcywgYnBjOwo+
-IAo+QEAgLTMyMywxMSArMzA4LDYgQEAgY2RuX2RwX2Nvbm5lY3Rvcl9tb2RlX3ZhbGlkKHN0cnVj
-dCBkcm1fY29ubmVjdG9yICpjb25uZWN0b3IsCj4gCXJldHVybiBNT0RFX09LOwo+IH0KPiAKPi1z
-dGF0aWMgc3RydWN0IGRybV9jb25uZWN0b3JfaGVscGVyX2Z1bmNzIGNkbl9kcF9jb25uZWN0b3Jf
-aGVscGVyX2Z1bmNzID0gewo+LQkuZ2V0X21vZGVzID0gY2RuX2RwX2Nvbm5lY3Rvcl9nZXRfbW9k
-ZXMsCj4tCS5tb2RlX3ZhbGlkID0gY2RuX2RwX2Nvbm5lY3Rvcl9tb2RlX3ZhbGlkLAo+LX07Cj4t
-Cj4gc3RhdGljIGludCBjZG5fZHBfZmlybXdhcmVfaW5pdChzdHJ1Y3QgY2RuX2RwX2RldmljZSAq
-ZHApCj4gewo+IAlpbnQgcmV0Owo+QEAgLTM2MCw3ICszNDAsNyBAQCBzdGF0aWMgaW50IGNkbl9k
-cF9maXJtd2FyZV9pbml0KHN0cnVjdCBjZG5fZHBfZGV2aWNlICpkcCkKPiAKPiBzdGF0aWMgaW50
-IGNkbl9kcF9nZXRfc2lua19jYXBhYmlsaXR5KHN0cnVjdCBjZG5fZHBfZGV2aWNlICpkcCkKPiB7
-Cj4tCWNvbnN0IHN0cnVjdCBkcm1fZGlzcGxheV9pbmZvICppbmZvID0gJmRwLT5jb25uZWN0b3Iu
-ZGlzcGxheV9pbmZvOwo+Kwljb25zdCBzdHJ1Y3QgZHJtX2Rpc3BsYXlfaW5mbyAqaW5mbyA9ICZk
-cC0+Y29ubmVjdG9yLT5kaXNwbGF5X2luZm87Cj4gCWludCByZXQ7Cj4gCj4gCWlmICghY2RuX2Rw
-X2NoZWNrX3NpbmtfY29ubmVjdGlvbihkcCkpCj5AQCAtMzc0LDkgKzM1NCw5IEBAIHN0YXRpYyBp
-bnQgY2RuX2RwX2dldF9zaW5rX2NhcGFiaWxpdHkoc3RydWN0IGNkbl9kcF9kZXZpY2UgKmRwKQo+
-IAl9Cj4gCj4gCWRybV9lZGlkX2ZyZWUoZHAtPmRybV9lZGlkKTsKPi0JZHAtPmRybV9lZGlkID0g
-ZHJtX2VkaWRfcmVhZF9jdXN0b20oJmRwLT5jb25uZWN0b3IsCj4rCWRwLT5kcm1fZWRpZCA9IGRy
-bV9lZGlkX3JlYWRfY3VzdG9tKGRwLT5jb25uZWN0b3IsCj4gCQkJCQkgICAgY2RuX2RwX2dldF9l
-ZGlkX2Jsb2NrLCBkcCk7Cj4tCWRybV9lZGlkX2Nvbm5lY3Rvcl91cGRhdGUoJmRwLT5jb25uZWN0
-b3IsIGRwLT5kcm1fZWRpZCk7Cj4rCWRybV9lZGlkX2Nvbm5lY3Rvcl91cGRhdGUoZHAtPmNvbm5l
-Y3RvciwgZHAtPmRybV9lZGlkKTsKPiAKPiAJZHAtPnNpbmtfaGFzX2F1ZGlvID0gaW5mby0+aGFz
-X2F1ZGlvOwo+IAo+QEAgLTQxNiwxMSArMzk2LDExIEBAIHN0YXRpYyBpbnQgY2RuX2RwX2VuYWJs
-ZV9waHkoc3RydWN0IGNkbl9kcF9kZXZpY2UgKmRwLCBzdHJ1Y3QgY2RuX2RwX3BvcnQgKnBvcnQp
-Cj4gCQlnb3RvIGVycl9wb3dlcl9vbjsKPiAJfQo+IAo+LQlyZXQgPSBleHRjb25fZ2V0X3Byb3Bl
-cnR5KHBvcnQtPmV4dGNvbiwgRVhUQ09OX0RJU1BfRFAsCj4tCQkJCSAgRVhUQ09OX1BST1BfVVNC
-X1RZUEVDX1BPTEFSSVRZLCAmcHJvcGVydHkpOwo+LQlpZiAocmV0KSB7Cj4tCQlEUk1fREVWX0VS
-Uk9SKGRwLT5kZXYsICJnZXQgcHJvcGVydHkgZmFpbGVkXG4iKTsKPi0JCWdvdG8gZXJyX3Bvd2Vy
-X29uOwo+KwkJcmV0ID0gZXh0Y29uX2dldF9wcm9wZXJ0eShwb3J0LT5leHRjb24sIEVYVENPTl9E
-SVNQX0RQLAo+KwkJCQkJRVhUQ09OX1BST1BfVVNCX1RZUEVDX1BPTEFSSVRZLCAmcHJvcGVydHkp
-Owo+KwkJaWYgKHJldCkgewo+KwkJCURSTV9ERVZfRVJST1IoZHAtPmRldiwgImdldCBwcm9wZXJ0
-eSBmYWlsZWRcbiIpOwo+KwkJCWdvdG8gZXJyX3Bvd2VyX29uOwo+IAl9Cj4gCj4gCXBvcnQtPmxh
-bmVzID0gY2RuX2RwX2dldF9wb3J0X2xhbmVzKHBvcnQpOwo+QEAgLTU1MSw3ICs1MzEsNyBAQCBz
-dGF0aWMgdm9pZCBjZG5fZHBfZW5jb2Rlcl9tb2RlX3NldChzdHJ1Y3QgZHJtX2VuY29kZXIgKmVu
-Y29kZXIsCj4gCQkJCSAgICBzdHJ1Y3QgZHJtX2Rpc3BsYXlfbW9kZSAqYWRqdXN0ZWQpCj4gewo+
-IAlzdHJ1Y3QgY2RuX2RwX2RldmljZSAqZHAgPSBlbmNvZGVyX3RvX2RwKGVuY29kZXIpOwo+LQlz
-dHJ1Y3QgZHJtX2Rpc3BsYXlfaW5mbyAqZGlzcGxheV9pbmZvID0gJmRwLT5jb25uZWN0b3IuZGlz
-cGxheV9pbmZvOwo+KwlzdHJ1Y3QgZHJtX2Rpc3BsYXlfaW5mbyAqZGlzcGxheV9pbmZvID0gJmRw
-LT5jb25uZWN0b3ItPmRpc3BsYXlfaW5mbzsKPiAJc3RydWN0IHZpZGVvX2luZm8gKnZpZGVvID0g
-JmRwLT52aWRlb19pbmZvOwo+IAo+IAlzd2l0Y2ggKGRpc3BsYXlfaW5mby0+YnBjKSB7Cj5AQCAt
-NTk5LDEyICs1NzksMTIgQEAgc3RhdGljIHZvaWQgY2RuX2RwX2F1ZGlvX2hhbmRsZV9wbHVnZ2Vk
-X2NoYW5nZShzdHJ1Y3QgY2RuX2RwX2RldmljZSAqZHAsCj4gCQlkcC0+cGx1Z2dlZF9jYihkcC0+
-Y29kZWNfZGV2LCBwbHVnZ2VkKTsKPiB9Cj4gCj4tc3RhdGljIHZvaWQgY2RuX2RwX2VuY29kZXJf
-ZW5hYmxlKHN0cnVjdCBkcm1fZW5jb2RlciAqZW5jb2RlcikKPitzdGF0aWMgdm9pZCBjZG5fZHBf
-YnJpZGdlX2F0b21pY19lbmFibGUoc3RydWN0IGRybV9icmlkZ2UgKmJyaWRnZSwgc3RydWN0IGRy
-bV9hdG9taWNfc3RhdGUgKnN0YXRlKQo+IHsKPi0Jc3RydWN0IGNkbl9kcF9kZXZpY2UgKmRwID0g
-ZW5jb2Rlcl90b19kcChlbmNvZGVyKTsKPisJc3RydWN0IGNkbl9kcF9kZXZpY2UgKmRwID0gYnJp
-ZGdlX3RvX2RwKGJyaWRnZSk7Cj4gCWludCByZXQsIHZhbDsKPiAKPi0JcmV0ID0gZHJtX29mX2Vu
-Y29kZXJfYWN0aXZlX2VuZHBvaW50X2lkKGRwLT5kZXYtPm9mX25vZGUsIGVuY29kZXIpOwo+Kwly
-ZXQgPSBkcm1fb2ZfZW5jb2Rlcl9hY3RpdmVfZW5kcG9pbnRfaWQoZHAtPmRldi0+b2Zfbm9kZSwg
-JmRwLT5lbmNvZGVyLmVuY29kZXIpOwo+IAlpZiAocmV0IDwgMCkgewo+IAkJRFJNX0RFVl9FUlJP
-UihkcC0+ZGV2LCAiQ291bGQgbm90IGdldCB2b3AgaWQsICVkIiwgcmV0KTsKPiAJCXJldHVybjsK
-PkBAIC02MjUsNyArNjA1LDcgQEAgc3RhdGljIHZvaWQgY2RuX2RwX2VuY29kZXJfZW5hYmxlKHN0
-cnVjdCBkcm1fZW5jb2RlciAqZW5jb2RlcikKPiAKPiAJcmV0ID0gY2RuX2RwX2VuYWJsZShkcCk7
-Cj4gCWlmIChyZXQpIHsKPi0JCURSTV9ERVZfRVJST1IoZHAtPmRldiwgIkZhaWxlZCB0byBlbmFi
-bGUgZW5jb2RlciAlZFxuIiwKPisJCURSTV9ERVZfRVJST1IoZHAtPmRldiwgIkZhaWxlZCB0byBl
-bmFibGUgYnJpZGdlICVkXG4iLAo+IAkJCSAgICAgIHJldCk7Cj4gCQlnb3RvIG91dDsKPiAJfQo+
-QEAgLTY2MSw5ICs2NDEsOSBAQCBzdGF0aWMgdm9pZCBjZG5fZHBfZW5jb2Rlcl9lbmFibGUoc3Ry
-dWN0IGRybV9lbmNvZGVyICplbmNvZGVyKQo+IAltdXRleF91bmxvY2soJmRwLT5sb2NrKTsKPiB9
-Cj4gCj4tc3RhdGljIHZvaWQgY2RuX2RwX2VuY29kZXJfZGlzYWJsZShzdHJ1Y3QgZHJtX2VuY29k
-ZXIgKmVuY29kZXIpCj4rc3RhdGljIHZvaWQgY2RuX2RwX2JyaWRnZV9hdG9taWNfZGlzYWJsZShz
-dHJ1Y3QgZHJtX2JyaWRnZSAqYnJpZGdlLCBzdHJ1Y3QgZHJtX2F0b21pY19zdGF0ZSAqc3RhdGUp
-Cj4gewo+LQlzdHJ1Y3QgY2RuX2RwX2RldmljZSAqZHAgPSBlbmNvZGVyX3RvX2RwKGVuY29kZXIp
-Owo+KwlzdHJ1Y3QgY2RuX2RwX2RldmljZSAqZHAgPSBicmlkZ2VfdG9fZHAoYnJpZGdlKTsKPiAJ
-aW50IHJldDsKPiAKPiAJbXV0ZXhfbG9jaygmZHAtPmxvY2spOwo+QEAgLTY3Miw3ICs2NTIsNyBA
-QCBzdGF0aWMgdm9pZCBjZG5fZHBfZW5jb2Rlcl9kaXNhYmxlKHN0cnVjdCBkcm1fZW5jb2RlciAq
-ZW5jb2RlcikKPiAJaWYgKGRwLT5hY3RpdmUpIHsKPiAJCXJldCA9IGNkbl9kcF9kaXNhYmxlKGRw
-KTsKPiAJCWlmIChyZXQpIHsKPi0JCQlEUk1fREVWX0VSUk9SKGRwLT5kZXYsICJGYWlsZWQgdG8g
-ZGlzYWJsZSBlbmNvZGVyICVkXG4iLAo+KwkJCURSTV9ERVZfRVJST1IoZHAtPmRldiwgIkZhaWxl
-ZCB0byBkaXNhYmxlIGJyaWRnZSAlZFxuIiwKPiAJCQkJICAgICAgcmV0KTsKPiAJCX0KPiAJfQo+
-QEAgLTcwMywxMyArNjgzLDMxIEBAIHN0YXRpYyBpbnQgY2RuX2RwX2VuY29kZXJfYXRvbWljX2No
-ZWNrKHN0cnVjdCBkcm1fZW5jb2RlciAqZW5jb2RlciwKPiAJcmV0dXJuIDA7Cj4gfQo+IAo+K3N0
-YXRpYyB2b2lkIGNkbl9kcF9ocGRfbm90aWZ5KHN0cnVjdCBkcm1fYnJpZGdlICpicmlkZ2UsCj4r
-CQkJICAgZW51bSBkcm1fY29ubmVjdG9yX3N0YXR1cyBzdGF0dXMpCj4rewo+KwlzdHJ1Y3QgY2Ru
-X2RwX2RldmljZSAqZHAgPSBicmlkZ2VfdG9fZHAoYnJpZGdlKTsKPisKPisJc2NoZWR1bGVfd29y
-aygmZHAtPmV2ZW50X3dvcmspOwo+K30KPisKPiBzdGF0aWMgY29uc3Qgc3RydWN0IGRybV9lbmNv
-ZGVyX2hlbHBlcl9mdW5jcyBjZG5fZHBfZW5jb2Rlcl9oZWxwZXJfZnVuY3MgPSB7Cj4gCS5tb2Rl
-X3NldCA9IGNkbl9kcF9lbmNvZGVyX21vZGVfc2V0LAo+LQkuZW5hYmxlID0gY2RuX2RwX2VuY29k
-ZXJfZW5hYmxlLAo+LQkuZGlzYWJsZSA9IGNkbl9kcF9lbmNvZGVyX2Rpc2FibGUsCj4gCS5hdG9t
-aWNfY2hlY2sgPSBjZG5fZHBfZW5jb2Rlcl9hdG9taWNfY2hlY2ssCj4gfTsKPiAKPitzdGF0aWMg
-Y29uc3Qgc3RydWN0IGRybV9icmlkZ2VfZnVuY3MgY2RuX2RwX2JyaWRnZV9mdW5jcyA9IHsKPisJ
-LmF0b21pY19kdXBsaWNhdGVfc3RhdGUgPSBkcm1fYXRvbWljX2hlbHBlcl9icmlkZ2VfZHVwbGlj
-YXRlX3N0YXRlLAo+KwkuYXRvbWljX2Rlc3Ryb3lfc3RhdGUgPSBkcm1fYXRvbWljX2hlbHBlcl9i
-cmlkZ2VfZGVzdHJveV9zdGF0ZSwKPisJLmF0b21pY19yZXNldCA9IGRybV9hdG9taWNfaGVscGVy
-X2JyaWRnZV9yZXNldCwKPisJLmRldGVjdCA9IGNkbl9kcF9icmlkZ2VfZGV0ZWN0LAo+KwkuZWRp
-ZF9yZWFkID0gY2RuX2RwX2Nvbm5lY3Rvcl9lZGlkX3JlYWQsCj4rCS5hdG9taWNfZW5hYmxlID0g
-Y2RuX2RwX2JyaWRnZV9hdG9taWNfZW5hYmxlLAo+KwkuYXRvbWljX2Rpc2FibGUgPSBjZG5fZHBf
-YnJpZGdlX2F0b21pY19kaXNhYmxlLAo+KwkubW9kZV92YWxpZCA9IGNkbl9kcF9icmlkZ2VfbW9k
-ZV92YWxpZCwKPisJLmhwZF9ub3RpZnkgPSBjZG5fZHBfaHBkX25vdGlmeSwKPit9Owo+Kwo+IHN0
-YXRpYyBpbnQgY2RuX2RwX3BhcnNlX2R0KHN0cnVjdCBjZG5fZHBfZGV2aWNlICpkcCkKPiB7Cj4g
-CXN0cnVjdCBkZXZpY2UgKmRldiA9IGRwLT5kZXY7Cj5AQCAtODU5LDcgKzg1Nyw3IEBAIHN0YXRp
-YyBpbnQgY2RuX2RwX2F1ZGlvX2dldF9lbGQoc3RydWN0IGRldmljZSAqZGV2LCB2b2lkICpkYXRh
-LAo+IHsKPiAJc3RydWN0IGNkbl9kcF9kZXZpY2UgKmRwID0gZGV2X2dldF9kcnZkYXRhKGRldik7
-Cj4gCj4tCW1lbWNweShidWYsIGRwLT5jb25uZWN0b3IuZWxkLCBtaW4oc2l6ZW9mKGRwLT5jb25u
-ZWN0b3IuZWxkKSwgbGVuKSk7Cj4rCW1lbWNweShidWYsIGRwLT5jb25uZWN0b3ItPmVsZCwgbWlu
-KHNpemVvZihkcC0+Y29ubmVjdG9yLT5lbGQpLCBsZW4pKTsKPiAKPiAJcmV0dXJuIDA7Cj4gfQo+
-QEAgLTEwMDYsNyArMTAwNCw2IEBAIHN0YXRpYyB2b2lkIGNkbl9kcF9wZF9ldmVudF93b3JrKHN0
-cnVjdCB3b3JrX3N0cnVjdCAqd29yaykKPiAKPiBvdXQ6Cj4gCW11dGV4X3VubG9jaygmZHAtPmxv
-Y2spOwo+LQlkcm1fY29ubmVjdG9yX2hlbHBlcl9ocGRfaXJxX2V2ZW50KCZkcC0+Y29ubmVjdG9y
-KTsKPiB9Cj4gCj4gc3RhdGljIGludCBjZG5fZHBfcGRfZXZlbnQoc3RydWN0IG5vdGlmaWVyX2Js
-b2NrICpuYiwKPkBAIC0xMDMwLDcgKzEwMjcsNiBAQCBzdGF0aWMgaW50IGNkbl9kcF9iaW5kKHN0
-cnVjdCBkZXZpY2UgKmRldiwgc3RydWN0IGRldmljZSAqbWFzdGVyLCB2b2lkICpkYXRhKQo+IHsK
-PiAJc3RydWN0IGNkbl9kcF9kZXZpY2UgKmRwID0gZGV2X2dldF9kcnZkYXRhKGRldik7Cj4gCXN0
-cnVjdCBkcm1fZW5jb2RlciAqZW5jb2RlcjsKPi0Jc3RydWN0IGRybV9jb25uZWN0b3IgKmNvbm5l
-Y3RvcjsKPiAJc3RydWN0IGNkbl9kcF9wb3J0ICpwb3J0Owo+IAlzdHJ1Y3QgZHJtX2RldmljZSAq
-ZHJtX2RldiA9IGRhdGE7Cj4gCWludCByZXQsIGk7Cj5AQCAtMTA1Myw2ICsxMDQ5LDE1IEBAIHN0
-YXRpYyBpbnQgY2RuX2RwX2JpbmQoc3RydWN0IGRldmljZSAqZGV2LCBzdHJ1Y3QgZGV2aWNlICpt
-YXN0ZXIsIHZvaWQgKmRhdGEpCj4gCQkJCQkJCSAgICAgZGV2LT5vZl9ub2RlKTsKPiAJRFJNX0RF
-QlVHX0tNUygicG9zc2libGVfY3J0Y3MgPSAweCV4XG4iLCBlbmNvZGVyLT5wb3NzaWJsZV9jcnRj
-cyk7Cj4gCj4rCS8qCj4rCSAqIElmIHdlIGZhaWxlZCB0byBmaW5kIHRoZSBDUlRDKHMpIHdoaWNo
-IHRoaXMgZW5jb2RlciBpcwo+KwkgKiBzdXBwb3NlZCB0byBiZSBjb25uZWN0ZWQgdG8sIGl0J3Mg
-YmVjYXVzZSB0aGUgQ1JUQyBoYXMKPisJICogbm90IGJlZW4gcmVnaXN0ZXJlZCB5ZXQuIERlZmVy
-IHByb2JpbmcsIGFuZCBob3BlIHRoYXQKPisJICogdGhlIHJlcXVpcmVkIENSVEMgaXMgYWRkZWQg
-bGF0ZXIuCj4rCSAqLwo+KwlpZiAoZW5jb2Rlci0+cG9zc2libGVfY3J0Y3MgPT0gMCkKPisJCXJl
-dHVybiAtRVBST0JFX0RFRkVSOwo+Kwo+IAlyZXQgPSBkcm1fc2ltcGxlX2VuY29kZXJfaW5pdChk
-cm1fZGV2LCBlbmNvZGVyLAo+IAkJCQkgICAgICBEUk1fTU9ERV9FTkNPREVSX1RNRFMpOwo+IAlp
-ZiAocmV0KSB7Cj5AQCAtMTA2MiwyNiArMTA2NywzMSBAQCBzdGF0aWMgaW50IGNkbl9kcF9iaW5k
-KHN0cnVjdCBkZXZpY2UgKmRldiwgc3RydWN0IGRldmljZSAqbWFzdGVyLCB2b2lkICpkYXRhKQo+
-IAo+IAlkcm1fZW5jb2Rlcl9oZWxwZXJfYWRkKGVuY29kZXIsICZjZG5fZHBfZW5jb2Rlcl9oZWxw
-ZXJfZnVuY3MpOwo+IAo+LQljb25uZWN0b3IgPSAmZHAtPmNvbm5lY3RvcjsKPi0JY29ubmVjdG9y
-LT5wb2xsZWQgPSBEUk1fQ09OTkVDVE9SX1BPTExfSFBEOwo+LQljb25uZWN0b3ItPmRwbXMgPSBE
-Uk1fTU9ERV9EUE1TX09GRjsKPisJZHAtPmJyaWRnZS5kcml2ZXJfcHJpdmF0ZSA9IGRwOwo+Kwlk
-cC0+YnJpZGdlLmZ1bmNzID0gJmNkbl9kcF9icmlkZ2VfZnVuY3M7CgpUcnkgdXNlIGRldm1fZHJt
-X2JyaWRnZV9hbGxvYwoKPisJZHAtPmJyaWRnZS5vcHMgPSBEUk1fQlJJREdFX09QX0RFVEVDVCB8
-Cj4rCQkJICAgRFJNX0JSSURHRV9PUF9FRElEIHwKPisJCQkgICBEUk1fQlJJREdFX09QX0hQRDsK
-PisJZHAtPmJyaWRnZS5vZl9ub2RlID0gZHAtPmRldi0+b2Zfbm9kZTsKPisJZHAtPmJyaWRnZS50
-eXBlID0gRFJNX01PREVfQ09OTkVDVE9SX0Rpc3BsYXlQb3J0Owo+IAo+LQlyZXQgPSBkcm1fY29u
-bmVjdG9yX2luaXQoZHJtX2RldiwgY29ubmVjdG9yLAo+LQkJCQkgJmNkbl9kcF9hdG9taWNfY29u
-bmVjdG9yX2Z1bmNzLAo+LQkJCQkgRFJNX01PREVfQ09OTkVDVE9SX0Rpc3BsYXlQb3J0KTsKPi0J
-aWYgKHJldCkgewo+LQkJRFJNX0VSUk9SKCJmYWlsZWQgdG8gaW5pdGlhbGl6ZSBjb25uZWN0b3Ig
-d2l0aCBkcm1cbiIpOwo+LQkJZ290byBlcnJfZnJlZV9lbmNvZGVyOwo+LQl9Cj4rCXJldCA9IGRl
-dm1fZHJtX2JyaWRnZV9hZGQoZGV2LCAmZHAtPmJyaWRnZSk7Cj4rCWlmIChyZXQpCj4rCQlyZXR1
-cm4gcmV0Owo+IAo+LQlkcm1fY29ubmVjdG9yX2hlbHBlcl9hZGQoY29ubmVjdG9yLCAmY2RuX2Rw
-X2Nvbm5lY3Rvcl9oZWxwZXJfZnVuY3MpOwo+KwlyZXQgPSBkcm1fYnJpZGdlX2F0dGFjaChlbmNv
-ZGVyLCAmZHAtPmJyaWRnZSwgTlVMTCwgRFJNX0JSSURHRV9BVFRBQ0hfTk9fQ09OTkVDVE9SKTsK
-PisJaWYgKHJldCkKPisJCXJldHVybiByZXQ7Cj4gCj4tCXJldCA9IGRybV9jb25uZWN0b3JfYXR0
-YWNoX2VuY29kZXIoY29ubmVjdG9yLCBlbmNvZGVyKTsKPi0JaWYgKHJldCkgewo+LQkJRFJNX0VS
-Uk9SKCJmYWlsZWQgdG8gYXR0YWNoIGNvbm5lY3RvciBhbmQgZW5jb2RlclxuIik7Cj4tCQlnb3Rv
-IGVycl9mcmVlX2Nvbm5lY3RvcjsKPisJZHAtPmNvbm5lY3RvciA9IGRybV9icmlkZ2VfY29ubmVj
-dG9yX2luaXQoZHJtX2RldiwgZW5jb2Rlcik7Cj4rCWlmIChJU19FUlIoZHAtPmNvbm5lY3Rvcikp
-IHsKPisJCXJldCA9IFBUUl9FUlIoZHAtPmNvbm5lY3Rvcik7Cj4rCQlkZXZfZXJyKGRwLT5kZXYs
-ICJmYWlsZWQgdG8gaW5pdCBicmlkZ2UgY29ubmVjdG9yOiAlZFxuIiwgcmV0KTsKPisJCXJldHVy
-biByZXQ7Cj4gCX0KICAgICAgIERvbid0IHN0b3JlIGNvbm5lY3RvciBoZXJlLCB3ZSB3aWxsIG1v
-dmUgY29ubmVjdG9yIGluaXQgdG8gZGlzcGxheSBjb250cm9sbGVyIHNpZGUgaW4gdGhlIGZ1dHVy
-ZS4KCiAgICAgIFlvdSBjYW4gZ2V0IGNvbm5lY3RvciBieTogY29ubmVjdG9yID0gZHJtX2F0b21p
-Y19nZXRfbmV3X2Nvbm5lY3Rvcl9mb3JfZW5jb2RlcihzdGF0ZSwgYnJpZGdlLT5lbmNvZGVyKTsK
-ICAgICAgYXQgYXRvbWljIGVuYWJsZS4KCgo+IAo+Kwlkcm1fY29ubmVjdG9yX2F0dGFjaF9lbmNv
-ZGVyKGRwLT5jb25uZWN0b3IsIGVuY29kZXIpOwo+Kwo+IAlmb3IgKGkgPSAwOyBpIDwgZHAtPnBv
-cnRzOyBpKyspIHsKPiAJCXBvcnQgPSBkcC0+cG9ydFtpXTsKPiAKPkBAIC0xMDkyLDcgKzExMDIs
-NyBAQCBzdGF0aWMgaW50IGNkbl9kcF9iaW5kKHN0cnVjdCBkZXZpY2UgKmRldiwgc3RydWN0IGRl
-dmljZSAqbWFzdGVyLCB2b2lkICpkYXRhKQo+IAkJaWYgKHJldCkgewo+IAkJCURSTV9ERVZfRVJS
-T1IoZGV2LAo+IAkJCQkgICAgICAicmVnaXN0ZXIgRVhUQ09OX0RJU1BfRFAgbm90aWZpZXIgZXJy
-XG4iKTsKPi0JCQlnb3RvIGVycl9mcmVlX2Nvbm5lY3RvcjsKPisJCQlyZXR1cm4gcmV0Owo+IAkJ
-fQo+IAl9Cj4gCj5AQCAtMTEwMSwyNCArMTExMSwxNSBAQCBzdGF0aWMgaW50IGNkbl9kcF9iaW5k
-KHN0cnVjdCBkZXZpY2UgKmRldiwgc3RydWN0IGRldmljZSAqbWFzdGVyLCB2b2lkICpkYXRhKQo+
-IAlzY2hlZHVsZV93b3JrKCZkcC0+ZXZlbnRfd29yayk7Cj4gCj4gCXJldHVybiAwOwo+LQo+LWVy
-cl9mcmVlX2Nvbm5lY3RvcjoKPi0JZHJtX2Nvbm5lY3Rvcl9jbGVhbnVwKGNvbm5lY3Rvcik7Cj4t
-ZXJyX2ZyZWVfZW5jb2RlcjoKPi0JZHJtX2VuY29kZXJfY2xlYW51cChlbmNvZGVyKTsKPi0JcmV0
-dXJuIHJldDsKPiB9Cj4gCj4gc3RhdGljIHZvaWQgY2RuX2RwX3VuYmluZChzdHJ1Y3QgZGV2aWNl
-ICpkZXYsIHN0cnVjdCBkZXZpY2UgKm1hc3Rlciwgdm9pZCAqZGF0YSkKPiB7Cj4gCXN0cnVjdCBj
-ZG5fZHBfZGV2aWNlICpkcCA9IGRldl9nZXRfZHJ2ZGF0YShkZXYpOwo+IAlzdHJ1Y3QgZHJtX2Vu
-Y29kZXIgKmVuY29kZXIgPSAmZHAtPmVuY29kZXIuZW5jb2RlcjsKPi0Jc3RydWN0IGRybV9jb25u
-ZWN0b3IgKmNvbm5lY3RvciA9ICZkcC0+Y29ubmVjdG9yOwo+IAo+IAljYW5jZWxfd29ya19zeW5j
-KCZkcC0+ZXZlbnRfd29yayk7Cj4tCWNkbl9kcF9lbmNvZGVyX2Rpc2FibGUoZW5jb2Rlcik7Cj4g
-CWVuY29kZXItPmZ1bmNzLT5kZXN0cm95KGVuY29kZXIpOwo+LQljb25uZWN0b3ItPmZ1bmNzLT5k
-ZXN0cm95KGNvbm5lY3Rvcik7Cj4gCj4gCXBtX3J1bnRpbWVfZGlzYWJsZShkZXYpOwo+IAlpZiAo
-ZHAtPmZ3X2xvYWRlZCkKPmRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvY2Ru
-LWRwLWNvcmUuaCBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9jZG4tZHAtY29yZS5oCj5pbmRl
-eCAxNzQ5OGY1NzZjZTcuLmQyNzc4ZjdhNWIzMSAxMDA2NDQKPi0tLSBhL2RyaXZlcnMvZ3B1L2Ry
-bS9yb2NrY2hpcC9jZG4tZHAtY29yZS5oCj4rKysgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAv
-Y2RuLWRwLWNvcmUuaAo+QEAgLTgsNiArOCw4IEBACj4gI2RlZmluZSBfQ0ROX0RQX0NPUkVfSAo+
-IAo+ICNpbmNsdWRlIDxkcm0vZGlzcGxheS9kcm1fZHBfaGVscGVyLmg+Cj4rI2luY2x1ZGUgPGRy
-bS9kcm1fYnJpZGdlLmg+Cj4rI2luY2x1ZGUgPGRybS9kcm1fYnJpZGdlX2Nvbm5lY3Rvci5oPgo+
-ICNpbmNsdWRlIDxkcm0vZHJtX3BhbmVsLmg+Cj4gI2luY2x1ZGUgPGRybS9kcm1fcHJvYmVfaGVs
-cGVyLmg+Cj4gI2luY2x1ZGUgPHNvdW5kL2hkbWktY29kZWMuaD4KPkBAIC02NSw3ICs2Nyw4IEBA
-IHN0cnVjdCBjZG5fZHBfcG9ydCB7Cj4gc3RydWN0IGNkbl9kcF9kZXZpY2Ugewo+IAlzdHJ1Y3Qg
-ZGV2aWNlICpkZXY7Cj4gCXN0cnVjdCBkcm1fZGV2aWNlICpkcm1fZGV2Owo+LQlzdHJ1Y3QgZHJt
-X2Nvbm5lY3RvciBjb25uZWN0b3I7Cj4rCXN0cnVjdCBkcm1fYnJpZGdlIGJyaWRnZTsKPisJc3Ry
-dWN0IGRybV9jb25uZWN0b3IgKmNvbm5lY3RvcjsKPiAJc3RydWN0IHJvY2tjaGlwX2VuY29kZXIg
-ZW5jb2RlcjsKPiAJc3RydWN0IGRybV9kaXNwbGF5X21vZGUgbW9kZTsKPiAJc3RydWN0IHBsYXRm
-b3JtX2RldmljZSAqYXVkaW9fcGRldjsKPi0tIAo+Mi40OS4wCg==
+On Wed, 21 May 2025 at 05:09, Peng Fan <peng.fan@oss.nxp.com> wrote:
+>
+> On Wed, May 21, 2025 at 12:13:06PM +0800, Peng Fan wrote:
+> >Hi Ulf,
+> >
+> >On Tue, May 20, 2025 at 02:21:49PM +0200, Ulf Hansson wrote:
+> >>On Mon, 19 May 2025 at 19:24, Hiago De Franco <hiagofranco@gmail.com> wrote:
+> >>>
+> >>> Hi Ulf,
+> >>>
+> >>> On Mon, May 19, 2025 at 04:33:30PM +0200, Ulf Hansson wrote:
+> >>> > On Fri, 9 May 2025 at 21:13, Hiago De Franco <hiagofranco@gmail.com> wrote:
+> >>> > >
+> >>> > > On Fri, May 09, 2025 at 12:37:02PM +0200, Ulf Hansson wrote:
+> >>> > > > On Thu, 8 May 2025 at 22:28, Hiago De Franco <hiagofranco@gmail.com> wrote:
+> >>> > > > >
+> >>> > > > > Hello,
+> >>> > > > >
+> >>> > > > > On Thu, May 08, 2025 at 12:03:33PM +0200, Ulf Hansson wrote:
+> >>> > > > > > On Wed, 7 May 2025 at 18:02, Hiago De Franco <hiagofranco@gmail.com> wrote:
+> >>> > > > > > >
+> >>> > > > > > > From: Hiago De Franco <hiago.franco@toradex.com>
+> >>> > > > > > >
+> >>> > > > > > > When the remote core is started before Linux boots (e.g., by the
+> >>> > > > > > > bootloader), the driver currently is not able to attach because it only
+> >>> > > > > > > checks for cores running in different partitions. If the core was kicked
+> >>> > > > > > > by the bootloader, it is in the same partition as Linux and it is
+> >>> > > > > > > already up and running.
+> >>> > > > > > >
+> >>> > > > > > > This adds power mode verification through the SCU interface, enabling
+> >>> > > > > > > the driver to detect when the remote core is already running and
+> >>> > > > > > > properly attach to it.
+> >>> > > > > > >
+> >>> > > > > > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+> >>> > > > > > > Suggested-by: Peng Fan <peng.fan@nxp.com>
+> >>> > > > > > > ---
+> >>> > > > > > > v2: Dropped unecessary include. Removed the imx_rproc_is_on function, as
+> >>> > > > > > > suggested.
+> >>> > > > > > > ---
+> >>> > > > > > >  drivers/remoteproc/imx_rproc.c | 13 +++++++++++++
+> >>> > > > > > >  1 file changed, 13 insertions(+)
+> >>> > > > > > >
+> >>> > > > > > > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> >>> > > > > > > index 627e57a88db2..9b6e9e41b7fc 100644
+> >>> > > > > > > --- a/drivers/remoteproc/imx_rproc.c
+> >>> > > > > > > +++ b/drivers/remoteproc/imx_rproc.c
+> >>> > > > > > > @@ -949,6 +949,19 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
+> >>> > > > > > >                         if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
+> >>> > > > > > >                                 return -EINVAL;
+> >>> > > > > > >
+> >>> > > > > > > +                       /*
+> >>> > > > > > > +                        * If remote core is already running (e.g. kicked by
+> >>> > > > > > > +                        * the bootloader), attach to it.
+> >>> > > > > > > +                        */
+> >>> > > > > > > +                       ret = imx_sc_pm_get_resource_power_mode(priv->ipc_handle,
+> >>> > > > > > > +                                                               priv->rsrc_id);
+> >>> > > > > > > +                       if (ret < 0)
+> >>> > > > > > > +                               dev_err(dev, "failed to get power resource %d mode, ret %d\n",
+> >>> > > > > > > +                                       priv->rsrc_id, ret);
+> >>> > > > > > > +
+> >>> > > > > > > +                       if (ret == IMX_SC_PM_PW_MODE_ON)
+> >>> > > > > > > +                               priv->rproc->state = RPROC_DETACHED;
+> >>> > > > > > > +
+> >>> > > > > > >                         return imx_rproc_attach_pd(priv);
+> >>> > > > > >
+> >>> > > > > > Why is it important to potentially set "priv->rproc->state =
+> >>> > > > > > RPROC_DETACHED" before calling imx_rproc_attach_pd()?
+> >>> > > > > >
+> >>> > > > > > Would it be possible to do it the other way around? First calling
+> >>> > > > > > imx_rproc_attach_pd() then get the power-mode to know if
+> >>> > > > > > RPROC_DETACHED should be set or not?
+> >>> > > > > >
+> >>> > > > > > The main reason why I ask, is because of how we handle the single PM
+> >>> > > > > > domain case. In that case, the PM domain has already been attached
+> >>> > > > > > (and powered-on) before we reach this point.
+> >>> > > > >
+> >>> > > > > I am not sure if I understood correcly, let me know if I missed
+> >>> > > > > something. From my understanding in this case it does not matter, since
+> >>> > > > > the RPROC_DETACHED will only be a flag to trigger the attach callback
+> >>> > > > > from rproc_validate(), when rproc_add() is called inside
+> >>> > > > > remoteproc_core.c.
+> >>> > > >
+> >>> > > > Okay, I see.
+> >>> > > >
+> >>> > > > To me, it sounds like we should introduce a new genpd helper function
+> >>> > > > instead. Something along the lines of this (drivers/pmdomain/core.c)
+> >>> > > >
+> >>> > > > bool dev_pm_genpd_is_on(struct device *dev)
+> >>> > > > {
+> >>> > > >         struct generic_pm_domain *genpd;
+> >>> > > >         bool is_on;
+> >>> > > >
+> >>> > > >         genpd = dev_to_genpd_safe(dev);
+> >>> > > >         if (!genpd)
+> >>> > > >                 return false;
+> >>> > > >
+> >>> > > >         genpd_lock(genpd);
+> >>> > > >         is_on = genpd_status_on(genpd);
+> >>> > > >         genpd_unlock(genpd);
+> >>> > > >
+> >>> > > >         return is_on;
+> >>> > > > }
+> >>> > > >
+> >>> > > > After imx_rproc_attach_pd() has run, we have the devices that
+> >>> > > > correspond to the genpd(s). Those can then be passed as in-parameters
+> >>> > > > to the above function to get the power-state of their PM domains
+> >>> > > > (genpds). Based on that, we can decide if priv->rproc->state should be
+> >>> > > > to RPROC_DETACHED or not. Right?
+> >>> > >
+> >>> > > Got your idea, I think it should work yes, I am not so sure how. From
+> >>> > > what I can see these power domains are managed by
+> >>> > > drivers/pmdomain/imx/scu-pd.c and by enabling the debug messages I can
+> >>> > > see the power mode is correct when the remote core is powered on:
+> >>> > >
+> >>> > > [    0.317369] imx-scu-pd system-controller:power-controller: cm40-pid0 : IMX_SC_PM_PW_MODE_ON
+> >>> > >
+> >>> > > and powered off:
+> >>> > >
+> >>> > > [    0.314953] imx-scu-pd system-controller:power-controller: cm40-pid0 : IMX_SC_PM_PW_MODE_OFF
+> >>> > >
+> >>> > > But I cannot see how to integrate this into the dev_pm_genpd_is_on() you
+> >>> > > proposed. For a quick check, I added this function and it always return
+> >>> > > NULL at dev_to_genpd_safe(). Can you help me to understand this part?
+> >>> >
+> >>> > As your device has multiple PM domains and those gets attached with
+> >>> > dev_pm_domain_attach_list(), the device(s) that you should use with
+> >>> > dev_pm_genpd_is_on() are in imx_rproc->pd_list->pd_devs[n].
+> >>>
+> >>> Ok got it, thanks for sharing.
+> >>>
+> >>> I just send the v3 with the changes Peng proposed (here
+> >>> https://lore.kernel.org/lkml/20250519171514.61974-1-hiagofranco@gmail.com/T/#t),
+> >>> but I am a bit confused which path we should take, the initial approach
+> >>> proposed or using these PD functions. Maybe we can discuss this in the
+> >>> new v3 patch series?
+> >>
+> >>I think it would be better if we can avoid sharing low-level firmware
+> >>functions for PM domains. I am worried that they may become abused for
+> >>other future use-cases.
+> >>
+> >>So, if possible, I would rather make us try to use
+> >>dev_pm_genpd_is_on() (or something along those lines), but let's see
+> >>what Peng thinks about it before we make the decision.
+> >
+> >There are two power domains for this m4:
+> >power-domains = <&pd IMX_SC_R_M4_0_PID0>, <&pd IMX_SC_R_M4_0_MU_1A>;
+> >
+> >So before attach the pd, dev_pm_genpd_is_on should also return false
+> >per my understanding. If run dev_pm_genpd_is_on after attaching the pd,
+> >the pd will be powered on. So we are not able to know whether M4 is started
+> >by bootloader or not.
+>
+>
+> Could we use PD_FLAG_NO_DEV_LINK when attach the PD, then
+> use dev_pm_genpd_is_on to detect the status of genpd?
+>
+> we set is_off as true when pm_genpd_init if the PD is physical ON.
+>
+
+You should not provide any flag (or attach_data to
+dev_pm_domain_attach_list()) at all. In other words just call
+dev_pm_domain_attach_list(dev, NULL, &priv->pd_list), similar to how
+drivers/remoteproc/imx_dsp_rproc.c does it.
+
+In this way, the device_link is created by making the platform->dev
+the consumer and by keeping the supplier-devices (corresponding to the
+genpds) in RPM_SUSPENDED state.
+
+The PM domains (genpds) are then left in their current state, which
+should allow us to call dev_pm_genpd_is_on() for the corresponding
+supplier-devices, to figure out whether the bootloader turned them on
+or not, I think.
+
+Moreover, to make sure the genpds are turned on when needed, we also
+need to call pm_runtime_enable(platform->dev) and
+pm_runtime_get_sync(platform->dev). The easiest approach is probably
+to do that during ->probe() - and then as an improvement on top you
+may want to implement more fine-grained support for runtime PM.
+
+[...]
+
+Kind regards
+Uffe
 
