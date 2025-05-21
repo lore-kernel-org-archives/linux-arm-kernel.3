@@ -4,65 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505B8C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07FACC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mU08jBDHbf4+fwLAXZsGEBeRlXvQvaZzs+YXELiyr08=; b=qL7heojILWoG+APcUYNkYJmpeb
-	MwyUIAVoLmqZxM08oxJoyVU3QK1oP28v/Ahbxn+bR5svtQNiVq6RX8UMmImab87KQE29q2aeuKJVw
-	yoKIZxmFyJozW5c6UGNx+Xq+mOGy9qNjqnX8mPcojl9WhOwlLYIky4CmXqiPXfo4quZIf+mqogP6B
-	1F/26o1QTOX8q2RGIWaDi2GlVko2A+LaO+bqPry2x0MZTUADT11HOBusjZUdMnVbvoaMGWQ+ZZSzy
-	nd8o97gRhOJPnzybDIky1aGBlqDByqZDwzMI5czvButDioLa3vKqUXsxR/rkjRbWtjGmXF+2BvX6t
-	Gj31Wu1w==;
+	bh=WP/miZ06QaUM1Gld6jYnoHJbWFHeMjdbQT4v1pOFcPk=; b=gi0ofNqK8tL+6CN0gBsSoIoYmA
+	IDTRCwmBbbfzuVvpdBohZeHZOL9G6sGrEN+U+nwYUNXh83pN3dAiRKBo/QjnzH9iw4ISZOBYfSPdf
+	VoitcJ4IpXCkXxQihsTtW/pOlOMF12UtL9N14HPgXizCevahFJv+D98iolHpjf3djXTPgGMp+UvIZ
+	m1h5Fb7evGNw3oTF7jLui55+e7V52srbgfG06wc+61FSvgPGPE5D85R8IM8Z0Q3uB46WM54GbZ6AF
+	XSv3i8lmU9lGW/4pHY/36t4ak8ZGg1uu88ZAl9Y+YZINtqnos9/32gnQ2SHGmJ903XIPkWMtivdqI
+	m7xnJ+wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfK3-0000000FEef-017d;
-	Wed, 21 May 2025 09:01:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfEv-0000000FDdb-1H0k
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 08:55:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE4E71515;
-	Wed, 21 May 2025 01:55:36 -0700 (PDT)
-Received: from [10.57.23.70] (unknown [10.57.23.70])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4864A3F6A8;
-	Wed, 21 May 2025 01:55:46 -0700 (PDT)
-Message-ID: <c544b3fe-3cf2-4dcd-8c0f-ab9f1795e305@arm.com>
-Date: Wed, 21 May 2025 09:55:43 +0100
+	id 1uHfM4-0000000FF9z-2wfi;
+	Wed, 21 May 2025 09:03:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHfHF-0000000FE5I-0m2d;
+	Wed, 21 May 2025 08:58:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9BA2C629D5;
+	Wed, 21 May 2025 08:58:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CAE4C4CEE4;
+	Wed, 21 May 2025 08:58:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747817896;
+	bh=7zdquYhGr6LzhY4noloqWyYU2N3b4LAAmGk3pA3luw4=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=POJGl1WUlleOUfa/aBNeuLj3rZDB3WODOo5cPFU1z7qGUfZ4vIw2K1w014pzhXkHk
+	 2n1wNAWE8/7q11uDTw/Vo/IsFBvvAjVVIHctku5Vi6b3CotGBpn4oHV/DjrAi1O6PF
+	 lsTYD3smJfVmI6fawDB1V8QQZRxR8ouZmGNBcgIRWYiYupGQ9qLn6MqtILE92gPFBW
+	 sJ1DTIuX2Hpa4snLmHtcQGDwOhzZ7CmM1/L5UxP57EbxHPjhWS0p6mKrhamMCNMfsL
+	 N5hcG0YoyPKPcWT/FK6FZ6upCVNzDhz9uIgfISjMZW1zAG0wnAL8FOVCMHpHGEKizY
+	 1B+pyiMCh6B0Q==
+Message-ID: <6f8599e2-2bce-4b66-84a9-03d8799b4a8a@kernel.org>
+Date: Wed, 21 May 2025 10:58:09 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 20/43] arm64: RME: Runtime faulting of memory
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Gavin Shan <gshan@redhat.com>,
- kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-21-steven.price@arm.com>
- <c99b408c-3819-482a-a427-68045211e434@redhat.com>
- <4fca6bfa-3687-4fdf-8204-00fa90d36e2a@arm.com>
- <d1b3caaf-636f-48e6-90e6-0bb650753748@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <d1b3caaf-636f-48e6-90e6-0bb650753748@arm.com>
+Subject: Re: [PATCH v2 2/2] phy: exyons5-usbdrd: support HS phy for
+ ExynosAutov920
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>,
+ 'Neil Armstrong' <neil.armstrong@linaro.org>, vkoul@kernel.org,
+ kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ kauschluss@disroot.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+References: <20250516102650.2144487-1-pritam.sutar@samsung.com>
+ <CGME20250516101803epcas5p2d9403d89d840dcad88a03d437a48aceb@epcas5p2.samsung.com>
+ <20250516102650.2144487-3-pritam.sutar@samsung.com>
+ <a5c1a064-d760-4140-9e78-d74823b400a8@linaro.org>
+ <1f63af35-7d10-434b-b802-115611ce2ed6@kernel.org>
+ <000201dbca1f$737647d0$5a62d770$@samsung.com>
+ <7fec4945-eec5-4247-9979-a6ee2229626d@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <7fec4945-eec5-4247-9979-a6ee2229626d@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_015553_434620_98B659DD 
-X-CRM114-Status: GOOD (  25.61  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,184 +126,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2025 15:48, Suzuki K Poulose wrote:
-> On 16/05/2025 16:33, Steven Price wrote:
->> On 01/05/2025 01:16, Gavin Shan wrote:
->>> On 4/16/25 11:41 PM, Steven Price wrote:
->>>> At runtime if the realm guest accesses memory which hasn't yet been
->>>> mapped then KVM needs to either populate the region or fault the guest.
->>>>
->>>> For memory in the lower (protected) region of IPA a fresh page is
->>>> provided to the RMM which will zero the contents. For memory in the
->>>> upper (shared) region of IPA, the memory from the memslot is mapped
->>>> into the realm VM non secure.
->>>>
->>>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>> ---
->>>> Changes since v7:
->>>>    * Remove redundant WARN_ONs for realm_create_rtt_levels() - it will
->>>>      internally WARN when necessary.
->>>> Changes since v6:
->>>>    * Handle PAGE_SIZE being larger than RMM granule size.
->>>>    * Some minor renaming following review comments.
->>>> Changes since v5:
->>>>    * Reduce use of struct page in preparation for supporting the RMM
->>>>      having a different page size to the host.
->>>>    * Handle a race when delegating a page where another CPU has
->>>> faulted on
->>>>      a the same page (and already delegated the physical page) but
->>>> not yet
->>>>      mapped it. In this case simply return to the guest to either
->>>> use the
->>>>      mapping from the other CPU (or refault if the race is lost).
->>>>    * The changes to populate_par_region() are moved into the previous
->>>>      patch where they belong.
->>>> Changes since v4:
->>>>    * Code cleanup following review feedback.
->>>>    * Drop the PTE_SHARED bit when creating unprotected page table
->>>> entries.
->>>>      This is now set by the RMM and the host has no control of it
->>>> and the
->>>>      spec requires the bit to be set to zero.
->>>> Changes since v2:
->>>>    * Avoid leaking memory if failing to map it in the realm.
->>>>    * Correctly mask RTT based on LPA2 flag (see rtt_get_phys()).
->>>>    * Adapt to changes in previous patches.
->>>> ---
->>>>    arch/arm64/include/asm/kvm_emulate.h |  10 ++
->>>>    arch/arm64/include/asm/kvm_rme.h     |  10 ++
->>>>    arch/arm64/kvm/mmu.c                 | 127 ++++++++++++++++++-
->>>>    arch/arm64/kvm/rme.c                 | 180 ++++++++++++++++++++++
->>>> +++++
->>>>    4 files changed, 321 insertions(+), 6 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/
->>>> include/asm/kvm_emulate.h
->>>> index c803c8188d9c..def439d6d732 100644
->>>> --- a/arch/arm64/include/asm/kvm_emulate.h
->>>> +++ b/arch/arm64/include/asm/kvm_emulate.h
->>>> @@ -704,6 +704,16 @@ static inline bool kvm_realm_is_created(struct
->>>> kvm *kvm)
->>>>        return kvm_is_realm(kvm) && kvm_realm_state(kvm) !=
->>>> REALM_STATE_NONE;
->>>>    }
->>>>    +static inline gpa_t kvm_gpa_from_fault(struct kvm *kvm, phys_addr_t
->>>> ipa)
->>>> +{
->>>> +    if (kvm_is_realm(kvm)) {
->>>> +        struct realm *realm = &kvm->arch.realm;
->>>> +
->>>> +        return ipa & ~BIT(realm->ia_bits - 1);
->>>> +    }
->>>> +    return ipa;
->>>> +}
->>>> +
->>>>    static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->>>>    {
->>>>        if (static_branch_unlikely(&kvm_rme_is_available))
->>>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
->>>> asm/kvm_rme.h
->>>> index d86051ef0c5c..47aa6362c6c9 100644
->>>> --- a/arch/arm64/include/asm/kvm_rme.h
->>>> +++ b/arch/arm64/include/asm/kvm_rme.h
->>>> @@ -108,6 +108,16 @@ void kvm_realm_unmap_range(struct kvm *kvm,
->>>>                   unsigned long ipa,
->>>>                   unsigned long size,
->>>>                   bool unmap_private);
->>>> +int realm_map_protected(struct realm *realm,
->>>> +            unsigned long base_ipa,
->>>> +            kvm_pfn_t pfn,
->>>> +            unsigned long size,
->>>> +            struct kvm_mmu_memory_cache *memcache);
->>>> +int realm_map_non_secure(struct realm *realm,
->>>> +             unsigned long ipa,
->>>> +             kvm_pfn_t pfn,
->>>> +             unsigned long size,
->>>> +             struct kvm_mmu_memory_cache *memcache);
->>>>      static inline bool kvm_realm_is_private_address(struct realm
->>>> *realm,
->>>>                            unsigned long addr)
->>>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->>>> index 71c04259e39f..02b66ee35426 100644
->>>> --- a/arch/arm64/kvm/mmu.c
->>>> +++ b/arch/arm64/kvm/mmu.c
->>>> @@ -338,8 +338,13 @@ static void __unmap_stage2_range(struct
->>>> kvm_s2_mmu *mmu, phys_addr_t start, u64
->>>>          lockdep_assert_held_write(&kvm->mmu_lock);
->>>>        WARN_ON(size & ~PAGE_MASK);
->>>> -    WARN_ON(stage2_apply_range(mmu, start, end,
->>>> KVM_PGT_FN(kvm_pgtable_stage2_unmap),
->>>> -                   may_block));
->>>> +
->>>> +    if (kvm_is_realm(kvm))
->>>> +        kvm_realm_unmap_range(kvm, start, size, !only_shared);
->>>> +    else
->>>> +        WARN_ON(stage2_apply_range(mmu, start, end,
->>>> +                       KVM_PGT_FN(kvm_pgtable_stage2_unmap),
->>>> +                       may_block));
->>>>    }
->>>>    
->>>
->>> As spotted previsouly, the parameter @may_block isn't handled by
->>> kvm_realm_unmap_range().
+On 21/05/2025 10:47, Krzysztof Kozlowski wrote:
+> On 21/05/2025 09:10, Pritam Manohar Sutar wrote:
+>> Hi Krzysztof,
 >>
->> Ack.
+>>> -----Original Message-----
+>>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>>> Sent: 20 May 2025 01:13 PM
+>>> To: Neil Armstrong <neil.armstrong@linaro.org>; Pritam Manohar Sutar
+>>> <pritam.sutar@samsung.com>; vkoul@kernel.org; kishon@kernel.org;
+>>> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+>>> alim.akhtar@samsung.com; andre.draszik@linaro.org; peter.griffin@linaro.org;
+>>> kauschluss@disroot.org; m.szyprowski@samsung.com;
+>>> s.nawrocki@samsung.com
+>>> Cc: linux-phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
+>>> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
+>>> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
+>>> faraz.ata@samsung.com; muhammed.ali@samsung.com;
+>>> selvarasu.g@samsung.com
+>>> Subject: Re: [PATCH v2 2/2] phy: exyons5-usbdrd: support HS phy for
+>>> ExynosAutov920
+>>>
+>>> On 20/05/2025 09:39, neil.armstrong@linaro.org wrote:
+>>>>> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+>>>>> b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+>>>>> index 634c4310c660..b440b56c6595 100644
+>>>>> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+>>>>> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+>>>>> @@ -177,6 +177,9 @@
+>>>>>   #define HSPHYPLLTUNE_PLL_P_TUNE			GENMASK(3,
+>>> 0)
+>>>>>
+>>>>>   /* Exynos850: USB DRD PHY registers */
+>>>>> +#define EXYNOSAUTOv920_DRD_CTRL_VER		0x00
+>>>>> +#define CTRL_VER_MAJOR_VERSION			GENMASK(31,
+>>> 24)
+>>>>> +
+>>>>>   #define EXYNOS850_DRD_LINKCTRL			0x04
+>>>>>   #define LINKCTRL_FORCE_RXELECIDLE		BIT(18)
+>>>>>   #define LINKCTRL_FORCE_PHYSTATUS		BIT(17)
+>>>>> @@ -1772,6 +1775,10 @@ static const char * const
+>>> exynos5_regulator_names[] = {
+>>>>>   	"vbus", "vbus-boost",
+>>>>>   };
+>>>>>
+>>>>> +static const char * const exynosautov920_clk_names[] = {
+>>>>> +	"ext_xtal",
+>>>>> +};
+>>>>> +
+>>>>>   static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy =
+>>> {
+>>>>>   	.phy_cfg		= phy_cfg_exynos5,
+>>>>>   	.phy_ops		= &exynos5_usbdrd_phy_ops,
+>>>>> @@ -1847,6 +1854,81 @@ static const struct exynos5_usbdrd_phy_drvdata
+>>> exynos850_usbdrd_phy = {
+>>>>>   	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
+>>>>>   };
+>>>>>
+>>>>> +static void exynosautov920_usbdrd_utmi_init(struct
+>>>>> +exynos5_usbdrd_phy *phy_drd) {
+>>>>> +	u32 version;
+>>>>> +
+>>>>> +	version = readl(phy_drd->reg_phy +
+>>> EXYNOSAUTOv920_DRD_CTRL_VER);
+>>>>> +	dev_info(phy_drd->dev, "usbphy: version:0x%x\n", version);
+>>>>
+>>>> Please do not add mode info to boot log, use dev_dbg instead.
+>>>
+>>> Just drop entirely, not even worth dbg (see coding style, driver development
+>>> debugging guide). It is fixed per given compatible, isn't it? If not, there is entire
+>>> commit msg to explain unusual things.
 >>
->>>>    void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t
->>>> start,
->>>> @@ -359,7 +364,10 @@ static void stage2_flush_memslot(struct kvm *kvm,
->>>>        phys_addr_t addr = memslot->base_gfn << PAGE_SHIFT;
->>>>        phys_addr_t end = addr + PAGE_SIZE * memslot->npages;
->>>>    -    kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
->>>> +    if (kvm_is_realm(kvm))
->>>> +        kvm_realm_unmap_range(kvm, addr, end - addr, false);
->>>> +    else
->>>> +        kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
->>>>    }
->>>>      /**
->>>> @@ -1053,6 +1061,10 @@ void stage2_unmap_vm(struct kvm *kvm)
->>>>        struct kvm_memory_slot *memslot;
->>>>        int idx, bkt;
->>>>    +    /* For realms this is handled by the RMM so nothing to do
->>>> here */
->>>> +    if (kvm_is_realm(kvm))
->>>> +        return;
->>>> +
->>>>        idx = srcu_read_lock(&kvm->srcu);
->>>>        mmap_read_lock(current->mm);
->>>>        write_lock(&kvm->mmu_lock);
->>>> @@ -1078,6 +1090,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->>>>        if (kvm_is_realm(kvm) &&
->>>>            (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
->>>>             kvm_realm_state(kvm) != REALM_STATE_NONE)) {
->>>> +        kvm_stage2_unmap_range(mmu, 0, (~0ULL) & PAGE_MASK, false);
->>>>            write_unlock(&kvm->mmu_lock);
->>>>            kvm_realm_destroy_rtts(kvm, pgt->ia_bits);
->>>
->>> (~0ULL & PAGE_MASK) wouldn't be a problem since the range will be
->>> limited to
->>> [0, BIT(realm->ia_bits) - 1] in kvm_realm_unmap_range(). I think it's
->>> reasonable
->>> to pass the maximal size here, something like:
->>>
->>>          kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), false);
+>> This SoC has a single USB 3.1 DRD combo v400 phy and three USB2.0 DRD phy v303
 > 
-> I think this must be, given the end is excluding:
->        kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits), false);
 > 
-> BIT(realm->ia_bits - 1) only covers the protected half. The unprotected
-> half spans  [ BIT(realm->ia_bits - 1), BIT(realm->ia_bits))
+> That's a different device, no? Look at the compatible here - it says
+> usb31drd.
+> 
+> What does 31 stand for?
+> 
+>> controllers those only support the UTMI+ interface. Currently, supporting only 
+>> v303 phy in this patch-set, and planning v400 phy later (soon). Same may be 
+>> also updated in commit  message. 
+>>
+>> If there's any issue in phy init, dbg print is needed to debug which phy caused it. 
+> No, rethink rather this makes sense at all. Please read carefully
+> writing bindings, which will tell you that you cannot have different
+> devices under the same compatible. Unless you say these are the same
+> devices and it differs by other phy? But this is a phy... so many questions.
 
-The kernel treats the two halves as aliasing. kvm_realm_unmap_range()
-caps the end to min(BIT(realm->ia_bits - 1), end). So this wouldn't make
-any difference.
+Hm, unless you want to say devices are fully compatible, the version is
+fully detectable and the driver will make use of that. That would be
+fine, but should be expressed in commit msg and actually we should see
+the second phy variant already in the patchset.
 
-This an unfortunate outcome of the memory slots describing both the
-protected region (via guestmem_fd) and the shared region (via VMM maps).
-So a single memslot describes two regions which leads to the kernel
-treating those regions as aliasing for some purposes.
-
-Thanks,
-Steve
-
+Best regards,
+Krzysztof
 
