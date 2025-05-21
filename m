@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57EA2C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836F7C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bv5S48Qbz+qiMwJKONpAY6GPB2jCz1xB6fr/SOZ88MM=; b=FxsWPn3MKid0peMjQu5ipKLSQt
-	sdpZCkERiUtaGee5+tLYZ+PcKkitX+VZF6XeW0rYFF0E5gsF+unRDz1uMaiQQf9f3jJ+J1pk8kKqK
-	puq7k5QdKR1whe4rio3mjEhPjinxCo6XsvA0XZ5XKitfT3gvTojy++Jr8h+B+TwQUkbRi1GRrkfpP
-	qR8PuHMPX4028TIqtE/GdQznNUoV0x4ptqvOI9w8IHFeHLFJ2+SOwlJ1Qp2RG2lp01sD8Q87UBR7p
-	hG/NS9n+AX8wOmDKDPR6BbTx3c3LMKkyjFt8pZI5o1AlOmVbLpJ9EEty1ncQNePTPXkp3EFdjZujJ
-	x5aHNoDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qXhUwaSBbZB3IaLQX9hyzU2AcPezfoNvPerZSAFDLfc=; b=oo+64zpV97mntKii5oeAqyFwNA
+	IG50vOBvSMnAWy4lR9XW6iuMTwJ2dHeaEnbPPxJMa2vCV0/r7E4JVvRKhLjhwppwAKsscwWPupnZi
+	eoAHPZelhn951tXFW4ec55Do1cEzkM/N/UiAexGbczN9Nx/NIxGoxlTFh2HjIrSMbHQX3tcLjFp1M
+	Y9X4A+jm06F7lUaltmLF+MVK99nPZafzwavP+g/hMhZGOkghzQfpjMJprew+M+WqKU/TqCN1oezfY
+	QOm+ShMf+BQ6gzd91KovV51B5gY06HMk80ZoyM9woyd0Zglg7TxqQvMSpmXNJ9J49O2m/Vmqm/AiR
+	JzBkq+Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHlJ8-0000000GGi3-3cMT;
-	Wed, 21 May 2025 15:24:38 +0000
-Received: from smtp-8fac.mail.infomaniak.ch ([83.166.143.172])
+	id 1uHlMf-0000000GHEy-1SCj;
+	Wed, 21 May 2025 15:28:17 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHlGw-0000000GGBj-1lBA
+	id 1uHlKV-0000000GGw8-14Zh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 15:22:24 +0000
-Received: from smtp-3-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:4:17::246b])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4b2Zsk0B0Bz3fC;
-	Wed, 21 May 2025 17:22:18 +0200 (CEST)
-Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4b2Zsh2wFGz8KK;
-	Wed, 21 May 2025 17:22:16 +0200 (CEST)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Wed, 21 May 2025 17:21:59 +0200
-Subject: [PATCH net] net: stmmac: platform: guarantee uniqueness of bus_id
+	Wed, 21 May 2025 15:26:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7E94C5C5BC3;
+	Wed, 21 May 2025 15:23:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80A09C4CEE4;
+	Wed, 21 May 2025 15:25:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747841162;
+	bh=MDKD9lGxNck7Ne+uaSDs1WAO4Wl3ZxiYCJEk3xlWYQo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=auaZZXT2l+8GZIC3AVHmxcjl3G5L1QU1tF1rtJddcr3k9zk+gLZ3cWQZj5r0CsoMM
+	 5XjsDeAruOgf8HOM39k3Js/2MTXoag2DC7QRlBXns0wht6SverBWuDxTQQRxg6iCWx
+	 OHmdPkPhWg/5ik1rUC9kR6vZzfMD0CJ5aV9+1JNNHFE8FqmBufF/I1rL4iTtrZr14h
+	 E7jOM1LoGi9VvH5QMA+Cp9UoiWpE9jvTRXoUQ2G/9XjaVtk1saH1Q9BikwRvmFWQ9v
+	 mve1aET3ZhOq+JhKSOkp177mxeQDegQ7GAJf4pGQwzwisC044XScvPLJX1KOCnCpjS
+	 rZuHwpVW+zCUQ==
+Date: Wed, 21 May 2025 16:25:57 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>
+Subject: Re: [PATCH v3 1/3] dt-bindings: stm32: add STM32MP21 clocks and
+ reset bindings
+Message-ID: <20250521-quantum-flashily-611a7d5f4f06@spud>
+References: <20250521-upstream_rcc_mp21-v3-0-cac9d8f63d20@foss.st.com>
+ <20250521-upstream_rcc_mp21-v3-1-cac9d8f63d20@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250521-stmmac-mdio-bus_id-v1-1-918a3c11bf2c@cherry.de>
-X-B4-Tracking: v=1; b=H4sIAJbvLWgC/x3MQQqEMAxA0atI1gZsO1L0KiKDtlGzaJWmI4J49
- yku3+L/G4QSk0Bf3ZDoZOE9Fqi6ArdNcSVkXwy60W3TaoWSQ5gcBs87zj/5skejzGw/ztrOGCj
- hkWjh650OECnD+Dx/ttnzIGkAAAA=
-X-Change-ID: 20250521-stmmac-mdio-bus_id-313b74c77933
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>, 
- Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="DDoC0JY4QW9yHonk"
+Content-Disposition: inline
+In-Reply-To: <20250521-upstream_rcc_mp21-v3-1-cac9d8f63d20@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_082222_603553_FB959792 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250521_082603_382504_6E0D6BBB 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,70 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
 
-bus_id is currently derived from the ethernetX alias. If one is missing
-for the device, 0 is used. If ethernet0 points to another stmmac device
-or if there are 2+ stmmac devices without an ethernet alias, then bus_id
-will be 0 for all of those.
+--DDoC0JY4QW9yHonk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This is an issue because the bus_id is used to generate the mdio bus id
-(new_bus->id in drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-stmmac_mdio_register) and this needs to be unique.
+On Wed, May 21, 2025 at 02:38:49PM +0200, Gabriel Fernandez wrote:
+> Adds clock and reset binding entries for STM32MP21 SoC family.
+>=20
+> Signed-off-by: Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>
+> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+> ---
+>  .../bindings/clock/st,stm32mp21-rcc.yaml           | 199 ++++++++++
+>  include/dt-bindings/clock/st,stm32mp21-rcc.h       | 426 +++++++++++++++=
+++++++
+>  include/dt-bindings/reset/st,stm32mp21-rcc.h       | 138 +++++++
+>  3 files changed, 763 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yam=
+l b/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..d41f0b963aceee534acea77bc=
+9d276fd0c9b1548
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml
+> @@ -0,0 +1,199 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/st,stm32mp21-rcc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STM32MP21 Reset Clock Controller
+> +
+> +maintainers:
+> +  - Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+> +
+> +description: |
+> +  The RCC hardware block is both a reset and a clock controller.
+> +  RCC makes also power management (resume/suspend).
+> +
+> +  See also::
 
-This allows to avoid needing to define ethernet aliases for devices with
-multiple stmmac controllers (such as the Rockchip RK3588) for multiple
-stmmac devices to probe properly.
+I believe you missing some comments from Rob about removing the :: from
+here, and from the source you copied it from (if one exists).
 
-Obviously, the bus_id isn't guaranteed to be stable across reboots if no
-alias is set for the device but that is easily fixed by simply adding an
-alias if this is desired.
+Otherwise,
 
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
-Unsure if I should cc stable since people who encountered that issue for
-sure had to add an ethernet alias to make things work with their DT so
-shouldn't be too much of an actual issue?
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index c73eff6a56b87a3783c91b2ffbf5807a27df303f..15205a47cafc276442c3759a36d115d8da1fe51d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -430,6 +430,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 	struct device_node *np = pdev->dev.of_node;
- 	struct plat_stmmacenet_data *plat;
- 	struct stmmac_dma_cfg *dma_cfg;
-+	static int bus_id = -ENODEV;
- 	int phy_mode;
- 	void *ret;
- 	int rc;
-@@ -465,8 +466,14 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 	of_property_read_u32(np, "max-speed", &plat->max_speed);
- 
- 	plat->bus_id = of_alias_get_id(np, "ethernet");
--	if (plat->bus_id < 0)
--		plat->bus_id = 0;
-+	if (plat->bus_id < 0) {
-+		if (bus_id < 0)
-+			bus_id = of_alias_get_highest_id("ethernet");
-+		/* No ethernet alias found, init at -1 so first bus_id is 0 */
-+		if (bus_id < 0)
-+			bus_id = -1;
-+		plat->bus_id = ++bus_id;
-+	}
- 
- 	/* Default to phy auto-detection */
- 	plat->phy_addr = -1;
+> +    include/dt-bindings/clock/st,stm32mp21-rcc.h
+> +    include/dt-bindings/reset/st,stm32mp21-rcc.h
 
----
-base-commit: 4a95bc121ccdaee04c4d72f84dbfa6b880a514b6
-change-id: 20250521-stmmac-mdio-bus_id-313b74c77933
+--DDoC0JY4QW9yHonk
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Best regards,
--- 
-Quentin Schulz <quentin.schulz@cherry.de>
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaC3whQAKCRB4tDGHoIJi
+0gw7AQDclF/KssvPyuRlJxORbowXvNW9eQ2qNLO+ANWJeMmAqgEA0ulde5mpAGbH
+AZx6s03+erRmI/Hkhg+AZke5WIMQmQ0=
+=YaFH
+-----END PGP SIGNATURE-----
+
+--DDoC0JY4QW9yHonk--
 
