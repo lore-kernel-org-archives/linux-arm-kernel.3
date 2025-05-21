@@ -4,107 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB26C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBFBFC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qIBnCQ0rTgY72veKILs/Ih5CAFj+hbAF1m/i3WgXapI=; b=jxwPz7XXiW1BPSC8w5ZarF19BS
-	5T88baZHF21tF90OwMm/rDXT8NPdIrQQfZxrpYehjajVlmAw99QaL3IsPW46avqCvLhsulwBfNeQx
-	inzHfS52+RaAt9+/DH+ctL32SbPybTCkbU0AnJcjnq2Y0r7ZK+7KCDyVeSDzAzj90fnZC3Fln9p+c
-	owBA+DkjXTXSV8NHf/dU/RpaDFyPADFKm+AapNFfGzXSQPTRIPbDI/QZOnMURPbNLzKY3UuYEaUqq
-	aVn6ut0Y0syRfeLl2EXOQxFTbamGF3v6er6hiF4eikdFDRCA5dyXYK9hue8wAxqHINeHXoZDwq4nl
-	KzK6JFJw==;
+	bh=mPWdoFecdc2MfMc/n7LgSs8D6os+jhSdfWxgej28200=; b=k1O8UGcsVmWIxEK/9zeqH3sxk9
+	26A4FV/L/hsm66etgVgardTPJqyc/R1UTBjmQKSuEWbjxLKtfec+hcl1qLp8VO+EKJ4LPK4PqGS32
+	4JObcxpCvpDMwXeiXK/cV9+RjYmjWBVmsNu49bAX8pOMBxK9gNrvswwLJY1BIGbh567ra7YX3WsqM
+	rEjeVIZzWbcFM8kY50K1OUYYSAULUpU+MXUO0Myf/ZAPoHCGtxU8ocABj9YWgDnIuT4W9hNHCXVac
+	U9AaP+GBdlWeR8uohAYaFIdXSzXvq6ShS1SG4hM+mKeBtgqb2jelXWOBLwpQjrbb11GlUYUYhB+Lk
+	2G9ySclg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHkAg-0000000G3w5-2Im8;
-	Wed, 21 May 2025 14:11:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uHkCp-0000000G4Lz-1Njb;
+	Wed, 21 May 2025 14:14:03 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHjYD-0000000FwjK-3uPb
+	id 1uHjZJ-0000000Fwtg-0Li5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 13:32:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 54B4349C4F;
-	Wed, 21 May 2025 13:32:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DCC9C4CEE7;
-	Wed, 21 May 2025 13:32:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747834325;
-	bh=/FsSlEZy/VBCUtb/31R15GrZDGOqgK8m6NqUVCZ20Lk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YLGH/6iwjwlIKo874qFI/O84bg3L6HViI3AJTQS4Yrlt4iBrZEjrvLc7483lGqxH8
-	 zeF4iC9PReqCfIbS8yub44JWF7VmCTMi3lQsJ+DdDprn8EjZZ1pEkRtpV7OItwu9u1
-	 UffThRo3D16xjDL1uIH6KzcR7g/5q62LUVqN2jdM7JKKSxXj9L7hK+cFLfaHDu8C9f
-	 f+wikRs+KgiJ91DiTZl+nJEPqNtvTQ6gs3C8Exii9SOfDjuennUdIErvaw/6g6JCA+
-	 qz6pihEks38sAG7AsQKGEdqLd27jdDn8pvFJBmhxrPlUvrXfjL60uCAABPe8hTqIL4
-	 2+nf8Asn5ECZA==
-Message-ID: <c33a23c6-9883-4f3e-b2e3-6442ca90a7b8@kernel.org>
-Date: Wed, 21 May 2025 15:32:01 +0200
+	Wed, 21 May 2025 13:33:14 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-742c7a52e97so3203020b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 06:33:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747834392; x=1748439192; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=mPWdoFecdc2MfMc/n7LgSs8D6os+jhSdfWxgej28200=;
+        b=nckykF3zhXo9VBdzCHOw5fKIyy5APE+AlyoXWnarZPlJtNXHM6b0inUznngreRbOD4
+         oR9CdHRw6mm6UE50mndL+XdpVxdCTYCvLaFLimtVuUaDGq6yMdCNzFjzQX/who9Lz+VZ
+         LEhpMwmWLOITGFTJ3x+Tk3F4q9/sIEFfaS3s3mt4FGQfdEuzqWuzneTVfLQ1NcS2LezY
+         ydzcljem8V1c/9Ui/thfTWhQbuC+pcjMwlAj6BpSMI4m/Gtyc6eWR/5ZazQcBN1T4cNC
+         ry7798t9wZj97ajJFjM4EsINVbVlT4fRJ5ZrP+GVKdzzXS7UXFnOivNFLT7SDKS3T+c/
+         j4xA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747834392; x=1748439192;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mPWdoFecdc2MfMc/n7LgSs8D6os+jhSdfWxgej28200=;
+        b=V+1v/TwuITqUVK87S0VUZPrURZJ0HQ9aCiAM8pozWP3IEbT3cioFZvjYUuCYkA4CIJ
+         NpKXy2ZYhFoKYPlYBba38EI3MkglYgh/u4oH1tXcp344iOCEcPHQGJPfvyJtpIcFR5Lt
+         3mhBRkFg0wRgQbwtGanFgKkze90UuUaC2yjsEnHb8wX8bQaUENr7YkaoD4sc2IH3qIfA
+         yO11JQE+RcGb/ArD+2GWt8Gfm8V1OTnSROcaIT7XDaZDr1NPHyuds48I/hYGSFQNLVV/
+         wj4tsi44qLJ9/Sldg2iivjRkX/VbT+x6c4Zg/Cd7KABKBP3zJtMc+f3zpRNp2Cqtl1xn
+         zKmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5LXLWrGg7Tdyz5bQXEtVosHlKV0WQBx8p3Tvh47BX03F3g5fTuvNx9uXhr3W58KrOUTQ4bIwWFOlSK1tEZPNg@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZEi5/SCnTr0GbBLsDXMOjl9W5xal5Kr4zjhqMV/BOpeDgArIh
+	naofakStFbaIJVIXIBpZJp4+jGWHwTLjGDpU/Yk9D12kfdECGg8p+1RXaCxOT0F1
+X-Gm-Gg: ASbGncufSrFXr8rPExvo+/Goi42rfotAX5ywmFbj0bGwiNEY0essibMu/EZKRjx+NE9
+	/68sz2VTh710/5efx67Pi1kLPGkBEr+vVlXJjb4u0K5jimgElF0zuJ5yPcmWD9aTHv+jDDyzR67
+	u9yTNjqFQJD1Wxf0ZoGgWn+/9vQJLsw0oVQpjOu04OoT3v27MRARkwKeROmGq9lkLz9zdiLcz3l
+	mwR/ZkRSPfr/Qg9l8ZYSO85AjJkxMslbbr9Ij2rWLlKt9CGlohwQhS4YiVkY7CrreLGIMJkZGT/
+	g0Uj6yKWi9aEKoIu4gKPs6Yh91kKqZe6lus7y4gNz0vaelHmV7dI+4CMEPAPnORLXhN1VYVocyO
+	9ntSgaCV30zS/1PH0FAi4Gta4
+X-Google-Smtp-Source: AGHT+IGFkJiaJbqiYwggMHn731DfZj84x94VQNiW1co7LmBgrVQ+jHH2JFGp04j6FK9ukP7//F9AYg==
+X-Received: by 2002:a05:6a00:a81:b0:73e:96f:d4c1 with SMTP id d2e1a72fcca58-742acce29f3mr27233123b3a.13.1747834392168;
+        Wed, 21 May 2025 06:33:12 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a96e2106sm9875941b3a.17.2025.05.21.06.33.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 May 2025 06:33:11 -0700 (PDT)
+Message-ID: <ad056ba1-8fce-4735-b71e-f22c22eacc18@roeck-us.net>
+Date: Wed, 21 May 2025 06:33:10 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] ARM: dts: vt8500: Minor fixups and L2 cache on
- WM8850
-To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250515-wmt-dts-updates-v2-0-246937484cc8@gmail.com>
- <CABjd4YwoVRpJEMss8UN6xT9x4hf6GSjm34GtTHmmnHi8Q42DAQ@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v4 4/4] watchdog: Add support for VIA/WonderMedia SoC
+ watchdog functionality
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org
+References: <20250521-vt8500-timer-updates-v4-0-2d4306a16ae4@gmail.com>
+ <20250521-vt8500-timer-updates-v4-4-2d4306a16ae4@gmail.com>
+ <38df2f02-efc4-465b-aa64-4c9e2c1919d8@roeck-us.net>
+ <CABjd4YxZVQSuavEYojc8U4AqwUN3GkweiNNHqn=NDTE70xZm8w@mail.gmail.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CABjd4YwoVRpJEMss8UN6xT9x4hf6GSjm34GtTHmmnHi8Q42DAQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
+ RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
+ nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
+ 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
+ gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
+ IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
+ kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
+ VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
+ jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
+ BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
+ ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
+ CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAmgrMyQFCSbODQkACgkQyx8mb86fmYGcWRAA
+ oRwrk7V8fULqnGGpBIjp7pvR187Yzx+lhMGUHuM5H56TFEqeVwCMLWB2x1YRolYbY4MEFlQg
+ VUFcfeW0OknSr1s6wtrtQm0gdkolM8OcCL9ptTHOg1mmXa4YpW8QJiL0AVtbpE9BroeWGl9v
+ 2TGILPm9mVp+GmMQgkNeCS7Jonq5f5pDUGumAMguWzMFEg+Imt9wr2YA7aGen7KPSqJeQPpj
+ onPKhu7O/KJKkuC50ylxizHzmGx+IUSmOZxN950pZUFvVZH9CwhAAl+NYUtcF5ry/uSYG2U7
+ DCvpzqOryJRemKN63qt1bjF6cltsXwxjKOw6CvdjJYA3n6xCWLuJ6yk6CAy1Ukh545NhgBAs
+ rGGVkl6TUBi0ixL3EF3RWLa9IMDcHN32r7OBhw6vbul8HqyTFZWY2ksTvlTl+qG3zV6AJuzT
+ WdXmbcKN+TdhO5XlxVlbZoCm7ViBj1+PvIFQZCnLAhqSd/DJlhaq8fFXx1dCUPgQDcD+wo65
+ qulV/NijfU8bzFfEPgYP/3LP+BSAyFs33y/mdP8kbMxSCjnLEhimQMrSSo/To1Gxp5C97fw5
+ 3m1CaMILGKCmfI1B8iA8zd8ib7t1Rg0qCwcAnvsM36SkrID32GfFbv873bNskJCHAISK3Xkz
+ qo7IYZmjk/IJGbsiGzxUhvicwkgKE9r7a1rOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
+ 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
+ pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
+ J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
+ pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
+ 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
+ ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
+ I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
+ nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
+ HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
+ JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAmgrMyQFCSbODQkACgkQyx8mb86fmYHlgg/9
+ H5JeDmB4jsreE9Bn621wZk7NMzxy9STxiVKSh8Mq4pb+IDu1RU2iLyetCY1TiJlcxnE362kj
+ njrfAdqyPteHM+LU59NtEbGwrfcXdQoh4XdMuPA5ADetPLma3YiRa3VsVkLwpnR7ilgwQw6u
+ dycEaOxQ7LUXCs0JaGVVP25Z2hMkHBwx6BlW6EZLNgzGI2rswSZ7SKcsBd1IRHVf0miwIFYy
+ j/UEfAFNW+tbtKPNn3xZTLs3quQN7GdYLh+J0XxITpBZaFOpwEKV+VS36pSLnNl0T5wm0E/y
+ scPJ0OVY7ly5Vm1nnoH4licaU5Y1nSkFR/j2douI5P7Cj687WuNMC6CcFd6j72kRfxklOqXw
+ zvy+2NEcXyziiLXp84130yxAKXfluax9sZhhrhKT6VrD45S6N3HxJpXQ/RY/EX35neH2/F7B
+ RgSloce2+zWfpELyS1qRkCUTt1tlGV2p+y2BPfXzrHn2vxvbhEn1QpQ6t+85FKN8YEhJEygJ
+ F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
+ FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <CABjd4YxZVQSuavEYojc8U4AqwUN3GkweiNNHqn=NDTE70xZm8w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_063206_009505_1FD39DDC 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20250521_063313_129911_FC1F8F4C 
+X-CRM114-Status: GOOD (  30.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,29 +153,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2025 15:28, Alexey Charkov wrote:
-> On Thu, May 15, 2025 at 11:39 PM Alexey Charkov <alchark@gmail.com> wrote:
+On 5/20/25 23:20, Alexey Charkov wrote:
+> On Wed, May 21, 2025 at 3:15 AM Guenter Roeck <linux@roeck-us.net> wrote:
 >>
->> Small fixups for VT8500 related device trees to improve correctness in
->> light of current guidelines.
+>> On 5/20/25 13:01, Alexey Charkov wrote:
+>>> VIA/WonderMedia SoCs can use their system timer's first channel as a
+>>> watchdog device which will reset the system if the clocksource counter
+>>> matches the value given in its match register 0 and if the watchdog
+>>> function is enabled.
+>>>
+>>> Since the watchdog function is tightly coupled to the timer itself, it
+>>> is implemented as an auxiliary device of the timer device
+>>>
+>>> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+>>> ---
+>>>    MAINTAINERS                   |  1 +
+>>>    drivers/watchdog/Kconfig      | 15 ++++++++
+>>>    drivers/watchdog/Makefile     |  1 +
+>>>    drivers/watchdog/vt8500-wdt.c | 80 +++++++++++++++++++++++++++++++++++++++++++
+>>>    4 files changed, 97 insertions(+)
+>>>
+>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>> index 5362095240627f613638197fda275db6edc16cf7..97d1842625dbdf7fdca3556260662dab469ed091 100644
+>>> --- a/MAINTAINERS
+>>> +++ b/MAINTAINERS
+>>> @@ -3447,6 +3447,7 @@ F:      drivers/tty/serial/vt8500_serial.c
+>>>    F:  drivers/video/fbdev/vt8500lcdfb.*
+>>>    F:  drivers/video/fbdev/wm8505fb*
+>>>    F:  drivers/video/fbdev/wmt_ge_rops.*
+>>> +F:   drivers/watchdog/vt8500-wdt.c
+>>>    F:  include/linux/vt8500-timer.h
+>>>
+>>>    ARM/ZYNQ ARCHITECTURE
+>>> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+>>> index 0d8d37f712e8cfb4bf8156853baa13c23a57d6d9..8049ae630301a98123f97f6e3ee868bd3bf1534a 100644
+>>> --- a/drivers/watchdog/Kconfig
+>>> +++ b/drivers/watchdog/Kconfig
+>>> @@ -2003,6 +2003,21 @@ config PIC32_DMT
+>>>          To compile this driver as a loadable module, choose M here.
+>>>          The module will be called pic32-dmt.
+>>>
+>>> +config VT8500_WATCHDOG
+>>> +     tristate "VIA/WonderMedia VT8500 watchdog support"
+>>> +     depends on ARCH_VT8500 || COMPILE_TEST
+>>> +     select WATCHDOG_CORE
+>>> +     select AUXILIARY_BUS
+>>> +     help
+>>> +       VIA/WonderMedia SoCs can use their system timer as a hardware
+>>> +       watchdog, as long as the first timer channel is free from other
+>>> +       uses and respective function is enabled in its registers. To
+>>> +       make use of it, say Y here and ensure that the device tree
+>>> +       lists at least two interrupts for the VT8500 timer device.
+>>> +
+>>> +       To compile this driver as a module, choose M here.
+>>> +       The module will be called vt8500-wdt.
+>>> +
+>>>    # PARISC Architecture
+>>>
+>>>    # POWERPC Architecture
+>>> diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
+>>> index c9482904bf870a085c7fce2a439ac5089b6e6fee..3072786bf226c357102be3734fe6e701f753d45b 100644
+>>> --- a/drivers/watchdog/Makefile
+>>> +++ b/drivers/watchdog/Makefile
+>>> @@ -101,6 +101,7 @@ obj-$(CONFIG_MSC313E_WATCHDOG) += msc313e_wdt.o
+>>>    obj-$(CONFIG_APPLE_WATCHDOG) += apple_wdt.o
+>>>    obj-$(CONFIG_SUNPLUS_WATCHDOG) += sunplus_wdt.o
+>>>    obj-$(CONFIG_MARVELL_GTI_WDT) += marvell_gti_wdt.o
+>>> +obj-$(CONFIG_VT8500_WATCHDOG) += vt8500-wdt.o
+>>>
+>>>    # X86 (i386 + ia64 + x86_64) Architecture
+>>>    obj-$(CONFIG_ACQUIRE_WDT) += acquirewdt.o
+>>> diff --git a/drivers/watchdog/vt8500-wdt.c b/drivers/watchdog/vt8500-wdt.c
+>>> new file mode 100644
+>>> index 0000000000000000000000000000000000000000..54fe5ad7695de36f6b3c1d28e955f00bef00e9db
+>>> --- /dev/null
+>>> +++ b/drivers/watchdog/vt8500-wdt.c
+>>> @@ -0,0 +1,80 @@
+>>> +// SPDX-License-Identifier: GPL-2.0
+>>> +/* Copyright (C) 2025 Alexey Charkov <alchark@gmail.com */
+>>> +
+>>> +#include <linux/auxiliary_bus.h>
+>>> +#include <linux/container_of.h>
+>>> +#include <linux/io.h>
+>>> +#include <linux/limits.h>
+>>> +#include <linux/module.h>
+>>> +#include <linux/types.h>
+>>> +#include <linux/watchdog.h>
+>>> +#include <linux/vt8500-timer.h>
+>>> +
+>>> +static int vt8500_watchdog_start(struct watchdog_device *wdd)
+>>> +{
+>>> +     struct vt8500_wdt_info *info = watchdog_get_drvdata(wdd);
+>>> +     u64 deadline = info->timer_next(wdd->timeout * VT8500_TIMER_HZ);
+>>> +
 >>
->> While at that, also include a DT node for the PL310 cache controller
->> present in WM8850/WM8950.
->>
->> Signed-off-by: Alexey Charkov <alchark@gmail.com>
->> ---
->> Alexey Charkov (5):
->>       ARM: dts: vt8500: Add node address and reg in CPU nodes
->>       ARM: dts: vt8500: Move memory nodes to board dts and fix addr/size
->>       ARM: dts: vt8500: Use generic node name for the SD/MMC controller
->>       ARM: dts: vt8500: Fix the unit address of the VT8500 LCD controller
->>       ARM: dts: vt8500: Add L2 cache controller on WM8850/WM8950
+>> wdd->timeout is the soft timeout, which may be larger
+>> than the maximum hardware timeout. That means you'll need
+>> to use something like "min(wdd->timeout, U32_MAX / VT8500_TIMER_HZ)
+>> * VT8500_TIMER_HZ" as parameter to the timer_next call.
 > 
-> Krzysztof, could you please pick these up for 6.16?
+> Indeed. For some reason I thought the core splits up large user
+> requested timeout values into at most max_hw_heartbeat_ms long chunks
+> and feeds those to the driver via the timeout field, but now I see it
+> doesn't.
+> 
+> Do I get it right that the core worker will try and do its last ping
+> of the hardware at exactly max_hw_heartbeat_ms before the user
+> specified deadline?
+> 
 
-No, we are at RC7. I closed my tree two weeks ago and sent pull requests
-already way too late - a week ago.
+Where do you see that ? In the watchdog core:
 
-Best regards,
-Krzysztof
+         hw_heartbeat_ms = min_not_zero(timeout_ms, wdd->max_hw_heartbeat_ms);
+         keepalive_interval = ms_to_ktime(hw_heartbeat_ms / 2);
+
+>>> +     writel((u32)deadline, info->wdt_match);
+>>
+>> Can deadline overflow ?
+> 
+> Yes. The underlying hardware counter is a u32 value incrementing at
+> VT8500_TIMER_HZ and continuing past wraparound. This register sets the
+> next match value: once the hardware counter reaches the value of
+> (u32)deadline (which might be after the counter wrapping around iff
+> deadline > U32_MAX) the system resets. Perhaps it warrants a comment
+> in code.
+> 
+
+Ok. Yes, a comment would help.
+
+Thanks,
+Guenter
+
+> Thanks for your review, Guenter!
+> 
+> Best regards,
+> Alexey
+
 
