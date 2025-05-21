@@ -4,69 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4867C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EFB6C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 16:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRXCr3Uh0WGqe0ESiF0panNk2y+kY7VENjp5cg4gP4w=; b=Pn+bSt8JRsAN1W/Gqv5LfzPHYK
-	0qu2jb6B0nLublTY0N9kN9Ap3bVvqus5UHmjBqy4RScmSm2k0fR42r34F/NUy5DL2pfsaq/haQ96T
-	7ddz4pCBV6SRdEQs439X7CYkgSgNbjCBZ928lPu1OaRkJ4MePAWRIrkiGg8DKAL6VanM3tfuBCuu/
-	Fvy939COrJ2CIFkT28NbDuGkKrtQ4s0dYWN9f/X32U2JQqvJe86YM/JPt6X2TUrqcgieyWpTXz4sB
-	quZ44mzJSA2spYJ9kUJPvFf+1fOYTHhG7WHkEEkKwQr2x/nj9olDtCzNlJEyct6i1x+txnT+vnYZu
-	8/UOjHQQ==;
+	bh=GwwZ6bnUtHqzqaqkFrS85vk/pm3cAUfZ78V2GIixxoY=; b=q0IYRBCcDgEcx39NgdOHwX2sBH
+	u1I45Ebb/TtcTuO/dndj3Mw8asea+xKjUOWLMly04qg/qfPMW7ts6UDYuu94RjrVoPS6unBPtwLxv
+	0aPaooW+g3txE9u/LDEFvUZPj3S6C6zONjRTncUW8qwkaFYwjg9sWqJDp0wVu+BEzBjwEpKCDIk69
+	IXEIovmztSrIlPhQk7zOpFbSfKsrHmn+gM0k04NP+xPJKjGhm8gR+rn7yRSOX6qNNSqYhf76oZ8ZF
+	47Zyi9SO66gJplsNCX9veNauswTvtf1LXtSJwHUcVfSYXOK06xBbcmzeP/Y5LtD6R/hNFdhyo9op9
+	KokGRIEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHlpb-0000000GNsP-3Ok2;
-	Wed, 21 May 2025 15:58:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uHlrm-0000000GONY-2N8K;
+	Wed, 21 May 2025 16:00:26 +0000
+Received: from mail-vi1eur03on2061d.outbound.protection.outlook.com ([2a01:111:f403:260c::61d] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHlit-0000000GMAk-2rmT;
-	Wed, 21 May 2025 15:51:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 66F455C5A92;
-	Wed, 21 May 2025 15:48:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BEA8C4CEE4;
-	Wed, 21 May 2025 15:51:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747842674;
-	bh=CRXCr3Uh0WGqe0ESiF0panNk2y+kY7VENjp5cg4gP4w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qwFl0xCRRLwp400F5dLYDjwJ+pqmtK7xX0OYpjGEmOGfMFjQpssfmAD1ZqG5KAnHk
-	 x7M7uJxvrojw8em6NUUynuEM7zvFHbWDBqbhPEKG3B9SW4D5KlQuBxOzGvVQ+3ggpn
-	 Fvq+44Jct/cBYWcGV9VogKMCVXvoClVDGK5rzZUY19zvuxPFoVgsZwVZBkODYoC8mp
-	 K7AnU/6aYPxCHs5RsRogeDO2x/T7+aB2GYu1aAHm46Iv7zAZc634fwtAVaay+c5boN
-	 IEudIM0MuEi/lZ/JXXxH8I6qHwJjs4eSxUA7sAqI1+rK8Xf81BS+LcCTOeTbCWRQpM
-	 Ec/wr7XC8BBqg==
-Date: Wed, 21 May 2025 16:51:09 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v3 1/4] dt-bindings: net: airoha: Add EN7581
- memory-region property
-Message-ID: <20250521-tinwork-numeric-35f98627d3d2@spud>
-References: <20250521-airopha-desc-sram-v3-0-a6e9b085b4f0@kernel.org>
- <20250521-airopha-desc-sram-v3-1-a6e9b085b4f0@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="wjvgKzIIZLrkHJfJ"
+	id 1uHlo6-0000000GNTI-0NqC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 15:56:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m1lj2rqD0AzA20DbDAWJg+AlWLcsYmey0EVZjlUgDE5c+BOvVdVaG20ZHAxe/qxg1xmmOXMJAi+lW7SZ+TT2Zm6eBEqeag2UfrP8JOv6YZAg6MD0E4xAcpBJqHAIEvNk5vZN7WSYWrY+nbhB2O9uzES7V0kvn5IAp3MNq9vOr3i/L2eeK1hlvvJhODw1gJNOKl/s4VCYggC74hBg0JmbbGDD9jv2Jxx12e2jamEweEQdLTSC/lg/7R1I5b4dJrl+JgMHJiCIQ2+mUEJGplmmVN/9zk9igmpVgKdPJxc9DuGYIFgQpKkk6DFTwa6wMESjpZVJ0Sfm7q8k0qX3IxGNKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GwwZ6bnUtHqzqaqkFrS85vk/pm3cAUfZ78V2GIixxoY=;
+ b=xOP330fi2H1u8kQO2eeaLXAi7dF8ZL4o9xNccr/wtA/v5nPpgucH6S/n14l4bRwXAEt2sTTT+ed8m1WQoU+syqroCxqueMkH3/sCFrtq2SPrsEXomN0plOTkzmb8HF9Yt0xYi4p8b5mQFLkJ5v77UGi0YKl6pKxhyUUCIUt9wvBFICziJ1xELzq5pf74K8XVCD68JAvQrIOYEaGaoGdDfLVwKP5QG4TeoMa/fOMlr0wWu2hsqlBGNUhIgWaOMYvKpWullBlIkEeY/rLRJ8uWCR3PsyIhPH6ntN+RJShS7COiymPXTEDLnDm+IGSiJeBvfWJRj537bUlBtffX0kyTCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GwwZ6bnUtHqzqaqkFrS85vk/pm3cAUfZ78V2GIixxoY=;
+ b=PONmxb7fLLPCKynbevhQx9fqSN2s800GrcE3UKj40/1htZLSkyZBBDBJcT7OK+52h4UEZZIayQqlrEne9Z7l9z4OUfGyZniTG5U/NnFjWUY43dQ01HZYRt9yukS756Lum9kf4d4kUnhiQp7XBvusdSRFEyKDIDADaAxE5V4hUiiFL5r+WbR+NlhXMgjQDGahQM3mIAi/CLl4a/8yC6g+GFC8UW00lbyqGtXKwoED6d05lyka0VpAknLLkjqcOcKR+SxVfWIcl0jr/Wnv79T4PLLtSnG9AFKm2+L9faIW7kR5vQcwPuoc5iZ6Qr8+I+ZNRl5xkkJzDH2ailF+ObhsnQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS5PR04MB9875.eurprd04.prod.outlook.com (2603:10a6:20b:652::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.29; Wed, 21 May
+ 2025 15:56:34 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 21 May 2025
+ 15:56:33 +0000
+Date: Wed, 21 May 2025 11:56:25 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: ziniu.wang_1@nxp.com
+Cc: haibo.chen@nxp.com, adrian.hunter@intel.com, ulf.hansson@linaro.org,
+	linux-mmc@vger.kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	imx@lists.linux.dev, s32@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mmc: sdhci-esdhc-imx: do not change pinctrl state in
+ suspend if function irq is wakeup source
+Message-ID: <aC33qfRFEvNbwSRn@lizhi-Precision-Tower-5810>
+References: <20250521033134.112671-1-ziniu.wang_1@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250521-airopha-desc-sram-v3-1-a6e9b085b4f0@kernel.org>
+In-Reply-To: <20250521033134.112671-1-ziniu.wang_1@nxp.com>
+X-ClientProxiedBy: SJ0PR03CA0294.namprd03.prod.outlook.com
+ (2603:10b6:a03:39e::29) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS5PR04MB9875:EE_
+X-MS-Office365-Filtering-Correlation-Id: a550866d-5628-46bb-5dad-08dd98800f50
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|52116014|1800799024|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+Fbml1+IKV/iyN/DZoOi4auWRFkYK68TmfPDxqyNyQV8sMLsm/OvMter+utG?=
+ =?us-ascii?Q?cLut/fWwIInawy94qCqTxPq2IjA5HeoZrO5Gw8zshWR6nDsoTyWv1qbxUioZ?=
+ =?us-ascii?Q?kmTz+UXaeqw1SSDKWBK5+X7Q6QdgUNdirSewYFOaXMlZ1HJIW6S9enSj6EuC?=
+ =?us-ascii?Q?K8tRCvSNwFr+EtZIP4MqWcnOecTNBudHjYRSwHpxPO3rURdhbbFQgfBSQGeq?=
+ =?us-ascii?Q?pPD5q9RuFaHaz8TR1+0hY2vx3MtI8Iv8NzYDhWDrAJlRUM/9dogtT92HjZIM?=
+ =?us-ascii?Q?PTZc+ZzK21vpRL71EEdDV/sgU+tOfFdM2bCDFoSbS+sT7NiWtonQgnRrIaBq?=
+ =?us-ascii?Q?4PYc2p78H2QoJPZpbtgVA4hRnLRUagT4U8uYT9ZSEPGAkSoElY8AiPuzlhmf?=
+ =?us-ascii?Q?BPiV/JQvi3zvTZvfDalogEpr4u7uT6YIR4onTq/4Esmi+gWyrJW8AZd8JBUj?=
+ =?us-ascii?Q?hgYcwvfNHnHI08ZFfxKnIW8sChs4FXMfhrn8uOXs1raWchKQurUyLJm+jEKl?=
+ =?us-ascii?Q?FRxB/9P0A84Nn22cG3Pmt5sSj8QSyZ/Bb4bn09qfkFU79Mx8dU8G/8ncCcsE?=
+ =?us-ascii?Q?DIy0NPjF4xZ2azsiyfdXluNCYnnHSOgCvtDPJqyteau3pcWVfrB/GUIWtuz3?=
+ =?us-ascii?Q?+HPaazQiK1u3WjOFl45nGiuu5+afHTNSrHtSyilPfHBBtttqeKUqJRs8C/Wt?=
+ =?us-ascii?Q?a3e2TUq370hnoKF5TOPwzTds7u38dQAv4ojtC1LqCCXKuP4rSJMm32ywHUY6?=
+ =?us-ascii?Q?2rx0SOpUR69+hElbcmqQpKSvou58o9VXp5wVsgSIoqDKarfODAmqbejF/1XM?=
+ =?us-ascii?Q?+3F2ydhIVZGCTBHvqdiGGhOG0saqVuNcjZQU3ubTfMiiNH+NlQpVqw3OdCDK?=
+ =?us-ascii?Q?QDxsPx8HaHz63fyw1r2kMk9LRn/XYSS+1/So9IGvQmJT1TAcxwoyV4nNFMH1?=
+ =?us-ascii?Q?+QXVVhQ19DYpanunclwxQLlRp4Do5+MOQW219bh05QfVMsmnJuBBUGY0CB7A?=
+ =?us-ascii?Q?Nn/7s9XQacajNTiMLPWUFhR1A7J3qJZZeE0dIBc0HHbzQm5Ixqy2up8LkiNp?=
+ =?us-ascii?Q?9OPT3apF2Nt7049nnH2IBlPT0E2S+Faz8UfuPOl2910Ll53v5H0Pg1boKy5A?=
+ =?us-ascii?Q?WWTglYNhsoHrkEpDuYTnFZkhBaq6KweUxATRS5tz6qVpRyZ5qRKfWgKSqcpW?=
+ =?us-ascii?Q?CsydBYjYrRTPO/enwqFOrj5B8M6uwNwZylp4m0A9dm/l4iJ+Sf8fnoZ2V16Q?=
+ =?us-ascii?Q?XNQm+NE7CgUCxtHdORyCujwMc08+bZme4PsYH33hMDEHNlsGSxup5hBrYa5A?=
+ =?us-ascii?Q?fIBtkZkO75ln7Lcrt20BCVMLQhY220zcm6+KhKs3NPORMDot/GyyaE17r/M3?=
+ =?us-ascii?Q?+oZ6WM6kPGbhUQuKgK+YlgecjVLBQ4LM5U24Gv9LauvDDMGZgHzw9Z8XvzG/?=
+ =?us-ascii?Q?Ieq5wWtPRetsN4EBdpBQwd/mvEbcDtIDa/jCPH4VlZYXo+zg1tU7rA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(52116014)(1800799024)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lMX8hT05IvKycgE6pjcTmefXX7q03hrfCJ9ZiCme/n9td8Oq5mTMYZVhD4K7?=
+ =?us-ascii?Q?nzLQThC0fkIYJpU8txXYaT2MFyfsqsWenDx3pE7k7rTLR4JlgaUWjXm6WbJ/?=
+ =?us-ascii?Q?ey8DTamOT9VjFyoLeUuqfVfOi9c5u5ndSkdhhF6lyxCVNSAF/hayegJfMAAp?=
+ =?us-ascii?Q?jjbzP90f+QKgfYtf05vpBHgPUg2B0rw5mekxDBA1xo82YdpI78CHCcWb+tHL?=
+ =?us-ascii?Q?n6JxX+x40drsd+3UqKrAMRA+6HHoZLsfKao2LARMWoQGyFwAlz6zPpKlmAz5?=
+ =?us-ascii?Q?S4nfRkx3YqzjRdjdnyj1BbW0t4YxgeLXkKpObqJR8tiuRFWyrUM36SLP5HQB?=
+ =?us-ascii?Q?uCX0RqE/d675ifBUB2QwOdMo4OCjhglfWP7EnwTQc+ABK7duJkmdejOqQMnb?=
+ =?us-ascii?Q?RjfHwyhTz814XHhGKYUp7Amw71xgMSeeQcO7eR7QCwG9eF2uZAqB5vO2ddO9?=
+ =?us-ascii?Q?2mlKt0WULZmSKIJ45Fe4O2XuWebkt7yscwREonFSTdL2Vnor1vZSwhr7TN8U?=
+ =?us-ascii?Q?ys/8s09/op6hGfDrDACeGX//jMxaGlEzQJn4Xj4pTlw5y7Wh/3l6qbpgRJif?=
+ =?us-ascii?Q?HJ+RYlJHdTW2sdrfysjhmWvWpq7mSuXucCxWI+r4zhmngdwygQdRjt7QxQzC?=
+ =?us-ascii?Q?REUOk2jymNAjeDxpa1s/Dj3FX4e9cs8w7YEOpRyuyUTCH/dt47IV/vmWL4Zl?=
+ =?us-ascii?Q?JfH5X4yZOhdCIw+TO5oH8gmXS1c7ZX30RyzrYgr3ah2Hx1gPKxEyxOXW27Ky?=
+ =?us-ascii?Q?vFRe4h2BLEGH5mequ0G8SYiCHz3RZidKXDQUFi0sq+lnhWplincjZziucT9K?=
+ =?us-ascii?Q?k+voAkSM9vbhyHGN2mbKIGF/6anLHRngrLPieO/F2pwHQYTGY5SYkdn/XEa3?=
+ =?us-ascii?Q?oQWIK7l0q866EW8ywgpHfKJ/hQnlJ/cMwOkKTlcBwWq8AwndWMQJ1cVAsHbr?=
+ =?us-ascii?Q?HatI1f1UezcqQ+JsZtFsSMrU/GxURyG3T4/QZOVRm4M+M7SVa8lwMw62lciI?=
+ =?us-ascii?Q?R7yqeO8iSfglBm7fefx59bUlk3UPnxu1n/1vu8rzYBnr8t6lgmmaOX1/BShl?=
+ =?us-ascii?Q?zGj6ns4Wp+x4y6NPmx8uJPR8X1gpde3SsBUlltT3PnC7SKCFcUHWWqAEeMtZ?=
+ =?us-ascii?Q?GsSNjUcUoWP/ldADBeqBXANCUqiIEHY3hJOxOCTHJWeK1cCno9+lMWoxZwdO?=
+ =?us-ascii?Q?O0sw44ewGl9SYoHI/8gcrIOpWKOuPTKjRK+X5/9IIg8Ri50ltSksq2NXL2l+?=
+ =?us-ascii?Q?ZOEFPoFUZ9jWgRyUc+cqXmBfvXmz9Hjly5EkGUKp5u7UPhyUJ/1hkm0BJzcK?=
+ =?us-ascii?Q?ZZ4owHhltLe/EHLmwwDpembQN5YjOYFZsLM8B9hTWzhbDrkXAX8FD1H9DgoP?=
+ =?us-ascii?Q?wfEDsI1oOy02QT3+9nBrWC1JPQmVJ9iDDQ2+e+3swze6pINPolzpYcSA7pVC?=
+ =?us-ascii?Q?pBfbWvcDn+pJrtZeoHDjsc/ZLKQkX2TSzCJE8tpK1dnKQ2eOcKZ42PdMrO/T?=
+ =?us-ascii?Q?w3xcfxm2Ba/Yc5YQp6i3tNFs4pLP63D8DUTlDXS/6Kl3jFOL70tUTPWB2cVC?=
+ =?us-ascii?Q?ZQmXaGQj4sgTWkggQYA=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a550866d-5628-46bb-5dad-08dd98800f50
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2025 15:56:33.8784
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RhAxBntl/UdmRFoW2RRc6yTmL/SLK5++eN5dsMBUHBib/PAW3d8E8vYIeD2zAJuSZbBhA4RKSQlhWxpWZP97rQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9875
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_085115_764839_90F55FE5 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20250521_085638_143044_A846EA94 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,31 +159,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 21, 2025 at 11:31:34AM +0800, ziniu.wang_1@nxp.com wrote:
+> From: Haibo Chen <haibo.chen@nxp.com>
+>
+> pinctrl sleep state may config the pin mux to certain function to save
+> power in system PM. But if usdhc is setting as wakeup source, like
+> the card interrupt(SDIO) or card insert interrupt, it depends on the
+> related pin mux configured to usdhc function pad.
+> e.g. To support card interrupt(SDIO interrupt), it need the pin is
+> config as usdhc DATA[1] function pin.
 
---wjvgKzIIZLrkHJfJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I think it should be dts settings wrong. Does one PAD set as function
+impact power much?
 
-On Wed, May 21, 2025 at 09:16:36AM +0200, Lorenzo Bianconi wrote:
-> Introduce memory-region and memory-region-names properties for the
-> ethernet node available on EN7581 SoC in order to reserve system memory
-> for hw forwarding buffers queue used by the QDMA modules.
->=20
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Frank
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---wjvgKzIIZLrkHJfJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaC32bQAKCRB4tDGHoIJi
-0jfDAQDU0/mGf2mXREMZJiO9Z2iGK1V1+C+Zk9qaLvyd/7jKJAD/bl9C4D9zQtX4
-K3gqNtnGI+N3oAYNQE/13WP9DV/89gM=
-=3S3F
------END PGP SIGNATURE-----
-
---wjvgKzIIZLrkHJfJ--
+>
+> Find the issue on imx93-11x11-evk board, SDIO WiFi in band interrupt
+> can't wakeup system because the pinctrl sleep state config the DATA[1]
+> pin as GPIO function.
+>
+> For this case, do not change the pinctrl state in suspend.
+>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+> ---
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 16 ++++++++++++----
+>  1 file changed, 12 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index 5f1c45b2bd5d..f206b562a6e3 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -2057,12 +2057,20 @@ static int sdhci_esdhc_suspend(struct device *dev)
+>  		ret = sdhci_enable_irq_wakeups(host);
+>  		if (!ret)
+>  			dev_warn(dev, "Failed to enable irq wakeup\n");
+> +	} else {
+> +		/*
+> +		 * For the device which works as wakeup source, no need
+> +		 * to change the pinctrl to sleep state.
+> +		 * e.g. For SDIO device, the interrupt share with data pin,
+> +		 * but the pinctrl sleep state may config the data pin to
+> +		 * other function like GPIO function to save power in PM,
+> +		 * which finally block the SDIO wakeup function.
+> +		 */
+> +		ret = pinctrl_pm_select_sleep_state(dev);
+> +		if (ret)
+> +			return ret;
+>  	}
+>
+> -	ret = pinctrl_pm_select_sleep_state(dev);
+> -	if (ret)
+> -		return ret;
+> -
+>  	ret = mmc_gpio_set_cd_wake(host->mmc, true);
+>
+>  	/*
+> --
+> 2.34.1
+>
 
