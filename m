@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 338FAC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 07:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B755DC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 07:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hpDVPw1NZAHnYMwuhbAJWvIdRrYoJ8/yloUGNqpjYAg=; b=yP5QUf1L0plv6+/TGwmVUVUn4e
-	0pdSbd5+pQ+QjHgA0MfC+OM4ZnheITOHqmv1o7IXjB7RWpafmTPwe4Xa9jvJVoeKJ2H4fACrurUCE
-	DNYlOwYXdA+geKoIFD/MRy/7l5eXmGz/Hy8Px/Ju3l6I9/kzI8cflpCO1hohck7AHApDdOz+eWf7a
-	M31twQSov8+Jzrjzyzk2wVk40xO/H+NMdjVAhWVUsHMlD//9D8cmD1MjoHZYYMZjgakUhRlL6wyA2
-	d8ZZMUr7U4MwDgutWbUUqBSFAR2fKrxreIcVwr7tH/w9vz9g4L+Ot45w7hJQj4/ZKnRGYK3FGD5E/
-	17UwQWDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=988AFrOnaEWtXTR8OvIuZyU6+5cW5xOl5qRWu9W1VOg=; b=pmet1zYEbDQRxlBOnliIOfJTCF
+	eJyJ6awrBnmsTbakIxZgmk3XkKTdQgKE2EzaY7VRmx47ABbfoBIlAi0T0JbCLChldFQPIZKPYHm3m
+	VQz/TFOa1F3Bhl/IomfBBGNpfLD677ye+rsQj6rumnQa7x0pRUbNjLSmWTO8A38Hl65am3WJUUhjG
+	dx8Ioo36HHWWqRd3Rc8BYM6Ve+7ICKw53WFrtpPm5smrDQlKnZexzGSS8ffgMGTEaO+kSNSbEShKj
+	1gUXW7H0aQpXLYtfx2sSX6v4dnv7IFJX61GRJgC+GwlR95Li+n2HYPLvyd+Hf36qjjTmsaOqv0o8y
+	0IbmceHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHdWO-0000000F0ui-0psw;
-	Wed, 21 May 2025 07:05:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uHdYP-0000000F1Gr-2jtk;
+	Wed, 21 May 2025 07:07:53 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHdTW-0000000F0L4-2Egt;
-	Wed, 21 May 2025 07:02:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3A22629D5;
-	Wed, 21 May 2025 07:02:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE7A7C4CEE4;
-	Wed, 21 May 2025 07:02:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747810969;
-	bh=rJJFudt4I3SK/FsUgWrU4RNF8V2zQbKq65qLzlHHtm0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ckmoVOQJAGhQ8RMwu7LGRHDrCdz1GrlTq7wOzvcIhVeLgKay8aWoyL3zOVUW3kMTn
-	 AwfdR3bMdRPJU2ET5Zv35oJ4S0+zo3jC2l1cKYZ6FJ4Zg54FYZ9JHed0VLFIHQJ6Ep
-	 jF4REK8QkUWaAbii5lK7sVFNXbU99il8vftx/IRKGOOS13Psb2VsbDXriYc2E2fcVt
-	 wZUDrWohnrLd5rJfgnDXh9A07yVFMpe5QvR9DqzbxbJyOs+Q/1X5HfQ535jmyNKw1w
-	 zADXuuYXI6rVDvvR8rwd70tH6HVRF6S3tNc1P5otdpD4DBLv9uiAc34zr5HHdhOGTU
-	 LaiBf0yTaSPbA==
-Date: Wed, 21 May 2025 09:02:46 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Jeff Hugo <jeff.hugo@oss.qualcomm.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-doc@vger.kernel.org, linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-Subject: Re: [PATCH v5 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
-Message-ID: <20250521-able-heretic-starfish-ff51c4@kuoka>
-References: <20250520-6-10-rocket-v5-0-18c9ca0fcb3c@tomeuvizoso.net>
- <20250520-6-10-rocket-v5-1-18c9ca0fcb3c@tomeuvizoso.net>
+	id 1uHdUl-0000000F0VM-1G3F;
+	Wed, 21 May 2025 07:04:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1747811047; x=1779347047;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=C2oODVLtH9/VdmDMbvX4+EZYiZzWYKNovQyJnAFylQk=;
+  b=qAnqaFDdvOsnKoHnswS17UgmcfzDMoyylGo4gB7fbCBUpWMd52BNX7Uz
+   fTTTGP/vypQEfrM9WjKrobZ8+zIXt/mYBPkxE/SjjpdV9f8LUFPaW6hE2
+   HDE2YPhlJD/t5twZOay+3ASw0rJxvs4CtaecrZT/zTt76/nHxr7Ug9gtG
+   Ei0a06FSoBjPfSPS9WNdskMbmjmY1DajkSO3IVhHUCzOz+SnGbGKwKuuq
+   +5dGtZDzz30S/Zoud0hwt5M8BPjk2OmKruHvyoxR+SLnXdHOaL4AJ25xB
+   dc12BR1PEA5WV1rkWzPiAYYiEkVfCqp/ujMHTebD2vABOYRY5xhcZHvEc
+   w==;
+X-CSE-ConnectionGUID: Pj+r2YzxQHq6YitjaiF/ww==
+X-CSE-MsgGUID: EEPYZbNBR/yRNlAIfM5lKQ==
+X-IronPort-AV: E=Sophos;i="6.15,303,1739862000"; 
+   d="scan'208";a="46698916"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 21 May 2025 00:04:06 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Wed, 21 May 2025 00:03:55 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Wed, 21 May 2025 00:03:48 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <tudor.ambarus@linaro.org>,
+	<pratyush@kernel.org>, <mwalle@kernel.org>, <miquel.raynal@bootlin.com>,
+	<richard@nod.at>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mtd@lists.infradead.org>
+CC: Manikandan Muralidharan <manikandan.m@microchip.com>
+Subject: [PATCH v3 0/3] Read MAC Address from SST vendor specific SFDP region
+Date: Wed, 21 May 2025 12:33:33 +0530
+Message-ID: <20250521070336.402202-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250520-6-10-rocket-v5-1-18c9ca0fcb3c@tomeuvizoso.net>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250521_000407_548409_BD8C1C25 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +86,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 12:26:54PM GMT, Tomeu Vizoso wrote:
-> Add the bindings for the Neural Processing Unit IP from Rockchip.
-> 
-> v2:
-> - Adapt to new node structure (one node per core, each with its own
->   IOMMU)
-> - Several misc. fixes from Sebastian Reichel
-> 
-> v3:
-> - Split register block in its constituent subblocks, and only require
->   the ones that the kernel would ever use (Nicolas Frattaroli)
-> - Group supplies (Rob Herring)
-> - Explain the way in which the top core is special (Rob Herring)
-> 
-> v4:
-> - Change required node name to npu@ (Rob Herring and Krzysztof Kozlowski)
-> - Remove unneeded items: (Krzysztof Kozlowski)
-> - Fix use of minItems/maxItems (Krzysztof Kozlowski)
-> - Add reg-names to list of required properties (Krzysztof Kozlowski)
-> - Fix example (Krzysztof Kozlowski)
-> 
-> v5:
-> - Rename file to rockchip,rk3588-rknn-core.yaml (Krzysztof Kozlowski)
-> - Streamline compatible property (Krzysztof Kozlowski)
-> 
+This patch series adds support to parse the SFDP SST vendor map, read and
+store the EUI-48 and EUI-64 Address (if its programmed) using the
+resource-managed devm_kcalloc which will be freed on driver detach.
+Register EUI addresses into NVMEM framework for the net drivers to access
+them using nvmem properties.
+This change ensures consistent and reliable MAC address retrieval
+from QSPI benefiting boards like the sama5d27_wlsom1, sama5d29 curiosity
+and sam9x75 curiosity.
 
-This is a big patchset, so please slow down and do not send it every day
-but allow people to actually review the version you post.
+--------
+changes in v3:
+- 2/3 - add support to update the QSPI partition into 'fixed-partition'
+	binding in sama5d27_wlsom1
+- 3/3 - add nvmem-layout in qspi node for EUI48 MAC Address and nvmem cell
+	properties for macb node in sama5d27_wlsom1
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+changes in v2:
+- 1/3 - parse the SST vendor table, read and store the addresses
+	into a resource - managed space. Register the addresses
+	into NVMEM framework
+- 2/3 - add support to update the QSPI partition into 'fixed-partition'
+	binding
+--------
 
-Best regards,
-Krzysztof
+Manikandan Muralidharan (3):
+  mtd: spi-nor: sfdp: parse SFDP SST vendor map and register EUI
+    addresses into NVMEM framework
+  ARM: dts: microchip: sama5d27_wlsom1: update the QSPI partitions using
+    "fixed-partition" binding
+  ARM: dts: microchip: sama5d27_wlsom1: Add nvmem-layout in QSPI for
+    EUI48 MAC Address
+
+ .../dts/microchip/at91-sama5d27_wlsom1.dtsi   |  65 ++++---
+ drivers/mtd/spi-nor/sfdp.c                    | 161 ++++++++++++++++++
+ include/linux/mtd/spi-nor.h                   |   7 +
+ 3 files changed, 209 insertions(+), 24 deletions(-)
+
+-- 
+2.25.1
 
 
