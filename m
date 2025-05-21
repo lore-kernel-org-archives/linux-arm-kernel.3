@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 218E5C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E6DC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KOoH+QcbNIcFt9a+edbvuTeUreK6auzBcTQsLb2atU=; b=1ixEJ9LM5iehW4gyrUiyF4yCWO
-	+nXegq6bZ1cCkrzBmfn0bgVe664l0WnBT4zyprw58yuybfKEv5uazTXUbq8EsndUwDK5QmOearJGN
-	+wZNAx+6V1MesjWvkYb3IbTEDTTbqJXvJLHLznzqGdaWzGio9Kb3tYQnGZ0lAh5gDrNa6r55YQpim
-	s94Qq0YBgOS1J2ZPzzTdcEvHMbcwUNFwVSbfh4VbG70MHM4lfnmo0Pxejd6RZbk3VNQCkTEaKR7Eo
-	r//Nc7pjTETfx9093/iz7RmZV6Ezc1zwUixfW2UPfSWKjFEBs5lTGv3JvQfoQ6N5GUX+nAM06rAYl
-	cE0OB5Fw==;
+	bh=qvXnpzfFDmYTCvRMWCiccKER6AnXrDuq79CLzj26e9w=; b=JJQWOuyzKcBoHcd7rdQzAz89Er
+	v7hh+Tl2sGQLdfpSB8PclPMN2f8/xoJ+AuqclyYox8XyLce4eDbEAC7kRTQ4XPPtR+6LNEW/uDTDb
+	kkTY2QSXUNlYANOi6aFRDtIIETj3agWRPTMtzRil+pa38tmeDRI84NYdbyR5vd8XM6BHLP4GAu7uE
+	2fk3H3UgiXRi2+Rtug/nQ1WPJAlJnSgahblZ34pGK6gpgRU3wbCtqzPEkpqkIgXPy6sjHDBTIEBXw
+	ggPItCIJepz5g6gaJaawmaMtEcs9g2LBtOvuA1LgB5Zrgvbh4RKo86mWPJEit8TctBrV8imWWL3mz
+	p/PKpBHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhvB-0000000Ffsu-1lci;
-	Wed, 21 May 2025 11:47:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uHhxC-0000000Fg5f-0oBh;
+	Wed, 21 May 2025 11:49:46 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhqH-0000000Fepy-3mbu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 21 May 2025 11:42:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+KOoH+QcbNIcFt9a+edbvuTeUreK6auzBcTQsLb2atU=; b=J+ZA1LkNIZvB2wt5zV0IUe5eaO
-	GhuaqpVSmOn9urMlfTUl+99lOTpOO+f/pKPDMPFnU/NqePPiHuAxDYGupA+8qh8qXhRmbs6tX5hE8
-	u6dkqBqpoh9TKIkQUILB0b5bVr+1imyLQj2jeTKmC7U4WmTqUpYnlhopptqDp7qC8cUMr6p90Zm69
-	nettF2xLWVUEiEI+dsK0hKGlo+GYUn+gXM7kr0szlrZOAI+qdeOvSb5knGoIDiA2s70Jaf8XMvICI
-	XanMgNn2dhRd352C3mtDH/+o4D/POcJxcolPn7egKhWx163FR8YjlkoLPFs9VpXbLQOF2bZ3QVm88
-	+pS+1Drg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uHhqE-00000000vno-2rKA;
-	Wed, 21 May 2025 11:42:34 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id C9BC1300348; Wed, 21 May 2025 13:42:33 +0200 (CEST)
-Date: Wed, 21 May 2025 13:42:33 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>, mhklinux@outlook.com
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>, kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, K Prateek Nayak <kprateek.nayak@amd.com>,
-	David Matlack <dmatlack@google.com>,
-	Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-Subject: Re: [PATCH v2 08/12] sched/wait: Drop WQ_FLAG_EXCLUSIVE from
- add_wait_queue_priority()
-Message-ID: <20250521114233.GC39944@noisy.programming.kicks-ass.net>
-References: <20250519185514.2678456-1-seanjc@google.com>
- <20250519185514.2678456-9-seanjc@google.com>
- <20250520191816.GJ16434@noisy.programming.kicks-ass.net>
- <aC0AEJX0FIMl9lDy@google.com>
+	id 1uHhqr-0000000FevP-3m7M;
+	Wed, 21 May 2025 11:43:15 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6015f8d4b7dso2722917a12.1;
+        Wed, 21 May 2025 04:43:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747827792; x=1748432592; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=qvXnpzfFDmYTCvRMWCiccKER6AnXrDuq79CLzj26e9w=;
+        b=AEhIG03UP7Th0szzn/Kqzpsq699JlDXkQinHSmTuEK4nfXWkDAChRngqmmI8qopJmz
+         z00c86VqaZrgUipUlAJIw9iGqpa8wvqr2dHVN8ESW/3GBSSy7t3tSUlPc0CAyb1E/WLc
+         4BLr3Md5Ea7KTyqVS0FYBxw22WZTE322Lmt5/+azKo/pF7nqFsK+nMibdyqolnU8dYTW
+         UM5BJevSOuy0Kzxb6yibFSy9pYKFiqyGE8rqppHGlqgKm1KNLagiipZRu+x8dxgJKv8n
+         qhw2km47Bx9KtdeINVdEkDWCGJctM1rLYWjRs6khst1lTtyMNrhcSfizK8GCdpef6zrC
+         Hw7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747827792; x=1748432592;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qvXnpzfFDmYTCvRMWCiccKER6AnXrDuq79CLzj26e9w=;
+        b=pyu9PLLtkTSx4s7DkbDd3/qd63ARGmsyX+RI8Voo4Nc3E0rBLBzhc2daWEacNkMs5e
+         ok2CTphsNCCWwLTKgEZ4qXwU7OXGIQTaY0wAFn/3N3WeFJAo+3ecaPNnrpQA0GpN5v9e
+         Z72/kgpRbLyD/ff8iZ0Rb4ILYaHOhRNQctPJeXyW4oac7PuNiZd2TQEzBvoXBL7N36Tu
+         O6ESUnSJC5xTnu8HmhD9Io2EeqAPGhuXe1uJPGEEXuAs++P3AkqRmpCOdqb9571TnqS8
+         r7h/iAwbGsPmRa6zDhUO4nOSecT1Ui85j/07Vzu76YwmsPPBdD4+3a/DV+8lV4r+nU88
+         g2mw==
+X-Forwarded-Encrypted: i=1; AJvYcCUvwGmdxg4FYJSwwuQBgb0GDke4QJKzKLhXi7E2dQOrjqfWfMs3I0nkSGNsXtu43/JWj4l0p1myMGQmZ+PrT3nBUg==@lists.infradead.org, AJvYcCW7HYyT1VzwF2xddNV38JK9ezgPPPM1vJUbmILBwiDhEyRZC5vgLclPQb8L8NpEYyyDgeWNBEPkz8Tdoi1l@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWoe44FK/sWLQ/LlyY7jXTFn7WvidBbLiCNpNQHqnQ0d8Oe2O0
+	nOB7pdBWuH7ZATp+bNC5q4d9OqeDfdOpgFtSEZxhfRFEnFwyNMPtWWTuuFqCPUVHNOJf75COIM0
+	/NqnPGr1kGpozusAOyuNpQ9sbyn2jYZ4=
+X-Gm-Gg: ASbGncuPydo/1w3ww3KvrhBmqrNidqcS6YQZHK0lpPTgnujz2YOpWCdn1ZrVoKU8387
+	QSPHNRMFGgvnm1C2CMYcyBT5u6EqJKO0NFGdRm1KHqoe0PCfnZz2n0keEVkxWgZWjQ69IazrUmm
+	w1eSBlXk4LqVEQslycmhE0GGi0Lr3KvLI=
+X-Google-Smtp-Source: AGHT+IFDzNtI/CaK3q6Z0HD2sju7OyWLGycbvanWFVrufRUMz+SMpJuYify2HixyuAXGL6NwA/JUeCrr/7SUp+Trlwg=
+X-Received: by 2002:a17:907:9344:b0:ad5:23e3:48b6 with SMTP id
+ a640c23a62f3a-ad52d5ba623mr1989900566b.45.1747827791526; Wed, 21 May 2025
+ 04:43:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aC0AEJX0FIMl9lDy@google.com>
+References: <20250521074535.16488-1-linux.amoon@gmail.com>
+In-Reply-To: <20250521074535.16488-1-linux.amoon@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Wed, 21 May 2025 17:12:54 +0530
+X-Gm-Features: AX0GCFuRNEz_g2JELBFe7G_6vR4egqHEh4dmZX-9WFiiMW0PYC4vW84aMd81Mo8
+Message-ID: <CANAwSgTk3R6SMqsNcT7c2AVzQRAdk8Z2Rs0bK3VCsgivR6nLmA@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: amlogic: Update USB hub power and reset properties
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/Amlogic Meson SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Amlogic Meson SoC support" <linux-amlogic@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Cc: Wayne Schroeder <raz@chewies.net>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250521_044313_941712_A6C54388 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +98,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 03:20:00PM -0700, Sean Christopherson wrote:
-> On Tue, May 20, 2025, Peter Zijlstra wrote:
-> > On Mon, May 19, 2025 at 11:55:10AM -0700, Sean Christopherson wrote:
-> > > Drop the setting of WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() to
-> > > differentiate it from add_wait_queue_priority_exclusive().  The one and
-> > > only user add_wait_queue_priority(), Xen privcmd's irqfd_wakeup(),
-> > > unconditionally returns '0', i.e. doesn't actually operate in exclusive
-> > > mode.
-> > 
-> > I find:
-> > 
-> > drivers/hv/mshv_eventfd.c:      add_wait_queue_priority(wqh, &irqfd->irqfd_wait);
-> > drivers/xen/privcmd.c:  add_wait_queue_priority(wqh, &kirqfd->wait);
-> > 
-> > I mean, it might still be true and all, but hyperv seems to also use
-> > this now.
-> 
-> Oh FFS, another "heavily inspired by KVM".  I should have bribed someone to take
-> this series when I had the chance.  *sigh*
-> 
-> Unfortunately, the Hyper-V code does actually operate in exclusive mode.  Unless
-> you have a better idea, I'll tweak the series to:
-> 
->   1. Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() and have the callers
->      explicitly set the flag, 
->   2. Add a patch to drop WQ_FLAG_EXCLUSIVE from Xen privcmd entirely.
->   3. Introduce add_wait_queue_priority_exclusive() and switch KVM to use it.
-> 
-> That has an added bonus of introducing the Xen change in a dedicated patch, i.e.
-> is probably a sequence anyways.
-> 
-> Alternatively, I could rewrite the Hyper-V code a la the KVM changes, but I'm not
-> feeling very charitable at the moment (the complete lack of documentation for
-> their ioctl doesn't help).
+Hi Neil,
 
-Works for me. Michael is typically very responsive wrt hyperv (but you
-probably know this).
+On Wed, 21 May 2025 at 13:15, Anand Moon <linux.amoon@gmail.com> wrote:
+>
+> Add missing reset-gpios property to the USB 2.0 hub node to
+> ensure proper reset handling. Also update the vdd-supply for
+> both USB 2.0 and 3.0 hubs to use the shared hub_5v regulator
+> for consistent power management. Remove usb2_phy1 phy-supply
+> since now it's managed by the hub reset control.
+>
+> Fixes: ccff36934137 ("arm64: dts: amlogic: Used onboard usb hub reset on odroid n2")
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+> v2: remove usb2_phy1 phy-supply since now it's managed by
+> the hub reset control.
+> ---
+>  arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi | 10 +++-------
+>  1 file changed, 3 insertions(+), 7 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
+> index 3bca8023638d..d46b6aaef8fa 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
+> @@ -42,7 +42,8 @@ hub_2_0: hub@1 {
+>                         compatible = "usb5e3,610";
+>                         reg = <1>;
+>                         peer-hub = <&hub_3_0>;
+> -                       vdd-supply = <&usb_pwr_en>;
+> +                       reset-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_LOW>;
+> +                       vdd-supply = <&hub_5v>;
+>                 };
+>
+>                 /* 3.0 hub on port 4 */
+> @@ -51,7 +52,7 @@ hub_3_0: hub@2 {
+>                         reg = <2>;
+>                         peer-hub = <&hub_2_0>;
+>                         reset-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_LOW>;
+> -                       vdd-supply = <&vcc_5v>;
+> +                       vdd-supply = <&hub_5v>;
+>                 };
+>         };
+>
+> @@ -311,8 +312,3 @@ &toacodec {
+>  &usb {
+>         vbus-supply = <&usb_pwr_en>;
+>  };
+> -
+> -&usb2_phy1 {
+> -       /* Enable the hub which is connected to this port */
+> -       phy-supply = <&hub_5v>;
+> -};
+
+This is breaking the bring-up of dwc2 in u-boot
+so could you consider V1 of the patch?
+
+Thanks
+-Anand
+>
+> base-commit: 4a95bc121ccdaee04c4d72f84dbfa6b880a514b6
+> --
+> 2.49.0
+>
 
