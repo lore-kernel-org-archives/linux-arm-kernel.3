@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E41C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58931C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2+upy2Ym1DVgGRxAj3zUrzgfpTZD4jg3MX66HQnryw=; b=4mM9jnL2xDodMphCc5WKLmCP4A
-	bMks0s4VoWwR+R9qwHTsM991c3/DAsxfOoZuAAQpq45+wlzYjE0aVJ/2hhzX0hCE2yQoIQn0vRpJc
-	g9/JdR0mrw8rIS1QsuIJe3WkiV4vLtNsxSfiTfu5jRzASCjigDbUxrBu+gzR8rPifBqjR/UzrfCbc
-	Pn0DJPpUgKeGMpPWTcoKKyUWSlNj9j9hwOvZBZkhCFumHmTegkxgggkNRdnpQ6RdKiH2jJxut/XhT
-	P5OdRQxru8i1xthokENa8EXz2Fs+XjrA8fKdiZqHt/5Taz/dXCPaYBOWhfPIehwisg9zL/muLX2go
-	pknQvfcw==;
+	bh=qnXyfi4eFUm3Dhw6TUTy/FtA5tseEgd/6lkBd9XA0SA=; b=YviuanQrfS/3KfJGl0npQZovk1
+	gPWxMzTxEw9wM6GR3zEMS00zE11C2ZfReoldTnxBe0pY5c/YBcWa+bVkj5CQ91uQANM6nB881qX+0
+	/NE/b8o4Qr8u16PcYMGGCxqXsm+VyTvfvEzyTiyX4m7sHPijt6F6CiBKqLUaBRGogS7YLOfulnMI+
+	/gr3HdSwsf3FrFwak1d1D4xu1LjBvHwBVwcVXBgf4cDOBfclbsYZLbh3l6bZ59GDowacPBaPtWTfJ
+	yOQXR6t2Rol+6iqhNQ+n0NGfOi1YiTPWkZ/5+xXI0Jy+A5xcBLh0u1Y1TsCDL3El6TstQr5b+avoT
+	SCd82LKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHghf-0000000FSi4-3emV;
-	Wed, 21 May 2025 10:29:39 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uHghi-0000000FSkV-1Gx3;
+	Wed, 21 May 2025 10:29:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfrE-0000000FL1Z-133X
+	id 1uHfu3-0000000FLeC-2lWg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 09:35:29 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uHfr3-0001Lu-7G; Wed, 21 May 2025 11:35:17 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uHfr2-000YAT-34;
-	Wed, 21 May 2025 11:35:16 +0200
-Received: from pengutronix.de (unknown [IPv6:2a03:2260:2009:2000::])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id F299741679B;
-	Wed, 21 May 2025 09:35:15 +0000 (UTC)
-Date: Wed, 21 May 2025 11:35:15 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-amarula@amarulasolutions.com, 
-	Sascha Hauer <s.hauer@pengutronix.de>, imx@lists.linux.dev, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, michael@amarulasolutions.com, Fabio Estevam <festevam@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/3] ARM: dts: mxs: support i.MX28 Amarula rmm board
-Message-ID: <20250521-quizzical-tidy-worm-1fe67d-mkl@pengutronix.de>
-References: <20250521092826.1035448-1-dario.binacchi@amarulasolutions.com>
- <20250521092826.1035448-4-dario.binacchi@amarulasolutions.com>
+	Wed, 21 May 2025 09:38:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B4C9B6000A;
+	Wed, 21 May 2025 09:38:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D5A3C4CEE4;
+	Wed, 21 May 2025 09:38:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747820302;
+	bh=trtJxy+t7bBns8gjZ4v7aEoLs4ZD0K1117ubmU9QMzI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UA+xWgKDGhO/odDbWno48lciTkr5TcJqBkfWNojtOhqT+ROUantWrpp6GJQmxzErD
+	 Y67EuD2go3pBjv6q++E1HxCPPK+9SpisNlOPAuZu7MvjWvEiQtsigPBUd4UJ2Qw1o0
+	 405ERIsi/HXLTk2/upEglaasc/PN4TWfmzUG4aiMh93ViwTyyCr4OzjWY+lc2xVcyF
+	 AJVbOoTxSJxda4KcuaqqKspomV8lV4p33gM0a0f4liCBOoUj0370jhyhORyW67Cpgv
+	 kFrNuubm99E5mXNsBveRx/JEzHObjw3LDj8NGwjn3WodLHULDqcmvhoIOHxzZeW1iw
+	 dD9yfnfJYBSnw==
+Date: Wed, 21 May 2025 10:38:17 +0100
+From: Will Deacon <will@kernel.org>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: Re: [PATCH v2 11/11] arm64: debug: remove debug exception
+ registration infrastructure
+Message-ID: <20250521093817.GA20245@willie-the-truck>
+References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
+ <20250512174326.133905-12-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iltdsbk26xo7g47t"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250521092826.1035448-4-dario.binacchi@amarulasolutions.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_023528_286330_BD495A60 
-X-CRM114-Status: GOOD (  13.11  )
+In-Reply-To: <20250512174326.133905-12-ada.coupriediaz@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +74,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---iltdsbk26xo7g47t
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 3/3] ARM: dts: mxs: support i.MX28 Amarula rmm board
-MIME-Version: 1.0
-
-On 21.05.2025 11:28:22, Dario Binacchi wrote:
-> The board includes the following resources:
->  - 256 Mbytes NAND Flash
->  - 256 Mbytes SRAM
->  - LCD-TFT controller
->  - CAN
+On Mon, May 12, 2025 at 06:43:26PM +0100, Ada Couprie Diaz wrote:
+> Now that debug exceptions are handled individually and without the need
+> for dynamic registration, remove the unused registration infrastructure.
+> 
+> Remove `early_brk64` as it has been made redundant by
+> (arm64: debug: split brk64 exception entry) and is not used anymore.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> ---
+>  arch/arm64/include/asm/debug-monitors.h |  2 -
+>  arch/arm64/include/asm/exception.h      |  2 -
+>  arch/arm64/include/asm/system_misc.h    |  4 --
+>  arch/arm64/kernel/debug-monitors.c      |  3 -
+>  arch/arm64/kernel/traps.c               | 26 +--------
+>  arch/arm64/mm/fault.c                   | 75 -------------------------
+>  6 files changed, 1 insertion(+), 111 deletions(-)
 
 [...]
 
-> +&can0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&can0_pins_a>;
-> +	xceiver-supply =3D <&reg_3v3>;
+> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+> index 53f0b2281f14..a5f344e556df 100644
+> --- a/arch/arm64/kernel/debug-monitors.c
+> +++ b/arch/arm64/kernel/debug-monitors.c
+> @@ -346,9 +346,6 @@ int aarch32_break_handler(struct pt_regs *regs)
+>  }
+>  NOKPROBE_SYMBOL(aarch32_break_handler);
+>  
+> -void __init debug_traps_init(void)
+> -{}
+> -
+>  /* Re-enable single step for syscall restarting. */
+>  void user_rewind_single_step(struct task_struct *task)
+>  {
+> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+> index 50d7a6a75f45..ce20f46e08cb 100644
+> --- a/arch/arm64/kernel/traps.c
+> +++ b/arch/arm64/kernel/traps.c
+> @@ -1101,29 +1101,5 @@ int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
+>  }
+>  #endif
+>  
+> -/*
+> - * Initial handler for AArch64 BRK exceptions
+> - * This handler only used until debug_traps_init().
+> - */
+> -int __init early_brk64(unsigned long addr, unsigned long esr,
+> -		struct pt_regs *regs)
+> -{
+> -#ifdef CONFIG_CFI_CLANG
+> -	if (esr_is_cfi_brk(esr))
+> -		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+> -#endif
+> -#ifdef CONFIG_KASAN_SW_TAGS
+> -	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
+> -		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+> -#endif
+> -#ifdef CONFIG_UBSAN_TRAP
+> -	if ((esr_brk_comment(esr) & ~UBSAN_BRK_MASK) == UBSAN_BRK_IMM)
+> -		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
+> -#endif
+> -	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
 
-Since v6.15-rc1 (d80bfde3c57a ("can: flexcan: add transceiver
-capabilities")), the flexcan driver supports CAN transceivers via the
-phy framework, see drivers/phy/phy-can-transceiver.c. Can you make use
-of it?
+The early bug handler is now only called if the brk immediate matches,
+but I couldn't spot any problems with that.
 
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---iltdsbk26xo7g47t
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmgtnlAACgkQDHRl3/mQ
-kZxqfwgArcPARaZe5fCyem7ScC0CD03Xge91Id9cL6A9oCHQPIUaTJXStmGpgEPZ
-p13vybE5uN1qhF25l4ALMsw76XVtydokAWgZ0/G2+tDVaP2BSfxJ+hwcfRmT4Mcc
-n39D3dO/DWz1mFWJenJDMGrc0JUQVENF5ab4ixItQ0UtCb9QWffEv6iRDevafmJl
-r+57pk+GzQkvauQLHelULhGlZeWTtfyTXSxUQwzEzXyhBRJ7RTCB3NjQUMvyRfRv
-14tMcmQf3/5SzCScR2OaiPDrEUFLxv42y2W8UmU2swha32vvEq33ILw5bBTA+IW8
-wKWmSI2jxnFb0dX2cNAoPq+8UYGv6w==
-=1fHO
------END PGP SIGNATURE-----
-
---iltdsbk26xo7g47t--
+Will
 
