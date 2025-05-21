@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C167C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0010C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 14:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QHuoR3XP5lX/bIA++zJtABwVX85H/0XxuGqP4qcFsk8=; b=znB50DpmzTcyil69IYyJ1+3Mnu
-	nkIfPqGhaF8rGJm8PUxowZM92QjGEAuBWRnx9W0zUvT0+Q06WvB5XejN48defajeNzRbWw9LSp797
-	fpZ6Ocwfyb7K9RWIKE4QlkOl+cHyGOz/JmC9uj30t6JoHmbsFBrqd6V0w8cv5zZPsXCjDvJ+i+49s
-	cG3Sv+M2fmYlIu4gjBZ3BrzXR2FTzyx+cP5a4fl3/pHo0/nbOV4K7fXG9lk0amo9yt9T/kPkEdoLL
-	SEPx0cGB7DLZ5C8Tau32ApjX79U+UzPuaFF2Z0SJB1Y6KtxekXEjCLtINLWPyFHNo5zLdWXnAURfB
-	LQy11hlg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zEO0sHexR+s4wdxZ1kbtLkMsNlydM6144VdLP3jn7gQ=; b=VAXqcp+/cBKGXHigvuRo3CK9Zv
+	TdZBU30hN5L8bJVesmh27qtZF+ppIMOfTMcF32JwW1uxiee/TcYBx9YW1tBVY0bM9p2LYVhvm03TE
+	otkYq+rvgC4Q5D2rj2ERVTGksD77byDSFt9sJAHyLlOFLRafTaViviHpajLrCuqDF80AGFv4sf+Sn
+	vyRp+MymBAbc/QruS8WMvQ+/8fNdmdO8hGkAmNzcYYAg6xJQ9vuTF6cCyUqBeL5pGa875lerkKiIe
+	LrEN0W9qklt7wRHmz1Sxq2bhau7vVaJy+CXWfdi06CRYwlxunbREjTbjJYALUgBylM7PN6VQQZANN
+	A9hdPB/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHkTx-0000000G7IG-22yI;
-	Wed, 21 May 2025 14:31:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHkFu-0000000G5Gi-3YSR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 14:17:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DBD9F1515;
-	Wed, 21 May 2025 07:16:58 -0700 (PDT)
-Received: from [10.57.94.227] (unknown [10.57.94.227])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A7823F5A1;
-	Wed, 21 May 2025 07:17:08 -0700 (PDT)
-Message-ID: <4d4b7d91-8ed9-4fc2-9079-267ffcbebb12@arm.com>
-Date: Wed, 21 May 2025 15:17:07 +0100
+	id 1uHkW6-0000000G7k1-3C8H;
+	Wed, 21 May 2025 14:33:58 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHkMv-0000000G6IC-0G6V;
+	Wed, 21 May 2025 14:24:31 +0000
+Received: from localhost.localdomain (unknown [124.16.141.245])
+	by APP-01 (Coremail) with SMTP id qwCowABHtcQT4i1oHRX6AQ--.16951S2;
+	Wed, 21 May 2025 22:24:20 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: andersson@kernel.org,
+	mathieu.poirier@linaro.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: linux-remoteproc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] remoteproc: mediatek: Add SCP watchdog handler in IRQ processing
+Date: Wed, 21 May 2025 22:24:03 +0800
+Message-ID: <20250521142404.1077-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.42.0.windows.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/5] arm64: Add batched version of
- ptep_modify_prot_commit
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
- jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
- joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250519074824.42909-1-dev.jain@arm.com>
- <20250519074824.42909-6-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250519074824.42909-6-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowABHtcQT4i1oHRX6AQ--.16951S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GFWkXr4xCr4DGFWrXry5Arb_yoWkZrX_ua
+	s0gFZrWF1vga1Yy34IyrsavFZa9ry8Wry8KFySqas8t39xXa47try0vF4kuw1DXF15uFy5
+	Zr4v9F4fuF4xujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbTkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW5XwCF04k20xvY0x0EwIxGrw
+	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
+	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
+	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxK
+	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI
+	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUSdgAUUUUU=
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAUJA2gtsvlq+gACsf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_071714_922976_14B49627 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250521_072429_465065_3334F351 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,61 +83,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2025 08:48, Dev Jain wrote:
-> Override the generic definition to simply use set_ptes() to map the new
-> ptes into the pagetable.
-> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+In mt8195_scp_c1_irq_handler(), only the IPC interrupt bit
+(MT8192_SCP_IPC_INT_BIT) was checked., but does not handle
+when this bit is not set. This could lead to unhandled watchdog
+events. This could lead to unhandled watchdog events. A proper
+implementation can be found in mt8183_scp_irq_handler().
 
-Let's squash this into the previous patch; it doesn't make sense for an arch to
-implement one without the other. Otherwise, LGTM.
+Add a new branch to handle SCP watchdog events when the IPC
+interrupt bit is not set.
 
-Thanks,
-Ryan
+Fixes: 6a1c9aaf04eb ("remoteproc: mediatek: Add MT8195 SCP core 1 operations")
+Cc: stable@vger.kernel.org # v6.7
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/remoteproc/mtk_scp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> ---
->  arch/arm64/include/asm/pgtable.h | 5 +++++
->  arch/arm64/mm/mmu.c              | 9 ++++++++-
->  2 files changed, 13 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 8872ea5f0642..0b13ca38f80c 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1558,6 +1558,11 @@ extern pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
->  				    unsigned long addr, pte_t *ptep,
->  				    unsigned int nr);
->  
-> +#define modify_prot_commit_ptes modify_prot_commit_ptes
-> +extern void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
-> +				    pte_t *ptep, pte_t old_pte, pte_t pte,
-> +				    unsigned int nr);
-> +
->  #ifdef CONFIG_ARM64_CONTPTE
->  
->  /*
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index fe60be8774f4..5f04bcdcd946 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1543,10 +1543,17 @@ pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte
->  	return modify_prot_start_ptes(vma, addr, ptep, 1);
->  }
->  
-> +void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
-> +			     pte_t *ptep, pte_t old_pte, pte_t pte,
-> +			     unsigned int nr)
-> +{
-> +	set_ptes(vma->vm_mm, addr, ptep, pte, nr);
-> +}
-> +
->  void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep,
->  			     pte_t old_pte, pte_t pte)
->  {
-> -	set_pte_at(vma->vm_mm, addr, ptep, pte);
-> +	modify_prot_commit_ptes(vma, addr, ptep, old_pte, pte, 1);
->  }
->  
->  /*
+diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+index 0f4a7065d0bd..316e8c98a503 100644
+--- a/drivers/remoteproc/mtk_scp.c
++++ b/drivers/remoteproc/mtk_scp.c
+@@ -273,6 +273,8 @@ static void mt8195_scp_c1_irq_handler(struct mtk_scp *scp)
+ 
+ 	if (scp_to_host & MT8192_SCP_IPC_INT_BIT)
+ 		scp_ipi_handler(scp);
++	else
++		scp_wdt_handler(scp, scp_to_host);
+ 
+ 	writel(scp_to_host, scp->cluster->reg_base + MT8195_SSHUB2APMCU_IPC_CLR);
+ }
+-- 
+2.42.0.windows.2
 
 
