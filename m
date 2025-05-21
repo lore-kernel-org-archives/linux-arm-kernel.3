@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5145C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8357CC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 11:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9d59y1AAUBQBeLns7WWUxwr1G+hlDyrZidnmum2/Ds=; b=KFd9rid9A7OytGy+Le+wB+Keda
-	k2k9+LVhreGojkmQuyrT3SlJ0XyB1v4dCPc11N4Uq3ouw7PnxZW0LkckkWPtkWhxhV3dtXijJKjJY
-	FMbLLRgHgiB2aavm5KfETk3Sh63jnoq9VdE5+HF/AURt3slHib2I4GWJ2gy7reQoZxDFs+05scZXs
-	40SlQCSYiqzvYoUdFZvRLIqbeqp2QhwJxryEaC40i66EnI6IqttZbtb75ZcNgTtbIKImjKk2ie7hJ
-	rTNbS/JYsJYy1nioBnPEs3YRcPaF4oM6Gyxi6q52O8Z9yBR7N15urUKP8u/ONXELs5w5nG2Jq6YMm
-	v6G4xp0A==;
+	bh=6MZeJpkU6VblQ7OtI/wGvp2r9/BzM6xHr8FeygAttfY=; b=X52nKneuRoBaJshlFPRMt9AVUP
+	a6UsrVQbcP4aKlQlxv7hiYdJmIM/U12XaOLM9Va9GnzJtWY+/oNdo3mI0jJdRWQxe5uLGG2sTKqTu
+	dQCixtCsDUneR8MWuDECYRk3tQAJsY4sR76VXwlmT3pQfu/jja+8d8Iu2AN0Q1oySCUiD0UDfreqI
+	S04wQOLkg9HlQi1PNlsKsfVKDPcJ4Yh8UAZKh8rOc9acHZtM6J7M5HXnWW1zg+lKYsZzbjFJBU91k
+	ZjF3HWpPjb3iim/mDtgMuTDhDl3nuv0WbcFWoIXc72slzR82n/6UwXIHPT39o5JlykNmHRZq2a2QE
+	nLqq3H0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhr8-0000000Fexn-2mSQ;
-	Wed, 21 May 2025 11:43:30 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1uHhtA-0000000FfUu-1aVU;
+	Wed, 21 May 2025 11:45:36 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHhoe-0000000FeZS-2WqU
+	id 1uHhpe-0000000FeiM-1D6l
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 11:40:57 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-550ea5df252so5540932e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 04:40:55 -0700 (PDT)
+	Wed, 21 May 2025 11:41:59 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e733cd55f9eso6509587276.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 04:41:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747827654; x=1748432454; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1747827717; x=1748432517; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Z9d59y1AAUBQBeLns7WWUxwr1G+hlDyrZidnmum2/Ds=;
-        b=c9jp6T6bp4KcOEyTDTA5PeuLoB72EZye6wGEt6LdMrbU1yirp8JY93OWeMUf96ailQ
-         J+vssxSnjE4TSBJjbM+1bbrfTWTxlXzhTIYHBatRTpvVo2U/8E/49Q4107Yq+ZoxXNFV
-         emr1RgGvBCBo78d6Pm1kVJIMw8fmafQDIKyYgDsl50LMH7M+wUQvRYc9/gSldXoAlB/q
-         RrbvkMOqLx88VSdnA2IITwV+niU+hh5DvUJR1Egbocpn34bKcSq1/MvTquez3JSovw7I
-         xBJwq6jAQaWBbzs+aIogMdGcj8YoN1aNym+fbrsMgFOHPsWZ2139SimQQOs8p21veO9/
-         KuwQ==
+        bh=6MZeJpkU6VblQ7OtI/wGvp2r9/BzM6xHr8FeygAttfY=;
+        b=bgTrdBsKkj1Yov3HG96Xiq0JglCACZwwbRx++A8A+paYsvAczGz2+Pp+YPqBXKR+BR
+         j94+Bhlt/2ArFo8stHiGhIsDHyJTMfpAxW0mqS+iFRBkA3Kkshlze97QsgmchMWQx4nv
+         RC30fuFuPCf8oXQ3cDmuZoXADwy/sq5FkjEgerO4YeqmVzUU0j1Ie9MD8upaHyTPp/AC
+         1dghrP1fxoX57fBzoYCpO2FNDTq/G5DR8ODfLPs31nlagScntmLjz5upI9jFOkjGP9gs
+         UtEuVqX5OZsv/ot/5OGgx3cUfTEJk598es7bXb6gVXxgXol4bmrPMk3ho7XTZ4dI+aPu
+         TugQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747827654; x=1748432454;
+        d=1e100.net; s=20230601; t=1747827717; x=1748432517;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Z9d59y1AAUBQBeLns7WWUxwr1G+hlDyrZidnmum2/Ds=;
-        b=cYRkEKRyvEig3JiEy/Iuk+TYdsI63mbtUMvNBVd7m9zg2VwaAt4d/zprYNnRGwnuhw
-         gAjLhzFPqjQ99Hk7tnWIjfhbFJNQdkVDS3gpypHDSj91BeT9fAQOKCkJNJQlIgjTnmvA
-         7LdGeEnmd3pw6vqW4C1naxCbSTj2gvkTNIGurapOK2sFF984wxPm2KG2YMQWA8XkB+Fw
-         rKtyXNvH3bugzHPIlMuMZ0jzCy7MmUqJxF5BiTfDY1P1LQacMCGq+7brbuyLkYrWoinU
-         M/qyFoiV3xQearW6h91ZRjVwiin6f6MnWC8U6Hd9rgNjVA2YmlegesHa8vsj4SeiVfz7
-         ao2g==
-X-Forwarded-Encrypted: i=1; AJvYcCUilMIj0FCbp+4091sLpMyTvQfiPzfRHyishPkD7RgvURlEoPDuaUrTjHlMTPGnml90qvLxIG8zTuv3R+le3sUa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt9QpTqO/m+kLVe4BtLGC0Co5DEQyOBISaM4YelPO+qHJ4qXwj
-	0Scub/6V7nVOSbdSjwusNsGnJIoMplvRj/d/FZ5VSjR4AZpMxIv1qi92HIiptI0/rJ49W+FA/o6
-	yQYOsqrk6aqHlw4eO7jru5vURkl7JIPs=
-X-Gm-Gg: ASbGncs2T9WwgM760knlAz2XSi5zTVHNZ2QmOsDd0ir3raS2TawYp4w2ZPagIFWsN9v
-	Us1N7xnRdAbhHYArl1jgBqdzmRVSg1ONa+VUbzyxOb+M/wvMYro+uaQbKyQ+WifhfVRn5hKRYVV
-	zMqPDRuzeJz40nbMgPXWmE6srRDNidyZQetuqZDDBk43LatdcIlQ8vvrIwgHmyLoZccZc5SJHiX
-	BI=
-X-Google-Smtp-Source: AGHT+IEBT7uTeEaD1M6QcMlftPN+Diu0RdjP2HkZ+bs8PtCVUYHorsV+7TdTYTFNdPAyQT5oPUXJJVDEF5pcsY0RnQI=
-X-Received: by 2002:a05:6512:3c85:b0:551:ebc1:bc84 with SMTP id
- 2adb3069b0e04-551ebc1bff9mr4320652e87.8.1747827653907; Wed, 21 May 2025
- 04:40:53 -0700 (PDT)
+        bh=6MZeJpkU6VblQ7OtI/wGvp2r9/BzM6xHr8FeygAttfY=;
+        b=sO7XTkezDzRSAHbtDxGftFMn7PRK7JLlsv3GGHhlOvDOP02R8u0uGKUesc0skZ1h/g
+         4jJMYGgkIjOlG8e2fJ7j5A/m7dDCtYgWyTh+6j1c/ti2RFO+Ef1TofWQ/7hD+n7SE1HH
+         YUrG8eEGKW9FEX0T+hyMOcRfYcRIwk6Sv8yfoKyPKKMvVAABpLGHn+3n/7iBWYyKRwIL
+         DE9mwU5/VY1dJ9p60jjh9LJEoxLEoClUFjg5vsqXFyC6qR7PDJQQlnqfbxvuz8kI6DrB
+         cAbR9Pkg9aGM2KAKOwcpSu3mt65GdY214kTLuqPMjUbqVzINCVt42XsSJiGhNJj3eMxS
+         PSUg==
+X-Forwarded-Encrypted: i=1; AJvYcCXoCp0E1bcqhRp4i1yGCGDysYugS0+nEExHhvaSAKfJnL+BPLeU2hVdRpcB5BqyGAqngofLNs9tfyTNfgaUgFrY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyh9db8qkLkl7QZe4XZF1+QqrOI9MV6X0KxDriwGGvVDomiUZrb
+	HaDpMz7vx9Fo2dPxwnS6cJLEsw9yXDQucB2KiynPvYsSnMxiV58OplPsEteDKe7gAya1UZ376wN
+	i+rSe/xarBxv86XPlHPdds8RbnqJaqFwBrNWXEzYr8g==
+X-Gm-Gg: ASbGnctPrDwn3fkmRodS0bOkycJID15xYjR6kPo0eV64f3YH8Yyu80MA2ntUW6ISTmy
+	17cVwlxwCNXNEjNIJk4SrzSaxlX7Ip8L/3oFGf9bv45MPkjDh+ICIX2xdGUOaYrowuyCrtQmoPT
+	ZmoI72tGtvknlFwbF9GALcUageJho7daftgw==
+X-Google-Smtp-Source: AGHT+IEJRa6TVkfzQ58O9FhFkfZAdhxX16+QFG8CIAfdeWEH8fgSALQEibspuxtnsso331LoIjY97FnEoFxQVh+nbuw=
+X-Received: by 2002:a05:6902:460d:b0:e79:67c9:b647 with SMTP id
+ 3f1490d57ef6-e7b69e857dfmr26356893276.16.1747827717440; Wed, 21 May 2025
+ 04:41:57 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250521092826.1035448-1-dario.binacchi@amarulasolutions.com> <20250521092826.1035448-4-dario.binacchi@amarulasolutions.com>
-In-Reply-To: <20250521092826.1035448-4-dario.binacchi@amarulasolutions.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Wed, 21 May 2025 08:40:41 -0300
-X-Gm-Features: AX0GCFvuahJEGWjKzRmbj_fSU5phUy4za7_-MZjI-5ppsFQyUQtxl9C1m5zGqss
-Message-ID: <CAOMZO5D-d7bmBfXKe936W5QjmsukRRX3y0ge+xtizqFx0HPE8A@mail.gmail.com>
-Subject: Re: [PATCH 3/3] ARM: dts: mxs: support i.MX28 Amarula rmm board
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
-	michael@amarulasolutions.com, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
+References: <ab0476382e3342161beda94a45ddadb49b026dcd.1747760015.git.robin.murphy@arm.com>
+ <6f0a38e596c0727d0de13a29c9224f71bc7d30f1.1747760015.git.robin.murphy@arm.com>
+ <2393836.usQuhbGJ8B@phil>
+In-Reply-To: <2393836.usQuhbGJ8B@phil>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 21 May 2025 13:41:21 +0200
+X-Gm-Features: AX0GCFtZEPdXq2RFpP8dY62bvQ_oqyF_Bdfij7jDVf1Di2-SOIPajRHFWge-u3o
+Message-ID: <CAPDyKFpTaRZqdpwFnC5DgLjJAf1YawJ1L5OVgwfjnfs7iNyUhQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] pmdomain: rockchip: Relax SMCCC dependency
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: mark.rutland@arm.com, lpieralisi@kernel.org, sudeep.holla@arm.com, 
+	Robin Murphy <robin.murphy@arm.com>, linux-pm@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_044056_638792_E946E06E 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250521_044158_328977_A6A8A6E8 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +97,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dario,
-
-On Wed, May 21, 2025 at 6:28=E2=80=AFAM Dario Binacchi
-<dario.binacchi@amarulasolutions.com> wrote:
+On Tue, 20 May 2025 at 20:38, Heiko Stuebner <heiko@sntech.de> wrote:
 >
-> The board includes the following resources:
->  - 256 Mbytes NAND Flash
->  - 256 Mbytes SRAM
+> Am Dienstag, 20. Mai 2025, 19:10:17 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Robin Murphy:
+> > Most 32-bit Rockchip platforms do not use PSCI, so having to select
+> > ARM_PSCI to satisfy a dependency chain to retain working power domain
+> > support is a bit weird and non-obvious. Now that the offending SMCCC AP=
+I
+> > is properly stubbed out for optional usage, we can relax this again.
+> >
+> > Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+>
+>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+>
+> Of course this needs patch1 of this series to get applied
+> first.
+>
+> I think for bisectability, doing this directly in patch1 might
+> be less dangerous though?
+>
 
-SRAM or DDR?
+If it helps, I can pick both patches via my pmdomain tree, to make
+sure patch1 really gets applied prior to patch2.
 
->  - LCD-TFT controller
+Mark, Sudeep, Lorenzo do you see any problems with this?
 
-The LCD support is not described in the dts.
+[...]
 
-> +/ {
-> +       model =3D "Amarula i.MX28 rmm";
-> +       compatible =3D "amarula,imx28-rmm", "fsl,imx28";
-> +
-> +       memory@40000000 {
-> +               device_type =3D "memory";
-> +               reg =3D <0x40000000 0x08000000>;
-
-In the commit log, you say 256 MB, but here we have 128 MB.
-
-> +&i2c0 {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&i2c0_pins_a>;
-> +       status =3D "okay";
-> +
-> +       polytouch: edt-ft5x06@38 {
-
-Node names should be generic: touchscreen@38
-
-> +
-> +&pinctrl {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&hog_pins_a>;
-> +
-> +       hog_pins_a: hog-0 {
-> +               reg =3D <0>;
-> +               fsl,pinmux-ids =3D <
-> +                       MX28_PAD_LCD_RESET__GPIO_3_30 /* LCD reset */
-> +                       MX28_PAD_SSP2_SS1__GPIO_2_20  /* External power *=
-/
-
-Proper panel bindings should better describe these pins than hog pins.
-
-Do you plan to add display support?
+Kind regards
+Uffe
 
