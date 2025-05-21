@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 072CBC54E92
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FFEC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYphr+s8ZpVmh40/VHWpD8elDPZUvDEUCDnWwPhAd2M=; b=13iRNVFt/Bz8S/ixfYLQYYTuN/
-	0p6ZaOcO8XaamrWvY7/GF/YQx+W91nux7JBpDrCHPuKczfSIL87D3kl9Z2Zcd1M0F+v0xpefgYoLT
-	M9K8Htm0NnonHYw7cIWztUrvlD00NTLhcgZkyjjMSmOGQxUS7hn99hUuONInXzOPJHKyjyYMgncFj
-	ubh6Hpm3BsfYefO+vvEDaKyLy5iICOLtT/G+GFGZk4r3gEINICI8KH3ZQ+pmFW8ENg6+ARVwy+BcI
-	iS2O+b2VHRsjeJxEiV77q2vZ3azmldmmb0It5O+pyU39NkV8DemxJubWvBWP/xcZmGWMC4pt/ynjk
-	e62Qikew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3lKM+oaZ8kPvzbbTNx0b/hvvG4bLypYVZR5vlhZNkls=; b=jJ7nNyX7G1Hb7bg6J5EQLdt4Mp
+	O6Gn7YjBnnQXyqkPJYZA5czvFJmW1JBMabkF3uNUM/6uDzy8ufVuox9d68eAeO6oLD8LQ6i92bSB/
+	kXx2hwxvVvzjq83antDh4eURgqq0h6u1XG/YT9H6tCUBgf8movvy7lBqjgN5qkkBfjmQpE8Ktis6I
+	Uf7z7itVgPZKzrQhhN6Fy0vJjjE8KBQ3b9zv6sD8kxUup2s2RsncvGxAIzdUGmxiWbpcbDYPTVGM/
+	0zNvaQ0pQPJtbJbKUVewW4OpNHuu1nj5BIx5dG59gUfTnfNb7o+4HD9tHIBckTNqMvXtqMaUAdjYd
+	UB/3owgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHghg-0000000FSiC-1nnB;
-	Wed, 21 May 2025 10:29:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfsi-0000000FLGT-1A5O
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 09:37:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCA4A1515;
-	Wed, 21 May 2025 02:36:45 -0700 (PDT)
-Received: from [10.57.50.40] (unknown [10.57.50.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F39DC3F6A8;
-	Wed, 21 May 2025 02:36:56 -0700 (PDT)
-Message-ID: <c057dcd5-6a75-4689-8812-6e62bf79e9b1@arm.com>
-Date: Wed, 21 May 2025 10:36:56 +0100
+	id 1uHghl-0000000FSmn-1mf2;
+	Wed, 21 May 2025 10:29:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHfyD-0000000FM6n-133K;
+	Wed, 21 May 2025 09:42:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 71B1D5C4AE2;
+	Wed, 21 May 2025 09:40:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA1D4C4CEEA;
+	Wed, 21 May 2025 09:42:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747820560;
+	bh=68q/IbPYPxygxx5c/OXPCNRFH7INdTpZGlMiYkPeW1I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WntjIGuQPDsKX/mYWYu0FkXFL+RSS/akUgmMVsho09NJNA8oqm6QVXC50ERtC+1cR
+	 xxnTBvuXtaEQp7Q9aG1hMX4uE1CE0izhyGwlvuDDggKIG2XtmIW6xcA1JjVW66OTlM
+	 ztiGD1J7QLNhQ0Sg5CTY4TM0GxqGRKXy23nUutf9x5bpCpu65I5WJVaELulRNyZ2ob
+	 uXTy9Y6hWGRA3P8n37w1yH2TDtxUz5z0IqFLCGvn04Rf432erZzGL8h7KfQl+IlLYN
+	 6UqscpWvGfqqr0VRcoLjCArY1LM0NIh/MzMJTOJ5nxL6uYecYR/pDiOxPJgoVd+9iU
+	 Qi6qc2T+w9qLg==
+Date: Wed, 21 May 2025 11:42:37 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.or, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org, 
+	kw@linux.com, robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org, 
+	kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com, jh80.chung@samsung.com, 
+	Pankaj Dubey <pankaj.dubey@samsung.com>
+Subject: Re: [PATCH 05/10] PCI: exynos: Add structure to hold resource
+ operations
+Message-ID: <20250521-nostalgic-fox-of-valor-f6d725@kuoka>
+References: <20250518193152.63476-1-shradha.t@samsung.com>
+ <CGME20250518193244epcas5p3cacfbdc3b0e5c32f7a4dd97062a931a4@epcas5p3.samsung.com>
+ <20250518193152.63476-6-shradha.t@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 4/5] KVM: arm64: nvhe: Disable branch generation in
- nVHE guests
-Content-Language: en-GB
-To: "Rob Herring (Arm)" <robh@kernel.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- James Clark <james.clark@linaro.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
- <20250520-arm-brbe-v19-v22-4-c1ddde38e7f8@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250520-arm-brbe-v19-v22-4-c1ddde38e7f8@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250518193152.63476-6-shradha.t@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_023700_362527_8DCCFC45 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250521_024241_325529_9535C587 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2025 23:27, Rob Herring (Arm) wrote:
-> From: Anshuman Khandual <anshuman.khandual@arm.com>
-> 
-> While BRBE can record branches within guests, the host recording
-> branches in guests is not supported by perf (though events are).
-> Support for BRBE in guests will supported by providing direct access
-> to BRBE within the guests. That is how x86 LBR works for guests.
-> Therefore, BRBE needs to be disabled on guest entry and restored on
-> exit.
-> 
-> For nVHE, this requires explicit handling for guests. Before
-> entering a guest, save the BRBE state and disable the it. When
-> returning to the host, restore the state.
-> 
-> For VHE, it is not necessary. We initialize
-> BRBCR_EL1.{E1BRE,E0BRE}=={0,0} at boot time, and HCR_EL2.TGE==1 while
-> running in the host. We configure BRBCR_EL2.{E2BRE,E0HBRE} to enable
-> branch recording in the host. When entering the guest, we set
-> HCR_EL2.TGE==0 which means BRBCR_EL1 is used instead of BRBCR_EL2.
-> Consequently for VHE, BRBE recording is disabled at EL1 and EL0 when
-> running a guest.
-> 
-> Should recording in guests (by the host) ever be desired, the perf ABI
-> will need to be extended to distinguish guest addresses (struct
-> perf_branch_entry.priv) for starters. BRBE records would also need to be
-> invalidated on guest entry/exit as guest/host EL1 and EL0 records can't
-> be distinguished.
-> 
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Co-developed-by: Rob Herring (Arm) <robh@kernel.org>
-> Tested-by: James Clark <james.clark@linaro.org>
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+On Mon, May 19, 2025 at 01:01:47AM GMT, Shradha Todi wrote:
+> +struct samsung_res_ops {
+> +	int (*init_regulator)(struct exynos_pcie *ep);
+> +	irqreturn_t (*pcie_irq_handler)(int irq, void *arg);
+>  };
+>  
+>  static void exynos_pcie_writel(void __iomem *base, u32 val, u32 reg)
+> @@ -74,6 +81,36 @@ static u32 exynos_pcie_readl(void __iomem *base, u32 reg)
+>  	return readl(base + reg);
+>  }
+>  
+> +static int samsung_regulator_enable(struct exynos_pcie *ep)
+> +{
+> +	struct device *dev = ep->pci.dev;
+> +	int ret;
+> +
+> +	if (ep->supplies_cnt == 0)
+> +		return 0;
+> +
+> +	ret = devm_regulator_bulk_get(dev, ep->supplies_cnt, ep->supplies);
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+No. Getting resources on every enable is making this much less readable.
 
+NAK
+
+Best regards,
+Krzysztof
 
 
