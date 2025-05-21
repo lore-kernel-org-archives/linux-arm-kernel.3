@@ -4,113 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECEDC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 08:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDF9C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 08:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4KfWMzWFzIEkI2pE//CWYux/C+zUxMAPtv+nQcJZSyU=; b=cqM1BH+91CHttCt+g8PEX43qHI
-	bthuxT7IYPoCEB4469bzUm0LPJ97yiKnrSeCtWaGJnVlYPEzBgAnYLsl/0Lh84qOFMUWkuBb65KYV
-	QqEh5Z1EEWHlYxloCCxDnJ4tB7+ioHhQ+xiPLW97V2rErIwUHRX8QSNVuhRPz3CIGKerOB8q+FDs4
-	78cp0HzjaIh8E6P7v0tpDea21nfdSAJflXWO5OzWVOJLhjjwZH83mVBphk0vZww5aGVtm2vT6CTLL
-	xq81X6eRIvRFt4De7dCSBwK+JVO6UvcghX1JvvtoI2hhj2w7n8ZoaPN1pKX1yAfDBH/GvG1duJJXb
-	hWKFNJcw==;
+	bh=sbdPpdpIurd9SvA4bpOQHcg2N+24lyWEgW2cl5m4WjA=; b=nUij/AHVmHQBg7AWQ+dhmtr6Le
+	W++RoNV3isWAbYzx2MZt7uZ78aOeS2jGQ8sHLmZ/+AsORZ2O/vv5ES2dL3lE+K1vboSfCuxNweoZs
+	0+wLxmw4hi2IcL6nnZU1sLWPiQKKB2YQCLmEzc50YwHQYDtifNAYBvQOl77+CTzdlR45qpA2xHQm8
+	Z3uP1kUE++pZESBe3ge3FxG+xGUSKzXeAsB8ZPTL5Kdl3I+/0bphu977Qpe7ZawyybtSbMgfFQeg5
+	rqHPrfTTHTikfZ4pQCoSD2rwl+LK8KGa6gctzVzjnwgVd347KTkoFg7PXHKhjX7Lu2+CZLkgwKwxM
+	e7vQluaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfD3-0000000FDJK-1d8i;
-	Wed, 21 May 2025 08:53:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uHfFz-0000000FDke-2q5V;
+	Wed, 21 May 2025 08:56:59 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHf75-0000000FCQU-3Un0;
-	Wed, 21 May 2025 08:47:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC788629D5;
-	Wed, 21 May 2025 08:47:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BEBBC4CEE4;
-	Wed, 21 May 2025 08:47:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747817266;
-	bh=Z+DbRsu4BCqlhGXMmulSIqXan3jSfGw/K2SHdYnl8lg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BTlsrRpJmvudDwvB5CiouCMJ2hIQHlNeWFTnQKQvyC3p4oViYCR+vkV9lFD+o+cEl
-	 FGQxZWsy7M/ilINtBb8rC0Vs9s1jaljtIrWA4UH0EWpc/jqxYnuUEvhYoeaZ63pCnY
-	 kcGCwYGidKATCkL1eXHgiFey08DkMy188XqTT+5FNLClc3nGWGgHfG+WgBRMP6lp8t
-	 xjk6r2W/bOEJGpv2RL8eCtnTO4fkJRoNYJaFI8VeuYcNJ3NPCkefD95HvcKCFjuvdB
-	 w8s+qWI8+2yGbJHyqndBJKtjSkT7cELxUrlqedf2b2SjYYKWMq6OZ/rqyQJNzyhZMM
-	 WD05VeMqmxCPg==
-Message-ID: <7fec4945-eec5-4247-9979-a6ee2229626d@kernel.org>
-Date: Wed, 21 May 2025 10:47:39 +0200
+	id 1uHfDv-0000000FDT6-48GE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 08:54:53 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a3681aedf8so3371072f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 01:54:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747817690; x=1748422490; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sbdPpdpIurd9SvA4bpOQHcg2N+24lyWEgW2cl5m4WjA=;
+        b=WarubCr6tdC0EBthon5/fRyH020AKNDVD9Frr698/mnbHjXTICV/FiQltJ+tdeQsWx
+         x2ij3y5nFdrvsvafAEXrbLfv8W+rFTU1kYMtEo8PYZbAz7WG27DrO9mTWhl8N2gJVZbl
+         uFHMF8lDG2zEJ2ACoqsN/eTaFsyZf5RjdIXDRlarYXRudZIebA7TC8pCPReYPBJBQ7c4
+         r6HdlU2A3SIzQcgVcB7SWKL49pvl4oKRrRKcy2uXsv1mJ9yNQgqePvIWusHZtnLNhouz
+         ZEXAg31doi9QjGiESXqKBdKGDlLg4qLdXeYmf6mnmfldIX4BkyQfUcB370SQZWIsT+g/
+         Hz3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747817690; x=1748422490;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=sbdPpdpIurd9SvA4bpOQHcg2N+24lyWEgW2cl5m4WjA=;
+        b=pVVfd5RrA2u1aVM+hRlbLZWSdN+JodzBjW6BkoDDzD18CmCyz7ZbJoTqhUYpFZcGny
+         vSgyt0i/I/vQv9ZMilc9a0U+Nnvs2XjXJXfcq4ILSlGcIcWuY3N43aXTJRsKJvNfbKGO
+         G4jf/JSfFmj9iEr8E+jtomk3RdWHfMKorUC68FB4NEiUSMWJQdglNHKyoNum1cH+15H/
+         y11cPf0hgZ+n7bVaOo8OR3O+ZMZBBOs2gIo47HdRzO8aq2btCgb9CmoBeKe3zvRHijZW
+         KTF+Dx9pBVn3vEpAg15pmmvCGos4nPDGhZWn9jgDLql8UKBQFAp9Uc84oO8WU4uAuGHn
+         IhyA==
+X-Forwarded-Encrypted: i=1; AJvYcCWt0a3MSX7tomErCK/GsIVKQ6ZyXjWWLhLofObtJJHDtFYxGPLEKIkmOJz1cjk0J04jyQLPd++oU5bnfb+SFhH4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyV5XNbQM/IcQ565KP8zApHTUrSnFbMw6DQjop3Vh/PskmP2utI
+	5TU/vkFgLOPYKGyIGfU1HpPKEafbNukjWgAyefm7ZxsXcaFQszQn6v9XZ0RMLmbDDnA=
+X-Gm-Gg: ASbGnctIyY/XLwyISg9rWYolKWs7DXeayYPM4EPwfh2XKhSNfjuHRidd5lyvhbnhYWT
+	UMXJkUd4RtmycfItdghAH6K9rtgqKBZn2ZTv+OQtQjC4kGXmqcrbywQbU68vUaH3nVIKBz+Wv9R
+	Dn71TbUvDvDmkydJCk5Cs7ZQscZw/2gAVhip3iqg4MllpQaMQSRlx+3zcKooDqlZDsWG++XA0vS
+	8dkBD4dz82U26kav/k19UDSdZ/VD3xwJf+/LEpYfHrOoQMT88z7VnSkHnEqgmq1xdeCIkeraKv5
+	4ELhF0i6QUTtvBxZjq6+v/QbbkE/ibE305wvjX/ej3J1JVVYyvaY2H7f
+X-Google-Smtp-Source: AGHT+IHcXYGtM7XVHHJEdGmOY1yvOZ0EB0s4eDSPvPzqzTL5ClJRA8YIoq/xMdJkfTjyIFVgJ2bfQA==
+X-Received: by 2002:a05:6000:18ac:b0:3a3:67c4:580b with SMTP id ffacd0b85a97d-3a367c45acemr12032252f8f.46.1747817690326;
+        Wed, 21 May 2025 01:54:50 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a366e08747sm15804239f8f.95.2025.05.21.01.54.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 May 2025 01:54:49 -0700 (PDT)
+Message-ID: <5752f039-51c1-4452-b5df-03ff06da7be3@linaro.org>
+Date: Wed, 21 May 2025 09:54:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] phy: exyons5-usbdrd: support HS phy for
- ExynosAutov920
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>,
- 'Neil Armstrong' <neil.armstrong@linaro.org>, vkoul@kernel.org,
- kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
- kauschluss@disroot.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
- dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
- selvarasu.g@samsung.com
-References: <20250516102650.2144487-1-pritam.sutar@samsung.com>
- <CGME20250516101803epcas5p2d9403d89d840dcad88a03d437a48aceb@epcas5p2.samsung.com>
- <20250516102650.2144487-3-pritam.sutar@samsung.com>
- <a5c1a064-d760-4140-9e78-d74823b400a8@linaro.org>
- <1f63af35-7d10-434b-b802-115611ce2ed6@kernel.org>
- <000201dbca1f$737647d0$5a62d770$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 07/10] perf: arm_spe: Add support for filtering on data
+ source
+To: Leo Yan <leo.yan@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+References: <20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org>
+ <20250506-james-perf-feat_spe_eft-v1-7-dd480e8e4851@linaro.org>
+ <20250520134632.GR412060@e132581.arm.com>
+ <443141db-6950-4a15-83be-ad9e9c0e03a0@linaro.org>
+ <20250520161003.GT412060@e132581.arm.com>
+ <20250520162243.GU412060@e132581.arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <000201dbca1f$737647d0$5a62d770$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250520162243.GU412060@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250521_015452_035452_0844F272 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,94 +115,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2025 09:10, Pritam Manohar Sutar wrote:
-> Hi Krzysztof,
+
+
+On 20/05/2025 5:22 pm, Leo Yan wrote:
+> On Tue, May 20, 2025 at 05:10:03PM +0100, Leo Yan wrote:
 > 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: 20 May 2025 01:13 PM
->> To: Neil Armstrong <neil.armstrong@linaro.org>; Pritam Manohar Sutar
->> <pritam.sutar@samsung.com>; vkoul@kernel.org; kishon@kernel.org;
->> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
->> alim.akhtar@samsung.com; andre.draszik@linaro.org; peter.griffin@linaro.org;
->> kauschluss@disroot.org; m.szyprowski@samsung.com;
->> s.nawrocki@samsung.com
->> Cc: linux-phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
->> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
->> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
->> faraz.ata@samsung.com; muhammed.ali@samsung.com;
->> selvarasu.g@samsung.com
->> Subject: Re: [PATCH v2 2/2] phy: exyons5-usbdrd: support HS phy for
->> ExynosAutov920
->>
->> On 20/05/2025 09:39, neil.armstrong@linaro.org wrote:
->>>> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c
->>>> b/drivers/phy/samsung/phy-exynos5-usbdrd.c
->>>> index 634c4310c660..b440b56c6595 100644
->>>> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
->>>> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
->>>> @@ -177,6 +177,9 @@
->>>>   #define HSPHYPLLTUNE_PLL_P_TUNE			GENMASK(3,
->> 0)
->>>>
->>>>   /* Exynos850: USB DRD PHY registers */
->>>> +#define EXYNOSAUTOv920_DRD_CTRL_VER		0x00
->>>> +#define CTRL_VER_MAJOR_VERSION			GENMASK(31,
->> 24)
->>>> +
->>>>   #define EXYNOS850_DRD_LINKCTRL			0x04
->>>>   #define LINKCTRL_FORCE_RXELECIDLE		BIT(18)
->>>>   #define LINKCTRL_FORCE_PHYSTATUS		BIT(17)
->>>> @@ -1772,6 +1775,10 @@ static const char * const
->> exynos5_regulator_names[] = {
->>>>   	"vbus", "vbus-boost",
->>>>   };
->>>>
->>>> +static const char * const exynosautov920_clk_names[] = {
->>>> +	"ext_xtal",
->>>> +};
->>>> +
->>>>   static const struct exynos5_usbdrd_phy_drvdata exynos5420_usbdrd_phy =
->> {
->>>>   	.phy_cfg		= phy_cfg_exynos5,
->>>>   	.phy_ops		= &exynos5_usbdrd_phy_ops,
->>>> @@ -1847,6 +1854,81 @@ static const struct exynos5_usbdrd_phy_drvdata
->> exynos850_usbdrd_phy = {
->>>>   	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
->>>>   };
->>>>
->>>> +static void exynosautov920_usbdrd_utmi_init(struct
->>>> +exynos5_usbdrd_phy *phy_drd) {
->>>> +	u32 version;
->>>> +
->>>> +	version = readl(phy_drd->reg_phy +
->> EXYNOSAUTOv920_DRD_CTRL_VER);
->>>> +	dev_info(phy_drd->dev, "usbphy: version:0x%x\n", version);
->>>
->>> Please do not add mode info to boot log, use dev_dbg instead.
->>
->> Just drop entirely, not even worth dbg (see coding style, driver development
->> debugging guide). It is fixed per given compatible, isn't it? If not, there is entire
->> commit msg to explain unusual things.
+> [...]
 > 
-> This SoC has a single USB 3.1 DRD combo v400 phy and three USB2.0 DRD phy v303
-
-
-That's a different device, no? Look at the compatible here - it says
-usb31drd.
-
-What does 31 stand for?
-
-> controllers those only support the UTMI+ interface. Currently, supporting only 
-> v303 phy in this patch-set, and planning v400 phy later (soon). Same may be 
-> also updated in commit  message. 
+>> If 'PMSFCR_EL1.FDS == 0 and PMSDSFR_EL1 == 0x0' is the init state, as
+>> you said, when user passed 0xFFFF,FFFF,FFFF,FFFF for data filter, we
+>> cannot distinguish it from the init state, as a result, we will fail
+>> to handle this case.
 > 
-> If there's any issue in phy init, dbg print is needed to debug which phy caused it. 
-No, rethink rather this makes sense at all. Please read carefully
-writing bindings, which will tell you that you cannot have different
-devices under the same compatible. Unless you say these are the same
-devices and it differs by other phy? But this is a phy... so many questions.
+> Correct a typo. The case above, it means "when a user passes 0x0 for
+> data source filter ....".
+> 
+> Sorry for spamming.
+> 
+> Leo
 
-Best regards,
-Krzysztof
+I'm thinking I'd rather leave it consistent with PMSFCR_EL1.FT and 
+automatically enable PMSFCR_EL1.FDS for any non zero data-source filter.
+
+This means we don't need a tool change to set some other flag when a 
+filter is provided (even if it's zero) and it's much simpler. It also 
+doesn't prevent the possibility of adding the enable flag in the future 
+if someone comes out with a need for it, but I don't think it needs to 
+be done now. TBH I can't imagine a case where someone would want to 
+filter out any samples that have any data source. Surely you'd only be 
+looking for a selected set of data sources, or no filtering at all.
+
+
+
 
