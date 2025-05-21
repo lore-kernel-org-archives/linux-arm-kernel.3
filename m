@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84218C3ABC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 12:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441FFC2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 12:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5uHy+p8xiNatJ/qO1mRfpamxzCqJKlhzt7Hc5Lu76pY=; b=IZr84kDsPH986o1p6SNdqPhZwU
-	0mwK6C3nuuaxysL82rtpVXMaD3hEJcU+lP3TEqy7GBWXQvti0i+t1ZmmV/yMaYBVoZglp4aaXyVox
-	K98EUfBD7OANHyUjb0e0AxxDBMjarkU+qWwoNYpYVgpHq/w48cruW1VTmcBprpy8SahwSUkRyGA1P
-	TVKaR2WZt82u6TWXTIVtXmrsgh1jegBKm/6BpZ8sk5id4mrFseD8GGit5PeUerKIyV8lF9So5o5sM
-	XGPAOwkjHU3rTI8LuHQeF5+0OyuBrtRhfsC9toJ/CvMvIZEop2gvhSuxyBgHuACEeW91DW80hJ56d
-	uvIVpgCQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mT8By12179daVSqWK2hMkVVh9hr6dmc7nTaRRdzemjw=; b=XL/7WPvRONXqQ1XjzrX+kpqTQH
+	QXv8g5VgBY6hvOps4qU+8VrfH4CeLrZZ7Id25Sa7rJHfnZv9taCsbpu1nZszcuZgRZF24vtYZTiOG
+	XSuxm2gzEeQNslFbUo0uLH9fvG88eLwVILd/HP46cIfO3peV9rZdwKREG/oXliI7CK4gUBX8xaDCe
+	8vdOPGnTDNnRn9VEKEkEKu5+ZBGKljQ2ytxZRx2X0tGDwhiuuZqZY038PeV3BGNEUGQOJrAGL85UZ
+	zAyI59QVM6grzw9cpPL+2X2Guz+NZLXcVtA0myZ9OF8h7BFYNzrBUGnYTKF8lMjkXQWeYxzhQP4c5
+	h0SkH7sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHiwb-0000000Fq1Z-1FTg;
-	Wed, 21 May 2025 12:53:13 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1uHiyd-0000000FqTq-0Inb;
+	Wed, 21 May 2025 12:55:19 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHiuX-0000000Fpam-1bqt
+	id 1uHiuZ-0000000Fpb9-1L75
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 12:51:06 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43ce8f82e66so36028935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 05:51:04 -0700 (PDT)
+	Wed, 21 May 2025 12:51:08 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3a362939f61so2570303f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 05:51:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747831863; x=1748436663; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=5uHy+p8xiNatJ/qO1mRfpamxzCqJKlhzt7Hc5Lu76pY=;
-        b=HDeB5vH1rTM418sc0fb/oj05aRKQ+Uf01Xiu6y3WoT6zC11mnsI1HvOa81cSOZSjNM
-         KpAEjjYYQOx994QCylh6A6kFpTxJAE9h8ehOu8FKqfhzUsrQXDCJB1qeWw/rzQaI2LBz
-         FVYVfxy/A4OGAhYcTXwjcQt1aa+phn0qpIxsbQ5DHEPEvQrzYXYA4CEePPhhLqAqcGby
-         BDczmmNEl7f+KrzgqMw8z1FvB3ZJfAEZH/14b9KMQZLicSarY02HxSU7Ckw3+rSZHeGa
-         OLEYolhKLpuC97PWQKLqBZSYmRZMGTLoQK63qui5Zk2hQoSirPR8Vcz0Acz3tUZt7+Fb
-         QJRw==
+        d=google.com; s=20230601; t=1747831865; x=1748436665; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mT8By12179daVSqWK2hMkVVh9hr6dmc7nTaRRdzemjw=;
+        b=gYWwkZGnZXdIRqn0ObEzNeWy3SR6/pITwbN3Jt3L3hqoM+AvEAX4gkFSr87BNV3VXG
+         qetY2JM0WLngyPZ2xjFSBoh1j57cs0PeSlctG/o2aYGKCnWSuUugjzzhdSV5TqH6GClB
+         S5al+yVKjVuMiCbiecm+nCnKc4WZI1DonElcRfNUOaqlW19trfA/p4Wll5JYx0L5Lm/7
+         KdGCBTfIvYdppMQmxe5/F25oHmfKJ8uWzqiZBhHDze05CJuZeXwLe2WyRL4tSWGvIvq1
+         RhB+iHTBpZLCvE7qupZ9EL1p5lCaP3FzWFL8KWew3u92L8QiJ8qG5WnDNLWSctd92hw0
+         Pcjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747831863; x=1748436663;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=5uHy+p8xiNatJ/qO1mRfpamxzCqJKlhzt7Hc5Lu76pY=;
-        b=YniPy3tuWbWJCjynJy6R3oDFeOSuM3RfAMb8beoXHoSq0veRjR0+3xY8mmIPXJCuco
-         GKyDCbABin3V0DmniywqhmpZKjAzjAGBBGD3L/TIT0EQvg2/g2CC1yJIn7JQRRU+DlUE
-         0ch8EjROxfrY9RalBV2ZQiuX0juaTX9gQwc+ULtWM72sJJ28EARhTdqlPTYyV39yzed4
-         yTmWdZKNaOrL0brHErmXV/Og6Hv0/SQww6X/pMkoksKWEci06YXGrA4eG63HGn1KBYkz
-         Ae/bUpXL4XZ1qWhkJlTCDT3ThotH1gXBG4ZDTmPLawKlYtVK9U3oTvhYBYwojootIuj6
-         T+EA==
-X-Forwarded-Encrypted: i=1; AJvYcCWGejeAviksJDDInjgvknqSyw6f4/V90KGZLJgx2dM4b0HQRQui5rA0jL6u1ouSxyc2xDTOlTZg1XWZNWo0HHH7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLZjGH17c5Cyy2UGR39Ut4LBdFDw6ZqAXlut29jZGhdArms1/f
-	elpxy63WCb4hntzu8I0LFjtQEH80iCRz6rC/LsuSj/iKFH68xJgeKwImnQptSHz/bL96Tt2U3nz
-	JhH1kS0UNiM50EqFay341vw==
-X-Google-Smtp-Source: AGHT+IHRjNo/bemvwuTLbGZUJ+I0Cd/WKzDQzqP3NrChiAI6QmaNpGURgsbvUPlh98wyTVdHdymBU2R9bWaHgD8h
-X-Received: from wmbay39.prod.google.com ([2002:a05:600c:1e27:b0:43d:1ef1:b314])
+        d=1e100.net; s=20230601; t=1747831865; x=1748436665;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mT8By12179daVSqWK2hMkVVh9hr6dmc7nTaRRdzemjw=;
+        b=cW4r4rXL9Anfv0BZdocKe5SCDn1bUfOOhl/SSGk9gdPcV819s33uYPaP2gUsqwZxwn
+         Nwelp6wa825wXc/L7KoCXTmhZ9ki838xU/teXAZsxRqNRKr08SNmfcxqAP8ukSUqoeHR
+         7uSWomWwnlIu1mbGpr/OMrSmzm8rpLSJPYD1m5VKqQVuKYeEhGYjAnwqEh8dQhCVlKb8
+         6AoQde0JkVTN8Ak86Lz5/WrjEtCyGLlgK9iL4CvoQ8tnc+luEr5+Hr29/vixLlUXvZR3
+         oTj/xZVZcnQEpeW2OiHfKI+zl5jX2WNf+TyFiudSq3eaN6A4dtS14UsBxSgM/3dPj7+0
+         DwSw==
+X-Forwarded-Encrypted: i=1; AJvYcCWqKh/o+WoJJlqot6VNRQ698oBnYyIJSGmu1/mvQKYC7eMyghVScc944mgha2t4TYuP6kZ53/fnYzZO1RWDcTN5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGRBHmzsuevittlrKb1Mf3pd6Sbmd+Yd3HdmROO77ZvoNoeP0V
+	EedbCS6U2m8qAXz61C6y1LrEteD0JoK2/4wr1enRzSRgqMN1LNeqTYVNXtWb8s5ZMF08UvIE1C1
+	Rzgz80bnACAYdFyVE+3uCVw==
+X-Google-Smtp-Source: AGHT+IFxvQXC5e2XyrcGIorm9ck7St5THzNwlwqWNw3VZYKE1iTJWfhId/APZ3vzvHKNI9cTFqGba3uEmZNIfYCd
+X-Received: from wmbjg9.prod.google.com ([2002:a05:600c:a009:b0:43d:b30:d2df])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:a418:b0:445:1984:247d with SMTP id 5b1f17b1804b1-445198427a1mr118512565e9.7.1747831862985;
- Wed, 21 May 2025 05:51:02 -0700 (PDT)
-Date: Wed, 21 May 2025 13:48:24 +0100
+ 2002:a05:6000:2384:b0:3a1:f684:39a7 with SMTP id ffacd0b85a97d-3a35fde361amr16068713f8f.0.1747831865060;
+ Wed, 21 May 2025 05:51:05 -0700 (PDT)
+Date: Wed, 21 May 2025 13:48:25 +0100
+In-Reply-To: <20250521124834.1070650-1-vdonnefort@google.com>
 Mime-Version: 1.0
+References: <20250521124834.1070650-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.49.0.1112.g889b7c5bd8-goog
-Message-ID: <20250521124834.1070650-1-vdonnefort@google.com>
-Subject: [PATCH v6 00/10] Stage-2 huge mappings for pKVM np-guests
+Message-ID: <20250521124834.1070650-2-vdonnefort@google.com>
+Subject: [PATCH v6 01/10] KVM: arm64: Handle huge mappings for np-guest CMOs
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -74,8 +76,9 @@ Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_055105_421942_BAC5079B 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20250521_055107_356953_863374B7 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,76 +93,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+clean_dcache_guest_page() and invalidate_icache_guest_page() accept a
+size as an argument. But they also rely on fixmap, which can only map a
+single PAGE_SIZE page.
 
-This series adds support for stage-2 huge mappings (PMD_SIZE) to pKVM
-np-guests, that is installing PMD-level mappings in the stage-2,
-whenever the stage-1 is backed by either Hugetlbfs or THPs.
+With the upcoming stage-2 huge mappings for pKVM np-guests, those
+callbacks will get size > PAGE_SIZE. Loop the CMOs on a PAGE_SIZE basis
+until the whole range is done.
 
-The last patch of that series is an optimization for CMOs using a shared
-PMD_SIZE fixmap.
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Changes since v5 (https://lore.kernel.org/all/20250520085201.3059786-1-vdonnefort@google.com/)
-
-  - Fix fixblock_map usage. It should only be used on PMD_SIZE aligned addresses. (Marc)
-
-Changes since v4 (https://lore.kernel.org/all/20250509131706.2336138-1-vdonnefort@google.com/)
-
-  - Make guest CMO functions working with any input (Marc)
-  - Improve for_each_hyp_page() and fold struct hyp_page declaration
-    (Marc)
-  - in mem_protect.c "PMD_SIZE" replaced with kvm_granule_size(KVM_PGTABLE_LAST_LEVEL - 1)
-    (Marc)
-  - Remove useless guest pgtable callback force_pte (Marc)
-  - Fixblock functions fallsback on fixmap on 64KiB pages systems.
-    (Marc)
-
-Changes since v3 (https://lore.kernel.org/all/20250407082706.1239603-1-vdonnefort@google.com/)
-
-  - Rebase on kvmarm/next
-
-Changes since v2 (https://lore.kernel.org/all/20250306110038.3733649-1-vdonnefort@google.com/)
-
-  - Fix PUD_SIZE -> PMD_SIZE enforcement (Quentin)
-  - Rework pkvm_host_share_guest() to remove one hyp_page walk (Quentin)
-  - Remove one pgtable walk into __check_host_shared_guest() (Quentin)
-  - Return EBUSY on host_share_guest_count overflow
-
-Changes since v1 (https://lore.kernel.org/all/20250228102530.1229089-1-vdonnefort@google.com/)
-
-  - WARN_ON() on !PAGE_ALIGNED size for guest CMOs (Quentin)
-  - check_range_allowed_memory() before accessing the Vmemmap (Quentin)
-
-Quentin Perret (2):
-  KVM: arm64: Convert pkvm_mappings to interval tree
-  KVM: arm64: Add a range to pkvm_mappings
-
-Vincent Donnefort (8):
-  KVM: arm64: Handle huge mappings for np-guest CMOs
-  KVM: arm64: Introduce for_each_hyp_page
-  KVM: arm64: Add a range to __pkvm_host_share_guest()
-  KVM: arm64: Add a range to __pkvm_host_unshare_guest()
-  KVM: arm64: Add a range to __pkvm_host_wrprotect_guest()
-  KVM: arm64: Add a range to __pkvm_host_test_clear_young_guest()
-  KVM: arm64: Stage-2 huge mappings for np-guests
-  KVM: arm64: np-guest CMOs with PMD_SIZE fixmap
-
- arch/arm64/include/asm/kvm_pgtable.h          |   7 +-
- arch/arm64/include/asm/kvm_pkvm.h             |   2 +
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   8 +-
- arch/arm64/kvm/hyp/include/nvhe/memory.h      |  16 +-
- arch/arm64/kvm/hyp/include/nvhe/mm.h          |   4 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c            |  16 +-
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 264 +++++++++++-------
- arch/arm64/kvm/hyp/nvhe/mm.c                  |  97 ++++++-
- arch/arm64/kvm/hyp/nvhe/setup.c               |  15 +-
- arch/arm64/kvm/hyp/pgtable.c                  |   6 -
- arch/arm64/kvm/mmu.c                          |   6 +-
- arch/arm64/kvm/pkvm.c                         | 129 ++++-----
- 12 files changed, 365 insertions(+), 205 deletions(-)
-
-
-base-commit: 52a62c117afb9ec3484a4d2fd6d0c4caff754c5b
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index d1488d4e5141..c18d4f691d2b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -219,14 +219,32 @@ static void guest_s2_put_page(void *addr)
+ 
+ static void clean_dcache_guest_page(void *va, size_t size)
+ {
+-	__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+-	hyp_fixmap_unmap();
++	size += va - PTR_ALIGN_DOWN(va, PAGE_SIZE);
++	va = PTR_ALIGN_DOWN(va, PAGE_SIZE);
++	size = PAGE_ALIGN(size);
++
++	while (size) {
++		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
++					  PAGE_SIZE);
++		hyp_fixmap_unmap();
++		va += PAGE_SIZE;
++		size -= PAGE_SIZE;
++	}
+ }
+ 
+ static void invalidate_icache_guest_page(void *va, size_t size)
+ {
+-	__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+-	hyp_fixmap_unmap();
++	size += va - PTR_ALIGN_DOWN(va, PAGE_SIZE);
++	va = PTR_ALIGN_DOWN(va, PAGE_SIZE);
++	size = PAGE_ALIGN(size);
++
++	while (size) {
++		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
++					       PAGE_SIZE);
++		hyp_fixmap_unmap();
++		va += PAGE_SIZE;
++		size -= PAGE_SIZE;
++	}
+ }
+ 
+ int kvm_guest_prepare_stage2(struct pkvm_hyp_vm *vm, void *pgd)
 -- 
 2.49.0.1112.g889b7c5bd8-goog
 
