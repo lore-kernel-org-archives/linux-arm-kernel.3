@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A39AC2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:09:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03117C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8XesKO2Wc0opsXM9N8Ve/awwAPJvtZ6DBgyfXBz1KWM=; b=wmMNbtSatebd37SBCCHGxYjMBi
-	6NDmTf8rAzm/A3aDYSAD8ClPXpPu7pDPMwN5hLp54BtV85OGjg4USyb8GG9X+GShq0icOIURc7wKT
-	MboBw2V9JR9RjyD2qge/5s7DfX+dDdvq+3cQN5dNI1mGh3JUlo4BYkJ44XSAM+SRMA1tEEOTdrisi
-	CtBjJs1TGQXZzVZ5qzxGkLn8OBJxxp0k0flqy0PxHK+8C1XvzK27eNe56orw1QdkttTm4/2Tdwnlr
-	WSscPF00cbs5mIdjw3aLccFqOzgaWtZqSHaKKnwm3mtjYDBvYQA5QQsHJqviFRsxiJI+5qiDckYwu
-	+g8diaHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E7WKk454nZ5z7mTMr0u//RgRu0zeGFgAgehInroqNVQ=; b=uLb9rjqtAkcG4NeYMQRsUgiLR6
+	qkVu3gBwViO7F55tt0m9cCvFgSD6aGmvwO3CAdwwjXkkAcS+mILiDhpGMLuEX4kLyMhjW/57Au/vJ
+	l2c60YZPhFTN7WWHR3J9C0eqaX1vSNqnBWroND3skwRr3DkcQPbG4ZTu3UcDmnWikvtcnflpZyr6j
+	eK0H2EPDnI/FHUuXzrJyrtEalgT2oDtNUD7wnaDiizIwV+CV6PBSfQV8Y7ApPL/JER3BSoMpMdxap
+	RLd8afS1RvxEJaeGFHHC7yEEJY9MBGnjowS/gq23+pJK+PWYPh0ANbLpvxFDfbTeq8g66OfLjpQir
+	lHTXXg7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfS9-0000000FGCr-0y42;
-	Wed, 21 May 2025 09:09:33 +0000
-Received: from michel.telenet-ops.be ([2a02:1800:110:4::f00:18])
+	id 1uHfUB-0000000FGWh-3HTE;
+	Wed, 21 May 2025 09:11:39 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfJF-0000000FEXE-3E74
+	id 1uHfMY-0000000FFLD-3Bj7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 09:00:23 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:2bba:d77b:9240:3c4e])
-	by michel.telenet-ops.be with cmsmtp
-	id rl0G2E0024GqtyW06l0GUC; Wed, 21 May 2025 11:00:16 +0200
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1uHfIw-00000002i7H-3gyx;
-	Wed, 21 May 2025 11:00:16 +0200
-Received: from geert by rox.of.borg with local (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1uHfJA-00000002ch9-02Wf;
-	Wed, 21 May 2025 11:00:16 +0200
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev,
-	soc <soc@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL] Renesas DTS updates for v6.16 (take four)
-Date: Wed, 21 May 2025 11:00:13 +0200
-Message-ID: <cover.1747817851.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	Wed, 21 May 2025 09:03:48 +0000
+Date: Wed, 21 May 2025 11:03:43 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1747818224;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=E7WKk454nZ5z7mTMr0u//RgRu0zeGFgAgehInroqNVQ=;
+	b=W9Sb2eKAX9r4Z9mVFdvQbOc/uyRHh5TATQuw+oJkimDjXi77IQO67txtyOxV5Z1mb0xNkK
+	tl0KAI7a27OFNb78JT2QUzs/DUAbBIUdpV2LqfZFOTkx3MJM2vacRlpFl7t0xtd4/Ph/Q2
+	Z5XCmMBHLYhpZupS5NXKincovE0ucYQYNXPzD4Ho6VbcdeoEaSJZEvLeXfNrxwfnow4foR
+	tyg+tSXIXvvlmKGYUMO01Uky9d8Unz0Z3ZbQ6G0Pq74Fopof23ZiE9/1p0+7eT3XR4SCj/
+	ScAxPPNJiCHlBOWmPzDqQ6yPgWWrtyZEKTwc6Nc+xAjE9tlwJzIsRX5l7Hznqg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1747818224;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=E7WKk454nZ5z7mTMr0u//RgRu0zeGFgAgehInroqNVQ=;
+	b=uUy0QVaz9/+cz0oViaHoaQ8XiptZDPfm2VwHMg5MQ9S3pbr8+LNpPxiXyV3SVee3Fn3Too
+	Hde/GQ/TmCT91EAQ==
+From: Nam Cao <namcao@linutronix.de>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	john.ogness@linutronix.de, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 17/22] arm64: mm: Add page fault trace points
+Message-ID: <20250521090343.TKXXN2x0@linutronix.de>
+References: <cover.1747046848.git.namcao@linutronix.de>
+ <f5fccde2326a896e5c568ef06a4dbd9aa7465f6a.1747046848.git.namcao@linutronix.de>
+ <aCtE-RvyN6XJQjTo@arm.com>
+ <20250520122548.lkvaylSB@linutronix.de>
+ <aCyOZVVioijWpEPY@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aCyOZVVioijWpEPY@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_020021_944226_FF6C6445 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20250521_020346_948262_033BA693 
+X-CRM114-Status: GOOD (  28.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,45 +83,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi SoC folks,
+On Tue, May 20, 2025 at 03:15:01PM +0100, Catalin Marinas wrote:
+> On Tue, May 20, 2025 at 02:25:48PM +0200, Nam Cao wrote:
+> > On Mon, May 19, 2025 at 03:49:29PM +0100, Catalin Marinas wrote:
+> > > On Mon, May 12, 2025 at 12:51:00PM +0200, Nam Cao wrote:
+> > > > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> > > > index ec0a337891dd..55094030e377 100644
+> > > > --- a/arch/arm64/mm/fault.c
+> > > > +++ b/arch/arm64/mm/fault.c
+> > > > @@ -44,6 +44,9 @@
+> > > >  #include <asm/tlbflush.h>
+> > > >  #include <asm/traps.h>
+> > > >  
+> > > > +#define CREATE_TRACE_POINTS
+> > > > +#include <trace/events/exceptions.h>
+> > > > +
+> > > >  struct fault_info {
+> > > >  	int	(*fn)(unsigned long far, unsigned long esr,
+> > > >  		      struct pt_regs *regs);
+> > > > @@ -559,6 +562,11 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+> > > >  	if (kprobe_page_fault(regs, esr))
+> > > >  		return 0;
+> > > >  
+> > > > +	if (user_mode(regs))
+> > > > +		trace_page_fault_user(addr, regs, esr);
+> > > > +	else
+> > > > +		trace_page_fault_kernel(addr, regs, esr);
+> > > 
+> > > What are the semantics for these tracepoints? When are they supposed to
+> > > be called? In the RV context context I guess you only care about the
+> > > benign, recoverable faults that would affect timing. These tracepoints
+> > > were generalised from the x86 code but I don't know enough about it to
+> > > tell when they would be invoked.
+> > > 
+> > > For arm64, we also have the do_translation_fault() path for example that
+> > > may or may not need to log such trace events.
+> > 
+> > These tracepoints are invoked for x86 page fault exceptions. Are arm64's
+> > translation faults considered equivalent to x86 page faults?
+> 
+> Probably. We route permission or access flag faults via do_page_fault()
+> directly while missing page table entries via do_translation_fault().
+> The latter end up in do_page_fault() only if the faulting address is in
+> the user address range.
+> 
+> My point was that we may not always invoke the trace callbacks if, for
+> example, the user tries to access the kernel space (and results in a
+> SIGSEGV). While that's fine for RV, I wanted to know what is expected of
+> these trace points in general. Do we need to log such SIGSEGV-generating
+> events? We do log them if there's a permission fault.
 
-This is my fourth pull request for the inclusion of Renesas SoC updates
-for v6.16, containing just a fix.
+I'm not sure. Digging into history, these tracepoints were added for LTTng.
+So maybe LTTng's developer could answer this.
 
-The following changes since commit 1064013303c6dd59f1586656f853765c6e870f8b:
+Added to the conversation: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Can you please give some insight to the above question?
 
-  riscv: dts: renesas: Add specific RZ/Five cache compatible (2025-05-14 13:30:06 +0200)
+Best regards,
+Nam
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v6.16-tag4
-
-for you to fetch changes up to 652eea251dd852f02cef6223f367220acb3d1867:
-
-  arm64: dts: renesas: white-hawk-ard-audio: Fix TPU0 groups (2025-05-20 09:31:11 +0200)
-
-----------------------------------------------------------------
-Renesas DTS updates for v6.16 (take four)
-
-  - Fix White Hawk ARD Audio breakage.
-
-Thanks for pulling!
-
-----------------------------------------------------------------
-Thuan Nguyen (1):
-      arm64: dts: renesas: white-hawk-ard-audio: Fix TPU0 groups
-
- arch/arm64/boot/dts/renesas/white-hawk-ard-audio-da7212.dtso | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
 
