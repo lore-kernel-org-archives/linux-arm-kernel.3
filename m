@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C8E7C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 750C6C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 15:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVleagUiVHw/5vhkBi8LDSAfw55ruRJcasWRJK+un3M=; b=ifG/ZJWwcJrKyTQfukQk15JtWv
-	aQ2C9317t9YoufunuQEvYdjqbWWIzRzeBXTR5Us3Z8WxTKgMaRWIzZbm5kkkLogKbmnBbd3q7ZGiK
-	pWby62QcBUg5Wa3eQE6cBvlaSTVZ8KALpX8CzP9m1m1vS6Bsta6Yds/Xr6rkZ/fkISsnzvz3U699q
-	LKLnwuXcpqoAsiwYeYZ6LeqyJ259xuiA40UZQG1/sg/ZJWRdd4r2IrL9tVAD3nRq0eN2/F894PJCi
-	86BOffbuBamrG8pyNbRoaRILlMBoJaLsTUmo8skuj8iNfMHXTaPrqE7FTfGyjCPBkfN9Dmk8aKZr6
-	KPIpdVWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TSmPZSUiriMz96Sywv4sxQEnAqY0Qa0OY4Z7gR1h+jw=; b=QaONpaR3C+ZLAKmm5GiK6qzyAo
+	STCH/ObCe0fVNgaW8WHQHrtLjDA7cvHGMVD/72yx7YmRKtVXT/swcyzAxbLj6jqT7/O4ARTSwh2Rv
+	AKj7glnix9fEbj1tFEtnYgeqa+E19nOfdk10t6HXJ0h2PFCM4B5JuDJaagsOKE+Pm+1AQ+GtFcKcd
+	3M4wu1ioMn7uotNmLEtsOrfVxAoIHgmPCTj4uCOcZ/RxllGY6isASXBroHfAwHrGKqx84dzmyQB+O
+	mucobH5+81lWBYdrFUt7SHL6y4g682/f8jyMPlSGczj/jqTEQ7nz47AW7+aaryRZzn/jfTto5dmQe
+	pRsqGbBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHl2V-0000000GE7p-2Ynw;
-	Wed, 21 May 2025 15:07:27 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uHl4e-0000000GEWQ-1HsR;
+	Wed, 21 May 2025 15:09:40 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHl0J-0000000GDfY-36UL
+	id 1uHl1f-0000000GDuI-05VC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 15:05:12 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-73e0094706bso9504492b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 08:05:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747839910; x=1748444710; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zVleagUiVHw/5vhkBi8LDSAfw55ruRJcasWRJK+un3M=;
-        b=MCVVcQQbMCjsSz2S+H0MsqrXWXXBxtc+Fr7ovJmJI7PgaE3h0W5cSR2Ifg0MKmadtq
-         8BU4/ORmmHgskvXH4kLgtPzHGzjakKe7mVOVW4IlO5md+I9D6/m7swYCbHqhLKOMLv7/
-         E4Q5MS5Bp9e6zZQkt329dI9uf9whSvk61lQeiaYNwIjrg9y3d7MfUbw79VvW4na1y4uy
-         iqdyfRjOBFw1M6lHyFE+Ep6yUZH8Xz6v2aajJK+53jzkkoSCJH0+VDI0/FSfdBVKnXNW
-         bNL/0caZeGsopAMVNqxPGaH8VE80T3QY6KMr1Uv4CaBYuX7r4hbZrtwVc9LLy3A8gxEo
-         aUWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747839910; x=1748444710;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zVleagUiVHw/5vhkBi8LDSAfw55ruRJcasWRJK+un3M=;
-        b=TEji0cJth7F35DZamtRZo32yw/A2Ias6+wPjNyLkRZ0khyuw0Zg3RFMjsQhRVF4Kor
-         cWdMI2jbc5ycL8TG0phI1XPUPsynIsrVwhQdI3tLuwgVobqc+UjLzfhin1BcsqqKD+Zn
-         NNwWpMxA0lqmuJyNJbcw9dEJ5cT2AMz8uVAcEvxgQWukpXzuSmWSWWM4gq2YZOlwqOss
-         ESQNNnjdxCdWc8AqTeDvMDW9XabEpBdlM1/bI30cuhSlbxKUBWpQhtwkVNoGR0v9SeFm
-         CX+v9LKWaoDFt7KT/yp62l3OdLhUae+FZDbTPlpYoIu6zjB5VR95HAlTKbGy1aAyhioO
-         KkfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVeXtlMbnSbAr7Gf7favoyxmiDt3Wpzfw7zDCLYJjHnCBipz/J90icL1gdZAO5aBS7BmR9//bXhlW/BUcSazZ+7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBlUqPHX/UMUF7Nt3dQi4XfSSBMOcKTzsuRzpWXwMODErKBA/C
-	v7PAT6htvkzMpLZRdLPArXIHk5gqeLL/Wrxcdm2BP/bp7wg6Mg0DGOmCvInwuTlQF2gA/uooN/w
-	7zKoI1Q==
-X-Google-Smtp-Source: AGHT+IHGSpJmNv8SAS14hmKKh6ZIg5876VKcdbgoWSZxr3DEmUJT2DSMLR2M8INJy/4FyAqIRr98hcZr/w0=
-X-Received: from pgbfe5.prod.google.com ([2002:a05:6a02:2885:b0:b26:eac3:3979])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:103:b0:1fe:90c5:7d00
- with SMTP id adf61e73a8af0-216219c82fcmr35252646637.28.1747839910386; Wed, 21
- May 2025 08:05:10 -0700 (PDT)
-Date: Wed, 21 May 2025 08:05:09 -0700
-In-Reply-To: <BN7PR02MB4148503E1599C1310F408863D49EA@BN7PR02MB4148.namprd02.prod.outlook.com>
-Mime-Version: 1.0
-References: <20250519185514.2678456-1-seanjc@google.com> <20250519185514.2678456-9-seanjc@google.com>
- <20250520191816.GJ16434@noisy.programming.kicks-ass.net> <aC0AEJX0FIMl9lDy@google.com>
- <20250521114233.GC39944@noisy.programming.kicks-ass.net> <BN7PR02MB4148503E1599C1310F408863D49EA@BN7PR02MB4148.namprd02.prod.outlook.com>
-Message-ID: <aC3rpZChhtw4NODS@google.com>
-Subject: Re: [PATCH v2 08/12] sched/wait: Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority()
-From: Sean Christopherson <seanjc@google.com>
-To: Michael Kelley <mhklinux@outlook.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Nuno Das Neves <nunodasneves@linux.microsoft.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	David Matlack <dmatlack@google.com>, Juergen Gross <jgross@suse.com>, 
-	Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 21 May 2025 15:06:36 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54LDfwNR031547;
+	Wed, 21 May 2025 17:06:20 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=TSmPZSUiriMz96Sywv4sxQ
+	EnAqY0Qa0OY4Z7gR1h+jw=; b=Mufg19jELB0oRxHfJfird2T2YhK7gJVi4aLfNc
+	4yEaZ8LYgEvcuZctFGz/dUGudj5zyUOaLf+HX32vk8G0Wh84sfnhU5dTJ0LfLIRA
+	bh73dNmI16LJNUIniQSjUN73lw0fNoWSpT0Oyc3t96OYKQQ6/HUfnbyYwnNepLSH
+	1ErfL7rzfKX2BwbC+kB1VvAU+l5hYNu6B6lJoUB3DE7K3GtxjrewVELE/623PAiT
+	RHSTncXTXfy9u+IzSeOcyyAvT/8GhxdHOHsueHaYgsjQRSxZyWsCgNRK2U4fnsdf
+	l7Uu4CChn+FPBYrIte6aykDu4LDxAcM/Y6uTLRAsFveizp8w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46rwf44txt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 21 May 2025 17:06:20 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 275A640049;
+	Wed, 21 May 2025 17:05:21 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C4A76A2AB8E;
+	Wed, 21 May 2025 17:04:25 +0200 (CEST)
+Received: from localhost (10.252.24.31) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 21 May
+ 2025 17:04:25 +0200
+From: Olivier Moysan <olivier.moysan@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: Olivier Moysan <olivier.moysan@foss.st.com>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] ARM: dts: stm32: add system-clock-direction-out on stm32mp15xx-dkx
+Date: Wed, 21 May 2025 17:04:18 +0200
+Message-ID: <20250521150418.488152-1-olivier.moysan@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.252.24.31]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-21_04,2025-05-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_080511_781701_B1F542F7 
-X-CRM114-Status: GOOD (  37.06  )
+X-CRM114-CacheID: sfid-20250521_080635_343668_4183FEA5 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,90 +92,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025, Michael Kelley wrote:
-> From: Peter Zijlstra <peterz@infradead.org> Sent: Wednesday, May 21, 2025 4:43 AM
-> > 
-> > On Tue, May 20, 2025 at 03:20:00PM -0700, Sean Christopherson wrote:
-> > > On Tue, May 20, 2025, Peter Zijlstra wrote:
-> > > > On Mon, May 19, 2025 at 11:55:10AM -0700, Sean Christopherson wrote:
-> > > > > Drop the setting of WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() to
-> > > > > differentiate it from add_wait_queue_priority_exclusive().  The one and
-> > > > > only user add_wait_queue_priority(), Xen privcmd's irqfd_wakeup(),
-> > > > > unconditionally returns '0', i.e. doesn't actually operate in exclusive
-> > > > > mode.
-> > > >
-> > > > I find:
-> > > >
-> > > > drivers/hv/mshv_eventfd.c:      add_wait_queue_priority(wqh, &irqfd->irqfd_wait);
-> > > > drivers/xen/privcmd.c:  add_wait_queue_priority(wqh, &kirqfd->wait);
-> > > >
-> > > > I mean, it might still be true and all, but hyperv seems to also use
-> > > > this now.
-> > >
-> > > Oh FFS, another "heavily inspired by KVM".  I should have bribed someone to take
-> > > this series when I had the chance.  *sigh*
-> > >
-> > > Unfortunately, the Hyper-V code does actually operate in exclusive mode.  Unless
-> > > you have a better idea, I'll tweak the series to:
-> > >
-> > >   1. Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() and have the callers
-> > >      explicitly set the flag,
-> > >   2. Add a patch to drop WQ_FLAG_EXCLUSIVE from Xen privcmd entirely.
-> > >   3. Introduce add_wait_queue_priority_exclusive() and switch KVM to use it.
-> > >
-> > > That has an added bonus of introducing the Xen change in a dedicated patch, i.e.
-> > > is probably a sequence anyways.
-> > >
-> > > Alternatively, I could rewrite the Hyper-V code a la the KVM changes, but I'm not
-> > > feeling very charitable at the moment (the complete lack of documentation for
-> > > their ioctl doesn't help).
-> > 
-> > Works for me. Michael is typically very responsive wrt hyperv (but you
-> > probably know this).
-> 
-> I can't be much help on this issue. This Hyper-V code is for Linux running in
-> the root partition (i.e., "dom0") and I don't have a setup where I can run and
-> test that configuration.
-> 
-> Adding Nuno Das Neves from Microsoft for his thoughts.
+The commit 5725bce709db
+("ASoC: simple-card-utils: Unify clock direction by clk_direction")
+corrupts the audio on STM32MP15 DK sound cards.
+The parent clock is not correctly set, because set_sai_ck_rate() is not
+executed in stm32_sai_set_sysclk() callback.
+This occurs because set_sysclk() is called with the wrong direction,
+SND_SOC_CLOCK_IN instead of SND_SOC_CLOCK_OUT.
 
-A slightly more helpful, less ranty explanation of what's going on:
+Add system-clock-direction-out property in SAI2A endpoint node of
+STM32MP15XX-DKX device tree, to specify the MCLK clock direction.
 
-KVM's irqfd code, which was pretty copied verbatim for Hyper-V partitions, disallows
-binding an eventfd to a single VM multiple times, but doesn't handle the scenario
-where an eventfd is bound to multiple VMs, i.e. to multiple partitions.  What's
-particular "fun" about such a scenario is that WQ_FLAG_EXCLUSIVE+WQ_FLAG_PRIORITY
-means only the first VM/partition that bound the eventfd will be notified.
+Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+---
+ arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-For KVM-based setups, this is a legitimate concern because KVM supports intra-host
-migration.  E.g. to upgrade the userspace VMM, a guest can be "migrated" from the
-old VMM's "struct kvm" instance to the new VMM's "struct kvm".  If userspace mucks
-up the migration, e.g. doesn't *unbind* the eventfd from the old VM(M) before
-resuming the guest in the new VM(M), KVM will effectively drop virtual IRQs.
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
+index a5511b1f0ce3..c74e36676d1b 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
+@@ -515,6 +515,7 @@ sai2a_endpoint: endpoint {
+ 				remote-endpoint = <&cs42l51_tx_endpoint>;
+ 				dai-format = "i2s";
+ 				mclk-fs = <256>;
++				system-clock-direction-out;
+ 				dai-tdm-slot-num = <2>;
+ 				dai-tdm-slot-width = <32>;
+ 			};
+-- 
+2.25.1
 
-This is purely a hardening exercise, i.e. isn't required for correctness, assuming
-userspace userspace is bug-free.  The KVM patches surrounding this patch show how
-I am planning on ensuring a 1:1 eventfd:VM binding.
-
-To not block the KVM hardening on Hyper-V's eventfd usage, I am planning on making
-this change in the next version of the series:
-
-diff --git a/drivers/hv/mshv_eventfd.c b/drivers/hv/mshv_eventfd.c
-index 8dd22be2ca0b..b348928871c2 100644
---- a/drivers/hv/mshv_eventfd.c
-+++ b/drivers/hv/mshv_eventfd.c
-@@ -368,6 +368,14 @@ static void mshv_irqfd_queue_proc(struct file *file, wait_queue_head_t *wqh,
-                        container_of(polltbl, struct mshv_irqfd, irqfd_polltbl);
- 
-        irqfd->irqfd_wqh = wqh;
-+
-+       /*
-+        * TODO: Ensure there isn't already an exclusive, priority waiter, e.g.
-+        * that the irqfd isn't already bound to another partition.  Only the
-+        * first exclusive waiter encountered will be notified, and
-+        * add_wait_queue_priority() doesn't enforce exclusivity.
-+        */
-+       irqfd->irqfd_wait.flags |= WQ_FLAG_EXCLUSIVE;
-        add_wait_queue_priority(wqh, &irqfd->irqfd_wait);
- }
 
