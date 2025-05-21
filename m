@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5638C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EC5C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YdZDRVKPRJnM6bMhkKAe136v5iLTjMpExrfXyqbjbXY=; b=ElA6ad4jqrxBIyHVnpBDETAGOt
-	tOePXeNdJbvfGR8s8PubbfrnCPsoK0gq68MRMSKgpQrJBns+TvIEOMU/BZb2eGJYpAOHGizfYAkyd
-	gL82Yka+0rZu7TGTf346kB7TrDj9jZkVRGnfRtbJhzj+4MWgDB5NQB1LDrtO6yznXQdmSKSwTniiA
-	+X3SeoIijSpvOl2z9HtWcXO6R8QR83Gys4Pe0+t0235nJ7nVmVWgyr1+Fc6bN/6ny5UcauM/4FTej
-	3XYE8ceD3njnRPYmXYn72Dv8NS4dNi2+ccazRMl9uBSH7eJipn2ltoJVYoHUUuvFa0LUV8aOn4QrX
-	8zgoFGAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xooKwfqKZPpKfPYNFtOO33yjWX3ExswTqq8/C09VJ7U=; b=hPe0IqwF7q+HPXUR1StLr23hyf
+	EFE1nQfhVzTSJU9GtYIjRx6gjTbQbm/5SEsLPNmm/nuUHUyixcD+UzGAjvqZHR4evTxr0mOIln5XH
+	/keAx9FaSIX1JqBJXsxwUX4K3r8IIEGYBde7O8v4au5F4yulz3z+DvqVEOze9y/Sg8imp8hXGheJ3
+	Z+swYW+dmDNqJTHE7eBG/0ztxvbEuvFF42jLsCGI+lUw/OgXO5bXGF5+7Vi7o6E7ZLydCvVjkZxoV
+	UuWPFb/p1EYxUxNi7a0RyhAQIYpvBN/ZuZ4H3rqSyJvcIIrnZOtL/rsogx6MX3yiZjCWsFz+MH5PO
+	VZCWHk7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfkO-0000000FJTA-0hjA;
-	Wed, 21 May 2025 09:28:24 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uHfmP-0000000FJpc-38QD;
+	Wed, 21 May 2025 09:30:29 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfYl-0000000FHGx-06bQ;
-	Wed, 21 May 2025 09:16:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 577A1A4E7DC;
-	Wed, 21 May 2025 09:16:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65F6FC4CEE4;
-	Wed, 21 May 2025 09:16:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747818982;
-	bh=YdZDRVKPRJnM6bMhkKAe136v5iLTjMpExrfXyqbjbXY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lDC5FeBYzkfOTxctuEWJFzsysW85GdkXbucVPeAeFcT3r86V+qIe1Ey+ddKED3/2X
-	 Pnj5fU78RgQifFoSa4aR0LcB/aLF6vstearUjI3Es7B8WG40PFOD/10z5GgGpXEFVl
-	 BqqJnjgYX8YKNCzkG3SG8sV6mS9Zq5p2Uq23ThRJFlu9CQPl4hLavfafa2qwzA7kvM
-	 3xhhaYkAZF1rNYXgUoKmXO0yHZnQV/9nrFcg9rzO0msicWQyuOObv14/sk+64sZ5Mo
-	 KM0lu6ayEy2W1AOE3hYrZKUO7TRFpXZMsYF/ZvD4DjowKHvacKXS7ftCTiE45Qvmml
-	 6L+CvnDxtOL6w==
-Date: Wed, 21 May 2025 11:16:19 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/8] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
- compatible string for S6
-Message-ID: <20250521-foamy-strict-tuna-3ffad7@kuoka>
-References: <20250521-s6-s7-pinctrl-v2-0-0ce5e3728404@amlogic.com>
- <20250521-s6-s7-pinctrl-v2-3-0ce5e3728404@amlogic.com>
+	id 1uHfYz-0000000FHJm-3or7;
+	Wed, 21 May 2025 09:16:39 +0000
+X-UUID: 489bd7ca362411f0bed96b30c12bc3d6-20250521
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=xooKwfqKZPpKfPYNFtOO33yjWX3ExswTqq8/C09VJ7U=;
+	b=mEufUaEHEu/GyMqip8M0lCENxgktP8osa2gQaCWjQzRjfVr9Jr2Djbm0c2oEEf4OCnbVIahcgFvRmT+VJshIcFgq1dYBUz5VaXnp2fwmruGcqn40tUO1dQtlUY9p0vO7PxJhnD+TVutl5RnUiMlI4lYH8AEQ3jd47pXu21No3XU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:777c6655-d460-4aa3-a5dc-037346fad64b,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:df4ed057-abad-4ac2-9923-3af0a8a9a079,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 489bd7ca362411f0bed96b30c12bc3d6-20250521
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <friday.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1238770623; Wed, 21 May 2025 02:16:31 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 21 May 2025 17:16:27 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 21 May 2025 17:16:26 +0800
+From: Friday Yang <friday.yang@mediatek.com>
+To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+CC: Friday Yang <friday.yang@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v1] memory: mtk-smi: Add ostd setting for mt8186
+Date: Wed, 21 May 2025 17:16:16 +0800
+Message-ID: <20250521091626.4283-1-friday.yang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250521-s6-s7-pinctrl-v2-3-0ce5e3728404@amlogic.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_021623_128868_935916E0 
-X-CRM114-Status: UNSURE (   7.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250521_021637_951105_AE24CEC2 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,13 +87,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 11:19:57AM GMT, Xianwei Zhao wrote:
-> Update dt-binding document for pinctrl of Amlogic S6 SoC.
+Add initial ostd setting for mt8186. All the settings come from DE.
+These settings help adjust Multimedia HW's bandwidth limits to achieve
+a balanced bandwidth requirement. Without this, the VENC HW works
+abnormal while stress testing.
 
+Fixes: 86a010bfc739 ("memory: mtk-smi: mt8186: Add smi support")
+Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+---
+ drivers/memory/mtk-smi.c | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-Just squash it. Three one-liners is pretty close to a churn.
+diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+index c086c22511f7..733e22f695ab 100644
+--- a/drivers/memory/mtk-smi.c
++++ b/drivers/memory/mtk-smi.c
+@@ -320,6 +320,38 @@ static const u8 mtk_smi_larb_mt6893_ostd[][SMI_LARB_PORT_NR_MAX] = {
+ 	[20] = {0x9, 0x9, 0x5, 0x5, 0x1, 0x1},
+ };
 
-Best regards,
-Krzysztof
++static const u8 mtk_smi_larb_mt8186_ostd[][SMI_LARB_PORT_NR_MAX] = {
++	[0] = {0x2, 0x1, 0x8, 0x1,},
++	[1] = {0x1, 0x3, 0x1, 0x1,},
++	[2] = {0x6, 0x1, 0x4, 0x1,},
++	[3] = {},
++	[4] = {0xf, 0x1, 0x5, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
++	       0x1, 0x1, 0x1,},
++	[5] = {},
++	[6] = {},
++	[7] = {0x1, 0x3, 0x1, 0x1, 0x1, 0x3, 0x2, 0xd, 0x7, 0x5, 0x3,
++	       0x1, 0x5,},
++	[8] = {0x1, 0x2, 0x2,},
++	[9] = {0x9, 0x7, 0xf, 0x8, 0x1, 0x8, 0x9, 0x3, 0x3, 0xb, 0x7, 0x4,
++	       0x9, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
++	       0x1, 0x1, 0x1, 0x1, 0x1,},
++	[10] = {},
++	[11] = {0x9, 0x7, 0xf, 0x8, 0x1, 0x8, 0x9, 0x3, 0x3, 0xb, 0x7, 0x4,
++		0x9, 0x1, 0x1, 0x1, 0x1, 0x1, 0x8, 0x7, 0x7, 0x1, 0x6, 0x2,
++		0xf, 0x8, 0x1, 0x1, 0x1,},
++	[12] = {},
++	[13] = {0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x6, 0x6, 0x6, 0x1, 0x1, 0x1,},
++	[14] = {0x1, 0x1, 0x1, 0x1, 0x1, 0x1,},
++	[15] = {},
++	[16] = {0x28, 0x14, 0x2, 0xc, 0x18, 0x1, 0x14, 0x1, 0x4, 0x4, 0x4,
++		0x2, 0x4, 0x2, 0x8, 0x4, 0x4,},
++	[17] = {0x28, 0x14, 0x2, 0xc, 0x18, 0x1, 0x14, 0x1, 0x4, 0x4, 0x4,
++		0x2, 0x4, 0x2, 0x8, 0x4, 0x4,},
++	[18] = {},
++	[19] = {0x1, 0x1, 0x1, 0x1,},
++	[20] = {0x2, 0x2, 0x2, 0x2, 0x1, 0x1,},
++};
++
+ static const u8 mtk_smi_larb_mt8188_ostd[][SMI_LARB_PORT_NR_MAX] = {
+ 	[0] = {0x02, 0x18, 0x22, 0x22, 0x01, 0x02, 0x0a,},
+ 	[1] = {0x12, 0x02, 0x14, 0x14, 0x01, 0x18, 0x0a,},
+@@ -491,6 +523,7 @@ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8183 = {
+ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8186 = {
+ 	.config_port                = mtk_smi_larb_config_port_gen2_general,
+ 	.flags_general	            = MTK_SMI_FLAG_SLEEP_CTL,
++	.ostd			    = mtk_smi_larb_mt8186_ostd,
+ };
+
+ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8188 = {
+--
+2.46.0
 
 
