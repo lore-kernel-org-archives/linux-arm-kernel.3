@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5C0C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 13:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF00C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 13:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46JwH6aeapAQTywQMFcAygSa29KejNTHWy0TcBjet1Y=; b=yz27POvuyYEQ8hOHMopcsK4xBQ
-	YZdNbOWAFjvpo7YsCLtN1s8NMNyY6WLmQpO/vMz+g1vHPIjl8MTzT/c7h9LhnlooKwUN9qULu8Qsr
-	+rQV6yrZQCv384qT9gASfCdFm0R65RB8rgY3XZVxqjbCdMEnrAsUxf+LwRjP7nL6Kf3aEccsxEEQO
-	lfj0FD2ltvR9YuAzKzbZQ4fePBDCTpSo+pdfa+MYnLD44/nLlxUfc+ytzDS5rZl4tozSEp6pjN0nT
-	fYRDXbzicWa7mO7hkt/NPzYEGmuuiCca9CHhzA0nSoiDiXjgLYCoYVpCcrvcLj2UL0Aey0ItETt+4
-	DwaPBhEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jjv82nsHDCUHgJ8TCRBumN+QQ/vlY53Lv/z+e9DnnNg=; b=zweGHGx6oHZVy0ac7jdzJR5Yng
+	MoAYYUM0grFUgyuIBJHx7nYhMLoTERo0LskyWkXIftyXpFsP+APSr5KxQuORdudH50irpgmtltDV9
+	zddMX0M2lv7zjrw0Pf1Mt1LWChR0AFPi0F3PM4ROsuLKMP2xx3ISJyvPh/xTxjvvdTFzmCoYR+ZP3
+	qWGyLL8VuKulCsNeNtc2PTDobcrXjBI560ay99jI5ZSqOEoEJyqhq1rUdIg65//ef7NTFEA6Tf50G
+	AmFSc+8Quxlifi9TFoFFbNe95ErEkJIW0/sRVPnT+FUpXXDYbpWR4tyNDZ2EP8iLb3Z80PexwlE+L
+	fHmMshfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHjVd-0000000FwLW-3k91;
-	Wed, 21 May 2025 13:29:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uHjXn-0000000Fwdk-2qYJ;
+	Wed, 21 May 2025 13:31:39 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHj1z-0000000Fr5l-3wj1;
-	Wed, 21 May 2025 12:58:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 30A0C5C5942;
-	Wed, 21 May 2025 12:56:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3C3DC4CEE4;
-	Wed, 21 May 2025 12:58:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747832327;
-	bh=IeQnLNJstNjynSs1koAm+vW3nzqLzxm3im3la+GCGMU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MnoVGq66iFbuFbrV5nf9ftLCWI+aBqdECdHTKaLh0hlPeo6aFLoxw44EjQGFG8A+n
-	 IXkHhB6JJOYgBx8k4c2Sn/2F8kFxhpX/hPFNp4daadLKS09YGJzSSs/CdDybSdUCkW
-	 27lCmgeMSYe9Ce3FeQtA85w7ukVqF4/42r2omGZa7Kc/jVBX3JHzD/w6ZrqwUs8hTE
-	 tkAkGAIkuOq3koHntDsetHtM4NjvcH34nAM48hZxjQGZ/PPJjMect9y0cPbD4a6p6S
-	 AqlQP6iYpH0XIMGzzB/KRaHMs5H+9wCCCePODnR5qdEVwbe270S/Tss4aZfgtJGyGH
-	 LVmWsO/Jdi6aw==
-Message-ID: <bd9ab640-2469-4455-bd69-302dd3898c7b@kernel.org>
-Date: Wed, 21 May 2025 14:58:40 +0200
+	id 1uHj3C-0000000FrKJ-3UYH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 13:00:04 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uHj32-00007s-NY; Wed, 21 May 2025 14:59:52 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uHj32-000ZXv-1X;
+	Wed, 21 May 2025 14:59:52 +0200
+Received: from pengutronix.de (unknown [IPv6:2a03:2260:2009:2000::])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 8452641698E;
+	Wed, 21 May 2025 12:59:51 +0000 (UTC)
+Date: Wed, 21 May 2025 14:59:50 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Sascha Hauer <s.hauer@pengutronix.de>, imx@lists.linux.dev, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, michael@amarulasolutions.com, Fabio Estevam <festevam@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/3] ARM: dts: mxs: support i.MX28 Amarula rmm board
+Message-ID: <20250521-neon-yellow-groundhog-69f777-mkl@pengutronix.de>
+References: <20250521092826.1035448-1-dario.binacchi@amarulasolutions.com>
+ <20250521092826.1035448-4-dario.binacchi@amarulasolutions.com>
+ <20250521-quizzical-tidy-worm-1fe67d-mkl@pengutronix.de>
+ <CABGWkvrmuhaF4iHqHRkrNrrHb2gUNDBJKCT-jZ8ZuwZGRvm7Lw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] phy: exyons5-usbdrd: support HS phy for
- ExynosAutov920
-To: Neil Armstrong <neil.armstrong@linaro.org>,
- Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
- kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
- kauschluss@disroot.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
- dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
- selvarasu.g@samsung.com
-References: <20250516102650.2144487-1-pritam.sutar@samsung.com>
- <CGME20250516101803epcas5p2d9403d89d840dcad88a03d437a48aceb@epcas5p2.samsung.com>
- <20250516102650.2144487-3-pritam.sutar@samsung.com>
- <a5c1a064-d760-4140-9e78-d74823b400a8@linaro.org>
- <000101dbca1d$78ca5570$6a5f0050$@samsung.com>
- <42ddb5c6-0f17-41ed-8bd4-ab58880515b1@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <42ddb5c6-0f17-41ed-8bd4-ab58880515b1@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="a46t33bhnuh43qgg"
+Content-Disposition: inline
+In-Reply-To: <CABGWkvrmuhaF4iHqHRkrNrrHb2gUNDBJKCT-jZ8ZuwZGRvm7Lw@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_055848_069387_343FA698 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250521_060002_874884_EC4231E2 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,29 +86,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2025 14:56, 'Neil Armstrong' wrote:
->>> <snip>
->>>
->>>> +	}, {
->>>> +		.compatible = "samsung,exynosautov920-usb31drd-phy",
->>>> +		.data = &exynosautov920_usb31drd_phy
->>>
->>> All those new ops are only called when matching this compatible, it it really
->>> necessary to check the version ? is there "samsung,exynosautov920-usb31drd-
->>> phy" PHYs with version different from 3 in the wild ?
->>>
->>
->> This SoC has a single USB 3.1 DRD combo phy of version v400 (major : minor versions) and three USB2.0
->> DRD phy v303 (major : minor versions) controllers those only support the UTMI+ interface. Currently,
->> supporting only v303 phys in this patch-set, and planning v400 phy later (soon).
->>
->> Yes, there's v400 phy version that is different from v303 phy. Hence, phy version check is needed to support both the phys for same compatible.
-> 
-> OK so add 2 compatibles, one for the usb31drd and one for the usb2drd since those are 2 difference hardware.
 
-...unless this is fully detectable hardware, then use fallbacks and only
-one compatible in the driver.
+--a46t33bhnuh43qgg
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 3/3] ARM: dts: mxs: support i.MX28 Amarula rmm board
+MIME-Version: 1.0
 
-Best regards,
-Krzysztof
+On 21.05.2025 12:32:19, Dario Binacchi wrote:
+> Hello Marc,
+>=20
+> On Wed, May 21, 2025 at 11:35=E2=80=AFAM Marc Kleine-Budde <mkl@pengutron=
+ix.de> wrote:
+> >
+> > On 21.05.2025 11:28:22, Dario Binacchi wrote:
+> > > The board includes the following resources:
+> > >  - 256 Mbytes NAND Flash
+> > >  - 256 Mbytes SRAM
+> > >  - LCD-TFT controller
+> > >  - CAN
+> >
+> > [...]
+> >
+> > > +&can0 {
+> > > +     pinctrl-names =3D "default";
+> > > +     pinctrl-0 =3D <&can0_pins_a>;
+> > > +     xceiver-supply =3D <&reg_3v3>;
+> >
+> > Since v6.15-rc1 (d80bfde3c57a ("can: flexcan: add transceiver
+> > capabilities")), the flexcan driver supports CAN transceivers via the
+> > phy framework, see drivers/phy/phy-can-transceiver.c. Can you make use
+> > of it?
+>=20
+> The board uses the SN65HVD233 transceiver, which is not listed among those
+> supported by drivers/phy/phy-can-transceiver.c. So I can't use the PHY
+> framework.
+
+Hmmm, okay. Since the SN65HVD233 has features like loopback, we have to
+think about it more than adding a new compatible to the existing driver.
+
+> Do you agree?
+
+Ok
+
+> Or am I missing something?
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--a46t33bhnuh43qgg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmgtzkIACgkQDHRl3/mQ
+kZxORgf/WqqWv1YA6aA24pwIch/Mdi1hGSfsgp+sRP0Y+Rjp3ZFzW/NzCap+BoX8
+VPtoygZEJLRnFjuApZePl2IwbhUX8gEjffcfl29qjLzAo6Z4MFQUlzzAr9+GZS8h
+5XVxLVWher9z7xrW49Bhrebad+f9TEp+yFdez/W8LqTG6csHd2j/WhNvnA+iWp1u
+1aNVS6/4dFWPgqB+aQItZ8WXJOalqhKEePqgONIWA61pPwtsF/u219pPYLLfVFAs
+vL+7hVS2jph1b3sbLcUxTqZ6IV1kMUs8IyMmKyx9zYq7ziblcDGILMlPaJPkxvJO
+xunHUUhFDU2GQso45w88F6DpSq2SCA==
+=KaRh
+-----END PGP SIGNATURE-----
+
+--a46t33bhnuh43qgg--
 
