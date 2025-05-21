@@ -4,64 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AFBAC54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 17:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AFBC54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 18:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8TEXqaL04tKXffJVlIPkDE1LudLQvdIvor8CQDdYYg=; b=Eltlaiy1Y7m1kitiFtNvohHPE0
-	LQ6sbd3oKICxrejEXcPaKvfqO26XqlqrVzpAcVnCWT5QEVSBzzyMfpd+E4pEjnIVYBRKWdT8TsUMg
-	AvJ/S/UoYI/p+AHZ7lIYkN///u7YS2h2iCRZVHtdzyMZO7giWNNUzCqmlYrkd051cYZWvofhNY5eK
-	fDb7JEgeBb3Ec7hmjynKRtL/BLflVsuCMrbh83tLyZxsawfx4WKmmIiXrbabWRyCTkfSfSE2+CXuq
-	zWOk4W/nIjTjz8JknzIx7vZf/PTqeI07M4jt6oRT8VrvK/4YxjyiTtH7ExW5TuJ5ci85JWI2W1jBY
-	yNxIYQ9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/aeLfJ0PzSr4uq6iXZtu5CQlSKRMHtQfoQXsO7eK7rY=; b=Jqrnkx5TrKMp3bsDA+2iQAXCAY
+	1sc5gkPS77UMrcd7nVEE4diynIsWF8Djq7YCA9bp476ICZwQC+p6Vgf98/Gb9jiK7YZ9A7HXgLjKj
+	Ug54pPGIdmlN0kqFK26uNu89H/MHqVyHzOQIsQF7Ug+8Id+FZjxmqVr+AG/omYNiYOJAoM+RuyofC
+	hBekhmGZrDU/dTe63Ro2URSUZ8WduuR0UVVmzXl5HmtZT1qFzlvZkuYlf5KEI5z8ffyh6LkR2iRb9
+	7shaBM9usgP6BlQeEh2fIVLCCBO5c0Wl57Dx8F0A/LAUaxDPiJDZD2NKBkgt1v7XHdrQvE3d4FzUk
+	7PWYqmOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHnhs-0000000Gcd1-0gS3;
-	Wed, 21 May 2025 17:58:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uHo22-0000000GdlH-3LIB;
+	Wed, 21 May 2025 18:19:10 +0000
+Received: from mail-bn1nam02on20609.outbound.protection.outlook.com ([2a01:111:f403:2407::609] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHnfi-0000000GcXp-35R4;
-	Wed, 21 May 2025 17:56:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8A4174A20E;
-	Wed, 21 May 2025 17:56:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35D6CC4CEE4;
-	Wed, 21 May 2025 17:56:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747850164;
-	bh=SH3v7r/YeP+ILksXxAq4H6i/5FdXirbGQTMwOfTFny0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=pbnxd02T3gFqUPMywHByGWNqP4yHJv049nk0XpF8GLIt6EkzkEVJp3Mq0lDhrCpLV
-	 nDe3S5GGj1AbfQcnTfI6EhFgN8zEI+yeXzhI6EYBQdTOKU1aICAOrvBl1fPsp4yDzw
-	 26GdpAQisHmuBYM/aItT8RbInXIZVISglDGWrWtd4RAZ51y5hH5FuFQjJNCOqg2QAi
-	 u8MvnleyLUJh2SvrJjSG8WbHUCre3t+6aCKOCdsrsMJFop0RnD92g0cms9fyvKxGs3
-	 XXGOb70FeRtmlnuDMOw16h0nv6xnQGhti9PhX8rLu/8aGcnmzAEClsa6jrjP4qfdxa
-	 pTer5+zRybQQg==
-From: Mark Brown <broonie@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>, Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>, 
- Jonas Karlman <jonas@kwiboo.se>, Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-spi@vger.kernel.org
-In-Reply-To: <20250520100102.1226725-1-amadeus@jmu.edu.cn>
-References: <20250520100102.1226725-1-amadeus@jmu.edu.cn>
-Subject: Re: (subset) [PATCH 0/2] arm64: dts: rockchip: Add spi nodes for
- RK3528
-Message-Id: <174785016195.188147.3036453631222636236.b4-ty@kernel.org>
-Date: Wed, 21 May 2025 18:56:01 +0100
+	id 1uHnzq-0000000GdSB-316Q
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 May 2025 18:16:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B3+gxXMymEa+yH9DPNlmajwaackuIdsJZegVr1zJZZqVCMqEctn5an+cfPBxTW490bW2tShtGMeRDHe11B70z2JX5vkvhaRmPVJwXsbkidwtqGC6cs3r60DmZV82yo5xOv+eGZJqPAnYPSKuwqMJK6p35Q2Pr5IwmCaKCQI74+QqqfzpJJ8ud+eU3cQQ892rX8vmLY8oHI/rVbEJsHpQj+SnpJZEv+J3hxwlMVjnGzG0WDWsNg+AsyVAZfI07KdTyT6qMwWwg2FI5Rr/zfSmeUwoAceF/e4DPn1UK+T/4VGfwwZPMW6N/+cklv+V+dl3849BECUJ+7xszvDwzKB+cA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/aeLfJ0PzSr4uq6iXZtu5CQlSKRMHtQfoQXsO7eK7rY=;
+ b=P+SkRV2EVzPJrLIPF4AfokPbJ3WCCdjGFEg4eOuMpTvI/37qDmBWFz25p/JSd2+GYcFovZtHwAXqyePyqwPP9vb/jpnnaktFurh13tFGNP6ZghLkWYDRgXCYetWoStuuXYXGLf5Qf2anBqpQnwyWAQ4aFeWZt55PTW16Rn1opq92uLVYh71I0nMMbVreEAoDd5VGQWlpx6yYFoAOCWOJ5ADLyGaA721O5f13lzdJzhZHFMNn08jqpwFQMaJG2AfJYRS4v738Use+gA1lT7OjjI2P/DZ6Bsi3n5G2f13FaiLJdW0Mun8QV0Q1MALXoX8L56YOGqH/52a1MPK/03jruw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/aeLfJ0PzSr4uq6iXZtu5CQlSKRMHtQfoQXsO7eK7rY=;
+ b=u/ijTT44pIbWXKfOWj9L4OGwm1O92z4m6GdCKRre8N7iP4RmSCnTZpTNlAV1bFiDo38G46XBXKXV8sATUR0VVqoxzgxLPO9UhYgHtdN0fXNOnmc/JP7eT5CBYwfawW36yn4FRZc0pthkeZb6G11jVW9kU0pC8prc+z3YyhUmph4=
+Received: from BL6PEPF00013DFF.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:22e:400:0:1001:0:1e) by PH7PR12MB7842.namprd12.prod.outlook.com
+ (2603:10b6:510:27a::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Wed, 21 May
+ 2025 18:16:43 +0000
+Received: from BL6PEPF0001AB4F.namprd04.prod.outlook.com
+ (2a01:111:f403:f903::4) by BL6PEPF00013DFF.outlook.office365.com
+ (2603:1036:903:4::4) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18 via Frontend Transport; Wed,
+ 21 May 2025 18:16:42 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ BL6PEPF0001AB4F.mail.protection.outlook.com (10.167.242.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8769.18 via Frontend Transport; Wed, 21 May 2025 18:16:42 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 21 May
+ 2025 13:16:19 -0500
+Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB06.amd.com
+ (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 21 May
+ 2025 13:16:17 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Wed, 21 May 2025 13:16:14 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <michal.simek@amd.com>,
+	<sean.anderson@linux.dev>, <radhey.shyam.pandey@amd.com>, <horms@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>, <harini.katakam@amd.com>
+Subject: [PATCH net] net: xilinx: axienet: Fix Tx skb circular buffer occupancy check in dmaengine xmit
+Date: Wed, 21 May 2025 23:46:08 +0530
+Message-ID: <20250521181608.669554-1-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4F:EE_|PH7PR12MB7842:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23769f43-d3ef-436e-24da-08dd9893a386
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7+34K0euIzy0ejXBgDRmffrnXPTsyAe7uNCLaUP1Zv2f0H36gUV5ITRfioBv?=
+ =?us-ascii?Q?CSDiaJM/5SE8A+twUsNIwuzVdxWkId7FvLF5s2g8VNRUrlHC3aZ5Ozzmc4YH?=
+ =?us-ascii?Q?2Mp1R26XauhYipvMvmbHzvDoY+IGAVDXG8hQ1l72RR6rSx3+F+IhwxxCNrzO?=
+ =?us-ascii?Q?V8r5//cTvHcW+mfyWes3nHUSOKkAs0FuMJlRLSHXhYwG/nFJBBefQpaGGoCe?=
+ =?us-ascii?Q?yq/njHvyZob5IxT9oxiZvxr6vsj84zsTRwq3KpfNpYP4cRoz5bM0+oH7lC90?=
+ =?us-ascii?Q?pykKrWf53Nil0bmIdzQYiqh3dJCMUoePdxztUpz1YL6FQmZWK/B37RV49K6p?=
+ =?us-ascii?Q?qMa7RdnUn01j3Fpi6lqRfZDZSsZtILwe5wYZ9O6Xl+qlPXaT0pAaWwB4Tx/Q?=
+ =?us-ascii?Q?a6RG2Mh+QlAkpRifiIaEZDdzbvmRmNTTIqeQ788XeoLtTfeBscgUN81srfm6?=
+ =?us-ascii?Q?8qh+dFLPEQ9YKhXZnc1hsacGUbdjvwoZEA7hwoKmVADoc2RuSE4YWA24ubK9?=
+ =?us-ascii?Q?LKdNdmB7ypLIKSOTPydAfPsBzahhQEi4jy4nc0Cvtvi76IJlDsiupF7ivtWx?=
+ =?us-ascii?Q?aEZu1pM5YozT+XtRZ/l8q3TBUFv5zF2qx5MEfAFyjWY4DnVDOiRjAiXu8qRx?=
+ =?us-ascii?Q?z+snyKbonAuB0rBnuLx/GOM2nSbL6nZNRLLBfMaTb5T8aEfaF2rNsK9LWDod?=
+ =?us-ascii?Q?0ySMg5LFl00jwSpHVeyZUBlDT7blspcjNoYfwrRAfX1a566HBgTVHGvdMgtW?=
+ =?us-ascii?Q?fD89cQvjlxNlJeFwmyq7gO5hX9d4rourAVZxbEkdBiKkhGAuUkMz0vSO1V1E?=
+ =?us-ascii?Q?82b6gSwhvN9LES77MztoV8RV7mgKt9QS5Z793a5L5JegRa53Gktnzl8tP3V5?=
+ =?us-ascii?Q?tb2+OX1n4i8tCuBnzuf/IHXmH+HJCmJ53tcZ0l2rXy4KmVQ6SeRdquQa6d5J?=
+ =?us-ascii?Q?R9CdHwYE5zIIFIh2KB4g/G4UgeqY4IxiLAlma5BqgRIkgtPlvLpsPlK957Kd?=
+ =?us-ascii?Q?3gRtj4xXxLfZjju3Pq5rFgWesDUiEQzsaasqX2x3S3ORGxXsFuZIeXJcLW5C?=
+ =?us-ascii?Q?1x3ITqP5ZPSd1AiuXEOfqT+4NFqDNZdtUfYMuAChNE7Ff5S7iq0Bns3znHhY?=
+ =?us-ascii?Q?791dIbue8Xfl7IXSdmOvRY9n6E/gbHQXiFwo2THcepw8ck49RfLW/OfgxD5k?=
+ =?us-ascii?Q?sHbNGohVqjKykboj8eS5jpY5T4jhEolmAsT52wACDXQLc0RnIGJ9q5FnPHFc?=
+ =?us-ascii?Q?Cd7cEKdNpacMyPfm0ntdy3Vcz+sfdO3U1EtQ0mT2sn149WIrHBughJ6RM6No?=
+ =?us-ascii?Q?U8jOLjXi6a8jvq/oSWbt4kvATsJLyPx60T87qLbJZEAc6IetweeY8sqEaK6W?=
+ =?us-ascii?Q?YzTPnGvE5UsbDCZjgjSM9Eq/1ULaKJOVrGJ2eyN790i980u/eqkcMZtqB8Yq?=
+ =?us-ascii?Q?oF7l7ntj0pAi7mQ+wOH++Q6H89O+j/+T1neowq31vE8EM0inROoRbCt9Mn94?=
+ =?us-ascii?Q?T51ji45V3pwwScFjZyGVBY96vsUIvx9193xU?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2025 18:16:42.7130
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23769f43-d3ef-436e-24da-08dd9893a386
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7842
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_105606_807087_EEB1A146 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250521_111655_611463_19312EBE 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,42 +147,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 May 2025 18:01:00 +0800, Chukun Pan wrote:
-> There are 2 SPI controllers on the RK3528 SoC, describe it.
-> Tested using st7789v chip with spi-cpha and spi-cpol properties.
-> 
-> [   10.831306] fb_st7789v spi0.0: fbtft_property_value: buswidth = 8
-> [   11.042915] graphics fb0: fb_st7789v frame buffer, 240x320, 150 KiB
->  video memory, 4 KiB buffer memory, fps=20, spi0.0 at 15 MHz
-> 
-> [...]
+In Dmaengine flow, driver maintains struct skbuf_dma_descriptor rings each
+element of which corresponds to a skb. In Tx datapath, compare available
+space in skb ring with number of skbs instead of skb fragments.
+Replace x * (MAX_SKB_FRAGS) in netif_txq_completed_wake() and
+netif_txq_maybe_stop() with x * (1 skb) to fix the comparison.
 
-Applied to
+Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+---
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/2] spi: dt-bindings: Add rk3528-spi compatible
-      commit: 70e5f38e734572ca5a56cff48cf01a0f31917099
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 1b7a653c1f4e..6011d7eae0c7 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -880,7 +880,7 @@ static void axienet_dma_tx_cb(void *data, const struct dmaengine_result *result)
+ 	dev_consume_skb_any(skbuf_dma->skb);
+ 	netif_txq_completed_wake(txq, 1, len,
+ 				 CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
+-				 2 * MAX_SKB_FRAGS);
++				 2);
+ }
+ 
+ /**
+@@ -914,7 +914,7 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
+ 
+ 	dma_dev = lp->tx_chan->device;
+ 	sg_len = skb_shinfo(skb)->nr_frags + 1;
+-	if (CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX) <= sg_len) {
++	if (CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX) <= 1) {
+ 		netif_stop_queue(ndev);
+ 		if (net_ratelimit())
+ 			netdev_warn(ndev, "TX ring unexpectedly full\n");
+@@ -964,7 +964,7 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
+ 	txq = skb_get_tx_queue(lp->ndev, skb);
+ 	netdev_tx_sent_queue(txq, skb->len);
+ 	netif_txq_maybe_stop(txq, CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
+-			     MAX_SKB_FRAGS + 1, 2 * MAX_SKB_FRAGS);
++			     1, 2);
+ 
+ 	dmaengine_submit(dma_tx_desc);
+ 	dma_async_issue_pending(lp->tx_chan);
+-- 
+2.25.1
 
 
