@@ -4,101 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66480C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E91C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 09:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9Br03zaPymWOmp5DzQkScr+PbTLXI2KHvIOqgBOpOx4=; b=29B8M8IiQ8e61LfTpBEkaDUzgG
-	VXHM6BPhOJsHyC7LxVlXD/pSNPniDBwF6teRrEj2BQdSU/mzkOsnDky6DWnrqtCcPVLKeVsT2ix7L
-	niqLXCpt+df17Gq/qkaHoqg2SKDG8h8DHDLw+hhnFz5VzXSRsmIQoX1yL5cdnk+EIegOdQbRuF0se
-	CwxOihjQyAgFOTiS/znv2F8IxFjDsC65/i5u4Qf5JDd4YvN1zGjl+oa+qeO8of08G4nJ7Glo2ZTO6
-	ThQCpBxC59v4dfsW+Zzp9c5JHqQ9sGmXN68Ml3x+n+UeBaACLiVzMiMBV5YOtQYRooH4LpDGAe1X7
-	oJqKWWBQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K4ZKx8OEuhG5n3iA9Ht1qjJNqikHTEvlSRpqNyHprtI=; b=kX+S6OzknIaBJq5ldKKe45btwT
+	FZKRKC1KPPUTDY2jZ2aBu/bauv2Hwk1bpEmFO2i2nm9ad55fz/i/SXqQgYLggJXPjmb5uvpKDORGZ
+	FeG3VSBiuDMGw6DSAz4n3pppQp481aHrl+JiCnk5JItpIwM7t/5TaYgRs6RhkV7RSaMQBybVRQA0K
+	6PsgSZKy3s2CEJTRPpsG4EXsDgJnFzivYUZsVz/fk5QZ4CAeQwFRGyJzqoPOjHbZlhZFwunxnKhT7
+	kDkAHiutkcX76csF73XcnkXhvkJPUE4NVOY+HGlrGDEhY5R1Avxps74PsQ2Z1dFstawfFd+WL1Sh8
+	dZH7knyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfsh-0000000FLGR-3pwR;
-	Wed, 21 May 2025 09:36:59 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1uHfui-0000000FLhN-2oS6;
+	Wed, 21 May 2025 09:39:04 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHfkW-0000000FJUa-01L9
+	id 1uHfkW-0000000FJV9-3pyb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 09:28:33 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-602039559d8so4244998a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 02:28:31 -0700 (PDT)
+	Wed, 21 May 2025 09:28:34 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5efe8d9ebdfso11844140a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 02:28:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1747819710; x=1748424510; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9Br03zaPymWOmp5DzQkScr+PbTLXI2KHvIOqgBOpOx4=;
-        b=JEAIgpmpRq1xoq49VqErVLQY4XP1BsE8lUo3TPI2WzjWlQjvaWDdu7CHVKDNAM1MDp
-         Qc5FmO2JjeR9EJqlTTzm/FcoQox6vCmGwy3UZHhHB4S1GmfA1OXIwzScxXxFXlEKKHU0
-         Cx+o4I+zRUvSjOveCKmdNJfjt+zyi16pdij+g=
+        d=amarulasolutions.com; s=google; t=1747819711; x=1748424511; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=K4ZKx8OEuhG5n3iA9Ht1qjJNqikHTEvlSRpqNyHprtI=;
+        b=Z2MXmj4j0mmfuOqjn1uX3pwZUtFmIyLxunkCNgnM8OXyHCbUPMsWN0ZqkElGq6yD7l
+         89EIOHapJyEC4K6Sr2kT6ZjPbDJsWx8F72DtqjrSWxyhsUsCJDl2ZZJrf6fRzQyEasQ4
+         h46dcY0ZSZp1P2nariwVXR38pNc6Sqd/rQgXk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747819710; x=1748424510;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9Br03zaPymWOmp5DzQkScr+PbTLXI2KHvIOqgBOpOx4=;
-        b=qWrr4HTRUwu3tFCJObw7oLovYO42x8w2QFXqoygSdPMOwwetEXnIBN/Dp6CviIqLOC
-         JtPOJnDyD3mefHYLWz53VeM5Bf5XW7HIDPorlWt+ciyxS0Bbz6rgg6fUqOVaf3oOPbdb
-         0wqIWsM3OjbTmibkUiGo37oU1MnTFFduLUnaVZe6kGWliez9tSOzZqth9RwMqwGY1S+L
-         EMbOERQF9kMmKxEqUhyWAfImjirNrBrI6qeXe7kDZIMUSkmOz5dmk3BZLlVusEzTvzFR
-         w0VA0gHD9WL7nTKELsHAgNqtB089ZdduMi0bF7ghyWqRqVAO9oqHYozY9+GD136Pf2Xh
-         N4wg==
-X-Forwarded-Encrypted: i=1; AJvYcCV29kCqYVgtusc75HrGcAe84HAdLYZAdAEwkvdvlAAvFQy0Gt75fJFD7eOMUwAllBo/bfVKZm7zE2BVxHjARGxX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzLwk6g6LbGO7pDmz6zRKyJqXb25Tq2z/REqQd+Ntp/8YaoOgz
-	QW7Oel8XdElvjyL83OyQUBLhnl+hY4PIkodFb/7eNcS8Zv3H5HOWVzTMkF1bctLDygc=
-X-Gm-Gg: ASbGncvVQv1Q8E23B44dBOuXtytcFzlq+pgwmZz4ZCMbC3bhGQZkis53LH4YlPjb8B/
-	njfARdFz39eV1lOFmRdGQgfoEbOi+znibnzaREYjnxTdxQdCmYsPPNpy9iWODURQerYphUoYB+v
-	vBvXy0c0jiCrqNhERw2Rt6Y7zEavZspjyJnOLpdnHmgTls8z2ZH4ZDVyP4CftHbC+93Wr8fT6Gj
-	7r/u2lXjtK8IVK1oF9BdecEVgZskkU6kjy4H4w6UkKt1gG4RU3yMuSZSuaqRMlhJB2A5Xz3zAuw
-	omxf8MFsEY5Tc/jMiUqQQiEsk18mvPsbPh8j5upGDtJKNAIfS5DZgiQgYKOP32pevKAB+cc6i3z
-	rbourB9AjROji
-X-Google-Smtp-Source: AGHT+IE9Rsd+fMS6VUFvdncItJY6md4j6oNw2IpDZyEuTisqE10/bRSVI7wzKmHIESJJG3Xl38x7OA==
-X-Received: by 2002:a17:906:dc94:b0:ad2:3723:6bf5 with SMTP id a640c23a62f3a-ad536b81a94mr1643951266b.22.1747819709868;
-        Wed, 21 May 2025 02:28:29 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1747819711; x=1748424511;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=K4ZKx8OEuhG5n3iA9Ht1qjJNqikHTEvlSRpqNyHprtI=;
+        b=dIQbFQOG91EvvUSvpGJdSADryI9dZuCDPHpU1HHE17dN0ToT/bL9gDTHy/lBifWkDw
+         Ls8P+M/MX+/ze8zfQqm49+QHgLaXWevpqqGWJqY8WaIEkaNMzUN0NfVrkTqS0CIKivxq
+         PyqpVdwf168ghEpYcasy7yjo8hQqiqlaDsLQZcz3mIToMtEK5mjr0QSgjL4G1PJU6q54
+         YXg9zd3XCYmpmWwncrFa8btT4vdRpXpULDEfa6pe3wIA2ZoYdVrb22aPT9l2f/3JQKgk
+         Mg/FKa+wWlOQiYBzexTvZl7F4wUjDMD0HM0dplra0Pbp7Vte6iskc1r+JtsJQ6i6MIL8
+         jeIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYybYLQA9+rDAItaEGE8LAbl9Fa7Bua9jgtNoo279j6sDp4vcEi3V5zlDW6GuIA0L5vG2a/sw4Y0klXIIro4p4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPkNlsoPF835RTNb2W6Mv8dZmow8KaMjbujSpQ+lRbTOB5hsYL
+	g6O1ZQEpRBUL+KnZZOBB6aDiR6MRfVZxrXlktPaGPj33B1fvcGFrvWduTM4gZssJ2WU=
+X-Gm-Gg: ASbGncsRYeiutBtI2glOqcfpBT5uNUDose1Y5JQHRSeKsBf0KNhsRv2DQcm4AufqDQh
+	1cttRXxBTHWL+cA4zoKNEPKge9yvPzXMMSIALqD+olj2cUTyo7KPrwNtvNDae6wLfdeSW67W8mq
+	LeMUJbWbdLVW/W6Xg0x+2CiVXqdmbmRspN/q5JpJ0xTzx0Lbo3T1swRGsO49N/LsxV+qDrm2SC0
+	zkaaUy4c2WZ28IiKgrU2ht0OFChlyCodWKInBFHmb2p2C+QR2K+8PO7xAGJbUv/pjddtzMIptQf
+	g3+M2pACe0cCWxgmYpY+ntJZuXJydtKbnwQzgQVmqWDQgZXQmAuU1Y2VoT5+WMcTO6YUqk0U3gl
+	xiFHM3h15RVbU
+X-Google-Smtp-Source: AGHT+IFNzWiTTqQss9HBBtI+Nr/N9FAThr7Gi7sc3HVIWm4O6Gp1xrzlrO/3vjZUf5bm0cbWUM6fkQ==
+X-Received: by 2002:a17:906:5582:b0:ad5:4b4e:e2f9 with SMTP id a640c23a62f3a-ad54b4ee44emr1238839666b.1.1747819711158;
+        Wed, 21 May 2025 02:28:31 -0700 (PDT)
 Received: from localhost.localdomain ([2001:b07:6474:ebbf:cfc5:5070:d6f4:1d86])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d275d9fsm867442466b.74.2025.05.21.02.28.28
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d275d9fsm867442466b.74.2025.05.21.02.28.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 May 2025 02:28:29 -0700 (PDT)
+        Wed, 21 May 2025 02:28:30 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-amarula@amarulasolutions.com,
 	michael@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@denx.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Heiko Schocher <hs@denx.de>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Marek Vasut <marex@denx.de>,
-	Max Merchel <Max.Merchel@ew.tq-group.com>,
-	Michael Walle <mwalle@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
-	Tim Harvey <tharvey@gateworks.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 0/3] Support i.MX28 Amarula rmm board
-Date: Wed, 21 May 2025 11:28:19 +0200
-Message-ID: <20250521092826.1035448-1-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH 1/3] ARM: dts: imx28: add pwm7 muxing options
+Date: Wed, 21 May 2025 11:28:20 +0200
+Message-ID: <20250521092826.1035448-2-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250521092826.1035448-1-dario.binacchi@amarulasolutions.com>
+References: <20250521092826.1035448-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_022832_047056_25F4FCE7 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20250521_022832_948466_ACFA902E 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,32 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The series adds support for i.MX28 Amarula rmm board.
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+---
 
-The board includes the following resources:
- - 256 Mbytes NAND Flash
- - 256 Mbytes SRAM
- - LCD-TFT controller
- - CAN
- - USB 2.0 high-speed/full-speed
- - Ethernet MAC
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-
-Dario Binacchi (3):
-  ARM: dts: imx28: add pwm7 muxing options
-  dt-bindings: arm: fsl: add i.MX28 Amarula rmm board
-  ARM: dts: mxs: support i.MX28 Amarula rmm board
-
- .../devicetree/bindings/arm/fsl.yaml          |   1 +
- arch/arm/boot/dts/nxp/mxs/Makefile            |   1 +
- .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 302 ++++++++++++++++++
- arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |  10 +
- 4 files changed, 314 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-
+diff --git a/arch/arm/boot/dts/nxp/mxs/imx28.dtsi b/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
+index bbea8b77386f..ece46d0e7c7f 100644
+--- a/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
++++ b/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
+@@ -755,6 +755,16 @@ MX28_PAD_PWM4__PWM_4
+ 					fsl,pull-up = <MXS_PULL_DISABLE>;
+ 				};
+ 
++				pwm7_pins_a: pwm7@0 {
++					reg = <0>;
++					fsl,pinmux-ids = <
++						MX28_PAD_SAIF1_SDATA0__PWM_7
++					>;
++					fsl,drive-strength = <MXS_DRIVE_4mA>;
++					fsl,voltage = <MXS_VOLTAGE_HIGH>;
++					fsl,pull-up = <MXS_PULL_DISABLE>;
++				};
++
+ 				lcdif_24bit_pins_a: lcdif-24bit@0 {
+ 					reg = <0>;
+ 					fsl,pinmux-ids = <
 -- 
 2.43.0
 
-base-commit: 4a95bc121ccdaee04c4d72f84dbfa6b880a514b6
-branch: imx28-amarula-rmm
 
