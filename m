@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD82C54756
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 02:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE7DC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 02:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MafHlrK67o/d3FGCy1u+Y7qasnBcS5mIW6WlhV/wvWA=; b=JtVBlTLiIoFBpXqMZfZfaAvrA2
-	L1uMUDXCDpUWPNIlOmLGfiXWv3gyS1CguJ1NoBGd1CkyznVJSF03gEKSB546sgGHrLBFIlzINcwcA
-	DEaQRhXSWaNyEbOE9WxbLJ/UD4jTaecQ56mpRNby04WYCkgpuJNnEH3HTdd36C9UEi7Jf8C0hjKWT
-	XXD57CafG44MUueb8ZuBHgIF/YNnBnrrVHfEUpkT1VrF7nuw4b5hNN1wOlu7cg+C29wSjic/ZVn+m
-	ECHNcBknZl36T6UN3ChpsiaPwBqKL0C8kbaUvxkECtCXaU0iAx7O2JUimCLhHEghSyoTFHWJidiVt
-	lZyjLoXw==;
+	bh=OZgJlLqonv38l5RGHoperSGRC6MB1OzkzkEVVzcVj6A=; b=a0k08RuMHT6jDWNAcWZgMoA4Zz
+	MAJEu2lvNiWSOacobQKRkOaGgl31NGg2gOR7veSDZ7PtRK2tsEAjCA/MU4nqK/NDYoJ1oQE6Y4RY9
+	Y99qWL2uwW8c8ZAHknIWDNmB7CtGTa1nbmDMFrlEQhfsnJPU0xM+V2Zpy7Kb25SqvkpurkzEyiYzw
+	naseQmdlC7unf6vrF5DG8m1jqhgpe1oNiF5VE/5d3Mptf/9OTXAdPBfmmgIbrd5taLlY+vPyzHvlp
+	qAPYo+JQ+KysBSgP18UDgL8WTAlDvfd6zMTwzGJff38hMwBYwlHl5cYgBmMtam+DlLg7CdIcdsHj5
+	gZAFpSVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHZLT-0000000EbZl-0mMF;
-	Wed, 21 May 2025 02:38:15 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uHZNj-0000000EboP-45MB;
+	Wed, 21 May 2025 02:40:35 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHZ7I-0000000EZya-0X2E;
-	Wed, 21 May 2025 02:23:37 +0000
-X-UUID: 97e1950235ea11f08d385d50fb11b32d-20250520
+	id 1uHZ7L-0000000Ea15-0MUE;
+	Wed, 21 May 2025 02:23:40 +0000
+X-UUID: 984cec0835ea11f0bed96b30c12bc3d6-20250520
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=MafHlrK67o/d3FGCy1u+Y7qasnBcS5mIW6WlhV/wvWA=;
-	b=kUk9Wa5l26iTVZ6RIBVx6T8BDLK+IM+soOE/A8FL0wNl3jKlGHdqbunb5eIaYFW2rFZz9ifadvxhVz57iu+MtOFpOz2fZsxb0Rtsty0PLNNHB8/SNex18PwYOig3PIvNazOHh1sc7nFzNZwu5LwQVZNuIAIt0vwO7/1wGWcr9nc=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=OZgJlLqonv38l5RGHoperSGRC6MB1OzkzkEVVzcVj6A=;
+	b=GSP6+9QuSsgXvAK4yUEeUhMcrb8sbXnajnWjaTmTGhOnkLC94dK24uCueHuaj3ZK89QW3mNphWV957VZ9cMmy2OiBa6ISJN08kDH0v3C4bI83ArcNRxbAiCokNuWfVN5Vc+P2SkxQ9ipbcwHNiJOc7TSNiCECTSHzFcNkaDDVfo=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:393dea21-5cbb-432b-bbee-00dc79d000da,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.1,REQID:e0d76958-1a34-42b4-98f7-763d1ba1106b,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:b810187e-6a4e-4d30-99aa-46e5d32b8a87,B
+X-CID-META: VersionHash:0ef645f,CLOUDID:c475cf45-6c2a-4894-a37c-f46dc6d36908,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 97e1950235ea11f08d385d50fb11b32d-20250520
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+X-UUID: 984cec0835ea11f0bed96b30c12bc3d6-20250520
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
 	(envelope-from <kyrie.wu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1187093325; Tue, 20 May 2025 19:23:33 -0700
+	with ESMTP id 2027316023; Tue, 20 May 2025 19:23:34 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 21 May 2025 10:23:22 +0800
+ 15.2.1258.39; Wed, 21 May 2025 10:23:30 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
  15.2.1258.39 via Frontend Transport; Wed, 21 May 2025 10:23:29 +0800
@@ -62,9 +62,9 @@ To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v4 06/12] media: mediatek: jpeg: refactor jpeg buffer payload setting
-Date: Wed, 21 May 2025 10:23:16 +0800
-Message-ID: <20250521022322.27576-7-kyrie.wu@mediatek.com>
+Subject: [PATCH v4 07/12] media: mediatek: jpeg: refactor jpeg dst buffer layout
+Date: Wed, 21 May 2025 10:23:17 +0800
+Message-ID: <20250521022322.27576-8-kyrie.wu@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20250521022322.27576-1-kyrie.wu@mediatek.com>
 References: <20250521022322.27576-1-kyrie.wu@mediatek.com>
@@ -73,8 +73,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_192336_170493_6DC2F3B9 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20250520_192339_137061_B414A5A4 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,53 +89,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. for multi-core jpegdec:
-   core0: |<-------- decoding buffer0 and resolution changed to smaller
-   core1:  |<-------- decoding buffer1
-   core0:   |<- handling resolution changing
-   core0:    |<- vb2_set_plane_payload
-2. the payload size is changed on the step of set format. Because core1
-is running and streaming has not been stopped, the format cannot be
-set again, resulting in no change in the payload size.
-3. at this time, the payload size is bigger than buffer length,
-it will print a warnning call trace
-4. set payload size must less than buffer length
+1. change dst buffer size to same as struct mtk_jpeg_src_buf
+to make sure all params of mtk_jpeg_src_buf could get a memory.
+2. For memory alloc operation:
+the v4l2 framework malloc a memory, the base addr is vb2_buffer and
+the size is sizeof(struct mtk_jpeg_src_buf), mtk_jpeg_src_buf could get
+itself addr by container_of like that:
+vb2_buffer -> vb2_v4l2_buffer -> mtk_jpeg_src_buf.
+vb2_v4l2_buffer must keep on the top of mtk_jpeg_src_buf.
 
 Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 ---
- .../platform/mediatek/jpeg/mtk_jpeg_core.c     | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 2 +-
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 0074d1edb534..52d59bb5c9ad 100644
+index 52d59bb5c9ad..7e3509be6f69 100644
 --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
 +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -720,10 +720,22 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *vb)
- 		plane_fmt = q_data->pix_mp.plane_fmt[i];
- 		if (ctx->enable_exif &&
- 		    q_data->fmt->fourcc == V4L2_PIX_FMT_JPEG)
--			vb2_set_plane_payload(vb, i, plane_fmt.sizeimage +
--					      MTK_JPEG_MAX_EXIF_SIZE);
-+			if (vb->planes[i].length > (plane_fmt.sizeimage +
-+			    MTK_JPEG_MAX_EXIF_SIZE))
-+				vb2_set_plane_payload(vb, i,
-+						      plane_fmt.sizeimage +
-+						      MTK_JPEG_MAX_EXIF_SIZE);
-+			else
-+				vb2_set_plane_payload(vb, i,
-+						      vb->planes[i].length);
-+
- 		else
--			vb2_set_plane_payload(vb, i,  plane_fmt.sizeimage);
-+			if (vb->planes[i].length > plane_fmt.sizeimage)
-+				vb2_set_plane_payload(vb, i,
-+						      plane_fmt.sizeimage);
-+			else
-+				vb2_set_plane_payload(vb, i,
-+						      vb->planes[i].length);
- 	}
+@@ -1103,7 +1103,7 @@ static int mtk_jpeg_queue_init(void *priv, struct vb2_queue *src_vq,
+ 	dst_vq->type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
+ 	dst_vq->io_modes = VB2_DMABUF | VB2_MMAP;
+ 	dst_vq->drv_priv = ctx;
+-	dst_vq->buf_struct_size = sizeof(struct v4l2_m2m_buffer);
++	dst_vq->buf_struct_size = sizeof(struct mtk_jpeg_src_buf);
+ 	dst_vq->ops = jpeg->variant->qops;
+ 	dst_vq->mem_ops = &vb2_dma_contig_memops;
+ 	dst_vq->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_COPY;
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+index 655dc9c3280c..186cd1862028 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+@@ -96,10 +96,10 @@ struct mtk_jpeg_variant {
+ };
  
- 	return 0;
+ struct mtk_jpeg_src_buf {
+-	u32 frame_num;
+ 	struct vb2_v4l2_buffer b;
+ 	struct list_head list;
+ 	u32 bs_size;
++	u32 frame_num;
+ 	struct mtk_jpeg_dec_param dec_param;
+ 
+ 	struct mtk_jpeg_ctx *curr_ctx;
 -- 
 2.46.0
 
