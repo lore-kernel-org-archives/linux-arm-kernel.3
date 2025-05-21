@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859F5C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 16:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90020C2D0CD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 16:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=stjouTnv41obxBgX2Jr5Nggfpjmbw9/xN8oNI4sNVwc=; b=s7+LvN01Y/beR59mpMfw6hOre1
-	3HN/gm17OnH8zc56TQFQ7BkNUsZPbNeJkwcTA3462UVyQuPHPYxnnfmMxitscZH8xAWctlGnmmSo6
-	J+Z5PekiAIWuj3Wr1POjIOoubZv50fUHLNUz0Cg3LZ47QJTtK+lUI1QxP5H0GDylXJgk4PeWh1UMS
-	TO4Xcm80Wf2409XySyiL+PyqpboNtghUpzBde0QPboCkeAU1ytzfAJaQYlZtXBA8sU2cB0nRyy1G2
-	Hke6bPC6RYYJX4xGUs3pY0zvr851U5zRmZeD5kZ/nIFDE2zQBa4GXUKaCrHidWaIkfmM4orpboG7c
-	oALPVMRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nqV3lRwJwEi5A0n42n94rqiFtoc8WGmVMSwJFR2qgmU=; b=eXsPlztzBmpN9aOQHZZ+CRb4Ks
+	WkAk/pOIlUfhmXh7Z2FNhJRMqrIdXzYcc0K/UJq6/nh2f97GyskDmMnxFmDs5MxsgJZ+hgkDXAP1c
+	nO8SjCO8C7D8azyNrvb9knNqo3TrqlSUgNddE4hMt7tSXKRu6+VNfMJKBjkT8Wgw/7JhvoqPGLtlV
+	8k6/uBaoOF1obigwDkqWySOQ8823LZznJl46kr0FRdKQT993F1BzWyZcEYt0uhr8qHTxssPpuvWsN
+	e53ANvELzoz+FLC7slWF8qezrJPOzuc3krkdo0rJCrZNa3YhANzYstoJvOhkGJQxMo3910LH78J0+
+	pULTBHgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHmSZ-0000000GTuw-1QQv;
-	Wed, 21 May 2025 16:38:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uHmYD-0000000GUaV-1a0r;
+	Wed, 21 May 2025 16:44:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHmQO-0000000GTkE-3rfB
+	id 1uHmW3-0000000GULy-1rbx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 16:36:14 +0000
+	Wed, 21 May 2025 16:42:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9F0FAA4F1B1
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 16:36:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EAC0C4CEF3
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 16:36:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EDDBB4496E;
+	Wed, 21 May 2025 16:42:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C091C4CEE4;
+	Wed, 21 May 2025 16:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747845371;
-	bh=stjouTnv41obxBgX2Jr5Nggfpjmbw9/xN8oNI4sNVwc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=vDLKdPbEIU26V6KMz3z56YmwIdivFxoektboJeuUtpxwxCMa4CctHRYjXkRSVdAPM
-	 9Ap6NH7r2VFPRm8S7ZI82Y7b3F/cOA/etal8VMnPn9FToe/mn9jlVKtBXZRNrhnP9g
-	 olH9yzEWrPPAxNrvrMJdw+k4bp7oNzDl8KE95d7gH17mJuVvTU/+/oGngErwaYl6rq
-	 Tddf29gaoDbwxw/eK/ui0TJLnlmNx5ikWgb8KVVA+ojtYhpIPb2dW/Kavmvtd4HCAU
-	 RnO+ilku3BiPS023TjgRjhUumyAImKZRVnwGNGpmH7j1s1CR/g1JlGNbX9bL36j5gL
-	 g8i5/MdPnulZQ==
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-477282401b3so76135571cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 09:36:11 -0700 (PDT)
-X-Gm-Message-State: AOJu0YxZCgA6uCZr+U7IeAPePrzY2fqdYnkf/q3DLSBJT2ShiNdawonc
-	sErkplF41/hXjOVwOyacjCuzcAMJAyKT8xYgB7ETWZrA1t1kEC/oReERCFCOylW3T6ab4wem0+B
-	YHz6UA9rdlWCikf6PCqLkNedfwh7fNWY=
-X-Google-Smtp-Source: AGHT+IGyh00A3mWyVANHITaMtbIel7e5S066XRZnxKBJkbXNpdZjwMjgOzjc/fL2tuyzW2TJCVsZfJq+3vsse3D7gYc=
-X-Received: by 2002:ac8:5fca:0:b0:494:b1f9:d677 with SMTP id
- d75a77b69052e-494b1f9dbe3mr270777971cf.48.1747845370341; Wed, 21 May 2025
- 09:36:10 -0700 (PDT)
+	s=k20201202; t=1747845721;
+	bh=fNlJI98IRmJku5DUDB7KU0NTAR5l/AoBK5dNhkMKy3I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W5UxbfYHZeoYDuN5ngewjlWzVx7fvv+BRtndc80ovjhiG8g1I0PHO5ybTj6Lu6x7z
+	 g36JHRBWYtNWkCBo4PMkcy0oVlBeyMphixat7L/44FREl/Q339WNexmioK64JLpHrr
+	 ovP+rgZvQ9g6LwFcH/HDCu9vpS3tLCd/GJAcQWnttlw4kKAxt0ie+p9RLIYWYKjjhH
+	 93rSYCm1Z1xfN5fXmFJkD1WSt0TC4uayOcstPRMB2i+aKB06sSd7LdyWxS+W5yFd8X
+	 bdNdzs+Y/THmEK3YDLZn9UkbD1V8YTXfyH5h5kHwmICgedMJsRAjUNUWn2aXZj8rj/
+	 RKYVBmYwmsZHw==
+Date: Wed, 21 May 2025 19:41:57 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: linuxppc-dev@lists.ozlabs.org, Peter Huewe <peterhuewe@gmx.de>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	linux-integrity@vger.kernel.org,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>
+Subject: Re: [PATCH v5 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
+Message-ID: <aC4CVUXpThAyKQdf@kernel.org>
+References: <20250514134630.137621-1-sgarzare@redhat.com>
+ <20250514134630.137621-5-sgarzare@redhat.com>
+ <aCVHQ-LRqHeEVEAW@kernel.org>
+ <CAGxU2F5AsNY5mQPd=qajW1seFYHSYpB0Fa1iuR_f2QavtoB6sA@mail.gmail.com>
+ <aCzf6aoJAC-IdS_n@kernel.org>
+ <CAGxU2F6rfqGV_gJk-JxrCk3f9dWtYn_3o9RODh7cVG0X_oQWaA@mail.gmail.com>
+ <aC2nBCxkvWWz5y5E@kernel.org>
 MIME-Version: 1.0
-References: <20250521111000.2237470-1-mark.rutland@arm.com> <20250521111000.2237470-2-mark.rutland@arm.com>
-In-Reply-To: <20250521111000.2237470-2-mark.rutland@arm.com>
-From: Song Liu <song@kernel.org>
-Date: Wed, 21 May 2025 09:35:58 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW7C0Efu5PB8QKtOLM7yuE=NzNpZbnM_Yn56iTENj9gKHQ@mail.gmail.com>
-X-Gm-Features: AX0GCFsUpTu85P307gw4zinTlAbyNsZvOSFEnWi_mt2apNOhLnL8DNMMObdam50
-Message-ID: <CAPhsuW7C0Efu5PB8QKtOLM7yuE=NzNpZbnM_Yn56iTENj9gKHQ@mail.gmail.com>
-Subject: Re: [PATCH 1/2] arm64: stacktrace: Check kretprobe_find_ret_addr()
- return value
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, andrea.porta@suse.com, 
-	catalin.marinas@arm.com, jpoimboe@kernel.org, leitao@debian.org, 
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
-	mbenes@suse.cz, pmladek@suse.com, will@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aC2nBCxkvWWz5y5E@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_093613_027834_78ED511F 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250521_094203_501134_440BD1D3 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,33 +90,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 4:10=E2=80=AFAM Mark Rutland <mark.rutland@arm.com>=
- wrote:
->
-> If kretprobe_find_ret_addr() fails to find the original return address,
-> it returns 0. Check for this case so that a reliable stacktrace won't
-> silently ignore it.
->
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Andrea della Porta <andrea.porta@suse.com>
-> Cc: Breno Leitao <leitao@debian.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Josh Poimboeuf <jpoimboe@kernel.org>
-> Cc: Miroslav Benes <mbenes@suse.cz>
-> Cc: Petr Mladek <pmladek@suse.com>
-> Cc: Song Liu <song@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
+On Wed, May 21, 2025 at 01:12:20PM +0300, Jarkko Sakkinen wrote:
+> > I tried, but the last patch (this one) is based on the series merged
+> > on the tip tree, where I introduced tpm_svsm.
+> > I can see that series in linux-next merged with commit
+> > 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07,
+> > but I can't see it in your next tree [1].
+> > 
+> > How do we proceed in such cases?
+> > 
+> > Just to be sure, did I use the right tree?
+> 
+> Thanks for the remark. Lemme check tonight. Hold on doing
+> anything ;-) We'll get there...
 
-Reviewed-and-tested-by: Song Liu <song@kernel.org>
+I just rebased my branches on top of latest from Linus. That is what I
+need base PR also on, and:
 
-Tested with livepatch changes [1][2] and modified kpatch
-framework.
+$ git show 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
+fatal: bad object 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
 
-Thanks,
-Song
+I'd use git cherry-pick on a range to take them from linux-next to a
+mainline tip...
 
-[1] https://lore.kernel.org/live-patching/20250320171559.3423224-3-song@ker=
-nel.org/
-[2] https://lore.kernel.org/linux-arm-kernel/20250412010940.1686376-1-dylan=
-bhatch@google.com/
+BR, Jarkko
 
