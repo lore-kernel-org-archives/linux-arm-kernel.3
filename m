@@ -4,94 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72502C2D0CD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498D9C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 10:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=saaphKQ0bZ0mL7ccRrOXfxeZajtyiB5V88KyMoAwc+E=; b=lpcI6rHXxOmwdOLLQ2FBd/QudO
-	oK43QWne+Bou9dCSJs81Z4ybTyE41qJYZa5qbwu/9e5m37zzJae9T18uzZ8iaZUpM4r2YuOsNS02x
-	uk+UZH4/tCdOAoa/+BAYkCPz7S398tf0EWzPVFWu4gFhLXYMuq4r2nWAXKEocAA2YG26D4RQ+af8p
-	XR2oaljrKSuQc2fuvUwLSK9wV/ev41JzC3r8dW5K4bHn17mj24lJhRxWGFw1b5RtoEfVNguv6d9HQ
-	3YbQNS59mUR8ZFNUeEB6yFxH1db2nwYM1Ir37mp26wTWBiyVvHQd3d5NQf13B7F5AIJD1DzRC3Ryf
-	kKoAFlOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=B1Pvq4tPQBvYRhR2s9gW2GURtspQVi+yjwl4Lj3b3wk=; b=RkKuiOVED4uu0NObPPppdCFoYC
+	944aOGgEE8nw8/3vigVLFG2naVVvQUHehpiAV+BNem6rmV8x1L7GftR/FrZ8vx8SPFi5eGia3mMJj
+	ujkcRt7QlUSlPW2x6kY3bunb/YhiHztkMr9XgvmYLNciHeeDU/bjTjzDwYeiOGpjTI9YA1lNUJgbD
+	K1XsXDK0hZA/ih4TAkAhvE0Utdocw8MmGQzVqI3JqG0SkR/QjMPZ3O5HVWvbS8+kdjYHZQA/fzmPH
+	KHMJZW69wK9qMuqGQKv95xzSx8dvEs1G9mReg58jGU3zDS8+KI9PjCPSm8B+obnMzGGnG0i0mnRQ2
+	vXdjPzxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHgsj-0000000FWJL-3vLI;
-	Wed, 21 May 2025 10:41:05 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uHhA4-0000000FZCb-1lM6;
+	Wed, 21 May 2025 10:59:00 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHglZ-0000000FVdG-0tNZ
+	id 1uHh80-0000000FYxq-1rGj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 May 2025 10:33:42 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54L97Vk2020294;
-	Wed, 21 May 2025 12:33:28 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	saaphKQ0bZ0mL7ccRrOXfxeZajtyiB5V88KyMoAwc+E=; b=o712bBwhh6e8IhY2
-	FozpW+sUcK5R8FTF9/xV4nfjKdZZRVwdO2CliRKm1BqHRNIESAvkO6iQsGYZQFgU
-	fIV/n5uBiTputRD0EY7l4iExwQwxWqB/fYK8Ri43sJzbS67IhBfFEyw9ri9l3gQs
-	nYuFfLcdvyhBHF3nRQAhuRiX06l//yPZ/lhuZKNkopvlLWwHV7sEva/qQgndX3yg
-	Sh4oI5wt39fRCnS9f8Lo+0PnUMLCwD0P9w/D/sf6GIYfS17B8YePjLC+9ALTrhE9
-	/ankL4/IND+LCa67Y1GwBYbMjvVAZWZuR8t7TJhbDzKS5H46JRHYHjovUowwNVQN
-	9/vnKA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46rwff3hp9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 May 2025 12:33:28 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 358DD40047;
-	Wed, 21 May 2025 12:32:20 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3969FB6001B;
-	Wed, 21 May 2025 12:31:37 +0200 (CEST)
-Received: from [10.252.30.214] (10.252.30.214) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 21 May
- 2025 12:31:36 +0200
-Message-ID: <8c72fe60-0ad6-450e-bfc3-5c64565c19f1@foss.st.com>
-Date: Wed, 21 May 2025 12:31:35 +0200
+	Wed, 21 May 2025 10:56:54 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4b2St73gbLz10WNS;
+	Wed, 21 May 2025 18:52:15 +0800 (CST)
+Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3322B140132;
+	Wed, 21 May 2025 18:56:37 +0800 (CST)
+Received: from localhost.localdomain (10.90.31.46) by
+ kwepemo100006.china.huawei.com (7.202.195.47) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 21 May 2025 18:56:36 +0800
+From: Jie Zhan <zhanjie9@hisilicon.com>
+To: <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>
+Subject: [PATCH v3] PM / devfreq: Add HiSilicon uncore frequency scaling driver
+Date: Wed, 21 May 2025 18:49:56 +0800
+Message-ID: <20250521104956.2780150-1-zhanjie9@hisilicon.com>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH v2 1/8] dt-bindings: pinctrl: stm32:
- Introduce HDP
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
-        Linus
- Walleij <linus.walleij@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250520-hdp-upstream-v2-0-53f6b8b5ffc8@foss.st.com>
- <20250520-hdp-upstream-v2-1-53f6b8b5ffc8@foss.st.com>
-Content-Language: en-US
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-In-Reply-To: <20250520-hdp-upstream-v2-1-53f6b8b5ffc8@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.30.214]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-21_03,2025-05-20_03,2025-03-28_01
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemo100006.china.huawei.com (7.202.195.47)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_033341_546870_6CA880D0 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250521_035652_792662_1BD40F0C 
+X-CRM114-Status: GOOD (  30.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,249 +64,810 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: zhanjie9@hisilicon.com, yubowen8@huawei.com, linux-pm@vger.kernel.org, zhenglifeng1@huawei.com, liwei728@huawei.com, linuxarm@huawei.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
+the devfreq framework.  The uncore domain contains shared computing
+resources, including system interconnects and L3 cache.  The uncore
+frequency significantly impacts the system-wide performance as well as
+power consumption.  This driver adds support for runtime management of
+uncore frequency from kernel and userspace.  The main function includes
+setting and getting frequencies, changing frequency scaling policies, and
+querying the list of CPUs whose performance is significantly related to
+this uncore frequency domain, etc.  The driver communicates with a platform
+controller through an ACPI PCC mailbox to take the actual actions of
+frequency scaling.
 
+Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+---
+v3:
+- Remove redundant resource freeing processes when drv->probe() fails as
+  they're already handled by devm
 
-On 5/20/25 17:02, Clément Le Goffic wrote:
-> 'HDP' stands for Hardware Debug Port, it is an hardware block in
-> STMicrolectronics' MPUs that let the user decide which internal SoC's
-> signal to observe.
-> It provides 8 ports and for each port there is up to 16 different
-> signals that can be output.
-> Signals are different for each MPU.
-> 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
->   .../bindings/pinctrl/st,stm32-pinctrl-hdp.yaml     | 188 +++++++++++++++++++++
->   1 file changed, 188 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml
-> new file mode 100644
-> index 000000000000..6251e9c16ced
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml
-> @@ -0,0 +1,188 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) STMicroelectronics 2025.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pinctrl/st,stm32-pinctrl-hdp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STM32 Hardware Debug Port Mux/Config
-> +
-> +maintainers:
-> +  - Clément LE GOFFIC <clement.legoffic@foss.st.com>
-> +
-> +description:
-> +  STMicroelectronics's STM32 MPUs integrate a Hardware Debug Port (HDP).
-> +  It allows to output internal signals on SoC's GPIO.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - st,stm32mp131-hdp
-> +      - st,stm32mp151-hdp
-> +      - st,stm32mp251-hdp
-> +
+v2:
+https://lore.kernel.org/linux-pm/20250520074120.4187096-1-zhanjie9@hisilicon.com/
+- Make devm manage the release sequence, remove drv->remove()
+- Warn on !uncore or !uncore->pchan as they're no longer expected
+- Remove ioremap of pcc shared memory because it's done by the pcc driver
+- Fix compiler warning of discarding 'const'
+- Minor trivial coding style changes
 
-Hi Rob, Hi Krzyztof,
+v1:
+https://lore.kernel.org/linux-pm/20250506021434.944386-1-zhanjie9@hisilicon.com/
+---
+ drivers/devfreq/Kconfig            |  11 +
+ drivers/devfreq/Makefile           |   1 +
+ drivers/devfreq/hisi_uncore_freq.c | 722 +++++++++++++++++++++++++++++
+ 3 files changed, 734 insertions(+)
+ create mode 100644 drivers/devfreq/hisi_uncore_freq.c
 
-I hope to open Pandora's box one last time on this subject.
+diff --git a/drivers/devfreq/Kconfig b/drivers/devfreq/Kconfig
+index 3c4862a752b5..7ab09739bf21 100644
+--- a/drivers/devfreq/Kconfig
++++ b/drivers/devfreq/Kconfig
+@@ -90,6 +90,17 @@ config ARM_EXYNOS_BUS_DEVFREQ
+ 	  and adjusts the operating frequencies and voltages with OPP support.
+ 	  This does not yet operate with optimal voltages.
+ 
++config ARM_HISI_UNCORE_DEVFREQ
++	tristate "HiSilicon uncore DEVFREQ Driver"
++	depends on (PCC && ACPI && ACPI_PPTT) || COMPILE_TEST
++	select DEVFREQ_GOV_PERFORMANCE
++	select DEVFREQ_GOV_USERSPACE
++	help
++	  This adds a DEVFREQ driver that manages uncore frequency scaling for
++	  HiSilicon Kunpeng SoCs. This enables runtime management of uncore
++	  frequency scaling from kernel and userspace. The uncore domain
++	  contains system interconnects and L3 cache.
++
+ config ARM_IMX_BUS_DEVFREQ
+ 	tristate "i.MX Generic Bus DEVFREQ Driver"
+ 	depends on ARCH_MXC || COMPILE_TEST
+diff --git a/drivers/devfreq/Makefile b/drivers/devfreq/Makefile
+index bf40d04928d0..404179d79a9d 100644
+--- a/drivers/devfreq/Makefile
++++ b/drivers/devfreq/Makefile
+@@ -9,6 +9,7 @@ obj-$(CONFIG_DEVFREQ_GOV_PASSIVE)	+= governor_passive.o
+ 
+ # DEVFREQ Drivers
+ obj-$(CONFIG_ARM_EXYNOS_BUS_DEVFREQ)	+= exynos-bus.o
++obj-$(CONFIG_ARM_HISI_UNCORE_DEVFREQ)	+= hisi_uncore_freq.o
+ obj-$(CONFIG_ARM_IMX_BUS_DEVFREQ)	+= imx-bus.o
+ obj-$(CONFIG_ARM_IMX8M_DDRC_DEVFREQ)	+= imx8m-ddrc.o
+ obj-$(CONFIG_ARM_MEDIATEK_CCI_DEVFREQ)	+= mtk-cci-devfreq.o
+diff --git a/drivers/devfreq/hisi_uncore_freq.c b/drivers/devfreq/hisi_uncore_freq.c
+new file mode 100644
+index 000000000000..1e9ee4827c3f
+--- /dev/null
++++ b/drivers/devfreq/hisi_uncore_freq.c
+@@ -0,0 +1,722 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * HiSilicon uncore frequency scaling driver
++ *
++ * Copyright (c) 2025 HiSilicon Co., Ltd
++ */
++
++#include <linux/acpi.h>
++#include <linux/bits.h>
++#include <linux/devfreq.h>
++#include <linux/device.h>
++#include <linux/dev_printk.h>
++#include <linux/errno.h>
++#include <linux/iopoll.h>
++#include <linux/kernel.h>
++#include <linux/ktime.h>
++#include <linux/mailbox_client.h>
++#include <linux/module.h>
++#include <linux/mod_devicetable.h>
++#include <linux/mutex.h>
++#include <linux/platform_device.h>
++#include <linux/pm_opp.h>
++#include <linux/property.h>
++#include <linux/topology.h>
++#include <linux/units.h>
++#include <acpi/pcc.h>
++
++#include "governor.h"
++
++struct hisi_uncore_pcc_data {
++	u16 status;
++	u16 resv;
++	u32 data;
++};
++
++struct hisi_uncore_pcc_shmem {
++	struct acpi_pcct_shared_memory head;
++	struct hisi_uncore_pcc_data pcc_data;
++};
++
++enum hisi_uncore_pcc_cmd_type {
++	HUCF_PCC_CMD_GET_CAP = 0,
++	HUCF_PCC_CMD_GET_FREQ,
++	HUCF_PCC_CMD_SET_FREQ,
++	HUCF_PCC_CMD_GET_MODE,
++	HUCF_PCC_CMD_SET_MODE,
++	HUCF_PCC_CMD_GET_PLAT_FREQ_NUM,
++	HUCF_PCC_CMD_GET_PLAT_FREQ_BY_IDX,
++	HUCF_PCC_CMD_MAX = 256,
++};
++
++static int hisi_platform_gov_usage;
++static DEFINE_MUTEX(hisi_platform_gov_usage_lock);
++
++enum hisi_uncore_freq_mode {
++	HUCF_MODE_PLATFORM = 0,
++	HUCF_MODE_OS,
++	HUCF_MODE_MAX,
++};
++
++#define HUCF_CAP_PLATFORM_CTRL	BIT(0)
++
++/**
++ * struct hisi_uncore_freq - hisi uncore frequency scaling device data
++ * @dev:		device of this frequency scaling driver
++ * @cl:			mailbox client object
++ * @pchan:		PCC mailbox channel
++ * @chan_id:		PCC channel ID
++ * @last_cmd_cmpl_time:	timestamp of the last completed PCC command
++ * @pcc_lock:		PCC channel lock
++ * @devfreq:		devfreq data of this hisi_uncore_freq device
++ * @related_cpus:	CPUs whose performance is majorly affected by this
++ *			uncore frequency domain
++ * @cap:		capabililty flag
++ */
++struct hisi_uncore_freq {
++	struct device *dev;
++	struct mbox_client cl;
++	struct pcc_mbox_chan *pchan;
++	int chan_id;
++	ktime_t last_cmd_cmpl_time;
++	struct mutex pcc_lock;
++	struct devfreq *devfreq;
++	struct cpumask related_cpus;
++	u32 cap;
++};
++
++/* PCC channel timeout = PCC nominal latency * NUM */
++#define HUCF_PCC_POLL_TIMEOUT_NUM	1000
++#define HUCF_PCC_POLL_INTERVAL_US	5
++
++/* Default polling interval in ms for devfreq governors*/
++#define DEFAULT_POLLING_MS 100
++
++static int hisi_uncore_request_pcc_chan(struct hisi_uncore_freq *uncore)
++{
++	struct pcc_mbox_chan *pcc_chan;
++	int rc;
++
++	uncore->cl = (struct mbox_client) {
++		.dev = uncore->dev,
++		.tx_block = false,
++		.knows_txdone = true,
++	};
++
++	pcc_chan = pcc_mbox_request_channel(&uncore->cl, uncore->chan_id);
++	if (IS_ERR(pcc_chan)) {
++		dev_err(uncore->dev, "Failed to request PCC channel %u\n",
++			uncore->chan_id);
++		return PTR_ERR(pcc_chan);
++	}
++
++	if (!pcc_chan->shmem_base_addr) {
++		dev_err(uncore->dev, "Invalid PCC shared memory address\n");
++		rc = -EINVAL;
++		goto err_pcc_chan_free;
++	}
++
++	if (pcc_chan->shmem_size < sizeof(struct hisi_uncore_pcc_shmem)) {
++		dev_err(uncore->dev, "Invalid PCC shared memory size (%lluB)\n",
++			pcc_chan->shmem_size);
++		rc = -EINVAL;
++		goto err_pcc_chan_free;
++	}
++
++	mutex_init(&uncore->pcc_lock);
++	uncore->pchan = pcc_chan;
++
++	return 0;
++
++err_pcc_chan_free:
++	pcc_mbox_free_channel(pcc_chan);
++
++	return rc;
++}
++
++static void hisi_uncore_free_pcc_chan(struct hisi_uncore_freq *uncore)
++{
++	if (uncore->pchan) {
++		guard(mutex)(&uncore->pcc_lock);
++		pcc_mbox_free_channel(uncore->pchan);
++		uncore->pchan = NULL;
++	}
++}
++
++static void devm_hisi_uncore_free_pcc_chan(void *data)
++{
++	hisi_uncore_free_pcc_chan(data);
++}
++
++static acpi_status hisi_uncore_pcc_reg_scan(struct acpi_resource *res,
++					    void *ctx)
++{
++	struct acpi_resource_generic_register *reg;
++	struct hisi_uncore_freq *uncore;
++
++	if (!res || res->type != ACPI_RESOURCE_TYPE_GENERIC_REGISTER)
++		return AE_OK;
++
++	reg = &res->data.generic_reg;
++	if (reg->space_id != ACPI_ADR_SPACE_PLATFORM_COMM)
++		return AE_OK;
++
++	if (!ctx)
++		return AE_ERROR;
++
++	uncore = ctx;
++	/* PCC subspace ID stored in Access Size */
++	uncore->chan_id = reg->access_size;
++
++	return AE_CTRL_TERMINATE;
++}
++
++static int hisi_uncore_init_pcc_chan(struct hisi_uncore_freq *uncore)
++{
++	acpi_handle handle = ACPI_HANDLE(uncore->dev);
++	acpi_status status;
++	int rc;
++
++	uncore->chan_id = -1;
++	status = acpi_walk_resources(handle, METHOD_NAME__CRS,
++				     hisi_uncore_pcc_reg_scan, uncore);
++	if (ACPI_FAILURE(status) || uncore->chan_id < 0) {
++		dev_err(uncore->dev, "Failed to get a PCC channel\n");
++		return -ENODEV;
++	}
++
++	rc = hisi_uncore_request_pcc_chan(uncore);
++	if (rc)
++		return rc;
++
++	return devm_add_action_or_reset(uncore->dev,
++					devm_hisi_uncore_free_pcc_chan,
++					uncore);
++}
++
++static int hisi_uncore_cmd_send(struct hisi_uncore_freq *uncore,
++				u8 cmd, u32 *data)
++{
++	struct hisi_uncore_pcc_shmem __iomem *addr;
++	struct hisi_uncore_pcc_shmem shmem;
++	struct pcc_mbox_chan *pchan;
++	unsigned int mrtt;
++	s64 time_delta;
++	u16 status;
++	int rc;
++
++	guard(mutex)(&uncore->pcc_lock);
++
++	pchan = uncore->pchan;
++	if (!pchan)
++		return -ENODEV;
++
++	addr = (struct hisi_uncore_pcc_shmem __iomem *)pchan->shmem;
++	if (!addr)
++		return -EINVAL;
++
++	/* Handle the Minimum Request Turnaround Time (MRTT) */
++	mrtt = pchan->min_turnaround_time;
++	time_delta = ktime_us_delta(ktime_get(),
++				    uncore->last_cmd_cmpl_time);
++	if (mrtt > time_delta)
++		udelay(mrtt - time_delta);
++
++	/* Copy data */
++	shmem.head = (struct acpi_pcct_shared_memory) {
++		.signature = PCC_SIGNATURE | uncore->chan_id,
++		.command = cmd,
++		.status = 0,
++	};
++	shmem.pcc_data.data = *data;
++	memcpy_toio(addr, &shmem, sizeof(shmem));
++
++	/* Ring doorbell */
++	rc = mbox_send_message(pchan->mchan, &cmd);
++	if (rc < 0) {
++		dev_err(uncore->dev, "Failed to send mbox message, %d\n", rc);
++		return rc;
++	}
++
++	/* Wait status */
++	rc = readw_poll_timeout(&addr->head.status, status,
++				status & (PCC_STATUS_CMD_COMPLETE |
++					  PCC_STATUS_ERROR),
++				HUCF_PCC_POLL_INTERVAL_US,
++				pchan->latency * HUCF_PCC_POLL_TIMEOUT_NUM);
++	if (rc) {
++		dev_err(uncore->dev, "PCC channel response timeout, cmd=%u\n", cmd);
++		goto exit;
++	}
++
++	if (status & PCC_STATUS_ERROR) {
++		dev_err(uncore->dev, "PCC cmd error, cmd=%u\n", cmd);
++		rc = -EIO;
++		goto exit;
++	}
++
++exit:
++	uncore->last_cmd_cmpl_time = ktime_get();
++
++	/* Copy data back */
++	memcpy_fromio(data, &addr->pcc_data.data, sizeof(*data));
++
++	/* Clear mailbox active req */
++	mbox_client_txdone(pchan->mchan, rc);
++
++	return rc;
++}
++
++static int hisi_uncore_target(struct device *dev, unsigned long *freq,
++			      u32 flags)
++{
++	struct hisi_uncore_freq *uncore = dev_get_drvdata(dev);
++	struct dev_pm_opp *opp;
++	u32 data;
++
++	if (WARN_ON(!uncore || !uncore->pchan))
++		return -ENODEV;
++
++	opp = devfreq_recommended_opp(dev, freq, flags);
++	if (IS_ERR(opp)) {
++		dev_err(dev, "Failed to get opp for freq %lu hz\n", *freq);
++		return PTR_ERR(opp);
++	}
++	dev_pm_opp_put(opp);
++
++	data = (u32)(dev_pm_opp_get_freq(opp) / HZ_PER_MHZ);
++
++	return hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_FREQ, &data);
++}
++
++static int hisi_uncore_get_dev_status(struct device *dev,
++				      struct devfreq_dev_status *stat)
++{
++	/* Not used */
++	return 0;
++}
++
++static int hisi_uncore_get_cur_freq(struct device *dev, unsigned long *freq)
++{
++	struct hisi_uncore_freq *uncore = dev_get_drvdata(dev);
++	u32 data = 0;
++	int rc;
++
++	if (WARN_ON(!uncore || !uncore->pchan))
++		return -ENODEV;
++
++	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_FREQ, &data);
++
++	/*
++	 * Upon a failure, 'data' remains 0 and 'freq' is set to 0 rather than a
++	 * random value.  devfreq shouldn't use 'freq' in that case though.
++	 */
++	*freq = data * HZ_PER_MHZ;
++
++	return rc;
++}
++
++static void devm_hisi_uncore_remove_opp(void *data)
++{
++	struct hisi_uncore_freq *uncore = data;
++
++	dev_pm_opp_remove_all_dynamic(uncore->dev);
++}
++
++static int hisi_uncore_init_opp(struct hisi_uncore_freq *uncore)
++{
++	unsigned long freq_mhz;
++	u32 data = 0, num, index;
++	int rc;
++
++	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_PLAT_FREQ_NUM,
++				  &data);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to get plat freq num\n");
++		return rc;
++	}
++	num = data;
++
++	for (index = 0; index < num; index++) {
++		data = index;
++		rc = hisi_uncore_cmd_send(uncore,
++					  HUCF_PCC_CMD_GET_PLAT_FREQ_BY_IDX,
++					  &data);
++		if (rc) {
++			dev_err(uncore->dev, "Failed to get plat freq at index %u\n", index);
++			dev_pm_opp_remove_all_dynamic(uncore->dev);
++			return rc;
++		}
++		freq_mhz = data;
++
++		/* Don't care OPP votlage, take 1V as default */
++		rc = dev_pm_opp_add(uncore->dev,
++				    freq_mhz * HZ_PER_MHZ, 1000000);
++		if (rc) {
++			dev_err(uncore->dev, "Add OPP %lu failed (%d)\n",
++				freq_mhz, rc);
++			dev_pm_opp_remove_all_dynamic(uncore->dev);
++			return rc;
++		}
++	}
++
++	return devm_add_action_or_reset(uncore->dev,
++					devm_hisi_uncore_remove_opp, uncore);
++}
++
++static int hisi_platform_gov_func(struct devfreq *df, unsigned long *freq)
++{
++	/*
++	 * Platform-controlled mode doesn't care the frequency issued from
++	 * devfreq, so just pick the max freq.
++	 */
++	*freq = DEVFREQ_MAX_FREQ;
++
++	return 0;
++}
++
++static int hisi_platform_gov_handler(struct devfreq *df, unsigned int event,
++				     void *val)
++{
++	struct hisi_uncore_freq *uncore = dev_get_drvdata(df->dev.parent);
++	int rc = 0;
++	u32 data;
++
++	if (WARN_ON(!uncore || !uncore->pchan))
++		return -ENODEV;
++
++	switch (event) {
++	case DEVFREQ_GOV_START:
++		data = HUCF_MODE_PLATFORM;
++		rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
++		break;
++	case DEVFREQ_GOV_STOP:
++		data = HUCF_MODE_OS;
++		rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
++		break;
++	default:
++		break;
++	}
++
++	if (rc)
++		dev_err(uncore->dev, "Failed to set operate mode (%d)\n", rc);
++
++	return rc;
++}
++
++/*
++ * In the platform-controlled mode, the platform decides the uncore frequency
++ * and ignores the frequency issued from the driver.
++ * Thus, create a pseudo 'hisi_platform' governor that stops devfreq monitor
++ * from working so as to save meaningless overhead.
++ */
++static struct devfreq_governor hisi_platform_governor = {
++	.name = "hisi_platform",
++	/*
++	 * Set interrupt_driven to skip the devfreq monitor mechanism, though
++	 * this governor not interrupt-driven.
++	 */
++	.flags = DEVFREQ_GOV_FLAG_IRQ_DRIVEN,
++	.get_target_freq = hisi_platform_gov_func,
++	.event_handler = hisi_platform_gov_handler,
++};
++
++static void hisi_uncore_remove_platform_gov(struct hisi_uncore_freq *uncore)
++{
++	u32 data = HUCF_MODE_PLATFORM;
++	int rc;
++
++	if (!(uncore->cap & HUCF_CAP_PLATFORM_CTRL))
++		return;
++
++	guard(mutex)(&hisi_platform_gov_usage_lock);
++
++	if (--hisi_platform_gov_usage == 0) {
++		rc = devfreq_remove_governor(&hisi_platform_governor);
++		if (rc)
++			dev_err(uncore->dev, "Failed to remove hisi_platform gov (%d)\n", rc);
++	}
++
++	/*
++	 * Set to the platform-controlled mode, if supported, so as to have a
++	 * certain behaviour when the driver is detached.
++	 */
++	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
++	if (rc)
++		dev_err(uncore->dev, "Failed to set platform mode on exit (%d)\n", rc);
++}
++
++static void devm_hisi_uncore_remove_platform_gov(void *data)
++{
++	hisi_uncore_remove_platform_gov(data);
++}
++
++static int hisi_uncore_add_platform_gov(struct hisi_uncore_freq *uncore)
++{
++	int rc = 0;
++
++	if (!(uncore->cap & HUCF_CAP_PLATFORM_CTRL))
++		return 0;
++
++	guard(mutex)(&hisi_platform_gov_usage_lock);
++
++	if (hisi_platform_gov_usage == 0) {
++		rc = devfreq_add_governor(&hisi_platform_governor);
++		if (rc)
++			return rc;
++	}
++	hisi_platform_gov_usage++;
++
++	return devm_add_action_or_reset(uncore->dev,
++					devm_hisi_uncore_remove_platform_gov,
++					uncore);
++}
++
++static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
++{
++	struct devfreq_dev_profile *profile;
++	unsigned long freq;
++	u32 data;
++	int rc;
++
++	rc = hisi_uncore_get_cur_freq(uncore->dev, &freq);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to get plat init freq (%d)\n", rc);
++		return rc;
++	}
++
++	profile = devm_kzalloc(uncore->dev, sizeof(*profile), GFP_KERNEL);
++	if (!profile)
++		return -ENOMEM;
++
++	profile->initial_freq = freq;
++	profile->polling_ms = DEFAULT_POLLING_MS;
++	profile->timer = DEVFREQ_TIMER_DELAYED;
++	profile->target = hisi_uncore_target;
++	profile->get_dev_status = hisi_uncore_get_dev_status;
++	profile->get_cur_freq = hisi_uncore_get_cur_freq;
++
++	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_MODE, &data);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to get operate mode (%d)\n", rc);
++		return rc;
++	}
++
++	if (data == HUCF_MODE_PLATFORM)
++		uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
++					  hisi_platform_governor.name, NULL);
++	else
++		uncore->devfreq = devm_devfreq_add_device(uncore->dev, profile,
++					  DEVFREQ_GOV_PERFORMANCE, NULL);
++	if (IS_ERR(uncore->devfreq)) {
++		dev_err(uncore->dev, "Failed to add devfreq device\n");
++		return PTR_ERR(uncore->devfreq);
++	}
++
++	return 0;
++}
++
++static int hisi_uncore_mark_related_cpus(struct hisi_uncore_freq *uncore,
++				 char *property, int (*get_topo_id)(int cpu),
++				 const struct cpumask *(*get_cpumask)(int cpu))
++{
++	unsigned int i, cpu;
++	size_t len;
++	u32 *num;
++	int rc;
++
++	rc = device_property_count_u32(uncore->dev, property);
++	if (rc < 0)
++		return rc;
++	if (rc == 0)
++		return -EINVAL;
++
++	len = rc;
++	num = kcalloc(len, sizeof(*num), GFP_KERNEL);
++	if (!num)
++		return -ENOMEM;
++
++	rc = device_property_read_u32_array(uncore->dev, property, num, len);
++	if (rc)
++		goto out;
++
++	for (i = 0; i < len; i++) {
++		for_each_possible_cpu(cpu) {
++			if (get_topo_id(cpu) == num[i]) {
++				cpumask_or(&uncore->related_cpus,
++					   &uncore->related_cpus,
++					   get_cpumask(cpu));
++				break;
++			}
++		}
++	}
++
++out:
++	kfree(num);
++
++	return rc;
++}
++
++static int get_package_id(int cpu)
++{
++	return topology_physical_package_id(cpu);
++}
++
++static const struct cpumask *get_package_cpumask(int cpu)
++{
++	return topology_core_cpumask(cpu);
++}
++
++static int get_cluster_id(int cpu)
++{
++	return topology_cluster_id(cpu);
++}
++
++static const struct cpumask *get_cluster_cpumask(int cpu)
++{
++	return topology_cluster_cpumask(cpu);
++}
++
++static int hisi_uncore_mark_related_cpus_wrap(struct hisi_uncore_freq *uncore)
++{
++	int rc;
++
++	cpumask_clear(&uncore->related_cpus);
++
++	rc = hisi_uncore_mark_related_cpus(uncore, "related-package",
++					   get_package_id,
++					   get_package_cpumask);
++	if (rc == 0)
++		return rc;
++
++	return hisi_uncore_mark_related_cpus(uncore, "related-cluster",
++					     get_cluster_id,
++					     get_cluster_cpumask);
++}
++
++static ssize_t related_cpus_show(struct device *dev,
++				 struct device_attribute *attr, char *buf)
++{
++	struct hisi_uncore_freq *uncore = dev_get_drvdata(dev->parent);
++
++	return cpumap_print_to_pagebuf(true, buf, &uncore->related_cpus);
++}
++
++DEVICE_ATTR_RO(related_cpus);
++
++static struct device_attribute *attr_group[] = {
++	&dev_attr_related_cpus,
++	NULL,
++};
++
++static void hisi_uncore_remove_dev_interface(struct hisi_uncore_freq *uncore)
++{
++	struct device_attribute **attr = attr_group;
++
++	while (attr && *attr) {
++		device_remove_file(&uncore->devfreq->dev, *attr);
++		attr++;
++	}
++}
++
++static void devm_hisi_uncore_remove_dev_interface(void *data)
++{
++	hisi_uncore_remove_dev_interface(data);
++}
++
++static int hisi_uncore_init_dev_interface(struct hisi_uncore_freq *uncore)
++{
++	struct device_attribute **attr = attr_group;
++	int rc;
++
++	rc = hisi_uncore_mark_related_cpus_wrap(uncore);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to mark related cpus (%d)\n", rc);
++		return rc;
++	}
++
++	while (attr && *attr) {
++		rc = device_create_file(&uncore->devfreq->dev, *attr);
++		if (rc) {
++			hisi_uncore_remove_dev_interface(uncore);
++			return rc;
++		}
++		attr++;
++	}
++
++	return devm_add_action_or_reset(uncore->dev,
++					devm_hisi_uncore_remove_dev_interface,
++					uncore);
++}
++
++static int hisi_uncore_freq_probe(struct platform_device *pdev)
++{
++	struct hisi_uncore_freq *uncore;
++	u32 cap;
++	int rc;
++
++	uncore = devm_kzalloc(&pdev->dev, sizeof(*uncore), GFP_KERNEL);
++	if (!uncore)
++		return -ENOMEM;
++
++	uncore->dev = &pdev->dev;
++	platform_set_drvdata(pdev, uncore);
++
++	rc = hisi_uncore_init_pcc_chan(uncore);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to init PCC channel (%d)", rc);
++		return rc;
++	}
++
++	rc = hisi_uncore_init_opp(uncore);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to init OPP (%d)\n", rc);
++		return rc;
++	}
++
++	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_CAP, &cap);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to get capability (%d)\n", rc);
++		return rc;
++	}
++	uncore->cap = cap;
++
++	rc = hisi_uncore_add_platform_gov(uncore);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to add hisi_platform governor (%d)\n", rc);
++		return rc;
++	}
++
++	rc = hisi_uncore_devfreq_register(uncore);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to register devfreq (%d)\n", rc);
++		return rc;
++	}
++
++	rc = hisi_uncore_init_dev_interface(uncore);
++	if (rc) {
++		dev_err(uncore->dev, "Failed to init custom device interfaces (%d)\n", rc);
++		return rc;
++	}
++
++	return 0;
++}
++
++static const struct acpi_device_id hisi_uncore_freq_acpi_match[] = {
++	{ "HISI04F1", },
++	{ },
++};
++MODULE_DEVICE_TABLE(acpi, hisi_uncore_freq_acpi_match);
++
++static struct platform_driver hisi_uncore_freq_drv = {
++	.probe	= hisi_uncore_freq_probe,
++	.driver = {
++		.name	= "hisi_uncore_freq",
++		.acpi_match_table = hisi_uncore_freq_acpi_match,
++	},
++};
++module_platform_driver(hisi_uncore_freq_drv);
++
++MODULE_DESCRIPTION("HiSilicon uncore frequency scaling driver");
++MODULE_AUTHOR("Jie Zhan <zhanjie9@hisilicon.com>");
++MODULE_LICENSE("GPL");
+-- 
+2.33.0
 
-I've read all reviews of all STM32 bindings.
-
-Very recent STM32 bindings, for STM32MP25, STM32MP23, STM32MP21, are 
-using compatibles like st,stm32mp25-xxx, st,stm32mp23-xxx, 
-st,stm32mp21xx (e.g. st,stm32mp25-omm, st,stm32mp21-rcc, 
-st,stm32mp23-syscon, st,stm32mp25-lptimer, st,stm32mp25-pcie-rc, ...).
-
-If compatible should inconditionnaly match the SoC dtsi, why don't we 
-have st,stm32mp131-hdp, st,stm32mp133-hdp, st,stm32mp135-hdp, ... ?
-
-https://www.st.com/en/microcontrollers-microprocessors/stm32mp1-series.html
-https://www.st.com/en/microcontrollers-microprocessors/stm32mp2-series.html
-"The STM32MP1 series is available in six different lines, which are, on 
-one hand STM32MP15x pin-to-pin compatible, and on the other hand 
-STM32MP13x pin-to-pin compatible."
-"The STM32MP2 series is available in seven different lines, which are 
-pin-to-pin compatible".
-
-For HDP, it means functions will be the same for each lines of 
-STM32MP13x, for each lines of STM32MP15x, ...
-
-So, why not having compatibles like st,stm32mp13-hdp, st,stm32mp15-hdp, 
-st,stm32mp25-hpd?
-
-Thanks,
-Amelie
-
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +patternProperties:
-> +  "^hdp[0-7]-pins$":
-> +    type: object
-> +    $ref: pinmux-node.yaml#
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      pins:
-> +        enum: [ HDP0, HDP1, HDP2, HDP3, HDP4, HDP5, HDP6, HDP7 ]
-> +
-> +      function:
-> +        maxItems: 1
-> +
-> +    required:
-> +      - function
-> +      - pins
-> +
-> +allOf:
-> +  - $ref: pinctrl.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp131-hdp
-> +    then:
-> +      patternProperties:
-> +        "^hdp[0-7]-pins$":
-> +          properties:
-> +            function:
-> +              enum: [ pwr_pwrwake_sys, pwr_stop_forbidden, pwr_stdby_wakeup, pwr_encomp_vddcore,
-> +                      bsec_out_sec_niden, aiec_sys_wakeup, none, ddrctrl_lp_req,
-> +                      pwr_ddr_ret_enable_n, dts_clk_ptat, sram3ctrl_tamp_erase_act, gpoval0,
-> +                      pwr_sel_vth_vddcpu, pwr_mpu_ram_lowspeed, ca7_naxierrirq, pwr_okin_mr,
-> +                      bsec_out_sec_dbgen, aiec_c1_wakeup, rcc_pwrds_mpu, ddrctrl_dfi_ctrlupd_req,
-> +                      ddrctrl_cactive_ddrc_asr, sram3ctrl_hw_erase_act, nic400_s0_bready, gpoval1,
-> +                      pwr_pwrwake_mpu, pwr_mpu_clock_disable_ack, ca7_ndbgreset_i,
-> +                      bsec_in_rstcore_n, bsec_out_sec_bsc_dis, ddrctrl_dfi_init_complete,
-> +                      ddrctrl_perf_op_is_refresh, ddrctrl_gskp_dfi_lp_req, sram3ctrl_sw_erase_act,
-> +                      nic400_s0_bvalid, gpoval2, pwr_sel_vth_vddcore, pwr_mpu_clock_disable_req,
-> +                      ca7_npmuirq0, ca7_nfiqout0, bsec_out_sec_dftlock, bsec_out_sec_jtag_dis,
-> +                      rcc_pwrds_sys, sram3ctrl_tamp_erase_req, ddrctrl_stat_ddrc_reg_selfref_type0,
-> +                      dts_valobus1_0, dts_valobus2_0, tamp_potential_tamp_erfcfg, nic400_s0_wready,
-> +                      nic400_s0_rready, gpoval3, pwr_stop2_active, ca7_nl2reset_i,
-> +                      ca7_npreset_varm_i, bsec_out_sec_dften, bsec_out_sec_dbgswenable,
-> +                      eth1_out_pmt_intr_o, eth2_out_pmt_intr_o, ddrctrl_stat_ddrc_reg_selfref_type1,
-> +                      ddrctrl_cactive_0, dts_valobus1_1, dts_valobus2_1, tamp_nreset_sram_ercfg,
-> +                      nic400_s0_wlast, nic400_s0_rlast, gpoval4, ca7_standbywfil2,
-> +                      pwr_vth_vddcore_ack, ca7_ncorereset_i, ca7_nirqout0, bsec_in_pwrok,
-> +                      bsec_out_sec_deviceen, eth1_out_lpi_intr_o, eth2_out_lpi_intr_o,
-> +                      ddrctrl_cactive_ddrc, ddrctrl_wr_credit_cnt, dts_valobus1_2, dts_valobus2_2,
-> +                      pka_pka_itamp_out, nic400_s0_wvalid, nic400_s0_rvalid, gpoval5,
-> +                      ca7_standbywfe0, pwr_vth_vddcpu_ack, ca7_evento, bsec_in_tamper_det,
-> +                      bsec_out_sec_spniden, eth1_out_mac_speed_o1, eth2_out_mac_speed_o1,
-> +                      ddrctrl_csysack_ddrc, ddrctrl_lpr_credit_cnt, dts_valobus1_3, dts_valobus2_3,
-> +                      saes_tamper_out, nic400_s0_awready, nic400_s0_arready, gpoval6,
-> +                      ca7_standbywfi0, pwr_rcc_vcpu_rdy, ca7_eventi, ca7_dbgack0, bsec_out_fuse_ok,
-> +                      bsec_out_sec_spiden, eth1_out_mac_speed_o0, eth2_out_mac_speed_o0,
-> +                      ddrctrl_csysreq_ddrc, ddrctrl_hpr_credit_cnt, dts_valobus1_4, dts_valobus2_4,
-> +                      rng_tamper_out, nic400_s0_awavalid, nic400_s0_aravalid, gpoval7 ]
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp151-hdp
-> +    then:
-> +      patternProperties:
-> +        "^hdp[0-7]-pins$":
-> +          properties:
-> +            function:
-> +              enum: [ pwr_pwrwake_sys, cm4_sleepdeep, pwr_stdby_wkup, pwr_encomp_vddcore,
-> +                      bsec_out_sec_niden, none, rcc_cm4_sleepdeep, gpu_dbg7, ddrctrl_lp_req,
-> +                      pwr_ddr_ret_enable_n, dts_clk_ptat, gpoval0, pwr_pwrwake_mcu, cm4_halted,
-> +                      ca7_naxierrirq, pwr_okin_mr, bsec_out_sec_dbgen, exti_sys_wakeup,
-> +                      rcc_pwrds_mpu, gpu_dbg6, ddrctrl_dfi_ctrlupd_req, ddrctrl_cactive_ddrc_asr,
-> +                      gpoval1, pwr_pwrwake_mpu, cm4_rxev, ca7_npmuirq1, ca7_nfiqout1,
-> +                      bsec_in_rstcore_n, exti_c2_wakeup, rcc_pwrds_mcu, gpu_dbg5,
-> +                      ddrctrl_dfi_init_complete, ddrctrl_perf_op_is_refresh,
-> +                      ddrctrl_gskp_dfi_lp_req, gpoval2, pwr_sel_vth_vddcore, cm4_txev, ca7_npmuirq0,
-> +                      ca7_nfiqout0, bsec_out_sec_dftlock, exti_c1_wakeup, rcc_pwrds_sys, gpu_dbg4,
-> +                      ddrctrl_stat_ddrc_reg_selfref_type0, ddrctrl_cactive_1, dts_valobus1_0,
-> +                      dts_valobus2_0, gpoval3, pwr_mpu_pdds_not_cstbydis, cm4_sleeping, ca7_nreset1,
-> +                      ca7_nirqout1, bsec_out_sec_dften, bsec_out_sec_dbgswenable,
-> +                      eth_out_pmt_intr_o, gpu_dbg3, ddrctrl_stat_ddrc_reg_selfref_type1,
-> +                      ddrctrl_cactive_0, dts_valobus1_1, dts_valobus2_1, gpoval4, ca7_standbywfil2,
-> +                      pwr_vth_vddcore_ack, ca7_nreset0, ca7_nirqout0, bsec_in_pwrok,
-> +                      bsec_out_sec_deviceen, eth_out_lpi_intr_o, gpu_dbg2, ddrctrl_cactive_ddrc,
-> +                      ddrctrl_wr_credit_cnt, dts_valobus1_2, dts_valobus2_2, gpoval5,
-> +                      ca7_standbywfi1, ca7_standbywfe1, ca7_evento, ca7_dbgack1,
-> +                      bsec_out_sec_spniden, eth_out_mac_speed_o1, gpu_dbg1, ddrctrl_csysack_ddrc,
-> +                      ddrctrl_lpr_credit_cnt, dts_valobus1_3, dts_valobus2_3, gpoval6,
-> +                      ca7_standbywfi0, ca7_standbywfe0, ca7_dbgack0, bsec_out_fuse_ok,
-> +                      bsec_out_sec_spiden, eth_out_mac_speed_o0, gpu_dbg0, ddrctrl_csysreq_ddrc,
-> +                      ddrctrl_hpr_credit_cnt, dts_valobus1_4, dts_valobus2_4, gpoval7 ]
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp251-hdp
-> +    then:
-> +      patternProperties:
-> +        "^hdp[0-7]-pins$":
-> +          properties:
-> +            function:
-> +              enum: [ pwr_pwrwake_sys, cpu2_sleep_deep, bsec_out_tst_sdr_unlock_or_disable_scan,
-> +                      bsec_out_nidenm, bsec_out_nidena, cpu2_state_0, rcc_pwrds_sys, gpu_dbg7,
-> +                      ddrss_csysreq_ddrc, ddrss_dfi_phyupd_req, cpu3_sleep_deep,
-> +                      d2_gbl_per_clk_bus_req, pcie_usb_cxpl_debug_info_ei_0,
-> +                      pcie_usb_cxpl_debug_info_ei_8, d3_state_0, gpoval0, pwr_pwrwake_cpu2,
-> +                      cpu2_halted, cpu2_state_1, bsec_out_dbgenm, bsec_out_dbgena, exti1_sys_wakeup,
-> +                      rcc_pwrds_cpu2, gpu_dbg6, ddrss_csysack_ddrc, ddrss_dfi_phymstr_req,
-> +                      cpu3_halted, d2_gbl_per_dma_req, pcie_usb_cxpl_debug_info_ei_1,
-> +                      pcie_usb_cxpl_debug_info_ei_9, d3_state_1, gpoval1, pwr_pwrwake_cpu1,
-> +                      cpu2_rxev, cpu1_npumirq1, cpu1_nfiqout1, bsec_out_shdbgen, exti1_cpu2_wakeup,
-> +                      rcc_pwrds_cpu1, gpu_dbg5, ddrss_cactive_ddrc, ddrss_dfi_lp_req, cpu3_rxev,
-> +                      hpdma1_clk_bus_req, pcie_usb_cxpl_debug_info_ei_2,
-> +                      pcie_usb_cxpl_debug_info_ei_10, d3_state_2, gpoval2, pwr_sel_vth_vddcpu,
-> +                      cpu2_txev, cpu1_npumirq0, cpu1_nfiqout0, bsec_out_ddbgen, exti1_cpu1_wakeup,
-> +                      cpu3_state_0, gpu_dbg4, ddrss_mcdcg_en, ddrss_dfi_freq_0, cpu3_txev,
-> +                      hpdma2_clk_bus_req, pcie_usb_cxpl_debug_info_ei_3,
-> +                      pcie_usb_cxpl_debug_info_ei_11, d1_state_0, gpoval3, pwr_sel_vth_vddcore,
-> +                      cpu2_sleeping, cpu1_evento, cpu1_nirqout1, bsec_out_spnidena, exti2_d3_wakeup,
-> +                      eth1_out_pmt_intr_o, gpu_dbg3, ddrss_dphycg_en, ddrss_obsp0, cpu3_sleeping,
-> +                      hpdma3_clk_bus_req, pcie_usb_cxpl_debug_info_ei_4,
-> +                      pcie_usb_cxpl_debug_info_ei_12, d1_state_1, gpoval4, cpu1_standby_wfil2,
-> +                      none, cpu1_nirqout0, bsec_out_spidena, exti2_cpu3_wakeup, eth1_out_lpi_intr_o,
-> +                      gpu_dbg2, ddrctrl_dfi_init_start, ddrss_obsp1, cpu3_state_1,
-> +                      d3_gbl_per_clk_bus_req, pcie_usb_cxpl_debug_info_ei_5,
-> +                      pcie_usb_cxpl_debug_info_ei_13, d1_state_2, gpoval5, cpu1_standby_wfi1,
-> +                      cpu1_standby_wfe1, cpu1_halted1, cpu1_naxierrirq, bsec_out_spnidenm,
-> +                      exti2_cpu2_wakeup, eth2_out_pmt_intr_o, gpu_dbg1, ddrss_dfi_init_complete,
-> +                      ddrss_obsp2, d2_state_0, d3_gbl_per_dma_req, pcie_usb_cxpl_debug_info_ei_6,
-> +                      pcie_usb_cxpl_debug_info_ei_14, cpu1_state_0, gpoval6, cpu1_standby_wfi0,
-> +                      cpu1_standby_wfe0, cpu1_halted0, bsec_out_spidenm, exti2_cpu1__wakeup,
-> +                      eth2_out_lpi_intr_o, gpu_dbg0, ddrss_dfi_ctrlupd_req, ddrss_obsp3, d2_state_1,
-> +                      lpdma1_clk_bus_req, pcie_usb_cxpl_debug_info_ei_7,
-> +                      pcie_usb_cxpl_debug_info_ei_15, cpu1_state_1, gpoval7 ]
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/stm32mp1-clks.h>
-> +
-> +    pinctrl@54090000 {
-> +      compatible = "st,stm32mp15-hdp";
-> +      reg = <0x54090000 0x400>;
-> +      clocks = <&rcc HDP>;
-> +      pinctrl-names = "default";
-> +      pinctrl-0 = <&hdp2_gpo>;
-> +      hdp2_gpo: hdp2-pins {
-> +        function = "gpoval2";
-> +        pins = "HDP2";
-> +      };
-> +    };
-> 
 
