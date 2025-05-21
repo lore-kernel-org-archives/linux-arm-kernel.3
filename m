@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A6AAC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 02:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21F38C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 02:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JpC3bMATM3lf+XV0YiTWcXgm6sU8WRjyf2ObtC447xA=; b=1+iti3p0O0ZdXNfHM6X2q8Fx+4
-	OGA1wX8uq6hvuQLdcYn71uddTAIYWBCxkFM1zf0xz7RwrBwWwItVnA5R5pLl8BMOGkqjsn+iK5Lfo
-	u/xcut7p+qjcVOJ9+gYBS2ucv2CwMIW5KKxbTcVhmklw1NRHMVRvw6ChC264I9vFUKOpQ9s4KTeDJ
-	2KDxBQPQm58QE1F77gB7BJjCFrvbkn9FPvbuI+6m4dXMJ6SUEu0+AIYlsf+AxEr3fR2fTEu7WL1SM
-	eeGmZEVFgZrRoLy4Pj52Go2io9loamjSE1FznPSjHxTkKqxlni8npRmpadsCA3yfo4Xqzt6fRmDSQ
-	xWOO0gBQ==;
+	bh=GuK68BmzHZP33GSN5Zs/I6BAYEMPbqZMTM2A0yTHWuk=; b=q3TI8dqDrDCAObce1lQ37u3IJt
+	gtJU8MeytwvUWlm9Eb6ePx+BwdNuyrnTFTX+808mu2aeOk1njero38rjIWfHqzsApt4PwYRtEwb2d
+	AhB6ZQgzIeRw/ZrYqatq2byFML2hZT6NZfK6/Z7rbSaUQWoRrxHlTL+iIsUOKNJn7ae+9XuioCK0K
+	JiEb5PQ9GImzTgWpjEeUopFIZrtaAcGtGv0ewq3DQFZ3m88oNDoqoyF+WtRE6kAg5DMknR+k9GWys
+	XUnbZ9foipoRzbZjNfnFnph2klyt0OVYamo1VXQIidzMAW5+R/gsJ8EUyrAWlQ4daPV9JdH/uEWmD
+	OwxkHe4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHZAe-0000000EanN-0sTC;
-	Wed, 21 May 2025 02:27:04 +0000
+	id 1uHZCq-0000000EazB-18nj;
+	Wed, 21 May 2025 02:29:20 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHZ7G-0000000EZxI-26Cq;
-	Wed, 21 May 2025 02:23:35 +0000
-X-UUID: 95ea351a35ea11f0bed96b30c12bc3d6-20250520
+	id 1uHZ7H-0000000EZxM-1ELk;
+	Wed, 21 May 2025 02:23:36 +0000
+X-UUID: 9566b16835ea11f0bed96b30c12bc3d6-20250520
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=JpC3bMATM3lf+XV0YiTWcXgm6sU8WRjyf2ObtC447xA=;
-	b=gDuASwL2VZwcHkSo+S3+dEvudjhzITLr6jrN8Izu0ikyyr27xq+1bwfCZET20tFMUHc9eIRgpeP2dtml0OWbHGtosYW//s5nYVOKX0Rz5zzt/ODfB9s7jHLFGNPuB90/86AZyunpsU12sNyGnXCXwzLAU/BvMruhDPvQ/RbgCuo=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=GuK68BmzHZP33GSN5Zs/I6BAYEMPbqZMTM2A0yTHWuk=;
+	b=rLAZqye4AIamlNtU8TyTdyhtsQS9ghmlnjzkMz7uBGbePOT2Aux7OH0Sas0TDEgRO/m6TaHc3Nh/qqNovIBg5jSk9P02ngjmoMxRsbqCex3qV9d+CzpHuTR5IwRB5WOiXJAXoCsVyzj4hwAHhRRIgMgZAy7jZ14bOr0f5kF2UtU=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:7778211c-9d7c-48a0-8cc2-4d70c7da30f4,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.1,REQID:319c7433-f2f3-47f4-909a-4494d6d3b87b,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:880f8c47-ee4f-4716-aedb-66601021a588,B
+X-CID-META: VersionHash:0ef645f,CLOUDID:0259744f-c12a-49e2-926e-622a46f316c6,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0,NGT
 X-CID-BAS: 0,NGT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 95ea351a35ea11f0bed96b30c12bc3d6-20250520
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+X-UUID: 9566b16835ea11f0bed96b30c12bc3d6-20250520
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
 	(envelope-from <kyrie.wu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1707285399; Tue, 20 May 2025 19:23:30 -0700
+	with ESMTP id 1694422052; Tue, 20 May 2025 19:23:29 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 21 May 2025 10:23:26 +0800
+ 15.2.1258.39; Wed, 21 May 2025 10:23:18 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
  15.2.1258.39 via Frontend Transport; Wed, 21 May 2025 10:23:25 +0800
@@ -62,9 +62,9 @@ To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v4 02/12] media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgenc compatible
-Date: Wed, 21 May 2025 10:23:12 +0800
-Message-ID: <20250521022322.27576-3-kyrie.wu@mediatek.com>
+Subject: [PATCH v4 01/12] media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgdec compatible
+Date: Wed, 21 May 2025 10:23:11 +0800
+Message-ID: <20250521022322.27576-2-kyrie.wu@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20250521022322.27576-1-kyrie.wu@mediatek.com>
 References: <20250521022322.27576-1-kyrie.wu@mediatek.com>
@@ -73,8 +73,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_192334_546737_7D4EC8C2 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250520_192335_336086_5CFD739E 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,26 +91,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Compared to the previous generation IC, the MT8196 uses SMMU
 instead of IOMMU and supports features such as dynamic voltage
-and frequency scaling. Therefore, add "mediatek,mt8196-jpgenc"
+and frequency scaling. Therefore, add "mediatek,mt8196-jpgdec"
 compatible to the binding document.
 
 Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 ---
- .../bindings/media/mediatek,mt8195-jpegenc.yaml           | 8 ++++++--
+ .../bindings/media/mediatek,mt8195-jpegdec.yaml           | 8 ++++++--
  1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
-index 596186497b68..e2d772ea0fb0 100644
---- a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml
+index e5448c60e3eb..28a9a9bfdbf8 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegdec.yaml
 @@ -14,7 +14,9 @@ description:
  
  properties:
    compatible:
--    const: mediatek,mt8195-jpgenc
+-    const: mediatek,mt8195-jpgdec
 +    enum:
-+      - mediatek,mt8195-jpgenc
-+      - mediatek,mt8196-jpgenc
++      - mediatek,mt8195-jpgdec
++      - mediatek,mt8196-jpgdec
  
    power-domains:
      maxItems: 1
@@ -118,10 +118,10 @@ index 596186497b68..e2d772ea0fb0 100644
  
      properties:
        compatible:
--        const: mediatek,mt8195-jpgenc-hw
+-        const: mediatek,mt8195-jpgdec-hw
 +        enum:
-+          - mediatek,mt8195-jpgenc-hw
-+          - mediatek,mt8196-jpgenc-hw
++          - mediatek,mt8195-jpgdec-hw
++          - mediatek,mt8196-jpgdec-hw
  
        reg:
          maxItems: 1
