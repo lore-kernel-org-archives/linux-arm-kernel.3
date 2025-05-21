@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFD6C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 07:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4BEC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 May 2025 07:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nha0T5o4wDHhd/CGGXZ/m2HlO5ptB19/5BLoEUoqqes=; b=z5c5v3kUAgDfj9NRRNjlCdovdJ
-	oscTlK46J62Ny7Kn2UoXayIbXVVs/sIa3s/6oci4uHubtGqruDv/rvCeGG+tzEct49XfcWvmTFOTC
-	O4vq72QxmRdl64H6LVHEinK3LZMt9OuAQSZmui87hxzxfV/eLOFpvUA/SWmCHpvd7sjibV2R6/qv/
-	6YvbphNBHnG3zhrGUFQijHFL7mqyYh6vI94A6Hp1W9FVrTa4x6FJ8g0/BNbfBHqfHqqc7i/TyUxuG
-	bwrqm1ALVqpDdlMw/pmFY1NYW7yyq6cBtdy0sLxu+vSER4dDKmnxaAYphFDGOTAMmSGhphGSd+x4L
-	GFod+Wjw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0pilOcdT2VkT2U8kVqgqtToKFgXk1Tev6+CBnmTk+fE=; b=At1NHAtzebfQA4Ek3U2m8mY7Er
+	gJ52omF6dd29RzqS/PVV0U4uBQr+xWh4vP46vAHYtzEtXC3qAKn6/SJJK7LvZc2yqkluRRQYKOJoA
+	6LTvEozfyyAaNKREsdV/pabl04K6E48x8vWX6f6/DinSy25gdYaCA4Cvcp9bfUOgM7M4PI4T08oOg
+	1VNGaxQ0hGLonwkd0moRC2kRsxpmVgzssWc4S5XWbsRJi3vikOLsedNB32p6UWaPE3zRyc/TDMbtw
+	rgTMeKbAMERfK2pXFHiJk4ghZ9vg2xnqINY349Qh6zlMFZPrFZ6bq0Ex1cKA3ShAa/+U0oklh8Emq
+	STi2qaPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHeBE-0000000F66q-0qGL;
-	Wed, 21 May 2025 07:48:00 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uHeDF-0000000F6OX-3EqU;
+	Wed, 21 May 2025 07:50:05 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHe99-0000000F5rl-2KC9;
-	Wed, 21 May 2025 07:45:52 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-742af84818cso3867190b3a.1;
-        Wed, 21 May 2025 00:45:51 -0700 (PDT)
+	id 1uHe9u-0000000F5z3-0D7V;
+	Wed, 21 May 2025 07:46:39 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-742c9563fd9so2967582b3a.3;
+        Wed, 21 May 2025 00:46:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747813550; x=1748418350; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=nha0T5o4wDHhd/CGGXZ/m2HlO5ptB19/5BLoEUoqqes=;
-        b=L/RkteQhH8PHJIWZwBr3dJmPwoaW2RUViKyY2POnkx7yt9xlft1cCafiGnIhVRljw2
-         Du2lBiw37Qb9Iw8Bl4dagissbnTWfynkcxR1ccOkPxbWmz+zn/EB1jKAG6FCZ5nHL+uV
-         KkWFzohnILENxvP7r9ZVrArOfUrd4lbib8HCeiR5DPlOGBfOu7GUiCLrJ2lng7AZ/oau
-         CWkeWQ5Qebin8D3hn8fvXwgYF3N3GUfV2bKAS4ZN+dibgE4meQSqdu0SWvu6T18kG1bj
-         uEFVKxtQOn6XVC+ObWWnCXk2XN+QBvO/shnF28H0gNZmpBDoHrQqzdXHuiaD7vTcKA6A
-         z1jw==
+        d=gmail.com; s=20230601; t=1747813597; x=1748418397; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0pilOcdT2VkT2U8kVqgqtToKFgXk1Tev6+CBnmTk+fE=;
+        b=nPCrwx1sAEfBH6jkOym9FFsYsCfU7sL1vENN0AimLTH7y9bYCHx3Vy8hkf1+gCLNyH
+         v7/pniBRI0PB7CoBwClw6+nh5om2XmD4sTHTUHnQvcRGLIHeT4A/o9ETFdsMPw7CYtTV
+         FS/IixchO/iFWIODYrZnPohrAcSqfTJ7aEKFcAB6qyp//Q/IK7xokWJ97lqwoPIS2h57
+         nJJvozevI+e43OC9EvF5xeDKP7c+FhmAgEFaHRNIJpGfWreCyCur5AgWySStn/n1Aoju
+         ZlJca9lFWCDb4a6a5K2zAfMLr955ORGipgRyMgqckmXY1d0aIjIjwHT9zeaNRGyapZGz
+         YhtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747813550; x=1748418350;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nha0T5o4wDHhd/CGGXZ/m2HlO5ptB19/5BLoEUoqqes=;
-        b=DlxppV/3YmBChGMgP/k2ILElGaA1MGiBe4xGvCsZUKKzaNlYsqnQj8eoiKwzf6iQYU
-         A/HxF1qf3PH88l5JgU9A+eVz3ass54I4ll8z207/1GkUobCDiakH3rYxNWWH1TUq+KCk
-         W6g4jfaYeGL1tW3bHAs7gY/hj4C4dKO2afUKirhRcMk0ixo7q05ejyXgA3PzC9dgQ/uI
-         pM1yIiRawpRb7A0WGWDIhknR7iFD1LTK2EvncKRJxMvdOFXFIFdBKjI9rOuVq6SKjl4m
-         bMvxudU30qH8SinjzkLkutzrR2WGU9fsEaP/sebEmb/A8kL0J3l1OQFLIGqDZ0do1IGy
-         AdFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQ+NQwRmeMX/dbKocl6SM7hYt+RNHEEQTfDzjq+WzQbCGxzsdDziUPix1qGxuUUaGK6IVVqC8OU6UePWW9@lists.infradead.org, AJvYcCXWJWe7yqguSB1CNvn10+Ij5UNEcWLHQNJVpKLY2ccwbVYuzTvKyX4dgYqP2H6TWYxzLmwaKwgRMY7r0YosKYmVXA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQuqrJWl/JlDnlEDyHJ2JXw6cKtzRrxJyts0iUmpdKx7jxaxW/
-	bFs/jcB+arYQ2MFOIhom9sj7on8mLUb3LbIvoPq/XuspCdzrhEvyDSFd
-X-Gm-Gg: ASbGncsMa96KHkccTdaB67MrqQSMdXzdpjUpqiootaA+e1FJ52UZPbX0ZCIBT9nCFCs
-	aGvSDWA6E0VLgO3LA+X4zyNRTdBTdlXygVFEUMgJKij2+3jlXH9ToE65iIwusVpmPAcI5Jglh81
-	EqH0aIs7ZywfQ3kiZ3jI65AfHuE3pBG32y/uaIIs4IZenIGWRKARsw/iYJ7HaFhSL/skNso/HBN
-	+nrCpA3kgzI/rUNngm40KIw2O2KROE9u/yB4zeLF9CMdUoBk5CzweCFx4Cw1kzkKpZbEdRuIBha
-	g85jCsxd+JGta0p7Rex+2HlR/cBCzCSo6ur34ERH9Og99HH+TOsf+BlG6EXL42y6
-X-Google-Smtp-Source: AGHT+IFLq4eF9bCe+UctUxF1+4yfDJzpMBHqdIf10YZab4gAoLecPeEe5Dr1MpuIPXvytZTQ6lNZKA==
-X-Received: by 2002:a05:6a00:4b10:b0:736:3c6a:be02 with SMTP id d2e1a72fcca58-742a97eb61emr26036368b3a.11.1747813550508;
-        Wed, 21 May 2025 00:45:50 -0700 (PDT)
-Received: from localhost.localdomain ([45.112.0.196])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a970c882sm9454464b3a.55.2025.05.21.00.45.46
+        d=1e100.net; s=20230601; t=1747813597; x=1748418397;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0pilOcdT2VkT2U8kVqgqtToKFgXk1Tev6+CBnmTk+fE=;
+        b=ktjPXHAK14qYTvtOJ8aDD7416kXlg65kfcAyhrlZog0YoFegnXlCCGPBzoqAafX8Z1
+         RKlbhKwKgYAa762Sb9WtkBKLF6wg9edo889aSKvplaHR7Nn4mIji7uwD1p6xF1sBnJpR
+         1o3zb0+v2jdNDu//0n8Z8vq4dqKJbNj1fBLICExtEKPWoyKHP00Bv1LwcwAQHt/Blv/E
+         4l7wpe+s6qT3jdRDI9x/MEKwHCZddMiAW55Q7FXdB2dQY4dd+YgczccTsrH8nvwUS8rX
+         wBTluWOvHStQJ1oSyQkS0Wt9H7MsiQdG6+woWLfbzyJgSzKdWzEmXrPxULVPWKejy8Yt
+         qsSw==
+X-Forwarded-Encrypted: i=1; AJvYcCUAR+k/DN5Ep9jsS22jOwglhmfTiEaaDafMukx3hoR2s+/enhr45caNsuw0NCkIUN/zcDE41kX5LksSobbGzrPV@lists.infradead.org, AJvYcCUXrlv20iA81rh6wuoriHP0yZov4hmkXL4NJfvbpHwV9tab7Inma+CjsgxpVGineXkTTf/5L5pJaRTiHcs=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6KTkJWgOij4Rf34jFj+TgVsvFb5HGMSJGUqfKo8OjKAZvU6jT
+	CFglJANoNnpyzZHcfA7SGs3HCQ29NSdLgOAgAz/UzF2Mvt6m57NkiPyX
+X-Gm-Gg: ASbGnctaP4tSBgFt0i2cXMcX+/TBoTVbchokHb5v+LVwiMlcf6LGtFeK16UcYwOVAFi
+	6sEnsaiwebr13tOafaEhoLon7bbowPd8cinD6KYZIUcCMIOa4L5zyyLe7/ZV56Jg9h6NYMeTE7Z
+	oF9/UIw35bjGtJRe5SXeBn6LnYSpLSHK6w8kSbxZ9SeccEacQQ4oyO1xir0xchlxL4C7RBqmx8y
+	lDzYGiT/LIHSDiGrtHXQ6q1wT97PguvL3UUdjh1p5hvDdRid92br00Q1BDyupv8FEOmRZSSq5YP
+	RV2A7JGX5WGUKyCIXavubffT2F0w7UgDjt/R4zaisUuz
+X-Google-Smtp-Source: AGHT+IH93EkCLEEdKAJhbPek7T8TIC1hOKN/VmJI8xmXdKi9w+hCClmhOIHGlFmoeRJeKlWx3PgC8Q==
+X-Received: by 2002:a05:6a20:734c:b0:215:f723:81b2 with SMTP id adf61e73a8af0-2170ccb39c2mr29076396637.21.1747813596705;
+        Wed, 21 May 2025 00:46:36 -0700 (PDT)
+Received: from gmail.com ([116.237.135.88])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a96de111sm9030991b3a.3.2025.05.21.00.46.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 May 2025 00:45:49 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-amlogic@lists.infradead.org (open list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>,
-	Wayne Schroeder <raz@chewies.net>
-Subject: [PATCH v2] arm64: dts: amlogic: Update USB hub power and reset properties
-Date: Wed, 21 May 2025 13:15:31 +0530
-Message-ID: <20250521074535.16488-1-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.49.0
+        Wed, 21 May 2025 00:46:36 -0700 (PDT)
+From: Qingfang Deng <dqfext@gmail.com>
+To: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Xu Lu <luxu.kernel@bytedance.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 3/4] drivers: firmware: add riscv SSE support
+Date: Wed, 21 May 2025 15:46:26 +0800
+Message-ID: <20250521074627.4042832-1-dqfext@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250516152355.560448-4-cleger@rivosinc.com>
+References: <20250516152355.560448-4-cleger@rivosinc.com> <20250516152355.560448-1-cleger@rivosinc.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_004551_591436_14648DE9 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250521_004638_086262_95157412 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,56 +105,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing reset-gpios property to the USB 2.0 hub node to
-ensure proper reset handling. Also update the vdd-supply for
-both USB 2.0 and 3.0 hubs to use the shared hub_5v regulator
-for consistent power management. Remove usb2_phy1 phy-supply
-since now it's managed by the hub reset control.
+Hi Clément,
 
-Fixes: ccff36934137 ("arm64: dts: amlogic: Used onboard usb hub reset on odroid n2")
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v2: remove usb2_phy1 phy-supply since now it's managed by
-the hub reset control.
----
- arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
+On Fri, 16 May 2025 17:23:41 +0200, Clément Léger wrote:
+> +static struct sse_event *sse_event_get(u32 evt)
+> +{
+> +	struct sse_event *event = NULL, *tmp;
+> +
+> +	scoped_guard(spinlock, &events_list_lock) {
+> +		list_for_each_entry(tmp, &events, list) {
+> +			if (tmp->evt_id == evt)
+> +				return event;
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
-index 3bca8023638d..d46b6aaef8fa 100644
---- a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi
-@@ -42,7 +42,8 @@ hub_2_0: hub@1 {
- 			compatible = "usb5e3,610";
- 			reg = <1>;
- 			peer-hub = <&hub_3_0>;
--			vdd-supply = <&usb_pwr_en>;
-+			reset-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_LOW>;
-+			vdd-supply = <&hub_5v>;
- 		};
- 
- 		/* 3.0 hub on port 4 */
-@@ -51,7 +52,7 @@ hub_3_0: hub@2 {
- 			reg = <2>;
- 			peer-hub = <&hub_2_0>;
- 			reset-gpios = <&gpio GPIOH_4 GPIO_ACTIVE_LOW>;
--			vdd-supply = <&vcc_5v>;
-+			vdd-supply = <&hub_5v>;
- 		};
- 	};
- 
-@@ -311,8 +312,3 @@ &toacodec {
- &usb {
- 	vbus-supply = <&usb_pwr_en>;
- };
--
--&usb2_phy1 {
--	/* Enable the hub which is connected to this port */
--	phy-supply = <&hub_5v>;
--};
+`event` is not being updated by the loop and therefore is always NULL.
+Did you mean to return `tmp`?
 
-base-commit: 4a95bc121ccdaee04c4d72f84dbfa6b880a514b6
--- 
-2.49.0
+> +		}
+> +	}
+> +
+> +	return NULL;
+> +}
 
+<snip>
+
+> +static int __init sse_init(void)
+> +{
+> +	int cpu, ret;
+> +
+> +	if (sbi_probe_extension(SBI_EXT_SSE) <= 0) {
+> +		pr_err("Missing SBI SSE extension\n");
+> +		return -EOPNOTSUPP;
+> +	}
+> +	pr_info("SBI SSE extension detected\n");
+> +
+> +	for_each_possible_cpu(cpu)
+> +		INIT_LIST_HEAD(&events);
+
+`events` is already initialized.
+
+Qingfang
 
