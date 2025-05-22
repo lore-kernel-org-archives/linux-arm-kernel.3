@@ -4,128 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2380C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A62CC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgX9Aci2OKy/LHgxiHnopthswLGl49EW6vrJhQF5Sd4=; b=Gq3/fnrjiaGZ69lWB98fPaRNP2
-	Jsy+MJOxorZcqNPSgvQ9YD9i3gYp1JRcMZRnaFLeK8R+nyAFgLa3JknvocAP3HUft6FJ924sBPl9p
-	qF+dcDhwNe6/17W3K3+f4jKWbbXXps7WPz986QNU4n2W/Fp1Eo+tdPWHOeva1lAPM7OWM6RbVRZ86
-	jPtIKxZpQhZgCUXFoFcTU9oP7nlZNDSq/LRwKpqt4l5CWylQ0yqYWTIb+x16TOXUceTeGCWM+syAo
-	UNdc3zlZieeY4p+j17tCWlJ8jDfT9+sJ2VKhtt77Ls+zm4bPXyQ+XAc2cwbDOIx8YlLgwEGTFaQcT
-	JzwASZ3Q==;
+	bh=oDU6X8IyP3p8JX9dSX53DageGBT6EpZWnc9yh3bpVEE=; b=nL59kxd/l4ku9/miUfe2hL1+EE
+	RjVG8cZDd/k5K1HJA8PtOJCCybGBd5RED+CQOjhxdwUIqhnAVOHDDLPedq8awCrM+IXgqy7B/EazU
+	sZ7uR5JpUP1mYe0N6eKJ8izliEQlzuJ9YWeHP/5Fi4n+5OuwIzrgOmSmSFPuly1cJAarH8ylYGYk1
+	ZjswQ559yV20VqinWRzA0pftzgMwYRDgRJU/3xknc0X/JQLOdrrvpOrsVlbg9jiAJHVwe5E7Y3+EW
+	3lw1NhhXjEEokW2uVw96BM0t1fuuBOqkZ0PopGM7H+WuS6WoodkSmGWj03NMbwJDTqMK2krN8rF8y
+	OsUqHlWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI5EN-0000000111p-1eJi;
-	Thu, 22 May 2025 12:41:03 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uI5GN-000000011FF-0Lsi;
+	Thu, 22 May 2025 12:43:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI5BB-000000010Pw-3c0L
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 12:37:47 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54M7Vdbr031702
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 12:37:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=RgX9Aci2OKy/LHgxiHnopths
-	wLGl49EW6vrJhQF5Sd4=; b=puIi8/YXySjnaRhqdPF6arFGXrN64CFKlgec9+hh
-	yazluQo/TWc0lbpIj5odU7MUowdsNeEbFfK5csRrlO3C0EEFxId7eNo2CawsvJnZ
-	PTIOa8jzHsTkAenPYyRBUnBPsa7pvvNLyvf7T6hWxZCFzVqh/eKEEgepS0VGDcna
-	G8U2mZR0m3OYEZFrFk78u0L+N7rS1Jpb6elMICfZ1AdRzNVMlKr5tA9RT+E4VNtX
-	Srz+XlZbxjppxFXyMzBSpx029AEjLf5t/3+r1XP/SXtTmp2gjk84m6fTsazCuRMt
-	Y5npPMV2il3EgMdInXJaV/+Yz9ulQ52+xwmoyVDXNrZcEQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46s8c24wpx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 12:37:45 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7c5c82c6d72so1407629985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 05:37:45 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747917464; x=1748522264;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RgX9Aci2OKy/LHgxiHnopthswLGl49EW6vrJhQF5Sd4=;
-        b=k88SU59Ye6KUd9GewWhgVBeSy5B4xLraWaq9V+dD/DuJBCCC4vglCV9QiiHMBj1LyV
-         ABgtb/pvZEAw3xxpqGD2yJodn/gTUG9BIssMnrx1xKIKdca52vL6GYE/aKpzaTFlD824
-         hDm2FiwdGwqYA/pQ9wvevXtwBIPGe+bOnDATn2zJ68Ou6UzX4ug2UI8s64LWN59+tk4K
-         UchKkYTeirtHINXDGeMsBsvs/NnEl8UrLAtPM+3ftG3QLk3t/uid/NK2OybA0e3XlMIE
-         J8cyYnij5gIq4J94WCoIK0vcErG+W8QE7s6IW76xYDu3vEJJ6dOURyjytpNbzllUeCb2
-         L7zA==
-X-Forwarded-Encrypted: i=1; AJvYcCUczKbQwxUxxnJVKQBqr8UwF7JBGCK2ADzIoZ9QGo+vWhGhD6aV+DPKF6gx2VfBf09qrj66q1mnh+Z6bgO6a5hd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVGToB6oXGdKWFAGJUmLnSu6PD/4oKZA4zN1M49WE1HW3Lt7qH
-	gV/Wzcusy1KrfFs7zbASOYwypzbiyuRSySS2Y9d4DCnUA6w3frkg2OvTSgSgaG5Rcrf1RHEUSNo
-	vt+pverN9VuLtjqQ4AYNMcUuFKzsiUsYvvvvb82CNf26AMyr9XwmJrrg4dbIU4iecLX22aNMq9V
-	UfCA==
-X-Gm-Gg: ASbGncu+z+9cY1EvCjjZt7Yhj/p1WME2Uhdu/gomZ7UHjlV2U5ccTEx4/X8mpQkxQha
-	Flr2/feCu1zI59XGO84yaTQYzfQIXKPKuNYolaV9sddMfS+DFA+qjjcRujd+PC94CZj8O3fU4Gs
-	u1IId7sqn1fO5d7woz5NCPuNE4scmDQuOByfvxneYQGKBazbi89kdEYGV7NnIl8FDZTYiQZKuJm
-	sYXP9zQaybNzdUcjGroWJg54j8HBJTbsGxS3YoarR3QOdrShvr7l3vC0lmLBhKm8mKtDZ2URvd5
-	LNks48MG1lUHy1lE4QaaBaYOudqiCdjaUhyxA5Yfn3zdnlmMebcODhaHTGHk3yahg9Qvv6Rly1g
-	=
-X-Received: by 2002:a05:620a:4013:b0:7ca:f447:c676 with SMTP id af79cd13be357-7cd467a017dmr3460591485a.43.1747917463776;
-        Thu, 22 May 2025 05:37:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEuK9ZYaNS9i+Q5elNYnjF85wlG4E7W2PQcAkgZfLcHHNu2rPiTZal61BKORpuvgC6jlMqV/w==
-X-Received: by 2002:a05:620a:4013:b0:7ca:f447:c676 with SMTP id af79cd13be357-7cd467a017dmr3460586985a.43.1747917463368;
-        Thu, 22 May 2025 05:37:43 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-550e702a289sm3392445e87.163.2025.05.22.05.37.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 May 2025 05:37:42 -0700 (PDT)
-Date: Thu, 22 May 2025 15:37:40 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Ai Chao <aichao@kylinos.cn>
-Cc: perex@perex.cz, tiwai@suse.com, johannes@sipsolutions.net,
-        kuninori.morimoto.gx@renesas.com, lgirdwood@gmail.com,
-        broonie@kernel.org, jbrunet@baylibre.com, neil.armstrong@linaro.org,
-        khilman@baylibre.com, martin.blumenstingl@googlemail.com,
-        shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
-        nicoleotsuka@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-        srinivas.kandagatla@linaro.org, linux-sound@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-renesas-soc@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
-        kernel@pengutronix.de, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] ASoC: qcom: Use helper function
- for_each_child_of_node_scoped()
-Message-ID: <jp6lxxm3httbz7ygu7bj3xju4l7jnnhvbpaicb36ju4hyxpb2o@4lhl7xzif6qo>
-References: <20250522050300.519244-1-aichao@kylinos.cn>
- <20250522050300.519244-7-aichao@kylinos.cn>
+	id 1uI5Ch-000000010eY-0EHs;
+	Thu, 22 May 2025 12:39:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1C76D5C4B90;
+	Thu, 22 May 2025 12:37:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B33DC4CEE4;
+	Thu, 22 May 2025 12:39:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747917557;
+	bh=PhT/kTDZ6gQ7sTz8kUJc4VzJgyedIPTFsuit5uZDo4s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p2isxQl6r8sUX5xpsDxRunTHmHRVNWyU9cAKqdbZEcCbwd0ps+hz/uT/ck6H/2UaT
+	 GS7dDM7D9L0iISXSWRH5+14/spcvMLnJY9zkeaobZb5iqjf1LAEjfK8KURSyX5ftW0
+	 5xk8hYRHFi2C1Zkj1KuN+B7rPcNSNAK2OXgTPByNFo1WsOV/STGK3L3r8+J+ELgDCW
+	 IBFTB2flFVVQZ71zQ0lLG4UM7kRX+TYTX6pMLe/mXXK/9cgVV+qd2/AFK+ryIKkn8V
+	 ifIlwpMpo3+wlNcwnN/j6ZXwFHQjuufmKuMo1S88igw/Y6WNKZqKV17ZshuLAaPMvs
+	 vaFQsjag0kQbw==
+Date: Thu, 22 May 2025 13:39:13 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v3 4/4] net: airoha: Add the capability to
+ allocate hfwd descriptors in SRAM
+Message-ID: <20250522123913.GY365796@horms.kernel.org>
+References: <20250521-airopha-desc-sram-v3-0-a6e9b085b4f0@kernel.org>
+ <20250521-airopha-desc-sram-v3-4-a6e9b085b4f0@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250522050300.519244-7-aichao@kylinos.cn>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIyMDEyNyBTYWx0ZWRfXyO3koNdIKt77
- a3zlODYH701/2rLQcH/uSTQD81jpg6250gaR+V9uS1nIfdHXu5KWHDG2qYtV0VBq2e/fOLiJxp3
- kdH8FcdrFYwO5ddRzDT1oCggu5NRPZvabv5biCpFVEQoqNcCL7DVu5zcDepj0q1okfAyluBp4JC
- bAfnsLz+0xie1RjdCgZE7XUJPlwfwFplupp3h624mbwuHg7lvAh4t7i1tUCkd+2IgvcBc6dEcIk
- QYAVawuIkSw9ovdCyalsgshxafem6/OmdlR5iex9rWgJHvA6+g4sQQCKjNO2MYNW3YoIaigsKib
- 9o47slRZHMW5rSUg3LoqMMAsEL8RKTEKiaP47juvMfBkKC+J3zGlwIG4MkB3zVWci8fKBfpUu6n
- stbBhAg7wnibDQU7VprIAD7G27LRACLFYaIqdO7EQLoZojeDK/hg2rlp5cdew0tL9hjSXEfB
-X-Authority-Analysis: v=2.4 cv=RIuzH5i+ c=1 sm=1 tr=0 ts=682f1a99 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=dt9VzEwgFbYA:10 a=rlxKSa1xbkCyiMC8iTsA:9 a=CjuIK1q_8ugA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-ORIG-GUID: vM8GUW1GMWhoM5q51opfqkcKh22Yg4Eo
-X-Proofpoint-GUID: vM8GUW1GMWhoM5q51opfqkcKh22Yg4Eo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-22_06,2025-05-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 suspectscore=0 malwarescore=0 bulkscore=0
- mlxlogscore=961 spamscore=0 lowpriorityscore=0 mlxscore=0 priorityscore=1501
- adultscore=0 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
- definitions=main-2505220127
+In-Reply-To: <20250521-airopha-desc-sram-v3-4-a6e9b085b4f0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_053745_905044_B9550EA3 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20250522_053919_366300_5F193474 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,90 +80,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 01:02:59PM +0800, Ai Chao wrote:
-> The for_each_child_of_node_scoped() helper provides a scope-based
-> clean-up functionality to put the device_node automatically, and
-> as such, there is no need to call of_node_put() directly.
-
-There are no calls to of_node_put() in the commit. So the commit message
-is incorrect / not-applicable.
-
+On Wed, May 21, 2025 at 09:16:39AM +0200, Lorenzo Bianconi wrote:
+> In order to improve packet processing and packet forwarding
+> performances, EN7581 SoC supports consuming SRAM instead of DRAM for
+> hw forwarding descriptors queue.
+> For downlink hw accelerated traffic request to consume SRAM memory
+> for hw forwarding descriptors queue.
 > 
-> Thus, use this helper to simplify the code.
-> 
-> Signed-off-by: Ai Chao <aichao@kylinos.cn>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->  sound/soc/qcom/lpass-cpu.c       | 3 +--
->  sound/soc/qcom/qdsp6/q6afe-dai.c | 3 +--
->  sound/soc/qcom/qdsp6/q6asm-dai.c | 4 +---
->  3 files changed, 3 insertions(+), 7 deletions(-)
+>  drivers/net/ethernet/airoha/airoha_eth.c | 11 +----------
+>  drivers/net/ethernet/airoha/airoha_eth.h |  9 +++++++++
+>  drivers/net/ethernet/airoha/airoha_ppe.c |  6 ++++++
+>  3 files changed, 16 insertions(+), 10 deletions(-)
 > 
-> diff --git a/sound/soc/qcom/lpass-cpu.c b/sound/soc/qcom/lpass-cpu.c
-> index 242bc16da36d..62f49fe46273 100644
-> --- a/sound/soc/qcom/lpass-cpu.c
-> +++ b/sound/soc/qcom/lpass-cpu.c
-> @@ -1046,7 +1046,6 @@ static unsigned int of_lpass_cpu_parse_sd_lines(struct device *dev,
->  static void of_lpass_cpu_parse_dai_data(struct device *dev,
->  					struct lpass_data *data)
->  {
-> -	struct device_node *node;
->  	int ret, i, id;
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 20e590d76735e72a1a538a42d2a1f49b882deccc..3cd56de716a5269b1530cff6d0ca3414d92ecb69 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -71,15 +71,6 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
+>  	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
+>  }
 >  
->  	/* Allow all channels by default for backwards compatibility */
-> @@ -1056,7 +1055,7 @@ static void of_lpass_cpu_parse_dai_data(struct device *dev,
->  		data->mi2s_capture_sd_mode[id] = LPAIF_I2SCTL_MODE_8CH;
+> -static bool airhoa_is_lan_gdm_port(struct airoha_gdm_port *port)
+> -{
+> -	/* GDM1 port on EN7581 SoC is connected to the lan dsa switch.
+> -	 * GDM{2,3,4} can be used as wan port connected to an external
+> -	 * phy module.
+> -	 */
+> -	return port->id == 1;
+> -}
+> -
+>  static void airoha_set_macaddr(struct airoha_gdm_port *port, const u8 *addr)
+>  {
+>  	struct airoha_eth *eth = port->qdma->eth;
+> @@ -1128,7 +1119,7 @@ static int airoha_qdma_init_hfwd_queues(struct airoha_qdma *qdma)
+>  			LMGR_INIT_START | LMGR_SRAM_MODE_MASK |
+>  			HW_FWD_DESC_NUM_MASK,
+>  			FIELD_PREP(HW_FWD_DESC_NUM_MASK, HW_DSCP_NUM) |
+> -			LMGR_INIT_START);
+> +			LMGR_INIT_START | LMGR_SRAM_MODE_MASK);
+
+Hi Lorenzo,
+
+I'm wondering if setting the LMGR_SRAM_MODE_MASK bit (maybe a different
+name for the #define would be nice) is dependent on the SRAM region
+being described in DT, as per code added above this line to this
+function by the previous patch in this series.
+
+>  
+>  	return read_poll_timeout(airoha_qdma_rr, status,
+>  				 !(status & LMGR_INIT_START), USEC_PER_MSEC,
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+> index 3e03ae9a5d0d21c0d8d717f2a282ff06ef3b9fbf..b815697302bfdf2a6d115a9bbbbadc05462dbadb 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -597,6 +597,15 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
+>  #define airoha_qdma_clear(qdma, offset, val)			\
+>  	airoha_rmw((qdma)->regs, (offset), (val), 0)
+>  
+> +static inline bool airhoa_is_lan_gdm_port(struct airoha_gdm_port *port)
+> +{
+> +	/* GDM1 port on EN7581 SoC is connected to the lan dsa switch.
+> +	 * GDM{2,3,4} can be used as wan port connected to an external
+> +	 * phy module.
+> +	 */
+> +	return port->id == 1;
+> +}
+> +
+>  bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
+>  			      struct airoha_gdm_port *port);
+>  
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+> index 2d273937f19cf304ab4b821241fdc3ea93604f0e..12d32c92717a6b4ba74728ec02bb2e166d4d9407 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -251,6 +251,12 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
+>  		else
+>  			pse_port = 2; /* uplink relies on GDM2 loopback */
+>  		val |= FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT, pse_port);
+> +
+> +		/* For downlink traffic consume SRAM memory for hw forwarding
+> +		 * descriptors queue.
+> +		 */
+> +		if (airhoa_is_lan_gdm_port(port))
+> +			val |= AIROHA_FOE_IB2_FAST_PATH;
 >  	}
 >  
-> -	for_each_child_of_node(dev->of_node, node) {
-> +	for_each_child_of_node_scoped(dev->of_node, node) {
->  		ret = of_property_read_u32(node, "reg", &id);
->  		if (ret || id < 0) {
->  			dev_err(dev, "valid dai id not found: %d\n", ret);
-> diff --git a/sound/soc/qcom/qdsp6/q6afe-dai.c b/sound/soc/qcom/qdsp6/q6afe-dai.c
-> index 7d9628cda875..64735f2adf8f 100644
-> --- a/sound/soc/qcom/qdsp6/q6afe-dai.c
-> +++ b/sound/soc/qcom/qdsp6/q6afe-dai.c
-> @@ -962,10 +962,9 @@ static const struct snd_soc_component_driver q6afe_dai_component = {
->  static void of_q6afe_parse_dai_data(struct device *dev,
->  				    struct q6afe_dai_data *data)
->  {
-> -	struct device_node *node;
->  	int ret;
->  
-> -	for_each_child_of_node(dev->of_node, node) {
-> +	for_each_child_of_node_scoped(dev->of_node, node) {
->  		unsigned int lines[Q6AFE_MAX_MI2S_LINES];
->  		struct q6afe_dai_priv_data *priv;
->  		int id, i, num_lines;
-> diff --git a/sound/soc/qcom/qdsp6/q6asm-dai.c b/sound/soc/qcom/qdsp6/q6asm-dai.c
-> index a400c9a31fea..d7680dd3a3bb 100644
-> --- a/sound/soc/qcom/qdsp6/q6asm-dai.c
-> +++ b/sound/soc/qcom/qdsp6/q6asm-dai.c
-> @@ -1236,10 +1236,8 @@ static int of_q6asm_parse_dai_data(struct device *dev,
->  {
->  	struct snd_soc_dai_driver *dai_drv;
->  	struct snd_soc_pcm_stream empty_stream;
-> -	struct device_node *node;
->  	int ret, id, dir, idx = 0;
->  
-> -
->  	pdata->num_dais = of_get_child_count(dev->of_node);
->  	if (!pdata->num_dais) {
->  		dev_err(dev, "No dais found in DT\n");
-> @@ -1253,7 +1251,7 @@ static int of_q6asm_parse_dai_data(struct device *dev,
->  
->  	memset(&empty_stream, 0, sizeof(empty_stream));
->  
-> -	for_each_child_of_node(dev->of_node, node) {
-> +	for_each_child_of_node_scoped(dev->of_node, node) {
->  		ret = of_property_read_u32(node, "reg", &id);
->  		if (ret || id >= MAX_SESSIONS || id < 0) {
->  			dev_err(dev, "valid dai id not found:%d\n", ret);
-> -- 
-> 2.47.1
+>  	if (is_multicast_ether_addr(data->eth.h_dest))
 > 
-
--- 
-With best wishes
-Dmitry
+> -- 
+> 2.49.0
+> 
+> 
 
