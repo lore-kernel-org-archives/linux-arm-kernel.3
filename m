@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE917C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871E7C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wqi1um5PAaZyo2+n4k2LLobJS4X4i8mP6TZ569vtW5U=; b=skkldPJJgOA0n54/CVihPVasAt
-	CA4bnPhdbhnBP+2zU6S9sl5HKkQhsrJ38oayD7p1gRaUHlbPFw/0pBO9t2+SB8FLVXHSBAXvGF/Nz
-	cTNGAS4MOg0gE6NqnOJl3a9KmZO3Hl7CUmJL2VR3B23FYUv8TZhiLOdcMMjI9TctbR0oxtCyFuh/K
-	PKouZPKzdF9jfqizb6nHbDxaYtg4bQvwEWL3MSyij6dtn6j0pS5zz9Dxf1cuwitVNSNrDxYjXQgxP
-	/0x28hJWRhiMRbjCQVlLe/CMfCp/BPHBCuidNPibqj432PEYfWHpnCNlfjNJ5ruM6W1c6SSKaB80C
-	7G6lvDuQ==;
+	bh=TCGRC1cFyzg7MAXAmkVcLXQ2BQa++pK6JMhPYQF9TGQ=; b=f4cJyHwpJN5RgnY1bzOddCo7Oz
+	ERzBeNCbr0oKrGBMNajeeb1onvSWWHMsFCq1Oq+IfUbiKbw5mKidZ5tNHOsuOA8G79rpRRp4HZaf+
+	h07UIbpnCsTnc6zqkMSb3plor2YmxGG24+2OJ/LfP9360Y/iqo4T3rW9U1V5j400W1+jpr6uF9hCn
+	IWqgDov1mxea/vbhgjUeLAyl4hE4RsCqGyo8Wct7BpPI5adiL7mnfxZFA3SeANTR2GyQxRtHBSJwm
+	qso8uvd1WMvUg9BwdsI5KUcOtSMToco7C/rMYqq0JbwoiW/AJM1kPKPTni9tYPo+Bqh2vnAQxSOzt
+	QKV8CUJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0v0-00000000DuC-2ZPd;
-	Thu, 22 May 2025 08:04:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uI0x3-00000000ELm-2xDg;
+	Thu, 22 May 2025 08:06:53 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0jJ-00000000Bpw-0Tga;
-	Thu, 22 May 2025 07:52:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58DD461129;
-	Thu, 22 May 2025 07:52:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AD75C4CEE4;
-	Thu, 22 May 2025 07:52:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747900330;
-	bh=T6UY1TqGv//MKV9QGiY+pagJxws1WT6fHX3Dckvh8xc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jhoVKYdEO+x6EgNOUvVzOtcWCsJW/PERVPRppCRhBEYlRsbztMloi3w6rNpXaC6cQ
-	 XEima4m1fFyVB8RUEoezKyuuoC0BCx9rgwPH2MtW+R5LiqeCqUwzQU54pesJXFAu3f
-	 ZsWRoxrPv0lrWj3NzRWjY2kDdAf3m2bFFcFpW+XlmhV/zAO0D79dECPPg/FSQBLlZ+
-	 bjgQig4eXpbHM0mfvMiYSSPhv6f6zDSdqRGwdim1muGBD9cTgVtP/DsaTDzZT3ZybJ
-	 JOwTxPwiNYDTSsBlDqFH7nZXxFFYWAwpmc3PCt5NiYXpWQAbNSHg8F49jeKeP9CYiE
-	 iyViKA7eIJ7ug==
-Date: Thu, 22 May 2025 09:52:07 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Julien Massot <julien.massot@collabora.com>
-Cc: kernel@collabora.com, Sen Chu <sen.chu@mediatek.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
-	Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	=?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>, Hui Liu <hui.liu@mediatek.com>, Yong Wu <yong.wu@mediatek.com>, 
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Tinghan Shen <tinghan.shen@mediatek.com>, 
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, iommu@lists.linux.dev
-Subject: Re: [PATCH v2 1/3] dt-bindings: mfd: mediatek: mt6397: Add
- #sound-dai-cells property
-Message-ID: <20250522-independent-ginger-bullfrog-4552d1@kuoka>
-References: <20250514-mt8395-dtb-errors-v2-0-d67b9077c59a@collabora.com>
- <20250514-mt8395-dtb-errors-v2-1-d67b9077c59a@collabora.com>
+	id 1uI0kp-00000000C5X-12zV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 07:54:16 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uI0kj-00037i-NU; Thu, 22 May 2025 09:54:09 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uI0kj-000hFH-1A;
+	Thu, 22 May 2025 09:54:09 +0200
+Received: from pengutronix.de (unknown [IPv6:2a03:2260:2009:2000::])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 6662941714B;
+	Thu, 22 May 2025 07:54:08 +0000 (UTC)
+Date: Thu, 22 May 2025 09:54:06 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
+	kever.yang@rock-chips.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: can: rockchip_canfd: add rk3576
+ CAN-FD controller
+Message-ID: <20250522-ultra-anaconda-of-engineering-b70332-mkl@pengutronix.de>
+References: <20250522074616.3115348-1-zhangqing@rock-chips.com>
+ <20250522074616.3115348-2-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="el3mxqe2wkjylcyv"
 Content-Disposition: inline
-In-Reply-To: <20250514-mt8395-dtb-errors-v2-1-d67b9077c59a@collabora.com>
+In-Reply-To: <20250522074616.3115348-2-zhangqing@rock-chips.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250522_005415_285068_EE8312E9 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 14, 2025 at 10:19:56AM GMT, Julien Massot wrote:
-> The 'mt6359.dtsi' file already uses the '#sound-dai-cells' property.
-> Add the corresponding property to the binding to fix the following
-> dtb-check error:
-> 
-> mediatek/mt8395-radxa-nio-12l.dtb: pmic: '#sound-dai-cells', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
-> from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
 
-If this is a random drive-by, would be fine, but if that's your platform
-which you should know, then I expect this to be a real reason instead
-something which can easily be rejected with: what if DTS is wrong?
+--el3mxqe2wkjylcyv
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 1/3] dt-bindings: can: rockchip_canfd: add rk3576
+ CAN-FD controller
+MIME-Version: 1.0
 
-I could not find the ASoC driver for that compatible and quick glance to
-MFD shown me no usage of dai cells, so you need proper explanation here.
+On 22.05.2025 15:46:14, Elaine Zhang wrote:
+> Add documentation for the rockchip rk3576 CAN-FD controller.
 
-Especially, that there is a subnode audio-codec, so adding dai cells to
-the parent node feels just wrong. One is wrong - either subnode or
-parent is a codec.
+This should go into the existing rockchip,rk3568v2-canfd.yaml.
 
-> 
-> Fixes: 9bc8353be720 ("arm64: dts: mt6359: Add #sound-dai-cells property")
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
-> ---
->  Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> index 6a89b479d10fad3c8b61cab5a3af1453baca4d1a..9580c4ec1ae00f1dd1182357d8b0a5035a1b7f82 100644
-> --- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
-> @@ -30,6 +30,9 @@ description: |
->    See the following for pwrap node definitions:
->    Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
->  
-> +allOf:
-> +  - $ref: /schemas/sound/dai-common.yaml#
-> +
->  properties:
->    compatible:
->      oneOf:
-> @@ -53,6 +56,9 @@ properties:
->    "#interrupt-cells":
->      const: 2
->  
-> +  '#sound-dai-cells':
-> +    const: 1
+Marc
 
-Also extend the example, if there is one for such device.
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
-Best regards,
-Krzysztof
+--el3mxqe2wkjylcyv
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmgu2BoACgkQDHRl3/mQ
+kZxoWggArVZQebS0V1C2TAYZ7DUzq/S/iKGXct7O+HQ5EPqqVj4F+UFWZCg2iipl
+kAjfp2wQwHDEjyKhF4nHiyAvdNzhszSPSsSJ1mNyOQlVdD2qoAbmo77mWLQ2t5Pr
+ItlW3UvSpa0r9aBLznVabAjLarhTCFUoRbF4VJJcm2hCb7s/ZTfUC2UyOLJ+55vO
+byQdkco3aGzexYU7DYwbFmYPcmz588qdUR2TsoDlJChJLZrghSZKZICY/IhJ+Ii+
+3lq2nJCR1MPExVq2Qf49FjVXYlybt9qxilf9EUYhBWhDWJJVLiRU3MEDjuTdus5T
+ktILX+FYsjoDFsss95L55yEwKAvJZQ==
+=jbb9
+-----END PGP SIGNATURE-----
+
+--el3mxqe2wkjylcyv--
 
