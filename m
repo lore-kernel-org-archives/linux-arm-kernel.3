@@ -4,64 +4,201 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1857C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A333FC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:56:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ziV+qFWQFPGemtwtFuQ2yto/+aZFcx7ZXSBvpy3WpXs=; b=Mg0oD3LTP5C2/YGXdtKBJljULx
-	4O+Gi7ZRiTYCbISfqpQFwJ7TJkOCusjJergG4UVR8/q8nb8oNAsgsoPV2yBILaxSASCoXpG75+/By
-	TXbSiQjMJzBJtuaRPB4gcDxCOwE4U0444possOd7iZCJhAoo0dw1eJbukm++6Pn8tIJdDPfwgQCLM
-	jNkSOsm14iPxzUn6Wh8h+4IqpksKEM7H8X6/WQUScvtPXyQnTqKk1MQhXTfPZwZwHo7gbjE3chBLI
-	YOXBdaaicGjP/9QLvNFOr5Q1l5NE2k+36JFpJ9h89Aayrs8SyXl72WtP9F+njyRKjQ6S+R1BexyxT
-	EB3RdYWQ==;
+	bh=F7IzmcZUH2z3hInrCr+yQDP9n7sD+cntpyXrPInyX2M=; b=Hyx1Qke0PTYGPRKe44ASi791uJ
+	quXYeRkLAXiVihlmQAVVoJJ25oLuJFUb5yWCWizivpR8vlHmUd6RBjy3bM/a3etfSu6aoHjM+EEfX
+	om14UDXgxUkYQEDzpm8bd2w93+8uimgjD2DkVtUMwIcY+JV5/vS/S3I0TloSXDD4aCJvmeK0F/AY0
+	15xM0lj0+P8YIbrMbkwQSZtfEekJR5mQcJrur1qSK5v4LO1mdWtYyxWlOm0fsylURSRoJRE4UqDcc
+	22MsyOCISqKDBShcWp1Wq/0eJt6ybNWhdaiudRq6PnSGFNML39Mq18ErP9skPTwrcbNaTSe36aEeC
+	nL2TJQzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI5Pw-000000012ci-3FZt;
-	Thu, 22 May 2025 12:53:00 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uI5So-000000012zw-25lP;
+	Thu, 22 May 2025 12:55:58 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI5Nv-000000012Ox-3bZM;
-	Thu, 22 May 2025 12:50:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ziV+qFWQFPGemtwtFuQ2yto/+aZFcx7ZXSBvpy3WpXs=; b=Fe+uMmjtdt4LUngmv3HG9SnhGa
-	ae1zfCnl9CkSjiudDhV24Xr3nhTqPUAd0fp+PeA8Dm7cZTkUmNC0BCN9fsFkZdNc+VRHiRJ6Ru+gL
-	WKMEE9yXPOyV1bECHpNIcwT59ilUoK+dAMpkgpZoRtjOimeLgLMNSZDASTdZoGWju0Rw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uI5No-00DUjP-Ee; Thu, 22 May 2025 14:50:48 +0200
-Date: Thu, 22 May 2025 14:50:48 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Quentin Schulz <foss+kernel@0leil.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Kever Yang <kever.yang@rock-chips.com>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: support Ethernet Switch
- adapter for RK3588 Jaguar
-Message-ID: <9c99aba9-87f5-41fe-8b11-7ef27525750c@lunn.ch>
-References: <20250521-jaguar-mezz-eth-switch-v1-0-9b5c48ebb867@cherry.de>
- <20250521-jaguar-mezz-eth-switch-v1-2-9b5c48ebb867@cherry.de>
- <657a085c-4214-4096-8a68-047d57a40d60@lunn.ch>
- <19574942-d06b-44b0-8b6c-d3ddd94db89f@cherry.de>
+	id 1uI5Ql-000000012na-3G3g
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 12:53:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747918432; x=1779454432;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Ovts4DicBKYSiGm6z6aXF3PNv5yBBA3PD5yS673T5/A=;
+  b=j9cB7KWRp37phY+NgIJ7Vy+8rKPDXveEYbqiIY7vN4+SBUo9NWuwNvyq
+   //7Xizb4ur0RH0NWv2vd8UIeLvEUJCALWcjMBnBiSYYSP/HIpGR3aeBF3
+   998Oqhz2VzfT6HWpUiUjmey1CvsRMbKdqw1ljNqHxCbWDz8+GO9GHh+rT
+   bKyQIsnWOa5Vazhekxcaj8z5QtLa3XFmh/ZeMIocqHBOIFzCC6s9c1cNN
+   aSPwwF0dlM5KBfvZmUWUTGVnWmIQGzCYsmZEHwpMZL/egOQOElsLFrTAj
+   SNFihy59fITQuX/iflTRr7Z+ALlG9A9xJzOSwNfM9uZqW4+ojszMkCoST
+   w==;
+X-CSE-ConnectionGUID: plRhm4eAQOi3FVBK4dtWbw==
+X-CSE-MsgGUID: /0L95YB3SZWhB/sSScXA8g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="60187640"
+X-IronPort-AV: E=Sophos;i="6.15,306,1739865600"; 
+   d="scan'208";a="60187640"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2025 05:53:51 -0700
+X-CSE-ConnectionGUID: agUC4nh2Q2y6EiN+cTFN2A==
+X-CSE-MsgGUID: 7LqabFlHSFSRCMypYE4euQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,306,1739865600"; 
+   d="scan'208";a="141118528"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2025 05:53:51 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Thu, 22 May 2025 05:53:49 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Thu, 22 May 2025 05:53:49 -0700
+Received: from NAM04-BN8-obe.outbound.protection.outlook.com (104.47.74.43) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.55; Thu, 22 May 2025 05:53:49 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vrm3mN2Aa7zBP+GxQFtfrW6rO1sg8GYM22ILTLlf5/YPbgER+53qPnRhhHusCDjBF8lK0i5CFtyxivgQzQvwf5GDYCZ81pICUrXeKIgDMJCI3u8miruuiawhA8ykQ4Xp1Qin3HEIhOy9s/lXWZEnP7399oIEkhpfG4iNMpVhOB/eHVcTckCfKV/RX0Zlk8xzMV1XCoomDrj0l10exybRsJKPHFD7Fy+C2EWNEi/eLyDH+Ar4LCTHFg06aC4UdZUkbQDDNVTwRqGIqLaec6APO5gDMiFDgzhaEhIZZhaqgOci7If6sdQbFk6seLVG8trIAl4yFPvLQOGhva9PDpfdlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F7IzmcZUH2z3hInrCr+yQDP9n7sD+cntpyXrPInyX2M=;
+ b=grhUkoB7J7z7//Z/IVSI6xdJeLV24SS/I20nAEuXTcMhDUzM/Y1kTe+zRsQbhH8w4dAmXuX/dpgs59nQLn0S6JRf/+V4f6kT8NOa2PolMXo2FFwLkAzLrNaLhT2lr+zJ3yQp4WZCrL2Y4jxIoTCknTQs5JwGWIBbSFdD0+8SrTZeAiFvGMA68j8HiHRq8CivJU5qw1jeefZadVXF7v99PEEnLRa+28jxFgSqPEtFpDwtl+sJkRlIv3b/YXVd3R5z0RA4gcRpqP/UrKIe9qbZzSkYzVlFof18cUTlqBIXMYh26XMb+2/CZC1eUeDv+zQYy3jdsj/kh983Jd/1QeVS7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH7PR11MB6054.namprd11.prod.outlook.com (2603:10b6:510:1d2::8)
+ by IA3PR11MB9327.namprd11.prod.outlook.com (2603:10b6:208:57a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Thu, 22 May
+ 2025 12:53:20 +0000
+Received: from PH7PR11MB6054.namprd11.prod.outlook.com
+ ([fe80::a255:8692:8575:1301]) by PH7PR11MB6054.namprd11.prod.outlook.com
+ ([fe80::a255:8692:8575:1301%6]) with mapi id 15.20.8769.019; Thu, 22 May 2025
+ 12:53:20 +0000
+Message-ID: <168fa71b-9a8d-4bc5-9d8c-5cf67d9af538@intel.com>
+Date: Thu, 22 May 2025 15:53:14 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: sdhci-of-arasan: Add shutdown callback
+To: Paul Alvin <alvin.paulp@amd.com>, <michal.simek@amd.com>,
+	<ulf.hansson@linaro.org>
+CC: <git@amd.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20250522094932.4187301-1-alvin.paulp@amd.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
+ Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+In-Reply-To: <20250522094932.4187301-1-alvin.paulp@amd.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU6P191CA0056.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:10:53e::17) To PH7PR11MB6054.namprd11.prod.outlook.com
+ (2603:10b6:510:1d2::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <19574942-d06b-44b0-8b6c-d3ddd94db89f@cherry.de>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR11MB6054:EE_|IA3PR11MB9327:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9fa236e3-f6d2-4518-e4d3-08dd992fa0e1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UHMvTkU3cmxPSVdYTEI0Vjc3b1VPSDBrT2RnT3lWdDhMM0puQ0pNKzNObjJs?=
+ =?utf-8?B?a1htMm15RlJzdUZtTnhCcTVLNWNiV2FZdDduQVN2Z0tqWVRPVVI3UGJmZFJJ?=
+ =?utf-8?B?VnkzSGJOTktXT0hUdTVORXhVUXh0VWcrdk5Ea3hRb003aFNoQ3FtSFdmMEJG?=
+ =?utf-8?B?Q3ltdXBNOVJkQUFhaFByalhTSjY5V0lCdmZJOEFadGNNV1Q0UlRDdjlpYW0w?=
+ =?utf-8?B?K290K1VMYVN2TVp6YXkzdFpNeUNIYzY1ZEQwUGhCcmNVY2poc2p0TUlHQzFB?=
+ =?utf-8?B?bVRSSytYeTZCWStYZ3BXMXluZ1hGVU56MjlDclQrOXVvWUFXc3djV29KT3M5?=
+ =?utf-8?B?aEFCTkpIMUx4RktveE5HNm5tZU94bFVVNWd0YkJWYkkwQWlybS9JTTBucFA5?=
+ =?utf-8?B?TWNWTVplN0VIdGdvYWhuVmlkSXFnd1I0ZjRDSjZNMFI1cFhBTytFMHpOUGhi?=
+ =?utf-8?B?U0l2eHppWmVjTmdORDVUNk52V3JENmNFUDlQSnlkNUF0bEpzWXFXeFRJRjgv?=
+ =?utf-8?B?R3NFWUtUdEViWWUzZ1Q1QUYydWVHd2lPQy9UOVMwTzUrcE1yNldBZTlEQ1g3?=
+ =?utf-8?B?VTdqbTgwbk96a0tlTDNjZEcwb1JKQjd5cGorMTFyMlNkQjR0LzZRU01qaU9N?=
+ =?utf-8?B?dnpzLzREN3E0QklQTGNhWkdNWU43K0dueFBZTTd2RGlVWHQzL0FHclN3a3l3?=
+ =?utf-8?B?d3J2Nzdoa2UwZzlRLzBUTDBEWWpGZ2J5Rk5xNXUySVoyMVpILzZVM3YzWHFy?=
+ =?utf-8?B?MGtnOVRQVzFBZ3F5QlBVS0FLeU9BTXF0WkYwZWVXY2FuVlN1SzNhNzltTHJi?=
+ =?utf-8?B?UnlkbG5wOXdYOUFKamFaclo2V2VoQ0ZtSlY3SUJpWHpBb2p4S3VYUWRvaTZq?=
+ =?utf-8?B?TjNOUDBPTXMyV3RENHM3Qk11L2pSVmYvSnZnb0JBZ0tkR1l3WURxVmpYNnF3?=
+ =?utf-8?B?Ulp1eUh1QTVCUFlNdWtXTWt4Zm5FK3I4ZlZqSVlOUC82SjNKRXN3Kzl3WG9w?=
+ =?utf-8?B?aGtHMUg3MURGVFkrcENhVGNZSGs3MDI5Y3I1d3ZJbERzaGI5TklReW9QckVm?=
+ =?utf-8?B?M21WelJxZTdCSkM0aVNmaUlvakJ2VDNoV0s2V3FhZXltaTRKWXZBVjB3Ky9C?=
+ =?utf-8?B?SzJIa1NLS05USEQ1enFGakU2aTBoS1MvS2VWR1l5WlFSTXI1Z2RkaUk1a0VY?=
+ =?utf-8?B?SlV6ckZLWUNIemVVQVRYM3B6aVl3d1NJRHlhNGtyK2lsd3JaenhIN3RyTTMv?=
+ =?utf-8?B?amVtRTlveFp0L1RwY3YrRzU5bUpiSzQvQzFlZ2luRExnOHZmdlRqZTlKYVV5?=
+ =?utf-8?B?RVZmTHd0b01hd2ZaTi9NbGNRV08vUlg4eGpXa2h1WklMMCtQR0F4WkpmNW9p?=
+ =?utf-8?B?dG5jNGYwWWs1MDdWNUVlbWFMRmI1NWNoNGxtZkoyZC9HSEtPZzZzdE9yYU9I?=
+ =?utf-8?B?TkYrQnZIcnQwMWNyWmFoNGN5Vjc3MGhzS3VUdHRQeFp3SjZaaWN5UllYQlJO?=
+ =?utf-8?B?ZWVQZWlRS3BYVnRpZkZ4ZXNIbXNpOTUrQUxETVpuZUE4dVoxZnpBNFpNUjVP?=
+ =?utf-8?B?dWJkV3ZSZnBtNkx4enRXTysxMGlYdm9tQklmdEc4U2ZQNjBsYUdMb3VQQ01K?=
+ =?utf-8?B?aWtrRTl6a2hjS1hFaHNCbklCdGpXLzRnS3lZSURyYXV4eWNSa0liK1NUTXF1?=
+ =?utf-8?B?ZUx0SUxVTWlmUk5pK0tnVEVJOWc4YjFrbHJ1bElUdXFxR3FVUm1GVjBnUjRR?=
+ =?utf-8?B?SVNTbWkwaEFRNnJGMUZ5aG5YclVKVTlJc2U3WXZaQkZubzNGV3hnc0p2Uity?=
+ =?utf-8?B?MlZlbHV3RCtjd3Z5dENhb0w2NzlBL01hUXBzNTB4VUFVNFk1Y0NZMGpoM1VC?=
+ =?utf-8?B?TXJJTkpOdkVsbnlZYmFGZUVNQlU4SDFod1RiS2EvaHJiWmpBYkJzVlZnem9a?=
+ =?utf-8?Q?qfL2ep/Ja0I=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB6054.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UzNFY2xIVmVhL01oV1lybVFES1RJZWVydU13TlNXYTZEV3Z0STRWTVZkNjZ3?=
+ =?utf-8?B?Nnc1bTlWWHNKZXdBcVliR0hYbE9yU25MYnlhU2JKVW1rbGlweVZlOWxsQ3l1?=
+ =?utf-8?B?NUwwNFhNYlA1dTJ5NDlFQTZLWUg0UGc1YVEyWkZFRklUejkxVVFNR1JmK1cz?=
+ =?utf-8?B?WndtK1pCY1JsL2c2YVRLaXNMcHVoRjl6cEVNMEhnelNVNndLSVAwQUFZNTMw?=
+ =?utf-8?B?UDZySW8wTHZLeGd0bnlyR1lIMHV2dmRHVW15VGJiOTVCSXozcVNBdDZYMlI2?=
+ =?utf-8?B?SVJaS2Vwbkh3SngzMWtZMnEzRHVLVGtoL25XeTd0bkxzVnZuSGlCRmp1Q3Bn?=
+ =?utf-8?B?ODRYNThtekwwWlVvUHU3c0IzV202VHFLbXhtYjlOZ0phVHV4SUhOWldzdEFB?=
+ =?utf-8?B?OVZEdEhMMWhaNWFHZnZaeGV4ejU2RFZYQyt1dkhnY2NjSlJQSG5iN0R2N2RV?=
+ =?utf-8?B?U3FoL0ZTbm9pM20vQm11Y2pNb1ZnOXRyREdFbGNaQTBIY0F1YzdaZmpFekdl?=
+ =?utf-8?B?MnRMQ3FQTzFZRFZQOTBoWFA3MjRucVRhZ2tjZ2JzaU02SnVoU292VzVXMFcv?=
+ =?utf-8?B?MGg1cmxqRFljLytqMDREYWwwWER3NVRLYnVLYytHTWNIM2xLNFViUkZOelo0?=
+ =?utf-8?B?WnhqS1dIeWl6OEFLUGNSaTUrSUlFQTZ5Y2NFN1VhT3V3dks1N2NhNlNyNyty?=
+ =?utf-8?B?YWw3c1F6c3l1eWNQcjBhRFRFNy9WRFhrUGQwZUV0MzYvSWROQi9IQWNHeCt1?=
+ =?utf-8?B?Y1JKcU5IazNDQSttdCtlak5Xd3VWbmdPOFdqU3hzQTc3OEJjL2dwVFdWeDdW?=
+ =?utf-8?B?eFpVSUc0QUh6VUdIQSt2MUxMMXlLdmE5V1Nad2VUNVcvNFRJbWpQOUgwTHVr?=
+ =?utf-8?B?dXNiR29QenBqNFFjR1VwOXBlZFFORkhvVHlua3FTYVdDaUFKdDdVcGZvOHFG?=
+ =?utf-8?B?SnhoNUtuWTJjZGY3UlV5TDdoWU5WTDhsdlF3bXVvV2lFdFBiMnI4NDc1MHV1?=
+ =?utf-8?B?TWU1NG1FQXVPdm9hdlZVbVgySlFaZVh6R0xZYTU3SW1TUklBdFRSYkVxL2pa?=
+ =?utf-8?B?T1Rhb0ZBano2bmhXRjR3L3dINU5iYlpZOEE1b2dhWFg2eklFYys5TlcxTk01?=
+ =?utf-8?B?YmVoQUJZc0lqNENqeXBSZ0lWL2l4b1VYdDZCU1FiQ21Cc0dxWHpOU3ZtUFhz?=
+ =?utf-8?B?VkIzb296b1FRTmJldXNML2xRU1RQZGpHZm90VXJEV3RUamN4VDgvWmNIRzhY?=
+ =?utf-8?B?RTU1bmRiREdkK0M5UDRmTTNnSUM3UlJPbWlObzd3SWlRZEs0R0tuVlpIcVRr?=
+ =?utf-8?B?RVJpM3VEYjNTTytRSm1GVEt2RkcrOUYzTnY4b3ZsRDcwZlF1ZWo4bWY5a3A2?=
+ =?utf-8?B?ZVNBbHF2dW03Nng3UklRRnhqV0ZjZW4xVHJ6SlBWOExYSVRteHI3QUpNVytJ?=
+ =?utf-8?B?SnpsQjAyZlFQV2FlbUIvM0ZpTkFxQkZPa08zc0d2bG1xZjA2RTRHYUgxVHFO?=
+ =?utf-8?B?MjNkZnZvUExLOEdhUlV0MXpWWE96VWpaeHJFWU9DODZ4dzJZMVZzNU9VNU12?=
+ =?utf-8?B?ZUdWQkRXVVZ1ODhaempaeGtuaW9KWEp5TzRLeGFyZEhlVC91MzNqTTdIM2NN?=
+ =?utf-8?B?dDV6ZWpMLzFRY0JmZDMyeThqMTRySEVEODlIaDFzc0tqd1pQNGNELzZ3VjJj?=
+ =?utf-8?B?c0xseDRpaEFvQnRFNnl5MC9pd0tFNXNvNkQ5MFdhcEFBSEEyb2dTdU5LTFdJ?=
+ =?utf-8?B?YzFQTnpOVnp0WkxaQ3d2ekFXK3hFY3diVHpsYms2YTlLdzJIYTFQU2s2Qkpu?=
+ =?utf-8?B?VFB0Q3gxNEJPWnNHTVJUWjVPZDRkSURXTW5ZYlp2ejhWejR2M05uSkZWemlu?=
+ =?utf-8?B?RFhBVkpzMTJGNTJzRzROam1taVU0bCtWM1NQVDZKN1labVR1Nk93K1N1SXY1?=
+ =?utf-8?B?blJ3Q1FqcGlraXlMQXRvVUFRa2Z4VlBtcXU0YVAzV2FyR0x3TUp3U2FxSDBl?=
+ =?utf-8?B?V1pUUUpLRHhDdVU2bjBtUGZxQXJqOFhZVTE3SFVMWkI3VnBvNHRpZXBNV05E?=
+ =?utf-8?B?ek5ITkxQMHlRdzIvMjd6WFZBcThKUWp0ZTlLNlZHdktnbWlhTHZ6cnJMU2hM?=
+ =?utf-8?B?M0taRG1NUnhSQXhURjVKMWlXbzVaV3pxa0tRcXpjZlFETlZEYUdWNVRhUWR4?=
+ =?utf-8?B?TFE9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fa236e3-f6d2-4518-e4d3-08dd992fa0e1
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB6054.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2025 12:53:20.2240
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IHkgvxGFDIbG9EV7FZ/mllijzvBsCD1G8EhzXwXO4mf56F13/T1Gy/BtTzKErE5+SfnktIo+HN5pRplklbaAcw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR11MB9327
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_055055_896711_3B6FEEEB 
-X-CRM114-Status: GOOD (  26.92  )
+X-CRM114-CacheID: sfid-20250522_055351_886955_538134B6 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,70 +213,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 10:18:12AM +0200, Quentin Schulz wrote:
-> Hi Andrew,
-> 
-> On 5/21/25 6:25 PM, Andrew Lunn wrote:
-> > > +&gmac1 {
-> > > +	clock_in_out = "output";
-> > > +	phy-mode = "rgmii";
-> > 
-> > Does the PCB have extra long clock lines to implement the 2ns delays?
-> > 
-> 
-> Not that I am aware no.
+On 22/05/2025 12:49, Paul Alvin wrote:
+> Implement shutdown hook to suspend host, power off PHY if enabled and
+> disable all mmc clocks.
 
-So 'rgmii-id' describes the hardware.
+Please extend commit message to say why you want to do that.
 
 > 
-> The issue here is that I believe the Linux driver actually got the whole
-> phy-mode thing wrong?
-
-Quite possible, a few drivers do.
-
-> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> Signed-off-by: Paul Alvin <alvin.paulp@amd.com>
+> ---
+>  drivers/mmc/host/sdhci-of-arasan.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 > 
-> First, tx_delay defaults to 0x30 if absent, rx_delay to 0x10 if absent,
-> which seems a bit odd but why not.
-> 
-> Then you have rk_gmac_powerup() handling the delays.
-> 
-> If RGMII, then use rx_delay and tx_delay. If RGMII-ID, use neither. If
-> RGMII-RXID use tx_delay. If RGMII-TXID use rx_delay.
-> 
-> This is the complete opposite of what I was expecting?
+> diff --git a/drivers/mmc/host/sdhci-of-arasan.c b/drivers/mmc/host/sdhci-of-arasan.c
+> index 8c29676ab662..af4643e24ecc 100644
+> --- a/drivers/mmc/host/sdhci-of-arasan.c
+> +++ b/drivers/mmc/host/sdhci-of-arasan.c
+> @@ -2056,6 +2056,13 @@ static void sdhci_arasan_remove(struct platform_device *pdev)
+>  	clk_disable_unprepare(clk_ahb);
+>  }
+>  
+> +static void sdhci_arasan_shutdown(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +
+> +	sdhci_arasan_suspend(dev);
+> +}
+> +
+>  static struct platform_driver sdhci_arasan_driver = {
+>  	.driver = {
+>  		.name = "sdhci-arasan",
+> @@ -2065,6 +2072,7 @@ static struct platform_driver sdhci_arasan_driver = {
+>  	},
+>  	.probe = sdhci_arasan_probe,
+>  	.remove = sdhci_arasan_remove,
+> +	.shutdown = sdhci_arasan_shutdown,
+>  };
+>  
+>  module_platform_driver(sdhci_arasan_driver);
 
-This driver, and the aspeed driver cause a lot of problems....
-
-> > Since this has a switch on the other end, its a bit more complicated
-> > with RGMII delays. Normally, the MAC does nothing and passed rgmii-id
-> > to the PHY, and the PHY then does the delays. However, here you don't
-> > have a PHY. So you have the MAC add the delays. This looks O.K. I
-> 
-> The switch actually supports adding delays on the port used for DSA conduit.
-
-That actually looks to be the simplest and correct solution. Set the
-MAC to 'rgmii-id', rx_delay and tx_delay to 0, even if they are
-ignored. And in the switch, also 'rgmii-id' and let it insert the 2ns
-delay. You can use rx-internal-delay-ps and tx-internal-delay-ps if
-you want, but it seems to default to sensible values.
-
-> I'm a bit confused by the following sentence:
-> 
-> """
-> Normally, the MAC does nothing and passed rgmii-id
-> """
-> 
-> is this something that the MAC driver is supposed to do or is the subsystem
-> handling that somehow? How do I know how/when to rewrite the phy-mode passed
-> to the PHY?
-
-A small number of MACs have hard coded delays. You cannot turn the
-delay off. So the MAC has no choice but to do the delay. 'rgmii' is
-simply not possible, so -EINVAL. For 'rgmii-id', if you pass that to
-the PHY, it will also add a delay, and 4ns in total does not work. So
-when the MAC is adding delays, it needs to mask out the delays it is
-adding before calling phy_attach() passing an rgmii mode.
-
-	Andrew
 
