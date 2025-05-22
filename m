@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45692C54E65
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC210C54E90
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jrl+7E/DAzGEaNb5UnVn+X6d5tZy+EGm5JjNqvqUOoo=; b=OHafWmlZCyAPrzSxYjlhVWlbZG
-	IvZEGkGXGuuVG3WY0O06KPgUThnIgOlp3ZoZvtpsCtJRaE7+szets0y1QGM3Ol7AcS9OQf653kGvO
-	Nwi8HRqaWt3lyhrOZ1WgUGgrrcU8m2Xw8Cm5+/+CCgh3mvdscjM2w7OkRVDUWaTVhE9Od1tNKVmhu
-	VN0ZMX3F/6VB6EnJYoeBucWuX+PnXG+Ph0dGogirLfNQ/oWSgcYd6OfV53DIXvj0uzvfWNyGU8N7C
-	OLig5yiiwh195SOEpRqLFX9FgL5R1+m+vv3dIPzQGlhPUN7FvpNRdiD5KpiN4AxpJE266CW9Keujb
-	YdWD1AQA==;
+	bh=RJur6rMZbLMp+2+d4tVcZ4bXNUfqQScMqXSoAVnIT0U=; b=rwhHqccgdQZsskwN0mXwcnbaf+
+	FUWGLtqfCuH+LWkLnx+NhgfOQ2Z68qyISYU7aAyzZy64WqnvXgtreX6N9sVWnhBSR3+aOAtOBQOAl
+	gwWv6WWrQKDNapMyLHDmuaTuZQ580nsVJdUH2m0w3l95x0LUuZZZBVio0j1GNHq97VZWwvR00yAbf
+	H8LfxDddoIS0YeaAvKQtHThls3A9zVlGgidu2dmrlnLRJBbw1MpBBVCZVX/21pZjBFDwbxKw6Npvc
+	WcQnIEVFUpGfczD95vnp5oFgOmUmOLm2EIoQawzpPMfwgd/7kvjpOJZGzGh5eC8JqtVxuQaLGU1aP
+	hdqn0peA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8lo-00000001Yvn-22at;
-	Thu, 22 May 2025 16:27:48 +0000
+	id 1uI8lp-00000001Yx2-2RLr;
+	Thu, 22 May 2025 16:27:49 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7Xx-00000001O6Q-4A06;
-	Thu, 22 May 2025 15:09:27 +0000
+	id 1uI7ZW-00000001OYh-2B0j;
+	Thu, 22 May 2025 15:11:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 595565C59AF;
-	Thu, 22 May 2025 15:07:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 863F4C4CEED;
-	Thu, 22 May 2025 15:09:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C3C0D5C6075;
+	Thu, 22 May 2025 15:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E38C4CEE4;
+	Thu, 22 May 2025 15:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747926565;
-	bh=yNERZMO73/n2x4Cr3aXbKcm/Td96SsAQzwu9Obt3Sp4=;
+	s=k20201202; t=1747926661;
+	bh=uJG6Jesy9D0JDKrfcqVhvbfKdi/yDrnCTcz3eC5EWHc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bBnXcwo7argfurXkbp+SwxvVZQ6Z8lywmJAQcVsrNxMK6Apjxx8kzqCLD5sgeGp5F
-	 7Sk0gOe+3jq7g4ok3U85JsO1gpBbbvI8IwgctaZFiRMRymPl2ZaGTPTTzs+WLQZNZk
-	 meq7yvZqpLmBg1pLkVSSeHWM0aaRfo/otVLjQOlCi4lNc3BVldWIoNgKiOcdDos6Xw
-	 2vdmpzGzx1wUUjThqd2Tz2EHezDSlwoPxy1eMIB7Rv3G4ju2ghJGHyRn0l3YR+qFmY
-	 ZORUa0wJUcokqVut0Gze1/CJi/GMWBMZ+Xw7FCJu96C/Z3s0ma7Wtx2FmzaWafhFyv
-	 T9AIuIzlv1U3w==
-Message-ID: <d21e1775-d5d4-4f58-865e-0cb33d14f371@kernel.org>
-Date: Thu, 22 May 2025 17:09:19 +0200
+	b=fT79k9IZmS41Fg9K74ACV1wFXdLWWeQDKL2DpebkYumi+rwUuXcKZQrLx8Xw/p/xM
+	 Mo7gnV8T6vH7T1Esp4yK8nmlzmzSOWeTrsyX+hGJJ5ZjUsZ4LFTK9XmeOmM+qFsJbN
+	 e/EJBtVrcYQoJUACAsxAgLD/W8d2BxdMKH3d0YWtosQIoRqIRF5azt/dqmmhwGTZOx
+	 dE879aJmNOmPbVUMyGlCULowe2BMPa6+GIqjMdckcyezdybuxZLXVa27F9LvYJz2fA
+	 0w9xfsY/sVWTZwNNukHngEEIoJvZzT0MFZa6BsN1BF2uI++Qn1HxWMCYGpdXrx6Q0e
+	 eNFf9BM+TeMEQ==
+Message-ID: <ea79d8fd-8134-4d14-92f6-f656be20cd9f@kernel.org>
+Date: Thu, 22 May 2025 17:10:56 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: regulator: mediatek: Add MT8196 vmm
- controller
+Subject: Re: [PATCH 2/2] soc: mediatek: Add MT8196 VMM driver support
 To: "Nancy.Lin" <nancy.lin@mediatek.com>,
  Chun-Kuang Hu <chunkuang.hu@kernel.org>, Liam Girdwood
  <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
@@ -60,7 +59,7 @@ Cc: Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
  jason-jh.lin@mediatek.com, singo.chang@mediatek.com,
  paul-pl.chen@mediatek.com
 References: <20250522150426.3418225-1-nancy.lin@mediatek.com>
- <20250522150426.3418225-2-nancy.lin@mediatek.com>
+ <20250522150426.3418225-3-nancy.lin@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250522150426.3418225-2-nancy.lin@mediatek.com>
+In-Reply-To: <20250522150426.3418225-3-nancy.lin@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_080926_136885_D697C4ED 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20250522_081102_650386_C6481935 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,102 +128,102 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 22/05/2025 17:03, Nancy.Lin wrote:
 > From: Nancy Lin <nancy.lin@mediatek.com>
 > 
-> Add a device tree binding document for the MediaTek MT8196 VMM (Vcore
-> for MultiMedia) regulator controller. The VMM controller acts as the
-> main power supplier for multimedia power domains, such as those used
-> by display, video encode and decode subsystems. It provides virtual
-> regulators that serve as the power sources for various multimedia IPs,
-
-Virtual regulators do not sound real, so feels like you want some sort
-of power domains?
-
-A nit, subject: drop second/last, redundant "bindings". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
-
-> and coordinates with the hardware common clock framework (hwccf) and
-> the Video Companion Processor (VCP) to manage the power domains of
-> these components. The regulator is controlled by the VCP firmware,
-> and the operating system signals its requirement through a voting
-> hardware block (hwccf).
+> Add a driver for the MediaTek MT8196 VMM (Vcore for MultiMedia)
+> controller, which acts as the main power supplier for multimedia power
+> domains such as display, video encode, and video decode on MediaTek SoCs.
+> 
+> The VMM controller provides virtual regulators for multimedia IPs and
+> coordinates with the hardware common clock framework (hwccf) and the
+> Video Companioin Processor (VCP) to manage power domains. The driver
+> uses a hardware voter through HWCCF to notify the VCP to turn on or
+> off VMM-related bucks.
 > 
 > Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
 > ---
->  .../mediatek,mt8196-vmm-regulator.yaml        | 70 +++++++++++++++++++
->  1 file changed, 70 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml
+>  drivers/soc/mediatek/Kconfig       |  12 +
+>  drivers/soc/mediatek/Makefile      |   1 +
+>  drivers/soc/mediatek/mtk-vmm-drv.c | 471 +++++++++++++++++++++++++++++
+>  3 files changed, 484 insertions(+)
+>  create mode 100644 drivers/soc/mediatek/mtk-vmm-drv.c
 > 
-> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml
+> diff --git a/drivers/soc/mediatek/Kconfig b/drivers/soc/mediatek/Kconfig
+> index d7293977f06e..4db4a0876083 100644
+> --- a/drivers/soc/mediatek/Kconfig
+> +++ b/drivers/soc/mediatek/Kconfig
+> @@ -69,6 +69,18 @@ config MTK_MMSYS
+>  	  Say yes here to add support for the MediaTek Multimedia
+>  	  Subsystem (MMSYS).
+>  
+> +config MTK_VMM
+> +	tristate "MediaTek VMM driver"
+> +	help
+> +	  Say Y here to enable support for the MediaTek VMM (Vcore for
+> +	  MultiMedia) controller, which acts as the main power supplier
+> +	  for multimedia power domains such as display, video encode and
+> +	  decode on MediaTek SoCs. The VMM controller provides virtual
+> +	  regulators for multimedia IPs and coordinates with the hardware
+> +	  common clock framework (hwccf) and the Video Companion Processor
+> +	  (VCP) to manage power domains. The VMM driver uses hardware voter
+> +	  through hwccf to notify VCP to turn on/off VMM-related bucks.
+> +
+>  config MTK_SVS
+>  	tristate "MediaTek Smart Voltage Scaling(SVS)"
+>  	depends on NVMEM_MTK_EFUSE && NVMEM
+> diff --git a/drivers/soc/mediatek/Makefile b/drivers/soc/mediatek/Makefile
+> index 0665573e3c4b..2b2071614ac4 100644
+> --- a/drivers/soc/mediatek/Makefile
+> +++ b/drivers/soc/mediatek/Makefile
+> @@ -6,6 +6,7 @@ obj-$(CONFIG_MTK_INFRACFG) += mtk-infracfg.o
+>  obj-$(CONFIG_MTK_PMIC_WRAP) += mtk-pmic-wrap.o
+>  obj-$(CONFIG_MTK_REGULATOR_COUPLER) += mtk-regulator-coupler.o
+>  obj-$(CONFIG_MTK_MMSYS) += mtk-mmsys.o
+> +obj-$(CONFIG_MTK_VMM) += mtk-vmm-drv.o
+>  obj-$(CONFIG_MTK_MMSYS) += mtk-mutex.o
+>  obj-$(CONFIG_MTK_SVS) += mtk-svs.o
+>  obj-$(CONFIG_MTK_SOCINFO) += mtk-socinfo.o
+> diff --git a/drivers/soc/mediatek/mtk-vmm-drv.c b/drivers/soc/mediatek/mtk-vmm-drv.c
 > new file mode 100644
-> index 000000000000..a50e35c2e238
+> index 000000000000..de4ceb7d59fa
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml
-> @@ -0,0 +1,70 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: "http://devicetree.org/schemas/regulator/mediatek,mt8196-vmm-regulator.yaml#"
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +++ b/drivers/soc/mediatek/mtk-vmm-drv.c
+> @@ -0,0 +1,471 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + * Author: Yunfei Dong <yunfei.dong@mediatek.com>
+> + */
 > +
-> +title: MediaTek MT8196 VMM (Vcore for MultiMedia) Regulator Controller
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/device.h>
+> +#include <linux/kthread.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/driver.h>
+> +#if IS_ENABLED(CONFIG_MTK_VCP_RPROC)
+
+And that's the proof you send some sort of downstream code.
+
+This does not exist.
+
+> +#include <linux/remoteproc.h>
+> +#include <linux/remoteproc/mtk_vcp_public.h>
+> +#endif
 > +
-> +maintainers:
-> +  - Nancy Lin <nancy.lin@mediatek.com>
-> +
-> +description: |
-> +  The MediaTek MT8196 VMM (Vcore for Multi Media) controller acts as the
-> +  main power supplier for multimedia power domains, such as those used by
-> +  display, video encode and decode subsystems. The VMM hardware block
-> +  provides virtual regulators that serve as the power sources (suppliers)
-> +  for various multimedia IPs. It coordinates with the MediaTek hardware
-> +  common clock framework (HWCCF) and the Video Companion Processor (VCP)
-> +  to manage the power domains of these multimedia components.
-> +
-> +  Each child node under the VMM node represents a virtual regulator
-> +  (e.g., vdisp, vdec-vcore) and must specify a 'regulator-name'.
-> +
-> +properties:
-> +  compatible:
-> +    const: "mediatek,mt8196-vmm"
+> +#define mtk_vmm_dbg(dev, fmt, args...) \
+> +	dev_dbg(dev, "[vmm] %s(%d): " fmt "\n", __func__, __LINE__, ##args)
 
-Not tested...
+No, you do not get your own debug code.
 
-> +
-> +  mediatek,hw-ccf:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Phandle to the hardware common clock framework syscon controller.
+NAK.
 
-No, you cannot express clocks with syscon.
-
-> +
-> +  mediatek,vcp:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Phandle to the Video Co-Processor (VCP) node.
-
-For what purpose?
-
-> +
-> +patternProperties:
-> +  "^(vdisp|vdec-vcore)$":
-
-Redundant nodes, useless. Drop these completely.
-
-
-> +    type: object
-> +    description: |
-> +      Virtual regulator for a specific multimedia domain.
-> +      The node name should match the supported regulator (e.g., vdisp, vdec-vcore).
-> +    properties:
-> +      regulator-name:
-
-No, you cannot start redefining properties. This binding is nowhere
-close to hardware description. Looks like some copy-paste downstream
-driver, so binding to fulfill driver needs.
-
-Please rework to match hardware. I suggest reaching internally to get
-some help how upstream drivers and bindings look like *prior* sending
-downstream code.
+This is nowhere close to upstream code. Don't send us downstream
+patterns please.
 
 Best regards,
 Krzysztof
