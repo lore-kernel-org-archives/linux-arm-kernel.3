@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF0CC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 11:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B11C54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 11:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D30c4LpbKJGTLV3TDgbPM1yl7EfEP9gR4/PJue8vafM=; b=IVhfFRDNAq2S7Ar2uedtL4JfZm
-	542+KGvkS11xaV4nlS184NUzo5kkQLhieewI0iPSxcnFeQpma6GfsyK4TvGS3L2V7KSNBNjyQwLWZ
-	XGkEOf3vsMe/IPg3wWd9HivwqLMqs/u0IpL4RPe8s/eoYKIjb3r815X1klyglXOPOkJ5XtH65qFc2
-	NnOq0HvjsQS3GJaEDXURbWeYVjEHX/MvtHLaqdPRj1vnkspu7eYJpOga2PP1iciCf5ft8BGm8AnVT
-	WUCHggSQUnfniSqU1Lz013LvCvoX5LXUjDIrZd9HGjG4Bo2Gv0zT44jzwinoSuplE1SCNbunps0VG
-	GX/Oc9ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=01PjEPpcuZs1iJtzlEcbcVU6mRxNqu+hYO/XH56s0BU=; b=WSnAveY1c9zHVBz8DkFqDbae1I
+	UXgjoI0GTI/R1VaGQrFjHB0PRcLt29+OQ2mButPvBt1tY58fGHr+Arx0RjxG+Iduharyq6qDBxipm
+	WCkqyysAN3fffB8RBRaH8z5xHafbj7onmcsyLO0h5oKYJIG2fLENr5zWU7mBb8pWZ2vmruisUuAeo
+	2+Wq3ue6dLh86qRseXdJE7Ik2xeYbyUgl8rsLOe1ZbwScyl6BLZeKrJJLdxrq946Zb1X2vuF603b9
+	KRZ1RmUGW6KHSQ4GOwHOhHB4VbkW520oA7PuVkTeY9dOMQDAGewidEpNoTKV+B6bXwV69d4KUhU+d
+	2wG4KVgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI49T-00000000sFK-3fpX;
-	Thu, 22 May 2025 11:31:55 +0000
-Received: from out-182.mta0.migadu.com ([91.218.175.182])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI47O-00000000ry7-47rg
+	id 1uI4Ni-00000000u96-0iCZ;
+	Thu, 22 May 2025 11:46:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uI4Lc-00000000tjX-0bc2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 11:29:48 +0000
-Date: Thu, 22 May 2025 07:29:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1747913382;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=D30c4LpbKJGTLV3TDgbPM1yl7EfEP9gR4/PJue8vafM=;
-	b=O3Qiqb2oTyWCjy+2mmqUGHpQUwP6BkMOcfELHuASHOWiSQktk1CGwhXna+jFxOqNJcc5Q6
-	2MGd7pHqhmhSEa9T8Ub/KpvZ7p5AmNSPC2T3/J7I7mK4HpsQebDcYLxO6sfzrNJCl/Rwyi
-	V2jPLFBTqPjBlkh3gjjmkOmjdkEEE6M=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Kent Overstreet <kent.overstreet@linux.dev>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Peng Fan <peng.fan@nxp.com>, 
-	"linux-bcachefs@vger.kernel.org" <linux-bcachefs@vger.kernel.org>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: error: the frame size of 1552 bytes is larger than 1280 bytes
- when building bcachefs
-Message-ID: <oelk3icaqi6d4qpd2lymmybnk4ah7wwydz53zihxrhula2adfr@3dsd263tjibo>
-References: <PAXPR04MB845954FBBF2AD810B17536138899A@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <d8e9f098-49a2-4f1e-a6a5-7a6437658d93@app.fastmail.com>
+	Thu, 22 May 2025 11:44:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0FE301756;
+	Thu, 22 May 2025 04:44:11 -0700 (PDT)
+Received: from localhost.localdomain (unknown [10.163.82.136])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CDE793F673;
+	Thu, 22 May 2025 04:44:20 -0700 (PDT)
+From: Dev Jain <dev.jain@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	mark.rutland@arm.com,
+	anshuman.khandual@arm.com,
+	yang@os.amperecomputing.com,
+	wangkefeng.wang@huawei.com,
+	yangyicong@hisilicon.com,
+	baohua@kernel.org,
+	pjaroszynski@nvidia.com,
+	ardb@kernel.org,
+	david@redhat.com,
+	Dev Jain <dev.jain@arm.com>
+Subject: [RFC PATCH] arm64: Elide dsb in kernel TLB invalidations
+Date: Thu, 22 May 2025 17:14:14 +0530
+Message-Id: <20250522114414.72322-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d8e9f098-49a2-4f1e-a6a5-7a6437658d93@app.fastmail.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_042947_231622_E6C5C5DF 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20250522_044428_223244_338FBAEE 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,32 +72,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 01:23:56PM +0200, Arnd Bergmann wrote:
-> On Thu, May 22, 2025, at 08:39, Peng Fan wrote:
-> > Hi Kent, Arnd
-> >
-> > There is below build error with "make ARCH=arm randconfig; make"
-> >
-> > fs/bcachefs/data_update.c: In function 
-> > '__bch2_data_update_index_update':
-> > fs/bcachefs/data_update.c:439:1: error: the frame size of 1552 bytes is 
-> > larger than 1280 bytes [-Werror=frame-larger-than=]
-> 
-> Right, I think that's been the case with bcachefs since the start,
-> and I see it with allmodconfig as well, the problem being mostly
-> CONFIG_KASAN_STACK.
-> 
-> There are a couple of bcachefs functions that have an unusual number
-> of local struct variables in them, and KASAN_STACK adds a redzone
-> around each one of them, further increasing the size.
-> 
-> When I add "depends on !KASAN_STACK" to bcachefs, I see all
-> randconfig builds succeeding, but that may not be the best
-> solution.
+dsb(ishst) is used to ensure that prior pagetable updates are completed.
+But, set_pmd/set_pud etc already issue a dsb-isb sequence for the exact
+same purpose. Therefore, we can elide the dsb in kernel tlb invalidation.
 
-Post 6.16, all the bcachefs functions I know of with high stack usage
-run with nearly the full stack available - they're running from a
-workqueue, or they're fsck, so this should be a non issue - I recently
-did some testing with max stack tracing usage enabled and our stack
-usage looks ok now.
+There were no issues observed while running mm selftests, including
+test_vmalloc.sh selftest to stress the vmalloc subsystem.
+
+Signed-off-by: Dev Jain <dev.jain@arm.com>
+---
+ arch/arm64/include/asm/tlbflush.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index eba1a98657f1..9b4adf1ee45e 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -508,7 +508,7 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
+ 		return;
+ 	}
+ 
+-	dsb(ishst);
++	/* dsb(ishst) not needed as callers (set_pxd) have that */
+ 	__flush_tlb_range_op(vaale1is, start, pages, stride, 0,
+ 			     TLBI_TTL_UNKNOWN, false, lpa2_is_enabled());
+ 	dsb(ish);
+@@ -523,7 +523,7 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
+ {
+ 	unsigned long addr = __TLBI_VADDR(kaddr, 0);
+ 
+-	dsb(ishst);
++	/* dsb(ishst) not needed as callers (set_pxd) have that */
+ 	__tlbi(vaae1is, addr);
+ 	dsb(ish);
+ 	isb();
+-- 
+2.30.2
+
 
