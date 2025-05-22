@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376CBC54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28EAC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ARK5arm4xRMg5UA4OO1T6K5We9IiVU4dSpLE3tmkVDE=; b=Ghg3ycyjxUUjK8CnRfkjHaYIw4
-	Rl7uYDTQWwDyqtxKjn9+K8HzwXNl4nljNpJ8k1uloXaZo5z22mWBfEcX/KdRCzjwjEiBGrw5OfYyn
-	bepVRdWPyspeHgWJOWf14skNUzB1viX/5fhBZ/ojuowdJKvJrNl5fvjQBXUhLcntKaJaiYA/88OK5
-	kNAsYGpR1RRIZT6dnnpqIrl0ZBSrm7uWb3WFU1AgprKCp/9vd8pF+NqJKBf6JSYfeoLNk1BDl8sPE
-	wGRa8oT5YpBCrJYeT8FM/NQTmpSwkxC6jDqlf0CzUtZClPamaf+W91hj5DlG7D/si9ckcTNbHcFPv
-	Pp/2jeDw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qtV9SMxOKB7GoV+djrIvJpFf2SMA0j+XNe47HtIbik4=; b=n2VH5mjCSj92JBwpxWbWAaYE2/
+	0+baBy6ITkh3m+2q3/yJfIwo7vQMIwGQJcwgDeaatHN/ptZDxx26HXLX/hEXHSaKSC33SFbMqgUjT
+	Q3vjrG2sPW7D6k0E9lu1oBfSKjunSfLj0GtUJLQfxvacV2/6gMmGhC+xMxGlxZNOJ5IfA/4NBkFYn
+	zD92zu5A7lXPlWN3V49BOW2mc4zrRfJTp+sGIJf4iU9BMk3FYqLBpSI2d1PMNkkmGBANGrqh0ZjkA
+	MAFvQT9T50UQsp5JVwPGg+WbGM2acCUfQMv0CCVBVzZTqJfaDLF/nDOH+mfd+XRKDP+YgxT9XXINC
+	SWCVelUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI9D5-00000001fsW-1UCc;
-	Thu, 22 May 2025 16:55:59 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uI9F5-00000001gL7-2fZS;
+	Thu, 22 May 2025 16:58:03 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI9B3-00000001fXs-0vOD;
-	Thu, 22 May 2025 16:53:54 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43ede096d73so61375185e9.2;
-        Thu, 22 May 2025 09:53:52 -0700 (PDT)
+	id 1uI9B4-00000001fYF-1sKn;
+	Thu, 22 May 2025 16:53:55 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43edecbfb46so67238665e9.0;
+        Thu, 22 May 2025 09:53:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747932831; x=1748537631; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ARK5arm4xRMg5UA4OO1T6K5We9IiVU4dSpLE3tmkVDE=;
-        b=PDwn1VP2+LGju8za6UGdj9zpQR1WC6nzl9zsvqJCeS+fdI71G5iyvC/vR0WN4rcuJs
-         ILCLbMzKmB0USNw0EISOoUzwn6aE5/VFLlgdlruGfvnYLVCabh2Xrgm27i0+OOk+EPEU
-         9gTO/Zc1zWZ46kdqgYnMierhNp5pXJHXQ+7i1sCZFHkFu//Cz/BkGkFR0CBy0Gb3aN7X
-         WYREH0Fu+cDzQ6aaRsmT5a+zywosNhI2JbM+HZXDqmeVJFd9D+cRnocNZtNFNQ2wmK75
-         irgT4Bb4+W6M9PoVxG6sFNhdn1jn8jZfq78jDzZHUihqiLTQQREmURPOIxp0x1TJ+nuM
-         rtWA==
+        d=gmail.com; s=20230601; t=1747932833; x=1748537633; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qtV9SMxOKB7GoV+djrIvJpFf2SMA0j+XNe47HtIbik4=;
+        b=T+k6fXq3egFQgM20RbgpP9oYsVtcIjC6Fq4Vc3DtXv3hutAcyjPXxxa7ZDaeHCR3Lj
+         Ya1hpoKIKnx1xKBDfZphb0ivCTql8aHqjQuMCPM+tdSyCRIDm6WKS7rT+mg+MLxL79Mg
+         4yA4LHbAgyTETqUfxyKAwRd7SjoHv4SeiuUPXZtj7NpT2IMcg4A97WTlhqKQBM0xqyUd
+         lBVRTr5iYyr+CIqhBJmpudzotVFrntid8xy5LMhSshU7ZyU1oMs5PjtC2Q7VciEKZ9FV
+         JVfcydbNitsY3vyVaVZOG5SJPkl12dNDjV7+ib9z0TeDCQ0eWYWrf1R0XpfLDMayjKjl
+         EZIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747932831; x=1748537631;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ARK5arm4xRMg5UA4OO1T6K5We9IiVU4dSpLE3tmkVDE=;
-        b=m1/O8oDYr5EXiked//LXym75hPQXjlfXsoX+PknTQ+/2f58ld0FOJgqOb5Xs+V11iL
-         Zx1u4I8c9a+zaBsYkeVVJwot3ly9gtvpdUwKMQ+II2G+OSlbDFdneccRm4mIad5TfOwh
-         F0qQ3femDWsv72LC8ETMyTvbn/llzzOh92SVhg+mXoo5iPKYAIx/4/xnuUqsHhslN5d/
-         6YxsQtWRRX1yU07fiq/R7zGIujro0jt2mwL1DluvUy1TLNQJtrUDw+W0u1aJkdAAsldG
-         lVUz49wSOPdGs8JNnDDnm0VEJ4N9LRRor4I+OnjHDZBIwz0pD35wKU6BXj+yy24eY/28
-         D7iA==
-X-Forwarded-Encrypted: i=1; AJvYcCXNuUNXJvPtq03eOa+iUBoKlNSWjHnAN8iQG2x5YYwxoTw4ViRTWgjQYI9hp5DEXMFWXoUNKTguAZXzGqS9mEV4@lists.infradead.org, AJvYcCXes9szHp7mTIzJusCiX9/8uXPl/cEAzbdtOrWnny7uILXFPajYKb6D92mzwYnT7HxlTkxkhxY6zqVtDaGE2x0=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaYa8ZkXC41czq6qoRyAKyUnhp4C0MIgqWEZWGqLUkU961Gd1l
-	I0L5SP1eTAgQ+/LpYg438dKSKxDHfOefKGQWRlGtxBWiZy+YpRwAIFzU
-X-Gm-Gg: ASbGncuM/UpguL2UsTRwB62KjKdqmhWa+15Iqly1d470Apex8am+jzS97CnXFNwTt8y
-	Egu/NM3V8gtWy5kUTuuEi7NAJZrgeX8kDeTwGbBrZriGyQy9m87gLGo8WExmSKdQ880ucGGFSi6
-	TjOze06hilrajDG5l3cT9hSkXsyTNkDsUBTw/RODgZaxNZWuMxu+bDwNHw4Tl3t61deqID9JMRQ
-	loDC88G7if06WGT37JHWAT18kGpkz7ThQ+1uQONxhmdgpBZfFeuNQL81fd1ZAVfsQ5aYIhNtlDP
-	dA61ooKt5xpmJqfDU3FxmPgIvA5L3AgQb6BZGAy8OLg3XLZ22MwtiSC6Jt/WYOIHXqWkvitowob
-	AVX0gVtbFqeANi/0bVnXc
-X-Google-Smtp-Source: AGHT+IHWhtAWXRBGh/ENakgND9IzcrqJZpmuMgIAj3z1JdfL9BG36SGp+6PXxZ3vxlmo2rQYJG68cA==
-X-Received: by 2002:a05:600c:8411:b0:44b:1f5b:8c85 with SMTP id 5b1f17b1804b1-44b1f5b8d2cmr16008065e9.13.1747932830716;
-        Thu, 22 May 2025 09:53:50 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1747932833; x=1748537633;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qtV9SMxOKB7GoV+djrIvJpFf2SMA0j+XNe47HtIbik4=;
+        b=SBMUNAUc9lZ/CFcVF6puUZF1ZfO4QcuyeImAnrFRw6xPb8SZ0eRQTYD0bEgMFDwjkz
+         r76DIXYlNQywk2dn/2BvdHc1YuIRJC1Hv6Yi9476JnfqWlbBVlb7IAE1Aparp4J9173r
+         7OpvQM59r/iuqeZLjbA4w9Bk106mTUU36K/didyqbSkuZDso3u2aBaJtsDUAn1vnxHtv
+         fqciYD/MFHQApf7SZ+E+KVBfHSsqWjqB6U4f49sdtqSdnLiTy4ohd55GxYcuCdbwtXDa
+         VpKESAXBtUFf3kDsNZMnY1bDIxhg72q5Dd98jIZhDwxQQlwqqMpIwx89CNTUDCZNW+tp
+         dzRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVp6VxHq5Du583kjCkHx9TIHI4/RcC1tY9NuZAiVoafHHjYfZRPOD/bADQ5c0D+uR9x7MVEzcha87t8veOtwAE=@lists.infradead.org, AJvYcCXJCUX3vs+yJGkg12SIQuII9eSBBkOIfFzeI2gEODAsWmA+ShKvWKaHgMVbddyzMtJMJu4SSHVud2shSLlrujzS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp4Ybd3AQCUk5EiDwthTGJ2cX68nYXpHkhkY5XRzz+RMNMKs/O
+	M4pPQQucxBnGS5R5myZtKUAizJnqF2/W5GdDAEEcEGSgOT+PXXcC+Hnq
+X-Gm-Gg: ASbGncvVFBsN0YeaRT98AsUkhkoPdnBfHcCCf0GowokjxsC0ewEPTcyNZqMJcf2A2yO
+	jBogZvuLteoOCHrmCK2A0b+2hm7kCYscA+5eI8R41h6Je3pOxVtb/MSgzlUInkIf/3oKy33RSo6
+	N28+o1OwN/NYwFg7b1NSJ2IFhvbIDwYeb8D3pON3isrpE/aDfUh+lyt9O3ibkR4C06ADYEiVawM
+	DwbSwW/AWeQQUNQ045K1PqG1ieT5iaPLkI6cpWRNhtBUEvZ49UWWtnPq4nxkT9fjczEZDM0z756
+	KyTIqX4ajWpOiqCKjXyFH/y12NOC4J2MozjOHVcluFJO8ja8Zv5TnEJHiq+EHDxi+RvW14hMnq1
+	eyks9W082LVyRB5p7sSRXHje2nbTdi3A=
+X-Google-Smtp-Source: AGHT+IG1T0G5yH1FK1thK1fMxhgoOJ3qYtDlQkaBu0K+RUy9jpWdeT6ZDqtYAcPVISb4W8cXirC8OQ==
+X-Received: by 2002:a05:600c:8207:b0:44a:b9e4:4e6f with SMTP id 5b1f17b1804b1-44ab9e44edcmr33448105e9.16.1747932832294;
+        Thu, 22 May 2025 09:53:52 -0700 (PDT)
 Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-447f6b297easm118737525e9.6.2025.05.22.09.53.48
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-447f6b297easm118737525e9.6.2025.05.22.09.53.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 May 2025 09:53:49 -0700 (PDT)
+        Thu, 22 May 2025 09:53:51 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Vladimir Oltean <olteanv@gmail.com>,
@@ -94,16 +95,17 @@ To: Andrew Lunn <andrew@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
 Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [net-next PATCH 0/3] net: dsa: mt7530: Add AN7583 support + PHY
-Date: Thu, 22 May 2025 18:53:08 +0200
-Message-ID: <20250522165313.6411-1-ansuelsmth@gmail.com>
+Subject: [net-next PATCH 1/3] dt-bindings: net: dsa: mediatek,mt7530: Add airoha,an7583-switch
+Date: Thu, 22 May 2025 18:53:09 +0200
+Message-ID: <20250522165313.6411-2-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250522165313.6411-1-ansuelsmth@gmail.com>
+References: <20250522165313.6411-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_095353_258136_2A9BB311 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250522_095354_483106_063160DF 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,21 +120,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This small series add the required changes to make Airoha AN7583
-Switch and Internal PHY work due to strange default configuration.
+Add airoha,an7583-switch additional compatible to the mt7530 DSA Switch
+Family. This is an exact match of the airoha,en7581-switch (based on
+mt7988-switch) with the additional requirement of tweak on the
+GEPHY_CONN_CFG registers to make the internal PHY actually work.
 
-Christian Marangi (3):
-  dt-bindings: net: dsa: mediatek,mt7530: Add airoha,an7583-switch
-  net: dsa: mt7530: Add AN7583 support
-  net: phy: mediatek: Add Airoha AN7583 PHY support
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ .../devicetree/bindings/net/dsa/mediatek,mt7530.yaml         | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- .../bindings/net/dsa/mediatek,mt7530.yaml     |  5 ++++
- drivers/net/dsa/mt7530-mmio.c                 |  1 +
- drivers/net/dsa/mt7530.c                      | 24 +++++++++++++++++--
- drivers/net/dsa/mt7530.h                      | 18 ++++++++++----
- drivers/net/phy/mediatek/mtk-ge-soc.c         | 20 ++++++++++++++++
- 5 files changed, 62 insertions(+), 6 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+index ea979bcae1d6..51205f9f2985 100644
+--- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+@@ -96,6 +96,10 @@ properties:
+           Built-in switch of the Airoha EN7581 SoC
+         const: airoha,en7581-switch
+ 
++      - description:
++          Built-in switch of the Airoha AN7583 SoC
++        const: airoha,an7583-switch
++
+   reg:
+     maxItems: 1
+ 
+@@ -291,6 +295,7 @@ allOf:
+           enum:
+             - mediatek,mt7988-switch
+             - airoha,en7581-switch
++            - airoha,an7583-switch
+     then:
+       $ref: "#/$defs/mt7530-dsa-port"
+       properties:
 -- 
 2.48.1
 
