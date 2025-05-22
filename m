@@ -4,131 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285F9C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 20:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D19C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 20:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cl89gNM5TIzVL4bs/l1Go7+vsZRrCb5lIMeR2G1ea68=; b=3EQtyLii9oG4YrfNT/g/IxkrcL
-	o4r/0e0szdYyFSVaA9e3m2vaD4wMmnUz/9o+IWYENakxlNUNNlJsQZL+7V1OQgdSRNn2GA73u+V73
-	eCJ1bAAidK/a1dy6S6lyuEhlrDEmQN0IG1HE2ORbJZZ/nNQcNU9PlmZzXQR3qNWLa2q9On2y24Vlm
-	/tKizudJytU3t3j+SlfBXJTHcVXIsOD8pBdeDrmglul6Ozv8b9oKBV7CR8F36yo1tegZSmD+u06VO
-	pFqr6YcmPYJtO2VlbrGtIXqD3ludYrAPDwJWAegGNJ6Oax6HxIGM3BNosUT57CTneEiEUsg1IMjLd
-	Hcef0VtA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Lcmz2b2wSBLp1++UV6kYxaG0Vo4vr1rEmMZnQRdpssM=; b=bxgsonMf55+N57EMQd9BJvuop1
+	FzSJLgbeDXOuruGnLfWZRv7wwwdTBAGuBe3sFpGedAWwOIRhTxOyVRKwUhmFzRjE4sMrRlVwaKQ0n
+	TMoCWX1pdn+krFiNF066SfUG7oKr80pMqZJDWjcFR7q02/uytb4aj6t0Zaz3FnzUa9BFwqq71d8L1
+	RddLqTdT85dmM7dEoH3fustsYr0e/kIYkhImkPPQepuosg2l7hrywsUYwdyAFYcY9XbdTI5KYMEcA
+	BPhfqBfLBdYNvwKCwnNSWdneWdQ8Oe07TOTA0uFtorxlkJHGuIsODRq6VoH/nb0W/2nN8xk3NqTeA
+	C1WYXkag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uICBV-000000025jW-3WsP;
-	Thu, 22 May 2025 20:06:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uICmc-000000029Be-0voN;
+	Thu, 22 May 2025 20:44:54 +0000
+Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIC8S-000000025A5-3sSH
+	id 1uICkZ-00000002970-13ar
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 20:03:26 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54MF9AST020602
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 20:03:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Cl89gNM5TIzVL4bs/l1Go7+vsZRrCb5lIMeR2G1ea68=; b=C/wBmMOc0EaTf82X
-	Hkwa9K5RpXrO8NvvPOqi+yXeIkOHEOBUO6SvSq3qIqH2ftW89TWV+1EPTk/CfXIc
-	A6PQIWlVF0YXyMHJJsQLH3wwxHvESvQJ0bA/+ioTQC+WaqSaLDDZsZZPTJNm6kpp
-	Le+zwfBr8gP9K8dsvoFF4DwYzatUA+HWNV8Q8y2CA/+aQu+o94onRbB9VVMbQsRS
-	jREeA1PvcpdZD9//f5poEmetxz2tH46W8HD0TurP1HSsjTUhvjPJA44s/6RIPJok
-	vmp3g5pkdbPH0rQypJV+RofaugKTeADLjGQtLp9F2wFbhDb5i3iyc1dQ7O5bo6Ur
-	yuiVfA==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46s9pb6047-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 20:03:23 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7c552802e9fso206265585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 13:03:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747944202; x=1748549002;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cl89gNM5TIzVL4bs/l1Go7+vsZRrCb5lIMeR2G1ea68=;
-        b=GtZjp4+/ZOqFcwM39LpizVl3cZs8aTfHLCXAFp6fj5NqAvt5+YbNKieb0V5PBaZhXf
-         Xmgu9vbNwtkvp5pC9s6JOsauI0OUPN3c1D0TalQmEI9JHe/cv4qws6AaRW9dZ/3qB5LR
-         5Tosxs//ZJNqBD31E9PgEQHDoL030HduHxqxypEIlP2johAKdoAmXOXAnz9sp1EZqJIX
-         YGAGb8V9+Qd6QJC8DVh5YEVxW7usqWAkz5j+/gMuAee6goqwoMKjznX6V3wESDCz8EaI
-         2ZCzTVa1zfrjUC/FeQiPwT7FT3L2dZGsdkLLcGUv+vKaEiy0OqmYU9Pohnp7+8VUOGz3
-         AGHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUuPuPViyGz5EtD5cKbtDfMCEm/mqxkErPoPhX7fRT+EEiQ+xYM64zx21zUnUOEKqWuMM3sPOEgD59HoiaICyWv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyguptCU0+ClKw5dC5DU7yNVi2BwjEMYUWvAQAtNfl67nj9xrhi
-	ZwyOjf1va7mpV5/CEA5hRIJpIIfZXZZZZ4prXhpViWbXMRi0Yifz1fbuXGYMO5sXcdlHkIsOvsM
-	zdXnoljIe1ozBOzPGkG7T9Ee4ip14BBuHyNuGxHsywESWuXbjdBDAv030czKQZWxs1ZbJqrpDD6
-	P6Eg==
-X-Gm-Gg: ASbGncvK2Sw7HQKJdrm1EnH+JNOEb/YKXar0RPFRY+mjJS+3q62VODLpiHnZaQ/t6CS
-	0xa34kEOF/jX+vUTRNpE18IrZp67amO8/wHu695pkZ21GfbJZ6XfgonG0Bf7C9VYMz2SZGXhEMR
-	sPOZq59/YaFTG4rlLfvGGGsmd8TCDKn6Akyi/MqBIEXFsASp36WwcFvWir3hD56fy90kdjgJxtc
-	NChsClWHJ54oOEq/UjPuKP5c8BA6NZ7gScocvqdakmDeBarXQJuF4O7MrfWFpv6qkCkxT7tsdec
-	rJ9L6as8WjuPQNYmqR7lqXSgqi8KGVhEmgD4XZ81JqaRiYTsg2c+ri7eISLMRUPKdw==
-X-Received: by 2002:a05:620a:1b97:b0:7cd:2992:9f43 with SMTP id af79cd13be357-7cd460ae593mr1598392985a.0.1747944202598;
-        Thu, 22 May 2025 13:03:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGdPVBb/3dMa+Oth0RFZpbRe4D5jwSzHxL54HpR9/3qg8beQB+fbLvxl1KJ7Gfry7w44GjJvw==
-X-Received: by 2002:a05:620a:1b97:b0:7cd:2992:9f43 with SMTP id af79cd13be357-7cd460ae593mr1598389385a.0.1747944202183;
-        Thu, 22 May 2025 13:03:22 -0700 (PDT)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d0717c3sm1134397266b.65.2025.05.22.13.03.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 May 2025 13:03:21 -0700 (PDT)
-Message-ID: <55a85622-fe33-4b5f-81b2-4a4270fab680@oss.qualcomm.com>
-Date: Thu, 22 May 2025 22:03:18 +0200
+	Thu, 22 May 2025 20:42:49 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1747946562;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Lcmz2b2wSBLp1++UV6kYxaG0Vo4vr1rEmMZnQRdpssM=;
+	b=NfI0zkTpxFo4zF2V9xvSZwmIlzpsN46mruuvPZv1/29WcudYO2GPcTA1g07gX4gXts5xqn
+	WO5dKG2NG4tULaDe6iMWMB3eqmMnwmEDFGQG0iseHOhl3ybzSDKjVNSzCBapdADsIw0ex+
+	tvHO5wXETqH7HCJV4Vced+Gk7iH9lSs=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Mingwei Zhang <mizhang@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm64: Add MIDR-based check for FEAT_ECBHB
+Date: Thu, 22 May 2025 13:41:48 -0700
+Message-Id: <20250522204148.4007406-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/5] phy: qcom: qmp-pcie: add x1e80100 qref supplies
-To: Johan Hovold <johan@kernel.org>, Qiang Yu <quic_qianyu@quicinc.com>
-Cc: Wenbin Yao <quic_wenbyao@quicinc.com>, catalin.marinas@arm.com,
-        will@kernel.org, linux-arm-kernel@lists.infradead.org,
-        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        vkoul@kernel.org, kishon@kernel.org, sfr@canb.auug.org.au,
-        linux-phy@lists.infradead.org, krishna.chundru@oss.qualcomm.com,
-        quic_vbadigan@quicinc.com, quic_mrana@quicinc.com,
-        quic_cang@quicinc.com, Johan Hovold <johan+linaro@kernel.org>,
-        Abel Vesa <abel.vesa@linaro.org>
-References: <20250508081514.3227956-1-quic_wenbyao@quicinc.com>
- <20250508081514.3227956-6-quic_wenbyao@quicinc.com>
- <aBxpMuFGKgWrw1TV@hovoldconsulting.com>
- <5fd4abe7-3621-4119-9482-de823b247b0d@quicinc.com>
- <aBx9LB_qQIvA0bj8@hovoldconsulting.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <aBx9LB_qQIvA0bj8@hovoldconsulting.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=WJl/XmsR c=1 sm=1 tr=0 ts=682f830b cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=zitRP-D0AAAA:8
- a=COk6AnOGAAAA:8 a=lzpFBSrVIYugpwGNuwEA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22 a=xwnAI6pc5liRhupp6brZ:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: Y8x-cOnKAokmegOUStPRlwbfypqLYmWL
-X-Proofpoint-GUID: Y8x-cOnKAokmegOUStPRlwbfypqLYmWL
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIyMDIwMSBTYWx0ZWRfX7o4cl5RRfHKG
- DVZQdS6QSCd8UnA2i5QZni8KCRCmVuC8EX+N8HU7X36mlTweWguFrmGewqvuLExMRR5Sj0sPHfN
- qHIYXPJBWVfdsqszLrPjwsuHgHNgr+DAnUaItFELSIxMTnxF1jOT74AEslMxlzxYKCttwNLOH+f
- jHPvjrKA/vvT7NM7k3h3F3HL9tywR9s51Ydzb7hjX7Ypb4dKT9Ad8tMR5/RpvExRQScbLvYlyCV
- HLwfOoAnpg7UUCYT0goj4MXb6m+yi4CuPwftIkHjIC5gytoDILwGqRIAWLbguG76MCRuofQt1tk
- Z4TXX6QdohOE6InYBAkacgnH7equb3Oh9+Hr22ie3/YZONYtHrcw72LEDNJe6+DTctR1RoJEsIx
- Y4M2UO6mxASlYNIFzZ1qlkDz5hhz7YKKNBcr9ytse5era6SxpTZWqZUMU1ZVLmZSSJvvwOzF
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-22_09,2025-05-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 clxscore=1015 suspectscore=0 bulkscore=0
- malwarescore=0 impostorscore=0 mlxscore=0 adultscore=0 phishscore=0
- mlxlogscore=999 priorityscore=1501 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505160000 definitions=main-2505220201
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_130324_972414_9156A209 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20250522_134247_896031_6F3DFD58 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,63 +69,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/8/25 11:45 AM, Johan Hovold wrote:
-> On Thu, May 08, 2025 at 04:50:30PM +0800, Qiang Yu wrote:
->>
->> On 5/8/2025 4:20 PM, Johan Hovold wrote:
->>> On Thu, May 08, 2025 at 04:15:14PM +0800, Wenbin Yao wrote:
->>>> From: Qiang Yu <quic_qianyu@quicinc.com>
->>>>
->>>> All PCIe PHYs on the X1E80100 SOC require the vdda-qref, which feeds QREF
->>>> clocks provided by the TCSR device.
->>> This still looks wrong and you never replied to why these supplies
->>> shouldn't be handled by the tcsr clock driver that supplies these
->>> clocks:
->>>
->>> 	https://lore.kernel.org/lkml/aBHUmXx6N72_sCH9@hovoldconsulting.com/
-> 
->> Sorry, I thought Konrad had convinced you.
-> 
-> IIRC, he just said you guys were told to add the QREF supply to the PHY.
-> That's not an argument.
-> 
->> If the TCSR driver manages these supplies, would it be possible for tscr
->> driver to recognize when it needs to turn vdda-qref on or off for a
->> specific PCIe port?
-> 
-> Sure, just add a lookup table to the driver and enable the required
-> supplies when a ref clock is enabled.
-> 
-> As I mentioned in the other thread, the T14s has the following QREF
-> supplies:
-> 
-> 	
-> 	VDD_A_QREFS_1P2_A
-> 	VDD_A_QREFS_1P2_B
-> 
-> 	VDD_A_QREFS_0P875_A
-> 	VDD_A_QREFS_0P875_B
-> 	VDD_A_QREFS_0P875_0
-> 	VDD_A_QREFS_0P875_2
-> 	VDD_A_QREFS_0P875_3
-> 
-> and it's not clear how these maps to the various consumer ref clocks,
-> including the PCIe ones:
-> 
-> 	#define TCSR_PCIE_2L_4_CLKREF_EN
-> 	#define TCSR_PCIE_2L_5_CLKREF_EN
-> 	#define TCSR_PCIE_8L_CLKREF_EN
-> 	#define TCSR_PCIE_4L_CLKREF_EN
-> 
-> That mapping can be done by the TCSR clock driver (which would also take
-> care of the 1.2 V supplies).
+Prior to commit e8cde32f111f ("arm64/cpufeatures/kvm: Add ARMv8.9
+FEAT_ECBHB bits in ID_AA64MMFR1 register") KVM was erroneously masking
+FEAT_ECBHB from VMs, giving the perception that safe implementations are
+actually vulnerable to Spectre-BHB. And, after commit e403e8538359
+("arm64: errata: Assume that unknown CPUs _are_ vulnerable to Spectre
+BHB") guests are enabling the loop mitigation.
 
-So we had an internal discussion about this and while it may work, it
-would only do so for some SoCs, and maybe only on the surface, as the
-wiring behind it is rather peculiar..
+This broken virtual hardware is going to be around for some time, so do
+the ugly thing and check for revisions of Neoverse-V2 [1], Cortex-X3 [2],
+Cortex-A720 [3], and Neoverse-N3 [4] that are documented to have FEAT_ECBHB.
 
-Plus, not all QREF consumers have a clock expressed in TCSR as of
-right now.
+Cc: stable@vger.kernel.org
+Link: https://developer.arm.com/documentation/102375/0002
+Link: https://developer.arm.com/documentation/101593/0102
+Link: https://developer.arm.com/documentation/102530/0002
+Link: https://developer.arm.com/documentation/107997/0001
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+---
 
-Konrad
+I thoroughly hate this but the alternative of nuking these busted VMs
+isn't exactly popular...
+
+ arch/arm64/include/asm/cputype.h |  1 +
+ arch/arm64/kernel/proton-pack.c  | 16 ++++++++++++++++
+ 2 files changed, 17 insertions(+)
+
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index d1cc0571798b..5c6152e61cad 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -282,6 +282,7 @@ struct midr_range {
+ #define MIDR_REV_RANGE(m, v, r_min, r_max) MIDR_RANGE(m, v, r_min, v, r_max)
+ #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
+ #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
++#define MIDR_MIN_VERSION(m, v, r) MIDR_RANGE(m, v, r, 0xf, 0xf)
+ 
+ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
+ 					   u32 rv_max)
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index b198dde79e59..3d00d4c22d58 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -962,8 +962,24 @@ static bool has_spectre_bhb_fw_mitigation(void)
+ 
+ static bool supports_ecbhb(int scope)
+ {
++	static const struct midr_range spectre_ecbhb_list[] = {
++		MIDR_MIN_VERSION(MIDR_NEOVERSE_V2, 0, 2),
++		MIDR_MIN_VERSION(MIDR_CORTEX_X3, 1, 1),
++		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
++		MIDR_MIN_VERSION(MIDR_CORTEX_A720, 0, 1),
++		{},
++	};
+ 	u64 mmfr1;
+ 
++	/*
++	 * Prior to commit e8cde32f111f ("arm64/cpufeatures/kvm: Add ARMv8.9
++	 * FEAT_ECBHB bits in ID_AA64MMFR1 register"), KVM masked FEAT_ECBHB
++	 * on implementations that actually have the feature. That sucks; infer
++	 * presence of FEAT_ECBHB based on MIDR.
++	 */
++	if (is_midr_in_range_list(spectre_ecbhb_list))
++		return true;
++
+ 	if (scope == SCOPE_LOCAL_CPU)
+ 		mmfr1 = read_sysreg_s(SYS_ID_AA64MMFR1_EL1);
+ 	else
+
+base-commit: b4432656b36e5cc1d50a1f2dc15357543add530e
+-- 
+2.39.5
+
 
