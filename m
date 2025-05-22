@@ -4,92 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06AEC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 06:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCBCC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 07:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WeKMC6ZBMvoz5mZGPjKGgi0Ohr2T8fh1E4A0BZHhyCM=; b=Qmo610Yn/z+W8K4K9xkfTO0qB4
-	ysyMXfhw8TlRFSzm24l9n9ap+S+vfHOLKWeUs+Gqfi+BmXEjoquEta09uunO6JJvFUN67tKGMdIKZ
-	rn914Jvhj+EPuL78hbQNcWq9rFqqDLyqOny1lfMRuiLcKzbI9IKdnJc3EPSal6PCbHmugBLVvHTZT
-	BQw2yhpKqOCWCsnw7hUn4WFJOtAvRnO5D3x3I2xTLfHSbk2Sg+9/WeRqpj0dEDfxzVS2LWTW7R2a5
-	tnMmB9CIHMdQ1RlmvmKZLVeFqmxpxyxwEc1tT0AjnaA290iQxIIAi3Aqmm8SOH7Xmrtzl2MZUxJQ0
-	6zpaj6NQ==;
+	bh=+kVyiFz8rBEbdWT096O0KnBFBtIXLU/PlyIDffkJQ+M=; b=k7jMI1cQ9+gJxapVJ1gt4bPoA9
+	NhLALD3OF5pDxx/sU9P4tezlC42wSkzDgn8L9tJ+Enrh5AuF+Ox355IWUEO6n2No+Njh7QRQON4rm
+	MMed3TeMHZC8AU1sZwS1P0+sJ1xRLqTbPHszdrru/5CzCy3u7aA0uT8b6GzJLQknZMkvBw1a80BDB
+	Tw9/j2Bu0I0lZPnW2eYBKUTYHE+aCKTq31TK2JLVEZJhyTOxnmCgZwqAYVfu1Fuj9aPOX3zqdyafd
+	+tt+fkax2wurriqYJJEt4DRO+mthPCxkzPsc8YFLzh1C/IwEyhF+5pt17aqr+zKCjKW+hkxmMP+V/
+	1yz6zqUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHztE-000000003a6-1tOF;
-	Thu, 22 May 2025 06:58:52 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1uHzvI-0000000041h-0ZDe;
+	Thu, 22 May 2025 07:01:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHzrA-000000003GN-3jdh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 06:56:46 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7311a8bb581so5807992a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 23:56:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747897003; x=1748501803; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WeKMC6ZBMvoz5mZGPjKGgi0Ohr2T8fh1E4A0BZHhyCM=;
-        b=AILPDw8+kTXmpbgcffam5PPAsLqDKlAev40yLqSg9xsbq+Pn17G3FYynb39vI+PFMW
-         V8uP9FcnxkZAa1ihNLc8cGWnKCJ7W8hx82XrLZgB47UR3smspeKFMKMlaypvWDPmgbKp
-         8NE1wSD4m8EmBxPee99uHSk7YHm+z7NcQl4iI3FsZtMPWh4iJDCsMdJF22TwbK7PzIG1
-         6IjhFexMtU5xGqP1FdDcEHdlcjPB0NASb4VAPxIR1hzMP9N24Fnz2bYtgWeNbuU9NDoV
-         dKiC7F1zoyDxDwJzGkCFjXi4U2cb/mzeXJrAkYgXwYcoOk37vVP0dOStBkHA5AmJD2zp
-         J4/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747897003; x=1748501803;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WeKMC6ZBMvoz5mZGPjKGgi0Ohr2T8fh1E4A0BZHhyCM=;
-        b=xJNQ3obEmYxODy1TqscwlHEv8uGqzvsey2PJBDmZ1Vog7hUy7TaqUWMYTkhyZkWq6a
-         8PwzX/hggn5wYI7XFUfEkJX6vGPODuEeL0UGSCGJ8VvuknUdx8fEOVk+PzbCS3PQScCc
-         m0h2yYzjveyt2IMfqnjny6akBFUAJZNCU0HdLJCrV59fmBDo7ydTjto6BAk+jfg6d7er
-         BgObfRKd4qj19ESF1tYh+i3/LyMIJvNr5esBDfcBxi5qdbSlPlP/nxWCJbuqO4eHja8a
-         R2xaKz1TrgiUau0Zr1CAv+1KIW0oLEGhZKqPoDqXuux6EYOBmuL1LIhjX5+ly7QE3nIN
-         IqLg==
-X-Forwarded-Encrypted: i=1; AJvYcCVHFey8IHfJAobNCzt2umveCt1SsZ1xLTif3ltEqcG2E9S39iFenS5r6wOkkiajf28L1LZ4Z/3+rcN9gn7Mu3MB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCGDi7QtiDgy4D+vxbfp91+M09I4j8aXtSLPxLeeGmPQ/iVql7
-	h67lvWZtun/hThyMT+HOMLVMnhvZfgYtAjRQp/EdgzJqufCU8g3ld0bPLftgsWUaTF+Cw+1l369
-	/YPcyPzCcQZZYF0DOSSpb5nBqDDt8oNZJl/RvgqKcfQ==
-X-Gm-Gg: ASbGncuEb0FcHNGH/B/oKhi5VaI4WgqoxdQ9KToZI9BeF4YSR7XNxlUWHmVPALwnUV0
-	cHhizM6hTZGjJXJ7HcBtHEak32ga7qsTQH/d5O9+d6PB88n9J4q0x9pk6t3TaMGiY2HjeA96M3p
-	8IFgH4C7mjrHhiWvW+EDmvFCwkBTiwvtaolQ==
-X-Google-Smtp-Source: AGHT+IHkFUemf1YsBa7Ra5vRLLSyYkClMUJvfuEYqOo7C5Q/HY7RUEskcqp+LiC0Z8m9NvJveoTaK0UdZlaYOd03Who=
-X-Received: by 2002:a05:6808:6410:b0:3f7:ff67:1d8c with SMTP id
- 5614622812f47-404d88d532amr14478281b6e.36.1747897003075; Wed, 21 May 2025
- 23:56:43 -0700 (PDT)
+	id 1uHzsk-000000003Sv-2Vz6;
+	Thu, 22 May 2025 06:58:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D9C3C5C570D;
+	Thu, 22 May 2025 06:56:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58431C4CEE4;
+	Thu, 22 May 2025 06:58:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747897101;
+	bh=yIscN6qoA34z9Zb9F5xniTQYvJ4yyoyvTBX/f8DyTsA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cZhkPiaFbr/c0GFkEk5V22r5SDKEkfiILkXBesGA2oi9agiR0P3H0T8Ur4RY9ZaFM
+	 jN7IbG4vFQpu9BZ5v5ia/PMjd/Dk68G0DvP4/oSEC+SRkc3s5Npz0o4tjXo0cKVbil
+	 v01z41UomFELdMH4sN6JlHdIrVWY0U97mf+wkvPsemeuwpVcxMQ00Iau43f4PlL2yW
+	 7mlg0AB3TNTDx9wZ4nWt9Oe6c6vOnp4jBw8cJBM1PqVAZHF+rBr+XsGNz0JtO+0PaR
+	 Jhu6/uHIp4gzMwuJe5VISPwOboL4CLLc02GkNa2ZgKp75vcOgQjgU1dRngd3iC4lJt
+	 BRKowddWz5DGw==
+Message-ID: <ed51c57a-35c4-43e4-9041-221026fb6273@kernel.org>
+Date: Thu, 22 May 2025 08:58:16 +0200
 MIME-Version: 1.0
-References: <20250520152436.474778-1-jens.wiklander@linaro.org>
- <20250520152436.474778-3-jens.wiklander@linaro.org> <dffbd709-def0-47af-93ff-a48686f04153@amd.com>
-In-Reply-To: <dffbd709-def0-47af-93ff-a48686f04153@amd.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Thu, 22 May 2025 08:56:31 +0200
-X-Gm-Features: AX0GCFsuHYqDh1JYpWH8r8xDir4J3V2XXHJjiARqLynYHFcDQxMIIZpQ5oYhZd4
-Message-ID: <CAHUa44Ec0+GPoDkcEG+Vg9_TY1NC=nh3yr0F=ezHMbaeX_A0Bg@mail.gmail.com>
-Subject: Re: [PATCH v9 2/9] dma-buf: dma-heap: export declared functions
-To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: can: rockchip_canfd: add rk3576
+ CAN-FD controller
+To: Elaine Zhang <zhangqing@rock-chips.com>, mkl@pengutronix.de,
+ kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com,
+ kever.yang@rock-chips.com
+Cc: linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250522063232.2197432-1-zhangqing@rock-chips.com>
+ <20250522063232.2197432-2-zhangqing@rock-chips.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250522063232.2197432-2-zhangqing@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_235644_936948_62191FB0 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20250521_235822_724596_03D78DF9 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,66 +121,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 9:13=E2=80=AFAM Christian K=C3=B6nig
-<christian.koenig@amd.com> wrote:
->
-> On 5/20/25 17:16, Jens Wiklander wrote:
-> > Export the dma-buf heap functions declared in <linux/dma-heap.h>.
->
-> That is what this patch does and that should be obvious by looking at it.=
- You need to explain why you do this.
->
-> Looking at the rest of the series it's most likely ok, but this commit me=
-ssage should really be improved.
+On 22/05/2025 08:32, Elaine Zhang wrote:
+> Add documentation for the rockchip rk3576 CAN-FD controller.
+> 
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+> ---
+>  .../net/can/rockchip,rk3576-canfd.yaml        | 82 +++++++++++++++++++
+>  1 file changed, 82 insertions(+)
 
-I'm considering something like this for the next version:
-Export the dma-buf heap functions declared in <linux/dma-heap.h> to allow
-them to be used by kernel modules. This will enable drivers like the OP-TEE
-driver, to utilize these interfaces for registering and managing their
-specific DMA heaps.
+There is no cover letter (maybe something got lost on the lists?), no
+changelog. What was happening with this patch?
 
-Thanks,
-Jens
 
->
-> Regards,
-> Christian.
->
-> >
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > ---
-> >  drivers/dma-buf/dma-heap.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >
-> > diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.c
-> > index 3cbe87d4a464..cdddf0e24dce 100644
-> > --- a/drivers/dma-buf/dma-heap.c
-> > +++ b/drivers/dma-buf/dma-heap.c
-> > @@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap *heap)
-> >  {
-> >       return heap->priv;
-> >  }
-> > +EXPORT_SYMBOL(dma_heap_get_drvdata);
-> >
-> >  /**
-> >   * dma_heap_get_name - get heap name
-> > @@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_heap *heap=
-)
-> >  {
-> >       return heap->name;
-> >  }
-> > +EXPORT_SYMBOL(dma_heap_get_name);
-> >
-> >  /**
-> >   * dma_heap_add - adds a heap to dmabuf heaps
-> > @@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct dma_heap=
-_export_info *exp_info)
-> >       kfree(heap);
-> >       return err_ret;
-> >  }
-> > +EXPORT_SYMBOL(dma_heap_add);
-> >
-> >  static char *dma_heap_devnode(const struct device *dev, umode_t *mode)
-> >  {
->
+>  create mode 100644 Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml
+> new file mode 100644
+> index 000000000000..85caf6d19607
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml
+> @@ -0,0 +1,82 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/can/rockchip,rk3568v2-canfd.yaml#
+
+Never tested, so just quick glance, not review.
+
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title:
+
+
+That's never a line break. Open existing files and look how it is done
+there.
+
+
+> +  Rk3576 CAN-FD controller
+
+
+...
+
+
+> +
+> +        can0: can@2ac00000 {
+
+Drop label
+
+> +            compatible = "rockchip,rk3576-canfd";
+
+Messed indentation
+
+> +	    reg = <0x0 0x2ac00000 0x0 0x1000>;
+> +	    interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
+> +	    clocks = <&cru CLK_CAN0>, <&cru HCLK_CAN0>;
+> +	    clock-names = "baud", "pclk";
+> +	    resets = <&cru SRST_CAN0>, <&cru SRST_H_CAN0>;
+> +	    reset-names = "can", "can-apb";
+> +	    dmas = <&dmac0 20>;
+> +	    dma-names = "rx";
+> +	    status = "disabled";
+
+No, it cannot be disabled. Drop. Look at other bindings or example-schema.
+
+> +	};
+> +    };
+
+
+Best regards,
+Krzysztof
 
