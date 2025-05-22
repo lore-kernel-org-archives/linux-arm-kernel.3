@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7B4C54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 06:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2DDFC54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 06:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5IrppD+noS0OCQj8srA99WHmG3PCHUwAcMuiVB1ALqE=; b=1zqN4VIvxAU+tbn5bQ76O5lDPD
-	F8PsY9xHJWfRaFcBK425XPkleRJ+mios9oKPlbiSOxcdqqhYuWXmJuXcosCG7KAwRFu8Nruofo+aJ
-	/0GtKJ5niwdNe2zV5puCrrLziIxnYpoX8+ewaLEk0LwIxpMILH8/SBlJYbMJl1j2CY7d2sV6XtmZp
-	fOiWM1Vm0iwwgigcOt2iFxpElKGlsFLrOm8GPOVJRCkl5Pzs+VlS+LFSYmPbY+wopG6XJt3Dshsi1
-	DsKOVZl9uNADBKjjUDJEqAIITTAdy/nc/LIGMaDIAOlcS8TpEny4HomGHElYrxva4L84OblLS77EG
-	EaxFaCZg==;
+	bh=YrD/3cMaELrj0WxecR8TGpVQ/1vDEVc4Rj278Y6+gmg=; b=SXvDBkrxqYBNAvV/Yh53ZMvqO3
+	K4Qf0w0N4JeOPdCLF666QbQifjoWF5wQ72eNflRVNdzeyf6Bn9O/oXGXyLpR8ANNIKgaKghGEjH0K
+	/GhgArsEGuxY+d2oYX4wTq6RVQ26zBHtJL3lHCUeyAqrBEZZ2O1YD1uwZP6CFY9DOk/KFX2oKcQvL
+	O+PiQdx4OsHpjn98nQoG8GFAiypi+wn5LJ1rMqT/i0vabgdLaJhuSwc6SqZekUaT8NcaJVvtiAEBf
+	zICCHaPs/VrLUeZoKF0UFdtfm8Aj/C/2OmJUkWrYn4T8svpydcbmbeW0zDPc2TECdl7SHW8rbab6k
+	txdIPTSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHzW2-000000000mF-284W;
-	Thu, 22 May 2025 06:34:54 +0000
-Received: from mail-m1973177.qiye.163.com ([220.197.31.77])
+	id 1uHzY3-0000000010j-2Csc;
+	Thu, 22 May 2025 06:36:59 +0000
+Received: from mail-m32124.qiye.163.com ([220.197.32.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHzTy-000000000TE-1KmH;
+	id 1uHzTy-000000000T8-042F;
 	Thu, 22 May 2025 06:32:47 +0000
 Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1602d1577;
-	Thu, 22 May 2025 14:32:38 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1602d1566;
+	Thu, 22 May 2025 14:32:35 +0800 (GMT+08:00)
 From: Elaine Zhang <zhangqing@rock-chips.com>
 To: zhangqing@rock-chips.com,
 	mkl@pengutronix.de,
@@ -45,31 +45,30 @@ Cc: linux-can@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: [PATCH v3 3/3] arm64: dts: rockchip: rk3576: add can dts nodes
-Date: Thu, 22 May 2025 14:32:32 +0800
-Message-Id: <20250522063232.2197432-4-zhangqing@rock-chips.com>
+Subject: [PATCH v3 1/3] dt-bindings: can: rockchip_canfd: add rk3576 CAN-FD controller
+Date: Thu, 22 May 2025 14:32:30 +0800
+Message-Id: <20250522063232.2197432-2-zhangqing@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250522063232.2197432-1-zhangqing@rock-chips.com>
 References: <20250522063232.2197432-1-zhangqing@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRoaTVZDTh9PTkMeQkxIGBlWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0sYTFZIT0lIS0odQhkeHkNWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a96f6b1a29703a3kunme211611210aab3f
+X-HM-Tid: 0a96f6b1957f03a3kunme211611210aaa93
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MQw6Lzo6PTExCBIMKkMjEAsM
-	DQ0wFDxVSlVKTE9MQ0JOTk1LSUpIVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUlJTkw3Bg++
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OAw6Agw5FDE3LhIRDEMiEA42
+	PzhPCwJVSlVKTE9MQ0JOTk5NQkNNVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUhJSkk3Bg++
 DKIM-Signature: a=rsa-sha256;
-	b=G5JkPvUu6PwLVwBm8RzetK8sUJx0D2rodK40gP2ZxJe40N0MF/CFJCMAHCj6KI98D+2BVWvODGdeYYhw90TfS0U7JDZBV2nZW8PlL+sPtJZfK50jdXtPRYGoGy/n8i1sZOG5nOQIqteZ8x6peVM5Rhel9qxSdFPCMvSHPSdBHY0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=5IrppD+noS0OCQj8srA99WHmG3PCHUwAcMuiVB1ALqE=;
+	b=Bd4QCM0tbtFm/iaCR7PjOLmCNQ33/qZch0gsrcXS3HtGqur50gDoSrvbtUwjXXY+tJB4WraKl5tRU/AI28lrCt6FpukbMn2n8S075AyswZgA3eDE+WZdmg3Rbo6camrfta3sujShGHb+tHNxTNSRHc9YhtcgyonOb9Fba9OPQMc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=YrD/3cMaELrj0WxecR8TGpVQ/1vDEVc4Rj278Y6+gmg=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_233246_504583_5533F6D3 
-X-CRM114-Status: UNSURE (   7.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250521_233246_504326_6A154F79 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,44 +83,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add documentation for the rockchip rk3576 CAN-FD controller.
+
 Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ .../net/can/rockchip,rk3576-canfd.yaml        | 82 +++++++++++++++++++
+ 1 file changed, 82 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 436232ffe4d1..ca665c29a72d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1195,6 +1195,28 @@ dmac2: dma-controller@2abd0000 {
- 			#dma-cells = <1>;
- 		};
- 
-+		can0: can@2ac00000 {
-+			compatible = "rockchip,rk3576-canfd";
-+			reg = <0x0 0x2ac00000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru CLK_CAN0>, <&cru HCLK_CAN0>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&cru SRST_CAN0>, <&cru SRST_H_CAN0>;
-+			reset-names = "can", "can-apb";
-+			status = "disabled";
-+		};
+diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml
+new file mode 100644
+index 000000000000..85caf6d19607
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml
+@@ -0,0 +1,82 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/can/rockchip,rk3568v2-canfd.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+		can1: can@2ac10000 {
-+			compatible = "rockchip,rk3576-canfd";
-+			reg = <0x0 0x2ac10000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru CLK_CAN1>, <&cru HCLK_CAN1>;
-+			clock-names = "baudclk", "apb_pclk";
-+			resets = <&cru SRST_CAN1>, <&cru SRST_H_CAN1>;
-+			reset-names = "can", "can-apb";
-+			status = "disabled";
-+		};
++title:
++  Rk3576 CAN-FD controller
 +
- 		i2c1: i2c@2ac40000 {
- 			compatible = "rockchip,rk3576-i2c", "rockchip,rk3399-i2c";
- 			reg = <0x0 0x2ac40000 0x0 0x1000>;
++maintainers:
++  - Elaine Zhang <zhangqing@rock-chips.com>
++
++allOf:
++  - $ref: can-controller.yaml#
++
++properties:
++  compatible:
++    oneOf:
++      - const: rockchip,rk3576-canfd
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 2
++
++  clock-names:
++    items:
++      - const: baud
++      - const: pclk
++
++  resets:
++    maxItems: 2
++
++  reset-names:
++    items:
++      - const: core
++      - const: apb
++
++  dmas:
++    maxItems: 1
++
++  dma-names:
++    items:
++      - const: rx
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - resets
++  - dmas
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rockchip,rk3576-cru.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        can0: can@2ac00000 {
++            compatible = "rockchip,rk3576-canfd";
++	    reg = <0x0 0x2ac00000 0x0 0x1000>;
++	    interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
++	    clocks = <&cru CLK_CAN0>, <&cru HCLK_CAN0>;
++	    clock-names = "baud", "pclk";
++	    resets = <&cru SRST_CAN0>, <&cru SRST_H_CAN0>;
++	    reset-names = "can", "can-apb";
++	    dmas = <&dmac0 20>;
++	    dma-names = "rx";
++	    status = "disabled";
++	};
++    };
 -- 
 2.34.1
 
