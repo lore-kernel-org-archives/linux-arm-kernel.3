@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7124CC54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F85C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+OhyRmK+odmcarituTL+EeuhRr8HjjwGpWLcoHucNA=; b=TuYwOj/AkkFYZwyWUeImc0gyqP
-	XrADXQ/Gq4VfdK33h795FnWQzCIarybSZGnf4QcpueT1BJeHv7qg7fBSQC3I/X5K8s+gkpdWn6cLH
-	3yV1Iawcckm/teWoEB1WEmbB+IrOwtEXUcdhKRuU5MbdP/hxINf0FsvZexB0nQjVwMWhCMbE/IakP
-	ctrTwFHlUjDNj8idQw+vy4+ogo9fJygEh9/mYRdjAilNg6DKaCTFJZSWUn35835cT5OGo5pTVcxBz
-	lOt9coflEqS1OhOjUUvw9vZxX1QVxfya0C7SP+7Y62PkGkivgwPi7X8YRwgu1atEYRFonEzkyCIkh
-	ZAEQDJXA==;
+	bh=0Z1fJZAnO5gbEdE9pm7QO/Ig7e59PsYGFh5eZL9ezsU=; b=w2PHgapePDmVPg2NVHVipFBlH8
+	wJgvbad5DN/6cMf65cQnhw5DeEonZrtS+VT32cm9ZgWYMXP6MRknvrn8D+U2/Dj3SnHB45Q2DoiX0
+	t2cuAXHcipRG+P2SnOnqcN2mYI0L7463BroxVZzqa3XY1TCJ12VYiLo4wTWVtvkvT2rV/8rFHt7Z5
+	yHtULApPVdZiNMaC+R1KJHhSUA5PYlGGqZ5aUdHcIYM04qR8uRj6rs/WSsQ6GtQ8OzrTQy+gMbhOP
+	5dVhKgjgZIBMuGJPKAIUrEj4hXX5TRNV/Uypyi6GGIJpBk67J7OkCw/hrV7bWXy4aXihSlqi+l1h+
+	pdnW/XCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7Ts-00000001NEg-2jHR;
-	Thu, 22 May 2025 15:05:12 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uI7Vs-00000001Nbl-1XrZ;
+	Thu, 22 May 2025 15:07:16 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7BO-00000001J7j-1ZsC
+	id 1uI7D9-00000001JUC-43Vo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 14:46:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 90407A4ECE8;
-	Thu, 22 May 2025 14:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65827C4CEE4;
-	Thu, 22 May 2025 14:46:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747925165;
-	bh=8FR4QAUBBTELVo9pnu4KJI7w5E3w2Hnkds8Cgh6qVD0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f6VAFkiAN5GbPXTcxCwhVT2uN5NJcr491Dp4C2e2uMejHBuUtXKpSbJ5sh4J6mXen
-	 MxhYj5QIKqk2XTkuyHW0CBKWeuMZ36u7oJJNjUYQ101+RpGou6A/gM6dGSU18jJnPj
-	 z6RALLZaUpxwjEku4MVk35i+zRBHI/j2cf5pKepBJGdQNck3Ihjrf546qsuZdihuVn
-	 udyGEzyCqI1zrBOiwaZTXDrgIU3hf1Mw7QEAP8waGPb2wBeNbuHMoN483JPSAdMm24
-	 fXsSRkSLJ4hrqY7h1s5R88gULab51K4H3VlgjxV8hRhb5eXiXzeCE1sxLDsf07CaFo
-	 Q4/+zYiB+x17w==
-Date: Thu, 22 May 2025 15:45:59 +0100
-From: Lee Jones <lee@kernel.org>
-To: Artur Weber <aweber.kernel@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Thu, 22 May 2025 14:47:57 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-30e80f03760so5868475a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 07:47:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747925275; x=1748530075; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0Z1fJZAnO5gbEdE9pm7QO/Ig7e59PsYGFh5eZL9ezsU=;
+        b=vCnc152j/+1A96V1FfSspDloXCqclZiPLG8morhfKW3FW2Pmz5gdHC4ehieqH9cEVu
+         KHmlxJb/lhjWproxHtfA8WRttriv6hZwk/vRZYRTQ7esxSaPFW/OVgvmN8XF83yOCXVI
+         HCjO2HSHGedJIIBdSs5crxDWJO9SgLlZ/YZ0d7DJsAtGJ6Rdf0a3dSud8AzwrZst/sFx
+         Pn392fUg0lpl6CBsJOSMgkhlCyFg5UPuQSAQCnYUp8oP+Fvmmt1l4UvsjKYkWzHABQtj
+         RQSA4iK1hqwMGVgSJGEpOgGuJ++Yc9OFWbc4bM+pdgejIqt88O0WAQXL0g9YsYryrkWf
+         QrGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747925275; x=1748530075;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0Z1fJZAnO5gbEdE9pm7QO/Ig7e59PsYGFh5eZL9ezsU=;
+        b=XfTRgw0h9yxEmkbwkbClvlzwnrv4fAAFzt9Xqy49qHGB9X68ndUq9nkESs71yQ8d5U
+         ptWVX1cHeKWYdoCry6CTmm/nz5zL0o4B//h9YN5yUdqAOuYyNfjbnNnoGB0utgsnjyBB
+         nx+9YCYJhgb1Z/AX8VS969bmMUJl0+uP7h1ybUZ+CxfMUE0nwzMRIg6hCy071WEWGoyC
+         Aa5fj+q/qR1dsMff6DISPMR+TDzsDoFMifdynjYtfv4Y3txPvxvMSoDqfpzDuYpVffh+
+         ne/CalmIYagUqcwYVtIVaVAk5Z5Eji2GmVn4BzTvXG5O9kPmbqZePRCDZ4O9mq14sitR
+         BUdA==
+X-Forwarded-Encrypted: i=1; AJvYcCVq/KktmSFaMgpdAtONpbKAUhAGmKd5sanOUSK2p24lzkaOsW85c/XifYtIyUyIkk4ESr+BNnu/yV5SrU4hTwOZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiL/iSDOSzD+pppfEy1hRGcj16SK38kXwupuMwK8p2e//rXAGm
+	AHlj7DQ43QtENRpQJK/AyZIEsPeXlCARfEvvGtNHwrl36y/vKAabwHe+Pb6+AQ0Q65s=
+X-Gm-Gg: ASbGncvh/EIrgmJyCLmzTSP/YgKRNwrMlCD241CYCpQdCdcSkcWOVTbOZfmIJ+VXx4r
+	o2MHlc5DXHSmZEswTvfMT/aPj8AxYPxnLGgBpeZ4WRLRbDkiOhllzvNxChwBUOTZIP3smSXlFK0
+	6ckxvby/v+oiTcDNdA2Iz80S9WFRrBew4YbctAGaHF5xfZUW7DR1ZPwP7AYxr9EEBqW9rQ34tNE
+	v3XGxnIsVI48OQ+sieqmn7sdfbttZeOXSdBye6z5ndOGb24urjYPBcPQThyLC9CoaA50PtAYLeO
+	8SzBsANjwYVkp1OX01RNNg54OUtbQNH7d7RXzTaE0eMUlodqH8TKWMk=
+X-Google-Smtp-Source: AGHT+IG5YDZqJMGCNUR1bl3lh55nwJynldcZarNJfaMbRBZQnBUy0qDHzLUmT4VJ7H8G0EhPmNRC+w==
+X-Received: by 2002:a17:90b:33c2:b0:2ff:58b8:5c46 with SMTP id 98e67ed59e1d1-30e830f7b18mr38271134a91.8.1747925273816;
+        Thu, 22 May 2025 07:47:53 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:adb8:3fc6:e0a3:9f52])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30f36365d9esm5641713a91.7.2025.05.22.07.47.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 May 2025 07:47:53 -0700 (PDT)
+Date: Thu, 22 May 2025 08:47:51 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: andersson@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-remoteproc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	~postmarketos/upstreaming@lists.sr.ht
-Subject: [GIT PULL] Immutable branch between MFD and Regulator due for the
- v6.16 merge window
-Message-ID: <20250522144559.GB1378991@google.com>
-References: <20250515-bcm59054-v9-0-14ba0ea2ea5b@gmail.com>
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] remoteproc: mediatek: Add SCP watchdog handler in IRQ
+ processing
+Message-ID: <aC85F1Rua2dn_qTY@p14s>
+References: <20250521142404.1077-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250515-bcm59054-v9-0-14ba0ea2ea5b@gmail.com>
+In-Reply-To: <20250521142404.1077-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_074606_478137_DF8CDEE9 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250522_074756_017882_F5B41748 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,47 +101,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enjoy!
+Good day,
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+On Wed, May 21, 2025 at 10:24:03PM +0800, Wentao Liang wrote:
+> In mt8195_scp_c1_irq_handler(), only the IPC interrupt bit
+> (MT8192_SCP_IPC_INT_BIT) was checked., but does not handle
+> when this bit is not set. This could lead to unhandled watchdog
+> events. This could lead to unhandled watchdog events. A proper
+> implementation can be found in mt8183_scp_irq_handler().
+>
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+As pointed out by Markus, this changelog needs work.
 
-are available in the Git repository at:
+> Add a new branch to handle SCP watchdog events when the IPC
+> interrupt bit is not set.
+> 
+> Fixes: 6a1c9aaf04eb ("remoteproc: mediatek: Add MT8195 SCP core 1 operations")
+> Cc: stable@vger.kernel.org # v6.7
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+>  drivers/remoteproc/mtk_scp.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+> index 0f4a7065d0bd..316e8c98a503 100644
+> --- a/drivers/remoteproc/mtk_scp.c
+> +++ b/drivers/remoteproc/mtk_scp.c
+> @@ -273,6 +273,8 @@ static void mt8195_scp_c1_irq_handler(struct mtk_scp *scp)
+>  
+>  	if (scp_to_host & MT8192_SCP_IPC_INT_BIT)
+>  		scp_ipi_handler(scp);
+> +	else
+> +		scp_wdt_handler(scp, scp_to_host);
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git ib-mfd-regulator-v6.16-1
+I would much rather see a test for the watchdog bit than just assuming it is
+a watchdog interrupt.  And while at it, please refactor the bit definition to be
+platform agnostic rather than reusing 8192 definitions on an 8195 platform.
 
-for you to fetch changes up to ef7f3631a44b8e0990ab8ffcbed4b2c3a4270883:
+Thanks,
+Mathieu
 
-  regulator: bcm590xx: Add support for BCM59054 regulators (2025-05-22 10:57:46 +0100)
-
-----------------------------------------------------------------
-Immutable branch between MFD and Regulator due for the v6.16 merge window
-
-----------------------------------------------------------------
-Artur Weber (8):
-      dt-bindings: mfd: brcm,bcm59056: Convert to YAML
-      dt-bindings: mfd: brcm,bcm59056: Add compatible for BCM59054
-      mfd: bcm590xx: Add support for multiple device types + BCM59054 compatible
-      mfd: bcm590xx: Add PMU ID/revision parsing function
-      regulator: bcm590xx: Use dev_err_probe for regulator register error
-      regulator: bcm590xx: Store regulator descriptions in table
-      regulator: bcm590xx: Rename BCM59056-specific data as such
-      regulator: bcm590xx: Add support for BCM59054 regulators
-
- .../devicetree/bindings/mfd/brcm,bcm59056.txt      |   39 -
- .../devicetree/bindings/mfd/brcm,bcm59056.yaml     |   76 ++
- .../bindings/regulator/brcm,bcm59054.yaml          |   56 +
- .../bindings/regulator/brcm,bcm59056.yaml          |   51 +
- drivers/mfd/bcm590xx.c                             |   66 +-
- drivers/regulator/bcm590xx-regulator.c             | 1289 ++++++++++++++++----
- include/linux/mfd/bcm590xx.h                       |   27 +
- 7 files changed, 1325 insertions(+), 279 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/mfd/brcm,bcm59056.txt
- create mode 100644 Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
- create mode 100644 Documentation/devicetree/bindings/regulator/brcm,bcm59054.yaml
- create mode 100644 Documentation/devicetree/bindings/regulator/brcm,bcm59056.yaml
-
--- 
-Lee Jones [李琼斯]
+>  
+>  	writel(scp_to_host, scp->cluster->reg_base + MT8195_SSHUB2APMCU_IPC_CLR);
+>  }
+> -- 
+> 2.42.0.windows.2
+> 
 
