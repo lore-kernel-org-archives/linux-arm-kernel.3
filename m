@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0ECC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 09:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7784C54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 09:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cy8bRhmyQJ/d7eu1Zb2F778XWoW2ZdMdqGCMHnEhRo0=; b=TPYRrOe3w8gUkSr+056U15U7MH
-	gfFJIMbnPCHMJ+smy8mdqovLD4ABKrgST9wM9sk+88WHTbbDe/NHuZy2SdpOd0M/GNNdbZssC31PO
-	rEJ3VcUXIG9MRHkBPJc6NGfEgIv4YxjA8hmrjL8V5vWo5zkU56O4hIEUVwL83LSaVhcRbB5e7Cu9X
-	W7XhBwiFuw/qxIrl3qF+Pv1P8KElzw6sXfmKfsFcNRFJCt8c4nnRvpmOh/Bo8S7Gv+nKNNt/MCOyZ
-	0OS23/Wysl3s+sJJa8BAu+b9Hhc2d+K2uYKFuKMhU3MHJVXP/RPNo1HlWfCu1CAYJQNZC/Qz9jjsY
-	UreqKt0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P9imWNVpcHY4/YQmn253SAWo0LBrDG5vEkbvmzjj06E=; b=Sqt9NEKzOpfCLwRaaW1tI2L+RD
+	rPm46Z367T3uzwFOlv7pcV7igrIVacxLQr0l/swvYnZOzBRYZkGfIuUlzCSj4CcmZYPplEEDFUxMx
+	1RndccHFmAHwOmPEmIqmsLIYuOWDBvfHhbxcjtM95eK+T5oj7aTdY0c0+A5buYqELALF+BTCJGIhC
+	JToC6x1GHUX06YJO/ggkBKTtbBaErGJ6ZuZpVqYRCcNLkOR5gn3Q861P62rYp0Pd/RpS4tS7NFRT7
+	nS3A05eagVApamy50NxmdIRl1qyGWNJ+VmZUfh0Drli4PpnBAMFGykcajQ8GWfPi6TyyoNxli1IHZ
+	KaEdUd4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI2DQ-00000000UuQ-3nCw;
-	Thu, 22 May 2025 09:27:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uI2Hf-00000000W0b-37oM;
+	Thu, 22 May 2025 09:32:15 +0000
+Received: from mail-ed1-f41.google.com ([209.85.208.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI2BL-00000000UZx-2oUj;
-	Thu, 22 May 2025 09:25:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9A4E45C57A5;
-	Thu, 22 May 2025 09:23:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34187C4CEE4;
-	Thu, 22 May 2025 09:25:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747905942;
-	bh=p53SfCe7muDgtvQFHMIVqvkowaeuQ3Tx7It7jszYKD4=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=CO9mh0dYYJ6S4syWXHaQCopevlhaqGAYO5iqcLaWHMlY00lVp9y+W4/oG4MnnBP4/
-	 tr+s3pHewoNQEBg1NNcnx3voyBJHMTfpOzB+48AgrF4gMYvM/+/dkDnqj9oUDN6D4+
-	 Cd1x7EZ8bzOpZvmQVk0+QhRzIyf2h+4mYCnu/ILvzt4ucD1XT6EMrpItDesYc8MZrK
-	 3xeM2zdbF2zBeiW6drS2KAe8uMiwbLrK55SzE6/qzNQeC23AFvjE3Vd1i1wV0BdXHA
-	 yiO+mEI+J3ejMfzo58Vj+tJb1V7ynQZO1dCjTIzeK1T7CB6Hp/OQcJAxodLqFZjjkn
-	 P35doFcmKnAvw==
-Date: Thu, 22 May 2025 04:25:40 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uI2FZ-00000000VSO-3Xa3;
+	Thu, 22 May 2025 09:30:07 +0000
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-60179d8e65fso4577537a12.0;
+        Thu, 22 May 2025 02:30:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747906204; x=1748511004;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=P9imWNVpcHY4/YQmn253SAWo0LBrDG5vEkbvmzjj06E=;
+        b=QSzGa6nV3PYUxYfuYOsSKI4I7/d+6rZIwd7sP3rEreTu0tSuE4y0OyrSV8pJ4Lo/BZ
+         saGcB3gXAgmK9xExCWmMd1fgdlEn5APwSbsh9wwPrUin7Zq6qXNK5l0vZNFzp3JZjmWU
+         MV1LFsLVGMZvFUpKAKwRzN5ZP0TarGxhz/lmrkyOxpUdVHfDOkWA8rlLbcywi2q6/RZD
+         1LoeJqQlNsDN6PujicUYAkzxWsq5kN5YXjRovZuF3Xj2EPFo/WJ0fD+FXP/LYqPJnktD
+         Q/gmsSe6A/e6amDeYmQEwkH2+waWOe9wWPhLDbWkbAwsTnCMgtomtN+tFO8N2EWKZHla
+         d25w==
+X-Forwarded-Encrypted: i=1; AJvYcCVWAlK770CoAyvtaYDrGdt+aFIJN5ekOZxgjFtI48FF221v1dkUD1Loq8yAbaz5qIxLODp9RCZHateaMkGu@lists.infradead.org, AJvYcCVWcpZoaCEtGCWsEbixFYrZOGLL/FbttBXAAWfjeLxfaYaZ16jUpO9UvsGZqH8/HKIq8F5fmWCGTrq2BYpqkVnLsw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTVDyEsZf0FnCm74vhsBrvA7KQ2i8oI3ikvUq9UDPoN8m+7F3L
+	lS2vBUFgm+4UCZ1Oxd757bpQ1ZS9/tmXt2WBjsAiZAorVgxzR2d0sRsZ
+X-Gm-Gg: ASbGncvmivCaPsT39IAQoW59UbyRztPtPyiDA43DNJlix1DQgz0QDqJx6p0xX8AQJQ2
+	ESVfr/G6QYeyfKyz1aw2G6NS+/oojtO3r0pOVO1RA1dyTRhsqfJfazLK+pyuFbVf8CIEbfC0Z4A
+	hlY0bDW/m5M+F6KgbkyrjXn9gkj1Q0ENd17R7ysr50K+zkjH2rKd2L1cK5jvhCd+ntncTV3mpn0
+	OhrcvFfeDMky/clJlYSyd7u02vDsXtO5EpTkUxPdBjS7fU2BzPI/SqGtC8+Oz2H1vEUrmCf9k12
+	CPWXY0RkPI2cPm+fl0rWSDzxXwHrY3JTWqUMPsz6FtAbyVRB4iiXwICY2iXi2/UFmis1wrkWKmY
+	OHACs90ImT/RU
+X-Google-Smtp-Source: AGHT+IH6PGZyeMyvQHBRQvlVXtj8Ud+yS5Bla8HVE2j+rxlb85y3AIQhMi0Fu03PZQrmAkfqeb8vWg==
+X-Received: by 2002:a17:906:6a14:b0:ad2:2e5c:89c5 with SMTP id a640c23a62f3a-ad52d4c511cmr2217008666b.20.1747906203469;
+        Thu, 22 May 2025 02:30:03 -0700 (PDT)
+Received: from ramallet.home (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d4ca3bdsm1036951466b.160.2025.05.22.02.30.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 May 2025 02:30:03 -0700 (PDT)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+To: linux-kernel@vger.kernel.org
+Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: [PATCH] arm64: dts: amlogic: Enable the npu node for Alta and VIM3
+Date: Thu, 22 May 2025 11:29:40 +0200
+Message-ID: <20250522092940.3293889-1-tomeu@tomeuvizoso.net>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, krzk+dt@kernel.org, cl@rock-chips.com, 
- mkl@pengutronix.de, conor+dt@kernel.org, linux-can@vger.kernel.org, 
- mailhol.vincent@wanadoo.fr, kever.yang@rock-chips.com, 
- kernel@pengutronix.de, linux-rockchip@lists.infradead.org, heiko@sntech.de, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-To: Elaine Zhang <zhangqing@rock-chips.com>
-In-Reply-To: <20250522074616.3115348-2-zhangqing@rock-chips.com>
-References: <20250522074616.3115348-1-zhangqing@rock-chips.com>
- <20250522074616.3115348-2-zhangqing@rock-chips.com>
-Message-Id: <174790594029.1733292.2362448733539179713.robh@kernel.org>
-Subject: Re: [PATCH v4 1/3] dt-bindings: can: rockchip_canfd: add rk3576
- CAN-FD controller
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_022543_793112_C2A66EDA 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250522_023005_885394_A37D2391 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,49 +93,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+We now have support in Mesa and everything is ready in distros such as
+Debian.
 
-On Thu, 22 May 2025 15:46:14 +0800, Elaine Zhang wrote:
-> Add documentation for the rockchip rk3576 CAN-FD controller.
-> 
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
-> ---
->  .../net/can/rockchip,rk3576-canfd.yaml        | 86 +++++++++++++++++++
->  1 file changed, 86 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml
-> 
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+---
+ arch/arm64/boot/dts/amlogic/meson-g12b-a311d-khadas-vim3.dts  | 4 ++++
+ arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts | 4 ++++
+ 2 files changed, 8 insertions(+)
 
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml:51:111: [warning] line too long (153 > 110 characters) (line-length)
-./Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml:55:111: [warning] line too long (159 > 110 characters) (line-length)
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml: properties:compatible:oneOf: [{'const': 'rockchip,rk3576-canfd'}] should not be valid under {'items': {'propertyNames': {'const': 'const'}, 'required': ['const']}}
-	hint: Use 'enum' rather than 'oneOf' + 'const' entries
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-Error: Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.example.dts:36.44-45 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1524: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250522074616.3115348-2-zhangqing@rock-chips.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-khadas-vim3.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-khadas-vim3.dts
+index 124a80901084..9fd68195be3f 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-khadas-vim3.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-khadas-vim3.dts
+@@ -39,3 +39,7 @@ &usb {
+ 	phy-names = "usb2-phy0", "usb2-phy1";
+ };
+  */
++
++&npu {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts
+index adedc1340c78..8e9f7e0d4542 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-g12b-a311d-libretech-cc.dts
+@@ -117,3 +117,7 @@ &cpu103 {
+ &pwm_ab {
+ 	pinctrl-0 = <&pwm_a_e_pins>, <&pwm_b_x7_pins>;
+ };
++
++&npu {
++	status = "okay";
++};
+-- 
+2.49.0
 
 
