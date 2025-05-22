@@ -4,113 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC210C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E29BC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RJur6rMZbLMp+2+d4tVcZ4bXNUfqQScMqXSoAVnIT0U=; b=rwhHqccgdQZsskwN0mXwcnbaf+
-	FUWGLtqfCuH+LWkLnx+NhgfOQ2Z68qyISYU7aAyzZy64WqnvXgtreX6N9sVWnhBSR3+aOAtOBQOAl
-	gwWv6WWrQKDNapMyLHDmuaTuZQ580nsVJdUH2m0w3l95x0LUuZZZBVio0j1GNHq97VZWwvR00yAbf
-	H8LfxDddoIS0YeaAvKQtHThls3A9zVlGgidu2dmrlnLRJBbw1MpBBVCZVX/21pZjBFDwbxKw6Npvc
-	WcQnIEVFUpGfczD95vnp5oFgOmUmOLm2EIoQawzpPMfwgd/7kvjpOJZGzGh5eC8JqtVxuQaLGU1aP
-	hdqn0peA==;
+	bh=4TU7tpZlMQ+Z/J8LghDjXFqurzAXCCyNj4y5yRCbxxA=; b=WC85zN1H5ag5rS/KGFQp9Zubl0
+	2zUY2lESSsg4c2VnRA16QvgXQ8QAPlsHNxEgRDKUv4knCjT+VUrdsGGVnftKjk16+Ye3r5SYTMOq1
+	sDrPYXTsYoLNMF3DbX53561i/e7NyJ1N1BiFypIZmMYwckD3+XAHJ0ywosa3NjaSDmTKGYsu0/xv3
+	xDoOjYRvR3fWyjih6Jx3ZBYw0n0ria00H2N1MYdxXIY/b8sodfxoO41OyzCywR9Vsb8llVpighIwO
+	hnoub4y5o3SpFuWJo3elSmFefdhkSLzj2Lz2FkaldRoHhVySKQZl1xUzZglemTFOImHBbdN/RuToz
+	JFcI/aDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8lp-00000001Yx2-2RLr;
+	id 1uI8lp-00000001Yw8-06rm;
 	Thu, 22 May 2025 16:27:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7ZW-00000001OYh-2B0j;
-	Thu, 22 May 2025 15:11:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C3C0D5C6075;
-	Thu, 22 May 2025 15:08:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E38C4CEE4;
-	Thu, 22 May 2025 15:10:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747926661;
-	bh=uJG6Jesy9D0JDKrfcqVhvbfKdi/yDrnCTcz3eC5EWHc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fT79k9IZmS41Fg9K74ACV1wFXdLWWeQDKL2DpebkYumi+rwUuXcKZQrLx8Xw/p/xM
-	 Mo7gnV8T6vH7T1Esp4yK8nmlzmzSOWeTrsyX+hGJJ5ZjUsZ4LFTK9XmeOmM+qFsJbN
-	 e/EJBtVrcYQoJUACAsxAgLD/W8d2BxdMKH3d0YWtosQIoRqIRF5azt/dqmmhwGTZOx
-	 dE879aJmNOmPbVUMyGlCULowe2BMPa6+GIqjMdckcyezdybuxZLXVa27F9LvYJz2fA
-	 0w9xfsY/sVWTZwNNukHngEEIoJvZzT0MFZa6BsN1BF2uI++Qn1HxWMCYGpdXrx6Q0e
-	 eNFf9BM+TeMEQ==
-Message-ID: <ea79d8fd-8134-4d14-92f6-f656be20cd9f@kernel.org>
-Date: Thu, 22 May 2025 17:10:56 +0200
+	id 1uI7Y6-00000001OAa-1zUt
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 15:09:35 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54M7SpEL006789
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 15:09:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	4TU7tpZlMQ+Z/J8LghDjXFqurzAXCCyNj4y5yRCbxxA=; b=UPdtHD0t5rzG2PyO
+	uEeYfmAhVCCytztDb7YFG43djr21rHuLH/C9324MtN/udM9cjQ4LGYHjU03nP/Wk
+	FsRhYS9dLwQ9iG/QZyFyz8qQi535GH9OD+iTbNmL8OPf8HhTzDLSeOZruddMzMSx
+	VZobcU01dbMxTRMn8RLpnskm2mNq0ZBM6XZIc6CNUtohE7lWZaAhd4/qzRjTvUEp
+	wunHxEe9L9pJpAOVIj/jj5NSGlHPui9Y0n8j99grPRh5RYyuu/gVEI4e5TSgEDgj
+	rVvizRGnDurLFSqUKMUnkjHYIiqZfubZb0MMi3at6lQqYKPgkuYI87wnPPB+gD14
+	O/20eA==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46rwf0pvts-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 15:09:32 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7c555d4ad75so58139785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 08:09:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747926571; x=1748531371;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4TU7tpZlMQ+Z/J8LghDjXFqurzAXCCyNj4y5yRCbxxA=;
+        b=lJ7LE0iZ/HIENQNl0t3z1zI2wkCryKktKFzuj/6YxPCwJi7bQcB+sDRwVZyLtItDSU
+         tKotKYHrubdoVuzZ5nyyLy7011RYI7YaNJTB13fbT1aHEphLhEksFAb5rwpU1i5tzqbw
+         5sAND2AVPPNqbnzVRkEVnJ3BsHN3jepZWYtK4baLxB9uCoqpt6OTQX8aZbD0ltSPVJXZ
+         cLS4cjHmVqz4kKDq26XZhpMlCeCM6ezxjAzVd3zLPTVZoOHmdnu+O1zwJYH49Xeuwg85
+         mdLmhuEzxksbOe42Y/M06PB4RP9Dp0xDdmoYDeYxSSN6x/JOJcMa5aeVr0DBhUZHMOPC
+         pCEA==
+X-Forwarded-Encrypted: i=1; AJvYcCXE+MCoR89nw/+VkGxNWKQqRiS9nxsiyM1HCTPEb0z3XJYKFq9VbYvMEFlI/92QxDsAyjTK+nFpKPpRRLL1wmY6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0h6qzU0oSRlbgBfKfrPeCXy7xmjmHv3fESkZbWuW2t8n3qkRJ
+	9X86Vg1riPBHXbF/SmUYXbLGjMMYLdOKDliQvpx+2TvN90LAcQ1k8IhZTTFwzBv9OnXNb+bTkf5
+	6el9WaLYdEGCH+yV75sp4NxpK+BUA26Dr95fgmOXKw9mOOO/nGFIkjfnLmEijnUry9MxoaB3EgR
+	ylUg==
+X-Gm-Gg: ASbGnctbyUelAALy3IlMV2BmV37q1ISoIUtx2mCMxIeW5u8SXwRBCim+4afZtXKCqXu
+	pfGjbTBclhgvIVn/BdprOpaOfzThXBmKK7+tGiJw3bUkiFRuZLUMw+8L81k1ySUpqcCf/lbREaU
+	NDxieXlu+irDLb55omZhbEFmQQ2cDC+9owClS7rJ0eGkn62QDieSdeYrtgZiJk+XP2HHZv4WHRs
+	EpZ/d8zGN1sW1GAZ5crqixMmtx751TU09mq43gBqwd5OUhwbJ8ygBn6wHUtAJVCvibijY5yS5ab
+	vZQ8DSRCjRjsmhYvm3Sn9WQVfjElLsH5OTzGlWqJpY/nfLGO3PtAa8OANN8CtxIywA==
+X-Received: by 2002:a05:620a:268c:b0:7c9:256a:953 with SMTP id af79cd13be357-7cd46731135mr1464769585a.9.1747926571553;
+        Thu, 22 May 2025 08:09:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFbVvSMIebTkeQbAVUwqeqJX7z9XwZxFk/FRvDNQuJYn/rrDTOUl3Z7yNgTaJEQuswHZtywSQ==
+X-Received: by 2002:a05:620a:268c:b0:7c9:256a:953 with SMTP id af79cd13be357-7cd46731135mr1464767985a.9.1747926571210;
+        Thu, 22 May 2025 08:09:31 -0700 (PDT)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60284aeb666sm578997a12.60.2025.05.22.08.09.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 May 2025 08:09:30 -0700 (PDT)
+Message-ID: <423565b7-6b11-40bc-accf-902e80314300@oss.qualcomm.com>
+Date: Thu, 22 May 2025 17:09:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] soc: mediatek: Add MT8196 VMM driver support
-To: "Nancy.Lin" <nancy.lin@mediatek.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, Liam Girdwood
- <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- jason-jh.lin@mediatek.com, singo.chang@mediatek.com,
- paul-pl.chen@mediatek.com
-References: <20250522150426.3418225-1-nancy.lin@mediatek.com>
- <20250522150426.3418225-3-nancy.lin@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v5 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
+To: Song Xue <quic_songxue@quicinc.com>,
+        Melody Olvera <melody.olvera@oss.qualcomm.com>,
+        Vinod Koul
+ <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Wesley Cheng <quic_wcheng@quicinc.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
+ <20250421-sm8750_usb_master-v5-6-25c79ed01d02@oss.qualcomm.com>
+ <7f82b59d-f1c0-44ad-a623-3dfb86c95c7e@quicinc.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250522150426.3418225-3-nancy.lin@mediatek.com>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <7f82b59d-f1c0-44ad-a623-3dfb86c95c7e@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: D_n3O__oo5YRElRMOmYyCE2Kn2Fru2ix
+X-Authority-Analysis: v=2.4 cv=J/Sq7BnS c=1 sm=1 tr=0 ts=682f3e2c cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8
+ a=yVuqqs4s3M2hehkgkIQA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: D_n3O__oo5YRElRMOmYyCE2Kn2Fru2ix
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIyMDE1NCBTYWx0ZWRfX03XhIIiQFjez
+ nrlNCEHttsudY9vC0DHPsvnfbjAveo5CA9XS2KVHWBA5oxQSd4o0ssDKtSaLwrfBR1zWrj8JKzU
+ y9mr78za4ZrFrgr8FFrZK8PX3sGEaaRdmtsnb3Gm6zC66GEu4jJcIaP8uKiTZI4n8frUuzlDjER
+ Hj9op89deQyMeOSF+aUizVrKula+7vz2VYuxrhO3G+hKwJAEaTEy6hPT5pg4q2LnNsPsQ2s6gOp
+ 3U55+xy29XCvfIUK+3YcB3bQpn+pVzutX0F4KpDkgDxlNmdrI7abys856LPnNd9ji3OLBUNoGhl
+ 6uQIErMfIVphQKr17TLpa1mk68Tl79mstR2kA7noTBqGmG7raFU3t1x/avUPMRTv4GtqoV4lVjY
+ nxcVYj6R1D0gxAAhSLUW30Zshe0rCYNYjoUE/x5M+DVP8H/1F3e5i9bZ8WL/c39S/1iM5R2T
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-22_07,2025-05-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxscore=0 clxscore=1015 mlxlogscore=999 suspectscore=0 spamscore=0
+ priorityscore=1501 bulkscore=0 phishscore=0 impostorscore=0
+ lowpriorityscore=0 malwarescore=0 adultscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505160000 definitions=main-2505220154
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_081102_650386_C6481935 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20250522_080934_523670_AB820CDC 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,106 +149,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/05/2025 17:03, Nancy.Lin wrote:
-> From: Nancy Lin <nancy.lin@mediatek.com>
+On 5/22/25 12:56 PM, Song Xue wrote:
 > 
-> Add a driver for the MediaTek MT8196 VMM (Vcore for MultiMedia)
-> controller, which acts as the main power supplier for multimedia power
-> domains such as display, video encode, and video decode on MediaTek SoCs.
 > 
-> The VMM controller provides virtual regulators for multimedia IPs and
-> coordinates with the hardware common clock framework (hwccf) and the
-> Video Companioin Processor (VCP) to manage power domains. The driver
-> uses a hardware voter through HWCCF to notify the VCP to turn on or
-> off VMM-related bucks.
-> 
-> Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
-> ---
->  drivers/soc/mediatek/Kconfig       |  12 +
->  drivers/soc/mediatek/Makefile      |   1 +
->  drivers/soc/mediatek/mtk-vmm-drv.c | 471 +++++++++++++++++++++++++++++
->  3 files changed, 484 insertions(+)
->  create mode 100644 drivers/soc/mediatek/mtk-vmm-drv.c
-> 
-> diff --git a/drivers/soc/mediatek/Kconfig b/drivers/soc/mediatek/Kconfig
-> index d7293977f06e..4db4a0876083 100644
-> --- a/drivers/soc/mediatek/Kconfig
-> +++ b/drivers/soc/mediatek/Kconfig
-> @@ -69,6 +69,18 @@ config MTK_MMSYS
->  	  Say yes here to add support for the MediaTek Multimedia
->  	  Subsystem (MMSYS).
->  
-> +config MTK_VMM
-> +	tristate "MediaTek VMM driver"
-> +	help
-> +	  Say Y here to enable support for the MediaTek VMM (Vcore for
-> +	  MultiMedia) controller, which acts as the main power supplier
-> +	  for multimedia power domains such as display, video encode and
-> +	  decode on MediaTek SoCs. The VMM controller provides virtual
-> +	  regulators for multimedia IPs and coordinates with the hardware
-> +	  common clock framework (hwccf) and the Video Companion Processor
-> +	  (VCP) to manage power domains. The VMM driver uses hardware voter
-> +	  through hwccf to notify VCP to turn on/off VMM-related bucks.
-> +
->  config MTK_SVS
->  	tristate "MediaTek Smart Voltage Scaling(SVS)"
->  	depends on NVMEM_MTK_EFUSE && NVMEM
-> diff --git a/drivers/soc/mediatek/Makefile b/drivers/soc/mediatek/Makefile
-> index 0665573e3c4b..2b2071614ac4 100644
-> --- a/drivers/soc/mediatek/Makefile
-> +++ b/drivers/soc/mediatek/Makefile
-> @@ -6,6 +6,7 @@ obj-$(CONFIG_MTK_INFRACFG) += mtk-infracfg.o
->  obj-$(CONFIG_MTK_PMIC_WRAP) += mtk-pmic-wrap.o
->  obj-$(CONFIG_MTK_REGULATOR_COUPLER) += mtk-regulator-coupler.o
->  obj-$(CONFIG_MTK_MMSYS) += mtk-mmsys.o
-> +obj-$(CONFIG_MTK_VMM) += mtk-vmm-drv.o
->  obj-$(CONFIG_MTK_MMSYS) += mtk-mutex.o
->  obj-$(CONFIG_MTK_SVS) += mtk-svs.o
->  obj-$(CONFIG_MTK_SOCINFO) += mtk-socinfo.o
-> diff --git a/drivers/soc/mediatek/mtk-vmm-drv.c b/drivers/soc/mediatek/mtk-vmm-drv.c
-> new file mode 100644
-> index 000000000000..de4ceb7d59fa
-> --- /dev/null
-> +++ b/drivers/soc/mediatek/mtk-vmm-drv.c
-> @@ -0,0 +1,471 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (c) 2025 MediaTek Inc.
-> + * Author: Yunfei Dong <yunfei.dong@mediatek.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/device.h>
-> +#include <linux/kthread.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/regmap.h>
-> +#include <linux/regulator/driver.h>
-> +#if IS_ENABLED(CONFIG_MTK_VCP_RPROC)
+> On 4/22/2025 6:00 AM, Melody Olvera wrote:
+>> From: Wesley Cheng <quic_wcheng@quicinc.com>
+>>
+>> SM8750 utilizes an eUSB2 PHY from M31.  Add the initialization
+>> sequences to bring it out of reset and into an operational state.  This
+>> differs to the M31 USB driver, in that the M31 eUSB2 driver will
+>> require a connection to an eUSB2 repeater.  This PHY driver will handle
+>> the initialization of the associated eUSB2 repeater when required.
+>>
+>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+>> Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
+>> ---
 
-And that's the proof you send some sort of downstream code.
+[...]
 
-This does not exist.
+>> +static int m31eusb2_phy_write_readback(void __iomem *base, u32 offset,
+>> +                    const u32 mask, u32 val)
+>> +{
+>> +    u32 write_val;
+>> +    u32 tmp;
+>> +
+>> +    tmp = readl_relaxed(base + offset);
+>> +    tmp &= ~mask;
+>> +    write_val = tmp | val;
+>> +
+>> +    writel_relaxed(write_val, base + offset);
+>> +
+>> +    tmp = readl_relaxed(base + offset);
+> is it better to use "readl" which can guarantee write visibility?
 
-> +#include <linux/remoteproc.h>
-> +#include <linux/remoteproc/mtk_vcp_public.h>
-> +#endif
-> +
-> +#define mtk_vmm_dbg(dev, fmt, args...) \
-> +	dev_dbg(dev, "[vmm] %s(%d): " fmt "\n", __func__, __LINE__, ##args)
+let's use non-relaxed to save the meaningless discussion from dragging
+on, in fight for what is literally a couple nanoseconds each boot
 
-No, you do not get your own debug code.
-
-NAK.
-
-This is nowhere close to upstream code. Don't send us downstream
-patterns please.
-
-Best regards,
-Krzysztof
+Konrad
 
