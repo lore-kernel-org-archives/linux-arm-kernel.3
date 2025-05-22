@@ -4,63 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60DBC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B949C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WuJth4b7mSGrp3rbiwhR274TXr1yLV08nwiXwf4KD8c=; b=ssKP7YhGYoBTLuj4lyxEtNAe3I
-	WBVu1Ie7NH+IPxeMzKke+JOiseJmXMhs6vixzKkIxyn8uv+iDOxq8NufX4q9THSiv0FSZXJYSxRnf
-	FZZK4GD5iwQFEFWQPRJVRRjH57QekXnGpKU14GeQEXnSooJOAXgQMuHJ/I5f+gKBiXPoBjp9dW2Ju
-	qeejP/gyH6GPpDqfmxDCDraZ/o/uyWWEa7Jf1j+osQRSb3YrwGEsVcMz+H0tR/9Wb4Xjyw3qxs8mA
-	UjDhSbpkYZJDYGsfdC9gp63tTvC5ezLU7DaJvCD3KMRNOPvTkiTfcahyKFkMM2eyRMidPCMIOtl/k
-	zpfQqfxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tERYqBOxFvfdOXKBCA/Z/SllLpFTlqD6iyVzgq4lzYY=; b=an0ZZlSVxIfWrqn+0h40IVU7Z6
+	gdhDAeMtJOGVyM5T9A/voiRHRyZhXolcaiA6g+6FiXJJH+PzPviSBRGNsRKTn6gGNSEjdBlstoF6N
+	XGkWwUNPCtmPyBvpGK1tds6K/sjs9G0Q/4bmmr77YZoWf6zDnbYrbO0ad7erP+GDVV4RtVigzwJC5
+	Puk7z4XjxPjFr56SxcEDX6kDZh6BdIdoyW/8HmFu0AArvLn8Ve6mSlutht+9vKMmrPlXINSJuLMRm
+	1wLGONp7mZXZOfvCj8fIjalKeVWY9qmoJtmfeTQEvoodrCvyRHINLbLVgf4iDnm2INA1cAXoNcSLe
+	oteI8QZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1Xg-00000000KdE-3Plh;
-	Thu, 22 May 2025 08:44:44 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uI1Zj-00000000LPH-3P5K;
+	Thu, 22 May 2025 08:46:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1Lz-00000000IGC-2aQU;
-	Thu, 22 May 2025 08:32:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=WuJth4b7mSGrp3rbiwhR274TXr1yLV08nwiXwf4KD8c=; b=cxed8hOHQAkc9ggZiVrM4KL4Fq
-	Ohi3DyZ6gcYYOOCui+NtxigZS7eDiz3YSDAs7ws6Gs8/tIHOKIfDqqoO3v3VR+906Y8o9eZN8DeeU
-	11U7Gbsjq0SYEqtR10yLiwPJu++N8vHDfx8tf8MdTRTrl5TK5z/WRCEeiZosv9Z5UZCQWZFyA2bzn
-	QIh/sGh0lhzvlcBVzc8Gu7sqR+SjY2LiXm+B+jOd6lxSBiREDgLKxWkWI214+umu2a6F0X/an6o7s
-	x1Yt2CBiyG9gHCwjK5ZbMDYwpIbM0wiP5Q/b3DgZ4gf49oZeNWUIE7a+wOt1kRJl3UQxf7MYqIawo
-	HexnBV7A==;
-Received: from i53875b2e.versanet.de ([83.135.91.46] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uI1Lu-0005jc-D5; Thu, 22 May 2025 10:32:34 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Quentin Schulz <foss+kernel@0leil.net>
-Cc: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Quentin Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add ethernet1 alias to RK3588 Jaguar
-Date: Thu, 22 May 2025 10:32:33 +0200
-Message-ID: <2901570.AiC22s8V5E@diego>
-In-Reply-To: <20250521-jaguar-mezz-eth-switch-v1-1-9b5c48ebb867@cherry.de>
-References: <20250521-jaguar-mezz-eth-switch-v1-0-9b5c48ebb867@cherry.de>
- <20250521-jaguar-mezz-eth-switch-v1-1-9b5c48ebb867@cherry.de>
+	id 1uI1PA-00000000Ilk-3Knj;
+	Thu, 22 May 2025 08:35:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E674CA4E4A3;
+	Thu, 22 May 2025 08:35:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B1EFC4CEE4;
+	Thu, 22 May 2025 08:35:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747902955;
+	bh=cluh8pywPFi3NteDBD6ySOBpzU8PW1amNccztV39r6M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RYG3zjYx+bHKV9Z/eZtNU+FajtATinFyRDdVzgDHjGWOgRWyceSKAufhkJczETSwh
+	 ixN+HOQTEpyvKuyITO8IZGuOF3dpvw3xNbnAClqJ672+2241DLvCk5hEoqUqqxq8R3
+	 8nO7BMLyCsZAuRP/t8G+Lvr6ekcT1BV6G3m7ejUlCD6kvv3gd4mv4NRiHl8aMlE1xk
+	 F5fQUN8ON5JhFLp7tyeGnvLA+cnuUoFor25rVPmP/afBG62U1kdVQN7n9pnQeiBbLT
+	 gp+7EZGLJAJMTloxeBvGnbRefqoaRhhJN1AhsPXAJGuG4RAKYORtSmki4TYZLF9hZv
+	 QizrxrAqEFPAA==
+Message-ID: <74bbedc0-3abe-475e-b127-19a9c7073e55@kernel.org>
+Date: Thu, 22 May 2025 10:35:47 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 10/14] arm64: defconfig: enable rockchip mipi csi-2
+ receiver
+To: michael.riesch@collabora.com, Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Markus Elfring <Markus.Elfring@web.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ Michael Riesch <michael.riesch@wolfvision.net>
+References: <20240220-rk3568-vicap-v7-0-7581fd96a33a@collabora.com>
+ <20240220-rk3568-vicap-v7-10-7581fd96a33a@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20240220-rk3568-vicap-v7-10-7581fd96a33a@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_013239_674124_27DD3A08 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20250522_013556_969765_BBAC93E7 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +138,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 21. Mai 2025, 17:44:19 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Quentin Schulz:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
->=20
-> The RK3588 Jaguar exposes pins that can be muxed for GMAC1 functions to
-> the Mezzanine proprietary connector, so let's add the alias to prepare
-> for adapters using those signals in that function.
-
-In light of the discussion about unused aliases in [0], always adding an
-ethernet1 alias for something that may never be used is probably not
-the way to go.
-
-
-Heiko
-
-[0] https://lore.kernel.org/linux-rockchip/df6003e3-7fc3-4e50-a702-f0aa8d66=
-3dff@app.fastmail.com/
-
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+On 14/05/2025 17:41, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@collabora.com>
+> 
+> The Rockchip MIPI CSI-2 Receiver is featured in several recent
+> Rockchip SoCs, such as the RK3568 or the RK3588. Enable the
+> driver for it in the default configuration.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 > ---
->  arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts | 1 +
+>  arch/arm64/configs/defconfig | 1 +
 >  1 file changed, 1 insertion(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/=
-boot/dts/rockchip/rk3588-jaguar.dts
-> index 9fceea6c1398e92114dcb735cf2babb7d05d67a5..70a2569478f6165f067befb6c=
-dfb4f58f00dd17d 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-> @@ -33,6 +33,7 @@ button-bios-disable {
-> =20
->  	aliases {
->  		ethernet0 =3D &gmac0;
-> +		ethernet1 =3D &gmac1;
->  		i2c10 =3D &i2c10;
->  		mmc0 =3D &sdhci;
->  		mmc1 =3D &sdmmc;
->=20
->=20
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 110ff52195a6..ffef4cd024a1 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -859,6 +859,7 @@ CONFIG_VIDEO_RENESAS_FDP1=m
+>  CONFIG_VIDEO_RENESAS_VSP1=m
+>  CONFIG_VIDEO_RCAR_DRIF=m
+>  CONFIG_VIDEO_ROCKCHIP_CIF=m
+> +CONFIG_VIDEO_ROCKCHIP_CSI=m
+Squash the patches. Defconfig is one change. Not one patch per one
+config item.
 
-
-
-
+Best regards,
+Krzysztof
 
