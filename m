@@ -4,57 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3425C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23DA8C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HDSvBOeKveZYF6b9S5X4vui4DH9xu/TEm/3/m9avi9k=; b=03BRfaBn9Cu/NVvidf4vvAbKrx
-	KSD7twKINHwsSYMsnYDg6DNa2yuPtEsSnDDxzIFO3nGXydFlngkygY/PJ2rSfOwI3uIO7YEldatHH
-	MBjDG8Bs5/2oJnx5O5Fka9EbqZwm8gFh009tbCmknzV/VAmmOjWCI7bNVbtIVfG+EgkpXFjTJWV6V
-	k+8RqazwZDwXwom6Kpd6czZJ6xDeHFopuRibGtubrx2mSKU6Z5oDQJhtkT7nHwDeLSQzmiD81Pb6q
-	pHq9V8dtyIlaNZRpwHBtE099Ang4A1T8Ze8d36YhOr0lpqwJQcQRFK2lKSJ90nReRlT4MmbvoHnM2
-	zcfypSqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WZuijAJRPJZ+p2n09IvIvH7D3TfvZOkc/364B+Mx6Yg=; b=EobzvwmTu7VpPvQNOTkKBN52Pi
+	gPFAwhzkxT7gyEO3siit13EmlqmEY/bvg0zyvOtQozbJ4LxjuXEc5HbKlo22XQ2+ybYtICZcfu4we
+	7v+0sIhirLdNomOLFdghGPqiLjRhdnFVH58hQnZyDV3cxHiZTYfQaRDJv75o2lkMqkI3vQ2Phgeav
+	puQ5MOSFkgxLb1l5RlEmla82gRazBS+DkfEPV3qRj8FnM8GspZoq9vNY4cQ1fICVdZcbFBkvI5/TX
+	tkWjQGQZAKIYBb7xF0dOWWp32mwyy4zzlP258bbYyLfFyxX7UESDuulBEbZma3/YTPrJp9oxFv6tK
+	9O8U7sZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI4wy-00000000z7X-1bzz;
-	Thu, 22 May 2025 12:23:04 +0000
-Received: from ni.piap.pl ([195.187.100.5])
+	id 1uI51C-00000000zZ0-2nCF;
+	Thu, 22 May 2025 12:27:26 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI4se-00000000ybV-0ib8;
-	Thu, 22 May 2025 12:18:37 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 4D218C405A45;
-	Thu, 22 May 2025 14:18:34 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 4D218C405A45
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Paul Elder <paul.elder@ideasonboard.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,  Dafna Hirschfeld
- <dafna@fastmail.com>,  Mauro Carvalho Chehab <mchehab@kernel.org>,  Heiko
- Stuebner <heiko@sntech.de>,  linux-media@vger.kernel.org,
-  linux-rockchip@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  Jacopo Mondi <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman
- <megi@xff.cz>,  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-  stefan.klug@ideasonboard.com
-Subject: Re: [PATCH] RKISP1: correct histogram window size
-In-Reply-To: <174784811736.14042.11404187248848039485@calcite> (Paul Elder's
-	message of "Wed, 21 May 2025 19:21:57 +0200")
-References: <m3tt5u9q7h.fsf@t19.piap.pl> <aB31Eg6oRpcHHEsb@pyrite.rasen.tech>
-	<m3jz6b8lb1.fsf@t19.piap.pl>
-	<20250521101042.GC12514@pendragon.ideasonboard.com>
-	<174784811736.14042.11404187248848039485@calcite>
-Date: Thu, 22 May 2025 14:18:34 +0200
-Message-ID: <m3wma87s9x.fsf@t19.piap.pl>
+	id 1uI4zA-00000000zQk-3T63
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 12:25:21 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6019b564d0bso11016214a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 05:25:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747916719; x=1748521519; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WZuijAJRPJZ+p2n09IvIvH7D3TfvZOkc/364B+Mx6Yg=;
+        b=WRgXVfndCbKpLqEmp8nm2ktYB4Itkfe9V1AEhMULgiVeWM4zHxN2lCtj8o4gMzkTIL
+         qNcQvhHFiQnwyDy/DqQ99HXrH/V453kD3F4Sz2CW62RDuS6++TUCjzNlD6LktqfSJBFX
+         SFXI7MorSuvqBgw1AavYUBtN3k0f30f/2dCc9hDEr2hWAyy4ClivAft8uCd/B4dr5MdR
+         iKekh2c4s7NaU5fTIrdhyzEKIrD2xKrkVIvSlu0l1OoApKqoM6ru80mpFC56RKrQ1Qrz
+         3d/6gYZfgOrpiFuuAoc9f+FwvArLRdgx5Bh1jhgoXzGBvXV/g0p1G140A3w0Csd0NmZP
+         SGnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747916719; x=1748521519;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WZuijAJRPJZ+p2n09IvIvH7D3TfvZOkc/364B+Mx6Yg=;
+        b=w/6jM+pRkpuW5JuJZ8L9sdykUtR2yy1EwmmAhXclwovIiurGpQA1/g4QSt/41o2W43
+         ripjVb7aFFc6huklSrg4SdMQ1yM31o8yOp5jPR9QBbiPYPCWdE+WV45TUZEDLBXMJz0S
+         FVk3x3aLRAtygDtM2duFAGknWq6iEyVquoqf7Is7iCB2XN7Mdb3mu0coc6NxR1aXRFC/
+         OiRO+7exlQZUGM+VWca2xV+eKpj+wZiFwnDjeQXJkSWc1IQjuIvhHIjtKKnOPtxP/As+
+         +gQN567P1b9bU6MzH7hcXD3kSZcUKnCRG/Na/cLslzpv76c7JGuXajSSLubyc5X2JxN/
+         3ZxA==
+X-Forwarded-Encrypted: i=1; AJvYcCUwAjTj5YVCoes0ACmJuEArpLiYETpdOsMb0rQn2kQy7G7sgpOAyK2uPibnRtwuD5+00FjLXOOIsZMFoHqgxMjm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxepob9D7Ygu0GdWgQVfjNQFmm3X08fBjifyDZ/51PvqRZunjsD
+	kjpbmh215xzCPgTgnw9rvfCk8OhRKHQf0Sp7LG6ZwB1DNlcg9lHuZxXH9J9wrIp+OK0=
+X-Gm-Gg: ASbGnctfg7TW5GXW5rDAhu+hATieq6XO6lSM2joy67n52RUnSNrNrFGZzVX2HYLpsom
+	KXcsLDXEH+5IkoH6VV93rE3ae4//E1lgrNlIT8ZBEfGok4ELnNyyQEpkOiiaFl4nYoOnbvKVhVY
+	LQDDvw+HgP1kGGtpetDH23ei2j/HvQ31XrQUBAj9mnzC4NJp9JF3wwkYyonEQdpXFI9wOXMWa4p
+	1HSMmdnwkKEykhwRnEdBT9pJMZ2J1Th14JMHrAwcc6f07t1FNc9H/NOI6avs/4AzvhxuYwta8T4
+	8wo2bFQ8MRYNwtbS9zEBeqY7BNNrGkr1lFXSutjqMuZi7Ka8
+X-Google-Smtp-Source: AGHT+IHcT2PY89g15o0bxhhQt0NPg7NGUlq73S+uSn8e6SJg6l2RRfQQixZwQtfKRbnT5KPfhf/pwg==
+X-Received: by 2002:a17:907:8690:b0:ad5:4fdb:a2d6 with SMTP id a640c23a62f3a-ad54fdbb14fmr1991573666b.43.1747916718712;
+        Thu, 22 May 2025 05:25:18 -0700 (PDT)
+Received: from linaro.org ([62.231.96.41])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d4ea7b7sm1081211266b.177.2025.05.22.05.25.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 May 2025 05:25:17 -0700 (PDT)
+Date: Thu, 22 May 2025 15:25:15 +0300
+From: Abel Vesa <abel.vesa@linaro.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Melody Olvera <melody.olvera@oss.qualcomm.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Wesley Cheng <quic_wcheng@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
+Message-ID: <aC8Xq949p6NNDXa7@linaro.org>
+References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
+ <20250421-sm8750_usb_master-v5-6-25c79ed01d02@oss.qualcomm.com>
+ <aAswZg9s41s/m/se@linaro.org>
+ <f7de2bbc-4925-430c-b263-226a633e4bfb@kernel.org>
+ <CAO9ioeXzzSBy+wYFATeckKZ2641GaTA1dB_1HOb238DdB7ACoQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAO9ioeXzzSBy+wYFATeckKZ2641GaTA1dB_1HOb238DdB7ACoQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_051836_370249_C8ED7C0F 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250522_052520_877029_9C1FAEE8 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,51 +115,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paul Elder <paul.elder@ideasonboard.com> writes:
+On 25-05-22 15:18:00, Dmitry Baryshkov wrote:
+> On Thu, 22 May 2025 at 14:05, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >
+> > On 25/04/2025 08:49, Abel Vesa wrote:
+> > > On 25-04-21 15:00:13, Melody Olvera wrote:
+> > >> From: Wesley Cheng <quic_wcheng@quicinc.com>
+> > >>
+> > >> SM8750 utilizes an eUSB2 PHY from M31.  Add the initialization
+> > >
+> > > Nitpick: Drop the double space from the beginning of each phrase.
+> >
+> > Sorry, but why? That's a correct grammar.
+> 
+> 
+> Being absolutely nitpicky, this depends on the country. In some cases
+> (US) typography settled on using double space after full-stop. In
+> other cases it's a normal space.
 
->> > Setting "2", the same input scene:
->> > 32E12400: 15h
->> > 32E12414: 0 0 0 2194 1263 1096 1406 2528 5228 5052 4291 6354 8322 6943=
- 13201 460522
->> > which sums to 518400 =3D 1920*1080/4.
->
-> Yes, these look good (although I think you might've copy&pasted the wrong
-> number for the sum)
+Okay then. Please ignore my comment.
 
-Definitely :-)
-
-> Oh? I would've expected 2^20-1 =3D 1048575 to be the magic number, but ok=
- I
-> suppose the hardware caps at 1048559 instead. It probably overflowed and =
-that's
-> why the sum is so low.
-
-I don't know. It seems it counts all right until reaching this magic
-1048559 =3D 0xFFFEF. Then it stops at this value and stays there.
-
->> > 32E12400: Dh
->> > 32E12414: 0 0 0 0 0 0 184 3059 11970 75298 114898 211444 429772 439922=
- 400358 386695
->> > total =3D 2073600. But don't rely on it too much, the "1" has problems.
->
-> That's interesting. My guess would be that in practice a divider of 1 wou=
-ld
-> still work as long as you make sure that it doesn't overflow. Maybe the u=
-sage
-> documentation was based on a rule-of-thumb.
-
-I don't know. TBH I guess I haven't tested it with mainline kernel (and
-RK1ISP driver), only with the NXP VVCAM driver. But with stepsize =3D 1
-I was getting certain differences in total number of pixels (not big
-ones and not always - maybe 10% of frames or so, or less). Without
-reaching the magic value, I mean.
-
-If if was simple cap at 1048559 we could correct it in software (up to
-2 Mpixels) - there could only be one bin overflowing.
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+> 
+> 
+> -- 
+> With best wishes
+> Dmitry
+> 
 
