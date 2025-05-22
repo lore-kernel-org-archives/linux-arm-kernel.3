@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F40C54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1FA3C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edqHZnIWtnieNM2DOtdh6048DADO9TWPGy1bDzRq4AE=; b=MkSIRstwGIrGDZ4Z3vVazZyNeY
-	jp1WXtYvY1ZdsHmKaJ3pIgJPkLBAZwHGQuN3U3bfCoNZuNqXjv2K4Btt5mnPhhf/Fs4G7kx3Fo1mX
-	c6WJ39aO7h2XQIG/YqdScAhZvxDDoz9qX/Vvxolys3YQCWnjb2BWnsSe2glCSVPGUd9a4s0LVSvT6
-	Uk66khYXcQYyzX3x4Vp4NNtpAK6K4AvHWsJJ48nkdih2rJBRsLdP8rFCrRnddDun5L+4pSAuRSwIe
-	LzQ4/IdpcY0w5Sq5eaqzJRbGK+UnejVDuxnjCcJLNHAOQSVCJAtm8dKDBQlVPViaD0xdCUz+27ggk
-	NK77yC2w==;
+	bh=jZC8De01WGLQ0FZnZRzCr0Ua98ORVVZ/9nF4WDc7qXQ=; b=Hd2dqxDUBX5SEDz8jYLd8xuGAo
+	zVL2qk8xNt9BwLqhHWZ6c44vZWKUxQpR0eXpTQheSYHzVxiERvH3Pd5IY+7fNYS3OLrjF9Zy6G+o1
+	2Pip45LJWtXBitHtfcG1ZSpwFBuBcWYfwdqyIgGGvDeqiLM2e0EOb2letoyMxltC2ITL3aFDXON/E
+	dFXsm/iwPab9zUiPVS/ivzmWTnTpMreR8ffRALalULxj6xdWIvzg2CTtlHO9f03PpSjSgnHpukrzq
+	u2V/z7FZN43ab9WnOmVRImx7+qQ3t6eMDS+3PJsh32JUubOhbIuJd6X8LsA4clVsRvB2t3y7e5YcX
+	uneH1jPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1fu-00000000N38-2gVZ;
-	Thu, 22 May 2025 08:53:14 +0000
+	id 1uI1hx-00000000NYE-0RfX;
+	Thu, 22 May 2025 08:55:21 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1Ul-00000000Jvo-1Tp0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 08:41:44 +0000
+	id 1uI1YB-00000000KuR-0v29;
+	Thu, 22 May 2025 08:45:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9AD865C57ED;
-	Thu, 22 May 2025 08:39:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68FA5C4CEE4;
-	Thu, 22 May 2025 08:41:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 85FF75C5792;
+	Thu, 22 May 2025 08:42:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3374C4CEE4;
+	Thu, 22 May 2025 08:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747903302;
-	bh=PTGci6U8401c8yfH1R5xOKtCxdeMWqoShulIBa7cs00=;
+	s=k20201202; t=1747903514;
+	bh=dAKIS/SyGO4EUUI+9Ar6dI0ohAdSrKLFtebg+y8Y55o=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=t0eiwFpIsSp9FzzMM42N4AR9WxbZHuz7vws83ANlKNWsdOhlhWGTxfb+53X+dPilS
-	 ke9x1hUgDzv2BdJd4YkLkDewpVccawBuRNkNDJjig/JrafsExQCDvG73PtcVukOFpi
-	 lxbqb2Ji2pkBitRxVkbL5DmxrSLY+r1Wfv6XkkQvbKJuIBusLzGLmQRAOV0WoKawZy
-	 pNNis4PvPt1hLL3ozPszjxwaprF1UIIVqibAaCD5DFi9XU1rUB5IhmCqLXocd7Jnm0
-	 0FBhFGRfDovyeetfcAdkm+/7mA91Gw/yP2WxOBfUvs7Due6MEaRG1ogo0YNOEDRJUr
-	 19MKgVqGYshJw==
-Message-ID: <5edf74a6-7d01-4e1f-8d85-1be879d48700@kernel.org>
-Date: Thu, 22 May 2025 10:41:37 +0200
+	b=IPehpjNqislBnS8rCMtBcA2ukVRx3gtn9llVd4hUzKwww4LWcg0Q+ubqahO1cC27M
+	 M2KJNHpcv+3bjRrQAhRgSbYzRR7ixFSMc9imuDpg2PAyVMywHRA9/ErWzGklj57uqU
+	 XuzLBNVuin36TjgIgx7vajurHIC8wn6x1kdD2+pqmMuwSrt9epjwNtUBkqaa9mRKqk
+	 EPLGBabBTt4hT+NmsmCs2tRmrmiFyTcHfhR0horPsKRef8EAzN1yatQUjdhB00oRyC
+	 kc9JldCLEoWjddZSxLE+a1HG+OP37GN5sJ8rEIjVMMzlJKR3Wtpz6d8CBvU5A7LHb/
+	 zGS5qSHSfqK/A==
+Message-ID: <ba9a49d5-132f-4be8-9f64-4904c91e26be@kernel.org>
+Date: Thu, 22 May 2025 10:45:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] firmware: arm_scmi: Use dev_err_probe() simplify the
- code
-To: long.yunjian@zte.com.cn, sudeep.holla@arm.com
-Cc: cristian.marussi@arm.com, peng.fan@nxp.com,
- florian.fainelli@broadcom.com, fang.yumeng@zte.com.cn,
- arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, dan.carpenter@linaro.org,
- christophe.jaillet@wanadoo.fr, mou.yi@zte.com.cn, ouyang.maochun@zte.com.cn,
- xu.lifeng1@zte.com.cn
-References: <20250521161449954uFxEsoI6Zg_7wDu6IAfWk@zte.com.cn>
+Subject: Re: [PATCH] drm/rockchip: Use dev_err_probe() to simplify code
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ long.yunjian@zte.com.cn, hjc@rock-chips.com
+Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ fang.yumeng@zte.com.cn, mou.yi@zte.com.cn, xu.lifeng1@zte.com.cn,
+ ouyang.maochun@zte.com.cn
+References: <20250515203554564-j1jBXUXR6bdiN6zARicC@zte.com.cn>
+ <94e0951b-46e1-439b-9dbc-c2009a78b04b@kernel.org> <2022996.jZfb76A358@diego>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,13 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250521161449954uFxEsoI6Zg_7wDu6IAfWk@zte.com.cn>
+In-Reply-To: <2022996.jZfb76A358@diego>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_014143_475579_7B3DB4C8 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250522_014515_345422_64E16306 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,27 +121,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2025 10:14, long.yunjian@zte.com.cn wrote:
-> From: Yumeng Fang <fang.yumeng@zte.com.cn>
+On 16/05/2025 11:58, Heiko Stübner wrote:
+> Am Donnerstag, 15. Mai 2025, 17:54:20 Mitteleuropäische Sommerzeit schrieb Krzysztof Kozlowski:
+>> On 15/05/2025 14:35, long.yunjian@zte.com.cn wrote:
+>>> From: Yumeng Fang <fang.yumeng@zte.com.cn>
+>>>
+>>> In the probe path, dev_err() can be replaced with dev_err_probe()
+>>
+>> That's not probe path. I am not sure if you really understand this code.
 > 
-> In the probe path, dev_err() can be replaced with dev_err_probe()
+> I think that is somewhat debateable.
+> 
+> dw_hdmi_rockchip_bind() is part of the rockchip-drm component device,
+> so part of its probe-path. Also I think just the presence of EPROBE_DEFER
+> which causes the device to re-try probing later is a nice indicator that the
 
-That's mailbox channel setup, not probe path.
+No, that's not true. You can call every API like regulator_get from any
+context and you will get EPROBE_DEFER. This will not be a probe path.
+There are multiple cases of such drivers, I saw such patch even day ago.
 
-Either this patch is wrong or commit msg is just not relevant.
+> code in question is _a_ probe path. (and usage of EPROBE_DEFER is an
+> established pattern to make that component device re-try probing later)
+> 
+> And the parse_dt function itself is part of that path too.
 
-
-> which will check if error code is -EPROBE_DEFER and prints the
-> error name. It also sets the defer probe reason which can be
-> checked later through debugfs.
-
-You explain the basic stuff, we all know it, but you miss to explain
-things which we do not know. Rewrite your commit msgs to explain the
-non-obvious.
-
-We all know how dev_err_probe works. What we do not know is ALWAYS that
-chan setup is the probe path (so prove that it is ALWAYS probe path).
-
+I quickly glanced and this was not obvious. The commit msg is poor here
+and does not explain that component_bind is ALWAYS probe path (unless it
+is clear for DRM folks).
 
 
 Best regards,
