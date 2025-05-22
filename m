@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC10C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7A7C54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nr/NDCyDgVLU7UV6iODdNqGZbsP83lb1uZk463tdmVs=; b=Hchn3Z4z0gROIupdQq5H5loPb/
-	3Mx5Updnnt083M1bXcwW45VtSTL1Mq8d2O9lZXFW88/5ETED2uCult3vP0Vex472UlZRbvbpY2k7j
-	cq+PultQGFjp7kRaoxawRGdM6f4hvkS8z0eCPq/aEH6obprH+IvyQBdMfAJsEZKR2Eto9oIxDGKVD
-	7ruApZch9yMYtF0tZUFNIioIFcTAu3IvJ96i3K3nNAE8jmE9OJ282j3DQhW+E/xYTxqW2wCFvy0rR
-	ovqWzM75CitGyiH56NVBy8cQBcpesbScpMh8FBcpUHh+/6xvcCkRhft9iPtvviyJ+YHE1JfbX3G+/
-	Z6s9XbYQ==;
+	bh=6fk8IPoQziwfYwbuUI7UFNnBkSt01Uwd7OzuOBIvOZw=; b=h7ivy2g8JsK1wpeD5z8TxEyZfe
+	GrQK07Grk4kzQ3tAtAj/eza+C+aoMw0X0Jv48hlgwTUcXP9IFWa9cLKDWZ28ePrenhHEKmK0upOAo
+	UpbzlrYkS9+U6AHwRaHeaJlxvBqkMUy83VXfk9gNwXioGBLU+9UO5nUpDif1mNBok2veX9goiA2WH
+	Z5QojO6ONBU50BN+rlvpAd8bWJhNwZNGF2cmkWRKKrQG4GujkuIbH/iTbKcp14NKeDJ9+IDvKq0AH
+	fcd8rHhk22EUIx9U2vLr6mNalAqRtr4b21aUF813r/nvxvfh5sN8rLcDMeyPd04lCP+oMSpniDzMe
+	OLTYd2Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7ts-00000001RnH-310F;
-	Thu, 22 May 2025 15:32:04 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1uI7vs-00000001S38-1gId;
+	Thu, 22 May 2025 15:34:08 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7I3-00000001Kaz-12gs
+	id 1uI7I4-00000001Kbz-2UeR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 14:53:00 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a35b7e60cbso5549746f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 07:52:58 -0700 (PDT)
+	Thu, 22 May 2025 14:53:01 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-442f9043f56so47679425e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 07:53:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747925577; x=1748530377; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1747925579; x=1748530379; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Nr/NDCyDgVLU7UV6iODdNqGZbsP83lb1uZk463tdmVs=;
-        b=LmLCQL0gm5alQxHXaFwPL9rx/gdVahQW4Av75B9S9OS5F/G/bvXMMngeYodwJqYxOZ
-         CQSvuVxz6yJoujszGwWi97ogmzmBIOmRnC64wagYpWUfeUyDxvL4j6AUNUknOJMTclSX
-         jKzEaBVP/cgLbAsIGifu64uYAOYGqWldEnGbi3OA4ohqDyaSg1+uyYVZ7gRq/Sob55VU
-         GHob8bEzf9EPzQuHvrxxEF84a8jYkMFgOmKiEWHTM3cRZrQyHFsfH3jmIZoEXMEztIHQ
-         acD1Vmcpq5K4ge0Dj80TmHa++reBf9QbsgtQuRKiEDswkYOYgfIL5hf7xnIDnclG2Y2O
-         SnmA==
+        bh=6fk8IPoQziwfYwbuUI7UFNnBkSt01Uwd7OzuOBIvOZw=;
+        b=Ew0yS/jIc716b4eO3vuijsuBt6eD2yz8PO5TS1rjLgg0N1z483/t2MYl86bV5TgNMf
+         fD+7q3h9HM3lLL5ncqz+TUyYI8WzXz0ZjO+AgaKIRd7/nsNovaZxZ11UeWPWFq9nN5Gp
+         YeSxxlw4NGE8SyNqMUcWFzxjX2IZ3EatZq9JzH0SOYgv28JpVTgyEzLWzafpl8saehgu
+         D3VH9zd2DGEoLU10z6uiTCk4Jqelvzbyot6aPBq6tVi1g669SH3bo97teFdiBthcMELS
+         OeDRalxMwQDCcWroC7Xdo7L/mWeBSWuiyzO2AtCDRLUMCtesCU7T2RJ6THYjliCFDMdC
+         Bj0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747925577; x=1748530377;
+        d=1e100.net; s=20230601; t=1747925579; x=1748530379;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Nr/NDCyDgVLU7UV6iODdNqGZbsP83lb1uZk463tdmVs=;
-        b=jFmdmp28oJ95d2boCciV5IAqaEr56igAscPXQR3vFq1bL6CmoTxEfmXq1jZO35dFRh
-         2j0wosLKf15O4zuCkc5LIIj9SJ+gD+SutrjV++staozRdqkiLN7gOiTj4KwMu0drWQ5S
-         KLlz77Jnqu6UzWYMAn1m09hPpqLHeohiuV5gQWMAJ/FNxTPB2XoONAVUV3N1QtqKSr8q
-         DyL4bnUy0hodeWNuwOh6fnebwzdYz2vCF6CBAD1r+6+yIB3SoB7MOuEvCZeUHuQUbLSF
-         rk8/iAZJfxBF/MTe/mkYzHKSuHSZ2Y3kdGglQSB0Erato1vau11imqQbkZ+ovJv1h44d
-         eUVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV2HE+pyGzwnxXhk/5vzNLqLbgwnhvbSOj6MpoW8boDAdQ8wFqYWavJYWemodK9k4nlyTJQ/3q0iJRUdbfADMzM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEEv/PILOqYjuqKdAQ9ueUJS5oymCV1Y3PR2nWvyyd1Oa1azcz
-	L0rXohxKTjZO5rDFB58T707YbTOF/hJFgSoKRQ4VuRRMJqFbgVCU8NrCq4Ko7xbMb7o=
-X-Gm-Gg: ASbGncuEUsbiE6PQZ7GnQiSZHZ1pBx8kbX/6/TxPc7Rm0CSy3Y0gGH/EzwxcBeRHy8r
-	fm22DHG1zQppSMCWUXhpIKLNPrY5pzh3ue3y98odUYHGFS3J5/UGwKDQmfOpk9ZjVcfKug/8G1y
-	uFglJBDZYKrkZznZeLWGtWdokPQXbPA6iXTpJTDaL41RQp7sjPEaoGlcNj6n3s2z9vbMatFYMGL
-	rBezOe8B51N8PM+zDtrjddPuzI/JFMmGOLsCQzCyxRRN/ClOhsb9zM94Kkuj7LLqwdgMqPXNfPv
-	JMl/6Q3unUd0X3yMho6bmsdYW+UrBDpx8ZdWlC9KKtNpoH2qJ/4Q9JnkzL7sGP7XZ06Axrc=
-X-Google-Smtp-Source: AGHT+IG/V3Opgz2PDL+bVOZGX8atJ6mbWrBQT/ugzNjANyQS6gfJjv43GgKxrWWCOwUGCfdzPvI8vg==
-X-Received: by 2002:a5d:5f8a:0:b0:3a3:6b16:3bb3 with SMTP id ffacd0b85a97d-3a36b163d10mr15401385f8f.3.1747925577440;
-        Thu, 22 May 2025 07:52:57 -0700 (PDT)
+        bh=6fk8IPoQziwfYwbuUI7UFNnBkSt01Uwd7OzuOBIvOZw=;
+        b=k40FyUr4fvmZGi+TgfbVkv4vFf65ybZS1S//TZ5Zp5mSFKme+42WCFZAe1Oyh/hsQ7
+         MN+7Kf7m2uQC+W9v9vRwCRP+0q5/JyIfKpHbLkKRbIUO94WhdoiajlrmMAWRj/tCcPCe
+         WwqqtueUacpDW2DGCCeBDkt2+jiXB1t6C7/ggiaZCkxhhXuaysVMUkaicWSYz0Xpksua
+         dhE+1Rv0npDRAOXOAhDdVjfgrodMlN2A2pIewVWY9rs37fpPJH7jt8I4WuAt0Ahg3mPF
+         PdI6KHbpyORUU7fhXcE9TqfshNzqh1D5nzf5HA34Gpz51UFIlMwSPcL64ooISe7oY/Ef
+         C//g==
+X-Forwarded-Encrypted: i=1; AJvYcCW5imxRP9Ty/FnAZoCjKeoSFA1ZarSOzs9RD12fTo87r8ITCJlWCoxOP6KeFSkwLHAz0/fUg9bg95AfqwnfcSuM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+3oWVqnfxJ52us10toIXj5Iq0dUVRx0uGXYjV0WxxuqOQJ0Ev
+	W1sZOz85o6yq40+G4NOPW1OPVJftGFCLvLzAm/e2TSRsCREekn560oXJhY4z6j8e3yk=
+X-Gm-Gg: ASbGncuboapYgH+wM08hwDPGCKa5Yt/wVrdDXdYAK5HHtd6/fl2YlN1O669tuS6BhWP
+	UXZVr7Hsfx/bHcJxOrvGYxzgf/2/dns1wNXuR5trgazwMrLkiLNVMmzbgeNnkdTMv5Gt9Bk0gUb
+	VOdkysPbmEOgqI/rpLgCUJeuGBcmKQG8pXxO99xxbe28k/3IXgALaLMszCDJG3n5XNTxoR7WDk8
+	xMYrNgigwymZBYcqBTDdg3ZWAs5mVzIypydCy+ptaemfAhJvcNqhITU4UVO21HyDBHHglQfz6I+
+	CvLWQbzWgvRbyQLbXVwDG3SL+Gv46FVDDz7oDGe3ZUAZ2f4oDmfflwZ5aKDa
+X-Google-Smtp-Source: AGHT+IGFpmPzY89cA+sps7xchhXwbvS4hLuhbFCBxUqce+aMcHX4nBXLpUwuU9xg1nYZbcfMggR6Bw==
+X-Received: by 2002:a05:600c:530c:b0:442:f4a3:8c5c with SMTP id 5b1f17b1804b1-442fd6272f8mr316774415e9.10.1747925578910;
+        Thu, 22 May 2025 07:52:58 -0700 (PDT)
 Received: from ho-tower-lan.lan ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f78aeb56sm104965555e9.27.2025.05.22.07.52.55
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f78aeb56sm104965555e9.27.2025.05.22.07.52.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 May 2025 07:52:56 -0700 (PDT)
+        Thu, 22 May 2025 07:52:58 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Thu, 22 May 2025 15:51:40 +0100
-Subject: [PATCH v2 11/14] spi: spi-fsl-dspi: Enable modified transfer
- protocol on S32G
+Date: Thu, 22 May 2025 15:51:41 +0100
+Subject: [PATCH v2 12/14] dt-bindings: spi: dspi: Add S32G support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250522-james-nxp-spi-v2-11-bea884630cfb@linaro.org>
+Message-Id: <20250522-james-nxp-spi-v2-12-bea884630cfb@linaro.org>
 References: <20250522-james-nxp-spi-v2-0-bea884630cfb@linaro.org>
 In-Reply-To: <20250522-james-nxp-spi-v2-0-bea884630cfb@linaro.org>
 To: Vladimir Oltean <olteanv@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -94,14 +93,14 @@ Cc: Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
  linux-arm-kernel@lists.infradead.org, 
  Vladimir Oltean <vladimir.oltean@nxp.com>, 
  Dan Carpenter <dan.carpenter@linaro.org>, 
- Andra-Teodora Ilie <andra.ilie@nxp.com>, 
- Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>, 
+ Ciprian Marian Costea <ciprianmarian.costea@nxp.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
  Larisa Grigore <larisa.grigore@nxp.com>, 
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_075259_295992_2E9EBF5C 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20250522_075300_637871_DE6EC521 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,140 +115,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andra-Teodora Ilie <andra.ilie@nxp.com>
+From: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
 
-S32G supports modified transfer protocol where both host and target
-devices sample later in the SCK period than in Classic SPI mode to allow
-the logic to tolerate more delays in device pads and board traces. Set
-MTFE bit in MCR register for frequencies higher than 25MHz.
+Document S32G compatible strings. 's32g2' and 's32g3' use the same
+driver so 's32g2' must follow 's32g3'. The SPI controller supports
+target mode when the "spi-slave" flag is used so add an example.
 
-Signed-off-by: Andra-Teodora Ilie <andra.ilie@nxp.com>
-Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
 Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/spi/spi-fsl-dspi.c | 45 ++++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 42 insertions(+), 3 deletions(-)
+ Documentation/devicetree/bindings/spi/fsl,dspi.yaml | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/drivers/spi/spi-fsl-dspi.c b/drivers/spi/spi-fsl-dspi.c
-index a3efe1bd3b37..01af641fa757 100644
---- a/drivers/spi/spi-fsl-dspi.c
-+++ b/drivers/spi/spi-fsl-dspi.c
-@@ -24,6 +24,7 @@
+diff --git a/Documentation/devicetree/bindings/spi/fsl,dspi.yaml b/Documentation/devicetree/bindings/spi/fsl,dspi.yaml
+index 7ca8fceda717..63f4b779a255 100644
+--- a/Documentation/devicetree/bindings/spi/fsl,dspi.yaml
++++ b/Documentation/devicetree/bindings/spi/fsl,dspi.yaml
+@@ -23,6 +23,7 @@ properties:
+           - fsl,ls2080a-dspi
+           - fsl,ls2085a-dspi
+           - fsl,lx2160a-dspi
++          - nxp,s32g2-dspi
+       - items:
+           - enum:
+               - fsl,ls1012a-dspi
+@@ -37,6 +38,9 @@ properties:
+       - items:
+           - const: fsl,lx2160a-dspi
+           - const: fsl,ls2085a-dspi
++      - items:
++          - const: nxp,s32g3-dspi
++          - const: nxp,s32g2-dspi
  
- #define SPI_MCR				0x00
- #define SPI_MCR_HOST			BIT(31)
-+#define SPI_MCR_MTFE			BIT(26)
- #define SPI_MCR_PCSIS(x)		((x) << 16)
- #define SPI_MCR_CLR_TXF			BIT(11)
- #define SPI_MCR_CLR_RXF			BIT(10)
-@@ -37,6 +38,7 @@
- 
- #define SPI_CTAR(x)			(0x0c + (((x) & GENMASK(2, 0)) * 4))
- #define SPI_CTAR_FMSZ(x)		(((x) << 27) & GENMASK(30, 27))
-+#define SPI_CTAR_DBR			BIT(31)
- #define SPI_CTAR_CPOL			BIT(26)
- #define SPI_CTAR_CPHA			BIT(25)
- #define SPI_CTAR_LSBFE			BIT(24)
-@@ -111,6 +113,8 @@
- 
- #define DMA_COMPLETION_TIMEOUT		msecs_to_jiffies(3000)
- 
-+#define SPI_25MHZ			25000000
-+
- struct chip_data {
- 	u32			ctar_val;
- };
-@@ -346,6 +350,7 @@ struct fsl_dspi {
- 	const void				*tx;
- 	void					*rx;
- 	u16					tx_cmd;
-+	bool					mtf_enabled;
- 	const struct fsl_dspi_devtype_data	*devtype_data;
- 
- 	struct completion			xfer_done;
-@@ -722,7 +727,7 @@ static void dspi_release_dma(struct fsl_dspi *dspi)
- }
- 
- static void hz_to_spi_baud(char *pbr, char *br, int speed_hz,
--			   unsigned long clkrate)
-+			   unsigned long clkrate, bool mtf_enabled)
- {
- 	/* Valid baud rate pre-scaler values */
- 	int pbr_tbl[4] = {2, 3, 5, 7};
-@@ -739,7 +744,13 @@ static void hz_to_spi_baud(char *pbr, char *br, int speed_hz,
- 
- 	for (i = 0; i < ARRAY_SIZE(brs); i++)
- 		for (j = 0; j < ARRAY_SIZE(pbr_tbl); j++) {
--			scale = brs[i] * pbr_tbl[j];
-+			if (mtf_enabled) {
-+				/* In MTF mode DBR=1 so frequency is doubled */
-+				scale = (brs[i] * pbr_tbl[j]) / 2;
-+			} else {
-+				scale = brs[i] * pbr_tbl[j];
-+			}
-+
- 			if (scale >= scale_needed) {
- 				if (scale < minscale) {
- 					minscale = scale;
-@@ -1146,6 +1157,20 @@ static int dspi_transfer_one_message(struct spi_controller *ctlr,
- 	return status;
- }
- 
-+static int dspi_set_mtf(struct fsl_dspi *dspi)
-+{
-+	if (spi_controller_is_target(dspi->ctlr))
-+		return 0;
-+
-+	if (dspi->mtf_enabled)
-+		regmap_update_bits(dspi->regmap, SPI_MCR, SPI_MCR_MTFE,
-+				   SPI_MCR_MTFE);
-+	else
-+		regmap_update_bits(dspi->regmap, SPI_MCR, SPI_MCR_MTFE, 0);
-+
-+	return 0;
-+}
-+
- static int dspi_setup(struct spi_device *spi)
- {
- 	struct fsl_dspi *dspi = spi_controller_get_devdata(spi->controller);
-@@ -1204,7 +1229,16 @@ static int dspi_setup(struct spi_device *spi)
- 		cs_sck_delay, sck_cs_delay);
- 
- 	clkrate = clk_get_rate(dspi->clk);
--	hz_to_spi_baud(&pbr, &br, spi->max_speed_hz, clkrate);
-+
-+	if (is_s32g_dspi(dspi) && spi->max_speed_hz > SPI_25MHZ)
-+		dspi->mtf_enabled = true;
-+	else
-+		dspi->mtf_enabled = false;
-+
-+	dspi_set_mtf(dspi);
-+
-+	hz_to_spi_baud(&pbr, &br, spi->max_speed_hz, clkrate,
-+		       dspi->mtf_enabled);
- 
- 	/* Set PCS to SCK delay scale values */
- 	ns_delay_scale(&pcssck, &cssck, cs_sck_delay, clkrate);
-@@ -1226,6 +1260,9 @@ static int dspi_setup(struct spi_device *spi)
- 				  SPI_CTAR_PBR(pbr) |
- 				  SPI_CTAR_BR(br);
- 
-+		if (dspi->mtf_enabled)
-+			chip->ctar_val |= SPI_CTAR_DBR;
-+
- 		if (spi->mode & SPI_LSB_FIRST)
- 			chip->ctar_val |= SPI_CTAR_LSBFE;
- 	}
-@@ -1352,6 +1389,8 @@ static int dspi_resume(struct device *dev)
- 		return ret;
- 	}
- 
-+	dspi_set_mtf(dspi);
-+
- 	if (dspi->irq)
- 		enable_irq(dspi->irq);
- 
+   reg:
+     maxItems: 1
+@@ -114,3 +118,17 @@ examples:
+                 spi-cs-hold-delay-ns = <50>;
+         };
+     };
++  # S32G3 in target mode
++  - |
++    spi@401d4000 {
++        compatible = "nxp,s32g3-dspi", "nxp,s32g2-dspi";
++        reg = <0x401d4000 0x1000>;
++        interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clks 26>;
++        clock-names = "dspi";
++        spi-num-chipselects = <8>;
++        bus-num = <0>;
++        dmas = <&edma0 0 7>, <&edma0 0 8>;
++        dma-names = "tx", "rx";
++        spi-slave;
++    };
 
 -- 
 2.34.1
