@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3604CC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 06:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06AEC54756
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 06:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QwRI3MV18hctS5DE0xr19AziYCnY0iP43zo2tQBcXiI=; b=qM+PWcg0YBsDOncciisVjokb2g
-	eXt9r+Y5Pms5S25R1quoTgpcwv0UoaYjD1tc7TCXJVjhTZzaNvY3RBJeggKLkU/fRYJVUPB4EM+iB
-	gKUdAWJ06780OIUZdWuHeFnu2pyzWfMcUIVEWeopNmt2SJyIS9eDfa2Gqo7eTyx74a0BJ7aaGyonx
-	xFrixnCTEhZLQabZ/zvrpxjok4XPr+XE+fWNckTfZI5aTOpLor8QO4EK4Q23wb9Sj63mJCCoEfRlZ
-	MqSNIRCywdycUqpg6AiaJq+0qrUgVAMJ3AkPyavPQpaQOE8gfugSpYaXlQGSlVhfv3ojTBe4ztdOV
-	+tVBn0tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WeKMC6ZBMvoz5mZGPjKGgi0Ohr2T8fh1E4A0BZHhyCM=; b=Qmo610Yn/z+W8K4K9xkfTO0qB4
+	ysyMXfhw8TlRFSzm24l9n9ap+S+vfHOLKWeUs+Gqfi+BmXEjoquEta09uunO6JJvFUN67tKGMdIKZ
+	rn914Jvhj+EPuL78hbQNcWq9rFqqDLyqOny1lfMRuiLcKzbI9IKdnJc3EPSal6PCbHmugBLVvHTZT
+	BQw2yhpKqOCWCsnw7hUn4WFJOtAvRnO5D3x3I2xTLfHSbk2Sg+9/WeRqpj0dEDfxzVS2LWTW7R2a5
+	tnMmB9CIHMdQ1RlmvmKZLVeFqmxpxyxwEc1tT0AjnaA290iQxIIAi3Aqmm8SOH7Xmrtzl2MZUxJQ0
+	6zpaj6NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHzkC-000000002Xh-1a41;
-	Thu, 22 May 2025 06:49:32 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1uHztE-000000003a6-1tOF;
+	Thu, 22 May 2025 06:58:52 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHzf6-0000000021M-0SrN
+	id 1uHzrA-000000003GN-3jdh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 06:44:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747896256; x=1779432256;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=Davt7Hyek2LzSD7/JdDXR8h0dqVL4Z3QWGPYALsTdc8=;
-  b=Tnj0T+e5C1dSZEFfGiMcCIGKd/GQVqK3p1+cYFhSmFebfFET/yHDi7h8
-   2JKYJDkxOzOLTcs4j//D7AW7bIcdpDVRYphe2I5twJV0njkM/QqcgcX4L
-   vazkBFjlUxcb8WvswrWhXDm8TUQa4GJjzEQcbv92o+xpmFYvddQCb9EqD
-   34Za1C0s1qk6iHrEqiLIc4jjYfSjRqeibtpKN/kDnJ+06v0/eiaAM6E/a
-   BZzU+u6UpqNZEXDrHkmLcSXqwLOs4ILG155JmFy9dvbIYjsK6ecAYNwcK
-   h27uBEBu3bVIPJhq/1HRFHGPX28EvwciYhjL3gUkWVxzod50fqVHL4SDP
-   Q==;
-X-CSE-ConnectionGUID: 4LuyLCu4SMuYTHY0naCfCw==
-X-CSE-MsgGUID: TwPlMrKXR5G+66cfPrYD5w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11440"; a="49780497"
-X-IronPort-AV: E=Sophos;i="6.15,305,1739865600"; 
-   d="scan'208";a="49780497"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 May 2025 23:44:13 -0700
-X-CSE-ConnectionGUID: TSWLVWevR2mD48USna+n0g==
-X-CSE-MsgGUID: s4xGg8cOThOvRPaLYg2t8g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,305,1739865600"; 
-   d="scan'208";a="177605983"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 21 May 2025 23:44:11 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uHzey-000P0O-2e;
-	Thu, 22 May 2025 06:44:08 +0000
-Date: Thu, 22 May 2025 14:44:03 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jing Zhang <jingzhangos@google.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Subject: [arm-platforms:kvm-arm64/misc-6.16 7/7]
- arch/arm64/kvm/vgic/vgic-debug.c:365: warning: expecting prototype for
- vigc_its_iter_next(). Prototype was for vgic_its_iter_next() instead
-Message-ID: <202505221421.KAuWlmSr-lkp@intel.com>
+	Thu, 22 May 2025 06:56:46 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7311a8bb581so5807992a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 23:56:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747897003; x=1748501803; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WeKMC6ZBMvoz5mZGPjKGgi0Ohr2T8fh1E4A0BZHhyCM=;
+        b=AILPDw8+kTXmpbgcffam5PPAsLqDKlAev40yLqSg9xsbq+Pn17G3FYynb39vI+PFMW
+         V8uP9FcnxkZAa1ihNLc8cGWnKCJ7W8hx82XrLZgB47UR3smspeKFMKMlaypvWDPmgbKp
+         8NE1wSD4m8EmBxPee99uHSk7YHm+z7NcQl4iI3FsZtMPWh4iJDCsMdJF22TwbK7PzIG1
+         6IjhFexMtU5xGqP1FdDcEHdlcjPB0NASb4VAPxIR1hzMP9N24Fnz2bYtgWeNbuU9NDoV
+         dKiC7F1zoyDxDwJzGkCFjXi4U2cb/mzeXJrAkYgXwYcoOk37vVP0dOStBkHA5AmJD2zp
+         J4/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747897003; x=1748501803;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WeKMC6ZBMvoz5mZGPjKGgi0Ohr2T8fh1E4A0BZHhyCM=;
+        b=xJNQ3obEmYxODy1TqscwlHEv8uGqzvsey2PJBDmZ1Vog7hUy7TaqUWMYTkhyZkWq6a
+         8PwzX/hggn5wYI7XFUfEkJX6vGPODuEeL0UGSCGJ8VvuknUdx8fEOVk+PzbCS3PQScCc
+         m0h2yYzjveyt2IMfqnjny6akBFUAJZNCU0HdLJCrV59fmBDo7ydTjto6BAk+jfg6d7er
+         BgObfRKd4qj19ESF1tYh+i3/LyMIJvNr5esBDfcBxi5qdbSlPlP/nxWCJbuqO4eHja8a
+         R2xaKz1TrgiUau0Zr1CAv+1KIW0oLEGhZKqPoDqXuux6EYOBmuL1LIhjX5+ly7QE3nIN
+         IqLg==
+X-Forwarded-Encrypted: i=1; AJvYcCVHFey8IHfJAobNCzt2umveCt1SsZ1xLTif3ltEqcG2E9S39iFenS5r6wOkkiajf28L1LZ4Z/3+rcN9gn7Mu3MB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCGDi7QtiDgy4D+vxbfp91+M09I4j8aXtSLPxLeeGmPQ/iVql7
+	h67lvWZtun/hThyMT+HOMLVMnhvZfgYtAjRQp/EdgzJqufCU8g3ld0bPLftgsWUaTF+Cw+1l369
+	/YPcyPzCcQZZYF0DOSSpb5nBqDDt8oNZJl/RvgqKcfQ==
+X-Gm-Gg: ASbGncuEb0FcHNGH/B/oKhi5VaI4WgqoxdQ9KToZI9BeF4YSR7XNxlUWHmVPALwnUV0
+	cHhizM6hTZGjJXJ7HcBtHEak32ga7qsTQH/d5O9+d6PB88n9J4q0x9pk6t3TaMGiY2HjeA96M3p
+	8IFgH4C7mjrHhiWvW+EDmvFCwkBTiwvtaolQ==
+X-Google-Smtp-Source: AGHT+IHkFUemf1YsBa7Ra5vRLLSyYkClMUJvfuEYqOo7C5Q/HY7RUEskcqp+LiC0Z8m9NvJveoTaK0UdZlaYOd03Who=
+X-Received: by 2002:a05:6808:6410:b0:3f7:ff67:1d8c with SMTP id
+ 5614622812f47-404d88d532amr14478281b6e.36.1747897003075; Wed, 21 May 2025
+ 23:56:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20250520152436.474778-1-jens.wiklander@linaro.org>
+ <20250520152436.474778-3-jens.wiklander@linaro.org> <dffbd709-def0-47af-93ff-a48686f04153@amd.com>
+In-Reply-To: <dffbd709-def0-47af-93ff-a48686f04153@amd.com>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Thu, 22 May 2025 08:56:31 +0200
+X-Gm-Features: AX0GCFsuHYqDh1JYpWH8r8xDir4J3V2XXHJjiARqLynYHFcDQxMIIZpQ5oYhZd4
+Message-ID: <CAHUa44Ec0+GPoDkcEG+Vg9_TY1NC=nh3yr0F=ezHMbaeX_A0Bg@mail.gmail.com>
+Subject: Re: [PATCH v9 2/9] dma-buf: dma-heap: export declared functions
+To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_234416_187627_0BB85243 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250521_235644_936948_62191FB0 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,61 +104,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/misc-6.16
-head:   30deb51a677b96f0faf20373995fe0fb4a78b8b8
-commit: 30deb51a677b96f0faf20373995fe0fb4a78b8b8 [7/7] KVM: arm64: vgic-its: Add debugfs interface to expose ITS tables
-config: arm64-randconfig-002-20250522 (https://download.01.org/0day-ci/archive/20250522/202505221421.KAuWlmSr-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 7.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250522/202505221421.KAuWlmSr-lkp@intel.com/reproduce)
+On Wed, May 21, 2025 at 9:13=E2=80=AFAM Christian K=C3=B6nig
+<christian.koenig@amd.com> wrote:
+>
+> On 5/20/25 17:16, Jens Wiklander wrote:
+> > Export the dma-buf heap functions declared in <linux/dma-heap.h>.
+>
+> That is what this patch does and that should be obvious by looking at it.=
+ You need to explain why you do this.
+>
+> Looking at the rest of the series it's most likely ok, but this commit me=
+ssage should really be improved.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505221421.KAuWlmSr-lkp@intel.com/
+I'm considering something like this for the next version:
+Export the dma-buf heap functions declared in <linux/dma-heap.h> to allow
+them to be used by kernel modules. This will enable drivers like the OP-TEE
+driver, to utilize these interfaces for registering and managing their
+specific DMA heaps.
 
-All warnings (new ones prefixed by >>):
+Thanks,
+Jens
 
->> arch/arm64/kvm/vgic/vgic-debug.c:365: warning: expecting prototype for vigc_its_iter_next(). Prototype was for vgic_its_iter_next() instead
-
-
-vim +365 arch/arm64/kvm/vgic/vgic-debug.c
-
-   353	
-   354	/**
-   355	 * vigc_its_iter_next - Advances the iterator to the next entry in the ITS tables.
-   356	 * @its: The VGIC ITS structure.
-   357	 * @iter: The iterator to advance.
-   358	 *
-   359	 * This function moves the iterator to the next ITE within the current device,
-   360	 * or to the first ITE of the next device if the current ITE is the last in
-   361	 * the device. If the current device is the last device, the iterator is set
-   362	 * to indicate the end of iteration.
-   363	 */
-   364	static void vgic_its_iter_next(struct vgic_its *its, struct vgic_its_iter *iter)
- > 365	{
-   366		struct its_device *dev = iter->dev;
-   367		struct its_ite *ite = iter->ite;
-   368	
-   369		if (!ite || list_is_last(&ite->ite_list, &dev->itt_head)) {
-   370			if (list_is_last(&dev->dev_list, &its->device_list)) {
-   371				dev = NULL;
-   372				ite = NULL;
-   373			} else {
-   374				dev = list_next_entry(dev, dev_list);
-   375				ite = list_first_entry_or_null(&dev->itt_head,
-   376							       struct its_ite,
-   377							       ite_list);
-   378			}
-   379		} else {
-   380			ite = list_next_entry(ite, ite_list);
-   381		}
-   382	
-   383		iter->dev = dev;
-   384		iter->ite = ite;
-   385	}
-   386	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>
+> Regards,
+> Christian.
+>
+> >
+> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > ---
+> >  drivers/dma-buf/dma-heap.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >
+> > diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.c
+> > index 3cbe87d4a464..cdddf0e24dce 100644
+> > --- a/drivers/dma-buf/dma-heap.c
+> > +++ b/drivers/dma-buf/dma-heap.c
+> > @@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap *heap)
+> >  {
+> >       return heap->priv;
+> >  }
+> > +EXPORT_SYMBOL(dma_heap_get_drvdata);
+> >
+> >  /**
+> >   * dma_heap_get_name - get heap name
+> > @@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_heap *heap=
+)
+> >  {
+> >       return heap->name;
+> >  }
+> > +EXPORT_SYMBOL(dma_heap_get_name);
+> >
+> >  /**
+> >   * dma_heap_add - adds a heap to dmabuf heaps
+> > @@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct dma_heap=
+_export_info *exp_info)
+> >       kfree(heap);
+> >       return err_ret;
+> >  }
+> > +EXPORT_SYMBOL(dma_heap_add);
+> >
+> >  static char *dma_heap_devnode(const struct device *dev, umode_t *mode)
+> >  {
+>
 
