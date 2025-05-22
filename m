@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26788C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 19:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 026BFC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 19:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DF8qwdvQiSR8ZsqVN4u28RN14jUMJY3Pi0vpFa2D75A=; b=D480Ou3gIT1dWgZazky0kL8Ngl
-	RaYvR5+BxNWeKy6hQXT7M0C1G5aQzmN97JcT9h01tTo9MljJvSIskzbOUZvzg3dHC8FDflUu4vBdR
-	1jv1Ey/gV7zX2GC7+tcWv8Oys6UpAZW0gSGAb1V69k8MDapEBpmHax4x5lmgjxmJcipuiwhk0H/Y8
-	qlxU0EpzG3S49DoidEhfnO8c49V2VgAqKR29Z5ZNv/ISqNytqrDT00Gzvlla2oZaL55vYugmsDaiB
-	HsGVG7YgTOjS2m8Gzb/DIFCzrDLS6KzWnkMkIJpHfZkpEH3LRT1jNUOJ2LnimiG3H/K6qRlSe2P9N
-	jAkEDaBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uAfLd2+eW+OIWxtnxvjxahlHfrrw/biV9Jvjs+l5fkc=; b=5BmgcdisxgQp8H1Pktm+jaMYb5
+	jQv4vY4CKJ/DoCWf1LyNIdetngHPyQliFI58xqRy2CEB5jRepJ6R3muqHMxOe7AGK59ISjnjE0r/K
+	ZLySSokc1MYHeH+XESFbf0p0pZS5HKCjSpAtbKhgo0liN3ZyHmZ4gYxIlI38Lipzh45+rk/ZMeKXJ
+	m3SPPqo5ahbm/S0PcHPq/VxXfpcNzTfAJprX4rFT1uoON5H4dcog8s6gCAOz/Rr9iM8xSIe+AFR3X
+	hNU/86btuf/hb9yR9DNBqIX+L/Zei/WF0QGcUOh9J2weMdrKm+wpj/n5PHrBidP4VKhJDYgrhFcY4
+	CjJkX+7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIBXI-000000021Gq-04j6;
-	Thu, 22 May 2025 19:25:00 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1uIBZH-000000021Y1-3Bss;
+	Thu, 22 May 2025 19:27:03 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIBCr-00000001wUF-3krO
+	id 1uIBEx-00000001xLI-2SpC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 19:03:55 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b26c5fd40a9so148787a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 12:03:53 -0700 (PDT)
+	Thu, 22 May 2025 19:06:05 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6f8c53aeedbso118971336d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 12:06:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747940633; x=1748545433; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DF8qwdvQiSR8ZsqVN4u28RN14jUMJY3Pi0vpFa2D75A=;
-        b=wS2PmPhwaB9PNbzPeKs14jcBYJ3bwTYfTJTaScWf2UVAsAcmxfuDxCOI1fqGE18CSL
-         CnoGPqtOLG1HUPU24AlKUmAMRw7Etfq2ZZuSBgqr3Ns62o5w90FKDgbQWXZmu8HPdwDq
-         FtmzTwOfFtChQxYLo6Mc+5yBKtf+sGT1JnUFbHB9QQ8wapIQl2PriisHDx1/fU9giA1C
-         DXCD+PWVWBNtbC5RqtFA0aJN8cy6Hk/l+U4rlndrKl2edAY/97GagBOl5/OmaLThQaOs
-         YodBwpJ2HIurU43fcKMH/8VZc4fd3fywmDqt4ocuGjmqGVxeNY0vG+CtoynRxv7XjsQh
-         2Law==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1747940762; x=1748545562; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=uAfLd2+eW+OIWxtnxvjxahlHfrrw/biV9Jvjs+l5fkc=;
+        b=1GeQAs0GoDemQsGc1jwjbzt5F19iVNY6Yant1LX0qTJBSRClRf+fM3Z3aQ6YT0M3gg
+         EY/51jc+lDO9KSPUEFgl3PhUqjIdKhDxeZORplYHacYEOd6/rpxTtDIZO2Z8ccf0JIHj
+         8nBh0DfofL1bX7exQLjl4syn+mST8S4vlIK0YBhQ7kXEE3NmtvF5A2gTAZB0cuNdv0yH
+         /vmNTFO/AKGSySphPdEnT3lAReNmCEvN2hOC1dl+8QiDD8+QgYOGPsmSLhuKKHq5Z5+b
+         91MygbR62e9g0xiPbzhMLFdLaPSGE8Eq/pouQGzmSfeNYmoyFEVRooZiUVBbLMPjNpbP
+         XJEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747940633; x=1748545433;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DF8qwdvQiSR8ZsqVN4u28RN14jUMJY3Pi0vpFa2D75A=;
-        b=FpoxWSfyWt4wSFfy7l2HBTOSQoNQy8z4hGT7CcW92BiAAyeumwg1wNEaFiDrUShQzp
-         BUxySD/vTwQ2sjebdurVhh1+E1ZZaer53VlPWeAlAM9739Bb+wMMiEcqx89RS8hrxKlX
-         oTJw+4J52J7DEimTHiC/m6qnjdfQuwHuYcC8K/1X7qXoG6fBJpJcIGIDI4cmRWg03d+o
-         VVBiZv4+ItIp1/K2YZuu8YLc8sYUJQtuUKx7H+BCKoNYK8Teso9fLrgefSDJld1xynqq
-         C40dRfKtewlGfiYXKCTihaYpvim4Cq0pJUdvUvyKGDLG3Fze/ngF4saBWfVOubtMc8iP
-         wiQg==
-X-Forwarded-Encrypted: i=1; AJvYcCVEkgBYwZD8kWDqkG+5KNEVLygOYsWpx55dXFxQX7R9BuXdexktFbjKTes3hMEU+jR1vCv66Kv+n/asF7jab4/b@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsYmx1t/aGGBCdQ2XHeLmv2rkxeIiGdw2/Omi3c15dueQjI+2n
-	daIS/bxDtiFQOyzfjBtIu8iopd6dIluZX+fhaj/so7VsqGlKdiLufpYpjXD9yH/yq6S0Frt427a
-	9hgrm
-X-Gm-Gg: ASbGncvfqKVgyb5Kb32GcNMu2/yh1FSx5yRdlGoBqUcqxxEQ5BD7awXMQIu5B0kvGqs
-	+tAWU7r9YPJ1XgT+8PJc/CusPtJC7R+rrUO2BX+3+wuyHs37Ved/mrBH0AySohTsUJjzPqum3Eg
-	tj54avoM517IN5UyHMr46rFTvSHpN5dN8Sj3RI+XF+e/++Nylw60YncTueuPj8XCWYDxHFIjmys
-	kOvkDT91xP1cMIRdJB7YMkuOUs6Svujd14A9xvtovHuNTDj5FNxX+v273PwmOSkGXHYsAsriMgK
-	lD76KTzSXGR+VBaiwop3FQ/+gB8bH+62Cc+MhH6U4UfukR5npsSGFMf/zDTdo3jh
-X-Google-Smtp-Source: AGHT+IFOp5NbQAetfcmDIrzFN/H7GeRjVktpIXFM9JpmrYmqufWq4+kFSWRLQINNJ6B0dpiY8ak3gg==
-X-Received: by 2002:a17:902:e78b:b0:231:7fbc:19f3 with SMTP id d9443c01a7336-233f0680998mr8028135ad.12.1747940633282;
-        Thu, 22 May 2025 12:03:53 -0700 (PDT)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4e9736esm111879155ad.149.2025.05.22.12.03.52
+        d=1e100.net; s=20230601; t=1747940762; x=1748545562;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=uAfLd2+eW+OIWxtnxvjxahlHfrrw/biV9Jvjs+l5fkc=;
+        b=mfcqthLgVdsrwR5n0T3SxMdgIZ5asptGdMv54OB6lpRF3lfvgE0vjdaFNBHYMpGIDi
+         uHXJzFVLNTq+bTWE2ZBIYQEH/9ld1K2VX6T1W+ha9aeh9QdG94Ez2WXt951OLDXCWMKI
+         rlP0pOQ/PRL0Tq87cz48W1I3V2BnMvDQdLCV+dQNbPLMp3HauipqdP3uchMsOcmwdx3F
+         HNzyXgrUcMth8NzKVqLZIphj4RGeGbbYjJvx6SZD2dqMmMZcY/PUgUF5EHmXGHIanyjB
+         D0LyYpY67SMKDrfAKiNTAAvp65VcaZ5ycsN2jGocbKrlVU+jka/PXEGY9Tsq44SxD+Oc
+         Cwcg==
+X-Forwarded-Encrypted: i=1; AJvYcCWUCGV9YMVPbc85iUx3jvKoHCKRDGctIOCWeHeI1SvfBF1GM/L2axO2sbOK2aKZKurCBYPmbOrI45ifCQnbEjuM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrdlJhPRYf+ab1khPc1VzrMlCCnhoSpxQJ1mEpxn2oe078Czeu
+	uE43KUfjQqOyiAEB8vuFrFj4Rc+MPZhGDRQ1Zw06m7hoYqyHJmEr15v4k4q6oxyvYcY=
+X-Gm-Gg: ASbGncuomzBBnyk+RQJHqBshVr4C7Up/l+TGSCo42jFbjyjNCOu3743e40Lg4ASqx7f
+	Ii3dy52QL8vhBrKA15kda0NVHTxRnf+rHlWPPiVF4kluz9vlOTomTfNQPTVMxDU5N5Csaomia9Z
+	KJrzTQHKph6qSbOGsUi6Azc1DadC/6m6zWbRkrn1WkM30DOTasZmx60dKklm93IfEFrCp0xM6gx
+	txtHmEngJLM4UbL6N+sp+CIaJV+BntjFRp6jikfbyAy9OTfxdanV6lSgmiGlWmuS0UZquBY8bc0
+	Mf8JvMUVZT32yhwLyFJSoLe1C9+Q9DaD37PClq+kqcvVWZKDW0KPB74z
+X-Google-Smtp-Source: AGHT+IFMHoWCgYSKrp77j14dN4ezA6lfoJ+4Q+N0FgBs+1y4jyW6o9IHP3m48s9bZ43HqbDB/3wpZw==
+X-Received: by 2002:a05:6214:402:b0:6f2:c7b0:3b16 with SMTP id 6a1803df08f44-6f8b2c32addmr375505626d6.6.1747940762274;
+        Thu, 22 May 2025 12:06:02 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:17:b2fc::5ac? ([2606:6d00:17:b2fc::5ac])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f8b096dda9sm102909986d6.71.2025.05.22.12.06.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 May 2025 12:03:53 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Thu, 22 May 2025 12:03:42 -0700
-Subject: [PATCH v3 8/9] RISC-V: KVM: Implement get event info function
+        Thu, 22 May 2025 12:06:01 -0700 (PDT)
+Message-ID: <8b18533170e7ba395c574de69768dcc27f718767.camel@ndufresne.ca>
+Subject: Re: [PATCH 1/1] dt-bindings: media: convert fsl-vdoa.txt to yaml
+ format
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Frank Li <Frank.li@nxp.com>, "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, linux-media@vger.kernel.org, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Shawn Guo	 <shawnguo@kernel.org>, Fabio Estevam
+ <festevam@gmail.com>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, 
+	devicetree@vger.kernel.org
+Date: Thu, 22 May 2025 15:06:01 -0400
+In-Reply-To: <b97c254c5169acb32b9f65f71b363a3eb1cfc8a2.camel@ndufresne.ca>
+References: <20250411213601.3273670-1-Frank.Li@nxp.com>
+		 <174448105342.1415739.9619142538994119426.robh@kernel.org>
+		 <aC9xv08a5k5Pz1t+@lizhi-Precision-Tower-5810>
+	 <b97c254c5169acb32b9f65f71b363a3eb1cfc8a2.camel@ndufresne.ca>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1 (3.56.1-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250522-pmu_event_info-v3-8-f7bba7fd9cfe@rivosinc.com>
-References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
-In-Reply-To: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
-To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Mayuresh Chitale <mchitale@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-42535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_120353_953116_405D3BA7 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20250522_120603_755532_7890F518 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,125 +107,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new get_event_info funciton allows the guest to query the presence
-of multiple events with single SBI call. Currently, the perf driver
-in linux guest invokes it for all the standard SBI PMU events. Support
-the SBI function implementation in KVM as well.
+Hi again,
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Le jeudi 22 mai 2025 =C3=A0 14:57 -0400, Nicolas Dufresne a =C3=A9crit=C2=
+=A0:
+> Hi Frank,
+>=20
+> Le jeudi 22 mai 2025 =C3=A0 14:49 -0400, Frank Li a =C3=A9crit=C2=A0:
+> > On Sat, Apr 12, 2025 at 01:04:14PM -0500, Rob Herring (Arm) wrote:
+> > >=20
+> > > On Fri, 11 Apr 2025 17:36:00 -0400, Frank Li wrote:
+> > > > Convert fsl-vdoa.txt to yaml format.
+> > > >=20
+> > > > Additional changes:
+> > > > - Add irq.h and imx6qdl-clock.h in example.
+> > > >=20
+> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > ---
+> > > > =C2=A0.../bindings/media/fsl,imx6q-vdoa.yaml=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 | 42 +++++++++++++++++++
+> > > > =C2=A0.../devicetree/bindings/media/fsl-vdoa.txt=C2=A0=C2=A0=C2=A0 =
+| 21 ----------
+> > > > =C2=A02 files changed, 42 insertions(+), 21 deletions(-)
+> > > > =C2=A0create mode 100644 Documentation/devicetree/bindings/media/fs=
+l,imx6q-vdoa.yaml
+> > > > =C2=A0delete mode 100644 Documentation/devicetree/bindings/media/fs=
+l-vdoa.txt
+> > > >=20
+> > >=20
+> > > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> >=20
+> > All:
+> > 	Anyone pick this patch?
+>=20
+> Thanks for the highlight, this is stuff from before my time and I had not=
+ associated it
+> with CODA initially. I've picked it now.
+
+Actually, before I do so, any of the following warnings should be addressed=
+ ? I effectively don't
+see a clear entry for that bindings, but could have miss-read and there is =
+a second warning,
+which based on having Rb is likely false positive ?
+
 ---
- arch/riscv/include/asm/kvm_vcpu_pmu.h |  3 ++
- arch/riscv/kvm/vcpu_pmu.c             | 66 +++++++++++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_sbi_pmu.c         |  3 ++
- 3 files changed, 72 insertions(+)
+[[ATTACHMENT|junit/./0001-dt-bindings-media-convert-fsl-vdoa.txt-to-yaml-fo=
+rma.patch checkpatch.err.txt]]
+WARNING: added, moved or deleted file(s), does MAINTAINERS need updating?
+#21:=20
+new file mode 100644
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-index 1d85b6617508..9a930afc8f57 100644
---- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-@@ -98,6 +98,9 @@ void kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu);
- int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long saddr_low,
- 				      unsigned long saddr_high, unsigned long flags,
- 				      struct kvm_vcpu_sbi_return *retdata);
-+int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low,
-+				  unsigned long saddr_high, unsigned long num_events,
-+				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata);
- void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu);
- void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
- 
-diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-index 163bd4403fd0..70a6bdfc42f5 100644
---- a/arch/riscv/kvm/vcpu_pmu.c
-+++ b/arch/riscv/kvm/vcpu_pmu.c
-@@ -453,6 +453,72 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
- 	return 0;
- }
- 
-+int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low,
-+				  unsigned long saddr_high, unsigned long num_events,
-+				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata)
-+{
-+	struct riscv_pmu_event_info *einfo;
-+	int shmem_size = num_events * sizeof(*einfo);
-+	gpa_t shmem;
-+	u32 eidx, etype;
-+	u64 econfig;
-+	int ret;
-+
-+	if (flags != 0 || (saddr_low & (SZ_16 - 1))) {
-+		ret = SBI_ERR_INVALID_PARAM;
-+		goto out;
-+	}
-+
-+	shmem = saddr_low;
-+	if (saddr_high != 0) {
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			shmem |= ((gpa_t)saddr_high << 32);
-+		} else {
-+			ret = SBI_ERR_INVALID_ADDRESS;
-+			goto out;
-+		}
-+	}
-+
-+	if (kvm_vcpu_validate_gpa_range(vcpu, shmem, shmem_size, true)) {
-+		ret = SBI_ERR_INVALID_ADDRESS;
-+		goto out;
-+	}
-+
-+	einfo = kzalloc(shmem_size, GFP_KERNEL);
-+	if (!einfo)
-+		return -ENOMEM;
-+
-+	ret = kvm_vcpu_read_guest(vcpu, shmem, einfo, shmem_size);
-+	if (ret) {
-+		ret = SBI_ERR_FAILURE;
-+		goto free_mem;
-+	}
-+
-+	for (int i = 0; i < num_events; i++) {
-+		eidx = einfo[i].event_idx;
-+		etype = kvm_pmu_get_perf_event_type(eidx);
-+		econfig = kvm_pmu_get_perf_event_config(eidx, einfo[i].event_data);
-+		ret = riscv_pmu_get_event_info(etype, econfig, NULL);
-+		if (ret > 0)
-+			einfo[i].output = 1;
-+		else
-+			einfo[i].output = 0;
-+	}
-+
-+	kvm_vcpu_write_guest(vcpu, shmem, einfo, shmem_size);
-+	if (ret) {
-+		ret = SBI_ERR_FAILURE;
-+		goto free_mem;
-+	}
-+
-+free_mem:
-+	kfree(einfo);
-+out:
-+	retdata->err_val = ret;
-+
-+	return 0;
-+}
-+
- int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu,
- 				struct kvm_vcpu_sbi_return *retdata)
- {
-diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
-index e4be34e03e83..a020d979d179 100644
---- a/arch/riscv/kvm/vcpu_sbi_pmu.c
-+++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
-@@ -73,6 +73,9 @@ static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	case SBI_EXT_PMU_SNAPSHOT_SET_SHMEM:
- 		ret = kvm_riscv_vcpu_pmu_snapshot_set_shmem(vcpu, cp->a0, cp->a1, cp->a2, retdata);
- 		break;
-+	case SBI_EXT_PMU_EVENT_GET_INFO:
-+		ret = kvm_riscv_vcpu_pmu_event_info(vcpu, cp->a0, cp->a1, cp->a2, cp->a3, retdata);
-+		break;
- 	default:
- 		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
- 	}
+WARNING: DT binding docs and includes should be a separate patch. See: Docu=
+mentation/devicetree/bindings/submitting-
+patches.rst
 
--- 
-2.43.0
+total: 0 errors, 2 warnings, 0 checks, 42 lines checked
+---
 
+Nicolas
+
+>=20
+> regards,
+> Nicolas
+>=20
+> >=20
+> > Frank
+> > >=20
 
