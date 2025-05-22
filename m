@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D47C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E31AC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VEeX4pHU5dbnP7BXmwT5H8fSOKMWm7ham8iEEngBq2c=; b=J1WxJiLdZ24oQG
-	Wivc3maJsZDCWfqNBwyIYg0GThv6eLomnPh+ClgTGrjRRH0/Z8Q+t956TblUj3HiZz6xw5phxAEmv
-	N7h1arSu6QKtiMcM4nqEhJpk/E9GGXo94w/Xzoc9k6OJfeY+SfOagj23Ad4FwkAPbo9/Sz0TB54f4
-	BmjcmIheq4ae2FP2N6cyaAPPqouNFcU/MNs8Cf04ZBWVMp+Gwm0ZN1p79ZCbeKkZD6uaStb2laLQX
-	Wv91CD4ohajvVevAUS995WATDifPq8RbwqwrY+Xe7X/QxCuSTNaWJQ1reiLoxfPYr12qHoEqlGZDL
-	VpL84Y+MrwmL6/Yr+S+A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bX8Np3nsOAVhGpGTczqX2XujPUCRtkdhb7ZQQUV9YcY=; b=GtG2xZZC9ZTaY67R6Fe0oms3as
+	ExDaGoq+2lHLTChHlvV4rorkHlC8bpGFpFf2SXiTrW+sfUyeNyeDWcFjUU85UQntjKPhnMyb99lq5
+	sydfHCjTn7AUaVzLGmn+BcUBEQXa6mYh0b3Y/JhVbO1NLQ3nO+q+FqOqmj6mOyv/GUVZbGYuTRH0d
+	wKIlz6g27/qnerrPGLnfCm6d43WojACpLPAGg78qpen1HhndgLO5IKSi/4xZTCNAOXFbHBxHtiEP7
+	rTFAw+uTywYIEbusZxwSlFNQNyZ1QEe+nd2xaMBj5KnZsm4M57szm53keyD8DGGWWSoEHMiVVXXZU
+	HFtFyvkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7Xs-00000001O43-3hRw;
-	Thu, 22 May 2025 15:09:20 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1uI7Zt-00000001OdW-2u03;
+	Thu, 22 May 2025 15:11:25 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7Hk-00000001KQJ-3XVc
+	id 1uI7Hm-00000001KQz-18ch
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 14:52:42 +0000
-Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so67874415e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 07:52:40 -0700 (PDT)
+	Thu, 22 May 2025 14:52:43 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43ede096d73so60189905e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 07:52:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747925559; x=1748530359; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VEeX4pHU5dbnP7BXmwT5H8fSOKMWm7ham8iEEngBq2c=;
-        b=yO1XZgAcl0fuj3ZsRtTGFMpiGFv9ecU4lXskFjEnSg8bDzvXmYJP0qVf+JIVMSMDG0
-         E+tgOa6POyO+sbnJjJ8XBA/tsuYKprX1A9TQlOAscq2Wy1NjwolW0R/LOg8+9hmEC0PO
-         Qdrma8+IOSD+CyDe/cJ2e15Ee5P04Fy3+VoQ0le9I0uhKWEQrnJIUhH+XeHTq76xVXvc
-         ZjT1+7negAsAcqw6w9stKWCDQthSnIqeITVb9Uk3Let/UNNw1aLAqtzqoqsS6Ta5Qd7O
-         u5gq6XTN8fJzevgQJPCA6SgPsCePpNuEUak5DwuPvBnDbxpPGoLtshNyt1XH4HB02/uM
-         Dpjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747925559; x=1748530359;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1747925560; x=1748530360; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VEeX4pHU5dbnP7BXmwT5H8fSOKMWm7ham8iEEngBq2c=;
-        b=e0GkhXLCSe55AKW/mtTd+4odzJFYxKEenxg6Sv9pgDsmhiKOKZ/paNoAvPiQq4OAj4
-         TZOb3qWV3pmEscKbD8sXdCcKwPOQQQIWoSdKLgz1Oyb4AeBn3N+CJaVtAlg3Ki7LxTZZ
-         M7dsvhCiy4YVc6ukM1hYCv7pEu38v+husGzvaGfQxZPCYgJcD9SnKK70Tjj80ekAlFiK
-         PqoiAQjavPizmqAmJxvsxFYnPxl35eUWX9tuzpeMHV7odsuBTLIYI408eQWfVVvZjIIt
-         jIp0NDuMLvhWNXE4Geltyr7/pmq6kJePfpl/u7MLBOjTWxXd6dRNkE67GhrySGP9Bhuv
-         Njlg==
-X-Forwarded-Encrypted: i=1; AJvYcCVtGGAr/fDZbWLyv88jcgM40TasNJ1jORhwX9lXHGrKdTuUiiJoXuBD6E6HTx3UgW1f/87m9SgiohupPsXot+Fp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPkjPLMUqGWIZUkgeLwOQTHDh5jNyH/z6ni0jEibLw8Xxie9af
-	L383Vi3TtLelAxJc8cr1Xc5we4eLwnM/JuGPlvjKoVS/maHyXgT9Sr8dh3Ec2zLxifU=
-X-Gm-Gg: ASbGncvKdxs4egtFwpltvHOXvQR1suVavr/9LO0IeefZZ1mcLUb9PosZTTly/IvqGpF
-	w9/RNTFLvY+WgUewsLTz2UL63kJe/W0vMMIZCZZ5UzOIODTutVSKzDfDKV3H9h8ERAOJr0vlsNS
-	BrbU915tT80dsEgVP5aBk1cwgzyx8eYHebk2XR5zX7PEONWMypS39MhtjWCJ0np9MgzqCVBihYa
-	G9osmCloJOMKwdtrR7DnbfcoO1CUzEw6hIFZ99iZrdBW+FbHc3Jktv6Tu6ZVyXY1nDVn/7fhpBr
-	6Rw0v75cFmXtHJG7DMolzfpR1BE18x2xujUQMWj31diwMloR7Ny+SNbQeUmP
-X-Google-Smtp-Source: AGHT+IGuO6Y6d+kCxwoNrEY38IpkexCj4wL5pVJUa3/XxA+mRVZ8kHkKd9XIST6kB9JCbxHGl+gsxw==
-X-Received: by 2002:a05:600c:3114:b0:440:61eb:2ce5 with SMTP id 5b1f17b1804b1-442fd64e335mr299932885e9.17.1747925558639;
-        Thu, 22 May 2025 07:52:38 -0700 (PDT)
+        bh=bX8Np3nsOAVhGpGTczqX2XujPUCRtkdhb7ZQQUV9YcY=;
+        b=gTbC5+fXoQoEYjC3bEWsTVwcVQwxzn8RbjKf4Ip9ItY62Od+pORaOEVwagePPgLynQ
+         7rlc3fobXzogpsmk+OpJNC76SYmn5jeiCh4QOcro+zOEJ/PEK+OdiSm0vfu1XdJZYtPv
+         ktxP+OHHObVXrVowPvpsnb7uZuDspO3/qcmMQ1zQN/EVVL6U7AjkWOOHr5jOr/COFWXT
+         meokX3W71jlk6zxs0IRKcg2oo4T3naNbdp/DxvslAj9CHpTh4/9U+rDAw0vvW26HVVso
+         fPfP2bf1pF+0TZ0/IWdOMxHVhPQITTGhJotszgKN+ooJPNF13STQVIKfWAGKXJOelWY9
+         9vPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747925561; x=1748530361;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bX8Np3nsOAVhGpGTczqX2XujPUCRtkdhb7ZQQUV9YcY=;
+        b=mnKTxemCP2cAzPQr9qwU9Q1N2eJM9/TZdlar9ML95tQ5Sr5Y2b4SCyQsPsGsuYvgoH
+         Yl0hzYk4w2MtVAKWXpBaNyf7dEwRAL6DCYR3J28DXtDlW7ca4ZvDfXM8/TezmhmnriGt
+         B5OGWIPgflUHL/pQn68deiBJQE/A+A47SMOQPlzuk4fYBbCOLYu4I1V1I7XmIrxZ0gL1
+         NW6c4oxfKM+ij5b3NfzD78fLCtqaFN3iGX/XQuGafmT/YZ6QOSmNBs2hXNJBBGLY0B6u
+         8kGV0WJ/UquUTpGLHBaaClnTLd1LG478stgfWEaqje0YqWPeMDJsI/yfbQKVFDZuyrwI
+         YOkg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjYguLJzXEGra6qycotijhitzHGns9haJBxPL4dK+1vy23WpnPtjhZ1XOHgHK2OR8AV29aJ45bUN0xGoy1/tFk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTr74Z1+66YcqhCXTR9R50jdLeogkNkHgaaEi/wwiMo7tlCWR2
+	0K1mH89c88OX6RVU2a3ql1NV2mHMR8wsdcpZo8VAEjvMQ2fdBmNvQe0ubkJPp7Gv7AY=
+X-Gm-Gg: ASbGnctr6PDdLqSUFURZk3yMbrCIHBiOTjJOLbgz6A7AnxiLujL+a5VkMZbwoXzl0ok
+	oBvMnIrlPA/od6OhAv0kerCc4mEFu77E83MNlPi28qYvUGfZ54lCTyKQ5ax6DB+MxSwRe/OBujY
+	Ry8FUJiN1nZmPP4ojp7s2vTVin/yoBDBm6JkrvQtPoQk2MTBTyqVp9vCBiTu3COJHuos4bCalOC
+	FJ/+QSIrMCkqFfivHR1ayCv0X3C/LXj/nukgexCwyRWn7KxRY1EP5Jjk5zx/ydK8Y7Il4cPYbNp
+	orqTd5Sj0y7I2HU5fdHfWqHRCTxvuL9dm7s9UM4H9Ru0N9KvET0i5aa8sDuy
+X-Google-Smtp-Source: AGHT+IHkwaJ6gHJgvWiPzVxDv2dV6i3HHkhWCA1c5/mCAe/0o4MB5fUJzCgJeRD5hGESr2V3uBRYRg==
+X-Received: by 2002:a05:600c:4ed2:b0:43d:8ea:8d7a with SMTP id 5b1f17b1804b1-442fd67504emr191953925e9.28.1747925560426;
+        Thu, 22 May 2025 07:52:40 -0700 (PDT)
 Received: from ho-tower-lan.lan ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f78aeb56sm104965555e9.27.2025.05.22.07.52.36
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f78aeb56sm104965555e9.27.2025.05.22.07.52.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 May 2025 07:52:38 -0700 (PDT)
+        Thu, 22 May 2025 07:52:39 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH v2 00/14] spi: spi-fsl-dspi: DSPI support for NXP S32G
- platforms
-Date: Thu, 22 May 2025 15:51:29 +0100
-Message-Id: <20250522-james-nxp-spi-v2-0-bea884630cfb@linaro.org>
+Date: Thu, 22 May 2025 15:51:30 +0100
+Subject: [PATCH v2 01/14] spi: spi-fsl-dspi: restrict register range for
+ regmap access
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPE5L2gC/13MQQ6CMBCF4auQWTumnaYLXHkPw6LCFMZo27SEY
- Ah3t+LO5f+S921QOAsXuDQbZF6kSAw16NRAP7kwMspQG0iRVYYsPtyLC4Y1YUmCvfOaSbUtGQ3
- 1kzJ7WQ/v1tWepMwxvw9+0d/1J1nV/kmLRoWG7r4fyLPT+vqU4HI8xzxCt+/7B7lZF6qrAAAA
+Message-Id: <20250522-james-nxp-spi-v2-1-bea884630cfb@linaro.org>
+References: <20250522-james-nxp-spi-v2-0-bea884630cfb@linaro.org>
+In-Reply-To: <20250522-james-nxp-spi-v2-0-bea884630cfb@linaro.org>
 To: Vladimir Oltean <olteanv@gmail.com>, Mark Brown <broonie@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Matti Vaittinen <mazziesaccount@gmail.com>
@@ -95,20 +95,11 @@ Cc: Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
  Vladimir Oltean <vladimir.oltean@nxp.com>, 
  Dan Carpenter <dan.carpenter@linaro.org>, 
  Larisa Grigore <larisa.grigore@nxp.com>, 
- Xulin Sun <xulin.sun@windriver.com>, James Clark <james.clark@linaro.org>, 
- Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>, 
- Marius Trifu <marius.trifu@nxp.com>, 
- Ciprian Marian Costea <ciprianmarian.costea@nxp.com>, 
- Andra-Teodora Ilie <andra.ilie@nxp.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Stoica Cosmin-Stefan <cosmin.stoica@nxp.com>, Dan Nica <dan.nica@nxp.com>, 
- Larisa Grigore <Larisa.Grigore@nxp.com>, 
- Stefan-Gabriel Mirea <stefan-gabriel.mirea@nxp.com>, 
- "Radu Pirea (NXP OSS)" <radu-nicolae.pirea@oss.nxp.com>
+ Xulin Sun <xulin.sun@windriver.com>, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_075240_903653_5DC366EB 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250522_075242_315959_E44233BC 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,65 +114,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DT and driver changes for DSPI on S32G platforms. First 3 commits are
-fixes for various edge cases which also apply to other platforms.
-Remaining commits add new S32G registers and device settings, some S32G
-specific fixes and then finally add the DT compatibles and binding docs.
+From: Larisa Grigore <larisa.grigore@nxp.com>
 
-Tested in both host and target mode on S32G-VNP-RDB3 by transferring to
-an external device over spi1 using spidev_test.c
+DSPI registers are NOT continuous, some registers are reserved and
+accessing them from userspace will trigger external abort, add regmap
+register access table to avoid below abort.
 
+  For example on S32G:
+
+  # cat /sys/kernel/debug/regmap/401d8000.spi/registers
+
+  Internal error: synchronous external abort: 96000210 1 PREEMPT SMP
+  ...
+  Call trace:
+  regmap_mmio_read32le+0x24/0x48
+  regmap_mmio_read+0x48/0x70
+  _regmap_bus_reg_read+0x38/0x48
+  _regmap_read+0x68/0x1b0
+  regmap_read+0x50/0x78
+  regmap_read_debugfs+0x120/0x338
+
+Fixes: 1acbdeb92c87 ("spi/fsl-dspi: Convert to use regmap and add big-endian support")
+Co-developed-by: Xulin Sun <xulin.sun@windriver.com>
+Signed-off-by: Xulin Sun <xulin.sun@windriver.com>
+Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-Changes in v2:
-- Add trailing commas to lists
-- Line length fixes
-- DT coding style changes
-- Remove fake "rohm,dh2228fv" device for testing
-- Improve some commit messages
-- Put all fixes commits first and add fixes: tags
-- Link to v1: https://lore.kernel.org/r/20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org
+ drivers/spi/spi-fsl-dspi.c | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
 
----
-Andra-Teodora Ilie (1):
-      spi: spi-fsl-dspi: Enable modified transfer protocol on S32G
+diff --git a/drivers/spi/spi-fsl-dspi.c b/drivers/spi/spi-fsl-dspi.c
+index 067c954cb6ea..effb460d436d 100644
+--- a/drivers/spi/spi-fsl-dspi.c
++++ b/drivers/spi/spi-fsl-dspi.c
+@@ -1,7 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ //
+ // Copyright 2013 Freescale Semiconductor, Inc.
+-// Copyright 2020 NXP
++// Copyright 2020-2025 NXP
+ //
+ // Freescale DSPI driver
+ // This file contains a driver for the Freescale DSPI
+@@ -1167,6 +1167,20 @@ static int dspi_resume(struct device *dev)
+ 
+ static SIMPLE_DEV_PM_OPS(dspi_pm, dspi_suspend, dspi_resume);
+ 
++static const struct regmap_range dspi_yes_ranges[] = {
++	regmap_reg_range(SPI_MCR, SPI_MCR),
++	regmap_reg_range(SPI_TCR, SPI_CTAR(3)),
++	regmap_reg_range(SPI_SR, SPI_TXFR3),
++	regmap_reg_range(SPI_RXFR0, SPI_RXFR3),
++	regmap_reg_range(SPI_CTARE(0), SPI_CTARE(3)),
++	regmap_reg_range(SPI_SREX, SPI_SREX),
++};
++
++static const struct regmap_access_table dspi_access_table = {
++	.yes_ranges	= dspi_yes_ranges,
++	.n_yes_ranges	= ARRAY_SIZE(dspi_yes_ranges),
++};
++
+ static const struct regmap_range dspi_volatile_ranges[] = {
+ 	regmap_reg_range(SPI_MCR, SPI_TCR),
+ 	regmap_reg_range(SPI_SR, SPI_SR),
+@@ -1184,6 +1198,8 @@ static const struct regmap_config dspi_regmap_config = {
+ 	.reg_stride	= 4,
+ 	.max_register	= 0x88,
+ 	.volatile_table	= &dspi_volatile_table,
++	.rd_table	= &dspi_access_table,
++	.wr_table	= &dspi_access_table,
+ };
+ 
+ static const struct regmap_range dspi_xspi_volatile_ranges[] = {
+@@ -1205,6 +1221,8 @@ static const struct regmap_config dspi_xspi_regmap_config[] = {
+ 		.reg_stride	= 4,
+ 		.max_register	= 0x13c,
+ 		.volatile_table	= &dspi_xspi_volatile_table,
++		.rd_table	= &dspi_access_table,
++		.wr_table	= &dspi_access_table,
+ 	},
+ 	{
+ 		.name		= "pushr",
 
-Bogdan-Gabriel Roman (1):
-      spi: spi-fsl-dspi: Halt the module after a new message transfer
-
-Ciprian Marian Costea (2):
-      dt-bindings: spi: dspi: Add S32G support
-      spi: spi-fsl-dspi: Enable support for S32G platforms
-
-James Clark (2):
-      spi: spi-fsl-dspi: Re-use one volatile regmap for both device types
-      spi: spi-fsl-dspi: Define regmaps per device
-
-Larisa Grigore (7):
-      spi: spi-fsl-dspi: restrict register range for regmap access
-      spi: spi-fsl-dspi: Reset SR flags before sending a new message
-      spi: spi-fsl-dspi: Add config and regmaps for S32G platforms
-      spi: spi-fsl-dspi: Avoid setup_accel logic for DMA transfers
-      spi: spi-fsl-dspi: Use DMA for S32G controller in target mode
-      spi: spi-fsl-dspi: Reinitialize DSPI regs after resuming for S32G
-      arm64: dts: Add DSPI entries for S32G platforms
-
-Marius Trifu (1):
-      spi: spi-fsl-dspi: Use spi_alloc_target for target
-
- .../devicetree/bindings/spi/fsl,dspi.yaml          |  18 +
- arch/arm64/boot/dts/freescale/s32g2.dtsi           |  78 +++++
- arch/arm64/boot/dts/freescale/s32g3.dtsi           |  78 +++++
- arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi    |  83 +++++
- arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi    |  83 +++++
- drivers/spi/Kconfig                                |   4 +-
- drivers/spi/spi-fsl-dspi.c                         | 362 +++++++++++++++------
- 7 files changed, 600 insertions(+), 106 deletions(-)
----
-base-commit: d608703fcdd9e9538f6c7a0fcf98bf79b1375b60
-change-id: 20250325-james-nxp-spi-caf1e2099231
-
-Best regards,
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
