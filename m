@@ -4,92 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B272C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 18:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C23C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 18:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cJY9vehP2g7EGxYhkgZzcqCJWvR4zDkNLhtdKYt0bgU=; b=F7PHHZPKPWmfuG524ctQtV72ib
-	Gh2Be9sIN4VMmwMpVKge1I/M2KUiTTfnnj4jWPBmSSTB1Yihc3RB3LMAQ0CM/0DvnP7HutKyMDwWX
-	4tAlE+wupT9ptdWHIFN7QcCzB+oJzCSEv3cWJwp6ApMIBhGBmrchEB1iks2qlakQfCSytCtsKZZLc
-	xByHBrqUVlCghLndCoZXqpdnu3YH9dcOXAh4QzLPr6QZEDKdPQVuZIu21rNxcKZJGjMZ22ONlp57F
-	BdzpiBnZQYUwbgs3qYv1z+17vQ3Z5CiIevV9OKa/Khmnfl+wi3kZ45wC/jY/vztPqEJkIR0SfJlZo
-	2Ws1sY0A==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w1CTkcCN4mgvmc4O+/bwLsfd/yX/UppF+CPol8YE2Rk=; b=NCRQ+6S/60HuOPjf+43wgJjVqm
+	41MYyY+VSVVuvzXkWrG8NyCv7q0Z15N3gXsHPwkP8vv5mF2yFXBXNqi86Rk5ucifBsljBimE6+iGs
+	erRlIrVHP4kQXRNNTpyPjxzKgzZrIbxHC/XnNqU/nKBoBVbCMBkY0Kz+58lpex5mlXgL92dwSbjTR
+	nGEes4tkgRhWze2lqLiNd309K/I/UACNA/01vpfZEox7BhyElo2strx4/ShwuGJ+tvPp5FtHzBP+R
+	yzXXRNQMuD+TsW7DteDN19Iex1PblAgYgb3i7z03f3FoE7pb07zYJZULn1W1BmfE4q9nIj9n5nGEd
+	2rt1mUdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIAoK-00000001snU-03ol;
-	Thu, 22 May 2025 18:38:32 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1uIAqJ-00000001t3f-2zbt;
+	Thu, 22 May 2025 18:40:35 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIAiq-00000001sBA-2h3F
+	id 1uIAkI-00000001sP7-3wsO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 18:32:53 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a361a54454so1025944f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 11:32:52 -0700 (PDT)
+	Thu, 22 May 2025 18:34:24 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a36255d0f6so992955f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 11:34:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747938771; x=1748543571; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1747938861; x=1748543661; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=cJY9vehP2g7EGxYhkgZzcqCJWvR4zDkNLhtdKYt0bgU=;
-        b=mPMBv4mi0twxzBR4XFcKhtG3kc5/BmOXt9ejsgY5/osjMHRMsYhcjmvpGeAdPsscBu
-         SxMkn117/QXnBB2Katur0US+DHI59VCkEgA/ooipxrq9htE+epomu6bb0ioZ0blzpMti
-         IUhyPYDTZgzKtxRa033M8gcudqIejPWjTshm4H9mrS9cwjEybGuhrT3glS/FcBPpOfkc
-         bnXPm6/wj/FHSDvfM0rG03QV2Lwt/J8+jVMQb+AVhPW2jAi6gvo82WU6DzNDSxsBmKSo
-         fQt/XOuqcrZQvQUlriLQAS/8pKXsegWYzzqZDpNUQU1y7/HQrVX8rPATV/t9VWtcnm3L
-         ppyw==
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=w1CTkcCN4mgvmc4O+/bwLsfd/yX/UppF+CPol8YE2Rk=;
+        b=msWokAN2f6XFi5Yaff2u75Hm/hY1witwizqAEz/V9hV0wP86GdvMCZ7EagkR1A7Mmq
+         seOlUWuAJDlMWPSkY908z+M7eRpxZ2s2I1EMEs0BvAxvUDGKCuXpcSdkOdJrXhllCKjD
+         kfP59+OH2XqME1KymhdXUKUtTVUpi+qtOpqajLPnzZu3B9K1DGMR/r1LkMZmVABAHZx+
+         Vd4ak/qXIkrBslhqEbM+1PF6RqM+nTYf5IbWKjyHlMBxGhXzzS7RntAm0iH3/G31wADg
+         gDZiasHMBzdfv7jUeEZeFkiQqlr8OQYxoFFd+rHKlMWVk5cdEqVKr7tZhMfNKEOIM5J+
+         7+/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747938771; x=1748543571;
+        d=1e100.net; s=20230601; t=1747938861; x=1748543661;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cJY9vehP2g7EGxYhkgZzcqCJWvR4zDkNLhtdKYt0bgU=;
-        b=OgPhjk23lNEMM2bU6QZsST0jAJgV3s1Z2zGqUoxeVf46MqVzu1iU7949yzAeuIDREt
-         tDG/E2tXLA5rrpc8tWeJcpPn2clUxK2yWTlX4zpS7mHGpbViCam2lCNMwtlOo7fkx/c0
-         1+xi9SNyJdEAhgvtS8rOoF3aYqRLksdjXu7AmD4mrZ7GkH5/LCOprvUf15c+BJT4O0ka
-         iTpNAik9buyN9+eu+dRl0h3mPUhbYM/QHJGyTpTkVKWXjdYmSmyKiXwILZ30d9uhdg/9
-         TwtFWM8h08K7KeW2HY52w+3HvfYocqOwoiuvVkrJ//dznWZcQS4Ez7V1li+IbeMqi9ni
-         UPNw==
-X-Forwarded-Encrypted: i=1; AJvYcCU6UvIaN8vNsrms4SzW+3J1xmABcSsirh0Bm6P29JfLJrGrbdeBMqi7xRHd4zL9wUTsSG6I8RpJ6wW2l2j3T1uh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLU2euJkJhNoNBH9VL0D9zaWy1YA6Sko8QSKo9FsTHJS/Iq1AS
-	1PB4FE/MgwBGBX/DwczHREMSRcRw4T7TFDs0JCwXOuxbgs1+00ZygiRJIXKz0AdC/wY=
-X-Gm-Gg: ASbGnctTahX5f4vt10iIV8yzkDPHbtM2DZfJgDIofVVseH75vxAMP58rnq8vXrS+Qn8
-	JIuaxSytEOTcESe5D+uvom8Jis4nCoKzykt5kEVJCvvB5mJDuBj7nQQwN1zbvSQ9hec8qUb6Ekp
-	xSXxOfP2ebX7kzVeD3myIntLqWN2jQYqGAi+SxP9T6D9oCnSFX3XtbM77Bvot1qVXYeUr+jwuJg
-	GfkalE4u66XFdMNxWr5xHGkU8kOCHJ1aGp0ghfnQXLfEfHo/M6SbmGYFgtwtRgM9jbaZqYq3Xi2
-	y11vffhUDmtcJAPTmnQxsrelL97Qms7SrBjTyQ+5/a70w73ctSSqdd3x64OX4kOr7aJaDvA=
-X-Google-Smtp-Source: AGHT+IGLyHoeTc4HSvaXyg3+PQJQKiImY3KCxwct5wGRCFTjBfvCwUsuGdayZtCuy6sdlhDOtQDFIQ==
-X-Received: by 2002:a05:600c:3587:b0:439:9a1f:d73d with SMTP id 5b1f17b1804b1-442fd68257fmr90763505e9.8.1747938771266;
-        Thu, 22 May 2025 11:32:51 -0700 (PDT)
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=w1CTkcCN4mgvmc4O+/bwLsfd/yX/UppF+CPol8YE2Rk=;
+        b=E7EzAueGeImuzbvLV7x81pgScMx0ELrUEJP7EagFb8oIzu8v9R+ipw9sTmnQ3sqyJ7
+         pDIXGLz0RoBTdTdnCG5k5HWb6MoIs5tD6Nrj8KQ+339q1tLa0gqFh8dY7lRa0b27WRvT
+         8FZQccnprxa2s0XphLCH4/5NIZ6oGqEEDx7uzmwXnf6WX3ESF+Fkv6lvZpjoyHgSIpgK
+         w6WGhVhqGvcZaKeH9Lop1GtKAnRRjqRG4pchId8Dva/R4M87wUMBo3oH7aoWEURJ3YHu
+         bFYk13410IBDe71KQyTKOdFJPtPQupa1LIyGpYAcY8qpetMZqJlQ/4xBPskTRWE1H1WF
+         AWpA==
+X-Forwarded-Encrypted: i=1; AJvYcCWUqkaXbo/YzAkkSoa7jAeNh0EjEGbC2E4gWLmkTofF8Q/BjnQUNhs3sOsI1UbrA4UySDg4KwIyOmjlxNstbeqC@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywz0AojM21o4BPBebkznicU5tvsemzvrn9BIiNXOcqbQA4ZlKW8
+	eMOBRhv11QD8S9IWRlxrS22WxDClpNs2qpL7C+Ex05Pum6zV3+tGDRRU1JxhWN4paCw=
+X-Gm-Gg: ASbGncs36nKHUyzYgJcGrSYmNQSXtPRIGPOqB7211pPFVCCPvDqrEYQ6uGzb3egxwFX
+	kqQnwCTaFMAfxBjUxREIQmsoYcePnBXJq/iut1KflrNkgrYGQ3I5UjFBDJvCbRP3X/N7K7Gk2Ma
+	kKn+KUE+gWFR/iAXCGEFGUE9MnGBjJwl0cL/3pxXKLsiCr418DuZehekqzq2Oi0zngvtnPzJckR
+	u4lVgCiJrMcbeYirA5pIbbkSHaJc7UQuaOfTetpcilTsLGVRs17oNDNTjfMbg+5NHax8Mij6b3X
+	AjBLHNzFHyQ6Lybqeq6WbjU6Z8FOCJlVqqEW9h23UrYxs8gDEIGXBWIdebL6z7JRIi2nK8sOnqy
+	00jJO6w==
+X-Google-Smtp-Source: AGHT+IFynnkis2LoFrPbbKd6EFHmR3CK/Wwm2NAwfY4u2siqRPzXLtZHj+YFawT3eXyBiVwktliX4w==
+X-Received: by 2002:a05:600c:198d:b0:439:9a40:aa27 with SMTP id 5b1f17b1804b1-442fd66dea4mr98494735e9.5.1747938861256;
+        Thu, 22 May 2025 11:34:21 -0700 (PDT)
 Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f3ce483bsm113545715e9.33.2025.05.22.11.32.49
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a3699a9bf3sm19018332f8f.54.2025.05.22.11.34.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 May 2025 11:32:50 -0700 (PDT)
-Message-ID: <f3f2b57c-d745-40b4-8317-5f123e2ab018@linaro.org>
-Date: Thu, 22 May 2025 20:32:49 +0200
+        Thu, 22 May 2025 11:34:20 -0700 (PDT)
+Message-ID: <5ebc399d-88f4-4d90-adcc-8c9b31efbd95@linaro.org>
+Date: Thu, 22 May 2025 20:34:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] clk: stm32: Do not enable by default during compile
- testing
-To: Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, =?UTF-8?Q?Emilio_L=C3=B3pez?=
- <emilio@elopez.com.ar>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev
-References: <20250404-kconfig-defaults-clk-v1-0-4d2df5603332@linaro.org>
- <20250404-kconfig-defaults-clk-v1-3-4d2df5603332@linaro.org>
+Subject: Re: [PATCH] soc: mediatek: Do not enable MTK_SOCINFO by default
+ during compile testing
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250404112359.255053-1-krzysztof.kozlowski@linaro.org>
+ <3e10ed93-dadb-4d0b-b419-28ea492a1603@collabora.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -136,12 +126,13 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  h0At/TN/618e/QVlZPbMeNSp3S3ieMP9Q6y4gw5CfgiDRJ2K9g99m6Rvlx1qwom6QbU06ltb
  vJE2K9oKd9nPp1NrBfBdEhX8oOwdCLJXEq83vdtOEqE42RxfYta4P3by0BHpcwzYbmi/Et7T
  2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <20250404-kconfig-defaults-clk-v1-3-4d2df5603332@linaro.org>
+In-Reply-To: <3e10ed93-dadb-4d0b-b419-28ea492a1603@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_113252_685795_9FA52D9B 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250522_113422_987306_8719A946 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,20 +147,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/04/2025 13:56, Krzysztof Kozlowski wrote:
-> Enabling the compile test should not cause automatic enabling of all
-> drivers.  Restrict the default to ARCH also for individual driver, even
-> though its choice is not visible without selecting parent Kconfig
-> symbol, because otherwise selecting parent would select the child during
-> compile testing.
+On 04/04/2025 13:29, AngeloGioacchino Del Regno wrote:
+> Il 04/04/25 13:23, Krzysztof Kozlowski ha scritto:
+>> Enabling the compile test should not cause automatic enabling of such
+>> drivers.
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  drivers/clk/stm32/Kconfig | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> 
+>> ---
 
-Ping. Any feedback from maintainers? Stephen, are you picking up this
-directly?
+Ping
+
+This was almost two months ago. I would assume that with maintainer
+review, this should be applied fast. What is here needed?
 
 Best regards,
 Krzysztof
