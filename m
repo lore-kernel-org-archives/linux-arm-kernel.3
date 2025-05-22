@@ -4,74 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31229C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D04C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mAGs7Tqn+j+GhX5JzN5hfymRTeUjhr+a1EtjFFeVz1o=; b=bnyVabMh7QHOBqTzxLVDY6lBd+
-	99q5fpOpPzMmZM+QA1KcqXUMmLAcO+8GUSpbzeki2l9QjRK50RIlI3lVFGBbMB6OQSMQ0wuqZBmvp
-	vfEZ8xdvcgoL6ryIC5zNqQTzZYRuFEffclgtsx4kC9NY+hDbNMit5ry98MASsZ98kZKateWL/wkel
-	NAbY0bkiljy/CC6IwcbqFvR0HiaYTeA7YVx9Y/hCPr0817MpToaCJJ08F6P1NQ1j7HR38Suuywxkp
-	GYs59YsHIu80OLlvJJdt88fBc9kkm1+S8rcuepwOTWccKlX0/qaYIM/+0B3ajjhWIYsgTkiIwB0RF
-	/GM5PYoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MBTpQbywQFLmTTQkFgXTxm8iWE7BxybCg7tJBMmOGUE=; b=cvYwQZkyQGddUFJQtddkAJNtnb
+	jzuMTXwxm1+lZm3OzlhkX97ybTJ6ewOB/PpMJNQotUlYsHtpjxipkq+6Kib5BdtzZar/1dpPPxTbv
+	ucR3aJCHwpAgFbNIzxblWZAXvoEF+feo0Vp0TONlaTaCfVBiPFpBYU+Bqp8/mw5+8HR1Pln1NxbVj
+	KMA4ssPQimVH2VhK//R8tKauRy2s3iJmSiLaz9Z7lDHTTlIdiBEWplpZej6s0UsJQJ/93imMOVltT
+	LeHtCtjS4tEvU6/ocftlnuYZ2c2YGriYbmt/KehppY4/71SNf3d5IMbDBHoX3iWKVCFiJhXIz+yVA
+	dT9bBcxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8m2-00000001ZBZ-49HY;
-	Thu, 22 May 2025 16:28:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uI8m7-00000001ZIF-0L1d;
+	Thu, 22 May 2025 16:28:07 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8W0-00000001Xda-134Z
+	id 1uI8Zk-00000001XsO-0MTH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 16:11:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF90162A45;
-	Thu, 22 May 2025 16:11:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2D626C4CEE4;
-	Thu, 22 May 2025 16:11:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747930287;
-	bh=JEfH3x55bskJhV3y2mrEzMyulGhfZQeDOuhnI2p0a6g=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=TsqCeWt4Z5jpzoA9XrSdgkEWWeJChz14BXRa4W3a+NfpsL+dco2AmMLp8o7dbZJN9
-	 uijjEp32I9PMHFDXcBTwoP2YLDoamxf6Pddcg1vxRz+T87xTo0dcR5DjNqTNds9+0W
-	 sDY37BVcpkOFv70jjtF5/7Y/y8DvKu5kj96tawRkkDGrk8E5vx4rJLzR5srx1viZ1x
-	 6iOmyZ0EUlqu3p7eWopo+i8T90ZSaCRqrqAkZnCkqhj9DmCn5eXbJ3bQhBqSNbvf6x
-	 F6KMgsr6T6pbUncEMum9Gdb/o4IR9PEiepKZpxKbnkyChTpzLzOsghDgJjwWCIpIsN
-	 Oa3Fpnai6MU3A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 222F6C54E65;
-	Thu, 22 May 2025 16:11:27 +0000 (UTC)
-From: Aaron Kling via B4 Relay <devnull+webgeek1234.gmail.com@kernel.org>
-Date: Thu, 22 May 2025 11:11:24 -0500
-Subject: [PATCH] ARM: tegra: Use io memcpy to write to iram
+	Thu, 22 May 2025 16:15:21 +0000
+Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 0CE1B1140132;
+	Thu, 22 May 2025 12:15:18 -0400 (EDT)
+Received: from phl-imap-12 ([10.202.2.86])
+  by phl-compute-04.internal (MEProxy); Thu, 22 May 2025 12:15:18 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1747930518; x=1748016918; bh=MBTpQbywQFLmTTQkFgXTxm8iWE7BxybC
+	g7tJBMmOGUE=; b=B9bi2B7CnXLp+kb3svPCNRju5PNb1KDnU3lYD+Av3i6+nC9u
+	ZvsKUnNz8B3qR+bpqQhrRkJ/tNK/EPeHwR3q0HvbrP4o5t0ZI9NOBGq8SAd97b4U
+	IRk0o5K6L/EVV3clXwO75WQyPrYaN+AOVlkaJAgWowzoiV9WHZwKnpxyMIB96H2u
+	Xz1JKahUhemA57TD5aQlD12gabc5tSKsLg1m5JKrSPZrhx6UwNv4kcHAi91tBJGk
+	QVrN9HXlxmP8FOOigVYyOxreG4sndqgq9mdd7SgoRWykdarUtQr/3KKd/di1oLmT
+	Bu01KhgXsmm+Y3YkYzmBzq37R3DpLTPkpbMyag==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1747930518; x=
+	1748016918; bh=MBTpQbywQFLmTTQkFgXTxm8iWE7BxybCg7tJBMmOGUE=; b=u
+	LmBJdr8kFFwLUwi/cjQSCYXQVB9Uz1AyTJsKsdyUvCLeV4Cajkel7vYFbr44H8H2
+	2wN6DGAWhh0bX6dVycyKg0CVxvxqVL660C+WECr9YRhSk/fdJH59JJvU+dkLQqjx
+	r65gVedaz3Rd1TAa+86Y35yvz+1WFbs4KS8AFegqg6cBGiEcCFV5xjPZ4ZWS9Ols
+	AYNOnNxia1ESHyABFa1SymftWehQlH8CDYfTqottz1EMpfTVpjzMdh7cOcRCXc51
+	zL3TFaEUM2SiA7uYx6AKQhvK04FNd8ew5BffznD3NgMN9p1yCsoAxD1KJgoBZYyQ
+	ul24bFzAir4OBJUQFh94g==
+X-ME-Sender: <xms:lE0vaMLwUSNRHe9rOlIek5IH5yF1gV8ngvEu7TxwvM_2pAWd44KyeQ>
+    <xme:lE0vaMLq_x5JbBPSX3_vyoDwGlpR8hotcQFKCwrTyPXFDdIsKBSn-ICtAL5soh1sD
+    PEY4DxEt_yo36F9Pfs>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdeigedvucdltddurdegfedvrddttd
+    dmucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgf
+    nhhsuhgsshgtrhhisggvpdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttd
+    enucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgj
+    fhfutgfgsehtjeertdertddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvh
+    gvnhesshhvvghnphgvthgvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugedu
+    udeuudeuhfefheegveekueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrh
+    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvght
+    vghrrdguvghvpdhnsggprhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtg
+    hpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghp
+    thhtohepsghrghhlsegsghguvghvrdhplhdprhgtphhtthhopehsvggsrghsthhirghnrd
+    hrvghitghhvghlsegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepnhgvrghlsehg
+    ohhmphgrrdguvghvpdhrtghpthhtohepjhesjhgrnhhnrghurdhnvghtpdhrtghpthhtoh
+    eptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdought
+    sehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlvggvsehkvghrnhgvlhdrohhrghdprh
+    gtphhtthhopehmrgiisehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:lU0vaMuYGb6UxDNM1d0uvsMQ1SVzVN0tQzwa7-l5gpNzDQ3Ywa-1YA>
+    <xmx:lU0vaJbcMxqM-lsGnAR5bi1sA-GIq1fseQpq0MuUrw8aihaAhFgVaw>
+    <xmx:lU0vaDZ0z2pFdHEn4tFzNMqjza0UtBIudtqWGeF_bzARYUjoBzHDFg>
+    <xmx:lU0vaFCba1PF5PlMgKRZ3JWfKdbvKkCHSNIDnChfdYzrmXHTxSSsdQ>
+    <xmx:lk0vaFK4eE6CWoBCW1Z_aUsWMLN7jZMKiOpnCa_bOWHa5-zsFSGz4dof>
+Feedback-ID: i51094778:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id D14D01060063; Thu, 22 May 2025 12:15:16 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+X-ThreadId: T6f92ed75002c46d1
+Date: Thu, 22 May 2025 18:14:56 +0200
+From: "Sven Peter" <sven@svenpeter.dev>
+To: "Sebastian Reichel" <sebastian.reichel@collabora.com>
+Cc: "Janne Grunau" <j@jannau.net>, "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
+ "Neal Gompa" <neal@gompa.dev>, "Hector Martin" <marcan@marcan.st>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Lee Jones" <lee@kernel.org>,
+ "Marc Zyngier" <maz@kernel.org>, "Russell King" <rmk+kernel@armlinux.org.uk>,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Message-Id: <706858ca-7ebf-4419-a096-3907aab923bf@app.fastmail.com>
+In-Reply-To: <gk656zq44i6ls6bbcb6qpd42typzkw3hqbft6b6rvfaw5aocsd@2fsiokbcnbtf>
+References: <20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev>
+ <20250515-smc-6-15-v6-7-c47b1ef4b0ae@svenpeter.dev>
+ <gk656zq44i6ls6bbcb6qpd42typzkw3hqbft6b6rvfaw5aocsd@2fsiokbcnbtf>
+Subject: Re: [PATCH v6 07/10] power: reset: macsmc-reboot: Add driver for rebooting via
+ Apple SMC
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250522-mach-tegra-kasan-v1-1-419041b8addb@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAKtML2gC/x2MQQqAMAzAviI9W9CKIn5FPNTZbUWcsokI4t8dH
- kNIHkgSVRIMxQNRLk26hwx1WYDxHJygLpmBKmqrlgg3Nh5PcZFx5cQBLc9Llo2lroecHVGs3v9
- ynN73A1jjFBdiAAAA
-X-Change-ID: 20250522-mach-tegra-kasan-fabd0253f268
-To: Russell King <linux@armlinux.org.uk>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Aaron Kling <webgeek1234@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747930286; l=1106;
- i=webgeek1234@gmail.com; s=20250217; h=from:subject:message-id;
- bh=hU2Yl0x61OcdReq0QPOKVTLdxOPyeKujmiktaOo9ip0=;
- b=+CjK5VVg+heemutBNUgW5ZgTFi1GM58YOUfxw5ahL0xfg7exDr03GfcypGLgflQH1UbQahdYf
- mcrxHC7m+mzAOsRFSKYDE1V/wZ1CtL+lOYdb9zBf6HZy+SnO69xWWEV
-X-Developer-Key: i=webgeek1234@gmail.com; a=ed25519;
- pk=TQwd6q26txw7bkK7B8qtI/kcAohZc7bHHGSD7domdrU=
-X-Endpoint-Received: by B4 Relay for webgeek1234@gmail.com/20250217 with
- auth_id=342
-X-Original-From: Aaron Kling <webgeek1234@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250522_091520_755020_93E0472C 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,43 +123,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: webgeek1234@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aaron Kling <webgeek1234@gmail.com>
+Hi Sebastian,
 
-Kasan crashes the kernel trying to check boundaries when using the
-normal memcpy.
+On Thu, May 22, 2025, at 15:06, Sebastian Reichel wrote:
+> Hi,
+>
+> On Thu, May 15, 2025 at 06:21:19AM +0000, Sven Peter via B4 Relay wrote:
+>> From: Hector Martin <marcan@marcan.st>
+>> 
+>> This driver implements the reboot/shutdown support exposed by the SMC
+>> on Apple Silicon machines, such as Apple M1 Macs.
+>> 
 
-Signed-off-by: Aaron Kling <webgeek1234@gmail.com>
----
-Change-Id: I27714f45aa6aea6a7bee048f706b14b8c7535164
----
- arch/arm/mach-tegra/reset.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[...]
 
-diff --git a/arch/arm/mach-tegra/reset.c b/arch/arm/mach-tegra/reset.c
-index d5c805adf7a82b938bebd8941eae974cf6bcdbe3..ea706fac63587a393a17fe0f1c2ad69d6e5c14f2 100644
---- a/arch/arm/mach-tegra/reset.c
-+++ b/arch/arm/mach-tegra/reset.c
-@@ -63,7 +63,7 @@ static void __init tegra_cpu_reset_handler_enable(void)
- 	BUG_ON(is_enabled);
- 	BUG_ON(tegra_cpu_reset_handler_size > TEGRA_IRAM_RESET_HANDLER_SIZE);
- 
--	memcpy(iram_base, (void *)__tegra_cpu_reset_handler_start,
-+	memcpy_toio(iram_base, (void *)__tegra_cpu_reset_handler_start,
- 			tegra_cpu_reset_handler_size);
- 
- 	err = call_firmware_op(set_cpu_boot_addr, 0, reset_address);
+>> +
+>> +static int macsmc_reboot_probe(struct platform_device *pdev)
+>> +{
+>> +	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
+>> +	struct macsmc_reboot *reboot;
+>> +	int ret, i;
+>> +
+>> +	/* Ignore devices without this functionality */
+>> +	if (!apple_smc_key_exists(smc, SMC_KEY(MBSE)))
+>> +		return -ENODEV;
+>
+> Is that a leftover? I would expect that you do not have the
+> 'apple,smc-reboot' sub-device described in DT for such a case.
 
----
-base-commit: d608703fcdd9e9538f6c7a0fcf98bf79b1375b60
-change-id: 20250522-mach-tegra-kasan-fabd0253f268
+Yup, that's another leftover, will remove it for v7 as well.
 
-Best regards,
--- 
-Aaron Kling <webgeek1234@gmail.com>
+>
+> Otherwise
+>
+> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
 
+Thanks for the review!
+
+
+Sven
 
