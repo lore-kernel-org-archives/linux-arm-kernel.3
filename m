@@ -4,158 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BCF0C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 19:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00AFC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 19:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9OiqwiAsy4AEJm8yDqzP7Qx02GhPqj0egfxLiQXtzQg=; b=FKCP1xj77NO3LsmAokpfUeah4I
-	6gg2SKXrvVvWZM1CJSAccWQBM5lhugpzKLhsKnzylgnERGpCyuXrAHjzqgFUnF66EcMEIRdrni9Cw
-	vh4xcwjdh1kCs/PBvEaIj4LvmFEXvoqaYnea1PkrzwiKKzt7XIoG82WoSfp67Crgh28pZlX8SPwR2
-	QmLKRmK5E/MqUE3kqxuMwhnn64DBgDocBKM/E6oS+H+dJq60zvP5zuhsXm2C7GFCpZz6ZslcFpL1X
-	TpJwy73xhM8FmENvRHZlP4zw0c4TsW6p4xbAv54UKDJZLsM21d2NAvpd3nMKIgvp6wyWfb0l5KrCk
-	2r3ahnig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AJzBv5LvwO9EFRe8OVUlb9OM9yAWwvged+nVh5RBniI=; b=xxx+ulvWAPAsOsZIvgvmQAxwnc
+	oWud71NXKIU/BDDDdSxY+J8cR6R5qjqKTSEPcfIkVEoBPeImw9F1oFC0+/ope8GXdOpC3VVmJjDJd
+	+Oa7/nu2QJuwMnGJy0ASQBXx4Krke41RwkFwc22bnaZIzVlNdJFhkypjQYhH1qXZW+WwXX0phh9TE
+	0csPyEWpRfoIB8ChsLr0NgMVw327EOcb9jVDNgivdZH4MI/F2QwyJNrbXrKf4qEIBWQfLcrc9cTQ2
+	QiVF6H31sMpbIcP1Rey2aAkTXk1sWUiVv3StF2ZIeJ7KzQU43GZIsDESMiVIWzfr2JHF1CJhZQQH0
+	NTuRzCWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIBbI-000000021jT-1kf0;
-	Thu, 22 May 2025 19:29:08 +0000
-Received: from mail-am6eur05on2061c.outbound.protection.outlook.com ([2a01:111:f403:2612::61c] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1uIBdI-0000000222H-2fYN;
+	Thu, 22 May 2025 19:31:12 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIBNy-00000001zYv-2nKp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 19:15:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SNTqEJNxHvF/41aVbOtqOi1TtA07uD/jTrcButh1kUWE1aydR702giGrH6/YGVA/7CN/T7ahNhU1OUzcBsyNc0Vcqhz1shxidmN+unFf5zjLZRcRk7DSqYiJIy2VmPmr3YuKgEoCLLngz/Fx1kjzz+czdO+Ct5fARTPnhDcUbGjxAHwZLH/OTmYdAanME/FwbEkfWmasFIDhwVv/3lDsSaR+sbgphRFBBb9O9WhDcLWY3X8f9g9eKMw2wzmlvg7atipgtaNzuNjZAeeFoNW/hXnWVP+3cXXtQIGIw6BEJKjDcTgeuEYYuF+0Xs4mMDgIf0jQJgqfa/i1IXbltofkQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MQeGWD9zAstCRZTNLXv7c9OfrB26r/CZZtY2tfagaKE=;
- b=hyR4FlhOQPfNXECEumzmacjOKEOAHMJhE2W8VWeTp1xc+/nTcv9SEK/DyZS5Tp4M6v1fEzZmMVG7YDTXLhdufy4R4BN+r+I5fMBiFo+Rwdn58AqTlT3JwlC1EjTd+E6n0yQ63+g0HbW3SQvG1AQGoavhZ8ZcI5SA8RemA68nsxKGpwXfotyG/Bjo0FxixBz5hWjZ6x0C1tU1RhVkr+8LX6QlV3zm3RYxM8GodQabsj6/7Ue5JcpqbcK7VPkGf4/EBu1dzy6/y+2RQXQyp1ppQelrfrGQZIPiX8PqDY92MWVoGrXBeQuwudmfJD0RdlHV37+ff4uXg01nx9A19UU5gA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MQeGWD9zAstCRZTNLXv7c9OfrB26r/CZZtY2tfagaKE=;
- b=G5yiKSc79OkL/tRq6lAusZIOkYr+zLXFFNK2DQAMYU6C6ZcUBvxgmT5b5c1oBfc2IYRzc5US9DmDzforqgrKg0XZ/NkQCw/XW05U+4bzNCHVswKL1AVWB4ftvZbDvs88a53WOzkN30+R4Ah3aTQBTKLEuOGXhgB/e47B348A1jpDPCnCAvtHNPOi+b0v9dMxBg9B5O1t8y/q86di6X9dHU64a3qZxNK4szDjPqyZCHykL5Cf50G8KPoBd4oiJTiVtVB4jQffonct1zh/dotjifYyAb4JtcQEnA9WVLG+4nOb3I5W/jWxXnuKDyUTWDLhEkEuIu6+Py/aAGDKq4UJ3w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBBPR04MB7658.eurprd04.prod.outlook.com (2603:10a6:10:20d::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Thu, 22 May
- 2025 19:15:17 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Thu, 22 May 2025
- 19:15:17 +0000
-Date: Thu, 22 May 2025 15:15:08 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-media@vger.kernel.org,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/1] dt-bindings: media: convert fsl-vdoa.txt to yaml
- format
-Message-ID: <aC93vDMFM7LsoDD4@lizhi-Precision-Tower-5810>
-References: <20250411213601.3273670-1-Frank.Li@nxp.com>
- <174448105342.1415739.9619142538994119426.robh@kernel.org>
- <aC9xv08a5k5Pz1t+@lizhi-Precision-Tower-5810>
- <b97c254c5169acb32b9f65f71b363a3eb1cfc8a2.camel@ndufresne.ca>
- <8b18533170e7ba395c574de69768dcc27f718767.camel@ndufresne.ca>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8b18533170e7ba395c574de69768dcc27f718767.camel@ndufresne.ca>
-X-ClientProxiedBy: PH8P220CA0025.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:348::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1uIBZS-000000021Zo-20tt;
+	Thu, 22 May 2025 19:27:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1747942021; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=l4Gg25EeLEA1PB0GOBF6OIyIQVjdmVFp92feHIxrVdW7lbgBKQzvzjxRTAvneGeZegExkv94EiRdssvKiZdSiaphcdTLf6ekcKhvW6wHiOKpYiLNum4TqhbnnOc39zhfs1weTC6+MzO1VRoU1W1l6ua5tPai6DsypM7NqfOI8WQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1747942021; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=AJzBv5LvwO9EFRe8OVUlb9OM9yAWwvged+nVh5RBniI=; 
+	b=FvEiYz+Zk3Zx8Wjzj2Wj30/OkSKlahTbUJxZa7YzPE5u1YUvZiMCZXOc4Jc36LFnDLX/C8J1SwYBX9f9FrkmnAHgiMQ823Ot/b/OKoCTdH7fTi5leQIeyhBLFgMTLqEOXUDrUHUOEFDVm9uRBZxH0G4xo64R+noNyFkEnKDvgA0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747942021;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
+	bh=AJzBv5LvwO9EFRe8OVUlb9OM9yAWwvged+nVh5RBniI=;
+	b=gkUZUsht3DMKagUvyLNTwgLMsMMFHBh/eQHXKLF4AUveD1CrnwbuiGvyWIVw+4C/
+	8zHMhEY9HMsCU49eeIjTjCDxF/aQ/7+68Q5Hr5+Y7Zk9gKi0T3gjcecgswUmQBM0kNQ
+	EG2yk6IUwci2sucS8fKh6Bh/1cmhNpnjwzJAxxNk=
+Received: by mx.zohomail.com with SMTPS id 1747942019407306.2477470606051;
+	Thu, 22 May 2025 12:26:59 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Thu, 22 May 2025 21:26:44 +0200
+Subject: [PATCH] pwm: rockchip: round period/duty down on apply, up on get
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7658:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27e00afd-3593-435a-137a-08dd9964fccd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?L0Ze5chbrNBzksqQrqmqAj2tpGjMtpZvPr4yPO7BnN45/YrRTNjNLDboD9?=
- =?iso-8859-1?Q?QJCM48wGilwukVcO0UL+OiPPZ2MjVMEfSOms4ZGdoaFRT6dam+fyRARtyv?=
- =?iso-8859-1?Q?xhXXmtxC5WIunfcAPRR0icMqH/tqjsM0YAUNm2jFCKqxnS7pTvl7C8wRQB?=
- =?iso-8859-1?Q?uPLzAkQ/yGSjj6ZeEVOASw/6Cdc2MIwSyXvvlxggpDguJiNRWZuV3IKu7U?=
- =?iso-8859-1?Q?7KB+YPFIZiYE+WEEZTgA/hwzD8Dg3R/+N77HKQQSNOFrZ74HKfB0E7/2EY?=
- =?iso-8859-1?Q?CpU66PkHRMNMKTog/B4dT/UvtIT3S753nCAQS3bTQgRU/ZPUagRJOISlgu?=
- =?iso-8859-1?Q?opgx8kKa8zX8Hr/H3nq7bTdergpUchC6gRea7EwpPSGgbPB8bHMk8r1ahS?=
- =?iso-8859-1?Q?YhT/sDjcGUi9ZZlKhBhqunrBC6YAmGHBuOgDqxcq0/hYFGedgQ41+xFiOk?=
- =?iso-8859-1?Q?Ou1IzDFwencFBdFbVcj968ufgsy7nVOwZoG+aLTO7e1RmBnbp12jcvUMVe?=
- =?iso-8859-1?Q?ZRQ9gXOolOTdNnOcX8T1wH1BobCVbdqM2X2ZOfTLFBhX3iWmynHc/kHcYv?=
- =?iso-8859-1?Q?hpkHShCMU30zAcflyFY37xU9wdCHhCnHC2v4OctqN2+xGdwLj9kUtQK7JH?=
- =?iso-8859-1?Q?o2UzADYYFISkUI6J4PCzTxJXwnpTlgsKq0y8NIeS2KB08m4naE2lXRW2uw?=
- =?iso-8859-1?Q?MGCjcZjrIbi3UCn9V3OZUmSvJv1AXdPRzLVkcHP7S6cyAOMLbxALPMCdvL?=
- =?iso-8859-1?Q?TW7MDitBI2VjlODhztvuZyPLHL/Gn66aok/VDml/kDHKrR5sHrD47lC05k?=
- =?iso-8859-1?Q?eZdwVitmSvwVJThhJXzUjr+0LHrgpG+nfQRrfjPMPBSpgAKBBJ2oKi6yur?=
- =?iso-8859-1?Q?EjTVtWQSNzFMQcInA9s/tATd1Mgw5fxCt2O611vAtEq+Z8aWxHvoxZKnyy?=
- =?iso-8859-1?Q?kqA302jRDG4lPbg6DwP7Jr3bExUP1KGT0pY7ToGCZAFqiXtWwAtK4ZFZ3e?=
- =?iso-8859-1?Q?BLvFvkGYK6HqRpXUUKjgDiDS1JuZCZkaN/MOa611J6tci5Y9gFRtYBHbZJ?=
- =?iso-8859-1?Q?01bAoRU4g+1hSq/qHcRpXM/pffls9wJDb4Y2PBPzyUZOcLT3V5GzqK2mOD?=
- =?iso-8859-1?Q?b7VoMfOnk88KHzAFuZZnRsMMex5Q5CX7pN82e4Adm5wBAate/F3+36vIdO?=
- =?iso-8859-1?Q?MwIunFc/BB9ypiWWoLfVKjaCvPFA7VLzPIVDPo5U5/3dxFMB07Rw6mdJjA?=
- =?iso-8859-1?Q?lNIW2QBFYXi2K+VBD5siKmeJZQzfdmT/9MEiLEDcPOo+mK881KuJd3+8MQ?=
- =?iso-8859-1?Q?eooQODxidqkr5NK4V5xnJr+gcAr4bMOoTZ38gOktNUswLhyrMTEaNM6hzD?=
- =?iso-8859-1?Q?IZZkFbFMRCAq89D6uZqOfiwNQurKrXd2G7i9QCVb61QlTFsRcVfZi2TMqI?=
- =?iso-8859-1?Q?MFsmS5rZgruXB+IhaMezq8TJDQI2QDhd73wZiGNlQQtMSQ9u92pgIH2/r7?=
- =?iso-8859-1?Q?Nszwtfn2MyQp6HQ5xItILphsrA7AQrLqHqsBHqsnJiiQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?+CWmQPE8QIiPmBifcK0yaoIgw0RYZpd8YhDcrEBLIV/bvJbok3PCuXg4lF?=
- =?iso-8859-1?Q?tg5ITr2ar2jBRm2CeNaTUKhrQe4HN8nDeI3LvH/4WEIL8mM+bAlirdvHze?=
- =?iso-8859-1?Q?pX8njln9gcZb7VmHlobBDypc0TglKUnxHLEiC/lfyRL9iP8BpDJAc4q8ze?=
- =?iso-8859-1?Q?MBbpNoWdrt7zipYI5Sqe35sbCq15AlLmkVDkHywCWf9ksKoB2zV6NIohYI?=
- =?iso-8859-1?Q?RRqnNUEx95c+lUkKp0M9BKkRyVzpNUCPrOAcVpyf/m1oBGtHatbqTf5Yrb?=
- =?iso-8859-1?Q?x5ZmzE3uzxQQtx3XrLghvKbBTQo4p0uGLItrY44Z6hDjSNUFe0tSWOKF3i?=
- =?iso-8859-1?Q?2f12cyWG74YY/TLDu/PLpIic8S+Woj2CAB8nkxkA1D58G/c058xKopisfH?=
- =?iso-8859-1?Q?iUzjQ3VlCuVrOR+7ZQNFfna8weG0G7OSOlCBEkDVf7n2Lkr/Yxfzjucx/R?=
- =?iso-8859-1?Q?jMDm0bj4SZynYOzDzQVJKI4sftDdyGEWt/r7f9CcjqmoeYBIH6w0xI5TpT?=
- =?iso-8859-1?Q?hFQXtklyWnVCf8cqltkYcdlAnoP4rMYyeti/Hlmb1CYKBc5x7S8KzTQ2Js?=
- =?iso-8859-1?Q?qAMkZAbKJczowYYjqOUqIFXQTK+7nX5MyxYf6fX16THDh2JedRLTvLNstr?=
- =?iso-8859-1?Q?1q2Vib+ysVP62stCx1pqc1lH1AmgWSwbXwxOWeVHDrL0oFYjqjE5Q3SFgU?=
- =?iso-8859-1?Q?0HbNK3MCAc61lmk3L1X9JIertnKFcrO/xkC6mQPtaiqdE7PAWMPQHJbGDb?=
- =?iso-8859-1?Q?RxxMMNZjyBPNH3P0PcH7DxoUdmqTUW7KUTkXdmuXys0+t2Qkv+zuQTI1Jm?=
- =?iso-8859-1?Q?thnhZ4uOBoqJQ9RLqatznOXw50+r2bK3SFa/g0iW077gMOErMb6/XpNs4N?=
- =?iso-8859-1?Q?4i6AmWJxNSzNgbce9SkBWfmqQUf7sjpIrlAVLP8etvFO7ejjwm0K87Jbfh?=
- =?iso-8859-1?Q?sIdJTUw+uckKbgo1eL8+qvuKqlmlDiYEyTSykFhxkTluvGcNRCYlPl6MSU?=
- =?iso-8859-1?Q?Uv+WSBabMGisXaQlnN6+AOOmO6ff2gaOnACHUcFLzKMlzXRAi9kSkr5iZp?=
- =?iso-8859-1?Q?SnEy8Bz8Q+5xFXS+s0Hwl+/IuRJdsFIK5V7krmZiND//fPIEkUJ91/qVgY?=
- =?iso-8859-1?Q?nMhSN4cri8uMtyPFq/GO8BWkf9shrJmjRvrA6SQ3ZWqEmi9mLwO2u1ZNmL?=
- =?iso-8859-1?Q?DN9Wno730WsMFHhB81F2KAhK6nm6zokhhsJGMzgteLeGhwsCzdyG0ryYBG?=
- =?iso-8859-1?Q?VEiptOwpwod6Ej4DVNozJnEdJPUApdp3O0FgJNYofDBmbjIMIgP4T15b5c?=
- =?iso-8859-1?Q?scG09uS84k09WkTLpGgRn0hyXU9alM8kiLj+6/OzvX0HexWEsei76mKHSF?=
- =?iso-8859-1?Q?oqUSGFOHrq282GzwdRH+4foPVEPJXUlkA/Pw66Yg/Uf5YgcU8Nf0fHWtNK?=
- =?iso-8859-1?Q?nC6lVx+FKTIvi2XXXoRiBEJPIUHYKZnRn8IU5ArRXAjhs4DcmRDBv6qNxs?=
- =?iso-8859-1?Q?jkuyAjg7ASn9eHf2Zp0RwhL7E1i/hxQkn7H0weVWVqv4pN603YbuHYsVyS?=
- =?iso-8859-1?Q?NJo44a46f54uBO1e+B+0i6dvFbgoHUTJQ7o+nhslZpS/wE5SZdfph0kGq6?=
- =?iso-8859-1?Q?kfIVGRWlb5hz8=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27e00afd-3593-435a-137a-08dd9964fccd
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2025 19:15:17.4781
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NhQNaIsbWf6i1j4r1jeG6KoWbinmT+YyYION1T55Ms/yzT8p3nymG/NuDNMwRe+Gi6BBBVXYwplfTO6Mc9AbBw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7658
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250522-rockchip-pwm-rounding-fix-v1-1-b516ad76a25a@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAHN6L2gC/zWNywqDMBBFf0Vm3YGYYlF/pbhI41SHkkeTaAXx3
+ ztUujwH7j07ZEpMGfpqh0QrZw5eoL5UYGfjJ0IehUEr3ahGa0zBvuzMEePHCSx+ZD/hkzfsWnO
+ 9KdspamuQfUwk+vd9H05O9F4kUU4JD5MJbXCOS1952gr+MzAcxxejJ93onAAAAA==
+X-Change-ID: 20250522-rockchip-pwm-rounding-fix-98a360c90e81
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Brian Norris <briannorris@chromium.org>, 
+ Boris Brezillon <bbrezillon@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>
+Cc: kernel@collabora.com, linux-pwm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_121522_708979_5D2F7959 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20250522_122714_586437_DAE39FF1 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,71 +83,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 03:06:01PM -0400, Nicolas Dufresne wrote:
-> Hi again,
->
-> Le jeudi 22 mai 2025 à 14:57 -0400, Nicolas Dufresne a écrit :
-> > Hi Frank,
-> >
-> > Le jeudi 22 mai 2025 à 14:49 -0400, Frank Li a écrit :
-> > > On Sat, Apr 12, 2025 at 01:04:14PM -0500, Rob Herring (Arm) wrote:
-> > > >
-> > > > On Fri, 11 Apr 2025 17:36:00 -0400, Frank Li wrote:
-> > > > > Convert fsl-vdoa.txt to yaml format.
-> > > > >
-> > > > > Additional changes:
-> > > > > - Add irq.h and imx6qdl-clock.h in example.
-> > > > >
-> > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > ---
-> > > > >  .../bindings/media/fsl,imx6q-vdoa.yaml        | 42 +++++++++++++++++++
-> > > > >  .../devicetree/bindings/media/fsl-vdoa.txt    | 21 ----------
-> > > > >  2 files changed, 42 insertions(+), 21 deletions(-)
-> > > > >  create mode 100644 Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
-> > > > >  delete mode 100644 Documentation/devicetree/bindings/media/fsl-vdoa.txt
-> > > > >
-> > > >
-> > > > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> > >
-> > > All:
-> > > 	Anyone pick this patch?
-> >
-> > Thanks for the highlight, this is stuff from before my time and I had not associated it
-> > with CODA initially. I've picked it now.
->
-> Actually, before I do so, any of the following warnings should be addressed ? I effectively don't
-> see a clear entry for that bindings, but could have miss-read and there is a second warning,
-> which based on having Rb is likely false positive ?
+With CONFIG_PWM_DEBUG=y, the rockchip PWM driver produces warnings like
+this:
 
-The second warning is false alarm. When convert txt to yaml, only need update
-MAINTAINS only when old txt entry already in MAINTAINERS.
+  rockchip-pwm fd8b0010.pwm: .apply is supposed to round down
+  duty_cycle (requested: 23529/50000, applied: 23542/50000)
 
->
-> ---
-> [[ATTACHMENT|junit/./0001-dt-bindings-media-convert-fsl-vdoa.txt-to-yaml-forma.patch checkpatch.err.txt]]
-> WARNING: added, moved or deleted file(s), does MAINTAINERS need updating?
-> #21:
-> new file mode 100644
->
-> WARNING: DT binding docs and includes should be a separate patch. See: Documentation/devicetree/bindings/submitting-
-> patches.rst
+This is because the driver chooses ROUND_CLOSEST for idempotency
+reasons. However, it's possible to keep idempotency while always
+rounding down in .apply.
 
-This one is check patch script issue. I met many similar issues at convert
-txt to yaml.
+Do this by making get_state always round up, and making apply always
+round down. This is done with u64 maths, and setting both period and
+duty to U32_MAX (the biggest the hardware can support) if they would
+exceed their 32 bits confines.
 
-Frank
+Fixes: 12f9ce4a5198 ("pwm: rockchip: Fix period and duty cycle approximation")
+Fixes: 1ebb74cf3537 ("pwm: rockchip: Add support for hardware readout")
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+This fix may need some careful testing from others before definitely
+being applied and backported. While I did test it myself of course,
+making sure to try a combination of periods and duty cycles, I really
+don't want to accidentally undo someone else's fix.
 
->
-> total: 0 errors, 2 warnings, 0 checks, 42 lines checked
-> ---
->
-> Nicolas
->
-> >
-> > regards,
-> > Nicolas
-> >
-> > >
-> > > Frank
-> > > >
+Some of the u64 math is a bit overkill, but I don't want to assume
+prescalers will never get larger than 4, which is where we start needing
+the 64-bit prescaled NSECS_PER_SEC value. clk_rate could also
+comfortably fit within u32 for any expected clock rate, but unsigned
+long can fit more depending on architecture, even if nobody is running
+the PWM hardware at 4.294967296 GHz.
+---
+ drivers/pwm/pwm-rockchip.c | 31 +++++++++++++++++++------------
+ 1 file changed, 19 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/pwm/pwm-rockchip.c b/drivers/pwm/pwm-rockchip.c
+index c5f50e5eaf41ac7539f59fa03f427eee6263ca90..983c7354becddd1d322a0b9c2947e0a4603c52dd 100644
+--- a/drivers/pwm/pwm-rockchip.c
++++ b/drivers/pwm/pwm-rockchip.c
+@@ -8,6 +8,8 @@
+ 
+ #include <linux/clk.h>
+ #include <linux/io.h>
++#include <linux/limits.h>
++#include <linux/math64.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+@@ -61,6 +63,7 @@ static int rockchip_pwm_get_state(struct pwm_chip *chip,
+ 				  struct pwm_state *state)
+ {
+ 	struct rockchip_pwm_chip *pc = to_rockchip_pwm_chip(chip);
++	u64 prescaled_ns = (u64)pc->data->prescaler * NSEC_PER_SEC;
+ 	u32 enable_conf = pc->data->enable_conf;
+ 	unsigned long clk_rate;
+ 	u64 tmp;
+@@ -78,12 +81,12 @@ static int rockchip_pwm_get_state(struct pwm_chip *chip,
+ 	clk_rate = clk_get_rate(pc->clk);
+ 
+ 	tmp = readl_relaxed(pc->base + pc->data->regs.period);
+-	tmp *= pc->data->prescaler * NSEC_PER_SEC;
+-	state->period = DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
++	tmp *= prescaled_ns;
++	state->period = DIV_U64_ROUND_UP(tmp, clk_rate);
+ 
+ 	tmp = readl_relaxed(pc->base + pc->data->regs.duty);
+-	tmp *= pc->data->prescaler * NSEC_PER_SEC;
+-	state->duty_cycle =  DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
++	tmp *= prescaled_ns;
++	state->duty_cycle =  DIV_U64_ROUND_UP(tmp, clk_rate);
+ 
+ 	val = readl_relaxed(pc->base + pc->data->regs.ctrl);
+ 	state->enabled = (val & enable_conf) == enable_conf;
+@@ -103,8 +106,9 @@ static void rockchip_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 			       const struct pwm_state *state)
+ {
+ 	struct rockchip_pwm_chip *pc = to_rockchip_pwm_chip(chip);
+-	unsigned long period, duty;
+-	u64 clk_rate, div;
++	u64 prescaled_ns = (u64)pc->data->prescaler * NSEC_PER_SEC;
++	u64 clk_rate, tmp;
++	u32 period, duty;
+ 	u32 ctrl;
+ 
+ 	clk_rate = clk_get_rate(pc->clk);
+@@ -114,12 +118,15 @@ static void rockchip_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	 * bits, every possible input period can be obtained using the
+ 	 * default prescaler value for all practical clock rate values.
+ 	 */
+-	div = clk_rate * state->period;
+-	period = DIV_ROUND_CLOSEST_ULL(div,
+-				       pc->data->prescaler * NSEC_PER_SEC);
+-
+-	div = clk_rate * state->duty_cycle;
+-	duty = DIV_ROUND_CLOSEST_ULL(div, pc->data->prescaler * NSEC_PER_SEC);
++	tmp = mul_u64_u64_div_u64(clk_rate, state->period, prescaled_ns);
++	if (tmp > U32_MAX)
++		tmp = U32_MAX;
++	period = tmp;
++
++	tmp = mul_u64_u64_div_u64(clk_rate, state->duty_cycle, prescaled_ns);
++	if (tmp > U32_MAX)
++		tmp = U32_MAX;
++	duty = tmp;
+ 
+ 	/*
+ 	 * Lock the period and duty of previous configuration, then
+
+---
+base-commit: 6add743d2854d744c3037235b87c1c9d164fd132
+change-id: 20250522-rockchip-pwm-rounding-fix-98a360c90e81
+
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
 
