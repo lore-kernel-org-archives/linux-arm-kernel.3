@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC04C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 02:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD95C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 02:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=igD6iNSl2PbIyX8QHiw/SyrEi2EknX4FvWxMHnc6wpg=; b=ATIX3vpXxBbIPybNgiiMnnylDH
-	eHFedC02gsKvXV5IrBGfqqnFhvxY5MCuVuRsSELH9OgkDxdvgJQJgmRro/9JTqzL+WLhe6jNLNvqv
-	P/2L+Q2Kht6q50WpWg5xN5lSzfwtWw6MQCGbalyD8Adf5iUT/1MjtsIb7qpXDgPtkplCPreUEKBXc
-	CWi7V48y15FwRf+e9DTsGHUvWe5b+AZXy3EOz09/zgI0KJ4D32JItuIsqo9s5QMkiSfcC4pKEwwu6
-	HQvkYUtZ3CZo7xbr6u0d+HN/02Qu6lyqoq4OQmYiOPjq/YeiojnkrbBwOdDnsnb5r8T3DoWoO0TsH
-	IqgC6xtQ==;
+	bh=lVRHaQ6XE1w3gYaKM7tq0RnLKSJmxtnmat2fqFD1SWA=; b=YGREbXG4qfMoCspnPdcabkCyQU
+	GmcArNFvkFxSGHu0MWRPTGXNxINm20JZhjR7usM4XnlZT2izLqYvT7uW0I5Jgy6jmHo2QJ4Plz7r2
+	NTFJ6JklUUuY7+XH57/PBtTWYTrBcUMxyNwtwy22rp5s1UQ46B0++3Lf0pmnBVTi1d3/USUPCaN+I
+	Ups+e+uyGGm1P1uOAvA11Yt5eJD2FgXEy5YEd8aRe3dy61FbHq3THlgtU/XM1H4ksOWXeqJ9pHUBP
+	tUjyOHSat2gO3XUzbEcIi7aZSGXKh0aYOk2IGDrJg6ya3PvxrhfVvUNUNeT6XfHlCKpaCnlY45M7A
+	Rw69Y0PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHvM4-0000000HEyc-2eRF;
-	Thu, 22 May 2025 02:08:20 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHvJu-0000000HEnd-0Nv4;
-	Thu, 22 May 2025 02:06:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ig
-	D6iNSl2PbIyX8QHiw/SyrEi2EknX4FvWxMHnc6wpg=; b=ZB/cFUMf/jiZkibH7q
-	9Dq4/Q+emcVRSC9b5bEFPfPhYVgJ6I06bkYrUoaWI41aLZRf6vrL/sBCMj1PW1vu
-	oNDbS7OMwiwe0OSl2wNnT5+nkModI+Yu1fJy807oBZrBEzN/UwX27aP1c3xW4G+R
-	TbDQqkgv2kUk81snQbDiIW7uE=
-Received: from ProDesk.. (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgA3oo90hi5oAIjgAA--.31473S2;
-	Thu, 22 May 2025 10:05:44 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: simic@manjaro.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	devicetree@vger.kernel.org,
-	conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	algea.cao@rock-chips.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v2] arm64: dts: rockchip: Adjust the HDMI DDC IO driver strength for rk3588
-Date: Thu, 22 May 2025 10:05:24 +0800
-Message-ID: <20250522020537.1884771-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uHvX8-0000000HG52-3G8X;
+	Thu, 22 May 2025 02:19:46 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uHvUv-0000000HFq5-3cRV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 02:17:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=202503; t=1747880247;
+	bh=lVRHaQ6XE1w3gYaKM7tq0RnLKSJmxtnmat2fqFD1SWA=;
+	h=Date:From:To:Cc:Subject:From;
+	b=QXUmmB2XWeQ6P8EIdCcMbkSiVZ65Pfh7kiFRbPOA53D8pIfjvdGMD8o4m5+6++L61
+	 mXLuH+5S9f/x10JsGOMlOpR/qsZ2Pf7WvFEsHZR5SRS9nEcujc064YYK7g2bqGh20X
+	 WfzfQ3NJzJoNrm/nfqY5MdPYafmGzQLcYh2wy68X0V0kWlgshSOmczsqI3nlW72HY1
+	 FGKuy96tEpl6DdtoZTY+ZLElGvc3yi/0u/+6t4GKl4Aov4/kW0uv6aNDtBhioHvvHU
+	 xOd9RYAiEG5AFsD1IlbDeHClB6EZcoz8CUQpMlin3l6BrvV804S6XIq9ykITj+Qaa5
+	 rZz5XOD4R4l8g==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4b2sPg3vFqz4xD9;
+	Thu, 22 May 2025 12:17:27 +1000 (AEST)
+Date: Thu, 22 May 2025 12:17:26 +1000
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Andi Shyti <andi.shyti@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: Alexey Charkov <alchark@gmail.com>, Andi Shyti <andi@smida.it>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, ARM
+ <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: linux-next: manual merge of the i2c-host tree with the arm-soc tree
+Message-ID: <20250522121726.0a4350fc@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: QCgvCgA3oo90hi5oAIjgAA--.31473S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuFWDuF17uryDAw4rXF4xZwb_yoW7Zr4kpa
-	s7urZI9rykGr1qgFZ5Arn5JF43t39rWwsF93s3J34xXw12qF12ga4xCrsagF98ur48JrWS
-	9rs0qFy09r4YvFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jY_M3UUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkApVXmgug2FhlAABsB
+Content-Type: multipart/signed; boundary="Sig_/gABvDSz61vTa7_NFTstHl5E";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_190606_495790_FF054A4A 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250521_191730_171376_83B1D9F8 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,192 +73,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+--Sig_/gABvDSz61vTa7_NFTstHl5E
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-For the RK3588 HDMI controller, the falling edge of DDC SDA and SCL
-almost coincide and cannot be adjusted by HDMI registrer, resulting
-in poor compatibility of DDC communication.
+Hi all,
 
-An improvement of the compatibility of DDC can be done by increasing
-the driver strength of SCL and decreasing the driver strength of SDA
-to increase the slope of the falling edge.
+Today's linux-next merge of the i2c-host tree got a conflict in:
 
-It should be noted that the maximum driving strength of hdmim0_tx1_scl
-is only 3, which is different from that of the other IOs.
+  MAINTAINERS
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+between commit:
 
----
+  47cbd5d8693d ("ARM: vt8500: MAINTAINERS: Include vt8500 soc driver in mai=
+ntainers entry")
 
-Changes in v2:
-- Correct the max drive level of hdmim0_tx1_scl.
+from the arm-soc tree and commit:
 
- .../dts/rockchip/rk3588-base-pinctrl.dtsi     | 20 +++++------
- .../dts/rockchip/rk3588-extra-pinctrl.dtsi    |  5 +--
- .../boot/dts/rockchip/rockchip-pinconf.dtsi   | 35 +++++++++++++++++++
- 3 files changed, 48 insertions(+), 12 deletions(-)
+  3887d3f64260 ("dt-bindings: i2c: i2c-wmt: Convert to YAML")
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
-index 7f874c77410c..6584d73660f6 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
-@@ -578,14 +578,14 @@ hdmim0_tx0_hpd: hdmim0-tx0-hpd {
- 		hdmim0_tx0_scl: hdmim0-tx0-scl {
- 			rockchip,pins =
- 				/* hdmim0_tx0_scl */
--				<4 RK_PB7 5 &pcfg_pull_none>;
-+				<4 RK_PB7 5 &pcfg_pull_none_drv_level_5_smt>;
- 		};
- 
- 		/omit-if-no-ref/
- 		hdmim0_tx0_sda: hdmim0-tx0-sda {
- 			rockchip,pins =
- 				/* hdmim0_tx0_sda */
--				<4 RK_PC0 5 &pcfg_pull_none>;
-+				<4 RK_PC0 5 &pcfg_pull_none_drv_level_1_smt>;
- 		};
- 
- 		/omit-if-no-ref/
-@@ -640,14 +640,14 @@ hdmim1_tx0_hpd: hdmim1-tx0-hpd {
- 		hdmim1_tx0_scl: hdmim1-tx0-scl {
- 			rockchip,pins =
- 				/* hdmim1_tx0_scl */
--				<0 RK_PD5 11 &pcfg_pull_none>;
-+				<0 RK_PD5 11 &pcfg_pull_none_drv_level_5_smt>;
- 		};
- 
- 		/omit-if-no-ref/
- 		hdmim1_tx0_sda: hdmim1-tx0-sda {
- 			rockchip,pins =
- 				/* hdmim1_tx0_sda */
--				<0 RK_PD4 11 &pcfg_pull_none>;
-+				<0 RK_PD4 11 &pcfg_pull_none_drv_level_1_smt>;
- 		};
- 
- 		/omit-if-no-ref/
-@@ -668,14 +668,14 @@ hdmim1_tx1_hpd: hdmim1-tx1-hpd {
- 		hdmim1_tx1_scl: hdmim1-tx1-scl {
- 			rockchip,pins =
- 				/* hdmim1_tx1_scl */
--				<3 RK_PC6 5 &pcfg_pull_none>;
-+				<3 RK_PC6 5 &pcfg_pull_none_drv_level_5_smt>;
- 		};
- 
- 		/omit-if-no-ref/
- 		hdmim1_tx1_sda: hdmim1-tx1-sda {
- 			rockchip,pins =
- 				/* hdmim1_tx1_sda */
--				<3 RK_PC5 5 &pcfg_pull_none>;
-+				<3 RK_PC5 5 &pcfg_pull_none_drv_level_1_smt>;
- 		};
- 		/omit-if-no-ref/
- 		hdmim2_rx_cec: hdmim2-rx-cec {
-@@ -709,14 +709,14 @@ hdmim2_rx_sda: hdmim2-rx-sda {
- 		hdmim2_tx0_scl: hdmim2-tx0-scl {
- 			rockchip,pins =
- 				/* hdmim2_tx0_scl */
--				<3 RK_PC7 5 &pcfg_pull_none>;
-+				<3 RK_PC7 5 &pcfg_pull_none_drv_level_5_smt>;
- 		};
- 
- 		/omit-if-no-ref/
- 		hdmim2_tx0_sda: hdmim2-tx0-sda {
- 			rockchip,pins =
- 				/* hdmim2_tx0_sda */
--				<3 RK_PD0 5 &pcfg_pull_none>;
-+				<3 RK_PD0 5 &pcfg_pull_none_drv_level_1_smt>;
- 		};
- 
- 		/omit-if-no-ref/
-@@ -730,14 +730,14 @@ hdmim2_tx1_cec: hdmim2-tx1-cec {
- 		hdmim2_tx1_scl: hdmim2-tx1-scl {
- 			rockchip,pins =
- 				/* hdmim2_tx1_scl */
--				<1 RK_PA4 5 &pcfg_pull_none>;
-+				<1 RK_PA4 5 &pcfg_pull_none_drv_level_5_smt>;
- 		};
- 
- 		/omit-if-no-ref/
- 		hdmim2_tx1_sda: hdmim2-tx1-sda {
- 			rockchip,pins =
- 				/* hdmim2_tx1_sda */
--				<1 RK_PA3 5 &pcfg_pull_none>;
-+				<1 RK_PA3 5 &pcfg_pull_none_drv_level_1_smt>;
- 		};
- 
- 		/omit-if-no-ref/
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra-pinctrl.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra-pinctrl.dtsi
-index 244c66faa161..fb48ddc04bcb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-extra-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-extra-pinctrl.dtsi
-@@ -160,14 +160,15 @@ hdmim0_tx1_cec: hdmim0-tx1-cec {
- 		hdmim0_tx1_scl: hdmim0-tx1-scl {
- 			rockchip,pins =
- 				/* hdmim0_tx1_scl */
--				<2 RK_PB5 4 &pcfg_pull_none>;
-+				<2 RK_PB5 4 &pcfg_pull_none_drv_level_3_smt>;
- 		};
- 
- 		/omit-if-no-ref/
- 		hdmim0_tx1_sda: hdmim0-tx1-sda {
- 			rockchip,pins =
- 				/* hdmim0_tx1_sda */
--				<2 RK_PB4 4 &pcfg_pull_none>;
-+				<2 RK_PB4 4 &pcfg_pull_none_drv_level_1_smt>;
-+
- 		};
- 	};
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rockchip-pinconf.dtsi b/arch/arm64/boot/dts/rockchip/rockchip-pinconf.dtsi
-index 5c645437b507..b0475b7c655a 100644
---- a/arch/arm64/boot/dts/rockchip/rockchip-pinconf.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rockchip-pinconf.dtsi
-@@ -332,6 +332,41 @@ pcfg_pull_none_drv_level_0_smt: pcfg-pull-none-drv-level-0-smt {
- 		input-schmitt-enable;
- 	};
- 
-+	/omit-if-no-ref/
-+	pcfg_pull_none_drv_level_1_smt: pcfg-pull-none-drv-level-1-smt {
-+		bias-disable;
-+		drive-strength = <1>;
-+		input-schmitt-enable;
-+	};
-+
-+	/omit-if-no-ref/
-+	pcfg_pull_none_drv_level_2_smt: pcfg-pull-none-drv-level-2-smt {
-+		bias-disable;
-+		drive-strength = <2>;
-+		input-schmitt-enable;
-+	};
-+
-+	/omit-if-no-ref/
-+	pcfg_pull_none_drv_level_3_smt: pcfg-pull-none-drv-level-3-smt {
-+		bias-disable;
-+		drive-strength = <3>;
-+		input-schmitt-enable;
-+	};
-+
-+	/omit-if-no-ref/
-+	pcfg_pull_none_drv_level_4_smt: pcfg-pull-none-drv-level-4-smt {
-+		bias-disable;
-+		drive-strength = <4>;
-+		input-schmitt-enable;
-+	};
-+
-+	/omit-if-no-ref/
-+	pcfg_pull_none_drv_level_5_smt: pcfg-pull-none-drv-level-5-smt {
-+		bias-disable;
-+		drive-strength = <5>;
-+		input-schmitt-enable;
-+	};
-+
- 	/omit-if-no-ref/
- 	pcfg_output_high: pcfg-output-high {
- 		output-high;
--- 
-2.43.0
+from the i2c-host tree.
 
-base-commit: 897af18e5d75e7ebf137044d57fed6522c46ae74
-branch: linux-rockchip-next
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
 
+--=20
+Cheers,
+Stephen Rothwell
+
+diff --cc MAINTAINERS
+index 3ca100bf2c02,bc13b87e85c0..000000000000
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@@ -3435,8 -3434,7 +3435,8 @@@ M:	Alexey Charkov <alchark@gmail.com
+  M:	Krzysztof Kozlowski <krzk@kernel.org>
+  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+  S:	Odd Fixes
+ +F:	Documentation/devicetree/bindings/hwinfo/via,vt8500-scc-id.yaml
+- F:	Documentation/devicetree/bindings/i2c/i2c-wmt.txt
++ F:	Documentation/devicetree/bindings/i2c/wm,wm8505-i2c.yaml
+  F:	arch/arm/boot/dts/vt8500/
+  F:	arch/arm/mach-vt8500/
+  F:	drivers/clocksource/timer-vt8500.c
+
+--Sig_/gABvDSz61vTa7_NFTstHl5E
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmguiTYACgkQAVBC80lX
+0GxcSQf5AVj6pKtp7El2+p8J6aena1evSsaeXwc8DmwmSczjfyF+yY1VNvOUgZBb
+MBoDs18CxrWjsRRGKew9V3LLyDNey5CgJVeRkGfN+C2bezzTmwU5McJeOCzEXL/1
+U92o/Zo+h1G8ZuWkhXlEX64js68XJa6Mn4lcwhCJ6h/svsrVQWMT1qBUuZgpcK5U
+sBQL2HODi5ubMCp9SCMxw/2ZYuk49bvSG0YtG68yUzeYj67/ClBpzcDqEMiR2xkK
+VPBHfP5hEOMdFIDIHcMhjbSveDuvQ8fO4ygeOz17V16tCyupsLuNylnhwDdmbP/u
+hwqC+uA1KwCCe35Bb/btPagwet2ieQ==
+=2A8b
+-----END PGP SIGNATURE-----
+
+--Sig_/gABvDSz61vTa7_NFTstHl5E--
 
