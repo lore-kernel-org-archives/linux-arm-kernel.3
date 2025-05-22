@@ -4,103 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28617C54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 05:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5B6C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 06:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBMYTTbMoSdiQ0tQ9oEgN+HiIXYy/InAWkJ8S0337qs=; b=Q5vfrEcLtQRm5mxb06gTeG2O1E
-	DztxlbvRkD/QCKBHK4gnXd0wve6rxrHk2f1K6GJgzj9kZoBiOpU8UPUk9EmlNGjrycG5fx5Ivp7p2
-	DltCFaq+1gNti4mHBzKX6WzbQAHyY/pKmn3zPXTZDT1/P75EDN2odXcK7VOSfp3FgAaf9DsuzQJOw
-	bFLb+6J9u17SN3I7wUBwENX7tzVRiF+8I+P1bbaCAoh4k9TqE7uJna4X77xLgGuY6Fh2vwD3DmmzB
-	UUwAl5MZeuhYfatpaMiZrpvjEpj1xt4QPRryeyc8xMzAgyCAixVkWyT4OtBQjhKZIa1XF2W/lyWqR
-	bh7LLcjA==;
+	bh=U36H2wWEFauYEEMSa49AZxUwXKu8FeN0HzMSY10Qhpk=; b=xKYIF81vno+qxjQn+aYedrVPs4
+	dyNmSDWJ2BAGMs4cI8cns3/J2YR/C/lGC3CTfdUQnrhSgvhCBU0SAi9Wc1B2D7p6KzaFaUtI+AFqe
+	C5GPjMzq1wlTsfFajb9OGEF/ExsLe+Dppc7bfkp3K62xGCjYPlixhl1Cc9nJF+hBuWtFgwHrLfEbQ
+	nMi6NVj4liwF9Ym1dimlA54IHYpyr2OWoOaG+3FoM5qxjCZq+SLc8L3dyKjfqAXj86ggHvifrywN0
+	2tn58j8w6W8E5ZNsa3tit4TnsW/b5GJBycuG164TJaZ6Xpq3DCYlzNvtXcDIPRZrgJlJH6L4NDqgd
+	ZNfRIWUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHyxF-0000000HXnv-1lV7;
-	Thu, 22 May 2025 05:58:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uHz8I-0000000HYVl-0fbV;
+	Thu, 22 May 2025 06:10:22 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHyvC-0000000HXYl-04aK
+	id 1uHz6E-0000000HYM5-2iX2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 05:56:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 16B5C61129;
-	Thu, 22 May 2025 05:56:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B92BC4CEE4;
-	Thu, 22 May 2025 05:56:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747893408;
-	bh=HQCkhi5OnnxcXIx33M5k6JbunrNSiHB/mQlxg7rf1Ow=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tWB7+V7tgRdXpOrrONheSP06mDFbYJuvzjSUNP3RxMt/Hq1U8Mk1jWIg6PB4j7Q/6
-	 vqYiA49jb2JaG7tb2JVNAn31cr5olswd7QwdgtC4eESdfZRODBRzqqI9GKI7bh4WkJ
-	 UUPwUCTZBYWO2jfdVbkNQQlmT4boEQpxss/5t4fab7a9QLJTQgloAea20M8xc3sWJm
-	 jQgq5FUEb2XWrw9ekJXLdcRL70xx3gN2GuYE9QVp/AHQVE+KSuuoMWPGElINVu8kAe
-	 Qenk1MN4IgwPgMcdvzsoIkWWTCsB43qWLUVpOsBle1pmZyfnjTk8DsPl9UMAHmZpHw
-	 lqg+ubfPULN1A==
-Message-ID: <f2e10c93-eb7e-4fc8-9b45-949ca1b93413@kernel.org>
-Date: Thu, 22 May 2025 07:56:45 +0200
+	Thu, 22 May 2025 06:08:15 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-231f325366eso56910805ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 23:08:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747894093; x=1748498893; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U36H2wWEFauYEEMSa49AZxUwXKu8FeN0HzMSY10Qhpk=;
+        b=Hp//94ZzmPodQZ/ysvZLoZRheKwO0zOQ5UPw2GkG8L9Cn5OnEKzj4MtJQwPhgapq4t
+         fbom3EogIOPY7pdF2JyNi1O2oUpIJHhTLdQNLLUk08a5qV+Sz0LUk1S5/9JNj5WMSs+1
+         gJa7zy6FLkbjMqssyFVYUGQNrTvJdhwOSNEjoQn6DyVCX+2JvyEMdMq//ABYvz6/TdPl
+         orquqJMRwwkpQn1Arr3+T1umubb1VP7grSgi8JIz1ddNDgwT7yU0MQ+/68aZCcircUN8
+         eqF05jRSPxzkBjt+9/fhgZXmVirEWUhJh4gzfEz8cifpsIa5v+RW6de3KDkivhV7ClKO
+         IrRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747894093; x=1748498893;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U36H2wWEFauYEEMSa49AZxUwXKu8FeN0HzMSY10Qhpk=;
+        b=VbjycjAJovEdC6NOVi8D+9HMmJ/rD6NQV8itx7YiMgjVQqdFT/qsU+d2fQPp2Snt2y
+         jePGVEFFM2DPhg4C6NshXCJjp3GQlD2+IMchBERVubmIn1UrIeCtpGQDTF8QcBsoM/d9
+         MXvl1JWQdfvUwq7K3vE3UdDcwJEPr6mq3r7RI2tmjtqjCWC5jbsuYYD1NpN4CQWTbJhl
+         XCkdK6bh/6pePsMbubU25zD0/GOnuL1LfT2JcAmjxRfSsNKWgi1W/YAOj7daVuKyoMk2
+         AJec+3Z9CcpilQ8uoGd7Y60XDs/DX+FHYCLSrdxiky927CxjXYOF8dVSSbqifFsAzrGw
+         Xa5g==
+X-Forwarded-Encrypted: i=1; AJvYcCX+Y81ldHA/qTvb+XBjdyqusVM8Xqe/rQX88BPHr5DUGtwrg/JMSrB0arY6hsr9ln1RFIo2u/qDXeJ2cQBXaQuR@lists.infradead.org
+X-Gm-Message-State: AOJu0YywAMe1hWq03t5i8V1B4HIc6qm3W/fZSV3zlol0Q2rBn3TZPLqL
+	B2ckgL2gD3oqWQkZy3od9kaa1/m7QlTtHUoMofWW4SXZZPwkwg07eg3WEar9Oa0zmqaoqVX3fNg
+	dSy3eMxgvW/pOMFRy5nKYV8uwrK0UtDs=
+X-Gm-Gg: ASbGnctnMUcnL7jlLk1oO8+xk9H+gI7VD12dwEXLAhuiSSznMUVVFlbpSTWUQBH+iE8
+	4yz4VCvsm72aEipife/rMDHGCdJYVWy0Pj9fpN+oABCp+qmfuMJ1n5ijiPWjUK1IkVtXLiYUvUx
+	RFGP3JpH6YFL75ul4foZMrsH64Ud3hJg==
+X-Google-Smtp-Source: AGHT+IE9W3/67pyzzG5bsjEEBnH07y8AiipEu78C3cAPr2w5kuaSHv9IVxPhv/H5TnGO4GqzACkRex6QwdqPxvVJFyU=
+X-Received: by 2002:a17:902:ea08:b0:220:c067:7be0 with SMTP id
+ d9443c01a7336-231d43dca32mr284472635ad.6.1747894093371; Wed, 21 May 2025
+ 23:08:13 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: linux-next: duplicate patches in the samsung-krzk tree
-To: Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Linux Next Mailing List <linux-next@vger.kernel.org>,
- ARM <linux-arm-kernel@lists.infradead.org>
-References: <20250522113227.7593f675@canb.auug.org.au>
- <20250522114205.35511096@canb.auug.org.au>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250522114205.35511096@canb.auug.org.au>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250425014937.3812976-1-peng.fan@oss.nxp.com>
+In-Reply-To: <20250425014937.3812976-1-peng.fan@oss.nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Thu, 22 May 2025 09:09:57 +0300
+X-Gm-Features: AX0GCFuVRNCfWGnfZ558VOZX_-jhCVuZC7ziACuj_BPkZuPzMGG-o1p_cqn-_zg
+Message-ID: <CAEnQRZDKUHfWMXC5oe+kSpLpR5manxx63cxDOMrFEqi6a4VxPg@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: imx: Fix TXDB_V2 sending
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: jassisinghbrar@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	mailbox@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250521_230814_688300_682DF3FB 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,22 +96,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/05/2025 03:42, Stephen Rothwell wrote:
-> Hi all,
-> 
-> [cc arm-soc]
-> 
-> On Thu, 22 May 2025 11:32:27 +1000 Stephen Rothwell <sfr@canb.auug.org.au> wrote:
->>
->> The following commits are also in the arm-soc tree as different commits
->> (but the same patches):
->>
->>   286e6e8787df ("ARM: s3c: stop including gpio.h")
->>   e0d7c81b15e8 ("ARM: dts: samsung: sp5v210-aries: Align wifi node name with bindings")
->>   e83a135a2b2f ("arm64: defconfig: enable ACPM protocol and Exynos mailbox")
+On Fri, Apr 25, 2025 at 4:51=E2=80=AFAM Peng Fan (OSS) <peng.fan@oss.nxp.co=
+m> wrote:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> i.MX95 features several processing domains, Cortex-M7, Cortex-A55
+> secure, Cortex-A55 non-secure. Each domain could communicate with
+> SCMI firmware with a dedicated MU. But the current NXP SCMI firmware
+> is not a RTOS, all processing logic codes are in interrupt context.
+> So if high priority Cortex-M7 is communicating with SCMI firmware and
+> requires a bit more time to handle the SCMI call, Linux MU TXDB_V2
+> will be timeout with high possiblity in 1000us(the current value in
+> imx-mailbox.c). Per NXP SCMI firmware design, if timeout, there is
+> no recover logic, so SCMI agents should never timeout and always
+> wait until the check condition met.
+>
+> Based on the upper reason, enlarge the timeout value to 10ms which
+> is less chance to timeout, and retry if timeout really happends.
+>
+> Fixes: 5bfe4067d350 ("mailbox: imx: support channel type tx doorbell v2")
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/mailbox/imx-mailbox.c | 21 +++++++++++++++------
+>  1 file changed, 15 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.=
+c
+> index 6ef8338add0d..aef8d572a27c 100644
+> --- a/drivers/mailbox/imx-mailbox.c
+> +++ b/drivers/mailbox/imx-mailbox.c
+> @@ -226,7 +226,7 @@ static int imx_mu_generic_tx(struct imx_mu_priv *priv=
+,
+>  {
+>         u32 *arg =3D data;
+>         u32 val;
+> -       int ret;
+> +       int ret, count;
+>
+>         switch (cp->type) {
+>         case IMX_MU_TYPE_TX:
+> @@ -240,11 +240,20 @@ static int imx_mu_generic_tx(struct imx_mu_priv *pr=
+iv,
+>         case IMX_MU_TYPE_TXDB_V2:
+>                 imx_mu_write(priv, IMX_MU_xCR_GIRn(priv->dcfg->type, cp->=
+idx),
+>                              priv->dcfg->xCR[IMX_MU_GCR]);
+> -               ret =3D readl_poll_timeout(priv->base + priv->dcfg->xCR[I=
+MX_MU_GCR], val,
+> -                                        !(val & IMX_MU_xCR_GIRn(priv->dc=
+fg->type, cp->idx)),
+> -                                        0, 1000);
+> -               if (ret)
+> -                       dev_warn_ratelimited(priv->dev, "channel type: %d=
+ failure\n", cp->type);
+> +               ret =3D -ETIMEDOUT;
+> +               count =3D 0;
+> +               while (ret) {
+> +                       ret =3D
+> +                       readl_poll_timeout(priv->base + priv->dcfg->xCR[I=
+MX_MU_GCR], val,
+> +                                          !(val & IMX_MU_xCR_GIRn(priv->=
+dcfg->type, cp->idx)),
+> +                                          0, 10000);
+> +
+> +                       if (ret) {
+> +                               dev_warn_ratelimited(priv->dev,
+> +                                                    "channel type: %d ti=
+meout, %d times, retry\n",
+> +                                                    cp->type, ++count);
+> +                       }
+> +               }
 
-Thanks, that's expected. I dropped them now from my queue.
+This could result in a infinite loop. I would try only a fixed number
+of times then bail. Please use count to break the loop
+after let say 10 tries.
 
-Best regards,
-Krzysztof
+>                 break;
+>         default:
+>                 dev_warn_ratelimited(priv->dev, "Send data on wrong chann=
+el type: %d\n", cp->type);
+> --
+> 2.37.1
+>
+>
 
