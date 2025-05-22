@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAAC4C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 00:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F87C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 00:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tVNl4A6Kx8naMJGZ1E0eQITkQbAsVFllM1f24lX+kzQ=; b=smYuaBlMxCbVOsMMt7ne3OjtlR
-	nZUMUOM6cnr4uvb//GPr2Bh0U0TnoOqyM0GQjnkZswab7rb7+ex2IBcn7ym+v8NrO3EL2zIZAK6Co
-	UKjk+BuJSexNTepYpN2RVRQ1bdqmPbA95eQeW6D0u7lhoti8W5Gtt3JoQ514DUSbWKfQdFHKbnUZK
-	D8Z2afW4OsOWznM66WrKTFwu8+DD2HBhOekCOatdPayt70+Uh9jgGOY4yL6Xn5kiIbxyt/bEK3k6d
-	1K+0NzRjYsyLCLcJQja+xOKutyQ9zF8HOrKig5Auhbgl0bn6R/bDpogxkOglcSHL6Bprx9L5Hyzsq
-	92I7WScA==;
+	bh=f7qvTnT5s0mxP5eCWb+NaTk8UKR3m+k6rkKzLbxKznI=; b=cfMrHvQ6htHbNxpzYALhOPg1p5
+	+BaerzbGFp0U17qIuucAO1m9Pd213W0MrROuN6X8ZW00qRREU0WFI8eUTzPVatnPpn/y8JNf7jyWZ
+	awDlwn7MQkEFpeKK9IK4nYwf6ua4fUe98sxtXkt7K5zhdqBLqpnEjzbsojKAdXRijH2/Ls+hdW8F8
+	bvlHv25H0W2nBQsOcCBooiIr6TXTxQk4ysRcqWHxNgCmXQLqWvhtWFvufe2WRZtxpJcy0HJRrQCe5
+	AHWmJ/D4LOJPF1Y7DvJqPc9fBJgPMaXP2I+v9UzblCooJun2Mz6DSvB9jd2SsbJX6PKpfkMzqzBwu
+	kBpHbTaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIFqW-00000002Xvz-2Mgl;
-	Fri, 23 May 2025 00:01:08 +0000
+	id 1uIFsY-00000002YBI-1Qlk;
+	Fri, 23 May 2025 00:03:14 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIFiM-00000002VpJ-1hd8
+	id 1uIFiQ-00000002VqO-3vir
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 May 2025 23:52:42 +0000
+	Thu, 22 May 2025 23:52:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=tVNl4A6Kx8naMJGZ1E0eQITkQbAsVFllM1f24lX+kzQ=; b=S3Pf/ylB1lwmpQnktvFhjqCJ0w
-	zjeX3r5gQuyQJpkokW553erakUEnHgMKUqJYM4NlMb7LF4dPTAKrFkqS49c/oQsvGv9W0WuB42kxJ
-	ZzRJz6frKPIuAHOt68zMIRcBblEz9P1bHFm7JxcD0PbpG374mORJa3FMj9NrEyZ9tr/SaMreA1EgC
-	WF2sm0V/KRRXKXo9UK5pp3sTpYqv7CgXLxlyfYVFkZUBL7s7QoR1ZfikJ+2Jbn9h7DMInY2JVj9Mj
-	lzkDxjqWbEUpcRA4hHIQ4cOTa4V+ErD4H1Q5XIoYERDWYECOe6Vm+TfK1m7LCo4gx0ZHVrqsWFeeX
-	dV6s4cuw==;
+	bh=f7qvTnT5s0mxP5eCWb+NaTk8UKR3m+k6rkKzLbxKznI=; b=hRlA3qQ9/rC6GxMvyqz3YEcGKD
+	5ZhfbAUVR2DuLP2Nl85hkQmVc9RsR1ijf8IQhOQ5bsr/BwgGCEY54gaKW/fwmN7wh/UIMVvtJmopb
+	a7VNRIHR0Rh9wuPdO3Hnma6bjTpOW9vnu2Mqcb3zIXWAslWC9/Nyuor/qNoCpevTV1+GJC4tsd/3N
+	mXlVwfJVVylgDKZllTCt34kl6eICWEYpI0dJcCMAqAbqB/7lWKYsbsTmpTcWOwVguxmZ0kaxvhhPd
+	9b4cR7h1r3NN5A9ikBF8wVkrkO5+/+K2OQK1LFCX+lYwLel761VPI2SPoA8dyxfFPWVx+p1XI5HQN
+	Rvg1mvzQ==;
 Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIFiJ-000000016X2-1axW
+	id 1uIFiN-000000016YD-3G8K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 23:52:41 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-30e8425926eso9457269a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 16:52:39 -0700 (PDT)
+	Thu, 22 May 2025 23:52:45 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-30e8346b49cso7199512a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 16:52:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747957958; x=1748562758; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1747957961; x=1748562761; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=tVNl4A6Kx8naMJGZ1E0eQITkQbAsVFllM1f24lX+kzQ=;
-        b=I9S4XFPVVpgxQW8JT3JwvEoenYJ6QgifRyJ/Wj9TUY7ue984LWmofDB7qpcj1BVB5E
-         +RyNIrc7zkKneE1vgMtZRcfrsUtPLDJ+2Ox5lsn5sT6iDMnWgTtFgAKvgcYIv2ZH8VxJ
-         TFKMoK/cirfY8cdybv3GHzol75O6k/FxtDOwZevoB98eeE2t1OhUuS2SOswEmq1bhSDI
-         BfbsSnP2LftOD4gok/fr/XBbulkv07K+ByBSFrWfH45P+CfblvnGcuouzxAxWhibtLXR
-         FxTbF8owQE0NpE5tgPK1BYZo1rO3FbcwCopkLOyAZq3W/UataqJb2HIzMDbJL8cH15y/
-         Sdag==
+        bh=f7qvTnT5s0mxP5eCWb+NaTk8UKR3m+k6rkKzLbxKznI=;
+        b=2GrFOfsFUci+O2gwHGAS66JiweLOd897bYfzdEouBoMKPtmMOH5ZY2m3421Kp7xXVW
+         x68Eh6YQFBqMbahbRjEM2ehFwbfSwAG576KmDgkvb9WZ9nbePzFF9ST0eisEIx65ZJWT
+         KW8aKEkmumu/dzxpwFidH3yXf4t5EHx/vLUXrIJRWJbTDDIHNEHsEU+ccFE3dB8BnQ2v
+         EmRqJGh6BqQt54DXayWY+24btoxVqECJU3ttIDW5BfFGyDGwgLk9CegNcBu72tdOxRIQ
+         7w7mgdcHUY+9w/I+4lm21b3LZ0Expsdd256Sq0z2ljr8N58tqHXEPZ7SKG/UN8UQcJFi
+         Qczw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747957958; x=1748562758;
+        d=1e100.net; s=20230601; t=1747957961; x=1748562761;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tVNl4A6Kx8naMJGZ1E0eQITkQbAsVFllM1f24lX+kzQ=;
-        b=ae6PWM7mfFcp4ZnkagbWguVqjSaHHhAAUogp3rHVVToiRjMMnrbGbXWTEZG6O+W4zR
-         P7RbFR+uQy67U9PZNCuUHBoKirIHtD1gE0WudbI6F6mSluH9qJbfdwZJsvuSj7Vtsm8C
-         +79G/QJcormcK6kHG2JZd3dY9hy4laluKJH0wvXH9+VeoL/OSk0c/h3eCFVlxqfj8u8l
-         vWmDgfuT9c9VNof2MuYo0eJUPapNADj3rvLvwzuIcSRrUSCwG5qtbIOfExp9I3yAFUjT
-         nymlbR986W6RCZ9T9wVlH6gkC2V0jrpPQaYrBGIsVrXvgfhPv/i7seeX8qkXwG7mduJM
-         Am8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUmocMAG2p+PPhD1YuBOJbp7CRMKZ+SZYOBOTNrbuTLTs/Xylb9w/6A9Z+OHB+rUMSx3mapR52rjxTyHj4NZM/d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx43m1aHdHPpQoGOWKuENMK/jadXYzC7W1p4g1nnGRfsMroRvbX
-	yGGjezMS+mt3rSrJSotaguAlJ7sXCVRy+ilvMGide+r1PcedsI9I8Bzz9r2k/H0zWE0LrT5Hoy9
-	AO4EGCQ==
-X-Google-Smtp-Source: AGHT+IE81WM2WL+8EnB/6FCP5IRyDnOFUDXq+HJraLf558ghdMXYLyDo9m5RHDzKNMgflX319IgqoMhIQGU=
-X-Received: from pjg13.prod.google.com ([2002:a17:90b:3f4d:b0:2ee:4a90:3d06])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e70f:b0:30a:2173:9f0b
- with SMTP id 98e67ed59e1d1-30e8322596bmr38028577a91.28.1747957957818; Thu, 22
- May 2025 16:52:37 -0700 (PDT)
-Date: Thu, 22 May 2025 16:52:12 -0700
+        bh=f7qvTnT5s0mxP5eCWb+NaTk8UKR3m+k6rkKzLbxKznI=;
+        b=h1qOH9vXMlpCtcRLapop4V+fzPZ0GFK8LFHYPtNOcqbBMqf0hBehywL3TPjGlgxu5s
+         mjOWrXPropNxQfsKr9IYA6OC+xjio7PLt6Sh8ej4NVRR0J6iJt7y8BdSb+juh3verVc8
+         s2eheWD/ppdRF7R9WU0L7NIIZVYM5ibHcrT9Q0xHz8sxAMdEq2OSM4p2MhdR1D2JWFyM
+         DxJFNYDJ58cnLtPSNOfBvF+PHgG1LujIC0gwDqjAMT5XBFCaCB/awQN4CWVGIvy72OJS
+         sAPYfGgLXdp2vqUQfLtVCfFQN0Q+zt7mRXuEBdZm5OH7hJTl034oe45SG3FQqzzoejp2
+         BccA==
+X-Forwarded-Encrypted: i=1; AJvYcCXjX4BoY/yAG6EmxqsgVff1LB4wDYI6d75WbI6E//aMe+YoLmsNnspX5Hk59ncsohoVhHddS/TsQ/ALFIX0B1rZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7UXFXwFxko56CWoK7WgPhgxB7Oix6KUVgGtrwO2xRoYkWYSZY
+	1tbbhdIhqHyM/Jv5E7an/y9sjMHS1fACd88py0JImJOiVkiLpgctjLTvbSpMgJvrPjBiUVDYMoa
+	lIJ08Qw==
+X-Google-Smtp-Source: AGHT+IFhLIWMr3ct7tle+BqkfXynUt92dE5T1Ga0fMI6fA92WD5PFOynQ9QIYOuFaunMobUQi3Ht7v2BK94=
+X-Received: from pjbsz13.prod.google.com ([2002:a17:90b:2d4d:b0:30e:7d59:f3a7])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:dfc7:b0:301:c5cb:7b13
+ with SMTP id 98e67ed59e1d1-30e830c6247mr35762810a91.3.1747957961111; Thu, 22
+ May 2025 16:52:41 -0700 (PDT)
+Date: Thu, 22 May 2025 16:52:14 -0700
 In-Reply-To: <20250522235223.3178519-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250522235223.3178519-1-seanjc@google.com>
 X-Mailer: git-send-email 2.49.0.1151.ga128411c76-goog
-Message-ID: <20250522235223.3178519-3-seanjc@google.com>
-Subject: [PATCH v3 02/13] KVM: Acquire SCRU lock outside of irqfds.lock during assignment
+Message-ID: <20250522235223.3178519-5-seanjc@google.com>
+Subject: [PATCH v3 04/13] KVM: Add irqfd to KVM's list via the vfs_poll() callback
 From: Sean Christopherson <seanjc@google.com>
 To: "K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
 	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
@@ -99,8 +99,8 @@ Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
 	David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_005239_652919_1D32BAE1 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250523_005244_088548_158A518C 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,60 +116,171 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Acquire SRCU outside of irqfds.lock so that the locking is symmetrical,
-and add a comment explaining why on earth KVM holds SRCU for so long.
+Add the irqfd structure to KVM's list of irqfds in kvm_irqfd_register(),
+i.e. via the vfs_poll() callback.  This will allow taking irqfds.lock
+across the entire registration sequence (add to waitqueue, add to list),
+and more importantly will allow inserting into KVM's list if and only if
+adding to the waitqueue succeeds (spoiler alert), without needing to
+juggle return codes in weird ways.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/eventfd.c | 19 ++++++++++++++++---
- 1 file changed, 16 insertions(+), 3 deletions(-)
+ virt/kvm/eventfd.c | 102 +++++++++++++++++++++++++--------------------
+ 1 file changed, 57 insertions(+), 45 deletions(-)
 
 diff --git a/virt/kvm/eventfd.c b/virt/kvm/eventfd.c
-index 39e42b19d9f7..42c02c35e542 100644
+index 8b9a87daa2bb..99274d60335d 100644
 --- a/virt/kvm/eventfd.c
 +++ b/virt/kvm/eventfd.c
-@@ -401,6 +401,18 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
- 	 */
- 	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
+@@ -245,34 +245,14 @@ irqfd_wakeup(wait_queue_entry_t *wait, unsigned mode, int sync, void *key)
+ 	return ret;
+ }
  
-+	/*
-+	 * Set the irqfd routing and add it to KVM's list before registering
-+	 * the irqfd with the eventfd, so that the routing information is valid
-+	 * and stays valid, e.g. if there are GSI routing changes, prior to
-+	 * making the irqfd visible, i.e. before it might be signaled.
-+	 *
-+	 * Note, holding SRCU ensures a stable read of routing information, and
-+	 * also prevents irqfd_shutdown() from freeing the irqfd before it's
-+	 * fully initialized.
-+	 */
-+	idx = srcu_read_lock(&kvm->irq_srcu);
+-struct kvm_irqfd_pt {
+-	struct kvm_kernel_irqfd *irqfd;
+-	poll_table pt;
+-};
+-
+-static void kvm_irqfd_register(struct file *file, wait_queue_head_t *wqh,
+-			       poll_table *pt)
+-{
+-	struct kvm_irqfd_pt *p = container_of(pt, struct kvm_irqfd_pt, pt);
+-	struct kvm_kernel_irqfd *irqfd = p->irqfd;
+-
+-	/*
+-	 * Add the irqfd as a priority waiter on the eventfd, with a custom
+-	 * wake-up handler, so that KVM *and only KVM* is notified whenever the
+-	 * underlying eventfd is signaled.
+-	 */
+-	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
+-
+-	add_wait_queue_priority(wqh, &irqfd->wait);
+-}
+-
+-/* Must be called under irqfds.lock */
+ static void irqfd_update(struct kvm *kvm, struct kvm_kernel_irqfd *irqfd)
+ {
+ 	struct kvm_kernel_irq_routing_entry *e;
+ 	struct kvm_kernel_irq_routing_entry entries[KVM_NR_IRQCHIPS];
+ 	int n_entries;
+ 
++	lockdep_assert_held(&kvm->irqfds.lock);
 +
- 	spin_lock_irq(&kvm->irqfds.lock);
+ 	n_entries = kvm_irq_map_gsi(kvm, entries, irqfd->gsi);
  
- 	ret = 0;
-@@ -409,11 +421,9 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
- 			continue;
- 		/* This fd is used for another irq already. */
- 		ret = -EBUSY;
--		spin_unlock_irq(&kvm->irqfds.lock);
--		goto fail;
-+		goto fail_duplicate;
- 	}
+ 	write_seqcount_begin(&irqfd->irq_entry_sc);
+@@ -286,6 +266,49 @@ static void irqfd_update(struct kvm *kvm, struct kvm_kernel_irqfd *irqfd)
+ 	write_seqcount_end(&irqfd->irq_entry_sc);
+ }
  
--	idx = srcu_read_lock(&kvm->irq_srcu);
- 	irqfd_update(kvm, irqfd);
++struct kvm_irqfd_pt {
++	struct kvm_kernel_irqfd *irqfd;
++	struct kvm *kvm;
++	poll_table pt;
++	int ret;
++};
++
++static void kvm_irqfd_register(struct file *file, wait_queue_head_t *wqh,
++			       poll_table *pt)
++{
++	struct kvm_irqfd_pt *p = container_of(pt, struct kvm_irqfd_pt, pt);
++	struct kvm_kernel_irqfd *irqfd = p->irqfd;
++	struct kvm_kernel_irqfd *tmp;
++	struct kvm *kvm = p->kvm;
++
++	spin_lock_irq(&kvm->irqfds.lock);
++
++	list_for_each_entry(tmp, &kvm->irqfds.items, list) {
++		if (irqfd->eventfd != tmp->eventfd)
++			continue;
++		/* This fd is used for another irq already. */
++		p->ret = -EBUSY;
++		spin_unlock_irq(&kvm->irqfds.lock);
++		return;
++	}
++
++	irqfd_update(kvm, irqfd);
++
++	list_add_tail(&irqfd->list, &kvm->irqfds.items);
++
++	spin_unlock_irq(&kvm->irqfds.lock);
++
++	/*
++	 * Add the irqfd as a priority waiter on the eventfd, with a custom
++	 * wake-up handler, so that KVM *and only KVM* is notified whenever the
++	 * underlying eventfd is signaled.
++	 */
++	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
++
++	add_wait_queue_priority(wqh, &irqfd->wait);
++	p->ret = 0;
++}
++
+ #if IS_ENABLED(CONFIG_HAVE_KVM_IRQ_BYPASS)
+ void __attribute__((weak)) kvm_arch_irq_bypass_stop(
+ 				struct irq_bypass_consumer *cons)
+@@ -315,7 +338,7 @@ bool __attribute__((weak)) kvm_arch_irqfd_route_changed(
+ static int
+ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ {
+-	struct kvm_kernel_irqfd *irqfd, *tmp;
++	struct kvm_kernel_irqfd *irqfd;
+ 	struct eventfd_ctx *eventfd = NULL, *resamplefd = NULL;
+ 	struct kvm_irqfd_pt irqfd_pt;
+ 	int ret;
+@@ -414,32 +437,22 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+ 	 */
+ 	idx = srcu_read_lock(&kvm->irq_srcu);
  
- 	list_add_tail(&irqfd->list, &kvm->irqfds.items);
-@@ -449,6 +459,9 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
+-	spin_lock_irq(&kvm->irqfds.lock);
+-
+-	ret = 0;
+-	list_for_each_entry(tmp, &kvm->irqfds.items, list) {
+-		if (irqfd->eventfd != tmp->eventfd)
+-			continue;
+-		/* This fd is used for another irq already. */
+-		ret = -EBUSY;
+-		goto fail_duplicate;
+-	}
+-
+-	irqfd_update(kvm, irqfd);
+-
+-	list_add_tail(&irqfd->list, &kvm->irqfds.items);
+-
+-	spin_unlock_irq(&kvm->irqfds.lock);
+-
+ 	/*
+-	 * Register the irqfd with the eventfd by polling on the eventfd.  If
+-	 * there was en event pending on the eventfd prior to registering,
+-	 * manually trigger IRQ injection.
++	 * Register the irqfd with the eventfd by polling on the eventfd, and
++	 * simultaneously and the irqfd to KVM's list.  If there was en event
++	 * pending on the eventfd prior to registering, manually trigger IRQ
++	 * injection.
+ 	 */
+ 	irqfd_pt.irqfd = irqfd;
++	irqfd_pt.kvm = kvm;
+ 	init_poll_funcptr(&irqfd_pt.pt, kvm_irqfd_register);
+ 
+ 	events = vfs_poll(fd_file(f), &irqfd_pt.pt);
++
++	ret = irqfd_pt.ret;
++	if (ret)
++		goto fail_poll;
++
+ 	if (events & EPOLLIN)
+ 		schedule_work(&irqfd->inject);
+ 
+@@ -460,8 +473,7 @@ kvm_irqfd_assign(struct kvm *kvm, struct kvm_irqfd *args)
  	srcu_read_unlock(&kvm->irq_srcu, idx);
  	return 0;
  
-+fail_duplicate:
-+	spin_unlock_irq(&kvm->irqfds.lock);
-+	srcu_read_unlock(&kvm->irq_srcu, idx);
+-fail_duplicate:
+-	spin_unlock_irq(&kvm->irqfds.lock);
++fail_poll:
+ 	srcu_read_unlock(&kvm->irq_srcu, idx);
  fail:
  	if (irqfd->resampler)
- 		irqfd_resampler_shutdown(irqfd);
 -- 
 2.49.0.1151.ga128411c76-goog
 
