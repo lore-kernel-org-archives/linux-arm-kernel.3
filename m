@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5F3C54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60DBC54756
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dlp2azLQltfH6emKWYdlW4k16t8gyfKRpWtf3w9Dv60=; b=vgc/Fo/270q+D2fyaiU3qmr9eK
-	IDvUrprvrhrrKDHKfRhvZ/p77b5cg5mI9CxpDryy/WeebawgpX2Gj/zLtcfz2wFSL0CCT40BPKRLJ
-	QhIV0B3kIzq/8pUpgucZ7JjGaqxofGJ68MsCwwMMq2cy6ydqM7OvCjJyodgYpw3L7FxEg/x8obI+T
-	IlT+BRiIHBtfrvH7yrk8NxRkb6Jzc/LGXSq8Sx47g0VRN5Vix3NYV7NAJkov7QFQOKprUeSk4iRNO
-	8wXKEDWdX27RfOya31/tYh6OfP/NsXusQUEGCVJ/v8onl/5H72s8RU2jl8OHDi393uF+RHmYnNOQM
-	BY3LRi+Q==;
+	bh=WuJth4b7mSGrp3rbiwhR274TXr1yLV08nwiXwf4KD8c=; b=ssKP7YhGYoBTLuj4lyxEtNAe3I
+	WBVu1Ie7NH+IPxeMzKke+JOiseJmXMhs6vixzKkIxyn8uv+iDOxq8NufX4q9THSiv0FSZXJYSxRnf
+	FZZK4GD5iwQFEFWQPRJVRRjH57QekXnGpKU14GeQEXnSooJOAXgQMuHJ/I5f+gKBiXPoBjp9dW2Ju
+	qeejP/gyH6GPpDqfmxDCDraZ/o/uyWWEa7Jf1j+osQRSb3YrwGEsVcMz+H0tR/9Wb4Xjyw3qxs8mA
+	UjDhSbpkYZJDYGsfdC9gp63tTvC5ezLU7DaJvCD3KMRNOPvTkiTfcahyKFkMM2eyRMidPCMIOtl/k
+	zpfQqfxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1Ve-00000000K7R-08na;
-	Thu, 22 May 2025 08:42:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uI1Xg-00000000KdE-3Plh;
+	Thu, 22 May 2025 08:44:44 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1GO-00000000HKU-07IE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 08:26:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1747902409;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Dlp2azLQltfH6emKWYdlW4k16t8gyfKRpWtf3w9Dv60=;
-	b=TJ7lNqo1DCu4f0ff2lNPf5w1a7wRXEBZJ+9m01TWuYMNAVvV9P2GxwVQKj6cnokXnafitt
-	kCsi+2CP0oDNFxloD/L2dS3EDy/N/R/Q7DYg+j4gQ00R/3QFiGjjimpihp5dAglYXzRzZV
-	zo6lmZQEovGcpfGEAWnaKJKqkSDsink=
-Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com
- [209.85.128.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-489-J7Q0TchiPUmAtigK49GScw-1; Thu, 22 May 2025 04:26:46 -0400
-X-MC-Unique: J7Q0TchiPUmAtigK49GScw-1
-X-Mimecast-MFC-AGG-ID: J7Q0TchiPUmAtigK49GScw_1747902406
-Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-70ad3a91ab2so102109597b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 01:26:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747902406; x=1748507206;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Dlp2azLQltfH6emKWYdlW4k16t8gyfKRpWtf3w9Dv60=;
-        b=iyQxjKjTY6+uLoxv1pqjkjhYD5i4qbGS2uzVk+ZYAEP9ZgG+U2aBulpgwQkXrcne9u
-         q7DfYjTJlNXEFk4BZWFs+EXJSnNcawbH2etQEyYqZnZuI6rv2ZrRg4AnXXgbAeYQNLa3
-         7RvYTiFT110ZS5IVPfWDtQM5kDceiGY7hD/vbAyjnpPvrlKf1OjLc6mCc0u8nIPTVe3Y
-         EX9YgI5MlVyHvMlGUFD+zo0oOOdhYMW7uVLRL2fdqEniQbmBsIR3zRoCa1HjPgDqhofr
-         ufQ9ehZw6S8vRkwtHnhM0Fl3mKtEQVyQuhxh9ZbJ0J6pTNz6r2atExrpnTaRCGPYRNuB
-         FIyA==
-X-Forwarded-Encrypted: i=1; AJvYcCXL8+UGHhjBpFBGSPmgeXp1zjBtgdZV5xIs4d+F6tmgEQ/dCguT1pJttYvxMPD4RFQhNL/KncxO2plkNa1iogem@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCOE8XaJanSnnwgjEde4JKHcnejTeUJAczg7PVPqvVi+hjvr2K
-	VgDi34k+ZBpK7j3YMmbraW1BZOvWlAHZGzYvGJOb0EvNsk1K7MgliaLPlRxL3B7Qf7CJ9/HJxWU
-	epGa/TS+P7o6kCVcoiIb6FqbqpfedZn/5PW6z5ZqT5gMOgKvB3t9bWpIK/yzYVs4JVLQzWGSYMm
-	jgOScHjaULgQISwEbpcVqXNy1s3P8mPodw5NJgQeOR+eo2+KrtafI=
-X-Gm-Gg: ASbGnctASHhZjYHW8GkkwuFpoe8oTJsRYSfEGY2CTVY2IWEqNLgnLZGQIxZ7QeDwWmm
-	e2m/IuC758vu1iOCLAMfVfwBiwz/bMgscmUQS5wRKgJLn068RBwifaepC16nEPO10oGM=
-X-Received: by 2002:a05:690c:3393:b0:70d:f3bb:a731 with SMTP id 00721157ae682-70df3bba868mr78205617b3.9.1747902405932;
-        Thu, 22 May 2025 01:26:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGPhVj8JhGJCK+zc7RP834KN5Eve5FMdd9QufZUZBEqDbkQHG8Gr0Mr3Ft0fdQAFQnebVlVVoTvKHtpXaHPSYY=
-X-Received: by 2002:a05:690c:3393:b0:70d:f3bb:a731 with SMTP id
- 00721157ae682-70df3bba868mr78205367b3.9.1747902405539; Thu, 22 May 2025
- 01:26:45 -0700 (PDT)
+	id 1uI1Lz-00000000IGC-2aQU;
+	Thu, 22 May 2025 08:32:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=WuJth4b7mSGrp3rbiwhR274TXr1yLV08nwiXwf4KD8c=; b=cxed8hOHQAkc9ggZiVrM4KL4Fq
+	Ohi3DyZ6gcYYOOCui+NtxigZS7eDiz3YSDAs7ws6Gs8/tIHOKIfDqqoO3v3VR+906Y8o9eZN8DeeU
+	11U7Gbsjq0SYEqtR10yLiwPJu++N8vHDfx8tf8MdTRTrl5TK5z/WRCEeiZosv9Z5UZCQWZFyA2bzn
+	QIh/sGh0lhzvlcBVzc8Gu7sqR+SjY2LiXm+B+jOd6lxSBiREDgLKxWkWI214+umu2a6F0X/an6o7s
+	x1Yt2CBiyG9gHCwjK5ZbMDYwpIbM0wiP5Q/b3DgZ4gf49oZeNWUIE7a+wOt1kRJl3UQxf7MYqIawo
+	HexnBV7A==;
+Received: from i53875b2e.versanet.de ([83.135.91.46] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uI1Lu-0005jc-D5; Thu, 22 May 2025 10:32:34 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Quentin Schulz <foss+kernel@0leil.net>
+Cc: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: add ethernet1 alias to RK3588 Jaguar
+Date: Thu, 22 May 2025 10:32:33 +0200
+Message-ID: <2901570.AiC22s8V5E@diego>
+In-Reply-To: <20250521-jaguar-mezz-eth-switch-v1-1-9b5c48ebb867@cherry.de>
+References: <20250521-jaguar-mezz-eth-switch-v1-0-9b5c48ebb867@cherry.de>
+ <20250521-jaguar-mezz-eth-switch-v1-1-9b5c48ebb867@cherry.de>
 MIME-Version: 1.0
-References: <20250514134630.137621-1-sgarzare@redhat.com> <20250514134630.137621-5-sgarzare@redhat.com>
- <aCVHQ-LRqHeEVEAW@kernel.org> <CAGxU2F5AsNY5mQPd=qajW1seFYHSYpB0Fa1iuR_f2QavtoB6sA@mail.gmail.com>
- <aCzf6aoJAC-IdS_n@kernel.org> <CAGxU2F6rfqGV_gJk-JxrCk3f9dWtYn_3o9RODh7cVG0X_oQWaA@mail.gmail.com>
- <aC2nBCxkvWWz5y5E@kernel.org> <aC4CVUXpThAyKQdf@kernel.org>
-In-Reply-To: <aC4CVUXpThAyKQdf@kernel.org>
-From: Stefano Garzarella <sgarzare@redhat.com>
-Date: Thu, 22 May 2025 10:26:34 +0200
-X-Gm-Features: AX0GCFvwBrY1Wuz2vdIMhJw7TkALKpOFZS5DJd8t4bfvvVGz5MJKErKjPBRbZJg
-Message-ID: <CAGxU2F5zQJR4GvZ9ovtQBqMFGs-wBMoCRks=JYQ1JF6qMKK-6g@mail.gmail.com>
-Subject: Re: [PATCH v5 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, Peter Huewe <peterhuewe@gmx.de>, 
-	Jens Wiklander <jens.wiklander@linaro.org>, linux-integrity@vger.kernel.org, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Nicholas Piggin <npiggin@gmail.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: J_pEbzcXPrRf2WR_OTENn-lfviqqU25D3XSmhB6kSI4_1747902406
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_012652_147021_38F0262C 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20250522_013239_674124_27DD3A08 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,37 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 May 2025 at 18:42, Jarkko Sakkinen <jarkko@kernel.org> wrote:
->
-> On Wed, May 21, 2025 at 01:12:20PM +0300, Jarkko Sakkinen wrote:
-> > > I tried, but the last patch (this one) is based on the series merged
-> > > on the tip tree, where I introduced tpm_svsm.
-> > > I can see that series in linux-next merged with commit
-> > > 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07,
-> > > but I can't see it in your next tree [1].
-> > >
-> > > How do we proceed in such cases?
-> > >
-> > > Just to be sure, did I use the right tree?
-> >
-> > Thanks for the remark. Lemme check tonight. Hold on doing
-> > anything ;-) We'll get there...
->
-> I just rebased my branches on top of latest from Linus. That is what I
-> need base PR also on, and:
->
-> $ git show 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
-> fatal: bad object 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
->
-> I'd use git cherry-pick on a range to take them from linux-next to a
-> mainline tip...
+Am Mittwoch, 21. Mai 2025, 17:44:19 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Quentin Schulz:
+> From: Quentin Schulz <quentin.schulz@cherry.de>
+>=20
+> The RK3588 Jaguar exposes pins that can be muxed for GMAC1 functions to
+> the Mezzanine proprietary connector, so let's add the alias to prepare
+> for adapters using those signals in that function.
 
-I see, let me know if I can help in some way.
+In light of the discussion about unused aliases in [0], always adding an
+ethernet1 alias for something that may never be used is probably not
+the way to go.
 
-We can also wait the next cycle if it simplifies your work, definitely
-no rush on my side.
 
-Thanks,
-Stefano
+Heiko
+
+[0] https://lore.kernel.org/linux-rockchip/df6003e3-7fc3-4e50-a702-f0aa8d66=
+3dff@app.fastmail.com/
+
+> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/=
+boot/dts/rockchip/rk3588-jaguar.dts
+> index 9fceea6c1398e92114dcb735cf2babb7d05d67a5..70a2569478f6165f067befb6c=
+dfb4f58f00dd17d 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+> @@ -33,6 +33,7 @@ button-bios-disable {
+> =20
+>  	aliases {
+>  		ethernet0 =3D &gmac0;
+> +		ethernet1 =3D &gmac1;
+>  		i2c10 =3D &i2c10;
+>  		mmc0 =3D &sdhci;
+>  		mmc1 =3D &sdmmc;
+>=20
+>=20
+
+
+
 
 
