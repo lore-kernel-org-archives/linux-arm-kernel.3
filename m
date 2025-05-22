@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E91C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 07:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C461C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 07:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFyX924fU1OUnTJNM9k4dpsAiJ/BmLU4EV8L8EYmGN0=; b=UdGATiiqd2qjplA+Vsf2bvG+5b
-	TI9PC4gGo93O5XkPPf0IODWVDCGxpnD77h7nl+ll3ryz6pMSEJvLyaqGkudPMgCS4+83yz7PnuBsA
-	dkO9DhsXgx5g+NkhY+1Hj0USvBZRCEx0/naEQ/S4Vw/UabRUEb5mjkeLRcUgFM1Lc2nwAzK61GPPW
-	8Ol38tB8rYrMIt6BTiteVlCwcI4nzmHH9b4Ry77f/HXMIzyMetECsc7S5T9c1VvusSu4LOcpvRvJl
-	bRSvpLvucwUJLk4XpShn6/a8xJC2PaSlCA7aycqm98ndwjUE69kejUjTUDo1qMI0yHf1tL7fMPZWq
-	GK5tPCvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2vwgzAuwhb4bnBX3qWswrToEN0cqUhzp74e/sFLTvjc=; b=IFVu8dkawwzViy4AhI7nwIDEOh
+	XTRWCXWinx88dJiZIMXW2nHKn4dbBy8oWD9Qld0Jg4IQpUxq8mpHDYU3CGynr62YFMgltfHqN5zRK
+	qYi1f6PixwOWy1zWIdE8c7PLTDJikg9L6CZf2Sv2hw4QwYO7t+0W8rTD8z9H6Q64UsYSGFL4gtBlq
+	ZDt7ABgc4tPQ9t7n1DrQD3pSH3kE75pYFl48iYW0lOnai8/5W2/bmdUSMH5+xJHTAV5citoIiEW5i
+	ilEURKl1jjwgzXzGmy4ZmAeEPFoJCv8F29VkVum7Fl1NBT+gCKrSgN1cjR476j2zuEEnH8VpKpkgO
+	lrAbHuog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0Y4-00000000A2O-3xGg;
-	Thu, 22 May 2025 07:41:04 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uI0a7-00000000AMG-1isY;
+	Thu, 22 May 2025 07:43:11 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0Ry-0000000096W-31fQ
+	id 1uI0UB-000000009UY-45c0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 07:34:47 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54M7YaA1578086;
-	Thu, 22 May 2025 02:34:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747899276;
-	bh=TFyX924fU1OUnTJNM9k4dpsAiJ/BmLU4EV8L8EYmGN0=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=i+ZMt4ZyOJSERcc+4hrX1KOs+GCM9MH4fA/2Ybir/7w7MdLPNXOHvhb0WRu1hgbEx
-	 XQLpFdG1COOaKABDzvXaxmLopJEdNmGUXEmTTKvgw/Z6bw1AmHEYofOZJdMUHb+U8V
-	 qNccdrErhKWyZByhVxsAzsk8fsvsU5Y4S5tXgu2w=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54M7Ya872794440
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 22 May 2025 02:34:36 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 22
- May 2025 02:34:36 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 22 May 2025 02:34:36 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.227.151])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54M7YQ4n475080;
-	Thu, 22 May 2025 02:34:32 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
-        <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 1/2] arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU R5F cores
-Date: Thu, 22 May 2025 13:04:25 +0530
-Message-ID: <20250522073426.329344-2-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250522073426.329344-1-b-padhi@ti.com>
-References: <20250522073426.329344-1-b-padhi@ti.com>
+	Thu, 22 May 2025 07:37:05 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uI0Ts-0008Bc-NL; Thu, 22 May 2025 09:36:44 +0200
+Message-ID: <5291df1a-d44f-493e-9655-0bf13a4a7a59@pengutronix.de>
+Date: Thu, 22 May 2025 09:36:42 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/8] MAINTAINERS: add maintainer for the Ka-Ro
+ tx8p-ml81 COM module
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Maud Spierings | GOcontroll <maudspierings@gocontroll.com>,
+ Shawn Guo <shawnguo2@yeah.net>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20250417-initial_display-v6-0-3c6f6d24c7af@gocontroll.com>
+ <20250417-initial_display-v6-3-3c6f6d24c7af@gocontroll.com>
+ <aB26FRq/Ets5fiRK@dragon>
+ <PA4PR04MB7630F5874577DA12FCBE1537C58AA@PA4PR04MB7630.eurprd04.prod.outlook.com>
+ <aB3DuZMBIwsFXrVz@dragon>
+ <PA4PR04MB76309AE2C6E2C774DF8FAE29C58AA@PA4PR04MB7630.eurprd04.prod.outlook.com>
+ <3ba28773-61ec-4e1e-949d-e8285525d1d2@pengutronix.de>
+ <650740e3-1a21-46b1-a297-f8d6b7df9ae9@kernel.org>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <650740e3-1a21-46b1-a297-f8d6b7df9ae9@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_003446_844858_4DF8F090 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250522_003704_017699_490D1B45 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +82,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The J742S2 SoC reuses the common k3-j784s4-j742s2-mcu-wakeup-common.dtsi
-for its MCU domain, but it does not override the firmware-name property
-for its R5F cores. This causes the wrong firmware binaries to be
-referenced.
+Hi Krzysztof,
 
-Introduce a new k3-j742s2-mcu-wakeup.dtsi file to override the
-firmware-name property with correct names for J742s2.
+On 22.05.25 08:19, Krzysztof Kozlowski wrote:
+> On 21/05/2025 22:39, Ahmad Fatoum wrote:
+>> Dear Device Tree Maintainers,
+>> Dear Maud and Shawn,
+>>
+>> On 09.05.25 11:03, Maud Spierings | GOcontroll wrote:
+>>> On 5/9/25 10:58, Shawn Guo wrote:
+>>>>>>> +KA-RO TX8P COM MODULE
+>>>>>>> +M:	Maud Spierings <maudspierings@gocontroll.com>
+>>>>>>> +L:	imx@lists.linux.dev
+>>>>>>> +S:	Maintained
+>>>>>>> +F:	arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi
+>>>>>>> +
+>>>>>>
+>>>>>> I'm not fond of such changes, as MAINTAINERS file could be bloated
+>>>>>> quickly by individual DTS.
+>>>>>
+>>>>> Is there some way you would prefer to see it? I don't really know of a better
+>>>>> way.
+>>>>
+>>>> There was some discussion about getting ./scripts/get_maintainer.pl pick
+>>>> up the Author: field (in DTS header area).  But I'm not sure where it
+>>>> ended.
+>>>
+>>> I feel like that would be wrong in this situation too, it would pull in
+>>> Lothar Wassmann, who has nothing to do with me upstreaming this. I have
+>>> seen him around on the mailing list but given that Ka-Ro are not
+>>> upstreaming these themselves, I feel it would be weird to pull him into
+>>> this.
+>>
+>> We can add multiple authors. Authors not wishing to receive mail can always
+>> remove their name or blackhole their mail address via the mailmap.
+>>
+>> I am not leaning strongly in favor of either way, but I am bothered a little
+>> by b4 nagging me about adding MAINTAINERS entry for device trees that I've
+>> added. It would be nice to have a guideline here.
+> 
+> Hm? That's not a warning anyone should fix. If any of these patches are
+> because of checkpatch, then obviously this should never be accepted.
 
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
----
- .../arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi | 17 +++++++++++++++++
- arch/arm64/boot/dts/ti/k3-j742s2.dtsi           |  1 +
- 2 files changed, 18 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
+If we come to an agreement that in the general case, MAINTAINER entries
+are not desired for device trees, we should fix the tooling to not mislead
+contributors.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
-new file mode 100644
-index 000000000000..61db2348d6a4
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-j742s2-mcu-wakeup.dtsi
-@@ -0,0 +1,17 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Device Tree Source for J742S2 SoC Family
-+ *
-+ * TRM: https://www.ti.com/lit/pdf/spruje3
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ *
-+ */
-+
-+&mcu_r5fss0_core0 {
-+	firmware-name = "j742s2-mcu-r5f0_0-fw";
-+};
-+
-+&mcu_r5fss0_core1 {
-+	firmware-name = "j742s2-mcu-r5f0_1-fw";
-+};
-diff --git a/arch/arm64/boot/dts/ti/k3-j742s2.dtsi b/arch/arm64/boot/dts/ti/k3-j742s2.dtsi
-index 7a72f82f56d6..d265df1abade 100644
---- a/arch/arm64/boot/dts/ti/k3-j742s2.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j742s2.dtsi
-@@ -96,3 +96,4 @@ cpu3: cpu@3 {
- };
- 
- #include "k3-j742s2-main.dtsi"
-+#include "k3-j742s2-mcu-wakeup.dtsi"
+> And that's true for every other change, every addition of C or H file.
+> You do not add maintainer entries for them.
+
+I guess it's more of a nudge to make the contributor think about whether the
+change is adequately covered by existing MAINTAINERS entries or not.
+People have time and time again came to different conclusions for that
+regarding device trees though.
+
+It would be nice if we could put that to rest by 1) documenting it
+and 2) fixing the tooling to not nag about it or to have a more suitable
+message concerning device trees.
+
+I am happy to implement either thing into checkpatch.pl.
+Just let me know what way we should go.
+
+Thank you,
+Ahmad
+
+> 
+>>
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
+
+
 -- 
-2.34.1
-
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
