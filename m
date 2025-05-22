@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FAEC54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A2BC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pHEnNBTxEsIdDi8EHMre08uWmEK9ZCsvd1cuDbuHGd4=; b=CCL0MVrp7IcV/pmP9e2AtAdzuX
-	5KJTv8pjgKo2yNVE5PNGz5tVtZVoPmo1SxpxKf20E2vNJ22w17cybo6Y72E5NtU/hFqmk+Ci/NC8T
-	+qIyxsEi8LMusnerJTOqRvpy1TR2lzFeQRGJfBs9X+sLLgUfkJc31+bg8VGuB2n6PTJSbpFFYYLSw
-	Bs0ItM5find/yyv4BVVKkNnJhRzyfcb55z/7Up1K/2F0SU8I/GokRGNPZaWH5V07/TDaFf9WoJ5/S
-	wWrTefdxfB05PIflDzNMdVWn7tSNaEmy1UhJr2IZlvMdrRUu9OxPvjaL8pGGcxHQfFNw0USC0RAY8
-	Q52difIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qDRj3twRo5J15gAKl3nV75tZ6qK1Ioo44GGLHr3WNH0=; b=r9v9yZkRyF5LuWp5l8T3v/GoQy
+	EbuoKF2bW3swZdunimW1CYSWpJw68nX//E5IUkL0z+0r/jm3s8uVnkS7LvOTWSlmWYjSxwi5QiBMO
+	x347ny8wi9GDWwTVibkdMLHnXMH+Own9SJDVo+tWzNUMMdWmL9jhQmMEKSyF9tKTw8GLOKy2mayI4
+	C6YFY5LYHkSBADMr5zwu5a9C49fAFlL9VRCcd7MaFLZ6gLy55gl7sjeaO6kPsmeO9xfCKS2eVlcBG
+	HuaSZhH5zhOmAq0n34m8gSbzFzW0WMGFjy9DhZWEaUmDUfRu1mOpBGbanwI6p6flP/SMrJQZdCNoj
+	YPQYGJKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI4jU-00000000xNC-1kRh;
-	Thu, 22 May 2025 12:09:08 +0000
-Received: from ni.piap.pl ([195.187.100.5])
+	id 1uI4su-00000000yfn-1KiO;
+	Thu, 22 May 2025 12:18:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI4hO-00000000wxa-1YL4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 12:07:01 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 9ED24C405A45;
-	Thu, 22 May 2025 14:06:49 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 9ED24C405A45
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,  Rui Miguel Silva
- <rmfrfs@gmail.com>,  Martin Kepplinger <martink@posteo.de>,  Purism Kernel
- Team <kernel@puri.sm>,  Mauro Carvalho Chehab <mchehab@kernel.org>,  Shawn
- Guo <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
-  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
- <festevam@gmail.com>,  linux-media@vger.kernel.org,  imx@lists.linux.dev,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
-In-Reply-To: <iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
-	(Jacopo Mondi's message of "Wed, 21 May 2025 11:08:13 +0200")
-References: <m3h61u9jy2.fsf@t19.piap.pl>
-	<20250509103733.GE28896@pendragon.ideasonboard.com>
-	<m3o6vn8np5.fsf@t19.piap.pl>
-	<iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
-Date: Thu, 22 May 2025 14:06:49 +0200
-Message-ID: <m31psg97dy.fsf@t19.piap.pl>
+	id 1uI4qp-00000000yOO-3qxf;
+	Thu, 22 May 2025 12:16:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 183E1A4DFD3;
+	Thu, 22 May 2025 12:16:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 876FEC4CEE4;
+	Thu, 22 May 2025 12:16:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747916202;
+	bh=janGegacipRDwPFRgry5bht/UiVsUU8rf1hprM7kBWA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JmU/gxR74WvXbSu+bOhy1qYNicRMEwtrvSuhMzYVKoRQnLi0Rozhh2dm9jiM1Yxzk
+	 QWdD/d6klPn+xdjglaqvz73pTLsoJ/EipbUbYwAG9kwZhpzYFkI5SSzuFuRazec1hA
+	 gIzZDHLb/yuxCB+wXFo8gUc3Pu8YGBu48jThkKMn1xfg1SMhmnhz5h9CvWB54OnVvy
+	 E3DDvskbZX40AA3rTnNT4Xe7b5YyC3VLpbfypvUhTQT/zngu8S/mWjfYHpZT+4hdo9
+	 PtMQ04s9OOHwcOUOD6sAVFxrEiDm6hPnqonbGPu97N5RiChSfYQlZ3bofxQ8+YSzTW
+	 SlPz9RdvPZBmQ==
+Date: Thu, 22 May 2025 07:16:40 -0500
+From: Rob Herring <robh@kernel.org>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] dt-bindings: display: rockchip: Convert
+ cdn-dp-rockchip.txt to yaml
+Message-ID: <20250522121640.GA2192083-robh@kernel.org>
+References: <20250520024718.142-1-kernel@airkyi.com>
+ <20250520024718.142-3-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250520024718.142-3-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_050658_571633_237D0895 
-X-CRM114-Status: GOOD (  32.42  )
+X-CRM114-CacheID: sfid-20250522_051644_020094_04E02971 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,164 +82,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
+On Tue, May 20, 2025 at 10:47:18AM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> Convert cdn-dp-rockchip.txt to yaml.
+> 
+> Add new "port@1" property which represents the CDN DP output to keep
+> the same style as the other display interfaces.
+> 
+> This patch also changes the constraints for "phys" and "extcon". For
+> the original binding, only one phy and the corresponding extcon can
+> be specified. In the new binding, one or two phys can be specified.
+> Since the RK3399 has two DP-USB PHYs, specifying one allows output
+> via the corresponding PHY, while specifying two lets the driver
+> choose one PHY for output. This rule also applies to extcon, which
+> provides the cable state for the corresponding PHY.
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
 
-Jacopo Mondi <jacopo.mondi@ideasonboard.com> writes:
+Fixed up the typos and applied, thanks.
 
-> However the i.MX8MP does implement INTERLEAVE_MODE, and it's anyway
-> marked as V3.6.3, so DT filtering is there disabled as well. I guess
-> this is intentional, see below...
-
-BTW the version register on iMX8MP is 3060301, which may possibly mean
-something like 3.6.3.1. I wonder if 8MM has the same.
-
-> some registers like 32E4_000C are not listed in the peripheral memory
-> map, so you're probably reading an invalid memory area there
-
-Sure - those are apparently wired to contain "DEADCAFE" (a hex value).
-
-> If you're capturing RAW12 in 1920x1080 these two registers are
->
-> 32E40040: (MIPI_CSI1_ISP_CONFIG_CH0) =3D 0xb0
-> 32E40044: (MIPI_CSI1_ISP_RESOLUTION_CH0) =3D 0x4380780
-> 32E40048: (MIPI_CSI1_ISP_SYNC_CH0) =3D 0
-> 32E4004c: invalid
-
-Sure.
-
->> 32E40050:      8FD 80008000        0 DEADCAFE <<< ISP_CONFIG1
->> 32E40060:      8FE 80008000        0 DEADCAFE <<< ISP_CONFIG2
->> 32E40070:      8FF 80008000        0 DEADCAFE ???
->
-> All of these are invalid registers
-
-Only those DEADCAFEs are strictly invalid, the rest is just
-undocumented. With the notable exception of version register, they
-aren't probably useful, though - due to the way the CSIC is connected to
-the rest of the chip.
-
-I only mentioned them because Laurent asked about capturing embedded
-data - I guess the registers could be used for that on some other chip
-(apparently not on i.MX8MP).
-
-> We have been using 8mp extensively with sensors that produce embedded
-> data and afaict ED are not in the final image.
-
-Well, I admit I haven't looked it down to this finest detail. The
-visible effect was the image was slightly corrupted without the DT
-filtering, so I assumed ED was doing that.
-
-I use two similar sensors: IMX290 (on CSI1) and IMX462 (CSI2). It
-appears IMX290 doesn't cause the problem, while IMX462 does. This may
-depend on the CSI used, though. Both sensors seem to produce the
-following MIPI packets (counting from start of video frame, 1920x1080p25
-raw 12 bit):
-- Frame Start: DT=3D0
-- a short Embedded data packet, DT=3D12h
-- a NULL packet, line-sized, DT=3D0x10
-- 10 User Defined 8-bit Data Type 8 packets, line-sized, DT=3D0x37, called
-  apparently "Vertical OB" by Sony datasheet
-- 1080 real lines, DT=3D0x2C, 12-bit RGGB data
-- short Frame End packet, DT=3D1
-
-I hope I got this right, this is straight from oscilloscope (only
-checked IDs on IMX462, will confirm IMX290 later but it looks the same).
-In 1280x1080p25 mode there are 4 (not 10) "vertical OB" packets, and 720
-RGGB lines instead of 1080.
-
-The ED packet is much shorted than an RGGB line data (2.32us vs 13.57 us
-or 3.54us vs 13.88us - 1080p and 720p use different MIPI clock rates).
-
-So yes, this whole ED packet definitely doesn't end up in the image.
-IMX462 produces just a tiny 2-pixel dot in the left top corner, possibly
-shifting some data to the right (I remember it did that, but I can't
-observe it now - could be a kernel (driver) version change?).
-
-> My understanding is that the gasket that connects the CSIS to the ISI
-> and the ISP has a filtering register has well, and there is where ED
-> gets discarded. Could you maybe check the value of register GASKET_0_CTRL
-> to confirm this ?
-
-(with the filtering)
-
-MEDIA_BLOCK_CTRL:
-   32EC0000h   1FFFFFFh Media Mix Software Reset Register (IMX_MEDIA_BLK_CT=
-RL_SFT_RSTN)
-   32EC0004h     70700h Media Mix Clock Enable Register (IMX_MEDIA_BLK_CTRL=
-_CLK_EN)
-      Clock enabled: ISP_CLKs MIPI_CSI2_CLKs BUS_BLK_CLK
-   32EC0008h  40000000h MIPI PHY Control Register (MIPI_RESET_DIV)
-   32EC004Ch      FC00h LCDIF ARCACHE Control Register (LCDIF_ARCACHE_CTRL)
-   32EC0050h  1FF00000h ISI CACHE Control Register (ISI_CACHE_CTRL)
-   32EC0060h          0 Gasket 0 output disabled
-   32EC0090h          0 Gasket 1 output disabled
-   32EC0138h    2D8000h ISP Dewarp Control Register (ISP_DEWARP_CONTROL)
-      ISP ID mode 0, ISP1: DT 0h (unknown), ISP2: DT 2Ch (RAW12) left-just =
-mode
-
-MIPI_CSI2:
-   32E50000h   3060301h CSIS version (MIPI_CSIS_VERSION)
-   32E50004h      4705h CSIS Common Control Register (MIPI_CSIS_CMN_CTRL)
-      Filtering by DT, Update shadow ctrl, 4 data lanes
-   32E50008h     F0000h CSIS Clock Control Register (MIPI_CSIS_CLK_CTRL)
-   32E50010h  FFFFFFFFh Interrupt mask register 0 (MIPI_CSIS_INTMSK)
-   32E50020h        F0h D-PHY status register (MIPI_CSIS_DPHYSTATUS)
-      Clock lane: Active, Data lanes: 0: Stop, 1: Stop, 2: Stop, 3: Stop
-   32E50024h   600001Fh D-PHY common control register (MIPI_CSIS_DPHYCTRL)
-   32E50030h       1F4h D-PHY Master and Slave Control register Low (DPHY_M=
-ASTER_SLAVE_CTRL_LOW)
-   32E50040h        B0h ISP Configuration Register (MIPI_CSIS_ISPCONFIG_CH0)
-      DT 2Ch (RAW12)
-   32E50044h   2D00500h ISP Resolution Register (MIPI_CSIS_ISPRESOL_CH0) =
-=3D> 1280 * 720
-   32E50080h        B0h Shadow Configuration Register (MIPI_CSIS_ISPCONFIG_=
-CH0)
-      DT 2Ch (RAW12)
-   32E50084h   2D00500h Shadow Resolution Register (MIPI_CSIS_ISPRESOL_CH0)=
- =3D> 1280 * 720
-   32E50100h      25E2h Frame Counter (FRAME_COUNTER_CH0)
-
-This produces (test_pattern=3D5 which starts with black, using ISP):
-Y =3D  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00...
-UV =3D 80 80 80 80  80 80 80 80  80 80 80 80  80 80 80 80...
-
-Now I do (perhaps I should revert the patch instead):
-./devmem write32 0x32E50004 0x14305
-
-and this does:
-Y =3D  E6 FF 36 1B  00 00 00 00  00 00 00 00  00 00 00 00...
-UV =3D 85 6A 74 B4  7D 8C 80 80  80 80 80 80  80 80 80 80...
-
-Maybe I could see where these values come from.
-
-
-With test_pattern =3D 4
-Y =3D  52 52 4E 4D  14 14 00 00  00 00 00 51  52 52 4E 4D...
-UV =3D 82 83 82 83  81 81 80 80  80 80 81 80  82 83 82 83...
-changes into (without filtering):
-Y =3D  9B 99 58 53  14 14 00 00  00 00 00 51  52 52 4E 4D...
-UV =3D 77 AE 78 9A  81 83 80 80  80 80 81 80  82 83 82 83...
-
-The values are stable but it seems they are added/xored/etc. with the
-original image data or something.
-
-> In particular the "Gasket 0 data type" is programmed in
-> drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c with the data
-> type of the first stream reported by the sensor with get_frame_desc().
-> In your case, assuming RAW12 you should have 101100b in that register.
-
-Gaskets are disabled. I will try to do some tests tomorrow.
-
-> Now, I think the idea was to use the gasket for filtering ED (and
-> other non-image data) to be able to route them to the ISI for capture,
-> while images are sent to the ISP for processing. This is currently not
-> implemented and there are some unclear parts in the documentation
-> about this, but overall my expectation is that ED are filtered by the
-> gasket so you shouldn't need to enable DT filtering on the CSIS.
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+Rob
 
