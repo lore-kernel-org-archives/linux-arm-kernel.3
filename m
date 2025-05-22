@@ -4,70 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A2BC54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB3CC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qDRj3twRo5J15gAKl3nV75tZ6qK1Ioo44GGLHr3WNH0=; b=r9v9yZkRyF5LuWp5l8T3v/GoQy
-	EbuoKF2bW3swZdunimW1CYSWpJw68nX//E5IUkL0z+0r/jm3s8uVnkS7LvOTWSlmWYjSxwi5QiBMO
-	x347ny8wi9GDWwTVibkdMLHnXMH+Own9SJDVo+tWzNUMMdWmL9jhQmMEKSyF9tKTw8GLOKy2mayI4
-	C6YFY5LYHkSBADMr5zwu5a9C49fAFlL9VRCcd7MaFLZ6gLy55gl7sjeaO6kPsmeO9xfCKS2eVlcBG
-	HuaSZhH5zhOmAq0n34m8gSbzFzW0WMGFjy9DhZWEaUmDUfRu1mOpBGbanwI6p6flP/SMrJQZdCNoj
-	YPQYGJKg==;
+	bh=0lCT7OHY4qkgiQFGYQKA7CZbAkqwj5/9Vf4jfYRxp2w=; b=BCDGQQ2N0pkqs2RnVWlG3q8Jja
+	ZtoHdemhKTmhQka/f4W2wYf1ZgtoC7BKL2UXodLaFtbtQzVmn9AulBnfAMu6OyPLzG9/JCL6eVqdz
+	4Jp20/04WStnsXDnDhpeTFrGsZmIU6rRH9k9lzW1f0K2RxryV70hpMpiblBdHlTUvloLBstXSG7Vq
+	szFJqfFw9CH3RYn2IT9Wt/B+GQ+mBHGgMkSLIJCM8Q7qDktbegKLKJlKgDDGwfbStiPkgF9H00R7O
+	/SH6OtPL+gs0HjhEBf5ENmIEiLL4po4ym6PUbBxwVOffDC4UmXGrBDvPKWT+MK2vR/LT8Amkksd7m
+	qo87O23A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI4su-00000000yfn-1KiO;
-	Thu, 22 May 2025 12:18:52 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uI4uw-00000000ytN-1hNz;
+	Thu, 22 May 2025 12:20:58 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI4qp-00000000yOO-3qxf;
-	Thu, 22 May 2025 12:16:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 183E1A4DFD3;
-	Thu, 22 May 2025 12:16:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 876FEC4CEE4;
-	Thu, 22 May 2025 12:16:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747916202;
-	bh=janGegacipRDwPFRgry5bht/UiVsUU8rf1hprM7kBWA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JmU/gxR74WvXbSu+bOhy1qYNicRMEwtrvSuhMzYVKoRQnLi0Rozhh2dm9jiM1Yxzk
-	 QWdD/d6klPn+xdjglaqvz73pTLsoJ/EipbUbYwAG9kwZhpzYFkI5SSzuFuRazec1hA
-	 gIzZDHLb/yuxCB+wXFo8gUc3Pu8YGBu48jThkKMn1xfg1SMhmnhz5h9CvWB54OnVvy
-	 E3DDvskbZX40AA3rTnNT4Xe7b5YyC3VLpbfypvUhTQT/zngu8S/mWjfYHpZT+4hdo9
-	 PtMQ04s9OOHwcOUOD6sAVFxrEiDm6hPnqonbGPu97N5RiChSfYQlZ3bofxQ8+YSzTW
-	 SlPz9RdvPZBmQ==
-Date: Thu, 22 May 2025 07:16:40 -0500
-From: Rob Herring <robh@kernel.org>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] dt-bindings: display: rockchip: Convert
- cdn-dp-rockchip.txt to yaml
-Message-ID: <20250522121640.GA2192083-robh@kernel.org>
-References: <20250520024718.142-1-kernel@airkyi.com>
- <20250520024718.142-3-kernel@airkyi.com>
+	id 1uI4sU-00000000ya8-2hfw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 12:18:30 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54M7qZG8000896
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 12:18:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=0lCT7OHY4qkgiQFGYQKA7CZb
+	Akqwj5/9Vf4jfYRxp2w=; b=Aa9YyTqcmPha0q2DghHt2xtcU5SYpTQI+wn9JyNC
+	TPmR/lWZKU1zGBkKvQl+rzqe05qy4HRdAZV+B3kZWUl4/udXyyDvY6/aJQyp5E9c
+	PnvR/TqDIzEEHZj1YqRBOaYT8HaTg/C8PrY7Y9Cw179AUBE8TUvX63Onr2SovWxr
+	6IEi+hF8cnpPoswawlLp1ruya8hMT4vsx/Rh8Ai/+QZVJWnDpk6FtY79pkseUoPc
+	IPCL9eZHPBgHBaff/H9WiXFv/HAegnUtXq8jI2RrCFcxiKs360OkUIBxn+JMsXcj
+	zVWU1JPyA2bUkkZpw68CKKht2EwzNIimJnvyVObqibnkxg==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46s95tmmha-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 12:18:24 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-73e0094706bso10906213b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 05:18:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747916302; x=1748521102;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0lCT7OHY4qkgiQFGYQKA7CZbAkqwj5/9Vf4jfYRxp2w=;
+        b=AXSemhRbTAcoo4L+n3cs5SIOIRSv8li+gKE/sJedGwtQapxucJ92r+1BQtu4NUcQLZ
+         tFmPkMDfD2qQQKQ3zNouUX8EIZM2haUFbwI9ev7BcPqvDOfDAclFaTGwaBr1GaxZf0p6
+         fSGQYwYbAA7QaB59mAwwC3uMhUQoa7ANAmRcPmp5ND/TemKBWWZ9xFp3DrsNmVWfKZLa
+         prN2bU4ZzZlpUod3VQUkoGfV3wJPCsajcqCNggPWq7GU8+eFjpLwNI4r9Ftvxh4Wl4kL
+         qFQstaf2NFqyDoYfbFdp5+0G6X00o7eogrHhRpr76p7TB0Cb4Gqm1UZQ/hOkLusVYtNV
+         7Epw==
+X-Forwarded-Encrypted: i=1; AJvYcCVRW7RUL89gu8uu2b4gdiSduT1Q6KP/jABT3hALpbaTk0luO695Qw7lZHZzpfcRDjs9rRb0mORFuuVldLtb4pMB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjrWQN1dZTMpjMoQXhHMFZMSwsIv7k2Ns8CoR7ZbcczuB6QWkS
+	LewPGRL4pA/ilFkblH/aXDZlxG6bh19iRi4jbzDg8OMLDJFtExCjN6/x5RUY6Q/mJPUx20vPIKS
+	G6hZMO4ay+m3ljZ60zGhqi6rR0Au/ePicMHqeMoc9QcO61MSMp/7ThkvVjpdOukgf8hTsa+69H2
+	mLAlNY2BZ8YwwHSTmbJwN7Z++wYwCUTjvPp1JUYl9XDRIgIFEFPqHETJPvYsYA
+X-Gm-Gg: ASbGncuKb7d7lcAVlOAMaBXLxhcWC774Z7rEbOlZxSnGzW8BHe+T0ZC1hPeHiN1kFEm
+	+q4nMDcMPWZjTzeRcuKX/w1B8DxtkFhukV1w7DG50rkHbBrUMjFKlbxEJQ5VbWreaSdutbjpV6s
+	BneL57Lps=
+X-Received: by 2002:a05:6a00:3e14:b0:740:b5f9:287b with SMTP id d2e1a72fcca58-742a97a7195mr33409410b3a.1.1747916302296;
+        Thu, 22 May 2025 05:18:22 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHVCBtSXCGrxGhOjYPLWJ1Pge+L+iUp5ZhWbLEtsrjwBVC47icKDyLQuongy1ue5r0NbqFAbpPouL6VSBeNM0U=
+X-Received: by 2002:a17:902:e885:b0:22d:b2c9:7fd7 with SMTP id
+ d9443c01a7336-231d43bda66mr369410555ad.21.1747916291391; Thu, 22 May 2025
+ 05:18:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250520024718.142-3-kernel@airkyi.com>
+References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
+ <20250421-sm8750_usb_master-v5-6-25c79ed01d02@oss.qualcomm.com>
+ <aAswZg9s41s/m/se@linaro.org> <f7de2bbc-4925-430c-b263-226a633e4bfb@kernel.org>
+In-Reply-To: <f7de2bbc-4925-430c-b263-226a633e4bfb@kernel.org>
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Date: Thu, 22 May 2025 15:18:00 +0300
+X-Gm-Features: AX0GCFsGEs3QorxIOmjt3hRGNqdEtBYgdaIA34L_R3JHBLbT-M4cKvdAgLWPMNM
+Message-ID: <CAO9ioeXzzSBy+wYFATeckKZ2641GaTA1dB_1HOb238DdB7ACoQ@mail.gmail.com>
+Subject: Re: [PATCH v5 06/10] phy: qcom: Add M31 based eUSB2 PHY driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Abel Vesa <abel.vesa@linaro.org>,
+        Melody Olvera <melody.olvera@oss.qualcomm.com>,
+        Vinod Koul <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Wesley Cheng <quic_wcheng@quicinc.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
+        linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-Authority-Analysis: v=2.4 cv=QKBoRhLL c=1 sm=1 tr=0 ts=682f1610 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10
+ a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=aPcUfg5sKJd9qEyIwccA:9 a=QEXdDO2ut3YA:10
+ a=IoOABgeZipijB_acs4fv:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: TRV0d4BfEF6PMRc2f1Fq0nPoMFjAAODI
+X-Proofpoint-GUID: TRV0d4BfEF6PMRc2f1Fq0nPoMFjAAODI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIyMDEyNCBTYWx0ZWRfX++1bCBECZ+R0
+ VZy4NA7MdjuaWAtTatLh2WEWWRJqOVpB3L4W3opIh6O8Gck0TB/PJggQMgh2WjF9Xl8wj49F2sR
+ jQlT0LSeLESJkDL1CKVzYPDJc/yeKwL5Z5amGYB1a9YKC3EmPe7RGFyVD6SZA9ELgYOpX4I8fhz
+ AIlWYSjp60XSQxcXAHyrQpp5vFrzBsDJ+RZ6D6vFTVYw3fi7t1nsuAHuTJ5tBS5lttJM6y/adIO
+ +61//D+xcVdDrnaxsJEg81d/bj+8m+cu/GACZTMo0OatJUMld/OM9HpdcAhdZTd8Obsf6f5/xcG
+ DrMaZRbn/AePKrKUr6pZyIKpZ+GdkFI6SAeRlH7XNCPFyZ94ItwbCeQjV6lJuqmYvP3azTujStv
+ XwKBqrFc4jd4LTVk/NMIw6f7NnoIrHwgBuERF5UNvZH5OhDWyUHlIUyVW0/ZiB9cuV/SwgSy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-22_06,2025-05-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxscore=0 spamscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
+ adultscore=0 mlxlogscore=621 suspectscore=0 bulkscore=0 impostorscore=0
+ priorityscore=1501 malwarescore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505160000 definitions=main-2505220124
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_051644_020094_04E02971 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20250522_051826_799118_794B6765 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +139,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 10:47:18AM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> Convert cdn-dp-rockchip.txt to yaml.
-> 
-> Add new "port@1" property which represents the CDN DP output to keep
-> the same style as the other display interfaces.
-> 
-> This patch also changes the constraints for "phys" and "extcon". For
-> the original binding, only one phy and the corresponding extcon can
-> be specified. In the new binding, one or two phys can be specified.
-> Since the RK3399 has two DP-USB PHYs, specifying one allows output
-> via the corresponding PHY, while specifying two lets the driver
-> choose one PHY for output. This rule also applies to extcon, which
-> provides the cable state for the corresponding PHY.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
+On Thu, 22 May 2025 at 14:05, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 25/04/2025 08:49, Abel Vesa wrote:
+> > On 25-04-21 15:00:13, Melody Olvera wrote:
+> >> From: Wesley Cheng <quic_wcheng@quicinc.com>
+> >>
+> >> SM8750 utilizes an eUSB2 PHY from M31.  Add the initialization
+> >
+> > Nitpick: Drop the double space from the beginning of each phrase.
+>
+> Sorry, but why? That's a correct grammar.
 
-Fixed up the typos and applied, thanks.
 
-Rob
+Being absolutely nitpicky, this depends on the country. In some cases
+(US) typography settled on using double space after full-stop. In
+other cases it's a normal space.
+
+
+-- 
+With best wishes
+Dmitry
 
