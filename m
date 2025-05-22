@@ -4,61 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36B0C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A439AC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4j4WHvnERIb72cK7Zp4QuKM4ysVlmWGJCxQ7ozUS70=; b=as6dVMBF0X6Li4IsxdjcvLAuU7
-	x2LiqmYJr9fDOl3A0Es0uMLrw2MjZO9sX/OS/jMxps83POc5Ek/KtSuLbJcGJGV8iuMx9yeQMHLXW
-	F9daXg1UbTnj0LBbeqgwcjiWr257Dgvm6GavGvj5XTQQlt8lBT2pDy/ncxUvo/XNfJsD09X+QhxPw
-	sG3NmvrzeslwEJ8FbS38C1MLqeYlNCMhdo8iTAPYMMJmy1IwABa/ppNaksQpoJDQvhyxg87bqzrsn
-	/Rx3wa1qz8o4JcfITxPRzbhlrC1zK7qkUSo46Rfd9NdDTheCyXfK+7TvOylEG869OMIhh9l3ihEnm
-	g5SIZEDg==;
+	bh=WBNFppg5gGhEUcTy40lyR4CxuB+lwRHUeDQnTBHgD8c=; b=v3w18XeQGwsMzTNY4CL1xNs8gb
+	8LsSO3shrp539oRjIefhvmqAVe5x1v84qOhsf8npHPuqxOl/BTgIW+/oh+N1j7JenEUMV+pHokF6W
+	vgdy6n5Kky2gwstnZl6UVdcKqjLm+uwBfF7Tq/pq0kbIrMA4UbZs3I7438gM0i0AZ7h0Eo5yx1z+S
+	FMK23v7XqyHCY+rC9RA71iUnh5W/V1YpVlud6w4gOsfFd08RVeDcrxuLGIyeRnX3NF48vzAvrBQdw
+	QyjW+ENx5PBSFuom9eKxDwvBxbbmu4TtY51GWuV5/Of1/mZrENjga8dJzIiIibq13ZIrt8nUR9/FZ
+	o71ba8NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI91b-00000001eGP-47rj;
-	Thu, 22 May 2025 16:44:07 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uI99Z-00000001fLU-1r0z;
+	Thu, 22 May 2025 16:52:21 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8zU-00000001e21-0Kqn;
-	Thu, 22 May 2025 16:41:57 +0000
-Received: from pendragon.ideasonboard.com (179.218-130-109.adsl-dyn.isp.belgacom.be [109.130.218.179])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 984D7605;
-	Thu, 22 May 2025 18:41:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747932092;
-	bh=SpacbBiVU2Pqfd4vTeSA9VS+2Q412z1EYkTywjIUPIk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i59d+CEOAGVcQEkILZCTGVG8HgC4GGDp38wDv3SyLG6MrXwemerYL0q9SJQLFNImI
-	 ifEBKqt5t1wuw5FD/maDZl90RNN/vaadS2qhq/eA0D0tmXmNFue5nBFyIPEQmv1aFY
-	 +2ySTC4TBO3ntFS8scy5KyVCRst1VitxjNLuEmO0=
-Date: Thu, 22 May 2025 18:41:47 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, Dafna Hirschfeld <dafna@fastmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Hans Verkuil <hans@jjverkuil.nl>
-Subject: Re: [PATCH 2/3] media: rkisp1: Add
- RKISP1_CID_SUPPORTED_PARAMS_BLOCKS control
-Message-ID: <20250522164147.GV12514@pendragon.ideasonboard.com>
-References: <20250522150944.400046-2-stefan.klug@ideasonboard.com>
- <20250522150944.400046-4-stefan.klug@ideasonboard.com>
- <20250522155641.GU12514@pendragon.ideasonboard.com>
- <174793176608.244022.1396416000017796106@localhost>
+	id 1uI97X-00000001f9I-14Qw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 16:50:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747932615; x=1779468615;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WAQaKse2ihBxfu0TJ9aEs4/TLMUkglE0FPdyzXEACyg=;
+  b=NDMhW3rAbFiuePF43ilafJA4YtWevh8/3hfTA/q0jyR9Br5ERanu+jeg
+   bb+T40cDLpB2CNLUB3aMz+Qfu/AgRJizyZZ29SlAHgvuR9VOaKnqnkiMs
+   HAK38Rqbq/Vj5yIF94k+35Bx6eke3c6Jp/GpafkMk6hurKz8klNimoedM
+   dWpJDpvZVQTaqlu/PwworLUCXibbKmRGb7GHCAWqyRJ+BzulZw9DBjWWL
+   sKGZF2W2jd2wwgSERNweRrrTBjDKkbisVMullrhxOIM9MR95qkoS+XaHx
+   OaK1x5gl3fIT8KCS3u/tI7YKDKoyepsBDrAcNLCverkf3zpy/o1rCv7RG
+   g==;
+X-CSE-ConnectionGUID: 3sc80vWwTQupnjoAsRaljQ==
+X-CSE-MsgGUID: 0VAimaMvSv2LkCZ7F9s6Vw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="53783823"
+X-IronPort-AV: E=Sophos;i="6.15,306,1739865600"; 
+   d="scan'208";a="53783823"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2025 09:50:14 -0700
+X-CSE-ConnectionGUID: k2um+OxgQP2XgqQbU3n+og==
+X-CSE-MsgGUID: BSIuWrpQQNafNT2SQQcBPQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,306,1739865600"; 
+   d="scan'208";a="145550047"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 22 May 2025 09:50:05 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uI97L-000PWq-2Q;
+	Thu, 22 May 2025 16:50:03 +0000
+Date: Fri, 23 May 2025 00:49:07 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jens Wiklander <jens.wiklander@linaro.org>,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>
+Subject: Re: [PATCH v9 6/9] tee: add tee_shm_alloc_dma_mem()
+Message-ID: <202505230242.8jtn9m5R-lkp@intel.com>
+References: <20250520152436.474778-7-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <174793176608.244022.1396416000017796106@localhost>
+In-Reply-To: <20250520152436.474778-7-jens.wiklander@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_094156_259244_85783EEB 
-X-CRM114-Status: GOOD (  43.85  )
+X-CRM114-CacheID: sfid-20250522_095015_363894_D88CEFCB 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,218 +106,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 06:36:06PM +0200, Stefan Klug wrote:
-> Hi Laurent,
-> 
-> Thank you for the review.
-> 
-> Quoting Laurent Pinchart (2025-05-22 17:56:41)
-> > Hi Stefan,
-> > 
-> > Thank you for the patch.
-> > 
-> > On Thu, May 22, 2025 at 05:08:39PM +0200, Stefan Klug wrote:
-> > > Add a RKISP1_CID_SUPPORTED_PARAMS_BLOCKS V4L2 control to be able to
-> > > query the parameters blocks supported by the current kernel on the
-> > > current hardware from user space.
-> > > 
-> > > Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
-> > > ---
-> > >  .../platform/rockchip/rkisp1/rkisp1-common.h  |  2 +
-> > >  .../platform/rockchip/rkisp1/rkisp1-params.c  | 50 ++++++++++++++++++-
-> > >  include/uapi/linux/rkisp1-config.h            | 10 ++++
-> > >  include/uapi/linux/v4l2-controls.h            |  6 +++
-> > >  4 files changed, 67 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > > index ca952fd0829b..5f187f9efc7b 100644
-> > > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > > @@ -415,6 +415,8 @@ struct rkisp1_params {
-> > >       spinlock_t config_lock; /* locks the buffers list 'params' */
-> > >       struct list_head params;
-> > >  
-> > > +     struct v4l2_ctrl_handler ctrls;
-> > > +
-> > >       const struct v4l2_meta_format *metafmt;
-> > >  
-> > >       enum v4l2_quantization quantization;
-> > > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > > index 918eb06c7465..60c9b3c46593 100644
-> > > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > > @@ -2736,6 +2736,45 @@ static int rkisp1_params_init_vb2_queue(struct vb2_queue *q,
-> > >       return vb2_queue_init(q);
-> > >  }
-> > >  
-> > > +static int rkisp1_ctrl_init(struct rkisp1_params *params)
-> > > +{
-> > > +     int ret;
-> > > +
-> > > +     v4l2_ctrl_handler_init(&params->ctrls, 1);
-> > > +
-> > > +     struct v4l2_ctrl_config ctrl_config = {
-> > > +             .id = RKISP1_CID_SUPPORTED_PARAMS_BLOCKS,
-> > > +             .name = "Supported Params Blocks",
-> > > +             .type = V4L2_CTRL_TYPE_BITMASK,
-> > > +             .flags = V4L2_CTRL_FLAG_READ_ONLY,
-> > > +     };
-> > 
-> >         struct v4l2_ctrl_config ctrl_config = {
-> >                 .id = RKISP1_CID_SUPPORTED_PARAMS_BLOCKS,
-> >                 .name = "Supported Params Blocks",
-> >                 .type = V4L2_CTRL_TYPE_BITMASK,
-> >                 .flags = V4L2_CTRL_FLAG_READ_ONLY,
-> >         };
-> >         int ret;
-> > 
-> >         v4l2_ctrl_handler_init(&params->ctrls, 1);
-> > 
-> > Mixing code and variable declarations is still usually frown upon in the
-> > kernel.
-> 
-> I thought frown upon is not a no. And as this structure is not yet
-> complete and is modified afterwards it feels natural to me to put it
-> close to that place. But I can move it above the function. You decide.
+Hi Jens,
 
-It obviously take someone to make the first move for things to change
-:-) I however tend to favour consistency in coding style within a
-driver.
+kernel test robot noticed the following build errors:
 
-> > > +
-> > > +     for (unsigned int i = 0; i < ARRAY_SIZE(rkisp1_ext_params_handlers); i++) {
-> > > +             const struct rkisp1_ext_params_handler *block_handler;
-> > > +
-> > > +             block_handler = &rkisp1_ext_params_handlers[i];
-> > > +             ctrl_config.max |= BIT(i);
-> > > +
-> > > +             if ((params->rkisp1->info->features & block_handler->features) !=
-> > > +                 block_handler->features)
-> > > +                     continue;
-> > > +
-> > > +             ctrl_config.def |= BIT(i);
-> > > +     }
-> > > +
-> > > +     v4l2_ctrl_new_custom(&params->ctrls, &ctrl_config, NULL);
-> > > +
-> > > +     params->vnode.vdev.ctrl_handler = &params->ctrls;
-> > > +
-> > > +     if (params->ctrls.error) {
-> > > +             ret = params->ctrls.error;
-> > > +             v4l2_ctrl_handler_free(&params->ctrls);
-> > > +             return ret;
-> > > +     }
-> > > +
-> > > +     return 0;
-> > > +}
-> > > +
-> > >  int rkisp1_params_register(struct rkisp1_device *rkisp1)
-> > >  {
-> > >       struct rkisp1_params *params = &rkisp1->params;
-> > > @@ -2776,10 +2815,16 @@ int rkisp1_params_register(struct rkisp1_device *rkisp1)
-> > >  
-> > >       video_set_drvdata(vdev, params);
-> > >  
-> > > +     ret = rkisp1_ctrl_init(params);
-> > > +     if (ret) {
-> > > +             dev_err(rkisp1->dev, "Control initialization error %d\n", ret);
-> > > +             goto err_mutex;
-> > > +     }
-> > > +
-> > >       node->pad.flags = MEDIA_PAD_FL_SOURCE;
-> > >       ret = media_entity_pads_init(&vdev->entity, 1, &node->pad);
-> > >       if (ret)
-> > > -             goto err_mutex;
-> > > +             goto err_ctrl;
-> > >  
-> > >       ret = video_register_device(vdev, VFL_TYPE_VIDEO, -1);
-> > >       if (ret) {
-> > > @@ -2792,6 +2837,8 @@ int rkisp1_params_register(struct rkisp1_device *rkisp1)
-> > >  
-> > >  err_media:
-> > >       media_entity_cleanup(&vdev->entity);
-> > > +err_ctrl:
-> > > +     v4l2_ctrl_handler_free(&params->ctrls);
-> > >  err_mutex:
-> > >       mutex_destroy(&node->vlock);
-> > >       return ret;
-> > > @@ -2808,5 +2855,6 @@ void rkisp1_params_unregister(struct rkisp1_device *rkisp1)
-> > >  
-> > >       vb2_video_unregister_device(vdev);
-> > >       media_entity_cleanup(&vdev->entity);
-> > > +     v4l2_ctrl_handler_free(&params->ctrls);
-> > >       mutex_destroy(&node->vlock);
-> > >  }
-> > > diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
-> > > index 2d995f3c1ca3..4fc8f221d0c4 100644
-> > > --- a/include/uapi/linux/rkisp1-config.h
-> > > +++ b/include/uapi/linux/rkisp1-config.h
-> > > @@ -1086,6 +1086,9 @@ enum rkisp1_ext_params_block_type {
-> > >  #define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE   (1U << 0)
-> > >  #define RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE    (1U << 1)
-> > >  
-> > > +/* A bitmask of parameters blocks supported on the current hardware. */
-> > > +#define RKISP1_CID_SUPPORTED_PARAMS_BLOCKS   (V4L2_CID_USER_RKISP1_BASE + 0x01)
-> > > +
-> > >  /**
-> > >   * struct rkisp1_ext_params_block_header - RkISP1 extensible parameters block
-> > >   *                                      header
-> > > @@ -1520,6 +1523,13 @@ enum rksip1_ext_param_buffer_version {
-> > >   * V4L2 control. If such control is not available, userspace should assume only
-> > >   * RKISP1_EXT_PARAM_BUFFER_V1 is supported by the driver.
-> > >   *
-> > > + * The read-only V4L2 control ``RKISP1_CID_SUPPORTED_PARAMS_BLOCKS`` can be used
-> > > + * to query the blocks supported by the current hardware. It contains a bitmask
-> > 
-> > s/current hardware/device/
-> > 
-> > > + * where each bit represents the availability of the corresponding entry
-> > > + * from the :c:type:`rkisp1_ext_params_block_type` enum. The max value of the
-> > > + * control represents the blocks supported by the current kernel (independent of
-> > > + * the current hardware).
-> > 
-> >  * from the :c:type:`rkisp1_ext_params_block_type` enum. The current and default
-> >  * values of the control represents the blocks supported by the device instance,
-> >  * while the maximum value represents the blocks supported by the kernel driver,
-> >  * independently of the device instance.
-> > 
-> > I was going to say that the control should be documented in
-> > Documentation/userspace-api/drivers/rkisp1.rst, but rkisp1-config.h is
-> > pulled in the documentation tree by
-> > Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst, so I'm OK with
-> > this. Hans, Mauro, are you fine as well with documenting the control
-> > here ?
-> 
-> Looking at the docs, I realized that most people will read the already
-> existing docs. So creating a completely new file just for the single
-> control didn't feel good. As you like.
-> 
-> > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > 
-> > > + *
-> > >   * For each ISP block that userspace wants to configure, a block-specific
-> > >   * structure is appended to the @data buffer, one after the other without gaps
-> > >   * in between nor overlaps. Userspace shall populate the @data_size field with
-> > > diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
-> > > index 72e32814ea83..f836512e9deb 100644
-> > > --- a/include/uapi/linux/v4l2-controls.h
-> > > +++ b/include/uapi/linux/v4l2-controls.h
-> > > @@ -222,6 +222,12 @@ enum v4l2_colorfx {
-> > >   */
-> > >  #define V4L2_CID_USER_UVC_BASE                       (V4L2_CID_USER_BASE + 0x11e0)
-> > >  
-> > > +/*
-> > > + * The base for Rockchip ISP1 driver controls.
-> > > + * We reserve 16 controls for this driver.
-> > > + */
-> > > +#define V4L2_CID_USER_RKISP1_BASE            (V4L2_CID_USER_BASE + 0x1220)
-> > > +
-> > >  /* MPEG-class control IDs */
-> > >  /* The MPEG controls are applicable to all codec controls
-> > >   * and the 'MPEG' part of the define is historical */
+[auto build test ERROR on b4432656b36e5cc1d50a1f2dc15357543add530e]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jens-Wiklander/optee-sync-secure-world-ABI-headers/20250520-232546
+base:   b4432656b36e5cc1d50a1f2dc15357543add530e
+patch link:    https://lore.kernel.org/r/20250520152436.474778-7-jens.wiklander%40linaro.org
+patch subject: [PATCH v9 6/9] tee: add tee_shm_alloc_dma_mem()
+config: um-randconfig-r123-20250522 (https://download.01.org/0day-ci/archive/20250523/202505230242.8jtn9m5R-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250523/202505230242.8jtn9m5R-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505230242.8jtn9m5R-lkp@intel.com/
+
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+ERROR: modpost: "memremap" [drivers/tee/tee.ko] undefined!
+ERROR: modpost: "memunmap" [drivers/tee/tee.ko] undefined!
+>> ERROR: modpost: "dma_alloc_pages" [drivers/tee/tee.ko] undefined!
+>> ERROR: modpost: "dma_free_pages" [drivers/tee/tee.ko] undefined!
 
 -- 
-Regards,
-
-Laurent Pinchart
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
