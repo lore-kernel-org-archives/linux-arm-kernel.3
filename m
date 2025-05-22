@@ -4,67 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13104C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58EA4C54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XsXjRklGdzRxpuq2u5OyXithTOsD98uBYdtyYawgbU4=; b=4O4OtXsqV5kD2vyBnAjbq57yP4
-	62JVMkNzV9k8GV+J4UomkDfM9y0TLuizXm2GpnRp8R85tgtSEmQ23pF2bPMz219mAD/v0bhd4oTO/
-	9BXibOvLg3BVWTnWy2hoayp//e4HBKEzxsiY/3A/OtWT6jXujC+NS5MeVJoCUVuepV/1VRtBcVAuY
-	ts29SBou75pL+PM07GeB3lVR7rn8yqNIbkKH1u/Z0v+UTNgvJzjMt8Qr3+HtASDC8WkKyD066PQx/
-	13ciyPi0GEBB5mb85RZhRi/KnE5wGOSYd965SKvfWxEIM24v7GbousN5BqBjIOr6pmf6TO1KlRH/t
-	VwTtMycQ==;
+	bh=3zWf2662MmuwlNPDC7J+4Jz4vKOyVGvHz+5ZrsY6fWs=; b=A706u03g+qjRsw4CoTZD0AFSyA
+	0x5AviXtWe3gbeGrXN7E2qiP5u5iNfa0dNogy7+SN4MbpTz6kCFA36zICW8snwHvqaCG4Lg3jGBkz
+	il5mXrubE2P5oIIeeuKLebEB02ewRoxbCyeoy8LilhDBEPdBqRkkuNY66VrgjuCaazlZuNZ/uYvqa
+	v/xh30qPSLIroHHA54HfQcICG9sbCg7WsB9uaZAE7OG2aN1WwYX/d+FL3YB4e6jTKKcT4Iia5bLzp
+	tak2lj7Wd6UE55iq2ARhVdvFFKXVJl94yomFK/f6SyognMk12U9srA1zD9M4oWbP3ZinnSOkFaZYC
+	Bg5xaYhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8r6-00000001b2f-30ZB;
-	Thu, 22 May 2025 16:33:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8nK-00000001aNw-0zRB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 16:29:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4CE681A2D;
-	Thu, 22 May 2025 09:29:07 -0700 (PDT)
-Received: from [10.57.47.3] (unknown [10.57.47.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2B3FB3F5A1;
-	Thu, 22 May 2025 09:29:17 -0700 (PDT)
-Message-ID: <d690a126-690c-47ea-93d9-2a950b1bd2c4@arm.com>
-Date: Thu, 22 May 2025 17:29:16 +0100
+	id 1uI8t7-00000001bOB-1hco;
+	Thu, 22 May 2025 16:35:21 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uI8oP-00000001afG-3G0v;
+	Thu, 22 May 2025 16:30:30 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:30c3:8bbb:632f:b0c9])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3A740165B;
+	Thu, 22 May 2025 18:30:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1747931405;
+	bh=9w6AYxG86+ShRJPYPhJz6k6F0yijUzIA6kRpB5v/haw=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=LJoybMKE0uXs+gwjKFQvbLyn6wocyrg3eCl8WJTj/sXmpHKBUm+AM3k9a5zKRFdSS
+	 g5piWZPdx2GI3MLodcLSG5eI6ECcYbSPmoYoMlXJwF51Krs6c4Ju7n4+X65mlQ890g
+	 2eaoiPS9Yuhf3RDo+4YYHObk40iw7ZpnAoPXTFJw=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- yang@os.amperecomputing.com, corbet@lwn.net, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
- paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
- maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
- oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
- ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com,
- jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
- <20250509134904.GA5707@willie-the-truck> <aB4nqtMJuvvp7Vwm@arm.com>
- <015746d7-ca46-4978-a441-09fba781fdd4@arm.com>
- <4709ff5a-f89c-426e-ae95-f8356808f4f5@arm.com>
- <99079d56-428b-4bc4-b20a-dc10032f2a2f@arm.com> <aCIiwrA_MOeVhFre@arm.com>
- <c5a74dfe-68e2-48f1-9bbb-06db8e62ffea@arm.com> <aCSHESk1DzShD4vt@arm.com>
- <0a909fc1-af17-4704-90b3-23359a00482d@arm.com> <aC9BajxkIv0UxWLq@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <aC9BajxkIv0UxWLq@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250522154210.GT12514@pendragon.ideasonboard.com>
+References: <20250522150944.400046-2-stefan.klug@ideasonboard.com> <20250522150944.400046-3-stefan.klug@ideasonboard.com> <20250522154210.GT12514@pendragon.ideasonboard.com>
+Subject: Re: [PATCH 1/3] media: rkisp1: Cleanup error handling
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, Dafna Hirschfeld <dafna@fastmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Date: Thu, 22 May 2025 18:30:25 +0200
+Message-ID: <174793142530.244022.2578213319638259858@localhost>
+User-Agent: alot/0.12.dev16+g501a9541e2e6.d20250519
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_092922_375245_1B0A1DB7 
-X-CRM114-Status: GOOD (  53.36  )
+X-CRM114-CacheID: sfid-20250522_093029_952149_F2272871 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,195 +65,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/05/2025 16:23, Catalin Marinas wrote:
-> Hi Suzuki,
-> 
-> Thanks for looking at this.
-> 
-> On Mon, May 19, 2025 at 10:45:31AM +0100, Suzuki K Poulose wrote:
->> On 14/05/2025 13:05, Catalin Marinas wrote:
->>> On Tue, May 13, 2025 at 10:15:49AM +0100, Suzuki K Poulose wrote:
->>>> On 12/05/2025 17:33, Catalin Marinas wrote:
->>>>> Stepping back a bit, we know that the MIDR allow-list implies
->>>>> BBML2_NOABORT (and at least BBML2 as in the ID regs). In theory, we need
->>>>
->>>> Please be aware that BBML2_NOABORT midr list may not always imply BBLM2 in
->>>> ID registers (e.g., AmpereOne. But the plan is to fixup the per cpu
->>>> ID register - struct cpuinfo_arm64 - for such cores at early boot,
->>>> individually, before it is used for sanitisation of the system wide
->>>> copy).
->>>
->>> Ah, good point. We can then ignore BBML2 ID regs and only rely on MIDR
->>> (and some future BBML3).
->>>
->>>>> So how about we introduce a WEAK_BOOT_CPU_FEATURE which gets enabled by
->>>>> the boot CPU if it has it _but_ cleared by any secondary early CPU if it
->>>>> doesn't (and never enabled by secondary CPUs). When the features are
->>>>> finalised, we know if all early CPUs had it. In combination with
->>>>> PERMITTED_FOR_LATE_CPU, we'd reject late CPUs that don't have it.
->>>>
->>>> That could work, but it introduces this "clearing" a capability, which
->>>> we don't do at the moment.
->>>>
->>>> We had an offline discussion about this some time ago, with Mark
->>>> Rutland. The best way to deal with this is to change the way we compute
->>>> capabilities. i.e.,
->>>>
->>>>
->>>> 1. Each boot CPU run through all the capabilities and maintain a per-cpu
->>>>      copy of the state.
->>>> 2. System wide capabilities can then be constructed from the all early
->>>>      boot CPU capability state (e.g., ANDing all the state from all CPUs
->>>>      for SCOPE_SYSTEM or ORing for LOCAL_CPU).
->>>>
->>>> But this requires a drastic change to the infrastructure.
->>>
->>> I think it's a lot simpler to achieve the ANDing - set the (system)
->>> capability if detected on the boot CPU, only clear it if missing on
->>> subsequent CPUs. See below on an attempt to introduce this. For lack of
->>> inspiration, I called it ARM64_CPUCAP_GLOBAL_CPU_FEATURE which has both
->>> SCOPE_LOCAL and SCOPE_SYSTEM. It's permitted for late CPUs but not
->>> optional if already enabled. The advantage of having both local&system
->>> is that the match function will be called for both scopes. I added a
->>> mask in to cpucap_default_scope() when calling matches() since so far
->>> no cap had both.
->>
->> Thanks, the change below does the trick. I am reasoning with the way
->> the scope has been defined (hacked ;-)).
->>
->> SCOPE_LOCAL_CPU && SCOPE_SYSTEM
->>
->> 1. SCOPE_LOCAL_CPU : Because you need to run this on all the (early) CPUs.
->>
->> 2. SCOPE_SYSTEM: To check if the capability holds at the end of the
->> smp boot.
->>
->> While, we really "detect" it on SCOPE_BOOT_CPU and only run the
->> cap checks, if that is available. But put another way, BOOT_CPU
->> is only used as an easy way to detect if this CPUs is the first
->> one to run the check vs at least one CPU has run and cleared the
->> cap.
-> 
-> Yes, we start with boot CPU and keep 'and-ing' new values onto it.
-> 
->> I wonder if we could use some other flag to indicate the fact that,
->> a non-boot CPU is allowed to clear the capability explicitly, rather than
->> implying it with SCOPE_SYSTEM && SCOPE_LOCAL_CPU. Or may be make
->> it explicit that the capability must be matched on ALL cpus and
->> finalized at the end ?
-> 
-> I had such variant locally but then decided to reuse the SCOPE_SYSTEM
-> for this, more of a way to indicate that we want something system-wide
-> but checked per-CPU. We could add a new flag, though I was wondering
-> whether we can have a property that's checked both per-CPU and once more
-> system-wide. That's what actually happens with the above, then the probe
-> function can tell whether it was called in the CPU or system scope.
-> 
-> Alternatively, we can leave the local/system combining for later and
-> only add a flag to tell how they compose - "any" (default) vs "all".
-> 
->> /*
->>   * When paired with SCOPE_LOCAL_CPU, all CPUs must satisfy the
->>   * condition. This is different from SCOPE_SYSTEM, where the check
->>   * is performed only once at the end of SMP boot. But SCOPE_SYSTEM
->>   * may not be sufficient in cases where the capability depends on
->>   * properties that are not "sanitised" (e.g., MIDR_EL1) and must be
->>   * satisfied by all the early SMP boot CPUs.
->>   */
->> #define ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS	((u16)BIT(7))
->>
->> statici inline bool cpucap_match_all_cpus(struct arm64_capability *cap)
->> {
->> 	return !!(cap->type & ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS);
->> }
-> 
-> Yes, something like this would work.
-> 
->> Also, we already go through the capablity list to report the ones
->> with "cpumask" separately, and we could use that to also report
->> the ones with MATCH_ALL_CPUs. Something like:
->>
->>
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 9c4d6d552b25..14cbae51d802 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -3769,10 +3769,15 @@ static void __init setup_system_capabilities(void)
->>          for (int i = 0; i < ARM64_NCAPS; i++) {
->>                  const struct arm64_cpu_capabilities *caps = cpucap_ptrs[i];
->>
->> -		if (caps && caps->cpus && caps->desc &&
->> -			cpumask_any(caps->cpus) < nr_cpu_ids)
->> +		if (!caps || !caps->desc)
->> +			continue;
->> +
->> +		if (caps->cpus && cpumask_any(caps->cpus) < nr_cpu_ids)
->> 			pr_info("detected: %s on CPU%*pbl\n",
->> 				caps->desc, cpumask_pr_args(caps->cpus));
->> +
->> +		/* Report capabilities that had to be matched on all CPUs */
->> +		if (capcpucap_match_all_cpus(caps) && cpus_have_cap(caps))
->> +			pr_info("detected: %s\n", caps->desc);
->>          }
-> 
-> Yeah, I hacked something similar with the 'global' proposal based on
-> SCOPE_SYSTEM.
-> 
->>> ---------------------8<-----------------------------------------
->>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
->>> index c4326f1cb917..0b0b26a6f27b 100644
->>> --- a/arch/arm64/include/asm/cpufeature.h
->>> +++ b/arch/arm64/include/asm/cpufeature.h
->>> @@ -331,6 +331,15 @@ extern struct arm64_ftr_reg arm64_ftr_reg_ctrel0;
->>>    #define ARM64_CPUCAP_BOOT_CPU_FEATURE                  \
->>>    	(ARM64_CPUCAP_SCOPE_BOOT_CPU | ARM64_CPUCAP_PERMITTED_FOR_LATE_CPU)
->>> +/*
->>> + * CPU feature detected at boot time based on all CPUs. It is safe for a late
->>> + * CPU to have this feature even though the system hasn't enabled it, although
->>> + * the feature will not be used by Linux in this case. If the system has
->>> + * enabled this feature already, then every late CPU must have it.
->>> + */
->>> +#define ARM64_CPUCAP_GLOBAL_CPU_FEATURE			
->>
->> #define ARM64_CPUCAP_MATCH_ALL_CPU_FEATURE ?
->>
->> \
->>> +	 (ARM64_CPUCAP_SCOPE_LOCAL_CPU | ARM64_CPUCAP_SYSTEM_FEATURE)
->>
->>    (ARM64_CPUCAP_SCOPE_LOCAL_CPU | ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS)
->>
->>
->>> +
->>>    struct arm64_cpu_capabilities {
->>>    	const char *desc;
->>>    	u16 capability;
->>> @@ -391,6 +400,11 @@ static inline int cpucap_default_scope(const struct arm64_cpu_capabilities *cap)
->>>    	return cap->type & ARM64_CPUCAP_SCOPE_MASK;
->>>    }
->>> +static inline bool cpucap_global_scope(const struct arm64_cpu_capabilities *cap)
->>
->> May be call it cpucap_match_all_cpus() ?
-> 
-> I can respin, the alternative looks good to me.
-> 
-> Now, we discussed offline of a different approach: for AmpereOne we'll
-> have to check MIDR early (as an erratum) and pretend it has BBML2,
-> populate the sanitised cpuid regs accordingly. We could do something
-> similar for the other CPUs, pretend it's something like BBML3 and get
-> the architects to commit to it (but this would delay the patchset).
-> 
-> TBH, I'd rather not hack this and only rely on the MIDR for BBM_NOABORT
-> (without any level) and the above MATCH_ALL_CPUS. My proposal is to
-> respin this with a MATCH_ALL_CPUS flag that only checks the MIDR. We can
-> later add a SCOPE_SYSTEM to the same capability that would 'or' in the
-> BBML3 cap (or just use two capabilities, though we end up with two many
-> branches or NOPs in the patched alternatives).
+Hi Laurent,
 
-Sounds good to me. Thanks for taking care of this.
+Thank you for the review.
 
-Cheers
-Suzuki
+Quoting Laurent Pinchart (2025-05-22 17:42:10)
+> Hi Stefan,
+>=20
+> Thank you for the patch.
+>=20
+> On Thu, May 22, 2025 at 05:08:38PM +0200, Stefan Klug wrote:
+> > Do not call media_entity_cleanup() when media_entity_pads_init() fails.
+>=20
+> Why is it an issue ? The media_entity_cleanup() documentation clearly
+> states
+>=20
+>  * Calling media_entity_cleanup() on a media_entity whose memory has been
+>  * zeroed but that has not been initialized with media_entity_pad_init() =
+is
+>  * valid and is a no-op.
+>=20
+> This is by design to simplify error handling in drivers.
 
-> 
+Oops. It was simple mechanical thing. I'll remove it in v2.
 
+Regrads,
+Stefan
+
+>=20
+> > As a drive-by fix handle an (very unlikely) error in
+> > rkisp1_params_init_vb2_queue().
+> >=20
+> > Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+> > ---
+> >  .../media/platform/rockchip/rkisp1/rkisp1-params.c    | 11 +++++++----
+> >  1 file changed, 7 insertions(+), 4 deletions(-)
+> >=20
+> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/d=
+rivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> > index b28f4140c8a3..918eb06c7465 100644
+> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> > @@ -2763,7 +2763,9 @@ int rkisp1_params_register(struct rkisp1_device *=
+rkisp1)
+> >       vdev->queue =3D &node->buf_queue;
+> >       vdev->device_caps =3D V4L2_CAP_STREAMING | V4L2_CAP_META_OUTPUT;
+> >       vdev->vfl_dir =3D VFL_DIR_TX;
+> > -     rkisp1_params_init_vb2_queue(vdev->queue, params);
+> > +     ret =3D rkisp1_params_init_vb2_queue(vdev->queue, params);
+> > +     if (ret)
+> > +             goto err_mutex;
+> > =20
+> >       params->metafmt =3D &rkisp1_params_formats[RKISP1_PARAMS_FIXED];
+> > =20
+> > @@ -2777,19 +2779,20 @@ int rkisp1_params_register(struct rkisp1_device=
+ *rkisp1)
+> >       node->pad.flags =3D MEDIA_PAD_FL_SOURCE;
+> >       ret =3D media_entity_pads_init(&vdev->entity, 1, &node->pad);
+> >       if (ret)
+> > -             goto error;
+> > +             goto err_mutex;
+> > =20
+> >       ret =3D video_register_device(vdev, VFL_TYPE_VIDEO, -1);
+> >       if (ret) {
+> >               dev_err(rkisp1->dev,
+> >                       "failed to register %s, ret=3D%d\n", vdev->name, =
+ret);
+> > -             goto error;
+> > +             goto err_media;
+> >       }
+> > =20
+> >       return 0;
+> > =20
+> > -error:
+> > +err_media:
+> >       media_entity_cleanup(&vdev->entity);
+> > +err_mutex:
+> >       mutex_destroy(&node->vlock);
+> >       return ret;
+> >  }
+>=20
+> --=20
+> Regards,
+>=20
+> Laurent Pinchart
+>
 
