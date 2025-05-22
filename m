@@ -4,112 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD88C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E1FC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j5FPDwCdEv58uxQfBbYBkIvWZkzuNn62Kud5k716/nM=; b=QZkTpyhu7HnjI40dQiICiu0IrC
-	e+UIKIfEJJt1j/VWwe3bzSnOMhOW06my8slQTPy8JMz3XzC+M/UDxQUvaFCNF1yEtVD9tXqWgvAI1
-	KMh8NiViqCQ3tG9SUJEdq9yDFpZb4LnJs70JtAlnW2cUGxl1qswMcexXVK7A932s9n2RnXWxCY+GL
-	zEJL8bol0n4UuRhkVhh/scZ0SCX3havazbZzNTj7dBKm4aT0iHPVw+0e41O4BSifFio+HbBiaVpaW
-	gbzKy//mno4Pp00pPESbjl2lmlTMNcFafZO1wJtUli5slC3e+7kPZL12gJOBCkp/avtWCb6On+FN4
-	RP5zgaCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XggdRUF4d/TK0tisSDTTfoyH6H6ifUrEB9fTtMtHe+I=; b=IcO2WCgMbBtMnMRhjcxFmm681N
+	7P3sPQ6y0Ng4xEU75W/N+Sg5BNaYZFVYbJRiS6u7AB0gKyw5NnrMiRpdlG1SNoWPE7+6RlnBvCgAo
+	kjb5kMtgy3xDEVNmW5H1fF5gkwiF5eYnc1ghVLv8gIkxVHbrewfWUrVKEuxBt64A/qJ3sH5l7uJt6
+	P35VGw4yrvVNoRNK8B1N3v5+WNFf1o/dKt6pFCp8OmRmPXrFbGb3tpU+KvVgf1cyegV2fQJWnw/H2
+	nA/IYZB+2jSpAudHcgjs8R51xmy5xeh+2g6wUR09M+uMZaK5JzxIXQUkv5Nlg6TOS85YDxiXaXJ/A
+	4FsnlAmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI89n-00000001UYJ-1oip;
-	Thu, 22 May 2025 15:48:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uI8Bn-00000001Urq-3jhy;
+	Thu, 22 May 2025 15:50:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7hB-00000001Q4o-0Uu9;
-	Thu, 22 May 2025 15:18:57 +0000
+	id 1uI7la-00000001Qp2-3SVq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 15:23:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C95B6135E;
-	Thu, 22 May 2025 15:18:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81EB0C4CEE4;
-	Thu, 22 May 2025 15:18:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747927136;
-	bh=5L58+Tu2chRzAN5OWtY0WKHcRc5vFU8rORSgK4V0vcs=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=LqNDR519/RLauVT/laSrjf8blh+FNPwiu3FNRYhStQ5YV7VbAur/V+c7zzTbBBL56
-	 HTulrb9RnEg1bxs2iRdKV+YylpgGTSvg8IIzwhHTQlsE/iHTX4BESB6rMaSgax1BFn
-	 gz4Dj/gMYEpaVWVHgtzzx21eYYirc6calMDZ8VydkwxpVuszPvDMUJuDI+5mPSnJtH
-	 MOajw4+kM9XfjvSwydQo5aYyOBXUGOdkuajxIlyomDE3d4KmIfQF7BrQyiEga+0waU
-	 3QI3Sgg7Qg2m7/VA0N4ZwREMbKSSZt4OfHMFmVGsE3CvTsHUgctW+mrlNE8F2ktW19
-	 DKIKqYB9CpQhg==
-Message-ID: <42a7222b-43be-490a-95ed-fb506c55fbcb@kernel.org>
-Date: Thu, 22 May 2025 17:18:50 +0200
+	by nyc.source.kernel.org (Postfix) with ESMTP id F37CAA4EE3C;
+	Thu, 22 May 2025 15:23:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4979C4CEE4;
+	Thu, 22 May 2025 15:23:24 +0000 (UTC)
+Date: Thu, 22 May 2025 16:23:22 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	yang@os.amperecomputing.com, corbet@lwn.net,
+	jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
+	akpm@linux-foundation.org, paulmck@kernel.org, mark.rutland@arm.com,
+	joey.gouly@arm.com, maz@kernel.org, james.morse@arm.com,
+	broonie@kernel.org, oliver.upton@linux.dev, baohua@kernel.org,
+	david@redhat.com, ioworker0@gmail.com, jgg@ziepe.ca,
+	nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
+	smostafa@google.com, kevin.tian@intel.com,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+Subject: Re: [RESEND PATCH v6 1/3] arm64: Add BBM Level 2 cpu feature
+Message-ID: <aC9BajxkIv0UxWLq@arm.com>
+References: <78fec33d-fe66-4352-be11-900f456c9af3@arm.com>
+ <20250509134904.GA5707@willie-the-truck>
+ <aB4nqtMJuvvp7Vwm@arm.com>
+ <015746d7-ca46-4978-a441-09fba781fdd4@arm.com>
+ <4709ff5a-f89c-426e-ae95-f8356808f4f5@arm.com>
+ <99079d56-428b-4bc4-b20a-dc10032f2a2f@arm.com>
+ <aCIiwrA_MOeVhFre@arm.com>
+ <c5a74dfe-68e2-48f1-9bbb-06db8e62ffea@arm.com>
+ <aCSHESk1DzShD4vt@arm.com>
+ <0a909fc1-af17-4704-90b3-23359a00482d@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: regulator: mediatek: Add MT8196 vmm
- controller
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "Nancy.Lin" <nancy.lin@mediatek.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, Liam Girdwood
- <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- jason-jh.lin@mediatek.com, singo.chang@mediatek.com,
- paul-pl.chen@mediatek.com
-References: <20250522150426.3418225-1-nancy.lin@mediatek.com>
- <20250522150426.3418225-2-nancy.lin@mediatek.com>
- <d21e1775-d5d4-4f58-865e-0cb33d14f371@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <d21e1775-d5d4-4f58-865e-0cb33d14f371@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0a909fc1-af17-4704-90b3-23359a00482d@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250522_082331_005204_0E86D5FD 
+X-CRM114-Status: GOOD (  67.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,28 +80,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/05/2025 17:09, Krzysztof Kozlowski wrote:
-> On 22/05/2025 17:03, Nancy.Lin wrote:
->> From: Nancy Lin <nancy.lin@mediatek.com>
->>
->> Add a device tree binding document for the MediaTek MT8196 VMM (Vcore
->> for MultiMedia) regulator controller. The VMM controller acts as the
->> main power supplier for multimedia power domains, such as those used
->> by display, video encode and decode subsystems. It provides virtual
->> regulators that serve as the power sources for various multimedia IPs,
-> 
-> Virtual regulators do not sound real, so feels like you want some sort
-> of power domains?
-> 
-> A nit, subject: drop second/last, redundant "bindings". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> See also:
-> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
-Wrong keyword... Please fix the subject prefixes:
+Hi Suzuki,
 
-For bindings, the preferred subjects are explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+Thanks for looking at this.
 
-Best regards,
-Krzysztof
+On Mon, May 19, 2025 at 10:45:31AM +0100, Suzuki K Poulose wrote:
+> On 14/05/2025 13:05, Catalin Marinas wrote:
+> > On Tue, May 13, 2025 at 10:15:49AM +0100, Suzuki K Poulose wrote:
+> > > On 12/05/2025 17:33, Catalin Marinas wrote:
+> > > > Stepping back a bit, we know that the MIDR allow-list implies
+> > > > BBML2_NOABORT (and at least BBML2 as in the ID regs). In theory, we need
+> > > 
+> > > Please be aware that BBML2_NOABORT midr list may not always imply BBLM2 in
+> > > ID registers (e.g., AmpereOne. But the plan is to fixup the per cpu
+> > > ID register - struct cpuinfo_arm64 - for such cores at early boot,
+> > > individually, before it is used for sanitisation of the system wide
+> > > copy).
+> > 
+> > Ah, good point. We can then ignore BBML2 ID regs and only rely on MIDR
+> > (and some future BBML3).
+> > 
+> > > > So how about we introduce a WEAK_BOOT_CPU_FEATURE which gets enabled by
+> > > > the boot CPU if it has it _but_ cleared by any secondary early CPU if it
+> > > > doesn't (and never enabled by secondary CPUs). When the features are
+> > > > finalised, we know if all early CPUs had it. In combination with
+> > > > PERMITTED_FOR_LATE_CPU, we'd reject late CPUs that don't have it.
+> > > 
+> > > That could work, but it introduces this "clearing" a capability, which
+> > > we don't do at the moment.
+> > > 
+> > > We had an offline discussion about this some time ago, with Mark
+> > > Rutland. The best way to deal with this is to change the way we compute
+> > > capabilities. i.e.,
+> > > 
+> > > 
+> > > 1. Each boot CPU run through all the capabilities and maintain a per-cpu
+> > >     copy of the state.
+> > > 2. System wide capabilities can then be constructed from the all early
+> > >     boot CPU capability state (e.g., ANDing all the state from all CPUs
+> > >     for SCOPE_SYSTEM or ORing for LOCAL_CPU).
+> > > 
+> > > But this requires a drastic change to the infrastructure.
+> > 
+> > I think it's a lot simpler to achieve the ANDing - set the (system)
+> > capability if detected on the boot CPU, only clear it if missing on
+> > subsequent CPUs. See below on an attempt to introduce this. For lack of
+> > inspiration, I called it ARM64_CPUCAP_GLOBAL_CPU_FEATURE which has both
+> > SCOPE_LOCAL and SCOPE_SYSTEM. It's permitted for late CPUs but not
+> > optional if already enabled. The advantage of having both local&system
+> > is that the match function will be called for both scopes. I added a
+> > mask in to cpucap_default_scope() when calling matches() since so far
+> > no cap had both.
+> 
+> Thanks, the change below does the trick. I am reasoning with the way
+> the scope has been defined (hacked ;-)).
+> 
+> SCOPE_LOCAL_CPU && SCOPE_SYSTEM
+> 
+> 1. SCOPE_LOCAL_CPU : Because you need to run this on all the (early) CPUs.
+> 
+> 2. SCOPE_SYSTEM: To check if the capability holds at the end of the
+> smp boot.
+> 
+> While, we really "detect" it on SCOPE_BOOT_CPU and only run the
+> cap checks, if that is available. But put another way, BOOT_CPU
+> is only used as an easy way to detect if this CPUs is the first
+> one to run the check vs at least one CPU has run and cleared the
+> cap.
+
+Yes, we start with boot CPU and keep 'and-ing' new values onto it.
+
+> I wonder if we could use some other flag to indicate the fact that,
+> a non-boot CPU is allowed to clear the capability explicitly, rather than
+> implying it with SCOPE_SYSTEM && SCOPE_LOCAL_CPU. Or may be make
+> it explicit that the capability must be matched on ALL cpus and
+> finalized at the end ?
+
+I had such variant locally but then decided to reuse the SCOPE_SYSTEM
+for this, more of a way to indicate that we want something system-wide
+but checked per-CPU. We could add a new flag, though I was wondering
+whether we can have a property that's checked both per-CPU and once more
+system-wide. That's what actually happens with the above, then the probe
+function can tell whether it was called in the CPU or system scope.
+
+Alternatively, we can leave the local/system combining for later and
+only add a flag to tell how they compose - "any" (default) vs "all".
+
+> /*
+>  * When paired with SCOPE_LOCAL_CPU, all CPUs must satisfy the
+>  * condition. This is different from SCOPE_SYSTEM, where the check
+>  * is performed only once at the end of SMP boot. But SCOPE_SYSTEM
+>  * may not be sufficient in cases where the capability depends on
+>  * properties that are not "sanitised" (e.g., MIDR_EL1) and must be
+>  * satisfied by all the early SMP boot CPUs.
+>  */
+> #define ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS	((u16)BIT(7))
+> 
+> statici inline bool cpucap_match_all_cpus(struct arm64_capability *cap)
+> {
+> 	return !!(cap->type & ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS);
+> }
+
+Yes, something like this would work.
+
+> Also, we already go through the capablity list to report the ones
+> with "cpumask" separately, and we could use that to also report
+> the ones with MATCH_ALL_CPUs. Something like:
+> 
+> 
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 9c4d6d552b25..14cbae51d802 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -3769,10 +3769,15 @@ static void __init setup_system_capabilities(void)
+>         for (int i = 0; i < ARM64_NCAPS; i++) {
+>                 const struct arm64_cpu_capabilities *caps = cpucap_ptrs[i];
+> 
+> -		if (caps && caps->cpus && caps->desc &&
+> -			cpumask_any(caps->cpus) < nr_cpu_ids)
+> +		if (!caps || !caps->desc)
+> +			continue;
+> +
+> +		if (caps->cpus && cpumask_any(caps->cpus) < nr_cpu_ids)
+> 			pr_info("detected: %s on CPU%*pbl\n",
+> 				caps->desc, cpumask_pr_args(caps->cpus));
+> +
+> +		/* Report capabilities that had to be matched on all CPUs */
+> +		if (capcpucap_match_all_cpus(caps) && cpus_have_cap(caps))
+> +			pr_info("detected: %s\n", caps->desc);
+>         }
+
+Yeah, I hacked something similar with the 'global' proposal based on
+SCOPE_SYSTEM.
+
+> > ---------------------8<-----------------------------------------
+> > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> > index c4326f1cb917..0b0b26a6f27b 100644
+> > --- a/arch/arm64/include/asm/cpufeature.h
+> > +++ b/arch/arm64/include/asm/cpufeature.h
+> > @@ -331,6 +331,15 @@ extern struct arm64_ftr_reg arm64_ftr_reg_ctrel0;
+> >   #define ARM64_CPUCAP_BOOT_CPU_FEATURE                  \
+> >   	(ARM64_CPUCAP_SCOPE_BOOT_CPU | ARM64_CPUCAP_PERMITTED_FOR_LATE_CPU)
+> > +/*
+> > + * CPU feature detected at boot time based on all CPUs. It is safe for a late
+> > + * CPU to have this feature even though the system hasn't enabled it, although
+> > + * the feature will not be used by Linux in this case. If the system has
+> > + * enabled this feature already, then every late CPU must have it.
+> > + */
+> > +#define ARM64_CPUCAP_GLOBAL_CPU_FEATURE			
+> 
+> #define ARM64_CPUCAP_MATCH_ALL_CPU_FEATURE ?
+> 
+> \
+> > +	 (ARM64_CPUCAP_SCOPE_LOCAL_CPU | ARM64_CPUCAP_SYSTEM_FEATURE)
+> 
+>   (ARM64_CPUCAP_SCOPE_LOCAL_CPU | ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS)
+> 
+> 
+> > +
+> >   struct arm64_cpu_capabilities {
+> >   	const char *desc;
+> >   	u16 capability;
+> > @@ -391,6 +400,11 @@ static inline int cpucap_default_scope(const struct arm64_cpu_capabilities *cap)
+> >   	return cap->type & ARM64_CPUCAP_SCOPE_MASK;
+> >   }
+> > +static inline bool cpucap_global_scope(const struct arm64_cpu_capabilities *cap)
+> 
+> May be call it cpucap_match_all_cpus() ?
+
+I can respin, the alternative looks good to me.
+
+Now, we discussed offline of a different approach: for AmpereOne we'll
+have to check MIDR early (as an erratum) and pretend it has BBML2,
+populate the sanitised cpuid regs accordingly. We could do something
+similar for the other CPUs, pretend it's something like BBML3 and get
+the architects to commit to it (but this would delay the patchset).
+
+TBH, I'd rather not hack this and only rely on the MIDR for BBM_NOABORT
+(without any level) and the above MATCH_ALL_CPUS. My proposal is to
+respin this with a MATCH_ALL_CPUS flag that only checks the MIDR. We can
+later add a SCOPE_SYSTEM to the same capability that would 'or' in the
+BBML3 cap (or just use two capabilities, though we end up with two many
+branches or NOPs in the patched alternatives).
+
+-- 
+Catalin
 
