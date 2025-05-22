@@ -4,97 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D91CC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 07:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0462C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q6JXhf4ZZ0UkgTFD2VN1iCQwo8ywEemhvP56v3y6SFk=; b=qibgOUgrBm9AirpgzaNKBqyPiT
-	0F9RHHMYoInhAmXzSnHI77mskXmcV3K5iY5eAGHX8lyXdmMeLUdMpKKiKR9C9kYlDJnkj9mqVrqPf
-	fzFKNTY7UddAIsIQgSoy7qwrk+x9Iqat7ZA00rCMBaW/57uv3Nr4oQApRDeHrza2F+vwziR+BmZ6v
-	GTRFmm2TgtD0IQyPPxM2vt8Z4u1FLNXsgTu/hmx/LE3L7ZR+qsLddfU8CwH607lM2aCSaTNhSdsIw
-	CsW+ErXDERiIkV4uvJW0NWxsYz1U3P4gUAow6B8SfJMbOXivBT4Yik+lyxc05kI5XFaBkpQFavtAq
-	wi3+CI8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ACdf6WyiNKtYQzdCPT+ba2MMbjKbvLx3qfp0DMD4vx0=; b=2Bdaw2CUx9MClCrdDJknndiJ1K
+	MNkj8Azjz4q1/rgP/OhJMqbCqxc4AWzLQqCYs3aOP71zp00aceY80Fijo9V08Nhwud3iD54HR98LW
+	MirvJ3cmM/2oVxTTOPjEPDS3AxiaN+yWeT/f5nBoBcG4lXTNepeF1U/5m/Idkyk3SeyUl7F0kXxv8
+	8O6OMZFNfAg1E00fnHdBjSxlCNe0UiEcDfEdqa0bWWvb8uAGnYGU7ToBGscpcJ/IVowFqhkfIGfSy
+	AqK9De51eCLUp+1spi4fv3FgGM6eV+pRl1vA7T1TwnGmdRQOHBL1SN0s7/zH9ZATypHuecm2Zaxfp
+	NRpro+VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0ou-00000000D6f-0EyR;
-	Thu, 22 May 2025 07:58:28 +0000
-Received: from mail-vi1eur05on20605.outbound.protection.outlook.com ([2a01:111:f403:2613::605] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0ef-00000000AwQ-2KB3
+	id 1uI0qw-00000000DNQ-3nbE;
+	Thu, 22 May 2025 08:00:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uI0iC-00000000BXx-4BJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 07:47:54 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=TIf/G6ajQ5xkf6m0BhfQE/EeU0DAV94S4pRYFp5YuZqIU29uKrH1ebPjWpSNgsTSV1KIpoK3rBfqENslfQFplTELrwQ+HkvhUzMzULPbN2wHONYVFiJm33Xn6pYQxjdQrgREG603n5I0lr9YJNq7OF2GhYoqSVagx/anif8G6FGAPW6GqH2ArbJvFgN7V3IXKKDYKpZtAvF48vViSstXwPffcxGCJBRfFiufxz6ehlZBlmqi9+u2SNlJ7+ZkxENLl5OPhs3cUca9mQBI80HRE0CqHvk4uE19wloyOMekfqvknkD8Vo1pPDegTvR1aitn7SgbbliCO6kqHF74wfelwQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q6JXhf4ZZ0UkgTFD2VN1iCQwo8ywEemhvP56v3y6SFk=;
- b=apkRNgkPlWko/QdvehfTcYByfYyp77bPgE8aj54GpOYDRxfit2BA6q8KkVMiH3liNVKTUXJRyRipGN1HzfGfzLy8Mol3DgsQ+DC1J0pWVPnvDHpUeBjVp9w9GySmisvwQXjxyw3i5NCPLUzE9xSAfEplIxsfFOxTQYG86dcRMc1+gDi/DyslRAclEmA6pxCh+zNwTDTiTmf6OqcOGquXqol4b8C8YPu6SWj7B5GZj1BFC0cA5LZf67hRvIjk1QG3MvjgapWm0hKsFbvJaFWngWSVZvid0GlBybFg2YOFqX6xu/g/9u8c6IREu5zE2SZFmB6d2oIumcLktU0Qs/sHMw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=redhat.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q6JXhf4ZZ0UkgTFD2VN1iCQwo8ywEemhvP56v3y6SFk=;
- b=OCLolWX1xgJflxdkCN5yf3PDnZEjsPjHfx8z9SJBMjz6lsJO3Tq+82zkZ+vr9k1f/biNTZI1dXqurHHEiwiRm7ppzlaUpHBd0U3vVoCDR+22eb3Q8Cq6huqaF3f6WU4xzN5i9AOp1SzhTl1lEoXUQAlb67eT/bWQ1WJhWfMygw4=
-Received: from AM0PR10CA0100.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:208:e6::17)
- by AS8PR08MB9867.eurprd08.prod.outlook.com (2603:10a6:20b:5ab::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Thu, 22 May
- 2025 07:47:48 +0000
-Received: from AMS0EPF000001B4.eurprd05.prod.outlook.com
- (2603:10a6:208:e6:cafe::c8) by AM0PR10CA0100.outlook.office365.com
- (2603:10a6:208:e6::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.29 via Frontend Transport; Thu,
- 22 May 2025 07:47:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001B4.mail.protection.outlook.com (10.167.16.168) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18
- via Frontend Transport; Thu, 22 May 2025 07:47:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tZnkDVdJb1JHjSb4VOtj5Up+5cpU70ewCpMc43RQEkNNZ/u2OTaBDxy+YW5PHPBjCUBAfM3BwS7U6b1Aqr5eL7/PvheN2mC6ZGSHDXgaTBPvciprJ9UZQUBIkHM/MiYTJ0MsFctIRnbrznJ5CxSWq/zmXwoe2MpBVoya2zRE3XCp76Jjlsxu/OMorSl77glED88FQLNk+hu4gdvoc2yGxgn8W03vhOk+OEtO1mXJjzUIuoDghTFY9kBfe177NtN5jxS5eyLB/z/rPzGuZ0vKp7gIjULpibujm6YYQ6EPT60qeK/QGH5oMV/FfAXkRTk7uL8v0awilKYZafarWQGGPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q6JXhf4ZZ0UkgTFD2VN1iCQwo8ywEemhvP56v3y6SFk=;
- b=caYbNx3dUfEgLxd3eTRgzfy6k8S8VpPeHzRZZUYwp78c9NwYOZ0Ocwd+uBgaV3NDou9Ppdlp3iAHHlesixs4aAOHeibnBT8JTA6sJxQVHAvNHlOXD8D9o+M5wYlv6ZF985FCqiY10od8zMdsZyoGxCi1B+UhF15ywcGmuBP+a56g7tKWo0DkJEHoamRf80pNEaz1Mdepfa7xkfI+ESUv8VCp/4UHsdO8n5NKC5OFSf+rDjIWVNbT52K6f/YvRx0aILUlKbyrh4EZQjdkhHoqzT1jiAIUgIIKXIyCJe2nWI9GsWSfLMI8hCNHIZ0Z267SGt2wCFmbRT10fpISLXk4Yw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q6JXhf4ZZ0UkgTFD2VN1iCQwo8ywEemhvP56v3y6SFk=;
- b=OCLolWX1xgJflxdkCN5yf3PDnZEjsPjHfx8z9SJBMjz6lsJO3Tq+82zkZ+vr9k1f/biNTZI1dXqurHHEiwiRm7ppzlaUpHBd0U3vVoCDR+22eb3Q8Cq6huqaF3f6WU4xzN5i9AOp1SzhTl1lEoXUQAlb67eT/bWQ1WJhWfMygw4=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by DB9PR08MB8228.eurprd08.prod.outlook.com (2603:10a6:10:37f::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Thu, 22 May
- 2025 07:47:10 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%2]) with mapi id 15.20.8769.019; Thu, 22 May 2025
- 07:47:10 +0000
-Message-ID: <4f97491c-b0dd-406a-9ddb-4f4424571704@arm.com>
-Date: Thu, 22 May 2025 13:17:02 +0530
+	Thu, 22 May 2025 07:51:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78BDE1A2D;
+	Thu, 22 May 2025 00:51:15 -0700 (PDT)
+Received: from [10.57.94.227] (unknown [10.57.94.227])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE2BD3F673;
+	Thu, 22 May 2025 00:51:25 -0700 (PDT)
+Message-ID: <1ab00224-cca4-4442-a346-eb8a6797e09e@arm.com>
+Date: Thu, 22 May 2025 08:51:24 +0100
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] mm: Optimize mprotect() by batch-skipping PTEs
-To: David Hildenbrand <david@redhat.com>, akpm@linux-foundation.org
-Cc: ryan.roberts@arm.com, willy@infradead.org, linux-mm@kvack.org,
+Subject: Re: [PATCH v3 2/5] mm: Add batched versions of
+ ptep_modify_prot_start/commit
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
+Cc: david@redhat.com, willy@infradead.org, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
  Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
  jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
@@ -104,114 +51,17 @@ Cc: ryan.roberts@arm.com, willy@infradead.org, linux-mm@kvack.org,
  linux-arm-kernel@lists.infradead.org, hughd@google.com,
  yang@os.amperecomputing.com, ziy@nvidia.com
 References: <20250519074824.42909-1-dev.jain@arm.com>
- <20250519074824.42909-2-dev.jain@arm.com>
- <912757c0-8a75-4307-a0bd-8755f6135b5a@redhat.com>
- <76afb4f3-79b5-4126-b408-614bb6202526@arm.com>
- <25c0c700-656c-4a8a-8ef1-5093581cf25c@redhat.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <25c0c700-656c-4a8a-8ef1-5093581cf25c@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ <20250519074824.42909-3-dev.jain@arm.com>
+ <59242559-5e90-4422-82f7-179a44eb968a@arm.com>
+ <7a1ae902-d97c-41ae-a3e7-5b6258ced1c5@arm.com>
+ <fc219152-f771-41b0-8857-42de5e6dd35e@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <fc219152-f771-41b0-8857-42de5e6dd35e@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA0PR01CA0064.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ad::6) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|DB9PR08MB8228:EE_|AMS0EPF000001B4:EE_|AS8PR08MB9867:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86310865-4967-4793-844e-08dd9904f0f9
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?VmdBaFY4M3U1S1R2d2tuYXdTRkxyZkV1czFVTjh1SE9hQjJYd3lxMHdxdFdU?=
- =?utf-8?B?TDQ2MXIrdTVzOUpxZ240L0lPL2ZxNlRka3JMNW9FWFp5MVVobTN5alM2YjBu?=
- =?utf-8?B?STI5dU9Ld0dKOGJMN0tkSThnUDFuQjVqdXpCeEhkZnlCTUUyUkkwdGxYR1dk?=
- =?utf-8?B?UFZXeVQ2RG9PTUZiM0wrUEdvQ3RNa0ptTHhXUndvTVJNS2c0UHBrSzFpY1pp?=
- =?utf-8?B?a0dzdnNMOTJTN2NMMW05UldxSkdsOC93aUgwZmVxTXJzSHRLSXJuTy9Wc1NN?=
- =?utf-8?B?aWJnN3pCRUdNUlYxZGpwQ0pIbm9lN3RKRFFsMzh0bUZpcE9CUktZSE9rcWtS?=
- =?utf-8?B?eTg1OTl0VjlTTjA2YjU0UkZjdHVqWGJwTUpLdkYrYm1Ya2pXNllEaFV6cEhp?=
- =?utf-8?B?MXZWRmhmN04vZGpOV0U2ei9HTC9lMGhJQ0RqNy9pcDEvaVdlaVVzWERaSXlt?=
- =?utf-8?B?dU5zR1gvU2Nzd3YvalNMQng2eUloZ1BOVnBJN0dqVzZzZFZ6RTZmOGpFQWlH?=
- =?utf-8?B?eEVMZ3dMekZjWE8zWGJPU3gxMGxEN1UyTHpyWEFSeWhWRi91YUg5MDJuSUdx?=
- =?utf-8?B?UW9lZEZsYTdCR3MrSXFyRm1XdWtDdW9yTHdDTFJzUW01WjNTRWZ2Z25oUnJm?=
- =?utf-8?B?VGY0ZUplQkdXY25UOE1ndTlhbDJnYnk5RklDclpuR0c0dFJOOHNNSFh3bjU1?=
- =?utf-8?B?VFhOcGoyUEJzblFrTThocEZBQUZmNXI0SUtUc0xOeGJ1clNRdEYzS3ZnNkhn?=
- =?utf-8?B?QjJYenExcVJzRENsS0Z6R1BNMEFNTHAyTWkxN0lXazF4akxndE9ZdllyZXFy?=
- =?utf-8?B?VkFDOXhLTkdEYUIySXZVWmlVTHloS2tkYTVyQ3RxbjBjNkFmV2k4WFZIOXR1?=
- =?utf-8?B?c2RPeUluRVBVUVJZT3pIRG53UjNIdnc4bE14NWE3VFBkUXBSWVUzOW95bUFX?=
- =?utf-8?B?M2czY1kxVjdjam5vRW1vazBiUnFLYm8wTncyKy9naS9Icm1mNFVDSE80Z2JB?=
- =?utf-8?B?TEpkM3JHQi9RTVpNZWo5dDF2amNQWC9KeWxhRTJ4L3hkN0I3RXJIUHQ0OTVj?=
- =?utf-8?B?SXljMTRUQVcrR0RmVGxYRkM2eGhvcVBhT0tvRjBsUlk2OXd4dWNtcVZVSVZw?=
- =?utf-8?B?NFlEM1FScy9qTGRxRTJaMGliSXNhZFhlMU10NDFKSmFNWXdqVXJGUkcyU25U?=
- =?utf-8?B?V3VtM3p3SW9Ja1hOa0w0TC9UZHhzek5kWHVWQmEzaC9oSWRvMUFhd3pwQS9z?=
- =?utf-8?B?ZytuNlNsTXlhNzBHZXZEcDJkbnlBK0hrNzBwMGJvdHJxT0pLZjYxY0lwOHI4?=
- =?utf-8?B?S1ZZR0dzOU1tVTRRRmIvbjBSMGFnalJBZFlmV0pwVW0ydG9rWnN0Wk16YjBI?=
- =?utf-8?B?Mmo4TWVPZWlWYk9FSG5wbC80UHNyTHZsbTRsT3JxRUtoaUQzeWt5SzFLSy9C?=
- =?utf-8?B?RmFncHVyUm45cERRTVRxT2VWaFZQWGRuUUVWb2J0RU02QTZlRTRGYUZHckhv?=
- =?utf-8?B?WGFjdDVGYlNsaWpQNGhpUEljYXR1VFpnMys4ajl0M1RvUXNNQ2Q4SUxQSGlq?=
- =?utf-8?B?M1ptcUN6TEFxTXhWdDlyZkl3KzNFbmVJM2xUU1JMT2ZEV1BnQ3ZLK1R3U0Fz?=
- =?utf-8?B?K2U4dmovdzlkZFYvRDAveWloY1YwRnRxOWNpMnpCMUVaNElyVnQxb1ZFYzl2?=
- =?utf-8?B?em5GWFRWZWJ1NEt2SUdvMWx4c2RobkpvTUxXT1ZhcytFMzBhQWZrd1pCWHpl?=
- =?utf-8?B?UjJsTXU3ZHJvL21oWEEraEloc1FJWSt0Q3RLRjliS2xDR3JiS0ZJSHZMdHhN?=
- =?utf-8?B?a29KL1lZZkVobnhlWEQvNXR1aWt3QWJRTjVBUUdpT0gzenNuMHhLUmhaR09n?=
- =?utf-8?B?UzVUaktEMTJHMVpacHlGbDVHM0poS1FETUZrT29qakc1VXc9PQ==?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8228
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001B4.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 29686405-aab4-4cab-55bf-08dd9904db79
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|35042699022|14060799003|36860700013|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aDFsNnNGbkxVM2d5TTZGYzFlR2FleFlKYytrOG1oT2lRWUtBa0RwVEFZRU9o?=
- =?utf-8?B?a2NFZzlrOVN4SWlLR1pzRFd3T3NoQ1RwQkhobTBxcmh6eGlLZGRRY09LNU1C?=
- =?utf-8?B?azRQTER5MzhRTEpWc2RKQ1loQUVnZzMzTk9lSXlSUVlPNzZ1aW44ZHNpR21S?=
- =?utf-8?B?V1Q4RENYZ2trakZkZC9ua1N2VUZRVEZpamdsbENiUEJtSzc4SGVDVDZ0UVRm?=
- =?utf-8?B?TkxOOGRrRDV3K3V0MDhTalZudHFtRTFKWVU4dytpT21reTRiSFRrZHJMSGpB?=
- =?utf-8?B?UnBPazB1L1hYaWNPM3ovWm5YNzJIaENNYmtwUlZiSm9qdE1mZjdqMTVzU21U?=
- =?utf-8?B?ZzNQRHhkQ2J3NHZNVmtaNTFycFROc1dqMjhiMTkrWWpCdWY5aXBrRStPU25K?=
- =?utf-8?B?ZjB3ZkhzcmRqYTN1NFVVZEN5M1FLN2h2S0NFUzVTdFFBOXVmUG1xeW5ZOVh4?=
- =?utf-8?B?dU9INHUvSWplaklGWWdOQmxDanR4WUQ4bm10OTUxOFdBM3B0VVB6Zk5KbU9r?=
- =?utf-8?B?U01uSEFhdDFSNXJQbFZIL2NDbDQyeGFTUEs1QVBESzFCdTFJbGRSeDM1TGxl?=
- =?utf-8?B?M2FSOUNmSXZhcWxZMTlCYThlY3VXcXYrc2VJSUhXWU1ZOS85a05PQ29Za1Jn?=
- =?utf-8?B?Yi90WTlhV0U1TVRvZjRUbTlNMUQ3bmRUOTV6YUNQNlE1RW5wZjdYVFpLaDg4?=
- =?utf-8?B?R1EwdVhoeHNvbVdJcWYvSWhZakJPM1oySEI2UGxDMzZpa0ZGZGNSYU9jQWpv?=
- =?utf-8?B?ZXY3OEpXZlAvQ0QyUElDYmtoSHp6OXg3djZDZndBbTdRR2tab2M3bWlpVDdi?=
- =?utf-8?B?VHhKb2R3cmVDNWNYNHpYckZqT0tnRHlpQnBFb1NjdFBXRUNTZkJubnlnVThX?=
- =?utf-8?B?TlE3dkgydGw1Y3FyYXlkY1VMREdqcy9WTjdLQkpNRU1OUTl4TXQ2Tm9GamEr?=
- =?utf-8?B?WUwySVN1ZFNqeFZIQUl0c0QyREhrUG9YYXZHazlBZ3l5MVNDUTJJMGNjMGFK?=
- =?utf-8?B?ZldrNTA4WHNUOVZHNlZ1cHdVdFhOaERYRS9qdFIwaU5OV3FEZWEwVEFOcmN5?=
- =?utf-8?B?UjZSRENpZHVCRzlWTURVeHZnc09ZZ0tVbkQ5cjh2WklKdVRBNFplN0JqSXY0?=
- =?utf-8?B?MkZ0SDNLMmQ5U2s3elI1bXBtWVArTy9ybnRHVDJ4dXFkOU0vT1cwWGFJdWZD?=
- =?utf-8?B?dU16anJDWDRjS3hycUlZLzI2d2phMkFVSGh5eU9PanFaS1NRK0NYeHV0b3Y4?=
- =?utf-8?B?ZXhVaUgydFhoeUtJalgzVzVsVEZTZloxSS9ISHFLejJzTkNBYWdpT0l2MjY1?=
- =?utf-8?B?TGtHL0JiQkJOZkR3b2xmU0toRmhkRENnT3BOT3ZqcmtGdiswMmovT1l0TTFG?=
- =?utf-8?B?TXMreThrc0NIMERIb1Bxc29HY2RPUElvUlF2OGkyci91a0FESzk2am5lUHB2?=
- =?utf-8?B?Z0VLa0ZVREdUcm91SCsrRWJRUCt1cG9IcWV6MmhRTWpFcjJxTjlqT3h5Z0dP?=
- =?utf-8?B?L0xuWnV6VFFaN0tTc0tSMlNCOXJUMDFrZk1IZmNUdDUxSkFLZWd5ZFdPMnpX?=
- =?utf-8?B?WHh1TmU2dW91TXpweXRobWZNWWgzQ1MzNDRCcTBRNVhLU0xFUjZGYzArMkJv?=
- =?utf-8?B?QUhyZFA4Znh5dlpGREhqOHNLckFNSVJBbEdBWUdlY3c2cFAxc2ZRRm5IeE9n?=
- =?utf-8?B?RkFJUG1ZRUVyeTNBNFJNYnpHTVY1Y3hHQWZQd0RDTldodWg3RWJwWndOQmlx?=
- =?utf-8?B?KzNBL01Ld1kzV09teGhlTU9HeHdKS3ZNSDlwNzVPZ0w3UTgzNlc3RWFGWEov?=
- =?utf-8?B?NGE1K1g2VzVXZmRmVTBTbmRkUU9OTWQyc2owSnJxaXN2Q0ZLaHlvTGRvV1hn?=
- =?utf-8?B?TllTMGo3REh2VUc3SWxKSGFLZ2FWTVBwQzdRcytabjJCVThmWVBsb0lENE0w?=
- =?utf-8?B?UGpFTEhCY2REMDVxVHc5NDYxbk1WeWh0d1lmS3BNcm1zQVVaaWtrS1BYeGtG?=
- =?utf-8?B?YkoyY1hnb2h0ejhOYVNHZkpRRi9ZcE5jNzhLUFI1eXFtaEFpSzFqRExKT0tY?=
- =?utf-8?Q?FUZjQy?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(35042699022)(14060799003)(36860700013)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2025 07:47:45.7480
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86310865-4967-4793-844e-08dd9904f0f9
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B4.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9867
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_004753_754851_FC5E5F31 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250522_005133_127923_88B9E01C 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -226,60 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 22/05/25 12:43 pm, David Hildenbrand wrote:
->
->>> ... likely with a better function name,
+On 22/05/2025 07:33, Dev Jain wrote:
+> 
+> On 21/05/25 5:15 pm, Ryan Roberts wrote:
+>> On 21/05/2025 12:16, Ryan Roberts wrote:
+>>> On 19/05/2025 08:48, Dev Jain wrote:
+>>>> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
+>>>> Architecture can override these helpers; in case not, they are implemented
+>>>> as a simple loop over the corresponding single pte helpers.
+>>>>
+>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> [...]
 >>
+>>> I have some general concerns about the correctness of batching these functions.
+>>> The support was originally added by Commit 1ea0704e0da6 ("mm: add a
+>>> ptep_modify_prot transaction abstraction"), and the intent was to make it easier
+>>> to defer the pte updates for XEN on x86.
+>>>
+>>> Your default implementations of the batched versions will match the number of
+>>> ptep_modify_prot_start() calls with the same number of ptep_modify_prot_commit()
+>>> calls, even if modify_prot_commit_ptes() is called incrementally for sub-batches
+>>> of the batch used for modify_prot_start_ptes(). That's a requirement and you've
+>>> met it. But in the batched case, there are 2 differences;
+>>>
+>>>    - You can now have multiple PTEs within a start-commit block at one time. I
+>>> hope none of the specialized implementations care about that (i.e. XEN).
+>> I had a look; this isn't a problem.
 >>
->> I want to be able to reuse the folio from vm_normal_folio(), and we also
->> need
+>>>    - when calling ptep_modify_prot_commit(), old_pte may not be exactly what
+>>> ptep_modify_prot_start() returned for that pte. You have collected the A/D bits,
+>>> and according to your docs "PTE bits in the PTE range besides the PFN can
+>>> differ" when calling modify_prot_start_ptes() so R/W and other things could
+>>> differ here.
+>> It looks like powerpc will break if you provide old_pte which has different
+>> permissions to the "real" old_pte, see radix__ptep_modify_prot_commit(). So I
+>> think you need to at least spec modify_prot_start_ptes() to require that all
+>> bits of the PTE except the PFN, access and dirty are identical. And perhaps you
+>> can VM_WARN if found to be otherwise? And perhaps modify
+>> ptep_modify_prot_commit()'s documentation to explcitly allow old_pte's
+>> access/dirty to be "upgraded" from what was actually read in
+>> ptep_modify_prot_start()?
+> 
+> 
+> Got it, so we just need to document that, the permissions for all ptes must be
+> identical
+
+Not just permissions; all bits (inc SW bits) except PFN and A/D.
+
+> 
+> when using modify_prot_start_ptes(). And that we may be smearing extra a/d bits in
+> 
+> modify_prot_commit_ptes().
+> 
+> 
 >>
->> nr_ptes to know how much to skip, so if there is no objection in passing
->> int *nr_ptes,
+>> XEN/x86 and arm64 don't care about old_pte.
 >>
->> or struct folio **foliop to this new function, then I'll carry on with
->> your suggestion :)
->
-> Can you quickly prototype what you have in mind and paste it here? 
-> Will make it easier :)
-
-
-if (prot_numa)
-
-     func(vma, addr, oldpte, &nr);
-
-
-struct folio *folio func(vma, addr, oldpte, int *nr)
-
-{
-
-     if (pte_protnone(oldpte))
-
-         *nr = 1, return NULL;
-
-     folio = vm_normal_folio();
-
-     if (!folio)
-
-         *nr =1, return NULL;
-
-     if the other skipping conditions happen, goto skip_batch, return 
-folio and set *nr = batch
-
-
-     if (sysctl.....) {
-
-skip_batch:
-
-     *nr = mprotect_batch();
-
-}
-
-     if (folio_use_access_time)....
-
-     return folio;
-
-}
+>> Thanks,
+>> Ryan
+>>
+>>> I'm not sure if these are problems in practice; they probably are not. But have
+>>> you checked the XEN implementation (and any other specialized implementations)
+>>> are definitely compatible with your batched semantics?
+>>>
 
 
