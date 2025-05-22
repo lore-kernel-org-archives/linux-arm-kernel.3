@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE4DC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 14:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D3CC54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 14:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1MNYKCoN1hCo1zkBMo51nABrDaTd8pz6HFfT1hrtgV0=; b=49dduzfbpY+BO1ZIEAzQY28hvF
-	4r2DvO2AC4bxfFNmTFAcWx99iUB9FhXQxgKU9SJCInV2gTrQ4ycIZEmZ+BM/f4fFuOQTdy00WH8/n
-	8hRRddqGnFJMjbbhLtKDVb9etMGujqrtOc/war+yi1xFsSwrxfjwymHg/SqCsIOHd+9jT8p2H1yFJ
-	iN4b56GvJZplIroHqtUXkDA/mGgvle7JlfKPOSJQUU0h5cweueuue12lxWVFtcDdwKfYYambQebGV
-	t7cTf7ENku1DVr9Z/HrVhkf+yPw7NN4cKDUCSYo9xIK+JehEDnrxCC351nFK+sofWfi+CCFJavH1J
-	vQoPFa0A==;
+	bh=+6Q/HobQGxA75xO/vpoX2lTYIEjQ1k77bR52GFS3fYc=; b=MxdLYvdorzUNDOiAH7jyJdf4Iw
+	gt8ZYcQ7X1JQBDpkj0Ka47x7USMOqCooHPrwvXFp+/dt2N+7wH6EkPWVjk9mvWOeZvSBv7uynggTR
+	lDgFHyZGkgBEE55cJx9DqYV8FdhEQJUPT84+DLFdAUseoryijtO9R/gWw8SJSn70k3ZYY/itrIINx
+	X09uWJvDcGDye/0v05UaS5Oyv97HRd5iTljvPFt4JMXUMltOrnS03Kzc6zNLZSxTlq+VhAEJS9kSw
+	EHA5viQffAYXtYRK3YQnUYlkJoZrhm+IDXTus6QEYZcqG1g+CKwJfpf3aWhJoJQuz0moZ+yyXUSFB
+	ov/Dxmvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI6rF-00000001F7z-0lUX;
-	Thu, 22 May 2025 14:25:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uI6tF-00000001FPJ-3lZz;
+	Thu, 22 May 2025 14:27:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI6bP-00000001CwK-3F4g
+	id 1uI6eO-00000001DUz-1J16
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 14:08:57 +0000
+	Thu, 22 May 2025 14:12:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 03904A4EC26;
-	Thu, 22 May 2025 14:08:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF32FC4CEEB;
-	Thu, 22 May 2025 14:08:49 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8A6A1A4EBD2;
+	Thu, 22 May 2025 14:11:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98BD9C4CEEB;
+	Thu, 22 May 2025 14:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747922934;
-	bh=Qd0u1pVRf75cfmJWnRwpiBVuBtAVgpNpqtGWG9kpfRo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JKNzHXXibnt68hBktEQUQ/Q9PoJtprV1HPyTwR15uUsgyQmX7k4qUzVFIJfgt+QAh
-	 PELU+wA/IX+HEn2SQodO5K+98Vy5ZS7bcC6MOvqAk97Q4UO0whbeXGQo2rh9ajOFfJ
-	 VTwD6DmUtDx4CizX8sXfpI44btgGWZKnu6vHib+SBjrtCaHmuD5Ooexmra7TwATMbL
-	 TQaYbJqJVa73huCVOgmtKBlJTdd2jPlWDm1P8ZABxLQFpN7u4hd86mKTO21NGdoZ6/
-	 5IWRqaBZ/2HVxuInixVog/gQtKo79eTh8OCJjBlbfV25huSBElclHJqUiKs57qlye2
-	 xn47/r7wl8K8w==
-Message-ID: <b8058efa-ce38-4615-9e43-43d1fd114b39@kernel.org>
-Date: Thu, 22 May 2025 16:08:47 +0200
+	s=k20201202; t=1747923119;
+	bh=UeD4D3pbnrKEkEqFUZMYLNvrthMcWJ/loMFW1A9Tn6I=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=eS+mlcC49iGkK6FGyWf2Jw9jQnou4dfdefuaDVTZl2gkIZOldwYcTRbVxG18geAO0
+	 Ndu3Fhj5n5I6GfRgnAppttLmjcns1nPyA4flX35ioSBwVrGxxiNxZyShk0J4ey11x1
+	 ANjAOb3G+IXxwUPRPLvOtW4pBXV18HnhzljV3TcLSFscugdfezskQS/Akj88OcIVmD
+	 mCbOeAO78n9fVROq4OmQ6MjVraGtypnhQ4SE5StguT5gzdTPndSQtpqVa9wDluRxB1
+	 oh/i25LNd2EJM6lr/gLW9cttfqnv/yYjZ/ibYYx/J/foHrT4y5zsiOJ1R+uzga/rJI
+	 ItBzFJ4HT9rxg==
+Message-ID: <8716115d-60fa-4057-82af-c4ab2efc3952@kernel.org>
+Date: Thu, 22 May 2025 16:11:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 1/7] media: dt-bindings: mt9m114: Add slew-rate
  DT-binding
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Mathis Foerst <mathis.foerst@mt.com>, linux-kernel@vger.kernel.org
 Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -64,7 +65,7 @@ Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
  manuel.traut@mt.com, mathis.foerst@zuehlke.com
 References: <20250522140613.104963-1-mathis.foerst@mt.com>
  <20250522140613.104963-2-mathis.foerst@mt.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <b8058efa-ce38-4615-9e43-43d1fd114b39@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -109,12 +110,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250522140613.104963-2-mathis.foerst@mt.com>
+In-Reply-To: <b8058efa-ce38-4615-9e43-43d1fd114b39@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_070855_942656_D794063E 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250522_071200_473830_F2627DA4 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,36 +130,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/05/2025 16:06, Mathis Foerst wrote:
-> The MT9M114 supports the different slew rates (0 to 7) on the output pads.
-> At the moment, this is hardcoded to 7 (the fastest rate).
-> The user might want to change this values due to EMC requirements.
+On 22/05/2025 16:08, Krzysztof Kozlowski wrote:
+> On 22/05/2025 16:06, Mathis Foerst wrote:
+>> The MT9M114 supports the different slew rates (0 to 7) on the output pads.
+>> At the moment, this is hardcoded to 7 (the fastest rate).
+>> The user might want to change this values due to EMC requirements.
+>>
+>> Add the 'slew-rate' property to the MT9M114 DT-bindings for selecting
+>> the desired slew rate.
+>>
+>> Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
+>> ---
 > 
-> Add the 'slew-rate' property to the MT9M114 DT-bindings for selecting
-> the desired slew rate.
+> <form letter>
+> This is a friendly reminder during the review process.
 > 
-> Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
-> ---
+> It looks like you received a tag and forgot to add it.
+> 
+Crap, you actually received review almost three months ago at v2! Then
+on v3 Rob did job second time and me on v4 did third time.
 
-<form letter>
-This is a friendly reminder during the review process.
-
-It looks like you received a tag and forgot to add it.
-
-If you do not know the process, here is a short explanation:
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here. However, there's no need to repost
-patches *only* to add the tags. The upstream maintainer will do that for
-tags received on the version they apply.
-
-Please read:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-
-If a tag was not added on purpose, please state why and what changed.
-</form letter>
+How many times this has to be reviewed?
 
 Best regards,
 Krzysztof
