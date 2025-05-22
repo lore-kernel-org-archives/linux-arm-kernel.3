@@ -4,159 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7875DC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58FEC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lvfC0UwWNWZmMXiqPnPLpQ0X2Kmuy44t6XZWYFhIPDw=; b=O/4YxkpGsHu4lf1VahxotB41rR
-	77qYRJsoiD6F5I5kDkF39M45Xi/Zh3QDF2AwLZKTr7UANpXKHAsFfZ1g9X9x/fOZglBHcMHsxTUKL
-	YHUD147wWs2IttDe/bNnAI8yk6D5fcMitHmWx6GEknVl4Cow6aDie5ttZDnWZ2O6Cf9/lKr6Vui3O
-	mP4vmn8bZN1tYIgqZ+tCRLT9LDIa8TA7K8IxLB15iXFHpTlmmARrrh5C0U059KHVkcFWX2kSs+xDE
-	mCZ7wfDXgq94JQOx5sUguZdYo2IAJCYUY1nJXUZKm9zhYGFOH+52ujeIwYgYKqyEt4HiuYOggusDL
-	brOLQn4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d6+8TKL9ybPi8GR52+9DRexy0HiUe+IYVYfqzERk5rg=; b=s+eR1SpS7JdQmTAGSMNben3Xl8
+	C1qyyxYVGWSSrp5eoyyO+GinSM/notNHVyhAScVTA5Uu846bdHVmj5HtFRKf/QbgS50T9yoWv9FXQ
+	lvkpjctkaTCV60kJ/MpF3CIPvc5Uh9eHAlHYvFh8fSysW/GnxIKKBt/G/xvW83/Fd4UXke5xp6Rtv
+	6IVQaFPRTtHQdrr5jb/g4nx1AJlzMnqwN+gtR6Ju/2BrG+4kcr5CDxOCNWTxWQ8CYjlPzYuO5O4Ke
+	4ZK6C9G1PcPeCHF3BXjB8bCNeeK5fwyDBdctUExMgku1ZnZznONEBktg/IeZe9Unc3PInZPSce2uo
+	z10+Z0wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1k0-00000000O6p-16Yn;
-	Thu, 22 May 2025 08:57:28 +0000
-Received: from mail-vi1eur05on2061d.outbound.protection.outlook.com ([2a01:111:f403:2613::61d] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1uI1m4-00000000OdB-03Bu;
+	Thu, 22 May 2025 08:59:36 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1at-00000000LmP-1G1n
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 08:48:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SII3dlehRk8jLAasc6vmj9kiN97mD0AoengsokVI11yYlC+it0pDjAySyANui4d6t5gQI5iw+y/psT8rUOs366atkOcwqT6FnPcibUsg4cDu03Duno11qQKLyU4GkVIhGgVP8I7EmFuZKsZ4P1licNMwni99P5IDFf7LDedF9cxQaL65fJIWbVTu2deZNqr12yow16nYw2G0/2R5OXiktO5dDizXVZpoppiP8ZJEGAARRqPAPPOtxa9mpzm9FVAt4KllpIT7vAlfeNkOZv6ODXVMcpOCJiZrRmfALAw6ZVs7gVbv1rqqqIJzsX9v0us6C+UaFyn4iAco44KXmFkrKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lvfC0UwWNWZmMXiqPnPLpQ0X2Kmuy44t6XZWYFhIPDw=;
- b=B7f94kEYCWxKUJYIa8zvuPMKD14TqTptvyVm9QMgy5Fuqi1AgOs1GzYTKTduGzpvsMF9uHzwxVXyPR8KmI8S7/eSQsmN9NVz7BLHQu7rYN2/xGhp2JGl+Mdpy6LdPHRoFovlMuLcqCms2lSpqQoK+c3eIcK7+ARpyz9DzIc67TBBXuOHcCZu/wYokAXkACmKtDlu5+TQwtTYkqm+4+KOUWym0RxfxF9BOshZS0YJ9J51tJeXIbUqL5ar/C+Uo9Wgz/MspkdNk8a3JCFufjIdGtFPi8kucXrhFRgMDakB28XwOgjVU+j2qXeCAY99yjL8ONosDUaTSzR7O4/hw4ygEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lvfC0UwWNWZmMXiqPnPLpQ0X2Kmuy44t6XZWYFhIPDw=;
- b=gr9vG99vp4KjZIQLMcGRXd+C33B8a+9qAInkbXN/t00IG6HbolW7oEKrm6KYUSzw5GLJlkFhLoTqiM+1JOrkICwwtRjvvBbKyuxzWT91PyZCuBcQSXyuVT5EIg5Hd8RUKb908GAgWBImAOdqe2d5/fOAspm6iBXITc5HUMicSjgG05Y80jPIRPAFGmbi4ay3zc9gLHIeJliZ9AvlxrrKHEG57yWhyT2hnzReqA0aZyP8VhVrPpU8DqvPeCJBzIsCWZFrsxOQcOuOjGUkYNrJdqscxcDfhVojHWO1nuqG9lqgPmtLD70m01dDKjWUytrrZHqdrjTsdTKK2eo2XNKWyg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB7521.eurprd04.prod.outlook.com (2603:10a6:20b:2df::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Thu, 22 May
- 2025 08:47:57 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8722.031; Thu, 22 May 2025
- 08:47:57 +0000
-Date: Thu, 22 May 2025 17:57:24 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Michael Nazzareno Trimarchi <michael@amarulasolutions.com>
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	Wolfgang Birkner <wolfgang.birkner@bshg.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] ARM: dts: imx6ulz-bsh-smm-m2: Enable uart2
-Message-ID: <20250522095724.GA14761@nxa18884-linux>
-References: <20250514070545.1868850-1-dario.binacchi@amarulasolutions.com>
- <20250514070545.1868850-2-dario.binacchi@amarulasolutions.com>
- <20250516040520.GC28759@nxa18884-linux>
- <CAOf5uwmM=+QoaJH8vsUKL-fDab_Fmhxd1d-622pRi-hK=EXk4g@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAOf5uwmM=+QoaJH8vsUKL-fDab_Fmhxd1d-622pRi-hK=EXk4g@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR02CA0007.apcprd02.prod.outlook.com
- (2603:1096:3:17::19) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1uI1ej-00000000MnD-3lX7;
+	Thu, 22 May 2025 08:52:02 +0000
+X-UUID: 0231a67236ea11f08d385d50fb11b32d-20250522
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=d6+8TKL9ybPi8GR52+9DRexy0HiUe+IYVYfqzERk5rg=;
+	b=tdFOBWq3xnxVgWEXWcV+6sdoZjQXxGwkO0qzWu2vzQuwiZwrRJ3UZM2RLWqJueGlbDUlAIADjdokuqFzZHNBmvPWVZadxfMxfKybNOear7sDzb7J5B6OQdKujL9BvLnea55NcTl02xjL+0TYlAlNlUZNDGdFvf5bCueV2/rXPfE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:9a3eae55-57b6-48d0-92e8-8b0cd9a3ed92,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:122c29f1-2ded-45ed-94e2-b3e9fa87100d,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 0231a67236ea11f08d385d50fb11b32d-20250522
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 846204219; Thu, 22 May 2025 01:51:53 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 22 May 2025 16:51:50 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 22 May 2025 16:51:50 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: "Jason-JH . Lin" <jason-jh.lin@mediatek.com>, Nancy Lin
+	<nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, Paul-PL
+ Chen <paul-pl.chen@mediatek.com>, Yongqiang Niu <yongqiang.niu@mediatek.com>,
+	Zhenxing Qin <zhenxing.qin@mediatek.com>, Sirius Wang
+	<sirius.wang@mediatek.com>, Xavier Chang <xavier.chang@mediatek.com>, Fei
+ Shao <fshao@chromium.org>, Chen-yu Tsai <wenst@chromium.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH] drm/mediatek: Add wait_event_timeout when disabling plane
+Date: Thu, 22 May 2025 16:34:24 +0800
+Message-ID: <20250522085149.3361598-1-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB7521:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c4de511-6923-47fb-d316-08dd990d5987
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2bg/5PYKYo8hycG7MpYZ7GnEC7PMwDFsd0zr69I3p2oolQsFTdV3kLquQDDU?=
- =?us-ascii?Q?HBjuV0JW9ki7NfOhSDX2TPg9CaMO6em9UsLa3dE/p71RTGwyfKk+IWhGyceG?=
- =?us-ascii?Q?X7nTcrz4mMCl++2KB9pnrS6pMx1Osr0eSxq6Q3vwXSnSBFoGSlY5guDsuhrY?=
- =?us-ascii?Q?hlZql5Ye0QV3kJ+Ou1qMhxoXTMKRQcoDABRKANHOkKLFrOWBWoWYTe66UVlH?=
- =?us-ascii?Q?hFGx6D6ic9V0fCEd6TgNc2k2btLkmMRv/qjurQJJeTebBdy+pzAha/TfGyGJ?=
- =?us-ascii?Q?GmmIb8sfiWEfCrIj+Lt4YKCdQrDbC9dn+L1mepqjUPDmnTJd/pDO6kpltzdA?=
- =?us-ascii?Q?a4hEpUVLv1AdheWW/uVnib50Z7bIzZmG6yGt6yNGWKBhg26FpfyGcpn/hYBE?=
- =?us-ascii?Q?BCyugFu744cbtHH11gtEr9nK7byDsDDUpu7x2V2ajWq3oX8RTnvhLptp8Ewz?=
- =?us-ascii?Q?NhX1XsUZOrA1P2Grgzj1lhjKwcfzCcGHnMWNDLq+m1jBHFLdLRW4/+wHr98F?=
- =?us-ascii?Q?sbo4f3PdUdRW3TtmElhDz5ge+nKNPxHu00VEvJ/15RUg2NPMSW/C7GdT7I9j?=
- =?us-ascii?Q?tLNnHAJRxH3igyHmm8uuweWN6NkX5cFktjb9j3ttLBCYwk6724t4Tdi4IC6G?=
- =?us-ascii?Q?qogYIhpTMXYaMS9hm/Aj2nBUGSN/PFdsf2FwEhj02+PrXoPvRPlDXEhGT3M/?=
- =?us-ascii?Q?ZTp6fH1HleuOZvWuO2MD8G2zT4pwKzs4j/I8PzQ+xdXZViR7RhV407Llb5yh?=
- =?us-ascii?Q?RQP1YjoSF3Txa1pUgTEDGniuulnDvoULo413p3ZhdqTqTWrqgtaVDIntNZZ+?=
- =?us-ascii?Q?6wcm6V20QXztRp+eWbPftisQoxASV0cSaJCS6JWOkKsTmb/LJWkB9GYhmmBB?=
- =?us-ascii?Q?BViTFJcMOaUZ0EPGFmRkDR/HNWnN39uU5jfLiGM5Lf5m77jqIFKAngdJrpe0?=
- =?us-ascii?Q?AEMsR0gsv4vON+AKhOJwqTRj8adM6ncYCKKady2rvsY5VLWHC0EohZ5TkLb8?=
- =?us-ascii?Q?jeJH0m1LTju3HdEmEG+zRXLSAV4/dADRS1jC6yKc7FsFQLKIGxV4QdfHjxPi?=
- =?us-ascii?Q?etuSYyJxTn/o3cn8FMyOIHdRBrT+IWqKReddlyvViqOmgdHTFBQJpQYxFpIk?=
- =?us-ascii?Q?eJ2/0RHsX+io60uxiZ8Q9ckHK7BOj3Logxk/N2lY1DRGgVfPbnWf0a1g2cdT?=
- =?us-ascii?Q?ybLB5hOE+BqYyuMdng4/23i7icqjLawjDE7mbfjiGh4xA4ei6/LbOClcktAr?=
- =?us-ascii?Q?Kl3is3IPmXf69asN9AoUXlJZq4/5rYUUn2k8ZbKgt3C7x7KuCPkGHEzQFxGG?=
- =?us-ascii?Q?Zo4c9pkuc2imnMzWbuxL3Yal1J58sBOE5D/BDygMXmp4NvnDh2DhJDSPcKcZ?=
- =?us-ascii?Q?mHoRVwhVqF2LrjmEmwVN7wgyuSXtaKUndlENkmfVgrrEbQkrKG7fY2enmLtH?=
- =?us-ascii?Q?D66tSyL/P+o=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ev6v0YYAQOVwc9fpxWekmtfh/tbxv9g5QuOz6xJxsApjpQtp7mRaeSZEAWEd?=
- =?us-ascii?Q?HX8NDhwQd0p4xlOdw7RnjzFlE8CFEOR7xTXAWu3bc03cM+DElSrTXPcnMdqc?=
- =?us-ascii?Q?Rzt7qpm04ErOE6i1qElSv+s8ft18MXguWzfJCXuDPhth+NiSgwdT+5eWU+Yw?=
- =?us-ascii?Q?z7kKqCNSKdJD/RSSJqd5Ek1oqOXfnMxcA/+VHxrML42QnnjDbgIl0cEi2OXp?=
- =?us-ascii?Q?M9KnZlVTpUd7QcueooxlWoqdS9PS1jyjMasI81EHX08cbSpuiNpS1i9igny5?=
- =?us-ascii?Q?15e79++y3oCRINOCt1LCtGzvv+zdOFfB66Ky39mmHBDfbjcoUXqU4ZuI8Ve0?=
- =?us-ascii?Q?zTC6tFbIwBBqhRAetUN4UvRutbCulGSD4So1A69NPutaJBDOasyAyq8LxnC/?=
- =?us-ascii?Q?1j7Y04NfoOtsT9kalrekr00QTSnTeMquU27XhjsyM/WBq4kDzrRAoqcchVfk?=
- =?us-ascii?Q?793FoD6iHtgQI5tquqS9UUKdYcomp8UICnGuW9IycJrLY4CB/uRVa+VtCzkX?=
- =?us-ascii?Q?Nz9eoHZ6dpBNeU6u/hYIUV5MxdJ0FbgeS1WClILnQGll8UEJCU9PZ4IvvAOS?=
- =?us-ascii?Q?oPyGYPccGd2ILw7D67QgXfPW0tGLeYzNqrhh1fImNhk35KJjjpnSf57aldZN?=
- =?us-ascii?Q?UOnmnudNKnIh76dQY7elLSj9HBawOcQ2gvwZGBkPPAnnfQlnHsiHiiQ87NWR?=
- =?us-ascii?Q?dbNdQ2lPFO1mRvsmZSNpfMpku7qUcFIdemGtUkQF02bANgKth6n9wGIGjDui?=
- =?us-ascii?Q?MguFyj3Ken+TZOXDwvzzxb9GtFLRGGtIhmBnVqZ/O/0Pn0LbYG4tk+/Au/zx?=
- =?us-ascii?Q?L3WGO65zKiVXeEjlHeyQHKf7DxE3ftN4w+3S9IxG4XtyNUNBzD3WO3Uas7af?=
- =?us-ascii?Q?DPeypPYG00Flvkq/UGdrhoQvsLRndeodMtW+gKPCEJhHL6AISRoN+kIKFd3A?=
- =?us-ascii?Q?Y6xRYHL+kxEFQ+O+6tKKf+YMUkZoxWJetoX6nSuHfIybIVnwdiNgOSwB8EGY?=
- =?us-ascii?Q?Y+tbYJ6gECbePELUNbC6y/Ht9nH2GxRaXtUG6JVqyfu/bm7WidFBR5BYsUuh?=
- =?us-ascii?Q?Pah4eyDpXkatImbowY8+nEBjpMaMXJV54Xn7KfLjbxxJmpewtlBUvEyqt+FR?=
- =?us-ascii?Q?XvgfA/yVjToORJfgRSkyTiZ1jJ4UWJ4BiAElYTbfMdDZdJTDMzY1K8B3i3Z1?=
- =?us-ascii?Q?YeZPtUffUritZMSFkm8l10dzILNAmuWlMrYW+52kxlUGsxasmq1sE8drGLyZ?=
- =?us-ascii?Q?zEaPxnWcvVkZ5IYCMPRmprbkYNpEJwWFSW9WVpxzM16wZV0v6Iyh+TzmY1gk?=
- =?us-ascii?Q?PwLFN27AoY9v22VZtIadDRFp2jpBBWLqoj4Us8R6BkH3bTQut21aAHlJI1+Z?=
- =?us-ascii?Q?Aje0yjwMI6mqoVFxL4mbRZyc4SN9tBEpdRFVblWEyL8PSCW45CD/nvDeFzS8?=
- =?us-ascii?Q?WWTEgKhbsZdSPL6uUszUVUBMsZsO6/Tf1J0HClU3hPpLsPmr5U0PdS4rTUKB?=
- =?us-ascii?Q?gsFR3PSnvDAaSsLs6v+jri9Vhj/qxUeBJlr7DmG/TjAVNWsmir1m95U5bh6i?=
- =?us-ascii?Q?jUVH6LwK1ajKJ+e0C+373xjnNcdlxMEiAykcGp2L?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c4de511-6923-47fb-d316-08dd990d5987
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2025 08:47:57.4974
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 255uQIq20f/lV6SixhfFWNgx6UWq040uVzgIlQVXeU5p+PexGfa62mv8DX6gzmJJeVFNjqGG67q7RfkyQh6t/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7521
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_014803_348105_C182E3AB 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20250522_015201_942861_C0003F1C 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,88 +90,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 12:11:54PM +0200, Michael Nazzareno Trimarchi wrote:
->Hi
->
->
->On Fri, May 16, 2025 at 4:56???AM Peng Fan <peng.fan@oss.nxp.com> wrote:
->>
->> On Wed, May 14, 2025 at 09:05:34AM +0200, Dario Binacchi wrote:
->> >From: Wolfgang Birkner <wolfgang.birkner@bshg.com>
->> >
->> >uart2 is used as wake up source.
->> >
->> >Signed-off-by: Wolfgang Birkner <wolfgang.birkner@bshg.com>
->> >Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
->> >---
->> >
->> > arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts | 4 ++++
->> > 1 file changed, 4 insertions(+)
->> >
->> >diff --git a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
->> >index 5c32d1e3675c..fff21f28c552 100644
->> >--- a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
->> >+++ b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2.dts
->> >@@ -37,6 +37,10 @@ &snvs_poweroff {
->> >       status = "okay";
->> > };
->> >
->> >+&uart2 {
->> >+      status = "okay";
->> >+};
->>
->> No need pinctrl settings?
->>
->
->We found out that in imx6ulz, if we don't enable wakeup on uart2 (or
->other uarts that do not conflict on pinout) we are not able to wake up
->from uart4, which is the console.
->According to the TRM and the code everything look fine but the real
->result it's we stuck in suspend
->
->Here is how we are able to resume.
->
->uart2
->echo enabled > wakeup
->uart4
->echo enabled > wakeup
+Our hardware registers are set through GCE, not by the CPU.
+DRM might assume the hardware is disabled immediately after calling
+atomic_disable() of drm_plane, but it is only truly disabled after the
+GCE IRQ is triggered.
 
-No idea. 
+Additionally, the cursor plane in DRM uses async_commit, so DRM will
+not wait for vblank and will free the buffer immediately after calling
+atomic_disable().
 
-But at least put some info in commit log to describe why set uart2 as okay.
+To prevent the framebuffer from being freed before the layer disable
+settings are configured into the hardware, which can cause an IOMMU
+fault error, a wait_event_timeout has been added to wait for the
+ddp_cmdq_cb() callback,indicating that the GCE IRQ has been triggered.
 
-Thanks,
-Peng
+Fixes: 119f5173628a ("drm/mediatek: Add DRM Driver for Mediatek SoC MT8173.")
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+---
+ drivers/gpu/drm/mediatek/mtk_crtc.c  | 30 ++++++++++++++++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_crtc.h  |  1 +
+ drivers/gpu/drm/mediatek/mtk_plane.c |  5 +++++
+ 3 files changed, 36 insertions(+)
 
->
->Michael
->
->> Regards,
->> Peng
->>
->> >+
->> > &uart3 {
->> >       pinctrl-names = "default";
->> >       pinctrl-0 = <&pinctrl_uart3>;
->> >--
->> >2.43.0
->> >
->> >base-commit: e9565e23cd89d4d5cd4388f8742130be1d6f182d
->> >branch: bsh-202505-imx6ulz_smm_m2
->>
->>
->
->
->-- 
->Michael Nazzareno Trimarchi
->Co-Founder & Chief Executive Officer
->M. +39 347 913 2170
->michael@amarulasolutions.com
->__________________________________
->
->Amarula Solutions BV
->Joop Geesinkweg 125, 1114 AB, Amsterdam, NL
->T. +31 (0)85 111 9172
->info@amarulasolutions.com
->www.amarulasolutions.com
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index 8f6fba4217ec..944a3d1e5ec9 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -719,6 +719,36 @@ int mtk_crtc_plane_check(struct drm_crtc *crtc, struct drm_plane *plane,
+ 	return 0;
+ }
+ 
++void mtk_crtc_plane_disable(struct drm_crtc *crtc, struct drm_plane *plane)
++{
++	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
++	struct mtk_plane_state *plane_state = to_mtk_plane_state(plane->state);
++	int i;
++
++	if (!mtk_crtc->enabled)
++		return;
++
++	/* set pending plane state to disabled */
++	for (i = 0; i < mtk_crtc->layer_nr; i++) {
++		struct drm_plane *mtk_plane = &mtk_crtc->planes[i];
++		struct mtk_plane_state *mtk_plane_state = to_mtk_plane_state(mtk_plane->state);
++
++		if (mtk_plane->index == plane->index) {
++			memcpy(mtk_plane_state, plane_state, sizeof(*plane_state));
++			break;
++		}
++	}
++	mtk_crtc_update_config(mtk_crtc, false);
++
++#if IS_REACHABLE(CONFIG_MTK_CMDQ)
++	/* wait for planes to be disabled by cmdq */
++	if (mtk_crtc->cmdq_client.chan)
++		wait_event_timeout(mtk_crtc->cb_blocking_queue,
++				   mtk_crtc->cmdq_vblank_cnt == 0,
++				   msecs_to_jiffies(500));
++#endif
++}
++
+ void mtk_crtc_async_update(struct drm_crtc *crtc, struct drm_plane *plane,
+ 			   struct drm_atomic_state *state)
+ {
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.h b/drivers/gpu/drm/mediatek/mtk_crtc.h
+index 388e900b6f4d..828f109b83e7 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.h
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.h
+@@ -21,6 +21,7 @@ int mtk_crtc_create(struct drm_device *drm_dev, const unsigned int *path,
+ 		    unsigned int num_conn_routes);
+ int mtk_crtc_plane_check(struct drm_crtc *crtc, struct drm_plane *plane,
+ 			 struct mtk_plane_state *state);
++void mtk_crtc_plane_disable(struct drm_crtc *crtc, struct drm_plane *plane);
+ void mtk_crtc_async_update(struct drm_crtc *crtc, struct drm_plane *plane,
+ 			   struct drm_atomic_state *plane_state);
+ struct device *mtk_crtc_dma_dev_get(struct drm_crtc *crtc);
+diff --git a/drivers/gpu/drm/mediatek/mtk_plane.c b/drivers/gpu/drm/mediatek/mtk_plane.c
+index 655106bbb76d..59edbe26f01e 100644
+--- a/drivers/gpu/drm/mediatek/mtk_plane.c
++++ b/drivers/gpu/drm/mediatek/mtk_plane.c
+@@ -285,9 +285,14 @@ static void mtk_plane_atomic_disable(struct drm_plane *plane,
+ 	struct drm_plane_state *new_state = drm_atomic_get_new_plane_state(state,
+ 									   plane);
+ 	struct mtk_plane_state *mtk_plane_state = to_mtk_plane_state(new_state);
++	struct drm_plane_state *old_state = drm_atomic_get_old_plane_state(state,
++									   plane);
++
+ 	mtk_plane_state->pending.enable = false;
+ 	wmb(); /* Make sure the above parameter is set before update */
+ 	mtk_plane_state->pending.dirty = true;
++
++	mtk_crtc_plane_disable(old_state->crtc, plane);
+ }
+ 
+ static void mtk_plane_atomic_update(struct drm_plane *plane,
+-- 
+2.43.0
+
 
