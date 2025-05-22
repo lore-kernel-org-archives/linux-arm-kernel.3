@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6914C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D02FC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NARwVylGfizLd3XVx9Ze8dRNa153/I6PhonXyOONLqg=; b=z9HWJR1ZqSIPaEKXw6ll+hqwvM
-	AGRHTkBIdlxluMa11f/4qTQMVMmS/TUk9hFs8EjaDYv3zS/7I3AzKXdfNbIE522WHsfZ1rlURQbw1
-	J4bTVBkC0xVf+TO1QoXwF6/Vc9y1FEH2VQxDCmIaCEwN26kZfynkbDR0zknMRG98WSkT53hWeScGL
-	jcAPuPcalzOJxXfk6Ipzq7K0+BB70LpK3TwMtpDJsqnqYJsNfpfRCuFWIN0IkDP2cP7jYhjqALzef
-	lZc8EhlpkIjXHRcXM7/kVLK62JQMHUqw3hWC+78fB92fWcefV2FtvOY28t9Cr+0YxUG3E0TKVEMEW
-	WYEK0w6A==;
+	bh=jySRI/8bFMF3lqKUnU42PqyJe/L7FVdEHZlxB5NuuwI=; b=SCkcGLy2UgRK6K0MfZ8IUs6XvM
+	GEZ9BMWNf50hi6l5yDmnBRXHXDk+3XAKDUA/fUJdB3cHH1fHU5ZZIwNxlnw5YVUvay9gVX4Y8FSnZ
+	D9jXqFznrRlVBYHDeKGgdWw7Nm4Cfe8Cv3VeCqf1ILhshzbw1TYB3GqgxmaC/Z6vIsbze2yH7Y7So
+	Xs9vomxpJWIPdps0P268xizEtYxhzkwaqUmoSJWs9Uv/OoEGYFAVygPF8lpdwQtR8/E3fG+wWqI5t
+	/nASxb2hSsY3YtvlxdjkoTmI0XfNG0jsAxKsyig7tj0tk2e3f5obsN2CVSYnYGexSKCfhZ9BAPe0g
+	O7vFEhlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8ln-00000001YvQ-1oqE;
-	Thu, 22 May 2025 16:27:47 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uI8lv-00000001Z1C-2y1B;
+	Thu, 22 May 2025 16:27:55 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7TQ-00000001N8Y-3JpU;
-	Thu, 22 May 2025 15:04:46 +0000
-X-UUID: 149b0de2371e11f0bed96b30c12bc3d6-20250522
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=NARwVylGfizLd3XVx9Ze8dRNa153/I6PhonXyOONLqg=;
-	b=ld9u9aJjMxI2CVXUVYm4mBW9+b3zVKs4kSnIJ0t6W14rHqyYikUuJ960eirnxE5SdXAGE5aLBT2dfBRLaxuIGLVMImeTCiWcgO90ru+NIZ91vuvQbQNFUfnjDiXbGUYVf9vyVhPFJ30vIpGu0HpcvhFbylDsnWWF5zktgInD3HU=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:ef4fe0e4-73dd-4c01-b487-1ecb284f64ed,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:0ef645f,CLOUDID:8f9bdd57-abad-4ac2-9923-3af0a8a9a079,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|97|99|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 149b0de2371e11f0bed96b30c12bc3d6-20250522
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <nancy.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1063282152; Thu, 22 May 2025 08:04:38 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 22 May 2025 23:04:34 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 22 May 2025 23:04:34 +0800
-From: Nancy.Lin <nancy.lin@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Liam Girdwood
-	<lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<jason-jh.lin@mediatek.com>, <singo.chang@mediatek.com>,
-	<paul-pl.chen@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>
-Subject: [PATCH 1/2] dt-bindings: regulator: mediatek: Add MT8196 vmm controller
-Date: Thu, 22 May 2025 23:03:33 +0800
-Message-ID: <20250522150426.3418225-2-nancy.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250522150426.3418225-1-nancy.lin@mediatek.com>
-References: <20250522150426.3418225-1-nancy.lin@mediatek.com>
+	id 1uI8Ex-00000001VSN-1qHY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 15:53:52 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54MFrcMV1855269;
+	Thu, 22 May 2025 10:53:38 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1747929218;
+	bh=jySRI/8bFMF3lqKUnU42PqyJe/L7FVdEHZlxB5NuuwI=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=W3i23DkBWlVYARl6EhAZFr0Y45cTG7ZQVSO+Qo95JHu11xxtwnszehXoaeDHkiuOU
+	 fUgIE2MxKZ4Y3mMcim1JPH4bgRos4+YfUETWGsWjIrdhzdMfPCgzXk1qD3z8HgPtst
+	 FXjk+uOvdjnrLxy35TlHPzOAJO8oxDoW3up4hLOo=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54MFrcBs3103726
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 22 May 2025 10:53:38 -0500
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 22
+ May 2025 10:53:38 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 22 May 2025 10:53:38 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54MFrccP111653;
+	Thu, 22 May 2025 10:53:38 -0500
+Date: Thu, 22 May 2025 10:53:38 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Beleswar Padhi <b-padhi@ti.com>
+CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <afd@ti.com>,
+        <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 0/2] TI: K3: Switch MCU R5F cluster into Split mode
+Message-ID: <20250522155338.gpbcubkvygtju3qc@bagpipe>
+References: <20250522073426.329344-1-b-padhi@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250522073426.329344-1-b-padhi@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_080444_837241_9708CBCD 
+X-CRM114-CacheID: sfid-20250522_085351_567589_43502E59 
 X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,102 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nancy Lin <nancy.lin@mediatek.com>
+On 13:04-20250522, Beleswar Padhi wrote:
+> Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 have a
+> R5F cluster in the MCU domain which is configured for LockStep mode at
+> the moment. Switch this R5F cluster to Split mode by default in all
+> corresponding board level DTs to maximize the number of R5F cores.
 
-Add a device tree binding document for the MediaTek MT8196 VMM (Vcore
-for MultiMedia) regulator controller. The VMM controller acts as the
-main power supplier for multimedia power domains, such as those used
-by display, video encode and decode subsystems. It provides virtual
-regulators that serve as the power sources for various multimedia IPs,
-and coordinates with the hardware common clock framework (hwccf) and
-the Video Companion Processor (VCP) to manage the power domains of
-these components. The regulator is controlled by the VCP firmware,
-and the operating system signals its requirement through a voting
-hardware block (hwccf).
+Why? I can read the patch to understand what you are trying to do, but
+the rationale needs to be explained.
 
-Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
----
- .../mediatek,mt8196-vmm-regulator.yaml        | 70 +++++++++++++++++++
- 1 file changed, 70 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml
+> 
+> Corresponding support to shutdown MCU R5F core 1 on SoC power on have
+> been posted in U-Boot:
+> https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
+> 
+> While at it, correct the firmware-name property for MCU R5F cores of
+> J742S2 SoC in [PATCH 1/2].
+> 
+> Testing Done:
+> 1. Tested that each patch does not generate any new warnings/errors.
+> 2. Build test on all existing TI K3 platforms.
+> 3. Tested U-Boot and Linux load of MCU R5F core in split mode on all
+> applicable boards (AM68-SK, AM69-SK, J7200-EVM, J721E-EVM, J721S2-EVM,
+> J784S4-evm, J742S2-EVM)
+> 
+> Test logs:
+> https://gist.github.com/3V3RYONE/ee8e3cb9aa5f4c5c00b059b9c14bfa98
+> 
+> Thanks,
+> Beleswar
+> 
+> Beleswar Padhi (2):
+>   arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU
+>     R5F cores
+>   arm64: dts: ti: k3: Switch MCU R5F cluster to Split-mode
 
-diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml
-new file mode 100644
-index 000000000000..a50e35c2e238
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml
-@@ -0,0 +1,70 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: "http://devicetree.org/schemas/regulator/mediatek,mt8196-vmm-regulator.yaml#"
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT8196 VMM (Vcore for MultiMedia) Regulator Controller
-+
-+maintainers:
-+  - Nancy Lin <nancy.lin@mediatek.com>
-+
-+description: |
-+  The MediaTek MT8196 VMM (Vcore for Multi Media) controller acts as the
-+  main power supplier for multimedia power domains, such as those used by
-+  display, video encode and decode subsystems. The VMM hardware block
-+  provides virtual regulators that serve as the power sources (suppliers)
-+  for various multimedia IPs. It coordinates with the MediaTek hardware
-+  common clock framework (HWCCF) and the Video Companion Processor (VCP)
-+  to manage the power domains of these multimedia components.
-+
-+  Each child node under the VMM node represents a virtual regulator
-+  (e.g., vdisp, vdec-vcore) and must specify a 'regulator-name'.
-+
-+properties:
-+  compatible:
-+    const: "mediatek,mt8196-vmm"
-+
-+  mediatek,hw-ccf:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle to the hardware common clock framework syscon controller.
-+
-+  mediatek,vcp:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Phandle to the Video Co-Processor (VCP) node.
-+
-+patternProperties:
-+  "^(vdisp|vdec-vcore)$":
-+    type: object
-+    description: |
-+      Virtual regulator for a specific multimedia domain.
-+      The node name should match the supported regulator (e.g., vdisp, vdec-vcore).
-+    properties:
-+      regulator-name:
-+        type: string
-+        description: The name of the virtual regulator.
-+    required:
-+      - regulator-name
-+    additionalProperties: false
-+
-+required:
-+  - compatible
-+  - mediatek,hw-ccf
-+  - mediatek,vcp
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    vmm: vmm {
-+      compatible = "mediatek,mt8196-vmm";
-+      mediatek,hw-ccf = <&mm_hwv>;
-+      mediatek,vcp = <&vcp>;
-+
-+      vdisp: vdisp {
-+        regulator-name = "vdisp";
-+      };
-+      vdec_vcore: vdec-vcore {
-+        regulator-name = "vdec-vcore";
-+      };
-+    };
+NAK! We are once again churning downstream users again and for what
+reason - coverletter and the patch is vague on that!
+
+I would prefer the entire remote proc dts stuff cleaned up once for all
+in a comprehensive series.
+
+Let me be clear (once again): We DO NOT break backward compatibility.
+We do not break downstream users without a clear cut rationale. We do
+not break all other ecosystems depending on device tree without a very
+very solid reason.
+
 -- 
-2.45.2
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
