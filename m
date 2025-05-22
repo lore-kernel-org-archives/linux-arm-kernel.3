@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C87CCC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 09:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC854C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 09:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYgdYMD4nl8RSbx4G4+TswzTUFW0mTExeNOlROMkvNQ=; b=Wxb64MI2tHiPaDMwjBf05rZbom
-	I88qhKokhJUviDy3CFo3gJmUE4l0YqlUgHH4fwIUtD/EhuSkRvkml2goHTXSV9II0HAyhWQimLJO7
-	ujyAZkSLf6Ya/scr4VPyVgVjgR0H9/X6ZblkWiGHIr0ZPmaesjoGx9ygXr9hu0ScCx5aAUUiSt4em
-	gPyW1LGBBHOnZXzlrUdtD5QoBdkmE7YUsUdaUjZ5nMHoox4tPJQPivHgeEf0ZWpxMNuPqLFIpmGZ+
-	BQht5AApfg4hnjXOT9YcMo0fk+uYv0ehiNtlwQqMt/1JE4etwSAavG+3bFPiW571R/Sd8gF37CEs1
-	U7XOLYjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M9R71UX8NEYk58ZlEImpKLWjCn+AKzWOGW7F4PMoRrs=; b=a0CcWSVtmHE44ZbgfoITjdkJLI
+	YZJWuE0bcSbZzqHXzlkrXbQ9uDrfl8mpd7cEYWmMKz021Mv7gN+gG9RXnlPX2TTUseA/fpxiqN8Ii
+	Avn0vCxJePv4mpYDZ5WU4j4FkO10tWAnJyWRFkFvo241Qw+hFACooHO/Aev46eL6jBlQp0MWicpd2
+	AuJWRPdVf0yQRwXyr/jsgSQmwpt1yDyZosFQcZwKP7G4DzgisnUGyCSN7ZhLqPcnhSN7VaMH4F8+Q
+	zPWXZY0/uy9V6PBGpibNQxjO4xUGww7l4X3nIpke0AcH1kCvUHSplvD+6Lm0GgUUzSSdbji1NiloE
+	OIbCtCXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1sC-00000000QHO-2diB;
-	Thu, 22 May 2025 09:05:56 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uI1wW-00000000R06-0qrA;
+	Thu, 22 May 2025 09:10:24 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI1pA-00000000PZh-1wu5
+	id 1uI1th-00000000QbD-02Lp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 09:02:49 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uI1p5-0003f4-CQ; Thu, 22 May 2025 11:02:43 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uI1p5-000huU-0F;
-	Thu, 22 May 2025 11:02:43 +0200
-Received: from pengutronix.de (unknown [IPv6:2a03:2260:2009:2000::])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 2264D4175E8;
-	Thu, 22 May 2025 09:02:42 +0000 (UTC)
-Date: Thu, 22 May 2025 11:02:41 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
-	kever.yang@rock-chips.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: rk3576: add can dts nodes
-Message-ID: <20250522-poetic-sloth-of-memory-3c2e33-mkl@pengutronix.de>
-References: <20250522063232.2197432-1-zhangqing@rock-chips.com>
- <20250522063232.2197432-4-zhangqing@rock-chips.com>
+	Thu, 22 May 2025 09:07:30 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4b32T830LxzVmcC;
+	Thu, 22 May 2025 17:06:04 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id D0E20140134;
+	Thu, 22 May 2025 17:07:19 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 22 May 2025 17:07:19 +0800
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 22 May 2025 17:07:18 +0800
+CC: <yangyicong@hisilicon.com>, <namhyung@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <peterz@infradead.org>,
+	<mingo@redhat.com>, <mark.rutland@arm.com>, <jolsa@kernel.org>,
+	<john.g.garry@oracle.com>, <james.clark@linaro.org>, <leo.yan@linux.dev>,
+	<irogers@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>, <jonathan.cameron@huawei.com>,
+	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
+	<caijingtao@huawei.com>, <xueshan2@huawei.com>, <prime.zeng@hisilicon.com>,
+	Joe Mario <jmario@redhat.com>
+Subject: Re: [PATCH v2 0/3] Add support for SPE Data Source packet on
+ HiSilicon HIP12
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+References: <20250425033845.57671-1-yangyicong@huawei.com>
+ <d06b1e86-b6b8-3909-65bb-45b7cd70d263@huawei.com> <aC3oFxuEbVEHd3Pb@x1>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <b567709c-2e5b-8000-d856-ae92cba22816@huawei.com>
+Date: Thu, 22 May 2025 17:07:18 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="t63acjbvqvulm4br"
-Content-Disposition: inline
-In-Reply-To: <20250522063232.2197432-4-zhangqing@rock-chips.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <aC3oFxuEbVEHd3Pb@x1>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_020248_500531_62DC8028 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250522_020729_205131_867CFEA8 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,46 +84,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2025/5/21 22:49, Arnaldo Carvalho de Melo wrote:
+> On Wed, May 14, 2025 at 11:38:42AM +0800, Yicong Yang wrote:
+>> a gentle ping on this..
+> 
+> So this involves both kernel and tooling, as soon as someone merges the
+> kernel part, I can try and get to the user part,
+> 
 
---t63acjbvqvulm4br
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: rk3576: add can dts nodes
-MIME-Version: 1.0
+the kernel part only add the cputype definition, then the definition update is synchronized in
+both userspace/kernel headers. So the changes in the userspace actually have no dependency on
+the kernel one.
 
-On 22.05.2025 14:32:32, Elaine Zhang wrote:
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
+Thanks.
 
-Please upstream the dtsi changes via the rockchip soc tree, once the
-yaml changes are in net-next/main.
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---t63acjbvqvulm4br
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmgu6C4ACgkQDHRl3/mQ
-kZyRDwf/WT5jFUA6f9sJPzL/R7UCu5fTOaxRuiSdEflm/vzbTA5jgKIwjp1GV2E7
-BtTYgX5bKQ5f4jUlt9OYozeFVHpXcuxvGHaCHV8tdIq2jDZI+RXazlNOMouRWgxw
-+SKGlXbV5sCVxa5DObzCjvZsgZhaEsXm+vYGuuWZfYVbfnn/oqMcoZrGe+DvdpR3
-glDLQA7Ikz6JFh1HwlShFnW3EvB9f7NkRelHm/DGigbLxtx+FEFENtW7/xFmEeML
-rMkNT3XcFMq6y6MhtssU78OWaJod6LvAfwR2xcYJY68jACl6oGr8uzVOpZcPnPIn
-WtU9JbU0AsDZntgGtlbiTH+uBxLPAA==
-=ku/M
------END PGP SIGNATURE-----
-
---t63acjbvqvulm4br--
+> - Arnaldo
+>  
+>> Thanks.
+>>
+>> On 2025/4/25 11:38, Yicong Yang wrote:
+>>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>>
+>>> Add support for Data Source packet on HIP12. Support counting L2 HITM for c2c
+>>> statistic since it was missing.
+>>>
+>>> Change since v2:
+>>> - split the kernel/userspace changes into different patch
+>>> - revise some mem_snoop decoding according to the discussion
+>>> - count missing L2 HITM for c2c statistic
+>>> Link: https://lore.kernel.org/linux-perf-users/20250408122809.37884-1-yangyicong@huawei.com/
+>>>
+>>> Yicong Yang (3):
+>>>   arm64: cputype: Add cputype definition for HIP12
+>>>   perf arm-spe: Add support for SPE Data Source packet on HiSilicon
+>>>     HIP12
+>>>   perf mem: Count L2 HITM for c2c statistic
+>>>
+>>>  arch/arm64/include/asm/cputype.h              |  2 +
+>>>  tools/arch/arm64/include/asm/cputype.h        |  2 +
+>>>  .../util/arm-spe-decoder/arm-spe-decoder.h    | 17 ++++
+>>>  tools/perf/util/arm-spe.c                     | 96 +++++++++++++++++++
+>>>  tools/perf/util/mem-events.c                  |  5 +-
+>>>  5 files changed, 121 insertions(+), 1 deletion(-)
+>>>
+> 
+> .
+> 
 
