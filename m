@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45CFC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 13:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 814C8C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 13:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yAzVUYHblSoPTB0olb5aawXBsuLsX+i/Vja0SSAs4yM=; b=ZzrbhKJSWnJYpfiZqTS0Eu0/Vi
-	oSdbvM80Tl1qwzyOfw3RPktKvwuBPEFd4sAqNDnYCN7mIErsH0SyrZKWozijKna/ur/YpXIxnewFi
-	A2AtUrii8Kg/2oB8XEW810uh9ciAiRHnL71TCnUxgjkwIxTrWDsLw9jcEYOqUxBplMwgoZxoozAkF
-	g0txP3aYAaGWcYqWXoDdKyZuvCO3dD23XiwdhjIS9PsFOR9vPUID6ybupLvWsLCzwEMcOfJBKg/rq
-	5WYbjyWmXnfLBnab3UXBRQWnUOKgF2wuLiGuuGDflQyXkRs+TSJyw1Hk6MV0O+UHqWWZSQiKVh1X4
-	x+I8EC8w==;
+	bh=22CZ19ohWICj8Wpal7f4VoGfrvMdNhjiPb26IYm7Wu8=; b=AHsN3h2UZHuwiGX9We9VwVYSBO
+	+lgVK2/V+RuSGQItI65Q7pGTz3V7wDxErUoiuhA1rrH3b5uyxijZ6FyfYCbaLXe/KUPq/M2KC954L
+	cHa9UVrqPW/uj/gKJCC5wZhHz7KTXzpXRd8KOfXgWp02GRFedPj+GEeOIT+wHLH7kzg6naBMJpDXX
+	Q//RCWyRBqlp1K1oDc1nhQdvywgziRulw9qIWTbFcM1Q/gTGQ5Bg3TL/vNaYOzmu8+rCzft/2b0w4
+	uZK6873FCbvs5vwYqbgkvNw+2BQFmTTFRvMt9xm4S/0cbzKwwKSaLfoLp4XCJwdsOmbcBmmxpRflH
+	hmP7fmVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI5cY-0000000144U-1v0z;
-	Thu, 22 May 2025 13:06:02 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI5ZZ-000000013ev-2fQw;
-	Thu, 22 May 2025 13:02:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1747918959; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=M/xFiBagEKR2Ya2kcXXxy6kLBV3zzmtEhWu9yB1vpCuDHugM3XN3xh9fyKMy7DEI37fdD6Essd55B+Muy9wyEMbqXN4ZFHybbMbG7GoX024Q9H4mYVra5Z/A4ZA02nVkmxl8MZFl5hXsbaTgEu2X4aztI948dnR1m3LKFLFIhxI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1747918959; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=yAzVUYHblSoPTB0olb5aawXBsuLsX+i/Vja0SSAs4yM=; 
-	b=Iy1MI7rk6DydTqZt+PsgWIcPQojnJmeNjx9Gjr/1FLPSUS37Ma/gQUClvo3EtfltDEHgoDPyt9iytkpMf+hMBHEZMQQia2Z/ct7oC+7g9aoPJo/aUxoa30JSXVq9AOXtLNi/M8/ZgjUqCjEdDueyWrz0YiWJF0GFGamPavwgisA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747918959;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=yAzVUYHblSoPTB0olb5aawXBsuLsX+i/Vja0SSAs4yM=;
-	b=e+ThdrWj/dCeYWjXT7Sn2wa3UbL1rJgVHxXHJDk9Cka0ViwZKX6DutfJbRLcFfr1
-	oITFGrcjbesSdKS33jfnRZjh3BxeoCkTAwrv2+1rH+CrKdZgI6012kkmvTQ0ksyq2ML
-	WSG3YjJx6iZ93fVUhbMO+a8z/c5yS1I9dgVviLpw=
-Received: by mx.zohomail.com with SMTPS id 1747918955405526.6068930201867;
-	Thu, 22 May 2025 06:02:35 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, William Breathitt Gray <wbg@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Kever Yang <kever.yang@rock-chips.com>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-iio@vger.kernel.org, kernel@collabora.com,
- Jonas Karlman <jonas@kwiboo.se>,
- Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH 5/7] pwm: Add rockchip PWMv4 driver
-Date: Thu, 22 May 2025 15:02:29 +0200
-Message-ID: <4313739.kQq0lBPeGt@workhorse>
-In-Reply-To: <zg47we7oopvuayi7wyosq6j7uuzz4numystbmluezsim2pxg4g@zvtm3pwzkice>
-References: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
- <20250408-rk3576-pwm-v1-5-a49286c2ca8e@collabora.com>
- <zg47we7oopvuayi7wyosq6j7uuzz4numystbmluezsim2pxg4g@zvtm3pwzkice>
+	id 1uI5eX-000000014L4-3lgP;
+	Thu, 22 May 2025 13:08:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uI5cF-0000000140W-2fyo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 13:05:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D3551A2D;
+	Thu, 22 May 2025 06:05:26 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 528DC3F673;
+	Thu, 22 May 2025 06:05:40 -0700 (PDT)
+Date: Thu, 22 May 2025 14:05:36 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 2/2] coresight: add coresight Trace Network On Chip
+ driver
+Message-ID: <20250522130536.GA2566836@e132581.arm.com>
+References: <20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com>
+ <20250522-trace-noc-v6-2-f5a9bcae90ee@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250522-trace-noc-v6-2-f5a9bcae90ee@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_060257_747310_0081D6DB 
-X-CRM114-Status: GOOD (  53.38  )
+X-CRM114-CacheID: sfid-20250522_060543_768140_718DE35D 
+X-CRM114-Status: GOOD (  41.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,585 +71,370 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+Hi Yuanfang,
 
-thanks for the review. Just got started on v2, I'll respond or ack comments
-inline.
+On Thu, May 22, 2025 at 04:07:52PM +0800, Yuanfang Zhang wrote:
+> Add a driver to support Coresight device Trace Network On Chip (TNOC),
+> which is an integration hierarchy integrating functionalities of TPDA
+> and funnels. It aggregates the trace and transports to coresight trace
+> bus.
 
-On Tuesday, 13 May 2025 19:26:31 Central European Summer Time Uwe Kleine-K=
-=C3=B6nig wrote:
-> Hello Nicolas,
->=20
-> On Tue, Apr 08, 2025 at 02:32:17PM +0200, Nicolas Frattaroli wrote:
-> > The Rockchip RK3576 brings with it a new PWM IP, in downstream code
-> > referred to as "v4". This new IP is different enough from the previous
-> > Rockchip IP that I felt it necessary to add a new driver for it, instead
-> > of shoehorning it in the old one.
-> >=20
-> > Add this new driver, based on the PWM core's waveform APIs. Its platform
-> > device is registered by the parent mfpwm driver, from which it also
-> > receives a little platform data struct, so that mfpwm can guarantee that
-> > all the platform device drivers spread across different subsystems for
-> > this specific hardware IP do not interfere with each other.
-> >=20
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  MAINTAINERS                   |   1 +
-> >  drivers/pwm/Kconfig           |  13 ++
-> >  drivers/pwm/Makefile          |   1 +
-> >  drivers/pwm/pwm-rockchip-v4.c | 336 ++++++++++++++++++++++++++++++++++=
-++++++++
-> >  4 files changed, 351 insertions(+)
-> >=20
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index e6a9347be1e7889089e1d9e655cb23c2d8399b40..3ddd245fd4ad8d9ed2e7629=
-10a7a1f6436f93e34 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -20891,6 +20891,7 @@ L:	linux-rockchip@lists.infradead.org
-> >  L:	linux-pwm@vger.kernel.org
-> >  S:	Maintained
-> >  F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
-> > +F:	drivers/pwm/pwm-rockchip-v4.c
-> >  F:	drivers/soc/rockchip/mfpwm.c
-> >  F:	include/soc/rockchip/mfpwm.h
-> > =20
-> > diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> > index 4731d5b90d7edcc61138e4a5bf7e98906953ece4..242039f62ab091cea337bf2=
-7ef310bcf696b6ed0 100644
-> > --- a/drivers/pwm/Kconfig
-> > +++ b/drivers/pwm/Kconfig
-> > @@ -540,6 +540,19 @@ config PWM_ROCKCHIP
-> >  	  Generic PWM framework driver for the PWM controller found on
-> >  	  Rockchip SoCs.
-> > =20
-> > +config PWM_ROCKCHIP_V4
-> > +	tristate "Rockchip PWM v4 support"
-> > +	depends on ARCH_ROCKCHIP || COMPILE_TEST
-> > +	depends on ROCKCHIP_MFPWM
-> > +	depends on HAS_IOMEM
-> > +	help
-> > +	  Generic PWM framework driver for the PWM controller found on
-> > +	  later Rockchip SoCs such as the RK3576.
-> > +
-> > +	  Uses the Rockchip Multi-function PWM controller driver infrastructu=
-re
-> > +	  to guarantee fearlessly concurrent operation with other functions of
-> > +	  the same device implemented by drivers in other subsystems.
-> > +
-> >  config PWM_RZ_MTU3
-> >  	tristate "Renesas RZ/G2L MTU3a PWM Timer support"
-> >  	depends on RZ_MTU3
-> > diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> > index 539e0def3f82fcb866ab83a0346a15f7efdd7127..b5aca7ff58ac83f844581df=
-526624617025291de 100644
-> > --- a/drivers/pwm/Makefile
-> > +++ b/drivers/pwm/Makefile
-> > @@ -49,6 +49,7 @@ obj-$(CONFIG_PWM_RASPBERRYPI_POE)	+=3D pwm-raspberryp=
-i-poe.o
-> >  obj-$(CONFIG_PWM_RCAR)		+=3D pwm-rcar.o
-> >  obj-$(CONFIG_PWM_RENESAS_TPU)	+=3D pwm-renesas-tpu.o
-> >  obj-$(CONFIG_PWM_ROCKCHIP)	+=3D pwm-rockchip.o
-> > +obj-$(CONFIG_PWM_ROCKCHIP_V4)	+=3D pwm-rockchip-v4.o
-> >  obj-$(CONFIG_PWM_RZ_MTU3)	+=3D pwm-rz-mtu3.o
-> >  obj-$(CONFIG_PWM_SAMSUNG)	+=3D pwm-samsung.o
-> >  obj-$(CONFIG_PWM_SIFIVE)	+=3D pwm-sifive.o
-> > diff --git a/drivers/pwm/pwm-rockchip-v4.c b/drivers/pwm/pwm-rockchip-v=
-4.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..980b27454ef9b930bef0496=
-ca528533cf419fa0e
-> > --- /dev/null
-> > +++ b/drivers/pwm/pwm-rockchip-v4.c
-> > @@ -0,0 +1,336 @@
-> > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > +/*
-> > + * Copyright (c) 2025 Collabora Ltd.
-> > + *
-> > + * A Pulse-Width-Modulation (PWM) generator driver for the generators =
-found in
-> > + * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4=
-". Uses
-> > + * the MFPWM infrastructure to guarantee exclusive use over the device=
- without
-> > + * other functions of the device from different drivers interfering wi=
-th its
-> > + * operation while it's active.
->=20
-> Can you please add a "Limitations" paragraph here similar to the other
-> newer drivers that explains how the hardware behave on disable
-> (inactive? High-Z? freeze?), if there are glitches possible when
-> settings are changed or if the currently running period is completed on
-> reconfiguration.
+The code quality is good for me. However, I still have several minor
+comments.
 
-Will do. Might need a few long hours with the logic analyzer and poking at
-the common clock framework to cover all bases.
+> Compared to current configuration, it has the following advantages:
+> 1. Reduce wires between subsystems.
+> 2. Continue cleaning the infrastructure.
+> 3. Reduce Data overhead by transporting raw data from source to target.
+> 
+>   +------------------------+                +-------------------------+
+>   | Video Subsystem        |                |Video Subsystem          |
+>   |       +-------------+  |                |       +------------+    |
+>   |       | Video TPDM  |  |                |       | Video TPDM |    |
+>   |       +-------------+  |                |       +------------+    |
+>   |            |           |                |              |          |
+>   |            v           |                |              v          |
+>   |   +---------------+    |                |        +-----------+    |
+>   |   | Video funnel  |    |                |        |Video TNOC |    |
+>   |   +---------------+    |                |        +-----------+    |
+>   +------------|-----------+                +------------|------------+
+>                |                                         |
+>                v-----+                                   |
+> +--------------------|---------+                         |
+> |  Multimedia        v         |                         |
+> |  Subsystem   +--------+      |                         |
+> |              |  TPDA  |      |                         v
+> |              +----|---+      |              +---------------------+
+> |                   |          |              |   Aggregator  TNOC  |
+> |                   |          |              +----------|----------+
+> |                   +--        |                         |
+> |                     |        |                         |
+> |                     |        |                         |
+> |              +------v-----+  |                         |
+> |              |  Funnel    |  |                         |
+> |              +------------+  |                         |
+> +----------------|-------------+                         |
+>                  |                                       |
+>                  v                                       v
+>       +--------------------+                    +------------------+
+>       |   Coresight Sink   |                    |  Coresight Sink  |
+>       +--------------------+                    +------------------+
+> 
+>        Current Configuration                            TNOC
+> 
+> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+> ---
+>  drivers/hwtracing/coresight/Kconfig          |  13 ++
+>  drivers/hwtracing/coresight/Makefile         |   1 +
+>  drivers/hwtracing/coresight/coresight-tnoc.c | 192 +++++++++++++++++++++++++++
+>  drivers/hwtracing/coresight/coresight-tnoc.h |  34 +++++
+>  4 files changed, 240 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+> index ecd7086a5b83e86b6bc8ea039d6d26a628334ed3..f20600d58f38568f8178f69d3f678c2df2cbca7e 100644
+> --- a/drivers/hwtracing/coresight/Kconfig
+> +++ b/drivers/hwtracing/coresight/Kconfig
+> @@ -259,4 +259,17 @@ config CORESIGHT_DUMMY
+>  
+>  	  To compile this driver as a module, choose M here: the module will be
+>  	  called coresight-dummy.
+> +
+> +config CORESIGHT_TNOC
+> +	tristate "Coresight Trace Network On Chip driver"
+> +	help
+> +	  This driver provides support for Trace Network On Chip (TNOC) component.
+> +	  TNOC is an interconnect used to collect traces from various subsystems
+> +	  and transport to a coresight trace sink. It sits in the different
+> +	  tiles of SOC and aggregates the trace local to the tile and transports
+> +	  it another tile or to coresight trace sink eventually.
+> +
+> +	  To compile this driver as a module, choose M here: the module will be
+> +	  called coresight-tnoc.
+> +
+>  endif
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index 8e62c3150aebd1e82b445fafc97a0a9b44397b0e..880e9ed6bfe9c711492c6a2cd972751f56dd8010 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
+>  obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
+>  obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
+>  					   coresight-replicator.o
+> +obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
+>  obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
+>  coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
+>  		     coresight-etm3x-sysfs.o
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..5658501155d322d28e87ff820c7ba8b787eff7ce
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+> @@ -0,0 +1,192 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> + #include <linux/amba/bus.h>
+> + #include <linux/coresight.h>
+> + #include <linux/device.h>
+> + #include <linux/io.h>
+> + #include <linux/kernel.h>
+> + #include <linux/module.h>
+> + #include <linux/of.h>
+> + #include <linux/platform_device.h>
+> +
+> +#include "coresight-priv.h"
+> +#include "coresight-tnoc.h"
+> +#include "coresight-trace-id.h"
+> +
+> +DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
+> +
+> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +	u32 val;
+> +
+> +	/* Set ATID */
+> +	writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+> +
+> +	/* Set the data word count between 'SYNC' packets */
+> +	writel_relaxed(TRACE_NOC_SYNC_INTERVAL, drvdata->base + TRACE_NOC_SYNCR);
+> +
+> +	/* Set the Control register:
+> +	 * - Set the FLAG packets to 'FLAG' packets
+> +	 * - Set the FREQ packets to 'FREQ_TS' packets
+> +	 * - Enable generation of output ATB traffic
+> +	 */
+> +
+> +	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+> +
+> +	val &= ~TRACE_NOC_CTRL_FLAGTYPE;
+> +	val |= TRACE_NOC_CTRL_FREQTYPE;
+> +	val |= TRACE_NOC_CTRL_PORTEN;
+> +
+> +	writel(val, drvdata->base + TRACE_NOC_CTRL);
+> +}
+> +
+> +static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
+> +			    struct coresight_connection *outport)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	spin_lock(&drvdata->spinlock);
 
->=20
-> > + *
-> > + * Authors:
-> > + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > + */
-> > +
-> > +#include <linux/platform_device.h>
-> > +#include <linux/pwm.h>
-> > +#include <soc/rockchip/mfpwm.h>
-> > +
-> > +struct rockchip_pwm_v4 {
-> > +	struct rockchip_mfpwm_func *pwmf;
-> > +	struct pwm_chip chip;
-> > +};
-> > +
-> > +struct rockchip_pwm_v4_wf {
-> > +	u32 period;
-> > +	u32 duty;
-> > +	u32 offset;
-> > +	u8 enable;
-> > +};
-> > +
-> > +static inline struct rockchip_pwm_v4 *to_rockchip_pwm_v4(struct pwm_ch=
-ip *chip)
-> > +{
-> > +	return pwmchip_get_drvdata(chip);
-> > +}
-> > +
-> > +/**
-> > + * rockchip_pwm_v4_round_single - convert a PWM parameter to hardware
-> > + * @rate: clock rate of the PWM clock, as per clk_get_rate
-> > + * @in_val: parameter in nanoseconds to convert
-> > + * @out_val: pointer to location where converted result should be stor=
-ed.
-> > + *
-> > + * If @out_val is %NULL, no calculation is performed.
-> > + *
-> > + * Return:
-> > + * * %0          - Success
-> > + * * %-EOVERFLOW - Result too large for target type
-> > + */
-> > +static int rockchip_pwm_v4_round_single(unsigned long rate, u64 in_val,
-> > +					u32 *out_val)
-> > +{
-> > +	u64 tmp;
-> > +
-> > +	if (!out_val)
-> > +		return 0;
->=20
-> This is never hit, so better drop it.
+        scoped_guard(spinlock, &drvdata->spinlock) {
 
-Will do.
+        }
 
->=20
-> > +	tmp =3D mult_frac(rate, in_val, NSEC_PER_SEC);
-> > +	if (tmp > U32_MAX)
-> > +		return -EOVERFLOW;
->=20
-> Is it clear that this cannot overflow the u64?
+> +	if (csdev->refcnt == 0)
+> +		trace_noc_enable_hw(drvdata);
+> +
+> +	csdev->refcnt++;
+> +	spin_unlock(&drvdata->spinlock);
+> +
+> +	dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
+> +	return 0;
+> +}
+> +
+> +static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +	writel(0x0, drvdata->base + TRACE_NOC_CTRL);
+> +}
 
-Good point. mult_frac in this case will expand to
-  {
-  	unsigned long x_ =3D (rate);
-  	u64 n_ =3D (in_val);
-  	long d_ =3D (NSEC_PER_SEC);
-  =09
-  	unsigned long q =3D x_ / d_;
-  	unsigned long r =3D x_ % d_;
-  	q * n_ + r * n_ / d_;
-  }
+It is not necessary to use a function to encapsulate single operations.
 
-Whether or not this works out depends on the size of the unsigned long
-type that it infers from rate, which will be 64 bits on arm64 and it
-should only overflow in extreme cases, or 32 bits on arm32 (where this
-driver may get used as well) where it goes horribly wrong way more often
-as a result.
+Please drop the function trace_noc_disable_hw() and directly use
+writel() in the call site.
 
-I'll replace it with the less suspect
+> +
+> +static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
+> +			      struct coresight_connection *outport)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	spin_lock(&drvdata->spinlock);
+> +	if (--csdev->refcnt == 0)
+> +		trace_noc_disable_hw(drvdata);
+> +
+> +	spin_unlock(&drvdata->spinlock);
+> +	dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
+> +}
+> +
+> +static int trace_noc_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
+> +			__maybe_unused struct coresight_device *sink)
+> +{
+> +	struct trace_noc_drvdata *drvdata;
+> +
+> +	drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +	return drvdata->atid;
+> +}
+> +
+> +static const struct coresight_ops_link trace_noc_link_ops = {
+> +	.enable		= trace_noc_enable,
+> +	.disable	= trace_noc_disable,
+> +};
+> +
+> +static const struct coresight_ops trace_noc_cs_ops = {
+> +	.trace_id	= trace_noc_id,
+> +	.link_ops	= &trace_noc_link_ops,
+> +};
+> +
+> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+> +{
+> +	int atid;
+> +
+> +	atid = coresight_trace_id_get_system_id();
+> +	if (atid < 0)
+> +		return atid;
+> +
+> +	drvdata->atid = atid;
+> +
+> +	return 0;
+> +}
+> +
+> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +	struct device *dev = &adev->dev;
+> +	struct coresight_platform_data *pdata;
+> +	struct trace_noc_drvdata *drvdata;
+> +	struct coresight_desc desc = { 0 };
+> +	int ret;
+> +
+> +	desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
+> +	if (!desc.name)
+> +		return -ENOMEM;
+> +
+> +	pdata = coresight_get_platform_data(dev);
+> +	if (IS_ERR(pdata))
+> +		return PTR_ERR(pdata);
+> +	adev->dev.platform_data = pdata;
+> +
+> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +	if (!drvdata)
+> +		return -ENOMEM;
+> +
+> +	drvdata->dev = &adev->dev;
+> +	dev_set_drvdata(dev, drvdata);
+> +
+> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +	if (!drvdata->base)
+> +		return -ENOMEM;
+> +
+> +	spin_lock_init(&drvdata->spinlock);
+> +
+> +	ret = trace_noc_init_default_data(drvdata);
+> +	if (ret)
+> +		return ret;
+> +
+> +	desc.ops = &trace_noc_cs_ops;
+> +	desc.type = CORESIGHT_DEV_TYPE_LINK;
+> +	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+> +	desc.pdata = adev->dev.platform_data;
+> +	desc.dev = &adev->dev;
+> +	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
+> +	drvdata->csdev = coresight_register(&desc);
+> +	if (IS_ERR(drvdata->csdev))
+> +		return PTR_ERR(drvdata->csdev);
 
-  mul_u64_u64_div_u64(rate, in_val, NSEC_PER_SEC)
+Invoke coresight_trace_id_put_system_id() for registration failure.
 
-to avoid the C footguns.
+> +
+> +	pm_runtime_put(&adev->dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void trace_noc_remove(struct amba_device *adev)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+> +
+> +	coresight_trace_id_put_system_id(drvdata->atid);
+> +	coresight_unregister(drvdata->csdev);
+> +}
+> +
+> +static struct amba_id trace_noc_ids[] = {
+> +	{
+> +		.id     = 0x000f0c00,
+> +		.mask   = 0x00ffff00,
+> +	},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(amba, trace_noc_ids);
+> +
+> +static struct amba_driver trace_noc_driver = {
+> +	.drv = {
+> +		.name   = "coresight-trace-noc",
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe          = trace_noc_probe,
+> +	.remove		= trace_noc_remove,
+> +	.id_table	= trace_noc_ids,
+> +};
+> +
+> +module_amba_driver(trace_noc_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("Trace NOC driver");
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..34c696965ec50e3664d55e04e22d5b854d6937a7
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#define TRACE_NOC_CTRL      0x008
+> +#define TRACE_NOC_XLD       0x010
+> +#define TRACE_NOC_FREQVAL   0x018
+> +#define TRACE_NOC_SYNCR     0x020
+> +
+> +/* Enable generation of output ATB traffic.*/
+> +#define TRACE_NOC_CTRL_PORTEN   BIT(0)
+> +/* Sets the type of issued ATB FLAG packets.*/
+> +#define TRACE_NOC_CTRL_FLAGTYPE BIT(7)
+> +/* Sets the type of issued ATB FREQ packet*/
+> +#define TRACE_NOC_CTRL_FREQTYPE BIT(8)
+> +
+> +#define TRACE_NOC_SYNC_INTERVAL	0xFFFF
+> +
+> +/*
+> + * struct trace_noc_drvdata - specifics associated to a trace noc component
+> + * @base:	memory mapped base address for this component.
+> + * @dev:	device node for trace_noc_drvdata.
+> + * @csdev:	component vitals needed by the framework.
+> + * @spinlock:	only one at a time pls.
 
->=20
-> > +	*out_val =3D tmp;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +/**
-> > + * rockchip_pwm_v4_round_params - convert PWM parameters to hardware
-> > + * @rate: PWM clock rate to do the calculations at
-> > + * @duty: PWM duty cycle in nanoseconds
-> > + * @period: PWM period in nanoseconds
-> > + * @offset: PWM offset in nanoseconds
-> > + * @out_duty: pointer to where the rounded duty value should be stored
-> > + *            if NULL, don't calculate or store it
-> > + * @out_period: pointer to where the rounded period value should be st=
-ored
-> > + *              if NULL, don't calculate or store it
-> > + * @out_offset: pointer to where the rounded offset value should be st=
-ored
-> > + *              if NULL, don't calculate or store it
-> > + *
-> > + * Convert nanosecond-based duty/period/offset parameters to the PWM h=
-ardware's
-> > + * native rounded representation in number of cycles at clock rate @ra=
-te. If an
-> > + * out_ parameter is a NULL pointer, the corresponding parameter will =
-not be
-> > + * calculated or stored. Should an overflow error occur for any of the
-> > + * parameters, assume the data at all the out_ locations is invalid an=
-d may not
-> > + * even have been touched at all.
-> > + *
-> > + * Return:
-> > + * * %0          - Success
-> > + * * %-EOVERFLOW - One of the results is too large for the PWM hardware
-> > + */
-> > +static int rockchip_pwm_v4_round_params(unsigned long rate, u64 duty,
-> > +					u64 period, u64 offset, u32 *out_duty,
-> > +					u32 *out_period, u32 *out_offset)
-> > +{
-> > +	int ret;
-> > +
-> > +	ret =3D rockchip_pwm_v4_round_single(rate, duty, out_duty);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret =3D rockchip_pwm_v4_round_single(rate, period, out_period);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret =3D rockchip_pwm_v4_round_single(rate, offset, out_offset);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int rockchip_pwm_v4_round_wf_tohw(struct pwm_chip *chip,
-> > +					 struct pwm_device *pwm,
-> > +					 const struct pwm_waveform *wf,
-> > +					 void *_wfhw)
-> > +{
-> > +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> > +	struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> > +	unsigned long rate;
-> > +	int ret =3D 0;
-> > +
-> > +	/* We do not want chosen_clk to change out from under us here */
-> > +	ret =3D mfpwm_acquire(pc->pwmf);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	rate =3D mfpwm_clk_get_rate(pc->pwmf->parent);
-> > +
-> > +	ret =3D rockchip_pwm_v4_round_params(rate, wf->duty_length_ns,
-> > +					   wf->period_length_ns,
-> > +					   wf->duty_offset_ns, &wfhw->duty,
-> > +					   &wfhw->period, &wfhw->offset);
-> > +
-> > +	if (wf->period_length_ns > 0)
-> > +		wfhw->enable =3D PWMV4_EN_BOTH_MASK;
-> > +	else
-> > +		wfhw->enable =3D 0;
-> > +
-> > +	dev_dbg(&chip->dev, "tohw: duty =3D %u, period =3D %u, offset =3D %u,=
- rate %lu\n",
-> > +		wfhw->duty, wfhw->period, wfhw->offset, rate);
-> > +
-> > +	mfpwm_release(pc->pwmf);
-> > +	return ret;
->=20
-> This is wrong. If a too high value for (say) period_length_ns is
-> requested, you're supposed to configure the maximal possible
-> period_length and not return a failure.
+Change to "serialize enable/disable operations" ?
 
-Ack. What if offset > period - duty is requested? Should I just saturate it
-to period - duty in that case?
+> + * @atid:	id for the trace packet.
+> + */
+> +struct trace_noc_drvdata {
+> +	void __iomem		*base;
+> +	struct device		*dev;
+> +	struct coresight_device	*csdev;
+> +	spinlock_t		spinlock; /* lock for the drvdata. */
 
->=20
-> > +}
-> > +
-> > +static int rockchip_pwm_v4_round_wf_fromhw(struct pwm_chip *chip,
-> > +					   struct pwm_device *pwm,
-> > +					   const void *_wfhw,
-> > +					   struct pwm_waveform *wf)
-> > +{
-> > +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> > +	const struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> > +	unsigned long rate;
-> > +	int ret =3D 0;
-> > +
-> > +	/* We do not want chosen_clk to change out from under us here */
->=20
-> This is also true while the PWM is enabled.=20
->=20
-> > +	ret =3D mfpwm_acquire(pc->pwmf);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	rate =3D mfpwm_clk_get_rate(pc->pwmf->parent);
->=20
-> Why isn't that a proper clock that you can call clk_get_rate() (and
-> clk_rate_exclusive_get()) for?
+Remove comment "lock for the drvdata" ?  As it has been described in
+the head comments.
 
-Because I didn't know clk-mux.c existed :( But even with it, I'm not sure
-if letting mfpwm function drivers touch the clk directly is a good idea,
-as this either means storing it in their pwmf struct or making the members
-of the mfpwm struct part of the shared header.
+> +	u32			atid;
+> +};
 
->=20
-> > +	/* Let's avoid a cool division-by-zero if the clock's busted. */
-> > +	if (!rate) {
-> > +		ret =3D -EINVAL;
-> > +		goto out_mfpwm_release;
-> > +	}
-> > +
-> > +	wf->duty_length_ns =3D mult_frac(wfhw->duty, NSEC_PER_SEC, rate);
-> > +
-> > +	if (pwmv4_is_enabled(wfhw->enable))
-> > +		wf->period_length_ns =3D mult_frac(wfhw->period, NSEC_PER_SEC,
-> > +						 rate);
-> > +	else
-> > +		wf->period_length_ns =3D 0;
-> > +
-> > +	wf->duty_offset_ns =3D mult_frac(wfhw->offset, NSEC_PER_SEC, rate);
+Please move the content into coresight-tnoc.c and drop the header.
 
-Note: I'll also need to replace all the mult_frac's here I think, as the
-macro infers u32 as the result type here, which is needlessly restrictive
-and probably prone to overflowing.
-
-> > +
-> > +	dev_dbg(&chip->dev, "fromhw: duty =3D %llu, period =3D %llu, offset =
-=3D %llu\n",
-> > +		wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns);
->=20
-> In my experience it't helpful to include rate in the output here.
-
-Will do.
-
->=20
-> > +out_mfpwm_release:
-> > +	mfpwm_release(pc->pwmf);
-> > +	return ret;
-> > +}
-> > +
-> > +static int rockchip_pwm_v4_read_wf(struct pwm_chip *chip, struct pwm_d=
-evice *pwm,
-> > +				   void *_wfhw)
-> > +{
-> > +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> > +	struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> > +	int ret =3D 0;
-> > +
-> > +
-> > +	ret =3D mfpwm_acquire(pc->pwmf);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	wfhw->period =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_PERIOD);
-> > +	wfhw->duty =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_DUTY);
-> > +	wfhw->offset =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_OFFSET);
-> > +	wfhw->enable =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_ENABLE) & P=
-WMV4_EN_BOTH_MASK;
-> > +
-> > +	mfpwm_release(pc->pwmf);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int rockchip_pwm_v4_write_wf(struct pwm_chip *chip, struct pwm_=
-device *pwm,
-> > +				    const void *_wfhw)
-> > +{
-> > +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
-> > +	const struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
-> > +	bool was_enabled =3D false;
-> > +	int ret =3D 0;
-> > +
-> > +	ret =3D mfpwm_acquire(pc->pwmf);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	was_enabled =3D pwmv4_is_enabled(mfpwm_reg_read(pc->pwmf->base,
-> > +						      PWMV4_REG_ENABLE));
-> > +
-> > +	/*
-> > +	 * "But Nicolas", you ask with valid concerns, "why would you enable =
-the
-> > +	 * PWM before setting all the parameter registers?"
->=20
-> Funny, I had this thought alread for mfpwm_acquire() above. Do you also
-> need that if wfhw->enable =3D=3D 0?
-
-The only thing mfpwm_acquire does is check that this driver is the only
-one using the hardware, and enabling the bus clk so registers can be
-accessed. The clock that the PWM signal is derived from, as well as
-enabling and disabling PWM, is a separate step. In this case, we need
-to have acquired mfpwm beforehand to do the reg read for was_enabled.
-
->=20
-> > +	 * Excellent question, Mr. Reader M. Strawman! The RK3576 TRM Part 1
-> > +	 * Section 34.6.3 specifies that this is the intended order of writes.
-> > +	 * Doing the PWM_EN and PWM_CLK_EN writes after the params but before
-> > +	 * the CTRL_UPDATE_EN, or even after the CTRL_UPDATE_EN, results in
-> > +	 * erratic behaviour where repeated turning on and off of the PWM may
-> > +	 * not turn it off under all circumstances. This is also why we don't
-> > +	 * use relaxed writes; it's not worth the footgun.
-> > +	 */
-> > +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-> > +			REG_UPDATE_WE(wfhw->enable, 0, 1));
-> > +
-> > +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_PERIOD, wfhw->period);
-> > +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_DUTY, wfhw->duty);
-> > +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_OFFSET, wfhw->offset);
-> > +
-> > +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_CTRL, PWMV4_CTRL_CONT_FLAGS=
-);
-> > +
-> > +	/* Commit new configuration to hardware output. */
-> > +	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-> > +			PWMV4_CTRL_UPDATE_EN(1));
->=20
-> PWMV4_CTRL_UPDATE_EN is always only used with 1 as parameter, so maybe
-> simplify the definition to BIT(2)?
-
-Will do.
-
->=20
-> > +	if (pwmv4_is_enabled(wfhw->enable)) {
-> > +		if (!was_enabled) {
-> > +			dev_dbg(&chip->dev, "enabling PWM output\n");
-> > +			ret =3D mfpwm_pwmclk_enable(pc->pwmf);
-> > +			if (ret)
-> > +				goto err_mfpwm_release;
-> > +
-> > +			/*
-> > +			 * Output should be on now, acquire device to guarantee
-> > +			 * exclusion with other device functions while it's on.
-> > +			 */
-> > +			ret =3D mfpwm_acquire(pc->pwmf);
-> > +			if (ret)
-> > +				goto err_mfpwm_release;
->=20
-> Alternatively to calling mfpwm_acquire once more, you could also skip
-> the mfpwm_release() below. That makes the code a bit more complicated,
-> but also reduces the number of possible failing points.
->=20
-
-I think I did this at some stage but it'd just necessitate duplicating the
-if condition at the release point. The else-if branch just down below still
-needs to exist since we need to not just balance this function's acquire,
-but the fact that we kept it acquired when we turned it on so we need to
-release it an extra time when we turn it off. I don't think changing this
-to eliminate the additional acquire call has clear benefits here.
-
-> > +		}
-> > +	} else if (was_enabled) {
-> > +		dev_dbg(&chip->dev, "disabling PWM output\n");
-> > +		mfpwm_pwmclk_disable(pc->pwmf);
-> > +		/* Output is off now, extra release to balance extra acquire */
-> > +		mfpwm_release(pc->pwmf);
-> > +	}
-> > +
-> > +err_mfpwm_release:
-> > +	mfpwm_release(pc->pwmf);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +/* We state the PWM chip is atomic, so none of these functions should =
-sleep. */
-> > +static const struct pwm_ops rockchip_pwm_v4_ops =3D {
-> > +	.sizeof_wfhw =3D sizeof(struct rockchip_pwm_v4_wf),
-> > +	.round_waveform_tohw =3D rockchip_pwm_v4_round_wf_tohw,
-> > +	.round_waveform_fromhw =3D rockchip_pwm_v4_round_wf_fromhw,
-> > +	.read_waveform =3D rockchip_pwm_v4_read_wf,
-> > +	.write_waveform =3D rockchip_pwm_v4_write_wf,
-> > +};
-> > +
-> > +static int rockchip_pwm_v4_probe(struct platform_device *pdev)
-> > +{
-> > +	struct rockchip_mfpwm_func *pwmf =3D dev_get_platdata(&pdev->dev);
-> > +	struct rockchip_pwm_v4 *pc;
-> > +	struct pwm_chip *chip;
-> > +	int ret;
-> > +
-> > +	chip =3D devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*pc));
-> > +	if (IS_ERR(chip))
-> > +		return PTR_ERR(chip);
-> > +
-> > +	pc =3D to_rockchip_pwm_v4(chip);
-> > +	pc->pwmf =3D pwmf;
-> > +
-> > +	platform_set_drvdata(pdev, pc);
-> > +
-> > +	chip->ops =3D &rockchip_pwm_v4_ops;
-> > +	chip->atomic =3D true;
-> > +
->=20
-> If the PWM is already enabled you better call mfpwm_acquire() here?
-
-As in, if the hardware set the PWM on before the driver probed? I hadn't
-considered this case, and will need to think about it. Could very well be
-a possibility as u-boot does things before us.
-
->=20
-> > +	ret =3D pwmchip_add(chip);
-> > +	if (ret)
-> > +		return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void rockchip_pwm_v4_remove(struct platform_device *pdev)
-> > +{
-> > +	struct rockchip_pwm_v4 *pc =3D platform_get_drvdata(pdev);
->=20
-> 	pwmchip_remove()?
-
-Good catch, thanks. Will add.
-
->=20
-> > +	mfpwm_remove_func(pc->pwmf);
->=20
-> Maybe make this a devm function?
-
-I vaguely recall trying that and running into issues with it but it's
-possible I'm misremembering which remove caused issues.
-
->=20
-> > +}
-> > +
-> > +static const struct platform_device_id rockchip_pwm_v4_ids[] =3D {
-> > +	{ .name =3D "pwm-rockchip-v4", },
-> > +	{ /* sentinel */ }
-> > +};
-> > +MODULE_DEVICE_TABLE(platform, rockchip_pwm_v4_ids);
-> > +
-> > +static struct platform_driver rockchip_pwm_v4_driver =3D {
-> > +	.probe =3D rockchip_pwm_v4_probe,
-> > +	.remove =3D rockchip_pwm_v4_remove,
-> > +	.driver =3D {
-> > +		.name =3D "pwm-rockchip-v4",
-> > +	},
-> > +	.id_table =3D rockchip_pwm_v4_ids,
-> > +};
-> > +module_platform_driver(rockchip_pwm_v4_driver);
-> > +
-> > +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
-> > +MODULE_DESCRIPTION("Rockchip PWMv4 Driver");
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_IMPORT_NS("ROCKCHIP_MFPWM");
->=20
-> There are different tastes, but if you ask me that MODULE_IMPORT_NS can
-> go into the header declaring the functions from that namespace.
->=20
-> Best regards
-> Uwe
->=20
-
-Kind regards,
-Nicolas Frattaroli
+The definitions are private for the driver, it is not necessary to
+maintain them in a header.
 
 
+> 
+> -- 
+> 2.34.1
+> 
+> _______________________________________________
+> CoreSight mailing list -- coresight@lists.linaro.org
+> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
