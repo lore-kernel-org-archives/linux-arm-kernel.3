@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91676C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:15:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CA6C54756
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 08:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=08qdO9I8YFvrHKzyyXgvyEujNVemxxGlfIXrJnv8XIU=; b=SHG6bAm4ATR054Ot1YQYXNVBoF
-	HZEF23JcrouSYePYZ4TFZfi83ux4YdU/heWtwGXK+IyyrLjwOmpLP03/ZHnaqZ96tYc3jBoOnacC6
-	5TlnopCRAxxmxikTsn7L83o6rHSztOeX9Ht1hLdmafHBf0WDiycAcfEByzh0GlPzcN1JoS4Apm9Mn
-	Rsug58ZjhH48UmhBbIAggQW6GeyWdkNXZySmecSiz6yp02OrtAiELQtyaRh7SZQmqYlxQ6aVIth7d
-	mXGlUZvxAgNC1lNFuQ9HwTxR8I+3YMwTM60kvT/3QBCHDn/r/2l12JKNZAwofW4emO67m+iF8Nko+
-	lOgAfsAg==;
+	bh=mNbhSqgvVY8RIDtEXtUrtyWJAPOLnVtjEBQ1v8BD3H0=; b=UWZfTEyEn8bOM+/2dRH9Z9xdkN
+	b1SZbT/t/QRGqpSOWpvmECWhuDU02FkM5hcqOn7ZterkzxYka1yUpjPhGIyyozQJfehyntW2aqaLd
+	jcpj+AMpKjs2tzY3DDB/bROJTUz2FUyslCDE+jUAzDJOABSZC2UILbGYXSAHToZAgHOnegNHp3JB5
+	5ecWI0bKLdO/JnYVt6NkyvRbXXk3i7ZeXkAbF6/zftZjD9JgoSYacwMSRm22QU1iOnfT3hLZ7JKXp
+	/Tx93t6VOzsem50dUQfs/xS8LYZ1lANBbqSQMx/et3EbLVdvLny+yJxdCmculml8vlLL0QRW2dX8S
+	JK8pxwMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI15A-00000000Fki-3ba4;
-	Thu, 22 May 2025 08:15:16 +0000
+	id 1uI17D-00000000G0E-2S5t;
+	Thu, 22 May 2025 08:17:23 +0000
 Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0lx-00000000CQE-1Zl7
+	id 1uI0m1-00000000CRg-19va
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 07:55:26 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5C54E103972A7;
-	Thu, 22 May 2025 09:55:22 +0200 (CEST)
+	Thu, 22 May 2025 07:55:30 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 407271039728C;
+	Thu, 22 May 2025 09:55:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1747900523; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1747900527; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=08qdO9I8YFvrHKzyyXgvyEujNVemxxGlfIXrJnv8XIU=;
-	b=Gmc7pBGz73CeaIaQS7u6YFW/8zPdEIKTWGVpc8lbiwJcM/CvUGRphb2myJ254y9yjLU/xo
-	yq0yn94ZU5FGJ1OQCqLVULBZ5KfhBRoZ2H440x5+7xwP2fPuCEXp+IFa7jotuFGT7f/8zh
-	PZlgTaXhCkJGAdtcn8VxKVeQgJYrfK4c4gbbxPj7etzpqyG8YpB4AWXRfiO7VfG1ljvRbH
-	u4LQwzDEfgWb7g5O76I+Rw2+Rn+9JLkGFLgosD0nDnl4Dv0jGM8Cp7EBm5yvUY70zloISO
-	mxuj6TAY522E2gkqEHLO0JVb5Of8S80m3fKMNT9rWp58ZnaZspW9BD9ozGxhOw==
+	bh=mNbhSqgvVY8RIDtEXtUrtyWJAPOLnVtjEBQ1v8BD3H0=;
+	b=SvxmRs1YoOg2TGEP3KBjlH5R9ohnw4Kw4Wa9CeImTxDhMMh9zpmTNY/kFwtmKPqNM9cxO5
+	mhV1nT01WaQ3rTERHhIdvrwsRtBGVjpXqlhnDEm1f64jseBaa+8K1ojISFQQkbh9JsLqkO
+	EUu5r6KuzX4bqF8aJe843z8E7Os0dpXyDU+mJdg9EmivYhI91yqMlmyBsHVLykIjJq1DrD
+	mhzrYzIxXlR8n4Ov+cqKNMp0dNxMD5G9eOx5tecBJ4bj36ChA6axrUu8MNE69WBMD08zkn
+	D4cIMxC773M/2Reo+k2bS4u9cPaQLa0HW7/bkI6DjsIzNQGbRTM4AGBiliaXiw==
 From: Lukasz Majewski <lukma@denx.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -59,11 +59,10 @@ Cc: Sascha Hauer <s.hauer@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
 	Stefan Wahren <wahrenst@gmx.net>,
 	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukma@denx.de>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [net-next v12 3/7] ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
-Date: Thu, 22 May 2025 09:54:51 +0200
-Message-Id: <20250522075455.1723560-4-lukma@denx.de>
+	Lukasz Majewski <lukma@denx.de>
+Subject: [net-next v12 5/7] ARM: mxs_defconfig: Enable CONFIG_NFS_FSCACHE
+Date: Thu, 22 May 2025 09:54:53 +0200
+Message-Id: <20250522075455.1723560-6-lukma@denx.de>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250522075455.1723560-1-lukma@denx.de>
 References: <20250522075455.1723560-1-lukma@denx.de>
@@ -71,8 +70,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_005525_553493_A3577846 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250522_005529_457905_5B68F661 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +87,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The description is similar to the one used with the new CPSW driver.
+It is not possible to enable by user the CONFIG_NETFS_SUPPORT anymore and
+hence it depends on CONFIG_NFS_FSCACHE being enabled.
+
+This patch fixes potential performance regression for NFS on the mxs
+devices.
 
 Signed-off-by: Lukasz Majewski <lukma@denx.de>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Suggested-by: Stefan Wahren <wahrenst@gmx.net>
 
 ---
-Changes for v2:
-- Remove properties which are common for the imx28(7) SoC
-- Use mdio properties to perform L2 switch reset (avoid using
-  deprecated properties)
-
-Changes for v3:
-- Replace IRQ_TYPE_EDGE_FALLING with IRQ_TYPE_LEVEL_LOW
-- Update comment regarding PHY interrupts s/AND/OR/g
-
-Changes for v4:
-- Use GPIO_ACTIVE_LOW instead of 0 in 'reset-gpios'
-- Replace port@[12] with ethernet-port@[12]
-
-Changes for v5:
-- Add proper multiline comment for IRQs description
-
 Changes for v6:
-- None
+- New patch
 
 Changes for v7:
 - None
@@ -131,83 +119,30 @@ Changes for v11:
 Changes for v12:
 - None
 ---
- arch/arm/boot/dts/nxp/mxs/imx28-xea.dts | 56 +++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+ arch/arm/configs/mxs_defconfig | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-index 6c5e6856648a..69032b29d767 100644
---- a/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-+++ b/arch/arm/boot/dts/nxp/mxs/imx28-xea.dts
-@@ -5,6 +5,7 @@
-  */
- 
- /dts-v1/;
-+#include<dt-bindings/interrupt-controller/irq.h>
- #include "imx28-lwe.dtsi"
- 
- / {
-@@ -90,6 +91,61 @@ &reg_usb_5v {
- 	gpio = <&gpio0 2 0>;
- };
- 
-+&eth_switch {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mac0_pins_a>, <&mac1_pins_a>;
-+	phy-supply = <&reg_fec_3v3>;
-+	status = "okay";
-+
-+	ethernet-ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		mtip_port1: ethernet-port@1 {
-+			reg = <1>;
-+			label = "lan0";
-+			local-mac-address = [ 00 00 00 00 00 00 ];
-+			phy-mode = "rmii";
-+			phy-handle = <&ethphy0>;
-+		};
-+
-+		mtip_port2: ethernet-port@2 {
-+			reg = <2>;
-+			label = "lan1";
-+			local-mac-address = [ 00 00 00 00 00 00 ];
-+			phy-mode = "rmii";
-+			phy-handle = <&ethphy1>;
-+		};
-+	};
-+
-+	mdio_sw: mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
-+		reset-delay-us = <25000>;
-+		reset-post-delay-us = <10000>;
-+
-+		ethphy0: ethernet-phy@0 {
-+			reg = <0>;
-+			smsc,disable-energy-detect;
-+			/*
-+			 * Both PHYs (i.e. 0,1) have the same, single GPIO,
-+			 * line to handle both, their interrupts (OR'ed)
-+			 */
-+			interrupt-parent = <&gpio4>;
-+			interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
-+		};
-+
-+		ethphy1: ethernet-phy@1 {
-+			reg = <1>;
-+			smsc,disable-energy-detect;
-+			interrupt-parent = <&gpio4>;
-+			interrupts = <13 IRQ_TYPE_LEVEL_LOW>;
-+		};
-+	};
-+};
-+
- &spi2_pins_a {
- 	fsl,pinmux-ids = <
- 		MX28_PAD_SSP2_SCK__SSP2_SCK
+diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
+index c76d66135abb..22f7639f61fe 100644
+--- a/arch/arm/configs/mxs_defconfig
++++ b/arch/arm/configs/mxs_defconfig
+@@ -138,8 +138,6 @@ CONFIG_PWM_MXS=y
+ CONFIG_NVMEM_MXS_OCOTP=y
+ CONFIG_EXT4_FS=y
+ # CONFIG_DNOTIFY is not set
+-CONFIG_NETFS_SUPPORT=m
+-CONFIG_FSCACHE=y
+ CONFIG_FSCACHE_STATS=y
+ CONFIG_CACHEFILES=m
+ CONFIG_VFAT_FS=y
+@@ -155,6 +153,7 @@ CONFIG_NFS_FS=y
+ CONFIG_NFS_V3_ACL=y
+ CONFIG_NFS_V4=y
+ CONFIG_ROOT_NFS=y
++CONFIG_NFS_FSCACHE=y
+ CONFIG_NLS_CODEPAGE_437=y
+ CONFIG_NLS_CODEPAGE_850=y
+ CONFIG_NLS_ISO8859_1=y
 -- 
 2.39.5
 
