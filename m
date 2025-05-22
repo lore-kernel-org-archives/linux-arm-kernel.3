@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871DDC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 17:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870BFC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 17:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nrSmv/uqSIEmzvd2mFK7wDb4dLulAkjNAXb2Kh/wG9E=; b=UazTRDaJrL+jwRvrap9WQWZ3P9
-	F8AkCYYKSfra8OJfJW6HqqqnNkYMkxXZPh25Wvr2jILi/YvJ3RqcXT/37O3C6phr+ILkR+lYIZY1a
-	XFBG1PzgblUVuqsOH8OVw3wLTzCcSbi4v8LtTFRRV+mksWMqgZUhpUnN+Sc/TEu4+QP+pqZWDsGgU
-	GkZXYcUCORUnD5N/ApS37wgzakzmSQVdKU88Egjdp6wlv+Tj+FNUNEMOFQUAZViGiLe+hiYif3kj7
-	7XoKfPCnQ/8DetDP1jPGlvqgptpCWoFc7us7AHIJFqlNnp21yWTRg9NBR69ECqXoTnyRzk5y0wHzP
-	PxIiSYVg==;
+	bh=KOEl1TkXbJvK+hjxDiM3ONVF+1lJ62eaBPb7K6Qp2HM=; b=xm9m4uZjvMmIYCoL/8rlfqUimu
+	vkPYpufS51cXprf6sS5VHohaIAHzElCp6xUdS1SxhcHb4F6H6YuPi7VIklefs9klUjyufoWMARscM
+	Gx5Nwaw9hbaaoMYXsGX2wvuWzbJ730mZNfRKOVGTLqQbNnda/ia9rIMDrwywYYm57cE+Qwc7FUULt
+	Qc1UH5plE2OUvg6u+vouRHZPx2XBDnEMTi6wioT90ut1Yiuhg5c9G75pLKNiQkbVZY0huFo1wBAge
+	h+I54bqrX+ct/TJlfBL+jyWFt2LnBtvdFATI4jbTaRkhr/4LfYD00/nvSVWczqWUxVn4SzlQm8biN
+	1ZuWVKeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI9aP-00000001ilE-2Br5;
-	Thu, 22 May 2025 17:20:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uI9dA-00000001j9f-14qd;
+	Thu, 22 May 2025 17:22:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI9YO-00000001ica-32Xt
+	id 1uI9b7-00000001iqH-1GNh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 17:18:00 +0000
+	Thu, 22 May 2025 17:20:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC4626135E;
-	Thu, 22 May 2025 17:17:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE42FC4CEE4;
-	Thu, 22 May 2025 17:17:52 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7465BA4F03B
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 17:20:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC3D6C4CEE4
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 17:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747934279;
-	bh=zt7+l4oSZuD0/9FmyoQM5JpiKAJhKIgjL/L3nrauO30=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=WcmhuwsH+v34k/Mb7xq3B1A/GA8v8cea0e0pzwWPS7qTdcydrzxYM03u5sfH9edMn
-	 RwANKtFAmlRZQ1NmnRjLlMGqrCcpBYxNrfcIGo8Ofxon593uorq8EhP29v9lr2vrRC
-	 IZVVm5xfWLP9Us1raF693tWH8sGzc6XB+Mo8cSUicgh331lSowInY+jt67j1+fi51h
-	 w6OUim4hdydsjtdnNSIwEq/P+hQQCPf3IO8+2AETOrwxM9UrOaSnQpNk0R1SKzbthq
-	 KmcsLtX9RIKrBMFSCkvWbUw98p3F1L5XAMXGhfupduroYkw1DEg3ToEaFvxYWiwM9G
-	 GxsrYe+5kCe6A==
-From: Mark Brown <broonie@kernel.org>
-To: Vladimir Oltean <olteanv@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Matti Vaittinen <mazziesaccount@gmail.com>, 
- James Clark <james.clark@linaro.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Chao Fu <B44548@freescale.com>, 
- Xiubo Li <Li.Xiubo@freescale.com>, Lukasz Majewski <lukma@denx.de>, 
- linux-spi@vger.kernel.org, imx@lists.linux.dev, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Vladimir Oltean <vladimir.oltean@nxp.com>, 
- Dan Carpenter <dan.carpenter@linaro.org>, 
- Larisa Grigore <larisa.grigore@nxp.com>, 
- Xulin Sun <xulin.sun@windriver.com>, 
- Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>, 
- Marius Trifu <marius.trifu@nxp.com>, 
- Ciprian Marian Costea <ciprianmarian.costea@nxp.com>, 
- Andra-Teodora Ilie <andra.ilie@nxp.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Stoica Cosmin-Stefan <cosmin.stoica@nxp.com>, Dan Nica <dan.nica@nxp.com>, 
- Larisa Grigore <Larisa.Grigore@nxp.com>, 
- Stefan-Gabriel Mirea <stefan-gabriel.mirea@nxp.com>, 
- "Radu Pirea (NXP OSS)" <radu-nicolae.pirea@oss.nxp.com>
-In-Reply-To: <20250522-james-nxp-spi-v2-0-bea884630cfb@linaro.org>
-References: <20250522-james-nxp-spi-v2-0-bea884630cfb@linaro.org>
-Subject: Re: (subset) [PATCH v2 00/14] spi: spi-fsl-dspi: DSPI support for
- NXP S32G platforms
-Message-Id: <174793427263.150041.3711005972084134023.b4-ty@kernel.org>
-Date: Thu, 22 May 2025 18:17:52 +0100
+	s=k20201202; t=1747934447;
+	bh=f0XMvMxyxmQO+2lM8j8iwFTLKsVl26kGRvuGKeTW2FI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=dImguw1T60mad+h3HSsvAIAGBZoPyTPvysg0PLKfbw7ZusucDBwWkXb/t8dv8WMOU
+	 ZZ6aAsxZ3NJaHzMeK/jILjLP3f8g/G5mfEWuPVyaHDO7YU2O0/3emWRgm3pOcU/MoM
+	 JmlGrDbi1bgSs7VKOTVEUhua/5BFdd5TCnrm1JsexjraKyYjwoxxR/waR0FmqALK7U
+	 xbqfkbyRGTquiPEsVtBNQYh/T7x6txLXkXBg1QEvdEh+0GNyr9mlk8LW4muXOp/J3t
+	 wYvzYg2cpvpsRfSGiwFDKDnCHx7VRengnDHNYN1c1iRuk7Zj09NcuXByPiXItZX38l
+	 KVc5EXz0yFjaw==
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-ad51ef2424bso1326223466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 10:20:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUA8FkLP3q7vcURFXwLnz9BxnAtcU71s9bHUVG5BZppJOzxhtUWJbKMlIKG+juAos7FWQBG/KvVaGzkP+eK1pIV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0mTpD0tS5Fugter4LXmrx0cKUdjGowH3XPPh9uedm/zNhvCr4
+	NLpHph78os4mVeb0A1fNATQ7SUXvXJknfu2Slvqv9ab8LQtfhQVJnoXsCMmsBULXxEtifc2JTOj
+	z7k0L0rI/wp0YWS6ls4NWRXGAMmM6qw==
+X-Google-Smtp-Source: AGHT+IGAYYG+vIgGuI/ayC2uGqWgyniPCcMHhUSyeQcygsPjUjSYmhf9rYJn77siFd52fYZ5ibkezDZJq/F4ygapM/I=
+X-Received: by 2002:a17:907:3f08:b0:ad5:6939:8333 with SMTP id
+ a640c23a62f3a-ad569398704mr1462923066b.37.1747934446333; Thu, 22 May 2025
+ 10:20:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+References: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
+ <20250520-arm-brbe-v19-v22-2-c1ddde38e7f8@kernel.org> <aC9NhvYzajduVm7y@e133380.arm.com>
+In-Reply-To: <aC9NhvYzajduVm7y@e133380.arm.com>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 22 May 2025 12:20:35 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqKWY7rRGTbHXTmm4RC9F8fqrs133=75XFkVdm91bLHfaw@mail.gmail.com>
+X-Gm-Features: AX0GCFvVXljRLS6CQowdkTNTXjrD3dK31miPdgViETu3tYaW68KPRqx4Jf1fUa0
+Message-ID: <CAL_JsqKWY7rRGTbHXTmm4RC9F8fqrs133=75XFkVdm91bLHfaw@mail.gmail.com>
+Subject: Re: [PATCH v22 2/5] arm64: el2_setup.h: Make __init_el2_fgt labels
+ consistent, again
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	James Clark <james.clark@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250522_102049_479850_237CAAF7 
+X-CRM114-Status: GOOD (  27.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +91,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 May 2025 15:51:29 +0100, James Clark wrote:
-> DT and driver changes for DSPI on S32G platforms. First 3 commits are
-> fixes for various edge cases which also apply to other platforms.
-> Remaining commits add new S32G registers and device settings, some S32G
-> specific fixes and then finally add the DT compatibles and binding docs.
-> 
-> Tested in both host and target mode on S32G-VNP-RDB3 by transferring to
-> an external device over spi1 using spidev_test.c
-> 
-> [...]
+On Thu, May 22, 2025 at 11:15=E2=80=AFAM Dave Martin <Dave.Martin@arm.com> =
+wrote:
+>
+> On Tue, May 20, 2025 at 05:27:37PM -0500, Rob Herring (Arm) wrote:
+> > From: Anshuman Khandual <anshuman.khandual@arm.com>
+> >
+> > Commit 5b39db6037e7 ("arm64: el2_setup.h: Rename some labels to be more
+> > diff-friendly") reworked the labels in __init_el2_fgt to say what's
+> > skipped rather than what the target location is. The exception was
+> > "set_fgt_" which is where registers are written. In reviewing the BRBE
+> > additions, Will suggested "set_debug_fgt_" where HDFGxTR_EL2 are
+> > written. Doing that would partially revert commit 5b39db6037e7 undoing
+> > the goal of minimizing additions here, but it would follow the
+> > convention for labels where registers are written.
+> >
+> > So let's do both. Branches that skip something go to a "skip" label and
+> > places that set registers have a "set" label. This results in some
+> > double labels, but it makes things entirely consistent.
+> >
+> > While we're here, the SME skip label was incorrectly named, so fix it.
+> >
+> > Reported-by: Will Deacon <will@kernel.org>
+> > Cc: Dave Martin <Dave.Martin@arm.com>
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> > This one can be applied even if the rest of the series is not.
+> >
+> > v22:
+> >  - New patch
+> > ---
+> >  arch/arm64/include/asm/el2_setup.h | 10 +++++++---
+> >  1 file changed, 7 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/as=
+m/el2_setup.h
+> > index ebceaae3c749..30f57b0334a3 100644
+> > --- a/arch/arm64/include/asm/el2_setup.h
+> > +++ b/arch/arm64/include/asm/el2_setup.h
+> > @@ -204,19 +204,21 @@
+> >       orr     x0, x0, #(1 << 62)
+> >
+> >  .Lskip_spe_fgt_\@:
+> > +
+> > +.Lset_debug_fgt_\@:
+>
+> Dangling label?  There doesn't seem to be any branch to it in this
+> series, unless I've missed something.
 
-Applied to
+I tried to explain that in the commit message. To have both what you
+wanted and what Will suggested, you end up with 2 labels in between
+the last skip and setting registers.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[01/14] spi: spi-fsl-dspi: restrict register range for regmap access
-        commit: 283ae0c65e9c592f4a1ba4f31917f5e766da7f31
-[02/14] spi: spi-fsl-dspi: Halt the module after a new message transfer
-        commit: 8a30a6d35a11ff5ccdede7d6740765685385a917
-[03/14] spi: spi-fsl-dspi: Reset SR flags before sending a new message
-        commit: 7aba292eb15389073c7f3bd7847e3862dfdf604d
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Rob
 
