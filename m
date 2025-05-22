@@ -4,77 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B381C54E65
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8FAC54ED0
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 16:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cPUaMSMEx0OFqwycv8XXQw9CFu0jRQY3FjVb+3D5Lz4=; b=fcOKNXk/W2R2icRHiKdYpUWIqj
-	4JYJInL6mXA1P2A8eM82S1NPeEMMZQYHl48soRFn5JK2LKGU2umS62GdsJLirqzRfoNZmQXrdr8ws
-	OUUrpPdSXJyuPq1mbcLV+MCixBCOWE9JDyNjbqr+hVCLyCL2ZGh27dUJvryCee0kosPl45bxmpgkH
-	Uu6Pnc27TyuO7c85rCJOvlxw5oKKlxFboe+BD6zxNk5+2f77fxKqR15V3/e4DQVMKcpWP+dY0UBCk
-	ZMb52GCqJUl/UyaqMuSeGH+sB0f9l07yCuV62mwUaYxQ0FvsvOnqiI9kwxFFFTrPbEaZumSLjOJbJ
-	Fs/Uprag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M7MTt6fK6/d1e2CdoayOfTn+HPe4zIyCKy9RS/xvkVQ=; b=4uORfaEyH+eilgxXTxNAl22pGn
+	Gv5FAvDIhFumXc2p+UowX1xtiVksCeVxU8WGbPdOctdITRLZjSNUlLZzU/oe9HLjdziNnjF/iyGNx
+	iRcvjWYgjJJOeullwW9XiBVkbyHHgJzhZChpv+6/NwUzTVHkhJpC+rqghrZInyk4lfOs3jaJK9kXB
+	STaqNwFpshjsNebV+P9/gtiL44Om2zHz8EJOQSt42BGSsi8P6tt0KnYmDGr/jWkaKVt2wHp+MTvgQ
+	F7LfIU1vyVhUYCVQ/x0Ok8QDn9Vr5GzsdtsMnCpGlM06Emsg7rAqGWLCJ4qEa1DS/09DZ9egDa1A4
+	eSz0JsXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI8lm-00000001YvJ-38qb;
-	Thu, 22 May 2025 16:27:46 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7TO-00000001N82-2Tni;
-	Thu, 22 May 2025 15:04:43 +0000
-X-UUID: 1499b3c0371e11f08d385d50fb11b32d-20250522
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=cPUaMSMEx0OFqwycv8XXQw9CFu0jRQY3FjVb+3D5Lz4=;
-	b=pzTiSvHcy0JuSVP6HzOY9uDzo48dLfjz6+n3mlk+nH4A0o8TXltZa3yLQg4SztGzn48z0yzN0I3uGLpuGwA9hK/WegRrpKrgijNtP//SMDTlnebqxNE6TxfkaiKHlB9TkTkecL3os6/vdEd6+AJjf1RvD+T+erkeg8ZiGjb4c6A=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:2fbc003a-81f2-48ab-a5c0-802c492313be,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:0ef645f,CLOUDID:899bdd57-abad-4ac2-9923-3af0a8a9a079,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 1499b3c0371e11f08d385d50fb11b32d-20250522
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <nancy.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 123935798; Thu, 22 May 2025 08:04:38 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 22 May 2025 23:04:34 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 22 May 2025 23:04:34 +0800
-From: Nancy.Lin <nancy.lin@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Liam Girdwood
-	<lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Mark Brown <broonie@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<jason-jh.lin@mediatek.com>, <singo.chang@mediatek.com>,
-	<paul-pl.chen@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>
-Subject: [PATCH 0/2] Add MT8196 VMM driver support
-Date: Thu, 22 May 2025 23:03:32 +0800
-Message-ID: <20250522150426.3418225-1-nancy.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1uI8lz-00000001Z5p-1SNF;
+	Thu, 22 May 2025 16:27:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uI8KI-00000001WR7-46PN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 15:59:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D9F11A2D;
+	Thu, 22 May 2025 08:59:07 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DEBA13F5A1;
+	Thu, 22 May 2025 08:59:20 -0700 (PDT)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: gregkh@linuxfoundation.org
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	james.clark@linaro.org,
+	leo.yan@linux.dev,
+	mike.leach@linaro.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: [GIT PULL] coresight: updates for Linux v6.16
+Date: Thu, 22 May 2025 16:59:13 +0100
+Message-ID: <20250522155913.353620-1-suzuki.poulose@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_080442_639003_81B27EBC 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250522_085923_101730_58D0354D 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,24 +64,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nancy Lin <nancy.lin@mediatek.com>
+Hi Greg,
 
-Add a driver for the MediaTek MT8196 VMM (Vcore for MultiMedia)
-controller.
+Please find the CoreSight self-hosted tracing subsystem updates for Linux v6.16.
 
-Nancy Lin (2):
-  dt-bindings: regulator: mediatek: Add MT8196 vmm controller
-  soc: mediatek: Add MT8196 VMM driver support
 
- .../mediatek,mt8196-vmm-regulator.yaml        |  70 +++
- drivers/soc/mediatek/Kconfig                  |  12 +
- drivers/soc/mediatek/Makefile                 |   1 +
- drivers/soc/mediatek/mtk-vmm-drv.c            | 471 ++++++++++++++++++
- 4 files changed, 554 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt8196-vmm-regulator.yaml
- create mode 100644 drivers/soc/mediatek/mtk-vmm-drv.c
+Kindly pull,
 
--- 
-2.45.2
+Suzuki
 
+---
+
+The following changes since commit 9c32cda43eb78f78c73aee4aa344b777714e259b:
+
+  Linux 6.15-rc3 (2025-04-20 13:43:47 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v6.16
+
+for you to fetch changes up to 408c97c4a5e0b634dcd15bf8b8808b382e888164:
+
+  coresight: prevent deactivate active config while enabling the config (2025-05-20 16:38:54 +0100)
+
+----------------------------------------------------------------
+coresight: updates for Linux v6.16
+
+CoreSight self-hosted trace driver subsystem updates for Linux v6.16 includes:
+ - Clear CLAIM tags on device probe if self-hosted tags are set.
+ - Support for perf AUX pause/resume for CoreSight ETM PMU driver, with trace
+   collection at pause.
+ - Miscellaneous fixes for the subsystem
+
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+----------------------------------------------------------------
+Andy Shevchenko (1):
+      coresight: cti: Replace inclusion by struct fwnode_handle forward declaration
+
+Dmitry Baryshkov (1):
+      dt-bindings: arm: arm,coresight-static-replicator: add optional clocks
+
+James Clark (8):
+      coresight: Convert tag clear function to take a struct csdev_access
+      coresight: Only check bottom two claim bits
+      coresight: Add claim tag warnings and debug messages
+      coresight: etm3x: Convert raw base pointer to struct coresight access
+      coresight: Clear self hosted claim tag on probe
+      coresight: Remove inlines from static function definitions
+      coresight: Remove extern from function declarations
+      coresight: Add a KUnit test for coresight_find_default_sink()
+
+Junhao He (1):
+      coresight: Fixes device's owner field for registered using coresight_init_driver()
+
+Leo Yan (9):
+      coresight: replicator: Fix panic for clearing claim tag
+      coresight: etm4x: Extract the trace unit controlling
+      coresight: Introduce pause and resume APIs for source
+      coresight: etm4x: Hook pause and resume callbacks
+      coresight: perf: Support AUX trace pause and resume
+      coresight: tmc: Re-enable sink after buffer update
+      coresight: perf: Update buffer on AUX pause
+      Documentation: coresight: Document AUX pause and resume
+      coresight: etm4x: Fix timestamp bit field handling
+
+Mao Jinlong (2):
+      coresight: Disable MMIO logging for coresight stm driver
+      coresight: tmc: fix failure to disable/enable ETF after reading
+
+Yabin Cui (2):
+      coresight: catu: Introduce refcount and spinlock for enabling/disabling
+      coresight: core: Disable helpers for devices that fail to enable
+
+Yeoreum Yun (3):
+      coresight/etm4: fix missing disable active config
+      coresight: holding cscfg_csdev_lock while removing cscfg from csdev
+      coresight: prevent deactivate active config while enabling the config
+
+ .../arm/arm,coresight-static-replicator.yaml       |  13 ++
+ Documentation/trace/coresight/coresight-perf.rst   |  31 ++++
+ drivers/hwtracing/coresight/Kconfig                |   9 ++
+ drivers/hwtracing/coresight/Makefile               |   3 +
+ drivers/hwtracing/coresight/coresight-catu.c       |  39 +++--
+ drivers/hwtracing/coresight/coresight-catu.h       |   1 +
+ drivers/hwtracing/coresight/coresight-config.h     |   2 +-
+ drivers/hwtracing/coresight/coresight-core.c       | 131 ++++++++++++-----
+ drivers/hwtracing/coresight/coresight-cpu-debug.c  |   3 +-
+ drivers/hwtracing/coresight/coresight-cti-core.c   |   2 +
+ drivers/hwtracing/coresight/coresight-cti.h        |   3 +-
+ drivers/hwtracing/coresight/coresight-etb10.c      |   4 +-
+ drivers/hwtracing/coresight/coresight-etm-perf.c   |  84 ++++++++++-
+ drivers/hwtracing/coresight/coresight-etm.h        |   6 +-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |  28 ++--
+ .../hwtracing/coresight/coresight-etm3x-sysfs.c    |   8 +-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 158 +++++++++++++++------
+ .../hwtracing/coresight/coresight-etm4x-sysfs.c    |   8 +-
+ drivers/hwtracing/coresight/coresight-etm4x.h      |   2 +
+ drivers/hwtracing/coresight/coresight-funnel.c     |   4 +-
+ .../hwtracing/coresight/coresight-kunit-tests.c    |  74 ++++++++++
+ drivers/hwtracing/coresight/coresight-platform.c   |  26 ++--
+ drivers/hwtracing/coresight/coresight-priv.h       |  22 +--
+ drivers/hwtracing/coresight/coresight-replicator.c |   6 +-
+ drivers/hwtracing/coresight/coresight-stm.c        |   8 +-
+ .../coresight/coresight-syscfg-configfs.c          |   2 +-
+ drivers/hwtracing/coresight/coresight-syscfg.c     |  51 +++++--
+ drivers/hwtracing/coresight/coresight-tmc-core.c   |  11 +-
+ drivers/hwtracing/coresight/coresight-tmc-etf.c    |  20 ++-
+ drivers/hwtracing/coresight/coresight-tmc-etr.c    |  26 ++--
+ drivers/hwtracing/coresight/coresight-tpiu.c       |   2 +-
+ drivers/hwtracing/coresight/coresight-trbe.c       |  18 +--
+ include/linux/coresight.h                          |  44 +++---
+ 33 files changed, 624 insertions(+), 225 deletions(-)
+ create mode 100644 drivers/hwtracing/coresight/coresight-kunit-tests.c
 
