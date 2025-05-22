@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26273C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 00:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E7C7C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 00:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MSc6nvEfNa3Mk9v70O2GwrdpOydgfEuVH7IGLa1xnl8=; b=kT1/g4qcamw5fST6qeF9cs2Ttu
-	oKx0TCjuqNXLSoAkHc1Ec1WKowMjn4eM/cQpx7bsui/y2JpEJUe5Nl2mn7eszGURIWK053gKE19Ar
-	pWdZ6iXsTQmljmu3IL+hp8/vSFpmBvjFlhte7tAr71t0BePF0W9gIW6KplHvygWcLnA83cavKyUoV
-	StjIpseRGUXUjlMuKO2FKJ3MxKMuWPQFRSENZRC71tJQ96FkTwq4joxU7CRqep4DJqn/TqOp/eSaP
-	Wv9C9t7Z/Ge3WeGeSM/I3VKTSae/5tVzLJ9M3SG2w2yhGnYOt8Ho5kTCqrLOxQA6ALwJKBSnOIHWP
-	5DlyCWzg==;
+	bh=vuHVtgMNklQ3DNdNkMUrgN1tyOO7CrPEj2V6DIP2LQI=; b=z77iawf4+J/9Xo2E0qaXaaCAGN
+	7OFb8eh95y9HoXOz8BT+thtTKIeZXCncIXv+2r0Lw6HhnmWUS2oZEOn3WLz0VDOfCf8/uCBzX+Vx0
+	R49PSkAk4kzQBsHb5slwoMktO3ljq9I5+3A8rViAQz1dxSl3vGUERmVBK2nSMY01erlxl82eWFmBr
+	1I2wIJAfyv9EFubYG1Alle5ZQvCzi2K9wScJUZgHj9mXZVi59Z1+8sBDJf8g+8aEVMyBqR68Zkpzb
+	7ztOyiVy5ZA/p86qOEcX4k5X+bubZoIwgQptG287e+jTAhhh+pVpTYZDURO/X9/yf16H5cx6gprwk
+	VXFHkUFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIFwc-00000002YaO-3bvj;
-	Fri, 23 May 2025 00:07:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIFyd-00000002Ymd-2KGj;
+	Fri, 23 May 2025 00:09:31 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIFiT-00000002VrJ-0qL3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 May 2025 23:52:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=MSc6nvEfNa3Mk9v70O2GwrdpOydgfEuVH7IGLa1xnl8=; b=gy/thXy/5OYmL2gYy9aTGDQ8E9
-	2LRpTMIXgc1mYiHm23AnfXDUpWAbkkuc7BIMCD0CzXYn4ns7BRGDxNjgLzkiJkNE/aUlHA5r5AzR2
-	5qM04GZxzCiVwLsxncwGYwSmECAC4n2Bb9W2RDTWL1NijqhVXZuB0pquabA98c9KSLn2iaZXKugOL
-	k3fc5OH8ZdgqrpD/4yQmFN6tOaeiLREACy8WTD2kkk8mNiq9/2Z+/EpbT533MOokCzbnE6lG3PAE4
-	Dk6/NlKdxq45doOXt0vCaP+6XxdWrKS53MRmueUslEObLqmcA2mi0RvxAlecWJEZy8HRTeMPF8czh
-	yc+VJk3w==;
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIFiQ-000000016ZO-0Oiq
+	id 1uIFiT-00000002VrD-0t3L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 23:52:47 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-30ed0017688so4752429a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 16:52:45 -0700 (PDT)
+	Thu, 22 May 2025 23:52:50 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-231de0e1ca3so62079785ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 16:52:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1747957964; x=1748562764; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1747957968; x=1748562768; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=MSc6nvEfNa3Mk9v70O2GwrdpOydgfEuVH7IGLa1xnl8=;
-        b=AGaa6ZTf0hToz47X1xwo+0/k0UnyFwLyQq/fDnXSx1H1VsJnn0Hbxo13+8vfGVKfgp
-         5ZfwCIcmUTS77T1O49s3q3OC9Nt+3DV7uQ6l4GyW/eC/wKG7oKWkkQ860cYVGFuG9YPJ
-         jm0RPZcom+Z6tQKc3T2tdqPVike95bVjVF2ueNHgEUhqHCgevou08iBIfPTMWA7qJQ1p
-         nIlf5WRpDkqv2OK6WcMPJMuF4L4bjDNR2/fyfKv9rmrozNs0mtSb4V1Sc31/r2Nvc9jo
-         mEvSCmiAxtf3HBvwQ6QDQ5n3cRwlIl5qpqZqcWFsGXCSr9m6ewMxlwDuJjfn+nv2lvHq
-         opFg==
+        bh=vuHVtgMNklQ3DNdNkMUrgN1tyOO7CrPEj2V6DIP2LQI=;
+        b=zz5BLhjWqKEy4NLjyN7Dy8rneScKt9FOdgUk/lFhXftfqsWrVYycFIoneK8iszLZSn
+         AowhoXwBcamMY3qhTTUvdnSJnNM82l9WUW2iNrkPVyoP3qtyJgBoXBj5kRrXMo0SuWQ5
+         5iYs0pycYttCADmv2g9Dya/y8hFaF1FS5mdyrhpvi9T+dJy/y/yF07/RZ8T6YVta8Eig
+         cT46mzDtHHCIctiyccdT586tzrWwqY2FBgQH2qlB6shhg6BLFZRzeAd9e3fTfSEn6IO3
+         C2tbqnIuQhkwb+Wi7kOzT6N5TgQz3AWOorWL9N4xptEclm2anLS2XThDHCfHPivjFVqD
+         muzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747957964; x=1748562764;
+        d=1e100.net; s=20230601; t=1747957968; x=1748562768;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MSc6nvEfNa3Mk9v70O2GwrdpOydgfEuVH7IGLa1xnl8=;
-        b=RUwbqLLPeio6iLyDllAfg0TPS0F3q3oLjsRs8qEpX77TGEEZeE/EF5tmoY32swmrfP
-         kX8lwrChtxBS1d6BGJtWK5y3vSRYmMlcvS0DeWvaScWOJwvFw/MUmUBVbKXfV7x77+vf
-         5xs7mVc0k65+MTzepjDpcg/dSlrFJOrqM+ee1N/lTf1BCqOPPaMjjkz+K9hDZESiVgmE
-         Nf40wOTGvLfoBe44/iPRs/DKF8ARIFV4kk/CkGgshkpebsUfJ1tUmb/IlNydi6BLO28h
-         xYYmx9xIRlj8C2JgRxAtQp5LLi+RmT+fEHU0UgiZdTHoAAMP93tJ0RcmwrIuQrW5Whth
-         d1bA==
-X-Forwarded-Encrypted: i=1; AJvYcCVOxRF82aP51gO693PeMBLggpvAKTBRNhuZmFzsr1WGP7lGX3KYwPa3HLI9mDNwEQH1dff89zpRVW2YcFPESOU3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuBeg2aHXQ7juJ9ovCElK/H/WLD2qfKlHuKESX2KfOvMHXRraf
-	ErnG5+V0aUv+tFdIjT3KiLa4t0L/TiziHwtVnkLW6spBUekWSKJBCi4vDJU26MHNZ8qtv1LRUmo
-	S8Rpo9Q==
-X-Google-Smtp-Source: AGHT+IFtihXA1ixlkcjuYPXGi/3nyMcTJqsYkMUIphzCaA6DcRFEslloczpIHH8OqTcj441vz3MgX+UAWJI=
-X-Received: from pjb7.prod.google.com ([2002:a17:90b:2f07:b0:2fe:800f:23a])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4c02:b0:2fe:80cb:ac05
- with SMTP id 98e67ed59e1d1-310e96c946emr1657552a91.9.1747957964380; Thu, 22
- May 2025 16:52:44 -0700 (PDT)
-Date: Thu, 22 May 2025 16:52:16 -0700
+        bh=vuHVtgMNklQ3DNdNkMUrgN1tyOO7CrPEj2V6DIP2LQI=;
+        b=T7oH6sgz1l34C/o6RkL2AYkFl26uqXfFad6p+N+9u+NgHDoFz4HKZ8vl8R24fxy7OV
+         7pkFLLKkz1jKs9fb+D1QS23cvg3u1mpxSOwiPJLZjdXA04xsV0Wsx0yY50zaMWRNKA9o
+         1VwHLkfoFWlkUZtLaZM/CLLAH8VIPgAVO6Vc5f/R+xEAuK49GlTDS+X7kchObilzNG5i
+         vLKZxSVvuGgW/hh5OzujjKJq+o3evP3+Z5Nt52jbSSwYXIRP2Xog5PxTukZ/9F7KIxSK
+         UWFTxKWSOfSDbqOtWvwAo0dt0I4aVq1LW0b8P3jWunG/tL+vfzHBCt+h7npbbUaTOwtW
+         1gSg==
+X-Forwarded-Encrypted: i=1; AJvYcCW0w3p3c1/HIIzzBjiPvIHNPogTg72uRs//yNtEdP0qaxGuoFD7n1tnquek5ccGsQlAxPtBE6DK1pRQ58OoNAUg@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywq6rjiQtMt6Q9hVQIfZ3J71Vqpp3VQn4l7ADm7AJa20qHwE+lG
+	xyzVdIs96FKbLeM7Zp5rCg8ZXXnP/BBTkM1IJD2pdH+dzlHvFcKDXo7DABZy+scIwGtPOCcAoui
+	fgfOJoQ==
+X-Google-Smtp-Source: AGHT+IHikqs98z49j0Kkg2uX1c0LCZJ4TnpoZgPhfD1i2QFTska6FVqOIcx30KNoejfw/K9L53iBDs4oCi4=
+X-Received: from pga7.prod.google.com ([2002:a05:6a02:4f87:b0:b26:e751:bb70])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:faf:b0:223:62f5:fd44
+ with SMTP id d9443c01a7336-231d459a467mr365010445ad.40.1747957967798; Thu, 22
+ May 2025 16:52:47 -0700 (PDT)
+Date: Thu, 22 May 2025 16:52:18 -0700
 In-Reply-To: <20250522235223.3178519-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250522235223.3178519-1-seanjc@google.com>
 X-Mailer: git-send-email 2.49.0.1151.ga128411c76-goog
-Message-ID: <20250522235223.3178519-7-seanjc@google.com>
-Subject: [PATCH v3 06/13] sched/wait: Drop WQ_FLAG_EXCLUSIVE from add_wait_queue_priority()
+Message-ID: <20250522235223.3178519-9-seanjc@google.com>
+Subject: [PATCH v3 08/13] sched/wait: Add a waitqueue helper for fully
+ exclusive priority waiters
 From: Sean Christopherson <seanjc@google.com>
 To: "K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
 	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
@@ -99,8 +85,8 @@ Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
 	David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_005246_233148_440D975A 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20250522_165249_250558_1BA926EA 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,99 +102,63 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop the setting of WQ_FLAG_EXCLUSIVE from add_wait_queue_priority() and
-instead have callers manually add the flag prior to adding their structure
-to the queue.  Blindly setting WQ_FLAG_EXCLUSIVE is flawed, as the nature
-of exclusive, priority waiters means that only the first waiter added will
-ever receive notifications.
+Add a waitqueue helper to add a priority waiter that requires exclusive
+wakeups, i.e. that requires that it be the _only_ priority waiter.  The
+API will be used by KVM to ensure that at most one of KVM's irqfds is
+bound to a single eventfd (across the entire kernel).
 
-Pushing the flawed behavior to callers will allow fixing the problem one
-hypervisor at a time (KVM added the flawed API, and then KVM's code was
-copy+pasted nearly verbatim by Xen and Hyper-V), and will also allow for
-adding an API that provides true exclusivity, i.e. that guarantees at most
-one priority waiter is in the queue.
+Open code the helper instead of using __add_wait_queue() so that the
+common path doesn't need to "handle" impossible failures.
 
-Opportunistically add a comment in Hyper-V to call out the mess.  Xen
-privcmd's irqfd_wakefup() doesn't actually operate in exclusive mode, i.e.
-can be "fixed" simply by dropping WQ_FLAG_EXCLUSIVE.  And KVM is primed to
-switch to the aforementioned fully exclusive API, i.e. won't be carrying
-the flawed code for long.
-
-No functional change intended.
-
+Cc: K Prateek Nayak <kprateek.nayak@amd.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- drivers/hv/mshv_eventfd.c | 8 ++++++++
- drivers/xen/privcmd.c     | 1 +
- kernel/sched/wait.c       | 4 ++--
- virt/kvm/eventfd.c        | 1 +
- 4 files changed, 12 insertions(+), 2 deletions(-)
+ include/linux/wait.h |  2 ++
+ kernel/sched/wait.c  | 18 ++++++++++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/drivers/hv/mshv_eventfd.c b/drivers/hv/mshv_eventfd.c
-index 8dd22be2ca0b..b348928871c2 100644
---- a/drivers/hv/mshv_eventfd.c
-+++ b/drivers/hv/mshv_eventfd.c
-@@ -368,6 +368,14 @@ static void mshv_irqfd_queue_proc(struct file *file, wait_queue_head_t *wqh,
- 			container_of(polltbl, struct mshv_irqfd, irqfd_polltbl);
+diff --git a/include/linux/wait.h b/include/linux/wait.h
+index 965a19809c7e..09855d819418 100644
+--- a/include/linux/wait.h
++++ b/include/linux/wait.h
+@@ -164,6 +164,8 @@ static inline bool wq_has_sleeper(struct wait_queue_head *wq_head)
+ extern void add_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry);
+ extern void add_wait_queue_exclusive(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry);
+ extern void add_wait_queue_priority(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry);
++extern int add_wait_queue_priority_exclusive(struct wait_queue_head *wq_head,
++					     struct wait_queue_entry *wq_entry);
+ extern void remove_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry);
  
- 	irqfd->irqfd_wqh = wqh;
-+
-+	/*
-+	 * TODO: Ensure there isn't already an exclusive, priority waiter, e.g.
-+	 * that the irqfd isn't already bound to another partition.  Only the
-+	 * first exclusive waiter encountered will be notified, and
-+	 * add_wait_queue_priority() doesn't enforce exclusivity.
-+	 */
-+	irqfd->irqfd_wait.flags |= WQ_FLAG_EXCLUSIVE;
- 	add_wait_queue_priority(wqh, &irqfd->irqfd_wait);
- }
- 
-diff --git a/drivers/xen/privcmd.c b/drivers/xen/privcmd.c
-index 13a10f3294a8..c08ec8a7d27c 100644
---- a/drivers/xen/privcmd.c
-+++ b/drivers/xen/privcmd.c
-@@ -957,6 +957,7 @@ irqfd_poll_func(struct file *file, wait_queue_head_t *wqh, poll_table *pt)
- 	struct privcmd_kernel_irqfd *kirqfd =
- 		container_of(pt, struct privcmd_kernel_irqfd, pt);
- 
-+	kirqfd->wait.flags |= WQ_FLAG_EXCLUSIVE;
- 	add_wait_queue_priority(wqh, &kirqfd->wait);
- }
- 
+ static inline void __add_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry)
 diff --git a/kernel/sched/wait.c b/kernel/sched/wait.c
-index 51e38f5f4701..4ab3ab195277 100644
+index 4ab3ab195277..15632c89c4f2 100644
 --- a/kernel/sched/wait.c
 +++ b/kernel/sched/wait.c
-@@ -40,7 +40,7 @@ void add_wait_queue_priority(struct wait_queue_head *wq_head, struct wait_queue_
+@@ -47,6 +47,24 @@ void add_wait_queue_priority(struct wait_queue_head *wq_head, struct wait_queue_
+ }
+ EXPORT_SYMBOL_GPL(add_wait_queue_priority);
+ 
++int add_wait_queue_priority_exclusive(struct wait_queue_head *wq_head,
++				      struct wait_queue_entry *wq_entry)
++{
++	struct list_head *head = &wq_head->head;
++
++	wq_entry->flags |= WQ_FLAG_EXCLUSIVE | WQ_FLAG_PRIORITY;
++
++	guard(spinlock_irqsave)(&wq_head->lock);
++
++	if (!list_empty(head) &&
++	    (list_first_entry(head, typeof(*wq_entry), entry)->flags & WQ_FLAG_PRIORITY))
++		return -EBUSY;
++
++	list_add(&wq_entry->entry, head);
++	return 0;
++}
++EXPORT_SYMBOL_GPL(add_wait_queue_priority_exclusive);
++
+ void remove_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry)
  {
  	unsigned long flags;
- 
--	wq_entry->flags |= WQ_FLAG_EXCLUSIVE | WQ_FLAG_PRIORITY;
-+	wq_entry->flags |= WQ_FLAG_PRIORITY;
- 	spin_lock_irqsave(&wq_head->lock, flags);
- 	__add_wait_queue(wq_head, wq_entry);
- 	spin_unlock_irqrestore(&wq_head->lock, flags);
-@@ -64,7 +64,7 @@ EXPORT_SYMBOL(remove_wait_queue);
-  * the non-exclusive tasks. Normally, exclusive tasks will be at the end of
-  * the list and any non-exclusive tasks will be woken first. A priority task
-  * may be at the head of the list, and can consume the event without any other
-- * tasks being woken.
-+ * tasks being woken if it's also an exclusive task.
-  *
-  * There are circumstances in which we can try to wake a task which has already
-  * started to run but is not in state TASK_RUNNING. try_to_wake_up() returns
-diff --git a/virt/kvm/eventfd.c b/virt/kvm/eventfd.c
-index 04877b297267..c7969904637a 100644
---- a/virt/kvm/eventfd.c
-+++ b/virt/kvm/eventfd.c
-@@ -316,6 +316,7 @@ static void kvm_irqfd_register(struct file *file, wait_queue_head_t *wqh,
- 	init_waitqueue_func_entry(&irqfd->wait, irqfd_wakeup);
- 
- 	spin_release(&kvm->irqfds.lock.dep_map, _RET_IP_);
-+	irqfd->wait.flags |= WQ_FLAG_EXCLUSIVE;
- 	add_wait_queue_priority(wqh, &irqfd->wait);
- 	spin_acquire(&kvm->irqfds.lock.dep_map, 0, 0, _RET_IP_);
- 
 -- 
 2.49.0.1151.ga128411c76-goog
 
