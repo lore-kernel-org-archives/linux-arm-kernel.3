@@ -4,63 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD3FC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 21:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780B9C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 21:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FzF9DkLt+1XEQXD9EPLqipXCT7MN2XVZg73xughR8r4=; b=oJjz85fhLpe9O1+kZMNeGOtSYW
-	3zJicYXM8O6m0LGD9a/W/DmN/Ah0FDZB9l6x5u1Gr5EU5FJRw80CLIWSxcHb0sXh4Pl/YrXXhbRqe
-	Te8mY0NgFaT5ii69DxIcx6uwe2Spay1amnPEE+AHSeZjQzyCDVDYQJ+t3001v7x4h5N91N2H+XUP+
-	l1I5pb2Us5smtN7Y+sgtkGZR8I+om1ek7tTAX6h3auC/fDnNHPUcQRTuCA8oV9ey1+6O2f3nxsxPO
-	aU6oa0tO0J2XySkPtRPrAPgsvaiiCoI0Wv8xZg5w2wbk2mXwJTpy3oXnFEMdWwb4sM9Yl/AUNN9vd
-	t+8jrCng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/oNutAxfbWY+KuC1i5OY9ah8WT3qfASDBeUMTwlm7kY=; b=Nhj77tkUAcF6CmhcGnIcTln7wl
+	5p3er5AsZBEmB5LfvuvZLWrjePJtkxIpszwCv140gi4rhgbDO1rFLCmASO+19apv4+xZuiOdbp+LX
+	++IBgvVppPSjr5Qr9ydVKhqb6g6PM+2N/or9QtOiqJU3y4ikIc75jkD1zRW61DEl4Ynn8u+YXK72P
+	pIDwnvjlrRlbuGddgUvon0LwdRQMqwGl4lDIqWPt2JydSYTAUAeqbc6b8m99Y92DqOVIMjDDk2FGl
+	1jN8Q/HiRjtD+hADPU2qneAj0FTvZJp2ZkmQceiHwBvGQF9oyRewNjXMl1bl0LcfbwUqzncRp6Qor
+	N4TW/Gvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIDXI-00000002D1f-1rsr;
-	Thu, 22 May 2025 21:33:08 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uIDgF-00000002DiI-1svV;
+	Thu, 22 May 2025 21:42:23 +0000
+Received: from mail-dbaeur03on20624.outbound.protection.outlook.com ([2a01:111:f403:260d::624] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIDVF-00000002Crg-0gi1;
-	Thu, 22 May 2025 21:31:02 +0000
-Received: from pendragon.ideasonboard.com (179.218-130-109.adsl-dyn.isp.belgacom.be [109.130.218.179])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2921D605;
-	Thu, 22 May 2025 23:30:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747949435;
-	bh=KugpDzRoAvY4WZBqml977Rl1f6eI5c0/HaSaeb+pPhA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qemR8d2HFVNFg0Qba7eXJqiQ+T+pbqLk9Gmg9EUEDcX1T6FrOfVxfbN+MGAprvZoQ
-	 vVArRQYCbZqLncLYz0v8D/EHM1WfrZi07i2tXoaqmcWe0fVw1ScBAKjH4F7jWxDyHd
-	 sTRhAQENv01jr29wreghMWQ0nruTduoB8s1HOXT0=
-Date: Thu, 22 May 2025 23:30:50 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, Dafna Hirschfeld <dafna@fastmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Hans Verkuil <hans@jjverkuil.nl>
-Subject: Re: [PATCH 2/3] media: rkisp1: Add
- RKISP1_CID_SUPPORTED_PARAMS_BLOCKS control
-Message-ID: <20250522213050.GX12514@pendragon.ideasonboard.com>
-References: <20250522150944.400046-2-stefan.klug@ideasonboard.com>
- <20250522150944.400046-4-stefan.klug@ideasonboard.com>
- <20250522155641.GU12514@pendragon.ideasonboard.com>
- <174793176608.244022.1396416000017796106@localhost>
- <20250522164147.GV12514@pendragon.ideasonboard.com>
- <174793383823.244022.8319148306028952702@localhost>
+	id 1uIDeA-00000002DX3-0K5W
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 May 2025 21:40:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=C2TIziRbxcUWbE4s75W+Xar2kS702tMiNLPR/LSSgvpqpB5TJ4DL4lCiWCYSc6qJWJ1ZaVVLia1u+H4nmyt24NtbHTiQgh4oHzD/qLL3gp9jH0E7opzLi2RF5yGFvjAzL3N/IT5E/NYPklcbXpVA5Y+wSxgj+opUT4OGYxHi4NbXBfQ2XX2fZhI24glNGFyZqMcXJhZBDOmuYCWRaPtm4UPcubceNffFkiNDJi/7iFpfDft5APtumozSRmVwPEG37upyIY2MJbegpM+puxbjPc9lwB5dYCZjI9eOkwC/xbct86iXOI5NE2FPBEITB3vwfVzfl0BVKaiQLV+4X00M5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/oNutAxfbWY+KuC1i5OY9ah8WT3qfASDBeUMTwlm7kY=;
+ b=MXCKa/PDh6f4SFXf+TCpMrp9xHF69J2Nf1IgnQ1mzu4cNAjZK/8vF0JKBvhGb0uegKnjjxCb8niRNtTlXEWcLPw3sh9bxPC48laj8uAPmAnkYpEWTNw6nxrgTDSXVqtGPQEU+xKXKExsY2fmR7ljPGfYsduhtpsMHh3h8Mv3f7b+ZI5/yVy5SGezZjss5w37FhBps943zbakX9pRt4ySXw46QcaLDEMsPEMvtnhadBI7UgKMqdD1+/rmzudGCLkSyWxH8L4OLQ+ylZ3/zu44Sl4JR1z2eX7rhuu6Z6PVYto+bT9umRytI9aUGFFJ3bjdihAtMS+IvltMa9HJ3/VpcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/oNutAxfbWY+KuC1i5OY9ah8WT3qfASDBeUMTwlm7kY=;
+ b=GOL6UWxYyviV3Lsopn0iIIMN/2wl093z/eEqmF51bnywrtDj0qbpgbPLxWkyZGjfi9rRt+Iu3+1SE5oIP1GlRSzg0PXqFsdf0xpb2pzzcLa8dFP7jS7B2FyuZHLa64qh0Ktt5xhfX/4z6796QVvxJiLH8gsNfRLNuQAQRA+jt1Ko2L2zpkTtqQokPFdcKJpKTlA4rFfZB2yaQM8cFZazZnsKOmyb1tZqvSiLcsNj/ebmKhEWH6DmCu5y/2KIxpihzcZn5KMP3IgHgznEN/PkyITvtfJyHwejK8fBw0dxukJ4RIs0np+lWm0sbSojnQrYCfwt4gCnjoYKibKbstJxmg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB7587.eurprd04.prod.outlook.com (2603:10a6:20b:2d4::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.31; Thu, 22 May
+ 2025 21:40:06 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Thu, 22 May 2025
+ 21:40:06 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:FREESCALE SOC DRIVERS),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/1] dt-bindings: soc: add vf610 reset controller
+Date: Thu, 22 May 2025 17:39:50 -0400
+Message-Id: <20250522213951.506019-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH7P220CA0146.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:327::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <174793383823.244022.8319148306028952702@localhost>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB7587:EE_
+X-MS-Office365-Filtering-Correlation-Id: f8b9ecd4-45d0-47e7-4a00-08dd997937c8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CqseKHmJUs8mTVAUJ346SOX/KQS9DRwsgUhCzwKTp9AJ2HIAHteDgiWI1qkQ?=
+ =?us-ascii?Q?hpiuAEsJX9UGNv2YXeeH5n+tjWB4tNKNhfRyM+2fjF+mq4xgSTrs86tBlkhy?=
+ =?us-ascii?Q?3eKjHdkJ32riPhkep5Txi4HVUeeBfjFlRxO4Y39fxn9uXi+OliYfTVj/2uu2?=
+ =?us-ascii?Q?siT/Aey4r2h1GcUsdAg2G1Iu6DHQmBxff8OfSbTBroZNqv9Efi7ResuYNIMl?=
+ =?us-ascii?Q?o0G7fAr9+btN2WqU6DkvGAKgAwuQzQTHvqeK5Fs4TXLSP03WaXYpHpWS8mlI?=
+ =?us-ascii?Q?0BuZgYZtbwMz3ykTwSguYx5vsskXYi9jHRV+28p5AoTxEaVnEdAy7QCIewTX?=
+ =?us-ascii?Q?PGhn45nP8nDWozaaGv1xICcRyDlpf/Q5ZIo0WhKRBjacL1D26thOQBKMK0LW?=
+ =?us-ascii?Q?/6V/Qp63VDlmcIMFLaN0LODqrxE3rGNLp4eXJbO4U08hqdigfXsg+Z3k/Qa7?=
+ =?us-ascii?Q?J9wqmQJ+zLdQcbEnkbwpF1h65B4N2tvMPD7u1gEWrsYCOINYwSypWwBuoGfR?=
+ =?us-ascii?Q?3Tke6psFTWV/zCF1ooIHha1D/71ydLWKEv3eVa6u44vzuRjf8O16pJFVVmx+?=
+ =?us-ascii?Q?RAQkpHdcKn53AY+XY4AXtTmCeGoEAAu455avlzIwmaY8qh/Iq5wX4VcHy1vY?=
+ =?us-ascii?Q?kZEdwtRvVhngoLjENnfF/zZ/Ee/DoXpqdgT3WbiV6CuFf980+xRTylBbxX+X?=
+ =?us-ascii?Q?saajhbTKdvCSzk50Wtlwjdp4X8aNKSNZ3KTtfiCHwXdBUJ+KALHC6Tu9XlhV?=
+ =?us-ascii?Q?yl0cXCaVJuM9xqY8MUEAk8WCcaCczhWIipfQNN/t3enppl6tFcZmAEgnUppt?=
+ =?us-ascii?Q?pS822y2WAou7SG/jyu+uJGUNK+V//an84cCyqW2xqWbccNKjmx5suw5ItA2Y?=
+ =?us-ascii?Q?t0BAvwSWQQflk/4d3uEi4036eREwNyMQZryMEQS4iMQso7htq09AiBNMa6hw?=
+ =?us-ascii?Q?0Otd1IZtO3i/bjy5IkMzwKjXnpPtsMAu/k4mlyfQHGpqIZb5iikkCB7tHBcH?=
+ =?us-ascii?Q?w+Piv9NyaJCkq2JkqSe4O8Zqpr45+wrSvsAyMFY4XtlPRjvO6j0is1RSR1Z/?=
+ =?us-ascii?Q?OB9OhfJHiQ7GKpTmltcdj2PFHsPx2JAxaxP8wtZrEpD1U8lc6NLiVYUbkFVb?=
+ =?us-ascii?Q?0kRSxeY+5VBvC7HqT6wJzfkRg670fGoFJGZAvMAE0PTkWJzEfHayl9iE32bn?=
+ =?us-ascii?Q?B4bxINdNKFMF3TDTRf9avSh4K9R6oSBr7GiR8NeSeAE1rf6rJQ7ABJPSJ+9x?=
+ =?us-ascii?Q?U56xfh7Pn7uHt1CoTama93CeQ2BECb8biffYS0t75seHKXJgQtgU1HUwGk7p?=
+ =?us-ascii?Q?d+cspLLx3B8Hy9GVELSH500UHAVN3s+Zw2idfDSDqVHEt9lDQpmymai5TxJ4?=
+ =?us-ascii?Q?5mQmHT3OYZezxy2t3NEWq9pr7gwqrtKKZ+/OhFdFUTn1SSk/fAcyBTHDOCtL?=
+ =?us-ascii?Q?TDTvTLiwuoo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HE1kA8bHlrR1WqzK6ZdDM02VY39xa/sjihzYVtwpNNVjNS2U/BZeSy41IuB+?=
+ =?us-ascii?Q?oAllUHLsQoixmuIFIlNXUjGWNF3XYU3h0YMHf/WQ78h1yGoPV7GQntSTx+wQ?=
+ =?us-ascii?Q?8POUMRuTNI8ecCyEdAqF8Af7Rp4OvjTl0LQTBQo5KW9ZHAsVEsxFvcPlanTx?=
+ =?us-ascii?Q?177epHnGV/mVSvTGJ0ATWlUfqa+jpFUWHqcckFghEOBVuFiuQeWD7OkciGT2?=
+ =?us-ascii?Q?jYsgdAiG9WigSqN+shxs/f3vAJVG8g4/G17JewY8ighP+6dnt4Zheri+go+E?=
+ =?us-ascii?Q?VIi9D4tKXtbqAlKfzZivhKSkzH815JLKiFl4YllKGryI+W7Vd9ybR7+PWOKd?=
+ =?us-ascii?Q?gv/wUcvK2gJuHKF1ZuQazgz1eHV4vNr2nMt4DDbB2v7TrQEn3IvfYhjcFmMB?=
+ =?us-ascii?Q?nJDuVp5UvXyaQ5ZgPbz84UamBu24SGKDVtOqSq+k1TR1PtIyHVY+Hjgwl/fM?=
+ =?us-ascii?Q?LISldkMPoQkhw21m98T40rHjAVtSNHPmMTyz8PSt4RKHolcmDuU04COKPx8n?=
+ =?us-ascii?Q?lxU9YGwaI0oo/zXPqmmMaM+lQiM8rxgKLBsx+4UVHzteSM0yG1PkNKTaIwcD?=
+ =?us-ascii?Q?0OXl8KqIl8n1Zin//k+BB7scViGxr+rFT3R1Ls/Ae3XdkOlzVpI/mvALPoYb?=
+ =?us-ascii?Q?v89f8bOuto1gmv7TtlJwZ4Ga8zAjy03S7HUMc+a/1BC+kEkm+/1VCwBq0DEy?=
+ =?us-ascii?Q?EJ6kdbWd7olG9mZqSAat1yMKBCiiE3dn28AROSzQEw7mHyXC+X6HQk5mqX8V?=
+ =?us-ascii?Q?eFE0/hlJmeLkI7b0LAdqHg6diVoTKy67G6bileAeVh045Eab1pxfuj/2a2qQ?=
+ =?us-ascii?Q?zbfxoVke7O5I07TfA09gi4pWGgQWf1UL+gQbxXo9Xj6uu8gFHYepHwS3RCqc?=
+ =?us-ascii?Q?mPBi8yFZlOTk8MRRrMCQPR7Q+jpiEXCMi36esDfUtt5nusK9J2U2FmZDYeKP?=
+ =?us-ascii?Q?EetL+4+XYSYscBxatyKFSCKj1UwGW/QzeD4mismhMtMxvp06GanvWxE5Wqu9?=
+ =?us-ascii?Q?DZ7jbMiNpAi/v43bOvKeD0Z1Xe5RDMMfaw0Qv4IwXC6EdqDpYiOPsTlYIoDJ?=
+ =?us-ascii?Q?NxqyPqRKQtBfpBTCWyUlZx4yJQqivtjnXL8i7lkFnqQdcJdcxC29FUN+40Io?=
+ =?us-ascii?Q?N6SJj0P+Fxri6S4zeALVVuSvcDRGkxEZ2mtahTetUsd1rSsGxiEObX0WTFC/?=
+ =?us-ascii?Q?T5/JvgQPDJuhkRlC99Z/6PtkMpNFgqHYZbxpkgycAzBTWjbaAnl3SrpS4p2R?=
+ =?us-ascii?Q?Mss7kTzxs5jFj/kpytQncWD0DZe13sF/lbMrWFu8dET5YGQXqEwZB8zUE7fl?=
+ =?us-ascii?Q?zCLPHcQ3H/9gMKT4+IRtWM76LZlP/ebkZk8C6eGcVpqKLNcp48Z78bCGc2gb?=
+ =?us-ascii?Q?CPBBI8f2A7TDGHmHsTN6zhe/jHOjk5Qdq3uyiyeR2uWmjDoqFSaKG7y6NUB5?=
+ =?us-ascii?Q?2wx0jw15KdxdyfoYfNbvrZg3rfW7wvOwfchTgASX746LgmDTt9HB1jcz9JYK?=
+ =?us-ascii?Q?4VxMbfHjUK+oD54tJ1iVxJNLlUCy++7VwWUDKL6828B9W4R5O1bvsZ9COqOs?=
+ =?us-ascii?Q?EX+BmqvYy/F23KGiFXQ=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f8b9ecd4-45d0-47e7-4a00-08dd997937c8
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2025 21:40:06.6957
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: c1BQR8V5t7isRhgtrCtnC5esUebcPfutbZAsxjJhtEVZzFvESIkuMhnlcZ4Dd7zRxVx3EqOE9bdHaAamRRLK8Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7587
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_143101_525697_38741E32 
-X-CRM114-Status: GOOD (  47.82  )
+X-CRM114-CacheID: sfid-20250522_144014_142144_6D2431CF 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,240 +160,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 07:10:38PM +0200, Stefan Klug wrote:
-> Quoting Laurent Pinchart (2025-05-22 18:41:47)
-> > On Thu, May 22, 2025 at 06:36:06PM +0200, Stefan Klug wrote:
-> > > Hi Laurent,
-> > > 
-> > > Thank you for the review.
-> > > 
-> > > Quoting Laurent Pinchart (2025-05-22 17:56:41)
-> > > > Hi Stefan,
-> > > > 
-> > > > Thank you for the patch.
-> > > > 
-> > > > On Thu, May 22, 2025 at 05:08:39PM +0200, Stefan Klug wrote:
-> > > > > Add a RKISP1_CID_SUPPORTED_PARAMS_BLOCKS V4L2 control to be able to
-> > > > > query the parameters blocks supported by the current kernel on the
-> > > > > current hardware from user space.
-> > > > > 
-> > > > > Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
-> > > > > ---
-> > > > >  .../platform/rockchip/rkisp1/rkisp1-common.h  |  2 +
-> > > > >  .../platform/rockchip/rkisp1/rkisp1-params.c  | 50 ++++++++++++++++++-
-> > > > >  include/uapi/linux/rkisp1-config.h            | 10 ++++
-> > > > >  include/uapi/linux/v4l2-controls.h            |  6 +++
-> > > > >  4 files changed, 67 insertions(+), 1 deletion(-)
-> > > > > 
-> > > > > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > > > > index ca952fd0829b..5f187f9efc7b 100644
-> > > > > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > > > > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > > > > @@ -415,6 +415,8 @@ struct rkisp1_params {
-> > > > >       spinlock_t config_lock; /* locks the buffers list 'params' */
-> > > > >       struct list_head params;
-> > > > >  
-> > > > > +     struct v4l2_ctrl_handler ctrls;
-> > > > > +
-> > > > >       const struct v4l2_meta_format *metafmt;
-> > > > >  
-> > > > >       enum v4l2_quantization quantization;
-> > > > > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > > > > index 918eb06c7465..60c9b3c46593 100644
-> > > > > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > > > > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > > > > @@ -2736,6 +2736,45 @@ static int rkisp1_params_init_vb2_queue(struct vb2_queue *q,
-> > > > >       return vb2_queue_init(q);
-> > > > >  }
-> > > > >  
-> > > > > +static int rkisp1_ctrl_init(struct rkisp1_params *params)
-> > > > > +{
-> > > > > +     int ret;
-> > > > > +
-> > > > > +     v4l2_ctrl_handler_init(&params->ctrls, 1);
-> > > > > +
-> > > > > +     struct v4l2_ctrl_config ctrl_config = {
-> > > > > +             .id = RKISP1_CID_SUPPORTED_PARAMS_BLOCKS,
-> > > > > +             .name = "Supported Params Blocks",
-> > > > > +             .type = V4L2_CTRL_TYPE_BITMASK,
-> > > > > +             .flags = V4L2_CTRL_FLAG_READ_ONLY,
-> > > > > +     };
-> > > > 
-> > > >         struct v4l2_ctrl_config ctrl_config = {
-> > > >                 .id = RKISP1_CID_SUPPORTED_PARAMS_BLOCKS,
-> > > >                 .name = "Supported Params Blocks",
-> > > >                 .type = V4L2_CTRL_TYPE_BITMASK,
-> > > >                 .flags = V4L2_CTRL_FLAG_READ_ONLY,
-> > > >         };
-> > > >         int ret;
-> > > > 
-> > > >         v4l2_ctrl_handler_init(&params->ctrls, 1);
-> > > > 
-> > > > Mixing code and variable declarations is still usually frown upon in the
-> > > > kernel.
-> > > 
-> > > I thought frown upon is not a no. And as this structure is not yet
-> > > complete and is modified afterwards it feels natural to me to put it
-> > > close to that place. But I can move it above the function. You decide.
-> > 
-> > It obviously take someone to make the first move for things to change
-> > :-) I however tend to favour consistency in coding style within a
-> > driver.
-> 
-> Ahh, maybe I misread the comment. You meant to move it above ret. Not
-> outside the function. Right? That is easy to do. And I saw that pattern
-> in vivid-ctrls.c
+Add vf610 reset controller, which used to reboot system to fix below
+CHECK_DTB warnings:
 
-Yes, just above the ret.
+arch/arm/boot/dts/nxp/vf/vf610-bk4.dtb: /soc/bus@40000000/src@4006e000:
+    failed to match any schema with compatible: ['fsl,vf610-src', 'syscon']
 
-static int rkisp1_ctrl_init(struct rkisp1_params *params)
-{
-	struct v4l2_ctrl_config ctrl_config = {
-		.id = RKISP1_CID_SUPPORTED_PARAMS_BLOCKS,
-		.name = "Supported Params Blocks",
-		.type = V4L2_CTRL_TYPE_BITMASK,
-		.flags = V4L2_CTRL_FLAG_READ_ONLY,
-	};
-	int ret;
- 
-	v4l2_ctrl_handler_init(&params->ctrls, 1);
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ .../bindings/soc/fsl/fsl,vf610-src.yaml       | 46 +++++++++++++++++++
+ 1 file changed, 46 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
 
-	...
-
-> > > > > +
-> > > > > +     for (unsigned int i = 0; i < ARRAY_SIZE(rkisp1_ext_params_handlers); i++) {
-> > > > > +             const struct rkisp1_ext_params_handler *block_handler;
-> > > > > +
-> > > > > +             block_handler = &rkisp1_ext_params_handlers[i];
-> > > > > +             ctrl_config.max |= BIT(i);
-> > > > > +
-> > > > > +             if ((params->rkisp1->info->features & block_handler->features) !=
-> > > > > +                 block_handler->features)
-> > > > > +                     continue;
-> > > > > +
-> > > > > +             ctrl_config.def |= BIT(i);
-> > > > > +     }
-> > > > > +
-> > > > > +     v4l2_ctrl_new_custom(&params->ctrls, &ctrl_config, NULL);
-> > > > > +
-> > > > > +     params->vnode.vdev.ctrl_handler = &params->ctrls;
-> > > > > +
-> > > > > +     if (params->ctrls.error) {
-> > > > > +             ret = params->ctrls.error;
-> > > > > +             v4l2_ctrl_handler_free(&params->ctrls);
-> > > > > +             return ret;
-> > > > > +     }
-> > > > > +
-> > > > > +     return 0;
-> > > > > +}
-> > > > > +
-> > > > >  int rkisp1_params_register(struct rkisp1_device *rkisp1)
-> > > > >  {
-> > > > >       struct rkisp1_params *params = &rkisp1->params;
-> > > > > @@ -2776,10 +2815,16 @@ int rkisp1_params_register(struct rkisp1_device *rkisp1)
-> > > > >  
-> > > > >       video_set_drvdata(vdev, params);
-> > > > >  
-> > > > > +     ret = rkisp1_ctrl_init(params);
-> > > > > +     if (ret) {
-> > > > > +             dev_err(rkisp1->dev, "Control initialization error %d\n", ret);
-> > > > > +             goto err_mutex;
-> > > > > +     }
-> > > > > +
-> > > > >       node->pad.flags = MEDIA_PAD_FL_SOURCE;
-> > > > >       ret = media_entity_pads_init(&vdev->entity, 1, &node->pad);
-> > > > >       if (ret)
-> > > > > -             goto err_mutex;
-> > > > > +             goto err_ctrl;
-> > > > >  
-> > > > >       ret = video_register_device(vdev, VFL_TYPE_VIDEO, -1);
-> > > > >       if (ret) {
-> > > > > @@ -2792,6 +2837,8 @@ int rkisp1_params_register(struct rkisp1_device *rkisp1)
-> > > > >  
-> > > > >  err_media:
-> > > > >       media_entity_cleanup(&vdev->entity);
-> > > > > +err_ctrl:
-> > > > > +     v4l2_ctrl_handler_free(&params->ctrls);
-> > > > >  err_mutex:
-> > > > >       mutex_destroy(&node->vlock);
-> > > > >       return ret;
-> > > > > @@ -2808,5 +2855,6 @@ void rkisp1_params_unregister(struct rkisp1_device *rkisp1)
-> > > > >  
-> > > > >       vb2_video_unregister_device(vdev);
-> > > > >       media_entity_cleanup(&vdev->entity);
-> > > > > +     v4l2_ctrl_handler_free(&params->ctrls);
-> > > > >       mutex_destroy(&node->vlock);
-> > > > >  }
-> > > > > diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
-> > > > > index 2d995f3c1ca3..4fc8f221d0c4 100644
-> > > > > --- a/include/uapi/linux/rkisp1-config.h
-> > > > > +++ b/include/uapi/linux/rkisp1-config.h
-> > > > > @@ -1086,6 +1086,9 @@ enum rkisp1_ext_params_block_type {
-> > > > >  #define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE   (1U << 0)
-> > > > >  #define RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE    (1U << 1)
-> > > > >  
-> > > > > +/* A bitmask of parameters blocks supported on the current hardware. */
-> > > > > +#define RKISP1_CID_SUPPORTED_PARAMS_BLOCKS   (V4L2_CID_USER_RKISP1_BASE + 0x01)
-> > > > > +
-> > > > >  /**
-> > > > >   * struct rkisp1_ext_params_block_header - RkISP1 extensible parameters block
-> > > > >   *                                      header
-> > > > > @@ -1520,6 +1523,13 @@ enum rksip1_ext_param_buffer_version {
-> > > > >   * V4L2 control. If such control is not available, userspace should assume only
-> > > > >   * RKISP1_EXT_PARAM_BUFFER_V1 is supported by the driver.
-> > > > >   *
-> > > > > + * The read-only V4L2 control ``RKISP1_CID_SUPPORTED_PARAMS_BLOCKS`` can be used
-> > > > > + * to query the blocks supported by the current hardware. It contains a bitmask
-> > > > 
-> > > > s/current hardware/device/
-> > > > 
-> > > > > + * where each bit represents the availability of the corresponding entry
-> > > > > + * from the :c:type:`rkisp1_ext_params_block_type` enum. The max value of the
-> > > > > + * control represents the blocks supported by the current kernel (independent of
-> > > > > + * the current hardware).
-> > > > 
-> > > >  * from the :c:type:`rkisp1_ext_params_block_type` enum. The current and default
-> > > >  * values of the control represents the blocks supported by the device instance,
-> > > >  * while the maximum value represents the blocks supported by the kernel driver,
-> > > >  * independently of the device instance.
-> > > > 
-> > > > I was going to say that the control should be documented in
-> > > > Documentation/userspace-api/drivers/rkisp1.rst, but rkisp1-config.h is
-> > > > pulled in the documentation tree by
-> > > > Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst, so I'm OK with
-> > > > this. Hans, Mauro, are you fine as well with documenting the control
-> > > > here ?
-> > > 
-> > > Looking at the docs, I realized that most people will read the already
-> > > existing docs. So creating a completely new file just for the single
-> > > control didn't feel good. As you like.
-> > > 
-> > > > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > > 
-> > > > > + *
-> > > > >   * For each ISP block that userspace wants to configure, a block-specific
-> > > > >   * structure is appended to the @data buffer, one after the other without gaps
-> > > > >   * in between nor overlaps. Userspace shall populate the @data_size field with
-> > > > > diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
-> > > > > index 72e32814ea83..f836512e9deb 100644
-> > > > > --- a/include/uapi/linux/v4l2-controls.h
-> > > > > +++ b/include/uapi/linux/v4l2-controls.h
-> > > > > @@ -222,6 +222,12 @@ enum v4l2_colorfx {
-> > > > >   */
-> > > > >  #define V4L2_CID_USER_UVC_BASE                       (V4L2_CID_USER_BASE + 0x11e0)
-> > > > >  
-> > > > > +/*
-> > > > > + * The base for Rockchip ISP1 driver controls.
-> > > > > + * We reserve 16 controls for this driver.
-> > > > > + */
-> > > > > +#define V4L2_CID_USER_RKISP1_BASE            (V4L2_CID_USER_BASE + 0x1220)
-> > > > > +
-> > > > >  /* MPEG-class control IDs */
-> > > > >  /* The MPEG controls are applicable to all codec controls
-> > > > >   * and the 'MPEG' part of the define is historical */
-
+diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
+new file mode 100644
+index 0000000000000..4c92a5e4892bf
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
+@@ -0,0 +1,46 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas//soc/fsl/fsl,vf610-src.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Freescale vf610 System Reset Controller
++
++maintainers:
++  - Frank Li <Frank.Li@nxp.com>
++
++description:
++  The System Reset Controller (SRC) generates the resets for the device. The
++  functional reset sources are programmable as either reset or interrupt. The
++  block also generates interrupts for various device events.
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - fsl,vf610-src
++      - const: syscon
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    reset@4006e000 {
++        compatible = "fsl,vf610-src", "syscon";
++        reg = <0x4006e000 0x1000>;
++        interrupts = <96 IRQ_TYPE_LEVEL_HIGH>;
++    };
++
 -- 
-Regards,
+2.34.1
 
-Laurent Pinchart
 
