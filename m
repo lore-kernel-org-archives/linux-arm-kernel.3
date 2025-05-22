@@ -4,87 +4,212 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BF5C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 05:36:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B447CC54756
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 05:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0YUkhdEd0QQUDppQNw/UgH6HjgrfQKtiPCLApZ8LbF4=; b=DI78rOT1Wuw+cI7ukHEnp4Bhfg
-	yLhE8XKbLSLqjYt5oQLUernpq0gNyWkQO6BvC5iYwxe4epDspLXqL8NNYi5iIYFMpA5Y7lB1AcZna
-	i8RzZJuYIjbjbpMKbRgnP/GHA5jb27wNkRVL8278vgKjXptNTFTsX44DxMOxDm1GV0TTnO7DYCHXn
-	+hL6y5MLZDQeltmYJNK12hAy7682CcINV2otXYp6tAKn8po+lULt9Hvgjdp0ZbO0yBlrjJ9SWaWMN
-	BIJNhzCGWvVek6KGNaHOsSpAmv5hjxiS/RKDdUBe0gE3gVVu6gzxPjf8VqRThh0DErIkEmRVBMnK0
-	3GyMLkWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=94wX4suIV1GK8s4HZbrP6xJpjbGvOrIUXoLxn+3No1A=; b=guzO4lZWe3EE0KhDWlMbEwAYz8
+	v3hx8kq6JMDDNtZwPr1dAAUfml+9t5l2/eAwLWNnyzDsJcoc4W7thVtzQhhQFMBybfEibLXiVb6tA
+	cPtphUR1/+SA6+S4q6auVLsCPE1EXM86mqRKJjmPVaZ447ZJUqJAbmjjuvWYa6cABwEBOT9yusuhQ
+	k8SxxRANxzSMhEYQY0BSDQI6piyAxDxA1GBhGuDxeefpuUuT2tcT3bTbHEzNXA7FAPyvDekIKPx7L
+	UMohaAycAe9UqvMnTkcbt/JH6mjta7NNOIi/CSEpm+5KQ2uk5KLGLWUXyiMEdPi3mKL807HOzXCCi
+	Xuv0n6Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHybN-0000000HVWE-31Dp;
-	Thu, 22 May 2025 05:36:21 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1uHylx-0000000HWWc-0BlB;
+	Thu, 22 May 2025 05:47:17 +0000
+Received: from mail-am6eur05on2061b.outbound.protection.outlook.com ([2a01:111:f403:2612::61b] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHyZK-0000000HVMm-1ZqD
+	id 1uHyjs-0000000HWDg-0A9w
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 05:34:15 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-48d71b77cc0so101059051cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 May 2025 22:34:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747892053; x=1748496853; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0YUkhdEd0QQUDppQNw/UgH6HjgrfQKtiPCLApZ8LbF4=;
-        b=G4mJQ4gVVm4uNQyGfIfFFhbOkZ73q9fpCtenkvlm250/b6Ad7foMrJwZRmazCQQIEX
-         VCrpryCGw7hFbqLTJrnhGE3HTxHeRVBvXmfG9+weFuCYUZGWVcwlBl6kjId9iQw8wWs4
-         L11us4aQOqgiz/frt8iqLbkc8HqFKKScjqIP3X+7mZ567jydbg5QaRCrO+qsShQ0Wao1
-         evKbaS8x+bjhKJW/dWlW9FtFVqiIrtBvK0vXXH3Se6i2H9iuwhQkoR4+RPHl3YieJRmw
-         uWSI5hho+GBdbLJbPv859js0AvZ7DIQnOjcZDjZCOMu15P4WSYvdWkG4PPRVWUH7fgdh
-         r39Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747892053; x=1748496853;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0YUkhdEd0QQUDppQNw/UgH6HjgrfQKtiPCLApZ8LbF4=;
-        b=AsDBvEWHQtO7nNpl5b+iEpI5MEPfsdNsxWVyWYvzRw92QDRcd/bI2oR64lbcms5H/R
-         SFtX6ee8Evp/GQhMf0GawXlSfUFkdim/O2kD0HCiPstrxklt2yXbBIDHOcSQ0LSxbdzH
-         jWEcg26AFmZZufEzbsGSH+xlk3ch8dnzv+q1pamVoLUvYYBuQ11cutk1NtObpJNvgPZt
-         /V0A/dBxeVKG5a1BGna4lt4Lw+4GmZMoypCtaEb6fNHtRbaeXv/BUsOMLS5Pv1omNi5O
-         D5G6LpVM09BP6tQk+gyv3uHdEKqbiAaHg3ZVC/yftpINg9h7wpaPo2wwPNShqoW+48YM
-         7jhg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/BQCVDHyqMFCG7kMEdJv5wzf3WHnD9eRFOsYtgSWjNUHOHPEo2IOiUci5u21ziCjkQnYijcBMl0kPgSAfAEQc@lists.infradead.org
-X-Gm-Message-State: AOJu0YywXjifzVx2jASWV1hksCiK4qzvWp66Z/cBEZhSAgEbpwlqKb32
-	2KqSc/Wn0RMIPsG7kOFFojX436cCa2tR2xZqKRqqU9bjj41ag2dlnkNfpfGqAz81E+88ZjHXKTQ
-	KJbV2/YRMGjDrjNhykFzYVeElMUVCFMI=
-X-Gm-Gg: ASbGncv+jJzOBTW5HfkWFro2hcOBP8XbpD2++g2H0ldeHTNFdcNE/WU9g3l76Cv/c9H
-	vDvl9Ja/kZxPBbC7hffpgRdfFb1DydTa1FyV2XgULkD89NSdg15OeVSr+M8Pz4bMA8sJsYdx2KL
-	MoSMC4+MtE6vQkn+uqNdMSXrDI4B2VTrjBjWdcuX5JzsWWJMAEkP5gGqeREpMSG5tRWQ==
-X-Google-Smtp-Source: AGHT+IH+sFe/00LC82lChdaqpHX3ynAV5L9IbuDF4Vx4OIu+c9DVXkOKwcSM0tGgH5FbhmtibOWhO+4UzN974C3Q8Hc=
-X-Received: by 2002:ac8:5ccd:0:b0:48b:50ea:85af with SMTP id
- d75a77b69052e-494ae353b1amr376196131cf.8.1747892052546; Wed, 21 May 2025
- 22:34:12 -0700 (PDT)
+	Thu, 22 May 2025 05:45:10 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=raSAQBpHNe6klq96LNisEYEvU8G5HH83jg+mADRLl8L0chUuxERSw3oNhhl1XNVI5AJFNDkTzNv7tLc0BRMUH3C/IqbyqzZLC0NVtI84rRybY5kkVJCJyvmHFDD142Ol2FRPCo1jjRM2EOrQoYR+V3SlTo7BYaS8GobtW2IP0B3ZlxJMSgJtVZT2+M5SjQE6ZW1EM3xvpUzdz897fUi8TR4HC7fURdKMyRnGAN7gA/jx0u88xnhYZqjroh29e3Oe9DgWYMxLuGTilgmk2PVrsiejOYxcF5pWOxkBom8A7JHj1UfnNWAFRYimrSwA9D0g5qBjVQRlhWnlHQbqp90fsQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=94wX4suIV1GK8s4HZbrP6xJpjbGvOrIUXoLxn+3No1A=;
+ b=bWNZX5O/WTR5BAZ0NbcpN21qAOVUHkti3fRrtYOPXr4YxhW3YEjy5iMdMBFmDYTpeDR3ebeQRmh9H3Q0z0sXAi8OQjERzwL/AvS9ZdufvbbYhhbn+5A3AmkG3p9zfSlQhtmLhSIjzzN7b20iY8QQh6Rzg6eiZblD+cHVwmuM7p9dlNX+f1uH0Zy+eKCRODSgtGi4K6i8i1yZXAXStAMyUcrGtvgq2w8xzLWYycgYaz976it0Rz+xJE2LO/J9ZWFK2P3HPK232+JQLdQVbE0W7D85aJDDJCWBCtaH9s1zfR9W863d3rh55/L4CsSpL7DdMHp1lsu7YV7CU4rQwa4DYQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=redhat.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=94wX4suIV1GK8s4HZbrP6xJpjbGvOrIUXoLxn+3No1A=;
+ b=SDwvGOTuSSe80qrXwM9wEAjWWdWnMKcyJ1FGFCpSbqkRWv5MY6JRpbDhWeqsDBqfaVrCjoUuLIrJymCkqPHoPxXxw10OV0WDTP6RM3xW7HVoCZsAdnvtuXrjgCTGEBZbqrO/5okQEx/H31UCexj9GK68/gndqnx4B8BgHYa7deo=
+Received: from DUZPR01CA0180.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b3::14) by AM0PR08MB5522.eurprd08.prod.outlook.com
+ (2603:10a6:208:18c::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Thu, 22 May
+ 2025 05:44:36 +0000
+Received: from DU6PEPF0000B61C.eurprd02.prod.outlook.com
+ (2603:10a6:10:4b3:cafe::9c) by DUZPR01CA0180.outlook.office365.com
+ (2603:10a6:10:4b3::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18 via Frontend Transport; Thu,
+ 22 May 2025 05:44:37 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000B61C.mail.protection.outlook.com (10.167.8.135) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18
+ via Frontend Transport; Thu, 22 May 2025 05:44:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xUte4yA3bprVXC1kY/dJvMs/88lL0TPZlazkXnSCpYz/CDkqeYMjzCBGOzr1FAkNoc9yWyZQtRBMFok+QvbTGU14QYxW09qcTYUX5eqRiawQTX071Z3KmNz/MKfX7D/RYobaMeEQfcWSiSlRdwBT/mj4s4jzPAYZV8W8pFQ3graDdv9WeRoEGWnCZejwfrine9IXrLirKyjXKgLripf4eHklZ81iXlLKwlVxiflkfVzl44W3m4+24ZHl1n9NyggGkOtDZOHxP0YMy9wVPbfJUK4e6OYKJvQ3Pjf57s674QB/XJErJJiJ2BJ6NjPZCh8Z6c1EVs92gXubOlCIP//FLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=94wX4suIV1GK8s4HZbrP6xJpjbGvOrIUXoLxn+3No1A=;
+ b=gjuA5IyqVIfC+6adSHR5SvSs+9xFTjhypJukJG7rxn9EL2JSzhld15SONF1ThcVAsSz22KyAUWA3z8gTl74wiom5NL83ESGg1PgUq1cuwuppuItSXeda1DP2jLs4qj6bkG61oFWDabog414ZfFCPHMJ2Vm6wSRxO9WuZ8J8LTjIE4tmc+97DXEreGNOjmend6m5NmiOLg4IvqAM6ohl0uuZFbAvr1nLDWHf70lKeWAKWtTEsHAkOEsL+wrvA7q/iny7U2myDfDXsfZd0ycsG2PYpqOCQEpKI/NjJGydnFmQQHtguG1GtLeMn9i4qeaZCP0WOORsMDsZeIIp58cpNAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=94wX4suIV1GK8s4HZbrP6xJpjbGvOrIUXoLxn+3No1A=;
+ b=SDwvGOTuSSe80qrXwM9wEAjWWdWnMKcyJ1FGFCpSbqkRWv5MY6JRpbDhWeqsDBqfaVrCjoUuLIrJymCkqPHoPxXxw10OV0WDTP6RM3xW7HVoCZsAdnvtuXrjgCTGEBZbqrO/5okQEx/H31UCexj9GK68/gndqnx4B8BgHYa7deo=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
+ by DU5PR08MB10658.eurprd08.prod.outlook.com (2603:10a6:10:523::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Thu, 22 May
+ 2025 05:44:00 +0000
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e%2]) with mapi id 15.20.8769.019; Thu, 22 May 2025
+ 05:44:00 +0000
+Message-ID: <76afb4f3-79b5-4126-b408-614bb6202526@arm.com>
+Date: Thu, 22 May 2025 11:13:52 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] mm: Optimize mprotect() by batch-skipping PTEs
+To: David Hildenbrand <david@redhat.com>, akpm@linux-foundation.org
+Cc: ryan.roberts@arm.com, willy@infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
+ jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
+ joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250519074824.42909-1-dev.jain@arm.com>
+ <20250519074824.42909-2-dev.jain@arm.com>
+ <912757c0-8a75-4307-a0bd-8755f6135b5a@redhat.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <912757c0-8a75-4307-a0bd-8755f6135b5a@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA0PR01CA0017.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:80::12) To AM9PR08MB7120.eurprd08.prod.outlook.com
+ (2603:10a6:20b:3dc::22)
 MIME-Version: 1.0
-References: <20250521-vt8500-timer-updates-v5-0-7e4bd11df72e@gmail.com>
- <20250521-vt8500-timer-updates-v5-3-7e4bd11df72e@gmail.com> <aC4Ma3E461XMBig0@mai.linaro.org>
-In-Reply-To: <aC4Ma3E461XMBig0@mai.linaro.org>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 22 May 2025 09:34:09 +0400
-X-Gm-Features: AX0GCFtb-57_ZpBzRmHvZ9tosIN3IcdFjFNTkT9IoDYGJf6KA7HEPxpktqxPEQw
-Message-ID: <CABjd4YzQgjwYgTHCTz9_2T0Hr3oXu4SZjxjjbVPk4UjKoLC2TA@mail.gmail.com>
-Subject: Re: [PATCH v5 3/4] clocksource/drivers/timer-vt8500: Prepare for
- watchdog functionality
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|DU5PR08MB10658:EE_|DU6PEPF0000B61C:EE_|AM0PR08MB5522:EE_
+X-MS-Office365-Filtering-Correlation-Id: b10e8768-647b-4e6b-16b7-08dd98f3bbb9
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?ekZLUCtGTjZuMEVDU05IV05lZ3hOajNzTkkzNE1aWFJBOTFoS2paNGtoV09q?=
+ =?utf-8?B?UmNubEdJQ0tpNGttK0I3ZHlHTEZxcW1XRWUzUHh3S1FoVVh6dEdBUlNQR2ts?=
+ =?utf-8?B?MXloNEs3MTFJcUYrSG5FV3dUNm1IaGNiRXI5TmVhY3JPcFhjTTdQb1NEcWhW?=
+ =?utf-8?B?Vk14dXNOZFZUTklRS29wRUp3K2FwdGUzUkZTK3dKdjJicDBJcnBNbnNLTUc1?=
+ =?utf-8?B?SEFQRU5URHRZUnFQSWxhWjkxM1o3MGc0b0NOdnBUT3ZBVG1oMDVsZCtzQW53?=
+ =?utf-8?B?T2NGSWYyaVZvbDdBcldRSUw5bUFYdm04MjVERGVNdDczZXdWY2toZkRpV0hp?=
+ =?utf-8?B?bllYN2ZuOGhHbWNiSVduQmd0dXZMMGtHTzBHdVJHeTAySXNPa28zSzZDc0hI?=
+ =?utf-8?B?TGpobW1jOHo0enNac3FLZEIwMTNuak9MdXYwU2pXRmVBY01yalVSTmNaWW5I?=
+ =?utf-8?B?OVJ0LzZwcEZCeGJZT01LcE42bHVITnk2N3VyS3VjWG1oeE1ON1FjUTU1V1d3?=
+ =?utf-8?B?MGNVWEtsRlRRbkxDdFZCZHhXVitBa3QyMzlVaTdmU0Vac2s5eUtmb21aSnd2?=
+ =?utf-8?B?a0V1N2RrVlZCelh1TkdnVnVHU1owYkhxNXZhOUVvNmxDd3pPYjU2VlIyTUhm?=
+ =?utf-8?B?ZVA0TjBkelI5RVJYRTc3Mi82V2tudFhHdjNZNDVnNVJpeThTbTlPZ1JpSlI5?=
+ =?utf-8?B?emx3bjhQSnkvZ2gvRkFpdC9hWkpzTi9oQnpRVzJxRWE0eWh4YzVRbTg3MkJF?=
+ =?utf-8?B?NlJRUm1LRGQ1UmZPYWttSiszcTlQNlhyOXgvOWRDUDJvaVNJclJNcUxTNyth?=
+ =?utf-8?B?MTdPYmNDTmlYOHBndUs5TzdaU2VaNVhaZFZjclFwRnhFN2xuZWxYY2JEalB3?=
+ =?utf-8?B?WWlUWGFCOU9KQ2xqeHFZL0s5SG9XRTR1bkV1T2F2eHJhTi81YzhTQnBoYkRr?=
+ =?utf-8?B?Z3lLV3VyQnY3cHdGV3FoaDczS3NrUTJ6QllzV2piVDdubW1PUUM1Nkk3aml1?=
+ =?utf-8?B?c1JJK1FZdHNSeW5PYVNoRXM0NTYrdWpleDNUSUFCNzZrYmlxQUFFUFJXdXYw?=
+ =?utf-8?B?bTJGWHN3YUZORjRTdm10YWVraXdVYVBsWEU5WVZqdldEeCs2L2srLzF5WkJi?=
+ =?utf-8?B?amNhc2h4ZXZFOXVBMGZ4TVVrek84RFprT1ZpUGQxMnd4N05PL2dBZGR1TTZB?=
+ =?utf-8?B?bWZhU3JFSncxOG9IZ3JVU3pWZUFLRmhCTG96SVNXSWw0U2dKeXN3U3lHS1Fo?=
+ =?utf-8?B?bjZTdXF2bTN6NW9qKzlSY3RWdTAzUkQ1amx0RVUrS3R4MVBRU3dwS1RGQ2wv?=
+ =?utf-8?B?UHl3dWtYQlhsYkMyQW9JRnEySWxSUUJaOXY2bFpnYTNXWWcrNmsxSGhqQm1p?=
+ =?utf-8?B?VFV6QWRYV2NlV09pN3hoWWlBcjc4RFV4dmt3YmN3T2N0bS8vOXJxQ0ZLcWVT?=
+ =?utf-8?B?ZUdESUJMd0hZMlFNVTMwQzZpNlBTcitKWWdqUElLS0hXeFMvRGZMT2ZHTnpB?=
+ =?utf-8?B?MklvNDJQcmx3blJNWnJQNHlhNXFpUUJLdElvdmEyRlNaTUlFRTJScnlFb0tM?=
+ =?utf-8?B?OFZzU1R6Z0dIWWpWbTk2Y1dLMHRkQ0Z2ZnI5dUduRmRoc3VmVVZoUnF6ak9K?=
+ =?utf-8?B?RXNJWndoT253WXpsL2tzaGljcTlNVit4WkV2Q2ZvNDdaTzM1d1lFeS9JMHVY?=
+ =?utf-8?B?OWlvQWJlMlpHemRPNmd0WUJMelRtQnBWNE9yV2xja1hvdTFsSXpQVnd6Y0o0?=
+ =?utf-8?B?TVVmK1JkQ2RiZmg1ODhNUUdZdDNXdnRPMzl4NkpXQTl1YkUwWEY4dzlNdWdw?=
+ =?utf-8?B?NDVIQmdNWUZvOXNxczdTVmFxS1JMRTRjd0lnUzZGeHVubTEvOGt4VFh3UStm?=
+ =?utf-8?B?NUl2V3lvYUhwalRqbWw3Wk5ES1Z0QTZReFU5dVVFZitKc2c9PQ==?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU5PR08MB10658
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B61C.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 37f6442a-4926-4c20-96da-08dd98f3a6ca
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|14060799003|7416014|36860700013|35042699022;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MDRZMStxMHY4czREWm5rZlJUclArekxZUkFKRHM0ZTNPZDVZSVRyQ0IxZnBh?=
+ =?utf-8?B?bVFpSGtndUozZEppK2ZsNlpmOEF4NzBRaGh2MUg5NUhSaEdTcERWTmhlekly?=
+ =?utf-8?B?ZjJHQldjTHptV01UaVJ5d2FWL0Fia2xsUHVHM0ZLeFpaNjZENWNPVE1wL3JL?=
+ =?utf-8?B?Nnl6QVordXQ2SVczS2N2TEpkMjdUZDRiRjl6TUU2dmFpM3Q5TFFSYitDREtH?=
+ =?utf-8?B?aWo5b0NITzJlSlB5YVR4eWF4L1VJYVlSb1p2V05uem1nbFYxMkxQREo5QWxE?=
+ =?utf-8?B?TzZQK0VmMVY1dHJzVTJROXpDVXhKTXkreVI3UzgwSzlrSlBuR3ZoeXFRMVE0?=
+ =?utf-8?B?TEV1K1FFM3YxZ0dSc1lZVjlJV1ZEMUJPdHNiUnJVMEtGeDYzdmNQdGJiVUJn?=
+ =?utf-8?B?anFjOUxJMUdIbXQvZ1JZd0ZFSnFwVnJJalcvMGZRWnFrbnRmcUN4WDRmU1Zu?=
+ =?utf-8?B?STFxMkMvV1B3NFVvMW9kMGdQSjVjZ1VaZi8yWUxOYmtmL0NBTElTUXhjS3FZ?=
+ =?utf-8?B?YmlIaDRxcmJpUU9qc1QvTkJEZEdWeGNQai9FZy9BeDA5VGp0eDdiN1FLS3A5?=
+ =?utf-8?B?RTQvalRRNDU0YzU5VzBHR1B2Y250YzlxN0hTYWZOcVZmSHVrdWFZUHZoOFQ4?=
+ =?utf-8?B?NlNjOEtnWkhBTnlKdExFTGx0TGViSHRTZkJxd3l3NHBodE5iVExSNFNqM1lr?=
+ =?utf-8?B?SmxCZm1ITkk0bjd5NmNrZlA3eE16d0dyS1AveHhYQ3BFR1BPWUNhSTBsT2ZO?=
+ =?utf-8?B?a25ORzI5QnFub0o3MElIOE9Kd0JXRG1MbCtiTHJSTnJXRkZCVlEwN0pNNHZS?=
+ =?utf-8?B?Y2pQbkZvSCtRMWJTOThqdzhoSlQ2a2hZOHVmTWNhMmkzK1F3YWQyVEt0OXo5?=
+ =?utf-8?B?aWZxeC80SzdPLzhndUtOOGZFOERQL08zdFpNUmNLZGVHdGo5dmN6eDBNcXln?=
+ =?utf-8?B?dTB6UE9uSlY5MnJ3M09Pc2N3UWlXa25sOGRqNkpWY0F1Ukcvdzh3LzhEcTBt?=
+ =?utf-8?B?R1ZlcGNOSnk4amRPOURtVjZyZ3VUdUlrSXBiQXM1bHFuTVNJRzRFZ0lhSE1O?=
+ =?utf-8?B?TVZJUHlGcXloa0dHaUNMcVp5Rlhsc0dlV3pJaDM4QkZyMHd4Y1NYUUlRNnR1?=
+ =?utf-8?B?SmFoU040SkUvd1VpN1V5SDQ4WUliYWxqSjExNmlTbmw0Z09sNXBPeVRJSmFP?=
+ =?utf-8?B?eU1YeXA1QTNhSVZla1NoMXRuZ0dFdTdYeXI0amRjQmJzbm5ZU1VZenRRSURJ?=
+ =?utf-8?B?eThQazdKN0ZJbEhmYlhnVXYwTmRJUEpXOUUwNzZyV1pUY2QwWnJ4Wm42QlpH?=
+ =?utf-8?B?bUd1L0FkUkQraWpILzBlMGQ4L053NC84OFlFbEEvMC9SdHBPMjNXeW5PbXFj?=
+ =?utf-8?B?a2NFQ05oK1ZNbWRZMEtCdjM4Mkx2UHk5TE9DTGx4dlJWd2RZMTRWTG9GNGVE?=
+ =?utf-8?B?V0xZaVR3SGZGaGVrdGwwU2N6dXZBV1NxSXcvaGhybVVhZEZLaVl6MU9lWUtZ?=
+ =?utf-8?B?d25iNkVJTnRSeVVrTUU0L3R0NTIwamZqeFVDbmJMRW9XVC9SeVdMc1dxZzVJ?=
+ =?utf-8?B?clJaRWltcWtuNUQ1aW05Wmx3cys3ZnE1QldTRFBMTlNldWZEc285QXZuT0tv?=
+ =?utf-8?B?NzRWK2tGL01RME8waUdUQmVIRFdTTnB2c2hMb1laRDRGeXdZVHBHNFYrS29k?=
+ =?utf-8?B?M3hRZGgzd25kUlJSdFhWNzg5bU0zUWp4MFc3aFhZQkZoZFgwOTZtamVBeXh6?=
+ =?utf-8?B?dmk4dzM4VWtEdnVVaktaY1dUY1pGaEZ4TkRueEgyVU9WdlhINWFKSnM2WmJP?=
+ =?utf-8?B?WE15NGtDUk5SK1Z0NVh1elpnR2NscVN4b3FKZnF3Wms1aGhzQ2pCSmVSOVp1?=
+ =?utf-8?B?ZDRHYkpLM3V2WEhVWkJaTERIM0lIZDV5SzR6ZXVwRU90VXpGWVRsZmwxUFFz?=
+ =?utf-8?B?SHk4RWNIUWVpZ0NrbGNnR2ttOGExdnhsN3VpQm43eU01d0NCTVZLamNMbkV5?=
+ =?utf-8?B?ZW1rMEhKeVdDNDFDcUN6bWRoTXNYSTZ4SE4zeklWRUJsYVBSV3VxbUZ0Yksx?=
+ =?utf-8?Q?Ubyws3?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(14060799003)(7416014)(36860700013)(35042699022);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2025 05:44:34.9323
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b10e8768-647b-4e6b-16b7-08dd98f3bbb9
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B61C.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR08MB5522
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_223414_426843_78F50915 
-X-CRM114-Status: GOOD (  55.97  )
+X-CRM114-CacheID: sfid-20250521_224508_229414_FD4C7D22 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,338 +224,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 9:25=E2=80=AFPM Daniel Lezcano
-<daniel.lezcano@linaro.org> wrote:
+
+On 21/05/25 5:36 pm, David Hildenbrand wrote:
+> On 19.05.25 09:48, Dev Jain wrote:
 >
-> On Wed, May 21, 2025 at 05:00:11PM +0400, Alexey Charkov wrote:
-> > VIA/WonderMedia system timer can generate a watchdog reset when its
-> > clocksource counter matches the value in the match register 0 and
-> > watchdog function is enabled. For this to work, obvously the clock even=
-t
-> > device must use a different match register (1~3) and respective interru=
-pt.
-> >
-> > Check if at least two interrupts are provided by the device tree, then =
-use
-> > match register 1 for system clock events and reserve match register 0 f=
-or
-> > the watchdog. Instantiate an auxiliary device for the watchdog
-> >
-> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > ---
-> >  MAINTAINERS                        |   1 +
-> >  drivers/clocksource/Kconfig        |   1 +
-> >  drivers/clocksource/timer-vt8500.c | 111 +++++++++++++++++++++++++++++=
-+++++---
-> >  include/linux/vt8500-timer.h       |  18 ++++++
+> Please highlight in the subject that this is only about 
+> MM_CP_PROT_NUMA handling.
+
+
+Sure.
+
+
 >
-> It should endup in include/clocksource/vt8500-timer.h
-
-Noted, will move.
-
-> >  4 files changed, 122 insertions(+), 9 deletions(-)
-> >
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 783e5ee6854b69cca87b6f0763844d28b4b2213f..5362095240627f613638197=
-fda275db6edc16cf7 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -3447,6 +3447,7 @@ F:      drivers/tty/serial/vt8500_serial.c
-> >  F:   drivers/video/fbdev/vt8500lcdfb.*
-> >  F:   drivers/video/fbdev/wm8505fb*
-> >  F:   drivers/video/fbdev/wmt_ge_rops.*
-> > +F:   include/linux/vt8500-timer.h
-> >
-> >  ARM/ZYNQ ARCHITECTURE
-> >  M:   Michal Simek <michal.simek@amd.com>
-> > diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-> > index 487c8525996724fbf9c6e9726dabb478d86513b9..92f071aade10b7c0f0bba4b=
-47dc6228a5e50360f 100644
-> > --- a/drivers/clocksource/Kconfig
-> > +++ b/drivers/clocksource/Kconfig
-> > @@ -178,6 +178,7 @@ config TEGRA186_TIMER
-> >  config VT8500_TIMER
-> >       bool "VT8500 timer driver" if COMPILE_TEST
-> >       depends on HAS_IOMEM
-> > +     select AUXILIARY_BUS
-> >       help
-> >         Enables support for the VT8500 driver.
-> >
-> > diff --git a/drivers/clocksource/timer-vt8500.c b/drivers/clocksource/t=
-imer-vt8500.c
-> > index 9f28f30dcaf83ab4e9c89952175b0d4c75bd6b40..cdea5245f8e41d65b8b9beb=
-ad3fe3a55f43a18fa 100644
-> > --- a/drivers/clocksource/timer-vt8500.c
-> > +++ b/drivers/clocksource/timer-vt8500.c
-> > @@ -11,6 +11,7 @@
-> >   * Alexey Charkov. Minor changes have been made for Device Tree Suppor=
-t.
-> >   */
-> >
-> > +#include <linux/auxiliary_bus.h>
-> >  #include <linux/io.h>
-> >  #include <linux/irq.h>
-> >  #include <linux/interrupt.h>
-> > @@ -22,9 +23,6 @@
-> >  #include <linux/of_address.h>
-> >  #include <linux/of_irq.h>
-> >
-> > -#define VT8500_TIMER_OFFSET  0x0100
-> > -#define VT8500_TIMER_HZ              3000000
-> > -
-> >  #define TIMER_MATCH_REG(x)   (4 * (x))
-> >  #define TIMER_COUNT_REG              0x0010   /* clocksource counter *=
-/
-> >
-> > @@ -53,8 +51,14 @@
-> >  #define msecs_to_loops(t) (loops_per_jiffy / 1000 * HZ * t)
-> >
-> >  #define MIN_OSCR_DELTA               16
-> > +#include <linux/of_platform.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/vt8500-timer.h>
-> >
-> >  static void __iomem *regbase;
-> > +static unsigned int sys_timer_ch;     /* which match register to use
-> > +                                       * for the system timer
-> > +                                       */
+>> In case of prot_numa, there are various cases in which we can skip to 
+>> the
+>> next iteration. Since the skip condition is based on the folio and not
+>> the PTEs, we can skip a PTE batch.
+>>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>>   mm/mprotect.c | 36 +++++++++++++++++++++++++++++-------
+>>   1 file changed, 29 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/mm/mprotect.c b/mm/mprotect.c
+>> index 88608d0dc2c2..1ee160ed0b14 100644
+>> --- a/mm/mprotect.c
+>> +++ b/mm/mprotect.c
+>> @@ -83,6 +83,18 @@ bool can_change_pte_writable(struct vm_area_struct 
+>> *vma, unsigned long addr,
+>>       return pte_dirty(pte);
+>>   }
+>>   +static int mprotect_batch(struct folio *folio, unsigned long addr, 
+>> pte_t *ptep,
+>> +        pte_t pte, int max_nr_ptes)
+>> +{
+>> +    const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+>> +
+>> +    if (!folio_test_large(folio) || (max_nr_ptes == 1))
+>> +        return 1;
+>> +
+>> +    return folio_pte_batch(folio, addr, ptep, pte, max_nr_ptes, flags,
+>> +                   NULL, NULL, NULL);
+>> +}
+>> +
+>>   static long change_pte_range(struct mmu_gather *tlb,
+>>           struct vm_area_struct *vma, pmd_t *pmd, unsigned long addr,
+>>           unsigned long end, pgprot_t newprot, unsigned long cp_flags)
+>> @@ -94,6 +106,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>       bool prot_numa = cp_flags & MM_CP_PROT_NUMA;
+>>       bool uffd_wp = cp_flags & MM_CP_UFFD_WP;
+>>       bool uffd_wp_resolve = cp_flags & MM_CP_UFFD_WP_RESOLVE;
+>> +    int nr_ptes;
+>>         tlb_change_page_size(tlb, PAGE_SIZE);
+>>       pte = pte_offset_map_lock(vma->vm_mm, pmd, addr, &ptl);
+>> @@ -108,8 +121,10 @@ static long change_pte_range(struct mmu_gather 
+>> *tlb,
+>>       flush_tlb_batched_pending(vma->vm_mm);
+>>       arch_enter_lazy_mmu_mode();
+>>       do {
+>> +        nr_ptes = 1;
+>>           oldpte = ptep_get(pte);
+>>           if (pte_present(oldpte)) {
+>> +            int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
+>>               pte_t ptent;
+>>                 /*
+>> @@ -126,15 +141,18 @@ static long change_pte_range(struct mmu_gather 
+>> *tlb,
+>>                       continue;
+>>                     folio = vm_normal_folio(vma, addr, oldpte);
+>> -                if (!folio || folio_is_zone_device(folio) ||
+>> -                    folio_test_ksm(folio))
+>> +                if (!folio)
+>>                       continue;
+>>   +                if (folio_is_zone_device(folio) ||
+>> +                    folio_test_ksm(folio))
+>> +                    goto skip_batch;
+>> +
+>>                   /* Also skip shared copy-on-write pages */
+>>                   if (is_cow_mapping(vma->vm_flags) &&
+>>                       (folio_maybe_dma_pinned(folio) ||
+>>                        folio_maybe_mapped_shared(folio)))
+>> -                    continue;
+>> +                    goto skip_batch;
+>>                     /*
+>>                    * While migration can move some dirty pages,
+>> @@ -143,7 +161,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>                    */
+>>                   if (folio_is_file_lru(folio) &&
+>>                       folio_test_dirty(folio))
+>> -                    continue;
+>> +                    goto skip_batch;
+>>                     /*
+>>                    * Don't mess with PTEs if page is already on the node
+>> @@ -151,7 +169,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>                    */
+>>                   nid = folio_nid(folio);
+>>                   if (target_node == nid)
+>> -                    continue;
+>> +                    goto skip_batch;
+>>                   toptier = node_is_toptier(nid);
+>>                     /*
+>> @@ -159,8 +177,12 @@ static long change_pte_range(struct mmu_gather 
+>> *tlb,
+>>                    * balancing is disabled
+>>                    */
+>>                   if (!(sysctl_numa_balancing_mode & 
+>> NUMA_BALANCING_NORMAL) &&
+>> -                    toptier)
+>> +                    toptier) {
+>> +skip_batch:
+>> +                    nr_ptes = mprotect_batch(folio, addr, pte,
+>> +                                 oldpte, max_nr_ptes);
+>>                       continue;
+>> +                }
 >
-> The comment format is a bit odd. It would be nicer on top of the
-> variable.
 >
-> /*
->  * Which match register to use for the system timer
->  */
-
-Indeed. Will reformat, thanks!
-
-> >  static u64 vt8500_timer_read(struct clocksource *cs)
-> >  {
-> > @@ -75,21 +79,26 @@ static struct clocksource clocksource =3D {
-> >       .flags          =3D CLOCK_SOURCE_IS_CONTINUOUS,
-> >  };
-> >
-> > +static u64 vt8500_timer_next(u64 cycles)
-> > +{
-> > +     return clocksource.read(&clocksource) + cycles;
-> > +}
-> > +
-> >  static int vt8500_timer_set_next_event(unsigned long cycles,
-> >                                   struct clock_event_device *evt)
-> >  {
-> >       int loops =3D msecs_to_loops(10);
-> > -     u64 alarm =3D clocksource.read(&clocksource) + cycles;
-> > +     u64 alarm =3D vt8500_timer_next(cycles);
-> >
-> > -     while (readl(regbase + TIMER_ACC_STS_REG) & TIMER_ACC_WR_MATCH(0)
-> > +     while (readl(regbase + TIMER_ACC_STS_REG) & TIMER_ACC_WR_MATCH(sy=
-s_timer_ch)
-> >              && --loops)
-> >               cpu_relax();
-> > -     writel((unsigned long)alarm, regbase + TIMER_MATCH_REG(0));
-> > +     writel((unsigned long)alarm, regbase + TIMER_MATCH_REG(sys_timer_=
-ch));
-> >
-> >       if ((signed)(alarm - clocksource.read(&clocksource)) <=3D MIN_OSC=
-R_DELTA)
-> >               return -ETIME;
-> >
-> > -     writel(TIMER_INT_EN_MATCH(0), regbase + TIMER_INT_EN_REG);
-> > +     writel(TIMER_INT_EN_MATCH(sys_timer_ch), regbase + TIMER_INT_EN_R=
-EG);
-> >
-> >       return 0;
-> >  }
-> > @@ -131,7 +140,9 @@ static int __init vt8500_timer_init(struct device_n=
-ode *np)
-> >               return -ENXIO;
-> >       }
-> >
-> > -     timer_irq =3D irq_of_parse_and_map(np, 0);
+> I suggest
 >
-> It may be worth to repeat part of what is said in the changelog
-
-Will do, thanks!
-
-> > +     sys_timer_ch =3D of_irq_count(np) > 1 ? 1 : 0;
-> > +
-> > +     timer_irq =3D irq_of_parse_and_map(np, sys_timer_ch);
-> >       if (!timer_irq) {
-> >               pr_err("%s: Missing irq description in Device Tree\n",
-> >                                                               __func__)=
-;
-> > @@ -140,7 +151,7 @@ static int __init vt8500_timer_init(struct device_n=
-ode *np)
-> >
-> >       writel(TIMER_CTRL_ENABLE, regbase + TIMER_CTRL_REG);
-> >       writel(TIMER_STATUS_CLEARALL, regbase + TIMER_STATUS_REG);
-> > -     writel(~0, regbase + TIMER_MATCH_REG(0));
-> > +     writel(~0, regbase + TIMER_MATCH_REG(sys_timer_ch));
-> >
-> >       ret =3D clocksource_register_hz(&clocksource, VT8500_TIMER_HZ);
-> >       if (ret) {
-> > @@ -166,4 +177,86 @@ static int __init vt8500_timer_init(struct device_=
-node *np)
-> >       return 0;
-> >  }
-> >
-> > +static void vt8500_timer_aux_uninit(void *data)
-> > +{
-> > +     auxiliary_device_uninit(data);
-> > +}
-> > +
-> > +static void vt8500_timer_aux_delete(void *data)
-> > +{
-> > +     auxiliary_device_delete(data);
-> > +}
-> > +
-> > +static void vt8500_timer_aux_release(struct device *dev)
-> > +{
-> > +     struct auxiliary_device *aux;
-> > +
-> > +     aux =3D container_of(dev, struct auxiliary_device, dev);
-> > +     kfree(aux);
+> a) not burying that skip_batch label in another if condition
 >
-> That will result in a double kfree because the data belongs to the
-> wdt_info structure. It is not a pointer allocated. So when the
-> wdt_info will be freed, it will free the area already freed by this
-> function.
-
-Hmm, it will probably even work still, due to the fact that auxdev is
-the first member of wdt_info. But at least a container_of is required
-as long as the wdt_info struct is allocated with plain kzalloc not its
-devm_* sibling.
-
-> Please note, a timer should never be unloaded, so not sure if the wdt
-> should handle the case.
-
-I think this function is rather meant for freeing the parent allocated
-resources when the child unregisters from the auxiliary bus, which may
-happen earlier than the parent itself unloading (at least that's what
-I'm getting from the auxiliary bus documentation). The auxiliary bus
-doesn't even allow a child device to be added without specifying the
-release callback, which leads me to believe that manual object
-lifecycle management is preferred over devm managed one [1].
-
-[1] https://elixir.bootlin.com/linux/v6.14.6/source/include/linux/auxiliary=
-_bus.h#L22
-
-But it does make me wonder if e.g. unloading the wdt module would
-trigger a release here, which might get messy upon loading it again.
-
-> > +}
-> > +
-> > +/*
-> > + * This probe gets called after the timer is already up and running. T=
-his will
-> > + * create the watchdog device as a child since the registers are share=
-d.
-> > + */
-> > +static int vt8500_timer_probe(struct platform_device *pdev)
-> > +{
-> > +     struct vt8500_wdt_info *wdt_info;
-> > +     struct device *dev =3D &pdev->dev;
-> > +     int ret;
+> b) looking into factoring out prot_numa handling into a separate 
+> function first.
 >
-> >>>>>
 >
-> > +     if (!sys_timer_ch) {
-> > +             dev_info(dev, "Not enabling watchdog: only one irq was gi=
-ven");
-> > +             return 0;
-> > +     }
-> > +
-> > +     if (!regbase)
-> > +             return dev_err_probe(dev, -ENOMEM,
-> > +                     "Timer not initialized, cannot create watchdog");
+> Likely we want something like
 >
-> The block above seems to be a bit wobbly as it relies on
-> vt8500_timer_init() to have succeeded.
+> if (prot_numa) {
+>     nr_ptes = prot_numa_pte_range_skip_ptes(vma, addr, oldpte);
+>     if (nr_ptes)
+>         continue;
+> }
 >
-> Why not have vt8500_timer_probe() called by vt8500_timer_init() (with
-> a proper name like vt8500_timer_wdt_init()) ?
+> ... likely with a better function name,
 
-I need a struct device to hang all the devm_*, dev_* and auxiliary bus
-stuff on to. I couldn't find anything readymade in the timers
-framework, thus the platform probe function to put something on a bus
-first and get a valid dev pointer.
 
-What are the chances of reaching the point of platform devices probing
-without a successfully initialized system timer? I have a strong
-suspicion that the system will be unusable anyway if vt8500_timer_init
-is unsuccessful, given that it's the only clocksource on VT8500. In
-which case being unable to initialize a watchdog would be the least of
-my concerns :)
+I want to be able to reuse the folio from vm_normal_folio(), and we also 
+need
 
-> <<<<<
->
-> > +     wdt_info =3D kzalloc(sizeof(*wdt_info), GFP_KERNEL);
->
-> devm_kzalloc()
+nr_ptes to know how much to skip, so if there is no objection in passing 
+int *nr_ptes,
 
-I tried to find examples of other auxiliary_device structures
-allocated with the managed functions and could only find plain
-kzalloc, which makes me wonder if it's appropriate here?
+or struct folio **foliop to this new function, then I'll carry on with 
+your suggestion :)
 
-> > +     if (!wdt_info)
-> > +             return dev_err_probe(dev, -ENOMEM,
-> > +                     "Failed to allocate vt8500-wdt info");
->
-> Is it possible kzalloc to return -EPROBE_DEFER ?
 
-I don't think so, but I like how dev_err_probe formats its output
-including the textual representation of the errno, and also its inline
-return. The docs also say it's fine to use even if -EPROBE_DEFER is
-not expected [2]
-
-[2] https://elixir.bootlin.com/linux/v6.14.6/source/drivers/base/core.c#L50=
-57
-
-> > +
-> > +     wdt_info->timer_next =3D &vt8500_timer_next;
-> > +     wdt_info->wdt_en =3D regbase + TIMER_WATCHDOG_EN_REG;
-> > +     wdt_info->wdt_match =3D regbase + TIMER_MATCH_REG(0);
 >
-> The two fields above can be merged into one : wdt_info->regbase
 >
-> Move TIMER_WATCHDOG_EN_REG to the watchdog driver code.
->
-> And as TIMER_MATCH_REG(__channel) =3D=3D 4 * (__channel),
-> then TIMER_MATCH_REG =3D=3D 0, so regbase + 0 =3D=3D regbase
-
-Could do that, but frankly I find it neat that the watchdog driver
-doesn't need to do offsets into the parent's MMIO registers and just
-uses descriptive names for the two registers it actually needs access
-to.
-
-> > +     wdt_info->auxdev.name =3D "vt8500-wdt";
-> > +     wdt_info->auxdev.dev.parent =3D dev;
-> > +     wdt_info->auxdev.dev.release =3D &vt8500_timer_aux_release;
-> > +
-> > +     ret =3D auxiliary_device_init(&wdt_info->auxdev);
-> > +     if (ret) {
-> > +             kfree(wdt_info);
->
-> Remove kfree because of devm_kzalloc
->
-> > +             return ret;
-> > +     }
->
-> nit: add line
->
-> > +     ret =3D devm_add_action_or_reset(dev, vt8500_timer_aux_uninit,
-> > +                                    &wdt_info->auxdev);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     ret =3D auxiliary_device_add(&wdt_info->auxdev);
-> > +     if (ret)
-> > +             return ret;
->
-> nit: add line
-
-Thanks for your review Daniel!
-
-Best regards,
-Alexey
 
