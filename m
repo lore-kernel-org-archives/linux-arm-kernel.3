@@ -4,177 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E995C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 11:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FAEC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 12:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bHFj+wccSli4xIjqO4ThZCUElvKzih5X1GTp4368Ubc=; b=Lhrge/gMRoKHoO5QiL9UV7+0Iv
-	0EIeNwalLOmHS9GBafB1msaZXOEdiMXOTvVlFMdXZaQ7xhK5fFANBLPcyO8XpVsjQ5qG8ifVB3lf7
-	gmfXNnblV1Pgo5FOQNakHuKrws1mRdIf3x2I0aBBrBN/N7iyO8SrUJj7eG56Tf296fA4rm4YWS0Hs
-	hAPbXQ0HVlP6MXOmmygy2PcyCndSbZanULxLsPf64uD0OmA5KBxDffjVPqXNTl92fRD7YVf1ewHZa
-	HKi0ZoaO1EhAy9/TZ/DJjO4ypEZir9paYwgFiIbxp4fZe/G/y4NYbcYwgA5Cld4qzPy2Vdkg3tj+v
-	k8BVit5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pHEnNBTxEsIdDi8EHMre08uWmEK9ZCsvd1cuDbuHGd4=; b=CCL0MVrp7IcV/pmP9e2AtAdzuX
+	5KJTv8pjgKo2yNVE5PNGz5tVtZVoPmo1SxpxKf20E2vNJ22w17cybo6Y72E5NtU/hFqmk+Ci/NC8T
+	+qIyxsEi8LMusnerJTOqRvpy1TR2lzFeQRGJfBs9X+sLLgUfkJc31+bg8VGuB2n6PTJSbpFFYYLSw
+	Bs0ItM5find/yyv4BVVKkNnJhRzyfcb55z/7Up1K/2F0SU8I/GokRGNPZaWH5V07/TDaFf9WoJ5/S
+	wWrTefdxfB05PIflDzNMdVWn7tSNaEmy1UhJr2IZlvMdrRUu9OxPvjaL8pGGcxHQfFNw0USC0RAY8
+	Q52difIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI4VU-00000000vOg-3dmS;
-	Thu, 22 May 2025 11:54:40 +0000
-Received: from mail-bn8nam11on2062b.outbound.protection.outlook.com ([2a01:111:f403:2414::62b] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uI4jU-00000000xNC-1kRh;
+	Thu, 22 May 2025 12:09:08 +0000
+Received: from ni.piap.pl ([195.187.100.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI4TP-00000000v1y-2Sbv
+	id 1uI4hO-00000000wxa-1YL4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 11:52:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GVOge2Z3l6Unukpuzsr4gzsRsyc8yQ33gkv+Ghk+P2ETEtMpBxaHsqU66KyeYxvhbcj+uWMuGxCjR048o3ECT6B4IqlANiAl5k3lOK9KyNMmPJCa203L1xbYBoNHKoGPFLYq4v5x17i9SgOfqv4j2Td3YoabMdg9LYQOFGqbCtgiA0yY27hJtV9APM6fWVNULHyOwOrSlhZmyy+VYBggWlMw36ASW0COXm32FLggMcVirhQnFcE3N5HdGYKdbgS22kw3j6MXHjoiODNeVqqm3lRstx1EsVyseSnCzUvlkHGQAeGMabQ5z1GeArNDJOW7EMwnvW4UxsafSrwc8ix32Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bHFj+wccSli4xIjqO4ThZCUElvKzih5X1GTp4368Ubc=;
- b=p5I9PyUt6E2z1dtB1UjpJL6eWzxk+CzjE2az8To3Oj7HiRS2MJxtk2Hkdb4ZJa0fRJLG9+lzviGhD4UgOaq2d7VoRWaf6JzJURsRArFjWVlbaW7xX+QK8kfcbFAQi0FMJM10g2IkkgSuNAZY/oXEx7f9TyYUoZ0DhcrHxjx8VnqdUANH4m95cVEDK87MtPgY+pnNn2a9Idl9aN/u1YmBlVyeIbjC+Pjm69TpxrsmCZXRprUMfKjwyFhIpDLHacbYy0dSgLH6OCKB9OP5huQpuWyW8gqN4B4EQySFs1dl7qD5XxnTiGhAvPaEs2OHBDyzFFSRYJICtknXkDk/bSdeMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bHFj+wccSli4xIjqO4ThZCUElvKzih5X1GTp4368Ubc=;
- b=BruNwTXgSjzZwZkFtzU/SHg8BDeooZ4HPbU04ZXgzP9/ejX8OpT1HREZ+0HfdH+TDdNTr7gedrMa9fqI7fCrDGGmTjPFMudnK8P3pGBOExIHLHbelR5E7E/G3Jxp5uzFcXsk7BVaBQ/5txXRHqaAI04O2tLApt2bjTGdAYgji1E=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
- by CH3PR12MB7570.namprd12.prod.outlook.com (2603:10b6:610:149::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.22; Thu, 22 May
- 2025 11:52:23 +0000
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::46fb:96f2:7667:7ca5]) by PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::46fb:96f2:7667:7ca5%7]) with mapi id 15.20.8722.031; Thu, 22 May 2025
- 11:52:22 +0000
-Message-ID: <1a65f370-2df2-4169-85f9-c45e7c537447@amd.com>
-Date: Thu, 22 May 2025 13:52:14 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/9] dma-buf: dma-heap: export declared functions
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
- op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org,
- Olivier Masse <olivier.masse@nxp.com>,
- Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
- "T . J . Mercier" <tjmercier@google.com>, Sumit Garg
- <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
- Daniel Stone <daniel@fooishbar.org>,
- Rouven Czerwinski <rouven.czerwinski@linaro.org>
-References: <20250520152436.474778-1-jens.wiklander@linaro.org>
- <20250520152436.474778-3-jens.wiklander@linaro.org>
- <dffbd709-def0-47af-93ff-a48686f04153@amd.com>
- <CAHUa44Ec0+GPoDkcEG+Vg9_TY1NC=nh3yr0F=ezHMbaeX_A0Bg@mail.gmail.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-In-Reply-To: <CAHUa44Ec0+GPoDkcEG+Vg9_TY1NC=nh3yr0F=ezHMbaeX_A0Bg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BL1PR13CA0163.namprd13.prod.outlook.com
- (2603:10b6:208:2bd::18) To PH7PR12MB5685.namprd12.prod.outlook.com
- (2603:10b6:510:13c::22)
+	Thu, 22 May 2025 12:07:01 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id 9ED24C405A45;
+	Thu, 22 May 2025 14:06:49 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 9ED24C405A45
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,  Rui Miguel Silva
+ <rmfrfs@gmail.com>,  Martin Kepplinger <martink@posteo.de>,  Purism Kernel
+ Team <kernel@puri.sm>,  Mauro Carvalho Chehab <mchehab@kernel.org>,  Shawn
+ Guo <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
+  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>,  linux-media@vger.kernel.org,  imx@lists.linux.dev,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
+In-Reply-To: <iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
+	(Jacopo Mondi's message of "Wed, 21 May 2025 11:08:13 +0200")
+References: <m3h61u9jy2.fsf@t19.piap.pl>
+	<20250509103733.GE28896@pendragon.ideasonboard.com>
+	<m3o6vn8np5.fsf@t19.piap.pl>
+	<iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
+Date: Thu, 22 May 2025 14:06:49 +0200
+Message-ID: <m31psg97dy.fsf@t19.piap.pl>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|CH3PR12MB7570:EE_
-X-MS-Office365-Filtering-Correlation-Id: c2b15f38-9e26-48d0-a632-08dd99271d10
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2VndmVVNTFvcWNvckk4M0hJRXUyTUN2amFaSWRzeE5iWUhKdnlobDNyeStW?=
- =?utf-8?B?ZVcrWkVUYVhsaDFEWllxL2UzVktCQ0g4R3kwZDVENmVWOElqSGc4QWhWKzhG?=
- =?utf-8?B?RDVWSjRGbGxrZU5Vc0Q5VTRFNlFFYmdYanVqTUIvYXRTdEFFaEtvKzFGOTVn?=
- =?utf-8?B?SFVGazFPUXVKYUFnZ3Q5enUxSHBUYU1BK1REdzY1eEs2OTF5STRTTzRwczZU?=
- =?utf-8?B?bnFjdnFvZGFaWUk1bUxRTXNBM3BOaXBtRFZZQmhHbHdER3dPRFZObkswd1hT?=
- =?utf-8?B?RitWWk93YkVScmtSdWRKYWsvbWRjMytyVFdEMHhMbXZ2cEFnS0hCS3V5a2FW?=
- =?utf-8?B?OTdqVTJkVlFsSE1MMHk3b2JFZG5DdHpuRytqQjV3dktibk9aQStqZHZ3ZmEy?=
- =?utf-8?B?Ry9kTjVuTUx0ZDJEb2J4SVZNNCtscHhncWJ1cXR2MGxPdlZCUnFjTEs5Qlp0?=
- =?utf-8?B?UEJ4Q1FaNndpUTZFOHBaRytoVjFCMEg3WjcxY24wZi9xTVRJTkt3YW9yR3RM?=
- =?utf-8?B?eVA4WTA1VnlENVZLNk1BQlNjVFBIeEpjSHZNYUZaT2cwWHhwRDNoQ3d3aUV6?=
- =?utf-8?B?MkJ3WEtwbVZaZGlkemRhUGp0WWloYUh3cVFGSXlYSUN4bWQrNE9Kc1dlUks1?=
- =?utf-8?B?SlhZRlZiM3BMWmtZWjNvZVpGWE84enJIdUNOblVmYnFqTDdjTlAzUG5TcTNi?=
- =?utf-8?B?TzVOcmt5NlpFclJrWVFFK3gyNExkZ3FUSUEzNnhpZHNqTE52U09LVGxXcFRC?=
- =?utf-8?B?cW9hS1ZIaXFQUGtoU2N5UlhhQm4raVA5eTcxaEFhL2lSdjM4ZkFvbm1KSngw?=
- =?utf-8?B?NkZWTE9VZVA2K1pIWnF0MjMxS05OeGhQN3ZnNlBUTWhzcjViV3M1a2Ntak9G?=
- =?utf-8?B?aDlTRjV4Uk1mYkFGOGxQS05qQUc2TllLUlY2WDNHMThuSTUrOXlKWkRDK2Jp?=
- =?utf-8?B?RXFKZUhiVU5HK0ZBaXhUeVZKKzJET2t6MHFWK0FjYi9yU2cxZnBZb0kwdjFE?=
- =?utf-8?B?Wk5UWVZNdkxWNzdNN2hGZWl1TmlxeTVHczdydUdQYkYwRlg5SzRRTWt5RnlM?=
- =?utf-8?B?Y1hMaTBvUEZWTHB6V3B2bndxN05NOWxOQ0dNYm9ubVZmVHNmUkdIYzJEU3Qy?=
- =?utf-8?B?aDZrVWJ1T3ZBY3JnT0VpdFBSanp0OXpZUzFXaWVtdnJPR1p1OHlLMWplMWc4?=
- =?utf-8?B?RFFtN29ZejkxenBtUHlQdld0NGdxaURILzAraDEzQVczUzRPYUkva3dIdnJJ?=
- =?utf-8?B?RS9rMFNzTXlkZGk3Wis4eG5Zb2VBWmdOVjJTS0hwRzhzMnZ2NGZqRCtmZGJW?=
- =?utf-8?B?Mk5DM2MxWlZvc1NPQ0R4eEtmU1dCRENmNW11KzhITnhKMUh4TWJxZEtkSGp6?=
- =?utf-8?B?eWdjVkl0RVdWM3hTMEM4ZklVZkNRWHF6SVcrL0liUFlQWE03QVErK1hLeGRV?=
- =?utf-8?B?V2dpSjAvY1hxWmo2ZTZSbTJGRTZIdlBiY0xSQTdWUzZmUE5rdlNJR0NNVE1i?=
- =?utf-8?B?VUliU2RSWVdPdXJhaDB6aGYrSkpIUFc1aU1OY3Z0MGI5SUkzWDhYV3BwWDd4?=
- =?utf-8?B?ckw1by85ZFB4QXJqMWRqeEY4N1I1Y1NTK3djQUNHdkFncmd4Y01kcmNhK0Vn?=
- =?utf-8?B?OUJtYVlObzY3RGdWQ3Y0ZzlKbEVtLzl2RE4zOCtqZEIzU2R6QjJydzdFTjhT?=
- =?utf-8?B?MkdvWExKdkltSkErdFNYWUZYWVY3emNwVmU0eGhRMithWkNHVFdZYU5ISTRq?=
- =?utf-8?B?ck1XYWMxNGhYMElROS9BZFhrT0JqaWllUkZjRFpGUktQYTh3RjdGVGE1RE40?=
- =?utf-8?B?R1JhTHo0clhLdXFmTFBrbFJPTGtTVW03VjNSY1F1MGtXd2VmeEZBRkpaZU1V?=
- =?utf-8?B?OGRiRWRRZFJEOGpXTm9hcXd3Wlp4VC9GNkYzRDhMZERESG9HSWhSTkpyeER6?=
- =?utf-8?Q?x5RELh5ZnqY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y2wwbzIvWnduczh4MkYzV09pMWF2cUE1Um01djFFNjdRMmQvby9RYWVVckNv?=
- =?utf-8?B?TVB6OHpEaGZmT2wvVWF2amNqMnRTOUdneGRtbHRuaExTaStpOElHOUZ5eGRi?=
- =?utf-8?B?NEpkWTIyeEcwdjVOWEVpMUJ4QzB4QUpvd3I2RkVjOHpkVUVLZmpBTFhydVA0?=
- =?utf-8?B?T21OTThReFA3L3ZQWUVHcS9ydzV0T0h6Ukltc1lkS2ljNFhyQUFLaXVXYWdJ?=
- =?utf-8?B?NFUvM3dWTWVrNnN5SVhOKzhVM3R0TWhtOGJLWFBTQS93U1Q3MllhZ3lRSU9p?=
- =?utf-8?B?aXNhcklmbkwxbDg0cEg1c0duVVk0aDEyV3NBSEZBTU9aeGZSUlh2TVFoQjBK?=
- =?utf-8?B?MGxEZWFIK0FRbG1Wc1M3aVFRZjZBemRxNUc1V2ZaZEgzelRYeG1wZ1NhOUhh?=
- =?utf-8?B?NmY1RUV4c2JHdjREY1JKZ2NQRWx4Tlc2MVZ3V3lZR3FKaHA1d0JQbXhkTm1O?=
- =?utf-8?B?VUc5dHl5bHJwak1HT3lsaVRiRS9jMTlxSlFVd3FwcFZhQVFMNVI5ZWRrMUJk?=
- =?utf-8?B?VC9iWmhmZWNrZ1hoQVNQbTFNKy9zaFJ3a3JreXFzZVVCSkRLRU5FSXBoOUtk?=
- =?utf-8?B?WXFZY04zb1ZvRmg4dmhQOEg4dWlsSXZLL1hIcU0wL1MzTnRYTkNneW1RNy9U?=
- =?utf-8?B?OUI2aGIyczRGQTZhZWcwNEhFM2V1cndWZ0hzSERlcjZNak02akU3dkhyeWNw?=
- =?utf-8?B?SDVUWG44MHNwelFvMEc5ck1HV3NzZmJDcm9hWWFLQ1VYdUF0SDVpeDNuZE1k?=
- =?utf-8?B?akUxU0U3UWJDOEpUMTlraWtjMVh3TW44cENnbFFvRkZlWHV1NEltRDdhRTZo?=
- =?utf-8?B?NHh3SDk3M2dUMDJaTC85ZldyTEF6RFRPanBwWDY5L0FPVWZVbzhCSmpKaW5n?=
- =?utf-8?B?V205Y3B2V09SR0F1eXhPODdmTU1OTGYvV1Z3WEZDQjZSeUorTVpCUFNtOVYy?=
- =?utf-8?B?cUxFQ0dQcTM1V25Sc0lPaDVxcEhvblpTL0FxQ0JpeDVqcVVjNjFTRVBYTHdS?=
- =?utf-8?B?UXJmcUhHTFBWWllhbGo2cU5TN0FwZFBSRTlqWE9Wd2tMd1plU0phZUcrSlNw?=
- =?utf-8?B?Zld6b0pmZ1FtemxQY2VERFliS3p3RC9tbEV6OHFNcjZvQWdHVnFPNlpGREJN?=
- =?utf-8?B?alIzeGNiKzhMNWtRWUZ6R2lSakVnT21xcmhSVzhHWVp4cisydmo0VjZkUjJp?=
- =?utf-8?B?emNZTzVTNkFMc3FZK05hSVZFUEZZVFhFc3pDNG9uUzRrTVQxT2JrV1d0YjJF?=
- =?utf-8?B?ang2YWhmOHRQUUwwOWg3QkNUb2l6Tk96TXR6dG5kQVN2Q2ZGR3FSWnVLQ2dT?=
- =?utf-8?B?RDdRTjNwblRjTGt6eXFVRW1YZFhwYXk5QXZrTTc2RzFtMzFnc01BL2d2VFho?=
- =?utf-8?B?WGY1TE1UQVhMOWtWSC9sZUhrRldOajNnU1dudkN1ZllwZkxWbzlmS3BFeDda?=
- =?utf-8?B?YkpaV1BKcjZkeWZycW8zMk1wbUthTDdhYVJhNGs2NFZISWNHTnRORVVhejRa?=
- =?utf-8?B?aFdLay9kRGxYdEVaTURPNFM0Y3JYNTRuOVR5Y1VUZ2UvTENJd24vTlJuK1NN?=
- =?utf-8?B?ZWRnb09XdGlieXNxSmpvU0ZsR2hDVUhzY2dtb01lQWNTQVRRekcwUWZSeEFa?=
- =?utf-8?B?NFd1RUlnTHp2OVNUSWRiNVYvU1FVZloyYzJrbkhPR24yMUFFeWIrWE5aYXJL?=
- =?utf-8?B?K1ZMY1E2RWJaeGFMN3JmQlNuaEI5bGdyM09uM2NJWlpyQlZsL3NaVjc5UXFi?=
- =?utf-8?B?ZnJFQ1A0U01KbHpaeVQ2NGtzcE0zYUtBWEsxWk80ZTZ1QllKMmVWS3VWWmE1?=
- =?utf-8?B?bWI1aXE1Zm1sdGVyRmJud3FqWkxwb1JNdWdQSUpMMTVScnJEdHdJL0ZJRExx?=
- =?utf-8?B?SWNIUzJwQVJnN3BveFEwWllnS2k3RUREMEpCOWVKTWxHZmpiSDVLNHpDWmxv?=
- =?utf-8?B?bGx2elZSaDdVUUVKK211Vk9xR1F4dXM3OGZqVEZuTEo5ZzBKSkhpWjFSQkpV?=
- =?utf-8?B?VlVwS21wNFFCaS92LzhxYXZvcEV0VDR2dFlhVUptRUNnSWZCNzBOM3lRdng3?=
- =?utf-8?B?eXlWNGhoeVVndVVhZlVHMytqWVF5bS92TUd1Vy8vZmNZQ090SjJvVWpjbi9W?=
- =?utf-8?Q?hyjYIEmdK3JBltDZRQdzkRRxD?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c2b15f38-9e26-48d0-a632-08dd99271d10
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2025 11:52:22.8505
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MAPxFLrPdHlcv8RI+ytpTaoy1EM341EWrGrCDQXmruHCeI55a84ea09tpug2H3yU
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7570
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_045231_634374_E38A9B44 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20250522_050658_571633_237D0895 
+X-CRM114-Status: GOOD (  32.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,75 +69,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/22/25 08:56, Jens Wiklander wrote:
-> On Wed, May 21, 2025 at 9:13 AM Christian König
-> <christian.koenig@amd.com> wrote:
->>
->> On 5/20/25 17:16, Jens Wiklander wrote:
->>> Export the dma-buf heap functions declared in <linux/dma-heap.h>.
->>
->> That is what this patch does and that should be obvious by looking at it. You need to explain why you do this.
->>
->> Looking at the rest of the series it's most likely ok, but this commit message should really be improved.
-> 
-> I'm considering something like this for the next version:
-> Export the dma-buf heap functions declared in <linux/dma-heap.h> to allow
-> them to be used by kernel modules. This will enable drivers like the OP-TEE
-> driver, to utilize these interfaces for registering and managing their
-> specific DMA heaps.
+Hi Jacopo,
 
-Works for me, but it doesn't needs to be so detailed.
+Jacopo Mondi <jacopo.mondi@ideasonboard.com> writes:
 
-Something like this here would be optimal I think:
+> However the i.MX8MP does implement INTERLEAVE_MODE, and it's anyway
+> marked as V3.6.3, so DT filtering is there disabled as well. I guess
+> this is intentional, see below...
 
-Export the dma-buf heap functions to allow them to be used by the OP-TEE driver.
-The OP-TEE driver wants to register and manage specific secure DMA heaps with it.
+BTW the version register on iMX8MP is 3060301, which may possibly mean
+something like 3.6.3.1. I wonder if 8MM has the same.
 
-Regards,
-Christian.
+> some registers like 32E4_000C are not listed in the peripheral memory
+> map, so you're probably reading an invalid memory area there
 
-> 
-> Thanks,
-> Jens
-> 
->>
->> Regards,
->> Christian.
->>
->>>
->>> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
->>> ---
->>>  drivers/dma-buf/dma-heap.c | 3 +++
->>>  1 file changed, 3 insertions(+)
->>>
->>> diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.c
->>> index 3cbe87d4a464..cdddf0e24dce 100644
->>> --- a/drivers/dma-buf/dma-heap.c
->>> +++ b/drivers/dma-buf/dma-heap.c
->>> @@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap *heap)
->>>  {
->>>       return heap->priv;
->>>  }
->>> +EXPORT_SYMBOL(dma_heap_get_drvdata);
->>>
->>>  /**
->>>   * dma_heap_get_name - get heap name
->>> @@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_heap *heap)
->>>  {
->>>       return heap->name;
->>>  }
->>> +EXPORT_SYMBOL(dma_heap_get_name);
->>>
->>>  /**
->>>   * dma_heap_add - adds a heap to dmabuf heaps
->>> @@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct dma_heap_export_info *exp_info)
->>>       kfree(heap);
->>>       return err_ret;
->>>  }
->>> +EXPORT_SYMBOL(dma_heap_add);
->>>
->>>  static char *dma_heap_devnode(const struct device *dev, umode_t *mode)
->>>  {
->>
+Sure - those are apparently wired to contain "DEADCAFE" (a hex value).
 
+> If you're capturing RAW12 in 1920x1080 these two registers are
+>
+> 32E40040: (MIPI_CSI1_ISP_CONFIG_CH0) =3D 0xb0
+> 32E40044: (MIPI_CSI1_ISP_RESOLUTION_CH0) =3D 0x4380780
+> 32E40048: (MIPI_CSI1_ISP_SYNC_CH0) =3D 0
+> 32E4004c: invalid
+
+Sure.
+
+>> 32E40050:      8FD 80008000        0 DEADCAFE <<< ISP_CONFIG1
+>> 32E40060:      8FE 80008000        0 DEADCAFE <<< ISP_CONFIG2
+>> 32E40070:      8FF 80008000        0 DEADCAFE ???
+>
+> All of these are invalid registers
+
+Only those DEADCAFEs are strictly invalid, the rest is just
+undocumented. With the notable exception of version register, they
+aren't probably useful, though - due to the way the CSIC is connected to
+the rest of the chip.
+
+I only mentioned them because Laurent asked about capturing embedded
+data - I guess the registers could be used for that on some other chip
+(apparently not on i.MX8MP).
+
+> We have been using 8mp extensively with sensors that produce embedded
+> data and afaict ED are not in the final image.
+
+Well, I admit I haven't looked it down to this finest detail. The
+visible effect was the image was slightly corrupted without the DT
+filtering, so I assumed ED was doing that.
+
+I use two similar sensors: IMX290 (on CSI1) and IMX462 (CSI2). It
+appears IMX290 doesn't cause the problem, while IMX462 does. This may
+depend on the CSI used, though. Both sensors seem to produce the
+following MIPI packets (counting from start of video frame, 1920x1080p25
+raw 12 bit):
+- Frame Start: DT=3D0
+- a short Embedded data packet, DT=3D12h
+- a NULL packet, line-sized, DT=3D0x10
+- 10 User Defined 8-bit Data Type 8 packets, line-sized, DT=3D0x37, called
+  apparently "Vertical OB" by Sony datasheet
+- 1080 real lines, DT=3D0x2C, 12-bit RGGB data
+- short Frame End packet, DT=3D1
+
+I hope I got this right, this is straight from oscilloscope (only
+checked IDs on IMX462, will confirm IMX290 later but it looks the same).
+In 1280x1080p25 mode there are 4 (not 10) "vertical OB" packets, and 720
+RGGB lines instead of 1080.
+
+The ED packet is much shorted than an RGGB line data (2.32us vs 13.57 us
+or 3.54us vs 13.88us - 1080p and 720p use different MIPI clock rates).
+
+So yes, this whole ED packet definitely doesn't end up in the image.
+IMX462 produces just a tiny 2-pixel dot in the left top corner, possibly
+shifting some data to the right (I remember it did that, but I can't
+observe it now - could be a kernel (driver) version change?).
+
+> My understanding is that the gasket that connects the CSIS to the ISI
+> and the ISP has a filtering register has well, and there is where ED
+> gets discarded. Could you maybe check the value of register GASKET_0_CTRL
+> to confirm this ?
+
+(with the filtering)
+
+MEDIA_BLOCK_CTRL:
+   32EC0000h   1FFFFFFh Media Mix Software Reset Register (IMX_MEDIA_BLK_CT=
+RL_SFT_RSTN)
+   32EC0004h     70700h Media Mix Clock Enable Register (IMX_MEDIA_BLK_CTRL=
+_CLK_EN)
+      Clock enabled: ISP_CLKs MIPI_CSI2_CLKs BUS_BLK_CLK
+   32EC0008h  40000000h MIPI PHY Control Register (MIPI_RESET_DIV)
+   32EC004Ch      FC00h LCDIF ARCACHE Control Register (LCDIF_ARCACHE_CTRL)
+   32EC0050h  1FF00000h ISI CACHE Control Register (ISI_CACHE_CTRL)
+   32EC0060h          0 Gasket 0 output disabled
+   32EC0090h          0 Gasket 1 output disabled
+   32EC0138h    2D8000h ISP Dewarp Control Register (ISP_DEWARP_CONTROL)
+      ISP ID mode 0, ISP1: DT 0h (unknown), ISP2: DT 2Ch (RAW12) left-just =
+mode
+
+MIPI_CSI2:
+   32E50000h   3060301h CSIS version (MIPI_CSIS_VERSION)
+   32E50004h      4705h CSIS Common Control Register (MIPI_CSIS_CMN_CTRL)
+      Filtering by DT, Update shadow ctrl, 4 data lanes
+   32E50008h     F0000h CSIS Clock Control Register (MIPI_CSIS_CLK_CTRL)
+   32E50010h  FFFFFFFFh Interrupt mask register 0 (MIPI_CSIS_INTMSK)
+   32E50020h        F0h D-PHY status register (MIPI_CSIS_DPHYSTATUS)
+      Clock lane: Active, Data lanes: 0: Stop, 1: Stop, 2: Stop, 3: Stop
+   32E50024h   600001Fh D-PHY common control register (MIPI_CSIS_DPHYCTRL)
+   32E50030h       1F4h D-PHY Master and Slave Control register Low (DPHY_M=
+ASTER_SLAVE_CTRL_LOW)
+   32E50040h        B0h ISP Configuration Register (MIPI_CSIS_ISPCONFIG_CH0)
+      DT 2Ch (RAW12)
+   32E50044h   2D00500h ISP Resolution Register (MIPI_CSIS_ISPRESOL_CH0) =
+=3D> 1280 * 720
+   32E50080h        B0h Shadow Configuration Register (MIPI_CSIS_ISPCONFIG_=
+CH0)
+      DT 2Ch (RAW12)
+   32E50084h   2D00500h Shadow Resolution Register (MIPI_CSIS_ISPRESOL_CH0)=
+ =3D> 1280 * 720
+   32E50100h      25E2h Frame Counter (FRAME_COUNTER_CH0)
+
+This produces (test_pattern=3D5 which starts with black, using ISP):
+Y =3D  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00...
+UV =3D 80 80 80 80  80 80 80 80  80 80 80 80  80 80 80 80...
+
+Now I do (perhaps I should revert the patch instead):
+./devmem write32 0x32E50004 0x14305
+
+and this does:
+Y =3D  E6 FF 36 1B  00 00 00 00  00 00 00 00  00 00 00 00...
+UV =3D 85 6A 74 B4  7D 8C 80 80  80 80 80 80  80 80 80 80...
+
+Maybe I could see where these values come from.
+
+
+With test_pattern =3D 4
+Y =3D  52 52 4E 4D  14 14 00 00  00 00 00 51  52 52 4E 4D...
+UV =3D 82 83 82 83  81 81 80 80  80 80 81 80  82 83 82 83...
+changes into (without filtering):
+Y =3D  9B 99 58 53  14 14 00 00  00 00 00 51  52 52 4E 4D...
+UV =3D 77 AE 78 9A  81 83 80 80  80 80 81 80  82 83 82 83...
+
+The values are stable but it seems they are added/xored/etc. with the
+original image data or something.
+
+> In particular the "Gasket 0 data type" is programmed in
+> drivers/media/platform/nxp/imx8-isi/imx8-isi-gasket.c with the data
+> type of the first stream reported by the sensor with get_frame_desc().
+> In your case, assuming RAW12 you should have 101100b in that register.
+
+Gaskets are disabled. I will try to do some tests tomorrow.
+
+> Now, I think the idea was to use the gasket for filtering ED (and
+> other non-image data) to be able to route them to the ISI for capture,
+> while images are sent to the ISP for processing. This is currently not
+> implemented and there are some unclear parts in the documentation
+> about this, but overall my expectation is that ED are filtered by the
+> gasket so you shouldn't need to enable DT filtering on the CSIS.
+--=20
+Krzysztof "Chris" Ha=C5=82asa
+
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
