@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B8DAC54756
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 07:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C4DC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 07:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzW20nwC4VuWDQE29Tj4IgyVUfkVJ+JnWCtTS9PiDHI=; b=cYKM3XWAWCi2e/LqZnOCmhCkJs
-	XZIdSeUHAUNEo59UvzZygld8zDWPzG8gdJk7+jfv8Ws1T2MEVFixjwrL5M61M4gmYkvejP2YfICM4
-	pYCs8g+nTBZUgKsLs5pxLa+THhyVIYz9+gZa/n/ttFY2e9WYrCF4LruBDKOchn8hQAAxCNc9Ioyf9
-	F7H6xyWhI7bpEUJEyE3ekmbKsOzPw7S+MEndPpIoPHACzPHFuGA3Ee5i7p2BSyDkZ5YsCpy65l/ZN
-	MIW8vu2nvACQGTMJg6tr/NVPCwfpn9ltld+UypXQw+NCgUgfcYyi2X4iK7euJEFfANXyumDtXgMvA
-	ChYGY7sA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sIsz51ve9WD6EIYt9+H904kIrnIh/0ETD/TqyTo6/IU=; b=3snaKUMDRCeDQqAVav3BfCl8Ka
+	H7suOxOEAe0PN2eVbODb1iq3HDNbCGMVVv7UfaNC42O91Y1Or/aFuc8kchL6vYOThCfknLjUrEUZH
+	wK377XUeUL4V6g4jfMYyf3MOCeq9oGnP2WEmGQSfDzPTi7Gr64LYbXKT0Qkp2/581pIkZQSS9zUmK
+	0aSS7u3eX1zLqkqPmHQGXvWs7AyYTSlSzfWdqEDTw1/h9GJbvW1w/iQCFfUDg1kYmtbVU6ohaJDFL
+	nfxSp2VgFrTA7dkWE3GgSMS1UAwqEFXv0vM/ZuHHT9AcPjyq1eNFwL9YURomnfp160fgnjBGWRlmX
+	x9afU5Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0ei-00000000Ax8-1l6u;
-	Thu, 22 May 2025 07:47:56 +0000
-Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
+	id 1uI0gk-00000000BMe-1j8A;
+	Thu, 22 May 2025 07:50:02 +0000
+Received: from mail-m21471.qiye.163.com ([117.135.214.71])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI0cd-00000000Afv-2YdJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 07:45:48 +0000
-Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7306482f958so5702767a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 00:45:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747899946; x=1748504746; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dzW20nwC4VuWDQE29Tj4IgyVUfkVJ+JnWCtTS9PiDHI=;
-        b=NtPyoO7sRF9za8AAzw2Vk+/Zd2oly2yZk0Sb1rKlahBtrS7t6l4rPRdpZAW+0yOIR1
-         L/0YddmNlaaAuc5aC64S4IgMRzlLERLB/4I6w48J5W30kdyJJx0XkNWu5U/xU5YlAZCz
-         v2yYxBJgs8u3OTAOTMhG2U6W65lV4Lft+pSLWhd+YEwiritfDimHqtWR9wl9NXT7AppU
-         6fcbbjC8grwiouQGcujlh7WlZsuEkJV1EeovU5oH+oSgX4R7TmaK9GTI5wTDRYMFPIZF
-         KyuE43wWlafCjijOJFO+L29bexmqYqP7+GKHkhjCllDU3cthwIan74CNWeaXK/+jsLgT
-         OLJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747899946; x=1748504746;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dzW20nwC4VuWDQE29Tj4IgyVUfkVJ+JnWCtTS9PiDHI=;
-        b=wLpXBtlFp5Ob+ZpKuY5MTCpqKh1D3aIknnBhWKF1bIwnfl9mPs+kfmB1ZflHKLEzP4
-         8gGeYojuiuXMTu114JN9HlVZNcquWm+kqiZquJpYOrh3GDHTJbUqdq3B+XafAgR/7jwF
-         FB6xqcIUY3amTxJ9P1XSJpsSGVPS6AR68//LruvSXR+W1Ob5/E6zfjgQQ2M30hpIXOsA
-         zNPA6eqhvWBTbTqlLt1msSJTviYfkfVRiUDt8R8KPDXkNZ/t99VTjHdO2u8shEv9brxd
-         LFMMvhSydKu0sCKaxzV2H3Pz62TOY3nLuDbE8A0wep8pdY7myQUqF48/fKxzm84wmlep
-         ELcA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRKuCXU0xOXkU8AbHVEP9TUDGMHQldhtWggWTGegIJc7KL8kwfeVVKhvdwWWCUGDyqgLEk15899Nb7/iNszk/u@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm2w9XAlA0tV1jxUoqE1EjEBApcw3RkGMDBhDn64oqIxe9k6l9
-	vbZFxVKgjnMaHXExKj6ArBOTBgMsZCQQrszq71tLH3qgttg/8Jg6SSlH8UseyUOix9+44TZbKhy
-	fqy17MhkUZpzrrWJPU71Nl38YUv1VNeNKZsDGYRk=
-X-Gm-Gg: ASbGncv9Q4hskH5L8WueS2RM9uTwu3UhT8Hr4bNYufG+05OqSfmOk794JrMEKQJzoHj
-	XnY42TrcdQM3c+5oyLt58JMdW8P4/N64LNkE0qKRBzAunFn+NXBFrdcG/EkD6SiHMMtE0Iq5gQ1
-	2IvsCNjzNiVNaRhKe/NzE6TFShEuTmbw8azbhzMDD0fpJ18ldz475ZQpnUnRB7nW7iIA==
-X-Google-Smtp-Source: AGHT+IHx9WwGAeBBgIJ2VZAo/LAtKYEWKxbcrPGYRDL9PPLwEM0HTBz1LK7Lmmv50E3X9O8VXiDRpGFVmpONGdmsjyE=
-X-Received: by 2002:a05:622a:244f:b0:494:7ab9:60ad with SMTP id
- d75a77b69052e-494b09397ebmr403217461cf.38.1747899936138; Thu, 22 May 2025
- 00:45:36 -0700 (PDT)
+	id 1uI0dE-00000000AkB-2Jrk;
+	Thu, 22 May 2025 07:46:26 +0000
+Received: from rockchip.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1605e660e;
+	Thu, 22 May 2025 15:46:17 +0800 (GMT+08:00)
+From: Elaine Zhang <zhangqing@rock-chips.com>
+To: zhangqing@rock-chips.com,
+	mkl@pengutronix.de,
+	kernel@pengutronix.de,
+	mailhol.vincent@wanadoo.fr,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	cl@rock-chips.com,
+	kever.yang@rock-chips.com
+Cc: linux-can@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v4 0/3] rockchip: add can for RK3576 Soc
+Date: Thu, 22 May 2025 15:46:13 +0800
+Message-Id: <20250522074616.3115348-1-zhangqing@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250521-vt8500-timer-updates-v5-0-7e4bd11df72e@gmail.com>
- <20250521-vt8500-timer-updates-v5-4-7e4bd11df72e@gmail.com> <aC4MNjZxnQu8b0kR@mai.linaro.org>
-In-Reply-To: <aC4MNjZxnQu8b0kR@mai.linaro.org>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 22 May 2025 11:45:33 +0400
-X-Gm-Features: AX0GCFv6jhcev6GhPYo0l88C_vd8Mhb7eF6cQfp7Ylfbkj6Kxv47qMniq6WrRRE
-Message-ID: <CABjd4Yzv6-9KFC1fXcLQ5XPcbWDWdpYgkZJgNr1ygipVd0PV3A@mail.gmail.com>
-Subject: Re: [PATCH v5 4/4] watchdog: Add support for VIA/WonderMedia SoC
- watchdog functionality
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUseGlYaGBhKHUMYHx1KH0hWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a96f6f50f7903a3kunm9938470210de792
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NBg6Izo6ETE0LhIcSTgpDiov
+	GDRPCSlVSlVKTE9MQ0JCQkxCSk9NVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUlKSks3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=ZHgASNrqMdf+4b6cLuXsZ1XZEP5++2a9VJU5ozLQi+Y5vCkl5jmy/SzODsHuLCwVANNEto4TcXitwR/kMnZaLfcRXXrL06j2FbOeiZUL4FPlmQXDP0+M4Jwv3HPitH+wsKnczxWwDnUGUScTkRzpiC/fqmZbx5KWpuVH3R5BlE0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=sIsz51ve9WD6EIYt9+H904kIrnIh/0ETD/TqyTo6/IU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_004547_646766_CF834AC2 
-X-CRM114-Status: GOOD (  31.04  )
+X-CRM114-CacheID: sfid-20250522_004624_997575_4575E4CA 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,75 +82,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 9:24=E2=80=AFPM Daniel Lezcano
-<daniel.lezcano@linaro.org> wrote:
->
-> On Wed, May 21, 2025 at 05:00:12PM +0400, Alexey Charkov wrote:
-> > VIA/WonderMedia SoCs can use their system timer's first channel as a
-> > watchdog device which will reset the system if the clocksource counter
-> > matches the value given in its match register 0 and if the watchdog
-> > function is enabled.
-> >
-> > Since the watchdog function is tightly coupled to the timer itself, it
-> > is implemented as an auxiliary device of the timer device
-> >
-> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > ---
-> >  MAINTAINERS                   |  1 +
-> >  drivers/watchdog/Kconfig      | 15 ++++++++
-> >  drivers/watchdog/Makefile     |  1 +
-> >  drivers/watchdog/vt8500-wdt.c | 88 +++++++++++++++++++++++++++++++++++=
-++++++++
-> >  4 files changed, 105 insertions(+)
-> >
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 5362095240627f613638197fda275db6edc16cf7..97d1842625dbdf7fdca3556=
-260662dab469ed091 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -3447,6 +3447,7 @@ F:      drivers/tty/serial/vt8500_serial.c
-> >  F:   drivers/video/fbdev/vt8500lcdfb.*
-> >  F:   drivers/video/fbdev/wm8505fb*
-> >  F:   drivers/video/fbdev/wmt_ge_rops.*
-> > +F:   drivers/watchdog/vt8500-wdt.c
-> >  F:   include/linux/vt8500-timer.h
-> >
-> >  ARM/ZYNQ ARCHITECTURE
-> > diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-> > index 0d8d37f712e8cfb4bf8156853baa13c23a57d6d9..2e59303306feba7e15a015c=
-2fce25b1290dc4cbc 100644
-> > --- a/drivers/watchdog/Kconfig
-> > +++ b/drivers/watchdog/Kconfig
-> > @@ -1115,6 +1115,21 @@ config SUNPLUS_WATCHDOG
-> >         To compile this driver as a module, choose M here: the
-> >         module will be called sunplus_wdt.
-> >
-> > +config VT8500_WATCHDOG
-> > +     tristate "VIA/WonderMedia VT8500 watchdog support"
-> > +     depends on ARCH_VT8500 || COMPILE_TEST
-> > +     select WATCHDOG_CORE
-> > +     select AUXILIARY_BUS
-> > +     help
-> > +       VIA/WonderMedia SoCs can use their system timer as a hardware
-> > +       watchdog, as long as the first timer channel is free from other
-> > +       uses and respective function is enabled in its registers. To
-> > +       make use of it, say Y here and ensure that the device tree
-> > +       lists at least two interrupts for the VT8500 timer device.
-> > +
-> > +       To compile this driver as a module, choose M here.
-> > +       The module will be called vt8500-wdt.
->
-> Module is not supported by the timers. That will change in a very near
-> future but unloading won't be supported, you should consider tying the
-> wdt life cycle with the subsystem it is connected to.
+rk3576 can is a new controller:
+Support CAN and CANFD protocol.
+Support Dma.
 
-But there's an auxiliary bus between the timer and this module, so it
-should be possible to boot a system with the timer initialized as
-usual, and then load the watchdog if/when needed. Which also saves a
-bit of space in the main kernel image.
+There are major differences from the previous rk3568. All errata on the
+rk3568 have been fixed and redesigned.
 
-Or am I missing anything here?
+Change in V4:
+[PATCH v4 1/3]: Correct the format and add explanations.
+[PATCH v4 2/3]: No change.
+[PATCH v4 3/3]: No change.
 
-Best regards,
-Alexey
+Change in V3:
+[PATCH v3 1/3]: Add documentation for the rk3576 CAN-FD.
+[PATCH v3 2/3]: Adjust the differentiated code section and add dma
+function.
+[PATCH v3 3/3]: Remove dma, no use dma by default.
+
+Change in V2:
+[PATCH v2 1/2]: remove rk3576_canfd.c, use the rockchip_canfd driver
+[PATCH v2 2/2]: code style.
+
+Elaine Zhang (3):
+  dt-bindings: can: rockchip_canfd: add rk3576 CAN-FD controller
+  net: can: rockchip: add can for RK3576 Soc
+  arm64: dts: rockchip: rk3576: add can dts nodes
+
+ .../net/can/rockchip,rk3576-canfd.yaml        |  86 +++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  22 +
+ .../net/can/rockchip/rockchip_canfd-core.c    | 637 ++++++++++++++++--
+ drivers/net/can/rockchip/rockchip_canfd-rx.c  | 193 ++++++
+ drivers/net/can/rockchip/rockchip_canfd-tx.c  |  29 +
+ drivers/net/can/rockchip/rockchip_canfd.h     | 312 +++++++++
+ 6 files changed, 1234 insertions(+), 45 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/can/rockchip,rk3576-canfd.yaml
+
+-- 
+2.34.1
+
 
