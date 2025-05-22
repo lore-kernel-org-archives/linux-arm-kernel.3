@@ -4,89 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F85C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D47C54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 15:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Z1fJZAnO5gbEdE9pm7QO/Ig7e59PsYGFh5eZL9ezsU=; b=w2PHgapePDmVPg2NVHVipFBlH8
-	wJgvbad5DN/6cMf65cQnhw5DeEonZrtS+VT32cm9ZgWYMXP6MRknvrn8D+U2/Dj3SnHB45Q2DoiX0
-	t2cuAXHcipRG+P2SnOnqcN2mYI0L7463BroxVZzqa3XY1TCJ12VYiLo4wTWVtvkvT2rV/8rFHt7Z5
-	yHtULApPVdZiNMaC+R1KJHhSUA5PYlGGqZ5aUdHcIYM04qR8uRj6rs/WSsQ6GtQ8OzrTQy+gMbhOP
-	5dVhKgjgZIBMuGJPKAIUrEj4hXX5TRNV/Uypyi6GGIJpBk67J7OkCw/hrV7bWXy4aXihSlqi+l1h+
-	pdnW/XCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VEeX4pHU5dbnP7BXmwT5H8fSOKMWm7ham8iEEngBq2c=; b=J1WxJiLdZ24oQG
+	Wivc3maJsZDCWfqNBwyIYg0GThv6eLomnPh+ClgTGrjRRH0/Z8Q+t956TblUj3HiZz6xw5phxAEmv
+	N7h1arSu6QKtiMcM4nqEhJpk/E9GGXo94w/Xzoc9k6OJfeY+SfOagj23Ad4FwkAPbo9/Sz0TB54f4
+	BmjcmIheq4ae2FP2N6cyaAPPqouNFcU/MNs8Cf04ZBWVMp+Gwm0ZN1p79ZCbeKkZD6uaStb2laLQX
+	Wv91CD4ohajvVevAUS995WATDifPq8RbwqwrY+Xe7X/QxCuSTNaWJQ1reiLoxfPYr12qHoEqlGZDL
+	VpL84Y+MrwmL6/Yr+S+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7Vs-00000001Nbl-1XrZ;
-	Thu, 22 May 2025 15:07:16 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1uI7Xs-00000001O43-3hRw;
+	Thu, 22 May 2025 15:09:20 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI7D9-00000001JUC-43Vo
+	id 1uI7Hk-00000001KQJ-3XVc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 14:47:57 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-30e80f03760so5868475a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 07:47:55 -0700 (PDT)
+	Thu, 22 May 2025 14:52:42 +0000
+Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so67874415e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 07:52:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747925275; x=1748530075; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0Z1fJZAnO5gbEdE9pm7QO/Ig7e59PsYGFh5eZL9ezsU=;
-        b=vCnc152j/+1A96V1FfSspDloXCqclZiPLG8morhfKW3FW2Pmz5gdHC4ehieqH9cEVu
-         KHmlxJb/lhjWproxHtfA8WRttriv6hZwk/vRZYRTQ7esxSaPFW/OVgvmN8XF83yOCXVI
-         HCjO2HSHGedJIIBdSs5crxDWJO9SgLlZ/YZ0d7DJsAtGJ6Rdf0a3dSud8AzwrZst/sFx
-         Pn392fUg0lpl6CBsJOSMgkhlCyFg5UPuQSAQCnYUp8oP+Fvmmt1l4UvsjKYkWzHABQtj
-         RQSA4iK1hqwMGVgSJGEpOgGuJ++Yc9OFWbc4bM+pdgejIqt88O0WAQXL0g9YsYryrkWf
-         QrGg==
+        d=linaro.org; s=google; t=1747925559; x=1748530359; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VEeX4pHU5dbnP7BXmwT5H8fSOKMWm7ham8iEEngBq2c=;
+        b=yO1XZgAcl0fuj3ZsRtTGFMpiGFv9ecU4lXskFjEnSg8bDzvXmYJP0qVf+JIVMSMDG0
+         E+tgOa6POyO+sbnJjJ8XBA/tsuYKprX1A9TQlOAscq2Wy1NjwolW0R/LOg8+9hmEC0PO
+         Qdrma8+IOSD+CyDe/cJ2e15Ee5P04Fy3+VoQ0le9I0uhKWEQrnJIUhH+XeHTq76xVXvc
+         ZjT1+7negAsAcqw6w9stKWCDQthSnIqeITVb9Uk3Let/UNNw1aLAqtzqoqsS6Ta5Qd7O
+         u5gq6XTN8fJzevgQJPCA6SgPsCePpNuEUak5DwuPvBnDbxpPGoLtshNyt1XH4HB02/uM
+         Dpjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747925275; x=1748530075;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0Z1fJZAnO5gbEdE9pm7QO/Ig7e59PsYGFh5eZL9ezsU=;
-        b=XfTRgw0h9yxEmkbwkbClvlzwnrv4fAAFzt9Xqy49qHGB9X68ndUq9nkESs71yQ8d5U
-         ptWVX1cHeKWYdoCry6CTmm/nz5zL0o4B//h9YN5yUdqAOuYyNfjbnNnoGB0utgsnjyBB
-         nx+9YCYJhgb1Z/AX8VS969bmMUJl0+uP7h1ybUZ+CxfMUE0nwzMRIg6hCy071WEWGoyC
-         Aa5fj+q/qR1dsMff6DISPMR+TDzsDoFMifdynjYtfv4Y3txPvxvMSoDqfpzDuYpVffh+
-         ne/CalmIYagUqcwYVtIVaVAk5Z5Eji2GmVn4BzTvXG5O9kPmbqZePRCDZ4O9mq14sitR
-         BUdA==
-X-Forwarded-Encrypted: i=1; AJvYcCVq/KktmSFaMgpdAtONpbKAUhAGmKd5sanOUSK2p24lzkaOsW85c/XifYtIyUyIkk4ESr+BNnu/yV5SrU4hTwOZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiL/iSDOSzD+pppfEy1hRGcj16SK38kXwupuMwK8p2e//rXAGm
-	AHlj7DQ43QtENRpQJK/AyZIEsPeXlCARfEvvGtNHwrl36y/vKAabwHe+Pb6+AQ0Q65s=
-X-Gm-Gg: ASbGncvh/EIrgmJyCLmzTSP/YgKRNwrMlCD241CYCpQdCdcSkcWOVTbOZfmIJ+VXx4r
-	o2MHlc5DXHSmZEswTvfMT/aPj8AxYPxnLGgBpeZ4WRLRbDkiOhllzvNxChwBUOTZIP3smSXlFK0
-	6ckxvby/v+oiTcDNdA2Iz80S9WFRrBew4YbctAGaHF5xfZUW7DR1ZPwP7AYxr9EEBqW9rQ34tNE
-	v3XGxnIsVI48OQ+sieqmn7sdfbttZeOXSdBye6z5ndOGb24urjYPBcPQThyLC9CoaA50PtAYLeO
-	8SzBsANjwYVkp1OX01RNNg54OUtbQNH7d7RXzTaE0eMUlodqH8TKWMk=
-X-Google-Smtp-Source: AGHT+IG5YDZqJMGCNUR1bl3lh55nwJynldcZarNJfaMbRBZQnBUy0qDHzLUmT4VJ7H8G0EhPmNRC+w==
-X-Received: by 2002:a17:90b:33c2:b0:2ff:58b8:5c46 with SMTP id 98e67ed59e1d1-30e830f7b18mr38271134a91.8.1747925273816;
-        Thu, 22 May 2025 07:47:53 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:adb8:3fc6:e0a3:9f52])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30f36365d9esm5641713a91.7.2025.05.22.07.47.52
+        d=1e100.net; s=20230601; t=1747925559; x=1748530359;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VEeX4pHU5dbnP7BXmwT5H8fSOKMWm7ham8iEEngBq2c=;
+        b=e0GkhXLCSe55AKW/mtTd+4odzJFYxKEenxg6Sv9pgDsmhiKOKZ/paNoAvPiQq4OAj4
+         TZOb3qWV3pmEscKbD8sXdCcKwPOQQQIWoSdKLgz1Oyb4AeBn3N+CJaVtAlg3Ki7LxTZZ
+         M7dsvhCiy4YVc6ukM1hYCv7pEu38v+husGzvaGfQxZPCYgJcD9SnKK70Tjj80ekAlFiK
+         PqoiAQjavPizmqAmJxvsxFYnPxl35eUWX9tuzpeMHV7odsuBTLIYI408eQWfVVvZjIIt
+         jIp0NDuMLvhWNXE4Geltyr7/pmq6kJePfpl/u7MLBOjTWxXd6dRNkE67GhrySGP9Bhuv
+         Njlg==
+X-Forwarded-Encrypted: i=1; AJvYcCVtGGAr/fDZbWLyv88jcgM40TasNJ1jORhwX9lXHGrKdTuUiiJoXuBD6E6HTx3UgW1f/87m9SgiohupPsXot+Fp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPkjPLMUqGWIZUkgeLwOQTHDh5jNyH/z6ni0jEibLw8Xxie9af
+	L383Vi3TtLelAxJc8cr1Xc5we4eLwnM/JuGPlvjKoVS/maHyXgT9Sr8dh3Ec2zLxifU=
+X-Gm-Gg: ASbGncvKdxs4egtFwpltvHOXvQR1suVavr/9LO0IeefZZ1mcLUb9PosZTTly/IvqGpF
+	w9/RNTFLvY+WgUewsLTz2UL63kJe/W0vMMIZCZZ5UzOIODTutVSKzDfDKV3H9h8ERAOJr0vlsNS
+	BrbU915tT80dsEgVP5aBk1cwgzyx8eYHebk2XR5zX7PEONWMypS39MhtjWCJ0np9MgzqCVBihYa
+	G9osmCloJOMKwdtrR7DnbfcoO1CUzEw6hIFZ99iZrdBW+FbHc3Jktv6Tu6ZVyXY1nDVn/7fhpBr
+	6Rw0v75cFmXtHJG7DMolzfpR1BE18x2xujUQMWj31diwMloR7Ny+SNbQeUmP
+X-Google-Smtp-Source: AGHT+IGuO6Y6d+kCxwoNrEY38IpkexCj4wL5pVJUa3/XxA+mRVZ8kHkKd9XIST6kB9JCbxHGl+gsxw==
+X-Received: by 2002:a05:600c:3114:b0:440:61eb:2ce5 with SMTP id 5b1f17b1804b1-442fd64e335mr299932885e9.17.1747925558639;
+        Thu, 22 May 2025 07:52:38 -0700 (PDT)
+Received: from ho-tower-lan.lan ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f78aeb56sm104965555e9.27.2025.05.22.07.52.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 May 2025 07:47:53 -0700 (PDT)
-Date: Thu, 22 May 2025 08:47:51 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: andersson@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-remoteproc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] remoteproc: mediatek: Add SCP watchdog handler in IRQ
- processing
-Message-ID: <aC85F1Rua2dn_qTY@p14s>
-References: <20250521142404.1077-1-vulab@iscas.ac.cn>
+        Thu, 22 May 2025 07:52:38 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v2 00/14] spi: spi-fsl-dspi: DSPI support for NXP S32G
+ platforms
+Date: Thu, 22 May 2025 15:51:29 +0100
+Message-Id: <20250522-james-nxp-spi-v2-0-bea884630cfb@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250521142404.1077-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPE5L2gC/13MQQ6CMBCF4auQWTumnaYLXHkPw6LCFMZo27SEY
+ Ah3t+LO5f+S921QOAsXuDQbZF6kSAw16NRAP7kwMspQG0iRVYYsPtyLC4Y1YUmCvfOaSbUtGQ3
+ 1kzJ7WQ/v1tWepMwxvw9+0d/1J1nV/kmLRoWG7r4fyLPT+vqU4HI8xzxCt+/7B7lZF6qrAAAA
+To: Vladimir Oltean <olteanv@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Chao Fu <B44548@freescale.com>, 
+ Xiubo Li <Li.Xiubo@freescale.com>, Lukasz Majewski <lukma@denx.de>, 
+ linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Vladimir Oltean <vladimir.oltean@nxp.com>, 
+ Dan Carpenter <dan.carpenter@linaro.org>, 
+ Larisa Grigore <larisa.grigore@nxp.com>, 
+ Xulin Sun <xulin.sun@windriver.com>, James Clark <james.clark@linaro.org>, 
+ Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>, 
+ Marius Trifu <marius.trifu@nxp.com>, 
+ Ciprian Marian Costea <ciprianmarian.costea@nxp.com>, 
+ Andra-Teodora Ilie <andra.ilie@nxp.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Stoica Cosmin-Stefan <cosmin.stoica@nxp.com>, Dan Nica <dan.nica@nxp.com>, 
+ Larisa Grigore <Larisa.Grigore@nxp.com>, 
+ Stefan-Gabriel Mirea <stefan-gabriel.mirea@nxp.com>, 
+ "Radu Pirea (NXP OSS)" <radu-nicolae.pirea@oss.nxp.com>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_074756_017882_F5B41748 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20250522_075240_903653_5DC366EB 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,50 +123,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Good day,
+DT and driver changes for DSPI on S32G platforms. First 3 commits are
+fixes for various edge cases which also apply to other platforms.
+Remaining commits add new S32G registers and device settings, some S32G
+specific fixes and then finally add the DT compatibles and binding docs.
 
-On Wed, May 21, 2025 at 10:24:03PM +0800, Wentao Liang wrote:
-> In mt8195_scp_c1_irq_handler(), only the IPC interrupt bit
-> (MT8192_SCP_IPC_INT_BIT) was checked., but does not handle
-> when this bit is not set. This could lead to unhandled watchdog
-> events. This could lead to unhandled watchdog events. A proper
-> implementation can be found in mt8183_scp_irq_handler().
->
+Tested in both host and target mode on S32G-VNP-RDB3 by transferring to
+an external device over spi1 using spidev_test.c
 
-As pointed out by Markus, this changelog needs work.
+---
+Changes in v2:
+- Add trailing commas to lists
+- Line length fixes
+- DT coding style changes
+- Remove fake "rohm,dh2228fv" device for testing
+- Improve some commit messages
+- Put all fixes commits first and add fixes: tags
+- Link to v1: https://lore.kernel.org/r/20250509-james-nxp-spi-v1-0-32bfcd2fea11@linaro.org
 
-> Add a new branch to handle SCP watchdog events when the IPC
-> interrupt bit is not set.
-> 
-> Fixes: 6a1c9aaf04eb ("remoteproc: mediatek: Add MT8195 SCP core 1 operations")
-> Cc: stable@vger.kernel.org # v6.7
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
-> ---
->  drivers/remoteproc/mtk_scp.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-> index 0f4a7065d0bd..316e8c98a503 100644
-> --- a/drivers/remoteproc/mtk_scp.c
-> +++ b/drivers/remoteproc/mtk_scp.c
-> @@ -273,6 +273,8 @@ static void mt8195_scp_c1_irq_handler(struct mtk_scp *scp)
->  
->  	if (scp_to_host & MT8192_SCP_IPC_INT_BIT)
->  		scp_ipi_handler(scp);
-> +	else
-> +		scp_wdt_handler(scp, scp_to_host);
+---
+Andra-Teodora Ilie (1):
+      spi: spi-fsl-dspi: Enable modified transfer protocol on S32G
 
-I would much rather see a test for the watchdog bit than just assuming it is
-a watchdog interrupt.  And while at it, please refactor the bit definition to be
-platform agnostic rather than reusing 8192 definitions on an 8195 platform.
+Bogdan-Gabriel Roman (1):
+      spi: spi-fsl-dspi: Halt the module after a new message transfer
 
-Thanks,
-Mathieu
+Ciprian Marian Costea (2):
+      dt-bindings: spi: dspi: Add S32G support
+      spi: spi-fsl-dspi: Enable support for S32G platforms
 
->  
->  	writel(scp_to_host, scp->cluster->reg_base + MT8195_SSHUB2APMCU_IPC_CLR);
->  }
-> -- 
-> 2.42.0.windows.2
-> 
+James Clark (2):
+      spi: spi-fsl-dspi: Re-use one volatile regmap for both device types
+      spi: spi-fsl-dspi: Define regmaps per device
+
+Larisa Grigore (7):
+      spi: spi-fsl-dspi: restrict register range for regmap access
+      spi: spi-fsl-dspi: Reset SR flags before sending a new message
+      spi: spi-fsl-dspi: Add config and regmaps for S32G platforms
+      spi: spi-fsl-dspi: Avoid setup_accel logic for DMA transfers
+      spi: spi-fsl-dspi: Use DMA for S32G controller in target mode
+      spi: spi-fsl-dspi: Reinitialize DSPI regs after resuming for S32G
+      arm64: dts: Add DSPI entries for S32G platforms
+
+Marius Trifu (1):
+      spi: spi-fsl-dspi: Use spi_alloc_target for target
+
+ .../devicetree/bindings/spi/fsl,dspi.yaml          |  18 +
+ arch/arm64/boot/dts/freescale/s32g2.dtsi           |  78 +++++
+ arch/arm64/boot/dts/freescale/s32g3.dtsi           |  78 +++++
+ arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi    |  83 +++++
+ arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi    |  83 +++++
+ drivers/spi/Kconfig                                |   4 +-
+ drivers/spi/spi-fsl-dspi.c                         | 362 +++++++++++++++------
+ 7 files changed, 600 insertions(+), 106 deletions(-)
+---
+base-commit: d608703fcdd9e9538f6c7a0fcf98bf79b1375b60
+change-id: 20250325-james-nxp-spi-caf1e2099231
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
