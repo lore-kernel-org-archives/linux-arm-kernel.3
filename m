@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABCFC54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 14:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F197BC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 14:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gLuQCxbfr3KvUzpXAn2Xj8ogqL1aA5GUJ49CPSjbbFQ=; b=WE2y6lbfQxPRWau6vh8tqM6+yT
-	HoANTWVZEuoC5geb3h2yQB+iuB2gdpiZWAh7VLC0yHEf0758Rf3JJ80uMEKUZTdg9Sv0KIcFxXCgk
-	bAwaaNEckKk7Xy6D4s3sk1n+IMlMIYDZcxYZUBX4aZ4t4Pi+mVlTWhZe6Mu9m/HnlI/jh6KMJm5Xw
-	onk6H/32Qloc8OsQav3MFDIE17yUCTKlxVGR2NMWsvjl9BadmU1kNY6xb3vX151g/9oQ1XYNDtDiG
-	toqY7XM8zm/pcBl2oOuZjf6aL5r60D2j2G34TqeYRR0hMq4Aq2TEnK4F8S9WW3miqUGC/sIonRL+6
-	rOr1qbrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OGjaJfhABvgVCGsd3tFad+QV9xCQhZ9TN29ZtSgkRyU=; b=RBHZMYnICyML5wPD1gMorl2V+q
+	Uig5P/HpNZLNaQ9W8CLtAHYI1gYIMzjJXfpOqd/Ixj/e/edF1+upXaCaDHjF5r/vi9gUD1N80iGKa
+	9EyOtDVRVPnPpAlLKIGz3XL4zk/eApCao7xk4Cy6e41aJ+s+TZ7e5lHoSPOJOl7rHg20El7JU20Mu
+	nx1zRv90R239VI2X/4Bub+UswgBJRjwg+rljQhKEt9tiy03FV42iGDwOiCDAcCYv/jOKJn2DMWyDt
+	DVKFv45feb8DXDn+QbFq5oT2gipaRJeIpmTvyLB2nneXkU/i+fZWcaRM8V5AzydC6k0LrqGxERZuX
+	qNR1IPMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI73o-00000001HWG-3qFP;
-	Thu, 22 May 2025 14:38:16 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uI75o-00000001I00-2smB;
+	Thu, 22 May 2025 14:40:20 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI6w8-00000001G14-3Pop
+	id 1uI6yB-00000001GPc-0QF0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 14:30:22 +0000
-Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F1249605;
-	Thu, 22 May 2025 16:29:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747924195;
-	bh=wckcvoDCtVYuVQ45Vmpb0HC8Y3wDYK2Ihiq07qgCo8c=;
-	h=From:Date:Subject:To:Cc:From;
-	b=E4ciBaxdzUuNJthh5HtadlpLiY6WWDFJaR06D3BNyJhoWW66pT2iogyLDfu35es+H
-	 a+/e+NTZ7pNXO7CFXvFyhJsX2Oehmt8QscKoQ/WsAPTws8Vup2ZcMUrslJWAiWP7kR
-	 jd1n6zVMQmXobR7TcR4ufw4JIcnnk0opFkK/YK7E=
-From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Thu, 22 May 2025 15:30:08 +0100
-Subject: [PATCH] media: nxp: imx8-isi: Cleanup video device in error path
+	Thu, 22 May 2025 14:32:28 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-551ed0038a0so6418900e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 07:32:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747924344; x=1748529144; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OGjaJfhABvgVCGsd3tFad+QV9xCQhZ9TN29ZtSgkRyU=;
+        b=l5QOgxUm8M9YC5w77/sJOVULEGuDi8L/mBWQjp+92s8JRkmRXgZU9F7JXGamg7tivO
+         fN8EOYSa77vIdWzC0hJq8itRmemasJMFkIzm6mgo/PAoynbbMIW93zvTole3hdTO3WRb
+         c20twAfcpQ7Bn46ki7s2pljhUCYURxsDlu02Z8VRV7qsWwurWl+0zZJyWxZUjAi+TLts
+         KKwB9U9y7RfX28tOzFGLrp4tW80ziptF72zxE5fBFYazyJcSpisrQO+bbRsTONkUuZI9
+         fj/WymJeLJK2e0nnljyHI+QAuafl/76xd+A6b7oFQbPw+az+CCkj0+1a34aIDYu7onGP
+         acPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747924344; x=1748529144;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OGjaJfhABvgVCGsd3tFad+QV9xCQhZ9TN29ZtSgkRyU=;
+        b=g2jGd8MTxCI4kcR9ERU6Tm7AymfQP9JVhSXBUpdQeiacc2QscqPPfZHI7n6pp69+kC
+         w8LrOTnRlnwq5U30+9vuj/26cL6pUUYRy80l6No0aSq1oUG4WOcIx92g2BMNtgBJEjfe
+         YqtiGKVNdp2cBk7mxrtgbwkdgHaXVNJvNCZTrltdWNqZOiOtfszeLByhsM++9RsKj8FD
+         8cMwA6Wp0Jg1QBELqiRoUL5nlHZx/d6XtSMWVLc/XyFVbrVAFNiKXHClSHCfUbKZsOXi
+         uz9J+CGXAH7KWrcFFCBrMRXtaEZ4TTydFqspmXOOsAsrHy63BSYrov30cK5apO6gg5wY
+         D/lQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWy38Rf5VnvQi4f/au8c8LACgJ1kip9vZl+FwPktEeTEZMVVuLngt5hdlp3yGcDVf+NhWCwMVRgOS+gNwNffH4X@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaYX4+RkWNkVm5mJPzV6dplu7Cb0YaWeLVsMdQyKfaI7RUAVHW
+	82npYP+XD6vh3JCx+mr44iCRK/Ex9SCIVg8xXH6XoZJPVhlsn2AbvfREpbqgrMyXphea/uiOwYL
+	0JUHWM8lPYlRUGh8TmIyiXOmx/qsSfoEWqw==
+X-Gm-Gg: ASbGncvmldUUfrbuTrdgstnQ6wm4SRNACsd097FiFmq5I9aM1ghq0dGGYVBK0uCwUMf
+	bnIJAEla4SsTqTn5GtCV7CGnrlAGUd1E2GxMqgJOZJ2FgSa0cbQvz61Cy7LvMdp51m2cIcovqlt
+	tzv6qYPF4+dEw1PmoC4LpdvAoYFItXRoKQVx/KKNQW8Lw/OjSue20uMYg1/wpxNqE=
+X-Google-Smtp-Source: AGHT+IEaZE1lp9L8I1XpxLuDmVxE/BSvCemmHIZkmr/5NnE6CTH32YEGW7LlVFpP2G3fc1oPzmkQFN5oJlhNcxT/MYI=
+X-Received: by 2002:a2e:a98e:0:b0:308:f860:7c1 with SMTP id
+ 38308e7fff4ca-328077a3117mr89859901fa.30.1747924344394; Thu, 22 May 2025
+ 07:32:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250522-djrscally-imx8-isi-fixes-v1-1-10bcd6d347a6@ideasonboard.com>
-X-B4-Tracking: v=1; b=H4sIAO80L2gC/x3LSwqAMAwA0atI1gY0UBSvIi60TTXijwZEEe9uc
- DkM7wHlJKzQZA8kPkVl3yzKPAM/9dvIKMEaqCBXOCIMc1LfL8uNsl41GsAoFytGDhQqH+NQejB
- +JP6H6bZ73w8V4gWbagAAAA==
-X-Change-ID: 20250522-djrscally-imx8-isi-fixes-fed2d7cffb1c
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Daniel Scally <dan.scally@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2059;
- i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=wckcvoDCtVYuVQ45Vmpb0HC8Y3wDYK2Ihiq07qgCo8c=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBoLzT4FA2xMRgW+1iOA/DWAUW2zv16JdLFCB8IL
- NAHJxAkUCeJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaC80+AAKCRDISVd6bEV1
- MhrlD/wJW0XoG+ZwSn2u/l3SJPS1irfWIGnsuG4FaEnkWe5S8ViGOT1uKTAIWOX5Ih9j6Ab8kuD
- LryH9KAoBz7efLTDwE9EqkD77giZk2gmrzf1AQ14TGlLBygcXPi9eQY9VfrD2gKnCQourpIWLoN
- 5G3tbE7tmnBIGGVX1Pq5SswUOElRNc4TKt4aq5jZqsVeKxESFpUWWTG4atsDhDqmjy6mWwqmZWF
- NddgYNAteNafnzejnyNlG7MeENDeLWaamGDzJ/+hH/AlTdDO0tz4ud8aqrNnkAeCrMHn/knk8mC
- ze/uj+K0XbPwkqQpgeo6tiNrVWpGfk+NRuL63XBlbEjC1XGbQmbnxQbYNNqc2hXChbwe6v6nxY+
- vdA8MRfvsjo/Ogz8x7eEzmoABmYnkjUbp0kA8vpc13wb+RdxKjz62WrFKI94a9pqgql9rRl9O+n
- egMZi/M/tkdEzH4f6W2HuWUPLoe6Gx8SxvZu2xFPYugnP4Yg7Tta8ukr01pK0fno2EYWK/+ahkN
- AWmKW5LM/XlLaR3G9BN9pQ2RWy9miU/xLQXNdbOHG6lWEG4+LaExrsej/DfHFGH59fB4AtAw/iU
- fMw2boDIoA43LCRsXDgx2J3MhGy4S3yMs5WF3FCmG8N3I+ZI2kPwH2cMLKJ3YbC+UBmVG4Al8Ma
- 3cZ72ap908l1L0w==
-X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
- fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
+References: <20250522-djrscally-imx8-isi-fixes-v1-1-10bcd6d347a6@ideasonboard.com>
+In-Reply-To: <20250522-djrscally-imx8-isi-fixes-v1-1-10bcd6d347a6@ideasonboard.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Thu, 22 May 2025 11:32:13 -0300
+X-Gm-Features: AX0GCFufK1yPw-pz3POhVgPcevjDncZ61EpuRdPKFDM9n9SEGr7Bk_wTDX8Uy3A
+Message-ID: <CAOMZO5CDR1LCmmAp0eRFnrC7LNS9WjOaQhRi1RzC_ZU07O4oog@mail.gmail.com>
+Subject: Re: [PATCH] media: nxp: imx8-isi: Cleanup video device in error path
+To: Daniel Scally <dan.scally@ideasonboard.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	linux-media@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_073021_003382_EF788A2B 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250522_073227_140723_60465A55 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,63 +97,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mxc_isi_v4l2_init() registers video devices and v4l2 subdevices but
-the video devices are not cleaned up in that function's error path
-which means they're left hanging if it fails. Update the function
-to clean them up properly.
+Hi Daniel,
 
-Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
----
- drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+On Thu, May 22, 2025 at 11:30=E2=80=AFAM Daniel Scally
+<dan.scally@ideasonboard.com> wrote:
+>
+> mxc_isi_v4l2_init() registers video devices and v4l2 subdevices but
+> the video devices are not cleaned up in that function's error path
+> which means they're left hanging if it fails. Update the function
+> to clean them up properly.
+>
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-index 1e79b1211b603a71f0427e82a997787110f7e4ac..4a74b988217f504a03dfe330a7bac76cdecc933c 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-@@ -154,7 +154,7 @@ static int mxc_isi_v4l2_init(struct mxc_isi_dev *isi)
- 		if (ret < 0) {
- 			dev_err(isi->dev, "Failed to register pipe%u: %d\n", i,
- 				ret);
--			goto err_v4l2;
-+			goto err_cleanup_pipe;
- 		}
- 
- 		ret = media_create_pad_link(&isi->crossbar.sd.entity,
-@@ -164,14 +164,14 @@ static int mxc_isi_v4l2_init(struct mxc_isi_dev *isi)
- 					    MEDIA_LNK_FL_IMMUTABLE |
- 					    MEDIA_LNK_FL_ENABLED);
- 		if (ret < 0)
--			goto err_v4l2;
-+			goto err_cleanup_pipe;
- 	}
- 
- 	/* Register the M2M device. */
- 	ret = mxc_isi_m2m_register(isi, v4l2_dev);
- 	if (ret < 0) {
- 		dev_err(isi->dev, "Failed to register M2M device: %d\n", ret);
--		goto err_v4l2;
-+		goto err_cleanup_pipe;
- 	}
- 
- 	/* Initialize, fill and register the async notifier. */
-@@ -212,6 +212,9 @@ static int mxc_isi_v4l2_init(struct mxc_isi_dev *isi)
- err_m2m:
- 	mxc_isi_m2m_unregister(isi);
- 	v4l2_async_nf_cleanup(&isi->notifier);
-+err_cleanup_pipe:
-+	for (i = 0; i < isi->pdata->num_channels; ++i)
-+		mxc_isi_pipe_unregister(&isi->pipes[i]);
- err_v4l2:
- 	v4l2_device_unregister(v4l2_dev);
- err_media:
-
----
-base-commit: b64b134942c8cf4801ea288b3fd38b509aedec21
-change-id: 20250522-djrscally-imx8-isi-fixes-fed2d7cffb1c
-
-Best regards,
--- 
-Daniel Scally <dan.scally@ideasonboard.com>
-
+It looks like this deserves a Fixes: tag.
 
