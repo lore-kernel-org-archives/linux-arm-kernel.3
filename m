@@ -4,96 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED91C54E65
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 09:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E241CC54E65
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 May 2025 10:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N85CK9sWp6+mFnqAqGxmA0vF6xRLZ1OY4Jq5uN3nns0=; b=NAWZif9eg41pTRKZa08e8DAKrj
-	CE880AI8P6C4Jrjg2fy85MgFO43RHeKwb8gJEIv0s+7Luy6meb0+bDuoM5eMaLG3v4Wmk1Hhvsweq
-	hj4mkj/pR1slaGjmY3iRVdlrSeKJLQFCUSraN/tPBf23NxkHVI3Lq4tbqW4a1x9u1CQMW2s6cqFiw
-	6yHUP2kejVCabLi3MNi7HS3sp8Wa517LZRRCuFgBu/6UUnfm6XTzPdPHzD8Ze2SMftkYTcgpsTn8H
-	nio2p8esvVGqw2fV+prtPMcPerGZCcZDw5cN1Sfr2OUEtV/lWeQldDX5cYbWsXva/GgWBpuAcIfVp
-	7G5YJ8JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UxpEqx2dw/xmsX5Rvft+Dq3Uke5C6iT0Ri7WrYNVr9Q=; b=BlyvL5YWgYCB5WaM0xyaJbZhsE
+	xItwOZyPndnfd2BmIcQzvKzYTjFYD+2/wosP1/ba9702o9tD+Up19PpOXcTmQzmAGAjOFFft3miPC
+	q3VSmpr+aaOCinRxDrYN8xFSRMPwFzu/RG2sDGZ7Yg91Vx/5I2RHPdGlkNxxm6T/tPMvJY01w6DUM
+	fUhVgKmjcGZTG9zV7szLapoDO1X1YkRCkhimC/GTL0Bfc50pWAEB5HD/ojtuO6V6YdP9IiJVct8FN
+	z4ujFk5YLSyAKNP4Ss1WrvYIafGUgsOnA1jOt4Nr7OWkZT4k62qDV9sAukkO+p5AXh3xDbbBh48ie
+	sLwH0HTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI2go-00000000b7o-0nyR;
-	Thu, 22 May 2025 09:58:14 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1uI2lK-00000000cC9-4AU1;
+	Thu, 22 May 2025 10:02:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI2eC-00000000aUv-0ctF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 09:55:33 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-442d146a1aaso77380745e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 02:55:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747907730; x=1748512530; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=N85CK9sWp6+mFnqAqGxmA0vF6xRLZ1OY4Jq5uN3nns0=;
-        b=V+iHKCXqsB5vwu/K579lY4waA8nLjCHISHJ4lzmOl34J0NzuFe35vPbE73UMxGIhkM
-         phRUETVUlTUsh/g5YIVDo0905BnFddDa2GOpYinJgcScumuuV9lgzPAJ4LHMWqbF2s+X
-         37PXep8RGpnuMHP3vZZUPA0nFQXgzVwjhVRYs8VeFELXBEHJYolcFzM4IFrXfCMmk9qO
-         jIwmIgaEgi88Df1jS7fPN/w+YfgQEksmJuSTHiI9zfQsW975Yh2mjT9A30gBerOXOJ/q
-         OaHiLqCx1/YvH0Jt4fX/TBl05jfHHKFv8NgSDXbfSfHG8G2Q5ViDKWfYpFOFfZaj29/s
-         FhbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747907730; x=1748512530;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=N85CK9sWp6+mFnqAqGxmA0vF6xRLZ1OY4Jq5uN3nns0=;
-        b=kPkDqAlc13991pQJhDIV3xNFrNN9XUmR0eVbD4JnKKNQsb1iV1O6DIHhNwHk6Ea38h
-         PAdIyUQMCpDzG3UNoYEQXRX3eSRvxEAz+HQ+jtepML+t+EY+ENxml5ApGxs8WSOZ73Pd
-         HOpvT4haZumkStbk/tZNl3W6w8Z6oC9f9UA+Ca4d3nP6+fVo2qEHHNO0NZ0ZVvaXBLIZ
-         VPphWfHUBHDUXns7hrDlZjakQhKMAaJPR0JgffsMCagGElEMAycqDqPgPJHOR6sT3dGE
-         8/oxOgYdIDtyoDey4Klu1Q0hWCb8usoKCOLGdBUkXUpHzDpkl5Yb225FKnV76kPB/41S
-         A6gA==
-X-Forwarded-Encrypted: i=1; AJvYcCW7T1PmvHcjfpfNAGg7tKcSV75pslbQ2SLBcXfiaosBReXco8MEFpyP3Q5skKuciRk8ES+/J3XLE5/MrZnxEF7p@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdEbSW1XE8Njti3v0TpkzlKLhIi2PyPCS9OTcbEXqMl5uc7nFi
-	5p1VPbhlIdXn0HfIgw5F8A6rjZ+Dbj2ua/BjVRXHwPbNOQaLzDFAmnEEdavQ/Y/SUICSpOvhve3
-	7SozhBf0=
-X-Gm-Gg: ASbGncsZ0941aDgZJfqFRbblRtzioYJvnOkG/Hc4vYgTnmLkMBypXwc9L9ucFE0Hb7d
-	5TDjcG+Sjakb2pVAERGug1Tn4O+ASaWAbeGZhOC7/xD8aRJFyJ/XISC7qmu2ej7EFfv9VwjMN5v
-	vFEOrCY3izXdEbVFNgvDUD9bW499NcvOxmveFSNLEfLGxemnXSZ7UNDU2ujlgHhhKMsBL5mV95K
-	XeENJ+6GvsMd3HRPYihHdS+R3KvwLDwpQyo9sGLvyHrsf3bWik3A6Ardpmh8AkcT6CBVp4zMUb/
-	ud2vWtgPd09mFAxidpraAnFEevcAeazvOWTTS4p32KsXT22YUJf6xHTJ244kcawLMl06JPXhw9R
-	bnxzwYqNUE/CRSEGRYl66
-X-Google-Smtp-Source: AGHT+IGlBdPQ4Ket+t0Pzwh3J2o3hjvlvuhgKqsoA4ERFUZXVz8H96bSIMPAXq+HQL+iX73vE7/+8w==
-X-Received: by 2002:a05:600c:c059:20b0:43c:fb95:c752 with SMTP id 5b1f17b1804b1-442ffc60edemr147130325e9.3.1747907730316;
-        Thu, 22 May 2025 02:55:30 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f23bfdd9sm96314495e9.18.2025.05.22.02.55.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 May 2025 02:55:29 -0700 (PDT)
-Message-ID: <3c8474fb-75fd-4ea1-887a-53f625e4eadf@rivosinc.com>
-Date: Thu, 22 May 2025 11:55:29 +0200
+	id 1uI2jG-00000000bch-0Rfh;
+	Thu, 22 May 2025 10:00:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 83DE662A37;
+	Thu, 22 May 2025 10:00:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71D4BC4CEE4;
+	Thu, 22 May 2025 10:00:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747908045;
+	bh=MqopuUpYpRBwINTm0XZy4Btrri9/43yCJfmha+uoSws=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cj2WJCiWjYkooKVwSF7qK5qxGnxD7tXSUsN1yjJeFEgcgg/J6VU0+CKvUu4K82JWn
+	 2J3EhgNsiuNcS9LFh7XQt48XPGkVjcypJmoCjd3JredBT6Tf1zRaByi+y03ZiPIrny
+	 h0ubB6YEsb0W3LPuq8M2xkXuqT4SDiCyiG5i+Xpqm3RTgyoKJsQL4BP6TAj40R2iYa
+	 Axe4uLW7riQND3IRZcX+WkMpXqU7DdzjKS3xKXaCU4OPIPZOI4EYUQLZwXrhuES5Wa
+	 rt4laTbjxh8v+1ny12wFiI7j5z3IAWAURoXdZxe/wBBitobPOfsXpEn5SczrUcBfHq
+	 xn3VT8iG9nKwA==
+Date: Thu, 22 May 2025 11:00:37 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Ai Chao <aichao@kylinos.cn>
+Cc: perex@perex.cz, tiwai@suse.com, johannes@sipsolutions.net,
+	kuninori.morimoto.gx@renesas.com, lgirdwood@gmail.com,
+	jbrunet@baylibre.com, neil.armstrong@linaro.org,
+	khilman@baylibre.com, martin.blumenstingl@googlemail.com,
+	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
+	nicoleotsuka@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	srinivas.kandagatla@linaro.org, linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
+	kernel@pengutronix.de, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v2 1/6] ASoC: ppc: Use helper function
+ for_each_child_of_node_scoped()
+Message-ID: <6625e6b1-53a7-4357-99ab-bdf5810e6699@sirena.org.uk>
+Mail-Followup-To: Ai Chao <aichao@kylinos.cn>, perex@perex.cz,
+	tiwai@suse.com, johannes@sipsolutions.net,
+	kuninori.morimoto.gx@renesas.com, lgirdwood@gmail.com,
+	jbrunet@baylibre.com, neil.armstrong@linaro.org,
+	khilman@baylibre.com, martin.blumenstingl@googlemail.com,
+	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
+	nicoleotsuka@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	srinivas.kandagatla@linaro.org, linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, imx@lists.linux.dev,
+	kernel@pengutronix.de, linux-arm-msm@vger.kernel.org
+References: <20250522050300.519244-1-aichao@kylinos.cn>
+ <20250522050300.519244-2-aichao@kylinos.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] drivers: firmware: add riscv SSE support
-To: Qingfang Deng <dqfext@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
- Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>,
- Atish Patra <atishp@atishpatra.org>,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20250516152355.560448-4-cleger@rivosinc.com>
- <20250516152355.560448-1-cleger@rivosinc.com>
- <20250521074627.4042832-1-dqfext@gmail.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250521074627.4042832-1-dqfext@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_025532_179841_87104DA0 
-X-CRM114-Status: GOOD (  13.78  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dYBUrfbV055H0pXU"
+Content-Disposition: inline
+In-Reply-To: <20250522050300.519244-2-aichao@kylinos.cn>
+X-Cookie: Beware of dog.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,60 +95,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--dYBUrfbV055H0pXU
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 21/05/2025 09:46, Qingfang Deng wrote:
-> Hi Clément,
-> 
-> On Fri, 16 May 2025 17:23:41 +0200, Clément Léger wrote:
->> +static struct sse_event *sse_event_get(u32 evt)
->> +{
->> +	struct sse_event *event = NULL, *tmp;
->> +
->> +	scoped_guard(spinlock, &events_list_lock) {
->> +		list_for_each_entry(tmp, &events, list) {
->> +			if (tmp->evt_id == evt)
->> +				return event;
-> 
-> `event` is not being updated by the loop and therefore is always NULL.
-> Did you mean to return `tmp`?
+On Thu, May 22, 2025 at 01:02:54PM +0800, Ai Chao wrote:
+> The for_each_child_of_node_scoped() helper provides a scope-based
+> clean-up functionality to put the device_node automatically, and
+> as such, there is no need to call of_node_put() directly.
+>=20
+> Thus, use this helper to simplify the code.
+>=20
+> Signed-off-by: Ai Chao <aichao@kylinos.cn>
+> ---
+>  sound/ppc/tumbler.c | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
 
-Hi Qingfang,
+This is for ALSA, not ASoC (same for patch 2).
 
-Indeed, that's a mistake I made while renaming the evt/event stuff. I
-didn't saw that since it is only used to check that we don't register an
-event twice. Good catch.
+--dYBUrfbV055H0pXU
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> 
->> +		}
->> +	}
->> +
->> +	return NULL;
->> +}
-> 
-> <snip>
-> 
->> +static int __init sse_init(void)
->> +{
->> +	int cpu, ret;
->> +
->> +	if (sbi_probe_extension(SBI_EXT_SSE) <= 0) {
->> +		pr_err("Missing SBI SSE extension\n");
->> +		return -EOPNOTSUPP;
->> +	}
->> +	pr_info("SBI SSE extension detected\n");
->> +
->> +	for_each_possible_cpu(cpu)
->> +		INIT_LIST_HEAD(&events);
-> 
-> `events` is already initialized.
+-----BEGIN PGP SIGNATURE-----
 
-Yes indeed,
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgu9cQACgkQJNaLcl1U
+h9CN3wf+PegrYTPlsVJy+enj/g4eJLMHrb+6cwhGIJ+rpuWUhYGaAAV3EeSH51g9
+RpUaPpzmbI1W9rHSufs3UHUUX+xeLAOCmoGQY3zHQDiXcB6kH7ZnVbFLcGCEQjbE
+63rKXX3DuoMTCyrERQSyyVztgwF4gtwM7/SpkrP6EF/IwRBHuR7PSbfudShqajl3
+JmjzCk+11NNoW4pgUBcsCdTuxGyEd5eGZWAT/b68XKAq8AbndHwwsY2X0OC28Ibu
+dCW1cX1s+NK6W/MErAM0B72wYF0HVOmzOT45F6UlMZVJqPDezTE8IB+oUmzSf+hv
+3t/hI5FgEmIU4rj4jwuBpqaSXrPi2Q==
+=1khQ
+-----END PGP SIGNATURE-----
 
-Thanks,
-
-Clément
-
-> 
-> Qingfang
-
+--dYBUrfbV055H0pXU--
 
