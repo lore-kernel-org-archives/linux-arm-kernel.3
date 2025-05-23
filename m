@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529C7C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F51C54F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kxQtaXcsjM2ovX5/37rHFvmUdzjRjLApt0L/oLOpB2U=; b=IvGv1at7zttk4QgSfqTegQwUQs
-	RTTxhBGMy8BsBNqmOm3eY6yq9LwgdWcGx5M95Ui5Nr2a8nCWkQTObMsHtG7FS6b0dNrYj5Gc5SVZs
-	+BZWeh0f3VFQTDWTjSHdD0YNpMEziKtRg1jTNetnTuB8fNmwMkrFI/T3hPBP9/Usac7JSaZhOn7+8
-	jYeYJW1IbNrPntfxdhDZgcpEMA218A5b6TiiLwiCU+P3o2hbVtJ7fshbdwH2E7EzITPtr93I/Ax3s
-	ukD4ofjbeudmhwahOLHIVUFl+o+9Ok1WWYWHO6Dp54AX/6yahmcP3L8P2h9p3dwZ4xYEfoygPwzTK
-	F0AAS2Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gsXGM4UXXg5X82wsCG4Eg9IZLq9CvOeiqqMgouKb1g8=; b=O6OhoXvzwdPH5OExTBNC0nhXGk
+	0DBwkTjZWhF+WnYh+RrF8T/bd7m5utINKhuBxrS3D0+oliA5EuhvQLeUC6mgRUu1SqI/Q2HUjW+Zm
+	D0BEx3V9HSXMTOXxMR1DnidCK55NZkNaFBuP3KMjqWfk3P8NHUu085sgM7rZyPN44hA8KO3IylJ/n
+	37oEpyO/usrEyGORbD6DuRwVD58VxR2cyZzuDdvNxW23FBMheL0f57kZl4Iq8N7GsbWc1zi+Hye8f
+	q3cYnofKCUDoatqDNaQVTIn9LJl3Rn+l7AI34DhwcqXAYbjcdpiymQ/RNU3Nl4UE77z+ruDVRqyAF
+	DKeQf6rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIO1a-00000003KjC-0kUW;
-	Fri, 23 May 2025 08:45:06 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1uIO1Z-00000003Khh-1GRn;
+	Fri, 23 May 2025 08:45:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uINme-00000003J5s-3bS2
+	id 1uINfr-00000003IVG-0FR7
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 23 May 2025 08:22:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=gsXGM4UXXg5X82wsCG4Eg9IZLq9CvOeiqqMgouKb1g8=; b=IL+hronK7egGw3BgsqpHMRH9tL
+	MT/H8LUZXdoqP5bLlRqU/6xF/waZWNoB/uPt6Oz49Eh6u3LX3YV7+tsK4vEgBOLQ4jsNo/HD8M6o9
+	/qGwF62+4FW8rDP9CXmLkAmrBn0K7vr4Lln6/Y2WqRzEtWnYYxfFZX/pVUpdGioBGwkfLPEIB1JMS
+	vDAvm5DH+u58/FsEQZqcyk81vQ2DPXB0EY77+iryhuQsub5bFSfvHjzeSsJwizVXX+ro+w/+dmIZH
+	NAqnMRTLsNUtnJpmNigCbslwnj9dYwW8bYhyv08vT5Gf033tbNm5LekMRn1oWsbaRdUrJuwQrl0aK
+	hBr8kxhg==;
+Received: from mgamail.intel.com ([192.198.163.17])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uINfn-00000001DtH-2wqw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 08:29:42 +0000
-Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id CCC981F997;
-	Fri, 23 May 2025 10:29:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1747988979;
-	bh=kxQtaXcsjM2ovX5/37rHFvmUdzjRjLApt0L/oLOpB2U=; h=From:To:Subject;
-	b=FqEv8FK1TSN1d00jlAH6vrEHuFlvuJxvd1CbULeF+5cxvuSV1U3gYwYIO77wQLxzJ
-	 JTySDQll53QlEazU+gxs54PnFAMcC7gwzSUrOiUUBy0ekthUp8uMP7ELHgru+vEFyp
-	 TTSGRtZYmO4z8LoTEG+8OLqxSXMxHYtaQc+ZSgEu0qC+C8xie4p8YaPUdhNqZldPnS
-	 eK+gqKKxmeH4zw/JJ50QN0BnkjPQaa1fqrvp9XG4dM4VY8Z4TBy9qO4Kkw5cBgOZ0D
-	 Q/bY+tyuFHvQckfOMq0Lbva0UPykA5Xch57hITbnIVDn48ianX2O6qW5je2TZXPHl0
-	 5+2v0ZizUU05Q==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Dong Aisheng <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 0/2] i2c: lpi2c: implement master_xfer_atomic callback
-Date: Fri, 23 May 2025 10:29:29 +0200
-Message-Id: <20250523082931.23170-1-francesco@dolcini.it>
-X-Mailer: git-send-email 2.39.5
+	Fri, 23 May 2025 08:22:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747988556; x=1779524556;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=UktUFNhQpzGrRsFIwIpfLH+M+oX8xvKnPJijRRpkYXw=;
+  b=S2Ju5RjYePAlqffSDpte1DZ/cft0fSgeoEieDoNUjRq7f2bQsA8moCjI
+   /CieRcU2QBafl9KoSt7+H+vyTfYnsdfg1E7bGASxrLOHLFHhej8Op7ZFs
+   0Ay0GdS8jUDlujdkV4pfN1VNVrND+r9CGxzQmGZxSxi+3YqsGIuWDcQSx
+   9RUoURz4/QnOBGH5qlKe1WwFSSDguMYwx+cnMLM0cU5bvRDmgbecsIwPU
+   JacjKZQToAJeaQFo7ehuNzeSNZURGCuXh7LnOGSh5TDAOyomvW0Wm9J2l
+   w79v2UpZuw7lgbumlmBt79wSR4TjPzXVFKp2uJ3lM+VvaOvV52d9OPYel
+   Q==;
+X-CSE-ConnectionGUID: ahcG0/hiTsWxaR7P2LDQMw==
+X-CSE-MsgGUID: YIE1tSchQrmby1FAtNiX9w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="49958779"
+X-IronPort-AV: E=Sophos;i="6.15,308,1739865600"; 
+   d="scan'208";a="49958779"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 01:22:31 -0700
+X-CSE-ConnectionGUID: hbdtZnCZSp+nEANc3d6+Yw==
+X-CSE-MsgGUID: aGhX6r3rRwu6bK0N6bagxA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,308,1739865600"; 
+   d="scan'208";a="146032463"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 23 May 2025 01:22:28 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uINfe-000QC8-0N;
+	Fri, 23 May 2025 08:22:26 +0000
+Date: Fri, 23 May 2025 16:21:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Paul Alvin <alvin.paulp@amd.com>, michal.simek@amd.com,
+	adrian.hunter@intel.com, ulf.hansson@linaro.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, git@amd.com,
+	alvin.paulp@amd.com, linux-arm-kernel@lists.infradead.org,
+	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mmc: sdhci-of-arasan: Add shutdown callback
+Message-ID: <202505231550.RaoPUrmq-lkp@intel.com>
+References: <20250522094932.4187301-1-alvin.paulp@amd.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250522094932.4187301-1-alvin.paulp@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_012941_055376_8AFEF0F3 
-X-CRM114-Status: UNSURE (   7.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250523_092236_291398_7671826E 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +104,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+Hi Paul,
 
-This series adds atomic operations support to the imx-lpi2c driver and split
-the previous v3 patch into two separate patches.
+kernel test robot noticed the following build errors:
 
-The first patch replaces the open-coded polling loops with readl_poll_timeout.
-This improves readability and consistency, and prepares the code for
-integration of the second patch, while maintaining the same functionality.
+[auto build test ERROR on v6.15-rc7]
+[also build test ERROR on linus/master next-20250522]
+[cannot apply to xilinx-xlnx/master]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-The second patch implements the .master_xfer_atomic() callback, enabling
-support for atomic I2C transfers.
+url:    https://github.com/intel-lab-lkp/linux/commits/Paul-Alvin/mmc-sdhci-of-arasan-Add-shutdown-callback/20250522-175110
+base:   v6.15-rc7
+patch link:    https://lore.kernel.org/r/20250522094932.4187301-1-alvin.paulp%40amd.com
+patch subject: [PATCH] mmc: sdhci-of-arasan: Add shutdown callback
+config: arm64-randconfig-002-20250523 (https://download.01.org/0day-ci/archive/20250523/202505231550.RaoPUrmq-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250523/202505231550.RaoPUrmq-lkp@intel.com/reproduce)
 
-Emanuele Ghidoli (2):
-  i2c: lpi2c: use readl_poll_timeout() for register polling
-  i2c: lpi2c: implement master_xfer_atomic callback
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505231550.RaoPUrmq-lkp@intel.com/
 
- drivers/i2c/busses/i2c-imx-lpi2c.c | 262 +++++++++++++++++++----------
- 1 file changed, 176 insertions(+), 86 deletions(-)
+All errors (new ones prefixed by >>):
+
+>> drivers/mmc/host/sdhci-of-arasan.c:2063:2: error: call to undeclared function 'sdhci_arasan_suspend'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+           sdhci_arasan_suspend(dev);
+           ^
+   1 error generated.
+
+
+vim +/sdhci_arasan_suspend +2063 drivers/mmc/host/sdhci-of-arasan.c
+
+  2058	
+  2059	static void sdhci_arasan_shutdown(struct platform_device *pdev)
+  2060	{
+  2061		struct device *dev = &pdev->dev;
+  2062	
+> 2063		sdhci_arasan_suspend(dev);
+  2064	}
+  2065	
 
 -- 
-2.39.5
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
