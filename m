@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FCEC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 15:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98737C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 15:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWCE6jqKFyONnv3rqRo5aIekZYBw6AYzIcZy4RKLG3w=; b=3dN3BuwcBiZapx5eCTKQxpZsnO
-	EGRrwdPwxNZ4QXXKq56qpX5U9AasRyfECcBVNqGDZeiuD9d7nnqOuYjEaqUISN4xgCNVu11iXFRXD
-	Sj6sIpTDDvMsJJCuDhYiW348S0i/YzC3QH6r+qonYqZaShkJUUu9muAC6BDyxe7iSr78MJXzyFXzf
-	NutQg5nqn3etnadG/om4/5PCEh/5Z+Fwsw0f0Iz1WXyZDbLPSGZnHJF+dzSMSuRF+BM9Gl5GEA2wZ
-	6bG+d/YKcjuayG5rqJDcjoun3C/auVqrTRTr1Fd98p3zqAea7eq1V46uGSJW/mADbSbUutNe4MJcX
-	33a3kPIQ==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3aX8PUAXDaemiEQ3IrgJbnTZwuocxLWzcQByTZDngOU=; b=VTtSbL2uu0COGP3Z0KcGyPGs/j
+	hhhcX/Rj2f2NgBP/UY57kUI5FdiKUDGFwB/upYg1kCEgtOnx/kKDAmGads3KXmtLUEsbhazVaJcVn
+	sFewjIuTP/L8JO7KMo9oe/JC0u0MQ2cFFuyK1zRXn6BGmmDnUcbi4bW5OOrDRNW+PZXnFrWSYVFPK
+	q3sTmAzoFwKZuRMjMeWg+Ij7ehZcCNpqhy6VxbTDSSP6Mt+2phdYHvSJac6j5bsNXSz7pH2XFyHcM
+	51xgGyasU8V8Avn13ZBW/7Ff0aTQoscSIKYXlo1Cazcx0gRdzb+mNmZA61IVs1vL6xrDw/60Oxxax
+	/gcg7OZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIUPh-00000004GN3-07sP;
-	Fri, 23 May 2025 15:34:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIU7n-00000004DpY-0u0i;
-	Fri, 23 May 2025 15:15:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3B52E5C5DCC;
-	Fri, 23 May 2025 15:13:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C994AC4CEE9;
-	Fri, 23 May 2025 15:15:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748013353;
-	bh=XWCE6jqKFyONnv3rqRo5aIekZYBw6AYzIcZy4RKLG3w=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=HX8ckC8AMTt3FFPZ5hRUKl69FZBqaXO6fLB2Y7SpVFP65PAO1kjsi8SJWon7Y8VAL
-	 5AlZGipDmdwo6ASrUJHjlZWt23IWVhtZ8w28sd2J+3k/5KL0Ds5/1Kd8fX92L9NeSK
-	 djeiHI1ul7E3zdbl/W4YgmZQN1kHFHTDKeqsu/HEEZ+Cnkla1/YwztmITvG8ynuDgE
-	 JgYg8/t8HUSDfYIDhxSbHCCufsrGiAF7Z4dT97PjU3++rt/osFUnAzdC53SPsceP8v
-	 LTwB//5TEGvRiD/yhKtzXkNNBxvtdGzOsRy/8HOt85jlnfIqIfWPNhzlqEZfOF+w9l
-	 PDqA51dZv9e7g==
-Date: Fri, 23 May 2025 08:15:49 -0700
-From: Kees Cook <kees@kernel.org>
-To: Andrew Donnellan <ajd@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>
-CC: Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Naveen N Rao <naveen@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>, Ard Biesheuvel <ardb@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nicolas.schier@linux.dev>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- linux-kernel@vger.kernel.org, x86@kernel.org, kasan-dev@googlegroups.com,
- linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org,
- sparclinux@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v2 08/14] powerpc: Handle KCOV __init vs inline mismatches
-User-Agent: K-9 Mail for Android
-In-Reply-To: <e50abba6c962772c73342bacf20fb87dc99dd542.camel@linux.ibm.com>
-References: <20250523043251.it.550-kees@kernel.org> <20250523043935.2009972-8-kees@kernel.org> <e50abba6c962772c73342bacf20fb87dc99dd542.camel@linux.ibm.com>
-Message-ID: <6E407BC0-4D84-4420-AE07-EF85EBA1AB1C@kernel.org>
+	id 1uIURk-00000004Gi8-15B8;
+	Fri, 23 May 2025 15:36:32 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uIU94-00000004E1v-35Cq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 15:17:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
+	Content-Type; bh=3aX8PUAXDaemiEQ3IrgJbnTZwuocxLWzcQByTZDngOU=;
+	b=bBwVXnXV47gzp2czYWTvmcMKEgZrPMUK9feAAVxOgG4AOljD7u1FtJ/gbID3wl
+	5TC1szaWCRf19jfCuTR/VW5SEF5Epmr+km/g05ps82PrudkZ4Yvhzmc8Mt1TrWCD
+	6Jebflm7/aV9n/B/b9GcMaoiXetu2Kn3b8KGIMA2T9/L4=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id PCgvCgCXbyELkTBoFV96Bg--.59745S2;
+	Fri, 23 May 2025 23:15:35 +0800 (CST)
+From: =?UTF-8?q?=E6=9D=8E=E5=93=B2?= <sensor1010@163.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	jonas@kwiboo.se,
+	rmk+kernel@armlinux.org.uk,
+	david.wu@rock-chips.com,
+	wens@csie.org,
+	u.kleine-koenig@baylibre.com,
+	an.petrous@oss.nxp.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?=E6=9D=8E=E5=93=B2?= <sensor1010@163.com>
+Subject: [PATCH] net: dwmac-rk: MAC clock should be truned off
+Date: Fri, 23 May 2025 08:15:21 -0700
+Message-Id: <20250523151521.3503-1-sensor1010@163.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PCgvCgCXbyELkTBoFV96Bg--.59745S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrKF1kXry3Kw4Dtr4DKr4Uurg_yoWkWFbE9w
+	1Ivrn3XF45XF40kF1DGw13Zr9agFs8ZFs5Ar42gFWSvFW7Zwn8Zr4kWrsrArn5Ww48AF9r
+	Gr1xAF1Iyw1xtjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRtCJPDUUUUU==
+X-Originating-IP: [112.20.94.209]
+X-CM-SenderInfo: 5vhq20jurqiii6rwjhhfrp/xtbBMR9Wq2gwKoMmeAABs9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_081555_295151_6E567CBC 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250523_081715_289168_9A4EB8FD 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,24 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+if PHY power-on fails, clockassociated the MAC should
+be disabled during the MAC initialization process
 
+Signed-off-by: 李哲 <sensor1010@163.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-On May 22, 2025 10:24:30 PM PDT, Andrew Donnellan <ajd@linux=2Eibm=2Ecom> =
-wrote:
->On Thu, 2025-05-22 at 21:39 -0700, Kees Cook wrote:
->> When KCOV is enabled all functions get instrumented, unless
->> the __no_sanitize_coverage attribute is used=2E To prepare for
->> __no_sanitize_coverage being applied to __init functions, we have to
->> handle differences in how GCC's inline optimizations get resolved=2E
->> For
->> s390 this requires forcing a couple functions to be inline with
->
->I assume you mean powerpc here, though I'm sure my employer is happy
->that you're at least confusing us with IBM's other architecture :)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index 700858ff6f7c..036e45be5828 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -1648,7 +1648,7 @@ static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
+ static int phy_power_on(struct rk_priv_data *bsp_priv, bool enable)
+ {
+ 	struct regulator *ldo = bsp_priv->regulator;
+-	int ret;
++	int ret = 0;
+ 	struct device *dev = &bsp_priv->pdev->dev;
+ 
+ 	if (enable) {
+@@ -1661,7 +1661,7 @@ static int phy_power_on(struct rk_priv_data *bsp_priv, bool enable)
+ 			dev_err(dev, "fail to disable phy-supply\n");
+ 	}
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
+-- 
+2.17.1
 
-Whoops! Yes=2E Paste-o on my part=2E The rest of the sentence was updated =
-correctly though=2E :)
-
---=20
-Kees Cook
 
