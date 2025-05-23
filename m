@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D69DAC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C18DC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FmBgUjlDWTnreolq25ErdVOghN/p5qzYDvZSmPlCrWo=; b=q/shxx4hXHCc99lLMUjEuDeGcU
-	coLxH5a4uty94t8lYGpAYykDAqerwsETfZabOHkeHpQTxP5GjabvBv++7m3kyOZ6aD2J0YX76tCjY
-	8pdEXeUTUBOh4QG539ebMF0Pr+RtPBxk0N+2yMixgK8rbTM7m9++kW2nliu45CHdrHagaM/uF1Dqa
-	h7LAHT1hqIiexo2hLYCFbni3mOPsDV0Bv+Skuvwwlp3vVuChQ2VmfsdXwh9xROsNrksIQWClHJMSh
-	XP1tUvWWmrDvtqTAe/Bk2XrVPY6BuQwZ/OqIMh4QVo2Z4QQJmQzmTtSCIxr6tk/XyJCDofLE+5ilv
-	iuH30rlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2YyhQzykqr2IukkjXY4a8diTP0eWbO99O5z3m7RWB6U=; b=Gt3l67SmBedKiI
+	R2NgPsreyHrvETCBzn4yzUhcufV65jpPAcP7eaVIsvhtqvHk6k0PvLgYcEST+yzKgdRl6cQZIfO6a
+	dqNSR4DbeziPxAIE28zdwYftd6zeGUKKd5upgimuepn4234DPMqX7GBQ3qlQAQbEZfV/zJ+2r2U57
+	m51xzfbG9gljoR3uESUoILJxMGFyLhikbKRYI8eGYewrlxSKku0U8HvYDP1JMxBakdylT16YZk37X
+	nFr1HYSutGSRur3gZ36hxsHAedov0TYR04gUXDFn4I0tQhOgXXE0HTEyQ7sCUmSrMoq8rfgvZIFNP
+	wZHpq2zcpBhz0W6qsO0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIRfM-00000003p1T-1oel;
-	Fri, 23 May 2025 12:38:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uIRjN-00000003pxZ-1ReN;
+	Fri, 23 May 2025 12:42:33 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQRq-00000003gsE-3t1q
+	id 1uIRhI-00000003pYK-03I9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 11:20:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BAE0A62A12;
-	Fri, 23 May 2025 11:20:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2038FC4CEE9;
-	Fri, 23 May 2025 11:20:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747999221;
-	bh=RcGgqAaZk/0SBkr2MlLXSc+3IGGjsNtTpWGSzez2kbo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=dZyIm82aQXDdo6EOb1ugTEhsZkUun0NAW086/fsm2q9OmMrxKp/+LL9IY1XH/s4CB
-	 zKjXnaCiQiABlLFARP4oMEcx/pWKTxBvrT+nDmaukavRfr++Z7nirpNFrDdfWwFTvv
-	 7RtWjSuEmihODGp5nQrVykpIs9KKM5jVbzZ0Q3kezzDSiBqXUVo71lzaXDz4vrF6tr
-	 8g+MEyKsLI82W6ITWKOr7R8mkEX4Hy/NMydpXtmpV8RsQJFyHTO/tt/JvbxDz/KShA
-	 hu9Pg4nICQbleEJYHQ405CbmaiIuMbHizzWx2pnRIKV7JV7qhOS7Utue6VdMQ9Iuu7
-	 l+b6+6dsudWDA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uIQRm-00HYuf-P2;
-	Fri, 23 May 2025 12:20:18 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	D Scott Phillips <scott@os.amperecomputing.com>,
-	Fuad Tabba <tabba@google.com>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Quentin Perret <qperret@google.com>,
-	Seongsu Park <sgsu.park@samsung.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: [GIT PULL] KVM/arm64 updates for 6.16
-Date: Fri, 23 May 2025 12:20:15 +0100
-Message-Id: <20250523112015.146300-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Fri, 23 May 2025 12:40:25 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54NBKc2I029978;
+	Fri, 23 May 2025 14:40:13 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=2YyhQzykqr2IukkjXY4a8d
+	iTP0eWbO99O5z3m7RWB6U=; b=1LipR1xBEOhYzBdlcKyKjqBAaALvXVHak154yN
+	a3rM8dGt+hVaaSYYundcEOORPxBDe1v5dGHpyQgG8kk5NF9mmGmBUd0HAhyhh/Sh
+	s62yDWkrkQOENh4sme4SvcxhKQvked7n7fwOhqO4PMvC/mAVW1EJHHiOThvTo1il
+	6suVWNjUG4y0WJHXhf6z/8SuJD+1j9/JI4jssRGyI+GfuCTxWVMfwlQw7B4w7sED
+	w2mTF4rn4hf6CH2LOxHHEl7eYrkELMMckQHFyLPvX85u7h+IkV2rQlcZ+di8FAI3
+	Cjwz3mPAAQ/BSnly9knWdIbBkIR6Gcg4okzYJ0fAOi/F9h1A==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46rwfcdxje-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 14:40:12 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E53224002D;
+	Fri, 23 May 2025 14:39:06 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CBFDDA0D901;
+	Fri, 23 May 2025 14:38:23 +0200 (CEST)
+Received: from localhost (10.48.81.67) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 23 May
+ 2025 14:38:23 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Subject: [PATCH v3 0/9] Introduce HDP support for STM32MP platforms
+Date: Fri, 23 May 2025 14:38:12 +0200
+Message-ID: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, anshuman.khandual@arm.com, ben.horgan@arm.com, catalin.marinas@arm.com, scott@os.amperecomputing.com, tabba@google.com, gankulkarni@os.amperecomputing.com, gshan@redhat.com, jingzhangos@google.com, joey.gouly@arm.com, kees@kernel.org, broonie@kernel.org, mark.rutland@arm.com, smostafa@google.com, oliver.upton@linux.dev, qperret@google.com, sgsu.park@samsung.com, vdonnefort@google.com, r09922117@csie.ntu.edu.tw, will@kernel.org, yuzenghui@huawei.com, eric.auger@redhat.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-B4-Tracking: v=1; b=H4sIADRsMGgC/13MSw6CMBSF4a2Yji0pt1wCjtyHcVD6kA6gpBcbD
+ WHvFhJjcHhO8n8LIxu9JXY5LSza5MmHMQ95PjHdq/FhuTd5MxCAAqDivZn4c6I5WjXwGsCiUWW
+ lWsdyMkXr/Gvnbve8e09ziO9dT+X2fiE8QqnkgrdGVK2uUUqhri4QFTQXOgxsoxL8cgTxl0POU
+ bq6azp0TjfHfF3XD3UnYD3pAAAA
+X-Change-ID: 20250224-hdp-upstream-622e5da14a9f
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
+	<clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-6f78e
+X-Originating-IP: [10.48.81.67]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-23_03,2025-05-22_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250523_054024_543953_BE1EB6ED 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,318 +102,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo,
+This patch series introduces the Hardware Debug Port (HDP) support for
+STM32MP platforms.
 
-Here's the initial set of updates for 6.16.
+It includes updates to the mmio gpio driver, the addition of device tree
+bindings, the HDP driver, and updates to the device tree files for
+STM32MP13, STM32MP15,
+and STM32MP25 SoCs.
+The series also updates the MAINTAINERS file to include myself as the
+maintainer for the STM32 HDP driver and adds the necessary
+pinmux configurations for HDP pins on STM32MP157C-DK2 as example.
 
-The largest change is actually not a functional one, as it "only"
-reworks the way the guest feature set applies to trap bits and
-register sanitising. This translates into another (generated) set of
-large tables describing the architecture, which is I hope easier to
-deal with than ad-hoc code trying to do the same thing.
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+---
+Changes in v3:
+- Use `bgpio_init()` function:
+    - Add add patch to create the `BGPIOF_NO_INPUT` flag needed for the
+     `bgpio_setup_direction()` used in `bgpio_init()`
+    - Remove `stm32_hdp_gpio_get` and `stm32_hdp_gpio_set`
+- Use `static` pm ops
+- Update bindings:
+    - add pattern instruction for pin values
+    - remove function's maxItems to use `function: true`
+    - fix the compatible in the exemples
+- Link to v2: https://lore.kernel.org/r/20250520-hdp-upstream-v2-0-53f6b8b5ffc8@foss.st.com
 
-On the functional front, pKVM gains THP and UBSAN support as well as
-some page ownership optimisations, we workaround a couple of really
-bad issues on the AmpereOne hardware, and we finally switch on nested
-virtualisation support.
+Changes in v2:
+- Remove bindings header files with function name as #define
+- Add match_data with function name for three compatible:
+  "st,stm32mp131-hdp", "st,stm32mp151-hdp" and "st,stm32mp251-hdp".
+- Rework a bit the driver to use match_data.
+- Remove the use of `dev_err_probe(` in the resume ops.
+- Remove `MODULE_ALIAS(`.
+- Remove the vertical bar in bindings description paragraph.
+- Fix an error in the `pinctrl-0` parameter of the binding example, it
+  was refering a node that wasn't existing.
+- Use uppercase pin names.
+- Link to v1: https://lore.kernel.org/r/20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com
 
-This last bit has been a long time coming, and I would like to express
-my thanks to Christoffer, Jintack, Oliver, Eric and everyone else who
-helped me getting this monstrosity across the finishing line. Except
-it's never really finished!
+---
+Clément Le Goffic (9):
+      gpio: mmio: add BGPIOF_NO_INPUT flag for GPO gpiochip
+      dt-bindings: pinctrl: stm32: Introduce HDP
+      pinctrl: stm32: Introduce HDP driver
+      MAINTAINERS: Add Clément Le Goffic as STM32 HDP maintainer
+      ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp13
+      ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp15
+      ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp25
+      ARM: dts: stm32: add alternate pinmux for HDP pin and add HDP pinctrl node
+      ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp157c-dk2 board
 
-As usual, details in the tag below.
+ .../bindings/pinctrl/st,stm32-pinctrl-hdp.yaml     | 187 ++++++
+ MAINTAINERS                                        |   6 +
+ arch/arm/boot/dts/st/stm32mp131.dtsi               |   6 +
+ arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi        |  25 +
+ arch/arm/boot/dts/st/stm32mp151.dtsi               |   7 +
+ arch/arm/boot/dts/st/stm32mp157c-dk2.dts           |   6 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi             |   7 +
+ drivers/gpio/gpio-mmio.c                           |  11 +-
+ drivers/pinctrl/stm32/Kconfig                      |  14 +
+ drivers/pinctrl/stm32/Makefile                     |   1 +
+ drivers/pinctrl/stm32/pinctrl-stm32-hdp.c          | 720 +++++++++++++++++++++
+ include/linux/gpio/driver.h                        |   1 +
+ 12 files changed, 990 insertions(+), 1 deletion(-)
+---
+base-commit: a08b2b34239e63bd839078de98911d3653cdab83
+change-id: 20250224-hdp-upstream-622e5da14a9f
 
-Please pull,
+Best regards,
+-- 
+Clément Le Goffic <clement.legoffic@foss.st.com>
 
-	M.
-
-The following changes since commit b4432656b36e5cc1d50a1f2dc15357543add530e:
-
-  Linux 6.15-rc4 (2025-04-27 15:19:23 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-6.16
-
-for you to fetch changes up to 1b85d923ba8c9e6afaf19e26708411adde94fba8:
-
-  Merge branch kvm-arm64/misc-6.16 into kvmarm-master/next (2025-05-23 10:59:43 +0100)
-
-----------------------------------------------------------------
-KVM/arm64 updates for 6.16
-
-* New features:
-
-  - Add large stage-2 mapping support for non-protected pKVM guests,
-    clawing back some performance.
-
-  - Add UBSAN support to the standalone EL2 object used in nVHE/hVHE and
-    protected modes.
-
-  - Enable nested virtualisation support on systems that support it
-    (yes, it has been a long time coming), though it is disabled by
-    default.
-
-* Improvements, fixes and cleanups:
-
-  - Large rework of the way KVM tracks architecture features and links
-    them with the effects of control bits. This ensures correctness of
-    emulation (the data is automatically extracted from the published
-    JSON files), and helps dealing with the evolution of the
-    architecture.
-
-  - Significant changes to the way pKVM tracks ownership of pages,
-    avoiding page table walks by storing the state in the hypervisor's
-    vmemmap. This in turn enables the THP support described above.
-
-  - New selftest checking the pKVM ownership transition rules
-
-  - Fixes for FEAT_MTE_ASYNC being accidentally advertised to guests
-    even if the host didn't have it.
-
-  - Fixes for the address translation emulation, which happened to be
-    rather buggy in some specific contexts.
-
-  - Fixes for the PMU emulation in NV contexts, decoupling PMCR_EL0.N
-    from the number of counters exposed to a guest and addressing a
-    number of issues in the process.
-
-  - Add a new selftest for the SVE host state being corrupted by a
-    guest.
-
-  - Keep HCR_EL2.xMO set at all times for systems running with the
-    kernel at EL2, ensuring that the window for interrupts is slightly
-    bigger, and avoiding a pretty bad erratum on the AmpereOne HW.
-
-  - Add workaround for AmpereOne's erratum AC04_CPU_23, which suffers
-    from a pretty bad case of TLB corruption unless accesses to HCR_EL2
-    are heavily synchronised.
-
-  - Add a per-VM, per-ITS debugfs entry to dump the state of the ITS
-    tables in a human-friendly fashion.
-
-  - and the usual random cleanups.
-
-----------------------------------------------------------------
-Ben Horgan (3):
-      arm64/sysreg: Expose MTE_frac so that it is visible to KVM
-      KVM: arm64: Make MTE_frac masking conditional on MTE capability
-      KVM: selftests: Confirm exposing MTE_frac does not break migration
-
-D Scott Phillips (1):
-      arm64: errata: Work around AmpereOne's erratum AC04_CPU_23
-
-David Brazdil (1):
-      KVM: arm64: Add .hyp.data section
-
-Fuad Tabba (1):
-      KVM: arm64: Track SVE state in the hypervisor vcpu structure
-
-Gavin Shan (1):
-      KVM: arm64: Drop sort_memblock_regions()
-
-Jing Zhang (1):
-      KVM: arm64: vgic-its: Add debugfs interface to expose ITS tables
-
-Marc Zyngier (84):
-      KVM: arm64: Repaint pmcr_n into nr_pmu_counters
-      KVM: arm64: Fix MDCR_EL2.HPMN reset value
-      KVM: arm64: Contextualise the handling of PMCR_EL0.P writes
-      KVM: arm64: Allow userspace to limit the number of PMU counters for EL2 VMs
-      KVM: arm64: Don't let userspace write to PMCR_EL0.N when the vcpu has EL2
-      KVM: arm64: Handle out-of-bound write to MDCR_EL2.HPMN
-      KVM: arm64: Let kvm_vcpu_read_pmcr() return an EL-dependent value for PMCR_EL0.N
-      Merge branch kvm-arm64/nv-pmu-fixes into kvmarm-master/next
-      KVM: arm64: Force HCR_EL2.xMO to 1 at all times in VHE mode
-      arm64: sysreg: Add ID_AA64ISAR1_EL1.LS64 encoding for FEAT_LS64WB
-      arm64: sysreg: Update ID_AA64MMFR4_EL1 description
-      arm64: sysreg: Add layout for HCR_EL2
-      arm64: sysreg: Replace HFGxTR_EL2 with HFG{R,W}TR_EL2
-      arm64: sysreg: Update ID_AA64PFR0_EL1 description
-      arm64: sysreg: Update PMSIDR_EL1 description
-      arm64: sysreg: Update TRBIDR_EL1 description
-      arm64: sysreg: Update CPACR_EL1 description
-      arm64: sysreg: Add registers trapped by HFG{R,W}TR2_EL2
-      arm64: sysreg: Add registers trapped by HDFG{R,W}TR2_EL2
-      arm64: sysreg: Add system instructions trapped by HFGIRT2_EL2
-      arm64: Remove duplicated sysreg encodings
-      arm64: tools: Resync sysreg.h
-      arm64: Add syndrome information for trapped LD64B/ST64B{,V,V0}
-      arm64: Add FEAT_FGT2 capability
-      KVM: arm64: Tighten handling of unknown FGT groups
-      KVM: arm64: Simplify handling of negative FGT bits
-      KVM: arm64: Handle trapping of FEAT_LS64* instructions
-      KVM: arm64: Restrict ACCDATA_EL1 undef to FEAT_LS64_ACCDATA being disabled
-      KVM: arm64: Don't treat HCRX_EL2 as a FGT register
-      KVM: arm64: Plug FEAT_GCS handling
-      KVM: arm64: Compute FGT masks from KVM's own FGT tables
-      KVM: arm64: Add description of FGT bits leading to EC!=0x18
-      KVM: arm64: Use computed masks as sanitisers for FGT registers
-      KVM: arm64: Propagate FGT masks to the nVHE hypervisor
-      KVM: arm64: Use computed FGT masks to setup FGT registers
-      KVM: arm64: Remove hand-crafted masks for FGT registers
-      KVM: arm64: Use KVM-specific HCRX_EL2 RES0 mask
-      KVM: arm64: Handle PSB CSYNC traps
-      KVM: arm64: Switch to table-driven FGU configuration
-      KVM: arm64: Validate FGT register descriptions against RES0 masks
-      KVM: arm64: Fix PAR_EL1.{PTW,S} reporting on AT S1E*
-      KVM: arm64: Teach address translation about access faults
-      KVM: arm64: Don't feed uninitialised data to HCR_EL2
-      arm64: sysreg: Add layout for VNCR_EL2
-      KVM: arm64: nv: Allocate VNCR page when required
-      KVM: arm64: nv: Extract translation helper from the AT code
-      KVM: arm64: nv: Snapshot S1 ASID tagging information during walk
-      KVM: arm64: nv: Move TLBI range decoding to a helper
-      KVM: arm64: nv: Don't adjust PSTATE.M when L2 is nesting
-      KVM: arm64: nv: Add pseudo-TLB backing VNCR_EL2
-      KVM: arm64: nv: Add userspace and guest handling of VNCR_EL2
-      KVM: arm64: nv: Handle VNCR_EL2-triggered faults
-      KVM: arm64: nv: Handle mapping of VNCR_EL2 at EL2
-      KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers
-      KVM: arm64: nv: Program host's VNCR_EL2 to the fixmap address
-      KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2
-      KVM: arm64: nv: Plumb TLBI S1E2 into system instruction dispatch
-      KVM: arm64: nv: Remove dead code from ERET handling
-      KVM: arm64: Allow userspace to request KVM_ARM_VCPU_EL2*
-      KVM: arm64: Document NV caps and vcpu flags
-      KVM: arm64: Use FGT feature maps to drive RES0 bits
-      KVM: arm64: Allow kvm_has_feat() to take variable arguments
-      KVM: arm64: Use HCRX_EL2 feature map to drive fixed-value bits
-      KVM: arm64: Use HCR_EL2 feature map to drive fixed-value bits
-      KVM: arm64: Add FEAT_FGT2 registers to the VNCR page
-      KVM: arm64: Add sanitisation for FEAT_FGT2 registers
-      KVM: arm64: Add trap routing for FEAT_FGT2 registers
-      KVM: arm64: Add context-switch for FEAT_FGT2 registers
-      KVM: arm64: Allow sysreg ranges for FGT descriptors
-      KVM: arm64: Add FGT descriptors for FEAT_FGT2
-      KVM: arm64: Handle TSB CSYNC traps
-      KVM: arm64: nv: Hold mmu_lock when invalidating VNCR SW-TLB before translating
-      KVM: arm64: nv: Handle TLBI S1E2 for VNCR invalidation with mmu_lock held
-      KVM: arm64: nv: Release faulted-in VNCR page from mmu_lock critical section
-      Merge branch kvm-arm64/pkvm-6.16 into kvm-arm64/pkvm-np-thp-6.16
-      Merge branch kvm-arm64/pkvm-selftest-6.16 into kvm-arm64/pkvm-np-thp-6.16
-      KVM: arm64: Fix documentation for vgic_its_iter_next()
-      Merge branch kvm-arm64/pkvm-np-thp-6.16 into kvmarm-master/next
-      Merge branch kvm-arm64/ubsan-el2 into kvmarm-master/next
-      Merge branch kvm-arm64/mte-frac into kvmarm-master/next
-      Merge branch kvm-arm64/fgt-masks into kvmarm-master/next
-      Merge branch kvm-arm64/at-fixes-6.16 into kvmarm-master/next
-      Merge branch kvm-arm64/nv-nv into kvmarm-master/next
-      Merge branch kvm-arm64/misc-6.16 into kvmarm-master/next
-
-Mark Brown (1):
-      KVM: arm64: selftests: Add test for SVE host corruption
-
-Mark Rutland (1):
-      KVM: arm64: Unconditionally configure fine-grain traps
-
-Mostafa Saleh (4):
-      arm64: Introduce esr_is_ubsan_brk()
-      ubsan: Remove regs from report_ubsan_failure()
-      KVM: arm64: Introduce CONFIG_UBSAN_KVM_EL2
-      KVM: arm64: Handle UBSAN faults
-
-Quentin Perret (11):
-      KVM: arm64: Fix pKVM page-tracking comments
-      KVM: arm64: Use 0b11 for encoding PKVM_NOPAGE
-      KVM: arm64: Introduce {get,set}_host_state() helpers
-      KVM: arm64: Move hyp state to hyp_vmemmap
-      KVM: arm64: Defer EL2 stage-1 mapping on share
-      KVM: arm64: Unconditionally cross check hyp state
-      KVM: arm64: Don't WARN from __pkvm_host_share_guest()
-      KVM: arm64: Selftest for pKVM transitions
-      KVM: arm64: Extend pKVM selftest for np-guests
-      KVM: arm64: Convert pkvm_mappings to interval tree
-      KVM: arm64: Add a range to pkvm_mappings
-
-Seongsu Park (1):
-      KVM: arm64: Replace ternary flags with str_on_off() helper
-
-Vincent Donnefort (8):
-      KVM: arm64: Handle huge mappings for np-guest CMOs
-      KVM: arm64: Introduce for_each_hyp_page
-      KVM: arm64: Add a range to __pkvm_host_share_guest()
-      KVM: arm64: Add a range to __pkvm_host_unshare_guest()
-      KVM: arm64: Add a range to __pkvm_host_wrprotect_guest()
-      KVM: arm64: Add a range to __pkvm_host_test_clear_young_guest()
-      KVM: arm64: Stage-2 huge mappings for np-guests
-      KVM: arm64: np-guest CMOs with PMD_SIZE fixmap
-
-Wei-Lin Chang (1):
-      KVM: arm64: nv: Remove clearing of ICH_LR<n>.EOI if ICH_LR<n>.HW == 1
-
- Documentation/arch/arm64/silicon-errata.rst     |    2 +
- Documentation/virt/kvm/api.rst                  |   14 +-
- Documentation/virt/kvm/devices/vcpu.rst         |   24 +
- arch/arm64/Kconfig                              |   17 +
- arch/arm64/include/asm/el2_setup.h              |   16 +-
- arch/arm64/include/asm/esr.h                    |   17 +-
- arch/arm64/include/asm/fixmap.h                 |    6 +
- arch/arm64/include/asm/hardirq.h                |    4 +-
- arch/arm64/include/asm/kvm_arm.h                |  188 ++--
- arch/arm64/include/asm/kvm_host.h               |   88 +-
- arch/arm64/include/asm/kvm_nested.h             |  100 +++
- arch/arm64/include/asm/kvm_pgtable.h            |    7 +-
- arch/arm64/include/asm/kvm_pkvm.h               |    8 +
- arch/arm64/include/asm/sections.h               |    1 +
- arch/arm64/include/asm/sysreg.h                 |   53 +-
- arch/arm64/include/asm/vncr_mapping.h           |    5 +
- arch/arm64/include/uapi/asm/kvm.h               |    9 +-
- arch/arm64/kernel/cpu_errata.c                  |   14 +
- arch/arm64/kernel/cpufeature.c                  |    8 +
- arch/arm64/kernel/hyp-stub.S                    |    2 +-
- arch/arm64/kernel/image-vars.h                  |    2 +
- arch/arm64/kernel/traps.c                       |    4 +-
- arch/arm64/kernel/vmlinux.lds.S                 |   18 +-
- arch/arm64/kvm/Makefile                         |    2 +-
- arch/arm64/kvm/arm.c                            |   30 +
- arch/arm64/kvm/at.c                             |  186 ++--
- arch/arm64/kvm/config.c                         | 1085 +++++++++++++++++++++++
- arch/arm64/kvm/emulate-nested.c                 |  590 +++++++-----
- arch/arm64/kvm/handle_exit.c                    |   84 ++
- arch/arm64/kvm/hyp/include/hyp/switch.h         |  160 ++--
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h   |   14 +-
- arch/arm64/kvm/hyp/include/nvhe/memory.h        |   58 +-
- arch/arm64/kvm/hyp/include/nvhe/mm.h            |    4 +-
- arch/arm64/kvm/hyp/nvhe/Makefile                |    6 +
- arch/arm64/kvm/hyp/nvhe/host.S                  |    2 +-
- arch/arm64/kvm/hyp/nvhe/hyp-init.S              |    4 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c              |   20 +-
- arch/arm64/kvm/hyp/nvhe/hyp.lds.S               |    2 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c           |  510 ++++++++---
- arch/arm64/kvm/hyp/nvhe/mm.c                    |   97 +-
- arch/arm64/kvm/hyp/nvhe/pkvm.c                  |   47 +-
- arch/arm64/kvm/hyp/nvhe/setup.c                 |   27 +-
- arch/arm64/kvm/hyp/nvhe/switch.c                |   14 +-
- arch/arm64/kvm/hyp/pgtable.c                    |    6 -
- arch/arm64/kvm/hyp/vgic-v3-sr.c                 |   44 +-
- arch/arm64/kvm/hyp/vhe/switch.c                 |   48 +-
- arch/arm64/kvm/hyp/vhe/tlb.c                    |    4 +-
- arch/arm64/kvm/mmu.c                            |    6 +-
- arch/arm64/kvm/nested.c                         |  846 +++++++++++++-----
- arch/arm64/kvm/pkvm.c                           |  150 ++--
- arch/arm64/kvm/pmu-emul.c                       |   60 +-
- arch/arm64/kvm/reset.c                          |    2 +
- arch/arm64/kvm/sys_regs.c                       |  273 +++---
- arch/arm64/kvm/trace_arm.h                      |    6 +-
- arch/arm64/kvm/vgic/vgic-debug.c                |  224 +++++
- arch/arm64/kvm/vgic/vgic-its.c                  |   39 +-
- arch/arm64/kvm/vgic/vgic-v3-nested.c            |    3 -
- arch/arm64/kvm/vgic/vgic.h                      |   33 +
- arch/arm64/tools/cpucaps                        |    2 +
- arch/arm64/tools/sysreg                         | 1012 ++++++++++++++++++++-
- arch/x86/kernel/traps.c                         |    2 +-
- include/linux/ubsan.h                           |    6 +-
- include/uapi/linux/kvm.h                        |    2 +
- lib/Kconfig.ubsan                               |    9 +
- lib/ubsan.c                                     |    8 +-
- scripts/Makefile.ubsan                          |    5 +-
- tools/arch/arm64/include/asm/sysreg.h           |   65 +-
- tools/testing/selftests/kvm/Makefile.kvm        |    1 +
- tools/testing/selftests/kvm/arm64/host_sve.c    |  127 +++
- tools/testing/selftests/kvm/arm64/set_id_regs.c |   77 +-
- 70 files changed, 5370 insertions(+), 1239 deletions(-)
- create mode 100644 arch/arm64/kvm/config.c
- create mode 100644 tools/testing/selftests/kvm/arm64/host_sve.c
 
