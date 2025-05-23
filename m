@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4CEC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 19:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59838C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 19:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6OFTYQFk9ZumzD8jssYOm3q0yR9mdptrY8VyrJiVHqo=; b=eJJWTiLaCa8BMbM6vMX52yCWuq
-	vBb5JswdXI4Hw7GKd1fWEzJq/9GPNSa2q2wl+4V9TWz4tBFNjpTjex2DsGTzThaWmUrgM5s6nWf6E
-	7+VuwRhxFnAqh46+gnXIofDFE0W8FXeal80jxesxJDlxaZIM4eBgV44kdRuDIP1ibRCabZdiW3Flx
-	TfV328garLDnhduXdnmVXHgyvb0j5Pe20y+ObsrOEq1n6eLI50cp5BI0ZHu1NYlTgBShi/4e0QpEK
-	wQIIXVk5/N11vqyGFoNGh2E6bCasJhI3duCID3wdrfQQas5s3s8+Fu5qXLiQHxGDqy1EnYxxgTDNa
-	97ruq33w==;
+	bh=AMchBU1b7v3u04adP8HkXfcYoJEgCfxbfubua5NRj4k=; b=jOAviCoFxhQm1OrOklIqJSNddt
+	U7eMLhxIYWrj6jQNoi3Hyx3YAEOJr44UhOUv+26L1h0jHb3xSP5AuRLrlzx+PBkZiayJzhriT3CSB
+	YHmrWxxTBP7yEHcoi+vToUpIInSUdcuLx7UBoITjgD45kZxNsF4xbdfcyRO8gziZKgdYqQ1wZr4hW
+	3fgZTVNM26rnUoMVYE5Jut5a36ceR7jCZS9zMbrGT8eyJhH/TKjxMjaGZ6TvxAzq8HrI7QVG0Wru7
+	lIGK+Q9gDdTjujh1IgHYEz/dn+2fywhGc2prNftsQk1uTFVYTmrQ2vdLvGiQxLJp2p7II0ny7vcFR
+	j8LjuuNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIXv6-00000004mRr-0l80;
-	Fri, 23 May 2025 19:19:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uIXx7-00000004mfJ-3lKU;
+	Fri, 23 May 2025 19:21:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIXt1-00000004mEG-2g50;
-	Fri, 23 May 2025 19:16:56 +0000
+	id 1uIXtH-00000004mHu-3v8q
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 19:17:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 34BAD44DF0;
-	Fri, 23 May 2025 19:16:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D503BC4CEE9;
-	Fri, 23 May 2025 19:16:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EC7D7A4DB67;
+	Fri, 23 May 2025 19:17:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 186DDC4CEE9;
+	Fri, 23 May 2025 19:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748027815;
-	bh=JHrKA3GL2+btQ5M4dV8mn1YJFtLDJRKXWtBxFancfLU=;
+	s=k20201202; t=1748027830;
+	bh=JuPUQZHZmst0YQeF37wUUV/+HL+i6FkH+REzgyhCD/M=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=clQVrlbu7Y0j/lMuLit9u7kWHNAEVD2Jbro0BJsft+ZAdTHA1r1MelApy0fJoGeRx
-	 ozujjdejxquoGhZ49UbLRCDO9HJFjCFR5Hze0qQHGfAOy5QCkpvkeYAoi+1YFWI69U
-	 RlZeM+DzWZYoHIWFMVYmLeRheEsJG629pQiq4KL3uBsNHZs09RD74xDeJWvgfOA0wn
-	 3drgZgMVd5Kdqo0ir+AfopMH5DAaaJXyl6qHF93PHBdbKqrc9E9893b0nAGYwLjrt0
-	 tvb5UNYPF5WdKSg9f4AGnKDJRHPTe5Li3rAfaMvClM5V/fD2PrCF48KOJqoFhZwWcP
-	 EstHME57V6jCQ==
-Date: Fri, 23 May 2025 14:16:49 -0500
+	b=c3s6c3fp4O+kCDxk1P7Zg4v+F5MDRPrHzM9ZKcsJlC28ZvOM/NPZhJgyVLQAB4QlD
+	 FyB6CjUnNb/CrrHY6aIp9v90/8bI8Yrfe+ErVlsBZxrVjGqnpvhPtE6BYsPed7IH1D
+	 7xX3CdIx+oOfABG/3o3cI0VWHG47bkuxUDmJGSwK42Xcs0p0Pw2r8v1ZTdjuD4iDla
+	 1rqjG/mGUZ3QwR60kTWRiA12nKUDjrP5X++ds9tjIi1b9nXpcwKOhwL0prXK5MQiWM
+	 K8x4VzOH/6l2u6YCMXB/pfP8udN0qWkq1jNS5h5aSD5oR8SFPgDXtObhKP96RP9bvi
+	 L+FNGoFJuBI+w==
+Date: Fri, 23 May 2025 14:17:06 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Wayne Schroeder <raz@chewies.net>, Kevin Hilman <khilman@baylibre.com>, 
- linux-amlogic@lists.infradead.org, Jerome Brunet <jbrunet@baylibre.com>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org
-To: Anand Moon <linux.amoon@gmail.com>
-In-Reply-To: <20250522172535.302064-1-linux.amoon@gmail.com>
-References: <20250522172535.302064-1-linux.amoon@gmail.com>
-Message-Id: <174802762618.2701053.17389702773465611504.robh@kernel.org>
-Subject: Re: [PATCH v3 1/2] arm64: dts: amlogic: Update USB hub power and
- reset properties
+Cc: Conor Dooley <conor+dt@kernel.org>, Bajjuri Praneeth <praneeth@ti.com>, 
+ Tony Lindgren <tony@atomide.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Andreas Kemnade <andreas@kemnade.info>, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, linux-arm-kernel@lists.infradead.org, 
+ Mark Brown <broonie@kernel.org>, linux-omap@vger.kernel.org, 
+ Kevin Hilman <khilman@baylibre.com>, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
+ Liam Girdwood <lgirdwood@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Roger Quadros <rogerq@kernel.org>
+To: Kory Maincent <kory.maincent@bootlin.com>
+In-Reply-To: <20250523-bbg-v1-0-ef4a9e57eeee@bootlin.com>
+References: <20250523-bbg-v1-0-ef4a9e57eeee@bootlin.com>
+Message-Id: <174802762814.2701142.18240955701897278423.robh@kernel.org>
+Subject: Re: [PATCH 0/2] Add support for BeagleBone Green Eco board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_121655_698666_4D0E3150 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20250523_121712_130306_FB4C14DE 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,21 +80,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 22 May 2025 22:55:31 +0530, Anand Moon wrote:
-> Add missing reset-gpios property to the USB 2.0 hub node to
-> ensure proper reset handling. Also update the vdd-supply for
-> both USB 2.0 and 3.0 hubs to use the shared hub_5v regulator
-> for consistent power management.
+On Fri, 23 May 2025 17:57:41 +0200, Kory Maincent wrote:
+> SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
+> (BBG). It has minor differences from the BBG, such as a different PMIC,
+> a different Ethernet PHY, and a larger eMMC.
 > 
-> Fixes: ccff36934137 ("arm64: dts: amlogic: Used onboard usb hub reset on odroid n2")
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 > ---
-> v3: dropped remove of usb2_phy1.
-> v2: remove usb2_phy1 phy-supply since now it's managed by
-> the hub reset control.
+> Kory Maincent (2):
+>       arm: dts: omap: Add support for BeagleBone Green Eco board
+>       arm: omap2plus_defconfig: Enable TPS65219 regulator
+> 
+>  arch/arm/boot/dts/ti/omap/Makefile                 |   1 +
+>  arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts | 170 +++++++++++++++++++++
+>  arch/arm/configs/omap2plus_defconfig               |   3 +
+>  3 files changed, 174 insertions(+)
 > ---
->  arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtsi | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+> base-commit: a02c7665c216471413ed5442637a34364221e91c
+> change-id: 20250523-bbg-769018d1f2a7
+> 
+> Best regards,
+> --
+> Köry Maincent, Bootlin
+> Embedded Linux and kernel engineering
+> https://bootlin.com
+> 
+> 
 > 
 
 
@@ -111,17 +124,250 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: using specified base-commit 5cdb2c77c4c3d36bdee83d9231649941157f8204
+ Base: using specified base-commit a02c7665c216471413ed5442637a34364221e91c
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250522172535.302064-1-linux.amoon@gmail.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/ti/' for 20250523-bbg-v1-0-ef4a9e57eeee@bootlin.com:
 
-arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2-plus.dtb: usb@ffe09000 (amlogic,meson-g12a-usb-ctrl): 'phy-supply' does not match any of the regexes: '^pinctrl-[0-9]+$', '^usb@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/usb/amlogic,meson-g12a-usb-ctrl.yaml#
-arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2.dtb: usb@ffe09000 (amlogic,meson-g12a-usb-ctrl): 'phy-supply' does not match any of the regexes: '^pinctrl-[0-9]+$', '^usb@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/usb/amlogic,meson-g12a-usb-ctrl.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: / (ti,am335x-bone-green-eco): compatible: 'oneOf' conditional failed, one must be fixed:
+	['ti,am335x-bone-green-eco', 'ti,am335x-bone-green', 'ti,am335x-bone-black', 'ti,am335x-bone', 'ti,am33xx'] is too long
+	'ti,am335x-bone-green-eco' is not one of ['nokia,n800', 'nokia,n810', 'nokia,n810-wimax', 'ti,omap2420-h4']
+	'ti,am335x-bone-green-eco' is not one of ['ti,omap2430-sdp']
+	'ti,am335x-bone-green-eco' is not one of ['compulab,omap3-cm-t3530', 'logicpd,dm3730-som-lv-devkit', 'logicpd,dm3730-torpedo-devkit', 'nokia,omap3-n900', 'openpandora,omap3-pandora-600mhz', 'ti,omap3430-sdp', 'ti,omap3-beagle', 'ti,omap3-evm', 'ti,omap3-ldp', 'timll,omap3-devkit8000']
+	'ti,omap3-beagle-ab4' was expected
+	'ti,am335x-bone-green-eco' is not one of ['gumstix,omap3-overo-alto35', 'gumstix,omap3-overo-chestnut43', 'gumstix,omap3-overo-gallop43', 'gumstix,omap3-overo-palo35', 'gumstix,omap3-overo-palo43', 'gumstix,omap3-overo-summit', 'gumstix,omap3-overo-tobi', 'gumstix,omap3-overo-tobiduo']
+	'ti,am335x-bone-green-eco' is not one of ['amazon,omap3-echo', 'compulab,omap3-cm-t3730', 'goldelico,gta04', 'lg,omap3-sniper', 'logicpd,dm3730-som-lv-devkit', 'logicpd,dm3730-torpedo-devkit', 'nokia,omap3-n9', 'nokia,omap3-n950', 'openpandora,omap3-pandora-1ghz', 'ti,omap3-beagle-xm', 'ti,omap3-evm-37xx', 'ti,omap3-zoom3']
+	'ti,am335x-bone-green-eco' is not one of ['compulab,omap3-sbc-t3517', 'teejet,mt_ventoux', 'ti,am3517-craneboard', 'ti,am3517-evm']
+	'ti,am335x-bone-green-eco' is not one of ['compulab,cm-t335', 'moxa,uc-8100-me-t', 'novatech,am335x-lxm', 'ti,am335x-bone', 'ti,am335x-evm', 'ti,am3359-icev2']
+	'ti,am335x-bone-green-eco' is not one of ['compulab,sbc-t335']
+	'ti,am335x-bone-green-eco' is not one of ['phytec,am335x-wega', 'phytec,am335x-pcm-953', 'phytec,am335x-regor']
+	'ti,am335x-bone-green-eco' is not one of ['amazon,omap4-kc1', 'motorola,droid4', 'motorola,droid-bionic', 'motorola,xyboard-mz609', 'motorola,xyboard-mz617', 'ti,omap4-panda', 'ti,omap4-sdp']
+	'ti,omap4-panda-a4' was expected
+	'gumstix,omap4-duovero-parlor' was expected
+	'ti,am335x-bone-green-eco' is not one of ['epson,embt2ws', 'ti,omap4-panda-es']
+	'ti,am335x-bone-green-eco' is not one of ['variscite,var-dvk-om44', 'variscite,var-stk-om44']
+	'ti,am335x-bone-green-eco' is not one of ['compulab,omap5-cm-t54', 'isee,omap5-igep0050', 'ti,omap5-uevm']
+	'ti,omap2420' was expected
+	'ti,omap2430' was expected
+	'ti,omap3430' was expected
+	'ti,omap3-beagle' was expected
+	'gumstix,omap3-overo' was expected
+	'ti,omap3630' was expected
+	'ti,am3517' was expected
+	'ti,am33xx' was expected
+	'compulab,cm-t335' was expected
+	'phytec,am335x-phycore-som' was expected
+	'ti,omap4430' was expected
+	'ti,omap4-panda' was expected
+	'gumstix,omap4-duovero' was expected
+	'ti,omap4460' was expected
+	'variscite,var-som-om44' was expected
+	'ti,omap5' was expected
+	'ti,omap2' was expected
+	'ti,omap3' was expected
+	'ti,am335x-bone-black' is not one of ['ti,omap3430', 'ti,omap3630']
+	'ti,omap4' was expected
+	from schema $id: http://devicetree.org/schemas/arm/ti/omap.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /: failed to match any schema with compatible: ['ti,am335x-bone-green-eco', 'ti,am335x-bone-green', 'ti,am335x-bone-black', 'ti,am335x-bone', 'ti,am33xx']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /: failed to match any schema with compatible: ['ti,am335x-bone-green-eco', 'ti,am335x-bone-green', 'ti,am335x-bone-black', 'ti,am335x-bone', 'ti,am33xx']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /: failed to match any schema with compatible: ['ti,am335x-bone-green-eco', 'ti,am335x-bone-green', 'ti,am335x-bone-black', 'ti,am335x-bone', 'ti,am33xx']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: idle-states: 'mpu_gate' does not match any of the regexes: '^(cpu|cluster)-', '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/cpu/idle-states.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /soc: failed to match any schema with compatible: ['ti,omap-infra']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: ocp (simple-pm-bus): $nodename:0: 'ocp' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: interconnect@44c00000 (ti,am33xx-l4-wkup): $nodename:0: 'interconnect@44c00000' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000: failed to match any schema with compatible: ['ti,am33xx-l4-wkup', 'simple-pm-bus']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@0 (simple-pm-bus): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@0 (simple-pm-bus): $nodename:0: 'segment@0' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@100000 (simple-pm-bus): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@100000 (simple-pm-bus): $nodename:0: 'segment@100000' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@100000/target-module@0/cpu@0: failed to match any schema with compatible: ['ti,am3352-wkup-m3']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@200000 (simple-pm-bus): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@200000 (simple-pm-bus): $nodename:0: 'segment@200000' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: prcm@0 (ti,am3-prcm): clocks: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: prcm@0 (ti,am3-prcm): clockdomains: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: prcm@0 (ti,am3-prcm): $nodename:0: 'prcm@0' does not match '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0: failed to match any schema with compatible: ['ti,am3-prcm', 'simple-bus']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clocks/clock@490: failed to match any schema with compatible: ['ti,am3-dpll-core-clock']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clocks/clock-dpll-core-x2: failed to match any schema with compatible: ['ti,am3-dpll-x2-clock']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clocks/clock@488: failed to match any schema with compatible: ['ti,am3-dpll-clock']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clocks/clock@494: failed to match any schema with compatible: ['ti,am3-dpll-no-gate-clock']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clocks/clock@498: failed to match any schema with compatible: ['ti,am3-dpll-no-gate-clock']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clocks/clock@48c: failed to match any schema with compatible: ['ti,am3-dpll-no-gate-j-type-clock']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clock@0: failed to match any schema with compatible: ['ti,omap4-cm']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: clock@0 (ti,omap4-cm): '#clock-cells' is a dependency of 'clock-output-names'
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clock@400: failed to match any schema with compatible: ['ti,omap4-cm']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: clock@400 (ti,omap4-cm): '#clock-cells' is a dependency of 'clock-output-names'
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clock@600: failed to match any schema with compatible: ['ti,omap4-cm']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: clock@600 (ti,omap4-cm): '#clock-cells' is a dependency of 'clock-output-names'
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clock@800: failed to match any schema with compatible: ['ti,omap4-cm']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: clock@800 (ti,omap4-cm): '#clock-cells' is a dependency of 'clock-output-names'
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clock@900: failed to match any schema with compatible: ['ti,omap4-cm']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: clock@900 (ti,omap4-cm): '#clock-cells' is a dependency of 'clock-output-names'
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/clock@a00: failed to match any schema with compatible: ['ti,omap4-cm']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: clock@a00 (ti,omap4-cm): '#clock-cells' is a dependency of 'clock-output-names'
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@c00: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@c00: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@d00: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@d00: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@e00: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@e00: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@f00: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@f00: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@1000: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@1000: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@1100: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@1100: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@1200: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@0/prcm@0/prm@1200: failed to match any schema with compatible: ['ti,am3-prm-inst', 'ti,omap-prm-inst']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: serial@0 (ti,am3352-uart): compatible: 'oneOf' conditional failed, one must be fixed:
+	['ti,am3352-uart', 'ti,omap3-uart'] is too long
+	'ti,am3352-uart' is not one of ['ti,am64-uart', 'ti,j721e-uart']
+	'ti,am654-uart' was expected
+	from schema $id: http://devicetree.org/schemas/serial/8250_omap.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: scm@0 (ti,am3-scm): clockdomains: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: scm@0 (ti,am3-scm): $nodename:0: 'scm@0' does not match '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@10000/scm@0: failed to match any schema with compatible: ['ti,am3-scm', 'simple-bus']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: scm_conf@0 (syscon): clocks: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: scm_conf@0 (syscon): phy-gmii-sel: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: scm_conf@0 (syscon): $nodename:0: 'scm_conf@0' does not match '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@10000/scm@0/control@620: failed to match any schema with compatible: ['ti,am335x-usb-ctrl-module']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@10000/scm@0/dma-router@f90: failed to match any schema with compatible: ['ti,am335x-edma-crossbar']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@35000/wdt@0: failed to match any schema with compatible: ['ti,omap3-wdt']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@3e000/rtc@0: failed to match any schema with compatible: ['ti,am3352-rtc', 'ti,da830-rtc']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@44c00000/segment@200000/target-module@3e000/rtc@0: failed to match any schema with compatible: ['ti,am3352-rtc', 'ti,da830-rtc']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: interconnect@48000000 (ti,am33xx-l4-per): $nodename:0: 'interconnect@48000000' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@48000000: failed to match any schema with compatible: ['ti,am33xx-l4-per', 'simple-pm-bus']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@0 (simple-pm-bus): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@0 (simple-pm-bus): $nodename:0: 'segment@0' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: serial@0 (ti,am3352-uart): compatible: 'oneOf' conditional failed, one must be fixed:
+	['ti,am3352-uart', 'ti,omap3-uart'] is too long
+	'ti,am3352-uart' is not one of ['ti,am64-uart', 'ti,j721e-uart']
+	'ti,am654-uart' was expected
+	from schema $id: http://devicetree.org/schemas/serial/8250_omap.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: serial@0 (ti,am3352-uart): compatible: 'oneOf' conditional failed, one must be fixed:
+	['ti,am3352-uart', 'ti,omap3-uart'] is too long
+	'ti,am3352-uart' is not one of ['ti,am64-uart', 'ti,j721e-uart']
+	'ti,am654-uart' was expected
+	from schema $id: http://devicetree.org/schemas/serial/8250_omap.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@48000000/segment@0/target-module@60000/mmc@0: failed to match any schema with compatible: ['ti,am335-sdhci']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@100000 (simple-pm-bus): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@100000 (simple-pm-bus): $nodename:0: 'segment@100000' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: serial@0 (ti,am3352-uart): compatible: 'oneOf' conditional failed, one must be fixed:
+	['ti,am3352-uart', 'ti,omap3-uart'] is too long
+	'ti,am3352-uart' is not one of ['ti,am64-uart', 'ti,j721e-uart']
+	'ti,am654-uart' was expected
+	from schema $id: http://devicetree.org/schemas/serial/8250_omap.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: serial@0 (ti,am3352-uart): compatible: 'oneOf' conditional failed, one must be fixed:
+	['ti,am3352-uart', 'ti,omap3-uart'] is too long
+	'ti,am3352-uart' is not one of ['ti,am64-uart', 'ti,j721e-uart']
+	'ti,am654-uart' was expected
+	from schema $id: http://devicetree.org/schemas/serial/8250_omap.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: serial@0 (ti,am3352-uart): compatible: 'oneOf' conditional failed, one must be fixed:
+	['ti,am3352-uart', 'ti,omap3-uart'] is too long
+	'ti,am3352-uart' is not one of ['ti,am64-uart', 'ti,j721e-uart']
+	'ti,am654-uart' was expected
+	from schema $id: http://devicetree.org/schemas/serial/8250_omap.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@48000000/segment@100000/target-module@d8000/mmc@0: failed to match any schema with compatible: ['ti,am335-sdhci']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@200000 (simple-pm-bus): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@200000 (simple-pm-bus): $nodename:0: 'segment@200000' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@48000000/segment@200000/target-module@0/mpu@0: failed to match any schema with compatible: ['ti,omap3-mpu']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@300000 (simple-pm-bus): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@300000 (simple-pm-bus): $nodename:0: 'segment@300000' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@48000000/segment@300000/target-module@0/epwmss@0: failed to match any schema with compatible: ['ti,am33xx-pwmss']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@48000000/segment@300000/target-module@2000/epwmss@0: failed to match any schema with compatible: ['ti,am33xx-pwmss']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@48000000/segment@300000/target-module@4000/epwmss@0: failed to match any schema with compatible: ['ti,am33xx-pwmss']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@48000000/segment@300000/target-module@e000/lcdc@0: failed to match any schema with compatible: ['ti,am33xx-tilcdc']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: interconnect@47c00000 (ti,am33xx-l4-fw): $nodename:0: 'interconnect@47c00000' does not match '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@47c00000: failed to match any schema with compatible: ['ti,am33xx-l4-fw', 'simple-bus']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@0 (simple-bus): $nodename:0: 'segment@0' does not match '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: interconnect@4a000000 (ti,am33xx-l4-fast): $nodename:0: 'interconnect@4a000000' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@4a000000: failed to match any schema with compatible: ['ti,am33xx-l4-fast', 'simple-pm-bus']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@0 (simple-pm-bus): 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@0 (simple-pm-bus): $nodename:0: 'segment@0' does not match '^bus(@[0-9a-f]+)?$'
+	from schema $id: http://devicetree.org/schemas/bus/simple-pm-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@4a000000/segment@0/target-module@100000/ethernet@0: failed to match any schema with compatible: ['ti,am335x-cpsw', 'ti,cpsw']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@4a000000/segment@0/target-module@100000/ethernet@0: failed to match any schema with compatible: ['ti,am335x-cpsw', 'ti,cpsw']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: interconnect@4b140000 (ti,am33xx-l4-mpuss): $nodename:0: 'interconnect@4b140000' does not match '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interconnect@4b140000: failed to match any schema with compatible: ['ti,am33xx-l4-mpuss', 'simple-bus']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: segment@0 (simple-bus): $nodename:0: 'segment@0' does not match '^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/interrupt-controller@48200000: failed to match any schema with compatible: ['ti,am33xx-intc']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@49000000/dma@0: failed to match any schema with compatible: ['ti,edma3-tpcc']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@49800000/dma@0: failed to match any schema with compatible: ['ti,edma3-tptc']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@49900000/dma@0: failed to match any schema with compatible: ['ti,edma3-tptc']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@49a00000/dma@0: failed to match any schema with compatible: ['ti,edma3-tptc']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@47810000/mmc@0: failed to match any schema with compatible: ['ti,am335-sdhci']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@47400000/usb-phy@1300: failed to match any schema with compatible: ['ti,am335x-usb-phy']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@47400000/usb@1400: failed to match any schema with compatible: ['ti,musb-am33xx']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: usb@1400 (ti,musb-am33xx): {'compatible': ['ti,musb-am33xx'], 'reg': [[5120, 1024], [4096, 512]], 'reg-names': ['mc', 'control'], 'interrupts': [[18]], 'interrupt-names': ['mc'], 'dr_mode': ['peripheral'], 'mentor,multipoint': [1], 'mentor,num-eps': [16], 'mentor,ram-bits': [12], 'mentor,power': [500], 'phys': [[90]], 'dmas': [[91, 0, 0], [91, 1, 0], [91, 2, 0], [91, 3, 0], [91, 4, 0], [91, 5, 0], [91, 6, 0], [91, 7, 0], [91, 8, 0], [91, 9, 0], [91, 10, 0], [91, 11, 0], [91, 12, 0], [91, 13, 0], [91, 14, 0], [91, 0, 1], [91, 1, 1], [91, 2, 1], [91, 3, 1], [91, 4, 1], [91, 5, 1], [91, 6, 1], [91, 7, 1], [91, 8, 1], [91, 9, 1], [91, 10, 1], [91, 11, 1], [91, 12, 1], [91, 13, 1], [91, 14, 1]], 'dma-names': ['rx1', 'rx2', 'rx3', 'rx4', 'rx5', 'rx6', 'rx7', 'rx8', 'rx9', 'rx10', 'rx11', 'rx12', 'rx13', 'rx14', 'rx15', 'tx1', 'tx2', 'tx3', 'tx4', 'tx5', 'tx6', 'tx7', 'tx8', 'tx9', 'tx10', 'tx11', 'tx12', 'tx13', 'tx14', 'tx15'], 'interrup
+ ts-extended': [[1, 18]], '$nodename': ['usb@1400']} is valid under each of {'required': ['interrupts-extended']}, {'required': ['interrupts']}
+	from schema $id: http://devicetree.org/schemas/interrupts.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@47400000/usb-phy@1b00: failed to match any schema with compatible: ['ti,am335x-usb-phy']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@47400000/usb@1800: failed to match any schema with compatible: ['ti,musb-am33xx']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@47400000/dma-controller@2000: failed to match any schema with compatible: ['ti,am3359-cppi41']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: sram@0 (mmio-sram): 'pm-code-sram@0', 'pm-data-sram@1000' do not match any of the regexes: '^([a-z0-9]*-)?sram(-section)?@[a-f0-9]+$', '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/sram/sram.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@40300000/sram@0/pm-code-sram@0: failed to match any schema with compatible: ['ti,sram']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@40300000/sram@0/pm-data-sram@1000: failed to match any schema with compatible: ['ti,sram']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@4c000000/emif@0: failed to match any schema with compatible: ['ti,emif-am3352']
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: sham@0 (ti,omap4-sham): 'ti,hwmods' is a required property
+	from schema $id: http://devicetree.org/schemas/crypto/ti,omap-sham.yaml#
+arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dtb: /ocp/target-module@53500000/aes@0: failed to match any schema with compatible: ['ti,omap4-aes']
 
 
 
