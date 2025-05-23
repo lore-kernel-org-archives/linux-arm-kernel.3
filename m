@@ -4,77 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD47C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 13:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C52C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 13:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6p9gfh2fpQiattyZfbAmLO1mqq5lmxDNSHdLLDFxtpM=; b=DzWl9c2wtrzqkcTiP5dJc75aDz
-	AoXujtVfcei9aEkWVBUI9cmm2VLPlkbAItCD2cBxK+ERGzCN+GT8ThyM11AfK1HpvSOe6tE8fCv2D
-	G5BqVEmTHEzMI6A51wCXpORiYH6yrkGwdI8+RNY30VLJ1thImq+7Kr4vRnlYppDqrXxHN1eYV4Tcz
-	FvzhKVs/s8Tnec+1CsGiW7qn6llmU+Yq67YzLfM4s4z0gfQyFqGWUP6iw62uezO9kAaCvgFgRWAB1
-	s1FEgAXtpt+vkGoP2twXlJ6LEAT6eZcc/zdIkSDFrZTpkY7jK5WijECYh+y+aIr9pQKT0K2xiCYZn
-	pP5brtjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+oWbheLtmxAxFo30a5sy0XXCegWFyhqhELgo3ZhyLng=; b=vQK/LgQXvtcZUxZWhs96CZ6+kC
+	bnsMt8UqIrhnS/C/yBLbgy8LvvY04yFxmp3cWGDV6Uge7SY9c+zGETozbQoJYRD9wONMNfS8TTmDy
+	Tirq/NNV5YZsikflryci4r44FR7IwA7xmcM23u1aYiefX6PYHfZPCrw6vZSu+VH//rE7cuI9Y2OTp
+	DI99SAHoYdjUTST9lZIhebkmVJNoUfBlY7xsN090gwzqGWjlEGgDpGkj14zeFN3VsKhHzs1CiC1lh
+	95fYoGDs4b1ReJ1X4dJHxCJoxQqExxrgp5sKgDlrvfb6g5P9kc6ZiX4YSpyD7aJtB4nlAnipG5Qlr
+	Iw0xdQHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISOD-00000003wks-1ryZ;
-	Fri, 23 May 2025 13:24:45 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uISQH-00000003x3E-01fR;
+	Fri, 23 May 2025 13:26:53 +0000
+Received: from mail.actia.se ([212.181.117.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISGH-00000003vJ0-0mCF
+	id 1uISIJ-00000003vdr-3Uge
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 13:16:34 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54NDGRxv2114958;
-	Fri, 23 May 2025 08:16:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748006187;
-	bh=6p9gfh2fpQiattyZfbAmLO1mqq5lmxDNSHdLLDFxtpM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=gznElUSi0sjkNTfk+lhZckzIsZDDkN81M6byijJkITx9V1QQWBWcXedqfUP37DBDW
-	 5Nk0Fqx9e/mnOElxVCb62+rOPRV+FC9G0cUKC6Oxz/Xvm2Tvsn0rqv4/87mLS5qClA
-	 toFXdKck57nw1GcIDfjNBNDdVSmORCmnxaohdWpg=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54NDGRlG099800
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 23 May 2025 08:16:27 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 23
- May 2025 08:16:27 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 23 May 2025 08:16:27 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54NDGQeI1222320;
-	Fri, 23 May 2025 08:16:26 -0500
-Message-ID: <6f4b2271-7249-4285-9fee-1851135e1207@ti.com>
-Date: Fri, 23 May 2025 08:16:26 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] TI: K3: Switch MCU R5F cluster into Split mode
-To: Nishanth Menon <nm@ti.com>, Beleswar Prasad Padhi <b-padhi@ti.com>
-CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <u-kumar1@ti.com>,
-        <hnagalla@ti.com>, <jm@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20250522073426.329344-1-b-padhi@ti.com>
- <20250522155338.gpbcubkvygtju3qc@bagpipe>
- <5cfaed26-28ec-42dc-b9f6-836869ad3fa3@ti.com>
- <20250523114822.jrv73frz2wbzdd6d@falsify>
+	Fri, 23 May 2025 13:18:41 +0000
+Received: from S036ANL.actianordic.se (10.12.31.117) by S036ANL.actianordic.se
+ (10.12.31.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 23 May
+ 2025 15:18:32 +0200
+Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
+ S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
+ 15.01.2507.039; Fri, 23 May 2025 15:18:32 +0200
+From: John Ernberg <john.ernberg@actia.se>
+To: =?utf-8?B?SG9yaWEgR2VhbnTEgw==?= <horia.geanta@nxp.com>, Pankaj Gupta
+	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Thomas Richard <thomas.richard@bootlin.com>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, John Ernberg <john.ernberg@actia.se>
+Subject: [PATCH 0/4] crypto: caam - iMX8QXP support (and related fixes)
+Thread-Topic: [PATCH 0/4] crypto: caam - iMX8QXP support (and related fixes)
+Thread-Index: AQHby+UudBZY+LpW90mK/tjBsTdMwg==
+Date: Fri, 23 May 2025 13:18:31 +0000
+Message-ID: <20250523131814.1047662-1-john.ernberg@actia.se>
+Accept-Language: en-US, sv-SE
 Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250523114822.jrv73frz2wbzdd6d@falsify>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.49.0
+x-originating-ip: [10.12.12.63]
+x-esetresult: clean, is OK
+x-esetid: 37303A2955B14453607162
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <DF573AF18ED1AA43B5D721DEF54B24E9@actia.se>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_061633_323745_C13DBD7E 
-X-CRM114-Status: GOOD (  46.61  )
+X-CRM114-CacheID: sfid-20250523_061839_868896_2456B5C5 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,158 +84,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/23/25 6:48 AM, Nishanth Menon wrote:
-> On 14:27-20250523, Beleswar Prasad Padhi wrote:
->> Hi Nishanth,
->>
->> On 5/22/2025 9:23 PM, Nishanth Menon wrote:
->>> On 13:04-20250522, Beleswar Padhi wrote:
->>>> Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 have a
->>>> R5F cluster in the MCU domain which is configured for LockStep mode at
->>>> the moment. Switch this R5F cluster to Split mode by default in all
->>>> corresponding board level DTs to maximize the number of R5F cores.
->>> Why? I can read the patch to understand what you are trying to do, but
->>> the rationale needs to be explained.
->>
->>
->> Sure, rationale is lot of users of our SoCs want to control the R5 core in
->> the MCU domain as a general purpose remote processor to increase
->> performance. That means able to load applications from
-> 
-> This follows the board, then?
-> 
->> bootloader/kernel/userspace, poweroff/poweron core at runtime etc. The
->> challenge with this is the MCU R5F cluster is reserved to run the central
->> Device Manager (DM) Firmware.
->>
->> However, since the MCU R5F cluster is lockstep enabled, it supports both
->> lockstep mode and split mode of booting. So here we decide to boot the
->> cluster in split mode by which we can reserve the primary core to run DM and
->> use the secondary core as a general purpose remote processor.
->>
->> Now why didn't we do this split mode booting since the inception? Well
->> because MCU R5F Cluster is booted by ROM code, and when ROM boots it in
->> split mode, it powers on the secondary core and puts it in WFI (as there is
->> nothing to do for it yet). But the standard remoteproc drivers in Linux and
->> other bootloaders can only load firmware on a core if it is powered off/held
->> in reset. So there was some plumbing needed to be done at the bootloader
->> stage to actually poweroff the secondary core in split mode; so that
->> remoteproc drivers can then load & control the core as expected. Now that
->> the plumbing[0] is posted for U-Boot, we can switch to split mode booting
->> here in DT.
->>
->> [0]: https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
-> 
-> In effect, you are saying there are two set of usage models: one in
-> split and other in lock-step mode. U-Boot support for split mode was
-> missing and hence was not done yet. The benefit for users is the option
-> to get an extra processor to do what ever extra stuff they want to do.
-> 
->>
->>>
->>>> Corresponding support to shutdown MCU R5F core 1 on SoC power on have
->>>> been posted in U-Boot:
->>>> https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
->>>>
->>>> While at it, correct the firmware-name property for MCU R5F cores of
->>>> J742S2 SoC in [PATCH 1/2].
->>>>
->>>> Testing Done:
->>>> 1. Tested that each patch does not generate any new warnings/errors.
->>>> 2. Build test on all existing TI K3 platforms.
->>>> 3. Tested U-Boot and Linux load of MCU R5F core in split mode on all
->>>> applicable boards (AM68-SK, AM69-SK, J7200-EVM, J721E-EVM, J721S2-EVM,
->>>> J784S4-evm, J742S2-EVM)
->>>>
->>>> Test logs:
->>>> https://gist.github.com/3V3RYONE/ee8e3cb9aa5f4c5c00b059b9c14bfa98
->>>>
->>>> Thanks,
->>>> Beleswar
->>>>
->>>> Beleswar Padhi (2):
->>>>     arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU
->>>>       R5F cores
->>>>     arm64: dts: ti: k3: Switch MCU R5F cluster to Split-mode
->>> NAK! We are once again churning downstream users again and for what
->>> reason - coverletter and the patch is vague on that!
->>>
->>> I would prefer the entire remote proc dts stuff cleaned up once for all
->>> in a comprehensive series.
->>>
->>> Let me be clear (once again): We DO NOT break backward compatibility.
->>> We do not break downstream users without a clear cut rationale. We do
->>> not break all other ecosystems depending on device tree without a very
->>> very solid reason.
->>
->>
->> I don't understand how this is breaking any backward compatibility. We are
->> not removing the lockstep boot support entirely here. We are just switching
->> to Split boot by default because of the usecases. If not today, someday we
->> have to go with split mode booting by default.
->>
->> That's exactly what we did for the MAIN domain R5F clusters: 1. First we did
->> the plumbing to have power synchronization between the cores of a cluster:
->> https://lore.kernel.org/all/20240430105307.1190615-1-b-padhi@ti.com/ 2. Then
->> we switched the Cluster to boot in split mode by default:
->> https://lore.kernel.org/all/20240826093024.1183540-1-b-padhi@ti.com/
->>
->> Now, for users who prefer to use the fault-tolerant lockstep mode, they can
->> still do that by setting `ti,cluster-mode` property to 1. However, I agree
->> that we should not be doing 'hardware configuration' (split vs lockstep) in
->> Device Tree which is supposed to be 'hardware description'. We have started
->> to explore solutions where we can dictate this lockstep vs split core
->> configuration from the firmware itself during runtime. Once that is done
->> (long way to go thinking of upstream), we can get rid of this configuration
->> from the DT entirely.
-> 
-> Please add this explanation to your patch. In addition, when you say
-> arm64: dts: ti: k3*: in subject line (implies you are touch soc dtsi)
-> and when co-related to the U-boot patch[1], it is confusing to know if
-> you have the same SoC dtsi change yet to be posted where you switch
-> from ti,cluster-mode = <1> to <0> - I am concerned if downstream board
-> dts files will have to consume the firmware names differently. This is
-> the reason to ask for a comprehensive list of patches for the remote
-> proc. If a downstream device board dts can continue to move to newer
-> kernel revisions with no mods, you should state so in your commit
-> message. There is all kinds of side implications with memory carveouts
-> etc for a new processor that has to be factored in as well.
-> 
-> Btw, [2] sounds like a bug fix.. So follow the stable kernel rules.
-> 
-> I suggest the following:
-> * SoC dts files - use a common standard for remote proc - lockstep makes
->    sense as it is right now
-> * Modification to board specific dts files - call them out as board
->    files specific patches to flip over to split mode - while considering
->    the possibilities that users may NOT upgrade kernel and bootloader at
->    the same time and the existence of EFI based dtb handover from
->    bootloader to kernel - which means, kernel should be able to handle the
->    same combinations correctly. Also handle the carveouts correctly for
->    the new processors - at least state the strategy - overlays etc.. Come
->    to think of it, I think we should fix up the carveout strategy for
->    user programmable remote cores first before attempting all this new
->    processor additions.
-
-+1
-
-The core issue here is that split vs lockstep is a *configuration*, which
-means it doesn't belong in DT in the first place. This is the reason to keep
-config out of DT, why should what mode my R5 core starts in be based on what
-board I'm using? It hard-codes what should be configurable decisions.
-
-Same issue with carveouts, so IMHO all of the: carveouts, mailbox selection,
-timer reserved status, and mode selection belong in an overlay. It doesn't
-fix the issues, but at least it isolates it.
-
-Andrew
-
-> * Split out the fixes patches separately out - no reason to mix it up
->    with the rest of the refactoring.
-> * Fix your commit messages and subject lines to indicate clearly what is
->    impacted, rationale, backward compatibility status
-> 
-> [1] https://lore.kernel.org/all/20250522071828.285462-7-b-padhi@ti.com/#Z31dts:upstream:src:arm64:ti:k3-j7200-mcu-wakeup.dtsi
-> [2] https://lore.kernel.org/all/20250522073426.329344-2-b-padhi@ti.com/
-> 
+VGhpcyBzZXJpZXMgZW5hYmxlcyB0aGUgdXNlIG9mIHRoZSBDQUFNIChDcnlwdG9ncmFwaGljIEFj
+Y2VsZXJhdGlvbiBhbmQNCkFzc3VyYW5jZSBNb2R1bGUpIG9uIHRoZSBpTVg4UVhQIChhbmQgaXRz
+IHZhcmlhbnRzKS4NCg0KSG9yaWEgR2VhbnTEgyAoMSk6DQogIGFybTY0OiBkdHM6IGZyZWVzY2Fs
+ZTogaW14OHF4cC9pbXg4cW06IEFkZCBDQUFNIHN1cHBvcnQNCg0KSm9obiBFcm5iZXJnICgzKToN
+CiAgY3J5cHRvOiBjYWFtIC0gUHJldmVudCBjcmFzaCBvbiBzdXNwZW5kIHdpdGggaU1YOFFNIC8g
+aU1YOFVMUA0KICBjcnlwdG86IGNhYW0gLSBTdXBwb3J0IGlNWDhRWFAgYW5kIHZhcmlhbnRzIHRo
+ZXJlb2YNCiAgZHQtYmluZGluZ3M6IGNyeXB0bzogZnNsLHNlYy12NC4wOiBBbGxvdyBzdXBwbHlp
+bmcgcG93ZXItZG9tYWlucw0KDQogLi4uL2JpbmRpbmdzL2NyeXB0by9mc2wsc2VjLXY0LjAueWFt
+bCAgICAgICAgIHwgIDYgKysrDQogLi4uL2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4LXNzLXNlY3Vy
+aXR5LmR0c2kgIHwgMzggKysrKysrKysrKysrKysrKysrKw0KIGFyY2gvYXJtNjQvYm9vdC9kdHMv
+ZnJlZXNjYWxlL2lteDhxbS5kdHNpICAgICB8ICAxICsNCiBhcmNoL2FybTY0L2Jvb3QvZHRzL2Zy
+ZWVzY2FsZS9pbXg4cXhwLmR0c2kgICAgfCAgMSArDQogZHJpdmVycy9jcnlwdG8vY2FhbS9jdHJs
+LmMgICAgICAgICAgICAgICAgICAgIHwgIDcgKystLQ0KIGRyaXZlcnMvY3J5cHRvL2NhYW0vaW50
+ZXJuLmggICAgICAgICAgICAgICAgICB8ICAxICsNCiA2IGZpbGVzIGNoYW5nZWQsIDUxIGluc2Vy
+dGlvbnMoKyksIDMgZGVsZXRpb25zKC0pDQogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvYXJtNjQv
+Ym9vdC9kdHMvZnJlZXNjYWxlL2lteDgtc3Mtc2VjdXJpdHkuZHRzaQ0KDQotLSANCjIuNDkuMA0K
 
