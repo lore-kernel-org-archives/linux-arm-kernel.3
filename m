@@ -4,82 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B9EC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 18:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1D8C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 18:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wD+1L+3UJH458AopnXzo7dH3V37f3o4eN0gFG2T/8bM=; b=sraopjhnZJ+2fGhtgdsMbagcdi
-	2CwxtrHNe+Y7expWwGixFMzri6FibhHiSp+14SgvtC5ZvBJC+7suAPzc5LZL1OvHoFWVbMXhIv5xy
-	WDSalxBfSztsVIMnHqUQAMXmtVFwWF0PXwqqJYwYofChXDqXd+y4uVKRo84J8reCMBpqH+Lkjy9yD
-	968eDAIdmhB8eOIE7uM5l994yVzQV0Unwo4j2krzP6+fGpOjRCR1XrTqZN0HYC95xEKFj0VfOsQ+I
-	CYw77Og+N591t1Pm+0Z3B4Ge/6yp6m68L5Y0cAQKL+rEwE4qwmMwmtIoZU+0ngMA062KgxG+J8k80
-	VR4RkF6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pFLJ5GlXWyaVpKGcaOJizAWoSbXS7Xq7IH8LyXRYBis=; b=gqbE1IxV/H5SZ+cmNN5M1FkFjc
+	mT2suDrPVyvED+P/jFI4Qn8lZaMfuJQL7ohjTtfiGCkCmmQKvaLBeYJ1yxsAjVzuS+ZRw3jN6EDxy
+	A96Bbszc96JxnPNFhSoUdyB2aTV3QSWJv7SqAvMcZm+/FbUVulmAJWrMRet+TgstOoYmhg0oYfEiz
+	l9gITVdvpCeaYNOfkKNBxJ6NQpUoUf/Qu8uAbyH0lvHrGwL9A5Tmi8TMun8+HNR0ANdbyjZLm7mLE
+	Vuo+QZXeADZc42KzjxI6uSmOsW28sKmLqLtgu8aMQYrJ5xy4ufmyo/YQl7ZZ8wLuRFOc6Bqn6hgJK
+	+WANyTWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIXTN-00000004jHd-0ebr;
-	Fri, 23 May 2025 18:50:25 +0000
+	id 1uIXWH-00000004jcU-45BS;
+	Fri, 23 May 2025 18:53:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIXNK-00000004ibA-0gdu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 May 2025 18:44:10 +0000
+	id 1uIWVV-00000004bar-28Hv;
+	Fri, 23 May 2025 17:48:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=wD+1L+3UJH458AopnXzo7dH3V37f3o4eN0gFG2T/8bM=; b=LFVTQzxN83Hz37AvLKvfWdOIr3
-	vM7XTGqdiQACeTiVMVNQiEapYii8eOCqesInvDYmWHWeS0SdyYqorHO9/WZfzMTpuiJq4/ySULJlU
-	HWiba9THVM5unwJiKwXs8iOpbrwmha9G4LLrn1vvNqppbxIxa4FK3728HaVw0elhvyiA++irHbCMe
-	1AWSwnbqkXDkVZYr9J6g4YQOBNztwW5pqaKzJEkOTNH76T5g0I1+MmLPf0g65TZIe9KHdhPC9taUG
-	kI7Sz3ya/lJh98Nj9hfgPTN9W4iOHtOmECQp86MbO4HQkPQufk2zeshVcNxjeW2TgWpLANnweZmdp
-	46qgWeWw==;
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=pFLJ5GlXWyaVpKGcaOJizAWoSbXS7Xq7IH8LyXRYBis=; b=KUOgezIAuTP1FsPgpShaTif5k3
+	Jd3vYtYfQFwe/Xdkb/b44YCX3pZOja00jj/yAP2fol5mfx0Zd4Mxs2/A8dnSAX0QxWcNLv50FW4Lc
+	48IrfHWQXR+MTV/q1DbTlSTczMmK7J3HlqHaiMT8/MFdYvaUWbVO9RXvLVLEVDMKt18+fD4+qDYd5
+	brpykbEBeslyGuqrpkcdJ3K0uzPe95lDLyNkOAtCCQFlbWC9uIzt9lqrCQRQnDTIhKCnBQSvQoTrZ
+	dM2FTuxMXtyNYev9p0GdUCP2u8nfkorpqkoJNzp8fa85qasr6s8p6/HWNWABX+L4UzLs22LScG6AB
+	Kc75ZvyA==;
+Received: from mgamail.intel.com ([192.198.163.16])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIXNB-00000001MnB-2HJY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 18:44:09 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 4C9EDC0000D0;
-	Fri, 23 May 2025 11:43:57 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 4C9EDC0000D0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1748025837;
-	bh=QA73rvaOKDdkRbR0mEATLJpwnxRumJ+05v5c9UPizr4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TOoi4MpzuVGtGYFH7WS0XceS6teuJY/AKcqMSXk+DyoRfux2ihJ0619CX1r/lQzZ5
-	 e1t7fAra4nGYr1S2VfmEOhyWKTRxHOgwYOJWGmVf1Kvutjn8prx9jwqiDc+4DeGDim
-	 zkz6z+mcX09+MOFZyt3hjfF3yZEBtOPUrrCqXKrU=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 2A187180004FC;
-	Fri, 23 May 2025 11:43:57 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: linux-kernel@vger.kernel.org
-Cc: justin.chen@broadcom.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	id 1uIWVR-00000001MHs-1grv;
+	Fri, 23 May 2025 17:48:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748022509; x=1779558509;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=AqUynDC3Sw8C6ZtTMriTAeGFMTNBji4jXiQmc/rbw2o=;
+  b=EkFdnqv1ophR1OH0doEciObnAjIK6MORKCWmpzyxoFq1EjUedSDnRoUz
+   W6hkchZs4QWae6rnH5vGoxtuwPMHa41dV/i+drvL4+YDtJtFUpyQibpXr
+   09coju7HstH5bo8ZMarkjEJko34x9hIv4SNyvORtj1zCdBKfEacLS9Qym
+   qaWY1J1rYYz1VefBZHk+i3+U36XL/JhFrZgIpla+uzh8VGb/nd3QKmNvX
+   Kt5LmIu873PHXBMPMmTL/qKG9tacG1VZO45b0bcJb0ZyDUk2aRC5rWwA2
+   BKwsAyYZM9ZiHn/7FM+VpxySEHKWnhb2RhfHGhXzNvEqBRIyq43n540sL
+   A==;
+X-CSE-ConnectionGUID: CLhbDKMNSKCev2WBnSw+Mg==
+X-CSE-MsgGUID: MdwNu1DUQYOc8F8sOl2YBg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="37712261"
+X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
+   d="scan'208";a="37712261"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 10:48:24 -0700
+X-CSE-ConnectionGUID: lJrSde5yS5yz0+ah3FyjYQ==
+X-CSE-MsgGUID: VO9IXjEZT1W8X0PcYRPbOw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
+   d="scan'208";a="141740316"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 23 May 2025 10:48:18 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uIWVD-000QdI-2N;
+	Fri, 23 May 2025 17:48:15 +0000
+Date: Sat, 24 May 2025 01:48:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: Rajnesh Kanwal <rkanwal@rivosinc.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
 	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE)
-Subject: [PATCH 1/2] dt-bindings: memory-controller: Define fallback compatible
-Date: Fri, 23 May 2025 11:43:53 -0700
-Message-ID: <20250523184354.1249577-2-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250523184354.1249577-1-florian.fainelli@broadcom.com>
-References: <20250523184354.1249577-1-florian.fainelli@broadcom.com>
+	Beeman Strong <beeman@rivosinc.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Rajnesh Kanwal <rkanwal@rivosinc.com>
+Subject: Re: [PATCH v3 5/7] riscv: pmu: Add driver for Control Transfer
+ Records Ext.
+Message-ID: <202505240131.OJkUGGvA-lkp@intel.com>
+References: <20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c@rivosinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_194401_890850_8AD76DD7 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250523_184830_084494_74703BDF 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,87 +121,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All of the DDR controllers beyond revision b.2.1 have had a consistent
-layout, therefore define a "brcm,brcmstb-memc-ddr-rev-b.2.x" fallback
-compatible string to match them all rather than having to continuously
-add to the list.
+Hi Rajnesh,
 
-Link: https://lore.kernel.org/all/20241217194439.929040-2-florian.fainelli@broadcom.com/
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- .../brcm,brcmstb-memc-ddr.yaml                | 51 +++++++++++--------
- 1 file changed, 31 insertions(+), 20 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
-index 4b072c879b02..f08eb69fde47 100644
---- a/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
-+++ b/Documentation/devicetree/bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml
-@@ -11,25 +11,34 @@ maintainers:
- 
- properties:
-   compatible:
--    items:
--      - enum:
--          - brcm,brcmstb-memc-ddr-rev-b.1.x
--          - brcm,brcmstb-memc-ddr-rev-b.2.0
--          - brcm,brcmstb-memc-ddr-rev-b.2.1
--          - brcm,brcmstb-memc-ddr-rev-b.2.2
--          - brcm,brcmstb-memc-ddr-rev-b.2.3
--          - brcm,brcmstb-memc-ddr-rev-b.2.5
--          - brcm,brcmstb-memc-ddr-rev-b.2.6
--          - brcm,brcmstb-memc-ddr-rev-b.2.7
--          - brcm,brcmstb-memc-ddr-rev-b.2.8
--          - brcm,brcmstb-memc-ddr-rev-b.3.0
--          - brcm,brcmstb-memc-ddr-rev-b.3.1
--          - brcm,brcmstb-memc-ddr-rev-c.1.0
--          - brcm,brcmstb-memc-ddr-rev-c.1.1
--          - brcm,brcmstb-memc-ddr-rev-c.1.2
--          - brcm,brcmstb-memc-ddr-rev-c.1.3
--          - brcm,brcmstb-memc-ddr-rev-c.1.4
--      - const: brcm,brcmstb-memc-ddr
-+    oneOf:
-+      - description: Revision 2.x controllers
-+        items:
-+          - enum:
-+              - brcm,brcmstb-memc-ddr-rev-b.2.1
-+              - brcm,brcmstb-memc-ddr-rev-b.2.2
-+              - brcm,brcmstb-memc-ddr-rev-b.2.3
-+              - brcm,brcmstb-memc-ddr-rev-b.2.5
-+              - brcm,brcmstb-memc-ddr-rev-b.2.6
-+              - brcm,brcmstb-memc-ddr-rev-b.2.7
-+              - brcm,brcmstb-memc-ddr-rev-b.2.8
-+              - brcm,brcmstb-memc-ddr-rev-b.3.0
-+              - brcm,brcmstb-memc-ddr-rev-b.3.1
-+              - brcm,brcmstb-memc-ddr-rev-c.1.0
-+              - brcm,brcmstb-memc-ddr-rev-c.1.1
-+              - brcm,brcmstb-memc-ddr-rev-c.1.2
-+              - brcm,brcmstb-memc-ddr-rev-c.1.3
-+              - brcm,brcmstb-memc-ddr-rev-c.1.4
-+          - const: brcm,brcmstb-memc-ddr-rev-b.2.x
-+          - const: brcm,brcmstb-memc-ddr
-+      - description: Revision 2.0 controllers
-+        items:
-+          - const: brcm,brcmstb-memc-ddr-rev-b.2.0
-+          - const: brcm,brcmstb-memc-ddr
-+      - description: Revision 1.x controllers
-+        items:
-+          - const: brcm,brcmstb-memc-ddr-rev-b.1.x
-+          - const: brcm,brcmstb-memc-ddr
- 
-   reg:
-     maxItems: 1
-@@ -46,7 +55,9 @@ additionalProperties: false
- examples:
-   - |
-     memory-controller@9902000 {
--        compatible = "brcm,brcmstb-memc-ddr-rev-c.1.1", "brcm,brcmstb-memc-ddr";
-+        compatible = "brcm,brcmstb-memc-ddr-rev-c.1.1",
-+                     "brcm,brcmstb-memc-ddr-rev-b.2.x",
-+                     "brcm,brcmstb-memc-ddr";
-         reg = <0x9902000 0x600>;
-         clock-frequency = <2133000000>;
-     };
+[auto build test WARNING on e0200e37637e573cd68f522ecd550be87e304c6c]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Rajnesh-Kanwal/perf-Increase-the-maximum-number-of-branches-remove_loops-can-process/20250523-073341
+base:   e0200e37637e573cd68f522ecd550be87e304c6c
+patch link:    https://lore.kernel.org/r/20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c%40rivosinc.com
+patch subject: [PATCH v3 5/7] riscv: pmu: Add driver for Control Transfer Records Ext.
+config: riscv-randconfig-002-20250523 (https://download.01.org/0day-ci/archive/20250524/202505240131.OJkUGGvA-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250524/202505240131.OJkUGGvA-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505240131.OJkUGGvA-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from arch/riscv/kernel/asm-offsets.c:12:
+   In file included from arch/riscv/include/asm/kvm_host.h:23:
+   In file included from arch/riscv/include/asm/kvm_vcpu_pmu.h:12:
+>> include/linux/perf/riscv_pmu.h:156:76: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
+     156 | static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
+         |                                                                            ^
+   include/linux/perf/riscv_pmu.h:158:13: warning: unused function 'riscv_pmu_ctr_add' [-Wunused-function]
+     158 | static void riscv_pmu_ctr_add(struct perf_event *event) { }
+         |             ^~~~~~~~~~~~~~~~~
+   include/linux/perf/riscv_pmu.h:159:13: warning: unused function 'riscv_pmu_ctr_del' [-Wunused-function]
+     159 | static void riscv_pmu_ctr_del(struct perf_event *event) { }
+         |             ^~~~~~~~~~~~~~~~~
+   3 warnings generated.
+--
+   In file included from arch/riscv/kernel/asm-offsets.c:12:
+   In file included from arch/riscv/include/asm/kvm_host.h:23:
+   In file included from arch/riscv/include/asm/kvm_vcpu_pmu.h:12:
+>> include/linux/perf/riscv_pmu.h:156:76: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
+     156 | static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
+         |                                                                            ^
+   include/linux/perf/riscv_pmu.h:158:13: warning: unused function 'riscv_pmu_ctr_add' [-Wunused-function]
+     158 | static void riscv_pmu_ctr_add(struct perf_event *event) { }
+         |             ^~~~~~~~~~~~~~~~~
+   include/linux/perf/riscv_pmu.h:159:13: warning: unused function 'riscv_pmu_ctr_del' [-Wunused-function]
+     159 | static void riscv_pmu_ctr_del(struct perf_event *event) { }
+         |             ^~~~~~~~~~~~~~~~~
+   3 warnings generated.
+
+
+vim +156 include/linux/perf/riscv_pmu.h
+
+   152	
+   153	static inline bool riscv_pmu_ctr_valid(struct perf_event *event) { return false; }
+   154	static inline void riscv_pmu_ctr_consume(struct cpu_hw_events *cpuc,
+   155					      struct perf_event *event) { }
+ > 156	static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
+   157						    bool sched_in) { }
+   158	static void riscv_pmu_ctr_add(struct perf_event *event) { }
+   159	static void riscv_pmu_ctr_del(struct perf_event *event) { }
+   160	static inline void riscv_pmu_ctr_enable(struct perf_event *event) { }
+   161	static inline void riscv_pmu_ctr_disable(struct perf_event *event) { }
+   162	static inline void riscv_pmu_ctr_dying_cpu(void) { }
+   163	static inline void riscv_pmu_ctr_starting_cpu(void) { }
+   164	static inline int riscv_pmu_ctr_init(struct riscv_pmu *riscv_pmu) { return 0; }
+   165	static inline void riscv_pmu_ctr_finish(struct riscv_pmu *riscv_pmu) { }
+   166	
+
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
