@@ -4,69 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83A4C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88685C54F47
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7zBKODDPWzssXukiO8fmzEbXVTE4uBK7jHE7OYnuMoM=; b=dIOHkqHuZQ1GqeI3R8ASoeYiby
-	+4SQQ43RNMOqZjjtZ3SfS741sfWMq43i2K+Apzpmo0CMM6N6TWN3M+5JfdheSKVF6ORdfgudDniyk
-	n5houx9s1XPNqx1QzJL9XDa37MykHTdocTD/it5bE7vjypA582QAw57KZT0DdVaaQdLN6uboLhiEs
-	lzvy9PPd32IdTGuE13ktzoFf7jvfAMAtWMlwsyYgUbNc23uhWkoZ0G1Fx441txCcYVjlcS09lSy3d
-	icwEnssVfkaXLt9jIeVziOGSzmN6V8h4nGml7zk4IvVL0n2kq0F2LYiQdvG7mtshM9mHcamt1J7BX
-	h2hByXvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KUeiwjwwRKCeSzEn89kVpyg8NofPZDIR7gL3zffWsso=; b=U7GaFgGebRaaRs7Zk+UJ1qblb4
+	UHgd4K6ldhMT4yMhN+tw6X6dz+DZCVP6ldN5r22iStDKCfB60yA6TixDQ6/rJMgiVDFdmL8cdA/uB
+	czooT0KDxw19yg94b/n7gBrJep8e+6aiDY/D9LX1c22XkZeMRYTp+xm3vBomSb45DOV/yAzmEn2Su
+	Otx97VjSev967g/B2C6lzeuPnzyDUG0svBJcxoPWT2xov5nfh5953Tq/Ka6OFS1kC2+QtyKuJABW1
+	FfjhSo4hjKbtyUYNcyrisEByPAlxD8qRzgPwtuQ6MJbXKGLTL/+XoUqY1hCItzGgVdPoaUFpzKJsH
+	qESprtOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIO1V-00000003KcJ-2jDC;
+	id 1uIO1V-00000003Kbs-09KK;
 	Fri, 23 May 2025 08:45:01 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uINU6-00000003H1l-1yXo
+	id 1uINSr-00000003GiI-1hDV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 08:10:31 +0000
-Received: from pendragon.ideasonboard.com (179.218-130-109.adsl-dyn.isp.belgacom.be [109.130.218.179])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 272D8833;
-	Fri, 23 May 2025 10:10:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747987805;
-	bh=35VcFiRUCOVd+LfCiJqN/5D7lUMMFSNB8+Td4FcHvrA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EsYIrV6ZSXiTYMDqPVZEq3+E2kuKU5YHGqTIMi/IllQKN0J9HgfAcViIiaIP4F4ZZ
-	 upi7lHiu+KfJWveHtIMPiTXNZGsx6KKsdNoM10KNMLoRzO/awqx3uieePT4Ks1nJml
-	 tM+iEWusLgLiwCEFfwXYg7ZlYp3HrzdLVeMc/ito=
-Date: Fri, 23 May 2025 10:10:20 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: git@apitzsch.eu
-Cc: Ricardo Ribalda <ribalda@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Ricardo Ribalda <ribalda@chromium.org>
-Subject: Re: [PATCH v3 2/5] media: i2c: imx214: Prepare for variable clock
- frequency
-Message-ID: <20250523081020.GA12514@pendragon.ideasonboard.com>
-References: <20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@apitzsch.eu>
- <20250521-imx214_ccs_pll-v3-2-bfb4a2b53d14@apitzsch.eu>
+	Fri, 23 May 2025 08:09:14 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54N6Aqlf013895;
+	Fri, 23 May 2025 08:09:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	KUeiwjwwRKCeSzEn89kVpyg8NofPZDIR7gL3zffWsso=; b=BcECy/0OUo93fw4F
+	gZhiI2GyStvzLgqVX6vJU+kVdqtdXt/O9Ne0e0WVl2BqI/IXJHGu1lZtNm/qFRu9
+	zTmeamQ14LNlDclW4zl74Q7v4JeSlyib+8CHcq3iacrG2bS6YqwY/RPCTb6vmSHS
+	pGA/92wLfRA/BndpU8wWdaHR8D/rAWfiAscigzUT7Zyiid4jvQH9IH/qZMiEVRj/
+	5vmFjdC8cGAE62DdYUSQ3jRx+xE+k9PfmVikNCjNH1OrvYwSy6k4AD5qrbrpCiQL
+	uGONtVcIPnz1P3aAeIiKqndj0NuD3IOHd3LsrElCrn2GbEsVPXJQc/Tnt81h35mO
+	8fjRaA==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46rwf9h4n8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 08:09:04 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54N8931s004706
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 08:09:03 GMT
+Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 23 May
+ 2025 01:09:00 -0700
+Message-ID: <40599afc-4342-467c-87d8-3f53cbcfd242@quicinc.com>
+Date: Fri, 23 May 2025 16:08:58 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/2] coresight: add coresight Trace Network On Chip
+ driver
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com>
+ <20250522-trace-noc-v6-2-f5a9bcae90ee@quicinc.com>
+ <3a19197d-b534-458c-b4d7-51fd9d2c954d@arm.com>
+Content-Language: en-US
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <3a19197d-b534-458c-b4d7-51fd9d2c954d@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250521-imx214_ccs_pll-v3-2-bfb4a2b53d14@apitzsch.eu>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: kPgexwW-XHzVu8r4PKlL9oDSSyKwYz7X
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIzMDA3NCBTYWx0ZWRfX+Mzwh0Kss6rN
+ vTf6MSyeGKL6udwQwDHZ0OP9MsaLda+CdExaw3RvabpAx2+DSIhP85YNemtGv2+ZGXV5z0ZrNBi
+ hkwNjw9I+dZ2GOAtY5wV40YY6Efo0HORhh06trM/7nE/uq0cPMZWfTG05QpJK8Y9wY+AvoWVDds
+ UQiSIk1dxNlulVUgg4qMQDfaDdNG0KI8z6UsS/y3budj9gTGZMKFvHyMTn4AL3Cw/TOMMmGbGOB
+ 3XpoLslcNvwY1jnIQoPacFnDtBFSxuxZmActJOeM2sqiLVX3UyJvuxxP4WAcuhXvKcv0FipYYxI
+ SwEU9tRl6k72cX18LKhsNgckmQLncJp/Bt6YPuEbYKP2AMMlJhnfWwRwz4OISUfN65GhPkYPxGt
+ P3Gc0EmZ40UydgCGS914mx+rbuBTM+c5S4u2roWNer1r8vOnbcT+Bkr2z+HgXv2SbJjzvCzJ
+X-Authority-Analysis: v=2.4 cv=GawXnRXL c=1 sm=1 tr=0 ts=68302d20 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8
+ a=tqpicOYo2bCRqsTAqWEA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: kPgexwW-XHzVu8r4PKlL9oDSSyKwYz7X
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-23_02,2025-05-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxscore=0 mlxlogscore=999 lowpriorityscore=0 impostorscore=0
+ priorityscore=1501 clxscore=1015 malwarescore=0 phishscore=0 bulkscore=0
+ spamscore=0 suspectscore=0 adultscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505160000 definitions=main-2505230074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_011030_650402_F384BCD3 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20250523_010913_572920_62C2DF77 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,124 +124,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi André,
 
-Thank you for the patch.
 
-On Wed, May 21, 2025 at 09:34:25PM +0200, André Apitzsch via B4 Relay wrote:
-> From: André Apitzsch <git@apitzsch.eu>
+On 5/22/2025 9:13 PM, Suzuki K Poulose wrote:
+> On 22/05/2025 09:07, Yuanfang Zhang wrote:
+>> Add a driver to support Coresight device Trace Network On Chip (TNOC),
+>> which is an integration hierarchy integrating functionalities of TPDA
+>> and funnels. It aggregates the trace and transports to coresight trace
+>> bus.
+>>
+>> Compared to current configuration, it has the following advantages:
+>> 1. Reduce wires between subsystems.
+>> 2. Continue cleaning the infrastructure.
+>> 3. Reduce Data overhead by transporting raw data from source to target.
+>>
+>>    +------------------------+                +-------------------------+
+>>    | Video Subsystem        |                |Video Subsystem          |
+>>    |       +-------------+  |                |       +------------+    |
+>>    |       | Video TPDM  |  |                |       | Video TPDM |    |
+>>    |       +-------------+  |                |       +------------+    |
+>>    |            |           |                |              |          |
+>>    |            v           |                |              v          |
+>>    |   +---------------+    |                |        +-----------+    |
+>>    |   | Video funnel  |    |                |        |Video TNOC |    |
+>>    |   +---------------+    |                |        +-----------+    |
+>>    +------------|-----------+                +------------|------------+
+>>                 |                                         |
+>>                 v-----+                                   |
+>> +--------------------|---------+                         |
+>> |  Multimedia        v         |                         |
+>> |  Subsystem   +--------+      |                         |
+>> |              |  TPDA  |      |                         v
+>> |              +----|---+      |              +---------------------+
+>> |                   |          |              |   Aggregator  TNOC  |
+>> |                   |          |              +----------|----------+
+>> |                   +--        |                         |
+>> |                     |        |                         |
+>> |                     |        |                         |
+>> |              +------v-----+  |                         |
+>> |              |  Funnel    |  |                         |
+>> |              +------------+  |                         |
+>> +----------------|-------------+                         |
+>>                   |                                       |
+>>                   v                                       v
+>>        +--------------------+                    +------------------+
+>>        |   Coresight Sink   |                    |  Coresight Sink  |
+>>        +--------------------+                    +------------------+
+>>
+>>         Current Configuration                            TNOC
+>>
+>> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 > 
-> Move clock frequency related parameters out of the constant register
-> sequences, such that the hard coded external clock frequency can be
-> replaced by a variable in the upcoming patches.
 > 
-> Acked-by: Ricardo Ribalda <ribalda@chromium.org>
-> Signed-off-by: André Apitzsch <git@apitzsch.eu>
-> ---
->  drivers/media/i2c/imx214.c | 54 ++++++++++++++++++++++++++--------------------
->  1 file changed, 31 insertions(+), 23 deletions(-)
+>> +
+>> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+>> +{
+>> +    int atid;
+>> +
+>> +    atid = coresight_trace_id_get_system_id();
+>> +    if (atid < 0)
+>> +        return atid;
+>> +
+>> +    drvdata->atid = atid;
 > 
-> diff --git a/drivers/media/i2c/imx214.c b/drivers/media/i2c/imx214.c
-> index 0199195dcb7d12dc2ff253fe3eb77ddbcd0812a9..3aca6ebb02d649c1b7f0b6a6049c1e3aa3d08951 100644
-> --- a/drivers/media/i2c/imx214.c
-> +++ b/drivers/media/i2c/imx214.c
-> @@ -299,16 +299,6 @@ static const struct cci_reg_sequence mode_4096x2304[] = {
->  	{ IMX214_REG_DIG_CROP_WIDTH, 4096 },
->  	{ IMX214_REG_DIG_CROP_HEIGHT, 2304 },
->  
-> -	{ IMX214_REG_VTPXCK_DIV, 5 },
-> -	{ IMX214_REG_VTSYCK_DIV, 2 },
-> -	{ IMX214_REG_PREPLLCK_VT_DIV, 3 },
-> -	{ IMX214_REG_PLL_VT_MPY, 150 },
-> -	{ IMX214_REG_OPPXCK_DIV, 10 },
-> -	{ IMX214_REG_OPSYCK_DIV, 1 },
-> -	{ IMX214_REG_PLL_MULT_DRIV, IMX214_PLL_SINGLE },
-> -
-> -	{ IMX214_REG_REQ_LINK_BIT_RATE, IMX214_LINK_BIT_RATE_MBPS(4800) },
-> -
->  	{ CCI_REG8(0x3A03), 0x09 },
->  	{ CCI_REG8(0x3A04), 0x50 },
->  	{ CCI_REG8(0x3A05), 0x01 },
-> @@ -362,16 +352,6 @@ static const struct cci_reg_sequence mode_1920x1080[] = {
->  	{ IMX214_REG_DIG_CROP_WIDTH, 1920 },
->  	{ IMX214_REG_DIG_CROP_HEIGHT, 1080 },
->  
-> -	{ IMX214_REG_VTPXCK_DIV, 5 },
-> -	{ IMX214_REG_VTSYCK_DIV, 2 },
-> -	{ IMX214_REG_PREPLLCK_VT_DIV, 3 },
-> -	{ IMX214_REG_PLL_VT_MPY, 150 },
-> -	{ IMX214_REG_OPPXCK_DIV, 10 },
-> -	{ IMX214_REG_OPSYCK_DIV, 1 },
-> -	{ IMX214_REG_PLL_MULT_DRIV, IMX214_PLL_SINGLE },
-> -
-> -	{ IMX214_REG_REQ_LINK_BIT_RATE, IMX214_LINK_BIT_RATE_MBPS(4800) },
-> -
->  	{ CCI_REG8(0x3A03), 0x04 },
->  	{ CCI_REG8(0x3A04), 0xF8 },
->  	{ CCI_REG8(0x3A05), 0x02 },
-> @@ -405,9 +385,6 @@ static const struct cci_reg_sequence mode_table_common[] = {
->  	/* ATR setting */
->  	{ IMX214_REG_ATR_FAST_MOVE, 2 },
->  
-> -	/* external clock setting */
-> -	{ IMX214_REG_EXCK_FREQ, IMX214_EXCK_FREQ(IMX214_DEFAULT_CLK_FREQ / 1000000) },
-> -
->  	/* global setting */
->  	/* basic config */
->  	{ IMX214_REG_MASK_CORR_FRAMES, IMX214_CORR_FRAMES_MASK },
-> @@ -777,6 +754,24 @@ static int imx214_entity_init_state(struct v4l2_subdev *subdev,
->  	return 0;
->  }
->  
-> +static int imx214_configure_pll(struct imx214 *imx214)
-> +{
-> +	int ret = 0;
-> +
-> +	cci_write(imx214->regmap, IMX214_REG_VTPXCK_DIV, 5, &ret);
-> +	cci_write(imx214->regmap, IMX214_REG_VTSYCK_DIV, 2, &ret);
-> +	cci_write(imx214->regmap, IMX214_REG_PREPLLCK_VT_DIV, 3, &ret);
-> +	cci_write(imx214->regmap, IMX214_REG_PLL_VT_MPY, 150, &ret);
-> +	cci_write(imx214->regmap, IMX214_REG_OPPXCK_DIV, 10, &ret);
-> +	cci_write(imx214->regmap, IMX214_REG_OPSYCK_DIV, 1, &ret);
-> +	cci_write(imx214->regmap, IMX214_REG_PLL_MULT_DRIV,
-> +		  IMX214_PLL_SINGLE, &ret);
-> +	cci_write(imx214->regmap, IMX214_REG_EXCK_FREQ,
-> +		  IMX214_EXCK_FREQ(IMX214_DEFAULT_CLK_FREQ / 1000000), &ret);
-> +
-> +	return ret;
-> +}
-> +
->  static int imx214_update_digital_gain(struct imx214 *imx214, u32 val)
->  {
->  	int ret = 0;
-> @@ -1020,6 +1015,19 @@ static int imx214_start_streaming(struct imx214 *imx214)
->  		return ret;
->  	}
->  
-> +	ret = imx214_configure_pll(imx214);
-> +	if (ret) {
-> +		dev_err(imx214->dev, "failed to configure PLL %d\n", ret);
+> Do you need to expose this via sysfs ? Otherwise, how can you map
+> a trace to a TNOC at decoding ?
 
-		dev_err(imx214->dev, "failed to configure PLL: %d\n", ret);
+yes, need to expose the atid via sysfs, but it better to expose it on source driver which connect with
+this TNOC. so dont expose it on this driver.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> 
+> Suzuki
 
-> +		return ret;
-> +	}
-> +
-> +	ret = cci_write(imx214->regmap, IMX214_REG_REQ_LINK_BIT_RATE,
-> +			IMX214_LINK_BIT_RATE_MBPS(4800), NULL);
-> +	if (ret) {
-> +		dev_err(imx214->dev, "failed to configure link bit rate\n");
-> +		return ret;
-> +	}
-> +
->  	ret = cci_write(imx214->regmap, IMX214_REG_CSI_LANE_MODE,
->  			IMX214_CSI_4_LANE_MODE, NULL);
->  	if (ret) {
-
--- 
-Regards,
-
-Laurent Pinchart
 
