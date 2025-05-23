@@ -4,122 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A115C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 00:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3378AC54EDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 01:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H7dqPj/4OqgIxw+lFGbLNi9FTj66PFQpLla1/LzexBE=; b=X+z38NmDCCXSginkx7fLqEY9WK
-	LJSJhR01B4CfxgMVBsLFWDPBmZwQ03dbXkKGJE0vvHCarqi4Q/okXm/yH7rzFe4zew2Pqlf9KTBGo
-	msajGQe/FiM/YNnSqkBlmnYsoIHNaPZJAzZ7FHBa1sfCgHV5mIFxgD/ILeCTNcPQsbMGsHrZcbWAw
-	pptLFtF8blA9rTsF7LqyiFtekkWhgPY+6IJrfia1qyrqK/Vljpg4Q0YT9jAh1LRIpkAR9zAWad6xQ
-	KAStBgZ2H8gErqzvbtrnSTfgskc7Wk5b+VoxY/6xiBnCIopE5hTqL+dET1uqC5/jQjBggdTN0NKuD
-	oYB+8klQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gw+BTmSHhkiqw8fVOSeQUYcM2zc5ENlAHXxQB2rFVp4=; b=uQb63YdAeMh1x2LgSpSbf+a0TK
+	Vph+CHRcf7sBKMwlv1xICImaJLT2qKtuzJ51MkkfQ1413giKnCfpOGtoCuJxSxhgt40JOMOGzbNdE
+	bIq2mXC+wBh5oGs38gQ9WNJROLbjMWosjBzTF359pd5cmwdq6s4bmcRJQ2JPA7Js0IYl55KVitIZx
+	JTOAxv1bbq5rrShHdHGrSMEATlR1+xP6Po2acrecdKGIaOBqObyLWh+CL6LaQnYVI3txhx8jFa41E
+	F9s6RkHT+atVZ9EEALiVJEalyXtDnybqw202osb9VCfRTAhmRp/UpZ3t3X9FZUmEhkdGV+h5HR2/b
+	iSK1Drag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIGf1-00000002bmp-3MGJ;
-	Fri, 23 May 2025 00:53:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIH2J-00000002gmT-1pGs;
+	Fri, 23 May 2025 01:17:23 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIFIx-00000002RsE-1VUi
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 May 2025 23:26:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=H7dqPj/4OqgIxw+lFGbLNi9FTj66PFQpLla1/LzexBE=; b=X6emFsNSMgHZ3dOJgHy9T9cS6g
-	Prj+5Qn7i9kRD35PjqlrZWzYcJ89yD7z/lDCnPZzGmSf3DeRWZ1NKn8Cc58z1RPTeMs11k7FSMXmD
-	HTzYGjONSX7vJmo1qMu+auU3pnW8Oj+yvMi1rIIlRCJ2bKrod1e561NGcZD5YvnTYdDdW3mLc6R6w
-	8kVOQAp0Bm/dJLos/rfNlXkbdz2wM2uJxsE9Yfroa15nUbpfCFJWv0uoo84iaQudN+cacNpHgM6RP
-	Hb42djHiCOpOn7gjQPAsg4jfkv9tD6JsarL5HVg8E7/QBH3eZG5oriOF2sw0MxpV5pvevCWWtKpYX
-	EvyHlaug==;
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIFIs-0000000161H-0I6u
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 May 2025 23:26:26 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-442ed8a275fso108079875e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 May 2025 16:26:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747956379; x=1748561179; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=H7dqPj/4OqgIxw+lFGbLNi9FTj66PFQpLla1/LzexBE=;
-        b=w18R5RREeazDkk2D8wYqqqZmE7dbcyE0lFDK8IFnVQ23euGoeoRcbLgO5nRXpY21qI
-         E/2GcXaN+6fkorJQ6S4/PE6sZ6Us0x5EOqESuuhEM8JED3a54AC27p2hI+cm77EiaPBM
-         HE6gFx+dmk4j9wSffVonjW1VaGq5CwYdfvI/n2nMOvkOkwtujJjWiqp/W0UtC4Lo/z8Z
-         UxrGm6B5Jw7uMlu8jZzK5R3wFJHC5LF0FYzW6uzWvUc4UkQGDEj1r4rGuD18qYY5j1GP
-         ijT2XZFQ4vJWbMnCedU+NiirmOX4Mivm8ECrLL8OceZiRtzfO64dQzK8B2KIrBA247It
-         oyfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747956379; x=1748561179;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=H7dqPj/4OqgIxw+lFGbLNi9FTj66PFQpLla1/LzexBE=;
-        b=F9ykNK30rivZbH/m83IlFbxR7+OO+1PZ0nXA+qjv5Qecu6JlYkLFzbrb/OeoP8CrQ0
-         +q8BteZnRQj9ajhfBS9q8Dlqoj0rFV3PJpzs+oQhzBOum7OtfeKAObkXtEL70JKm2bWv
-         WhR47YHpduX9eymrv04d+aGRfUXdXgQ+dLV3HxJd4cwbSQ3De9Q0Z0DgzkzmgayGd+sX
-         6qHZxeFz9Bu07VDFwoDg7BxpqPvD5SgOZ0Ql5eDncCJTcMjDPaWoxyP1PmduFbknTgi0
-         oV9+ZJBBhr+sNFw6fswVJG/mwjfvEdLFcsQKs9HuhAUpGjbOFISkLiwEVgkBoDJshSro
-         6PeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVYHwaP5CW3m5RBapeu142gu4PI8rvBnBxrD8rf43SHdwzwwL+whUZoOEca1837Ra1jpCbDRSYSxmlOmPJcnU2R@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFjlFIGUOZFUR2yGGyPDZSYKcbrCqr/lPp8+X4V3EbfcVjYw64
-	Ev1fLYEXdv5w4jkoJcRO2D4x7Ayb9E5hgGB+7IJ3yv3R8zmbX+P1d2DZasZ5h/vfuwo=
-X-Gm-Gg: ASbGncuhWaGGqyHDh4F08X+hxZzsG/K5uG/eOsHHG17KmbnM8IR4xUMoMZpY5lkJYdu
-	wse+QOS0wie6zN1h3PsWVgOGFxonW0POBzSGuItWkRkvpcgd/ixSqRvDjYH50QOFIBdA08Oaanz
-	KYAcfbPQC4HWDiG2Km0oxsFaBeqpz8AcPCD7zF5QajB1bxYF6+6mRPlDNcDCq99frCFkL93QvFU
-	64jhmore2PAjnMZxIyZhnejNyNC3UVZ5mYQIwxLnPNtR52ulCnnsD1ZTi+UQb4+zxSWSebz+7ib
-	HPU8zBDb0hD+dL7yXLmFXXi2jKEcjOo3daeWQXx6byqG4oqNEnaycA==
-X-Google-Smtp-Source: AGHT+IFXXmQbzS5vqDGu4y4TwQnk0EiK4CC5C6meSlb8RPETRBYPhp8qkAqi3TzGPklrLZOBPgJ0mA==
-X-Received: by 2002:a05:600c:64c6:b0:43d:878c:7c40 with SMTP id 5b1f17b1804b1-44b6d1d44aemr7930635e9.10.1747956379233;
-        Thu, 22 May 2025 16:26:19 -0700 (PDT)
-Received: from [127.0.1.1] ([2a02:c7c:75ac:6300:c05a:35d:17ae:e731])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f6f04334sm117825395e9.10.2025.05.22.16.26.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 May 2025 16:26:19 -0700 (PDT)
-From: Rajnesh Kanwal <rkanwal@rivosinc.com>
-Date: Fri, 23 May 2025 00:25:09 +0100
-Subject: [PATCH v3 3/7] riscv: Add Control Transfer Records extension
- parsing
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250523-b4-ctr_upstream_v3-v3-3-ad355304ba1c@rivosinc.com>
-References: <20250523-b4-ctr_upstream_v3-v3-0-ad355304ba1c@rivosinc.com>
-In-Reply-To: <20250523-b4-ctr_upstream_v3-v3-0-ad355304ba1c@rivosinc.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Atish Kumar Patra <atishp@rivosinc.com>, 
- Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Beeman Strong <beeman@rivosinc.com>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, Rajnesh Kanwal <rkanwal@rivosinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747956375; l=2624;
- i=rkanwal@rivosinc.com; s=20250522; h=from:subject:message-id;
- bh=gvU0uMFD6Kovn+U10/vBvR06A23qjRw3z0F47+AnYRQ=;
- b=pyfnCvhX86bz9z1y3qjxlNR2g5lGOH2Tq7LR0ghQj5QSvYJrDGwpQ/jbb4U4sW1BvShvZvEdX
- QqJA4YOOC0EDUOV9duD2meq3fYPM1ise96t5o6riam+ED3WjJWGTHfg
-X-Developer-Key: i=rkanwal@rivosinc.com; a=ed25519;
- pk=aw8nvncslGKHEmTBTJqvkP/4tj6pijL8fwRRym/GuS8=
+	id 1uIH04-00000002gA9-1jwa;
+	Fri, 23 May 2025 01:15:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1747962826;
+	bh=gw+BTmSHhkiqw8fVOSeQUYcM2zc5ENlAHXxQB2rFVp4=;
+	h=From:To:Subject:Date:Message-Id;
+	b=S61/XcHoTIVZaYzr8z0CWDt1dphh7QCgKinoWfAc/lv0z3kforr9RS/UdZQcySkL7
+	 DS1QPsjOX8/0H8GZTrg1ZbNL/09RPKANTMwlcbroN87bPh8Ky4StN0/i7a6nbwz5Eh
+	 Df0BJuIFuINiURYmo96GjTHWRn1fnAuaILI8YpA8=
+X-QQ-mid: zesmtpsz8t1747962824t2502f3b0
+X-QQ-Originating-IP: az0DKIx4s7vi4nlfNsI6jGm0INLs5Mr6iXyto0rMZFk=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 23 May 2025 09:13:42 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1097511651874681350
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	"Heiko Stuebner" <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: [PATCH v2] drm/rockchip: cdn-dp: Convert to drm bridge
+Date: Fri, 23 May 2025 09:13:10 +0800
+Message-Id: <20250523011310.120-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: NDtUtlvFer7vnEqA/tTmQzhvW8ZnmrHykHo/ECzVByqnMWZ9gvmVdYQp
+	CLRBsh+PfwI7ISSoWH07yWL+8nkUQvLB0Dt0cjRExiksyS5VBhSDHUBcsZC/0GkvhLtN0jq
+	nRDah+K5gfelOj95QrlVKC+RLRyFX0ppCYfBDCpdGOyOe6kd58uXBgoKjxeOG12TvfmCqAL
+	SnDkCpqBqDD3jqKgEgaBzceiQ11gpMG2iMxFxvW2RetaoLsBsiYZXjdwWroInE8rFTMU3o2
+	QR23yuN4pfQCXwJndZOLojvMG8yWekktOPvmZEHPcaH2eXN8/usa778wqCLyJb/JcdR2dfH
+	7qdW/lgY9s8aWvyOU2sYNePijAnSgPZw0xsQX5GYuBo8fQyvtLLAXcnilRIbSHazjMDDe09
+	ditGB1zKQboLVisCKffavyMeoX4F/f/odiMimVCTzTn7mw7xqkRWTx1YDce5OQb7TqjS9E5
+	hgtQHrEXvVhto2fKBeCWTQi3ngsG75+WfF0Wgr4i8K+Lj8TyBsRlw17h22iIiiKlHp5TDrm
+	jOiWDRgNItYT+3qH8ZJrXtxYeZH6EOSJ0hOYxzJIqBgRzm0DESjLU08TpWtyvR85n1S2k5G
+	VwIvUqlMzB9v6qT5t/wJF767ZjvDlSBOuUPjI/20D9cQ3/TqZSLyHhOQ9R/2Q+o9FtA8L+Y
+	xxxd7ACSmYJj6DN76Ln6fP5fw8lqE9UYHKhnRIk/ZMIxyVr/XmIxBOzPonjtscPyCJEjcpJ
+	17PpbmMHg3u3cBClE1+soXn/LiFZAF9FJUPYJHXBOqA39ip8cW4jOWhJA4jkSQaNuLbnLcw
+	HP7Sj58sclu094N2vM3A4PisnJFMBzQA6dyNQrF2ZbV/YViH+vtp4G2TkfKu2JIrieE2vGe
+	FTX2eLcvfDjwNeSx+dF2dvLvYPGGgK9JvYg8aXK4zHBkNsGCHq08mMKhQWyG8VrKKtMR7mI
+	T0pK/7otM1B0uz3bjl5Ft2HSvUffPgTElCfY=
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_002622_626371_7E67712D 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250522_181505_010180_DE8B7F0B 
+X-CRM114-Status: GOOD (  25.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,64 +95,455 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adding CTR extension in ISA extension map to lookup for extension
-availability.
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
+Convert it to drm bridge driver, it will be convenient for us to
+migrate the connector part to the display driver later.
+
+Considering that some code depend on the connector, the following
+changes have been made:
+- Do not get edid in cdn_dp_get_sink_capability() when connector is
+not present.
+- Update bpc info in cdn_dp_bridge_atomic_enable() instead of
+cdn_dp_encoder_mode_set(). Actually, the bpc data will be used in
+cdn_dp_bridge_atomic_enable().
+
+This patch also convert to use devm_drm_bridge_alloc() API.
+
+Tested with RK3399 EVB IND board.
+
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 ---
- arch/riscv/include/asm/hwcap.h | 4 ++++
- arch/riscv/kernel/cpufeature.c | 2 ++
- 2 files changed, 6 insertions(+)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index fa5e01bcb990ec26a2681916be6f9b27262a0add..9b88dfd0e53c7070793ec71d363f8cd46ea43b92 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -105,6 +105,8 @@
- #define RISCV_ISA_EXT_SMCNTRPMF         96
- #define RISCV_ISA_EXT_SSCCFG            97
- #define RISCV_ISA_EXT_SMCDELEG          98
-+#define RISCV_ISA_EXT_SMCTR             99
-+#define RISCV_ISA_EXT_SSCTR             100
- 
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
- 
-@@ -115,11 +117,13 @@
- #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
- #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SMNPM
- #define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SMCSRIND
-+#define RISCV_ISA_EXT_SxCTR		RISCV_ISA_EXT_SMCTR
- #else
- #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
- #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SSNPM
- #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
- #define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SSCSRIND
-+#define RISCV_ISA_EXT_SxCTR		RISCV_ISA_EXT_SSCTR
- #endif
- 
- #endif /* _ASM_RISCV_HWCAP_H */
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index f72552adb257681c35a9f94ad5bbf7165fb93945..7fcbde89e4b9ee55b30b27f5b93e33dbe8f9ce58 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -419,6 +419,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 				      riscv_ext_smcdeleg_validate),
- 	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
- 	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
-+	__RISCV_ISA_EXT_DATA(smctr, RISCV_ISA_EXT_SMCTR),
- 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
- 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
-@@ -426,6 +427,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_DATA_VALIDATE(ssccfg, RISCV_ISA_EXT_SSCCFG, riscv_ext_ssccfg_validate),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
-+	__RISCV_ISA_EXT_DATA(ssctr, RISCV_ISA_EXT_SSCTR),
- 	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
- 	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
+Changes in v2:
+- Link to V1: https://lore.kernel.org/all/20250507035148.415-1-kernel@airkyi.com/
+- Use drm_atomic_get_new_connector_for_encoder() to get connector
+- Convert to use devm_drm_bridge_alloc() API
+- Fix typo: cdn_dp_connector_edid_read -> cdn_dp_bridge_edid_read
 
+ drivers/gpu/drm/rockchip/cdn-dp-core.c | 204 +++++++++++++------------
+ drivers/gpu/drm/rockchip/cdn-dp-core.h |   5 +-
+ 2 files changed, 112 insertions(+), 97 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+index 292c31de18f1..848f47d41111 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -25,9 +25,9 @@
+ #include "cdn-dp-core.h"
+ #include "cdn-dp-reg.h"
+ 
+-static inline struct cdn_dp_device *connector_to_dp(struct drm_connector *connector)
++static inline struct cdn_dp_device *bridge_to_dp(struct drm_bridge *bridge)
+ {
+-	return container_of(connector, struct cdn_dp_device, connector);
++	return container_of(bridge, struct cdn_dp_device, bridge);
+ }
+ 
+ static inline struct cdn_dp_device *encoder_to_dp(struct drm_encoder *encoder)
+@@ -231,9 +231,9 @@ static bool cdn_dp_check_sink_connection(struct cdn_dp_device *dp)
+ }
+ 
+ static enum drm_connector_status
+-cdn_dp_connector_detect(struct drm_connector *connector, bool force)
++cdn_dp_bridge_detect(struct drm_bridge *bridge)
+ {
+-	struct cdn_dp_device *dp = connector_to_dp(connector);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	enum drm_connector_status status = connector_status_disconnected;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -244,41 +244,25 @@ cdn_dp_connector_detect(struct drm_connector *connector, bool force)
+ 	return status;
+ }
+ 
+-static void cdn_dp_connector_destroy(struct drm_connector *connector)
++static const struct drm_edid *
++cdn_dp_bridge_edid_read(struct drm_bridge *bridge, struct drm_connector *connector)
+ {
+-	drm_connector_unregister(connector);
+-	drm_connector_cleanup(connector);
+-}
+-
+-static const struct drm_connector_funcs cdn_dp_atomic_connector_funcs = {
+-	.detect = cdn_dp_connector_detect,
+-	.destroy = cdn_dp_connector_destroy,
+-	.fill_modes = drm_helper_probe_single_connector_modes,
+-	.reset = drm_atomic_helper_connector_reset,
+-	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
+-	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
+-};
+-
+-static int cdn_dp_connector_get_modes(struct drm_connector *connector)
+-{
+-	struct cdn_dp_device *dp = connector_to_dp(connector);
+-	int ret = 0;
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
++	const struct drm_edid *drm_edid;
+ 
+ 	mutex_lock(&dp->lock);
+-
+-	ret = drm_edid_connector_add_modes(connector);
+-
++	drm_edid = drm_edid_read_custom(connector, cdn_dp_get_edid_block, dp);
+ 	mutex_unlock(&dp->lock);
+ 
+-	return ret;
++	return drm_edid;
+ }
+ 
+ static enum drm_mode_status
+-cdn_dp_connector_mode_valid(struct drm_connector *connector,
+-			    const struct drm_display_mode *mode)
++cdn_dp_bridge_mode_valid(struct drm_bridge *bridge,
++			 const struct drm_display_info *display_info,
++			 const struct drm_display_mode *mode)
+ {
+-	struct cdn_dp_device *dp = connector_to_dp(connector);
+-	struct drm_display_info *display_info = &dp->connector.display_info;
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	u32 requested, actual, rate, sink_max, source_max = 0;
+ 	u8 lanes, bpc;
+ 
+@@ -323,11 +307,6 @@ cdn_dp_connector_mode_valid(struct drm_connector *connector,
+ 	return MODE_OK;
+ }
+ 
+-static struct drm_connector_helper_funcs cdn_dp_connector_helper_funcs = {
+-	.get_modes = cdn_dp_connector_get_modes,
+-	.mode_valid = cdn_dp_connector_mode_valid,
+-};
+-
+ static int cdn_dp_firmware_init(struct cdn_dp_device *dp)
+ {
+ 	int ret;
+@@ -360,7 +339,8 @@ static int cdn_dp_firmware_init(struct cdn_dp_device *dp)
+ 
+ static int cdn_dp_get_sink_capability(struct cdn_dp_device *dp)
+ {
+-	const struct drm_display_info *info = &dp->connector.display_info;
++	struct drm_connector *connector = dp->connector;
++	const struct drm_display_info *info;
+ 	int ret;
+ 
+ 	if (!cdn_dp_check_sink_connection(dp))
+@@ -373,10 +353,15 @@ static int cdn_dp_get_sink_capability(struct cdn_dp_device *dp)
+ 		return ret;
+ 	}
+ 
++	if (!connector)
++		return 0;
++
++	info = &connector->display_info;
++
+ 	drm_edid_free(dp->drm_edid);
+-	dp->drm_edid = drm_edid_read_custom(&dp->connector,
++	dp->drm_edid = drm_edid_read_custom(dp->connector,
+ 					    cdn_dp_get_edid_block, dp);
+-	drm_edid_connector_update(&dp->connector, dp->drm_edid);
++	drm_edid_connector_update(dp->connector, dp->drm_edid);
+ 
+ 	dp->sink_has_audio = info->has_audio;
+ 
+@@ -416,11 +401,11 @@ static int cdn_dp_enable_phy(struct cdn_dp_device *dp, struct cdn_dp_port *port)
+ 		goto err_power_on;
+ 	}
+ 
+-	ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
+-				  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
+-	if (ret) {
+-		DRM_DEV_ERROR(dp->dev, "get property failed\n");
+-		goto err_power_on;
++		ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
++					EXTCON_PROP_USB_TYPEC_POLARITY, &property);
++		if (ret) {
++			DRM_DEV_ERROR(dp->dev, "get property failed\n");
++			goto err_power_on;
+ 	}
+ 
+ 	port->lanes = cdn_dp_get_port_lanes(port);
+@@ -551,21 +536,8 @@ static void cdn_dp_encoder_mode_set(struct drm_encoder *encoder,
+ 				    struct drm_display_mode *adjusted)
+ {
+ 	struct cdn_dp_device *dp = encoder_to_dp(encoder);
+-	struct drm_display_info *display_info = &dp->connector.display_info;
+ 	struct video_info *video = &dp->video_info;
+ 
+-	switch (display_info->bpc) {
+-	case 10:
+-		video->color_depth = 10;
+-		break;
+-	case 6:
+-		video->color_depth = 6;
+-		break;
+-	default:
+-		video->color_depth = 8;
+-		break;
+-	}
+-
+ 	video->color_fmt = PXL_RGB;
+ 	video->v_sync_polarity = !!(mode->flags & DRM_MODE_FLAG_NVSYNC);
+ 	video->h_sync_polarity = !!(mode->flags & DRM_MODE_FLAG_NHSYNC);
+@@ -599,12 +571,31 @@ static void cdn_dp_audio_handle_plugged_change(struct cdn_dp_device *dp,
+ 		dp->plugged_cb(dp->codec_dev, plugged);
+ }
+ 
+-static void cdn_dp_encoder_enable(struct drm_encoder *encoder)
++static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_atomic_state *state)
+ {
+-	struct cdn_dp_device *dp = encoder_to_dp(encoder);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
++	struct video_info *video = &dp->video_info;
++	struct drm_display_info *display_info;
+ 	int ret, val;
+ 
+-	ret = drm_of_encoder_active_endpoint_id(dp->dev->of_node, encoder);
++	dp->connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
++	if (!dp->connector)
++		return;
++
++	display_info = &dp->connector->display_info;
++	switch (display_info->bpc) {
++	case 10:
++		video->color_depth = 10;
++		break;
++	case 6:
++		video->color_depth = 6;
++		break;
++	default:
++		video->color_depth = 8;
++		break;
++	}
++
++	ret = drm_of_encoder_active_endpoint_id(dp->dev->of_node, &dp->encoder.encoder);
+ 	if (ret < 0) {
+ 		DRM_DEV_ERROR(dp->dev, "Could not get vop id, %d", ret);
+ 		return;
+@@ -625,7 +616,7 @@ static void cdn_dp_encoder_enable(struct drm_encoder *encoder)
+ 
+ 	ret = cdn_dp_enable(dp);
+ 	if (ret) {
+-		DRM_DEV_ERROR(dp->dev, "Failed to enable encoder %d\n",
++		DRM_DEV_ERROR(dp->dev, "Failed to enable bridge %d\n",
+ 			      ret);
+ 		goto out;
+ 	}
+@@ -661,9 +652,9 @@ static void cdn_dp_encoder_enable(struct drm_encoder *encoder)
+ 	mutex_unlock(&dp->lock);
+ }
+ 
+-static void cdn_dp_encoder_disable(struct drm_encoder *encoder)
++static void cdn_dp_bridge_atomic_disable(struct drm_bridge *bridge, struct drm_atomic_state *state)
+ {
+-	struct cdn_dp_device *dp = encoder_to_dp(encoder);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	int ret;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -672,7 +663,7 @@ static void cdn_dp_encoder_disable(struct drm_encoder *encoder)
+ 	if (dp->active) {
+ 		ret = cdn_dp_disable(dp);
+ 		if (ret) {
+-			DRM_DEV_ERROR(dp->dev, "Failed to disable encoder %d\n",
++			DRM_DEV_ERROR(dp->dev, "Failed to disable bridge %d\n",
+ 				      ret);
+ 		}
+ 	}
+@@ -703,13 +694,31 @@ static int cdn_dp_encoder_atomic_check(struct drm_encoder *encoder,
+ 	return 0;
+ }
+ 
++static void cdn_dp_hpd_notify(struct drm_bridge *bridge,
++			   enum drm_connector_status status)
++{
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
++
++	schedule_work(&dp->event_work);
++}
++
+ static const struct drm_encoder_helper_funcs cdn_dp_encoder_helper_funcs = {
+ 	.mode_set = cdn_dp_encoder_mode_set,
+-	.enable = cdn_dp_encoder_enable,
+-	.disable = cdn_dp_encoder_disable,
+ 	.atomic_check = cdn_dp_encoder_atomic_check,
+ };
+ 
++static const struct drm_bridge_funcs cdn_dp_bridge_funcs = {
++	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
++	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
++	.atomic_reset = drm_atomic_helper_bridge_reset,
++	.detect = cdn_dp_bridge_detect,
++	.edid_read = cdn_dp_bridge_edid_read,
++	.atomic_enable = cdn_dp_bridge_atomic_enable,
++	.atomic_disable = cdn_dp_bridge_atomic_disable,
++	.mode_valid = cdn_dp_bridge_mode_valid,
++	.hpd_notify = cdn_dp_hpd_notify,
++};
++
+ static int cdn_dp_parse_dt(struct cdn_dp_device *dp)
+ {
+ 	struct device *dev = dp->dev;
+@@ -859,7 +868,7 @@ static int cdn_dp_audio_get_eld(struct device *dev, void *data,
+ {
+ 	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+ 
+-	memcpy(buf, dp->connector.eld, min(sizeof(dp->connector.eld), len));
++	memcpy(buf, dp->connector->eld, min(sizeof(dp->connector->eld), len));
+ 
+ 	return 0;
+ }
+@@ -1006,7 +1015,6 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
+ 
+ out:
+ 	mutex_unlock(&dp->lock);
+-	drm_connector_helper_hpd_irq_event(&dp->connector);
+ }
+ 
+ static int cdn_dp_pd_event(struct notifier_block *nb,
+@@ -1030,9 +1038,9 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ {
+ 	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+ 	struct drm_encoder *encoder;
+-	struct drm_connector *connector;
+ 	struct cdn_dp_port *port;
+ 	struct drm_device *drm_dev = data;
++	struct drm_connector *connector;
+ 	int ret, i;
+ 
+ 	ret = cdn_dp_parse_dt(dp);
+@@ -1053,6 +1061,15 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 							     dev->of_node);
+ 	DRM_DEBUG_KMS("possible_crtcs = 0x%x\n", encoder->possible_crtcs);
+ 
++	/*
++	 * If we failed to find the CRTC(s) which this encoder is
++	 * supposed to be connected to, it's because the CRTC has
++	 * not been registered yet. Defer probing, and hope that
++	 * the required CRTC is added later.
++	 */
++	if (encoder->possible_crtcs == 0)
++		return -EPROBE_DEFER;
++
+ 	ret = drm_simple_encoder_init(drm_dev, encoder,
+ 				      DRM_MODE_ENCODER_TMDS);
+ 	if (ret) {
+@@ -1062,26 +1079,29 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 
+ 	drm_encoder_helper_add(encoder, &cdn_dp_encoder_helper_funcs);
+ 
+-	connector = &dp->connector;
+-	connector->polled = DRM_CONNECTOR_POLL_HPD;
+-	connector->dpms = DRM_MODE_DPMS_OFF;
++	dp->bridge.ops = DRM_BRIDGE_OP_DETECT |
++			   DRM_BRIDGE_OP_EDID |
++			   DRM_BRIDGE_OP_HPD;
++	dp->bridge.of_node = dp->dev->of_node;
++	dp->bridge.type = DRM_MODE_CONNECTOR_DisplayPort;
+ 
+-	ret = drm_connector_init(drm_dev, connector,
+-				 &cdn_dp_atomic_connector_funcs,
+-				 DRM_MODE_CONNECTOR_DisplayPort);
+-	if (ret) {
+-		DRM_ERROR("failed to initialize connector with drm\n");
+-		goto err_free_encoder;
+-	}
++	ret = devm_drm_bridge_add(dev, &dp->bridge);
++	if (ret)
++		return ret;
+ 
+-	drm_connector_helper_add(connector, &cdn_dp_connector_helper_funcs);
++	ret = drm_bridge_attach(encoder, &dp->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	if (ret)
++		return ret;
+ 
+-	ret = drm_connector_attach_encoder(connector, encoder);
+-	if (ret) {
+-		DRM_ERROR("failed to attach connector and encoder\n");
+-		goto err_free_connector;
++	connector = drm_bridge_connector_init(drm_dev, encoder);
++	if (IS_ERR(connector)) {
++		ret = PTR_ERR(connector);
++		dev_err(dp->dev, "failed to init bridge connector: %d\n", ret);
++		return ret;
+ 	}
+ 
++	drm_connector_attach_encoder(connector, encoder);
++
+ 	for (i = 0; i < dp->ports; i++) {
+ 		port = dp->port[i];
+ 
+@@ -1092,7 +1112,7 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 		if (ret) {
+ 			DRM_DEV_ERROR(dev,
+ 				      "register EXTCON_DISP_DP notifier err\n");
+-			goto err_free_connector;
++			return ret;
+ 		}
+ 	}
+ 
+@@ -1101,24 +1121,15 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 	schedule_work(&dp->event_work);
+ 
+ 	return 0;
+-
+-err_free_connector:
+-	drm_connector_cleanup(connector);
+-err_free_encoder:
+-	drm_encoder_cleanup(encoder);
+-	return ret;
+ }
+ 
+ static void cdn_dp_unbind(struct device *dev, struct device *master, void *data)
+ {
+ 	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+ 	struct drm_encoder *encoder = &dp->encoder.encoder;
+-	struct drm_connector *connector = &dp->connector;
+ 
+ 	cancel_work_sync(&dp->event_work);
+-	cdn_dp_encoder_disable(encoder);
+ 	encoder->funcs->destroy(encoder);
+-	connector->funcs->destroy(connector);
+ 
+ 	pm_runtime_disable(dev);
+ 	if (dp->fw_loaded)
+@@ -1171,9 +1182,10 @@ static int cdn_dp_probe(struct platform_device *pdev)
+ 	int ret;
+ 	int i;
+ 
+-	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
+-	if (!dp)
+-		return -ENOMEM;
++	dp = devm_drm_bridge_alloc(dev, struct cdn_dp_device, bridge,
++				   &cdn_dp_bridge_funcs);
++	if (IS_ERR(dp))
++		return PTR_ERR(dp);
+ 	dp->dev = dev;
+ 
+ 	match = of_match_node(cdn_dp_dt_ids, pdev->dev.of_node);
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.h b/drivers/gpu/drm/rockchip/cdn-dp-core.h
+index 17498f576ce7..d2778f7a5b31 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.h
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.h
+@@ -8,6 +8,8 @@
+ #define _CDN_DP_CORE_H
+ 
+ #include <drm/display/drm_dp_helper.h>
++#include <drm/drm_bridge.h>
++#include <drm/drm_bridge_connector.h>
+ #include <drm/drm_panel.h>
+ #include <drm/drm_probe_helper.h>
+ #include <sound/hdmi-codec.h>
+@@ -65,7 +67,8 @@ struct cdn_dp_port {
+ struct cdn_dp_device {
+ 	struct device *dev;
+ 	struct drm_device *drm_dev;
+-	struct drm_connector connector;
++	struct drm_bridge bridge;
++	struct drm_connector *connector;
+ 	struct rockchip_encoder encoder;
+ 	struct drm_display_mode mode;
+ 	struct platform_device *audio_pdev;
 -- 
-2.43.0
+2.49.0
 
 
