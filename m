@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B3BC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 04:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C471C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 04:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ofDLKsfVFwJjIEEjCE2W6mAUD2nSyNjNn/Z7c86fPtQ=; b=NmwIO7kkuAbR48fIjkrWubAzaT
-	dKujJQzXhSMIm+SA/HNNRYYzE2zk9Byvsv5yerKqqCdWqvyphWVgbCh44kRNoL/vW3JfDWwkI/+3Y
-	GhLCPQbmbOAyl7gtEjNhvkJY4fE03tp7AZbnUpCRBCj9XwRH7UlTuR2NjLaa9Bf46rAorwey/olh4
-	i4ezFxMeYglnGAEh22UxqbNVCMPh3uFt63LFDuwoOkAZJtz9Sxa1MnpE2KUHVaZLqhxoCtZCfsfgZ
-	6C6a4WLTXBIO99HcAwXa1Eyid5CUqcd96Aq5gX308uiEIPZXBa122h42bAppTZWZ5TBwOZxKpZO80
-	QCxGB+Hg==;
+	bh=5WwsZAyhqCNKq8impC0uPdRnLe811mvhdI4uAc7GwKQ=; b=V8Z5aeN+GknstO2kPdOR4bngtT
+	ckPlPPyd3msjxQ1h+VwSkr1ATV4ogyH/O20MyjE5rLE0Ys+kQKAiWWWWiLKF8X0GurcfZJiiyw3Df
+	N6nNFBbsF/5bbyahFAdsBvar2/nOP/dhKulgctXRDKglGE+N96d0AVyTPVZO4o6QoeNuDXHIOdPBo
+	f8qlyZ33JWqicokT6XGs8+aIdqG7p0R/WJF1V/qC6PzOF226P4jQaNfvkgyo3KvZi80xy4clv5bwg
+	b0k+HpVi7u8+3tdUmpVOn/iBfjkwyVQhA2cNeKg/rFsbNVf/H59ikmyIUYrd5m0f8RnqnIpFiaLKV
+	QiBVRn0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKRb-00000002x59-132Z;
-	Fri, 23 May 2025 04:55:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uIKTk-00000002xGs-2QmH;
+	Fri, 23 May 2025 04:57:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKC5-00000002tzG-31ka;
-	Fri, 23 May 2025 04:39:44 +0000
+	id 1uIKC5-00000002tzE-2zgY;
+	Fri, 23 May 2025 04:39:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FB0C4A966;
+	by sea.source.kernel.org (Postfix) with ESMTP id 634464A959;
 	Fri, 23 May 2025 04:39:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B2A2C4AF0D;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E840C4CEED;
 	Fri, 23 May 2025 04:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747975181;
-	bh=SyZieAtSFEV9PhSUW/pPII2GWOki6kjF+H9/UmF+VLY=;
+	bh=yaSxmxtYpasuc+rufEWrdAWe3aDh1VboHkgvW7Uuxmk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=J6TfYX4sDZSOJ6cC3hQx7PEZ/P0hoeBP28dc1+Brd35hPTwJ6k97WHpqZa8fbAVeq
-	 5juHb3DUqOGqceXSEGpBdDtPMfNBhFApP7wKwIKL/2C2LYJMNlzzzjE3NXvmYvwsfp
-	 cpTPBe3558GSOBbtXZAqbFeXxHg2JthsF0YNO/uRw7JXFf41SXkcV3im1cjmlK+M1C
-	 VUyAGWEUKYn0vNFv+3oOS0ipT5PIApXQfiGYPlh9IaMysvmKeUOnyVfpdzxHcsFBsS
-	 0SBVqnX3srPSUhXwXJv3jgYKgf/cSp/Ef3sURkijydoETVLUBeuCiISO09TxrEUBXW
-	 YO1ES1sgKvMwg==
+	b=CHB1UIrXXIJNnDqoawhvxACuyRxlpr3fsHJOcaMiX78eZBw6bj2aCmamSdxBgr0Q1
+	 cv2JxCHOnwvyafgtOlwyLeWkIJcvvmBOc3FGaH7CycNh6ciUxu783i7rIN1Q7uR/YZ
+	 egoHkAstCNIvH0Ni9mbt5Ty4Gh02RZ66vXL7zkVg5EvNVKTTIDuVY7AvMEtb0fYV8p
+	 mJKUBNr2h5nbAO7s6Ui4esyy2FZgHJ+NnCkDJYKNpnSZCOqTVyO+IRaFk0btgFjTdO
+	 S8daDPWHmwFh5MEl/KFRRxM9icxB3PHJq5dg1QlY9jE+fNHEdaX6TMoMVDjrVztIdI
+	 PtpSj3RRaZDNw==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Gaosheng Cui <cuigaosheng1@huawei.com>,
-	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linuxppc-dev@lists.ozlabs.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Christoph Hellwig <hch@lst.de>,
 	Marco Elver <elver@google.com>,
@@ -71,6 +72,7 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
 	linux-efi@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
@@ -78,19 +80,19 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v2 07/14] s390: Handle KCOV __init vs inline mismatches
-Date: Thu, 22 May 2025 21:39:17 -0700
-Message-Id: <20250523043935.2009972-7-kees@kernel.org>
+Subject: [PATCH v2 08/14] powerpc: Handle KCOV __init vs inline mismatches
+Date: Thu, 22 May 2025 21:39:18 -0700
+Message-Id: <20250523043935.2009972-8-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250523043251.it.550-kees@kernel.org>
 References: <20250523043251.it.550-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2325; i=kees@kernel.org; h=from:subject; bh=SyZieAtSFEV9PhSUW/pPII2GWOki6kjF+H9/UmF+VLY=; b=owGbwMvMwCVmps19z/KJym7G02pJDBn6v3/W2hxYfnr9mkd3prUpF7sxH1j6p+qa4A+jPlbJO ZrHeJwyOkpZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACaynZfhn9Ljrme7X4ZanbzI enOKheqe3dPnMBjFOf2a8H5d36lL53Yz/BW9v3h2neSzt9ozGS8uNX7i59RwPPZXRVlAzeyrGhL 31/ACAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1981; i=kees@kernel.org; h=from:subject; bh=yaSxmxtYpasuc+rufEWrdAWe3aDh1VboHkgvW7Uuxmk=; b=owGbwMvMwCVmps19z/KJym7G02pJDBn6v3+dEGvzLNyc4frZMlegpp5xqfLf4qvOhQ6vClwWG c4+vkWro5SFQYyLQVZMkSXIzj3OxeNte7j7XEWYOaxMIEMYuDgFYCJ6nYwMa39MVvl34OWuxWLC YitLL7uZs+fqxoq1bLk+uZ0hXWGaIMP/IouHmyfNuDCZ8fKpT88FFNw8Sr8vU98je2Fj6/LNOe9 62AA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_213941_849671_6B56E509 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250522_213941_900734_227D6951 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,65 +111,51 @@ When KCOV is enabled all functions get instrumented, unless
 the __no_sanitize_coverage attribute is used. To prepare for
 __no_sanitize_coverage being applied to __init functions, we have to
 handle differences in how GCC's inline optimizations get resolved. For
-s390 this exposed a place where the __init annotation was missing but
-ended up being "accidentally correct". Fix this cases and force a couple
-functions to be inline with __always_inline.
+s390 this requires forcing a couple functions to be inline with
+__always_inline.
 
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
-Cc: Heiko Carstens <hca@linux.ibm.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: Sven Schnelle <svens@linux.ibm.com>
-Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-Cc: Gaosheng Cui <cuigaosheng1@huawei.com>
-Cc: <linux-s390@vger.kernel.org>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Naveen N Rao <naveen@kernel.org>
+Cc: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: <linuxppc-dev@lists.ozlabs.org>
 ---
- arch/s390/hypfs/hypfs.h      | 2 +-
- arch/s390/hypfs/hypfs_diag.h | 2 +-
- arch/s390/mm/init.c          | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+ arch/powerpc/mm/book3s64/hash_utils.c    | 2 +-
+ arch/powerpc/mm/book3s64/radix_pgtable.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/s390/hypfs/hypfs.h b/arch/s390/hypfs/hypfs.h
-index 83ebf54cca6b..4dc2e068e0ff 100644
---- a/arch/s390/hypfs/hypfs.h
-+++ b/arch/s390/hypfs/hypfs.h
-@@ -48,7 +48,7 @@ void hypfs_sprp_exit(void);
+diff --git a/arch/powerpc/mm/book3s64/hash_utils.c b/arch/powerpc/mm/book3s64/hash_utils.c
+index 5158aefe4873..93f1e1eb5ea6 100644
+--- a/arch/powerpc/mm/book3s64/hash_utils.c
++++ b/arch/powerpc/mm/book3s64/hash_utils.c
+@@ -409,7 +409,7 @@ static DEFINE_RAW_SPINLOCK(linear_map_kf_hash_lock);
  
- int __hypfs_fs_init(void);
+ static phys_addr_t kfence_pool;
  
--static inline int hypfs_fs_init(void)
-+static __always_inline int hypfs_fs_init(void)
+-static inline void hash_kfence_alloc_pool(void)
++static __always_inline void hash_kfence_alloc_pool(void)
  {
- 	if (IS_ENABLED(CONFIG_S390_HYPFS_FS))
- 		return __hypfs_fs_init();
-diff --git a/arch/s390/hypfs/hypfs_diag.h b/arch/s390/hypfs/hypfs_diag.h
-index 7090eff27fef..b5218135b8fe 100644
---- a/arch/s390/hypfs/hypfs_diag.h
-+++ b/arch/s390/hypfs/hypfs_diag.h
-@@ -19,7 +19,7 @@ int diag204_store(void *buf, int pages);
- int __hypfs_diag_fs_init(void);
- void __hypfs_diag_fs_exit(void);
- 
--static inline int hypfs_diag_fs_init(void)
-+static __always_inline int hypfs_diag_fs_init(void)
- {
- 	if (IS_ENABLED(CONFIG_S390_HYPFS_FS))
- 		return __hypfs_diag_fs_init();
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index afa085e8186c..0f83c82af7a6 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -143,7 +143,7 @@ bool force_dma_unencrypted(struct device *dev)
+ 	if (!kfence_early_init_enabled())
+ 		goto err;
+diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
+index 9f764bc42b8c..3238e9ed46b5 100644
+--- a/arch/powerpc/mm/book3s64/radix_pgtable.c
++++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
+@@ -363,7 +363,7 @@ static int __meminit create_physical_mapping(unsigned long start,
  }
  
- /* protected virtualization */
--static void pv_init(void)
-+static void __init pv_init(void)
+ #ifdef CONFIG_KFENCE
+-static inline phys_addr_t alloc_kfence_pool(void)
++static __always_inline phys_addr_t alloc_kfence_pool(void)
  {
- 	if (!is_prot_virt_guest())
- 		return;
+ 	phys_addr_t kfence_pool;
+ 
 -- 
 2.34.1
 
