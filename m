@@ -4,109 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1D8C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 18:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF10C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 18:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pFLJ5GlXWyaVpKGcaOJizAWoSbXS7Xq7IH8LyXRYBis=; b=gqbE1IxV/H5SZ+cmNN5M1FkFjc
-	mT2suDrPVyvED+P/jFI4Qn8lZaMfuJQL7ohjTtfiGCkCmmQKvaLBeYJ1yxsAjVzuS+ZRw3jN6EDxy
-	A96Bbszc96JxnPNFhSoUdyB2aTV3QSWJv7SqAvMcZm+/FbUVulmAJWrMRet+TgstOoYmhg0oYfEiz
-	l9gITVdvpCeaYNOfkKNBxJ6NQpUoUf/Qu8uAbyH0lvHrGwL9A5Tmi8TMun8+HNR0ANdbyjZLm7mLE
-	Vuo+QZXeADZc42KzjxI6uSmOsW28sKmLqLtgu8aMQYrJ5xy4ufmyo/YQl7ZZ8wLuRFOc6Bqn6hgJK
-	+WANyTWQ==;
+	bh=l5vCfoIraXSZbKgf5sxlAur5joa25OqF8eoVqlpSdUA=; b=ooQZLwcdWWPstWxGk74jnzUPT9
+	PX8hN3bZWmvcZCIITF3X+Vu5r+kjgbgbxqFqvQIkH3nM2KiOTB9CfC4N/upMYBxzbhnSe6vLZ2bXY
+	zIjzHen8YERQFwHO93Din78ljtRDKK2O7YJcfWIs1SAuVIx6huVglTz0d1TX18vzXwUDR6UEFRaK+
+	Cj5XOCsjG8mWrSHVmrthyLB07ut6QLl6zy2fu8T7J2AaiJjMbHEj0CD+lS4iEIzZAoh3mqDbtPKtA
+	SQnZXcwFs6A2w6g50/0gO0Ag7KDRVxT8seuOQLjzRgWa8U2vLFkG/bYJ7HHOYLzfFr420HAB64+qL
+	MXBIBMog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIXWH-00000004jcU-45BS;
-	Fri, 23 May 2025 18:53:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIXYC-00000004juC-0uGx;
+	Fri, 23 May 2025 18:55:24 +0000
+Received: from mail-db8eur05on2060f.outbound.protection.outlook.com ([2a01:111:f403:2614::60f] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIWVV-00000004bar-28Hv;
-	Fri, 23 May 2025 17:48:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pFLJ5GlXWyaVpKGcaOJizAWoSbXS7Xq7IH8LyXRYBis=; b=KUOgezIAuTP1FsPgpShaTif5k3
-	Jd3vYtYfQFwe/Xdkb/b44YCX3pZOja00jj/yAP2fol5mfx0Zd4Mxs2/A8dnSAX0QxWcNLv50FW4Lc
-	48IrfHWQXR+MTV/q1DbTlSTczMmK7J3HlqHaiMT8/MFdYvaUWbVO9RXvLVLEVDMKt18+fD4+qDYd5
-	brpykbEBeslyGuqrpkcdJ3K0uzPe95lDLyNkOAtCCQFlbWC9uIzt9lqrCQRQnDTIhKCnBQSvQoTrZ
-	dM2FTuxMXtyNYev9p0GdUCP2u8nfkorpqkoJNzp8fa85qasr6s8p6/HWNWABX+L4UzLs22LScG6AB
-	Kc75ZvyA==;
-Received: from mgamail.intel.com ([192.198.163.16])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIWVR-00000001MHs-1grv;
-	Fri, 23 May 2025 17:48:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748022509; x=1779558509;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AqUynDC3Sw8C6ZtTMriTAeGFMTNBji4jXiQmc/rbw2o=;
-  b=EkFdnqv1ophR1OH0doEciObnAjIK6MORKCWmpzyxoFq1EjUedSDnRoUz
-   W6hkchZs4QWae6rnH5vGoxtuwPMHa41dV/i+drvL4+YDtJtFUpyQibpXr
-   09coju7HstH5bo8ZMarkjEJko34x9hIv4SNyvORtj1zCdBKfEacLS9Qym
-   qaWY1J1rYYz1VefBZHk+i3+U36XL/JhFrZgIpla+uzh8VGb/nd3QKmNvX
-   Kt5LmIu873PHXBMPMmTL/qKG9tacG1VZO45b0bcJb0ZyDUk2aRC5rWwA2
-   BKwsAyYZM9ZiHn/7FM+VpxySEHKWnhb2RhfHGhXzNvEqBRIyq43n540sL
-   A==;
-X-CSE-ConnectionGUID: CLhbDKMNSKCev2WBnSw+Mg==
-X-CSE-MsgGUID: MdwNu1DUQYOc8F8sOl2YBg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="37712261"
-X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
-   d="scan'208";a="37712261"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 10:48:24 -0700
-X-CSE-ConnectionGUID: lJrSde5yS5yz0+ah3FyjYQ==
-X-CSE-MsgGUID: VO9IXjEZT1W8X0PcYRPbOw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
-   d="scan'208";a="141740316"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 23 May 2025 10:48:18 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uIWVD-000QdI-2N;
-	Fri, 23 May 2025 17:48:15 +0000
-Date: Sat, 24 May 2025 01:48:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Rajnesh Kanwal <rkanwal@rivosinc.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Beeman Strong <beeman@rivosinc.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Rajnesh Kanwal <rkanwal@rivosinc.com>
-Subject: Re: [PATCH v3 5/7] riscv: pmu: Add driver for Control Transfer
- Records Ext.
-Message-ID: <202505240131.OJkUGGvA-lkp@intel.com>
-References: <20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c@rivosinc.com>
-MIME-Version: 1.0
+	id 1uIXW7-00000004jao-2TqE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 18:53:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B5VHfan4A/czimuhJqKQSLlWpnaR1NKFGALWb1NrKE4qxzPT8YltwgCfz19nQdHpPkTYGwiiXtaKbTd4uLsV675wLOhtXe9vk49Z2QdSqSpkSUuFy/5cwS2OWjQaBTFrY7DCfe8BuTD9eM86ISGEf+EYfBz9P9ql1vx4Xd5ajbr8f3I9Y8uOJl3Wc1hbz//AqlYjRarUbE3cUXsTzSWmAy9Q6B6exorRVBcNKcKkwazIv7MHLZPJU4G5LZhQi+UyUbViK7Hoy0v1B1pQ8C7jWZcoc7J9JLLZYlKvf5N1U1+Rpv9LWqmRMaqs7s3biqPvNHLik020/G9tQtAlVMEutA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l5vCfoIraXSZbKgf5sxlAur5joa25OqF8eoVqlpSdUA=;
+ b=Pz5k4lRK01DKc56W0EwoDqM6fLqayS5bq9VfJ5gVyBS6A8P/BjwEG8rFIeaODCMa3rZzPgh6osLA3aSiaZ/jf0S8oCv3X9PkgC+KwjdTyzQd3IsBZvbhGIr2CEcVbTq5UNI9YsDvaAuw6TiKRo/EnD564lWz+NprIhXHC8zJkBSLqMXSgG9JaQRGcRJmWNBZVEre1zuTaFzMzd8vkwbHb+mEK61+EZoh+Ta8wESObHoSQkY+DNWYXcHhkd4rSydYwMfuWq7CCkAxSfLFRi+DKeErJGubMXnJ3Kkmsz0D6qqSIwFNI+fkZi0N+RNL6W4683/QYOw6Vl+cxvD1Wskt8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l5vCfoIraXSZbKgf5sxlAur5joa25OqF8eoVqlpSdUA=;
+ b=K30SXaqbFVIZd5FdIEC2QCeWKsHyiJzWnYoJuFVhR2/pRXWwADUCRTV5zLtr+lWJyGtI7mvQOwXsVbgrlGKVVKdEXRWXSl95vGuWo29RR3EUN/aM8DaOljvozvpyyq+k1+8uaFeUa3bPT0dUxnURbsvkZPTjNxbraUKaxfEZxi8YB1cxAP9FHdfZ7tJxFOEPq4U+HTeZc35s9tGA/p76hnOt2wwNiKpvOyu6hJ3gmsNqaNYsV4UmPc0KRYNojylRcbd8n34E5e4Hl4pzALXdQHv4BokHYleQnpDsZfs7UmDoTpmXypVuCKIlTRPFqUs7o/cs94ydqGxdt4vaHikENg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB9775.eurprd04.prod.outlook.com (2603:10a6:10:4ce::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.20; Fri, 23 May
+ 2025 18:53:11 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Fri, 23 May 2025
+ 18:53:11 +0000
+Date: Fri, 23 May 2025 14:53:02 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, tony@atomide.com
+Cc: bhelgaas@google.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
+	krzk+dt@kernel.org, kw@linux.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-pci@vger.kernel.org,
+	lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
+	robh@kernel.org, tony@atomide.com, vigneshr@ti.com
+Subject: Re: [PATCH v2 1/1] Revert "ARM: dts: Update pcie ranges for dra7"
+Message-ID: <aDDEDrHz4PNOY4Gk@lizhi-Precision-Tower-5810>
+References: <20250411153454.3258098-1-Frank.Li@nxp.com>
+ <aC97HguxSt56BkHa@lizhi-Precision-Tower-5810>
+ <5a8a4f18-d5cc-4fd1-aeda-2e739502e0eb@ti.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c@rivosinc.com>
+In-Reply-To: <5a8a4f18-d5cc-4fd1-aeda-2e739502e0eb@ti.com>
+X-ClientProxiedBy: BYAPR02CA0019.namprd02.prod.outlook.com
+ (2603:10b6:a02:ee::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9775:EE_
+X-MS-Office365-Filtering-Correlation-Id: 149f92f3-c254-4dde-0c88-08dd9a2b10de
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IOCLmhJSA8v/x5L7WklErxlCM0AdFT7ObC+yb6k41TlwcPFzjlCjJZ3EVj/q?=
+ =?us-ascii?Q?nVnIdP50t2l6IH6pABJ2AGWLcffVVvELb2o/U37BnrSjvGQGdJk93phHQ7js?=
+ =?us-ascii?Q?BXWwbLFKYNkQke7h+NmdFbbF49R6SvEEwfZHSRcOS1XWNbI0EUsVt+brxlC2?=
+ =?us-ascii?Q?6FaZq+69GtE9U2TsG+i94zeXIDfu+qSU1EtFc2vRDNQwRe0JwDQBEEkbVmt4?=
+ =?us-ascii?Q?Th96hMB0vQr9vAUEGn2tgzgNIg+yYr2MuZoHQFsNWrR6sLoC3JjNoWEKQcxF?=
+ =?us-ascii?Q?YM2IqZdkFvMs+ovG300x5yav/0zbyz6fJLQSwPD2ciuc9QbSqBHD0SmNzKaG?=
+ =?us-ascii?Q?isiSKfP8YYq7VJtwdt/Ay0deFBi7qTeJVVloyp4g2ihi8FTWz347T3/vLLrz?=
+ =?us-ascii?Q?xn8hnJYj+5g1gfwZtJFv1jrjHcJ31fvEvfc1G+LVzt6x2ZzDTaGsQVF7IwZk?=
+ =?us-ascii?Q?t6Qht/300bv8ztoPbeAjRAIyPuUdpDFFV1K1aUYjmsuFupy8DiaPOG9S659R?=
+ =?us-ascii?Q?/dRKpon+sKc7z7YjUbm9o46rrGzX85TdLXo5ozKrSfNcIBmR5r6muppg8ZUq?=
+ =?us-ascii?Q?jS6wOeK+9W74uAPoWy9pH6fAuRP74Ld0X9F6MeYMZ3iw7G0AaRuxu565kZ9A?=
+ =?us-ascii?Q?2vWyk5cGZVmYv7bC/PdbnBw6hPiLKl6NVkSTnJ+aF75JUEyoZpuyjBGpRzOg?=
+ =?us-ascii?Q?6qUpEOltBxBi9SprRCfHolT6I7618lyvzLg+nwoOIdhu7p/KFdMcaBKiDLni?=
+ =?us-ascii?Q?wIl2M8C2hpUFqMR5MHx8cp4kQ2VSvVUHs2T07BhXsxyy8umGcnx3gr6ciGvc?=
+ =?us-ascii?Q?B1Uj4XbQb7DLm7Gm0dwupaiAcGbI1QtCv7EApjf16nnsuxh2MZHDrwz7DLcB?=
+ =?us-ascii?Q?nnwmDGAtG5HybGibFoZzD5cvmKDCjq0KdGwiIDgw19V/RuQLpMYuRg9kv2Xt?=
+ =?us-ascii?Q?0DLZE9H9eieLMKmMVif0izoA84ytEbEAzJACappKmVtzATK6shrnxSgISqRy?=
+ =?us-ascii?Q?RchfOShFTMykG3hY8A1rX08xZ/udUH3u7PUojOhfeQf/UGupYHA/jlcxM07s?=
+ =?us-ascii?Q?lUfLuHA1WunmtwdekA4la6PhlPpqxt2u/x5GktSH1/4Dznl0l+RPsMwYVxHB?=
+ =?us-ascii?Q?zJ60BJGAlYPFDaz4fw9h6rb0nDjjjNnnSWjSRT/kQEdyt3//4unjImNkPbTo?=
+ =?us-ascii?Q?kGGt37HvU74uTDKrDQrrfNnABNUo47PWYIdZRM8SLZUHw+XTgLR5DMxN2gnY?=
+ =?us-ascii?Q?2mQlhL7nHaJ3J8EqPY0Gp922jiL1Y6cYBb2CSmxw2pTo+grgyFhIz1r/RZp7?=
+ =?us-ascii?Q?3kBHH9+m2KPlaBF57vU42y3XBjV9VMInulc1NxUOyGi68uEFNQ0HQkXPaeoy?=
+ =?us-ascii?Q?o0HQzF6MZl3JigdXx7xDnOp1M2E4sbdY+4bS0GJZ/nxcMwCRyBvz/PXaDsDb?=
+ =?us-ascii?Q?eUnILMRljTxyBTrUzMygjvEVUyssZzXsLMtxeIrAtFVpkliN3srhyA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+Kajt4/cMSbvO/IORlh9TecioNr+n67moP5lo6QZOM2iahrKNJ3aNxaZHOBJ?=
+ =?us-ascii?Q?aQN/DswAv9hpJgzHC175y6+oMUabHiYBDwCG5LGN85iwvElSY887F3SBjaNl?=
+ =?us-ascii?Q?wAp0Ge1D/qD8A9QZqTCa3YIYGYc5Y+PzFqQlkDCGC24tFZjYZLsb/gEfhC7t?=
+ =?us-ascii?Q?fmY1nR3z1yseE9eYbYr/AcdJBc0o4ssirSVnfoZAGQ2kKX2ubjRg6C0yLeXR?=
+ =?us-ascii?Q?Er4PfkJFVQIFcfvg/vXMl0y7SAjOOXya9BrJJlKIwI+CYgvMIB2XD4fkI+GX?=
+ =?us-ascii?Q?MdLGPA8v+oCMYwlRk9AsYNCpfR65Mnh8x8rn9EbSX0V8ZGWgPdeRJQvzhazE?=
+ =?us-ascii?Q?X2vVt56lHpXGNZvUZdw/bkcFaRnyW56Bj5BomVZ5bvuFvp+M0q38E9/2h3sS?=
+ =?us-ascii?Q?T6mkpXRUYgpEux54cw014Tvpxf5MRXZ8W92HdCmDWARV7H/kaLzX21AhjRdF?=
+ =?us-ascii?Q?qk2CfAgbjCnFb5rLLyL3OaeX5uGO2nBXcfhuhyV+2u6UMaJAWuH2fN1xJrR6?=
+ =?us-ascii?Q?QYxSg0IcV3yLs/ckxB9A0UfQigqGlXueFIvonSCr3u0rgV1GGK5eacGh9r48?=
+ =?us-ascii?Q?Oq3lv3YUPENOVNl1bNI5g+AbcXlMQ1IGYWrDpDpaJvCf6SecocPOHCLctxQI?=
+ =?us-ascii?Q?vZP+cDNZTroJS03oQwGyWF+YsX53jC+cyLVSesulI/a01gRtsfpbxHD0eu5R?=
+ =?us-ascii?Q?b1HLfbZa5eFSK4F7dDL7aGNGUxulzN0ggZhgTw5OgymBahcpxi09n+VdR4DG?=
+ =?us-ascii?Q?KbD74UwMk5D7r+1EXZgxxJ8XfWpE69fyB+8uHak0XNuFrF+cW+aAevrL5SPA?=
+ =?us-ascii?Q?j5KDCb7A5K6I/3UMzIR5SK1sOxFCz6uXB8PEK94/fSll9D306oIpi5gu3ZbN?=
+ =?us-ascii?Q?t+s9XPjsCvopS0UqVQQiY884L8xKpphm1PtsoPzQdNJOXzmyE50eDnR+7/68?=
+ =?us-ascii?Q?Tsu6YuDEI6ofQJ6xOD47x6MLh87K49+RoXdU5pBQIEAyccR90K2epfuUkA7D?=
+ =?us-ascii?Q?R9BAEQq/mthn4ERwPDinfNtWD9EHnQNR9T51yr5+r+5CcmUAkc5F58KS27S1?=
+ =?us-ascii?Q?QyOkp4a/pJXw2HKr1B09caepiKZ8UgDtprxFudtZ1Aeg9/oHAZj3IH5/LenB?=
+ =?us-ascii?Q?bmZNCspIah8OXnjWFa7A4gxd11H0TEet4fDkBEF7fLwLy7qkaVjDwIse3Toq?=
+ =?us-ascii?Q?VxwHRaAS+luwJIpW/EelpMRNWFxpbNLG4bY6S08p/AIoGdtzyW3VTGGdf9Dl?=
+ =?us-ascii?Q?dm/xc8dsBF8GQmmXjFIurZJMEv/zI8nGRslmllaNmPzQmrkjILc45+fO5gK6?=
+ =?us-ascii?Q?o6emX2PDeoxUoqXgzM6dpqwGHFbyi954o6bTnrSo1u/MqLcPFHfti3mxUQre?=
+ =?us-ascii?Q?684iCh9gpKj4UNRjGC98tGz32w6PWqmsWo293gPE1/u1YtlvppQPC+Fnm842?=
+ =?us-ascii?Q?1rSHxMMUglpGvN9j7XHiYNVvFzqXVxsF4nP5xqNnIh9dYqRcJIk/II8vsO+2?=
+ =?us-ascii?Q?Me0x73gsCkgyRxOJZf8BW3GlUyju/Akz2J3B+Iw835O7tU7b7pNn2xMxhhrj?=
+ =?us-ascii?Q?2RX8PjTAbsCV48Ab4EtnWe4b9h2j5qsBmB9sx6so?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 149f92f3-c254-4dde-0c88-08dd9a2b10de
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2025 18:53:11.4832
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RO8oEfjJZjnTS1vdKQyd69Lokskl656LjJsS2NeRNBoznuK8BBUNF6cloCyJ7CthPZC2yLgbyEnnU+Fwt58wgw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9775
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_184830_084494_74703BDF 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250523_115315_631926_60C2A83C 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,75 +161,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rajnesh,
+On Fri, May 23, 2025 at 11:02:38AM +0530, Siddharth Vadapalli wrote:
+> On Thu, May 22, 2025 at 03:29:34PM -0400, Frank Li wrote:
+>
+> Hello Frank,
+>
+> > On Fri, Apr 11, 2025 at 11:34:54AM -0400, Frank Li wrote:
+> > > This reverts commit c761028ef5e27f477fe14d2b134164c584fc21ee.
+> > >
+> > > The commit being reverted updated the "ranges" property for the sake of
+> > > readability. However, this change is no longer appropriate due to the
+> > > following reasons:
+> > >
+> > > - On many SoCs, the PCIe parent bus translates CPU addresses to different
+> > > values before passing them to the PCIe controller.
+> > > - The reverted commit introduced a fake address translation, which violates
+> > > the fundamental DTS principle: the device tree should reflect actual
+> > > hardware behavior.
+> > >
+> > > Reverting this change prepares for the cleanup of the driver's
+> > > cpu_addr_fixup() hook.
+> > >
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> >
+> > s-vadapalli:
+> >
+> > 	Any update about this patch? it prepare to remove cpu_addr_fixes()!
+>
+> This patch looks good to me, but I was hoping that Tony Lindgren, who is
+> the author of the commit being reverted, would provide feedback as well.
 
-kernel test robot noticed the following build warnings:
+Move tony to list.
 
-[auto build test WARNING on e0200e37637e573cd68f522ecd550be87e304c6c]
+Tony Lindgren:
+	Do you have any comments about this one?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Rajnesh-Kanwal/perf-Increase-the-maximum-number-of-branches-remove_loops-can-process/20250523-073341
-base:   e0200e37637e573cd68f522ecd550be87e304c6c
-patch link:    https://lore.kernel.org/r/20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c%40rivosinc.com
-patch subject: [PATCH v3 5/7] riscv: pmu: Add driver for Control Transfer Records Ext.
-config: riscv-randconfig-002-20250523 (https://download.01.org/0day-ci/archive/20250524/202505240131.OJkUGGvA-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250524/202505240131.OJkUGGvA-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505240131.OJkUGGvA-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from arch/riscv/kernel/asm-offsets.c:12:
-   In file included from arch/riscv/include/asm/kvm_host.h:23:
-   In file included from arch/riscv/include/asm/kvm_vcpu_pmu.h:12:
->> include/linux/perf/riscv_pmu.h:156:76: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
-     156 | static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
-         |                                                                            ^
-   include/linux/perf/riscv_pmu.h:158:13: warning: unused function 'riscv_pmu_ctr_add' [-Wunused-function]
-     158 | static void riscv_pmu_ctr_add(struct perf_event *event) { }
-         |             ^~~~~~~~~~~~~~~~~
-   include/linux/perf/riscv_pmu.h:159:13: warning: unused function 'riscv_pmu_ctr_del' [-Wunused-function]
-     159 | static void riscv_pmu_ctr_del(struct perf_event *event) { }
-         |             ^~~~~~~~~~~~~~~~~
-   3 warnings generated.
---
-   In file included from arch/riscv/kernel/asm-offsets.c:12:
-   In file included from arch/riscv/include/asm/kvm_host.h:23:
-   In file included from arch/riscv/include/asm/kvm_vcpu_pmu.h:12:
->> include/linux/perf/riscv_pmu.h:156:76: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
-     156 | static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
-         |                                                                            ^
-   include/linux/perf/riscv_pmu.h:158:13: warning: unused function 'riscv_pmu_ctr_add' [-Wunused-function]
-     158 | static void riscv_pmu_ctr_add(struct perf_event *event) { }
-         |             ^~~~~~~~~~~~~~~~~
-   include/linux/perf/riscv_pmu.h:159:13: warning: unused function 'riscv_pmu_ctr_del' [-Wunused-function]
-     159 | static void riscv_pmu_ctr_del(struct perf_event *event) { }
-         |             ^~~~~~~~~~~~~~~~~
-   3 warnings generated.
-
-
-vim +156 include/linux/perf/riscv_pmu.h
-
-   152	
-   153	static inline bool riscv_pmu_ctr_valid(struct perf_event *event) { return false; }
-   154	static inline void riscv_pmu_ctr_consume(struct cpu_hw_events *cpuc,
-   155					      struct perf_event *event) { }
- > 156	static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
-   157						    bool sched_in) { }
-   158	static void riscv_pmu_ctr_add(struct perf_event *event) { }
-   159	static void riscv_pmu_ctr_del(struct perf_event *event) { }
-   160	static inline void riscv_pmu_ctr_enable(struct perf_event *event) { }
-   161	static inline void riscv_pmu_ctr_disable(struct perf_event *event) { }
-   162	static inline void riscv_pmu_ctr_dying_cpu(void) { }
-   163	static inline void riscv_pmu_ctr_starting_cpu(void) { }
-   164	static inline int riscv_pmu_ctr_init(struct riscv_pmu *riscv_pmu) { return 0; }
-   165	static inline void riscv_pmu_ctr_finish(struct riscv_pmu *riscv_pmu) { }
-   166	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Frank
+>
+> Regards,
+> Siddharth.
 
