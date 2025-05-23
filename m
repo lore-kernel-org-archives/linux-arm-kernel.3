@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C9AC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDFFC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=788C6AM16+RO/cYywCWLAznLOjBQMBMvOvdVttkXvAw=; b=OVx7tE5gVokMISJ7yQ3V5DsbDX
-	4OaGUTNNf39pukJ26Q02/O1xGAmtNuN4Pr2fhxqHmzJc9J4X/iWZL4L7Au8tNBTXWadEWrylkzKrf
-	7XQIqAXJbH3wOEA38MVxjjfUxT3p/oBZAd+NC1JeaTPCTAiU6V6WP4oSAZajhnHYhEpNEDYbS5Erf
-	70f5WEt5JHks5GC0yObA6wZM/gAg720VshEDlirt3toLccAGX70J0D5RjH0xie+ne5MQO52BQx/wt
-	J2OrvjxgxCyk3dygKvvDUwDoCxCiD39Isf4cQRVc/cThvxQb4RFQPIbdru5WCxUMrPmIV6+rryTVI
-	DkRjFrog==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C5mooXssIfONamFT13G1WImO+CZOWJEhgLulOiiLxr0=; b=3se8C8jHHamvfcCKIVKNI1fxTR
+	iym88WHX5xF4z9ak0CxM3/U7H85UvYlhjHB5OnCKsucCqy/5A2T8PEaB0HhNiHV4Jkxigc4etRT0u
+	Zf0aVfZtEZm+xLHaHgJk+iLXhBRDdfNUzsbU5kD9jyEf43oR5mi8XOVYQ+TWcbjdDMwBWwBJHxaeK
+	qq08I5plEPqknrHrVevN3FxmkFmUrPUjim7W9lepJe8lCqV/qo1hM8lxJmM9+/n55szf7jUx7n6Xc
+	ULcpzntiVb5di7ANl6ahVxf9jHH+Z9fvWBctbsvMvewZP2Fdgw7iRp3uvawCG2Sj0RMpqaDb27jw3
+	ccwH2mhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIRCL-00000003m7G-3W3q;
-	Fri, 23 May 2025 12:08:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIRIt-00000003n5i-3weQ;
+	Fri, 23 May 2025 12:15:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQ9h-00000003fDN-2RY1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 May 2025 11:01:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=788C6AM16+RO/cYywCWLAznLOjBQMBMvOvdVttkXvAw=; b=KHs5NjUs5b8H9OCOII/8m8PCFd
-	S2yU4bp7SHnrqrvN9RHvHbRyVP2elA7qPQ1DtY0nQ/mwmwg5224lKDScMNZKktfW34DTCdAeldbWI
-	LjgMOSwIJkdsixVLjT9PpiQfdQgkrlm6zuBW0IJgyXx4Q7xqrJfUr6RqdPDKXqO4fovU/8VTcF1zJ
-	qa/g+Gn6VIqr0VGv7ziEhyJspDDmjSnN6TaQaGfUFsFPdzc8CV2JLv0ubtGjy0pBfEiKtkZACGJiP
-	qS8DBDWxCYi70iiy9iNlLo6OVnTx3kmrS0wbe5cv8zt0ZOgW1pd27svQiKsjunBAhwrcolQd6eofK
-	iMIzqVig==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIQ9e-00000001HTA-1itz
+	id 1uIRGp-00000003moH-3fbv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 11:01:36 +0000
+	Fri, 23 May 2025 12:13:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D1D4A5C70F7;
-	Fri, 23 May 2025 10:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91CD4C4CEEA;
-	Fri, 23 May 2025 11:01:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7C0E4A4F765;
+	Fri, 23 May 2025 12:13:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A84FDC4CEE9;
+	Fri, 23 May 2025 12:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747998090;
-	bh=9loMDs0wNC/4CPZhZBtMbb/MHaiUqpZY4NUO5J6p9hI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=azERMFURc2zj0S9nkfN3BwfhmkzPD2mjGXbz09oWMrdp45wveeRoLUdp3O+mfAOQ0
-	 MoMuLbDm+erizFRZByCx3qmGuqOCeBHbEx+dOY16TvaeDOgF+EsZr80bQlYcI41OV1
-	 ejYqdvD7UNgG1sel7m5mSOaUwlREkBMqNSsrS4WHra9moGxWdN0NkOP8iX+9QrJ+eW
-	 0oL9RUrcMLeVHeYV6EKTIFgg6UhNfn8e+ShLjEfOKSG5E5SRdunFHbd+3463uQnYqq
-	 sZPiSIAPv1XujFexFOFdMnJ8GbyWbV/hDfdGmbsZZ98miGy8h9W3QHgt5dbnEba/wZ
-	 Z2APcVvApywiQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uIQ9Y-00HYcR-Kq;
-	Fri, 23 May 2025 12:01:28 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
+	s=k20201202; t=1748002382;
+	bh=hcgJywXUeqcfDYKiMg3vHV01/zX3zwztfEiViOg12aE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qcmuQ6FUdDpddr5PnkdyEGBTodooVk9KnxKHBGspPYq9i7COvkSZe0MALo22vQ7M2
+	 4WO9QXIYgdFKj6M3pXQL0RlfPYeRsbNINEjxh+UamxbQPyXgvHSuHOZ8o8V1i+d0G0
+	 6j+wKXoMeIKHbJj0copuFoNuDcVOyn3CeqvNvC4p8rAEOfifwU7RdxzYijOnKCiTMG
+	 oRhrIi/XsJ0UAtrJ/82A3hFIK02EQECEi3QWJhQogroBDEKQLYoKaJfxEYF/nNAr0l
+	 W0EJqm5gQ9ljEZm3uCbdEhYl3+vUuYksaPc0QeffPw7Q4uJUTueqmBOJ1XM29wP10L
+	 iJiAOZG2movLA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Rolf Eike Beer <eb@emlix.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Nate Watterson <nwatterson@nvidia.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH] KVM: arm64: nv: Release faulted-in VNCR page from mmu_lock critical section
-Date: Fri, 23 May 2025 12:01:13 +0100
-Message-Id: <174799806251.145825.13963857244128795511.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250521110435.66273-1-maz@kernel.org>
-References: <20250521110435.66273-1-maz@kernel.org>
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] iommu: arm: fix building smmuv3 as loadable module
+Date: Fri, 23 May 2025 14:12:53 +0200
+Message-Id: <20250523121257.2340274-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_120134_665033_8CBFD1E8 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250523_051303_973721_3165D322 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,23 +79,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 May 2025 12:04:35 +0100, Marc Zyngier wrote:
-> The conversion to kvm_release_faultin_page() missed the requirement
-> for this to be called within a critical section with mmu_lock held
-> for write. Move this call up to satisfy this requirement.
-> 
-> 
+From: Arnd Bergmann <arnd@arndb.de>
 
-Applied to next, thanks!
+The smmu-v3 kunit test fail to link when the SMMU driver is configured
+as a loadable mdoule:
 
-[1/1] KVM: arm64: nv: Release faulted-in VNCR page from mmu_lock critical section
-      commit: 538fbac74019c13dac341b20fbcc1e96c9a8d01e
+ERROR: modpost: "arm_smmu_make_cdtable_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+ERROR: modpost: "arm_smmu_make_s2_domain_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+ERROR: modpost: "arm_smmu_make_s1_cd" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+ERROR: modpost: "arm_smmu_make_bypass_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+ERROR: modpost: "arm_smmu_make_abort_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+ERROR: modpost: "arm_smmu_make_sva_cd" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+ERROR: modpost: "arm_smmu_get_ste_used" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+ERROR: modpost: "arm_smmu_write_entry" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
+ERROR: modpost: "arm_smmu_get_cd_used" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
 
-Cheers,
+The problem is that the drivers/iommu/arm/arm-smmu-v3/Makefile only gets
+parsed while building modules, but the driver itself is accidentally marked
+as built-in unconditionally, so not only does the kunit test fail, but the
+entire driver is missing.
 
-	M.
+Change the driver configuration back to $(CONFIG_ARM_SMMU_V3) so it
+actually gets build here.
+
+Fixes: e436576b0231 ("iommu: make inclusion of arm/arm-smmu-v3 directory conditional")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/iommu/arm/arm-smmu-v3/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
+index 6cc7c8557b9e..493a659cc66b 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/Makefile
++++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+-obj-y += arm_smmu_v3.o
++obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
+ arm_smmu_v3-y := arm-smmu-v3.o
+ arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
+ arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.39.5
 
 
