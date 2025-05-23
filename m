@@ -4,87 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B230DC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0CEC54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 17:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=15n3jb6X6nc1Ptss7d0u5htP58z40RIPOIkeUdClyjQ=; b=zZTWU1iXdPps9RC/EmXmqCzHzk
-	vq620W5Y6uuvp706Mexj5us+5hBfqV2Gatg19Jn0hDYjDJq1BGNxe6SHNpdIvNlSipdx1a5nLbdzt
-	WWj5Ne8WBvdfyPX/q5UwKiP9r2CaUrhokPqeUZdhLswbk0jrgLgpvbyqDdfI2y/E/eDJ9dcL1jUa+
-	0Qr+aUobzsatobwweBquElbzm2UM1YeqOHXTYxcY/xzvIge+AZTWNSp+I4iT1S2yD8xu1tFEDWYZD
-	ClVANElogThy7+G4j6feQWIMVOSAciw6HTcpquVjVzL0wYHxdVeQP2+YiTxsKj6M1K3sPgVnpS8x2
-	2ZQKQVPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uV/pjlPBiCsCwTtFEFEknHpW0wdS4DsNlsekE5grkJQ=; b=v/4HVy4qNboJRXx4Vps2JefzUs
+	7QZXc9IBQtQatDE7wgzoOMtHP/CGSaoxi37S9QWDIutYiiRzy8aXvrb1vDFpF/HUPVaoXYwmlWq6N
+	gVan6o6Fkx/EE/dnim35lGgkTyyfJSa6mNnOcvvpkN6ZPCjluKZccjfMRzO/Nvyk+xSyM0fH32xDU
+	r4x4NGXQvOb+xHAsYVK+Y84x5Z6paQrAaBIMl455b1k7lBmOMMNP1FlqaMyia3g/jTrUxwc+XFlNQ
+	ql//b2ftiQqfSXSC8BpLDVTG2YzKB85wRLMlV3Ma+D8oP3/wtY9PxbvNt2V9mT6sQTwJgqde3OTLO
+	2QUrK5Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIVip-00000004TNV-28ur;
-	Fri, 23 May 2025 16:58:15 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uIVks-00000004TYQ-1645;
+	Fri, 23 May 2025 17:00:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIUpp-00000004Kig-1Cx3
+	id 1uIUqf-00000004Krj-1jUG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 23 May 2025 16:02:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=uV/pjlPBiCsCwTtFEFEknHpW0wdS4DsNlsekE5grkJQ=; b=S2Ea4h3eAKJAck0lpGrstUOLkx
+	8jZoghJrryOKc+DksVS9ok0JjAvcxt0q9IK31dD5b5G0kDbzVCI52P5D8aQRr1ur/alHtjjASD6Hw
+	SG/L6Qcqk8IsS6YzD8LfeqG2Mn4YF3ZCTKuR03UJ5RJ91SV1IxL6LnpaZSd/rn4ingmLMo0ltVBiQ
+	aoJoKYfL0G2eFjf8TbFfWCruzK6dvemG17+eMLrr/HbZTw9fBtwUo/ys4Zc7fwEqnZzQi36XmCVXO
+	f6xmh7RdWprXKPBTSPoeCBs32+j0KLeRL5PuAftn1fG/qvBBFr1aSUtnraCwCX7YE7mK4rR5I3xpr
+	V8B/GzoA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uIUqc-00000001LmG-0AuR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 16:01:26 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-44a57d08bbfso16366995e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 09:01:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748016084; x=1748620884; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=15n3jb6X6nc1Ptss7d0u5htP58z40RIPOIkeUdClyjQ=;
-        b=GSVKmstZJ46BTEwJ8LMrZWpKTaS7VKoQ7x0FW3hIhNkixbBLpwvtiTwwJJZfW5+lL7
-         qZt4A7tcnYpZbD6ayTh1uk8g38vIpcmjYLSslw7bWEmbW/Eqk6vmt89Fe5CY/3bW4o/Y
-         nRJ5Raes4UCfAWyfczSqZf9JNSw0Si7ZdDyMmmsSUl3/pUWCiEihD2PTtYzgMtwATdc+
-         j0E8uqUvcKD9U9O16hFUfw1ukRT7EXBlBrB1zf/M0P9cQ5J+YWBFEsRFlcuIczBA75rF
-         /Kwq+Z/xO5NZ+X7M07KpRgrhXlWhsl8UnnPOLw+5RbzbDDUGgnf/zi0sW8p+GMxRI1TK
-         JSVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748016084; x=1748620884;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=15n3jb6X6nc1Ptss7d0u5htP58z40RIPOIkeUdClyjQ=;
-        b=YrKToCA9A5hpiMLxsfgl0ihmBUy2D3+NLfzwLBqTdhAkkfZ2hDNf4DJj0oXlTdtHOg
-         emAw7QyEwunE+SrQY1HqBoD5oz/wCGjPlY68MKjMIDZkiMYFFCF+YPebY94leNoiDTHe
-         KkNzxu4UId9aJjG/JgexJQvEmwTyVsybkndCPIDZip6l5ld9HVqHmzY8X+kN03Iow+OS
-         QLMEssxaqNUwD9leMB7CI5Bq68Bzq9G1x/mHMZcrLNOusxiR+3XFrxuby65gxJ0PQxYu
-         8SmuNbxgjlZBGCRI4V0TO5vkF9ePfSphrGfuZrJhagqzlMhdQdFzkbgKg7MOttdtScee
-         NH8w==
-X-Forwarded-Encrypted: i=1; AJvYcCUmjMJuuI9CW1ZOdnuysDo1QivRI+SZ9LkVgUnxCF2v5TchB2BxB69XjP/rplb5jKqz2unUaVTZ/CW2Z31qlVTZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzt05fxkd/LcQneXyssjtf7hTHN5LJMoqOw5sVL8PEF9Nm1Gt95
-	yIcd9+YgIVPpYEeRywblCroweft1QsUyZHkFXdFo3vOea1MvNEnVaDdBzTHPjBLCjN0=
-X-Gm-Gg: ASbGnctrl4h44WH/OsQTlerPoANwpuKM86lfL1F1tMom+SrRNYswjRftWLzxrDCm9JK
-	mplCCf050ynyjSh0gyptxRwlH88o2YYnpSp4fKJ4mjYTNGJE+AguZ+yk74HS+T7XMr2nOcFHW9r
-	mA8SC6UHm+RqVjGeXPEsHoTqeth0Fx/5ItlLbHhZikIE/VTY5aTTnZN9TfLgjBjUZhXpNS5ph5n
-	F/AecE2I8SxH6bLs8IKbUftxd2jp346/UkLgxpbZUH2OXyGknVpXibvTheNstM/hs/ljx8i5Tjr
-	kq51uEu6aUs8wfXSiMaATNlI3gko2nVDeS8HWQy0tDOIX6dygHti9pbp
-X-Google-Smtp-Source: AGHT+IF/THP6E9ZS/GCIatMYe54LeoFTYKNGEZBFtW+dbZFIBIbOWxAiwtQRKvPBgXMHhn/LPjXNiQ==
-X-Received: by 2002:a05:600c:1e1c:b0:43c:fffc:7855 with SMTP id 5b1f17b1804b1-442feffb6damr331857925e9.15.1748016083583;
-        Fri, 23 May 2025 09:01:23 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a364d2636bsm24546310f8f.99.2025.05.23.09.01.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 09:01:23 -0700 (PDT)
-Date: Fri, 23 May 2025 19:01:19 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Subject: [PATCH] coresight: fix indenting in
- cscfg_remove_owned_csdev_configs()
-Message-ID: <aDCbz3J5wibnW60S@stanley.mountain>
+	Fri, 23 May 2025 16:02:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A93155C5A8F;
+	Fri, 23 May 2025 15:59:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBDF2C4CEE9;
+	Fri, 23 May 2025 16:02:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748016128;
+	bh=qgYSTT9XcSyqI+DBeYRkhP8s0z5sSZV+A60zwa1m+G0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=B1cJjoD22VVrq7n3ZjtSjCKVoJHel3VRZawP05ZnRpXIj+3lQiQJUxTt1+DGwjiXj
+	 qiD93PYBeFeRoR4Y3uogSidZFUVxB7MStQE+euuIHup4TCaudxawDUawpio9ybD3fV
+	 AhaIZCgcDC/8VysRupdDwrUkEyvyKG0zpXtpASfDrEGSCKnxvivqTg5i0KP3P9b+FB
+	 mmLwMGNrE7wvYDNWfWFIHneeun9Yry7a5r75iW1d1T3oepXmg2ZnV6I2Usv1sfwjVf
+	 xTzDLnpyvW96MaSXDzQ9odJXIZZEAHIUziVTI2IlbG+IwS5CJij5MfbH4ZTOpxNbdp
+	 qxaXWEl1wc40g==
+Date: Fri, 23 May 2025 19:02:03 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: linuxppc-dev@lists.ozlabs.org, Peter Huewe <peterhuewe@gmx.de>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	linux-integrity@vger.kernel.org,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>
+Subject: Re: [PATCH v5 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
+Message-ID: <aDCb-wkHGoLQ-IGg@kernel.org>
+References: <20250514134630.137621-1-sgarzare@redhat.com>
+ <20250514134630.137621-5-sgarzare@redhat.com>
+ <aCVHQ-LRqHeEVEAW@kernel.org>
+ <CAGxU2F5AsNY5mQPd=qajW1seFYHSYpB0Fa1iuR_f2QavtoB6sA@mail.gmail.com>
+ <aCzf6aoJAC-IdS_n@kernel.org>
+ <CAGxU2F6rfqGV_gJk-JxrCk3f9dWtYn_3o9RODh7cVG0X_oQWaA@mail.gmail.com>
+ <aC2nBCxkvWWz5y5E@kernel.org>
+ <aC4CVUXpThAyKQdf@kernel.org>
+ <CAGxU2F5zQJR4GvZ9ovtQBqMFGs-wBMoCRks=JYQ1JF6qMKK-6g@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+In-Reply-To: <CAGxU2F5zQJR4GvZ9ovtQBqMFGs-wBMoCRks=JYQ1JF6qMKK-6g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_090125_323519_D352DE10 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250523_170214_306210_7CCB7958 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,27 +107,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a tab to indent this line.
+On Thu, May 22, 2025 at 10:26:34AM +0200, Stefano Garzarella wrote:
+> On Wed, 21 May 2025 at 18:42, Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> >
+> > On Wed, May 21, 2025 at 01:12:20PM +0300, Jarkko Sakkinen wrote:
+> > > > I tried, but the last patch (this one) is based on the series merged
+> > > > on the tip tree, where I introduced tpm_svsm.
+> > > > I can see that series in linux-next merged with commit
+> > > > 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07,
+> > > > but I can't see it in your next tree [1].
+> > > >
+> > > > How do we proceed in such cases?
+> > > >
+> > > > Just to be sure, did I use the right tree?
+> > >
+> > > Thanks for the remark. Lemme check tonight. Hold on doing
+> > > anything ;-) We'll get there...
+> >
+> > I just rebased my branches on top of latest from Linus. That is what I
+> > need base PR also on, and:
+> >
+> > $ git show 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
+> > fatal: bad object 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
+> >
+> > I'd use git cherry-pick on a range to take them from linux-next to a
+> > mainline tip...
+> 
+> I see, let me know if I can help in some way.
+> 
+> We can also wait the next cycle if it simplifies your work, definitely
+> no rush on my side.
 
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- drivers/hwtracing/coresight/coresight-syscfg.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Let's do it. At least it will then get a full round of testing before
+ending up to a release.
 
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
-index 83dad24e0116..6836b05986e8 100644
---- a/drivers/hwtracing/coresight/coresight-syscfg.c
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c
-@@ -395,7 +395,7 @@ static void cscfg_remove_owned_csdev_configs(struct coresight_device *csdev, voi
- 	if (list_empty(&csdev->config_csdev_list))
- 		return;
- 
--  guard(raw_spinlock_irqsave)(&csdev->cscfg_csdev_lock);
-+	guard(raw_spinlock_irqsave)(&csdev->cscfg_csdev_lock);
- 
- 	list_for_each_entry_safe(config_csdev, tmp, &csdev->config_csdev_list, node) {
- 		if (config_csdev->config_desc->load_owner == load_owner)
--- 
-2.47.2
+Thank you!
 
+> 
+> Thanks,
+> Stefano
+
+BR, Jarkko
 
