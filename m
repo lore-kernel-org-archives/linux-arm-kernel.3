@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2747CC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F26C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Df2Q3fuPwWw5m5FTTsUnC0T8NoyShH+UBwJpTi70NdE=; b=U1RkUDmAf8bIqhw6zUVWz528Qp
-	lrKLBcAiglPTV406rtIMxeclIZGKWb2KC4rsdzAKf2gw8sKlownNxnx/mYTj0HXW/JkBRHEUzUOhv
-	QbsBxBx7MKXJbBxI+Ku0l9XHufvrruM8YiZJL8dICiYFC9B4ZLHM6w/q+wFggvOy866h7PsxBuBAX
-	lYKBAWqoE5TX0YRfcZJabIW1Vv+BSDMq+g6xx9oYFH+giOXI7lEEh6ymnQU2Xp/7O8/hcPSOkpErB
-	81dYdkVOvLaiOB+z6eenWtSq89B9FW8DYYmLBAz+yGZQXBCceynfA31673UolCy312YNxUJbMcZXD
-	5WKf5hHA==;
+	bh=/E+ZjxkfOttG3kawews00XIw73vJRAtIRMufeziSll4=; b=uZGx2+a6LMNgRVIDn7u87I0HhO
+	AsYSeAjQ7GD6ybWObTUBYC/HU5VPzLosUNEuq7QziNhXg3Fe1YkcMlEkIcpBovVbu01eCKyaXwQ0N
+	bXJlhgKqQUhTTwY0y+J06Us9/fQQgPrT0NdBlbiNf1C6OYQbgqPpmtPP0WfBa3E5pbqRycEuRZaoM
+	K1y5CO2TQAL56AFz2OMx0oKGJbrVQh0DOrjnhbwDh7sV37mT8Gj59qXzZKoC58M0v8rFyIk3MMvvP
+	y/nAjopf5pu3UMvE36lRDMRgSPQlxG2rfGeZxAt1bZRwCASGLJkTU3F4wjS8c+4Kgm1NfYzuX8ITO
+	TqUGFVvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOJP-00000003OLq-48ik;
-	Fri, 23 May 2025 09:03:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uIOOr-00000003OyW-12wU;
+	Fri, 23 May 2025 09:09:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOGW-00000003NqJ-1IR0
+	id 1uIOMi-00000003Ood-2Ytb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 09:00:32 +0000
+	Fri, 23 May 2025 09:06:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56522629F6;
-	Fri, 23 May 2025 09:00:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A37C8C4CEEF;
-	Fri, 23 May 2025 09:00:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0F677629F6;
+	Fri, 23 May 2025 09:06:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7F33C4CEE9;
+	Fri, 23 May 2025 09:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747990831;
-	bh=mTpxlzLfOxVD0utOYJ/lK616UQLpk4pGr8aEVscKunw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fPcckd+BLil1KAT5UIYjPx03Fh3ZTaEugtxxZElUKqLeUA9XnqsXOv4ajQshd0H1q
-	 2QELspOTRsUVpRVzevbwVfXxvM4HiXroUghaQnUUc8KE3ZDHwjs/1coEwu097gZLhy
-	 4aKBRwGfn3YcD3qOypMOXVAGws7OmtQKGJx24v2bPo679/vo0Hrikk0SqiquTQyaRH
-	 M5GH0ao2pnHZa4ANAt3PC8PKy4qSF7gPbYYdG3yxKni/F5NgTQxj2S5lcqO/b7cP0R
-	 NZe6DjeT7IdAgi4GGljMStrUqi+h/92RK3rEyYDY31aSKWPw8291UIh2ltO3pnVGCf
-	 5uC2mR9yOENyQ==
-Date: Fri, 23 May 2025 14:30:17 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>,
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>
-Subject: Re: [PATCH v9 1/9] optee: sync secure world ABI headers
-Message-ID: <aDA5IZ4lBIxNcJQX@sumit-X1>
-References: <20250520152436.474778-1-jens.wiklander@linaro.org>
- <20250520152436.474778-2-jens.wiklander@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250520152436.474778-2-jens.wiklander@linaro.org>
+	s=k20201202; t=1747991215;
+	bh=y58D5o2WeeI79/6c3GDc1hkPTe1ukMuyCQePGAsny4w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mkMqqaj8qqVUg/i8Ibnp0GiFcnYVqp9L6/uu99NNxg9pT9bZdw0crjneUZM4rVCxn
+	 iYQ9lFVjf1l63O03aHGbXJJy/pYaL0Lhwlt4KgosM+fNc0kxfJVa707gxZfD17QmEg
+	 czWMNXCJOFzXdvNob0WtqwZ4Bbq/hJZPg2g4oy8htK4tCKLGCFANH1Ygf60mDuH2Mk
+	 2S1jG37p14cLGuytRfK07jmp1Z42e0xl0EPEaJf/OLPXWNc8srmwnWKHseSNfKGdfW
+	 Wby40wcqfbPSbvVt3IF1EZo2jKY2ovrKWyyvVBs/cs9knr3Xu8/OitWQs+quppRx29
+	 Ac9wgXC2k1fBg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uIOMf-00HWek-Hc;
+	Fri, 23 May 2025 10:06:53 +0100
+Date: Fri, 23 May 2025 10:06:53 +0100
+Message-ID: <86o6vjelw2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] irqchip/msi-lib: Honor the MSI_FLAG_PCI_MSI_MASK_PARENT flag
+In-Reply-To: <875xhzhuup.ffs@tglx>
+References: <20250517103011.2573288-1-maz@kernel.org>
+	<875xhzhuup.ffs@tglx>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tglx@linutronix.de, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,273 +81,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 05:16:44PM +0200, Jens Wiklander wrote:
-> Update the header files describing the secure world ABI, both with and
-> without FF-A. The ABI is extended to deal with protected memory, but as
-> usual backward compatible.
+On Sat, 17 May 2025 20:59:10 +0100,
+Thomas Gleixner <tglx@linutronix.de> wrote:
 > 
-> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> ---
->  drivers/tee/optee/optee_ffa.h | 27 ++++++++---
->  drivers/tee/optee/optee_msg.h | 84 ++++++++++++++++++++++++++++++-----
->  drivers/tee/optee/optee_smc.h | 37 ++++++++++++++-
->  3 files changed, 130 insertions(+), 18 deletions(-)
->
-
-Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
-
--Sumit
-
-> diff --git a/drivers/tee/optee/optee_ffa.h b/drivers/tee/optee/optee_ffa.h
-> index 257735ae5b56..cc257e7956a3 100644
-> --- a/drivers/tee/optee/optee_ffa.h
-> +++ b/drivers/tee/optee/optee_ffa.h
-> @@ -81,7 +81,7 @@
->   *                   as the second MSG arg struct for
->   *                   OPTEE_FFA_YIELDING_CALL_WITH_ARG.
->   *        Bit[31:8]: Reserved (MBZ)
-> - * w5:	  Bitfield of secure world capabilities OPTEE_FFA_SEC_CAP_* below,
-> + * w5:	  Bitfield of OP-TEE capabilities OPTEE_FFA_SEC_CAP_*
->   * w6:	  The maximum secure world notification number
->   * w7:	  Not used (MBZ)
->   */
-> @@ -94,6 +94,8 @@
->  #define OPTEE_FFA_SEC_CAP_ASYNC_NOTIF	BIT(1)
->  /* OP-TEE supports probing for RPMB device if needed */
->  #define OPTEE_FFA_SEC_CAP_RPMB_PROBE	BIT(2)
-> +/* OP-TEE supports Protected Memory for secure data path */
-> +#define OPTEE_FFA_SEC_CAP_PROTMEM	BIT(3)
->  
->  #define OPTEE_FFA_EXCHANGE_CAPABILITIES OPTEE_FFA_BLOCKING_CALL(2)
->  
-> @@ -108,7 +110,7 @@
->   *
->   * Return register usage:
->   * w3:    Error code, 0 on success
-> - * w4-w7: Note used (MBZ)
-> + * w4-w7: Not used (MBZ)
->   */
->  #define OPTEE_FFA_UNREGISTER_SHM	OPTEE_FFA_BLOCKING_CALL(3)
->  
-> @@ -119,16 +121,31 @@
->   * Call register usage:
->   * w3:    Service ID, OPTEE_FFA_ENABLE_ASYNC_NOTIF
->   * w4:	  Notification value to request bottom half processing, should be
-> - *	  less than OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE.
-> + *	  less than OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE
->   * w5-w7: Not used (MBZ)
->   *
->   * Return register usage:
->   * w3:    Error code, 0 on success
-> - * w4-w7: Note used (MBZ)
-> + * w4-w7: Not used (MBZ)
->   */
->  #define OPTEE_FFA_ENABLE_ASYNC_NOTIF	OPTEE_FFA_BLOCKING_CALL(5)
->  
-> -#define OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE 64
-> +#define OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE	64
-> +
-> +/*
-> + * Release Protected memory
-> + *
-> + * Call register usage:
-> + * w3:    Service ID, OPTEE_FFA_RECLAIM_PROTMEM
-> + * w4:    Shared memory handle, lower bits
-> + * w5:    Shared memory handle, higher bits
-> + * w6-w7: Not used (MBZ)
-> + *
-> + * Return register usage:
-> + * w3:    Error code, 0 on success
-> + * w4-w7: Note used (MBZ)
-> + */
-> +#define OPTEE_FFA_RELEASE_PROTMEM	OPTEE_FFA_BLOCKING_CALL(8)
->  
->  /*
->   * Call with struct optee_msg_arg as argument in the supplied shared memory
-> diff --git a/drivers/tee/optee/optee_msg.h b/drivers/tee/optee/optee_msg.h
-> index e8840a82b983..22130e967dc5 100644
-> --- a/drivers/tee/optee/optee_msg.h
-> +++ b/drivers/tee/optee/optee_msg.h
-> @@ -133,13 +133,13 @@ struct optee_msg_param_rmem {
->  };
->  
->  /**
-> - * struct optee_msg_param_fmem - ffa memory reference parameter
-> + * struct optee_msg_param_fmem - FF-A memory reference parameter
->   * @offs_lower:	   Lower bits of offset into shared memory reference
->   * @offs_upper:	   Upper bits of offset into shared memory reference
->   * @internal_offs: Internal offset into the first page of shared memory
->   *		   reference
->   * @size:	   Size of the buffer
-> - * @global_id:	   Global identifier of Shared memory
-> + * @global_id:	   Global identifier of the shared memory
->   */
->  struct optee_msg_param_fmem {
->  	u32 offs_low;
-> @@ -165,7 +165,7 @@ struct optee_msg_param_value {
->   * @attr:	attributes
->   * @tmem:	parameter by temporary memory reference
->   * @rmem:	parameter by registered memory reference
-> - * @fmem:	parameter by ffa registered memory reference
-> + * @fmem:	parameter by FF-A registered memory reference
->   * @value:	parameter by opaque value
->   * @octets:	parameter by octet string
->   *
-> @@ -296,6 +296,18 @@ struct optee_msg_arg {
->   */
->  #define OPTEE_MSG_FUNCID_GET_OS_REVISION	0x0001
->  
-> +/*
-> + * Values used in OPTEE_MSG_CMD_LEND_PROTMEM below
-> + * OPTEE_MSG_PROTMEM_RESERVED		Reserved
-> + * OPTEE_MSG_PROTMEM_SECURE_VIDEO_PLAY	Secure Video Playback
-> + * OPTEE_MSG_PROTMEM_TRUSTED_UI		Trused UI
-> + * OPTEE_MSG_PROTMEM_SECURE_VIDEO_RECORD	Secure Video Recording
-> + */
-> +#define OPTEE_MSG_PROTMEM_RESERVED		0
-> +#define OPTEE_MSG_PROTMEM_SECURE_VIDEO_PLAY	1
-> +#define OPTEE_MSG_PROTMEM_TRUSTED_UI		2
-> +#define OPTEE_MSG_PROTMEM_SECURE_VIDEO_RECORD	3
-> +
->  /*
->   * Do a secure call with struct optee_msg_arg as argument
->   * The OPTEE_MSG_CMD_* below defines what goes in struct optee_msg_arg::cmd
-> @@ -337,15 +349,63 @@ struct optee_msg_arg {
->   * OPTEE_MSG_CMD_STOP_ASYNC_NOTIF informs secure world that from now is
->   * normal world unable to process asynchronous notifications. Typically
->   * used when the driver is shut down.
-> + *
-> + * OPTEE_MSG_CMD_LEND_PROTMEM lends protected memory. The passed normal
-> + * physical memory is protected from normal world access. The memory
-> + * should be unmapped prior to this call since it becomes inaccessible
-> + * during the request.
-> + * Parameters are passed as:
-> + * [in] param[0].attr			OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
-> + * [in] param[0].u.value.a		OPTEE_MSG_PROTMEM_* defined above
-> + * [in] param[1].attr			OPTEE_MSG_ATTR_TYPE_TMEM_INPUT
-> + * [in] param[1].u.tmem.buf_ptr		physical address
-> + * [in] param[1].u.tmem.size		size
-> + * [in] param[1].u.tmem.shm_ref		holds protected memory reference
-> + *
-> + * OPTEE_MSG_CMD_RECLAIM_PROTMEM reclaims a previously lent protected
-> + * memory reference. The physical memory is accessible by the normal world
-> + * after this function has return and can be mapped again. The information
-> + * is passed as:
-> + * [in] param[0].attr			OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
-> + * [in] param[0].u.value.a		holds protected memory cookie
-> + *
-> + * OPTEE_MSG_CMD_GET_PROTMEM_CONFIG get configuration for a specific
-> + * protected memory use case. Parameters are passed as:
-> + * [in] param[0].attr			OPTEE_MSG_ATTR_TYPE_VALUE_INOUT
-> + * [in] param[0].value.a		OPTEE_MSG_PROTMEM_*
-> + * [in] param[1].attr			OPTEE_MSG_ATTR_TYPE_{R,F}MEM_OUTPUT
-> + * [in] param[1].u.{r,f}mem		Buffer or NULL
-> + * [in] param[1].u.{r,f}mem.size	Provided size of buffer or 0 for query
-> + * output for the protected use case:
-> + * [out] param[0].value.a		Minimal size of protected memory
-> + * [out] param[0].value.b		Required alignment of size and start of
-> + *					protected memory
-> + * [out] param[0].value.c               PA width, max 64
-> + * [out] param[1].{r,f}mem.size		Size of output data
-> + * [out] param[1].{r,f}mem		If non-NULL, contains an array of
-> + *					uint16_t holding endpoints that
-> + *					must be included when lending
-> + *					memory for this use case
-> + *
-> + * OPTEE_MSG_CMD_ASSIGN_PROTMEM assigns use-case to protected memory
-> + * previously lent using the FFA_LEND framework ABI. Parameters are passed
-> + * as:
-> + * [in] param[0].attr			OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
-> + * [in] param[0].u.value.a		holds protected memory cookie
-> + * [in] param[0].u.value.b		OPTEE_MSG_PROTMEM_* defined above
->   */
-> -#define OPTEE_MSG_CMD_OPEN_SESSION	0
-> -#define OPTEE_MSG_CMD_INVOKE_COMMAND	1
-> -#define OPTEE_MSG_CMD_CLOSE_SESSION	2
-> -#define OPTEE_MSG_CMD_CANCEL		3
-> -#define OPTEE_MSG_CMD_REGISTER_SHM	4
-> -#define OPTEE_MSG_CMD_UNREGISTER_SHM	5
-> -#define OPTEE_MSG_CMD_DO_BOTTOM_HALF	6
-> -#define OPTEE_MSG_CMD_STOP_ASYNC_NOTIF	7
-> -#define OPTEE_MSG_FUNCID_CALL_WITH_ARG	0x0004
-> +#define OPTEE_MSG_CMD_OPEN_SESSION		0
-> +#define OPTEE_MSG_CMD_INVOKE_COMMAND		1
-> +#define OPTEE_MSG_CMD_CLOSE_SESSION		2
-> +#define OPTEE_MSG_CMD_CANCEL			3
-> +#define OPTEE_MSG_CMD_REGISTER_SHM		4
-> +#define OPTEE_MSG_CMD_UNREGISTER_SHM		5
-> +#define OPTEE_MSG_CMD_DO_BOTTOM_HALF		6
-> +#define OPTEE_MSG_CMD_STOP_ASYNC_NOTIF		7
-> +#define OPTEE_MSG_CMD_LEND_PROTMEM		8
-> +#define OPTEE_MSG_CMD_RECLAIM_PROTMEM		9
-> +#define OPTEE_MSG_CMD_GET_PROTMEM_CONFIG	10
-> +#define OPTEE_MSG_CMD_ASSIGN_PROTMEM		11
-> +#define OPTEE_MSG_FUNCID_CALL_WITH_ARG		0x0004
->  
->  #endif /* _OPTEE_MSG_H */
-> diff --git a/drivers/tee/optee/optee_smc.h b/drivers/tee/optee/optee_smc.h
-> index 879426300821..accf76a99288 100644
-> --- a/drivers/tee/optee/optee_smc.h
-> +++ b/drivers/tee/optee/optee_smc.h
-> @@ -264,7 +264,6 @@ struct optee_smc_get_shm_config_result {
->  #define OPTEE_SMC_SEC_CAP_HAVE_RESERVED_SHM	BIT(0)
->  /* Secure world can communicate via previously unregistered shared memory */
->  #define OPTEE_SMC_SEC_CAP_UNREGISTERED_SHM	BIT(1)
-> -
->  /*
->   * Secure world supports commands "register/unregister shared memory",
->   * secure world accepts command buffers located in any parts of non-secure RAM
-> @@ -280,6 +279,10 @@ struct optee_smc_get_shm_config_result {
->  #define OPTEE_SMC_SEC_CAP_RPC_ARG		BIT(6)
->  /* Secure world supports probing for RPMB device if needed */
->  #define OPTEE_SMC_SEC_CAP_RPMB_PROBE		BIT(7)
-> +/* Secure world supports protected memory */
-> +#define OPTEE_SMC_SEC_CAP_PROTMEM		BIT(8)
-> +/* Secure world supports dynamic protected memory */
-> +#define OPTEE_SMC_SEC_CAP_DYNAMIC_PROTMEM	BIT(9)
->  
->  #define OPTEE_SMC_FUNCID_EXCHANGE_CAPABILITIES	9
->  #define OPTEE_SMC_EXCHANGE_CAPABILITIES \
-> @@ -451,6 +454,38 @@ struct optee_smc_disable_shm_cache_result {
->  
->  /* See OPTEE_SMC_CALL_WITH_REGD_ARG above */
->  #define OPTEE_SMC_FUNCID_CALL_WITH_REGD_ARG	19
-> +/*
-> + * Get protected memory config
-> + *
-> + * Returns the protected memory config.
-> + *
-> + * Call register usage:
-> + * a0   SMC Function ID, OPTEE_SMC_GET_PROTMEM_CONFIG
-> + * a2-6	Not used, must be zero
-> + * a7	Hypervisor Client ID register
-> + *
-> + * Have config return register usage:
-> + * a0	OPTEE_SMC_RETURN_OK
-> + * a1	Physical address of start of protected memory
-> + * a2	Size of protected memory
-> + * a3	PA width, max 64
-> + * a4-7	Preserved
-> + *
-> + * Not available register usage:
-> + * a0	OPTEE_SMC_RETURN_ENOTAVAIL
-> + * a1-3 Not used
-> + * a4-7	Preserved
-> + */
-> +#define OPTEE_SMC_FUNCID_GET_PROTMEM_CONFIG		20
-> +#define OPTEE_SMC_GET_PROTMEM_CONFIG \
-> +	OPTEE_SMC_FAST_CALL_VAL(OPTEE_SMC_FUNCID_GET_PROTMEM_CONFIG)
-> +
-> +struct optee_smc_get_protmem_config_result {
-> +	unsigned long status;
-> +	unsigned long start;
-> +	unsigned long size;
-> +	unsigned long pa_width;
-> +};
->  
->  /*
->   * Resume from RPC (for example after processing a foreign interrupt)
-> -- 
-> 2.43.0
+> On Sat, May 17 2025 at 11:30, Marc Zyngier wrote:
+> > +	/*
+> > +	 * If the parent domain insists on being in charge of masking, obey
+> > +	 * blindly. The default mask/unmask become the shutdown/enable
+> > +	 * callbacks, ensuring that we correctly start/stop the interrupt.
+> > + 	 * We make a point in not using the irq_disable() in order to
+> > +	 * preserve the "lazy disable" behaviour.
+> > +	 */
+> > +	if (info->flags & MSI_FLAG_PCI_MSI_MASK_PARENT) {
+> > +		chip->irq_shutdown	= chip->irq_mask;
+> > +		chip->irq_enable	= chip->irq_unmask;
 > 
+> This is only correct, when the chip does not have dedicated
+> irq_shutdown/enable callbacks.
+
+The chip structure provided by the PCI MSI code doesn't provide such
+callback, meaning that they are unused for the whole hierarchy.
+
+> And I really hate the asymmetry of this.
+
+So do I, but that's how the lazy disable thing currently works. Drop
+the bizarre asymmetry on irq_disable, and we can make this nicely
+symmetric as well.
+
+> 
+> > +		chip->irq_mask		= irq_chip_mask_parent;
+> > +		chip->irq_unmask	= irq_chip_unmask_parent;
+> > +	}
+> 
+> I'm still trying to understand, what's the actual problem is you are
+> trying to solve.
+
+I'm trying to remove some overhead from machines that don't need to
+suffer from this nonsense double masking. Specially in VMs when
+masking/unmasking requires *two* extremely costly exits (write +
+synchronising read-back). This change reduces the overhead
+significantly by only masking where it actually matters.
+
+> MSIs are edge type interrupts, so the interrupt handling hotpath usually
+> does not mask at all. The only time masking happens is when it's lazy
+> disabled or during affinity changes, which is not the end of the world.
+
+And that's part of the problem. The lazy disable ends up being way
+more costly than it should when the interrupt fires during the
+"disabled but not quite" phase, and in turn makes the critical section
+delineated by disable_irq()/enable_irq() more expensive.
+
+So while, as you put it, it's "not the end of the world", this seems
+to me like a valuable optimisation.
+
+Another possible improvement would be to teach the PCI code it can
+still rely on masking even when the endpoint is not capable of masking
+individual MSIs.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
