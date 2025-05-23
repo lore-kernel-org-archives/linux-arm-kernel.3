@@ -4,96 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CE6C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C9AC54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jHv3PmM//9SAbvQ/ymuXc7lSwPjHHcb/twyK5VurVoo=; b=1uD0lWYG9fQ5cuYfLGhZOxjgiB
-	qBEYJYoSc1lxq1lDmWbX555TGVdnz6acJTuda+oSSwG+p9kNuOb6n26cvwXxU/HTJM2LeS9/NFI9r
-	mCzgak2FafnRzJFfwfB9EIUoQZOFzOFxyKjsjWdty3b5G0Ap2piHqYbwyIP+qvTU5TxIxEhdjA2gS
-	ew3XnSbQzWoV/LaYd4cEclzPCOSfWXHBEPVG66Xdm+Xf41DMIuMppag6NXplDoIWLAIJwI2v1y8a5
-	Yyf5cU+zAX7hPNgHwY3jRU4xcC6AlylZFO3Sy/CGBsO3lxPYU3Hn47rPedKJTDVGpLpyYP1zfL5wc
-	c8xSMwjw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=788C6AM16+RO/cYywCWLAznLOjBQMBMvOvdVttkXvAw=; b=OVx7tE5gVokMISJ7yQ3V5DsbDX
+	4OaGUTNNf39pukJ26Q02/O1xGAmtNuN4Pr2fhxqHmzJc9J4X/iWZL4L7Au8tNBTXWadEWrylkzKrf
+	7XQIqAXJbH3wOEA38MVxjjfUxT3p/oBZAd+NC1JeaTPCTAiU6V6WP4oSAZajhnHYhEpNEDYbS5Erf
+	70f5WEt5JHks5GC0yObA6wZM/gAg720VshEDlirt3toLccAGX70J0D5RjH0xie+ne5MQO52BQx/wt
+	J2OrvjxgxCyk3dygKvvDUwDoCxCiD39Isf4cQRVc/cThvxQb4RFQPIbdru5WCxUMrPmIV6+rryTVI
+	DkRjFrog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIR9s-00000003lx2-1sZD;
-	Fri, 23 May 2025 12:05:52 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1uIRCL-00000003m7G-3W3q;
+	Fri, 23 May 2025 12:08:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIR1X-00000003lDO-3uH3
+	id 1uIQ9h-00000003fDN-2RY1
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 23 May 2025 11:01:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=788C6AM16+RO/cYywCWLAznLOjBQMBMvOvdVttkXvAw=; b=KHs5NjUs5b8H9OCOII/8m8PCFd
+	S2yU4bp7SHnrqrvN9RHvHbRyVP2elA7qPQ1DtY0nQ/mwmwg5224lKDScMNZKktfW34DTCdAeldbWI
+	LjgMOSwIJkdsixVLjT9PpiQfdQgkrlm6zuBW0IJgyXx4Q7xqrJfUr6RqdPDKXqO4fovU/8VTcF1zJ
+	qa/g+Gn6VIqr0VGv7ziEhyJspDDmjSnN6TaQaGfUFsFPdzc8CV2JLv0ubtGjy0pBfEiKtkZACGJiP
+	qS8DBDWxCYi70iiy9iNlLo6OVnTx3kmrS0wbe5cv8zt0ZOgW1pd27svQiKsjunBAhwrcolQd6eofK
+	iMIzqVig==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uIQ9e-00000001HTA-1itz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 11:57:17 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a37535646aso621892f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:57:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748001434; x=1748606234; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jHv3PmM//9SAbvQ/ymuXc7lSwPjHHcb/twyK5VurVoo=;
-        b=vKCAHxTra0YsbRrGueHqrGiCpumAWFgPY8mulF5k840kD8aQecKt6yxgewRfh+rVdk
-         NSjmLhqgYNrW4Q2/5YBvXVVlK3nnVY/+4wKJfX85WJzsrgVVEOU/Wv15hOvlgvNdsTIS
-         Shsp4J2aJ+Ml0TFctjKt80AbHN4dfzii0DeQLE5p6qj/uI8+YysdHpWyqK9kkzcKbSFx
-         YdVyIvD0wEaA7jK3RrovHbr7pfQjdVSxMar7q/5C3Xcd7u35XDbZZq6OelDhwFa4kWcx
-         z0Hp/XjF5KbuuU33NRjiLOSLZ8AbzFH/T4h4ejsNP9UblJFTA9Q9HNpJcVzx7MHYsEhG
-         immA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748001434; x=1748606234;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jHv3PmM//9SAbvQ/ymuXc7lSwPjHHcb/twyK5VurVoo=;
-        b=vTRsmIxqwm6Gb4OWxPu0CIyp/5G1AgJkcWYBnL8qTAIyV7GHFyLnrConAjzOvYq9aP
-         li4iu6G3v+uVrY39pAzyrWP/Q4ZVv0KzpSX4mPi659nWlPoia7NLr8/g4SP5urJpqFpt
-         EnpjnFPFtfyyDSe6iNS8DoRalbW2E/D/6sgPaQLYsUPC8x/A1gWtyvw75dJ6jR2K8q7Y
-         gljs6cJhTaB7g+xTi2HlWca9p0KzTQQKZ8ZV4i8/+MYACyzcbEoquqvH1bL2DEtCvvH0
-         4TkyVIdAUxwdQxZ1owUUqrbH+F4ddv5D67B1rfEH3xWrudZ7O++sQH5Pu9ISFVtjpN02
-         n6ug==
-X-Forwarded-Encrypted: i=1; AJvYcCWkc7Q7qEtQ3FUsfE6D3fmlgqISvAczlNZ+0afayrhc/0EtMNmDoTtpca1eav32toxSIKWYXA4kWK00RznTeaWj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWU2FGueM8XfSUwaWZPy0eWAfLg0R4S4Du18bALw9RkYFLQX8F
-	wGU3jbVyasQqpsEOP3G1MKWF2RSbXFxGY7Qi+yqQzbS6BsOaDEhuJazNr/4Tdd7ftfw=
-X-Gm-Gg: ASbGncuHikuvHNQi3Sw2pJavZ8i5PuSdS7i1losJCVJag2fx/iaCzvjSw3BV+FfiQyT
-	F8DcgIAUzoPnJ1QHJyKQHV1yZJHX/O39FTYALBpqYxgtEVxUK1kSVdWSYxEPCjEdynKKG3RJPhL
-	200m1hSkJk+79weU9hyxVyeCMnKBLCg96gkDnwRxDrNwXx0/arHuIGIuWiTGzsGhFGAo7VdNMl9
-	g2aTCypRErc329NJu/gD9VGsrZgqEqhe5IynXHzBLn4Vv25RPBxpul4c5noQybPGqOd8sVEnSZ3
-	rWOJoZF8CdhTRRCu7AwgHW4vGJBvjGKp8GlCpc2zGWEyUWZCzI7N3Lv3OjAwgkTXSszaJp9OMo9
-	2g/L/KLFWgNXeGapn7HA=
-X-Google-Smtp-Source: AGHT+IFNrvccAlUMqw8s3fI0AfxthWK2WloBf38YsDtOvp9eZ2IIkUyBeD4AiDDkZoSs+CcivTfhrQ==
-X-Received: by 2002:a05:6000:2584:b0:3a3:7465:7e60 with SMTP id ffacd0b85a97d-3a4c15589c4mr3501435f8f.26.1748001434253;
-        Fri, 23 May 2025 04:57:14 -0700 (PDT)
-Received: from toyger.tail248178.ts.net (i5E863BE1.versanet.de. [94.134.59.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35ca88978sm26836364f8f.65.2025.05.23.04.57.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 04:57:13 -0700 (PDT)
-From: Casey Connolly <casey.connolly@linaro.org>
-To: =?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Eric Biggers <ebiggers@google.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Nishanth Menon <nm@ti.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Will Deacon <will@kernel.org>
-Cc: Casey Connolly <casey.connolly@linaro.org>,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH RESEND] arm64: defconfig: update renamed PHY_SNPS_EUSB2
-Date: Fri, 23 May 2025 13:55:34 +0200
-Message-ID: <20250523115630.459249-3-casey.connolly@linaro.org>
-X-Mailer: git-send-email 2.49.0
+	Fri, 23 May 2025 11:01:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D1D4A5C70F7;
+	Fri, 23 May 2025 10:59:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91CD4C4CEEA;
+	Fri, 23 May 2025 11:01:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747998090;
+	bh=9loMDs0wNC/4CPZhZBtMbb/MHaiUqpZY4NUO5J6p9hI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=azERMFURc2zj0S9nkfN3BwfhmkzPD2mjGXbz09oWMrdp45wveeRoLUdp3O+mfAOQ0
+	 MoMuLbDm+erizFRZByCx3qmGuqOCeBHbEx+dOY16TvaeDOgF+EsZr80bQlYcI41OV1
+	 ejYqdvD7UNgG1sel7m5mSOaUwlREkBMqNSsrS4WHra9moGxWdN0NkOP8iX+9QrJ+eW
+	 0oL9RUrcMLeVHeYV6EKTIFgg6UhNfn8e+ShLjEfOKSG5E5SRdunFHbd+3463uQnYqq
+	 sZPiSIAPv1XujFexFOFdMnJ8GbyWbV/hDfdGmbsZZ98miGy8h9W3QHgt5dbnEba/wZ
+	 Z2APcVvApywiQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uIQ9Y-00HYcR-Kq;
+	Fri, 23 May 2025 12:01:28 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Release faulted-in VNCR page from mmu_lock critical section
+Date: Fri, 23 May 2025 12:01:13 +0100
+Message-Id: <174799806251.145825.13963857244128795511.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250521110435.66273-1-maz@kernel.org>
+References: <20250521110435.66273-1-maz@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_045715_972495_B6A5A6DC 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20250523_120134_665033_8CBFD1E8 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +102,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This config option was renamed, update the defconfig to match.
+On Wed, 21 May 2025 12:04:35 +0100, Marc Zyngier wrote:
+> The conversion to kvm_release_faultin_page() missed the requirement
+> for this to be called within a critical section with mmu_lock held
+> for write. Move this call up to satisfy this requirement.
+> 
+> 
 
-Fixes: 8d3b5f637546 ("phy: move phy-qcom-snps-eusb2 out of its vendor sub-directory")
-Signed-off-by: Casey Connolly <casey.connolly@linaro.org>
----
-Resend to correct Fixes tag
+Applied to next, thanks!
 
-Cc: linux-arm-msm@vger.kernel.org
----
- arch/arm64/configs/defconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[1/1] KVM: arm64: nv: Release faulted-in VNCR page from mmu_lock critical section
+      commit: 538fbac74019c13dac341b20fbcc1e96c9a8d01e
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 897fc686e6a9..7e04a2905ce4 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1572,8 +1572,9 @@ CONFIG_RESET_IMX7=y
- CONFIG_RESET_QCOM_AOSS=y
- CONFIG_RESET_QCOM_PDC=m
- CONFIG_RESET_RZG2L_USBPHY_CTRL=y
- CONFIG_RESET_TI_SCI=y
-+CONFIG_PHY_SNPS_EUSB2=m
- CONFIG_PHY_XGENE=y
- CONFIG_PHY_CAN_TRANSCEIVER=m
- CONFIG_PHY_NXP_PTN3222=m
- CONFIG_PHY_SUN4I_USB=y
-@@ -1596,9 +1597,8 @@ CONFIG_PHY_MTK_DP=m
- CONFIG_PHY_QCOM_EDP=m
- CONFIG_PHY_QCOM_PCIE2=m
- CONFIG_PHY_QCOM_QMP=m
- CONFIG_PHY_QCOM_QUSB2=m
--CONFIG_PHY_QCOM_SNPS_EUSB2=m
- CONFIG_PHY_QCOM_EUSB2_REPEATER=m
- CONFIG_PHY_QCOM_M31_USB=m
- CONFIG_PHY_QCOM_USB_HS=m
- CONFIG_PHY_QCOM_USB_SNPS_FEMTO_V2=m
+Cheers,
+
+	M.
 -- 
-2.49.0
+Without deviation from the norm, progress is not possible.
+
 
 
