@@ -4,51 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4695C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:15:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B787AC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3nbRkCTRCyYz5pae49oZ2guk1qkAZjW12Mysc5Gsw/4=; b=kgmy1wZZUIPEvSIocYAtxxS2jU
-	Ew9vhIVzYaH6IPDlCCcWnMPVMbBEsiCcyc1Uv+Xi27sFfBRQTTc+SQr9crbySusFOkbROnx/KZ9eu
-	W1/HsbXrwhxddamamlELK9EtOseAK1u3aiWOwZKhT4EO2DW0bbKGrFmuw8ydqygVA7w3NpSPcAV8g
-	uob8HMR/73JVjpX1C/eJ8b7WL3SNQ1GDh6gfLTzX1y8tRMvwWEahCQYmBV7LbvU5Nq2nfeLT8bjxt
-	KKme6J8LovbFneLBkVfIsVz6kQe3BMYbC1RHC7oLm5p/vTgEsBFm6yZl787oz4Mp2e7m5FUSyhvIb
-	zTmDsQkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FrfI2bCz88WNHe2cbvArwwGF45NBgaj4UqSXpU1g/+w=; b=EMhTV3BEu/y+3G
+	K15K5/Ddd8DtIjujt9/HOSqYxKWuv4MO8YLlX5dicuN1RMP8IljlQ6QpDcnjMJ9okL6qWBOsxSH8g
+	5YDE6wWErEgALeAm4sAAHgLdrQLdDasvZ7VYLaMGA5uBpo7nKLtGXsmDDGdemjFm3GqfNI3px7cwA
+	u1EZiSfs9NKG7KzIScD71u7pG5IgwiYbhfEhARYDjkTljlmbwt4veTSzMpf3sq8hcU6869QqlOHro
+	YQtv9N7oo47co7TO+7vxWA9khc8EaLK/oKtnVMs7IQLyY9AJlLh3KEEJMZ1hcz0XyZldp7I/m1T+Y
+	IxYXwDozM/or7ePZn7/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOUp-00000003Poq-1fnu;
-	Fri, 23 May 2025 09:15:19 +0000
-Received: from [195.187.100.5] (helo=ni.piap.pl)
+	id 1uIOWy-00000003QC4-1vla;
+	Fri, 23 May 2025 09:17:32 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOQX-00000003PEW-1JLH;
-	Fri, 23 May 2025 09:10:54 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 0CE57C405A4B;
-	Fri, 23 May 2025 11:10:47 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 0CE57C405A4B
-From: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>
-To: Dafna Hirschfeld <dafna@fastmail.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho
- Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Jacopo
- Mondi <jacopo.mondi@ideasonboard.com>, Paul Elder
- <paul.elder@ideasonboard.com>, Ondrej Jirman <megi@xff.cz>, Tomi Valkeinen
- <tomi.valkeinen@ideasonboard.com>
-Subject: [PATCH] media: rkisp1: correct histogram window size
-Date: Fri, 23 May 2025 11:10:47 +0200
-Message-ID: <m3tt5b7kvc.fsf@t19.piap.pl>
+	id 1uIORZ-00000003POV-0EAJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 09:11:58 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54N5RbwR024810;
+	Fri, 23 May 2025 09:11:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=FrfI2bCz88WNHe2cbvArww
+	GF45NBgaj4UqSXpU1g/+w=; b=cRNHWilCNYTDFCgT3Olc/4+XosPuiWSgLoYw/K
+	icQq0zmUaOoGlrRKuDYW9uBHpQJf4KOADhQDIJyz8tbG21weNBwV/ImeCJn6e4Y4
+	PALPgYvapC4yhBiv3sxG0yQPJ1BhVJIDB/JqVkOq4M8zrsNMY+lIy2v/HKDvokTv
+	IhEOsR90JfkJrSEmn6EyozBBvfQn8S1lHQ1KJmOKhdz83VndMTafU45TM19HknkJ
+	o/ITAUByTBUeK67K8R6Jkkx3jcODJ/piWsHH8/omLbePEbr3w1NDcc6TPK+NAn5K
+	HQbirrupS14fTamVNUShxS+syzQup/DSPmC/9SLauki2lNJg==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46rwf51da4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 09:11:44 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54N9Bhxn002477
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 09:11:43 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Fri, 23 May 2025 02:11:40 -0700
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Subject: [PATCH v7 0/2] coresight: Add Coresight Trace Network On Chip
+ driver
+Date: Fri, 23 May 2025 17:10:58 +0800
+Message-ID: <20250523-trace-noc-v7-0-d65edbab2997@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKI7MGgC/3WQy07DMBBFf6XyukZ+28OK/0Bd+DFDvSCBpESgq
+ v+OG4GUJu3yjnzuufKZjThUHNnz7swGnOpY+64Fv9+xfIzdG/JaWmZKKCuM0Pw0xIy86zOnoIJ
+ Lul0Dsvb+Y0Cq33PX66HlYx1P/fAzV0/yemXGOaNFAJ5CKNxAyTyhsNwnEikpScH4l8+vmmuXn
+ 3L/zq49k57ZvwV+sWDSXHBrElBRsUSCG3b/v1rKNSNJQinkHUDa+sxDn2ksBGciZW18Cg98dsN
+ 4AB0IC5Ww9dmHPttY7clrmclgwrs+K9WaIYUkvEgR0W59bukLS9Zd/1O57GRUwpO771NqzZCNk
+ HJEEHi78XC5XH4BOcbvVGQCAAA=
+X-Change-ID: 20250403-trace-noc-f8286b30408e
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Yuanfang Zhang
+	<quic_yuanfang@quicinc.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747991500; l=2701;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=FrAy0tJnk7Mak9FAW8lOJLYC1KnvoDrOM/ASKVkcCBU=;
+ b=u8gifLWx5l9HotxU2drrqWtRjaby+07t/IWTpGbBdPxgH9/dHeGediWlpFVhlHlDnfaNOX7j0
+ AQWD8688O6ABKULc3yYv3hFjZriwVlQiS9Lyo4zdGUDJY4vKkGcQwBc
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: HT1w-fQlPVzhydqLoJMZ2yN3cUtdlKlD
+X-Proofpoint-ORIG-GUID: HT1w-fQlPVzhydqLoJMZ2yN3cUtdlKlD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIzMDA4MCBTYWx0ZWRfX4X34X0vGl1wy
+ AM/FKciEzAmCQhvbYDqfxn8yC5H96W3/kLdljsaS+bhQK+8f1/Yl+xYmgAmdbFPiyDQ0MoM/JxL
+ QGTi+FEdRJEAWFmxrwgbOoI5vnyFKyStUYMDb37xl3b8DgQKHTP2X4km05O/rJ7IIEXcmucawxR
+ uCmLiXpj73eGrzhfgaWAXjPRRTOubNPXBtTNk+i/YwdImKZhy8MrBgXZNGubuPrQUdr9E+vYTHE
+ 6Ix0IIdfYBQmDvrkodAo0xdceugJak4Pv4MdAXiAtx+RQlyoUquUrmmy2dunbqbvrCIRbo5+rSc
+ xTRNwQHbOMhObyNi/ZZNwgVtpOAuN8xdoDgaFb4TH6KNbuLzV2N1E2OnFlZhwE1UpIERPyrbm3c
+ X6ncpTPOecg7iquIJuSdPn0plmasFz5FUFx8qHadS+0s1oZdAcJr5dhaDh8UJboPDxQx/K2N
+X-Authority-Analysis: v=2.4 cv=R7UDGcRX c=1 sm=1 tr=0 ts=68303bd1 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8
+ a=COk6AnOGAAAA:8 a=mTvmQVt1wvC56TrAcpsA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-23_02,2025-05-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 mlxlogscore=999 priorityscore=1501 spamscore=0
+ bulkscore=0 lowpriorityscore=0 malwarescore=0 suspectscore=0 mlxscore=0
+ impostorscore=0 adultscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
+ definitions=main-2505230080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_021053_512522_6F958A41 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250523_021157_232223_5E838234 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,55 +136,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Without the patch (i.MX8MP, all-white RGGB-12 full HD input from
-the sensor, YUV NV12 output from ISP, full range, histogram Y mode).
-HIST_STEPSIZE =3D 3 (lowest permitted), all weights are set to 1:
+The Trace Network On Chip (TNOC) is an integration hierarchy which is a
+hardware component that integrates the functionalities of TPDA and
+funnels. It collects trace from subsystems and transfers it to coresight
+sink.
 
-isp_hist_h_size: 383 (=3D 1920 / 5 - 1)
-isp_hist_v_size: 215 (=3D 1080 / 5 - 1)
-histogram_measurement_result[16]: 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 229401
+In addition to the generic TNOC mentioned above, there is also a special type
+of TNOC called Interconnect TNOC. Unlike the generic TNOC, the Interconnect
+TNOC doesn't need ATID. Its primary function is to connect the source of
+subsystems to the Aggregator TNOC. Its driver is different from this patch and
+will describe it and upstream its driver separately.
 
-Apparently the histogram is missing the last column (3-pixel wide,
-though only single pixels count) and the last (same idea) row
-of the input image: 1917 * 1077 / 3 / 3 =3D 229401.
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+Changes in v7:
+- Move the content in header file into coresight-tnoc.c.
+- Use scoped_guard() to replace spin_lock().
+- Invoke coresight_trace_id_put_system_id() for registration failure.
+- Link to v6: https://lore.kernel.org/r/20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com
 
-E.g. without the patch, the pixels counted in lines are:
-0, 3, ... 1914 (which makes 1917/3), and patched:
-0, 3, ... 1914, 1917 (which makes 1920/3).
-The same is true for rows.
+Changes in v6:
+- Add a newline after return statements.
+- Use 'x &= foo' to replace 'x = x & foo'.
+- Use 'x |= foo' to replace 'x = x | foo'.
+- Link to v5: https://lore.kernel.org/r/20250512-trace-noc-v5-0-f2ef070baee5@quicinc.com
 
-With the patch applied:
-isp_hist_h_size: 384 (=3D 1920 / 5)
-isp_hist_v_size: 216 (=3D 1080 / 5)
-histogram_measurement_result[16]: 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 230400
+Changes in v5:
+- update cover-letter to describe the Interconnect TNOC.
+- Link to v4: https://lore.kernel.org/r/20250415-trace-noc-v4-0-979938fedfd8@quicinc.com
 
-1920 * 1080 / 3 / 3 =3D 230400
+Changes in v4:
+- Fix dt_binding warning.
+- update mask of trace_noc amba_id.
+- Modify driver comments.
+- rename TRACE_NOC_SYN_VAL to TRACE_NOC_SYNC_INTERVAL.
+- Link to v3: https://lore.kernel.org/r/20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com
 
-Signed-off-by: Krzysztof Ha=C5=82asa <khalasa@piap.pl>
+Changes in v3:
+- Remove unnecessary sysfs nodes.
+- update commit messages.
+- Use 'writel' instead of 'write_relaxed' when writing to the register for the last time.
+- Add trace_id ops.
+- Link to v2: https://lore.kernel.org/r/20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drive=
-rs/media/platform/rockchip/rkisp1/rkisp1-params.c
-index b28f4140c8a3..ca9b3e711e5f 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-@@ -819,8 +819,8 @@ static void rkisp1_hst_config_v10(struct rkisp1_params =
-*params,
- 		     arg->meas_window.v_offs);
-=20
- 	block_hsize =3D arg->meas_window.h_size /
--		      RKISP1_CIF_ISP_HIST_COLUMN_NUM_V10 - 1;
--	block_vsize =3D arg->meas_window.v_size / RKISP1_CIF_ISP_HIST_ROW_NUM_V10=
- - 1;
-+		      RKISP1_CIF_ISP_HIST_COLUMN_NUM_V10;
-+	block_vsize =3D arg->meas_window.v_size / RKISP1_CIF_ISP_HIST_ROW_NUM_V10;
-=20
- 	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_HIST_H_SIZE_V10,
- 		     block_hsize);
+Changes in v2:
+- Modified the format of DT binging file.
+- Fix compile warnings.
+- Link to v1: https://lore.kernel.org/r/46643089-b88d-49dc-be05-7bf0bb21f847@quicinc.com
 
---=20
-Krzysztof "Chris" Ha=C5=82asa
+---
+Yuanfang Zhang (2):
+      dt-bindings: arm: Add device Trace Network On Chip definition
+      coresight: add coresight Trace Network On Chip driver
 
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+ .../bindings/arm/qcom,coresight-tnoc.yaml          | 111 +++++++++++
+ drivers/hwtracing/coresight/Kconfig                |  13 ++
+ drivers/hwtracing/coresight/Makefile               |   1 +
+ drivers/hwtracing/coresight/coresight-tnoc.c       | 216 +++++++++++++++++++++
+ 4 files changed, 341 insertions(+)
+---
+base-commit: a2cc6ff5ec8f91bc463fd3b0c26b61166a07eb11
+change-id: 20250403-trace-noc-f8286b30408e
+
+Best regards,
+-- 
+Yuanfang Zhang <quic_yuanfang@quicinc.com>
+
 
