@@ -4,187 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B34C54F47
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC88CC54F30
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ADzzuOFAnWtSqIi7kgxiy7RMpf2rbUU0lJox0hHBGBw=; b=I/8+7wAgSsOiMiRoOMrXubACm2
-	K5Nz7YIGhlArqHSWgAGQe5minAGKTgDHl9Mdzx9OeTg4+6wRHCvMcYF5Gx+dxUR0c0UM4hp31yJw6
-	hvKEo7BKOvYyEMXYDv29WwFhNaOQR0UqVgfPf9/3by9wp6mIFOsekaKKdJsS6A4/YoFplh73BMGVz
-	HQpEh+VYf1YWManRrLVueLVMoynTjM+eqadFXAO3ylcfLZfeAIxoYzrL+wpmYZ0CYWP9XIPdLeg6t
-	/9sb05Az5VnEkDEfffEDFv2stzGz4vzh5Q6Ozmmm93vgt1NR+9lm5bhnQ7TcsFmtX58l9x9P6TqxK
-	tnEqrLvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o8UsG0Cv+W+SbA3fwsKYtIRZq6NFodm959GZlb0m+LI=; b=gW/MSnAmn7roFc+ToCGb2Akxm2
+	KgoIpkDqi8S7d6P79jo2qRBPi3IRH9Tc39okLMa+nyZoUaxterK66eg/ZTq17AXSRFk+GiL3E3Ouw
+	JmSZ5j8XolM99uW4m4zoGAWiyhMExP0HrLBL35UEW2vaeEzp/FNmPSkWhz/nfGLQxTDqq2tnHAWOt
+	gWcPTu2GC7W9YMuzy/c1TcdPeBMVnA0yuv5cciHizHKboNjOia1gqwd0pFPF25OHCjadkk9Qcy8Tm
+	0QteRW6ab5w0jtUwhTuEyw+WY9jmqRPne5d38NdjtTnwCk0hs0GgGMSIJjtjfIPJ6eBD2cmoHkJFI
+	mNr8l2cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbi-000000046Uf-2moN;
-	Fri, 23 May 2025 14:42:46 +0000
-Received: from mail-francecentralazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c20a::] helo=PA5P264CU001.outbound.protection.outlook.com)
+	id 1uITbC-000000045dA-0aCm;
+	Fri, 23 May 2025 14:42:14 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISgh-00000003zy4-1FH5
+	id 1uISdc-00000003zGw-03WN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 13:43:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fNy/1fiaCsKdT6n6ElUyvYwk2XjDdAEgpefQKMpxZRitTEC2RHlz4kTesrgKtr+rUJvwQCIJZgAQo5kfuW5LnaRJPfO2znW+arJ/txNaVItUjRRoQKsLz+Q1NHVHC3AHN8AsSlJVyLsIPHuakDegTTuoDiYqt+bJ1nh56UYrXGEnFoX7FscCDy5sErndP1hCqVFiVrkRiunKv3RIfFDzpfYnT60zfsldep01jLmJBV7U6eiLogrnAfImwbUZBzwokHPosWjeou2Qshy8oggh6jODEkzAmk34EMZr7AlPp1EUb6pLyqvPfth5WvPzp0WLJqlRgH6kTFyng7G2tmzQZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ADzzuOFAnWtSqIi7kgxiy7RMpf2rbUU0lJox0hHBGBw=;
- b=PZ8oZohJwJRZkGbwVnRPCOVJT2k3tvjamwyiurzeNxW/2HWuPo7s+69KTw7mrww4HqJwpAKIQJE3OygaBlIbFVVGVX5l+AJHja7Z9mdKYRF2UTcoCfuEoFhVn6SS4lTVLNu34eZljULWmbk6XSUBCMIGKrTlPe0gkWnHmE/+o/Sc4dsA6fvgJPadj7o5psSJ/uvzu3px9YlsZAEUqdLgmOg4Z+LjcIxC573R62hFlJX/XiymRHelzRfM/k2dKiXDjQy9Be5o7ZvhxJi39kq0kJ7SgIEc/M9Zy+NTt5fnWxt5sAPtR44ns01zijoD1heuiRW0tT9jGIqWCYRfRGxsQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=allegrodvt.com; dmarc=pass action=none
- header.from=allegrodvt.com; dkim=pass header.d=allegrodvt.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=allegrodvt.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ADzzuOFAnWtSqIi7kgxiy7RMpf2rbUU0lJox0hHBGBw=;
- b=yfVruSHpHIA9rhnAiwq/p/QY2PlXL2MFAGMkLu9uBL/XjwZZn6sgBwThoY9b5qJ4o8RW+8n/1+S9dcQcbEmzAhGdeI6lBh9ZcoNnHkdKHhr9KEpVL90ClyewnT7eDWJFLFXHi2qUjEqZzDu4CUiFt9V23rI64WoOgJxAMjxbHuOR5WfgCW6TuzTwy+sp4A+sT/mOLeFDbi5uQZ2vrQFUCo/cAIhbNt5kr/hQ8kjCKnGj0/PVZezwYfLG22K1IiTcEi31c/XYKRyaDiP3v4UDWlSpUJa5EyouMeXy8NKFKUgx8R7hlEOm34EAk4y6ApgcVmlrc2S3w/7wLt/gQGO2Dg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=allegrodvt.com;
-Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3d::18)
- by PATP264MB4619.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:428::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.22; Fri, 23 May
- 2025 13:43:48 +0000
-Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- ([fe80::4281:c926:ecc4:8ba5]) by MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- ([fe80::4281:c926:ecc4:8ba5%2]) with mapi id 15.20.8769.019; Fri, 23 May 2025
- 13:43:48 +0000
-From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Tretter <m.tretter@pengutronix.de>,
-	Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fri, 23 May 2025 13:40:41 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-550edba125bso7882910e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:40:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748007638; x=1748612438; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=o8UsG0Cv+W+SbA3fwsKYtIRZq6NFodm959GZlb0m+LI=;
+        b=C47Dc8FDInaoqPQtdgIR1YqStj/BX611DoAsSPYMY1wBy+CaQm2dsRP7g3K5p1XFyt
+         I/onXud75+cSM801f6bBm8POLuBYLyZshaYcS05dkJDf+qWpywLtbfiKj/IYW4zqmecr
+         qb5pNMauA9nIWxaWkHPlMzwRrKoxwa0E8nMKY+7fyrQQr28klf/pNBQJIf4SOdsv6XIj
+         1MduBAiG9Jn3nCczHzFyN+j4f2JA5NxjIadX8mtSWubGf4TBFrg+plfrChifPe5j2/nO
+         WHGWVjsSbIUgwTD2s1MDNN4DP2Fuz/gKSh+314o/5wgY7s+spbOVUYIf3MzCa1R+R3LB
+         CJJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748007638; x=1748612438;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=o8UsG0Cv+W+SbA3fwsKYtIRZq6NFodm959GZlb0m+LI=;
+        b=OOLgJJO+HSlBIxuhzmbHjXgWvGSx5G93veGRMwSdATykw3Ib4cXWNfmsUdKL2VEam1
+         f7QOk69kwYPQu7sMtxc4/qDZC9kof72bjG5n07aMkl5x78ekF0IqXB4qudgjzXiSv1b3
+         HmvlKxuazl1Bzu41L0HttBVAydCcdZEAu576hema/DWGUtKc+KRdBAWH9nFb+ecc/Z8q
+         z+XS9lh+JrY2w2/JN/RJBbJFRlgQ9bgROhyLSP8BVNOoLFVrWLIJBYtBnPtNJxQL34mE
+         tmQB6U2d1UFy5P2AbE9fvbZNPqSks9qTt1ZgwDsdqENhqHPK5DP6bsnHJY95q2sYW25H
+         5duw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBVCbVE6egxj78UAn1W24hL71lkDCPtonWW7fxlZA1chrkFom09mmw6lVZRYez82AIV5u1uhRn2CL2ws86Gh/f@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe2y3f363B3dQpHYeP9366gTp1iDrA5rS7vw0esj+c0kI383g4
+	EYo/9Rrs8JnVdMQqyhsC2lo8FoGE2Ep86jqwmwYXeyvFA44NUMNMO56/kunTlgbqnNk=
+X-Gm-Gg: ASbGnctWrU09RlDgEr3PR8/WSCygby45jJccWsGsltFimfqqSJe91j0nxtz2YuiApsi
+	z2cqbIBEQArFA/6QHCVSheuyhtDoVxh8kV6ABRqMoZ3cNVoX/kiSBvNmLU2tT61zB1b0e8cQlHY
+	YYVCcD0RRXUMRTqs4rbtecuZWguHS+9AFoGTwH80WqjYcnEDIPHK0P5z6AzMuc626nrg1CmsnC5
+	9+UoGLm0aXiDCuTPhjalT/PHI8On4vTGtJmTtSDIbFyL8ytVKDh5RzGNkMoB/AmLyUHkr4wE2fZ
+	k5BGN0Iyw56m6ArNdclgpk3ar83Lpw8V9TJjq4ZeOdiyP2hCRkU3GxaVejpKkUB0ffa/3ufBhgq
+	AuEizWVjC1TUSewJhvrU9sF/ynA==
+X-Google-Smtp-Source: AGHT+IHnygsP+tGAk04VZnCfGgEIdN8EfQ0ZCgQ471fg+idaH3A0yfEu5eg6xgFw+xqxxde3XVbpbQ==
+X-Received: by 2002:a05:6512:6081:b0:545:6fa:bf5f with SMTP id 2adb3069b0e04-550e7195284mr7962698e87.2.1748007637808;
+        Fri, 23 May 2025 06:40:37 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.40.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 May 2025 06:40:37 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Saravana Kannan <saravanak@google.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	linux-pm@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michael Grzeschik <m.grzeschik@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Peng Fan <peng.fan@oss.nxp.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Johan Hovold <johan@kernel.org>,
+	Maulik Shah <maulik.shah@oss.qualcomm.com>,
 	Michal Simek <michal.simek@amd.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Junhao Xie <bigfoot@classfun.cn>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Gaosheng Cui <cuigaosheng1@huawei.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Ricardo Ribalda <ribalda@chromium.org>,
-	linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 4/5] dt-bindings: vendor-prefixes: Update the description of allegro prefix
-Date: Fri, 23 May 2025 15:41:49 +0200
-Message-Id: <20250523134207.68481-5-yassine.ouaissa@allegrodvt.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20250523134207.68481-1-yassine.ouaissa@allegrodvt.com>
-References: <20250523134207.68481-1-yassine.ouaissa@allegrodvt.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PR1P264CA0109.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:2cf::11) To MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:3d::18)
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 00/21] pmdomain: Add generic ->sync_state() support to genpd
+Date: Fri, 23 May 2025 15:39:57 +0200
+Message-ID: <20250523134025.75130-1-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MR1P264MB3140:EE_|PATP264MB4619:EE_
-X-MS-Office365-Filtering-Correlation-Id: 017d864a-ea40-42c6-9ec7-08dd99ffd86d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|376014|366016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WXZGOXBzYkpQY1pkVHN0ZXRIUW1VNXFZZW1vVjZtVzNjbDRZcWdKVWphWHRk?=
- =?utf-8?B?dzRZZ0Y4ZEtqS2wyZnVFYnV0dTg1dVZoNGxuR25Xc2xxNTh1bzRnNk8wWXhD?=
- =?utf-8?B?VVNsRm1OWnI4MHFQaHRWQlNOTk9PR2tvc0k2VmZ1UytPd3M2ci90MjNtRmhv?=
- =?utf-8?B?YzJSR2gwM0t5WE16NWdRT2ZRT1RoZE1UNytEU3hJRGt4Q1BNQStCK2ROdmtF?=
- =?utf-8?B?MmVhTGc1bkRLT1JYcDdmZmxKUWxoL256b2txNHlqb2FWNGR1YTB3djkvUFg5?=
- =?utf-8?B?N3NWb3BodGxHcHhpUk9pazNxWUl6bmJhLzVLSGxBTFdScmh4U2tEVWFNVGk0?=
- =?utf-8?B?RGQ1czhZL1dtdkgzWVh6eW04Z2hDUzNyVEhLT0psYUVRajcwUlFGNlJZd0lD?=
- =?utf-8?B?b3dIcEdqZmlkTy8rckFadlpPMjlNTHhkelJKTG5sNDJ3ZDE5YVhIcHZQVUNh?=
- =?utf-8?B?MlkyeXVLdzhSSkV1Nm5OcldNWlVaN3ZyTVA2Y29JRjFXc2RXT2dJcGRnNnRs?=
- =?utf-8?B?b0t0cVRZVjRWSjZVY2ZJL1RmYlhJQWFqWkhKbGp2U2huRlVRYjFLdlVMT1FL?=
- =?utf-8?B?Y1ZyNk1CcU1JZ3lNeXR2bjcyeGdOQUxCRTVJdG1CUkpwSW53Q2d6ODNZRE1p?=
- =?utf-8?B?dGs2OG8rdEc4QmFVTFc2ZXZLYkkxcXpoL0Y4ZU11SUdmRGFQZ2FzZE1iK1Rn?=
- =?utf-8?B?T08zSHh5YXE1azgrcWoyK0FjSkxhaE1XVStMcUZncUo1emVBUE5rZzFCc215?=
- =?utf-8?B?Qmg5eGNRZURNdFlBY1ZPd3NWU2pVL0xsazRHWHJXWEJlUWVsNHpXNmpFZDhO?=
- =?utf-8?B?dldQU3BidkU1Mlc4OWltQ2V4Wnh1NjJuQno3eFVtOVpLeUw1cjRNeTQ0dERt?=
- =?utf-8?B?WFl4UUFFajdNems0VnJlVUI3eHRXYjJHcFcwSXJjS2hNMk11Ynd3ZXBoUnNR?=
- =?utf-8?B?ZXorZTJNMkFDZUsyKzZKU3ZBRmxDQlA3VTRJMlpsM1lHdHUrMmZnZWNvajI3?=
- =?utf-8?B?dE1YRmFnY0pLa2dlcHgyTW9iU3UxcXRzMDdCajkyZ0xQUU5EOWY3cWJoMHEx?=
- =?utf-8?B?VUh4OUR3UUhsVUJySWlIWU03dFlhMU40Qy9pc1dPQUtFUWxwcGo5NEtQRUJk?=
- =?utf-8?B?RDc2aUR6MmRFRDFDZWFNMkU1Y1ZqRWJmWktxU3pWNmhZNFJIc2JrRW9tYWNH?=
- =?utf-8?B?dEc1a3M2Q3BhajJPZFRaMk81ZlR0WkFWSkR5N1dONGpJblA2amRIYTNEOUFK?=
- =?utf-8?B?bEdhNDNhTmJPOUNGTDRzOTlOU1hOR1A4c21ORllnb0x5djRhZjFuWUEwWVlF?=
- =?utf-8?B?d3dIZXVUbGoyc0JkWmpzdUtUL2pJUjVCTE5ORnJHNkZWVlRhZHl2OG9IRG1l?=
- =?utf-8?B?NGtMY2VOMzA3SldiR0Z5OSsvTGxoLzMyMVVVNzNQL05sVWQ2TExkM21WSmRj?=
- =?utf-8?B?WlVYOThBMTZhSWNpd1Q4QXNLdVl5SG9RRHVxdnY1N0JXUTJldHhIZXd4UE1V?=
- =?utf-8?B?a2tRU0YySmZLUlg3VUo4d0FUUEdhZ2pkSFZINWtJZW50VENZTVBWNy9MOFNq?=
- =?utf-8?B?M0wxdTJHOEdIRHI4MkZtUXFWNUJNU0pmT2xsbG5PMXE1NkIrQlJ2cksxdjhh?=
- =?utf-8?B?VDJuY2lMNVE1NzhVY09CcVo3V0xoaWQxR0tmNFFjQTI3QU03cXN1c2RxY3lm?=
- =?utf-8?B?UDU1YXZEOTEwU25USUsrV0oybVFyYjhXWEc0bXZZemh1ckEwOFdTZkxmNmto?=
- =?utf-8?B?NkFUV0tXeDBCRnhScFNHT2g3dnkrNXBKSDRBZGxzdThDVkZ3T1FHMFFibmRN?=
- =?utf-8?B?MXAzVXdOS2tnNElnQkNtUXAydWY5bm90Nkw4Q3hkd3Q0YzVuSG1YR1U3bHp3?=
- =?utf-8?B?UUdCMDdrT0VxZ20rMDd1TTRzMXF2Y1NRRTRHUkFSMDhuM3orQy9tc1lOTGdM?=
- =?utf-8?B?Q2tQRzFaeHN5TDQ3cURDeGpyYnZVSmZTWHFWcUlvVmI2VWZkeXc2d0IzNWVm?=
- =?utf-8?B?OS95MTEvWkt3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(376014)(366016)(1800799024)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dkRpOXRKcys0OThQYmxlYmE3VHJqNEwyTkdRNEVzSHBXM0NkbFp6c1JUMDI2?=
- =?utf-8?B?cWRMU2tDRWF6UzBJRGlQelZQYkVPYjNmY0pqa1BuOVFvVS9CaisvMnVmMTU5?=
- =?utf-8?B?WmpXUzBmeENpMzZNY1VtcWNRZno3YURqNGthRm5Zc0pFbTVyWVJMczV6ejVU?=
- =?utf-8?B?cG50aGhMSkQ3cEpCZDBSanZNS0VJSFZiekYvMDZSdWxlTmxUNzVpbHNlUEQ2?=
- =?utf-8?B?RzFhZnhzRkdsWjdrdmdyZDFyYUYvT1FGazFoTjlzZzRuVHdTdmVyTVNJSlJ5?=
- =?utf-8?B?MDVZYTZUSS9PaTBubVZCWmZQT2JicmVNVys0TFVnSEJMZnREb1dtdGU4WXhJ?=
- =?utf-8?B?WHpNazE3bHFERGJteE5Dckw4WXllbUhEMUVIUVBHdEFHTUxtbFVDMy9IeXRs?=
- =?utf-8?B?a3FiNXhxQisxMXAwUVBlZFVoVmY1MXB3bUFlVGFnQS9qUWhvVjdVNlVTNWhM?=
- =?utf-8?B?dzJjRzlmWFlwMmhlbERZNTNJZzZzUFRTZmsrbElSM0hxWmI2eGlEblVBUkJs?=
- =?utf-8?B?WjhiM2g2cEFOeGw2YUJQSERtTXIxOE85Y2U2TElOWFR6MEpmU1VYcklWM3Ew?=
- =?utf-8?B?N1NNa2tzdFZhNmh3Ykc2TXNSUzFQZVN3S1ZUbVdzWnhHbElISEplbG45WVRj?=
- =?utf-8?B?ZTU5VmtNWkZiRzQ1bEo1NWtOclVZOGc4SjZwZ2ljTG1tVTU3ejdCNVhSOHVE?=
- =?utf-8?B?WUh6OFBWUGIxd1I1dXBvYldPSWdIY3d3YkxVMWI1L0ZQbk02Y0V4VU5mdms0?=
- =?utf-8?B?aVFjbFRtQTFncno5V1M0MVRXbnZQM0xUa29rSW1BVlJSTXZNVVF6aisyUkFv?=
- =?utf-8?B?WVRCMFdRbjFKQnFIU1k4VnI5eFBiU1pDeXk3SXNyZy92QUZ4cG5rVWJ4eklF?=
- =?utf-8?B?SHVXNk5WeHBoTDEwbUFUT1FlbThWU0ovbkI2VTVReGZxdUFOSExrZSt6bU5E?=
- =?utf-8?B?TUpWQURZUzZMSTlYRzVHSThpU3V4OThKVWxVYjlyUmMyeUZIS0krYkVxcmlv?=
- =?utf-8?B?L3ErWkxsY1F5dnVLSGtJMjlGWllIV2EyTm5JODA0V215a3hmSnVmS1g4aTdN?=
- =?utf-8?B?aHJaVXZnangvSVBJNGxVR2EwbU8wcVJya0p0TlBJNVhqbkVUUm9iY2JnaDIz?=
- =?utf-8?B?bFo5cmFSOWpOb1ZlM1V2UnZqRE5SYW05Z3dtczViU1V5RkZseXRPejgvNGxr?=
- =?utf-8?B?d3A2cVp1VXFFWWV3UHFaMldlb01laVk1YVVpaGFYZ1Q0c05zbWJlc3VzSUx3?=
- =?utf-8?B?UlZPVkxhamtPdmFsa1BKaUMvZUJ4d09TdXhCZkI5UjRRUnhSRThWOG1venlp?=
- =?utf-8?B?ei9xc1h4cTNTbVFLZlV3QVVhTForVGwwQlo4NE0yOVRDdU9ZQ1dMUmc5ZXpm?=
- =?utf-8?B?VG1VTVRoeDgxQ3g4dGprNllKYmhCN1NURHBVejRsdk9ybnZVY2ZTbU1TeU9U?=
- =?utf-8?B?VkMwd2ZvUHZJR2xRL3dLT1BkSFRYRklhMHd4VE8zUE9kT3lla1FoMS95SlFZ?=
- =?utf-8?B?N3FycDB4dzhGN0U4SHVEVGZOdEdTYm5jWDN4T0pJUW5wUnlCVUlrZ3l3TW9U?=
- =?utf-8?B?eDRwc2hVaVZDaDVFN0pwWlovMlJUSFZPeUZ0UGh3WWFsMnppQXpIM2dmczZi?=
- =?utf-8?B?MWRlczVzbEJQUzdRbVVnZFArcEZobG5TTlNpUkI4RmpSanNscUcxcCtzTTBu?=
- =?utf-8?B?TEdFbUR0cU10c0VDOUROZFpoMk51bE9YQVM4MWU4Mjk2RVRpdUppYUpQTFoz?=
- =?utf-8?B?eVpjdWFCZUlmVnVldUIzbkpINk9KZUJhb2x2eUYwQXUrWnBKcDJvZUFFZ09a?=
- =?utf-8?B?NmQ4ZWNqVE41REpQc0lQbzlzRnpWZnk2anEra25DQ29GNjdUaUVIb29NcW4z?=
- =?utf-8?B?WmJoUFpwb1l3UEhnNUR4cWJBT1BSekhsR1VpaUFrUklBV2dicldVSE5SYkEx?=
- =?utf-8?B?azRybm1tZEFMaTJFM0VoSk5NNTN3TXdCZ3ZxdXArYnpLS3pXR0wvcnRTNDhy?=
- =?utf-8?B?aFU5NEJ4SWpLelJ0MEozZG5GZ08xZUpuVnoyV2R2NW12RkJmN3JQampIL2dL?=
- =?utf-8?B?UWRaUnBIeUxhd1BKcm5XdFlqMkxoUEkwSGp4ZXVUZkViNzhwQzFobWJPV3ZJ?=
- =?utf-8?B?TWdDeXg4d1A3bmM5dXpRcXBiZnpXT0dYSjk4V1B5ZGhIcEpHTmUyc2tGMjI1?=
- =?utf-8?B?cG5kanRpcGdNWlVPMll5dk5KWWp3Uml0Nms5dUU5MHpEbCs4bnNqUDBtaWtn?=
- =?utf-8?B?OGZSNU5LYzFHL2x4RzFwaUI1SjFRPT0=?=
-X-OriginatorOrg: allegrodvt.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 017d864a-ea40-42c6-9ec7-08dd99ffd86d
-X-MS-Exchange-CrossTenant-AuthSource: MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2025 13:43:48.4597
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8E3kV80tJDsWoj1sSBx2GbV7worMy8PyK7klyorKcfULPqmMwgN+bPdNP+nHnekKGyUViGje6llDt8hVFV3ZtbJPDIqPwf/9LX2Ibk8D9fQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PATP264MB4619
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_064351_341461_42D5FE57 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250523_064040_072137_E8C69272 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,29 +111,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SAS (Société par actions simplifiée) to the allegro of vendor
-prefixe description to include French simplified joint-stock company
-legal structure.
+Changes in v2:
+	- Well, quite a lot as I discovered various problems when doing
+	additional testing of corner-case. I suggest re-review from scratch,
+	even if I decided to keep some reviewed-by tags.
+	- Added patches to allow some drivers that needs to align or opt-out
+	from the new common behaviour in genpd.
 
-Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
----
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+If a PM domain (genpd) is powered-on during boot, there is probably a good
+reason for it. Therefore it's known to be a bad idea to allow such genpd to be
+powered-off before all of its consumer devices have been probed. This series
+intends to fix this problem.
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 86f6a19b28ae..51c1c10fe649 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -82,7 +82,7 @@ patternProperties:
-   "^alfa-network,.*":
-     description: ALFA Network Inc.
-   "^allegro,.*":
--    description: Allegro DVT
-+    description: Allegro DVT, SAS.
-   "^allegromicro,.*":
-     description: Allegro MicroSystems, Inc.
-   "^alliedvision,.*":
+We have been discussing these issues at LKML and at various Linux-conferences
+in the past. I have therefore tried to include the people I can recall being
+involved, but I may have forgotten some (my apologies), feel free to loop them
+in.
+
+I have tested this with QEMU with a bunch of local test-drivers and DT nodes.
+Let me know if you want me to share this code too.
+
+Please help review and test!
+Finally, a big thanks to Saravana for all the support!
+
+Kind regards
+Ulf Hansson
+
+
+Saravana Kannan (1):
+  driver core: Add dev_set_drv_sync_state()
+
+Ulf Hansson (20):
+  pmdomain: core: Use of_fwnode_handle()
+  pmdomain: core: Add a bus and a driver for genpd providers
+  pmdomain: core: Add the genpd->dev to the genpd provider bus
+  pmdomain: core: Export a common ->sync_state() helper for genpd
+    providers
+  pmdomain: core: Prepare to add the common ->sync_state() support
+  soc/tegra: pmc: Opt-out from genpd's common ->sync_state() support
+  cpuidle: psci: Opt-out from genpd's common ->sync_state() support
+  cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
+  pmdomain: qcom: rpmhpd: Use of_genpd_sync_state()
+  pmdomain: qcom: rpmhpd: Use of_genpd_sync_state()
+  firmware/pmdomain: xilinx: Move ->sync_state() support to firmware
+    driver
+  firmware: xilinx: Don't share zynqmp_pm_init_finalize()
+  firmware: xilinx: Use of_genpd_sync_state()
+  driver core: Export get_dev_from_fwnode()
+  pmdomain: core: Add common ->sync_state() support for genpd providers
+  pmdomain: core: Default to use of_genpd_sync_state() for genpd
+    providers
+  pmdomain: core: Leave powered-on genpds on until late_initcall_sync
+  pmdomain: core: Leave powered-on genpds on until sync_state
+  cpuidle: psci: Drop redundant sync_state support
+  cpuidle: riscv-sbi: Drop redundant sync_state support
+
+ drivers/base/core.c                         |   8 +-
+ drivers/cpuidle/cpuidle-psci-domain.c       |  14 --
+ drivers/cpuidle/cpuidle-riscv-sbi.c         |  14 --
+ drivers/firmware/xilinx/zynqmp.c            |  18 +-
+ drivers/pmdomain/core.c                     | 239 ++++++++++++++++++--
+ drivers/pmdomain/qcom/rpmhpd.c              |   2 +
+ drivers/pmdomain/qcom/rpmpd.c               |   2 +
+ drivers/pmdomain/xilinx/zynqmp-pm-domains.c |  16 --
+ drivers/soc/tegra/pmc.c                     |  26 ++-
+ include/linux/device.h                      |  13 ++
+ include/linux/firmware/xlnx-zynqmp.h        |   6 -
+ include/linux/pm_domain.h                   |  17 ++
+ 12 files changed, 294 insertions(+), 81 deletions(-)
+
 -- 
-2.30.2
+2.43.0
 
 
