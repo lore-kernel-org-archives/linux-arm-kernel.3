@@ -4,66 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B1BBC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75336C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j3tZe3/WIA/A9RSei6guiNM9/nIQO96/MG0HzRXeW18=; b=dLBSmjpQNDx4kTPTs1VItQZytt
-	Qz5LiCSmWTB88L6HKmXsAK5jeLH/E4IKbN1ciw9vzZSdyvSpD5Qx8i/JiZeQKL9gBK1ZBYpOyk3ry
-	YjsXrCj05Apz8Ysbvgv+bWsz3gWHrhHAMHytQDGbMT0fslklUf4+PLbZF+GXJV1s+ALz6i8SGvYue
-	96w4wP7Mjj1h8VJVC9iNQJ1PiHb7EhMa4+z6/RgM6kgPUPRsLxKHfub34Eb5UruzLFYr30eG4IIZ3
-	fwjXECsoTjGhg6xCKxiHtegS0nWi2NPupenwKPbJ1BjrE6P9rrY54ghnh/bit/ETodwcr6LaaEzwI
-	LmvfXB6A==;
+	bh=2Yvu7KvEVhXAGVUKN1IFcmhYovGU5CHhkYDtNb6BvT4=; b=AEjwv5nBzhXwPitzHOsoPq36Qz
+	AH8zZEVg9T7biRdKDP1lmP2KpCd5INeC0Wd0dHvif/oTvrWiol+yCKw5sIxRWbbEhWBT12vWLW67z
+	d174Rm4FU9ds92oTjbbkTQPHj+5BAnoqcZci6PYyWcTWkSNnbkkCKP8mJPvnC1t9khV9tdFsJM7PX
+	mwIMpuxuNd9pxHDdDoe2LvZcuJnA4q2VE9cxpK4tVGERssb2bz69sooO8SBLMq0+3t5h1tEFoiwwr
+	uStX0rVASgrJbAKhXAflUXoOuvV7y5WaDb5kkF+xWzAIeA80U3MtsgineGLnpuHdhhSPiTEWjcXyT
+	VV9hHLVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIO1a-00000003KkR-3u4a;
-	Fri, 23 May 2025 08:45:06 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1uIO1f-00000003Kqs-0v6h;
+	Fri, 23 May 2025 08:45:11 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uINmg-00000003J6A-25l5
+	id 1uINus-00000003JwN-1t3e
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 08:29:44 +0000
-Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 80F3D1F9D9;
-	Fri, 23 May 2025 10:29:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1747988980;
-	bh=j3tZe3/WIA/A9RSei6guiNM9/nIQO96/MG0HzRXeW18=; h=From:To:Subject;
-	b=pqG2RpQsBjSnlowjk4bODeanUiXyagWvirSd6sjdbCKiUxbgXvd501uR8H8LH7yEZ
-	 hn+X4q5g4Bav8fcOjTGSfrMGfXB9WT4bV4IaXtTlsQWEjOpRb8xnh9oya0B118Edt+
-	 PU3awFuhctkusnRKgNVW5ykPUKm3M0yeeQGxzNsd6trC+e36fdWRNnSnYE26FGVGkU
-	 5uON2FBEwK8bvU5AYAi/HbljKbw/9LaOKiL/5aDXTZC5GPV18Xm6i08q3y3jlr0glS
-	 ZKQp20lGXuP1fB8OJarTRQHjs2ll8dXXsrPwWicva+gHvgpjawQZHXRduKMfX6gMfJ
-	 O3yLhpzJctSVg==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Dong Aisheng <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Carlos Song <carlos.song@nxp.com>
-Subject: [PATCH v4 1/2] i2c: lpi2c: use readl_poll_timeout() for register polling
-Date: Fri, 23 May 2025 10:29:30 +0200
-Message-Id: <20250523082931.23170-2-francesco@dolcini.it>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250523082931.23170-1-francesco@dolcini.it>
-References: <20250523082931.23170-1-francesco@dolcini.it>
+	Fri, 23 May 2025 08:38:11 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54N2m1TN013427;
+	Fri, 23 May 2025 08:38:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2Yvu7KvEVhXAGVUKN1IFcmhYovGU5CHhkYDtNb6BvT4=; b=FDrhMpkdjmRcLBHc
+	ubNGzWjM+JUoKDzTPS3sq/WSE5TTEiGsIBxiITyVoIad8QbgKTq+DldIS1MaL5c1
+	tgs7WE4r0z5F/LOK3WySHpdhlEn5d/xAuQSS8kNm/opiTyY1rebaDXfHzRjviCQ3
+	2FsqtWTOfmu/tf1I5+5UigY6x00E/cCla0etO1oGnemIpWomWV3lhVpiR96IywSt
+	hD5M67Ei8z01twga4rMT2SfSoofYTUzUvKAHc1k1aO4jgHMb3/LT20Tym2QNE6cZ
+	7hiyVXWnug1qcTXaYJsZrhpUYAcsg1omByyqh1EpeO8vpgOogjyJfVKgGv2obrVF
+	bZy8Xw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46rwh5hhes-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 08:38:02 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54N8c1Xe004721
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 08:38:01 GMT
+Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 23 May
+ 2025 01:37:58 -0700
+Message-ID: <d949c0e7-e791-45cf-89f3-82a26f70382b@quicinc.com>
+Date: Fri, 23 May 2025 16:37:56 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/2] coresight: add coresight Trace Network On Chip
+ driver
+To: Leo Yan <leo.yan@arm.com>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com>
+ <20250522-trace-noc-v6-2-f5a9bcae90ee@quicinc.com>
+ <20250522130536.GA2566836@e132581.arm.com>
+Content-Language: en-US
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <20250522130536.GA2566836@e132581.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIzMDA3NyBTYWx0ZWRfX/kHL1qyDEpQi
+ 5rTUGyBO7WfTzr3FFArunfhZ4L75PCC0a+zxi3ElzsV+VMuuH1D1/nkyqOx0Tx+zxv9oterQak+
+ Ms0WkOKe0r1AwBdx+ZJTVrcrh4FcKSbmKP8vVUM9Men23pFxxm2FlvkWmrXndoisnEUhJBCu6iZ
+ cX9qbpBAEvjKyVX5jfCqSiZ23g+VxaxYA5VoMgz00eyLUxusgERUnfvQen/9ISKh3ed4qlomMz4
+ cTA/p+Uv1tJQmB1Ef4Gv8Q2hgWjijXG/GpKIJsdgEZnMXAgzydGqk4lyLbfsOz2MZBb6nCfw4kU
+ R+0YTcxiiAlGZD3s7Aip5riGY8A7qj1amCo1lumnlOmRv6uV/a1/12uuuvskLoejOUJJLHpQnuT
+ WKsjRa6DMQmLM4hMfuPJqiQzlLy3k+XsWmQNVQDV52NQ1GHc4lzOoLWakYTX2qWbm7K1VOG8
+X-Authority-Analysis: v=2.4 cv=XeWJzJ55 c=1 sm=1 tr=0 ts=683033ea cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8
+ a=KKAkSRfTAAAA:8 a=pgdA0KJcGQdbBMiMy-UA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: SXz430XGB2XuiYhTuTlqxSLU1TNdFVnw
+X-Proofpoint-ORIG-GUID: SXz430XGB2XuiYhTuTlqxSLU1TNdFVnw
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-23_02,2025-05-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 mlxlogscore=999 mlxscore=0 bulkscore=0 spamscore=0
+ suspectscore=0 impostorscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
+ definitions=main-2505230077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_012942_851069_FBE130C7 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20250523_013810_506835_63EB7285 
+X-CRM114-Status: GOOD (  31.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,182 +125,382 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 
-Replace polling loops with the readl_poll_timeout() helper macro.
 
-Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-Reviewed-by: Carlos Song <carlos.song@nxp.com>
----
-v3 -> v4
-- Split the patch into two parts: one for the readl_poll_timeout() and one for the atomic implementation.
-- Change the readl_poll_timeout() delay to 0 us to do not change the behavior of the driver.
-- Use err variable consistently.
+On 5/22/2025 9:05 PM, Leo Yan wrote:
+> Hi Yuanfang,
+> 
+> On Thu, May 22, 2025 at 04:07:52PM +0800, Yuanfang Zhang wrote:
+>> Add a driver to support Coresight device Trace Network On Chip (TNOC),
+>> which is an integration hierarchy integrating functionalities of TPDA
+>> and funnels. It aggregates the trace and transports to coresight trace
+>> bus.
+> 
+> The code quality is good for me. However, I still have several minor
+> comments.
+> 
+>> Compared to current configuration, it has the following advantages:
+>> 1. Reduce wires between subsystems.
+>> 2. Continue cleaning the infrastructure.
+>> 3. Reduce Data overhead by transporting raw data from source to target.
+>>
+>>   +------------------------+                +-------------------------+
+>>   | Video Subsystem        |                |Video Subsystem          |
+>>   |       +-------------+  |                |       +------------+    |
+>>   |       | Video TPDM  |  |                |       | Video TPDM |    |
+>>   |       +-------------+  |                |       +------------+    |
+>>   |            |           |                |              |          |
+>>   |            v           |                |              v          |
+>>   |   +---------------+    |                |        +-----------+    |
+>>   |   | Video funnel  |    |                |        |Video TNOC |    |
+>>   |   +---------------+    |                |        +-----------+    |
+>>   +------------|-----------+                +------------|------------+
+>>                |                                         |
+>>                v-----+                                   |
+>> +--------------------|---------+                         |
+>> |  Multimedia        v         |                         |
+>> |  Subsystem   +--------+      |                         |
+>> |              |  TPDA  |      |                         v
+>> |              +----|---+      |              +---------------------+
+>> |                   |          |              |   Aggregator  TNOC  |
+>> |                   |          |              +----------|----------+
+>> |                   +--        |                         |
+>> |                     |        |                         |
+>> |                     |        |                         |
+>> |              +------v-----+  |                         |
+>> |              |  Funnel    |  |                         |
+>> |              +------------+  |                         |
+>> +----------------|-------------+                         |
+>>                  |                                       |
+>>                  v                                       v
+>>       +--------------------+                    +------------------+
+>>       |   Coresight Sink   |                    |  Coresight Sink  |
+>>       +--------------------+                    +------------------+
+>>
+>>        Current Configuration                            TNOC
+>>
+>> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+>> ---
+>>  drivers/hwtracing/coresight/Kconfig          |  13 ++
+>>  drivers/hwtracing/coresight/Makefile         |   1 +
+>>  drivers/hwtracing/coresight/coresight-tnoc.c | 192 +++++++++++++++++++++++++++
+>>  drivers/hwtracing/coresight/coresight-tnoc.h |  34 +++++
+>>  4 files changed, 240 insertions(+)
+>>
+>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+>> index ecd7086a5b83e86b6bc8ea039d6d26a628334ed3..f20600d58f38568f8178f69d3f678c2df2cbca7e 100644
+>> --- a/drivers/hwtracing/coresight/Kconfig
+>> +++ b/drivers/hwtracing/coresight/Kconfig
+>> @@ -259,4 +259,17 @@ config CORESIGHT_DUMMY
+>>  
+>>  	  To compile this driver as a module, choose M here: the module will be
+>>  	  called coresight-dummy.
+>> +
+>> +config CORESIGHT_TNOC
+>> +	tristate "Coresight Trace Network On Chip driver"
+>> +	help
+>> +	  This driver provides support for Trace Network On Chip (TNOC) component.
+>> +	  TNOC is an interconnect used to collect traces from various subsystems
+>> +	  and transport to a coresight trace sink. It sits in the different
+>> +	  tiles of SOC and aggregates the trace local to the tile and transports
+>> +	  it another tile or to coresight trace sink eventually.
+>> +
+>> +	  To compile this driver as a module, choose M here: the module will be
+>> +	  called coresight-tnoc.
+>> +
+>>  endif
+>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+>> index 8e62c3150aebd1e82b445fafc97a0a9b44397b0e..880e9ed6bfe9c711492c6a2cd972751f56dd8010 100644
+>> --- a/drivers/hwtracing/coresight/Makefile
+>> +++ b/drivers/hwtracing/coresight/Makefile
+>> @@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
+>>  obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
+>>  obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
+>>  					   coresight-replicator.o
+>> +obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
+>>  obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
+>>  coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
+>>  		     coresight-etm3x-sysfs.o
+>> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..5658501155d322d28e87ff820c7ba8b787eff7ce
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+>> @@ -0,0 +1,192 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+>> + */
+>> +
+>> + #include <linux/amba/bus.h>
+>> + #include <linux/coresight.h>
+>> + #include <linux/device.h>
+>> + #include <linux/io.h>
+>> + #include <linux/kernel.h>
+>> + #include <linux/module.h>
+>> + #include <linux/of.h>
+>> + #include <linux/platform_device.h>
+>> +
+>> +#include "coresight-priv.h"
+>> +#include "coresight-tnoc.h"
+>> +#include "coresight-trace-id.h"
+>> +
+>> +DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
+>> +
+>> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+>> +{
+>> +	u32 val;
+>> +
+>> +	/* Set ATID */
+>> +	writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+>> +
+>> +	/* Set the data word count between 'SYNC' packets */
+>> +	writel_relaxed(TRACE_NOC_SYNC_INTERVAL, drvdata->base + TRACE_NOC_SYNCR);
+>> +
+>> +	/* Set the Control register:
+>> +	 * - Set the FLAG packets to 'FLAG' packets
+>> +	 * - Set the FREQ packets to 'FREQ_TS' packets
+>> +	 * - Enable generation of output ATB traffic
+>> +	 */
+>> +
+>> +	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+>> +
+>> +	val &= ~TRACE_NOC_CTRL_FLAGTYPE;
+>> +	val |= TRACE_NOC_CTRL_FREQTYPE;
+>> +	val |= TRACE_NOC_CTRL_PORTEN;
+>> +
+>> +	writel(val, drvdata->base + TRACE_NOC_CTRL);
+>> +}
+>> +
+>> +static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
+>> +			    struct coresight_connection *outport)
+>> +{
+>> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +	spin_lock(&drvdata->spinlock);
+> 
+>         scoped_guard(spinlock, &drvdata->spinlock) {
+> 
+>         }
+> 
+Done in next patch.
+>> +	if (csdev->refcnt == 0)
+>> +		trace_noc_enable_hw(drvdata);
+>> +
+>> +	csdev->refcnt++;
+>> +	spin_unlock(&drvdata->spinlock);
+>> +
+>> +	dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
+>> +	return 0;
+>> +}
+>> +
+>> +static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
+>> +{
+>> +	writel(0x0, drvdata->base + TRACE_NOC_CTRL);
+>> +}
+> 
+> It is not necessary to use a function to encapsulate single operations.
+> 
+> Please drop the function trace_noc_disable_hw() and directly use
+> writel() in the call site.
 
-v2 -> v3
-- Closes: https://lore.kernel.org/oe-kbuild-all/202505130735.zh3WuTNu-lkp@intel.com/. Using the return value of
-lpi2c_imx_read_msr_poll_timeout() to check for errors.
+Done in next patch.
+> 
+>> +
+>> +static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
+>> +			      struct coresight_connection *outport)
+>> +{
+>> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +	spin_lock(&drvdata->spinlock);
+>> +	if (--csdev->refcnt == 0)
+>> +		trace_noc_disable_hw(drvdata);
+>> +
+>> +	spin_unlock(&drvdata->spinlock);
+>> +	dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
+>> +}
+>> +
+>> +static int trace_noc_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
+>> +			__maybe_unused struct coresight_device *sink)
+>> +{
+>> +	struct trace_noc_drvdata *drvdata;
+>> +
+>> +	drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +	return drvdata->atid;
+>> +}
+>> +
+>> +static const struct coresight_ops_link trace_noc_link_ops = {
+>> +	.enable		= trace_noc_enable,
+>> +	.disable	= trace_noc_disable,
+>> +};
+>> +
+>> +static const struct coresight_ops trace_noc_cs_ops = {
+>> +	.trace_id	= trace_noc_id,
+>> +	.link_ops	= &trace_noc_link_ops,
+>> +};
+>> +
+>> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+>> +{
+>> +	int atid;
+>> +
+>> +	atid = coresight_trace_id_get_system_id();
+>> +	if (atid < 0)
+>> +		return atid;
+>> +
+>> +	drvdata->atid = atid;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+>> +{
+>> +	struct device *dev = &adev->dev;
+>> +	struct coresight_platform_data *pdata;
+>> +	struct trace_noc_drvdata *drvdata;
+>> +	struct coresight_desc desc = { 0 };
+>> +	int ret;
+>> +
+>> +	desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
+>> +	if (!desc.name)
+>> +		return -ENOMEM;
+>> +
+>> +	pdata = coresight_get_platform_data(dev);
+>> +	if (IS_ERR(pdata))
+>> +		return PTR_ERR(pdata);
+>> +	adev->dev.platform_data = pdata;
+>> +
+>> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+>> +	if (!drvdata)
+>> +		return -ENOMEM;
+>> +
+>> +	drvdata->dev = &adev->dev;
+>> +	dev_set_drvdata(dev, drvdata);
+>> +
+>> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+>> +	if (!drvdata->base)
+>> +		return -ENOMEM;
+>> +
+>> +	spin_lock_init(&drvdata->spinlock);
+>> +
+>> +	ret = trace_noc_init_default_data(drvdata);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	desc.ops = &trace_noc_cs_ops;
+>> +	desc.type = CORESIGHT_DEV_TYPE_LINK;
+>> +	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+>> +	desc.pdata = adev->dev.platform_data;
+>> +	desc.dev = &adev->dev;
+>> +	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
+>> +	drvdata->csdev = coresight_register(&desc);
+>> +	if (IS_ERR(drvdata->csdev))
+>> +		return PTR_ERR(drvdata->csdev);
+> 
+> Invoke coresight_trace_id_put_system_id() for registration failure.
+> 
+Done in next patch.
+>> +
+>> +	pm_runtime_put(&adev->dev);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void trace_noc_remove(struct amba_device *adev)
+>> +{
+>> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+>> +
+>> +	coresight_trace_id_put_system_id(drvdata->atid);
+>> +	coresight_unregister(drvdata->csdev);
+>> +}
+>> +
+>> +static struct amba_id trace_noc_ids[] = {
+>> +	{
+>> +		.id     = 0x000f0c00,
+>> +		.mask   = 0x00ffff00,
+>> +	},
+>> +	{},
+>> +};
+>> +MODULE_DEVICE_TABLE(amba, trace_noc_ids);
+>> +
+>> +static struct amba_driver trace_noc_driver = {
+>> +	.drv = {
+>> +		.name   = "coresight-trace-noc",
+>> +		.suppress_bind_attrs = true,
+>> +	},
+>> +	.probe          = trace_noc_probe,
+>> +	.remove		= trace_noc_remove,
+>> +	.id_table	= trace_noc_ids,
+>> +};
+>> +
+>> +module_amba_driver(trace_noc_driver);
+>> +
+>> +MODULE_LICENSE("GPL");
+>> +MODULE_DESCRIPTION("Trace NOC driver");
+>> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..34c696965ec50e3664d55e04e22d5b854d6937a7
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
+>> @@ -0,0 +1,34 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+>> + */
+>> +
+>> +#define TRACE_NOC_CTRL      0x008
+>> +#define TRACE_NOC_XLD       0x010
+>> +#define TRACE_NOC_FREQVAL   0x018
+>> +#define TRACE_NOC_SYNCR     0x020
+>> +
+>> +/* Enable generation of output ATB traffic.*/
+>> +#define TRACE_NOC_CTRL_PORTEN   BIT(0)
+>> +/* Sets the type of issued ATB FLAG packets.*/
+>> +#define TRACE_NOC_CTRL_FLAGTYPE BIT(7)
+>> +/* Sets the type of issued ATB FREQ packet*/
+>> +#define TRACE_NOC_CTRL_FREQTYPE BIT(8)
+>> +
+>> +#define TRACE_NOC_SYNC_INTERVAL	0xFFFF
+>> +
+>> +/*
+>> + * struct trace_noc_drvdata - specifics associated to a trace noc component
+>> + * @base:	memory mapped base address for this component.
+>> + * @dev:	device node for trace_noc_drvdata.
+>> + * @csdev:	component vitals needed by the framework.
+>> + * @spinlock:	only one at a time pls.
+> 
+> Change to "serialize enable/disable operations" ?
+Done in next patch.
+> 
+>> + * @atid:	id for the trace packet.
+>> + */
+>> +struct trace_noc_drvdata {
+>> +	void __iomem		*base;
+>> +	struct device		*dev;
+>> +	struct coresight_device	*csdev;
+>> +	spinlock_t		spinlock; /* lock for the drvdata. */
+> 
+> Remove comment "lock for the drvdata" ?  As it has been described in
+> the head comments.
+it was suggested by "checkpatch.pl", removed in next patch. 
+> 
+>> +	u32			atid;
+>> +};
+> 
+> Please move the content into coresight-tnoc.c and drop the header.
+> 
+> The definitions are private for the driver, it is not necessary to
+> maintain them in a header.
 
-v1 -> v2
-- Rename READL_POLL_TIMEOUT to lpi2c_imx_read_msr_poll_timeout
-- Remove addr and timeout_us parameters from lpi2c_imx_read_msr_poll_timeout since they are used always with the same value
-- add r-b tag from Carlos Song
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 94 ++++++++++++++----------------
- 1 file changed, 45 insertions(+), 49 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 342d47e67586..91b0f4c2b924 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -16,6 +16,7 @@
- #include <linux/init.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
-+#include <linux/iopoll.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -187,6 +188,10 @@ struct lpi2c_imx_struct {
- 	struct i2c_client	*target;
- };
- 
-+#define lpi2c_imx_read_msr_poll_timeout(val, cond)                            \
-+		  readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val, cond,  \
-+				     0, 500000)
-+
- static void lpi2c_imx_intctrl(struct lpi2c_imx_struct *lpi2c_imx,
- 			      unsigned int enable)
- {
-@@ -195,33 +200,34 @@ static void lpi2c_imx_intctrl(struct lpi2c_imx_struct *lpi2c_imx,
- 
- static int lpi2c_imx_bus_busy(struct lpi2c_imx_struct *lpi2c_imx)
- {
--	unsigned long orig_jiffies = jiffies;
-+	int err;
- 	unsigned int temp;
- 
--	while (1) {
--		temp = readl(lpi2c_imx->base + LPI2C_MSR);
--
--		/* check for arbitration lost, clear if set */
--		if (temp & MSR_ALF) {
--			writel(temp, lpi2c_imx->base + LPI2C_MSR);
--			return -EAGAIN;
--		}
-+	err = lpi2c_imx_read_msr_poll_timeout(temp,
-+					      temp & (MSR_ALF | MSR_BBF | MSR_MBF));
- 
--		if (temp & (MSR_BBF | MSR_MBF))
--			break;
-+	/* check for arbitration lost, clear if set */
-+	if (temp & MSR_ALF) {
-+		writel(temp, lpi2c_imx->base + LPI2C_MSR);
-+		return -EAGAIN;
-+	}
- 
--		if (time_after(jiffies, orig_jiffies + msecs_to_jiffies(500))) {
--			dev_dbg(&lpi2c_imx->adapter.dev, "bus not work\n");
--			if (lpi2c_imx->adapter.bus_recovery_info)
--				i2c_recover_bus(&lpi2c_imx->adapter);
--			return -ETIMEDOUT;
--		}
--		schedule();
-+	/* check for bus not busy */
-+	if (err) {
-+		dev_dbg(&lpi2c_imx->adapter.dev, "bus not work\n");
-+		if (lpi2c_imx->adapter.bus_recovery_info)
-+			i2c_recover_bus(&lpi2c_imx->adapter);
-+		return -ETIMEDOUT;
- 	}
- 
- 	return 0;
- }
- 
-+static u32 lpi2c_imx_txfifo_cnt(struct lpi2c_imx_struct *lpi2c_imx)
-+{
-+	return readl(lpi2c_imx->base + LPI2C_MFSR) & 0xff;
-+}
-+
- static void lpi2c_imx_set_mode(struct lpi2c_imx_struct *lpi2c_imx)
- {
- 	unsigned int bitrate = lpi2c_imx->bitrate;
-@@ -259,25 +265,18 @@ static int lpi2c_imx_start(struct lpi2c_imx_struct *lpi2c_imx,
- 
- static void lpi2c_imx_stop(struct lpi2c_imx_struct *lpi2c_imx)
- {
--	unsigned long orig_jiffies = jiffies;
- 	unsigned int temp;
-+	int err;
- 
- 	writel(GEN_STOP << 8, lpi2c_imx->base + LPI2C_MTDR);
- 
--	do {
--		temp = readl(lpi2c_imx->base + LPI2C_MSR);
--		if (temp & MSR_SDF)
--			break;
-+	err = lpi2c_imx_read_msr_poll_timeout(temp, temp & MSR_SDF);
- 
--		if (time_after(jiffies, orig_jiffies + msecs_to_jiffies(500))) {
--			dev_dbg(&lpi2c_imx->adapter.dev, "stop timeout\n");
--			if (lpi2c_imx->adapter.bus_recovery_info)
--				i2c_recover_bus(&lpi2c_imx->adapter);
--			break;
--		}
--		schedule();
--
--	} while (1);
-+	if (err) {
-+		dev_dbg(&lpi2c_imx->adapter.dev, "stop timeout\n");
-+		if (lpi2c_imx->adapter.bus_recovery_info)
-+			i2c_recover_bus(&lpi2c_imx->adapter);
-+	}
- }
- 
- /* CLKLO = I2C_CLK_RATIO * CLKHI, SETHOLD = CLKHI, DATAVD = CLKHI/2 */
-@@ -393,26 +392,23 @@ static int lpi2c_imx_pio_msg_complete(struct lpi2c_imx_struct *lpi2c_imx)
- 
- static int lpi2c_imx_txfifo_empty(struct lpi2c_imx_struct *lpi2c_imx)
- {
--	unsigned long orig_jiffies = jiffies;
--	u32 txcnt;
--
--	do {
--		txcnt = readl(lpi2c_imx->base + LPI2C_MFSR) & 0xff;
-+	unsigned int temp;
-+	int err;
- 
--		if (readl(lpi2c_imx->base + LPI2C_MSR) & MSR_NDF) {
--			dev_dbg(&lpi2c_imx->adapter.dev, "NDF detected\n");
--			return -EIO;
--		}
-+	err = lpi2c_imx_read_msr_poll_timeout(temp,
-+					      (temp & MSR_NDF) || !lpi2c_imx_txfifo_cnt(lpi2c_imx));
- 
--		if (time_after(jiffies, orig_jiffies + msecs_to_jiffies(500))) {
--			dev_dbg(&lpi2c_imx->adapter.dev, "txfifo empty timeout\n");
--			if (lpi2c_imx->adapter.bus_recovery_info)
--				i2c_recover_bus(&lpi2c_imx->adapter);
--			return -ETIMEDOUT;
--		}
--		schedule();
-+	if (temp & MSR_NDF) {
-+		dev_dbg(&lpi2c_imx->adapter.dev, "NDF detected\n");
-+		return -EIO;
-+	}
- 
--	} while (txcnt);
-+	if (err) {
-+		dev_dbg(&lpi2c_imx->adapter.dev, "txfifo empty timeout\n");
-+		if (lpi2c_imx->adapter.bus_recovery_info)
-+			i2c_recover_bus(&lpi2c_imx->adapter);
-+		return -ETIMEDOUT;
-+	}
- 
- 	return 0;
- }
--- 
-2.39.5
+Done in next patch.
+> 
+> 
+>>
+>> -- 
+>> 2.34.1
+>>
+>> _______________________________________________
+>> CoreSight mailing list -- coresight@lists.linaro.org
+>> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
 
