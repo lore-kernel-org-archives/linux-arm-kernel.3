@@ -4,102 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1C3C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F7BC54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G3eBoRI6ajKzQj7PIYgoVul0HEV9Bq6GwjJIxWdrMvs=; b=1mnX427dm070FSyQ0pyDkQbOdG
-	b03kXmr/NFm7kdUmFg9h2sMsLB9ucZ+KqSSpkAmvjLDufAR0I0gm1QC/KgQqQpuBv8BjtJXCCdU2O
-	H6cqjS4qubpeptX4dmSrmrEp/j8Hoka/aZOxw9fFE4zIkH1vT1Rq+PgScpteU3KZFW5zmKQug3Kwb
-	MS/YDgKNnmnYqMdEqVgmIpW3urTkXbb+3m+gvyJNe8jwvXIAXa5hVdKmavAHPZiB1NWRGcnDKGGGF
-	ldOoT1qhGo12S6lH1T4m+9ug6wtgZkxFb7uxub+yMDTQ/+tygVgwuxQJQQr2e2d84XxB30cwsdNyy
-	WVs3peCg==;
+	bh=UR02xpSz7yUWE/jCacsrkQsBh5o6XthH6ALRGIyfSjc=; b=wF+H79Zx6y7WLx9nuGm/f3jWqB
+	uNkhj8zJLkVoqGeuUXN9/ZTvbz0/3KFTZK2PzZgtY9s5p26n50JDHgETnPFG2/X3slOMqg9INsoVE
+	Z2NPDm20U5CiM1px63UL9ewwj2NffOwoasyTGgmxEHcjCIJ2DwNPfzJrSPfTbRpeTkGl2tYw6BKDl
+	RvcZwzOjqHLmvavP0YwaCuHjDo2hjaWgR/qk3moQZKXnhgkavuGY3J13QNmYdLIQaoyC0mj1L1NW8
+	wDNwLYs1u6eY1MO9bbcFmn4BNPCNnHZ1f8BCUxsv66L0x2nYxF0j59hRVNHCtdBgmzblCnamFmUZJ
+	Lxh4XiJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQTx-00000003h6c-2kQs;
-	Fri, 23 May 2025 11:22:33 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uIQUk-00000003hFX-21lS;
+	Fri, 23 May 2025 11:23:22 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQRn-00000003grG-0ftT;
-	Fri, 23 May 2025 11:20:20 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54NBJc1K2086996;
-	Fri, 23 May 2025 06:19:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747999178;
-	bh=G3eBoRI6ajKzQj7PIYgoVul0HEV9Bq6GwjJIxWdrMvs=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=pGrh4cl5UNwlzQb/0t74988xZoSrBH7x4348QMBKDmfEIEnMxH8v3P122scZKOLoq
-	 WcvICifTw0IpvVBp7SlgqxN1dmooOa4XIXH6VEXHmwzZMIPuwOd/B/40p6zsECZIL9
-	 nKV7oX048/6bbOEblbgcqX9fFjhONqR8xG9NOzpE=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54NBJcAC023157
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 23 May 2025 06:19:38 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 23
- May 2025 06:19:37 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 23 May 2025 06:19:37 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54NBJblW1172257;
-	Fri, 23 May 2025 06:19:37 -0500
-Date: Fri, 23 May 2025 06:19:37 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Kees Cook <kees@kernel.org>
-CC: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Thomas Gleixner
-	<tglx@linutronix.de>,
-        Santosh Shilimkar <ssantosh@kernel.org>, Lee Jones
-	<lee@kernel.org>,
-        Allison Randal <allison@lohutok.net>,
-        Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Christoph Hellwig
-	<hch@lst.de>, Marco Elver <elver@google.com>,
-        Andrey Konovalov
-	<andreyknvl@gmail.com>,
-        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-        Ard
- Biesheuvel <ardb@kernel.org>,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Nathan
- Chancellor <nathan@kernel.org>,
-        Nicolas Schier <nicolas.schier@linux.dev>,
-        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-        Bill Wendling
-	<morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>, <linux-kernel@vger.kernel.org>,
-        <x86@kernel.org>, <kasan-dev@googlegroups.com>,
-        <linux-doc@vger.kernel.org>, <kvmarm@lists.linux.dev>,
-        <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
-        <linux-efi@vger.kernel.org>, <linux-hardening@vger.kernel.org>,
-        <linux-kbuild@vger.kernel.org>,
-        <linux-security-module@vger.kernel.org>,
-        <linux-kselftest@vger.kernel.org>, <sparclinux@vger.kernel.org>,
-        <llvm@lists.linux.dev>
-Subject: Re: [PATCH v2 05/14] arm: Handle KCOV __init vs inline mismatches
-Message-ID: <20250523111937.f2fqhoshqevdoxcl@snowbird>
-References: <20250523043251.it.550-kees@kernel.org>
- <20250523043935.2009972-5-kees@kernel.org>
+	id 1uIOQT-00000003PE7-3BwB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 09:10:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uIOQI-0005Zj-48; Fri, 23 May 2025 11:10:38 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uIOQH-000sRD-1o;
+	Fri, 23 May 2025 11:10:37 +0200
+Received: from pengutronix.de (unknown [IPv6:2a03:2260:2009:2000::])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 840C141822A;
+	Fri, 23 May 2025 09:10:36 +0000 (UTC)
+Date: Fri, 23 May 2025 11:10:33 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
+	kever.yang@rock-chips.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 4/4] net: can: rockchip: support dma for rk3576 rx
+Message-ID: <20250523-shrewd-berserk-sheep-315ac5-mkl@pengutronix.de>
+References: <20250523075422.4010083-1-zhangqing@rock-chips.com>
+ <20250523075422.4010083-5-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="el4f565f524arurf"
 Content-Disposition: inline
-In-Reply-To: <20250523043935.2009972-5-kees@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250523075422.4010083-5-zhangqing@rock-chips.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_042019_289101_505C0560 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20250523_021049_798470_94BAE43A 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,37 +82,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21:39-20250522, Kees Cook wrote:
-> When KCOV is enabled all functions get instrumented, unless
-> the __no_sanitize_coverage attribute is used. To prepare for
-> __no_sanitize_coverage being applied to __init functions, we have to
-> handle differences in how GCC's inline optimizations get resolved. For
-> arm this exposed several places where __init annotations were missing
-> but ended up being "accidentally correct". Fix these cases and force
-> several functions to be inline with __always_inline.
-> 
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
-[...]
-> diff --git a/drivers/soc/ti/pm33xx.c b/drivers/soc/ti/pm33xx.c
-> index dfdff186c805..dc52a2197d24 100644
-> --- a/drivers/soc/ti/pm33xx.c
-> +++ b/drivers/soc/ti/pm33xx.c
-> @@ -145,7 +145,7 @@ static int am33xx_do_sram_idle(u32 wfi_flags)
->  	return pm_ops->cpu_suspend(am33xx_do_wfi_sram, wfi_flags);
->  }
->  
-> -static int __init am43xx_map_gic(void)
-> +static int am43xx_map_gic(void)
->  {
->  	gic_dist_base = ioremap(AM43XX_GIC_DIST_BASE, SZ_4K);
->  
-> -- 
-> 2.34.1
-> 
-Acked-by: Nishanth Menon <nm@ti.com>
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+
+--el4f565f524arurf
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 4/4] net: can: rockchip: support dma for rk3576 rx
+MIME-Version: 1.0
+
+On 23.05.2025 15:54:22, Elaine Zhang wrote:
+> The new can controller of rk3576 supports rx dma.
+
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:297:47: warning: incorrect t=
+ype in argument 1 (different address spaces)
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:297:47:    expected void con=
+st volatile [noderef] __iomem *addr
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:297:47:    got unsigned int =
+[usertype] *
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:299:44: warning: incorrect t=
+ype in argument 1 (different address spaces)
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:299:44:    expected void con=
+st volatile [noderef] __iomem *addr
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:299:44:    got unsigned int =
+[usertype] *
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:302:58: warning: incorrect t=
+ype in argument 1 (different address spaces)
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:302:58:    expected void con=
+st volatile [noderef] __iomem *addr
+| drivers/net/can/rockchip/rockchip_canfd-rx.c:302:58:    got unsigned int =
+[usertype] *
+
+Install "sparse" and compile with C=3D1.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--el4f565f524arurf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmgwO4UACgkQDHRl3/mQ
+kZz30Af/SIdkXHiO0CuLJro2DVr7juoDO/LnF1KqldXc/haDI6pxWfU2dx8oBmQm
+x1wOLu5MWD0dvDB/R8ZBirZ87apAG+9QHJuaUHtiYAcwTzR4WWnRFPaqwonwNd7H
+x4b/Rs5FcRhd+zeisoHMz9siFjTtTI7I5n6w/1jW5u6Tr/6xxLOhbWbhaNM74G+n
+pSczJTP7HSSR/umMuVMEV53owHa3pK05izJCdENRzg2iLSrBR2/51jBW3IpRwq5f
+3VvSodv67x1rpip453K0NUU43qqoqa04E/XPH5WP4Lt5llHVNqbh/1f8F0TMMe2p
+KoEaxA4D3GmHFgFUM+0BIPa2aFFhGA==
+=e387
+-----END PGP SIGNATURE-----
+
+--el4f565f524arurf--
 
