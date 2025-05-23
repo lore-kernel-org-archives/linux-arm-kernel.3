@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F1EC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA516C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=; b=W+n6aK2cAyxaD4Lj9fj5q7h89v
-	dDRyYqifEiVOD8cJipUjRnYdrxSCUEg3pvf4gfHAi7RF4HLxAahC0cVZt86bUhn5xOtfTTbu8YG27
-	9Uv1b2RJqcw1oYu421DrjYOBuDqg6k/D/HTIgOdXO4FTyf3LdpAaosd0dcdGveD87ZFwTxxcQZb28
-	cvrp8e1TxYvn5xyLI4rOvxPA5++X7BQT8qogoDwCHHF1H38byjD/0S7/bgTMRK9O9aVRezWTLfjhT
-	7N4v3wtc+2wNq8tLQ5+QNFuYq3N76uqKAs93F1XfZjZy8kUUqJQ9mvyNAAkHjIbEY/RPWJA88fcwp
-	S+CUF7OQ==;
+	bh=zTfJ/GeY/lTwR1D9VlQQIY/dt3W579Yxd9kJ3BXM+Hk=; b=VBevIBBMHAdsNhE3aE1EU1l6p3
+	NvsGvWoTmYFw3j77v8i2mB4ANOJqtDsBC+r6HJDokTHhSowZVusJ/gFozXQgycPSfEsI235Uw1cae
+	MK7fDnKyA36uVyr4mkI7OZ64OS8jqP1SXxrQ8vbJqkaxKW+H/2gw/24/9FSHrdxsfEUEE5ruvwmHe
+	+r8D63Fx7EcNZV9WY/7igbcu4POb4e8F9nl2QdeNDUC83C45mlt5eSOZgfzyacdPEIMwQKLWXMHyI
+	D40bHDCnkBxThhYRlD2PNDPL/OK1bmd4LIWaSJKO6Amsji0ScBDT64Dm/lPr+HpWUEJIjfqbRcwtk
+	MvEWSxZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbL-000000045o6-0w97;
-	Fri, 23 May 2025 14:42:23 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1uITbQ-000000045xv-37rX;
+	Fri, 23 May 2025 14:42:28 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISe1-00000003zMi-14m3
+	id 1uISe6-00000003zOs-2nwX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 13:41:06 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ad52d9be53cso1194356266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:41:04 -0700 (PDT)
+	Fri, 23 May 2025 13:41:11 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-551fb4d153dso5527958e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:41:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748007663; x=1748612463; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748007669; x=1748612469; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=;
-        b=r2KaPC1nb4idGQqgtnlJiA0sfPC5i/Mi5b5/IUntoxx+XT2Wt9syWTrSRgeJto9O8d
-         dBKwWt2PgWUKCZ4EJU3Tq5ow1pDfzpdOBInR899+br0IlYwUIkKaegrMS+eMup225RAQ
-         +82lSHPna9zDQdeCso3+O1VYMuJbt+I4p4IFGnHB6yCCUDGX5jg0jWM3ebFiXOUMZiCx
-         JXLXTFNHGadFTCZZgaaonbpmBWvck5CvYqATBLkzSJwE9pXTJwEXvwDBHs8AdJSu8C+l
-         1HPJ34oYdAAKdmjcS3nhlS5Hm+eYTy06ScfQGGWyo/XHlSY44/iWSVkxwK0iS7+oIiif
-         eJzg==
+        bh=zTfJ/GeY/lTwR1D9VlQQIY/dt3W579Yxd9kJ3BXM+Hk=;
+        b=FdOzSgENFidIXbXNDaz5WcvxIfmPqCdeW2M+5IynH2AdAiuTg1/RtJUcHKsSfrvYY7
+         JloNt4SAx3OMa4WokagS+t6EbCzdfClDfYF/60motCX2UlKEb9ghcOTwwnfBOnB7C9f4
+         h8OKmsm5uRmBAGQgN/k7FqYPWR1aPfoFxxen0EdItKhnl5RCeIhejxWYYmKqoF2uhNUy
+         3i8sBmJqfSJXHDFL1FpzeVBB3ulKi4MV+uUo19Ibb3TlmhTbnEmOfJ65xzJHZ8N+xgy4
+         cepXNn3l4kxGzMRKlJwixQldOTC/sifO6Frs4SgPZOBy3/vfClUYiB/cgT7zx2CO0gze
+         k/GA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748007663; x=1748612463;
+        d=1e100.net; s=20230601; t=1748007669; x=1748612469;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=;
-        b=FKdef/BYs2wB46J9EPgKjnKv0K3wNz6ipj+UQRcCrQ2hwxPM9qJW4+zX76P+qdDFkA
-         4NHwSuAarMoiEimSxevSC63AwIi+5k6PG7UgA/6bL8WcKulAvl89Npkip8WJJ2f7pWgt
-         Bk9fembt27t+v+pf8nOs+w99lTXloFJAAJTlju7o3YIiPIYLdGW0ygF46/9BGkfo1N/w
-         upNJjhC/k0vEdjk8d2zN6AhxCvJEEuQEecQkXUUDyAAMZ/+BhEF8Oh2n4IeFecFG3SIe
-         jE2oY2FJT4vcp5ftmHNRIDvPLQOrPCW5exGyqMhbLqXnnSZLCWxGpn7+wYzuEmTvUMR8
-         tfMw==
-X-Forwarded-Encrypted: i=1; AJvYcCV9zJvz/rsmyzHFiT4lfCmBF4cKfMjHxZLiBu0BEE22nvqkZd6gs+pNfZ4m92Qjkpa+KXGyNapSbMr7o79Rz3io@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyKiYj6HTb5+pddevo/IsZTFDrX8olx0XRrGs3v6cC+DTycE7+
-	yrMjPtBiuS2bcZg6ICKUmqPHOTscT5ml8oQJV5t9XmyjYKaDoaD61LyyTImnwO9vTKrpp3sfwlk
-	eo9qOLUM=
-X-Gm-Gg: ASbGncs3z4u8zocsd9tJydKZnu+J6+SO6uwtT4Ii9EbideKeXKrYbM72h5EsppV1OVJ
-	Aiw+ZkOkcrJIgNuRqYQ3pwpXEdYBYVhr0FptSXd0qCfy+RR8jWhmPDzb0bWxET/s8oTpZEY+Bc+
-	o/Uh5sToXXSZxY9ve0Vs5n25jl2k+EkyejKzh9kSqLFz11oLVEIo1m6BKf2vn9ZSAPKO2uMONAa
-	dWKjH8S6VNdIBlJJSvnBVdFJSuE9t7w5msuJOD+zSjnXW7DPJxudtmHFRx9Ux9Kn2E97aI+2mSW
-	6pDhmVZO2mFTg3nVfsTZUom/aF2LlqM9Bj/RiyKyrIrumU71uOXuqIHNFxKrEXq66isUPVuGwO6
-	5pyHvaO1LTH+3IDpvctaXkFuTJQ==
-X-Google-Smtp-Source: AGHT+IEHCYkYuWzR0+7rN1lJlnWJY9YunsWGOeHigvX1kOvGZwTPmtXZLbWPxdIRTzInet0tBxzveg==
-X-Received: by 2002:a05:6512:3d1d:b0:54e:90ce:3c34 with SMTP id 2adb3069b0e04-55216ebe5a0mr842172e87.55.1748007652469;
-        Fri, 23 May 2025 06:40:52 -0700 (PDT)
+        bh=zTfJ/GeY/lTwR1D9VlQQIY/dt3W579Yxd9kJ3BXM+Hk=;
+        b=PGqpi0KCRzqFvkHHJzmffZlBydixwLprQh99gca2zNRYfY0gcCpnXy3IMPKZ/DYzUP
+         t3MsSbwpNEY2DT9mxwSlULze7Ehteus2jJ7If7id5CgERmp8SEBHzWZZgXYdenet/K0Y
+         tcVODIB1xhKeAyEIBN2D+NU5XPrqsQuRZXUwjZR7GfL3u31M/hMehtNK7rNFqiW2WHR4
+         /ETxWrf/+NikemFMq4uRocfODjCT8e7HTG8cZ1tZ1/6JCQV5orWJnV3LtQ3wrZi5WS0L
+         15kGeI2SoDRQY3sOGxE5lPI5nLOH+kOgpSvoWZxB//xtkei2a/XFUjr7c0mvTkuI960I
+         hiSg==
+X-Forwarded-Encrypted: i=1; AJvYcCULYQ96xUVSJzCW+sat03M9RbUYS1L+CpvWE7Q9KUIHslFW8NyD0/SLedjbv4sX9UXW5+ANSHEN0hXb1UOKlTJ0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZYMCfbpF6ZLGxki/UhuBbCCiI4aKvHlR0xHMwqzR2prbNhgx2
+	pkwPgTCJPEIL8PC2LqfHAVJJ7tMED3RdXeGTBFsvAKCy1FqUr0NWzggpHtgGwKrCof8=
+X-Gm-Gg: ASbGncuEMzKzj+nE2OhAJdQWqKSZFsjZHHOaIktMHrMSOAs7qH/aN67N3QCnIbhe98H
+	byTJEdRSHYc8aAWTpwiltmdNLWQrhUZX+vwM5l/xAH9fVZUEMoQLX7fUbqqswO2ZRLFBsHwX7X7
+	Bzib3JZ3FVYqX64zQVW8Bfw5bKnxPefaspYGtdHTNbt4aJAVNRETJWwYB2FWuVzlc9N0R81DGJh
+	uJfLZdxaB75ndYStaUlskR/9ycMNEnti6HU6BfwhLVcHX3I8jOR2W/uiVk8FlQ6fPhzNu56Hbzb
+	DxWZucjAbAoCWH4OaGC423TNEwdq2gRoQfc4sqqeLu9X70Aq7qNNLJ9Ttqi445DO476nphApG82
+	DkzigP4f/CforxGz3y1W2531O2YnNjXKKYQ41
+X-Google-Smtp-Source: AGHT+IFDLfxM01YaBSflhZJhg763sDEi77sCbELPLz/NKFACM48uG4bkUP+LayfK8+cXACHnwwnbIg==
+X-Received: by 2002:a05:6512:4508:b0:54f:c049:4a54 with SMTP id 2adb3069b0e04-550e971afa4mr8711955e87.12.1748007668631;
+        Fri, 23 May 2025 06:41:08 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.40.51
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.41.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 06:40:51 -0700 (PDT)
+        Fri, 23 May 2025 06:41:08 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -89,20 +88,18 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Jonathan Hunter <jonathanh@nvidia.com>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 08/21] cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
-Date: Fri, 23 May 2025 15:40:05 +0200
-Message-ID: <20250523134025.75130-9-ulf.hansson@linaro.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 18/21] pmdomain: core: Leave powered-on genpds on until late_initcall_sync
+Date: Fri, 23 May 2025 15:40:15 +0200
+Message-ID: <20250523134025.75130-19-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250523134025.75130-1-ulf.hansson@linaro.org>
 References: <20250523134025.75130-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_064105_292594_B5703872 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250523_064110_710043_B05DC2FA 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,50 +114,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The riscv-sbi-domain implements its own specific ->sync_state() callback.
-Let's set the GENPD_FLAG_NO_SYNC_STATE to inform genpd about it.
+Powering-off a genpd that was on during boot, before all of its consumer
+devices have been probed, is certainly prone to problems.
 
-Moreover, let's call of_genpd_sync_state() to make sure genpd tries to
-power off unused PM domains.
+As a step to improve this situation, let's prevent these genpds from being
+powered-off until genpd_power_off_unused() gets called, which is a
+late_initcall_sync().
 
-Cc: Anup Patel <anup@brainfault.org>
-Cc: linux-riscv@lists.infradead.org
+Note that, this still doesn't guarantee that all the consumer devices has
+been probed before we allow to power-off the genpds. Yet, this should be a
+step in the right direction.
+
+Suggested-by: Saravana Kannan <saravanak@google.com>
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/cpuidle/cpuidle-riscv-sbi.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ drivers/pmdomain/core.c   | 10 ++++++++--
+ include/linux/pm_domain.h |  1 +
+ 2 files changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index 0fe1ece9fbdc..83d58d00872f 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -347,11 +347,16 @@ static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
- 
- static void sbi_cpuidle_domain_sync_state(struct device *dev)
- {
-+	struct sbi_pd_provider *pd_provider;
-+
- 	/*
- 	 * All devices have now been attached/probed to the PM domain
- 	 * topology, hence it's fine to allow domain states to be picked.
+diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+index b39d06d3ad26..5d2ed4edffd7 100644
+--- a/drivers/pmdomain/core.c
++++ b/drivers/pmdomain/core.c
+@@ -934,11 +934,12 @@ static void genpd_power_off(struct generic_pm_domain *genpd, bool one_dev_on,
+ 	 * The domain is already in the "power off" state.
+ 	 * System suspend is in progress.
+ 	 * The domain is configured as always on.
++	 * The domain was on at boot and still need to stay on.
+ 	 * The domain has a subdomain being powered on.
  	 */
- 	sbi_cpuidle_pd_allow_domain_state = true;
-+
-+	list_for_each_entry(pd_provider, &sbi_pd_providers, link)
-+		of_genpd_sync_state(pd_provider->node);
- }
+ 	if (!genpd_status_on(genpd) || genpd->prepared_count > 0 ||
+ 	    genpd_is_always_on(genpd) || genpd_is_rpm_always_on(genpd) ||
+-	    atomic_read(&genpd->sd_count) > 0)
++	    genpd->stay_on || atomic_read(&genpd->sd_count) > 0)
+ 		return;
  
- #ifdef CONFIG_DT_IDLE_GENPD
-@@ -396,7 +401,8 @@ static int sbi_pd_init(struct device_node *np)
- 	if (!pd_provider)
- 		goto free_pd;
+ 	/*
+@@ -1349,8 +1350,12 @@ static int __init genpd_power_off_unused(void)
+ 	pr_info("genpd: Disabling unused power domains\n");
+ 	mutex_lock(&gpd_list_lock);
  
--	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
-+	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN |
-+		     GENPD_FLAG_NO_SYNC_STATE;
+-	list_for_each_entry(genpd, &gpd_list, gpd_list_node)
++	list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
++		genpd_lock(genpd);
++		genpd->stay_on = false;
++		genpd_unlock(genpd);
+ 		genpd_queue_power_off_work(genpd);
++	}
  
- 	/* Allow power off when OSI is available. */
- 	if (sbi_cpuidle_use_osi)
+ 	mutex_unlock(&gpd_list_lock);
+ 
+@@ -2375,6 +2380,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
+ 	INIT_WORK(&genpd->power_off_work, genpd_power_off_work_fn);
+ 	atomic_set(&genpd->sd_count, 0);
+ 	genpd->status = is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
++	genpd->stay_on = !is_off;
+ 	genpd->sync_state = GENPD_SYNC_STATE_OFF;
+ 	genpd->device_count = 0;
+ 	genpd->provider = NULL;
+diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+index d68e07dadc99..99556589f45e 100644
+--- a/include/linux/pm_domain.h
++++ b/include/linux/pm_domain.h
+@@ -199,6 +199,7 @@ struct generic_pm_domain {
+ 	unsigned int performance_state;	/* Aggregated max performance state */
+ 	cpumask_var_t cpus;		/* A cpumask of the attached CPUs */
+ 	bool synced_poweroff;		/* A consumer needs a synced poweroff */
++	bool stay_on;			/* Stay powered-on during boot. */
+ 	enum genpd_sync_state sync_state; /* How sync_state is managed. */
+ 	int (*power_off)(struct generic_pm_domain *domain);
+ 	int (*power_on)(struct generic_pm_domain *domain);
 -- 
 2.43.0
 
