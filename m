@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0C04C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD10C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eXlfdMIujoEWEfC9MCFXNwyGXVaiR+vqx4I+fOV2LpA=; b=HtBbRebyfNMlpxBPup0jSEc+x3
-	Cc5DxwZLmAk99WqKkI+4oJv38IbmvzPWwOm61fymjGwGMOwgM1FsFaMInLiGKATMtXcW9hF2d8Ing
-	0w5kWedhCa6iYsiZkrro8QIpRPF+ZpWGDwawdkFGhDINmfIdpWQBruqvCXsHryOBUO2K4Xxl33qeK
-	LPf+XRbWnt7wOjL82dUDYiB1WvmeFZjvDoakLw7uJgD6FVUlRRrRcWcG9NRQGDfPLfP/0DaPdCbrA
-	WKBMzo63NW13j4H4HBUG8LeFI5Ydl/buMU0NItI4p++IJZ4YZJxJv76eCHPr07gzhv6CVavu6zWin
-	cM+kAcbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XdvIcKQd1IkP3xa1CEkOeOoIL3VkDPilYeAIguAX1X8=; b=xgQuYTaqZeesYafzrDS6F66/1C
+	QlqSCOigbIoELCfdF70XwfusikTYWDlrF/5iye3iqdX0DhJJW5fIHhcNpL97UAl11FOKEvpY64LMr
+	fB9jvokrDYaMRc/BPrE0AupF+JPzO7/5Z/piVPXcz8s9upJB5+V6y16WAzWPY3gj8RAzj0AL1EsXN
+	Pf/N7kScgaj4s1dB8/lP9Z0KUaATAWtMatBmMBmwcKQe8mqh7klUuujk24FzPP9MZq0tcoTQSRuUU
+	aMXOwioBPjW6VD3W/XeuWxJf9i09VV5mhq+mgwm+p+Ajm2Gn3MMGMdY13jzGO+YUf40ARdcrndv8q
+	CSxBGyaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIVch-00000004SQ4-3USL;
-	Fri, 23 May 2025 16:51:55 +0000
-Received: from out-181.mta1.migadu.com ([2001:41d0:203:375::b5])
+	id 1uIVek-00000004SpF-0Wvn;
+	Fri, 23 May 2025 16:54:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIV9W-00000004Njc-2NN6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 16:21:50 +0000
-Message-ID: <b35cdeb3-399e-4ca0-a9a4-66bab45bd7e4@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748017293;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eXlfdMIujoEWEfC9MCFXNwyGXVaiR+vqx4I+fOV2LpA=;
-	b=cRC0UiDNCqZcN6BiCFcSi7WyBG7RHQ/NaavE5iXAjkOSdJagNosatR+NIg0yTNRHOMRQeJ
-	gsLSdNrIvX8gOYYtmOPHCP6Bc2qPiQ2yeewLyrlzKsYAQMe0DEZoNLwaPpytrw/dHjMfY8
-	fbfnntgHadynhOa0PsMl2BmsNbQsvr8=
-Date: Fri, 23 May 2025 12:21:10 -0400
+	id 1uIUnL-00000004KHK-22xJ;
+	Fri, 23 May 2025 15:58:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=XdvIcKQd1IkP3xa1CEkOeOoIL3VkDPilYeAIguAX1X8=; b=FulBu/7BCJKhsMSeyJiPBPCtoH
+	QWJAmqIxZ+MAVd5nzwH7ZN0fveBi7V0f5p8eAEVKwATY+sWmrgSPuzbWqV1AcuM3bv5TVNIwL30Az
+	IyAYaWcge5QNvdMkXvJJoWHTycyPFZyg00ZuV+5tdqDDZq2lk0r/ZbFslq/u0jY2expo417BMBG32
+	uRLvfy3CMNi75xS2WLc+IuSzLGYDAmM0yRmjgqMxOO+Zq6FcGypqMH+4QtiIi7KMBAv8VEWSbcfj5
+	jhi4ekxj25z75rNbQQosNODP0/iRKDhYuCERsPgeCxhcNfkGhTnbPRBGniTTSfCwEp8f28i1lH7un
+	E8WBaX5A==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uIUnI-00000001LgV-2D0i;
+	Fri, 23 May 2025 15:58:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=XdvIcKQd1IkP3xa1CEkOeOoIL3VkDPilYeAIguAX1X8=; b=nvI4EXjGQKq4lgJBmY2tuKCEHS
+	3p6ciK9IEqxQR3P/xPsz07KsZbvrwvvi1bqTdr+4ACGm9+0QhgS4dm0BJe7V+Q7xiMmXo8VwyVmkv
+	I/BM0Y/Hz+m0ykysHCe/yN36972WYJp+ierJttO2XNn2I03SirZoYHZtftRx9xvhmA3s=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uIUmq-00DcuR-2y; Fri, 23 May 2025 17:58:20 +0200
+Date: Fri, 23 May 2025 17:58:20 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+	Landen Chao <Landen.Chao@mediatek.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [net-next PATCH 3/3] net: phy: mediatek: Add Airoha AN7583 PHY
+ support
+Message-ID: <879d0fed-37e7-43b0-9dab-4a20b65c6d75@lunn.ch>
+References: <20250522165313.6411-1-ansuelsmth@gmail.com>
+ <20250522165313.6411-4-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net] net: xilinx: axienet: Fix Tx skb circular buffer
- occupancy check in dmaengine xmit
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-To: Suraj Gupta <suraj.gupta2@amd.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, michal.simek@amd.com, radhey.shyam.pandey@amd.com,
- horms@kernel.org
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com, harini.katakam@amd.com
-References: <20250521181608.669554-1-suraj.gupta2@amd.com>
- <57443336-2098-42c9-be6d-468cdbd9b312@linux.dev>
-Content-Language: en-US
-In-Reply-To: <57443336-2098-42c9-be6d-468cdbd9b312@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250522165313.6411-4-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_092146_752627_5BACF4C9 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20250523_165848_663962_21FAA546 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,55 +102,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/23/25 12:20, Sean Anderson wrote:
-> On 5/21/25 14:16, Suraj Gupta wrote:
->> In Dmaengine flow, driver maintains struct skbuf_dma_descriptor rings each
->> element of which corresponds to a skb. In Tx datapath, compare available
->> space in skb ring with number of skbs instead of skb fragments.
->> Replace x * (MAX_SKB_FRAGS) in netif_txq_completed_wake() and
->> netif_txq_maybe_stop() with x * (1 skb) to fix the comparison.
->> 
->> Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
->> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
->> ---
->>  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 +++---
->>  1 file changed, 3 insertions(+), 3 deletions(-)
->> 
->> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> index 1b7a653c1f4e..6011d7eae0c7 100644
->> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> @@ -880,7 +880,7 @@ static void axienet_dma_tx_cb(void *data, const struct dmaengine_result *result)
->>  	dev_consume_skb_any(skbuf_dma->skb);
->>  	netif_txq_completed_wake(txq, 1, len,
->>  				 CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
->> -				 2 * MAX_SKB_FRAGS);
->> +				 2);
->>  }
->>  
->>  /**
->> @@ -914,7 +914,7 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
->>  
->>  	dma_dev = lp->tx_chan->device;
->>  	sg_len = skb_shinfo(skb)->nr_frags + 1;
->> -	if (CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX) <= sg_len) {
->> +	if (CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX) <= 1) {
->>  		netif_stop_queue(ndev);
->>  		if (net_ratelimit())
->>  			netdev_warn(ndev, "TX ring unexpectedly full\n");
->> @@ -964,7 +964,7 @@ axienet_start_xmit_dmaengine(struct sk_buff *skb, struct net_device *ndev)
->>  	txq = skb_get_tx_queue(lp->ndev, skb);
->>  	netdev_tx_sent_queue(txq, skb->len);
->>  	netif_txq_maybe_stop(txq, CIRC_SPACE(lp->tx_ring_head, lp->tx_ring_tail, TX_BD_NUM_MAX),
->> -			     MAX_SKB_FRAGS + 1, 2 * MAX_SKB_FRAGS);
->> +			     1, 2);
->>  
->>  	dmaengine_submit(dma_tx_desc);
->>  	dma_async_issue_pending(lp->tx_chan);
+On Thu, May 22, 2025 at 06:53:11PM +0200, Christian Marangi wrote:
+> Add Airoha AN7583 PHY support based on Airoha AN7581 with the small
+> difference that BMCR_PDOWN is enabled by default and needs to be cleared
+> to make the internal PHY correctly work.
 > 
-> Reviwed-by: Sean Anderson <sean.anderson@linux.dev>
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-Reviewed-by: Sean Anderson <sean.anderson@linux.dev>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-*spelling
+    Andrew
 
