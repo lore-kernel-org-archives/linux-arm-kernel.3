@@ -4,210 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA457C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 02:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15408C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 04:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a4dibPfWiBNUSSIWVim3AHWgoWlXOrlXGGpX9qnKd98=; b=XD9DH04UU1CFYtGs/Snxljbbg1
-	Q6/frr+vpiBnvnR4RQ/L1vkV/HoGJHL1SXfUiHZ7vHvlOHIhakNYWqQ95Zgf//Y28AJwjcwMdiF4w
-	ygMqd66W6L8p6SL4JrSjmMmF5cj9yvEtwoF41u4U4jHieGqUvsLxvUr45w03IM3SA8Isthl1K4C9s
-	aK7YwiJRPGKzP+skfmANFc/6DBoafwL3ffU13wzBZORO3HgSo/yH7F//XxAGFRncby0JrEA/5ReRe
-	txPekEhnnI7OJ/9rmu58sPhan+msbbcHI0D4Ubu3MDaODJZ7Dx3ysRd3LqyvAF8EjxsZ1LhyDsTMg
-	CFPSXqfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QBmi1nCfdaTMLi/zwjIyatWWKcM/XuFxbLBe4bFrq8k=; b=CldrGuO/wTsOY+e75UqTgrLfOc
+	SiT2JrMeYftItT9Z8OjLMh6mcOQJ3nkTjb2sV2zwuIjIwzmz8sQZjn60EqQhVIBuG4I5UGUoTH5TH
+	BT/3Bh42NGG//KgH+EQ7xKNKqIWxxnHtHXd+GQOw+lseHaYewBZAC5xagVS84rEodSPAcirAi18UM
+	jPBVHE4XvYZPMmFYK3bh/shxnwmSUcgjuaEXcq+r1QSGYgNWlSn7gpOUtRpGiuysctzm2os2SKDAh
+	wCVYlqsV+l5YRV/bMu3o4z9pPe3AdJHC4aXP5lpW2Ik0OYZeJxVeq1bXBUDTaBqAkGRSjNcWk6Fjw
+	0hxU4fHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIIbX-00000002n0Q-0mlH;
-	Fri, 23 May 2025 02:57:51 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uIKEG-00000002ul8-47pS;
+	Fri, 23 May 2025 04:41:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIIZM-00000002mmJ-1ftF;
-	Fri, 23 May 2025 02:55:37 +0000
-X-UUID: 63eec178378111f08d385d50fb11b32d-20250522
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=a4dibPfWiBNUSSIWVim3AHWgoWlXOrlXGGpX9qnKd98=;
-	b=qsncPp6s1rRJihRxIjxFo5SvHtvxjJu4wvXNhP6Ok7BBd3u+FFCCtQWGA7V9z1VjpaoB7ypjMmY5sPx6o+kfi8MVyPyNn4J6jEfJ4pg0Po0xTWZPpzjiYFSgoupTqN/L0LdY5c7p6KYs//i1ylAxQhTWwWylWVO4bmzbPiO9Rto=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:32579827-b000-4732-8a02-baabce1d0678,IP:0,UR
-	L:12,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:12
-X-CID-META: VersionHash:0ef645f,CLOUDID:8dfce157-abad-4ac2-9923-3af0a8a9a079,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:99|11|97|83|80|1,File:nil,RT:nil,Bulk:nil,QS:nil
-	,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 63eec178378111f08d385d50fb11b32d-20250522
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 953156952; Thu, 22 May 2025 19:55:31 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 23 May 2025 10:55:27 +0800
-Received: from HK3PR03CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 23 May 2025 10:55:27 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZBn+AImhtIsWaMnRAGmS7qXt8EQ6WWZeLj1b+NS/2+Q5PEEVKYmq9F/8fbUw3TlEL2uaeABoA8RHm0b0zgOUQDWChwYjnC3UP6DqH/6ESzkqHbPxP7Sfyxr9HeQiJWHTKfXUwrg2OVRJ16lXPhIGqQIxIj+5q9nhiRXLQr4O3w4RYiMeqV+IImgrM84kojUUXFrvdGD7/QlsLpV0qyD7BlG0qrN1WFSjx8yzQr8YY5zgJoTU9wBbRea8Mnjog3qaLZ4svDD3i62Jp4C467mkCAgS9cfddXqSGR1xD2ap710eGDWXRcTEfuNQ74WHVM5GWT5VMcHBDG8l7C08jyZvJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=a4dibPfWiBNUSSIWVim3AHWgoWlXOrlXGGpX9qnKd98=;
- b=UIN8fkoIFp1o+CW0rkYsFnuYbOQW3pQpaoON77kkTwOJIZ+JCXGur5iWeBogfgteTB7YZzQlF0vgkvqXI4Xu7m6M186YOwMjoCdd4jjVzabGD/RliDCei5g0wXM9SqyTx3MW6OGqJolTPDGw/NfQyXCkJbQJMYZcCcNN6/Iq4eyV173MLZCSWnl1jhku3GsmAoEYGbI9e7VLg+2Dn3nGErz6Qajoex/jGrF/CTW05TuGkh+H02zRFHLkLI/nQyowNMQ00t/hV0HYnn7KGlIoRqoOal6vMjhxto+C2WErXuyi0cNh7oxvOxkf0GoR+GwoIgpQ9dSqwmdDMQMLUYEI3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a4dibPfWiBNUSSIWVim3AHWgoWlXOrlXGGpX9qnKd98=;
- b=byUE4hhV4GiCGTFu71SuJgN7HQ3e1WTz+0an6Y0bKm+gID2gQx5Yno2gt7QA28fal8iDAFOKsF33KkrrmrF9ox9M+z4wAqtLlmoK7u8BIc3ORxVVLLLIseF15JdDK9ygMFXrdRtul6IlToHkN5OWVL4AwG6brqZuVG8LPQp1nII=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by KU2PPF9D6AFF433.apcprd03.prod.outlook.com (2603:1096:d18::41c) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Fri, 23 May
- 2025 02:55:25 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%5]) with mapi id 15.20.8746.030; Fri, 23 May 2025
- 02:55:24 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "lgirdwood@gmail.com" <lgirdwood@gmail.com>, "robh@kernel.org"
-	<robh@kernel.org>, "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	=?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>
-CC: =?utf-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	=?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	=?utf-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?= <Paul-pl.Chen@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: regulator: mediatek: Add MT8196 vmm
- controller
-Thread-Topic: [PATCH 1/2] dt-bindings: regulator: mediatek: Add MT8196 vmm
- controller
-Thread-Index: AQHbyy/XhwEoa98C3ESnGkjdlfg3IrPfheIA
-Date: Fri, 23 May 2025 02:55:24 +0000
-Message-ID: <caab284a85ad5906d1d2befd6a3bd2ef77301758.camel@mediatek.com>
-References: <20250522150426.3418225-1-nancy.lin@mediatek.com>
-	 <20250522150426.3418225-2-nancy.lin@mediatek.com>
-In-Reply-To: <20250522150426.3418225-2-nancy.lin@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|KU2PPF9D6AFF433:EE_
-x-ms-office365-filtering-correlation-id: 4eb1c070-7cee-4211-dfae-08dd99a5441f
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?UzBqSzhsdnJxN2dIRUNlY3RkVHFnTHdKR2EvUHpGaTZDcTF4TzVsRk5Tbnpr?=
- =?utf-8?B?RHd3SnFxYjJ5cVlKSGVnY2dGRkJrY0p2NmF3Nk9rSHdXTVI2S09UWFJrM1Mr?=
- =?utf-8?B?T3dVTXY4WElPNEF5WHZUU1h6YnNPL1BWNUJqelgvUHB4SU9HM0lLa0IzdXpZ?=
- =?utf-8?B?eXNxRjNaWW1IYnEyNHdRUkI1anF3ZGxjS290YW9ocGFsZlJENG9LR0xKQUlC?=
- =?utf-8?B?T3hpZmxEcUtqVkRwdW11WjRldzRHcDNxQit4MitjclNTT0xoU21iYlRuQWo5?=
- =?utf-8?B?NUVyQW91REFDOEFWbC91ZnNhNkVVNkdpTTBCTnFCRTFiVWlHdEJiNE5zSElB?=
- =?utf-8?B?VlFuWXF6YmZaVkZIYlBjbC84Qjg5ZE9WU1pvWUN4dkRtWG9BK1p2VE1LWmlW?=
- =?utf-8?B?Vjk0TE5yK2lVUU16Zjd5K2hibTA3Um9pTkFJMjBRYUdqOUJreUFTNnpvRWth?=
- =?utf-8?B?QVRCN2FCNDdicmJYbzRyKzFuZGhNdzFPQ054NW5xVWQzci9nMnZrbHRwUEVz?=
- =?utf-8?B?eWFyUkVJZVBPeGU5SStrQkErcUFqWmFPUEVhbU9xanBPRVV2ZCtPcFAySDdS?=
- =?utf-8?B?RGsvQUVUSkg5TVlNMHpoVjk4SXhDWEl1R05rNXdCZU9pNXhYTEN6UFJtbDRB?=
- =?utf-8?B?T3dtTlpydDROU2ozaVNwMm1pUlIvVkNuUlIxWDRRd2RsanB3V1UxNktseGU4?=
- =?utf-8?B?NGpubTRSZjVBWU0wMy83VEc4TFJjTEhPZ0t6VkZEcVRtQkVacjJqc1FQREZU?=
- =?utf-8?B?ZVNHQUV0N2tjZHdaNEdid1pvSFk4VEJCQUNVZ2ZES2l1YjNYRFRnbzVxbkNZ?=
- =?utf-8?B?dEltYW41SXRWRlBWcXVWdW1JbmpxdExpcUkxSGYzZ3Vhc2hHaWN5T1kvRmlJ?=
- =?utf-8?B?SmwzSU45QW1SRVNRUzAwNnduUTVsUmdhWEZHdWp2dUs1NkdHU2ltOEkvTW1V?=
- =?utf-8?B?YU14MzlBTU8wSm5XbVBIbDIrTGxVSGx5OWsrRjcydi95SDFEMmtvODJ6Zktq?=
- =?utf-8?B?SmJ3Rzc3TU9iVkdMYXMvSjZGMUZ0bktESDQvN3pEVXhHUHJsVC9LRFY4bWxL?=
- =?utf-8?B?c2srbVBoU1ZiL3pMK2krS2lDMGx1M1NrZmJoazBaNThyWG1UZ2VyOVpCa3l0?=
- =?utf-8?B?TFIrWmdmZFhNMndkNU1rTXY5YVU4OXRvdmNyMVJMdjNDYVFseUh3d09vNWNC?=
- =?utf-8?B?WU9xa0syVlNyL2JhTGcxMTN5bTJzdC9aYSttQkxJZ213OGdWWGJoYkhsZTAv?=
- =?utf-8?B?MXAvcFdBSlJ1OHBYWXdVUnIrNXNUYncvZnBJZTBLNnYvdStWTE55dVAyMXI3?=
- =?utf-8?B?NVozd2FDeEptMWRMK3IrVHpxa1IzVG1ocVJhMFJSeFh3bCtwWkNhSnhiaW1s?=
- =?utf-8?B?Unl4YmlkM0gxR3F6MVp1WXEzdUFRQllRYTZTeUZEbW9sWTY0OEhYVlFoWTZV?=
- =?utf-8?B?dGdzSlJ5WjdzVS9qUVRua1ZNelk0Z1RyZGl2elBCVUU5SjFGdER2QXAwTUlX?=
- =?utf-8?B?di9sQXRWaWo0SW82R0JnRE5JUWhhRWJqdUI1R3BUbzBEZ1pwY09VMkNNNmQw?=
- =?utf-8?B?K2l5Vi9TM3BpRUZqWlk2dERNWEtpdWt3UDFxQ3B5ck9sTndwMC9vQ05EaEFu?=
- =?utf-8?B?MWpWdjdXR3Rjd1UyV052SVVuUDFTNkFBM3hhcytCTmxrMWJzUnAzbThsUi9Y?=
- =?utf-8?B?KzRXUjJaUWpXekV4TVViS2tpczBreVpoUUt6VDYwamd0VTZSWlhsR3NOVks0?=
- =?utf-8?B?dlVCVzAyRm5KNjVlaWhnNjQybjE5R0JmVHhqRDJtVGlJNHFlVXVIWVA4TlZq?=
- =?utf-8?B?VzJUZklGcUFkL3IyNjV4K1J4eEI2dEd5SGc3U29nUnNZMm1sdzZjZHhCTWtn?=
- =?utf-8?B?c3hFUHhsRVdpTFlyaUU3SEJJZ2NmY1gyUVdqVGJaOGh4bTZrOHpPWWoxczg5?=
- =?utf-8?Q?UGZMhTGqO5Q=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bFVpY1JEWG9SZjF3dlFLckR6T21IbEUvanR6ZjI1QW1oZW9BU1NzUzdhKzlw?=
- =?utf-8?B?LytSMUtpbUsybnRFNE1VR1hFdVZSYnMvREw5SENyc3VJam0wNjZtTVpvbjlu?=
- =?utf-8?B?VjRKamV6em5RaXNLaEVNMXd3UVdSQUh2ZVNqT2N0V2xHVUJkMnpYMVhQaVFl?=
- =?utf-8?B?azNQaXRHYnpISm1yWmZiUjREeDluYmgrVjhWeEEvM1FwY3JzdXoxUTNwQll0?=
- =?utf-8?B?ei9nWGNTZ2dxdmdsWFZ6LzVJbmlBdCtRTGo3RzRtVHNXelhrQzJaY3hEVXgy?=
- =?utf-8?B?cmRjMm5aZDZtTk1uZjNZM0xwT0h2bkdNOTNySWZrT3lmbUhaeU9RbmV0SDUw?=
- =?utf-8?B?YmNrSzA3YVJqb3RlaUYyQmVjczhwRkRXWUhnbUxRVkNLbTBOTVFSRitobXpG?=
- =?utf-8?B?NUJMWTZVdGZuM1JPWHJ0a1FEbVo1YzI1OVpQZjhFOVQ3YUQzVmYycTVBUTg4?=
- =?utf-8?B?YnFDOVBuS0dLL1JjRHY1RDZLZFo2WVpXWHZhT1djZXV3c2dJWDRaZ1RLZHo0?=
- =?utf-8?B?N01oQXJoU3QvMzczK0FhbXRjcXVuNTJWQmxQYitSMkl0K245R1hpVnMzaEFp?=
- =?utf-8?B?cGo5azhMVzlZMWV1QWhkL0d2OHFsWWNPclB5YjBGcXlTeVBzajJpdWl6cWNB?=
- =?utf-8?B?ZXlMdXJwaTZYMjBpVnVyaCtSajVEUXFQZng0S0ZOM2hxMUZwMUZWNzZrODR1?=
- =?utf-8?B?RjdiZUY5ZnRrRUVlVWU1aGcrYUx5ZmJaaElZMjJ0MkltOHdNUkNyTE9WdTRW?=
- =?utf-8?B?QXd2VU5vVFZOazJUMXQ0VHFaMGpzN1pwRUZ5M0RPSzJtV01FeSs1Nm1MeVQr?=
- =?utf-8?B?clFrTHdpSkF3YmJnQmRCUXlZbXR6a2Z1aHZnMW5KRGc2QkhVVENYSDZsYkdn?=
- =?utf-8?B?WGRoUVBtc2pyMUsvblBxT2VaUGhaQUlTYUFoT1F4cG9XYW1uVVRRYXB1UXRu?=
- =?utf-8?B?d0J1eDNMZ2xGL0gxN0FqNXdYK09FRWRIVGEraTRaTkwyY3pmNDArM1FFRm1P?=
- =?utf-8?B?WUZLV282c2NUZXdFS01PamNjTjdOdCtkanZ0Z0ZUOGh4amhmZVZmbkhjWDFt?=
- =?utf-8?B?OEdSem9tRlMxYzBzbEM5aUpFQkZSUW1CdTNUckNIeVJiV1FDTUJGaHc2UHpR?=
- =?utf-8?B?Y3dkL3o1MWlud29VNnhkdUdnQWhodkg3Si9tbk9pbmhCcUdKZUlZSWNhWDdQ?=
- =?utf-8?B?ZjZGcTlFQlhKMnVrcjdrTWlrYW1ob0p6SmZBSnpaRmZRUWVZcW9ySjFRdC9E?=
- =?utf-8?B?enpmQ2w3S0MzSXlEcllsMjhTeG9Jd1Uva1hHazR3ZkwvMUhTZnFnLzlqTWxM?=
- =?utf-8?B?YU9EYlplRU1FY2dycGNpd2dQOFNWa0tFWG5jblV5OWgrREVtZkYwQzAxTExr?=
- =?utf-8?B?bFVXUFpobDBpaFQ3bDlHRmVqQVlVL1FMdHRFZGVhNGI5SFk5Mkh6azM1Ukww?=
- =?utf-8?B?UzVWOEZyVmhuMkxsb3NmRWNJU1VhY1N5OGxDWXUwSnM2ZVgxMW4ydlMrcWw5?=
- =?utf-8?B?TUtpUDViQXZtNFl6NXVRNFdWbEhHWWtWd0gxZkpvYWJDc0luRE84YUJRa1J2?=
- =?utf-8?B?SXduNXErOStIUzlXNklnQ0JtajJsR2l0WEh4aVg5QmF6N01vbWVDWHJUTDNo?=
- =?utf-8?B?NWZJNThqRVhKMk9pdXBrNTRQREFtQUN6VGd2Rm1XcTZXT0pJUVVaYXdMK3Fs?=
- =?utf-8?B?RUU1aElqVmRYNzVFK2Q1RURGWHNieTNGZTVPMmhOY05uc2lMV2ZtUkttMDJ1?=
- =?utf-8?B?N2ZoMWMxRHNjZFFoTTArWGJyeVZJQk9uWTZRa1poSFFqRTJ3REtyRUJSdENq?=
- =?utf-8?B?SDh2VnZSNTZySEZMQzR4VFFkK2pWV1djMnBqQzZOUi9hMHJYSTNIeXFvZmdh?=
- =?utf-8?B?K3EzaFFrQUdGa25vZU85OGxjMVVpTUtKczkvckxzWUxROUp6YzhHUXFvay9P?=
- =?utf-8?B?Ym53a056U1ZEa28wV2ZRNEZPMVBMWUpueEJuZFVTWDR0WDlyWlFlTWhWRTFO?=
- =?utf-8?B?dDV4UWQ5M0pHS2ZxUEtNMlhuZVdieHAwLzMveTZjRG9scjA2S213TmNsQmRO?=
- =?utf-8?B?WHdVVDRCVmFPcStJUkNMTUgxMTBSbkVtdGJvU3RYRnhmRFB4MVhabDlFdEJ2?=
- =?utf-8?Q?hsi1p6t+4Ie/p3K80Pe0/T8VM?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <B20BF4C4F278AF4A878116862BC59F24@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1uIKC3-00000002twU-10vL;
+	Fri, 23 May 2025 04:39:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9138244D22;
+	Fri, 23 May 2025 04:39:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64BFDC4CEED;
+	Fri, 23 May 2025 04:39:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747975178;
+	bh=6jDSpkitaXxC96OxJjyaip+FfU4NrOF4Y8k/mkqIlN4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=i+a8IsmWkRaZUDatab07b90e3vzxppks+OX4T89Y4zWJvHGrBmzFVJWU6OMCEvD4F
+	 LXx9C4LC2ozcEl2c1tCHud/2yTnVZK3C+Yc6jcJ01q2DvmzpBCQgKZEq5ZbgNLSCr6
+	 wvkrz8nVPePLbviO64whBm0hqyAxcaKeePkVwz2JVSLP286XlSZTcBlNB+OWLRENz8
+	 JJzd19kWCU1XsGa8MGL06XNBmtkVM9oskQVrXqeUdkyUVolK6a//R2/GRcu0Dr7U6y
+	 PxJrga5fhP+4BzwafUSEWbnhxeR5PfOolhi4iM+QP28v6TqsG0AO86tLdwIVPvE38j
+	 1OcWPFytRa3Xg==
+From: Kees Cook <kees@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Kees Cook <kees@kernel.org>,
+	linux-hardening@vger.kernel.org,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Marco Elver <elver@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	kasan-dev@googlegroups.com,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: [PATCH v2 02/14] stackleak: Rename stackleak_track_stack to __sanitizer_cov_stack_depth
+Date: Thu, 22 May 2025 21:39:12 -0700
+Message-Id: <20250523043935.2009972-2-kees@kernel.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250523043251.it.550-kees@kernel.org>
+References: <20250523043251.it.550-kees@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4eb1c070-7cee-4211-dfae-08dd99a5441f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 May 2025 02:55:24.7732
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CFTY327UuZI+ce+riM3coFjFLrX3yrkgzP3b8Pr/9FXvZWJOy6t0AhAhl4gsa7GhB5Te04mXVTqWsE1dDz7EvQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPF9D6AFF433
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11486; i=kees@kernel.org; h=from:subject; bh=6jDSpkitaXxC96OxJjyaip+FfU4NrOF4Y8k/mkqIlN4=; b=owGbwMvMwCVmps19z/KJym7G02pJDBn6v388d99a4lGamGETdeemkuEC3/SchscmPwLXLDdIk 9wmtra6o5SFQYyLQVZMkSXIzj3OxeNte7j7XEWYOaxMIEMYuDgFYCLNYYwMe5wZf7q5M+2YOsvW na0ll3XpXv/156rcSmbvuOG+/bTRSkaGrn2i2+dzxfIZ7A7e/v5EnMDNnh0sT1bekHjWxsUf1Hi SEQA=
+X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_195536_460080_9A165E9F 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20250522_213939_325678_3ACC9178 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -222,86 +98,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTA1LTIyIGF0IDIzOjAzICswODAwLCBOYW5jeS5MaW4gd3JvdGU6DQo+IEZy
-b206IE5hbmN5IExpbiA8bmFuY3kubGluQG1lZGlhdGVrLmNvbT4NCj4gDQo+IEFkZCBhIGRldmlj
-ZSB0cmVlIGJpbmRpbmcgZG9jdW1lbnQgZm9yIHRoZSBNZWRpYVRlayBNVDgxOTYgVk1NIChWY29y
-ZQ0KPiBmb3IgTXVsdGlNZWRpYSkgcmVndWxhdG9yIGNvbnRyb2xsZXIuIFRoZSBWTU0gY29udHJv
-bGxlciBhY3RzIGFzIHRoZQ0KPiBtYWluIHBvd2VyIHN1cHBsaWVyIGZvciBtdWx0aW1lZGlhIHBv
-d2VyIGRvbWFpbnMsIHN1Y2ggYXMgdGhvc2UgdXNlZA0KPiBieSBkaXNwbGF5LCB2aWRlbyBlbmNv
-ZGUgYW5kIGRlY29kZSBzdWJzeXN0ZW1zLiBJdCBwcm92aWRlcyB2aXJ0dWFsDQo+IHJlZ3VsYXRv
-cnMgdGhhdCBzZXJ2ZSBhcyB0aGUgcG93ZXIgc291cmNlcyBmb3IgdmFyaW91cyBtdWx0aW1lZGlh
-IElQcywNCj4gYW5kIGNvb3JkaW5hdGVzIHdpdGggdGhlIGhhcmR3YXJlIGNvbW1vbiBjbG9jayBm
-cmFtZXdvcmsgKGh3Y2NmKSBhbmQNCj4gdGhlIFZpZGVvIENvbXBhbmlvbiBQcm9jZXNzb3IgKFZD
-UCkgdG8gbWFuYWdlIHRoZSBwb3dlciBkb21haW5zIG9mDQo+IHRoZXNlIGNvbXBvbmVudHMuIFRo
-ZSByZWd1bGF0b3IgaXMgY29udHJvbGxlZCBieSB0aGUgVkNQIGZpcm13YXJlLA0KPiBhbmQgdGhl
-IG9wZXJhdGluZyBzeXN0ZW0gc2lnbmFscyBpdHMgcmVxdWlyZW1lbnQgdGhyb3VnaCBhIHZvdGlu
-Zw0KPiBoYXJkd2FyZSBibG9jayAoaHdjY2YpLg0KPiANCj4gU2lnbmVkLW9mZi1ieTogTmFuY3kg
-TGluIDxuYW5jeS5saW5AbWVkaWF0ZWsuY29tPg0KPiAtLS0NCj4gIC4uLi9tZWRpYXRlayxtdDgx
-OTYtdm1tLXJlZ3VsYXRvci55YW1sICAgICAgICB8IDcwICsrKysrKysrKysrKysrKysrKysNCj4g
-IDEgZmlsZSBjaGFuZ2VkLCA3MCBpbnNlcnRpb25zKCspDQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQg
-RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3JlZ3VsYXRvci9tZWRpYXRlayxtdDgx
-OTYtdm1tLXJlZ3VsYXRvci55YW1sDQo+IA0KPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9k
-ZXZpY2V0cmVlL2JpbmRpbmdzL3JlZ3VsYXRvci9tZWRpYXRlayxtdDgxOTYtdm1tLXJlZ3VsYXRv
-ci55YW1sIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3JlZ3VsYXRvci9tZWRp
-YXRlayxtdDgxOTYtdm1tLXJlZ3VsYXRvci55YW1sDQo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0DQo+
-IGluZGV4IDAwMDAwMDAwMDAwMC4uYTUwZTM1YzJlMjM4DQo+IC0tLSAvZGV2L251bGwNCj4gKysr
-IGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3JlZ3VsYXRvci9tZWRpYXRlayxt
-dDgxOTYtdm1tLXJlZ3VsYXRvci55YW1sDQo+IEBAIC0wLDAgKzEsNzAgQEANCj4gKyMgU1BEWC1M
-aWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wIE9SIEJTRC0yLUNsYXVzZSkNCj4gKyVZQU1MIDEu
-Mg0KPiArLS0tDQo+ICskaWQ6ICJodHRwczovL3VybGRlZmVuc2UuY29tL3YzL19faHR0cDovL2Rl
-dmljZXRyZWUub3JnL3NjaGVtYXMvcmVndWxhdG9yL21lZGlhdGVrLG10ODE5Ni12bW0tcmVndWxh
-dG9yLnlhbWwqX187SXchIUNUUk5LQTl3TWcwQVJidyFnYXdBVE5PVDN1NlVCdFR3dGdub1pnZ3dk
-d1ZMM1ZCdUZaUXlmLWJhVjhqMXdVTUlWMXNJYXFCdmhjcXRmblpTbG1YRmVzZW5ndFphWXhDV3RE
-byQgIg0KPiArJHNjaGVtYTogaHR0cHM6Ly91cmxkZWZlbnNlLmNvbS92My9fX2h0dHA6Ly9kZXZp
-Y2V0cmVlLm9yZy9tZXRhLXNjaGVtYXMvY29yZS55YW1sKl9fO0l3ISFDVFJOS0E5d01nMEFSYnch
-Z2F3QVROT1QzdTZVQnRUd3Rnbm9aZ2d3ZHdWTDNWQnVGWlF5Zi1iYVY4ajF3VU1JVjFzSWFxQnZo
-Y3F0Zm5aU2xtWEZlc2VuZ3RaYUxjbkdMbXckIA0KPiArDQo+ICt0aXRsZTogTWVkaWFUZWsgTVQ4
-MTk2IFZNTSAoVmNvcmUgZm9yIE11bHRpTWVkaWEpIFJlZ3VsYXRvciBDb250cm9sbGVyDQo+ICsN
-Cj4gK21haW50YWluZXJzOg0KPiArICAtIE5hbmN5IExpbiA8bmFuY3kubGluQG1lZGlhdGVrLmNv
-bT4NCj4gKw0KPiArZGVzY3JpcHRpb246IHwNCj4gKyAgVGhlIE1lZGlhVGVrIE1UODE5NiBWTU0g
-KFZjb3JlIGZvciBNdWx0aSBNZWRpYSkgY29udHJvbGxlciBhY3RzIGFzIHRoZQ0KPiArICBtYWlu
-IHBvd2VyIHN1cHBsaWVyIGZvciBtdWx0aW1lZGlhIHBvd2VyIGRvbWFpbnMsIHN1Y2ggYXMgdGhv
-c2UgdXNlZCBieQ0KPiArICBkaXNwbGF5LCB2aWRlbyBlbmNvZGUgYW5kIGRlY29kZSBzdWJzeXN0
-ZW1zLiBUaGUgVk1NIGhhcmR3YXJlIGJsb2NrDQo+ICsgIHByb3ZpZGVzIHZpcnR1YWwgcmVndWxh
-dG9ycyB0aGF0IHNlcnZlIGFzIHRoZSBwb3dlciBzb3VyY2VzIChzdXBwbGllcnMpDQo+ICsgIGZv
-ciB2YXJpb3VzIG11bHRpbWVkaWEgSVBzLiBJdCBjb29yZGluYXRlcyB3aXRoIHRoZSBNZWRpYVRl
-ayBoYXJkd2FyZQ0KPiArICBjb21tb24gY2xvY2sgZnJhbWV3b3JrIChIV0NDRikgYW5kIHRoZSBW
-aWRlbyBDb21wYW5pb24gUHJvY2Vzc29yIChWQ1ApDQo+ICsgIHRvIG1hbmFnZSB0aGUgcG93ZXIg
-ZG9tYWlucyBvZiB0aGVzZSBtdWx0aW1lZGlhIGNvbXBvbmVudHMuDQo+ICsNCj4gKyAgRWFjaCBj
-aGlsZCBub2RlIHVuZGVyIHRoZSBWTU0gbm9kZSByZXByZXNlbnRzIGEgdmlydHVhbCByZWd1bGF0
-b3INCj4gKyAgKGUuZy4sIHZkaXNwLCB2ZGVjLXZjb3JlKSBhbmQgbXVzdCBzcGVjaWZ5IGEgJ3Jl
-Z3VsYXRvci1uYW1lJy4NCj4gKw0KPiArcHJvcGVydGllczoNCj4gKyAgY29tcGF0aWJsZToNCj4g
-KyAgICBjb25zdDogIm1lZGlhdGVrLG10ODE5Ni12bW0iDQo+ICsNCj4gKyAgbWVkaWF0ZWssaHct
-Y2NmOg0KPiArICAgICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL3BoYW5k
-bGUNCj4gKyAgICBkZXNjcmlwdGlvbjogUGhhbmRsZSB0byB0aGUgaGFyZHdhcmUgY29tbW9uIGNs
-b2NrIGZyYW1ld29yayBzeXNjb24gY29udHJvbGxlci4NCj4gKw0KPiArICBtZWRpYXRlayx2Y3A6
-DQo+ICsgICAgJHJlZjogL3NjaGVtYXMvdHlwZXMueWFtbCMvZGVmaW5pdGlvbnMvcGhhbmRsZQ0K
-PiArICAgIGRlc2NyaXB0aW9uOiBQaGFuZGxlIHRvIHRoZSBWaWRlbyBDby1Qcm9jZXNzb3IgKFZD
-UCkgbm9kZS4NCj4gKw0KPiArcGF0dGVyblByb3BlcnRpZXM6DQo+ICsgICJeKHZkaXNwfHZkZWMt
-dmNvcmUpJCI6DQo+ICsgICAgdHlwZTogb2JqZWN0DQo+ICsgICAgZGVzY3JpcHRpb246IHwNCj4g
-KyAgICAgIFZpcnR1YWwgcmVndWxhdG9yIGZvciBhIHNwZWNpZmljIG11bHRpbWVkaWEgZG9tYWlu
-Lg0KPiArICAgICAgVGhlIG5vZGUgbmFtZSBzaG91bGQgbWF0Y2ggdGhlIHN1cHBvcnRlZCByZWd1
-bGF0b3IgKGUuZy4sIHZkaXNwLCB2ZGVjLXZjb3JlKS4NCj4gKyAgICBwcm9wZXJ0aWVzOg0KPiAr
-ICAgICAgcmVndWxhdG9yLW5hbWU6DQo+ICsgICAgICAgIHR5cGU6IHN0cmluZw0KPiArICAgICAg
-ICBkZXNjcmlwdGlvbjogVGhlIG5hbWUgb2YgdGhlIHZpcnR1YWwgcmVndWxhdG9yLg0KPiArICAg
-IHJlcXVpcmVkOg0KPiArICAgICAgLSByZWd1bGF0b3ItbmFtZQ0KPiArICAgIGFkZGl0aW9uYWxQ
-cm9wZXJ0aWVzOiBmYWxzZQ0KPiArDQo+ICtyZXF1aXJlZDoNCj4gKyAgLSBjb21wYXRpYmxlDQo+
-ICsgIC0gbWVkaWF0ZWssaHctY2NmDQo+ICsgIC0gbWVkaWF0ZWssdmNwDQo+ICsNCj4gK2FkZGl0
-aW9uYWxQcm9wZXJ0aWVzOiBmYWxzZQ0KPiArDQo+ICtleGFtcGxlczoNCj4gKyAgLSB8DQo+ICsg
-ICAgdm1tOiB2bW0gew0KPiArICAgICAgY29tcGF0aWJsZSA9ICJtZWRpYXRlayxtdDgxOTYtdm1t
-IjsNCj4gKyAgICAgIG1lZGlhdGVrLGh3LWNjZiA9IDwmbW1faHd2PjsNCj4gKyAgICAgIG1lZGlh
-dGVrLHZjcCA9IDwmdmNwPjsNCj4gKw0KPiArICAgICAgdmRpc3A6IHZkaXNwIHsNCj4gKyAgICAg
-ICAgcmVndWxhdG9yLW5hbWUgPSAidmRpc3AiOw0KPiArICAgICAgfTsNCj4gKyAgICAgIHZkZWNf
-dmNvcmU6IHZkZWMtdmNvcmUgew0KPiArICAgICAgICByZWd1bGF0b3ItbmFtZSA9ICJ2ZGVjLXZj
-b3JlIjsNCj4gKyAgICAgIH07DQo+ICsgICAgfTsNCg0KZGV2aWNlIHRyZWUgaXMgdXNlZCB0byBk
-ZXNjcmliZSByZWFsIGhhcmR3YXJlLg0Kdm1tIGlzIGEgdmlydHVhbCBkZXZpY2Ugd2hpY2ggaXMg
-dXNlZCBmb3Igc29mdHdhcmUgdG8gaW50ZWdyYXRlIHRoZSByZWxhdGVkIGRyaXZlciwNCnNvIGl0
-IHNob3VsZCBub3QgaGF2ZSB0aGlzIHZpcnR1YWwgZGV2aWNlLg0KQWNjb3JkaW5nIHRvIHlvdXIg
-ZGVzY3JpcHRpb24sIHZjcCBpcyB0aGUgbWFzdGVyIHRvIGNvbnRyb2wgcmVndWxhdG9yLA0Kc28g
-SSB0aGluayB0aGUgZGV2aWNlIHRyZWUgd291bGQgYmUNCg0KdmNwIHsNCglyZWd1bGF0b3ItbmFt
-ZSA9ICJ2ZGlzcCIsICJ2ZGVjLXZjb3JlIjsNCn07DQoNCkFuZCB2Y3AgZHJpdmVyIGNvbnRyb2wg
-dGhlc2UgcmVndWxhdG9yLg0KDQpJJ20gbm90IHN1cmUgd2hhdCBkb2VzIGh3LWNjZiBkbywgaWYg
-aXQncyBhbHNvIGNvbnRyb2xsZWQgYnkgdmNwLCB0aGUgbm9kZSBzaG91bGQgYmUNCg0KdmNwIHsN
-CgltZWRpYXRlayxody1jY2YgPSA8Jm1tX2h3dj47DQoJcmVndWxhdG9yLW5hbWUgPSAidmRpc3Ai
-LCAidmRlYy12Y29yZSI7DQp9Ow0KDQpSZWdhcmRzLA0KQ0sNCg0KDQo=
+The Clang stack depth tracking implementation has a fixed name for
+the stack depth tracking callback, "__sanitizer_cov_stack_depth", so
+rename the GCC plugin function to match since the plugin has no external
+dependencies on naming.
+
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: <linux-hardening@vger.kernel.org>
+---
+ security/Kconfig.hardening             |  4 +-
+ scripts/gcc-plugins/stackleak_plugin.c | 52 +++++++++++++-------------
+ include/linux/kstack_erase.h           |  2 +-
+ kernel/kstack_erase.c                  |  4 +-
+ tools/objtool/check.c                  |  2 +-
+ 5 files changed, 32 insertions(+), 32 deletions(-)
+
+diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
+index 125b35e2ef0f..f7aa2024ab25 100644
+--- a/security/Kconfig.hardening
++++ b/security/Kconfig.hardening
+@@ -129,8 +129,8 @@ config KSTACK_ERASE_TRACK_MIN_SIZE
+ 	help
+ 	  The KSTACK_ERASE option instruments the kernel code for tracking
+ 	  the lowest border of the kernel stack (and for some other purposes).
+-	  It inserts the stackleak_track_stack() call for the functions with
+-	  a stack frame size greater than or equal to this parameter.
++	  It inserts the __sanitizer_cov_stack_depth() call for the functions
++	  with a stack frame size greater than or equal to this parameter.
+ 	  If unsure, leave the default value 100.
+ 
+ config KSTACK_ERASE_METRICS
+diff --git a/scripts/gcc-plugins/stackleak_plugin.c b/scripts/gcc-plugins/stackleak_plugin.c
+index d20c47d21ad8..e486488c867d 100644
+--- a/scripts/gcc-plugins/stackleak_plugin.c
++++ b/scripts/gcc-plugins/stackleak_plugin.c
+@@ -9,7 +9,7 @@
+  * any of the gcc libraries
+  *
+  * This gcc plugin is needed for tracking the lowest border of the kernel stack.
+- * It instruments the kernel code inserting stackleak_track_stack() calls:
++ * It instruments the kernel code inserting __sanitizer_cov_stack_depth() calls:
+  *  - after alloca();
+  *  - for the functions with a stack frame size greater than or equal
+  *     to the "track-min-size" plugin parameter.
+@@ -33,7 +33,7 @@ __visible int plugin_is_GPL_compatible;
+ 
+ static int track_frame_size = -1;
+ static bool build_for_x86 = false;
+-static const char track_function[] = "stackleak_track_stack";
++static const char track_function[] = "__sanitizer_cov_stack_depth";
+ static bool disable = false;
+ static bool verbose = false;
+ 
+@@ -58,7 +58,7 @@ static void add_stack_tracking_gcall(gimple_stmt_iterator *gsi, bool after)
+ 	cgraph_node_ptr node;
+ 	basic_block bb;
+ 
+-	/* Insert calling stackleak_track_stack() */
++	/* Insert calling __sanitizer_cov_stack_depth() */
+ 	stmt = gimple_build_call(track_function_decl, 0);
+ 	gimple_call = as_a_gcall(stmt);
+ 	if (after)
+@@ -120,12 +120,12 @@ static void add_stack_tracking_gasm(gimple_stmt_iterator *gsi, bool after)
+ 	gcc_assert(build_for_x86);
+ 
+ 	/*
+-	 * Insert calling stackleak_track_stack() in asm:
+-	 *   asm volatile("call stackleak_track_stack"
++	 * Insert calling __sanitizer_cov_stack_depth() in asm:
++	 *   asm volatile("call __sanitizer_cov_stack_depth"
+ 	 *		  :: "r" (current_stack_pointer))
+ 	 * Use ASM_CALL_CONSTRAINT trick from arch/x86/include/asm/asm.h.
+ 	 * This constraint is taken into account during gcc shrink-wrapping
+-	 * optimization. It is needed to be sure that stackleak_track_stack()
++	 * optimization. It is needed to be sure that __sanitizer_cov_stack_depth()
+ 	 * call is inserted after the prologue of the containing function,
+ 	 * when the stack frame is prepared.
+ 	 */
+@@ -137,7 +137,7 @@ static void add_stack_tracking_gasm(gimple_stmt_iterator *gsi, bool after)
+ 	input = build_tree_list(NULL_TREE, build_const_char_string(2, "r"));
+ 	input = chainon(NULL_TREE, build_tree_list(input, sp_decl));
+ 	vec_safe_push(inputs, input);
+-	asm_call = gimple_build_asm_vec("call stackleak_track_stack",
++	asm_call = gimple_build_asm_vec("call __sanitizer_cov_stack_depth",
+ 					inputs, NULL, NULL, NULL);
+ 	gimple_asm_set_volatile(asm_call, true);
+ 	if (after)
+@@ -151,11 +151,11 @@ static void add_stack_tracking(gimple_stmt_iterator *gsi, bool after)
+ {
+ 	/*
+ 	 * The 'no_caller_saved_registers' attribute is used for
+-	 * stackleak_track_stack(). If the compiler supports this attribute for
+-	 * the target arch, we can add calling stackleak_track_stack() in asm.
++	 * __sanitizer_cov_stack_depth(). If the compiler supports this attribute for
++	 * the target arch, we can add calling __sanitizer_cov_stack_depth() in asm.
+ 	 * That improves performance: we avoid useless operations with the
+ 	 * caller-saved registers in the functions from which we will remove
+-	 * stackleak_track_stack() call during the stackleak_cleanup pass.
++	 * __sanitizer_cov_stack_depth() call during the stackleak_cleanup pass.
+ 	 */
+ 	if (lookup_attribute_spec(get_identifier("no_caller_saved_registers")))
+ 		add_stack_tracking_gasm(gsi, after);
+@@ -165,7 +165,7 @@ static void add_stack_tracking(gimple_stmt_iterator *gsi, bool after)
+ 
+ /*
+  * Work with the GIMPLE representation of the code. Insert the
+- * stackleak_track_stack() call after alloca() and into the beginning
++ * __sanitizer_cov_stack_depth() call after alloca() and into the beginning
+  * of the function if it is not instrumented.
+  */
+ static unsigned int stackleak_instrument_execute(void)
+@@ -205,7 +205,7 @@ static unsigned int stackleak_instrument_execute(void)
+ 					DECL_NAME_POINTER(current_function_decl));
+ 			}
+ 
+-			/* Insert stackleak_track_stack() call after alloca() */
++			/* Insert __sanitizer_cov_stack_depth() call after alloca() */
+ 			add_stack_tracking(&gsi, true);
+ 			if (bb == entry_bb)
+ 				prologue_instrumented = true;
+@@ -241,7 +241,7 @@ static unsigned int stackleak_instrument_execute(void)
+ 		return 0;
+ 	}
+ 
+-	/* Insert stackleak_track_stack() call at the function beginning */
++	/* Insert __sanitizer_cov_stack_depth() call at the function beginning */
+ 	bb = entry_bb;
+ 	if (!single_pred_p(bb)) {
+ 		/* gcc_assert(bb_loop_depth(bb) ||
+@@ -270,15 +270,15 @@ static void remove_stack_tracking_gcall(void)
+ 	rtx_insn *insn, *next;
+ 
+ 	/*
+-	 * Find stackleak_track_stack() calls. Loop through the chain of insns,
++	 * Find __sanitizer_cov_stack_depth() calls. Loop through the chain of insns,
+ 	 * which is an RTL representation of the code for a function.
+ 	 *
+ 	 * The example of a matching insn:
+-	 *  (call_insn 8 4 10 2 (call (mem (symbol_ref ("stackleak_track_stack")
+-	 *  [flags 0x41] <function_decl 0x7f7cd3302a80 stackleak_track_stack>)
+-	 *  [0 stackleak_track_stack S1 A8]) (0)) 675 {*call} (expr_list
+-	 *  (symbol_ref ("stackleak_track_stack") [flags 0x41] <function_decl
+-	 *  0x7f7cd3302a80 stackleak_track_stack>) (expr_list (0) (nil))) (nil))
++	 *  (call_insn 8 4 10 2 (call (mem (symbol_ref ("__sanitizer_cov_stack_depth")
++	 *  [flags 0x41] <function_decl 0x7f7cd3302a80 __sanitizer_cov_stack_depth>)
++	 *  [0 __sanitizer_cov_stack_depth S1 A8]) (0)) 675 {*call} (expr_list
++	 *  (symbol_ref ("__sanitizer_cov_stack_depth") [flags 0x41] <function_decl
++	 *  0x7f7cd3302a80 __sanitizer_cov_stack_depth>) (expr_list (0) (nil))) (nil))
+ 	 */
+ 	for (insn = get_insns(); insn; insn = next) {
+ 		rtx body;
+@@ -318,7 +318,7 @@ static void remove_stack_tracking_gcall(void)
+ 		if (SYMBOL_REF_DECL(body) != track_function_decl)
+ 			continue;
+ 
+-		/* Delete the stackleak_track_stack() call */
++		/* Delete the __sanitizer_cov_stack_depth() call */
+ 		delete_insn_and_edges(insn);
+ #if BUILDING_GCC_VERSION < 8000
+ 		if (GET_CODE(next) == NOTE &&
+@@ -340,12 +340,12 @@ static bool remove_stack_tracking_gasm(void)
+ 	gcc_assert(build_for_x86);
+ 
+ 	/*
+-	 * Find stackleak_track_stack() asm calls. Loop through the chain of
++	 * Find __sanitizer_cov_stack_depth() asm calls. Loop through the chain of
+ 	 * insns, which is an RTL representation of the code for a function.
+ 	 *
+ 	 * The example of a matching insn:
+ 	 *  (insn 11 5 12 2 (parallel [ (asm_operands/v
+-	 *  ("call stackleak_track_stack") ("") 0
++	 *  ("call __sanitizer_cov_stack_depth") ("") 0
+ 	 *  [ (reg/v:DI 7 sp [ current_stack_pointer ]) ]
+ 	 *  [ (asm_input:DI ("r")) ] [])
+ 	 *  (clobber (reg:CC 17 flags)) ]) -1 (nil))
+@@ -375,7 +375,7 @@ static bool remove_stack_tracking_gasm(void)
+ 			continue;
+ 
+ 		if (strcmp(ASM_OPERANDS_TEMPLATE(body),
+-						"call stackleak_track_stack")) {
++						"call __sanitizer_cov_stack_depth")) {
+ 			continue;
+ 		}
+ 
+@@ -389,7 +389,7 @@ static bool remove_stack_tracking_gasm(void)
+ 
+ /*
+  * Work with the RTL representation of the code.
+- * Remove the unneeded stackleak_track_stack() calls from the functions
++ * Remove the unneeded __sanitizer_cov_stack_depth() calls from the functions
+  * which don't call alloca() and don't have a large enough stack frame size.
+  */
+ static unsigned int stackleak_cleanup_execute(void)
+@@ -474,13 +474,13 @@ static bool stackleak_gate(void)
+ 	return track_frame_size >= 0;
+ }
+ 
+-/* Build the function declaration for stackleak_track_stack() */
++/* Build the function declaration for __sanitizer_cov_stack_depth() */
+ static void stackleak_start_unit(void *gcc_data __unused,
+ 				 void *user_data __unused)
+ {
+ 	tree fntype;
+ 
+-	/* void stackleak_track_stack(void) */
++	/* void __sanitizer_cov_stack_depth(void) */
+ 	fntype = build_function_type_list(void_type_node, NULL_TREE);
+ 	track_function_decl = build_fn_decl(track_function, fntype);
+ 	DECL_ASSEMBLER_NAME(track_function_decl); /* for LTO */
+diff --git a/include/linux/kstack_erase.h b/include/linux/kstack_erase.h
+index 4e432eefa4d0..bf3bf1905557 100644
+--- a/include/linux/kstack_erase.h
++++ b/include/linux/kstack_erase.h
+@@ -80,7 +80,7 @@ static inline void stackleak_task_init(struct task_struct *t)
+ asmlinkage void noinstr stackleak_erase(void);
+ asmlinkage void noinstr stackleak_erase_on_task_stack(void);
+ asmlinkage void noinstr stackleak_erase_off_task_stack(void);
+-void __no_caller_saved_registers noinstr stackleak_track_stack(void);
++void __no_caller_saved_registers noinstr __sanitizer_cov_stack_depth(void);
+ 
+ #else /* !CONFIG_KSTACK_ERASE */
+ static inline void stackleak_task_init(struct task_struct *t) { }
+diff --git a/kernel/kstack_erase.c b/kernel/kstack_erase.c
+index 201b846f8345..e49bb88b4f0a 100644
+--- a/kernel/kstack_erase.c
++++ b/kernel/kstack_erase.c
+@@ -156,7 +156,7 @@ asmlinkage void noinstr stackleak_erase_off_task_stack(void)
+ 	__stackleak_erase(false);
+ }
+ 
+-void __used __no_caller_saved_registers noinstr stackleak_track_stack(void)
++void __used __no_caller_saved_registers noinstr __sanitizer_cov_stack_depth(void)
+ {
+ 	unsigned long sp = current_stack_pointer;
+ 
+@@ -174,4 +174,4 @@ void __used __no_caller_saved_registers noinstr stackleak_track_stack(void)
+ 		current->lowest_stack = sp;
+ 	}
+ }
+-EXPORT_SYMBOL(stackleak_track_stack);
++EXPORT_SYMBOL(__sanitizer_cov_stack_depth);
+diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+index 31088a138bc9..dad81194a81b 100644
+--- a/tools/objtool/check.c
++++ b/tools/objtool/check.c
+@@ -1192,7 +1192,7 @@ static const char *uaccess_safe_builtin[] = {
+ 	"__ubsan_handle_shift_out_of_bounds",
+ 	"__ubsan_handle_load_invalid_value",
+ 	/* KSTACK_ERASE */
+-	"stackleak_track_stack",
++	"__sanitizer_cov_stack_depth",
+ 	/* TRACE_BRANCH_PROFILING */
+ 	"ftrace_likely_update",
+ 	/* STACKPROTECTOR */
+-- 
+2.34.1
+
 
