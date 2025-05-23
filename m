@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEA8C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F931C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bzUazx6iBs64AEsyxJAiqGGwIlTSdMC1yjC1DXGxq8o=; b=U3FNW9Iyti/DftP6Fz7hMIgMDt
-	+GJ1p2qmfaVJKuOXLdhxvv1sg3PYiRM7rHbT5ZyvdKA76hgE3GEVl+JvwiK4Az4snU+7fMP5pwUty
-	vMWN8rG/r6WAXSfXf1mN8sJQvKF9ZnlJZDuHm279n+bS1lgkyysHEvdVz1i4vPCmR8lvQBM6tPQrY
-	HRsjvA2MkDZUXMUsRF95Jy/2nJm4bGiCkwaQq2aZWVSegOuGVqfkgWVrL6uzudPHwCxBWgdfzOzr+
-	UE2/ahp1YvQMaqPLfivZ5hKirGf0vPAxmgBc+AloVlN4OlIyj1AGD+CdCtUTAJDT5lAa5aK3ptw/Q
-	Ef8bnhhA==;
+	bh=kGRP3cG/lu4arrN6xyC1FXh51VFrtMBx+8TGypIs0ZY=; b=ZNNtkFWu82pFDlEfUgHruyYVtJ
+	dkaxV5JJsSpy5jKAefPHwFwAskdzvhYciabuuGRgD3YEbndB+fdcCjdhHn7wlM6JbO/MztSzRANU3
+	qhWzEOILbx2OFfCcPM575MK93tDuIwdc/KlXsJvRhY690QQyBXmTBawf8FYni30cq/SnbyI0ZeBVy
+	/f/tK+f2wAed4APTAzZ+cZEETZt6pW9v6azkDt4R4tvOGF+9+RXBla6n27ebZWdqFFdPjgJPjBapt
+	UZ5GRQr4JZujr23yuYNee4RFYXCMyaHJ0EJcM43h4cmCyXamuWsbDAgCxthnEZZLJVQO5uIN/d+Sc
+	MSsZJSEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbe-000000046Lz-2K0k;
-	Fri, 23 May 2025 14:42:42 +0000
+	id 1uITbh-000000046Rj-1KBp;
+	Fri, 23 May 2025 14:42:45 +0000
 Received: from mail-francecentralazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c20a::2] helo=PAUP264CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISfe-00000003zja-3zUX
+	id 1uISgO-00000003zsz-1eMW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 13:42:48 +0000
+	Fri, 23 May 2025 13:43:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p4pXSwbKMt95xY6jGXeTTprddtxYdOHY4/n6gFHkRdNfht777jHglWz4DezOCe1JdGaLNTr8IGj4m1om1h8pSuN+AK5OB4C8RBv9wQa3me/x4nZUth0+BrXBChjR1CHQsnfXIAY6LC9csj7NnzzhDnokEsGUkRtr5Im+IhuYapIqnyu3yH7t+XkB9nO/XiCRKzeGVu3XjeXVRTGFsIUIHlsbaPchoST3b+CeJdGrJPR9YT+vmzv/cmkQhEsrleJr1EHZVAFy0P1rRIdePkYadoiN3X7KpFaAwrOPWWME9QJ+eTXQZHOp8g7r5MNpfnvWH7DPE3Re27zKj7Htxe2geg==
+ b=BydErWj6qF4e2MLMD9orwwCSgOJkTawol3J8nI4cMmrLjcsc7HA7+1cEzDDcsUxtam7zUhPrtnRuq6S0Ykt6g6rvKg6AM9yb0orvSWUX2mAktB+RUhISfK6L/N3T7wn7lhqUbQsSUpKvcg5qe5ztwTWo2+9LSQqE9sJZvzsh9sQ9sGWbdezJSUGN7fGdMz3zHOyPe9G6AEIlL9RAK/UpdnQadu1r2ex8MZP0FczQjFamzpLjMQhao+feeLWSaB2z1IdxlRn1A7OV4McDB0jvKrS/Nznsw5Ycgcp4XZQOBi8l4/mAA6NPUii92jnftmSf3n2jhJyEjNHeS1MUt8x25g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bzUazx6iBs64AEsyxJAiqGGwIlTSdMC1yjC1DXGxq8o=;
- b=zK3cbfwXLsktUTGcu1xPyyCwZy+LEY7XupoNY6KG0rlfPPtP6xpS3zyprnSjNBXxW9v/ocvHxl1G/j2AcjMih0mV0uu6zPMq6Au0Dz/jY6Io9zKNCyZGphtzBEMSeCajOwVbL3TuFwWA/s06GKt3+Cq7xztDRYMWsH4XsLM6G2SZ1QRqFhNcPXalIQAOeEjW6cRlfwqrZcIgfWWNBKAeBEgSyWN4Py/Cc0XVepHyI7gp8mB3xZ+lATxgGhOsaY7Lyd9vXaFCQf6jIu0z8dnDuIZE8aA1Fs2D4MbVlmPKma0ZTcexzii3l7vuIFLN8dnfGcKntuxb7rwvBJVNn8NFVw==
+ bh=kGRP3cG/lu4arrN6xyC1FXh51VFrtMBx+8TGypIs0ZY=;
+ b=lxjpbcNUeXRVySF5r68XVrUocpwyGQvIdCDCgOl/sls1p4XMl1yD6bPymUZZNQUc2lAygCHUu56vWtPJDk+U16vJiSBFA3KsFsRodo0Gz2hqqF2MBVjUd6Tni9ZfHl4Z2s9l1Boah9GxRMaa3c/knBf3K2EfwL3HaQeivcH2NeVyQD8kdys3K09y/vY7sX2H5TqUN5s9ytXEJ45b3UtyKISnIOT1OUyZ5fDK/k0gmK4xhvYKe7o+aQq87fG58480XV122CWZUnCUcSlUAcIMG0iU0T3tGUkGtH8Nd3P07gQG3YCLgy8tiBg8DJGkIyzIso/no49xJnY0TZQ3vU0OWQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=allegrodvt.com; dmarc=pass action=none
  header.from=allegrodvt.com; dkim=pass header.d=allegrodvt.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=allegrodvt.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bzUazx6iBs64AEsyxJAiqGGwIlTSdMC1yjC1DXGxq8o=;
- b=nB9eSYUL3sAVS4paGqc5nOxy1OEeCYDzBX9DccKDRZqae/6j6AuA24OYowu2sova6izmBrUmC8PoRcP3fmZANu1DGStV0m13Rts7Kfqbvl4rsjlDJfPn9yUy8skhH7dWRAg1UGrLJIczzmvI4LxsQMnZT9nEscdG34zHVtmYHxg3A2h4cwAMNF/0+CFZta0y0dylhreScOfmGmaAomStdjb9LZoXSJYAMMBYbpMYMdSkCPCNr9jsSZ3EBZa7Rf3IbFJCH3c5J00ekLLdDTS8KJeHA4+pL7Mx4MixhhPY3kggWjmfwziyw1utKZRe+7ZMRIXI5Z6BvP7C8k6yaqqYsw==
+ bh=kGRP3cG/lu4arrN6xyC1FXh51VFrtMBx+8TGypIs0ZY=;
+ b=yGRkzs+DlyHAGPlYJZxhSLLDOglSKo7C6O/+Mof/No2BemxnvVj+yn1EoHTk5rIc/CHatt3w7UpO+CuG5gddjVkO/SgUiFgfp0JKpjXc9VhtJ+On3LuibPKa5/SnCbxkx+rcE2SXE6PfkZjFd70OFfr7Z/ZENo6ohqiFy4vL7IdY23bWPUDa12+gaazkNBAFENVoIar3TpgGPI2rnq+RidQgexnbH326KlQeU0RCysr7VlcjnYAM466aqZHm8MHRgaF6tLtPmaBSedWA2FjcCAKMBKjP44OThINaG0XeFkHhEn5MnhpNIuSKu89yaskqICgMZkMqKMDAofb/SEapjg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=allegrodvt.com;
 Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3d::18)
- by PATP264MB4619.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:428::12) with
+ by PARP264MB6043.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:4a6::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.22; Fri, 23 May
- 2025 13:42:43 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.23; Fri, 23 May
+ 2025 13:43:28 +0000
 Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
  ([fe80::4281:c926:ecc4:8ba5]) by MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
  ([fe80::4281:c926:ecc4:8ba5%2]) with mapi id 15.20.8769.019; Fri, 23 May 2025
- 13:42:43 +0000
+ 13:43:28 +0000
 From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -69,106 +69,105 @@ To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
 	Kever Yang <kever.yang@rock-chips.com>,
 	Hans Verkuil <hverkuil@xs4all.nl>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	Gaosheng Cui <cuigaosheng1@huawei.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
 	Ricardo Ribalda <ribalda@chromium.org>,
 	linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/5] media: allegro-dvt: Move the current driver to a subdirectory
-Date: Fri, 23 May 2025 15:41:46 +0200
-Message-Id: <20250523134207.68481-2-yassine.ouaissa@allegrodvt.com>
+Subject: [PATCH 3/5] MAINTAINERS: Add entry for allegrodvt Gen 3 drivers
+Date: Fri, 23 May 2025 15:41:48 +0200
+Message-Id: <20250523134207.68481-4-yassine.ouaissa@allegrodvt.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250523134207.68481-1-yassine.ouaissa@allegrodvt.com>
 References: <20250523134207.68481-1-yassine.ouaissa@allegrodvt.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: PR0P264CA0178.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:100:1c::22) To MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
+X-ClientProxiedBy: PR0P264CA0184.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:100:1c::28) To MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
  (2603:10a6:501:3d::18)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MR1P264MB3140:EE_|PATP264MB4619:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9a01d2d-c140-497b-1fad-08dd99ffb1e0
-X-LD-Processed: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917,ExtAddr
+X-MS-TrafficTypeDiagnostic: MR1P264MB3140:EE_|PARP264MB6043:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15163bec-7f7f-409e-00a0-08dd99ffcc78
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|376014|366016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jHYkvkjHYnxyzttceJgnZVaZAJ22bO8ZG7UXznnPCh9FYYlrZRk3FMYaUP5J?=
- =?us-ascii?Q?8aHQCQpkrg8qleLGu2qQYuy9MmilDQzOsyjY3eroqyR+SVYQLBjUn78nkDzd?=
- =?us-ascii?Q?9zGN5lZEy7bifUcjnN0laM3Y0EZ5fOrYMSMVUzSXvjcuGdGjFIvd7JOgMYrY?=
- =?us-ascii?Q?PZ3UDI+I5/VEkXRotONXSxxJ0k10f2DCqcjowgkcASoppvN9X9mnERmIY07R?=
- =?us-ascii?Q?iNIfaC5S/LeMP6o7OzascsRAXcMx88j59e4cGksz/o7A8bTws7dewv0Ghc5P?=
- =?us-ascii?Q?vH+utaU6pJebpVz2l+3RZddTFilhnQ9XqRutwu7v4ri7i5ex49ps/dQUwGB9?=
- =?us-ascii?Q?4doxD9Ye5WEGhGabzT0B09SdxvsxhNnIYSrmN6PWNFV4z2IiTUR+xyHrU7Ch?=
- =?us-ascii?Q?IQeS6YxiudXwgiEMbO9fmp6//ZfAOZVyCt+aJAwHNTr7c09hmthEo/XuAGwt?=
- =?us-ascii?Q?Acd5VZQ+sRWHYesU3b4ET/2+cJMrNikHRuEvg+7CraMyykuJUzVwi4ul9Iee?=
- =?us-ascii?Q?nBnGalqQqKc7AUw3+3oTCaPdemnpZWSSvaJNZ8ltGPnnDI0Ho15iD2UWgPbH?=
- =?us-ascii?Q?02QFWhZ94TBT5JtN3XUruvgDqAn02ahLP+sX8sTpYhe3+XZRKSojcXc1cjLY?=
- =?us-ascii?Q?6dSW2kWUkysn3b1pgEQQMHWcraznlWenn6SI5IePTQzfRfWx1dkzrd+hmEp0?=
- =?us-ascii?Q?Pz+AgBnwuF+dUhFK/dMdeOvd3jKb0GpQk5MW0Y8jEAF1WEqm+xBs/ad6iF/g?=
- =?us-ascii?Q?J/vQt+7031YIwIeWe9AlAUFdhDb+72xIlo7KYhdgsHfEzdf1XypljYcW5dqt?=
- =?us-ascii?Q?vRZU8HWyFdm9zAiETFcpYJvzUadsk4uOiDICHZF2BB8gsSGjw3GrxpE1C9oN?=
- =?us-ascii?Q?AtF/ruimsOWjTsQTPdncLs0BFy8jQ5vn786BwySPDAbwKtjTHEEhrRB/visH?=
- =?us-ascii?Q?LhsR9Fc2JPXFiQ7Tr1C85NTZDzu4C6/BgPK2ALu/uAnMs5c8nfsofsfpvDcZ?=
- =?us-ascii?Q?c1WMTo7tSsgMVaATU8O+/oIEko9+N5YqDuwM7j3tdgjSnW0UKvB8bPBqnQGl?=
- =?us-ascii?Q?eWacxVIn8+eeHcP3S/jsFj1HJWPebAU0mbtr1IKpCtEBQ+ogd2DyItcDmZCi?=
- =?us-ascii?Q?JNFJ16gsZE7IiXvnJBNdwvH+GWOeua/Kleb1ObLzA4TsJks8bJmWFZl1Og8J?=
- =?us-ascii?Q?8kPDPuRA+Fzpm/kMVrGesKTHcFIHZ45bG/Yr9wbb6BJlv2NjW08XtCGX4xHs?=
- =?us-ascii?Q?jvK3xwaIirvxhdCD0ksZB64F/vgbjNsX5k17J8yC1ApHsueaJNoAHzr6szWe?=
- =?us-ascii?Q?6YgFtpGR6/6SFn1nXJLDenVJqVfYjtonMssA3phNi8h+Ngg1C8wY1inOrodH?=
- =?us-ascii?Q?S4DHOrcOsmn65LfhdmWRvoH8wYYnq8m5DyobXiIdtWIaMBgfwlNjI4+qqByo?=
- =?us-ascii?Q?plTI4nLoaHrGhkQw/h6RFNtAm+WNt/3PsTg9aIKI0cX4sl2e3/9reA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(376014)(366016)(1800799024)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|366016|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GUMPiZWgyOzZ0602e069Er/rAc8RbNKFTjpN9WnNOw8tnMTcYI3hwvv8dQ31?=
+ =?us-ascii?Q?AHTmUtD4q58WmGAFkUvbyahbgw4Ltbs3N43sdbvAgM6oF2ux916WZfSPdDnU?=
+ =?us-ascii?Q?acUcri+OTSy88+wW88WfVhkHGAVID62yw6CS4fFjdwRpC3Bp5NeEkK8BId3A?=
+ =?us-ascii?Q?GZaVCm1RjR44AGlQeJDASE+F1jpED1oZztK6+cUaCNsKtpZDHK+fdsrbviua?=
+ =?us-ascii?Q?khjgM5CS41VHPNp92FruYR9Es/2Rnh+YbO6CuqafP8iK61LubIPwLbc1HFt0?=
+ =?us-ascii?Q?GvrfiaWFwPjnCvwUHXNVODeLBcsZ+4u3jXh1laH5RBBi5eCtckQU35C7nQpJ?=
+ =?us-ascii?Q?Z/MHAuKGWUQfh+gD/ql52zcv3QeYFIvxgliTTx13Bb9gZ+EpuTNnTeY2plvG?=
+ =?us-ascii?Q?41gzaOIlcfr+jCwDAfMGiAX1wqf9VA06VXugF6AR1+8D4UKzoTD7GXoBSHav?=
+ =?us-ascii?Q?I3vLxfz/PNyuQlJzITxaNhEsvyYcKRFLF29a9zwJXcFaaX6J99Py2agRaz7K?=
+ =?us-ascii?Q?FnZfkjrydV9fc+OaceMPbMLigsMDiq4kAJ/jBVdC+0FC16HYRNoq6rrSQdix?=
+ =?us-ascii?Q?txBYulQR4d87SIrFrGXridCI7K01/9S8Td+mm3LkvGevzD6V38mH3MdlNmAD?=
+ =?us-ascii?Q?JWfkRHYGjJjIX8XNbOj3bAH9Cn79c4dbpd+PEJRaODUGTOPLFIt7Al7IBhaN?=
+ =?us-ascii?Q?guwRo9EZtRGHunAsTP5u10A8gtDxMLSrnzeYKvlU7QTJmJzCM/7uyQ5ZVkbU?=
+ =?us-ascii?Q?XS5OnMKhbXl2SyOqwr3/3CRsyzs4nmBcuwYYcIkoaPNd+WxSCXCI3RedB3Y+?=
+ =?us-ascii?Q?BaS30gokbDlNbckn6nVsiXtaeibt4pQmaAjrJJBzFHqkW6L9YxvIvdf6WOu0?=
+ =?us-ascii?Q?sBarKTnVejU7K5ba2za+Jba+I6zxsgsnP4z5KxFsAUKz8Hwn12gUHMuOWzFR?=
+ =?us-ascii?Q?uveCz6oJQInRkZD26cHQnJHO7Yxb4LGdxPO4bETI4NZP275eD0Je1piPFaEB?=
+ =?us-ascii?Q?XAzIBb77Kdslvv2YyDO5gWJS8wWon79GCE5gfxc7qya49eHzuSfTOp7kksA1?=
+ =?us-ascii?Q?jlodICT7++H5rNPI3sBl2NYuj+ZswBju3orRttlsVGvtx1tw/BWLZxrcnq6t?=
+ =?us-ascii?Q?Ddkb9LdIoR+X/he57paN7O5VgUz5fTlL/qDOuVRmjD9Ej7B/VD4ZZgpKbvU0?=
+ =?us-ascii?Q?pUCssSgqGkI41Ffp0ZS4ZORD/dN6C7oeO0VEgcBvf66HKZFcOqapMW7GfILR?=
+ =?us-ascii?Q?7bMK2CB2CAnOGupLw7bDtyeevzvoF3hnU2AdBfYYnLGIkDLjG4rKO/M73jEO?=
+ =?us-ascii?Q?eZigwXu6BTp/y1SYl4SLfncX5brSe4dASONgRC0+fFSjRr+zuMNFjmwo8tLa?=
+ =?us-ascii?Q?23o9kG+p2Ctk/D31Qn8rX21BjhJpfJaGWTf7b9J4KM/2gE4+3b0AEXcFOopT?=
+ =?us-ascii?Q?58QbIqGlhu/FHk1pSL5JxCRSZIoGT+ggiBv6ItBFxvV1OYp9TKBAbg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(366016)(7416014)(376014)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7rebvBuc2L+RplWe11wiFpl5RZ9IPrKNkIsGhcnVlwl8Q0DyGkeFH+cpaKrj?=
- =?us-ascii?Q?PWnrT/uFZrWDmVOBfPtXuXJHYFVZPbv/Tu9wBSEileB6pxczIoL7lDeSyV6F?=
- =?us-ascii?Q?haJiY2ERc1xeAMRbxL/eWO8iH6F3iJ2qjHb1RQVObTUk00YS+txFr+TLChuZ?=
- =?us-ascii?Q?8aRBpBnjahpPtpcr/qF9TkWGF+Hjup4YkirkxcFp4FqTxSnQZLu6QZ1PtFof?=
- =?us-ascii?Q?lbA2+e/lmxqDBSEIcYfd0/LmA0ZzbjrlyofCJ+l67OTZnJVREjLFhH0ucYBT?=
- =?us-ascii?Q?7fm6sx47Iv8C2OMv0w1DZhDPlKTCxqPnC0HjUq3OsBCLOn14gL9KcMqcFS13?=
- =?us-ascii?Q?H87o44bBGvSCKBkWHhQhtnWN+2O3ptmLUtLsQDzboC658N9+jSnYZrKUDoPW?=
- =?us-ascii?Q?xN8FC7Vc0WVT6DcKJ+KRknx846HGblK3mqvpVU2qwXpVNlbr08TQkTA2DP1j?=
- =?us-ascii?Q?6MqWALcTT/hocp2uh5xL5ifip12k2zbGyk6vcddyx3EkF1fsO5frGOQhujgE?=
- =?us-ascii?Q?4X7W4iLj58WBCn9HPO/5oqVuk4uBVgWSR6/UiygDc2YwcNfm5cNBUfJ20hdk?=
- =?us-ascii?Q?CZ2hzM8T3rbGO5huxlu0Ev6W+Rf31EsGiYE2TtyZm7ZhZDil/7JNZ8tSS6zf?=
- =?us-ascii?Q?ytqqzGDC+yCJoILEwiiqYYVo4GcLpFphmZKeEQ1GjVxHtfBshYbb/FpP129O?=
- =?us-ascii?Q?aWZ8Gao3vXlE/hpAYKgrjNN8WDJcVd6nw3QCdB5u+HVvCHvDsBClyBM9q6ct?=
- =?us-ascii?Q?gURoAcP7dXfxXoRQQNhmV0LgiY1ZEiL8J4dypbRr87k8L64kCQARGr6xXRC5?=
- =?us-ascii?Q?RhNp1fmpPlir88EnHnv56kId+UaFTG0NwKQP6RHSigD3cvBg8cZiA2Ym4owC?=
- =?us-ascii?Q?CQrS0x2f/zwh7ij4GVwYcID3IpNKQtseGMQBgCp+BiJOX5R7xzMMsmjfxbi2?=
- =?us-ascii?Q?kTtp8NxqxP3S1/rcIWTzhTylOF/2Qqf5UZ1NdPibREqtGKV9pj6NaS1INPUU?=
- =?us-ascii?Q?nep4GSwuiWn7w9kiCkXAetAyL5WqJAL4mqLCroQZ6+CvQrxFob8aXZD60wc1?=
- =?us-ascii?Q?Zo9D+NH02aesG4irOZOsyhU7z4rNhB28TDciER3A3drWetM/gntYdxBH+qXK?=
- =?us-ascii?Q?yj6x/OZELxvjMZq5paqz4VLB2c+7YNTxqbIm5s3+vexG01/eJfLX4+FSe+nj?=
- =?us-ascii?Q?ZV1LNU0bxjQGy/R27kkN/gicQ4RZw5xbjFlZMx8tyBM+ElRUMb697ZQRF5QV?=
- =?us-ascii?Q?vG5OgioEdK+0C9e10S5+yzXNs56upV57jLvsrsYZhDBPk0psApSdNrdvmFvn?=
- =?us-ascii?Q?TqCF9/Pywwg7q6qdrchmIezLaDCwIvrTh04HCgLWjB7DyIwuY3SNc+NlkJ96?=
- =?us-ascii?Q?wFFlU6ze2XVfynoLeXRR+XE5gcT+ppvw3In+/88YbdLVBub7y6WUvF75DKp5?=
- =?us-ascii?Q?z7/34WKxokTHz/9yCnvb7d1r38diyyfx7kMM/fSA5HTd9sjEnU600T6Ww7nZ?=
- =?us-ascii?Q?81SnSbPjkLMKj5rkWyMq/2CVJlcCbFXVvJqrG2ukJK5quKrdDaNaSQVZEELr?=
- =?us-ascii?Q?0qV7KnDNs0j3thML+qud/KCjEGOVFN6d+84PB/s+U9QVvSLxQHd3HVOkHuD7?=
- =?us-ascii?Q?l4Gz4uP1O2vMOh0TtHIxgZrsuEpldY+Tn+EIgWzhlvyWa1tktWZoQv7YB1Vi?=
- =?us-ascii?Q?Iqp8aA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PxqQbO+c0RYTsl9hDn3Sp5Konn1MprUaGih77kRmH25NYKK2PUlUVZsEnOIa?=
+ =?us-ascii?Q?9sJOqKZSboM7vaEusNnVCoOo04YeJL3jYh1VRY6WVlj9r90tN2W3APHgiEN+?=
+ =?us-ascii?Q?XyFD3zb7O5CuDks8+floxBUPUhwm8DJI98616/df1QNGAbuN0WMMR1cZ1kJn?=
+ =?us-ascii?Q?VAzWGxiF9r484aKe5aIeTds27RoBSfMGEFVhr9Hf+A3bxfjYyDsOuUVQ3BkC?=
+ =?us-ascii?Q?aCMK9rSVfj82cSAXSgBlySpbn/n/H9KjIdhKop/CoR0ZS8KFzSeJd19vptes?=
+ =?us-ascii?Q?HnFJSDJw3b83sM8/Od0zA7qbhddd5sSlP3DTGX8Z2+p3NTPQLKvTZSEVWwkF?=
+ =?us-ascii?Q?W1HaBXtn9YIEPn5oYeDksPi9nO5MO9HmadzAsi87+Bl+CRraTEX/o8u0mrIo?=
+ =?us-ascii?Q?GNCq/wkcE29Ic28zledMZfwE4qkv5Ov3jAouFeqz7CHxQg1MqbuLmAVInwr3?=
+ =?us-ascii?Q?VpB7BgRCnn8iOXzLZ5wpt/fnyMpYmb//BMvz+EzIM03GwB9oae6uBB0oF1ye?=
+ =?us-ascii?Q?G/YyJg+zUxyVSCfcBh20/d5m8vjW8d/YPGeXYNHCylyYY3imraFy0yYoOwLZ?=
+ =?us-ascii?Q?zHo02i3DEQX/2oBac/wYMqufW3FIqg9LOMEHHnJ89p5lizxQSz3SniumMLDk?=
+ =?us-ascii?Q?I7SQvSJS3uvO269IUKgcoEhzTAt5dI9+aAIQzX+sUa1BvEuFLZJV7goqBexG?=
+ =?us-ascii?Q?2elXw+g2/fA664w34MBiDE5B5reVSRjCVZdGgZrWeBI6pQgXd6ZNsFthe7WY?=
+ =?us-ascii?Q?P6ifNKS/Q3LyrKzUK2rHRnk8dXwkiizp+8oN7S3b34YSEw4XzyNHne1G+p/s?=
+ =?us-ascii?Q?tIxulPKmuGPj+X2kx0GGNjAvknx6m9r+n0qZbG+cEoM5AySmcQd+VVJF6q9W?=
+ =?us-ascii?Q?sA5lzu+1QKo5q1wjlmdfLdX2BLegUho/g5bc7XULC4vD/PkPlSrACj26//aH?=
+ =?us-ascii?Q?F5KVKbupd3vKLJP7xpZIX2pksGQCksUBYgG9moNNeln7rppvzADNIL9RVvbs?=
+ =?us-ascii?Q?6P1nMLW/Zpjw5O4MHvT3fQnd0L/P5X4ryr8JfbielDeWwDSKIJE3Yx2gvHJN?=
+ =?us-ascii?Q?hEClYezjRLuzXY1MmOogekfIgoL0ehCJYuGHl6SyfmIMkW2dgIOfvtAJ9XA8?=
+ =?us-ascii?Q?D1NiN0ToJvd99trvtFOErZlWRmEat/YCDrduTNa/FTodjlyNLyPiYReBhPMa?=
+ =?us-ascii?Q?xmh2aM4jbZvBlbE3hHp0rmlAyuibCDVQwn3L4WDbm4LHDxZPtjmqA/yUlDB9?=
+ =?us-ascii?Q?5kPtNBvFj+FTleCWx4P+7wmVKNad1jriVC3gAhQdUFK01YCTphRgMz0R+Ngk?=
+ =?us-ascii?Q?L7YICfTJTeBUMW2lwciG57c8esPc1VKJZQXwVWgwoKoZJZAGjlBAUvLr5tD3?=
+ =?us-ascii?Q?t0Ji6M0NRkYmzzprcB8F0eTKR5yhA9juQEH96Xdu54AdTSlPVFmweeM25eWc?=
+ =?us-ascii?Q?r3HKshnS8TrHQUZ+lZt1Um37R39Q5bmBtHET5SCe2zhsr8Q/Y4fkx2oHd0lp?=
+ =?us-ascii?Q?VBYGOMFleRtRMePW3yDCiquN0DwGupauIsKlsbdJ/x4kzODbiF2ngKv4MXMG?=
+ =?us-ascii?Q?r/zln1+BSCUGEh5rPQtJZekEpba0s/HCoqw+FtBEgK21fs/ij7Y7BxVqgyOM?=
+ =?us-ascii?Q?mYE0ZjVCAtAyCrCumOS1m0wkZaLxr1pIJqnmnWBEkLx+Av4ptns4KnOA9/CM?=
+ =?us-ascii?Q?cMFa7Q=3D=3D?=
 X-OriginatorOrg: allegrodvt.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9a01d2d-c140-497b-1fad-08dd99ffb1e0
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15163bec-7f7f-409e-00a0-08dd99ffcc78
 X-MS-Exchange-CrossTenant-AuthSource: MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2025 13:42:43.8344
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2025 13:43:28.4241
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Riv+3hnJ/xbnlkSZT3Q9T8vbHVTYNoV9OPz34oyk8myePGDs+tyCfvZuzepv2c0Px/8QbVTjEUqsYPyxAAmk4Gf8XYkvt5fQOX6B65Xi99c=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PATP264MB4619
+X-MS-Exchange-CrossTenant-UserPrincipalName: wnYHKoEZ+XOYwHgFLjfdOV2IDI5l3mrIm7IdZL0M/GPcpIQZCTb7Vz72vSB/KzyM84j1D+khpzPn9Td1v+dPHy/C0WiiHAzvDGAhokzcfl0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PARP264MB6043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_064247_135176_983E59DB 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20250523_064332_430673_13BC333E 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,162 +182,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for the upcoming driver update, we need to relocate the
-current driver.
-This will help ensure a clean transition and avoid any potential
-conflicts with the new driver.
-This patch is crucial for keeping our directory organized and
-facilitating a smooth integration of the new driver.
+Add my self as maintainer of the allegrodvt Gen drivers
 
 Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
 ---
- MAINTAINERS                                     |  2 +-
- drivers/media/platform/allegro-dvt/Kconfig      | 16 +---------------
- drivers/media/platform/allegro-dvt/Makefile     |  5 +----
- .../media/platform/allegro-dvt/zynqmp/Kconfig   | 17 +++++++++++++++++
- .../media/platform/allegro-dvt/zynqmp/Makefile  |  6 ++++++
- .../allegro-dvt/{ => zynqmp}/allegro-core.c     |  0
- .../allegro-dvt/{ => zynqmp}/allegro-mail.c     |  0
- .../allegro-dvt/{ => zynqmp}/allegro-mail.h     |  0
- .../allegro-dvt/{ => zynqmp}/nal-h264.c         |  0
- .../allegro-dvt/{ => zynqmp}/nal-h264.h         |  0
- .../allegro-dvt/{ => zynqmp}/nal-hevc.c         |  0
- .../allegro-dvt/{ => zynqmp}/nal-hevc.h         |  0
- .../allegro-dvt/{ => zynqmp}/nal-rbsp.c         |  0
- .../allegro-dvt/{ => zynqmp}/nal-rbsp.h         |  0
- 14 files changed, 26 insertions(+), 20 deletions(-)
- create mode 100644 drivers/media/platform/allegro-dvt/zynqmp/Kconfig
- create mode 100644 drivers/media/platform/allegro-dvt/zynqmp/Makefile
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/allegro-core.c (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/allegro-mail.c (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/allegro-mail.h (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-h264.c (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-h264.h (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.c (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.h (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.c (100%)
- rename drivers/media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.h (100%)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index fa1e04e87d1d..d81d2756cb2e 100644
+index e59011a36e6b..9285bb2f43d9 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -806,7 +806,7 @@ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+@@ -802,6 +802,7 @@ F:	drivers/platform/x86/dell/alienware-wmi*
+ 
+ ALLEGRO DVT VIDEO IP CORE DRIVER
+ M:	Michael Tretter <m.tretter@pengutronix.de>
++M:	Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
+ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
  L:	linux-media@vger.kernel.org
  S:	Maintained
- F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
--F:	drivers/media/platform/allegro-dvt/
-+F:	drivers/media/platform/allegro-dvt/zynqmp
- 
- ALLIED VISION ALVIUM CAMERA DRIVER
- M:	Tommaso Merciai <tomm.merciai@gmail.com>
-diff --git a/drivers/media/platform/allegro-dvt/Kconfig b/drivers/media/platform/allegro-dvt/Kconfig
-index 2182e1277568..e9008614c27b 100644
---- a/drivers/media/platform/allegro-dvt/Kconfig
-+++ b/drivers/media/platform/allegro-dvt/Kconfig
-@@ -2,18 +2,4 @@
- 
- comment "Allegro DVT media platform drivers"
- 
--config VIDEO_ALLEGRO_DVT
--	tristate "Allegro DVT Video IP Core"
--	depends on V4L_MEM2MEM_DRIVERS
--	depends on VIDEO_DEV
--	depends on ARCH_ZYNQMP || COMPILE_TEST
--	select V4L2_MEM2MEM_DEV
--	select VIDEOBUF2_DMA_CONTIG
--	select REGMAP_MMIO
--	help
--	  Support for the encoder video IP core by Allegro DVT. This core is
--	  found for example on the Xilinx ZynqMP SoC in the EV family and is
--	  called VCU in the reference manual.
--
--	  To compile this driver as a module, choose M here: the module
--	  will be called allegro.
-+source "drivers/media/platform/allegro-dvt/zynqmp/Kconfig"
-diff --git a/drivers/media/platform/allegro-dvt/Makefile b/drivers/media/platform/allegro-dvt/Makefile
-index 66108a303774..d2aa6875edcf 100644
---- a/drivers/media/platform/allegro-dvt/Makefile
-+++ b/drivers/media/platform/allegro-dvt/Makefile
-@@ -1,6 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--allegro-objs := allegro-core.o allegro-mail.o
--allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
--
--obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
-+obj-y += zynqmp/
-diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Kconfig b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
-new file mode 100644
-index 000000000000..0a0a697c420d
---- /dev/null
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
-@@ -0,0 +1,17 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config VIDEO_ALLEGRO_DVT
-+	tristate "Allegro DVT Video IP Core for ZynqMP"
-+	depends on V4L_MEM2MEM_DRIVERS
-+	depends on VIDEO_DEV
-+	depends on ARCH_ZYNQMP || COMPILE_TEST
-+	select V4L2_MEM2MEM_DEV
-+	select VIDEOBUF2_DMA_CONTIG
-+	select REGMAP_MMIO
-+	help
-+	  Support for the encoder video IP core by Allegro DVT. This core is
-+	  found for example on the Xilinx ZynqMP SoC in the EV family and is
-+	  called VCU in the reference manual.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called allegro.
-diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Makefile b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
-new file mode 100644
-index 000000000000..66108a303774
---- /dev/null
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+allegro-objs := allegro-core.o allegro-mail.o
-+allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
-+
-+obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
-diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-core.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
-diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.c b/drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-mail.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
-diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.h b/drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-mail.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-h264.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-h264.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-h264.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-h264.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-hevc.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-hevc.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-rbsp.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-rbsp.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
 -- 
 2.30.2
 
