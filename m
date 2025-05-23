@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3255FC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2799C54F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x/aJJumEOcgP/SHpHSm52hNIxPzlDOJRQ3oP2wL6guI=; b=Swliu7CuTdnJd5tEhyY5GSjMBW
-	3IT6CMaAp65v5HB7VRoOgtt7N3ET9MCfJY97vNDOF14cfGNCIxJd5ziQ4vqfLO2y+prxyU4accLeh
-	es1jz6R8/l7qCxpaSgUy7/3YAKoOMDYwfty3SXfqvJ3r8IhxXIAaWnvHMWNYzBRBly8+elMlcqKf2
-	QaUxwT5AQAQSGOSJgwJxXsJefy0BNsguc6FR5sySYqQw7GRtrQk+VzS7Xu2f3VehREbYMUAHBfNEd
-	BdYWLfTs7q3g2CNt0oNKC8oXJNfk3xY777WUJKei/wznKSWlLb9fGy4/jPS0cJHQv+z6T49Qh7rOZ
-	aHYvPI2Q==;
+	bh=e+GVQQEW/Nx5/3Tw2jXG/FjfLcvR6Pq+aehkGjHuNLA=; b=3buq1iAP04z8tGLggXM997MiK4
+	g6vtHpyhHPRkV59T1WQ4QE5mibnhVIwP43uW0Fs5RFdFc4dX0Msr4RIhjSGm6mTgNV0XX5Tv0nM9V
+	j4v/6SeyKFD26JApPAGg1L+I65P86DnK0jajODjLB/aMOGO0WdJv7JPNmOMrTJW7zw8qfzIl5IdJ4
+	88/yZ58qcf3WHfvxB+Cl0ZIQ/4vkNtBMt6j57/vh5dx1ilvvoqffJX3Z+G5/nkDZqQTDNdRRCrqII
+	t5f8RbOBMf1IDx+umW3hUWEfEsp3Fy33yj6y7D+deTKw8f/ZZPgBtUqUB6L2o9hbjDQGnrIkj0ynN
+	z+yWfMtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbJ-000000045kf-2Y1e;
-	Fri, 23 May 2025 14:42:21 +0000
-Received: from mail-lf1-f50.google.com ([209.85.167.50])
+	id 1uITbN-000000045st-3h6s;
+	Fri, 23 May 2025 14:42:25 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISdy-00000003zLx-3Dmg
+	id 1uISe3-00000003zNj-1sDg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 13:41:03 +0000
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-54ea69e9352so11683610e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:41:02 -0700 (PDT)
+	Fri, 23 May 2025 13:41:08 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-54e7967cf67so10657487e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:41:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748007661; x=1748612461; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748007666; x=1748612466; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=x/aJJumEOcgP/SHpHSm52hNIxPzlDOJRQ3oP2wL6guI=;
-        b=R99smYRCWmR6tPBWc64umaA/7CZwhyzcKR3ujLkJQ3OxG4WgyUn8RxLDSabWnVShSg
-         Mcj41McmS+OtRLworuXZivbtzqRw9fC7EjEfAkjR0QKQWCPqeUKLYRBENXqUWi+JJQws
-         0CKdOUHgmqbeL1fmslLqy2UF7MjHiBYZGMid08Cwx8tkgrz8sa0vsMfufgAmQ/PDtuwB
-         kNBzVU+f73tz6Nqzb7TSXqecMVoEt1D8C4oNpakKxItTREV7a1b6CvRPwsamBkSqrR2U
-         bCrip3dvpNlmoO9BfCoVPADi0pWbNdAzjZHZSRX1uJ/XKGsVdbFymn9cfvtFun37akyD
-         DFng==
+        bh=e+GVQQEW/Nx5/3Tw2jXG/FjfLcvR6Pq+aehkGjHuNLA=;
+        b=gDgyf9TvUCqcy3D8zfS8eYXXdF2ECryD1rYQJ3JRUB+1s8pb+bm5GFtTK8rvxpJT/C
+         jWmjqv0tekI30h919IyQcXonVJ5LHpImqjt9lfq3JklznFDJ0huyk/dW5yjCt1KT5PpB
+         VEPXIzmPRz/a1+ovMtJLTiSO4cnvSzqQA22fe9qsb2/yMjW1wQnsa7UaoIwkIYBZzeKj
+         vBLoBhUJ4BHSSZM1c4diorJN+E9XKXudkX8NRD2lz+e9dZh3HDnxm8XlYkj2yuEiAMXD
+         37Px+B2UVQ3g0NL5RxsZ03b6O8pijMO6BplyXOJ1sgrDjBAph8Pf/Nn6VyZkSWdYoTSK
+         e6Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748007661; x=1748612461;
+        d=1e100.net; s=20230601; t=1748007666; x=1748612466;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=x/aJJumEOcgP/SHpHSm52hNIxPzlDOJRQ3oP2wL6guI=;
-        b=I4IVulF9nzyCJ92SpFOFNTFHWu2P6tzg4zJJ9sCb2fzo3rr4like3TeyLXtJU5kf6i
-         KpOBwC+osUrM6/4T1PCzoxEgYGyvbGdKxrbJIdU/+oRjE8ej61aYFo0/DY+4bpwdxSrn
-         mlmw2cF3GBlOWi3wBa0r/zYPH55wYmK6m8zPQJ9jFMPm9itLDLiyqD1j7gQsIbQQj3aW
-         nDMsFl9zY7/roWr7yCVnA23EQvvVmp3ntKmLpPegmRPARU8ks9k5AAkFKznOXx1ngyyP
-         ZQFB2pO7SYChsSwniZg0DaCStSMo3vbsGV6lvnupPYmdjPZ+X5o48roS+RP4BuLIxe9A
-         2MUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWP1oe3w0cYdAPhZuWI5DMdviEfqO7CC4hdMVVm4lTeeyaNrkh/6U7HdJpDQClbafx1LptBmUWR5vxzBMhbANK1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGkbj8IP6H5D/Ejft8MqCkt89XeuoU0xCeqyUfD/FWlG4YTj1I
-	6x3tIQnRpYI0pQKzgI7nwmhZHviIl8YyQUNAdTLsB1erlK6Eq9QxVcdF87fT5evLdts=
-X-Gm-Gg: ASbGncsXsS5GHZZbDsR1GWoMyVEXL5Sfuo1YGq//3QgGJAqvn0T/z9I0KNe9WOIaXuY
-	xT53BT4thEBKkx7VJr6OgiOPjEjX209MLxQqqY9d4hhzBRkw6vgSa6vVTtxBDntypkdgIPX3JtG
-	ywNLpffCqgtVnUuCJ2RxjQQyWLQ9v8W+EzfUBrq+mCjJn785R1IWy4nHGdiRpn7sswUlsOy6AFe
-	CFPmBoBux7BEl/rKdmF5MHtVym6jmoJxMGrgxxXNnKKGAcYu3xYge2ndagBqy0koX2ZK3FiucE4
-	S47wabl2E6ltL83z2/GRhz53y3FwcfDWE2DHumtIKK1T0kPnFTCaxpRtaWhZlpdOFDcBtkoywhd
-	Z/UuJ/dsznV/dgphV8Q35zKHQfT7OnVDVvLUa
-X-Google-Smtp-Source: AGHT+IFqaMutTsheTfKkW2cqf5rtDAzYDo1ADk4nh7EfRPJsLI0D9Etd71qYegkMcQyfr86dVQn3qQ==
-X-Received: by 2002:a05:6512:2616:b0:54a:cbfd:5517 with SMTP id 2adb3069b0e04-550e99259b6mr6555792e87.53.1748007660645;
-        Fri, 23 May 2025 06:41:00 -0700 (PDT)
+        bh=e+GVQQEW/Nx5/3Tw2jXG/FjfLcvR6Pq+aehkGjHuNLA=;
+        b=iQmY7hgPu9xAgjIOke6utiVnLz3fE8CSLZhHKg3DSqfUvkCY7+mbRZVj7MA9bc1N8A
+         VND2vwuF92rnfTCGSkk67/xQjvfJE+GcusdIdYpHzpIMujZztZulAsiMZHnZEisf2V7Q
+         Mv46BPq+vIacD/9j3R0UfbrPV4/xbNxoIWwWOnFMg7vv2nSPFsa3EHRBCxDskK3D1aM8
+         tA0zBRIn/q78pPQWRxL4p+2+qhBy9QrsBVLyQ3KpoSGn3TCINHMMP2fhT/htdNw7Kdv3
+         dRPjPuZ3zExcIqPvAj2qI5QIVxS0kG2lKEN9G0ug9tWoKNNcKP/QUQeN0XiQ1r7rXe1N
+         3tmw==
+X-Forwarded-Encrypted: i=1; AJvYcCVVPEthrogI/eUDLqgFCQor97LI1hrc8Bz31wVEu3Nqfz/HSr6NUwYedDrrw0nLj136ZG0GWV2vneuV/ggVnLPa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpjL3uf86jXMj87sbNOKt0lzdwZ+Ehdup1+H64SxhQxYsmKmqt
+	cprym5kcdnwxrN6MU/c0FLx20N0U6qOuNSYjBhjktu7knKJU8dFYBgxDkcz9tTG/zwI=
+X-Gm-Gg: ASbGncsdZmgNOMu+u0O/xtZ9RVHcHCQYGBlebWllam/yOFRlFoOw5PIDEYQeagrYCA+
+	CYPuGvR+TlbJlKUhvMoivXqdWGqkLKsFmtgDRQKrn1gyzvs5rH74ojnSnW9EWZINS/ZfhqB2r6p
+	khOoSkcLGnaVMjqOw95ckeFbbsoCh6VNUILD+OHOxkG7kBLZCAWTJxGiRgOQt0RkPzVIOL2P6ek
+	oNa2iPNZcvrY8WtgmmqoaMWoNlWvwXN6zfKyaZXr2JGPiHCwcYT7wxDe8TEDob7xWKC8++7s/Pr
+	RtmGs+xhEd569Wx3/5522MFB+D6uDit4wZ9gOhFlocW2v7gQ7Gk8Q1uFKfjJD1dckUDK2jkwLKv
+	AIqcMXMAdGZpWWHILWxcrSnbj8g==
+X-Google-Smtp-Source: AGHT+IFNmW5G55PYYj6h7M2zKXEklVPMXRP8NGNgucOTfaGyaIHNIHj2hhtdlXQWdhi0wo6WcDpLPQ==
+X-Received: by 2002:a05:6512:690:b0:54a:cc04:e77e with SMTP id 2adb3069b0e04-55216ec7d93mr957968e87.44.1748007665804;
+        Fri, 23 May 2025 06:41:05 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.40.58
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.41.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 06:40:59 -0700 (PDT)
+        Fri, 23 May 2025 06:41:05 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -89,17 +89,17 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 13/21] firmware: xilinx: Use of_genpd_sync_state()
-Date: Fri, 23 May 2025 15:40:10 +0200
-Message-ID: <20250523134025.75130-14-ulf.hansson@linaro.org>
+Subject: [PATCH v2 16/21] driver core: Add dev_set_drv_sync_state()
+Date: Fri, 23 May 2025 15:40:13 +0200
+Message-ID: <20250523134025.75130-17-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250523134025.75130-1-ulf.hansson@linaro.org>
 References: <20250523134025.75130-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_064102_806477_68293BE2 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250523_064107_486823_02020960 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,42 +114,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To make sure genpd tries to power off unused PM domains, let's call
-of_genpd_sync_state() from our own ->sync_state() callback.
+From: Saravana Kannan <saravanak@google.com>
 
-Cc: Michal Simek <michal.simek@amd.com>
+This can be used by frameworks to set the sync_state() helper functions
+for drivers that don't already have them set.
+
+Signed-off-by: Saravana Kannan <saravanak@google.com>
+Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/firmware/xilinx/zynqmp.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ include/linux/device.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index 87ddbb7d11c2..02da3e48bc8f 100644
---- a/drivers/firmware/xilinx/zynqmp.c
-+++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -20,6 +20,7 @@
- #include <linux/of.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
- #include <linux/slab.h>
- #include <linux/uaccess.h>
- #include <linux/hashtable.h>
-@@ -2101,9 +2102,13 @@ static void zynqmp_firmware_remove(struct platform_device *pdev)
- 
- static void zynqmp_firmware_sync_state(struct device *dev)
- {
--	if (!of_device_is_compatible(dev->of_node, "xlnx,zynqmp-firmware"))
-+	struct device_node *np = dev->of_node;
-+
-+	if (!of_device_is_compatible(np, "xlnx,zynqmp-firmware"))
- 		return;
- 
-+	of_genpd_sync_state(np);
-+
- 	if (zynqmp_pm_init_finalize())
- 		dev_warn(dev, "failed to release power management to firmware\n");
+diff --git a/include/linux/device.h b/include/linux/device.h
+index f6ca813eebbe..fd4300e17b17 100644
+--- a/include/linux/device.h
++++ b/include/linux/device.h
+@@ -955,6 +955,18 @@ static inline bool dev_has_sync_state(struct device *dev)
+ 	return false;
  }
+ 
++static inline int dev_set_drv_sync_state(struct device *dev,
++					 void (*fn)(struct device *dev))
++{
++	if (!dev || !dev->driver)
++		return 0;
++	if (dev->driver->sync_state && dev->driver->sync_state != fn)
++		return -EBUSY;
++	if (!dev->driver->sync_state)
++		dev->driver->sync_state = fn;
++	return 0;
++}
++
+ static inline void dev_set_removable(struct device *dev,
+ 				     enum device_removable removable)
+ {
 -- 
 2.43.0
 
