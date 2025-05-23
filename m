@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE00CC54F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C49C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wlzvB2Q8r8iVI++Q756y7sEw+0J/OE0zl08HpFQmKI=; b=YFyAN5gJA3/7QkKH0oj6brbI5d
-	Neb/uUiAVxH1clpGKGmePQublujH0+0HXEUVPDwG0cVBuZLiEg1ldj5NYMRVGMdymTuXioaLDdw0Z
-	fPOwuSreyklQByw48ySHQvT0enuWFHiq83SknEV8AR+0abk/gWotecn2NlpVUAHHb06C3/zJ74QWn
-	5KEOooPC+d1elviuwxiLtVxw/gZbHjztVK0oiBqbDQJHDJlpugzS4Fx4HEs/b/NH56pj6h/vlK7fk
-	BxQfgLp+6RIBkfhR4p80IFgCuzDKGq6CIsI+ZffKyeSjstFFhpsjGNNf18eJPlb5nyPoN+vBJ7SmD
-	6j/hXeGQ==;
+	bh=X1Qz5wMN6ML0KeGlx/ug7p3qlLH+pob/79G9MOgw/Eo=; b=iy41K5nHTjjd7rbOzN2VqIjvT4
+	CQRFkn6+NaEMVieC27bacrHmeko67xYGl9nd5FhC5uYDlYp4TATzQ8y/DKFMcch+vxZVnqOMn0xLe
+	0nK82vqwzwEIM6Y02Ur56yTLPESURGhZDtTvxr+85WRTSW3qHXzCoMUuJhgYrvvcNKHjScUgIlAUc
+	beTpzpLxC0clPI2qog7NoTinDqC19u3ebPVqTeFr/e8ALtrxiZ+IIxfURwJ2Jw5aiWNmmhVxXNwJD
+	55RP85/v2mmYHn8MqxgfRrMVfPeBr5sYKHGNr1rcYqGRWBhqT28j5hHKV24yB3yt3ST/7erMjEEeS
+	SwCskY5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQpO-00000003jgc-3e1K;
-	Fri, 23 May 2025 11:44:42 +0000
-Received: from mail-il1-f176.google.com ([209.85.166.176])
+	id 1uIQrT-00000003k1s-1C5x;
+	Fri, 23 May 2025 11:46:51 +0000
+Received: from mail-ua1-f51.google.com ([209.85.222.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQiS-00000003iyZ-0cpW
+	id 1uIQka-00000003jFf-2oYD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 11:37:33 +0000
-Received: by mail-il1-f176.google.com with SMTP id e9e14a558f8ab-3da73e9cf17so76367695ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:37:31 -0700 (PDT)
+	Fri, 23 May 2025 11:39:45 +0000
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-86dc3482b3dso596694241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:39:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748000250; x=1748605050;
+        d=1e100.net; s=20230601; t=1748000382; x=1748605182;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7wlzvB2Q8r8iVI++Q756y7sEw+0J/OE0zl08HpFQmKI=;
-        b=Q2y4uEzENr12oTzPt7FYwRDb7frRXo9NqlApworCKisPoNU28WUZLglWv7BUxqlLl+
-         uwp6t5cmDLHfgZtNSbEYS0t5+CfiKbu0sGENuyzOiX8LjYnSFzF5MDiwP1WGKrWPMcbT
-         4uSOEipcMKxpgBIiHcpda8o/fpipPthp4KNJ5LyEL7Gelj1i8H0RS8XfKJZ9ZYL8/n8K
-         b9TZMGzcbYHFiriGHS97+7IdMJFnAf6x4xyPWxgAzhgE8fhvusFaD2YqpGEgyoZSGDQE
-         7GUGLbJG2Mvp0kz4MZFy31rBQKSBAUyRO+gQQxp938kaxKHIwyKHRVQbSOgC4FDdADLU
-         1EZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVrWoPmIMs6JZkTEINl4ltNJwKmppSUOV+YuDQFE4wNousNwAAFBf82Yivn7/jVuxkpxYMvuC+WRhpNPgj3hvXh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfkM1YYKEPSfUiFs8l5SeldsULKRcyuR/NS9iNc69QfdiVN2PW
-	8dFc8h8zcHcct7eURPPdu+hR2vz6fNZfIYGc8aq4TTngajVw0EBsJHO1rwLhAWEd
-X-Gm-Gg: ASbGnctEvF4V4LIlS/giKvcGkDNKJvjSWS+IKGa6DRuJD/cWqG6TEbsSz6AHyq34b1m
-	LDxASdHrZfQRxzBsYLSe7hSWgvGIMpd7IwABvUMhuZUFQtni5TeRry0ib4ucs7AdtdGf2C/EAbO
-	y61H8tmKX7TKV+MfoHUBJLGOnzUwLXXTN1SC5VToCx/83oUVeW0L6NwHtfE/54uboma6cMnqD/v
-	eeOYzvT0ZxMSyXg1FuGE8SlHIk29caH2V5ED03exPcdm1WLP8qmjRtXQG7cI9IjVayd0ZE+L2kM
-	NhaQMYcSAPaN7z+7Daj98GXFia0qV4fC2NT4riXzUrGsHP9CoQbTc7kiaTwtamkqf5dETJLVfFI
-	3swyjlwT4BYUAjDiDjw==
-X-Google-Smtp-Source: AGHT+IGSdLwKfVrGSTFrkKfcjOvKcDi/fEkHvKofvacFnNhwhQOK3Jp6c5Nya+EdNcC/dTXFiEcN6w==
-X-Received: by 2002:a05:6e02:23c8:b0:3dc:76ad:e3a8 with SMTP id e9e14a558f8ab-3dc76ade94dmr183221655ab.11.1748000250100;
-        Fri, 23 May 2025 04:37:30 -0700 (PDT)
-Received: from mail-il1-f180.google.com (mail-il1-f180.google.com. [209.85.166.180])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4fbcc3ae0cdsm3518934173.35.2025.05.23.04.37.29
+        bh=X1Qz5wMN6ML0KeGlx/ug7p3qlLH+pob/79G9MOgw/Eo=;
+        b=wfaeaB4nY3/tZ+ferdmevNFuLMpYklYSbZdYVG8WleNLLN9nSXZfVdN9CDZ8SZRRzE
+         yuxPNFiFVubffPhllpkNVO6CRsl91TKly5xp5saa/KV5q+x5xoq5WpXKsQ/z0nHOAkwg
+         sBDUGAVoQFj1chEHw8454+wwDTAt4b4Tm/9JFnbRNXpxEhz222f1HLnWOFBupsRluL+f
+         vlwo8DjTWBJ+3yvjgPSl0QsKnS+NMklxPzTSvmtFv9rQ/ZjUanQPA92qUxoKHfKBf315
+         SbQxyJueuF+CBhkqIK1hKUxAkwiHSYAuAYv5Ia78zwOrCoqh4R1mmK5yfs2q/A2TYL5t
+         KHQA==
+X-Forwarded-Encrypted: i=1; AJvYcCWiaO6M9YIbvmDbNXueSuhAf+R3JCWDochk+gBBDmGn9k5i6R3peOc4YQLj96sxtKhF+PEXJyb9JvP0QR5FDnEU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEquZ6o05zQlBmcLihl2LY4ATgnBjHjpCVrtB4OQrqguBshsu6
+	Jssg9RAqfduW8klU2Gz5SFW/+kWE5k2PNmWdkRn8taT2tQn8jXSyva+Q6GIo1Xcj
+X-Gm-Gg: ASbGncvkmQGZXLka0vKHjkZK4dS8K3nAA3CgeWNvwbQ+LJvNffUuSgBdhdiuAcHDa5e
+	PdgNdKAW12AaSEMPAtcPvGE5FgKyz4PCcYpEcSxIW5ZGRLePj+AJRuG943nlSM9r/FE9DSJ2mZD
+	rJMW9WgnsaehrrUaVZ3accqWCk8PsBYwBBHp9695rhAdG4k5Hj3s8aQT3ipw+mdxwgr52WdA4IC
+	/KqgWZtbhStGvTQq4oyM+0XMuFJhKbhbObzPbOdqnSbxVnPNBkeI2ZoqDbh8Wk6L+66xPjgcYGO
+	hrlOuJo4LTRJEmYFwgsa1P96AzshwY6QPdlNic/uYXLEtcYKbSib19ogVhMsu7nncAwpp3cz8Ie
+	sju/ikwUruLrnwg==
+X-Google-Smtp-Source: AGHT+IEnvycIweiYrosl3PwF3ZK4TD43XlVHSopowa0T+I7cVTpEmAOG1fh5kij0+Jv2K3DlOoyG0g==
+X-Received: by 2002:a05:6122:693:b0:52d:f0c2:6cf9 with SMTP id 71dfb90a1353d-52f1eec4b02mr1716624e0c.4.1748000382114;
+        Fri, 23 May 2025 04:39:42 -0700 (PDT)
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52dba944374sm13573390e0c.18.2025.05.23.04.39.41
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 May 2025 04:37:29 -0700 (PDT)
-Received: by mail-il1-f180.google.com with SMTP id e9e14a558f8ab-3dc978d52edso2755225ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:37:29 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV9NBkIEk/TGe1m08hxbz+1Pdtpum2vOefBPf19SWfxBT0pLDDTwwRicvuEoIXX6Uk63SYPg3JKfVXnXkX4XXbV@lists.infradead.org
-X-Received: by 2002:a05:6102:370a:b0:4c1:9b88:5c30 with SMTP id
- ada2fe7eead31-4dfa6c62d03mr28083060137.19.1748000239515; Fri, 23 May 2025
- 04:37:19 -0700 (PDT)
+        Fri, 23 May 2025 04:39:41 -0700 (PDT)
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-86dc3482b3dso596680241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:39:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXSrpeMqn+zGKikcKtw5uvSivf+IwuVEl5TlIwe11eVO5d+6cMpVadgLUP/ZvmGVJqrjUwlqtgysc7npa9J1Ndi@lists.infradead.org
+X-Received: by 2002:a05:6122:45:b0:52d:d14a:1f0a with SMTP id
+ 71dfb90a1353d-52f1ef31af0mr1807197e0c.7.1748000381090; Fri, 23 May 2025
+ 04:39:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250513125858.251064-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20250513125858.251064-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 23 May 2025 13:37:06 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWLYuwVU=9FnXoYYXzA+XYoSc89MBsTzAyZQAGF2cVvFA@mail.gmail.com>
-X-Gm-Features: AX0GCFsYAsYC7rTS4r0G9iHcLPTnjlp95PDD1ysnF-SrRgCKFmwYpC3XJI0oK_c
-Message-ID: <CAMuHMdWLYuwVU=9FnXoYYXzA+XYoSc89MBsTzAyZQAGF2cVvFA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: defconfig: Enable RZ/V2H(P) USB2 PHY controller
- reset driver
+Date: Fri, 23 May 2025 13:39:29 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWhwJTbJOBhKmC9YUaSebBg-9m7euqmxqJLCXdr6++siA@mail.gmail.com>
+X-Gm-Features: AX0GCFtlvvYJEHVpBBWRFwPN2rDyTbPs4B63tENo6-GpVBADvIAJpc987Xu3taU
+Message-ID: <CAMuHMdWhwJTbJOBhKmC9YUaSebBg-9m7euqmxqJLCXdr6++siA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
+ kernel for NFS boot
 To: Prabhakar <prabhakar.csengg@gmail.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
 	Biju Das <biju.das.jz@bp.renesas.com>, 
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_043732_188741_D717B9FC 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20250523_043944_708194_C946A513 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,13 +100,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 May 2025 at 14:59, Prabhakar <prabhakar.csengg@gmail.com> wrote:
+On Tue, 6 May 2025 at 12:47, Prabhakar <prabhakar.csengg@gmail.com> wrote:
 > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 >
-> Enable the `CONFIG_RESET_RZV2H_USB2PHY` option in the arm64 defconfig to
-> support the USB2 PHY controller reset driver on the Renesas RZ/V2H(P) SoC.
+> Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`m`) to
+> ensure the Ethernet driver is available early in the boot process. This
+> is necessary for platforms mounting the root filesystem via NFS, as the
+> driver must be available before the root filesystem is accessed.
 >
 > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> With this change, the Renesas RZ/V2H EVK board can boot from NFS
+> which has the DWMAC IP.
 
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 i.e. will queue in renesas-devel for v6.17.
