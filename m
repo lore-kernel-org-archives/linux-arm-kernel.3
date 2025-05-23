@@ -4,86 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912A1C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 17:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6F4C54FC6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 17:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qVA1Wq02RwkJ8tKlxk+KwgWL1KTqqPjG9SMiOazJCzY=; b=T5cM9jwPdw1NoRjAEbKXoBVDUT
-	u8trT4PA7oV/4rFb6bLMIQq6LGSGOmpF3sWO4LEIZ2kV4VqUe4VaydKfAUNa57dg8GvFk1k1X0M7G
-	EHE1/Vk2RtaVHNQYcF/LILbXuzej/XlJSpaPMx4Bot/AXSIAp0hYLG8ydAieZZLQPaF9yIrE/UVKr
-	MjIYjlgPDoJeur+eX1vQVd8pQhLYUbcePEUyJ2BadTS6E9L9kPl5xTU6cr9Q8GYDz6hZXootIUa9R
-	Scdg6J9kqEVWsm4L3vfEyxIRosDWtZjtGR/3E5PFuq8miCnrYfNow5PgsUy0EHYBlUd1yp7GHpk5T
-	NACBTx0g==;
+	bh=0ctuDf7rPG60GAwFxTGoz6NYx8f9F6/hvlCXn/a3FZg=; b=MEVv9IloW2tbF2bFPKG5gw/XGM
+	+gLTQ2K+gSYuhLgVJL6aIU2yI9kn225J7mTmK0DgwG6eKlK2Pdw0jZo9mXwXh+rJnA1RBFBYP+N3H
+	rN6WOCOekcpKArfqrqLd6MunGzEc5x1SsNiIrl3jr6juQk+I6N5sHxgyQnu2AnmJZPlMgMOtXhgqc
+	WH+63SFccEJnqdzsZTkawvod4iH9xgAWHK4O+KH2XspQkMFBccQOQe2/Q/aCRChqTlx1gS4v5TxDD
+	Jb7LjsqFNx2raVv1Pp2B1/cFluSPNTmqhOCZosC3mDRtAhjx9fMWnHTdOd/rl9mwXQxVwdsXR1+ld
+	JaFxBinA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIVov-00000004Tzf-2xam;
-	Fri, 23 May 2025 17:04:33 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1uIW7M-00000004WjU-3WBr;
+	Fri, 23 May 2025 17:23:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIUvD-00000004LQ0-1bTq
+	id 1uIVmg-00000004Tmp-2Yvd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 16:07:00 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3a375e72473so74356f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 09:06:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748016418; x=1748621218; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qVA1Wq02RwkJ8tKlxk+KwgWL1KTqqPjG9SMiOazJCzY=;
-        b=HVxB0Z7cGLXznn1fucStNVy5NKPK06UQow4kxUHRBKZ4+lCQfI6OtQ3HtJ+UIq4pxw
-         wx/8H+xRsI3ArzgugofS4mI+wS5V8S9ix2Vo5dGkigp38CZd7bD+9YchEg250fs3AGhH
-         A+UqzcNpbaiUOO2UubBYBfgy/iu4x1hcQpvO8m0xY0YgLLChwGvgzrEKmlU3+ufxAkry
-         3p0SmXMacTXb1pOWPp4wT1E691IUY4qdXssJ9mkNC7iR6VzlKf8YoR5SIttW4NzI01vK
-         ZxF0UotI6cCJOxUUHb3/Q3j/HxkBEeONlPVdanY0XhSHvBNZQt2JO+AVerAFdAHqseD9
-         ApaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748016418; x=1748621218;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qVA1Wq02RwkJ8tKlxk+KwgWL1KTqqPjG9SMiOazJCzY=;
-        b=Bs1dZM/dBIRJ/d+5o9RSE54RqPvhS2luqOfJJa4hORzJusFMx/wPcA2OZcsU4l7TVL
-         SbSBtiaaRflJutcH8OCeYtlpVEiTU3EnEl6wRq0KK7T6AHIfXQ5/oq415vu2cvX7FWiw
-         Ueh9TrdowqE59pgvCljp8pWmeXODWcycx0QE2eEw6Z+ZF4gLVWRS9SUGylXwsZLptbC/
-         gPPea3hHuWy6+IDO1xDZfrv4irEMEJtFOapK0RbI2y6Q5eDHibsrNcygFqOO6lt0nhJb
-         kYJoU4fUw9LejJWemLzpQQJB56gSz69hm9V8+HITuS9dIFpQsdqPfRQq1DHQXxTh5ebg
-         /faQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVrb56oxmRV29lQpu0L1ceQSkekX7VGRZOgk0hJMm2urY8jUj/S6TPzFh5wxRJ9r7JI8dLcqq0Xz60BMk5RwySK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeqGJSNmN1e/Y6IAYvSDFRLAHywt7aZsbkowesUnV4p6NxqEyC
-	FBr43WYcJy5dmgvdc1WNxL8oX8/drYiJPAYtQuvb6jjcjUFH6h2c+ADeGorz/+9H6R4=
-X-Gm-Gg: ASbGncv9UOBRcgW4Vt6buLMFzXiyvsJC1n5WlTGdLA4+bsFIIn07q+pRbSg3QErTRc8
-	K9RHxWkCb6cgbXaYLM1fXPkCsMiXmlzTZWo01kRyB9z35anNxIBMGPLYmSju0AACqkyv3NvurXd
-	i/QXnBt+tLeW8Ix97l3KaB1Nqd05b8BbLOqD5CmMIpoND0ctnxe93v0UNVsBgAksk1wjC2sWAoI
-	tsho43H36rcdUxmVzLUUdGRb+6/H8iLx64t1MwLPknh5cFNSHhUbmJ+olaNamFJ+abG7oq9TQqQ
-	Gk5/0UxwEmeMK0NP16qLX5wmOVX5eQyg7lQd1D1ngpOQpJo4csezBDS8gENVzteVA3c=
-X-Google-Smtp-Source: AGHT+IF56UQSCz5q5QoQKyBHSndYLKMFyKvT78EcNJOHgSCsSRrkaKawUqXQh0qLd3vhveIRpS1mOQ==
-X-Received: by 2002:a05:6000:2011:b0:3a3:6f1a:b8f9 with SMTP id ffacd0b85a97d-3a36f1aba52mr19442998f8f.15.1748016417661;
-        Fri, 23 May 2025 09:06:57 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a35ca5a8cfsm27334537f8f.37.2025.05.23.09.06.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 09:06:57 -0700 (PDT)
-Date: Fri, 23 May 2025 19:06:54 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Qiu-ji Chen <chenqiuji666@gmail.com>
-Cc: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: [PATCH] dmaengine: mediatek: Re-enable IRQs in mtk_cqdma_tx_status()
-Message-ID: <aDCdHh-G2ShU6uid@stanley.mountain>
+	Fri, 23 May 2025 17:02:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 07A7262A12;
+	Fri, 23 May 2025 17:02:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF8E4C4CEEF;
+	Fri, 23 May 2025 17:02:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748019733;
+	bh=XfBSdfdD/kXxiwUBFnPdb6JpH5LmGZGFFN5ATSPDw7U=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BZxla8oCDH2AcyoUG4Dlxq243yQYJ3i1MsuTn6NMZi2sG1qJLY+RfF8hSOs1iTp+t
+	 2Hb3buvxctMEXV/u6Yj0VVk06w5SCsp3MK9BzfY79XjVyuaGngO30ICFSkjBM462LF
+	 wy1cUq4+PzCuynbcBvu6kl7i4rWgcdKodZidlA2qofZdbm1waAnrwalLtvVsYv88P5
+	 dp46LYL4G6M4k9aWCxdP33rO13b4L4uRfyFAzG2PtCYBgOze7n91jsXDO5WhJ2+gBe
+	 0AuOXhLh0j8hNseJ0iL7arlgd7dzjnZQUHqJw6lhnefBFT12UcKWE4L/JJEa7HAmZq
+	 HQa7rpE6RHnNw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uIVmd-0003gD-AG;
+	Fri, 23 May 2025 18:02:11 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: Mark Brown <broonie@kernel.org>,
+	D Scott Phillips <scott@os.amperecomputing.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH] arm64: sysreg: Drag linux/kconfig.h to work around vdso build issue
+Date: Fri, 23 May 2025 18:02:08 +0100
+Message-Id: <20250523170208.530818-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_090659_423746_57D2F84F 
-X-CRM114-Status: GOOD (  11.57  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, broonie@kernel.org, scott@os.amperecomputing.com, catalin.marinas@arm.com, oliver.upton@linux.dev, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This code calls spin_lock_irqsave() twice but obviously we can't store
-two sets of flags in the same "flags" variable.  The result is that we
-never re-enable IRQs in mtk_cqdma_tx_status().
+Broonie reports that fed55f49fad18 ("arm64: errata: Work around
+AmpereOne's erratum AC04_CPU_23") breaks one of the vdso selftests
+(vdso_test_chacha) as it indirectly drags asm/sysreg.h.
 
-Fixes: 157ae5ffd76a ("dmaengine: mediatek: Fix a possible deadlock error in mtk_cqdma_tx_status()")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+It is rather unfortunate (and worrying) that userspace gets built
+with non-UAPI headers. In any case, paper over the issue by dragging
+linux/kconfig.h in asm/sysreg.h. It is the right thing to do, at
+least from the kernel perspective.
+
+Reported-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Fixes: fed55f49fad18 ("arm64: errata: Work around AmpereOne's erratum AC04_CPU_23")
+Link: https://lore.kernel.org/r/aDCDGZ-G-nCP3hJI@finisterre.sirena.org.uk
+Cc: D Scott Phillips <scott@os.amperecomputing.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Will Deacon <will@kernel.org>
 ---
- drivers/dma/mediatek/mtk-cqdma.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/sysreg.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/dma/mediatek/mtk-cqdma.c b/drivers/dma/mediatek/mtk-cqdma.c
-index 47c8adfdc155..9f0c41ca7770 100644
---- a/drivers/dma/mediatek/mtk-cqdma.c
-+++ b/drivers/dma/mediatek/mtk-cqdma.c
-@@ -449,9 +449,9 @@ static enum dma_status mtk_cqdma_tx_status(struct dma_chan *c,
- 		return ret;
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index cd853801a8f7b..f1bb0d10c39a3 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -12,6 +12,7 @@
+ #include <linux/bits.h>
+ #include <linux/stringify.h>
+ #include <linux/kasan-tags.h>
++#include <linux/kconfig.h>
  
- 	spin_lock_irqsave(&cvc->pc->lock, flags);
--	spin_lock_irqsave(&cvc->vc.lock, flags);
-+	spin_lock(&cvc->vc.lock);
- 	vd = mtk_cqdma_find_active_desc(c, cookie);
--	spin_unlock_irqrestore(&cvc->vc.lock, flags);
-+	spin_unlock(&cvc->vc.lock);
- 	spin_unlock_irqrestore(&cvc->pc->lock, flags);
+ #include <asm/gpr-num.h>
  
- 	if (vd) {
 -- 
-2.47.2
+2.39.2
 
 
