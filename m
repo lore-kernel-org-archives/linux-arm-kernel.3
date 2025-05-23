@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C49C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037A8C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1Qz5wMN6ML0KeGlx/ug7p3qlLH+pob/79G9MOgw/Eo=; b=iy41K5nHTjjd7rbOzN2VqIjvT4
-	CQRFkn6+NaEMVieC27bacrHmeko67xYGl9nd5FhC5uYDlYp4TATzQ8y/DKFMcch+vxZVnqOMn0xLe
-	0nK82vqwzwEIM6Y02Ur56yTLPESURGhZDtTvxr+85WRTSW3qHXzCoMUuJhgYrvvcNKHjScUgIlAUc
-	beTpzpLxC0clPI2qog7NoTinDqC19u3ebPVqTeFr/e8ALtrxiZ+IIxfURwJ2Jw5aiWNmmhVxXNwJD
-	55RP85/v2mmYHn8MqxgfRrMVfPeBr5sYKHGNr1rcYqGRWBhqT28j5hHKV24yB3yt3ST/7erMjEEeS
-	SwCskY5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mDq6MieyiMr43NuOWTLdL0EFY12TTvHhRagxM34k8EA=; b=t3Pi9xzJ/S03t97Pi6MfukcDZi
+	XiK0z55TVuYHBJEnlDKCHCdzyHCH4AWJbaLxYMRtEiUcXpOdiZziQFYP5KTjqYM2Z9qUp5EYEPVbk
+	VkSIr3HpFct3XQsZ9hcPhYLAcebmJqu5/VIptErsTmWGwo6ZTbJhtQ67IOmONjVgAUwpA7baFpw00
+	XIdjb+2CCON6zlpCKiUAWio59rI+n8VDuXjn2HGUGTackSkwRhMFloT7V/tJOjCrJkWU75rWRxh5M
+	+YMMfTMqXDjzTvjP0Fu+7MHA/AcVq7oKxwAxOK4ioWSWb/fmpAHdLQWCAYUIeFgFxhLeq0hgYzI9O
+	WpjwGZ2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQrT-00000003k1s-1C5x;
-	Fri, 23 May 2025 11:46:51 +0000
-Received: from mail-ua1-f51.google.com ([209.85.222.51])
+	id 1uIQtX-00000003kQU-0ECh;
+	Fri, 23 May 2025 11:48:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQka-00000003jFf-2oYD
+	id 1uIQrP-00000003jzc-21jn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 23 May 2025 11:46:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=mDq6MieyiMr43NuOWTLdL0EFY12TTvHhRagxM34k8EA=; b=XhbcAhlfNdw6pC2CdxzWpnTWUt
+	9p1NOPsEhPZFm+1kiewdoBwIn1aHVukOoq3MDMBXmM/DG1brpkQxgk3RFPGu/CTd0quKrAOUueQ7v
+	f+OAPkrKr1zKjWgs3omcIw0cFZLr6xFbQceB3Tz5iNX+3Mvrd/UOyW35G3AXBg4AaqQPU3YoXZLqs
+	Iwvcx8E9XLvDqWmJRFIupkr0zM7gFmX9+CXkC3FEnPJxH50JbXsEgDHOqBHwCCdjwRj5IEib1b2EP
+	HCZCGvyLmllK8b2Nuwc8IVLT3+6SbAI+aIJ4bIwLC5F1Oa3IloViB0q6id5R2dhRfpri4NK7hma3H
+	iwUNB9Vw==;
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uIQrM-00000001IXx-0D3s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 11:39:45 +0000
-Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-86dc3482b3dso596694241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:39:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748000382; x=1748605182;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=X1Qz5wMN6ML0KeGlx/ug7p3qlLH+pob/79G9MOgw/Eo=;
-        b=wfaeaB4nY3/tZ+ferdmevNFuLMpYklYSbZdYVG8WleNLLN9nSXZfVdN9CDZ8SZRRzE
-         yuxPNFiFVubffPhllpkNVO6CRsl91TKly5xp5saa/KV5q+x5xoq5WpXKsQ/z0nHOAkwg
-         sBDUGAVoQFj1chEHw8454+wwDTAt4b4Tm/9JFnbRNXpxEhz222f1HLnWOFBupsRluL+f
-         vlwo8DjTWBJ+3yvjgPSl0QsKnS+NMklxPzTSvmtFv9rQ/ZjUanQPA92qUxoKHfKBf315
-         SbQxyJueuF+CBhkqIK1hKUxAkwiHSYAuAYv5Ia78zwOrCoqh4R1mmK5yfs2q/A2TYL5t
-         KHQA==
-X-Forwarded-Encrypted: i=1; AJvYcCWiaO6M9YIbvmDbNXueSuhAf+R3JCWDochk+gBBDmGn9k5i6R3peOc4YQLj96sxtKhF+PEXJyb9JvP0QR5FDnEU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEquZ6o05zQlBmcLihl2LY4ATgnBjHjpCVrtB4OQrqguBshsu6
-	Jssg9RAqfduW8klU2Gz5SFW/+kWE5k2PNmWdkRn8taT2tQn8jXSyva+Q6GIo1Xcj
-X-Gm-Gg: ASbGncvkmQGZXLka0vKHjkZK4dS8K3nAA3CgeWNvwbQ+LJvNffUuSgBdhdiuAcHDa5e
-	PdgNdKAW12AaSEMPAtcPvGE5FgKyz4PCcYpEcSxIW5ZGRLePj+AJRuG943nlSM9r/FE9DSJ2mZD
-	rJMW9WgnsaehrrUaVZ3accqWCk8PsBYwBBHp9695rhAdG4k5Hj3s8aQT3ipw+mdxwgr52WdA4IC
-	/KqgWZtbhStGvTQq4oyM+0XMuFJhKbhbObzPbOdqnSbxVnPNBkeI2ZoqDbh8Wk6L+66xPjgcYGO
-	hrlOuJo4LTRJEmYFwgsa1P96AzshwY6QPdlNic/uYXLEtcYKbSib19ogVhMsu7nncAwpp3cz8Ie
-	sju/ikwUruLrnwg==
-X-Google-Smtp-Source: AGHT+IEnvycIweiYrosl3PwF3ZK4TD43XlVHSopowa0T+I7cVTpEmAOG1fh5kij0+Jv2K3DlOoyG0g==
-X-Received: by 2002:a05:6122:693:b0:52d:f0c2:6cf9 with SMTP id 71dfb90a1353d-52f1eec4b02mr1716624e0c.4.1748000382114;
-        Fri, 23 May 2025 04:39:42 -0700 (PDT)
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52dba944374sm13573390e0c.18.2025.05.23.04.39.41
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 May 2025 04:39:41 -0700 (PDT)
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-86dc3482b3dso596680241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:39:41 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXSrpeMqn+zGKikcKtw5uvSivf+IwuVEl5TlIwe11eVO5d+6cMpVadgLUP/ZvmGVJqrjUwlqtgysc7npa9J1Ndi@lists.infradead.org
-X-Received: by 2002:a05:6122:45:b0:52d:d14a:1f0a with SMTP id
- 71dfb90a1353d-52f1ef31af0mr1807197e0c.7.1748000381090; Fri, 23 May 2025
- 04:39:41 -0700 (PDT)
+	Fri, 23 May 2025 11:46:46 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9C47C43295;
+	Fri, 23 May 2025 11:46:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1748000801;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mDq6MieyiMr43NuOWTLdL0EFY12TTvHhRagxM34k8EA=;
+	b=gQ0QqYFnk9rZG9v1uNDabbudjF8lmrEkamaDERL3owhT5l1lEXeEeiDLkZWrTlZjIbdftK
+	YhYFaRMlToVaQzQqLkKEUfVckqMZmXJWuyR2gSCCRBvDd1gMvCwD37tEPc0e6XogAOLzU8
+	4QhXenD1cL2qTdRj5oh1MenLyAen378EJQH7AHwYQFEvRTJaf5knDP8/kaWbbEfQM4qr6z
+	456/lDSLnd3+1/ukgP+eVu7UCXooOM76pde0n3pTLTtSSs5O8CV1bneZAGw7cq+BYN1B30
+	naK1UQZHYDz8AT596kQQDR5KZ3EA97lUifpSXFLqmJZtqtfSaU+3azD9v9/afw==
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Date: Fri, 23 May 2025 13:46:32 +0200
+Subject: [PATCH] net: stmmac: add explicit check and error on invalid PTP
+ clock rate
 MIME-Version: 1.0
-References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 23 May 2025 13:39:29 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWhwJTbJOBhKmC9YUaSebBg-9m7euqmxqJLCXdr6++siA@mail.gmail.com>
-X-Gm-Features: AX0GCFtlvvYJEHVpBBWRFwPN2rDyTbPs4B63tENo6-GpVBADvIAJpc987Xu3taU
-Message-ID: <CAMuHMdWhwJTbJOBhKmC9YUaSebBg-9m7euqmxqJLCXdr6++siA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
- kernel for NFS boot
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250523-stmmac_tstamp_div-v1-1-bca8a5a3a477@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIABdgMGgC/x3MQQqAIBBA0avErBN0wKCuEhFiY81CC0ciCO+et
+ HyL/18QykwCU/dCppuFz9Rg+g784dJOirdmQI1WW0QlJUbn1yLFxWvd+FbBWmMw6EHjCK27MgV
+ +/ue81PoBTtWoOGMAAAA=
+X-Change-ID: 20250522-stmmac_tstamp_div-f55112f06029
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Richard Cochran <richardcochran@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdekjeejucdltddurdegfedvrddttddmucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkvfevofesthekredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeetudekvdffieehueeugfdujefgtddvgeekvddtieffffelvedtgeffjeekjeelgfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehpdhhvghloheplgduledvrdduieekrddurdduleejngdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqshhtmhefvdesshhtqdhmugdqmhgrihhlmhgrnhdrshhtohhrmhhrvghplhihrdgtohhmpdhrtghpthhtohepk
+ hhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepmhgtohhquhgvlhhinhdrshhtmhefvdesghhmrghilhdrtghomh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_043944_708194_C946A513 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20250523_124644_316646_C7FDBBB4 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +101,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 6 May 2025 at 12:47, Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->
-> Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`m`) to
-> ensure the Ethernet driver is available early in the boot process. This
-> is necessary for platforms mounting the root filesystem via NFS, as the
-> driver must be available before the root filesystem is accessed.
->
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> With this change, the Renesas RZ/V2H EVK board can boot from NFS
-> which has the DWMAC IP.
+While some platforms implementing dwmac open-code the clk_ptp_rate
+value, some others dynamically retrieve the value at runtime. If the
+retrieved value happens to be 0 for any reason, it will eventually
+propagate up to PTP initialization when bringing up the interface,
+leading to a divide by 0:
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.17.
+ Division by zero in kernel.
+ CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.12.30-00001-g48313bd5768a #22
+ Hardware name: STM32 (Device Tree Support)
+ Call trace:
+  unwind_backtrace from show_stack+0x18/0x1c
+  show_stack from dump_stack_lvl+0x6c/0x8c
+  dump_stack_lvl from Ldiv0_64+0x8/0x18
+  Ldiv0_64 from stmmac_init_tstamp_counter+0x190/0x1a4
+  stmmac_init_tstamp_counter from stmmac_hw_setup+0xc1c/0x111c
+  stmmac_hw_setup from __stmmac_open+0x18c/0x434
+  __stmmac_open from stmmac_open+0x3c/0xbc
+  stmmac_open from __dev_open+0xf4/0x1ac
+  __dev_open from __dev_change_flags+0x1cc/0x224
+  __dev_change_flags from dev_change_flags+0x24/0x60
+  dev_change_flags from ip_auto_config+0x2e8/0x11a0
+  ip_auto_config from do_one_initcall+0x84/0x33c
+  do_one_initcall from kernel_init_freeable+0x1b8/0x214
+  kernel_init_freeable from kernel_init+0x24/0x140
+  kernel_init from ret_from_fork+0x14/0x28
+ Exception stack(0xe0815fb0 to 0xe0815ff8)
 
-Gr{oetje,eeting}s,
+Prevent this division by 0 by adding an explicit check and error log
+about the actual issue.
 
-                        Geert
+Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 918d7f2e8ba992208d7d6521a1e9dba01086058f..f68e3ece919cc88d0bf199a394bc7e44b5dee095 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -835,6 +835,11 @@ int stmmac_init_tstamp_counter(struct stmmac_priv *priv, u32 systime_flags)
+ 	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp))
+ 		return -EOPNOTSUPP;
+ 
++	if (!priv->plat->clk_ptp_rate) {
++		netdev_err(priv->dev, "Invalid PTP clock rate");
++		return -EINVAL;
++	}
++
+ 	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
+ 	priv->systime_flags = systime_flags;
+ 
+
+---
+base-commit: e0e2f78243385e7188a57fcfceb6a19f723f1dff
+change-id: 20250522-stmmac_tstamp_div-f55112f06029
+
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Alexis Lothoré, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
