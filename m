@@ -4,103 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDF0C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 13:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDD9C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 13:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eApHxGV46VDA4m+USA4So25vldnUyB9PzoLk3W9eK2E=; b=HnJhioYgR6Hy1PAtcfjlWrozGY
-	J1jD42vtJsepsQbwxdh6yLq2s2hjdmQuRVRNEyr5HXyfIDbGUcFSocSBpC61t3GFi1hNXdsfz+6qW
-	KmRq4rAHxORY6GIsUwRyKECIPJo0LOuBF0UP94TywNhDEN9zg8bMvWgj03CFDbZCfCq8Qhj2QYPRE
-	qJM2/YfWLLx90gNurR6zhCa7bn1JqoWh5lYycefpyRM8jyvF6oEPXImH4tzkhSmub5L0oJj8ip9YU
-	aKHkgudzlsdpaWD/Zr/6eTI0KD3ywd/Y9KxWmuUhEW/zD+l5qVHjD/3j8Ki4lOX2ur2LdnnF0/G/V
-	7CYFML8A==;
+	bh=ytv6MexGSXukfPwmkBEno1cCU5D1QneSDg/FJa06F3s=; b=4VX1u0ip6KtUlAx1r6qbWNYRGa
+	dwNU5SwWCF9MYAjsgFAkEuKLVAO63RQi6h0e0t2e99aYSVcKzOK1Z3go5ibclMYyK2gGBWB9/zLjv
+	kkfBqwDNfiE1o8oU9JcCWl4VoXH7YHP7vsrMsDINopl9NO+tM+wtint/h4CZF53jei19m/vRsGkS/
+	oCPhQiFj1YUq0MxvANk9w3Mvj4rnkqUcli8k0RH4v1CIhloG98oJlItfh9iUejTFPpizZQchoOBBp
+	adACo0CbJD+y7lHN3pVz+P5drjS2hlTxKisg60A1SXy088pNj7Hy81yByW4NcajEKzyhtVQZJ0VAr
+	v9AT2LIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIS1j-00000003sjp-1NS9;
-	Fri, 23 May 2025 13:01:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIS3m-00000003tOO-38kS;
+	Fri, 23 May 2025 13:03:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIRhb-00000003pda-1bDk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 May 2025 12:40:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=eApHxGV46VDA4m+USA4So25vldnUyB9PzoLk3W9eK2E=; b=kfwDVssEOf1ei5Hgi6Zs/YLTZE
-	+Z98/DKeMNmYhMM/fJuaRwD1yjwzOpCLGx0TgGxeUL9G8gTN8O9e5vZvJ8ocgEGrQr2duCBSjvPIU
-	aqoJhGsEd3pjgRE+im7i2GO9HOT51mbDuauJQbn1CNE6JwH+b864u0VGQy449FlI+/H/m6eFk7uy8
-	9JOiu3o/7RDBCu/Efx5+80VU3ZASyEUp+gvV77rirPKtHPK/00XJw4YB/Ftz7K6rxOX4G1w5yEtoU
-	su7AmSNXinylQWgMs1Q/K6Dreuu+QzJIaIBCbRZXVmXaGyiRy05DQ5qDqsHKBBQ33GHxV0tfgkV33
-	YZC39YSQ==;
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIRhW-00000001JlI-3zPg
+	id 1uIRsc-00000003rLA-0VdU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 12:40:42 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54N9ruFT011507;
-	Fri, 23 May 2025 14:40:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	eApHxGV46VDA4m+USA4So25vldnUyB9PzoLk3W9eK2E=; b=LCclaXcKOIZF6eds
-	qsSFr9baUZdbEk11t0P1bhNis24WSMPOhcE9h2/dCd/CuCynbN93+VhKlrqM38OR
-	h2OUtdLDJJsA8Cfh3QuQ9sGkvPihaN6yLYu+9iPWVPcYt4f/Y+Fh6i+mVzw+M5oq
-	LLGW+ZzjYkhsSfUBlaGZCi6ACpwRdN/+5WU7hSZifBMyfJ3aqKeZ+DajIAZPesZm
-	Lz12imSv2VEpmTXGUv4pxni6NgdqP4+xCYHwj5Eun1sdEjipUkUnTxQfuCEPczi8
-	VgHl3mF5+wGpIUaWUuoNSpn4RaKcw2QxAzbGPx/WZ2SQN1gsuJp+gWSpgO1u4Pcy
-	EY808A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46rwf4e7u9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 May 2025 14:40:25 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 28C9540053;
-	Fri, 23 May 2025 14:39:11 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 377E3A0D91B;
-	Fri, 23 May 2025 14:38:26 +0200 (CEST)
-Received: from localhost (10.48.81.67) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 23 May
- 2025 14:38:25 +0200
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Fri, 23 May 2025 14:38:15 +0200
-Subject: [PATCH v3 3/9] pinctrl: stm32: Introduce HDP driver
+	Fri, 23 May 2025 12:52:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4B0A4629CD;
+	Fri, 23 May 2025 12:52:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D5B87C4CEF0;
+	Fri, 23 May 2025 12:52:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748004724;
+	bh=+XmnqJafyQcwrFJLxADUPwTUQffXYM+rCbOQP3MIijo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=oBVE8BCiedbQZmqp8ydR09me2y6vC0t5yriDFz1OA85eO//lIWAVwrUAmsKfbrcjL
+	 4u6sSPGbuemZQqKdd11EQwLQvVoJmS/GIG1GJmHQnQBgvUuS0YoJFIcXdG7irvFO36
+	 yUBCGnNB/iSUhMyVmqw2DLMtjjNbW+WsvefOgT6gpB+DLRoi4wKigds8f1kupn3Npx
+	 66Owu0+eMabPalIGeBq1n2Jtt78A/rhYo9CXxD1IbtWbQ9j7mxZx5tqRVklsUHzW78
+	 yneM2dxK5TQWE8UCgLQje8qkoO5noCkN/CNYaRYaKqVXyJStbynUqdTK52bIyjXrqh
+	 bhbcELqoZqvag==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C8434C54F32;
+	Fri, 23 May 2025 12:52:04 +0000 (UTC)
+From: Thomas Antoine via B4 Relay <devnull+t.antoine.uclouvain.be@kernel.org>
+Date: Fri, 23 May 2025 14:51:45 +0200
+Subject: [PATCH v4 2/5] power: supply: add support for max77759 fuel gauge
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250523-hdp-upstream-v3-3-bd6ca199466a@foss.st.com>
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
-In-Reply-To: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
-	<clement.legoffic@foss.st.com>
-X-Mailer: b4 0.15-dev-6f78e
-X-Originating-IP: [10.48.81.67]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-23_03,2025-05-22_01,2025-03-28_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_134039_162638_21781E2B 
-X-CRM114-Status: GOOD (  14.54  )
+Message-Id: <20250523-b4-gs101_max77759_fg-v4-2-b49904e35a34@uclouvain.be>
+References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
+In-Reply-To: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
+To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, Thomas Antoine <t.antoine@uclouvain.be>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1748004727; l=13610;
+ i=t.antoine@uclouvain.be; s=20241202; h=from:subject:message-id;
+ bh=ujei8+tGZ04eLfSz9q7hY0k7LCQPXJItSoaGVV8nRgo=;
+ b=9vgiT8M/epyDvKxCRwTGKAOFRL8AmgjeJ5rsSoC3syzW4zqHss38aagiqZiFx6Tv07Te5L4UL
+ ajaCthh6PqpCE/LIiNpIcjH885o7ua3yWfmjOKmE2zPsLBBVixjE/o+
+X-Developer-Key: i=t.antoine@uclouvain.be; a=ed25519;
+ pk=sw7UYl31W1LTpgWRiX4xIF5x6ok7YWZ6XZnHqy/d3dY=
+X-Endpoint-Received: by B4 Relay for t.antoine@uclouvain.be/20241202 with
+ auth_id=289
+X-Original-From: Thomas Antoine <t.antoine@uclouvain.be>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,781 +87,438 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: t.antoine@uclouvain.be
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch introduce the driver for the Hardware Debug Port available on
-STM32MP platforms. The HDP allows the observation of internal SoC
-signals by using multiplexers. Each HDP port can provide up to 16
-internal signals (one of them can be software controlled as a GPO).
+From: Thomas Antoine <t.antoine@uclouvain.be>
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+The interface of the Maxim MAX77759 fuel gauge has a lot of common with the
+Maxim MAX1720x. A major difference is the lack of non-volatile memory
+slave address. No slave is available at address 0xb of the i2c bus, which
+is coherent with the following driver from google: line 5836 disables
+non-volatile memory for m5 gauge.
+
+Link: https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
+
+Other differences include the lack of V_BATT register to read the battery
+level. The voltage must instead be read from V_CELL, the lowest voltage of
+all cells. The mask to identify the chip is different. The computation of
+the charge must also be changed to take into account TASKPERIOD, which
+can add a factor 2 to the result.
+
+Add support for the MAX77759 by taking into account all of those
+differences based on chip type.
+
+Do not advertise temp probes using the non-volatile memory as those are
+not available.
+
+The regmap was proposed by André Draszik in
+
+Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e455a116.camel@linaro.org/
+
+Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
 ---
- drivers/pinctrl/stm32/Kconfig             |  14 +
- drivers/pinctrl/stm32/Makefile            |   1 +
- drivers/pinctrl/stm32/pinctrl-stm32-hdp.c | 720 ++++++++++++++++++++++++++++++
- 3 files changed, 735 insertions(+)
+ drivers/power/supply/max1720x_battery.c | 265 ++++++++++++++++++++++++++++----
+ 1 file changed, 238 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/pinctrl/stm32/Kconfig b/drivers/pinctrl/stm32/Kconfig
-index 2656d3d3ae40..4b474cfd1f2c 100644
---- a/drivers/pinctrl/stm32/Kconfig
-+++ b/drivers/pinctrl/stm32/Kconfig
-@@ -57,4 +57,18 @@ config PINCTRL_STM32MP257
- 	depends on OF && HAS_IOMEM
- 	default MACH_STM32MP25
- 	select PINCTRL_STM32
+diff --git a/drivers/power/supply/max1720x_battery.c b/drivers/power/supply/max1720x_battery.c
+index 68b5314ecf3a234f906ec8fe400e586855b69cd9..c9ad452ada9d0a2a51f37d04fd8c3260be522405 100644
+--- a/drivers/power/supply/max1720x_battery.c
++++ b/drivers/power/supply/max1720x_battery.c
+@@ -37,6 +37,7 @@
+ #define MAX172XX_REPCAP			0x05	/* Average capacity */
+ #define MAX172XX_REPSOC			0x06	/* Percentage of charge */
+ #define MAX172XX_TEMP			0x08	/* Temperature */
++#define MAX172XX_VCELL			0x09	/* Lowest cell voltage */
+ #define MAX172XX_CURRENT		0x0A	/* Actual current */
+ #define MAX172XX_AVG_CURRENT		0x0B	/* Average current */
+ #define MAX172XX_FULL_CAP		0x10	/* Calculated full capacity */
+@@ -54,15 +55,28 @@
+ #define MAX172XX_BATT			0xDA	/* Battery voltage */
+ #define MAX172XX_ATAVCAP		0xDF
+ 
++#define MAX77759_DEV_NAME_TYPE_MASK	GENMASK(15, 9)
++#define MAX77759_DEV_NAME_TYPE_MAX77759	0x31
++#define MAX77759_TASKPERIOD		0x3C
++#define MAX77759_TASKPERIOD_175MS	0x1680
++#define MAX77759_TASKPERIOD_351MS	0x2D00
 +
-+config PINCTRL_STM32_HDP
-+	tristate "STMicroelectronics STM32 Hardware Debug Port (HDP) pin control"
-+	depends on OF && HAS_IOMEM
-+	default ARM64 || (ARM && CPU_V7)
-+	select PINMUX
-+	select GENERIC_PINCONF
-+	select GPIOLIB
-+	help
-+	  The Hardware Debug Port allows the observation of internal signals.
-+	  It uses configurable multiplexer to route signals in a dedicated observation register.
-+	  This driver also permits the observation of signals on external SoC pins.
-+	  It permits the observation of up to 16 signals per HDP line.
+ static const char *const max1720x_manufacturer = "Maxim Integrated";
+ static const char *const max17201_model = "MAX17201";
+ static const char *const max17205_model = "MAX17205";
++static const char *const max77759_model = "MAX77759";
 +
- endif
-diff --git a/drivers/pinctrl/stm32/Makefile b/drivers/pinctrl/stm32/Makefile
-index 7b17464d8de1..98a1bbc7e16c 100644
---- a/drivers/pinctrl/stm32/Makefile
-+++ b/drivers/pinctrl/stm32/Makefile
-@@ -11,3 +11,4 @@ obj-$(CONFIG_PINCTRL_STM32H743)	+= pinctrl-stm32h743.o
- obj-$(CONFIG_PINCTRL_STM32MP135) += pinctrl-stm32mp135.o
- obj-$(CONFIG_PINCTRL_STM32MP157) += pinctrl-stm32mp157.o
- obj-$(CONFIG_PINCTRL_STM32MP257) += pinctrl-stm32mp257.o
-+obj-$(CONFIG_PINCTRL_STM32_HDP) += pinctrl-stm32-hdp.o
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-new file mode 100644
-index 000000000000..e91442eb566b
---- /dev/null
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-@@ -0,0 +1,720 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++enum chip_id {
++	MAX1720X_ID,
++	MAX77759_ID,
++};
+ 
+ struct max1720x_device_info {
+ 	struct regmap *regmap;
+ 	struct regmap *regmap_nv;
+ 	struct i2c_client *ancillary;
+ 	int rsense;
++	enum chip_id id;
+ };
+ 
+ /*
+@@ -271,6 +285,80 @@ static const enum power_supply_property max1720x_battery_props[] = {
+ 	POWER_SUPPLY_PROP_MANUFACTURER,
+ };
+ 
 +/*
-+ * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
-+ * Author: Clément Le Goffic <clement.legoffic@foss.st.com> for STMicroelectronics.
++ * Registers 0x80 up to 0xaf which contain the model for the fuel gauge
++ * algorithm (stored in nvmem for the max1720x) are locked. They can
++ * be unlocked by writing 0x59 to 0x62 and 0xc4 to 0x63. They should be
++ * enabled in the regmap if the driver is extended to manage the model.
 + */
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/pinctrl/pinconf-generic.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm.h>
-+
-+#include "../core.h"
-+
-+#define DRIVER_NAME		"stm32_hdp"
-+#define HDP_CTRL_ENABLE		1
-+#define HDP_CTRL_DISABLE	0
-+
-+#define HDP_CTRL		0x000
-+#define HDP_MUX			0x004
-+#define HDP_VAL			0x010
-+#define HDP_GPOSET		0x014
-+#define HDP_GPOCLR		0x018
-+#define HDP_GPOVAL		0x01c
-+#define HDP_VERR		0x3f4
-+#define HDP_IPIDR		0x3f8
-+#define HDP_SIDR		0x3fc
-+
-+#define HDP_MUX_SHIFT(n)	((n) * 4)
-+#define HDP_MUX_MASK(n)		(GENMASK(3, 0) << HDP_MUX_SHIFT(n))
-+#define HDP_MUX_GPOVAL(n)	(0xf << HDP_MUX_SHIFT(n))
-+
-+#define HDP_PIN			8
-+#define HDP_FUNC		16
-+#define HDP_FUNC_TOTAL		(HDP_PIN * HDP_FUNC)
-+
-+struct stm32_hdp {
-+	struct device *dev;
-+	void __iomem *base;
-+	struct clk *clk;
-+	struct pinctrl_dev *pctl_dev;
-+	struct gpio_chip gpio_chip;
-+	u32 mux_conf;
-+	u32 gposet_conf;
-+	const char * const *func_name;
++static const struct regmap_range max77759_registers[] = {
++	regmap_reg_range(0x00, 0x4f),
++	regmap_reg_range(0xb0, 0xbf),
++	regmap_reg_range(0xd0, 0xd0),
++	regmap_reg_range(0xdc, 0xdf),
++	regmap_reg_range(0xfb, 0xfb),
++	regmap_reg_range(0xff, 0xff),
 +};
 +
-+static const struct pinctrl_pin_desc stm32_hdp_pins[] = {
-+	PINCTRL_PIN(0, "HDP0"),
-+	PINCTRL_PIN(1, "HDP1"),
-+	PINCTRL_PIN(2, "HDP2"),
-+	PINCTRL_PIN(3, "HDP3"),
-+	PINCTRL_PIN(4, "HDP4"),
-+	PINCTRL_PIN(5, "HDP5"),
-+	PINCTRL_PIN(6, "HDP6"),
-+	PINCTRL_PIN(7, "HDP7"),
++static const struct regmap_range max77759_ro_registers[] = {
++	regmap_reg_range(0x3d, 0x3d),
++	regmap_reg_range(0xfb, 0xfb),
++	regmap_reg_range(0xff, 0xff),
 +};
 +
-+static const char * const func_name_mp13[] = {
-+	//HDP0 functions:
-+	"pwr_pwrwake_sys",
-+	"pwr_stop_forbidden",
-+	"pwr_stdby_wakeup",
-+	"pwr_encomp_vddcore",
-+	"bsec_out_sec_niden",
-+	"aiec_sys_wakeup",
-+	"none",
-+	"none",
-+	"ddrctrl_lp_req",
-+	"pwr_ddr_ret_enable_n",
-+	"dts_clk_ptat",
-+	"none",
-+	"sram3ctrl_tamp_erase_act",
-+	"none",
-+	"none",
-+	"gpoval0",
-+	//HDP1 functions:
-+	"pwr_sel_vth_vddcpu",
-+	"pwr_mpu_ram_lowspeed",
-+	"ca7_naxierrirq",
-+	"pwr_okin_mr",
-+	"bsec_out_sec_dbgen",
-+	"aiec_c1_wakeup",
-+	"rcc_pwrds_mpu",
-+	"none",
-+	"ddrctrl_dfi_ctrlupd_req",
-+	"ddrctrl_cactive_ddrc_asr",
-+	"none",
-+	"none",
-+	"sram3ctrl_hw_erase_act",
-+	"nic400_s0_bready",
-+	"none",
-+	"gpoval1",
-+	//HDP2 functions:
-+	"pwr_pwrwake_mpu",
-+	"pwr_mpu_clock_disable_ack",
-+	"ca7_ndbgreset_i",
-+	"none",
-+	"bsec_in_rstcore_n",
-+	"bsec_out_sec_bsc_dis",
-+	"none",
-+	"none",
-+	"ddrctrl_dfi_init_complete",
-+	"ddrctrl_perf_op_is_refresh",
-+	"ddrctrl_gskp_dfi_lp_req",
-+	"none",
-+	"sram3ctrl_sw_erase_act",
-+	"nic400_s0_bvalid",
-+	"none",
-+	"gpoval2",
-+	//HDP3 functions:
-+	"pwr_sel_vth_vddcore",
-+	"pwr_mpu_clock_disable_req",
-+	"ca7_npmuirq0",
-+	"ca7_nfiqout0",
-+	"bsec_out_sec_dftlock",
-+	"bsec_out_sec_jtag_dis",
-+	"rcc_pwrds_sys",
-+	"sram3ctrl_tamp_erase_req",
-+	"ddrctrl_stat_ddrc_reg_selfref_type0",
-+	"none",
-+	"dts_valobus1_0",
-+	"dts_valobus2_0",
-+	"tamp_potential_tamp_erfcfg",
-+	"nic400_s0_wready",
-+	"nic400_s0_rready",
-+	"gpoval3",
-+	//HDP4 functions:
-+	"none",
-+	"pwr_stop2_active",
-+	"ca7_nl2reset_i",
-+	"ca7_npreset_varm_i",
-+	"bsec_out_sec_dften",
-+	"bsec_out_sec_dbgswenable",
-+	"eth1_out_pmt_intr_o",
-+	"eth2_out_pmt_intr_o",
-+	"ddrctrl_stat_ddrc_reg_selfref_type1",
-+	"ddrctrl_cactive_0",
-+	"dts_valobus1_1",
-+	"dts_valobus2_1",
-+	"tamp_nreset_sram_ercfg",
-+	"nic400_s0_wlast",
-+	"nic400_s0_rlast",
-+	"gpoval4",
-+	//HDP5 functions:
-+	"ca7_standbywfil2",
-+	"pwr_vth_vddcore_ack",
-+	"ca7_ncorereset_i",
-+	"ca7_nirqout0",
-+	"bsec_in_pwrok",
-+	"bsec_out_sec_deviceen",
-+	"eth1_out_lpi_intr_o",
-+	"eth2_out_lpi_intr_o",
-+	"ddrctrl_cactive_ddrc",
-+	"ddrctrl_wr_credit_cnt",
-+	"dts_valobus1_2",
-+	"dts_valobus2_2",
-+	"pka_pka_itamp_out",
-+	"nic400_s0_wvalid",
-+	"nic400_s0_rvalid",
-+	"gpoval5",
-+	//HDP6 functions:
-+	"ca7_standbywfe0",
-+	"pwr_vth_vddcpu_ack",
-+	"ca7_evento",
-+	"none",
-+	"bsec_in_tamper_det",
-+	"bsec_out_sec_spniden",
-+	"eth1_out_mac_speed_o1",
-+	"eth2_out_mac_speed_o1",
-+	"ddrctrl_csysack_ddrc",
-+	"ddrctrl_lpr_credit_cnt",
-+	"dts_valobus1_3",
-+	"dts_valobus2_3",
-+	"saes_tamper_out",
-+	"nic400_s0_awready",
-+	"nic400_s0_arready",
-+	"gpoval6",
-+	//HDP7 functions:
-+	"ca7_standbywfi0",
-+	"pwr_rcc_vcpu_rdy",
-+	"ca7_eventi",
-+	"ca7_dbgack0",
-+	"bsec_out_fuse_ok",
-+	"bsec_out_sec_spiden",
-+	"eth1_out_mac_speed_o0",
-+	"eth2_out_mac_speed_o0",
-+	"ddrctrl_csysreq_ddrc",
-+	"ddrctrl_hpr_credit_cnt",
-+	"dts_valobus1_4",
-+	"dts_valobus2_4",
-+	"rng_tamper_out",
-+	"nic400_s0_awavalid",
-+	"nic400_s0_aravalid",
-+	"gpoval7",
++static const struct regmap_access_table max77759_write_table = {
++	.no_ranges = max77759_ro_registers,
++	.n_no_ranges = ARRAY_SIZE(max77759_ro_registers),
 +};
 +
-+static const char * const func_name_mp15[] = {
-+	//HDP0 functions:
-+	"pwr_pwrwake_sys",
-+	"cm4_sleepdeep",
-+	"pwr_stdby_wkup",
-+	"pwr_encomp_vddcore",
-+	"bsec_out_sec_niden",
-+	"none",
-+	"rcc_cm4_sleepdeep",
-+	"gpu_dbg7",
-+	"ddrctrl_lp_req",
-+	"pwr_ddr_ret_enable_n",
-+	"dts_clk_ptat",
-+	"none",
-+	"none",
-+	"none",
-+	"none",
-+	"gpoval0",
-+	//HDP1 functions:
-+	"pwr_pwrwake_mcu",
-+	"cm4_halted",
-+	"ca7_naxierrirq",
-+	"pwr_okin_mr",
-+	"bsec_out_sec_dbgen",
-+	"exti_sys_wakeup",
-+	"rcc_pwrds_mpu",
-+	"gpu_dbg6",
-+	"ddrctrl_dfi_ctrlupd_req",
-+	"ddrctrl_cactive_ddrc_asr",
-+	"none",
-+	"none",
-+	"none",
-+	"none",
-+	"none",
-+	"gpoval1",
-+	//HDP2 functions:
-+	"pwr_pwrwake_mpu",
-+	"cm4_rxev",
-+	"ca7_npmuirq1",
-+	"ca7_nfiqout1",
-+	"bsec_in_rstcore_n",
-+	"exti_c2_wakeup",
-+	"rcc_pwrds_mcu",
-+	"gpu_dbg5",
-+	"ddrctrl_dfi_init_complete",
-+	"ddrctrl_perf_op_is_refresh",
-+	"ddrctrl_gskp_dfi_lp_req",
-+	"none",
-+	"none",
-+	"none",
-+	"none",
-+	"gpoval2",
-+	//HDP3 functions:
-+	"pwr_sel_vth_vddcore",
-+	"cm4_txev",
-+	"ca7_npmuirq0",
-+	"ca7_nfiqout0",
-+	"bsec_out_sec_dftlock",
-+	"exti_c1_wakeup",
-+	"rcc_pwrds_sys",
-+	"gpu_dbg4",
-+	"ddrctrl_stat_ddrc_reg_selfref_type0",
-+	"ddrctrl_cactive_1",
-+	"dts_valobus1_0",
-+	"dts_valobus2_0",
-+	"none",
-+	"none",
-+	"none",
-+	"gpoval3",
-+	//HDP4 functions:
-+	"pwr_mpu_pdds_not_cstbydis",
-+	"cm4_sleeping",
-+	"ca7_nreset1",
-+	"ca7_nirqout1",
-+	"bsec_out_sec_dften",
-+	"bsec_out_sec_dbgswenable",
-+	"eth_out_pmt_intr_o",
-+	"gpu_dbg3",
-+	"ddrctrl_stat_ddrc_reg_selfref_type1",
-+	"ddrctrl_cactive_0",
-+	"dts_valobus1_1",
-+	"dts_valobus2_1",
-+	"none",
-+	"none",
-+	"none",
-+	"gpoval4",
-+	//HDP5 functions:
-+	"ca7_standbywfil2",
-+	"pwr_vth_vddcore_ack",
-+	"ca7_nreset0",
-+	"ca7_nirqout0",
-+	"bsec_in_pwrok",
-+	"bsec_out_sec_deviceen",
-+	"eth_out_lpi_intr_o",
-+	"gpu_dbg2",
-+	"ddrctrl_cactive_ddrc",
-+	"ddrctrl_wr_credit_cnt",
-+	"dts_valobus1_2",
-+	"dts_valobus2_2",
-+	"none",
-+	"none",
-+	"none",
-+	"gpoval5",
-+	//HDP6 functions:
-+	"ca7_standbywfi1",
-+	"ca7_standbywfe1",
-+	"ca7_evento",
-+	"ca7_dbgack1",
-+	"none",
-+	"bsec_out_sec_spniden",
-+	"eth_out_mac_speed_o1",
-+	"gpu_dbg1",
-+	"ddrctrl_csysack_ddrc",
-+	"ddrctrl_lpr_credit_cnt",
-+	"dts_valobus1_3",
-+	"dts_valobus2_3",
-+	"none",
-+	"none",
-+	"none",
-+	"gpoval6",
-+	//HDP7 functions:
-+	"ca7_standbywfi0",
-+	"ca7_standbywfe0",
-+	"none",
-+	"ca7_dbgack0",
-+	"bsec_out_fuse_ok",
-+	"bsec_out_sec_spiden",
-+	"eth_out_mac_speed_o0",
-+	"gpu_dbg0",
-+	"ddrctrl_csysreq_ddrc",
-+	"ddrctrl_hpr_credit_cnt",
-+	"dts_valobus1_4",
-+	"dts_valobus2_4",
-+	"none",
-+	"none",
-+	"none",
-+	"gpoval7"
++static const struct regmap_access_table max77759_rd_table = {
++	.yes_ranges = max77759_registers,
++	.n_yes_ranges = ARRAY_SIZE(max77759_registers),
 +};
 +
-+static const char * const func_name_mp25[] = {
-+	//HDP0 functions:
-+	"pwr_pwrwake_sys",
-+	"cpu2_sleep_deep",
-+	"bsec_out_tst_sdr_unlock_or_disable_scan",
-+	"bsec_out_nidenm",
-+	"bsec_out_nidena",
-+	"cpu2_state_0",
-+	"rcc_pwrds_sys",
-+	"gpu_dbg7",
-+	"ddrss_csysreq_ddrc",
-+	"ddrss_dfi_phyupd_req",
-+	"cpu3_sleep_deep",
-+	"d2_gbl_per_clk_bus_req",
-+	"pcie_usb_cxpl_debug_info_ei_0",
-+	"pcie_usb_cxpl_debug_info_ei_8",
-+	"d3_state_0",
-+	"gpoval0",
-+	//HDP1 functions:
-+	"pwr_pwrwake_cpu2",
-+	"cpu2_halted",
-+	"cpu2_state_1",
-+	"bsec_out_dbgenm",
-+	"bsec_out_dbgena",
-+	"exti1_sys_wakeup",
-+	"rcc_pwrds_cpu2",
-+	"gpu_dbg6",
-+	"ddrss_csysack_ddrc",
-+	"ddrss_dfi_phymstr_req",
-+	"cpu3_halted",
-+	"d2_gbl_per_dma_req",
-+	"pcie_usb_cxpl_debug_info_ei_1",
-+	"pcie_usb_cxpl_debug_info_ei_9",
-+	"d3_state_1",
-+	"gpoval1",
-+	//HDP2 functions:
-+	"pwr_pwrwake_cpu1",
-+	"cpu2_rxev",
-+	"cpu1_npumirq1",
-+	"cpu1_nfiqout1",
-+	"bsec_out_shdbgen",
-+	"exti1_cpu2_wakeup",
-+	"rcc_pwrds_cpu1",
-+	"gpu_dbg5",
-+	"ddrss_cactive_ddrc",
-+	"ddrss_dfi_lp_req",
-+	"cpu3_rxev",
-+	"hpdma1_clk_bus_req",
-+	"pcie_usb_cxpl_debug_info_ei_2",
-+	"pcie_usb_cxpl_debug_info_ei_10",
-+	"d3_state_2",
-+	"gpoval2",
-+	//HDP3 functions:
-+	"pwr_sel_vth_vddcpu",
-+	"cpu2_txev",
-+	"cpu1_npumirq0",
-+	"cpu1_nfiqout0",
-+	"bsec_out_ddbgen",
-+	"exti1_cpu1_wakeup",
-+	"cpu3_state_0",
-+	"gpu_dbg4",
-+	"ddrss_mcdcg_en",
-+	"ddrss_dfi_freq_0",
-+	"cpu3_txev",
-+	"hpdma2_clk_bus_req",
-+	"pcie_usb_cxpl_debug_info_ei_3",
-+	"pcie_usb_cxpl_debug_info_ei_11",
-+	"d1_state_0",
-+	"gpoval3",
-+	//HDP4 functions:
-+	"pwr_sel_vth_vddcore",
-+	"cpu2_sleeping",
-+	"cpu1_evento",
-+	"cpu1_nirqout1",
-+	"bsec_out_spnidena",
-+	"exti2_d3_wakeup",
-+	"eth1_out_pmt_intr_o",
-+	"gpu_dbg3",
-+	"ddrss_dphycg_en",
-+	"ddrss_obsp0",
-+	"cpu3_sleeping",
-+	"hpdma3_clk_bus_req",
-+	"pcie_usb_cxpl_debug_info_ei_4",
-+	"pcie_usb_cxpl_debug_info_ei_12",
-+	"d1_state_1",
-+	"gpoval4",
-+	//HDP5 functions:
-+	"cpu1_standby_wfil2",
-+	"none",
-+	"none",
-+	"cpu1_nirqout0",
-+	"bsec_out_spidena",
-+	"exti2_cpu3_wakeup",
-+	"eth1_out_lpi_intr_o",
-+	"gpu_dbg2",
-+	"ddrctrl_dfi_init_start",
-+	"ddrss_obsp1",
-+	"cpu3_state_1",
-+	"d3_gbl_per_clk_bus_req",
-+	"pcie_usb_cxpl_debug_info_ei_5",
-+	"pcie_usb_cxpl_debug_info_ei_13",
-+	"d1_state_2",
-+	"gpoval5",
-+	//HDP6 functions:
-+	"cpu1_standby_wfi1",
-+	"cpu1_standby_wfe1",
-+	"cpu1_halted1",
-+	"cpu1_naxierrirq",
-+	"bsec_out_spnidenm",
-+	"exti2_cpu2_wakeup",
-+	"eth2_out_pmt_intr_o",
-+	"gpu_dbg1",
-+	"ddrss_dfi_init_complete",
-+	"ddrss_obsp2",
-+	"d2_state_0",
-+	"d3_gbl_per_dma_req",
-+	"pcie_usb_cxpl_debug_info_ei_6",
-+	"pcie_usb_cxpl_debug_info_ei_14",
-+	"cpu1_state_0",
-+	"gpoval6",
-+	//HDP7 functions:
-+	"cpu1_standby_wfi0",
-+	"cpu1_standby_wfe0",
-+	"cpu1_halted0",
-+	"none",
-+	"bsec_out_spidenm",
-+	"exti2_cpu1__wakeup",
-+	"eth2_out_lpi_intr_o",
-+	"gpu_dbg0",
-+	"ddrss_dfi_ctrlupd_req",
-+	"ddrss_obsp3",
-+	"d2_state_1",
-+	"lpdma1_clk_bus_req",
-+	"pcie_usb_cxpl_debug_info_ei_7",
-+	"pcie_usb_cxpl_debug_info_ei_15",
-+	"cpu1_state_1",
-+	"gpoval7",
++static const struct regmap_config max77759_regmap_cfg = {
++	.reg_bits = 8,
++	.val_bits = 16,
++	.max_register = 0xff,
++	.wr_table = &max77759_write_table,
++	.rd_table = &max77759_rd_table,
++	.val_format_endian = REGMAP_ENDIAN_LITTLE,
++	.cache_type = REGCACHE_NONE,
 +};
 +
-+static const char * const stm32_hdp_pins_group[] = {
-+	"HDP0",
-+	"HDP1",
-+	"HDP2",
-+	"HDP3",
-+	"HDP4",
-+	"HDP5",
-+	"HDP6",
-+	"HDP7"
++static const enum power_supply_property max77759_battery_props[] = {
++	POWER_SUPPLY_PROP_PRESENT,
++	POWER_SUPPLY_PROP_CAPACITY,
++	POWER_SUPPLY_PROP_VOLTAGE_NOW,
++	POWER_SUPPLY_PROP_CHARGE_FULL,
++	POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN,
++	POWER_SUPPLY_PROP_CHARGE_AVG,
++	POWER_SUPPLY_PROP_TEMP,
++	POWER_SUPPLY_PROP_CURRENT_NOW,
++	POWER_SUPPLY_PROP_CURRENT_AVG,
++	POWER_SUPPLY_PROP_MODEL_NAME,
++	POWER_SUPPLY_PROP_MANUFACTURER,
 +};
 +
-+static int stm32_hdp_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
-+{
-+	return GPIO_LINE_DIRECTION_OUT;
-+}
 +
-+static int stm32_hdp_pinctrl_get_groups_count(struct pinctrl_dev *pctldev)
-+{
-+	return ARRAY_SIZE(stm32_hdp_pins);
-+}
-+
-+static const char *stm32_hdp_pinctrl_get_group_name(struct pinctrl_dev *pctldev,
-+						    unsigned int selector)
-+{
-+	return stm32_hdp_pins[selector].name;
-+}
-+
-+static int stm32_hdp_pinctrl_get_group_pins(struct pinctrl_dev *pctldev, unsigned int selector,
-+					    const unsigned int **pins, unsigned int *num_pins)
-+{
-+	*pins = &stm32_hdp_pins[selector].number;
-+	*num_pins = 1;
-+
-+	return 0;
-+}
-+
-+static const struct pinctrl_ops stm32_hdp_pinctrl_ops = {
-+	.get_groups_count = stm32_hdp_pinctrl_get_groups_count,
-+	.get_group_name	  = stm32_hdp_pinctrl_get_group_name,
-+	.get_group_pins	  = stm32_hdp_pinctrl_get_group_pins,
-+	.dt_node_to_map	  = pinconf_generic_dt_node_to_map_all,
-+	.dt_free_map	  = pinconf_generic_dt_free_map,
++struct chip_data {
++	bool has_nvmem;
++	const struct regmap_config *regmap_cfg;
++	enum chip_id id;
 +};
 +
-+static int stm32_hdp_pinmux_get_functions_count(struct pinctrl_dev *pctldev)
-+{
-+	return HDP_FUNC_TOTAL;
-+}
-+
-+static const char *stm32_hdp_pinmux_get_function_name(struct pinctrl_dev *pctldev,
-+							  unsigned int selector)
-+{
-+	struct stm32_hdp *hdp = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return hdp->func_name[selector];
-+}
-+
-+static int stm32_hdp_pinmux_get_function_groups(struct pinctrl_dev *pctldev, unsigned int selector,
-+						const char *const **groups,
-+						unsigned int *num_groups)
-+{
-+	u32 index = selector / HDP_FUNC;
-+
-+	*groups = &stm32_hdp_pins[index].name;
-+	*num_groups = 1;
-+
-+	return 0;
-+}
-+
-+static int stm32_hdp_pinmux_set_mux(struct pinctrl_dev *pctldev, unsigned int func_selector,
-+				    unsigned int group_selector)
-+{
-+	struct stm32_hdp *hdp = pinctrl_dev_get_drvdata(pctldev);
-+
-+	unsigned int pin = stm32_hdp_pins[group_selector].number;
-+	u32 mux;
-+
-+	func_selector %= HDP_FUNC;
-+	mux = readl_relaxed(hdp->base + HDP_MUX);
-+	mux &= ~HDP_MUX_MASK(pin);
-+	mux |= func_selector << HDP_MUX_SHIFT(pin);
-+
-+	writel_relaxed(mux, hdp->base + HDP_MUX);
-+	hdp->mux_conf = mux;
-+
-+	return 0;
-+}
-+
-+static const struct pinmux_ops stm32_hdp_pinmux_ops = {
-+	.get_functions_count = stm32_hdp_pinmux_get_functions_count,
-+	.get_function_name   = stm32_hdp_pinmux_get_function_name,
-+	.get_function_groups = stm32_hdp_pinmux_get_function_groups,
-+	.set_mux	     = stm32_hdp_pinmux_set_mux,
-+	.gpio_set_direction  = NULL,
++static const struct chip_data max1720x_data  = {
++	.has_nvmem = true,
++	.regmap_cfg = &max1720x_regmap_cfg,
++	.id = MAX1720X_ID,
 +};
 +
-+static struct pinctrl_desc stm32_hdp_pdesc = {
-+	.name	 = DRIVER_NAME,
-+	.pins	 = stm32_hdp_pins,
-+	.npins	 = ARRAY_SIZE(stm32_hdp_pins),
-+	.pctlops = &stm32_hdp_pinctrl_ops,
-+	.pmxops	 = &stm32_hdp_pinmux_ops,
-+	.owner	 = THIS_MODULE,
++static const struct chip_data max77759_data = {
++	.has_nvmem = false,
++	.regmap_cfg = &max77759_regmap_cfg,
++	.id = MAX77759_ID,
 +};
 +
-+static const struct of_device_id stm32_hdp_of_match[] = {
-+	{
-+		.compatible = "st,stm32mp131-hdp",
-+		.data = &func_name_mp13,
-+	},
-+	{
-+		.compatible = "st,stm32mp151-hdp",
-+		.data = &func_name_mp15,
-+	},
-+	{
-+		.compatible = "st,stm32mp251-hdp",
-+		.data = &func_name_mp25,
-+	},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, stm32_hdp_of_match);
-+
-+static int stm32_hdp_probe(struct platform_device *pdev)
+ /* Convert regs value to power_supply units */
+ 
+ static int max172xx_time_to_ps(unsigned int reg)
+@@ -288,12 +376,41 @@ static int max172xx_voltage_to_ps(unsigned int reg)
+ 	return reg * 1250;	/* in uV */
+ }
+ 
++static int max172xx_cell_voltage_to_ps(unsigned int reg)
 +{
-+	struct device *dev = &pdev->dev;
-+	struct stm32_hdp *hdp;
-+	u8 version;
-+	int err;
-+
-+	hdp = devm_kzalloc(dev, sizeof(*hdp), GFP_KERNEL);
-+	if (!hdp)
-+		return -ENOMEM;
-+	hdp->dev = dev;
-+
-+	platform_set_drvdata(pdev, hdp);
-+
-+	hdp->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(hdp->base))
-+		return PTR_ERR(hdp->base);
-+
-+	hdp->func_name = of_device_get_match_data(dev);
-+	if (!hdp->func_name)
-+		return dev_err_probe(dev, -ENODEV, "No function name provided\n");
-+
-+	hdp->clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(hdp->clk))
-+		return dev_err_probe(dev, PTR_ERR(hdp->clk), "No HDP clock provided\n");
-+
-+	err = devm_pinctrl_register_and_init(dev, &stm32_hdp_pdesc, hdp, &hdp->pctl_dev);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to register pinctrl\n");
-+
-+	err = pinctrl_enable(hdp->pctl_dev);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to enable pinctrl\n");
-+
-+	hdp->gpio_chip.get_direction = stm32_hdp_gpio_get_direction;
-+	hdp->gpio_chip.ngpio	     = ARRAY_SIZE(stm32_hdp_pins);
-+	hdp->gpio_chip.can_sleep     = true;
-+	hdp->gpio_chip.names	     = stm32_hdp_pins_group;
-+
-+	err = bgpio_init(&hdp->gpio_chip, dev, 4,
-+			 hdp->base + HDP_GPOVAL,
-+			 hdp->base + HDP_GPOSET,
-+			 hdp->base + HDP_GPOCLR,
-+			 NULL, NULL, BGPIOF_NO_INPUT);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to init bgpio\n");
-+
-+
-+	err = devm_gpiochip_add_data(dev, &hdp->gpio_chip, hdp);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to add gpiochip\n");
-+
-+	writel_relaxed(HDP_CTRL_ENABLE, hdp->base + HDP_CTRL);
-+
-+	version = readl_relaxed(hdp->base + HDP_VERR);
-+	dev_dbg(dev, "STM32 HDP version %u.%u initialized\n", version >> 4, version & 0x0f);
-+
-+	return 0;
++	return reg * 625 / 8;	/* in uV */
 +}
 +
-+static void stm32_hdp_remove(struct platform_device *pdev)
+ static int max172xx_capacity_to_ps(unsigned int reg,
+ 				   struct max1720x_device_info *info)
+ {
+ 	return reg * (500000 / info->rsense);	/* in uAh */
+ }
+ 
++static int max77759_capacity_lsb(struct max1720x_device_info *info,
++				 unsigned int *lsb)
 +{
-+	struct stm32_hdp *hdp = platform_get_drvdata(pdev);
++	unsigned int reg_task_period;
++	int ret;
 +
-+	writel_relaxed(HDP_CTRL_DISABLE, hdp->base + HDP_CTRL);
-+}
++	ret = regmap_read(info->regmap, MAX77759_TASKPERIOD, &reg_task_period);
++	if (ret < 0)
++		return ret;
 +
-+static int stm32_hdp_suspend(struct device *dev)
-+{
-+	struct stm32_hdp *hdp = dev_get_drvdata(dev);
-+
-+	hdp->gposet_conf = readl_relaxed(hdp->base + HDP_GPOSET);
-+
-+	pinctrl_pm_select_sleep_state(dev);
-+
-+	clk_disable_unprepare(hdp->clk);
-+
-+	return 0;
-+}
-+
-+static int stm32_hdp_resume(struct device *dev)
-+{
-+	struct stm32_hdp *hdp = dev_get_drvdata(dev);
-+	int err;
-+
-+	err = clk_prepare_enable(hdp->clk);
-+	if (err) {
-+		dev_err(dev, "Failed to prepare_enable clk (%d)\n", err);
-+		return err;
++	switch (reg_task_period) {
++	case MAX77759_TASKPERIOD_175MS:
++		*lsb = 1;
++		break;
++	case MAX77759_TASKPERIOD_351MS:
++		*lsb = 2;
++		break;
++	default:
++		return -ENODEV;
 +	}
 +
-+	writel_relaxed(HDP_CTRL_ENABLE, hdp->base + HDP_CTRL);
-+	writel_relaxed(hdp->gposet_conf, hdp->base + HDP_GPOSET);
-+	writel_relaxed(hdp->mux_conf, hdp->base + HDP_MUX);
++	return 0;
++}
 +
-+	pinctrl_pm_select_default_state(dev);
+ /*
+  * Current and temperature is signed values, so unsigned regs
+  * value must be converted to signed type
+@@ -390,16 +507,36 @@ static int max1720x_battery_get_property(struct power_supply *psy,
+ 		val->intval = max172xx_percent_to_ps(reg_val);
+ 		break;
+ 	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
+-		ret = regmap_read(info->regmap, MAX172XX_BATT, &reg_val);
+-		val->intval = max172xx_voltage_to_ps(reg_val);
++		if (info->id == MAX1720X_ID) {
++			ret = regmap_read(info->regmap, MAX172XX_BATT, &reg_val);
++			val->intval = max172xx_voltage_to_ps(reg_val);
++		} else if (info->id == MAX77759_ID) {
++			ret = regmap_read(info->regmap, MAX172XX_VCELL, &reg_val);
++			val->intval = max172xx_cell_voltage_to_ps(reg_val);
++		} else
++			return -ENODEV;
+ 		break;
+ 	case POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN:
+ 		ret = regmap_read(info->regmap, MAX172XX_DESIGN_CAP, &reg_val);
++		if (ret < 0)
++			return ret;
++
+ 		val->intval = max172xx_capacity_to_ps(reg_val, info);
++		if (info->id == MAX77759_ID) {
++			ret = max77759_capacity_lsb(info, &reg_val);
++			val->intval *= reg_val;
++		}
+ 		break;
+ 	case POWER_SUPPLY_PROP_CHARGE_AVG:
+ 		ret = regmap_read(info->regmap, MAX172XX_REPCAP, &reg_val);
++		if (ret < 0)
++			return ret;
++
+ 		val->intval = max172xx_capacity_to_ps(reg_val, info);
++		if (info->id == MAX77759_ID) {
++			ret = max77759_capacity_lsb(info, &reg_val);
++			val->intval *= reg_val;
++		}
+ 		break;
+ 	case POWER_SUPPLY_PROP_TIME_TO_EMPTY_AVG:
+ 		ret = regmap_read(info->regmap, MAX172XX_TTE, &reg_val);
+@@ -423,16 +560,35 @@ static int max1720x_battery_get_property(struct power_supply *psy,
+ 		break;
+ 	case POWER_SUPPLY_PROP_CHARGE_FULL:
+ 		ret = regmap_read(info->regmap, MAX172XX_FULL_CAP, &reg_val);
++		if (ret < 0)
++			return ret;
++
+ 		val->intval = max172xx_capacity_to_ps(reg_val, info);
++		if (info->id == MAX77759_ID) {
++			ret = max77759_capacity_lsb(info, &reg_val);
++			val->intval *= reg_val;
++		}
+ 		break;
+ 	case POWER_SUPPLY_PROP_MODEL_NAME:
+ 		ret = regmap_read(info->regmap, MAX172XX_DEV_NAME, &reg_val);
+-		reg_val = FIELD_GET(MAX172XX_DEV_NAME_TYPE_MASK, reg_val);
+-		if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17201)
+-			val->strval = max17201_model;
+-		else if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17205)
+-			val->strval = max17205_model;
+-		else
++		if (ret < 0)
++			return ret;
++
++		if (info->id == MAX1720X_ID) {
++			reg_val = FIELD_GET(MAX172XX_DEV_NAME_TYPE_MASK, reg_val);
++			if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17201)
++				val->strval = max17201_model;
++			else if (reg_val == MAX172XX_DEV_NAME_TYPE_MAX17205)
++				val->strval = max17205_model;
++			else
++				return -ENODEV;
++		} else if (info->id == MAX77759_ID) {
++			reg_val = FIELD_GET(MAX77759_DEV_NAME_TYPE_MASK, reg_val);
++			if (reg_val == MAX77759_DEV_NAME_TYPE_MAX77759)
++				val->strval = max77759_model;
++			else
++				return -ENODEV;
++		} else
+ 			return -ENODEV;
+ 		break;
+ 	case POWER_SUPPLY_PROP_MANUFACTURER:
+@@ -527,7 +683,6 @@ static int max1720x_probe_nvmem(struct i2c_client *client,
+ 		.priv = info,
+ 	};
+ 	struct nvmem_device *nvmem;
+-	unsigned int val;
+ 	int ret;
+ 
+ 	info->ancillary = i2c_new_ancillary_device(client, "nvmem", 0xb);
+@@ -549,18 +704,6 @@ static int max1720x_probe_nvmem(struct i2c_client *client,
+ 		return PTR_ERR(info->regmap_nv);
+ 	}
+ 
+-	ret = regmap_read(info->regmap_nv, MAX1720X_NRSENSE, &val);
+-	if (ret < 0) {
+-		dev_err(dev, "Failed to read sense resistor value\n");
+-		return ret;
+-	}
+-
+-	info->rsense = val;
+-	if (!info->rsense) {
+-		dev_warn(dev, "RSense not calibrated, set 10 mOhms!\n");
+-		info->rsense = 1000; /* in regs in 10^-5 */
+-	}
+-
+ 	nvmem = devm_nvmem_register(dev, &nvmem_config);
+ 	if (IS_ERR(nvmem)) {
+ 		dev_err(dev, "Could not register nvmem!");
+@@ -570,6 +713,38 @@ static int max1720x_probe_nvmem(struct i2c_client *client,
+ 	return 0;
+ }
+ 
++static int max1720x_get_rsense(struct device *dev,
++			       struct max1720x_device_info *info,
++			       const struct chip_data *data)
++{
++	unsigned int val;
++	int ret;
++
++	if (data->has_nvmem) {
++		ret = regmap_read(info->regmap_nv, MAX1720X_NRSENSE, &val);
++		if (ret < 0) {
++			dev_err(dev, "Failed to read RSense from nvmem\n");
++			return ret;
++		}
++
++		info->rsense = val;
++		if (!info->rsense) {
++			dev_warn(dev, "RSense not calibrated, set 10 mOhms!\n");
++			info->rsense = 1000; /* in regs in 10^-5 */
++		}
++	} else {
++		ret = device_property_read_u32(dev, "shunt-resistor-micro-ohms",
++					       &val);
++		if (ret) {
++			dev_err(dev, "Failed to read RSense from devicetree\n");
++			return ret;
++		}
++		info->rsense = val / 10;
++	}
 +
 +	return 0;
 +}
 +
-+static DEFINE_SIMPLE_DEV_PM_OPS(stm32_hdp_pm_ops, stm32_hdp_suspend, stm32_hdp_resume);
-+
-+static struct platform_driver stm32_hdp_driver = {
-+	.probe = stm32_hdp_probe,
-+	.remove = stm32_hdp_remove,
-+	.driver = {
-+		.name = DRIVER_NAME,
-+		.pm = pm_sleep_ptr(&stm32_hdp_pm_ops),
-+		.of_match_table = stm32_hdp_of_match,
-+	}
+ static const struct power_supply_desc max1720x_bat_desc = {
+ 	.name = "max1720x",
+ 	.no_thermal = true,
+@@ -579,32 +754,67 @@ static const struct power_supply_desc max1720x_bat_desc = {
+ 	.get_property = max1720x_battery_get_property,
+ };
+ 
++static const struct power_supply_desc max77759_bat_desc = {
++	.name = "max77759-fg",
++	.no_thermal = true,
++	.type = POWER_SUPPLY_TYPE_BATTERY,
++	.properties = max77759_battery_props,
++	.num_properties = ARRAY_SIZE(max77759_battery_props),
++	.get_property = max1720x_battery_get_property,
 +};
 +
-+module_platform_driver(stm32_hdp_driver);
+ static int max1720x_probe(struct i2c_client *client)
+ {
+ 	struct power_supply_config psy_cfg = {};
+ 	struct device *dev = &client->dev;
+ 	struct max1720x_device_info *info;
+ 	struct power_supply *bat;
++	const struct chip_data *data;
++	const struct power_supply_desc *bat_desc;
+ 	int ret;
+ 
+ 	info = devm_kzalloc(dev, sizeof(*info), GFP_KERNEL);
+ 	if (!info)
+ 		return -ENOMEM;
+ 
++	data = device_get_match_data(dev);
++	if (!data)
++		return dev_err_probe(dev, -EINVAL, "Failed to get chip data\n");
 +
-+MODULE_AUTHOR("Clément Le Goffic");
-+MODULE_DESCRIPTION("STMicroelectronics STM32 Hardware Debug Port driver");
-+MODULE_LICENSE("GPL");
+ 	psy_cfg.drv_data = info;
+ 	psy_cfg.fwnode = dev_fwnode(dev);
+-	psy_cfg.attr_grp = max1720x_groups;
++
++	switch (data->id) {
++	case MAX1720X_ID:
++		psy_cfg.attr_grp = max1720x_groups;
++		bat_desc = &max1720x_bat_desc;
++		break;
++	case MAX77759_ID:
++		bat_desc = &max77759_bat_desc;
++		break;
++	default:
++		return dev_err_probe(dev, -EINVAL, "Unsupported chip\n");
++	}
++
+ 	i2c_set_clientdata(client, info);
+-	info->regmap = devm_regmap_init_i2c(client, &max1720x_regmap_cfg);
++
++	info->id = data->id;
++	info->regmap = devm_regmap_init_i2c(client, data->regmap_cfg);
+ 	if (IS_ERR(info->regmap))
+ 		return dev_err_probe(dev, PTR_ERR(info->regmap),
+ 				     "regmap initialization failed\n");
+ 
+-	ret = max1720x_probe_nvmem(client, info);
++	if (data->has_nvmem) {
++		ret = max1720x_probe_nvmem(client, info);
++		if (ret)
++			return dev_err_probe(dev, ret, "Failed to probe nvmem\n");
++	}
++
++	ret = max1720x_get_rsense(dev, info, data);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "Failed to probe nvmem\n");
++		return ret;
+ 
+-	bat = devm_power_supply_register(dev, &max1720x_bat_desc, &psy_cfg);
++	bat = devm_power_supply_register(dev, bat_desc, &psy_cfg);
+ 	if (IS_ERR(bat))
+ 		return dev_err_probe(dev, PTR_ERR(bat),
+ 				     "Failed to register power supply\n");
+@@ -613,7 +823,8 @@ static int max1720x_probe(struct i2c_client *client)
+ }
+ 
+ static const struct of_device_id max1720x_of_match[] = {
+-	{ .compatible = "maxim,max17201" },
++	{ .compatible = "maxim,max17201", .data = (void *) &max1720x_data },
++	{ .compatible = "maxim,max77759-fg", .data = (void *) &max77759_data },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, max1720x_of_match);
 
 -- 
-2.43.0
+2.49.0
+
 
 
