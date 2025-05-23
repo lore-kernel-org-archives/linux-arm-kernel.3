@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AF0C54F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 13:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F9FC54F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 13:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4XdmjROMnHOz3KoQld+LYvhapFlYI9cDwYlhitlCNY4=; b=gPZLu6ueCIhGeg5cGUsbCAk/5H
-	RuAtEIeJol59udw4UoWAfw+F29OBjDrKxmBPhItIdFFybXkmtcIRZRr+E+wz/Z3Kuyl7n8W3nvYwm
-	uekZCkzhCwRI+qnYy/OKuNMXi6vyFCfEXoJaTyYboj+ia+6pJPXk1jTnuLz/d60R6tTYeJ4ZvZoSR
-	zevGkmbc1P8+dZjOmtdlKV4oay1TOf6majbeMdiYee7rnHKQJyNn/Pb7LHKn610CEiU5HKICPnGNm
-	N+b1Hp17xD4E/9xZQ2pK1HfwA+gHvUPRFG9QdIqFUaCR/QoLp1xoOJLCW3SY6Xasm4Y+0Hz3FufFC
-	GJ48JRcw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KEKpK4Nmh4vvZghJ24kVmwpTGOLo+d3zGxtcOP1EFxg=; b=SscMLftJSbTdBI3j/J6dQtRcRv
+	Nez4n9t0nmqm3poVa8EgmgeQxTR0oJBlZgKd0cXPQjdzxRF1gW6VWu5feDVWTUMgHJtL5BALzJPrs
+	ud0bE4GzKbzq5uPMCdj8r8IvsVYGQ58iqJ01huFwX5EMZX2cBtCvlLtsY1db1Y6+Uhp1QDKan5M9A
+	FHfN9xZA8nGBq3JYkfgQmenI1UmOxU0EddXBN0Lqwa+oR11jrfFCPJ3LGcZuOqZZNAjPQM5pzqK1L
+	Fy9Ev9HfmuT9Yp+Gd3bvZtfSs4m+mQIQ/b6kAfNLxCQ8hbB+OlYxBZaGR+cpt3umizGKqm8Z9PCf/
+	besWN2QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIS9u-00000003uc3-284s;
-	Fri, 23 May 2025 13:09:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uISE0-00000003uwU-1eom;
+	Fri, 23 May 2025 13:14:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIRsc-00000003rL8-0Wa4
+	id 1uIRsc-00000003rLD-1oGl
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 23 May 2025 12:52:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46EC94AA9B;
-	Fri, 23 May 2025 12:52:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 095DCC4CEFC;
-	Fri, 23 May 2025 12:52:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0124B5C59FD;
+	Fri, 23 May 2025 12:49:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BC80DC4CEE9;
+	Fri, 23 May 2025 12:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748004725;
-	bh=5xEPkCKOVRabxXHHeF2mu6uzqMA218cBnnVPAnWjDKU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=LllHz6nG9P0P6lqF5UTY/3f+N9k5BG0zsxSI+UQHBPVr3KNRmJyXay69LCwZkSPzt
-	 /WRBdnhVIqfaTj6h2DQimco3j992MvQbKYoTpGb4eI1+wA4xbXNM3wSm7fPzKqGaxC
-	 8jKLug/4bnD6afGxSAmj3lBZVmwREwo6iM8J/lmOw9xj6EhgFMbNht3HXcenQ9zPpn
-	 dq9AA2GOWkPa7Kgn5Oukh6gyxxekgxObSDszJ0S13qAq+VN1giK3JyzeyHGs3nTIcg
-	 1OFED0bQ5cNEXTRotL0vPMEGDie3m/4kFH8HwtQRf4LooFg34exhKtCHdTDwWE9fY9
-	 rHahyelbYV3XQ==
+	s=k20201202; t=1748004724;
+	bh=OOXCkFDGtaTZMu05Xdb53pmqZzDufP0TOmEg/vN9xJQ=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=ASu98xrjaylGoqBa7TZFByLhQ+wTu8lfN1nyxbqCoIOWDbKDIETMIJa87hIrpXFkw
+	 TsQSkmCkB36vlsPd4UMpnr23gLbx4tZb7/i/sdJk3BWjRK4c7C3zBrI0kBsLG7c1yX
+	 R/Qreq7iC2NCmP1R+5ZHMEl6Nse9L5SUMPuSHUyb7fbY6nCS5lHysP7n122VpHo/LW
+	 cpPS95RsQe2zTfcEGT4b0WS+JAMire2F1FQufJd/UJMafcjQ25ROdYtTJtYxdoF9Rf
+	 xxOWNbW/+20m6MxGctI7yb8AbpUaCEb4Tc2OdLBT49Q6BbG4JRhjHuqTDdYFV2iIW7
+	 jHvZ91s1rGFGg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F1FE8C54ED0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AA4C8C54F2E;
 	Fri, 23 May 2025 12:52:04 +0000 (UTC)
 From: Thomas Antoine via B4 Relay <devnull+t.antoine.uclouvain.be@kernel.org>
-Date: Fri, 23 May 2025 14:51:48 +0200
-Subject: [PATCH v4 5/5] arm64: dts: exynos: gs101-oriole: enable Maxim
- max77759 fuel gauge
+Subject: [PATCH v4 0/5] Google Pixel 6 (oriole): max77759 fuel gauge
+ enablement and driver support
+Date: Fri, 23 May 2025 14:51:43 +0200
+Message-Id: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250523-b4-gs101_max77759_fg-v4-5-b49904e35a34@uclouvain.be>
-References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
-In-Reply-To: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAF9vMGgC/4XNUQuCMBDA8a8ie26x2yZzPfU9ImTTmw5KY8thi
+ N+9KfQSRC8H/4P73UIiBo+RnIqFBEw++nHIIQ8FaXozdEh9m5twxiXkQa2kXQQG9d3MSqlS166
+ jknHkAoy0QpB8+gjo/Lyzl2vu3sfnGF77lwTb9g+YgDKqq5Y7o6xDwc5TcxunZPxwtEg2M/GPU
+ zL46fDsVEqX2li0yrkvZ13XN1U3WNUDAQAA
+X-Change-ID: 20241202-b4-gs101_max77759_fg-402e231a4b33
 To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>, 
@@ -67,20 +70,19 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, Thomas Antoine <t.antoine@uclouvain.be>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748004728; l=1313;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1748004727; l=5403;
  i=t.antoine@uclouvain.be; s=20241202; h=from:subject:message-id;
- bh=+E8KTkRWD/mhjwDdm0OrzwMI0i7bo8G/TbulwCt/cNU=;
- b=MYix6XzRqq6cT99BsYFIb7MAMuaH8dv8cWyZm+XbOlmT+uPnbhQ8flVvXyGL8f+B0C3wLpesh
- EXi+XggFsWTCoM+id863xpYa859aiKBzlF3SGv5TvKbKUBqcx8PPhB9
+ bh=OOXCkFDGtaTZMu05Xdb53pmqZzDufP0TOmEg/vN9xJQ=;
+ b=5+306hTTvLvJFLGwpeid9GYxhSnl/KXZpvR6dC73BxlLdsMuvFgkwlcUSuIq7IKUtwq342f7Z
+ Ef/6OZTgG0bC/U4XcKz0cumXJcZIq4SKnvfimbceB9PqIiJ2UhNiFaD
 X-Developer-Key: i=t.antoine@uclouvain.be; a=ed25519;
  pk=sw7UYl31W1LTpgWRiX4xIF5x6ok7YWZ6XZnHqy/d3dY=
 X-Endpoint-Received: by B4 Relay for t.antoine@uclouvain.be/20241202 with
  auth_id=289
 X-Original-From: Thomas Antoine <t.antoine@uclouvain.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_055206_221855_79D2D555 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250523_055206_550857_24731403 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +98,128 @@ Reply-To: t.antoine@uclouvain.be
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Antoine <t.antoine@uclouvain.be>
+The Google Pixel 6 has a Maxim MAX77759 which provides a fuel gauge with
+an interface with a lot in common with the Maxim max1720x.
 
-Add the node for the Maxim MAX77759 fuel gauge as a slave of the i2c.
+Modify the Maxim MAX1720x driver to be compatible with the Maxim MAX77759
+and enable it for the gs101-oriole board.
 
-The TODO is still applicable given there are other slaves on the
-bus (e.g. PCA9468, other MAX77759 functions and the MAX20339 OVP).
+The voltage, current, capacity, temperature and charge have all been
+tested and show coherent results. The charge full design and capacity
+equal the ones seen on android, the ratio between average charge and
+average current does predict pretty accurately the time to empty under
+a constant workload and temperature is coherent with the dynamic state
+of the device.
+
+Health is not enabled as it always reports overheating. The time to empty
+is wrong by about a factor 2 and is thus also disabled.
 
 Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
 ---
- arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Changes in v4:
+- Make first patch standalone
+- Separate MAX77759 defines from MAX1720x defines (Dimitri Fedrau)
+- Inline device name property (Dimitri Fedrau)
+- Separate MAX77759 capacity lsb logic from the MAX1720x capacity
+  computation (Dimitri Fedrau)
+- Use device_property_read_u32 instead of of_property_read_u32
+  (Sebastian Reichel)
+- Removed leftover debugs
+- Move shunt-resistor-micro-ohms to out of allOf:if: (Krzysztof Kozlowski)
+- Fix reg-names constraints
+- Fix style errors
+- Link to v3: https://lore.kernel.org/r/20250421-b4-gs101_max77759_fg-v3-0-50cd8caf9017@uclouvain.be
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-index b25230495c64dce60916b7cd5dcb9a7cce5d0e4e..84fc10c3562958ab1621f24644709e85a9433b9b 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-@@ -10,6 +10,7 @@
- 
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/usb/pd.h>
- #include "gs101-pinctrl.h"
- #include "gs101.dtsi"
-@@ -188,6 +189,15 @@ usbc0_role_sw: endpoint {
- 			};
- 		};
- 	};
-+
-+	fuel-gauge@36 {
-+		compatible = "maxim,max77759-fg";
-+		reg = <0x36>;
-+		reg-names = "m5";
-+		interrupt-parent = <&gpa9>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+		shunt-resistor-micro-ohms = <5000>;
-+	};
- };
- 
- &pinctrl_far_alive {
+Changes in v3:
+- Update base tree to avoid conflicts
+- Fix capacity computation for max1720x
+- Add separate properties for the max7759 to disable non-functional ones
+- Take TASKPERIOD into account for voltage computation of max77759
+- Simplify vcell computation (Dimitri Fedrau)
+- Switch has_nvmem to bool and keep it only in chip_data (Dimitri Fedrau)
+- Drop the yes_range from the write table (Sebastian Reichel)
+- Add test_power_supply_properties.sh to cover letter (Sebastian Reichel)
+- Switch back some changes to binding and actually use allOf:if: to
+  restrict constraints (Krzysztof Kozlowski)
+- Fix style errors
+- Link to v2: https://lore.kernel.org/r/20250102-b4-gs101_max77759_fg-v2-0-87959abeb7ff@uclouvain.be
 
+Changes in v2:
+- Add fallback for voltage measurement (André Draszik)
+- Add regmap for the max77759 (André Draszik)
+- Add chip identification for the max77759 (André Draszik, Peter Griffin)
+- Move RSense value to a devicetree property shunt-resistor-micro-ohms
+  (Dimitri Fedrau, André Draszik)
+- Use allOf:if to narrow binding per variant (Krzysztof Kozlowski)
+- Remove binding example (Krzysztof Kozlowski)
+- Change defconfig order to follow savedefconfig (Krzysztof Kozlowski)
+- Fix style errors
+- Link to v1: https://lore.kernel.org/r/20241202-b4-gs101_max77759_fg-v1-0-98d2fa7bfe30@uclouvain.be
+
+tools/testing/selftests/power_supply/test_power_supply_properties.sh:
+  # Testing device max77759-fg
+  ok 1 max77759-fg.exists
+  ok 2 max77759-fg.uevent.NAME
+  ok 3 max77759-fg.sysfs.type
+  ok 4 max77759-fg.uevent.TYPE
+  ok 5 max77759-fg.sysfs.usb_type # SKIP
+  ok 6 max77759-fg.sysfs.online # SKIP
+  # Reported: '1' ()
+  ok 7 max77759-fg.sysfs.present
+  ok 8 max77759-fg.sysfs.status # SKIP
+  # Reported: '78' % ()
+  ok 9 max77759-fg.sysfs.capacity
+  ok 10 max77759-fg.sysfs.capacity_level # SKIP
+  # Reported: 'MAX77759' ()
+  ok 11 max77759-fg.sysfs.model_name
+  # Reported: 'Maxim Integrated' ()
+  ok 12 max77759-fg.sysfs.manufacturer
+  ok 13 max77759-fg.sysfs.serial_number # SKIP
+  ok 14 max77759-fg.sysfs.technology # SKIP
+  ok 15 max77759-fg.sysfs.cycle_count # SKIP
+  ok 16 max77759-fg.sysfs.scope # SKIP
+  ok 17 max77759-fg.sysfs.input_current_limit # SKIP
+  ok 18 max77759-fg.sysfs.input_voltage_limit # SKIP
+  # Reported: '4238593' uV (4.23859 V)
+  ok 19 max77759-fg.sysfs.voltage_now
+  ok 20 max77759-fg.sysfs.voltage_min # SKIP
+  ok 21 max77759-fg.sysfs.voltage_max # SKIP
+  ok 22 max77759-fg.sysfs.voltage_min_design # SKIP
+  ok 23 max77759-fg.sysfs.voltage_max_design # SKIP
+  # Reported: '-149689' uA ()
+  ok 24 max77759-fg.sysfs.current_now
+  ok 25 max77759-fg.sysfs.current_max # SKIP
+  ok 26 max77759-fg.sysfs.charge_now # SKIP
+  # Reported: '4716000' uAh (4.716 Ah)
+  ok 27 max77759-fg.sysfs.charge_full
+  # Reported: '4524000' uAh (4.524 Ah)
+  ok 28 max77759-fg.sysfs.charge_full_design
+  ok 29 max77759-fg.sysfs.power_now # SKIP
+  ok 30 max77759-fg.sysfs.energy_now # SKIP
+  ok 31 max77759-fg.sysfs.energy_full # SKIP
+  ok 32 max77759-fg.sysfs.energy_full_design # SKIP
+  ok 33 max77759-fg.sysfs.energy_full_design # SKIP
+
+---
+Thomas Antoine (5):
+      power: supply: max1720x correct capacity computation
+      power: supply: add support for max77759 fuel gauge
+      dt-bindings: power: supply: add max77759-fg flavor
+      arm64: defconfig: enable Maxim max1720x driver
+      arm64: dts: exynos: gs101-oriole: enable Maxim max77759 fuel gauge
+
+ .../bindings/power/supply/maxim,max17201.yaml      |  42 +++-
+ .../boot/dts/exynos/google/gs101-pixel-common.dtsi |  10 +
+ arch/arm64/configs/defconfig                       |   1 +
+ drivers/power/supply/max1720x_battery.c            | 276 ++++++++++++++++++---
+ 4 files changed, 294 insertions(+), 35 deletions(-)
+---
+base-commit: e48e99b6edf41c69c5528aa7ffb2daf3c59ee105
+change-id: 20241202-b4-gs101_max77759_fg-402e231a4b33
+
+Best regards,
 -- 
-2.49.0
+Thomas Antoine <t.antoine@uclouvain.be>
 
 
 
