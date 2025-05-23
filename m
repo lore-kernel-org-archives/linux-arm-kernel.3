@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4048AC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2747CC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dvL8UvE8kTyU3pakYq1t1Av2K6VHG+lxt62YTy231JM=; b=JxRTq622CVBSnuL1Wj1kqUUdpe
-	g6krA4QsjnY3KdZxNQ/0xmjoLAOpLt/bq26+d5sHgbXSuXvLbCENi3izsD7Rb+4PftUqJuU/f0VlY
-	8LAEicXit9g2+td7CDnEntwke5mnIaej6JL8FDLHH9OYyw/f8r0FnbNd47qZgjlyzn0+I+v3BBuho
-	afgypAwbo0K1k/74gJCJo/P/Lw4oa0EHKGbci0RpKmUqznuwzeT2tmH/LU/w2W9hnqpWwMWKYH7Tm
-	TY7o3wlnAGHMBLnNS3PIRNYhgJg9g6uDpEBR/XuB/rmhKf7POmRBzBZare4ZH84p9vFefZCKHan23
-	77VFr4Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Df2Q3fuPwWw5m5FTTsUnC0T8NoyShH+UBwJpTi70NdE=; b=U1RkUDmAf8bIqhw6zUVWz528Qp
+	lrKLBcAiglPTV406rtIMxeclIZGKWb2KC4rsdzAKf2gw8sKlownNxnx/mYTj0HXW/JkBRHEUzUOhv
+	QbsBxBx7MKXJbBxI+Ku0l9XHufvrruM8YiZJL8dICiYFC9B4ZLHM6w/q+wFggvOy866h7PsxBuBAX
+	lYKBAWqoE5TX0YRfcZJabIW1Vv+BSDMq+g6xx9oYFH+giOXI7lEEh6ymnQU2Xp/7O8/hcPSOkpErB
+	81dYdkVOvLaiOB+z6eenWtSq89B9FW8DYYmLBAz+yGZQXBCceynfA31673UolCy312YNxUJbMcZXD
+	5WKf5hHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOHN-00000003O1k-30fG;
-	Fri, 23 May 2025 09:01:25 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uIOJP-00000003OLq-48ik;
+	Fri, 23 May 2025 09:03:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOE0-00000003NSv-20Eb
+	id 1uIOGW-00000003NqJ-1IR0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 08:57:58 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54N8vpwH902994;
-	Fri, 23 May 2025 03:57:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747990671;
-	bh=dvL8UvE8kTyU3pakYq1t1Av2K6VHG+lxt62YTy231JM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=pGGk0s4nBS+kfza+T/LlvzeExl1Bvodi7ZFDGMlo2Tag9OeV0yO857ojW/FrxrcIw
-	 PQ7ck5JIPoHFQRtBfGTi3FQGy9Plw2TxBebrAGtPXyEsBar7TCR89SSFGTaBuZoxBf
-	 vkYcySBsH69XiwqWSLx6KDCiagbXPiVEdRAYw5Bg=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54N8vo574154099
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 23 May 2025 03:57:51 -0500
-Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 23
- May 2025 03:57:50 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 23 May 2025 03:57:50 -0500
-Received: from [172.24.21.52] (ltpw0bk3z4.dhcp.ti.com [172.24.21.52])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54N8vjPe1139884;
-	Fri, 23 May 2025 03:57:46 -0500
-Message-ID: <5cfaed26-28ec-42dc-b9f6-836869ad3fa3@ti.com>
-Date: Fri, 23 May 2025 14:27:44 +0530
+	Fri, 23 May 2025 09:00:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 56522629F6;
+	Fri, 23 May 2025 09:00:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A37C8C4CEEF;
+	Fri, 23 May 2025 09:00:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747990831;
+	bh=mTpxlzLfOxVD0utOYJ/lK616UQLpk4pGr8aEVscKunw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fPcckd+BLil1KAT5UIYjPx03Fh3ZTaEugtxxZElUKqLeUA9XnqsXOv4ajQshd0H1q
+	 2QELspOTRsUVpRVzevbwVfXxvM4HiXroUghaQnUUc8KE3ZDHwjs/1coEwu097gZLhy
+	 4aKBRwGfn3YcD3qOypMOXVAGws7OmtQKGJx24v2bPo679/vo0Hrikk0SqiquTQyaRH
+	 M5GH0ao2pnHZa4ANAt3PC8PKy4qSF7gPbYYdG3yxKni/F5NgTQxj2S5lcqO/b7cP0R
+	 NZe6DjeT7IdAgi4GGljMStrUqi+h/92RK3rEyYDY31aSKWPw8291UIh2ltO3pnVGCf
+	 5uC2mR9yOENyQ==
+Date: Fri, 23 May 2025 14:30:17 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org,
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Subject: Re: [PATCH v9 1/9] optee: sync secure world ABI headers
+Message-ID: <aDA5IZ4lBIxNcJQX@sumit-X1>
+References: <20250520152436.474778-1-jens.wiklander@linaro.org>
+ <20250520152436.474778-2-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] TI: K3: Switch MCU R5F cluster into Split mode
-To: Nishanth Menon <nm@ti.com>
-CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <afd@ti.com>,
-        <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250522073426.329344-1-b-padhi@ti.com>
- <20250522155338.gpbcubkvygtju3qc@bagpipe>
-Content-Language: en-US
-From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <20250522155338.gpbcubkvygtju3qc@bagpipe>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_015756_610321_DE2E3AA3 
-X-CRM114-Status: GOOD (  26.44  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250520152436.474778-2-jens.wiklander@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,101 +85,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth,
-
-On 5/22/2025 9:23 PM, Nishanth Menon wrote:
-> On 13:04-20250522, Beleswar Padhi wrote:
->> Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 have a
->> R5F cluster in the MCU domain which is configured for LockStep mode at
->> the moment. Switch this R5F cluster to Split mode by default in all
->> corresponding board level DTs to maximize the number of R5F cores.
-> Why? I can read the patch to understand what you are trying to do, but
-> the rationale needs to be explained.
-
-
-Sure, rationale is lot of users of our SoCs want to control the R5 core 
-in the MCU domain as a general purpose remote processor to increase 
-performance. That means able to load applications from 
-bootloader/kernel/userspace, poweroff/poweron core at runtime etc. The 
-challenge with this is the MCU R5F cluster is reserved to run the 
-central Device Manager (DM) Firmware.
-
-However, since the MCU R5F cluster is lockstep enabled, it supports both 
-lockstep mode and split mode of booting. So here we decide to boot the 
-cluster in split mode by which we can reserve the primary core to run DM 
-and use the secondary core as a general purpose remote processor.
-
-Now why didn't we do this split mode booting since the inception? Well 
-because MCU R5F Cluster is booted by ROM code, and when ROM boots it in 
-split mode, it powers on the secondary core and puts it in WFI (as there 
-is nothing to do for it yet). But the standard remoteproc drivers in 
-Linux and other bootloaders can only load firmware on a core if it is 
-powered off/held in reset. So there was some plumbing needed to be done 
-at the bootloader stage to actually poweroff the secondary core in split 
-mode; so that remoteproc drivers can then load & control the core as 
-expected. Now that the plumbing[0] is posted for U-Boot, we can switch 
-to split mode booting here in DT.
-
-[0]: https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
-
+On Tue, May 20, 2025 at 05:16:44PM +0200, Jens Wiklander wrote:
+> Update the header files describing the secure world ABI, both with and
+> without FF-A. The ABI is extended to deal with protected memory, but as
+> usual backward compatible.
+> 
+> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> ---
+>  drivers/tee/optee/optee_ffa.h | 27 ++++++++---
+>  drivers/tee/optee/optee_msg.h | 84 ++++++++++++++++++++++++++++++-----
+>  drivers/tee/optee/optee_smc.h | 37 ++++++++++++++-
+>  3 files changed, 130 insertions(+), 18 deletions(-)
 >
->> Corresponding support to shutdown MCU R5F core 1 on SoC power on have
->> been posted in U-Boot:
->> https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
->>
->> While at it, correct the firmware-name property for MCU R5F cores of
->> J742S2 SoC in [PATCH 1/2].
->>
->> Testing Done:
->> 1. Tested that each patch does not generate any new warnings/errors.
->> 2. Build test on all existing TI K3 platforms.
->> 3. Tested U-Boot and Linux load of MCU R5F core in split mode on all
->> applicable boards (AM68-SK, AM69-SK, J7200-EVM, J721E-EVM, J721S2-EVM,
->> J784S4-evm, J742S2-EVM)
->>
->> Test logs:
->> https://gist.github.com/3V3RYONE/ee8e3cb9aa5f4c5c00b059b9c14bfa98
->>
->> Thanks,
->> Beleswar
->>
->> Beleswar Padhi (2):
->>    arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU
->>      R5F cores
->>    arm64: dts: ti: k3: Switch MCU R5F cluster to Split-mode
-> NAK! We are once again churning downstream users again and for what
-> reason - coverletter and the patch is vague on that!
->
-> I would prefer the entire remote proc dts stuff cleaned up once for all
-> in a comprehensive series.
->
-> Let me be clear (once again): We DO NOT break backward compatibility.
-> We do not break downstream users without a clear cut rationale. We do
-> not break all other ecosystems depending on device tree without a very
-> very solid reason.
 
+Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
 
-I don't understand how this is breaking any backward compatibility. We 
-are not removing the lockstep boot support entirely here. We are just 
-switching to Split boot by default because of the usecases. If not 
-today, someday we have to go with split mode booting by default.
+-Sumit
 
-That's exactly what we did for the MAIN domain R5F clusters: 1. First we 
-did the plumbing to have power synchronization between the cores of a 
-cluster: 
-https://lore.kernel.org/all/20240430105307.1190615-1-b-padhi@ti.com/ 2. 
-Then we switched the Cluster to boot in split mode by default: 
-https://lore.kernel.org/all/20240826093024.1183540-1-b-padhi@ti.com/
-
-Now, for users who prefer to use the fault-tolerant lockstep mode, they 
-can still do that by setting `ti,cluster-mode` property to 1. However, I 
-agree that we should not be doing 'hardware configuration' (split vs 
-lockstep) in Device Tree which is supposed to be 'hardware description'. 
-We have started to explore solutions where we can dictate this lockstep 
-vs split core configuration from the firmware itself during runtime. 
-Once that is done (long way to go thinking of upstream), we can get rid 
-of this configuration from the DT entirely.
-
-Thanks, Beleswar
-
+> diff --git a/drivers/tee/optee/optee_ffa.h b/drivers/tee/optee/optee_ffa.h
+> index 257735ae5b56..cc257e7956a3 100644
+> --- a/drivers/tee/optee/optee_ffa.h
+> +++ b/drivers/tee/optee/optee_ffa.h
+> @@ -81,7 +81,7 @@
+>   *                   as the second MSG arg struct for
+>   *                   OPTEE_FFA_YIELDING_CALL_WITH_ARG.
+>   *        Bit[31:8]: Reserved (MBZ)
+> - * w5:	  Bitfield of secure world capabilities OPTEE_FFA_SEC_CAP_* below,
+> + * w5:	  Bitfield of OP-TEE capabilities OPTEE_FFA_SEC_CAP_*
+>   * w6:	  The maximum secure world notification number
+>   * w7:	  Not used (MBZ)
+>   */
+> @@ -94,6 +94,8 @@
+>  #define OPTEE_FFA_SEC_CAP_ASYNC_NOTIF	BIT(1)
+>  /* OP-TEE supports probing for RPMB device if needed */
+>  #define OPTEE_FFA_SEC_CAP_RPMB_PROBE	BIT(2)
+> +/* OP-TEE supports Protected Memory for secure data path */
+> +#define OPTEE_FFA_SEC_CAP_PROTMEM	BIT(3)
+>  
+>  #define OPTEE_FFA_EXCHANGE_CAPABILITIES OPTEE_FFA_BLOCKING_CALL(2)
+>  
+> @@ -108,7 +110,7 @@
+>   *
+>   * Return register usage:
+>   * w3:    Error code, 0 on success
+> - * w4-w7: Note used (MBZ)
+> + * w4-w7: Not used (MBZ)
+>   */
+>  #define OPTEE_FFA_UNREGISTER_SHM	OPTEE_FFA_BLOCKING_CALL(3)
+>  
+> @@ -119,16 +121,31 @@
+>   * Call register usage:
+>   * w3:    Service ID, OPTEE_FFA_ENABLE_ASYNC_NOTIF
+>   * w4:	  Notification value to request bottom half processing, should be
+> - *	  less than OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE.
+> + *	  less than OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE
+>   * w5-w7: Not used (MBZ)
+>   *
+>   * Return register usage:
+>   * w3:    Error code, 0 on success
+> - * w4-w7: Note used (MBZ)
+> + * w4-w7: Not used (MBZ)
+>   */
+>  #define OPTEE_FFA_ENABLE_ASYNC_NOTIF	OPTEE_FFA_BLOCKING_CALL(5)
+>  
+> -#define OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE 64
+> +#define OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE	64
+> +
+> +/*
+> + * Release Protected memory
+> + *
+> + * Call register usage:
+> + * w3:    Service ID, OPTEE_FFA_RECLAIM_PROTMEM
+> + * w4:    Shared memory handle, lower bits
+> + * w5:    Shared memory handle, higher bits
+> + * w6-w7: Not used (MBZ)
+> + *
+> + * Return register usage:
+> + * w3:    Error code, 0 on success
+> + * w4-w7: Note used (MBZ)
+> + */
+> +#define OPTEE_FFA_RELEASE_PROTMEM	OPTEE_FFA_BLOCKING_CALL(8)
+>  
+>  /*
+>   * Call with struct optee_msg_arg as argument in the supplied shared memory
+> diff --git a/drivers/tee/optee/optee_msg.h b/drivers/tee/optee/optee_msg.h
+> index e8840a82b983..22130e967dc5 100644
+> --- a/drivers/tee/optee/optee_msg.h
+> +++ b/drivers/tee/optee/optee_msg.h
+> @@ -133,13 +133,13 @@ struct optee_msg_param_rmem {
+>  };
+>  
+>  /**
+> - * struct optee_msg_param_fmem - ffa memory reference parameter
+> + * struct optee_msg_param_fmem - FF-A memory reference parameter
+>   * @offs_lower:	   Lower bits of offset into shared memory reference
+>   * @offs_upper:	   Upper bits of offset into shared memory reference
+>   * @internal_offs: Internal offset into the first page of shared memory
+>   *		   reference
+>   * @size:	   Size of the buffer
+> - * @global_id:	   Global identifier of Shared memory
+> + * @global_id:	   Global identifier of the shared memory
+>   */
+>  struct optee_msg_param_fmem {
+>  	u32 offs_low;
+> @@ -165,7 +165,7 @@ struct optee_msg_param_value {
+>   * @attr:	attributes
+>   * @tmem:	parameter by temporary memory reference
+>   * @rmem:	parameter by registered memory reference
+> - * @fmem:	parameter by ffa registered memory reference
+> + * @fmem:	parameter by FF-A registered memory reference
+>   * @value:	parameter by opaque value
+>   * @octets:	parameter by octet string
+>   *
+> @@ -296,6 +296,18 @@ struct optee_msg_arg {
+>   */
+>  #define OPTEE_MSG_FUNCID_GET_OS_REVISION	0x0001
+>  
+> +/*
+> + * Values used in OPTEE_MSG_CMD_LEND_PROTMEM below
+> + * OPTEE_MSG_PROTMEM_RESERVED		Reserved
+> + * OPTEE_MSG_PROTMEM_SECURE_VIDEO_PLAY	Secure Video Playback
+> + * OPTEE_MSG_PROTMEM_TRUSTED_UI		Trused UI
+> + * OPTEE_MSG_PROTMEM_SECURE_VIDEO_RECORD	Secure Video Recording
+> + */
+> +#define OPTEE_MSG_PROTMEM_RESERVED		0
+> +#define OPTEE_MSG_PROTMEM_SECURE_VIDEO_PLAY	1
+> +#define OPTEE_MSG_PROTMEM_TRUSTED_UI		2
+> +#define OPTEE_MSG_PROTMEM_SECURE_VIDEO_RECORD	3
+> +
+>  /*
+>   * Do a secure call with struct optee_msg_arg as argument
+>   * The OPTEE_MSG_CMD_* below defines what goes in struct optee_msg_arg::cmd
+> @@ -337,15 +349,63 @@ struct optee_msg_arg {
+>   * OPTEE_MSG_CMD_STOP_ASYNC_NOTIF informs secure world that from now is
+>   * normal world unable to process asynchronous notifications. Typically
+>   * used when the driver is shut down.
+> + *
+> + * OPTEE_MSG_CMD_LEND_PROTMEM lends protected memory. The passed normal
+> + * physical memory is protected from normal world access. The memory
+> + * should be unmapped prior to this call since it becomes inaccessible
+> + * during the request.
+> + * Parameters are passed as:
+> + * [in] param[0].attr			OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
+> + * [in] param[0].u.value.a		OPTEE_MSG_PROTMEM_* defined above
+> + * [in] param[1].attr			OPTEE_MSG_ATTR_TYPE_TMEM_INPUT
+> + * [in] param[1].u.tmem.buf_ptr		physical address
+> + * [in] param[1].u.tmem.size		size
+> + * [in] param[1].u.tmem.shm_ref		holds protected memory reference
+> + *
+> + * OPTEE_MSG_CMD_RECLAIM_PROTMEM reclaims a previously lent protected
+> + * memory reference. The physical memory is accessible by the normal world
+> + * after this function has return and can be mapped again. The information
+> + * is passed as:
+> + * [in] param[0].attr			OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
+> + * [in] param[0].u.value.a		holds protected memory cookie
+> + *
+> + * OPTEE_MSG_CMD_GET_PROTMEM_CONFIG get configuration for a specific
+> + * protected memory use case. Parameters are passed as:
+> + * [in] param[0].attr			OPTEE_MSG_ATTR_TYPE_VALUE_INOUT
+> + * [in] param[0].value.a		OPTEE_MSG_PROTMEM_*
+> + * [in] param[1].attr			OPTEE_MSG_ATTR_TYPE_{R,F}MEM_OUTPUT
+> + * [in] param[1].u.{r,f}mem		Buffer or NULL
+> + * [in] param[1].u.{r,f}mem.size	Provided size of buffer or 0 for query
+> + * output for the protected use case:
+> + * [out] param[0].value.a		Minimal size of protected memory
+> + * [out] param[0].value.b		Required alignment of size and start of
+> + *					protected memory
+> + * [out] param[0].value.c               PA width, max 64
+> + * [out] param[1].{r,f}mem.size		Size of output data
+> + * [out] param[1].{r,f}mem		If non-NULL, contains an array of
+> + *					uint16_t holding endpoints that
+> + *					must be included when lending
+> + *					memory for this use case
+> + *
+> + * OPTEE_MSG_CMD_ASSIGN_PROTMEM assigns use-case to protected memory
+> + * previously lent using the FFA_LEND framework ABI. Parameters are passed
+> + * as:
+> + * [in] param[0].attr			OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
+> + * [in] param[0].u.value.a		holds protected memory cookie
+> + * [in] param[0].u.value.b		OPTEE_MSG_PROTMEM_* defined above
+>   */
+> -#define OPTEE_MSG_CMD_OPEN_SESSION	0
+> -#define OPTEE_MSG_CMD_INVOKE_COMMAND	1
+> -#define OPTEE_MSG_CMD_CLOSE_SESSION	2
+> -#define OPTEE_MSG_CMD_CANCEL		3
+> -#define OPTEE_MSG_CMD_REGISTER_SHM	4
+> -#define OPTEE_MSG_CMD_UNREGISTER_SHM	5
+> -#define OPTEE_MSG_CMD_DO_BOTTOM_HALF	6
+> -#define OPTEE_MSG_CMD_STOP_ASYNC_NOTIF	7
+> -#define OPTEE_MSG_FUNCID_CALL_WITH_ARG	0x0004
+> +#define OPTEE_MSG_CMD_OPEN_SESSION		0
+> +#define OPTEE_MSG_CMD_INVOKE_COMMAND		1
+> +#define OPTEE_MSG_CMD_CLOSE_SESSION		2
+> +#define OPTEE_MSG_CMD_CANCEL			3
+> +#define OPTEE_MSG_CMD_REGISTER_SHM		4
+> +#define OPTEE_MSG_CMD_UNREGISTER_SHM		5
+> +#define OPTEE_MSG_CMD_DO_BOTTOM_HALF		6
+> +#define OPTEE_MSG_CMD_STOP_ASYNC_NOTIF		7
+> +#define OPTEE_MSG_CMD_LEND_PROTMEM		8
+> +#define OPTEE_MSG_CMD_RECLAIM_PROTMEM		9
+> +#define OPTEE_MSG_CMD_GET_PROTMEM_CONFIG	10
+> +#define OPTEE_MSG_CMD_ASSIGN_PROTMEM		11
+> +#define OPTEE_MSG_FUNCID_CALL_WITH_ARG		0x0004
+>  
+>  #endif /* _OPTEE_MSG_H */
+> diff --git a/drivers/tee/optee/optee_smc.h b/drivers/tee/optee/optee_smc.h
+> index 879426300821..accf76a99288 100644
+> --- a/drivers/tee/optee/optee_smc.h
+> +++ b/drivers/tee/optee/optee_smc.h
+> @@ -264,7 +264,6 @@ struct optee_smc_get_shm_config_result {
+>  #define OPTEE_SMC_SEC_CAP_HAVE_RESERVED_SHM	BIT(0)
+>  /* Secure world can communicate via previously unregistered shared memory */
+>  #define OPTEE_SMC_SEC_CAP_UNREGISTERED_SHM	BIT(1)
+> -
+>  /*
+>   * Secure world supports commands "register/unregister shared memory",
+>   * secure world accepts command buffers located in any parts of non-secure RAM
+> @@ -280,6 +279,10 @@ struct optee_smc_get_shm_config_result {
+>  #define OPTEE_SMC_SEC_CAP_RPC_ARG		BIT(6)
+>  /* Secure world supports probing for RPMB device if needed */
+>  #define OPTEE_SMC_SEC_CAP_RPMB_PROBE		BIT(7)
+> +/* Secure world supports protected memory */
+> +#define OPTEE_SMC_SEC_CAP_PROTMEM		BIT(8)
+> +/* Secure world supports dynamic protected memory */
+> +#define OPTEE_SMC_SEC_CAP_DYNAMIC_PROTMEM	BIT(9)
+>  
+>  #define OPTEE_SMC_FUNCID_EXCHANGE_CAPABILITIES	9
+>  #define OPTEE_SMC_EXCHANGE_CAPABILITIES \
+> @@ -451,6 +454,38 @@ struct optee_smc_disable_shm_cache_result {
+>  
+>  /* See OPTEE_SMC_CALL_WITH_REGD_ARG above */
+>  #define OPTEE_SMC_FUNCID_CALL_WITH_REGD_ARG	19
+> +/*
+> + * Get protected memory config
+> + *
+> + * Returns the protected memory config.
+> + *
+> + * Call register usage:
+> + * a0   SMC Function ID, OPTEE_SMC_GET_PROTMEM_CONFIG
+> + * a2-6	Not used, must be zero
+> + * a7	Hypervisor Client ID register
+> + *
+> + * Have config return register usage:
+> + * a0	OPTEE_SMC_RETURN_OK
+> + * a1	Physical address of start of protected memory
+> + * a2	Size of protected memory
+> + * a3	PA width, max 64
+> + * a4-7	Preserved
+> + *
+> + * Not available register usage:
+> + * a0	OPTEE_SMC_RETURN_ENOTAVAIL
+> + * a1-3 Not used
+> + * a4-7	Preserved
+> + */
+> +#define OPTEE_SMC_FUNCID_GET_PROTMEM_CONFIG		20
+> +#define OPTEE_SMC_GET_PROTMEM_CONFIG \
+> +	OPTEE_SMC_FAST_CALL_VAL(OPTEE_SMC_FUNCID_GET_PROTMEM_CONFIG)
+> +
+> +struct optee_smc_get_protmem_config_result {
+> +	unsigned long status;
+> +	unsigned long start;
+> +	unsigned long size;
+> +	unsigned long pa_width;
+> +};
+>  
+>  /*
+>   * Resume from RPC (for example after processing a foreign interrupt)
+> -- 
+> 2.43.0
+> 
 
