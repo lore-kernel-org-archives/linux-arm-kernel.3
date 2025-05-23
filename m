@@ -4,75 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC7D8C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BDC6C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IwXNYwMt/ZQYpLBw6rioL9Zt/gPDdC2LapQUC2nE+SE=; b=zJAxXUAzyUNqEnjS9rmbJDaSEd
-	EFjVQX0fZfvhYIwAGE7RAiqsTNQq7oGdI2xtztsrKrqMU/woqUfUuCFwxQ9QQioXXH3b4n36nGyPj
-	MUMoXMtIlpkHepif3GOMvHCkUuEOJtT7h3o97wjxUK/sAAlfJTqv72A0B0relw/NFVouudn3YOLWe
-	PtfeDG+ftPAON1uMpCTgsWtgh4vEWBW/6fxDO3ZK44OxgNXRlordHLTZhkJemltETNTPBmhn4phM8
-	86zm7H1XJHSAVmt/WQbHu+FOLladsXsNKCtt2JI7Dbrb9hEEg2xKXValoYc38uHJEdbP6q0H9AkLZ
-	dX/drRVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vMybJrVOxCi72E1Pt60pMqYpdyjf6Ss0XPZB55xj29M=; b=lIfNaYvZshblEhG/7cDRgL/S2i
+	Chs90FQ0ZhZQwFF9dJkfGO0IMuk6QkW1PrN49tVPoxM8i1LqaDklx6s/uGC7Yq9BL34gizHOZJ/6S
+	DBW6aKVWu+mSjzHkzNi4sy6iHyUDrMclrt8UJwSAmnfNIGZXOtnHejW6mj/UyfQgAKYEIfrMHnmmo
+	IpFm3y7M8Hrzqbx+iF5jA6MPR35/La8+EC9Vu21Fb8OWlX0qRZOOLKvp5tXv0BvWAL85FhyNMNg8P
+	Am89mw22dXlbQgxPsqWtNOcoKh603LbbiYWR0CHMNns2GL5AdKwjllt4O5Az/gUCTHUelI9zcuvDS
+	oNdnoR1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOni-00000003RvV-3GUf;
-	Fri, 23 May 2025 09:34:50 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uIOrL-00000003SLK-2Vws;
+	Fri, 23 May 2025 09:38:35 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOlY-00000003Rjs-2eOg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 09:32:37 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54N9WQCg880752;
-	Fri, 23 May 2025 04:32:26 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747992746;
-	bh=IwXNYwMt/ZQYpLBw6rioL9Zt/gPDdC2LapQUC2nE+SE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=E42gUiMU8z0rYBiIsNPYL56L35AsFCVw5FOjnOkT8UglQTpsEXPCFMHzz81p5Jogi
-	 B5jjAyuW6aHh87C5VTWh3mcFzR/IMbawSSYp0uKdkmBpF/8ck3y5gnlTWUI6uyzphz
-	 ZEmlNgVvir0rIMDMB1q6CvTz3ng0f4Dm3ZT+t3Q0=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54N9WPUs4178683
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 23 May 2025 04:32:25 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 23
- May 2025 04:32:25 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 23 May 2025 04:32:25 -0500
-Received: from [172.24.18.216] (lt5cd2489kgj.dhcp.ti.com [172.24.18.216])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54N9WK4s105573;
-	Fri, 23 May 2025 04:32:21 -0500
-Message-ID: <479609b2-1953-4e8a-a7c8-87dcd2eff3d9@ti.com>
-Date: Fri, 23 May 2025 15:02:20 +0530
+	id 1uIOpA-00000003S5j-2nyI;
+	Fri, 23 May 2025 09:36:22 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54MNWFqO004792;
+	Fri, 23 May 2025 09:35:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=vMybJrVOxCi72E1Pt60pMqYpdyjf6S
+	s0XPZB55xj29M=; b=R3CkCkzBXxxe/KYe1HZxSJvJw7yMOWqLIb1q9Fi1+dx9HB
+	lzrW5uC2D+o8DDUmBu0XM/PAJmqmuHehdBrEVMHqfoUhcHLi6ToYHjCmmhOlgfpT
+	TQwI7DqaMRONrgRWKiGKDFCg4cmfGAVkPkHI9lynHES6VI4ywZ1JOR5QZTqGu76w
+	l7XrHGeY+Mdy+bNlQw3PXcMHZHCcVz5cFIIGqdwXcz8+J5jIoQ3qIK8Fq943SHuV
+	uKIOU7g/2MkYBPKsPCpXWeosqUVJ5uPlb0FmkK8RcqZ/FUkJllqmSvNDLeiC6gz6
+	jIMSQ2cId1paOBWJTP7lt+mEa75GUm/RTw1LZivA==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46t14jp33r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 09:35:57 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 54N9Ub2D019284;
+	Fri, 23 May 2025 09:35:56 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46t14jp33p-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 09:35:56 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 54N65XYR020693;
+	Fri, 23 May 2025 09:35:55 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 46rwkq5x35-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 09:35:55 +0000
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 54N9ZqFH47186204
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 23 May 2025 09:35:52 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0B10D2004D;
+	Fri, 23 May 2025 09:35:52 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 47DD220043;
+	Fri, 23 May 2025 09:35:50 +0000 (GMT)
+Received: from osiris (unknown [9.111.71.83])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 23 May 2025 09:35:50 +0000 (GMT)
+Date: Fri, 23 May 2025 11:35:48 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Kees Cook <kees@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+        Gaosheng Cui <cuigaosheng1@huawei.com>, linux-s390@vger.kernel.org,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>,
+        Andrey Konovalov <andreyknvl@gmail.com>,
+        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nicolas Schier <nicolas.schier@linux.dev>,
+        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+        x86@kernel.org, kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org,
+        linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+        linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        sparclinux@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH v2 07/14] s390: Handle KCOV __init vs inline mismatches
+Message-ID: <20250523093548.9524A8b-hca@linux.ibm.com>
+References: <20250523043251.it.550-kees@kernel.org>
+ <20250523043935.2009972-7-kees@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: dts: ti: k3-j784s4-main: Add PBIST_14 node
-To: Neha Malcom Francis <n-francis@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20250514072056.639346-1-n-francis@ti.com>
- <20250514072056.639346-3-n-francis@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250514072056.639346-3-n-francis@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250523043935.2009972-7-kees@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: KqDaZI-N24qPBCncGoId1M5821jvyXiL
+X-Authority-Analysis: v=2.4 cv=XOkwSRhE c=1 sm=1 tr=0 ts=6830417d cx=c_pps a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17 a=kj9zAlcOel0A:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=i0EeH86SAAAA:8 a=ZhbCrNo_nw5myWupG0oA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIzMDA4NCBTYWx0ZWRfX0w0P9E3aDLPl xKkdIDIhLiwjTmqVc2SrRDCWVWFZrVDCFjUtGWXwGKiqzPx3aH1H3kR3L9ztCvCTG2dYW5CKwL9 sICNUHibIsoUXe9IU/++4/n8wIvLqcN/lTpzb6AwUj21nwbHo2PrdccpN7uJ5neULr3iZ+x0IDO
+ cp9vaJXECGONZX36cRDNAuI3GEBAklLQu6bmjDNQyoWpyWcL52i8nxzjSMmMG12/PXn7Ht4o/I9 rKz7HWr8sXVyui6OGhJ6oXDcKWfiiMUq3fRRvh9CBFKWIWsQnUS30/UPfY4kp/wqVcXw92l9rKW 3UN+JfNQzPqTmiL+lKipax/ZfWe+uKv2lFByzGPt8jex7JX31DFbbxTGQxDZdrqyBmdG3LASN+L
+ ff1/Bps89M6t1nUW1d6VQ0r0f4R0IG0qDcI6J5H3ztJ8TgF0KLAewZp36812jwJ9B/V82K6H
+X-Proofpoint-GUID: FAZQIEfWbNoED4pzflxHiaQq3RMT7Za1
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-23_03,2025-05-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 malwarescore=0
+ mlxlogscore=586 bulkscore=0 mlxscore=0 lowpriorityscore=0 adultscore=0
+ impostorscore=0 suspectscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2505160000
+ definitions=main-2505230084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_023236_721249_2BFE127D 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250523_023620_826077_89AED64B 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +137,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Neha
-
-On 5/14/2025 12:50 PM, Neha Malcom Francis wrote:
-> Add DT node for PBIST_14 that is responsible for triggering the PBIST
-> self-tests for the MAIN_R5_2_x cores.
->
-> Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
+On Thu, May 22, 2025 at 09:39:17PM -0700, Kees Cook wrote:
+> When KCOV is enabled all functions get instrumented, unless
+> the __no_sanitize_coverage attribute is used. To prepare for
+> __no_sanitize_coverage being applied to __init functions, we have to
+> handle differences in how GCC's inline optimizations get resolved. For
+> s390 this exposed a place where the __init annotation was missing but
+> ended up being "accidentally correct". Fix this cases and force a couple
+> functions to be inline with __always_inline.
+> 
+> Signed-off-by: Kees Cook <kees@kernel.org>
 > ---
-> Changes since v2:
-> - remove ti,bist-under-test property and use ti,sci-dev-id
->
->   arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi | 11 +++++++++++
->   1 file changed, 11 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-> index 0160fe0da983..fd098aac3989 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-main.dtsi
-> @@ -113,6 +113,17 @@ serdes2: serdes@5020000 {
->   			status = "disabled";
->   		};
->   	};
-> +
-> +	bist_main14: bist@33c0000 {
-> +		compatible = "ti,j784s4-bist";
-> +		reg = <0x00 0x033c0000 0x00 0x400>,
-> +		      <0x00 0x0010c1a0 0x00 0x01c>;
-> +		reg-names = "cfg", "ctrl_mmr";
-> +		clocks = <&k3_clks 237 7>;
-> +		power-domains = <&k3_pds 237 TI_SCI_PD_EXCLUSIVE>;
-> +		bootph-pre-ram;
-> +		ti,sci-dev-id = <234>;
-> +	};
+> Cc: Heiko Carstens <hca@linux.ibm.com>
+> Cc: Vasily Gorbik <gor@linux.ibm.com>
+> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
+> Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
+> Cc: Sven Schnelle <svens@linux.ibm.com>
+> Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+> Cc: Gaosheng Cui <cuigaosheng1@huawei.com>
+> Cc: <linux-s390@vger.kernel.org>
+> ---
+>  arch/s390/hypfs/hypfs.h      | 2 +-
+>  arch/s390/hypfs/hypfs_diag.h | 2 +-
+>  arch/s390/mm/init.c          | 2 +-
+>  3 files changed, 3 insertions(+), 3 deletions(-)
 
-Please extend this support to j742s2 SOC as well.
-
-With above change
-
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-
-
->   };
->   
->   &scm_conf {
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
 
