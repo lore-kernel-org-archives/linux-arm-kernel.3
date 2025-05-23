@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C272EC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 15:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E09BC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 15:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6Qt9T9axDWKZdW0V8mxJy404waRLPFG48iRbR59dpk=; b=QUDimV9Y3IBv9kVSsLtCZkuhu2
-	tgy2fMSuEqqSbo4kQPAt+Q98rbHzCZUBfIN0J9uxApucJpngzIr8tjNoHpDhgcp0Q+O2u/xsDATvl
-	4DdXfOPTbAYOgnOM0Fj331ZbCNYqM6FgGJSMhrrOuyhWCM+boqZ5nhX3Kh6EPhlWbTON/0oE7+RMC
-	XZ5piQ0fHVA50u+MPFvD6/0n2/0jHdIUUSI61jb/M8jPEmS1k0i4/kIHjnV+6C8Cowbzz6CallsD5
-	0OasUVDCq2OGIw7F1pyIjxVZ/mtb413FhjEEH/2VJ1ksGELst0HNJJtjawghhbvYRg+85JKdihnku
-	35Fq/M0w==;
+	bh=zG0Aq0dm5zd6tPL905oAGCXNUFTWV4Fg6wvO8nA9YtM=; b=eeG9ib8hICAco3/R22LZTYlEqb
+	bM0UOYgPF59eMw2QuTGDEdZ72tLC9bRcXtreWVDkkCaqst/k1wRvSASXDvCT8PqBpF9lv0Y0iVKsN
+	C1PjMnFwPmMGQQMfVeRXQ4Q4khBd7bCOHKCifSFIHpq/MhMb/3cb0+91CfBGxqHzEzfC9z2LsZ63I
+	jIm3xjYCUUnl3GpbRCeMzBdK8TRS3KO00O6aqFaerxdnXqT5TPKBKmJ4CeEZj0KduvcWYBkiMY2yC
+	Y8cJDRBSOT/JFO6ktG9Mr6rDLTjENWSz/CnjxQRsAaFe8CynTpTFtRUyuWWFogCdLb/9qNuLW/6Jo
+	FBxdEkwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIUk8-00000004Je3-3r3y;
-	Fri, 23 May 2025 15:55:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uIUmB-00000004Jz8-47ah;
+	Fri, 23 May 2025 15:57:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIUPz-00000004GQi-1V15;
-	Fri, 23 May 2025 15:34:43 +0000
+	id 1uIURT-00000004Gf7-3GvB;
+	Fri, 23 May 2025 15:36:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9AF0D61154;
-	Fri, 23 May 2025 15:34:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFE6DC4CEE9;
-	Fri, 23 May 2025 15:34:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CF3A1629CD;
+	Fri, 23 May 2025 15:36:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B096CC4CEE9;
+	Fri, 23 May 2025 15:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748014482;
-	bh=F6Qt9T9axDWKZdW0V8mxJy404waRLPFG48iRbR59dpk=;
+	s=k20201202; t=1748014574;
+	bh=zG0Aq0dm5zd6tPL905oAGCXNUFTWV4Fg6wvO8nA9YtM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B4ErdVDmid5x5FjBT7zdcDcwqvS6y2Zg1cGoX/3VCvsofX4TZd//EdBMLzQDfoEwX
-	 qhe2Gar4rUBt/791S01+eWFT/jBP0/uupI6DLb9sO9R+NgCIWcqATQmf/gXWhcvpKd
-	 ZobWmHRfj0Xl/JTccDihsbnCotdlWkgf1RAQ5Wqoz3FYBA/sH73Xp4nJ7aHjAg1ey1
-	 yASJAJ7xxKpRu0veigdDSC4RMYzVE3q0w2gcul7xQsjqSdFir9Z0yc5QNaV/WJp1/o
-	 x9Ujb4xNuqDZtkN0lG/dP1+x7a2jhFK09WU50SCjyIA+s9NP24yr03zyMsvy4R1En1
-	 zp8nGJZZwyd8Q==
-Date: Fri, 23 May 2025 16:34:35 +0100
+	b=CjwldArLZVywmL4BtfM9pLrYXkohqEPLLnBQyNP7xfBRFsSzTxTxvrtEaGOep4K7h
+	 vZ0k4IlP/x9We6ehTYweyWo2At6E9I1IMrjAwSlUHiEL7Ru/R5yQRAzYqUXxXKlgDN
+	 KT98/Ef487LHmYrzwFvHZ4Gtw/y7nigDdaeHZLrFdj3+91C8P1bkIVdrKrSHkysQVQ
+	 UXa1YcDU6f10xJNpSegcoSTbuxW4SdAPPk86AOv5uaFfqKgDiwPykkzdKkmEKboTQy
+	 l9EMFcVTWjMceFxINNpuVIa9nLdGHG6jg10RAtB+lnucCV5vPUsGDP2bug5aJ+QEVB
+	 pyj3DMaJpVIqA==
+Date: Fri, 23 May 2025 16:36:07 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+To: Rajnesh Kanwal <rkanwal@rivosinc.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
-	Landen Chao <Landen.Chao@mediatek.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Beeman Strong <beeman@rivosinc.com>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [net-next PATCH 1/3] dt-bindings: net: dsa: mediatek,mt7530: Add
- airoha,an7583-switch
-Message-ID: <20250523-poster-suffix-8a15978bc704@spud>
-References: <20250522165313.6411-1-ansuelsmth@gmail.com>
- <20250522165313.6411-2-ansuelsmth@gmail.com>
+	Palmer Dabbelt <palmer@sifive.com>, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 7/7] dt-bindings: riscv: add Sxctr ISA extension
+ description
+Message-ID: <20250523-ducky-unlisted-5764ad0f698a@spud>
+References: <20250523-b4-ctr_upstream_v3-v3-0-ad355304ba1c@rivosinc.com>
+ <20250523-b4-ctr_upstream_v3-v3-7-ad355304ba1c@rivosinc.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="aKTWQfuzzRjxJz4t"
+	protocol="application/pgp-signature"; boundary="YsbMlZlsa7BrXpPT"
 Content-Disposition: inline
-In-Reply-To: <20250522165313.6411-2-ansuelsmth@gmail.com>
+In-Reply-To: <20250523-b4-ctr_upstream_v3-v3-7-ad355304ba1c@rivosinc.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +89,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---aKTWQfuzzRjxJz4t
+--YsbMlZlsa7BrXpPT
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, May 22, 2025 at 06:53:09PM +0200, Christian Marangi wrote:
-> Add airoha,an7583-switch additional compatible to the mt7530 DSA Switch
-> Family. This is an exact match of the airoha,en7581-switch (based on
-> mt7988-switch) with the additional requirement of tweak on the
-> GEPHY_CONN_CFG registers to make the internal PHY actually work.
+On Fri, May 23, 2025 at 12:25:13AM +0100, Rajnesh Kanwal wrote:
+> Add the S[m|s]ctr ISA extension description.
 >=20
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
---aKTWQfuzzRjxJz4t
+--YsbMlZlsa7BrXpPT
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaDCViwAKCRB4tDGHoIJi
-0kQPAP9frHNQgSGAHPA5uunYjumQhgnmnzyhTpQjs9+iFOrwaQD/dJcW9+a4KFNn
-9Mou2j6ietaV+/YWiSjzhzjlzbUPAwM=
-=dZL2
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaDCV5wAKCRB4tDGHoIJi
+0pfsAQCC0vFE1gQIjvjVO3vjHghEg/7zH3pwUyTcP2hPYZcZSAEAjizdb5MtEvdc
+ne55YWgcjHCCab8vDuJrO0B3c+3OXwg=
+=xhJF
 -----END PGP SIGNATURE-----
 
---aKTWQfuzzRjxJz4t--
+--YsbMlZlsa7BrXpPT--
 
