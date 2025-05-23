@@ -4,146 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F075C3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 05:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F168EC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 05:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T9QR0vRv/b0B11JDYax3wCR+tNiJcsp+EMocfpzOxi8=; b=2S49BwVuj+5FfMjYmAmSCjS65j
-	j9dR4g76bRs7BHKNZXjCE+mugaZQOVCar1dZa1t1c0tbY7i/ZUR8XU5Na/q3F+a1IbhF1p5ubT4lC
-	w9GzkbxARg/5Y0SxB7l0GcFKQW+fBfqJWjdHJD3YTdLSItD+52TzKjQWieYodgcAlXyCQQb9uT4B2
-	d/58K6rqfcEqZWj5ja1LKEbPUzfoGzorm5OimWJPh/DjCUlwdWHJCPD3mJx7zv/mchik/1C5/vxlr
-	vcnYjPFJibr7PNdg8J/qYD+ueUolEyiqmZQYpuYI/tpHGjg331s5Hzv7dPHhgvO2P+AEAblFAWqZO
-	IQ8BctZQ==;
+	bh=EB7rgMEVkNHPNOu5eE3mPD6AxaPnrpq2uXYFS720rCk=; b=hTmtdoskgyz4HSpZnvOt989Vc2
+	Te5s40Jw03kU9XLocsIH4Fr6aICXEI38zQXqjvMY90ll9OrFj17h1odI1VwftwPMYkryV+y9zZ5oK
+	ot8ylV+P9pqHsbigOLduo1ufkcZCwilatNxVT3BjgFb2xg2Lxcf2exdCSyK21zzN8vPl1/0jM6w3K
+	qJdY7imNmmwo9sCLqMKcpP9eeag0E8sYRXw3rGxkfF5k/Zg6bjuyCPEtO3kixZbtQQJ/D710wCYxF
+	m4RgRWH5BzKk2bqJf4ZZA4YC+UIgMVlRLi2DFQ6x0qGWPYkHi5Dwmw6qWx4ta0LMPJkC8I4Zugi+b
+	F89+HvFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKwH-00000002zXU-1lRr;
-	Fri, 23 May 2025 05:27:25 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uIL47-000000031ic-2V9m;
+	Fri, 23 May 2025 05:35:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKu4-00000002zI1-3tdy;
-	Fri, 23 May 2025 05:25:10 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54MNWEn5006420;
-	Fri, 23 May 2025 05:24:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=T9QR0v
-	Rv/b0B11JDYax3wCR+tNiJcsp+EMocfpzOxi8=; b=gkPzzSJS3ymffrtpxcB5vm
-	v0s0Gt+0xedPFAF4Q0SBMgwUo01yMH5OqoDNtugNOwneyxcvMf5JVIm1y0T08Re7
-	EmJ6QdZ6GthLPsjQ11Y8uXW7sj+Eeyb8WqKlexTBXqcCpntaCyNC/X7hKpXH2JUj
-	tiWuD0uZqTjnvmBQRioWrY0breTha8OmZHdV8IDZEYMicTaNWm94EHTL/osOLYVd
-	iuLvSdTpZmyAtPpzaNMZw/bBFpt41IbV5Ua0ZuIpLPTk4wDsHISYTDhuqr1lanD2
-	vG9gQ6KwGs17vxJDgNiDQL5N9JmAxrZi3uqj2fVPEF8IGqrxh/bDnF+01ZlmwWWQ
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46t9m7t7sq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 May 2025 05:24:43 +0000 (GMT)
-Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 54N5Ogd1008988;
-	Fri, 23 May 2025 05:24:42 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46t9m7t7sh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 May 2025 05:24:42 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 54N1ugL2015431;
-	Fri, 23 May 2025 05:24:41 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 46rwnnn2at-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 May 2025 05:24:41 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 54N5OdfJ51446136
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 23 May 2025 05:24:40 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DFC2C20043;
-	Fri, 23 May 2025 05:24:39 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6FB4920040;
-	Fri, 23 May 2025 05:24:39 +0000 (GMT)
-Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 23 May 2025 05:24:39 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com (haven.au.ibm.com [9.63.198.114])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id A792F60213;
-	Fri, 23 May 2025 15:24:35 +1000 (AEST)
-Message-ID: <e50abba6c962772c73342bacf20fb87dc99dd542.camel@linux.ibm.com>
-Subject: Re: [PATCH v2 08/14] powerpc: Handle KCOV __init vs inline
- mismatches
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman	
- <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy
-	 <christophe.leroy@csgroup.eu>,
-        Naveen N Rao <naveen@kernel.org>,
-        "Ritesh
- Harjani (IBM)" <ritesh.list@gmail.com>,
-        "Aneesh Kumar K.V"
- <aneesh.kumar@linux.ibm.com>,
-        Andrew Morton	 <akpm@linux-foundation.org>,
-        linuxppc-dev@lists.ozlabs.org,
-        "Gustavo A. R. Silva"
- <gustavoars@kernel.org>,
-        Christoph Hellwig <hch@lst.de>, Marco Elver
- <elver@google.com>,
-        Andrey Konovalov <andreyknvl@gmail.com>,
-        Andrey
- Ryabinin <ryabinin.a.a@gmail.com>,
-        Ard Biesheuvel <ardb@kernel.org>,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Nathan Chancellor
- <nathan@kernel.org>,
-        Nicolas Schier	 <nicolas.schier@linux.dev>,
-        Nick
- Desaulniers <nick.desaulniers+lkml@gmail.com>,
-        Bill Wendling
- <morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-        x86@kernel.org, kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-efi@vger.kernel.org, linux-hardening@vger.kernel.org,
-        linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org,
-        linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
-        llvm@lists.linux.dev
-Date: Fri, 23 May 2025 15:24:30 +1000
-In-Reply-To: <20250523043935.2009972-8-kees@kernel.org>
-References: <20250523043251.it.550-kees@kernel.org>
-	 <20250523043935.2009972-8-kees@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1 (3.56.1-1.fc42) 
+	id 1uIL1w-0000000318P-2Xmk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 23 May 2025 05:33:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=EB7rgMEVkNHPNOu5eE3mPD6AxaPnrpq2uXYFS720rCk=; b=M02x+o+0UgGpM80C95tg1vbbjk
+	0leH5hHfRMPby8BcGUmwv3qwlQYA3BT3M3MUSdbJvnsoWpVbe6RPhL3NIdtliHvnavEZJieqpb4JQ
+	9aX/MEye0MoaiFwXKvYWiWdQt0NonynSHGaUStH3PyZCmxUjF3EmiPR33weYOOA/S5TxNwxfk5ZEi
+	1Gev7+QF4VxuuoJFzBGp7NOq2yzAxre+CXAXt1lClLW17X28NiVzPph+t3yS6VfNaDWXYYxcanC6M
+	flsn3mi/FZ60/CsFp5OxCnPWFaYOfQwGNIDVaCoB6A4zVBz0GXXrniSmGfTbvc3vo9GyhYKMfu1j2
+	EYa/fUKA==;
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uIL1r-0000000190W-1keT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 05:33:14 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54N5WfDw833898;
+	Fri, 23 May 2025 00:32:41 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1747978361;
+	bh=EB7rgMEVkNHPNOu5eE3mPD6AxaPnrpq2uXYFS720rCk=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=CsKaf0AwywPoU+/W5Pthl4dZP8BJPZm5H8gPOpT8k/DUoIXzz2koUH8cYjriuodT0
+	 t4pVdSLU9pAFN0AyZ398wPfeI7g/Gbg//EdA0CuMF2jJt+1GLaVXyH5cTyqmFrbQ5k
+	 VLSaDbaqee2M/54LBOndIs+IDf4egJiY2A15wpwE=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54N5Wffd4034342
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 23 May 2025 00:32:41 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 23
+ May 2025 00:32:40 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 23 May 2025 00:32:40 -0500
+Received: from localhost (dhcp-10-24-69-136.dhcp.ti.com [10.24.69.136])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54N5WdIF1038466;
+	Fri, 23 May 2025 00:32:39 -0500
+Date: Fri, 23 May 2025 11:02:38 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Frank Li <Frank.li@nxp.com>
+CC: <s-vadapalli@ti.com>, <bhelgaas@google.com>, <conor+dt@kernel.org>,
+        <devicetree@vger.kernel.org>, <krzk+dt@kernel.org>, <kw@linux.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-omap@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <lpieralisi@kernel.org>, <manivannan.sadhasivam@linaro.org>,
+        <robh@kernel.org>, <tony@atomide.com>, <vigneshr@ti.com>
+Subject: Re: [PATCH v2 1/1] Revert "ARM: dts: Update pcie ranges for dra7"
+Message-ID: <5a8a4f18-d5cc-4fd1-aeda-2e739502e0eb@ti.com>
+References: <20250411153454.3258098-1-Frank.Li@nxp.com>
+ <aC97HguxSt56BkHa@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=SMZCVPvH c=1 sm=1 tr=0 ts=6830069b cx=c_pps a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VnNF1IyMAAAA:8 a=REYBSQJbgk_QW_Jsg8sA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: oQb5v6M7wutfrMtk1qvZQMEXsUNMAS6C
-X-Proofpoint-ORIG-GUID: 5IyYPtP_M7W6sx6jcc6-H4GkEZFAEAEb
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIzMDA0MyBTYWx0ZWRfX8CeyVmgZNEOz 8pmB+9RdT5ZsQ98qxplPqvRkrNpOOYwsSTFPDm5ofvI1Vh4bbudIby6HA8NmTGhtWKTGCbPb+Vc ncpDniBcH8eQ2V6TvH4/WOR7hWwc72H7W3tmeVLVHUbkift9S50W47R4EZG5vRt+eQh2UiWAsBK
- iE2vMgtZCKgIB8ryEScHd2O4ZVBu+fZQ71R6KP7ZepPiveo0szKoP5GtVDvnlETC92QyKZ6dJPA 9F354NXkUaazXC5GwoeLMpIeHZomJ+1xdeYZUMVAtJ78BfchmFk42UaDhV8BLvtV9oREWNDxTxG /JkwdDWhrq02gBuo/giLPxFbLNIIh1tgMIxMCWOWwczwEbDPV9zml+heRweY+Jd/oul5iu2Dl1O
- bQSsYl9qhOX4fnuFfAi63sra+qJkyo0qkV3/wv1tj0wVD9FBgFyh3pEhli53wYP0l6epaDcF
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-23_02,2025-05-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- mlxlogscore=480 suspectscore=0 bulkscore=0 clxscore=1011 adultscore=0
- phishscore=0 mlxscore=0 impostorscore=0 spamscore=0 lowpriorityscore=0
- malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
- definitions=main-2505230043
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aC97HguxSt56BkHa@lizhi-Precision-Tower-5810>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_222509_090085_BB4A9C11 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250523_063311_807675_556E277D 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,18 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-05-22 at 21:39 -0700, Kees Cook wrote:
-> When KCOV is enabled all functions get instrumented, unless
-> the __no_sanitize_coverage attribute is used. To prepare for
-> __no_sanitize_coverage being applied to __init functions, we have to
-> handle differences in how GCC's inline optimizations get resolved.
-> For
-> s390 this requires forcing a couple functions to be inline with
+On Thu, May 22, 2025 at 03:29:34PM -0400, Frank Li wrote:
 
-I assume you mean powerpc here, though I'm sure my employer is happy
-that you're at least confusing us with IBM's other architecture :)
+Hello Frank,
 
---=20
-Andrew Donnellan    OzLabs, ADL Canberra
-ajd@linux.ibm.com   IBM Australia Limited
+> On Fri, Apr 11, 2025 at 11:34:54AM -0400, Frank Li wrote:
+> > This reverts commit c761028ef5e27f477fe14d2b134164c584fc21ee.
+> >
+> > The commit being reverted updated the "ranges" property for the sake of
+> > readability. However, this change is no longer appropriate due to the
+> > following reasons:
+> >
+> > - On many SoCs, the PCIe parent bus translates CPU addresses to different
+> > values before passing them to the PCIe controller.
+> > - The reverted commit introduced a fake address translation, which violates
+> > the fundamental DTS principle: the device tree should reflect actual
+> > hardware behavior.
+> >
+> > Reverting this change prepares for the cleanup of the driver's
+> > cpu_addr_fixup() hook.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> 
+> s-vadapalli:
+> 
+> 	Any update about this patch? it prepare to remove cpu_addr_fixes()!
+
+This patch looks good to me, but I was hoping that Tony Lindgren, who is
+the author of the commit being reverted, would provide feedback as well.
+
+Regards,
+Siddharth.
 
