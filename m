@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1627C54EDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4048AC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 09:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4nSCGdmaulCKJ2pzYxAkTV6AdwVp2ZxR6mxEIPsaXQE=; b=Dc/jIdwoqH6zEWdpbeknYM0kxN
-	BVkwfE/qvwW1jNR7yOG+3JrQEX415h5MaJWV+5m5rhzUi6gvNQSdMcDOfCt6xSczOqRosEx+Mlkxe
-	trVyB3/NOAIK7kOQhJqXh0TBo56j5AAydIZjWjZ7I2TX0ucb3J8pzz02KOEP3nXU/eqqvrCk3Zh82
-	bWM1kMSD22H5UMsubWF415BgIOF1NB4NnwtN6pVs2SzBtGNRtIQhTThLwpbh99wTv/sTQcvinZsHl
-	VLsLnzYarzyWIhPs3L+lhTGiqbUZ+FR4T0hbkSjzZ9/qeDSD+mnQfvXJr9RA0CeVSd5PI+TxEwbcs
-	CG2+OLxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dvL8UvE8kTyU3pakYq1t1Av2K6VHG+lxt62YTy231JM=; b=JxRTq622CVBSnuL1Wj1kqUUdpe
+	g6krA4QsjnY3KdZxNQ/0xmjoLAOpLt/bq26+d5sHgbXSuXvLbCENi3izsD7Rb+4PftUqJuU/f0VlY
+	8LAEicXit9g2+td7CDnEntwke5mnIaej6JL8FDLHH9OYyw/f8r0FnbNd47qZgjlyzn0+I+v3BBuho
+	afgypAwbo0K1k/74gJCJo/P/Lw4oa0EHKGbci0RpKmUqznuwzeT2tmH/LU/w2W9hnqpWwMWKYH7Tm
+	TY7o3wlnAGHMBLnNS3PIRNYhgJg9g6uDpEBR/XuB/rmhKf7POmRBzBZare4ZH84p9vFefZCKHan23
+	77VFr4Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOFM-00000003Ngr-1SKX;
-	Fri, 23 May 2025 08:59:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOD7-00000003NMD-2DGd
+	id 1uIOHN-00000003O1k-30fG;
+	Fri, 23 May 2025 09:01:25 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uIOE0-00000003NSv-20Eb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 08:57:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00CFB1758;
-	Fri, 23 May 2025 01:56:46 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10B213F5A1;
-	Fri, 23 May 2025 01:56:59 -0700 (PDT)
-Date: Fri, 23 May 2025 09:56:55 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 2/2] coresight: add coresight Trace Network On Chip
- driver
-Message-ID: <20250523085655.GD2566836@e132581.arm.com>
-References: <20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com>
- <20250522-trace-noc-v6-2-f5a9bcae90ee@quicinc.com>
- <3a19197d-b534-458c-b4d7-51fd9d2c954d@arm.com>
- <40599afc-4342-467c-87d8-3f53cbcfd242@quicinc.com>
+	Fri, 23 May 2025 08:57:58 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54N8vpwH902994;
+	Fri, 23 May 2025 03:57:51 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1747990671;
+	bh=dvL8UvE8kTyU3pakYq1t1Av2K6VHG+lxt62YTy231JM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=pGGk0s4nBS+kfza+T/LlvzeExl1Bvodi7ZFDGMlo2Tag9OeV0yO857ojW/FrxrcIw
+	 PQ7ck5JIPoHFQRtBfGTi3FQGy9Plw2TxBebrAGtPXyEsBar7TCR89SSFGTaBuZoxBf
+	 vkYcySBsH69XiwqWSLx6KDCiagbXPiVEdRAYw5Bg=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54N8vo574154099
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 23 May 2025 03:57:51 -0500
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 23
+ May 2025 03:57:50 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 23 May 2025 03:57:50 -0500
+Received: from [172.24.21.52] (ltpw0bk3z4.dhcp.ti.com [172.24.21.52])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54N8vjPe1139884;
+	Fri, 23 May 2025 03:57:46 -0500
+Message-ID: <5cfaed26-28ec-42dc-b9f6-836869ad3fa3@ti.com>
+Date: Fri, 23 May 2025 14:27:44 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <40599afc-4342-467c-87d8-3f53cbcfd242@quicinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] TI: K3: Switch MCU R5F cluster into Split mode
+To: Nishanth Menon <nm@ti.com>
+CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <afd@ti.com>,
+        <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250522073426.329344-1-b-padhi@ti.com>
+ <20250522155338.gpbcubkvygtju3qc@bagpipe>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <20250522155338.gpbcubkvygtju3qc@bagpipe>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_015701_607873_A0E557F6 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250523_015756_610321_DE2E3AA3 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,31 +88,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025 at 04:08:58PM +0800, Yuanfang Zhang wrote:
+Hi Nishanth,
 
-[...]
+On 5/22/2025 9:23 PM, Nishanth Menon wrote:
+> On 13:04-20250522, Beleswar Padhi wrote:
+>> Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 have a
+>> R5F cluster in the MCU domain which is configured for LockStep mode at
+>> the moment. Switch this R5F cluster to Split mode by default in all
+>> corresponding board level DTs to maximize the number of R5F cores.
+> Why? I can read the patch to understand what you are trying to do, but
+> the rationale needs to be explained.
 
-> >> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
-> >> +{
-> >> +    int atid;
-> >> +
-> >> +    atid = coresight_trace_id_get_system_id();
-> >> +    if (atid < 0)
-> >> +        return atid;
-> >> +
-> >> +    drvdata->atid = atid;
-> > 
-> > Do you need to expose this via sysfs ? Otherwise, how can you map
-> > a trace to a TNOC at decoding ?
-> 
-> yes, need to expose the atid via sysfs, but it better to expose it on source driver which connect with
-> this TNOC. so dont expose it on this driver.
 
-If so, why the ID is not maintained in coresight_path::trace_id?
+Sure, rationale is lot of users of our SoCs want to control the R5 core 
+in the MCU domain as a general purpose remote processor to increase 
+performance. That means able to load applications from 
+bootloader/kernel/userspace, poweroff/poweron core at runtime etc. The 
+challenge with this is the MCU R5F cluster is reserved to run the 
+central Device Manager (DM) Firmware.
 
-A source device allocates ID and maintains in coresight path, then
-this ID is passed (when enabling the link) to TNOC driver to consume it.
+However, since the MCU R5F cluster is lockstep enabled, it supports both 
+lockstep mode and split mode of booting. So here we decide to boot the 
+cluster in split mode by which we can reserve the primary core to run DM 
+and use the secondary core as a general purpose remote processor.
 
-Thanks,
-Leo
+Now why didn't we do this split mode booting since the inception? Well 
+because MCU R5F Cluster is booted by ROM code, and when ROM boots it in 
+split mode, it powers on the secondary core and puts it in WFI (as there 
+is nothing to do for it yet). But the standard remoteproc drivers in 
+Linux and other bootloaders can only load firmware on a core if it is 
+powered off/held in reset. So there was some plumbing needed to be done 
+at the bootloader stage to actually poweroff the secondary core in split 
+mode; so that remoteproc drivers can then load & control the core as 
+expected. Now that the plumbing[0] is posted for U-Boot, we can switch 
+to split mode booting here in DT.
+
+[0]: https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
+
+>
+>> Corresponding support to shutdown MCU R5F core 1 on SoC power on have
+>> been posted in U-Boot:
+>> https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
+>>
+>> While at it, correct the firmware-name property for MCU R5F cores of
+>> J742S2 SoC in [PATCH 1/2].
+>>
+>> Testing Done:
+>> 1. Tested that each patch does not generate any new warnings/errors.
+>> 2. Build test on all existing TI K3 platforms.
+>> 3. Tested U-Boot and Linux load of MCU R5F core in split mode on all
+>> applicable boards (AM68-SK, AM69-SK, J7200-EVM, J721E-EVM, J721S2-EVM,
+>> J784S4-evm, J742S2-EVM)
+>>
+>> Test logs:
+>> https://gist.github.com/3V3RYONE/ee8e3cb9aa5f4c5c00b059b9c14bfa98
+>>
+>> Thanks,
+>> Beleswar
+>>
+>> Beleswar Padhi (2):
+>>    arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU
+>>      R5F cores
+>>    arm64: dts: ti: k3: Switch MCU R5F cluster to Split-mode
+> NAK! We are once again churning downstream users again and for what
+> reason - coverletter and the patch is vague on that!
+>
+> I would prefer the entire remote proc dts stuff cleaned up once for all
+> in a comprehensive series.
+>
+> Let me be clear (once again): We DO NOT break backward compatibility.
+> We do not break downstream users without a clear cut rationale. We do
+> not break all other ecosystems depending on device tree without a very
+> very solid reason.
+
+
+I don't understand how this is breaking any backward compatibility. We 
+are not removing the lockstep boot support entirely here. We are just 
+switching to Split boot by default because of the usecases. If not 
+today, someday we have to go with split mode booting by default.
+
+That's exactly what we did for the MAIN domain R5F clusters: 1. First we 
+did the plumbing to have power synchronization between the cores of a 
+cluster: 
+https://lore.kernel.org/all/20240430105307.1190615-1-b-padhi@ti.com/ 2. 
+Then we switched the Cluster to boot in split mode by default: 
+https://lore.kernel.org/all/20240826093024.1183540-1-b-padhi@ti.com/
+
+Now, for users who prefer to use the fault-tolerant lockstep mode, they 
+can still do that by setting `ti,cluster-mode` property to 1. However, I 
+agree that we should not be doing 'hardware configuration' (split vs 
+lockstep) in Device Tree which is supposed to be 'hardware description'. 
+We have started to explore solutions where we can dictate this lockstep 
+vs split core configuration from the firmware itself during runtime. 
+Once that is done (long way to go thinking of upstream), we can get rid 
+of this configuration from the DT entirely.
+
+Thanks, Beleswar
+
 
