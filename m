@@ -4,153 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD2BFC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B38DC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LkMebaclMd1+Q1uoaItYBND9qdmyvCcCVNADRPJyco=; b=iEj9m/X0hRL7j2kC/tRUh8m5l4
-	UOzBfNT8rIVW8ncrXjj4QFRvgiFcFz63vKHhxSt62kL76ARgSmw3HUKGAawsdCsjqZhAnXiiueb0d
-	bZFsZUcSB8WJezQkX9K2Z+u9q7hOk4Xa6/rPSKm2XoI16h7MO0NyQl7hg25A901kslpi5bisRD2wC
-	MNfqwWMsGWcjxQdjXSfDHpXoky/HSuklkib2uPJQe0cc5iFEBrq3D7lLNCvaW71Qw/p3naBvwUizA
-	WUgOFUdbA5baH/Ew4y159wlItSxz4eXXyy989SSjDI6gsBm5sxgPRzKamjW7WRHcxHzuo0sG6qOgx
-	B6aXZk2g==;
+	bh=SOs8ZLg+0j6hHTpYUzbCRkDC8UHjW3HOqCSAlCLjfjA=; b=scdD5wYctT8wOuaekIivumsqUy
+	LJ2w8nv/Z/WH2dx2RMHC5dRGva75uiuhNeSOXnjKPz7IlcPA7ztCCd19KT1v/JNfdhHR9was4PAyD
+	P2XuCfh3zvK9UzOt7bCWDTQ4z90tHK6xqfe4UmXRUKPunb09ZM3tZztg2NvQjwAPSKi+lLfkRK+fA
+	hz4ZhCuX0cQqC4Qhnrz1UWcORqPEEN+jjAoGBXxJhbSjPleArpi0+sPHKFr962oTNrq5DLYy6dCJq
+	9Y++mHch2tZQ0GY0yroe5iuvp+o92VkVBxiKEJpAONDWbedYmKWpWYCAb8kZiobAcvXgUw3XpQWzF
+	UawWxzEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIVON-00000004QFr-2hIw;
-	Fri, 23 May 2025 16:37:07 +0000
-Received: from mail-am0eur02on20600.outbound.protection.outlook.com ([2a01:111:f403:2606::600] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1uIVPd-00000004QQs-1Fdl;
+	Fri, 23 May 2025 16:38:25 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIV5f-00000004MtQ-1xtg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 16:17:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GkwMb0Kw4uLuWYHP7CCF0Cpoq7Lh83SAYWHeJ15pVqJZxlkleWq7x5ZMkexadp2UIOOhYkuor3MduVhkAnlYN06N1HHw12XbwUiT3BL0aQoqvmHgIWTTbnSc+2zpWPNITuCB3gAg1/MKTv2feyU6tUk8L2SbcQzIgsb6pU87q41mOEGqI1O/1nV/VWUaS5VMYQArTATupSliliRzS4lrZ9Ra4y1O+gYoPgBVk+dsHsEelsKwKGtkl/5O8sdJMD3CQGOWF/BJwLQ4XnX3zu8GQWutkba1o2gOIQ3/bAxKEKSTRufoyemxo1QN6GH8DS/kY5iWlF8HTe6vBatIZZX6sQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7LkMebaclMd1+Q1uoaItYBND9qdmyvCcCVNADRPJyco=;
- b=JkAZtWP8YQVkaD95BFFN69p+IW4ykI4UfkgwyDxo2XIVO3GRCHfzDPVkmjdjzXe2diGa6zNVKoOYqU6VPNdiA0gAKlkuOajqFjt8YnJ7o++A15NrcdnKt1Ejtj3uHIQCJkbqvcEI2DAgvICA/nLryJ1Fh2uOf0qwX3DRF2In1pghMIRceNFot73gq4udO4nUU/lOKPDXaJaEbHwm02oxQGRXYMwYBmcNTtrcow8n/yWh9HI6834qmgjCf6zTqFY+95yUHfD7W/frDMV/TwFvq+9ulDwmnEJAGv0cMhT1aej9xiUb/w7Wjgw9QoEMkW6od+8jC3GsmF33QY1ozG/15g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7LkMebaclMd1+Q1uoaItYBND9qdmyvCcCVNADRPJyco=;
- b=j6a0NORxa9Y3wJEfI+f1OufvbdM0G0pqH4mtu+sPvctP+SmVw1F4O8Rx6K6ljqoP1EUp1X3nsp4P+Sqf/3O9zEDwmSKfIPtPbjb0TOdwsDA7oRBgbZcuyKsbn4OmPf6fOYoipY6+x9cgWVhAFfnBSBRdWwsUc7rxO9p22eLWFiV2EgPaiFrYbi64tm+svdwbf+zf8Yi0hrQpjmF6A6AhS1lfy++HY5SLZIVNGd/xPVXrnFJ4GAy+HrYoeLht83jlYqEVmMkvAy1gxW+cIlVD9AyrO8ZEWypcAUUPNYslvCAeGx6G8RY1rcLmCmPVLoLvVr0LH8Ubg8jrfc6Es4m4TA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM7PR04MB6966.eurprd04.prod.outlook.com (2603:10a6:20b:109::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Fri, 23 May
- 2025 16:17:46 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Fri, 23 May 2025
- 16:17:46 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE VYBRID ARM ARCHITECTURE),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 2/6] ARM: dts: vf: remove redundant pinctrl-names
-Date: Fri, 23 May 2025 12:17:21 -0400
-Message-Id: <20250523161726.548682-2-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250523161726.548682-1-Frank.Li@nxp.com>
-References: <20250523161726.548682-1-Frank.Li@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BY1P220CA0003.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::10) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1uIU6a-00000004DWa-0Siy;
+	Fri, 23 May 2025 15:14:41 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:a882:21a2:2327:ac4f])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 24EC86B5;
+	Fri, 23 May 2025 17:14:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1748013256;
+	bh=DmuApbSuTnNskmemCfpPj5qX6BIIZGxJXJxgJ4QzT1s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=q6IIMDGvz7smcQ2J46gbCAl6EM+JGx1ZwDBpwEfK+7EDsaDSGEBYuBupCKuoWEsj9
+	 QxQNUnj5VW4/LPEbuHyuE6FSvh/IMWbnP3k2xM++R2Q9S8zPYoMfha38FS0zzMjZaB
+	 272Yc5YTCrVAU4hH9aXDxV3KeL/GPpaf2cjJylVA=
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+Date: Fri, 23 May 2025 17:14:31 +0200
+Subject: [PATCH v3 2/3] media: rkisp1: Add
+ RKISP1_CID_SUPPORTED_PARAMS_BLOCKS control
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM7PR04MB6966:EE_
-X-MS-Office365-Filtering-Correlation-Id: 07d4cbc9-34d3-42c3-ac5b-08dd9a155a87
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TKUKPQ8/L+IoIsYbxrORvTxZzse/eGNEGEwFH8zAj0bPtWW5AsQ2QRv4jwMz?=
- =?us-ascii?Q?4fij6BautPvrpNkYnkucE0ZKdG/HeV1DP1v5x56AhKE3f2rRNqHF/KS/aei3?=
- =?us-ascii?Q?Sgmm0Wwkd7DbEs0MMsAiJDzkKvSttQg5mV7QD0ScTR1NSugZhCf2zB5s/Ejb?=
- =?us-ascii?Q?tdvFIG5/6E/JKXv5wjVP0zcFPjqumnncp5l+us+5w/7F4BPoGrg0sXj39NJy?=
- =?us-ascii?Q?chiHRpn7CEgs78gnswXHqvDUvCsF9TmJcDsl4866XDxfolhcZbx9vjIBz9x4?=
- =?us-ascii?Q?yRvb2VKrgZ0ESJHcVLPjXBjRRpv99TCYSMUN62SzdpiN23fo7HwcreXyMA7q?=
- =?us-ascii?Q?86/QyFscL/+SWKS0lXM4kAsoH5qJqqsZxUPa+TnYclYs0jiXBGQSs48Mdfx6?=
- =?us-ascii?Q?U2r5Vms6Yq0IUmNLoHn/ZTJd+3flAxvXuoWO5SlotPH5F5d/HSMxz//3/7g+?=
- =?us-ascii?Q?9sk9pMYCBwSKg7fZm1kpvkRmM+zIJu38YvSFhQhaqBoQvevuqzo/8ICVSZJr?=
- =?us-ascii?Q?ACjyqgIeGa3NzZNXyzFJm6o/kNb5KFwvcl+tiTrUuCL5HPP8rMbb1+Vwi8wP?=
- =?us-ascii?Q?9mN+E6g1h01Z4kmtnVhSr4kaMdDt3zlDI3TtkxUOJAMoTegfOe54lPc1+xS3?=
- =?us-ascii?Q?Oq8H6xVFO82Z/AuARpYChIxJk9qDhh/wT3TR9J25FwXq+lXW8FCPbssvy2Wd?=
- =?us-ascii?Q?0stZeLSLSlTlAO44Ub33s+hgybqz+Ym6rmrZVOqYpiOjltfEm+u4eTMelYZK?=
- =?us-ascii?Q?klaFMdtjFjEKYx/dIMbEYBSVsVOnOxb+ODwfyMVMmy1KPOTnyqFnDq8zssFN?=
- =?us-ascii?Q?WPNLkw8VLwCRpuwkn94BNC2GLRnN1ovsNEeT6KNxLqL4eW2slEnLGa/GI3lD?=
- =?us-ascii?Q?/hUuPe6DzcW0QdW88N/O/YBjzZfEZn8jixZAhnHnJwcZr6P1HqxE4GLT3hQx?=
- =?us-ascii?Q?eYWdPnSQNlL/HAxwRhfnf92NLtD0s45ITh6Qro7na2xFBL3Jk8aUUVD0AgvT?=
- =?us-ascii?Q?FSxEp2br53r65v72n0LPXpD2x03t5xpVe9aXh/cvPVdnBCtVUNYhionlF5Zb?=
- =?us-ascii?Q?oa0ntYFxxSMzoYE4EGynr/A01VJvUsXwAgdLVXe53vqHwuCvpjOZUiTcjJBv?=
- =?us-ascii?Q?8XnegBVMDItuoNodn2/5sPX/ckjYy08rY5NVrKm8kXD3G9M79b48x01aLS9d?=
- =?us-ascii?Q?A14qByPw46RP625dlSfJfgx8YmVmy/6fG+U4rUgMXIjqsPpXk2PAd5zgJ3QI?=
- =?us-ascii?Q?uRW29fMM5yrvKbYqsxQNCUSD5/HMRMr/aD3OscWuMgHqiRkIKkMTyx3apaMF?=
- =?us-ascii?Q?3TdpfBVlf0ag2sKPwWHY7dyPE12dn0XZLoTmtNmE6oSjD97uAn3enVRNN1Tt?=
- =?us-ascii?Q?VXiyMmIlOzmitBRaZd1BNeNpazgNnJGmHQio34kCl0gG4Uw8yfw/YC+8NX+5?=
- =?us-ascii?Q?bW030QOTiKKl2tXxdSy+6IDxZsqCAiuQqNsUbgjhlgNrOnZkXOeip+k6kq86?=
- =?us-ascii?Q?BLrKOkP6BJ31CUs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+UTSvvsrzIYxNaOP3BGeocdtWb7hFDMJp9uOQTC3QnSGLUnPrgnjA1SjU+bi?=
- =?us-ascii?Q?O+wWYXa+8LlfkTWKbKN3eC5UY/u+JGrtsDhgLdhP4Jap+W3i861p7fo/qzka?=
- =?us-ascii?Q?tQAMSGJUsNfWEYKUPvzUpykkkUY/+OkddNz4W5Q2OaMBDyJnswAIFkaBC910?=
- =?us-ascii?Q?vFtm0h/qLCVx3Ptew2o2LFzvDplAzltlAly0I2m15nv11sj46v2pxbeQmLhv?=
- =?us-ascii?Q?tzzuIW3flKcLbeQwnRrJ1OITS/G1AzVAYWihTUFDHtqhgWUYHWUbv+spFgsj?=
- =?us-ascii?Q?OMY4U8sBX4Oy597T+1T/s21XBF8TnIY3JiBzlrLQgFs+7G3U86OVLs4W8O3u?=
- =?us-ascii?Q?p2G0a/Med4t/QyjEScCwUOyB7/yhqZuH9urDGK3YvCbXHVarAY8pi43xdU2f?=
- =?us-ascii?Q?8xf5BepmqWKGNZoJOgn2YZcZ8fum/LQDS1asoG47mD7gAbMspEugQuVuKnF3?=
- =?us-ascii?Q?oOucgcciXSPZ4ZJ3IlPMeky4HlGvkG3+aUdxDN4UZi8vVzgVYNHXI4DuJZQl?=
- =?us-ascii?Q?zkanc1JA2lLl3/WxWAMZ/9Hf20icKXmm/l9/eI3wHaTGKhUElJmLzoPRa/nf?=
- =?us-ascii?Q?sei/E182YzzK1sG9FsofNDVK74Gb0ipyyBwk+WbQirk/y3VvMf/x3Gcqmlzl?=
- =?us-ascii?Q?EyfSrf56SkyQcsoXw3Sb0Rf3Qi/BsMIf8dj8g+q0wUXiLeNXHuDOnlCspShz?=
- =?us-ascii?Q?GDbTZlJCtIutQbYHuUfFzs+Tqco4T4bVuZHliM5ASX48aOFEAqpjT3D21zHy?=
- =?us-ascii?Q?IuHHTcE5qRI+YZd4A1xtJupWeT7WdAIiBgBxB+2wVk6qnDx4E1zK36uWdW6N?=
- =?us-ascii?Q?V5m+mQTrRR0pVWLQPRPi/q5SoWUnoJhH8kRy6V9gWVw79AaWDlUez3uu4uCR?=
- =?us-ascii?Q?GCm5XzHRXdtYI/6cwQpaAtLmVfObF6a6CrANPwUer4ccBijOEoqn5U2pD6Dz?=
- =?us-ascii?Q?+dOp6dXBI+qWhx7UJHXSVLhTZAIcN1BraPdWWlZDYyVlQQrGg1vDIGYuDRIe?=
- =?us-ascii?Q?rSGIS58AzbvLALW9X+PTKLKt74d4bsZyzW5RRYMP5ZD3k0AOqaLHvE/74E0B?=
- =?us-ascii?Q?eGMhp2VNgJVQceFxtCbE2trHjAEd/75TEAeTEoZcW2PneG5uhDOfXMCeCEhY?=
- =?us-ascii?Q?Cjvi3bx9jNdVnabMW1/2XX6EtyaVFD21LR3jDvV4pxfyeAuqsXe68ea0AQdf?=
- =?us-ascii?Q?5EXvnfaWXx/Pwud0twyZBBq0uSKFl7tAo1Kusuc8zbqGzIpFpbpoNw7zk0v9?=
- =?us-ascii?Q?uoTUq+dkqahf3AvG4Zme9TE6BUgMi2rMzOpZoULKU48rOkIvt5oHbQTWtFTi?=
- =?us-ascii?Q?K1Hnc5f2QaQHz17TsbWDIxAVCQkZ46pJ3FT49J7VnvZrAxWqXW4XDlKPyPb4?=
- =?us-ascii?Q?oXX+QoHuqtxcnhCB6dGGKxTJfJusXmZlDYXhYLgtf2P3nqSTEdBf8IwABkSx?=
- =?us-ascii?Q?RMtShfRii2Y+Mxw/nX+h91E0sDHafwoQIpeaxE6B7nNlQxv5AZFqdZgvEKG8?=
- =?us-ascii?Q?S2tciovTftITqaTw6m5EqemMznSTXtC0o/2sgMLRh7ZQPHCJgLvRNpAuQFzt?=
- =?us-ascii?Q?w9SOwtlrPSVuXH6VZRb7V1nOt+nbRsEzi/LP72A2?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 07d4cbc9-34d3-42c3-ac5b-08dd9a155a87
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2025 16:17:46.4391
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ICsK3UiNW+fYMSYFXM9b2ZeCqxlCa7N66C8rkcE95ADVXcRJDYOf3I/Vz0B9o3B+L30AaCgyo3UrtrAK4nvoxQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6966
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250523-supported-params-and-wdr-v3-2-7283b8536694@ideasonboard.com>
+References: <20250523-supported-params-and-wdr-v3-0-7283b8536694@ideasonboard.com>
+In-Reply-To: <20250523-supported-params-and-wdr-v3-0-7283b8536694@ideasonboard.com>
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Stefan Klug <stefan.klug@ideasonboard.com>, 
+ Paul Elder <paul.elder@ideasonboard.com>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_091747_513467_EE436E86 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250523_081440_294373_8888BAFD 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,37 +72,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove redundant pinctrl-names because no pinctrl-0 node to fix below
-CHECK_DTB warning:
+Add a RKISP1_CID_SUPPORTED_PARAMS_BLOCKS V4L2 control to be able to
+query the parameters blocks supported by the current kernel on the
+current hardware from user space.
 
-arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dtb: i2c-mux@71 (nxp,pca9548): 'pinctrl-0' is a dependency of 'pinctrl-names
+Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+Reviewed-by: Paul Elder <paul.elder@ideasonboard.com>
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts | 2 --
- 1 file changed, 2 deletions(-)
+Changes in v3:
+- Moved the rkisp1_params_init_vb2_queue() return check back into
+  separate patch
+- Renamed rkisp1_ctrl_init to rkisp1_params_ctrl_init
+- Applied missed review comment in docs
 
-diff --git a/arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts b/arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts
-index 77492eeea4509..62bd53917eaff 100644
---- a/arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts
-+++ b/arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts
-@@ -623,7 +623,6 @@ eeprom@54 {
+Changes in v2:
+- Added docs improvements from review
+- Moved ctrl_config declaration to top
+- Moved rkisp1_params_init_vb2_queue() return check into this patch as
+  the previous patch got dropped
+- Call rkisp1_ctrl_init() after media_entity_pads_init() for easier
+  error handling
+---
+ .../media/platform/rockchip/rkisp1/rkisp1-common.h |  2 +
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 49 +++++++++++++++++++++-
+ include/uapi/linux/rkisp1-config.h                 | 11 +++++
+ include/uapi/linux/v4l2-controls.h                 |  6 +++
+ 4 files changed, 67 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+index ca952fd0829b..5f187f9efc7b 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+@@ -415,6 +415,8 @@ struct rkisp1_params {
+ 	spinlock_t config_lock; /* locks the buffers list 'params' */
+ 	struct list_head params;
  
- 	i2c-mux@70 {
- 		compatible = "nxp,pca9548";
--		pinctrl-names = "default";
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 		reg = <0x70>;
-@@ -662,7 +661,6 @@ sff4_i2c: i2c@5 {
++	struct v4l2_ctrl_handler ctrls;
++
+ 	const struct v4l2_meta_format *metafmt;
  
- 	i2c-mux@71 {
- 		compatible = "nxp,pca9548";
--		pinctrl-names = "default";
- 		reg = <0x71>;
- 		#address-cells = <1>;
- 		#size-cells = <0>;
+ 	enum v4l2_quantization quantization;
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+index 24a8de697f2b..4db0ca8d86db 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+@@ -2736,6 +2736,44 @@ static int rkisp1_params_init_vb2_queue(struct vb2_queue *q,
+ 	return vb2_queue_init(q);
+ }
+ 
++static int rkisp1_params_ctrl_init(struct rkisp1_params *params)
++{
++	struct v4l2_ctrl_config ctrl_config = {
++		.id = RKISP1_CID_SUPPORTED_PARAMS_BLOCKS,
++		.name = "Supported Params Blocks",
++		.type = V4L2_CTRL_TYPE_BITMASK,
++		.flags = V4L2_CTRL_FLAG_READ_ONLY,
++	};
++	int ret;
++
++	v4l2_ctrl_handler_init(&params->ctrls, 1);
++
++	for (unsigned int i = 0; i < ARRAY_SIZE(rkisp1_ext_params_handlers); i++) {
++		const struct rkisp1_ext_params_handler *block_handler;
++
++		block_handler = &rkisp1_ext_params_handlers[i];
++		ctrl_config.max |= BIT(i);
++
++		if ((params->rkisp1->info->features & block_handler->features) !=
++		    block_handler->features)
++			continue;
++
++		ctrl_config.def |= BIT(i);
++	}
++
++	v4l2_ctrl_new_custom(&params->ctrls, &ctrl_config, NULL);
++
++	params->vnode.vdev.ctrl_handler = &params->ctrls;
++
++	if (params->ctrls.error) {
++		ret = params->ctrls.error;
++		v4l2_ctrl_handler_free(&params->ctrls);
++		return ret;
++	}
++
++	return 0;
++}
++
+ int rkisp1_params_register(struct rkisp1_device *rkisp1)
+ {
+ 	struct rkisp1_params *params = &rkisp1->params;
+@@ -2781,15 +2819,23 @@ int rkisp1_params_register(struct rkisp1_device *rkisp1)
+ 	if (ret)
+ 		goto err_media;
+ 
++	ret = rkisp1_params_ctrl_init(params);
++	if (ret) {
++		dev_err(rkisp1->dev, "Control initialization error %d\n", ret);
++		goto err_media;
++	}
++
+ 	ret = video_register_device(vdev, VFL_TYPE_VIDEO, -1);
+ 	if (ret) {
+ 		dev_err(rkisp1->dev,
+ 			"failed to register %s, ret=%d\n", vdev->name, ret);
+-		goto err_media;
++		goto err_ctrl;
+ 	}
+ 
+ 	return 0;
+ 
++err_ctrl:
++	v4l2_ctrl_handler_free(&params->ctrls);
+ err_media:
+ 	media_entity_cleanup(&vdev->entity);
+ 	mutex_destroy(&node->vlock);
+@@ -2806,6 +2852,7 @@ void rkisp1_params_unregister(struct rkisp1_device *rkisp1)
+ 		return;
+ 
+ 	vb2_video_unregister_device(vdev);
++	v4l2_ctrl_handler_free(&params->ctrls);
+ 	media_entity_cleanup(&vdev->entity);
+ 	mutex_destroy(&node->vlock);
+ }
+diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
+index 2d995f3c1ca3..5ca4d5961c5b 100644
+--- a/include/uapi/linux/rkisp1-config.h
++++ b/include/uapi/linux/rkisp1-config.h
+@@ -1086,6 +1086,9 @@ enum rkisp1_ext_params_block_type {
+ #define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
+ #define RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
+ 
++/* A bitmask of parameters blocks supported on the current hardware. */
++#define RKISP1_CID_SUPPORTED_PARAMS_BLOCKS	(V4L2_CID_USER_RKISP1_BASE + 0x01)
++
+ /**
+  * struct rkisp1_ext_params_block_header - RkISP1 extensible parameters block
+  *					   header
+@@ -1520,6 +1523,14 @@ enum rksip1_ext_param_buffer_version {
+  * V4L2 control. If such control is not available, userspace should assume only
+  * RKISP1_EXT_PARAM_BUFFER_V1 is supported by the driver.
+  *
++ * The read-only V4L2 control ``RKISP1_CID_SUPPORTED_PARAMS_BLOCKS`` can be used
++ * to query the blocks supported by the device. It contains a bitmask where each
++ * bit represents the availability of the corresponding entry from the
++ * :c:type:`rkisp1_ext_params_block_type` enum. The current and default values
++ * of the control represents the blocks supported by the device instance, while
++ * the maximum value represents the blocks supported by the kernel driver,
++ * independently of the device instance.
++ *
+  * For each ISP block that userspace wants to configure, a block-specific
+  * structure is appended to the @data buffer, one after the other without gaps
+  * in between nor overlaps. Userspace shall populate the @data_size field with
+diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
+index 72e32814ea83..f836512e9deb 100644
+--- a/include/uapi/linux/v4l2-controls.h
++++ b/include/uapi/linux/v4l2-controls.h
+@@ -222,6 +222,12 @@ enum v4l2_colorfx {
+  */
+ #define V4L2_CID_USER_UVC_BASE			(V4L2_CID_USER_BASE + 0x11e0)
+ 
++/*
++ * The base for Rockchip ISP1 driver controls.
++ * We reserve 16 controls for this driver.
++ */
++#define V4L2_CID_USER_RKISP1_BASE		(V4L2_CID_USER_BASE + 0x1220)
++
+ /* MPEG-class control IDs */
+ /* The MPEG controls are applicable to all codec controls
+  * and the 'MPEG' part of the define is historical */
+
 -- 
-2.34.1
+2.43.0
 
 
