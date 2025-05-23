@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B6BC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 20:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5767C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 20:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SrQ/Uw0jQ4Y/nrdNr6KffbbNgedZURcnE2Oa81Q+gLI=; b=PmwkY1Q0/nYy+HoQt520MZUPfv
-	8mZw4G/GlC5N3UC31NfSDroMNueW1PO7EzYtg9IJ6iXqc+o2vXvPrC+/smH9WuhbMlr74dnERW1i8
-	Pis0YZa+VGvnqoSLT60Nr7SP09ZjN/XDcgppkOR0paMsieriaKQJBdE4QFDhrrNWQlYnDnus+AGlQ
-	HIgtrDAqMpIvV1Zf/jgW50et+8Som3z9i43UuDkUCHE7/erIqnT8wRvGK2q6lgilIcoCbopbGbjgE
-	GtW3+LGL2DDyh6JakpsJcubnVZ4eMFVgOf5YgHqjlqj9zsmVkz0QsHpmQE8hAgL5JWJSUByDaosH0
-	NMc1W67w==;
+	bh=y4IcnoNB2qpQDzQD4l6QkZzwSVzCMDGSPU6SIb+ViEk=; b=UytdKkgqt5yCvMf3MxcambR/69
+	8VkbE5Lw2VVbd+XEAKUPTFApm1db6utHXbQTa+B4bmYGlNn445+vhJzDbfZP84vDMHyEI83InOYma
+	wuJ8yWDX8RRXAoLuoQXgIcXBl5Jzt5aD2FBBYmY0dUKlAbuoznTfELfPWClt/ZC3HYORL6nehvbd0
+	+d0k3xhrU2qpDqGEVLg7IDBm5E5vxUCQFb5b5Q0xG0thpYxRWwXOtz/pjQ7S0bu4+cYjEosgdz5tn
+	8KnX0Jf/Cy5GnMHRTEmckFNvuw5RxAZgE5HtE2cUtiKaVVu8KbSADFLT2SUatu2s8/ax9KdnMAUNA
+	HBg1d2Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIZ2P-00000004sRj-3Xvp;
-	Fri, 23 May 2025 20:30:41 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1uIZ4S-00000004seM-2Xvy;
+	Fri, 23 May 2025 20:32:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIYwI-00000004rsK-2KYA
+	id 1uIYzo-00000004s9y-2Z44
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 20:24:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1748031862; x=1779567862;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=slgQ4tGw0dIzbPUtpd9MpwQXa0+Hq2+4GkuyaOoSWEw=;
-  b=SR3lVaZy+cVPOIn3ykg4RiMTmtRDTPT3KUE3wKYb4cMX94SWgB2F+xZm
-   Kc2XFgbBO1j94oSXgnMDA8iKlpNVMa7xD/HDh38Pz8EQXd1yPOF3y6z2T
-   3vq+aAV33F+eg0a3TR34iPFHT59/r3epx11xXlzSuSuED0f1skwhRhHt7
-   FuuFACdjDunb0UC/N7uVc2UuuAGH30sgruvCEjaCU8BpMt9TbkTfoqEu1
-   ftjZGAKsC8JnDthFAMX/it65ylC2E17K+K8E6vimUnobWYpPK9jhMCc0T
-   5ckCJ4IYMLsxPPyjaLQwKNpXeXwYP4CEbtVZN6zqJFITKVK7JvP6zJkiy
-   w==;
-X-CSE-ConnectionGUID: KBUIaMEtQL+E9GaMz9Liiw==
-X-CSE-MsgGUID: MjZoIeOOQDCXgZgMCuSc1Q==
-X-IronPort-AV: E=Sophos;i="6.15,309,1739862000"; 
-   d="scan'208";a="46850862"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 May 2025 13:24:18 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Fri, 23 May 2025 13:23:58 -0700
-Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Fri, 23 May 2025 13:23:58 -0700
-From: <Ryan.Wanner@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: [PATCH v4 2/2] ARM: dts: microchip: sama7d65: Add clock name property
-Date: Fri, 23 May 2025 13:24:31 -0700
-Message-ID: <f6ae8a38a005e1a4e025b25ddb29113c5e65dead.1748030737.git.Ryan.Wanner@microchip.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1748030737.git.Ryan.Wanner@microchip.com>
-References: <cover.1748030737.git.Ryan.Wanner@microchip.com>
-MIME-Version: 1.0
+	Fri, 23 May 2025 20:28:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B351D61154;
+	Fri, 23 May 2025 20:27:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9CA4C4CEE9;
+	Fri, 23 May 2025 20:27:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748032079;
+	bh=5pRFCoeXqhY0UnsQRr8ozHb8xSRhaMoVu7vfsBGA6tA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=UNkc/+PCjIXYzEG7BSY6uIKfD3quwXneLAnthfgZi+klBMDAvmu/IHcGb+5R68ESc
+	 bork2SiHf4qJBO05XZNcaqs0OsaQhONpUIJWGu2UxhsSUfjHHbxmePycm1yW21N2NP
+	 /QhalNQgaXSJ6hRMGJYd87619xZb5QM+Lsp8s8fknQyWuUujhxppPvBq/sKFQjY+t/
+	 Fabg9htfgMbgGXHQ9/HsSgd+MAtEIKAXzitiokDAnKrPONhEV5DKSyS0Lr1il1ITyz
+	 Ax8gSrAFfZRGkNXpFt9AIcPEq6z7Igd6hnX4TBGk7/c9nxC7okYDUiBQFuXNZp5FkJ
+	 bMDv7+8JCz4wg==
+Date: Fri, 23 May 2025 15:27:56 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_132422_597653_5943379C 
-X-CRM114-Status: GOOD (  11.01  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Conor Dooley <conor+dt@kernel.org>, 
+ Lee Jones <lee@kernel.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Shawn Guo <shawnguo@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+To: Frank Li <Frank.Li@nxp.com>
+In-Reply-To: <20250523191844.563177-1-Frank.Li@nxp.com>
+References: <20250523191844.563177-1-Frank.Li@nxp.com>
+Message-Id: <174803207693.2936926.13970067014189882058.robh@kernel.org>
+Subject: Re: [PATCH 1/1] dt-bindings: mfd: convert mxs-lradc.txt to yaml
+ format
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +74,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Add clock-output-names to the xtal nodes, so the driver can correctly
-register the main and slow xtal.
+On Fri, 23 May 2025 15:18:43 -0400, Frank Li wrote:
+> Convert mxs-lradc.txt to yaml format.
+> 
+> Additional changes:
+> - Only keep one example.
+> - Change node name to adc.
+> - Add clocks and #io-channel-cells.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  .../bindings/mfd/fsl,imx28-lradc.yaml         | 85 +++++++++++++++++++
+>  .../devicetree/bindings/mfd/mxs-lradc.txt     | 45 ----------
+>  2 files changed, 85 insertions(+), 45 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/fsl,imx28-lradc.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.txt
+> 
 
-This fixes the issue of the SoC clock driver not being able to find
-the main xtal and slow xtal correctly causing a bad clock tree.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Fixes: 261dcfad1b59 ("ARM: dts: microchip: add sama7d65 SoC DT")
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
----
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+yamllint warnings/errors:
 
-diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index b6710ccd4c36..7b1dd28a2cfa 100644
---- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -38,11 +38,13 @@ cpu0: cpu@0 {
- 	clocks {
- 		main_xtal: clock-mainxtal {
- 			compatible = "fixed-clock";
-+			clock-output-names = "main_xtal";
- 			#clock-cells = <0>;
- 		};
- 
- 		slow_xtal: clock-slowxtal {
- 			compatible = "fixed-clock";
-+			clock-output-names = "slow_xtal";
- 			#clock-cells = <0>;
- 		};
- 	};
--- 
-2.43.0
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/fsl,imx28-lradc.example.dtb: fake-interrupt-controller: #interrupt-cells: 9 is greater than the maximum of 8
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250523191844.563177-1-Frank.Li@nxp.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
