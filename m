@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF627C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD48CC54F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQBVzz0Egh5/tAEDQB7PQNM8C8b4H+HbUQrw6IxTXjw=; b=MF+fx0nnUicXYfvMVX4nmzpI7L
-	GuqIewqBFdSY2/K+3nOXrEKp6pccoyDazNbF5digvIb6Pbrz+YLp90nTYVspOPLGOTb0Ss3bTiXd7
-	CJB5H2Eq12dU5TiwK7Mt22TPc/va3uoc9MgN6xeeVrtL2p7guS+DcMAksGcN4QQX0nTAnkNKVByxu
-	AF85fD7gzdvqni9jICqbsCtp08q9oh2iURdiuUYFKF+kDUK+hHqNwZGO7oZjdMz3XX+M+MBzE6H6K
-	qfE2+wg6cQ+PvHbPPgj0c7mgdv2v8hbw/ih/hlBBQeT6/O6rmPWi6spxPz/oh9S2EXnEs+oORgy5N
-	qBnY8Uhw==;
+	bh=/fb3UPZu5WN39hqyomy18YDn8fBiBvMNblbm+Y5i2po=; b=aMziIgVy4fIRV3qm8qb3SeuyGD
+	A8FaSv1o7tdYuoXeGp+FecrR4j0y6CWs66fazxpkI0B0gBFOZmVEYIUnCgPNGI9MeDk8f5C5Dite7
+	2O9/dVV2swu1Aa6+tXl24s1NyA8PH+AobeBt9HrbOw8rDRtYF/BFC2eJsxlNEBDj96zWaVsqkDxtU
+	iQda0sOvy5srMePWNQg15I+7CJNWn38AWNiYQCcecfJnRRi4jJ8PdXS5ZTIm4rb/FuXhd0JRkY9a3
+	VkNS8FokFy3mgw+GGsDSKf5HFowSamyrDkdiToJoY/xiFO2b3SGa00oU7JtpZtbZXb5OUX/YmV+s4
+	LCvGIk/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIRxf-00000003s5W-3s7M;
-	Fri, 23 May 2025 12:57:19 +0000
+	id 1uIRzg-00000003sVz-2ZRJ;
+	Fri, 23 May 2025 12:59:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIRha-00000003pdI-0A18
+	id 1uIRhb-00000003pdY-1TOw
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 May 2025 12:40:42 +0000
+	Fri, 23 May 2025 12:40:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
 	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=SQBVzz0Egh5/tAEDQB7PQNM8C8b4H+HbUQrw6IxTXjw=; b=BFGOd5jIj4kihN0AtXbUAW27ef
-	NUSiV45onL2+tkQuo1KjsTWfsRKnmMfWsjfc4OR4IMjwV8yfZ9uHCcJYzbzyhuG6YJmKJbj4dNFUv
-	huEySQr1keZhkne4H675yipSWPQWZL/3G4SRHFCIuVpVtzHGxnEDONhKOrvBAb6QBgn7K9m8RguvI
-	8CUrWI1OQPH18tcOn7LTHkhEuCA+Hy14MGMg0EBRfm9cArLenPmeuv9mL3/SW0d7hOGndhXpruH3a
-	ryaycVrX+7sfOco56A0z2YAp0pUuqvNbXaa3bKZrODKtKmtLARZKqZwMZPtnYyRx5kt0JBLxKAVj1
-	Ivheb50Q==;
+	bh=/fb3UPZu5WN39hqyomy18YDn8fBiBvMNblbm+Y5i2po=; b=ITo1h3Akn12Kl7Uyqsg1hkrd7R
+	t1E7iWAf3FkuV18AKQ1ei+kKmxKFb4F/xIKrTtOWmwX8MgDiWac1inj7i24sGZJVNLqH6FgBrPn+G
+	njYP2cxdr1bracPTSNmeV2pTXj4hnD8AW2cLRuTWlEwCd2SqysAQtp50YfRf6t2Nd/ZHBUbjR1/Lv
+	7ubq4fm8JCxCIeNJo2ZUIIi9X5KkvSV4QBJWMORFEiLOo/Bkh8PN82NvOD/RkHk+RS0oXlsdBOxzT
+	OMSVAzv7e1ZhwNs2oEp9nODwO+/+vFmKXKifh6Qh5xHyGCzEV3Amvfor6NlBGO+z+91H7oEPhqPn9
+	YQ4keu/g==;
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIRhW-00000001JlG-3tTk
+	id 1uIRhW-00000001JlH-4Avt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 12:40:41 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54N825pX024875;
+	Fri, 23 May 2025 12:40:42 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54NCdHn2020184;
 	Fri, 23 May 2025 14:40:25 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	SQBVzz0Egh5/tAEDQB7PQNM8C8b4H+HbUQrw6IxTXjw=; b=Tgz0lzEMB908257+
-	gZ3s4DQbv7219ZQ9cuKhxHWwO2PUzbIRPwE9Z4U9a8j8b4xYX7KwFoOJV0SKm61N
-	zA1CkGls/2rH7NGnGx0F9MahyYpXx2GTBVQ05sbR717UjDi4LuoMhtckM3ZUGG2c
-	tyC6pgCVdaCyPPNtSb9hJinBeSr+8ypi2PlUBpaoSmO9GUc5oXxUQPfsp3dUFLHE
-	bP5T2yCyX25GnehMFtKI0hHx0vF3mzTv1Z2IDjCvcJ+EkhjfNdk9QRo611mdAGj/
-	Zo8FtdHUPZacYTTVc/qtZPatoSG9SJRKNYiK3E7lmr0tvQuCXFkZTM0J08Fl17Ia
-	9xHg2Q==
+	/fb3UPZu5WN39hqyomy18YDn8fBiBvMNblbm+Y5i2po=; b=F9IwTXXmarj9zcYn
+	7sBebl8u+W/70ktx+a2G6ORdsRrTsQ6SxwIT/O6CXoQjGXboV/3f7xZqfn4YtzeB
+	mXrE7t8H6e4mSIMefSw4+mgN1u+f+WvTRQ/zo0wjJV5Ra0GW1VcpnLD2kSG8Lk3y
+	H0wzyiwWehSJF4N2LnPLfeK42ai7LOMiAAqOFysbtRdNQIZnheKu3pDiCJvLlDBl
+	tYnwRqziInR+1Bc5qE03td1IACDA8qvEnkQzChVW48D2j2Es08dQWr+02bdUvenp
+	totCqQCpP58PMcHBF65HLZX3krM1UYSXP0xwHSdOlh3ACSaVJLYKgfVO1edeySkW
+	e1ivig==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46rwfap5h8-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46rwffe5nc-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 23 May 2025 14:40:25 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F14A640050;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F11414004F;
 	Fri, 23 May 2025 14:39:09 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 651B5A0D918;
-	Fri, 23 May 2025 14:38:25 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 986AEA0D915;
+	Fri, 23 May 2025 14:38:24 +0200 (CEST)
 Received: from localhost (10.48.81.67) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 23 May
- 2025 14:38:25 +0200
+ 2025 14:38:24 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Fri, 23 May 2025 14:38:14 +0200
-Subject: [PATCH v3 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
+Date: Fri, 23 May 2025 14:38:13 +0200
+Subject: [PATCH v3 1/9] gpio: mmio: add BGPIOF_NO_INPUT flag for GPO
+ gpiochip
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250523-hdp-upstream-v3-2-bd6ca199466a@foss.st.com>
+Message-ID: <20250523-hdp-upstream-v3-1-bd6ca199466a@foss.st.com>
 References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
 In-Reply-To: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -99,8 +100,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-05-23_03,2025-05-22_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_134039_148487_5B2ED79D 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250523_134039_167155_47E517D4 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,211 +116,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-'HDP' stands for Hardware Debug Port, it is an hardware block in
-STMicrolectronics' MPUs that let the user decide which internal SoC's
-signal to observe.
-It provides 8 ports and for each port there is up to 16 different
-signals that can be output.
-Signals are different for each MPU.
+When using bgpio_init with a gpiochip acting as a GPO (output only), the
+gpiochip ops `direction_input` was set to `bgpio_simple_dir_in` by
+default but we have no input ability.
+
+Adding this flag allows to set a valid ops for the `direction_output`
+ops without setting a valid ops for `direction_input` by default.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- .../bindings/pinctrl/st,stm32-pinctrl-hdp.yaml     | 187 +++++++++++++++++++++
- 1 file changed, 187 insertions(+)
+ drivers/gpio/gpio-mmio.c    | 11 ++++++++++-
+ include/linux/gpio/driver.h |  1 +
+ 2 files changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml
-new file mode 100644
-index 000000000000..416b41275714
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl-hdp.yaml
-@@ -0,0 +1,187 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) STMicroelectronics 2025.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/st,stm32-pinctrl-hdp.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/gpio/gpio-mmio.c b/drivers/gpio/gpio-mmio.c
+index 4841e4ebe7a6..09b9e1275e7e 100644
+--- a/drivers/gpio/gpio-mmio.c
++++ b/drivers/gpio/gpio-mmio.c
+@@ -335,6 +335,11 @@ static int bgpio_dir_return(struct gpio_chip *gc, unsigned int gpio, bool dir_ou
+ 		return pinctrl_gpio_direction_input(gc, gpio);
+ }
+ 
++static int bgpio_dir_in_err(struct gpio_chip *gc, unsigned int gpio)
++{
++	return -EINVAL;
++}
 +
-+title: STM32 Hardware Debug Port Mux/Config
+ static int bgpio_simple_dir_in(struct gpio_chip *gc, unsigned int gpio)
+ {
+ 	return bgpio_dir_return(gc, gpio, false);
+@@ -566,7 +571,11 @@ static int bgpio_setup_direction(struct gpio_chip *gc,
+ 			gc->direction_output = bgpio_dir_out_err;
+ 		else
+ 			gc->direction_output = bgpio_simple_dir_out;
+-		gc->direction_input = bgpio_simple_dir_in;
 +
-+maintainers:
-+  - Clément LE GOFFIC <clement.legoffic@foss.st.com>
-+
-+description:
-+  STMicroelectronics's STM32 MPUs integrate a Hardware Debug Port (HDP).
-+  It allows to output internal signals on SoC's GPIO.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - st,stm32mp131-hdp
-+      - st,stm32mp151-hdp
-+      - st,stm32mp251-hdp
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+patternProperties:
-+  "^hdp[0-7]-pins$":
-+    type: object
-+    $ref: pinmux-node.yaml#
-+    additionalProperties: false
-+
-+    properties:
-+      pins:
-+        pattern: '^HDP[0-7]$'
-+
-+      function: true
-+
-+    required:
-+      - function
-+      - pins
-+
-+allOf:
-+  - $ref: pinctrl.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp131-hdp
-+    then:
-+      patternProperties:
-+        "^hdp[0-7]-pins$":
-+          properties:
-+            function:
-+              enum: [ pwr_pwrwake_sys, pwr_stop_forbidden, pwr_stdby_wakeup, pwr_encomp_vddcore,
-+                      bsec_out_sec_niden, aiec_sys_wakeup, none, ddrctrl_lp_req,
-+                      pwr_ddr_ret_enable_n, dts_clk_ptat, sram3ctrl_tamp_erase_act, gpoval0,
-+                      pwr_sel_vth_vddcpu, pwr_mpu_ram_lowspeed, ca7_naxierrirq, pwr_okin_mr,
-+                      bsec_out_sec_dbgen, aiec_c1_wakeup, rcc_pwrds_mpu, ddrctrl_dfi_ctrlupd_req,
-+                      ddrctrl_cactive_ddrc_asr, sram3ctrl_hw_erase_act, nic400_s0_bready, gpoval1,
-+                      pwr_pwrwake_mpu, pwr_mpu_clock_disable_ack, ca7_ndbgreset_i,
-+                      bsec_in_rstcore_n, bsec_out_sec_bsc_dis, ddrctrl_dfi_init_complete,
-+                      ddrctrl_perf_op_is_refresh, ddrctrl_gskp_dfi_lp_req, sram3ctrl_sw_erase_act,
-+                      nic400_s0_bvalid, gpoval2, pwr_sel_vth_vddcore, pwr_mpu_clock_disable_req,
-+                      ca7_npmuirq0, ca7_nfiqout0, bsec_out_sec_dftlock, bsec_out_sec_jtag_dis,
-+                      rcc_pwrds_sys, sram3ctrl_tamp_erase_req, ddrctrl_stat_ddrc_reg_selfref_type0,
-+                      dts_valobus1_0, dts_valobus2_0, tamp_potential_tamp_erfcfg, nic400_s0_wready,
-+                      nic400_s0_rready, gpoval3, pwr_stop2_active, ca7_nl2reset_i,
-+                      ca7_npreset_varm_i, bsec_out_sec_dften, bsec_out_sec_dbgswenable,
-+                      eth1_out_pmt_intr_o, eth2_out_pmt_intr_o, ddrctrl_stat_ddrc_reg_selfref_type1,
-+                      ddrctrl_cactive_0, dts_valobus1_1, dts_valobus2_1, tamp_nreset_sram_ercfg,
-+                      nic400_s0_wlast, nic400_s0_rlast, gpoval4, ca7_standbywfil2,
-+                      pwr_vth_vddcore_ack, ca7_ncorereset_i, ca7_nirqout0, bsec_in_pwrok,
-+                      bsec_out_sec_deviceen, eth1_out_lpi_intr_o, eth2_out_lpi_intr_o,
-+                      ddrctrl_cactive_ddrc, ddrctrl_wr_credit_cnt, dts_valobus1_2, dts_valobus2_2,
-+                      pka_pka_itamp_out, nic400_s0_wvalid, nic400_s0_rvalid, gpoval5,
-+                      ca7_standbywfe0, pwr_vth_vddcpu_ack, ca7_evento, bsec_in_tamper_det,
-+                      bsec_out_sec_spniden, eth1_out_mac_speed_o1, eth2_out_mac_speed_o1,
-+                      ddrctrl_csysack_ddrc, ddrctrl_lpr_credit_cnt, dts_valobus1_3, dts_valobus2_3,
-+                      saes_tamper_out, nic400_s0_awready, nic400_s0_arready, gpoval6,
-+                      ca7_standbywfi0, pwr_rcc_vcpu_rdy, ca7_eventi, ca7_dbgack0, bsec_out_fuse_ok,
-+                      bsec_out_sec_spiden, eth1_out_mac_speed_o0, eth2_out_mac_speed_o0,
-+                      ddrctrl_csysreq_ddrc, ddrctrl_hpr_credit_cnt, dts_valobus1_4, dts_valobus2_4,
-+                      rng_tamper_out, nic400_s0_awavalid, nic400_s0_aravalid, gpoval7 ]
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp151-hdp
-+    then:
-+      patternProperties:
-+        "^hdp[0-7]-pins$":
-+          properties:
-+            function:
-+              enum: [ pwr_pwrwake_sys, cm4_sleepdeep, pwr_stdby_wkup, pwr_encomp_vddcore,
-+                      bsec_out_sec_niden, none, rcc_cm4_sleepdeep, gpu_dbg7, ddrctrl_lp_req,
-+                      pwr_ddr_ret_enable_n, dts_clk_ptat, gpoval0, pwr_pwrwake_mcu, cm4_halted,
-+                      ca7_naxierrirq, pwr_okin_mr, bsec_out_sec_dbgen, exti_sys_wakeup,
-+                      rcc_pwrds_mpu, gpu_dbg6, ddrctrl_dfi_ctrlupd_req, ddrctrl_cactive_ddrc_asr,
-+                      gpoval1, pwr_pwrwake_mpu, cm4_rxev, ca7_npmuirq1, ca7_nfiqout1,
-+                      bsec_in_rstcore_n, exti_c2_wakeup, rcc_pwrds_mcu, gpu_dbg5,
-+                      ddrctrl_dfi_init_complete, ddrctrl_perf_op_is_refresh,
-+                      ddrctrl_gskp_dfi_lp_req, gpoval2, pwr_sel_vth_vddcore, cm4_txev, ca7_npmuirq0,
-+                      ca7_nfiqout0, bsec_out_sec_dftlock, exti_c1_wakeup, rcc_pwrds_sys, gpu_dbg4,
-+                      ddrctrl_stat_ddrc_reg_selfref_type0, ddrctrl_cactive_1, dts_valobus1_0,
-+                      dts_valobus2_0, gpoval3, pwr_mpu_pdds_not_cstbydis, cm4_sleeping, ca7_nreset1,
-+                      ca7_nirqout1, bsec_out_sec_dften, bsec_out_sec_dbgswenable,
-+                      eth_out_pmt_intr_o, gpu_dbg3, ddrctrl_stat_ddrc_reg_selfref_type1,
-+                      ddrctrl_cactive_0, dts_valobus1_1, dts_valobus2_1, gpoval4, ca7_standbywfil2,
-+                      pwr_vth_vddcore_ack, ca7_nreset0, ca7_nirqout0, bsec_in_pwrok,
-+                      bsec_out_sec_deviceen, eth_out_lpi_intr_o, gpu_dbg2, ddrctrl_cactive_ddrc,
-+                      ddrctrl_wr_credit_cnt, dts_valobus1_2, dts_valobus2_2, gpoval5,
-+                      ca7_standbywfi1, ca7_standbywfe1, ca7_evento, ca7_dbgack1,
-+                      bsec_out_sec_spniden, eth_out_mac_speed_o1, gpu_dbg1, ddrctrl_csysack_ddrc,
-+                      ddrctrl_lpr_credit_cnt, dts_valobus1_3, dts_valobus2_3, gpoval6,
-+                      ca7_standbywfi0, ca7_standbywfe0, ca7_dbgack0, bsec_out_fuse_ok,
-+                      bsec_out_sec_spiden, eth_out_mac_speed_o0, gpu_dbg0, ddrctrl_csysreq_ddrc,
-+                      ddrctrl_hpr_credit_cnt, dts_valobus1_4, dts_valobus2_4, gpoval7 ]
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp251-hdp
-+    then:
-+      patternProperties:
-+        "^hdp[0-7]-pins$":
-+          properties:
-+            function:
-+              enum: [ pwr_pwrwake_sys, cpu2_sleep_deep, bsec_out_tst_sdr_unlock_or_disable_scan,
-+                      bsec_out_nidenm, bsec_out_nidena, cpu2_state_0, rcc_pwrds_sys, gpu_dbg7,
-+                      ddrss_csysreq_ddrc, ddrss_dfi_phyupd_req, cpu3_sleep_deep,
-+                      d2_gbl_per_clk_bus_req, pcie_usb_cxpl_debug_info_ei_0,
-+                      pcie_usb_cxpl_debug_info_ei_8, d3_state_0, gpoval0, pwr_pwrwake_cpu2,
-+                      cpu2_halted, cpu2_state_1, bsec_out_dbgenm, bsec_out_dbgena, exti1_sys_wakeup,
-+                      rcc_pwrds_cpu2, gpu_dbg6, ddrss_csysack_ddrc, ddrss_dfi_phymstr_req,
-+                      cpu3_halted, d2_gbl_per_dma_req, pcie_usb_cxpl_debug_info_ei_1,
-+                      pcie_usb_cxpl_debug_info_ei_9, d3_state_1, gpoval1, pwr_pwrwake_cpu1,
-+                      cpu2_rxev, cpu1_npumirq1, cpu1_nfiqout1, bsec_out_shdbgen, exti1_cpu2_wakeup,
-+                      rcc_pwrds_cpu1, gpu_dbg5, ddrss_cactive_ddrc, ddrss_dfi_lp_req, cpu3_rxev,
-+                      hpdma1_clk_bus_req, pcie_usb_cxpl_debug_info_ei_2,
-+                      pcie_usb_cxpl_debug_info_ei_10, d3_state_2, gpoval2, pwr_sel_vth_vddcpu,
-+                      cpu2_txev, cpu1_npumirq0, cpu1_nfiqout0, bsec_out_ddbgen, exti1_cpu1_wakeup,
-+                      cpu3_state_0, gpu_dbg4, ddrss_mcdcg_en, ddrss_dfi_freq_0, cpu3_txev,
-+                      hpdma2_clk_bus_req, pcie_usb_cxpl_debug_info_ei_3,
-+                      pcie_usb_cxpl_debug_info_ei_11, d1_state_0, gpoval3, pwr_sel_vth_vddcore,
-+                      cpu2_sleeping, cpu1_evento, cpu1_nirqout1, bsec_out_spnidena, exti2_d3_wakeup,
-+                      eth1_out_pmt_intr_o, gpu_dbg3, ddrss_dphycg_en, ddrss_obsp0, cpu3_sleeping,
-+                      hpdma3_clk_bus_req, pcie_usb_cxpl_debug_info_ei_4,
-+                      pcie_usb_cxpl_debug_info_ei_12, d1_state_1, gpoval4, cpu1_standby_wfil2,
-+                      none, cpu1_nirqout0, bsec_out_spidena, exti2_cpu3_wakeup, eth1_out_lpi_intr_o,
-+                      gpu_dbg2, ddrctrl_dfi_init_start, ddrss_obsp1, cpu3_state_1,
-+                      d3_gbl_per_clk_bus_req, pcie_usb_cxpl_debug_info_ei_5,
-+                      pcie_usb_cxpl_debug_info_ei_13, d1_state_2, gpoval5, cpu1_standby_wfi1,
-+                      cpu1_standby_wfe1, cpu1_halted1, cpu1_naxierrirq, bsec_out_spnidenm,
-+                      exti2_cpu2_wakeup, eth2_out_pmt_intr_o, gpu_dbg1, ddrss_dfi_init_complete,
-+                      ddrss_obsp2, d2_state_0, d3_gbl_per_dma_req, pcie_usb_cxpl_debug_info_ei_6,
-+                      pcie_usb_cxpl_debug_info_ei_14, cpu1_state_0, gpoval6, cpu1_standby_wfi0,
-+                      cpu1_standby_wfe0, cpu1_halted0, bsec_out_spidenm, exti2_cpu1__wakeup,
-+                      eth2_out_lpi_intr_o, gpu_dbg0, ddrss_dfi_ctrlupd_req, ddrss_obsp3, d2_state_1,
-+                      lpdma1_clk_bus_req, pcie_usb_cxpl_debug_info_ei_7,
-+                      pcie_usb_cxpl_debug_info_ei_15, cpu1_state_1, gpoval7 ]
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/stm32mp1-clks.h>
-+
-+    pinctrl@54090000 {
-+      compatible = "st,stm32mp151-hdp";
-+      reg = <0x54090000 0x400>;
-+      clocks = <&rcc HDP>;
-+      pinctrl-names = "default";
-+      pinctrl-0 = <&hdp2_gpo>;
-+      hdp2_gpo: hdp2-pins {
-+        function = "gpoval2";
-+        pins = "HDP2";
-+      };
-+    };
++		if (flags & BGPIOF_NO_INPUT)
++			gc->direction_input = bgpio_dir_in_err;
++		else
++			gc->direction_input = bgpio_simple_dir_in;
+ 	}
+ 
+ 	return 0;
+diff --git a/include/linux/gpio/driver.h b/include/linux/gpio/driver.h
+index 4c0294a9104d..42890db9b10e 100644
+--- a/include/linux/gpio/driver.h
++++ b/include/linux/gpio/driver.h
+@@ -749,6 +749,7 @@ int bgpio_init(struct gpio_chip *gc, struct device *dev,
+ #define BGPIOF_NO_OUTPUT		BIT(5) /* only input */
+ #define BGPIOF_NO_SET_ON_INPUT		BIT(6)
+ #define BGPIOF_PINCTRL_BACKEND		BIT(7) /* Call pinctrl direction setters */
++#define BGPIOF_NO_INPUT			BIT(8) /* only output */
+ 
+ #ifdef CONFIG_GPIOLIB_IRQCHIP
+ int gpiochip_irqchip_add_domain(struct gpio_chip *gc,
 
 -- 
 2.43.0
