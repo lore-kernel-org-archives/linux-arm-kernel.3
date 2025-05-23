@@ -4,110 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8849BC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E757C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HhYDRQzIhSNdOUbuAjN4icUbAXbpsebcirUCh+Tb6bQ=; b=TeDaHwJfF3I4iScDdpO+XYlStQ
-	tPaeStSZ+3OXXQAjdXwP0dQFVXzBwp7ll0VaVax5HaVXFasKRpDf9wD70hmUYJjaeheIn1F+pUzir
-	5tEh/5thUxTIL8UkLp1LIHLsmlMK+Rcuu90U8mjGJcAXHSBDeqMwTGq0aLoSC5exI93gNPQoNMR3q
-	uYYUn4u5yx8poR7L8J78j6xv+PXJwrBUaoukvfMWM/2b1Wxp1XJrRTCw3thI4qduxnstUcGtFS53X
-	kIkAoDueHSHvWhlZnr5vhTpgO7DMm7Oi918rLApmmztQLdwRxzUZ6Bm1a0K92KcjnL7w/Q2o3X6SQ
-	Vb7u5UGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KRX2tV0I4E69oy6vP6qOq5WU7oIum9yZL7yNHkbYpOQ=; b=qB4//fJBSR62UwQViXOxmVp933
+	BxgGCQ7vhT37MH+rwB3MjPrAxfEmpKugre8QosAVjDRinXbwN7U6YKdNLxkV2ioahUZzlzM8scvSB
+	n6Ztk669vKyEo8y2kt3vI31FHUQ04CFu57+rc7W5pf1aBuD+IWHnAKjZScC1UVQitNRbiNk4zaIFR
+	5ZM5DoJa7ZPZ5sd/imzjYIdG7nKzoXZ7ZJI64ICm2ZxvJupCuOuUeS1Ltopm6d25resMv0HMQHlYS
+	XSIf/NzxI0Zv8iijQv6CIXWL1gr0u5ry4E1pxmMWbb9RI8cIPtm5kcLzzh9AqD8gyEpsZ5IfilNgN
+	qana1fOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uINau-00000003Hus-3E58;
-	Fri, 23 May 2025 08:17:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uINcy-00000003I95-0pD5;
+	Fri, 23 May 2025 08:19:40 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uINPa-00000003G8O-1aBj;
-	Fri, 23 May 2025 08:05:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B0164A4A1;
-	Fri, 23 May 2025 08:05:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0234FC4CEEB;
-	Fri, 23 May 2025 08:05:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747987549;
-	bh=3ZKsSTRNWIT++kUAdl5pobQvc/yyPFIsFGuCBohO3Jg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GYesacsOmT4zCaaaZCAw7vAqPDws3KTUwUcfKDyALZOvOo5krKNsWjpcx0VBxsaIi
-	 2VrRf9n7VoHDCaAWQY/6L/RQeVb//BZzfhaFzY+8ysrrH8HYUC5xhbfpxl2oIyevUO
-	 Khgq03pjYszFAXeEg7BTkVSvsJGmK+sVM4GjXBfq4xf0qBOy4NnqhX7cEO/k929SyR
-	 0FcdlSaw6LOCalnKYonNubc1xTTeJ5ZUXP57KkKKB49CwkAWvEY19KojD36VhQuW7S
-	 6KGZLy/qIVXdc7C+YbREEl/UWMhcQl4hP2bCfEbjSYZi/pYiZgTNth8UHyBSjK31IF
-	 CFDdG3//BFjSg==
-Message-ID: <cf6d6088-dacf-42d9-b8dc-92b6b17282a9@kernel.org>
-Date: Fri, 23 May 2025 10:05:44 +0200
+	id 1uINRP-00000003GNJ-09AK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 08:07:44 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 719BA1F96B;
+	Fri, 23 May 2025 10:07:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1747987657;
+	bh=KRX2tV0I4E69oy6vP6qOq5WU7oIum9yZL7yNHkbYpOQ=; h=From:To:Subject;
+	b=ks9UwfuodmbKMAQu9i8FmCAfx9+lFecn0FmZRnlsyHQWPsnk+nlh2unax5n53Dd4A
+	 ls8tygk8ro76FNTQ+Sz9vCKAiP+YWhRjSFDP9Dvq2vd5iiw2fbmsY3TZwj3D79wOqp
+	 etWGlPr07FXY2Pn2/kLc8YlwCnYfGebWsZyfAw6zUSVoWCMY+nT+RdiehVKvrxjnU/
+	 e7G/6xaWUvGOn35xJkVc2a48TUcxG1/k4j+IgrBFGQYw+tbJr6Akr61FtCWdvjoW4f
+	 Axie7cYZkJ9/7LAHYOlI2SYpztYAqzOPq6uYvOdrDpLXzOsyJpWYkqbdvprWwFhFZm
+	 mKCb5wb0I13Nw==
+Date: Fri, 23 May 2025 10:07:32 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Paul Menzel <pmenzel@molgen.mpg.de>
+Cc: Francesco Dolcini <francesco@dolcini.it>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Amitkumar Karwar <amitkumar.karwar@nxp.com>,
+	Neeraj Kale <neeraj.sanjaykale@nxp.com>, Nishanth Menon <nm@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Subject: Re: Kernel WARNING (RCU) with btnxpuart on TI AM62 platform
+Message-ID: <20250523080732.GA19643@francesco-nb>
+References: <20250408083512.GA26035@francesco-nb>
+ <24b28bda-e294-4680-bed5-c44efcb6c455@ti.com>
+ <20250410062006.GA7506@francesco-nb>
+ <4286c852-c5c5-468b-a8f5-fc226e71d5e9@molgen.mpg.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/4] dt-bindings: can: rockchip_canfd: add rk3576
- CAN-FD controller
-To: Elaine Zhang <zhangqing@rock-chips.com>, mkl@pengutronix.de,
- kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com,
- kever.yang@rock-chips.com
-Cc: linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250523075422.4010083-1-zhangqing@rock-chips.com>
- <20250523075422.4010083-2-zhangqing@rock-chips.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250523075422.4010083-2-zhangqing@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4286c852-c5c5-468b-a8f5-fc226e71d5e9@molgen.mpg.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_010550_467511_6AAC3E3D 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250523_010743_243160_1776E4CA 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,45 +80,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/05/2025 09:54, Elaine Zhang wrote:
->        - items:
->            - const: rockchip,rk3568v3-canfd
->            - const: rockchip,rk3568v2-canfd
-> @@ -43,6 +44,13 @@ properties:
->        - const: core
->        - const: apb
->  
-> +  dmas:
-> +    maxItems: 1
-> +
-> +  dma-names:
-> +    items:
-> +      - const: rx
+On Mon, May 12, 2025 at 04:47:28PM +0200, Paul Menzel wrote:
+> Am 10.04.25 um 08:20 schrieb Francesco Dolcini:
+> > On Tue, Apr 08, 2025 at 09:15:26PM +0530, Vignesh Raghavendra wrote:
+> > > On 08/04/25 14:05, Francesco Dolcini wrote:
+> > > > I do have the following kernel warning with 6.15-rc1, on a TI AM62
+> > > > platform (arm64), single CPU core, using btnxpuart driver, any idea?
+> > > > PREEMPT_RT is enabled, if it matters.
+> > > > 
+> > > > Either the issue is not systematic, or multi cores SoCs are not affected
+> > > > (no error on the exact same image on a dual nor on quad core TI AM62).
 
-All devices support DMA? If so, explain this in commit msg. If not, this
-needs constraints per variant. See example-schema and other bindings.
+...
 
-> +
->  required:
->    - compatible
->    - reg
-> @@ -72,3 +80,19 @@ examples:
->              reset-names = "core", "apb";
->          };
->      };
-> +
-> +  - |
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        can@2ac00000 {
-> +            compatible = "rockchip,rk3576-canfd";
+> Not that this gets forgotten. Vignesh, is your theory still valid with
+> PREEMPT_RT not set?
+> 
+> Francesco, were you able to test older Linux kernels in the meantime?
 
-That's the same example. Drop.
+Yes. The same happens with 6.12.30 kernel. Not systematic.
 
+[   19.908418] Voluntary context switch within RCU read-side critical section!
+[   19.908453] WARNING: CPU: 0 PID: 371 at /kernel/rcu/tree_plugin.h:331 rcu_note_context_switch+0x3d0/0x428
+[   19.908510] Modules linked in: sd_mod uas onboard_usb_dev optee_rng rng_core btnxpuart dwc3 evdev spidev aes_ce_blk aes_ce_cipher ghash_ce gf128mul sha2_ce sha256_arm64 sha1_ce snd_soc_simple_card snd_soc_simple_card_utils display_connector optee gpio_keys spi_cadence_quadspi usb_conn_gpio tee roles k3_j72xx_bandgap mwifiex_sdio mwifiex cfg80211 rtc_ti_k3 dwc3_am62 bluetooth ecdh_generic ecc sa2ul rfkill sha512_generic authenc tidss snd_soc_davinci_mcasp crypto_null libaes snd_soc_ti_udma drm_display_helper snd_soc_ti_edma sha1_generic snd_soc_ti_sdma omap_hwspinlock ti_ads1015 lontium_lt8912b ina2xx industrialio_triggered_buffer kfifo_buf tps65219_pwrbutton tc358768 lm75 m_can_platform snd_soc_wm8904 pwm_tiehrpwm m_can can_dev spi_omap2_mcspi fuse ipv6 autofs4
+[   19.908761] CPU: 0 UID: 0 PID: 371 Comm: kworker/u5:2 Not tainted 6.12.30-7.3.0-devel #1
+[   19.908773] Hardware name: Toradex Verdin AM62 WB on Dahlia Board (DT)
+[   19.908780] Workqueue: hci0 hci_power_off [bluetooth]
+[   19.908917] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[   19.908930] pc : rcu_note_context_switch+0x3d0/0x428
+[   19.908946] lr : rcu_note_context_switch+0x3d0/0x428
+[   19.908957] sp : ffff8000825dba60
+[   19.908961] x29: ffff8000825dba60 x28: 0000000000000000 x27: 0000000000000000
+[   19.908977] x26: ffff0000011e11c0 x25: ffff00000a5a9080 x24: 0000000000000000
+[   19.908988] x23: 0000000000000000 x22: ffff00000a5a9080 x21: ffff00001daa92c0
+[   19.908999] x20: ffff8000810220c0 x19: ffff00001daaa0c0 x18: fffffffffffe7a38
+[   19.909010] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000048
+[   19.909023] x14: fffffffffffe7a80 x13: 216e6f6974636573 x12: 206c616369746972
+[   19.909034] x11: 6320656469732d64 x10: 6165722055435220 x9 : 206e696874697720
+[   19.909045] x8 : 6863746977732074 x7 : ffff80008122c840 x6 : ffff8000825db820
+[   19.909056] x5 : ffff00001da9f888 x4 : 0000000000000000 x3 : 0000000000000027
+[   19.909071] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff00000a5a9080
+[   19.909084] Call trace:
+[   19.909089]  rcu_note_context_switch+0x3d0/0x428
+[   19.909107]  __schedule+0x98/0x774
+[   19.909124]  schedule+0x34/0x104
+[   19.909133]  rpm_resume+0x17c/0x6b0
+[   19.909144]  __pm_runtime_resume+0x48/0x88
+[   19.909158]  serial8250_stop_rx+0x28/0x84
+[   19.909173]  uart_tty_port_shutdown+0x3c/0x178
+[   19.909184]  tty_port_shutdown+0x84/0xdc
+[   19.909201]  tty_port_close+0x3c/0xac
+[   19.909211]  uart_close+0x34/0x98
+[   19.909219]  ttyport_close+0x50/0x94
+[   19.909230]  serdev_device_close+0x40/0x50
+[   19.909243]  btnxpuart_close+0x1c/0x9c [btnxpuart]
+[   19.909258]  hci_dev_close_sync+0x314/0x7d8 [bluetooth]
+[   19.909325]  hci_dev_do_close+0x2c/0x70 [bluetooth]
+[   19.909388]  hci_power_off+0x20/0x64 [bluetooth]
+[   19.909454]  process_one_work+0x148/0x28c
+[   19.909477]  worker_thread+0x2d4/0x3d8
+[   19.909488]  kthread+0x110/0x114
+[   19.909499]  ret_from_fork+0x10/0x20
+[   19.909518] ---[ end trace 0000000000000000 ]---
 
+Francesco
 
-Best regards,
-Krzysztof
 
