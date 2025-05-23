@@ -4,53 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFFDC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4140EC54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tE+mBMux8sdVrOsiBcEQypzVDB6SE5lVn1YLX4lAw3U=; b=V/d7p+CA1YwF6P/EpFpX79UVQU
-	DIF9DCN0P5MyY7+HAsN56tt8axotYx/B3O1nIZrEbBEUAA3CkFbG1Ku09NBAbnk8KnkfzO58yBH9+
-	tqxAPNps74XSxQE+GnF774rLSLq21I/gHk5F0qc+zxN16lDk9rVONAUSGm8H9cMDfxmW9iI6oTb59
-	d4M8DOMfOWv0FdrnhD3xEPSmSZ9QpQNBOQn4bFdHQoeLWweHWw8m9/fwlsotOQxtCozJYK37vUsP5
-	1slBcJpY0k55xPHnJVsORkBCyV3XZI/6CJ3d/i3ozDtHHUpsf57dO7MyVHFWshKgg1Q7tl+e0h3iD
-	pLfr9aLg==;
+	bh=iy5yNbBCE1W2Xm0/0dFNF6h0KByQe6ipuUydcjP05Wk=; b=D35Y5BZv1VPXZNiQd2ZL30qoQN
+	5KSnKOtEn3g5SRoRoiQCjt0iXwa9rwjGLxT+PbRu1FpRxFIUEc2PSWColr8lc0nH91eMYxwB8Uw3j
+	VCzUlTcW8ki+CuyhdUsmnHek5zhkes1AGBDsnewf+PZtBPbbQvO50T++LlJyeW4Vl0CP7GqAsdTUW
+	BOo1foTMPje2Y302VZd9IK/+7MLwEW9zXUFXB4bhU9L7s1/b5UJvfzKM7IcINoZ7hvXfIEoc9wlKM
+	LQVJEOg8utzVPcBF4UOKNJJsmUuxKaFbG5bKIVp8IUY+3I0/37LWoQyQX8AQIkZ5t2VZhuTGbLgNH
+	ptS+VZHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQxn-00000003kk3-0UT5;
-	Fri, 23 May 2025 11:53:23 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uIR1i-00000003lEA-06b0;
+	Fri, 23 May 2025 11:57:26 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIPtN-00000003cw5-09L8;
-	Fri, 23 May 2025 10:44:46 +0000
-Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:a882:21a2:2327:ac4f])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BE214346;
-	Fri, 23 May 2025 12:44:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747997060;
-	bh=/eZ3ilnoLPrGEK9DLZJbW8cSvCZAcd9j5LvbllAAhY8=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=ISij9Uw6/cNxDVuSFh0+r8gzTMNWBTFXwV2qQKyoWC7HRzJSkWvXPU9oRu4pIQp6D
-	 CzLrCWNt/yG9m4+osFGgeqhd7uz2Ac0gCFEE7ZUqBA8Eu+twKCgKky3jmTJTybUSZd
-	 XD03LEDCh8JjllDfd/ZKOFE4ku+vFXTvAXqlVR+U=
-Content-Type: text/plain; charset="utf-8"
+	id 1uIQxr-00000003klW-0L47
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 11:53:28 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a35ae46214so916158f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:53:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748001205; x=1748606005; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=iy5yNbBCE1W2Xm0/0dFNF6h0KByQe6ipuUydcjP05Wk=;
+        b=RVh1lzwecJEDU8oTItCGXpc67LR/ZDuFOTq9+eOs0FuVHR0Ju+dxaImcYtvuM8AdtI
+         u8rxPMUo5CUxQmweH5O5mQkQCD76CduFLiZpSB/wSLumPSmdscgsS9YfBRn22HuKo/Vy
+         Ihhq1ANmuMAuVDcM713GWlbBjhcxvJZUegaRN4avCRvoqXlulM6HpEge1a/W7N0Myctw
+         9y8RERsKVmEKZhXN9oU9izEwHu5+650SuKUCTBE+mYn1ClNarXePE/1qI8KkiRdRBITB
+         sfA0XOhGbJysDd4mMlsOeeh+7/50HgyukkrQmOQhhx3eepJOTShdRxyx81YAHBCCk6eA
+         wlvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748001205; x=1748606005;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iy5yNbBCE1W2Xm0/0dFNF6h0KByQe6ipuUydcjP05Wk=;
+        b=MvOyOgTQ/Ga4H41yqAMXhgtJNaLLTmqX0L8NIpZ2rR8lq3svmMD7B+f/NABVscyg6C
+         F1MyvWQ5tR41geS58zd0sGlvvhY8EdI8KI9mJanVXtDxyzWTp06cm7f2GqhsoaQKGkEP
+         GW7KTtvEOXKM9fJlAhMIFT5tTKwxtIjQU6YbCGVmdObGPBRJnglrbpxYjJ+hu3ooO5JT
+         sgXEIkJgKkMB8jIVsoDaTqoAghaUwMWOzcYn+YQb/vz7AjjjUq84maU7AV6QLUNsz4qG
+         JmSw34yr/DHvi3iasDwQ5h25HaTyy/FfO3Ky72bNyLgHEP+rWFCpU7XPeAxRU/gQQYzV
+         uhRg==
+X-Forwarded-Encrypted: i=1; AJvYcCXi2gTXlcgLu3kbImA/H+T5djL4CM7Vhm2/eMw2eO6+L0F2tkZmfbztnKugrQM0923DhVbL7764S4aKfTzaPdws@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE6zVYioGFlv0rUwCtCBLR2UlN3VU4Eb422qZCiZ/vuNAPNTJV
+	NMhnEGbJ6KTQZT+KD2iLItcBiCJpdak4k/CIh5cykVV56Zxp3menzSXH+mD/F23R2GY=
+X-Gm-Gg: ASbGncsMToZ2xr01f25JY4bTELHbTJnWSm1alaJ+Hc0YHtidvVhAWWXpjlvO73wjQQn
+	B0FNLQuI7kjZ25mxuLWg3KjMVkurpzwGl3nmRv6JPud2/HI9kCVaVfPvKVt1T1ahQqxxkiCFHWq
+	jN9kHvzp8+PBJfHG348tVVNV70jStH0D86QttkiqG2yvJaz7VIsuvoO7LIyXc+YwPQwr7SmnjDZ
+	+CJNfN/KQJsgABRzIOmIuhn3vCgSLh58bNnKAdSFxWeelGjYfmEepvtZriShL3XCTgWePH20kA1
+	a8BnAo6ZqjMwdcR0Vmfrbt6ut5hT1rOfkPBrqo5T0jyjE5GdAhdBFMlCzyKYfSzVNqa1Z/paVps
+	j/b+EKA==
+X-Google-Smtp-Source: AGHT+IGiTwOziR9IJT4L99QRluitOH1c2cD1keE0P4ghCB9WrBBBN5jemRn4okE+9l904fpaxzyugA==
+X-Received: by 2002:a05:6000:2889:b0:3a4:bfe2:87c3 with SMTP id ffacd0b85a97d-3a4bfe2895dmr1886237f8f.7.1748001205428;
+        Fri, 23 May 2025 04:53:25 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a3674fed67sm22064799f8f.89.2025.05.23.04.53.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 May 2025 04:53:24 -0700 (PDT)
+Message-ID: <86b2d83a-aecf-4ef0-ae02-c8f6bdc72e5a@linaro.org>
+Date: Fri, 23 May 2025 13:53:23 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250523103346.GC12514@pendragon.ideasonboard.com>
-References: <20250523-supported-params-and-wdr-v2-0-5a88dca5f420@ideasonboard.com> <20250523-supported-params-and-wdr-v2-1-5a88dca5f420@ideasonboard.com> <20250523103346.GC12514@pendragon.ideasonboard.com>
-Subject: Re: [PATCH v2 1/2] media: rkisp1: Add RKISP1_CID_SUPPORTED_PARAMS_BLOCKS control
-From: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Paul Elder <paul.elder@ideasonboard.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Date: Fri, 23 May 2025 12:44:40 +0200
-Message-ID: <174799708047.447283.7488479214082467414@localhost>
-User-Agent: alot/0.12.dev16+g501a9541e2e6.d20250519
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: update renamed PHY_SNPS_EUSB2
+To: Casey Connolly <casey.connolly@linaro.org>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Eric Biggers <ebiggers@google.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Vinod Koul <vkoul@kernel.org>, Will Deacon <will@kernel.org>
+Cc: Nishanth Menon <nm@ti.com>, linux-arm-kernel@lists.infradead.org
+References: <20250523114956.457102-1-casey.connolly@linaro.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzTRLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+wsGUBBMBCgA+AhsD
+ BQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmgXUEoF
+ CRaWdJoACgkQG5NDfTtBYpudig/+Inb3Kjx1B7w2IpPKmpCT20QQQstx14Wi+rh2FcnV6+/9
+ tyHtYwdirraBGGerrNY1c14MX0Tsmzqu9NyZ43heQB2uJuQb35rmI4dn1G+ZH0BD7cwR+M9m
+ lSV9YlF7z3Ycz2zHjxL1QXBVvwJRyE0sCIoe+0O9AW9Xj8L/dmvmRfDdtRhYVGyU7fze+lsH
+ 1pXaq9fdef8QsAETCg5q0zxD+VS+OoZFx4ZtFqvzmhCs0eFvM7gNqiyczeVGUciVlO3+1ZUn
+ eqQnxTXnqfJHptZTtK05uXGBwxjTHJrlSKnDslhZNkzv4JfTQhmERyx8BPHDkzpuPjfZ5Jp3
+ INcYsxgttyeDS4prv+XWlT7DUjIzcKih0tFDoW5/k6OZeFPba5PATHO78rcWFcduN8xB23B4
+ WFQAt5jpsP7/ngKQR9drMXfQGcEmqBq+aoVHobwOfEJTErdku05zjFmm1VnD55CzFJvG7Ll9
+ OsRfZD/1MKbl0k39NiRuf8IYFOxVCKrMSgnqED1eacLgj3AWnmfPlyB3Xka0FimVu5Q7r1H/
+ 9CCfHiOjjPsTAjE+Woh+/8Q0IyHzr+2sCe4g9w2tlsMQJhixykXC1KvzqMdUYKuE00CT+wdK
+ nXj0hlNnThRfcA9VPYzKlx3W6GLlyB6umd6WBGGKyiOmOcPqUK3GIvnLzfTXR5DOwU0EVUNc
+ NAEQAM2StBhJERQvgPcbCzjokShn0cRA4q2SvCOvOXD+0KapXMRFE+/PZeDyfv4dEKuCqeh0
+ hihSHlaxTzg3TcqUu54w2xYskG8Fq5tg3gm4kh1Gvh1LijIXX99ABA8eHxOGmLPRIBkXHqJY
+ oHtCvPc6sYKNM9xbp6I4yF56xVLmHGJ61KaWKf5KKWYgA9kfHufbja7qR0c6H79LIsiYqf92
+ H1HNq1WlQpu/fh4/XAAaV1axHFt/dY/2kU05tLMj8GjeQDz1fHas7augL4argt4e+jum3Nwt
+ yupodQBxncKAUbzwKcDrPqUFmfRbJ7ARw8491xQHZDsP82JRj4cOJX32sBg8nO2N5OsFJOcd
+ 5IE9v6qfllkZDAh1Rb1h6DFYq9dcdPAHl4zOj9EHq99/CpyccOh7SrtWDNFFknCmLpowhct9
+ 5ZnlavBrDbOV0W47gO33WkXMFI4il4y1+Bv89979rVYn8aBohEgET41SpyQz7fMkcaZU+ok/
+ +HYjC/qfDxT7tjKXqBQEscVODaFicsUkjheOD4BfWEcVUqa+XdUEciwG/SgNyxBZepj41oVq
+ FPSVE+Ni2tNrW/e16b8mgXNngHSnbsr6pAIXZH3qFW+4TKPMGZ2rZ6zITrMip+12jgw4mGjy
+ 5y06JZvA02rZT2k9aa7i9dUUFggaanI09jNGbRA/ABEBAAHCwXwEGAEKACYCGwwWIQSb0H4O
+ DFH41ZZ3t1Qbk0N9O0FimwUCaBdQXwUJFpZbKgAKCRAbk0N9O0Fim07TD/92Vcmzn/jaEBcq
+ yT48ODfDIQVvg2nIDW+qbHtJ8DOT0d/qVbBTU7oBuo0xuHo+MTBp0pSTWbThLsSN1AuyP8wF
+ KChC0JPcwOZZRS0dl3lFgg+c+rdZUHjsa247r+7fvm2zGG1/u+33lBJgnAIH5lSCjhP4VXiG
+ q5ngCxGRuBq+0jNCKyAOC/vq2cS/dgdXwmf2aL8G7QVREX7mSl0x+CjWyrpFc1D/9NV/zIWB
+ G1NR1fFb+oeOVhRGubYfiS62htUQjGLK7qbTmrd715kH9Noww1U5HH7WQzePt/SvC0RhQXNj
+ XKBB+lwwM+XulFigmMF1KybRm7MNoLBrGDa3yGpAkHMkJ7NM4iSMdSxYAr60RtThnhKc2kLI
+ zd8GqyBh0nGPIL+1ZVMBDXw1Eu0/Du0rWt1zAKXQYVAfBLCTmkOnPU0fjR7qVT41xdJ6KqQM
+ NGQeV+0o9X91X6VBeK6Na3zt5y4eWkve65DRlk1aoeBmhAteioLZlXkqu0pZv+PKIVf+zFKu
+ h0At/TN/618e/QVlZPbMeNSp3S3ieMP9Q6y4gw5CfgiDRJ2K9g99m6Rvlx1qwom6QbU06ltb
+ vJE2K9oKd9nPp1NrBfBdEhX8oOwdCLJXEq83vdtOEqE42RxfYta4P3by0BHpcwzYbmi/Et7T
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20250523114956.457102-1-casey.connolly@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_034445_540380_DAE96B29 
-X-CRM114-Status: GOOD (  43.78  )
+X-CRM114-CacheID: sfid-20250523_045327_138684_C593C385 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,253 +155,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+On 23/05/2025 13:49, Casey Connolly wrote:
+> This config option was renamed, update the defconfig to match.
+> 
+> Fixes: c4098f3e6134 ("phy: phy-snps-eusb2: add support for exynos2200")
 
-Thank you for the review.
 
-Quoting Laurent Pinchart (2025-05-23 12:33:46)
-> Hi Stefan,
->=20
-> Thank you for the patch.
->=20
-> On Fri, May 23, 2025 at 12:07:31PM +0200, Stefan Klug wrote:
-> > Add a RKISP1_CID_SUPPORTED_PARAMS_BLOCKS V4L2 control to be able to
-> > query the parameters blocks supported by the current kernel on the
-> > current hardware from user space.
-> >=20
-> > As a drive-by fix handle an (very unlikely) error in
-> > rkisp1_params_init_vb2_queue().
->=20
-> "While at it" changes are fine for very minor changes, but this is a fix
-> (even if it fixes a minor issue), so it should be a separate patch.
+No rename there...
 
-Dang. It was so small that I even considered completely dropping it.
-I'll wait a bit for further feedback and then post a v3 with the patch
-split out again.
-
->=20
-> > Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
-> > Reviewed-by: Paul Elder <paul.elder@ideasonboard.com>
-> >=20
-> > ---
-> >=20
-> > Changes in v2:
-> > - Added docs improvements from review
-> > - Moved ctrl_config declaration to top
-> > - Moved rkisp1_params_init_vb2_queue() return check into this patch as
-> >   the previous patch got dropped
-> > - Call rkisp1_ctrl_init() after media_entity_pads_init() for easier
-> >   error handling
-> > ---
-> >  .../media/platform/rockchip/rkisp1/rkisp1-common.h |  2 +
-> >  .../media/platform/rockchip/rkisp1/rkisp1-params.c | 57 ++++++++++++++=
-++++++--
-> >  include/uapi/linux/rkisp1-config.h                 |  9 ++++
-> >  include/uapi/linux/v4l2-controls.h                 |  6 +++
-> >  4 files changed, 70 insertions(+), 4 deletions(-)
-> >=20
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/d=
-rivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > index ca952fd0829b..5f187f9efc7b 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> > @@ -415,6 +415,8 @@ struct rkisp1_params {
-> >       spinlock_t config_lock; /* locks the buffers list 'params' */
-> >       struct list_head params;
-> > =20
-> > +     struct v4l2_ctrl_handler ctrls;
-> > +
-> >       const struct v4l2_meta_format *metafmt;
-> > =20
-> >       enum v4l2_quantization quantization;
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/d=
-rivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > index b28f4140c8a3..b276926beb3c 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> > @@ -2736,6 +2736,44 @@ static int rkisp1_params_init_vb2_queue(struct v=
-b2_queue *q,
-> >       return vb2_queue_init(q);
-> >  }
-> > =20
-> > +static int rkisp1_ctrl_init(struct rkisp1_params *params)
->=20
-> s/rkisp1_ctrl_init/rkisp1_params_ctrl_init/
->=20
-> > +{
-> > +     struct v4l2_ctrl_config ctrl_config =3D {
-> > +             .id =3D RKISP1_CID_SUPPORTED_PARAMS_BLOCKS,
-> > +             .name =3D "Supported Params Blocks",
-> > +             .type =3D V4L2_CTRL_TYPE_BITMASK,
-> > +             .flags =3D V4L2_CTRL_FLAG_READ_ONLY,
-> > +     };
-> > +     int ret;
-> > +
-> > +     v4l2_ctrl_handler_init(&params->ctrls, 1);
-> > +
-> > +     for (unsigned int i =3D 0; i < ARRAY_SIZE(rkisp1_ext_params_handl=
-ers); i++) {
-> > +             const struct rkisp1_ext_params_handler *block_handler;
-> > +
-> > +             block_handler =3D &rkisp1_ext_params_handlers[i];
-> > +             ctrl_config.max |=3D BIT(i);
-> > +
-> > +             if ((params->rkisp1->info->features & block_handler->feat=
-ures) !=3D
-> > +                 block_handler->features)
-> > +                     continue;
-> > +
-> > +             ctrl_config.def |=3D BIT(i);
-> > +     }
-> > +
-> > +     v4l2_ctrl_new_custom(&params->ctrls, &ctrl_config, NULL);
-> > +
-> > +     params->vnode.vdev.ctrl_handler =3D &params->ctrls;
-> > +
-> > +     if (params->ctrls.error) {
-> > +             ret =3D params->ctrls.error;
-> > +             v4l2_ctrl_handler_free(&params->ctrls);
-> > +             return ret;
-> > +     }
-> > +
-> > +     return 0;
-> > +}
-> > +
-> >  int rkisp1_params_register(struct rkisp1_device *rkisp1)
-> >  {
-> >       struct rkisp1_params *params =3D &rkisp1->params;
-> > @@ -2763,7 +2801,9 @@ int rkisp1_params_register(struct rkisp1_device *=
-rkisp1)
-> >       vdev->queue =3D &node->buf_queue;
-> >       vdev->device_caps =3D V4L2_CAP_STREAMING | V4L2_CAP_META_OUTPUT;
-> >       vdev->vfl_dir =3D VFL_DIR_TX;
-> > -     rkisp1_params_init_vb2_queue(vdev->queue, params);
-> > +     ret =3D rkisp1_params_init_vb2_queue(vdev->queue, params);
-> > +     if (ret)
-> > +             goto err_media;
-> > =20
-> >       params->metafmt =3D &rkisp1_params_formats[RKISP1_PARAMS_FIXED];
-> > =20
-> > @@ -2777,18 +2817,26 @@ int rkisp1_params_register(struct rkisp1_device=
- *rkisp1)
-> >       node->pad.flags =3D MEDIA_PAD_FL_SOURCE;
-> >       ret =3D media_entity_pads_init(&vdev->entity, 1, &node->pad);
-> >       if (ret)
-> > -             goto error;
-> > +             goto err_media;
-> > +
-> > +     ret =3D rkisp1_ctrl_init(params);
-> > +     if (ret) {
-> > +             dev_err(rkisp1->dev, "Control initialization error %d\n",=
- ret);
-> > +             goto err_media;
-> > +     }
-> > =20
-> >       ret =3D video_register_device(vdev, VFL_TYPE_VIDEO, -1);
-> >       if (ret) {
-> >               dev_err(rkisp1->dev,
-> >                       "failed to register %s, ret=3D%d\n", vdev->name, =
-ret);
-> > -             goto error;
-> > +             goto err_ctrl;
-> >       }
-> > =20
-> >       return 0;
-> > =20
-> > -error:
-> > +err_ctrl:
-> > +     v4l2_ctrl_handler_free(&params->ctrls);
-> > +err_media:
-> >       media_entity_cleanup(&vdev->entity);
-> >       mutex_destroy(&node->vlock);
-> >       return ret;
-> > @@ -2804,6 +2852,7 @@ void rkisp1_params_unregister(struct rkisp1_devic=
-e *rkisp1)
-> >               return;
-> > =20
-> >       vb2_video_unregister_device(vdev);
-> > +     v4l2_ctrl_handler_free(&params->ctrls);
-> >       media_entity_cleanup(&vdev->entity);
-> >       mutex_destroy(&node->vlock);
-> >  }
-> > diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rk=
-isp1-config.h
-> > index 2d995f3c1ca3..85c1b02f3f78 100644
-> > --- a/include/uapi/linux/rkisp1-config.h
-> > +++ b/include/uapi/linux/rkisp1-config.h
-> > @@ -1086,6 +1086,9 @@ enum rkisp1_ext_params_block_type {
-> >  #define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE   (1U << 0)
-> >  #define RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE    (1U << 1)
-> > =20
-> > +/* A bitmask of parameters blocks supported on the current hardware. */
-> > +#define RKISP1_CID_SUPPORTED_PARAMS_BLOCKS   (V4L2_CID_USER_RKISP1_BAS=
-E + 0x01)
-> > +
-> >  /**
-> >   * struct rkisp1_ext_params_block_header - RkISP1 extensible parameter=
-s block
-> >   *                                      header
-> > @@ -1520,6 +1523,12 @@ enum rksip1_ext_param_buffer_version {
-> >   * V4L2 control. If such control is not available, userspace should as=
-sume only
-> >   * RKISP1_EXT_PARAM_BUFFER_V1 is supported by the driver.
-> >   *
-> > + * The read-only V4L2 control ``RKISP1_CID_SUPPORTED_PARAMS_BLOCKS`` c=
-an be used
-> > + * to query the blocks supported by the device. It contains a bitmask =
-where each
-> > + * bit represents the availability of the corresponding entry from the
-> > + * :c:type:`rkisp1_ext_params_block_type` enum. The max value of the c=
-ontrol
-> > + * represents the blocks supported by the kernel (independent of the d=
-evice).
->=20
-> Have you seen my comment in v1 ?
->=20
->  * from the :c:type:`rkisp1_ext_params_block_type` enum. The current and =
-default
->  * values of the control represents the blocks supported by the device in=
-stance,
->  * while the maximum value represents the blocks supported by the kernel =
-driver,
->  * independently of the device instance.
-
-Oh sorry, I missed those lines. I'll add them in v3.
 
 Best regards,
-Stefan
-
->=20
-> > + *
-> >   * For each ISP block that userspace wants to configure, a block-speci=
-fic
-> >   * structure is appended to the @data buffer, one after the other with=
-out gaps
-> >   * in between nor overlaps. Userspace shall populate the @data_size fi=
-eld with
-> > diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4=
-l2-controls.h
-> > index 72e32814ea83..f836512e9deb 100644
-> > --- a/include/uapi/linux/v4l2-controls.h
-> > +++ b/include/uapi/linux/v4l2-controls.h
-> > @@ -222,6 +222,12 @@ enum v4l2_colorfx {
-> >   */
-> >  #define V4L2_CID_USER_UVC_BASE                       (V4L2_CID_USER_BA=
-SE + 0x11e0)
-> > =20
-> > +/*
-> > + * The base for Rockchip ISP1 driver controls.
-> > + * We reserve 16 controls for this driver.
-> > + */
-> > +#define V4L2_CID_USER_RKISP1_BASE            (V4L2_CID_USER_BASE + 0x1=
-220)
-> > +
-> >  /* MPEG-class control IDs */
-> >  /* The MPEG controls are applicable to all codec controls
-> >   * and the 'MPEG' part of the define is historical */
->=20
-> --=20
-> Regards,
->=20
-> Laurent Pinchart
+Krzysztof
 
