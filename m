@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF9C1C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B230DC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X5oFqlzs/QpinLejGwTKxPxImZNfhcVenhovwsDfQr4=; b=EC1w4wJte8FV1NL0rLozj+Df9M
-	L/8sIE30vyK9jLs4DVaCV0g6QyCkrhdVRHmbXJQq8JBYVsajN7ZBgIXjZ1WdZBo2TTPNEfC4LYLwf
-	jmrJXtnP7YYfHz0nPb7By7ocUXEl9i9LCTVtiKzk59slITOt0sJeu6DxJN0WU+TPIFmrebo33U7RC
-	pMgN8fKdico+i8lBE6jkehdZv4vUnGzLjWS2zPNBjDH6UWwX8Vc3h/HmlR2Uj2GJYB/hhCVTZIe5+
-	A/kWwoWj6GatKFKgEyiCtZVZzd5TM582ZTjdvgIeWpEfpl+avrzAVl6kXeCXPVmguO3itxpIeR5QP
-	aZTDtRVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=15n3jb6X6nc1Ptss7d0u5htP58z40RIPOIkeUdClyjQ=; b=zZTWU1iXdPps9RC/EmXmqCzHzk
+	vq620W5Y6uuvp706Mexj5us+5hBfqV2Gatg19Jn0hDYjDJq1BGNxe6SHNpdIvNlSipdx1a5nLbdzt
+	WWj5Ne8WBvdfyPX/q5UwKiP9r2CaUrhokPqeUZdhLswbk0jrgLgpvbyqDdfI2y/E/eDJ9dcL1jUa+
+	0Qr+aUobzsatobwweBquElbzm2UM1YeqOHXTYxcY/xzvIge+AZTWNSp+I4iT1S2yD8xu1tFEDWYZD
+	ClVANElogThy7+G4j6feQWIMVOSAciw6HTcpquVjVzL0wYHxdVeQP2+YiTxsKj6M1K3sPgVnpS8x2
+	2ZQKQVPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIVgl-00000004T0q-3Js2;
-	Fri, 23 May 2025 16:56:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIVip-00000004TNV-28ur;
+	Fri, 23 May 2025 16:58:15 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIUp6-00000004KbN-0CgU;
-	Fri, 23 May 2025 16:00:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=X5oFqlzs/QpinLejGwTKxPxImZNfhcVenhovwsDfQr4=; b=evgfjHYg5vEyBoYU/MsKfflkPg
-	B9p5WL3Izmf4IWiXuzogkVXtrR9PujOOLw7AaPMkE/RrBmo0sXXUwyg/+1h6fTCpUyneywbnokvhY
-	jIPNMVSamNS33mSNiw55ss4HGWWOehe4BCALr5Nk1ijavXY6BkdixlWQ5HgnGOcYsrNcA1qyNQLbH
-	m3+k7uh1XJCZgmg22gKfcsVE+GKm5/jT45M9bH3PA6IrghRHErcZ0wHynip2SwsNe8xEfelGWsOT2
-	gEuDflPkTg/stu9IVk4LvJBsrGoWjbkkE/lJADOdEpUJzEytnpd1bvMZE43H5pvMaCHQ40hSgTRQh
-	Hs+lrong==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIUp3-00000001Lk0-0viN;
-	Fri, 23 May 2025 16:00:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=X5oFqlzs/QpinLejGwTKxPxImZNfhcVenhovwsDfQr4=; b=DtjbRj+qIPPssXo1BXXM3fPYD/
-	iiJ5YaEAjvPMnIpQEUP3zONOCwkQ9jjpD9I+EoY2xb/lgpWcFDOiBS8cpjcMITBkK5T16MTsNI4hN
-	dAw97qN0sgmtzHWyFbE8J7Tm/jnXwayvwasRXz4vR1UyEfHMfyxoqyyuoONON2gecy5c=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uIUom-00DcwT-OV; Fri, 23 May 2025 18:00:20 +0200
-Date: Fri, 23 May 2025 18:00:20 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
-	Landen Chao <Landen.Chao@mediatek.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [net-next PATCH 2/3] net: dsa: mt7530: Add AN7583 support
-Message-ID: <a4366913-2368-4d59-b3c0-4c534c9b2c4d@lunn.ch>
-References: <20250522165313.6411-1-ansuelsmth@gmail.com>
- <20250522165313.6411-3-ansuelsmth@gmail.com>
+	id 1uIUpp-00000004Kig-1Cx3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 May 2025 16:01:26 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-44a57d08bbfso16366995e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 09:01:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748016084; x=1748620884; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=15n3jb6X6nc1Ptss7d0u5htP58z40RIPOIkeUdClyjQ=;
+        b=GSVKmstZJ46BTEwJ8LMrZWpKTaS7VKoQ7x0FW3hIhNkixbBLpwvtiTwwJJZfW5+lL7
+         qZt4A7tcnYpZbD6ayTh1uk8g38vIpcmjYLSslw7bWEmbW/Eqk6vmt89Fe5CY/3bW4o/Y
+         nRJ5Raes4UCfAWyfczSqZf9JNSw0Si7ZdDyMmmsSUl3/pUWCiEihD2PTtYzgMtwATdc+
+         j0E8uqUvcKD9U9O16hFUfw1ukRT7EXBlBrB1zf/M0P9cQ5J+YWBFEsRFlcuIczBA75rF
+         /Kwq+Z/xO5NZ+X7M07KpRgrhXlWhsl8UnnPOLw+5RbzbDDUGgnf/zi0sW8p+GMxRI1TK
+         JSVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748016084; x=1748620884;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=15n3jb6X6nc1Ptss7d0u5htP58z40RIPOIkeUdClyjQ=;
+        b=YrKToCA9A5hpiMLxsfgl0ihmBUy2D3+NLfzwLBqTdhAkkfZ2hDNf4DJj0oXlTdtHOg
+         emAw7QyEwunE+SrQY1HqBoD5oz/wCGjPlY68MKjMIDZkiMYFFCF+YPebY94leNoiDTHe
+         KkNzxu4UId9aJjG/JgexJQvEmwTyVsybkndCPIDZip6l5ld9HVqHmzY8X+kN03Iow+OS
+         QLMEssxaqNUwD9leMB7CI5Bq68Bzq9G1x/mHMZcrLNOusxiR+3XFrxuby65gxJ0PQxYu
+         8SmuNbxgjlZBGCRI4V0TO5vkF9ePfSphrGfuZrJhagqzlMhdQdFzkbgKg7MOttdtScee
+         NH8w==
+X-Forwarded-Encrypted: i=1; AJvYcCUmjMJuuI9CW1ZOdnuysDo1QivRI+SZ9LkVgUnxCF2v5TchB2BxB69XjP/rplb5jKqz2unUaVTZ/CW2Z31qlVTZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzt05fxkd/LcQneXyssjtf7hTHN5LJMoqOw5sVL8PEF9Nm1Gt95
+	yIcd9+YgIVPpYEeRywblCroweft1QsUyZHkFXdFo3vOea1MvNEnVaDdBzTHPjBLCjN0=
+X-Gm-Gg: ASbGnctrl4h44WH/OsQTlerPoANwpuKM86lfL1F1tMom+SrRNYswjRftWLzxrDCm9JK
+	mplCCf050ynyjSh0gyptxRwlH88o2YYnpSp4fKJ4mjYTNGJE+AguZ+yk74HS+T7XMr2nOcFHW9r
+	mA8SC6UHm+RqVjGeXPEsHoTqeth0Fx/5ItlLbHhZikIE/VTY5aTTnZN9TfLgjBjUZhXpNS5ph5n
+	F/AecE2I8SxH6bLs8IKbUftxd2jp346/UkLgxpbZUH2OXyGknVpXibvTheNstM/hs/ljx8i5Tjr
+	kq51uEu6aUs8wfXSiMaATNlI3gko2nVDeS8HWQy0tDOIX6dygHti9pbp
+X-Google-Smtp-Source: AGHT+IF/THP6E9ZS/GCIatMYe54LeoFTYKNGEZBFtW+dbZFIBIbOWxAiwtQRKvPBgXMHhn/LPjXNiQ==
+X-Received: by 2002:a05:600c:1e1c:b0:43c:fffc:7855 with SMTP id 5b1f17b1804b1-442feffb6damr331857925e9.15.1748016083583;
+        Fri, 23 May 2025 09:01:23 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a364d2636bsm24546310f8f.99.2025.05.23.09.01.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 May 2025 09:01:23 -0700 (PDT)
+Date: Fri, 23 May 2025 19:01:19 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: [PATCH] coresight: fix indenting in
+ cscfg_remove_owned_csdev_configs()
+Message-ID: <aDCbz3J5wibnW60S@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250522165313.6411-3-ansuelsmth@gmail.com>
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_170037_405788_37760BCE 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250523_090125_323519_D352DE10 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,16 +99,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 06:53:10PM +0200, Christian Marangi wrote:
-> Add Airoha AN7583 Switch support. This is based on Airoha EN7581 that is
-> based on Mediatek MT7988 Switch.
-> 
-> Airoha AN7583 require additional tweak to the GEPHY_CONN_CFG register to
-> make the internal PHY work.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Use a tab to indent this line.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/hwtracing/coresight/coresight-syscfg.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-    Andrew
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+index 83dad24e0116..6836b05986e8 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+@@ -395,7 +395,7 @@ static void cscfg_remove_owned_csdev_configs(struct coresight_device *csdev, voi
+ 	if (list_empty(&csdev->config_csdev_list))
+ 		return;
+ 
+-  guard(raw_spinlock_irqsave)(&csdev->cscfg_csdev_lock);
++	guard(raw_spinlock_irqsave)(&csdev->cscfg_csdev_lock);
+ 
+ 	list_for_each_entry_safe(config_csdev, tmp, &csdev->config_csdev_list, node) {
+ 		if (config_csdev->config_desc->load_owner == load_owner)
+-- 
+2.47.2
+
 
