@@ -4,62 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5767C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 20:32:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16476C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 20:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y4IcnoNB2qpQDzQD4l6QkZzwSVzCMDGSPU6SIb+ViEk=; b=UytdKkgqt5yCvMf3MxcambR/69
-	8VkbE5Lw2VVbd+XEAKUPTFApm1db6utHXbQTa+B4bmYGlNn445+vhJzDbfZP84vDMHyEI83InOYma
-	wuJ8yWDX8RRXAoLuoQXgIcXBl5Jzt5aD2FBBYmY0dUKlAbuoznTfELfPWClt/ZC3HYORL6nehvbd0
-	+d0k3xhrU2qpDqGEVLg7IDBm5E5vxUCQFb5b5Q0xG0thpYxRWwXOtz/pjQ7S0bu4+cYjEosgdz5tn
-	8KnX0Jf/Cy5GnMHRTEmckFNvuw5RxAZgE5HtE2cUtiKaVVu8KbSADFLT2SUatu2s8/ax9KdnMAUNA
-	HBg1d2Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NAxFz26JurqLzGELqnHzVqqZyK3LkwMQSqXw4pqgUzA=; b=eeHJqf+b5pUOD3Tpj8lSxA0LhH
+	H9W8uIw1H65INPMCc89YOz8Nu61UQYj4KQLGL+P7VQ66a7Uwq1a4sstcSbuN7qtyGqS3zcSAJD4Aa
+	Fv8ri7fwqB+dVEbSMBpstXSdvNuIQi0Qc0owGLOfI1dv4wD0oqRIJomoZU0O2ALNzeyoJX1SIqy+D
+	8VjySt+qgQKh4SeQsNeL7ZXqbBUyyYU2hZ0sxu8ZxXXmzb/XFFkDMOVc9DOfaUWz2gSMmnCeZg/qR
+	t107cKcxsR3p0lduGiID39M5TSrMrfsIosCIeKf4Hp5Pdffrnbe9rq7yRhZ10dpX1YUuyFRFBDrjQ
+	PPf+S20g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIZ4S-00000004seM-2Xvy;
-	Fri, 23 May 2025 20:32:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uIZ6W-00000004sxU-3ea3;
+	Fri, 23 May 2025 20:34:56 +0000
+Received: from mail-am7eur03on20627.outbound.protection.outlook.com ([2a01:111:f403:260e::627] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIYzo-00000004s9y-2Z44
+	id 1uIZ44-00000004sau-2zgU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 20:28:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B351D61154;
-	Fri, 23 May 2025 20:27:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9CA4C4CEE9;
-	Fri, 23 May 2025 20:27:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748032079;
-	bh=5pRFCoeXqhY0UnsQRr8ozHb8xSRhaMoVu7vfsBGA6tA=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=UNkc/+PCjIXYzEG7BSY6uIKfD3quwXneLAnthfgZi+klBMDAvmu/IHcGb+5R68ESc
-	 bork2SiHf4qJBO05XZNcaqs0OsaQhONpUIJWGu2UxhsSUfjHHbxmePycm1yW21N2NP
-	 /QhalNQgaXSJ6hRMGJYd87619xZb5QM+Lsp8s8fknQyWuUujhxppPvBq/sKFQjY+t/
-	 Fabg9htfgMbgGXHQ9/HsSgd+MAtEIKAXzitiokDAnKrPONhEV5DKSyS0Lr1il1ITyz
-	 Ax8gSrAFfZRGkNXpFt9AIcPEq6z7Igd6hnX4TBGk7/c9nxC7okYDUiBQFuXNZp5FkJ
-	 bMDv7+8JCz4wg==
-Date: Fri, 23 May 2025 15:27:56 -0500
-Content-Type: text/plain; charset="utf-8"
+	Fri, 23 May 2025 20:32:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pq7Dwbh0zJNdBrRLUpAo0qrQuRO5bM030hEl5NDnlLKqaohMcJKpQ2+6OoAUMTfQw/CSEFcFLB2H9QxbdfwUen2K2Ild6yajm76T8LaFvc9cCd7MCEb6mm1YlbIN3Pdx16v3IkOfws72e1KMxDzM8wdn9Qk05KzPf0HGQyTgQxuWOgcEWLCsnygThS+z9YR9vuZPtmIr/aiCJ6iEQ0sgZlpmRQwsKi5vx+gvsgbfhSt9wO5OrFK/xSwnK9uyindN3bG1l4xmNHaxNT6iSUM9WHanPCU3g/Wo/MpMvzxYgyZKOoq3vGDN3jYNlBQTeqtfdFoksi/yi5Dz0YhB4nEGfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NAxFz26JurqLzGELqnHzVqqZyK3LkwMQSqXw4pqgUzA=;
+ b=WZvFtOpCl1IhTeCqFPHrOmPbuTEBWpgjnO/3dSpBrMw33oC49ij8DIOhlrO/3pWiv6BVJffIls4DSOeNfC2EHMDPJStSN7/RR0rNpdqttACcGWop2XlFzbnxP+tIUst7wv3jX5ZuEW9ImziZP57Fb9xDnDvH7Xg7Max4ZHo2cI19hYis1RhHB4Zpo7e/SkqN/OyA6tN8sb3cEoSVxMpjd9Ol1wdwYpSzFA3kKFggnVA/XYmc+1Est/lb94J3AWxGIV1bmgSqxKN0yCdHHSdR2K0XB5N0tWgp5bguVIgK9jJ+TX9c+u/axwOUNA7Cb4y4VAAXkjbKHNypqYeWVoOt9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NAxFz26JurqLzGELqnHzVqqZyK3LkwMQSqXw4pqgUzA=;
+ b=jIfHRAeUYceBSYxCDFZaHalGpCy2AdX+9wrR1JWm3a9OD2PepS4mRIwqxnTjwiI/ZiNAbwfldGhBXSaDyaDCoKrUkuoyjwM/2oUvVwtzNnZiNQ1rijN+BDihbtVGSHHieMSr942m0r3lTPtwyqu6DpQiPNreofmq5wzVOaSnscLlPiskSc8kaVbPfsjiGsxqxxYcI8rnMaC3AzksjdbFv/FqNy/1aISUDMylsUT0QZnI4aq2IJAXnh/7RV4E+uY8NWd8DwU6FwD60bjtghfuCwreoF2nLNA/pHaa04ZUL+92dNr4yj2UGI60Cefgm+bBjjsXWbyYyBk2FURoDaZSHg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by GVXPR04MB10518.eurprd04.prod.outlook.com (2603:10a6:150:1eb::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Fri, 23 May
+ 2025 20:32:16 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Fri, 23 May 2025
+ 20:32:16 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	linux-gpio@vger.kernel.org (open list:GPIO SUBSYSTEM),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/1] dt-bindings: gpio: Move fsl,mxs-pinctrl.txt into gpio-mxs.yaml
+Date: Fri, 23 May 2025 16:31:57 -0400
+Message-Id: <20250523203159.570982-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ2PR07CA0018.namprd07.prod.outlook.com
+ (2603:10b6:a03:505::22) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Conor Dooley <conor+dt@kernel.org>, 
- Lee Jones <lee@kernel.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Shawn Guo <shawnguo@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-To: Frank Li <Frank.Li@nxp.com>
-In-Reply-To: <20250523191844.563177-1-Frank.Li@nxp.com>
-References: <20250523191844.563177-1-Frank.Li@nxp.com>
-Message-Id: <174803207693.2936926.13970067014189882058.robh@kernel.org>
-Subject: Re: [PATCH 1/1] dt-bindings: mfd: convert mxs-lradc.txt to yaml
- format
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GVXPR04MB10518:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a1e3cc4-7024-48ac-dee1-08dd9a38e84e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|366016|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Qt19S5beTsvlOSl4ENTgIAMrLB1aLsFzK9IiUGKMqGVU/9S+IzoG+Pr/NWEr?=
+ =?us-ascii?Q?+Jq/VaDzoFiacdMLhnGeExR337KPeFi3ZdvXIgxyq+XK03hGcxhzXB8MuAEa?=
+ =?us-ascii?Q?eKMnPDgrj35GOl3mqBUvdLKlTwFiPgeOpgEMZQoDudzZ8MpIu0rME8cDVeaV?=
+ =?us-ascii?Q?vs1knK30obrLgbUyBoKWw5V9MYl1aDsoDsT2YM5nwPoeRyP1qMY4QnmagRoV?=
+ =?us-ascii?Q?DcIdEGyYA83UVob2232zW4lX1CUXYaC/kfkCmQQwhS1ocTo0xhBbRMPr5qdP?=
+ =?us-ascii?Q?uHi67R3LhIEPVnW+UwmrsvuJU1oDx6oEZRV06/gLsSsNjc/kWsS9ZniCejIi?=
+ =?us-ascii?Q?MxQfKnyXfZszT8ucY08KrN5Xa7w0G177jv2vASuUNlCfO6F9PVNQsOEaQPsn?=
+ =?us-ascii?Q?2bnl8fR4oBRj+60TzUYKlk8xBousD4T1jYAguSDewDF4prSCxbrG4OWT7Z4X?=
+ =?us-ascii?Q?YBUMTGoG6s1jxfrvIpW9gLGBkDx/DSvvzqL+XOcpPdx4RYr2lL+/2kKo0MKn?=
+ =?us-ascii?Q?ShnZrmn4kjqqYHPkftOOvBBeBmWyL75NBDyhFMPUdOskGX3AtY8vphyM7LyS?=
+ =?us-ascii?Q?ntuYDg4NfZf1FYs8LscG11HUQESDvnXjss1Zn5xNPmkFML5llbFfVM8C8Uqs?=
+ =?us-ascii?Q?BiXMyMHcKCh3003jRg9u2NISdIf+vIHClxDvBV2kMYsYhOyLwmwInusRH/W6?=
+ =?us-ascii?Q?mCrkBeaJnjJ8+lTrkjQqT9LDn+OtvJ91ebqxbQOvAHSUExgExlUY0UTHGPC9?=
+ =?us-ascii?Q?KSdJKaSRj8dAztoU8sOOiXRUVLt83eONCBXsdXtY+duvo2i38XjHoF3Z5BRo?=
+ =?us-ascii?Q?7FAVIJQghtLTrSxcpuVlbWB0ZM1oHFLTnxu/7jfS/L+rP0XoNz4z/jVoJhIU?=
+ =?us-ascii?Q?6elQEyOVT1kA9J4kXshzHFiHFkVkmWEhSUurqJXYJGx9qWn8Q4a1vpaOcb95?=
+ =?us-ascii?Q?/z1Xbmkj7FEzU3iEUPbjx20ejSgyrmeFBdGYAK+jUuSgg09cXMW8GCvwdxaW?=
+ =?us-ascii?Q?3N8qqcJDvPJCIKG0IzFgRD3FxpGeYqX9dcpipkwUo1Rt58FRL/24iDTz9ttv?=
+ =?us-ascii?Q?6fmWzLriXhnB8tveJ+6ZgsIoD/RiHvLXVuuneZ5wLY17XxfkF/9CX/Efsi8N?=
+ =?us-ascii?Q?19xjUteiyCPRcdwqqN4Zh6SyswLfjlDEcMvURB16gKIAdxYdWw7iAfC+PgWu?=
+ =?us-ascii?Q?pdO/PTvZWbVwZrS0p+CQkco3rlcOCqgfnfXhY9fxX3IAFSv/lmWfbOHmM4GL?=
+ =?us-ascii?Q?NBbvWRWXnQJtzOQf7uh8M1wusQU0ryOWkFerdjH5ZMseX3GWggcOukUcnwzK?=
+ =?us-ascii?Q?/dPydUal7BmfK6QtIsQtl6eG9lzvx1hWkdOypTLrHe7DNWnuL/AP0WCX//IV?=
+ =?us-ascii?Q?/OXFaEioThUvoTdSj8gDnuK7wbWYCJjE5Z1eNbdfOlJh8isH+kHYkjLpmSNj?=
+ =?us-ascii?Q?bY1jQwlZ0mheol+PV+Z4uxvNasIGWtQwWiIWHp0GZ+bcpTP9lJe4Vt14PuUV?=
+ =?us-ascii?Q?2GUiY9TeCAhPbBY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(366016)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rt6ZyvyxwyKaxT7EgpJMrrJ+m1CFhrP/tSPaDjLzKRCSP7WebStP+uerowTI?=
+ =?us-ascii?Q?m9eIq2lwAHisEWsaDk+lwRG/kDu6I4dVWnfOsdmllMYXbfMt0l4el836XwHo?=
+ =?us-ascii?Q?gyoGppYbcnaM9ADfBXUQH5o7cMn5IH28hDnH4Csm1WiYWtYgpEHQKSow+U+z?=
+ =?us-ascii?Q?LrPr+DLLDshAIxuMTaj8IA6dLrIFsTYTl7AEl1mt5mJ49Y3Cz5KH0YCQub8D?=
+ =?us-ascii?Q?OuvvWgCY48HqeaiNGRgFW7FCw/dmAYcogLdprK5M04Fy0gHRNk5rfyGKfqz0?=
+ =?us-ascii?Q?KnN/wmlJoRBdbkRDoIaKmxLMV8xmzOrTTKGSevzDO5Ah3NvHr+kqZpmebEzK?=
+ =?us-ascii?Q?ykR+7Dw+WNV6E60EP2IUnVa0e2eLPZRJei2YvoejC4mt4DHw/TgDUzGsM4dX?=
+ =?us-ascii?Q?XkcPaKfsTPd62Sr+c8V7HCRkPOIMS5nw6KGB7CiEBRiQ2KP4Q70lOd4kPnHt?=
+ =?us-ascii?Q?Dskv07PsSHTv0+JFQtrLQYimy8mpE3VYNuOwvEkR7xSons2CW66fdxGYYOGy?=
+ =?us-ascii?Q?oX/TeMig7+GHMFPih5IstFWFf+0ffAtmhJAnzul9M9Hy9cZtNIkxiho47lq/?=
+ =?us-ascii?Q?2Sky3YUv78Dt9p0pAon069H3G5IlDhesKBmLFpbzxdR0KhMc5qVggFKqOWAZ?=
+ =?us-ascii?Q?oaedfuGyz8FoBb+8q4HlgI1Qkvbtle4qEWnHbceU1bU8goZ1YhYS4lxSbueg?=
+ =?us-ascii?Q?bMFzZPWCcqGnbbPdm42MjSs8lGTe/kiPFk59A6aj8vgyKhCkOkKyHawCkQMU?=
+ =?us-ascii?Q?slHY83vde3YXGOtXWJqk2kl/7OrWq4Ts8vrq9JiqIe1fwX4aYS7UWgn8ggCt?=
+ =?us-ascii?Q?as7TJQhN11EI/CjQ14e66ncS/bujBFfeNwVdswu7YdFlIYwlPYPiNJ8OXZRn?=
+ =?us-ascii?Q?OoJBNlHWE2zTkeufXowa2dWq29XY1ee1oflnEWzSEKptrioujxzEpJmI2vfn?=
+ =?us-ascii?Q?Goyjh9TOLYNUCtO5+jmzYyN9beYfrPFhmiIXcWNoRQxD02GIGdCHwf5Et6mV?=
+ =?us-ascii?Q?xPvdoLEKhI30+M+8qNYhWO4BOMDYwhlm/pYr0pvXnu0smiIZlx631OwB4qXQ?=
+ =?us-ascii?Q?GJL+/BhH5oUQlVIaoXEaZYVPDn1rTVjz6dpFG/18rM+FYtHZoEFm+IagUbYC?=
+ =?us-ascii?Q?0RU34dIP0P8TJg6Rzm1B++QjMta7VxEn5NIRalxGZxGB1Q3WxTlu7QeleOOr?=
+ =?us-ascii?Q?zk4bwi0XGBsN7LlWoAL7qTAgIggzSKUn4lzMp3wOYLodeV+u7ZzZ6xcoCL22?=
+ =?us-ascii?Q?ca/mJlfqYC9WysteS1ksESaMRPxzHPHviausYJ3WDPNpFjQFHJWbgn1DOEG5?=
+ =?us-ascii?Q?XXw+euF67n2tgEb9Sl8FIzZXmFQOHhL/btq6sMYHVKIk/ra2P+bWfTGHT3/k?=
+ =?us-ascii?Q?NXtrWVmfmLxD31FmTXfVIsl1elq3e8RE3FjVPG2CsppvzFH56ixYGwsa62Is?=
+ =?us-ascii?Q?DlL0jZbq0UvpZCKJ/45jgJIcHv8JTtddRnfRZnFrNr3yBTUNZf1uGkxQ9Rje?=
+ =?us-ascii?Q?bCXcMuQeOalQPXvmqsIg2fTMMBsFJVD5CVbpyu76evmyJVrDKvcsncSKu13y?=
+ =?us-ascii?Q?cWK08VYblD0xf/UoCYGTkhesip9Qa4t1lHMm7W7F?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a1e3cc4-7024-48ac-dee1-08dd9a38e84e
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2025 20:32:16.5093
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DijOLQ4WX2fPxUBFqyCvGAYEWFpnrf9wK40AFm5+7x8pqX14llAtflsksanP4rhfvhUymeQbDfbgIrz6cDbt6g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10518
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250523_133224_942747_3C87BA7F 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,47 +170,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Move mxs-pinctrl part into gpio-mxs.yaml and add pinctrl examples to fix
+below CHECK_DTB warning:
 
-On Fri, 23 May 2025 15:18:43 -0400, Frank Li wrote:
-> Convert mxs-lradc.txt to yaml format.
-> 
-> Additional changes:
-> - Only keep one example.
-> - Change node name to adc.
-> - Add clocks and #io-channel-cells.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  .../bindings/mfd/fsl,imx28-lradc.yaml         | 85 +++++++++++++++++++
->  .../devicetree/bindings/mfd/mxs-lradc.txt     | 45 ----------
->  2 files changed, 85 insertions(+), 45 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/mfd/fsl,imx28-lradc.yaml
->  delete mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.txt
-> 
+arch/arm/boot/dts/nxp/mxs/imx28-xea.dtb: pinctrl@80018000 (fsl,imx28-pinctrl):
+   'auart0-2pins@0', 'auart0@0',  ... 'usb1@1' do not match any of the regexes: 'gpio@[0-9]+$', 'pinctrl-[0-9]+'
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ .../devicetree/bindings/gpio/gpio-mxs.yaml    |  73 +++++++++-
+ .../bindings/pinctrl/fsl,mxs-pinctrl.txt      | 127 ------------------
+ 2 files changed, 69 insertions(+), 131 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/fsl,imx28-lradc.example.dtb: fake-interrupt-controller: #interrupt-cells: 9 is greater than the maximum of 8
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250523191844.563177-1-Frank.Li@nxp.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+index b58e08c8ecd8a..b3cf4682be3fd 100644
+--- a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
++++ b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+@@ -18,9 +18,11 @@ description: |
+ 
+ properties:
+   compatible:
+-    enum:
+-      - fsl,imx23-pinctrl
+-      - fsl,imx28-pinctrl
++    items:
++      - enum:
++          - fsl,imx23-pinctrl
++          - fsl,imx28-pinctrl
++      - const: simple-bus
+ 
+   '#address-cells':
+     const: 1
+@@ -31,6 +33,61 @@ properties:
+     maxItems: 1
+ 
+ patternProperties:
++  "^(?!gpio).*@[0-9]+$":
++    type: object
++    properties:
++      fsl,pinmux-ids:
++        $ref: /schemas/types.yaml#/definitions/uint32-array
++        description: |
++          An integer array.  Each integer in the array specify a pin
++          with given mux function, with bank, pin and mux packed as below.
++
++          [15..12] : bank number
++          [11..4]  : pin number
++          [3..0]   : mux selection
++
++          This integer with mux selection packed is used as an entity by both group
++          and config nodes to identify a pin.  The mux selection in the integer takes
++          effects only on group node, and will get ignored by driver with config node,
++          since config node is only meant to set up pin configurations.
++
++          Valid values for these integers are listed below.
++
++      reg:
++        maxItems: 1
++
++      fsl,drive-strength:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1, 2, 3]
++        description: |
++          0: MXS_DRIVE_4mA
++          1: MXS_DRIVE_8mA
++          2: MXS_DRIVE_12mA
++          3: MXS_DRIVE_16mA
++
++      fsl,voltage:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1]
++        description: |
++          0: MXS_VOLTAGE_LOW  - 1.8 V
++          1: MXS_VOLTAGE_HIGH - 3.3 V
++
++      fsl,pull-up:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1]
++        description: |
++          0: MXS_PULL_DISABLE - Disable the internal pull-up
++          1: MXS_PULL_ENABLE  - Enable the internal pull-up
++
++          Note that when enabling the pull-up, the internal pad keeper gets disabled.
++          Also, some pins doesn't have a pull up, in that case, setting the fsl,pull-up
++          will only disable the internal pad keeper.
++
++    required:
++      - fsl,pinmux-ids
++
++    additionalProperties: false
++
+   "gpio@[0-9]+$":
+     type: object
+     properties:
+@@ -80,7 +137,7 @@ examples:
+     pinctrl@80018000 {
+         #address-cells = <1>;
+         #size-cells = <0>;
+-        compatible = "fsl,imx28-pinctrl";
++        compatible = "fsl,imx28-pinctrl", "simple-bus";
+         reg = <0x80018000 0x2000>;
+ 
+         gpio@0 {
+@@ -132,4 +189,12 @@ examples:
+             interrupt-controller;
+             #interrupt-cells = <2>;
+         };
++
++        lcdif-apx4@5 {
++            reg = <5>;
++            fsl,pinmux-ids = <0x1181 0x1191>;
++            fsl,drive-strength = <0>;
++            fsl,voltage = <0>;
++            fsl,pull-up = <0>;
++        };
+     };
+diff --git a/Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt b/Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt
+deleted file mode 100644
+index 1e70a8aff2600..0000000000000
+--- a/Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt
++++ /dev/null
+@@ -1,127 +0,0 @@
+-* Freescale MXS Pin Controller
+-
+-The pins controlled by mxs pin controller are organized in banks, each bank
+-has 32 pins.  Each pin has 4 multiplexing functions, and generally, the 4th
+-function is GPIO.  The configuration on the pins includes drive strength,
+-voltage and pull-up.
+-
+-Required properties:
+-- compatible: "fsl,imx23-pinctrl" or "fsl,imx28-pinctrl"
+-- reg: Should contain the register physical address and length for the
+-  pin controller.
+-
+-Please refer to pinctrl-bindings.txt in this directory for details of the
+-common pinctrl bindings used by client devices.
+-
+-The node of mxs pin controller acts as a container for an arbitrary number of
+-subnodes.  Each of these subnodes represents some desired configuration for
+-a group of pins, and only affects those parameters that are explicitly listed.
+-In other words, a subnode that describes a drive strength parameter implies no
+-information about pull-up. For this reason, even seemingly boolean values are
+-actually tristates in this binding: unspecified, off, or on. Unspecified is
+-represented as an absent property, and off/on are represented as integer
+-values 0 and 1.
+-
+-Those subnodes under mxs pin controller node will fall into two categories.
+-One is to set up a group of pins for a function, both mux selection and pin
+-configurations, and it's called group node in the binding document.   The other
+-one is to adjust the pin configuration for some particular pins that need a
+-different configuration than what is defined in group node.  The binding
+-document calls this type of node config node.
+-
+-On mxs, there is no hardware pin group. The pin group in this binding only
+-means a group of pins put together for particular peripheral to work in
+-particular function, like SSP0 functioning as mmc0-8bit.  That said, the
+-group node should include all the pins needed for one function rather than
+-having these pins defined in several group nodes.  It also means each of
+-"pinctrl-*" phandle in client device node should only have one group node
+-pointed in there, while the phandle can have multiple config node referenced
+-there to adjust configurations for some pins in the group.
+-
+-Required subnode-properties:
+-- fsl,pinmux-ids: An integer array.  Each integer in the array specify a pin
+-  with given mux function, with bank, pin and mux packed as below.
+-
+-    [15..12] : bank number
+-    [11..4]  : pin number
+-    [3..0]   : mux selection
+-
+-  This integer with mux selection packed is used as an entity by both group
+-  and config nodes to identify a pin.  The mux selection in the integer takes
+-  effects only on group node, and will get ignored by driver with config node,
+-  since config node is only meant to set up pin configurations.
+-
+-  Valid values for these integers are listed below.
+-
+-- reg: Should be the index of the group nodes for same function.  This property
+-  is required only for group nodes, and should not be present in any config
+-  nodes.
+-
+-Optional subnode-properties:
+-- fsl,drive-strength: Integer.
+-    0: MXS_DRIVE_4mA
+-    1: MXS_DRIVE_8mA
+-    2: MXS_DRIVE_12mA
+-    3: MXS_DRIVE_16mA
+-- fsl,voltage: Integer.
+-    0: MXS_VOLTAGE_LOW  - 1.8 V
+-    1: MXS_VOLTAGE_HIGH - 3.3 V
+-- fsl,pull-up: Integer.
+-    0: MXS_PULL_DISABLE - Disable the internal pull-up
+-    1: MXS_PULL_ENABLE  - Enable the internal pull-up
+-
+-Note that when enabling the pull-up, the internal pad keeper gets disabled.
+-Also, some pins doesn't have a pull up, in that case, setting the fsl,pull-up
+-will only disable the internal pad keeper.
+-
+-Examples:
+-
+-pinctrl@80018000 {
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+-	compatible = "fsl,imx28-pinctrl";
+-	reg = <0x80018000 2000>;
+-
+-	mmc0_8bit_pins_a: mmc0-8bit@0 {
+-		reg = <0>;
+-		fsl,pinmux-ids = <
+-			MX28_PAD_SSP0_DATA0__SSP0_D0
+-			MX28_PAD_SSP0_DATA1__SSP0_D1
+-			MX28_PAD_SSP0_DATA2__SSP0_D2
+-			MX28_PAD_SSP0_DATA3__SSP0_D3
+-			MX28_PAD_SSP0_DATA4__SSP0_D4
+-			MX28_PAD_SSP0_DATA5__SSP0_D5
+-			MX28_PAD_SSP0_DATA6__SSP0_D6
+-			MX28_PAD_SSP0_DATA7__SSP0_D7
+-			MX28_PAD_SSP0_CMD__SSP0_CMD
+-			MX28_PAD_SSP0_DETECT__SSP0_CARD_DETECT
+-			MX28_PAD_SSP0_SCK__SSP0_SCK
+-		>;
+-		fsl,drive-strength = <MXS_DRIVE_4mA>;
+-		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+-		fsl,pull-up = <MXS_PULL_ENABLE>;
+-	};
+-
+-	mmc_cd_cfg: mmc-cd-cfg {
+-		fsl,pinmux-ids = <MX28_PAD_SSP0_DETECT__SSP0_CARD_DETECT>;
+-		fsl,pull-up = <MXS_PULL_DISABLE>;
+-	};
+-
+-	mmc_sck_cfg: mmc-sck-cfg {
+-		fsl,pinmux-ids = <MX28_PAD_SSP0_SCK__SSP0_SCK>;
+-		fsl,drive-strength = <MXS_DRIVE_12mA>;
+-		fsl,pull-up = <MXS_PULL_DISABLE>;
+-	};
+-};
+-
+-In this example, group node mmc0-8bit defines a group of pins for mxs SSP0
+-to function as a 8-bit mmc device, with 8mA, 3.3V and pull-up configurations
+-applied on all these pins.  And config nodes mmc-cd-cfg and mmc-sck-cfg are
+-adjusting the configuration for pins card-detection and clock from what group
+-node mmc0-8bit defines.  Only the configuration properties to be adjusted need
+-to be listed in the config nodes.
+-
+-Valid values for i.MX28/i.MX23 pinmux-id are defined in
+-arch/arm/boot/dts/imx28-pinfunc.h and arch/arm/boot/dts/imx23-pinfunc.h.
+-The definitions for the padconfig properties can be found in
+-arch/arm/boot/dts/mxs-pinfunc.h.
+-- 
+2.34.1
 
 
