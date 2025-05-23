@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC00C54ED0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32ADC54F30
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,78 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3YYTvqY48w7pyG/wWiP6f2TlpLJxz1KgObIIkEZbJpM=; b=opGKCl55MXI3Pl3PoUbmhiUfPl
-	oUNlM6x7NZbq/BcFrsDDLIM+4WvDucgNwuqth3NCaFeRHciwIH+pUD9uDzCX3EwNCV3DpbrkYa3iQ
-	Q9T80BvbUEh5oRsSwfy80rLEr/WWnHks9Zzl2YkHR/jjGIcgKntwiOlWkmM53va9YOgRHBqESRV1m
-	Y+l76BB8EHpVqFKZU6zA59tkGhO51DLD74X4dlF6qeFLAXzv3E68qcfujGtUHTD5TWnfkX6ZJfQNV
-	nFR8hJPQBWfhGD6xrapctG/+AoAMs08TJTDU38ODx/NK14XqcjtZ0x1NeA5NF0OqoC3ID/PuA26WW
-	OYA9qDkQ==;
+	bh=TaodTG452ygjUfeAqfzX0hcEID7mM0/biHJ7FoGpgVo=; b=XKk5hnWQMAgvS7xPSbQASSdHxr
+	kM2lHI89yVaKeiDcx6yKRj62NQ6VOQnA8hWYsnirBqgBReqT4FiWLGLHO1TYpygupeuLkzmcXCKZw
+	rcUVTQU6vJgCcuzvk6WOpxhrWdlHCp1Mx1Q+TwDQNY2nA5bi8JKz0eF+8dHoxuRkZQmPiULZ01EU0
+	w4BG/W75zv1Hj0t1ovDY7ltGTkRRlDYAGvC6pidzedXygYsEsko9+FifXTGVYYVp/8n9jQNz2yRC0
+	FkZ6qSlMSmMp3AC8p0nTK1Y1bDqbjJQOcR4KZZvwaUkvsatp2i8yoxD5Oeh5BDjgV3gEX21z+u0Pv
+	O28o1FCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbE-000000045eW-1a3I;
-	Fri, 23 May 2025 14:42:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uITbH-000000045ic-2DhE;
+	Fri, 23 May 2025 14:42:19 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISdl-00000003zIV-0AJS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 May 2025 13:40:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=3YYTvqY48w7pyG/wWiP6f2TlpLJxz1KgObIIkEZbJpM=; b=YdmLt+BQCI7AsbYL3EdiZFJOB4
-	NM+XLRfLCdoYQ/O3BZ6b9rGGMbSdnzIqIWNlR6VW89Cwuj/akNKRgzEF7E0mJS6pn1zO2a0c3MycD
-	OiMpXoIFLK3+wxTHBMgiaO/gKj25DwmQGwcEXWOFhkRx45Vkgapc5QblWO91sUJ3I6VgjXGt6OEOh
-	tVhk5MgiFyosyRO51VeCVrENhlofatdtXlXLx1tCwHHm296qQoMBJBt9X/w9w9yD70ehuBq3ZmLd9
-	QaXGuK2en4jxAMK7rRrJ5EZ3Cf+5uf+wnfUk/ANOwke5f3wcWFuirlecDzjnmfTJ3LYrZ03nrs4Fg
-	JfLb/KoA==;
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uISdi-00000001Kjk-0Jzo
+	id 1uISdv-00000003zKi-172I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 13:40:47 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54c0fa6d455so11504959e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:40:44 -0700 (PDT)
+	Fri, 23 May 2025 13:41:00 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-54998f865b8so10032066e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:40:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748007642; x=1748612442; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748007657; x=1748612457; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3YYTvqY48w7pyG/wWiP6f2TlpLJxz1KgObIIkEZbJpM=;
-        b=rTxAEcgRyBjgqlc+Zekc2rgqX0U+s8Jj935YjgcadxhytIigwwQCiWfz3c2jCWvyE8
-         sqS8rOST+7MHaOYg7BMiEaQ4O4Jt0EY7bP8LyOUyhFcNLFah5icli7sbqYt+Vy3NLumj
-         B+nQJPAXjshzfxP7zn6pBSqnkwi1tulW1HEJt6WRmt02kCo/SOL18dURN31+0au0lbIN
-         jL3KEy4PzxuvqAAIOWLvlYbyeBSjNUym+wx0yzi7gfjZwk6xujO64QCuV8eNvRU9DGxA
-         Floow5ytM5oIdJcE9fPydN5BDlE9cXqcw1cTZLyZSYrpFg8oFYMxJrW5F1SWdAxpx/0p
-         jUrw==
+        bh=TaodTG452ygjUfeAqfzX0hcEID7mM0/biHJ7FoGpgVo=;
+        b=c9EIif8h/DJIUS3bFp/I6DyXys/Em0G87TWy2dMY564aVSbos9JOfXqNY7UCh0rDys
+         NuOfRIYYt5NoF5lV/7h3MNnsYzqOwwNe0hbhCUSvTMyY+6HZWeVdOFgBUTr9tvgIT+to
+         0qMzUdkjk9EexEsq3MgJGzRpvgeETWPLiEpbHRSC0TkEWEzTV7PlXdKJMhE26N9BVgo1
+         F9VArwh8dGmLxjUeUCWmb1vXelIeC3QGtSe95CQuX6XElD8xjn+R47wM385OyFkPa/Pf
+         3QJ3Gj1HurgN7dulRlVIhejEQMuABIauOWoTxCswUctjvTdfmCkZ9xSQ6YBWK/RMEZoY
+         dD2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748007642; x=1748612442;
+        d=1e100.net; s=20230601; t=1748007657; x=1748612457;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3YYTvqY48w7pyG/wWiP6f2TlpLJxz1KgObIIkEZbJpM=;
-        b=EDUsliWM47IKvCXQqUFs9QZHYZmA46rFV+ciTMMk4KretAT3y5bZbHVC2AksLXRmpF
-         F7OLH3M2ndgAHyUh3xbCBkGqEknVOmXy+3l304Fb3r+2xyCNAYu+7yNtgMWaOQLzJuTk
-         6x9o2MJK0VHUswtVaKBi7/FCQEJ8aNpqKJOkOM9E4emrSqbQtdCFI3cw+AT5QCYPcrr/
-         KTK74BCYdSGeyKYMAUU19R9AghpA3bflUJbMlgbKPCGru7YMJfMJzaBz8NbkAvUaKk9b
-         a+wfjk+df0HfXr/DxXUP03/uMDjUPVomxLNDcWPS6RNzFs4k966jr/RJ1vdLxK7k85aB
-         CsTg==
-X-Forwarded-Encrypted: i=1; AJvYcCVjm1NOBqypmRZ9E0jpXQuKM4I6J8cwAIAK5PdWGcgFuOXkcwYTkrRVU1GmqmROPHX24ZxctQ6itRJCnszhygei@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlY25GOtGZ/24LivW6NGpqjQlsJ+vyYcEACUHsfmsosUFmPC/u
-	j2UrXQnFsoGbRcbMftm6/X+HqUObF/Z4CdAbK1EKJSCr9k1iDZuLQZYDh4GQKeMiRpw=
-X-Gm-Gg: ASbGncv2ddDA6UvsIZzMG3G7V4WZfhEgACtl6Fulp159uod41xXYERRYX/mQYVBvz1T
-	o98udVY0qHi9aCxcKoTLC4P/ZDUTe28Z2iuZfobPDkm9POJdAXYFR0JV3gp07FgQMVL1wIqOrCd
-	U8zxKmUp0WhqyBsPvZm8wN3woos79mL1AjttRnGZHuVxV6DXmlDzAHUWawNl1OYmMW4bcoIm1dH
-	9lvb6+fqUXS7Og++gv8Xjeub+bXG+O99GyWhQJtTKL57N5LDrya3zjxJZmlCUCggpYo/w9KM0nk
-	W0YPs64xRKc4w9NlfhZPlQe9lC7R7KB5p34xICo6Dv2lzW4YaMZrhKWgAXJVfutOcYFflFTKsvl
-	P0zcwCKdk7KrfA6239Q/dwHnzKTLGPeh+FknC
-X-Google-Smtp-Source: AGHT+IHOApUdbwQh8Jq2dmZDBk7bs8EbJneQ4drv7VpUV5nFeQnNH0S/KjC5HScjLN7hcK+M6+cnuQ==
-X-Received: by 2002:a05:6512:31d2:b0:54f:c3c3:beb8 with SMTP id 2adb3069b0e04-550e7246413mr10436047e87.46.1748007642410;
-        Fri, 23 May 2025 06:40:42 -0700 (PDT)
+        bh=TaodTG452ygjUfeAqfzX0hcEID7mM0/biHJ7FoGpgVo=;
+        b=KQ56RCs/ZLbJ2jrutcyRGXouy23QqKDO75vR6pVbikJO+dRIwL3CG+KBv++OljoOA8
+         q90aKyVM1evFYOsYULkTDxoAonOeFSC/+UEvvUyTOrFh152rmjgv3unaylQRdkGNrUEm
+         cGB/08Jlugcdj/+25KNRM2SYPOztHPGjq34l5XhXTv6YDYuX2QjXf2D7tzgQoz0Hfq1m
+         rATEu/z3SoyGXxGePgIoHc5uYq6T2I5Sl1Hsaj4sTv0WVGUeIYFOEt/myV6UPopkgoUc
+         my9ubUlN4lI3nYlmSfv08xaXdoMUWsA1t3Y02/ZFSQqlE3/lyDTIYwizAj2UbN7NmB5L
+         2UDA==
+X-Forwarded-Encrypted: i=1; AJvYcCU//8M2cdRuSv19gVXVp0S73oe8Q0etvlnlom7vLUMNbEOajBp/N9lR7i34pMT09mdVNlbalVON3dg0G5nDkrfT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2T1ljNGXdprCc2ABL6toGxLysQ3ZTsQo0Lsfw45W1fnmwA/rB
+	fs+wBJfMoFfa+vA7RhjpnH1NygAdc97sRhXf0Bjt5raI/b5yEuXstnAj2mh9rn9au7o=
+X-Gm-Gg: ASbGncuiVeO6CiSm9fj7kdzqbK1K5rYcIDAyjjQoq/fzKDzw4jCcV4p/2m6Re5iRgVb
+	iSBRpc6lfhMt9PdtLMDxrqH7CvbWWUJeC0lcst8n3wKlNmUvuSx5WO+2Rzx6EGpvC8dPBPE0VRd
+	U3NeAaAj6ECapL8mQ065iQgSfYJolQd8Gd9SO57POOHR4aOhhpJLnrKmudC7NGXKG8IXb2qwcTm
+	3h9EtI11Ou9rmKZa+kSHLoV8cU9Bjg35lCi/i4aHTUfRN9iukLF2IC2B7+z70a5oAdVEIQOzZ0I
+	HrwLr6NF4H+Gfv6pCE5lk/vUrc2pAyRSXE2+uMdze2j+RNCiUJips+lwZzbdgoR/tda3OeYY3fm
+	6n/ztdv5WzaMcKsxq6cm2nyFN7w==
+X-Google-Smtp-Source: AGHT+IHrYinBpOd90/7cqZZUAtcZLCgKCB9acewmFqtCkeLzwOOJRxqmBPoVSqry9v+2LJB1zYOmGA==
+X-Received: by 2002:a05:6512:6081:b0:550:d534:2b23 with SMTP id 2adb3069b0e04-550e71d2719mr8188649e87.27.1748007657233;
+        Fri, 23 May 2025 06:40:57 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.40.40
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.40.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 06:40:41 -0700 (PDT)
+        Fri, 23 May 2025 06:40:56 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -103,18 +88,19 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Jonathan Hunter <jonathanh@nvidia.com>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 02/21] pmdomain: core: Add a bus and a driver for genpd providers
-Date: Fri, 23 May 2025 15:39:59 +0200
-Message-ID: <20250523134025.75130-3-ulf.hansson@linaro.org>
+	linux-kernel@vger.kernel.org,
+	Michael Tretter <m.tretter@pengutronix.de>
+Subject: [PATCH v2 11/21] firmware/pmdomain: xilinx: Move ->sync_state() support to firmware driver
+Date: Fri, 23 May 2025 15:40:08 +0200
+Message-ID: <20250523134025.75130-12-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250523134025.75130-1-ulf.hansson@linaro.org>
 References: <20250523134025.75130-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_144046_243667_32F4328D 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20250523_064059_304464_3BDEC667 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,152 +115,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When we create a genpd via pm_genpd_init() we are initializing a
-corresponding struct device for it, but we don't add the device to any
-bus_type. It has not really been needed as the device is used as cookie to
-help us manage OPP tables.
+Rather than having the genpd provider to add device_links for each device
+that gets attached, to implement the ->sync_state() support, let's rely on
+fw_devlink to do this for us.
 
-However, to prepare to make better use of the device let's add a new genpd
-provider bus_type and a corresponding genpd provider driver. Subsequent
-changes will make use of this.
+In this way, we can simplify the code by moving the ->sync_state() callback
+into the firmware driver, so let's do that.
 
-Suggested-by: Saravana Kannan <saravanak@google.com>
-Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
+Cc: Michael Tretter <m.tretter@pengutronix.de>
+Cc: Michal Simek <michal.simek@amd.com>
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/pmdomain/core.c | 89 ++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 88 insertions(+), 1 deletion(-)
+ drivers/firmware/xilinx/zynqmp.c            | 10 ++++++++++
+ drivers/pmdomain/xilinx/zynqmp-pm-domains.c | 16 ----------------
+ 2 files changed, 10 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 9a66b728fbbf..da515350c65b 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -27,6 +27,11 @@
- /* Provides a unique ID for each genpd device */
- static DEFINE_IDA(genpd_ida);
- 
-+/* The parent for genpd_provider devices. */
-+static struct device genpd_provider_bus = {
-+	.init_name = "genpd_provider",
-+};
-+
- #define GENPD_RETRY_MAX_MS	250		/* Approximate */
- 
- #define GENPD_DEV_CALLBACK(genpd, type, callback, dev)		\
-@@ -44,6 +49,14 @@ static DEFINE_IDA(genpd_ida);
- static LIST_HEAD(gpd_list);
- static DEFINE_MUTEX(gpd_list_lock);
- 
-+#define to_genpd_provider_drv(d) container_of(d, struct genpd_provider_drv, drv)
-+
-+struct genpd_provider_drv {
-+	struct device_driver drv;
-+	int (*probe)(struct device *dev);
-+	void (*remove)(struct device *dev);
-+};
-+
- struct genpd_lock_ops {
- 	void (*lock)(struct generic_pm_domain *genpd);
- 	void (*lock_nested)(struct generic_pm_domain *genpd, int depth);
-@@ -2225,6 +2238,26 @@ static int genpd_set_default_power_state(struct generic_pm_domain *genpd)
- 	return 0;
+diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+index 7356e860e65c..a91a0191c689 100644
+--- a/drivers/firmware/xilinx/zynqmp.c
++++ b/drivers/firmware/xilinx/zynqmp.c
+@@ -2100,6 +2100,15 @@ static void zynqmp_firmware_remove(struct platform_device *pdev)
+ 	platform_device_unregister(em_dev);
  }
  
-+static int genpd_provider_bus_probe(struct device *dev)
++static void zynqmp_firmware_sync_state(struct device *dev)
 +{
-+	struct genpd_provider_drv *drv = to_genpd_provider_drv(dev->driver);
++	if (!of_device_is_compatible(dev->of_node, "xlnx,zynqmp-firmware"))
++		return;
 +
-+	return drv->probe(dev);
++	if (zynqmp_pm_init_finalize())
++		dev_warn(dev, "failed to release power management to firmware\n");
 +}
 +
-+static void genpd_provider_bus_remove(struct device *dev)
-+{
-+	struct genpd_provider_drv *drv = to_genpd_provider_drv(dev->driver);
-+
-+	drv->remove(dev);
-+}
-+
-+static const struct bus_type genpd_provider_bus_type = {
-+	.name		= "genpd_provider",
-+	.probe		= genpd_provider_bus_probe,
-+	.remove		= genpd_provider_bus_remove,
-+};
-+
- static void genpd_provider_release(struct device *dev)
+ static const struct of_device_id zynqmp_firmware_of_match[] = {
+ 	{.compatible = "xlnx,zynqmp-firmware"},
+ 	{.compatible = "xlnx,versal-firmware"},
+@@ -2112,6 +2121,7 @@ static struct platform_driver zynqmp_firmware_driver = {
+ 		.name = "zynqmp_firmware",
+ 		.of_match_table = zynqmp_firmware_of_match,
+ 		.dev_groups = zynqmp_firmware_groups,
++		.sync_state = zynqmp_firmware_sync_state,
+ 	},
+ 	.probe = zynqmp_firmware_probe,
+ 	.remove = zynqmp_firmware_remove,
+diff --git a/drivers/pmdomain/xilinx/zynqmp-pm-domains.c b/drivers/pmdomain/xilinx/zynqmp-pm-domains.c
+index d579220a4500..b5aedd6e33ad 100644
+--- a/drivers/pmdomain/xilinx/zynqmp-pm-domains.c
++++ b/drivers/pmdomain/xilinx/zynqmp-pm-domains.c
+@@ -153,14 +153,8 @@ static int zynqmp_gpd_attach_dev(struct generic_pm_domain *domain,
+ 				 struct device *dev)
  {
- 	/* nothing to be done here */
-@@ -2262,6 +2295,8 @@ static int genpd_alloc_data(struct generic_pm_domain *genpd)
- 	genpd->gd = gd;
- 	device_initialize(&genpd->dev);
- 	genpd->dev.release = genpd_provider_release;
-+	genpd->dev.bus = &genpd_provider_bus_type;
-+	genpd->dev.parent = &genpd_provider_bus;
+ 	struct zynqmp_pm_domain *pd = to_zynqmp_pm_domain(domain);
+-	struct device_link *link;
+ 	int ret;
  
- 	if (!genpd_is_dev_name_fw(genpd)) {
- 		dev_set_name(&genpd->dev, "%s", genpd->name);
-@@ -3355,9 +3390,61 @@ int of_genpd_parse_idle_states(struct device_node *dn,
+-	link = device_link_add(dev, &domain->dev, DL_FLAG_SYNC_STATE_ONLY);
+-	if (!link)
+-		dev_dbg(&domain->dev, "failed to create device link for %s\n",
+-			dev_name(dev));
+-
+ 	/* If this is not the first device to attach there is nothing to do */
+ 	if (domain->device_count)
+ 		return 0;
+@@ -298,19 +292,9 @@ static void zynqmp_gpd_remove(struct platform_device *pdev)
+ 	of_genpd_del_provider(pdev->dev.parent->of_node);
  }
- EXPORT_SYMBOL_GPL(of_genpd_parse_idle_states);
  
-+static int genpd_provider_probe(struct device *dev)
-+{
-+	return 0;
-+}
-+
-+static void genpd_provider_remove(struct device *dev)
-+{
-+}
-+
-+static void genpd_provider_sync_state(struct device *dev)
-+{
-+}
-+
-+static struct genpd_provider_drv genpd_provider_drv = {
-+	.drv = {
-+		.name = "genpd_provider",
-+		.bus = &genpd_provider_bus_type,
-+		.sync_state = genpd_provider_sync_state,
-+		.suppress_bind_attrs = true,
-+	},
-+	.probe = genpd_provider_probe,
-+	.remove = genpd_provider_remove,
-+};
-+
- static int __init genpd_bus_init(void)
- {
--	return bus_register(&genpd_bus_type);
-+	int ret;
-+
-+	ret = device_register(&genpd_provider_bus);
-+	if (ret) {
-+		put_device(&genpd_provider_bus);
-+		return ret;
-+	}
-+
-+	ret = bus_register(&genpd_provider_bus_type);
-+	if (ret)
-+		goto err_dev;
-+
-+	ret = bus_register(&genpd_bus_type);
-+	if (ret)
-+		goto err_prov_bus;
-+
-+	ret = driver_register(&genpd_provider_drv.drv);
-+	if (ret)
-+		goto err_bus;
-+
-+	return 0;
-+
-+err_bus:
-+	bus_unregister(&genpd_bus_type);
-+err_prov_bus:
-+	bus_unregister(&genpd_provider_bus_type);
-+err_dev:
-+	device_unregister(&genpd_provider_bus);
-+	return ret;
- }
- core_initcall(genpd_bus_init);
- 
+-static void zynqmp_gpd_sync_state(struct device *dev)
+-{
+-	int ret;
+-
+-	ret = zynqmp_pm_init_finalize();
+-	if (ret)
+-		dev_warn(dev, "failed to release power management to firmware\n");
+-}
+-
+ static struct platform_driver zynqmp_power_domain_driver = {
+ 	.driver	= {
+ 		.name = "zynqmp_power_controller",
+-		.sync_state = zynqmp_gpd_sync_state,
+ 	},
+ 	.probe = zynqmp_gpd_probe,
+ 	.remove = zynqmp_gpd_remove,
 -- 
 2.43.0
 
