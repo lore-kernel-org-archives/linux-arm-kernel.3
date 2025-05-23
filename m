@@ -4,134 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C7AC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 19:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BC4C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 19:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rDD8GO02V6xisZvlrexGxwobQQAXnk3SkEUC/8wzeJ4=; b=fSksYqJMP5qWiWUsd1FSSV1Kk8
-	pfMPE0W5gms1Phbji9TYb+4RHEaqFyiSbXyVQClZEOLipKyCIrn+iOYovdAB9DsHktLn1PsIlinUY
-	fOqSSs2DmgkCmXozW2Jg68lNZqPQUMSZJjxOG2ugnr7yeSaqU4YaC+0vozBdFLZhatk31v9kTx7DE
-	wJeOUxKu9DxJQjk4+YszxohWDmVkJtoGhV7jlAKYuSTHM43vO9FTBaKm2Ri8mnZV4SkiPvqVe1+c8
-	prRsb+juYLtCTKQYQ9JEEj53U69i9JksPRzFkgF8AFEPjuD9HV/YCmX9ZebaCvIffbuWSvap19VwV
-	L+qHd/lg==;
+	bh=MgDBO0Rfj6StKE9ETlKlxeDYg7F6wFKoUAt1aJj9SlY=; b=EZIK8mTmSLK9wB6dKHfbA+09EZ
+	wR7X0CIqQOj7yDEtrfh/8p9dkK4NL1CypJl5rJnzQsrlFQ7EVMT2LSZYvu5P1E+W6W8ZL+4IRkqH9
+	TEpzdUtf1jYNQk/VvlBcSAujVMidImMAzMrP9S2GKdl5rkWPX71SYi/dTDic/Poy9WUdhCmWwjICa
+	vWYV0jRYvgx2W1MAzU1K0mcaaT6c5VnPPgWIwNE8shtqb6UL64+uVg1TgPKHx27NAAVZ9xMvieIuJ
+	/Rn1eA7NEKsA+fNInIxuid/V6pbeNdRxdcYkes4IRv6HZ9W8QBbBymf9v8UwLCasPi16s/un6iwYH
+	nSQeKfjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIYJd-00000004ozH-2Qfw;
-	Fri, 23 May 2025 19:44:25 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uIYLn-00000004pMR-11sq;
+	Fri, 23 May 2025 19:46:39 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIYHZ-00000004otu-1X7C
+	id 1uIYJi-00000004ozb-1cZa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 19:42:18 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54NCY7RY029164
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 19:42:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rDD8GO02V6xisZvlrexGxwobQQAXnk3SkEUC/8wzeJ4=; b=G1O7VeWcf0aMeNX9
-	pvSRtOwpkX4xqzzI2UsHomt54kNwd9dYjxzXQ20gQjs6Vb+gFmuxxyP27kLoWcch
-	GPJ7Hu5xTh3cpdy8JScSkc2J5gg+BAcKiJsYYPoCRDD66WIz31ajrgwRDhzRJwZ9
-	5pedIktCpyqS96szL/MVzxmM1y8MeoVb22z7oMdRrGDnctvloLyRI2/Vf/4mc507
-	jwkFZEq+FBobA1aDf14M9sEjJKVPuDjS6hPS+HC2ifuJx5/xRugMD9QMrVAHHd5Z
-	Ef5kOjf9BWnlDM4oA+gO2KcWDG2OSqqM7FTMHf5FUxcLnnmjYYGKL9dVwjECg3Fz
-	Khn1pw==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46rwf4b59u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 19:42:15 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6fa9136c2f2so372476d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 12:42:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748029335; x=1748634135;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rDD8GO02V6xisZvlrexGxwobQQAXnk3SkEUC/8wzeJ4=;
-        b=R6oijwIzaHZdVYMWS9AMxM8FmONH2/NHFzYXoVpDJl9QFJDtfLympIP06ITRIM+ptt
-         Jy6jWwql9CZTiodB5+0rqcbGsbJlZ/pApdvVooLIqY1YeNrSdDUUec/bq4ndHc4usJGS
-         EMQwyQ8+HetOasW5oYuhSgqmHC5+MgCW/yfbw/RCgvoYx1WfvDTzbYVTfoQaQ7E4K7QZ
-         H0XlIMaY0VN1r97qjDTl1y72uWGk6NAWtVT9DpyZ1qyhB58OhMANuUqXC2KE1pZklQrh
-         DkwUpp8wLNntJ0ct5NGes0K1/FmtaAd81POp05y2aWhmreA6Gw31qu56VgBOwkcy6t4P
-         rGFg==
-X-Forwarded-Encrypted: i=1; AJvYcCXVjccnZM0tRivxyOzXtrZyLzb8JV6m3gwPYMY7hMRrk+0d8ZsnUKpjw0krvbhrCtHRXcJALWSKRvDgaf05Uk/I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDJ/vCUtflBndItqHHOuICAVW5VLWdtkjeLzI3PqWCVWiqb/gC
-	NchMhO9M9l+zKRDi6j4pnsCo2UZxPSrlxJg/gbkIDOzw83tfOtRC2S/KPU5H0nFzAv1pm5c0weg
-	rSuh58RYXpz3MOq4Dyk6C6yJkCspV/aPnOlDrQkSkpmqSal1OQzp8rEBK01pGA9gI/37p0cKnJr
-	lKjg==
-X-Gm-Gg: ASbGncvMaqYoYX8b6sJfARBnChqu4kmUzXpkFoLUx7oft/r4QUI1BJDpypzSvO7fUQ5
-	rd72Mm8oe8IKqIes02+hEhabpgp7SHkQp8VKnGdEoDZo/1/+NhNA7UYG6bKimJbkQNw+tJHiSM8
-	b2hmzcHa2YT8NvsjWANfOcKLFaKUAgfg1U7GmS8brtHSJX307R+Xsbk119dm4y0uY1xXkU8BCuc
-	+mK7elzRYMYu0lh34mOIB7sidZOpxiepHOlbBXSNkAOyH/ITTo9m3pGV+4xw5Jby6oqf6/qeCKZ
-	rWdl4YLLsHci2v79Y3YemapGaVbwiw0JE+lVMwg7RCLVtzCQHVf8b6vKSBcwLB8OJA==
-X-Received: by 2002:a05:6214:529d:b0:6f8:471a:9fd8 with SMTP id 6a1803df08f44-6fa9d28fd01mr3864526d6.8.1748029334675;
-        Fri, 23 May 2025 12:42:14 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEakNeqD7PjHCb2lw3PkVQBGbw2mv8vCsbXcVbucJNPHi/LLt7DhFiJHbVdrvpunQbrFKGGPg==
-X-Received: by 2002:a05:6214:529d:b0:6f8:471a:9fd8 with SMTP id 6a1803df08f44-6fa9d28fd01mr3864236d6.8.1748029334246;
-        Fri, 23 May 2025 12:42:14 -0700 (PDT)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d4b6d18sm1268078866b.153.2025.05.23.12.42.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 May 2025 12:42:13 -0700 (PDT)
-Message-ID: <4a0ec467-b81e-4282-8e09-b7adc67eba97@oss.qualcomm.com>
-Date: Fri, 23 May 2025 21:42:11 +0200
+	Fri, 23 May 2025 19:44:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=MgDBO0Rfj6StKE9ETlKlxeDYg7F6wFKoUAt1aJj9SlY=; b=XjUHdm32g+dcVpd6SoiNniNl4z
+	kqn1xD6s/XYQ0twDkuSY5DUdE24+/kPHm4uJVYjmAasJkaB/UC/7jOBYbAWuh8XTO8zlNMdaksrBd
+	vUpxdgL7qhe0sN0jIzSWvfNJhno6pG7YVs/ERs6Dv4seK6y195C/FORaIaIpt9BDN7RnpMnzPpn8n
+	oI6NyRNjnZFPa6BHwNLe4+uE78xNXLskEX1PoflkoKlidKnMXCSpLBOq9QkopZz7OAwXYvtgsbj3m
+	B5sYuz2/noU/7TIiPxtEUXC8kVLVRVc+t1jaT+BF0BX4aiS3Z+lrhBHd0JbdJaGipf9g2XVzMigAG
+	OPnCU+Rg==;
+Date: Fri, 23 May 2025 21:43:53 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
+ <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] arm: dts: omap: Add support for BeagleBone Green
+ Eco board
+Message-ID: <20250523214353.6e46574a@akair>
+In-Reply-To: <20250523-bbg-v1-1-ef4a9e57eeee@bootlin.com>
+References: <20250523-bbg-v1-0-ef4a9e57eeee@bootlin.com>
+	<20250523-bbg-v1-1-ef4a9e57eeee@bootlin.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/21] pmdomain: qcom: rpmhpd: Use
- of_genpd_sync_state()
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-        Saravana Kannan <saravanak@google.com>,
-        Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Michael Grzeschik <m.grzeschik@pengutronix.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Johan Hovold <johan@kernel.org>,
-        Maulik Shah <maulik.shah@oss.qualcomm.com>,
-        Michal Simek <michal.simek@amd.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Thierry Reding <thierry.reding@gmail.com>,
-        Jonathan Hunter <jonathanh@nvidia.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250523134025.75130-1-ulf.hansson@linaro.org>
- <20250523134025.75130-10-ulf.hansson@linaro.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250523134025.75130-10-ulf.hansson@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIzMDE4MCBTYWx0ZWRfX4hTpRJKNz5aH
- rIG/CWFGAgI/KMgqJLqvt3eHQkLBC2Nn55MDia7nxKxp/daKAp9prpv5QSy3pdIvgQdq5FChwo5
- 89znLyaVQrnr44jCMcC+6ZR2Z1RnfzsZLcgMTqPt31XBaJtzZp1nWm0gJdtuUdHMEoO2kUvVuZw
- ygrcK11Y5NKhB6rn4JiEtSwwlnET3vAjGmBMqp2THyrAdewI0QXQ3R2J6nq574fASRiJyNU99jV
- kdVkTgI7wWBG6eYfFKq/5eEpsvf6PFx2giz0ZO5aCF6RikCbqJeRrRtKEhEtwDNaN2SD0K+NRao
- AYyuf1BrzhL0pKSLu84npRUZRsxIX0epuWV3nHVruDDT/KSI+erdnRSP7D3UiOMFfk5j16wNHSQ
- SB5Uer9dJJlFUWTG0bBaygjI/23TtlONc1jriXxqZTgifoQVKzHTlfIeIGbh2GRrfO3IL7RS
-X-Proofpoint-GUID: iIk8GIlhRW_DRd1OGVDH6m5PdhA-4cNu
-X-Authority-Analysis: v=2.4 cv=Ws8rMcfv c=1 sm=1 tr=0 ts=6830cf98 cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=KKAkSRfTAAAA:8
- a=_nM6lhH5BCRQepSfEGgA:9 a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: iIk8GIlhRW_DRd1OGVDH6m5PdhA-4cNu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-23_06,2025-05-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 clxscore=1015 suspectscore=0 mlxscore=0
- bulkscore=0 phishscore=0 priorityscore=1501 impostorscore=0
- lowpriorityscore=0 mlxlogscore=999 adultscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505160000 definitions=main-2505230180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_124217_411590_5E849E80 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250523_124430_434900_1C04E9EC 
+X-CRM114-Status: GOOD (  24.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,17 +76,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/23/25 3:40 PM, Ulf Hansson wrote:
-> To make sure genpd tries to power off unused PM domains, let's call
-> of_genpd_sync_state() from our own ->sync_state() callback.
+Am Fri, 23 May 2025 17:57:42 +0200
+schrieb Kory Maincent <kory.maincent@bootlin.com>:
+
+> SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
+> (BBG). It has minor differences from the BBG, such as a different PMIC,
+> a different Ethernet PHY, and a larger eMMC.
 > 
-> Cc: Bjorn Andersson <andersson@kernel.org>
-> Cc: Konrad Dybcio <konradybcio@kernel.org>
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 > ---
+> 
+> The pmic binding is currently only in regulator tree. I don't know if it
+> should be merged in omap tree or in regulator tree due to that binding
+> dependency.
 
-note: the subject is wrong - this driver is rpmpd, the other
-one is rpm*h*pd (patch 10 has the correct subject)
+Well, the pull request for omap stuff to soc is already sent, so this
+will go into 6.17 probably while the regulator stuff seems to be
+scheduled for 6.16. So this issue will solve itself.
 
-Konrad
+> ---
+>  arch/arm/boot/dts/ti/omap/Makefile                 |   1 +
+>  arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts | 170 +++++++++++++++++++++
+>  2 files changed, 171 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/ti/omap/Makefile b/arch/arm/boot/dts/ti/omap/Makefile
+> index 95c68135dd0c..1aef60eef671 100644
+> --- a/arch/arm/boot/dts/ti/omap/Makefile
+> +++ b/arch/arm/boot/dts/ti/omap/Makefile
+> @@ -93,6 +93,7 @@ dtb-$(CONFIG_SOC_AM33XX) += \
+>  	am335x-boneblue.dtb \
+>  	am335x-bonegreen.dtb \
+>  	am335x-bonegreen-wireless.dtb \
+> +	am335x-bonegreen-eco.dtb \
+>  	am335x-chiliboard.dtb \
+>  	am335x-cm-t335.dtb \
+>  	am335x-evm.dtb \
+> diff --git a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts
+> new file mode 100644
+> index 000000000000..521f92347bbe
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts
+> @@ -0,0 +1,170 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2025 Bootlin
+> + */
+> +/dts-v1/;
+> +
+> +#include "am33xx.dtsi"
+> +#include "am335x-bone-common.dtsi"
+> +#include "am335x-bonegreen-common.dtsi"
+> +#include <dt-bindings/net/ti-dp83867.h>
+> +
+> +/ {
+> +	model = "TI AM335x BeagleBone Green Eco";
+> +	compatible = "ti,am335x-bone-green-eco", "ti,am335x-bone-green",
+> +		     "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
+> +
+these compatibles should be defined in
+Documentation/devicetree/bindings/arm/ti/omap.yaml
+
+But are that much really necessary? At least ti,am335x-bone-black looks
+strange in the list, it does not look as it is derived from it.
+
+> +	cpus {
+> +		cpu@0 {
+> +			cpu0-supply = <&buck1>;
+> +		};
+> +	};
+> +
+> +	sys_5v: sys-5v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "sys_5v";
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	v3v3: v3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "v3v3";
+> +		regulator-always-on;
+> +	};
+> +};
+> +
+> +&usb0 {
+> +	interrupts-extended = <&intc 18>;
+> +	interrupt-names = "mc";
+> +};
+> +
+> +&baseboard_eeprom {
+> +	vcc-supply = <&v3v3>;
+> +};
+> +
+> +&i2c0 {
+> +	/delete-node/ tps@24;
+> +
+> +	tps65214: tps@30 {
+
+generic node names please, so pmic@30.
+And maybe while you are at it, maybe you can clean up the tps@24 stuff.
+
+Regards,
+Andreas
 
