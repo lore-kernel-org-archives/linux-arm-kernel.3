@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F51C54F32
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D3BC3DA6D
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gsXGM4UXXg5X82wsCG4Eg9IZLq9CvOeiqqMgouKb1g8=; b=O6OhoXvzwdPH5OExTBNC0nhXGk
-	0DBwkTjZWhF+WnYh+RrF8T/bd7m5utINKhuBxrS3D0+oliA5EuhvQLeUC6mgRUu1SqI/Q2HUjW+Zm
-	D0BEx3V9HSXMTOXxMR1DnidCK55NZkNaFBuP3KMjqWfk3P8NHUu085sgM7rZyPN44hA8KO3IylJ/n
-	37oEpyO/usrEyGORbD6DuRwVD58VxR2cyZzuDdvNxW23FBMheL0f57kZl4Iq8N7GsbWc1zi+Hye8f
-	q3cYnofKCUDoatqDNaQVTIn9LJl3Rn+l7AI34DhwcqXAYbjcdpiymQ/RNU3Nl4UE77z+ruDVRqyAF
-	DKeQf6rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rMmsCMUAH+eej6NhODppzkzW6QcTqFDLUA/B/IzWvx0=; b=ia7jnxm9nOKFz3nSN8NldJi680
+	vWoH+BfNwsSgjDdMaT6ggMORnKGCfzSZkFtLSZm2lXLHh+sN9p3v/Fg2Sj5LpXOLyplOhKCLECFwm
+	mJExTjmBAVGhb9awxYQlc473pXgW8QJMKKoe00sKRhbgimVGih8LUIX/IZGHJSApegPLK8CBMOwQ5
+	7YTlMt52bxuQOm8d/F8G1YMFlaExE5AdWFDkhNU6AxkK//tWYt9kDXBT9hHH5OuF18E49a/hctEB0
+	QjlDwK9qyDZ7Q1YYEWwf6sZJx6xB6GuNKdV/otP6UZaknIN9SL3LIKwF6c9VBAWoHa7E5yWhnhha/
+	HW4pXlOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIO1Z-00000003Khh-1GRn;
-	Fri, 23 May 2025 08:45:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIO1b-00000003KlT-2iLG;
+	Fri, 23 May 2025 08:45:07 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uINfr-00000003IVG-0FR7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 May 2025 08:22:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=gsXGM4UXXg5X82wsCG4Eg9IZLq9CvOeiqqMgouKb1g8=; b=IL+hronK7egGw3BgsqpHMRH9tL
-	MT/H8LUZXdoqP5bLlRqU/6xF/waZWNoB/uPt6Oz49Eh6u3LX3YV7+tsK4vEgBOLQ4jsNo/HD8M6o9
-	/qGwF62+4FW8rDP9CXmLkAmrBn0K7vr4Lln6/Y2WqRzEtWnYYxfFZX/pVUpdGioBGwkfLPEIB1JMS
-	vDAvm5DH+u58/FsEQZqcyk81vQ2DPXB0EY77+iryhuQsub5bFSfvHjzeSsJwizVXX+ro+w/+dmIZH
-	NAqnMRTLsNUtnJpmNigCbslwnj9dYwW8bYhyv08vT5Gf033tbNm5LekMRn1oWsbaRdUrJuwQrl0aK
-	hBr8kxhg==;
-Received: from mgamail.intel.com ([192.198.163.17])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uINfn-00000001DtH-2wqw
+	id 1uINmg-00000003J69-2MhP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 08:22:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747988556; x=1779524556;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UktUFNhQpzGrRsFIwIpfLH+M+oX8xvKnPJijRRpkYXw=;
-  b=S2Ju5RjYePAlqffSDpte1DZ/cft0fSgeoEieDoNUjRq7f2bQsA8moCjI
-   /CieRcU2QBafl9KoSt7+H+vyTfYnsdfg1E7bGASxrLOHLFHhej8Op7ZFs
-   0Ay0GdS8jUDlujdkV4pfN1VNVrND+r9CGxzQmGZxSxi+3YqsGIuWDcQSx
-   9RUoURz4/QnOBGH5qlKe1WwFSSDguMYwx+cnMLM0cU5bvRDmgbecsIwPU
-   JacjKZQToAJeaQFo7ehuNzeSNZURGCuXh7LnOGSh5TDAOyomvW0Wm9J2l
-   w79v2UpZuw7lgbumlmBt79wSR4TjPzXVFKp2uJ3lM+VvaOvV52d9OPYel
-   Q==;
-X-CSE-ConnectionGUID: ahcG0/hiTsWxaR7P2LDQMw==
-X-CSE-MsgGUID: YIE1tSchQrmby1FAtNiX9w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="49958779"
-X-IronPort-AV: E=Sophos;i="6.15,308,1739865600"; 
-   d="scan'208";a="49958779"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 01:22:31 -0700
-X-CSE-ConnectionGUID: hbdtZnCZSp+nEANc3d6+Yw==
-X-CSE-MsgGUID: aGhX6r3rRwu6bK0N6bagxA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,308,1739865600"; 
-   d="scan'208";a="146032463"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 23 May 2025 01:22:28 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uINfe-000QC8-0N;
-	Fri, 23 May 2025 08:22:26 +0000
-Date: Fri, 23 May 2025 16:21:55 +0800
-From: kernel test robot <lkp@intel.com>
-To: Paul Alvin <alvin.paulp@amd.com>, michal.simek@amd.com,
-	adrian.hunter@intel.com, ulf.hansson@linaro.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, git@amd.com,
-	alvin.paulp@amd.com, linux-arm-kernel@lists.infradead.org,
-	linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mmc: sdhci-of-arasan: Add shutdown callback
-Message-ID: <202505231550.RaoPUrmq-lkp@intel.com>
-References: <20250522094932.4187301-1-alvin.paulp@amd.com>
+	Fri, 23 May 2025 08:29:44 +0000
+Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 47F2C1F9DF;
+	Fri, 23 May 2025 10:29:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1747988980;
+	bh=rMmsCMUAH+eej6NhODppzkzW6QcTqFDLUA/B/IzWvx0=; h=From:To:Subject;
+	b=Aa4S412nPHjsEsR92ES7teEMTNDZy38P3V4cV+iNNDK/GFG+sGPlxsq6D7gKMlPMX
+	 jgTVVwHDFSWSgls3TdhSbh4XvycvbpGJ13y5sLHVBnB4VrJAuLAQqrL/QKI0NIndSG
+	 vySC7TDLOJOv+prGNrOBozq1MydXCzwDjk3onbAW4eYoBqkpR7dZ8KeSShBvUFur0V
+	 LjYFM2QVlr5bkPG+z9Zj5XFTTuSvSl9IS2AXrJw0wUFyjSdDw+Ds/MlQ86+6gBJo5R
+	 P3yZ4l/e1OqERJdFd7g1Xebo8cUAmx34i8QprAN+14NwJSx8Zj2ipuDwFzZckAg8WS
+	 S1SXkUD0PrrlQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Dong Aisheng <aisheng.dong@nxp.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Carlos Song <carlos.song@nxp.com>
+Subject: [PATCH v4 2/2] i2c: lpi2c: implement master_xfer_atomic callback
+Date: Fri, 23 May 2025 10:29:31 +0200
+Message-Id: <20250523082931.23170-3-francesco@dolcini.it>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250523082931.23170-1-francesco@dolcini.it>
+References: <20250523082931.23170-1-francesco@dolcini.it>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250522094932.4187301-1-alvin.paulp@amd.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_092236_291398_7671826E 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250523_012942_919706_1761541D 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,50 +78,389 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 
-kernel test robot noticed the following build errors:
+Rework the read and write code paths in the driver to support operation
+in atomic contexts. To achieve this, the driver must not rely on IRQs
+or perform any scheduling, e.g., via a sleep or schedule routine.
 
-[auto build test ERROR on v6.15-rc7]
-[also build test ERROR on linus/master next-20250522]
-[cannot apply to xilinx-xlnx/master]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Implement atomic, sleep-free, and IRQ-less operation. This increases
+complexity but is necessary for atomic I2C transfers required by some
+hardware configurations, e.g., to trigger reboots on an external PMIC chip.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Paul-Alvin/mmc-sdhci-of-arasan-Add-shutdown-callback/20250522-175110
-base:   v6.15-rc7
-patch link:    https://lore.kernel.org/r/20250522094932.4187301-1-alvin.paulp%40amd.com
-patch subject: [PATCH] mmc: sdhci-of-arasan: Add shutdown callback
-config: arm64-randconfig-002-20250523 (https://download.01.org/0day-ci/archive/20250523/202505231550.RaoPUrmq-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250523/202505231550.RaoPUrmq-lkp@intel.com/reproduce)
+Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+Reviewed-by: Carlos Song <carlos.song@nxp.com>
+---
+v3 -> v4
+- Split the patch into two parts: one for the readl_poll_timeout() and one for the atomic implementation.
+- Change the readl_poll_timeout() delay to 0 us to do not change the behavior of the driver.
+- Use err variable consistently.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505231550.RaoPUrmq-lkp@intel.com/
+v2 -> v3
+- Closes: https://lore.kernel.org/oe-kbuild-all/202505130735.zh3WuTNu-lkp@intel.com/. Using the return value of
+lpi2c_imx_read_msr_poll_timeout() to check for errors.
 
-All errors (new ones prefixed by >>):
+v1 -> v2
+- Rename READL_POLL_TIMEOUT to lpi2c_imx_read_msr_poll_timeout
+- Remove addr and timeout_us parameters from lpi2c_imx_read_msr_poll_timeout since they are used always with the same value
+- add r-b tag from Carlos Song
+---
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 178 ++++++++++++++++++++++-------
+ 1 file changed, 136 insertions(+), 42 deletions(-)
 
->> drivers/mmc/host/sdhci-of-arasan.c:2063:2: error: call to undeclared function 'sdhci_arasan_suspend'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-           sdhci_arasan_suspend(dev);
-           ^
-   1 error generated.
-
-
-vim +/sdhci_arasan_suspend +2063 drivers/mmc/host/sdhci-of-arasan.c
-
-  2058	
-  2059	static void sdhci_arasan_shutdown(struct platform_device *pdev)
-  2060	{
-  2061		struct device *dev = &pdev->dev;
-  2062	
-> 2063		sdhci_arasan_suspend(dev);
-  2064	}
-  2065	
-
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index 91b0f4c2b924..afde8e06c23a 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -188,9 +188,11 @@ struct lpi2c_imx_struct {
+ 	struct i2c_client	*target;
+ };
+ 
+-#define lpi2c_imx_read_msr_poll_timeout(val, cond)                            \
++#define lpi2c_imx_read_msr_poll_timeout(atomic, val, cond)                    \
++	(atomic ? readl_poll_timeout_atomic(lpi2c_imx->base + LPI2C_MSR, val, \
++					    cond, 0, 500000) :                \
+ 		  readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val, cond,  \
+-				     0, 500000)
++				     0, 500000))
+ 
+ static void lpi2c_imx_intctrl(struct lpi2c_imx_struct *lpi2c_imx,
+ 			      unsigned int enable)
+@@ -198,12 +200,12 @@ static void lpi2c_imx_intctrl(struct lpi2c_imx_struct *lpi2c_imx,
+ 	writel(enable, lpi2c_imx->base + LPI2C_MIER);
+ }
+ 
+-static int lpi2c_imx_bus_busy(struct lpi2c_imx_struct *lpi2c_imx)
++static int lpi2c_imx_bus_busy(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
+ {
+ 	int err;
+ 	unsigned int temp;
+ 
+-	err = lpi2c_imx_read_msr_poll_timeout(temp,
++	err = lpi2c_imx_read_msr_poll_timeout(atomic, temp,
+ 					      temp & (MSR_ALF | MSR_BBF | MSR_MBF));
+ 
+ 	/* check for arbitration lost, clear if set */
+@@ -248,7 +250,7 @@ static void lpi2c_imx_set_mode(struct lpi2c_imx_struct *lpi2c_imx)
+ }
+ 
+ static int lpi2c_imx_start(struct lpi2c_imx_struct *lpi2c_imx,
+-			   struct i2c_msg *msgs)
++			   struct i2c_msg *msgs, bool atomic)
+ {
+ 	unsigned int temp;
+ 
+@@ -260,17 +262,17 @@ static int lpi2c_imx_start(struct lpi2c_imx_struct *lpi2c_imx,
+ 	temp = i2c_8bit_addr_from_msg(msgs) | (GEN_START << 8);
+ 	writel(temp, lpi2c_imx->base + LPI2C_MTDR);
+ 
+-	return lpi2c_imx_bus_busy(lpi2c_imx);
++	return lpi2c_imx_bus_busy(lpi2c_imx, atomic);
+ }
+ 
+-static void lpi2c_imx_stop(struct lpi2c_imx_struct *lpi2c_imx)
++static void lpi2c_imx_stop(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
+ {
+ 	unsigned int temp;
+ 	int err;
+ 
+ 	writel(GEN_STOP << 8, lpi2c_imx->base + LPI2C_MTDR);
+ 
+-	err = lpi2c_imx_read_msr_poll_timeout(temp, temp & MSR_SDF);
++	err = lpi2c_imx_read_msr_poll_timeout(atomic, temp, temp & MSR_SDF);
+ 
+ 	if (err) {
+ 		dev_dbg(&lpi2c_imx->adapter.dev, "stop timeout\n");
+@@ -390,12 +392,12 @@ static int lpi2c_imx_pio_msg_complete(struct lpi2c_imx_struct *lpi2c_imx)
+ 	return time_left ? 0 : -ETIMEDOUT;
+ }
+ 
+-static int lpi2c_imx_txfifo_empty(struct lpi2c_imx_struct *lpi2c_imx)
++static int lpi2c_imx_txfifo_empty(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
+ {
+ 	unsigned int temp;
+ 	int err;
+ 
+-	err = lpi2c_imx_read_msr_poll_timeout(temp,
++	err = lpi2c_imx_read_msr_poll_timeout(atomic, temp,
+ 					      (temp & MSR_NDF) || !lpi2c_imx_txfifo_cnt(lpi2c_imx));
+ 
+ 	if (temp & MSR_NDF) {
+@@ -432,7 +434,7 @@ static void lpi2c_imx_set_rx_watermark(struct lpi2c_imx_struct *lpi2c_imx)
+ 	writel(temp << 16, lpi2c_imx->base + LPI2C_MFCR);
+ }
+ 
+-static void lpi2c_imx_write_txfifo(struct lpi2c_imx_struct *lpi2c_imx)
++static bool lpi2c_imx_write_txfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
+ {
+ 	unsigned int data, txcnt;
+ 
+@@ -447,13 +449,19 @@ static void lpi2c_imx_write_txfifo(struct lpi2c_imx_struct *lpi2c_imx)
+ 		txcnt++;
+ 	}
+ 
+-	if (lpi2c_imx->delivered < lpi2c_imx->msglen)
+-		lpi2c_imx_intctrl(lpi2c_imx, MIER_TDIE | MIER_NDIE);
+-	else
++	if (lpi2c_imx->delivered < lpi2c_imx->msglen) {
++		if (!atomic)
++			lpi2c_imx_intctrl(lpi2c_imx, MIER_TDIE | MIER_NDIE);
++		return false;
++	}
++
++	if (!atomic)
+ 		complete(&lpi2c_imx->complete);
++
++	return true;
+ }
+ 
+-static void lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx)
++static bool lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
+ {
+ 	unsigned int blocklen, remaining;
+ 	unsigned int temp, data;
+@@ -478,8 +486,9 @@ static void lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx)
+ 	remaining = lpi2c_imx->msglen - lpi2c_imx->delivered;
+ 
+ 	if (!remaining) {
+-		complete(&lpi2c_imx->complete);
+-		return;
++		if (!atomic)
++			complete(&lpi2c_imx->complete);
++		return true;
+ 	}
+ 
+ 	/* not finished, still waiting for rx data */
+@@ -497,7 +506,10 @@ static void lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx)
+ 		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
+ 	}
+ 
+-	lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE);
++	if (!atomic)
++		lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE);
++
++	return false;
+ }
+ 
+ static void lpi2c_imx_write(struct lpi2c_imx_struct *lpi2c_imx,
+@@ -505,11 +517,29 @@ static void lpi2c_imx_write(struct lpi2c_imx_struct *lpi2c_imx,
+ {
+ 	lpi2c_imx->tx_buf = msgs->buf;
+ 	lpi2c_imx_set_tx_watermark(lpi2c_imx);
+-	lpi2c_imx_write_txfifo(lpi2c_imx);
++	lpi2c_imx_write_txfifo(lpi2c_imx, false);
+ }
+ 
+-static void lpi2c_imx_read(struct lpi2c_imx_struct *lpi2c_imx,
+-			   struct i2c_msg *msgs)
++static int lpi2c_imx_write_atomic(struct lpi2c_imx_struct *lpi2c_imx,
++				  struct i2c_msg *msgs)
++{
++	u32 temp;
++	int err;
++
++	lpi2c_imx->tx_buf = msgs->buf;
++
++	err = lpi2c_imx_read_msr_poll_timeout(true, temp,
++					      (temp & MSR_NDF) ||
++					      lpi2c_imx_write_txfifo(lpi2c_imx, true));
++
++	if (temp & MSR_NDF)
++		return -EIO;
++
++	return err;
++}
++
++static void lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
++				struct i2c_msg *msgs)
+ {
+ 	unsigned int temp;
+ 
+@@ -520,8 +550,43 @@ static void lpi2c_imx_read(struct lpi2c_imx_struct *lpi2c_imx,
+ 	temp = msgs->len > CHUNK_DATA ? CHUNK_DATA - 1 : msgs->len - 1;
+ 	temp |= (RECV_DATA << 8);
+ 	writel(temp, lpi2c_imx->base + LPI2C_MTDR);
++}
+ 
+-	lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE | MIER_NDIE);
++static bool lpi2c_imx_read_chunk_atomic(struct lpi2c_imx_struct *lpi2c_imx)
++{
++	u32 rxcnt;
++
++	rxcnt = (readl(lpi2c_imx->base + LPI2C_MFSR) >> 16) & 0xFF;
++	if (!rxcnt)
++		return false;
++
++	if (!lpi2c_imx_read_rxfifo(lpi2c_imx, true))
++		return false;
++
++	return true;
++}
++
++static int lpi2c_imx_read_atomic(struct lpi2c_imx_struct *lpi2c_imx,
++				 struct i2c_msg *msgs)
++{
++	u32 temp;
++	int tmo_us;
++
++	tmo_us = 1000000;
++	do {
++		if (lpi2c_imx_read_chunk_atomic(lpi2c_imx))
++			return 0;
++
++		temp = readl(lpi2c_imx->base + LPI2C_MSR);
++
++		if (temp & MSR_NDF)
++			return -EIO;
++
++		udelay(100);
++		tmo_us -= 100;
++	} while (tmo_us > 0);
++
++	return -ETIMEDOUT;
+ }
+ 
+ static bool is_use_dma(struct lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
+@@ -541,14 +606,27 @@ static int lpi2c_imx_pio_xfer(struct lpi2c_imx_struct *lpi2c_imx,
+ {
+ 	reinit_completion(&lpi2c_imx->complete);
+ 
+-	if (msg->flags & I2C_M_RD)
+-		lpi2c_imx_read(lpi2c_imx, msg);
+-	else
++	if (msg->flags & I2C_M_RD) {
++		lpi2c_imx_read_init(lpi2c_imx, msg);
++		lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE | MIER_NDIE);
++	} else {
+ 		lpi2c_imx_write(lpi2c_imx, msg);
++	}
+ 
+ 	return lpi2c_imx_pio_msg_complete(lpi2c_imx);
+ }
+ 
++static int lpi2c_imx_pio_xfer_atomic(struct lpi2c_imx_struct *lpi2c_imx,
++				     struct i2c_msg *msg)
++{
++	if (msg->flags & I2C_M_RD) {
++		lpi2c_imx_read_init(lpi2c_imx, msg);
++		return lpi2c_imx_read_atomic(lpi2c_imx, msg);
++	}
++
++	return lpi2c_imx_write_atomic(lpi2c_imx, msg);
++}
++
+ static int lpi2c_imx_dma_timeout_calculate(struct lpi2c_imx_struct *lpi2c_imx)
+ {
+ 	unsigned long time = 0;
+@@ -943,8 +1021,8 @@ static int lpi2c_imx_dma_xfer(struct lpi2c_imx_struct *lpi2c_imx,
+ 	return ret;
+ }
+ 
+-static int lpi2c_imx_xfer(struct i2c_adapter *adapter,
+-			  struct i2c_msg *msgs, int num)
++static int lpi2c_imx_xfer_common(struct i2c_adapter *adapter,
++				 struct i2c_msg *msgs, int num, bool atomic)
+ {
+ 	struct lpi2c_imx_struct *lpi2c_imx = i2c_get_adapdata(adapter);
+ 	unsigned int temp;
+@@ -955,7 +1033,7 @@ static int lpi2c_imx_xfer(struct i2c_adapter *adapter,
+ 		return result;
+ 
+ 	for (i = 0; i < num; i++) {
+-		result = lpi2c_imx_start(lpi2c_imx, &msgs[i]);
++		result = lpi2c_imx_start(lpi2c_imx, &msgs[i], atomic);
+ 		if (result)
+ 			goto disable;
+ 
+@@ -967,28 +1045,33 @@ static int lpi2c_imx_xfer(struct i2c_adapter *adapter,
+ 		lpi2c_imx->tx_buf = NULL;
+ 		lpi2c_imx->delivered = 0;
+ 		lpi2c_imx->msglen = msgs[i].len;
+-		init_completion(&lpi2c_imx->complete);
+ 
+-		if (is_use_dma(lpi2c_imx, &msgs[i])) {
+-			result = lpi2c_imx_dma_xfer(lpi2c_imx, &msgs[i]);
+-			if (result && lpi2c_imx->dma->using_pio_mode)
+-				result = lpi2c_imx_pio_xfer(lpi2c_imx, &msgs[i]);
++		if (atomic) {
++			result = lpi2c_imx_pio_xfer_atomic(lpi2c_imx, &msgs[i]);
+ 		} else {
+-			result = lpi2c_imx_pio_xfer(lpi2c_imx, &msgs[i]);
++			init_completion(&lpi2c_imx->complete);
++
++			if (is_use_dma(lpi2c_imx, &msgs[i])) {
++				result = lpi2c_imx_dma_xfer(lpi2c_imx, &msgs[i]);
++				if (result && lpi2c_imx->dma->using_pio_mode)
++					result = lpi2c_imx_pio_xfer(lpi2c_imx, &msgs[i]);
++			} else {
++				result = lpi2c_imx_pio_xfer(lpi2c_imx, &msgs[i]);
++			}
+ 		}
+ 
+ 		if (result)
+ 			goto stop;
+ 
+ 		if (!(msgs[i].flags & I2C_M_RD)) {
+-			result = lpi2c_imx_txfifo_empty(lpi2c_imx);
++			result = lpi2c_imx_txfifo_empty(lpi2c_imx, atomic);
+ 			if (result)
+ 				goto stop;
+ 		}
+ 	}
+ 
+ stop:
+-	lpi2c_imx_stop(lpi2c_imx);
++	lpi2c_imx_stop(lpi2c_imx, atomic);
+ 
+ 	temp = readl(lpi2c_imx->base + LPI2C_MSR);
+ 	if ((temp & MSR_NDF) && !result)
+@@ -1004,6 +1087,16 @@ static int lpi2c_imx_xfer(struct i2c_adapter *adapter,
+ 	return (result < 0) ? result : num;
+ }
+ 
++static int lpi2c_imx_xfer(struct i2c_adapter *adapter, struct i2c_msg *msgs, int num)
++{
++	return lpi2c_imx_xfer_common(adapter, msgs, num, false);
++}
++
++static int lpi2c_imx_xfer_atomic(struct i2c_adapter *adapter, struct i2c_msg *msgs, int num)
++{
++	return lpi2c_imx_xfer_common(adapter, msgs, num, true);
++}
++
+ static irqreturn_t lpi2c_imx_target_isr(struct lpi2c_imx_struct *lpi2c_imx,
+ 					u32 ssr, u32 sier_filter)
+ {
+@@ -1066,9 +1159,9 @@ static irqreturn_t lpi2c_imx_master_isr(struct lpi2c_imx_struct *lpi2c_imx)
+ 	if (temp & MSR_NDF)
+ 		complete(&lpi2c_imx->complete);
+ 	else if (temp & MSR_RDF)
+-		lpi2c_imx_read_rxfifo(lpi2c_imx);
++		lpi2c_imx_read_rxfifo(lpi2c_imx, false);
+ 	else if (temp & MSR_TDF)
+-		lpi2c_imx_write_txfifo(lpi2c_imx);
++		lpi2c_imx_write_txfifo(lpi2c_imx, false);
+ 
+ 	return IRQ_HANDLED;
+ }
+@@ -1264,10 +1357,11 @@ static u32 lpi2c_imx_func(struct i2c_adapter *adapter)
+ }
+ 
+ static const struct i2c_algorithm lpi2c_imx_algo = {
+-	.master_xfer	= lpi2c_imx_xfer,
+-	.functionality	= lpi2c_imx_func,
+-	.reg_target	= lpi2c_imx_register_target,
+-	.unreg_target	= lpi2c_imx_unregister_target,
++	.master_xfer		= lpi2c_imx_xfer,
++	.master_xfer_atomic	= lpi2c_imx_xfer_atomic,
++	.functionality		= lpi2c_imx_func,
++	.reg_target		= lpi2c_imx_register_target,
++	.unreg_target		= lpi2c_imx_unregister_target,
+ };
+ 
+ static const struct of_device_id lpi2c_imx_of_match[] = {
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.39.5
+
 
