@@ -4,83 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BEFC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 13:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01911C54F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 13:18:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1kgxapgqpqXKaidI+dwQyPPRpZm75jne3m7YkATlzkI=; b=o7k3+BTcYNgXy1mVSzXoEqTJgp
-	3n89ytwA19WMl0eOlArky+t3ZDi6T42Vv1XfFLeRkpZBVtcUdv04LpziCrc2ZWyCkZeBuhA38aDIN
-	kWp+AayQwktIaBb4JTXUP/4mYE32UK3dfU+ijakhl/uySQTD4HB9C8Ydh/qbhAIBwvWkLGt1HV0E9
-	Ygp2J7m5BWyk5yEbavOTjIqCATESJG717qyCei7UbbdCsoGEGUqXHuaJwaZ6eFRiZ9DtjFvO2cwRH
-	upCfc/NP15h0UP95Mrq0IedgbGdBQzDoVqZFz9wXPVazTPnjUFQSR7CEnPBP8uKEs7muOWKTIrNBw
-	0MsXvkoQ==;
+	bh=/m0lhD5TLZ440p1Ln9LZrKk9CxCA5FWlLg85ARTR08E=; b=HjpUE735UhEMryzoaJJl9a/Ig6
+	EdD7ZGI7m/9pMoL3IZXJO6W916M1twkocqQ423dAt7cqauD3hKs8fsp8sYcF66k5WgzLsSFiwWaOq
+	ycduhaz4Bhh4WNOWpQMPAvr7PrB/JyliIGk3ZQvMqRV7boFeQ1f3BJp4QxkaiC4QawG0v3S6cVi3e
+	5Wt3QKYrS7EW6rODnw8PRVNAnE4tciuWYlvCY6mqicUUxxcz6srYfDbeBVENGU2Xa5x/Sp41DaS5t
+	0MM9HtliOjMylO9aUOb2h/AgssA7nWpvmKMk+Uyp1yrUquTpzukC/EwxVFk+HeipdDZtGhkRaVjln
+	zOYaxhOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISG2-00000003vFu-33YN;
-	Fri, 23 May 2025 13:16:18 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1uISI5-00000003vaS-1yoY;
+	Fri, 23 May 2025 13:18:25 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIRvZ-00000003rkm-30Yo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 12:55:11 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 066BA4399E;
-	Fri, 23 May 2025 12:54:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748004903;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1kgxapgqpqXKaidI+dwQyPPRpZm75jne3m7YkATlzkI=;
-	b=ZEcDaO+l+3Vp/ktqUSPkwm5cuKaiXWUMMNrU2zxBnF0MSE8d5hkLY1smkK1u0miJXbuDwa
-	mdCfeF4zZ9bKTHeZ4VOY3VO6MtPSrAzF7JjRdaxLvwzcjObPrFS+BKXNTOOU17/ZPCx/cG
-	A8lSQNOuJSG11dP7Hbp5VbAlOCG+jEjOEdnEu8U5pVbjesJURt++hfQLazUlWQ+1bn4dPb
-	2kShAqi1PvUmemBXbrlwE7FwvmJySFnBUOuic74F4xH108Yo4rXhtBeEaC0V0pq83E71qG
-	A9bNjuApw8wGun0SuJpw9db90sBuSnwm1arA13qF3Q2sku6QK8AKeBe8NamGeQ==
-Date: Fri, 23 May 2025 14:54:57 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Romain Gantois <romain.gantois@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Daniel Golle
- <daniel@makrotopia.org>, Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v6 06/14] net: phy: Introduce generic SFP
- handling for PHY drivers
-Message-ID: <20250523145457.07b1e7db@2a02-8428-0f40-1901-f412-2f85-a503-26ba.rev.sfr.net>
-In-Reply-To: <23936783.6Emhk5qWAg@fw-rgant>
-References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
-	<20250507135331.76021-7-maxime.chevallier@bootlin.com>
-	<23936783.6Emhk5qWAg@fw-rgant>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1uIRyZ-00000003sJV-0vqU;
+	Fri, 23 May 2025 12:58:16 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-442f5b3c710so75470005e9.1;
+        Fri, 23 May 2025 05:58:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748005093; x=1748609893; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/m0lhD5TLZ440p1Ln9LZrKk9CxCA5FWlLg85ARTR08E=;
+        b=ZIxjqj2lvWzrSzxEWOjkAeLTHbYmgfRIHs3dUgtSzZLQ4XNjVhgwlYU0iX18vrDRei
+         tM7J2e8gnRdNezPwRFMywVU7ysFegMMNHLevOm9t/ww587nz/BxAgUvg7O40GJXGNJAq
+         RVM4oYy0lPjm1iXF3HE+SywBnxR61KYEf0Q1WycdKY3oTzx+ZjWepMdOz9p/hTMzU2oD
+         7DTN0H3HVgCLVs96KoVRue2VAEzVaA3fv+Y+MGUN8+gd8/WzzskDTNv3bIQ4JXbHopNT
+         w1WpF2fsFdvZsbgo3CktwkHEkZq5BLZz2NWp/9jwiHriqzrDtTw/hHZKqTEF9J0923KN
+         //kA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748005093; x=1748609893;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/m0lhD5TLZ440p1Ln9LZrKk9CxCA5FWlLg85ARTR08E=;
+        b=tVT/nPe72pKE4cDuoh4PQ9JYX7ItbbXCguDgIaXs5LTfTZqnqyjBrPMjYur1MEgur0
+         aq5Iq4AfipfiuoC8qetlAfGx67wRWbErkmTmllxuQZs6UpPCGTRoOISQrg+FpBEE1ZzL
+         Ln51nDHqzxGaFPnUEF/vfCZDhjBQ6DhaaYfpnyW2jyP5OcIs/w07+hIt+IcJK+BgyEke
+         KypWN73tzJjpGIGYu8tyTjlT7r1vCLfP2iBAvUCHcJi/i10h72zKD4AlomGDOYJ4Asuh
+         lkHRvwDjCKxpDFh1xR5xUEOGNUNdU5rTtunNaKnddVx5pr9wv5HIx4+rR/NQ2TE/LbKm
+         /q1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU7rQw/tpXaUAodB/PlCT1MDUs+0Vl9DrpcBBvGGEg2/ulzdUCxWR6F9Zrfh3uqp0lMCZ74y7MXmtY1R/dCVcU=@lists.infradead.org, AJvYcCWNmwKAZsWqtLvdmDpm/fJKPFFwxTXNfzV6Did3EYc3JC4XEOnISuVlBGxKAgKftKz2Wk3P0MgWnGNsTEafKiFI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2Pmk2b5G2u4VqcH0yGulQZcgWB3lVmuplp0Y382FDz0ZAfnE1
+	qojin+PtRtl4magpofwee9Ad6QI6duzFl5wd3a58PMnrQXnyr30GQLcB
+X-Gm-Gg: ASbGncsUu3ivMmkY6CrJta4VpoSEFQB16H3NjVxrOCPCyK0hSdwU18blJezhcHl5DHO
+	Ye0DuwwRcA3UWmoLI2D3mmQ3VDZ1FU4bjzZo09fj2tNBH3q9RiI12fKx319b086Uk4CZ5jEMZ46
+	0y/IRwQ1qE+icz0aAHD0No5UvqyddECvcg8H7WjNCJ0NKLjiU10CyTEgFDOxdDz3W3na2xFJhCH
+	qhJZ3kIfTkZadh6107JzZRGdPH7XlwQArHwqzebqUpPjf3G90sjXHjjGPj/bTeu8AwyKcbGqAnz
+	BqnMwWcIKKtyEqpdnIPIc4YTCE9bxCO6BuVA3laggzLz9vYEHAtVjQI4tB/FLV57eCw5EZ+g
+X-Google-Smtp-Source: AGHT+IGf1pWMo4SXQAxm9lw7KSPXQcTfdAiwZDS6HUYzhHSDlhRC9FPIJF7bCo4eoueCnm0Os3tKtg==
+X-Received: by 2002:a5d:5f94:0:b0:3a3:7593:81a1 with SMTP id ffacd0b85a97d-3a4c2343b5fmr2624012f8f.43.1748005092950;
+        Fri, 23 May 2025 05:58:12 -0700 (PDT)
+Received: from [192.168.0.14] ([178.233.24.142])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35ca9417dsm26093920f8f.101.2025.05.23.05.58.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 May 2025 05:58:12 -0700 (PDT)
+Message-ID: <8f9ae0f1-130f-482c-b0a2-d5a403639099@gmail.com>
+Date: Fri, 23 May 2025 15:58:10 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: mt6358-regulator does not probe automatically on MT8183 and
+ MT8186 Chromebooks
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <f3c6ea1d-da0f-40cc-ba70-7cabb5c3189f@gmail.com>
+ <dc21b01f-e89f-42f5-b6d1-f6a00a524235@collabora.com>
+From: Alper Nebi Yasak <alpernebiyasak@gmail.com>
+Content-Language: en-US, tr, en-GB
+In-Reply-To: <dc21b01f-e89f-42f5-b6d1-f6a00a524235@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdekledtucdltddurdegfedvrddttddmucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtvdemkeegvdekmehfgedtmeduledtudemfheguddvmedvfhekheemrgehtdefmedviegsrgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfgedtmeduledtudemfheguddvmedvfhekheemrgehtdefmedviegsrgdphhgvlhhopedvrgdtvddqkeegvdekqddtfhegtddqudeltdduqdhfgeduvddqvdhfkeehqdgrhedtfedqvdeisggrrdhrvghvrdhsfhhrrdhnvghtpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmp
- dhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_055510_279676_60B26504 
-X-CRM114-Status: GOOD (  41.65  )
+X-CRM114-CacheID: sfid-20250523_055815_267480_0FA80A11 
+X-CRM114-Status: GOOD (  28.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,157 +102,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Romain,
+Hello again,
 
-On Mon, 12 May 2025 10:38:52 +0200
-Romain Gantois <romain.gantois@bootlin.com> wrote:
-
-> Hi Maxime,
+On 2024-12-23 14:21 +03:00, AngeloGioacchino Del Regno wrote:
+> Il 21/12/24 16:38, Alper Nebi Yasak ha scritto:
+>> Hello,
+>>
+>> I'm left with one small problem trying to boot Debian on MT8183 and
+>> MT8186 Chromebooks (Cozmo and Magneton respectively). I see a lot of
+>> probe deferrals and get dropped into an initramfs shell. All of them
+>> get resolved if I run `modprobe mt6358-regulator`, after which I can
+>> exit the initramfs shell to continue booting.
+>>
+>> It has been happening for a long time, still unsolved as of v6.12 and
+>> next-20241220. I am using `softdep mediatek-drm pre: mt6358-regulator`
+>> and so on in /etc/modprobe.d/ to trigger it to probe, as a workaround.
+>>
+>> But I would like if it was solved upstream so distro kernels can work
+>> "out of the box". Any ideas why isn't it probing automatically, and how
+>> to make it so it works?
+>>
+>> More info from a serial connection below (on mt8183-kukui-jacuzzi-cozmo):
+>>
 > 
-> On Wednesday, 7 May 2025 15:53:22 CEST Maxime Chevallier wrote:
-> > There are currently 4 PHY drivers that can drive downstream SFPs:
-> > marvell.c, marvell10g.c, at803x.c and marvell-88x2222.c. Most of the
-> > logic is boilerplate, either calling into generic phylib helpers (for
-> > SFP PHY attach, bus attach, etc.) or performing the same tasks with a
-> > bit of validation :
-> >  - Getting the module's expected interface mode
-> >  - Making sure the PHY supports it
-> >  - Optionnaly perform some configuration to make sure the PHY outputs
-> >    the right mode
-> > 
-> > This can be made more generic by leveraging the phy_port, and its
-> > configure_mii() callback which allows setting a port's interfaces when
-> > the port is a serdes.
-> > 
-> > Introduce a generic PHY SFP support. If a driver doesn't probe the SFP
-> > bus itself, but an SFP phandle is found in devicetree/firmware, then the
-> > generic PHY SFP support will be used, relying on port ops.
-> > 
-> > PHY driver need to :
-> >  - Register a .attach_port() callback
-> >  - When a serdes port is registered to the PHY, drivers must set
-> >    port->interfaces to the set of PHY_INTERFACE_MODE the port can output
-> >  - If the port has limitations regarding speed, duplex and aneg, the
-> >    port can also fine-tune the final linkmodes that can be supported
-> >  - The port may register a set of ops, including .configure_mii(), that
-> >    will be called at module_insert time to adjust the interface based on
-> >    the module detected.
-> > 
-> > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > ---
-> >  drivers/net/phy/phy_device.c | 107 +++++++++++++++++++++++++++++++++++
-> >  include/linux/phy.h          |   2 +
-> >  2 files changed, 109 insertions(+)
-> > 
-> > diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-> > index aaf0eccbefba..aca3a47cbb66 100644
-> > --- a/drivers/net/phy/phy_device.c
-> > +++ b/drivers/net/phy/phy_device.c
-> > @@ -1450,6 +1450,87 @@ void phy_sfp_detach(void *upstream, struct sfp_bus
-> > *bus) }
-> >  EXPORT_SYMBOL(phy_sfp_detach);
-> > 
-> > +static int phy_sfp_module_insert(void *upstream, const struct sfp_eeprom_id
-> > *id) +{
-> > +	struct phy_device *phydev = upstream;
-> > +	struct phy_port *port = phy_get_sfp_port(phydev);
-> > +  
+> It's a bit odd, thanks for reporting.
 > 
-> RCT
+> I'll check that next year........ (which is really in 2 weeks anyway, but it's fun
+> to say)
 
-Can't be done here, it won't build if in the other order...
+I couldn't manage to ping you for this, let alone look further into it
+until now. It has been a while, I assume it's still not fixed, do you
+need me to test again?
 
+> Btw, that softdep is obviously not right, but I think I shouldn't even have pointed
+> that out; still, better safe than sorry, anyway.
+
+Yep, that was just a debug trick I use. My current workaround is using
+CONFIG_MFD_MT6397=y and CONFIG_REGULATOR_MT6358=y like everyone else (as
+in the defconfig).
+
+
+On 2024-12-23 19:00 +03:00, Mark Brown wrote:
+> As indicated in that thread the MFD should register the regulator
+> function driver with the name "mt6358-regulator" used by the driver,
+> then the existing MODULE_DEVICE_TABLE() will DTRT.
+
+As far as I can see, mt6397-core.c is doing a devm_mfd_add_devices()
+call with the necessary data, roughly paraphrasing:
+
+> static const struct mfd_cell mt6358_devs[] = {
+>  [...]
+> 	}, {
+> 		.name = "mt6358-regulator",
+> 		.of_compatible = "mediatek,mt6358-regulator"
+> 	}, {
+>  [...]
+> };
 > 
-> > +	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
-> > +	DECLARE_PHY_INTERFACE_MASK(interfaces);
-> > +	phy_interface_t iface;
-> > +
-> > +	linkmode_zero(sfp_support);
-> > +
-> > +	if (!port)
-> > +		return -EINVAL;
-> > +
-> > +	sfp_parse_support(phydev->sfp_bus, id, sfp_support, interfaces);
-> > +
-> > +	if (phydev->n_ports == 1)
-> > +		phydev->port = sfp_parse_port(phydev->sfp_bus, id,   
-> sfp_support);
+> static const struct chip_data mt6358_core = {
+> 	.cid_addr = MT6358_SWCID,
+> 	.cid_shift = 8,
+> 	.cells = mt6358_devs,
+> 	.cell_size = ARRAY_SIZE(mt6358_devs),
+> 	.irq_init = mt6358_irq_init,
+> };
 > 
-> As mentionned below, this check looks a bit strange to me. Why are we only 
-> parsing the SFP port if the PHY device only has one registered port?
-
-Because phydev->port is global to the PHY. If we have another port,
-then phydev->port must be handled differently so that SFP insertion /
-removal doesn't overwrite what the other port is.
-
-Handling of phydev->port is still fragile in this state of the series,
-I'll try to improve on that for V7 and document it better.
-
-> > +
-> > +	linkmode_and(sfp_support, port->supported, sfp_support);
-> > +
-> > +	if (linkmode_empty(sfp_support)) {
-> > +		dev_err(&phydev->mdio.dev, "incompatible SFP module   
-> inserted\n");
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
-> > +
-> > +	/* Check that this interface is supported */
-> > +	if (!test_bit(iface, port->interfaces)) {
-> > +		dev_err(&phydev->mdio.dev, "incompatible SFP module   
-> inserted\n");
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	if (port->ops && port->ops->configure_mii)
-> > +		return port->ops->configure_mii(port, true, iface);  
+> static int mt6397_probe(struct platform_device *pdev)
+> {
+> 	int ret;
+> 	unsigned int id = 0;
+> 	struct mt6397_chip *pmic;
+> 	const struct chip_data *pmic_core;
+>  [...]
+> 	pmic_core = of_device_get_match_data(&pdev->dev);
+> 	if (!pmic_core)
+> 		return -ENODEV;
+>  [...]
+> 	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_NONE,
+> 				   pmic_core->cells, pmic_core->cell_size,
+> 				   NULL, 0, pmic->irq_domain);
+>  [...]
+> 	return ret;
+> }
 > 
-> The name "configure_mii()" seems a bit narrow-scoped to me, as this callback 
-> might have to configure something else than a MII link. For example, if a DAC 
-> SFP module is inserted, the downstream side of the transciever will have to be 
-> configured to 1000Base-X or something similar.
-
-In that regard, you can consider 1000BaseX as a MII mode (we do have
-PHY_INTERFACE_MODE_1000BASEX).
-
-> I'd suggest something like "post_sfp_insert()", please let me know what you 
-> think.
-
-That's not intended to be SFP-specific though. post_sfp_insert() sounds
-lke the narrow-scoped name to me :) Here we are dealing with a PHy that
-has a media-side port that isn't a MDI port, but an MII interface like
-a MAC would usually export. There may be an SFP here, or something else
-entirely :)
-
-One thing though is that this series uses a mix of "is_serdes" and
-"configure_mii" to mean pretty-much the same thing, I'll make the names
-a bit more homogenous.
-
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void phy_sfp_module_remove(void *upstream)
-> > +{
-> > +	struct phy_device *phydev = upstream;
-> > +	struct phy_port *port = phy_get_sfp_port(phydev);
-> > +
-> > +	if (port && port->ops && port->ops->configure_mii)
-> > +		port->ops->configure_mii(port, false, PHY_INTERFACE_MODE_NA);
-> > +
-> > +	if (phydev->n_ports == 1)
-> > +		phydev->port = PORT_NONE;  
+> static const struct of_device_id mt6397_of_match[] = {
+>  [...]
+> 	}, {
+> 		.compatible = "mediatek,mt6358",
+> 		.data = &mt6358_core,
+> 	}, {
+>  [...]
+> };
+> MODULE_DEVICE_TABLE(of, mt6397_of_match);
 > 
-> This check is a bit confusing to me. Could you please explain why you're only 
-> setting the phydev's SFP port to PORT_NONE if the PHY device only has one 
-> registered port? Shouldn't this be done regardless?
+> static const struct platform_device_id mt6397_id[] = {
+> 	{ "mt6397", 0 },
+> 	{ },
+> };
+> MODULE_DEVICE_TABLE(platform, mt6397_id);
+> 
+> static struct platform_driver mt6397_driver = {
+> 	.probe = mt6397_probe,
+> 	.driver = {
+> 		.name = "mt6397",
+> 		.of_match_table = mt6397_of_match,
+> 	},
+> 	.id_table = mt6397_id,
+> };
+> 
+> module_platform_driver(mt6397_driver);
 
-So that we don't overwrite what the other port would have set :) but,
-that's a bit fragile as I said and probably not correct anyways, let me
-double-check that.
+It has more things like "mt6359-auxadc" and "mtk-pmic-keys", that also
+list compatibles in the non-mfd driver's MODULE_DEVICE_TABLE(of, ...).
+See `git grep -C5 '\"mediatek,mt63..\+-' -- drivers/`.
 
-Maxime
-
+Maybe if the target driver isn't available by the time MFD registers it,
+it doesn't try again later? And so people have added the compatibles to
+subdevices to let them get another chance to probe?
 
