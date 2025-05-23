@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62794C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 11:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D5DC3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w0R1CIfTUrgxlrRRNYNYXdV189DwfKUVGsQiTXHXrMY=; b=dO+WCqz7zjFnMab6m0STANrR3r
-	5zww3jGgL9z2tcD6wOxUozq2SrDgWbWFE3JzqoIL9OdzqxuwrWrxNGCOYw7ozgw81x2sHInUmJD9l
-	wCVWmnm76z4QdEd2KTipHw5FZuX5jhQg8e+SNJZH3mMOtKEEPzcs332mNjT4yzfD3T5XrynM6GXaP
-	VtXDk1bcLxwHiPa5I0N3VoLnAJ01ldK4vwVkfrmYPvStYPgIB5IHmE5YfwVrCWXyqvl4LY1rcS/J+
-	eX6+gZHw/M7NMBf0BpXtsE9Rjgoj3ct6ZrFfnigwHWzbeLgmTxmY2HU68XW+GhdBuuY5V0oJzgxwP
-	tqjDvSMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=td2ZJwW7N98cHO5VXORzFw0c5z/lDGZFzZl5RpJ6ZWs=; b=tV5IYyrfXjXqi7AvgH+AAOtnoZ
+	jA9QcTFzbviJGW0s2hpxKA5FdizamrvfZzj4ssMKA4OdBvRoCe2amfNCGYwK7eg3iv9fWQte+pjTD
+	I2ueeplV+icux1gD+K6FSzRmygRwdUzzDPaEas55gI6zJVA9SK9TG5m/rc674irjgButAIbWGi1Ud
+	Vzw6+a6yeUhcQ7RQnRmGrmJfuJ+daOmKTIytlY8XYh+7ZQ4/gvEyDyBUp4s2vhB6rcdRvgiCQFATj
+	QGEwHXtAE/k+4WZuTqHUp7bQ8ZKGdfSwIDckWrn76LvS4HLrlHLUXffqqyPG7KgVxErtRuonbVd3a
+	9sFeAPrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIR3k-00000003lSa-3CzH;
-	Fri, 23 May 2025 11:59:32 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1uIR7p-00000003lkR-2u3k;
+	Fri, 23 May 2025 12:03:45 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQyC-00000003krG-1HCD
+	id 1uIQzd-00000003l5M-01Qp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 11:53:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748001228; x=1779537228;
-  h=date:from:to:cc:subject:message-id;
-  bh=SFae2ZOio+gQ8m2Z2fYFrhkq/LIqIA/AQplVZNyc+RQ=;
-  b=VVShWK6aT7JQ/TS4ZR3WY4UHLbN4lwN6sgR3Yr93AWMlIrfDBmlI52h+
-   RT8tEnYARlEvNtxvg6ifezEyJl7dzgK+nvspId1wDweK+xwnGMN/y1+Jg
-   NBbLtGPa6hi/2XtPsNNBsgc8+b60mNR6Dp1xHDv7yuCRGV2OkCcdHlQn3
-   ct3Gr3vVdnE0i62J9dS3iDoRLwPxk7GtyYV0Izzwx9xIjSRkFh7kJpTlM
-   kULFQF2R1PtMLVdp/s1pTWxN3aqlj6WlSg0OL+QE7Le7rBepZSftEhW2f
-   9IqMUfofRB5ZwjkHlLiiG7gOOfQXdyXHBO8BoI5A9vFg9nvgI42KRmPOs
-   w==;
-X-CSE-ConnectionGUID: RppTqrdoR5Oi+2l1f9LDZg==
-X-CSE-MsgGUID: PXCgGPKYQUmiC5Q5PjQIUw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="50171370"
-X-IronPort-AV: E=Sophos;i="6.15,308,1739865600"; 
-   d="scan'208";a="50171370"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 04:53:47 -0700
-X-CSE-ConnectionGUID: reDia+yJSCucOwDgZBsq5g==
-X-CSE-MsgGUID: TvpDVxVjTheqtr8rJVFfzg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,308,1739865600"; 
-   d="scan'208";a="141610009"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 23 May 2025 04:53:47 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uIQy8-000QME-1V;
-	Fri, 23 May 2025 11:53:44 +0000
-Date: Fri, 23 May 2025 19:53:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- c48cd2e82b6606dc171e89623599d40140645ce9
-Message-ID: <202505231909.XDSfYWZw-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Fri, 23 May 2025 11:55:18 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a35b7e60cbso569511f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 04:55:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748001314; x=1748606114; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=td2ZJwW7N98cHO5VXORzFw0c5z/lDGZFzZl5RpJ6ZWs=;
+        b=UBOGthCSYSlBz8/PikfUpGsH3ESzFP6MiSp11OowXWfK8rAxBQIgMHDBpDiV6uShpG
+         Ip7KGYPEDye6nXZbdKQidWc29yWILxhy8lTLmPiRlnOHT2h3I2LP/3wwSNQIj9Jk98sq
+         h9Cu5P2XtMRdjNd3B4we5KqM8oSCZ0bX0oML7qAWqLE+E4/94DjnME7I3gcICyRs0PpR
+         cQqRtFWvTw4cHxzn9zfaC4HZORgHOhnCncb8L/B9JFXUDn3wTSIqebtbiQRvNItg6hi9
+         b3J7F7DUZlVoAIFBL3+/TutBXvTZ1o0uJ1Gi8XDO3WYhmxgBfl1PR/pq6Mc/G37rImDA
+         wGRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748001314; x=1748606114;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=td2ZJwW7N98cHO5VXORzFw0c5z/lDGZFzZl5RpJ6ZWs=;
+        b=XHDc+RwxxQaUMM1KKQ0O6mft7Q61Qt6QktezUfzJMdhFJLGDkgToPmABrUxOgiTdb9
+         y9OkEQFynf9N9OdKWRiZdC9awED0xe+ELRFIgPLMxzCmNtnQrKL4Ubqsed3tlK17ROp1
+         DuToTfADATTLrG9o9j98oHFeEiXGpejl1sUwkUzfE3TdBhhNDnPm1nIhRP7IDO1Cdo2D
+         DPIc7q/t5304EMQZ2CDSi6lw2A+RSdUv744s/bRz1xnfIX2aTxIMlFIPRG95iouK/bsc
+         1wKE1AgiI0TJQTbX47/r8RSKgYtPi04HbkVqqnbD+d+wETjBE7CfbbwiQ89ZRFzsAxA4
+         U/CA==
+X-Forwarded-Encrypted: i=1; AJvYcCVTnEd3105WkrLg6pSgWga1R4I2FD9DqOOjJXSoxb9Y5/VyViFdmQk5MXE+JqIOL3A6+W8TIFHFTyp/64VRqETB@lists.infradead.org
+X-Gm-Message-State: AOJu0YydEzzZ5CdYaqIFSfrL1DupW51HPk3fBr/09F+nVVlYXX2/amCO
+	4A03ZL41h3J4fpYw4b5kBobh44qzDv2qD/B5WREjepOfBlCfLWGZ1QJYN0unWVdQh/k=
+X-Gm-Gg: ASbGncuZapaz9jan6KF3zuCgiB0JSCkmUU0ek3UIbS4ZX0XWzni/wmvtNPgXXFRvnCE
+	WpNy3RXB3Qddl57QFmODGE+BKBCyJyN0xRCMtCu5eHKcB5YSXUlO/3sRwYH5wDCCOTMjdSfJqEA
+	GKsmC1GslXCEqnnI2yJ1TlyiDTYoevyn84AraFLdVQ5yqS7Do2pAtkxtGvKDZArCyyoWE5hdKGq
+	3Xz7KguqZ9GYnUlvyhpTqwBnYY4f7pUxlEJJQvlX4tZ8vaAJHhAE0cWt3+QbyGQtD8C8p5DzH02
+	BDtxeTUebSKNm7FXx+PNH9wJ2feBFtG+Blnv3k8v7Sy4e6+x411kmrHCZPY1ApCYMH/vLPMAjOu
+	QH5G/SDEtLYaqMQc/
+X-Google-Smtp-Source: AGHT+IFq/up6OK5NIvAkGTe9WzeGq5BGaSnNPovf4mlxpw66A2DNQPChmD9oNR6vwvtZ2FM67DQ01Q==
+X-Received: by 2002:a05:6000:400d:b0:3a3:71fb:78c6 with SMTP id ffacd0b85a97d-3a4c1508310mr2832179f8f.16.1748001314597;
+        Fri, 23 May 2025 04:55:14 -0700 (PDT)
+Received: from [192.168.1.47] (i5E863BE1.versanet.de. [94.134.59.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4c002e937sm3861519f8f.29.2025.05.23.04.55.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 May 2025 04:55:13 -0700 (PDT)
+Message-ID: <602ee8d2-9225-437c-8961-6ef94830c397@linaro.org>
+Date: Fri, 23 May 2025 13:55:12 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: update renamed PHY_SNPS_EUSB2
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, Eric Biggers <ebiggers@google.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Vinod Koul <vkoul@kernel.org>, Will Deacon <will@kernel.org>
+Cc: Nishanth Menon <nm@ti.com>, linux-arm-kernel@lists.infradead.org
+References: <20250523114956.457102-1-casey.connolly@linaro.org>
+ <86b2d83a-aecf-4ef0-ae02-c8f6bdc72e5a@linaro.org>
+Content-Language: en-US
+From: Casey Connolly <casey.connolly@linaro.org>
+In-Reply-To: <86b2d83a-aecf-4ef0-ae02-c8f6bdc72e5a@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_045348_353313_CFFAF64F 
-X-CRM114-Status: UNSURE (   5.05  )
+X-CRM114-CacheID: sfid-20250523_045517_048248_FF874E83 
+X-CRM114-Status: UNSURE (   9.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,128 +111,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: c48cd2e82b6606dc171e89623599d40140645ce9  Merge tag 'juno-updates-6.16' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into soc/dt
 
-elapsed time: 1450m
 
-configs tested: 108
-configs skipped: 1
+On 5/23/25 12:53, Krzysztof Kozlowski wrote:
+> On 23/05/2025 13:49, Casey Connolly wrote:
+>> This config option was renamed, update the defconfig to match.
+>>
+>> Fixes: c4098f3e6134 ("phy: phy-snps-eusb2: add support for exynos2200")
+> 
+> 
+> No rename there...
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+oh damnit, should be
 
-tested configs:
-alpha                             allnoconfig    gcc-14.2.0
-alpha                            allyesconfig    gcc-14.2.0
-arc                               allnoconfig    gcc-14.2.0
-arc                          axs103_defconfig    gcc-14.2.0
-arc                     nsimosci_hs_defconfig    gcc-14.2.0
-arc                   randconfig-001-20250522    gcc-15.1.0
-arc                   randconfig-002-20250522    gcc-15.1.0
-arm                               allnoconfig    clang-21
-arm                        clps711x_defconfig    clang-21
-arm                   randconfig-001-20250522    clang-21
-arm                   randconfig-002-20250522    clang-21
-arm                   randconfig-003-20250522    clang-18
-arm                   randconfig-004-20250522    gcc-7.5.0
-arm                        spear3xx_defconfig    clang-17
-arm64                             allnoconfig    gcc-14.2.0
-arm64                 randconfig-001-20250522    clang-21
-arm64                 randconfig-002-20250522    gcc-7.5.0
-arm64                 randconfig-003-20250522    clang-21
-arm64                 randconfig-004-20250522    gcc-5.5.0
-csky                              allnoconfig    gcc-14.2.0
-csky                  randconfig-001-20250522    gcc-15.1.0
-csky                  randconfig-002-20250522    gcc-15.1.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-21
-hexagon                          allyesconfig    clang-21
-hexagon               randconfig-001-20250522    clang-17
-hexagon               randconfig-002-20250522    clang-21
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386        buildonly-randconfig-001-20250522    clang-20
-i386        buildonly-randconfig-002-20250522    gcc-12
-i386        buildonly-randconfig-003-20250522    gcc-12
-i386        buildonly-randconfig-004-20250522    gcc-12
-i386        buildonly-randconfig-005-20250522    gcc-12
-i386        buildonly-randconfig-006-20250522    clang-20
-i386                                defconfig    clang-20
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch                         allnoconfig    gcc-14.2.0
-loongarch             randconfig-001-20250522    gcc-15.1.0
-loongarch             randconfig-002-20250522    gcc-15.1.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                              allnoconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-m68k                         amcore_defconfig    gcc-14.2.0
-m68k                           sun3_defconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                        allnoconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-mips                              allnoconfig    gcc-14.2.0
-mips                      maltaaprp_defconfig    clang-21
-nios2                             allnoconfig    gcc-14.2.0
-nios2                 randconfig-001-20250522    gcc-9.3.0
-nios2                 randconfig-002-20250522    gcc-9.3.0
-openrisc                          allnoconfig    gcc-14.2.0
-parisc                            allnoconfig    gcc-14.2.0
-parisc                generic-32bit_defconfig    gcc-14.2.0
-parisc                randconfig-001-20250522    gcc-6.5.0
-parisc                randconfig-002-20250522    gcc-12.4.0
-powerpc                           allnoconfig    gcc-14.2.0
-powerpc                      ep88xc_defconfig    gcc-14.2.0
-powerpc               randconfig-001-20250522    gcc-9.3.0
-powerpc               randconfig-002-20250522    clang-21
-powerpc               randconfig-003-20250522    gcc-7.5.0
-powerpc64             randconfig-001-20250522    clang-21
-powerpc64             randconfig-002-20250522    gcc-10.5.0
-powerpc64             randconfig-003-20250522    gcc-7.5.0
-riscv                             allnoconfig    gcc-14.2.0
-riscv                 randconfig-001-20250522    gcc-9.3.0
-riscv                 randconfig-002-20250522    clang-18
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-21
-s390                             allyesconfig    gcc-14.2.0
-s390                  randconfig-001-20250522    clang-19
-s390                  randconfig-002-20250522    clang-18
-sh                               allmodconfig    gcc-14.2.0
-sh                                allnoconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                          kfr2r09_defconfig    gcc-14.2.0
-sh                    randconfig-001-20250522    gcc-13.3.0
-sh                    randconfig-002-20250522    gcc-13.3.0
-sh                      rts7751r2d1_defconfig    gcc-14.2.0
-sh                   rts7751r2dplus_defconfig    gcc-14.2.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc                             allnoconfig    gcc-14.2.0
-sparc                 randconfig-001-20250522    gcc-14.2.0
-sparc                 randconfig-002-20250522    gcc-6.5.0
-sparc64               randconfig-001-20250522    gcc-14.2.0
-sparc64               randconfig-002-20250522    gcc-12.4.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-21
-um                               allyesconfig    gcc-12
-um                             i386_defconfig    gcc-12
-um                    randconfig-001-20250522    gcc-12
-um                    randconfig-002-20250522    gcc-12
-um                           x86_64_defconfig    clang-21
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250522    clang-20
-x86_64      buildonly-randconfig-002-20250522    gcc-12
-x86_64      buildonly-randconfig-003-20250522    gcc-12
-x86_64      buildonly-randconfig-004-20250522    gcc-12
-x86_64      buildonly-randconfig-005-20250522    gcc-12
-x86_64      buildonly-randconfig-006-20250522    gcc-12
-x86_64                              defconfig    gcc-11
-x86_64                          rhel-9.4-rust    clang-18
-xtensa                            allnoconfig    gcc-14.2.0
-xtensa                randconfig-001-20250522    gcc-14.2.0
-xtensa                randconfig-002-20250522    gcc-10.5.0
+Fixes: 8d3b5f637546 ("phy: move phy-qcom-snps-eusb2 out of its vendor 
+sub-directory")
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> 
+> 
+> Best regards,
+> Krzysztof
+
+-- 
+Casey (she/they)
+
 
