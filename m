@@ -4,87 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE2FC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 15:07:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C15FC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 15:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/uvu6aXDIrLF08vsxpzyNfXk0GOFzmWSaZdsX/BEX7c=; b=T+fQR/DIlCyvkFAZmLlIASXXGX
-	Ak6Qum6uvAzM+pojkAtstEfUIMb9s2wTWoUMLW4P/KPTeAuCJow2b9F27/q44nfUcLqmEG0V7vTYW
-	CsyxOr3m0reUa4f6RMKuzcR7AbHs6kIAzdtgDFarAbWtxKJkmDvnF7o/5jNA/2Kj53cqWkJeWnVX0
-	3aJ1vbUNwwGigS9zfoDwdeMRhxFvWBuNcMip4qa3kdUV7tXHBzblKt4udOqWF95B2EzpY2UdgSasN
-	VbrDvdFTzmOAEqX2udZKEyO8f/tguFNzp/bT3Dzsu7N/Pb8fpT2QP6PaY/msbS01+8S/ITGsPnGyf
-	TusZzO7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FlmijFjmpzBjhb/04fcYeC2/L7SY1ClfiJpIFg1PeNM=; b=HjnzZmMMfRLXT5TJHgdqzhVBME
+	UPEZWRvY1wl9JDtCy1F3EYZLXYAi0+V5ZsGDk/sgbpjRrqIaxc1oNBaMcl/1q9Jsc2X96aDYUoUKe
+	BRM32+tyfaLkoCYOwUrIetIrAMudXs6D0kHtbm2hhn+W//fRKqPzaHELg7QSFclZmQZpHFkQkEpMX
+	ZoyWdqphhJPRNC+ZU4pEaQcMkFRdlv8loY8wQu+da3NwrqVOg4jEHq4OPsl7aCmBTK7x1axe5qBB3
+	+8YK0ncL3Bt/DjnxWznYjhotmG2WuvPVi6yYQkQNvfpQeG2g6gZjyGaODHQiMmpfrbpK6+nue8fgf
+	f43kWhew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITzm-00000004C3A-0Z00;
-	Fri, 23 May 2025 15:07:38 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1uIU1n-00000004CEP-3UtR;
+	Fri, 23 May 2025 15:09:43 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITSs-000000044rp-0KqK
+	id 1uITUE-000000044ys-44OA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 14:33:39 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-30e86c46eadso5595a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 07:33:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1748010817; x=1748615617; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/uvu6aXDIrLF08vsxpzyNfXk0GOFzmWSaZdsX/BEX7c=;
-        b=JkNskpFFMVi4hZF3JrYwYje365xVjJt7CFWI1zukOfS1LHbQetk1muHzw8rTgdJSC6
-         MJ1bacezMcUhFO7o2Hxd9kKYLyBgTSgtDoh87EJLFHgPTOKzfeHvvNGpo0/s2FdCphdh
-         XdMKS744iqqQBm0hZGMH8aG6rnnADkfJ89lQTHc0pSYzTBGxMJyXlFlTRfqbuMJltoRK
-         qjeafgdKNO7+Lgoe5voT3PmECVmI/xr+XoPg6fw8LgFSrs1pR+YNw4bywwWxipHYrBKR
-         VhxsEq2vYnIPsPKXg9NXKTbqcA/QUNXWL+XhKM3+oXps2sdv6aT8t3BJvDUPin8+zB0G
-         pbnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748010817; x=1748615617;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/uvu6aXDIrLF08vsxpzyNfXk0GOFzmWSaZdsX/BEX7c=;
-        b=HnDM8UUluxkUAF5pi3DH+w4KVPmzlTHcusbKP+ZumMMCYIbiihsVh+QNLQYub1qvFq
-         niT1TKKwvcadvv49bS3V+1sIdkf4vZni/XNpYrHSzuDJRk1aiYnNzt+nnMJ8E7lFj+V+
-         X9I5lxYfYPvvu3feUDWBab4JvptuwHwDYOwmatbSbZc/t3DVJksQTHOeuGjn4j5m7KB0
-         v28B4sOXRIgLfUr2GI5WxniC1WVH12QDZ4Yeb3SFnhDYqEZgDQUFkWc3Hx1cScNlFdV/
-         akf/GKcTfT0MZaF6hHENJ88uRzj/x4+FIBQVYMzcj/1atL3xdEWtlH7/sjSiWLJXljXk
-         JctA==
-X-Forwarded-Encrypted: i=1; AJvYcCWW1JjiU16zI5kVe8qc4qP10gWUwixVG7vgp+1C2j9S3qd2nSAQhxrzr4kAmuHuAHIVoI4kWcgacV1xTAvTLmp6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIHDxL+2WliYudn6GOXfgUQtFzeILxdEx7mwywYiSd1g2JQRDX
-	zUiBPzKm6ISQNg+sdmYH5KvArKQCaPK7qyYz7fKaVp3GNyXeJrSwI2ZqHJsSe50zwtRiWfbD4IG
-	2dju8bQ==
-X-Google-Smtp-Source: AGHT+IHsZ0QnOLBFT5oLqgFlsou+V6RqzdnkAMpT1uyTVqCC/FSYHIecluEf4Yy5p3wiVYxCHPutaUGV15c=
-X-Received: from pjbmf7.prod.google.com ([2002:a17:90b:1847:b0:30e:7b26:f68b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1846:b0:301:9f62:a944
- with SMTP id 98e67ed59e1d1-30e7d5ca287mr50858908a91.33.1748010816755; Fri, 23
- May 2025 07:33:36 -0700 (PDT)
-Date: Fri, 23 May 2025 07:33:30 -0700
-In-Reply-To: <2c52daad-0b64-48a9-8e73-d1aba977993b@amd.com>
-Mime-Version: 1.0
-References: <20250522235223.3178519-1-seanjc@google.com> <20250522235223.3178519-14-seanjc@google.com>
- <2c52daad-0b64-48a9-8e73-d1aba977993b@amd.com>
-Message-ID: <aDB-2lcq4jJm9-OV@google.com>
-Subject: Re: [PATCH v3 13/13] KVM: selftests: Add a KVM_IRQFD test to verify
- uniqueness requirements
-From: Sean Christopherson <seanjc@google.com>
-To: Sairaj Kodilkar <sarunkod@amd.com>
-Cc: "K. Y. Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
-	Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Shuah Khan <shuah@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, linux-kernel@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, xen-devel@lists.xenproject.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	K Prateek Nayak <kprateek.nayak@amd.com>, David Matlack <dmatlack@google.com>
-Content-Type: text/plain; charset="us-ascii"
+	Fri, 23 May 2025 14:35:04 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4F1B7346;
+	Fri, 23 May 2025 16:34:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1748010873;
+	bh=7ahIPwLlIZgRB9P45+gukHzvCNulX6S1U8rMklHinXE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AxkCZOipWio4LgIo4t1fo+99EFqI5aVjYGgALTH4dubBcmKLupqXokM6KBxFpj0bS
+	 B1LzBCBkDui986WbMAcgdsSJFtLXpQmog3yvJkUCzZfvLbNLkKEzB7yJiLwEQkDFl+
+	 tOzQv7V5WuaiomhF5Eb8C/NxRwf1CZc6iLrULJRc=
+Message-ID: <4a54204a-3284-4341-8faa-9c5264ad1129@ideasonboard.com>
+Date: Fri, 23 May 2025 15:34:53 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: nxp: imx8-isi: Cleanup video device in error path
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250522-djrscally-imx8-isi-fixes-v1-1-10bcd6d347a6@ideasonboard.com>
+ <20250522152645.GS12514@pendragon.ideasonboard.com>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20250522152645.GS12514@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_073338_139205_85111A7D 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250523_073503_342482_CD6DD0D9 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +114,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025, Sairaj Kodilkar wrote:
-> On 5/23/2025 5:22 AM, Sean Christopherson wrote:
-> 
-> > +
-> > +int main(int argc, char *argv[])
-> > +{
-> > +	pthread_t racing_thread;
-> > +	int r, i;
-> > +
-> > +	/* Create "full" VMs, as KVM_IRQFD requires an in-kernel IRQ chip. */
-> > +	vm1 = vm_create(1);
-> > +	vm2 = vm_create(1);
-> > +
-> > +	WRITE_ONCE(__eventfd, kvm_new_eventfd());
-> > +
-> > +	kvm_irqfd(vm1, 10, __eventfd, 0);
-> > +
-> > +	r = __kvm_irqfd(vm1, 11, __eventfd, 0);
-> > +	TEST_ASSERT(r && errno == EBUSY,
-> > +		    "Wanted EBUSY, r = %d, errno = %d", r, errno);
-> > +
-> > +	r = __kvm_irqfd(vm2, 12, __eventfd, 0);
-> > +	TEST_ASSERT(r && errno == EBUSY,
-> > +		    "Wanted EBUSY, r = %d, errno = %d", r, errno);
-> > +
-> > +	kvm_irqfd(vm1, 11, READ_ONCE(__eventfd), KVM_IRQFD_FLAG_DEASSIGN);
-> > +	kvm_irqfd(vm1, 12, READ_ONCE(__eventfd), KVM_IRQFD_FLAG_DEASSIGN);
-> > +	kvm_irqfd(vm1, 13, READ_ONCE(__eventfd), KVM_IRQFD_FLAG_DEASSIGN);
-> > +	kvm_irqfd(vm1, 14, READ_ONCE(__eventfd), KVM_IRQFD_FLAG_DEASSIGN);
-> 
-> Hi Sean,
-> I dont see any allocation for the GSI 13 and 14..
-> Is there any reason for the deassigning these two GSIs ?
+Hi Laurent
 
-Yes, KVM's rather bizarre ABI is that DEASSIGN is allowed even if the VM doesn't
-have a corresponding assigned irqfd.  The reason I added these early DEASSIGN
-calls is so that there will be an easier-to-debug failure if KVM's behavior
-changes (the racing threads part of the test abuses KVM's ABI).  I didn't add a
-comment because the helpers already have comments, but looking at this again, I
-agree that main() needs a better comment.
+On 22/05/2025 16:26, Laurent Pinchart wrote:
+> Hi Dan,
+>
+> Thank you for the patch.
+>
+> On Thu, May 22, 2025 at 03:30:08PM +0100, Daniel Scally wrote:
+>> mxc_isi_v4l2_init() registers video devices and v4l2 subdevices but
+>> the video devices are not cleaned up in that function's error path
+>> which means they're left hanging if it fails. Update the function
+>> to clean them up properly.
+>>
+>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>> ---
+>>   drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 9 ++++++---
+>>   1 file changed, 6 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+>> index 1e79b1211b603a71f0427e82a997787110f7e4ac..4a74b988217f504a03dfe330a7bac76cdecc933c 100644
+>> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+>> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+>> @@ -154,7 +154,7 @@ static int mxc_isi_v4l2_init(struct mxc_isi_dev *isi)
+>>   		if (ret < 0) {
+>>   			dev_err(isi->dev, "Failed to register pipe%u: %d\n", i,
+>>   				ret);
+>> -			goto err_v4l2;
+>> +			goto err_cleanup_pipe;
+>>   		}
+>>   
+>>   		ret = media_create_pad_link(&isi->crossbar.sd.entity,
+>> @@ -164,14 +164,14 @@ static int mxc_isi_v4l2_init(struct mxc_isi_dev *isi)
+>>   					    MEDIA_LNK_FL_IMMUTABLE |
+>>   					    MEDIA_LNK_FL_ENABLED);
+>>   		if (ret < 0)
+>> -			goto err_v4l2;
+>> +			goto err_cleanup_pipe;
+>>   	}
+>>   
+>>   	/* Register the M2M device. */
+>>   	ret = mxc_isi_m2m_register(isi, v4l2_dev);
+>>   	if (ret < 0) {
+>>   		dev_err(isi->dev, "Failed to register M2M device: %d\n", ret);
+>> -		goto err_v4l2;
+>> +		goto err_cleanup_pipe;
+>>   	}
+>>   
+>>   	/* Initialize, fill and register the async notifier. */
+>> @@ -212,6 +212,9 @@ static int mxc_isi_v4l2_init(struct mxc_isi_dev *isi)
+>>   err_m2m:
+>>   	mxc_isi_m2m_unregister(isi);
+>>   	v4l2_async_nf_cleanup(&isi->notifier);
+>> +err_cleanup_pipe:
+>> +	for (i = 0; i < isi->pdata->num_channels; ++i)
+>> +		mxc_isi_pipe_unregister(&isi->pipes[i]);
+> mxc_isi_pipe_unregister() calls mxc_isi_video_unregister(), which locks
+> the video->lock mutex. The mutex is initialized in
+> mxc_isi_video_register(), so you will have an issue here when reaching
+> this label from within the pipe registration loop for any non-registered
+> pipe.
+>
+> One option to address this would be to return from
+> mxc_isi_video_unregister() if video->pipe is NULL.
+
+
+Ah - good spot, thanks
+
+>>   err_v4l2:
+>>   	v4l2_device_unregister(v4l2_dev);
+>>   err_media:
+>>
+>> ---
+>> base-commit: b64b134942c8cf4801ea288b3fd38b509aedec21
+>> change-id: 20250522-djrscally-imx8-isi-fixes-fed2d7cffb1c
 
