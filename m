@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0060CC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 15:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6DF0C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 15:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtnaVW1Gl2iS4KmDLtNA3/Vu7A34huTPLYGs5P+2rY0=; b=gg+OPaH+7NwLYBui497vYrdF/t
-	7CKdPlRrgyhlh3oEHl85qhF9avFwJ0cMCXhoCBoySN14noPu5ahxZMMWgq6glwOwXbyLbrw/128wT
-	YUnPGbCEbw0HXj90XXpNPlh93sSENvgVKKRPXGYcdVffUm6eatNwVGHO4Ab/sE27A4hprBY4FsZHy
-	keI+nbvjtvDnDeQgAA2dfsF3gXR3POBxBj173oa/lnugn91x0UBrv5qE+wzV+w73MDTgEh+sg5dov
-	9Sdb+6tJ+pRy8ixqmkOrPKCq9WQ5udLEsXiiDsa1mO1F8QkRUjhYSpy8WlX3wc/b/jwbq+0fsARjd
-	aKvywhGg==;
+	bh=tH29RWPy6Jg9Fm79Q77eZw5Q/ePvzxXuRpSdiyKwTa8=; b=Fa3LvqJ9VJX804z6QbWDF2J+J/
+	JxHkugQlKd+dUjj4K1+Kgfik6Bqu0KewN7mNjQojats8LknueczxxkljElnzGNNcEuRNGF2dvJRxD
+	tB9557JMs9j9ESp+P0QWofs8Tecul7igUa4suQQUWD7XQRv0zOvmTDcOEpKWFlJzPOJua7ebfBMLw
+	AgYtKiL6tmIYeXb5wMuql7Tsjf/5zY4pE+elcSQGsTW/2HPIJUc9MuIQOxKo+kUcIQwByoHPgvdKY
+	gr19o45QdSDpMDZOhf9fefzY2viLdXRf+OXaMUQz6y/8vS+4opM11K2//q/U4/wW/CF1hzKJtMyx+
+	64cLfUng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITtf-00000004BBx-13Zd;
-	Fri, 23 May 2025 15:01:19 +0000
-Received: from mail.actia.se ([212.181.117.226])
+	id 1uITvi-00000004BWf-2gku;
+	Fri, 23 May 2025 15:03:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITFP-000000043eu-1ijB
+	id 1uITJ1-000000043tz-3djb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 14:19:44 +0000
-Received: from S036ANL.actianordic.se (10.12.31.117) by S035ANL.actianordic.se
- (10.12.31.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 23 May
- 2025 16:19:38 +0200
-Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
- S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
- 15.01.2507.039; Fri, 23 May 2025 16:19:38 +0200
-From: John Ernberg <john.ernberg@actia.se>
-To: Frank Li <Frank.li@nxp.com>
-CC: =?utf-8?B?SG9yaWEgR2VhbnTEgw==?= <horia.geanta@nxp.com>, Pankaj Gupta
-	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Thomas Richard
-	<thomas.richard@bootlin.com>, "linux-crypto@vger.kernel.org"
-	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "stable@kernel.org"
-	<stable@kernel.org>
-Subject: Re: [PATCH 1/4] crypto: caam - Prevent crash on suspend with iMX8QM /
- iMX8ULP
-Thread-Topic: [PATCH 1/4] crypto: caam - Prevent crash on suspend with iMX8QM
- / iMX8ULP
-Thread-Index: AQHby+Uubq4/T0/2xEa3pJeQa3AymLPgGseAgAAHVgA=
-Date: Fri, 23 May 2025 14:19:38 +0000
-Message-ID: <b62d6620-4c31-41e4-b510-130f0af66c79@actia.se>
-References: <20250523131814.1047662-1-john.ernberg@actia.se>
- <20250523131814.1047662-2-john.ernberg@actia.se>
- <aDB909HDzfUaA3hv@lizhi-Precision-Tower-5810>
-In-Reply-To: <aDB909HDzfUaA3hv@lizhi-Precision-Tower-5810>
-Accept-Language: en-US, sv-SE
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.12.12.63]
-x-esetresult: clean, is OK
-x-esetid: 37303A2956B14453607160
+	Fri, 23 May 2025 14:23:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8CF935C6420;
+	Fri, 23 May 2025 14:21:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC8F2C4CEE9;
+	Fri, 23 May 2025 14:23:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748010206;
+	bh=pR9fA4NdXQryYOB0kCjJuwhWY+v7ZXFuSKqfZ1iPpXY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=goAQq1FSEeTn60D4goiuky385GlbCKp/cuANcZdpE55R5AzKlNc2mfFQLVwjp5yP4
+	 30ORao35sm4F03Mt0G9gMNE03eS7cQewA/JuuS8kM2wEbjRJ9gKWf4UH+gOD+maak8
+	 i3d39A84sJfy4PIq7mXK9e0FawzTOMjcb3ZvbbCN2XRXj4IKW0ka84gGbfj2Hytw2L
+	 z6jtmNQf9FfaULjoBABVQ4yU5BKGgBf649sKb+b/bMi5mZDlVsq4deWn+Swls0KjWz
+	 2xl/z7rR0jCcTwFl1vGZMC/LCPieqc5w9YTxmELuJRMqi/euLqjqTDNuIbmm4CD13S
+	 D5Py+xMQ78J8w==
+Date: Fri, 23 May 2025 09:23:23 -0500
 Content-Type: text/plain; charset="utf-8"
-Content-ID: <3B1A1B4F0E8E8D4B9F309BC7B8A62D68@actia.se>
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Will Deacon <will@kernel.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ linux-kernel@vger.kernel.org, Peter Griffin <peter.griffin@linaro.org>, 
+ Dimitri Fedrau <dima.fedrau@gmail.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Sebastian Reichel <sre@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>
+To: Thomas Antoine <t.antoine@uclouvain.be>
+In-Reply-To: <20250523-b4-gs101_max77759_fg-v4-3-b49904e35a34@uclouvain.be>
+References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be>
+ <20250523-b4-gs101_max77759_fg-v4-3-b49904e35a34@uclouvain.be>
+Message-Id: <174801020213.1711113.345093338339691791.robh@kernel.org>
+Subject: Re: [PATCH v4 3/5] dt-bindings: power: supply: add max77759-fg
+ flavor
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_071943_454214_59F81654 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20250523_072327_993493_B1FF6560 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,96 +80,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgRnJhbmssDQoNCk9uIDUvMjMvMjUgMzo1MyBQTSwgRnJhbmsgTGkgd3JvdGU6DQo+IE9uIEZy
-aSwgTWF5IDIzLCAyMDI1IGF0IDAxOjE4OjMyUE0gKzAwMDAsIEpvaG4gRXJuYmVyZyB3cm90ZToN
-Cj4+IFNpbmNlIHRoZSBDQUFNIG9uIHRoZXNlIFNvQ3MgaXMgbWFuYWdlZCBieSBhbm90aGVyIEFS
-TSBjb3JlLCBjYWxsZWQgdGhlDQo+PiBTRUNPIChTZWN1cml0eSBDb250cm9sbGVyKSBvbiBpTVg4
-UU0gYW5kIFNlY3VyZSBFbmNsYXZlIG9uIGlNWDhVTFAsIHdoaWNoDQo+PiBhbHNvIHJlc2VydmVz
-IGFjY2VzcyB0byByZWdpc3RlciBwYWdlIDAgc3VzcGVuZCBvcGVyYXRpb25zIGNhbm5vdCB0b3Vj
-aA0KPj4gdGhpcyBwYWdlLg0KPj4NCj4+IEludHJvZHVjZSBhIHZhcmlhYmxlIHRvIHRyYWNrIHRo
-aXMgc2l0dWF0aW9uLiBTaW5jZSB0aGlzIGlzIHN5bm9ueW1vdXMNCj4+IHdpdGggdGhlIG9wdGVl
-IGNhc2UgaW4gc3VzcGVuZC9yZXN1bWUgdGhlIG9wdGVlIGNoZWNrIGlzIHJlcGxhY2VkIHdpdGgN
-Cj4+IHRoaXMgbmV3IGNoZWNrLg0KPj4NCj4+IEZpeGVzIHRoZSBmb2xsb3dpbmcgc3BsYXQgYXQg
-c3VzcGVuZDoNCj4+DQo+PiAgICAgIEludGVybmFsIGVycm9yOiBzeW5jaHJvbm91cyBleHRlcm5h
-bCBhYm9ydDogMDAwMDAwMDA5NjAwMDAxMCBbIzFdIFNNUA0KPj4gICAgICBIYXJkd2FyZSBuYW1l
-OiBGcmVlc2NhbGUgaS5NWDhRWFAgQUNVNkMgKERUKQ0KPj4gICAgICBwc3RhdGU6IDYwNDAwMDA1
-IChuWkN2IGRhaWYgK1BBTiAtVUFPIC1UQ08gLURJVCAtU1NCUyBCVFlQRT0tLSkNCj4+ICAgICAg
-cGMgOiByZWFkbCsweDAvMHgxOA0KPj4gICAgICBsciA6IHJkX3JlZzMyKzB4MTgvMHgzYw0KPj4g
-ICAgICBzcCA6IGZmZmZmZmMwODE5MmJhMjANCj4+ICAgICAgeDI5OiBmZmZmZmZjMDgxOTJiYTIw
-IHgyODogZmZmZmZmODAyNTE5MDAwMCB4Mjc6IDAwMDAwMDAwMDAwMDAwMDANCj4+ICAgICAgeDI2
-OiBmZmZmZmZjMDgwOGFlODA4IHgyNTogZmZmZmZmYzA4MDkyMjMzOCB4MjQ6IGZmZmZmZjgwMjBl
-ODkwOTANCj4+ICAgICAgeDIzOiAwMDAwMDAwMDAwMDAwMDAwIHgyMjogZmZmZmZmYzA4MDkyMjAw
-MCB4MjE6IGZmZmZmZjgwMjBlODkwMTANCj4+ICAgICAgeDIwOiBmZmZmZmZjMDgwMzg3ZWY4IHgx
-OTogZmZmZmZmODAyMGU4OTAxMCB4MTg6IDAwMDAwMDAwNWQ4MDAwZDUNCj4+ICAgICAgeDE3OiAw
-MDAwMDAwMDMwZjM1OTYzIHgxNjogMDAwMDAwMDA4Zjc4NWYzZiB4MTU6IDAwMDAwMDAwM2I4ZWY1
-N2MNCj4+ICAgICAgeDE0OiAwMDAwMDAwMGM0MThhZWY4IHgxMzogMDAwMDAwMDBmNWZlYTUyNiB4
-MTI6IDAwMDAwMDAwMDAwMDAwMDENCj4+ICAgICAgeDExOiAwMDAwMDAwMDAwMDAwMDAyIHgxMDog
-MDAwMDAwMDAwMDAwMDAwMSB4OSA6IDAwMDAwMDAwMDAwMDAwMDANCj4+ICAgICAgeDggOiBmZmZm
-ZmY4MDI1MTkwODcwIHg3IDogZmZmZmZmODAyMTcyNjg4MCB4NiA6IDAwMDAwMDAwMDAwMDAwMDIN
-Cj4+ICAgICAgeDUgOiBmZmZmZmY4MDIxNzI2OGYwIHg0IDogZmZmZmZmODAyMTcyNjg4MCB4MyA6
-IGZmZmZmZmMwODEyMDAwMDANCj4+ICAgICAgeDIgOiAwMDAwMDAwMDAwMDAwMDAxIHgxIDogZmZm
-ZmZmODAyMGU4OTAxMCB4MCA6IGZmZmZmZmMwODEyMDAwMDQNCj4+ICAgICAgQ2FsbCB0cmFjZToN
-Cj4+ICAgICAgIHJlYWRsKzB4MC8weDE4DQo+PiAgICAgICBjYWFtX2N0cmxfc3VzcGVuZCsweDMw
-LzB4ZGMNCj4+ICAgICAgIGRwbV9ydW5fY2FsbGJhY2suY29uc3Rwcm9wLjArMHgyNC8weDVjDQo+
-PiAgICAgICBkZXZpY2Vfc3VzcGVuZCsweDE3MC8weDJlOA0KPj4gICAgICAgZHBtX3N1c3BlbmQr
-MHhhMC8weDEwNA0KPj4gICAgICAgZHBtX3N1c3BlbmRfc3RhcnQrMHg0OC8weDUwDQo+PiAgICAg
-ICBzdXNwZW5kX2RldmljZXNfYW5kX2VudGVyKzB4N2MvMHg0NWMNCj4+ICAgICAgIHBtX3N1c3Bl
-bmQrMHgxNDgvMHgxNjANCj4+ICAgICAgIHN0YXRlX3N0b3JlKzB4YjQvMHhmOA0KPj4gICAgICAg
-a29ial9hdHRyX3N0b3JlKzB4MTQvMHgyNA0KPj4gICAgICAgc3lzZnNfa2Zfd3JpdGUrMHgzOC8w
-eDQ4DQo+PiAgICAgICBrZXJuZnNfZm9wX3dyaXRlX2l0ZXIrMHhiNC8weDE3OA0KPj4gICAgICAg
-dmZzX3dyaXRlKzB4MTE4LzB4MTc4DQo+PiAgICAgICBrc3lzX3dyaXRlKzB4NmMvMHhkMA0KPj4g
-ICAgICAgX19hcm02NF9zeXNfd3JpdGUrMHgxNC8weDFjDQo+PiAgICAgICBpbnZva2Vfc3lzY2Fs
-bC5jb25zdHByb3AuMCsweDY0LzB4YjANCj4+ICAgICAgIGRvX2VsMF9zdmMrMHg5MC8weGIwDQo+
-PiAgICAgICBlbDBfc3ZjKzB4MTgvMHg0NA0KPj4gICAgICAgZWwwdF82NF9zeW5jX2hhbmRsZXIr
-MHg4OC8weDEyNA0KPj4gICAgICAgZWwwdF82NF9zeW5jKzB4MTUwLzB4MTU0DQo+PiAgICAgIENv
-ZGU6IDg4ZGZmYzIxIDg4ZGZmYzIxIDVhYzAwODAwIGQ2NWYwM2MwIChiOTQwMDAwMCkNCj4+DQo+
-PiBGaXhlczogZDI4MzU3MDFkOTNjICgiY3J5cHRvOiBjYWFtIC0gaS5NWDhVTFAgZG9ub3QgaGF2
-ZSBDQUFNIHBhZ2UwIGFjY2VzcyIpDQo+PiBGaXhlczogNjFiYjhkYjZmNjgyICgiY3J5cHRvOiBj
-YWFtIC0gQWRkIHN1cHBvcnQgZm9yIGkuTVg4UU0iKQ0KPj4gQ2M6IHN0YWJsZUBrZXJuZWwub3Jn
-ICMgdjYuMTArDQo+PiBTaWduZWQtb2ZmLWJ5OiBKb2huIEVybmJlcmcgPGpvaG4uZXJuYmVyZ0Bh
-Y3RpYS5zZT4NCj4+DQo+PiAtLS0NCj4+DQo+PiBJIG5vdGljZWQgdGhpcyB3aGVuIGVuYWJsaW5n
-IHRoZSBpTVg4UVhQIHN1cHBvcnQgKG5leHQgcGF0Y2gpLCBoZW5jZSB0aGUNCj4+IGlNWDhRWFAg
-YmFja3RyYWNlLCBidXQgdGhlIGlNWDhRTSBDQUFNIGludGVncmF0aW9uIHdvcmtzIGV4YWN0bHkg
-dGhlIHNhbWUNCj4+IGFuZCBhY2NvcmRpbmcgdG8gdGhlIE5YUCB0cmVlIFsxXSB0aGUgaU1YOFVM
-UCBzdWZmZXJzIHRoZSBzYW1lIGlzc3VlLg0KPj4NCj4+IFsxXTogaHR0cHM6Ly9naXRodWIuY29t
-L254cC1pbXgvbGludXgtaW14L2NvbW1pdC82NTM3MTJmZmU1MmRkNTlmNDA3YWYxYjc4MWNlMzE4
-ZjNkOWUxN2JiDQo+PiAtLS0NCj4+ICAgZHJpdmVycy9jcnlwdG8vY2FhbS9jdHJsLmMgICB8IDUg
-KysrLS0NCj4+ICAgZHJpdmVycy9jcnlwdG8vY2FhbS9pbnRlcm4uaCB8IDEgKw0KPj4gICAyIGZp
-bGVzIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkNCj4+DQo+PiBkaWZm
-IC0tZ2l0IGEvZHJpdmVycy9jcnlwdG8vY2FhbS9jdHJsLmMgYi9kcml2ZXJzL2NyeXB0by9jYWFt
-L2N0cmwuYw0KPj4gaW5kZXggMzhmZjkzMTA1OWI0Li43NjZjNDQ3YzljZmIgMTAwNjQ0DQo+PiAt
-LS0gYS9kcml2ZXJzL2NyeXB0by9jYWFtL2N0cmwuYw0KPj4gKysrIGIvZHJpdmVycy9jcnlwdG8v
-Y2FhbS9jdHJsLmMNCj4+IEBAIC04MzEsNyArODMxLDcgQEAgc3RhdGljIGludCBjYWFtX2N0cmxf
-c3VzcGVuZChzdHJ1Y3QgZGV2aWNlICpkZXYpDQo+PiAgIHsNCj4+ICAgICAgICBjb25zdCBzdHJ1
-Y3QgY2FhbV9kcnZfcHJpdmF0ZSAqY3RybHByaXYgPSBkZXZfZ2V0X2RydmRhdGEoZGV2KTsNCj4+
-DQo+PiAtICAgICBpZiAoY3RybHByaXYtPmNhYW1fb2ZmX2R1cmluZ19wbSAmJiAhY3RybHByaXYt
-Pm9wdGVlX2VuKQ0KPj4gKyAgICAgaWYgKGN0cmxwcml2LT5jYWFtX29mZl9kdXJpbmdfcG0gJiYg
-IWN0cmxwcml2LT5ub19wYWdlMCkNCj4+ICAgICAgICAgICAgICAgIGNhYW1fc3RhdGVfc2F2ZShk
-ZXYpOw0KPj4NCj4+ICAgICAgICByZXR1cm4gMDsNCj4+IEBAIC04NDIsNyArODQyLDcgQEAgc3Rh
-dGljIGludCBjYWFtX2N0cmxfcmVzdW1lKHN0cnVjdCBkZXZpY2UgKmRldikNCj4+ICAgICAgICBz
-dHJ1Y3QgY2FhbV9kcnZfcHJpdmF0ZSAqY3RybHByaXYgPSBkZXZfZ2V0X2RydmRhdGEoZGV2KTsN
-Cj4+ICAgICAgICBpbnQgcmV0ID0gMDsNCj4+DQo+PiAtICAgICBpZiAoY3RybHByaXYtPmNhYW1f
-b2ZmX2R1cmluZ19wbSAmJiAhY3RybHByaXYtPm9wdGVlX2VuKSB7DQo+PiArICAgICBpZiAoY3Ry
-bHByaXYtPmNhYW1fb2ZmX2R1cmluZ19wbSAmJiAhY3RybHByaXYtPm5vX3BhZ2UwKSB7DQo+PiAg
-ICAgICAgICAgICAgICBjYWFtX3N0YXRlX3Jlc3RvcmUoZGV2KTsNCj4+DQo+PiAgICAgICAgICAg
-ICAgICAvKiBIVyBhbmQgcm5nIHdpbGwgYmUgcmVzZXQgc28gZGVpbnN0YW50aWF0aW9uIGNhbiBi
-ZSByZW1vdmVkICovDQo+PiBAQCAtOTA4LDYgKzkwOCw3IEBAIHN0YXRpYyBpbnQgY2FhbV9wcm9i
-ZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0KPj4NCj4+ICAgICAgICAgICAgICAgIGlt
-eF9zb2NfZGF0YSA9IGlteF9zb2NfbWF0Y2gtPmRhdGE7DQo+PiAgICAgICAgICAgICAgICByZWdf
-YWNjZXNzID0gcmVnX2FjY2VzcyAmJiBpbXhfc29jX2RhdGEtPnBhZ2UwX2FjY2VzczsNCj4+ICsg
-ICAgICAgICAgICAgY3RybHByaXYtPm5vX3BhZ2UwID0gIXJlZ19hY2Nlc3M7DQo+IA0KPiBJZiB5
-b3Ugd2FudCB0byB1c2Ugbm9fcGFnZTAgdG8gY29udHJvbCBpZiBjYWxsIGNhYW1fc3RhdGVfc2F2
-ZSgpLCB5b3UnZA0KPiBiZXR0ZXIgc2V0IGN0cmxwcml2LT5ub19wYWdlMCBhbHNvIGFmdGVyIGN0
-cmxwcml2LT5vcHRlZV9lbiA9ICEhbnA7DQo+IA0KPiBGcmFuaw0KDQpJJ20gbm90IHN1cmUgSSB1
-bmRlcnN0YW5kLCBJIGNhbm5vdCBzZWUgYSBjb2RlIHBhdGggd2hlcmUgbm9fcGFnZTAgd2lsbCAN
-CmJlICh1bilzZXQgaW5jb3JyZWN0bHkuDQoNCm9wdGVlIGRpc2FibGVzIHRoZSBwYWdlMCBhY2Nl
-c3MsIHNvIHJlZ19hY2Nlc3MgaXMgYWxyZWFkeSB0aGUgaW52ZXJzZSBvZiANCm9wdGVlX2VuLiBy
-ZWdfYWNjZXNzID09IGZhbHNlIHdoZW4gb3B0ZWVfZW4gPT0gdHJ1ZS4NCg0KVGh1cywgaWYgb3B0
-ZWUgaXMgbG9hZGVkIG9uIGEgU29DIHRoYXQgbm9ybWFsbHkgaGFzIHBhZ2UwX2FjY2VzcyB0aGUg
-DQpgcmVnX2FjY2VzcyA9IHJlZ19hY2Nlc3MgJiYgaW14X3NvY19kYXRhLT5wYWdlMF9hY2Nlc3M7
-YCBzdGF0ZW1lbnQgb24gDQp0aGUgbGluZSBhYm92ZSBzZXR0aW5nIG5vX3BhZ2UwIGFscmVhZHkg
-dGFrZXMgY2FyZSBvZiBpdCwgc286DQpyZWdfYWNjZXNzID0gZmFsc2UgJiYgdHJ1ZSAtPiBmYWxz
-ZS4NCg0KU2ltaWxhcmx5IGlmIGJvdGggcmVnX2FjY2VzcyA9PSBmYWxzZSBhbmQgcGFnZTBfYWNj
-ZXNzID09IGZhbHNlLCANCnJlZ19hY2Nlc3Mgd2lsbCBzdGlsbCBiZSBmYWxzZS4NCg0KVGhhbmtz
-ISAvLyBKb2huIEVybmJlcmc=
+
+On Fri, 23 May 2025 14:51:46 +0200, Thomas Antoine wrote:
+> The Maxim MAX77759 is an IC used to manage the power supply of the battery
+> and the USB-C. Based on drivers from google, it contains at least a PMIC,
+> a fuel gauge, a TCPCI and a charger.
+> 
+> Use max77759-fg compatible to avoid conflict with drivers for other
+> functions.
+> 
+> The Maxim MAX77759 has no non-volatile memory so it doesn't require an
+> address and instead requires a value for the current sensing resistor.
+> 
+> Keep shunt-resistor-micro-ohms optional for the MAX17201/MAX17205 as it is
+> not be used at the moment but could be in the future. (e.g. as a default
+> value to be used in case of nvmem failure)
+> 
+> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+> ---
+>  .../bindings/power/supply/maxim,max17201.yaml      | 42 ++++++++++++++++++++--
+>  1 file changed, 39 insertions(+), 3 deletions(-)
+> 
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml: properties:reg: {'items': [{'description': 'ModelGauge m5 registers'}, {'description': 'Nonvolatile registers'}], 'minItems': 1, 'maxItems': 2} should not be valid under {'required': ['maxItems']}
+	hint: "maxItems" is not needed with an "items" list
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/supply/maxim,max17201.yaml: properties:reg-names: {'items': [{'const': 'm5'}, {'const': 'nvmem'}], 'minItems': 1, 'maxItems': 2} should not be valid under {'required': ['maxItems']}
+	hint: "maxItems" is not needed with an "items" list
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250523-b4-gs101_max77759_fg-v4-3-b49904e35a34@uclouvain.be
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
