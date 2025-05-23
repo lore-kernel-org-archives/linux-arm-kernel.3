@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0CEC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 17:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1798BC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 17:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uV/pjlPBiCsCwTtFEFEknHpW0wdS4DsNlsekE5grkJQ=; b=v/4HVy4qNboJRXx4Vps2JefzUs
-	7QZXc9IBQtQatDE7wgzoOMtHP/CGSaoxi37S9QWDIutYiiRzy8aXvrb1vDFpF/HUPVaoXYwmlWq6N
-	gVan6o6Fkx/EE/dnim35lGgkTyyfJSa6mNnOcvvpkN6ZPCjluKZccjfMRzO/Nvyk+xSyM0fH32xDU
-	r4x4NGXQvOb+xHAsYVK+Y84x5Z6paQrAaBIMl455b1k7lBmOMMNP1FlqaMyia3g/jTrUxwc+XFlNQ
-	ql//b2ftiQqfSXSC8BpLDVTG2YzKB85wRLMlV3Ma+D8oP3/wtY9PxbvNt2V9mT6sQTwJgqde3OTLO
-	2QUrK5Xw==;
+	bh=0DPKAvfg5f4Y3SBIphoT53zbwhsUwwLhBf0NzO10Cgs=; b=EBzkXs6pKbW53vkLRRHYTFUQpu
+	8wm3Tqdk6JvU2xZTtgoN8r1cTuiVzZti9YgGM6lKV1ZFCKjmHnHz6ZMN2QQRfxoEBu/OjnuFNg4be
+	C+P1JnEYhnXk2g8wJCFGjx/9usaEMPsBJrvN01lcIrdpC/7OOiQcNoZ00LzxM4ixOdGUUz/pFrVzL
+	PT2RPczXALGdgr8sGr8oLeTROmpI5JbyreZAR49APkJeiNybaYQfZyYY2aT+kjGh1Lgej8zGSAh86
+	o/niGYJ4CO5DZdbuBP71BISHH53b53sf8pGcTWNf2pHUkzwO5Om/ITdmRVXwlnmy0UqJeXd+8mCtX
+	0c8j4jPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIVks-00000004TYQ-1645;
-	Fri, 23 May 2025 17:00:22 +0000
+	id 1uIVmu-00000004Toe-0Arg;
+	Fri, 23 May 2025 17:02:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIUqf-00000004Krj-1jUG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 May 2025 16:02:17 +0000
+	id 1uIUqg-00000004Ks1-1m19;
+	Fri, 23 May 2025 16:02:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=uV/pjlPBiCsCwTtFEFEknHpW0wdS4DsNlsekE5grkJQ=; b=S2Ea4h3eAKJAck0lpGrstUOLkx
-	8jZoghJrryOKc+DksVS9ok0JjAvcxt0q9IK31dD5b5G0kDbzVCI52P5D8aQRr1ur/alHtjjASD6Hw
-	SG/L6Qcqk8IsS6YzD8LfeqG2Mn4YF3ZCTKuR03UJ5RJ91SV1IxL6LnpaZSd/rn4ingmLMo0ltVBiQ
-	aoJoKYfL0G2eFjf8TbFfWCruzK6dvemG17+eMLrr/HbZTw9fBtwUo/ys4Zc7fwEqnZzQi36XmCVXO
-	f6xmh7RdWprXKPBTSPoeCBs32+j0KLeRL5PuAftn1fG/qvBBFr1aSUtnraCwCX7YE7mK4rR5I3xpr
-	V8B/GzoA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	bh=0DPKAvfg5f4Y3SBIphoT53zbwhsUwwLhBf0NzO10Cgs=; b=LAr+3yBu3Z+fwFA6rm4eODQWOO
+	NmaD/apqNRD8YlnG2LTd6ZAkuMdp82qbgqGotxs2hntYYDQU8d1vYAadIRyaZCjzq+/U5S+3oLugg
+	19QSkvdWO8FJ5eqOcLHiLvWPQw1eOw9thS6fi08hrXvjwibNhd2OsJcGZOZYrI94uNHukJi6vkqmh
+	Hh1jLg+coTtXp/pOJhHyy72hnfro4VgJ65vNJJMbTrwoAWeBLUMNnrqAKtQXpJfp2MKk9UHmiIwa1
+	UjKBDY0sjVlOJXsJQmeX9B3YiEM3531I8lS7ZuNvAWfQzKiBRQMWe8ipl4+i2oKwE1NAsRA7V7K92
+	X9X+49iQ==;
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIUqc-00000001LmG-0AuR
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 16:02:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A93155C5A8F;
-	Fri, 23 May 2025 15:59:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBDF2C4CEE9;
-	Fri, 23 May 2025 16:02:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748016128;
-	bh=qgYSTT9XcSyqI+DBeYRkhP8s0z5sSZV+A60zwa1m+G0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B1cJjoD22VVrq7n3ZjtSjCKVoJHel3VRZawP05ZnRpXIj+3lQiQJUxTt1+DGwjiXj
-	 qiD93PYBeFeRoR4Y3uogSidZFUVxB7MStQE+euuIHup4TCaudxawDUawpio9ybD3fV
-	 AhaIZCgcDC/8VysRupdDwrUkEyvyKG0zpXtpASfDrEGSCKnxvivqTg5i0KP3P9b+FB
-	 mmLwMGNrE7wvYDNWfWFIHneeun9Yry7a5r75iW1d1T3oepXmg2ZnV6I2Usv1sfwjVf
-	 xTzDLnpyvW96MaSXDzQ9odJXIZZEAHIUziVTI2IlbG+IwS5CJij5MfbH4ZTOpxNbdp
-	 qxaXWEl1wc40g==
-Date: Fri, 23 May 2025 19:02:03 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Stefano Garzarella <sgarzare@redhat.com>
-Cc: linuxppc-dev@lists.ozlabs.org, Peter Huewe <peterhuewe@gmx.de>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	linux-integrity@vger.kernel.org,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	id 1uIUqd-00000001LmX-2EC1;
+	Fri, 23 May 2025 16:02:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=0DPKAvfg5f4Y3SBIphoT53zbwhsUwwLhBf0NzO10Cgs=; b=OpQcs4dcB6OWU9mlLf31Gzrhvv
+	tb+hAOfomI21FW70GV6ifTR+Zu4IGNBr6FuaOsUdcAh2lpJb3aG44dd2qd/xAFxyqLE88j1yp6wAA
+	iYkunMJADxww4SJ57C3dd5q2s5gZEeki2AICqkKOMSGUz7VzXMwFrnzA9FxIE8UOGaDI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uIUqQ-00DcxW-JK; Fri, 23 May 2025 18:02:02 +0200
+Date: Fri, 23 May 2025 18:02:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Sky Huang <SkyLake.Huang@mediatek.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Qingfang Deng <dqfext@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>
-Subject: Re: [PATCH v5 4/4] tpm/tpm_svsm: support TPM_CHIP_FLAG_SYNC
-Message-ID: <aDCb-wkHGoLQ-IGg@kernel.org>
-References: <20250514134630.137621-1-sgarzare@redhat.com>
- <20250514134630.137621-5-sgarzare@redhat.com>
- <aCVHQ-LRqHeEVEAW@kernel.org>
- <CAGxU2F5AsNY5mQPd=qajW1seFYHSYpB0Fa1iuR_f2QavtoB6sA@mail.gmail.com>
- <aCzf6aoJAC-IdS_n@kernel.org>
- <CAGxU2F6rfqGV_gJk-JxrCk3f9dWtYn_3o9RODh7cVG0X_oQWaA@mail.gmail.com>
- <aC2nBCxkvWWz5y5E@kernel.org>
- <aC4CVUXpThAyKQdf@kernel.org>
- <CAGxU2F5zQJR4GvZ9ovtQBqMFGs-wBMoCRks=JYQ1JF6qMKK-6g@mail.gmail.com>
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next 1/2] net: phy: mtk-2p5ge: Add LED support for
+ MT7988
+Message-ID: <afb80927-d921-44d7-8a32-f109e5ec5143@lunn.ch>
+References: <20250523113601.3627781-1-SkyLake.Huang@mediatek.com>
+ <20250523113601.3627781-2-SkyLake.Huang@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAGxU2F5zQJR4GvZ9ovtQBqMFGs-wBMoCRks=JYQ1JF6qMKK-6g@mail.gmail.com>
+In-Reply-To: <20250523113601.3627781-2-SkyLake.Huang@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_170214_306210_7CCB7958 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20250523_170215_718589_FD586737 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,45 +93,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 10:26:34AM +0200, Stefano Garzarella wrote:
-> On Wed, 21 May 2025 at 18:42, Jarkko Sakkinen <jarkko@kernel.org> wrote:
-> >
-> > On Wed, May 21, 2025 at 01:12:20PM +0300, Jarkko Sakkinen wrote:
-> > > > I tried, but the last patch (this one) is based on the series merged
-> > > > on the tip tree, where I introduced tpm_svsm.
-> > > > I can see that series in linux-next merged with commit
-> > > > 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07,
-> > > > but I can't see it in your next tree [1].
-> > > >
-> > > > How do we proceed in such cases?
-> > > >
-> > > > Just to be sure, did I use the right tree?
-> > >
-> > > Thanks for the remark. Lemme check tonight. Hold on doing
-> > > anything ;-) We'll get there...
-> >
-> > I just rebased my branches on top of latest from Linus. That is what I
-> > need base PR also on, and:
-> >
-> > $ git show 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
-> > fatal: bad object 16a56ee59ab8ee05e67de35bbb5782ef9cfb4f07
-> >
-> > I'd use git cherry-pick on a range to take them from linux-next to a
-> > mainline tip...
+On Fri, May 23, 2025 at 07:36:00PM +0800, Sky Huang wrote:
+> From: Sky Huang <skylake.huang@mediatek.com>
 > 
-> I see, let me know if I can help in some way.
+> Add LED support for MT7988's built-in 2.5Gphy. LED hardware has almost
+> the same design with MT7981's/MT7988's built-in GbE. So hook the same
+> helper function here.
 > 
-> We can also wait the next cycle if it simplifies your work, definitely
-> no rush on my side.
-
-Let's do it. At least it will then get a full round of testing before
-ending up to a release.
-
-Thank you!
-
+> Before mtk_phy_leds_state_init(), set correct default values of LED0
+> and LED1.
 > 
-> Thanks,
-> Stefano
+> Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
 
-BR, Jarkko
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+
+    Andrew
 
