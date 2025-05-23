@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1741C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 10:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81697C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 10:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
-	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8A22kM9aMgmUG88Vz4fpSRuRA+YQiQyUD07mBnUfnRY=; b=ykWjyTQR0EtBFtCTi0QA+wp+dn
-	mH00ECmySX+zxFgvb+zdm9SMmrdZZ3bBLfrWUA62Sn5iUbzcDMd4oDajVBRffCuC7/zd4p0Kxvorg
-	jn4DotWiqpML2LksPG9GNZ8oVGhYsVnWcOJ8DBsc3X6oC40u6ZGmu9/uJQuBgd1FIC8WWMV93bFFI
-	ZhfR7fG9I4cx9tqCEhwh+hsnNe4YbBg8+f/V9lt5Po+6Rko8tUxJ9nc54MY+Jrrv2p3mLoaPvkJLB
-	q16I5ils3oEF2Meh5iRsu3D91BXnc24Rl9kzvcBXZKp10q2T9h+xsQFC7BlZICsJfeNTvTDdrVW6Z
-	ALH7AERw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QIXSgunVydEc8iUby7puHp34X5y7ABWMivhII1RfrVY=; b=XJ1Fk9BRs0RP9f
+	24XCIbFIwEYU5F4hbgCeYfmyGoW8fy8mS79H7GKZc5LPu3MgXMd5zeCZyG8NAKmxm29aTpw8VvIef
+	0MMlV0h9feVY8TRpT6PjPhJnLu97oCd0zVV90oTGxknDPsYxj6n5F/0KsYoD5z9PhPumKYCuNGbts
+	UxcsrmFjuHMKC4dDltdtpooNYsdGOSIiHy07/+Gpv/v7DhZVdJXD8Q/l32LP3uDJiWIqVY+80HIHU
+	I9Icysj1Fe0U6uZS3vJ3RcijBCPfY4bjTeB/JN2UOCSXMD8xrOXnmUSzz9uqQko8xFyMfepYEx04p
+	S+MD2ImYIWZfhNzq65hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIPKB-00000003Xiw-1Spk;
-	Fri, 23 May 2025 10:08:23 +0000
-Received: from mxhk.zte.com.cn ([63.216.63.35])
+	id 1uIPLv-00000003Y4e-0pPK;
+	Fri, 23 May 2025 10:10:11 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOBF-00000003N7M-1ydS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 08:55:06 +0000
-Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4b3f9y56Llz5B1J6;
-	Fri, 23 May 2025 16:55:02 +0800 (CST)
-Received: from njb2app05.zte.com.cn ([10.55.22.121])
-	by mse-fl1.zte.com.cn with SMTP id 54N8sg6h069796;
-	Fri, 23 May 2025 16:54:42 +0800 (+08)
-	(envelope-from long.yunjian@zte.com.cn)
-Received: from mapi (njy2app04[null])
-	by mapi (Zmail) with MAPI id mid201;
-	Fri, 23 May 2025 16:54:45 +0800 (CST)
-Date: Fri, 23 May 2025 16:54:45 +0800 (CST)
-X-Zmail-TransId: 2afc683037d5ffffffffaf2-ab6b4
-X-Mailer: Zmail v1.0
-Message-ID: <20250523165445002hUV3RCqhv6Xng7_bbUxlJ@zte.com.cn>
-Mime-Version: 1.0
-From: <long.yunjian@zte.com.cn>
-To: <andi.shyti@kernel.org>
-Cc: <codrin.ciubotariu@microchip.com>, <nicolas.ferre@microchip.com>,
-        <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-        <wsa+renesas@sang-engineering.com>, <till@harbaum.org>,
-        <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-renesas-soc@vger.kernel.org>, <mou.yi@zte.com.cn>,
-        <xu.lifeng1@zte.com.cn>, <fang.yumeng@zte.com.cn>,
-        <ouyang.maochun@zte.com.cn>
-Subject: =?UTF-8?B?W1BBVENIIHYyXSBpMmM6IFVzZSBzdHJfcmVhZF93cml0ZSgpIGhlbHBlcg==?=
-Content-Type: text/plain;
-	charset="UTF-8"
-X-MAIL: mse-fl1.zte.com.cn 54N8sg6h069796
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 683037E6.003/4b3f9y56Llz5B1J6
+	id 1uIPJj-00000003XcA-2e14;
+	Fri, 23 May 2025 10:07:57 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:a882:21a2:2327:ac4f])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C7D13346;
+	Fri, 23 May 2025 12:07:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1747994850;
+	bh=bElBq/KjMYNxvtZnPGAHpUkChi7qdQIIEQkH2F10hAI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=pHvfurta0vUf2KuUuyqPiI4DAiUvLRH7wZgq++AMbeLxVQjCZZMN0KBR5Vnf3U85Y
+	 pEg7XvHPSU5k3VsODWQfbGD1+ADy1WxDs+n+plUvpF9CnTOE7EVX8IHFzgnN6Dx9N4
+	 TFllHP+yMFBr/paVfvNLfUXfMCRbxEpEM61JTsP4=
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+Subject: [PATCH v2 0/2] media: rkisp1: Add
+ RKISP1_CID_SUPPORTED_PARAMS_BLOCKS ctrl and WDR support
+Date: Fri, 23 May 2025 12:07:30 +0200
+Message-Id: <20250523-supported-params-and-wdr-v2-0-5a88dca5f420@ideasonboard.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOJIMGgC/03MQQ6CMBBA0auQrh1Sh5YEV97DuBjoAI3SNlNQE
+ 8LdbVy5fIv/d5VZPGd1qXYl/PLZx1CAp0oNM4WJwbtihRqttthA3lKKsrKDREJLBgoO3k7g3Ni
+ mMz1j64wqeRIe/ee3vt2LR4kLrLMw/Q/xbHVnTG201qYFhLzySKF+PLfp6h1TjqGPJK4e4qKO4
+ wtmDdKzsQAAAA==
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Stefan Klug <stefan.klug@ideasonboard.com>, 
+ Paul Elder <paul.elder@ideasonboard.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_015505_819564_27F9F5B4 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250523_030755_810926_C4D97AC8 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,172 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yumeng Fang <fang.yumeng@zte.com.cn>
+Hi all,
 
-Remove hard-coded strings by using the str_read_write() helper.
+This series adds RKISP1_CID_SUPPORTED_PARAMS_BLOCKS control to query the
+parameters blocks that are supported by the current kernel on the
+current hardware. This is required to be able to enable/disable the
+corresponding algorithms in user space without relying solely on the
+kernel version.
 
-Signed-off-by: Yumeng Fang <fang.yumeng@zte.com.cn>
-Signed-off-by: Yunjian Long <long.yunjian@zte.com.cn>
+In addition to that it includes the WDR patch by Jai which is already in v5 and
+was reviewed here:
+https://lore.kernel.org/linux-media/20250521231355.GN12514@pendragon.ideasonboard.com/
+
+Version 2 of this series drops the unnecessary initial cleanup patch.
+Patch 1 was updated and has a local changelog. Patch 2 is unmodified.
+
+Laurent I didn't collect your tag on the first patch, as it was a bit
+more than touch ups.
+
 ---
-v1 -> v2
-Fix this in the whole i2c subsystem.
+Jai Luthra (1):
+      media: rockchip: rkisp1: Add support for Wide Dynamic Range
 
- drivers/i2c/algos/i2c-algo-pcf.c     | 3 ++-
- drivers/i2c/busses/i2c-at91-master.c | 3 ++-
- drivers/i2c/busses/i2c-sh_mobile.c   | 3 ++-
- drivers/i2c/busses/i2c-tiny-usb.c    | 3 ++-
- drivers/i2c/busses/i2c-viperboard.c  | 3 ++-
- drivers/i2c/i2c-core-base.c          | 3 ++-
- drivers/i2c/i2c-core-smbus.c         | 3 ++-
- 7 files changed, 14 insertions(+), 7 deletions(-)
+Stefan Klug (1):
+      media: rkisp1: Add RKISP1_CID_SUPPORTED_PARAMS_BLOCKS control
 
-diff --git a/drivers/i2c/algos/i2c-algo-pcf.c b/drivers/i2c/algos/i2c-algo-pcf.c
-index 7a01f2687b4c..740066ceaea3 100644
---- a/drivers/i2c/algos/i2c-algo-pcf.c
-+++ b/drivers/i2c/algos/i2c-algo-pcf.c
-@@ -19,6 +19,7 @@
- #include <linux/errno.h>
- #include <linux/i2c.h>
- #include <linux/i2c-algo-pcf.h>
-+#include <linux/string_choices.h>
- #include "i2c-algo-pcf.h"
+ .../media/platform/rockchip/rkisp1/rkisp1-common.h |   2 +
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 150 ++++++++++++++++++++-
+ .../media/platform/rockchip/rkisp1/rkisp1-regs.h   |  99 ++++----------
+ include/uapi/linux/rkisp1-config.h                 | 101 ++++++++++++++
+ include/uapi/linux/v4l2-controls.h                 |   6 +
+ 5 files changed, 280 insertions(+), 78 deletions(-)
+---
+base-commit: a5806cd506af5a7c19bcd596e4708b5c464bfd21
+change-id: 20250523-supported-params-and-wdr-135394be26d4
 
-
-@@ -316,7 +317,7 @@ static int pcf_xfer(struct i2c_adapter *i2c_adap,
- 		pmsg = &msgs[i];
-
- 		DEB2(printk(KERN_DEBUG "i2c-algo-pcf.o: Doing %s %d bytes to 0x%02x - %d of %d messages\n",
--		     pmsg->flags & I2C_M_RD ? "read" : "write",
-+		     str_read_write(pmsg->flags & I2C_M_RD),
- 		     pmsg->len, pmsg->addr, i + 1, num);)
-
- 		ret = pcf_doAddress(adap, pmsg);
-diff --git a/drivers/i2c/busses/i2c-at91-master.c b/drivers/i2c/busses/i2c-at91-master.c
-index ee3b469ddfb9..374fc50bb205 100644
---- a/drivers/i2c/busses/i2c-at91-master.c
-+++ b/drivers/i2c/busses/i2c-at91-master.c
-@@ -26,6 +26,7 @@
- #include <linux/pinctrl/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/string_choices.h>
-
- #include "i2c-at91.h"
-
-@@ -523,7 +524,7 @@ static int at91_do_twi_transfer(struct at91_twi_dev *dev)
- 	 */
-
- 	dev_dbg(dev->dev, "transfer: %s %zu bytes.\n",
--		(dev->msg->flags & I2C_M_RD) ? "read" : "write", dev->buf_len);
-+		str_read_write(dev->msg->flags & I2C_M_RD), dev->buf_len);
-
- 	reinit_completion(&dev->cmd_complete);
- 	dev->transfer_status = 0;
-diff --git a/drivers/i2c/busses/i2c-sh_mobile.c b/drivers/i2c/busses/i2c-sh_mobile.c
-index efe29621b8d7..adfcee6c9fdc 100644
---- a/drivers/i2c/busses/i2c-sh_mobile.c
-+++ b/drivers/i2c/busses/i2c-sh_mobile.c
-@@ -24,6 +24,7 @@
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
-
- /* Transmit operation:                                                      */
- /*                                                                          */
-@@ -409,7 +410,7 @@ static irqreturn_t sh_mobile_i2c_isr(int irq, void *dev_id)
- 	pd->sr |= sr; /* remember state */
-
- 	dev_dbg(pd->dev, "i2c_isr 0x%02x 0x%02x %s %d %d!\n", sr, pd->sr,
--	       (pd->msg->flags & I2C_M_RD) ? "read" : "write",
-+	       str_read_write(pd->msg->flags & I2C_M_RD),
- 	       pd->pos, pd->msg->len);
-
- 	/* Kick off TxDMA after preface was done */
-diff --git a/drivers/i2c/busses/i2c-tiny-usb.c b/drivers/i2c/busses/i2c-tiny-usb.c
-index 0f2ed181b266..a18eab0992a1 100644
---- a/drivers/i2c/busses/i2c-tiny-usb.c
-+++ b/drivers/i2c/busses/i2c-tiny-usb.c
-@@ -10,6 +10,7 @@
- #include <linux/errno.h>
- #include <linux/module.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- #include <linux/types.h>
-
- /* include interfaces to usb layer */
-@@ -71,7 +72,7 @@ static int usb_xfer(struct i2c_adapter *adapter, struct i2c_msg *msgs, int num)
-
- 		dev_dbg(&adapter->dev,
- 			"  %d: %s (flags %d) %d bytes to 0x%02x\n",
--			i, pmsg->flags & I2C_M_RD ? "read" : "write",
-+			i, str_read_write(pmsg->flags & I2C_M_RD),
- 			pmsg->flags, pmsg->len, pmsg->addr);
-
- 		/* and directly send the message */
-diff --git a/drivers/i2c/busses/i2c-viperboard.c b/drivers/i2c/busses/i2c-viperboard.c
-index 7523e7c02271..1bd602852e35 100644
---- a/drivers/i2c/busses/i2c-viperboard.c
-+++ b/drivers/i2c/busses/i2c-viperboard.c
-@@ -11,6 +11,7 @@
- #include <linux/errno.h>
- #include <linux/module.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- #include <linux/types.h>
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
-@@ -278,7 +279,7 @@ static int vprbrd_i2c_xfer(struct i2c_adapter *i2c, struct i2c_msg *msgs,
-
- 		dev_dbg(&i2c->dev,
- 			"  %d: %s (flags %d) %d bytes to 0x%02x\n",
--			i, pmsg->flags & I2C_M_RD ? "read" : "write",
-+			i, str_read_write(pmsg->flags & I2C_M_RD),
- 			pmsg->flags, pmsg->len, pmsg->addr);
-
- 		mutex_lock(&vb->lock);
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index 5f6ff35a2707..2ad2b1838f0f 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -41,6 +41,7 @@
- #include <linux/property.h>
- #include <linux/rwsem.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
-
- #include "i2c-core.h"
-
-@@ -2144,7 +2145,7 @@ static int i2c_quirk_error(struct i2c_adapter *adap, struct i2c_msg *msg, char *
- {
- 	dev_err_ratelimited(&adap->dev, "adapter quirk: %s (addr 0x%04x, size %u, %s)\n",
- 			    err_msg, msg->addr, msg->len,
--			    msg->flags & I2C_M_RD ? "read" : "write");
-+			    str_read_write(msg->flags & I2C_M_RD));
- 	return -EOPNOTSUPP;
- }
-
-diff --git a/drivers/i2c/i2c-core-smbus.c b/drivers/i2c/i2c-core-smbus.c
-index e73afbefe222..71eb1ef56f0c 100644
---- a/drivers/i2c/i2c-core-smbus.c
-+++ b/drivers/i2c/i2c-core-smbus.c
-@@ -16,6 +16,7 @@
- #include <linux/i2c-smbus.h>
- #include <linux/property.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
-
- #include "i2c-core.h"
-
-@@ -433,7 +434,7 @@ static s32 i2c_smbus_xfer_emulated(struct i2c_adapter *adapter, u16 addr,
- 	case I2C_SMBUS_I2C_BLOCK_DATA:
- 		if (data->block[0] > I2C_SMBUS_BLOCK_MAX) {
- 			dev_err(&adapter->dev, "Invalid block %s size %d\n",
--				read_write == I2C_SMBUS_READ ? "read" : "write",
-+				str_read_write(read_write == I2C_SMBUS_READ),
- 				data->block[0]);
- 			return -EINVAL;
- 		}
+Best regards,
 -- 
-2.25.1
+Stefan Klug <stefan.klug@ideasonboard.com>
+
 
