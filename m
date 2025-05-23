@@ -4,155 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66CF2C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A03C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 16:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e78Z6/eI6up9DS2RmppNPjAhE2n1oqChOB6IHg9F0yU=; b=S+nBIh2DhnECmW7FaPlpQBvnaW
-	q9FS0pP7VQUcCgPoF8jQJvQTjJ1Apd54oXWzXVGv8+L4/+9rSRJxFIh/4RJLiV8yUBapJ5aUT9o1n
-	T5Lm3MMRycw0tOnP+JRrljyIy3BqI5EDVRTB7+Xa77eCc8HDrfQX0Mp1g13qjgXKk7FKF2hK97fDl
-	YG2UVJdzJOTP70zlMx8TBEuX3iq4cGyuEbt3SpRgWP+YpKVezPQUpZgE6k0NUU/5YP6/vJyOJjbRX
-	Yioog0cDkjGDXGiFqV+CLpZU713FMqoC1+zehLRLpy5jfqbO/AP0ayuJAdC9BFJSXGUH3QKqNRy9c
-	DgojNsBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OR5i6OXhy1eLuQiuRcikrim5QydwPf0VyfT4D2mHIFw=; b=neaK3haslzkCIUAvNCa1iKAFQp
+	HPp6c9nwgec1kCRAf8fC/G42fB4jrWjkDCRUb5gM6bMossfDSLHOjbUuMMosqSgkbbPtjKmUqaeWq
+	0F5gbrsAkH48ej+du9VBizL3uMMpy5n949z0+NDk2qwiOq18yeog33S4rdPbiW77GeTd/R78K60Lr
+	F4Lm6osSrZXRPK9D0RsdkQOWI0E+zuPiR0kgC/PkOdi9wk+6sm+pPbjdoTLvK2U0C1IfvOvaPq5tE
+	g9j8ZWiIt22tjgoGs3J8YhcS0B8SJgtWl55Nbo2oR0+HWz81RfnwtjoB462l5F1i9b6EFmMP9t9V0
+	KUgRKEzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIV4a-00000004MhH-033q;
-	Fri, 23 May 2025 16:16:40 +0000
-Received: from mail-db5eur02on2061a.outbound.protection.outlook.com ([2a01:111:f403:2608::61a] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1uIV6d-00000004N5a-0hbJ;
+	Fri, 23 May 2025 16:18:47 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIUcx-00000004ITf-2OON
+	id 1uIUjt-00000004Jar-3Rp2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 15:48:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NQ2Tt1TBW5uV+flPcdZB7NcF23DDtrABP4fllWaOt+zumI9/rTCGZMUVjGooR8zhxN8fTsNFMtrVbEMUvZPq4FLzuyVYJrGi4217QDFj461XVfv8bl8yD58b0OTDWkzPM2sELVkVOGqIRYpDml53vjCQm45o+WIL71rzCYX+fLGC1Z7ZkNFtwdArZq9adCKpnCUscSdQxBe5SSRex7h1IOIndrj6nD1BpMmrsTtXOiGvF8t7A9bNlIRlGhDiN9NkoUkDppPBx033PJvgNF9JNYKnSWy3w+AuRgYjkPaObElK2TBD5IHh2bQK9P9rWlKqNcF8eY/2CN/PT5Tq3wYQtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e78Z6/eI6up9DS2RmppNPjAhE2n1oqChOB6IHg9F0yU=;
- b=sn9MjJHumUhHhsJwp4/3FxoVFayH6dkGxnDCBN27UyMoEHH8aWAavy3kz3K6U/RHTAQZ4YSNoa6uOCdir7K5FGZIMPIw0PDpdRpT30Apfx8TTolJiidfXBXQDSPtyYrkDphOYHOQApCGuM2BH+wA16l02fgJelnSvVP9/tRFHcX8ESYWDw14dG2OSzKn0Pq0Li/eJZ82hlXvQtRpD2SOYfyVgdny9QduqLZe0XPh1uEhKS6nQEqNTKAwksBuWYIKkmljUD7smgKzEjhdCUI7Y+vK+JvwKwQWKIggJ8rqHH0L/oLcqrk8M+qrlJN/ssUZHDDSDhxnX9kUNlUsj2oYDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e78Z6/eI6up9DS2RmppNPjAhE2n1oqChOB6IHg9F0yU=;
- b=JSy241/GCpNyVxoG3qQIwendtL9bk/5zncsdX52unr/oxsrqD5tf1NSWHEDPhwXeDJDKbSuyCqYlcYlZ9k7lY1ktdfsDyb06sOFEQQjBcAEEcfYCzCJhS4Llv7vfnJYsL+gtbNgh5Mz09kgkLHuZLEE5uJOBtAGnkA6rwlE9YhVl6xrbtcvZX79TwastHqItWrgiGAMKriCaUjWbhlt6HJ5TMz7BHm13Qr2xPJqMUYPlx4Qu35vOs98he5haUHY//AjBKeC1e4XtJLJ0NBjYf554atFDIifK4xYrgHOHX6czniQr0fr22CwaQCyadJQlCa+xMAzXxhS+Zd7mpT3RDA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GVXPR04MB10303.eurprd04.prod.outlook.com (2603:10a6:150:1ea::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Fri, 23 May
- 2025 15:48:00 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Fri, 23 May 2025
- 15:48:00 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	Fri, 23 May 2025 15:55:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748015718; x=1779551718;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=dSPDygJYnFeb8HQfhHNr6stBiS3NmukCn/fuMALXfRA=;
+  b=DTvCA3POH9eD9PNNl+Kkx231wkcY0Ntn9NALuy3K8mC4ks4XcVkxtem2
+   ohw6I9nNf+RcizGOf8PPtCWPiNVy+Y0atyY4TfzoBLRNRqbTXs5qg+0TG
+   2BU5psrv8bOJAmuK9ri7Qrp78gvPf3Z/P9wB/ZBUEpMygMN53Gw7AL86e
+   hjs6jrCCwI6qYNWDb0aeVJs+XpZzcHRdqL7eYFDTpH9qfZzuBZgwkJSTg
+   ekzuxfkmN2M2KGdDiPuSi+VgWxf1koBuSC85jO4XrbQbnFejx7Q1SXCoS
+   sKI6bsNSgQeGM7Bedf9tt7nL2S3Z67aHEA0pFiPnKJm0UK/m1czPoh+au
+   A==;
+X-CSE-ConnectionGUID: g4GBpWxmSYuu1eg7Drcg6w==
+X-CSE-MsgGUID: 6Ia1pLBXTRqa8M6eGWMU8A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="75473542"
+X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
+   d="scan'208";a="75473542"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 08:55:13 -0700
+X-CSE-ConnectionGUID: jO/6bONhRzGM65BqpeZgHg==
+X-CSE-MsgGUID: rHpnhg5iTee+1ZEuHgZMAA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
+   d="scan'208";a="146173586"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 23 May 2025 08:55:08 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uIUjh-000QWy-0r;
+	Fri, 23 May 2025 15:55:05 +0000
+Date: Fri, 23 May 2025 23:54:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	netdev@vger.kernel.org (open list:NETWORKING DRIVERS),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-kernel@vger.kernel.org (open list),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] dt-bindings: ieee802154: Convert at86rf230.txt yaml format
-Date: Fri, 23 May 2025 11:47:39 -0400
-Message-Id: <20250523154743.545245-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BYAPR05CA0034.namprd05.prod.outlook.com
- (2603:10b6:a03:c0::47) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Michael Tretter <m.tretter@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Michal Simek <monstr@monstr.eu>, Heiko Stuebner <heiko@sntech.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Junhao Xie <bigfoot@classfun.cn>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Gaosheng Cui <cuigaosheng1@huawei.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Wolfram Sang <wsa-dev@sang-engineering.com>,
+	Ricardo Ribalda <ribalda@chromium.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org
+Subject: Re: [PATCH 2/5] dt-bindings: media: allegro-dvt: add decoder
+ dt-bindings for Gen3 IP
+Message-ID: <202505232350.HEuJSo1z-lkp@intel.com>
+References: <20250523134207.68481-3-yassine.ouaissa@allegrodvt.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GVXPR04MB10303:EE_
-X-MS-Office365-Filtering-Correlation-Id: 922b552f-a40e-4e25-fd19-08dd9a113217
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LTYydI0Py6Wb3LUmT9/Bd8Iz7VCfszmFegoJc/15dwFRdMVz3szwImd+w75l?=
- =?us-ascii?Q?tqUVvLXH1eumbHj2mcdZ5HomG7CdjivwkBY4wMUNexXSg8nGmqr2JZFpsGOO?=
- =?us-ascii?Q?UWcAje8WzbnSLRwubid/PrFOAifgclK6/3e+PquFFbP1V3x1HcF5SovEA7GI?=
- =?us-ascii?Q?3gQ4dIe7a5k0M6L+jItbDA9v+Jcxc/bAZpgbV/wdUgV6icE5svVUp8c1/KLe?=
- =?us-ascii?Q?Uztf/WpqsCllpV03Jiz5nVa5VWsUXJhGFMZb0rTJ4a4Np67Gvsi5nIg1g8Nk?=
- =?us-ascii?Q?ysuJxYktgvtCfLn3c81qtdfZC70RMckV36XLrm0S4nt0Dx7EYcZQoaM48mNM?=
- =?us-ascii?Q?2SppLS8ZUPBQdelUSk/5W1OtEI1Y+2Tw4ZAG2ZHgSlZ8s/frmYsjMz4xQ/Rd?=
- =?us-ascii?Q?VTFTx02aCE5mtHs7IchjgRqAl0z04CTlfqMfgZRimwNmFoAFh2Lvb4kSZrw9?=
- =?us-ascii?Q?GczhZkBBdcpIaQzJfeYRwfzefhaHgm+mDHTSqSjZeUA6MITAv0WtD2u/UJkJ?=
- =?us-ascii?Q?/5R9Hv2Gkhg9pCmknwKx/gcKZHJbvm3/KPjYnoRVdzKUwrfFjuoeBbMSDA+N?=
- =?us-ascii?Q?4Ml0kTqlWLXKj0U6XH/tRNDLpIyDcap7kDeTwgCxhQj8ZE4M+6x9dkzkSmlx?=
- =?us-ascii?Q?baRG6a2eBdVCIpNM7/Dy91XxRIDtZfGwdQf7VqReMTJ4LV1JeaOs7DWgcOGx?=
- =?us-ascii?Q?e4bXduw46+EgZXr4ocna/t0Vf+Gq7TCG9BYy8LgXk2xHwC9ESlj1NJyDx3NH?=
- =?us-ascii?Q?ZUDmets/10uMSaww7ivsBJrKJn52QDLmnbbnd0OsKKA2wAlPlALRis1NB4Ee?=
- =?us-ascii?Q?hh6rRv1DsIwR2pky+4X8E+OwLA2GiW0ZgB789zMbtXet/3hRgBo8XtOGAqRE?=
- =?us-ascii?Q?JWWPZuqKxgXhwQv8wjyx9HxlHqrRg2+fg2JrrtuQcPYN5UpLCz5qRaZKwJy+?=
- =?us-ascii?Q?rt5AcPyxifUnQMLwYA7FsleU3hAzJl9hufvUoX/kYEvfqxLKBknGKXI5ygL4?=
- =?us-ascii?Q?7mV54NeJzav1m74TSrzOmtoH1gZDvqTKbuHapQuFpR+yWD1eF9X3fF7zvFla?=
- =?us-ascii?Q?aDvUchYl4mxAZ7pV5VsmTBg+gfKMOdCLNGWDqJE7p8pLShqu1FA97+VEYn/r?=
- =?us-ascii?Q?AQ1SeSY2HhSPyEq4D7f/RR6X3eVz64RehQD1XzOnjAQk5vXdERSkZ5y+Jss4?=
- =?us-ascii?Q?pKfgX6clloYckZULX2faGf7n7o7GFbhE/GcdZYEUegdc6g3lNnEMV7LtR/42?=
- =?us-ascii?Q?TISwqRWRQapTSluS9FKOO5DTTYGONRHsKknCgYviJleuvccQ436O3jLTJ/OO?=
- =?us-ascii?Q?byFHcUYpwHdCXNvGtPY1/O0rTUM84EmlGgH9Dj6apdHag2u4yd/e0nUF7lGd?=
- =?us-ascii?Q?lJf0MgUBHAJpGnGeewTSJKOIuU5jvnf4oI/Do3taPlKbfNfQ84wnxtitJf40?=
- =?us-ascii?Q?RjOCWyM401ghq7I6ZC81up+EYeYTnnQu?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fMQ+ki6kEXeBOa7nfkWM4ARJNAZiP7AwnDGmiox2GpT0qm+ryh6+79OZ07+p?=
- =?us-ascii?Q?VzuuJIYuv7qfkNpPdEgSjVQTpUbVtCHnI+r9CdVyV902jzM6o8uBpK5ERWuq?=
- =?us-ascii?Q?Ezy7xgHFGhRRXLr4bFAxZ4ufutNC07hi7/d9VloL42o8YnJeLb/uLVE+bb7J?=
- =?us-ascii?Q?VW8h+hQ+IW0lGgjNdKAHXZP0PiZ4hfiprabqroaqpRAIEwPp614Y1wPHnGp/?=
- =?us-ascii?Q?AiHa5CDsIy0wYGR7kBh7xy4u8SJkMzOKHWXa1yNCCqHDiGb+KYVF0TJwU75t?=
- =?us-ascii?Q?LwKrSSqYyyESfeYiw3Am0w5DW4Fjljk2tIu8wrjsjinELmrIOBJ7n2HLCEhT?=
- =?us-ascii?Q?cLDq8qW/7P0645TFjqDTs/BDkKK28wtv6d0I1ZhrKLXPFVce9ofBGMWVeikx?=
- =?us-ascii?Q?ysUXcP07Xl2f/a9WL5Cq9pKMIUIuMQQXserMieJfmaMwG2tkAmRr8lUVwVSS?=
- =?us-ascii?Q?SVd2Yhnh2TNhquWUBWO4yHwGPetAgh54XJ3ENYQ5QpCyjEheUVQNss7DUa7S?=
- =?us-ascii?Q?H4Gd9Cs3C09PQmjG4Racg05LZjIp4o1A8V05ZEyF+eXayj21h3GNIYSqhV03?=
- =?us-ascii?Q?tvN0tM3PGcV4FvJRmztwntJKh1uavXVQMcbZ5hgj8M12iM98n9Vb/Eho7R2e?=
- =?us-ascii?Q?4bCl2rZ+cnKTbDo1Ib0s8tP9e5REDKUcQ4yYChOfpX8NhUCFf0NY5M6JbueJ?=
- =?us-ascii?Q?RtpBPy6nAI1v58kr/KUusZJjXNLfw13wLfsOczbd3qg7CsQCrl3A0L3Zg9a7?=
- =?us-ascii?Q?JqomKqmWJ0KAW3K5fQSEJ22UbIPPgNxXbJWAAE89AKq9T6QUSINMbM8Um2I+?=
- =?us-ascii?Q?KwH1NPP6R/0ta5O8xwcsJDE6okGnXGkbKAcsaATAfoAJU/1MzUvjuQUSdUpu?=
- =?us-ascii?Q?XHVhnTG5JpaVFrtjN4JyFAz0l5Vu+KzuQiWFgZ4x0fG9K2z6vfaWg2dz5Tup?=
- =?us-ascii?Q?Y+lLLslyax6Xoig9ocPnCsRwZXbF4fDRGDLeiX/HL4zaCp9kl6CUL4ouHv6N?=
- =?us-ascii?Q?V+q12wPbd0oDNkNJRx5rJ0zjut7eSCu/gzLWuCgXXEGd6C5FcL9tLtYAyZmI?=
- =?us-ascii?Q?gvscJG4u0no6s+LZwRFcYzw+7zTaAXkuJh+jXpclIAsg0Cs2MBw1iMAYvlVX?=
- =?us-ascii?Q?xg0y+8ZlFDuJacfRosmWmSgcMoDzpcTtd7gkC1kzqFKW0xCmPp6A/Z4pfsg1?=
- =?us-ascii?Q?hHIRuuG804w5vXdpxcqOwOU8opYf3u4JNMQ55YQ1Yr1tuoj3q6d3fbofq/Yk?=
- =?us-ascii?Q?so7GbeqFo6Ib0h4WCcbdOU/LDKmpWEqvg3CKs2uq4FUrq87DCOuDDD9spB+6?=
- =?us-ascii?Q?xTZ3wo87CqzARRIYV1h8c4P2vcDA36kFPDKVKqqkyFuGHMx8D/srNKdWllSd?=
- =?us-ascii?Q?7uOJbgFjtEcilxzfDwXmPXp5TDf4rgoXfd56Q4Kfl/0Mq5aW3FKxW2oc1j1e?=
- =?us-ascii?Q?RXJArDtnPKubmAGEGRztzBINIeV3aB15ursAb7ZB8e5GRy5m8FNz27eH0MNW?=
- =?us-ascii?Q?p3u+a3YGJvRfFkVxB4I1dQKbwUK+rrW+95VQGtgaoVbVK5r8RzEy73E6/S8O?=
- =?us-ascii?Q?NhUEX3sDyBL8h1agNLs=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 922b552f-a40e-4e25-fd19-08dd9a113217
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2025 15:48:00.3836
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Uk6acTlVRSB2W35sIbzh4c9Hl0NXo2jEbd8EXRiQt2xb9gbHPyrwIQ9hdW6uKtTqKkkeuuNHmk677L0Ujq9zuw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10303
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250523134207.68481-3-yassine.ouaissa@allegrodvt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_084807_613595_7BC7CD67 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250523_085517_874925_70897730 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,125 +108,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert at86rf230.txt yaml format.
+Hi Yassine,
 
-Additional changes:
-- Add ref to spi-peripheral-props.yaml.
-- Add parent spi node in examples.
+kernel test robot noticed the following build warnings:
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- .../bindings/net/ieee802154/at86rf230.txt     | 27 --------
- .../net/ieee802154/atmel,at86rf233.yaml       | 65 +++++++++++++++++++
- 2 files changed, 65 insertions(+), 27 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/net/ieee802154/at86rf230.txt
- create mode 100644 Documentation/devicetree/bindings/net/ieee802154/atmel,at86rf233.yaml
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on linuxtv-media-pending/master linus/master v6.15-rc7 next-20250523]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/Documentation/devicetree/bindings/net/ieee802154/at86rf230.txt b/Documentation/devicetree/bindings/net/ieee802154/at86rf230.txt
-deleted file mode 100644
-index 168f1be509126..0000000000000
---- a/Documentation/devicetree/bindings/net/ieee802154/at86rf230.txt
-+++ /dev/null
-@@ -1,27 +0,0 @@
--* AT86RF230 IEEE 802.15.4 *
--
--Required properties:
--  - compatible:		should be "atmel,at86rf230", "atmel,at86rf231",
--			"atmel,at86rf233" or "atmel,at86rf212"
--  - spi-max-frequency:	maximal bus speed, should be set to 7500000 depends
--			sync or async operation mode
--  - reg:		the chipselect index
--  - interrupts:		the interrupt generated by the device. Non high-level
--			can occur deadlocks while handling isr.
--
--Optional properties:
--  - reset-gpio:		GPIO spec for the rstn pin
--  - sleep-gpio:		GPIO spec for the slp_tr pin
--  - xtal-trim:		u8 value for fine tuning the internal capacitance
--			arrays of xtal pins: 0 = +0 pF, 0xf = +4.5 pF
--
--Example:
--
--	at86rf231@0 {
--		compatible = "atmel,at86rf231";
--		spi-max-frequency = <7500000>;
--		reg = <0>;
--		interrupts = <19 4>;
--		interrupt-parent = <&gpio3>;
--		xtal-trim = /bits/ 8 <0x06>;
--	};
-diff --git a/Documentation/devicetree/bindings/net/ieee802154/atmel,at86rf233.yaml b/Documentation/devicetree/bindings/net/ieee802154/atmel,at86rf233.yaml
-new file mode 100644
-index 0000000000000..275e5e4677a46
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ieee802154/atmel,at86rf233.yaml
-@@ -0,0 +1,65 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ieee802154/atmel,at86rf233.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: AT86RF230 IEEE 802.15.4
-+
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - atmel,at86rf212
-+      - atmel,at86rf230
-+      - atmel,at86rf231
-+      - atmel,at86rf233
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  reset-gpio:
-+    maxItems: 1
-+
-+  sleep-gpio:
-+    maxItems: 1
-+
-+  spi-max-frequency:
-+    maximum: 7500000
-+
-+  xtal-trim:
-+    $ref: /schemas/types.yaml#/definitions/uint8-array
-+    description: |
-+      u8 value for fine tuning the internal capacitance
-+      arrays of xtal pins: 0 = +0 pF, 0xf = +4.5 pF
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+
-+allOf:
-+  - $ref: /schemas/spi/spi-peripheral-props.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    spi {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        zigbee@0 {
-+            compatible = "atmel,at86rf231";
-+            reg = <0>;
-+            spi-max-frequency = <7500000>;
-+            interrupts = <19 4>;
-+            interrupt-parent = <&gpio3>;
-+            xtal-trim = /bits/ 8 <0x06>;
-+        };
-+    };
+url:    https://github.com/intel-lab-lkp/linux/commits/Yassine-Ouaissa/media-allegro-dvt-Move-the-current-driver-to-a-subdirectory/20250523-214946
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250523134207.68481-3-yassine.ouaissa%40allegrodvt.com
+patch subject: [PATCH 2/5] dt-bindings: media: allegro-dvt: add decoder dt-bindings for Gen3 IP
+reproduce: (https://download.01.org/0day-ci/archive/20250523/202505232350.HEuJSo1z-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505232350.HEuJSo1z-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   Warning: Documentation/translations/ja_JP/process/submit-checklist.rst references a file that doesn't exist: Documentation/translations/ja_JP/SubmitChecklist
+   Warning: Documentation/translations/zh_CN/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
+   Warning: Documentation/translations/zh_CN/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
+   Warning: Documentation/translations/zh_TW/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
+   Warning: Documentation/translations/zh_TW/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
+>> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/media/allegrodvt,al300-vdec.yaml
+   Can't build as 1 mandatory dependency is missing at ./scripts/sphinx-pre-install line 984.
+   make[2]: *** [Documentation/Makefile:121: htmldocs] Error 255
+   make[1]: *** [Makefile:1801: htmldocs] Error 2
+   make: *** [Makefile:248: __sub-make] Error 2
+   make: Target 'htmldocs' not remade because of errors.
+
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
