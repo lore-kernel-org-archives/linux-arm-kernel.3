@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534DDC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FAF0C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0aKf3r0veUqn1rT4el+1RxCAoZmF17+2VzJGANVxCI=; b=U/8py+soKqU7XdxuxOu5Rlhv9p
-	FD833XyYG3XoJ0c45kpgHoNb8tAYF4H4oyPlEaO2PIJ+7/u/t0IU2BOXnyuRI718SDgLTGDkYYhzP
-	tDaAiGvQURXy2bWYRnYSfYOtuh2XO57r42TzSsrgBITXkujsjarU8dM93/7N1/wrZ5ISBzOWw99E5
-	h26icwRPO/o3YGd+j8Q5Z3wEcUdk8P0o3c2kdWILSruGw8mai9ptx0PAm1zNiMolYftsHMfHSDn52
-	Au+EMRQ4bw0YGpfRvdtPyOtHEwQQv7H8ieqAqiVXDnLqxJRhU4si7D8X1YDJ0JjNbAEOjfqftucGx
-	ssx6VQkQ==;
+	bh=hOoCE0j0+Nf7/A2FNrnJbBGarUG82qfn+WjoD3EiQd8=; b=AbmJeLS20jte58eixeIqE9xicB
+	2rGlWlejzuI8hgXNCH4AGbYft+BNlkuTin0AoPd/vQCCeHIxXN9OHwkifX2snUNARsOPCGyJNGe2Y
+	ekbFc++GM7ySxWhICJ7xPRXy2QXusHSAtlPiT4vcDZe2U/SkAAVw+lDDiSeby0Ai/vBZ05n6cPETY
+	JAevRbtADAuh+3SBMF49Dthiv0U3dSOHEIzH3AToMdyVXuOXTJLTToW8xJ+NmUV1j5+4NplZl7FMW
+	kJoSD/FX1YfmFz9KhTDopzMDbMPlwh7oCY0xmGuuq0t+kDJHYNfZ/KBRCSUWUBPkhe6mtTWLVAiXx
+	VHBgHYZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbS-0000000461S-2EWb;
-	Fri, 23 May 2025 14:42:30 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1uITbV-00000004670-3975;
+	Fri, 23 May 2025 14:42:33 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISe7-00000003zPN-3oJJ
+	id 1uISe8-00000003zQA-3Jpj
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 23 May 2025 13:41:13 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-54acc0cd458so11970331e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:41:11 -0700 (PDT)
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-550edba125bso7883576e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:41:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748007670; x=1748612470; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748007671; x=1748612471; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=D0aKf3r0veUqn1rT4el+1RxCAoZmF17+2VzJGANVxCI=;
-        b=IBMkwjeVwFyrL10H8DzfybSnrknfPYcZu0xAoP4O4w0rU/+6vO5K7D/Wq+59awweVf
-         3oLm0HvMBykw9GkoLsjRcDpUNFu+ADf7aCegUlGecPkqdEwuLPG81GH/RvU64qKNFfJa
-         tqRDIUyR4SUBjKZOWf7X21i6kIFH3aju0X8v8QXz67sG51Mtp1vdsVQ3F6XN/aUY0eES
-         Ece4fZrsI918QsMTL9ceCZsnWXoQg2sm3cfZEIHVGTiIuNKZN4Qpzxlg0Ads31+AocRb
-         GRytYCKZkn3/plVM/iNkis2/CU7sEKX+gFoX/uoOfqpIrxWuj8hkWngBjnD1ZEtLp7Op
-         /UcQ==
+        bh=hOoCE0j0+Nf7/A2FNrnJbBGarUG82qfn+WjoD3EiQd8=;
+        b=rQB4hv25UQvqoEJa4QOqfl/tvyAqVy7nAiToh+LH70f46D0r3t9b1eeKpdX8CKBC57
+         j3JQ0A6pLkRO9cU+ctz0aAkUT4kU047XgYLJX++4ZqbUkjF6AroMy9vNF08i6/yBsA2t
+         VzeIKev6CulwHkTH6/ytIiilOkwF87SUrXDAaiQ2vOKFB1xFEEOk7NVDiL0+4nH4HFYX
+         xkTpTU32Dij+e7NGpx1NpdtZxI1rJ4AO36C8UwiQ60Av2Ko8bu+W+q3qfiX1eJmafqk7
+         L5ACbVq8+FnfKFadjW++0ydj4HO/wM1VgI38CBvC5KZM4RvKqSC1FGzjX34ZR7NM0FL+
+         PwEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748007670; x=1748612470;
+        d=1e100.net; s=20230601; t=1748007671; x=1748612471;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=D0aKf3r0veUqn1rT4el+1RxCAoZmF17+2VzJGANVxCI=;
-        b=Uv+WIC/07cjMlrDvGaADmOzA8FeWxg8bTUOM3W0bSol9/MawAFJXxnpalYMnnw0oeY
-         WEbNHNoPRZX2J0rX8inVcINhVoxYQHrg/ZNrMEvOG32U3DJkpzWMy0FKEja4AKyNB8xh
-         ODPth3+neEMYpLujALY0VotTyosB+mfT+TDYAJ1ttJ6/Ks8kObPdq5raZTkCPSG4DO8a
-         fQWgYqrbOi65aEw8B3seTmxVYjCd7f61SJiXrDJHBCDesuFVw0cnhQr3QsSF7OGCuLfq
-         4pX+HdYp/DIBalDJj/a8l1UPszpul6LKa1sH8PDxefyhuFcekhY3drUzt16oF2spSWNA
-         Bj7w==
-X-Forwarded-Encrypted: i=1; AJvYcCWvxkmIIxRXziOADixF+yx1yee0u5q3yn27W1ih7Dme/YBS5VKbZRzkmDBL2I759YLsu9kPDQ9eKncFcTTMRxrH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3vdmD9EpM+J4t/Gt8ahjGW2AOcdqfZCGcatuGximffchsLybr
-	Ho6S9Ik+HiGeufWfDtqw4hpsMX3JKKMop0JdWJ/caNEABxye/3e7aPv6K45kYPRqtBs=
-X-Gm-Gg: ASbGncuUfrGF8CUOEoqC457JAYAoRliKvflWkRLw23ge0R68nh9rPMOPcHdPR966xel
-	YGWXmtR8wkTdw7GSEEh3b6lC0nObpuuerRdZCYfSXUztML9bpdaEoC0aznebX+nOv9Tf5yhkVBe
-	I4dlZ4UuMeyOf02zro4haRwA4/+bDWQWK2ZsLPrBiIde3Y41bRLkkqx45P6C4AdMTRUdt1bYaIc
-	nh8E4ceznVfnAQ/8fbeSt+ujWF1qdBBN6gFkZrKye57/gEnMc0K1r/25EMFeFSfv5noCjj61MBO
-	GaAGVpo5aCb3yYAbMtfXhs3NIzTGTvp+98t/c/1Tgjh+bt3LLCx15mD8T+c3nDgX9MgHAq4mft+
-	Uw5BdtAMtZy15qKgp0S22+ICC+A==
-X-Google-Smtp-Source: AGHT+IEajquH8YxvUkbDSaTSmZKiibO3mtnqJl45yxSX8n0PgKqQyv3ngd+5PXGwnfc30g1Js1BKCg==
-X-Received: by 2002:a05:6512:3e04:b0:54b:f33:cc16 with SMTP id 2adb3069b0e04-550e71b2359mr11620509e87.16.1748007669877;
-        Fri, 23 May 2025 06:41:09 -0700 (PDT)
+        bh=hOoCE0j0+Nf7/A2FNrnJbBGarUG82qfn+WjoD3EiQd8=;
+        b=ebaxHxuu+rJzVvMu8sE0G0y21l9+DUSVx9V/qMIVYcWSKbudorliAUQRH1XnGD2NT8
+         Cgx6cwhwIoTO+Ul7RNXjEPYI1NmLkr8OrSekWt5gTREtUW0STjYUisKnWw1bLdYe3E9M
+         fZwH9lt8T+cOzoZSNeUTTrtYM8mLC7xo6KU0taEbHp/ZVqi80NYz2HLdZk9D69p3irUI
+         4AdmGrrUxf8Oawuginidxz/DSjPocU9PYf3qppN7I9x2NzmiG/xl0/TjEHgnjS6zePCw
+         sOMQfWN7vNtwjQi/UW0ZpoYCLGsey3eiDJxvUcVF2yABc0t5M+IfCa5HBWDCGA6BdIye
+         Ro6g==
+X-Forwarded-Encrypted: i=1; AJvYcCX76ydY2nP7iHGjHQcTdx1WEPH1lHZ7PsU8+muP2FlckrVL5mZ2CRchIXx2qrtROSP2K22+hDyV9muaFx6vnNQc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEtOGN+7FH7xDsKdPdbzqCyEVyX73SKuDsVeYZ6vCoCbj596rN
+	wjcgPuqM6G3dmhTg8xs+Q1kC4PWffwyU5N3aCbywfdVkjTg/23HIKqD3Bec+26X2fnk=
+X-Gm-Gg: ASbGncuaMBRrTzeJRlDAQKPu+amoG0CbhbI118VHysV1k6zVIjbA45YBgpPNBdlwQaR
+	h7wfSTtAOIZ0XBcDda1GuBf6N9SHJKo5i0E8jbMJr0Gm0d/ebx+tSu/rz+yEsWGljvqF/ihsciJ
+	UKS7UXJo+S6wud/hVKauSJeRmIDMSeoZv6CHjal+6hlvnYxenTm84v3kQa8aI3uesmgAnMGcEDf
+	Y6XVTz6Z1Ku/zBu58oEFQ+SW9LcBKZLD6thriWDhsV0ozMPPaZnR8j3JP3W8gS8yp7+P2u65Y82
+	aYUXmxch2vVQjViA4euzSoaqlVCYhlBIImcZna8T0hp7E/lAQHywj644BEllh4bS2bnZ10UsGBR
+	J2bXm5vzMqX3pxo60vnmk3ohsNA==
+X-Google-Smtp-Source: AGHT+IEVVVIanD+SM8PaeTS5BPNrUZEt3qImxQaWobI9SebxfHyiMxLEusYRHx51DE+mAPmIootadg==
+X-Received: by 2002:a05:6512:438c:b0:54e:a23f:82d9 with SMTP id 2adb3069b0e04-550e71d1472mr7232899e87.25.1748007671215;
+        Fri, 23 May 2025 06:41:11 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.41.08
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.41.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 06:41:09 -0700 (PDT)
+        Fri, 23 May 2025 06:41:10 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -89,17 +89,17 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 19/21] pmdomain: core: Leave powered-on genpds on until sync_state
-Date: Fri, 23 May 2025 15:40:16 +0200
-Message-ID: <20250523134025.75130-20-ulf.hansson@linaro.org>
+Subject: [PATCH v2 20/21] cpuidle: psci: Drop redundant sync_state support
+Date: Fri, 23 May 2025 15:40:17 +0200
+Message-ID: <20250523134025.75130-21-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250523134025.75130-1-ulf.hansson@linaro.org>
 References: <20250523134025.75130-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_064111_953055_5E13170D 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20250523_064112_853682_2FFDA7CB 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,59 +114,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Powering-off a genpd that was on during boot, before all of its consumer
-devices have been probed, is certainly prone to problems.
+The recent updates to the genpd core, can entirely manage the sync_state
+support for the cpuidle-psci-domain. More precisely, genpd prevents our
+->power_off() callback from being invoked, until all of our consumers are
+ready for it.
 
-For OF based platforms we can rely on using the sync_state mechanism that
-the fw_devlink provides, to understand when all consumers for a genpd
-provider have been probed. Let's therefore prevent these genpds from being
-powered-off until the ->sync_state() callback gets called.
+Let's therefore drop the sync_state support for the cpuidle-psci-domain as
+it has become redundant.
 
-Note that, for non-OF based platform we will keep relying on the
-late_initcall_sync, which seems to be the best we can do for now.
-
-Suggested-by: Saravana Kannan <saravanak@google.com>
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/pmdomain/core.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/cpuidle/cpuidle-psci-domain.c | 22 +---------------------
+ 1 file changed, 1 insertion(+), 21 deletions(-)
 
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 5d2ed4edffd7..6da25e2c81d2 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -1327,6 +1327,7 @@ static int genpd_runtime_resume(struct device *dev)
- 	return ret;
- }
+diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
+index b880ce2df8b5..37c41209eaf9 100644
+--- a/drivers/cpuidle/cpuidle-psci-domain.c
++++ b/drivers/cpuidle/cpuidle-psci-domain.c
+@@ -28,7 +28,6 @@ struct psci_pd_provider {
+ };
  
-+#ifndef CONFIG_PM_GENERIC_DOMAINS_OF
- static bool pd_ignore_unused;
- static int __init pd_ignore_unused_setup(char *__unused)
+ static LIST_HEAD(psci_pd_providers);
+-static bool psci_pd_allow_domain_state;
+ 
+ static int psci_pd_power_off(struct generic_pm_domain *pd)
  {
-@@ -1362,6 +1363,7 @@ static int __init genpd_power_off_unused(void)
- 	return 0;
+@@ -38,9 +37,6 @@ static int psci_pd_power_off(struct generic_pm_domain *pd)
+ 	if (!state->data)
+ 		return 0;
+ 
+-	if (!psci_pd_allow_domain_state)
+-		return -EBUSY;
+-
+ 	/* OSI mode is enabled, set the corresponding domain state. */
+ 	pd_state = state->data;
+ 	psci_set_domain_state(pd, pd->state_idx, *pd_state);
+@@ -63,8 +59,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
+ 	if (!pd_provider)
+ 		goto free_pd;
+ 
+-	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN |
+-		     GENPD_FLAG_NO_SYNC_STATE;
++	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
+ 
+ 	/*
+ 	 * Allow power off when OSI has been successfully enabled.
+@@ -127,20 +122,6 @@ static void psci_pd_remove(void)
+ 	}
  }
- late_initcall_sync(genpd_power_off_unused);
-+#endif
  
- #ifdef CONFIG_PM_SLEEP
+-static void psci_cpuidle_domain_sync_state(struct device *dev)
+-{
+-	struct psci_pd_provider *pd_provider;
+-
+-	/*
+-	 * All devices have now been attached/probed to the PM domain topology,
+-	 * hence it's fine to allow domain states to be picked.
+-	 */
+-	psci_pd_allow_domain_state = true;
+-
+-	list_for_each_entry(pd_provider, &psci_pd_providers, link)
+-		of_genpd_sync_state(pd_provider->node);
+-}
+-
+ static const struct of_device_id psci_of_match[] = {
+ 	{ .compatible = "arm,psci-1.0" },
+ 	{}
+@@ -201,7 +182,6 @@ static struct platform_driver psci_cpuidle_domain_driver = {
+ 	.driver = {
+ 		.name = "psci-cpuidle-domain",
+ 		.of_match_table = psci_of_match,
+-		.sync_state = psci_cpuidle_domain_sync_state,
+ 	},
+ };
  
-@@ -3471,6 +3473,7 @@ void of_genpd_sync_state(struct device_node *np)
- 	list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
- 		if (genpd->provider == of_fwnode_handle(np)) {
- 			genpd_lock(genpd);
-+			genpd->stay_on = false;
- 			genpd_power_off(genpd, false, 0);
- 			genpd_unlock(genpd);
- 		}
-@@ -3502,6 +3505,7 @@ static void genpd_provider_sync_state(struct device *dev)
- 
- 	case GENPD_SYNC_STATE_SIMPLE:
- 		genpd_lock(genpd);
-+		genpd->stay_on = false;
- 		genpd_power_off(genpd, false, 0);
- 		genpd_unlock(genpd);
- 		break;
 -- 
 2.43.0
 
