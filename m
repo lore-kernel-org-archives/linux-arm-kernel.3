@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 804CDC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C789CC54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 14:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z5aEp/8JtU93ixaErAVWqgNJDOtLrawJ3jNzY/478Oc=; b=3+ZqYWFtmyC2CgZa3Xljdyqz8a
-	Qq4uvU4tpwrwCB91Yo1kN+hPKnEz4kPfZG85lG+wEiWP25uVj0DwTjwpw+iCHDB5t1fxwawqDXm/x
-	19KbhpxPvic9uh+ryIJCcIGCaCNEbj2DCM6s6b6cWi0ZbLnBPAXb8+a5thYCBm6mJFfbWi4UaVvYx
-	0UNfR+SUflq3lEgUEDLUe3mu54kp8ZFtwt8NsDfL/xlzGC2W7vf2hd46A2QdEY2Cn3fv4rxi8HouC
-	S73py7PTdMvfC96nINyg+p7t0IkGtDhDi0svr7xNxaoKTymb4w6IHK76m2lBlSVtsl9OK3CDbYvZw
-	scSoS2vA==;
+	bh=7ptipst+jgUVMZThwfnH2tLuY1vSwuKeNOIIYU0B7Lc=; b=sX3dzh1ZVMmR5srrY8etXPbl6N
+	FMk5gOV2d/vC7hXfO9hgCeOvTa2Bh5Z/xgcsWZsHV0V1wU47bB3eDN6fSca/LbbJNwQBoP2jwY6VR
+	OXbOTzgupUFeCP/0ylmrvk2o1zD2DNKwlDoivi0BgZWJCTMO3lW/dcDfNDh7chawMgK5oyC4vuLXl
+	WydKEppScOwb83zntM7+i8lMa5m9INWq5U0yhgX1hzJJf00Se1I/Zqel+j5q2IQ/AE2TYo3KLIai9
+	X9uuP0KOpKsYzDBUwEuJYdqu06TgfASksi5L/ohsJpxmMNNy6AuIldFsaHaMoz7u9774NpQ2urFO+
+	Q1z6hQsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbI-000000045jx-3pY4;
-	Fri, 23 May 2025 14:42:20 +0000
-Received: from mail-lf1-f54.google.com ([209.85.167.54])
+	id 1uITbK-000000045lq-1e45;
+	Fri, 23 May 2025 14:42:22 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISdw-00000003zLG-46qY
+	id 1uISe0-00000003zMa-2nYj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 13:41:02 +0000
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-54b10594812so10956716e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:41:00 -0700 (PDT)
+	Fri, 23 May 2025 13:41:05 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-54e816aeca6so12729984e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 06:41:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748007659; x=1748612459; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748007663; x=1748612463; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=z5aEp/8JtU93ixaErAVWqgNJDOtLrawJ3jNzY/478Oc=;
-        b=MHGb5nqROzN6Gr2qpSNsrRZyO9Xp0+grsN1MTmU6lLlmzzwoIy+xaVrUobvBhrhOMY
-         ip5eJFcOX3P59NCFcWOIws9DBKB1j3h+kX1AjGnGNOJbiMmptQzrK0ZAmmiBZah5HljZ
-         aF6OKCmWSpc0F9zfssD+a53D5zxUVgEHRa8sDXUwKBj30QSuStRnFfJIxM0oFtl1ciaS
-         jf4mnX/6UmrSpUw3nU9Ef0gG30UnJcKoLtM48S54uwCUIYQtDWtLkT04bjOnmmdmar+Q
-         GOM6c6Lb9H7atdiqyeehKmPlC2ItHFInfEehwBoIWa9dWxE5UpdSrX1fhbIfrQ756jAe
-         FHXg==
+        bh=7ptipst+jgUVMZThwfnH2tLuY1vSwuKeNOIIYU0B7Lc=;
+        b=jOqKv7FDrlGfKigtAENi33CkgQPnxtD4lhTZT3syaF2YeEah4MTSIsfuNALVQJox4i
+         vw5fSo1NO5LIZ7NHaUdrjwUjjLe9/poN2WedRkOXgcKlBs+xze9XVcKmuDFpvkYswS04
+         SKIIZbLDwLftuz1bZKgvFH3hHTdHYUMnvaa0cLxHZns0sCzP0M/TkCvMgTWB5BGgjcw/
+         MiyzgJm2+6nz0O53o2R9YLPKfRYLTYrZjDG4ddalfGDAV9tEMJ3PU5+HUIzEOBKrmaX6
+         xfKD1AOUlno9rFhOf60yxqMNIRjJtRs+p0DLhfvDof6Xb0sBC9cWiy796AiCbjbVpvhc
+         hZVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748007659; x=1748612459;
+        d=1e100.net; s=20230601; t=1748007663; x=1748612463;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=z5aEp/8JtU93ixaErAVWqgNJDOtLrawJ3jNzY/478Oc=;
-        b=wxKcXykIYIO8zTp20rxQY2OSRaoLyjoDMNY5zxMzsi7oK4P2tVYpPQBzA8W0M8Od8i
-         8o2+K9l6OBL2XR5MYwx/8rOXp1djjKU5VpO+wkUUqbL0KYV++2NM3jjIsim6ICFeynfc
-         SQplL6kumaHJpDQ1UmuN/fQMXFMuC6I2W+C13aJY/WUU8mTUG//6HszZwBstUNXLLz5w
-         9DMkdSPZiQIjqHVr8XjxG4gMVgEnSFQIeOBtgLp2LNlf21JgF5G2rXYCv3TKKX3GdiHd
-         V503mfnCQxx967qEOVPudSX+KHe090rZFRRNh2Wf8RkmrIF41NKUaVEXCGnCuoJP0pDv
-         yCZg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9AiaF0zmEP5ZWQUlbBYuSyIL/pqIGs1mqqFEui9a1wMldAM09IiQIvN3jdYiqNeQ/ilky+9Q3vzkEpofGjGNa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzjhu5QgCO+Ax8hMYe8wEycUaKfKzIGbDLhfU3EI6/kNADFF204
-	B0kRlWefNN42Ck10//QXvonLxcxFS/QXfoGvVbaiXILqcoaLcV7FWJl7w8cFe9UgBFw=
-X-Gm-Gg: ASbGnctCuIRny4dSAT5u6goE8sl69M+G25HXI+X/hDi/Ta+Hbt634uNNpEIeQxTaBSh
-	N3yfF3HwjY/JoWdmtLHXmC3Ib7FSHEQZAnBWzMgGJ5lJ0KcRRcmBXX5ZkMie00FqqJ8m0Cgef5m
-	Rq0HQHo5IyzxhJqiibesjkoDMy5pJ415fjW+4n4j1OaXn90k4lqucflq14u2yb/K9GBWo4DaEsa
-	waaJ76RewCZmPuBQIp+9N/uQxE4OvrBgDNfBwg54jhCGsPmWy9o7O5Y3MAdxFO/nWfQk44zZS7A
-	RC03dZpapXpfgUKjzVETCusKVLUD78IrmEC02LdUc96oTh4tcvYdNFF4nMjvAE07plVjb+I/FuU
-	BLc+gzAgz1hFIm+C5g5DrKWOHf4ScA4BRlM0Z
-X-Google-Smtp-Source: AGHT+IHew3rJAA3EL1rPz5CTB3uwQqlEQeWho80HyKc1TwZE2NDcF2OqAfkY0OELPgTm0zJ+F3OM6w==
-X-Received: by 2002:a05:6512:1196:b0:550:e3de:63bc with SMTP id 2adb3069b0e04-55216e456acmr896941e87.25.1748007658748;
-        Fri, 23 May 2025 06:40:58 -0700 (PDT)
+        bh=7ptipst+jgUVMZThwfnH2tLuY1vSwuKeNOIIYU0B7Lc=;
+        b=XQuI8Xd8sxZwiflQfPBjfnS/RV2P38NXHrajntpo1HObA4tj2dHm5Jkp4g1EVsksct
+         8Xwm6s8VRUfgKGfd9gPoeQG4CmV4pv7JRQNn+B5pWmeMHIKi6So6v/gjWQq9njxus01B
+         EBKcX8rBoKd4qFwePAygUV6FhYBGa1C1edosHwVwB+EgbQItOcSU8QAEO8zWSog8MEPP
+         1jlDn6h4ewx0FoABvTxCAJ85O0cAwQrDqadpsl6Evu3/tF3XCfpbxkW51n75fpq7tYdz
+         rFwV09VVdVYjSwhIJjluUGxKwlv2Osz2GMu6WuKBNkuWaTo9nx8X/W04ZyAa3v59Qqde
+         etyA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKiAjbWCbC99IM0AO6uRQZ7vnj0ooxH7ymP7onIxTGLCAybfe7FY+pULvFREQIIREiPZ8TlnyXxbfo25PES/mA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcMXXwnI+mQf3j5hNC5M4feWie8IDf4ynkp8sboYH6RHXKdeBY
+	yFnJylvCda3RKW5Rqwa0tkgrSizJb51gvQw21QGETr6ovTGaTVTiApdhf00d49uzHWM=
+X-Gm-Gg: ASbGncviU6PL+sh4XmUeNQbjpE4g1CiS9Ffi7OIXaOEnjbkG/zO93hGZ7TngCamc0hV
+	3E72w2TrcpYuRfMq85VOjgQfJxORUKWCHVrrAx4C8QYIt+hY/j9e8cMa9HvCgfpzBnXLArKhNJ8
+	99srTdKN9I1hR3FeMCLy7B12Yv4/F7NKZTGwNN7Z0MYNq3/S0oRtsepEHtymiCeedPLwRDKJ6P+
+	/a8yu8xPAhVOGGYxWHX7UdkjgxdJZD47rhiGcY9mf9b7drOuM3+XuXZUk+mGbhE4b/HlWmuzp95
+	lB/nmUs1IYzliWaAChlEstAiI6NhoJGw8OeRg+B7cCkqKsqb50YphFbaTqON6TSPFFd85fkthYZ
+	HNBG+H5xG/+Tifre+KvIw1cKAAg==
+X-Google-Smtp-Source: AGHT+IGfBRDW1UMlFuEvFbwkjGLGnQiQkt71IPhxmMxhJWvlHH9jDUn6RGcLspRvscDDVp9YdgMBPw==
+X-Received: by 2002:a05:6512:39c9:b0:549:9143:4e8d with SMTP id 2adb3069b0e04-550e719835cmr10282215e87.8.1748007662658;
+        Fri, 23 May 2025 06:41:02 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.40.57
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.41.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 06:40:58 -0700 (PDT)
+        Fri, 23 May 2025 06:41:01 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -89,17 +89,17 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 12/21] firmware: xilinx: Don't share zynqmp_pm_init_finalize()
-Date: Fri, 23 May 2025 15:40:09 +0200
-Message-ID: <20250523134025.75130-13-ulf.hansson@linaro.org>
+Subject: [PATCH v2 14/21] driver core: Export get_dev_from_fwnode()
+Date: Fri, 23 May 2025 15:40:11 +0200
+Message-ID: <20250523134025.75130-15-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250523134025.75130-1-ulf.hansson@linaro.org>
 References: <20250523134025.75130-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_064101_024004_0F1FC015 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250523_064104_710194_2676F43C 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,57 +114,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As there no longer any users outside the zynqmp firmware driver of
-zynqmp_pm_init_finalize(), let's turn into a local static function.
+It has turned out get_dev_from_fwnode() is useful at a few other places
+outside of the driver core, as in gpiolib.c for example. Therefore let's
+make it available as a common helper function.
 
-Cc: Michal Simek <michal.simek@amd.com>
+Suggested-by: Saravana Kannan <saravanak@google.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/firmware/xilinx/zynqmp.c     | 3 +--
- include/linux/firmware/xlnx-zynqmp.h | 6 ------
- 2 files changed, 1 insertion(+), 8 deletions(-)
+ drivers/base/core.c    | 8 ++++++--
+ include/linux/device.h | 1 +
+ 2 files changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index a91a0191c689..87ddbb7d11c2 100644
---- a/drivers/firmware/xilinx/zynqmp.c
-+++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -1299,11 +1299,10 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_bootmode_write);
-  * This API function is to be used for notify the power management controller
-  * about the completed power management initialization.
-  */
--int zynqmp_pm_init_finalize(void)
-+static int zynqmp_pm_init_finalize(void)
- {
- 	return zynqmp_pm_invoke_fn(PM_PM_INIT_FINALIZE, NULL, 0);
- }
--EXPORT_SYMBOL_GPL(zynqmp_pm_init_finalize);
- 
- /**
-  * zynqmp_pm_set_suspend_mode()	- Set system suspend mode
-diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-index 6d4dbc196b93..ae48d619c4e0 100644
---- a/include/linux/firmware/xlnx-zynqmp.h
-+++ b/include/linux/firmware/xlnx-zynqmp.h
-@@ -585,7 +585,6 @@ int zynqmp_pm_reset_assert(const u32 reset,
- int zynqmp_pm_reset_get_status(const u32 reset, u32 *status);
- unsigned int zynqmp_pm_bootmode_read(u32 *ps_mode);
- int zynqmp_pm_bootmode_write(u32 ps_mode);
--int zynqmp_pm_init_finalize(void);
- int zynqmp_pm_set_suspend_mode(u32 mode);
- int zynqmp_pm_request_node(const u32 node, const u32 capabilities,
- 			   const u32 qos, const enum zynqmp_pm_request_ack ack);
-@@ -746,11 +745,6 @@ static inline int zynqmp_pm_bootmode_write(u32 ps_mode)
- 	return -ENODEV;
+diff --git a/drivers/base/core.c b/drivers/base/core.c
+index d2f9d3a59d6b..51512ab8a6e9 100644
+--- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -1881,8 +1881,6 @@ static void fw_devlink_unblock_consumers(struct device *dev)
+ 	device_links_write_unlock();
  }
  
--static inline int zynqmp_pm_init_finalize(void)
--{
--	return -ENODEV;
--}
+-#define get_dev_from_fwnode(fwnode)	get_device((fwnode)->dev)
 -
- static inline int zynqmp_pm_set_suspend_mode(u32 mode)
+ static bool fwnode_init_without_drv(struct fwnode_handle *fwnode)
  {
- 	return -ENODEV;
+ 	struct device *dev;
+@@ -5255,6 +5253,12 @@ void device_set_node(struct device *dev, struct fwnode_handle *fwnode)
+ }
+ EXPORT_SYMBOL_GPL(device_set_node);
+ 
++struct device *get_dev_from_fwnode(struct fwnode_handle *fwnode)
++{
++	return get_device((fwnode)->dev);
++}
++EXPORT_SYMBOL_GPL(get_dev_from_fwnode);
++
+ int device_match_name(struct device *dev, const void *name)
+ {
+ 	return sysfs_streq(dev_name(dev), name);
+diff --git a/include/linux/device.h b/include/linux/device.h
+index 79e49fe494b7..f6ca813eebbe 100644
+--- a/include/linux/device.h
++++ b/include/linux/device.h
+@@ -1086,6 +1086,7 @@ void device_set_node(struct device *dev, struct fwnode_handle *fwnode);
+ int device_add_of_node(struct device *dev, struct device_node *of_node);
+ void device_remove_of_node(struct device *dev);
+ void device_set_of_node_from_dev(struct device *dev, const struct device *dev2);
++struct device *get_dev_from_fwnode(struct fwnode_handle *fwnode);
+ 
+ static inline struct device_node *dev_of_node(struct device *dev)
+ {
 -- 
 2.43.0
 
