@@ -4,81 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34681C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 04:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1413DC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 04:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XSpvLlvtj4VtScpjrFy6wBiDmzEp6kgT61xywF6hNg=; b=a1d4CTeNjvOAx7jyyW+kcrCoCd
-	F5OzR9Zxq8uXnVBqDlvnh72KXTg57LT0lzVa4X9bOheFgn+tbbu65z356t5e0z/pYX6FujD5X3Y9r
-	cdEihZWBvUnsd8MTnDVcIu4hItdMSeVB6dJ1N0O8SyIYJT8h9Hjhio/73RXQIwURf4qj/Pr9ssgpr
-	Koh3EbySD/EZWnHl4VS6o/Pz3s5Y332mejz7NP0/dVRBsmDX59jThvyoNPz4BYL5z9VYTOvJAdHFG
-	wHUR0xCuw9PIGSujuizLo39JTU/LWDgyFJunPuSfR9jdTG7q9e/5wIHqZGAHkENb0iDX5dXl+lwjk
-	zK1SF5HA==;
+	bh=C8D4LxVY5xiBAnCpq4qjYfypcmK3R7vRmG4YyK+yYkI=; b=hpBJUjRe2xNY6hUDvSI8+bCVn6
+	qAuu7Qhr3lYm1qNAtjpj40Zqy1FF7R6OSVU/NVRbQa9VWUqDBGWe4oZ3TyBfuRHXHopkejoS/HhKt
+	I5qmWdp36qP1gJVvjIkq2a4kIH5N0qfgGLfshITlbbzCBsziROvjPVBVYQEzhJw03U7lRKu6/hkKT
+	OP45QqISkrRPZiIG62TEc5MWnuZJcllbJqI1kqZ38wnWA/JdmFxzDvSIw3popUy36xh/chcddVn2G
+	XRgbb9usOgKe7cg86ZKyzw3mnKWwiUW8yym7f4RNpN66n1LdCvkI5SsodYvLKEKCF9WAKOKTycoFS
+	UeLTrOXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKMt-00000002wHg-3Xjn;
-	Fri, 23 May 2025 04:50:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uIKP3-00000002wdg-3BLz;
+	Fri, 23 May 2025 04:53:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKC6-00000002tza-0Xkw;
+	id 1uIKC6-00000002u0g-38Cr;
 	Fri, 23 May 2025 04:39:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73D2E62A6C;
+	by tor.source.kernel.org (Postfix) with ESMTP id 73C0062A6B;
 	Fri, 23 May 2025 04:39:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 375BCC4CEF0;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 382C3C4AF0C;
 	Fri, 23 May 2025 04:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747975181;
-	bh=hftQ+JwDBzI0zRNacsurrBG64kHnxlfHAL+GJc3UtlU=;
+	bh=9V+bffTinVGVEjmw6TF+C5G0YfQpy53YZa3Wm2q7aj4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Mlt9V43N3s40KNvwRkfJKjgVKijKqbPLij46HqqlNkvIfoSL+rYnTRagbRTto7C/K
-	 8lYy8Vqp7TbL+nevN/UIpBTjs/XiptxQbwFMSHjovX29YatR87eZXGa5wo9w35cPhn
-	 Cefoo+t9qOreQxCbxZcAa0YkQCMkvZrw4A3VgoPMNxG6T2SYs36c/iq02U+MSB9q36
-	 kfcyPIztlB4cObaFoHSd51+ZGbz3F5mBh3nlmSv+d05RczPwBGHTDnXqMJ/Wsu/fFY
-	 IDaZlSE5ORjlyuqIi2cwHtzMweQh4kn/Xp2k5lvlHUjzyqNROrExrC8pBmVtDqBVFs
-	 RqH/LrMJYFszg==
+	b=CQzG9oRPTanTBH3Dl63lrA8eEch+sC2faTWSG3nXeBdtxalGP1gnN8dEyqbNm7ZXn
+	 unsRVKOVKuk4zIpHq+kubtAx/ANRaNUShS+XdLXy5eWh9u9l90J7Pk39eFPenhTzFI
+	 s88j8rHEiHN+CZFLnQibZIfBwwIqHbwSX4WB9TfOUjfLpncwqy+6gCMmtokBaHeHFd
+	 td4pqOqMiOa9CAAHlhha/9wqCjbuNaHn+lvQ3tGWRTuzfrDMFNSWT2M1eS/Y7wg3ii
+	 H3nDMaOAzTetrFxbuGu8UNrCL6D3sy363qcc7zOe/Dyr3b0I5ttw/k+A/YYw0fDMXt
+	 ahJiVX+qUi50A==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-hardening@vger.kernel.org,
-	Christoph Hellwig <hch@lst.de>,
 	Marco Elver <elver@google.com>,
 	Andrey Konovalov <andreyknvl@gmail.com>,
 	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
 	Ard Biesheuvel <ardb@kernel.org>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Hou Wenlong <houwenlong.hwl@antgroup.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	Masahiro Yamada <masahiroy@kernel.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	kasan-dev@googlegroups.com,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nicolas Schier <nicolas.schier@linux.dev>,
 	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
 	linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	kasan-dev@googlegroups.com,
 	linux-doc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	linux-efi@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	linux-security-module@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v2 13/14] configs/hardening: Enable CONFIG_KSTACK_ERASE
-Date: Thu, 22 May 2025 21:39:23 -0700
-Message-Id: <20250523043935.2009972-13-kees@kernel.org>
+Subject: [PATCH v2 11/14] init.h: Disable sanitizer coverage for __init and __head
+Date: Thu, 22 May 2025 21:39:21 -0700
+Message-Id: <20250523043935.2009972-11-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250523043251.it.550-kees@kernel.org>
 References: <20250523043251.it.550-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1038; i=kees@kernel.org; h=from:subject; bh=hftQ+JwDBzI0zRNacsurrBG64kHnxlfHAL+GJc3UtlU=; b=owGbwMvMwCVmps19z/KJym7G02pJDBn6v38HyWWXKGX9Fha1ip2xar75gzP/j6q95Jmz43H6d fc3TrsmdZSyMIhxMciKKbIE2bnHuXi8bQ93n6sIM4eVCWQIAxenAEyE/SHDX6HNeeWcaw/7rJ2y 6+fW8y+a07ddtX01ccPv5zYrb7rddeNj+MNv+XBylp3fp4kvJqYU+moZvBBbtaU3/mb8VCcD2V+ hfJwA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2887; i=kees@kernel.org; h=from:subject; bh=9V+bffTinVGVEjmw6TF+C5G0YfQpy53YZa3Wm2q7aj4=; b=owGbwMvMwCVmps19z/KJym7G02pJDBn6v39z3tX005Y/rnL4YOLkChWuJ+9Wl0ZxtHAnf5w+4 +zlC8f3dZSyMIhxMciKKbIE2bnHuXi8bQ93n6sIM4eVCWQIAxenAEzk8SRGhsnn/rn8m/7L8JvJ sSfzOhSq+TU4fvE+u8S/Metrj/ZaW1eGfyYVhxIUl7qsrup9tc1w3of4xW0amTu32l3mnx7BlO2 twQEA
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -95,31 +107,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since we can wipe the stack with both Clang and GCC plugins, enable this
-for the "hardening.config" for wider testing.
+While __noinstr already contained __no_sanitize_coverage, it needs to
+be added to __init and __head section markings to support the Clang
+implementation of CONFIG_KSTACK_ERASE. This is to make sure the stack
+depth tracking callback is not executed in unsupported contexts.
 
+The other sanitizer coverage options (trace-pc and trace-cmp) aren't
+needed in __head nor __init either ("We are interested in code coverage
+as a function of a syscall inputs"[1]), so this is fine to disable for
+them as well.
+
+Link: https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/kernel/kcov.c?h=v6.14#n179 [1]
+Acked-by: Marco Elver <elver@google.com>
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
-Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: <linux-hardening@vger.kernel.org>
+Cc: Marco Elver <elver@google.com>
+Cc: Andrey Konovalov <andreyknvl@gmail.com>
+Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: <x86@kernel.org>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Hou Wenlong <houwenlong.hwl@antgroup.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>
+Cc: "Peter Zijlstra (Intel)" <peterz@infradead.org>
+Cc: Luis Chamberlain <mcgrof@kernel.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: <kasan-dev@googlegroups.com>
 ---
- kernel/configs/hardening.config | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/x86/include/asm/init.h | 2 +-
+ include/linux/init.h        | 4 +++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/configs/hardening.config b/kernel/configs/hardening.config
-index dd7c32fb5ac1..d24c2772d04d 100644
---- a/kernel/configs/hardening.config
-+++ b/kernel/configs/hardening.config
-@@ -63,6 +63,9 @@ CONFIG_INIT_ON_ALLOC_DEFAULT_ON=y
- # Initialize all stack variables to zero on function entry.
- CONFIG_INIT_STACK_ALL_ZERO=y
+diff --git a/arch/x86/include/asm/init.h b/arch/x86/include/asm/init.h
+index 8b1b1abcef15..6bfdaeddbae8 100644
+--- a/arch/x86/include/asm/init.h
++++ b/arch/x86/include/asm/init.h
+@@ -5,7 +5,7 @@
+ #if defined(CONFIG_CC_IS_CLANG) && CONFIG_CLANG_VERSION < 170000
+ #define __head	__section(".head.text") __no_sanitize_undefined __no_stack_protector
+ #else
+-#define __head	__section(".head.text") __no_sanitize_undefined
++#define __head	__section(".head.text") __no_sanitize_undefined __no_sanitize_coverage
+ #endif
  
-+# Wipe kernel stack after syscall completion to reduce stale data lifetime.
-+CONFIG_KSTACK_ERASE=y
-+
- # Wipe RAM at reboot via EFI. For more details, see:
- # https://trustedcomputinggroup.org/resource/pc-client-work-group-platform-reset-attack-mitigation-specification/
- # https://bugzilla.redhat.com/show_bug.cgi?id=1532058
+ struct x86_mapping_info {
+diff --git a/include/linux/init.h b/include/linux/init.h
+index ee1309473bc6..c65a050d52a7 100644
+--- a/include/linux/init.h
++++ b/include/linux/init.h
+@@ -49,7 +49,9 @@
+ 
+ /* These are for everybody (although not all archs will actually
+    discard it in modules) */
+-#define __init		__section(".init.text") __cold  __latent_entropy __noinitretpoline
++#define __init		__section(".init.text") __cold __latent_entropy	\
++						__noinitretpoline	\
++						__no_sanitize_coverage
+ #define __initdata	__section(".init.data")
+ #define __initconst	__section(".init.rodata")
+ #define __exitdata	__section(".exit.data")
 -- 
 2.34.1
 
