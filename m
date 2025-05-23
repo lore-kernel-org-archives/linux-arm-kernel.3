@@ -4,84 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD7FC3DA6D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:24:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22BF9C3DA6D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 08:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FoFtYnTceEtN6fz6SSjtMb7bx0bRb2RkcJzA9O1EjXM=; b=o5AED+IijQaR3oyJVG0ZR/WnA8
-	uxqDOxbXw3Hivvzp1LaDaprP61kOanYs102CaatzLU2iesfP8DTNOrZZC5CAgSO0AKQCvf+MZ5Bng
-	1Hf5z2xDfs25jtazlcHBX9Hq729saic6ljwePXJsqZQvzj9s4AXB2oIB8wDNSV2A5jgO5Jhk/SE2v
-	q9I25fysUQ30RmoZqKKpTAXOyVjyl2xd58mx/DvCJCTkWrYcJme43Fv9iNohnJN8yaQ45W2yIjOxw
-	3mBfHDGq7kRcFiCJ78FjVfkk4AFEfCHDzrWRjMncRdrJQeTBDFQ1O41vyqBD2B9qpaY60840O2MM0
-	N09n2haA==;
+	bh=2pHAtZRqxdrICTJ54U8cuSnEzt04jv+CXS4PIxf6VeE=; b=kFHNAsxYjzc0o6kwg2mYNHRGUH
+	fW9pwVcOCr9IhYUdW30o9WdAwkFZoYnebSgZN5oHUqGMXABWf9jJgA6AK/WayP4oblY0iv7f4/8JV
+	29scu1SRpD/B0UaWGyTnMGkCJkZyhdt3uCSEmggD+EJQqsMvQXu6/l9e6FlJpi3yBYNzTHVrr8ld3
+	ta+kiIseCxHHPgW9W3JoX6sPqMMccRoIu9Mjy5AOjIm8269PYyZNrgupIhwkiv/q+YHTglt0SYb8L
+	11IQU+sfUsqbTkdt4/cswMdlAE3GY6tE2JQlQHQyipyoBRmKPXpr01HkaP9MBZhC+lUwpQJZwlIpL
+	Z0goCCmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uINh4-00000003Ihf-2TwJ;
-	Fri, 23 May 2025 08:23:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIO1P-00000003KXQ-3pVn;
+	Fri, 23 May 2025 08:44:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uINRh-00000003GPj-1ddk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 May 2025 08:08:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=FoFtYnTceEtN6fz6SSjtMb7bx0bRb2RkcJzA9O1EjXM=; b=fXuZoSPULVPey9F95HW7EV+aM/
-	DhWdccFKKkG3OVp86p/4g6Dn8ViFMAGmmGvYPDEYTdGeLiUxJL++DWCFePz2t13P1uDMfCkd6XD7p
-	8jAZlq9Y815rhkwhj0Ssf5hw/8w/7PHalUGnwLneA1hKedUufu1KKo4PhM2vEDnJEulHJ27/M6AYw
-	SH284OoAxmzSwt54epGZ7oM+yvGiOYVCBC+6s3UboTjnGDYxExHoGtwIh5m+ipOMHfuQ39p20lhYw
-	R+obO/tWIMShHl06zbmMjvp0rbQOylkPWTJu3tqhoIG2w0npE23Vvuvn5edBrNF6d8nHjDfKX8Sxn
-	aaGnh06w==;
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uINRd-00000001DNS-3LvQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 08:07:59 +0000
-Received: from pendragon.ideasonboard.com (179.218-130-109.adsl-dyn.isp.belgacom.be [109.130.218.179])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E29664A4;
-	Fri, 23 May 2025 10:07:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1747987653;
-	bh=I/rX/siILyzcMqHEzdmC4zV4w4CMLB3jlkKhgSTSTIw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EOwv6jzDniXOI7R7TljMRUoekN9Lv/wtRzwufJk6Ggu9PcyDMnpK0dlVBsmht/kkm
-	 TXLdq+q1XcVwiXalQN2mFK6TjBDLR8TSy1rS7FR17KCvvTtr0I2gf09E+ojSpDqBBd
-	 5zmkAUEXbhHpaHpy5+17r04rk/XIUxp43SjnPxi8=
-Date: Fri, 23 May 2025 10:07:48 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: git@apitzsch.eu
-Cc: Ricardo Ribalda <ribalda@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Ricardo Ribalda <ribalda@chromium.org>
-Subject: Re: [PATCH v3 1/5] media: i2c: imx214: Reorder imx214_parse_fwnode
- call
-Message-ID: <20250523080748.GZ12514@pendragon.ideasonboard.com>
-References: <20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@apitzsch.eu>
- <20250521-imx214_ccs_pll-v3-1-bfb4a2b53d14@apitzsch.eu>
+	id 1uIMkl-00000003C01-1GMI;
+	Fri, 23 May 2025 07:23:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 697EB629F6;
+	Fri, 23 May 2025 07:23:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A93E1C4CEED;
+	Fri, 23 May 2025 07:23:37 +0000 (UTC)
+Date: Fri, 23 May 2025 09:23:35 +0200
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Hsun Lai <i@chainsx.cn>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	heiko@sntech.de, andrew@lunn.ch, inindev@gmail.com, quentin.schulz@cherry.de, 
+	jonas@kwiboo.se, sfr@canb.auug.org.au, nicolas.frattaroli@collabora.com, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: vendor-prefixes: Add SakuraPi prefix
+Message-ID: <20250523-loyal-bird-of-persistence-c136a5@kuoka>
+References: <20250521131108.5710-1-i@chainsx.cn>
+ <20250521131108.5710-2-i@chainsx.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250521-imx214_ccs_pll-v3-1-bfb4a2b53d14@apitzsch.eu>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_090758_168736_4DD22979 
-X-CRM114-Status: GOOD (  15.27  )
+In-Reply-To: <20250521131108.5710-2-i@chainsx.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +61,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi André,
-
-Thank you for the patch.
-
-On Wed, May 21, 2025 at 09:34:24PM +0200, André Apitzsch via B4 Relay wrote:
-> From: André Apitzsch <git@apitzsch.eu>
+On Wed, May 21, 2025 at 09:11:06PM GMT, Hsun Lai wrote:
+> Add vendor prefix for SakuraPi.org, which produces
+> development boards like the SakuraPi-RK3308B.
 > 
-> Reorder imx214_parse_fwnode call to reduce goto paths in upcoming
-> patches.
+> Link: https://docs.sakurapi.org
 > 
-> No functional change intended.
+> Signed-off-by: Hsun Lai <i@chainsx.cn>
 > 
-> Acked-by: Ricardo Ribalda <ribalda@chromium.org>
-> Signed-off-by: André Apitzsch <git@apitzsch.eu>
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
 > ---
->  drivers/media/i2c/imx214.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/media/i2c/imx214.c b/drivers/media/i2c/imx214.c
-> index dd7bc45523d8b5fcb3ec95728a6d32c4fddede72..0199195dcb7d12dc2ff253fe3eb77ddbcd0812a9 100644
-> --- a/drivers/media/i2c/imx214.c
-> +++ b/drivers/media/i2c/imx214.c
-> @@ -1261,10 +1261,6 @@ static int imx214_probe(struct i2c_client *client)
->  	struct imx214 *imx214;
->  	int ret;
->  
-> -	ret = imx214_parse_fwnode(dev);
-> -	if (ret)
-> -		return ret;
-> -
->  	imx214 = devm_kzalloc(dev, sizeof(*imx214), GFP_KERNEL);
->  	if (!imx214)
->  		return -ENOMEM;
-> @@ -1295,6 +1291,10 @@ static int imx214_probe(struct i2c_client *client)
->  		return dev_err_probe(dev, PTR_ERR(imx214->regmap),
->  				     "failed to initialize CCI\n");
->  
-> +	ret = imx214_parse_fwnode(dev);
-> +	if (ret)
-> +		return ret;
-> +
->  	v4l2_i2c_subdev_init(&imx214->sd, client, &imx214_subdev_ops);
->  	imx214->sd.internal_ops = &imx214_internal_ops;
->  
+> Changes in v4:
+> - Fix vendor prefixes error (Krzysztof Kozlowski v2)
 
--- 
-Regards,
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Laurent Pinchart
+Best regards,
+Krzysztof
+
 
