@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD12DC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CA6C54F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 12:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kdhVZ27fT6CE3QToaexz4mdCDbpmw+kJMYcK8ovDzqc=; b=1wSWtGVQqeU+vUEGM/fHP6Z6Sx
-	GMzHCKIVQvOcEogDpgqvE2q0q7jc4a2Q47WZ+K6cFSu1mjv14oTvxO9FcDZ566o/9qa06dUJCBYhJ
-	+pUIKy+fy9Y2FiAlLsMVFlKXTotcGT499ktgdk1+uvvh30lFlU6517h1XbMArF/GXukmBzZHlRBoX
-	ylRv20kB4UDXwYaV1uVOX6wLxQv784FLmzYVPHImkCS8UQepLrC6OLejIh9j2Jp8VBpdbTIxa3r9L
-	nMrNxUi+YBWSlvJBtF4m/04TbhQ9+faT/I32D1C4PiwKMmRVmf2Qw18mkCuzTkxn0B/SW83NX5uwe
-	1gp33ODw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bpH39SBux/FnTvU2Mj/izFWlhWacqOVNUYyzk61rexs=; b=ASBSh0FxC9v757kLEXixTAeWaP
+	M0QNeo/L8kGf+jH85QaXAVXsiSx/w/MmkF/Fr/8b2GUT14Z6Gh2870Orh9gF3lbYcHbEbqkyzSiAc
+	4OI82RykmT+NNCQ+RIUoVEXSU/2pyL4plKdhw65G05j/vFi8CkCZyQDLSAxLFGLrLM2yOkH4WAHmz
+	zWFnaaXZaWjl9K+2fjkW2P+KjcgTZOOtnjImdajrYQh0fwT7VqrtB2u9fOZyzoMUiSoTuAgpVVYu1
+	8mpzZJ0NC5mA0NkOwbaJdL/jt83Q12/hUZNzo7UnndfKogIG1emRf7Xzpxn7XtxOTwSnsVJ3eAXkJ
+	D76PzM5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIRfN-00000003p1o-15fB;
-	Fri, 23 May 2025 12:38:25 +0000
-Received: from pegase1.c-s.fr ([93.17.236.30])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQS7-00000003guo-3ozK;
-	Fri, 23 May 2025 11:20:41 +0000
-Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
-	by localhost (Postfix) with ESMTP id 4b3hmd3T2Mz9vXt;
-	Fri, 23 May 2025 12:51:45 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
-	by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id x6OGEq_bauYM; Fri, 23 May 2025 12:51:45 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase1.c-s.fr (Postfix) with ESMTP id 4b3hmd2TkFz9vXs;
-	Fri, 23 May 2025 12:51:45 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4884C8B769;
-	Fri, 23 May 2025 12:51:45 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id p6vSVHiM0Uvz; Fri, 23 May 2025 12:51:45 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 08E138B763;
-	Fri, 23 May 2025 12:51:43 +0200 (CEST)
-Message-ID: <8ad901c3-3fcb-4643-ac5a-c1f30f93d07f@csgroup.eu>
-Date: Fri, 23 May 2025 12:51:43 +0200
+	id 1uIRfO-00000003p2h-0XWZ;
+	Fri, 23 May 2025 12:38:26 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uIQh8-00000003imt-3Afg;
+	Fri, 23 May 2025 11:36:11 +0000
+X-UUID: 1cef268e37ca11f0bed96b30c12bc3d6-20250523
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=bpH39SBux/FnTvU2Mj/izFWlhWacqOVNUYyzk61rexs=;
+	b=a7fis9FRrkmHg6cxiVXIDFOphGPXDIcxhvHWITARDHzV/QOkHFIHTOu29gvhD8o6vA2WE+utiCO7b/XQpLfiDgnUW6/L9ENMZeV23ZNJJ7iNQx2YYWHTFRyr+nb+wer9PEuLrMbzIobRFLLaf6xJMnLUP8GeaSQ3qkGBgU4u+/w=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:7f3e36b7-1c48-4273-9c58-e1ccf403c737,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:065a0a59-eac4-4b21-88a4-d582445d304a,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 1cef268e37ca11f0bed96b30c12bc3d6-20250523
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <skylake.huang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1949595820; Fri, 23 May 2025 04:36:05 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 23 May 2025 19:36:01 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 23 May 2025 19:36:01 +0800
+From: Sky Huang <SkyLake.Huang@mediatek.com>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
+	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
+	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Sky Huang <skylake.huang@mediatek.com>
+Subject: [PATCH net-next 0/2] Add LED support/fix to MediaTek 2.5Gphy & Gphy
+Date: Fri, 23 May 2025 19:35:59 +0800
+Message-ID: <20250523113601.3627781-1-SkyLake.Huang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] ASoC: aoa: Use helper function
- for_each_child_of_node_scoped()
-To: Ai Chao <aichao@kylinos.cn>, perex@perex.cz, tiwai@suse.com,
- johannes@sipsolutions.net, kuninori.morimoto.gx@renesas.com,
- lgirdwood@gmail.com, broonie@kernel.org, jbrunet@baylibre.com,
- neil.armstrong@linaro.org, khilman@baylibre.com,
- martin.blumenstingl@googlemail.com, shengjiu.wang@gmail.com,
- Xiubo.Lee@gmail.com, festevam@gmail.com, nicoleotsuka@gmail.com,
- shawnguo@kernel.org, s.hauer@pengutronix.de, srinivas.kandagatla@linaro.org
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- imx@lists.linux.dev, kernel@pengutronix.de, linux-arm-msm@vger.kernel.org
-References: <20250522050300.519244-1-aichao@kylinos.cn>
- <20250522050300.519244-3-aichao@kylinos.cn>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <20250522050300.519244-3-aichao@kylinos.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_042040_108444_1781C2FD 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20250523_043610_812986_54EA85AF 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +90,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Sky Huang <skylake.huang@mediatek.com>
 
+This patchset adds LED support to MediaTek's built-in 2.5G phy, which
+basically hooks the same helper function with built-in Gphy. Also, fix
+LED behavior when blinking(delay_on & delay_off are both zero) is not set.
 
-Le 22/05/2025 à 07:02, Ai Chao a écrit :
-> The for_each_child_of_node_scoped() helper provides a scope-based
-> clean-up functionality to put the device_node automatically, and
-> as such, there is no need to call of_node_put() directly.
+Sky Huang (2):
+  net: phy: mtk-2p5ge: Add LED support for MT7988
+  net: phy: mtk-ge-soc: Fix LED behavior if blinking is not set.
 
-I don't understand this explanation.
+ drivers/net/phy/mediatek/mtk-2p5ge.c  | 104 ++++++++++++++++++++++++--
+ drivers/net/phy/mediatek/mtk-ge-soc.c |   7 +-
+ 2 files changed, 103 insertions(+), 8 deletions(-)
 
-You say "no need to call of_node_put()" and the only thing you do in 
-addition to changing from for_each_child_of_node() to 
-for_each_child_of_node_scoped() is to _add_ a new call to of_node_put().
-
-I would expect to see a _removal_ of some of_node_put() when I read your 
-description.
-
-Christophe
-
-> 
-> Thus, use this helper to simplify the code.
-> 
-> Signed-off-by: Ai Chao <aichao@kylinos.cn>
-> ---
->   sound/aoa/soundbus/i2sbus/core.c | 5 +++--
->   1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/sound/aoa/soundbus/i2sbus/core.c b/sound/aoa/soundbus/i2sbus/core.c
-> index ce84288168e4..20a4c5891afc 100644
-> --- a/sound/aoa/soundbus/i2sbus/core.c
-> +++ b/sound/aoa/soundbus/i2sbus/core.c
-> @@ -207,6 +207,8 @@ static int i2sbus_add_dev(struct macio_dev *macio,
->   			}
->   		}
->   	}
-> +	of_node_put(sound);
-> +
->   	/* for the time being, until we can handle non-layout-id
->   	 * things in some fabric, refuse to attach if there is no
->   	 * layout-id property or we haven't been forced to attach.
-> @@ -335,7 +337,6 @@ static int i2sbus_add_dev(struct macio_dev *macio,
->   
->   static int i2sbus_probe(struct macio_dev* dev, const struct of_device_id *match)
->   {
-> -	struct device_node *np;
->   	int got = 0, err;
->   	struct i2sbus_control *control = NULL;
->   
-> @@ -347,7 +348,7 @@ static int i2sbus_probe(struct macio_dev* dev, const struct of_device_id *match)
->   		return -ENODEV;
->   	}
->   
-> -	for_each_child_of_node(dev->ofdev.dev.of_node, np) {
-> +	for_each_child_of_node_scoped(dev->ofdev.dev.of_node, np) {
->   		if (of_device_is_compatible(np, "i2sbus") ||
->   		    of_device_is_compatible(np, "i2s-modem")) {
->   			got += i2sbus_add_dev(dev, control, np);
+-- 
+2.45.2
 
 
