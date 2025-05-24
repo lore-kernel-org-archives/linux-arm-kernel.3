@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F11DFC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 05:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81E2C54E71
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 05:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PQMgvnHl/e3juDL0qxGSaY3LA5gtsGQ7YiUwPKjqwnE=; b=ZkM0D2vTsHl2fITId2w+oNTdCB
-	gcBFDaUCchpcFqvMeS0OAX15kgXfseO7EXvukM44EKYZxpso6JwdLwNUxmbaUvZhok3zTw5RxhiNO
-	8mEThG4d1G5LWSU8r22h+wKP1+dCZ/TfMoXP5gqNfZPSggRVKv9pmOp/SD3hTWz/v81jGXnPh7l4C
-	OoDBegFweUztYnP4oDm2w9qvIN9phKwyTU4Kl1KkED0kETN6s1k/cuiJ6777fXoOpHCcM99Rpp/3e
-	e1cZuSi0QWFxLqgSf2/fksg2yD7DtCFf3QN6gjqn6/gkyqHmTjPs8MFT5yT3Nt4xGYo0bsvfBrgtW
-	IWIqnRTw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HVLgX7oZgKgmp7JBYszc+Lbf8YbgAmX++SIMz1uljwM=; b=eOXII4c++rDTQe
+	mlNiO6/j+ef42f9FA0eivohqEzhQROdGrp9MUFn73L+KePJvzHGSx1AGTH49aYyy71tAnoe25o5yQ
+	p60qDiSEwSmJl2QjIXDHK92IA4ATly9eVJH75yw3N5lHU2Fl9jagWgBF1mfWl3OvojYNMQm7m6XOr
+	orjmhhCgjlFVDKcRGP13ozhV0mZUY+55Sq6n3NO4UHqjvI7XlHSELorPkwM/n+AkEDq9P/Zk/4LKO
+	3nksUcCWAVVXjiW8xtKUhVXB7OhaB3+iPJl07N8/uXmWxOUkKVPH2GDc+z63Ubqm4I7ajmIOrHE0I
+	gN94YosWmu5e4C0TgYaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIhMR-00000005Jvs-2wuc;
-	Sat, 24 May 2025 05:23:55 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1uIhOb-00000005K43-1d8W;
+	Sat, 24 May 2025 05:26:09 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIhKG-00000005JhN-21J7
+	id 1uIhKG-00000005JhM-1Lo9
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 24 May 2025 05:21:41 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ac3eb3fdd2eso79257966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 22:21:40 -0700 (PDT)
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6016d401501so840606a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 22:21:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748064099; x=1748668899; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PQMgvnHl/e3juDL0qxGSaY3LA5gtsGQ7YiUwPKjqwnE=;
-        b=Q+ojvEV55jn5NBY1UeJ310ZbtFmKqxPm+g/6gPI9kI92XmEhy9jJ+wFh9UNpvGTigu
-         I3aNgbfaV/oxKnT2X1TPZ4g6L5oytnH/mDrnJeSx8jGEGiziC61wWPydkN21LKx6/AVo
-         mi/7dFakyfCKMdSa0JwQW9rB+Glw6Pyt8tqYqAfJcn4hrQGt6MaSXIqD1UlJRItF2BHe
-         ZOJDZ7uGeQAlYWH4UwFv2vP4Ll5Bw+bFzuyyYdOjPOGypxIx2iUth4V723DePoycbyGR
-         me3pKaN0zRuYzh8EFh+NGc2nPir3tkx1Y/4F3B54cY0QQKI/AlIZ7llGwIqnh/HOBF8L
-         DRJw==
+        d=linaro.org; s=google; t=1748064098; x=1748668898; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HVLgX7oZgKgmp7JBYszc+Lbf8YbgAmX++SIMz1uljwM=;
+        b=xRjxeqMymvQZCJnrfSkM8g3MfOZ40ju3vAttVgtxMV+1EK+xDWcuiT6gc8AB1xIBHU
+         MBx4QlEuWtQ58bQJucggSQD+TDWNtoPx3WYSuSRnewJxg3M3XAbvi4f02+ib2MXXvrJQ
+         jdu82L/Lz9KfadEjhFPB0l//4gYTT72sts5+l6FVLCpsp1eexlKLEG6Ej9X2sF/55Qll
+         QP4Enso8vafRsAXwlhcgwjcfy6VXxI/a5YP7h0H1mMS0OIa2xGFlj/tJnQL62zSNI+QP
+         tFFN4tLzf3ICRZRkCqeuwzUg90A3MKo99u66zJWNn36FH9yat8CwhHR4kDT4FsShRy1Y
+         URAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748064099; x=1748668899;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PQMgvnHl/e3juDL0qxGSaY3LA5gtsGQ7YiUwPKjqwnE=;
-        b=Gh7GxlII0BFbeDK3lMFRAzTVMJiao6ylsxBy2kPfVdnB76z9aRfDkkhJYyHmSvXPj6
-         PnYQqsWLGsgJ40XbB/PX2CAvZiDbgkapjLW55Hn2nk34HCTzkaEYNUwy+tNzVN8UE1k9
-         cuACWbaNHLh3wzvvADM1RNyqcRwoOrFahf3fuVrEXdyssbsaKJ15eh2kADKR4Brgfd1R
-         514qwBOiuO+rSQ/GLuf7zGSSBKBVIwtPut3pWPxr+lzSZ8k7ZYT0EWoMhSPz0hzypkG9
-         VQi9RQGeMI+YCNO5BiziPQTp5nOFaOJXZOyJEF9PfLdNi/DGD/ag54C3AYU5TyLDrhx1
-         rjvA==
-X-Forwarded-Encrypted: i=1; AJvYcCXNbd44Q+ABoXS7nW2jGoSeO45ACz73wAdfrLj6V8FVO4hIxhs24KrM1S3WbkyuVQ4qBQCwnKjwnzbyW+XJKYAG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY5lYJYo3a4+96ipY8+32UPo1WyY63uNUoS+ofw9YixdaIag06
-	VNhy5YAdOWQJxYLsbE7PADayIDP6edVfsKsEbS9V6JV0tdNZXSNTLm8fOHrkBsVK2FQ=
-X-Gm-Gg: ASbGncvVLx1wLNC3kTmvMXbR+FoR2f9y2YeS+lxLb/hBvd3RD7UKMatsJaOHx/bN2sT
-	iCVSrU6lFnfcz0MxcXKWwC5JiJqWv7IkUiUPvme8B6ZtsF11tXUnHReayoyhWfV1q3vTLv+iFdX
-	PdoJHS924B+kG9wEgSeHj6K16gMUZkL8pW/G6C+qor5iYaqC5YNA5FF8GhCvmimlTmN5WUhk4Yi
-	Iyi7HAFMh5nWJj8VcDBB1tsOFlH/szZBxKqMImTvBDdh6ulPRoJW1KkuagdaWODkJUW4AelSkAB
-	q0MZtlT+lc2kX3f4poFPGoUSTlyB3lBrA3VK+yqNzie+tjGcxK8j3M9uSsikY5IFaUKRhOUAeEh
-	Z1ZoHC6JUqc8mVGo0G5G95ijK+T1DhKAah+PJirJJBbnUWg==
-X-Google-Smtp-Source: AGHT+IHXaAPaMnNiBFZlXKcRr+qFufWpMyOC01eMRk+Jpj8a7drQ0LfzI9zmQlfsyWsV8hXXiHulVQ==
-X-Received: by 2002:a17:906:6a29:b0:ad5:3055:784d with SMTP id a640c23a62f3a-ad85b1300dbmr126184266b.34.1748064098471;
-        Fri, 23 May 2025 22:21:38 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1748064098; x=1748668898;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HVLgX7oZgKgmp7JBYszc+Lbf8YbgAmX++SIMz1uljwM=;
+        b=AXOTnd5c6L+qgge5YkNmK4xENAIax65EzsG3VZiEBH3licj/qceET59MqS/I9oNUhJ
+         Z54QO/JkLUq75AUc8EpRSVvq3jufYkRXxk0tUG9qS59j7kT6aZcWmjJ6V2PkHsr8gn0w
+         GqwVuemkYwae9jaFwGoP+SBB14OjRh3HGSzh0X9cQL5dR0/JbdtuD+YtmMi27L+CyFte
+         bL/GJUWu2+srZE3/9ILlzdGlNMyqN+RnRGuMtJj2TBeY1c3P+E5uD/O+pBB77HjEcSy0
+         I4B4f5R1XLix/gzpn+SVaRs6ahamr5DanhhWRPAYdXDMfs6MKVaAgNtblpk2qEnskiQS
+         59nA==
+X-Forwarded-Encrypted: i=1; AJvYcCVjhRKlFps11tYIfCcPe1CJ0cI4MLrR7J2wFKCZhQyu6R5zU6ngza/kwm5hRFTmUWcs0SZlUpYAKbT/0J+xS7dx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8xLks7qKteNIN8iVQoGqtjXVDQVWavcI3PLdSelx45JlODKqj
+	xdvTk+ORjD1FFHhTUtp4EZ5Mk9g1suOcPprQY3G1TE2mHotM9rPWyeQjZCKc9BzShz0=
+X-Gm-Gg: ASbGncusQ+be0Kfs46R7B+acbcbiDDzmcxwFO5feC/dfsVFJ5SwSjThWZS9rlzaNAj0
+	rBRlGjzofDGmIQQBhbfkzqU4wzNn5/dUo/I+ZK9FDGsb+x6dYxcYYgxz4jJIMkNc9TMOEq6Y65F
+	hmWzSoRtdCmBkj9+0odA/gStxsX1Hwv1zSX6jovemhVlY0ipVHjEZdbj3aq4N6Xtv0ARSBfVFMD
+	YMlEgtOiv78f+u8WtczfiRKfTdr2YpZNm2dcvYf+gPYI67/fjHMQLpSi5O9eFPvbbudupkHcBum
+	zaDSzAvN04igshQf2eiZpZU1sBfCd0nu5pzyNtb+NOiM08geHrOTS6I9HeiAgUYdqh+yZU54d/W
+	lMfbginpeTHuoh0Dkwl4y4PxTsG/dCNbtvNM=
+X-Google-Smtp-Source: AGHT+IFwfRfCw7b+i30fDVsYjamnwABVc4tlq1MkutzLjfaI4FhpNhFaGTjcBmSVXr0eujU+xxYGNA==
+X-Received: by 2002:a17:907:9688:b0:ad5:7499:2644 with SMTP id a640c23a62f3a-ad85b2a4f94mr135383166b.54.1748064097988;
+        Fri, 23 May 2025 22:21:37 -0700 (PDT)
 Received: from puffmais.c.googlers.com (68.57.204.35.bc.googleusercontent.com. [35.204.57.68])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad5572f6402sm1106778066b.178.2025.05.23.22.21.38
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad5572f6402sm1106778066b.178.2025.05.23.22.21.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 22:21:38 -0700 (PDT)
+        Fri, 23 May 2025 22:21:37 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Sat, 24 May 2025 06:21:28 +0100
-Subject: [PATCH v2 1/4] arm64: defconfig: enable Maxim max77759 driver
+Subject: [PATCH v2 0/4] gs101 max77759 enablement (DT)
+Date: Sat, 24 May 2025 06:21:27 +0100
+Message-Id: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250524-b4-max77759-mfd-dts-v2-1-b479542eb97d@linaro.org>
-References: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
-In-Reply-To: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAFdXMWgC/32NQQ6CMBBFr0Jm7ZhSpBRX3sOwoHQKkwg1LSEY0
+ rtbOYDL95L//gGRAlOEe3FAoI0j+yWDvBQwTP0yErLNDFLIWlRCobnh3O9N09Qtzs6iXSM6o7V
+ RgzJWCcjLdyDH+1l9dpknjqsPn/NkK3/2f28rUWDrSBtBRpeyerx46YO/+jBCl1L6AjRlJpK3A
+ AAA
+X-Change-ID: 20250306-b4-max77759-mfd-dts-fb88b6c6bd60
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
  Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -89,8 +91,8 @@ Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_222140_521537_A85B1FB6 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20250523_222140_382074_841D9C0D 
+X-CRM114-Status: UNSURE (   9.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,31 +108,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the Maxim max77759 as this is used by the gs101-oriole and
-gs101-raven (Google Pixel 6 and Pixel 6 Pro) boards,
+Hi,
 
-The child devices' defaults are based on this MFD driver's state, so
-this commit enables those implicitly as well.
+This series enables the recently merged Maxim max77759 driver and
+updates the DT for the Google Pixel 6 / Pro (oriole / raven) boards
+accordingly.
+
+This gives us some extra GPIOs, and enables NVMEM which is used to
+communicate the requested boot mode to the bootloader when doing a cold
+reset.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v2:
+- rebase against next-20250516
+- add dm-verity-device-corrupted to reboot-mode (nvmem & syscon)
+- update commit messages slightly
+- Link to v1: https://lore.kernel.org/r/20250306-b4-max77759-mfd-dts-v1-0-9fe8b0eb8123@linaro.org
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 1f3fd474911b7ab1aa75dc72d42614f12b2dfc54..07e5e76edcbd3fcc4358d08663f51cca00acd49c 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -769,6 +769,7 @@ CONFIG_MFD_EXYNOS_LPASS=m
- CONFIG_MFD_HI6421_PMIC=y
- CONFIG_MFD_HI655X_PMIC=y
- CONFIG_MFD_MAX77620=y
-+CONFIG_MFD_MAX77759=m
- CONFIG_MFD_MT6360=y
- CONFIG_MFD_MT6397=y
- CONFIG_MFD_SPMI_PMIC=y
+---
+André Draszik (4):
+      arm64: defconfig: enable Maxim max77759 driver
+      arm64: dts: exynos: gs101-pixel-common: add Maxim MAX77759 PMIC
+      arm64: dts: exynos: gs101-pixel-common: add nvmem-reboot-mode
+      arm64: dts: exynos: gs101: add dm-verity-device-corrupted syscon-reboot-mode
 
+ .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 76 ++++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  1 +
+ arch/arm64/configs/defconfig                       |  1 +
+ 3 files changed, 78 insertions(+)
+---
+base-commit: 8566fc3b96539e3235909d6bdda198e1282beaed
+change-id: 20250306-b4-max77759-mfd-dts-fb88b6c6bd60
+
+Best regards,
 -- 
-2.49.0.1151.ga128411c76-goog
+André Draszik <andre.draszik@linaro.org>
 
 
