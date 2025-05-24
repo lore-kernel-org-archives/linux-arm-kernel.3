@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DBCFC54F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 09:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF64C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 09:28:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rN2S21RjGwTz/Hngs+pmlQ8ut0QVPwEAYoZSqDjO100=; b=CZCeYJEoUTCaslZ/cONhdC+TDp
-	cweNyPeepi9TmpxBtjQV6sey4aMqCEl23vv4m+BHsacma8I4ofd8urNJKLGLuckNMPymefeh06MpA
-	cBJTkKGUlzc90DTLZ04LdCS+keh3PcZ34bf62sjyFCNA+PJkkmqfsdZGGEo3DRK3/rajrtEvsU4Ld
-	QyH2BkP6EJyueC1zO2KeQxO4iPgU4DG0m3AJmWPo/DS1zIy8FyLX21nh19IBm3EoSineKu0+MbXgB
-	upmx5fQ46jsxjCLC7pRNFIeaUVKxDI1IOnlL/yklHED6ZGNOkqdvaz5uX2rkShV4WMPeXL7RfVfC5
-	00oRx+ow==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f0jJjB7Jvsz4fWWVlAehxvBSwyf+RWKNhTeHpJeKZVs=; b=uXTVFiiJonbKHwIidDSGaNrt+L
+	L+xNQNX3zANY8MzBSHVk2OF/GDH9ZYYTGmKFcX+3+XMcHsKxFYhwzZZQhlMgS2BPDeuoTvE2x0y8b
+	7xS4iSgallxhpYNw5pFI15v+hQDYOQntzG7kUepx80+5DEW/q2zVI1ThqIBjvmk4cAphIglEbmQY7
+	LqzpwVNcB5UxRgyNa/7IDfjTmQ7wnhcltVymNTzwy6Zw0f9718gbF5ClBVkLDmHtLAXk1Eb+5t8Re
+	HpNzjvvUJ0nsTDBKRi7394QX7vG9ROEh+QmX0qU6rz5PQcNgcWDKyEwy4L5oDv+CP3s7YILw8HFeL
+	Az0LQCxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIl8c-00000005ffM-05pj;
-	Sat, 24 May 2025 09:25:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uIlAk-00000005fpb-3CWZ;
+	Sat, 24 May 2025 09:28:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIkxp-00000005eTP-1zDJ
+	id 1uIkxp-00000005eTO-0PrP
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 24 May 2025 09:14:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 882585C336A;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 184E75C0E68;
 	Sat, 24 May 2025 09:12:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E5D5DC4CEEE;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C9463C4CEE4;
 	Sat, 24 May 2025 09:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748078083;
-	bh=sY4jpFRV3LKvPOmwY/LN/7DPT2Pr2fXHIKCetYEbGIs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=YIAP4hqe0muOteWnOKGNLt9XwkSN8vKz7JZaTigiKlD1mVGXdUHziNOTeuilxQs5u
-	 PZkrRpchGIrDJeB9hKnhl9/WF6HYFQGGEPPiPvfKoTMU5LRTtpJFp0ta4eWEe+SBBN
-	 d0anpraxnn2okXRzeXcPNEg07dZWh300CUg+hTPiWhYV4cKjnAkwx/LYVlh/rtU0sR
-	 qyPpBw5DrAA0CiQCKIBZ+u/NKUsdVleTNQRn01zOmrmFPKFXDNq0wFKpSnf7IKG4+j
-	 OHdxPW7662gVu1jlej0UT2N4MGTv1lnbNpaX1Q57mt8qZtnLL9iKO2emxBeoKuUeo0
-	 PpjoKIwbfAIUQ==
+	s=k20201202; t=1748078082;
+	bh=CitvJ9lBuFBmvOFYluWUYT8ZBS/Uz4ur42/Hat5GQ4A=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=hbkwFYrH8MSPiHj7J93++UbWQVp2UTdvzicU5GIFgcJkV6HwlTezTEdFHRu1dQt4N
+	 p0Z0XBUDwJ8gR0lCeuWfNwRBWleGGdm21sakTiXEGSn73AvAB9slZqjQfxB+9fizNe
+	 rbeSn2xot6v+JgEIYLMfq3drmsZzdLT0CxdsbKL6ou6OiQENJrRqBlZe2uYHJdAToS
+	 oOPBbUHnxws9qAwdKmdM1vHSqISUNqn4z8fy11Cz1YaWMAV37cS+creqIKKb2nYPNt
+	 8lc+xEFajGAtghgDNN1skZPGm+ervN5YdppBaKjsjhPi6PUGRe14dFMnJsNyXleHRG
+	 Uo/ijjg/WF0YQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC1FBC54F32;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BE115C54F2E;
 	Sat, 24 May 2025 09:14:42 +0000 (UTC)
 From: =?utf-8?q?Andr=C3=A9_Apitzsch_via_B4_Relay?= <devnull+git.apitzsch.eu@kernel.org>
-Date: Sat, 24 May 2025 11:14:37 +0200
-Subject: [PATCH v4 2/5] media: i2c: imx214: Prepare for variable clock
- frequency
+Subject: [PATCH v4 0/5] media: i2c: imx214: Add support for more clock
+ frequencies
+Date: Sat, 24 May 2025 11:14:35 +0200
+Message-Id: <20250524-imx214_ccs_pll-v4-0-f7dc22e5255b@apitzsch.eu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250524-imx214_ccs_pll-v4-2-f7dc22e5255b@apitzsch.eu>
-References: <20250524-imx214_ccs_pll-v4-0-f7dc22e5255b@apitzsch.eu>
-In-Reply-To: <20250524-imx214_ccs_pll-v4-0-f7dc22e5255b@apitzsch.eu>
+X-B4-Tracking: v=1; b=H4sIAPuNMWgC/2XM3wqCMBTH8VeJXbfYzjatrnqPCJnbWQ5MxZlY4
+ rs3JeiPnKvvgd9nJAFbj4EcNyNpsffB11UMud0QU+jqitTb2AQYKCZZQv1tAC4zY0LWlCVFqdE
+ yPKASQOKoadH5YQHPl9iFD13dPha/5/P3TXH1T/WcMmqFTVO5R+Vye9KN757BFDu8kxnr4QPEW
+ wEQARdtBSzhzvE1IL4A4CtARCB3udSQK2G5/AWmaXoBeiUP6DABAAA=
+X-Change-ID: 20250406-imx214_ccs_pll-e4aed0e9e532
 To: Ricardo Ribalda <ribalda@kernel.org>, 
  Sakari Ailus <sakari.ailus@linux.intel.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -69,21 +72,23 @@ Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
  devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, 
  =?utf-8?q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>, 
- Ricardo Ribalda <ribalda@chromium.org>
+ Ricardo Ribalda <ribalda@chromium.org>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748078081; l=3752;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1748078081; l=2067;
  i=git@apitzsch.eu; s=20240325; h=from:subject:message-id;
- bh=XUxY0sFkCK0z5H7jiHzEnLWN7wsUDlzIsLDtqTMWrks=;
- b=2Zz+Y96m0XeQlaBnAPowmYMk6LjIhUWbYQzIzvrhzRCrBp+fsMd4VPUVvUNpfkf0cCz7SSPG4
- IX3QLifkKABCief/qLFP9gOp5qmRdZwda/bShGO6SqJuQ9YhcaBc5c4
+ bh=CitvJ9lBuFBmvOFYluWUYT8ZBS/Uz4ur42/Hat5GQ4A=;
+ b=BQwSNDVlkAXpO8nEP96coicinOVWn6M8dZiuEuOgTvIVnL0Fy1e+8oQOoovx3aIJOm1bleNd8
+ or9MrHm8VCbBCG5To0hdUEKHIbdfu7Yui+3MBu//z78Wl5fl/aUKX8F
 X-Developer-Key: i=git@apitzsch.eu; a=ed25519;
  pk=wxovcZRfvNYBMcTw4QFFtNEP4qv39gnBfnfyImXZxiU=
 X-Endpoint-Received: by B4 Relay for git@apitzsch.eu/20240325 with
  auth_id=142
 X-Original-From: =?utf-8?q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250524_021445_599378_7A92E887 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20250524_021445_218584_7AB30138 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,115 +104,57 @@ Reply-To: git@apitzsch.eu
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: André Apitzsch <git@apitzsch.eu>
+The imx214 driver currently supports only a 24 MHz external clock. But
+there are devices, like Qualcomm-MSM8916-based phones, which cannot
+provide this frequency. To make the sensor usable by those devices, add
+support for additional clock frequencies.
 
-Move clock frequency related parameters out of the constant register
-sequences, such that the hard coded external clock frequency can be
-replaced by a variable in the upcoming patches.
+This series supersedes
+https://lore.kernel.org/linux-media/20250308-imx214_clk_freq-v1-0-467a4c083c35@apitzsch.eu/
 
-Acked-by: Ricardo Ribalda <ribalda@chromium.org>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Signed-off-by: André Apitzsch <git@apitzsch.eu>
 ---
- drivers/media/i2c/imx214.c | 54 ++++++++++++++++++++++++++--------------------
- 1 file changed, 31 insertions(+), 23 deletions(-)
+Changes in v4:
+- Add missing colon to error message
+- Add A-b, R-b tags
+- Link to v3: https://lore.kernel.org/r/20250521-imx214_ccs_pll-v3-0-bfb4a2b53d14@apitzsch.eu
 
-diff --git a/drivers/media/i2c/imx214.c b/drivers/media/i2c/imx214.c
-index 0199195dcb7d12dc2ff253fe3eb77ddbcd0812a9..c564c9ca82488dddd6b8f549749042ae44363c0d 100644
---- a/drivers/media/i2c/imx214.c
-+++ b/drivers/media/i2c/imx214.c
-@@ -299,16 +299,6 @@ static const struct cci_reg_sequence mode_4096x2304[] = {
- 	{ IMX214_REG_DIG_CROP_WIDTH, 4096 },
- 	{ IMX214_REG_DIG_CROP_HEIGHT, 2304 },
- 
--	{ IMX214_REG_VTPXCK_DIV, 5 },
--	{ IMX214_REG_VTSYCK_DIV, 2 },
--	{ IMX214_REG_PREPLLCK_VT_DIV, 3 },
--	{ IMX214_REG_PLL_VT_MPY, 150 },
--	{ IMX214_REG_OPPXCK_DIV, 10 },
--	{ IMX214_REG_OPSYCK_DIV, 1 },
--	{ IMX214_REG_PLL_MULT_DRIV, IMX214_PLL_SINGLE },
--
--	{ IMX214_REG_REQ_LINK_BIT_RATE, IMX214_LINK_BIT_RATE_MBPS(4800) },
--
- 	{ CCI_REG8(0x3A03), 0x09 },
- 	{ CCI_REG8(0x3A04), 0x50 },
- 	{ CCI_REG8(0x3A05), 0x01 },
-@@ -362,16 +352,6 @@ static const struct cci_reg_sequence mode_1920x1080[] = {
- 	{ IMX214_REG_DIG_CROP_WIDTH, 1920 },
- 	{ IMX214_REG_DIG_CROP_HEIGHT, 1080 },
- 
--	{ IMX214_REG_VTPXCK_DIV, 5 },
--	{ IMX214_REG_VTSYCK_DIV, 2 },
--	{ IMX214_REG_PREPLLCK_VT_DIV, 3 },
--	{ IMX214_REG_PLL_VT_MPY, 150 },
--	{ IMX214_REG_OPPXCK_DIV, 10 },
--	{ IMX214_REG_OPSYCK_DIV, 1 },
--	{ IMX214_REG_PLL_MULT_DRIV, IMX214_PLL_SINGLE },
--
--	{ IMX214_REG_REQ_LINK_BIT_RATE, IMX214_LINK_BIT_RATE_MBPS(4800) },
--
- 	{ CCI_REG8(0x3A03), 0x04 },
- 	{ CCI_REG8(0x3A04), 0xF8 },
- 	{ CCI_REG8(0x3A05), 0x02 },
-@@ -405,9 +385,6 @@ static const struct cci_reg_sequence mode_table_common[] = {
- 	/* ATR setting */
- 	{ IMX214_REG_ATR_FAST_MOVE, 2 },
- 
--	/* external clock setting */
--	{ IMX214_REG_EXCK_FREQ, IMX214_EXCK_FREQ(IMX214_DEFAULT_CLK_FREQ / 1000000) },
--
- 	/* global setting */
- 	/* basic config */
- 	{ IMX214_REG_MASK_CORR_FRAMES, IMX214_CORR_FRAMES_MASK },
-@@ -777,6 +754,24 @@ static int imx214_entity_init_state(struct v4l2_subdev *subdev,
- 	return 0;
- }
- 
-+static int imx214_configure_pll(struct imx214 *imx214)
-+{
-+	int ret = 0;
-+
-+	cci_write(imx214->regmap, IMX214_REG_VTPXCK_DIV, 5, &ret);
-+	cci_write(imx214->regmap, IMX214_REG_VTSYCK_DIV, 2, &ret);
-+	cci_write(imx214->regmap, IMX214_REG_PREPLLCK_VT_DIV, 3, &ret);
-+	cci_write(imx214->regmap, IMX214_REG_PLL_VT_MPY, 150, &ret);
-+	cci_write(imx214->regmap, IMX214_REG_OPPXCK_DIV, 10, &ret);
-+	cci_write(imx214->regmap, IMX214_REG_OPSYCK_DIV, 1, &ret);
-+	cci_write(imx214->regmap, IMX214_REG_PLL_MULT_DRIV,
-+		  IMX214_PLL_SINGLE, &ret);
-+	cci_write(imx214->regmap, IMX214_REG_EXCK_FREQ,
-+		  IMX214_EXCK_FREQ(IMX214_DEFAULT_CLK_FREQ / 1000000), &ret);
-+
-+	return ret;
-+}
-+
- static int imx214_update_digital_gain(struct imx214 *imx214, u32 val)
- {
- 	int ret = 0;
-@@ -1020,6 +1015,19 @@ static int imx214_start_streaming(struct imx214 *imx214)
- 		return ret;
- 	}
- 
-+	ret = imx214_configure_pll(imx214);
-+	if (ret) {
-+		dev_err(imx214->dev, "failed to configure PLL: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = cci_write(imx214->regmap, IMX214_REG_REQ_LINK_BIT_RATE,
-+			IMX214_LINK_BIT_RATE_MBPS(4800), NULL);
-+	if (ret) {
-+		dev_err(imx214->dev, "failed to configure link bit rate\n");
-+		return ret;
-+	}
-+
- 	ret = cci_write(imx214->regmap, IMX214_REG_CSI_LANE_MODE,
- 			IMX214_CSI_4_LANE_MODE, NULL);
- 	if (ret) {
+Changes in v3:
+- Limit range of pll_ip_clk_freq_hz (Sakari)
+- Drop unneeded 'ret'
+- Use pll.pixel_rate_csi for bit rate calculation
+- Add patch that deprecates the clock-frequency property
+- Link to v2: https://lore.kernel.org/r/20250505-imx214_ccs_pll-v2-0-f50452061ff1@apitzsch.eu
 
+Changes in v2:
+- Add A-b tags
+- Switch to v4l2_ctrl_s_ctrl_int64() to acquire the control handler mutex
+- Add error handling for v4l2_ctrl_s_ctrl_int64() and
+  imx214_pll_update()
+- Replace "read clock frequency from dt" patch by "remove hard-coded
+  external clock frequency" patch
+- Link to v1:
+  https://lore.kernel.org/r/20250415-imx214_ccs_pll-v1-0-d3d7748e5fbd@apitzsch.eu
+
+---
+André Apitzsch (5):
+      media: i2c: imx214: Reorder imx214_parse_fwnode call
+      media: i2c: imx214: Prepare for variable clock frequency
+      media: i2c: imx214: Make use of CCS PLL calculator
+      media: dt-bindings: sony,imx214: Deprecate property clock-frequency
+      media: i2c: imx214: Remove hard-coded external clock frequency
+
+ .../devicetree/bindings/media/i2c/sony,imx214.yaml |  29 ++-
+ drivers/media/i2c/Kconfig                          |   1 +
+ drivers/media/i2c/imx214.c                         | 263 ++++++++++++++++-----
+ 3 files changed, 217 insertions(+), 76 deletions(-)
+---
+base-commit: 176e917e010cb7dcc605f11d2bc33f304292482b
+change-id: 20250406-imx214_ccs_pll-e4aed0e9e532
+
+Best regards,
 -- 
-2.49.0
+André Apitzsch <git@apitzsch.eu>
 
 
 
