@@ -4,182 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F6CC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 01:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A633C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 02:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ho1z1PtR/KZD4QG5sxbyEAD+GM6DrtRJGLOupE2ewPE=; b=xxT77vWEqZ7rm64KLF+wroshGR
-	HDY8uRiMflPNbH9iCDulrFnc9OGaY+1nvQ4y3QR6/s+q7kDhYKUBIWdMmxkxdYO5k7dwfuSgUyMwB
-	wD+FhEGpnmp1KAr3hBy1HKsRm2vm2YjQFBmTRW80U5S+0qSDoaYdWO8zfbuPaNWLLT+jC3OKEBEkO
-	tYw+9G9cs8lgoYjw/xdgiee+4l8GwWbsxROtZ5KoMs9pWzMCTMHFmNvW4pNei7g580o36Bl2pjizU
-	RK9vjpmpxMDAm3/ftz78h8CuhP06B5jjS3nULxYdjXZWjy11PXkBTWwfwrsaoM6hSkjeC4bifMkX9
-	Fhmj39wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mcpZdEUb5wzhXEPobgOFA9AgLwu2TstqBEYQ4tUMF8g=; b=cIMDbDeHZM5Mjr5P1D3QfPItgg
+	a+pZ8GYXq8PwO5eFt1rK51hsMGF3y1v8GHMUNvx1b5pUat2u1gGsPn5PzE8tr6OVox6EYR/ZszBIO
+	UOVj8LcpP1abdbTwXSuZ4LSSUxTmf2Hu7FWQjZ4/9VVlP8qqma5IH7ipJ2JnDgbseGV8/Mm3kYG5I
+	EIi+65uQ7c9F3OPv/0iyFbuIIYtYk87lbUhELDSZ/GCcMYafkck/ynHqGZWWufYizbGHWKgDeFC2U
+	/3LLDWmDckymn58KFu1K/q03UGwWGbCDBEv7aoa9t2pS1pvS0lwGw+dth3P/YkEsKCgSe7Sl4Zq2f
+	MGGOLIaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIe70-00000005COI-1h66;
-	Sat, 24 May 2025 01:55:46 +0000
-Received: from mail-bn8nam12on20600.outbound.protection.outlook.com ([2a01:111:f403:2418::600] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uIeSu-00000005DNZ-29tC;
+	Sat, 24 May 2025 02:18:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIdte-00000005BIb-3Yqp
+	id 1uIeQo-00000005DJN-2w5A
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 May 2025 01:42:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ozdY8bbE6XDmNPaExnruUO6wSdgbeRFObO98XGvttTbZS3WJhltxQopLtbdHOTq+7mqOOlVg12wlGzb4sWzub3MN3x7vWN4zBkiwpqAwwjKySwtVBLA5oeDv1Ul9OUA8fLl0CRPfDvHjamNsXEs3ZV8JxMUvNed178X8rHJbyQ1t8cTx7mx7Y54gasxL1VM8Oy2DjYaqkfL6v7HNMxom1eQet9d61JHLoNODXVlZXobO6/bm5gZkqb3yHsvBCXpP5WUwJ6uckqs1T/8jqnDpLk3XKPUwNaQ0y2loO7I0pq9ZN9Clk0R2B3D2whkrRhazZwAW7pnASk9YDadkFRO7Vg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ho1z1PtR/KZD4QG5sxbyEAD+GM6DrtRJGLOupE2ewPE=;
- b=UGF8TAsYMd1oVax1h51WpeFVhBdgWoDBgILwhppadO0otaoNAGUhXkOXgZONO/453LkXxa70TSdZYj1yxWYjvCYGdBLyYhcq2+rCNlMlmyUGVG40Kf5CtpupKR1ssrVMGCJdaClDtTUU+Ue38BlTlYg4ARtmM+1i46P2N/z6Y8VtiQEYeM9oI6cfM7Z/pmVuHtiGzdnfXQQJ+2RcWxJvJPFjt6QiSxWuvyHFI4mLwfpBWPFmv85LiPHzHgThdKYym/8oxsaRO+pCJtTIaZ3NdoG6uq9+ssaEudVUSA/4XVl69U7i4SxlayresY8wFE/q6sl400hxybIHX8aMnS5O9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ho1z1PtR/KZD4QG5sxbyEAD+GM6DrtRJGLOupE2ewPE=;
- b=eM5hF8D1JE8V0h1MrhBgijJ4YhgfpnzbuWMrv/ID9F0lvdWaYga4kLWVsbvooIuRQInAEh2ehlq1hhxoQyFPyZdJpDrT1zSvWlJRlKAAXFR5HWg+TogIJSUzMhNKug27E7EJ6LwxHYea/7hVmrs/JrRvjtDNyvTnMP6qan2yZuy0Po3P1wqu0XfEqSFobIcQSrvU4Qw8OLhF2GJ/DQG5HWmubNP0PIwxKPV74wDomvvtqLcEOhJjLabsHOk9wHoFCYogi0bsvh2lSvYZWLmL5PY3OX3lz8etnQaTs3gC+W0zKaLwU3eGuS9Wjh2VxJKgVMqH63kXgYjsOg+Afm5k4w==
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
- by IA1PR12MB8539.namprd12.prod.outlook.com (2603:10b6:208:446::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Sat, 24 May
- 2025 01:41:53 +0000
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2%3]) with mapi id 15.20.8769.022; Sat, 24 May 2025
- 01:41:50 +0000
-From: Ankit Agrawal <ankita@nvidia.com>
-To: Donald Dutile <ddutile@redhat.com>, Jason Gunthorpe <jgg@nvidia.com>,
-	"maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "david@redhat.com"
-	<david@redhat.com>
-CC: Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>, Kirti
- Wankhede <kwankhede@nvidia.com>, Krishnakant Jaju <kjaju@nvidia.com>, "Tarun
- Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Andy
- Currid <acurrid@nvidia.com>, Alistair Popple <apopple@nvidia.com>, John
- Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, Zhi Wang
-	<zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke
-	<udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
-	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
-	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
-	<linux-mm@kvack.org>, "tabba@google.com" <tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>, "seanjc@google.com"
-	<seanjc@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "maobibo@loongson.cn"
-	<maobibo@loongson.cn>
-Subject: Re: [PATCH v5 2/5] KVM: arm64: New function to determine hardware
- cache management support
-Thread-Topic: [PATCH v5 2/5] KVM: arm64: New function to determine hardware
- cache management support
-Thread-Index: AQHby/msjpV3IbuDy0abJI/Z58zi/7PgmnAAgAABggCAAGWZJg==
-Date: Sat, 24 May 2025 01:41:50 +0000
-Message-ID: <SA1PR12MB719939317BA885F8CD3DF970B09BA@SA1PR12MB7199.namprd12.prod.outlook.com>
-References: <20250523154445.3779-1-ankita@nvidia.com>
- <20250523154445.3779-3-ankita@nvidia.com>
- <9ffc7686-0dc0-4978-8cd8-f12a1c148b63@redhat.com>
- <9b429da4-8db6-407e-9721-178e01fd1ebb@redhat.com>
-In-Reply-To: <9b429da4-8db6-407e-9721-178e01fd1ebb@redhat.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|IA1PR12MB8539:EE_
-x-ms-office365-filtering-correlation-id: d48432c8-98f9-453d-36fd-08dd9a642728
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|921020|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?l8mNdPzgscEgY1eYUpNLV1TbB5EGY8vXQG1C3fTJjMMISB9q6tWoDITGwW?=
- =?iso-8859-1?Q?F+8QXGkGCieQxi9AIfpzwOc9SE5LNpUZhMrBzE2ou0sJm/ommzYzH8rKuT?=
- =?iso-8859-1?Q?GHDHAbi7QrmVZISHR4h31fdgCNuChjut3zsAdrSm25m5iX2O5Ct5jt++Ox?=
- =?iso-8859-1?Q?lmV6qn206OCPf1rNX3PWlTY0xFem1nsmnip3XuUfqDDOU6rCrWYWLFdOgh?=
- =?iso-8859-1?Q?s1GXshP+y4EqZCU3mxjFfHYlBWcJRRc3kPgP10TZ+fxVcDg4iMekx8ZRzW?=
- =?iso-8859-1?Q?aSF7Hk8Gmh74P47/ZvcW1tYzOJxCMLb+htLeqLmVJBwmCdHVmc5paCiTJo?=
- =?iso-8859-1?Q?x4Ki6vSJz44mI2Suh1NeknwczEAmapjPSMD8EfyyO3curnDkceoiWpcj7a?=
- =?iso-8859-1?Q?IUpv0VMpMYbCGVnCImRlJe9sQRvmd1v/fn95FhLI8UKmJ1bitG9AdXOOHZ?=
- =?iso-8859-1?Q?C0XO9CMhnhWsHAGaBZgN6adfuUCK+kw+omitQHzALCbCV2qOArhRaAY40y?=
- =?iso-8859-1?Q?Rs4xb1XZUkce7+i3SpBlVFJ8vpt/bxvrKxh/UQepHSsI5z+LVZlpZ9Hu6Z?=
- =?iso-8859-1?Q?JWVOW9CdsV5a0NONVAu4wiJ46Xih1tgC/CHpu0qXTuf9j+qOpxBH4Uqu80?=
- =?iso-8859-1?Q?VWwKj65RoYeTB5UGyqlQEi5wMJwKj4UXaQ95CO+RyZOJEO9SkypSjYSjMU?=
- =?iso-8859-1?Q?bxCGBH8nx+Hm6pU0SPhSOCqsyYJea5kazrtO2q11/1u0KAMIDq0GhiGbBU?=
- =?iso-8859-1?Q?cEWixVd/R/I2VO9kc2SWOxPHSmAAZi5tAcjXbfz14JYHPaRxvY6/gWAP8E?=
- =?iso-8859-1?Q?WWSFlQ/r6RKlxT2V3k3ycMncxx5rUKiez/9HWtXsNUIfHqILwxCig4AjyX?=
- =?iso-8859-1?Q?Nn411jev53R3sBmf4AoFekU5Sy3E5/H1wyx1PCLR7z5HedhjbowaMplvKY?=
- =?iso-8859-1?Q?OXDcdGQlRzMYN2aHxTR+FvuGpTCvFkgaKpceCYFAXvZ/tCLqJoTsD+8Ons?=
- =?iso-8859-1?Q?5tDoVam/pjS6YxA7J5XmNgLNNjjw7TxO8nlDlW6aEQRN0C3p/x21ppcmmC?=
- =?iso-8859-1?Q?QjCa53FYsn1iJ8cvQiG3ApJazW57orfFaMqKfbbH/0OFPZC8RbstbD2rdx?=
- =?iso-8859-1?Q?FNCYN0mdh/LWOSsaG7zkz7CmxRn0GDgtFHzuE/Do1NoZwXlVKPfPOo8Y/5?=
- =?iso-8859-1?Q?IsbYMxrWL9aiACkqhCnwMDa1rs3B5WkKTG5/cOFTUCqDbLfTSvEG5bSvIc?=
- =?iso-8859-1?Q?XvdKVX6ki0zZQ99bSwe4MMTZ6YbCzykpjVFNX/gJcoJffOwH1P0fGJZ9rb?=
- =?iso-8859-1?Q?+tUlUuvBYWyqdbcqS0rlWfnRCwXnjQyioq2IAPBZgMZMJeOhDuOJ8+ZRUb?=
- =?iso-8859-1?Q?JD3gOC6UIxunSxVGjwlaIjrueRwgr4Om6Gh83312M2RR7dyvWfBnANfSgA?=
- =?iso-8859-1?Q?aYBuySbPysHwmFNVehMmjNmFK3LZjaQz8I4dBG34uWkhYsEfDvLC9lCbU+?=
- =?iso-8859-1?Q?vIZYCaXz1lNRkNYTDmnYwdFTa/OrUohaSk4JMRchiRKvG9aK0GzLB+5Eu2?=
- =?iso-8859-1?Q?TrB76Pc=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(921020)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?fT2adGvRLPiGqFzQu77BZce/doNsVCZNCze/EsGd0rlo8tFu6jb/fDcvwq?=
- =?iso-8859-1?Q?7MbKUvY/kSuks0/ajP0hepawl7+vaBeytqTDjT1hNm8QcKA5CPq66rWXEL?=
- =?iso-8859-1?Q?UisdDwX7WJWa6U2AknPdb9Afsy3Y0zwoNsSK6Kryr1y0/GwLwDI2MFisjD?=
- =?iso-8859-1?Q?Ys5/+fEgtf1Yq8Z2qr57SsxZTVKqMlR2syYiRU66Ef9uJQT3ky9Uk2fCs/?=
- =?iso-8859-1?Q?qL8Uq9kb2Z/lJnbrenoYq9qLGCb2VOgp1mKfBMNVwPCQlY1qYzfvbmWI/m?=
- =?iso-8859-1?Q?XBMMrs2fjNnEUkNQfUzxm2oAeg4ipkxYEBsTl6K0n6kyvkiACooHZetWlo?=
- =?iso-8859-1?Q?RzBg3rDTbKCd8HyAj+deffETiTnjyezCKOWFquzsqQKQYXj1h1LebZIMBE?=
- =?iso-8859-1?Q?cdNMJNW0d1VR2Hk4Krb0ZM9jphFpIr71CXcHZrtwdHPOIVXNh+M1DIrWlc?=
- =?iso-8859-1?Q?5QfqAvlc/J5jOdPVrW9a+70XvLv8PSr7bILYAtWb0d8r9HdlhzXxgsKDAZ?=
- =?iso-8859-1?Q?eyBvWu3a9PKwWORNDTJUEIf3XmDdrE0H0kNHwrmxdC4+4KdeZ4LWAybJEM?=
- =?iso-8859-1?Q?aevfb+O3f1hboRI9g/GF+odUWJh7KR3zoNZNfZxPZe8MJf+JU+PELcKVk9?=
- =?iso-8859-1?Q?Zi+CXiIbgeILGJYYfiP+WxzCHMSDdnab7AHZZ+c04QuquLo8DnDYvgNUMI?=
- =?iso-8859-1?Q?s3HamM/VPktIdpQnMmbc6klv9su1lgB2hYUog/33EkNd4U1wmudf16j0sG?=
- =?iso-8859-1?Q?QUmyczVVBCfg1S1Rax5l6h3XbIDPipFngtyTu5WMoAcjC8mmGNugEEFos+?=
- =?iso-8859-1?Q?bCNziauKP/k2LM38XGEBvdNNhXRCJVhy1Wz9myyPUiGvKCMcOwCfNGCqd/?=
- =?iso-8859-1?Q?XzQ9u7qYzYXmXbuCRb0kmE/V459Z+9YzIIFbqKWFfduQj8d42x1uARsRRG?=
- =?iso-8859-1?Q?GNudr5ZY+vS2cR8hFOdrpcje8NCPortuaIhsZEVWddfASSMEik7H07KHrJ?=
- =?iso-8859-1?Q?16IQujQF4iHO1oZOAjG3vqv6yJXMBT+IrnteuIONlMlII0yxs02AxwjL0L?=
- =?iso-8859-1?Q?kqJruoSfpnASYNtqU9wo6tCTBh/l8cHlCmZbX4mbCiX2CvEEg2bfUUd/1Q?=
- =?iso-8859-1?Q?ow1U/Jd8X3CPT6cvBLGHtr4YH8lV1jRrYx8UFyahHfwHX70dnnWnAYAPLJ?=
- =?iso-8859-1?Q?nqvYTlEdSCX2NTd4plFGhv/1wl13zzV9o4FreB9dWEZE5Egw139W6HY3r6?=
- =?iso-8859-1?Q?MZnZ1McSMdehNdrTXxYSLosC2WIluIDUgrHNDjfcba/o4LJ2ECYf0fo7aP?=
- =?iso-8859-1?Q?vEvIlenZZ9U9zTL1iI5eZIQnNpetTEmrWsrDB/hZBNO3FpkpMDw8828eMn?=
- =?iso-8859-1?Q?V3RvGcWd5zJ8U/IVZTlnVCO+kk4DplV45Xz2kmba36ZzK0FpnldE7KLM4v?=
- =?iso-8859-1?Q?pPl9l4vHXQEgKmg4C6g1VrpuYrZYtvrW8RqNBds4o11n6HWWmbuy9dQY6S?=
- =?iso-8859-1?Q?yV5QG3HUunwP8Oq6RfmfWc1271DCXWy/t/PrcyUZHB3kH5RA1prXYug4WE?=
- =?iso-8859-1?Q?q1obFb7GMCjphVxNAziE7xkaTbEYvwNH9ugZAo3IfQaS8MWgmUN09UBQG9?=
- =?iso-8859-1?Q?LsU+Q6CgTxYzo=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Sat, 24 May 2025 02:16:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 36A995C5B45;
+	Sat, 24 May 2025 02:13:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0B21C4CEE9;
+	Sat, 24 May 2025 02:16:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748052972;
+	bh=/sJKcJB9D2opaHxxN17lki+er3heUMPimrFbx5WTMCk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=FU8fKMVoRwRryhvNxeKp24m9VO5TYN2pBzyNS/sAZ9QVtr0uvYQ80CGB4ERjbHqWe
+	 vhpdVLhfdA4Mo0OLUJ5F2rcpWIM76XJGM7mFVjoXWIqe0OU5ucg4B/PjofakxF3kif
+	 oa74QyHqvUL7NsWuPHmIW/4dAmLHWbSamJeoJGzl2bFCeb1Tdoz+bKQ1BjpR/bCaqy
+	 kh9KI9An+jLszGHvOJQ1GtGiBAlCBnYlvg+tvioDPsD02uZ5SolWd7KPM4006zrxZ2
+	 RPSPTHvrui6EFqBMCh2JeZSN08Dgxf+NtBpHPBlW+K1dvViDnZWiJZ21RbUXMQ8tOC
+	 ZwuL0GsDLvXVQ==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	linux-clk@vger.kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Imran Shaik <quic_imrashai@quicinc.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Pengyu Luo <mitltlatltl@gmail.com>,
+	Vincent Knecht <vincent.knecht@mailoo.org>,
+	Wentao Liang <vulab@iscas.ac.cn>
+Subject: [GIT PULL] Qualcomm clock updates for v6.16
+Date: Fri, 23 May 2025 21:16:09 -0500
+Message-ID: <20250524021610.18621-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d48432c8-98f9-453d-36fd-08dd9a642728
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 May 2025 01:41:50.0242
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: OukeIlEcUhmsUtVF7NfpA+JZB3w/YtZK1MbEs6BH9lCMru4LHYZ3MAytqwCf6ICpY8N1DNy0PeGaFeRVEmkXvw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8539
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_184158_894522_0824A02A 
-X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-CacheID: sfid-20250523_191614_826449_609C4A60 
+X-CRM114-Status: UNSURE (   8.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -195,19 +78,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>> +/* hardware support cache management */=0A=
->>> +bool kvm_arch_supports_cacheable_pfnmap(void);=0A=
->> Won't this cause a build warning on non-ARM builds, b/c there is no=0A=
->> resolution of this function for the other arch's?=0A=
->> Need #ifdef or default-rtn-0 function for arch's that don't have this fu=
-nction?=0A=
->>=0A=
->=0A=
-> ah, I see you have the weak function in patch 5/5.=0A=
-> But I think you have to move that hunk to this patch, so a bisect won't c=
-ause=0A=
-> a build warning (or failure, depending on how a distro sets -W in its bui=
-lds).=0A=
-=0A=
-Thanks Donald for catching that. Fixed in v6.=
+
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-for-6.16
+
+for you to fetch changes up to 201bf08ba9e26eeb0a96ba3fd5c026f531b31aed:
+
+  clk: qcom: gcc-x1e80100: Set FORCE MEM CORE for UFS clocks (2025-05-17 19:28:40 -0500)
+
+----------------------------------------------------------------
+Qualcomm clock updates for v6.16
+
+Introduce support for the camera clock controller on QCS8300.
+
+Correct wait_val values for a variety of GDSCs, fix X Elite UFS clock
+settings, and allow clkaN to be optional in the rpmh clock controller
+driver if command db doesn't define it.
+
+----------------------------------------------------------------
+Bjorn Andersson (1):
+      Merge branch '20250324-sm6350-videocc-v2-2-cc22386433f4@fairphone.com' into clk-for-6.16
+
+Imran Shaik (1):
+      clk: qcom: Add support for Camera Clock Controller on QCS8300
+
+Konrad Dybcio (1):
+      dt-bindings: clock: add SM6350 QCOM video clock bindings
+
+Luca Weiss (4):
+      clk: qcom: camcc-sm6350: Add *_wait_val values for GDSCs
+      clk: qcom: dispcc-sm6350: Add *_wait_val values for GDSCs
+      clk: qcom: gcc-sm6350: Add *_wait_val values for GDSCs
+      clk: qcom: gpucc-sm6350: Add *_wait_val values for GDSCs
+
+Pengyu Luo (1):
+      clk: qcom: rpmh: make clkaN optional
+
+Taniya Das (2):
+      clk: qcom: gcc: Set FORCE_MEM_CORE_ON for gcc_ufs_axi_clk for 8650/8750
+      clk: qcom: gcc-x1e80100: Set FORCE MEM CORE for UFS clocks
+
+Vincent Knecht (1):
+      clk: qcom: gcc-msm8939: Fix mclk0 & mclk1 for 24 MHz
+
+Wentao Liang (1):
+      clk: qcom: Fix missing error check for dev_pm_domain_attach()
+
+ .../devicetree/bindings/clock/qcom,videocc.yaml    |  20 ++++
+ drivers/clk/qcom/apcs-sdx55.c                      |   6 +-
+ drivers/clk/qcom/camcc-sa8775p.c                   | 103 ++++++++++++++++++++-
+ drivers/clk/qcom/camcc-sm6350.c                    |  18 ++++
+ drivers/clk/qcom/clk-rpmh.c                        |  11 +++
+ drivers/clk/qcom/dispcc-sm6350.c                   |   3 +
+ drivers/clk/qcom/gcc-msm8939.c                     |   4 +-
+ drivers/clk/qcom/gcc-sm6350.c                      |   6 ++
+ drivers/clk/qcom/gcc-sm8650.c                      |   2 +
+ drivers/clk/qcom/gcc-sm8750.c                      |   3 +-
+ drivers/clk/qcom/gcc-x1e80100.c                    |   4 +
+ drivers/clk/qcom/gpucc-sm6350.c                    |   6 ++
+ include/dt-bindings/clock/qcom,sm6350-videocc.h    |  27 ++++++
+ 13 files changed, 204 insertions(+), 9 deletions(-)
+ create mode 100644 include/dt-bindings/clock/qcom,sm6350-videocc.h
 
