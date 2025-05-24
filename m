@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81E2C54E71
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 05:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4541C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 05:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HVLgX7oZgKgmp7JBYszc+Lbf8YbgAmX++SIMz1uljwM=; b=eOXII4c++rDTQe
-	mlNiO6/j+ef42f9FA0eivohqEzhQROdGrp9MUFn73L+KePJvzHGSx1AGTH49aYyy71tAnoe25o5yQ
-	p60qDiSEwSmJl2QjIXDHK92IA4ATly9eVJH75yw3N5lHU2Fl9jagWgBF1mfWl3OvojYNMQm7m6XOr
-	orjmhhCgjlFVDKcRGP13ozhV0mZUY+55Sq6n3NO4UHqjvI7XlHSELorPkwM/n+AkEDq9P/Zk/4LKO
-	3nksUcCWAVVXjiW8xtKUhVXB7OhaB3+iPJl07N8/uXmWxOUkKVPH2GDc+z63Ubqm4I7ajmIOrHE0I
-	gN94YosWmu5e4C0TgYaA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Twazfz0joDHDf3E0VUXRkggat1KdGbQWxfqNgUu5Y8=; b=Mxt3brezagemMWNXYPceVnfBf5
+	rYL79LCTiiYz2runoQcjgop/SZPpIAExW6cFgRPwagAfl3Tn+pWOItmfiC/73ew4pS1OONq1098Ad
+	+AiuTML2CWzucJqEdGkngUKMhuwJ7Tqh7n3p/NzQNUXLReJPdqHpcqK0/UJuPJCxLiCkquMChohDN
+	HMZYSaLRiydeXKe3HpRrUmDJtxWrpDboJd1SJHyRL4Bb8BjQrW8KUtVFFFFsSV4E/IZbpPLa0Xa90
+	zGC74O+owrt75tMmAN6x+wutofPpxqGufskihSBktL7nqz4k9MJjAWkmtBnYxFrTpgGicQb50iMmt
+	+KHJc2sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIhOb-00000005K43-1d8W;
-	Sat, 24 May 2025 05:26:09 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1uIhQj-00000005K9z-0a5Q;
+	Sat, 24 May 2025 05:28:21 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIhKG-00000005JhM-1Lo9
+	id 1uIhKH-00000005JhP-0njm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 May 2025 05:21:41 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6016d401501so840606a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 22:21:39 -0700 (PDT)
+	Sat, 24 May 2025 05:21:42 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6020ff8d35dso1031679a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 22:21:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748064098; x=1748668898; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HVLgX7oZgKgmp7JBYszc+Lbf8YbgAmX++SIMz1uljwM=;
-        b=xRjxeqMymvQZCJnrfSkM8g3MfOZ40ju3vAttVgtxMV+1EK+xDWcuiT6gc8AB1xIBHU
-         MBx4QlEuWtQ58bQJucggSQD+TDWNtoPx3WYSuSRnewJxg3M3XAbvi4f02+ib2MXXvrJQ
-         jdu82L/Lz9KfadEjhFPB0l//4gYTT72sts5+l6FVLCpsp1eexlKLEG6Ej9X2sF/55Qll
-         QP4Enso8vafRsAXwlhcgwjcfy6VXxI/a5YP7h0H1mMS0OIa2xGFlj/tJnQL62zSNI+QP
-         tFFN4tLzf3ICRZRkCqeuwzUg90A3MKo99u66zJWNn36FH9yat8CwhHR4kDT4FsShRy1Y
-         URAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748064098; x=1748668898;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1748064099; x=1748668899; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HVLgX7oZgKgmp7JBYszc+Lbf8YbgAmX++SIMz1uljwM=;
-        b=AXOTnd5c6L+qgge5YkNmK4xENAIax65EzsG3VZiEBH3licj/qceET59MqS/I9oNUhJ
-         Z54QO/JkLUq75AUc8EpRSVvq3jufYkRXxk0tUG9qS59j7kT6aZcWmjJ6V2PkHsr8gn0w
-         GqwVuemkYwae9jaFwGoP+SBB14OjRh3HGSzh0X9cQL5dR0/JbdtuD+YtmMi27L+CyFte
-         bL/GJUWu2+srZE3/9ILlzdGlNMyqN+RnRGuMtJj2TBeY1c3P+E5uD/O+pBB77HjEcSy0
-         I4B4f5R1XLix/gzpn+SVaRs6ahamr5DanhhWRPAYdXDMfs6MKVaAgNtblpk2qEnskiQS
-         59nA==
-X-Forwarded-Encrypted: i=1; AJvYcCVjhRKlFps11tYIfCcPe1CJ0cI4MLrR7J2wFKCZhQyu6R5zU6ngza/kwm5hRFTmUWcs0SZlUpYAKbT/0J+xS7dx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8xLks7qKteNIN8iVQoGqtjXVDQVWavcI3PLdSelx45JlODKqj
-	xdvTk+ORjD1FFHhTUtp4EZ5Mk9g1suOcPprQY3G1TE2mHotM9rPWyeQjZCKc9BzShz0=
-X-Gm-Gg: ASbGncusQ+be0Kfs46R7B+acbcbiDDzmcxwFO5feC/dfsVFJ5SwSjThWZS9rlzaNAj0
-	rBRlGjzofDGmIQQBhbfkzqU4wzNn5/dUo/I+ZK9FDGsb+x6dYxcYYgxz4jJIMkNc9TMOEq6Y65F
-	hmWzSoRtdCmBkj9+0odA/gStxsX1Hwv1zSX6jovemhVlY0ipVHjEZdbj3aq4N6Xtv0ARSBfVFMD
-	YMlEgtOiv78f+u8WtczfiRKfTdr2YpZNm2dcvYf+gPYI67/fjHMQLpSi5O9eFPvbbudupkHcBum
-	zaDSzAvN04igshQf2eiZpZU1sBfCd0nu5pzyNtb+NOiM08geHrOTS6I9HeiAgUYdqh+yZU54d/W
-	lMfbginpeTHuoh0Dkwl4y4PxTsG/dCNbtvNM=
-X-Google-Smtp-Source: AGHT+IFwfRfCw7b+i30fDVsYjamnwABVc4tlq1MkutzLjfaI4FhpNhFaGTjcBmSVXr0eujU+xxYGNA==
-X-Received: by 2002:a17:907:9688:b0:ad5:7499:2644 with SMTP id a640c23a62f3a-ad85b2a4f94mr135383166b.54.1748064097988;
-        Fri, 23 May 2025 22:21:37 -0700 (PDT)
+        bh=7Twazfz0joDHDf3E0VUXRkggat1KdGbQWxfqNgUu5Y8=;
+        b=VRV24UmWIdA6Xy4Q+UK/t8GWdOxnXcbsVlXHyXD0DyO/Z3ovY+niOEt2TABGzTMUMe
+         8EfDB1sdQmZWfxMF1RrIblgCwUJFEFY/zEFdOQggdlXT00ZkgQvUmV2w12nnWT1NXIsJ
+         YmEFJXuvbpCUSYADzmmT5YJFCOprDRC7C/QX8U7dTJKasTkg7yNRVGjBJacmcHONi85i
+         jUCbE1Ap/7b6y6KKJV0E2//TRzlF65lYU/luh2q1g8YaleyGJHpu076UaQLJVSmFiRM5
+         nJCX2Hs+ajMBUcP211zGx2YA4vJ2cPp8Oi8/EOKu2t11oXoMdsHsmFWAB3bfjMo9Es5S
+         m8XA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748064099; x=1748668899;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7Twazfz0joDHDf3E0VUXRkggat1KdGbQWxfqNgUu5Y8=;
+        b=deajHzAiagyBMsv0eVRA7VEEQa7AO2bithoL/Bus3Fm0qmuY6wv5fCQPI1xK48lTvw
+         PAwMbyPG4nFngoOhpkqwQtN03A2TpKVkPpH1ZmTY1FcNzIx6586Svhen3eoRMdBnJa2t
+         qn9mkKQYUuXTiYVqiG0hvrwwl1bZIADqgBkyuqUnP0rFPaoWuU+zZaZKUYUw3ySUSMl+
+         qE+Coy7aHcG6rbGv6S5uqvTmYXnAUyn8ytIsJZYMHhSSGZW4k++dKTGsz+HFKGZ6X3iU
+         YzTvmastuVoK09Iy74QSbLXSJIbeh4nSxeQ1Lvk030BV7mqi1I+uEHdOJ4Q2FprhQXfl
+         HBOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4ikUkdQI5cfRXSAcsT8FZD6IsTMJsSqA0m4xhYASjqnPnWMiu4eGJ5FRmenscxdxiCjy+SpVwvExOFLBJAS/f@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQAnntmjLcE39fJkmLzoDXK4yXdCGhxQ6WdiCkeUsrKwgOLPKA
+	0UfoqYfV4hNFL5F88fRCngRwW31W58stck9sOpYtWywxOc/7FCt69W+Ako1/3fHnKtY=
+X-Gm-Gg: ASbGnctZGjwDZkL2jZ2az9LaQ0PSaEqlGGFms+vLtDtP9n0L1XOq99D8be13ljF3L+s
+	0ZmiotO7jRlDatKOrK7Ee4cnzqLX3EEAfhI0JYiuXBkOA/Q68ulnyhMhbM80sgJ/ln82rthhqff
+	d41y/itagsShaPHYRZa0bHuV2OYvluB/TS8FFYRIW1D3JY9PUlP/X71pfo2dpuHKkJzu/+pnuJv
+	4uedv598CgjKkI0d1aPFWq1Xgicerwf+tA68Ez12/IDjgCPfVKc6fcID5yrfgJfideEGEMfV+zO
+	es1Um3A/uTeQPeOFm8zqY9MKK5tuQhbWPOL/Zw1q+Re3Xq7alCv0uVX9FJ4qD3y0ipFpa32JYYP
+	TVj4eZ2/8ClYZZld+YxXQUrMMopGWRpYxCC4=
+X-Google-Smtp-Source: AGHT+IHtMWk0Zf+q26yD0iAFN/AxSEy+PDpN0ChAhlrk8dppBVzxLu8QU9Jabhie5nFR/O8+Q1JeMA==
+X-Received: by 2002:a17:907:96a0:b0:ad5:67f3:73ea with SMTP id a640c23a62f3a-ad64e84b500mr516495266b.21.1748064099584;
+        Fri, 23 May 2025 22:21:39 -0700 (PDT)
 Received: from puffmais.c.googlers.com (68.57.204.35.bc.googleusercontent.com. [35.204.57.68])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad5572f6402sm1106778066b.178.2025.05.23.22.21.37
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad5572f6402sm1106778066b.178.2025.05.23.22.21.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 22:21:37 -0700 (PDT)
+        Fri, 23 May 2025 22:21:39 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Subject: [PATCH v2 0/4] gs101 max77759 enablement (DT)
-Date: Sat, 24 May 2025 06:21:27 +0100
-Message-Id: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
+Date: Sat, 24 May 2025 06:21:30 +0100
+Subject: [PATCH v2 3/4] arm64: dts: exynos: gs101-pixel-common: add
+ nvmem-reboot-mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAFdXMWgC/32NQQ6CMBBFr0Jm7ZhSpBRX3sOwoHQKkwg1LSEY0
- rtbOYDL95L//gGRAlOEe3FAoI0j+yWDvBQwTP0yErLNDFLIWlRCobnh3O9N09Qtzs6iXSM6o7V
- RgzJWCcjLdyDH+1l9dpknjqsPn/NkK3/2f28rUWDrSBtBRpeyerx46YO/+jBCl1L6AjRlJpK3A
- AAA
-X-Change-ID: 20250306-b4-max77759-mfd-dts-fb88b6c6bd60
+Message-Id: <20250524-b4-max77759-mfd-dts-v2-3-b479542eb97d@linaro.org>
+References: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
+In-Reply-To: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
  Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -91,9 +90,8 @@ Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_222140_382074_841D9C0D 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250523_222141_227828_0103A6BC 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,41 +106,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-This series enables the recently merged Maxim max77759 driver and
-updates the DT for the Google Pixel 6 / Pro (oriole / raven) boards
-accordingly.
-
-This gives us some extra GPIOs, and enables NVMEM which is used to
-communicate the requested boot mode to the bootloader when doing a cold
-reset.
+Add the 'nvmem-reboot-mode' which is used to communicate a requested
+boot mode to the boot loader.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
-Changes in v2:
-- rebase against next-20250516
-- add dm-verity-device-corrupted to reboot-mode (nvmem & syscon)
-- update commit messages slightly
-- Link to v1: https://lore.kernel.org/r/20250306-b4-max77759-mfd-dts-v1-0-9fe8b0eb8123@linaro.org
 
 ---
-André Draszik (4):
-      arm64: defconfig: enable Maxim max77759 driver
-      arm64: dts: exynos: gs101-pixel-common: add Maxim MAX77759 PMIC
-      arm64: dts: exynos: gs101-pixel-common: add nvmem-reboot-mode
-      arm64: dts: exynos: gs101: add dm-verity-device-corrupted syscon-reboot-mode
-
- .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 76 ++++++++++++++++++++++
- arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  1 +
- arch/arm64/configs/defconfig                       |  1 +
- 3 files changed, 78 insertions(+)
+v2:
+- add dm-verity-device-corrupted
+- update commit message slightly
 ---
-base-commit: 8566fc3b96539e3235909d6bdda198e1282beaed
-change-id: 20250306-b4-max77759-mfd-dts-fb88b6c6bd60
+ .../boot/dts/exynos/google/gs101-pixel-common.dtsi      | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+index de5c8d236b705505c0745827c5c6b67d94ba6227..cd8e1b8a10b111190b984e104f749d04514d0449 100644
+--- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
++++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
+@@ -60,6 +60,21 @@ button-power {
+ 		};
+ 	};
+ 
++	reboot-mode {
++		compatible = "nvmem-reboot-mode";
++		nvmem-cells = <&nvmem_reboot_mode>;
++		nvmem-cell-names = "reboot-mode";
++		mode-bootloader = <0x800000fc>;
++		mode-charge = <0x8000000a>;
++		mode-dm-verity-device-corrupted = <0x80000050>;
++		mode-fastboot = <0x800000fa>;
++		mode-reboot-ab-update = <0x80000052>;
++		mode-recovery = <0x800000ff>;
++		mode-rescue = <0x800000f9>;
++		mode-shutdown-thermal = <0x80000051>;
++		mode-shutdown-thermal-battery = <0x80000051>;
++	};
++
+ 	/* TODO: Remove this once PMIC is implemented  */
+ 	reg_placeholder: regulator-0 {
+ 		compatible = "regulator-fixed";
+@@ -224,7 +239,7 @@ nvmem-layout {
+ 				#address-cells = <1>;
+ 				#size-cells = <1>;
+ 
+-				reboot-mode@0 {
++				nvmem_reboot_mode: reboot-mode@0 {
+ 					reg = <0x0 0x4>;
+ 				};
+ 
+
 -- 
-André Draszik <andre.draszik@linaro.org>
+2.49.0.1151.ga128411c76-goog
 
 
