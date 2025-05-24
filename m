@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1230FC54F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 11:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F90C54F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 11:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kq/RIYP37aN0j/sweXWMRbMR+f6iN6gPQkEajgOKD/s=; b=P2J0JJoYboK0Tl5AekjeGwnzcT
-	0YhRjkusWhyw0fK2mpvWH5hSZfzRCr5xuPoIb/Mh6DAUnF+UIi7k6Tz4ixCQieuUhasyZeA6Bj8+E
-	/1OxVo6wVzOrrfatL5V7/IOS0KDUj265LIgdVKyP7SGPoi7Kd6i1wrpu6DpDyuchkIgI6c9mHfPGC
-	z19Yw+droJ8p8ndPaQ60fp6Fs1zom9/3mN8/zfpVEzr14j4DO9/jeTf4UPaAt/87iMaI996KrXYL6
-	FbT+RKh9MqFw01P58/UDHbKZuhRR9mFnyJ9gfUXjcAfvhC1dPdr2rSguxPOiKgGm1XqGM359QPVLp
-	5zP++qjg==;
+	bh=5HWVT/dTylYSt+t4LkzZWm+16LjaTBYm2xU/nM2FdEE=; b=nfmlrb0J3ypXfJ1YfL8ks/ouJU
+	MS3LXvaNVxqtZCdLqC+ZiCq4RHvnU/y+YBOPESTUUELPndUBtrfp/jrGdbLq8yroVbFoqRf5tdMNw
+	da02Sc43HdKvE16GGVS5AUBXW2O8Jkz5CPFa6XCGt8unsbDDnRrzK0pUgE9xrMfmSYG2TsyAbXWSD
+	77qoH1D/XMOAXHxoiH6PabdFJNn+0jc68jDUAicGOD6BZ9AMfTnFORXi95F0FiP6cF8b04HxCLJfZ
+	hd0xOrHpMXf5a/ldj/uxqYRlAZdXbfq9PJ+F4yaK5FXQVJthcSqlud51FLL9AQ0uE5G2k2/iVuKha
+	5NXCX7CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uInSC-00000005ofm-2XIi;
-	Sat, 24 May 2025 11:54:16 +0000
+	id 1uInUM-00000005ovo-2jCX;
+	Sat, 24 May 2025 11:56:30 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uInPx-00000005oGZ-3rk2;
-	Sat, 24 May 2025 11:51:59 +0000
-X-UUID: 7b46c716389511f0bed96b30c12bc3d6-20250524
+	id 1uInPy-00000005oGb-1Irg;
+	Sat, 24 May 2025 11:52:00 +0000
+X-UUID: 7b99bdf4389511f0bed96b30c12bc3d6-20250524
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=kq/RIYP37aN0j/sweXWMRbMR+f6iN6gPQkEajgOKD/s=;
-	b=tmW8rKlXb2I/Q2tSIkY1dvhRbQFLqzS2L3f59H7gPZdl65InkE6WmCj4TvIj129K05nqIkWZ++a43uSS2ElUags+adp42XQgYy5A25+qtDKNjPXtyO9XAhDXo1ADVjVDMuLObwNjxU7wgi5e1F/T/YMsQFozXMr9PKBBlbfyal0=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=5HWVT/dTylYSt+t4LkzZWm+16LjaTBYm2xU/nM2FdEE=;
+	b=cgk6C7dlTjJbdR4T/KZticOcXQBdfGTMNS+HAlTPb8HcA8YSODNByU0lazA/fi0SsTK1R+sJFKHSuvFWTjSGnK5Xz4C/jbmf5jAYqEwciXI/V6r27Gk4N2HvdTkwcl/TMZXbgfQGnOwYqR01DbI8dOE5A0QwXtJwbcQqAQSHyBI=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:99c2e071-91ac-4166-8d8b-900b7f4587b6,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:0ef645f,CLOUDID:2db91059-eac4-4b21-88a4-d582445d304a,B
+X-CID-O-INFO: VERSION:1.2.1,REQID:a767ab77-a060-40ee-84cf-c15ca304ff1b,IP:0,UR
+	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:0ef645f,CLOUDID:2eb91059-eac4-4b21-88a4-d582445d304a,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|97|99|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 7b46c716389511f0bed96b30c12bc3d6-20250524
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 7b99bdf4389511f0bed96b30c12bc3d6-20250524
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
 	(envelope-from <olivia.wen@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 750541079; Sat, 24 May 2025 04:51:51 -0700
+	with ESMTP id 615784642; Sat, 24 May 2025 04:51:52 -0700
 Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Sat, 24 May 2025 19:51:48 +0800
+ 15.2.1258.39; Sat, 24 May 2025 19:51:49 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
  15.2.1258.39 via Frontend Transport; Sat, 24 May 2025 19:51:48 +0800
@@ -64,9 +64,9 @@ CC: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
 	<linux-mediatek@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
 	<teddy.chen@mediatek.com>, <yunkec@chromium.org>
-Subject: [PATCH v1 02/10] dt-bindings: media: Add MT8188 ImgSys's LARB
-Date: Sat, 24 May 2025 19:49:54 +0800
-Message-ID: <20250524115144.3832748-3-olivia.wen@mediatek.com>
+Subject: [PATCH v1 05/10] media: mediatek: isp: Add the Imgsys LARBs device
+Date: Sat, 24 May 2025 19:49:57 +0800
+Message-ID: <20250524115144.3832748-6-olivia.wen@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250524115144.3832748-1-olivia.wen@mediatek.com>
 References: <20250524115144.3832748-1-olivia.wen@mediatek.com>
@@ -75,8 +75,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250524_045157_973053_4F73AA16 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20250524_045158_354989_4F93BFB9 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,98 +91,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds support for the MT8188 Image System's Local Arbiter
-(LARB) in the device tree bindings. The LARB is a crucial component in
-MediaTek's ImgSys architecture, responsible for managing memory access
-and arbitration between various hardware modules.
+The ImgSys driver is implemented as a series of patches, with this patch
+focusing on the Imgsys LARBs device. This patch adds an independent
+device driver for the ImgSys Local Arbiter (LARB) devices. The addition
+is necessary because the IOMMU (Input/Output Memory Management Unit)
+cannot support multiple LARBs within a single device node.
 
 Signed-off-by: Olivia Wen <olivia.wen@mediatek.com>
 ---
- .../bindings/media/mediatek,imgsys-larbs.yaml | 75 +++++++++++++++++++
- 1 file changed, 75 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/media/mediatek,imgsys-larbs.yaml
+ .../isp/isp_7x/imgsys/mtk_imgsys-v4l2.c       | 61 +++++++++++++++++++
+ 1 file changed, 61 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,imgsys-larbs.yaml b/Documentation/devicetree/bindings/media/mediatek,imgsys-larbs.yaml
-new file mode 100644
-index 000000000000..d2966c64ddb6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/mediatek,imgsys-larbs.yaml
-@@ -0,0 +1,75 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/mediatek,imgsys-larbs.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/media/platform/mediatek/isp/isp_7x/imgsys/mtk_imgsys-v4l2.c b/drivers/media/platform/mediatek/isp/isp_7x/imgsys/mtk_imgsys-v4l2.c
+index cfd65858c751..919c69493bbc 100644
+--- a/drivers/media/platform/mediatek/isp/isp_7x/imgsys/mtk_imgsys-v4l2.c
++++ b/drivers/media/platform/mediatek/isp/isp_7x/imgsys/mtk_imgsys-v4l2.c
+@@ -28,6 +28,58 @@
+ #define IMGSYS_MAX_BUFFERS	256
+ #define IMGSYS_SUSPEND_TIME 3000 /* ms */
+ 
++struct mtk_imgsys_larb_device {
++	struct device	*dev;
++	struct mtk_imgsys_dev *imgsys_dev;
++};
 +
-+title: LARB Information for MediaTek Camera Image System Hardware
++static int mtk_imgsys_larb_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct mtk_imgsys_larb_device *larb_dev;
 +
-+maintainers:
-+  - Olivia Wen <olivia.wen@mediatek.com>
++	larb_dev = devm_kzalloc(dev, sizeof(*dev), GFP_KERNEL);
++	if (!larb_dev)
++		return -ENOMEM;
 +
-+description:
-+  Detailed configuration for MediaTek Camera Image System's Local Arbiter
-+  (LARB) hardware integration.
++	if (dma_set_mask_and_coherent(dev, DMA_BIT_MASK(34)))
++		dev_err(dev, "No suitable DMA available\n");
 +
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt8188-imgsys-larbs
++	if (!dev->dma_parms) {
++		dev->dma_parms =
++			devm_kzalloc(dev, sizeof(*dev->dma_parms), GFP_KERNEL);
++		if (!dev->dma_parms)
++			return -ENOMEM;
++	}
++	if (pdev->dev.dma_parms)
++		dma_set_max_seg_size(dev, UINT_MAX);
 +
-+  iommus:
-+    minItems: 1
-+    maxItems: 30
++	pm_runtime_enable(dev);
 +
-+  '#address-cells':
-+    const: 2
++	return 0;
++}
 +
-+  '#size-cells':
-+    const: 2
++static void mtk_imgsys_larb_remove(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
 +
-+required:
-+  - compatible
-+  - iommus
++	pm_runtime_disable(dev);
++}
 +
-+additionalProperties: false
++static const struct of_device_id mtk_imgsys_larb_match[] = {
++	{.compatible = "mediatek,mt8188-imgsys-larb",},
++	{},
++};
 +
-+examples:
-+  - |
-+    #include <dt-bindings/memory/mediatek,mt8188-memory-port.h>
++static struct platform_driver mtk_imgsys_larb_driver = {
++	.probe  = mtk_imgsys_larb_probe,
++	.remove = mtk_imgsys_larb_remove,
++	.driver = {
++		.name   = "mtk-imgsys-larb",
++		.of_match_table = of_match_ptr(mtk_imgsys_larb_match),
++	},
++};
 +
-+    imgsys-l11b {
-+        compatible = "mediatek,mt8188-imgsys-larb";
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+        iommus = <&vpp_iommu M4U_PORT_L11B_WPE_RDMA_0>,
-+             <&vpp_iommu M4U_PORT_L11B_WPE_RDMA_1>,
-+             <&vpp_iommu M4U_PORT_L11B_WPE_RDMA_4P_0>,
-+             <&vpp_iommu M4U_PORT_L11B_WPE_RDMA_4P_1>,
-+             <&vpp_iommu M4U_PORT_L11B_WPE_CQ0>,
-+             <&vpp_iommu M4U_PORT_L11B_WPE_CQ1>,
-+             <&vpp_iommu M4U_PORT_L11B_PIMGI_P1>,
-+             <&vpp_iommu M4U_PORT_L11B_PIMGBI_P1>,
-+             <&vpp_iommu M4U_PORT_L11B_PIMGCI_P1>,
-+             <&vpp_iommu M4U_PORT_L11B_IMGI_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_IMGBI_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_IMGCI_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_SMTI_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_SMTI_T4_C>,
-+             <&vpp_iommu M4U_PORT_L11B_SMTI_T6_C>,
-+             <&vpp_iommu M4U_PORT_L11B_YUVO_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_YUVBO_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_YUVCO_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_WPE_WDMA_0>,
-+             <&vpp_iommu M4U_PORT_L11B_WPE_WDMA_4P_0>,
-+             <&vpp_iommu M4U_PORT_L11B_WROT_P1>,
-+             <&vpp_iommu M4U_PORT_L11B_TCCSO_P1>,
-+             <&vpp_iommu M4U_PORT_L11B_TCCSI_P1>,
-+             <&vpp_iommu M4U_PORT_L11B_TIMGO_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_YUVO_T2_C>,
-+             <&vpp_iommu M4U_PORT_L11B_YUVO_T5_C>,
-+             <&vpp_iommu M4U_PORT_L11B_SMTO_T1_C>,
-+             <&vpp_iommu M4U_PORT_L11B_SMTO_T4_C>,
-+             <&vpp_iommu M4U_PORT_L11B_SMTO_T6_C>,
-+             <&vpp_iommu M4U_PORT_L11B_DBGO_T1_C>;
-+    };
+ static int mtk_imgsys_sd_subscribe_event(struct v4l2_subdev *subdev,
+ 					 struct v4l2_fh *fh,
+ 					 struct v4l2_event_subscription *sub)
+@@ -1537,8 +1589,16 @@ static int mtk_imgsys_probe(struct platform_device *pdev)
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+ 	pm_runtime_enable(&pdev->dev);
+ 
++	ret = platform_driver_register(&mtk_imgsys_larb_driver);
++	if (ret) {
++		dev_info(imgsys_dev->dev, "register mtk_imgsys_larb_driver fail\n");
++		goto err_release_deinit_v4l2;
++	}
++
+ 	return 0;
+ 
++err_release_deinit_v4l2:
++	mtk_imgsys_dev_v4l2_release(imgsys_dev);
+ err_free_larb_alloc:
+ 	devm_kfree(&pdev->dev, imgsys_dev->larbs);
+ err_free_dev_alloc:
+@@ -1551,6 +1611,7 @@ static void mtk_imgsys_remove(struct platform_device *pdev)
+ 	struct mtk_imgsys_dev *imgsys_dev = dev_get_drvdata(&pdev->dev);
+ 
+ 	pm_runtime_disable(&pdev->dev);
++	platform_driver_unregister(&mtk_imgsys_larb_driver);
+ 	mtk_imgsys_dev_v4l2_release(imgsys_dev);
+ 	devm_kfree(&pdev->dev, imgsys_dev->larbs);
+ 	devm_kfree(&pdev->dev, imgsys_dev);
 -- 
 2.45.2
 
