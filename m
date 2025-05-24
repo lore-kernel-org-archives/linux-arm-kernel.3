@@ -4,99 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3318AC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 00:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B2FC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 01:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gv5NSJgNtnmp8kiZaN5Fngb2j5uD28SoTOv69NlCEQU=; b=gejmTcyT5pR3UPq2gdsi4dTh1U
-	puN879TMpN3fBcAEiqx3NGQ1YPj+qXYLhtR6Ad0GG80TaawDMTMHKoBEZgw7N1NI6Fb8G8zwOxlEK
-	CWWHL27TsbVOyTy7u9scrbZCe2qaKxC6uf8eigROYSUpuQ1BT8RQi9xf7UzUTCOk5yWWMX740l7rj
-	d81LkLWTUzLUFTMlTWN+9Z5oiTExx2l++dnzJqLKCh1AH32bc4p8rtKqysu+zvKKPwf4BaW/TwvTF
-	W2ML6YCEwG4w7VoY7hk0+itM23IGHDqK8kZ59PddgDOeoLY+G1WLx/8RIL/9nO7aJ7n7ZPGWJ3NWb
-	UW+EK80w==;
+	bh=Gymzk3KsFCNp8Z21DTOLHrkEpVUsP4yOo0PLr+aRcVg=; b=uBWFwPXz1EXoDhPtwZMam62uCe
+	bNFMxY6scrWA1vd5m8BB2S1VmzHyWUcjeX/BAV6vkECAoPtMM9qxjTufrh5vb/u/mV7wxeoc5jgdm
+	ZwPjDxDV2HlDy3ZIKL+61aA8yfc72Esmv0p1KFZtjExPgfP+17ubROr4rBnsun5Yqd/X3lb5cbs2d
+	jJwOBkS89PUC692muxp5trKzkN4zsFWU6k42IEehqo3IV4fwM3s+IXyXFsGCEQMA5Zt6ve9wBWw7q
+	BlvvpCYZgn/kXSKOxNMAivLDwLRs6k99hm95Yi1s+VlmAWxMj5sL+ieLFBQgeqSQAi8hiCdOZ0t7J
+	evIqAeYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIcsY-0000000586L-2oEh;
-	Sat, 24 May 2025 00:36:46 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uIdu4-00000005BLj-3QRk;
+	Sat, 24 May 2025 01:42:24 +0000
+Received: from mail-co1nam11on20614.outbound.protection.outlook.com ([2a01:111:f403:2416::614] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIcns-000000057mQ-2Hc3
+	id 1uIdrp-00000005Ay8-1Z3V
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 May 2025 00:31:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748046716; x=1779582716;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8B9ms8skaqPcUFNLJygoW8B0+g4QerMXzcmxHo4OEu4=;
-  b=T+nDhL9kNOU4l3aubFZ63937MltCtcSSjjKH+yadosSTPrCJmdhWuGlF
-   BIevsLivVpgODXSprC1KyiIXNwQKFxsKWQpDGQgDMT+y2rf0OD2X+386U
-   ZxugS48sxCBW2rupirmuZSeNUei665m8QFybKyy6Q8qlVAfuxjIRKHrPL
-   s7Z1JomazkI8e/7YPEoy4fwSZtPElN28H4RgJ763VAZZp8QPDBHHO1LAa
-   2oZ3ZAcgMXAzk7sS9ClM2f46y8bDZ+g8sTLU+v+4Z5p84La7Clr1KxHGi
-   uDwAtuELtwDT5K/D9mIJMf4u4QGhGu8PmLlm1SEsSdqNBLxCI8zSsiNx7
-   Q==;
-X-CSE-ConnectionGUID: JtttoqNbSMy0ckEhjg+jKg==
-X-CSE-MsgGUID: on71eRzIQNmyjs1IlAtBJg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="61461810"
-X-IronPort-AV: E=Sophos;i="6.15,310,1739865600"; 
-   d="scan'208";a="61461810"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 17:31:54 -0700
-X-CSE-ConnectionGUID: 9h/MQO37R5W9JlftX8/ReQ==
-X-CSE-MsgGUID: wPol45gnQbWLbG9ApDYacw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,310,1739865600"; 
-   d="scan'208";a="146554279"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 23 May 2025 17:31:48 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uIcnh-000Qpc-1q;
-	Sat, 24 May 2025 00:31:45 +0000
-Date: Sat, 24 May 2025 08:31:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Tretter <m.tretter@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Michal Simek <monstr@monstr.eu>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Junhao Xie <bigfoot@classfun.cn>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Wolfram Sang <wsa-dev@sang-engineering.com>,
-	Gaosheng Cui <cuigaosheng1@huawei.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Ricardo Ribalda <ribalda@chromium.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-media@vger.kernel.org
-Subject: Re: [PATCH 5/5] media: allegro-dvt: Add Gen 3 IP stateful decoder
- driver
-Message-ID: <202505240808.VaN58jYa-lkp@intel.com>
-References: <20250523134207.68481-6-yassine.ouaissa@allegrodvt.com>
+	Sat, 24 May 2025 01:40:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SLIaR7K4kKK9MKY/1QmyrB4a69KDvSdE3LtO7cVPlzpvLPLP0TW9s9zNhUbGqh+zolaeMzF24oYBYX824PtCnk7giiuR6zev1jagJQeSwpHHlhjqR6iek0dsLHiwbWxnJJobvL+NwFnU6I1V9/07M3N6oEXDIVK+NiaY8V911Og6if+dpZnpf0TA0/XIdDKNlqE5DmCXbIQ8MfNC3ltBFRju//2MkcCqtO/YVHQqlPAFvrplI2Y6RFeahlOHda7OUxX5zLutisSAmH5xsoSXSAdC3NeQyD4JZBJXstNAGFMF3HcWelMmeJK9K/GLrNcD6ZCxJGin2begy1+phbMmvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gymzk3KsFCNp8Z21DTOLHrkEpVUsP4yOo0PLr+aRcVg=;
+ b=ElJmRLgWJcJlbnxoT40S/XRCvd3nLkEUAikxGjoOFagOSfzQbEIqFBj6WQyav3eTipq5QVC/UofycuDkd8oTnSZ584TpeMclwdkVe5+8qwFGO+A7YNTDEix0ADXKH64tmXWgPR16bKGOCEXdUI3ODl1L0LzeS/yfw+PIjZuXKDz1v68WWLn/Upb2mifhgYIsU8JQ+JRKbGhDHueCK/iyMgkTK5aj2SoHRJ/bhAXQ+ovcTVs1B5R450bQU6n2OQ8oUIkzbgztd0w2PdIO223sntQzM4V3+Qoys5CZ/2B81bLB7PweeaqBUtnYRdzwlM9bwP6tfLUZBLUWUB32Sg28mQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gymzk3KsFCNp8Z21DTOLHrkEpVUsP4yOo0PLr+aRcVg=;
+ b=QN761z9Gah9rc2BkVxo/Gh5I1wzFIZzWhxekQk/0JTecZ2pnM32OAxwqJgXedL69c8CW5SS7+NunS2M29w57R1Pk0T3pnDTIVVAEoH6IHj9U6BrsTGDuBJsQcOP65OpjiVP0IJW+5hZWQuvfF7ALMoywvrCwF+E//tYo/tg6NNzH4sTruTQgxI2jbhXshR9R7na25VP0Cc45n1qdSj6/lBWjEoQ8yklNzog9psO/a1Utf9ZiBs2M8h91oGASzZHwsdnx5msX2f5E115vYCQlKudk9M9hqaoM8EI1LrmYP/1kU6xAU0kxj2o31Ba7UQbLgvqKxBh0k2kdaw+KSBWOGg==
+Received: from PH7PR17CA0004.namprd17.prod.outlook.com (2603:10b6:510:324::15)
+ by DM6PR12MB4139.namprd12.prod.outlook.com (2603:10b6:5:214::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Sat, 24 May
+ 2025 01:39:56 +0000
+Received: from CY4PEPF0000EE31.namprd05.prod.outlook.com
+ (2603:10b6:510:324:cafe::96) by PH7PR17CA0004.outlook.office365.com
+ (2603:10b6:510:324::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.32 via Frontend Transport; Sat,
+ 24 May 2025 01:39:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CY4PEPF0000EE31.mail.protection.outlook.com (10.167.242.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8769.18 via Frontend Transport; Sat, 24 May 2025 01:39:55 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 23 May
+ 2025 18:39:47 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 23 May
+ 2025 18:39:46 -0700
+Received: from localhost.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Fri, 23 May 2025 18:39:45 -0700
+From: <ankita@nvidia.com>
+To: <ankita@nvidia.com>, <jgg@nvidia.com>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<ryan.roberts@arm.com>, <shahuang@redhat.com>, <lpieralisi@kernel.org>,
+	<david@redhat.com>
+CC: <aniketa@nvidia.com>, <cjia@nvidia.com>, <kwankhede@nvidia.com>,
+	<kjaju@nvidia.com>, <targupta@nvidia.com>, <vsethi@nvidia.com>,
+	<acurrid@nvidia.com>, <apopple@nvidia.com>, <jhubbard@nvidia.com>,
+	<danw@nvidia.com>, <zhiw@nvidia.com>, <mochs@nvidia.com>,
+	<udhoke@nvidia.com>, <dnigam@nvidia.com>, <alex.williamson@redhat.com>,
+	<sebastianene@google.com>, <coltonlewis@google.com>, <kevin.tian@intel.com>,
+	<yi.l.liu@intel.com>, <ardb@kernel.org>, <akpm@linux-foundation.org>,
+	<gshan@redhat.com>, <linux-mm@kvack.org>, <ddutile@redhat.com>,
+	<tabba@google.com>, <qperret@google.com>, <seanjc@google.com>,
+	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <maobibo@loongson.cn>
+Subject: [PATCH v6 1/5] KVM: arm64: Block cacheable PFNMAP mapping
+Date: Sat, 24 May 2025 01:39:39 +0000
+Message-ID: <20250524013943.2832-2-ankita@nvidia.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250524013943.2832-1-ankita@nvidia.com>
+References: <20250524013943.2832-1-ankita@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250523134207.68481-6-yassine.ouaissa@allegrodvt.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE31:EE_|DM6PR12MB4139:EE_
+X-MS-Office365-Filtering-Correlation-Id: 470d9e0c-931c-41c4-0132-08dd9a63e313
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ERDLZkeAAACLanuiRokXO99M+sAQAiwv7Qh7nZr92CkZBtQ8JlKAth9Vw8l8?=
+ =?us-ascii?Q?2sISCzNvodKAs8zCrHuBO+ZnTqH/H63FQLg4VUl3VbnKsVA+kdarFwU57/6V?=
+ =?us-ascii?Q?IWMARsePfbhT1hi2rEAY5WpRTxGHdN5pcEOqojlv/m/AkllFoCDN4QCLkHia?=
+ =?us-ascii?Q?uFyZVdqvcrNogffw7kpGphS01OXWLgU0+9oKVKnzCAYO/zPvhqYdxvqkWRyI?=
+ =?us-ascii?Q?A8sdbG3XtI4FlzGgwGUbY6K+c9HE3WaBfT256A/ohmOmfSFTFbhB8JYB4iEY?=
+ =?us-ascii?Q?dRhZF4CZqqH6mF4NgKBry/fGgOElM/hEt2a9E26+x350kBCyvaKMufbyPBAz?=
+ =?us-ascii?Q?WnOyfhFQhOYkc2zXaEu3I34DP6/05VOS4b7VWtJPERbWqhJI6y5ieC1/diLE?=
+ =?us-ascii?Q?K/rea8EfQI1aPXOaWw+H56QRo//OSpFVWOqN+BErNo7lQhtypbiS957jjHBt?=
+ =?us-ascii?Q?Ic4Ft4NF4uDP/aQNRbvmwRTEW2uJoqiYS8zDYtz8bvwo/3vcVHYMWB8IIXH9?=
+ =?us-ascii?Q?j3yktibiTHSuLThXWjOMg96URK25xHeUhqDCxPh0F2nq9AeOOjy3X+HwOutP?=
+ =?us-ascii?Q?J2FospPPtV/uMm2ZZxEW9CnpuIxEkg5yMJ7G1scDvbP1lgZnuhHIkRFpcbvT?=
+ =?us-ascii?Q?2caDdoiCrpX9hETe94Obl/StTavV3jJLwYFhUMfuVlYYD/m0D54E2O98QXd+?=
+ =?us-ascii?Q?2aGrjOtZkGt1BYmAfOF9N6bmzQkR/vthqVotsEMrOlhJJF7e+jJBJr17QysR?=
+ =?us-ascii?Q?oW/CWQWUaZjR9SG1sw6DeZwzKCJCRDm/k1FILSZEKAFFzJU5Cxpf+sZTKeQe?=
+ =?us-ascii?Q?xRmQisZqb3F+nKyMnZm7QERJwD5pcDMKuHAhOg4+Zf/Gw4EYfGnOxQFh+IdQ?=
+ =?us-ascii?Q?KkEcH2Og/RA5gbZw1U9Chnyc1aoSKJLc590qHCyvh/Ei6n1nS53/6WiDAah9?=
+ =?us-ascii?Q?Q8gtwRBcrmNoZkDheAMSoYmhyDHDnjmz2SfUyuXIutcVIxaBHdrj5y33dYL0?=
+ =?us-ascii?Q?piLUegXghhpiFbn07GrbZ3FaKce9HeMpwJqV8tUBPZ7yWlMyOXdl8Im04+0G?=
+ =?us-ascii?Q?f4P3KKijkcBG6+2wV/ifd5QZ5QKBAd3ymm/6jVuFIZ7Bb5KV6YTEIpSPL6xT?=
+ =?us-ascii?Q?N9zK8csjmdQi/nj2Yt5VhnNu6PbmRUoCGrr7y+/9jZ6jSqjYNrOBlEwluUmi?=
+ =?us-ascii?Q?bwX6hrWZ1Kng6xfctqSsqtFppldo+ulmDqaF5f2efpN1nY5WA8MvQVAXUlFN?=
+ =?us-ascii?Q?T3WTJ7p92Hni/ClBtou4jt7sLP1M6Qf1tzJ0tFQHv8HDI7gndB3/XmFxhIdb?=
+ =?us-ascii?Q?Y8Br8mQymd1EsOu8P91h1phy8AjsT0Vo98HAPwOLQki4tluf3LDtM3uWcKyB?=
+ =?us-ascii?Q?b0haIWJKXKQL1CycYbiFQ5VRf1BoyUPwe6+PIEhyFpk3eCX83c3rVxgFqTYB?=
+ =?us-ascii?Q?sW9swVksb/4qAaR5SIniXXj815WAK9b7W5XQRUrIDzseaW7TfjayNOLzVg2u?=
+ =?us-ascii?Q?0clRJd/nw/rIlsQaPsKmnWWDGj5RoJpMPOqcqR5ANqfK9Xia1xgSCMSPbA?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 May 2025 01:39:55.8170
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 470d9e0c-931c-41c4-0132-08dd9a63e313
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE31.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_173156_598922_918C9E4C 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20250523_184005_430509_6A08A353 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,161 +164,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yassine,
+From: Ankit Agrawal <ankita@nvidia.com>
 
-kernel test robot noticed the following build warnings:
+Fixes a security bug due to mismatched attributes between S1 and
+S2 mapping.
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on linuxtv-media-pending/master linus/master v6.15-rc7 next-20250523]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Currently, it is possible for a region to be cacheable in S1, but mapped
+non cached in S2. This creates a potential issue where the VMM may
+sanitize cacheable memory across VMs using cacheable stores, ensuring
+it is zeroed. However, if KVM subsequently assigns this memory to a VM
+as uncached, the VM could end up accessing stale, non-zeroed data from
+a previous VM, leading to unintended data exposure. This is a security
+risk.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yassine-Ouaissa/media-allegro-dvt-Move-the-current-driver-to-a-subdirectory/20250523-214946
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250523134207.68481-6-yassine.ouaissa%40allegrodvt.com
-patch subject: [PATCH 5/5] media: allegro-dvt: Add Gen 3 IP stateful decoder driver
-config: i386-randconfig-014-20250524 (https://download.01.org/0day-ci/archive/20250524/202505240808.VaN58jYa-lkp@intel.com/config)
-compiler: clang version 20.1.2 (https://github.com/llvm/llvm-project 58df0ef89dd64126512e4ee27b4ac3fd8ddf6247)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250524/202505240808.VaN58jYa-lkp@intel.com/reproduce)
+Block such mismatch attributes case by returning EINVAL when userspace
+try to map PFNMAP cacheable. Only allow NORMAL_NC and DEVICE_*.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505240808.VaN58jYa-lkp@intel.com/
+CC: Oliver Upton <oliver.upton@linux.dev>
+CC: Sean Christopherson <seanjc@google.com>
+CC: Catalin Marinas <catalin.marinas@arm.com>
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
+---
+ arch/arm64/kvm/mmu.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-All warnings (new ones prefixed by >>):
-
-   drivers/media/platform/allegro-dvt/al300/al_codec_common.c:251:9: warning: format specifies type 'unsigned long long' but the argument has type 'dma_addr_t' (aka 'unsigned int') [-Wformat]
-     250 |                 al_codec_err(dev, "mem check failed for 0x%16llx of size %zu",
-         |                                                           ~~~~~~
-         |                                                           %16x
-     251 |                              *paddr, size);
-         |                              ^~~~~~
-   drivers/media/platform/allegro-dvt/al300/al_codec_util.h:82:25: note: expanded from macro 'al_codec_err'
-      81 |         dev_err(&(al_dev)->pdev->dev, "[ALG_CODEC][ERROR] %s():%d: " fmt "\n",  \
-         |                                                                      ~~~
-      82 |                 __func__, __LINE__, ##args)
-         |                                       ^~~~
-   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                                ~~~     ^~~~~~~~~~~
-   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ~~~    ^~~~~~~~~~~
-   drivers/media/platform/allegro-dvt/al300/al_codec_common.c:249:22: warning: result of comparison of constant 549755813887 with expression of type 'unsigned int' is always false [-Wtautological-constant-out-of-range-compare]
-     249 |         if ((*paddr + size) > AL_CODEC_MAX_ADDR) {
-         |             ~~~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~
-   drivers/media/platform/allegro-dvt/al300/al_codec_common.c:508:50: warning: format specifies type 'unsigned long long' but the argument has type 'dma_addr_t' (aka 'unsigned int') [-Wformat]
-     508 |         al_codec_dbg(dev, "periph address = 0x%016llx", dev->apb);
-         |                                               ~~~~~~~   ^~~~~~~~
-         |                                               %016x
-   drivers/media/platform/allegro-dvt/al300/al_codec_util.h:120:60: note: expanded from macro 'al_codec_dbg'
-     120 |         dev_dbg(&(al_dev)->pdev->dev, "[ALG_CODEC]: " fmt "\n", ##args)
-         |                                                       ~~~         ^~~~
-   include/linux/dev_printk.h:165:39: note: expanded from macro 'dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                      ~~~     ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:274:19: note: expanded from macro 'dynamic_dev_dbg'
-     274 |                            dev, fmt, ##__VA_ARGS__)
-         |                                 ~~~    ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:250:59: note: expanded from macro '_dynamic_func_call'
-     250 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |                                                                  ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:248:65: note: expanded from macro '_dynamic_func_call_cls'
-     248 |         __dynamic_func_call_cls(__UNIQUE_ID(ddebug), cls, fmt, func, ##__VA_ARGS__)
-         |                                                                        ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:224:15: note: expanded from macro '__dynamic_func_call_cls'
-     224 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
->> drivers/media/platform/allegro-dvt/al300/al_codec_common.c:712:8: warning: format specifies type 'long' but the argument has type 'size_t' (aka 'unsigned int') [-Wformat]
-     711 |         al_codec_dbg(dev, "Send req to mcu %d : %ld ", req->req_type,
-         |                                                 ~~~
-         |                                                 %zu
-     712 |                      req->req_size);
-         |                      ^~~~~~~~~~~~~
-   drivers/media/platform/allegro-dvt/al300/al_codec_util.h:120:60: note: expanded from macro 'al_codec_dbg'
-     120 |         dev_dbg(&(al_dev)->pdev->dev, "[ALG_CODEC]: " fmt "\n", ##args)
-         |                                                       ~~~         ^~~~
-   include/linux/dev_printk.h:165:39: note: expanded from macro 'dev_dbg'
-     165 |         dynamic_dev_dbg(dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                      ~~~     ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:274:19: note: expanded from macro 'dynamic_dev_dbg'
-     274 |                            dev, fmt, ##__VA_ARGS__)
-         |                                 ~~~    ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:250:59: note: expanded from macro '_dynamic_func_call'
-     250 |         _dynamic_func_call_cls(_DPRINTK_CLASS_DFLT, fmt, func, ##__VA_ARGS__)
-         |                                                                  ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:248:65: note: expanded from macro '_dynamic_func_call_cls'
-     248 |         __dynamic_func_call_cls(__UNIQUE_ID(ddebug), cls, fmt, func, ##__VA_ARGS__)
-         |                                                                        ^~~~~~~~~~~
-   include/linux/dynamic_debug.h:224:15: note: expanded from macro '__dynamic_func_call_cls'
-     224 |                 func(&id, ##__VA_ARGS__);                       \
-         |                             ^~~~~~~~~~~
-   4 warnings generated.
-
-
-vim +712 drivers/media/platform/allegro-dvt/al300/al_codec_common.c
-
-   680	
-   681	int al_common_send_req_reply(struct al_codec_dev *dev,
-   682				     struct list_head *cmd_list,
-   683				     struct msg_itf_header *hdr,
-   684				     struct al_common_mcu_req *req)
-   685	{
-   686		struct al_codec_cmd *cmd = NULL;
-   687		int ret;
-   688	
-   689		hdr->drv_cmd_hdl = 0;
-   690	
-   691		if (req->reply_size && req->reply) {
-   692			cmd = al_codec_cmd_create(req->reply_size);
-   693			if (!cmd)
-   694				return -ENOMEM;
-   695	
-   696			hdr->drv_cmd_hdl = al_virt_to_phys(cmd);
-   697		}
-   698	
-   699		hdr->drv_ctx_hdl = req->pCtx;
-   700		hdr->type = req->req_type;
-   701		hdr->payload_len = req->req_size;
-   702	
-   703		/* Add the list to the cmd list */
-   704		if (cmd)
-   705			list_add(&cmd->list, cmd_list);
-   706	
-   707		ret = al_common_send(dev, hdr);
-   708		if (ret)
-   709			goto remove_cmd;
-   710	
-   711		al_codec_dbg(dev, "Send req to mcu %d : %ld ", req->req_type,
- > 712			     req->req_size);
-   713	
-   714		if (!cmd)
-   715			return 0;
-   716	
-   717		ret = wait_for_completion_timeout(&cmd->done, 5 * HZ);
-   718		if (ret <= 0) {
-   719			al_codec_err(dev, "cmd %p has %d (%s)", cmd, ret,
-   720				     (ret == 0) ? "failed" : "timedout");
-   721			ret = -ETIMEDOUT;
-   722			goto remove_cmd;
-   723		}
-   724	
-   725		ret = 0;
-   726		memcpy(req->reply, cmd->reply, req->reply_size);
-   727	
-   728	remove_cmd:
-   729	
-   730		if (cmd) {
-   731			list_del(&cmd->list);
-   732			al_codec_cmd_put(cmd);
-   733		}
-   734		return ret;
-   735	}
-   736	
-
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 2feb6c6b63af..305a0e054f81 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1466,6 +1466,18 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
+ 	return vma->vm_flags & VM_MTE_ALLOWED;
+ }
+ 
++/*
++ * Determine the memory region cacheability from VMA's pgprot. This
++ * is used to set the stage 2 PTEs.
++ */
++static unsigned long mapping_type_noncacheable(pgprot_t page_prot)
++{
++	unsigned long mt = FIELD_GET(PTE_ATTRINDX_MASK, pgprot_val(page_prot));
++
++	return (mt == MT_NORMAL_NC || mt == MT_DEVICE_nGnRnE ||
++		mt == MT_DEVICE_nGnRE);
++}
++
+ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 			  struct kvm_s2_trans *nested,
+ 			  struct kvm_memory_slot *memslot, unsigned long hva,
+@@ -1612,6 +1624,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 
+ 	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
+ 
++	if ((vma->vm_flags & VM_PFNMAP) &&
++	    !mapping_type_noncacheable(vma->vm_page_prot))
++		return -EINVAL;
++
+ 	/* Don't use the VMA after the unlock -- it may have vanished */
+ 	vma = NULL;
+ 
+@@ -2207,6 +2223,12 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 				ret = -EINVAL;
+ 				break;
+ 			}
++
++			/* Cacheable PFNMAP is not allowed */
++			if (!mapping_type_noncacheable(vma->vm_page_prot)) {
++				ret = -EINVAL;
++				break;
++			}
+ 		}
+ 		hva = min(reg_end, vma->vm_end);
+ 	} while (hva < reg_end);
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
