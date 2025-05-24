@@ -4,92 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58439C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 May 2025 23:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFD9C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 May 2025 00:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0M6BIbKkCL4BuQHLkwNfOtXVF4FD4eT1saE9fb6Qwh8=; b=3SGSWumo08oTkxnSsSRvbavVlL
-	add3aBCjZQgXdwpOAydpePqnaZ5iY1qHZYnAMpL/1FNh3PhjESJSMcZmabmx2IeUUSoQrEsbRUvde
-	nnVNxA9tlfpcDuGqxs2sGkgB1SeWzzafCNgHhNdaKxh1aZH1V0kcQjHYgHLkNjmNq+PY0xtYLN1GB
-	2s0ubDg5jYjBjnn8IIfMd8F8/cLF7K+vPkB6NqyO2KtrTdTg9yhrRAjqy0sWO0ztb/+dTc3qfuK53
-	8TmVa73zn5vYeyT9wF1NedFtpcrE/6odHiPX9g2R9iaGWDfk3/5MJ4gjrElfwUZkFE6QGZB4iOFLm
-	j0Ygsq3A==;
+	bh=Z3vQxLcTpDMFbmhqz80TZkS1cBKQmNM3Hvh7L+Ojb0c=; b=4dI/fK1B8hB42HgzjHnNvb0kKd
+	zFJQSKoi8ZkAaXmh12HKs6PwA40DQiMf72AM6LDNQODfq02ypNW3uKpEsxIBRh8p6iL0a80Yg340R
+	lfIpoL/wxSuWucYdHZSzEl2gYuEdZ7rdDsbzmZ3nGC3Xee5/PUfNB+gXsGV0kGNl8wUZ8MtOzpHvb
+	e7QOW/dK6hBf9JLMdOjwKim2Zakx0VtfVkkdmCtH8d7xiT42qqmXoMFNxlZDslkTkvDiTTGvp8OSw
+	E7gK6SPLNcMlX6RCUc87kREVrJgfK2/7ER2TjP9TkPQi87fv8b90IjhrjHFu/T3dO00pUMmRnq/3i
+	pQq618zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIbkN-000000053zC-2TPr;
-	Fri, 23 May 2025 23:24:15 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1uIcoT-000000057pw-04EI;
+	Sat, 24 May 2025 00:32:33 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIbiJ-000000053oS-1J0l
+	id 1uIcmK-000000057bg-3qBv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 May 2025 23:22:08 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-7c5e39d1e0eso32767685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 16:22:06 -0700 (PDT)
+	Sat, 24 May 2025 00:30:26 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7c597760323so31914585a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 May 2025 17:30:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1748042526; x=1748647326; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1748046619; x=1748651419; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=0M6BIbKkCL4BuQHLkwNfOtXVF4FD4eT1saE9fb6Qwh8=;
-        b=Jw1/wKdfsczKlm77M6vm0p85pabHkESN5w20k5fj4ArfjeWXIRZKpnwOL1a6oipspG
-         YaWpVVrLxN3gYCQunxrJgDAIU0sHHmb43ogU9U++2rlbbfK8Wq6WehhB0NqYfqOs+xiE
-         kuzj4tEVSz0ynDxkQXCutGyjSAnCqbTBzv2yFLRy6mtT4S4IdWgOn+XB1lm1RH5SQy4/
-         uT09ARP2RtJlIdYdDqPegQS5iUfjpRjjymGQSczgeIVY+XJvIf8kYd0T+qxcL/OaPMNs
-         4E8zxLR5BlbQQlKYTTKmCNYXUjgZFwNF+QhalgiGbN3dde1pbXrT0xMgvHiSZG/w4xhD
-         DvOA==
+        bh=Z3vQxLcTpDMFbmhqz80TZkS1cBKQmNM3Hvh7L+Ojb0c=;
+        b=FLLHbX3K0s9fCqizsnxwkejR7+Yu6zc+yLNqO1VekLOGNRcMnfB5uYDPjunAlM3S4S
+         UX6D8wkWUzUOyjLFIyX/t7bwfP5ScevjkF12+gucbROweKo4v6aOl6Mb1j/pArwLJGAK
+         g6cT/qr+5KfrVVSbX67avn7I5S0KE8iDTnQ7ZwPwNYNRhqRFDR8v7nvvzPw5bzXXLf/m
+         nzIYv7ftPLcSboRkx12ZerMEzo5ZiF9EMF8WDrxd7IDWR2QRaKscKmKcPTvDaVMZqiUY
+         O2/w96kB1YXy+qcUqk93xQ7JuCBmVKpjmz4Vo7JByWcXwIDaC2kn4S8m7ZJaqtj+isW5
+         vNuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748042526; x=1748647326;
+        d=1e100.net; s=20230601; t=1748046619; x=1748651419;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=0M6BIbKkCL4BuQHLkwNfOtXVF4FD4eT1saE9fb6Qwh8=;
-        b=Ekf9PcU7FjAKAGF08zcxdkJGu3s2GI/ZtVYZNLTHTCsoBKS4xdRsBaRvV5BEZx34is
-         srgsk3QrVgCoxQxYMv8LvZY2D6wY5DlAeZUXC8Qkfv6xtbH4/O6WBDu/h3p98k/EDmCk
-         vapx2LDTTKJO+AdEvVzEvoCeDAQdZxvbSRNKa5PL4S50kxknVbRfr1qBOfKLuWA/16nA
-         ywEixNz2LHV72RPtJUKTMmytaQfqUI6n3LlIbotMnMZYnCIXKqvrzbGEFKp5uqlTmlYq
-         545t99RHnO9dvitu9UtPnXjdeLM6tsNXCBJCTORD6HR0Ny09WcUO4ItP6OuKBjXfQIgF
-         F6qA==
-X-Forwarded-Encrypted: i=1; AJvYcCUZUZDYOmx4t4ofTob4Mkqtbsep4Af1ITVOBvc0hTEupmxE22eFBMvD5SzUG9K7TDAivk4h8nYxUYKcfKdQVKD6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY1sgf1ukb5Fkk32HwejbSSO8aCN460l8d7peeQY7QiA6wvJ+H
-	82AZZ9Zc/p35wTZEc+VAzRpGfixKuhgtQF0NwbPS+4t6WZqzCugUhXt+dXxln42hpJY=
-X-Gm-Gg: ASbGnctvbGG+LTnnsvMUv6IRXXntz5XhmKc0YNjE/KK0gKPnQavtnclVkdH4/MXkkzg
-	RWUQW8PcDOE/7SxtrB4r4GJVPvyC4HbxGWJp++gq2JZ315UF6Hi3kwr6OACEGf6q6VVNRweLI7p
-	QRTq1m+PjRq4bQmvLvp/z6OMfxPp5DLiMGj/YSQ3Hk4ps6hbNKk42fMcJmrNyog8SI0OVNt0Nix
-	CXfsAi4GB3hNjRYXlZobEDLRVeYG5PjBGKVjOOPiej3CvIwtC5ZCmh0iqB2NkRXEjgrPskOmkNJ
-	8vNH1WcaoP8AxWCIi4Z/qdMpR6ZzSeKAfQsLzwOjML+S0ODRcScEZEy4
-X-Google-Smtp-Source: AGHT+IEIMXrXdUEGP0sasHkicBsBeTsvbtxxsfrCzTtv247fRI8qwLbIJGGL+3bJAWxBYrqeC4TcKQ==
-X-Received: by 2002:a05:620a:319c:b0:7ca:dac1:a2d9 with SMTP id af79cd13be357-7ceecbe014fmr161204785a.28.1748042525994;
-        Fri, 23 May 2025 16:22:05 -0700 (PDT)
+        bh=Z3vQxLcTpDMFbmhqz80TZkS1cBKQmNM3Hvh7L+Ojb0c=;
+        b=ehdfD5agUV0+yeEOMVWTtHjKiOx2GAnovBRW61nmn8R8F842FbaPxHXNkKJOExK309
+         JthlAX4CFnDbScZKhWg9qhyjFkQJzWe9k4XGPtKk7QYKx1d2yXlOXjZZIZROCznK2oMa
+         V1lmLciHwnyNHfPlIAGpXjZ1KwubtaENbulPImpzO/t7bW6ILYLp2+eOKUoyucarnRY/
+         l9Y6UEjmcpmIqt9CXqiyU7fqEzLRMgz+5O+OkOvEcbyz+lCAhrcn1XR9tkuudgjtWN6k
+         hEn7cspQpJ+O/lYlPS0fdlES6T7xfc4upJyTzECY8LGna7zisQvkjul6oj7I+S88FywB
+         ngUw==
+X-Forwarded-Encrypted: i=1; AJvYcCXnw9nnTcH0nQwAALmPq+bh0dN9t0dn7vce1tC7mq86X6aJ79M4R+Wcfqo8nleQIC9nyHfegCwMyQim0tG3jYFn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdtZmaCVM9WGoywwhTGuQxlsS7DCY02GEKvxX+BWejjCSHfPwH
+	/M1p91lTMCkcSwRvQ6favOr8Oew6MRezNt0rNTxZetGfgpyW15LBwis5I4jnMX4MC0o=
+X-Gm-Gg: ASbGncsB3U2KjSRxIKr+iBiu3plc1TrXbagAChBdkUOlBT164xmTMlaV2I0r+Zi/3uP
+	pF4Xp4k/rUYJ3/rD0vqzbu2dDT8oprfXYC1EReeIFwteyN3u7t09JrdzEYK7WlRGpvxntsW1m1w
+	NANttnW6gmFrxppPikycLQ5TSVmk1tZJj6GhJqw0nCysvT4QvhlWgGt331+q5AjjAtuJtDaNFC3
+	fm57fthYXQFZRd3v+VpGVJN0dPoQzm0mhRM8msJ2GcMLCoz++pq6to/9aXYJ8lAp0KHKeqQqAJW
+	Rzu41H9NJ0z/0DBWXObAEKArXZCd249oDiWLL5suLqFHUSS8uikm0kI/
+X-Google-Smtp-Source: AGHT+IEdDR8OXzB8US60Ph044RM+6ozSx842gNCE6DrnFPv+fhbjtE54fFC5D64DrrpFCuVDHM+uHA==
+X-Received: by 2002:a05:620a:45a7:b0:7cd:53cc:c60c with SMTP id af79cd13be357-7ceecc2b5d3mr205043985a.37.1748046619377;
+        Fri, 23 May 2025 17:30:19 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:17:b2fc::c41? ([2606:6d00:17:b2fc::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cd467ef2fbsm1249034185a.59.2025.05.23.16.22.04
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cd468b7400sm1254895885a.66.2025.05.23.17.30.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 16:22:05 -0700 (PDT)
-Message-ID: <eef5ccd99d82dd33e3a4ecdb5d4a5b75ccb0b972.camel@ndufresne.ca>
-Subject: Re: [PATCH RESEND 1/2] media: dt-bindings: nxp,imx8-jpeg: Add
- compatible strings for IMX95 JPEG
+        Fri, 23 May 2025 17:30:18 -0700 (PDT)
+Message-ID: <b1d8b6407bcaea4e12ff1c6c206c8d3b591ac2a9.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 1/5] docs: uapi: media: Document Raspberry Pi NV12
+ column format
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Frank Li <Frank.Li@nxp.com>, mirela.rabulea@nxp.com, mchehab@kernel.org,
- 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, 	s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, 	krzysztof.kozlowski@linaro.org
-Cc: imx@lists.linux.dev, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, ming.qian@nxp.com
-Date: Fri, 23 May 2025 19:22:04 -0400
-In-Reply-To: <20250521173444.310641-1-Frank.Li@nxp.com>
-References: <20250521-95_jpeg-v1-0-392de5d29672@nxp.com>
-	 <20250521173444.310641-1-Frank.Li@nxp.com>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>, Sakari Ailus	
+ <sakari.ailus@linux.intel.com>, Laurent Pinchart	
+ <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Florian Fainelli
+ <florian.fainelli@broadcom.com>, Broadcom internal kernel review list	
+ <bcm-kernel-feedback-list@broadcom.com>, John Cox
+ <john.cox@raspberrypi.com>,  Dom Cobley <dom@raspberrypi.com>, review list
+ <kernel-list@raspberrypi.com>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>
+Cc: John Cox <jc@kynesim.co.uk>, linux-media@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Date: Fri, 23 May 2025 20:30:17 -0400
+In-Reply-To: <20250423-media-rpi-hevc-dec-v3-1-8fd3fad1d6fb@raspberrypi.com>
+References: <20250423-media-rpi-hevc-dec-v3-0-8fd3fad1d6fb@raspberrypi.com>
+	 <20250423-media-rpi-hevc-dec-v3-1-8fd3fad1d6fb@raspberrypi.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.1 (3.56.1-1.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_162207_614901_051DE583 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20250523_173021_219617_5E92F4F8 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,55 +110,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksCgpMZSBtZXJjcmVkaSAyMSBtYWkgMjAyNSDDoCAxMzozNCAtMDQwMCwgRnJhbmsgTGkgYSDD
-qWNyaXTCoDoKPiBBZGQgY29tcGF0aWJsZSBzdHJpbmdzICJueHAsaW14OTUtanBnZGVjIiBhbmQg
-Im54cCxpbXg5NS1qcGdlbmMiLCB3aGljaAo+IGFyZSBiYWNrd2FyZCBjb21wYXRpYmxlIHdpdGgg
-Im54cCxpbXg4cXhwLWpwZ2RlYyIgYW5kCj4gIm54cCxpbXg4cXhwLWpwZWdlbmMiLiBpLk1YOTUg
-anVzdCBuZWVkIG9uZSBwb3dlciBkb21haW4gd2hpY2ggY29tYmluZQo+IHdyYXAgYW5kIGFsbCBz
-bG90cyB0b2dldGhlci4gUmVkdWNlIG1pbkl0ZW1zIG9mIHBvd2VyLWRvbWFpbnMgdG8gMSBmb3IK
-PiBpLk1YOTUgYW5kIGtlZXAgdGhlIHNhbWUgcmVzdHJpY3Rpb24gZm9yIG90aGVycy4KPiAKPiBS
-ZXZpZXdlZC1ieTogS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtvemxvd3NraUBsaW5h
-cm8ub3JnPgo+IFNpZ25lZC1vZmYtYnk6IEZyYW5rIExpIDxGcmFuay5MaUBueHAuY29tPgoKQWNr
-ZWQtYnk6IE5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAY29sbGFib3JhLmNvbT4K
-CktyenlzenRvZiwgd2lsbCB5b3UgdGFrZSB0aGlzIG9uZSBvbmNlIHRoZSBEVFMgcGFydCBpcyBy
-ZWFkeSA/CgpyZWdhcmRzLApOaWNvbGFzCgo+IC0tLQo+IMKgLi4uL2JpbmRpbmdzL21lZGlhL254
-cCxpbXg4LWpwZWcueWFtbMKgwqDCoMKgwqDCoMKgwqAgfCAyOCArKysrKysrKysrKysrKysrKy0t
-Cj4gwqAxIGZpbGUgY2hhbmdlZCwgMjUgaW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkKPiAK
-PiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21lZGlhL254
-cCxpbXg4LWpwZWcueWFtbAo+IGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21l
-ZGlhL254cCxpbXg4LWpwZWcueWFtbAo+IGluZGV4IDJiZTMwYzVmZGM4MzkuLjRjYmE0MmJhN2Nm
-NzIgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21lZGlh
-L254cCxpbXg4LWpwZWcueWFtbAo+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
-aW5ncy9tZWRpYS9ueHAsaW14OC1qcGVnLnlhbWwKPiBAQCAtMjIsMTAgKzIyLDE0IEBAIHByb3Bl
-cnRpZXM6Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gbnhwLGlteDhxeHAtanBnZGVjCj4g
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gbnhwLGlteDhxeHAtanBnZW5jCj4gwqDCoMKgwqDC
-oMKgIC0gaXRlbXM6Cj4gLcKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiBueHAsaW14OHFtLWpw
-Z2RlYwo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgLSBlbnVtOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCAtIG54cCxpbXg4cW0tanBnZGVjCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-IC0gbnhwLGlteDk1LWpwZ2RlYwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gY29uc3Q6IG54cCxp
-bXg4cXhwLWpwZ2RlYwo+IMKgwqDCoMKgwqDCoCAtIGl0ZW1zOgo+IC3CoMKgwqDCoMKgwqDCoMKg
-wqAgLSBjb25zdDogbnhwLGlteDhxbS1qcGdlbmMKPiArwqDCoMKgwqDCoMKgwqDCoMKgIC0gZW51
-bToKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBueHAsaW14OHFtLWpwZ2VuYwo+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIG54cCxpbXg5NS1qcGdlbmMKPiDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCAtIGNvbnN0OiBueHAsaW14OHF4cC1qcGdlbmMKPiDCoAo+IMKgwqAgcmVnOgo+
-IEBAIC00OCw3ICs1Miw3IEBAIHByb3BlcnRpZXM6Cj4gwqDCoMKgwqAgZGVzY3JpcHRpb246Cj4g
-wqDCoMKgwqDCoMKgIExpc3Qgb2YgcGhhbmRsZSBhbmQgUE0gZG9tYWluIHNwZWNpZmllciBhcyBk
-b2N1bWVudGVkIGluCj4gwqDCoMKgwqDCoMKgIERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5k
-aW5ncy9wb3dlci9wb3dlcl9kb21haW4udHh0Cj4gLcKgwqDCoCBtaW5JdGVtczogMsKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgIyBXcmFwcGVyIGFuZCAxIHNsb3QKPiArwqDCoMKgIG1pbkl0
-ZW1zOiAxwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAjIFdyYXBwZXIgYW5kIGFsbCBzbG90
-cwo+IMKgwqDCoMKgIG1heEl0ZW1zOiA1wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAjIFdy
-YXBwZXIgYW5kIDQgc2xvdHMKPiDCoAo+IMKgcmVxdWlyZWQ6Cj4gQEAgLTU4LDYgKzYyLDI0IEBA
-IHJlcXVpcmVkOgo+IMKgwqAgLSBpbnRlcnJ1cHRzCj4gwqDCoCAtIHBvd2VyLWRvbWFpbnMKPiDC
-oAo+ICthbGxPZjoKPiArwqAgLSBpZjoKPiArwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+ICvCoMKg
-wqDCoMKgwqDCoCBjb21wYXRpYmxlOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgY29udGFpbnM6Cj4g
-K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZW51bToKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgLSBueHAsaW14OTUtanBnZW5jCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gbnhw
-LGlteDk1LWpwZ2RlYwo+ICvCoMKgwqAgdGhlbjoKPiArwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+
-ICvCoMKgwqDCoMKgwqDCoCBwb3dlci1kb21haW5zOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgbWF4
-SXRlbXM6IDEKPiArwqDCoMKgIGVsc2U6Cj4gK8KgwqDCoMKgwqAgcHJvcGVydGllczoKPiArwqDC
-oMKgwqDCoMKgwqAgcG93ZXItZG9tYWluczoKPiArwqDCoMKgwqDCoMKgwqDCoMKgIG1pbkl0ZW1z
-OiAywqDCoMKgwqDCoMKgwqAgIyBXcmFwcGVyIGFuZCAxIHNsb3QKPiArCj4gKwo+IMKgYWRkaXRp
-b25hbFByb3BlcnRpZXM6IGZhbHNlCj4gwqAKPiDCoGV4YW1wbGVzOgo=
+Le mercredi 23 avril 2025 =C3=A0 18:20 +0100, Dave Stevenson a =C3=A9crit=
+=C2=A0:
+> The Raspberry Pi HEVC decoder uses a tiled format based on
+> columns for 8 and 10 bit YUV images, so document them as
+> NV12MT_COL128 and NV12MT_10_COL128.
+>=20
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> ---
+> =C2=A0.../userspace-api/media/v4l/pixfmt-yuv-planar.rst=C2=A0 | 42 ++++++=
+++++++++++++++++
+> =C2=A01 file changed, 42 insertions(+)
+>=20
+> diff --git a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst =
+b/Documentation/userspace-
+> api/media/v4l/pixfmt-yuv-planar.rst
+> index b788f6933855..b5b590f234b0 100644
+> --- a/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
+> +++ b/Documentation/userspace-api/media/v4l/pixfmt-yuv-planar.rst
+> @@ -827,6 +827,48 @@ Data in the 12 high bits, zeros in the 4 low bits, a=
+rranged in little endian ord
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Cb\ :sub:`11`
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Cr\ :sub:`11`
+> =C2=A0
+> +V4L2_PIX_FMT_NV12MT_COL128 and V4L2_PIX_FMT_NV12MT_10_COL128
+> +------------------------------------------------------------
+> +
+> +``V4L2_PIX_FMT_NV12MT_COL128`` is a tiled version of
+> +``V4L2_PIX_FMT_NV12M`` where the two planes are split into 128 byte wide=
+ columns
+> +of Y or interleaved CbCr.
+> +
+> +V4L2_PIX_FMT_NV12MT_10_COL128 expands that as a 10 bit format where 3 10=
+ bit
+> +values are packed into a 32bit word. A 128 byte wide column therefore ho=
+lds 96
+> +samples (either Y or interleaved CrCb). That effectively makes it 6 valu=
+es in a
+> +64 bit word for the CbCr plane, as the values always go in pairs.
 
+Could be nice to mention that this has a verticalement alignment of 8, allo=
+wing
+to represent it as a 128x8 tiled format with a column layout. This was hand=
+y for
+the GStreamer integration your showed me.
+
+Nicolas
+
+> +
+> +Bit-packed representation.
+> +
+> +.. tabularcolumns:: |p{1.2cm}||p{1.2cm}||p{1.2cm}||p{1.2cm}|p{3.2cm}|p{3=
+.2cm}|
+> +
+> +.. flat-table::
+> +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> +=C2=A0=C2=A0=C2=A0 :widths: 8 8 8 8
+> +
+> +=C2=A0=C2=A0=C2=A0 * - Y'\ :sub:`00[7:0]`
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Y'\ :sub:`01[5:0] (bits 7--2)` Y'\ :sub=
+:`00[9:8]`\ (bits 1--0)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Y'\ :sub:`02[3:0] (bits 7--4)` Y'\ :sub=
+:`01[9:6]`\ (bits 3--0)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - unused (bits 7--6)` Y'\ :sub:`02[9:4]`\=
+ (bits 5--0)
+> +
+> +.. tabularcolumns:: |p{1.2cm}||p{1.2cm}||p{1.2cm}||p{1.2cm}|p{3.2cm}|p{3=
+.2cm}|
+> +
+> +.. flat-table::
+> +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> +=C2=A0=C2=A0=C2=A0 :widths: 12 12 12 12 12 12 12 12
+> +
+> +=C2=A0=C2=A0=C2=A0 * - Cb\ :sub:`00[7:0]`
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Cr\ :sub:`00[5:0]`\ (bits 7--2) Cb\ :su=
+b:`00[9:8]`\ (bits 1--0)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Cb\ :sub:`01[3:0]`\ (bits 7--4) Cr\ :su=
+b:`00[9:6]`\ (bits 3--0)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - unused (bits 7--6) Cb\ :sub:`02[9:4]`\ =
+(bits 5--0)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Cr\ :sub:`01[7:0]`
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Cb\ :sub:`02[5:0]`\ (bits 7--2) Cr\ :su=
+b:`01[9:8]`\ (bits 1--0)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Cr\ :sub:`02[3:0]`\ (bits 7--4) Cb\ :su=
+b:`02[9:6]`\ (bits 3--0)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - unused (bits 7--6) Cr\ :sub:`02[9:4]`\ =
+(bits 5--0)
+> +
+> =C2=A0
+> =C2=A0Fully Planar YUV Formats
+> =C2=A0=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D
 
