@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C157C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 10:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7258EC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 10:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MHoY9NprZrhMoOj31geuDIZSaDHcm4VQ+TXX3keKbuE=; b=sQCXdvdY0KfOU98zfMgij+mrko
-	nVtzosm9OtMRB66v/MGFGh1ASPfoDGpsj4XRdz9udSeGa5iCG6bspas372f0AaU2yg2JrSM+D+Lp2
-	roLSk0KsHqA2C4usf+m3d+FNEYbOuVmCoxxTnwF9Rj461UvGgBkxjDsiZaii79GOqo5bv2UvED9ky
-	r+hta57H7snyMmib2+v4uCxyR8YMtLZyfjZQuilMcjKnZPKtkoxIftWNJ21VdeQqETK+kMmtG3esc
-	Z0as2q4yyFsYDXnlHu0aPOkle9DA2Sjksu1Jdf+CY9Irsi/koKiJGck0FbXHvCfpL4HyGhgAO//5n
-	RwggVEnQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=izlEIQwUeKrajRtPKUwber5TbtMd+1HlD92TZXy7rh8=; b=HxgSzT3YV1qo7DHG+But8uMSNK
+	o5WdU91Q5v8tFZWf9F3AXJnMoXmLZnyJSgx4WX0RU7hVubUDMWLABAGfWV1SRpOd1ZvHgbPj0b4u3
+	ja+/n3Bz7eGWwgKM62pM7py/F8oTapL4YPapE8y521JFKABXvqNWdlxQpDYknamHHQCelotz9OzLl
+	zyg2YTKDkKT4W7duOCjvSXeai1M0VirVeQgDRcLhKcSsThAQuzFUSNsXeAOOll1s1UbqELwa1P1X6
+	MWgGjlhakcZLDEzgNayJhKb4OJ3wItq4p8vsUW3KcUU3BhmkPG/ZSLcmjxwCzWGBtR9mIcks3OpSW
+	zr2aZVVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJ8XY-00000006wtu-182O;
-	Sun, 25 May 2025 10:25:12 +0000
-Received: from mail-mw2nam12on20616.outbound.protection.outlook.com ([2a01:111:f403:200a::616] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1uJ8gj-00000006xHo-2GIZ;
+	Sun, 25 May 2025 10:34:41 +0000
+Received: from mail-dm3nam02on2062a.outbound.protection.outlook.com ([2a01:111:f403:2405::62a] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJ8Ux-00000006wbl-10Xm
+	id 1uJ8ee-00000006xDU-2C2o
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 May 2025 10:22:32 +0000
+	Sun, 25 May 2025 10:32:33 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pmFMD6APkVyJZKysjY1Q2t9Eea44F2MZsBCi9WaE1rNHi5EryIPZ2zqPOZS84ILGedt+uyps5BouKxOcLE0B88FtMTY4/SrzcDAGVxhIj6sfEO9PKRuy6zI8dSyGAaGHhrqSUVwHjngsjn2rdugBf8mBGZ97pbwOt+Hbh8lZ5qWAMK9xjJZv9HXKOSz5NsdMC6xEdupzW1PsOWThLlC/KsJwmyvhad7OMi4ob0n6ZLMcPCIBsKEs8v+uR7rj4y+2UZkWypPd1JP9y4TLvNN884R16FDBFgZ4MkkxOWOWG55Nu6dweQdZHl6vXxDjsiweFqu8QQ2MMkjF0CheynTCsw==
+ b=VFSxjE0aVdCf5qOf4bYAqqXrkOV/DLEqef6P9uFVguRVm94YthYzXa/pYFVZLS56M7oDZJBdoBnq+U6yfiV+2U8PhdpZPscYpdK+RZzVxgNT+RCBDNm2ZMpLjnadDkRzs3NTncRou5EJ5B2/H5qV6buBBUW0TW6AgzL+jzg/I/qQYovNu9unvpi19oGChDdMffmfpw+sxc1XXJcoReponbo4/v6v6gHPEHmBfYfMvTi4tFdcGGzd/9yfPJoaEXjOTY4fXf75Yrh6VO3gLmAs8GdSWxY3rBXnUMrW9dTjqKeVwGLXkGHUOOzAhlbyj7YkTSCQQYYn2Rfou907fr25mw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MHoY9NprZrhMoOj31geuDIZSaDHcm4VQ+TXX3keKbuE=;
- b=OrFqQzam3OlabLm82mptHO0FTt9SOuKkr/1FrOdI5gFUGMWjZoWrOIMv1nbyGYR3zsl85CWGlq9JJV50rwV9JEsPzrnNgb6bGRaAMoi4HhQ6Yci8fuHAr0P3VLeEdNBq4wOhijdcpM7l9Wnsu6+MwHxe0tucHr+YhmECrzFvrjvJI8S6v05dYPLa8Znrbhv+i7a6UauOcOXnCOOYyJ0irVZiY73uZELLE7gT/Eb8SVMLdjKWJccWJglSMekXRC7APWKI4wgQMu9oSZ2OwlBHrK8Q81UqAQG47Fo+tICXoxilFp1OSfs0gHLgVOONgk+wRAN9zh2DlhUmZcTu+awWmg==
+ bh=izlEIQwUeKrajRtPKUwber5TbtMd+1HlD92TZXy7rh8=;
+ b=FKIy2laTVzrYdnFMWYYDJisWxO9IlsYZiIoGJ5bspS9Hc39lE8dtR1D4jcASOpfAGspdKzJWO6V8WUbLj7NcXhdyQeHRlWooPpAn2Y1DHTMLxt+RyUXSA0fpOqv/QUkd8j75WzMr2CEc42Ym+nG2n3TzDa9sHFNMB4q1L00z3fd05JHBQDeFXWmiv4HQPvCH/6rQpl8xq4JqlEeqhRMqIAYpRFWxj036HyRXv5F2tEwPCLH+DlwgOEn+aY/2zYR253EqQVbSfPVTxucgqC2lVnkfVrvEU8EI96a7yIXT2ElbGNrFTfYsA+FbSQOg8PO860OkJFNFWvcb7rGgC9MaLA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MHoY9NprZrhMoOj31geuDIZSaDHcm4VQ+TXX3keKbuE=;
- b=5dDoNA25h2xKlHOkW3rtHjtEAdCXrbCdzIn8G1KuVJtrLL1eAgoFI3ufwDjKQRx7tHzr/Axqu8yHjijhB+DlLgXI+DWCQlRs/D829Rpe+HY1Q1t2cbFEoM1r0hEPzAzAMy8X4DRhsIQklSiG3z8IBbvmZOuIfyczQ0L4ZpfHioA=
-Received: from BN0PR04CA0184.namprd04.prod.outlook.com (2603:10b6:408:e9::9)
- by BL1PR12MB5900.namprd12.prod.outlook.com (2603:10b6:208:398::12) with
+ bh=izlEIQwUeKrajRtPKUwber5TbtMd+1HlD92TZXy7rh8=;
+ b=Nf7OwBBKpznfj4JQdzlCrO+5LZIPuHHPsE3Bip5RlnBaHWywDt4+6uozLC6Z3jO+6WaCtF6XoELcH7QuhtgJisvoS8InH/a0ksaaIP3+R3YwfZftWchIysGbhjONWMuZoNFVswhbB4JCn0BOwMHWZmfNPB6VOm9kW6mzW5TTmN8=
+Received: from SJ0PR13CA0014.namprd13.prod.outlook.com (2603:10b6:a03:2c0::19)
+ by MW4PR12MB5601.namprd12.prod.outlook.com (2603:10b6:303:168::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.25; Sun, 25 May
- 2025 10:22:23 +0000
-Received: from BN2PEPF000055DD.namprd21.prod.outlook.com
- (2603:10b6:408:e9:cafe::97) by BN0PR04CA0184.outlook.office365.com
- (2603:10b6:408:e9::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.31 via Frontend Transport; Sun,
- 25 May 2025 10:22:23 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Sun, 25 May
+ 2025 10:16:31 +0000
+Received: from SJ5PEPF00000203.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c0:cafe::84) by SJ0PR13CA0014.outlook.office365.com
+ (2603:10b6:a03:2c0::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18 via Frontend Transport; Sun,
+ 25 May 2025 10:16:31 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,27 +59,27 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
 Received: from SATLEXMB04.amd.com (165.204.84.17) by
- BN2PEPF000055DD.mail.protection.outlook.com (10.167.245.7) with Microsoft
+ SJ5PEPF00000203.mail.protection.outlook.com (10.167.244.36) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8813.0 via Frontend Transport; Sun, 25 May 2025 10:22:23 +0000
-Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB04.amd.com
+ 15.20.8769.18 via Frontend Transport; Sun, 25 May 2025 10:16:31 +0000
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
  (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Sun, 25 May
- 2025 05:22:21 -0500
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Sun, 25 May 2025 05:22:18 -0500
+ 2025 05:16:30 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Sun, 25 May 2025 05:16:28 -0500
 From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <vkoul@kernel.org>,
-	<michal.simek@amd.com>, <sean.anderson@linux.dev>,
-	<radhey.shyam.pandey@amd.com>, <horms@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <git@amd.com>, <harini.katakam@amd.com>
-Subject: [PATCH net-next] net: xilinx: axienet: Configure and report coalesce parameters in DMAengine flow
-Date: Sun, 25 May 2025 15:52:17 +0530
-Message-ID: <20250525102217.1181104-1-suraj.gupta2@amd.com>
+To: <vkoul@kernel.org>, <michal.simek@amd.com>, <radhey.shyam.pandey@amd.com>,
+	<thomas.gessler@brueckmann-gmbh.de>
+CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <harini.katakam@amd.com>
+Subject: [PATCH 2/2] dmaengine: xilinx_dma: Add support to configure/report coalesce parameters from/to client using AXI DMA
+Date: Sun, 25 May 2025 15:46:17 +0530
+Message-ID: <20250525101617.1168991-3-suraj.gupta2@amd.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250525101617.1168991-1-suraj.gupta2@amd.com>
+References: <20250525101617.1168991-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -87,52 +87,51 @@ Received-SPF: None (SATLEXMB04.amd.com: suraj.gupta2@amd.com does not
  designate permitted sender hosts)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000055DD:EE_|BL1PR12MB5900:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0aaf7649-f0b1-474e-8ccb-08dd9b7609f7
+X-MS-TrafficTypeDiagnostic: SJ5PEPF00000203:EE_|MW4PR12MB5601:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3f0fa65-ed8a-42dd-6a83-08dd9b75385f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|82310400026|1800799024|13003099007|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+/TOwM90wuftVXJZHiRUbBCqZfZVK4NJHLR7olsWtDlgq8Y+mhHa2AoOU4vU?=
- =?us-ascii?Q?3/243E/diEWGmHo04II+EYaV3QQKJqRlWWjqLn7lKxxw0li3GiZjjVYk0QMH?=
- =?us-ascii?Q?rqIEYmI+o3cANtL6lDtptRvZVSqtPEnQ6D7dV1cTVoWFjclj637EGAmBvZzt?=
- =?us-ascii?Q?i1PDpKhk3YF0Z3xCOtKYdXlnjciyQX+1F+iDEtbJ4tQo6yuhhB94NQKe4SWd?=
- =?us-ascii?Q?iWU1aktbqehKPKMa3R2QbSpa++k82uBUSOueArT5hnr/B0w1W6w4Emu0aKHW?=
- =?us-ascii?Q?FRNoH4mA73yaA/+gNv5zsKsppq5IUNAnUwyHIPBy2YhPPwlFyUK+ovZ0oe2M?=
- =?us-ascii?Q?uQkL3EqciTgS4GPcsGM0udrMpbz5Zc4GIME5KA1EMG4MjelWFR+LQkyFOO0B?=
- =?us-ascii?Q?lcc10qqtprD9ZYOfIMBo56vyic1QtRdJ5LasSU+M/YIdBAG7TigFJnSl/Pvb?=
- =?us-ascii?Q?jMrcz+CiQqqKm+m/sO1QT9KLlOX7vKXdrkUSrADwkAZy1x2FqG6gn7Kqgd89?=
- =?us-ascii?Q?7jeR7xEZCXE+nuGLKPCjQIXXvdLFaqWGRApwT3Vh5qoCHCYJnUnzqqxCqE4e?=
- =?us-ascii?Q?7WlbHBBeyQf/u5dSeJIfCJHoElolxjusGC6nx9Nuo6KbZGEOM8DNxTNtT0rf?=
- =?us-ascii?Q?YtqdEGe1vTrc8ZbnSu/+Xw/o+uV/e5KXgLeXTsel3OxV9JD8fKEhDKGTlOHE?=
- =?us-ascii?Q?k5yfJuFbTHE1JlfnUJIr2nceKsGwKni6XwyM9mO14AzdPEIBElEHMJwj80hL?=
- =?us-ascii?Q?dbGkUNgRiWS1Ma3teKDUQhUSGUAitoYF4AGaSNoGWEFnLmA4wYkMtVhUUWlI?=
- =?us-ascii?Q?YimYypMwRXbql4QYaO0perATZ3FMmsUaV39j+/NZtatEaYSSRSjOLTCO0wMW?=
- =?us-ascii?Q?H8bJFqx2+znn9UbAGgqN5VWqpnrKK7DbT4vKnK84WoOOrUdl6YQtOuar7Z+U?=
- =?us-ascii?Q?TAyQQjB4IrYKiZLb9oYiWHmtvnVbBzf3zHC2CUoE5JjNLxz9jdAVBWaYSx+L?=
- =?us-ascii?Q?AJUsBI5lOv88+mPjF6z9wIJGkWK9pOY5c6c4ZtIhNjh+1jR4mpSGQQoeqvGG?=
- =?us-ascii?Q?zXYhOUiW5pfiWYx2+jimMeIq0PmAyP/WvlRcljfStSTwOEXnaNDB+7t7cDyg?=
- =?us-ascii?Q?X10SbfpM7E0pu7dVGiLserYRQu0FgXY+1yLBHLIwG8AJ9uJcXv/pkkEa7B1R?=
- =?us-ascii?Q?mZs6qN0f1EDiEzRr/iFE1z5onGxyyXRrYTefctnOz1bxlu5AScdWYi2HfPpt?=
- =?us-ascii?Q?YTAVYjQ3ATNR+jc4zGADMjiqEKrVS0ndAz0fVwSPdsJ/bbEK0VdWNC5Pos3D?=
- =?us-ascii?Q?Qmd/vj2pd9FCbHx8z4GFgR0SWK1TmPljj9uK4HjeNgn3/bV6LvDiEggVEwfS?=
- =?us-ascii?Q?ab8Ob6wSV9lF+WZoAcU09XMxiEN0NyVosXTwuYzclgf2Lgj25nCi4/ZZ5u2T?=
- =?us-ascii?Q?4n1xqrYk9vRDSmsBM4Pz5pFyjZEFTV0KpZjOe/Q1KOA43Vi1SNVoCOuOOeX7?=
- =?us-ascii?Q?nXiEyqJD7hq1rK0o/cHtSIH0k598tSxwc6XTBAErHP3N0PMXGA+1wnUhgw?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(82310400026)(1800799024)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WA8g2uxEXoi3gYYQt75FOx8xOtgQxPyx1652anJp7dowfZXEvsPKwLFIry2/?=
+ =?us-ascii?Q?ybSaRkuHHg5No6KDbcXmjaWds9OyFd0F98T+YlUxOp4sioBufcHcKCS1s/CR?=
+ =?us-ascii?Q?8jv5T7hdWwGeUf4ZDVCU4yRLKRwSI+AqzpvzwcDZGke/rPVahQeex3lA+NFM?=
+ =?us-ascii?Q?Ol0SdBpVff6p+983Q5vpFAYMa3d190Nvo0X8UZvjnbLPTLkARv0chfZ6zjKL?=
+ =?us-ascii?Q?7QE4zcJBdU4VFTDES3wQJr0ly7PoxwpCcaS6qcZDT5WX+bPZSCMKXO2rpYp0?=
+ =?us-ascii?Q?k/d2hVqiMrEU+vioRvtHjSFSs5qSzpuq10koE20+ToD6VxbpeyTgeWcd6ndp?=
+ =?us-ascii?Q?+ff6woDa36Qmnp1Yzor5oZJnKvOREMbZj/sniWofz6eEFt7ktJ8NWISwN0BN?=
+ =?us-ascii?Q?mVPwJ791j1D5rfj9BreA2/tXEqnWI8U1yvQ0ORTzVlAAQQ3l6SkQ43deI260?=
+ =?us-ascii?Q?d4NSgh3zzQVeXx2bizBlMCPMaLmez29ijXQzcnOsO1Y0ZP4hqcnT/6UkLm6s?=
+ =?us-ascii?Q?4kpei9kZE81XyjGTwiB7BdsYrMYXNbo0DV0YJdTLukIitcumi1N9rMnrODtZ?=
+ =?us-ascii?Q?NCh7p3qsf774nGmJ9ZP40+cQcrnzrPTyP2uEGADVwWtbAVVdBdC/yBJ5Ut/4?=
+ =?us-ascii?Q?K+lkdSmuT6U6aGXYLiVb5OBxCnMg4oC2fu/lx038u3raaS/GDSAVcSSKh8XV?=
+ =?us-ascii?Q?1lNzfjzhuRmqC0I6VNke1LhkMg318gvA0MFiW9P/0oB94bs+HLVEaF/DyCwh?=
+ =?us-ascii?Q?k4/yJgQq6CXekkGgOZQqMDDDrKT1ldbpsdbJcrRhFe1HRDynz55zfU4vYzkF?=
+ =?us-ascii?Q?f1OLTJiw9F7RcfEUw4XxXk7b5pxcYe9AYPrQzQOItAuUOyunFTbaJ7biPlYG?=
+ =?us-ascii?Q?XbGiyoumVRlt5wBCmVYdYksWJypecQPIm8dvkuUHO9yFxMAKrl2/BE7SAqc1?=
+ =?us-ascii?Q?sMAwJinlSDLcnFQ9zCXveyiKY0JmTQS48RwmGmEr0tHiOd97f8X5hJ87LwKY?=
+ =?us-ascii?Q?N7RSRNpKu7Pk5P5cOTACmHzyioWR3kKoohtS4t7CC8yUr8dv20afKQhFYn/H?=
+ =?us-ascii?Q?BNtwnEGu+I1XMG9eeiEJRwlgqcq6BNKccVkcZzLGFsrl00vfBYuwbO2JOY+3?=
+ =?us-ascii?Q?SXgNC3jilF+LnYN1N1lYYyJVM7xnGuAl718UK6ut6Bg8TgyAKVoKXSDG3g7G?=
+ =?us-ascii?Q?uEo5XBtQzLXcZROLGe0llrTeJt4EYMDFpOYSn9PiI2zWDoy42MT5LqKbIkcc?=
+ =?us-ascii?Q?je/lIzZh/YF4XAG+3xWi6iFQKRUB1eqUFvZ4rr5yeXLiOrhda83QZw62av6e?=
+ =?us-ascii?Q?i+A+T9R69MPKNgm5GMsTpmmT2AK8a1+XlY6PcU297MMX1gCIvIGytIK6wdX+?=
+ =?us-ascii?Q?ZcF+/CgezLCiQU7PW3h+ng01egHVZKi6UeE+ysZmcEINz+zFAOwpImwUjDBV?=
+ =?us-ascii?Q?8jQJDL1aXX10SjtfzUD1ic4U7RtQwu9t39/Wlu9oDSaVVBE20jQSBLgMqJ9a?=
+ =?us-ascii?Q?7THluC4SMO3sd+CNjh2PiRyHVOEtf/D4p6xQ?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2025 10:22:23.1724
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2025 10:16:31.4478
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0aaf7649-f0b1-474e-8ccb-08dd9b7609f7
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3f0fa65-ed8a-42dd-6a83-08dd9b75385f
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055DD.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000203.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5900
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB5601
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_032231_285026_21A9C40E 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250525_033232_561911_1C76ADE5 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,135 +146,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to configure / report interrupt coalesce count and delay via
-ethtool in DMAEngine flow.
-Netperf numbers are not good when using non-dmaengine default values,
-so tuned coalesce count and delay and defined separate default
-values in dmaengine flow.
-
-Netperf numbers and CPU utilisation change in DMAengine flow after
-introducing coalescing with default parameters:
-coalesce parameters:
-   Transfer type	  Before(w/o coalescing)  After(with coalescing)
-TCP Tx, CPU utilisation%	925, 27			941, 22
-TCP Rx, CPU utilisation%	607, 32			741, 36
-UDP Tx, CPU utilisation%	857, 31			960, 28
-UDP Rx, CPU utilisation%	762, 26			783, 18
-
-Above numbers are observed with 4x Cortex-a53.
+AXI DMA supports interrupt coalescing. Client can fine-tune coalesce
+parameters based on transaction load. Add support to configure/
+report coalesce parameters.
+Change delay setting to scale with SG clock rate rather than being a
+fixed number of clock cycles (Referred from AXI ethernet driver).
 
 Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
 ---
-This patch depend on following AXI DMA dmengine driver changes sent to
-dmaengine mailing list as pre-requisit series:
-https://lore.kernel.org/all/20250525101617.1168991-1-suraj.gupta2@amd.com/ 
----
- drivers/net/ethernet/xilinx/xilinx_axienet.h  |  6 +++
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 53 +++++++++++++++++++
- 2 files changed, 59 insertions(+)
+ drivers/dma/xilinx/xilinx_dma.c | 62 ++++++++++++++++++++++++++++-----
+ 1 file changed, 54 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-index 5ff742103beb..cdf6cbb6f2fd 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-@@ -126,6 +126,12 @@
- #define XAXIDMA_DFT_TX_USEC		50
- #define XAXIDMA_DFT_RX_USEC		16
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index a34d8f0ceed8..b03975b6f00f 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -159,6 +159,9 @@
+ 		 XILINX_DMA_DMASR_SOF_EARLY_ERR | \
+ 		 XILINX_DMA_DMASR_DMA_INT_ERR)
  
-+/* Default TX/RX Threshold and delay timer values for SGDMA mode with DMAEngine */
-+#define XAXIDMAENGINE_DFT_TX_THRESHOLD	16
-+#define XAXIDMAENGINE_DFT_TX_USEC	5
-+#define XAXIDMAENGINE_DFT_RX_THRESHOLD	24
-+#define XAXIDMAENGINE_DFT_RX_USEC	16
++/* Constant to convert delay counts to microseconds */
++#define XILINX_DMA_DELAY_SCALE		(125ULL * USEC_PER_SEC)
 +
- #define XAXIDMA_BD_CTRL_TXSOF_MASK	0x08000000 /* First tx packet */
- #define XAXIDMA_BD_CTRL_TXEOF_MASK	0x04000000 /* Last tx packet */
- #define XAXIDMA_BD_CTRL_ALL_MASK	0x0C000000 /* All control bits */
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 1b7a653c1f4e..f9c7d90d4ecb 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -1505,6 +1505,7 @@ static int axienet_init_dmaengine(struct net_device *ndev)
+ /* Axi VDMA Flush on Fsync bits */
+ #define XILINX_DMA_FLUSH_S2MM		3
+ #define XILINX_DMA_FLUSH_MM2S		2
+@@ -403,6 +406,7 @@ struct xilinx_dma_tx_descriptor {
+  * @terminating: Check for channel being synchronized by user
+  * @tasklet: Cleanup work after irq
+  * @config: Device configuration info
++ * @slave_cfg: Device configuration info from Dmaengine
+  * @flush_on_fsync: Flush on Frame sync
+  * @desc_pendingcount: Descriptor pending count
+  * @ext_addr: Indicates 64 bit addressing is supported by dma channel
+@@ -442,6 +446,7 @@ struct xilinx_dma_chan {
+ 	bool terminating;
+ 	struct tasklet_struct tasklet;
+ 	struct xilinx_vdma_config config;
++	struct dma_slave_config slave_cfg;
+ 	bool flush_on_fsync;
+ 	u32 desc_pendingcount;
+ 	bool ext_addr;
+@@ -1540,7 +1545,9 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
  {
- 	struct axienet_local *lp = netdev_priv(ndev);
- 	struct skbuf_dma_descriptor *skbuf_dma;
-+	struct dma_slave_config tx_config, rx_config;
- 	int i, ret;
+ 	struct xilinx_dma_tx_descriptor *head_desc, *tail_desc;
+ 	struct xilinx_axidma_tx_segment *tail_segment;
+-	u32 reg;
++	struct dma_slave_config *slave_cfg = &chan->slave_cfg;
++	u64 clk_rate;
++	u32 reg, usec, timer;
  
- 	lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0");
-@@ -1520,6 +1521,22 @@ static int axienet_init_dmaengine(struct net_device *ndev)
- 		goto err_dma_release_tx;
- 	}
+ 	if (chan->err)
+ 		return;
+@@ -1560,19 +1567,38 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
  
-+	tx_config.coalesce_cnt = XAXIDMAENGINE_DFT_TX_THRESHOLD;
-+	tx_config.coalesce_usecs = XAXIDMAENGINE_DFT_TX_USEC;
-+	rx_config.coalesce_cnt = XAXIDMAENGINE_DFT_RX_THRESHOLD;
-+	rx_config.coalesce_usecs =  XAXIDMAENGINE_DFT_RX_USEC;
-+
-+	ret = dmaengine_slave_config(lp->tx_chan, &tx_config);
-+	if (ret) {
-+		dev_err(lp->dev, "Failed to configure Tx coalesce parameters\n");
-+		goto err_dma_release_tx;
-+	}
-+	ret = dmaengine_slave_config(lp->rx_chan, &rx_config);
-+	if (ret) {
-+		dev_err(lp->dev, "Failed to configure Rx coalesce parameters\n");
-+		goto err_dma_release_tx;
-+	}
-+
- 	lp->tx_ring_tail = 0;
- 	lp->tx_ring_head = 0;
- 	lp->rx_ring_tail = 0;
-@@ -2170,6 +2187,19 @@ axienet_ethtools_get_coalesce(struct net_device *ndev,
- 	struct axienet_local *lp = netdev_priv(ndev);
- 	u32 cr;
+ 	reg = dma_ctrl_read(chan, XILINX_DMA_REG_DMACR);
  
-+	if (lp->use_dmaengine) {
-+		struct dma_slave_caps tx_caps, rx_caps;
+-	if (chan->desc_pendingcount <= XILINX_DMA_COALESCE_MAX) {
+-		reg &= ~XILINX_DMA_CR_COALESCE_MAX;
++	reg &= ~XILINX_DMA_CR_COALESCE_MAX;
++	reg  &= ~XILINX_DMA_CR_DELAY_MAX;
 +
-+		dma_get_slave_caps(lp->tx_chan, &tx_caps);
-+		dma_get_slave_caps(lp->rx_chan, &rx_caps);
++	/* Use dma_slave_config if it has valid values */
++	if (slave_cfg->coalesce_cnt &&
++	    slave_cfg->coalesce_cnt <= XILINX_DMA_COALESCE_MAX)
++		reg |= slave_cfg->coalesce_cnt <<
++			XILINX_DMA_CR_COALESCE_SHIFT;
++	else if (chan->desc_pendingcount <= XILINX_DMA_COALESCE_MAX)
+ 		reg |= chan->desc_pendingcount <<
+ 				  XILINX_DMA_CR_COALESCE_SHIFT;
+-		dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
+-	}
 +
-+		ecoalesce->tx_max_coalesced_frames = tx_caps.coalesce_cnt;
-+		ecoalesce->tx_coalesce_usecs = tx_caps.coalesce_usecs;
-+		ecoalesce->rx_max_coalesced_frames = rx_caps.coalesce_cnt;
-+		ecoalesce->rx_coalesce_usecs = rx_caps.coalesce_usecs;
-+		return 0;
-+	}
++	if (slave_cfg->coalesce_usecs <= XILINX_DMA_DMACR_DELAY_MAX)
++		usec = slave_cfg->coalesce_usecs;
++	else
++		usec = chan->irq_delay;
 +
- 	ecoalesce->use_adaptive_rx_coalesce = lp->rx_dim_enabled;
++	/* Scale with SG clock rate rather than being a fixed number of
++	 * clock cycles.
++	 * 1 Timeout Interval = 125 * (clock period of SG clock)
++	 */
++	clk_rate = clk_get_rate(chan->xdev->rx_clk);
++	timer = DIV64_U64_ROUND_CLOSEST((u64)usec * clk_rate,
++					XILINX_DMA_DELAY_SCALE);
++	timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
++	reg |= timer << XILINX_DMA_CR_DELAY_SHIFT;
++
++	dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
  
- 	spin_lock_irq(&lp->rx_cr_lock);
-@@ -2233,6 +2263,29 @@ axienet_ethtools_set_coalesce(struct net_device *ndev,
- 		return -EINVAL;
- 	}
+ 	if (chan->has_sg)
+ 		xilinx_write(chan, XILINX_DMA_REG_CURDESC,
+ 			     head_desc->async_tx.phys);
+-	reg  &= ~XILINX_DMA_CR_DELAY_MAX;
+-	reg  |= chan->irq_delay << XILINX_DMA_CR_DELAY_SHIFT;
+-	dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
  
-+	if (lp->use_dmaengine)	{
-+		struct dma_slave_config tx_cfg, rx_cfg;
-+		int ret;
+ 	xilinx_dma_start(chan);
+ 
+@@ -1703,9 +1729,28 @@ static void xilinx_dma_issue_pending(struct dma_chan *dchan)
+ static int xilinx_dma_device_config(struct dma_chan *dchan,
+ 				    struct dma_slave_config *config)
+ {
++	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
 +
-+		tx_cfg.coalesce_cnt = ecoalesce->tx_max_coalesced_frames;
-+		tx_cfg.coalesce_usecs = ecoalesce->tx_coalesce_usecs;
-+		rx_cfg.coalesce_cnt = ecoalesce->rx_max_coalesced_frames;
-+		rx_cfg.coalesce_usecs = ecoalesce->rx_coalesce_usecs;
++	if (!config->coalesce_cnt ||
++	    config->coalesce_cnt > XILINX_DMA_DMACR_FRAME_COUNT_MAX ||
++	    config->coalesce_usecs > XILINX_DMA_DMACR_DELAY_MAX)
++		return -EINVAL;
 +
-+		ret = dmaengine_slave_config(lp->tx_chan, &tx_cfg);
-+		if (ret) {
-+			NL_SET_ERR_MSG(extack, "failed to set tx coalesce parameters");
-+			return ret;
-+		}
++	chan->slave_cfg.coalesce_cnt = config->coalesce_cnt;
++	chan->slave_cfg.coalesce_usecs = config->coalesce_usecs;
 +
-+		ret = dmaengine_slave_config(lp->rx_chan, &rx_cfg);
-+		if (ret) {
-+			NL_SET_ERR_MSG(extack, "failed to set rx coalesce parameters");
-+			return ret;
-+		}
-+		return 0;
-+	}
+ 	return 0;
+ }
+ 
++static void xilinx_dma_device_caps(struct dma_chan *dchan,
++				   struct dma_slave_caps *caps)
++{
++	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
 +
- 	if (new_dim && !old_dim) {
- 		cr = axienet_calc_cr(lp, axienet_dim_coalesce_count_rx(lp),
- 				     ecoalesce->rx_coalesce_usecs);
++	caps->coalesce_cnt = chan->slave_cfg.coalesce_cnt;
++	caps->coalesce_usecs = chan->slave_cfg.coalesce_usecs;
++}
++
+ /**
+  * xilinx_dma_complete_descriptor - Mark the active descriptor as complete
+  * @chan : xilinx DMA channel
+@@ -3178,6 +3223,7 @@ static int xilinx_dma_probe(struct platform_device *pdev)
+ 	xdev->common.device_tx_status = xilinx_dma_tx_status;
+ 	xdev->common.device_issue_pending = xilinx_dma_issue_pending;
+ 	xdev->common.device_config = xilinx_dma_device_config;
++	xdev->common.device_caps = xilinx_dma_device_caps;
+ 	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
+ 		dma_cap_set(DMA_CYCLIC, xdev->common.cap_mask);
+ 		xdev->common.device_prep_slave_sg = xilinx_dma_prep_slave_sg;
 -- 
 2.25.1
 
