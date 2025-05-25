@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009E5C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 14:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E16DC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 16:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fjwkpaIW8d/RF5+xL6P9IlYEI/fbZI2/pMFcpOGU5M=; b=0qM0kKg6yhd3tiJZFJTjdt8HG0
-	MovAnta3JVYsV2YYaT8K2/cgFcnEf+MZWSaKD1vmD2fPzqAu70cScOR19QoGYXjdO6AYEvIOcDKXw
-	2OKuB5wyNPl1uVM/aEJO1ArFaCNuYdh2pXypeJOAMiGwJRUTq/lTUc521gHMv1DU76efZu5OWeasU
-	Lo5k7rF/h+btz6Rzl4IoJo1gVpHVODQ/YoSxf5mNe5Omeh5/z1YbVNFQPM4UP6N9ZvGnii55ACFaG
-	dZz10888AzjaowjZ+kHCmHjTMAhyCbhQZWXOmmmCZGQMEivEfdNxUcE7HGUue3PVK+bpCj2GvG8O2
-	JUADo3SQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Itmuf2YdiTbmwIMamc/71asQgOph9WVmB6xFeHxYhFU=; b=VR/LDT1NuIi5RFFBG2wakS806m
+	nZfO0fdRIpXxNhqbrZS3VT4XEmqkMdjWZFXJeC1h0IiskE9T8PYJi7Wa13hdieJhHNBUdKUtYooRt
+	WYzmgtXBlrk1ry9EUDJHaIBCMfUz53nr91UqFZ/GYSgLc++651LbbdbK9rb7ibE/2I2HShhE1p8uh
+	aqG2muFVa3aIZp4Sa8jt9bW5LAkfu2CPVbYXa9sCz7B31Rk5BTi8AreZc8girpiiMuMqmzO2kE8vj
+	qVbKVQafC0zsGILAGmUukcXRt9fLSeV1I4fiXNBkbgHBKc9u8J3TVtfucQCf+Nzprvdwg0SJyItIM
+	/UtJK4PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJCQg-00000007C7v-1Bfx;
-	Sun, 25 May 2025 14:34:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uJDra-00000007Jiz-3uFu;
+	Sun, 25 May 2025 16:06:14 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJCOb-00000007Bw3-3eGY;
-	Sun, 25 May 2025 14:32:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C46E45191;
-	Sun, 25 May 2025 14:32:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F1A4C4CEEA;
-	Sun, 25 May 2025 14:32:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748183532;
-	bh=gD3iutxq4pqSFaNAhKZd5QxYH52E0Fd1DVRC+e7CGL4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uT0d++RXL/JC2mIYgpix9YvqGiMzGu7LP9aCd2alUnLRCfE85To5H4yLZfezW+BGc
-	 8P7I3HZzvJkYvgfeCaPJQ2HZOv8unzP+8g2mCLEPIN+Vrh8bhYEMQM70OsIpA/LSu9
-	 EJGw4NeHe1nsa5kFpo0PCw1ESkMEjoHjJyZsJp+LfihOhpebU9f56GqMQGeCzqovwH
-	 GskUhG7q89Yii89xmhbQxDbZxMwRrhiMcuUleKo2RSjsJdTMnAT4E+WDOlDpZhQKgv
-	 Y0iSR9tFuU4YHof2FtaExlypoqntYdvLvx6wHudhQqFCA2FjJ1LHrj4iOw07yZO4Ky
-	 +uIkGvRtdxglw==
-Date: Sun, 25 May 2025 15:32:01 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Ulf Hansson <ulf.hansson@linaro.org>,
- David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, Chukun Pan
- <amadeus@jmu.edu.cn>, linux-rockchip@lists.infradead.org,
- linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 8/9] dt-bindings: iio: adc: rockchip-saradc: Allow use
- of a power-domain
-Message-ID: <20250525153201.51d733e3@jic23-huawei>
-In-Reply-To: <20250518220707.669515-9-jonas@kwiboo.se>
-References: <20250518220707.669515-1-jonas@kwiboo.se>
-	<20250518220707.669515-9-jonas@kwiboo.se>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	id 1uJDpV-00000007JPW-4682
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 25 May 2025 16:04:07 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4b53bt4NTqz9scd;
+	Sun, 25 May 2025 18:03:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1748189034;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Itmuf2YdiTbmwIMamc/71asQgOph9WVmB6xFeHxYhFU=;
+	b=p6BaVQEwaVVx1c5Q1BlAYVHGhgdM237qKzEFBqmHgOB87lzeL38zX5wp85G4b876aOH5Um
+	yBF9yvV0/CKp4cIErMZnJoKIUCAsuwQYK/fclRVBb0cgnmu6ZCZinvb9m2MO4chptxmnRe
+	EytYQiWqtapY8ZLdVxVjxY4a/xPRwyjSNhTBxrdWD8ARWZ/mXUB9UVbllmNcbRbDnEstLZ
+	0RTlBate4JPKOnbU7yM5LG3nPOfqlXPZQ0kRbLzXUGbilLPBIVv+x9sgRxFfOd6M2kjsm/
+	Vu1Sm1JrbUVvYQYnTd+GhvlNJm1Wsh0aarudH9Zx4yzvRobq30whl3Hmw9yT/w==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1748189032;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Itmuf2YdiTbmwIMamc/71asQgOph9WVmB6xFeHxYhFU=;
+	b=HbsHrf31tDx773iC0C4d1OyiBZAqBk4ZNJ3NK/wnnCBQjQ2diDhAX8SUAxbGt5vXE2nNJ2
+	D7otFtUlWwFAZnD4zqQi8exFtuj/dKPDZFnibv/Eivkr/AuklP5gK0bPQ6GdzDshQef330
+	LV+xENyjigwPMHjGQr1z8gzk3unPlAcXsshSD4Rbv0QFlbW064Eq7H+23o+fA2JAfT+rLF
+	Qitwb1qa5qlxI1Fn0JXQeYOh7bq84j/AFn7vDe8HsaTnu9kBxIcDb3OIM9qMXx9uavu1LP
+	f1WHVCcqQk51dq9TMhijZ1hwjarKpDsvFcblADe8oxM0t8Cc24HDGJQr68qdZw==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: dts: renesas: r8a779g3: Sort DT on V4H Sparrow Hawk
+Date: Sun, 25 May 2025 18:02:43 +0200
+Message-ID: <20250525160336.82960-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: f8b1095690e590fc411
+X-MBO-RS-META: ygbne5fdc6gxm7kdpujnnhwcszrw8iya
+X-Rspamd-Queue-Id: 4b53bt4NTqz9scd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_073213_937609_BFC11C1D 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250525_090406_198640_2A3EECEE 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +93,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 18 May 2025 22:06:55 +0000
-Jonas Karlman <jonas@kwiboo.se> wrote:
+Sort DT alphabetically. Fix up the placement of &rcar_sound {} .
+No functional change.
 
-> The SARADC controller in most Rockchip SoCs are part or power domains
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ .../dts/renesas/r8a779g3-sparrow-hawk.dts     | 26 +++++++++----------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-part of power
-
-I can fix that whilst applying if nothing else comes up.
-
-
-> that are always powered on, i.e. PD_BUS or PD_PERI.
-> 
-> On RK3528 the SARADC controller is part of the PD_VPU power domain.
-> 
-> Add support to describe power-domains for the SARADC controllers.
-> 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> ---
->  Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
-> index 41e0c56ef8e3..f776041fd08f 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
-> @@ -47,6 +47,9 @@ properties:
->        - const: saradc
->        - const: apb_pclk
->  
-> +  power-domains:
-> +    maxItems: 1
-> +
->    resets:
->      maxItems: 1
->  
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+index 6955eafd8d6ab..b8698e07add56 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+@@ -679,19 +679,6 @@ sound_clk_pins: sound-clk {
+ 	};
+ };
+ 
+-/* Page 30 / Audio_Codec */
+-&rcar_sound {
+-	pinctrl-0 = <&sound_clk_pins>;
+-	pinctrl-names = "default";
+-
+-	/* It is used for ADG output as DA7212_MCLK */
+-
+-	/* audio_clkout */
+-	clock-frequency = <12288000>; /* 48 kHz groups */
+-
+-	status = "okay";
+-};
+-
+ /* Page 31 / FAN */
+ &pwm0 {
+ 	pinctrl-0 = <&pwm0_pins>;
+@@ -720,6 +707,19 @@ &pwm7 {
+ 	status = "okay";
+ };
+ 
++/* Page 30 / Audio_Codec */
++&rcar_sound {
++	pinctrl-0 = <&sound_clk_pins>;
++	pinctrl-names = "default";
++
++	/* It is used for ADG output as DA7212_MCLK */
++
++	/* audio_clkout */
++	clock-frequency = <12288000>; /* 48 kHz groups */
++
++	status = "okay";
++};
++
+ /* Page 16 / QSPI_FLASH */
+ &rpc {
+ 	pinctrl-0 = <&qspi0_pins>;
+-- 
+2.47.2
 
 
