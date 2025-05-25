@@ -4,134 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7258EC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 10:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D45C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 10:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=izlEIQwUeKrajRtPKUwber5TbtMd+1HlD92TZXy7rh8=; b=HxgSzT3YV1qo7DHG+But8uMSNK
-	o5WdU91Q5v8tFZWf9F3AXJnMoXmLZnyJSgx4WX0RU7hVubUDMWLABAGfWV1SRpOd1ZvHgbPj0b4u3
-	ja+/n3Bz7eGWwgKM62pM7py/F8oTapL4YPapE8y521JFKABXvqNWdlxQpDYknamHHQCelotz9OzLl
-	zyg2YTKDkKT4W7duOCjvSXeai1M0VirVeQgDRcLhKcSsThAQuzFUSNsXeAOOll1s1UbqELwa1P1X6
-	MWgGjlhakcZLDEzgNayJhKb4OJ3wItq4p8vsUW3KcUU3BhmkPG/ZSLcmjxwCzWGBtR9mIcks3OpSW
-	zr2aZVVg==;
+	bh=FvMZwrrK4O9JD71L3DzuziqxKKZYlUuX09bTEYlT1Yw=; b=0Ak8Bfdd8JyXnXoxTx4KzV3YrE
+	+8dxznUr++q43chbnDiS/facdSHkhZ52nD+X1Z7HQJOKYoauK2lKnarcwA9g9dSVXigUQzxoWAKOd
+	DrusonKgbWec5pU8STDK3IHnSyazg/b6B9gXge96qw2RvMesmQoAIg4XhGHIyyTiJHWlfvuuZOSNA
+	eEnOcQpuADTfno2SzGGoB+QYJmAB5SUaRJyoPbQWxO+Vef2o+33gAHOGQo348kXZu28HQcNleWT7f
+	zyXTMmQpkJvcI7D5kKc81+gzfMp713nU8YNtaisz37qiUtUQCLakH8MG+V95EQkHjqt61WhwfYZUb
+	fDYVPmpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJ8gj-00000006xHo-2GIZ;
-	Sun, 25 May 2025 10:34:41 +0000
-Received: from mail-dm3nam02on2062a.outbound.protection.outlook.com ([2a01:111:f403:2405::62a] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1uJ8we-00000006yff-2fkN;
+	Sun, 25 May 2025 10:51:08 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJ8ee-00000006xDU-2C2o
+	id 1uJ8uX-00000006yAg-3nQ1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 May 2025 10:32:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VFSxjE0aVdCf5qOf4bYAqqXrkOV/DLEqef6P9uFVguRVm94YthYzXa/pYFVZLS56M7oDZJBdoBnq+U6yfiV+2U8PhdpZPscYpdK+RZzVxgNT+RCBDNm2ZMpLjnadDkRzs3NTncRou5EJ5B2/H5qV6buBBUW0TW6AgzL+jzg/I/qQYovNu9unvpi19oGChDdMffmfpw+sxc1XXJcoReponbo4/v6v6gHPEHmBfYfMvTi4tFdcGGzd/9yfPJoaEXjOTY4fXf75Yrh6VO3gLmAs8GdSWxY3rBXnUMrW9dTjqKeVwGLXkGHUOOzAhlbyj7YkTSCQQYYn2Rfou907fr25mw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=izlEIQwUeKrajRtPKUwber5TbtMd+1HlD92TZXy7rh8=;
- b=FKIy2laTVzrYdnFMWYYDJisWxO9IlsYZiIoGJ5bspS9Hc39lE8dtR1D4jcASOpfAGspdKzJWO6V8WUbLj7NcXhdyQeHRlWooPpAn2Y1DHTMLxt+RyUXSA0fpOqv/QUkd8j75WzMr2CEc42Ym+nG2n3TzDa9sHFNMB4q1L00z3fd05JHBQDeFXWmiv4HQPvCH/6rQpl8xq4JqlEeqhRMqIAYpRFWxj036HyRXv5F2tEwPCLH+DlwgOEn+aY/2zYR253EqQVbSfPVTxucgqC2lVnkfVrvEU8EI96a7yIXT2ElbGNrFTfYsA+FbSQOg8PO860OkJFNFWvcb7rGgC9MaLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=izlEIQwUeKrajRtPKUwber5TbtMd+1HlD92TZXy7rh8=;
- b=Nf7OwBBKpznfj4JQdzlCrO+5LZIPuHHPsE3Bip5RlnBaHWywDt4+6uozLC6Z3jO+6WaCtF6XoELcH7QuhtgJisvoS8InH/a0ksaaIP3+R3YwfZftWchIysGbhjONWMuZoNFVswhbB4JCn0BOwMHWZmfNPB6VOm9kW6mzW5TTmN8=
-Received: from SJ0PR13CA0014.namprd13.prod.outlook.com (2603:10b6:a03:2c0::19)
- by MW4PR12MB5601.namprd12.prod.outlook.com (2603:10b6:303:168::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Sun, 25 May
- 2025 10:16:31 +0000
-Received: from SJ5PEPF00000203.namprd05.prod.outlook.com
- (2603:10b6:a03:2c0:cafe::84) by SJ0PR13CA0014.outlook.office365.com
- (2603:10b6:a03:2c0::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18 via Frontend Transport; Sun,
- 25 May 2025 10:16:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- SJ5PEPF00000203.mail.protection.outlook.com (10.167.244.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8769.18 via Frontend Transport; Sun, 25 May 2025 10:16:31 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Sun, 25 May
- 2025 05:16:30 -0500
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Sun, 25 May 2025 05:16:28 -0500
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <vkoul@kernel.org>, <michal.simek@amd.com>, <radhey.shyam.pandey@amd.com>,
-	<thomas.gessler@brueckmann-gmbh.de>
-CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <harini.katakam@amd.com>
-Subject: [PATCH 2/2] dmaengine: xilinx_dma: Add support to configure/report coalesce parameters from/to client using AXI DMA
-Date: Sun, 25 May 2025 15:46:17 +0530
-Message-ID: <20250525101617.1168991-3-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250525101617.1168991-1-suraj.gupta2@amd.com>
-References: <20250525101617.1168991-1-suraj.gupta2@amd.com>
+	Sun, 25 May 2025 10:48:59 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c922169051so67126885a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 May 2025 03:48:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1748170136; x=1748774936; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FvMZwrrK4O9JD71L3DzuziqxKKZYlUuX09bTEYlT1Yw=;
+        b=RObATym1mR9JulCT+XlOSlfCjDRyXu1rPj+b2HjGyD8Edo9Um5J3+vOYUWYWNX7l/I
+         DHgqSWaCCO2tQX8Ch7MqhQ6qgaxjkowPhDdeblA+tNxR1haoQ5VKWrIdSTrN8FRzcAZH
+         83yp9gWVk822FsXxkVrf59uyGhpAi/O+C4JZd6rdxayvsHuq5VB4Ltd6j3bJmO+P2540
+         nyQ8uFs/uIyqX20e0iL8d03wqfMVLNXOdvsb/ATqnX9++01r51ExQu/AS6/JQmpHk1dA
+         hqtOdA/wiDDArDZ6yopoPTZ77F05XZOI2oMPaT4MPClu5BOb8sKTWWpRGlPk9H/YmmNK
+         OdgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748170136; x=1748774936;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FvMZwrrK4O9JD71L3DzuziqxKKZYlUuX09bTEYlT1Yw=;
+        b=am0/ZMAt5I4dpDqosgv2acXJ97IarijVjzWW0KSNDPO/YAWifO972GFDU+7F4CXYcn
+         UIqxV+Xsm8lYoeLlm7ij8EMQvPyBR5tntw/dJanYi2DL7noVBs0cOlfGKr6iLQ13jGHz
+         m3xCYnEA5XXXJBtWhRYX75+TqXVYMX6C+fiQdCG4qLf9/+l475ZQaJL7NI6/YI/ZUlHt
+         G3lBsOM9eBseOzChMVcJ3jBIbFH+e/g5kU3w9GIiJJS8aTG5zjc5vhHTKqGelaRFpN/c
+         BEjSZxmrtG6ewqZqVMcerxa5H+OUW25a5NAbBdHAO+KfGVTlP5pTZC/pVUmTgJoeQZ1j
+         2gyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXYPJuJzejQFjqyBpHajrY7CDY7ue+26AS8HZbpzKRxrAlzA/bRBe9N0S+NtclUZ/ubl2VB9c4sb/71HcD9B9Ln@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6cVattkacronC81I6uxBiMPIYq5gjLyawMEr9keRj0T4aPo7L
+	ZlsmWOKlx+bYmqqsCLhOia1qiU1z7hcHKDncY0SrsE3t2KCg58neU1SylkMZU08MminIj6/h8XL
+	IFjJdzCed+OEOvMgxxuod9H1SERh5rqBNbSG1MmpJhQ==
+X-Gm-Gg: ASbGncuDawgxjyykEVYpvVK8dHm2UJ4wLf0D6xzCZGp/cl0j6k9xsjs76dN8ra5oTR0
+	rUlKLHscvs34msmkSOp/ZyjKLv7Qa8Hy/9QVzWAektgzrCIzF3sTowCS2FMQj5/m9oI2D65JrmT
+	3ZGhoFd2rpbEH3RFybfBin+yemWdcmz9ihvghhY9K3
+X-Google-Smtp-Source: AGHT+IHfLSQWm00np5MOUI9iSgjHG0uz8ZjLmKg3AyhQjzrIGk08erFcga0ZJK90E1+3HR6kZwenz2fYr+3ziRhndi0=
+X-Received: by 2002:a05:622a:488e:b0:476:7d74:dd10 with SMTP id
+ d75a77b69052e-49f46750736mr95207921cf.19.1748170136440; Sun, 25 May 2025
+ 03:48:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB04.amd.com: suraj.gupta2@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000203:EE_|MW4PR12MB5601:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3f0fa65-ed8a-42dd-6a83-08dd9b75385f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WA8g2uxEXoi3gYYQt75FOx8xOtgQxPyx1652anJp7dowfZXEvsPKwLFIry2/?=
- =?us-ascii?Q?ybSaRkuHHg5No6KDbcXmjaWds9OyFd0F98T+YlUxOp4sioBufcHcKCS1s/CR?=
- =?us-ascii?Q?8jv5T7hdWwGeUf4ZDVCU4yRLKRwSI+AqzpvzwcDZGke/rPVahQeex3lA+NFM?=
- =?us-ascii?Q?Ol0SdBpVff6p+983Q5vpFAYMa3d190Nvo0X8UZvjnbLPTLkARv0chfZ6zjKL?=
- =?us-ascii?Q?7QE4zcJBdU4VFTDES3wQJr0ly7PoxwpCcaS6qcZDT5WX+bPZSCMKXO2rpYp0?=
- =?us-ascii?Q?k/d2hVqiMrEU+vioRvtHjSFSs5qSzpuq10koE20+ToD6VxbpeyTgeWcd6ndp?=
- =?us-ascii?Q?+ff6woDa36Qmnp1Yzor5oZJnKvOREMbZj/sniWofz6eEFt7ktJ8NWISwN0BN?=
- =?us-ascii?Q?mVPwJ791j1D5rfj9BreA2/tXEqnWI8U1yvQ0ORTzVlAAQQ3l6SkQ43deI260?=
- =?us-ascii?Q?d4NSgh3zzQVeXx2bizBlMCPMaLmez29ijXQzcnOsO1Y0ZP4hqcnT/6UkLm6s?=
- =?us-ascii?Q?4kpei9kZE81XyjGTwiB7BdsYrMYXNbo0DV0YJdTLukIitcumi1N9rMnrODtZ?=
- =?us-ascii?Q?NCh7p3qsf774nGmJ9ZP40+cQcrnzrPTyP2uEGADVwWtbAVVdBdC/yBJ5Ut/4?=
- =?us-ascii?Q?K+lkdSmuT6U6aGXYLiVb5OBxCnMg4oC2fu/lx038u3raaS/GDSAVcSSKh8XV?=
- =?us-ascii?Q?1lNzfjzhuRmqC0I6VNke1LhkMg318gvA0MFiW9P/0oB94bs+HLVEaF/DyCwh?=
- =?us-ascii?Q?k4/yJgQq6CXekkGgOZQqMDDDrKT1ldbpsdbJcrRhFe1HRDynz55zfU4vYzkF?=
- =?us-ascii?Q?f1OLTJiw9F7RcfEUw4XxXk7b5pxcYe9AYPrQzQOItAuUOyunFTbaJ7biPlYG?=
- =?us-ascii?Q?XbGiyoumVRlt5wBCmVYdYksWJypecQPIm8dvkuUHO9yFxMAKrl2/BE7SAqc1?=
- =?us-ascii?Q?sMAwJinlSDLcnFQ9zCXveyiKY0JmTQS48RwmGmEr0tHiOd97f8X5hJ87LwKY?=
- =?us-ascii?Q?N7RSRNpKu7Pk5P5cOTACmHzyioWR3kKoohtS4t7CC8yUr8dv20afKQhFYn/H?=
- =?us-ascii?Q?BNtwnEGu+I1XMG9eeiEJRwlgqcq6BNKccVkcZzLGFsrl00vfBYuwbO2JOY+3?=
- =?us-ascii?Q?SXgNC3jilF+LnYN1N1lYYyJVM7xnGuAl718UK6ut6Bg8TgyAKVoKXSDG3g7G?=
- =?us-ascii?Q?uEo5XBtQzLXcZROLGe0llrTeJt4EYMDFpOYSn9PiI2zWDoy42MT5LqKbIkcc?=
- =?us-ascii?Q?je/lIzZh/YF4XAG+3xWi6iFQKRUB1eqUFvZ4rr5yeXLiOrhda83QZw62av6e?=
- =?us-ascii?Q?i+A+T9R69MPKNgm5GMsTpmmT2AK8a1+XlY6PcU297MMX1gCIvIGytIK6wdX+?=
- =?us-ascii?Q?ZcF+/CgezLCiQU7PW3h+ng01egHVZKi6UeE+ysZmcEINz+zFAOwpImwUjDBV?=
- =?us-ascii?Q?8jQJDL1aXX10SjtfzUD1ic4U7RtQwu9t39/Wlu9oDSaVVBE20jQSBLgMqJ9a?=
- =?us-ascii?Q?7THluC4SMO3sd+CNjh2PiRyHVOEtf/D4p6xQ?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2025 10:16:31.4478
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3f0fa65-ed8a-42dd-6a83-08dd9b75385f
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000203.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB5601
+References: <20250525051639.68753-2-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250525051639.68753-2-krzysztof.kozlowski@linaro.org>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Sun, 25 May 2025 11:48:44 +0100
+X-Gm-Features: AX0GCFtHF5h48b9Isl1N9tQLNjTjzN8BGszS3KNow9_vXa4svv2OiPk4eOV2_U8
+Message-ID: <CAPj87rMjAv-UphvFuQjop60o=wHrkfs4-XOM=JqH7f8Kk5dyVg@mail.gmail.com>
+Subject: Re: [PATCH] media: dt-bindings: mediatek: Constrain iommus
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_033232_561911_1C76ADE5 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20250525_034858_103265_5B581EA1 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,142 +99,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AXI DMA supports interrupt coalescing. Client can fine-tune coalesce
-parameters based on transaction load. Add support to configure/
-report coalesce parameters.
-Change delay setting to scale with SG clock rate rather than being a
-fixed number of clock cycles (Referred from AXI ethernet driver).
+On Sun, 25 May 2025 at 06:16, Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
+> @@ -45,9 +45,8 @@ properties:
+>        - description: OVL-2L Clock
+>
+>    iommus:
+> -    description:
+> -      This property should point to the respective IOMMU block with master port as argument,
+> -      see Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for details.
+> +    minItems: 1
+> +    maxItems: 2
 
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
- drivers/dma/xilinx/xilinx_dma.c | 62 ++++++++++++++++++++++++++++-----
- 1 file changed, 54 insertions(+), 8 deletions(-)
+The comment removals are not documented in the commit message, and
+it's not clear why removing information and references would be a good
+thing.
 
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index a34d8f0ceed8..b03975b6f00f 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -159,6 +159,9 @@
- 		 XILINX_DMA_DMASR_SOF_EARLY_ERR | \
- 		 XILINX_DMA_DMASR_DMA_INT_ERR)
- 
-+/* Constant to convert delay counts to microseconds */
-+#define XILINX_DMA_DELAY_SCALE		(125ULL * USEC_PER_SEC)
-+
- /* Axi VDMA Flush on Fsync bits */
- #define XILINX_DMA_FLUSH_S2MM		3
- #define XILINX_DMA_FLUSH_MM2S		2
-@@ -403,6 +406,7 @@ struct xilinx_dma_tx_descriptor {
-  * @terminating: Check for channel being synchronized by user
-  * @tasklet: Cleanup work after irq
-  * @config: Device configuration info
-+ * @slave_cfg: Device configuration info from Dmaengine
-  * @flush_on_fsync: Flush on Frame sync
-  * @desc_pendingcount: Descriptor pending count
-  * @ext_addr: Indicates 64 bit addressing is supported by dma channel
-@@ -442,6 +446,7 @@ struct xilinx_dma_chan {
- 	bool terminating;
- 	struct tasklet_struct tasklet;
- 	struct xilinx_vdma_config config;
-+	struct dma_slave_config slave_cfg;
- 	bool flush_on_fsync;
- 	u32 desc_pendingcount;
- 	bool ext_addr;
-@@ -1540,7 +1545,9 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
- {
- 	struct xilinx_dma_tx_descriptor *head_desc, *tail_desc;
- 	struct xilinx_axidma_tx_segment *tail_segment;
--	u32 reg;
-+	struct dma_slave_config *slave_cfg = &chan->slave_cfg;
-+	u64 clk_rate;
-+	u32 reg, usec, timer;
- 
- 	if (chan->err)
- 		return;
-@@ -1560,19 +1567,38 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
- 
- 	reg = dma_ctrl_read(chan, XILINX_DMA_REG_DMACR);
- 
--	if (chan->desc_pendingcount <= XILINX_DMA_COALESCE_MAX) {
--		reg &= ~XILINX_DMA_CR_COALESCE_MAX;
-+	reg &= ~XILINX_DMA_CR_COALESCE_MAX;
-+	reg  &= ~XILINX_DMA_CR_DELAY_MAX;
-+
-+	/* Use dma_slave_config if it has valid values */
-+	if (slave_cfg->coalesce_cnt &&
-+	    slave_cfg->coalesce_cnt <= XILINX_DMA_COALESCE_MAX)
-+		reg |= slave_cfg->coalesce_cnt <<
-+			XILINX_DMA_CR_COALESCE_SHIFT;
-+	else if (chan->desc_pendingcount <= XILINX_DMA_COALESCE_MAX)
- 		reg |= chan->desc_pendingcount <<
- 				  XILINX_DMA_CR_COALESCE_SHIFT;
--		dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
--	}
-+
-+	if (slave_cfg->coalesce_usecs <= XILINX_DMA_DMACR_DELAY_MAX)
-+		usec = slave_cfg->coalesce_usecs;
-+	else
-+		usec = chan->irq_delay;
-+
-+	/* Scale with SG clock rate rather than being a fixed number of
-+	 * clock cycles.
-+	 * 1 Timeout Interval = 125 * (clock period of SG clock)
-+	 */
-+	clk_rate = clk_get_rate(chan->xdev->rx_clk);
-+	timer = DIV64_U64_ROUND_CLOSEST((u64)usec * clk_rate,
-+					XILINX_DMA_DELAY_SCALE);
-+	timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
-+	reg |= timer << XILINX_DMA_CR_DELAY_SHIFT;
-+
-+	dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
- 
- 	if (chan->has_sg)
- 		xilinx_write(chan, XILINX_DMA_REG_CURDESC,
- 			     head_desc->async_tx.phys);
--	reg  &= ~XILINX_DMA_CR_DELAY_MAX;
--	reg  |= chan->irq_delay << XILINX_DMA_CR_DELAY_SHIFT;
--	dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
- 
- 	xilinx_dma_start(chan);
- 
-@@ -1703,9 +1729,28 @@ static void xilinx_dma_issue_pending(struct dma_chan *dchan)
- static int xilinx_dma_device_config(struct dma_chan *dchan,
- 				    struct dma_slave_config *config)
- {
-+	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
-+
-+	if (!config->coalesce_cnt ||
-+	    config->coalesce_cnt > XILINX_DMA_DMACR_FRAME_COUNT_MAX ||
-+	    config->coalesce_usecs > XILINX_DMA_DMACR_DELAY_MAX)
-+		return -EINVAL;
-+
-+	chan->slave_cfg.coalesce_cnt = config->coalesce_cnt;
-+	chan->slave_cfg.coalesce_usecs = config->coalesce_usecs;
-+
- 	return 0;
- }
- 
-+static void xilinx_dma_device_caps(struct dma_chan *dchan,
-+				   struct dma_slave_caps *caps)
-+{
-+	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
-+
-+	caps->coalesce_cnt = chan->slave_cfg.coalesce_cnt;
-+	caps->coalesce_usecs = chan->slave_cfg.coalesce_usecs;
-+}
-+
- /**
-  * xilinx_dma_complete_descriptor - Mark the active descriptor as complete
-  * @chan : xilinx DMA channel
-@@ -3178,6 +3223,7 @@ static int xilinx_dma_probe(struct platform_device *pdev)
- 	xdev->common.device_tx_status = xilinx_dma_tx_status;
- 	xdev->common.device_issue_pending = xilinx_dma_issue_pending;
- 	xdev->common.device_config = xilinx_dma_device_config;
-+	xdev->common.device_caps = xilinx_dma_device_caps;
- 	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
- 		dma_cap_set(DMA_CYCLIC, xdev->common.cap_mask);
- 		xdev->common.device_prep_slave_sg = xilinx_dma_prep_slave_sg;
--- 
-2.25.1
-
+Please see https://www.kernel.org/doc/html/latest/process/submitting-patches.html
+for information on how to submit good-quality patches that can be
+better reviwed by maintainers.
 
