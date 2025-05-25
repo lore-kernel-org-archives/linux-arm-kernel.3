@@ -4,79 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31111C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 13:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACAACC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 13:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hTz9wudKoCNJPetaaYKXa9vYygxMFUu3nisfOvAEvrE=; b=5FjqWrwYlOCU+WuULl0HnbE9GB
-	KL2XZDr4+omr3J9IxgN3p+MVBDAXr1TZC8ceZB0ybZvdp3nIOFDEAQDDxO7Kw6EkJLUhg8Fa3+k/Z
-	As9RrPgspY3j+yp/XCEk7kKKkrXTA//QFNEATWUUWTfpqR7TJ2pJ5JMRfM2ZqEH0+KgGjga67eGwR
-	6hLh5mHt8CbUBzSMHXUav33inXOzzcVOSUzNAD6Cwv5v5nSAnK6cOkqYfDa/H7gkOehGrCijzQp9Q
-	TYJZUxSymyTzmQxs80PGVtJ5vRLHAt04A41aFYm1Bh818XIZBYiQ0B4nHbacDCiTeocn+DrRCzjEv
-	JxBYpAxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iaBe/qc+2pXExuQttHiqmVdIlwW/IMB18Yyn98zdkjY=; b=mTxbN2OTNtcJ/N05OU01EHZiiP
+	z5viv6MDS+AcW+sXFB0FiHqFpC5/Q1CgFGSXCo/5QWJnklbn/4M0eWToIzZaksfq+qxIx9NoeouHB
+	dJpdfeqJQLd17yZS41nsUaU0+tlnrZWmPRfxy+4dH/Zzx6tSBTKWnkAs3EQml7jxUaZUNG/1GcXwD
+	7JL6MFw5fX9dANTy4JgCeh3yO+yOZDmxjE3I6HXq9mVjCEsD+C5TYdSk4NwF3/edqPhft5H2K0TC4
+	o71R+skiaoKE2B/G+epM974+2iNrjVLTUotRCcoALh5zk3cnmH5Y3wHCcdI0XPuuBwVDpWgcA8jz/
+	e/yLF1tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJBRS-000000077X1-3U5Z;
-	Sun, 25 May 2025 13:31:06 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1uJBVk-000000077sV-3aph;
+	Sun, 25 May 2025 13:35:32 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJBPN-000000077Kf-1loe
+	id 1uJBTf-000000077gY-2fva
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 May 2025 13:28:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748179738; x=1779715738;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=zgP0WvUVk0EyOxWqJtWUylni9ScXVYHpKVhMXiLCehA=;
-  b=iKzwODecoyVVsu56bA8haf4QASJ82z9+HzK/1DjPD5FC0JL9/yp8e5fM
-   0w4C7/x6ZXgPO8YBPUPuzJ91tth77SbfyNQzCZ3gJkypoN5hftWzv6J9F
-   LmTnamZOGgShlkjXoaugBxRWnylcg3RSnkG9mRZepewG2EgsNHxb5QJ4v
-   zTdE30eE2IGKMH+hki9/k0RholeIFjarIs2oMVgOlir6aDlZ6GqFl7KXh
-   qbAU7wme0e9imnUmGLyDFvq/P0AY/RP35TjPPD7fM/FCLPI/SsnkO6zmv
-   IH9JZdhpMEscNRUUXR971/AT0ES1Ec133AObHIjeEUAKbBlpnJ3MuaO6x
-   w==;
-X-CSE-ConnectionGUID: 8ua6EYhpRjqCGv714THcIA==
-X-CSE-MsgGUID: 52RBQFucSL6PaAMHuAkxjA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11444"; a="53824104"
-X-IronPort-AV: E=Sophos;i="6.15,313,1739865600"; 
-   d="scan'208";a="53824104"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 May 2025 06:28:53 -0700
-X-CSE-ConnectionGUID: ATnCZY7XQECv1sPWjZZL7g==
-X-CSE-MsgGUID: ckdh9z1PTZqY4Wh7Bpd7Zg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,313,1739865600"; 
-   d="scan'208";a="141807838"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 25 May 2025 06:28:49 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uJBPC-000Rpo-2x;
-	Sun, 25 May 2025 13:28:46 +0000
-Date: Sun, 25 May 2025 21:28:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Suraj Gupta <suraj.gupta2@amd.com>, vkoul@kernel.org,
-	michal.simek@amd.com, radhey.shyam.pandey@amd.com,
-	thomas.gessler@brueckmann-gmbh.de
-Cc: oe-kbuild-all@lists.linux.dev, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	harini.katakam@amd.com
-Subject: Re: [PATCH 2/2] dmaengine: xilinx_dma: Add support to
- configure/report coalesce parameters from/to client using AXI DMA
-Message-ID: <202505252153.Nm1BzFUq-lkp@intel.com>
-References: <20250525101617.1168991-3-suraj.gupta2@amd.com>
+	Sun, 25 May 2025 13:33:24 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4b50G127Rkz9sX2;
+	Sun, 25 May 2025 15:33:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1748179993;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iaBe/qc+2pXExuQttHiqmVdIlwW/IMB18Yyn98zdkjY=;
+	b=WvmTCjqShVbX7JrLS/FXF6KbBbigWBeZGBKazdmn4NQK4CkL1ptA5YNgySTl/lA0pSg5/w
+	QygXSca6z+l22SB8KD1QuTVtOQXIC+wPFHCisYCeO0PZi1jfAby75/4uVNKv0wsSkFG8Y2
+	1eTA1YmIPUnZjSqtiUI8o1wrjRWYjFF4nCcLjxfhD4FvPz6PXzE4fBZShIpDt+SoyWgTaY
+	gTvIX15B/TcDUn98ZtzvMV1eWyxD6lGiMhUgscoYNfRlABPBd5i8uEuYwXC2ykokgCYnYg
+	L4KZ6ERAizdr7FjmrFliBo5MtkdKSwh28mNRG0ccxno57oRpdHSFOA9rjiX+iA==
+Message-ID: <395343ba-93cc-495c-b5eb-7ee425996465@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1748179991;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iaBe/qc+2pXExuQttHiqmVdIlwW/IMB18Yyn98zdkjY=;
+	b=D0Achqh8/WvHVdwyXE9o848j56o/juRstx9hORCoSrgA/Fn/HCpZGhVu4/hhga2/zbptuB
+	Dobf0+K909nOZlzOh7y+j9hRFVyq9X5ppmZEkvP2TLfk7Y5pt23y8GpbJjY7zJW9OAAt55
+	SMlWRjUBbCJBkpg1NXf+MUFqmO8mrp9zzpWzXh0s4UNFwRZQ0cmn9XtA80kSE6hFQh8Zj6
+	F0ysGSEoa68rDaZecgqkwRSxyqrQtXfnjiOcmQV9QSif8nsTy1hNny7OvpJZfC6EdiJhkf
+	UEfQt70cWDx90X/dghI98D7RfbMRkqGL95vzgEE/t8GAJanxT0tvp9FIZB37eA==
+Date: Sun, 25 May 2025 15:33:05 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250525101617.1168991-3-suraj.gupta2@amd.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: PCI: rcar-gen4-pci-host: Document
+ optional aux clock
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Rob Herring <robh@kernel.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+ Aradhya Bhatia <a-bhatia1@ti.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Heiko Stuebner <heiko@sntech.de>, Junhao Xie <bigfoot@classfun.cn>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20250406144822.21784-1-marek.vasut+renesas@mailbox.org>
+ <20250406144822.21784-2-marek.vasut+renesas@mailbox.org>
+ <20250410204845.GA1027003-robh@kernel.org>
+ <40c400ab-8770-4595-9a4c-004e6157c348@mailbox.org>
+ <CAMuHMdU0U8RjJwgMs1gqaKUXj+aP=gMZRgO6Ni5gPHr3yFa_Hg@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdU0U8RjJwgMs1gqaKUXj+aP=gMZRgO6Ni5gPHr3yFa_Hg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 30e54f29d21d2aff1b6
+X-MBO-RS-META: 3hum87jao36mwgujkt91b8to163zmxcp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_062857_549309_A0F7DDE6 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20250525_063323_864078_DEE43A32 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,237 +112,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suraj,
+On 4/23/25 11:38 AM, Geert Uytterhoeven wrote:
+> Hi Marek,
 
-kernel test robot noticed the following build errors:
+Hi,
 
-[auto build test ERROR on vkoul-dmaengine/next]
-[also build test ERROR on xilinx-xlnx/master soc/for-next linus/master v6.15-rc7 next-20250523]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> On Sun, 13 Apr 2025 at 11:29, Marek Vasut <marek.vasut@mailbox.org> wrote:
+>> On 4/10/25 10:48 PM, Rob Herring wrote:
+>>> On Sun, Apr 06, 2025 at 04:45:21PM +0200, Marek Vasut wrote:
+>>>> Document 'aux' clock which are used to supply the PCIe bus. This
+>>>> is useful in case of a hardware setup, where the PCIe controller
+>>>> input clock and the PCIe bus clock are supplied from the same
+>>>> clock synthesiser, but from different differential clock outputs:
+>>>>
+>>>>    ____________                    _____________
+>>>> | R-Car PCIe |                  | PCIe device |
+>>>> |            |                  |             |
+>>>> |    PCIe RX<|==================|>PCIe TX     |
+>>>> |    PCIe TX<|==================|>PCIe RX     |
+>>>> |            |                  |             |
+>>>> |   PCIe CLK<|======..  ..======|>PCIe CLK    |
+>>>> '------------'      ||  ||      '-------------'
+>>>>                       ||  ||
+>>>>    ____________       ||  ||
+>>>> |  9FGV0441  |      ||  ||
+>>>> |            |      ||  ||
+>>>> |   CLK DIF0<|======''  ||
+>>>> |   CLK DIF1<|==========''
+>>>> |   CLK DIF2<|
+>>>> |   CLK DIF3<|
+>>>> '------------'
+>>>>
+>>>> The clock are named 'aux' because those are one of the clock listed in
+>>>> Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml which
+>>>> fit closest to the PCIe bus clock. According to that binding document,
+>>>> the 'aux' clock describe clock which supply the PMC domain, which is
+>>>> likely PCIe Mezzanine Card domain.
+>>>
+>>> Pretty sure that PMC is "power management controller" given it talks
+>>> about low power states.
+>>>
+>>>
+>>>>
+>>>> Tested-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+>>>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>>>> ---
+>>>> NOTE: Shall we patch Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+>>>>         instead and add 'bus' clock outright ?
+>>>
+>>> Based on the diagram, this has nothing to do with the specific
+>>> controller. It should also probably a root port property, not host
+>>> bridge.
+>> How would you suggest I describe the clock which supply the PCIe bus
+>> clock lane (CLK DIF1 in the diagram) , which have to be enabled together
+>> with clock which supply the PCIe controller input clock lane (CLK DIF0) ?
+> 
+> I think Rob wants you to add clocks/clock-names for this to
+> dtschema/schemas/pci/pci-bus-common.yaml.  Then you can have pcie@M,N
+> subnode(s) with num-lanes, clock, and clock-names describing the PCIe
+> endpoint(s)?
+> 
+> git grep "pcie*@[0-9],[0-9]" -- $(git grep -l num-lanes -- Documentation/ )
+> 
+> Does that make sense?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Suraj-Gupta/dmaengine-Add-support-to-configure-and-read-IRQ-coalescing-parameters/20250525-181817
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
-patch link:    https://lore.kernel.org/r/20250525101617.1168991-3-suraj.gupta2%40amd.com
-patch subject: [PATCH 2/2] dmaengine: xilinx_dma: Add support to configure/report coalesce parameters from/to client using AXI DMA
-config: i386-buildonly-randconfig-004-20250525 (https://download.01.org/0day-ci/archive/20250525/202505252153.Nm1BzFUq-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250525/202505252153.Nm1BzFUq-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505252153.Nm1BzFUq-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/kernel.h:28,
-                    from include/linux/cpumask.h:11,
-                    from include/linux/smp.h:13,
-                    from include/linux/lockdep.h:14,
-                    from include/linux/spinlock.h:63,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/mm.h:7,
-                    from include/linux/scatterlist.h:8,
-                    from include/linux/dmapool.h:14,
-                    from drivers/dma/xilinx/xilinx_dma.c:37:
-   drivers/dma/xilinx/xilinx_dma.c: In function 'xilinx_dma_start_transfer':
->> drivers/dma/xilinx/xilinx_dma.c:1594:28: error: implicit declaration of function 'FIELD_MAX' [-Werror=implicit-function-declaration]
-    1594 |         timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
-         |                            ^~~~~~~~~
-   include/linux/minmax.h:92:49: note: in definition of macro '__careful_cmp_once'
-      92 |         __auto_type ux = (x); __auto_type uy = (y);     \
-         |                                                 ^
-   include/linux/minmax.h:105:25: note: in expansion of macro '__careful_cmp'
-     105 | #define min(x, y)       __careful_cmp(min, x, y)
-         |                         ^~~~~~~~~~~~~
-   drivers/dma/xilinx/xilinx_dma.c:1594:17: note: in expansion of macro 'min'
-    1594 |         timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
-         |                 ^~~
-   In file included from <command-line>:
->> include/linux/compiler_types.h:557:45: error: call to '__compiletime_assert_299' declared with attribute error: min(timer, FIELD_MAX((((int)(sizeof(struct { int:(-!!(__builtin_choose_expr((sizeof(int) == sizeof(*(8 ? ((void *)((long)((24) > (31)) * 0l)) : (int *)8))), (24) > (31), false))); }))) + (((~((0UL))) << (24)) & (~((0UL)) >> (32 - 1 - (31))))))) signedness error
-     557 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |                                             ^
-   include/linux/compiler_types.h:538:25: note: in definition of macro '__compiletime_assert'
-     538 |                         prefix ## suffix();                             \
-         |                         ^~~~~~
-   include/linux/compiler_types.h:557:9: note: in expansion of macro '_compiletime_assert'
-     557 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
-      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:93:9: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      93 |         BUILD_BUG_ON_MSG(!__types_ok(ux, uy),           \
-         |         ^~~~~~~~~~~~~~~~
-   include/linux/minmax.h:98:9: note: in expansion of macro '__careful_cmp_once'
-      98 |         __careful_cmp_once(op, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
-         |         ^~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:105:25: note: in expansion of macro '__careful_cmp'
-     105 | #define min(x, y)       __careful_cmp(min, x, y)
-         |                         ^~~~~~~~~~~~~
-   drivers/dma/xilinx/xilinx_dma.c:1594:17: note: in expansion of macro 'min'
-    1594 |         timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
-         |                 ^~~
-   cc1: some warnings being treated as errors
---
-   In file included from include/linux/kernel.h:28,
-                    from include/linux/cpumask.h:11,
-                    from include/linux/smp.h:13,
-                    from include/linux/lockdep.h:14,
-                    from include/linux/spinlock.h:63,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/mm.h:7,
-                    from include/linux/scatterlist.h:8,
-                    from include/linux/dmapool.h:14,
-                    from xilinx_dma.c:37:
-   xilinx_dma.c: In function 'xilinx_dma_start_transfer':
-   xilinx_dma.c:1594:28: error: implicit declaration of function 'FIELD_MAX' [-Werror=implicit-function-declaration]
-    1594 |         timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
-         |                            ^~~~~~~~~
-   include/linux/minmax.h:92:49: note: in definition of macro '__careful_cmp_once'
-      92 |         __auto_type ux = (x); __auto_type uy = (y);     \
-         |                                                 ^
-   include/linux/minmax.h:105:25: note: in expansion of macro '__careful_cmp'
-     105 | #define min(x, y)       __careful_cmp(min, x, y)
-         |                         ^~~~~~~~~~~~~
-   xilinx_dma.c:1594:17: note: in expansion of macro 'min'
-    1594 |         timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
-         |                 ^~~
-   In file included from <command-line>:
->> include/linux/compiler_types.h:557:45: error: call to '__compiletime_assert_299' declared with attribute error: min(timer, FIELD_MAX((((int)(sizeof(struct { int:(-!!(__builtin_choose_expr((sizeof(int) == sizeof(*(8 ? ((void *)((long)((24) > (31)) * 0l)) : (int *)8))), (24) > (31), false))); }))) + (((~((0UL))) << (24)) & (~((0UL)) >> (32 - 1 - (31))))))) signedness error
-     557 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |                                             ^
-   include/linux/compiler_types.h:538:25: note: in definition of macro '__compiletime_assert'
-     538 |                         prefix ## suffix();                             \
-         |                         ^~~~~~
-   include/linux/compiler_types.h:557:9: note: in expansion of macro '_compiletime_assert'
-     557 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:39:37: note: in expansion of macro 'compiletime_assert'
-      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-         |                                     ^~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:93:9: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      93 |         BUILD_BUG_ON_MSG(!__types_ok(ux, uy),           \
-         |         ^~~~~~~~~~~~~~~~
-   include/linux/minmax.h:98:9: note: in expansion of macro '__careful_cmp_once'
-      98 |         __careful_cmp_once(op, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
-         |         ^~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:105:25: note: in expansion of macro '__careful_cmp'
-     105 | #define min(x, y)       __careful_cmp(min, x, y)
-         |                         ^~~~~~~~~~~~~
-   xilinx_dma.c:1594:17: note: in expansion of macro 'min'
-    1594 |         timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
-         |                 ^~~
-   cc1: some warnings being treated as errors
-
-
-vim +/FIELD_MAX +1594 drivers/dma/xilinx/xilinx_dma.c
-
-  1539	
-  1540	/**
-  1541	 * xilinx_dma_start_transfer - Starts DMA transfer
-  1542	 * @chan: Driver specific channel struct pointer
-  1543	 */
-  1544	static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
-  1545	{
-  1546		struct xilinx_dma_tx_descriptor *head_desc, *tail_desc;
-  1547		struct xilinx_axidma_tx_segment *tail_segment;
-  1548		struct dma_slave_config *slave_cfg = &chan->slave_cfg;
-  1549		u64 clk_rate;
-  1550		u32 reg, usec, timer;
-  1551	
-  1552		if (chan->err)
-  1553			return;
-  1554	
-  1555		if (list_empty(&chan->pending_list))
-  1556			return;
-  1557	
-  1558		if (!chan->idle)
-  1559			return;
-  1560	
-  1561		head_desc = list_first_entry(&chan->pending_list,
-  1562					     struct xilinx_dma_tx_descriptor, node);
-  1563		tail_desc = list_last_entry(&chan->pending_list,
-  1564					    struct xilinx_dma_tx_descriptor, node);
-  1565		tail_segment = list_last_entry(&tail_desc->segments,
-  1566					       struct xilinx_axidma_tx_segment, node);
-  1567	
-  1568		reg = dma_ctrl_read(chan, XILINX_DMA_REG_DMACR);
-  1569	
-  1570		reg &= ~XILINX_DMA_CR_COALESCE_MAX;
-  1571		reg  &= ~XILINX_DMA_CR_DELAY_MAX;
-  1572	
-  1573		/* Use dma_slave_config if it has valid values */
-  1574		if (slave_cfg->coalesce_cnt &&
-  1575		    slave_cfg->coalesce_cnt <= XILINX_DMA_COALESCE_MAX)
-  1576			reg |= slave_cfg->coalesce_cnt <<
-  1577				XILINX_DMA_CR_COALESCE_SHIFT;
-  1578		else if (chan->desc_pendingcount <= XILINX_DMA_COALESCE_MAX)
-  1579			reg |= chan->desc_pendingcount <<
-  1580					  XILINX_DMA_CR_COALESCE_SHIFT;
-  1581	
-  1582		if (slave_cfg->coalesce_usecs <= XILINX_DMA_DMACR_DELAY_MAX)
-  1583			usec = slave_cfg->coalesce_usecs;
-  1584		else
-  1585			usec = chan->irq_delay;
-  1586	
-  1587		/* Scale with SG clock rate rather than being a fixed number of
-  1588		 * clock cycles.
-  1589		 * 1 Timeout Interval = 125 * (clock period of SG clock)
-  1590		 */
-  1591		clk_rate = clk_get_rate(chan->xdev->rx_clk);
-  1592		timer = DIV64_U64_ROUND_CLOSEST((u64)usec * clk_rate,
-  1593						XILINX_DMA_DELAY_SCALE);
-> 1594		timer = min(timer, FIELD_MAX(XILINX_DMA_DMACR_DELAY_MASK));
-  1595		reg |= timer << XILINX_DMA_CR_DELAY_SHIFT;
-  1596	
-  1597		dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
-  1598	
-  1599		if (chan->has_sg)
-  1600			xilinx_write(chan, XILINX_DMA_REG_CURDESC,
-  1601				     head_desc->async_tx.phys);
-  1602	
-  1603		xilinx_dma_start(chan);
-  1604	
-  1605		if (chan->err)
-  1606			return;
-  1607	
-  1608		/* Start the transfer */
-  1609		if (chan->has_sg) {
-  1610			if (chan->cyclic)
-  1611				xilinx_write(chan, XILINX_DMA_REG_TAILDESC,
-  1612					     chan->cyclic_seg_v->phys);
-  1613			else
-  1614				xilinx_write(chan, XILINX_DMA_REG_TAILDESC,
-  1615					     tail_segment->phys);
-  1616		} else {
-  1617			struct xilinx_axidma_tx_segment *segment;
-  1618			struct xilinx_axidma_desc_hw *hw;
-  1619	
-  1620			segment = list_first_entry(&head_desc->segments,
-  1621						   struct xilinx_axidma_tx_segment,
-  1622						   node);
-  1623			hw = &segment->hw;
-  1624	
-  1625			xilinx_write(chan, XILINX_DMA_REG_SRCDSTADDR,
-  1626				     xilinx_prep_dma_addr_t(hw->buf_addr));
-  1627	
-  1628			/* Start the transfer */
-  1629			dma_ctrl_write(chan, XILINX_DMA_REG_BTT,
-  1630				       hw->control & chan->xdev->max_buffer_len);
-  1631		}
-  1632	
-  1633		list_splice_tail_init(&chan->pending_list, &chan->active_list);
-  1634		chan->desc_pendingcount = 0;
-  1635		chan->idle = false;
-  1636	}
-  1637	
+No, not really. There can be any arbitrary PCIe card plugged into the 
+M.2 slot, so how can I predict what exactly will be plugged into the 
+slot and describe it in DT up front this way ?
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Marek Vasut
 
