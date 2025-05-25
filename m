@@ -4,111 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35FF6C54E90
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 05:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5050C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 07:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=msz6xS+TXEWf8BCe56XVsqhhuQHPDAmqJV6W3BuHJYo=; b=h4J3MA7i4Uku7VdXOGMHm/xL45
-	aNhJs37g5wQuXDNjCqUSwYEeEArjwFFvjMA7SqVbt5bKGnAvJPLMvLqJ0kVsSmfy9x5yXAok5PH89
-	oMk8uRXH3ZRGC9gpWghD9ZdgZtWrTNeDrLr/QBLz2hQu7QZeX88Q+lE0dJTx51IMb4It2SHtHUm1A
-	DPKD2cE22lCDCjB7rySApQY3jehIlILYJdmpm06xGEdRoz+zCv6I3blPGEjuXUlGsNHXzC5tV9rAw
-	GZxdCMcrnl/nqG7MoETfj30dGm5tumnX7uWgtTD2l2Bmi6eH9h3QdxX2QYTwUU8ZZYI3RKfcMP5+A
-	YdcL/XJw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n6woNA1KAB7A7cPpCh7C05v8CU7LoOLG7R9vYiUjRdA=; b=IZGhDhX9OYsiSlS56TtQLiPw/r
+	uJ7iJcflkVFfkWGdFQSagtpD8EycIRbMVUPs/qyT1UgYfhb3PW7y3SSicqdlaXC9c5dXPxQAX1Tby
+	NLkCIlN52c3NixKetZzXiwmrWqmBWwzAQ3CsjfutfhtCdp2lR+xpZpe3t+YD0KmX4DP6B/o/yWaZE
+	pFGKWogL6dd5l8V+SNgk0Ra2sQJ/PwruSfG7LL3PW0mfU/ODYuCR9mEz6hpXFQjXuG/ldJs9qPNF5
+	bMU21kvhJhl6e+VRwswxNbfYzpoq9P8yguEp0D7Kkc52vz/46ud/k+bDZAM8h+B6rqszNWpjsKNCv
+	89lXByIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJ3lJ-00000006a33-0DA1;
-	Sun, 25 May 2025 05:19:05 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uJ5Mw-00000006ePx-2GO8;
+	Sun, 25 May 2025 07:02:02 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJ3jB-00000006Zv1-0Fqu
+	id 1uJ5Kr-00000006eEw-0Mzp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 May 2025 05:16:54 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43f106a3591so623695e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 May 2025 22:16:52 -0700 (PDT)
+	Sun, 25 May 2025 06:59:54 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-604f0d27c24so535555eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 May 2025 23:59:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748150211; x=1748755011; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=msz6xS+TXEWf8BCe56XVsqhhuQHPDAmqJV6W3BuHJYo=;
-        b=kLbxIQMqy67o4LnJxWpjciuE89rm6i3t/MdwMja58uYSDD+VJOugHEsb1KoAHO7nFX
-         1kOno6EHrZ7BzKs7914u6mKVEgihMYZRJ0hTHh4+VRQWjByTKS2ep0WzTLxLLkcTSwO/
-         6mks43IVQXrvAX8H/iQT6f4CYR06Jm2ugdgw/DabYnMyBYxZecYnm1x2ueVgwZF1b9yy
-         BTsDOZHLihvBcUtm7T9jSoWgxSfRnHy7ckc7As8ShzCb9yAcU77TbmCHcYuxeUq97dXp
-         o3wVM84jewhnhHvLcM0+gNUNnXFApJKZbXfzl58AcqSZ8AYnPT269g6UddOhcnEmrE0j
-         3lbQ==
+        d=linaro.org; s=google; t=1748156392; x=1748761192; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=n6woNA1KAB7A7cPpCh7C05v8CU7LoOLG7R9vYiUjRdA=;
+        b=uSWhFn+oti6LasmiDIpnyrsG0B9QLygqVCsaLcQCvhwwtoE/K26MUQG5En5ulm7IDu
+         PKxW8sxRqQ9y8EL+7YA5JQHe+3Y2M4aY6L6QCO7uZr43fZcU2xIlWJXfp8drkdIXO2e+
+         /X5hXEn/6dwouD8KqnJIcAd/+9jOg92tyMjKUBTsJWVBuVZO444ETG4dqmxRGBZyWS88
+         h9y4KzXMo3dAopUzkeBe+yHxsKxz+7FVc5ikx4XBK7jLJfA8mjL5gQ4+wnRXvk+h8X6e
+         mprqG3ULKQZAslG3MbMyghyIC0zmcYnYW7dqImUPMTQygCPHFSXcfL5VLpdZI4EQiBCU
+         8QcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748150211; x=1748755011;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=msz6xS+TXEWf8BCe56XVsqhhuQHPDAmqJV6W3BuHJYo=;
-        b=YtIfGLf7Eek/f1pe8pSoNmSA8U9hCM/zqybL1J5qs3RrhyrkrGVTRk73yVgR74Yxxt
-         NSoKvZm4iLp99LGXGwFosotMyl8a/KpwVTZZeV8oFDZh6WXMl19w0ysXrEar1d+/Teyb
-         bWz4BIz9GvDbVfUJqjdPDpB+xlQUztD4uRLPffQdGEkr1zrn4xqr0Jjy6bRcl5xnqkCg
-         En5zh2Dv831TXS1pDTvl4WL42kPxZKFhXWJSPdxUqI0paYrkzlP4eAn+cNOq3eqzXtKI
-         qSoBpj0PA+iG8seOQwNQfmo4G3ZF2vvsB1Qb1p8ZHR6CpAfyP3EYlWv1i3phsplZYTuV
-         lylg==
-X-Forwarded-Encrypted: i=1; AJvYcCXURQ4SlT7ptXdw1i34eeyFBQVGtqs0gl8pwPP2an1xccfumCfmPbe2DF8bwN1WQwW+nFjV5r/xRZH7Y5aGWnPl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2cx+NyYuM5Za6OO97YxGeZ4RyeuTkSQHQxTGfmdeDjTkwN0Br
-	WLUqXS5RcpdJVJoWg3TDnKGP20Vk5CdyWhfnGKKjPFQPJmcFYhHTS3MQ4l2Nl2tIx54=
-X-Gm-Gg: ASbGnctVOLBy0SdE1NFaiy3KkjP8ye0nUmOYgtuiDdQm/ADZbFTJ1M8pcnT+ARyQErt
-	TQQzoXCITxkH2tRPBVv7yqkGeSUZ0q1oLJphqw9FZEoPy0TO+gTSrngtBEK3U7g16gqRxd7VglL
-	w8gZ43wv9RDsU3ZFEE3dIDGW2OzQO+G7NKgnzAsNkme8wyG1J7Zb7aqZTo56U8lIBI05IgK04Sr
-	V5Uj42T/ggmk98R1k3G2/xuqVIAfmzL+06Vgdgp7H624FDyh1uacxHiGh6EiPBOziVQCFT1N12m
-	gDdjtKB0Dithgrd5GH/7MDgBZeQK50YEd9EABGYcekYhXm3S5SxW/hMQ6BDFKQ==
-X-Google-Smtp-Source: AGHT+IF/jwowPMNweDb/B2JPyAKFGWGQxdc3mLIKIM4NNW5whKHA8bo7N+3jJruEbrSaU/3hrj+bdA==
-X-Received: by 2002:a05:6000:40e0:b0:3a3:62e1:a7dc with SMTP id ffacd0b85a97d-3a4cb434a24mr1333037f8f.1.1748150210738;
-        Sat, 24 May 2025 22:16:50 -0700 (PDT)
-Received: from kuoka.. ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4d67795eesm372940f8f.86.2025.05.24.22.16.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 May 2025 22:16:49 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] media: dt-bindings: mediatek: Constrain iommus
-Date: Sun, 25 May 2025 07:16:40 +0200
-Message-ID: <20250525051639.68753-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1748156392; x=1748761192;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=n6woNA1KAB7A7cPpCh7C05v8CU7LoOLG7R9vYiUjRdA=;
+        b=VKntVRiNddyF62rprIx9Ax1FThlki6M0c0S/a3Zfmqlqi9m1ciEYpv42RCnL9+zS00
+         jHKX7WEmeSCIERYk5pO7xBgsFgIQmdcdHFCgvjr3vAGSEUs4/PgtWPqxNLedgC8xgBo0
+         KtvF72xYS2pTI8HvywpZ2d7lWzNoJ6DmkQFV0ZxGRVchax2j8Iw7jgZcWAYo/2xfG0yE
+         RTaniyo1/sg/cZM2q7yCWpFy9TwThxkdDxukelQj+De1E0MO8mWJauQaCUu8rMMRVcCb
+         sl/AYSpTBmAEhknqsKNrXjecRuoz9s9eEk9k5Io0dI3Xi8D67nuHuf2k4i7nu7JxPX6e
+         4UPg==
+X-Forwarded-Encrypted: i=1; AJvYcCVX9XRYlQApdW5CoyLW6jb00Ii+BjnEDY4PSSw0VRyEapi5npxQSNN8DYDkl555eSmYZt/wGaRQTUo13IJjtisr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxziJdyRNLL77obQQ4XOPQyl1tKvn6lCEvJ2XaC3Ay802+lC95f
+	a9LQV7CWFDUPcQdrIYV+wjS1frSb9L57NCkzQVXNPG9HZq2ErDLYhzOiiM2VIJ3rNFwzYub7iOp
+	FhgRAhcmFUlGfsOCK6EuSQDYeoGt9YVMojg3Ern9JSg==
+X-Gm-Gg: ASbGncvtDwoCuqaL7ftaOM9Brr7Iutt0hToCQOtC9is2N/Zp9MnMe6FNRoPWgK22Bxe
+	O6C3vzzfjbjup1IXyJOcmDFIJ/XQGvcQFteaYeRHwgKyqoeJVtRIxhAogQVDmlB10AHu2dkh1fT
+	uaG+s3r77Rdh1thsEgOKKDdfOZGV8tnalpJqsFbsLYFQUu3jDQ+CH9M6lcYbxbhiL+Yw==
+X-Google-Smtp-Source: AGHT+IFgDLGOtCqohcdRalUhWXVpC+KpngWsK/Rw8iIAXMgLPGD2nNaWQvQPUiC4kmvZXurqEyjrTqM9NmLsfftktkQ=
+X-Received: by 2002:a05:6820:450a:b0:60a:bee:497a with SMTP id
+ 006d021491bc7-60b9fa62424mr2365200eaf.2.1748156391776; Sat, 24 May 2025
+ 23:59:51 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3619; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=+5c0VEkCDydqP+dJvv5yWg3lhMM2EDfhOnBOrhDfWlw=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoMqe34zQlzL+mH8sYednrPzCB+DkOTefFX/gsg
- CPcqSp2phOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaDKntwAKCRDBN2bmhouD
- 1+d+D/wO4XWtaSL5Qb2EZcmthSwwShwp2UkTqt4aV2OtyA/7xavezOOZEsI64ORhN+e6aSKIJjt
- 8aV5tclmOA+GGI92SpVK3nLJUWcuV1gn87alc+VfrGqU8UfrsDB/lMef5fNZIaqIHJhW3uXoEyK
- jjSdxY2nwJS4tofa8kjxqmuAkmjv/wZasaEbDfw2YiTLu2wWCjmlmO3OsYM9z6KA3j8q1dnW7Dw
- e7tf64cBf5FP0xdNNxBNNWpqggwSqwryvr+6Vxp7GefHghXl/luFwh/31n4jhV5twJXdFX4w6O5
- BIFyepFm4VuMoDeHOXqQsnhUGEob2rU1GSpDzRHtodioeou+G1qQu6RZcRaXILpSMPMY8XTjKfd
- jVQA/q0nNLYctkBfycPA5OiavcADRTUJ5I6a7zUY+7nf689HDwiBzyF9DV6N9djU0jug4Qe37Le
- zzRBlrazoQT2FuQJY9YZiJWwXCG6lv83lYsMSkgHyL98/yTXdy0aHZl08HjdyICYGaHFJ4VnrOy
- 0TsfjR0sbuBvtGme9HmCnlehtrp2kRR/gvMEGGAjNWaFb1ANYblR/W0BGN9CsWyiSQoW0Hzq30n
- kxEL8vcOovz7A3QtUcXlvRmkvPf56Mua848yvHoIncqJFWv3t+Ls/bLbqjXzxoH940UIYc7UC1F +hPx0ET/ieWU3Gw==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+References: <20250524-b4-max77759-mfd-dts-v2-0-b479542eb97d@linaro.org> <20250524-b4-max77759-mfd-dts-v2-1-b479542eb97d@linaro.org>
+In-Reply-To: <20250524-b4-max77759-mfd-dts-v2-1-b479542eb97d@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Sun, 25 May 2025 07:59:40 +0100
+X-Gm-Features: AX0GCFtzlZ4NN5rM8kQ4Ddqkxfr236WnLwsk7oYUXbS3dPkq764kPsxxis5Ykos
+Message-ID: <CADrjBPr2ie+6vNZK0oUH75whXDqX-oXdOODcrM75gMc0LmxoYg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] arm64: defconfig: enable Maxim max77759 driver
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Will McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250524_221653_117214_C00A494D 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20250524_235953_141006_3022A244 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,81 +100,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Lists should have fixed constraints, because binding must be specific in
-respect to hardware.  Add missing constraints to number of iommus in
-Mediatek media devices.
+On Sat, 24 May 2025 at 06:21, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
+ wrote:
+>
+> Enable the Maxim max77759 as this is used by the gs101-oriole and
+> gs101-raven (Google Pixel 6 and Pixel 6 Pro) boards,
+>
+> The child devices' defaults are based on this MFD driver's state, so
+> this commit enables those implicitly as well.
+>
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> ---
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- .../bindings/display/mediatek/mediatek,ovl-2l.yaml           | 5 ++---
- .../devicetree/bindings/display/mediatek/mediatek,ovl.yaml   | 5 ++---
- .../devicetree/bindings/display/mediatek/mediatek,rdma.yaml  | 4 +---
- .../devicetree/bindings/display/mediatek/mediatek,wdma.yaml  | 4 +---
- 4 files changed, 6 insertions(+), 12 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
-index bacdfe7d08a6..ac0d924a451b 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
-@@ -45,9 +45,8 @@ properties:
-       - description: OVL-2L Clock
- 
-   iommus:
--    description:
--      This property should point to the respective IOMMU block with master port as argument,
--      see Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for details.
-+    minItems: 1
-+    maxItems: 2
- 
-   mediatek,gce-client-reg:
-     description: The register of client driver can be configured by gce with
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-index 4f110635afb6..c0fd0a91c4d8 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-@@ -65,9 +65,8 @@ properties:
-       - description: OVL Clock
- 
-   iommus:
--    description:
--      This property should point to the respective IOMMU block with master port as argument,
--      see Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for details.
-+    minItems: 1
-+    maxItems: 2
- 
-   mediatek,gce-client-reg:
-     description: The register of client driver can be configured by gce with
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
-index 878f676b581f..7e5234def39a 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
-@@ -64,9 +64,7 @@ properties:
-       - description: RDMA Clock
- 
-   iommus:
--    description:
--      This property should point to the respective IOMMU block with master port as argument,
--      see Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for details.
-+    maxItems: 1
- 
-   mediatek,rdma-fifo-size:
-     description:
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
-index a3a2b71a4523..276868c0fde7 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
-@@ -43,9 +43,7 @@ properties:
-       - description: WDMA Clock
- 
-   iommus:
--    description:
--      This property should point to the respective IOMMU block with master port as argument,
--      see Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for details.
-+    maxItems: 1
- 
-   mediatek,gce-client-reg:
-     description: The register of client driver can be configured by gce with
--- 
-2.45.2
-
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
