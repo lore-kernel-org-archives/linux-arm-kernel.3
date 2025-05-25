@@ -4,152 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDC8C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 18:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F599C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 19:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owaQj5tEvXkoy20pg+zNKxHw9AJWqy4zKDg6HGYegPI=; b=Ew60Hm5jd9J4ciCn+WW3WJbF1y
-	oXB9MkFad9vGBO5Dy7TzcTECHJCWVA5VVSmIK4nZQGQaWs2jyJgSqnn8iPQ0ojAbnMIwO2+Ue+ZKE
-	03op6HX6bUPJklzqDkdhpS9cms2fFQmj2/eLFPQ7XgY9xbRzLKkiPlA2jDGb+pmctYc/ztDvtGBds
-	OiMMEFrnsXtAa4Y/d3IIrxKmSdevVNRRa4HyN1rQ5r87rgR0LUZknCJIglBS2GKxsTaMiiHvZou1u
-	8yaDub/NU1SmSQqI6ZAbmB2NUVq06OvxUawoJV+A0MpP9Kdn4cVrB/GBLXw+mx2y+FtU1xjF+VZnC
-	4jy78JYQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p0Ac+WyyvZzgKaVOOpGDL89ciayObF3/GRMWEiWnmOw=; b=CkxlC6eRB07KLqsKlT2fE9DQQr
+	EHsjoBwUHbQAiKHJwY28jsOnqUArXS/W20KsRi2ftg67rJFNDJiD4tCCcrztxDXS71DlfjGREeWZE
+	gsAsPG6hghrMXFlSLl35rkt018esDeFssKPd7csWELU9GUqBQFv1DTkR9zfRkvCtzIt6zF7d3D5rF
+	TuAlLtcE1d5nV0Vy8qnLECwUSvGJD2YydrZvrGp1Pcu01fWAfncFvNm9rlQ+Ctc+7Go/wuWuX+M5k
+	zzjoznen23IzaKok6hJh+MVrGXWiqknKIfuWq6ZnECxp3nRpppoazaGxVbM7sbo/h0k0fzwm9vX73
+	l7VvcmmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJG60-00000007UvD-0y5I;
-	Sun, 25 May 2025 18:29:16 +0000
-Received: from mail-mw2nam10on20603.outbound.protection.outlook.com ([2a01:111:f403:2412::603] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uJGiC-00000007Y48-2QZq;
+	Sun, 25 May 2025 19:08:44 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJFxy-00000007U0Z-0YdX
+	id 1uJGg7-00000007Xq0-2BQo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 May 2025 18:20:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZkaXfH1fhOQN9Nzd1WqSlilqrpknLfXGqZfO23nXfMMzMhstPFbVUs+5OrBhxxe3fO+Z3gJjyvOF7y6LxVhP4WNXKzNlJo++dSG5WWPB7ADoN6ywIkvh0/ZO3oKpaNa7vVssxGkHvp1emHz31tXRKv5Os0Wyu1LGPc/Cu+vM0C92u5sBR5hVBekz0ZA/nCXusL5OsOrUBch4NKkfA/4kjchoKe0ymo0Xt9EsHESTUfGLasoSku+en4WWTTuDFQACgF5Uel0ueeHXX1ze8WnDquUJj3zGk7x4NPQW0EI1zCOMvh7yKtwiWzTF/dRKd5wj36GbJOvTDQ1UPh5NoYAqSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=owaQj5tEvXkoy20pg+zNKxHw9AJWqy4zKDg6HGYegPI=;
- b=Ns7CjNEnD3w8Bx+QDynvIDQaeoJwQa2I2g1ZalThpib/R1aWfewCO8Km3uJ3C6dw6fBtfqtESGlRfZojKNaZSVuLbaBT55GbzMyFiYn0c3PoTf3pOP/ixIUMPAjxE7MZwpn609zDTUbVNKzJpmZ776a1Fb7sze5XEnJ77r1D5yZbfipMcYitK6lX0CcdbSARKclf7n1JX1RN5o2CEhDTLgwfYn/9iY8GOueap70JCiBDkvEFpaLv4n6mLZOmK7uC/h5pCD+oUsHlMmiO3yEScPW/Y99GG4THRkoljAYSFhlIrS9BoU4aLUopPgiGP4E33c1EPv14FQcALaKqMFrZnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=temperror (sender ip
- is 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=temperror action=none header.from=nvidia.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=owaQj5tEvXkoy20pg+zNKxHw9AJWqy4zKDg6HGYegPI=;
- b=XAUdTKQlTkvxxyDsg2TAC+afadHdiUSWqE53TfCdrmAy24301+te0lAVnulsma/gmyax3dxweADsKK7ctYhNxJDtyoVR/dDTL4tYQ+j8ZBZqbxFQMVBOdquJUOSBQGAlOKpxHAmKCEprRHGpk/imAc9SzOnmgio5fa6vtdHWXSEQNEX51bLu9dErebOhdORNGazfdASQ10RDTe0lJgyOVZajN5sG9RioNCp+b7CP2CDJJifNEAIO4g8pH8doH9qb2lzlyEgkctiKQN3mYiybD/g/aDxNoobpB4vqA1Lxji66HhyoZNtaCchZpCCgJctDCEJ0HEz+lfRi1ucYGbp6FA==
-Received: from BN9PR03CA0203.namprd03.prod.outlook.com (2603:10b6:408:f9::28)
- by PH7PR12MB8828.namprd12.prod.outlook.com (2603:10b6:510:26b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.22; Sun, 25 May
- 2025 18:20:46 +0000
-Received: from BN3PEPF0000B36F.namprd21.prod.outlook.com
- (2603:10b6:408:f9:cafe::e7) by BN9PR03CA0203.outlook.office365.com
- (2603:10b6:408:f9::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.21 via Frontend Transport; Sun,
- 25 May 2025 18:20:45 +0000
-X-MS-Exchange-Authentication-Results: spf=temperror (sender IP is
- 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=temperror action=none header.from=nvidia.com;
-Received-SPF: TempError (protection.outlook.com: error in processing during
- lookup of nvidia.com: DNS Timeout)
-Received: from mail.nvidia.com (216.228.117.160) by
- BN3PEPF0000B36F.mail.protection.outlook.com (10.167.243.166) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8813.0 via Frontend Transport; Sun, 25 May 2025 18:20:44 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sun, 25 May
- 2025 11:20:29 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Sun, 25 May
- 2025 11:20:29 -0700
-Received: from willie-obmc-builder.nvidia.com (10.127.8.10) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Sun, 25 May 2025 11:20:28 -0700
-From: Willie Thai <wthai@nvidia.com>
-To: <wthai@nvidia.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, "Deepak
- Kodihalli" <dkodihalli@nvidia.com>, Ed Tanous <etanous@nvidia.com>, Leo Huang
-	<leohu@nvidia.com>
-Subject: [PATCH 3/3] ARM: dts: aspeed: nvidia: gb200nvl: Repurpose the HMC gpio pin
-Date: Sun, 25 May 2025 18:20:19 +0000
-Message-ID: <20250525-dts-v1-3-9ac63ad3bf15@nvidia.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250525-dts-v1-0-9ac63ad3bf15@nvidia.com>
-References: <20250525-dts-v1-0-9ac63ad3bf15@nvidia.com>
+	Sun, 25 May 2025 19:06:36 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5f6f86580ecso344831a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 May 2025 12:06:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748199994; x=1748804794; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=p0Ac+WyyvZzgKaVOOpGDL89ciayObF3/GRMWEiWnmOw=;
+        b=NS89W1rkG4DIVoAQUVteQEZKVAUdQqQyyQI2LAMZ6/3zus3QQkmsS1zI6WB7LzIGyx
+         WJx1CrwnQ9RITuSj6AeSya5nOneEOaW+monguO2+jLwYbtQ/ldkBm+HUFaKmBdpy+W2S
+         c/ugQ2SNeK0q55RxZWujrU1RYvHDw+n7zUVH62ivvkDRt+chIIanKWDLdkMiWX0f67HD
+         HLQ9sZKpmVL6W9qoLtdw2Wts1fwF88YkTqrAtHDmyg54tzhzHUjzN6WXU/T6jan9nWAe
+         w1eBZfDcwt/F7zjOH78BZ8VX4urrjLeBCUVSb7HW+O0xLl1G473HqOGJ4hEYmqjPaxzi
+         WsMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748199994; x=1748804794;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=p0Ac+WyyvZzgKaVOOpGDL89ciayObF3/GRMWEiWnmOw=;
+        b=aiht4fJ2DfxffyI/5R2IWTJ8ln/9BQ9MbIv/GIavsTlfUdlkPlNKZiJTeQxOWKreSs
+         lV5nOmuN/1zfyTnUEijnXvryNd0p7CHRXkDuODigp/13NM0JGpIN+/bLF5P3X++4Tfed
+         XLul+RxmuY2q566K6nU9tcgoj8zmgKyH0qiH8WIYzyypIyaN6/HqJoP5rXmWGcDpJu7A
+         amFhDyIB65Zti2muUB0Lh6NNnXoec0Rd68ply5wxhisf3kN4naLKlAjDMj2EldXIlPb5
+         Tr24IRQ9qU+tFwtiRsOPNQ2axmGvnJ5DhVNqvWEJbyVfe38ZnkgPhNt4jt200UkpAPZf
+         UqPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUVGQ4pJGWl3HA9nN6aOeMiGdjrL1dCTDvCWuiumGiDtipithYSopgBqyEUM2t8ly6v/AXBvQtMkTmHUwMRLeHQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMqsvWjN01FZfUjK0BS6PwK76pKIAZa5IfAsgmi9kv1XP1ddGK
+	luuC502Mfx45Ks7eYH//AZa31aE78eAmZK3iks9V7qH6q4SkQtjcYSmzutbona2lcBI=
+X-Gm-Gg: ASbGnctIbo2zbZn3VXWyE+KBef5znfJT+hEoqzSzWyweQ8c8AxY7HQmbQVEHbBAx82L
+	DCKnEadsMd5zCSODxz3Gs5tBz7B3Mo+D0Dv8Ed2u6RIdvtMtwWMynq5Z709+0uXUXSXWbT8HmTl
+	10d9cln9iY7JU8g0w4k0BymLrBnWwBlg5tbbowsjAAzuEkgZ4YvoFLVS7OldhBBg8ANaC/Kqmfl
+	Xo/6DMH89NXeEoh3ogHVHE7U81+OL1oqvEmrGjJsT1CMJVAZQs7xus0pgoO7JPbnd772WU/rosD
+	UT9D8lP7e3QFGZCSHwfom1rkihjy+QTa77KoT3+93kvmmpL4Wk74cn2Z2jPm1g==
+X-Google-Smtp-Source: AGHT+IF1ytVUxy0yTSnOyU3J5wIiT4fljHMLqV1rwc+JlbKe1QUVexTGhNkOuAvqkz9QFmk0klKpOg==
+X-Received: by 2002:a17:907:7351:b0:ad5:76d0:4ffe with SMTP id a640c23a62f3a-ad85b15a680mr156583666b.9.1748199993680;
+        Sun, 25 May 2025 12:06:33 -0700 (PDT)
+Received: from kuoka.. ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d277a2esm1563862866b.83.2025.05.25.12.06.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 25 May 2025 12:06:33 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] dt-bindings: soc: samsung: exynos-pmu: Constrain google,pmu-intr-gen-syscon
+Date: Sun, 25 May 2025 21:06:31 +0200
+Message-ID: <20250525190630.41858-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748196599; l=1239; i=wthai@nvidia.com; s=20250525; h=from:subject:message-id; bh=smQFjBITC7RUhnzlaHrr77jblJkoTNAwVanNp/0Rkac=; b=TNZJkehxdJfwzJF5nWaNjn5ea0/ESUX/ofzFYYCjfKuJZ7lHORYzko69npSthS68+pk/GZUHh NLYLHAzUIypCldPWtdySD0t4a05fv2NfEtC1aOsBGu1a49bvUVc7NZv
-X-Developer-Key: i=wthai@nvidia.com; a=ed25519; pk=i/6dxnUqKdr7Z6GA0KECRkwz5HX4RCiodw0v6kB9fbs=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=837; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=3onmZshSspOtZwdRjF5R+KZacQlOFA9qC5Ok9p5ajBQ=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoM2o2sfBErBvCiBSO8rZEm0Oj8WqokUNHdzls2
+ njdMxJ6ihyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaDNqNgAKCRDBN2bmhouD
+ 1xcTD/9ORDhwOmIMphZfmjLWKYfBIueQ2BR1coOZs6pfI1Ls5H72ollgg0KYwTyI4D6DX0gOzyf
+ 6qDZWDIJjzx3MuFqn0KREZA6jH4WbIoJVrJnP3PPnuA43OrKcro3d69to0GZO6oAVJL4vytuLK2
+ ldaL93C94RlOm8EIaNZfrQ6dlJDVbDLm6tM/WMkuYob9+uIyWKKGhW7FfFegEonv0ty66aPSRXn
+ m10Dd+eVHfl8YlQdXcdn6NWdBce134CRTjTdR8wgfELEPWK7XGHjHUEZNsujD/gP1L5XZRMvKML
+ y24Sn3/gn6Ek0Hj+bQ40m95RXge/Pic4IH3kP3NkaefdmnulLKW8JGasAHw/kJNFiGfR5asjtK0
+ yBQR1fn5kwS8Qs8ch0JxcFlA1GBcd9s/tvuI3l34HrV4B7snOvC1OJxSwpnUQkdRRIxyzBvqsWs
+ RLkPUIG+sMXgllOhkMslaC1Kg47e4wVOzmAo19o3JNFUVi359hUWnGasheNTahJE2kB046nBNNP
+ hN0e9AviLhPzloPvVlbED2n1/8XY+mwFJFE5YfljIvGh6O0s58FMSBcoFhRoLI/UaYXS77iveLP
+ Cn21xCtnyTNJHL/DZClux6U1ws2LTVVOoOfjwUz6Mk9Z8iRmIgOB+QNWMLZE1c4meJhMLBDSKU+ i/+a654QuS/hpFA==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B36F:EE_|PH7PR12MB8828:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2191c0ef-335f-4a3a-3d53-08dd9bb8dd20
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VzAvTjRTajBZTnEvVnJieWhlL0pzVnc5b0pKR1V5SEFIdU1NcDJOb2RIZTU2?=
- =?utf-8?B?Kys5T2NuQ3dDTmI0V3RFNnlQZGpIVW51MHlaVzZzbERmMWlTS1REdmIweUVW?=
- =?utf-8?B?c2pocEh2UjB1ZHFOSjFlakw4VHhUWStsanJDV3k0c2xVTWd6UTlUT29nNnZo?=
- =?utf-8?B?SzV2am5MVVU1SnFxK1dwVTM1c3JzQnJGczJpeFNsVFByMWU4b3JLeElZdVBx?=
- =?utf-8?B?RW95R0NXRHdtRFJCemxmemhRa0kvZTIycFBTRVlTbjBXTUJPZ2Z5RDVFdFZ4?=
- =?utf-8?B?cXlSdHd5aUEyZkNSWGp3WWdHbXhDOGJ0N2pKNVNaM3RWOUZtd3hNZ2Rvenhi?=
- =?utf-8?B?bWV1SmFONVR3elMvRlJUbm5CbDRReGtjTzhRdGc2UDFFSENJZXk1NU40MS8z?=
- =?utf-8?B?czhTamlHN3NDQVVpRHZnMHBRalZqZnI5V3pVM3FVSnd2S2xrN05sNU1xNHJI?=
- =?utf-8?B?WTl3N3g4Q1hueWxsUW1QRGEyR2t3T1V6ajVUcmtNd3A2WDlxWXdKSkxRdFlQ?=
- =?utf-8?B?Q2xiQWxnb1lrcVM4R3FXc0t2SzlIQk01WmR4d0Z3bXN1OEZZclF4aC9EQmlr?=
- =?utf-8?B?ckY0TTdJYy9lNVNRVDRDeEFQR1ZEVUd4Y2ZqaHdLamxrTW55a1hJQ21SLzV3?=
- =?utf-8?B?aTkwY3dLVFFPd2YwYlRsQ3ZqZWxUSmpFTE92VVFqZ2FHcXJyaFlsRnlGRE9h?=
- =?utf-8?B?dGhoaXllUUtVV3I3bjg3TXIwVVljMUw2S0lsWlJwbSs2QWVTcmdEeVEvVnND?=
- =?utf-8?B?UkRVYjJKY0VlUHFtTmxjQ3pIWWhxVitwMys4eUtHRXVnZUF0WHh5WmlhSDY4?=
- =?utf-8?B?ZUxqR1dLd3kvaEVLSk5rRzBuYllQU3I1ZW1qTU1MeDRWR1RBNWhrSE1sMUFr?=
- =?utf-8?B?eFYxSkM4TUl6K3BhZjBCQ0lWRTBOZEhhc1YvQjEvbnZVUWhnSW9ULzkyNEhJ?=
- =?utf-8?B?OGhWbDZ5TlVYbDB1OFF0Ui93c20rMEhTbzErdXA1dnlGOUlKbVhBM2k2dTY2?=
- =?utf-8?B?T1hKWURrdERaRWtwb0NSaGVxWm14RGU2c04yWmJ2OHBUSXJnK1NmRUxqZ2Jp?=
- =?utf-8?B?eFljdzAzZDROK0wrZWI0ZlpQSFgxYVFMM1ZpMmhkZWs1c29uNlFPdTg5MStB?=
- =?utf-8?B?Wnc0UldPMjBtVXltUWpVMUlNYkpPUmx3akNQRXNISzZGSnZVZlBMY0wyZVlP?=
- =?utf-8?B?L1Mzd2UyU2pzZTJzclpkNDNydzc1VVJ6dHlQZFFURURObkJTY0xJOC9VSUJM?=
- =?utf-8?B?aW01c044VnlESEtjVzhNUlVlcm8vK1VnbFc4VU5vZEVjZ2piMmp4QmhWS014?=
- =?utf-8?B?VVZQZkxTRVFRNjUrTVNud1ZpK2k0Z0xQTzRRNit1ZWdOQzJtMENrNS91dmZ3?=
- =?utf-8?B?WnhhbmdQMzZVOEhWWkFITnRSekdPK0xXaWVwSnE1RFIwbWtPc3B0MU9zRHl1?=
- =?utf-8?B?ajFyUDdzb1VvSThwNzB4R3l4Z01tRHd1NXdUNWQrcGdHWEVUSTlWNHhxVGd3?=
- =?utf-8?B?cmhCemVvUGh6YTU3NWplYjVWMW5zWGtTV3NNV3ZRQWpNbTR3Y1JyN2dpSkhL?=
- =?utf-8?B?QWVYVllwTjZpTmlncC9wOExXYWhkS2hGTmZSREFhQzl2OTUzUm9mQXVyQ0JJ?=
- =?utf-8?B?M0NDb3NNbzlYYXh0dHdINUFUZVh6SURvMVA2bGVWOFlqcm1nMWE1Wk9GZ0V2?=
- =?utf-8?B?dE1YY094Uk9BSzg2MnlLS1lSd0RDNXJueGdRSnRwZkNVcDM2ZWVlakcrM1Jl?=
- =?utf-8?B?bEJ0TWVjZXJjUHE3RVp0amR3K2d4RExxTVRycnFDYjRrR2plT2cwais3enIz?=
- =?utf-8?B?L0g3bnErMlV5d0VFUlhHT0l0RG1OK282b2ZwaHRIT3ZXRjNuK2ZIRjV3RHM1?=
- =?utf-8?B?VTRJWmNyMXFERUF2V2xpTUF5NzFGWlUwYkpGR2c1MUxiemhMNGw0RDlWT1I3?=
- =?utf-8?B?ZG1HWnpRUmMrM1V6NUprV1JoMEJiU1RWQkovRlJQeDV3VlcyUHo5bWxhNDA0?=
- =?utf-8?B?T28zNTltWnpjTWdCYWo5eGpyaHd4ZWlnNDNhV2JsT2hUOTZ1Ym85QmtPN1VK?=
- =?utf-8?Q?vj6zL2?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2025 18:20:44.0657
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2191c0ef-335f-4a3a-3d53-08dd9bb8dd20
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B36F.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8828
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_112058_169926_5C4820DB 
-X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-CacheID: sfid-20250525_120635_565862_21346615 
+X-CRM114-Status: UNSURE (   9.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -165,31 +115,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Repurpose the HMC reset pin to FPGA reset pin.
-This change is according to hardware change.
+PMU interrupt generation block is not present in older Samsung Exynos
+SoCs, so restrict the property to Google GS101 only.
 
-Signed-off-by: Deepak Kodihalli <dkodihalli@nvidia.com>
-Signed-off-by: Ed Tanous <etanous@nvidia.com>
-Signed-off-by: Willie Thai <wthai@nvidia.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-index 1240f6ee92c8164dc642a83d94719a73c1c9bfd5..dcf3d075c7e373709820435a42260c6d2f7d2dbe 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-@@ -1135,7 +1135,7 @@ &gpio0 {
- 		/*J0-J7*/ "", "", "", "", "", "", "", "",
- 		/*K0-K7*/ "", "", "", "", "", "", "", "",
- 		/*L0-L7*/ "", "", "", "", "", "", "", "",
--		/*M0-M7*/ "PCIE_EP_RST_EN-O", "BMC_FRU_WP-O", "HMC_RESET_L-O", "STBY_POWER_EN-O",
-+		/*M0-M7*/ "PCIE_EP_RST_EN-O", "BMC_FRU_WP-O", "FPGA_RST_L-O", "STBY_POWER_EN-O",
- 					"STBY_POWER_PG-I", "PCIE_EP_RST_L-O", "", "",
- 		/*N0-N7*/ "", "", "", "", "", "", "", "",
- 		/*O0-O7*/ "", "", "", "", "", "", "", "",
-
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+index 3109df43d502..f0fb24156da9 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+@@ -203,6 +203,9 @@ allOf:
+     then:
+       required:
+         - google,pmu-intr-gen-syscon
++    else:
++      properties:
++        google,pmu-intr-gen-syscon: false
+ 
+ examples:
+   - |
 -- 
-2.25.1
+2.45.2
 
 
