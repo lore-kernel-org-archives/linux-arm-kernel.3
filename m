@@ -4,97 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77805C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 19:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A0BC54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 19:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SlfPbl9U0b/o5N9rX3Vqr5rZsZeMWo7A8d3jNHieFXg=; b=SATm6tmPowunV/z22iLEdxxcOv
-	/eHm4C1tBsGwloxKi6F3rR/f2KSEsAWruqw2UF8I1wApoQvd3YNOt00Up2wuE7G91opWDoodO/fPR
-	S8OkJbw0aJyh4VD8JIMbwQfJxoG7hQlYt7nwMesvwnXjOqOzJnpR49uAYFWcF8Mu07W1md1Sh3MqG
-	6d7sag0SI8bvBltFEiHAWbow8cI0n+8zTWHXMAf67lxmlGuWAEr4nqLiblLkCcY24Qph3BHshBRwB
-	YtU4dr1/X6T7/O6IQEFd+vOG1LAWYX96ycS18R4L9Aokrkyy+GtneRl3I7Qp5n1UC+FV4KUbt000d
-	uxbp7pIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1Ucq3gyLAIGSeXu4sFQOwhmUA0D2m+wAOAZQ5q93w2I=; b=LJ3+H8Yvm3nV01h3XkIkD4975R
+	ShU3JNTMbqVh/tLI4cZtMRrTPtzPaycW31yDjm3amdH3QeMbYbxHnDfivz4wik1uYUeoXMiLMoHhp
+	C4qgC9FvxHKGec/jU2b2A7C8dc4GAQwA/1oKyELp4yEkA9R7oa2j6eUKeC0z7a87U/VFBUP4cxXs2
+	dSx4Q5yGi+J4QJt4GVcxtC4QqLH8yWeX+RzjjzpaHbxiO5oy8kPqRPpc1YcHQCEDm95rZfw+NfGr/
+	hKFbrNT4rJY20U+uro5U1+p0F9nCZ1atWWyHZpNYY05Rm69yM0HsjAEHEB1abI+lRd5+hhTXjDxqp
+	njfZ2SRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJGkF-00000007YG6-15lb;
-	Sun, 25 May 2025 19:10:51 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1uJGoU-00000007YaD-2fFC;
+	Sun, 25 May 2025 19:15:14 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJGgb-00000007Xu4-3gOQ
+	id 1uJGmP-00000007YS4-1y2u
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 May 2025 19:07:07 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4767e969b94so26650461cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 May 2025 12:07:05 -0700 (PDT)
+	Sun, 25 May 2025 19:13:06 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ad56886dd60so21740966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 May 2025 12:13:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748200024; x=1748804824; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SlfPbl9U0b/o5N9rX3Vqr5rZsZeMWo7A8d3jNHieFXg=;
-        b=OJA1sQN/xpx2qPSv0WWnHiPx+S09DfnXLXYW4zsU0VJ3J+mlR9eIivjSvzo6I1H9jU
-         W6uSyVJqr1rfVoTSqp+iuA9y6whI8GmoIePV6sflhKRLbPiWTqWv2yedo/DG/DIjSD8k
-         VcwZ7a4nC9/TSKob4K774IgtDfAqeJHVq5f+naAJBW1nzDqgfeJKdY738JSgUMwVYuPW
-         g8ZoI7nPNq1iarkRahbvnCzSmeUopSK3Rz0Locl/c7QPnKwb0l0i802666RkWic4PWcU
-         zEl4SCxZPvit7KbC2oZJthFN/NvrRazN079pmZtgm6fF9KtWoGWRp9sqkR932P5g0Y0d
-         Q+Ug==
+        d=linaro.org; s=google; t=1748200384; x=1748805184; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1Ucq3gyLAIGSeXu4sFQOwhmUA0D2m+wAOAZQ5q93w2I=;
+        b=Jbp6fjcgfVqKDbP6ooUQHSmdmqnw4OF0+sRl8N/D7Huoet9S/For/nAGsIrntUUtCm
+         YknifZmFdYk5jMvYrJn48RmfpBc2+CHFDuIl4DSg4ivz52JA7cyaObIIb/pjXQD+dxcF
+         ugYz3UJLPXkzQbThMCCxBDBhGZhKqk3A9tWc1QApPu0Wwn8z6rbsJfGGAfDcxT5iJGsw
+         ov+BHcteDEynv4uyK6WuoOpxu6Rk8+CU8Q1gDuGfkT+v2mhGS65wkRO9CHnBJuZsuq6h
+         lYSi/REIX+LkSE+J9GlkraHnxzBVIa2FDb8e6j5nVkohe94JzH9bKX1ecOzHwT/VZ6aa
+         IfhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748200024; x=1748804824;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SlfPbl9U0b/o5N9rX3Vqr5rZsZeMWo7A8d3jNHieFXg=;
-        b=v0eFCP1ym6bqcCdQJQ7m226grcjsnzFNYALUetJpVDN6wzPijW8H5rEI5hGnbqkIZz
-         6few+Kfj7CnC2hpvrp0NW6FZMD3OtFBB0jwwwWtPliMP52PanRsl8HLsRvaz5curWm0N
-         Qao7hZqZtTAcQzzA1pwze98O8OQyJ24I8hpic3uPALwNuik8QH/g1ddASCLfaDpL4VH2
-         siAFEMdVnNzbg6Rme+rTezYwkDXEZgEC/CJtZJdBkr9lUE46zWzp2ubsKTazzfu4klT8
-         P1ZGhOO4REUijCJ2BFf8JVAy7iDpmbpI7Ixj4HEGeDpTlKnQb4bYrG2yHwbYCLxp28U/
-         u0OQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVvHcOTHQFfbQxZjvqJ8xljby2/VlDLW7bMcfDmaGJl/QQVX6UXlooa1BXQLdP4Oml5dfE5IaO0Ojr6EEsjHiqS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVQIR+KQfjV9ltfXJdB1p+EDgz1Dm+98D5D/fSBJ7coAaYpaof
-	Tw33hYiaLrHxgqjeIjaLNtVVu5RsKxyTgm+yqd6w2GBhkfPDkOfX4V1hOXlKvgJRqhEzxivGGbK
-	wlVBMjbk=
-X-Gm-Gg: ASbGncu+/bW7JCqeA7rmiKz4MFT3jCeVPZI05/Iucvb2BeAIMfIYnN+IbpJdSMK9Avf
-	DVe+sMoHX8EhLtS5EUGrXGh9+zJavxhy857De7xE8AuH6ATBgnTSvWwm8Mn6eGYeP/ySM8nYcJJ
-	aL/Jiv1EPtrnjnjlsKU4nZo1XdErf7U6n44WdQkOnCrW93uEOK5xjc3SQS3fFMJJCHWQhXfj7JN
-	9aJRd7vhISciwY2+M/KehrTJmfwUVFq/3RwHyKbWspvAnwSzpsjWGmSHqzqzP2P0fEIKAaJo148
-	gX8O7MLzfHetrZK9NMf7o0x0/YYrVtSBwKz25yNoDofMezHKhIpqcY9yWCmQUeTcxi5b374EeB1
-	pMgrratGljIPDh6lr040QZxkbJYM=
-X-Google-Smtp-Source: AGHT+IEsK8RsIZHAhqzNbJPFGKthMn51tZwQ52JiopY7fu+XaQ8UU+nS+s5NnIXGcLb0DNTM1neWbA==
-X-Received: by 2002:a05:622a:550f:b0:494:95b5:ce38 with SMTP id d75a77b69052e-49f4781f4damr107883391cf.42.1748200024664;
-        Sun, 25 May 2025 12:07:04 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cd468b7400sm1472991785a.66.2025.05.25.12.07.04
+        d=1e100.net; s=20230601; t=1748200384; x=1748805184;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1Ucq3gyLAIGSeXu4sFQOwhmUA0D2m+wAOAZQ5q93w2I=;
+        b=hi2sTmtOIKKRFrld9CB+U77+DhFrFf63Mgd9j4Q4AfVyM2oeMdtq+NuOI6jeV+ScD0
+         lMeG0hepEFH6cRpXBghZy/sLVPs+JIzyAxjaEj5NTCcwObzmcSxHVg7v3WJA8Y7goNl3
+         HoyQqMRXvra6ZO9iJ6eNK+rq3zBoXufHSUlQ/0xYdcCutNKOHFYPL/99QM89RK3cS/1s
+         XXtqOUgmqmyUIh8GT6vc5YJEqqbgX/zjVTBLVXm2jJ9BkWt1nlBiNXxy8V1jm8AYbVJ4
+         MRuWHxVpdZIBYzmgGXkXfwiLJY/lqyaOY3Idt30YEN8dRd46MlnhOWupryZf8YOmH05w
+         wdrg==
+X-Forwarded-Encrypted: i=1; AJvYcCVsUwdJoFnj9ShUqYXOoB0R4552HNrGv/Iku5QuYRqAMqlLzQhRO2uzL+Vtun5uB3j5rfirYI5m/hLNvc4mHsYv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw41xYmejajy9LnJezMnfxuLOVQqtEk0QVdjOMrSWJejk41C86
+	u79ntUBbW5GQCHYA73MBrjRkb0dNAxonjnjcrL8CKK7iS5yyPcfQ2n8nfqdBU6rDoZg=
+X-Gm-Gg: ASbGnctMqnbmxhm4+dOqT0L25EW/Nl6LgUz/Us9FnAp2QaiV8ZUl4iKE3jsFurxy7ix
+	AcrH4dPzAj7VsqLVzmGPFXVTlXswNFdt9aggIA3kZZGO3sKF/MZTZnswNkcXRQI3jlzVvCVOnln
+	p00ZFeANOpU5W7LdI/oSiMN+9gNISamwdGLVS+Pygj2qoCRZUbIfMilHYMXMMvpT6WH+HLKsx6o
+	YenkJ/GAFIMl38REFkkf9QTE4ZOkPSZtlwB7SBqw8OwFMqGdOszKQ6CQ4ZUPr7JOt1xTtSU3+1/
+	Ka7hykqPqA6LnB0LwZlGIshM03zBly5FpOWQoY9ivfBhqlP2HJe3odHhK0wj+w==
+X-Google-Smtp-Source: AGHT+IGf+2TeC9QK6dYZbJRoR56I7p53ILlhtD29asCKt0/mN+wu+zXhz6Rm84i7lO34hXxNMSklQA==
+X-Received: by 2002:a17:907:2ceb:b0:ad5:1ba6:2177 with SMTP id a640c23a62f3a-ad85b07045emr167132666b.1.1748200383657;
+        Sun, 25 May 2025 12:13:03 -0700 (PDT)
+Received: from kuoka.. ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d4cbe90sm1554533466b.165.2025.05.25.12.13.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 May 2025 12:07:04 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uJGgZ-000000003eK-2F45;
-	Sun, 25 May 2025 16:07:03 -0300
-Date: Sun, 25 May 2025 16:07:03 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shyam Saini <shyamsaini@linux.microsoft.com>
-Cc: Jacob Pan <jacob.pan@linux.microsoft.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	virtualization@lists.linux.dev, will@kernel.org,
-	eric.auger@redhat.com, code@tyhicks.com,
-	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
-Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
-Message-ID: <20250525190703.GD12328@ziepe.ca>
-References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
- <20250410230008.GA6905@ziepe.ca>
- <67fff12d.650a0220.208c7c.d69dSMTPIN_ADDED_BROKEN@mx.google.com>
- <20250416181759.GF493866@ziepe.ca>
- <20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+        Sun, 25 May 2025 12:13:03 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Patrice Chotard <patrice.chotard@foss.st.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] memory: stm32_omm: Use syscon_regmap_lookup_by_phandle_args
+Date: Sun, 25 May 2025 21:13:00 +0200
+Message-ID: <20250525191300.50873-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2266; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=UodeGMQ8/36hFynpdApuECu5dDrxfqy7USHoaaccAzU=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoM2u8ux0aH1Fna9DGhdBNraJjTPdmFk5vieE69
+ Bby+tFVA0GJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaDNrvAAKCRDBN2bmhouD
+ 17PsD/9JDR2rnMkSvRHRyOxDJn9SHRhKbdOGbr/z2BZUD2Q3Udhuoagd9HJVcK/w8YczZc4hURK
+ lU8HwJvJQmqZeNl52AbkfdE8AQwCm3Gq527piNZIF670p3fu4fvO6TTCfr0/7pQ0EypWkBTUMAq
+ g3ntprR9Ltc0PvMRv6JoILjlg6iFlt+RPV1uWm9Dgs04QX40e9IoEmD/s/eX22eKaAMQKWiqInb
+ i95/ALzUOFJK0UCt3WclL5kUv+Nm1jfgr27hV1A8uHuWQox2jpxqG+M2DxVenEhV8trKn7kaPPj
+ AfYUg9qHg2KcZRAxoitg157g0y51YJDMWzRIyBRJuhO4b0H+w0X05yLS06CpdyY7dBQpjFFXv0G
+ choT6n8YDDBtNDizwrSFeULMn0ASaThqtVctlLgzTUnbK+2br1abXSYlqOwaMiA7+twzcsX0yBa
+ 6+ko27RDUB7Kbu4FPFa5Iwl5VUqXK/oleCKlFPDdcGj/qYBEYASbYoH4wKYXy2OeKD3vFQHzL3x
+ 4qvgO67NFLfAV5+qEpCKQ9LcmImXPccX4GmIpiX96mGIm1gmmmwV5bCuNVOS5XlxHHpuyD4mLzb
+ DLz3cX+M4ExbFfiSOMwBZQkd3UEOIohp5u2llvVQJY8ncZ+byPDkrSrYrUPLOMJV2JWJnR0tvzW 88dCxUyJBpvPfPg==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_120705_922287_0D625689 
-X-CRM114-Status: GOOD (  31.67  )
+X-CRM114-CacheID: sfid-20250525_121305_521273_3290B16B 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,72 +113,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 03:42:24PM -0700, Shyam Saini wrote:
-> Hi Jason,
-> 
-> apologies for the delayed response.
-> 
-> > On Wed, Apr 16, 2025 at 11:04:27AM -0700, Jacob Pan wrote:
-> > 
-> > > Per last discussion "SMMU driver have a list of potential addresses and
-> > > select the first one that does not intersect with the non-working IOVA
-> > > ranges.". If we don't know what the "non-working IOVA" is, how do we
-> > > know it does not intersect the "potential addresses"?
-> > 
-> > I had understood from previous discussions that this platform is
-> > properly creating IOMMU_RESV_RESERVED regions for the IOVA that
-> > doesn't work. Otherwise everything is broken..
-> > 
-> > Presumably that happens through iommu_dma_get_resv_regions() calling
-> > of_iommu_get_resv_regions() on a DT platform. There is a schema
-> > describing how to do this, so platform firmware should be able to do it..
-> > 
-> > So the fix seems trivial enough to me:
-> > 
-> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > index b4c21aaed1266a..ebba18579151bc 100644
-> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> > @@ -3562,17 +3562,29 @@ static int arm_smmu_of_xlate(struct device *dev,
-> >  static void arm_smmu_get_resv_regions(struct device *dev,
-> >  				      struct list_head *head)
-> >  {
-> > -	struct iommu_resv_region *region;
-> > -	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
-> > -
-> > -	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
-> > -					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
-> > -	if (!region)
-> > -		return;
-> > -
-> > -	list_add_tail(&region->list, head);
-> > +	static const u64 msi_bases[] = { MSI_IOVA_BASE, 0x12340000 };
-> >  
-> >  	iommu_dma_get_resv_regions(dev, head);
-> 
-> my understand is, this hook is not called for all the devices, eg: pcie dts node
-> doesn't use [1] "iommus" property instead it uses "iommu-map" property
-> as a consequence, [1] while loop exits prematurely and iommu_dma_get_resv_regions()
-> is not called, so there is no IOVA reservation for the pcie device. 
+Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+syscon_regmap_lookup_by_phandle() combined with getting the syscon
+argument.  Except simpler code this annotates within one line that given
+phandle has arguments, so grepping for code would be easier.
 
-I can't really understand this sentance.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-The above is the only place that creates a IOMMU_RESV_SW_MSI so it is
-definately called and used, right? If not where does your
-IOMMU_RESV_SW_MSI come from?
+---
 
-This function is also the only thing that computes the reserved ranges
-that iommu_get_resv_regions() returns.
+Not tested on hardware.
+---
+ drivers/memory/stm32_omm.c | 21 ++++++---------------
+ 1 file changed, 6 insertions(+), 15 deletions(-)
 
-As above, I've asked a few times now if your resv_regions() is
-correct, meaning there is a reserved range covering the address space
-that doesn't have working translation. That means
-iommu_get_resv_regions() returns such a range.
+diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+index 79ceb1635698..bee2ecc8c2b9 100644
+--- a/drivers/memory/stm32_omm.c
++++ b/drivers/memory/stm32_omm.c
+@@ -46,7 +46,7 @@ static int stm32_omm_set_amcr(struct device *dev, bool set)
+ 	struct regmap *syscfg_regmap;
+ 	struct device_node *node;
+ 	struct resource res, res1;
+-	u32 amcr_base, amcr_mask;
++	unsigned int syscon_args[2];
+ 	int ret, idx;
+ 	unsigned int i, amcr, read_amcr;
+ 
+@@ -98,29 +98,20 @@ static int stm32_omm_set_amcr(struct device *dev, bool set)
+ 		of_node_put(node);
+ 	}
+ 
+-	syscfg_regmap = syscon_regmap_lookup_by_phandle(dev->of_node, "st,syscfg-amcr");
++	syscfg_regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node, "st,syscfg-amcr",
++							     2, syscon_args);
+ 	if (IS_ERR(syscfg_regmap))
+ 		return dev_err_probe(dev, PTR_ERR(syscfg_regmap),
+ 				     "Failed to get st,syscfg-amcr property\n");
+ 
+-	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 1,
+-					 &amcr_base);
+-	if (ret)
+-		return ret;
+-
+-	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 2,
+-					 &amcr_mask);
+-	if (ret)
+-		return ret;
+-
+ 	amcr = mm_ospi2_size / SZ_64M;
+ 
+ 	if (set)
+-		regmap_update_bits(syscfg_regmap, amcr_base, amcr_mask, amcr);
++		regmap_update_bits(syscfg_regmap, syscon_args[0], syscon_args[1], amcr);
+ 
+ 	/* read AMCR and check coherency with memory-map areas defined in DT */
+-	regmap_read(syscfg_regmap, amcr_base, &read_amcr);
+-	read_amcr = read_amcr >> (ffs(amcr_mask) - 1);
++	regmap_read(syscfg_regmap, syscon_args[0], &read_amcr);
++	read_amcr = read_amcr >> (ffs(syscon_args[1]) - 1);
+ 
+ 	if (amcr != read_amcr) {
+ 		dev_err(dev, "AMCR value not coherent with DT memory-map areas\n");
+-- 
+2.45.2
 
-If you don't have that then you have a bigger platform problem, IMHO,
-as vfio/iommufd only respect reserved ranges.
-
-Otherwise, what is the issue you see, exactly? Did you even try it?
-
-Jason
 
