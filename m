@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CBBC54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 16:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D6FC54E90
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 16:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r6Bs6NUrhRuWdYh2pTI3k1vpGojw0BMsDwh3G1I30Yc=; b=Fqf/ysJHA+ahku9H4iV3BYMRyk
-	50Po406Q1aDftv87M0W2SxzI8efocXAb0Xve5x5CnnNNyPKFDcJW57IjKWgrzrVvz4wIVnsffyMgQ
-	JSTOWwXHsMu7HiRi3T0jRDTuqF0OHWREff3XG/xhIwPYgTXpDJaPntOn16cFo+j2nMJP16qvbI9Tp
-	OSoLg4IEcxhVDgs8S43GyOBbWd1uCCxmfI77bFL0gYEljme02zh+/WEZSOZ0H2PCZqqQaOf3/hB1E
-	kkkbPKpw+24bMgnlexB07rZDVHg8rkwzJv60mf+U6LfWWb4J4rrqqfr983/DTW1uPzEGJc9x7nhNM
-	31G9g5CA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NPrdgQOQrocNPqIgoaueLRdVVKBCes/xeIpXjvkXuhc=; b=d8rOj5XItiooHq5J7f9kd88OR8
+	uMLz+9zC7FYOBnDyJ2+Oj0Xem/e/yofXjOr5mMZOrhVLbDO6tMhyn/CEyIrGFyKxDHkMKzb4dDEUP
+	AWli7v4R0lmD4PnRGcey/rijGbxLIcWWWw0XNjyOVbMSJSQueCdSxYcyugN+nuUANNHzPdr4Iwd7+
+	d+K657tqgKtNpAgAXQlwP20D7KXinA2kPVTu4c/zJpY4WPfL73nvub1wEhC39Sb/81VAVceE4WoKJ
+	t3ZUIeoe6uoUIvM1Ed8GrMv2LCn+yQ/+v3ardgmy0YdcjYLQgASi56wGMTQvfQi2c7RKQ+rLpFHsp
+	PsqdfkFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJDtd-00000007JxF-2fyy;
-	Sun, 25 May 2025 16:08:21 +0000
-Received: from mout-p-103.mailbox.org ([80.241.56.161])
+	id 1uJDvh-00000007KBZ-1Mk5;
+	Sun, 25 May 2025 16:10:29 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJDqt-00000007Ja8-2H31
+	id 1uJDqy-00000007Jah-1g3R
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 May 2025 16:05:32 +0000
+	Sun, 25 May 2025 16:05:37 +0000
 Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4b53dj5TXkz9sQv;
-	Sun, 25 May 2025 18:05:29 +0200 (CEST)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4b53dl5rMpz9sqW;
+	Sun, 25 May 2025 18:05:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1748189131;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NPrdgQOQrocNPqIgoaueLRdVVKBCes/xeIpXjvkXuhc=;
+	b=BmXD2/TlTrswtNrSSbEjZSM22TH+Af/Sni5ioUWF9cYBOyuA3DQbMj6heMDZUh/rXT0sX9
+	ykBkUuxrPRJ0Vns9k8hkKdu8Vh40Pq8lboxGnxpXM7fBwFItjf4FxOEHT5v911apEXJkXb
+	98zgY05lrhfw+7GJ+MSqZn8V9H9yn5Ej+m0aqh9LOhLf8pKPoT6FhYP6wX9TyrUX4xRT/+
+	vWMog5Rw8t3hTcUI5I/7YKVhburOdBGz3XrYdt4TY98ZE4nvZPMqrN1D74VY/jYFxweSSx
+	EMhbjjbDPaZZFhJPA5KJAjU0niLhnDDBp0VdMnz1hg8jmiljmBrqCdEALoxFrA==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
 	t=1748189129;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=r6Bs6NUrhRuWdYh2pTI3k1vpGojw0BMsDwh3G1I30Yc=;
-	b=q7fH74UCiGjUCtvewWiab8OveZ5LFfVl9RJXCN5M9knYjnkHpJqEsniAcQWLHFxnNMRY6p
-	VhvvsZLioOVUlULBNftr27WstEet3ye5HnImH0lEiBiNyjd93xB7iIw65EonLNdiT9XyPX
-	B+dDkbahyv+9EU1qjZjRl8BQymJ9csoIcI2U1zruVAcG/6+KgZKn3c+/dB3b8SRddCqlEO
-	toR9v919wd8D7oojYKCqsIpoWadCQ+WF/xNe4IdaBIM9kptE8LwVcry4DThrpHvAjUfQG9
-	jevQ1iFJ1hSEPyXwQfRCqODsT0qsAcW7Y+uG4ANxWAp7UG+4TjN9w7I3/0M8ow==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1748189127;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=r6Bs6NUrhRuWdYh2pTI3k1vpGojw0BMsDwh3G1I30Yc=;
-	b=vx6ZmcZPScSAn+W0D42gmSdW6iD/n6XE/QL1GTl3QAvdSlTquHt+DbX6am6Sw38qYKcmGM
-	FqVLWzkEBhhTMMM6I1TCohAlcDAHuHhdDMfyeG0dxylpZ2aKvo77hkxZNgeAbGnlnKE05Z
-	2NFit28YckLdWUrHYKZzKl/JI4UnSF4vY2Idp9R6L30YGkTzu5YuxLt2mHLF6q1oFd+EaS
-	Y4PLbrYd6j69/bqxYPhPG6pT1iuhycP6bv8Yems+1UOw6eUp0qf3/3LXiHmz3fMcnZjcqi
-	OKGqecvgw/FmT+l3l7CxzIqb6CkU1JQNAonDFamQo86Qcjq6yeMK4coRSn4SaA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NPrdgQOQrocNPqIgoaueLRdVVKBCes/xeIpXjvkXuhc=;
+	b=rjeVGvDpyHT27GD+9uawz1PbV+yxyedwQSN1G1ExQUssRW0nFvDG4sFPt29uM7vF7mFspQ
+	1tk++sfJqd/OiwFrvYQ5XGnHfzaUQXw/EsMcW5Y8MmjOZXuljMwM3ZQdWz2YUNbwq/gS6M
+	le9W7KviLJIGjMf/vYMxIZGqhkngR1iQvpQTyaFv/jQ4gfonx+/fB30BNVdkJJKVEUy0wn
+	1waHbEDSUB8uR9h7KJlkwBgdi6t8XrDpY/yRLQozGrQEN9R4cYQ1skoeLCPgJykhnR18S0
+	J197wzyCyoqT7GclWmbSy3+X/6mrCkxrUl4Sr+waWeW8IjnfAa1ItUQ1rDJERg==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
@@ -71,17 +73,19 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	linux-kernel@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 1/2] PCI/pwrctrl: Add optional slot clock to pwrctrl driver for PCI slots
-Date: Sun, 25 May 2025 18:04:03 +0200
-Message-ID: <20250525160513.83029-1-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 2/2] arm64: dts: renesas: r8a779g3: Describe split PCIe clock on V4H Sparrow Hawk
+Date: Sun, 25 May 2025 18:04:04 +0200
+Message-ID: <20250525160513.83029-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250525160513.83029-1-marek.vasut+renesas@mailbox.org>
+References: <20250525160513.83029-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: a0166e157057709b695
-X-MBO-RS-META: 54eity3pg7adano1bw754w6wzqd8pdzu
-X-Rspamd-Queue-Id: 4b53dj5TXkz9sQv
+X-MBO-RS-META: b44ts3qhxxkcs5eeid4n9o3pp136tqx4
+X-MBO-RS-ID: b718b974327949ec1da
+X-Rspamd-Queue-Id: 4b53dl5rMpz9sqW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_090531_724672_FEE118BE 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20250525_090536_581230_BA03CC57 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +100,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the ability to enable optional slot clock into the pwrctrl driver.
-This is used to enable slot clock in split-clock topologies, where the
-PCIe host/controller supply and PCIe slot supply are not provided by
-the same clock. The PCIe host/controller clock should be described in
-the controller node as the controller clock, while the slot clock should
-be described in controller bridge/slot subnode.
+The V4H Sparrow Hawk board supplies PCIe controller input clock and PCIe
+bus clock from separate outputs of Renesas 9FGV0441 clock generator chip.
+Describe this split bus configuration in the board DT. The topology looks
+as follows:
 
-Example DT snippet:
-&pcicontroller {
-    clocks = <&clk_dif 0>;             /* PCIe controller clock */
-
-    pci@0,0 {
-        #address-cells = <3>;
-        #size-cells = <2>;
-        reg = <0x0 0x0 0x0 0x0 0x0>;
-        compatible = "pciclass,0604";
-        device_type = "pci";
-        clocks = <&clk_dif 1>;         /* PCIe slot clock */
-        vpcie3v3-supply = <&reg_3p3v>;
-        ranges;
-    };
-};
-
-Example clock topology:
- ____________                    ____________
-|  PCIe host |                  | PCIe slot  |
-|            |                  |            |
-|    PCIe RX<|==================|>PCIe TX    |
-|    PCIe TX<|==================|>PCIe RX    |
-|            |                  |            |
-|   PCIe CLK<|======..  ..======|>PCIe CLK   |
-'------------'      ||  ||      '------------'
+ ____________                    _____________
+| R-Car PCIe |                  | PCIe device |
+|            |                  |             |
+|    PCIe RX<|==================|>PCIe TX     |
+|    PCIe TX<|==================|>PCIe RX     |
+|            |                  |             |
+|   PCIe CLK<|======..  ..======|>PCIe CLK    |
+'------------'      ||  ||      '-------------'
                     ||  ||
  ____________       ||  ||
 |  9FGV0441  |      ||  ||
@@ -154,43 +139,95 @@ Cc: linux-kernel@vger.kernel.org
 Cc: linux-pci@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- drivers/pci/pwrctrl/slot.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ .../dts/renesas/r8a779g3-sparrow-hawk.dts     | 45 ++++++++++++++++++-
+ 1 file changed, 43 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pci/pwrctrl/slot.c b/drivers/pci/pwrctrl/slot.c
-index 18becc144913e..222c14056cfae 100644
---- a/drivers/pci/pwrctrl/slot.c
-+++ b/drivers/pci/pwrctrl/slot.c
-@@ -4,6 +4,7 @@
-  * Author: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-  */
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+index b8698e07add56..7c050a56290fd 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+@@ -130,6 +130,13 @@ mini_dp_con_in: endpoint {
+ 		};
+ 	};
  
-+#include <linux/clk.h>
- #include <linux/device.h>
- #include <linux/mod_devicetable.h>
- #include <linux/module.h>
-@@ -30,6 +31,7 @@ static int pci_pwrctrl_slot_probe(struct platform_device *pdev)
- {
- 	struct pci_pwrctrl_slot_data *slot;
- 	struct device *dev = &pdev->dev;
-+	struct clk *clk;
- 	int ret;
- 
- 	slot = devm_kzalloc(dev, sizeof(*slot), GFP_KERNEL);
-@@ -50,6 +52,13 @@ static int pci_pwrctrl_slot_probe(struct platform_device *pdev)
- 		goto err_regulator_free;
- 	}
- 
-+	clk = devm_clk_get_optional_enabled(dev, NULL);
-+	if (IS_ERR(clk)) {
-+		ret = PTR_ERR(clk);
-+		dev_err_probe(dev, ret, "Failed to enable slot clock\n");
-+		goto err_regulator_disable;
-+	}
++	/* Page 26 / PCIe.0/1 CLK */
++	pcie_refclk: clk-x8 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <25000000>;
++	};
 +
- 	ret = devm_add_action_or_reset(dev, devm_pci_pwrctrl_slot_power_off,
- 				       slot);
- 	if (ret)
+ 	reg_1p2v: regulator-1p2v {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "fixed-1.2V";
+@@ -404,6 +411,14 @@ i2c0_mux2: i2c@2 {
+ 			reg = <2>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
++
++			/* Page 26 / PCIe.0/1 CLK */
++			pcie_clk: clk@68 {
++				compatible = "renesas,9fgv0441";
++				reg = <0x68>;
++				clocks = <&pcie_refclk>;
++				#clock-cells = <1>;
++			};
+ 		};
+ 
+ 		i2c0_mux3: i2c@3 {
+@@ -487,24 +502,50 @@ msiof1_snd_endpoint: endpoint {
+ 
+ /* Page 26 / 2230 Key M M.2 */
+ &pcie0_clkref {
+-	clock-frequency = <100000000>;
++	status = "disabled";
+ };
+ 
+ &pciec0 {
++	clocks = <&cpg CPG_MOD 624>, <&pcie_clk 0>;
+ 	reset-gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
++
++	/* PCIe bridge, Root Port */
++	pci@0,0 {
++		#address-cells = <3>;
++		#size-cells = <2>;
++		reg = <0x0 0x0 0x0 0x0 0x0>;
++		compatible = "pciclass,0604";
++		device_type = "pci";
++		clocks = <&pcie_clk 1>;
++		vpcie3v3-supply = <&reg_3p3v>;
++		ranges;
++	};
+ };
+ 
+ /* Page 25 / PCIe to USB */
+ &pcie1_clkref {
+-	clock-frequency = <100000000>;
++	status = "disabled";
+ };
+ 
+ &pciec1 {
++	clocks = <&cpg CPG_MOD 625>, <&pcie_clk 2>;
+ 	/* uPD720201 is PCIe Gen2 x1 device */
+ 	num-lanes = <1>;
+ 	reset-gpios = <&gpio2 0 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
++
++	/* PCIe bridge, Root Port */
++	pci@0,0 {
++		#address-cells = <3>;
++		#size-cells = <2>;
++		reg = <0x0 0x0 0x0 0x0 0x0>;
++		compatible = "pciclass,0604";
++		device_type = "pci";
++		clocks = <&pcie_clk 3>;
++		vpcie3v3-supply = <&reg_3p3v>;
++		ranges;
++	};
+ };
+ 
+ &pfc {
 -- 
 2.47.2
 
