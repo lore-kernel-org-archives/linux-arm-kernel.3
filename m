@@ -4,103 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F599C54ED0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 19:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77805C54ED0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 May 2025 19:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p0Ac+WyyvZzgKaVOOpGDL89ciayObF3/GRMWEiWnmOw=; b=CkxlC6eRB07KLqsKlT2fE9DQQr
-	EHsjoBwUHbQAiKHJwY28jsOnqUArXS/W20KsRi2ftg67rJFNDJiD4tCCcrztxDXS71DlfjGREeWZE
-	gsAsPG6hghrMXFlSLl35rkt018esDeFssKPd7csWELU9GUqBQFv1DTkR9zfRkvCtzIt6zF7d3D5rF
-	TuAlLtcE1d5nV0Vy8qnLECwUSvGJD2YydrZvrGp1Pcu01fWAfncFvNm9rlQ+Ctc+7Go/wuWuX+M5k
-	zzjoznen23IzaKok6hJh+MVrGXWiqknKIfuWq6ZnECxp3nRpppoazaGxVbM7sbo/h0k0fzwm9vX73
-	l7VvcmmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SlfPbl9U0b/o5N9rX3Vqr5rZsZeMWo7A8d3jNHieFXg=; b=SATm6tmPowunV/z22iLEdxxcOv
+	/eHm4C1tBsGwloxKi6F3rR/f2KSEsAWruqw2UF8I1wApoQvd3YNOt00Up2wuE7G91opWDoodO/fPR
+	S8OkJbw0aJyh4VD8JIMbwQfJxoG7hQlYt7nwMesvwnXjOqOzJnpR49uAYFWcF8Mu07W1md1Sh3MqG
+	6d7sag0SI8bvBltFEiHAWbow8cI0n+8zTWHXMAf67lxmlGuWAEr4nqLiblLkCcY24Qph3BHshBRwB
+	YtU4dr1/X6T7/O6IQEFd+vOG1LAWYX96ycS18R4L9Aokrkyy+GtneRl3I7Qp5n1UC+FV4KUbt000d
+	uxbp7pIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJGiC-00000007Y48-2QZq;
-	Sun, 25 May 2025 19:08:44 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1uJGkF-00000007YG6-15lb;
+	Sun, 25 May 2025 19:10:51 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJGg7-00000007Xq0-2BQo
+	id 1uJGgb-00000007Xu4-3gOQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 May 2025 19:06:36 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5f6f86580ecso344831a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 May 2025 12:06:35 -0700 (PDT)
+	Sun, 25 May 2025 19:07:07 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4767e969b94so26650461cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 May 2025 12:07:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748199994; x=1748804794; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=p0Ac+WyyvZzgKaVOOpGDL89ciayObF3/GRMWEiWnmOw=;
-        b=NS89W1rkG4DIVoAQUVteQEZKVAUdQqQyyQI2LAMZ6/3zus3QQkmsS1zI6WB7LzIGyx
-         WJx1CrwnQ9RITuSj6AeSya5nOneEOaW+monguO2+jLwYbtQ/ldkBm+HUFaKmBdpy+W2S
-         c/ugQ2SNeK0q55RxZWujrU1RYvHDw+n7zUVH62ivvkDRt+chIIanKWDLdkMiWX0f67HD
-         HLQ9sZKpmVL6W9qoLtdw2Wts1fwF88YkTqrAtHDmyg54tzhzHUjzN6WXU/T6jan9nWAe
-         w1eBZfDcwt/F7zjOH78BZ8VX4urrjLeBCUVSb7HW+O0xLl1G473HqOGJ4hEYmqjPaxzi
-         WsMA==
+        d=ziepe.ca; s=google; t=1748200024; x=1748804824; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SlfPbl9U0b/o5N9rX3Vqr5rZsZeMWo7A8d3jNHieFXg=;
+        b=OJA1sQN/xpx2qPSv0WWnHiPx+S09DfnXLXYW4zsU0VJ3J+mlR9eIivjSvzo6I1H9jU
+         W6uSyVJqr1rfVoTSqp+iuA9y6whI8GmoIePV6sflhKRLbPiWTqWv2yedo/DG/DIjSD8k
+         VcwZ7a4nC9/TSKob4K774IgtDfAqeJHVq5f+naAJBW1nzDqgfeJKdY738JSgUMwVYuPW
+         g8ZoI7nPNq1iarkRahbvnCzSmeUopSK3Rz0Locl/c7QPnKwb0l0i802666RkWic4PWcU
+         zEl4SCxZPvit7KbC2oZJthFN/NvrRazN079pmZtgm6fF9KtWoGWRp9sqkR932P5g0Y0d
+         Q+Ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748199994; x=1748804794;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=p0Ac+WyyvZzgKaVOOpGDL89ciayObF3/GRMWEiWnmOw=;
-        b=aiht4fJ2DfxffyI/5R2IWTJ8ln/9BQ9MbIv/GIavsTlfUdlkPlNKZiJTeQxOWKreSs
-         lV5nOmuN/1zfyTnUEijnXvryNd0p7CHRXkDuODigp/13NM0JGpIN+/bLF5P3X++4Tfed
-         XLul+RxmuY2q566K6nU9tcgoj8zmgKyH0qiH8WIYzyypIyaN6/HqJoP5rXmWGcDpJu7A
-         amFhDyIB65Zti2muUB0Lh6NNnXoec0Rd68ply5wxhisf3kN4naLKlAjDMj2EldXIlPb5
-         Tr24IRQ9qU+tFwtiRsOPNQ2axmGvnJ5DhVNqvWEJbyVfe38ZnkgPhNt4jt200UkpAPZf
-         UqPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUVGQ4pJGWl3HA9nN6aOeMiGdjrL1dCTDvCWuiumGiDtipithYSopgBqyEUM2t8ly6v/AXBvQtMkTmHUwMRLeHQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMqsvWjN01FZfUjK0BS6PwK76pKIAZa5IfAsgmi9kv1XP1ddGK
-	luuC502Mfx45Ks7eYH//AZa31aE78eAmZK3iks9V7qH6q4SkQtjcYSmzutbona2lcBI=
-X-Gm-Gg: ASbGnctIbo2zbZn3VXWyE+KBef5znfJT+hEoqzSzWyweQ8c8AxY7HQmbQVEHbBAx82L
-	DCKnEadsMd5zCSODxz3Gs5tBz7B3Mo+D0Dv8Ed2u6RIdvtMtwWMynq5Z709+0uXUXSXWbT8HmTl
-	10d9cln9iY7JU8g0w4k0BymLrBnWwBlg5tbbowsjAAzuEkgZ4YvoFLVS7OldhBBg8ANaC/Kqmfl
-	Xo/6DMH89NXeEoh3ogHVHE7U81+OL1oqvEmrGjJsT1CMJVAZQs7xus0pgoO7JPbnd772WU/rosD
-	UT9D8lP7e3QFGZCSHwfom1rkihjy+QTa77KoT3+93kvmmpL4Wk74cn2Z2jPm1g==
-X-Google-Smtp-Source: AGHT+IF1ytVUxy0yTSnOyU3J5wIiT4fljHMLqV1rwc+JlbKe1QUVexTGhNkOuAvqkz9QFmk0klKpOg==
-X-Received: by 2002:a17:907:7351:b0:ad5:76d0:4ffe with SMTP id a640c23a62f3a-ad85b15a680mr156583666b.9.1748199993680;
-        Sun, 25 May 2025 12:06:33 -0700 (PDT)
-Received: from kuoka.. ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d277a2esm1563862866b.83.2025.05.25.12.06.32
+        d=1e100.net; s=20230601; t=1748200024; x=1748804824;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SlfPbl9U0b/o5N9rX3Vqr5rZsZeMWo7A8d3jNHieFXg=;
+        b=v0eFCP1ym6bqcCdQJQ7m226grcjsnzFNYALUetJpVDN6wzPijW8H5rEI5hGnbqkIZz
+         6few+Kfj7CnC2hpvrp0NW6FZMD3OtFBB0jwwwWtPliMP52PanRsl8HLsRvaz5curWm0N
+         Qao7hZqZtTAcQzzA1pwze98O8OQyJ24I8hpic3uPALwNuik8QH/g1ddASCLfaDpL4VH2
+         siAFEMdVnNzbg6Rme+rTezYwkDXEZgEC/CJtZJdBkr9lUE46zWzp2ubsKTazzfu4klT8
+         P1ZGhOO4REUijCJ2BFf8JVAy7iDpmbpI7Ixj4HEGeDpTlKnQb4bYrG2yHwbYCLxp28U/
+         u0OQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVvHcOTHQFfbQxZjvqJ8xljby2/VlDLW7bMcfDmaGJl/QQVX6UXlooa1BXQLdP4Oml5dfE5IaO0Ojr6EEsjHiqS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVQIR+KQfjV9ltfXJdB1p+EDgz1Dm+98D5D/fSBJ7coAaYpaof
+	Tw33hYiaLrHxgqjeIjaLNtVVu5RsKxyTgm+yqd6w2GBhkfPDkOfX4V1hOXlKvgJRqhEzxivGGbK
+	wlVBMjbk=
+X-Gm-Gg: ASbGncu+/bW7JCqeA7rmiKz4MFT3jCeVPZI05/Iucvb2BeAIMfIYnN+IbpJdSMK9Avf
+	DVe+sMoHX8EhLtS5EUGrXGh9+zJavxhy857De7xE8AuH6ATBgnTSvWwm8Mn6eGYeP/ySM8nYcJJ
+	aL/Jiv1EPtrnjnjlsKU4nZo1XdErf7U6n44WdQkOnCrW93uEOK5xjc3SQS3fFMJJCHWQhXfj7JN
+	9aJRd7vhISciwY2+M/KehrTJmfwUVFq/3RwHyKbWspvAnwSzpsjWGmSHqzqzP2P0fEIKAaJo148
+	gX8O7MLzfHetrZK9NMf7o0x0/YYrVtSBwKz25yNoDofMezHKhIpqcY9yWCmQUeTcxi5b374EeB1
+	pMgrratGljIPDh6lr040QZxkbJYM=
+X-Google-Smtp-Source: AGHT+IEsK8RsIZHAhqzNbJPFGKthMn51tZwQ52JiopY7fu+XaQ8UU+nS+s5NnIXGcLb0DNTM1neWbA==
+X-Received: by 2002:a05:622a:550f:b0:494:95b5:ce38 with SMTP id d75a77b69052e-49f4781f4damr107883391cf.42.1748200024664;
+        Sun, 25 May 2025 12:07:04 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cd468b7400sm1472991785a.66.2025.05.25.12.07.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 May 2025 12:06:33 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] dt-bindings: soc: samsung: exynos-pmu: Constrain google,pmu-intr-gen-syscon
-Date: Sun, 25 May 2025 21:06:31 +0200
-Message-ID: <20250525190630.41858-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
+        Sun, 25 May 2025 12:07:04 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uJGgZ-000000003eK-2F45;
+	Sun, 25 May 2025 16:07:03 -0300
+Date: Sun, 25 May 2025 16:07:03 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>
+Cc: Jacob Pan <jacob.pan@linux.microsoft.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev, will@kernel.org,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
+Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
+Message-ID: <20250525190703.GD12328@ziepe.ca>
+References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
+ <20250410230008.GA6905@ziepe.ca>
+ <67fff12d.650a0220.208c7c.d69dSMTPIN_ADDED_BROKEN@mx.google.com>
+ <20250416181759.GF493866@ziepe.ca>
+ <20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=837; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=3onmZshSspOtZwdRjF5R+KZacQlOFA9qC5Ok9p5ajBQ=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoM2o2sfBErBvCiBSO8rZEm0Oj8WqokUNHdzls2
- njdMxJ6ihyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaDNqNgAKCRDBN2bmhouD
- 1xcTD/9ORDhwOmIMphZfmjLWKYfBIueQ2BR1coOZs6pfI1Ls5H72ollgg0KYwTyI4D6DX0gOzyf
- 6qDZWDIJjzx3MuFqn0KREZA6jH4WbIoJVrJnP3PPnuA43OrKcro3d69to0GZO6oAVJL4vytuLK2
- ldaL93C94RlOm8EIaNZfrQ6dlJDVbDLm6tM/WMkuYob9+uIyWKKGhW7FfFegEonv0ty66aPSRXn
- m10Dd+eVHfl8YlQdXcdn6NWdBce134CRTjTdR8wgfELEPWK7XGHjHUEZNsujD/gP1L5XZRMvKML
- y24Sn3/gn6Ek0Hj+bQ40m95RXge/Pic4IH3kP3NkaefdmnulLKW8JGasAHw/kJNFiGfR5asjtK0
- yBQR1fn5kwS8Qs8ch0JxcFlA1GBcd9s/tvuI3l34HrV4B7snOvC1OJxSwpnUQkdRRIxyzBvqsWs
- RLkPUIG+sMXgllOhkMslaC1Kg47e4wVOzmAo19o3JNFUVi359hUWnGasheNTahJE2kB046nBNNP
- hN0e9AviLhPzloPvVlbED2n1/8XY+mwFJFE5YfljIvGh6O0s58FMSBcoFhRoLI/UaYXS77iveLP
- Cn21xCtnyTNJHL/DZClux6U1ws2LTVVOoOfjwUz6Mk9Z8iRmIgOB+QNWMLZE1c4meJhMLBDSKU+ i/+a654QuS/hpFA==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_120635_565862_21346615 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250525_120705_922287_0D625689 
+X-CRM114-Status: GOOD (  31.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,29 +109,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PMU interrupt generation block is not present in older Samsung Exynos
-SoCs, so restrict the property to Google GS101 only.
+On Tue, May 20, 2025 at 03:42:24PM -0700, Shyam Saini wrote:
+> Hi Jason,
+> 
+> apologies for the delayed response.
+> 
+> > On Wed, Apr 16, 2025 at 11:04:27AM -0700, Jacob Pan wrote:
+> > 
+> > > Per last discussion "SMMU driver have a list of potential addresses and
+> > > select the first one that does not intersect with the non-working IOVA
+> > > ranges.". If we don't know what the "non-working IOVA" is, how do we
+> > > know it does not intersect the "potential addresses"?
+> > 
+> > I had understood from previous discussions that this platform is
+> > properly creating IOMMU_RESV_RESERVED regions for the IOVA that
+> > doesn't work. Otherwise everything is broken..
+> > 
+> > Presumably that happens through iommu_dma_get_resv_regions() calling
+> > of_iommu_get_resv_regions() on a DT platform. There is a schema
+> > describing how to do this, so platform firmware should be able to do it..
+> > 
+> > So the fix seems trivial enough to me:
+> > 
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > index b4c21aaed1266a..ebba18579151bc 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > @@ -3562,17 +3562,29 @@ static int arm_smmu_of_xlate(struct device *dev,
+> >  static void arm_smmu_get_resv_regions(struct device *dev,
+> >  				      struct list_head *head)
+> >  {
+> > -	struct iommu_resv_region *region;
+> > -	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
+> > -
+> > -	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
+> > -					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
+> > -	if (!region)
+> > -		return;
+> > -
+> > -	list_add_tail(&region->list, head);
+> > +	static const u64 msi_bases[] = { MSI_IOVA_BASE, 0x12340000 };
+> >  
+> >  	iommu_dma_get_resv_regions(dev, head);
+> 
+> my understand is, this hook is not called for all the devices, eg: pcie dts node
+> doesn't use [1] "iommus" property instead it uses "iommu-map" property
+> as a consequence, [1] while loop exits prematurely and iommu_dma_get_resv_regions()
+> is not called, so there is no IOVA reservation for the pcie device. 
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+I can't really understand this sentance.
 
-diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-index 3109df43d502..f0fb24156da9 100644
---- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
-@@ -203,6 +203,9 @@ allOf:
-     then:
-       required:
-         - google,pmu-intr-gen-syscon
-+    else:
-+      properties:
-+        google,pmu-intr-gen-syscon: false
- 
- examples:
-   - |
--- 
-2.45.2
+The above is the only place that creates a IOMMU_RESV_SW_MSI so it is
+definately called and used, right? If not where does your
+IOMMU_RESV_SW_MSI come from?
 
+This function is also the only thing that computes the reserved ranges
+that iommu_get_resv_regions() returns.
+
+As above, I've asked a few times now if your resv_regions() is
+correct, meaning there is a reserved range covering the address space
+that doesn't have working translation. That means
+iommu_get_resv_regions() returns such a range.
+
+If you don't have that then you have a bigger platform problem, IMHO,
+as vfio/iommufd only respect reserved ranges.
+
+Otherwise, what is the issue you see, exactly? Did you even try it?
+
+Jason
 
