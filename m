@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340E6C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 01:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9053BC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 02:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2hFUsN/K02BBP5aa1d+e+JjhSauhkH1OuFe7JHH5P4E=; b=rEXN6I8pxZ4XKBp7Nb04Ce6Kh9
-	s6yzH1kK4E8I3ge52RDh7td4vydRrXw4IDNkyN7hcjO/RYohJxfSKXGN78GKDdOvxXx4OiRoRDcQR
-	j90/Kdcvf1D7GbBNxONxAu1u9Lr27B4/5lnP5Dk303Mtui/SS93UEwMKFMKaJNonUSf+owrRNKRf/
-	ocphbLbCE163O7R/w+XQJ8lG9fIk2TEF3qvAZmbUOfIDQwoli2zpBeCWivcDI/5A65p/0ikN8Kd8w
-	I1G/BSMt1EP4Kl2i2h3Slowlv2xeupPlad/OCcexWH612j4cduCclaqA5rwOv/sf2yt06VhGG0ITd
-	SJZSpnpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sChjnz3feZFvWyNyBBV/ChTfvU6U/f+UOVHotNV47zs=; b=oIo1FchGsr+eeevbJPlCz0M11R
+	iK+oaJap9RqnmU+ZGp07v52L2ZeFLHL4QYftd29BMZlAM6qW77ufAqmIdw4FoXpGKN0uaGGUB6g50
+	eE34BG7qh0xr0FhFo0DUUQIgRC1y3byyXJY2dyebSAky+c1cequ3KqUI2Ru7O2N/hvaGZtVk6m0GM
+	iVDefOljW/nYVOQ7EarSUvMDJp50ESxyIOss6CabH3iPJQV6SuchGiuEArb3SMTlbpddrpSIDACwG
+	l9cSuHtfS+T+PT+J57Q8gqQJV1RVsTZbCNnjAEKSX/Mu9ZJZlip9dLZ209BiKwa0lyybcV0D8baAB
+	EDpQFQxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJMpv-00000007ujE-3CrB;
-	Mon, 26 May 2025 01:41:07 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1uJNAk-00000007wFf-2qlg;
+	Mon, 26 May 2025 02:02:38 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJMnn-00000007ucM-1Iry
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 01:38:57 +0000
-Message-ID: <7a42e9d1-93ce-4666-b7e7-3c0b4e2c0c99@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748223531;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2hFUsN/K02BBP5aa1d+e+JjhSauhkH1OuFe7JHH5P4E=;
-	b=SRmnfHNINkkKfSn8W6N3pK4Z32Bvd80Uh08Q+VdxonIAirvRyyHDvIwm8ANYNOvux0/JLO
-	0U2c1dWTONVN/nJbFvjAgwMBItF9uxzGpG/L5ch0SkuohWyu1lMmpHsVjDjvtxMxO1S6Z2
-	TyB5xx15aOYf1UA8YhwNyYLwFBVbGo0=
-Date: Mon, 26 May 2025 09:38:41 +0800
-MIME-Version: 1.0
-Subject: Re: [RFC PATCH 2/2] net: stmmac: dwmac-sun8i: Allow runtime
- AC200/AC300 phy selection
-To: James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org
-Cc: linux-sunxi@lists.linux.dev, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Yinggang Gu <guyinggang@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- Feiyang Chen <chenfeiyang@loongson.cn>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Jinjie Ruan <ruanjinjie@huawei.com>, Paul Kocialkowski <paulk@sys-base.io>,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org
-References: <20250526002924.2567843-1-james.hilliard1@gmail.com>
- <20250526002924.2567843-2-james.hilliard1@gmail.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yanteng Si <si.yanteng@linux.dev>
-In-Reply-To: <20250526002924.2567843-2-james.hilliard1@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+	id 1uJN8c-00000007w8o-1wVn;
+	Mon, 26 May 2025 02:00:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1748224757;
+	bh=sChjnz3feZFvWyNyBBV/ChTfvU6U/f+UOVHotNV47zs=;
+	h=From:To:Subject:Date:Message-Id;
+	b=l8LPU9ohrxUzo8CKMWaIQgwopRxBybEcjvVcV+zysweakpU8F3DZpStRBRbi/Y/fq
+	 ugnD4NO/fvIJNDObPxWWz/m2ntSTzyA1Q7Xa5rex5S0SkzoM6/hplbV0Afw8D93NRz
+	 Mj4V2N2yT1Ihm8pIX4dM/6t54vq6l6PQjlD+BeR0=
+X-QQ-mid: esmtpgz11t1748224755t5a444bdf
+X-QQ-Originating-IP: YmnDtwGOyJXaeiI+4J0/OlWIfmc02uUidzVxFPmFi9k=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 26 May 2025 09:59:12 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11916620477028258212
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: [PATCH] drm/rockchip: lvds: Convert to drm bridge
+Date: Mon, 26 May 2025 09:58:34 +0800
+Message-Id: <20250526015834.102-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: Nec0PqG26E9wcPYeyCpdNquLWbVB0QBfauc3uPvmSzxI3H4iGsgp/ohz
+	TiSe+dCf6mo8kP0xCv5HY4me0+y9I79oBj1G5Xq6Dd4+YE0hHuHeMmRPhx0gVmcPJnR9qLt
+	9fEwSyd1dnY1hyZcynkTYUUTAwRcbnyBv2f5YsfW2p7ecJSlSa4KzMdQ71cY/4b3E9BLfSm
+	LoTJFw7xrxjzFImtsB+3Pvmydc+VL+jzTlw00I6Oa+L7fAdRj0nhir8lCbXMwXZEKUkVZ+x
+	LSwxoV6I5gPgCEfFQoj3mzAhjY7PlIg1lwkZpLNGD6Z7i2Gi+vgvaqd074clFTRHb4POOy7
+	SfzXHrLshDQq3t4vZjmvuXi4ZShGWCFUSj3pbOP2dM0hX3qYZC9y8jkPySPpi/gQFQWG3Wj
+	6Z21u6ZLd9z8Gd09/0pw5SDFJPNOOZu2qvo7He3hQRIStX1/A9I6yvWsjTqgQ2doUqpLJFC
+	g+zWjiEnSTHlzreLun0jxSZ68eL9SYk9tI/xZY7MCBMdKJufeGvMw16veVgX2C1OKRI/iyQ
+	+e07CzASwLx/c/6M2xHbF3pIpZ5D92Dl2xgSICrZmkVGPoqS2iWDVn4VDxqAo8fqfF4m5Ae
+	b+lLcHnybzloPMlqvBykpCZXzQ8uDZo/AzvnP9ohjvwctjtrb7tOOxhy4t/ce6IsPdfOSNo
+	OTVWm22aU7v3S+3voQH61UqcKsxE6jZkHbjtAoqRVo46xNUTbrjUW2PEO8Ed/zpXzttgBtX
+	cEiY+LqRp6c8IPVkJIcUm+vJmUTuF6WUgZ4VWIxCFMRcy36L7fg7Y6ZOWcXXQ/kcllX2A0v
+	D+XuM53BPd9xN4Pl4YUP0KxBgDqTAYLfV7ZuTzYcOkm9eVT+jh/PqCmpJf/f31CELDVGUeb
+	VOtPD2PXr8n0yAXEhiDd0/OPIk7FAM4w3fkj6W/qx0Yk11wTsU40NxGle0VG650CIqNdV8D
+	+r/FL7FR3rfEIzg==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_183856_185960_4F1ECF19 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20250525_190026_877128_ABFBD5A7 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,87 +95,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-在 5/26/25 8:29 AM, James Hilliard 写道:
-> The Allwinner H616 ships with two different on-die phy variants, in
-> order to determine the phy being used we need to read an efuse and
-> then select the appropriate PHY based on the AC300 bit.
->
-> By defining an emac node without a phy-handle we can override the
-> default PHY selection logic in stmmac by passing a specific phy_node
-> selected based on the ac200 and ac300 names in a phys list.
->
-> This allows us to have a device tree that defines both PHY variants
-> even though only one will actually end up being used at runtime
-> based on the ac300 nvmem efuse bit.
->
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
->   .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 19 +++++++++++++++++++
->   1 file changed, 19 insertions(+)
->
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 6c7e8655a7eb..e275f4caa684 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -11,6 +11,7 @@
->   #include <linux/mdio-mux.h>
->   #include <linux/mfd/syscon.h>
->   #include <linux/module.h>
-> +#include <linux/nvmem-consumer.h>
->   #include <linux/of.h>
->   #include <linux/of_mdio.h>
->   #include <linux/of_net.h>
-> @@ -280,6 +281,8 @@ static const struct emac_variant emac_variant_h6 = {
->   #define SYSCON_ETCS_EXT_GMII	0x1
->   #define SYSCON_ETCS_INT_GMII	0x2
->   
+Convert it to drm bridge driver, it will be convenient for us to
+migrate the connector part to the display driver later.
 
-> +#define AC300_KEY		BIT(8)
-> +
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
+ drivers/gpu/drm/rockchip/rockchip_lvds.c | 68 ++++++++++--------------
+ 1 file changed, 29 insertions(+), 39 deletions(-)
 
-I have observed all the BIT macros in this file, and they all
-
-have a line of comments. I think a comment is also needed here.
-
->   /* sun8i_dwmac_dma_reset() - reset the EMAC
->    * Called from stmmac via stmmac_dma_ops->reset
->    */
-> @@ -1159,6 +1162,7 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->   	struct net_device *ndev;
->   	struct regmap *regmap;
->   	int ret;
-> +	u16 val;
->   
->   	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
->   	if (ret)
-> @@ -1222,6 +1226,21 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->   	if (IS_ERR(plat_dat))
->   		return PTR_ERR(plat_dat);
->   
-> +	if (!nvmem_cell_read_u16(dev, "ac300", &val)) {
-> +		const char *phy_name = (val & AC300_KEY) ? "ac300" : "ac200";
-> +		int index = of_property_match_string(dev->of_node, "phy-names", phy_name);
-> +		if (index < 0) {
-> +			dev_err(dev, "PHY name not found in device tree\n");
-> +			return -EINVAL;
-> +		}
-> +
-> +		plat_dat->phy_node = of_parse_phandle(dev->of_node, "phys", index);
-> +		if (!plat_dat->phy_node) {
-> +			dev_err(dev, "Failed to get PHY node from phys property\n");
-> +			return -EINVAL;
-> +		}
-> +	}
-> +
-How about preparing a separate function for it?  Then call it in probe().
-
-If you are willing to do so, remember to write a code comment.
-
-
-Thanks,
-
-Yanteng
-
+diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c b/drivers/gpu/drm/rockchip/rockchip_lvds.c
+index a673779de3d2..2411260db51d 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
++++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
+@@ -56,14 +56,13 @@ struct rockchip_lvds {
+ 	struct drm_device *drm_dev;
+ 	struct drm_panel *panel;
+ 	struct drm_bridge *bridge;
+-	struct drm_connector connector;
+ 	struct rockchip_encoder encoder;
+ 	struct dev_pin_info *pins;
+ };
+ 
+-static inline struct rockchip_lvds *connector_to_lvds(struct drm_connector *connector)
++static inline struct rockchip_lvds *brige_to_lvds(struct drm_bridge *bridge)
+ {
+-	return container_of(connector, struct rockchip_lvds, connector);
++	return (struct rockchip_lvds *)bridge->driver_private;
+ }
+ 
+ static inline struct rockchip_lvds *encoder_to_lvds(struct drm_encoder *encoder)
+@@ -106,25 +105,21 @@ static inline int rockchip_lvds_name_to_output(const char *s)
+ 	return -EINVAL;
+ }
+ 
+-static const struct drm_connector_funcs rockchip_lvds_connector_funcs = {
+-	.fill_modes = drm_helper_probe_single_connector_modes,
+-	.destroy = drm_connector_cleanup,
+-	.reset = drm_atomic_helper_connector_reset,
+-	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
+-	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
+-};
+-
+-static int rockchip_lvds_connector_get_modes(struct drm_connector *connector)
++static int
++rockchip_lvds_bridge_get_modes(struct drm_bridge *bridge, struct drm_connector *connector)
+ {
+-	struct rockchip_lvds *lvds = connector_to_lvds(connector);
++	struct rockchip_lvds *lvds = brige_to_lvds(bridge);
+ 	struct drm_panel *panel = lvds->panel;
+ 
+ 	return drm_panel_get_modes(panel, connector);
+ }
+ 
+ static const
+-struct drm_connector_helper_funcs rockchip_lvds_connector_helper_funcs = {
+-	.get_modes = rockchip_lvds_connector_get_modes,
++struct drm_bridge_funcs rockchip_lvds_bridge_funcs = {
++	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
++	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
++	.atomic_reset = drm_atomic_helper_bridge_reset,
++	.get_modes = rockchip_lvds_bridge_get_modes,
+ };
+ 
+ static int
+@@ -606,26 +601,23 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
+ 	}
+ 
+ 	drm_encoder_helper_add(encoder, lvds->soc_data->helper_funcs);
+-	connector = &lvds->connector;
+ 
+ 	if (lvds->panel) {
+-		connector->dpms = DRM_MODE_DPMS_OFF;
+-		ret = drm_connector_init(drm_dev, connector,
+-					 &rockchip_lvds_connector_funcs,
+-					 DRM_MODE_CONNECTOR_LVDS);
+-		if (ret < 0) {
+-			drm_err(drm_dev,
+-				"failed to initialize connector: %d\n", ret);
++		lvds->bridge = drm_panel_bridge_add_typed(lvds->panel, DRM_MODE_CONNECTOR_LVDS);
++		if (IS_ERR(lvds->bridge)) {
++			ret = PTR_ERR(lvds->bridge);
+ 			goto err_free_encoder;
+ 		}
++	}
+ 
+-		drm_connector_helper_add(connector,
+-					 &rockchip_lvds_connector_helper_funcs);
+-	} else {
+-		ret = drm_bridge_attach(encoder, lvds->bridge, NULL,
+-					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	if (lvds->bridge) {
++		lvds->bridge->driver_private = lvds;
++		lvds->bridge->ops = DRM_BRIDGE_OP_MODES;
++		lvds->bridge->funcs = &rockchip_lvds_bridge_funcs;
++
++		ret = drm_bridge_attach(encoder, lvds->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 		if (ret)
+-			goto err_free_encoder;
++			goto err_free_bridge;
+ 
+ 		connector = drm_bridge_connector_init(lvds->drm_dev, encoder);
+ 		if (IS_ERR(connector)) {
+@@ -633,14 +625,14 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
+ 				"failed to initialize bridge connector: %pe\n",
+ 				connector);
+ 			ret = PTR_ERR(connector);
+-			goto err_free_encoder;
++			goto err_free_bridge;
+ 		}
+-	}
+ 
+-	ret = drm_connector_attach_encoder(connector, encoder);
+-	if (ret < 0) {
+-		drm_err(drm_dev, "failed to attach encoder: %d\n", ret);
+-		goto err_free_connector;
++		ret = drm_connector_attach_encoder(connector, encoder);
++		if (ret < 0) {
++			drm_err(drm_dev, "failed to attach encoder: %d\n", ret);
++			goto err_free_bridge;
++		}
+ 	}
+ 
+ 	pm_runtime_enable(dev);
+@@ -649,8 +641,8 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
+ 
+ 	return 0;
+ 
+-err_free_connector:
+-	drm_connector_cleanup(connector);
++err_free_bridge:
++	drm_panel_bridge_remove(lvds->bridge);
+ err_free_encoder:
+ 	drm_encoder_cleanup(encoder);
+ err_put_remote:
+@@ -670,8 +662,6 @@ static void rockchip_lvds_unbind(struct device *dev, struct device *master,
+ 	encoder_funcs = lvds->soc_data->helper_funcs;
+ 	encoder_funcs->disable(&lvds->encoder.encoder);
+ 	pm_runtime_disable(dev);
+-	drm_connector_cleanup(&lvds->connector);
+-	drm_encoder_cleanup(&lvds->encoder.encoder);
+ }
+ 
+ static const struct component_ops rockchip_lvds_component_ops = {
+-- 
+2.49.0
 
 
