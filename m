@@ -4,152 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A162DC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 12:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5629FC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 12:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uxjmeaZkiGOpF02C1gi5XR3KTdfglazpZGe4jPoyrn4=; b=vl3CXiAVtSrgZBdkLsrueQLI9U
-	Ph6Lp7744cPwdLcFcGR6d/iCFSPOCsI3ncxU8dmQAlqk4chXUM7hyUcKSdue4RB1bkUn5LHfKxKBb
-	4hfbOTVijLEZtyl/PObs1TykCVH2wWw2EQm5OZWenaREnm0bFzMjAAtifULub2nPwruitNlheMDp7
-	g5FglCMAyWhbMphd0U6M57ETrBTm00huwiD+iPuNxN8beO/FtWg/ebE9iQes2J1B3Bs8DQLvcxZf3
-	Bbp1BUCMUkju0wKvn81mCdxEmcyMRP5wlqo9ZA7lOjJuUnyA4MxseROmyToreBZsbNBBoTWL+N9Nj
-	MSuZBTjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=it4Q54ohHGXFGzLtFb5KAX8FUUrPR6nRKUGfTDC1QME=; b=KY5zqywLV794UFw09ScC0ga198
+	UKihfopA+XgOQg6jAk09NRkCBnKUn27IJjGPS9bgWm1b9r2hCoAcg/mZTKySt7XISkYcd0dldsRwA
+	El4wjDsr/Nlf3BIYx24XYM0bGy6yylheY+058QNKCXy14oKvTD+gcJ5Gr54tFVxtfzl6WqySe1IrF
+	VfUIoXHOxL9i7qQ87oAl3qO7nZiHGC1lWQ3bulPyj1pS9Qchf5nQdgN8J3MuGp2YEbv1/43aQrN9a
+	VqUb+zaBbcij6ZpfgO+skutGZfi08pmFsXbiKGSUQGxCS+0nvmPffoNMs0p7q8rx1fAvCBV4l+uVS
+	ztgnPm/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJX1a-00000008nau-300U;
-	Mon, 26 May 2025 12:33:50 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uJXEu-00000008okJ-0MJ4;
+	Mon, 26 May 2025 12:47:36 +0000
+Received: from mail.actia.se ([212.181.117.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJWzS-00000008nSR-3gpB;
-	Mon, 26 May 2025 12:31:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LhfrMOl5lZMcydaKPQKlDTeIiD/Rfyymzzbl2mXkUIuD/++BIN8chjO3+8bRljxZCi/230QXiZcRJdwW3nekHsiL1N/1kiQUulN3WHAZQJmpThpWbY3XGCylgiIBAw0ED/fl5yUD//uw12o8RUiv7o7VqNHaNwlTrVhcj3A3p5do0IHA2p89woJgHJcCDAdb5o4ss6XMz7DhLvF4PCPUoqC7ErW5opAOw7DLFR7e3C5enp9MPtc1nEHKieWuerc/C57gCOVmuygWAaQMiH1yrp4VlvsAqW89mihzCJT86fBU6OSTZ1uwU280k64uyDW2vTHh8DmbrUHkBxx2HJMMAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uxjmeaZkiGOpF02C1gi5XR3KTdfglazpZGe4jPoyrn4=;
- b=NklRg+93tDEilOZ/Is20tf96+brxwYymwwJMVKR2TB0b6XpzDP3lvXmJumuBWjGWVeoTjZxaWdkEKEpzrCQPKWKT/WBnGaoJL4Lh4gxnDyMM2/mR3aMnq3Faer0ye9n0l59jVEz7HkIqQvVFXx3gDgz0aZsyCxUkivL8YfVVBlUECfHouvx4K3YIg+q/fsaeQp04oB4gGLX6JqzrRiQISUYP46vQYJ7Ww9IO4njmi4kv6wpAUnwiW0KTXommljwPynjOIbtAQedrbz6j2TAAEizeLEocGrR4Y07L3ySGJjZGRgGiQBefezbJ3C+UCMxlaph7n7qCib/4cOmHDlcpqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uxjmeaZkiGOpF02C1gi5XR3KTdfglazpZGe4jPoyrn4=;
- b=CyB2w4SOXHKma8zUksW+J/mYRevRk/W/p6yhJKBnni6nysf+qxPuFqDzqronrHg2e4OWyj4TEH7ETjLGaZrRtCAg09HQpg/vqWb8+ZCLcf5F2qCuXzP2xCi+xkrZ46OBpQ4fisauKXPW1bldsidkTde7P3myJllH3YDJpi0CJMtaIn02xxRBMPMP65IrsNrxIun7sZb0A+Zfq4/Wu5xWvcAed/LDLB0WkwvhX6n6nBPuDEyHaeG/sIuQCK7PGW1b3Y6pU8R98C6G5TugEumgTYumVWp2IA2lJm6sRfOFJQSeiJEDM3kJMOo7cz2sF7quwajoKwpolkyDJ/R0q3GK3w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by AS8PR08MB10028.eurprd08.prod.outlook.com (2603:10a6:20b:63a::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.33; Mon, 26 May
- 2025 12:31:32 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.8769.021; Mon, 26 May 2025
- 12:31:32 +0000
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Frank Wunderlich <frank-w@public-files.de>
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Subject: [PATCH v3] arm64: dts: mediatek: mt7986-bpi-r3: Change fan PWM value for mid speed
-Date: Mon, 26 May 2025 15:31:23 +0300
-Message-ID: <20250526123123.2515967-1-mikhail.kshevetskiy@iopsys.eu>
-X-Mailer: git-send-email 2.47.2
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: GV2PEPF0000383F.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:144:1:0:5:0:14) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	id 1uJXCk-00000008oPX-37EZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 12:45:24 +0000
+Received: from S036ANL.actianordic.se (10.12.31.117) by S035ANL.actianordic.se
+ (10.12.31.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 26 May
+ 2025 14:45:14 +0200
+Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
+ S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
+ 15.01.2507.039; Mon, 26 May 2025 14:45:14 +0200
+From: John Ernberg <john.ernberg@actia.se>
+To: Frank Li <Frank.li@nxp.com>
+CC: =?iso-8859-2?Q?Horia_Geant=E3?= <horia.geanta@nxp.com>, Pankaj Gupta
+	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Thomas Richard
+	<thomas.richard@bootlin.com>, "linux-crypto@vger.kernel.org"
+	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "stable@kernel.org"
+	<stable@kernel.org>
+Subject: Re: [PATCH 1/4] crypto: caam - Prevent crash on suspend with iMX8QM /
+ iMX8ULP
+Thread-Topic: [PATCH 1/4] crypto: caam - Prevent crash on suspend with iMX8QM
+ / iMX8ULP
+Thread-Index: AQHby+Uubq4/T0/2xEa3pJeQa3AymLPgGseAgAAHVgCAAAgpgIAElG2A
+Date: Mon, 26 May 2025 12:45:14 +0000
+Message-ID: <aDRiU45e6s8sgq8y@w447anl.localdomain>
+References: <20250523131814.1047662-1-john.ernberg@actia.se>
+ <20250523131814.1047662-2-john.ernberg@actia.se>
+ <aDB909HDzfUaA3hv@lizhi-Precision-Tower-5810>
+ <b62d6620-4c31-41e4-b510-130f0af66c79@actia.se>
+ <aDCK00bzc6RDKu5s@lizhi-Precision-Tower-5810>
+In-Reply-To: <aDCK00bzc6RDKu5s@lizhi-Precision-Tower-5810>
+Accept-Language: en-US, sv-SE
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.12.12.63]
+x-esetresult: clean, is OK
+x-esetid: 37303A2956B1445360736A
+Content-Type: text/plain; charset="iso-8859-2"
+Content-ID: <C03B5729AFF8504B84163DF7ECF2C804@actia.se>
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS8PR08MB10028:EE_
-X-MS-Office365-Filtering-Correlation-Id: 430f7db3-9d6b-4725-7b34-08dd9c513ea1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/s/ccwXjdzIdZWXQOgf+CcUXdIzhnCX7b2NHBsfwMuU7KQuihyPfqlJFGhdl?=
- =?us-ascii?Q?s0sxQwIhwqar0gw2MDN2jww8Dw4PraB7sIZbfM+/BMqg2TJK7pYVG+iivuTn?=
- =?us-ascii?Q?WhNpr9QXO2S9mV3v0TnSLT9kOMBlqG19R1v+JHnFvTesroba143x/tMUwkkc?=
- =?us-ascii?Q?tI8cXeBJlhe/qrhLg5eUjrLZmQRyDWHKay9OzvAWSb15LVH4MeF3KwO2QzII?=
- =?us-ascii?Q?iW+6ASktkEWiRGWajAixllSmx6i2hHScoW7x2Dn4h/NgDd+k39bJ8/9Y+Iu3?=
- =?us-ascii?Q?Kn4aB8CsFSR8c5OQbLlW7hGJ31DJBtb+TfeQAnEK9ZlXeCwlLmmOXuhIFYXh?=
- =?us-ascii?Q?U5uIX6MiQfRnESAOV867RP5gD2dKrv20TWtl3+pTxXDdgc351epB0HaZWrbt?=
- =?us-ascii?Q?fPRPZ7bt8F+bC8DNIkqG9fPgRXU+rjr/ED48vtDYSwNxpUjvls4uwIh9ReXi?=
- =?us-ascii?Q?SIWFxAIdNRr23hFgJzWUyMnQFcJqBV6rSHzWB8N0pnLurkswxXDJMrAQKy0j?=
- =?us-ascii?Q?Ae1UMf4ztFeBTZHFyElivCEcyBIOCt5TzD1XAXFGTAMOiIbmSvBDNJNUJQwc?=
- =?us-ascii?Q?8BlLkWonpgOZQihKGp5n6n7BhLbyPcmb3SF4fLUoh215n7sqCAkdLfx7Ni/U?=
- =?us-ascii?Q?DH8e0rEz+4tN+lCqRxaDRrRA3Ghb7NXD78U4FYYPZPzrXjm5ry2x2oTNNs0/?=
- =?us-ascii?Q?VnPXpUBLRanKchpvx5yrS344jThxXrhA6L5MZ6Xx02djzfax+vUPraS6nmhy?=
- =?us-ascii?Q?JCI4XkAUV5uTyR44dM/W2Oz/QOiqb3Vtqu2mRCrr7gsAjY/TcgTxRiDiqMOH?=
- =?us-ascii?Q?yDbesH+fv4AxkePxL3c7yEGwFCGQBZt8zskk3FHBAkVc1n/bN5tQY8ln3HIK?=
- =?us-ascii?Q?AzxsadLLRge+oxFM+U4GizVMa6T+yNIx6V2+xAXZCqNDpLYOKna+26jBAU8c?=
- =?us-ascii?Q?beiJgr5/ObOtiXk4FQeCWsXIuzL8UIZI2nptbHGL95TBjy4u1inbuLnayo34?=
- =?us-ascii?Q?P/Ta+4ReNT+NxDaHH7OchGydDJd5YAHhX96sJt5ZaCJyqZBPCQC40TdwudkR?=
- =?us-ascii?Q?tiZfb13yljLrG+LLFQ6rqC8LVQAGmomZO+B/lZpMp+tlC0Fj6kCQDSVExefe?=
- =?us-ascii?Q?iIFqxS/M6NqV4gDP6BNSy87ow42hJTq+ydvNrjRMwGjlPqrvJqR1W42UHWWj?=
- =?us-ascii?Q?/M5pv4VSk/gUwV+pfT4IB/0gHYY+O2d5Bu69Bl4FgoND7DrXxOQ1Vyz/OgXS?=
- =?us-ascii?Q?EcXeha9DvPmgZ/K/mdZ0ptEffc1EVpx3XQqmtuvSPU70/2V48zP3QzK3ayLj?=
- =?us-ascii?Q?TRe38ghpCgMRgEsx686I37xkCyzzXV9BahajJwBgCaMz+0dZ2gVWuKYEcnGz?=
- =?us-ascii?Q?/a+Pt1drzDSwLSOgAb44ASbI2ctIFgxHgSQwvnSnH9Z2GA1EJYrSvLWIuwLG?=
- =?us-ascii?Q?pxnmVjTCmzuJDoelOSkUNVF3LkXlwfCFXW38dMwlxIlSoLAMyK2T9vhhnZQD?=
- =?us-ascii?Q?NZyYz71dxMnxAUA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XkQp/gE5ucBxtldcTnYjC6mFmP4TofnMuoMf6cvKMHwEICtdj3jqPrbXmstL?=
- =?us-ascii?Q?sp26o2skPIcNaBSgvJSTAx+VX8tO3Ki4dPP18jOGRiqvJ06RSKMUwCnk4tID?=
- =?us-ascii?Q?zsGvAl62Y457JAnUVDTbyEE7yi63TdA6AUThmxOV7qvoicG0vqzJR+b977Hi?=
- =?us-ascii?Q?NLUMvnjEhWi2zBn+H3C5SjGBniOgLz1UcRmvyL8MX/R+GuUDBD5lYXSn6DZI?=
- =?us-ascii?Q?wwSQ8ah/FjcPvNtmpI2PGzKHZnMJEtFZO8lz7wOkOUGeE7yPYKhbAaYeA303?=
- =?us-ascii?Q?BzGI2wE85sqZoK0CJo0MLCWt5wNMADo/hitpHFpD9i44eajJDzY3iLRDJ31o?=
- =?us-ascii?Q?x92kejWWi43YWSVUZCBmhdK1+/9kvnaVVqpUtxhgf2XTMO9sSVrCrZCSh7+T?=
- =?us-ascii?Q?vRwug1YjtvaGlpaZBQqu1zJ4Vnw76gXEtv5QJv6E2AvNYusM+RfM59bQsVCa?=
- =?us-ascii?Q?Tc5J8iJk/LW+l2cU4hy4i4O+ikLooi4pvY8uTt4xP6SuCPv/AJsIgY7vrN41?=
- =?us-ascii?Q?EST2SmOmtXASyebUZT+IXxo5Cxo2wIWeFDMsxsBAsR9usjEBdVEuIui68zFE?=
- =?us-ascii?Q?QVSZ7mNS2vK1RwWgvoUSNy6AvWz4DKNwo5phS9jLMx8CUqYRmzidzlmhuPXD?=
- =?us-ascii?Q?yEpCyOHhFa07U3tdV6yE3VdmhsYC4GklIYEUrKPv47olIYBxWZnp4KwspbIA?=
- =?us-ascii?Q?BlC3I8f1w0QAXR5PRbH0qk20uYzpQWes9233INuvv3XraFLOPqZcquQHzmp9?=
- =?us-ascii?Q?W6Byx0+A9IC7UI0nwa8FbPa6AhzARYd7zpKyMAWAO2grWz0y2eRo5LRi3SPt?=
- =?us-ascii?Q?GBak/Q61WmZnpLoiBMG3qCOjT9v9AUr27j27Rt4BGUyBTEatIK/f9IPHPm+0?=
- =?us-ascii?Q?khqs7v02HGL1HlsQorPseaBxI2l6B8t3KwmgbW91VVHRrHjX9lLwV1YNmuH9?=
- =?us-ascii?Q?v4p0YwxTJNLJziG79uzqQzgK94s44TbUprgqhqMM3SYPo7gsMgnoEmMFT75A?=
- =?us-ascii?Q?PTmC9iiKOTT5o/r8ldelsSGMw0XjRATRvJuBuIjIR1QzSKUKRYUUpVrCBZ1h?=
- =?us-ascii?Q?3nHFvQclettqfSMYLprne9uOBkYizIO15gJcDYWSyl3S6Q21EEWGggtI30FJ?=
- =?us-ascii?Q?dNpexaetCk2PPxG9zJTHZ4t0+TyayGFDWJWrkclpxTlQNu/hqw5APHinTFFJ?=
- =?us-ascii?Q?YH9A7OrD6RsE7WbcHYK/TU2xqkNKFAERU7d3NWxhzgyTV1Y8Zc5/pA6Cxbr4?=
- =?us-ascii?Q?y+4KW55SD8nlTcfjK35NI5Z6eBP7+nu3C4LHFdJhqK2TkD9H7AOmOX3taR3i?=
- =?us-ascii?Q?Eqn8EJPhq1wtwQwAxSoe3T0GY2/IohYAk54PAABcQN+DYvHEUT9R5ZRWVVvY?=
- =?us-ascii?Q?6BHcwAOLgWsmNALkjRokg5tGTyHbI1wFTcsJw/eQm8iJT9T0UKTj5uGEPDvg?=
- =?us-ascii?Q?g7O8jddw39v9+LbiImjTsHo/G+CmKqJvzG4zW0ytVqMbiUAGsPe3NjnakP/N?=
- =?us-ascii?Q?T4fFgP9671wVXRwIRkga9w3y4Yi90DO3xeO037OfJn8MHH729xW8OSeMvbO1?=
- =?us-ascii?Q?K4RcJzhU7FsumYOvc7B4smXKW7r1+MITlKaA6E1FCIfzW8X3lR9taeD9eJ9Z?=
- =?us-ascii?Q?Fw=3D=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 430f7db3-9d6b-4725-7b34-08dd9c513ea1
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2025 12:31:31.8820
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F4cTHBEi/gYsYOSCP2NivFjSJLiieij7Q4zbEIbA9/Ut6RQOkjpNDhKkrIvHlDPdrhrLkc+bPNP43LoI6ylMocsWAzcXYV2KWH4LDmyA+QQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB10028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_053138_993255_A2729383 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20250526_054522_788208_3915EE21 
+X-CRM114-Status: GOOD (  33.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,79 +91,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Popular cheap PWM fans for this machine, like the ones coming in
-heatsink+fan combos will not work properly at the currently defined
-medium speed. Trying different pwm setting using a command
+Hi Frank,
 
-  echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
+On Fri, May 23, 2025 at 10:48:51AM -0400, Frank Li wrote:
+> On Fri, May 23, 2025 at 02:19:38PM +0000, John Ernberg wrote:
+> > Hi Frank,
+> >
+> > On 5/23/25 3:53 PM, Frank Li wrote:
+> > > On Fri, May 23, 2025 at 01:18:32PM +0000, John Ernberg wrote:
+> > >> Since the CAAM on these SoCs is managed by another ARM core, called =
+the
+> > >> SECO (Security Controller) on iMX8QM and Secure Enclave on iMX8ULP, =
+which
+> > >> also reserves access to register page 0 suspend operations cannot to=
+uch
+> > >> this page.
+> > >>
+> > >> Introduce a variable to track this situation. Since this is synonymo=
+us
+> > >> with the optee case in suspend/resume the optee check is replaced wi=
+th
+> > >> this new check.
+> > >>
+> > >> Fixes the following splat at suspend:
+> > >>
+> > >>      Internal error: synchronous external abort: 0000000096000010 [#=
+1] SMP
+> > >>      Hardware name: Freescale i.MX8QXP ACU6C (DT)
+> > >>      pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=3D-=
+-)
+> > >>      pc : readl+0x0/0x18
+> > >>      lr : rd_reg32+0x18/0x3c
+> > >>      sp : ffffffc08192ba20
+> > >>      x29: ffffffc08192ba20 x28: ffffff8025190000 x27: 00000000000000=
+00
+> > >>      x26: ffffffc0808ae808 x25: ffffffc080922338 x24: ffffff8020e890=
+90
+> > >>      x23: 0000000000000000 x22: ffffffc080922000 x21: ffffff8020e890=
+10
+> > >>      x20: ffffffc080387ef8 x19: ffffff8020e89010 x18: 000000005d8000=
+d5
+> > >>      x17: 0000000030f35963 x16: 000000008f785f3f x15: 000000003b8ef5=
+7c
+> > >>      x14: 00000000c418aef8 x13: 00000000f5fea526 x12: 00000000000000=
+01
+> > >>      x11: 0000000000000002 x10: 0000000000000001 x9 : 00000000000000=
+00
+> > >>      x8 : ffffff8025190870 x7 : ffffff8021726880 x6 : 00000000000000=
+02
+> > >>      x5 : ffffff80217268f0 x4 : ffffff8021726880 x3 : ffffffc0812000=
+00
+> > >>      x2 : 0000000000000001 x1 : ffffff8020e89010 x0 : ffffffc0812000=
+04
+> > >>      Call trace:
+> > >>       readl+0x0/0x18
+> > >>       caam_ctrl_suspend+0x30/0xdc
+> > >>       dpm_run_callback.constprop.0+0x24/0x5c
+> > >>       device_suspend+0x170/0x2e8
+> > >>       dpm_suspend+0xa0/0x104
+> > >>       dpm_suspend_start+0x48/0x50
+> > >>       suspend_devices_and_enter+0x7c/0x45c
+> > >>       pm_suspend+0x148/0x160
+> > >>       state_store+0xb4/0xf8
+> > >>       kobj_attr_store+0x14/0x24
+> > >>       sysfs_kf_write+0x38/0x48
+> > >>       kernfs_fop_write_iter+0xb4/0x178
+> > >>       vfs_write+0x118/0x178
+> > >>       ksys_write+0x6c/0xd0
+> > >>       __arm64_sys_write+0x14/0x1c
+> > >>       invoke_syscall.constprop.0+0x64/0xb0
+> > >>       do_el0_svc+0x90/0xb0
+> > >>       el0_svc+0x18/0x44
+> > >>       el0t_64_sync_handler+0x88/0x124
+> > >>       el0t_64_sync+0x150/0x154
+> > >>      Code: 88dffc21 88dffc21 5ac00800 d65f03c0 (b9400000)
+> > >>
+> > >> Fixes: d2835701d93c ("crypto: caam - i.MX8ULP donot have CAAM page0 =
+access")
+> > >> Fixes: 61bb8db6f682 ("crypto: caam - Add support for i.MX8QM")
+> > >> Cc: stable@kernel.org # v6.10+
+> > >> Signed-off-by: John Ernberg <john.ernberg@actia.se>
+> > >>
+> > >> ---
+> > >>
+> > >> I noticed this when enabling the iMX8QXP support (next patch), hence=
+ the
+> > >> iMX8QXP backtrace, but the iMX8QM CAAM integration works exactly the=
+ same
+> > >> and according to the NXP tree [1] the iMX8ULP suffers the same issue=
+.
+> > >>
+> > >> [1]: https://github.com/nxp-imx/linux-imx/commit/653712ffe52dd59f407=
+af1b781ce318f3d9e17bb
+> > >> ---
+> > >>   drivers/crypto/caam/ctrl.c   | 5 +++--
+> > >>   drivers/crypto/caam/intern.h | 1 +
+> > >>   2 files changed, 4 insertions(+), 2 deletions(-)
+> > >>
+> > >> diff --git a/drivers/crypto/caam/ctrl.c b/drivers/crypto/caam/ctrl.c
+> > >> index 38ff931059b4..766c447c9cfb 100644
+> > >> --- a/drivers/crypto/caam/ctrl.c
+> > >> +++ b/drivers/crypto/caam/ctrl.c
+> > >> @@ -831,7 +831,7 @@ static int caam_ctrl_suspend(struct device *dev)
+> > >>   {
+> > >>        const struct caam_drv_private *ctrlpriv =3D dev_get_drvdata(d=
+ev);
+> > >>
+> > >> -     if (ctrlpriv->caam_off_during_pm && !ctrlpriv->optee_en)
+> > >> +     if (ctrlpriv->caam_off_during_pm && !ctrlpriv->no_page0)
+> > >>                caam_state_save(dev);
+> > >>
+> > >>        return 0;
+> > >> @@ -842,7 +842,7 @@ static int caam_ctrl_resume(struct device *dev)
+> > >>        struct caam_drv_private *ctrlpriv =3D dev_get_drvdata(dev);
+> > >>        int ret =3D 0;
+> > >>
+> > >> -     if (ctrlpriv->caam_off_during_pm && !ctrlpriv->optee_en) {
+> > >> +     if (ctrlpriv->caam_off_during_pm && !ctrlpriv->no_page0) {
+> > >>                caam_state_restore(dev);
+> > >>
+> > >>                /* HW and rng will be reset so deinstantiation can be=
+ removed */
+> > >> @@ -908,6 +908,7 @@ static int caam_probe(struct platform_device *pd=
+ev)
+> > >>
+> > >>                imx_soc_data =3D imx_soc_match->data;
+> > >>                reg_access =3D reg_access && imx_soc_data->page0_acce=
+ss;
+> > >> +             ctrlpriv->no_page0 =3D !reg_access;
+> > >
+> > > If you want to use no_page0 to control if call caam_state_save(), you=
+'d
+> > > better set ctrlpriv->no_page0 also after ctrlpriv->optee_en =3D !!np;
+> > >
+> > > Frank
+> >
+> > I'm not sure I understand, I cannot see a code path where no_page0 will
+> > be (un)set incorrectly.
+> >
+> > optee disables the page0 access, so reg_access is already the inverse o=
+f
+> > optee_en. reg_access =3D=3D false when optee_en =3D=3D true.
+> >
+> > Thus, if optee is loaded on a SoC that normally has page0_access the
+> > `reg_access =3D reg_access && imx_soc_data->page0_access;` statement on
+> > the line above setting no_page0 already takes care of it, so:
+> > reg_access =3D false && true -> false.
+> >
+> > Similarly if both reg_access =3D=3D false and page0_access =3D=3D false=
+,
+> > reg_access will still be false.
+>=20
+> Okay, I check original code. You are right. You'd better to add descripto=
+n
+> in commit message about no_page0 is true when optee_en is true.
+>=20
+> Frank
 
-I found:
+Thanks for clarifying. I will update the commit message making this clearer=
+ in V2,
+along with your other comments on 3/4 and 4/4.
 
-  pwm1 value     fan rotation speed   cpu temperature     notes
-  -----------------------------------------------------------------
-    0            maximal              31.5 Celsius        too noisy
-   40            optimal              35.2 Celsius        no noise hearable
-   95            minimal
-   above 95      does not rotate      55.5 Celsius
-  -----------------------------------------------------------------
-
-Thus only cpu-active-high and cpu-active-low modes are usable.
-I think this is wrong.
-
-This patch fixes cpu-active-medium settings for bpi-r3 board.
-
-I know, the patch is not ideal as it can break pwm fan for some users.
-Likely this is the only official mt7986-bpi-r3 heatsink+fan solution
-available on the market.
-
-This patch may not be enough. Users may wants to tweak their thermal_zone0
-trip points, thus tuning fan rotation speed depending on cpu temperature.
-That can be done on the base of the following example:
-
-  === example =========
-  # cpu temperature below 25 Celsius degrees, no rotation
-  echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
-  # cpu temperature in [25..32] Celsius degrees, normal rotation speed
-  echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
-  # cpu temperature above 50 Celsius degrees, max rotation speed
-  echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
-  =====================
-
-Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-
----
-From Frank Wunderlich <frank-w@public-files.de>
-Date: 04.03.2025
->
-> sorry for delay
->
-> i have the fan from sinovoip and that was working for me, but if your fan only works with new values, i have no point against this change.
-
-Frank, does it means that you are signed off this patch?
-
-Changes from v1 to v2:
- * improve patch description
-
-Changes from v2 to v3:
- * added question to Frank Wunderlich
----
- arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-index ed79ad1ae871..b0cc0cbdff0f 100644
---- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
-@@ -42,7 +42,7 @@ fan: pwm-fan {
- 		compatible = "pwm-fan";
- 		#cooling-cells = <2>;
- 		/* cooling level (0, 1, 2) - pwm inverted */
--		cooling-levels = <255 96 0>;
-+		cooling-levels = <255 40 0>;
- 		pwms = <&pwm 0 10000>;
- 		status = "okay";
- 	};
--- 
-2.47.2
-
+Thanks! // John Ernberg=
 
