@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDFB4C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 07:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23BDC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 07:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3SYCP4Vpc50r+usm75P0pP1CHaDQViZ/53BeMI7PyQ=; b=j6TJDAItbKAumHdQZuVKWI7260
-	pMfJrt/M1qopcw5quea2mWgdIPWFd6oHQ0MVtWKNpdshOwmraIqd+QZHRFknXH1nVAwjd1unT/fAV
-	eJ9x6OFhVVbcF7LhD3xLJ0k35V4CayTwvS+G9/zObEps/Atk1ctnh2QQyNbAGvuVGlmFKlI+5SMdz
-	EuW7tLXIrHGQEgbkVDmuosFGgWhHDw262XqBGLDSYH/u/z09uBrjdJ18NOieszAYApBh3fAVMYgzy
-	JIobPGBQ84aqo/sy4nwtegEx3rVrWXozYIlgh73quNM8/f6sRlB5GtxQxqpcbybivmWv3crsy/Cr8
-	UYVYV52A==;
+	bh=buDjsHUOrU1N61z2NjEKXi8mfrqkbTQ+ONutH5nLRvQ=; b=uNJW7DqI5UKwF/TlcI9v3Hj0eq
+	woqwU8vzZHTh91F8Za8zVkf77F8HncmI1TlkqSqYKy7noCyfdi/zx3Up7fs5TfPJaH//wC4WKYYaX
+	NwqBREDZrsd4GU4dUwFiuonAIBAbO8XqLNe+3nh7eMtBqWayM+IltnBGfZAZq629uDnTVXuqe9JVz
+	SI2LtYEfogKxfDAStu2iuDy1BySxGQBiIxZWDeOaQq+BE4MSG60pLNTGx4bp5zadJaE5wkcq9Rw12
+	1SUGbVIwPtz9rJ0+tEKCAdIbnHXney1a0ypsDT/u0Q2yTsoUakG1qclq9dIZFQJxdKdCw8lmf8rrG
+	ssk0nHAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJSNP-00000008IQQ-3q2y;
-	Mon, 26 May 2025 07:36:03 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uJSPV-00000008IeW-2bnp;
+	Mon, 26 May 2025 07:38:13 +0000
+Received: from mail-vs1-f53.google.com ([209.85.217.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJSL3-00000008I85-3Ix5
+	id 1uJSLC-00000008I9A-0dee
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 07:33:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 36FCFA4E03C;
-	Mon, 26 May 2025 07:33:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532ADC4CEE7;
-	Mon, 26 May 2025 07:33:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748244815;
-	bh=n06pjiR3hX6mJ2V6ci9WvZueX0ybWrSTpdyrRyQUxww=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tlH4K3NlopK8NwFlAUzj3LDpVkIdJAYwYJ2MYUMGCqcetxLG7vnPmXJYBZWWyR51U
-	 j08tn++djKFXkX+3JQlQXy4tC5mtIX5OBiBeapxjNNajb3Gu6gfItSiOmZx4TPc1VH
-	 HDvZWb+lr8YvcXPJbFeCbeldXJUysGZN1dwpNxnpMuDqANvh1tPN6AptLgYEY2tjcg
-	 19yOKh4mk6DgmFxXBW82XrZ/YEbHTCPAeKK81H9Wccz7gphhe+tMfYXTaZUym9CjFq
-	 HIfXhWz3NgQj7Nwb/2LoODSYMcmO7n1KqE85/+JsVs7xJOEOjxkK0f6Yi8B2EIDAAl
-	 1swcErzoeYZLQ==
-Date: Mon, 26 May 2025 13:03:11 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>,
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>
-Subject: Re: [PATCH v9 7/9] optee: support protected memory allocation
-Message-ID: <aDQZN-frPnr1_N5I@sumit-X1>
-References: <20250520152436.474778-1-jens.wiklander@linaro.org>
- <20250520152436.474778-8-jens.wiklander@linaro.org>
+	Mon, 26 May 2025 07:33:48 +0000
+Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-4e45d07d66fso85310137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 00:33:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748244823; x=1748849623;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=buDjsHUOrU1N61z2NjEKXi8mfrqkbTQ+ONutH5nLRvQ=;
+        b=jD0aRnTCYYQvEVIBzC4VentJbFNt7+zhIyigfbuEGeiz0BLZZRciYb22Wbo5IusQGw
+         9FcKAI21/UwJAOEMrKNlSOC0zeO+YLeMwjfdmMfh1ZVftUoqcoqjA/t/hiuM1Xu2a4g9
+         xi3E5pFUNl1fEdEv5sCKil3W/5otdf+AKsuGHEDMNR7SWXKEUZHUZ16njyDVLyrb9u+A
+         LT+DwsXh7F6ydiNunQ0Z38cepXQ3pqj9iM6ip5ROaa9dVDeHelPQPsqG9PE9/RKaaVwB
+         HS0klmZ6HleSK5aS68yd3x+rsruCGkqHmfGwDYANMuTJ0hExZj0z9pgNwwEORy2No0hb
+         kvmw==
+X-Gm-Message-State: AOJu0YzqnVthHMZEEr/kg19tUYMIWRSs0bq3+lUTQbkXtI9VVqQey6YP
+	tjY5QwdgjKFAzbNBYuUGFiIeQ2ez0aHN6K7PXwTZED43AXKDYQL1Q9kw+enBxuPX
+X-Gm-Gg: ASbGncuY2Xk0svc3rVoNyXKH+fW7WmklPt9cO/vI2jHCbLbqt66Hg9Uopl8ilPmCOCb
+	BIp4v7cIZ86uti/I2xNXgpxODNy9qoFnV9BalXVgWpB0OGqYnNe3bqstDp2VKHfRxX8hNsRRg6X
+	KnMcFwgU4tX9eYCxSnb8Blx22SK6eWcsBJcQPZK1CSDzmupaNI96L1LKqgIWyQvxUO37zp3z/kS
+	XbbN1bRPUBDD7Uxxm1K/aDe+CqjIzkKompccUUSMceM62GTLtFus/a2OBYpt4/xckPI1sUIwqrg
+	/2vuRzMv7PbyAgJxuRLDefe7JLiyu52+5JS9B4J9EWlO3cJqLc+AEsBPZiPrV5WplMwAlNZgvOk
+	bLk066nbqEWXvaQ==
+X-Google-Smtp-Source: AGHT+IEvFZ2xWTI6p3Rko6a3gYaVbGrRXNIYzphs+YfwkKbLd6QHJgyRjMkVyKqUxmgckS+/2HkqQA==
+X-Received: by 2002:a05:6102:54a4:b0:4c3:6ba1:4129 with SMTP id ada2fe7eead31-4e424168ac7mr5298561137.20.1748244823042;
+        Mon, 26 May 2025 00:33:43 -0700 (PDT)
+Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-87dff459239sm1197431241.14.2025.05.26.00.33.42
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 26 May 2025 00:33:42 -0700 (PDT)
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-87be9d1fe01so528922241.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 00:33:42 -0700 (PDT)
+X-Received: by 2002:a05:6102:c4e:b0:4e2:aafe:1bb7 with SMTP id
+ ada2fe7eead31-4e4240e70a3mr5279874137.15.1748244822251; Mon, 26 May 2025
+ 00:33:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250520152436.474778-8-jens.wiklander@linaro.org>
+References: <20250525160336.82960-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250525160336.82960-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 26 May 2025 09:33:30 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUMyaUgct_iUed3LO5Brmb4vGJ2=Pgwqtoa0eLvWf4frg@mail.gmail.com>
+X-Gm-Features: AX0GCFstOU72XTrRPlHMMlrcLXZJoTUFgukeaL2XLu42JRLwExEXTH8GUTjbES4
+Message-ID: <CAMuHMdUMyaUgct_iUed3LO5Brmb4vGJ2=Pgwqtoa0eLvWf4frg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Sort DT on V4H Sparrow Hawk
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_003338_008889_C9B62559 
-X-CRM114-Status: GOOD (  26.38  )
+X-CRM114-CacheID: sfid-20250526_003346_187855_1DAA06EB 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,156 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 20, 2025 at 05:16:50PM +0200, Jens Wiklander wrote:
-> Add support in the OP-TEE backend driver for protected memory
-> allocation. The support is limited to only the SMC ABI and for secure
-> video buffers.
-> 
-> OP-TEE is probed for the range of protected physical memory and a
-> memory pool allocator is initialized if OP-TEE have support for such
-> memory.
-> 
-> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> ---
->  drivers/tee/optee/core.c          | 10 +++++++
->  drivers/tee/optee/optee_private.h |  2 ++
->  drivers/tee/optee/smc_abi.c       | 45 +++++++++++++++++++++++++++++--
->  3 files changed, 55 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/tee/optee/core.c b/drivers/tee/optee/core.c
-> index c75fddc83576..4b14a7ac56f9 100644
-> --- a/drivers/tee/optee/core.c
-> +++ b/drivers/tee/optee/core.c
-> @@ -56,6 +56,15 @@ int optee_rpmb_intf_rdev(struct notifier_block *intf, unsigned long action,
->  	return 0;
->  }
->  
-> +int optee_set_dma_mask(struct optee *optee, u_int pa_width)
-> +{
-> +	u64 mask = DMA_BIT_MASK(min(64, pa_width));
-> +
-> +	optee->teedev->dev.dma_mask = &optee->teedev->dev.coherent_dma_mask;
-> +
-> +	return dma_set_mask_and_coherent(&optee->teedev->dev, mask);
-> +}
-> +
->  static void optee_bus_scan(struct work_struct *work)
->  {
->  	WARN_ON(optee_enumerate_devices(PTA_CMD_GET_DEVICES_SUPP));
-> @@ -181,6 +190,7 @@ void optee_remove_common(struct optee *optee)
->  	tee_device_unregister(optee->supp_teedev);
->  	tee_device_unregister(optee->teedev);
->  
-> +	tee_device_unregister_all_dma_heaps(optee->teedev);
->  	tee_shm_pool_free(optee->pool);
->  	optee_supp_uninit(&optee->supp);
->  	mutex_destroy(&optee->call_queue.mutex);
-> diff --git a/drivers/tee/optee/optee_private.h b/drivers/tee/optee/optee_private.h
-> index dc0f355ef72a..5e3c34802121 100644
-> --- a/drivers/tee/optee/optee_private.h
-> +++ b/drivers/tee/optee/optee_private.h
-> @@ -272,6 +272,8 @@ struct optee_call_ctx {
->  
->  extern struct blocking_notifier_head optee_rpmb_intf_added;
->  
-> +int optee_set_dma_mask(struct optee *optee, u_int pa_width);
-> +
->  int optee_notif_init(struct optee *optee, u_int max_key);
->  void optee_notif_uninit(struct optee *optee);
->  int optee_notif_wait(struct optee *optee, u_int key, u32 timeout);
-> diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
-> index f0c3ac1103bb..f3cae8243785 100644
-> --- a/drivers/tee/optee/smc_abi.c
-> +++ b/drivers/tee/optee/smc_abi.c
-> @@ -1584,6 +1584,42 @@ static inline int optee_load_fw(struct platform_device *pdev,
->  }
->  #endif
->  
-> +static int optee_protmem_pool_init(struct optee *optee)
-> +{
-> +	enum tee_dma_heap_id heap_id = TEE_DMA_HEAP_SECURE_VIDEO_PLAY;
-> +	struct tee_protmem_pool *pool;
-> +	int rc;
-> +
-> +	if (optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_PROTMEM) {
-> +		union {
-> +			struct arm_smccc_res smccc;
-> +			struct optee_smc_get_protmem_config_result result;
-> +		} res;
-> +
-> +		optee->smc.invoke_fn(OPTEE_SMC_GET_PROTMEM_CONFIG, 0, 0, 0, 0,
-> +				     0, 0, 0, &res.smccc);
-> +		if (res.result.status != OPTEE_SMC_RETURN_OK) {
-> +			pr_err("Secure Data Path service not available\n");
-> +			return 0;
-> +		}
-> +		rc = optee_set_dma_mask(optee, res.result.pa_width);
-> +		if (!rc)
-> +			pool = tee_protmem_static_pool_alloc(res.result.start,
-> +							     res.result.size);
-> +		if (IS_ERR(pool))
-> +			return PTR_ERR(pool);
-> +
-> +		rc = tee_device_register_dma_heap(optee->teedev, heap_id, pool);
-> +		if (rc)
-> +			goto err;
-> +	}
-> +
-> +	return 0;
-> +err:
-> +	pool->ops->destroy_pool(pool);
-> +	return rc;
-> +}
-> +
->  static int optee_probe(struct platform_device *pdev)
->  {
->  	optee_invoke_fn *invoke_fn;
-> @@ -1679,7 +1715,7 @@ static int optee_probe(struct platform_device *pdev)
->  	optee = kzalloc(sizeof(*optee), GFP_KERNEL);
->  	if (!optee) {
->  		rc = -ENOMEM;
-> -		goto err_free_pool;
-> +		goto err_free_shm_pool;
->  	}
->  
->  	optee->ops = &optee_ops;
-> @@ -1752,6 +1788,10 @@ static int optee_probe(struct platform_device *pdev)
->  		pr_info("Asynchronous notifications enabled\n");
->  	}
->  
-> +	rc = optee_protmem_pool_init(optee);
+Hi Marek,
 
-Here we should do a Kconfig check for CONFIG_DMABUF_HEAPS so that we
-don't proceed any further with initialization.
+On Sun, 25 May 2025 at 18:03, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Sort DT alphabetically. Fix up the placement of &rcar_sound {} .
+> No functional change.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Rest looks good to me.
+Thanks for your patch!
 
--Sumit
+My bad, I moved some nodes while applying to fix sort order,
+but still made a mistake...
 
-> +	if (rc)
-> +		goto err_notif_uninit;
-> +
->  	/*
->  	 * Ensure that there are no pre-existing shm objects before enabling
->  	 * the shm cache so that there's no chance of receiving an invalid
-> @@ -1787,6 +1827,7 @@ static int optee_probe(struct platform_device *pdev)
->  		optee_disable_shm_cache(optee);
->  	optee_smc_notif_uninit_irq(optee);
->  	optee_unregister_devices();
-> +	tee_device_unregister_all_dma_heaps(optee->teedev);
->  err_notif_uninit:
->  	optee_notif_uninit(optee);
->  err_close_ctx:
-> @@ -1803,7 +1844,7 @@ static int optee_probe(struct platform_device *pdev)
->  	tee_device_unregister(optee->teedev);
->  err_free_optee:
->  	kfree(optee);
-> -err_free_pool:
-> +err_free_shm_pool:
->  	tee_shm_pool_free(pool);
->  	if (memremaped_shm)
->  		memunmap(memremaped_shm);
-> -- 
-> 2.43.0
-> 
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.17.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
