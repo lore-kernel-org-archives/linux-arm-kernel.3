@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFEAC54FC6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 03:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E95C54FC6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 04:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sqTjFur0lfqoeKNeUhFzDfOPVG6UrWH0xExo04huC1s=; b=vUMSgj1W2cAU8W6PaSP3xF7+9z
-	JDdb3J4iTZ/lbCBMlUIeTszBDgJctbDFtYQe8EbxuVofeI516JEwrVilxwwDuYme7ZNfGS/FrF/CE
-	7XOfPSBSAAEXiyvOmNxvU9OFVRqfINHQmAnn/0+eOMSJbxvvXy+wSDkKwIKJCLYtfiKS74nP0vkmA
-	L6XKp57jOP1yGtaxDNLFcGrYlYJiR7eQL7hpnwj8t202VMczDVv5crzTHOFasWzM9eSzntLf06Kaj
-	0JhmkrPN1m7ZrBDPUDkbC4Idf4T8LrN14HNFogLZLwjRk0if+hx35vF3hnNUtVTjSwyG4H1VQ9/fl
-	90C8uPmQ==;
+	bh=4hcuVo6LWkD1SwnBVQu/4ZcvKERzCfZiHAL7OA+IK/o=; b=lFIJnSD6FOuzi8u5KaB84slFsY
+	kKyejUr/7YMP/kGi4MsXVwCBIaPj2Ao1vNwICPvwRc3TgCT63vRL+DlqWKBQRdL6ud2sY/E2542Vo
+	nuylBejEsIhPx2XQwRA5iy1Eq5yCJUb6NVjxCM99edyBZgf6SgzTVKagvHscewvdtxP/Qpfqh7RXO
+	sLNYLYT6cYe8RhgGNEviJDo2Cl3mvXMP9Tav5VWRukXIZPbR81MLbSZPX8ErmgZWVs5t9jVabGkvv
+	VMbJo/+pHRHwyC+Mjlxw9EnYJ+qNtvNzgNO63+/AhFZehHU0oMnM9PXpYVhMaeNmTXWiVwSN1g06j
+	7FQ3Cl/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJOys-0000000825x-2bxD;
-	Mon, 26 May 2025 03:58:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uJP1w-000000082Dx-27Cj;
+	Mon, 26 May 2025 04:01:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJOwi-000000081uv-0peZ
+	id 1uJOzn-0000000829U-0Mth
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 03:56:17 +0000
+	Mon, 26 May 2025 03:59:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6307C5C59CF;
-	Mon, 26 May 2025 03:53:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55D4DC4CEE7;
-	Mon, 26 May 2025 03:56:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F300C60010;
+	Mon, 26 May 2025 03:59:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF903C4CEE7;
+	Mon, 26 May 2025 03:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748231775;
-	bh=tdbyF2MXiShQeoNhDHocB+/AC1J+q95yF45AcGx2ogo=;
+	s=k20201202; t=1748231965;
+	bh=9Em7YYlNAlyLb9TtYllH5RvyM+QEjD2zbBPjDbDZC3k=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=lqQjZUtAkvgH0wNxm8AvpynZWZkNCt8YvOHPEiBFlndGisFDegfNseJtuRzMmkV/r
-	 eVW+NEb/PjuOrmkg2YecuzYhWC4wetyQmUAArAgg1yH6qBXRknIj86j+xEx0Ikl2OC
-	 BbHmffFbTulHaOWv1IcC1LzzrLjesiAXsvstAWKblMwmh8OXbIyTbWx/mq5KDRwtyF
-	 UpWTErLmB8KhoYf8Y3bHIiYBtZhdG1m9Onu6Ty2obmUuOTy/92rGOrHznZo56+Doa6
-	 eTqaq9zO2CEILjzwFPkGd3utF0H4I/rn2cRZADLIfFhxnBKGCT0r5e/MKkup5/sUfA
-	 h+mBA7kWLa9kg==
-Message-ID: <1d25a01f-2761-41c3-85e6-b00100308ec7@kernel.org>
-Date: Mon, 26 May 2025 05:56:11 +0200
+	b=NWj6Imzjk6HkNM5kMLyupo2cRf4CIEK+lpQwhC3tmaO19WnnwrLz3O7oFw431Ek9z
+	 e3FCgyVa1/yMh886U4lJdj43Q7umMx1WUcl4kC8OyedfzMmUV+nxRDNoYc0eItpisP
+	 1YZBS7GsZGMPUSU+usjHQX/s0fcOO/zHLCHG3haQbWHrTlPjSTffg/jyOXTpQBsuEr
+	 qVtT/EyPi5p13sgeepXTsSjpoWuvJcMXFu+wNpiwPaOyhuyPWir9h3xM3cdfC0v7qM
+	 H0gwbDKuZzR+5t/44OZ9GCJiDtqc/iKJFYCuRpoqEEgCavdNzatSGqctcQyR3ISDOj
+	 X5tJzt8trJUOw==
+Message-ID: <87943ef2-120f-429e-8de9-50df84caf71a@kernel.org>
+Date: Mon, 26 May 2025 05:59:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] DT bindings docs for Driver Xilinx ZynqMP AXI Timeout
- Block (ATB)
+Subject: Re: [PATCH 1/2] Driver for Xilinx ZynqMP AXI Timeout Block (ATB)
 To: Maciej Andrzejewski <maciej.andrzejewski@m-works.net>,
  linux-arm-kernel@lists.infradead.org, Michal Simek <michal.simek@amd.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, maciej.andrzejewski@iceye.com
 References: <20250525195955.2843076-1-maciej.andrzejewski@m-works.net>
- <20250525195955.2843076-2-maciej.andrzejewski@m-works.net>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +97,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250525195955.2843076-2-maciej.andrzejewski@m-works.net>
+In-Reply-To: <20250525195955.2843076-1-maciej.andrzejewski@m-works.net>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_205616_375961_B286190C 
-X-CRM114-Status: GOOD (  25.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,159 +114,402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/05/2025 22:00, Maciej Andrzejewski wrote:
-> Add DT bindings docs for Driver Xilinx ZynqMP AXI Timeout Block (ATB)
+On 25/05/2025 21:59, Maciej Andrzejewski wrote:
+> This module implements a driver for the Xilinx AXI Timeout Block (ATB).
+> The ATB is used to detect and handle timeouts on AXI transactions.
+> It supports configuration and handling of timeout interrupts for both
+> the Full Power Domain (FPD) and Low Power Domain (LPD) in Xilinx SoCs.
+> The driver reads configuration from the device tree, sets up the necessary
+> registers, and handles interrupts to report timeout events.
+> 
+> AXI timeouts can be harmful as they stall the bus and can potentially stall
+> the entire Linux system. Due to hardware limitations, this driver cannot
+> completely prevent bus stalls; only a limited number of AXI timeouts can be
+> registered before the bus will eventually stall.
+> 
+> It is important to note that this driver should produce dmesg error output
+> (grep for "atb: Timeout detected") to notify the user that the system
+> configuration is not properly handled. Once an AXI timeout is detected,
+> additional measures should be taken to address the issue.
+> 
+> To make this driver work, the device tree must contain the following
+> properties:
+> 
+> 	atb {
+> 		compatible = "xlnx,zynqmp-atb";
+> 		status = "okay";
+> 
+> 		fpd_afifs1_enable;
+> 		fpd_afifs0_enable;
+> 		fpd_fpds_enable;
+> 		lpd_afifs2_enable;
+> 		lpd_lpdm_enable;
+> 	};
+> 
+> The bool properties enable the corresponding interrupts for the
+> FPD and LPD.
+> The driver will read these properties and configure the ATB accordingly.
+> If the bool property is not present, the functionality for this ATB will be
+> disabled.
+> 
+> Enable this driver by selecting ZYNQMP_ATB in the kernel config.
 > 
 > Signed-off-by: Maciej Andrzejewski <maciej.andrzejewski@m-works.net>
 > Signed-off-by: Maciej Andrzejewski <maciej.andrzejewski@iceye.com>
-
-One SoB is enough, considering you sent it from the first one.
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-
-Please organize the patch documenting compatible (DT bindings) before
-their user.
-See also:
-https://elixir.bootlin.com/linux/v6.14-rc6/source/Documentation/devicetree/bindings/submitting-patches.rst#L46
-
 > ---
->  .../bindings/soc/xilinx/xlnx,zynqmp-atb.yaml  | 90 +++++++++++++++++++
->  1 file changed, 90 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/xilinx/xlnx,zynqmp-atb.yaml
+>  MAINTAINERS                     |   6 +
+>  drivers/soc/xilinx/Kconfig      |  53 ++--
+>  drivers/soc/xilinx/Makefile     |   1 +
+>  drivers/soc/xilinx/zynqmp_atb.c | 417 ++++++++++++++++++++++++++++++++
+>  4 files changed, 457 insertions(+), 20 deletions(-)
+>  create mode 100644 drivers/soc/xilinx/zynqmp_atb.c
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/xilinx/xlnx,zynqmp-atb.yaml b/Documentation/devicetree/bindings/soc/xilinx/xlnx,zynqmp-atb.yaml
-> new file mode 100644
-> index 000000000000..d92747fba947
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/xilinx/xlnx,zynqmp-atb.yaml
-> @@ -0,0 +1,90 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/xilinx/xlnx,zynqmp-atb.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 3c6f9e70ace0..37cd15a59d83 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -26734,6 +26734,12 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/nvmem/xlnx,zynqmp-nvmem.yaml
+>  F:	drivers/nvmem/zynqmp_nvmem.c
+>  
+> +XILINX ZYNQMP ATB DRIVER
+> +M:	Maciej Andrzejewski <maciej.andrzejewski@m-works.net>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/soc/xilinx/xlnx,zynqmp-atb.txt
+> +F:	drivers/soc/xilinx/zynqmp_atb.c
 > +
-> +title: Xilinx ZynqMP AXI Timeout Block peripheral
-> +
-> +maintainers:
-> +  - Maciej Andrzejewski <maciej.andrzejewski@m-works.net>
-> +
-> +description: |+
-> +
+>  XILLYBUS DRIVER
+>  M:	Eli Billauer <eli.billauer@gmail.com>
+>  L:	linux-kernel@vger.kernel.org
+> diff --git a/drivers/soc/xilinx/Kconfig b/drivers/soc/xilinx/Kconfig
+> index 49d69d6e18fe..b2b1187c70ec 100644
+> --- a/drivers/soc/xilinx/Kconfig
+> +++ b/drivers/soc/xilinx/Kconfig
+> @@ -2,28 +2,41 @@
+>  menu "Xilinx SoC drivers"
+>  
+>  config ZYNQMP_POWER
+> -	bool "Enable Xilinx Zynq MPSoC Power Management driver"
+> -	depends on PM && ZYNQMP_FIRMWARE
+> -	default y
+> -	select MAILBOX
+> -	select ZYNQMP_IPI_MBOX
+> -	help
+> -	  Say yes to enable power management support for ZyqnMP SoC.
+> -	  This driver uses firmware driver as an interface for power
+> -	  management request to firmware. It registers isr to handle
+> -	  power management callbacks from firmware. It registers mailbox client
+> -	  to handle power management callbacks from firmware.
+> +    bool "Enable Xilinx Zynq MPSoC Power Management driver"
+> +    depends on PM && ZYNQMP_FIRMWARE
+> +    default y
+> +    select MAILBOX
+> +    select ZYNQMP_IPI_MBOX
 
-Drop blank line
+Why doing this change? Code was correct before.
 
-> +  This module implements a driver for the Xilinx AXI Timeout Block (ATB).
-
-Binding is about hardware, not driver. Please rephrase everything here
-to describe hardware.
-
-> +  The ATB is used to detect and handle timeouts on AXI transactions.
-> +  It supports configuration and handling of timeout interrupts for both
-> +  the Full Power Domain (FPD) and Low Power Domain (LPD) in Xilinx SoCs.
-> +  The driver reads configuration from the device tree, sets up the necessary
-> +  registers, and handles interrupts to report timeout events.
+> +    help
+> +      Say yes to enable power management support for ZyqnMP SoC.
+> +      This driver uses firmware driver as an interface for power
+> +      management request to firmware. It registers isr to handle
+> +      power management callbacks from firmware. It registers mailbox client
+> +      to handle power management callbacks from firmware.
+>  
+> -	  If in doubt, say N.
+> +      If in doubt, say N.
+>  
+>  config XLNX_EVENT_MANAGER
+> -	bool "Enable Xilinx Event Management Driver"
+> -	depends on ZYNQMP_FIRMWARE
+> -	default ZYNQMP_FIRMWARE
+> -	help
+> -	  Say yes to enable event management support for Xilinx.
+> -	  This driver uses firmware driver as an interface for event/power
+> -	  management request to firmware.
+> +    bool "Enable Xilinx Event Management Driver"
+> +    depends on ZYNQMP_FIRMWARE
+> +    default ZYNQMP_FIRMWARE
+> +    help
+> +      Say yes to enable event management support for Xilinx.
+> +      This driver uses firmware driver as an interface for event/power
+> +      management request to firmware.
 > +
-> +  AXI timeouts can be harmful as they stall the bus and can potentially
-> +  stall the entire Linux system. Due to hardware limitations, this driver
-> +  cannot completely prevent bus stalls; only a limited number of AXI timeouts
-> +  can be registered before the bus will eventually stall.
+> +      If in doubt, say N.
 > +
-> +  It is important to note that this driver should produce dmesg error output
-> +  (grep for "atb: Timeout detected") to notify the user that the system
-> +  configuration is not properly handled. Once an AXI timeout is detected,
-> +  additional measures should be taken to address the issue.
-> +
-> +  The bool properties enable the corresponding interrupts for the
-> +  FPD and LPD.
-> +  The driver will read these properties and configure the ATB accordingly.
-> +  If the bool property is not present, the functionality for this ATB will be
-> +  disabled.
-> +
-> +  Enable this driver by selecting ZYNQMP_ATB in the kernel config.
-> +
-> +properties:
-> +  compatible:
-> +    const: xlnx,zynqmp-atb
-> +
-> +  fpd_afifs1_enable:
-
-Neither this nor any further properties look like we expect. Please open
-any other bindings or example-schema to see how this is done - missing
-vendor prefix, following DTS coding style for naming.
-
-> +    description: |
-> +      ATB instance 5: FPD Main Switch to M_AXI_HPM1_FPD interface.
-> +      This is used to detect timeouts on the M_AXI_HPM1_FPD.
-> +    type: boolean
-> +    default: false
-
-No, there is no such option. You cannot assign there value.
-
-> +
-> +  fpd_afifs0_enable:
-> +    description: |
-> +      ATB instance 4: FPD Main Switch to M_AXI_HPM0_FPD interface.
-> +      This is used to detect timeouts on the M_AXI_HPM0_FPD.
-
-I don't understand need for these, but could be because of missing
-hardware description.
-
-
-> +    type: boolean
-> +    default: false
-> +
-> +  fpd_fpds_enable:
-> +    description: |
-> +      ATB instance 3: FPD Main Switch to SIOU slaves.
-> +      This is used to detect timeouts on the SIOU slaves.
-> +    type: boolean
-> +    default: false
-> +
-> +  lpd_afifs2_enable:
-> +    description: |
-> +      ATB instance 2: LPD Main Switch to M_AXI_HPM2_LPD interface.
-> +      This is used to detect timeouts on the M_AXI_HPM2_LPD.
-> +    type: boolean
-> +    default: false
-> +
-> +  lpd_lpdm_enable:
-> +    description: |
-> +      ATB instance 1: LPD Main Switch to M_AXI_LPD interface.
-> +      This is used to detect timeouts on the M_AXI_LPD.
-> +    type: boolean
-> +    default: false
-> +
-
-This wasn't ever tested... Also, missing required and additionalProperties.
-
-> +examples:
-> +  - |
-> +
-> +  atb {
-> +      compatible = "xlnx,zynqmp-atb";
-> +      status = "okay";
-
-Drop. This binding looks very different than any other. Look at others
-first - nothing uses status, format is different, you miss several
-important pieces of binding.
-
-> +
-> +      fpd_afifs1_enable;
-> +      fpd_afifs0_enable;
-> +      fpd_fpds_enable;
-> +      lpd_afifs2_enable;
-> +      lpd_lpdm_enable;
-> +    };
+> +config ZYNQMP_ATB
+> +    bool "Enable ZynqMP AXI Timeout Block driver"
+> +    depends on ARCH_ZYNQMP
+> +    help
+> +      Say yes to enable ZynqMP AXI Timeout Block driver.
+> +      The ATB is used to detect and handle timeouts on AXI transactions.
+> +      It supports configuration and handling of timeout interrupts for both
+> +      the Full Power Domain (FPD) and Low Power Domain (LPD) in
+> +      Xilinx SoCs. The driver reads configuration from the device tree,
+> +      sets up the necessary registers, and handles interrupts to report
+> +      timeout events.
+>  
+> -	  If in doubt, say N.
+>  endmenu
+> diff --git a/drivers/soc/xilinx/Makefile b/drivers/soc/xilinx/Makefile
+> index 33d94395fd87..30768593701e 100644
+> --- a/drivers/soc/xilinx/Makefile
+> +++ b/drivers/soc/xilinx/Makefile
+> @@ -1,3 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  obj-$(CONFIG_ZYNQMP_POWER)	+= zynqmp_power.o
+>  obj-$(CONFIG_XLNX_EVENT_MANAGER)	+= xlnx_event_manager.o
+> +obj-$(CONFIG_ZYNQMP_ATB) += zynqmp_atb.o
 > \ No newline at end of file
 
-Patch warnings.
+All youro patches have patch warnings.
 
+> diff --git a/drivers/soc/xilinx/zynqmp_atb.c b/drivers/soc/xilinx/zynqmp_atb.c
+> new file mode 100644
+> index 000000000000..41e942352b38
+> --- /dev/null
+> +++ b/drivers/soc/xilinx/zynqmp_atb.c
+> @@ -0,0 +1,417 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/**
+> + * Implementation of Xilinx ZynqMP AXI Timeout Block peripheral driver.
+> + *
+> + * Copyright (C) 2025 ICEYE,
+> + * Maciej Andrzejewski <maciej.andrzejewski@iceye.com>
+> + */
+> +
+
+...
+
+> +
+> +	return ret;
+> +}
+> +
+> +/**
+> + * read_dts - Read DTS configuration for the driver
+> + * @config: Pointer to driver configuration
+> + * @return: 0 on success, otherwise error code
+> + */
+> +static int read_dts(struct device *dev, struct atb_config *config)
+> +{
+> +	struct device_node *np;
+> +
+> +	np = of_find_node_by_name(NULL, MOD_NAME);
+
+No, you cannot do such stuff.
+
+Match properly your driver.
+
+> +	if (!np) {
+> +		dev_err(dev, "unable to find device tree node '%s'", MOD_NAME);
+
+So you will print such error on every machine, x86, arm (other vendors,
+like Qualcomm), riscv64?
+
+
+No, drop entirely.
+
+> +		return -ENODEV;
+> +	}
+> +
+> +	// FPD domain
+> +	config->fpd.opt_val = 0;
+> +	if (of_property_read_bool(np, "fpd_afifs1_enable"))
+> +		config->fpd.opt_val |= FPD_ATB_AFIFS1_MASK;
+> +	if (of_property_read_bool(np, "fpd_afifs0_enable"))
+> +		config->fpd.opt_val |= FPD_ATB_AFIFS0_MASK;
+> +	if (of_property_read_bool(np, "fpd_fpds_enable"))
+> +		config->fpd.opt_val |= FPD_ATB_FPDS_MASK;
+> +
+
+...
+
+> +
+> +/**
+> + * atb_domain_setup - Setup ATB in a domain
+> + * @cfg: Pointer to ATB domain configuration
+> + * @pdev: Pointer to platform device
+> + * @base: Base address of the ATB domain
+> + * @irq: IRQ number
+> + * @domain_name: Domain name
+> + * @irq_name: IRQ name
+> + * @return: 0 on success, otherwise error code
+> + */
+> +static int atb_domain_setup(struct atb_domain_config *cfg,
+> +			    struct platform_device *pdev, uintptr_t base,
+> +			    int irq, const char *domain_name,
+> +			    const char *irq_name)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +
+> +	// get physical address
+> +	cfg->base = devm_ioremap(dev, base, SZ_64);
+
+No, you do not have MMIO. Just look at the binding.
+
+> +	if (!cfg->base) {
+> +		dev_err(dev, "failed to map %s base address", domain_name);
+> +		return -1;
+> +	}
+> +
+> +	// map IRQ
+> +	irq = map_irq(dev, irq);
+
+Look at the binding: you do not have interrupts.
+
+> +	if (irq <= 0) {
+> +		dev_err(dev, "failed to map ATB %s IRQ", domain_name);
+> +		return -2;
+> +	}
+> +	cfg->irq = irq;
+> +
+> +	// request IRQ
+> +	if (devm_request_irq(dev, irq, irq_handler, IRQF_SHARED, irq_name,
+> +			     pdev)) {
+> +		dev_err(dev, "failed to request ATB %s IRQ.", domain_name);
+> +		return -3;
+> +	}
+> +
+> +	// disable ATB for configuration
+> +	atb_write(cfg, 0x0, ATB_RESP_EN_REG);
+> +
+> +	// response type: ATB returns 'SLVERR' on timeout
+> +	// which results in app 'bus fault'
+> +	atb_write(cfg, cfg->opt_val, ATB_RESP_TYPE_REG);
+> +	atb_write(cfg, cfg->opt_val, ATB_CMD_STORE_EN_REG);
+> +
+> +	// timeout prescaler: 16b - enable, 15:0b - prescaler value
+> +	// based on 100 MHz clock
+> +	atb_write(cfg, (ATB_PRESCALER_EN_MASK + ATB_PRESCALER_TIMEOUT_VAL),
+> +		  ATB_PRESCALE_REG);
+> +
+> +	// clear interrupt flags
+> +	atb_write(cfg, cfg->opt_val, ERR_ATB_ISR_REG);
+> +
+> +	// enable selected interrupts
+> +	atb_write(cfg, cfg->opt_val, ERR_ATB_IER_REG);
+> +
+> +	// enable ATB
+> +	atb_write(cfg, cfg->opt_val, ATB_RESP_EN_REG);
+> +
+> +	cfg->init = true;
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * atb_probe - Probe function for the driver
+> + * @pdev: Pointer to platform device
+> + * @return: 0 on success, otherwise error code
+> + */
+> +static int atb_probe(struct platform_device *pdev)
+> +{
+> +	int ret;
+> +	struct atb_config *config;
+> +	struct device *dev = &pdev->dev;
+> +
+> +	config = devm_kzalloc(dev, sizeof(*config), GFP_KERNEL);
+> +	if (!config)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, config);
+> +
+> +	// read DTS config
+> +	ret = read_dts(dev, config);
+> +	if (ret) {
+> +		dev_err(dev, "failed to read DTS: %d", ret);
+> +		goto err;
+> +	}
+> +
+> +	// configure FPD
+> +	ret = atb_domain_setup(&config->fpd, pdev, FPD_SLCR_ATB_BASE_ADDR,
+> +			       IRQ_ZYNQMP_GIC_ATB_FPD, "FPD", "atb_fpd_irq");
+> +	if (ret) {
+> +		dev_err(dev, "failed to setup FPD domain: %d", ret);
+> +		goto err;
+> +	} else {
+> +		dev_info(dev, "ATB FPD configured");
+> +	}
+> +
+> +	// configure LPD
+> +	ret = atb_domain_setup(&config->lpd, pdev, LPD_SLCR_ATB_BASE_ADDR,
+> +			       IRQ_ZYNQMP_GIC_ATB_LPD, "LPD", "atb_lpd_irq");
+> +	if (ret) {
+> +		dev_err(dev, "failed to setup LPD domain: %d", ret);
+> +		goto err_fpd;
+> +	} else {
+> +		dev_info(dev, "ATB LPD configured");
+
+Drop all of such, drivers should be silent on success. See Linux coding
+style.
+
+> +	}
+> +
+> +	return 0;
+> +
+> +err_fpd:
+> +	if (config->fpd.init)
+> +		atb_write(&config->fpd, 0x0, ATB_RESP_EN_REG);
+> +err:
+> +	return -EFAULT;
+> +}
+> +
+> +/**
+> + * atb_remove - Remove function for the driver
+> + * @pdev: Pointer to platform device
+> + * @return: 0 on success, otherwise error code
+> + */
+> +static int atb_remove(struct platform_device *pdev)
+> +{
+> +	int val, reg;
+> +	struct device *dev = &pdev->dev;
+> +	struct atb_config *config = platform_get_drvdata(pdev);
+> +
+> +	if (!config) {
+> +		dev_err(dev, "config is NULL in remove");
+> +		return -EFAULT;
+> +	}
+> +
+> +	// disable ATB
+> +	if (config->fpd.init) {
+> +		val = config->fpd.opt_val;
+> +		reg = atb_read(&config->fpd, ATB_RESP_EN_REG);
+> +		val &= ~reg;
+> +		atb_write(&config->fpd, val, ATB_RESP_EN_REG);
+> +	}
+> +	if (config->lpd.init) {
+> +		val = config->lpd.opt_val;
+> +		reg = atb_read(&config->lpd, ATB_RESP_EN_REG);
+> +		val &= ~reg;
+> +		atb_write(&config->lpd, val, ATB_RESP_EN_REG);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id atb_of_match[] = {
+> +	{
+> +		.compatible = "xlnx,zynqmp-atb",
+> +	},
+> +	{},
+> +};
+> +
+> +static struct platform_driver atb_driver = {
+> +	.probe = atb_probe,
+> +	.remove = atb_remove,
+> +	.driver = {
+> +		.name = MOD_NAME,
+> +		.of_match_table = atb_of_match,
+> +	},
+> +};
+> +
+> +static int __init atb_early_init(void)
+> +{
+> +	return platform_driver_register(&atb_driver);
+> +}
+> +
+> +arch_initcall(atb_early_init);
+
+Don't order initcalls. That's not arch. This is supposed to be driver.
 
 
 Best regards,
