@@ -4,93 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FDEC5B547
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 09:24:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F379AC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 09:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=53ua48kPxy8ZlB5Khz3jNgjUQRcX7ad7dpgywMRYq/U=; b=zhbJNB34i3NmYoq+jn9XzjvPoM
-	Lb551Ni1eAApb+OL1vXpa3vh6Q2irumzu8PLOegRlRERO5Rm2YfPI02dH+b38YnJp6YdVX7yQe159
-	h7/GdFgiAccNjwO9gLI5ymXA2uWW6K+NbXEi5tmHak3E0CVb3EomKudclPhw0sy/HX89BiZt3KeKN
-	3gxQY+FEYptCGGUDfWuV6A4181mK0vrLwe63Xx8tSF7GGW3jVXsxu5NSH41nSZoXz14A7RrTYJ9Bh
-	dazPPdH9gmNFenLpyrXFQnSqvHFKapCPfp4sulwChMh+hLvdxvMbzhQ6TzSUrwS7eLYzqPbc3a6/s
-	1eCqZ1Rg==;
+	bh=yCg6d3ai45oT8m/nEPSdO++snGi9MLhj5lOFq4KJ7so=; b=IigbrWNOuBSPuyDXRGZctw1863
+	5KbFytiTpjNEwZtMPUCyi6+LgE4A0ySQVRBUMn7xVGcjKOlK/jqPCa3m8ZXveuDOqVLnQzcxesvMa
+	4CJ71n8HsAVr9lkP0iIyIT/pSi+YK9AFo8H3I1CRdFHqC9fAnr8Homx7TkTUmFnPAdPBHgdl4GOrt
+	JoajhMTTewkoi9d6AhTBEgua8k9+3sL+CXsV4mGjeobRrbIfZi6Pz2oywtoyV9W+KmNXL8SWVG0Nc
+	/KGqqZoBC1T7RMvH4JIouq6fIrhzSIBcpEl4NJVu+7YHYmjfGbkAzA23xW06oW6VzCw5MU/+cLsZh
+	6IlV3RLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJU4a-00000008Uw8-0k6j;
-	Mon, 26 May 2025 09:24:44 +0000
-Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
+	id 1uJU6g-00000008VG4-0iT5;
+	Mon, 26 May 2025 09:26:54 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJU1w-00000008UTq-3Hqr
+	id 1uJU4E-00000008Urh-2Nos
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 09:22:01 +0000
-Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-40656384d30so133213b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 02:22:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748251319; x=1748856119; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=53ua48kPxy8ZlB5Khz3jNgjUQRcX7ad7dpgywMRYq/U=;
-        b=jdAajPXveRY2T6CwjdQl4456feZflBO2UdIJFQvExD2RQikJgOjUQtwBiQnyxtuYRT
-         n/+amLli55uSCP10Nn9/88f73eKh9r4ZsX6tnvRs3dElqy7YSEmTDkfH8CwV7Wqw4Sr4
-         L33biifPVu4xqF3uvJc6ulPauiF3sa0lZxqorSNvrE6szgwsFpNPI8t4RLJV+ayA2nyr
-         YvNBZJElGwXnyyqtw1leRfiruyeV0fRJ6puU/wH2HqVbzymczyU4zD3zo0ghz/ypGVe+
-         5Sz5z4ppogVxXBDfYo4Y5pGd/nAwILZQS82Inl8NsbSV3ftDVDvmD26axe1iklN37IrA
-         JFcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748251319; x=1748856119;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=53ua48kPxy8ZlB5Khz3jNgjUQRcX7ad7dpgywMRYq/U=;
-        b=aYorvXYhHyP03C8kdTX1kOQgmivszQ/ukCjqMs5HlMiwYjVj6MhWChT7dJC4OcszD7
-         FvKYymzJvdnb8g9aXRYYVwuNWXbRQoTuRJnU7DfhpoRrPypxiuNUYWfNmAaXwuHRl9S/
-         LhpgsgeVitMkc/kdZDT6x6CYiBKuZUSc2QX1N4p72LaCxuqGjuVS03YLS0TJSh0B3RX0
-         CAdRcnGdAl8QbD+Ff5yFQ6IUFceoCWPOnVu33JgYglO9hS7wUt+RpuvhR5jkM8WmUA3M
-         f5WpsrSiaHpTTh0eFX95tP/bqoHt/onwhq8vsEZYdOVxFkg45qdei6benFFUn386k1vX
-         GG8w==
-X-Forwarded-Encrypted: i=1; AJvYcCWAd+yTxS2jCWzutdKp2zV56NJnFr+BeMnH8yZpwWC8AplyG1ipnVyDq9uCRkX0fw0YAWX5spVxB9TgUX/D6mTr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3xbLdGleWcU95KRlhPNWLOveYY6LkESrTM44i8RINM+YnxkDJ
-	icBHTtbf1dF2jkXxS9TqZfR1V3nLWhWIx0WjQ7S5ypobKPGQNbIbOlsF7a4lctshaPDVY3/EuHK
-	J10SMOzxSvhvkA2ErtnyTe51iJNi+3OXhRFdUSPDMHpqJMBzMvWkhakM=
-X-Gm-Gg: ASbGncuWdqL2hW39VaF8eA6bAmZ91na7tn/0N4YB2HAKMYON1Mx4MfW3KF0H1msXfoE
-	RFOoclIP+zpoLtLm+EpLXs/Q+em3SHFL5j4rmBisH7BZLPQDSUwt3batgUf7UdhhAq0Fli3IAtA
-	M+WO89jIqfZv/S/dNOy86spjqCMO7ya44q2w==
-X-Google-Smtp-Source: AGHT+IFq5JZekHnxWc3sg2RWJXDb6uZ9CM+A22YqbDlbRKnubyEazTYamiLb0ugXmmhMYRQ6G3WVBNUuNH4AYqeD19U=
-X-Received: by 2002:a05:6808:3c44:b0:404:e2fe:ee9b with SMTP id
- 5614622812f47-406467f6e09mr4084598b6e.15.1748251319604; Mon, 26 May 2025
- 02:21:59 -0700 (PDT)
+	Mon, 26 May 2025 09:24:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1748251449; x=1748856249; i=wahrenst@gmx.net;
+	bh=yCg6d3ai45oT8m/nEPSdO++snGi9MLhj5lOFq4KJ7so=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=obYWoSYaUa146vLgvmzxYAjeuy5Wh/C9ccUf0YOKYtfaw8aNyVAXqMNIhd7jn53E
+	 tGtZTrP5BM1Gsz7zvgKmt5H/7gKGmS4I90M6Kdn1wK6F/1rvuqqc2d/IB5+kgK+UI
+	 rCg/10Gi/eEi3aNb9wmILR+0dA8ftqPknR3X3109l1tsWIRmqTFLEan3EeEoTNBke
+	 tcFwkjfiFDXsJXXv1sdOesiwnOKdrjsriB4fPL7SB6XdWdDjLxcyZXnWdyBguG8TB
+	 8FAYZjzPTle1dIHDl8ouQ7qOX1hWXu0zara3EfVo6wET4/QKipGgGQxspJZmoH9Es
+	 +paa/f1IvBhV/RHBSg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1N1fmq-1v3rVY3Ldw-00qpNq; Mon, 26
+ May 2025 11:24:08 +0200
+Message-ID: <7f6d7199-0a20-4370-a8b0-1d05326af052@gmx.net>
+Date: Mon, 26 May 2025 11:24:06 +0200
 MIME-Version: 1.0
-References: <20250520152436.474778-1-jens.wiklander@linaro.org>
- <20250520152436.474778-7-jens.wiklander@linaro.org> <aDQWt5Ck1Bo01Z_4@sumit-X1>
-In-Reply-To: <aDQWt5Ck1Bo01Z_4@sumit-X1>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Mon, 26 May 2025 11:21:47 +0200
-X-Gm-Features: AX0GCFvNzG6NkiJ-eN9bCOPUdD2632rQhBqnsSHNlg_n4KEoEPp6J0_ZkxvvwnI
-Message-ID: <CAHUa44E4-z7-7DQjyGXYRiZDf6mRBKYZDuxWFGy+3JxtWO1ocg@mail.gmail.com>
-Subject: Re: [PATCH v9 6/9] tee: add tee_shm_alloc_dma_mem()
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: freescale: imx93-phycore-som: Delay the
+ phy reset by a gpio
+To: Christoph Stoidner <C.Stoidner@phytec.de>, Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "upstream@lists.phytec.de" <upstream@lists.phytec.de>
+References: <20250524112315.695376-1-c.stoidner@phytec.de>
+ <047c963e-f24d-4995-aea0-4a8cf8e343f5@lunn.ch>
+ <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
+ <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:j7q0lhQ0aySRq/U/bsaoG9w41iUYKsDm39Kja4EOvuJtWZCRfLo
+ +2LSeOFX9VG/fUgYMj53SHgfLCYEDoKCYEfA33E12ZfiugLZPeROby7eEMTtc9MBlUPhmjs
+ mcOCl177WBPaCC4OOVETXKJ7DHSc1hLq/bUJANOIHXnXMz57WtU0lgRr4lRvjFyVc8EnMJX
+ 6fM+oJT9xvz6kUVDxT3+g==
+UI-OutboundReport: notjunk:1;M01:P0:dSVyBR3f1R0=;PoVBs7v/whf90ft9TG4C3UFjjyT
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_022200_830693_D25575BD 
-X-CRM114-Status: GOOD (  35.22  )
+X-CRM114-CacheID: sfid-20250526_022422_902169_15C87F89 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,199 +147,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 9:22=E2=80=AFAM Sumit Garg <sumit.garg@kernel.org> =
-wrote:
+Am 26.05.25 um 11:09 schrieb Christoph Stoidner:
+> Hi Stefan,
 >
-> On Tue, May 20, 2025 at 05:16:49PM +0200, Jens Wiklander wrote:
-> > Add tee_shm_alloc_dma_mem() to allocate DMA memory. The memory is
-> > represented by a tee_shm object using the new flag TEE_SHM_DMA_MEM to
-> > identify it as DMA memory. The allocated memory will later be lent to
-> > the TEE to be used as protected memory.
-> >
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > ---
-> >  drivers/tee/tee_shm.c    | 74 ++++++++++++++++++++++++++++++++++++++--
-> >  include/linux/tee_core.h |  5 +++
-> >  2 files changed, 77 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
-> > index e1ed52ee0a16..92a6a35e1a1e 100644
-> > --- a/drivers/tee/tee_shm.c
-> > +++ b/drivers/tee/tee_shm.c
-> > @@ -5,6 +5,8 @@
-> >  #include <linux/anon_inodes.h>
-> >  #include <linux/device.h>
-> >  #include <linux/dma-buf.h>
-> > +#include <linux/dma-mapping.h>
-> > +#include <linux/highmem.h>
-> >  #include <linux/idr.h>
-> >  #include <linux/io.h>
-> >  #include <linux/mm.h>
-> > @@ -13,9 +15,14 @@
-> >  #include <linux/tee_core.h>
-> >  #include <linux/uaccess.h>
-> >  #include <linux/uio.h>
-> > -#include <linux/highmem.h>
-> >  #include "tee_private.h"
-> >
-> > +struct tee_shm_dma_mem {
-> > +     struct tee_shm shm;
-> > +     dma_addr_t dma_addr;
-> > +     struct page *page;
-> > +};
-> > +
-> >  static void shm_put_kernel_pages(struct page **pages, size_t page_coun=
-t)
-> >  {
-> >       size_t n;
-> > @@ -49,7 +56,14 @@ static void tee_shm_release(struct tee_device *teede=
-v, struct tee_shm *shm)
-> >       struct tee_shm *parent_shm =3D NULL;
-> >       void *p =3D shm;
-> >
-> > -     if (shm->flags & TEE_SHM_DMA_BUF) {
-> > +     if (shm->flags & TEE_SHM_DMA_MEM) {
-> > +             struct tee_shm_dma_mem *dma_mem;
-> > +
-> > +             dma_mem =3D container_of(shm, struct tee_shm_dma_mem, shm=
-);
-> > +             p =3D dma_mem;
-> > +             dma_free_pages(&teedev->dev, shm->size, dma_mem->page,
-> > +                            dma_mem->dma_addr, DMA_BIDIRECTIONAL);
+> On Mo, 2025-05-26 at 08:44 +0200, Stefan Wahren wrote:
+>> Hi Andrew,
+>> hi Christoph
+>>
+>> Am 24.05.25 um 19:44 schrieb Andrew Lunn:
+>>>> diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+>>>> b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+>>>> index 88c2657b50e6..b481097f08a4 100644
+>>>> --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+>>>> +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+>>>> @@ -68,6 +68,8 @@ mdio: mdio {
+>>>>  =C2=A0=C2=A0 ethphy1: ethernet-phy@1 {
+>>>>  =C2=A0=C2=A0 compatible =3D "ethernet-phy-ieee802.3-c22";
+>>>>  =C2=A0=C2=A0 reg =3D <1>;
+>>>> + reset-gpios =3D <&gpio4 23 GPIO_ACTIVE_HIGH>;
+>>>> + reset-assert-us =3D <30>;
+>>> Is there anything in the datasheet about needing a delay after the
+>>> reset? There is a DT property for this:
+>>>
+>>>  =C2=A0=C2=A0 reset-deassert-us:
+>>>  =C2=A0=C2=A0=C2=A0=C2=A0 description:
+>>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Delay after the reset was deasse=
+rted in microseconds. If
+>>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 this property is missing the del=
+ay will be skipped.
+>> is it the time until the PHY finished its post reset stabilization
+>> (datasheet to call it T2 "reset to SMI ready")?
+> The T2 ("Post reset stabilization time") in the datasheet is the time
+> "prior to MDC preamble for register access", that is defined with 2ms.
+> I did not use reset-deassert-us for it, because the first register
+> access does anyway occur much later (I measured 4000ms).
 >
-> Although the kernel bot already found a randconfig issue, it looks like
-> we need to add Kconfig dependencies like HAS_DMA, DMA_CMA etc.
+> And we have the same for T4, the "Post power-up stabilization time".
+> It is defined with a time of 50ms as "prior to MDC preamble for
+> register access". But also here we just know, the register access
+> happens much=C2=A0later - and treated it as enough.
 >
-> Also, I was thinking if we should rather add a new TEE subsystem
-> specific Kconfig option like: TEE_DMABUF_HEAPS which can then be used to
-> select whatever dependency is needed as well as act as a gating Kconfig
-> for relevant features.
-
-You mean something like this?
-
---- a/drivers/tee/Kconfig
-+++ b/drivers/tee/Kconfig
-@@ -13,6 +13,14 @@ menuconfig TEE
-
- if TEE
-
-+config TEE_DMABUF_HEAPS
-+       bool
-+       depends on HAS_DMA && DMABUF_HEAPS
-+
-+config TEE_STATIC_PROTMEM_POOL
-+       bool
-+       depends on HAS_IOMEM && TEE_DMABUF_HEAPS
-+
-
-Cheers,
-Jens
-
+> Formally, this may be valid to specify the 2ms as reset-deassert-us.
+> But since the first register access is so much later, I thought we can
+> save those 2ms.
 >
-> -Sumit
+> Are you fine with that?
+I don't insist on an additional "reset-deassert-us". The question was=20
+more about understanding.
 >
-> > +     } else if (shm->flags & TEE_SHM_DMA_BUF) {
-> >               struct tee_shm_dmabuf_ref *ref;
-> >
-> >               ref =3D container_of(shm, struct tee_shm_dmabuf_ref, shm)=
-;
-> > @@ -306,6 +320,62 @@ struct tee_shm *tee_shm_alloc_priv_buf(struct tee_=
-context *ctx, size_t size)
-> >  }
-> >  EXPORT_SYMBOL_GPL(tee_shm_alloc_priv_buf);
-> >
-> > +/**
-> > + * tee_shm_alloc_dma_mem() - Allocate DMA memory as shared memory obje=
-ct
-> > + * @ctx:     Context that allocates the shared memory
-> > + * @page_count:      Number of pages
-> > + *
-> > + * The allocated memory is expected to be lent (made inaccessible to t=
-he
-> > + * kernel) to the TEE while it's used and returned (accessible to the
-> > + * kernel again) before it's freed.
-> > + *
-> > + * This function should normally only be used internally in the TEE
-> > + * drivers.
-> > + *
-> > + * @returns a pointer to 'struct tee_shm'
-> > + */
-> > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
-> > +                                   size_t page_count)
-> > +{
-> > +     struct tee_device *teedev =3D ctx->teedev;
-> > +     struct tee_shm_dma_mem *dma_mem;
-> > +     dma_addr_t dma_addr;
-> > +     struct page *page;
-> > +
-> > +     if (!tee_device_get(teedev))
-> > +             return ERR_PTR(-EINVAL);
-> > +
-> > +     page =3D dma_alloc_pages(&teedev->dev, page_count * PAGE_SIZE,
-> > +                            &dma_addr, DMA_BIDIRECTIONAL, GFP_KERNEL);
-> > +     if (!page)
-> > +             goto err_put_teedev;
-> > +
-> > +     dma_mem =3D kzalloc(sizeof(*dma_mem), GFP_KERNEL);
-> > +     if (!dma_mem)
-> > +             goto err_free_pages;
-> > +
-> > +     refcount_set(&dma_mem->shm.refcount, 1);
-> > +     dma_mem->shm.ctx =3D ctx;
-> > +     dma_mem->shm.paddr =3D page_to_phys(page);
-> > +     dma_mem->dma_addr =3D dma_addr;
-> > +     dma_mem->page =3D page;
-> > +     dma_mem->shm.size =3D page_count * PAGE_SIZE;
-> > +     dma_mem->shm.flags =3D TEE_SHM_DMA_MEM;
-> > +
-> > +     teedev_ctx_get(ctx);
-> > +
-> > +     return &dma_mem->shm;
-> > +
-> > +err_free_pages:
-> > +     dma_free_pages(&teedev->dev, page_count * PAGE_SIZE, page, dma_ad=
-dr,
-> > +                    DMA_BIDIRECTIONAL);
-> > +err_put_teedev:
-> > +     tee_device_put(teedev);
-> > +
-> > +     return ERR_PTR(-ENOMEM);
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_shm_alloc_dma_mem);
-> > +
-> >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t =
-align,
-> >                            int (*shm_register)(struct tee_context *ctx,
-> >                                                struct tee_shm *shm,
-> > diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
-> > index 02c07f661349..925690e1020b 100644
-> > --- a/include/linux/tee_core.h
-> > +++ b/include/linux/tee_core.h
-> > @@ -29,6 +29,8 @@
-> >  #define TEE_SHM_POOL         BIT(2)  /* Memory allocated from pool */
-> >  #define TEE_SHM_PRIV         BIT(3)  /* Memory private to TEE driver *=
-/
-> >  #define TEE_SHM_DMA_BUF              BIT(4)  /* Memory with dma-buf ha=
-ndle */
-> > +#define TEE_SHM_DMA_MEM              BIT(5)  /* Memory allocated with =
-*/
-> > +                                     /* dma_alloc_pages() */
-> >
-> >  #define TEE_DEVICE_FLAG_REGISTERED   0x1
-> >  #define TEE_MAX_DEV_NAME_LEN         32
-> > @@ -310,6 +312,9 @@ void *tee_get_drvdata(struct tee_device *teedev);
-> >   */
-> >  struct tee_shm *tee_shm_alloc_priv_buf(struct tee_context *ctx, size_t=
- size);
-> >
-> > +struct tee_shm *tee_shm_alloc_dma_mem(struct tee_context *ctx,
-> > +                                   size_t page_count);
-> > +
-> >  int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t =
-align,
-> >                            int (*shm_register)(struct tee_context *ctx,
-> >                                                struct tee_shm *shm,
-> > --
-> > 2.43.0
-> >
+> Regards,
+> Christoph
+>
+>
+>>> Anyway:
+>>>
+>>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>>>
+>>>  =C2=A0=C2=A0=C2=A0=C2=A0 Andrew
+>>>
+
 
