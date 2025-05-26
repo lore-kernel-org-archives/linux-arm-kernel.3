@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A499C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 07:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C17C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 07:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zb65VUFaC3xu3xLyC+q/Y9QOfFVKsDX4tlUv2crmwV4=; b=2sZZuTns9HcepgeEqR99PRMyUt
-	99NUifO9QXQTKCIlspFiWHMJMyeV82PDDysGA9MguEZJcFmHIugMx7Yg/5Ai0fwuK3a0uXkTJE9zs
-	lN4EFcV12fq0TYBJnr5jjOIt2h482+MDXm72P/48pAD16dHA8M0NCiFf8Pyrf+crMO7BRVuf9JoYm
-	eUdchj9An4pDT0rLxTOpsGnSijQpCBZlVOb8A8NKs0YzgPGVzNu79AOwQaliax+wzmE1RRkj3EbyT
-	cd0B59aIHSWQQvVmxgy6sLMO0C8ZxCDOVscJ1X6M0PrGoBrMKXoLeQt822TTb2ix6ueqWXjSl8Hig
-	XKKmYQGw==;
+	bh=lTDE2wTWZMgeazVaiUjwUqBmNK0bFNpP2NUy4dywBoQ=; b=XE2GtZ44iprcfWTjLqcgmWRAK+
+	MYd+GiGqkK0dALwz/O9hcYihnK/O1PdGL7OdP44wceKQWyhfomtJ0xq+Tv+6Q5I3Jo4e8adXfjwFs
+	3t0MDV7vMxmfyPiug60i980Z3ljrvKu3pYI+/7/H6GzbDue9UzQAZ2z84C+1HhKXCru2MIsos8mnn
+	PrJdmaxCoCUqXUqlDn8P2fMACKdgxs9jS1mhp0hqt9aIPCUli6QW87ZDtEiWA0vVIsBUpD+hYY7FS
+	eV8dCzLetmHZRb/PX/1vlFD72krQTuIBUFPKQcB0dsUAERojzUhq4KlevDbLI26OMn5THutzO/MC6
+	cM/2VdcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJSJ9-00000008Hun-3mGY;
-	Mon, 26 May 2025 07:31:39 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1uJSLK-00000008IBJ-0aUO;
+	Mon, 26 May 2025 07:33:54 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJSGu-00000008Hii-1BY7;
-	Mon, 26 May 2025 07:29:21 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 660DC43A5B;
-	Mon, 26 May 2025 07:29:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748244557;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zb65VUFaC3xu3xLyC+q/Y9QOfFVKsDX4tlUv2crmwV4=;
-	b=aSAlUf7tUiqHJzsn2lhfPhYcFFkRTUFbo52Dzwpirmygk7yx5FN1GVXM+mtTsyXon7Hw59
-	UhADCs4R8i5USXcp3P9cicdaSkNxGVnviZuHEEptLEPU2Yf1o/XTXUbdayMB7gwWnXJHc/
-	Mi/bPmlTXYsIjwLDHW/28NPYlY7jGkM6B1uzzRWk0nh5empIZx4bY9tBtamH/PhY0xBYL1
-	zOScoSD9Nj61yNkJnybofqFa8Om4iv0jExy2kTwQCnd/YjHiSgxqimbdyLMY4gssdniLnP
-	bJ/+aOO/p+dQyK/lGM5d/q2Ao9FNdsJgnT+03SgDIVYioh4dchkjwjNxjylGsg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,  Daniel Lezcano
- <daniel.lezcano@linaro.org>,  Zhang Rui <rui.zhang@intel.com>,  Lukasz
- Luba <lukasz.luba@arm.com>,  Support Opensource
- <support.opensource@diasemi.com>,  Shawn Guo <shawnguo@kernel.org>,
-  Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team
- <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,  Niklas
- =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,  Geert
- Uytterhoeven
- <geert+renesas@glider.be>,  Magnus Damm <magnus.damm@gmail.com>,  Matthias
- Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  linux-kernel@vger.kernel.org,
-  kernel-janitors@vger.kernel.org,  linux-pm@vger.kernel.org,
-  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,
-  linux-renesas-soc@vger.kernel.org,  linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] thermal: Constify struct thermal_zone_device_ops
-In-Reply-To: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
-	(Christophe JAILLET's message of "Sun, 25 May 2025 11:40:04 +0200")
-References: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Mon, 26 May 2025 09:29:16 +0200
-Message-ID: <87v7pn3k4z.fsf@bootlin.com>
+	id 1uJSHh-00000008Hou-2GeR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 07:30:11 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54Q6SCL0005493;
+	Mon, 26 May 2025 09:29:50 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	lTDE2wTWZMgeazVaiUjwUqBmNK0bFNpP2NUy4dywBoQ=; b=ivq9k5wkkgImWz8e
+	OgYaMgLRKQm64L3kTznaiEm1CCggncqx/b5InZc+2pbSRvNaZvgF3SJu+n1ObOjj
+	ul0ZdGCnzuRBOAvzO94zqas9EueTrjE/orpcOEWu8kuOn1JI3V6srHR9YOqcbYOJ
+	/gWlrW9iwYlS0pYIvB6ksAkrDLeOOaYyIgG7q48MqgHDNiGtvznOzNLjjiwA0Wpv
+	SdjdNNYakOhzIQUSrdv7wO9rC5QdU9NG/ydi9GeEvP4QHi72GEzU4xbGrSFSvsYx
+	RoEL5IXYTbWr7qOopPaVOWSVHGLKwibxODLYlRhxlbvOFS3T4gQJ+5/2f+70fGNi
+	06hfuQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46u388npe0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 26 May 2025 09:29:50 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AC9A440048;
+	Mon, 26 May 2025 09:28:25 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C894EB2E883;
+	Mon, 26 May 2025 09:27:24 +0200 (CEST)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 26 May
+ 2025 09:27:23 +0200
+Message-ID: <9d3df716-343f-4c32-9e2e-2058bc1a9b6f@foss.st.com>
+Date: Mon, 26 May 2025 09:27:06 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdduieelvdculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefujghffgffkfggtgfgsehtqhertddtreejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepffeghfejtdefieeguddukedujeektdeihfelleeuieeuveehkedvleduheeivdefnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtoheptghhrhhishhtohhphhgvrdhjrghilhhlvghtseifrghnrgguohhordhfrhdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrghdprhgtphhtthhopehruhhirdiihhgrnhhgsehinhhtvghlrdgtohhmpdhrtghpthhtoheplhhukhgrshiirdhlu
- hgsrgesrghrmhdrtghomhdprhgtphhtthhopehsuhhpphhorhhtrdhophgvnhhsohhurhgtvgesughirghsvghmihdrtghomhdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggv
-X-GND-Sasl: miquel.raynal@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] ARM: dts: stm32: add support of stm32mp157f-dk2
+ board
+To: Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>,
+        <amelie.delaunay@foss.st.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Oleksij Rempel <o.rempel@pengutronix.de>,
+        Marc
+ Kleine-Budde <mkl@pengutronix.de>,
+        =?UTF-8?Q?Leonard_G=C3=B6hrs?=
+	<l.goehrs@pengutronix.de>,
+        Marek Vasut <marex@denx.de>, David Jander
+	<david@protonic.nl>,
+        Roan van Dijk <roan@protonic.nl>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250524100319.22521-1-himanshu.bhavani@siliconsignals.io>
+ <20250524100319.22521-2-himanshu.bhavani@siliconsignals.io>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20250524100319.22521-2-himanshu.bhavani@siliconsignals.io>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-26_04,2025-05-22_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_002920_456349_BE7B0A41 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250526_003009_919755_0DA29BF1 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,36 +106,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Himanshu
 
-On 25/05/2025 at 11:40:04 +02, Christophe JAILLET <christophe.jaillet@wanad=
-oo.fr> wrote:
-
-> 'struct thermal_zone_device_ops' are not modified in these drivers.
->
-> Constifying these structures moves some data to a read-only section, so
-> increases overall security, especially when the structure holds some
-> function pointers.
->
-> On a x86_64, with allmodconfig, as an example:
-> Before:
-> =3D=3D=3D=3D=3D=3D
->    text	   data	    bss	    dec	    hex	filename
->   28116	   5168	    128	  33412	   8284	drivers/thermal/armada_thermal.o
->
-> After:
-> =3D=3D=3D=3D=3D
->    text	   data	    bss	    dec	    hex	filename
->   28244	   5040	    128	  33412	   8284	drivers/thermal/armada_thermal.o
->
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+On 5/24/25 12:03, Himanshu Bhavani wrote:
+> STM32MP157F is similar to the STM32MP157C, so reuse the existing
+> stm32mp157c-dk2.dts as a base for the STM32MP157F-DK2 board.
+> 
+> Datasheet: https://www.st.com/resource/en/data_brief/stm32mp157f-dk2.pdf
+> Signed-off-by: Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>
 > ---
-> Compile tested only
-> ---
->  drivers/thermal/armada_thermal.c                        | 2 +-
+>   arch/arm/boot/dts/st/Makefile            |  3 ++-
+>   arch/arm/boot/dts/st/stm32mp157f-dk2.dts | 15 +++++++++++++++
+>   2 files changed, 17 insertions(+), 1 deletion(-)
+>   create mode 100644 arch/arm/boot/dts/st/stm32mp157f-dk2.dts
+> 
+> diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
+> index 60d55516f723..38179638e5eb 100644
+> --- a/arch/arm/boot/dts/st/Makefile
+> +++ b/arch/arm/boot/dts/st/Makefile
+> @@ -70,7 +70,8 @@ dtb-$(CONFIG_ARCH_STM32) += \
+>   	stm32mp157c-lxa-tac-gen2.dtb \
+>   	stm32mp157c-odyssey.dtb \
+>   	stm32mp157c-osd32mp1-red.dtb \
+> -	stm32mp157c-phycore-stm32mp1-3.dtb
+> +	stm32mp157c-phycore-stm32mp1-3.dtb \
+> +	stm32mp157f-dk2.dtb
+>   dtb-$(CONFIG_ARCH_U8500) += \
+>   	ste-snowball.dtb \
+>   	ste-hrefprev60-stuib.dtb \
+> diff --git a/arch/arm/boot/dts/st/stm32mp157f-dk2.dts b/arch/arm/boot/dts/st/stm32mp157f-dk2.dts
+> new file mode 100644
+> index 000000000000..ab406b2c44c1
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/st/stm32mp157f-dk2.dts
+> @@ -0,0 +1,15 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+> +/*
+> + * Copyright (C) 2025 Silicon Signals Pvt. Ltd.
+> + *
+> + * Author: Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "stm32mp157c-dk2.dts"
 
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com> # For Armada
+In this case what is the aim of this series if you just use stm32mp157C 
+devicetree ?
 
-Thanks,
-Miqu=C3=A8l
+ST people (mainly Amélie) are preparing a full support of 
+STM32MP157F-DK2 leveraging the F variant compare to the C variant. 
+Series will be sent this week.
+
+Regards
+Alex
+
+> +
+> +/ {
+> +	model = "STMicroelectronics STM32MP157F-DK2 Discovery Board";
+> +	compatible = "st,stm32mp157f-dk2", "st,stm32mp157";
+> +};
 
