@@ -4,95 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5D2C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 19:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8A4C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 19:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zM/XnPPB9BX6DI+X/tdBdbdDGUH15z/crP7yYd1Fx8=; b=rjcBdMWFHxv5ACc/Dydft4vyss
-	bIcvM9Xu2WQXYWlyriY6J5dq12uT6br2F5Da7oBZNAvhuOLNUPR+jKHyWtwPLGwc1HOeQvqxdEGz+
-	9p5WA7dIvjGKCNEB1s7ALhdgenj4rMc+hSxLziNhvzzSVLchYEjnyPPs45u1UdHDL6wcZoxR5LeaV
-	V3s8SOCCx3Rz9fTlQVGB8PIumSybHBq/EZWgHxx4EV8uhzNP9ayIskDTC+Zn2/GK6QYtyoLdBy6S3
-	Dt8ik5aTuQN420adyRyqTmvLfGVVWTXp1ejXX5wLg51QhmFPgtEMyunZkfKsnUaWtbseYivuMDlXn
-	qq4FMmSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5wt6nc3zi1eWn8nXL6of6Z1W5AiDpPlyQKrI8HPWOTw=; b=vcevZ5aA4bx6zgyc/iCX/yduTT
+	XuSXfyN94QcHMDvO8uYdNQFuDO6HvZyWQTaaMDe3cpqaGAA7hONJA+2NaYge2yaDpv4XD6xsz7Nts
+	fEZviGyFke8bPNxslxAmvHRXJZjr0XzkDHqjf0tFLZrzX0QGb6RAU4PCtQrTJOAwkKj6pVKsWgYUr
+	nOK2LPcKriJznWgAQtZnEFWtTJTH2Y/rtYVJQbeDJXyNRHWAyxbsG8Q/M6ncJYFCOrWDaHPt41U4o
+	oZ4OHuuB+fmmAIftxA12rhvv+okHMi5jz7/NZ0pFjePz2HeflOwj/Tj7lQVabYRyA/8uG3AY+U2sP
+	478ApANA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJdAi-00000009PZa-0ASg;
-	Mon, 26 May 2025 19:07:40 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1uJdUx-00000009QEI-0DyF;
+	Mon, 26 May 2025 19:28:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJd8Z-00000009PRB-19bj
+	id 1uJdSp-00000009Q7D-0lJv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 19:05:28 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7c55500d08cso229752785a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 12:05:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748286326; x=1748891126; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9zM/XnPPB9BX6DI+X/tdBdbdDGUH15z/crP7yYd1Fx8=;
-        b=IWC3J80KHM3FmibaDKV1Unf7z1Pf2RoFJ+zyEKcE5dxAawa6LbVm8vCNo9r4UrZ42o
-         ZYCB1vU2SAwxE1BLc/VdE6geap5WSSs0/BE2Ly92zzPuKzAO5SJidI4U5pBHGpaGo2HC
-         F9a141ruXFdrhbQ0jPxJh68zkRHkZwanDcFVjJw+zIbQWRLZ7LX2/KwS925d+L1diAR3
-         fSbSof/rGYW5TdfHZLmAazoyOLRixsSOnjDXtKtQkshAWd2yd8PeV4hAL64pwbG6Y3ZO
-         SvQiZTLOvi4EbiBHNnppzvvUSNwbt4zTaYjWhunP+tGRoBbnWgzipTHbo7b0HyMrglaq
-         00KA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748286326; x=1748891126;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9zM/XnPPB9BX6DI+X/tdBdbdDGUH15z/crP7yYd1Fx8=;
-        b=hMRov6ui83xagUCGqGOCKP2IltCGaNzZe8IfeJOB64pY7z9GPek3PboehuASN0XpRu
-         nJG70G+x5dWeVPWghGsZ2UhyFMRvE/49SmKrPuL7W3Qj+yKS7Egm4PvBjUSU1ip4njmL
-         AA84+iIxwSO0r3UJSjbnlqbJwGSTfUTVo3w7m5l1UDdG4EUXtRp6fll9L+SCvfbSJIGu
-         zIPuV7F9epExGgxGmdKzdMIBZVCT1xxbuOoaGtAK8nFis6f+wv4dMwwH2dXKFuxqwwr9
-         212vJPDNelA2HDIzk2oHeNiB7HFyj604n30TKw5oIW2B+vsds+5YXYfHJUAMH7Dih1Yz
-         5fLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVYQQiKfVcquDSYj8t7KtjO0w7CKrSenanN2sVuhzowqmfYo1ohAsEz8axJd6OpP9O4eZmUKgPZOZEMozzoHL5g@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+W79arEaQ1pyH7HYjAoByZ+3YO3cG3EKz4HXyT3nY2p5L9cKR
-	eHgOxLovRqYFxkeytScLr0n3/iMsuh+UTxK628QKAXUb0HRO59/difdDOWu6HIYe0Z3RuA7qBlB
-	ZH2la+1iGgUq9eLFoj2iY5AskacCKSek=
-X-Gm-Gg: ASbGnctT4jZ2+aBrJkWytz3wY66N5f5Jv6BOuXd6fkMZJ5H3ufaDgf+c/jNFJdWcWb2
-	+YNHXbAqqYGdYa0t/+V8+el5FnG3hWs6u0VbKb++MHpLabh+v1M5Hl/ST8/Sdq1PZ1ENGLLq64B
-	57Jm0pjDQ49sPtOrtPzLJrEDWBYGXPv5yVDHfu+ogenIHe
-X-Google-Smtp-Source: AGHT+IEzr1D0xPyVVTqgXnkaxzNsP6OY+ZVcUjK4Q6hjbSAkhccfV9zIJl49kHyZ9kmtGtW7FN9E3h5L1m5LIHvS+oA=
-X-Received: by 2002:a05:620a:4505:b0:7c5:a55b:fa6c with SMTP id
- af79cd13be357-7ceecc2b525mr1410143685a.38.1748286326033; Mon, 26 May 2025
- 12:05:26 -0700 (PDT)
+	Mon, 26 May 2025 19:26:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A4BCA5C4836;
+	Mon, 26 May 2025 19:24:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF8ABC4CEE7;
+	Mon, 26 May 2025 19:26:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748287581;
+	bh=FaL621iJbj/67K/Av8Le03EGK0pHPFx/zpQdIWk/TYY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=VoHTb2Mf099/zglBpx1ECF8UqZrtYZLkXKlHE9VLsMGd/wpLIgJaBD+uJvdbrFNKP
+	 5/OYLBHG3jfTOUuKoajriDsjOsScVYJj1+z1aKXyn194xaoC1MBAl4oElXvtF3KgJz
+	 frJiTXEpUA1c6jbjR2sMbdGvds4O+/HKAww05iW3R2MSKY/BsSH/VdOqWVKWpIkOe4
+	 4EGi1vlVcbb4tQTDBuaB+fjjGlptyMvOd4jwsOiaXKtJWpgiIZHu0XMZJ2BUxfgEcG
+	 FmXeFpWig2tcgxTzfTR1gMdaRuXd/6WFBj/xCBU8h5vc1YtF//UYdNMk7yFGeXtJZS
+	 9vY7WAAeqdb7w==
+Date: Mon, 26 May 2025 14:26:19 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20250526002924.2567843-1-james.hilliard1@gmail.com>
- <20250526002924.2567843-2-james.hilliard1@gmail.com> <aDQgmJMIkkQ922Bd@shell.armlinux.org.uk>
- <4a2c60a2-03a7-43b8-9f40-ea2b0a3c4154@lunn.ch>
-In-Reply-To: <4a2c60a2-03a7-43b8-9f40-ea2b0a3c4154@lunn.ch>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 26 May 2025 13:05:14 -0600
-X-Gm-Features: AX0GCFufJmB1WnNeY40vi62AOOmldrFuv3uM6nfuatEvw8W1yQgwUxsIUPzPUZI
-Message-ID: <CADvTj4qvu+FCP1AzMx6xFsFXVuo=6s0UBCLSt7_ok3War09BNA@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/2] net: stmmac: dwmac-sun8i: Allow runtime
- AC200/AC300 phy selection
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, netdev@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Yinggang Gu <guyinggang@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Yanteng Si <si.yanteng@linux.dev>, Feiyang Chen <chenfeiyang@loongson.cn>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Jinjie Ruan <ruanjinjie@huawei.com>, Paul Kocialkowski <paulk@sys-base.io>, 
-	linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, Jakub Kicinski <kuba@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+ Samuel Holland <samuel@sholland.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ devicetree@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, netdev@vger.kernel.org
+To: James Hilliard <james.hilliard1@gmail.com>
+In-Reply-To: <20250526182939.2593553-3-james.hilliard1@gmail.com>
+References: <20250526182939.2593553-1-james.hilliard1@gmail.com>
+ <20250526182939.2593553-3-james.hilliard1@gmail.com>
+Message-Id: <174828757941.2206833.11560250898621466497.robh@kernel.org>
+Subject: Re: [PATCH v1 3/3] dt-bindings: net: sun8i-emac: Add AC300 EMAC1
+ nvmem phy selection
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_120527_317521_AC95D7F2 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250526_122623_268924_85DF25B8 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,62 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 8:14=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Mon, May 26, 2025 at 09:04:40AM +0100, Russell King (Oracle) wrote:
-> > On Sun, May 25, 2025 at 06:29:22PM -0600, James Hilliard wrote:
-> > > +   if (!nvmem_cell_read_u16(dev, "ac300", &val)) {
-> > > +           const char *phy_name =3D (val & AC300_KEY) ? "ac300" : "a=
-c200";
-> > > +           int index =3D of_property_match_string(dev->of_node, "phy=
--names", phy_name);
-> > > +           if (index < 0) {
-> > > +                   dev_err(dev, "PHY name not found in device tree\n=
-");
-> > > +                   return -EINVAL;
-> > > +           }
-> > > +
-> > > +           plat_dat->phy_node =3D of_parse_phandle(dev->of_node, "ph=
-ys", index);
-> > > +           if (!plat_dat->phy_node) {
-> > > +                   dev_err(dev, "Failed to get PHY node from phys pr=
-operty\n");
-> > > +                   return -EINVAL;
-> > > +           }
-> > > +   }
-> >
-> > 1. You are re-using the drivers/phy binding for ethernet PHYs driven by
-> >    phylib here.
-> > 2. You need to update
-> >    Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> >    in a separate patch.
->
-> A real user, i.e. a patch to a .dts file, would also be good.
 
-That will be added that down the line, for now I added an example in the do=
-cs:
-https://lore.kernel.org/netdev/20250526182939.2593553-3-james.hilliard1@gma=
-il.com/
+On Mon, 26 May 2025 12:29:36 -0600, James Hilliard wrote:
+> The Allwinner H616 EMAC1 can be connected to an on-die AC200 or AC300
+> PHY depending upon the silicon variant.
+> 
+> Add a new allwinner,sun50i-h616-emac1 compatible and example, support
+> for the allwinner,sun50i-h616-emac1 will be added later on.
+> 
+> Add nvmem-cells and nvmem-cell-names properties for the ac300 efuse
+> based phy selection.
+> 
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>  .../net/allwinner,sun8i-a83t-emac.yaml        | 42 +++++++++++++++++++
+>  1 file changed, 42 insertions(+)
+> 
 
-Currently there's a few other drivers needed to fully bring up the h616 ema=
-c1
-with AC200/AC300 PHY's such as PWM driver support.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-i.e. this(which will also need a few additional patches for the H616
-PWM variant):
-https://lore.kernel.org/all/20250427142500.151925-3-privatesub2@gmail.com/
+yamllint warnings/errors:
 
-I'm currently doing most of the PHY initialization in u-boot to simplify te=
-sting
-of the efuse based PHY selection logic in the kernel. I'm sending this
-separately as a number of subsequent drivers for kernel side PHY
-initialization will be dependent upon specific PHY's being discovered at
-runtime via the ac300 efuse bit.
+dtschema/dtc warnings/errors:
+Error: Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.example.dts:219.27-28 syntax error
+FATAL ERROR: Unable to parse input tree
+make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1519: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-I've currently verified this works on AC200 and AC300 boards by checking
-that the appropriate phy address is used(address 0 on AC300 and address 1
-on AC200).
+doc reference errors (make refcheckdocs):
 
->
->   Andrew
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250526182939.2593553-3-james.hilliard1@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
