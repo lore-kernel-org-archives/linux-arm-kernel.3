@@ -4,77 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A685C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 13:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096B0C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 14:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j5Ys7U0q0MRpx4hKPR1VZIRhRMAFtbXbfqxLP6XVf6Q=; b=3cwAnHFzxuLsw33iJYGcQXtvVA
-	3sJIXJAc8/nblx3GaCznLtauC6DD3yUerYGzEAaPd/AMBYHBvnN5F0+NhGFNCcICq0ehSOJajnOWg
-	2v5giOmsl4RQEUeB9xN9GMvr2zGjL/1jaKzpY+CKW2Rbd1+whpk55FdPYSZC6KGSUdvqvSaTtpjaO
-	wMxRyDol5sJDffQzUaKN/THmwHQKCvrwXlL1UXEB2BY5mCmr2+hbitzhpPdWkXbYeUed2mSKNpcGa
-	aOgRsGSy51MDUxaqdEh4t6Q/tUeRf6P38c6jMxpGL/yc8mPdBG3UZRyTuv29MKQ0KIl9wrcmny53e
-	Q2+6XVVg==;
+	bh=Hd7XpHLf0CW72AgAIffk2IVyTpS7tPkSdxzWGyhkfgU=; b=D5rzNtzKRSUxPUb511QWIqd+FG
+	87rDHrJnThmgX6cg+AbRgACLOsOlHWyXWntpvelXvWkDAf6pQ97JoCErqQ+2eAnlze4/6ECREGMmV
+	GI/pwqXso9gbh6aNLIHTsUm9V04YcpkRUrhPhKNttZI2VN9jlxrhUatuXocAZiK3yEgimYOfhc15E
+	E9O/LPeTXdFYqHj6C0/Fh05Gs4bpEWKCQnoyLr6IS0V4lyQ496KSvjQfEbbr2wLifQ3j4BjJCEbq0
+	fSQJTSrmShNhYkeE5I4QQGgjSNRLi7riZxTXS/rUmMgF0XkaTDlfy3u41xtqWpW4GAosib1V2bgvJ
+	tKo6M9LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJYCd-00000008vkE-2aql;
-	Mon, 26 May 2025 13:49:19 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uJYSO-00000008xYl-04Ex;
+	Mon, 26 May 2025 14:05:36 +0000
+Received: from mail-vi1eur02on20708.outbound.protection.outlook.com ([2a01:111:f403:2607::708] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJYAV-00000008vX2-1dcP;
-	Mon, 26 May 2025 13:47:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 996A2A4F302;
-	Mon, 26 May 2025 13:47:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37E36C4CEE7;
-	Mon, 26 May 2025 13:47:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748267226;
-	bh=+uw55Nbvzmy9FIP+DbRI7fubC+YGBHVWZbVdo3cwGXk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KFET7oiZCv2S5pqcYt2OWuU+DnRfYohENWFHzO/Tcht2eH6zoID3fSUPZXwerY66r
-	 IUM0Zrglcad3bUC9ID2bRYC1Kspi/rN52PNt2eHMeH68jhDG/kJo3Wy+BXkiuImvUJ
-	 mikk9wzRVHk5/Z87IAVRaUejfFTPvp9nEGvKYRDk4UELKkYlvqYABUuzvHSiiEw2pM
-	 Kh93BTRBXrHg4AvarAYkvQTPPJ5hHC/MW5hn6TTW07f9l0w3g3wD5WEcoxcDzt/tcP
-	 vbp6fXV5PqQiBfN3lMe6Eh/HZNEm+n+IUChv2x1cc3ol4osNC6io0daB3dmVgA4Y6V
-	 5ZS5FKs+Fkw+A==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1uJYAU-000000006H8-3uM7;
-	Mon, 26 May 2025 15:47:07 +0200
-Date: Mon, 26 May 2025 15:47:06 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Qiang Yu <quic_qianyu@quicinc.com>,
-	Wenbin Yao <quic_wenbyao@quicinc.com>, catalin.marinas@arm.com,
-	will@kernel.org, linux-arm-kernel@lists.infradead.org,
-	andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, vkoul@kernel.org, kishon@kernel.org,
-	sfr@canb.auug.org.au, linux-phy@lists.infradead.org,
-	krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com,
-	quic_mrana@quicinc.com, quic_cang@quicinc.com,
-	Johan Hovold <johan+linaro@kernel.org>,
-	Abel Vesa <abel.vesa@linaro.org>
-Subject: Re: [PATCH v3 5/5] phy: qcom: qmp-pcie: add x1e80100 qref supplies
-Message-ID: <aDRw2rJ39t9W10YG@hovoldconsulting.com>
-References: <20250508081514.3227956-1-quic_wenbyao@quicinc.com>
- <20250508081514.3227956-6-quic_wenbyao@quicinc.com>
- <aBxpMuFGKgWrw1TV@hovoldconsulting.com>
- <5fd4abe7-3621-4119-9482-de823b247b0d@quicinc.com>
- <aBx9LB_qQIvA0bj8@hovoldconsulting.com>
- <55a85622-fe33-4b5f-81b2-4a4270fab680@oss.qualcomm.com>
+	id 1uJYQE-00000008xHY-0G6X
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 14:03:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xWITTm/ppYPTyh462kitszaIMuQS85yef4IrGAPBEL3H7FN01AaiNnRpZEQYAyDjr8tADktkcc4GOzSkxQGiWX4J8B0Spvhvyr32jg6zI/hjTbnTmSFu2DdqNLtakBEsPaRG7EuVXy4doA7/XJySMO9d//XlyENpg8TF+JtKgTis1pgBaDi7RlbLFiPf1idB12j67LNAuesUXobDkzb8x4kIGKZzn0GlbnYmDLAuNQ56/qk+qesTjskAvxnW+L7guTy7NEuvniI+aHaBGSVF2XvGzsQVjns+zTsDZUlHj6NM1dzGDdT3NZy246Uwe0s99dudx3CycGVj60rXr2ESEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Hd7XpHLf0CW72AgAIffk2IVyTpS7tPkSdxzWGyhkfgU=;
+ b=mi3kRGjjVuOFoB7xOkycOL09h55Ld5icWsOGmNA35PiUiBE2m5wgFaAQsUG/MxnMb3zasOGMP5IZiNKXhYMhmsaUvUTVLspklgfAjBRmtVZq1YFQoT0Asu5usjVLTEhOBVQTkeXL+v1mZYbeiTXj33SNzhPP0Bcmje9KTPKDQRrc8NGc2MrJ+Sk8umdt7g2OUJFGlPER/GJExoxcUFQv8qj+0W/TLaK/JNF6gLXCueMttIt72ybGNVeEpXxmL6N52Xzz06LCl/JsKsnvz4Sx1FGv6H+JOl9U9IPBWyeFyiYQWNra94c+Cq/filqi9f027iOTtsMV8R9f/W6SBcu0mg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Hd7XpHLf0CW72AgAIffk2IVyTpS7tPkSdxzWGyhkfgU=;
+ b=r9Lg50XhQmwJjnsGOhvA17ibp3YuaYCKcJHzj1w+JpXt169My1GmCIhKBguTT7XIVNE1w71b1RwNPI8xXVAAEeJ5PK3SetcjUvLkVCYqgxSTkGuikYFkB5c3Llf6tMHKR0nS6iBuStgvRLH6b4EophpHVuXcMPCsbyGyuMQNEIaWvUA4tty+mYa45U22qZKJpwdTPNqIeeOSowgU6sBFhFREsL4nwu6+SH4RnekiyaYnqeEKoB7ofU9RroVzEmZLGYID61fUKykrgmNW77cD1XxwKa13A9HHMPaw1SR78iGZXqbzbEyNtlY5Ka2XVpjk6Sm/9BRplH6U0+k7Y9KSPg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
+ by VI1P195MB0512.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:152::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.24; Mon, 26 May
+ 2025 14:03:11 +0000
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::369c:a760:5bf9:8d4a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::369c:a760:5bf9:8d4a%4]) with mapi id 15.20.8746.030; Mon, 26 May 2025
+ 14:03:10 +0000
+Message-ID: <eae561e2-a600-4d68-994d-6f619a7c86b6@phytec.de>
+Date: Mon, 26 May 2025 17:03:08 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am642-phyboard-electra: Fix PRU-ICSSG
+ Ethernet ports
+To: Vignesh Raghavendra <vigneshr@ti.com>, nm@ti.com, kristo@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+References: <20250521053339.1751844-1-w.egorov@phytec.de>
+ <4f660adb-1cb4-4bcf-9d1c-c13e62818f07@ti.com>
+Content-Language: en-US
+From: Wadim Egorov <w.egorov@phytec.de>
+In-Reply-To: <4f660adb-1cb4-4bcf-9d1c-c13e62818f07@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR0502CA0022.eurprd05.prod.outlook.com
+ (2603:10a6:803:1::35) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:4b3::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <55a85622-fe33-4b5f-81b2-4a4270fab680@oss.qualcomm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|VI1P195MB0512:EE_
+X-MS-Office365-Filtering-Correlation-Id: b92bc5b4-c5a8-4247-af9d-08dd9c5e0c59
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y3VtR2hXOEtZS2JOcEU5T2p5aHgzZ0hNOENybnowYTJLWjJHMWtlYXhlK0J0?=
+ =?utf-8?B?VmQ2dHhXSUwxVzFzajJjRzFLZS9JNXEvSG9MdWZuVHlKUGdDdVpncjg0bkpC?=
+ =?utf-8?B?RExTZFIyQlRpajVDdnBLdUQ1ZTY3eDVLU3V3bklPOTc2RHppbGUyZXNydCtj?=
+ =?utf-8?B?N3ZpK3JaTE1odWhnWGw4UzhMTTA4ZEhtaytaOHZTbGl6R01rV25ObDh1ZjVv?=
+ =?utf-8?B?YzVSRFpBUnR3d1VxU1hRNVQ1RERHUWMyM3NGZ0hlaURrSkZ5WjdkdjNQSkVp?=
+ =?utf-8?B?eFdaZXdZczlhVUh6cVZIOFpFNG9IVk1zUTJLWElOT0lmVlNFVjd2SS9GVUhn?=
+ =?utf-8?B?Z1hzbm5JNHVuNWFEczU1NU5GMHlxTldkclJYWnZNU2V4T3JYS0lUL2Z1TXhJ?=
+ =?utf-8?B?S2lHK283VVZVYlJGNXN5T3U3Y0NScXpmbUhOeTBpNm5VbG1lTDV3NVdyQU9Y?=
+ =?utf-8?B?MHZhMzRnOE90b3drYTBSeFRlbjBhNU9RVDdpT1ZPY1RWU1JvSzJuNi9CRUth?=
+ =?utf-8?B?cll5ak93dGVMQmdIYzY2aVVHbmFTaDN1SXJuWXV0ZEthZENNZ0k0Q0pWWTBF?=
+ =?utf-8?B?WFVmbVBYbGFxeVp2a3pkZEtMNWptSXdYVWwwalJEa09HekY2dnE5b0VucXBp?=
+ =?utf-8?B?UGxhRVk2aEVsK0N2dDYzc2M5YXJJdjF3cFIxOEFVUHJ6RjllNTBjVzExaVI3?=
+ =?utf-8?B?eFpXYjlkeGN2TkpmaHBTMm1KdS8yTWZPcm5lL1hHejFzdERwU1AzNGFobTlS?=
+ =?utf-8?B?L3V1YmFsVUVZbzRQelhZME5EaFJvZm0rWUJiMkJYejBVY0VQck9pbHdqbzZ2?=
+ =?utf-8?B?eWduZG1ObnRWOXlaODd0NWpvS01hMU1HVmNDYW14MVNPWmE2VUE4K1AvWmlv?=
+ =?utf-8?B?aUtYTEVFN1JrUU5nMThrWEQyenRtUzUxVGN0d1BmdlVxM0lxOGp0TUNPREps?=
+ =?utf-8?B?YzVPKzkyM1JVbXRabnZjKzZ4ZGhISVNyeDZFT0ZiSWtIWktpT2JFeVdRNDY3?=
+ =?utf-8?B?cEc5YWFyMGdkNTFoUDduUmdrSlF1MnlML1Ezb0xYYmpSa2k5M2Jjbmc0ZWJT?=
+ =?utf-8?B?RHZ5b1lqVHZLUTNWMjNKUzROMUszU2pHUTQ1TllGdEhFdWtzaTBUemwydHNu?=
+ =?utf-8?B?M2o4OG9zS2IwRmxPNFluSGUva0RoM09memxSNFRtVzRlRDFyejA3L092Q05m?=
+ =?utf-8?B?UytpTzBzRG9IZllZUVZwOWFOcWRXVk1LNDFZNlZTbkd2L1dmNU9pT0ZpVi9m?=
+ =?utf-8?B?ajcraUM5a2FiVzV5elJLR3dvelczRFhoT2ZZYldkamJjekFVNWdHUENpY3dF?=
+ =?utf-8?B?MG1xcTYxNUdscVhLNHBPLzVUL3hTLzZremJlZzZYa1ZTMjV3aEJXUUNwRUFm?=
+ =?utf-8?B?UUFkelBpYTFxVjJqbGt3cjdYWVVpNUEwUm1yc1hxUjd6K096aERSZFJvVU5W?=
+ =?utf-8?B?MlJXVmhDU3JjRy9mUUUwYlRYVFNreVpVUWFrUHNJN2hxWEZZZk1nb3p3eUUy?=
+ =?utf-8?B?dUptSFd4bnVrNmxSTWNvc0IxN1FHVElwVmcyeDZiYnlzYkhUdDdkSVdHbS84?=
+ =?utf-8?B?eTFwaVlPS3JScWtvaUdGNG5mNDk1OGFwSVJvcklFSFAya00yUjh3Q0w4VlVO?=
+ =?utf-8?B?R05SVnNjQ0hJRklaMnBObDAxb01PVXYra0RncEpoZ0w5VVA0WURtWmFGRlpG?=
+ =?utf-8?B?Z1RaaTlwR0RZZFp3M3U1YzV4YkNiNG9Wa2pvZjM0MEpNQzcvN1A2MElNQnJy?=
+ =?utf-8?B?Rk5BakJhMUhpVWJscmFnZnpzU0x2Q3orcngyUDkyeEhORWZNRUprVGhPOWlm?=
+ =?utf-8?B?ZEgwWW40SHpOWStVN1ptRWo4SnhtcHVlbjBKN3ppUXIrRFVIZGk5eXQrQ3JO?=
+ =?utf-8?B?bVFSR21YTitrc3dGb2p5WTFiaU9nYjZVbG5FVS9maTl0MUtMSDJmNjBDSlNH?=
+ =?utf-8?Q?DRardiA+6sU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OWlOZ20vRzhoc3J1ZlJRYWhEczYyTlVpWCtHQlk5WnNISnNpUHI5S1k5WFR3?=
+ =?utf-8?B?UWhYT21CTnF1dmo3dU8rbE1mWmV1QzIzMW5VTFliaHdTcHJseURyMWZXM2Nq?=
+ =?utf-8?B?eE14RTdoS0twOVgrZGhCSjZ1QVczYm5Bd0p1bTV6eGtrKzg2b3FUZ1FiNTlH?=
+ =?utf-8?B?UGg5V2F1ajJMSEt3OFkzTW1hL1pCbTJCT1pJYjlyY3lkak9XN0Z6RmFrdzBi?=
+ =?utf-8?B?RHMvS0ZrNzJMVjhlN1NNYU90U0dIOUMvTWhnYU1sQUVvbUFMeEJtclIxZ0ph?=
+ =?utf-8?B?c2pnam9WQ0xpaHE4b1NJVkFiSGNLMk1VM2s4NWdObC9oVjVwR2prWW12REky?=
+ =?utf-8?B?dUNXQnIzWU80N1dEcjJ3R21hdzFzYm8rSEFBT1pITjkzdW1mRE96K2k5WWp0?=
+ =?utf-8?B?OEhKaVQwaEZNWWNmVjlJOERLY0xxTklCeFdyNWthS0dxK2N0ZlpPUkhwczQx?=
+ =?utf-8?B?ZU94cGhlcUNsZEJwTHFSa3hlOFJqMjhrSGJESzVJTmdDdzJ4RUs0Uml3Q0RG?=
+ =?utf-8?B?YkdjclF0Zmh1VW1aMU55RGhWcDB4NGtocmZWQ2VEVEVYQTVKWU5TZTVLWWg0?=
+ =?utf-8?B?WVZ2aEs1YVQ4eWNGTCtpNjAwbkJZVWZUWk9UMG0wN3p5NW9uK2RDNjJ2Rmti?=
+ =?utf-8?B?eXp0STN4Z1ZWMzFSdFkrY0tHSkl2WDZlQkVWaC9LTWxZYmtkQVMwdm43SUpm?=
+ =?utf-8?B?SWxoV3VkYjJpYmRjVlN1M21CeUtqZElKdFhYeVg5alBDVFBFUE9xVXRzb0gx?=
+ =?utf-8?B?cG1jSGtuR1N6UDdFbE9LVThTVzVnYklUVmNISmRhRkU2YTNYUG5vLy9BN0ly?=
+ =?utf-8?B?UlJjZWU1MWlqclRvYXdha3VoQ0FOVTNOb2tnQ0pQbGxQTVJoeWgzZ0RtZkNZ?=
+ =?utf-8?B?eVdwelM3U3RjTjdPUGxuUU9pRmZieEo1WUZzbzhsNmZrc3ExOUFyT1lrYTF3?=
+ =?utf-8?B?VjN0elpSQUZweHNwM2tWbzJ4VjBoWmJ3dEgxdStkalViOGc1SDI2TkphcmQz?=
+ =?utf-8?B?NytGek45dXArT3BSWEZlS0FJd2dyN09XL3hOUzUwU1NOaFJnS21LbXFzS3lO?=
+ =?utf-8?B?eG1ZRlhaUzdROVY4eGUzRXpvQ2xqd3QrYmlvRkxaNFVNOTR1eFdpN1RZMWNF?=
+ =?utf-8?B?aXpPVDRSbVJuclN1YncxODRaN2M5VFE1OVROMGdXNkRqaENDczVva0M1dEQ2?=
+ =?utf-8?B?eXVmRkVtRmZrR0lnR3ZsRFo1Mk9Xa09jeThObUtjM0FGcHllS25IT3lPVVhs?=
+ =?utf-8?B?cmpmcGFlUmdXRmo1RDJZWE5UZmROOFZQNDJ0U1JKYy9qYm5QWnoreFJzd2po?=
+ =?utf-8?B?dzMvMVNQT2YvODlETHBpODUwZkE4emVtczNqaGU2Q1FEV2dabDZIekJaU0p5?=
+ =?utf-8?B?YzBKTnNkZE02anU5aW1qUERPV2FmLzlLUWg1aVdkQnJuSTRFU0NQWlEyUGY0?=
+ =?utf-8?B?cnJ5RkRqWExhbzEyRnpESWZjdSt1SThST2ZqZVZ3M0oxTWN6d0ZuT0FIcStp?=
+ =?utf-8?B?SjV6MW5BMjR5WHUyMnYrMk1WQ0FLOTNrUEwyY3dDenZISGxIT0hGN1Z6MTRm?=
+ =?utf-8?B?VVdGbktEa3hleC9Ybit4TDBSdjZ0SURYcXFiYlJPMGgzb1lad0FLRm5VZ3ds?=
+ =?utf-8?B?N1cveHNWeWpSQkVsYVhNNVhoT1RaR1h5dlh3YTdyckFtODdJd01QNmRLcE1Q?=
+ =?utf-8?B?QlU1bERrcE4wNldvNEtKeDJVRGJxS2U1ZnR1eHdPZUtqUTZsdENGdkg1bmph?=
+ =?utf-8?B?TEVTWGRxaUk0Slo1ZHh1b1ZhaDB0T2hBRWlzZFVmSWV1WFhwOFF1Vy9TRndB?=
+ =?utf-8?B?NzNlZis3K0F3eUNydkFucExwdElia2xDWFVyWklWT2dMcVJkdEswM3o1Sysr?=
+ =?utf-8?B?YVAvVFRCa1I5YU0yZHR6Nm1QNEtyc2xYbC8rd3M0bmpTTWxPcEMySnhrV3JG?=
+ =?utf-8?B?ai9tQUx5aEY2NXRGUXJmRGgram85RkVoYS9ISUg0UFB0b3kxd1A5UWhVUm1K?=
+ =?utf-8?B?LzU1cnQ2b1RSUDNuME1CYzFJODMvSVYweWdMOXR5Tkpad3BrUWxrU0lrTEYy?=
+ =?utf-8?B?b245eTViVzVBeTNMekRTZ2h4V1h2VndVQ1hvNFkrQUlMMEdVNGJVNHVGSjB1?=
+ =?utf-8?Q?DhZjkwrfvW9kY/wmIPloGo1R4?=
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: b92bc5b4-c5a8-4247-af9d-08dd9c5e0c59
+X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2025 14:03:10.6704
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GbrIcIW6SdYGhSNhRvhbu58eHwSFD2PYU4vgMNeIVqoQvCwwpOWLNpM3Zut+KQGb5ZpsgDOyB23368gKe28GrA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1P195MB0512
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_064707_565299_61CB23CD 
-X-CRM114-Status: GOOD (  25.63  )
+X-CRM114-CacheID: sfid-20250526_070322_463176_11AC3A8F 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,67 +178,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 10:03:18PM +0200, Konrad Dybcio wrote:
-> On 5/8/25 11:45 AM, Johan Hovold wrote:
-> > On Thu, May 08, 2025 at 04:50:30PM +0800, Qiang Yu wrote:
-> >> On 5/8/2025 4:20 PM, Johan Hovold wrote:
-
-> >>> This still looks wrong and you never replied to why these supplies
-> >>> shouldn't be handled by the tcsr clock driver that supplies these
-> >>> clocks:
-> >>>
-> >>> 	https://lore.kernel.org/lkml/aBHUmXx6N72_sCH9@hovoldconsulting.com/
-> > 
-> >> Sorry, I thought Konrad had convinced you.
-> > 
-> > IIRC, he just said you guys were told to add the QREF supply to the PHY.
-> > That's not an argument.
-> > 
-> >> If the TCSR driver manages these supplies, would it be possible for tscr
-> >> driver to recognize when it needs to turn vdda-qref on or off for a
-> >> specific PCIe port?
-> > 
-> > Sure, just add a lookup table to the driver and enable the required
-> > supplies when a ref clock is enabled.
-> > 
-> > As I mentioned in the other thread, the T14s has the following QREF
-> > supplies:
-> > 
-> > 	
-> > 	VDD_A_QREFS_1P2_A
-> > 	VDD_A_QREFS_1P2_B
-> > 
-> > 	VDD_A_QREFS_0P875_A
-> > 	VDD_A_QREFS_0P875_B
-> > 	VDD_A_QREFS_0P875_0
-> > 	VDD_A_QREFS_0P875_2
-> > 	VDD_A_QREFS_0P875_3
-> > 
-> > and it's not clear how these maps to the various consumer ref clocks,
-> > including the PCIe ones:
-> > 
-> > 	#define TCSR_PCIE_2L_4_CLKREF_EN
-> > 	#define TCSR_PCIE_2L_5_CLKREF_EN
-> > 	#define TCSR_PCIE_8L_CLKREF_EN
-> > 	#define TCSR_PCIE_4L_CLKREF_EN
-> > 
-> > That mapping can be done by the TCSR clock driver (which would also take
-> > care of the 1.2 V supplies).
+Am 26.05.25 um 08:32 schrieb Vignesh Raghavendra:
 > 
-> So we had an internal discussion about this and while it may work, it
-> would only do so for some SoCs, and maybe only on the surface, as the
-> wiring behind it is rather peculiar..
+> 
+> On 21/05/25 11:03, Wadim Egorov wrote:
+>> For the ICSSG PHYs to operate correctly, a 25 MHz reference clock must
+>> be supplied on CLKOUT0. Previously, our bootloader configured this
+>> clock, which is why the PRU Ethernet ports appeared to work, but the
+>> change never made it into the device tree.
+>>
+> 
+> Should this patch have a Fixes tag then?
 
-Care to expand on why it cannot be made to work generally?
+Yes,
 
-Also, what would the mapping of the above QREF supplies to PCIe PHYs
-even look like?
+Fixes: 87adfd1ab03a ("arm64: dts: ti: am642-phyboard-electra: Add 
+PRU-ICSSG nodes")
 
-> Plus, not all QREF consumers have a clock expressed in TCSR as of
-> right now.
+> 
+>> Add clock properties to make EXT_REFCLK1.CLKOUT0 output a 25MHz clock.
+>>
+>> Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts | 2 ++
+>>   1 file changed, 2 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+>> index f63c101b7d61..129524eb5b91 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+>> @@ -322,6 +322,8 @@ AM64X_IOPAD(0x0040, PIN_OUTPUT, 7)	/* (U21) GPMC0_AD1.GPIO0_16 */
+>>   &icssg0_mdio {
+>>   	pinctrl-names = "default";
+>>   	pinctrl-0 = <&icssg0_mdio_pins_default &clkout0_pins_default>;
+>> +	assigned-clocks = <&k3_clks 157 123>;
+>> +	assigned-clock-parents = <&k3_clks 157 125>;
+>>   	status = "okay";
+>>   
+>>   	icssg0_phy1: ethernet-phy@1 {
+> 
 
-Is that because there is no corresponding bit in the TCSR or simply
-because it has not been described yet?
-
-Johan
 
