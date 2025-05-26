@@ -4,106 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0F7C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 04:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABC6C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 05:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8HwyeamDWatlkP7EqD5HF6jocthWu4pobs08ZRbaQ+Q=; b=Vft1h7IvaA6tI8Wr99QQL6xevT
-	75/Pmfz2Am7DzLiv52wBrffPnKNJxyC3OuFheKjIwjl1rSKJt+8TwDZsd2SqrKvqq/gULDVz4FNQh
-	spOkDitXISV5DBCB3AX536WvbsO/bG/B/kjIfKRwFXamxxmQMakHlY4rcAoEK4btna/7bpxJJIl8b
-	eHwtNDimC//sFMYShOggjaFfb4P2/eOJ9fhgX84HffGsfYubut6h78qmKonCHDQjFW2QlWk6qRaTy
-	edGTi/Jh9d4p8Z7EDNYg8nKjWPRzcfREVYOTdYxcQkBiulIOtSaB1qX/YiM0ZwZHzxpeJL/q8/Lh3
-	e9XhodDA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DO4UKFcjT1jdMKNGMOOu+sLadecJqRP1bouop32CCm0=; b=efX5AMDLQagHgxMr6wU/6iXVvt
+	kpDfE2DSdlVGs+JLa01K8MR6Q+n6oUCow7DCNdRd3fNG/G8ijnITVC79BidH/SJL7v01hc4GRLrzy
+	bgVomYEa4TfqIOPQf3Q/qopLSxTagUmaA+PSIkEmWFScRsCm+ApHS9ASYnKXjRds+SH2YIW8BaHbt
+	k/YKYwuWj59ZKrsYiNErILgMYWxUVztfms0aBntAJKwfvF6+HLAb9gaFceVJBD6g714sqLYtHsHoq
+	aL+oUA7jYrehvhJGKWnF3hSbRcGogi4X32WeWYlXLaj6qsN3fiarnR+DFMdUzlT4z0pylgcecliLQ
+	5I5Wt6BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJPka-000000084hu-1Fm7;
-	Mon, 26 May 2025 04:47:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uJQTr-000000087YG-1wQo;
+	Mon, 26 May 2025 05:34:35 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJPiR-000000084dW-3MrH
+	id 1uJQRh-000000087Ff-3GlE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 04:45:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FC2742BA9;
-	Mon, 26 May 2025 04:45:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DA75C4CEE7;
-	Mon, 26 May 2025 04:45:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748234732;
-	bh=AAcG4TY7kbc6w9ebmhOXyaHALrMLG2J59cLauspG1+8=;
-	h=Date:Subject:From:To:References:In-Reply-To:From;
-	b=nCj7xz3fhB5ODqT7T6hFrMsSPlndnwGIzaVVZbSdOU1f05yRgsRUwccje8AoJsRF0
-	 p6McKOP6uWZ2E2JX1MmGD5wxh0ofLX1am9KrJMM4M86WGtx2sSjCHbLtmc97RTWtJg
-	 C60onsPYg1bXXJJqOqLkyofutKv+6gqQq9wsudao+eiYzPo32eJ1EZg763FRia44bc
-	 rqlUVJ9pit2kDGdeVC43MQPqTMTms4+iRkBhgNhPdzXwc/1IKyKN17b1M1FjMG05x1
-	 AU9Nb2z6LFVJeMlHslv8/XlD1kJzZV2ocu3m52GHreCybodUc2jB4+sTj3KrJis3oS
-	 qWLrj2oZalelQ==
-Message-ID: <15e3f752-3270-488f-b72d-c3cbd0f49c70@kernel.org>
-Date: Mon, 26 May 2025 06:45:29 +0200
+	Mon, 26 May 2025 05:32:23 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54Q5W96h2608394;
+	Mon, 26 May 2025 00:32:09 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1748237529;
+	bh=DO4UKFcjT1jdMKNGMOOu+sLadecJqRP1bouop32CCm0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=RtFiJnYd7nXxwSojuQIrd9mJgtNDVSvW+AGDmXTVJ19vlc3+816bilhY7/7m+vG1f
+	 2HD7EMgz8BfN0DLww5VD9VTMSLsjxHU4m/kzMFIVJtcUFxyLlqTRreooPydkElIPVk
+	 ZupVL31Wl2OeHaoP8CGE9KC8zHq//Hvn9q3wb+bM=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54Q5W9G14007162
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 26 May 2025 00:32:09 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 26
+ May 2025 00:32:09 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 26 May 2025 00:32:08 -0500
+Received: from [10.24.69.185] (dhcp-10-24-69-185.dhcp.ti.com [10.24.69.185])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54Q5W5HQ116398;
+	Mon, 26 May 2025 00:32:06 -0500
+Message-ID: <4f660adb-1cb4-4bcf-9d1c-c13e62818f07@ti.com>
+Date: Mon, 26 May 2025 11:02:05 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] Driver for Xilinx ZynqMP AXI Timeout Block (ATB)
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Maciej Andrzejewski <maciej.andrzejewski@m-works.net>,
- linux-arm-kernel@lists.infradead.org, Michal Simek <michal.simek@amd.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, maciej.andrzejewski@iceye.com
-References: <20250525195955.2843076-1-maciej.andrzejewski@m-works.net>
- <87943ef2-120f-429e-8de9-50df84caf71a@kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am642-phyboard-electra: Fix PRU-ICSSG
+ Ethernet ports
+To: Wadim Egorov <w.egorov@phytec.de>, <nm@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+References: <20250521053339.1751844-1-w.egorov@phytec.de>
+From: Vignesh Raghavendra <vigneshr@ti.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <87943ef2-120f-429e-8de9-50df84caf71a@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20250521053339.1751844-1-w.egorov@phytec.de>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_214536_056711_0ED4C35B 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20250525_223221_910872_D27F1A87 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,50 +86,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/05/2025 05:59, Krzysztof Kozlowski wrote:
 
-...
 
->> +
->> +	return ret;
->> +}
->> +
->> +/**
->> + * read_dts - Read DTS configuration for the driver
->> + * @config: Pointer to driver configuration
->> + * @return: 0 on success, otherwise error code
->> + */
->> +static int read_dts(struct device *dev, struct atb_config *config)
->> +{
->> +	struct device_node *np;
->> +
->> +	np = of_find_node_by_name(NULL, MOD_NAME);
+On 21/05/25 11:03, Wadim Egorov wrote:
+> For the ICSSG PHYs to operate correctly, a 25 MHz reference clock must
+> be supplied on CLKOUT0. Previously, our bootloader configured this
+> clock, which is why the PRU Ethernet ports appeared to work, but the
+> change never made it into the device tree.
 > 
-> No, you cannot do such stuff.
+
+Should this patch have a Fixes tag then?
+
+> Add clock properties to make EXT_REFCLK1.CLKOUT0 output a 25MHz clock.
 > 
-> Match properly your driver.
+> Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
+> ---
+>  arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
->> +	if (!np) {
->> +		dev_err(dev, "unable to find device tree node '%s'", MOD_NAME);
-> 
-> So you will print such error on every machine, x86, arm (other vendors,
-> like Qualcomm), riscv64?
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+> index f63c101b7d61..129524eb5b91 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+> @@ -322,6 +322,8 @@ AM64X_IOPAD(0x0040, PIN_OUTPUT, 7)	/* (U21) GPMC0_AD1.GPIO0_16 */
+>  &icssg0_mdio {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&icssg0_mdio_pins_default &clkout0_pins_default>;
+> +	assigned-clocks = <&k3_clks 157 123>;
+> +	assigned-clock-parents = <&k3_clks 157 125>;
+>  	status = "okay";
+>  
+>  	icssg0_phy1: ethernet-phy@1 {
 
-I missed the point you added a driver, so obviously this won't print
-messages needlessly, but it is just confusing. Looks not needed, because
-your device driver should bind to specific node. Why do you need it?
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
-Especially that now you defined undocumented ABI for the node name.
-
-> 
-> 
-> No, drop entirely.
-
-Try to find a recently reviewed driver and use it as your template. This
-entire code looks very different than others - including naming of
-functions.
-
-
-Best regards,
-Krzysztof
 
