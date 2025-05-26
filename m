@@ -4,65 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A31FC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 17:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA7DC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 18:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+bJusFc6Bh2W1sShrglX89wR39ATPmujO34pb8Ql680=; b=b2M3kN/lwZlJY50bZnO6IZ8QOw
-	WAfMJ7S7+clpUsushgzzK3inAD8RK5T0vO0/3eb+ejBSwqwxXKZC140eHtzl1dxjc1Kdrd0a195Y+
-	FMt1VBXVejU3oyJfV3usO6X7PUXYF6Asj80SHwr/Qw7Yr3UjknzYs2ctU/oWG2JiemLX5F3h/A3j5
-	Nl4rjts3aw29PTNtbTkXa0gzz409FSyQgoITfJu7fkQxQkXgp9mdIyDs1mhWmsUZYQtNoV7DbdkKs
-	+K7+6N/0S5dMSozu0t4TGYKc0IlFBGVJmTl9NQ3WaDgH4KGNL60SbmN/fUmcuOIE/fhOEeazTDV57
-	U2h5M9Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZLm2u+K+PI/38ypNwBYrTuGrq0xLDvMbTxRXLnz2xDI=; b=hUz7asBlBNG5dLyPQRR3bwP3lR
+	KMkJNTSUDaEWFtQLtst8BwsUlcPfO3YosU4lID0SKx2Tzzub/B3yPlDEBDs/h3pI2+pSCMRcLGtSr
+	HruxCnlBjlS5lNa93+sx6WQqE/ls+sgFi57ScTKBm2PkKTp9SfYnsPPyVJGPc6kecVQ/T/rhHWMdw
+	hDEbAChzpCVIp3SP2mhSkTJhWqdZ9tRcIuSUbzKMva9vNBcpumyoJYrvRaOhIf6/9e1bVRbj4UzC4
+	mZFvk3GVSs9v6zE5ccL+ZvGL0wDyZkDi3q+nDPT4LVLGNNhHVUpmJGzdTHbZ+egNwCT2caYTsOxCJ
+	DVU4NMBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJbgx-00000009KBt-07QH;
-	Mon, 26 May 2025 17:32:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uJcTG-00000009MNx-1lG5;
+	Mon, 26 May 2025 18:22:46 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJbeo-00000009K4V-30nq
+	id 1uJcR7-00000009MIW-3YOH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 17:30:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C307744EFE;
-	Mon, 26 May 2025 17:30:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FEFAC4CEE7;
-	Mon, 26 May 2025 17:30:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748280637;
-	bh=++BoeWAgoVok/kbNT/X+LVWuRHe4UOQ0Rg+rCYlkPWo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TLipo4G1A4/dTZ2yoky4OJWMqtN5wnK1+8zs1tLfjZ37azdeDbxOn33urpKYPSj8R
-	 x7hghE+gkHJurHCis31OgpI80DarhFDkMPw0/4AiMVbZvClX1y7PyF1nC0d0BSbhAd
-	 InmAs8Nl5SeHnJo1wJwaLb9l1FkvqhO7yrPEEFr3H8O/iZUe7OhGgRsevEOX6YfFnQ
-	 CavK9GJ7YdSG+0+b2oCttmiBak6d5qtFueohieqLA++qkwJxVGAGkJ5Q77QSOoRTRt
-	 EtI238iv70lZ6dUrXk4VuvHpvcBa+jMrRI6Fp3gF/jGMs1q+OCI8lBa2nCsKMKHWht
-	 w9rxZuU6LjWrg==
-Date: Mon, 26 May 2025 19:30:35 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Michael <michael@fossekall.de>
-Cc: Chen-Yu Tsai <wens@csie.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, regressions@lists.linux.dev
-Subject: Re: [REGRESSION] [BISECTED] drm/sun4i: hdmi: No HDMI output with
- BananaPI M1 on 6.9
-Message-ID: <20250526-refined-dog-of-blizzard-b48f11@houat>
-References: <aCJZmm8rC0RwbcBX@a98shuttle.de>
+	Mon, 26 May 2025 18:20:35 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a375888297so1663074f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 11:20:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1748283632; x=1748888432; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZLm2u+K+PI/38ypNwBYrTuGrq0xLDvMbTxRXLnz2xDI=;
+        b=R6nT6V/gxBJRJqvTfdpKvGeSXazrBVrpi55iT3F1Zpo2agBmetRl/IBZkW03OtYjbz
+         rnhAvGkvu+lSQetRu1ctvxvFZvQM1o/twSnQJsXh/CYVqVoSzu+5LYV8opZ8ebK67S7C
+         GrM3Xuh69cFq3FUa2AWXGvrl4oGu8UugcTVovWVPt0n8wU1AV2Df4f/bNugPSyDgOCB7
+         xm59zbFoKzmuSktPp350UGm5FEhGYY0wUvDh3fvZUHbLLZlnybxijasg3AtKEcvLha4u
+         gEJUBwkY3fy0omA5Vtttwo8A7DhVcCoC+nqcwW4XEY3BwwAqullj/XA8PfGP20te1xur
+         x+ng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748283632; x=1748888432;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZLm2u+K+PI/38ypNwBYrTuGrq0xLDvMbTxRXLnz2xDI=;
+        b=GWpT7aY6GSGSEgWhEkphPySPFjiHqlLF55McgYkRahfr5yTbRlye88laPtFNxswaZo
+         CsjD8x8Ojh06/SJ0Ayflxd/AluXNtDDYKQsyinV5n82mGKwXRGa4oXjGnBj2q67C8nrp
+         P3ooPd3NthBO3Lzoh17ZBswpYFm0JnQX03VpPW1++zJlPLbA3Ouml9ZvJYBRJOxww3Ku
+         Rz3L7QIjoevF9l6inlG9ZoliFoaQovVt/NDHfDsBK0Jnji6vvda1iatsYlANpOtxrzDk
+         aUnEu2iEtqPV2uHjHwE+NimZCsngiTtLT73dLlhwAwz4Qn8UZtHjbo+J8yzufidoN1hP
+         6wCg==
+X-Forwarded-Encrypted: i=1; AJvYcCU9wSZO25QzfFFivB0a9jGgb08YOp3rLkxouA8VvIDZrarMJ/9zrNdbdtwlmZmS3w4xFgcbRQddAog0s6NeHMSi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzx52gGXsxbdt/HPxsCPQq4YFzdKfFlikR8PPrJbfiVJ0qN99Zh
+	YBPDLNE225LX4IbBG/YPz8ami58JSGIcRwwNx8TWLgSGv4Bz9hrZ7DdI5yh/D6zIFuY=
+X-Gm-Gg: ASbGnctpBXravW3fHjtr7AK0qh2WAupy4zMsp0Pz967/XUI1dNJiJ80dDtjcb4bRUxd
+	QVPQQLXMH/pfVDtxMsOejr60WuySSn0SQJp+S1HIWsEiqLk4mQ+RaAp8ykUu6WtInNwWT7uWVbw
+	rwn3FLsRoVxEtz8L2Ahv4zokKnr2UKiMbfYdzeAyYm2uSaBnGEgmrmjpwPNpospVN25V0vJ0+Fs
+	3TEMuZQUocxYdD0co1CnP67oXGMxsWjrZaIx15Qk8fJqfaWvpsnMnLyIyzLNZ0YlSHRxGuDiI0Y
+	XJjnRyvj8oV23gkV4LjdsGL15vykmusW+3miTSHzkUpgswYskfW7
+X-Google-Smtp-Source: AGHT+IHu8Gg1J8BbsWgqjCqgkp/CdznFrPX5IKNjnPHBnTXYL0HJEukNqC3gh5NYw3XdXDtRMjCSCg==
+X-Received: by 2002:a5d:588d:0:b0:3a3:6a77:3391 with SMTP id ffacd0b85a97d-3a4ca4139bemr8058309f8f.15.1748283632092;
+        Mon, 26 May 2025 11:20:32 -0700 (PDT)
+Received: from [192.168.2.177] ([91.116.220.47])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4d53ce0b4sm5179796f8f.37.2025.05.26.11.20.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 26 May 2025 11:20:31 -0700 (PDT)
+Message-ID: <7f986e07-69b5-48fc-89f1-8ae37b998faa@suse.com>
+Date: Mon, 26 May 2025 20:20:30 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="wx3fp4rhvd2s43t7"
-Content-Disposition: inline
-In-Reply-To: <aCJZmm8rC0RwbcBX@a98shuttle.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: s32g: add RTC node
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
+ Chester Lin <chester62515@gmail.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: NXP S32 Linux Team <s32@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
+ Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>
+References: <20250526162140.2460122-1-ciprianmarian.costea@oss.nxp.com>
+Content-Language: en-US, ca-ES, es-ES
+From: Matthias Brugger <mbrugger@suse.com>
+Autocrypt: addr=mbrugger@suse.com; keydata=
+ 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
+ PVrr2NoUqi/bxI8fFQJD1jVj8K0=
+In-Reply-To: <20250526162140.2460122-1-ciprianmarian.costea@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_103038_782310_A1C6A23F 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250526_112033_900855_653C3897 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +153,60 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---wx3fp4rhvd2s43t7
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [REGRESSION] [BISECTED] drm/sun4i: hdmi: No HDMI output with
- BananaPI M1 on 6.9
-MIME-Version: 1.0
 
-Hi,
+On 26/05/2025 18:21, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> 
+> The RTC module on S32G2/S32G3 based SoCs is used as a wakeup source from
+> system suspend.
+> 
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 
-On Mon, May 12, 2025 at 10:27:06PM +0200, Michael wrote:
-> with v6.9 and later there is no output on the BananaPI HDMI connector.
->=20
-> I have bisected the issue to the following commit:
->=20
->   358e76fd613a ("drm/sun4i: hdmi: Consolidate atomic_check and mode_valid=
-")
->=20
-> With this patch, sun4i_hdmi_connector_clock_valid() is occasionally called
-> with clock=3D0, causing the function to return MODE_NOCLOCK.
-> In the old sun4i_hdmi_mode_valid() before the patch, mode->clock is
-> always!=3D0, maybe that gives someone a hint.
+Reviewed-by: Matthias Brugger <mbrugger@suse.com>
 
-This doesn't make sense to me, if only because the two callers of
-tmds_char_rate_valid (hdmi_compute_clock and
-drm_hdmi_connector_mode_valid) have, right before calling it, checks to
-make sure the clock rate isn't 0, and would return MODE_ERROR or EINVAL
-in such a case.
+> ---
+>   arch/arm64/boot/dts/freescale/s32g2.dtsi | 8 ++++++++
+>   arch/arm64/boot/dts/freescale/s32g3.dtsi | 9 +++++++++
+>   2 files changed, 17 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> index fa054bfe7d5c..39d12422e3f3 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> @@ -114,6 +114,14 @@ soc@0 {
+>   		#size-cells = <1>;
+>   		ranges = <0 0 0 0x80000000>;
+>   
+> +		rtc0: rtc@40060000 {
+> +			compatible = "nxp,s32g2-rtc";
+> +			reg = <0x40060000 0x1000>;
+> +			interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 54>, <&clks 55>;
+> +			clock-names = "ipg", "source0";
+> +		};
+> +
+>   		pinctrl: pinctrl@4009c240 {
+>   			compatible = "nxp,s32g2-siul2-pinctrl";
+>   				/* MSCR0-MSCR101 registers on siul2_0 */
+> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> index b4226a9143c8..e71b80e048dc 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> @@ -171,6 +171,15 @@ soc@0 {
+>   		#size-cells = <1>;
+>   		ranges = <0 0 0 0x80000000>;
+>   
+> +		rtc0: rtc@40060000 {
+> +			compatible = "nxp,s32g3-rtc",
+> +				     "nxp,s32g2-rtc";
+> +			reg = <0x40060000 0x1000>;
+> +			interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks 54>, <&clks 55>;
+> +			clock-names = "ipg", "source0";
+> +		};
+> +
+>   		pinctrl: pinctrl@4009c240 {
+>   			compatible = "nxp,s32g2-siul2-pinctrl";
+>   				/* MSCR0-MSCR101 registers on siul2_0 */
 
-https://elixir.bootlin.com/linux/v6.15/source/drivers/gpu/drm/display/drm_h=
-dmi_state_helper.c#L234
-https://elixir.bootlin.com/linux/v6.15/source/drivers/gpu/drm/display/drm_h=
-dmi_state_helper.c#L553
-
-Do you have some logs (with dri.devel=3D0xff)? Does it happen with 6.15 as
-well?
-
-Maxime
-
---wx3fp4rhvd2s43t7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaDSlOgAKCRAnX84Zoj2+
-dsbbAX99s9kKf45MW0A0sRoR7VuFGBnreiDwHOLIAAo4qprwTU4rlEcbnOBL7Y1m
-XpJezKkBgJizzKS4du2vMNyg/eBB/0g/gvrzOsCy21C78GxZsMiwUpQBB81Ja0fq
-gR2HdeNy8w==
-=UHi2
------END PGP SIGNATURE-----
-
---wx3fp4rhvd2s43t7--
 
