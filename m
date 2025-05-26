@@ -4,135 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F379AC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 09:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8525C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 09:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCg6d3ai45oT8m/nEPSdO++snGi9MLhj5lOFq4KJ7so=; b=IigbrWNOuBSPuyDXRGZctw1863
-	5KbFytiTpjNEwZtMPUCyi6+LgE4A0ySQVRBUMn7xVGcjKOlK/jqPCa3m8ZXveuDOqVLnQzcxesvMa
-	4CJ71n8HsAVr9lkP0iIyIT/pSi+YK9AFo8H3I1CRdFHqC9fAnr8Homx7TkTUmFnPAdPBHgdl4GOrt
-	JoajhMTTewkoi9d6AhTBEgua8k9+3sL+CXsV4mGjeobRrbIfZi6Pz2oywtoyV9W+KmNXL8SWVG0Nc
-	/KGqqZoBC1T7RMvH4JIouq6fIrhzSIBcpEl4NJVu+7YHYmjfGbkAzA23xW06oW6VzCw5MU/+cLsZh
-	6IlV3RLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z6te812vgyS+SyE7SWT04/qWDSaGg86QzX952wROxNE=; b=jWE8CoJPUZ6tN0JCJ+sdR+hn7H
+	r//AgmjE23Rpbk765qCIenDmW8h5V8Ho/o6kQ64RiQupTQvWvz/za0EKleBAdkkJTxmKvRA9M+x+K
+	YDhj6ewW49Emk9jlSa56yLqmkNpoztNbciz8D3eqmHStJH6GA810Z8/NoCFjLfTQ2dyRNOsZMZKcm
+	3Q4X4reUV8LzuOtQGDAgEVGySYqg+TurM6+mYq44Ibzr90e5IBT7wMPK3WyYDYFaPjKNBLoEP47u/
+	sZH4U5mdGgspElKjY+EFjIYcmfdB75eMy2yTxlHl3QEl2dyUOEW+ybD1i3acfeeMYNZ4nL2nZn5f3
+	YWb/zQrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJU6g-00000008VG4-0iT5;
-	Mon, 26 May 2025 09:26:54 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1uJUCf-00000008WMP-1cBf;
+	Mon, 26 May 2025 09:33:05 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJU4E-00000008Urh-2Nos
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 09:24:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1748251449; x=1748856249; i=wahrenst@gmx.net;
-	bh=yCg6d3ai45oT8m/nEPSdO++snGi9MLhj5lOFq4KJ7so=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=obYWoSYaUa146vLgvmzxYAjeuy5Wh/C9ccUf0YOKYtfaw8aNyVAXqMNIhd7jn53E
-	 tGtZTrP5BM1Gsz7zvgKmt5H/7gKGmS4I90M6Kdn1wK6F/1rvuqqc2d/IB5+kgK+UI
-	 rCg/10Gi/eEi3aNb9wmILR+0dA8ftqPknR3X3109l1tsWIRmqTFLEan3EeEoTNBke
-	 tcFwkjfiFDXsJXXv1sdOesiwnOKdrjsriB4fPL7SB6XdWdDjLxcyZXnWdyBguG8TB
-	 8FAYZjzPTle1dIHDl8ouQ7qOX1hWXu0zara3EfVo6wET4/QKipGgGQxspJZmoH9Es
-	 +paa/f1IvBhV/RHBSg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N1fmq-1v3rVY3Ldw-00qpNq; Mon, 26
- May 2025 11:24:08 +0200
-Message-ID: <7f6d7199-0a20-4370-a8b0-1d05326af052@gmx.net>
-Date: Mon, 26 May 2025 11:24:06 +0200
+	id 1uJUAW-00000008W1j-10Ed;
+	Mon, 26 May 2025 09:30:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1748251834; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SBEsJcZHWSkaR/fROh7J9MBU8lIVoJhe/jejF9Fmga+ZTXxvyjrPzhu6rHxiv1vCK11NegL2g6dqlS6gnl4WnRCRGDDG+y9rxMj6TyngCdv8zJqGPYh0xaXWtg0TGoscHFXafDDcG4iS5QjSr7St017bDhuBrfMyFgbjd3IfOUI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1748251834; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Z6te812vgyS+SyE7SWT04/qWDSaGg86QzX952wROxNE=; 
+	b=hY5XCU5tJIb2v7vLhdFphnAMf1VaCYsVNJ22OV70w65U5iSJff+f2vgmGp4sdtGpO6tIo47RbtO7leAgcPis4RnLZpo+sucy+kDAdER7BCk345pTH53/d/YBjjags9NA23VsX+viIfdH/AD8xcwTFOValbM/4o8vWeYbNXV5haM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748251834;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=Z6te812vgyS+SyE7SWT04/qWDSaGg86QzX952wROxNE=;
+	b=Wg7XJSmrHb2OeyYw0MSH1bN4dcN1cXuBbrfJdY/qn3fyDkYZ7LdooXNVLExuQvu6
+	a/MqqbSNJlfNNT0AmmMhsh2wj3GB2drEP7po1/EWw9J7Fc+8QAXXQJs0J5AhAyfKNYq
+	O7ANIVOUFI7Y4sstGl+ZdmkgTiEf+caRFoU/HHOs=
+Received: by mx.zohomail.com with SMTPS id 1748251831359884.8119171996467;
+	Mon, 26 May 2025 02:30:31 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, William Breathitt Gray <wbg@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Kever Yang <kever.yang@rock-chips.com>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-iio@vger.kernel.org, kernel@collabora.com,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Detlev Casanova <detlev.casanova@collabora.com>
+Subject: Re: [PATCH 5/7] pwm: Add rockchip PWMv4 driver
+Date: Mon, 26 May 2025 11:30:25 +0200
+Message-ID: <10663552.nUPlyArG6x@workhorse>
+In-Reply-To: <gcirox4uq33lbfthusrphuabvxc2jnnjfazuhuyhohwlnv2gnu@5trpjknqaivm>
+References: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
+ <4313739.kQq0lBPeGt@workhorse>
+ <gcirox4uq33lbfthusrphuabvxc2jnnjfazuhuyhohwlnv2gnu@5trpjknqaivm>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: dts: freescale: imx93-phycore-som: Delay the
- phy reset by a gpio
-To: Christoph Stoidner <C.Stoidner@phytec.de>, Andrew Lunn <andrew@lunn.ch>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "upstream@lists.phytec.de" <upstream@lists.phytec.de>
-References: <20250524112315.695376-1-c.stoidner@phytec.de>
- <047c963e-f24d-4995-aea0-4a8cf8e343f5@lunn.ch>
- <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
- <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:j7q0lhQ0aySRq/U/bsaoG9w41iUYKsDm39Kja4EOvuJtWZCRfLo
- +2LSeOFX9VG/fUgYMj53SHgfLCYEDoKCYEfA33E12ZfiugLZPeROby7eEMTtc9MBlUPhmjs
- mcOCl177WBPaCC4OOVETXKJ7DHSc1hLq/bUJANOIHXnXMz57WtU0lgRr4lRvjFyVc8EnMJX
- 6fM+oJT9xvz6kUVDxT3+g==
-UI-OutboundReport: notjunk:1;M01:P0:dSVyBR3f1R0=;PoVBs7v/whf90ft9TG4C3UFjjyT
- bOjQnh8wCj6g9+ABSz7cLVSj6LHe1qARiwDGDbVPyUR72CZHaO6XSfl19hJoHeLwEOsREhr5N
- FLMvZDYu3xHfCxTMg6xBHcl/3dDOpQpnwUNjt/+CQ9Ah3skA9kYLVKmn5iFTfi0jnmWlA0wUH
- Gidk+JtCIm/T4CUzLAT5F9hEUC4FRtSz/wr7BmcCWmhHRMnKhmLpOqw94UfVeYC3F1svyc0IG
- SnxuwlxUp/HeVoAlu7sjvmdUwtYt9BQf7NjG3Tf97k/QYB9ET4E216EbRIIZS70c0Rebd2hC6
- WB26OW+8n97/KwB0CIxEgifN1qKWRkWiv4Iwv6jlio1vjUcFq1kl36mtY4RVIUnXSx4B6vK3D
- Y+D/+1xRDkGuFxCDBIPz5BGuBZCOe6ehALUouuGRpsh9CFgODPbFKS3tWASGsh2AynEotJwIp
- sDknH0HsHRwUsBkh6c5gj+SF4ZRBH7zawEIaNJjk3GVZrj0FV7Z83L8F6vnEv/HZ4AzJRAFhv
- L7o9ZCY9hWXAx7Pp9K32JGYAICkzxV0mZVWe19gUoZNR9jRnZ/KkhlHE7/jhdYW8oEBNj8koT
- mG1E0vOunXt49u9kO2ztS2AVKA3zGo6FRXPR43E9Snj7fjain/uxsBB+VEqkfEIU1ZF4XQP82
- Dc3htTcWyXtBrM23rG4o0liCPf7TN1gfb539bk9LP0YzuLYVDhWvuKbHU/sarJR7BH0TQ7/IP
- tSNZQIUatZo1qciQrsIH6KSwisrptuuspkEJfj5ARWweeR2W0VNdldDdxZWYGkz4HKVIwQTu5
- 3UkrD4Ko43O/kjrcw3N9uRqrcp8VE7MzI4vfg4Qn4/Z+1JYNdoaojVcHrjSzgk06v5qOdkWX5
- QMP6jPa4qauE1SdT7kD5ZSAZCNvRjHCgDsoGvYt6MfFJ1HrIzxk+eIUgcDZaKsmBNOZf0Cj2d
- PdLslbsbnlGs6X9ty/GeiJcnYAZjX5C5ZTUMBT788TT4ebTuDWgzV9P3DPKTwg2p858XfoSUw
- M3SemiujAwbm85BP7QmOYQSo7FjMxedPy2SVcWnC+AFNIQbxnnfHO/fj3xxJ2U32vF3WS3k0H
- BwRPNS1i2OmB49LMcgS83qqVOwNUT5T4IjwEXxJWv2M0TYaon7F0ZCGjPE/Xz/u1YDFvnHSut
- 5q1rLkMpaQ6iK6abiIH6r4wjRb9bWxJ1eo6ZHV/pLX0AS6U+qQZo3bIuMX4KfjASA80OJQ3ul
- y+3lth3UVMsltFFxegFcexzs/wOeA0Y0WVUADlrt5HGvjHItAHC5ERKPNJMewwpu88Erctux5
- 2tFreeoRMvHJoMEPdxrJ30TaQOZz7iK2R60+05iyyN8MbKT7dtS3LJ8GN2aVZywJBCIdYw4/S
- 1QsrgGFGOxQYNLxUBLeWmsD8CEs0Id7Yy7BOb6acUaoN4UqyNuvIYdTy+EFdim3ZbuBF4W0iX
- AKCBBo4a4i1KTCwSuvGDiKkH12RBTRXEoBwdDgKmtXcdK0gUyEyn3gEC/AMQN+npNUss3pBM0
- KaZHD1akrSnolaKIv6/m6KJighnCBauRK/+MddbRc0OeDwRiK8wESfV1TGZWB+tcqHqZ9Q/q8
- MXKJJ0Q0YiCcKCJkXKtoXYqTUIf3enZOb+knndRR15TI0qbk8lujYsqXvmFTvyv2IxmTWjg9z
- PEDgSpV7YrgdsrJyTEvEX/YoS9Z9JlS4/nWV+/jKm4k6PBjVqJpLHJdcr4DOWzlXV6Q1r0CUO
- 2CkkOUNlHEBcakwzwjwBBsZHMko3oksfvosuAry4W2nhe2pJUgjAFpzexcN5OqcLsjtRYhWVn
- z3KY8PG50h4qLrysu2GLn2uxgP+fyeCQ4BkvW9kdre3AdSyubT8GF0S7z1icZ/7Q3GoA65LwG
- SKPGvFTcPV0oR6Lo/Gn5SFIZnU4utJuOD8ZkiuyiIU86qowJXzIyFS3pXtaBdsXoKHxHvgBSf
- G/Fu9qGIh7F3v/v8va2ETcXSK7sff1wo1dJmNvT9lNM3dWLY78l7G1RcJt91WyS+zQTyX05O2
- 19+sIB7V3BDECO1cSLq/TIqqVuNWC6CgR6IjpWsUwdnKNXoEDtPvYiJ+ef8WZeCLwDLZviZ5X
- o8iYtUwdK6Q3nSFVCnNmJ/Yne/v0OABLpfJPCwOR0FRbBrqVQabSSJ636Wn0ZYdUDEa05HWeB
- AjwVIVGgRhlwiZHypi98mQ1pJBhmqf1Bs9En5HJIJ2ud8ZD4Xtssb6BnbM1u7HqZ61qGLwA51
- dKawIwUCWeTmFmeVW1xU0rCGTrOZz5r56bQG3tu6L+t+KwVvKzkOBuV/tUhls+P/oYYbd3E3B
- VX2PJXWhGTqrlcL4gNX0XIwOgtiwyhyeXxOqsAHESrKPgNn0mvdkf9j35WKDVVypn5CFuONhk
- FnY7P0c79oDznUzmvJU+OSFP+dlaqMSmfT74rILV8zAZ9Y8n44kdCUOyNMAt4r8Kskg4cXpfQ
- pDTdMDe7VAVeoXNZg3IETXVEw06woyRfumluWlRYNiauO+1J1MzurxsSv3mMP5ZEBooQ+fHBq
- 9Ii+Je0sVG+hO3ImBMf0CUGMR0n1aLxLYWLssYyZZhlxMrf1FaOjMQaG7JXVAzsmMgULhGbAW
- Ta4aGGqAEgc3OAirTcZIDqVHaL2iBbBy9XvRmPqQJ0DMXUQWZnpIVyAwu0vE0iqrbBvgtAQBg
- A8WeXBSrJSdst6HWaVuRBrxpe6Nd1Omen/XbpcdLRWmmIDDrGMROwzDSUbw274NohKlsXnI00
- 38JjsunR6+KpABEWvcXlXSpwdQB0HVjN2XRoxGtK07Ne9BgXcWmxV7NEW0XnLP+egjX7JGOS5
- Wn/lj/BSFEsbShhX0OAkWSYSm5KZ89c8tIUnaeEWQxNLl9OMeU4oz33YcrgsiaAtXUQMPLi19
- W7dhRCOQCp3f5WBQE3JaR1VVRhc3zIG3uNbNREo6sXUSXRnZWeZzkv9FB4KuyjsdnVrtbydPZ
- qKUV0ewmkAS2zKFnE5H3vUgzazbnPjRZaBoxR9MeEHb+iW3hbMtKet6I2uH4vinRQxAswW3xK
- aUraMNpMcEvFcdp4WspyF0TL6KvZ5SmY1SN/INTKDpxrvBgetqwanqOW6wO91szXu4tjWGJg6
- hMEk7g0rErc8rtGkz/HJBbBnBqOYwiRcraawnhaY8H8cMiyp3hsBzamQ==
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_022422_902169_15C87F89 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20250526_023052_378030_FED9E37A 
+X-CRM114-Status: GOOD (  71.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,63 +85,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 26.05.25 um 11:09 schrieb Christoph Stoidner:
-> Hi Stefan,
+Hi Uwe,
+
+On Friday, 23 May 2025 17:02:34 Central European Summer Time Uwe Kleine-K=
+=C3=B6nig wrote:
+> [Dropped Jonas Karlman from Cc as his email address doesn't work.]
+
+Strange, I don't think I got any bounces, and your reply still has him in
+the Cc ;) Just letting you know so that it doesn't look like I re-added him.
+
+> Hello Nicolas,
+>=20
+> On Thu, May 22, 2025 at 03:02:29PM +0200, Nicolas Frattaroli wrote:
+> > On Tuesday, 13 May 2025 19:26:31 Central European Summer Time Uwe Klein=
+e-K=C3=B6nig wrote:
+> > > On Tue, Apr 08, 2025 at 02:32:17PM +0200, Nicolas Frattaroli wrote:
+> > > > The Rockchip RK3576 brings with it a new PWM IP, in downstream code
+> > > > referred to as "v4". This new IP is different enough from the previ=
+ous
+> > > > Rockchip IP that I felt it necessary to add a new driver for it, in=
+stead
+> > > > of shoehorning it in the old one.
+> > > >=20
+> > > > Add this new driver, based on the PWM core's waveform APIs. Its pla=
+tform
+> > > > device is registered by the parent mfpwm driver, from which it also
+> > > > receives a little platform data struct, so that mfpwm can guarantee=
+ that
+> > > > all the platform device drivers spread across different subsystems =
+for
+> > > > this specific hardware IP do not interfere with each other.
+> > > >=20
+> > > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > > ---
+> > > >  MAINTAINERS                   |   1 +
+> > > >  drivers/pwm/Kconfig           |  13 ++
+> > > >  drivers/pwm/Makefile          |   1 +
+> > > >  drivers/pwm/pwm-rockchip-v4.c | 336 ++++++++++++++++++++++++++++++=
+++++++++++++
+> > > >  4 files changed, 351 insertions(+)
+> > > >=20
+> > > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > > index e6a9347be1e7889089e1d9e655cb23c2d8399b40..3ddd245fd4ad8d9ed2e=
+762910a7a1f6436f93e34 100644
+> > > > --- a/MAINTAINERS
+> > > > +++ b/MAINTAINERS
+> > > > @@ -20891,6 +20891,7 @@ L:	linux-rockchip@lists.infradead.org
+> > > >  L:	linux-pwm@vger.kernel.org
+> > > >  S:	Maintained
+> > > >  F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
+> > > > +F:	drivers/pwm/pwm-rockchip-v4.c
+> > > >  F:	drivers/soc/rockchip/mfpwm.c
+> > > >  F:	include/soc/rockchip/mfpwm.h
+> > > > =20
+> > > > diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+> > > > index 4731d5b90d7edcc61138e4a5bf7e98906953ece4..242039f62ab091cea33=
+7bf27ef310bcf696b6ed0 100644
+> > > > --- a/drivers/pwm/Kconfig
+> > > > +++ b/drivers/pwm/Kconfig
+> > > > @@ -540,6 +540,19 @@ config PWM_ROCKCHIP
+> > > >  	  Generic PWM framework driver for the PWM controller found on
+> > > >  	  Rockchip SoCs.
+> > > > =20
+> > > > +config PWM_ROCKCHIP_V4
+> > > > +	tristate "Rockchip PWM v4 support"
+> > > > +	depends on ARCH_ROCKCHIP || COMPILE_TEST
+> > > > +	depends on ROCKCHIP_MFPWM
+> > > > +	depends on HAS_IOMEM
+> > > > +	help
+> > > > +	  Generic PWM framework driver for the PWM controller found on
+> > > > +	  later Rockchip SoCs such as the RK3576.
+> > > > +
+> > > > +	  Uses the Rockchip Multi-function PWM controller driver infrastr=
+ucture
+> > > > +	  to guarantee fearlessly concurrent operation with other functio=
+ns of
+> > > > +	  the same device implemented by drivers in other subsystems.
+> > > > +
+> > > >  config PWM_RZ_MTU3
+> > > >  	tristate "Renesas RZ/G2L MTU3a PWM Timer support"
+> > > >  	depends on RZ_MTU3
+> > > > diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+> > > > index 539e0def3f82fcb866ab83a0346a15f7efdd7127..b5aca7ff58ac83f8445=
+81df526624617025291de 100644
+> > > > --- a/drivers/pwm/Makefile
+> > > > +++ b/drivers/pwm/Makefile
+> > > > @@ -49,6 +49,7 @@ obj-$(CONFIG_PWM_RASPBERRYPI_POE)	+=3D pwm-raspbe=
+rrypi-poe.o
+> > > >  obj-$(CONFIG_PWM_RCAR)		+=3D pwm-rcar.o
+> > > >  obj-$(CONFIG_PWM_RENESAS_TPU)	+=3D pwm-renesas-tpu.o
+> > > >  obj-$(CONFIG_PWM_ROCKCHIP)	+=3D pwm-rockchip.o
+> > > > +obj-$(CONFIG_PWM_ROCKCHIP_V4)	+=3D pwm-rockchip-v4.o
+> > > >  obj-$(CONFIG_PWM_RZ_MTU3)	+=3D pwm-rz-mtu3.o
+> > > >  obj-$(CONFIG_PWM_SAMSUNG)	+=3D pwm-samsung.o
+> > > >  obj-$(CONFIG_PWM_SIFIVE)	+=3D pwm-sifive.o
+> > > > diff --git a/drivers/pwm/pwm-rockchip-v4.c b/drivers/pwm/pwm-rockch=
+ip-v4.c
+> > > > new file mode 100644
+> > > > index 0000000000000000000000000000000000000000..980b27454ef9b930bef=
+0496ca528533cf419fa0e
+> > > > --- /dev/null
+> > > > +++ b/drivers/pwm/pwm-rockchip-v4.c
+> > > > @@ -0,0 +1,336 @@
+> > > > +// SPDX-License-Identifier: GPL-2.0-or-later
+> > > > +/*
+> > > > + * Copyright (c) 2025 Collabora Ltd.
+> > > > + *
+> > > > + * A Pulse-Width-Modulation (PWM) generator driver for the generat=
+ors found in
+> > > > + * Rockchip SoCs such as the RK3576, internally referred to as "PW=
+M v4". Uses
+> > > > + * the MFPWM infrastructure to guarantee exclusive use over the de=
+vice without
+> > > > + * other functions of the device from different drivers interferin=
+g with its
+> > > > + * operation while it's active.
+> > >=20
+> > > Can you please add a "Limitations" paragraph here similar to the other
+> > > newer drivers that explains how the hardware behave on disable
+> > > (inactive? High-Z? freeze?), if there are glitches possible when
+> > > settings are changed or if the currently running period is completed =
+on
+> > > reconfiguration.
+> >=20
+> > Will do. Might need a few long hours with the logic analyzer and poking=
+ at
+> > the common clock framework to cover all bases.
+>=20
+> Usually it's simpler. e.g. if you set period=3D1s,duty=3D0 and then
+> period=3D2s,duty=3D2 an LED is enough to determine if the current period =
+is
+> completed before a change.
+>=20
+> You don't find High-Z with an LED but can distinguish between "inactive
+> when off" and "freeze when off". The datasheet might know about High-Z.
+
+I've used a logic analyzer to quickly determine this, it went fairly
+smoothly and didn't take long at all. The PWM output stops immediately
+and freezes in whatever state it was in at that point in time, i.e.
+stays either low or high. Changes to period/duty/offset params only
+seem to take effect at the start of the next period, so changing them
+should be glitch-free.
+
+I will add a full limitations paragraph, including a TODO for the future
+with an idea for how to change the driver so that it lets the current
+period complete when turning the PWM off. I'm not implementing it right
+away in this series because that'd involve adding some IRQ handlers to
+this driver as well and the series is big enough as it is already :)
+
+> Apropos datasheet: If that is publically available, a reference to it in
+> the driver's header would be awesome.
+
+I've noted that down as a thing to ask Rockchip. Currently, the technical
+reference manual of this SoC unfortunately is not publicly available, at
+least not in an official capacity. I'll mention it'd also be sufficient
+if we had just the PWM section of that TRM so that I can link to it.
+
+> > > > +static int rockchip_pwm_v4_round_wf_tohw(struct pwm_chip *chip,
+> > > > +					 struct pwm_device *pwm,
+> > > > +					 const struct pwm_waveform *wf,
+> > > > +					 void *_wfhw)
+> > > > +{
+> > > > +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
+> > > > +	struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
+> > > > +	unsigned long rate;
+> > > > +	int ret =3D 0;
+> > > > +
+> > > > +	/* We do not want chosen_clk to change out from under us here */
+> > > > +	ret =3D mfpwm_acquire(pc->pwmf);
+> > > > +	if (ret)
+> > > > +		return ret;
+> > > > +
+> > > > +	rate =3D mfpwm_clk_get_rate(pc->pwmf->parent);
+> > > > +
+> > > > +	ret =3D rockchip_pwm_v4_round_params(rate, wf->duty_length_ns,
+> > > > +					   wf->period_length_ns,
+> > > > +					   wf->duty_offset_ns, &wfhw->duty,
+> > > > +					   &wfhw->period, &wfhw->offset);
+> > > > +
+> > > > +	if (wf->period_length_ns > 0)
+> > > > +		wfhw->enable =3D PWMV4_EN_BOTH_MASK;
+> > > > +	else
+> > > > +		wfhw->enable =3D 0;
+> > > > +
+> > > > +	dev_dbg(&chip->dev, "tohw: duty =3D %u, period =3D %u, offset =3D=
+ %u, rate %lu\n",
+> > > > +		wfhw->duty, wfhw->period, wfhw->offset, rate);
+> > > > +
+> > > > +	mfpwm_release(pc->pwmf);
+> > > > +	return ret;
+> > >=20
+> > > This is wrong. If a too high value for (say) period_length_ns is
+> > > requested, you're supposed to configure the maximal possible
+> > > period_length and not return a failure.
+> >=20
+> > Ack. What if offset > period - duty is requested? Should I just saturat=
+e it
+> > to period - duty in that case?
+>=20
+> If you configure period =3D 10, duty =3D offset =3D 6 the period restart =
+is
+> supposed to happen during the active phase, that is it looks as follows:
+>=20
+>     __     _____     _____     _____     ____
+>       \___/     \___/     \___/     \___/   =20
+>     ^         ^         ^         ^         ^
+>     01234567890
+>=20
+> ('^' marks the period start.)
+
+Okay, this might make this a bit more complicated then. The hardware in the
+TRM at least states for the offset register
+
+  The value ranges from 0 to (period-duty)
+
+which I think means that I have to actually make use of the hardware's
+polarity setting, set it to inverse polarity, and then set the offset
+to duty and the duty to period - duty if I understand this right.
+
+Offset right now is just used by the pwm core to do inversion, right? As
+in there's no handy sysfs knob I can shove values into to set it to an
+arbitrary number?
+
+I may also just shove a value above (period - duty) into the offset reg
+to see if the hardware already behaves in the expected way and doing the
+math manually would be overcomplicating things.
+
+> > > > +	ret =3D mfpwm_acquire(pc->pwmf);
+> > > > +	if (ret)
+> > > > +		return ret;
+> > > > +
+> > > > +	rate =3D mfpwm_clk_get_rate(pc->pwmf->parent);
+> > >=20
+> > > Why isn't that a proper clock that you can call clk_get_rate() (and
+> > > clk_rate_exclusive_get()) for?
+> >=20
+> > Because I didn't know clk-mux.c existed :( But even with it, I'm not su=
+re
+> > if letting mfpwm function drivers touch the clk directly is a good idea,
+> > as this either means storing it in their pwmf struct or making the memb=
+ers
+> > of the mfpwm struct part of the shared header.
+>=20
+> The different drivers shouldn't need to touch the clk directly, the clk
+> API functions should be enough?!
+
+It's not just enough, it's too much. I don't want to give every pwmf
+instance a pointer to the clock mux and then let the function drivers call
+every common clock framework function on it that they wish to call.
+
+I'll think about it more. clk_rate_exclusive_get/_put should protect
+against the kinds of cross-function-driver interference hijinks I'm
+worried about, so maybe the indirection isn't needed.
+
+> > > > +	wfhw->period =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_PERIOD);
+> > > > +	wfhw->duty =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_DUTY);
+> > > > +	wfhw->offset =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_OFFSET);
+> > > > +	wfhw->enable =3D mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_ENABLE)=
+ & PWMV4_EN_BOTH_MASK;
+> > > > +
+> > > > +	mfpwm_release(pc->pwmf);
+> > > > +
+> > > > +	return 0;
+> > > > +}
+> > > > +
+> > > > +static int rockchip_pwm_v4_write_wf(struct pwm_chip *chip, struct =
+pwm_device *pwm,
+> > > > +				    const void *_wfhw)
+> > > > +{
+> > > > +	struct rockchip_pwm_v4 *pc =3D to_rockchip_pwm_v4(chip);
+> > > > +	const struct rockchip_pwm_v4_wf *wfhw =3D _wfhw;
+> > > > +	bool was_enabled =3D false;
+> > > > +	int ret =3D 0;
+> > > > +
+> > > > +	ret =3D mfpwm_acquire(pc->pwmf);
+> > > > +	if (ret)
+> > > > +		return ret;
+> > > > +
+> > > > +	was_enabled =3D pwmv4_is_enabled(mfpwm_reg_read(pc->pwmf->base,
+> > > > +						      PWMV4_REG_ENABLE));
+>=20
+> Just noticed: pwmv4_is_enabled has the wrong prefix. Please use
+> "rockchip_pwm_v4" consistently.
+
+Will do.
+
+> [...]
 >
-> On Mo, 2025-05-26 at 08:44 +0200, Stefan Wahren wrote:
->> Hi Andrew,
->> hi Christoph
->>
->> Am 24.05.25 um 19:44 schrieb Andrew Lunn:
->>>> diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
->>>> b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
->>>> index 88c2657b50e6..b481097f08a4 100644
->>>> --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
->>>> +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
->>>> @@ -68,6 +68,8 @@ mdio: mdio {
->>>>  =C2=A0=C2=A0 ethphy1: ethernet-phy@1 {
->>>>  =C2=A0=C2=A0 compatible =3D "ethernet-phy-ieee802.3-c22";
->>>>  =C2=A0=C2=A0 reg =3D <1>;
->>>> + reset-gpios =3D <&gpio4 23 GPIO_ACTIVE_HIGH>;
->>>> + reset-assert-us =3D <30>;
->>> Is there anything in the datasheet about needing a delay after the
->>> reset? There is a DT property for this:
->>>
->>>  =C2=A0=C2=A0 reset-deassert-us:
->>>  =C2=A0=C2=A0=C2=A0=C2=A0 description:
->>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Delay after the reset was deasse=
-rted in microseconds. If
->>>  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 this property is missing the del=
-ay will be skipped.
->> is it the time until the PHY finished its post reset stabilization
->> (datasheet to call it T2 "reset to SMI ready")?
-> The T2 ("Post reset stabilization time") in the datasheet is the time
-> "prior to MDC preamble for register access", that is defined with 2ms.
-> I did not use reset-deassert-us for it, because the first register
-> access does anyway occur much later (I measured 4000ms).
->
-> And we have the same for T4, the "Post power-up stabilization time".
-> It is defined with a time of 50ms as "prior to MDC preamble for
-> register access". But also here we just know, the register access
-> happens much=C2=A0later - and treated it as enough.
->
-> Formally, this may be valid to specify the 2ms as reset-deassert-us.
-> But since the first register access is so much later, I thought we can
-> save those 2ms.
->
-> Are you fine with that?
-I don't insist on an additional "reset-deassert-us". The question was=20
-more about understanding.
->
-> Regards,
-> Christoph
->
->
->>> Anyway:
->>>
->>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->>>
->>>  =C2=A0=C2=A0=C2=A0=C2=A0 Andrew
->>>
+> > > > +static int rockchip_pwm_v4_probe(struct platform_device *pdev)
+> > > > +{
+> > > > +	struct rockchip_mfpwm_func *pwmf =3D dev_get_platdata(&pdev->dev);
+> > > > +	struct rockchip_pwm_v4 *pc;
+> > > > +	struct pwm_chip *chip;
+> > > > +	int ret;
+> > > > +
+> > > > +	chip =3D devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*pc));
+> > > > +	if (IS_ERR(chip))
+> > > > +		return PTR_ERR(chip);
+> > > > +
+> > > > +	pc =3D to_rockchip_pwm_v4(chip);
+> > > > +	pc->pwmf =3D pwmf;
+> > > > +
+> > > > +	platform_set_drvdata(pdev, pc);
+> > > > +
+> > > > +	chip->ops =3D &rockchip_pwm_v4_ops;
+> > > > +	chip->atomic =3D true;
+> > > > +
+> > >=20
+> > > If the PWM is already enabled you better call mfpwm_acquire() here?
+> >=20
+> > As in, if the hardware set the PWM on before the driver probed? I hadn't
+> > considered this case, and will need to think about it. Could very well =
+be
+> > a possibility as u-boot does things before us.
+>=20
+> The typical application is that the bootloader already shows a splash
+> screen and then you don't want Linux booting result in a flashing
+> display.
+
+Gotcha, that does sound fairly important and I've implemented it for v2
+now. Managed to successfully test it with some manual register writes
+from u-boot.
+
+Haven't really decided yet whether I'll send v2 out soon or wait for -rc1
+to release to base it against. I'm currently leaning towards sending it
+out before -rc1 just because I don't want to rob reviewers of up to two
+additional weeks of potential review time, especially since v2 is already
+substantially different based on the changes I've staged for it so far.
+
+>=20
+> Best regards
+> Uwe
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
 
