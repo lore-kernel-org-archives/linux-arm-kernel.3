@@ -4,105 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEE2C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 20:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27BBC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 21:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HyWXqN+5wHGnA02x8VIFqjuokIUgrwEnON4MEoIF74U=; b=syNdEGZBacO8DK4WTcTT8u2VfP
-	ReJ34Ls8JOffr6ffIdMKBMiq8AZ69ZnjRsP+xNuKmEggzmmc4jtRVRESeIv1YEil4daSfxGgCFzrZ
-	3+Xuayt8RQjKv4qB0WOuW1TCsVMCb2NSfE3zJ1MEpTSxd/16MAdtYew7L+A9r7TgsNJ1G+R7KNUyh
-	E+nzXifeLLzZGRXMW3yMfnNhW8yXrFozqPO4l9/zTwhTzgsAxOgWSMyA+c3x05/jjaX+WlHA7YaIJ
-	zzK/ENMZz1/SBJeXY6LwJUO/FnxucD1p9/LAsSX02iS4pD8ctflF3FpW43B4T3V5M5/9WtPFwYyot
-	r03BLllw==;
+	bh=N/VsZ6IE0jdOkCcZ5aD8yrns3Cyc4PjTDiK26k40UxU=; b=dTWUFHTqj/gK45kdQPtXoytlFX
+	kZTR8fEl5r80/8l1s7NRSlcaWG+HP/s3hZQO4OajoHlSe9PgljkZRkwcv1BFz91O2uyTxc1KBp3xl
+	gQvBJRlRZjItkFOhw9nk64YXCvgBWDNJ05KaZLufWDnmxIUl+LNBNGPiIZCA4dk/Jx++kzFKw0jLN
+	o8sUg0v9ePyRzMuLHLjOKHBxChxOsUiC3Whs2Mp09fym6hVQafhkyYCoXLJlnSIcUhVdlPMOoHT1f
+	CItGa1PIl3camxRUyszuewqe2hjIXurO3F9UV295pXMCQahNrfaA4oEzqzWtCZtte74+CV+36MFIL
+	QcizsrLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJeRb-00000009U4L-40j1;
-	Mon, 26 May 2025 20:29:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uJexm-00000009Vjs-1x0n;
+	Mon, 26 May 2025 21:02:26 +0000
+Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJePP-00000009TvH-0mjJ
+	id 1uJevc-00000009Vc6-1tyw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 20:26:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1748291213;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HyWXqN+5wHGnA02x8VIFqjuokIUgrwEnON4MEoIF74U=;
-	b=jJdjlQOrZMc6VIvq3OVLaypup/+U4vY4/Tu9aattgruQyCYTM0vrgKC27u0HrUjQuxzvTd
-	NCXVhXUjV7B+hsRxBxIi5layaWBS4ttkHE84yazvfpSP+POc0HwnWGHlVBMff06KZeXx1v
-	OxBYi3/D/OlGIhSEVzw2PVMN+iNZ4w0=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-601-H6e98EF-P5Sr3t316Sujtw-1; Mon, 26 May 2025 16:26:52 -0400
-X-MC-Unique: H6e98EF-P5Sr3t316Sujtw-1
-X-Mimecast-MFC-AGG-ID: H6e98EF-P5Sr3t316Sujtw_1748291211
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-44b1f5b8e9dso9496165e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 13:26:52 -0700 (PDT)
+	Mon, 26 May 2025 21:00:14 +0000
+Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-52eec011ff2so818705e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 14:00:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748293211; x=1748898011; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N/VsZ6IE0jdOkCcZ5aD8yrns3Cyc4PjTDiK26k40UxU=;
+        b=aQo5lMhbHkBsu/L6bYdyKn2Ersp1hyAKLpye65jR101NPsxpruQwZncBK3s6VKrMge
+         yvYJ8PZADiZZ5wtXgPp4IWDBbWITX/ht1N1P2iUN1dPdztx4+NZbT7b6HIWxVxGbyX4k
+         t4KUtq8qtQXd42Y3/9JWah1PZnFH+ZdWiwmpxfk/4p/FgMfKey/0re/ooI65+roiulPA
+         RjNkfwVFfnNjSE1dr6E1/jsxk7JVutrVJG/ALl88EOXFZ6XcM2onlvO1VUxZ1kRCDtBK
+         67xgktgPz+DqODogCxynve93JlzvVYVVbYLIsNoDc1axh3VJhb9LRlg86Vzipe3YGopG
+         9QrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748291211; x=1748896011;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HyWXqN+5wHGnA02x8VIFqjuokIUgrwEnON4MEoIF74U=;
-        b=GtBaGluDuq2goJ10x8JCF88iuWSSKHKlEvkjQ6eXK3DzlRbbxAgo0YQpvVsXR1Te5M
-         rrage0bLkeu940Al2ER6jz2NQIGInNtEp+VgS1//2FpUDKH/5vyISuQTK6LctQZf54TL
-         3Nn09yiKoPUX8Du7LOtPdnDDMxjIlGDeAQDj4+jpOQr8aNA73yGiEPwnvTkd9O7RRny5
-         woY39yUIoIzqUnF2sx0xCaBkSe12Uv0b/iNm+CbjZ1xCVvVk0/Gu3uM7cbMiuZeSRuIl
-         RSNZqWvr+QfvUcB/Z2m8q/4Oiv/UF9cWc+HxM8AQmFeR2ZZMa2GuLZR5+qWMX1tTs1nB
-         OySA==
-X-Forwarded-Encrypted: i=1; AJvYcCXB6bCkbggLuc73jpnoZEMLQjRXVt0tPAcVOJAvZlpW0K3BsvLYtloY9NbN9KjZjeCqyhhjiLD8Mw4ScnBCb7fF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5Ka9Ak0/bo28zlNXlReWHLz6ZRaM7OaTnuwCcYCWNLPp2/9Ob
-	YMpCeBvFcDDg+dd0pp1yzB4K+Hx6iHFjFiWColcmWRupLooGC53W89bGwJuRlR3GJgDuF3XhquC
-	P6yMXhnyERpS7AivnHGlK6M/JPc0FJHLjwvaFWOAFJijkvfmQ9gFtCG1wpKd4f/RcmznuVMPO4z
-	Je
-X-Gm-Gg: ASbGncsgBdfssYTDqdRW0g21irfI5AwXyAKRStTG7TKx4FmrBfOSdqnvyINtRQnZyn6
-	NlBCS7eBAlPwkfzi2wGAqKRz9ysqLG9GeyjW0m9hF5IcIE4tBAKlH4h8Yj3CuvP+TfW/rwi71Wg
-	0dBx9AulTHzZFwk165+AOI4ALhzC3u2J+rDKixlrAv4tHGn6dMZjrE7I3CbD6Rjk7MjHUq9izRx
-	tT5aytUQ+frV2TdCBY3F9iwZHRMGXB1s9m2xvFoLyCYpDRWpR8fIveljF3onJx4KzLRz9Ln+J/G
-	2r6fJti9plcVDmV1DQIMOL+xKjYEumBvoQWeowEx
-X-Received: by 2002:a05:600c:5126:b0:43d:a90:9f1 with SMTP id 5b1f17b1804b1-44c93016686mr92837515e9.6.1748291211233;
-        Mon, 26 May 2025 13:26:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHSrD54L0gvE46Mtr1bEDCW7JZuh1RueZXOjVf2VgxDZDxuwPNbxQGifhSFMWHJcVtKTkfH2g==
-X-Received: by 2002:a05:600c:5126:b0:43d:a90:9f1 with SMTP id 5b1f17b1804b1-44c93016686mr92837385e9.6.1748291210810;
-        Mon, 26 May 2025 13:26:50 -0700 (PDT)
-Received: from [192.168.0.115] (146-241-32-247.dyn.eolo.it. [146.241.32.247])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4cfcece9dsm7354854f8f.5.2025.05.26.13.26.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 26 May 2025 13:26:50 -0700 (PDT)
-Message-ID: <b3e3293a-3220-4540-9c8b-9aa9a2ef6427@redhat.com>
-Date: Mon, 26 May 2025 22:26:47 +0200
+        d=1e100.net; s=20230601; t=1748293211; x=1748898011;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=N/VsZ6IE0jdOkCcZ5aD8yrns3Cyc4PjTDiK26k40UxU=;
+        b=IjwYvbCQnr+N8ThrASwqO5ALTYguv00Z730ob2r7sdVtjv3tK5YOh7IlZhY5MwQmvz
+         CNOUif/GHwidrpS54ty6/YdvtXIYVBl/OAHtgPYeJd0w/Y3r4LMgnoruqwb/BNN224Fo
+         qE3d0yLld1YyiR+2fcVu0FiGX444Ywu3+oGiT8U1BtXvctBJP9WuJh5/++DxsOm+E68k
+         rrYaYyxS8yg0WDc6/VyFt+xTd7v3DCNQERNNMS1Bi6NCl6L6jDa6lPyivRqVEhPLxEpc
+         sbe0P8NPxy+A2tZDkXF3XDzwUjt4qxVwOopOpeS714gyCJdhVfIKfoccRZDeJVO1U13s
+         mO5A==
+X-Forwarded-Encrypted: i=1; AJvYcCW80JZ6Op57I4+at3OHWYubk+RZ99Xg5tb9s3BAjB6IlYK7BT3S8j+gYNA/7XP+JJ6oKL7eO3LvpVoyRupY4HW9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/Ww2SFMonxjdk703+cRck1Q4a8pFAhY6ipnhuZ/r5esyn3PA6
+	siHjQ8P08m5z/nyn/hYwgGzAN0rgJlk5t8nOcdnm1I17PTy72SSkRVI8a7/leA6iUxyyfWLxORO
+	o0V2TVwmLHNcd4L8fghT/Ax5lK7Ir4Iv/sC9+GZWZig==
+X-Gm-Gg: ASbGncvemhySOV0hh9LNbBpFKgFoG1gbepJwIT4eflLduFcwoBpfgz1qvI4GyojJGaW
+	E948l+Vky9Dh4daydT5a+1KdcMmWhJePZFeHSGMwTDE4LO9nHvwYKZhqC5LM/TxTKnJCPwaMtsa
+	1BRyhZHR/5ZRUvCNdfeM4b1FLWLKgYTmyc0Q==
+X-Google-Smtp-Source: AGHT+IH1F819UdbqKdjXVnrU+7ibb4kb7PWACyBEmwPcni1wlQBFRsB0+/IWFIf8hbs072AoO3ylAlqbgpDxsk8Lh1Y=
+X-Received: by 2002:a05:6122:82a5:b0:50a:c70b:9453 with SMTP id
+ 71dfb90a1353d-52f2c5bf4admr7622487e0c.10.1748293211020; Mon, 26 May 2025
+ 14:00:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: platform: guarantee uniqueness of bus_id
-To: Quentin Schulz <foss+kernel@0leil.net>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>,
- Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Quentin Schulz <quentin.schulz@cherry.de>
-References: <20250521-stmmac-mdio-bus_id-v1-1-918a3c11bf2c@cherry.de>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250521-stmmac-mdio-bus_id-v1-1-918a3c11bf2c@cherry.de>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: HlqZHiIjKIMz20OmUK6lh-Ay4DIV7O4Hk2gD6G3TbEw_1748291211
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250526002924.2567843-1-james.hilliard1@gmail.com>
+ <20250526002924.2567843-2-james.hilliard1@gmail.com> <aDQgmJMIkkQ922Bd@shell.armlinux.org.uk>
+ <4a2c60a2-03a7-43b8-9f40-ea2b0a3c4154@lunn.ch> <CADvTj4qvu+FCP1AzMx6xFsFXVuo=6s0UBCLSt7_ok3War09BNA@mail.gmail.com>
+ <a2538232-be98-42ed-ae82-45e2fcff3368@lunn.ch>
+In-Reply-To: <a2538232-be98-42ed-ae82-45e2fcff3368@lunn.ch>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Mon, 26 May 2025 14:59:59 -0600
+X-Gm-Features: AX0GCFtdyKxOISq6OJd3jmhemPTpifVHzFplXIgoyjcfXkmvrrAzTnbwIsfNJc4
+Message-ID: <CADvTj4pCo=d8ehkz6JoPNYEGtUWsgmGCqT7vFEyHTtD7yF5ZAA@mail.gmail.com>
+Subject: Re: [RFC PATCH 2/2] net: stmmac: dwmac-sun8i: Allow runtime
+ AC200/AC300 phy selection
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, netdev@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Yinggang Gu <guyinggang@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Yanteng Si <si.yanteng@linux.dev>, Feiyang Chen <chenfeiyang@loongson.cn>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Jinjie Ruan <ruanjinjie@huawei.com>, Paul Kocialkowski <paulk@sys-base.io>, 
+	linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_132655_312099_0CE375EA 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20250526_140012_497941_724D8699 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,31 +108,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/21/25 5:21 PM, Quentin Schulz wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> bus_id is currently derived from the ethernetX alias. If one is missing
-> for the device, 0 is used. If ethernet0 points to another stmmac device
-> or if there are 2+ stmmac devices without an ethernet alias, then bus_id
-> will be 0 for all of those.
-> 
-> This is an issue because the bus_id is used to generate the mdio bus id
-> (new_bus->id in drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> stmmac_mdio_register) and this needs to be unique.
-> 
-> This allows to avoid needing to define ethernet aliases for devices with
-> multiple stmmac controllers (such as the Rockchip RK3588) for multiple
-> stmmac devices to probe properly.
-> 
-> Obviously, the bus_id isn't guaranteed to be stable across reboots if no
-> alias is set for the device but that is easily fixed by simply adding an
-> alias if this is desired.
-> 
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+On Mon, May 26, 2025 at 1:58=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> > I'm currently doing most of the PHY initialization in u-boot to simplif=
+y testing
+> > of the efuse based PHY selection logic in the kernel. I'm sending this
+> > separately as a number of subsequent drivers for kernel side PHY
+> > initialization will be dependent upon specific PHY's being discovered a=
+t
+> > runtime via the ac300 efuse bit.
+>
+> Do the different PHYs have different ID values in register 2 and 3?
 
-I think no need to CC stable here, but you need to provide a suitable
-fixes tag, thanks!
+Well...for the primary phy address in the device tree, no:
+AC300(does not appear to support address 1 unlike AC200):
+PHY at address 0:
+0 - 0x3100
+1 - 0x79ed
+2 - 0x44
+3 - 0x1400
 
-Paolo
+AC300 address used for PHY initialization sequence on address 16(0x10),
+appears to be used as replacement for i2c init sequence on AC200:
+PHY at address 10:
+0 - 0x1f80
+1 - 0x1084
+2 - 0xc000
+3 - 0x0
 
+AC200:
+PHY at address 0:
+0 - 0x3000
+1 - 0x79ed
+2 - 0x44
+3 - 0x1400
+
+AC200:
+PHY at address 1:
+0 - 0x3000
+1 - 0x79ed
+2 - 0x44
+3 - 0x1400
+
+AC200 appears to support either address 0 or address 1.
+
+>
+>         Andrew
+>
 
