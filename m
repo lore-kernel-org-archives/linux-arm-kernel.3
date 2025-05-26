@@ -4,93 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D8BBC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 07:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A26C7C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 07:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yeNh+Gu5PRtxOVqfnwNssRFyT5wNEca2MVYLgQyAyLI=; b=Lendu2WaPCJm98rdQEf//yxKPy
-	2CY6TllAfBHtPLKGmXe2qokyMIIqOi5UCzAPxp+UQ1WyfRKKTIfdlLV7U1Hp/mdMEnypM9DfMIKjS
-	eGoEJcYzpUwUd65xlzPVJjhPiHgYNsQdLMFPXnpbI4M2h901Z/54IXqUH/XZUlZvP59rq2Bvp+uJL
-	BcGgrArS28lP5a0XxvN+6JwDvd5Qf2kNdPNcZmjzPg3iQLXG864Zmv25OMLNGeIxZaYg+VLiPga9A
-	C3aXSSLdHUVX79OFqkEPnCBuRiD6IVGc4h2DKGpYErangbhia6uD34MFDLqB1DGhK5h6Drz3miWRB
-	/3DMk7Cg==;
+	bh=QLkd7DkuwItmUeCsro4GRU7KY1n+af+fkKCtRJvc72M=; b=ougYfZ8qKEzsbVPlasR4fnlwiM
+	71t9VxyyPnIs3W5nLZUIg9MSx0/7lTcB2Dlbs2HYgOmffcdciRcjttYfcia6+OED+geb7vcjXn+1A
+	+9+RFVk6Xdd1ECunWrvpHEPiSWU1PtO6TZGE6kvQFUcjxkT4iiwOQg/YHU+SrxYeQdi+FhwNtnzjI
+	Ti5aPYt3sRwr2Mbu7IBASvvi0sfl9RcvtomorV89vpLDaAjfqAIOl3gSceypPfSmTfFF8PzXIUCUc
+	WN/5PhbKTTKJBONBjB9myLaZapnip3XgVZ7TNIOyHDxuqoaEmV+EvdOvwfFZZ2EEyPZnSC86fj5eW
+	g/+zLlqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJS2N-00000008GIa-2NLI;
-	Mon, 26 May 2025 07:14:19 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1uJSAk-00000008Gqy-3DMM;
+	Mon, 26 May 2025 07:22:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJS09-00000008G3p-0hkR
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 07:12:03 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-401c43671ecso872064b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 00:12:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748243520; x=1748848320; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yeNh+Gu5PRtxOVqfnwNssRFyT5wNEca2MVYLgQyAyLI=;
-        b=EPeQa+ONb2AFP/9Rt2inyERwnixUfSKfQYRMBPZr4H1syMOh4RH6ZXI76hYJfpXX+8
-         iy8OzlvVdY2y6xMJlDO1YN/S08oAxMpBfdCIyN4lz6gJCQxCgpyxz7gzHvNU+zeKIcrA
-         WDHPiID0vepoDb/OqAXgLn53lhlvLhqC6Pdx9mlvlERFd8U6U8OIbPjTVh3ONHe02Tti
-         tSRKGfpoTQoc71KLGn7921tlIswmUUrBvi7FwUwJgsuwKah4SP5xJo5uO6xJFbGOuJry
-         IRSz9m90pTYulK0gbtD7pAYqfS0vYtu7Stb5J8MSFgCbd1k19cihdudx5JUbEiYNT3NB
-         5iQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748243520; x=1748848320;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yeNh+Gu5PRtxOVqfnwNssRFyT5wNEca2MVYLgQyAyLI=;
-        b=jUIHP7ygWkjL+wIFN+mzgeWRPQXRAgvm4tLPjF1gI3oEOAyPbd16wt4d95Cw1OA9rv
-         pz9FEFsLMqyz8cEnzwcfCjj79wzBR4OdMK++MxdakKFCLQAONroBVCbiKkMX9Cp9EI6e
-         qZqjWpffZ9ihAhpe+T3IVugCJOGRuZGZioI+YjCfRLXV6nIoIwCJCkZyd/HJh6eYgAcg
-         YwHndbDRdwEL+n//E/rN6G0F1ykC8+pJaEWp/gj7ceKlzWNMBm8pvR9easue5R1aWDJf
-         sNVNQFiFnTkiHPBo3yZAVAg8buEE65svodn/ROQ3CvGskr0RFopvDtxHIwSXMwy8RUfQ
-         3RLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVKWfto8o2MkPgYK/eDnXX1tPhKk8gI2Wb+uP+uPkAhRPfkYakGI5zjXZGvsDp1Uyms8BWo5IEhXhMvfM3UdADF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnWFoUjbXcZQpbQZ/j/MGWcDfkawD6B/St8PvIU7cg9fgjZDZv
-	D6/wnb9sm1bIo164RzIHEH+OH4kW+FwbAlsj1SOTOVisYzkrK6y84PC3ARmm4mcyAaATVyUjFCX
-	by/CYyxOSoJNztSdnYRJUVOlbzDF9NDGLNJHXlFcdYw==
-X-Gm-Gg: ASbGncsaHx4eOc41J0Ep5UG3nY8qNN49vnL0pdrxnKtTQEdZ8QXghvYA5AkCbVDs9iP
-	ocLJsmjH2X7bTs1ajbkaXRp5/rMNGIFuDt2okVulwI6kj52zcF9snmgEfVvAELqJHFEO5+p7uTf
-	9wig6HEnFdzGBQw27jplW6YnlFUOl1ZFyU9w==
-X-Google-Smtp-Source: AGHT+IGUgea18RDjcBJX7VXut+VCDWeAAmx9LttthUJiEbSZwF+n/XzCDyzJGmDSGPISGKHv7co5D1JDGrjDQLgtFCc=
-X-Received: by 2002:a05:6808:319a:b0:3f3:d699:e1a8 with SMTP id
- 5614622812f47-4063d028e28mr7961742b6e.13.1748243519586; Mon, 26 May 2025
- 00:11:59 -0700 (PDT)
+	id 1uJS8W-00000008GkH-46mC;
+	Mon, 26 May 2025 07:20:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QLkd7DkuwItmUeCsro4GRU7KY1n+af+fkKCtRJvc72M=; b=C9EsklqshQgYWys2W87LIn6xRy
+	CKGwRyMJZhxns+WlIfA+095HyIrfwyXNe/jK/tGS41AkaKhx7HpcrxmXd+LgLViN+Tlj5qFICWkwn
+	9oyVE/7HCfRN2piAwCrF3LOI+fpTRSmWtppypmhT4/dQ7l6H+uBOjYTM4N7ybiq/wdS7oD1p/bfGu
+	JI/Uo4YwkLvX3YrmzAWFGKhRIkp0etA83yfDu/YjsSYTOiIDJ3HML8AthfbQfrzu4hk/oySz/j4cp
+	xCXqvViKGY2hblU8MbsA9w3gBO84fRmpuUzoge1ZROWZFxl8KrvoO5OCju3EIi7Nb5qnCyoUbaoFk
+	SMjhuxOw==;
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uJS8T-00000001orP-0b7K;
+	Mon, 26 May 2025 07:20:39 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 16875442B5;
+	Mon, 26 May 2025 07:20:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1748244030;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QLkd7DkuwItmUeCsro4GRU7KY1n+af+fkKCtRJvc72M=;
+	b=ERsZFnNGGx1taTjFML/F7g48As15TWrVqpm7AQM6ITdhjMQXPkfTl1YTY624dt2A61ojKn
+	C4GrIy3LvMnZuQ3f48MHbrAItO9yt2FMHAqBFQBNWnAd4H+GlbFkLp+0Q5jpHR5ME8BtSC
+	rLb2TykZsJeBxh/2UPnUC+byagvOBWEHs+mzz5buaw+VAmwRzWbNg55alaA49c/WX7dEK/
+	fsh2zNr1ZhqaGyMrCEJNSdr/QBQDpvqqwK5PYQ+P4KU7TlWYdbGXAPWQsVfUnDZH7GHJxL
+	bRcPS+1N1hdPuMOBL2LrEIz8HJMPOUVPD7+c3bsfVFBouRX3auSsw6Kbri6nhA==
+Date: Mon, 26 May 2025 09:20:24 +0200
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Jagan Teki
+ <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Douglas Anderson
+ <dianders@chromium.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, Krzysztof
+ Kozlowski <krzk@kernel.org>, Anusha Srivatsa <asrivats@redhat.com>, Paul
+ Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, Hui
+ Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org,
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ chrome-platform@lists.linux.dev, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v2 30/34] drm/bridge: imx8qxp-pixel-combiner: convert to
+ devm_drm_bridge_alloc() API
+Message-ID: <20250526092024.48cae4ae@booty>
+In-Reply-To: <67252c36-8b31-4c40-9d89-4f502da4a087@nxp.com>
+References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
+ <20250424-drm-bridge-convert-to-alloc-api-v2-30-8f91a404d86b@bootlin.com>
+ <553d62ed-976a-4e17-9678-cdc3d40ce4a7@nxp.com>
+ <20250430112944.1b39caab@booty>
+ <f71d18d2-4271-4bb9-b54f-0e5a585778f3@nxp.com>
+ <20250506224720.5cbcf3e1@booty>
+ <67252c36-8b31-4c40-9d89-4f502da4a087@nxp.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250520152436.474778-1-jens.wiklander@linaro.org>
- <20250520152436.474778-4-jens.wiklander@linaro.org> <aDByJpX9sBZTNXjJ@sumit-X1>
-In-Reply-To: <aDByJpX9sBZTNXjJ@sumit-X1>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Mon, 26 May 2025 09:11:48 +0200
-X-Gm-Features: AX0GCFvTqAuNlFNlvMJUs40N7o0plSJW769t7mk3VndbEW_eiuoxy9DxDeXtQDs
-Message-ID: <CAHUa44FGbXWtnkcXt7kq0SK9XyKXNUp0dsEbzQzQm8p6_gvTAw@mail.gmail.com>
-Subject: Re: [PATCH v9 3/9] tee: implement protected DMA-heap
-To: Sumit Garg <sumit.garg@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdduieeltdculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefgfeetieeutdeifefggfegheelgeefiefgffeifeeujeehkeffgeehhfevfefhjeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhfrhgvvgguvghskhhtohhprdhorhhgpdgsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeelpdhrtghpthhtohepvhhitghtohhrrdhlihhusehngihprdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkh
+ hhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrmhhsthhrohhngheslhhinhgrrhhordhorhhg
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_001201_233843_1C8A7596 
-X-CRM114-Status: GOOD (  33.45  )
+X-CRM114-CacheID: sfid-20250526_082037_457679_AE2BA1CA 
+X-CRM114-Status: GOOD (  29.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,751 +117,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025 at 3:03=E2=80=AFPM Sumit Garg <sumit.garg@kernel.org> =
-wrote:
->
-> + Robin
->
-> Jens,
->
-> I suppose you missed to add Robin who has earlier reviewed this patch.
+Hello Liu,
 
-Yes, you're right, sorry. Thanks for catching this.
+On Thu, 22 May 2025 11:01:13 +0800
+Liu Ying <victor.liu@nxp.com> wrote:
 
->
-> On Tue, May 20, 2025 at 05:16:46PM +0200, Jens Wiklander wrote:
-> > Implement DMA heap for protected DMA-buf allocation in the TEE
-> > subsystem.
-> >
-> > Restricted memory refers to memory buffers behind a hardware enforced
->
-> s/Restricted/Protected/
->
-> > firewall. It is not accessible to the kernel during normal circumstance=
-s
-> > but rather only accessible to certain hardware IPs or CPUs executing in
-> > higher or differently privileged mode than the kernel itself. This
-> > interface allows to allocate and manage such protected memory buffers
-> > via interaction with a TEE implementation.
-> >
-> > The protected memory is allocated for a specific use-case, like Secure
-> > Video Playback, Trusted UI, or Secure Video Recording where certain
-> > hardware devices can access the memory.
-> >
-> > The DMA-heaps are enabled explicitly by the TEE backend driver. The TEE
-> > backend drivers needs to implement protected memory pool to manage the
-> > protected memory.
-> >
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > ---
-> >  drivers/tee/Makefile      |   1 +
-> >  drivers/tee/tee_heap.c    | 487 ++++++++++++++++++++++++++++++++++++++
-> >  drivers/tee/tee_private.h |   6 +
-> >  include/linux/tee_core.h  |  65 +++++
-> >  4 files changed, 559 insertions(+)
-> >  create mode 100644 drivers/tee/tee_heap.c
-> >
-> > diff --git a/drivers/tee/Makefile b/drivers/tee/Makefile
-> > index 5488cba30bd2..949a6a79fb06 100644
-> > --- a/drivers/tee/Makefile
-> > +++ b/drivers/tee/Makefile
-> > @@ -1,6 +1,7 @@
-> >  # SPDX-License-Identifier: GPL-2.0
-> >  obj-$(CONFIG_TEE) +=3D tee.o
-> >  tee-objs +=3D tee_core.o
-> > +tee-objs +=3D tee_heap.o
-> >  tee-objs +=3D tee_shm.o
-> >  tee-objs +=3D tee_shm_pool.o
-> >  obj-$(CONFIG_OPTEE) +=3D optee/
-> > diff --git a/drivers/tee/tee_heap.c b/drivers/tee/tee_heap.c
-> > new file mode 100644
-> > index 000000000000..a332805f9f26
-> > --- /dev/null
-> > +++ b/drivers/tee/tee_heap.c
-> > @@ -0,0 +1,487 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (c) 2025, Linaro Limited
-> > + */
-> > +
-> > +#include <linux/dma-buf.h>
-> > +#include <linux/dma-heap.h>
-> > +#include <linux/genalloc.h>
-> > +#include <linux/module.h>
-> > +#include <linux/scatterlist.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/tee_core.h>
-> > +#include <linux/xarray.h>
-> > +
-> > +#include "tee_private.h"
-> > +
-> > +struct tee_dma_heap {
-> > +     struct dma_heap *heap;
-> > +     enum tee_dma_heap_id id;
-> > +     struct tee_protmem_pool *pool;
-> > +     struct tee_device *teedev;
-> > +     /* Protects pool and teedev above */
-> > +     struct mutex mu;
-> > +};
-> > +
-> > +struct tee_heap_buffer {
-> > +     struct tee_protmem_pool *pool;
-> > +     struct tee_device *teedev;
-> > +     size_t size;
-> > +     size_t offs;
-> > +     struct sg_table table;
-> > +};
-> > +
-> > +struct tee_heap_attachment {
-> > +     struct sg_table table;
-> > +     struct device *dev;
-> > +};
-> > +
-> > +struct tee_protmem_static_pool {
-> > +     struct tee_protmem_pool pool;
-> > +     struct gen_pool *gen_pool;
-> > +     phys_addr_t pa_base;
-> > +     void *base;
-> > +};
-> > +
-> > +#if IS_ENABLED(CONFIG_DMABUF_HEAPS)
-> > +static DEFINE_XARRAY_ALLOC(tee_dma_heap);
-> > +
-> > +static int copy_sg_table(struct sg_table *dst, struct sg_table *src)
-> > +{
-> > +     struct scatterlist *dst_sg;
-> > +     struct scatterlist *src_sg;
-> > +     int ret;
-> > +     int i;
-> > +
-> > +     ret =3D sg_alloc_table(dst, src->orig_nents, GFP_KERNEL);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     dst_sg =3D dst->sgl;
-> > +     for_each_sgtable_sg(src, src_sg, i) {
-> > +             sg_set_page(dst_sg, sg_page(src_sg), src_sg->length,
-> > +                         src_sg->offset);
-> > +             dst_sg =3D sg_next(dst_sg);
-> > +     }
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int tee_heap_attach(struct dma_buf *dmabuf,
-> > +                        struct dma_buf_attachment *attachment)
-> > +{
-> > +     struct tee_heap_buffer *buf =3D dmabuf->priv;
-> > +     struct tee_heap_attachment *a;
-> > +     int ret;
-> > +
-> > +     a =3D kzalloc(sizeof(*a), GFP_KERNEL);
-> > +     if (!a)
-> > +             return -ENOMEM;
-> > +
-> > +     ret =3D copy_sg_table(&a->table, &buf->table);
-> > +     if (ret) {
-> > +             kfree(a);
-> > +             return ret;
-> > +     }
-> > +
-> > +     a->dev =3D attachment->dev;
-> > +     attachment->priv =3D a;
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static void tee_heap_detach(struct dma_buf *dmabuf,
-> > +                         struct dma_buf_attachment *attachment)
-> > +{
-> > +     struct tee_heap_attachment *a =3D attachment->priv;
-> > +
-> > +     sg_free_table(&a->table);
-> > +     kfree(a);
-> > +}
-> > +
-> > +static struct sg_table *
-> > +tee_heap_map_dma_buf(struct dma_buf_attachment *attachment,
-> > +                  enum dma_data_direction direction)
-> > +{
-> > +     struct tee_heap_attachment *a =3D attachment->priv;
-> > +     int ret;
-> > +
-> > +     ret =3D dma_map_sgtable(attachment->dev, &a->table, direction,
-> > +                           DMA_ATTR_SKIP_CPU_SYNC);
-> > +     if (ret)
-> > +             return ERR_PTR(ret);
-> > +
-> > +     return &a->table;
-> > +}
-> > +
-> > +static void tee_heap_unmap_dma_buf(struct dma_buf_attachment *attachme=
-nt,
-> > +                                struct sg_table *table,
-> > +                                enum dma_data_direction direction)
-> > +{
-> > +     struct tee_heap_attachment *a =3D attachment->priv;
-> > +
-> > +     WARN_ON(&a->table !=3D table);
-> > +
-> > +     dma_unmap_sgtable(attachment->dev, table, direction,
-> > +                       DMA_ATTR_SKIP_CPU_SYNC);
-> > +}
-> > +
-> > +static void tee_heap_buf_free(struct dma_buf *dmabuf)
-> > +{
-> > +     struct tee_heap_buffer *buf =3D dmabuf->priv;
-> > +     struct tee_device *teedev =3D buf->teedev;
-> > +
-> > +     buf->pool->ops->free(buf->pool, &buf->table);
-> > +     tee_device_put(teedev);
-> > +}
-> > +
-> > +static const struct dma_buf_ops tee_heap_buf_ops =3D {
-> > +     .attach =3D tee_heap_attach,
-> > +     .detach =3D tee_heap_detach,
-> > +     .map_dma_buf =3D tee_heap_map_dma_buf,
-> > +     .unmap_dma_buf =3D tee_heap_unmap_dma_buf,
-> > +     .release =3D tee_heap_buf_free,
-> > +};
-> > +
-> > +static struct dma_buf *tee_dma_heap_alloc(struct dma_heap *heap,
-> > +                                       unsigned long len, u32 fd_flags=
-,
-> > +                                       u64 heap_flags)
-> > +{
-> > +     struct tee_dma_heap *h =3D dma_heap_get_drvdata(heap);
-> > +     DEFINE_DMA_BUF_EXPORT_INFO(exp_info);
-> > +     struct tee_device *teedev =3D NULL;
-> > +     struct tee_heap_buffer *buf;
-> > +     struct tee_protmem_pool *pool;
-> > +     struct dma_buf *dmabuf;
-> > +     int rc;
-> > +
-> > +     mutex_lock(&h->mu);
-> > +     if (tee_device_get(h->teedev)) {
-> > +             teedev =3D h->teedev;
-> > +             pool =3D h->pool;
-> > +     }
-> > +     mutex_unlock(&h->mu);
-> > +
-> > +     if (!teedev)
-> > +             return ERR_PTR(-EINVAL);
-> > +
-> > +     buf =3D kzalloc(sizeof(*buf), GFP_KERNEL);
-> > +     if (!buf) {
-> > +             dmabuf =3D ERR_PTR(-ENOMEM);
-> > +             goto err;
-> > +     }
-> > +     buf->size =3D len;
-> > +     buf->pool =3D pool;
-> > +     buf->teedev =3D teedev;
-> > +
-> > +     rc =3D pool->ops->alloc(pool, &buf->table, len, &buf->offs);
-> > +     if (rc) {
-> > +             dmabuf =3D ERR_PTR(rc);
-> > +             goto err_kfree;
-> > +     }
-> > +
-> > +     exp_info.ops =3D &tee_heap_buf_ops;
-> > +     exp_info.size =3D len;
-> > +     exp_info.priv =3D buf;
-> > +     exp_info.flags =3D fd_flags;
-> > +     dmabuf =3D dma_buf_export(&exp_info);
-> > +     if (IS_ERR(dmabuf))
-> > +             goto err_protmem_free;
-> > +
-> > +     return dmabuf;
-> > +
-> > +err_protmem_free:
-> > +     pool->ops->free(pool, &buf->table);
-> > +err_kfree:
-> > +     kfree(buf);
-> > +err:
-> > +     tee_device_put(h->teedev);
-> > +     return dmabuf;
-> > +}
-> > +
-> > +static const struct dma_heap_ops tee_dma_heap_ops =3D {
-> > +     .allocate =3D tee_dma_heap_alloc,
-> > +};
-> > +
-> > +static const char *heap_id_2_name(enum tee_dma_heap_id id)
-> > +{
-> > +     switch (id) {
-> > +     case TEE_DMA_HEAP_SECURE_VIDEO_PLAY:
-> > +             return "protected,secure-video";
-> > +     case TEE_DMA_HEAP_TRUSTED_UI:
-> > +             return "protected,trusted-ui";
-> > +     case TEE_DMA_HEAP_SECURE_VIDEO_RECORD:
-> > +             return "protected,secure-video-record";
-> > +     default:
-> > +             return NULL;
-> > +     }
-> > +}
-> > +
-> > +static int alloc_dma_heap(struct tee_device *teedev, enum tee_dma_heap=
-_id id,
-> > +                       struct tee_protmem_pool *pool)
-> > +{
-> > +     struct dma_heap_export_info exp_info =3D {
-> > +             .ops =3D &tee_dma_heap_ops,
-> > +             .name =3D heap_id_2_name(id),
-> > +     };
-> > +     struct tee_dma_heap *h;
-> > +     int rc;
-> > +
-> > +     if (!exp_info.name)
-> > +             return -EINVAL;
-> > +
-> > +     if (xa_reserve(&tee_dma_heap, id, GFP_KERNEL)) {
-> > +             if (!xa_load(&tee_dma_heap, id))
-> > +                     return -EEXIST;
-> > +             return -ENOMEM;
-> > +     }
-> > +
-> > +     h =3D kzalloc(sizeof(*h), GFP_KERNEL);
-> > +     if (!h)
-> > +             return -ENOMEM;
-> > +     h->id =3D id;
-> > +     h->teedev =3D teedev;
-> > +     h->pool =3D pool;
-> > +     mutex_init(&h->mu);
-> > +
-> > +     exp_info.priv =3D h;
-> > +     h->heap =3D dma_heap_add(&exp_info);
-> > +     if (IS_ERR(h->heap)) {
-> > +             rc =3D PTR_ERR(h->heap);
-> > +             kfree(h);
-> > +
-> > +             return rc;
-> > +     }
-> > +
-> > +     /* "can't fail" due to the call to xa_reserve() above */
-> > +     return WARN(xa_store(&tee_dma_heap, id, h, GFP_KERNEL),
-> > +                 "xa_store() failed");
->
-> I think this can rather be simplified to:
->
->         return WARN_ON(xa_is_err(xa_store(&tee_dma_heap, id, h, GFP_KERNE=
-L)));
+> On 05/07/2025, Luca Ceresoli wrote:
+>=20
+> [...]
+>=20
+> >> After looking into this patch and patch 31(though I've already provide=
+d my A-b)
+> >> more closely, I think the imx8qxp_pc and imx8{qm,qxp}_ldb main structu=
+res
+> >> should have the same life time with the embedded DRM bridges, because =
+for
+> >> example the clk_apb clock in struct imx8qxp_pc would be accessed by the
+> >> imx8qxp_pc_bridge_mode_set DRM bridge callback.  But, IIUC, your patch=
+es extend
+> >> the life time for the embedded channel/bridge structures only, but not=
+ for the
+> >> main structures.  What do you think ? =20
+> >=20
+> > I see you concern, but I'm sure the change I'm introducing is not
+> > creating the problem you are concerned about.
+> >=20
+> > The key aspect is that my patch is merely changing the lifetime of the
+> > _allocation_ of the drm_bridge, not its usage. On drm_bridge_remove()
+> > the bridge is removed from its encoder chain and it is completely not
+> > reachable, both before and after my patch. With my patch it is not =20
+>=20
+> drm_bridge_remove() only removes a bridge from the global bridge_list def=
+ined
+> in drm_bridge.c.  drm_bridge_detach() is the one which removes a bridge f=
+rom
+> it's encoder chain.  It looks like you wrongly thought drm_bridge_remove()
+> is drm_bridge_detach().
 
-OK
+Indeed my sentence was inaccurate, sorry about that.
 
->
-> > +}
-> > +
-> > +int tee_device_register_dma_heap(struct tee_device *teedev,
-> > +                              enum tee_dma_heap_id id,
-> > +                              struct tee_protmem_pool *pool)
-> > +{
-> > +     struct tee_dma_heap *h;
-> > +     int rc;
-> > +
-> > +     h =3D xa_load(&tee_dma_heap, id);
-> > +     if (h) {
-> > +             mutex_lock(&h->mu);
-> > +             if (h->teedev) {
-> > +                     rc =3D -EBUSY;
-> > +             } else {
-> > +                     h->teedev =3D teedev;
-> > +                     h->pool =3D pool;
-> > +                     rc =3D 0;
-> > +             }
-> > +             mutex_unlock(&h->mu);
-> > +     } else {
-> > +             rc =3D alloc_dma_heap(teedev, id, pool);
-> > +     }
-> > +
-> > +     if (rc)
-> > +             dev_err(&teedev->dev, "can't register DMA heap id %d (%s)=
-\n",
-> > +                     id, heap_id_2_name(id));
-> > +
-> > +     return rc;
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_device_register_dma_heap);
-> > +
-> > +void tee_device_unregister_all_dma_heaps(struct tee_device *teedev)
-> > +{
-> > +     struct tee_protmem_pool *pool;
-> > +     struct tee_dma_heap *h;
-> > +     u_long i;
-> > +
-> > +     xa_for_each(&tee_dma_heap, i, h) {
-> > +             if (h) {
-> > +                     pool =3D NULL;
-> > +                     mutex_lock(&h->mu);
-> > +                     if (h->teedev =3D=3D teedev) {
-> > +                             pool =3D h->pool;
-> > +                             h->teedev =3D NULL;
-> > +                             h->pool =3D NULL;
-> > +                     }
-> > +                     mutex_unlock(&h->mu);
-> > +                     if (pool)
-> > +                             pool->ops->destroy_pool(pool);
-> > +             }
-> > +     }
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_device_unregister_all_dma_heaps);
-> > +
-> > +int tee_heap_update_from_dma_buf(struct tee_device *teedev,
-> > +                              struct dma_buf *dmabuf, size_t *offset,
-> > +                              struct tee_shm *shm,
-> > +                              struct tee_shm **parent_shm)
-> > +{
-> > +     struct tee_heap_buffer *buf;
-> > +     int rc;
-> > +
-> > +     /* The DMA-buf must be from our heap */
-> > +     if (dmabuf->ops !=3D &tee_heap_buf_ops)
-> > +             return -EINVAL;
-> > +
-> > +     buf =3D dmabuf->priv;
-> > +     /* The buffer must be from the same teedev */
-> > +     if (buf->teedev !=3D teedev)
-> > +             return -EINVAL;
-> > +
-> > +     shm->size =3D buf->size;
-> > +
-> > +     rc =3D buf->pool->ops->update_shm(buf->pool, &buf->table, buf->of=
-fs, shm,
-> > +                                     parent_shm);
-> > +     if (!rc && *parent_shm)
-> > +             *offset =3D buf->offs;
-> > +
-> > +     return rc;
-> > +}
-> > +#else
-> > +int tee_device_register_dma_heap(struct tee_device *teedev __always_un=
-used,
-> > +                              enum tee_dma_heap_id id __always_unused,
-> > +                              struct tee_protmem_pool *pool __always_u=
-nused)
-> > +{
-> > +     return -EINVAL;
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_device_register_dma_heap);
-> > +
-> > +void
-> > +tee_device_unregister_all_dma_heaps(struct tee_device *teedev __always=
-_unused)
-> > +{
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_device_unregister_all_dma_heaps);
-> > +
-> > +int tee_heap_update_from_dma_buf(struct tee_device *teedev __always_un=
-used,
-> > +                              struct dma_buf *dmabuf __always_unused,
-> > +                              size_t *offset __always_unused,
-> > +                              struct tee_shm *shm __always_unused,
-> > +                              struct tee_shm **parent_shm __always_unu=
-sed)
-> > +{
-> > +     return -EINVAL;
-> > +}
-> > +#endif
-> > +
-> > +static struct tee_protmem_static_pool *
-> > +to_protmem_static_pool(struct tee_protmem_pool *pool)
-> > +{
-> > +     return container_of(pool, struct tee_protmem_static_pool, pool);
-> > +}
-> > +
-> > +static int protmem_pool_op_static_alloc(struct tee_protmem_pool *pool,
-> > +                                     struct sg_table *sgt, size_t size=
-,
-> > +                                     size_t *offs)
-> > +{
-> > +     struct tee_protmem_static_pool *stp =3D to_protmem_static_pool(po=
-ol);
-> > +     phys_addr_t pa;
-> > +     int ret;
-> > +
-> > +     pa =3D gen_pool_alloc(stp->gen_pool, size);
-> > +     if (!pa)
-> > +             return -ENOMEM;
-> > +
-> > +     ret =3D sg_alloc_table(sgt, 1, GFP_KERNEL);
-> > +     if (ret) {
-> > +             gen_pool_free(stp->gen_pool, pa, size);
-> > +             return ret;
-> > +     }
-> > +
-> > +     sg_set_page(sgt->sgl, phys_to_page(pa), size, 0);
->
-> Did you missed pfn_valid() check from prior v8 review comments?
+> So, even if drm_bridge_remove() is called, the removed
+> bridge could still be in it's encoder chain, hence an atomic commit could=
+ still
+> access the allocated bridge(with lifetime extended) and the clock_apb clo=
+ck
+> for example in struct imx8qxp_pc could also be accessed.  That's why I th=
+ink
+> the main structures should have the same lifetime with the allocated brid=
+ge.
 
-No, I tried it, but pfn_valid() didn't like the address, so I had to
-find a way to fix it.
-tee_protmem_static_pool_alloc(), below, calls memremap() on the range,
-and that should make pfn_valid() redundant.
+As the long-term goal is to allow bridges to be hot-removable,
+decoupling the lifetime of the various components is a necessary step.
+Definitely it will open other issues, and especially the removal during
+atomic updates. This has been discussed already, and there is a
+proposed plan to handle it.
 
->
-> > +     *offs =3D pa - stp->pa_base;
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static void protmem_pool_op_static_free(struct tee_protmem_pool *pool,
-> > +                                     struct sg_table *sgt)
-> > +{
-> > +     struct tee_protmem_static_pool *stp =3D to_protmem_static_pool(po=
-ol);
-> > +     struct scatterlist *sg;
-> > +     int i;
-> > +
-> > +     for_each_sgtable_sg(sgt, sg, i)
-> > +             gen_pool_free(stp->gen_pool, sg_phys(sg), sg->length);
-> > +     sg_free_table(sgt);
-> > +}
-> > +
-> > +static int protmem_pool_op_static_update_shm(struct tee_protmem_pool *=
-pool,
-> > +                                          struct sg_table *sgt, size_t=
- offs,
-> > +                                          struct tee_shm *shm,
-> > +                                          struct tee_shm **parent_shm)
-> > +{
-> > +     struct tee_protmem_static_pool *stp =3D to_protmem_static_pool(po=
-ol);
-> > +
-> > +     shm->paddr =3D stp->pa_base + offs;
-> > +     *parent_shm =3D NULL;
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static void protmem_pool_op_static_destroy_pool(struct tee_protmem_poo=
-l *pool)
-> > +{
-> > +     struct tee_protmem_static_pool *stp =3D to_protmem_static_pool(po=
-ol);
-> > +
-> > +     gen_pool_destroy(stp->gen_pool);
-> > +     memunmap(stp->base);
-> > +     kfree(stp);
-> > +}
-> > +
-> > +static struct tee_protmem_pool_ops protmem_pool_ops_static =3D {
-> > +     .alloc =3D protmem_pool_op_static_alloc,
-> > +     .free =3D protmem_pool_op_static_free,
-> > +     .update_shm =3D protmem_pool_op_static_update_shm,
-> > +     .destroy_pool =3D protmem_pool_op_static_destroy_pool,
-> > +};
-> > +
-> > +struct tee_protmem_pool *tee_protmem_static_pool_alloc(phys_addr_t pad=
-dr,
-> > +                                                    size_t size)
-> > +{
-> > +     const size_t page_mask =3D PAGE_SIZE - 1;
-> > +     struct tee_protmem_static_pool *stp;
-> > +     int rc;
-> > +
-> > +     /* Check it's page aligned */
-> > +     if ((paddr | size) & page_mask)
-> > +             return ERR_PTR(-EINVAL);
-> > +
-> > +     stp =3D kzalloc(sizeof(*stp), GFP_KERNEL);
-> > +     if (!stp)
-> > +             return ERR_PTR(-ENOMEM);
-> > +
-> > +     /*
-> > +      * Map the memory as uncached to make sure the kernel can work wi=
-th
-> > +      * __pfn_to_page() and friends since that's needed when passing t=
-he
-> > +      * protected DMA-buf to a device. The memory should otherwise not
-> > +      * be touched by the kernel since it's likely to cause an externa=
-l
-> > +      * abort due to the protection status.
-> > +      */
-> > +     stp->base =3D memremap(paddr, size, MEMREMAP_WC);
-> > +     if (!stp->base) {
-> > +             rc =3D -EINVAL;
-> > +             goto err_free;
-> > +     }
-> > +
-> > +     stp->gen_pool =3D gen_pool_create(PAGE_SHIFT, -1);
-> > +     if (!stp->gen_pool) {
-> > +             rc =3D -ENOMEM;
-> > +             goto err_unmap;
-> > +     }
-> > +
-> > +     rc =3D gen_pool_add(stp->gen_pool, paddr, size, -1);
-> > +     if (rc)
-> > +             goto err_free_pool;
-> > +
-> > +     stp->pool.ops =3D &protmem_pool_ops_static;
-> > +     stp->pa_base =3D paddr;
-> > +     return &stp->pool;
-> > +
-> > +err_free_pool:
-> > +     gen_pool_destroy(stp->gen_pool);
-> > +err_unmap:
-> > +     memunmap(stp->base);
-> > +err_free:
-> > +     kfree(stp);
-> > +
-> > +     return ERR_PTR(rc);
-> > +}
-> > +EXPORT_SYMBOL_GPL(tee_protmem_static_pool_alloc);
-> > diff --git a/drivers/tee/tee_private.h b/drivers/tee/tee_private.h
-> > index 9bc50605227c..6c6ff5d5eed2 100644
-> > --- a/drivers/tee/tee_private.h
-> > +++ b/drivers/tee/tee_private.h
-> > @@ -8,6 +8,7 @@
-> >  #include <linux/cdev.h>
-> >  #include <linux/completion.h>
-> >  #include <linux/device.h>
-> > +#include <linux/dma-buf.h>
-> >  #include <linux/kref.h>
-> >  #include <linux/mutex.h>
-> >  #include <linux/types.h>
-> > @@ -24,4 +25,9 @@ struct tee_shm *tee_shm_alloc_user_buf(struct tee_con=
-text *ctx, size_t size);
-> >  struct tee_shm *tee_shm_register_user_buf(struct tee_context *ctx,
-> >                                         unsigned long addr, size_t leng=
-th);
-> >
-> > +int tee_heap_update_from_dma_buf(struct tee_device *teedev,
-> > +                              struct dma_buf *dmabuf, size_t *offset,
-> > +                              struct tee_shm *shm,
-> > +                              struct tee_shm **parent_shm);
-> > +
-> >  #endif /*TEE_PRIVATE_H*/
-> > diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
-> > index a38494d6b5f4..b8b99c97e00c 100644
-> > --- a/include/linux/tee_core.h
-> > +++ b/include/linux/tee_core.h
-> > @@ -8,9 +8,11 @@
-> >
-> >  #include <linux/cdev.h>
-> >  #include <linux/device.h>
-> > +#include <linux/dma-buf.h>
-> >  #include <linux/idr.h>
-> >  #include <linux/kref.h>
-> >  #include <linux/list.h>
-> > +#include <linux/scatterlist.h>
-> >  #include <linux/tee.h>
-> >  #include <linux/tee_drv.h>
-> >  #include <linux/types.h>
-> > @@ -30,6 +32,12 @@
-> >  #define TEE_DEVICE_FLAG_REGISTERED   0x1
-> >  #define TEE_MAX_DEV_NAME_LEN         32
-> >
-> > +enum tee_dma_heap_id {
-> > +     TEE_DMA_HEAP_SECURE_VIDEO_PLAY =3D 1,
-> > +     TEE_DMA_HEAP_TRUSTED_UI,
-> > +     TEE_DMA_HEAP_SECURE_VIDEO_RECORD,
-> > +};
-> > +
-> >  /**
-> >   * struct tee_device - TEE Device representation
-> >   * @name:    name of device
-> > @@ -116,6 +124,36 @@ struct tee_desc {
-> >       u32 flags;
-> >  };
-> >
-> > +/**
-> > + * struct tee_protmem_pool - protected memory pool
-> > + * @ops:             operations
-> > + *
-> > + * This is an abstract interface where this struct is expected to be
-> > + * embedded in another struct specific to the implementation.
-> > + */
-> > +struct tee_protmem_pool {
-> > +     const struct tee_protmem_pool_ops *ops;
-> > +};
-> > +
-> > +/**
-> > + * struct tee_protmem_pool_ops - protected memory pool operations
-> > + * @alloc:           called when allocating protected memory
-> > + * @free:            called when freeing protected memory
-> > + * @update_shm:              called when registering a dma-buf to upda=
-te the @shm
-> > + *                   with physical address of the buffer or to return =
-the
-> > + *                   @parent_shm of the memory pool
-> > + * @destroy_pool:    called when destroying the pool
-> > + */
-> > +struct tee_protmem_pool_ops {
-> > +     int (*alloc)(struct tee_protmem_pool *pool, struct sg_table *sgt,
-> > +                  size_t size, size_t *offs);
-> > +     void (*free)(struct tee_protmem_pool *pool, struct sg_table *sgt)=
-;
-> > +     int (*update_shm)(struct tee_protmem_pool *pool, struct sg_table =
-*sgt,
-> > +                       size_t offs, struct tee_shm *shm,
-> > +                       struct tee_shm **parent_shm);
-> > +     void (*destroy_pool)(struct tee_protmem_pool *pool);
-> > +};
-> > +
-> >  /**
-> >   * tee_device_alloc() - Allocate a new struct tee_device instance
-> >   * @teedesc: Descriptor for this driver
-> > @@ -154,6 +192,11 @@ int tee_device_register(struct tee_device *teedev)=
-;
-> >   */
-> >  void tee_device_unregister(struct tee_device *teedev);
-> >
-> > +int tee_device_register_dma_heap(struct tee_device *teedev,
-> > +                              enum tee_dma_heap_id id,
-> > +                              struct tee_protmem_pool *pool);
-> > +void tee_device_unregister_all_dma_heaps(struct tee_device *teedev);
-> > +
-> >  /**
-> >   * tee_device_set_dev_groups() - Set device attribute groups
-> >   * @teedev:  Device to register
-> > @@ -229,6 +272,28 @@ static inline void tee_shm_pool_free(struct tee_sh=
-m_pool *pool)
-> >       pool->ops->destroy_pool(pool);
-> >  }
-> >
-> > +/**
-> > + * tee_protmem_static_pool_alloc() - Create a protected memory manager
-> > + * @paddr:   Physical address of start of pool
-> > + * @size:    Size in bytes of the pool
-> > + *
-> > + * @returns pointer to a 'struct tee_shm_pool' or an ERR_PTR on failur=
-e.
->
-> s/tee_shm_pool/tee_protmem_pool/
+First, here is the grand plan (mentioned in the v3 cover letter):
 
-I'll fix it.
+ 1. =E2=9E=9C add refcounting to DRM bridges (struct drm_bridge)
+ 2. handle gracefully atomic updates during bridge removal
+ 3. avoid DSI host drivers to have dangling pointers to DSI devices
+ 4. finally, let bridges be removable (depends on 1+2+3)
 
->
-> Rest looks fine to me.
+We are now at step 1. Your concern, as I understand it, will be
+addressed at step 2. Bridges won't be removable until step 4, so the
+current changes are not introducing a misbehavior but rather preparing
+the ground with all the necessary infrastructure changes.
 
-Thanks,
-Jens
+Step 2 was discussed in the past [0], and the idea proposed by Maxime
+is to introduce a "gone" or "unplugged" flag and drm_bridge_enter() /
+drm_bridge_exit() functions. The principle is the same as struct
+drm_device.unplugged and drm_dev_enter/exit().
 
->
-> -Sumit
->
-> > + */
-> > +struct tee_protmem_pool *tee_protmem_static_pool_alloc(phys_addr_t pad=
-dr,
-> > +                                                    size_t size);
-> > +
-> > +/**
-> > + * tee_protmem_pool_free() - Free a protected memory pool
-> > + * @pool:    The protected memory pool to free
-> > + *
-> > + * There must be no remaining protected memory allocated from this poo=
-l
-> > + * when this function is called.
-> > + */
-> > +static inline void tee_protmem_pool_free(struct tee_protmem_pool *pool=
-)
-> > +{
-> > +     pool->ops->destroy_pool(pool);
-> > +}
-> > +
-> >  /**
-> >   * tee_get_drvdata() - Return driver_data pointer
-> >   * @returns the driver_data pointer supplied to tee_register().
-> > --
-> > 2.43.0
-> >
+In a nutshell the idea is:
+
+ - drm_bridge.unplugged is initialized to false
+ - drm_bridge_enter() returns false if drm_bridge.unplugged =3D=3D true
+ - any code holding a pointer to the bridge (including the bridge driver
+   itself) and operating on the bridge (including removal) needs to do:
+     if (drm_bridge_enter()) {
+         do something;
+         drm_bridge_exit();
+     }
+ - when the bridge is removed, the driver removal function sets
+   dev_bridge.unplugged =3D true
+
+The "do something" above includes any access to device resources,
+including clocks (and clk_apb).
+
+In other words, two pieces of code can not access the bridge structure
+at the same time. This includes bridge removal VS any atomic operations.
+
+Do you think this addresses your concern?
+
+
+For you to have a better picture of the path, here's an additional
+clarification about drm_bridge_attach/detach() and
+drm_bridge_add/remove(). As part of step 1 of the grand plan, both of
+them will drm_bridge_get/put() the bridge, so that no bridge is freed
+if it is either in the global bridge_list or in any encoder chain.
+
+Patches for this are already approved by Maxime [1][2]. They cannot be
+applied until all bridge drivers have been converted to the new
+devm_drm_bridge_alloc() API, so they depend on this series to be
+completely applied. We are getting pretty close: as of now the entire
+series has been applied except for this and another driver.
+
+[0] https://lore.kernel.org/all/20250129125153.35d0487a@booty/t/#u
+[1] https://patchwork.freedesktop.org/patch/643095/
+[2] https://patchwork.freedesktop.org/patch/643096/
+
+Best regards,
+Luca
+
+--=20
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
