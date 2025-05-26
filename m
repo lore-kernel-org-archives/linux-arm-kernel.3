@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B4EC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 08:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4792AC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 08:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O1esElnlI/YBdegCoA/o5aRxTK2Mcw7TOHuADsmI3go=; b=vMo3UPtc75ujAwT6rwPfaZQdGr
-	n7q6SOJNWg8ES3r1lmbi3H+2x9uV1TS5EXaU5zMnNlP/V4oRotTZAh37Ou+E45ExDQODEXps42Pql
-	d35gaOp+yv/baIf8i5i9hdMrXovzFaoqXumqs2iHcHs03EFUKBt2V+JzP85IZy7EegxCIiUT8bmUr
-	TMWR/jpJOaUYVRO3Uu2OolsWdlhQevWZTMHy9FjJPue7jRXDPtmbU5EMzjSkluFpE0Av5eg2UC+dV
-	UHBrUok5BJKTzyA/unPC2Z85LUPGvTTb0+to9sxpziF4xit0Uf12KRSC1M5E6Qq6WE7d150RaBDnA
-	75eXOBpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZERPBESWHCzHAZIRg67GVfwNEEmyh+2Nz/8LZQRFxvk=; b=mbFirdtZcSkhmOCt56XYBjlAnL
+	g55GjAOEp5swJUqhtxjLignBhQk0gmQLiXFS6e+JtSvo8OWld1Ow/rMMdquLYeYvDvAIDuy561Lu2
+	TSvaUTqikbdh0E052D5cWJIkLGCRVCULnTt4Fg1BjqNWAN4tSY3nVDypJOhHmntxVPNjdwmtMdJ9K
+	bKvQpHXFvUl6FZOAsCPGrUN0nDNaMJ8RFcMCo9nT5eKUWgg26h9dc0jiyr14JNYqvdmwHI2G05/Mg
+	bpyrgSD6KtJuv0vyrzP5f0hLRq27Kd51gltWw1aSkAUSUU+PF9x12j+VXgd9p349y9a0rN9MlWRid
+	l9uyLzhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJTVq-00000008QVC-1fcA;
-	Mon, 26 May 2025 08:48:50 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1uJTcq-00000008RRS-3jKN;
+	Mon, 26 May 2025 08:56:04 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJTTi-00000008QKK-1kaV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 08:46:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748249198; x=1779785198;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9+g3my9JRIFlooxyj8V7sh35hY5IRCQbmUJgQyZCpZA=;
-  b=jcIwft5jv0c/Rh59jl/TCW8kcjY/LSfw8nQoXoi8VtJtepdVSHuq4VWS
-   UBrTgFXVNdHKqduE/NonNAbDHdEQXZnfVZ/PIoz42B7WA1onI4jtu409F
-   cNm/9JebxE4nhF2MOALTomXPSV9UsZLg/3Rd+ve/1dUJzdPtsB04kDQWy
-   uICUUd5sfDywupYNz3F/8E5VLoycEKi3FkMxDPTg5YaP/jwi4GvvR7RP5
-   uYyjK4RYGQ4pPPB6vdMGkYeHyOLpA1+hEFRIRKaIJiLCjLCq1jvQoEOlC
-   YxLAx5sl/+HE3HzfAHQhVIU2vCxBPScDZ40whbQEoIB3L4E9qOrPAwGZe
-   A==;
-X-CSE-ConnectionGUID: hIq8f/ysTj68Z13LPzRHJA==
-X-CSE-MsgGUID: IwyqJyi9QmelPYSsBvNXCg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11444"; a="61271404"
-X-IronPort-AV: E=Sophos;i="6.15,315,1739865600"; 
-   d="scan'208";a="61271404"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2025 01:46:37 -0700
-X-CSE-ConnectionGUID: 87Q8+/OFQEKou9A59x7HZw==
-X-CSE-MsgGUID: K2tL7ZGsTH2TiLuVAaj2fQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,315,1739865600"; 
-   d="scan'208";a="142185826"
-Received: from smoticic-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.125])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2025 01:46:32 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 6EF9D11F738;
-	Mon, 26 May 2025 11:46:29 +0300 (EEST)
-Date: Mon, 26 May 2025 08:46:29 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Mathis Foerst <mathis.foerst@mt.com>
-Cc: linux-kernel@vger.kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-staging@lists.linux.dev,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	manuel.traut@mt.com, mathis.foerst@zuehlke.com
-Subject: Re: [PATCH v6 5/7] media: mt9m114: Allow set_selection while
- streaming
-Message-ID: <aDQqZdf1kZ6n3Fcm@kekkonen.localdomain>
-References: <20250522143512.112043-1-mathis.foerst@mt.com>
- <20250522143512.112043-6-mathis.foerst@mt.com>
+	id 1uJTah-00000008RDV-1Nbi;
+	Mon, 26 May 2025 08:53:52 +0000
+X-UUID: ef5a1a7a3a0e11f0b29709d653e92f7d-20250526
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:2a582296-71b1-4427-aff1-0d66ba2e24a6,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:-3,FILE:0,BULK:30,RULE:Release_Ham,ACTI
+	ON:release,TS:37
+X-CID-INFO: VERSION:1.1.45,REQID:2a582296-71b1-4427-aff1-0d66ba2e24a6,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:-3,FILE:0,BULK:30,RULE:Release_Ham,ACTION
+	:release,TS:37
+X-CID-META: VersionHash:6493067,CLOUDID:01155e3f26d2f9f964f0833965c5c673,BulkI
+	D:250522180435BN613KC0,BulkQuantity:7,Recheck:0,SF:19|24|38|45|64|66|72|78
+	|80|81|82|83|102|841,TC:nil,Content:0|50,EDM:-3,IP:-2,URL:0,File:nil,RT:ni
+	l,Bulk:40|23,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:
+	0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 1,FCT
+X-CID-BAS: 1,FCT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FSD,TF_CID_SPAM_FSI
+X-UUID: ef5a1a7a3a0e11f0b29709d653e92f7d-20250526
+X-User: aichao@kylinos.cn
+Received: from [172.25.120.86] [(112.64.161.44)] by mailgw.kylinos.cn
+	(envelope-from <aichao@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 2088584585; Mon, 26 May 2025 16:53:46 +0800
+Message-ID: <3869e6fc-1cbf-4113-9b34-0cbb5d4b5176@kylinos.cn>
+Date: Mon, 26 May 2025 16:53:42 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250522143512.112043-6-mathis.foerst@mt.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/6] ASoC: aoa: Use helper function
+ for_each_child_of_node_scoped()
+To: Christophe Leroy <christophe.leroy@csgroup.eu>, perex@perex.cz,
+ tiwai@suse.com, johannes@sipsolutions.net, kuninori.morimoto.gx@renesas.com,
+ lgirdwood@gmail.com, broonie@kernel.org, jbrunet@baylibre.com,
+ neil.armstrong@linaro.org, khilman@baylibre.com,
+ martin.blumenstingl@googlemail.com, shengjiu.wang@gmail.com,
+ Xiubo.Lee@gmail.com, festevam@gmail.com, nicoleotsuka@gmail.com,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, srinivas.kandagatla@linaro.org
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ imx@lists.linux.dev, kernel@pengutronix.de, linux-arm-msm@vger.kernel.org
+References: <20250522050300.519244-1-aichao@kylinos.cn>
+ <20250522050300.519244-3-aichao@kylinos.cn>
+ <8ad901c3-3fcb-4643-ac5a-c1f30f93d07f@csgroup.eu>
+Content-Language: en-US
+From: Ai Chao <aichao@kylinos.cn>
+In-Reply-To: <8ad901c3-3fcb-4643-ac5a-c1f30f93d07f@csgroup.eu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_014638_500982_56802A7C 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20250526_015351_666959_5015E277 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,89 +90,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathis,
+Hi Christophe:
 
-On Thu, May 22, 2025 at 04:35:09PM +0200, Mathis Foerst wrote:
-> The current implementation does not apply changes to the crop-
-> configuration of the sensor immediately if the sensor is in
-> streaming state. The user has to stop and restart the stream for
-> the changes to be applied.
-> This can be undesirable e.g. in a calibration usecase where the user
-> wants to see the impact of his changes in a live video stream.
-> Under the condition that the width & height of the cropped image area
-> does not change, the changed cropping configuration can be applied to
-> the pixel-array immediately without disturbing the IFP.
-> 
-> Call mt9m114_configure_pa() in mt9m114_pa_set_selection() if the sensor is
-> in streaming state and the size of the cropping rectangle didn't change,
-> issue a CONFIG_CHANGE to apply the changes immediately.
-> 
-> Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
-> ---
->  drivers/media/i2c/mt9m114.c | 24 +++++++++++++++++++++---
->  1 file changed, 21 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/media/i2c/mt9m114.c b/drivers/media/i2c/mt9m114.c
-> index 7d39978835fe..e909c1227e51 100644
-> --- a/drivers/media/i2c/mt9m114.c
-> +++ b/drivers/media/i2c/mt9m114.c
-> @@ -1301,11 +1301,14 @@ static int mt9m114_pa_set_selection(struct v4l2_subdev *sd,
->  	struct mt9m114 *sensor = pa_to_mt9m114(sd);
->  	struct v4l2_mbus_framefmt *format;
->  	struct v4l2_rect *crop;
-> +	struct v4l2_rect old_crop;
-> +	int ret = 0;
->  
->  	if (sel->target != V4L2_SEL_TGT_CROP)
->  		return -EINVAL;
->  
->  	crop = v4l2_subdev_state_get_crop(state, sel->pad);
-> +	old_crop = *crop;
->  	format = v4l2_subdev_state_get_format(state, sel->pad);
->  
->  	/*
-> @@ -1331,10 +1334,25 @@ static int mt9m114_pa_set_selection(struct v4l2_subdev *sd,
->  	format->width = crop->width;
->  	format->height = crop->height;
->  
-> -	if (sel->which == V4L2_SUBDEV_FORMAT_ACTIVE)
-> -		mt9m114_pa_ctrl_update_blanking(sensor, format);
-> +	if (sel->which != V4L2_SUBDEV_FORMAT_ACTIVE)
-> +		return ret;
->  
-> -	return 0;
-> +	mt9m114_pa_ctrl_update_blanking(sensor, format);
-> +
-> +	/*
-> +	 * Apply values immediately if streaming and the selection size did not
-> +	 * change.
-> +	 */
-> +	if (sensor->streaming && old_crop.height == crop->height &&
-> +	    old_crop.width == crop->width) {
-> +		ret = mt9m114_configure_pa(sensor, state);
-> +		if (ret)
-> +			return ret;
-> +		// Changing the cropping config requires a CONFIG_CHANGE
+>> The for_each_child_of_node_scoped() helper provides a scope-based
+>> clean-up functionality to put the device_node automatically, and
+>> as such, there is no need to call of_node_put() directly.
+>
+> I don't understand this explanation.
+>
+> You say "no need to call of_node_put()" and the only thing you do in 
+> addition to changing from for_each_child_of_node() to 
+> for_each_child_of_node_scoped() is to _add_ a new call to of_node_put().
+>
+> I would expect to see a _removal_ of some of_node_put() when I read 
+> your description.
+>
+>>       }
+>> +    of_node_put(sound);
+>> +
 
-/* C comments, please. */
+The for_each_child_of_node() function is used to iterate over all child 
+nodes of a device tree node.  During each iteration, it retrieves a 
+pointer to the child node via of_get_next_child() and automatically 
+increments the node's reference count (of_node_get()). Each call to 
+of_get_next_child() increases the reference count (refcount) of the 
+returned child node, ensuring that the node is not freed while in use.
+for_each_child_of_node() increments the child node's reference count in 
+each iteration but does not decrement it automatically.
+If of_node_put() is not called manually, the reference count will never 
+reach zero, resulting in a memory leak of the node.
 
-> +		ret = mt9m114_set_state(sensor,	MT9M114_SYS_STATE_ENTER_CONFIG_CHANGE);
+In function i2sbus_add_dev, it used device_node out of 
+for_each_child_of_node(){},  it need to add a new call to 
+of_node_put(sound) to reference count.
 
-Please run:
+In function i2cbus_probe, it used device_node in 
+for_each_child_of_node(){}, used for_each_child_of_node_scoped() is 
+better than for_each_child_of_node().
 
-	$ ./scripts/checkpatch.pl --strict --max-line-length=80
-
-on this.
-
-> +	}
-> +
-> +	return ret;
->  }
->  
->  static const struct v4l2_subdev_pad_ops mt9m114_pa_pad_ops = {
-
--- 
-Regards,
-
-Sakari Ailus
+Best regards,
+Ai Chao
 
