@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A07C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 05:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470F3C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 06:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dLp6cnqyCbjFDWsg2nybeJcpM5tSNUhvPi8JJGmzqF0=; b=TvHLU1Vpc0FR+vaQlI0AiLo13U
-	mYs5k1EFJ71TVXqe4D7SxhgpQssh++GTSxXdPmQ7aRXJQFMUKCFxu4qIaO+BXk6Kq1Ah+LkK6gk2m
-	90BxQWoowLen3eJhbly1T0pGSWIk1syQ8LrF1o7EG5TzLlcssTwiXs/b/CDp7C0or2FX63K1tRV0r
-	xT3EFZXC8f0KjL7psuRqt20mFoTZBcsACT5vWrkU14FkHRzdPmJH34gLHTeeDZCpClYpYD/Q6kPMN
-	aa7AIddcZSq0H41VeDWUjhvxJNQkQrWqwl/5aDQJLTYkx7JjPjniEAzNu80vcG8U2GOGqBYnFvWpS
-	enEVWxOQ==;
+	bh=viw1dZoMCy1JfsXdyGIwszgEcCPifCEW3Xe8eIBNXNA=; b=1sZ+w3B2YYdrRVRgpV8Hm42BpJ
+	2CETJPXIuyiuyUXwUbJ5QXUsUjNo6jbySzNMEUEImnl1FruVxdI7y3/fsUQfJ+fobx67wpMnIc3ef
+	JpFhH061PY/+9eVreGdzyHbFCFkYAT5kigkFS9eq9pAxf5QVDrXcE5tEjXPzyx5ztyn6P/LxWcUbZ
+	Bm5hl3oXXToEYB+wC7a3sDDht7WnJa5rx3lhMd3i1Mey/iCVvkZlrv08EM78wpoLz2+R9xA6DQRk4
+	9unUSnkhpbNHaB/fOPPsPhQVjqvJd/fXgdJq3fDzIhi2Zp2RI9haejwW89UY0ZVnX/ZGnhHP+KmuQ
+	r6W9Cpfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJQgf-000000088v1-3WKL;
-	Mon, 26 May 2025 05:47:49 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uJRKu-00000008CEf-0xbZ;
+	Mon, 26 May 2025 06:29:24 +0000
+Received: from mail-m49240.qiye.163.com ([45.254.49.240])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJQYV-000000088PP-2rzD
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 05:39:24 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-23229fdaff4so19969885ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 May 2025 22:39:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748237962; x=1748842762; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dLp6cnqyCbjFDWsg2nybeJcpM5tSNUhvPi8JJGmzqF0=;
-        b=ITuNB1VzNOygISUGtIKQ9YUegCPKWOSMZgpQlOJ0bBkpOQqfnUPOpxqhWuIiHI6x8i
-         e2FUwm1jRCedK+VZfjm6uY/9fCNdJt3oV33XLe8ID91dy9SM3GSHovXq+dC1SgG00jLZ
-         nRba1a95y0ktp/bHkNZgls8DkzwK6FM3kYUca+WWPviHX4pUUN/wrcc/6odbLGYOfh1O
-         s8qQDTGxeUMKzgehxDfCBVYoyQb+Dcl5wWPqx9tVtbWylRMOjCtAEIUFW+dT18ieGcAf
-         szrurt4DD0SJS474E3PkPzHyoY1NSVOM4MJl5FlZHWhksq+rQMM3VVNQsIC7PlPdMRzX
-         VAMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748237962; x=1748842762;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dLp6cnqyCbjFDWsg2nybeJcpM5tSNUhvPi8JJGmzqF0=;
-        b=Gr8EZ0F74cBcRN7M853T9yTfu5XfZgZnkIHfuVTO/cljv4YDIaxA0pWINcCNBM5kD8
-         S3GhQEcB4oSBQHWNPK0IUeLQJWapvmvw8N8jPcwHftWLz3gNaMaXZRn9rLtV184D61D4
-         mOHhJH8Ts3rAbBC0W84HJF6obcQsRdorr54Gyyc7SwE9OUFaqG/NEh9OdimMzZ9SU+9s
-         y9MWGDmpcbzFkA/klcmikmNhZ7qDu+EN9xCoXO7pQb1Ncw40oZqmd4AQKfQJNIoWHR8N
-         EIPrfMlfZg+g1u0OTzf6qebo+trm6VDz4J6tqPUJs9ahukmGOHLNlhDPk9WR66ByjYsx
-         37bw==
-X-Forwarded-Encrypted: i=1; AJvYcCUn8ujGp4fiBhGl96EPbx1yKmWvD9KFITAhdgNo+VxGHTX05AESFuMZWkKnmM11tH25rfuSwyA1GFqa7cav5V3J@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhDY6vAeWk+QpsP8J2ikgq8xwtYBulCwDQin6ZZa9yh0PlS2S2
-	Owj40t+OfwkdJKwo2CVnyo5nIPVEW9vIlUeCRyy4/bb8k0DUmUb90cTm
-X-Gm-Gg: ASbGncuzpksRZcpy5AZlMXgYIWmpUGZ7IQjmGkM0XK3VUFN8dJ11WBiNS/dOeRgUGvf
-	Wg0KPDk2dQCvHiqZ+f8X23HxiASie3VsHiSO5yRcQ5+yhwpvQTLXSiQ6WZviQbaofz1+x8E2GxE
-	33a1/tJkcY/2uULXYRC1DbnrETn2weTXlSLmPLbEV1mzEDjshUO0Agu7fzbP31/ySk6dvaLPhIn
-	cqnbkEUxkTw6hQWWW33hZ/yDn8s9tJZaayolPuMtaIAYJGA39Dv16u8p1AO6JfPw1Ustil2zdHy
-	Tgqmw5x8YgZGUd1ZcrP5XuO8+CswSW3Q3e3+gnEB7Cm2JgL0a4K3D+QubtAta8WRHtam2lleh6W
-	wNnHWLJTZxaxff+hSPpLJdYnt7/nO
-X-Google-Smtp-Source: AGHT+IG7xgzxnz1Grj9UzPDie6FzHib+saLpOZH8onxhz75DWnCGce9JBep2Vj0Bc2x5YD1GmylXew==
-X-Received: by 2002:a17:902:eccb:b0:22e:3f1e:b8c8 with SMTP id d9443c01a7336-23414f5cceamr132744715ad.15.1748237962243;
-        Sun, 25 May 2025 22:39:22 -0700 (PDT)
-Received: from [0.0.0.0] (ec2-54-193-105-225.us-west-1.compute.amazonaws.com. [54.193.105.225])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2343635891bsm22297405ad.130.2025.05.25.22.39.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 25 May 2025 22:39:21 -0700 (PDT)
-Message-ID: <705d99b3-9803-4f5f-a807-607b49349b68@gmail.com>
-Date: Sun, 25 May 2025 22:41:52 -0700
+	id 1uJRHm-00000008BrN-2FII;
+	Mon, 26 May 2025 06:26:12 +0000
+Received: from rockchip.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1660c016b;
+	Mon, 26 May 2025 14:26:03 +0800 (GMT+08:00)
+From: Elaine Zhang <zhangqing@rock-chips.com>
+To: zhangqing@rock-chips.com,
+	mkl@pengutronix.de,
+	kernel@pengutronix.de,
+	mailhol.vincent@wanadoo.fr,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	cl@rock-chips.com,
+	kever.yang@rock-chips.com
+Cc: linux-can@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v6 2/4] net: can: rockchip: Refactor the rkcanfd_devtype_data structure
+Date: Mon, 26 May 2025 14:25:57 +0800
+Message-Id: <20250526062559.2061311-3-zhangqing@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250526062559.2061311-1-zhangqing@rock-chips.com>
+References: <20250526062559.2061311-1-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] ethernet: eswin: Document for eic7700 SoC
-To: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- richardcochran@gmail.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- p.zabel@pengutronix.de, yong.liang.choong@linux.intel.com,
- rmk+kernel@armlinux.org.uk, jszhang@kernel.org, inochiama@gmail.com,
- jan.petrous@oss.nxp.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
- lizhi2@eswincomputing.com
-References: <20250516010849.784-1-weishangjuan@eswincomputing.com>
- <20250516011040.801-1-weishangjuan@eswincomputing.com>
-Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <20250516011040.801-1-weishangjuan@eswincomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkwfGlZCTh9NSE9KGR5NHh1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a970b450bc803a3kunm902b49ed4a337c
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OAg6NRw5LDEzDA4qLR1LT0g3
+	AgEaFBhVSlVKTE9DSU9LTE1OT0lJVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUpLTENINwY+
+DKIM-Signature: a=rsa-sha256;
+	b=S5nZmBLen1pCrrhOG7gz1Z6grtR8r6BPesooLYBT/SZnGyxDh6nXR8rNYOZixlRSsbv71TsTZpzizAzR1u9Q0a3vXWcYPPIpnkFczAUE7PnX72cuebN4nuwFO1P2n1O0IhQbSole6gwp8PMWXVqYvzdcIrbDZ30Z0ax4MGpdJqY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=viw1dZoMCy1JfsXdyGIwszgEcCPifCEW3Xe8eIBNXNA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_223923_808564_08803D93 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20250525_232611_189713_CE64F647 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,61 +83,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/15/25 18:10, weishangjuan@eswincomputing.com wrote:> From: Shangjuan Wei <weishangjuan@eswincomputing.com>
-> 
-> Add ESWIN EIC7700 Ethernet controller, supporting
-> multi-rate (10M/100M/1G) auto-negotiation, PHY LED configuration,
-> clock/reset control, and AXI bus parameter optimization.
-> 
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
-> ---...> +  # Custom properties
-> +  eswin,hsp_sp_csr:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description: HSP SP control register> +...> +additionalProperties: false
-> +
-> +  eswin,syscrg_csr:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description: System clock registers
-> +
-> +  eswin,dly_hsp_reg:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description: HSP delay control registers
-...
-> +examples:
-> +  - |
-> +    gmac0: ethernet@50400000 {...> +        dma-noncoherent;
-> +        eswin,hsp_sp_csr = <&hsp_sp_csr 0x1030 0x100 0x108>;
-> +        eswin,syscrg_csr = <&sys_crg 0x148 0x14c>;
-> +        eswin,dly_hsp_reg = <0x114 0x118 0x11c>;
+Add new function pointer:
+Encapsulate some hardware operation functions into
+rkcanfd_devtype_data to provide differentiated implementations for
+different models (such as RK3568v2/v3).
 
-Please help explain the meaning of eswin,<reg> array, and also the expected
-number of elements in it, like what starfive did to their JH71x0 device-
-tree bindings. E.g., this is what net/starfive,jh7110-dwmac.yaml looks like:
+Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+---
+ .../net/can/rockchip/rockchip_canfd-core.c    | 104 ++++++++++--------
+ drivers/net/can/rockchip/rockchip_canfd.h     |  11 ++
+ 2 files changed, 72 insertions(+), 43 deletions(-)
 
-...
-   starfive,syscon:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
-     items:
-       - items:
-           - description: phandle to syscon that configures phy mode
-           - description: Offset of phy mode selection
-           - description: Shift of phy mode selection
-     description:
-       A phandle to syscon with two arguments that configure phy mode.
-       The argument one is the offset of phy mode selection, the
-       argument two is the shift of phy mode selection.
-...
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index c3fb3176ce42..c21ca4c1fb9a 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -24,32 +24,6 @@
+ 
+ #include "rockchip_canfd.h"
+ 
+-static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v2 = {
+-	.model = RKCANFD_MODEL_RK3568V2,
+-	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_1 | RKCANFD_QUIRK_RK3568_ERRATUM_2 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_3 | RKCANFD_QUIRK_RK3568_ERRATUM_4 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_5 | RKCANFD_QUIRK_RK3568_ERRATUM_6 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_7 | RKCANFD_QUIRK_RK3568_ERRATUM_8 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_9 | RKCANFD_QUIRK_RK3568_ERRATUM_10 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_11 | RKCANFD_QUIRK_RK3568_ERRATUM_12 |
+-		RKCANFD_QUIRK_CANFD_BROKEN,
+-};
+-
+-/* The rk3568 CAN-FD errata sheet as of Tue 07 Nov 2023 11:25:31 +08:00
+- * states that only the rk3568v2 is affected by erratum 5, but tests
+- * with the rk3568v2 and rk3568v3 show that the RX_FIFO_CNT is
+- * sometimes too high. In contrast to the errata sheet mark rk3568v3
+- * as effected by erratum 5, too.
+- */
+-static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v3 = {
+-	.model = RKCANFD_MODEL_RK3568V3,
+-	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_1 | RKCANFD_QUIRK_RK3568_ERRATUM_2 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_5 | RKCANFD_QUIRK_RK3568_ERRATUM_7 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_8 | RKCANFD_QUIRK_RK3568_ERRATUM_10 |
+-		RKCANFD_QUIRK_RK3568_ERRATUM_11 | RKCANFD_QUIRK_RK3568_ERRATUM_12 |
+-		RKCANFD_QUIRK_CANFD_BROKEN,
+-};
+-
+ static const char *__rkcanfd_get_model_str(enum rkcanfd_model model)
+ {
+ 	switch (model) {
+@@ -212,7 +186,7 @@ static int rkcanfd_get_berr_counter(const struct net_device *ndev,
+ 	if (err)
+ 		return err;
+ 
+-	rkcanfd_get_berr_counter_corrected(priv, bec);
++	priv->devtype_data.get_berr_counter(priv, bec);
+ 
+ 	pm_runtime_put(ndev->dev.parent);
+ 
+@@ -296,13 +270,13 @@ static void rkcanfd_chip_start(struct rkcanfd_priv *priv)
+ 
+ 	memset(&priv->bec, 0x0, sizeof(priv->bec));
+ 
+-	rkcanfd_chip_fifo_setup(priv);
++	priv->devtype_data.fifo_setup(priv);
+ 	rkcanfd_timestamp_init(priv);
+ 	rkcanfd_timestamp_start(priv);
+ 
+ 	rkcanfd_set_bittiming(priv);
+ 
+-	rkcanfd_chip_interrupts_disable(priv);
++	priv->devtype_data.interrupts_disable(priv);
+ 	rkcanfd_chip_set_work_mode(priv);
+ 
+ 	priv->can.state = CAN_STATE_ERROR_ACTIVE;
+@@ -316,7 +290,7 @@ static void __rkcanfd_chip_stop(struct rkcanfd_priv *priv, const enum can_state
+ 	priv->can.state = state;
+ 
+ 	rkcanfd_chip_set_reset_mode(priv);
+-	rkcanfd_chip_interrupts_disable(priv);
++	priv->devtype_data.interrupts_disable(priv);
+ }
+ 
+ static void rkcanfd_chip_stop(struct rkcanfd_priv *priv, const enum can_state state)
+@@ -342,8 +316,8 @@ static int rkcanfd_set_mode(struct net_device *ndev,
+ 
+ 	switch (mode) {
+ 	case CAN_MODE_START:
+-		rkcanfd_chip_start(priv);
+-		rkcanfd_chip_interrupts_enable(priv);
++		priv->devtype_data.chip_start(priv);
++		priv->devtype_data.interrupts_enable(priv);
+ 		netif_wake_queue(ndev);
+ 		break;
+ 
+@@ -537,7 +511,7 @@ static int rkcanfd_handle_error_int(struct rkcanfd_priv *priv)
+ 		if (cf) {
+ 			struct can_berr_counter bec;
+ 
+-			rkcanfd_get_berr_counter_corrected(priv, &bec);
++			priv->devtype_data.get_berr_counter(priv, &bec);
+ 			cf->can_id |= CAN_ERR_PROT | CAN_ERR_BUSERROR | CAN_ERR_CNT;
+ 			cf->data[6] = bec.txerr;
+ 			cf->data[7] = bec.rxerr;
+@@ -567,7 +541,7 @@ static int rkcanfd_handle_state_error_int(struct rkcanfd_priv *priv)
+ 	u32 timestamp;
+ 	int err;
+ 
+-	rkcanfd_get_berr_counter_corrected(priv, &bec);
++	priv->devtype_data.get_berr_counter(priv, &bec);
+ 	can_state_get_by_berr_counter(ndev, &bec, &tx_state, &rx_state);
+ 
+ 	new_state = max(tx_state, rx_state);
+@@ -581,7 +555,7 @@ static int rkcanfd_handle_state_error_int(struct rkcanfd_priv *priv)
+ 	can_change_state(ndev, cf, tx_state, rx_state);
+ 
+ 	if (new_state == CAN_STATE_BUS_OFF) {
+-		rkcanfd_chip_stop(priv, CAN_STATE_BUS_OFF);
++		priv->devtype_data.chip_stop(priv, CAN_STATE_BUS_OFF);
+ 		can_bus_off(ndev);
+ 	}
+ 
+@@ -620,7 +594,7 @@ rkcanfd_handle_rx_fifo_overflow_int(struct rkcanfd_priv *priv)
+ 	if (!skb)
+ 		return 0;
+ 
+-	rkcanfd_get_berr_counter_corrected(priv, &bec);
++	priv->devtype_data.get_berr_counter(priv, &bec);
+ 
+ 	cf->can_id |= CAN_ERR_CRTL | CAN_ERR_CNT;
+ 	cf->data[1] = CAN_ERR_CRTL_RX_OVERFLOW;
+@@ -719,21 +693,21 @@ static int rkcanfd_open(struct net_device *ndev)
+ 	if (err)
+ 		goto out_close_candev;
+ 
+-	rkcanfd_chip_start(priv);
++	priv->devtype_data.chip_start(priv);
+ 	can_rx_offload_enable(&priv->offload);
+ 
+-	err = request_irq(ndev->irq, rkcanfd_irq, IRQF_SHARED, ndev->name, priv);
++	err = request_irq(ndev->irq, priv->devtype_data.irq, IRQF_SHARED, ndev->name, priv);
+ 	if (err)
+ 		goto out_rkcanfd_chip_stop;
+ 
+-	rkcanfd_chip_interrupts_enable(priv);
++	priv->devtype_data.interrupts_enable(priv);
+ 
+ 	netif_start_queue(ndev);
+ 
+ 	return 0;
+ 
+ out_rkcanfd_chip_stop:
+-	rkcanfd_chip_stop_sync(priv, CAN_STATE_STOPPED);
++	priv->devtype_data.chip_stop_sync(priv, CAN_STATE_STOPPED);
+ 	pm_runtime_put(ndev->dev.parent);
+ out_close_candev:
+ 	close_candev(ndev);
+@@ -746,10 +720,10 @@ static int rkcanfd_stop(struct net_device *ndev)
+ 
+ 	netif_stop_queue(ndev);
+ 
+-	rkcanfd_chip_interrupts_disable(priv);
++	priv->devtype_data.interrupts_disable(priv);
+ 	free_irq(ndev->irq, priv);
+ 	can_rx_offload_disable(&priv->offload);
+-	rkcanfd_chip_stop_sync(priv, CAN_STATE_STOPPED);
++	priv->devtype_data.chip_stop_sync(priv, CAN_STATE_STOPPED);
+ 	close_candev(ndev);
+ 
+ 	pm_runtime_put(ndev->dev.parent);
+@@ -818,7 +792,7 @@ static int rkcanfd_register(struct rkcanfd_priv *priv)
+ 	if (err)
+ 		goto out_pm_runtime_put_sync;
+ 
+-	rkcanfd_register_done(priv);
++	priv->devtype_data.register_done(priv);
+ 
+ 	pm_runtime_put(ndev->dev.parent);
+ 
+@@ -840,6 +814,50 @@ static inline void rkcanfd_unregister(struct rkcanfd_priv *priv)
+ 	pm_runtime_disable(ndev->dev.parent);
+ }
+ 
++static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v2 = {
++	.model = RKCANFD_MODEL_RK3568V2,
++	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_1 | RKCANFD_QUIRK_RK3568_ERRATUM_2 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_3 | RKCANFD_QUIRK_RK3568_ERRATUM_4 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_5 | RKCANFD_QUIRK_RK3568_ERRATUM_6 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_7 | RKCANFD_QUIRK_RK3568_ERRATUM_8 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_9 | RKCANFD_QUIRK_RK3568_ERRATUM_10 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_11 | RKCANFD_QUIRK_RK3568_ERRATUM_12 |
++		RKCANFD_QUIRK_CANFD_BROKEN,
++	.get_berr_counter = rkcanfd_get_berr_counter_corrected,
++	.interrupts_enable = rkcanfd_chip_interrupts_enable,
++	.interrupts_disable = rkcanfd_chip_interrupts_disable,
++	.fifo_setup = rkcanfd_chip_fifo_setup,
++	.chip_start = rkcanfd_chip_start,
++	.chip_stop = rkcanfd_chip_stop,
++	.chip_stop_sync = rkcanfd_chip_stop_sync,
++	.irq = rkcanfd_irq,
++	.register_done = rkcanfd_register_done,
++};
++
++/* The rk3568 CAN-FD errata sheet as of Tue 07 Nov 2023 11:25:31 +08:00
++ * states that only the rk3568v2 is affected by erratum 5, but tests
++ * with the rk3568v2 and rk3568v3 show that the RX_FIFO_CNT is
++ * sometimes too high. In contrast to the errata sheet mark rk3568v3
++ * as effected by erratum 5, too.
++ */
++static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v3 = {
++	.model = RKCANFD_MODEL_RK3568V3,
++	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_1 | RKCANFD_QUIRK_RK3568_ERRATUM_2 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_5 | RKCANFD_QUIRK_RK3568_ERRATUM_7 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_8 | RKCANFD_QUIRK_RK3568_ERRATUM_10 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_11 | RKCANFD_QUIRK_RK3568_ERRATUM_12 |
++		RKCANFD_QUIRK_CANFD_BROKEN,
++	.get_berr_counter = rkcanfd_get_berr_counter_corrected,
++	.interrupts_enable = rkcanfd_chip_interrupts_enable,
++	.interrupts_disable = rkcanfd_chip_interrupts_disable,
++	.fifo_setup = rkcanfd_chip_fifo_setup,
++	.chip_start = rkcanfd_chip_start,
++	.chip_stop = rkcanfd_chip_stop,
++	.chip_stop_sync = rkcanfd_chip_stop_sync,
++	.irq = rkcanfd_irq,
++	.register_done = rkcanfd_register_done,
++};
++
+ static const struct of_device_id rkcanfd_of_match[] = {
+ 	{
+ 		.compatible = "rockchip,rk3568v2-canfd",
+diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
+index 93131c7d7f54..bcd26d23062b 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd.h
++++ b/drivers/net/can/rockchip/rockchip_canfd.h
+@@ -436,9 +436,20 @@ enum rkcanfd_model {
+ 	RKCANFD_MODEL_RK3568V3 = 0x35683,
+ };
+ 
++struct rkcanfd_priv;
++
+ struct rkcanfd_devtype_data {
+ 	enum rkcanfd_model model;
+ 	u32 quirks;
++	void (*get_berr_counter)(struct rkcanfd_priv *priv, struct can_berr_counter *bec);
++	void (*interrupts_enable)(const struct rkcanfd_priv *priv);
++	void (*interrupts_disable)(const struct rkcanfd_priv *priv);
++	void (*fifo_setup)(struct rkcanfd_priv *priv);
++	void (*chip_start)(struct rkcanfd_priv *priv);
++	void (*chip_stop)(struct rkcanfd_priv *priv, const enum can_state state);
++	void (*chip_stop_sync)(struct rkcanfd_priv *priv, const enum can_state state);
++	irqreturn_t (*irq)(int irq, void *dev_id);
++	void (*register_done)(const struct rkcanfd_priv *priv);
+ };
+ 
+ struct rkcanfd_fifo_header {
+-- 
+2.34.1
 
-Otherwise, there's no way for people to reason about the driver code.
-The same should apply for your sdhci/usb/pcie/... patchsets as well.
-Also there's no reference to the first element of the hsp_sp_csr array.
- From the vendor code, I'm reading that you are using the first element
-as the register to set the stream ID of the device to tag the memory
-transactions for SMMU, but in the patch, there's no mentioning of it.
-I'm guessing you are planning to upstream that part later. If so, I
-think it's better to put that register index at the end of the array,
-and make it optional. It should then be properly documented as well.
-
-Bo
 
