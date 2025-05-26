@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C601AC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 09:41:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BB4C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 10:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+L4VjX2JCCDTCMFLd88+LcuNW5Apnj1Z8Dzhxz61/yI=; b=CiGyxOtztOHzGqcd/JV2kEZ3z9
-	9wPuJIxg5DyA8jTROcbz8+9yCSehzTGm7IHV1816+j+NhbwRHlzKzar9CzR4gt2D4XnWadZlN7xZJ
-	bjJW1s5E23LR2UXldQZd9+KkWHzqX80rS3XE/ypvKB+E24yJ5zfIfv7EncH8pbveRejKKokrLupWM
-	+9Bhh6PKHkX2WTmGDMK1PnfLdIq8Mke5UYQmYN5SzCBSVD3ODnxme6+ogSQjdpDZZwKYKsOEJspil
-	CmOKcgT5AbiqwgrlPny+7jGRCkw6C//MBecDL4VIHPr31l5U8+e5elxV4m5iQTPvNkuHigjsRKV+5
-	5vTMv6aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hw+b30S7iFdzof7KyhoRmjmL7YOJsI0JrMdooAg75CY=; b=ZIZ4MLEwuvridNBhVPi78FSLaD
+	mYxano8tix3XQgJ9h95RV+XMYudhewub7xLzb7VmHNArl4oyJrNAy/pnTuCH+sKzCnOq6OxsHXTP2
+	3xMHl34uHTxejHGa3NTHVDDSrvNFoCzz0R2/uPgzSnKAUku6BjgxtNoEpZno66NiLJnM4R37bwbR1
+	p96ldOWGf7umJMi7kSHoqg+0xX9dhMzzr0yd7XEk7qTLodozLKd/ZSJ8GxAC6A3ePF1hs6kFxe9BH
+	1bYuAZ39kV4LaxfaF7ssKoB6EUshckZA/zrROnY13qyr1nm3s8wmLBkPVEaHDbYEqtMLSzcSnX0ni
+	oK4cKXOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJUL4-00000008Xd2-2WPx;
-	Mon, 26 May 2025 09:41:46 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uJUee-00000008ZuT-2cQ8;
+	Mon, 26 May 2025 10:02:00 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJUG3-00000008Wv3-25Zp;
-	Mon, 26 May 2025 09:36:36 +0000
-X-UUID: e7713c3e3a1411f08d385d50fb11b32d-20250526
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=+L4VjX2JCCDTCMFLd88+LcuNW5Apnj1Z8Dzhxz61/yI=;
-	b=udaZWIuA5euLc9gnsnwhqyoWnGZyd5A6Ikz9+geKt0eQ/TLJ9hIaZdQdRj4iU+y3y4iCIww2ViqU6bu9+Iq7LgIOUv4vF617gAmDDN6iC4MnVBsKlGKM/AIUh2Cwi7pqiRh12YdetnkdNdh+YPjs9CKvJQCJSBu4fXyBZ0I5uVE=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:13bc895a-bb91-4b57-991b-575816a43862,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:97cf1e59-eac4-4b21-88a4-d582445d304a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: e7713c3e3a1411f08d385d50fb11b32d-20250526
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
-	(envelope-from <jianhua.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 539789144; Mon, 26 May 2025 02:36:30 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 26 May 2025 17:36:27 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 26 May 2025 17:36:26 +0800
-From: Jianhua Lin <jianhua.lin@mediatek.com>
-To: <mchehab@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jianhua Lin
-	<jianhua.lin@mediatek.com>
-Subject: [PATCH v3 1/1] media: mediatek: jpeg: fix buffer alignment
-Date: Mon, 26 May 2025 17:36:24 +0800
-Message-ID: <20250526093624.4760-1-jianhua.lin@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1uJUcV-00000008Zcb-0ueV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 09:59:48 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-73712952e1cso1392732b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 02:59:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748253586; x=1748858386; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:date
+         :subject:cc:to:from:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hw+b30S7iFdzof7KyhoRmjmL7YOJsI0JrMdooAg75CY=;
+        b=NZaHWRTld4uN3Nx+9HGzKyu6guqFYKMS3Bd5f6aflhgXkk7QvjD2Ve7ziIDTpUx7S6
+         RNNklgd7LJjghKoNagAWuNO4NrSmyIJisdpW88mY8+zdIgiD8Ys64s/zG2DZz5Si3mG/
+         PCYa5snqCnpscwo/Z1+mOQsKTvTs/s0+jGqIqYrfqPW55YbRhvO550ELDK0WZc5cXsBN
+         psdHPpTyZywbWo//sSlLiLJh1h87l2tzJsalOOXFKly1NN/4HmdEphrFECZa5wQ/Y0bm
+         5Z9DdyGVuHRNIQaAuPWHbWE+EKUKAXfA/Iaos+Dt5CXsxsLkkbePJnWGjQI1M1wupI63
+         2oqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748253586; x=1748858386;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:date
+         :subject:cc:to:from:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=hw+b30S7iFdzof7KyhoRmjmL7YOJsI0JrMdooAg75CY=;
+        b=UYcvBuhUliBix5IkTWvU3LsYJk/cMSmPT59395PmID/dkrBUJ0qaPZnKm5scJk4RfM
+         7fd6fkobmNoCK9rH6diF6a5tvxxxArQ6b80GY1ZuPZafEBOkB7G3pi0taz41HwTKKaXI
+         CcALhAC6ZbQ/ZyWU2EX+FLX0p85xlSl+l3dVacpkTeuha6e0bdJiE79uq8Sn7cj9s1qs
+         0okCktUUPUIAavhSCmhXOg0Dlww9qgZQOycVOWYBFruVizqq4/P6L/q8+FaTEJ2wFXxG
+         Scwlj8n45+/Dbg9/nmu0xLtauFfwyYY1uZh1xGgtsZ3M7MUvpFzVBLs6bKzKHx+6VsZy
+         17Tg==
+X-Forwarded-Encrypted: i=1; AJvYcCUn9JwsOf1EgTANA/5ytzr7WvzKwWpzYwh9zYV8kp0RpY8V27L0tZjQz8YC7JfvfAyL2J9MxVjs1bME4jxIabcV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2QZklD3b97ZANConxNOTIMQgOwwNvQQ2OBXpsfFhvcn1td9L/
+	KeoNSg+BsVKdZt/xCH3OTCf7Mpjsp6xbuZGgqhEmvKTS7/6BO3GlXhRD
+X-Gm-Gg: ASbGncso4IPI562a/AEduLw5Zk58RmLVSxMi6DbdEosKhULGbdkN/YQgG0Ma9v4m+Af
+	rukFA7tlBJPTxnyQc//ghirgIhiT5f6Hj4RIKZd5pZg/qQGcKjrEfzq0R///PyBByPHaxUDPsdM
+	Dzt1x8mVpsz4VE006IYlwVBVQzl3bH/HqnUoJnaNon+Iq1RlDZdz49aJ5AKDv3qP0s0T53Il+tn
+	TynqnV14kEmMLhl+sDAY2ittlOvvhRgIsyiWMwAv6nZIgdyxmnmyiPlDzsdZHrametDYfahQRMU
+	FGAVG4Lqb/Ev5aqzfXWn3A6vtrw6stKw3MjJjoZPjhN1cYE4lLF7gZwbL8IgX/ZLpsDFIb2rnrG
+	n8mfkWXw=
+X-Google-Smtp-Source: AGHT+IH9dqXJxz5O35iZ5QNfhu3qUkFE26No9xhBeqSmFEjU/+GGgVc1uQOTE9NbI8GJds6O8V8qsQ==
+X-Received: by 2002:a05:6a00:8d6:b0:740:6f86:a0e6 with SMTP id d2e1a72fcca58-745fde9e5dcmr11477511b3a.6.1748253585822;
+        Mon, 26 May 2025 02:59:45 -0700 (PDT)
+Received: from dea88b1475bb.. (125-227-29-20.hinet-ip.hinet.net. [125.227.29.20])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a970d64fsm17225525b3a.64.2025.05.26.02.59.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 May 2025 02:59:45 -0700 (PDT)
+Message-ID: <68343b91.a70a0220.2298c6.5b57@mx.google.com>
+X-Google-Original-Message-ID: <20250526095924.2814310-1-LeoWang>
+From: leo.jt.wang@gmail.com
+X-Google-Original-From: LeoWang
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	george.kw.lee@fii-foxconn.com,
+	leo.jt.wang@fii-foxconn.com,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH V3 1/2] dt-bindings: arm: aspeed: add Meta Clemente board
+Date: Mon, 26 May 2025 17:59:24 +0800
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <6822b830.050a0220.27a24d.d064@mx.google.com>
+References: <6822b830.050a0220.27a24d.d064@mx.google.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_023635_538219_A2E8C990 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20250526_025947_257478_3DC1611D 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,141 +110,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The JPEG encoder image stride register must be MCU aligned.
-For YUV422, it's 32-byte aligned, and for YUV420, it's
-16-byte aligned.
+From: Leo Wang <leo.jt.wang@fii-foxconn.com>
 
-The minimal DCT block size is 8x8, so the vertical buffer
-alignment for YUV422 is 8-byte aligned, and for YUV420,
-it's 16-byte aligned.
+Document the new compatibles used on Meta Clemente.
 
-Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
 ---
-Changes compared with v2:
-- Add missing subject
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes compared with v1:
-- Fix the side effects of v1
-  when encoding YUV420 with resolution 720x480, the ouput image is abnormal.
-- Fix signed-off-by
-
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 ++++++++++++-------
- 1 file changed, 29 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 834d2a354692..f01a81feb692 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -40,8 +40,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_enc_formats[] = {
- 		.h_sample	= {4, 4},
- 		.v_sample	= {4, 2},
- 		.colplanes	= 2,
--		.h_align	= 4,
--		.v_align	= 4,
-+		.h_align	= 16,
-+		.v_align	= 16,
- 		.flags		= MTK_JPEG_FMT_FLAG_OUTPUT,
- 	},
- 	{
-@@ -50,8 +50,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_enc_formats[] = {
- 		.h_sample	= {4, 4},
- 		.v_sample	= {4, 2},
- 		.colplanes	= 2,
--		.h_align	= 4,
--		.v_align	= 4,
-+		.h_align	= 16,
-+		.v_align	= 16,
- 		.flags		= MTK_JPEG_FMT_FLAG_OUTPUT,
- 	},
- 	{
-@@ -60,8 +60,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_enc_formats[] = {
- 		.h_sample	= {8},
- 		.v_sample	= {4},
- 		.colplanes	= 1,
--		.h_align	= 5,
--		.v_align	= 3,
-+		.h_align	= 32,
-+		.v_align	= 8,
- 		.flags		= MTK_JPEG_FMT_FLAG_OUTPUT,
- 	},
- 	{
-@@ -70,8 +70,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_enc_formats[] = {
- 		.h_sample	= {8},
- 		.v_sample	= {4},
- 		.colplanes	= 1,
--		.h_align	= 5,
--		.v_align	= 3,
-+		.h_align	= 32,
-+		.v_align	= 8,
- 		.flags		= MTK_JPEG_FMT_FLAG_OUTPUT,
- 	},
- };
-@@ -87,8 +87,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_dec_formats[] = {
- 		.h_sample	= {4, 2, 2},
- 		.v_sample	= {4, 2, 2},
- 		.colplanes	= 3,
--		.h_align	= 5,
--		.v_align	= 4,
-+		.h_align	= 16,
-+		.v_align	= 16,
- 		.flags		= MTK_JPEG_FMT_FLAG_CAPTURE,
- 	},
- 	{
-@@ -96,8 +96,8 @@ static struct mtk_jpeg_fmt mtk_jpeg_dec_formats[] = {
- 		.h_sample	= {4, 2, 2},
- 		.v_sample	= {4, 4, 4},
- 		.colplanes	= 3,
--		.h_align	= 5,
--		.v_align	= 3,
-+		.h_align	= 32,
-+		.v_align	= 8,
- 		.flags		= MTK_JPEG_FMT_FLAG_CAPTURE,
- 	},
- };
-@@ -260,6 +260,7 @@ static int mtk_jpeg_try_fmt_mplane(struct v4l2_pix_format_mplane *pix_mp,
- 				   struct mtk_jpeg_fmt *fmt)
- {
- 	int i;
-+	u32 h_align;
- 
- 	pix_mp->field = V4L2_FIELD_NONE;
- 
-@@ -283,9 +284,15 @@ static int mtk_jpeg_try_fmt_mplane(struct v4l2_pix_format_mplane *pix_mp,
- 	}
- 
- 	/* other fourcc */
-+	if (pix_mp->pixelformat == V4L2_PIX_FMT_YUYV ||
-+	    pix_mp->pixelformat == V4L2_PIX_FMT_YVYU)
-+		h_align = fmt->h_align / 2;
-+	else
-+		h_align = fmt->h_align;
-+
- 	pix_mp->height = clamp(round_up(pix_mp->height, fmt->v_align),
- 			       MTK_JPEG_MIN_HEIGHT, MTK_JPEG_MAX_HEIGHT);
--	pix_mp->width = clamp(round_up(pix_mp->width, fmt->h_align),
-+	pix_mp->width = clamp(round_up(pix_mp->width, h_align),
- 			      MTK_JPEG_MIN_WIDTH, MTK_JPEG_MAX_WIDTH);
- 
- 	for (i = 0; i < fmt->colplanes; i++) {
-@@ -293,8 +300,15 @@ static int mtk_jpeg_try_fmt_mplane(struct v4l2_pix_format_mplane *pix_mp,
- 		u32 stride = pix_mp->width * fmt->h_sample[i] / 4;
- 		u32 h = pix_mp->height * fmt->v_sample[i] / 4;
- 
--		pfmt->bytesperline = stride;
--		pfmt->sizeimage = stride * h;
-+		if (pix_mp->pixelformat == V4L2_PIX_FMT_YUYV ||
-+		    pix_mp->pixelformat == V4L2_PIX_FMT_YVYU) {
-+			stride = round_up(stride, fmt->h_align);
-+			pfmt->bytesperline = stride;
-+			pfmt->sizeimage = stride * h;
-+		} else {
-+			pfmt->bytesperline = stride;
-+			pfmt->sizeimage = stride * h;
-+		}
- 	}
- 	return 0;
- }
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index a3736f134130..4416a40dcd86 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -81,6 +81,7 @@ properties:
+               - asus,x4tf-bmc
+               - facebook,bletchley-bmc
+               - facebook,catalina-bmc
++              - facebook,clemente-bmc
+               - facebook,cloudripper-bmc
+               - facebook,elbert-bmc
+               - facebook,fuji-bmc
 -- 
-2.46.0
+2.43.0
 
 
