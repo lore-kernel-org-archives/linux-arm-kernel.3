@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D25AC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 18:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1534C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 18:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QlxuW8EiAaobylr07WlFl9Wc9Vavh5mNNDPDEO1zHCA=; b=2tjTjKXtZlTPRVqjaKFNlw/2mc
-	P3bTDKRacMqLcloL6o58g0ibQdCsKCN/j3Fukx2mO9MXgW4d92Sbc3h0UeeCrmOVZWbWDgeJyDb2r
-	ck2vK26FoH+TH0+KWI+O0oXEJV+j0APIc+Q1Uf1SGdDFLngvnDor3m+ficuhQWHVG+aO62mZxkBrE
-	5OW3NZByoRzvUq+UXQWJ9QKYo+Sx2zYONSvxFWpapcAQFvNUT20DgUMS9NIKtG8c4JSYErw2dTl+8
-	0FXqIyiqm97nO9k9yzBkFu2DVLLa7BGXe/G1Ju+5HKzK9PMrPf2yCuSN+Nqeu8PKEmfY3BXscF+nt
-	NYEy/MxQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=95DMf2o/6QqJigi08+dNX9nTEaleJKhH1r+O8T2YuA4=; b=abD7nlLk9samw1eiAqRpxbPT/L
+	cUz2JZdyXKXmyUUI1cqccgUkcAzbyq5au8qm2uFvdHLeaJqxs+spBbOPNHAx7t0ICBDcNpyqHtTk0
+	DPmO815hFXed2qoCGtv26VWyoJPtCK7CZduYWV3qgQrKlSG44zEPNSBVagqOAoZ5U/Jw3Td7MZuJh
+	COe8/pdDw6PavYFfWi3ogr9BNMkI4v3kjg3+yiyGrD0P/qlp0Hx2rE8Fwy3yd5smsWOjnLsG4ZRXi
+	Q+neGeZg9RjrjNeO+LdObhGHlwZfLgkgmOeTImo8ZVlJHlthQrIMLJZ9AEPJdPNGJrgCJWgt7/aXO
+	4ExmyENg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJccb-00000009N1x-2qEQ;
-	Mon, 26 May 2025 18:32:25 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1uJcei-00000009N9y-1bno;
+	Mon, 26 May 2025 18:34:36 +0000
+Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJcaS-00000009Mkl-2N5g
+	id 1uJcaV-00000009MlG-0uqA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 18:30:13 +0000
-Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-861d7a09c88so43712739f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 11:30:12 -0700 (PDT)
+	Mon, 26 May 2025 18:30:16 +0000
+Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-8616987c261so75195339f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 11:30:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748284211; x=1748889011; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QlxuW8EiAaobylr07WlFl9Wc9Vavh5mNNDPDEO1zHCA=;
-        b=HdA3i1sSR53jvgcWPZzeQixTUWoA0WaEtoFMDZZY7PGlqskoNK9HcVKBnuoUSERGb+
-         beqo4qSN9LTBnKfZhzOmSeRUzIx8HeeFnoO+2YAkGYn6I1NOKbLeUgfrtPBLXYWx1nVw
-         jJ59aHvpIKvv8Ni8FHXntCseKjE7LG575wJcMAzoi73TgnaGVCu0Tf2P0zsAEkpdqzt9
-         tXcCwLkCB+HrrFPOuwQ6IP2i5WWYBXmlKH8Fa8psJeKbUIlBlyrH3NYZfHajY1N7PjTy
-         RgU/kGXmD7B1GSMNBGE87Gxx7LVjBegwfgUmh6JlHcDX91+E39PYUmhMkp5ZOuy23FxI
-         UxnA==
+        d=gmail.com; s=20230601; t=1748284214; x=1748889014; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=95DMf2o/6QqJigi08+dNX9nTEaleJKhH1r+O8T2YuA4=;
+        b=Tp20vBUMwPr6ASOoCRLIh/K+D8sESihTVIdE+MkXqxuffUja10TfKQN0gTRm1thC8q
+         TPpvp2b9xYrzgnPHWmPHK9eEjpGrEGJrS0UlbWGrJ+7V8yRInwmC34lVvyk/hZFTnF6m
+         5TFZuhOzGxWQymwk/4yPnd9ams0jt2RMNJ9C2BHhkSSh1Pa9lIGsriOam6mr9WxolkbT
+         mc43Z9G+dfQxwFKB4qxCsRXqQmTa0cUwHlxlpZJbD/GCplT6HgpcF6cgav3qD/3BLa9v
+         t6loJPHBiWm5pZEDCLZzjBsgB1AlgLqtpTzE3O4yp4wPCBnbZin4fuiXIJogSybKlH4S
+         4BFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748284211; x=1748889011;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QlxuW8EiAaobylr07WlFl9Wc9Vavh5mNNDPDEO1zHCA=;
-        b=oW5KjZq47oVEQmtqbx996+eXFv6+/yda1wPHgQfqQhsBiCKTxADBWXep1ysr8CeOHU
-         cSiU6+tXYZpp4JZCvd+7xHMMgeliaVveFLI67bEPTum3AxdaJTfELwYeRhwVdL1DahqV
-         bAYEhV9+0KMigTdswUh46F0Wq7phEZxfVns/q9neu/lgK5UXHBdj5FD6ZEwEt9UIiivq
-         YekiSWSEm7seSLaiWEJ6Lj7lIimJIjmmFrSs4VQKpD2lCMsUQKyVlRVcr7MSY2tDz/oE
-         1JJaYy50G6ivehvNjVXcC6U6Xe6I8uvjUVDSwrPM6+jsDZFbY3IciLrLi/3qb35Q5G7I
-         L2Pg==
-X-Forwarded-Encrypted: i=1; AJvYcCUXUFIuXp0jkg6wOyzyZ0sKHEKsHMYUOak3wHKmeiQQvra+2L4P4tTDwE2nnsNcxbqSp2wSWNDN04DtxeTAdg8D@lists.infradead.org
-X-Gm-Message-State: AOJu0YzO718UlzLuuJ2pgGUp6NQuUMEjKK2XyfxrZUcuMkNc1eucb8P2
-	sJ+uIGtPcS4RzC/Nf32Ejje75iKw37LcJDLU9+fYe9c9urVcECA4yEvO
-X-Gm-Gg: ASbGncuMCrs8gXNs3v19mvlg2S/sXoas2whm8yF5t0TpeRcDSFGGAvCy8+i6SmMjLU4
-	kKfTBEpjd7MtJBUUF4aIZvpLV89GmLrHjpwUPn6P23Xfp4mWxz+xOy+/7GvY5aQEeTgxhYq5nJR
-	JlDmHX2CMrUbTIQi7VWsM2WyncBZEFSqtDL/wyOPuxkAGWmD6w/FCaofWuYtvjUWeZVvk1J4d4z
-	Jj+78hCsB4hsAQy7Vy92TBhTRl6c+sEud5C4gZeQTp113/EwIE+3TJrzvx/3b5jTo55et3zmXae
-	ryxcqkjXl79HKk/5k9Q6Dq3JXDFnyc/Z/2P830DygDM6G2EdznKodag8sf4qxHsi0a9DVUyMHIn
-	wGbLZi6Tiu1togZqCd2kh8lAWRUBp9w==
-X-Google-Smtp-Source: AGHT+IF1vt1ugwCJCcgD8FLb9pLv6neLoJcOaXY12NIdGkKI+c6RUDeQIjiCz+L7fEf4ThkwNMlUxA==
-X-Received: by 2002:a05:6602:474b:b0:864:48ec:c312 with SMTP id ca18e2360f4ac-86cbb7b86c3mr1087224339f.3.1748284211399;
-        Mon, 26 May 2025 11:30:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1748284214; x=1748889014;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=95DMf2o/6QqJigi08+dNX9nTEaleJKhH1r+O8T2YuA4=;
+        b=MQcAS+9VZe9PfEBL/YEA+stK9ZpHCbW1TQlvf5NSU/So8f0tPp2G+7gNCr0stRtdyz
+         j7F5MT1KFG22QKz9x5PilZZODUpZATlekTxhvE418HlxEZ45qoXrS4QXUUtSamMa2r2L
+         S5ULPD/4fGdkFoDlzHlexCBXB+ryMd6EdqaPrfoLmh0GJ2+jqSPLf4hBSVlAyM3eb+mY
+         wIOT0MKeEj9CVO/Sp6HWdBP80WJPoKYLQdM7YE6f41T8d51S+cSVOfJi+odtkzcuMAMl
+         vX7zyWBYP9N1DD4mbbFinY3f49aGYhwssAh/pnsy6yqCLaf5PDA0BSTtZMRWKzS78KRQ
+         QweA==
+X-Forwarded-Encrypted: i=1; AJvYcCW9Zu7hEH//qyThG+cLV4W5+1QNMZWXbZCK1iWOZgbIPMwBroD2gxkIGBbnKoiNRW3xc+yij2yBcM2xvzQMk+Il@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywzgjko45PSpcgttNToprm0b1d905xd8ca9arOoEoNKH+cDK5hr
+	KdiYHdUeP21Nly7i/ZC4PiQ/OR0+WdsTXEJNA/qFbof8h6Gom1++9xqh
+X-Gm-Gg: ASbGncuRX7kJ5fEREwrKgXcRU6ZR74HgFyAn5JASUsyyGpT1PcJrXb2iHRdOYi9FqxL
+	Xgqksd1sbDGY8rtu/mgvoELni0dlCZ2Z/QV3pMsOxe+Td/jBsSTrHSi3GrtB4Hy9G+ZxC9X3Cqa
+	JAd6r8tMWmwN+gV9HRQXeVi155FDvHutaenbWGg5t4yWBzRNiNeXCMMu4ISFVfTtKCyHpXU9n5W
+	sDvIJzDRXO/k+MVrcJXbifwn8hVsYefhFiex93HNnRk9cqyUtSD0WKTnzH6/t8vIjn0Opm62ibu
+	3lfld1jAPG/CNUgDnurKlc/MCkBPfzmL93Tam7ovs3tmRNeT0jaOGH1DYUe9OoJjA4fmHp448cR
+	A+MqZtiAYVVeF0CmYLiXVWG9aTnCVlQ==
+X-Google-Smtp-Source: AGHT+IFDdvdL5g5ovSs/1gRBNnLk8GUjN90DAUSZdCdx+omEcVNlJWEAmQHeKYZ7rWqPkDPPkFePrg==
+X-Received: by 2002:a05:6602:750c:b0:867:6680:cfd with SMTP id ca18e2360f4ac-86cbb7b82a4mr997010839f.1.1748284214365;
+        Mon, 26 May 2025 11:30:14 -0700 (PDT)
 Received: from james-x399.localdomain (97-118-146-220.hlrn.qwest.net. [97.118.146.220])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-86a235bff69sm477028639f.8.2025.05.26.11.30.10
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-86a235bff69sm477028639f.8.2025.05.26.11.30.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 May 2025 11:30:10 -0700 (PDT)
+        Mon, 26 May 2025 11:30:13 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
 To: netdev@vger.kernel.org
 Cc: linux-sunxi@lists.linux.dev,
@@ -77,24 +78,32 @@ Cc: linux-sunxi@lists.linux.dev,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Feiyang Chen <chenfeiyang@loongson.cn>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
 	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Furong Xu <0x1207@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/3] net: stmmac: allow drivers to explicitly select PHY device
-Date: Mon, 26 May 2025 12:29:34 -0600
-Message-Id: <20250526182939.2593553-1-james.hilliard1@gmail.com>
+Subject: [PATCH v1 2/3] net: stmmac: dwmac-sun8i: Allow runtime AC200/AC300 phy selection
+Date: Mon, 26 May 2025 12:29:35 -0600
+Message-Id: <20250526182939.2593553-2-james.hilliard1@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250526182939.2593553-1-james.hilliard1@gmail.com>
+References: <20250526182939.2593553-1-james.hilliard1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_113012_600799_4D70F665 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250526_113015_269978_8A36C653 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,53 +118,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some devices like the Allwinner H616 need the ability to select a phy
-in cases where multiple PHY's may be present in a device tree due to
-needing the ability to support multiple SoC variants with runtime
-PHY selection.
+The Allwinner H616 ships with two different on-die phy variants, in
+order to determine the phy being used we need to read an efuse and
+then select the appropriate PHY based on the AC300 bit.
+
+By defining an emac node without a phy-handle we can override the
+default PHY selection logic in stmmac by passing a specific phy_node
+selected based on the ac200 and ac300 names in a phys list.
+
+This allows us to have a device tree that defines both PHY variants
+even though only one will actually end up being used at runtime
+based on the ac300 nvmem efuse bit.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 22 +++++++++++++------
- 1 file changed, 15 insertions(+), 7 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 36 +++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 59d07d0d3369..949c4a8a1456 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1210,17 +1210,25 @@ static int stmmac_init_phy(struct net_device *dev)
- 	 */
- 	if (!phy_fwnode || IS_ERR(phy_fwnode)) {
- 		int addr = priv->plat->phy_addr;
--		struct phy_device *phydev;
-+		struct phy_device *phydev = NULL;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 6c7e8655a7eb..50d37876fabf 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -11,6 +11,7 @@
+ #include <linux/mdio-mux.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
++#include <linux/nvmem-consumer.h>
+ #include <linux/of.h>
+ #include <linux/of_mdio.h>
+ #include <linux/of_net.h>
+@@ -280,6 +281,8 @@ static const struct emac_variant emac_variant_h6 = {
+ #define SYSCON_ETCS_EXT_GMII	0x1
+ #define SYSCON_ETCS_INT_GMII	0x2
  
--		if (addr < 0) {
--			netdev_err(priv->dev, "no phy found\n");
--			return -ENODEV;
-+		if (priv->plat->phy_node) {
-+			phy_fwnode = of_fwnode_handle(priv->plat->phy_node);
-+			phydev = fwnode_phy_find_device(phy_fwnode);
-+			fwnode_handle_put(phy_fwnode);
- 		}
- 
--		phydev = mdiobus_get_phy(priv->mii, addr);
- 		if (!phydev) {
--			netdev_err(priv->dev, "no phy at addr %d\n", addr);
--			return -ENODEV;
-+			if (addr < 0) {
-+				netdev_err(priv->dev, "no phy found\n");
-+				return -ENODEV;
-+			}
++#define AC300_KEY		BIT(8) /* 1: AC300 PHY, 0: AC200 PHY */
 +
-+			phydev = mdiobus_get_phy(priv->mii, addr);
-+			if (!phydev) {
-+				netdev_err(priv->dev, "no phy at addr %d\n", addr);
-+				return -ENODEV;
-+			}
- 		}
+ /* sun8i_dwmac_dma_reset() - reset the EMAC
+  * Called from stmmac via stmmac_dma_ops->reset
+  */
+@@ -1149,6 +1152,35 @@ static struct regmap *sun8i_dwmac_get_syscon_from_dev(struct device_node *node)
+ 	return regmap;
+ }
  
- 		ret = phylink_connect_phy(priv->phylink, phydev);
++/* H616 SoCs can contain either an AC200 PHY (needs i2c init) or an AC300
++ * PHY (no i2c). The silicon variant is flagged by the AC300_KEY efuse.
++ */
++static int sun8i_dwmac_get_ac300_phy(struct device *dev,
++				     struct plat_stmmacenet_data *plat_dat)
++{
++	u16 val;
++
++	/* If the nvmem cell is absent, use normal phy selection. */
++	if (nvmem_cell_read_u16(dev, "ac300", &val))
++		return 0;
++
++	const char *phy_name = (val & AC300_KEY) ? "ac300" : "ac200";
++	int index = of_property_match_string(dev->of_node, "phy-names",
++					     phy_name);
++	if (index < 0) {
++		dev_err(dev, "PHY name not found in device tree\n");
++		return -EINVAL;
++	}
++
++	plat_dat->phy_node = of_parse_phandle(dev->of_node, "phys", index);
++	if (!plat_dat->phy_node) {
++		dev_err(dev, "Failed to get PHY node from phys property\n");
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
+ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ {
+ 	struct plat_stmmacenet_data *plat_dat;
+@@ -1222,6 +1254,10 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 	if (IS_ERR(plat_dat))
+ 		return PTR_ERR(plat_dat);
+ 
++	ret = sun8i_dwmac_get_ac300_phy(dev, plat_dat);
++	if (ret)
++		return ret;
++
+ 	/* platform data specifying hardware features and callbacks.
+ 	 * hardware features were copied from Allwinner drivers.
+ 	 */
 -- 
 2.34.1
 
