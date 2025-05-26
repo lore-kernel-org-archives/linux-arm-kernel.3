@@ -4,75 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF554C54FC6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 04:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0F7C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 04:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uid9l3t86hTNki59z/q03Aog88KQ1lyZOwD3aGlJdRk=; b=rQcQmGrDCZBPycj7xbshCQLTJt
-	VMCkf1z0YBdvyPMTU7FjEnZutjxtCka4iDnEWYFvc/T3flEyqq1+TByEmxFgnXoVVn671ZUEMbJeO
-	TPLOo/w36N4tvvtzdWzINy1EwPEAQnctKHe9w2JoHipg5yAJmHVOa8yaGgJCo4D6CXQRgTx9UjL2P
-	NbbrUBMrOo8RAOEhct/1SZXa9hDnHlDQCwS8/ZRFUiCTc3IMNeSDSGft0FjSLplvFfCQb7+aoWIDt
-	Wi8H1ap11efittoRgli1GgADfMSfnje7ytu2hr0JrPVpifOWYxmvH3fSTZp64ocCvUxlma2+DQ2eU
-	Y7exAyAg==;
+	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8HwyeamDWatlkP7EqD5HF6jocthWu4pobs08ZRbaQ+Q=; b=Vft1h7IvaA6tI8Wr99QQL6xevT
+	75/Pmfz2Am7DzLiv52wBrffPnKNJxyC3OuFheKjIwjl1rSKJt+8TwDZsd2SqrKvqq/gULDVz4FNQh
+	spOkDitXISV5DBCB3AX536WvbsO/bG/B/kjIfKRwFXamxxmQMakHlY4rcAoEK4btna/7bpxJJIl8b
+	eHwtNDimC//sFMYShOggjaFfb4P2/eOJ9fhgX84HffGsfYubut6h78qmKonCHDQjFW2QlWk6qRaTy
+	edGTi/Jh9d4p8Z7EDNYg8nKjWPRzcfREVYOTdYxcQkBiulIOtSaB1qX/YiM0ZwZHzxpeJL/q8/Lh3
+	e9XhodDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJPEv-000000082wp-3Xdp;
-	Mon, 26 May 2025 04:15:05 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uJPka-000000084hu-1Fm7;
+	Mon, 26 May 2025 04:47:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJPCm-000000082st-11H8
+	id 1uJPiR-000000084dW-3MrH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 04:12:55 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54Q4CdHY1441725;
-	Sun, 25 May 2025 23:12:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748232759;
-	bh=Uid9l3t86hTNki59z/q03Aog88KQ1lyZOwD3aGlJdRk=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=PaXTo1Vbtq010JdueoPYeo+TqsP01X2Sgnc+k6ZVpshPeciXVmx3YU7j12ePDu34R
-	 wLr2SXghNsT2rd51CsGTJfPcZrH0qiJEHVjnIvNtjdkRkIAqLjL5g/1wGEZYGTBrUK
-	 tD5OcnhqjJDw+SlZNPT0zESFNIHZxt9niRy+8JMc=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54Q4CdPx1571692
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Sun, 25 May 2025 23:12:39 -0500
-Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 25
- May 2025 23:12:39 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sun, 25 May 2025 23:12:39 -0500
-Received: from [10.24.69.37] (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54Q4CanR2535335;
-	Sun, 25 May 2025 23:12:36 -0500
-Message-ID: <a9402f5b-d7fe-4e49-a18c-a93ccec0ea39@ti.com>
-Date: Mon, 26 May 2025 09:42:35 +0530
+	Mon, 26 May 2025 04:45:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1FC2742BA9;
+	Mon, 26 May 2025 04:45:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DA75C4CEE7;
+	Mon, 26 May 2025 04:45:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748234732;
+	bh=AAcG4TY7kbc6w9ebmhOXyaHALrMLG2J59cLauspG1+8=;
+	h=Date:Subject:From:To:References:In-Reply-To:From;
+	b=nCj7xz3fhB5ODqT7T6hFrMsSPlndnwGIzaVVZbSdOU1f05yRgsRUwccje8AoJsRF0
+	 p6McKOP6uWZ2E2JX1MmGD5wxh0ofLX1am9KrJMM4M86WGtx2sSjCHbLtmc97RTWtJg
+	 C60onsPYg1bXXJJqOqLkyofutKv+6gqQq9wsudao+eiYzPo32eJ1EZg763FRia44bc
+	 rqlUVJ9pit2kDGdeVC43MQPqTMTms4+iRkBhgNhPdzXwc/1IKyKN17b1M1FjMG05x1
+	 AU9Nb2z6LFVJeMlHslv8/XlD1kJzZV2ocu3m52GHreCybodUc2jB4+sTj3KrJis3oS
+	 qWLrj2oZalelQ==
+Message-ID: <15e3f752-3270-488f-b72d-c3cbd0f49c70@kernel.org>
+Date: Mon, 26 May 2025 06:45:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: Modify J784S4 SoC SERDES lane controller
- register length
-To: Gokul Praveen <g-praveen@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>
-CC: <u-kumar1@ti.com>
-References: <20250523134946.144461-1-g-praveen@ti.com>
+Subject: Re: [PATCH 1/2] Driver for Xilinx ZynqMP AXI Timeout Block (ATB)
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Maciej Andrzejewski <maciej.andrzejewski@m-works.net>,
+ linux-arm-kernel@lists.infradead.org, Michal Simek <michal.simek@amd.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, maciej.andrzejewski@iceye.com
+References: <20250525195955.2843076-1-maciej.andrzejewski@m-works.net>
+ <87943ef2-120f-429e-8de9-50df84caf71a@kernel.org>
 Content-Language: en-US
-From: Neha Malcom Francis <n-francis@ti.com>
-In-Reply-To: <20250523134946.144461-1-g-praveen@ti.com>
-Content-Type: text/plain; charset="UTF-8"
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <87943ef2-120f-429e-8de9-50df84caf71a@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_211252_413235_63155AB2 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20250525_214536_056711_0ED4C35B 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,37 +118,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gokul
+On 26/05/2025 05:59, Krzysztof Kozlowski wrote:
 
-On 23/05/25 19:19, Gokul Praveen wrote:
-> Modify the J784S4 SoC SERDES lane controller register length from 0x30 to 0x50 
-> to enable SERDES4 registers.
+...
+
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +/**
+>> + * read_dts - Read DTS configuration for the driver
+>> + * @config: Pointer to driver configuration
+>> + * @return: 0 on success, otherwise error code
+>> + */
+>> +static int read_dts(struct device *dev, struct atb_config *config)
+>> +{
+>> +	struct device_node *np;
+>> +
+>> +	np = of_find_node_by_name(NULL, MOD_NAME);
 > 
-> 'Fixes:9cc161a4509c2("arm64: dts: ti: Refactor J784s4 SoC files to a common
-> file")'
-
-There's no need to put it within ''
-
-> Signed-off-by: Gokul Praveen <g-praveen@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> No, you cannot do such stuff.
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> index 1944616ab357..1fc0a11c5ab4 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> @@ -77,7 +77,7 @@ pcie1_ctrl: pcie1-ctrl@4074 {
->  
->  		serdes_ln_ctrl: mux-controller@4080 {
->  			compatible = "reg-mux";
-> -			reg = <0x00004080 0x30>;
-> +			reg = <0x00004080 0x50>;
->  			#mux-control-cells = <1>;
->  			mux-reg-masks = <0x0 0x3>, <0x4 0x3>, /* SERDES0 lane0/1 select */
->  					<0x8 0x3>, <0xc 0x3>, /* SERDES0 lane2/3 select */
+> Match properly your driver.
+> 
+>> +	if (!np) {
+>> +		dev_err(dev, "unable to find device tree node '%s'", MOD_NAME);
+> 
+> So you will print such error on every machine, x86, arm (other vendors,
+> like Qualcomm), riscv64?
 
--- 
-Thanking You
-Neha Malcom Francis
+I missed the point you added a driver, so obviously this won't print
+messages needlessly, but it is just confusing. Looks not needed, because
+your device driver should bind to specific node. Why do you need it?
+
+Especially that now you defined undocumented ABI for the node name.
+
+> 
+> 
+> No, drop entirely.
+
+Try to find a recently reviewed driver and use it as your template. This
+entire code looks very different than others - including naming of
+functions.
+
+
+Best regards,
+Krzysztof
 
