@@ -4,77 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E4AC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 12:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AA4C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 12:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SGcFMzxRqwZHeyCIUfXG3hV8hcSrtdD19rnC1FAfz94=; b=Air0QsmptUR6cdLYWtDwi/h0s/
-	BqpG/Z+SS5nMFk6jEtv1jKENlduAKmipyPQ759eEsLhBQTrHVqHbiafy1/sWS5I0POewv3RTlKwj9
-	wGLcvHg9lfYn1iAWgm3UEDTctJIfoejpSq1UYxzY20ay3BoiU+kEvWurj8JvRD5uWEc7BuA4/VOqq
-	eurA53e6bhYPLIA/UXdRAz+XOpqL2Ch6avUXONMJM53Wk7qbYkOt6k40+mZLUyTr0IIG3s5pGKWFA
-	3uittGEsiya0I6R7raeKMoGFYn6eyN5dod4MTfU/FuwVQ0eX5pvH0ZTy082k1sIhuUwiqpCWX8TQ3
-	wUhLSb4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zvFkKS19Tk8Yoi/P10WUDFGc81JmtSZlIVv8S/JUa/c=; b=i/VKrpKRj4d6dvuhZWghlpqbV1
+	bLq0YeT7NrXdxrfTeeyfoavpmtBWdpCNe1lSXPc9cxFT+9TnE7o7/OLSyRv9xeszg0wOtf14Pnq/T
+	K+zMxTYaz6JSqylLzCT7yg1Q8WodcacPeKFR6s1tWU0OvUeLeTa7nMMnTAXg7VIEOYltu+W++WQMc
+	8zPAE/eMJYY4oaaABOfxIRvUoB9T9T2DGlFuOixhHzXs8cx1qHes2afaeTRYj86slg/laJG6nVyX6
+	YFMhs4PYFwC8W7KzGvdvv2UiXeXo4rhf9zWad45kwKe/q9dxCnaBcEZ42+GG/QVyG1KjQaX0AugUQ
+	0J6oxeLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJWvd-00000008n0w-1RcU;
-	Mon, 26 May 2025 12:27:41 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1uJWxj-00000008nLE-3QgJ;
+	Mon, 26 May 2025 12:29:51 +0000
+Received: from mail-francecentralazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c20a::] helo=PA5P264CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJWtU-00000008msD-42SO;
-	Mon, 26 May 2025 12:25:30 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E6A7A43999;
-	Mon, 26 May 2025 12:25:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748262325;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SGcFMzxRqwZHeyCIUfXG3hV8hcSrtdD19rnC1FAfz94=;
-	b=OGi0+/oi9B3QDJ1KGV+hqFr4jwgJ66ptIKnfiXUyHOp8YjRVIngeyqOZjOtY3z+rI0y7ug
-	5z7jfbQ1Ld1G9sISQaoa1It6KFL0gQfrAaFLu1EzG5V4NBnzavkxG/WjWgXRTSeGgTQLWR
-	HsjLu8qP2BEIjmtxcIOKePLrqejwQU/kvU/pcTIq2dogwQiWAOugpH7wUE+UzzE7FgJyMY
-	RjxNiaXyAwVw8ETuf/74U/ccYcEXIDjq4aheJt98HrSZgfIZqN3vq82/mH7TzMxcir7YsQ
-	j/ng/O0laZGNuT038HrZk6FIs5UFuOQJ+ivag8upCNg10izXEde8A9sca3ajpg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Chuanhong Guo <gch981213@gmail.com>
-Cc: Sky Huang <SkyLake.Huang@mediatek.com>,  Matthias Brugger
- <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Richard Weinberger
- <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,  Daniel Golle
- <daniel@makrotopia.org>,  Chia-Lin Kao <acelan.kao@canonical.com>,  Cheng
- Ming Lin <chengminglin@mxic.com.tw>,  Christophe JAILLET
- <christophe.jaillet@wanadoo.fr>,  Pratyush Yadav <pratyush@kernel.org>,
-  linux-kernel@vger.kernel.org,  linux-mtd@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,
-  linux-mediatek@lists.infradead.org,  Steven Liu <Steven.Liu@mediatek.com>
-Subject: Re: [PATCH nand/next] mtd: nand: spi: Use write_cache first and
- then update_cache in write operation
-In-Reply-To: <CAJsYDVKiMeYY2rw_BxuW4BAxvMcq5hDwzhiPoAR=tkXzZpRYiw@mail.gmail.com>
-	(Chuanhong Guo's message of "Tue, 29 Apr 2025 19:58:05 +0800")
-References: <20241119093949.3014-1-SkyLake.Huang@mediatek.com>
-	<871pymtab3.fsf@bootlin.com>
-	<c1e2d8ea-1b37-479d-8239-cb9bf0efdcaf@gmail.com>
-	<87bjsfv0x1.fsf@bootlin.com>
-	<CAJsYDVKiMeYY2rw_BxuW4BAxvMcq5hDwzhiPoAR=tkXzZpRYiw@mail.gmail.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Mon, 26 May 2025 14:25:21 +0200
-Message-ID: <87sekry2xa.fsf@bootlin.com>
+	id 1uJWvI-00000008mxW-2qW7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 12:27:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UIQDqY+VigV9sKaM0mHKS6TEmHvDD0LVbhgcAtPFPdEAViVo6Ge/w4qcfPBZwcbNLBYFybDwqJ5axoMyf8YDBSoJRwFzJ6mwg/PO440VJjHjd6swdZlTniHfN+qsfdPaQn59oAoMT2DHcsuaZvSdROF9gQv8z/hWV+eYwZdHhUoAXxD3T69zkmeuB59Lff5IAhIKwCusMS6nypD7d8wPBZbdQ+ey10qLy1v25V3eSzE614ik6YFCh/5W1ESJz7EBZ+xpFMdZLIFQqkekDDYWDSS5lcsjEt3okQehUa7/lCTZLXaQViN1qkqruVCPtybGSyfdqyVegalLihes5jDHrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zvFkKS19Tk8Yoi/P10WUDFGc81JmtSZlIVv8S/JUa/c=;
+ b=PK/MOSOucHzpJ5qsPrTQ5ZXRQ93JzKaTxr+umc0iwf9N5jFDfrR7zf3mVvXxR4nqUMJQpq/qOuscpTEMbJJ5VFCVSh+ANOU3CsiygPGNt4p72pre592xvJn7zJpKj//Aw0eVj90DP2gwzEpKEPFuWrzDH6dtA5y5Xs/Ibznmcj2bYcTMj2TQ91mcgGhxYgKKEDGFL3RsFkA+C6dAB8PM5GPPox4U2zHOoFa5NCTGpa4GCiJ0v0v6Ey+MvY2592yD5ZtEvjWYNjPTsG8mtoZaWVKtbplXbXww5i8hqBciATvRHR6z8mZyKOuvWZUiR/rAbATXiJ3ZlJbqnRAyoxYaNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=allegrodvt.com; dmarc=pass action=none
+ header.from=allegrodvt.com; dkim=pass header.d=allegrodvt.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=allegrodvt.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zvFkKS19Tk8Yoi/P10WUDFGc81JmtSZlIVv8S/JUa/c=;
+ b=eFeXD7HDjiNK52ZCCQ6P9Jw1Ozg6gD7oX9+QVtNavdLvUMoPlKf/UXJbfBSVLfu7mQDbBsVGXDtxmP0UQeYKnisLO+CH4lqRZRikAS4qgFG1EJwt3UBMQIkpb8IvhF10O2QabjFm0UEkuu0ZugAYbR/fB0FsRRKFvV+7Ay09qdhatw5oz+RKFKsyAPc/2FJ2KZAw42j9ifEaj9PH06+3+HtZ/fN/WENAtuFtwTwYPUUapJk2BChUuGmkXPJ0FIjBK4ves5S9pAxuUdBZxrFcnPpGkwyf0bjsxQLgZcxnWuY7bYKrNSmeOU9YnWfA1CnxPmOW3zkTC9EYPUxh23uG2g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=allegrodvt.com;
+Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3d::18)
+ by PATP264MB5094.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:3f5::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.26; Mon, 26 May
+ 2025 12:27:09 +0000
+Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
+ ([fe80::4281:c926:ecc4:8ba5]) by MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
+ ([fe80::4281:c926:ecc4:8ba5%2]) with mapi id 15.20.8769.019; Mon, 26 May 2025
+ 12:27:09 +0000
+Date: Mon, 26 May 2025 12:27:07 +0000
+From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Michael Tretter <m.tretter@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Michal Simek <michal.simek@amd.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Junhao Xie <bigfoot@classfun.cn>, Rafa?? Mi??ecki <rafal@milecki.pl>, 
+	Kever Yang <kever.yang@rock-chips.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Hans Verkuil <hverkuil@xs4all.nl>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
+	Sebastian Fricke <sebastian.fricke@collabora.com>, Gaosheng Cui <cuigaosheng1@huawei.com>, 
+	Uwe Kleine-K??nig <u.kleine-koenig@baylibre.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Ricardo Ribalda <ribalda@chromium.org>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/5] dt-bindings: media: allegro-dvt: add decoder
+ dt-bindings for Gen3 IP
+Message-ID: <flwocneutp64bxxwfkfqvm6dq7klc2nu33ybr3ap6qeovopfq7@7qognvdf4zew>
+References: <20250523134207.68481-1-yassine.ouaissa@allegrodvt.com>
+ <20250523134207.68481-3-yassine.ouaissa@allegrodvt.com>
+ <3e6be40a-2644-416a-bd32-f6256f1501ff@kernel.org>
+ <7863d15a-fa20-4db5-89b5-77a026d3f937@kernel.org>
+ <a72z6exgol5cbur2cy7wjwyroi4zddtki5ab3zdkfuwpskpavr@r26wahldhd3r>
+ <b5bb919e-6273-48ed-b5d8-29177dbbfb76@kernel.org>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <b5bb919e-6273-48ed-b5d8-29177dbbfb76@kernel.org>
+X-ClientProxiedBy: PA7P264CA0098.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:348::9) To MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:501:3d::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddujeehudculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefujghffgffkfggtgfgsehtqhertddtreejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepffeghfejtdefieeguddukedujeektdeihfelleeuieeuveehkedvleduheeivdefnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtohepghgthhelkeduvddufeesghhmrghilhdrtghomhdprhgtphhtthhopefukhihnfgrkhgvrdfjuhgrnhhgsehmvgguihgrthgvkhdrtghomhdprhgtphhtthhopehmrghtthhhihgrshdrsghgghesghhmrghilhdrtghomhdprhgtphhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllhgrsghorhgrrdgtohhmp
- dhrtghpthhtoheprhhitghhrghrugesnhhougdrrghtpdhrtghpthhtohepvhhighhnvghshhhrsehtihdrtghomhdprhgtphhtthhopegurghnihgvlhesmhgrkhhrohhtohhpihgrrdhorhhgpdhrtghpthhtoheprggtvghlrghnrdhkrghosegtrghnohhnihgtrghlrdgtohhm
-X-GND-Sasl: miquel.raynal@bootlin.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MR1P264MB3140:EE_|PATP264MB5094:EE_
+X-MS-Office365-Filtering-Correlation-Id: b0bc174d-43dd-486a-4d45-08dd9c50a241
+X-LD-Processed: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NVArN29oU0pJT3J0aytmWVJWY3BoTWVTTDVMMFJqWWRaQm9jYXIrU1dZU1Nw?=
+ =?utf-8?B?S29pVVVOcEhBaytQbGI2NjFoY2krZzExdDNQS1ZLc3Rra0RqK3J2YUxuM3hC?=
+ =?utf-8?B?NlZvcXlreWxVRlhodEQwdktKWTJTdG9keDFDV09PSXBSRlFvNlh4OUxaSnNU?=
+ =?utf-8?B?eVFpR2k4eHlmY0U0TlFmM1J2OGZiWHVBYXo2WEVoVG5DZC8zWFl5TkxQQ0hW?=
+ =?utf-8?B?NVR5aEN0QVBDWEIxOHNLS0VPNDNVRWwvbkIyRkQ3ZFRUT01pSUs5bkt6U3dQ?=
+ =?utf-8?B?N3creGNvdDhNSlp3Y1Fkay9BZmRIVGJhMEcwRThoL0M5NFYyN1d0SWtpd21G?=
+ =?utf-8?B?WXplYm5xYm5NY2tNZml5NnRvK0R1NHJESnpqRlZaemtLcmNKOTI2YWw0VDJM?=
+ =?utf-8?B?N09QdkFkZElIMS9KeXNsSlQxWlNicUIrQ3NPQVNjUVdSNUxOK3FHdE1vM3pl?=
+ =?utf-8?B?YkwzcTc1Q1NSUWZzbWwzZUkyQTc0dFZJTENGRWc2SFRHeVZhejlFNXNrUzVT?=
+ =?utf-8?B?cmxFRDA0L2V2Rlk0aytBZ01jekNYbmFWM0sxL0l2eXIzLzBRcnNtZ3pSMysz?=
+ =?utf-8?B?Ly9iaFUyejllcDhJa3RyU0h0YllqRjlBTXo5ZThPbGNqY1VweGVTdkFGWGdy?=
+ =?utf-8?B?bXdBVER3L3l1YUFqNlF0Yk8rcCs3b1kwMitTMGw4T01vUkRmSmpRZ2FxdWUy?=
+ =?utf-8?B?NUVyMjU5b3djeVZlWjNIMDMzUXpPbndDcTBnZGpEM1cydG5jWHFUZFpOQlFo?=
+ =?utf-8?B?cFNvWlpCUGg5c01LRk0xUzFQQmp3d1pZUXEycVZsc0FWMCtJQXBYWkt3QnZk?=
+ =?utf-8?B?MFh0QTBqNGRXUlZmQ3ZFeGlFdlBGK1ZHcklINjlZck9RWnZibEgvcFN5N3Ft?=
+ =?utf-8?B?b2RJVWU5dXJwYTN2T2tCbFd6ZmdNNTB3TzJDMGlBM0lLY1A0cVhGRjJLRFp5?=
+ =?utf-8?B?WEhPZExuMGMyeG4xOW9MRW9kSERkSitpRHlLOFRtV2NZZGFEZkpCVktudFNO?=
+ =?utf-8?B?ZXVmQjFlMzFTYkNmV3BoUTVkc0tzcG9oZVlpQ09MVUJaTDZwM1B3eE4rdTQx?=
+ =?utf-8?B?RUY2TkJVZ3RUUXJ4alh1dHp3OUVXdVA3bjQ2b0NwZU5WR3ZxbGhKbnBYM1Vo?=
+ =?utf-8?B?NXpaOFJZekN4UE9iaEgrRFFHMHBrYUtHMGNaZ0hsdGFOcW5jQ3ZHSVRXTVp1?=
+ =?utf-8?B?Unp6ZlY0bzVYS2V3dkg1Tk96d3dlVmpaeU03Mm5ORXp1U25lR2U1ZUpTSUFJ?=
+ =?utf-8?B?QXN5NUdHQnM3dnpNRTFCNWN6WnQvbEFNcUYvSXBva0x5aldWSXNML2xxWmVL?=
+ =?utf-8?B?a3p1U3Q4K2hUdHM3VGJrajIxSS9rbTA5b3lSWE80bUJBaDFtS3BZQ1FpTTNB?=
+ =?utf-8?B?aGNxNWZqTWhNS2RENmhhMGFuR2EvN0l4SXBoSklQZXNHSFpvZHZFSytDWVdh?=
+ =?utf-8?B?S2JhenZhOXVqWTJ3MmdiN202TFJESmVad21OWmt0K0UxK05VV0EyZktucDlo?=
+ =?utf-8?B?UWVydXRJQ1NvS0h0UGk1VUtpa1lIUCtKRDc4VnhST0hjY0lnSHk5MUxGUXFO?=
+ =?utf-8?B?Y0pkaTBSLzhqS1dQL2p3ZzRFaGkvTU9ha3crdU1TVDJqaHJmdVFJN1cwUldD?=
+ =?utf-8?B?SWVXdGRnSDM3ZFpaemNYd3d2SGJwSFJncVMydmVscUE3WC8wZXlNVGpNQmMy?=
+ =?utf-8?B?azgwdlNFc1lJSkdPa1pWSjVwaGFtMTVDVC82MmJaV1h5NVlDczJ0N0t3MUd0?=
+ =?utf-8?B?Mlh3Y20wT3g2dU5YR2JUVU5obG40K3pjVDJTY3poRWxLN2hJVFVEMk1QRjIw?=
+ =?utf-8?B?SDBkL0FIUStSQWJWNmFRN3Bld3QrYVdIbkhiRXRXVFk1cjRxMXFiU1loOTIz?=
+ =?utf-8?B?ZFIvcGlodEF6RVBWS3laKzhuZlp6WG16M0E5RE1rT2p0eXhwL0doRVRySnBu?=
+ =?utf-8?Q?bqvdZt0wjoE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WjZwelpidUoxNE5URVBKZDJYZnhCU2JtbU5Vc091azAyOUtkYUVvNUJBalFj?=
+ =?utf-8?B?R1FVSmVvNkNpbXRXUXk4NGttVzJJa0NaQ1ZIOTFnRWtUTFVCV003TU9BVGp0?=
+ =?utf-8?B?bnN4UzljWDVROUZXaDdKY2RhR3NpTWF2WFdmRUNKZmpsZldnemczdjVaSXl1?=
+ =?utf-8?B?Q0ZxQ0RZSGxGVGJzUTk2ZEF6ZnZlS1ZPMy9RekpKYVJIeE5LTmNuaXB3Qkk2?=
+ =?utf-8?B?MlZJdVd0dEp5SWp0TlFmb0d4VmZSakYxa3pSTzhXTVpaYzBuY3hKaDhGR1J1?=
+ =?utf-8?B?TTk1bmFqd3F4cms0dTNQY3l6aXc4eXNndy9MbHAyVktqUmFKc3ZKMWpOaXkr?=
+ =?utf-8?B?V3BBbjJxS24xeVRTZXpyZDZ1VTJPQnV3aDJQSWo5RjZtYlc2eExZN3dCWjhF?=
+ =?utf-8?B?bHEwVCtWeE9VWHgzd0pLUDduSFM3SVQzNXdsVVFWd2JVMGNNdTM3ZEJtSkE5?=
+ =?utf-8?B?ZDJKVllLUlZvV01VVVE2aGhYb0xHZmdFL3BmVm5iUFFVNVJyMkRScWhUaHBH?=
+ =?utf-8?B?Q2RMWDk5T1BqSE00Tjg3MURUeWhvV3p4WEM0STRxUkErTm1vTGI5VXJsbmd2?=
+ =?utf-8?B?TlFGdjFIVUlSc3c5Zk9jTHoxZFdRc3RFdExDaTl3RnRWU1BsNThrK0xyc3p0?=
+ =?utf-8?B?ZzNMdXNNaHFtTTJEUS9yK1djZytQQnVGVitudElrZTQ2MTdvT1VKMmlKYzFK?=
+ =?utf-8?B?RXBXNTdZZU03OWR4dUVncnFYakZNSXBwVVhiUzRPVmJJeVBsYTFDSlQ0ckRN?=
+ =?utf-8?B?bGNlVmJXTHV4d0V1ejQ5UU1uMUdmYk1ueWFsdFRMQjRKWUo3T1I5WThBdDBZ?=
+ =?utf-8?B?bFVOM0Q3YVJFVWhXalBpQUFOT3lqMk1jelNNUC9xM3NueERMcnVTTkdxbjl5?=
+ =?utf-8?B?UVVyS1NLa1J3MVVNTS9FOUMzUDd6djJabjd1bUtQZklackQ2YmdMeHlTRjhO?=
+ =?utf-8?B?a01vMFVIVGtKZlpSVSt5cjlUdGZQNEZkdmhvU3lURFdCdVR0a1hEdmJPWFkz?=
+ =?utf-8?B?QldNNFNad3hrOUcwaDNHRDZrS29MTDdpZ3RDUXVYTjFmUUoxMDhnV1p4b2Ny?=
+ =?utf-8?B?VlpaTHh0bHRoMW5EUjYrbWxJZ09vOEtQQXVLaEFCZUplRWhGUy9vYklVTWRO?=
+ =?utf-8?B?SWpRQVZGNlo3WmNqQndpSHUvMnlZSHNhVGNFa3BBeE0zb1ErUzJGeGc4Qnhm?=
+ =?utf-8?B?NXRVWTZXWUJHS0orN1k0M2MvRWgrOEJJVHp5RENreDlhc1lSVVUzYnkrVFVJ?=
+ =?utf-8?B?dHN6SDJ5Z255c0JMK2p5V1BQMFhuZlpSOHJTQ0NLL0JUanM2dXB0SXZJZ3lh?=
+ =?utf-8?B?ZnpTWC91NWtaejczV2UrT2NVYjFkeitERHNDNGZKdXU0S3hrNGdvVGhYWDRl?=
+ =?utf-8?B?Mng1bU9MbzFpclJEMFhqUzBLbzJlMEZFS1g5TmpKekY3Sml5dmFEcXdmcktH?=
+ =?utf-8?B?WXJSMGhNdzFFQ3h6aUdFQ0FXY21xeTFMUm5rRUxGWFgwR1YrTHc3ZXZsdkNo?=
+ =?utf-8?B?ZTZTU2I4ZHlCK2tIUjlCeUIyT1JIZVk1MjlFc2tYWDZ6am83eEl6N0VPbFVJ?=
+ =?utf-8?B?WndJN3c0MzkyNThyL3lMd0JBV2luWERPcER4VGdkUGNwNTRrc2JlUE5kdDJB?=
+ =?utf-8?B?MUF1LzltOUZUUVFkMkZkeWVZQUpzTmxVeHprdlJLU29pNlMyc1hzczdxdktz?=
+ =?utf-8?B?TU1XWUNIQ0xReWRQWENaRlZqOVpXTy9CRVpIbzFqQ0JzVVVpTmdld1kyZzdU?=
+ =?utf-8?B?alJ1MEV1a1o1ekhpUDVyTEliU25KL1FvSmJ3MmdSN1MwaE8wUlE2OFJPMVhT?=
+ =?utf-8?B?YkVOeXZtWmU0Mnk2OC83dmNzVHpMbDh4UUhIWDdlTUxpd1RhYitLWnBRNGx3?=
+ =?utf-8?B?UStvYWo4MHJ4d3RheXBQTEpGNElqQmpZd0hyd1BDTmV6MDZkVkhsZW5yR3lN?=
+ =?utf-8?B?UGRLbEd4Q0NNMDE4elpxdXFVSkE2dDVxajlYczUvd0ZYVm1JbmIrTllPeWpD?=
+ =?utf-8?B?Rmk2UG1UTGdCaUJ3anpncVEvb1M5YVZDVkRLOVpob0U0MVh1bjg4Qzc0MTZ4?=
+ =?utf-8?B?bFpDbkxVeENqR0psWmlmNWJBN1REdEZxbXQ3OFZheElSQTdkMVA4Y0VCNnJj?=
+ =?utf-8?B?dFA1RXFkYUp4blJkdXM2NzFPK0Q0Qzk0bWlOYWRnV3BUK3BYMWYzaEJ5OU12?=
+ =?utf-8?B?SkE9PQ==?=
+X-OriginatorOrg: allegrodvt.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0bc174d-43dd-486a-4d45-08dd9c50a241
+X-MS-Exchange-CrossTenant-AuthSource: MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2025 12:27:09.4098
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tr984dTGtRGU4WvR81Itl3hNsopuzfV0Wkqi38jIpEKvhAimMR9Dno5gtCt9cmq4FIsmKUuLbZSNIhoVuohlczBZtbro1UNyGeHrjaaDbjk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PATP264MB5094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_052529_341026_BCD960A9 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20250526_052720_713251_D1DC8FF9 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,79 +192,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Chuanhong,
-
->> >>> Before applying this patch, write operation uses only 34H(update_cac=
-he):
->> >>> [78.937720] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1s=
-t byte: 0xa5
->> >>> [78.945297] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data =
-1st byte: 0xa5
->> >>> [78.954251] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1s=
-t byte: 0xa5
->> >>> [78.962966] OP code: 0x10, addr val: 0x300
->> >>> [78.968816] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1s=
-t byte: 0xff
->> >>> [78.977233] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data =
-1st byte: 0xff
->> >>> [78.985124] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1s=
-t byte: 0xff
->> >>> [78.992527] OP code: 0x10, addr val: 0x301
->> >>> [78.996981] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1s=
-t byte: 0xff
->> >>> [79.004416] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data =
-1st byte: 0xff
->> >>> [79.012031] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1s=
-t byte: 0xff
->> >>> [79.019435] OP code: 0x10, addr val: 0x302
->> >> I am sorry but above you said that we should not perform:
->> >>      0x32, 0x32, 0x32...
->> >> because the second time it would clear the cache again. And here
->> >> you tell us that actually the core already handles that by performing
->> >> instead:
->> >>      0x34, 0x34, 0x34...
->> >> So what is the problem?
->> >> Or maybe I misunderstood the issue, but I think Chuanhong raised an
->> >> issue that is already solved? Isn't it?
->> >>
->> >
->> > The issue is that the FORESEE NANDs require the first cache writing
->> > instruction to be WRITE_CACHE instead of UPDATE_CACHE. i.e. it needs a
->> > command sequence of:
->> >     0x32, 0x34, 0x34, 0x34...
+On 26.05.2025 12:57, Krzysztof Kozlowski wrote:
+>On 26/05/2025 09:25, Yassine Ouaissa wrote:
+>> On 23.05.2025 19:13, Krzysztof Kozlowski wrote:
+>>> On 23/05/2025 19:11, Krzysztof Kozlowski wrote:
+>>>> On 23/05/2025 15:41, Yassine Ouaissa wrote:
+>>>>> Add compatible for video decoder on allegrodvt Gen 3 IP.
+>>>>>
+>>>>> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+>>>> Please do not send the same patches over and over again. You got review
+>>>> which you need to address.
+>>>>
+>>>> Once address you send NEXT version with proper CHANGELOG for each patch
+>>>> or top of cover letter. See submitting patches... or just use b4. This
+>>>> should be actually requirement for this work.
+>>>>
+>>>> Anyway, I see all of previous review ignored so let's be explicit:
+>>>>
+>>>> NAK
+>>>>
+>> Hi Krzysztof,
 >>
->> So Foresee NANDs do not support update_cache, why are they advertised in
->> the first place? Could you we have a less impacting solution for the
->> other NANDs?
->>
->> > This patch does exactly that, making the first instruction issued 0x32.
->> > It should be applied to fix the issue above.
->>
->> My understanding is that this is very specific to FORESEE NANDs and you
->> are changing this for all NANDs. I have fears that it will break
->> everywhere else.
+>> Make sure that i'm not ignoring anyone reviews, i sent a new set of
+>> patches to start cleanly, and i have sent you an email about this.
 >
-> I just checked a few datasheets of SPI-NANDs from
-> Toshiba/Winbond/Etron/ESMT/GigaDevice/Macronix.
-> All of them specify the programming sequence to be:
-> write_enable->write_cache->update_cache if needed->
-> program_execute->poll status.
-> Some of them mentions that the only difference between write_cache
-> and update_cache is whether the page cache is cleared before
-> writing (Winbond), while others don't specifically say that.
+>It is still v1 - the same? - while you already sent three patchsets before.
+
+As i mentioned, this patch is sent to start cleanly, so it still v1.
+And the previous patchsets should be ignored.
+
 >
-> The original sequence doesn't seem to be following any manufacturers'
-> instructions. We just haven't run into any problems until this FORESEE
-> one.
+>>
+>> Also, for this patch (dt-bindings), i respected your previous reviews.
+>I did not check every previous comment, since this is v1, but at least
+>subject did not improve which with lack of changelog and versioning
+>suggests nothing else changed either.
+>
+>OK, if you implemented the reviews, please point me to the changelog
+>listing all the changes you done from each previous version?
+>
+I'll make the v2 patches that should point all changes.
 
-That is what I am saying. It currently works, and we may encounter
-silent failures all around because of this change, even if it might be
-theoretically correct. Anyhow, we have these templates (both write and
-update) so let's try to re-use them.
+>Best regards,
+>Krzysztof
 
-However I dislike the current implementation which changes the global
-wdesc template and puts it back. Can you please propose something cleaner?
-
-Thanks,
-Miqu=C3=A8l
+Best regards,
+Yassine OUAISSA
 
