@@ -4,77 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 370ABC5B542
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 09:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4FAC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 09:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vD+KgFhmCpbQl1e5KFyzgc2ojiUjz1Cy2/BTyqcusrI=; b=U+9K/kc1FAg8cPePqad3BVcmid
-	77Xl9BW3/LbEjrBzPVTFbzB41D2k+VmzBcVFAiR0Qcxdp1JTP0r0qRbcJYYbR4YRJBVc1prHxBMSG
-	Hug4Mj20vb+2fEKjZBYsPRNkZkXRuiEww/ZLy+fuF454SGRIheEMD1m6EqgwCbZX4unCVcmZxREFl
-	St2aXhSaPEtmNi32TaL3YnSgm5IxBeQrd01q/N+KdEoUCCamU+4razxkBCYSws0fZ5IWhqtVC8JbA
-	fCEfRzJoS9QOU8JwrzeMq+CskIE6e8I9ES60+bwBnvDTEVx1CwHFHak9brC3wqWnQorQXBCP+l8a0
-	D/5vufzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XepYu/mWGVQlrkIx22WjM1fqHNB8xXYjcSWvogk1R4I=; b=YcQpEsuh36WslOp5bHjog5/3he
+	arQCsBdJquNm4MCni51NSQ4MOAVOznzUvE6TOCVkZmXW0WLNHB/oC/rVd9C9EiTX5eTQoIh+93S3r
+	3IIGzenqm8OHtGzlTdlso3y13OE6RxXzrKd0JNNjyjGlyTd2/ObT9o0s6zsnIZWlv8d3XVCNfSahI
+	+cNPz5D85td7CSyOqP6R5mLN3UNpuB7UoNT0M+vVZOesPyt4MlX3oJhn1b57t5IJBAS0QeT4b35/h
+	XYaadRxBNI78ms949jQNJTbr2vAfi0CpuEdEFmP1+wRGB+3h3WXZv1w6l801rlIGmK5gw4pVWnG7D
+	ISxLx6vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJTty-00000008TeD-0EUL;
-	Mon, 26 May 2025 09:13:46 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uJU2S-00000008UZy-1cyb;
+	Mon, 26 May 2025 09:22:32 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJTqm-00000008TLj-2z6Q;
-	Mon, 26 May 2025 09:10:30 +0000
-X-UUID: 41bc58a83a1111f08d385d50fb11b32d-20250526
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=vD+KgFhmCpbQl1e5KFyzgc2ojiUjz1Cy2/BTyqcusrI=;
-	b=JaeZfGIbRPIMq9tBcVmmpTdzGxCcTEX1oaOziANYYgD4yXJPWw0aDpMM/jTz15KFv4xVtvTz75bvcBToKLnAzPYOAmKjA9TmX9GaumOqIWu8hHt4yk/1oISLvoXzhH0nKLvXJnBtOTmIx1F3cS47+A0Ba1rD90W3ybJ7aCiUsyo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:2b924406-97c1-4f37-a669-31f6d2b9c333,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:b1881e59-eac4-4b21-88a4-d582445d304a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: 41bc58a83a1111f08d385d50fb11b32d-20250526
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <skylake.huang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1213027290; Mon, 26 May 2025 02:10:24 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 26 May 2025 17:10:20 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 26 May 2025 17:10:20 +0800
-From: Sky Huang <SkyLake.Huang@mediatek.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
-	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
-	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Sky Huang <skylake.huang@mediatek.com>
-Subject: [PATCH net-next] net: phy: mtk-2p5ge: Add LED support for MT7988
-Date: Mon, 26 May 2025 17:10:19 +0800
-Message-ID: <20250526091019.16096-1-SkyLake.Huang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1uJTz2-00000008UD2-2hrb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 09:19:02 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uJTyj-0005AD-Dn; Mon, 26 May 2025 11:18:41 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uJTyj-000E19-0B;
+	Mon, 26 May 2025 11:18:41 +0200
+Received: from pengutronix.de (p5b1645f7.dip0.t-ipconnect.de [91.22.69.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 94A2C419BBC;
+	Mon, 26 May 2025 09:18:40 +0000 (UTC)
+Date: Mon, 26 May 2025 11:18:40 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Fabian Pflug <f.pflug@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH 1/2] ARM: dts: freescale: add support for NXP i.MX93 FRDM
+Message-ID: <20250526-dandelion-rooster-of-bliss-41d420-mkl@pengutronix.de>
+References: <20250523-fpg-nxp-imx93-frdm-v1-0-546b2d342855@pengutronix.de>
+ <20250523-fpg-nxp-imx93-frdm-v1-1-546b2d342855@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7u3iuswslneeov4k"
+Content-Disposition: inline
+In-Reply-To: <20250523-fpg-nxp-imx93-frdm-v1-1-546b2d342855@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_021028_770262_50F596EE 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20250526_021900_842860_1E975C3D 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,163 +83,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sky Huang <skylake.huang@mediatek.com>
 
-Add LED support for MT7988's built-in 2.5Gphy. LED hardware has almost
-the same design with MT7981's/MT7988's built-in GbE. So hook the same
-helper function here.
+--7u3iuswslneeov4k
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/2] ARM: dts: freescale: add support for NXP i.MX93 FRDM
+MIME-Version: 1.0
 
-Before mtk_phy_leds_state_init(), set correct default values of LED0
-and LED1.
+On 23.05.2025 20:16:48, Fabian Pflug wrote:
+> The FRDM i.MX 93 development board is a low-cost and compact development
+> board featuring the i.MX93 applications processor.
+>=20
+> It features:
+> - Dual Cortex-A55
+> - 2 GB LPDDR4X / LPDDR4
+> - 32 GB eMMC5.1
+> - MicroSD slot
+> - GbE RJ45 x 2
+> - USB2.0 1x Type C, 1x Type A
+>=20
+> This file is based upon the one provided by nxp in their own kernel and
+> yocto meta layer for the device, but adapted for mainline.
+>=20
+> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile             |   1 +
+>  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 630 +++++++++++++++=
+++++++
+>  2 files changed, 631 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts=
+/freescale/Makefile
+> index b6d3fe26d621234ab84353165d20af9d2536f839..c703fce2ebfd8074bd0c6ee76=
+f3c6f9bbd9cf179 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -295,6 +295,7 @@ imx93-9x9-qsb-i3c-dtbs +=3D imx93-9x9-qsb.dtb imx93-9=
+x9-qsb-i3c.dtbo
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-9x9-qsb-i3c.dtb
+> =20
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-evk.dtb
+> +dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-frdm.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-14x14-evk.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-kontron-bl-osm-s.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-phyboard-segin.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/ar=
+m64/boot/dts/freescale/imx93-11x11-frdm.dts
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..f1422946f7eb5799a9cc21fc9=
+3f75fc3a45ebcf5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> @@ -0,0 +1,630 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/usb/pd.h>
+> +#include "imx93.dtsi"
+> +
+> +/ {
+> +	model =3D "NXP i.MX93 11X11 FRDM board";
+> +	compatible =3D "fsl,imx93-11x11-frdm", "fsl,imx93";
+> +
+> +	chosen {
+> +		stdout-path =3D &lpuart1;
+> +	};
+> +
+> +	reserved-memory {
+> +		#address-cells =3D <2>;
+> +		#size-cells =3D <2>;
+> +		ranges;
+> +
+> +		linux,cma {
+> +			compatible =3D "shared-dma-pool";
+> +			reusable;
+> +			alloc-ranges =3D <0 0x80000000 0 0x30000000>;
+> +			size =3D <0 0x10000000>;
+> +			linux,cma-default;
+> +		};
+> +
+> +		vdev0vring0: vdev0vring0@a4000000 {
+> +			reg =3D <0 0xa4000000 0 0x8000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev0vring1: vdev0vring1@a4008000 {
+> +			reg =3D <0 0xa4008000 0 0x8000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev1vring0: vdev1vring0@a4010000 {
+> +			reg =3D <0 0xa4010000 0 0x8000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev1vring1: vdev1vring1@a4018000 {
+> +			reg =3D <0 0xa4018000 0 0x8000>;
+> +			no-map;
+> +		};
+> +
+> +		rsc_table: rsc-table@2021e000 {
+> +			reg =3D <0 0x2021e000 0 0x1000>;
+> +			no-map;
+> +		};
+> +
+> +		vdevbuffer: vdevbuffer@a4020000 {
+> +			compatible =3D "shared-dma-pool";
+> +			reg =3D <0 0xa4020000 0 0x100000>;
+> +			no-map;
+> +		};
+> +
+> +	};
+> +
+> +	reg_vdd_12v: regulator-vdd-12v {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "reg_vdd_12v";
+> +		regulator-min-microvolt =3D <12000000>;
+> +		regulator-max-microvolt =3D <12000000>;
+> +		gpio =3D <&pcal6524 14 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_vref_1v8: regulator-adc-vref {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "vref_1v8";
+> +		regulator-min-microvolt =3D <1800000>;
+> +		regulator-max-microvolt =3D <1800000>;
+> +	};
+> +
+> +	reg_can2_standby: regulator-can2-stby {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "can2-stby";
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-max-microvolt =3D <3300000>;
+> +		gpio =3D <&pcal6524 23 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+> +	reg_usdhc2_vmmc: regulator-usdhc2 {
+> +		compatible =3D "regulator-fixed";
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&pinctrl_reg_usdhc2_vmmc>;
+> +		regulator-name =3D "VSD_3V3";
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-max-microvolt =3D <3300000>;
+> +		gpio =3D <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		off-on-delay-us =3D <12000>;
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_usdhc3_vmmc: regulator-usdhc3 {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "WLAN_EN";
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-max-microvolt =3D <3300000>;
+> +		gpio =3D <&pcal6524 20 GPIO_ACTIVE_HIGH>;
+> +		/*
+> +		 * IW612 wifi chip needs more delay than other wifi chips to complete
+> +		 * the host interface initialization after power up, otherwise the
+> +		 * internal state of IW612 may be unstable, resulting in the failure of
+> +		 * the SDIO3.0 switch voltage.
+> +		 */
+> +		startup-delay-us =3D <20000>;
+> +		enable-active-high;
+> +	};
+> +
+> +	usdhc3_pwrseq: usdhc3_pwrseq {
+> +		compatible =3D "mmc-pwrseq-simple";
+> +		reset-gpios =3D <&pcal6524 12 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +&adc1 {
+> +	vref-supply =3D <&reg_vref_1v8>;
+> +	status =3D "okay";
+> +};
+> +
+> +&cm33 {
+> +	mbox-names =3D "tx", "rx", "rxdb";
+> +	mboxes =3D <&mu1 0 1>,
+> +		 <&mu1 1 1>,
+> +		 <&mu1 3 1>;
+> +	memory-region =3D <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
+> +			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
+> +	status =3D "okay";
+> +};
+> +
+> +&eqos {
+> +	pinctrl-names =3D "default", "sleep";
+> +	pinctrl-0 =3D <&pinctrl_eqos>;
+> +	pinctrl-1 =3D <&pinctrl_eqos_sleep>;
+> +	phy-mode =3D "rgmii-id";
+> +	phy-handle =3D <&ethphy1>;
+> +	status =3D "okay";
+> +
+> +	mdio {
+> +		compatible =3D "snps,dwmac-mdio";
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +		clock-frequency =3D <5000000>;
+> +
+> +		ethphy1: ethernet-phy@1 {
+> +			reg =3D <1>;
+> +			reset-gpios =3D <&pcal6524 15 GPIO_ACTIVE_LOW>;
+> +			reset-assert-us =3D <10000>;
+> +			reset-deassert-us =3D <80000>;
+> +		};
+> +	};
+> +};
+> +
+> +&fec {
+> +	pinctrl-names =3D "default", "sleep";
+> +	pinctrl-0 =3D <&pinctrl_fec>;
+> +	pinctrl-1 =3D <&pinctrl_fec_sleep>;
+> +	phy-mode =3D "rgmii-id";
+> +	phy-handle =3D <&ethphy2>;
+> +	fsl,magic-packet;
+> +	status =3D "okay";
+> +
+> +	mdio {
+> +		#address-cells =3D <1>;
+> +		#size-cells =3D <0>;
+> +		clock-frequency =3D <5000000>;
+> +
+> +		ethphy2: ethernet-phy@2 {
+> +			reg =3D <2>;
+> +			eee-broken-1000t;
+> +			reset-gpios =3D <&pcal6524 16 GPIO_ACTIVE_LOW>;
+> +			reset-assert-us =3D <10000>;
+> +			reset-deassert-us =3D <80000>;
+> +		};
+> +	};
+> +};
+> +
+> +&flexcan2 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&pinctrl_flexcan2>;
+> +	xceiver-supply =3D <&reg_can2_standby>;
+> +	status =3D "okay";
+> +};
 
-Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
----
-This patch is reviewed already:
-https://www.spinics.net/lists/netdev/msg1094289.html
----
- drivers/net/phy/mediatek/mtk-2p5ge.c | 104 +++++++++++++++++++++++++--
- 1 file changed, 98 insertions(+), 6 deletions(-)
+Since d80bfde3c57a ("can: flexcan: add transceiver capabilities"), which
+got mainline with v6.15-rc1 there is proper PHY support in the flexcan
+driver. So from my point of view, there's no need to stick to regulator
+hack.
 
-diff --git a/drivers/net/phy/mediatek/mtk-2p5ge.c b/drivers/net/phy/mediatek/mtk-2p5ge.c
-index e147eab52..de8a41a18 100644
---- a/drivers/net/phy/mediatek/mtk-2p5ge.c
-+++ b/drivers/net/phy/mediatek/mtk-2p5ge.c
-@@ -249,8 +249,80 @@ static int mt798x_2p5ge_phy_get_rate_matching(struct phy_device *phydev,
- 	return RATE_MATCH_PAUSE;
- }
- 
-+static const unsigned long supported_triggers =
-+	BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
-+	BIT(TRIGGER_NETDEV_LINK)        |
-+	BIT(TRIGGER_NETDEV_LINK_10)     |
-+	BIT(TRIGGER_NETDEV_LINK_100)    |
-+	BIT(TRIGGER_NETDEV_LINK_1000)   |
-+	BIT(TRIGGER_NETDEV_LINK_2500)   |
-+	BIT(TRIGGER_NETDEV_RX)          |
-+	BIT(TRIGGER_NETDEV_TX);
-+
-+static int mt798x_2p5ge_phy_led_blink_set(struct phy_device *phydev, u8 index,
-+					  unsigned long *delay_on,
-+					  unsigned long *delay_off)
-+{
-+	bool blinking = false;
-+	int err = 0;
-+
-+	err = mtk_phy_led_num_dly_cfg(index, delay_on, delay_off, &blinking);
-+	if (err < 0)
-+		return err;
-+
-+	err = mtk_phy_hw_led_blink_set(phydev, index, blinking);
-+	if (err)
-+		return err;
-+
-+	if (blinking)
-+		mtk_phy_hw_led_on_set(phydev, index, MTK_2P5GPHY_LED_ON_MASK,
-+				      false);
-+
-+	return 0;
-+}
-+
-+static int mt798x_2p5ge_phy_led_brightness_set(struct phy_device *phydev,
-+					       u8 index,
-+					       enum led_brightness value)
-+{
-+	int err;
-+
-+	err = mtk_phy_hw_led_blink_set(phydev, index, false);
-+	if (err)
-+		return err;
-+
-+	return mtk_phy_hw_led_on_set(phydev, index, MTK_2P5GPHY_LED_ON_MASK,
-+				     (value != LED_OFF));
-+}
-+
-+static int mt798x_2p5ge_phy_led_hw_is_supported(struct phy_device *phydev,
-+						u8 index, unsigned long rules)
-+{
-+	return mtk_phy_led_hw_is_supported(phydev, index, rules,
-+					   supported_triggers);
-+}
-+
-+static int mt798x_2p5ge_phy_led_hw_control_get(struct phy_device *phydev,
-+					       u8 index, unsigned long *rules)
-+{
-+	return mtk_phy_led_hw_ctrl_get(phydev, index, rules,
-+				       MTK_2P5GPHY_LED_ON_SET,
-+				       MTK_2P5GPHY_LED_RX_BLINK_SET,
-+				       MTK_2P5GPHY_LED_TX_BLINK_SET);
-+};
-+
-+static int mt798x_2p5ge_phy_led_hw_control_set(struct phy_device *phydev,
-+					       u8 index, unsigned long rules)
-+{
-+	return mtk_phy_led_hw_ctrl_set(phydev, index, rules,
-+				       MTK_2P5GPHY_LED_ON_SET,
-+				       MTK_2P5GPHY_LED_RX_BLINK_SET,
-+				       MTK_2P5GPHY_LED_TX_BLINK_SET);
-+};
-+
- static int mt798x_2p5ge_phy_probe(struct phy_device *phydev)
- {
-+	struct mtk_socphy_priv *priv;
- 	struct pinctrl *pinctrl;
- 	int ret;
- 
-@@ -273,19 +345,34 @@ static int mt798x_2p5ge_phy_probe(struct phy_device *phydev)
- 	if (ret < 0)
- 		return ret;
- 
--	/* Setup LED */
-+	/* Setup LED. On default, LED0 is on/off when link is up/down. As for
-+	 * LED1, it blinks as tx/rx transmission takes place.
-+	 */
- 	phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED0_ON_CTRL,
--			 MTK_PHY_LED_ON_POLARITY | MTK_PHY_LED_ON_LINK10 |
--			 MTK_PHY_LED_ON_LINK100 | MTK_PHY_LED_ON_LINK1000 |
--			 MTK_PHY_LED_ON_LINK2500);
--	phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED1_ON_CTRL,
--			 MTK_PHY_LED_ON_FDX | MTK_PHY_LED_ON_HDX);
-+			 MTK_PHY_LED_ON_POLARITY | MTK_2P5GPHY_LED_ON_SET);
-+	phy_clear_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED0_BLINK_CTRL,
-+			   MTK_2P5GPHY_LED_TX_BLINK_SET |
-+			   MTK_2P5GPHY_LED_RX_BLINK_SET);
-+	phy_clear_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED1_ON_CTRL,
-+			   MTK_PHY_LED_ON_FDX | MTK_PHY_LED_ON_HDX |
-+			   MTK_2P5GPHY_LED_ON_SET);
-+	phy_set_bits_mmd(phydev, MDIO_MMD_VEND2, MTK_PHY_LED1_BLINK_CTRL,
-+			 MTK_2P5GPHY_LED_TX_BLINK_SET |
-+			 MTK_2P5GPHY_LED_RX_BLINK_SET);
- 
- 	/* Switch pinctrl after setting polarity to avoid bogus blinking */
- 	pinctrl = devm_pinctrl_get_select(&phydev->mdio.dev, "i2p5gbe-led");
- 	if (IS_ERR(pinctrl))
- 		dev_err(&phydev->mdio.dev, "Fail to set LED pins!\n");
- 
-+	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(struct mtk_socphy_priv),
-+			    GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+	phydev->priv = priv;
-+
-+	mtk_phy_leds_state_init(phydev);
-+
- 	return 0;
- }
- 
-@@ -303,6 +390,11 @@ static struct phy_driver mtk_2p5gephy_driver[] = {
- 		.resume = genphy_resume,
- 		.read_page = mtk_phy_read_page,
- 		.write_page = mtk_phy_write_page,
-+		.led_blink_set = mt798x_2p5ge_phy_led_blink_set,
-+		.led_brightness_set = mt798x_2p5ge_phy_led_brightness_set,
-+		.led_hw_is_supported = mt798x_2p5ge_phy_led_hw_is_supported,
-+		.led_hw_control_get = mt798x_2p5ge_phy_led_hw_control_get,
-+		.led_hw_control_set = mt798x_2p5ge_phy_led_hw_control_set,
- 	},
- };
- 
--- 
-2.45.2
+See 87d60c4663b6 ("arm64: dts: ti: k3-j721e-common-proc-board: Add
+support for mcu and main mcan nodes") for an example.
 
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--7u3iuswslneeov4k
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmg0MewACgkQDHRl3/mQ
+kZz50wgAn9Wh9mX7RSnF8dqGdbOYTvM19I/6oNQXlmkMuhckfC5yYnyAaefDkYnP
+bPlGWMo+NBPUox47M0HVeVJF5TNIgJ/wob5cV813+GXi4RZOuDPQspAkwlCR+lQ1
+b/fYoz/b6z9zk23bODHSSlzIaAtgjGjQhKv5CF0vG4au121B4hMfWOMw4ZrzVq9j
+9rCBPgtm7eRlLz1CZavGwsFbwIjabD/SN2PZmmONgeAOOoq4RgugfNzX7rAU3WOa
+CfswrKfatWytTXq7hXBQoJ0NWj8W1bFwMW1v0YvwPkrW1tmrHYyf3ZH9MgYBdbOA
+ib0r84yfp/5y8ugNGPn2am88ii5lSA==
+=GSEO
+-----END PGP SIGNATURE-----
+
+--7u3iuswslneeov4k--
 
