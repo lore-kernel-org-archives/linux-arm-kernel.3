@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9053BC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 02:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2163FC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 02:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sChjnz3feZFvWyNyBBV/ChTfvU6U/f+UOVHotNV47zs=; b=oIo1FchGsr+eeevbJPlCz0M11R
-	iK+oaJap9RqnmU+ZGp07v52L2ZeFLHL4QYftd29BMZlAM6qW77ufAqmIdw4FoXpGKN0uaGGUB6g50
-	eE34BG7qh0xr0FhFo0DUUQIgRC1y3byyXJY2dyebSAky+c1cequ3KqUI2Ru7O2N/hvaGZtVk6m0GM
-	iVDefOljW/nYVOQ7EarSUvMDJp50ESxyIOss6CabH3iPJQV6SuchGiuEArb3SMTlbpddrpSIDACwG
-	l9cSuHtfS+T+PT+J57Q8gqQJV1RVsTZbCNnjAEKSX/Mu9ZJZlip9dLZ209BiKwa0lyybcV0D8baAB
-	EDpQFQxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BfaAdI9zTMYbkWR9hpAtSFrILp9opsBXSmOMXnFJNzA=; b=2uovr/D4y1QqnIARUW5DEsS820
+	oixeFbKT73bDICWyqxl+SN/ZjnPNem8VweqqF6ZVA7r0R6r4oOgAFKAMVYvZ8/EHHEhoyDtdEBEGr
+	9hhVquOwabjcWJQP2tEB6ZKFrcpeDGygurBImnVFRvMVVEfONZtdP6jLviRrm9nuyauqHYhf81/GI
+	Pl9yK7Vuuu9SBGJUDOqMQw5Nk7HwwlN57CPGYjsuUpIAySVJg/nL0SHojA2zpdQjPnR7u5yGAfsAQ
+	GcuQUgBwjx7AGRryhrWo+eiOtyQs6FBsQ6PrGqieuoYbPK5O17fQP8LiYPB8Z0J836tQRXSL1bkhe
+	AJCngu4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJNAk-00000007wFf-2qlg;
-	Mon, 26 May 2025 02:02:38 +0000
-Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	id 1uJNK9-00000007woR-2O8A;
+	Mon, 26 May 2025 02:12:21 +0000
+Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJN8c-00000007w8o-1wVn;
-	Mon, 26 May 2025 02:00:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1748224757;
-	bh=sChjnz3feZFvWyNyBBV/ChTfvU6U/f+UOVHotNV47zs=;
-	h=From:To:Subject:Date:Message-Id;
-	b=l8LPU9ohrxUzo8CKMWaIQgwopRxBybEcjvVcV+zysweakpU8F3DZpStRBRbi/Y/fq
-	 ugnD4NO/fvIJNDObPxWWz/m2ntSTzyA1Q7Xa5rex5S0SkzoM6/hplbV0Afw8D93NRz
-	 Mj4V2N2yT1Ihm8pIX4dM/6t54vq6l6PQjlD+BeR0=
-X-QQ-mid: esmtpgz11t1748224755t5a444bdf
-X-QQ-Originating-IP: YmnDtwGOyJXaeiI+4J0/OlWIfmc02uUidzVxFPmFi9k=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 26 May 2025 09:59:12 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11916620477028258212
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: [PATCH] drm/rockchip: lvds: Convert to drm bridge
-Date: Mon, 26 May 2025 09:58:34 +0800
-Message-Id: <20250526015834.102-1-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: Nec0PqG26E9wcPYeyCpdNquLWbVB0QBfauc3uPvmSzxI3H4iGsgp/ohz
-	TiSe+dCf6mo8kP0xCv5HY4me0+y9I79oBj1G5Xq6Dd4+YE0hHuHeMmRPhx0gVmcPJnR9qLt
-	9fEwSyd1dnY1hyZcynkTYUUTAwRcbnyBv2f5YsfW2p7ecJSlSa4KzMdQ71cY/4b3E9BLfSm
-	LoTJFw7xrxjzFImtsB+3Pvmydc+VL+jzTlw00I6Oa+L7fAdRj0nhir8lCbXMwXZEKUkVZ+x
-	LSwxoV6I5gPgCEfFQoj3mzAhjY7PlIg1lwkZpLNGD6Z7i2Gi+vgvaqd074clFTRHb4POOy7
-	SfzXHrLshDQq3t4vZjmvuXi4ZShGWCFUSj3pbOP2dM0hX3qYZC9y8jkPySPpi/gQFQWG3Wj
-	6Z21u6ZLd9z8Gd09/0pw5SDFJPNOOZu2qvo7He3hQRIStX1/A9I6yvWsjTqgQ2doUqpLJFC
-	g+zWjiEnSTHlzreLun0jxSZ68eL9SYk9tI/xZY7MCBMdKJufeGvMw16veVgX2C1OKRI/iyQ
-	+e07CzASwLx/c/6M2xHbF3pIpZ5D92Dl2xgSICrZmkVGPoqS2iWDVn4VDxqAo8fqfF4m5Ae
-	b+lLcHnybzloPMlqvBykpCZXzQ8uDZo/AzvnP9ohjvwctjtrb7tOOxhy4t/ce6IsPdfOSNo
-	OTVWm22aU7v3S+3voQH61UqcKsxE6jZkHbjtAoqRVo46xNUTbrjUW2PEO8Ed/zpXzttgBtX
-	cEiY+LqRp6c8IPVkJIcUm+vJmUTuF6WUgZ4VWIxCFMRcy36L7fg7Y6ZOWcXXQ/kcllX2A0v
-	D+XuM53BPd9xN4Pl4YUP0KxBgDqTAYLfV7ZuTzYcOkm9eVT+jh/PqCmpJf/f31CELDVGUeb
-	VOtPD2PXr8n0yAXEhiDd0/OPIk7FAM4w3fkj6W/qx0Yk11wTsU40NxGle0VG650CIqNdV8D
-	+r/FL7FR3rfEIzg==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
+	id 1uJNHz-00000007wf7-3s2L
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 02:10:12 +0000
+Message-ID: <e0552940-9fbe-4375-a9a9-e26cd425591a@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1748225404;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BfaAdI9zTMYbkWR9hpAtSFrILp9opsBXSmOMXnFJNzA=;
+	b=FYEmr/E+GLbI9k1DJULJpVLB+Vkmmpn2kp2zpWL1xiEx/Zee+na0++FAge+A7Sqjn5E3b8
+	xRd8x1rwcJuz7bbrZ42XKFEOpgoIT0c2RKhftzUIltvk57uLHsZrox6zt70c6sx49nlVl8
+	s4hM5DkxEXnAewg+j0E/pOjofmFWSXw=
+Date: Mon, 26 May 2025 10:09:57 +0800
+MIME-Version: 1.0
+Subject: Re: [PATCH] net: stmmac: set multicast filter to zero if feature is
+ unsupported
+To: Nikunj Kela <nikunj.kela@sima.ai>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
+Cc: rmk+kernel@armlinux.org.uk, 0x1207@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250523221938.2980773-1-nikunj.kela@sima.ai>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yanteng Si <si.yanteng@linux.dev>
+In-Reply-To: <20250523221938.2980773-1-nikunj.kela@sima.ai>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_190026_877128_ABFBD5A7 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20250525_191008_326976_09A5DDD1 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,151 +73,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+在 5/24/25 6:19 AM, Nikunj Kela 写道:
+> Hash based multicast filtering is an optional feature. Currently,
+> driver overrides the value of multicast_filter_bins based on the hash
+> table size. If the feature is not supported, hash table size reads 0
+> however the value of multicast_filter_bins remains set to default
+> HASH_TABLE_SIZE which is incorrect. Let's override it to 0 if the
+> feature is unsupported.
+> 
+> Signed-off-by: Nikunj Kela <nikunj.kela@sima.ai>
+> ---
+>   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 085c09039af4..ccea9f811a05 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -7241,6 +7241,9 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+>   					(BIT(priv->dma_cap.hash_tb_sz) << 5);
+>   			priv->hw->mcast_bits_log2 =
+>   					ilog2(priv->hw->multicast_filter_bins);
+> +		} else {
+> +			priv->hw->multicast_filter_bins = 0;
+> +			priv->hw->mcast_bits_log2 = 0;
+>   		}
 
-Convert it to drm bridge driver, it will be convenient for us to
-migrate the connector part to the display driver later.
+I didn't read the code carefully, just did a simple search：
 
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
----
- drivers/gpu/drm/rockchip/rockchip_lvds.c | 68 ++++++++++--------------
- 1 file changed, 29 insertions(+), 39 deletions(-)
+❯ grep -rn multicast_filter_bins drivers/net/
+drivers/net/ethernet/stmicro/stmmac/common.h:611:	unsigned int 
+multicast_filter_bins;
+drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:26: 
+plat_dat->multicast_filter_bins = 0;
+***
+drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:512: 
+plat->multicast_filter_bins = HASH_TABLE_SIZE;
+***
+drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:536:				 
+&plat->multicast_filter_bins);
+drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:541:	 
+plat->multicast_filter_bins = dwmac1000_validate_mcast_bins(
+drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:542:			 
+&pdev->dev, plat->multicast_filter_bins);
+drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c:523: 
+mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c:527:	if 
+(mac->multicast_filter_bins)
+drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c:528:	 
+mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:516:		 
+(netdev_mc_count(dev) > hw->multicast_filter_bins)) {
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1527: 
+mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1531:	if 
+(mac->multicast_filter_bins)
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1532:	 
+mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1568: 
+mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1572:	if 
+(mac->multicast_filter_bins)
+drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1573:	 
+mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:543:	if 
+(netdev_mc_count(priv->dev) >= priv->hw->multicast_filter_bins)
+drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:633:	if 
+(netdev_mc_count(priv->dev) >= priv->hw->multicast_filter_bins)
+drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:679:	if 
+(netdev_mc_count(priv->dev) >= priv->hw->multicast_filter_bins)
+drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c:31: 
+plat->multicast_filter_bins = HASH_TABLE_SIZE;
+drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c:84: 
+plat->multicast_filter_bins = HASH_TABLE_SIZE;
+drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:98: 
+plat->multicast_filter_bins = 256;
+drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:365: 
+mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:369:	if 
+(mac->multicast_filter_bins)
+drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:370:	 
+mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:7240:		 
+priv->hw->multicast_filter_bins =
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:7243:				 
+ilog2(priv->hw->multicast_filter_bins);
+drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c:570: 
+plat->multicast_filter_bins = HASH_TABLE_SIZE;
+drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c:707: 
+plat->multicast_filter_bins = HASH_TABLE_SIZE;
+drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c:479: 
+plat_dat->multicast_filter_bins = 0;
+drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:456:	int numhashregs = 
+(hw->multicast_filter_bins >> 5);
+drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:485:		 
+(netdev_mc_count(dev) > hw->multicast_filter_bins)) {
+drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:1057: 
+mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:1061:	if 
+(mac->multicast_filter_bins)
+drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:1062:	 
+mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c:43:	 
+plat_dat->multicast_filter_bins = HASH_TABLE_SIZE;
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-index a673779de3d2..2411260db51d 100644
---- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-@@ -56,14 +56,13 @@ struct rockchip_lvds {
- 	struct drm_device *drm_dev;
- 	struct drm_panel *panel;
- 	struct drm_bridge *bridge;
--	struct drm_connector connector;
- 	struct rockchip_encoder encoder;
- 	struct dev_pin_info *pins;
- };
- 
--static inline struct rockchip_lvds *connector_to_lvds(struct drm_connector *connector)
-+static inline struct rockchip_lvds *brige_to_lvds(struct drm_bridge *bridge)
- {
--	return container_of(connector, struct rockchip_lvds, connector);
-+	return (struct rockchip_lvds *)bridge->driver_private;
- }
- 
- static inline struct rockchip_lvds *encoder_to_lvds(struct drm_encoder *encoder)
-@@ -106,25 +105,21 @@ static inline int rockchip_lvds_name_to_output(const char *s)
- 	return -EINVAL;
- }
- 
--static const struct drm_connector_funcs rockchip_lvds_connector_funcs = {
--	.fill_modes = drm_helper_probe_single_connector_modes,
--	.destroy = drm_connector_cleanup,
--	.reset = drm_atomic_helper_connector_reset,
--	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
--	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
--};
--
--static int rockchip_lvds_connector_get_modes(struct drm_connector *connector)
-+static int
-+rockchip_lvds_bridge_get_modes(struct drm_bridge *bridge, struct drm_connector *connector)
- {
--	struct rockchip_lvds *lvds = connector_to_lvds(connector);
-+	struct rockchip_lvds *lvds = brige_to_lvds(bridge);
- 	struct drm_panel *panel = lvds->panel;
- 
- 	return drm_panel_get_modes(panel, connector);
- }
- 
- static const
--struct drm_connector_helper_funcs rockchip_lvds_connector_helper_funcs = {
--	.get_modes = rockchip_lvds_connector_get_modes,
-+struct drm_bridge_funcs rockchip_lvds_bridge_funcs = {
-+	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-+	.atomic_reset = drm_atomic_helper_bridge_reset,
-+	.get_modes = rockchip_lvds_bridge_get_modes,
- };
- 
- static int
-@@ -606,26 +601,23 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
- 	}
- 
- 	drm_encoder_helper_add(encoder, lvds->soc_data->helper_funcs);
--	connector = &lvds->connector;
- 
- 	if (lvds->panel) {
--		connector->dpms = DRM_MODE_DPMS_OFF;
--		ret = drm_connector_init(drm_dev, connector,
--					 &rockchip_lvds_connector_funcs,
--					 DRM_MODE_CONNECTOR_LVDS);
--		if (ret < 0) {
--			drm_err(drm_dev,
--				"failed to initialize connector: %d\n", ret);
-+		lvds->bridge = drm_panel_bridge_add_typed(lvds->panel, DRM_MODE_CONNECTOR_LVDS);
-+		if (IS_ERR(lvds->bridge)) {
-+			ret = PTR_ERR(lvds->bridge);
- 			goto err_free_encoder;
- 		}
-+	}
- 
--		drm_connector_helper_add(connector,
--					 &rockchip_lvds_connector_helper_funcs);
--	} else {
--		ret = drm_bridge_attach(encoder, lvds->bridge, NULL,
--					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+	if (lvds->bridge) {
-+		lvds->bridge->driver_private = lvds;
-+		lvds->bridge->ops = DRM_BRIDGE_OP_MODES;
-+		lvds->bridge->funcs = &rockchip_lvds_bridge_funcs;
-+
-+		ret = drm_bridge_attach(encoder, lvds->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 		if (ret)
--			goto err_free_encoder;
-+			goto err_free_bridge;
- 
- 		connector = drm_bridge_connector_init(lvds->drm_dev, encoder);
- 		if (IS_ERR(connector)) {
-@@ -633,14 +625,14 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
- 				"failed to initialize bridge connector: %pe\n",
- 				connector);
- 			ret = PTR_ERR(connector);
--			goto err_free_encoder;
-+			goto err_free_bridge;
- 		}
--	}
- 
--	ret = drm_connector_attach_encoder(connector, encoder);
--	if (ret < 0) {
--		drm_err(drm_dev, "failed to attach encoder: %d\n", ret);
--		goto err_free_connector;
-+		ret = drm_connector_attach_encoder(connector, encoder);
-+		if (ret < 0) {
-+			drm_err(drm_dev, "failed to attach encoder: %d\n", ret);
-+			goto err_free_bridge;
-+		}
- 	}
- 
- 	pm_runtime_enable(dev);
-@@ -649,8 +641,8 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
- 
- 	return 0;
- 
--err_free_connector:
--	drm_connector_cleanup(connector);
-+err_free_bridge:
-+	drm_panel_bridge_remove(lvds->bridge);
- err_free_encoder:
- 	drm_encoder_cleanup(encoder);
- err_put_remote:
-@@ -670,8 +662,6 @@ static void rockchip_lvds_unbind(struct device *dev, struct device *master,
- 	encoder_funcs = lvds->soc_data->helper_funcs;
- 	encoder_funcs->disable(&lvds->encoder.encoder);
- 	pm_runtime_disable(dev);
--	drm_connector_cleanup(&lvds->connector);
--	drm_encoder_cleanup(&lvds->encoder.encoder);
- }
- 
- static const struct component_ops rockchip_lvds_component_ops = {
--- 
-2.49.0
+and
+
+drivers/net/ethernet/stmicro/stmmac/common.h:265:#define HASH_TABLE_SIZE 64
+
+
+ From the search results, the default value of multicast_filter_bins
+may be meaningful. And I think that even if some hardware does not
+support this feature, it should still be overridden in its own directory.
+
+
+Thanks,
+Yanteng
 
 
