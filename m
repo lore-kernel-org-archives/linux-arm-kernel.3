@@ -4,118 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C66B2C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 14:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0796C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 14:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:To:From:Date:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4f9ppK/Fd1kNyoiyUjqXMTXUiPAGCVkCczNjqtT5OaI=; b=PFKEhOOOo5PXch
-	Qr9S26KL0am4+8NdfCH/aSv9Q8mqwus3/jBGh1OllzeijZP9UBSlktOpdlo4dMNvinabFEjuHwApQ
-	2nz3p6ETre7W4LO+hD16Ipcuoofka/dpKmBLJ+2dVj3ZvKi0xboT4ncHjW7ALdLzbFXxU+cFmquoO
-	TDnuHrs/7mq+RCy4mlLKPBZuuXRVCeUERnSef5A2Fb/dtKx3g+IhJ6NcQMu53d/vLoMqlThl9/uO9
-	Zj1qFVhBf9doNFWvQyAgme8yPI2zpm4wQTjW2W2cZG7QWa9buiRumxycKDDpD7MUGdPu3+q2pgl6h
-	xRcDcguk+UYXgDopOnCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n4iAyfmAHDQbsS1EO/JqRd7baMPaf1ePJ1/X2CCfYFE=; b=Wbk0q+Gn3gW0AQ7JFE2cvLPFwi
+	/qCShlCTBD+AVirV5cNoMB6G77Yzcm/tZZ+z5f+m+oHu2W2yz78LIC6KvXMzwilTC8VZorR0caJQW
+	GDrs5hIsG7UzSwPTurMUh3tB5PAldxJ4lSCP9kdg4IBozFWK9mtqO7GVFlbvw5AGccA0SYgKNzgss
+	3pTitUA/i6DuIqnaclnzLfA6ooA67X5goUBkkVW/f2jHsc7kgqon1GuiQNgplurTGLfPrgvg0IpIk
+	lj+mVG5F18Grpyp9zmVVam8TYoKiMz5NA10EG6pE5Zv/WxYJtCO1ame1C0omQ/OcpelGf5FgkG198
+	rfqitSzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJYim-00000009067-2i70;
-	Mon, 26 May 2025 14:22:32 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1uJYr4-0000000913n-1DSj;
+	Mon, 26 May 2025 14:31:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJYgd-00000008zf9-2Ypz;
-	Mon, 26 May 2025 14:20:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1748269215; x=1748874015; i=frank-w@public-files.de;
-	bh=4f9ppK/Fd1kNyoiyUjqXMTXUiPAGCVkCczNjqtT5OaI=;
-	h=X-UI-Sender-Class:Date:From:To:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=Zeq77+Ui8Kjqbg/i3xWB5bdnKbVE1cJtiuu5uVpwPF0vZ91/bmbdcYHKJJtRGe4l
-	 wAc+GBYVEjEFGrCENKgV0yVCtWCaf8M6t++/JPO962W/150g/gbMMkx07UzMiHiY/
-	 Cfr9U2Snk/+JoQOSHUStxNHLmUs54JCcnugZ58QymGgkS36DiITMsz9emlvI6tzCk
-	 ILN8WyXR6NPDUkwEVECeUNWBq/qPFvEmqfAVieaPU1GpJFsroEtVO5HVyLAAOjuA8
-	 dmfZ8fa5/X7Qr77bl35v25VzmAJN0ceWq4JW5REYY464QDLHpwKvrtaQkvN91HhUo
-	 1v6Ig1Maj9Ez03MLnQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [IPv6:::1] ([80.187.70.213]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1M4axq-1uJ0zB1FSA-008YxW; Mon, 26
- May 2025 16:20:15 +0200
-Date: Mon, 26 May 2025 16:20:13 +0200
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v3=5D_arm64=3A_dts=3A_mediatek=3A_mt7986?=
- =?US-ASCII?Q?-bpi-r3=3A_Change_fan_PWM_value_for_mid_speed?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20250526123123.2515967-1-mikhail.kshevetskiy@iopsys.eu>
-References: <20250526123123.2515967-1-mikhail.kshevetskiy@iopsys.eu>
-Message-ID: <B06376CB-BE3F-4645-8A4D-A9C67CDCA3EC@public-files.de>
+	id 1uJYoy-000000090sy-3wzU
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 14:28:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5AB916113B;
+	Mon, 26 May 2025 14:28:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ADEDC4CEE7;
+	Mon, 26 May 2025 14:28:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748269736;
+	bh=n4iAyfmAHDQbsS1EO/JqRd7baMPaf1ePJ1/X2CCfYFE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FVKOUmfKS5yHfU1rOTLdJ9hNKl948oPmJYsPatXW9hjyV1EuSKEpDwXhAhwZr7Lbe
+	 s4sG8xFzbB9G2vhptfRjlryu/iPI9Wb5J5lJIfZgXcJKaAMw707Y9iDGmfPIBDvfVT
+	 yuTYQFcrjsA98u+OMFtaDuKjPidNXBFAslwQ8a8IefnLHGgpaG3rV4kD63YkHOPSUP
+	 pRoTt2sDxDlsAu80a3na03FsoyANsa0jsQ4ERSPeOyoFSqJSd3fRD+IuGY8HkZxOT5
+	 ppDfz0iMbv8scEjdao7dWoamDFMuZJCt6jDFWMOR22J1kDjwqK/Bwx2u/xKHEAR2iX
+	 vWsGJRylscVhQ==
+Date: Mon, 26 May 2025 15:28:51 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: soc: samsung: exynos-pmu: Constrain
+ google,pmu-intr-gen-syscon
+Message-ID: <20250526-hardware-periscope-08c2d4d4608c@spud>
+References: <20250525190630.41858-2-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:bxCOo6NnwP4696xdiATBJVUcyR19Efttn+RMrCvL3t5yCIPvHWj
- 73AE7T2bI4nXG+51gFZF2YGDQSNvQX/iekaX1HmLMXb06fb9fd1YfOCHCPjPsQCdbl71raj
- BfGhknkUJMIPUHwCS5bJCJZkFzw3j2QGcp9lxdb1xiY6TjPzU+7BBgCRjGxxXSZhtrpTGjH
- lhpp2A3arlGCBDXiNXNzw==
-UI-OutboundReport: notjunk:1;M01:P0:QJUlpfucOPo=;BMBnJean3iHrUgGqZjLIR5Nn9I9
- 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
- g2Mk=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_072020_025375_0C5510A5 
-X-CRM114-Status: GOOD (  19.03  )
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="xJlw5npM/QZjJtIy"
+Content-Disposition: inline
+In-Reply-To: <20250525190630.41858-2-krzysztof.kozlowski@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,102 +70,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 26=2E Mai 2025 14:31:23 MESZ schrieb Mikhail Kshevetskiy <mikhail=2Ekshe=
-vetskiy@iopsys=2Eeu>:
->Popular cheap PWM fans for this machine, like the ones coming in
->heatsink+fan combos will not work properly at the currently defined
->medium speed=2E Trying different pwm setting using a command
->
->  echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
->
->I found:
->
->  pwm1 value     fan rotation speed   cpu temperature     notes
->  -----------------------------------------------------------------
->    0            maximal              31=2E5 Celsius        too noisy
->   40            optimal              35=2E2 Celsius        no noise hear=
-able
->   95            minimal
->   above 95      does not rotate      55=2E5 Celsius
->  -----------------------------------------------------------------
->
->Thus only cpu-active-high and cpu-active-low modes are usable=2E
->I think this is wrong=2E
->
->This patch fixes cpu-active-medium settings for bpi-r3 board=2E
->
->I know, the patch is not ideal as it can break pwm fan for some users=2E
->Likely this is the only official mt7986-bpi-r3 heatsink+fan solution
->available on the market=2E
->
->This patch may not be enough=2E Users may wants to tweak their thermal_zo=
-ne0
->trip points, thus tuning fan rotation speed depending on cpu temperature=
-=2E
->That can be done on the base of the following example:
->
->  =3D=3D=3D example =3D=3D=3D=3D=3D=3D=3D=3D=3D
->  # cpu temperature below 25 Celsius degrees, no rotation
->  echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
->  # cpu temperature in [25=2E=2E32] Celsius degrees, normal rotation spee=
-d
->  echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
->  # cpu temperature above 50 Celsius degrees, max rotation speed
->  echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
->  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->
->Signed-off-by: Mikhail Kshevetskiy <mikhail=2Ekshevetskiy@iopsys=2Eeu>
->
->---
->From Frank Wunderlich <frank-w@public-files=2Ede>
->Date: 04=2E03=2E2025
->>
->> sorry for delay
->>
->> i have the fan from sinovoip and that was working for me, but if your f=
-an only works with new values, i have no point against this change=2E
->
->Frank, does it means that you are signed off this patch?
 
-Let it count as
+--xJlw5npM/QZjJtIy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Frank Wunderlich <frank-w@public-files=2Ede>
+On Sun, May 25, 2025 at 09:06:31PM +0200, Krzysztof Kozlowski wrote:
+> PMU interrupt generation block is not present in older Samsung Exynos
+> SoCs, so restrict the property to Google GS101 only.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Because i cannot test these values,as i only have 1 pwm fan for r3 in my m=
-ain router :p
-Maybe R4 fan works too,but not yet tested=2E
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Not sure if the complete testcase has to be in the commit description,but =
-this is maintainers decision=2E
+--xJlw5npM/QZjJtIy
+Content-Type: application/pgp-signature; name="signature.asc"
 
->Changes from v1 to v2:
-> * improve patch description
->
->Changes from v2 to v3:
-> * added question to Frank Wunderlich
->---
-> arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3=2Edts | 2 +-
-> 1 file changed, 1 insertion(+), 1 deletion(-)
->
->diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3=2Edts b=
-/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3=2Edts
->index ed79ad1ae871=2E=2Eb0cc0cbdff0f 100644
->--- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3=2Edts
->+++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3=2Edts
->@@ -42,7 +42,7 @@ fan: pwm-fan {
-> 		compatible =3D "pwm-fan";
-> 		#cooling-cells =3D <2>;
-> 		/* cooling level (0, 1, 2) - pwm inverted */
->-		cooling-levels =3D <255 96 0>;
->+		cooling-levels =3D <255 40 0>;
-> 		pwms =3D <&pwm 0 10000>;
-> 		status =3D "okay";
-> 	};
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaDR6owAKCRB4tDGHoIJi
+0oihAPoDZbCU9o7lQHTuSr2zLVT5NPnXmxkQ4B1eqoQvLv3b5AEA+3563CoFF2lt
+t2UeGUATSyYgk+O2mKtMzhhAyeZ3hQo=
+=reNG
+-----END PGP SIGNATURE-----
 
-regards Frank
+--xJlw5npM/QZjJtIy--
 
