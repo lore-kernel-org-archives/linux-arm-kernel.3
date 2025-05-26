@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503B4C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 18:42:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5D2C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 19:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c86jKa309c3+QcTsQwLNlEeQh4J3Qa5o3Yi92C1rAmE=; b=fFBzLGOG86Q6shYwULC280iZD3
-	cLecjo46KbfHjsDZjL16fgYsi+EXii15nBSiuErZKb/gwP4hnCnb3epIkze4JgFA61OaiVGFzKkqA
-	v5mk36SdJhidRb9QH0YuTAeDGeu0KXxjy7vCkrnWeZaW1IeCu6S015qcqWT9AOKHjJswRA2bF3DsW
-	Q2WyXYlhejWDUZPHm3oys0OMin7tIZl8HJAOqKIU8w+uHUx+Okv0bdqntwnv2Vj5BRWLZ1WPzGNUP
-	n1Qqy0mvaCYp36XadC/lcAKYJbOqXQDXp8S0UCiWhoLmdeiYp9abALJXR3q8Xf8zwXHRbx+v1NUHW
-	WOr3K1xA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9zM/XnPPB9BX6DI+X/tdBdbdDGUH15z/crP7yYd1Fx8=; b=rjcBdMWFHxv5ACc/Dydft4vyss
+	bIcvM9Xu2WQXYWlyriY6J5dq12uT6br2F5Da7oBZNAvhuOLNUPR+jKHyWtwPLGwc1HOeQvqxdEGz+
+	9p5WA7dIvjGKCNEB1s7ALhdgenj4rMc+hSxLziNhvzzSVLchYEjnyPPs45u1UdHDL6wcZoxR5LeaV
+	V3s8SOCCx3Rz9fTlQVGB8PIumSybHBq/EZWgHxx4EV8uhzNP9ayIskDTC+Zn2/GK6QYtyoLdBy6S3
+	Dt8ik5aTuQN420adyRyqTmvLfGVVWTXp1ejXX5wLg51QhmFPgtEMyunZkfKsnUaWtbseYivuMDlXn
+	qq4FMmSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJclq-00000009O1o-0Q0p;
-	Mon, 26 May 2025 18:41:58 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1uJdAi-00000009PZa-0ASg;
+	Mon, 26 May 2025 19:07:40 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJcjf-00000009Nt7-3UDs
+	id 1uJd8Z-00000009PRB-19bj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 18:39:47 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7cadd46eb07so242639185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 11:39:43 -0700 (PDT)
+	Mon, 26 May 2025 19:05:28 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7c55500d08cso229752785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 12:05:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748284782; x=1748889582; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=c86jKa309c3+QcTsQwLNlEeQh4J3Qa5o3Yi92C1rAmE=;
-        b=a0xgg+bhY0N/S6UmkCRQjoMfSb+9VOTFyeizZWR+eRe6ojNCD0lzY2hd7nN0b4ruy2
-         ZtOgT+laFflt4sli9TtYrKmIAUWTdZ4ws8xdJBmmI+bQe4yHy/DTC2RyQ4OaX/D2eSqH
-         RZGek/PhEE6ESQkXzmYdgvIJIF2z915hKdVUoj4QemMfDeRe6GSUvVdxvlbtIDESEuD7
-         ABR0bRMTYCKFwMZkRwJJFS+6WynOnsDyxrwzOQ5qKQWFiJK/ck63ADcJoGjjHEn7+RFS
-         tsxmVcxPE4vDvFvZj1JSnmq97xJloRx96RSIP//AI6dBOcXCMeDGYH8yJeNoFzsnyexx
-         mNkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748284782; x=1748889582;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1748286326; x=1748891126; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=c86jKa309c3+QcTsQwLNlEeQh4J3Qa5o3Yi92C1rAmE=;
-        b=eMrsWgnGIsRK/3E4ifi1H+aSZHhnJZ6XBneLx2ZczrmZ8pOHL78LGOaPBjxT4VNdFd
-         lRK/2fTqAfcq4c+SfiyKnFYTDpblteugPSj+PqmAIXUBH3FRdq1MwxbcuCzTWy2jYDOn
-         PpfNIvPYwRV3Y0VtyniEKNtIyXRtFBygpVQ86GpdlmxHFcBLnj4fJ+5N5/1B064sDSdB
-         qduTmhhH6s+MZRq6VKc4z1TRt6f7SgwCQh58S9PTugsQgb8i+ADCEp78K9UhdQZ0MhIp
-         IvfNahyGJHNhBE+VkqAbOrkDcG5sLGy476lunuLqwhol/HoW2dHjAq3h0Vs5pUsY/16S
-         f2RQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVhmrZhsakv6e2XQxsFWs9jhENXwp7aEBljNAi65BjgkuQH3hyNpZTgjB/CRgqLSqnFSXVuoGHggK4bB+ytYgC8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJZ9fHzGKLO1CamXbrBIlFSEaktMin24E//YxloVD6dvnrG+12
-	Q5VUx6fpXqf85BtOOxML1fYCcF7ruVNXgzh6xNI38uuVEE9Xuqn3pI7L4ekLBTu4pWA=
-X-Gm-Gg: ASbGncu0/oatfLTSjpx07JWjxdFkX/DMfdnSXWBm++IlGjpBYK9Z41RjRWQBOXRmHvW
-	umfWopaFhbPa/weMj4cCrBJXC1drk7nKNLxpukHotKQ7ZqLqnmmwj4o5j84/AIxwQjM6vHIpLZy
-	jpnyURNBibppb9Nl9+jDVEwVQWrLYK2Zffyg56M4vaR4AuWkS7nsN6U94EzR2m200TEO20yBqmU
-	sBhnJK2tYTqdSElX7qhlsbeBYjRi3WAy0PA7gxpNVPfoiOm0LSoa3UcNMGcP3gkhHEi1x8O4j4D
-	TXdYCvlH8JwA/Vm79HVuhoDI38CuHONQYmHb5d6bzTKHM7nsuxiSi2JsrjXv476z3Iay8FiDr+o
-	AJawKjQ2zh3+JKsmvs2NAhrcZmds=
-X-Google-Smtp-Source: AGHT+IGL7te5fpMbZe9HXdt3D5MGVGH/Bdpvl2UHGaBVcVqu8HICiF43E0e5svsb0e6OdO9BbM2sDg==
-X-Received: by 2002:a05:620a:269b:b0:7cd:4b5b:a202 with SMTP id af79cd13be357-7ceecbad0cbmr1427354485a.20.1748284782328;
-        Mon, 26 May 2025 11:39:42 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cd468b844bsm1592181385a.87.2025.05.26.11.39.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 May 2025 11:39:41 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uJcjd-00000000Ts1-0aL8;
-	Mon, 26 May 2025 15:39:41 -0300
-Date: Mon, 26 May 2025 15:39:41 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>, Rolf Eike Beer <eb@emlix.com>,
-	Arnd Bergmann <arnd@arndb.de>, Robin Murphy <robin.murphy@arm.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Nate Watterson <nwatterson@nvidia.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu: arm: fix building smmuv3 as loadable module
-Message-ID: <20250526183941.GE12328@ziepe.ca>
-References: <20250523121257.2340274-1-arnd@kernel.org>
+        bh=9zM/XnPPB9BX6DI+X/tdBdbdDGUH15z/crP7yYd1Fx8=;
+        b=IWC3J80KHM3FmibaDKV1Unf7z1Pf2RoFJ+zyEKcE5dxAawa6LbVm8vCNo9r4UrZ42o
+         ZYCB1vU2SAwxE1BLc/VdE6geap5WSSs0/BE2Ly92zzPuKzAO5SJidI4U5pBHGpaGo2HC
+         F9a141ruXFdrhbQ0jPxJh68zkRHkZwanDcFVjJw+zIbQWRLZ7LX2/KwS925d+L1diAR3
+         fSbSof/rGYW5TdfHZLmAazoyOLRixsSOnjDXtKtQkshAWd2yd8PeV4hAL64pwbG6Y3ZO
+         SvQiZTLOvi4EbiBHNnppzvvUSNwbt4zTaYjWhunP+tGRoBbnWgzipTHbo7b0HyMrglaq
+         00KA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748286326; x=1748891126;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9zM/XnPPB9BX6DI+X/tdBdbdDGUH15z/crP7yYd1Fx8=;
+        b=hMRov6ui83xagUCGqGOCKP2IltCGaNzZe8IfeJOB64pY7z9GPek3PboehuASN0XpRu
+         nJG70G+x5dWeVPWghGsZ2UhyFMRvE/49SmKrPuL7W3Qj+yKS7Egm4PvBjUSU1ip4njmL
+         AA84+iIxwSO0r3UJSjbnlqbJwGSTfUTVo3w7m5l1UDdG4EUXtRp6fll9L+SCvfbSJIGu
+         zIPuV7F9epExGgxGmdKzdMIBZVCT1xxbuOoaGtAK8nFis6f+wv4dMwwH2dXKFuxqwwr9
+         212vJPDNelA2HDIzk2oHeNiB7HFyj604n30TKw5oIW2B+vsds+5YXYfHJUAMH7Dih1Yz
+         5fLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYQQiKfVcquDSYj8t7KtjO0w7CKrSenanN2sVuhzowqmfYo1ohAsEz8axJd6OpP9O4eZmUKgPZOZEMozzoHL5g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+W79arEaQ1pyH7HYjAoByZ+3YO3cG3EKz4HXyT3nY2p5L9cKR
+	eHgOxLovRqYFxkeytScLr0n3/iMsuh+UTxK628QKAXUb0HRO59/difdDOWu6HIYe0Z3RuA7qBlB
+	ZH2la+1iGgUq9eLFoj2iY5AskacCKSek=
+X-Gm-Gg: ASbGnctT4jZ2+aBrJkWytz3wY66N5f5Jv6BOuXd6fkMZJ5H3ufaDgf+c/jNFJdWcWb2
+	+YNHXbAqqYGdYa0t/+V8+el5FnG3hWs6u0VbKb++MHpLabh+v1M5Hl/ST8/Sdq1PZ1ENGLLq64B
+	57Jm0pjDQ49sPtOrtPzLJrEDWBYGXPv5yVDHfu+ogenIHe
+X-Google-Smtp-Source: AGHT+IEzr1D0xPyVVTqgXnkaxzNsP6OY+ZVcUjK4Q6hjbSAkhccfV9zIJl49kHyZ9kmtGtW7FN9E3h5L1m5LIHvS+oA=
+X-Received: by 2002:a05:620a:4505:b0:7c5:a55b:fa6c with SMTP id
+ af79cd13be357-7ceecc2b525mr1410143685a.38.1748286326033; Mon, 26 May 2025
+ 12:05:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250523121257.2340274-1-arnd@kernel.org>
+References: <20250526002924.2567843-1-james.hilliard1@gmail.com>
+ <20250526002924.2567843-2-james.hilliard1@gmail.com> <aDQgmJMIkkQ922Bd@shell.armlinux.org.uk>
+ <4a2c60a2-03a7-43b8-9f40-ea2b0a3c4154@lunn.ch>
+In-Reply-To: <4a2c60a2-03a7-43b8-9f40-ea2b0a3c4154@lunn.ch>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Mon, 26 May 2025 13:05:14 -0600
+X-Gm-Features: AX0GCFufJmB1WnNeY40vi62AOOmldrFuv3uM6nfuatEvw8W1yQgwUxsIUPzPUZI
+Message-ID: <CADvTj4qvu+FCP1AzMx6xFsFXVuo=6s0UBCLSt7_ok3War09BNA@mail.gmail.com>
+Subject: Re: [RFC PATCH 2/2] net: stmmac: dwmac-sun8i: Allow runtime
+ AC200/AC300 phy selection
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, netdev@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Yinggang Gu <guyinggang@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Yanteng Si <si.yanteng@linux.dev>, Feiyang Chen <chenfeiyang@loongson.cn>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Jinjie Ruan <ruanjinjie@huawei.com>, Paul Kocialkowski <paulk@sys-base.io>, 
+	linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_113943_964199_45378E3B 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250526_120527_317521_AC95D7F2 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +107,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025 at 02:12:53PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The smmu-v3 kunit test fail to link when the SMMU driver is configured
-> as a loadable mdoule:
-> 
-> ERROR: modpost: "arm_smmu_make_cdtable_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> ERROR: modpost: "arm_smmu_make_s2_domain_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> ERROR: modpost: "arm_smmu_make_s1_cd" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> ERROR: modpost: "arm_smmu_make_bypass_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> ERROR: modpost: "arm_smmu_make_abort_ste" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> ERROR: modpost: "arm_smmu_make_sva_cd" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> ERROR: modpost: "arm_smmu_get_ste_used" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> ERROR: modpost: "arm_smmu_write_entry" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> ERROR: modpost: "arm_smmu_get_cd_used" [drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.ko] undefined!
-> 
-> The problem is that the drivers/iommu/arm/arm-smmu-v3/Makefile only gets
-> parsed while building modules, but the driver itself is accidentally marked
-> as built-in unconditionally, so not only does the kunit test fail, but the
-> entire driver is missing.
-> 
-> Change the driver configuration back to $(CONFIG_ARM_SMMU_V3) so it
-> actually gets build here.
-> 
-> Fixes: e436576b0231 ("iommu: make inclusion of arm/arm-smmu-v3 directory conditional")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, May 26, 2025 at 8:14=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Mon, May 26, 2025 at 09:04:40AM +0100, Russell King (Oracle) wrote:
+> > On Sun, May 25, 2025 at 06:29:22PM -0600, James Hilliard wrote:
+> > > +   if (!nvmem_cell_read_u16(dev, "ac300", &val)) {
+> > > +           const char *phy_name =3D (val & AC300_KEY) ? "ac300" : "a=
+c200";
+> > > +           int index =3D of_property_match_string(dev->of_node, "phy=
+-names", phy_name);
+> > > +           if (index < 0) {
+> > > +                   dev_err(dev, "PHY name not found in device tree\n=
+");
+> > > +                   return -EINVAL;
+> > > +           }
+> > > +
+> > > +           plat_dat->phy_node =3D of_parse_phandle(dev->of_node, "ph=
+ys", index);
+> > > +           if (!plat_dat->phy_node) {
+> > > +                   dev_err(dev, "Failed to get PHY node from phys pr=
+operty\n");
+> > > +                   return -EINVAL;
+> > > +           }
+> > > +   }
+> >
+> > 1. You are re-using the drivers/phy binding for ethernet PHYs driven by
+> >    phylib here.
+> > 2. You need to update
+> >    Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
+> >    in a separate patch.
+>
+> A real user, i.e. a patch to a .dts file, would also be good.
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+That will be added that down the line, for now I added an example in the do=
+cs:
+https://lore.kernel.org/netdev/20250526182939.2593553-3-james.hilliard1@gma=
+il.com/
 
-Jason
+Currently there's a few other drivers needed to fully bring up the h616 ema=
+c1
+with AC200/AC300 PHY's such as PWM driver support.
+
+i.e. this(which will also need a few additional patches for the H616
+PWM variant):
+https://lore.kernel.org/all/20250427142500.151925-3-privatesub2@gmail.com/
+
+I'm currently doing most of the PHY initialization in u-boot to simplify te=
+sting
+of the efuse based PHY selection logic in the kernel. I'm sending this
+separately as a number of subsequent drivers for kernel side PHY
+initialization will be dependent upon specific PHY's being discovered at
+runtime via the ac300 efuse bit.
+
+I've currently verified this works on AC200 and AC300 boards by checking
+that the appropriate phy address is used(address 0 on AC300 and address 1
+on AC200).
+
+>
+>   Andrew
 
