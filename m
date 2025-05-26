@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6267C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 10:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EDFC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 10:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NpPv+jwx+sCOwe5Xg7tTvOuLFtJsEPCNaLZVy2I7eGY=; b=h5opHiHwWoi7IIY5Ffsi49ciK/
-	cjnhNUKeIj8PaHDXWCKIeSW+mctDVJyCWqpuFeSBW5RkwdTu8Y/RCJnxbKU6etXmk+pmAehVej3q3
-	xWlLJZLiP9FYbRu2o5dHjwrgaWP4nEJOCa8WEePKiXJn+sx716ZTumQfMhhBzswcYJfEpFs8xRNyF
-	lSO/vSZ0pG3WWDnWISHGwmCGqMjWJJvZ1pnZNeVJFlskJwNGeQ03a/d4xYgl3GzEy6C1mK98fufSP
-	dEdzZlOjes6wKrXAWdg6yh5664XUL8OG+liZO+f2oNaI9RBqP/3u1PfGwwMmglKRvU9cBFTUD8ypR
-	iihvPtYA==;
+	bh=wNDOt/KgMMP7lsIAa87g1prMRWTJTTagQvC31pmgO2A=; b=lm61RJ07PTY55BqZZsjli/SnYa
+	JzxbV0Js/h+6JrHUhNkCo7Q1vbnD+DW50ofCKgHYzKLUC58PtrnLIGgyX4tHRX0H7/1nFBxV4I1Ls
+	4H8VQYAaeOLnCinoOxYLUIBQdE1t1Mh6ubSP3Z/kqLI/xImwwzpNhbb+tQ7keZpumHGh8Al1WGoVw
+	MCc2WX6+gGNrO6I3kgmeyCx8pQHs4xj4LxVE8uZ9aeL5eLaL7eWGqliVMA3Ol91ZpYe2ReAOvj3tn
+	R2F2IsOd+d3k69G4/MTb6jaVPV0d6ZbdHURQZroZJFVd4pYddXy5tfSsYvT3pRj11DOCARB6+wee+
+	kfqeO7Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJUn2-00000008b0c-2tB5;
-	Mon, 26 May 2025 10:10:40 +0000
-Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
+	id 1uJUr7-00000008bKS-2HYQ;
+	Mon, 26 May 2025 10:14:53 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJUkt-00000008asP-1LEf
+	id 1uJUox-00000008bAw-2adn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 10:08:28 +0000
-Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e7d969146abso1233397276.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 03:08:26 -0700 (PDT)
+	Mon, 26 May 2025 10:12:43 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e7d925ff60bso1256447276.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 03:12:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748254106; x=1748858906; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748254358; x=1748859158; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=NpPv+jwx+sCOwe5Xg7tTvOuLFtJsEPCNaLZVy2I7eGY=;
-        b=yE1ny8C5wkpakKQhdMCd2VpyvAlF+WfghwLWT/wjgCJhC+t4S6Xjtk6mtLd4hml9rQ
-         fplg8To8kO9rWqBkUGCIC5n6QTdLnoo4nojws+R5KJkLdc4zsq7rLk2RKoXwhs9Afpdt
-         EIew1hERjR5purF80KFao8EGAmIY5iAUQqHt/gbVUbE1SQqjOu+x+NZz6cFCmeDMcP5+
-         syFHzxws8avARdMUCd0+fgsTxFv84FVnl3yREibvKlluqULosNQWAMUvtHUJt6TqoUvc
-         saeoroYXif4HREvcAZKMGcZsN3hoItBmjStK55XFPwwkubYy/2EetEIpWuMf8E8uwCe1
-         cvcA==
+        bh=wNDOt/KgMMP7lsIAa87g1prMRWTJTTagQvC31pmgO2A=;
+        b=fUPZ1cfWcUsFIhNELXY1tFC1ZesyQ/0JQtREm1nlHfhQomXNPWgphchwBUZ0ptFxo/
+         J1ab4dgNEP5Vu9Nl9bJheqUEA92yTe3uMXdkb+Pho74DarjmLR7g/Ugmgl/3SzENa7P/
+         GlvpHk93xAOU1En3CqnAskmPOM03Hw+ea7RFJxpG53tSjbfwBKYjfYyjQ7ugiTNK7/Zb
+         bK8JgLGOc3ajxdUBCmlLOkW8K7vg91tYNmmQusTO+rFmT8D3ZqWy4A3rRe5ji//dlUXE
+         hse6Cu4zpVcPDH/LbD8KqBgVlSshzjH0yZWAvqfs1bSi8EeAqlydd+XBoBgTccZwqBCa
+         zsAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748254106; x=1748858906;
+        d=1e100.net; s=20230601; t=1748254358; x=1748859158;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=NpPv+jwx+sCOwe5Xg7tTvOuLFtJsEPCNaLZVy2I7eGY=;
-        b=spcdRT9YNlL4LncQdOxO6y0Eut/It7DTU6PuNP6Mj2pJl6OWiFbH+rN/mk64Z0keWr
-         YjdzFdIxI1dRx6MoDkO5Nb7eKU/pMcvnkhiEA0trfDLUR377sWI8cfyp6GvQQBpUSmVe
-         pUkVqUtPJ0mvZptV65CmrTDDdPWpyHiqHVE3SwRrl0jUaZeVVGZwd2VS7sMEZt/HtkPe
-         6Tq6kuOQRtH3pwbXwh3Yu7V3TOScztjMiH2CEV4EaBkhoj8/0wcF1C/JJtycfcRUr0CH
-         EUP+p2f9LMO29YBcJ98IS4COcE6sc6tdnB9Z3ilNf/UsBTOyoBDZkgPY5czXgi4vwpQl
-         AqIg==
-X-Forwarded-Encrypted: i=1; AJvYcCVfAStrxJEFUGR9sdJn6cvNCWxN6VS07/TOtgHdK9Tw7JOvPIyBE6p99FlBWf7LVrXXu7M+sBXoENSEZ12oAhXu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCNYJPWAR3iufsYKiWhiZLvSrpQvJNc9Np+PdkfwGGL9V885ON
-	CjuotlWkR4WlwQE/dbMa/V3UJ6/sKcviNgT/uyO8ok+ozW/xI2DzwwpaC2hh2SbRcZ8sOgcjnMt
-	N/4mY2QvAgxE2+mXwkaPr0cwOjzA8+0yMsX45/Jox9A==
-X-Gm-Gg: ASbGncsML3B0eUtb9SqsC0a6f283/UHJ9F1CSYG617T6iCei6s8GVu2GIIagpwCIQxK
-	YX0CMJh6SSXqw0Xe/WfWn7Eoy9R+PS/xpfuRfbZGL8PbKXSBk7sYL4rx52hIwu8VDdViCp/h6m+
-	6auD+J3EM/9hJs+uNERDR8Le3pl78yoPYXOA==
-X-Google-Smtp-Source: AGHT+IFdBGTGYZOotDK/y3Q59f0r8dFms0TkmjC4C0sHaJmgkuM3Am4LonkHZ4KeqelTVat8o4uyIxhJmZyFRyDPL7U=
-X-Received: by 2002:a05:6902:160d:b0:e7d:b8ce:cb91 with SMTP id
- 3f1490d57ef6-e7db8cecd3dmr1219626276.5.1748254105723; Mon, 26 May 2025
- 03:08:25 -0700 (PDT)
+        bh=wNDOt/KgMMP7lsIAa87g1prMRWTJTTagQvC31pmgO2A=;
+        b=EunSgeQi99Fqf9itsbkzhOOy/Qzxq9Tjo2lLGM55gBzw7LNJfuugS5+Hwzxl+nLr7O
+         ypwF86wxV3GzSRjdHa1E6E6773FDsDnSjEVum3Qhh7gaYEx5qCLTNUh+acUYEeOk6xDp
+         C3djHnBeprJg7NqJ08dD4MeKIOXk1rfXf0UneUQsNNMNBdhyMBczGMCBUMakOPW9fzo5
+         ykBWNFcDjJ43QtguSgiFLc5zQnXZ64w5NxOMsnSOaPlChbIs171vBHEaviZU6zgL0g6u
+         0fDqSFlyznxsSERi6mL3CheiDxq5GuE4cVtbUMV6HEuh9TxlQPOOVCu4zU1aQ2LtvwTe
+         Rg2A==
+X-Forwarded-Encrypted: i=1; AJvYcCUKGOAGbKQkXxQYKNQPTgFkFqA0YsQdRX0/PhKbXfWASbVNuo/m0X1NM/oy+6aDTw8Dgb0R3SD9lbs9GXogQm3m@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoGtJh00nRY7mNCHIWDC2GetEaFa9BLeykr25PzuqGIRcWf8MK
+	raC0F/kxxqsoe39f0mF9lGmd9qpc82tR/lpWr0xcP1exrf33pQHij6rf674DWgwAsHR2UhYGoHN
+	bSwBf21vWwhH/5QnOhCQPTAATkTp/m+zAiBYm9F5Awg==
+X-Gm-Gg: ASbGncssJNh5ucmHgI626TP+MnI2FSsxiv/LqOgO8g1vuSmIFDoGQh16RxMOeoT+Imq
+	IxiczCuDR0diNA+y9BNuoIy4AVr6lgOmvadTIsdn1k7VWf84WeRhu0IZT9BJR5YZz5+m4f4RjWm
+	eyShhyPYLpIzPu93Ea+/wdjT5/T47RL9ibqvupmtNe+cdI
+X-Google-Smtp-Source: AGHT+IHi2XOZ9dRIdDcFBl3BRRFnnGCoagXOgAmEZ2Ih20GPqbGzZkP+XJCYm0HJs1gaCBhpq5GmobfeIAleVXtAPSQ=
+X-Received: by 2002:a05:6902:1082:b0:e7d:b5bc:aa7c with SMTP id
+ 3f1490d57ef6-e7db5bcabb1mr1985809276.16.1748254358450; Mon, 26 May 2025
+ 03:12:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAPDyKFrHD1hVCfOK-JV5FJM+Cd9DoKKZGKcC94fxx6_9Bsri1g@mail.gmail.com>
- <20250508202826.33bke6atcvqdkfa4@hiago-nb> <CAPDyKFr3yF=yYZ=Xo5FicvSbDPOTx7+fMwc8dMCLYKPBMEtCKA@mail.gmail.com>
- <20250509191308.6i3ydftzork3sv5c@hiago-nb> <CAPDyKFpnLzk5YR3piksGhdB8ZoGNCzmweBTxm_rDX5=vjLFxqQ@mail.gmail.com>
- <20250519172357.vfnwehrbkk24vkge@hiago-nb> <CAPDyKFpGcgMzOUHf-JTRTLBviFdLdbjZKrMm8yd37ZqJ1nfkHw@mail.gmail.com>
- <20250521041306.GA28017@nxa18884-linux> <20250521041840.GB28017@nxa18884-linux>
- <CAPDyKFpSb+KsfDr1-=uk4TF4Op1dUQ9rDwPP5sSpMfxDRDhnZA@mail.gmail.com> <20250523191713.nylhi74jq6z4hqmr@hiago-nb>
-In-Reply-To: <20250523191713.nylhi74jq6z4hqmr@hiago-nb>
+References: <20250523134025.75130-1-ulf.hansson@linaro.org>
+ <20250523134025.75130-10-ulf.hansson@linaro.org> <4a0ec467-b81e-4282-8e09-b7adc67eba97@oss.qualcomm.com>
+In-Reply-To: <4a0ec467-b81e-4282-8e09-b7adc67eba97@oss.qualcomm.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 26 May 2025 12:07:49 +0200
-X-Gm-Features: AX0GCFtV9JrsWnRtXpr1h2X2HDFYAFvpBaxszSIspVyj2HxlBm4_wnbvi_OW3II
-Message-ID: <CAPDyKFq6HG6iTZRnBSN25vhCU8Zj1c+r_ufGbiBsJ16N+1bJVg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-To: Hiago De Franco <hiagofranco@gmail.com>
-Cc: Peng Fan <peng.fan@oss.nxp.com>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Bjorn Andersson <andersson@kernel.org>, Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com, 
-	Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Peng Fan <peng.fan@nxp.com>
+Date: Mon, 26 May 2025 12:12:02 +0200
+X-Gm-Features: AX0GCFuhoe61jaT4ElHv6kD_woYqu09-YjR-85TQ3dhfrASylj73JDHmzoEBPqk
+Message-ID: <CAPDyKFo+DDuBiic78hdN6JVSO1iQbJTvJgPwYaO8Y8soaJyEhg@mail.gmail.com>
+Subject: Re: [PATCH v2 09/21] pmdomain: qcom: rpmhpd: Use of_genpd_sync_state()
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_030827_362055_06C345A4 
-X-CRM114-Status: GOOD (  44.41  )
+X-CRM114-CacheID: sfid-20250526_031239_655913_649E6F05 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,110 +100,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 23 May 2025 at 21:17, Hiago De Franco <hiagofranco@gmail.com> wrote:
+Hi Konrad,
+
+On Fri, 23 May 2025 at 21:42, Konrad Dybcio
+<konrad.dybcio@oss.qualcomm.com> wrote:
 >
-> Hi Ulf,
->
-> On Wed, May 21, 2025 at 02:11:02PM +0200, Ulf Hansson wrote:
-> > You should not provide any flag (or attach_data to
-> > dev_pm_domain_attach_list()) at all. In other words just call
-> > dev_pm_domain_attach_list(dev, NULL, &priv->pd_list), similar to how
-> > drivers/remoteproc/imx_dsp_rproc.c does it.
+> On 5/23/25 3:40 PM, Ulf Hansson wrote:
+> > To make sure genpd tries to power off unused PM domains, let's call
+> > of_genpd_sync_state() from our own ->sync_state() callback.
 > >
-> > In this way, the device_link is created by making the platform->dev
-> > the consumer and by keeping the supplier-devices (corresponding to the
-> > genpds) in RPM_SUSPENDED state.
-> >
-> > The PM domains (genpds) are then left in their current state, which
-> > should allow us to call dev_pm_genpd_is_on() for the corresponding
-> > supplier-devices, to figure out whether the bootloader turned them on
-> > or not, I think.
-> >
-> > Moreover, to make sure the genpds are turned on when needed, we also
-> > need to call pm_runtime_enable(platform->dev) and
-> > pm_runtime_get_sync(platform->dev). The easiest approach is probably
-> > to do that during ->probe() - and then as an improvement on top you
-> > may want to implement more fine-grained support for runtime PM.
-> >
-> > [...]
-> >
-> > Kind regards
-> > Uffe
+> > Cc: Bjorn Andersson <andersson@kernel.org>
+> > Cc: Konrad Dybcio <konradybcio@kernel.org>
+> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> > ---
 >
-> I did some tests here and I might be missing something. I used the
-> dev_pm_genpd_is_on() inside imx_rproc.c with the following changes:
->
-> @@ -902,7 +902,12 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
->         if (dev->pm_domain)
->                 return 0;
->
->         ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
-> +       printk("hfranco: returned pd devs is %d", ret);
-> +       for (int i = 0; i < ret; i++) {
-> +               test = dev_pm_genpd_is_on(priv->pd_list->pd_devs[i]);
-> +               printk("hfranco: returned value is %d", test);
-> +       }
->         return ret < 0 ? ret : 0;
->  }
->
-> This was a quick test to check the returned value, and it always return
-> 1 for both pds, even if I did not boot the remote core.
->
-> So I was wondering if it was because of PD_FLAG_DEV_LINK_ON, I removed
-> it and passed NULL to dev_pm_domain_attach_list().
+> note: the subject is wrong - this driver is rpmpd, the other
+> one is rpm*h*pd (patch 10 has the correct subject)
 
-Right, that's exactly what we should be doing.
+Thanks for spotting this!
 
-> Booting the kernel
-> now it correctly reports 0 for both pds, however when I start the
-> remote core with a hello world firmware and boot the kernel, the CPU
-> resets with a fault reset ("Reset cause: SCFW fault reset").
->
-> I added both pm functions to probe, just to test:
->
-> @@ -1152,6 +1158,9 @@ static int imx_rproc_probe(struct platform_device *pdev)
->                 goto err_put_clk;
->         }
->
-> +       pm_runtime_enable(dev);
-> +       pm_runtime_get_sync(dev);
-> +
-
-Indeed, calling pm_runtime_enable() and then pm_runtime_get_sync()
-should turn on the PM domains for the device, which I assume is needed
-at some point.
-
-Although, I wonder if this may be a bit too late, I would expect that
-you at least need to call these *before* the call to rproc_add(), as I
-assume the rproc-core may start using the device/driver beyond that
-point.
-
->         return 0
->
-> Now the kernel boot with the remote core running, but it still returns
-> 0 from dev_pm_genpd_is_on(). So basically now it always returns 0, with
-> or without the remote core running.
-
-dev_pm_genpd_is_on() is returning the current status of the PM domain
-(genpd) for the device.
-
-Could it be that the genpd provider doesn't register its PM domains
-with the state that the HW is really in? pm_genpd_init() is the call
-that allows the genpd provider to specify the initial state.
-
-I think we need Peng's help here to understand what goes on.
-
->
-> I tried to move pm_runtime_get_sync() to .prepare function but it make
-> the kernel not boot anymore (with the SCU fault reset).
-
-Try move pm_runtime_enable() before rproc_add().
-
->
-> Do you have any suggestions? Am I doing something wrong with these PDs?
->
-> Best regards,
-> Hiago.
+BTW, would it be possible for you to run some tests on QC HW for this?
+Any help would be greatly appreciated.
 
 Kind regards
 Uffe
