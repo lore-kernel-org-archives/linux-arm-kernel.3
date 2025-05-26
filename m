@@ -4,86 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12F7C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 06:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E14DC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 06:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OS8PvSfwRlhjZGN6jsgBRmNG5LhO25xsjz5q3ncqIDU=; b=ecsuROpezeXH0t+X9oTS8dfWhy
-	JcR0l39qWJ40fK5qfdEnV/nf6NY9VZDYD2pYa+wAjLzqxF8bbMGw1Xc2o9wvOyAIdWKL7htCTyEz0
-	7Mfzos/KDyPJjU5dVa2legAAjjz3U5aMT7V3PWcRGCGdA9DcWvslHkbbcXovovn/xTr9wKylPDe8i
-	q4ja47CJ8dxeYbmHaHAi/MexzYPpYsY010G/SLaClCRL1K+hrBaOknFb7vSghbcIdueXO+llp5AIX
-	C1sZfJ0yYEfHHfLZlh9PX1Z77+ktaTyU6DUGujxhFzX7hWUo27Z4RuhcASNanpied/5xzWqUS4Kvr
-	W99A22Zw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bXLBbRXb9JjyhEWZwNFKMW2jVBUOhwFOuXiY7E3i2cs=; b=n66ZIf7c8ce4dgRBbbuiFRFuUu
+	JZPJhI28LF+lwC1Tft9mgytQQAalRkcVR0Pr5gd5iNyq+IfEQBYGPChBY5icZOpv9Z0FCiJNjVM9F
+	hAxdjGu0/ZfF5FkFR7u4AI5R3hKIpXD7E10BcZ2xOmrHFzXMxi+yMOiG9FykVxgWyOlaOoL3uiGZx
+	2EdCIBdXwctoDTXC3ncIQhOMDpnyPLv84iO6N1BjS4CkQIgtnV4K3/zJ9m+NC5HFn3dk6N0H1R2Q3
+	e9ci3eEeBGrOHYNftba30+qFvQu1VtuP1NOXOuE0jrjoLVOIIWlvNGmYXU9/wKvY9xvs96b9mnkZw
+	SbjcKSig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJRaf-00000008EJq-0H2b;
-	Mon, 26 May 2025 06:45:41 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uJRcl-00000008EUN-0Oda;
+	Mon, 26 May 2025 06:47:51 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJRYW-00000008Dun-1i67
+	id 1uJRZz-00000008EAT-08sc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 06:43:30 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54Q6SNec021065;
-	Mon, 26 May 2025 08:43:11 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	OS8PvSfwRlhjZGN6jsgBRmNG5LhO25xsjz5q3ncqIDU=; b=NkJRz0lf3bhigiZE
-	eaVdiOwH0if/ejdiiR5pcQ7fSr7JwOushQIUk00jA3tcubbaQGZDwj8Tq4epNT1d
-	3YrhJ2BQLBBNSymYHLhaZB/T/sg7D8KoY0lhcwWDujtb8W/+74wyotC7eflbuqkD
-	3cVO1Ra83+u//xwjbLRAZGCxjeBsH2sA2zZGt60FOO2qyvCa91I2oqWrU+E82Z/D
-	T8dxWsF4qJC7AgZLSXxV/wbuOkIBNzdjYD+mXbJY3ODl+YBrwPlqOBs6Xr1LJDxD
-	N022icQCA/bO9rgSkVE/6OD25sP3b9zESQt41nfytHGvKaJ+fvVide+buAXh2GWs
-	x8GhFw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46uqp4bbub-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 26 May 2025 08:43:11 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C73B440044;
-	Mon, 26 May 2025 08:42:19 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E1FEEB1D8AA;
-	Mon, 26 May 2025 08:41:55 +0200 (CEST)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 26 May
- 2025 08:41:55 +0200
-Message-ID: <8f948025-a40e-417c-bbc1-a43356118ce4@foss.st.com>
-Date: Mon, 26 May 2025 08:41:54 +0200
+	Mon, 26 May 2025 06:45:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1748241881; x=1748846681; i=wahrenst@gmx.net;
+	bh=bXLBbRXb9JjyhEWZwNFKMW2jVBUOhwFOuXiY7E3i2cs=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=BSwwCZ4AyWMShrQcY8p9qbW1mJ9tWwzAYiyfDbW95pioE9oElatTbabXVEs9uZfy
+	 hH80/TASN7N+ysfNxz28xXrq5w067XiSQpDiVfMJHCt79374ScM2Gk1AyVjfRwNNi
+	 YgyeuJ7hY7CiltKGx3oNCQKrgYKbfSYQO+4E1cs7xGSnOSz4KGEinRuHK9LFlBcei
+	 8wqzcnuLjx/xxKvD3fPmwFeL8EXcvqjaz9d1+s7lvYY96w3yzBVVTZrL+qzIeionx
+	 DfBOhoeUnpRI7VWVNtGif1G9jsS7xTKGetPCA/AUYEf642ZPA4J2SpJ7W74XVTipo
+	 44iHId3YMhV+cUhXEA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([91.41.216.208]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MnJlc-1uiuRJ1sii-00caSY; Mon, 26
+ May 2025 08:44:41 +0200
+Message-ID: <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
+Date: Mon, 26 May 2025 08:44:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] memory: stm32_omm: Use
- syscon_regmap_lookup_by_phandle_args
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250525191300.50873-2-krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v3] arm64: dts: freescale: imx93-phycore-som: Delay the
+ phy reset by a gpio
+To: Andrew Lunn <andrew@lunn.ch>, Christoph Stoidner <c.stoidner@phytec.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+References: <20250524112315.695376-1-c.stoidner@phytec.de>
+ <047c963e-f24d-4995-aea0-4a8cf8e343f5@lunn.ch>
 Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20250525191300.50873-2-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-26_03,2025-05-22_01,2025-03-28_01
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <047c963e-f24d-4995-aea0-4a8cf8e343f5@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:d3SViVT6UuD8sACbcKXL3zBeEF4rxfGJnzrZMMPpEW9ZXSe6eOF
+ 5GeBk3c/4PdlPLjATAHrB27ytUMLTffZzerpfT6bAw5Ke1vTdZCUIA+xrT9p/uS9oeAeKhd
+ ehucj2IAlY0wVnJTpBzXAYYTEEtSOsrfvnP7FsGnYfAjXjCOAQM67Xt4ZCGXGB2jguYPEIz
+ +3B+2sN8eCHOh/rlTGhMw==
+UI-OutboundReport: notjunk:1;M01:P0:b2r4lkKUbQI=;8Re9IFuguwVF2R67lDE6iNYKuLA
+ D9vBYrKBB+hiM8tycVGy4JIV30ozIP9QC2yHiMX/yy6tGHDSu5ghzFODU2qH1iSHi0jKdaJpV
+ ND/T/Wp9Jm0ZQAlF9slVTAh7T5B+gApn+BzeGFM7SqlL49fZZVWREH0cTXHhLMSKkI+mCSZLQ
+ SRflpR/yNI7mDdnXyYXmlEU1A+L1EvzP9Wgd4WTk6rFBf02yBtWQqakpbNpOBeA4D5AzArQcz
+ 8fVZBeQr+BHLNOSj4CZMnxLoEeJRcEg9E94FB61J/tgOO+AMVGjeobiL1e0yt3AGL0LkU9dNb
+ ya2j6E7hIKQyu8kcApbNLrRhMuNIGiMldU5yDN+G9mKBH5Bt+STZweSgQt2xH7Jbjp7Fv/P6F
+ YoveI/FD74Pahto+1FrJLf42ePTgsJ2QBoX81QesSIAeRLu3kt0a/Cub3yLgNBr2w11TGjhHn
+ bmVGjmgL9adrDTM/v4ccDAtA6UgCKBvqhbOBI3xMqN4/U4vrr5LSTYtWSDlqwDKhQFx+o9YUH
+ 4XOo3A50taxZQekBsSC7EtrdCtqhsDMfN+2Uv+GYo35SogcH+Okm5Vj08p9UWyUizGnj+wfSI
+ +VWAZrBBhuXu3N2sX+4RrwSUTA8FzaUNA6C8GXs/smln9b/eHoWG8GorpsykkWT7oI9cpaMat
+ Od5fSxf7siup8tlpAifLmy9PA3huGGJgtrEkB3+ZWHMePt6NFdnuWMvLqSPpV8XTqV0+Q/vXW
+ AUimH8VxglDQfAAYOWy19DZRtC9zEebQVpvcIqLjE/WLQ8CdwQLtDRB1UfgENjw+Ov60iTunc
+ fFCG4YLiZMqAGee6G0uKFvncicoDnhNcMmFK3G4uE5hGbxNumEVL7TSomv++WtNGXGd3xwEwE
+ Nxj4bAxwLspaO7vBlW3al5xo/cQR7z38JV3pRjay0vAwt4fOmb8slOat+yODSAdN89OCefDC0
+ pM8UoDP4FVxQbSj76KNnPM9rb9tyi8fn/rMDR4L0Zq8PyqjFa2zbC1AWlhUqjYUxwTNL6HbCI
+ gDTkxWQ/bmqi2YyJOQRMQqOduLE8jM2SNoyD7okHmcPozFnsvTAsH68gr5LH2ANPLT40yN17D
+ zoA/cpZYc2KN0l9QZd4otdCqkM7v0vIsdI0m3AVGH54R8YnTTSIZ5V7m8R7+AjuWi77VoiZkR
+ 4fIgPL7Kb/Aex94Ub0sNdoUy0N6el7KR450BKQ7kKcfbiu0uAvXosMoq377O0T1BJNrXA0yHs
+ L3+WxnGfBzBFS1DVEy7PEnJPVGzc7q4fUj7/I89X8b069Csf4ybJoJ94iStmEUGW13kd6s7R4
+ 6PjyEYK0DHpGMg9QW3YZX1HU8o7UEuTtxnXyyjSDDHmVqQCPaZ/di79EwXVSAFADv22sZfKT1
+ I50sXxw9ohyVvksQD0G7waqL9HVw7YLeABRPPdxRkZ5ghtv5tUIXOXQphtdQ1JwrsT6ZnGODd
+ AzXICHA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_234329_050264_F033DC91 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20250525_234459_493301_ECD905A8 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,74 +118,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
+hi Christoph
 
+Am 24.05.25 um 19:44 schrieb Andrew Lunn:
+>> diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arc=
+h/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+>> index 88c2657b50e6..b481097f08a4 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+>> +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+>> @@ -68,6 +68,8 @@ mdio: mdio {
+>>   		ethphy1: ethernet-phy@1 {
+>>   			compatible =3D "ethernet-phy-ieee802.3-c22";
+>>   			reg =3D <1>;
+>> +			reset-gpios =3D <&gpio4 23 GPIO_ACTIVE_HIGH>;
+>> +			reset-assert-us =3D <30>;
+> Is there anything in the datasheet about needing a delay after the
+> reset? There is a DT property for this:
+>
+>    reset-deassert-us:
+>      description:
+>        Delay after the reset was deasserted in microseconds. If
+>        this property is missing the delay will be skipped.
+is it the time until the PHY finished its post reset stabilization=20
+(datasheet to call it T2 "reset to SMI ready")?
+>
+> Anyway:
+>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>
+>      Andrew
+>
 
-On 5/25/25 21:13, Krzysztof Kozlowski wrote:
-> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-> syscon_regmap_lookup_by_phandle() combined with getting the syscon
-> argument.  Except simpler code this annotates within one line that given
-> phandle has arguments, so grepping for code would be easier.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> ---
-> 
-> Not tested on hardware.
-> ---
->  drivers/memory/stm32_omm.c | 21 ++++++---------------
->  1 file changed, 6 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
-> index 79ceb1635698..bee2ecc8c2b9 100644
-> --- a/drivers/memory/stm32_omm.c
-> +++ b/drivers/memory/stm32_omm.c
-> @@ -46,7 +46,7 @@ static int stm32_omm_set_amcr(struct device *dev, bool set)
->  	struct regmap *syscfg_regmap;
->  	struct device_node *node;
->  	struct resource res, res1;
-> -	u32 amcr_base, amcr_mask;
-> +	unsigned int syscon_args[2];
->  	int ret, idx;
->  	unsigned int i, amcr, read_amcr;
->  
-> @@ -98,29 +98,20 @@ static int stm32_omm_set_amcr(struct device *dev, bool set)
->  		of_node_put(node);
->  	}
->  
-> -	syscfg_regmap = syscon_regmap_lookup_by_phandle(dev->of_node, "st,syscfg-amcr");
-> +	syscfg_regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node, "st,syscfg-amcr",
-> +							     2, syscon_args);
->  	if (IS_ERR(syscfg_regmap))
->  		return dev_err_probe(dev, PTR_ERR(syscfg_regmap),
->  				     "Failed to get st,syscfg-amcr property\n");
->  
-> -	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 1,
-> -					 &amcr_base);
-> -	if (ret)
-> -		return ret;
-> -
-> -	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 2,
-> -					 &amcr_mask);
-> -	if (ret)
-> -		return ret;
-> -
->  	amcr = mm_ospi2_size / SZ_64M;
->  
->  	if (set)
-> -		regmap_update_bits(syscfg_regmap, amcr_base, amcr_mask, amcr);
-> +		regmap_update_bits(syscfg_regmap, syscon_args[0], syscon_args[1], amcr);
->  
->  	/* read AMCR and check coherency with memory-map areas defined in DT */
-> -	regmap_read(syscfg_regmap, amcr_base, &read_amcr);
-> -	read_amcr = read_amcr >> (ffs(amcr_mask) - 1);
-> +	regmap_read(syscfg_regmap, syscon_args[0], &read_amcr);
-> +	read_amcr = read_amcr >> (ffs(syscon_args[1]) - 1);
->  
->  	if (amcr != read_amcr) {
->  		dev_err(dev, "AMCR value not coherent with DT memory-map areas\n");
-
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
-
-Thanks
-Patrice
 
