@@ -4,81 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7811C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 00:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCAFC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 01:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v05J72i6O7I9BveR5c1UBCE/JtDlj6CX15LfYPrmwl8=; b=DE6spiv1EdE56ALTcMWpQ2AIdt
-	RqKt4Gh6RUozIAyNeX4XzK4e6koUkaEzzngaQY3YCIfBA45//TXWk4sumaFsKmV8BBMpn9q7G9FH3
-	KqbpdEJoONsQ+yftwHg8xr+VYAjjSMFtF75WJnWGuTfFNsPTXZf/Rrus4JpQnlxgX+CHwIya1TWjB
-	IEu+xo84PJa5Ho4eqZGOnV6jaVGypi6U4aRg9W30453eBMFdiRJW6m5brRTwkO6AdKu0rff0MYQtl
-	hQbJuicMwaUiN9qnao13EvBWk4ha1rlQgBsl3tWxma8x7aY1oKbs2eXCf9YmIEEn485LKzDXmy49d
-	UXA29oLA==;
+	bh=5TPqY8WHC90hNN4g80evX8vT2+XF2TACEJO28JUI7+c=; b=fWTIgWVwGkjw2BfwMOMy4kkdoh
+	SjnB4Mq2sDQ5mJaTqR2n1CYfpMinH+YYYh+OuySYyP4VY2no2ENrW6HYIUkLu4WTFGwT3uz+e+BZU
+	4dJ2mv0wk+8/Z29dmoIRbncjVEbab77fi/qd1tG1ruP1B9Yib21F3mOoruYr7BOKTwnvEMcZdT8Xn
+	Fkn3JosiIEq80seH3Io762oCalHKcA+wzRsh4qqrDEU+jkTFeZnF8PM1UskPBb5DEF4gf85Ym5gDS
+	CR3y24RUqsGf5eqNTGk/V2tsUOKFOIhwWdenVBLx7oWSPy1aZiCBSHWEX2kX6JfL3c9az/Y3bODVN
+	i7EneaPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJLrl-00000007reS-1fVy;
-	Mon, 26 May 2025 00:38:57 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1uJMIE-00000007spd-3WHg;
+	Mon, 26 May 2025 01:06:18 +0000
+Received: from mail-japaneastazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c405::1] helo=TY3P286CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJLpc-00000007rYj-0mxG
+	id 1uJMG5-00000007sk6-3yy7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 00:36:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748219804; x=1779755804;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=PWmxnlgfXVQMFwih64+oIqpx6GC1/1WEm1ZUh1+lD90=;
-  b=kBJfRQh0+loaa5T0ceu3/6IaKZhkqhBu3aFlfvUVrHLu4IRaShePm3jL
-   uK4bTg29PwB9plVozCr67m1hCgGwvylHnoJC3omygkeg/kCkASP2mn8Xq
-   wmruw/s3XtkQQRJbT5IJWjgRnnx4H5bLyZ/luWrXvHmhbbizu1r+DhfUn
-   /A4yF5SXW1wCe8n/6J2UouN4OSPJ/BcYZD/Ra4BxeqDOomRW5Wj5SBHHo
-   G41DHmnrkPy2Y7agx7l8wD5+5bLDkLW3btB/X2FxhTbBH+/os5JrPmgGC
-   X5AQzWTdvCb8KO6t09oN2B4+lCZ1Qaxydlt/iowPgdICepQJdWN19BMuv
-   A==;
-X-CSE-ConnectionGUID: 1aOBitJGRbynNQkDWXh2Bg==
-X-CSE-MsgGUID: Xyk2bJckSg+7cNbGL+CAyQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11444"; a="67739677"
-X-IronPort-AV: E=Sophos;i="6.15,314,1739865600"; 
-   d="scan'208";a="67739677"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 May 2025 17:36:43 -0700
-X-CSE-ConnectionGUID: nxxMPxjcSEOwAFrehzbeGA==
-X-CSE-MsgGUID: B4+C7AphS5OWTk0wdO38Sg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,314,1739865600"; 
-   d="scan'208";a="142594031"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 25 May 2025 17:36:39 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uJLpU-000S32-36;
-	Mon, 26 May 2025 00:36:36 +0000
-Date: Mon, 26 May 2025 08:36:19 +0800
-From: kernel test robot <lkp@intel.com>
-To: Suraj Gupta <suraj.gupta2@amd.com>, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, vkoul@kernel.org, michal.simek@amd.com,
-	sean.anderson@linux.dev, radhey.shyam.pandey@amd.com,
-	horms@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	git@amd.com, harini.katakam@amd.com
-Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report
- coalesce parameters in DMAengine flow
-Message-ID: <202505260804.Mhztve8t-lkp@intel.com>
-References: <20250525102217.1181104-1-suraj.gupta2@amd.com>
+	Mon, 26 May 2025 01:04:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VgKGywzZL9VkASUt96ZicuFnw91uPQmlxz+61+4wO0EoLMVbsuJl3xHVUeWGT/cWw1ituXPZRgLAhOecautKEt0KcpRilF4cEot4ACZO8Bx5Uhb9D5IVlL8L06caQSacFTRu3XshLLZcBYsKljq2TJUvSrS6Rr0L9WSUNsdAHr727+/TEP9/CjzuWdfkMVxHB/W+nKKADEnGylDiLJaNT43WPJhycQFD+BPhzaGfdhYTn7BwlKwyhbWftcqt1WxpzQBBtkx69rNhUotLBaYcAWK3/zAqhn8lRpYMi2lq3ZzE0dTYg1+LWmLv2l+TbY+wI3P1UbeYGIx4fNJt66JZNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5TPqY8WHC90hNN4g80evX8vT2+XF2TACEJO28JUI7+c=;
+ b=MF2fOeIBfB8XDWEHl02JBgSArJ7OfumJs+t3r5ws75fZwAjqAFkYxw7EyEXzrHirTAc4Cnp/Weg63xMdcQz8cVkxMcbuGOC1xcaxHfKClBjmAvSTgXHAZVySGijLNXm7bTRAp76wo30mYOwdGXm+C2G4BFlS9zBnumRtBmg0co3ExYpWSih+6dBbJhfM+25qtRpv5mGmqC/5em3TQVSjk7KbOzA4jJZZYQhDWEMkE/6E+a7UFVWOtEpoAJXgkowUHKswaPRtz5lQ+TAjJdx27K8w+Dd9dz2KCHXqJUiaRQ33R7gqGpgDPvUhZSEl7wLqnBWsNZI2ilce8rr2DcqceQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5TPqY8WHC90hNN4g80evX8vT2+XF2TACEJO28JUI7+c=;
+ b=h4mtSNLI1juzc3pUhhANLpS453R+VTlly2cPFLqjqRh6uNS8TRb2H70u7NsFGN0myeWpUiMduYc3B4sdRlYgOjJDLbKzZNiKXb/lX5JqiNi0Z1vik4daxAiPZFXuZpJYVwHRNhkBGODH0BR+e0ZlGSV7w5jND2qayHoFukpdqSY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11) by TYRPR01MB13673.jpnprd01.prod.outlook.com
+ (2603:1096:405:189::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.22; Mon, 26 May
+ 2025 01:03:53 +0000
+Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
+ ([fe80::c568:1028:2fd1:6e11%6]) with mapi id 15.20.8769.025; Mon, 26 May 2025
+ 01:03:53 +0000
+Message-ID: <87cybwb2ti.wl-kuninori.morimoto.gx@renesas.com>
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Sort DT on V4H Sparrow Hawk
+In-Reply-To: <20250525160336.82960-1-marek.vasut+renesas@mailbox.org>
+References: <20250525160336.82960-1-marek.vasut+renesas@mailbox.org>
+User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
+Content-Type: text/plain; charset=US-ASCII
+Date: Mon, 26 May 2025 01:03:53 +0000
+X-ClientProxiedBy: TYCP301CA0008.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:400:386::6) To TYCPR01MB10914.jpnprd01.prod.outlook.com
+ (2603:1096:400:3a9::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250525102217.1181104-1-suraj.gupta2@amd.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TYRPR01MB13673:EE_
+X-MS-Office365-Filtering-Correlation-Id: de9b8845-e7c9-4f97-c0f3-08dd9bf12f03
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nWiL3IawkdMsTd1BFIJ+r4/uxFL0qeqQF5AuPpPam7FuVPFX6qIt+MihKWYm?=
+ =?us-ascii?Q?xsn2VEwBC94EGXmH2LtOOciDcF/jbz38FvJerQfQGoxA8FcYoCeqGiu7MxwR?=
+ =?us-ascii?Q?cBrwX14kg+QJ6XAmfXR54aTo981A/K3fG40nYeQ6v+kEMHOnOy1Spw+9mE6e?=
+ =?us-ascii?Q?pw3Ey7fIGk50vkmY1NP8ipVPqr713cIlGIzd7Ilrl5g9Fvta5/LIP+QHygby?=
+ =?us-ascii?Q?quJ3UxPGM3J05KF7jCEYsDXkeWPEVvay2pt/RfFwhOeEgYqeYpV0C6qYypAQ?=
+ =?us-ascii?Q?cY4H1kWmiIISUV8eLm6DUSRJqg5gHMmjNGxktxvZKv5bx/AWqfYJNqTBAtiO?=
+ =?us-ascii?Q?TDyQ4c3BfJeunTFsjZZ5X51VXqhkTYbqUG2iSUFDEeoFM8HZhGlqHl6dMmF8?=
+ =?us-ascii?Q?TsK3CyqRKq1YTE7sQkHeEkFazxMaa4RMTeYC3v7RH3M+ArSHtss7abGIOPrw?=
+ =?us-ascii?Q?QSVKx/Ma4y9ra84p4bWE4QaeBfa0ukhWSmWIFQLMM8kG/yD2mbTlfKGoe3zW?=
+ =?us-ascii?Q?0k7NZKb3jVD9AEcoUDjdSMrJuSDQBDMheCdNYyo9qliutXloS+6lOa622FVb?=
+ =?us-ascii?Q?7TifPK9gLeFHi1DyPXjNBnNu4OpiM0TEwWYhuRI3WbZrjg1qYDkC38Rz/wia?=
+ =?us-ascii?Q?UbuKG5k/NojrFsosGtlrCCBQ6DMKXUbBSNwKNfXtE7H+9sZrN1He97ycf9hF?=
+ =?us-ascii?Q?fD6v/LCHvr+FvWWEJI3yvpp65QaQz+DfLcyJ1nkVjOzWdqeindGF+REVYK5w?=
+ =?us-ascii?Q?G9JUwI4QZ8QiCXGAgoZNI5k7csPDt5vaHdYHcPZmqk9hxxbZR9FNAGBgUTWn?=
+ =?us-ascii?Q?SfabAPpicgNB242MAyO+i20Ev1xcjwLOqhgd3BdY2FmQxoQeH8SS6A6MwvSR?=
+ =?us-ascii?Q?uz8gXjOeRvoqrbuUrDgaKh28L7r1o74flJKo6h5NjocgFYihrealT58L+ESo?=
+ =?us-ascii?Q?0W2Sg/vaefx+aASlDnAK7nonnsHmiynl9jR3WVmTWXlrHSLv11gODkdudGO7?=
+ =?us-ascii?Q?g3xtYCwaZWtVjI7e0MZbWyR5tkuMy/F+ApEa41iRLBc5lAIPWdjHHz62yh93?=
+ =?us-ascii?Q?0cCnpf3Hh3WCHuCqoMOY0gMDVgnSHDrXELQNETXuSd/RgE+c65Ju52IFwWuw?=
+ =?us-ascii?Q?sxY01SBTJNQyrw0YS+HRbkuHuyWU2L50fz0sRn/09v14qG4pcIsYOh/38JlF?=
+ =?us-ascii?Q?o1EYzgIDhLJc06VRHPoRcxjzR5AQMSiyaDN36aqvk5CcTSHzTDrBOnPpGhvs?=
+ =?us-ascii?Q?i4D3iqeHOF7WJXAXkg1NYQEQBwrk0r1AbHyjA15tLuiO1536YAy6sfBf/CH5?=
+ =?us-ascii?Q?2X3JyAQuSvTqapeI05F+5k7jXcmE91o/I6HpI8ngyQe/ojA1sC8HBD41Yfab?=
+ =?us-ascii?Q?cJTMY0zf2YXBpf2db5L70IUXpU9q7c2J4fPLzz9UC5PMj+zTA8Whnm6f7Nsd?=
+ =?us-ascii?Q?m4cX2TB8nr7lI/4PTzDDJmLV3t9NcKCLd7OgFaVfn2hHhenJIrySkfXs0uO0?=
+ =?us-ascii?Q?jIUigSMzvnBnFko=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yG0lDkijSLxsUPb3PZ46jEpG0/7ghtYaeyGAnsO1Wy8wjZc4wgszaa6Cd1H4?=
+ =?us-ascii?Q?IsxQCjfsbwNwdiu8/LV7JykiYYL0u15fOw50GERXjyHo7jwyxuI3GSFlLDJG?=
+ =?us-ascii?Q?xv+x+SgOuCbWtcYqSUG6ut9Jtzc8abbn0fNzyVCBDOHmGxIvYNqcjt69a5sr?=
+ =?us-ascii?Q?mDE7p02+vdr+6E+TxqqLcWB8hzIlJQBpDPsg/ghcs44KYRi3TqLp2HAInAuk?=
+ =?us-ascii?Q?kzY4u0cXM6XZffanuPKzmABJTlavRiV1JtKLZNCB1Sm6tBSa+71zk7scvbcE?=
+ =?us-ascii?Q?RA71epGVNSY/NlBRb31er6EmjhUTK1WRwSG0m4A7JMh+hKDYEVjfnBrDNKQ+?=
+ =?us-ascii?Q?hsrEZSiOAHeSuLuiVjcda2noyoM764ijCxL3D6HufUkk0XkYutkroi6YEEgj?=
+ =?us-ascii?Q?ElczPzkMHsc49I8Y7G0XixLYFoJ0XLTq5zWO1vW+D1acRw/UNIMFM/BshQEF?=
+ =?us-ascii?Q?PSkPgtGFO2aTuYSsW6pYKKsSN/k3Pke0S+vXBvCrM2219vave17Ci6w0rx9C?=
+ =?us-ascii?Q?X1JGwtxcTSe03UXEJCpFp/V4bNNAgsGjsJACu0+x3UiEumS/E8sm0pD9mNbk?=
+ =?us-ascii?Q?XzLiP9laJ+u/LFhMDXwzSahgTJxe/YvoLL+dloSyByrb8KljyDVvviPKmjd0?=
+ =?us-ascii?Q?baB1Fka6kejQ7jEx9Isc6wQR6qalTXYlQkKYHLXaSsAYWm00xXbb+N5gPUO/?=
+ =?us-ascii?Q?i01BuG+sdVYIcjDrJFbZEIvlLfzNcGQMeNCkjRabq936YOlcceLH+b1tvvZS?=
+ =?us-ascii?Q?H9Jx/DmhTVbe6n90gO0lwQ+wppbCJJICnD9go9wKFsd4cNL4O/YbQdT9pHk8?=
+ =?us-ascii?Q?hpAKASPxq+OF214P/BKeaa8qH9hPfmFHQQn0KYoALzgoa7AzPkp/Zb7oJJ6Q?=
+ =?us-ascii?Q?L0ERCE1/wPOJxwH8niBmh766j2jrEqpfLmyAlO6b53nzZG+CoeZNeipqQkkT?=
+ =?us-ascii?Q?ZGVzVrJ2gO4ISI7YCO+KAQXkYmWaxZil+liFBkMJsJapPPDerfVOWLnz4E5B?=
+ =?us-ascii?Q?LzYDAC2BzhxlPNUyOis607s2fzBQ1khw8FjZ+FjKWfN4vWq8dZ3LjR8sBF8F?=
+ =?us-ascii?Q?gj2qH3MqYPP48ffdUcqtxtma2CksHtN1yr5toVVPm8EdCf5hirWwJ5Bf9S5a?=
+ =?us-ascii?Q?Ghqo6W/XSBcLY5aVkMS43zS6icsZr4of2D2bdl5fy2hqEFahDJnXZ3C/V2nQ?=
+ =?us-ascii?Q?sg/jPHpdmRqMoqkEDfl4pmJ8woMRr670vIcidiFMGNCpV4a35Pwc6QjWZ4ja?=
+ =?us-ascii?Q?rZVf2u7Ix45upT0GTCT78ZRxYV1V83sYmVqiV06CvrXzvnTrXQXTq3XkbXPp?=
+ =?us-ascii?Q?LZD5J+zzQzLkbpWKuTUzqGH5ywv5y4t8v0amoX2169tkbpqagHLwUG0c0UDk?=
+ =?us-ascii?Q?yNqMbhXx+s4h4dTPa3z6US8DbNp3YUrRFAgcO4197eNis0sdgeGfYOdvyqWb?=
+ =?us-ascii?Q?ZlDluWV4TqDOwlU4fa4Ia2lNgIntU6ocBN4doEp49RVw6/vBG4EjRhxTrSyg?=
+ =?us-ascii?Q?z5h4yby1ChfoOvNEuhZePCQVlTS8r4F6EZpsN0dSgf6gM4iOHYIfYpK6Tu3R?=
+ =?us-ascii?Q?fjdB2VORfhcV+mOajM3pEuxvT9OnhNFW6/ihtye6HzET8wu0hloqNiS6sWiu?=
+ =?us-ascii?Q?hhABWg9xxUYN1KJbh2z6jck=3D?=
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: de9b8845-e7c9-4f97-c0f3-08dd9bf12f03
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2025 01:03:53.6178
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pwfqOPPa5nH1jFJw1XH8835J4VkIWZWw05vFtZCYcIvzoCbTw3wTpydSEQEpghuKEta26GAXNl0stu/6AZypD6gsRtKCHhLpY2frESDlS33+FDP9Km8M3ZN4P4lSYMEi
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB13673
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_173644_275894_5C5846D3 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250525_180406_222148_D5CBB1EB 
+X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,173 +166,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suraj,
 
-kernel test robot noticed the following build errors:
+Hi Marek
 
-[auto build test ERROR on net-next/main]
+> Sort DT alphabetically. Fix up the placement of &rcar_sound {} .
+> No functional change.
+> 
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Suraj-Gupta/net-xilinx-axienet-Configure-and-report-coalesce-parameters-in-DMAengine-flow/20250525-182400
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20250525102217.1181104-1-suraj.gupta2%40amd.com
-patch subject: [PATCH net-next] net: xilinx: axienet: Configure and report coalesce parameters in DMAengine flow
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20250526/202505260804.Mhztve8t-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250526/202505260804.Mhztve8t-lkp@intel.com/reproduce)
+Yes, indeed.
+Hmm.. I think I had sorted it...
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505260804.Mhztve8t-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c: In function 'axienet_init_dmaengine':
->> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:1524:18: error: 'struct dma_slave_config' has no member named 'coalesce_cnt'
-    1524 |         tx_config.coalesce_cnt = XAXIDMAENGINE_DFT_TX_THRESHOLD;
-         |                  ^
->> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:1525:18: error: 'struct dma_slave_config' has no member named 'coalesce_usecs'
-    1525 |         tx_config.coalesce_usecs = XAXIDMAENGINE_DFT_TX_USEC;
-         |                  ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:1526:18: error: 'struct dma_slave_config' has no member named 'coalesce_cnt'
-    1526 |         rx_config.coalesce_cnt = XAXIDMAENGINE_DFT_RX_THRESHOLD;
-         |                  ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:1527:18: error: 'struct dma_slave_config' has no member named 'coalesce_usecs'
-    1527 |         rx_config.coalesce_usecs =  XAXIDMAENGINE_DFT_RX_USEC;
-         |                  ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c: In function 'axienet_ethtools_get_coalesce':
->> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2196:61: error: 'struct dma_slave_caps' has no member named 'coalesce_cnt'
-    2196 |                 ecoalesce->tx_max_coalesced_frames = tx_caps.coalesce_cnt;
-         |                                                             ^
->> drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2197:55: error: 'struct dma_slave_caps' has no member named 'coalesce_usecs'
-    2197 |                 ecoalesce->tx_coalesce_usecs = tx_caps.coalesce_usecs;
-         |                                                       ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2198:61: error: 'struct dma_slave_caps' has no member named 'coalesce_cnt'
-    2198 |                 ecoalesce->rx_max_coalesced_frames = rx_caps.coalesce_cnt;
-         |                                                             ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2199:55: error: 'struct dma_slave_caps' has no member named 'coalesce_usecs'
-    2199 |                 ecoalesce->rx_coalesce_usecs = rx_caps.coalesce_usecs;
-         |                                                       ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c: In function 'axienet_ethtools_set_coalesce':
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2270:23: error: 'struct dma_slave_config' has no member named 'coalesce_cnt'
-    2270 |                 tx_cfg.coalesce_cnt = ecoalesce->tx_max_coalesced_frames;
-         |                       ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2271:23: error: 'struct dma_slave_config' has no member named 'coalesce_usecs'
-    2271 |                 tx_cfg.coalesce_usecs = ecoalesce->tx_coalesce_usecs;
-         |                       ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2272:23: error: 'struct dma_slave_config' has no member named 'coalesce_cnt'
-    2272 |                 rx_cfg.coalesce_cnt = ecoalesce->rx_max_coalesced_frames;
-         |                       ^
-   drivers/net/ethernet/xilinx/xilinx_axienet_main.c:2273:23: error: 'struct dma_slave_config' has no member named 'coalesce_usecs'
-    2273 |                 rx_cfg.coalesce_usecs = ecoalesce->rx_coalesce_usecs;
-         |                       ^
+Acked-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 
 
-vim +1524 drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+Thank you for your help !!
 
-  1494	
-  1495	/**
-  1496	 * axienet_init_dmaengine - init the dmaengine code.
-  1497	 * @ndev:       Pointer to net_device structure
-  1498	 *
-  1499	 * Return: 0, on success.
-  1500	 *          non-zero error value on failure
-  1501	 *
-  1502	 * This is the dmaengine initialization code.
-  1503	 */
-  1504	static int axienet_init_dmaengine(struct net_device *ndev)
-  1505	{
-  1506		struct axienet_local *lp = netdev_priv(ndev);
-  1507		struct skbuf_dma_descriptor *skbuf_dma;
-  1508		struct dma_slave_config tx_config, rx_config;
-  1509		int i, ret;
-  1510	
-  1511		lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0");
-  1512		if (IS_ERR(lp->tx_chan)) {
-  1513			dev_err(lp->dev, "No Ethernet DMA (TX) channel found\n");
-  1514			return PTR_ERR(lp->tx_chan);
-  1515		}
-  1516	
-  1517		lp->rx_chan = dma_request_chan(lp->dev, "rx_chan0");
-  1518		if (IS_ERR(lp->rx_chan)) {
-  1519			ret = PTR_ERR(lp->rx_chan);
-  1520			dev_err(lp->dev, "No Ethernet DMA (RX) channel found\n");
-  1521			goto err_dma_release_tx;
-  1522		}
-  1523	
-> 1524		tx_config.coalesce_cnt = XAXIDMAENGINE_DFT_TX_THRESHOLD;
-> 1525		tx_config.coalesce_usecs = XAXIDMAENGINE_DFT_TX_USEC;
-> 1526		rx_config.coalesce_cnt = XAXIDMAENGINE_DFT_RX_THRESHOLD;
-> 1527		rx_config.coalesce_usecs =  XAXIDMAENGINE_DFT_RX_USEC;
-  1528	
-  1529		ret = dmaengine_slave_config(lp->tx_chan, &tx_config);
-  1530		if (ret) {
-  1531			dev_err(lp->dev, "Failed to configure Tx coalesce parameters\n");
-  1532			goto err_dma_release_tx;
-  1533		}
-  1534		ret = dmaengine_slave_config(lp->rx_chan, &rx_config);
-  1535		if (ret) {
-  1536			dev_err(lp->dev, "Failed to configure Rx coalesce parameters\n");
-  1537			goto err_dma_release_tx;
-  1538		}
-  1539	
-  1540		lp->tx_ring_tail = 0;
-  1541		lp->tx_ring_head = 0;
-  1542		lp->rx_ring_tail = 0;
-  1543		lp->rx_ring_head = 0;
-  1544		lp->tx_skb_ring = kcalloc(TX_BD_NUM_MAX, sizeof(*lp->tx_skb_ring),
-  1545					  GFP_KERNEL);
-  1546		if (!lp->tx_skb_ring) {
-  1547			ret = -ENOMEM;
-  1548			goto err_dma_release_rx;
-  1549		}
-  1550		for (i = 0; i < TX_BD_NUM_MAX; i++) {
-  1551			skbuf_dma = kzalloc(sizeof(*skbuf_dma), GFP_KERNEL);
-  1552			if (!skbuf_dma) {
-  1553				ret = -ENOMEM;
-  1554				goto err_free_tx_skb_ring;
-  1555			}
-  1556			lp->tx_skb_ring[i] = skbuf_dma;
-  1557		}
-  1558	
-  1559		lp->rx_skb_ring = kcalloc(RX_BUF_NUM_DEFAULT, sizeof(*lp->rx_skb_ring),
-  1560					  GFP_KERNEL);
-  1561		if (!lp->rx_skb_ring) {
-  1562			ret = -ENOMEM;
-  1563			goto err_free_tx_skb_ring;
-  1564		}
-  1565		for (i = 0; i < RX_BUF_NUM_DEFAULT; i++) {
-  1566			skbuf_dma = kzalloc(sizeof(*skbuf_dma), GFP_KERNEL);
-  1567			if (!skbuf_dma) {
-  1568				ret = -ENOMEM;
-  1569				goto err_free_rx_skb_ring;
-  1570			}
-  1571			lp->rx_skb_ring[i] = skbuf_dma;
-  1572		}
-  1573		/* TODO: Instead of BD_NUM_DEFAULT use runtime support */
-  1574		for (i = 0; i < RX_BUF_NUM_DEFAULT; i++)
-  1575			axienet_rx_submit_desc(ndev);
-  1576		dma_async_issue_pending(lp->rx_chan);
-  1577	
-  1578		return 0;
-  1579	
-  1580	err_free_rx_skb_ring:
-  1581		for (i = 0; i < RX_BUF_NUM_DEFAULT; i++)
-  1582			kfree(lp->rx_skb_ring[i]);
-  1583		kfree(lp->rx_skb_ring);
-  1584	err_free_tx_skb_ring:
-  1585		for (i = 0; i < TX_BD_NUM_MAX; i++)
-  1586			kfree(lp->tx_skb_ring[i]);
-  1587		kfree(lp->tx_skb_ring);
-  1588	err_dma_release_rx:
-  1589		dma_release_channel(lp->rx_chan);
-  1590	err_dma_release_tx:
-  1591		dma_release_channel(lp->tx_chan);
-  1592		return ret;
-  1593	}
-  1594	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards
+---
+Kuninori Morimoto
 
