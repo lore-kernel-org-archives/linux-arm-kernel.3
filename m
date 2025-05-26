@@ -4,178 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C96C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 07:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A499C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 07:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+zFLG/CHSMHuRVDL9fxx40GG2pevNf1hb80RYdTp8g=; b=SpM6oQm3YO7q1fvGYPqKJdqnLh
-	ZPazHm/WVZnT/yp3jLTtL5NOyt2jVc267C3W5BDvnT7Bb61Lp6XSPBvqCyxN3bMd22CwmutiM6QOl
-	NX6P+W2kjAOALKRYa9GqPgAmQIsYu3Ah9hbaHy7EPmLPC38cktKcN4eEz0xV5uxQmQhenkRiMSNCy
-	cQuw4dkXoqNI8l2Q/SHgRvfnhCWrtlLbeEKPEGyMoSn9R+wrFSahIBTVbErXyBKnWAvWrG1Gn/yip
-	tbEi0KfxGKV2IYBrazx/R0IaImX8Wgac0tYGgF/6vV9DsNgP/r4EQDQQ18BZm9zwYGgXm5J2ITcsm
-	u4nUxDYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zb65VUFaC3xu3xLyC+q/Y9QOfFVKsDX4tlUv2crmwV4=; b=2sZZuTns9HcepgeEqR99PRMyUt
+	99NUifO9QXQTKCIlspFiWHMJMyeV82PDDysGA9MguEZJcFmHIugMx7Yg/5Ai0fwuK3a0uXkTJE9zs
+	lN4EFcV12fq0TYBJnr5jjOIt2h482+MDXm72P/48pAD16dHA8M0NCiFf8Pyrf+crMO7BRVuf9JoYm
+	eUdchj9An4pDT0rLxTOpsGnSijQpCBZlVOb8A8NKs0YzgPGVzNu79AOwQaliax+wzmE1RRkj3EbyT
+	cd0B59aIHSWQQvVmxgy6sLMO0C8ZxCDOVscJ1X6M0PrGoBrMKXoLeQt822TTb2ix6ueqWXjSl8Hig
+	XKKmYQGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJSG1-00000008HRp-27mw;
-	Mon, 26 May 2025 07:28:25 +0000
-Received: from mail-francecentralazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c20a::2] helo=PAUP264CU001.outbound.protection.outlook.com)
+	id 1uJSJ9-00000008Hun-3mGY;
+	Mon, 26 May 2025 07:31:39 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJSDn-00000008HEV-1JLE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 07:26:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BNDeabbm/uqareZxIWaPlGfGlkFRkTOCHaHNnHsqq+rCuX30k/dZa2lJXN5JGQwMpZDl+sa0mAxQXk+h+zBoN74RiTCrYZRedT+fuhY5JThzII646aehd798nYuDodcfTTXL/M2d+3WDP1mAS6va2h6Xdp9U//eJya4Njxj+LnfdHHxzIvLG0M6SfvKrFbJm0y0xow51ekSPEfQin9a9KRFSOCAZEmxnyI3WAqkpWbjW1uY9H6ywYVgHHV2+PkGEoiLNEn4aFmG5IIhKAYXC4LtXB2MGThGCxkknZcx3WlKnTu3/B1hKiBxatgu7D51Z9x89yX+cXh/n/OyCmhc5bg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=v+zFLG/CHSMHuRVDL9fxx40GG2pevNf1hb80RYdTp8g=;
- b=e4SbkUe1Bw/gsyb8dP/YcyD22hbuQro7k9E6NHQ//GwEzq702BUASRyfHJyhTXB4gna1xEpemBgUrCQ7ubkMtRAUkxaTaC4C8YqFAc91a8dC5WdHPK8dXTyfE26fHYVO2bKfYQFk2sh+zZuwzpM6JaruscR3S7kz6VaRD6DyTspdl4mnmWmEEivuvyYVHQvmTxUWD70xNx5fWKeQTUsNUK5MiQJq0qWJyFAqZR23ZGnY1mZTrrtXAeDFcA9IMyDyN93qDimpnqrT/vGZXNzUDlBpJvSSDKJw0IcFGggU+38LfNWnHq8HqECZeyvkzx4kZevWs6DUw5nSlTbwS5k9KQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=allegrodvt.com; dmarc=pass action=none
- header.from=allegrodvt.com; dkim=pass header.d=allegrodvt.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=allegrodvt.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=v+zFLG/CHSMHuRVDL9fxx40GG2pevNf1hb80RYdTp8g=;
- b=sMzQxe0LBks1lYPP5mLjFQX4x90dUh+Pg0QADhCzg0Ik7oXhCeVGx3f2e2NtTuRqxq5Nf7J0ODTqAioHBr1+iQlgYZykjIt6yr67qIitY74By1q8uGlrr60Jrvzzm4vrJ07V/gdwoE6ssMSdVOAk/Xj/My+ZPzc4jpD+e/kITHyTPC2yAK+hmUhO+5Y4EQ2wSoFmuf0cOekxOYmozp52oHC2PQLT7rdfRFyanP1b8TfXB2ko7V8POYH5ew39LkJHGbp91j9vd2qkKKz2cFQ4FsRgxu0fxiZlxLXVqWWc1mgKlRpEVKDV9sCLH3er0UTZs6BvqO5S1z7OaeXVrWvItQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=allegrodvt.com;
-Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3d::18)
- by MRZP264MB2347.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:1c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.26; Mon, 26 May
- 2025 07:25:56 +0000
-Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- ([fe80::4281:c926:ecc4:8ba5]) by MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- ([fe80::4281:c926:ecc4:8ba5%2]) with mapi id 15.20.8769.019; Mon, 26 May 2025
- 07:25:56 +0000
-Date: Mon, 26 May 2025 07:25:55 +0000
-From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Michael Tretter <m.tretter@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Michal Simek <michal.simek@amd.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Junhao Xie <bigfoot@classfun.cn>, Rafa?? Mi??ecki <rafal@milecki.pl>, 
-	Kever Yang <kever.yang@rock-chips.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Hans Verkuil <hverkuil@xs4all.nl>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
-	Sebastian Fricke <sebastian.fricke@collabora.com>, Gaosheng Cui <cuigaosheng1@huawei.com>, 
-	Uwe Kleine-K??nig <u.kleine-koenig@baylibre.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Ricardo Ribalda <ribalda@chromium.org>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/5] dt-bindings: media: allegro-dvt: add decoder
- dt-bindings for Gen3 IP
-Message-ID: <a72z6exgol5cbur2cy7wjwyroi4zddtki5ab3zdkfuwpskpavr@r26wahldhd3r>
-References: <20250523134207.68481-1-yassine.ouaissa@allegrodvt.com>
- <20250523134207.68481-3-yassine.ouaissa@allegrodvt.com>
- <3e6be40a-2644-416a-bd32-f6256f1501ff@kernel.org>
- <7863d15a-fa20-4db5-89b5-77a026d3f937@kernel.org>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <7863d15a-fa20-4db5-89b5-77a026d3f937@kernel.org>
-X-ClientProxiedBy: MR2P264CA0133.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:500:30::25) To MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:3d::18)
+	id 1uJSGu-00000008Hii-1BY7;
+	Mon, 26 May 2025 07:29:21 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 660DC43A5B;
+	Mon, 26 May 2025 07:29:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1748244557;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zb65VUFaC3xu3xLyC+q/Y9QOfFVKsDX4tlUv2crmwV4=;
+	b=aSAlUf7tUiqHJzsn2lhfPhYcFFkRTUFbo52Dzwpirmygk7yx5FN1GVXM+mtTsyXon7Hw59
+	UhADCs4R8i5USXcp3P9cicdaSkNxGVnviZuHEEptLEPU2Yf1o/XTXUbdayMB7gwWnXJHc/
+	Mi/bPmlTXYsIjwLDHW/28NPYlY7jGkM6B1uzzRWk0nh5empIZx4bY9tBtamH/PhY0xBYL1
+	zOScoSD9Nj61yNkJnybofqFa8Om4iv0jExy2kTwQCnd/YjHiSgxqimbdyLMY4gssdniLnP
+	bJ/+aOO/p+dQyK/lGM5d/q2Ao9FNdsJgnT+03SgDIVYioh4dchkjwjNxjylGsg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,  Daniel Lezcano
+ <daniel.lezcano@linaro.org>,  Zhang Rui <rui.zhang@intel.com>,  Lukasz
+ Luba <lukasz.luba@arm.com>,  Support Opensource
+ <support.opensource@diasemi.com>,  Shawn Guo <shawnguo@kernel.org>,
+  Sascha Hauer <s.hauer@pengutronix.de>,  Pengutronix Kernel Team
+ <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,  Niklas
+ =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,  Geert
+ Uytterhoeven
+ <geert+renesas@glider.be>,  Magnus Damm <magnus.damm@gmail.com>,  Matthias
+ Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  linux-kernel@vger.kernel.org,
+  kernel-janitors@vger.kernel.org,  linux-pm@vger.kernel.org,
+  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,
+  linux-renesas-soc@vger.kernel.org,  linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] thermal: Constify struct thermal_zone_device_ops
+In-Reply-To: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
+	(Christophe JAILLET's message of "Sun, 25 May 2025 11:40:04 +0200")
+References: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Mon, 26 May 2025 09:29:16 +0200
+Message-ID: <87v7pn3k4z.fsf@bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MR1P264MB3140:EE_|MRZP264MB2347:EE_
-X-MS-Office365-Filtering-Correlation-Id: f1c174a8-a04e-43b4-47ca-08dd9c268e0f
-X-LD-Processed: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MTV2d3RRa0Q5TjlhOEdXK2xpOU9TU0QrdHNkUCtlRndHNnRaR1B1RjdzYS9q?=
- =?utf-8?B?ZEpnUENWZUxFNDhrZ3VGUzhreE1pS1FlVnNwNWhwbnVKUkZwM2Z0V3V1eUV6?=
- =?utf-8?B?bWorVFo2cFMyRU96MTNLbytNYUMxNnhiQVJLS2xkZks3bW4yby9IRmdsNmVL?=
- =?utf-8?B?OVFqMWdGaStCNUtsQ3Z5b2FHcng5WE54M09ab2ZsK3lIeXJYSlc2RGdCanBq?=
- =?utf-8?B?RHlnSmxxZEpzYmc4c3VZbGpOdm1zclhOSXNwdVhzbzhVSDkxNC9DTGJLTTJo?=
- =?utf-8?B?cEozZHRwR09GTFBOVVZBY0hDQkh4K1BjL2FLSzlHQlVPbGVhNjFhUFVDQ3FD?=
- =?utf-8?B?Vy9VZER5ZjhGWEErc0EreHN6WFZmeXdqa2YzMThjVWpZY3Y3bFJRbENib1hU?=
- =?utf-8?B?U20zMUQ3RmpFV0l1enV2cDRYKzBsRUJlMmd5NVJNWksvbXFCY3BjM3JFeVV5?=
- =?utf-8?B?QldMbGh4U3RWRkNudGxEcEJraEJnWm9hQk81VlQ1Sm5ydkVYdXBHVnhEclZ3?=
- =?utf-8?B?U29mektjTjYzbDRmb0dkVk16WUZLT2IzQzkxODFjZlVaeVc3Yld4cEZUa0hJ?=
- =?utf-8?B?UHl0aXNQSVlZS2ZrRzN0bjUzR250MS9Kc3dZQnd5MnJBaHIwemdQSUxDa085?=
- =?utf-8?B?Wkh5UXRWWFhrWk4zLzhkbmJlZEJ4SU56QTdvRGZyc1BxTUp3VmIydVd1ZTl2?=
- =?utf-8?B?RkpUWUZRam1rc3IrSUNqekJhTHNqVDl3Zm9EaTM4MzR2WHREYm9uQUd2UFNz?=
- =?utf-8?B?U2R6M1NnU3BpRm9tNjFyUi9DMjlqUU1RUnJuSE92alZtd1NFNTM4ZExRaTlH?=
- =?utf-8?B?VC93dk1CeTVCN3NQblc0Vml2SkYxWllLWWM2V0Fab3p5T0p6Y3RjUjdWenY0?=
- =?utf-8?B?a3JQcTEvbDdYNm9ZTnlGendlT1lUMWswd3pjZTRuellTcWlQWE5KdUV6cldC?=
- =?utf-8?B?aWVkMW9LSlUrWis3M2JZZmpqTVdCNk9xL0dzTDJNOVJSNmhlVTQ5cERZM01x?=
- =?utf-8?B?NmRiamFSWHlDbFl3VGVIcFNJMnFaYWdDYjRuRzhPbVE4NERGdElEdkljUjcr?=
- =?utf-8?B?OVNTMTR2SEdLbEwvNmpKMTBBaWxFOHQwbHBoSkdYanBZZUk0OVZ1QWozdnJl?=
- =?utf-8?B?U2NoVk1CcEVFSVlVV1Rpak42TUlIdlg1b0M4OTk1THVJYk14QVRIOUV0NWVD?=
- =?utf-8?B?THYzWUlhb3l4T0JYZzhFYUdJVDZEUmplSGZZZEp3VkRLNWNPay9RQU5GWVVu?=
- =?utf-8?B?d0d1QktLR0k4bkpvQ3p4aEl4ZDZJaXRJb210L0JqSW1IOG1HS01sRlU3RHMx?=
- =?utf-8?B?ZEZNV0pQQm85NmJCWUFZc21sK0sxNmpzNS9FdERsRGhQTE0xL0dBU0MzMXpS?=
- =?utf-8?B?SnVqOFl4UEFyeC9uZmwvSVZSYndLdWR4S1FXV2UzdmQrRHUxRXBwbkM0alls?=
- =?utf-8?B?N2NFaTBISDlNMitXN0QzTU9FWDltdHRBTVo3d3ZIZ0VjSi9ua2c5aktMbU5X?=
- =?utf-8?B?SGk1NU8zVEh3WmxuQllXNC94QzRlb2t4UFUvcnRidjgya1BjOWtIRVhpaXVv?=
- =?utf-8?B?cGFYMVMyR1FIamYyblRhUmNXS01qU0kwcjhPL1B4TmtYbUxmc0ZXVEs2QVh6?=
- =?utf-8?B?SEkvNXh3RldLbzl1OGFHWTJpYml5Z1ZrWWxlMmEvKzU0OXRPcms3blBHb3Zl?=
- =?utf-8?B?MXFNa1Z4VDV2S1dHLzBwRGZrVURIQldUdkEzb002TlB2TDZiK3hRdFBjM05G?=
- =?utf-8?B?NmJ0em5oa0RDQXZIUnN5ZGRObm9wNlpnQWRBZ1BaNkFScnRWeVpEeTNGZnBC?=
- =?utf-8?B?enpNTUxMdDBocEhlRDFQUytOMnNqdDF4cFZQMytocTVWQnlKUS9oYjRiSXdW?=
- =?utf-8?B?eTJBdFYwR3RtaU4xNk80ZUlyR3N6R0t2MUV3VGcxZk9tRjd0dDJaQTVoVDJ0?=
- =?utf-8?Q?TuwYTTLMgro=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UjNxMXhsbFgyOHpWY3ZJL2FGaFB1dnNIb3haZzBsakxlbXFQVWVvNGNpVEkr?=
- =?utf-8?B?enltb1JOSThya3NrNHhqR2N1bWxhZXdnODd5Tzg1bkRidWFIelh3Z3g3QzRo?=
- =?utf-8?B?bVRRbGJmTVZNb2FRY2lUWEdaK0k0cXluOTd0WHhHRkNudnZxaTJVY3pHUVVz?=
- =?utf-8?B?K20vanp6RnRZWGVNSEJkTVk5TGIwYWU3ZEF0cGlHTHpPNTVZcHRNVnJ1bmJi?=
- =?utf-8?B?d2VlWE5JaU9NTHVzNFhENmpsa2QvSFUwQ0Q4TEpROHVNQTY0WTJiSnZ4U1Nr?=
- =?utf-8?B?WGE0RHo0dWFIUExLajRpa2Y0bmsyZUFsWDlYV09pWFNWdFNmWmlReHJkZWRF?=
- =?utf-8?B?dlF4ZFU2L1NFZlRMcXYvV25MUndVZWlDZWg4aDliMkd3emVvWlo3QjlwNS9p?=
- =?utf-8?B?WXJGZDFQL0dHUHhqTlBNSnZPTkU3QzBVdm8yaTdjWG1uZ2RPNGdXMWZYYXRL?=
- =?utf-8?B?dkRiWjViMDJ4TWJ1djZxWXoydDBxemJLc2l1UTMwTzk2L1V3ak9kKzJBbDll?=
- =?utf-8?B?cWFWUWw3a0dvTUpldzlVWVJsTERTdmpmaFNXNVpacDZ3NHNKRlFjdys5T0M3?=
- =?utf-8?B?VURtK2VsaWlLdmR1K3pGb3BUaGJyU0h4dE1pWFBLWTNEVHNyR2ZvZzhqeUFN?=
- =?utf-8?B?Wkd0Y3VFVEp6cGxuSkRJcnhGdkU1U0VzTk05T0JUUWxXT1NKV2hBalArQ21E?=
- =?utf-8?B?UFlJRHdrLzFXQnRoZjhucXFoS2Y0eEQwQzQ0c2dld2xuNGNTMi8vKyt1KzBW?=
- =?utf-8?B?TVdVVEUvcmVnZk1pSEFKTkFvd1RpMUZ2MHpwNVd4RlJGM0huUmc3NDBIWU0r?=
- =?utf-8?B?MDNoZUNqM01LL0VxZnJpdGtBZ3RXVjZxTjlaTCt5TUFUVm14SlZ4RStyRk9q?=
- =?utf-8?B?M252MUhjSC9HdXBZVWVXWFFycWdaSW1CNkhYT2ZQZFNlZlBoZDQwbGtmeWxC?=
- =?utf-8?B?bHhidTRxWHE3UlA2VnNBVm1ldEZDYmV4T2c0VXJucCtsV29ocDV4Q0xqMlpZ?=
- =?utf-8?B?eUZBejdweVVQQytJZ3NLTmpRSHJ1VUt3OWRTVlgwY2JQNEppR29nRHZrWjdF?=
- =?utf-8?B?MGpNRXF0R3d2TUROVTNrZ2hCcHVyWUFnVGdMdTVjOGZTak1YVjlSMWNFZkVa?=
- =?utf-8?B?VlB4R3YwdnowZEo4N0NjV29nZ0hmbW44UVlBekpZamFkZWV5aWJENU9OZVNk?=
- =?utf-8?B?eTQrcWw4N3ljdnBJWUEwUWlrVjhwMElkMVFYTHlVM0ZJVW4zRm9CTDcxL0hV?=
- =?utf-8?B?M2hZQ0U4RVVGMkxQTk1yQWM3ek5CdEt2UXdvSExiZ21acitHOTk0aThhWnRI?=
- =?utf-8?B?aUZ3aDQ2M3RGeDVsN3ZuZUdzdTZCRktlRHYyTmdmdjd0VXBrTktnRUpKNUlE?=
- =?utf-8?B?RkpkTTRuSW4wSzljMFJldFV5NDdXeUxMOHA5VVNHTzF5N3dEalIwTTNSNFA0?=
- =?utf-8?B?dzg5QUJWVkRQdTUrRzdkbDRicTd6czNyNXNNOE5Xb2VVa2xEWWFubTh1OUEy?=
- =?utf-8?B?T3RLVUxQSFFGZ05icFg3bm5McUF3c081TCs2RkpLdzcwcWVESEVQYkFEdWd6?=
- =?utf-8?B?ZDd6bTM0S29rYjBUS1ByNXczWC92R1JZZ0hUNUw0U0l1TmtnczBTdjZhZk9C?=
- =?utf-8?B?WUNBWUord2xNcDNvTmpCZy9Xa2NXaXhucDgzU2szZFBoTGlHNmNEVEQvQWNu?=
- =?utf-8?B?b1gxcHloZnVlcGFjYmVoV1ZoN1B5UFVLY2Q2bUNhMzdibkkzYW15bHQxRXNO?=
- =?utf-8?B?NU5EYUFSUysvQVhka2VSYWtzWWdyNVlJWjdWTUhaSW9vWVZLNjdxRmNINWVW?=
- =?utf-8?B?YlJFWFlIZjVOa0RmQUlsZHZBbGZIMXZJQWVRWmNPdS81NW9LWi9oUFN6UFhS?=
- =?utf-8?B?Q0Z4R0s2TENNTm85RzJ1VzBSNldmUWdnQ3paMTBMRVU0RUJYOXgxenU0YUJN?=
- =?utf-8?B?WDZnc1gycTVYVStEcHhQc1o1cUxVVXBWbk02alV4WDZGZkdlVmNwV0piZ2d2?=
- =?utf-8?B?cVpKSHc5Q1NJbnlRdzFybW1BeXVGcklqcllhMU1XQnRaOGJnTHlYM3lheGg5?=
- =?utf-8?B?aER3ZCt6Z1BXMDJWL3Z0eWhVV21pZXZpWXdhU2NmT05wMWZ5ekJtWlhrRTBB?=
- =?utf-8?B?M3U1NCt0V2hKbk1oNkg3Q1hZdWE3Mlp1ditnbk01dlljQWprajVxYm04UEha?=
- =?utf-8?B?UlE9PQ==?=
-X-OriginatorOrg: allegrodvt.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f1c174a8-a04e-43b4-47ca-08dd9c268e0f
-X-MS-Exchange-CrossTenant-AuthSource: MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2025 07:25:56.5195
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6ItyzeTOokA8Ola/PH9n7Z7SLqmHR7SKpklZ3oIvfCTg+2eSV+GlbxRKR/7+tjwtQ9d/MXxpXo55RrRsqtUoa2a6JkHunfqtijq6f+l83uU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRZP264MB2347
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdduieelvdculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefujghffgffkfggtgfgsehtqhertddtreejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepffeghfejtdefieeguddukedujeektdeihfelleeuieeuveehkedvleduheeivdefnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtoheptghhrhhishhtohhphhgvrdhjrghilhhlvghtseifrghnrgguohhordhfrhdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrghdprhgtphhtthhopehruhhirdiihhgrnhhgsehinhhtvghlrdgtohhmpdhrtghpthhtoheplhhukhgrshiirdhlu
+ hgsrgesrghrmhdrtghomhdprhgtphhtthhopehsuhhpphhorhhtrdhophgvnhhsohhurhgtvgesughirghsvghmihdrtghomhdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggv
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_002607_670108_7BF2C674 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250526_002920_456349_BE7B0A41 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,37 +89,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23.05.2025 19:13, Krzysztof Kozlowski wrote:
->On 23/05/2025 19:11, Krzysztof Kozlowski wrote:
->> On 23/05/2025 15:41, Yassine Ouaissa wrote:
->>> Add compatible for video decoder on allegrodvt Gen 3 IP.
->>>
->>> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
->> Please do not send the same patches over and over again. You got review
->> which you need to address.
->>
->> Once address you send NEXT version with proper CHANGELOG for each patch
->> or top of cover letter. See submitting patches... or just use b4. This
->> should be actually requirement for this work.
->>
->> Anyway, I see all of previous review ignored so let's be explicit:
->>
->> NAK
->>
-Hi Krzysztof,
+Hello,
 
-Make sure that i'm not ignoring anyone reviews, i sent a new set of
-patches to start cleanly, and i have sent you an email about this.
+On 25/05/2025 at 11:40:04 +02, Christophe JAILLET <christophe.jaillet@wanad=
+oo.fr> wrote:
 
-Also, for this patch (dt-bindings), i respected your previous reviews.
-
-Best regards,
-Yassine OUAISSA
-
->Now I noticed you actually sent the same second time ignoring review and
->I asked to stop and implement review, so this is the third time. This is
->very disappointing.
+> 'struct thermal_zone_device_ops' are not modified in these drivers.
 >
->Best regards,
->Krzysztof
+> Constifying these structures moves some data to a read-only section, so
+> increases overall security, especially when the structure holds some
+> function pointers.
+>
+> On a x86_64, with allmodconfig, as an example:
+> Before:
+> =3D=3D=3D=3D=3D=3D
+>    text	   data	    bss	    dec	    hex	filename
+>   28116	   5168	    128	  33412	   8284	drivers/thermal/armada_thermal.o
+>
+> After:
+> =3D=3D=3D=3D=3D
+>    text	   data	    bss	    dec	    hex	filename
+>   28244	   5040	    128	  33412	   8284	drivers/thermal/armada_thermal.o
+>
+> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> ---
+> Compile tested only
+> ---
+>  drivers/thermal/armada_thermal.c                        | 2 +-
+
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com> # For Armada
+
+Thanks,
+Miqu=C3=A8l
 
