@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D02C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 21:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B653C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 22:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19reQAH/JFXrmKGSfsIuVcMSe5tUTaIhAmGB+5EzAyU=; b=PrXHNUMobb5Hcv+KMMT9dWGVaf
-	Walh3S8+U8FdtaDIugMapxG/O6zFmzIp07SZvn2xmlzNkWT84WtQ5hziaw1HwUNybz3BWf8dtvBl9
-	Q9k1uMrT1sIETOUvNgpBhtlwYWDvX2GVOQnU7VM/64OysCLnfAreb5tW10H/cix75ETZtq1VFP+yk
-	ANHK+jU0NgxgtoSyP/8zCb7u3ajFJ4j3YncQiJHUCQ2r1NLwsfMiTKIk0ydc150Neo8vyf/sU87r+
-	qLwVn8goHecB1MOkrSoJWsQA5mf3CyBO7bVJ/CHmk+cHsqbD86DucadCykDrM40bL0MK8dEkedx01
-	TgQaqRgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rvGrGQY6GrI5CIu+KGfqk3UB3L4We71OJCOlHdzEnqc=; b=whISfemzH+AxN4SJ+bBh/r2VNS
+	R+PIad6pZvObTzWJCCv00D8k7Gw/tS9D/uV8WRrYcBpjLHDB+t+cB1Smg+XHQGcreJ1Ya06BdxieA
+	VAuZ7D+v8LrHFvO859jzRD/xbbdCnyT83vnIGGbUmteaI8I2cpo58tHVXbAxfbZXqc/1+RXl2CdZQ
+	nEXOdalHBsdeMK9sZ0h/0bQDZKBDvXXXBVaxNwRjKUvULjL9qpr0kg3gZNiFwn6kFjbY02L9G9nRn
+	lgF9jzX6wHf6m/oIG8pXwQz4kVen5I0EId1yyFVTegoXO8xI6vNF3P8AmdxIbNZy2t5KVVicZLzMF
+	5lcXtHsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJfg2-00000009YjO-2Rwj;
-	Mon, 26 May 2025 21:48:10 +0000
-Received: from mail-ua1-x92c.google.com ([2607:f8b0:4864:20::92c])
+	id 1uJgUw-00000009bA2-27wA;
+	Mon, 26 May 2025 22:40:46 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJfdv-00000009YcC-3ewj
+	id 1uJgSo-00000009b3p-1x0n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 21:46:01 +0000
-Received: by mail-ua1-x92c.google.com with SMTP id a1e0cc1a2514c-86feb84877aso619439241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 14:45:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748295959; x=1748900759; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=19reQAH/JFXrmKGSfsIuVcMSe5tUTaIhAmGB+5EzAyU=;
-        b=F0PsgNON8CdXY7o5UF83L/HoyjqbYNPGEjHyN+vjsUz1ai1Tfh9kIW91kSCRRSjRJO
-         TQgH25rmKUiaCDa0VLwc3EfVc4XY8p9z71/+Tqi0gbixG/fPUCh6N5eWcEFNrRjZ0b5f
-         cYNUDSDo9SHi9ukN4Efv+WO6m/x3oPgkLw8Vh0fjW1xb9XNieI8ljReGQrg++oGjDbak
-         QCo7x59/9uH0B+b/rYcYXZKWG/kkSriYqBjOW831XSgANwa6IARtlLNUNOmaQhJE6Ro3
-         9LcbcBK23sbXx2R3LEIwpcbHvkxdN38h+7XQI/+NJV+jl9T5G3d7qrJZDR4cDygQ3JD/
-         GJAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748295959; x=1748900759;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=19reQAH/JFXrmKGSfsIuVcMSe5tUTaIhAmGB+5EzAyU=;
-        b=axfoewBPnkGvpo/jJqKvRn5Ia4Z2MQRCPUS7BkOCQDTdvZEP8JshovVG4OYSvgaSdA
-         OzikLrLb+K93mhU1QaDQ0Bx4JM9bjpkXlGm6lYxCn88fVQ6KgS5kYD1YTDT4vLFMyv6X
-         KMIT9HC5R24OvcrTBQQK5BcVABpB4XET/BN+oBsIjRoLHeCkbBifW5RAOMW1LYxs3F/x
-         pSDzeIzG0e+TidGyFB9AlbdEL4h+fmSPUpZbyaMzv+Uit/MSk9OE1xe3Qf15DNg2kwGu
-         sp6c24wU1qks/DcE7M/u0xYmCkiLjXgy5dwmytf9RwWB0I7hrVWXfkqhlE4r7GFxiXed
-         k/9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVFGP30tbPdJcg4Cgc0S0tAD9t/CuTYQ8MOduc8Qo+QV4IAcVrK3YjcEohuxzq+r+56LT0Zpsp94ziMew9hi8LQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCHAQQeVEtkUOdlel/3nouwlMY+dz/ScLojm4IFipMtadVbhhJ
-	d3eycsWR8R6Zn2/SqNdxDYMRsseOx8yJtZONaf5L47ORkpcvHBlwYhsEnLZ2OD6iHQbg3UhfHus
-	rLXN/SIXjnkn770n+LbBqXGfAxqsYR3E=
-X-Gm-Gg: ASbGncsVTbDzklQJXCDXDFtdbGd08yn0U80vCQF5ryop943swHWCbUBZE+2ZB//05lq
-	WC6uZqRPqV+hZoW8Uyl63ETVNWLs0kjGZspWizao0uxcoaATVmRWJF7+QXlCu4iD6EyRIuYsOxR
-	tK/DCu4We9L2WuH8RGFgl3yGHHASMSQyfz+A==
-X-Google-Smtp-Source: AGHT+IFotR6RyxU/ifwJ8AmbTwSsnUIU6QL7qlKuPNmt94jWJ9smNJz+SAYTONBfXHAq+tKlLbtbIPgWrf25oFYgN6o=
-X-Received: by 2002:a05:6102:5244:b0:4dd:b82d:e0de with SMTP id
- ada2fe7eead31-4e42415fc45mr7977719137.17.1748295958811; Mon, 26 May 2025
- 14:45:58 -0700 (PDT)
-MIME-Version: 1.0
+	Mon, 26 May 2025 22:38:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=rvGrGQY6GrI5CIu+KGfqk3UB3L4We71OJCOlHdzEnqc=; b=Iu
+	bjOqNGBqi7kZdOZUsIJmfdxJSh5dGZvTn81tqDWY+m5F8tpYrCLHOSNWmdRrhhWhYu18TI7T9Xa5Q
+	dVCCViWCC272L+Bca8cL6c7py3tGDApC58mmSZPYX4HwK+Z+5p9dwK/hpweJHtk628kDuIYpX8sEZ
+	eiCGgfQiQX6Zdbg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uJgSV-00E1z3-K7; Tue, 27 May 2025 00:38:15 +0200
+Date: Tue, 27 May 2025 00:38:15 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/3] dt-bindings: net: sun8i-emac: Add AC300 EMAC1
+ nvmem phy selection
+Message-ID: <d4109cc5-83d5-4acd-b0fb-39a50043060b@lunn.ch>
 References: <20250526182939.2593553-1-james.hilliard1@gmail.com>
- <20250526182939.2593553-2-james.hilliard1@gmail.com> <a2ac65eb-e240-48f1-b787-c57b5f3ce135@lunn.ch>
- <CADvTj4rO-thqYE3VZPE0B0fTTR_v=gJDAxBA3=fo501OL+qvNg@mail.gmail.com> <5b7bf54e-4838-48b3-a357-70f117674523@lunn.ch>
-In-Reply-To: <5b7bf54e-4838-48b3-a357-70f117674523@lunn.ch>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 26 May 2025 15:45:45 -0600
-X-Gm-Features: AX0GCFuEfLkt9AfTQ9ECVkRYk1pIwbklJGqsNyxbFKVvoc0OdxtNfymBf0iJQt4
-Message-ID: <CADvTj4pt48o0wm-69WfkOtp0c-aP64DSwPFo=znY2Hk_N2ft1w@mail.gmail.com>
-Subject: Re: [PATCH v1 2/3] net: stmmac: dwmac-sun8i: Allow runtime
- AC200/AC300 phy selection
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Serge Semin <fancer.lancer@gmail.com>, 
-	Feiyang Chen <chenfeiyang@loongson.cn>, Yanteng Si <si.yanteng@linux.dev>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Jinjie Ruan <ruanjinjie@huawei.com>, Paul Kocialkowski <paulk@sys-base.io>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+ <20250526182939.2593553-3-james.hilliard1@gmail.com>
+ <959e576e-bf36-4d01-9ffb-023931b61574@lunn.ch>
+ <CADvTj4oqjCkMeK0p8ZBa8PQmctc77hpiFK2pqgBJaxRFDgQoDQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADvTj4oqjCkMeK0p8ZBa8PQmctc77hpiFK2pqgBJaxRFDgQoDQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_144559_911379_12D30C58 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20250526_153834_511963_E8B218E0 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,53 +83,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 3:22=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> > > The normal way to do this is phy_find_first().
+On Mon, May 26, 2025 at 03:32:03PM -0600, James Hilliard wrote:
+> On Mon, May 26, 2025 at 1:36 PM Andrew Lunn <andrew@lunn.ch> wrote:
 > >
-> > Sure, but there are problems with that approach here.
+> > > +        phy-mode = "rgmii";
 > >
-> > The initialization sequences are rather different and the devices
-> > won't be visible on the mdio bus until after they are initialized.
-> >
-> > The resets will be specific to either the AC200 or AC300 so we
-> > need to choose the correct PHY based on the efuse value rather
-> > than a mdio bus scan to avoid a circular dependency essentially.
-> >
-> > AC200: i2c based reset/init sequence
-> > AC300: mdio based reset/init sequence
->
-> O.K. so you need to post more, so we get to see the complete
-> problem/solution. It seems to me, AC200 and AC300 are not compatible,
-> so should have different compatible strings. That might be part of the
-> solution. But it is too early to say.
+> > Does the PCB have extra long clock lines?
+> 
+> I'm not sure, it's a copackaged(maybe on-die is the wrong terminology)
+> PHY I think so I assume the clock lines are internal, in the device specific
+> dts we set something like this on the emac1 node:
+> allwinner,rx-delay-ps = <3100>;
+> allwinner,tx-delay-ps = <700>;
 
-They will need to use different reset drivers but the mac part is
-largely the same AFAIU. The mdio part is similar after initialization
-as well I think.
+Those values are just weird. The RGMII delay should be 2000ps. 3100 is
+way too big, and 700 is way too small.
 
-These are the vendor docs(I only found chinese version so far) that
-have some more details on the AC200 and AC300 EPHY's:
-http://file.whycan.com/files/202304/V85x/Linux_EMAC_%e5%bc%80%e5%8f%91%e6%8=
-c%87%e5%8d%97.pdf
+I think phy-mode = "internal" would be better, and just hard code the
+delays either in the MAC or PHY driver.
 
-Translated important sections:
+Thanks for the link to the old thread, which was 5 years
+ago. Hopefully since then, a bit more has been learnt. Quickly reading
+through that thread, i don't think an MFD is not the correct solution.
+In the last 5 years we have had to deal with more chicken/egg problems
+with PHYs. It has now become pretty much standard practice to put the
+ID values in DT, to get the driver probed when the device does not
+respond on the bus. The DT node can then use phandles to the reset and
+clock controller to configure them as needed, the core will probably
+do that. I2C is a bit messier, you probably want a phandle pointing to
+the i2c_adapter, so you can use i2c_transfer() on it in the probe()
+function.
 
-For AC200:
-ARM communicates with AC200 through TWI, initializes EPHY, and then
-MAC accesses the MDIO bus.
-EPHY, PWM module provides an internal 25M clock to EPHY.
-
-For AC300:
-ARM communicates with AC300 through MDIO bus, initializes EPHY, and
-then MAC accesses EPHY through MDIO bus. PWM module provides an
-internal
-25M clock to EPHY.
-
-So the MAC to EPHY connection is more or less the same AFAIU,
-but the initialization is quite different.
-
->
->         Andrew
->
+	Andrew
 
