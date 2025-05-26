@@ -4,66 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3517C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 15:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465A2C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 15:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CXYtb7g+fMKRsYwDlqjURADQ3FqYAKuKnyqKDjD40dY=; b=NX7UxWoiWDJQnbv4DzXdlRvXDd
-	L0j27Q35lrFyLSF4Jgr54TzgBVYJi1BRXYqOgWLGB0eN8yGTtrHlfI2ewXoiYFCzIXTRP4d/UwFfp
-	HNb3NQLBDVV22TQAoZ/cwya252GPIkTY6UOpjK9uXlFmhy/lhIxH5h8DW3fcK3f/o/BBuEUqPQvfa
-	BcJ4ss7+UaD/NAp8qDtyru1PZd8QaKJqpySH2tsOD1zBWVQJkB0GncDC2wNS0f8WBYLiItAumeKLO
-	/xjXy/xhQMBO5bwPT/hMpBPGJxdmZcToybzP7mMpXRc5jF3ViX1hOt4xDoUT6t9dQ4cOU2GOlg2OX
-	0qddnqBg==;
+	bh=rW5ZHuaPdfqfwDvrnkrsezcElkYLPA1vqOkoWGgulJw=; b=GjY+1HD97gLUALU3jcfbza/w+J
+	9SgxhPPPdyVwXRD4ZxWOYMcfVHNsLEvDbd0eqKt5hGdj/hxXDNTEacdAB0N7KqspY2/JVeaL1DtiD
+	jangeKnVaqzA0SYm4yoHBNuyRq3ZzR0JSAYxxIhKkvPWSCGHzP2icR3/F2RsHqhqkCaCRI2W8Moxh
+	icKU9jR+30O+amua43iSzsYzEvw3RKZ6t1+3FFTX+OupmSPXavjOyuORlMTS/8qoKWaGJ7ikLkBJK
+	s9uWeTCQwrDXqSLeM+/wyK9rF/54ESMNbeUVVPPzs6I+mmVHG+2jcIvfPS0wWk78kJr0lwXC+N24i
+	S9PxgIlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJZzT-000000099p4-2YUd;
-	Mon, 26 May 2025 15:43:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uJa9a-00000009B69-2kI2;
+	Mon, 26 May 2025 15:54:18 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJZvl-000000099Ck-1qjz;
-	Mon, 26 May 2025 15:40:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BEC855C063D;
-	Mon, 26 May 2025 15:37:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75709C4CEE7;
-	Mon, 26 May 2025 15:40:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748274000;
-	bh=YQ6Ly+xBPMeVJ+JVo7f3xRiXkboBAQ6F9hhHJQEGf84=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=QbXqeYokd7wqEyGnBYiB9sPwODzrPB4IFKF0PgR3A4lfNgAluaiXjUelPqTaKHnNU
-	 56ZmkELpxAieLx0x+uWU0m4U0jhpTf9kWAbsRrb1x9FdyznBKc8LboD8l259dGN4br
-	 6KeSYRfQWl08zyq5cTWCtMVRQ0qtfF92XgdtCBsIp8b9zeOcmsJndbkym7yHm79GA1
-	 OcJSZD0DjMyENQ0HdvrQjo3UdVcXwL9nq0FVKz251IsHvhsF9i259oijQ759/dBPJu
-	 tdsj1L9l64hPKxcS9GlavrMF5NKN+5aMi5bZ5O5zDBPBSSJciFR3dgEZwcVH5qVylB
-	 QFs14TJ5FGuRA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33B263805D8E;
-	Mon, 26 May 2025 15:40:36 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1uJa7R-00000009Ata-0bLm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 15:52:07 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54QB4fPp012749;
+	Mon, 26 May 2025 17:51:45 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	rW5ZHuaPdfqfwDvrnkrsezcElkYLPA1vqOkoWGgulJw=; b=7KAOfWuSkxrfv3ap
+	O/Sd902RG47wwlINI4gwwK7ogvvAsXgo4HKT2hcSwYMLVZjKAzZBh4Jqlzi3/DC5
+	UB6qLfo2/9JVQ+w+LizQVutPccWnKsLldljzQ69yzezypqQbxJyyr8hVJzYHeatI
+	oQsACu+tzGfsUuiODQFi8BxsiPO4RYcdPpA1/vVxdUGm0ctQj9dTvy0LQmJEi8C5
+	1/Fh3z+pnmZpvX0jnyBWOQQpF2tGmN+Wr4rIn0Hz2Vlx6tQG4JnxtZVUoxjI70Tl
+	PHa0sdv/yDXDIkr54h9okZ7Vov/saSr6jtTloRwKPzoo1SmxwjC7DfxqsfyozAlU
+	tNr7oQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46uqp4dnhb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 26 May 2025 17:51:45 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E564F40056;
+	Mon, 26 May 2025 17:50:19 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9BE99ACB869;
+	Mon, 26 May 2025 17:48:33 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
+ (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 26 May
+ 2025 17:48:33 +0200
+Received: from [10.48.86.222] (10.48.86.222) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 26 May
+ 2025 17:48:32 +0200
+Message-ID: <ab75c390-b172-4dbb-b46b-8cbf64d4600a@foss.st.com>
+Date: Mon, 26 May 2025 17:48:31 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iio: adc: stm32-adc: Fix race in installing chained
+ IRQ handler
+To: Jonathan Cameron <jic23@kernel.org>,
+        =?UTF-8?Q?Nuno_S=C3=A1?=
+	<noname.nuno@gmail.com>
+CC: Chen Ni <nichen@iscas.ac.cn>, <dlechner@baylibre.com>,
+        <nuno.sa@analog.com>, <andy@kernel.org>, <mcoquelin.stm32@gmail.com>,
+        <alexandre.torgue@foss.st.com>, <u.kleine-koenig@baylibre.com>,
+        <tglx@linutronix.de>, <robh@kernel.org>, <jirislaby@kernel.org>,
+        <linux-iio@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Olivier Moysan <olivier.moysan@foss.st.com>
+References: <20250515083101.3811350-1-nichen@iscas.ac.cn>
+ <229cf78caaa7e9f2bb4cfa62c019acd51a1cd684.camel@gmail.com>
+ <20250525120703.5dd89fc2@jic23-huawei>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <20250525120703.5dd89fc2@jic23-huawei>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3 0/4] Add the capability to consume SRAM for
- hwfd descriptor queue in airoha_eth driver
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174827403500.961666.15762374544120433912.git-patchwork-notify@kernel.org>
-Date: Mon, 26 May 2025 15:40:35 +0000
-References: <20250521-airopha-desc-sram-v3-0-a6e9b085b4f0@kernel.org>
-In-Reply-To: <20250521-airopha-desc-sram-v3-0-a6e9b085b4f0@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org
+X-Originating-IP: [10.48.86.222]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-26_08,2025-05-26_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_084001_524530_1CD2BB5F 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250526_085205_782315_C2ADF20F 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,37 +106,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Wed, 21 May 2025 09:16:35 +0200 you wrote:
-> In order to improve packet processing and packet forwarding
-> performances, EN7581 SoC supports consuming SRAM instead of DRAM for hw
-> forwarding descriptors queue. For downlink hw accelerated traffic
-> request to consume SRAM memory for hw forwarding descriptors queue.
-> Moreover, in some configurations QDMA blocks require a contiguous block
-> of system memory for hwfd buffers queue. Introduce the capability to
-> allocate hw buffers forwarding queue via the reserved-memory DTS
-> property instead of running dmam_alloc_coherent().
+On 5/25/25 13:07, Jonathan Cameron wrote:
+> On Thu, 15 May 2025 11:26:56 +0100
+> Nuno Sá <noname.nuno@gmail.com> wrote:
 > 
-> [...]
+>> On Thu, 2025-05-15 at 16:31 +0800, Chen Ni wrote:
+>>> Fix a race where a pending interrupt could be received and the handler
+>>> called before the handler's data has been setup, by converting to
+>>> irq_set_chained_handler_and_data().
+>>>
+>>> Fixes: d58c67d1d851 ("iio: adc: stm32-adc: add support for STM32MP1")
+>>> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+>>> ---  
+>>
+>> Reviewed-by: Nuno Sá <nuno.sa@analog.com>
+> Looks good to me and I've queued it up for after rc1.  If any
+> ST folk have time to take a look that would be great.
 
-Here is the summary with links:
-  - [net-next,v3,1/4] dt-bindings: net: airoha: Add EN7581 memory-region property
-    https://git.kernel.org/netdev/net-next/c/2d13b45f8086
-  - [net-next,v3,2/4] net: airoha: Do not store hfwd references in airoha_qdma struct
-    https://git.kernel.org/netdev/net-next/c/09aa788f98da
-  - [net-next,v3,3/4] net: airoha: Add the capability to allocate hwfd buffers via reserved-memory
-    https://git.kernel.org/netdev/net-next/c/3a1ce9e3d01b
-  - [net-next,v3,4/4] net: airoha: Add the capability to allocate hfwd descriptors in SRAM
-    https://git.kernel.org/netdev/net-next/c/c683e378c090
+Hi Jonathan,
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+One minor comment at my end, not sure if that changes a lot...
+This could be a fix for the older commit:
+1add69880240 ("iio: adc: Add support for STM32 ADC core")
 
+Apart from that, you can add my:
+Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Reviewed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 
+BR,
+Fabrice
+
+> 
+> Jonathan
+> 
+>>
+>>> Changelog:
+>>>
+>>> v1 -> v2:
+>>>
+>>> 1. Add Fixes tag.
+>>> ---
+>>>  drivers/iio/adc/stm32-adc-core.c | 7 +++----
+>>>  1 file changed, 3 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32-adc-
+>>> core.c
+>>> index bd3458965bff..21c04a98b3b6 100644
+>>> --- a/drivers/iio/adc/stm32-adc-core.c
+>>> +++ b/drivers/iio/adc/stm32-adc-core.c
+>>> @@ -430,10 +430,9 @@ static int stm32_adc_irq_probe(struct platform_device
+>>> *pdev,
+>>>  		return -ENOMEM;
+>>>  	}
+>>>  
+>>> -	for (i = 0; i < priv->cfg->num_irqs; i++) {
+>>> -		irq_set_chained_handler(priv->irq[i], stm32_adc_irq_handler);
+>>> -		irq_set_handler_data(priv->irq[i], priv);
+>>> -	}
+>>> +	for (i = 0; i < priv->cfg->num_irqs; i++)
+>>> +		irq_set_chained_handler_and_data(priv->irq[i],
+>>> +						 stm32_adc_irq_handler,
+>>> priv);
+>>>  
+>>>  	return 0;
+>>>  }  
+> 
 
