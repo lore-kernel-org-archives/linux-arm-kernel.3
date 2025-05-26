@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8A5C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 06:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E61CC5B542
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 06:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqG/Wy3+meYZ9Nw6yZE9fdRixbffGpHZok75x3uNNP4=; b=H5BVD5ERDsJwrvmLiwHS0QJ60H
-	UDAKO8+fVmJD81YCidmukl83qbCnZNZkbIFvk8xhhZu1eVllx+Onj0AL0DS3PdJd3/W0niesPDDua
-	qIIqix4o2ZADUq/hByjXnwaUI9n576YtCN4HjHvlyhMreNT71RUJGX6GmsoWByHknTEi27mOjRGJO
-	2ltlmBny2gDjgx8pz72QzDNeejl50eh6hb4zSeiDLU1dhtwrqiE3WkLg/LxNtCMjzZHHwp+9pIBpW
-	wuGjAeIZp8UFspvrm4/rC+XuZWpUVG4MiAyLohOqYYXZKGMKntynMvuXDHP0r604rB7WSEtLAAzy/
-	GNF177IA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RSrUR1DGD47JXZdimmoByInAoeHNIlKhw1JAx4cj1B0=; b=C+FJRModA4ryvswoPMMCHjhDsh
+	p6dXqc0TJVjS0+VvPuEY8BnIv4JQ91KPaTNS8YOLfEwfIP0iba83dTJrN5yMz4VTHSFYwHJdxoKtb
+	bmUFpZFevDmc25DHNYnkT9tuXEcCqE9qs1PuL2N6rmC/agtcOmDj07Oy7KjabeIty9LIyTN2bMR6N
+	3irdqwedPmpuB/hr8vN4Mb8Od1x8QfZs2iB1nEPdtpkxwBioolXQKdaqhHtF2Fat69mu9UWwEGf5o
+	jrEZhx+BDTIPqa2F0vfoRAZ/L8XXTM14uO4SQSfwL5pXGfflbnuQ+b/O9WsWsVab05qDyn0deUZgQ
+	FLreRo7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJRTL-00000008DLX-1NtX;
-	Mon, 26 May 2025 06:38:07 +0000
-Received: from mail-m3276.qiye.163.com ([220.197.32.76])
+	id 1uJRVQ-00000008Dal-0AOb;
+	Mon, 26 May 2025 06:40:16 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJRHp-00000008Bsg-1T74;
-	Mon, 26 May 2025 06:26:15 +0000
-Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1660c017b;
-	Mon, 26 May 2025 14:26:07 +0800 (GMT+08:00)
-From: Elaine Zhang <zhangqing@rock-chips.com>
-To: zhangqing@rock-chips.com,
-	mkl@pengutronix.de,
-	kernel@pengutronix.de,
-	mailhol.vincent@wanadoo.fr,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	cl@rock-chips.com,
-	kever.yang@rock-chips.com
-Cc: linux-can@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v6 4/4] net: can: rockchip: support dma for rk3576 rx
-Date: Mon, 26 May 2025 14:25:59 +0800
-Message-Id: <20250526062559.2061311-5-zhangqing@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250526062559.2061311-1-zhangqing@rock-chips.com>
-References: <20250526062559.2061311-1-zhangqing@rock-chips.com>
+	id 1uJRMU-00000008CUm-2QlJ;
+	Mon, 26 May 2025 06:31:03 +0000
+X-UUID: fb32fb7839fa11f0bed96b30c12bc3d6-20250525
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=RSrUR1DGD47JXZdimmoByInAoeHNIlKhw1JAx4cj1B0=;
+	b=bXHgzdraeOWzHhNrsfyZmzX4MJu57Im6qbUMiS/S7F1WXkTzJOGUZhjgmxFO/iBrBm1pFRbDLAIcrZoyIbUnVA3EYrifrPlmXJgmZsxgm4dGO16CtpqpeH51thBVwMgD1aIdWGWsYX3BpA1+1mTwI5OgyLwydS8cmH8CbDNjlPc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:d3264fa2-8c36-4ac8-a510-e3c4281c096c,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:e61fba47-ee4f-4716-aedb-66601021a588,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: fb32fb7839fa11f0bed96b30c12bc3d6-20250525
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1783023596; Sun, 25 May 2025 23:30:56 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 26 May 2025 14:30:53 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 26 May 2025 14:30:52 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <mchehab@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jianhua Lin
+	<jianhua.lin@mediatek.com>
+Subject: [PATCH v2 1/1] media: mediatek: jpeg: add compatible for MT8188 SoC
+Date: Mon, 26 May 2025 14:30:44 +0800
+Message-ID: <20250526063044.1513-1-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh0YQ1ZDTR8aGkNNHh9PTU1WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-X-HM-Tid: 0a970b45195a03a3kunm902b49ed4a33da
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MBw6PDo4MzE1Pg4YVhgeTjEh
-	PUwwC0hVSlVKTE9DSU9LTE1DQkhKVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUNOQ043Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=ITBADzCkKdMRaStkLgK06xzfxrmvQighhyh7HQBYg7OOiTtB78XYQDqlk7rU9sdbyPnM+0+iPA9XLyQJeuq/x0aE8phzZefFL+MhFg/hGjuRhK20EHt5KRhxuwzjU7SQpffUQEXtautrWE3WSJ2c5j+gtCjB+0eUdZmqZC++L7A=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=xqG/Wy3+meYZ9Nw6yZE9fdRixbffGpHZok75x3uNNP4=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_232613_627261_99D6F0A4 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20250525_233102_666000_00FD6AB8 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,246 +84,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new can controller of rk3576 supports rx dma.
+Add jpeg decoder and encoder compatible for MediaTek MT8188 SoC,
+and enable support_34bit.
 
-Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
 ---
- .../net/can/rockchip/rockchip_canfd-core.c    | 39 +++++++++
- drivers/net/can/rockchip/rockchip_canfd-rx.c  | 87 +++++++++++++++++++
- drivers/net/can/rockchip/rockchip_canfd.h     | 11 +++
- 3 files changed, 137 insertions(+)
+Changes compared with v1:
+- Update the dependent commit information only.
 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-index 92e260cb2527..9ef4a9ae19d8 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-@@ -433,6 +433,9 @@ static void rk3576canfd_chip_start(struct rkcanfd_priv *priv)
- 		      RK3576CANFD_REG_BRS_CFG_BRS_NEGSYNC_EN |
- 		      RK3576CANFD_REG_BRS_CFG_BRS_POSSYNC_EN);
- 
-+	if (priv->use_dma)
-+		rkcanfd_write(priv, RK3576CANFD_REG_DMA_CTRL,
-+			      RK3576CANFD_REG_DMA_CTRL_DMA_RX_EN | priv->dma_thr);
- 	rkcanfd_set_bittiming(priv);
- 
- 	priv->devtype_data.interrupts_disable(priv);
-@@ -1324,10 +1327,31 @@ static const struct of_device_id rkcanfd_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, rkcanfd_of_match);
- 
-+static void rk3576_canfd_dma_init(struct rkcanfd_priv *priv)
-+{
-+	struct dma_slave_config rxconf = {
-+		.direction = DMA_DEV_TO_MEM,
-+		.src_addr = priv->rx_dma_src_addr,
-+		.src_addr_width = 4,
-+		.dst_addr_width = 4,
-+		.src_maxburst = 9,
-+	};
-+
-+	priv->dma_thr = rxconf.src_maxburst - 1;
-+	priv->rxbuf = dma_alloc_coherent(priv->dev, priv->dma_size * 14,
-+					 &priv->rx_dma_dst_addr, GFP_KERNEL);
-+	if (!priv->rxbuf) {
-+		priv->use_dma = 0;
-+		return;
-+	}
-+	dmaengine_slave_config(priv->rxchan, &rxconf);
-+}
-+
- static int rkcanfd_probe(struct platform_device *pdev)
- {
- 	struct rkcanfd_priv *priv;
- 	struct net_device *ndev;
-+	struct resource *res;
- 	const void *match;
- 	int err;
- 
-@@ -1349,6 +1373,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
- 		goto out_free_candev;
- 	}
- 
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
- 	priv->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(priv->regs)) {
- 		err = PTR_ERR(priv->regs);
-@@ -1376,6 +1401,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
- 	priv->can.do_set_mode = rkcanfd_set_mode;
- 	priv->can.do_get_berr_counter = rkcanfd_get_berr_counter;
- 	priv->ndev = ndev;
-+	priv->dev = &pdev->dev;
- 
- 	match = device_get_match_data(&pdev->dev);
- 	if (match) {
-@@ -1384,6 +1410,19 @@ static int rkcanfd_probe(struct platform_device *pdev)
- 			priv->can.ctrlmode_supported |= CAN_CTRLMODE_FD;
- 	}
- 
-+	priv->rxchan = dma_request_chan(&pdev->dev, "rx");
-+	if (IS_ERR(priv->rxchan)) {
-+		dev_warn(&pdev->dev, "Failed to request rxchan\n");
-+		priv->rxchan = NULL;
-+		priv->use_dma = 0;
-+	} else {
-+		priv->rx_dma_src_addr = res->start + RK3576CANFD_REG_RXFRD;
-+		priv->dma_size = RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT * 4;
-+		priv->use_dma = 1;
-+	}
-+	if (priv->use_dma)
-+		rk3576_canfd_dma_init(priv);
-+
- 	err = can_rx_offload_add_manual(ndev, &priv->offload,
- 					RKCANFD_NAPI_WEIGHT);
- 	if (err)
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-index 8a383cabd9d2..ac06e876552e 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-@@ -285,6 +285,52 @@ static int rk3576canfd_handle_rx_int_one(struct rkcanfd_priv *priv)
- 	return 0;
- }
- 
-+static int rk3576canfd_handle_rx_dma(struct rkcanfd_priv *priv, u32 addr)
-+{
-+	struct net_device_stats *stats = &priv->ndev->stats;
-+	struct canfd_frame cfd[1] = { }, *skb_cfd;
-+	struct rk3576canfd_fifo_header header[1] = { };
-+	struct sk_buff *skb;
-+	u32 __iomem *rxbuf = (u32 __iomem *)priv->rxbuf;
-+	unsigned int len;
-+	int i;
-+
-+	header->frameinfo = readl(rxbuf +
-+				  addr * RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
-+	header->id = readl(rxbuf + 1 +
-+			   addr * RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
-+	for (i = 0; i < (RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT - 2); i++)
-+		cfd->data[i] = readl(rxbuf + 2 + i +
-+				     addr * RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
-+
-+	len = rk3576canfd_fifo_header_to_cfd_header(priv, header, cfd);
-+
-+	/* Manual handling of CAN Bus Error counters. See
-+	 * rkcanfd_get_corrected_berr_counter() for detailed
-+	 * explanation.
-+	 */
-+	if (priv->bec.rxerr)
-+		priv->bec.rxerr = min(CAN_ERROR_PASSIVE_THRESHOLD,
-+				      priv->bec.rxerr) - 1;
-+
-+	if (header->frameinfo & RK3576CANFD_REG_RXFRD_FRAMEINFO_FDF)
-+		skb = alloc_canfd_skb(priv->ndev, &skb_cfd);
-+	else
-+		skb = alloc_can_skb(priv->ndev, (struct can_frame **)&skb_cfd);
-+
-+	if (!skb) {
-+		stats->rx_dropped++;
-+
-+		return 0;
-+	}
-+
-+	memcpy(skb_cfd, cfd, len);
-+	stats->rx_packets++;
-+	stats->rx_bytes += cfd->len;
-+	netif_rx(skb);
-+	return 0;
-+}
-+
- static int rkcanfd_handle_rx_int_one(struct rkcanfd_priv *priv)
- {
- 	struct net_device_stats *stats = &priv->ndev->stats;
-@@ -380,6 +426,43 @@ rk3576canfd_rx_fifo_get_len(const struct rkcanfd_priv *priv)
- 	return DIV_ROUND_UP(val, RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
- }
- 
-+static void rk3576_canfd_rx_dma_callback(void *data)
-+{
-+	struct rkcanfd_priv *priv = data;
-+	int i;
-+
-+	for (i = 0; i < priv->quota; i++)
-+		rk3576canfd_handle_rx_dma(priv, i);
-+
-+	rkcanfd_write(priv, RK3576CANFD_REG_INT_MASK, priv->reg_int_mask_default);
-+}
-+
-+static int rk3576_canfd_rx_dma(struct rkcanfd_priv *priv)
-+{
-+	struct dma_async_tx_descriptor *rxdesc = NULL;
-+	const u32 reg = rkcanfd_read(priv, RK3576CANFD_REG_STR_STATE);
-+	int quota = FIELD_GET(RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT, reg);
-+
-+	quota = DIV_ROUND_UP(quota, RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
-+	priv->quota = quota;
-+	if (priv->quota == 0) {
-+		rkcanfd_write(priv, RK3576CANFD_REG_INT_MASK, priv->reg_int_mask_default);
-+		return 0;
-+	}
-+
-+	rxdesc = dmaengine_prep_slave_single(priv->rxchan, priv->rx_dma_dst_addr,
-+					     priv->dma_size * priv->quota, DMA_DEV_TO_MEM, 0);
-+	if (!rxdesc)
-+		return -ENOMSG;
-+
-+	rxdesc->callback = rk3576_canfd_rx_dma_callback;
-+	rxdesc->callback_param = priv;
-+
-+	dmaengine_submit(rxdesc);
-+	dma_async_issue_pending(priv->rxchan);
-+	return 0;
-+}
-+
- int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv)
- {
- 	unsigned int len;
-@@ -399,6 +482,10 @@ int rkcanfd_handle_rk3576_rx_int(struct rkcanfd_priv *priv)
- 	unsigned int len;
- 	int err;
- 
-+	if (priv->use_dma) {
-+		rk3576_canfd_rx_dma(priv);
-+		return 0;
-+	}
- 	while ((len = rk3576canfd_rx_fifo_get_len(priv))) {
- 		err = rk3576canfd_handle_rx_int_one(priv);
- 		if (err)
-diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
-index 9b91d757d054..c7d6845c6d95 100644
---- a/drivers/net/can/rockchip/rockchip_canfd.h
-+++ b/drivers/net/can/rockchip/rockchip_canfd.h
-@@ -11,6 +11,8 @@
- #include <linux/can/dev.h>
- #include <linux/can/rx-offload.h>
- #include <linux/clk.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/dmaengine.h>
- #include <linux/io.h>
- #include <linux/netdevice.h>
- #include <linux/reset.h>
-@@ -737,6 +739,7 @@ struct rkcanfd_priv {
- 	struct can_priv can;
- 	struct can_rx_offload offload;
- 	struct net_device *ndev;
-+	struct device *dev;
- 
- 	void __iomem *regs;
- 	unsigned int tx_head;
-@@ -758,6 +761,14 @@ struct rkcanfd_priv {
- 	struct reset_control *reset;
- 	struct clk_bulk_data *clks;
- 	int clks_num;
-+	bool use_dma;
-+	u32 dma_size;
-+	u32 dma_thr;
-+	int quota;
-+	struct dma_chan *rxchan;
-+	u32 *rxbuf;
-+	dma_addr_t rx_dma_src_addr;
-+	dma_addr_t rx_dma_dst_addr;
+This patch depends on the following commit:
+[1]
+Commit: https://git.linuxtv.org/media.git/commit/?id=7560349ee0d9441642da6d38c3822d08fffdd2fb
+Title: [PATCH] media: mediatek: jpeg: support 34bits
+
+The above commit introduces a new variable 'support_34bit', that is required 
+for enable 34-bit iova support in this patch. Without the changes in this commit,
+it will not work and cause compile error.
+
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index 23692cd91e2c..0ed1c352bc0f 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1869,6 +1869,10 @@ static struct clk_bulk_data mtk_jpeg_clocks[] = {
+ 	{ .id = "jpgenc" },
  };
  
- static inline u32
++static struct clk_bulk_data mtk_jpeg_dec_clocks[] = {
++	{ .id = "jpgdec" },
++};
++
+ static struct clk_bulk_data mt8173_jpeg_dec_clocks[] = {
+ 	{ .id = "jpgdec-smi" },
+ 	{ .id = "jpgdec" },
+@@ -1931,6 +1935,38 @@ static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
+ 	.jpeg_worker = mtk_jpegdec_worker,
+ };
+ 
++static const struct mtk_jpeg_variant mtk8188_jpegenc_drvdata = {
++	.clks = mtk_jpeg_clocks,
++	.num_clks = ARRAY_SIZE(mtk_jpeg_clocks),
++	.formats = mtk_jpeg_enc_formats,
++	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
++	.qops = &mtk_jpeg_enc_qops,
++	.irq_handler = mtk_jpeg_enc_irq,
++	.hw_reset = mtk_jpeg_enc_reset,
++	.m2m_ops = &mtk_jpeg_enc_m2m_ops,
++	.dev_name = "mtk-jpeg-enc",
++	.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
++	.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
++	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
++	.support_34bit = true,
++};
++
++static const struct mtk_jpeg_variant mtk8188_jpegdec_drvdata = {
++	.clks = mtk_jpeg_dec_clocks,
++	.num_clks = ARRAY_SIZE(mtk_jpeg_dec_clocks),
++	.formats = mtk_jpeg_dec_formats,
++	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
++	.qops = &mtk_jpeg_dec_qops,
++	.irq_handler = mtk_jpeg_dec_irq,
++	.hw_reset = mtk_jpeg_dec_reset,
++	.m2m_ops = &mtk_jpeg_dec_m2m_ops,
++	.dev_name = "mtk-jpeg-dec",
++	.ioctl_ops = &mtk_jpeg_dec_ioctl_ops,
++	.out_q_default_fourcc = V4L2_PIX_FMT_JPEG,
++	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
++	.support_34bit = true,
++};
++
+ static const struct of_device_id mtk_jpeg_match[] = {
+ 	{
+ 		.compatible = "mediatek,mt8173-jpgdec",
+@@ -1952,6 +1988,14 @@ static const struct of_device_id mtk_jpeg_match[] = {
+ 		.compatible = "mediatek,mt8195-jpgdec",
+ 		.data = &mtk8195_jpegdec_drvdata,
+ 	},
++	{
++		.compatible = "mediatek,mt8188-jpgenc",
++		.data = &mtk8188_jpegenc_drvdata,
++	},
++	{
++		.compatible = "mediatek,mt8188-jpgdec",
++		.data = &mtk8188_jpegdec_drvdata,
++	},
+ 	{},
+ };
+ 
 -- 
-2.34.1
+2.46.0
 
 
