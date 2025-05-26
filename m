@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B88C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 15:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B2B2C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 15:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dsI7p+fF52PYCImxD0SbLWNleOyvT7ycxlSTDj+5yB8=; b=1hJe0E8HeHcF4qwK5xGfNg2HG8
-	27gxU3UprHYXrXktLXMs3xb99wyuXphVuRWew/H44vroNjshYt/VkxEbyh4y0CogzvajG60Gd4h9y
-	69/9zKMwxMIIGpPU0jA3rZm2ngxkBUO8d0nRlNp4spKlIWM56yedAk3w5yalztUlSH8Eoj33M5M4s
-	yCS8Zl2IYGD6/YKrz7YnTNZQKcOlo7NdqAVZV4Pv2rdUCIqmiFiG2h1cNRV+pB16XqI0ROyNkCPrC
-	fMjXRNI23PiAirYDp4lNoDzzm9CVZzmADM6eokDSGv+b2xd8genndEkkfVz3S3cT/YXrpgPpmDjl0
-	NOy3CJ9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fARRLv2EAES/QT6e4xl4U/3Dyubza5vfMD7Ni6b9N0M=; b=IFLFFEIGrUx7rJBcjdpTQ0In0f
+	pNgUiyi4mtP4GCQYEzGBYdhoxbrrxtboUQc9+ZOW7t64ry4PUI9virEJyqB7jOoPNgPq2YIpo+aS7
+	HVw7+X2HBOq3p/E59ggJGndKvyS2WNbfPBikW6qMKxEKzS/APO0/xqYpZbUJtgI2jfLQMRZreQYpF
+	BMW4I2D8odhtuPJRkXFE08QpwtlzJMSj8iZ8BMQmOPgg0VguBG7eczJVq0SRI4uis49T7VZc4pGYB
+	ZhbgonBO6GK3ugoQ/IsPr74RyyK66PrxJSRMcJgd+p35KPtR+76fFGf9ndaE7ZuTYz6LAUfDmZhKR
+	vGMMKnxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJaC2-00000009BUw-1pVR;
-	Mon, 26 May 2025 15:56:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uJaE8-00000009Bqo-0XNe;
+	Mon, 26 May 2025 15:59:00 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJa9t-00000009B7k-1L3d
+	id 1uJaAQ-00000009BCp-2Swm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 15:54:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 119E64A5F7;
-	Mon, 26 May 2025 15:54:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8225C4CEE7;
-	Mon, 26 May 2025 15:54:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748274874;
-	bh=Sb8w3t/dNkEK/ZuTtthI1LdL+b5SAvMEWX+Ac00LuF0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=At0jz7WwcMqnFvgZakL8A0pxWGIMlW2bydUYyahUxtpUkBFuVNgmKj1lm1XmX0J0D
-	 PTZSrM6RfIMzuVoKpU0quaykIk4NoiXqrxLUjocGL+NEY1kacHh/a1wBQrXiGgMUYh
-	 Motfld2ZVJoLi5r8R0PwVxq9af/4WrOVYFjIcADjb8BkT7nfheXoGRybGw31IvpESA
-	 jVHcKwpVXzPMIITfMRoOLTBwhlQzJxQdO2TcaoiFUvNYN+d5bkyq9z8GaMuBTHOThd
-	 S9+cok0e+v8vyFzz7TQ3/NT5L7V5Ti02tInZZG+kxzEWmDSeNV8eC+AMnsVKzOptNW
-	 jAf7br8ko+YyQ==
-Date: Mon, 26 May 2025 16:54:30 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"open list:FREESCALE SOC DRIVERS" <linuxppc-dev@lists.ozlabs.org>,
-	"moderated list:FREESCALE SOC DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
-Subject: Re: [PATCH 1/1] dt-bindings: soc: add vf610 reset controller
-Message-ID: <20250526-unpaid-mushy-d47196d04ad1@spud>
-References: <20250522213951.506019-1-Frank.Li@nxp.com>
+	Mon, 26 May 2025 15:55:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1748274908;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fARRLv2EAES/QT6e4xl4U/3Dyubza5vfMD7Ni6b9N0M=;
+	b=PO17gT8LfJOAyEZNrPb6zaXxcO9yg5XGvcIZJHsrwYqy9EfefGDyJFdb9/gGVzh8YfmqCZ
+	UyWmcoMgIJ6It5Fv+E61+/xgnBiB4aCHPYTXKF+/U8/pt/v7pjVNkPkS7oGykIG+bq31b4
+	+zJJAcwITkwSEAMQSye9iJA6d9A3ZmI=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-126-W6YbMlf8O2KnEkPBMxaVFg-1; Mon, 26 May 2025 11:55:07 -0400
+X-MC-Unique: W6YbMlf8O2KnEkPBMxaVFg-1
+X-Mimecast-MFC-AGG-ID: W6YbMlf8O2KnEkPBMxaVFg_1748274906
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a360d01518so1540259f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 08:55:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748274906; x=1748879706;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fARRLv2EAES/QT6e4xl4U/3Dyubza5vfMD7Ni6b9N0M=;
+        b=teVyR+s+0WFiRJ5H2fsXc/Mr91QMH0o2MzvN6L6HnSAF/fP47YBbqY6NbuIcuTA7WP
+         YL/nFl4Y9tbAe/AMpZDMLGuMwGICOP3ED/Xdv3V6cRKrS7JRv0QpcWJdf8ldwQ7b65c9
+         jUEvKyGA5/msmyQhBt0UxMNDRwVDhop/mV10kFKIvBRcU9JfIAl8Xu56u9OS9ZavWBO8
+         tcTszJ2SGOs3c1gVbFtp4mTDLFl1uBw3Uj2r5HXqg2zg9fXSajKOpAt/a7tgY7KKOXrm
+         XZ3/i9CkYw5KgAP9kKLG1myrxkrg9yO7fFDG9v6Gu1xlKnDNmNtZ1X0Uo6CPWYZK878Y
+         1pWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUzz7mjGxLviQRzC7afDpbVVWOYOV0iDB8b44trUT3TR72LtiZx4mDvAI9aaPUXq0ulChTzA3Fs8rOgSfmsWUUR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRc4UHFhrIIkLkst1iQEZphOXmxD/qX8utd7etZ4ICYlVMomo3
+	GRExn2MfeVCc7NcSlnUOBv9PyKWa9Nfz50hK6hW+xCfvAHqUtn1cLRd3XYBfQAlWPwXLKFERees
+	UkNNrzPo9hNOLe1fRbnm7I8pZAuh/jT1aq/wBEje/EHVW7fZKplmRPenTyRDSA+MdS8cM+G++mW
+	5j
+X-Gm-Gg: ASbGncuqLG2YxgeVH9rib7dlvfFfDxX8L/slfqskqIwe313LNqNxXHlMtd4bAoCWJur
+	zw6FmZYsB1QmfCc9OGw7RnR6Kejxo4/OlpF+PlogN3RpljLmvm38a8ZN8/Z96Fchz6ZwX6QvE1d
+	N9K+IEEbjslfibNQGZt5C9KORVj3UJlAfgWtHJiis8Np3xNW1A99hcoOQAvoRlQtBFiOLWMo4G3
+	1NJC9lFGA0lWlT3UrI2rhPn7h5NSJM65lVVvYsj0FGE3aYvKrF6bPYbdw2lk926fUv5bWaP8uJz
+	IAY6mu398k1BesrjZRc=
+X-Received: by 2002:a05:6000:1ac6:b0:3a3:6941:6013 with SMTP id ffacd0b85a97d-3a4cb489c46mr7644603f8f.40.1748274906114;
+        Mon, 26 May 2025 08:55:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEniW4Fa0wQ5QCsDtszPeRRxDRH9P02gatIOFzZCMuokpVnrSJPxMGRC37ySpxpVr8XiaeDXg==
+X-Received: by 2002:a05:6000:1ac6:b0:3a3:6941:6013 with SMTP id ffacd0b85a97d-3a4cb489c46mr7644577f8f.40.1748274905760;
+        Mon, 26 May 2025 08:55:05 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:2728:e810::f39? ([2a0d:3344:2728:e810::f39])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4babec83csm14730739f8f.80.2025.05.26.08.55.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 26 May 2025 08:55:05 -0700 (PDT)
+Message-ID: <edb8881d-0cac-4f7e-b358-299bb30b5f27@redhat.com>
+Date: Mon, 26 May 2025 17:55:03 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="JFc4LU9IsIE1KMjo"
-Content-Disposition: inline
-In-Reply-To: <20250522213951.506019-1-Frank.Li@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: phy: mtk-2p5ge: Add LED support for MT7988
+To: Sky Huang <SkyLake.Huang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Daniel Golle <daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250526091019.16096-1-SkyLake.Huang@mediatek.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250526091019.16096-1-SkyLake.Huang@mediatek.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: GmF2P5sVvj2ki7o0QKUY62Ae4n3iZpVJoQNsy6Mxjgw_1748274906
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_085437_400248_0E961DA9 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20250526_085510_704643_9F2826AB 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,102 +117,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/26/25 11:10 AM, Sky Huang wrote:
+> From: Sky Huang <skylake.huang@mediatek.com>
+> 
+> Add LED support for MT7988's built-in 2.5Gphy. LED hardware has almost
+> the same design with MT7981's/MT7988's built-in GbE. So hook the same
+> helper function here.
+> 
+> Before mtk_phy_leds_state_init(), set correct default values of LED0
+> and LED1.
+> 
+> Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
---JFc4LU9IsIE1KMjo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+## Form letter - net-next-closed
 
-On Thu, May 22, 2025 at 05:39:50PM -0400, Frank Li wrote:
-> Add vf610 reset controller, which used to reboot system to fix below
-> CHECK_DTB warnings:
->=20
-> arch/arm/boot/dts/nxp/vf/vf610-bk4.dtb: /soc/bus@40000000/src@4006e000:
->     failed to match any schema with compatible: ['fsl,vf610-src', 'syscon=
-']
->=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  .../bindings/soc/fsl/fsl,vf610-src.yaml       | 46 +++++++++++++++++++
->  1 file changed, 46 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/fsl/fsl,vf610-s=
-rc.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml=
- b/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
-> new file mode 100644
-> index 0000000000000..4c92a5e4892bf
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
-> @@ -0,0 +1,46 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas//soc/fsl/fsl,vf610-src.yaml#
+The merge window for v6.16 has begun and therefore net-next is closed
+for new drivers, features, code refactoring and optimizations. We are
+currently accepting bug fixes only.
 
-It's a reset controller then, shouldn't it be in /reset, not //soc?
+Please repost when net-next reopens after June 8th.
 
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Freescale vf610 System Reset Controller
-> +
-> +maintainers:
-> +  - Frank Li <Frank.Li@nxp.com>
-> +
-> +description:
-> +  The System Reset Controller (SRC) generates the resets for the device.=
- The
-> +  functional reset sources are programmable as either reset or interrupt=
-=2E The
-> +  block also generates interrupts for various device events.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - fsl,vf610-src
-> +      - const: syscon
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    reset@4006e000 {
+RFC patches sent for review only are obviously welcome at any time.
 
-The generic node name here is reset-controller
-
-> +        compatible =3D "fsl,vf610-src", "syscon";
-> +        reg =3D <0x4006e000 0x1000>;
-> +        interrupts =3D <96 IRQ_TYPE_LEVEL_HIGH>;
-> +    };
-> +
-> --=20
-> 2.34.1
->=20
-
---JFc4LU9IsIE1KMjo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaDSOtgAKCRB4tDGHoIJi
-0jUOAQDQoc27GSHxRP7tOOEB3eThzeGn0UPkwWG1x+2578wSVQD7BI2VzjCyhPki
-GriXRs9WSYTq7+FHXwaz+D9bmZa05ws=
-=WC08
------END PGP SIGNATURE-----
-
---JFc4LU9IsIE1KMjo--
 
