@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E61CC5B542
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 06:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12F7C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 06:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RSrUR1DGD47JXZdimmoByInAoeHNIlKhw1JAx4cj1B0=; b=C+FJRModA4ryvswoPMMCHjhDsh
-	p6dXqc0TJVjS0+VvPuEY8BnIv4JQ91KPaTNS8YOLfEwfIP0iba83dTJrN5yMz4VTHSFYwHJdxoKtb
-	bmUFpZFevDmc25DHNYnkT9tuXEcCqE9qs1PuL2N6rmC/agtcOmDj07Oy7KjabeIty9LIyTN2bMR6N
-	3irdqwedPmpuB/hr8vN4Mb8Od1x8QfZs2iB1nEPdtpkxwBioolXQKdaqhHtF2Fat69mu9UWwEGf5o
-	jrEZhx+BDTIPqa2F0vfoRAZ/L8XXTM14uO4SQSfwL5pXGfflbnuQ+b/O9WsWsVab05qDyn0deUZgQ
-	FLreRo7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OS8PvSfwRlhjZGN6jsgBRmNG5LhO25xsjz5q3ncqIDU=; b=ecsuROpezeXH0t+X9oTS8dfWhy
+	JcR0l39qWJ40fK5qfdEnV/nf6NY9VZDYD2pYa+wAjLzqxF8bbMGw1Xc2o9wvOyAIdWKL7htCTyEz0
+	7Mfzos/KDyPJjU5dVa2legAAjjz3U5aMT7V3PWcRGCGdA9DcWvslHkbbcXovovn/xTr9wKylPDe8i
+	q4ja47CJ8dxeYbmHaHAi/MexzYPpYsY010G/SLaClCRL1K+hrBaOknFb7vSghbcIdueXO+llp5AIX
+	C1sZfJ0yYEfHHfLZlh9PX1Z77+ktaTyU6DUGujxhFzX7hWUo27Z4RuhcASNanpied/5xzWqUS4Kvr
+	W99A22Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJRVQ-00000008Dal-0AOb;
-	Mon, 26 May 2025 06:40:16 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uJRaf-00000008EJq-0H2b;
+	Mon, 26 May 2025 06:45:41 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJRMU-00000008CUm-2QlJ;
-	Mon, 26 May 2025 06:31:03 +0000
-X-UUID: fb32fb7839fa11f0bed96b30c12bc3d6-20250525
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=RSrUR1DGD47JXZdimmoByInAoeHNIlKhw1JAx4cj1B0=;
-	b=bXHgzdraeOWzHhNrsfyZmzX4MJu57Im6qbUMiS/S7F1WXkTzJOGUZhjgmxFO/iBrBm1pFRbDLAIcrZoyIbUnVA3EYrifrPlmXJgmZsxgm4dGO16CtpqpeH51thBVwMgD1aIdWGWsYX3BpA1+1mTwI5OgyLwydS8cmH8CbDNjlPc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:d3264fa2-8c36-4ac8-a510-e3c4281c096c,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:e61fba47-ee4f-4716-aedb-66601021a588,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: fb32fb7839fa11f0bed96b30c12bc3d6-20250525
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <jianhua.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1783023596; Sun, 25 May 2025 23:30:56 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 26 May 2025 14:30:53 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 26 May 2025 14:30:52 +0800
-From: Jianhua Lin <jianhua.lin@mediatek.com>
-To: <mchehab@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jianhua Lin
-	<jianhua.lin@mediatek.com>
-Subject: [PATCH v2 1/1] media: mediatek: jpeg: add compatible for MT8188 SoC
-Date: Mon, 26 May 2025 14:30:44 +0800
-Message-ID: <20250526063044.1513-1-jianhua.lin@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1uJRYW-00000008Dun-1i67
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 06:43:30 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54Q6SNec021065;
+	Mon, 26 May 2025 08:43:11 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	OS8PvSfwRlhjZGN6jsgBRmNG5LhO25xsjz5q3ncqIDU=; b=NkJRz0lf3bhigiZE
+	eaVdiOwH0if/ejdiiR5pcQ7fSr7JwOushQIUk00jA3tcubbaQGZDwj8Tq4epNT1d
+	3YrhJ2BQLBBNSymYHLhaZB/T/sg7D8KoY0lhcwWDujtb8W/+74wyotC7eflbuqkD
+	3cVO1Ra83+u//xwjbLRAZGCxjeBsH2sA2zZGt60FOO2qyvCa91I2oqWrU+E82Z/D
+	T8dxWsF4qJC7AgZLSXxV/wbuOkIBNzdjYD+mXbJY3ODl+YBrwPlqOBs6Xr1LJDxD
+	N022icQCA/bO9rgSkVE/6OD25sP3b9zESQt41nfytHGvKaJ+fvVide+buAXh2GWs
+	x8GhFw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46uqp4bbub-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 26 May 2025 08:43:11 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C73B440044;
+	Mon, 26 May 2025 08:42:19 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E1FEEB1D8AA;
+	Mon, 26 May 2025 08:41:55 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 26 May
+ 2025 08:41:55 +0200
+Message-ID: <8f948025-a40e-417c-bbc1-a43356118ce4@foss.st.com>
+Date: Mon, 26 May 2025 08:41:54 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] memory: stm32_omm: Use
+ syscon_regmap_lookup_by_phandle_args
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Krzysztof Kozlowski
+	<krzk@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250525191300.50873-2-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20250525191300.50873-2-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-26_03,2025-05-22_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_233102_666000_00FD6AB8 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250525_234329_050264_F033DC91 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +98,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add jpeg decoder and encoder compatible for MediaTek MT8188 SoC,
-and enable support_34bit.
 
-Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
----
-Changes compared with v1:
-- Update the dependent commit information only.
 
-This patch depends on the following commit:
-[1]
-Commit: https://git.linuxtv.org/media.git/commit/?id=7560349ee0d9441642da6d38c3822d08fffdd2fb
-Title: [PATCH] media: mediatek: jpeg: support 34bits
+On 5/25/25 21:13, Krzysztof Kozlowski wrote:
+> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+> syscon_regmap_lookup_by_phandle() combined with getting the syscon
+> argument.  Except simpler code this annotates within one line that given
+> phandle has arguments, so grepping for code would be easier.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> ---
+> 
+> Not tested on hardware.
+> ---
+>  drivers/memory/stm32_omm.c | 21 ++++++---------------
+>  1 file changed, 6 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+> index 79ceb1635698..bee2ecc8c2b9 100644
+> --- a/drivers/memory/stm32_omm.c
+> +++ b/drivers/memory/stm32_omm.c
+> @@ -46,7 +46,7 @@ static int stm32_omm_set_amcr(struct device *dev, bool set)
+>  	struct regmap *syscfg_regmap;
+>  	struct device_node *node;
+>  	struct resource res, res1;
+> -	u32 amcr_base, amcr_mask;
+> +	unsigned int syscon_args[2];
+>  	int ret, idx;
+>  	unsigned int i, amcr, read_amcr;
+>  
+> @@ -98,29 +98,20 @@ static int stm32_omm_set_amcr(struct device *dev, bool set)
+>  		of_node_put(node);
+>  	}
+>  
+> -	syscfg_regmap = syscon_regmap_lookup_by_phandle(dev->of_node, "st,syscfg-amcr");
+> +	syscfg_regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node, "st,syscfg-amcr",
+> +							     2, syscon_args);
+>  	if (IS_ERR(syscfg_regmap))
+>  		return dev_err_probe(dev, PTR_ERR(syscfg_regmap),
+>  				     "Failed to get st,syscfg-amcr property\n");
+>  
+> -	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 1,
+> -					 &amcr_base);
+> -	if (ret)
+> -		return ret;
+> -
+> -	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 2,
+> -					 &amcr_mask);
+> -	if (ret)
+> -		return ret;
+> -
+>  	amcr = mm_ospi2_size / SZ_64M;
+>  
+>  	if (set)
+> -		regmap_update_bits(syscfg_regmap, amcr_base, amcr_mask, amcr);
+> +		regmap_update_bits(syscfg_regmap, syscon_args[0], syscon_args[1], amcr);
+>  
+>  	/* read AMCR and check coherency with memory-map areas defined in DT */
+> -	regmap_read(syscfg_regmap, amcr_base, &read_amcr);
+> -	read_amcr = read_amcr >> (ffs(amcr_mask) - 1);
+> +	regmap_read(syscfg_regmap, syscon_args[0], &read_amcr);
+> +	read_amcr = read_amcr >> (ffs(syscon_args[1]) - 1);
+>  
+>  	if (amcr != read_amcr) {
+>  		dev_err(dev, "AMCR value not coherent with DT memory-map areas\n");
 
-The above commit introduces a new variable 'support_34bit', that is required 
-for enable 34-bit iova support in this patch. Without the changes in this commit,
-it will not work and cause compile error.
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 +++++++++++++++++++
- 1 file changed, 44 insertions(+)
-
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 23692cd91e2c..0ed1c352bc0f 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1869,6 +1869,10 @@ static struct clk_bulk_data mtk_jpeg_clocks[] = {
- 	{ .id = "jpgenc" },
- };
- 
-+static struct clk_bulk_data mtk_jpeg_dec_clocks[] = {
-+	{ .id = "jpgdec" },
-+};
-+
- static struct clk_bulk_data mt8173_jpeg_dec_clocks[] = {
- 	{ .id = "jpgdec-smi" },
- 	{ .id = "jpgdec" },
-@@ -1931,6 +1935,38 @@ static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
- 	.jpeg_worker = mtk_jpegdec_worker,
- };
- 
-+static const struct mtk_jpeg_variant mtk8188_jpegenc_drvdata = {
-+	.clks = mtk_jpeg_clocks,
-+	.num_clks = ARRAY_SIZE(mtk_jpeg_clocks),
-+	.formats = mtk_jpeg_enc_formats,
-+	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
-+	.qops = &mtk_jpeg_enc_qops,
-+	.irq_handler = mtk_jpeg_enc_irq,
-+	.hw_reset = mtk_jpeg_enc_reset,
-+	.m2m_ops = &mtk_jpeg_enc_m2m_ops,
-+	.dev_name = "mtk-jpeg-enc",
-+	.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
-+	.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
-+	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-+	.support_34bit = true,
-+};
-+
-+static const struct mtk_jpeg_variant mtk8188_jpegdec_drvdata = {
-+	.clks = mtk_jpeg_dec_clocks,
-+	.num_clks = ARRAY_SIZE(mtk_jpeg_dec_clocks),
-+	.formats = mtk_jpeg_dec_formats,
-+	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
-+	.qops = &mtk_jpeg_dec_qops,
-+	.irq_handler = mtk_jpeg_dec_irq,
-+	.hw_reset = mtk_jpeg_dec_reset,
-+	.m2m_ops = &mtk_jpeg_dec_m2m_ops,
-+	.dev_name = "mtk-jpeg-dec",
-+	.ioctl_ops = &mtk_jpeg_dec_ioctl_ops,
-+	.out_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-+	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
-+	.support_34bit = true,
-+};
-+
- static const struct of_device_id mtk_jpeg_match[] = {
- 	{
- 		.compatible = "mediatek,mt8173-jpgdec",
-@@ -1952,6 +1988,14 @@ static const struct of_device_id mtk_jpeg_match[] = {
- 		.compatible = "mediatek,mt8195-jpgdec",
- 		.data = &mtk8195_jpegdec_drvdata,
- 	},
-+	{
-+		.compatible = "mediatek,mt8188-jpgenc",
-+		.data = &mtk8188_jpegenc_drvdata,
-+	},
-+	{
-+		.compatible = "mediatek,mt8188-jpgdec",
-+		.data = &mtk8188_jpegdec_drvdata,
-+	},
- 	{},
- };
- 
--- 
-2.46.0
-
+Thanks
+Patrice
 
