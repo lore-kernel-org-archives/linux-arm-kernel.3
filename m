@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D49C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 11:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09B9C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 11:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1qGPkkOzz/AvcHXID85KRR2dfTKt6dbyAQOGmEwhnXA=; b=pgQr0mU/lCWGhQsa6jh/a2J+gY
-	GPnercwPcOk6QzuDK2yifeX8x0/9d4YpHf/3T3BpM/y3g9ilbyMeQhLYBQXpfz42C7sKQK9FTD/Mv
-	2RdYbon5RYcvtC8HyDE7G3cZEr3dAAVaEJDK+8UpHB8LzoLEEOwEg7THj96/uLIwTojj2FwPlPDuG
-	POoh5fg4VZdup/BdrKaB3jJ9U6aoqO5zzYjE9u7g50tgxlMpvtAhMrwoGEDjq1UsX3zxnY51AC3SY
-	Na0j9STGSSZwAtZ+Ti0gw+qGzpsbqfzuSrNizGNyOvwMXLsNm6tGcLJkFrjTXxCGZatyMh1PrIszf
-	e3td8H0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Opjk65paFLJ2yocp1B1kEaydI6C3FZxcuvHE6R2phXo=; b=imCWyF9m24F/vdP49NsnDwKi4i
+	kEQsiWg3OSXOlFJxVMH2x28fE6/TT4oPrZidlgwFe8t7auX3/15QYM9PHhbi2yG0JTip+OibKi/lj
+	8obxY9r952M+eDGG8A0Jiom6+T5dlda8hcSAnDXri8ZiurpEBrGXTjL2FAJGCY/0NJfM7N3ivEYOd
+	0UoyPW0TBJUozk0O1oKeK64C/vQ4uNVi/I1pTSpWTDHf6RAWf0gZZ+Ut67I/ZU7OodBnYb3A/N60u
+	OS5+2JcSgexbXf4z7rIfbzNMfNJNwvoc8m+JMrqz7L2IEH0ckbjIl7R7NXGg/X39MPYO9UryXbBu8
+	EWmOnE8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJVoZ-00000008gid-1rca;
-	Mon, 26 May 2025 11:16:19 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1uJVqy-00000008hFN-01dV;
+	Mon, 26 May 2025 11:18:48 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJVmN-00000008gSX-1jMS
+	id 1uJVoo-00000008glg-0uXA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 May 2025 11:14:04 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a3673e12c4so1320575f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 04:14:03 -0700 (PDT)
+	Mon, 26 May 2025 11:16:35 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3111a219539so1114805a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 04:16:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1748258042; x=1748862842; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=1qGPkkOzz/AvcHXID85KRR2dfTKt6dbyAQOGmEwhnXA=;
-        b=YVZb0p2n6xrsazHlFhJbx73HKl2U3lO6AaJ/EKjAyRGgflPCVAKwdXmU/KBzxORX91
-         Pv/NB0UHttjvastYwjntBrFkGmrM9eo422mfkWnvAfU7BJAPsdVmuLEg2QtMrSwmvQJ4
-         57LkJA3XjnVdv1CgOJ90ZNq054R/tVntOf08IASNU4YeydRqfQMM5U4AHJDwkmB76K1S
-         uE16BZ74fBGK1Yjfp8+pPebY1W4DD4ERI6DS3VGYOyPXX+WX8wVR1LS0QnihemodLxox
-         MwKk8tJacqyDF7ysbBBy9jhDlDyKTCpH64C74rUAvb89GtgqmsN5bWzFeVABWTgkr1wm
-         maFQ==
+        d=gmail.com; s=20230601; t=1748258193; x=1748862993; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Opjk65paFLJ2yocp1B1kEaydI6C3FZxcuvHE6R2phXo=;
+        b=cck7YAAA9raXl4cusbm03f+/2VPfzpeW8/E4B4Xjlm1A19qEtxBssgWD+wJnfHUmXC
+         S68E/asxOiYODUjfa/U8TEGmk1uso/1NjizP7aT1Co6cdaRjnlnPox4ODU7gzDMvTGOn
+         XfiK5x8GCdwM8iATB5CXC3Jo4EBfumW4eczlWLwVJXICp6NnEMb9Ti3+rJDB2+xFw27R
+         KMl15U6HqXxEjQf7l/rTBeE3Xh6Khi2xd3qRQTUr/Y60bihgvocqEVr3EBqD74RxE/T3
+         1SibgW0BPYsDTipd06Onqw9A6rnzG2Gy/2VTPNatqwqHU+9CX2yDv5V+j+X4pNaz7VGo
+         L7xg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748258042; x=1748862842;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1qGPkkOzz/AvcHXID85KRR2dfTKt6dbyAQOGmEwhnXA=;
-        b=KMgsKu1UAaOwwS/B+VtE/I7AJB5Bn8Vggc5/UGgtF4OxF23lgN557wYW5Qsp1WPFZG
-         IlI9FxOzrsW6dqq9FV0sl7B82DCJPuzp/EVM8WruDzbJnUm2oOWEz0TcUpsCYKR8sICR
-         s7VAHtS82gB7eAvYkltGWDYY+35l0Snb4Kt+RAL5vf6HgnBb4TxDgxjBzAljBOijuA+S
-         soYlK5tG/o9V92Hri6pxTuhAvOSkEbgMhPFrIvtWHt0Do/4L6rcPNFsze4oLZfuXbz7a
-         84B2PeKFF6PfVksBXmt9N3YBlWKTkpoygrdZOSn5uBW0n1g0wn7lkV1zAyaVUCB/90zB
-         CVAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX/2CyGJPkLX+tKJmHK2xDA41C1aV6pZ6e4Z+F3NJRegelENYrQITWHuNbpYG+fZc/40X7q5/ODVcVRqEWNycuY@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywcl6uSWjntGHImR5sHdLfbl9edEjERjIQTJIYQD4ikEzFv/3Fx
-	V9oWSyTbyVJyiYCyWPry1RX5DYOgsuJvEoNO40cYfI38NtRv9OPrMtZGprWuscwFJGw=
-X-Gm-Gg: ASbGncszz+yupPbQJcmFlqLNK6lSU50wUQt4GX1gnbOOMuG+ThQolZkYfRLaBn8fAJP
-	3e/WHjrW0lpU6kKiTPLKMWPnZBFdJO+bwniTNzgIlzDXDTQNGf/8D2MGM8Ni6oYdKA0Vg5l/UX+
-	nBzmkAbAPEI/aki7/oqdLrqzSbfKLp8tRXz5/fLDturxOq/rjv7imy8qiPZwyovlIKIpGkA5xgp
-	cRw2qxnQ9fHx/0rWPSE++J2lgvWtFaLCo2N6mAcnM2qzcdH6SP4Esnf4MnOMunJAPytBcPBNOmp
-	/012pcVAzOb/q23pub+x/CE0HPEqfBwxttqTGUh+6SAlEQlKu+S6RNdbccynDR9G5ZHYzXQ9q+g
-	mqEzR
-X-Google-Smtp-Source: AGHT+IEohXUMBSqO1qFUGi+04cLdFeL8i/QAY/ZQ64aMi3jtMK4s6/6493H521FOcUTuehMxIQIXpg==
-X-Received: by 2002:a05:6000:40d9:b0:3a4:c2e4:11b with SMTP id ffacd0b85a97d-3a4cb4a962amr7086907f8f.51.1748258041562;
-        Mon, 26 May 2025 04:14:01 -0700 (PDT)
-Received: from localhost (cst2-173-28.cust.vodafone.cz. [31.30.173.28])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4cc932836sm7397037f8f.39.2025.05.26.04.14.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 May 2025 04:14:01 -0700 (PDT)
-Date: Mon, 26 May 2025 13:13:59 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Palmer Dabbelt <palmer@rivosinc.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv <linux-riscv-bounces@lists.infradead.org>
-Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
- 3.0
-Message-ID: <20250526-224478e15ee50987124a47ac@orel>
-References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
- <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
- <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
- <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
- <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
+        d=1e100.net; s=20230601; t=1748258193; x=1748862993;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Opjk65paFLJ2yocp1B1kEaydI6C3FZxcuvHE6R2phXo=;
+        b=TWWx6vULJ11kqA4Rp+Zarhd57TSKgH6jvgOW1RLUOsyDnPhlMWR8Hile+LhAtS7INh
+         7HA7BXwayqztdtqv7nGJ7yEkfvYIHmV7dblH00wRrx+x7I+AqGi67PzMnzWUSQsqdL4b
+         2zkHyEXJHfe3E0ppSdBWaISmneYafnazkYDTEp/vNmdAb2S+wsMzlk8Tvd18JzK2KN9t
+         LwMlm3YYNCeeoC5GBJFzzVVsIsOUgD+T37MKxRpUVDMhCGeUEBgHBE4hS73rRmId/Ais
+         OVCEZeu/jdxghuIOjwU3Wg+N71T2n2dTgtN/7Jgsd8Cy1zXjY7B8lBVIVPlD8rmAxYBc
+         sydw==
+X-Forwarded-Encrypted: i=1; AJvYcCX7V0IZD4ILUt2NInNjA+4IbbvH546HEhAvQWutJRYsho0vymA0nQYRicjWXO5vvtvdROWMlBCbHPdXIkbd9HCc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLM8j8nrSUQR/V9uqn4kEdYafqQlC4GvN2x/m2aurewmpeuVzs
+	CIdr8TCXCqyRYXAVXAA4yLGRWa6tM1dM6LKk85iN1XlGbjdWAVWFSpC8HErTkPnPPSIe0XActRp
+	ISU/zHodMauQJy3XndqZKHlP8tBDMkvgcfnEaOps=
+X-Gm-Gg: ASbGncthR24GaeknJxYBy4tml/qKUzLsV6BlMJMmm/fhQR1SV/KKveHTzJlhpO6tR/F
+	Vr0euKCBP82PFV9E1Grn+fkipSrhgnOPPSq5UEPfPxo92z7Uvb1CJKYy27i0rdGCvKejxiEqmoB
+	wS/Ii2GLVDNO6rBWkIkrIvLiNJbKLpYw==
+X-Google-Smtp-Source: AGHT+IFtzvYREQF4e5RGyWZ3F4MYtqkkNGOvg9UsSWp9ip8U8N2Jl9OoCM3bMnVLyNovfB23/E5xH1xXxzKgvocOJGI=
+X-Received: by 2002:a17:90a:d60e:b0:30c:540b:9ba with SMTP id
+ 98e67ed59e1d1-3110f0f9b4cmr14756973a91.10.1748258193279; Mon, 26 May 2025
+ 04:16:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
+References: <20250526-fpg-nxp-imx93-frdm-v2-0-e5ad0efaec33@pengutronix.de> <20250526-fpg-nxp-imx93-frdm-v2-2-e5ad0efaec33@pengutronix.de>
+In-Reply-To: <20250526-fpg-nxp-imx93-frdm-v2-2-e5ad0efaec33@pengutronix.de>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Mon, 26 May 2025 14:18:15 +0300
+X-Gm-Features: AX0GCFtcQ3gPsieet4uz43pbRsMbpHjmv7-rKiXRxjWLyoqRErH-OX-1hcUkpwM
+Message-ID: <CAEnQRZCn0bBgn_FHS1Dn_p_gOraoLzU_1pLiyKoJTrbdD=LP3Q@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: add support for NXP i.MX93 FRDM
+To: Fabian Pflug <f.pflug@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_041403_462496_0B076A15 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20250526_041634_259647_692FE822 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,42 +98,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 11:00:30AM +0200, Radim Krčmář wrote:
-> 2025-05-23T10:16:11-07:00, Atish Patra <atish.patra@linux.dev>:
-> > On 5/23/25 6:31 AM, Radim Krčmář wrote:
-> >> 2025-05-22T12:03:43-07:00, Atish Patra <atishp@rivosinc.com>:
-> >>> Upgrade the SBI version to v3.0 so that corresponding features
-> >>> can be enabled in the guest.
-> >>>
-> >>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> >>> ---
-> >>> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> >>> -#define KVM_SBI_VERSION_MAJOR 2
-> >>> +#define KVM_SBI_VERSION_MAJOR 3
-> >> I think it's time to add versioning to KVM SBI implementation.
-> >> Userspace should be able to select the desired SBI version and KVM would
-> >> tell the guest that newer features are not supported.
+On Mon, May 26, 2025 at 2:03=E2=80=AFPM Fabian Pflug <f.pflug@pengutronix.d=
+e> wrote:
+>
+> The FRDM i.MX 93 development board is a low-cost and compact development
+> board featuring the i.MX93 applications processor.
+>
+> It features:
+> - Dual Cortex-A55
+> - 2 GB LPDDR4X / LPDDR4
+> - 32 GB eMMC5.1
+> - MicroSD slot
+> - GbE RJ45 x 2
+> - USB2.0 1x Type C, 1x Type A
+>
+> This file is based upon the one provided by nxp in their own kernel and
+> yocto meta layer for the device, but adapted for mainline.
+>
+> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
 
-We need new code for this, but it's a good idea.
+Hello Fabian,
 
-> >
-> > We can achieve that through onereg interface by disabling individual SBI 
-> > extensions.
-> > We can extend the existing onereg interface to disable a specific SBI 
-> > version directly
-> > instead of individual ones to save those IOCTL as well.
-> 
-> Yes, I am all in favor of letting userspace provide all values in the
-> BASE extension.
+Can you also add the original S-o-b to give credit to NXP
+developers who started this?
 
-This is covered by your recent patch that provides userspace_sbi.
-With that, userspace can disable all extensions that aren't
-supported by a given spec version, disable BASE and then provide
-a BASE that advertises the version it wants. The new code is needed
-for extensions that userspace still wants KVM to accelerate, but then
-KVM needs to be informed it should deny all functions not included in
-the selected spec version.
 
-Thanks,
-drew
+https://github.com/nxp-imx-support/meta-imx-frdm/blob/lf-6.6.36-2.1.0/meta-=
+imx-bsp/recipes-kernel/linux/linux-imx/0002-arm64-dts-add-i.MX93-11x11-FRDM=
+-basic-support.patch
+
+Signed-off-by: Haidong Zheng <haidong.zheng@nxp.com>
+Signed-off-by: Danwei Luo <danwei.luo@nxp.com>
+Signed-off-by: Lei Xu <lei.xu@nxp.com>
 
