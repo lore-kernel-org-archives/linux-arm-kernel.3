@@ -4,210 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783BFC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 08:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08331C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 May 2025 08:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZpJSF9sgjAEKVXVcVGdgMD1UpGfwiGLBMDevG9jBck0=; b=vHvwjSzQUxkNAz//yxLrougz/x
-	Txh7Wqeu9WHzkZ2rcgpTgOqo9UUsOGnoPLmq0KYbtDdU3IkcVYGP54tYbMCTJF8YVOT9qkxxEqNPX
-	Dp6b4g66wctK7IfAo95K2xdTWq9A33cxeThSvvqVrQasEOloFidoEF2eZDYNVb1KbNl4+OqYPq4PW
-	Cho3rWTV2d2ZFag0LyrIcR7XMwksAXBbO7RjP5sMbn4UqJGdAHnsM0IPx2Tgi009ILuGaInlOwKE4
-	dy73mevdJpnI1ciqKMZjCJ31fN0g1iAPM0WCIRgaW6s/5aOcwDLBwTlpLD0AGsUNZlb3At2YgTjGW
-	EvxNDoDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7LoPH61q8XPOjbfYzC/BfDY+1ePizQkOc/PLdT+sy2I=; b=acrUl78LEyPulJxSgI1idna/fS
+	QLdtd/stw+aXboyfej5UUwCVoOY2iGtajrgL433/ilwK0fAD3mcKoIbO5aOs3nV8SulseNABUeKh8
+	5XsCkKotvBx9nd4mfDw/Ps9AaZ7+h++w3pTpv/RYDTc/m2QZeFE2zt7JgRQJyBm/tPYwayLkpLgA0
+	Egwc6Yq8na/zu1wnAUBiXyNoNmzWpt0+B2V3iYhF1ing1jMnBz20mmtwDJvUM/LjOTCNbqsw3I98r
+	OK9QBB81x0rvQuSxtI5iRuyOyW+gxJK7RL8EHIREVz7teBoQAGgUvaBNae98Xcv/UwhJYscmu4Z6+
+	fSnCKn2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJTHa-00000008OlA-3Tyc;
-	Mon, 26 May 2025 08:34:06 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uJTK9-00000008P6Q-06rs;
+	Mon, 26 May 2025 08:36:45 +0000
+Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJS4s-00000008GQJ-43Yy;
-	Mon, 26 May 2025 07:17:31 +0000
-X-UUID: 6525a25a3a0111f0bed96b30c12bc3d6-20250526
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=ZpJSF9sgjAEKVXVcVGdgMD1UpGfwiGLBMDevG9jBck0=;
-	b=EUXn/+S+PS9FkpzgWwMfHb+AhW15abHGVmjgLZGB2VWeTdzxM7NHwYipFo+37nvW94Dh3E2LnQjSJvjUJePHz5EiiQPOUgoVJy8fW1RCkLu9GZEoFnC1H+tj5vHmAYk/yuq0/uSqDtmFUgiFQqflCcClT58Bms30ig5Qvskj8Q4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:6112dccf-0306-472f-a7a5-44195bda73bd,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:910efa57-abad-4ac2-9923-3af0a8a9a079,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 6525a25a3a0111f0bed96b30c12bc3d6-20250526
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 782643592; Mon, 26 May 2025 00:16:51 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 26 May 2025 15:16:48 +0800
-Received: from HK3PR03CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 26 May 2025 15:16:49 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U0EqK2wvx2L/bnOTtwAkW32YgAGWcAEt0jkli3vCF4CC9d6le44my8kwfFSLgrT+yLXbUH9TaXphVVU+NGqQQLu7OWcDT+8I6HGydfH6+Mg8phliZ4Oxyy90Fr6UweI1j/gqNOvluslnnbAPk3/Bu+7LTTchI1FQlkH+m/jUF3UcR6GEO6rY0hBWLXyWqlZ8WoRSCnoU15ungOQYHDA6O45r1sv7xNpN/R1JIajGTAH0AG/Rg4TbP1b/8aTTe9xAp9GO4NuzshORSm7l86R22DXQVkjhfr8ou+R501A5vfPo6FubijtrvWX/o73EapDLhlMHznR+wTH1nmM3Te3L7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZpJSF9sgjAEKVXVcVGdgMD1UpGfwiGLBMDevG9jBck0=;
- b=oOLZOj73CmomGwYjL3LHN5XaMcLMs7+oKdsDiFm4e/JRMFjOMiw4QO6dtyLySEYurBc91R5hYwqhrYv/HKKBFy/ns57Qs8w8D2TI9bFwr/1F2sLgcthfB6DRSBZhICKkaZr8u1pZkmMXlPHlii07BnoBgvTNz619xLcqXVH7ijlRN6LaA3UW+QbsLWsORQjpdigroOHL0FZbPS3gRwtWcrRNslamt/2uiFJKce7HxVRW5CSyWiIh4geczi4RTzfqaUYEHd4uQOg0WFKD9WxF9vHoDhqGPb4C6p5Qjp1rtyq3pMGmR3QNNU0kv/d1HLJnEFz4TaQkaZ4FJ1iems3DyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1uJTHz-00000008Opv-3S4g
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 May 2025 08:34:33 +0000
+Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-6065803ef35so354710eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 01:34:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZpJSF9sgjAEKVXVcVGdgMD1UpGfwiGLBMDevG9jBck0=;
- b=hdgp0gE7dAU4rKJSVAOdDDt9ikIOv6oV7EdsRev+oviOYAzJPUEsbnXKao8jwD1/bXUIKvtf0OUX/67re/RY/M2Tt4fMwgoreU7/Biodt1BX62u31Roui48VW7cGEPHN2gMNs/uIQv2M/NbzMdgqtBr9pvIWd29qgT8efL0DfTY=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by TYSPR03MB7370.apcprd03.prod.outlook.com (2603:1096:400:414::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.22; Mon, 26 May
- 2025 07:16:45 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%5]) with mapi id 15.20.8769.021; Mon, 26 May 2025
- 07:16:45 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, =?utf-8?B?T2xpdmlhIFdlbiAo5rip5YCp6IuTKQ==?=
-	<Olivia.Wen@mediatek.com>
-CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	=?utf-8?B?VGVkZHkgQ2hlbiAo6Zmz5Lm+5YWDKQ==?= <Teddy.Chen@mediatek.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"yunkec@chromium.org" <yunkec@chromium.org>
-Subject: Re: [PATCH v1 04/10] media: mediatek: isp: Add V4L2 flow support for
- ImgSys driver
-Thread-Topic: [PATCH v1 04/10] media: mediatek: isp: Add V4L2 flow support for
- ImgSys driver
-Thread-Index: AQHbzKSIGGgUkn/qAU6laecwNoJPfrPkgvsA
-Date: Mon, 26 May 2025 07:16:45 +0000
-Message-ID: <07ce826311b73276bc30d29c141b24223319c932.camel@mediatek.com>
-References: <20250524115144.3832748-1-olivia.wen@mediatek.com>
-	 <20250524115144.3832748-5-olivia.wen@mediatek.com>
-In-Reply-To: <20250524115144.3832748-5-olivia.wen@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|TYSPR03MB7370:EE_
-x-ms-office365-filtering-correlation-id: ad513698-eaa4-4a57-21a6-08dd9c2545a9
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?eUhpc2x3dWRycnZ3VGRLdXppSk9UWi8yTjVEbEh1Y0pVYzl2UXgvQ285WlAv?=
- =?utf-8?B?TURwcGJ4cGRwY2VBcXVZb0VBb09NdzVJaVF4bXFxTWtMdklRaHFLZkNMZCtR?=
- =?utf-8?B?Vm1HR2JNY0NZUFFybGgzUTVnZSs4U0hXdGVRdUM3UVFXK2JzMjhETFZ3N0ly?=
- =?utf-8?B?N2h6dkVwKysrbU52b25MRVdKZDFwSHhVdUJna2hkeDZVR0N2eEI2dzBzNFJj?=
- =?utf-8?B?N1pzZGh5ZHc0SGFFckFXWkVmZzZIY1Fnb2dYbDhrbWtwMjBPL1grcW9ORHR2?=
- =?utf-8?B?VHhFT0Z2Wlc1dWhhL0duYUgyUW92M1dnNm5mVGJQc21UWStOWmZlYnIwREt4?=
- =?utf-8?B?M2tMaEZTS1JRUjlIYWJjTnM2aU1YT2JuNGNrbkgxSisva0Z3eTFSYko1cXAx?=
- =?utf-8?B?dmNwVmlSSk5vVFZxQ1N5dDc5dWR4RXR6aVBibWdTOHVnZ2dHaDY3TTJyNjQv?=
- =?utf-8?B?WUpvUlhPaC9mMmF4Wjl4WFIvVkFWVFluWEt1cEFTVUMrclU1ZG9OSlhaZDg3?=
- =?utf-8?B?Y1lzcFFtTm5VYkJNM2ZFRHNSTTh0YlFjVmxyR3UyV3BEQVZXbDVqNzIrc2dS?=
- =?utf-8?B?QTVRWUY2UHdINGwwYVJrK0tON1lqenFjLy9VY0tUQi9DT3RuZHJUd1JsZ2d2?=
- =?utf-8?B?dkpua1dhTWxqZzVBQjRzYlB2YVFUdnZ3WnZwNElPQ3VJQXlPK2Y3OHR5OVlj?=
- =?utf-8?B?QlQ5UmtZZ2xiVW9CMnlYbm1mV2wrZkVuSUpEVUdCYXVVWG0zazVDcU1DS3hU?=
- =?utf-8?B?L05EUHZsR01vbks0K0xjMFc5U0dCL1RKdnpzV0I3MUJ4Uk1yRDV1Rk9HOE5L?=
- =?utf-8?B?T3pOUXJuVWRtNjlQV3o2dStCV05McVVpOXplRlJHeXdMVmZGQzRsQXJGeEpG?=
- =?utf-8?B?dTY2NmdzMUl5Z05QMkR2UXNlLzkydnh1UGFTS3d4VU5JdWRNREZzZ29qMGlK?=
- =?utf-8?B?WXk3TlIrS2M1cW1YOENVN2owaTQ5VzJObnltWE01dGV1bjhSSS9lK1g0M0lW?=
- =?utf-8?B?OEI1dGQvVFZlM3FFeEp4M2M1eVBKMWVuRnVvU0dFQVJQRy9ZN3k4REZNcG5n?=
- =?utf-8?B?R2NmOUsvVFR6V2EyT0tZQUdtd212Mis2Y24zd3l0UHdHcnY1Qy9GSkpRUFBZ?=
- =?utf-8?B?TEtSZ3pZZU5zMHF1Kzg2Z3paQmlTbVUrU2tERGpDQXZHZjNYWndZUC9mRjd4?=
- =?utf-8?B?OUNMUWNBeXNvVWFNc2FDcXVZWHl1ZDFDenpyek52YWROQ0NBYWthV2NoRkFl?=
- =?utf-8?B?Z1hPRVlGOG4rTUZNdVhxcUFpRzBMeVRoVlJ6Uko1eWhmOU5VWm5IZ25pcnJu?=
- =?utf-8?B?QTJzNlVtdVI3dVFKUjRBcHpXS2kzaHFWbWozVXh1ZUlURXpJbDVneFM3Z2R3?=
- =?utf-8?B?QVNxVkM2SWw2eThhYU44K3lpOWVhalpoYVcrQlkxRVJ2NzQ5M2s1UHI3a09l?=
- =?utf-8?B?L1duUDhJclBkbnRQUWNielM2aDFSYjVFUU5VN2RqSlljRExUeHVqN3IveFR3?=
- =?utf-8?B?UVV6d1c3bkhTZDM2bks5Zkx4WW5uNDZvQXBsa1g3UFRmb0ViNktMUzVZdHhF?=
- =?utf-8?B?S1FIMnhqZ1A1UzV4aytPMTRsbmJGZU9Dc3o4TEMrdU51a3hFMVpGODNGMlRp?=
- =?utf-8?B?RFhPclFpeEVZUXhvREk3eGdsaUpZL0sycks5RW8rc0NweFdWWmZTeXhmSEtW?=
- =?utf-8?B?bEgwYnhqRHl6b3VlSDRDSmJKY29BWXBnS1IvYnNRZm01UTJWT29ScHRXTFA4?=
- =?utf-8?B?VEtFeEE1KzZHNk1YSk5MNVBVOUoxQWxpUjJhRFJQZDVkMFJkK3VNc0V6Z3hT?=
- =?utf-8?B?Mkhrd1VabVRrSFpIbmFIWkZMMkNlMUxVSFM1NEh0VVN6cXh4TTRWYVZtSEJ1?=
- =?utf-8?B?UXZVZ2w4b1ozMDV0cmg5OGZxc0Q2TGdaUFRDc3VSTVQyMXdEaFFYd1J6L1FE?=
- =?utf-8?B?aE8zL3BxUUV0Snd3cVF1bC90d1lsRld5SUJiOHNuUGZUTzdNYk16NFF4Tk5Y?=
- =?utf-8?Q?p1jU9MjsbunIUNM+sHJBIqpEHL9F9c=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QzI3Y210TStTdlJ2Q0JVTGc2NVcyZ1EzcUJDazVKRHJLa3JycG1UNXFkM28z?=
- =?utf-8?B?ZkR1MlBTV3dDdy9obVFBMlZKeW14Y2ZDOVRDV093QUh0Vk9pQXdNM0p0aHJw?=
- =?utf-8?B?Ty9TTFN2NEgwL3c4djZReXlpQkt0NEhTN1lISWVUZWFWMmpwN21DOCtIelo4?=
- =?utf-8?B?eWJvVDI2TVBQb2lZdmhSWXErcmRDRkpkSHl2c0RIV2VpbEoxektTd2NJKy9X?=
- =?utf-8?B?amx4WldMdFRCKzVidEFHZDlMZWtTT0ovRUlxSVp6TCtyYmpkRXdTbjhUcWpy?=
- =?utf-8?B?SDk4RHNuYjl2bGZJUTRBN1MyVUhPMkgwdmk1Y3ZPSlNPdktBMXNjZ3JTbG9R?=
- =?utf-8?B?U2dJVGJoa2xhV0k2cm9FWlU2VTlSdy9jV00xQVRhL3ZXQmduR3dpR2Q0Q0N2?=
- =?utf-8?B?eXhZREc4OUV6WmUvNmlvcXpPdk9BSGZ3THJHZXBRNDh1Y1FZTHl6R3h6S3Yr?=
- =?utf-8?B?dUhuWGk4ZjZidGkyckpYQnlsc29EMjFYZFlCVnVwdVQxSTI4MmtlV21QTTI3?=
- =?utf-8?B?U2cwTThKcGZjRmlDYm1kVzBsYnNBeE94UWptNHV0d0tSWVp0SUpBYlFRVUc4?=
- =?utf-8?B?TDVkdStuV25hMDJaZ0F6L1g1dWhQWC9DZ3FCRXhDUmRlZ3RaczZXZ2JtZ0Uv?=
- =?utf-8?B?b2tkT1UyeEdyMmdUZTBmcHNBNDd5RTUybExmd3dYdlFsTTl4WW9Balh1QjB1?=
- =?utf-8?B?L0VwN3hlK0hnN2p6aTYyMjNtUHNCY0hKZGVOZW5vKzFwTWs0cVhaL01WNkFB?=
- =?utf-8?B?NFB5VXNNMjI1SzFpY0pmR2dUdklUU2g2dmdsYnVRY1g1cUdJVjBzUkZxcVpC?=
- =?utf-8?B?clN0azk0MXdDOFEyQVNGQXNIVHFoaE1iSFU3dWQ2akxqdjM5WWJZOVFlbEti?=
- =?utf-8?B?S0czK25BQm1EZkhhRE8zV2ozYmZkZzY4WHArUjl6bU1RS0Q2Yll4bnZsQlIx?=
- =?utf-8?B?d09OMUJPVzZTamJrMHhWQ0dTMVRrY0pTVm12dzhJaEI3bHhvSEpyeTd0NEVh?=
- =?utf-8?B?NjE2dDBwRWI0dkxlNkE5M1NQeFMyc3IvajBRUlNnMjVOODQyRi9xUFhTc0FN?=
- =?utf-8?B?OU5tUUUvWGo2VXpseE1pWm1KMGxPbHhFSHg2YkxjREFicG5CNjZ1WU9ialRE?=
- =?utf-8?B?WjJwZlV6YnBreFAzbVFKdE5MczNWR29WSDMyYzQyYmorUTRHaXFYaUxtVndp?=
- =?utf-8?B?RjNzZkRjMXpORmoyUjIvbzJGa2pFSHRtT2dCazEzTXQvRGtzWlQwNGdYQXFW?=
- =?utf-8?B?bGlJQ0lYdXNuOWFIcE42VFVpa3U0SUg4bUkxZG4rNlNBbHpjQWFsRTRjUFBo?=
- =?utf-8?B?TEpJdVVWN0NKQzBJTmtZNEk0Z2RFQ2gxb04zZ01zNUhOd2ExdW1EYzdiVkhY?=
- =?utf-8?B?amNPQnZxTHU5Y3J3MVJxTGlqMVQ2eE1YQVMySVRVSktDeVFkT251V29JYTNR?=
- =?utf-8?B?UHoyU0pEMmUyZmducHRIT2pCK0NZcEhuSXlleHFxaTBVQUR1WXR2TGFvSzll?=
- =?utf-8?B?azVuVko1UlluNS9WRkdsWWZNaFpHa0N5aWlNYkF6UjRZdjZUS2hveUg3ejlY?=
- =?utf-8?B?RG1zZmRoQVR4ZUMzQlB5RVl4U0RsZHNaUG16WFBPaWdJZmluTGljNEV5bEV1?=
- =?utf-8?B?NTRseWxsNm5KblpaZ2FRYUhLdVBZd2RFaC95amtVWFZSbVBYcnlPdnFSbmhN?=
- =?utf-8?B?d3A2RGNHbVUrYVN5UmRDU0xjeCtsTG81eDNiVGVFOVRLK2dSM3c5MUZLVzRJ?=
- =?utf-8?B?bWpjTlp2V1l3MHVkSVNvckNMcDhPWFFUSWV3ejgzd0xrcFlPU1hNS2Rrb2dt?=
- =?utf-8?B?RUo5NmZuNUNmb0NYT1YyM0h2bkc3NFFKcE9NSm1vYUtsOWZhbmcxbTUyWUdQ?=
- =?utf-8?B?Vm5JbzRvTFJIWlpXYlhueEVxankvUWxiUXd1TCtkWHNVbFdTdk5iSFNvU21E?=
- =?utf-8?B?NlJNUTlHQkxxd1d5VzMrRkNhc1ZpYklsVEtTdnVqZnBJN2oyNm5GMVM1d3Fn?=
- =?utf-8?B?eU5ma25sempUYlV2OVIwRWtPdDRrWU50VGhEWHRqMHRMdlJtRXdhTDRXRVV1?=
- =?utf-8?B?MU9mTUJYRGlhT2ZjZG42eTJqUXZKWkZFVS95c3d3RnRNeDBwWEVyZm5Wd0ky?=
- =?utf-8?Q?cHNTJanUw1f1qAizRobXQ0yLs?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <6EBC0BCB9F892B459989FC2A525737B1@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=linaro.org; s=google; t=1748248471; x=1748853271; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7LoPH61q8XPOjbfYzC/BfDY+1ePizQkOc/PLdT+sy2I=;
+        b=wveIdi9ToxfxhsZwYevGoKXg7GRSFCVV1CqxJe7OW+hhCK9EBEM/jDrrOIQvVhRmQ+
+         VgJsQU6qvFKDdJlo6K12BmXXEPKgE6bIwxh5rO1k6VFif+rnt+GO5BYgxc+ZSig07GOe
+         8psUWtv3ggshclUweOXXvYo1zm9fvQvpk4BMRK1p1czvoUggkx1HlhBE6xe9ngToiBei
+         1llztKSkEinKuzgzGkX5iljyMrC4rDKKX/h+X21G/Zf0Zi3dhO+kYd6gW1de4FzhVqmF
+         guJIqS/5r4uhRTVHjXrvYg9tMQmEat4dQbPWxcwUfvBwHilW6xIXczMEkgSW8TQPROHc
+         OB5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748248471; x=1748853271;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7LoPH61q8XPOjbfYzC/BfDY+1ePizQkOc/PLdT+sy2I=;
+        b=KXE4DJ02zFmCTa2JqKEpzY820mxcY5CtNmUoHndmN5p2kvsgQxO+ZghjrutC6upVB/
+         5uF4t/zerpZeptnuEi4AfOeF1TV6az4nWKezgJ3wZvDBX5/wBpSrV2qjpnMMRv+aIlSJ
+         r/iWCgHkHAoRhpTfE11xBhY+inXs1GCVPeS9NVnyH59PN16KTR5AesZrmIIliwQJCcuq
+         Fo2CeG23N71wtZWcfcGMMXLHkU9z1JCIYUHZtbY+ecn0KTqOBOJTrlLcDCqMjYT1dYsB
+         kS+FgXxdn3VIQWdRCikEJ+kjXpyZABn/Be1Cv0IKyo3UsN0BPzBNjqo+wkWThA2kbuD7
+         kL9A==
+X-Forwarded-Encrypted: i=1; AJvYcCVG0eVoYoaYt2psz1sNjp3aNfAPH1cJxZbgQy2tdjtYMHF/Hc8tBChlZO4OXi9ENWFCHLeMiwtlFAR3OYTlHOFx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxajN/blA2vNYtqpyq/cghoodNNWRrfTdgIIIaFtLvkHeqjjduf
+	alggateoGDjITGXwURXl3DmHfxakKLc9ggGEKNUmj1onpuRtiSVEWNWop0utbrjpzf4EZ2HP9ep
+	LwbcqzVxDoHM/JYEmVyDf41FeRB1Xeq9B1T0f85K8Vw==
+X-Gm-Gg: ASbGncvk70comPZtIzAoPrYIqlbWf5RUGSskX6VirzXoE8ZJAKUVGARQ0LTJyeQliFp
+	DTKpqAT+TjKhNBUro+tWFRvw7Six3cmtH0R/R/+EhMZLIRJoDwkeU7EvbdOKvmQ2sqDJnJWSIUA
+	kdhGhbqYK0qRWS4xtW42nWkGGB1rv5oRHsbg==
+X-Google-Smtp-Source: AGHT+IFs3UDjqOTSdOv6JwCPw8TzCpICd///u1SEUHvDHq7LoL4mVZ404dtJorGcqUi4neHh1nyFbCGcltbAy56lHN4=
+X-Received: by 2002:a05:6820:4c0c:b0:60b:a766:f6d7 with SMTP id
+ 006d021491bc7-60ba766f853mr3600749eaf.6.1748248470410; Mon, 26 May 2025
+ 01:34:30 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad513698-eaa4-4a57-21a6-08dd9c2545a9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2025 07:16:45.2853
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lbma8V+OP2uM4RnMeRBD8uyVdOp+rdedSiQWaq2VDGBHaLSRvgcDy85528H5UYc2Wl9kVYDH9Pqs4TQC5z+tSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7370
+References: <20250520152436.474778-1-jens.wiklander@linaro.org>
+ <20250520152436.474778-6-jens.wiklander@linaro.org> <aDB4oxesn5iIM4l8@sumit-X1>
+In-Reply-To: <aDB4oxesn5iIM4l8@sumit-X1>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Mon, 26 May 2025 10:34:19 +0200
+X-Gm-Features: AX0GCFsC50wYBTGhqsG2zZYjbYVgiFZNJUDoCbXOMed-L280EoIu_JPErd75zlk
+Message-ID: <CAHUa44EyuC8jg=du+_G1uuPqDPD-dU0EVi9jiy_edYiMVQ8dPA@mail.gmail.com>
+Subject: Re: [PATCH v9 5/9] tee: new ioctl to a register tee_shm from a dmabuf
+ file descriptor
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>, 
+	Etienne Carriere <etienne.carriere@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_001655_140780_A4B846E2 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250526_013431_871245_08F33B0D 
+X-CRM114-Status: GOOD (  42.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -222,101 +107,460 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAyMDI1LTA1LTI0IGF0IDE5OjQ5ICswODAwLCBPbGl2aWEgV2VuIHdyb3RlOg0KPiBU
-aGUgSW1nU3lzIGRyaXZlciBpcyBpbXBsZW1lbnRlZCBhcyBhIHNlcmllcyBvZiBwYXRjaGVzLCB3
-aXRoIHRoaXMgcGF0Y2gNCj4gZm9jdXNpbmcgb24gdGhlIFY0TDIgZmxvdy4gVGhlIE1lZGlhVGVr
-J3MgSW1hZ2UgU3lzdGVtIChJbWdTeXMpLCBhbHNvDQo+IGtub3duIGFzIElTUCBQYXNzMi4gSW1n
-U3lzIGlzIGEgbWVtb3J5LXRvLW1lbW9yeSBoYXJkd2FyZSBkZXZpY2UNCj4gZGVzaWduZWQgZm9y
-IGFkdmFuY2VkIGltYWdlIHByb2Nlc3NpbmcgdGFza3MuIEl0IGlzIGNvbXBvc2VkIG9mIG11bHRp
-cGxlDQo+IGhhcmR3YXJlIGNvbXBvbmVudHMsIGluY2x1ZGluZyBUUkFXLCBESVAsIFBRRElQLCBN
-RSwgYW5kIFdQRS4NCj4gDQo+IFRSQVcgKFRpbGUgUkFXKToNCj4gLSBQcm92aWRlcyBtdWx0aXBs
-ZSBkb3duc2NhbGVkIHJlc2l6ZXJzIHRvIHN1cHBvcnQgbXVsdGktc2NhbGUgbm9pc2UNCj4gICBy
-ZWR1Y3Rpb24uDQo+IC0gU3VwcG9ydHMgUkFXL1JHQiBmb3JtYXQgY29udmVyc2lvbi4NCj4gDQo+
-IERJUCAoRGlnaXRhbCBJbWFnZSBQcm9jZXNzaW5nKSBhbmQgUFFESVAgKFBpY3R1cmUgUXVhbGl0
-eSBESVApOg0KPiAtIFN1cHBvcnRzIHN1Y2ggYXMgdGVtcG9yYWwgYW5kIHNwYXRpYWwgbm9pc2Ug
-cmVkdWN0aW9uIChUTlIvU05SKSwNCj4gICBlZGdlIGVuaGFuY2VtZW50IChFRSksIGFuZCBzaGFy
-cG5lc3MgKFNIUCkuDQo+IC0gUFFESVAgYWxzbyBzdXBwb3J0cyBpbWFnZSBzY2FsaW5nIGFuZCBy
-b3RhdGlvbi4NCj4gDQo+IE1FIChNb3Rpb24gRXN0aW1hdGlvbik6DQo+IC0gU3VwcG9ydHMgbW90
-aW9uIGVzdGltYXRpb24gYmV0d2VlbiB0d28gY29uc2VjdXRpdmUgZnJhbWVzLg0KPiANCj4gV1BF
-IChXYXJwaW5nIEVuZ2luZSk6DQo+IC0gSGFuZGxlcyBpbWFnZSB3YXJwaW5nIGFuZCBkZS13YXJw
-aW5nIHByb2Nlc3Nlcy4NCj4gDQo+IFRoZSBJbWdTeXMgZHJpdmVyLCBwcmltYXJpbHkgdXRpbGl6
-ZWQgZm9yIEdvb2dsZSBDaHJvbWVib29rIHByb2R1Y3RzLA0KPiB1c2VzIE11bHRpLUZyYW1lIENv
-bWJpbmVkIE5vaXNlIFJlZHVjdGlvbiB0ZWNobm9sb2d5IHRvIGVuaGFuY2UgaW1hZ2UNCj4gcXVh
-bGl0eS4NCj4gDQo+IEJlbG93IGlzIGEgc2ltcGxpZmllZCBhcmNoaXRlY3R1cmUgb2YgdGhlIElt
-Z1N5cyBkcml2ZXI6DQo+IFVzZXIgLT4gVjRMMiBGcmFtZXdvcmsgLT4gSW1nU3lzIERyaXZlcg0K
-PiAgICAgIC0+IFNDUCAoSXQgcGFja2FnZXMgdGhlIGhhcmR3YXJlIHNldHRpbmdzIGludG8gY29t
-bWFuZHMpDQo+ICAgICAgLT4gSW1nU3lzIERyaXZlcg0KPiAgICAgIC0+IENNRFEgKFRoZSBwYWNr
-YWdlZCBjb21tYW5kcyBhcmUgc2VudCB0byB0aGUgaGFyZHdhcmUgdmlhIEdDRSkNCj4gICAgICAt
-PiBIYXJkd2FyZQ0KDQpZb3UgYnJlYWsgdGhpcyBkcml2ZXIgaW50byBtdWx0aXBsZSBwYXRjaGVz
-IGJ5IHRoZXNlIGZ1bmN0aW9uIGJsb2NrLA0KYnV0IHRoaXMgd291bGQgbWFrZSByZXZpZXdlciAo
-aW5jbHVkZSBtZSkgaGFyZCB0byByZXZpZXcuDQpUaGUgYmV0dGVyIHdheSBpcw0KDQoxLiBBZGQg
-aW1nc3lzIGRyaXZlciB3aXRoIGJhc2ljIGZ1bmN0aW9uIChpbmNsdWRlIHY0bDIgZnJhbWV3b3Jr
-LCBzY3AsIGNtZHEuIFRoZSBiYXNpYyBmdW5jdGlvbiBtYXkgYmUgZG93bnNjYWxlIGFuZCBmb3Jt
-YXQgY29udmVydCBvbmx5KQ0KMi4gQWRkIERJUCBmdW5jdGlvbg0KMy4gQWRkIE1FIGZ1bmN0aW9u
-DQo0LiBBZGQgV1BFIGZ1bmN0aW9uDQoNCkxldCB0aGUgZmlyc3QgcGF0Y2ggYXMgc2ltcGxlIGFz
-IHBvc3NpYmxlIGJ1dCBpdCBzaG91bGQgd29yay4NCg0KPiANCj4gU2lnbmVkLW9mZi1ieTogT2xp
-dmlhIFdlbiA8b2xpdmlhLndlbkBtZWRpYXRlay5jb20+DQo+IC0tLQ0KPiAgZHJpdmVycy9tZWRp
-YS9wbGF0Zm9ybS9tZWRpYXRlay9LY29uZmlnICAgICAgIHwgICAgMSArDQo+ICBkcml2ZXJzL21l
-ZGlhL3BsYXRmb3JtL21lZGlhdGVrL01ha2VmaWxlICAgICAgfCAgICAxICsNCj4gIGRyaXZlcnMv
-bWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvaXNwL0tjb25maWcgICB8ICAgMjMgKw0KPiAgLi4uL3Bs
-YXRmb3JtL21lZGlhdGVrL2lzcC9pc3BfN3gvTWFrZWZpbGUgICAgIHwgICAgNiArDQo+ICAuLi4v
-bWVkaWF0ZWsvaXNwL2lzcF83eC9pbWdzeXMvTWFrZWZpbGUgICAgICAgfCAgIDExICsNCj4gIC4u
-Li9pbWdzeXMvbW9kdWxlcy9tdGtfZGlwX3Y0bDJfdm5vZGUuaCAgICAgICB8ICA1OTQgKysrKysr
-DQo+ICAuLi4vaXNwXzd4L2ltZ3N5cy9tb2R1bGVzL210a19tZV92NGwyX3Zub2RlLmggfCAgMzg2
-ICsrKysNCj4gIC4uLi9pbWdzeXMvbW9kdWxlcy9tdGtfcHFkaXBfdjRsMl92bm9kZS5oICAgICB8
-ICAxNDkgKysNCj4gIC4uLi9pbWdzeXMvbW9kdWxlcy9tdGtfdHJhd192NGwyX3Zub2RlLmggICAg
-ICB8ICAzNzEgKysrKw0KPiAgLi4uL2ltZ3N5cy9tb2R1bGVzL210a193cGVfdjRsMl92bm9kZS5o
-ICAgICAgIHwgIDMxNyArKysrDQo+ICAuLi4vaXNwL2lzcF83eC9pbWdzeXMvbXRrX2hlYWRlcl9k
-ZXNjLmggICAgICAgfCAgIDI4ICsNCj4gIC4uLi9pc3AvaXNwXzd4L2ltZ3N5cy9tdGtfaW1nc3lz
-LWRldi5jICAgICAgICB8ICAyMzggKysrDQo+ICAuLi4vaXNwL2lzcF83eC9pbWdzeXMvbXRrX2lt
-Z3N5cy1kZXYuaCAgICAgICAgfCAgNDI3ICsrKysrDQo+ICAuLi4vaXNwL2lzcF83eC9pbWdzeXMv
-bXRrX2ltZ3N5cy1mb3JtYXRzLmMgICAgfCAgMTM5ICsrDQo+ICAuLi4vaXNwL2lzcF83eC9pbWdz
-eXMvbXRrX2ltZ3N5cy1mb3JtYXRzLmggICAgfCAgIDcyICsNCj4gIC4uLi9pc3AvaXNwXzd4L2lt
-Z3N5cy9tdGtfaW1nc3lzLW1vZHVsZV9vcHMuaCB8ICAgMjcgKw0KPiAgLi4uL2lzcC9pc3BfN3gv
-aW1nc3lzL210a19pbWdzeXMtb2YuYyAgICAgICAgIHwgICAzOSArDQo+ICAuLi4vaXNwL2lzcF83
-eC9pbWdzeXMvbXRrX2ltZ3N5cy1vZi5oICAgICAgICAgfCAgIDU1ICsNCj4gIC4uLi9pc3AvaXNw
-Xzd4L2ltZ3N5cy9tdGtfaW1nc3lzLXN5cy5jICAgICAgICB8ICAgMjcgKw0KPiAgLi4uL2lzcC9p
-c3BfN3gvaW1nc3lzL210a19pbWdzeXMtc3lzLmggICAgICAgIHwgICA1MCArDQo+ICAuLi4vaXNw
-L2lzcF83eC9pbWdzeXMvbXRrX2ltZ3N5cy12NGwyLmMgICAgICAgfCAxNjg0ICsrKysrKysrKysr
-KysrKysrDQo+ICAuLi4vaXNwL2lzcF83eC9pbWdzeXMvbXRrX2ltZ3N5cy12bm9kZV9pZC5oICAg
-fCAgMTAwICsNCj4gIC4uLi9pc3AvaXNwXzd4L2ltZ3N5cy9tdGtfaW1nc3lzX3Y0bDJfdm5vZGUu
-aCB8ICAxMzUgKysNCj4gIDIzIGZpbGVzIGNoYW5nZWQsIDQ4ODAgaW5zZXJ0aW9ucygrKQ0KPiAg
-Y3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvaXNwL0tj
-b25maWcNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlh
-dGVrL2lzcC9pc3BfN3gvTWFrZWZpbGUNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21l
-ZGlhL3BsYXRmb3JtL21lZGlhdGVrL2lzcC9pc3BfN3gvaW1nc3lzL01ha2VmaWxlDQo+ICBjcmVh
-dGUgbW9kZSAxMDA2NDQgZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9pc3AvaXNwXzd4
-L2ltZ3N5cy9tb2R1bGVzL210a19kaXBfdjRsMl92bm9kZS5oDQo+ICBjcmVhdGUgbW9kZSAxMDA2
-NDQgZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9pc3AvaXNwXzd4L2ltZ3N5cy9tb2R1
-bGVzL210a19tZV92NGwyX3Zub2RlLmgNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21l
-ZGlhL3BsYXRmb3JtL21lZGlhdGVrL2lzcC9pc3BfN3gvaW1nc3lzL21vZHVsZXMvbXRrX3BxZGlw
-X3Y0bDJfdm5vZGUuaA0KPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvbWVkaWEvcGxhdGZv
-cm0vbWVkaWF0ZWsvaXNwL2lzcF83eC9pbWdzeXMvbW9kdWxlcy9tdGtfdHJhd192NGwyX3Zub2Rl
-LmgNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVr
-L2lzcC9pc3BfN3gvaW1nc3lzL21vZHVsZXMvbXRrX3dwZV92NGwyX3Zub2RlLmgNCj4gIGNyZWF0
-ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2lzcC9pc3BfN3gv
-aW1nc3lzL210a19oZWFkZXJfZGVzYy5oDQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVycy9t
-ZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9pc3AvaXNwXzd4L2ltZ3N5cy9tdGtfaW1nc3lzLWRldi5j
-DQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9p
-c3AvaXNwXzd4L2ltZ3N5cy9tdGtfaW1nc3lzLWRldi5oDQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQg
-ZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9pc3AvaXNwXzd4L2ltZ3N5cy9tdGtfaW1n
-c3lzLWZvcm1hdHMuYw0KPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvbWVkaWEvcGxhdGZv
-cm0vbWVkaWF0ZWsvaXNwL2lzcF83eC9pbWdzeXMvbXRrX2ltZ3N5cy1mb3JtYXRzLmgNCj4gIGNy
-ZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2lzcC9pc3Bf
-N3gvaW1nc3lzL210a19pbWdzeXMtbW9kdWxlX29wcy5oDQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQg
-ZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9pc3AvaXNwXzd4L2ltZ3N5cy9tdGtfaW1n
-c3lzLW9mLmMNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL21l
-ZGlhdGVrL2lzcC9pc3BfN3gvaW1nc3lzL210a19pbWdzeXMtb2YuaA0KPiAgY3JlYXRlIG1vZGUg
-MTAwNjQ0IGRyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvaXNwL2lzcF83eC9pbWdzeXMv
-bXRrX2ltZ3N5cy1zeXMuYw0KPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvbWVkaWEvcGxh
-dGZvcm0vbWVkaWF0ZWsvaXNwL2lzcF83eC9pbWdzeXMvbXRrX2ltZ3N5cy1zeXMuaA0KPiAgY3Jl
-YXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvaXNwL2lzcF83
-eC9pbWdzeXMvbXRrX2ltZ3N5cy12NGwyLmMNCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJz
-L21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2lzcC9pc3BfN3gvaW1nc3lzL210a19pbWdzeXMtdm5v
-ZGVfaWQuaA0KPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVk
-aWF0ZWsvaXNwL2lzcF83eC9pbWdzeXMvbXRrX2ltZ3N5c192NGwyX3Zub2RlLmgNCg0KUGxhY2Ug
-dGhlc2UgZmlsZXMgaW4gZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9pbWdzeXMuDQpU
-aGlzIGlzIHRoZSBmaXJzdCBTb0Mgd2hpY2ggc3VwcG9ydCBpbWdzeXMgZHJpdmVyIHNvIGl0J3Mg
-bm90IG5lY2Vzc2FyeSB0byB1c2Ugc28gZGVlcCBmb2xkZXIgc3RydWN0dXJlLg0KDQpSZWdhcmRz
-LA0KQ0sNCg0KDQo=
+On Fri, May 23, 2025 at 3:31=E2=80=AFPM Sumit Garg <sumit.garg@kernel.org> =
+wrote:
+>
+> On Tue, May 20, 2025 at 05:16:48PM +0200, Jens Wiklander wrote:
+> > From: Etienne Carriere <etienne.carriere@foss.st.com>
+> >
+> > Add a userspace API to create a tee_shm object that refers to a dmabuf
+> > reference.
+> >
+> > Userspace registers the dmabuf file descriptor as in a tee_shm object.
+> > The registration is completed with a tee_shm returned file descriptor.
+> >
+> > Userspace is free to close the dmabuf file descriptor after it has been
+> > registered since all the resources are now held via the new tee_shm
+> > object.
+> >
+> > Closing the tee_shm file descriptor will eventually release all
+> > resources used by the tee_shm object when all references are released.
+> >
+> > The new IOCTL, TEE_IOC_SHM_REGISTER_FD, supports dmabuf references to
+> > physically contiguous memory buffers. Dmabuf references acquired from
+> > the TEE DMA-heap can be used as protected memory for Secure Video Path
+> > and such use cases. It depends on the TEE and the TEE driver if dmabuf
+> > references acquired by other means can be used.
+> >
+> > A new tee_shm flag is added to identify tee_shm objects built from a
+> > registered dmabuf, TEE_SHM_DMA_BUF.
+> >
+> > Signed-off-by: Etienne Carriere <etienne.carriere@foss.st.com>
+> > Signed-off-by: Olivier Masse <olivier.masse@nxp.com>
+> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > ---
+> >  drivers/tee/tee_core.c    |  63 +++++++++++++++++++++-
+> >  drivers/tee/tee_private.h |  10 ++++
+> >  drivers/tee/tee_shm.c     | 111 ++++++++++++++++++++++++++++++++++++--
+> >  include/linux/tee_core.h  |   1 +
+> >  include/linux/tee_drv.h   |  10 ++++
+> >  include/uapi/linux/tee.h  |  31 +++++++++++
+> >  6 files changed, 221 insertions(+), 5 deletions(-)
+>
+> With below minor comments fixed, feel free to add:
+>
+> Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+>
+> >
+> > diff --git a/drivers/tee/tee_core.c b/drivers/tee/tee_core.c
+> > index 5259b8223c27..0e9d9e5872a4 100644
+> > --- a/drivers/tee/tee_core.c
+> > +++ b/drivers/tee/tee_core.c
+> > @@ -353,11 +353,49 @@ tee_ioctl_shm_register(struct tee_context *ctx,
+> >       return ret;
+> >  }
+> >
+> > +static int
+> > +tee_ioctl_shm_register_fd(struct tee_context *ctx,
+> > +                       struct tee_ioctl_shm_register_fd_data __user *u=
+data)
+> > +{
+> > +     struct tee_ioctl_shm_register_fd_data data;
+> > +     struct tee_shm *shm;
+> > +     long ret;
+> > +
+> > +     if (copy_from_user(&data, udata, sizeof(data)))
+> > +             return -EFAULT;
+> > +
+> > +     /* Currently no input flags are supported */
+> > +     if (data.flags)
+> > +             return -EINVAL;
+> > +
+> > +     shm =3D tee_shm_register_fd(ctx, data.fd);
+> > +     if (IS_ERR(shm))
+> > +             return -EINVAL;
+> > +
+> > +     data.id =3D shm->id;
+> > +     data.flags =3D shm->flags;
+> > +     data.size =3D shm->size;
+> > +
+> > +     if (copy_to_user(udata, &data, sizeof(data)))
+> > +             ret =3D -EFAULT;
+> > +     else
+> > +             ret =3D tee_shm_get_fd(shm);
+> > +
+> > +     /*
+> > +      * When user space closes the file descriptor the shared memory
+> > +      * should be freed or if tee_shm_get_fd() failed then it will
+> > +      * be freed immediately.
+> > +      */
+> > +     tee_shm_put(shm);
+> > +     return ret;
+> > +}
+> > +
+> >  static int param_from_user_memref(struct tee_context *ctx,
+> >                                 struct tee_param_memref *memref,
+> >                                 struct tee_ioctl_param *ip)
+> >  {
+> >       struct tee_shm *shm;
+> > +     size_t offs =3D 0;
+> >
+> >       /*
+> >        * If a NULL pointer is passed to a TA in the TEE,
+> > @@ -388,6 +426,26 @@ static int param_from_user_memref(struct tee_conte=
+xt *ctx,
+> >                       tee_shm_put(shm);
+> >                       return -EINVAL;
+> >               }
+> > +
+> > +             if (shm->flags & TEE_SHM_DMA_BUF) {
+> > +                     struct tee_shm_dmabuf_ref *ref;
+> > +
+> > +                     ref =3D container_of(shm, struct tee_shm_dmabuf_r=
+ef, shm);
+> > +                     if (ref->parent_shm) {
+> > +                             /*
+> > +                              * The shm already has one reference to
+> > +                              * ref->parent_shm so we are clear of 0.
+> > +                              * We're getting another reference since
+> > +                              * this shm will be used in the parameter
+> > +                              * list instead of the shm we got with
+> > +                              * tee_shm_get_from_id() above.
+> > +                              */
+> > +                             refcount_inc(&ref->parent_shm->refcount);
+> > +                             tee_shm_put(shm);
+> > +                             shm =3D ref->parent_shm;
+> > +                             offs =3D ref->offset;
+> > +                     }
+> > +             }
+> >       } else if (ctx->cap_memref_null) {
+> >               /* Pass NULL pointer to OP-TEE */
+> >               shm =3D NULL;
+> > @@ -395,7 +453,7 @@ static int param_from_user_memref(struct tee_contex=
+t *ctx,
+> >               return -EINVAL;
+> >       }
+> >
+> > -     memref->shm_offs =3D ip->a;
+> > +     memref->shm_offs =3D ip->a + offs;
+>
+> Is this an issue being detected now? If yes then shouldn't it be a
+> separate fix eligible for backport?
+
+No, this is to add an eventual offset for a TEE_SHM_DMA_BUF, introduced abo=
+ve.
+
+>
+> >       memref->size =3D ip->b;
+> >       memref->shm =3D shm;
+> >
+> > @@ -841,6 +899,8 @@ static long tee_ioctl(struct file *filp, unsigned i=
+nt cmd, unsigned long arg)
+> >               return tee_ioctl_shm_alloc(ctx, uarg);
+> >       case TEE_IOC_SHM_REGISTER:
+> >               return tee_ioctl_shm_register(ctx, uarg);
+> > +     case TEE_IOC_SHM_REGISTER_FD:
+> > +             return tee_ioctl_shm_register_fd(ctx, uarg);
+> >       case TEE_IOC_OPEN_SESSION:
+> >               return tee_ioctl_open_session(ctx, uarg);
+> >       case TEE_IOC_INVOKE:
+> > @@ -1300,3 +1360,4 @@ MODULE_AUTHOR("Linaro");
+> >  MODULE_DESCRIPTION("TEE Driver");
+> >  MODULE_VERSION("1.0");
+> >  MODULE_LICENSE("GPL v2");
+> > +MODULE_IMPORT_NS("DMA_BUF");
+> > diff --git a/drivers/tee/tee_private.h b/drivers/tee/tee_private.h
+> > index 6c6ff5d5eed2..308467705da6 100644
+> > --- a/drivers/tee/tee_private.h
+> > +++ b/drivers/tee/tee_private.h
+> > @@ -13,6 +13,16 @@
+> >  #include <linux/mutex.h>
+> >  #include <linux/types.h>
+> >
+> > +/* extra references appended to shm object for registered shared memor=
+y */
+> > +struct tee_shm_dmabuf_ref {
+> > +     struct tee_shm shm;
+> > +     size_t offset;
+> > +     struct dma_buf *dmabuf;
+> > +     struct dma_buf_attachment *attach;
+> > +     struct sg_table *sgt;
+> > +     struct tee_shm *parent_shm;
+> > +};
+> > +
+> >  int tee_shm_get_fd(struct tee_shm *shm);
+> >
+> >  bool tee_device_get(struct tee_device *teedev);
+> > diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
+> > index daf6e5cfd59a..e1ed52ee0a16 100644
+> > --- a/drivers/tee/tee_shm.c
+> > +++ b/drivers/tee/tee_shm.c
+> > @@ -4,6 +4,7 @@
+> >   */
+> >  #include <linux/anon_inodes.h>
+> >  #include <linux/device.h>
+> > +#include <linux/dma-buf.h>
+> >  #include <linux/idr.h>
+> >  #include <linux/io.h>
+> >  #include <linux/mm.h>
+> > @@ -45,7 +46,23 @@ static void release_registered_pages(struct tee_shm =
+*shm)
+> >
+> >  static void tee_shm_release(struct tee_device *teedev, struct tee_shm =
+*shm)
+> >  {
+> > -     if (shm->flags & TEE_SHM_POOL) {
+> > +     struct tee_shm *parent_shm =3D NULL;
+> > +     void *p =3D shm;
+> > +
+> > +     if (shm->flags & TEE_SHM_DMA_BUF) {
+> > +             struct tee_shm_dmabuf_ref *ref;
+> > +
+> > +             ref =3D container_of(shm, struct tee_shm_dmabuf_ref, shm)=
+;
+> > +             parent_shm =3D ref->parent_shm;
+> > +             p =3D ref;
+> > +             if (ref->attach) {
+> > +                     dma_buf_unmap_attachment(ref->attach, ref->sgt,
+> > +                                              DMA_BIDIRECTIONAL);
+> > +
+> > +                     dma_buf_detach(ref->dmabuf, ref->attach);
+> > +             }
+> > +             dma_buf_put(ref->dmabuf);
+> > +     } else if (shm->flags & TEE_SHM_POOL) {
+> >               teedev->pool->ops->free(teedev->pool, shm);
+> >       } else if (shm->flags & TEE_SHM_DYNAMIC) {
+> >               int rc =3D teedev->desc->ops->shm_unregister(shm->ctx, sh=
+m);
+> > @@ -57,9 +74,10 @@ static void tee_shm_release(struct tee_device *teede=
+v, struct tee_shm *shm)
+> >               release_registered_pages(shm);
+> >       }
+> >
+> > -     teedev_ctx_put(shm->ctx);
+> > +     if (shm->ctx)
+> > +             teedev_ctx_put(shm->ctx);
+>
+> redundant change?
+
+Yes, I'll remove it.
+
+>
+> >
+> > -     kfree(shm);
+> > +     kfree(p);
+> >
+> >       tee_device_put(teedev);
+> >  }
+> > @@ -169,7 +187,7 @@ struct tee_shm *tee_shm_alloc_user_buf(struct tee_c=
+ontext *ctx, size_t size)
+> >   * tee_client_invoke_func(). The memory allocated is later freed with =
+a
+> >   * call to tee_shm_free().
+> >   *
+> > - * @returns a pointer to 'struct tee_shm'
+> > + * @returns a pointer to 'struct tee_shm' on success, and ERR_PTR on f=
+ailure
+> >   */
+> >  struct tee_shm *tee_shm_alloc_kernel_buf(struct tee_context *ctx, size=
+_t size)
+> >  {
+> > @@ -179,6 +197,91 @@ struct tee_shm *tee_shm_alloc_kernel_buf(struct te=
+e_context *ctx, size_t size)
+> >  }
+> >  EXPORT_SYMBOL_GPL(tee_shm_alloc_kernel_buf);
+> >
+> > +struct tee_shm *tee_shm_register_fd(struct tee_context *ctx, int fd)
+> > +{
+> > +     struct tee_shm_dmabuf_ref *ref;
+> > +     int rc;
+> > +
+> > +     if (!tee_device_get(ctx->teedev))
+> > +             return ERR_PTR(-EINVAL);
+> > +
+> > +     teedev_ctx_get(ctx);
+> > +
+> > +     ref =3D kzalloc(sizeof(*ref), GFP_KERNEL);
+> > +     if (!ref) {
+> > +             rc =3D -ENOMEM;
+> > +             goto err_put_tee;
+> > +     }
+> > +
+> > +     refcount_set(&ref->shm.refcount, 1);
+> > +     ref->shm.ctx =3D ctx;
+> > +     ref->shm.id =3D -1;
+> > +     ref->shm.flags =3D TEE_SHM_DMA_BUF;
+> > +
+> > +     ref->dmabuf =3D dma_buf_get(fd);
+> > +     if (IS_ERR(ref->dmabuf)) {
+> > +             rc =3D PTR_ERR(ref->dmabuf);
+> > +             goto err_kfree_ref;
+> > +     }
+> > +
+> > +     rc =3D tee_heap_update_from_dma_buf(ctx->teedev, ref->dmabuf,
+> > +                                       &ref->offset, &ref->shm,
+> > +                                       &ref->parent_shm);
+> > +     if (!rc)
+> > +             goto out;
+> > +     if (rc !=3D -EINVAL)
+> > +             goto err_put_dmabuf;
+> > +
+> > +     ref->attach =3D dma_buf_attach(ref->dmabuf, &ctx->teedev->dev);
+> > +     if (IS_ERR(ref->attach)) {
+> > +             rc =3D PTR_ERR(ref->attach);
+> > +             goto err_put_dmabuf;
+> > +     }
+> > +
+> > +     ref->sgt =3D dma_buf_map_attachment(ref->attach, DMA_BIDIRECTIONA=
+L);
+> > +     if (IS_ERR(ref->sgt)) {
+> > +             rc =3D PTR_ERR(ref->sgt);
+> > +             goto err_detach;
+> > +     }
+> > +
+> > +     if (sg_nents(ref->sgt->sgl) !=3D 1) {
+> > +             rc =3D -EINVAL;
+> > +             goto err_unmap_attachement;
+> > +     }
+> > +
+> > +     ref->shm.paddr =3D page_to_phys(sg_page(ref->sgt->sgl));
+> > +     ref->shm.size =3D ref->sgt->sgl->length;
+> > +
+> > +out:
+> > +     mutex_lock(&ref->shm.ctx->teedev->mutex);
+> > +     ref->shm.id =3D idr_alloc(&ref->shm.ctx->teedev->idr, &ref->shm,
+> > +                             1, 0, GFP_KERNEL);
+> > +     mutex_unlock(&ref->shm.ctx->teedev->mutex);
+> > +     if (ref->shm.id < 0) {
+> > +             rc =3D ref->shm.id;
+> > +             if (ref->attach)
+> > +                     goto err_unmap_attachement;
+> > +             goto err_put_dmabuf;
+> > +     }
+> > +
+> > +     return &ref->shm;
+> > +
+> > +err_unmap_attachement:
+> > +     dma_buf_unmap_attachment(ref->attach, ref->sgt, DMA_BIDIRECTIONAL=
+);
+> > +err_detach:
+> > +     dma_buf_detach(ref->dmabuf, ref->attach);
+> > +err_put_dmabuf:
+> > +     dma_buf_put(ref->dmabuf);
+> > +err_kfree_ref:
+> > +     kfree(ref);
+> > +err_put_tee:
+> > +     teedev_ctx_put(ctx);
+> > +     tee_device_put(ctx->teedev);
+> > +
+> > +     return ERR_PTR(rc);
+> > +}
+> > +EXPORT_SYMBOL_GPL(tee_shm_register_fd);
+> > +
+> >  /**
+> >   * tee_shm_alloc_priv_buf() - Allocate shared memory for a privately s=
+hared
+> >   *                         kernel buffer
+> > diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
+> > index b8b99c97e00c..02c07f661349 100644
+> > --- a/include/linux/tee_core.h
+> > +++ b/include/linux/tee_core.h
+> > @@ -28,6 +28,7 @@
+> >  #define TEE_SHM_USER_MAPPED  BIT(1)  /* Memory mapped in user space */
+> >  #define TEE_SHM_POOL         BIT(2)  /* Memory allocated from pool */
+> >  #define TEE_SHM_PRIV         BIT(3)  /* Memory private to TEE driver *=
+/
+> > +#define TEE_SHM_DMA_BUF              BIT(4)  /* Memory with dma-buf ha=
+ndle */
+> >
+> >  #define TEE_DEVICE_FLAG_REGISTERED   0x1
+> >  #define TEE_MAX_DEV_NAME_LEN         32
+> > diff --git a/include/linux/tee_drv.h b/include/linux/tee_drv.h
+> > index a54c203000ed..824f1251de60 100644
+> > --- a/include/linux/tee_drv.h
+> > +++ b/include/linux/tee_drv.h
+> > @@ -116,6 +116,16 @@ struct tee_shm *tee_shm_alloc_kernel_buf(struct te=
+e_context *ctx, size_t size);
+> >  struct tee_shm *tee_shm_register_kernel_buf(struct tee_context *ctx,
+> >                                           void *addr, size_t length);
+> >
+> > +/**
+> > + * tee_shm_register_fd() - Register shared memory from file descriptor
+> > + *
+> > + * @ctx:     Context that allocates the shared memory
+> > + * @fd:              Shared memory file descriptor reference
+> > + *
+> > + * @returns a pointer to 'struct tee_shm' on success, and ERR_PTR on f=
+ailure
+> > + */
+> > +struct tee_shm *tee_shm_register_fd(struct tee_context *ctx, int fd);
+> > +
+> >  /**
+> >   * tee_shm_free() - Free shared memory
+> >   * @shm:     Handle to shared memory to free
+> > diff --git a/include/uapi/linux/tee.h b/include/uapi/linux/tee.h
+> > index d0430bee8292..8ec5f46fbfbe 100644
+> > --- a/include/uapi/linux/tee.h
+> > +++ b/include/uapi/linux/tee.h
+> > @@ -118,6 +118,37 @@ struct tee_ioctl_shm_alloc_data {
+> >  #define TEE_IOC_SHM_ALLOC    _IOWR(TEE_IOC_MAGIC, TEE_IOC_BASE + 1, \
+> >                                    struct tee_ioctl_shm_alloc_data)
+> >
+> > +/**
+> > + * struct tee_ioctl_shm_register_fd_data - Shared memory registering a=
+rgument
+> > + * @fd:              [in] File descriptor identifying dmabuf reference
+> > + * @size:    [out] Size of referenced memory
+> > + * @flags:   [in] Flags to/from allocation.
+> > + * @id:              [out] Identifier of the shared memory
+> > + *
+> > + * The flags field should currently be zero as input. Updated by the c=
+all
+> > + * with actual flags as defined by TEE_IOCTL_SHM_* above.
+> > + * This structure is used as argument for TEE_IOC_SHM_REGISTER_FD belo=
+w.
+> > + */
+> > +struct tee_ioctl_shm_register_fd_data {
+> > +     __s64 fd;
+> > +     __u64 size;
+> > +     __u32 flags;
+> > +     __s32 id;
+> > +};
+> > +
+> > +/**
+> > + * TEE_IOC_SHM_REGISTER_FD - register a shared memory from a file desc=
+riptor
+> > + *
+> > + * Returns a file descriptor on success or < 0 on failure
+> > + *
+> > + * The returned file descriptor refers to the shared memory object in =
+the
+> > + * kernel. The supplied file deccriptor can be closed if it's not need=
+ed
+> > + * for other purposes. The shared memory is freed when the descriptor =
+is
+> > + * closed.
+> > + */
+> > +#define TEE_IOC_SHM_REGISTER_FD      _IOWR(TEE_IOC_MAGIC, TEE_IOC_BASE=
+ + 8, \
+> > +                                  struct tee_ioctl_shm_register_fd_dat=
+a)
+>
+> Please add this IOCTL in correct sequence order.
+
+OK, I'll fix it.
+
+Thanks,
+Jens
+
+>
+> -Sumit
+>
+> > +
+> >  /**
+> >   * struct tee_ioctl_buf_data - Variable sized buffer
+> >   * @buf_ptr: [in] A __user pointer to a buffer
+> > --
+> > 2.43.0
+> >
 
