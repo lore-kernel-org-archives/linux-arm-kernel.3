@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F40C5B542
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 13:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A55C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 13:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U2k4Kt+zguDD1NIcj7jjrhOaWN1xKwqC+/1mHTke1NI=; b=jv7cuHrMIjtIuJYaVmwCHJh4sj
-	mN9FBMin2IJtZDwQNA7WN02RN2x0BF0IQ7Ouk1ntKpLzBFUeVfoaC13uuoz60xSBrmCfOug9ZWI5h
-	KFilQ8X0Yuqoo6yHzVWA31F7YsN/MWr9BlUqmK5Osh0/EqzYiYYsA9fFcsKsvXlVHMBVPa81L9y9v
-	5lQT4KAXQvOctPvI6eODup6EjjLpcNklTTfcf8Hd9haUZ/OkMMyMm4O8ej/yMwGPxQahimwGWbTrd
-	JG+N55bTFApxua97ss920JAiPWlI35NCshgrbJ+ayhw2EyHVqtoQKx+TcTL0eVDRaM+QQlBW5RoD9
-	fXRR4B3g==;
+	bh=wV2IEr+c53RnMrpo1GAvLc81fVn3PrTQJK90uNKUmdI=; b=1RjZB2nzI5uoqHbPh2tylcx93N
+	TZatoPnnbAroYcrLJYUUlIpxF0airpUs78Hnlqop+EAyWA7qOE8txrQFO91xTf3RgCx5rGSXipJ0e
+	EHcH91NLylfvyxnVg0pFJTnMnfj0p0ROycFN+jc3+uHvGONoIqAyK6iFzeO9kVKbefK4qxggU6txs
+	6lipTfdcgTeaqMeRgH4uVsSBJ3yRlCKifZ1QfurRtuacVjy8hO9NYNoPjLuVy4AXQcPIusk5L/6yl
+	BdrWziCng2OTnPxNnxCIfWwcs51AXuT6yX9Wwuqa5kvhVvSrq577FqqGXt6labJxlTWUFJSY6HQ8h
+	OuDtgFFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJu3s-0000000AmUC-1UAr;
-	Tue, 27 May 2025 13:09:44 +0000
+	id 1uJu5z-0000000Amj2-0ITI;
+	Tue, 27 May 2025 13:11:55 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJtzr-0000000AlhP-2oBE
+	id 1uJtzr-0000000AlhO-2OS0
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 27 May 2025 13:05:37 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54RCaRqv028208;
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54RCo3uR032150;
 	Tue, 27 May 2025 15:05:26 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	U2k4Kt+zguDD1NIcj7jjrhOaWN1xKwqC+/1mHTke1NI=; b=Euo7B2GKs7ey3ZQB
-	A+k5TZJu/4mO6iuvjFXFp97E6vGjqkybbPgXx/u3o/1Y96IBhxChqb4hu16ZbB4E
-	Bo2F15hyBVqro4eLdcxvFI48jzSJ5T3SPeGp60bVDkDY9Lk50wWJ9m3hizoIj9gZ
-	8EUvtaebHetSqs00lqaopCMshJSIP5AdVWXPBFYpwiuajSlLPzADn6m9GQpFkXWb
-	S8LRSuF2NN+cmR/1lwjDPXOsRvIo3mFqHYfyvmnnHQHtm9HXWmV8D5K0feoyGtS5
-	YJgt48suOKMWZHPRS7/NW6z+QgKWAz37exo7JDcVtGhkhT/azrOAfvG+oqEM3Pdy
-	6AjdkQ==
+	wV2IEr+c53RnMrpo1GAvLc81fVn3PrTQJK90uNKUmdI=; b=c7GHV5VH6BJ6MACX
+	V3euZ3NP4ngKFr0+a7GB1BrVk5GVHwx3fwrSVa7I17uy8nSfWieYne7SWfjMHSuo
+	a2c9MZ0iB6bLjLI+TqxAYPttOg2TNKEJksTVJc0ua/dDCmey7M5oQzrChVFYLJ44
+	dbwVwCo0kcQDS77rnJTJQKzg5GRLQ8PrU/ooancQH/HbEr8mBARcgKt+jvWi4BMc
+	I/eq9m4BVwwmNbdNwnBH0tsVLFoOSPq2r27zlQpkgaODQLRiVbLtXL5PUI7oKiyn
+	0o0iMx8qyBGJQyjHU8Jv9YG2QncorYDLESRjL1Vs6yYHT1IMHRKGpitNPrJ0a9lo
+	3Ftv3g==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46u3hk4edh-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46u5f245s5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 27 May 2025 15:05:26 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0EC0E4004F;
-	Tue, 27 May 2025 15:04:28 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3E75040050;
+	Tue, 27 May 2025 15:04:30 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 48C18AE0788;
-	Tue, 27 May 2025 15:03:48 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 055F4AE079F;
+	Tue, 27 May 2025 15:03:49 +0200 (CEST)
 Received: from localhost (10.48.86.139) by SHFDAG1NODE3.st.com (10.75.129.71)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 27 May
  2025 15:03:48 +0200
 From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Date: Tue, 27 May 2025 15:03:18 +0200
-Subject: [PATCH 2/5] ARM: dts: stm32: use 'typec' generic name for
- stusb1600 on stm32mp15xx-dkx
+Date: Tue, 27 May 2025 15:03:19 +0200
+Subject: [PATCH 3/5] dt-bindings: regulator: Add STM32MP15 SCMI regulator
+ identifiers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250527-stm32mp157f-dk2-v1-2-8aef885a4928@foss.st.com>
+Message-ID: <20250527-stm32mp157f-dk2-v1-3-8aef885a4928@foss.st.com>
 References: <20250527-stm32mp157f-dk2-v1-0-8aef885a4928@foss.st.com>
 In-Reply-To: <20250527-stm32mp157f-dk2-v1-0-8aef885a4928@foss.st.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -72,7 +72,9 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
 CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Amelie Delaunay <amelie.delaunay@foss.st.com>
+        Amelie Delaunay <amelie.delaunay@foss.st.com>,
+        Etienne Carriere
+	<etienne.carriere@foss.st.com>
 X-Mailer: b4 0.14.2
 X-Originating-IP: [10.48.86.139]
 X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE3.st.com
@@ -81,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-05-27_06,2025-05-27_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_060536_019502_762B8285 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250527_060535_909641_EA95B9C8 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,27 +99,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adopt generic node name 'typec' for stusb1600, which is the USB Type-C
-controller on stm32mp157x Discovery Kits.
+From: Etienne Carriere <etienne.carriere@foss.st.com>
 
+These bindings will be used for the SCMI voltage domain.
+
+Signed-off-by: Etienne Carriere <etienne.carriere@foss.st.com>
 Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 ---
- arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../dt-bindings/regulator/st,stm32mp15-regulator.h | 32 ++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-index a5511b1f0ce306feea5d8657721b078161d01a36..276ed2c9be71cc59891e9b06cb057ce4ff8a143e 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-@@ -254,7 +254,7 @@ &i2c4 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
- 
--	stusb1600@28 {
-+	stusb1600: typec@28 {
- 		compatible = "st,stusb1600";
- 		reg = <0x28>;
- 		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+diff --git a/include/dt-bindings/regulator/st,stm32mp15-regulator.h b/include/dt-bindings/regulator/st,stm32mp15-regulator.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..8605b12b2aa7de6b14ec32bf8778ce94ecbe4bc2
+--- /dev/null
++++ b/include/dt-bindings/regulator/st,stm32mp15-regulator.h
+@@ -0,0 +1,32 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2025, STMicroelectronics - All Rights Reserved
++ */
++
++#ifndef __DT_BINDINGS_REGULATOR_ST_STM32MP15_REGULATOR_H
++#define __DT_BINDINGS_REGULATOR_ST_STM32MP15_REGULATOR_H
++
++/* SCMI voltage domain identifiers */
++
++/* SOC Internal regulators */
++#define VOLTD_SCMI_REG11		0
++#define VOLTD_SCMI_REG18		1
++#define VOLTD_SCMI_USB33		2
++
++/* STPMIC1 regulators */
++#define VOLTD_SCMI_STPMIC1_BUCK1	3
++#define VOLTD_SCMI_STPMIC1_BUCK2	4
++#define VOLTD_SCMI_STPMIC1_BUCK3	5
++#define VOLTD_SCMI_STPMIC1_BUCK4	6
++#define VOLTD_SCMI_STPMIC1_LDO1		7
++#define VOLTD_SCMI_STPMIC1_LDO2		8
++#define VOLTD_SCMI_STPMIC1_LDO3		9
++#define VOLTD_SCMI_STPMIC1_LDO4		10
++#define VOLTD_SCMI_STPMIC1_LDO5		11
++#define VOLTD_SCMI_STPMIC1_LDO6		12
++#define VOLTD_SCMI_STPMIC1_VREFDDR	13
++#define VOLTD_SCMI_STPMIC1_BOOST	14
++#define VOLTD_SCMI_STPMIC1_PWR_SW1	15
++#define VOLTD_SCMI_STPMIC1_PWR_SW2	16
++
++#endif /*__DT_BINDINGS_REGULATOR_ST_STM32MP15_REGULATOR_H */
 
 -- 
 2.25.1
