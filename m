@@ -4,88 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126D1C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE9DC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vAdJ/cT5QBHscP2gZxi7G3d4bBHjxu/r9X+j+h7O9D0=; b=q+5JGp1ZgZ+M+0+fHtIoI0ZA+f
-	A7bdJD+lkvNSuZv4jIaeFl6k6cPaVgpNe+q5jc2BC5LYabBy2bYJiMw4PObv4y+vOGQv6nmjVLmyn
-	9s1veAv+wcMiBXh9C84z4zIHibEkvO/JxVHFRxUic3cs59hNO5GavSf9apbeZ5BCs11BHoKbbtuEd
-	NhGsOOxGWrnYrXjPOjEEFOQnRjHIXHLeslyyJZEK+jg0qEh41KtUJVmqj+EtiXYsMEe/+l2QP7b3Y
-	kSzJCyLrraGMuDkrTfuynU8Zy70RioEqF0K4tl7JBG8se6mhgBPsiCbg/HzYwD9MGpxoVRySxgqE9
-	1qqdkIHQ==;
+	bh=b95ydlmvcuSBT0t2+Bg2nsz8TCc7xZGDZD7y4UeqVe8=; b=APgrAV5mkfM8Y4UNti1yQPooIr
+	YLCNYVDbG5G4eM/ZJrLQglDEx20+nOP/Zi7ZonioZY2H+Hb6x5aHXWpUf5/nuUVoX2QggpXiqvsM8
+	GadNveFGm+lZF7tTibw8Pf4PiIehpoMJ9Yci+wncTXIBNOimH7wGi2/C9kMEztps35WcJN4IY/Hi7
+	bSy0js83OBufscmpoySA3Ei7YJfc2MlvMOqh7GNRfunVtx1hH7zm0ZutigyegjR1MTEHXyDUywxpH
+	FFfYzo3DXuxnF2uRocl1OJWg/oH714YFXuyxR05igOqfMoCzGOwJbRoYrjb1RR493FqYI1qbpkwV1
+	mBvOBZWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJnAw-00000009xf9-2vOW;
-	Tue, 27 May 2025 05:48:34 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1uJnK1-00000009ync-0NLH;
+	Tue, 27 May 2025 05:57:57 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJn7v-00000009xJH-0wdL
+	id 1uJnHr-00000009yN0-358S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 05:45:28 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-604533a2f62so4530640a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 22:45:26 -0700 (PDT)
+	Tue, 27 May 2025 05:55:45 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ad545e74f60so388419366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 22:55:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748324725; x=1748929525; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748325342; x=1748930142; darn=lists.infradead.org;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=vAdJ/cT5QBHscP2gZxi7G3d4bBHjxu/r9X+j+h7O9D0=;
-        b=iTJq/tAwrMSRS2BdjQ4QXG89HHuyyUJW61VlIvxWETCPi4cfvnRTeM6c1oZ0JQxmwh
-         wgEqbjH4edQFz4NJxf/RAc1Z07VQ35vdLQgJko/ZZHyNtf7yMXscT447JrRHFhBg8uCb
-         TMjwswkg5/9dYsFgwv0fwzzOkEx1csT+w4b+ybaDEFwpdMRMSkiS8lWaZCkwfuWNl0UX
-         w39PzFD2a9yaaX104tmY5PsyYYzOVaMsNw7fXgnx3O+L2p/jlJ+uRaE7/eAIz9SUYSa2
-         1Cvst+AOf3lGl/h+HU13OaBlxJL+H2DkAvn+vhPVDSo5iucvGObUOLpCgmsUoYFL2Yqg
-         ZGTA==
+        bh=b95ydlmvcuSBT0t2+Bg2nsz8TCc7xZGDZD7y4UeqVe8=;
+        b=DdxmyDOcsHTxvs3i7PjQbI6TP/F8WUbqTM2SZh9Oe1Qv+TG2eMUdTJqPFIUbpx+ruQ
+         54pMoDtbCf5LpM8hMmV05pd3kgZRtHGOJ4FzPJuCR26PMJPmKCjFPxFzGT0X04qlYpMf
+         N9iXpZG7pS5Kdle12Q45r84qpWTQfLziOtD9iPLqAGXQkC6KOyhM4+Jn+ohgaD9aKR2r
+         JSf/m4jL7k9b3y02ijbmMo+mvTHjB24rHVYl8l+D56wDuLInM6KqMEZ4dotGt4sO8M6g
+         o5Na/u2V8dl2DyKJER801tPUiVwf5znZ/88CPqplrMFNXLMffJ4CVPHu9b65VCuHh0q4
+         iMQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748324725; x=1748929525;
+        d=1e100.net; s=20230601; t=1748325342; x=1748930142;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vAdJ/cT5QBHscP2gZxi7G3d4bBHjxu/r9X+j+h7O9D0=;
-        b=qUummboX3r8cJJHSP0lwVvWMlZiCu8Y7C19qINXN73FLBbcxO/aRD59Zvk6NdQh/vU
-         RqvFGfnNthxSb0RnP3MvJu3pZfWeqabXedjOebIJkLTSjl7M+zduv1tksrQdrJIAvVEs
-         S+oUwE4I7KnwUD1K5XCC0Iy374poSLS9EMU+l7OjG54gBxyGJe/O5gopHJp3qI90HQs3
-         sM72AWNyt9CTivN0+au77agw7WO5sG7/ApW1g/MGludPCvBQJl3SFHDiQAOhVGBFSPE0
-         z0OCIkCSIZiDTwutY2lYOXood2aPGRZj6PNCPs1vY6lBilanKc8DW1tmh9Pwu6QEBWvU
-         S5xg==
-X-Forwarded-Encrypted: i=1; AJvYcCVcJJ+MtFml+wE1Lrd0cuaIjTjTDoYgZQja+WuTxCnAK9P+XXjodyPG7a1WAhmfgq6JvzHQaO8Bg7kk9JLS6vPF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7TY3Mtb1dCBHemrufA2t9ZK4lciQZgpeAE6cuQrro9fljyD7E
-	NJ4l7nxIAOFMidoI8J9H5mQvDOpjScBkWcPufSEm7puz1vIRlFl5AU4i3wWYlYjZuHc=
-X-Gm-Gg: ASbGncsPWJtOts0rfb5f5L6/11E3MOdfunBgeqWvkh+Jq9XvUH550Li4shZVnyLpF2A
-	M4utUIi4779RdWYe4l9goCK9UV37ptSiFCpumMjur7Pktqza3vKOoqVWyyn3ze4QpokU/sguumF
-	d+Goq98oSSt3aqzUL93ChitGGPjbrfDR1LbbPNwSvnm34SQ+HNiqis37I5K2dCAzUjnTNmBRtby
-	LHytzI+s7OmVqBDF4qMhuW5QDgRHuC10m8UcSfTPLYHQh2bXjZJygvCN5U9suyE8tv8E/7vCePF
-	XReEPAQaWqVmidZ9DYvuO+rT8ubul0fzIt+HPhlKZzNiQxFKdYveunccM6W4BDT0ucUfsuW346Y
+        bh=b95ydlmvcuSBT0t2+Bg2nsz8TCc7xZGDZD7y4UeqVe8=;
+        b=K9tmYSoM+0weWkgC5q8Rf68BSNX8L5mMbI8B3z6YGr+luBlKEBzDbONkX/r06nzapj
+         64+EA+lYlB6EC1C4K1SysS+T0AVEL/sThGw+8RlvRuoKZ10BbzIvBIBlAxg3EKuZlOi2
+         Mr4CnC1fcy2N231grokE0mqbjOMSV7/l5v0FFV+miDU7Duuhqwznz9ym5CSrWw6hatqJ
+         4WEfKunkAfDN0DL6+FwUieg2/Jz6w5o+S1lVF7w7sTF6U7d+ST/EZAgkjXJRGueZyBev
+         P3/3wRnDLXqnnGiBkmBCqfj3+K413SDJ9OspbMrvAJd4O3Hg4lihvNcV32ng1gq43TBb
+         O73A==
+X-Forwarded-Encrypted: i=1; AJvYcCU29LzVwhbbXSGNVRNv+Bq/ugjM2dEBVGxMLD4ZwUCWbLZgNSoZrpZSVk2zCZKQmrZqBL2nMDsPHjI/JZAqSN94@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7/2TofVFOTcW9ZPRqdF/OxN7RxOMYmSOBgNhsrjZxHxiLEdM7
+	OIEr4be1tho8IqlxkOU0jgDZwTxOKAKlw1CurdX6VqLUyGDPFG22WkZOBfUX5vXh/2c=
+X-Gm-Gg: ASbGnct6ArzYhS3ZEsbJSsVs0oJMvKIOkukDmlSDJMujsnAcLhz/q7GfSwUOt97Te8s
+	8nWVGvdFu+/MgXS64dmEGMvHBrx43b330lPclNEmn8NxXSD+d7LiQVAWgNUXSGbtZ5y0xuul+2u
+	nyOzJZIukU8mRZRiCcBTWaioGnWwagNCvj3PDeP7y8H3STRT4AwvVV7aieEiZD9Ky9Kxm7bbgEX
+	BkTFdO1pPx0cgY/bacVggBZl39DQAONz6omyDDUbARFF6UaBe4nDzv2ekuxm01tuGr13VjX/OJL
+	xlnMYrDxMZEln+Ps5+iFLOmDO2UPiqwgbrWUERdwBoknSmxkwUINTZg27jO7Z1QC/Y20TuR+NLQ
 	=
-X-Google-Smtp-Source: AGHT+IFjfjGDL9+pR2wI6u63W8YFLk9uDG95aJV/jaoLvZt0KxL00PabZAJ4WGFqwimBN1PB88AkOg==
-X-Received: by 2002:a17:906:f58b:b0:ad2:499d:dfdb with SMTP id a640c23a62f3a-ad85b1bd259mr1048071866b.26.1748324725279;
-        Mon, 26 May 2025 22:45:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHqcQBdt4pdotySeS2C++hBmaCY98bm7d0B72bKSBSdU4rDUN6+enuY0scFyUJE6OpWFCvJpg==
+X-Received: by 2002:a17:907:f818:b0:ad4:d32e:b571 with SMTP id a640c23a62f3a-ad85b1bf8d5mr961844066b.24.1748325342055;
+        Mon, 26 May 2025 22:55:42 -0700 (PDT)
 Received: from localhost (hf94.n1.ips.mtn.co.ug. [41.210.143.148])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ad52d047749sm1788284566b.8.2025.05.26.22.45.24
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ad52d06e098sm1818489666b.59.2025.05.26.22.55.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 May 2025 22:45:24 -0700 (PDT)
-Date: Tue, 27 May 2025 08:45:21 +0300
+        Mon, 26 May 2025 22:55:41 -0700 (PDT)
+Date: Tue, 27 May 2025 08:55:38 +0300
 From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Subject: [PATCH next] cpuidle: psci: Fix uninitialized variable in
- dt_idle_state_present()
-Message-ID: <aDVRcfU8O8sez1x7@stanley.mountain>
+To: Ming Yen Hsieh <mingyen.hsieh@mediatek.com>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Deren Wu <deren.wu@mediatek.com>,
+	Allan Wang <allan.wang@mediatek.com>,
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org
+Subject: [PATCH next] wifi: mt76: mt7925: fix off by one in
+ mt7925_mcu_hw_scan()
+Message-ID: <aDVT2tPhG_8T0Qla@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_224527_265344_5AC6E2C3 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20250526_225543_774084_EA20DF8C 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,39 +105,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the first cpu_node = of_cpu_device_node_get() fails then the cleanup.h
-code will try to free "state_node" but it hasn't been initialized yet.
-Declare the device_nodes where they are initialized to fix this.
+The ssid->ssids[] and sreq->ssids[] arrays have MT7925_RNR_SCAN_MAX_BSSIDS
+elements so this >= needs to be > to prevent an out of bounds access.
 
-Fixes: 5836ebeb4a2b ("cpuidle: psci: Avoid initializing faux device if no DT idle states are present")
+Fixes: 8284815ca161 ("wifi: mt76: mt7925: add RNR scan support for 6GHz")
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
- drivers/cpuidle/cpuidle-psci.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+Please review this one carefully.  I'm less sure about the second chunk.
+Also maybe we should just delete this condition or check sreq->n_ssids
+instead?
 
-diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-index 3c2756a539c4..4e1ba35deda9 100644
---- a/drivers/cpuidle/cpuidle-psci.c
-+++ b/drivers/cpuidle/cpuidle-psci.c
-@@ -456,14 +456,13 @@ static struct faux_device_ops psci_cpuidle_ops = {
+ drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+index b8542be0d945..16f3cc58a192 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+@@ -2866,7 +2866,7 @@ int mt7925_mcu_hw_scan(struct mt76_phy *phy, struct ieee80211_vif *vif,
+ 	for (i = 0; i < sreq->n_ssids; i++) {
+ 		if (!sreq->ssids[i].ssid_len)
+ 			continue;
+-		if (i > MT7925_RNR_SCAN_MAX_BSSIDS)
++		if (i >= MT7925_RNR_SCAN_MAX_BSSIDS)
+ 			break;
  
- static bool __init dt_idle_state_present(void)
- {
--	struct device_node *cpu_node __free(device_node);
--	struct device_node *state_node __free(device_node);
--
--	cpu_node = of_cpu_device_node_get(cpumask_first(cpu_possible_mask));
-+	struct device_node *cpu_node __free(device_node) =
-+			of_cpu_device_node_get(cpumask_first(cpu_possible_mask));
- 	if (!cpu_node)
- 		return false;
+ 		ssid->ssids[i].ssid_len = cpu_to_le32(sreq->ssids[i].ssid_len);
+@@ -2883,7 +2883,7 @@ int mt7925_mcu_hw_scan(struct mt76_phy *phy, struct ieee80211_vif *vif,
+ 		mt76_connac_mcu_build_rnr_scan_param(mdev, sreq);
  
--	state_node = of_get_cpu_state_node(cpu_node, 0);
-+	struct device_node *state_node __free(device_node) =
-+			of_get_cpu_state_node(cpu_node, 0);
- 	if (!state_node)
- 		return false;
+ 		for (j = 0; j < mdev->rnr.bssid_num; j++) {
+-			if (j > MT7925_RNR_SCAN_MAX_BSSIDS)
++			if (j >= MT7925_RNR_SCAN_MAX_BSSIDS)
+ 				break;
  
+ 			tlv = mt76_connac_mcu_add_tlv(skb, UNI_SCAN_BSSID,
 -- 
 2.47.2
 
