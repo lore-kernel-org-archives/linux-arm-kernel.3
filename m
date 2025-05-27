@@ -4,59 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE41C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 19:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182AAC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 19:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mn4Pc50e7tXmnLGnOXIk9B2CNBd9PxUIgSRsaBSDbnI=; b=MEQlxCZShC+B5ZAJfHLltU3y/y
-	r9RkF4ZEQciY1GIDaK46Jv5LdNZDDQaK65xfDa0CqlixS1RUarUnU63tMMRRtri/ZjOMeb90Pq9fB
-	WBfVmI91bcyoPU1NaDv6gvQUK7Pw12RDi8CJwBcTKb8ycJf1BErCzgFPHhgaMpSestCkKQ//NPjNT
-	1lGv1TX+6hiR71VrQ8m2PpYePucwbN1rycTHIzNTsSHHXIKAzK5tiI87YwsFFJ27GhSu2LvkuNHx8
-	tmfTIlYG5qSdagbUqwUaZMHPG9b5xBEZLKHZ/tvRbW7j8z+rJSx2XM/Uj6ua8UUqfWwOuoH3LRueD
-	EvlL+7Rg==;
+	bh=Z3GFQ2em3qr/+lpcMUswENE9r+bXLAP8Uq3SyEwOvtc=; b=Xbycr7uDxQqCQXXhuY9kTGeP3W
+	GNCbIrD1dpqp80rKBq7bS3MP+OwFUrEsJK7K23kZ8c00benejghksmmetdkfrdXVozwtJigZALNef
+	HxOhmdKB5d7w8G7QuccBeJoY2lhx82DRv2P49HyNReAwQadAxhceavSLsrk7OcfrEq91S38+1GkjA
+	GTItvXRKvLp+Pr+o3zzWn02+qOcNYsgMj0p3ExISSLFaI3VC6Ig9B56KzbFIaZ35y+LjGdzzW/x4X
+	GnGR+tcemDaKULZLYZDsPkaQaVnyC2ewo6kqsDkZo5e2iCEpy5CbeAAUYzSPbWJsLQKh92Fvxl+xq
+	t9w9nvZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK00q-0000000BR7B-0dDK;
-	Tue, 27 May 2025 19:31:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uK02w-0000000BRHp-3boo;
+	Tue, 27 May 2025 19:33:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJzwh-0000000BQWZ-3kgd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 19:26:43 +0000
+	id 1uJzyM-0000000BQdo-2HcE;
+	Tue, 27 May 2025 19:28:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 53595614B3;
-	Tue, 27 May 2025 19:26:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6B6EC4CEE9;
-	Tue, 27 May 2025 19:26:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 29AB14A639;
+	Tue, 27 May 2025 19:28:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6EB3C4CEE9;
+	Tue, 27 May 2025 19:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748374003;
-	bh=H6haHA7oSNBrFCJ0OSt8DikUNfMFd/tbzmvR4IC+64E=;
+	s=k20201202; t=1748374106;
+	bh=ZcppwkkBkGHzfL/HojYzLOl4RCeHBYYQUV63DqSRucM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=trX4qoiF9C8t5p/j4u4YcLYkYnL27yW/TI0AqPQ9GaRcP+aNjqsPLtFuMgaYRmdv6
-	 nfwl9k/ej8PF2kVo6WsC1ftd9fSmVE9tyrdCCfXxROGYqaZ1YtWQnR0QKpTxNOfjfP
-	 fdI46iWQ/IKyJG8MkJpujd5I/UF5L4W61SsCKXZQSn+p2MziyIimuKiOfvMzOeaF/M
-	 ygCjYrXzs7etE1yZEU1KFO70Bwe1Sjq5WmRGU7yGTPTx/XQrTYeIR5qbhBOI/zv0LI
-	 1bdDPZl+CI5mEfgMByClEPxBtSGdCi+yg8f84hYt1Jrv7E2sNF9arDpcT+O55gURNZ
-	 EWAxLLxvFaO6A==
-Date: Tue, 27 May 2025 14:26:41 -0500
+	b=C18Q4wxAIMAZ+UbWrE1lFvCpoZhpt/PBhWqEwgXbut9htZnxVTyZ4DBPOvmqZ6YNQ
+	 lJJ55e7ZRfL/bKDdOK4pOlYBu4SyQktp7wfoCYBdTYeQfUz3ogXafmvGCaT3662unh
+	 495cJTJLzsiFQ3oAnLez/2yCuqs2WN6gMWfJNLcE0mtBhFv8pd1GwL5/Dk6+dvoVs5
+	 JsvzkbFFzmk3HyeCtRK4HGry4Y8HX1IfiJtazdMxhSsuLe2UU4X9eeB8PRs02okcwG
+	 SmXCzdZ9yluDgM9b/BU73hkMHJuoSmWGN6Qo0FhwytFRi8d1kEsev0ZUQU75NQdUx5
+	 AH6eL3zDyhaag==
+Date: Tue, 27 May 2025 14:28:24 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	michal.simek@amd.com, git@amd.com,
-	linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org,
-	gregkh@linuxfoundation.org, devicetree@vger.kernel.org,
-	conor+dt@kernel.org
-Subject: Re: [PATCH] dt-bindings: usb: dwc3-xilinx: allow dma-coherent
-Message-ID: <174837399989.1087595.10398541718787330529.robh@kernel.org>
-References: <1747401516-286356-1-git-send-email-radhey.shyam.pandey@amd.com>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Daniel Golle <daniel@makrotopia.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>, devicetree@vger.kernel.org,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>, Felix Fietkau <nbd@nbd.name>,
+	linux-kernel@vger.kernel.org,
+	Frank Wunderlich <frank-w@public-files.de>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@google.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	linux-arm-kernel@lists.infradead.org,
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>
+Subject: Re: [PATCH v2 01/14] dt-bindings: net: mediatek,net: update for
+ mt7988
+Message-ID: <174837410385.1090056.12670391327460010323.robh@kernel.org>
+References: <20250516180147.10416-1-linux@fw-web.de>
+ <20250516180147.10416-2-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1747401516-286356-1-git-send-email-radhey.shyam.pandey@amd.com>
+In-Reply-To: <20250516180147.10416-2-linux@fw-web.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250527_122826_615642_C240BA9B 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,16 +90,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 16 May 2025 18:48:36 +0530, Radhey Shyam Pandey wrote:
-> On Versal Gen 2 SoC the LPD USB DMA controller is coherent with the CPU
-> so allow specifying the information.
+On Fri, 16 May 2025 20:01:31 +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> Update binding for mt7988 which has 3 gmac and 2 reg items.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > ---
->  Documentation/devicetree/bindings/usb/dwc3-xilinx.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+> v2:
+> - change reg to list of items
+> ---
+>  .../devicetree/bindings/net/mediatek,net.yaml          | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
 > 
 
-Applied, thanks!
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
