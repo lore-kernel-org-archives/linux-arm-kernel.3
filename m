@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D89E4C5B542
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 21:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E12FAC5B542
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 22:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yo5i6Cfp507HWKu8x8QsupHsb5V8DAsofc1dKd1g6JU=; b=LTpx5eYeuJ2bAhIEV1QvpKL7vP
-	FcKI0i9Tw5xb+LJKNgjX+FDb5G9do/2Bh2PzeXLzYubLuXmgKY9+lKurYeG5SyMlmE0V5QFOMzZ6L
-	IZZScfbw/cTPdME1J9nvkhG+XhYNUS43ryjpAGJFC7qWlLzCDsmcA15GAD0v1MMSo1Sl1lyJXXqBe
-	DXg6RKlVBYP58RosNewoIW0flBxJJUfiGmdjcakBqia9f/uzV1bViz6nlWHzHZEpUTvRdZKAHOk9I
-	wdpuyzbJHzDXsLwDKtJfsQrH7uuE3GQGXaK93xCXT6ARgrTJv4FoTOfhHbSz5dpQDG/aTpUuEQqju
-	zGO8+Byg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7XytmjT0QYoYbr62wTzvh2jLYboBuJySkJ1IHPxAlMk=; b=QAMaZrN1dkrebzuIEopmoWjVZQ
+	5wHwH3TSqslCgQD3NLYEYMXTabdo7G+h1yoc8t1tYV/aXgp9Ez2mlY7/3XFZryEwM7Y3zRfwNBSIg
+	Afv6OIHv4wEGgf9gCpFkOgEAQUnhZD/16qaqJ6+Wv2g3DuyaczP+kRHf1dLY3yzVIsCn9BWo3jASV
+	/ZYH47v97EqEMTCloxzuEvW/0yJwOQ/mY/UtK1yzJcunWV5aL2IH3da5Z3suLiTtgzfin2bLgjwKF
+	nbM3/lhKjQb1EStHRR86REyIenElZ41TMzJ/KcPWMBNSoOBiCFP3lcMtDbaBH0UueDfa5wrrWE5C2
+	kTX4qnKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK2Bx-0000000BeHP-0TBw;
-	Tue, 27 May 2025 21:50:37 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uK2hd-0000000BhXo-3E8A;
+	Tue, 27 May 2025 22:23:21 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK29n-0000000Be4H-0buo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 21:48:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=Yo5i6Cfp507HWKu8x8QsupHsb5V8DAsofc1dKd1g6JU=; b=G8
-	8J1JyNZI1h77yRUT+EqGtVaguMkpS9J7EEusMtT2VRNZY8u+RhYP/vtnUNsA1CKnMk7ooz/nriaji
-	nCera2wrUOrrpjnS0rXf8vk8P3KxQ0XblNMMvzlOIpwyB9Qm3Nwc8h4FL7a8FUCPS889BGfiVlKJu
-	bgfVxfJiLPHa2gU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uK29V-00E70R-Kg; Tue, 27 May 2025 23:48:05 +0200
-Date: Tue, 27 May 2025 23:48:05 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Furong Xu <0x1207@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
- PHY device
-Message-ID: <93bfec74-c679-400f-8ce4-3bc84d6d803f@lunn.ch>
-References: <20250527175558.2738342-1-james.hilliard1@gmail.com>
- <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch>
- <CADvTj4rGdb_kHV_gjKTJNkzYEPMzqLcHY_1xw7wy5r-ryqDfNQ@mail.gmail.com>
- <fe8fb314-de99-45c2-b71e-5cedffe590b0@lunn.ch>
- <CADvTj4qRmjUQJnhamkWNpHGNAtvFyOJnbaQ5RZ6NYYqSNhxshA@mail.gmail.com>
- <014d8d63-bfb1-4911-9ea6-6f4cdabc46e5@lunn.ch>
- <CADvTj4oVj-38ohw7Na9rkXLTGEEFkLv=4S40GPvHM5eZnN7KyA@mail.gmail.com>
+	id 1uK2fU-0000000Bh1V-065r;
+	Tue, 27 May 2025 22:21:09 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so51033485e9.2;
+        Tue, 27 May 2025 15:21:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748384466; x=1748989266; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7XytmjT0QYoYbr62wTzvh2jLYboBuJySkJ1IHPxAlMk=;
+        b=nk5TllOK4hJzwgiIxbL54tzR1wLXPIQwKZugB82TNXqXl2cgl/f6lkX79tENJrEYIK
+         1owvwS2BdSwAc89ta2P9HDyVV2pJXWHe/9whwfQGmF7yNMd3O01UKHeRC0BEe7q9+YRK
+         iPSgqlDLjhHEAC9bJppSi0rxBEp5k/PCCsyDgoiAdt68xEICBq0ISU6v/kOv7iDK0624
+         fXyrNTdx7tzodU3vlm4N8EFFIzAsqjBGfvKgk982JpJvEQt3Qbmty2pGG8EdkJgPVgqX
+         DaB7NOzWoYhn/g0jaDaDDpqvHS4d7tntAxMk1+3nSC4Pazs90WIP8/T/SL+aS1jrFSbM
+         0xIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748384466; x=1748989266;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7XytmjT0QYoYbr62wTzvh2jLYboBuJySkJ1IHPxAlMk=;
+        b=nxFPT/xvo4DFtxfGUboIRWoepseb1cTD9aaB/qoc0TVZZO3HfkCOkrNH2usstBEN5p
+         hyF+ntAwfp05Qh0RUs2TNRNionjEPuECQKPP8umjMlRgGkiHmMSzXA91ApE4QL0i3gxp
+         hGlSJAno5DFNC32jyS3qxCToL2lrQKhfGo5PXYGwSyO3BqDQzl2F79EPL3/Gf5YHoZoh
+         cXPrcUqzFQLJXQS/7KyrO5/BjdV5f6S7L+dlml8gE7agKS+32H/k/uUUK2N89hCILeXp
+         3YT7xy+mP397GKwCWS157+GQ+H/HJAg+f18C64awhwusHbwvY2OzyIJ0Hhsu7iX3y6s5
+         cuug==
+X-Forwarded-Encrypted: i=1; AJvYcCWxy1OkJAEGqwHF6d86NyAIYRm2mMsZ+4d4HQ6669U+UZBO8MyCjAFkzb5d6OVq86ZjxU+XJgRqWPNZ71C8/jo=@lists.infradead.org, AJvYcCX0KimJEDmtSjmAuqUQujqKwtUQubUm3tluwUE4m6tPPasoLSli1oY9x0M27aC1i3tO7beu2oy48JEk/iySe+X8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzefnzwStmHuAY6cOCjid86hlqi0UN4EZ1YkEChEtZIGEpzBnUC
+	Kvbk1PrvvwFpo5JC7fahR/rqcX1yzGP6eL08wBs3LZ2KJ5/TtbSmL8Wp
+X-Gm-Gg: ASbGncu0wdPwIvR/VH9kt7nMuc/MN3FfWkYVudY4TMdPfLW0hnNMqXvzF1qeeeFcl5+
+	SX2OLSdtXDLs9CNOHub2w1M8HcUmurt7Xq3YHv0V7ShxFirLFV6D197NSQC39JcMWkCS6f0AxBm
+	M/gAVKIj0Ple/7g5veVdsfGT00H4unVTJz7LKbeg+2qxD+9me/qvV7e7xhxeIHk+0fXasA0Uusj
+	3DK++EzPJp8UQxqmjZVrE9o/lx5rP7z0dYFA8D2fomhZ9FuK/wzTJiP5z51P83H6DOZdGll64AG
+	jx+K+z0PXI1EqHF26mK7Ko2eKHMwaqnm/AqqHdEkE3b0hPanQffGKhYIDBiJ2l3yZQqw0+HEARw
+	9yZryuBoYRJUrsywt722jX4Pg2qM9rW0=
+X-Google-Smtp-Source: AGHT+IFdKWU8GcSeLjuTkimcHYGLyMLF9mUe1qrsMqtPgGlIFwLTef1kQexYipsKO1mCIPUpGPKSqA==
+X-Received: by 2002:a05:600c:1e02:b0:443:48:66d2 with SMTP id 5b1f17b1804b1-44c91dd0981mr170619255e9.16.1748384465884;
+        Tue, 27 May 2025 15:21:05 -0700 (PDT)
+Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a4e8bc377asm233366f8f.72.2025.05.27.15.21.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 May 2025 15:21:05 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benjamin Larsson <benjamin.larsson@genexis.eu>,
+	linux-mediatek@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Subject: [PATCH 0/6] pinctrl: Add Airoha AN7583 support
+Date: Wed, 28 May 2025 00:20:32 +0200
+Message-ID: <20250527222040.32000-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADvTj4oVj-38ohw7Na9rkXLTGEEFkLv=4S40GPvHM5eZnN7KyA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_144823_179844_69FB49C0 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20250527_152108_063783_1DA5A40F 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +106,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 02:37:03PM -0600, James Hilliard wrote:
-> On Tue, May 27, 2025 at 2:30 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > > Sure, that may make sense to do as well, but I still don't see
-> > > how that impacts the need to runtime select the PHY which
-> > > is configured for the correct MFD.
-> >
-> > If you know what variant you have, you only include the one PHY you
-> > actually have, and phy-handle points to it, just as normal. No runtime
-> > selection.
-> 
-> Oh, so here's the issue, we have both PHY variants, older hardware
-> generally has AC200 PHY's while newer ships AC300 PHY's, but
-> when I surveyed our deployed hardware using these boards many
-> systems of similar age would randomly mix AC200 and AC300 PHY's.
+This small series introduce support for Airoha AN7583 pinctrl
+support.
 
-Are they pin compatible?
+Most of the changes are generalization and cleanup of the Airoha
+pinctrl driver. These are needed as all the array in the inner
+function were hardcoded to EN7581 and didn't reference stuff
+from the priv groups.
 
-But i assume none of these boards .dts files are actually in mainline?
-So they need to go through review, and are likely to be horribly
-broken and need fixing? So you can fix up the PHY node as part of the
-cleanup.
+Everything is changed to match_data and priv struct so
+adding AN7583 is just a matter of adding the structs.
 
-	Andrew
+Also the schema is generalized where needed to address
+for the small difference between AN7583 and EN7581.
+
+While converting it, it was also found an additional copy-paste
+error for the PHY LEDs pins.
+
+Christian Marangi (6):
+  pinctrl: airoha: fix wrong PHY LED mux value for LED1 GPIO46
+  pinctrl: mediatek: airoha: generalize pins/group/function/confs
+    handling
+  pinctrl: airoha: convert PHY LED GPIO to macro
+  pinctrl: airoha: convert PWM GPIO to macro
+  dt-bindings: pinctrl: airoha: Document AN7583 Pin Controller
+  pinctrl: airoha: add support for Airoha AN7583 PINs
+
+ .../pinctrl/airoha,en7581-pinctrl.yaml        |  297 +-
+ drivers/pinctrl/mediatek/pinctrl-airoha.c     | 2497 +++++++++--------
+ 2 files changed, 1489 insertions(+), 1305 deletions(-)
+
+-- 
+2.48.1
+
 
