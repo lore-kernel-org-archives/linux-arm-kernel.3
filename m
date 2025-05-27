@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81A2C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 07:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A656C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 08:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ovgTSNz3TYyiCDsnyfyfrx1HVx/OB3Cs0a1lkx9bQp0=; b=oywmNS3VigCZOeAYSjKn0QgfwT
-	BBtc67Ur6BNKoedxCOJ7UgfJ10l1e75uchYkeuSzjtVywv8/6+/5rL5tOU0srRvO/aBvBt+8d0aHp
-	LijvwM4pCbQPYR303I+dxD7GhHMDiKSmk0c3vhtnB7kRGPvU184kZqBAZt5/7MWiNiKR5oo9Nz/7G
-	nh4pyAYsfnegmZZsgJus5ioxNnIt7tUNHglOppP0zhycJIFsNKi2orpnCi73SJ+U3r0K2okhd5ryD
-	1TtAwKzwT/49C7SoLwE+Cku9+iwKgaXrrUR3JksIulX41WBbNwvCz4W81hPXZl9mkNTb9V5GleJ62
-	b1XBIcCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mvVJnQlIU00ktmH9TSavPdP0CJ/6D9ZVRCSa6Sbxhp4=; b=GQjxgE0AEbRB3l/wk+jpCCyYw6
+	0F3i6b0lWc9Er5ayBVt3i7riDwKeS3BVq3GeExlFh5lVkd3O5IUMdvYHRYW+H2ZLaUESfRCAQNXGB
+	ZOPX+XGnMQqC7FKuNpgwKd9SFJjuXyawK82azrUFkg/mY/m+SMB5tofTx7uXwt7gorgsPkeQEs7kS
+	pcWDIygcGPbQj12oxMiix4/qPeLbC9NfzXTQPUjGqCUFa8UmWMu2ZjypdhyYjZUmKDNHODDUYm9nF
+	B/Fm1rbggAntXYvBevlMzZsJEc4jDjQVtiq8sWUU0OOr+eLpz7hIU0xKUO56V+F/Jyd1w4ZHmudcN
+	wpAvvWYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJomQ-0000000A9uc-3BuD;
-	Tue, 27 May 2025 07:31:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uJpRU-0000000ADqt-2Z0w;
+	Tue, 27 May 2025 08:13:48 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJojH-0000000A9fH-2Sjz
+	id 1uJpPK-0000000ADdi-0oU9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 07:28:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F3A234A6CE;
-	Tue, 27 May 2025 07:28:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99D8EC4CEE9;
-	Tue, 27 May 2025 07:28:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748330886;
-	bh=XVQsHomBmGb1LhclIkasP5SGZ5XsvwTi9n6tsMPgyY0=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=skjocDySfnd0Cx3lKYucz3c8YOKANMO1DxUJmuQc7e5uEcnauo0XOWOxySV6/aNRM
-	 b88/HyISicJURJ5O5/gsdSzKIprrvVJca8eslCOv/NrQaEbhhfuKik7RkdwIg4WO+W
-	 UrWFnNSXFnjw6LE22MKdJVP6nF0kCdayK1wABuPeQfD4/5xMF6lFHuJbfoyWwNIwPA
-	 xjD6j53pn1F1x2c5X5d9eduZeIUyCiBS+L1X03blgL/peQpUPPuoNXGBJQYWwdqLmk
-	 cHO0u6owwUYVnswkUhCaMGZ/u0vRHrgVkJxjmvy41CNCswJGnMThfTcp+mjdcxuFT1
-	 +IR7tmkRzG7bA==
-Date: Tue, 27 May 2025 02:28:04 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 27 May 2025 08:11:36 +0000
+Received: from mail.maildlp.com (unknown [172.19.93.142])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4b651D14dfz4f3jXt
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 16:10:56 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 67F6E1A07BB
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 16:11:21 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP4 (Coremail) with SMTP id gCh0CgCXRlunczVo2KyeNg--.19162S2;
+	Tue, 27 May 2025 16:11:21 +0800 (CST)
+Message-ID: <8d184497-fecf-497f-8b4c-bcd4b0a697ce@huaweicloud.com>
+Date: Tue, 27 May 2025 16:11:19 +0800
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, Shawn Guo <shawnguo@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux@ew.tq-group.com, 
- linux-arm-kernel@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Matthias Schiffer <matthias.schiffer@tq-group.com>, 
- Fabio Estevam <festevam@gmail.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-In-Reply-To: <20250527060400.1005757-1-alexander.stein@ew.tq-group.com>
-References: <20250527060400.1005757-1-alexander.stein@ew.tq-group.com>
-Message-Id: <174833088465.3257570.17816254353983478375.robh@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: add TQ-Systems boards
- MBLS1028A and MBLS1028A-IND
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v2 1/2] bpf, arm64: Support up to 12 function
+ arguments
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+ Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+ Puranjay Mohan <puranjay@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Florent Revest <revest@chromium.org>
+Cc: Bastien Curutchet <bastien.curutchet@bootlin.com>,
+ ebpf@linuxfoundation.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, Xu Kuohai <xukuohai@huawei.com>
+References: <20250522-many_args_arm64-v2-0-d6afdb9cf819@bootlin.com>
+ <20250522-many_args_arm64-v2-1-d6afdb9cf819@bootlin.com>
+Content-Language: en-US
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <20250522-many_args_arm64-v2-1-d6afdb9cf819@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgCXRlunczVo2KyeNg--.19162S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCFyxAw1DZr17tr1xKryrtFb_yoWrCrWxpr
+	nYk3ZxGFs3Zw40g3WrXw4UX34FkFs5tF4Y9r48A343AF4DKrykKFsYkayjkFyfCr1kAF4j
+	93s0vrsxAF45J3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
+	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
+	4xRDUUUUU==
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_002807_654076_4FD5932F 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250527_011134_522774_B767F182 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +103,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/22/2025 6:14 PM, Alexis Lothoré wrote:
 
-On Tue, 27 May 2025 08:03:54 +0200, Alexander Stein wrote:
-> From: Matthias Schiffer <matthias.schiffer@tq-group.com>
-> 
-> Add two mainboards for the TQ-Systems TQMLS1028A SoM, based on the NXP
-> Layerscape LS1028A.
-> 
-> Signed-off-by: Matthias Schiffer <matthias.schiffer@tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
+[...]
 
-My bot found errors running 'make dt_binding_check' on your patch:
+> -static void save_args(struct jit_ctx *ctx, int args_off, int nregs)
+> +struct arg_aux {
+> +	/* how many args are passed through registers, the rest of the args are
+> +	 * passed through stack
+> +	 */
+> +	int args_in_regs;
+> +	/* how many registers are used to pass arguments */
+> +	int regs_for_args;
+> +	/* how much stack is used for additional args passed to bpf program
+> +	 * that did not fit in original function registers
+> +	 **/
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/arm/fsl.yaml:1594:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
+nit: "**/" should be "*/"
 
-dtschema/dtc warnings/errors:
+> +	int bstack_for_args;
+> +	/* home much stack is used for additional args passed to the
+> +	 * original function when called from trampoline (this one needs
+> +	 * arguments to be properly aligned)
+> +	 */
+> +	int ostack_for_args;
+> +};
+> +
+> +static int calc_arg_aux(const struct btf_func_model *m,
+> +			 struct arg_aux *a)
+>   {
+> -	int i;
+> +	int stack_slots, nregs, slots, i;
+> +
+> +	/* verifier ensures m->nr_args <= MAX_BPF_FUNC_ARGS */
+> +	for (i = 0, nregs = 0; i < m->nr_args; i++) {
+> +		slots = (m->arg_size[i] + 7) / 8;
+> +		if (nregs + slots <= 8) /* passed through register ? */
+> +			nregs += slots;
+> +		else
+> +			break;
+> +	}
+> +
+> +	a->args_in_regs = i;
+> +	a->regs_for_args = nregs;
+> +	a->ostack_for_args = 0;
+> +
+> +	/* the rest arguments are passed through stack */
+> +	for (a->ostack_for_args = 0, a->bstack_for_args = 0;
+> +	     i < m->nr_args; i++) {
 
-doc reference errors (make refcheckdocs):
+a->ostack_for_args is initialized twice.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250527060400.1005757-1-alexander.stein@ew.tq-group.com
+move all initializations before the loop?
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+> +		/* We can not know for sure about exact alignment needs for
+> +		 * struct passed on stack, so deny those
+> +		 */
+> +		if (m->arg_flags[i] & BTF_FMODEL_STRUCT_ARG)
+> +			return -EOPNOTSUPP;
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+leave the error code as is, namely, return -ENOTSUPP?
 
-pip3 install dtschema --upgrade
+> +		stack_slots = (m->arg_size[i] + 7) / 8;
+> +		/* AAPCS 64 C.14: arguments passed on stack must be aligned to
+> +		 * max(8, arg_natural_alignment)
+> +		 */
+> +		a->bstack_for_args += stack_slots * 8;
+> +		a->ostack_for_args = round_up(a->ostack_for_args + stack_slots * 8, 8);
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+since a->ostack_for_args starts from 0 and is always incremented
+by multiples of 8, round_up() to 8 is not needed.
+
+> +	}
+>   
+> -	for (i = 0; i < nregs; i++) {
+> -		emit(A64_STR64I(i, A64_SP, args_off), ctx);
+> -		args_off += 8;
+> +	return 0;
+> +}
+> +
+> +static void clear_garbage(struct jit_ctx *ctx, int reg, int effective_bytes)
+> +{
+> +	if (effective_bytes) {
+> +		int garbage_bits = 64 - 8 * effective_bytes;
+> +#ifdef CONFIG_CPU_BIG_ENDIAN
+> +		/* garbage bits are at the right end */
+> +		emit(A64_LSR(1, reg, reg, garbage_bits), ctx);
+> +		emit(A64_LSL(1, reg, reg, garbage_bits), ctx);
+> +#else
+> +		/* garbage bits are at the left end */
+> +		emit(A64_LSL(1, reg, reg, garbage_bits), ctx);
+> +		emit(A64_LSR(1, reg, reg, garbage_bits), ctx);
+> +#endif
+>   	}
+>   }
+>   
+> -static void restore_args(struct jit_ctx *ctx, int args_off, int nregs)
+> +static void save_args(struct jit_ctx *ctx, int bargs_off, int oargs_off,
+> +		      const struct btf_func_model *m,
+> +		      const struct arg_aux *a,
+> +		      bool for_call_origin)
+>   {
+>   	int i;
+> +	int reg;
+> +	int doff;
+> +	int soff;
+> +	int slots;
+> +	u8 tmp = bpf2a64[TMP_REG_1];
+> +
+> +	/* store arguments to the stack for the bpf program, or restore
+> +	 * arguments from stack for the original function
+> +	 */
+> +	for (reg = 0; reg < a->regs_for_args; reg++) {
+> +		emit(for_call_origin ?
+> +		     A64_LDR64I(reg, A64_SP, bargs_off) :
+> +		     A64_STR64I(reg, A64_SP, bargs_off),
+> +		     ctx);
+> +		bargs_off += 8;
+> +	}
+> +
+> +	soff = 32; /* on stack arguments start from FP + 32 */
+> +	doff = (for_call_origin ? oargs_off : bargs_off);
+> +
+> +	/* save on stack arguments */
+> +	for (i = a->args_in_regs; i < m->nr_args; i++) {
+> +		slots = (m->arg_size[i] + 7) / 8;
+> +		/* AAPCS C.14: additional arguments on stack must be
+> +		 * aligned on max(8, arg_natural_alignment)
+> +		 */
+> +		soff = round_up(soff, 8);
+> +		if (for_call_origin)
+> +			doff =  round_up(doff, 8);
+
+since both soff and doff start from multiples of 8 and are
+incremented by 8 each time, the two round_up()s are also
+not needed.
+
+> +		/* verifier ensures arg_size <= 16, so slots equals 1 or 2 */
+> +		while (slots-- > 0) {
+> +			emit(A64_LDR64I(tmp, A64_FP, soff), ctx);
+> +			/* if there is unused space in the last slot, clear
+> +			 * the garbage contained in the space.
+> +			 */
+> +			if (slots == 0 && !for_call_origin)
+> +				clear_garbage(ctx, tmp, m->arg_size[i] % 8);
+> +			emit(A64_STR64I(tmp, A64_SP, doff), ctx);
+> +			soff += 8;
+> +			doff += 8;
+> +		}
+> +	}
+> +}
+
+[...]
 
 
