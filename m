@@ -4,111 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE63FC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 08:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB12C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 08:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FEz6nXCEw0bO32quQbGtUtZ0Qo4p0M2gmZrmFkJ2z8U=; b=CAI/u0inw9ifwzb31yPzjsIzjE
-	LEzb/Hb995JINJFnHf0r12QJuizjPSjTE4O3z64gvafCjzMCfDaXQyp7XfUmgh9aKjLeeby/tm+/n
-	ZGbNcTtMq6MCx1n7ZtHkH+VWWx7PUhtjTmlMfNOo6oEduSWO93xB6rcsbA1bhvpOdGH39m93EZQ6p
-	pYIPh/TZipSgpgpsjpostKjQ5rfffXp+urruUi/iRsHMwcIwVvie7DX2Ew9/isN+e3qAULUGZSlaU
-	NF6TuYCsUCyFJ5V2AOq1jDGCWX6MflGkS6VpcHayFkOWaDv+q1Iik8ryUHVhsTa3yNTRFMc0TlTX4
-	voLEAWaw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NW3nNH80UTKZBRJdor1Rs0Lq1+7xOcIJseCIVdwgQEk=; b=3fcVU9P5R+JqF9nDbKRbbNYkou
+	045UhndBADatficqCe4yeexZuTReRis67RGxUKI3m7xCKMDCKkwpxc2cmja05btX4UYJjRFyRuSYK
+	nTSfJ1h6pEUCNy1JJWVUyB0vRig10LrL2o3fW2beuiKRuTBiT2FHpxc5Mv8FiV50MQxFb+N2bZZE2
+	Kc62/pqM8eRAxjbUk12k3y6oRuNW826+Z7cPJ+8CKeQKTT+pYOcVL+8LTefC09Bb5cb66Nh/q+pnC
+	GshqTc0yuRo0tWKbjRe2YoofCRHZOHOE7xLCkytr2xP0b2BEgXFdWYhZKfO0n/yF4u6QUdN9EJnXp
+	O46Te8lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJpck-0000000AFDb-2FE6;
-	Tue, 27 May 2025 08:25:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uJper-0000000AFnA-1Y1n;
+	Tue, 27 May 2025 08:27:37 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJpab-0000000AEvN-3pxD;
-	Tue, 27 May 2025 08:23:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D62B65C547B;
-	Tue, 27 May 2025 08:20:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F7A1C4CEE9;
-	Tue, 27 May 2025 08:23:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748334192;
-	bh=sJCAD/G3WgHCOo4ZVOYfJyxfGJfkPPlZ7UPU9cG3z4k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WYZLKDV7aNJZvutW+MBDWLwEL7Ethc6LB6zZ+nDaK50BuKD91lFPM6FdBHVrxM0+c
-	 OoR3Q+wtPIOwNx7bSniXkbUi9bsHT1dy23/OhUpB755hTCA5nTcfeslxW7VJSkarxo
-	 rBV1gHKxCWrEee46k62V92UWuGBri9ZKIs8r6NjAcCRfsCFOefIfNEuD2WVjq/lvq0
-	 iaCyphOVdiqTeqpUZ5l+1cpEbKeqgKYHTc9gQVW9l3Jf2xw7DhIzy5jef+FgbUZSkK
-	 7W9KwcEY612rZ0CNbsDGVKl5V1fNN60Pc1cS79RBkqNzsGigkEn35CeEBvaWLfw8Iq
-	 69mtBz3l2jGfg==
-Message-ID: <63857ae0-924e-42f1-adb7-19b477fe06f6@kernel.org>
-Date: Tue, 27 May 2025 10:23:07 +0200
+	id 1uJpcb-0000000AFAs-1gfR;
+	Tue, 27 May 2025 08:25:19 +0000
+X-UUID: 16b3a29c3ad411f0b29709d653e92f7d-20250527
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:52dbf973-d560-4d92-ab36-debd7af511ff,IP:0,U
+	RL:0,TC:0,Content:33,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:33
+X-CID-META: VersionHash:6493067,CLOUDID:76905b17bcdc2d36468f4541233e31d5,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:4|50,EDM:-3,IP:nil,UR
+	L:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,S
+	PR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 16b3a29c3ad411f0b29709d653e92f7d-20250527
+Received: from node4.com.cn [(10.44.16.170)] by mailgw.kylinos.cn
+	(envelope-from <aichao@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 756001150; Tue, 27 May 2025 16:25:03 +0800
+Received: from node4.com.cn (localhost [127.0.0.1])
+	by node4.com.cn (NSMail) with SMTP id F0C9D16001F49;
+	Tue, 27 May 2025 16:25:02 +0800 (CST)
+X-ns-mid: postfix-683576DD-9767322679
+Received: from kylin-pc.. (unknown [172.25.130.133])
+	by node4.com.cn (NSMail) with ESMTPA id F384916001F49;
+	Tue, 27 May 2025 08:24:57 +0000 (UTC)
+From: Ai Chao <aichao@kylinos.cn>
+To: perex@perex.cz,
+	tiwai@suse.com,
+	johannes@sipsolutions.net,
+	kuninori.morimoto.gx@renesas.com,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	jbrunet@baylibre.com,
+	neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	shengjiu.wang@gmail.com,
+	Xiubo.Lee@gmail.com,
+	festevam@gmail.com,
+	nicoleotsuka@gmail.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	srinivas.kandagatla@linaro.org
+Cc: linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux-arm-msm@vger.kernel.org,
+	Ai Chao <aichao@kylinos.cn>
+Subject: [PATCH v3 0/6] Use helper function for_each_child_of_node_scoped()
+Date: Tue, 27 May 2025 16:24:40 +0800
+Message-ID: <20250527082446.2265500-1-aichao@kylinos.cn>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/6] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
- compatible string for S7/S7D/S6
-To: xianwei.zhao@amlogic.com, Linus Walleij <linus.walleij@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250527-s6-s7-pinctrl-v3-0-44f6a0451519@amlogic.com>
- <20250527-s6-s7-pinctrl-v3-1-44f6a0451519@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250527-s6-s7-pinctrl-v3-1-44f6a0451519@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_012314_039063_6B99CDEA 
-X-CRM114-Status: UNSURE (   4.84  )
+X-CRM114-CacheID: sfid-20250527_012517_746236_7399234E 
+X-CRM114-Status: UNSURE (   6.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,15 +102,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/05/2025 07:23, Xianwei Zhao via B4 Relay wrote:
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> 
-> Update dt-binding document for pinctrl of Amlogic S7/S7D/S6.
-> 
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+This patch series introduces wrapper functions for_each_child_of_node_sco=
+ped().
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+The for_each_child_of_node_scoped() helper provides a scope-based clean-u=
+p
+functionality to put the device_node automatically, and as such, there is
+no need to call of_node_put() directly.
 
-Best regards,
-Krzysztof
+Summary:
+
+ - Patch 1 ALSA: ppc: Use helper function for_each_child_of_node_scoped()
+
+ - Patch 2 ALSA: aoa: Use helper function for_each_child_of_node_scoped()
+
+ - Patch 3 ASoC: renesas: Use helper function for_each_child_of_node_scop=
+ed()
+
+ - Patch 4 ASoC: meson: Use helper function for_each_child_of_node_scoped=
+()
+
+ - Patch 5 ASoC: imx-card: Use helper function for_each_child_of_node_sco=
+ped()
+
+ - Patch 6 ASoC: qcom: Use helper function for_each_child_of_node_scoped(=
+)
+
+---
+Changes in v3:
+ - Change Patch name ASoC to ALSA for patch 1,2.
+ - Change commit message information.
+ - for_each_child_of_node_scoped() instead of
+   for_each_child_of_node() in i2cbus_add_dev().
+
+Changes in v2:
+ - Fix error reported by kernel test rebot
+ - Keep "node"
+---
+
+ sound/aoa/soundbus/i2sbus/core.c   |  7 +++---
+ sound/ppc/tumbler.c                |  5 ++---
+ sound/soc/fsl/imx-card.c           | 13 +++++------
+ sound/soc/meson/axg-card.c         |  3 +--
+ sound/soc/meson/meson-card-utils.c | 16 +++++---------
+ sound/soc/qcom/lpass-cpu.c         |  3 +--
+ sound/soc/qcom/qdsp6/q6afe-dai.c   |  3 +--
+ sound/soc/qcom/qdsp6/q6asm-dai.c   |  4 +---
+ sound/soc/renesas/rcar/core.c      | 35 ++++++++++--------------------
+ sound/soc/renesas/rcar/ctu.c       |  8 ++-----
+ sound/soc/renesas/rcar/dma.c       |  4 +---
+ sound/soc/renesas/rcar/dvc.c       |  8 ++-----
+ sound/soc/renesas/rcar/mix.c       |  8 ++-----
+ sound/soc/renesas/rcar/src.c       | 10 ++-------
+ sound/soc/renesas/rcar/ssi.c       | 18 +++++----------
+ sound/soc/renesas/rcar/ssiu.c      |  7 ++----
+ 16 files changed, 46 insertions(+), 106 deletions(-)
+
+--=20
+2.47.1
+
 
