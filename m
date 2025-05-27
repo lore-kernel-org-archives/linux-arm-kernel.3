@@ -4,66 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C373C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 18:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FF6C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 18:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=88LFRY1C/sb7IvXkrqrwR7CSLDQ8c0AS0AISh+o3gcU=; b=wobaMd9glzFaO8+eBjKufGbDhT
-	+e0Naej5QDW4stPAqhlJDC98BeqSYMKnYjh4EuM6G0+o9Nur3DyaTf429kK+K6Si+AnrybZxjwYLL
-	EgXH6/n+0nfmcxSzouqDOM5uZvIlOPmNSj13fP34VEEo9W6toSoedq0x9HeoQ6e1gM3c+0X8QGnSS
-	3dVVtlfIvbds3sj2CTRKwPQdB2GLLlWmVuP79Cza3hGbUKJ98MiCXeBXXtUIhsJ/5zy8Zcj3vbXWz
-	FJKXqobt4jqW4V8t71m8rql9ZgWvM6foqZ2sN0a406GTckx5HKzm+XrdUCNb64OgdHzK3nB8JPnPw
-	9tg3MVGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QlxuW8EiAaobylr07WlFl9Wc9Vavh5mNNDPDEO1zHCA=; b=UE0u2x5ddHkeP3V1UvUTyFsaQl
+	tSN4QIGij/w7Eiy1sypBqWSIOS4+pCUIqOpRURMu3bIsh1zV3n7d3YFxW3v2tmWpQ7olXVEJ8ZCFp
+	NOZSuki/K3u4EUP+zaeCJ7odFTRZccGMSIs0swrA6Y1e8VwqgkPSqv3khdoGY1Z9SiTZ7ZqbfTbUT
+	6lncJ7j3fwHuiVzl3A4Y6RV7QXZhsi/JJD+DbwQf/XrubJTy8lzWFAbC1McqAg7oJlsLlIn0Ybm/v
+	8v5yyptKtJPKhQ4tcKAnW2dSzi5cDA84cGJ3i+tFPFdyPbLf0Z/Vmsi5fWfe2MxqtRhjxhSIt2j2Q
+	D6XOUH8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJyeh-0000000BJrS-3u8J;
-	Tue, 27 May 2025 18:04:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uJygq-0000000BK9c-2rrD;
+	Tue, 27 May 2025 18:06:16 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJyXO-0000000BIRH-1Nay
+	id 1uJyXP-0000000BIRx-2UUs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 17:56:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0338A49B85;
-	Tue, 27 May 2025 17:56:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8338C4CEE9;
-	Tue, 27 May 2025 17:56:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748368589;
-	bh=TYvcN0FXetMET/yMqKYpyaUprPLsn66NSldFSb6Hm7k=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ZGDyc1TvlC4v+xPxrJd+uSCgvUHnc+I7dcc37XRScxQwVkQRM5clhDUQJOJ0WEYP5
-	 3hk+RIDgyNxtDi3gjJ6wljWXK0gMfloB5Qc5bglnfG2in7ZbS6H3EPLVB07hUGUL1M
-	 YClwojpcDYcjxt61mjCVvqCoLTbv3IOA0c2cTDIoIOxKIREhkF4cCucs4vcUiPUwR4
-	 kXVXsj6GwZpxUMUpr+a10XMBylHsHpI+g8b2jVqNCd4bQngM8y18okvZXxUbtGjIfr
-	 omOb10xa8Ja5IsYT9TVH873r9IV8hXXLUEYe0QVvlB3fRpz3GTraoc0bGO4Sl7U8BA
-	 XyZGuvPQlJq0Q==
-Date: Tue, 27 May 2025 12:56:28 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 27 May 2025 17:56:32 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-476a720e806so31138281cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 10:56:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748368590; x=1748973390; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QlxuW8EiAaobylr07WlFl9Wc9Vavh5mNNDPDEO1zHCA=;
+        b=ayhOeSe8B/JgOEegY+T2cQD8aZvGqPQhQZBUR1W38Z4t2T2xBHBUujv7GxG4QjxstT
+         gsl0owGEG96mopeCPLdBlvcm4h880IpSQdwwP8bEfhgapS8IAw2sfTbyp1tDLYCjikfA
+         AlMGieyot53aaK5W63yhuQFRaB1CuvUUXTmQmmIoHoC8RiTMLiI/bu6qhR6CvwL0wbQD
+         9+EBfBkjGEL17rmI5VSJHdlBlEHvZYcspbdr+C5glJq9QINweZ4leeH/9U2R5+DD0EEW
+         kQTwekqRqy9lbX5cbUZudqf0HXi7JwcU2EsKkMccTMrOr62l28WfXh59OGc02mfXxZFN
+         iF+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748368590; x=1748973390;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QlxuW8EiAaobylr07WlFl9Wc9Vavh5mNNDPDEO1zHCA=;
+        b=bGHZmqn8y6fhizWtNc/ZShAD6w54c606KlCBIcwpAt08+6eYo0RwxSkYKcDsM5ByH4
+         Ji02it+Y+douAegXhDUXrfBvihhYKbdPdNIIfqLjxLZCq943Uh2hEeN+VAXv8qlDt91Q
+         pVuHnLsbEmUzgIqQqNYCEhsH5+gyFxO4mK6iqz2baviEG+OuOlMxK6xJQwVh3FoB8o3G
+         FucHzENmSVEmZkZ9xRIbxrYjFCPAxqv7CHV2cezxd5Ru6BrrEbNOK3x+aUeXifE1pyVb
+         0KZLqyeoCfMMgKdqVG43pYxjfDYTdVFgan0xeEuNcV+6PZ1Z9MsrGmK35zvedC+hVEvc
+         Wgvw==
+X-Forwarded-Encrypted: i=1; AJvYcCXzsUJs2kCz9ri2dKDVQvxeWSYjk6Jkyz6OvHldbl/MBvA8LmDrZdAX7vQCLhXiPkLVBIGmzvTxstZpbovfnKS0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzchL/iSTTXjTZOC88jUsnu0DYZ68ssfIwBYX4rAiXI01tXeF9H
+	/6FYKS3t3K6angM9Mu9MDg0RfsefRrc6MNAmFrnrfWor9L4kziL0nh2FbvJeQHTNGJI=
+X-Gm-Gg: ASbGncuOEhymuj7/OqllkeRyumEOwHLFIdSrgFuvTwKdswHZleID1zS1xVbXkfzyk6+
+	Zjr9Stjawh1WPwyMTRy72LmNd9e/C/LmgfMees9OICSUXVKe1jZMb9X8iIW0VafB0DyuEAeYirA
+	LSCLN+q0HghsOQiinZSmLElFz4uLiIAZ66eJSj8Sco6ZdIu03w68BsZihR4XAkXZCE7GXqpu+5M
+	wcL6QGknLMrEA1xtaS4SE1Jh5E5bHunxzXhb2oeNUaGe7h6OyzFyN7sVIUwjc1JAjszQDetJl2l
+	waehX90celWdnz5eKyeVe8mtMB7a4ZCS3rFHptRgUPQvzGbPLE5VEq/JGUEPTIoqnB2ke6Z6ARd
+	NYs5WeFOGqOWbPLpACIB/c/RRu1tJJQ==
+X-Google-Smtp-Source: AGHT+IFLIO0D64jUevJ/lz7zQvSZw2ntrY7H7wTTGXZU+ByFDYJ39AXVKInapU4LgwZEqDykU4orhg==
+X-Received: by 2002:a05:6e02:154e:b0:3dc:87c7:a5b5 with SMTP id e9e14a558f8ab-3dc9b67fdd9mr138337085ab.3.1748368579606;
+        Tue, 27 May 2025 10:56:19 -0700 (PDT)
+Received: from james-x399.localdomain (97-118-146-220.hlrn.qwest.net. [97.118.146.220])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3dc82e014f4sm38082275ab.40.2025.05.27.10.56.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 May 2025 10:56:19 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+To: netdev@vger.kernel.org
+Cc: linux-sunxi@lists.linux.dev,
+	James Hilliard <james.hilliard1@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Furong Xu <0x1207@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select PHY device
+Date: Tue, 27 May 2025 11:55:54 -0600
+Message-Id: <20250527175558.2738342-1-james.hilliard1@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, george.kw.lee@fii-foxconn.com, 
- leo.jt.wang@gmail.com, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- linux-kernel@vger.kernel.org, leo.jt.wang@fii-foxconn.com, 
- Joel Stanley <joel@jms.id.au>, Conor Dooley <conor+dt@kernel.org>, 
- devicetree@vger.kernel.org
-To: Krzysztof Kozlowski <krzk@kernel.org>
-In-Reply-To: <c5e16072-e6de-4256-b0e2-3b45e420f0c4@kernel.org>
-References: <6822b851.050a0220.27a24d.d071@mx.google.com>
- <68343bef.170a0220.23efba.1d80@mx.google.com>
- <c5e16072-e6de-4256-b0e2-3b45e420f0c4@kernel.org>
-Message-Id: <174836831148.841003.9353881909107000956.robh@kernel.org>
-Subject: Re: [PATCH V3 2/2] ARM: dts: aspeed: clemente: add Meta Clemente
- BMC
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_105630_430256_64019D7F 
-X-CRM114-Status: GOOD (  24.68  )
+X-CRM114-CacheID: sfid-20250527_105631_629620_9375E4BD 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,150 +109,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Some devices like the Allwinner H616 need the ability to select a phy
+in cases where multiple PHY's may be present in a device tree due to
+needing the ability to support multiple SoC variants with runtime
+PHY selection.
 
-On Mon, 26 May 2025 14:50:24 +0200, Krzysztof Kozlowski wrote:
-> On 26/05/2025 12:01, leo.jt.wang@gmail.com wrote:
-> > From: Leo Wang <leo.jt.wang@fii-foxconn.com>
-> >
-> > Add linux device tree entry for Meta Clemente compute-tray
-> > BMC using AST2600 SoC.
-> >
-> > Signed-off-by: Leo Wang <leo.jt.wang@fii-foxconn.com>
-> > ---
-> >  arch/arm/boot/dts/aspeed/Makefile             |    1 +
-> >  .../aspeed/aspeed-bmc-facebook-clemente.dts   | 1195 +++++++++++++++++
-> >  2 files changed, 1196 insertions(+)
-> >  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-> >
-> > diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-> > index b3170fdd3096..9d0a465cbb36 100644
-> > --- a/arch/arm/boot/dts/aspeed/Makefile
-> > +++ b/arch/arm/boot/dts/aspeed/Makefile
-> > @@ -19,6 +19,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
-> >  	aspeed-bmc-delta-ahe50dc.dtb \
-> >  	aspeed-bmc-facebook-bletchley.dtb \
-> >  	aspeed-bmc-facebook-catalina.dtb \
-> > +	aspeed-bmc-facebook-clemente.dtb \
-> >  	aspeed-bmc-facebook-cmm.dtb \
-> >  	aspeed-bmc-facebook-elbert.dtb \
-> >  	aspeed-bmc-facebook-fuji.dtb \
-> > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-> > new file mode 100644
-> > index 000000000000..63b5a13214f1
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-> > @@ -0,0 +1,1195 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +// Copyright (c) 2021 Facebook Inc.
-> > +/dts-v1/;
-> > +
-> > +#include "aspeed-g6.dtsi"
-> > +#include <dt-bindings/gpio/aspeed-gpio.h>
-> > +#include <dt-bindings/usb/pd.h>
-> > +#include <dt-bindings/leds/leds-pca955x.h>
-> > +#include <dt-bindings/interrupt-controller/irq.h>
-> > +#include <dt-bindings/i2c/i2c.h>
-> > +
-> > +/ {
-> > +	model = "Facebook Clemente BMC";
-> > +	compatible = "facebook,clemente-bmc", "aspeed,ast2600";
-> Missing bindings.
-> 
-> Or your threading is broken because I did not receive 1/2.
-> 
-> Just in case:
-> 
-> Please version your patches (entire patchset!) correctly, e.g. use b4 or
-> git format-patch -vX, and add changelog in cover letter or under '---'
-> of individual patches describing changes from previous version.
-> 
-> Do not attach (thread) your patchsets to some other threads (unrelated
-> or older versions). This buries them deep in the mailbox and might
-> interfere with applying entire sets.
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 22 +++++++++++++------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250527 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for c5e16072-e6de-4256-b0e2-3b45e420f0c4@kernel.org:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: / (facebook,clemente-bmc): compatible: 'oneOf' conditional failed, one must be fixed:
-	'facebook,clemente-bmc' is not one of ['delta,ahe50dc-bmc', 'facebook,galaxy100-bmc', 'facebook,wedge100-bmc', 'facebook,wedge40-bmc', 'microsoft,olympus-bmc', 'quanta,q71l-bmc', 'tyan,palmetto-bmc', 'yadro,vesnin-bmc']
-	'facebook,clemente-bmc' is not one of ['amd,daytonax-bmc', 'amd,ethanolx-bmc', 'ampere,mtjade-bmc', 'aspeed,ast2500-evb', 'asrock,e3c246d4i-bmc', 'asrock,e3c256d4i-bmc', 'asrock,romed8hm3-bmc', 'asrock,spc621d8hm3-bmc', 'asrock,x570d4u-bmc', 'bytedance,g220a-bmc', 'facebook,cmm-bmc', 'facebook,minipack-bmc', 'facebook,tiogapass-bmc', 'facebook,yamp-bmc', 'facebook,yosemitev2-bmc', 'facebook,wedge400-bmc', 'hxt,stardragon4800-rep2-bmc', 'ibm,mihawk-bmc', 'ibm,mowgli-bmc', 'ibm,romulus-bmc', 'ibm,swift-bmc', 'ibm,witherspoon-bmc', 'ingrasys,zaius-bmc', 'inspur,fp5280g2-bmc', 'inspur,nf5280m6-bmc', 'inspur,on5263m5-bmc', 'intel,s2600wf-bmc', 'inventec,lanyang-bmc', 'lenovo,hr630-bmc', 'lenovo,hr855xg2-bmc', 'portwell,neptune-bmc', 'qcom,centriq2400-rep-bmc', 'supermicro,x11spi-bmc', 'tyan,s7106-bmc', 'tyan,s8036-bmc', 'yadro,nicole-bmc', 'yadro,vegman-n110-bmc', 'yadro,vegman-rx20-bmc', 'yadro,vegman-sx20-bmc']
-	'facebook,clemente-bmc' is not one of ['ampere,mtjefferson-bmc', 'ampere,mtmitchell-bmc', 'aspeed,ast2600-evb', 'aspeed,ast2600-evb-a1', 'asus,x4tf-bmc', 'facebook,bletchley-bmc', 'facebook,catalina-bmc', 'facebook,cloudripper-bmc', 'facebook,elbert-bmc', 'facebook,fuji-bmc', 'facebook,greatlakes-bmc', 'facebook,harma-bmc', 'facebook,minerva-cmc', 'facebook,yosemite4-bmc', 'ibm,blueridge-bmc', 'ibm,everest-bmc', 'ibm,fuji-bmc', 'ibm,rainier-bmc', 'ibm,sbp1-bmc', 'ibm,system1-bmc', 'ibm,tacoma-bmc', 'inventec,starscream-bmc', 'inventec,transformer-bmc', 'jabil,rbp-bmc', 'nvidia,gb200nvl-bmc', 'qcom,dc-scm-v1-bmc', 'quanta,s6q-bmc', 'ufispace,ncplite-bmc']
-	'aspeed,ast2400' was expected
-	'aspeed,ast2500' was expected
-	from schema $id: http://devicetree.org/schemas/arm/aspeed/aspeed.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /: failed to match any schema with compatible: ['facebook,clemente-bmc', 'aspeed,ast2600']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
-
-
-
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 59d07d0d3369..949c4a8a1456 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1210,17 +1210,25 @@ static int stmmac_init_phy(struct net_device *dev)
+ 	 */
+ 	if (!phy_fwnode || IS_ERR(phy_fwnode)) {
+ 		int addr = priv->plat->phy_addr;
+-		struct phy_device *phydev;
++		struct phy_device *phydev = NULL;
+ 
+-		if (addr < 0) {
+-			netdev_err(priv->dev, "no phy found\n");
+-			return -ENODEV;
++		if (priv->plat->phy_node) {
++			phy_fwnode = of_fwnode_handle(priv->plat->phy_node);
++			phydev = fwnode_phy_find_device(phy_fwnode);
++			fwnode_handle_put(phy_fwnode);
+ 		}
+ 
+-		phydev = mdiobus_get_phy(priv->mii, addr);
+ 		if (!phydev) {
+-			netdev_err(priv->dev, "no phy at addr %d\n", addr);
+-			return -ENODEV;
++			if (addr < 0) {
++				netdev_err(priv->dev, "no phy found\n");
++				return -ENODEV;
++			}
++
++			phydev = mdiobus_get_phy(priv->mii, addr);
++			if (!phydev) {
++				netdev_err(priv->dev, "no phy at addr %d\n", addr);
++				return -ENODEV;
++			}
+ 		}
+ 
+ 		ret = phylink_connect_phy(priv->phylink, phydev);
+-- 
+2.34.1
 
 
