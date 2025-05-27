@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4F9C5B542
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 21:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CEA6C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 21:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yWhw1LvOhszFsVVXvJgT1USSc8+4N0aEBK16X6WxLSo=; b=ZF1Z8PO5YVW2p+EzPnWl5tfP5I
-	WA85mHvBksAmntYU9pIAsYsuLwmScOcGZdVyHvXzLrDjU3mHZf+zfzRd6B+D1Ia4yjmUYBARF6hqZ
-	phUEaEl0vCrOYxKtPL/IVm868o2CuMI6gpqXjvu/z6R/C1SGgpZfReXVLZvtoZIvZVTtia9DNE4JS
-	OnzgudREvYJgtVtNMGoTkW5FGYCwCaQ3uaFzpqtfdWVLp5apVoLM7U1hDrcx9cgvZt5SIQzXv0OAn
-	+ypmEKhlTwV6rs5McFTxOMNEFRecqg5GuGLndqZ6YyRk1Y60IMb1uqbk0k28nKVALRWbWk6EHYXXM
-	JhTNK4EA==;
+	bh=8gIhfclnLH073VsLY1ttHA/tXRnGUkM9HdwYW3xYCyA=; b=JA2H/4ORoK0E9ryat9GJIJcCoc
+	hXtpVKr45OxDXrbV89u33oBY6cR9FfpPmUhdzfnmSlOfTL19xakc8QxYcsMGRPTRpNubH9D8JEgXV
+	F9Pks5vXD5AyjQFo3qlZIzJUdbkpM8nDxpl2F684uRALpHbDsRtrw9C1mmNwtKPZbizZtg9/Zjmbl
+	KUdDmI7y33usObFf4wNVrYnTxfd5TaTbym0cFVwxfmIt0p6di4yTzs/KIQEH2boG5I59ge6knDJ0d
+	T+O+xniWtT4yBXbVecn9Oto3lWJ0G0N7Ag5HOZ6ZCClYpxizq+vzMAgkC3JQ0rMJC+v/9u6W7n7WA
+	hYdXujVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK1aE-0000000BZwt-1S3J;
-	Tue, 27 May 2025 21:11:38 +0000
+	id 1uK1cL-0000000BaAD-1IGi;
+	Tue, 27 May 2025 21:13:49 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK1Tn-0000000BYr4-0Ygk
+	id 1uK1To-0000000BYs7-2eNU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 21:05:00 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54RJsmvp023955
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 21:04:58 GMT
+	Tue, 27 May 2025 21:05:01 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54RKMIjA012389
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 21:04:59 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yWhw1LvOhszFsVVXvJgT1USSc8+4N0aEBK16X6WxLSo=; b=BMjK2La916AdOnI6
-	lzQQ9SL18WKflK2peCZr8vrC450kRR5I8FDfuL5Pj+GkL8I7Rv9a4P9kDncVKXhM
-	dWm826x6Vj4bcq8rJ2bV9duZRQgUoldLVYjQynNoMSbwgmNJJeH4q1yheR54s7b1
-	gzHijNHQ1PRSzblnFIb4/kwrupmvXYlEM/+24dkqiwpP2qNr6ImaW/4ktiQy++Nx
-	mf6wwLjaOEgMW91/Q00xJNjTfVf0pF67dS3gM5LD+d6DSLYPhgVwM5aGqTE/Iq9v
-	7F+Sp+WNciE5LGqCLXJkGJLP2236iK7u0V5yI1+5qszTY8ckSDbZK2z7omAn4Kno
-	w2EInQ==
+	8gIhfclnLH073VsLY1ttHA/tXRnGUkM9HdwYW3xYCyA=; b=FEmTkq5ApBPdiyy7
+	fYfR93tebQ/gtSyFOXu9QDIhyhgfbwvc6f4hTt2Wm6kIecV/JYbRXGycx+Eh6suM
+	MHaef/GAhoUyd3z7Fy0l09g4yLPwaZeGfU3zp+JLI/vyh+pu27QRoN0ckzPPByNO
+	mWw2yZieD6yxPQLqZ72AHmDkq8Si6nEfvWhZnsZSGu4IKJlx80icxvPhkdKJjMmf
+	C+P0znTmdcovkywfsnT2Mplic/KYKztLXEcdV2PtITKXgAiZ6t90wZwfftUH1X3I
+	1IF0WFfn1k0J+B2ZMR1tBNc+drLGFYDwYLKETg+XwARFFsZnGWMoJ6Dns8LjlR1W
+	ttVgmA==
 Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46u5ek066f-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46u549g7br-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 21:04:58 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-742c00c9044so2957868b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 14:04:57 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 21:04:59 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-7425efba1a3so218281b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 14:04:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748379897; x=1748984697;
+        d=1e100.net; s=20230601; t=1748379898; x=1748984698;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yWhw1LvOhszFsVVXvJgT1USSc8+4N0aEBK16X6WxLSo=;
-        b=YxVApRw3Tq5WyDrPqulv1nqOl78UvMfY3sD82iebHzA/vKyH0NdWrR16yGZBoS9T7A
-         zScFLfD04yXIsqxHbc7ChSz6p3mt1zbVilAXvdS5Op/XuMVJsXu5eFCdA4Z3AYlDEPp7
-         LFFFP+0H6IJYaYBP8j9MkDfRLQVBCFxlmrPzq3f5Zv4UcQdNdskEYDsTgQzXq2aLGnTV
-         HfvkNt3ElWT1P0+QxFRzhLQ6RIyqtrrn17ZOoQIvtFfC/zwsh5B2f3sX2Dfs0eNx4dah
-         ulHQx13Dti1c0aBzzrUbIwz2Di7v8mFJ/xXluZTU1B6k0KgSGvx/115HaB7Ieg4QlV0K
-         GUbw==
-X-Forwarded-Encrypted: i=1; AJvYcCW3CRm0CaXk7rBgFsQ9vgHqjOKiUD3PLAnNXGqd1M8MEdzq5mykVv+/E50OhvQ/3iGO+2ydw8bkDWB8zOUR7K4c@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQ6X0yqr5NHqTO7yUyOIuzZ9trWncZMBIzFuZ7Xgf5zJ7D7QLf
-	t6mY/PN+vta8phKc/9Y9lOSN0iueni5oMm05gsNvkLWBNMzA25S59nMa5XP6HurNiKUnxk58YOW
-	fQSMk+JW82wBWShoK5XAUA9ocpKgikQRfI+GUykmffNoyy22q5Zh4d3257/NODIFTmu9tZsuFHg
-	lu4SqjHslOQA==
-X-Gm-Gg: ASbGncu4fZjQ2Z8dHoq2LMTgXWRcJk/pX6gt5nKwq7uCU1SJE7GnNHZG4lj6USSUdZt
-	qw4FI4lTx4F2NZFfxNanavCa0VGMnawP+DiyIw+GJH9bUMzHNwoOXrNDvn/1JDkbU1U8ReelGx6
-	WKiggKmrypWMK1x5BakIFdsMiaCpue3k993Z1aCg2lggoegv0Oh/EqLkPmqQP8xh6SpsRBqMihe
-	UajJxA9WGNhdcPpCmLcqutlD3j28LGKmC682q2LQ6Voe7SrAEayZthGxdH0bY1l+ys8xuzoUMt9
-	IxXiKEoLhKIhJdf365yUePRc4H8iLcxsqi7Az8qSC5D4uNI6O31wlyiZ6rXYkRK+F5g=
-X-Received: by 2002:a05:6a00:10d4:b0:736:6ecd:8e32 with SMTP id d2e1a72fcca58-745fe079d33mr22845422b3a.21.1748379896590;
-        Tue, 27 May 2025 14:04:56 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGmO+062jTwbk+EfgkjkNmUp7R+SdrABrfM3fDJ/G+vfmwLBFmJuRS/yzv+9kvtX5aAipJvAw==
-X-Received: by 2002:a05:6a00:10d4:b0:736:6ecd:8e32 with SMTP id d2e1a72fcca58-745fe079d33mr22845375b3a.21.1748379896160;
-        Tue, 27 May 2025 14:04:56 -0700 (PDT)
+        bh=8gIhfclnLH073VsLY1ttHA/tXRnGUkM9HdwYW3xYCyA=;
+        b=HKrnezG0M3TzX277JVEYNyAOz0ltbKc4eGdN7jeFojMkZZAn2NgnRsDMG8M6Pq/6Sc
+         aKjqD7yaN5D+3OWq7I4bTSH9V5Q4EEZVhKSJH/zSZnm8S7sTaDZYOfJHyeChh1AB4QKT
+         r2FUHPal+acdpxxK+054sUP8wWRpSEahv8z0JcggW4KnVPmv6zhFamJ3avKbNdfzV2HV
+         16Pfq7lrNDmVvn63cMjkZ363O6zOKNodm+mlYy6cztZzsbSPO8qdzGNZU9Qj7yfhgO+m
+         r6jH1fQ8kUFm8HrJvQFZZN3TdVM80jCy/uuHHYDp4rZp1bprrswxxCUkrBb9eMfAZf4j
+         BWWw==
+X-Forwarded-Encrypted: i=1; AJvYcCV2Jca4BOlNGQANqshwO8hj4bMNglE2796xZOUCu8tLqFscx3xsQyEBtKV6cqfV4WlwoNq5J1Jpbb1XVw/9AsII@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMhbGD2OLP156P50p2py5hUcuy5//letqF8SnVgCG4ekCHjbs1
+	9Ip5JOiO9yEH/AlGZ6d4wRqSVs0abI7uqMEB0NUWhbvikgXnsSwLDLvaxZh3au031da6z/RXn/0
+	aK9fP/yPdUZRqTDoZ2cNGXGMu6LzkFENvErZcsXjWeZmM3MTTM1YkHfsnnA866EXnT4D9C7Yj10
+	sx3/AqvMPzDQ==
+X-Gm-Gg: ASbGncvfVjvRA0UjN1EO365ilEDtaPCyyZlSW08libb+6VdP4QRM2WfYu+YeAfiVHQH
+	wopaeao3yNRM3GjuAnyuqmUPX8Y0jWqDa1zFv2n0abc3zWja9kCYB9MHN8XQLnMMtdl1jS4hppn
+	XgLhHs0AzyrKosQl2hPokz8p2paQX4+LkBkHq9/2s6d7+i1RZSaZ4CeQCsMZJJZ5S/JOzZRgGlX
+	z69aUOZPy5+zP/vEa7TJdqM/Qu+OmPc8hMAdJQhXtwd7UeA2iqur7bx28/5bCyAhIYL9owzebVS
+	agkMwGV3TLDyrLiNpbFHMFTbKysFYfaTfIzVsJcGkZQhM29kr8v5qtram25/RNZ/J7c=
+X-Received: by 2002:a05:6a00:3ccd:b0:736:4d05:2e35 with SMTP id d2e1a72fcca58-7462eae8737mr2671745b3a.3.1748379898177;
+        Tue, 27 May 2025 14:04:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IErVuSX8VnhDC5c80QonelHr5ry9GAhDcphlE+t5DRrIAcd4JLsqfnIcR34CNcLszXepePuHg==
+X-Received: by 2002:a05:6a00:3ccd:b0:736:4d05:2e35 with SMTP id d2e1a72fcca58-7462eae8737mr2671698b3a.3.1748379897734;
+        Tue, 27 May 2025 14:04:57 -0700 (PDT)
 Received: from hu-molvera-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7465e64836fsm29167b3a.26.2025.05.27.14.04.54
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7465e64836fsm29167b3a.26.2025.05.27.14.04.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 May 2025 14:04:55 -0700 (PDT)
+        Tue, 27 May 2025 14:04:57 -0700 (PDT)
 From: Melody Olvera <melody.olvera@oss.qualcomm.com>
-Date: Tue, 27 May 2025 14:04:38 -0700
-Subject: [PATCH v6 02/10] dt-bindings: phy: Add the M31 based eUSB2 PHY
- bindings
+Date: Tue, 27 May 2025 14:04:39 -0700
+Subject: [PATCH v6 03/10] dt-bindings: usb: qcom,dwc3: Correct the SM8750
+ compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250527-sm8750_usb_master-v6-2-d58de3b41d34@oss.qualcomm.com>
+Message-Id: <20250527-sm8750_usb_master-v6-3-d58de3b41d34@oss.qualcomm.com>
 References: <20250527-sm8750_usb_master-v6-0-d58de3b41d34@oss.qualcomm.com>
 In-Reply-To: <20250527-sm8750_usb_master-v6-0-d58de3b41d34@oss.qualcomm.com>
 To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -104,40 +104,39 @@ Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
         Melody Olvera <melody.olvera@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748379891; l=2425;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1748379891; l=1199;
  i=melody.olvera@oss.qualcomm.com; s=20241204; h=from:subject:message-id;
- bh=Wud7UEFHXJQ0decZnINKeSi+hAdh0llCKpYCfH/oedY=;
- b=FY9GlYlq2N3inwoifO8SkqjWHfzym3tmZX9bN0v1+GLtkQYvAnQtIlcyN/BdOACenHmj7V2hZ
- v5nudmTRmjBB3osJUy0giMKvuZiEGeBQCXn1Nmhej2+rqFaHmkZ3juW
+ bh=NhOsYBi6tADTMUAiHJ0Qk3HAGnZPId0WGmI4bIdXuV8=;
+ b=lobSYcFGVwh8sfpUcLjkgbtPofAxzVDKJAfkDY2FUYjTHx3YXT1XBfydR+LmUIt7NbMLEs17M
+ 4Jec41PnZl5CSCqn6HniNcEqQYvBtscZOhyooMC3wXeStWPigeWIgmT
 X-Developer-Key: i=melody.olvera@oss.qualcomm.com; a=ed25519;
  pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
-X-Authority-Analysis: v=2.4 cv=GIgIEvNK c=1 sm=1 tr=0 ts=683628fa cx=c_pps
+X-Proofpoint-GUID: C5eszCYPcUcv6_jCZ8hF4c_f8ucsB3JD
+X-Authority-Analysis: v=2.4 cv=E9nNpbdl c=1 sm=1 tr=0 ts=683628fb cx=c_pps
  a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=gEfo2CItAAAA:8 a=COk6AnOGAAAA:8
- a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=_ZfBLJ5mcqDn8hZp9PAA:9 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22 a=sptkURWiP4Gy88Gu7hUp:22 a=TjNXssC_j7lpFel5tvFf:22
+ a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
+ a=qiVRAF7mJj4RLuWAUSQA:9 a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
  a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: d5aWRtldq0mPcKpZvfnVXQEcat31TuSW
-X-Proofpoint-GUID: d5aWRtldq0mPcKpZvfnVXQEcat31TuSW
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI3MDE3OCBTYWx0ZWRfX3Weka5An0sIJ
- 20pMITHurDxSas0U8r/kj/RoUcpCzlgaDlsGPw7qMVfM6b+DTParCeo0oVZY+A1CqNdxQtShMbA
- e9VI5eF2ziwuKd0sgbkVAyokMqnm7GPk8QnnN1omSOWQABQf3E69M1T4gGsIl6OC1l2bHbgVjAM
- ZtN2WB9IVkLMULmg6pjSe7Ck0ymZOfQ6zo49X3XIIkWGt6O341ugaWDryBlCZX8YAHnVxNhdLFO
- SEZgvxibkJt6mVnVk1bBCJZjQggPVuXnvKTU5MkG8Gv1KcV6Arx1xleiLA4FXfkUQmdv7HK0yE/
- TfTp5pe8dxYxlR/z5puAeIp8j/42X53j/FPHddy5I7UeBhYoigGgLUiL04eIKqCZUncqItEuBFo
- 0Dt0URmPZMJI6bEtSXgYIebzst8cY24/xVffZfAMwYGWS9mookLER0j3Ks5dEKOZQSfnWQep
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI3MDE3OCBTYWx0ZWRfX1bEmXq5qgY/B
+ gwsEiFAOpMBL7IfyVuyGu31r+96GELhBKIom9CPGXMOKBKSCb3AN5rRknSS4S6SN6Pn4Mo6l96F
+ y0qIHjI41DaatQRiRw0CLaiR0ouSi88CQHIt5Zy+6EzEGBfaU/e6fe5Q6vLLj+Ll6dZZjRanRco
+ xbllyEn6BTFsLTQmQUdU1I76JPgyFL7BM92UMNOw45LMV/ECWoEa+I1PA+HlAdLNaQLEfiECc/S
+ Z07rfe/16BVeJK/313NE2j7acp+gggzMtKz+nKQlQJ0I56rfvldMLJFxdD4Wf/m0x9X+D95n+/X
+ wLV7BJ4VlXpuM8BRI4uQvbj1QR2W8wIylexM/9an4UFE48p6XbpQBgfuvTzKC+RAJUseqQkYLxn
+ Y4mmg6tv7Z4z3jh0EUVJCMiP0Ts1QNzuxZbTNcAqMuch0QQk5MC7eaSNRStzSSEGTeNI3kzX
+X-Proofpoint-ORIG-GUID: C5eszCYPcUcv6_jCZ8hF4c_f8ucsB3JD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-05-27_10,2025-05-27_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0
- adultscore=0 priorityscore=1501 mlxscore=0 phishscore=0 spamscore=0
- suspectscore=0 mlxlogscore=999 classifier=spam authscore=0 authtc=n/a authcc=
+ mlxscore=0 mlxlogscore=548 spamscore=0 malwarescore=0 priorityscore=1501
+ adultscore=0 phishscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0
+ clxscore=1015 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
  definitions=main-2505270178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_140459_285402_095045DD 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20250527_140500_813181_30FC81F1 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,103 +151,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wesley Cheng <quic_wcheng@quicinc.com>
+SM8750 does not require an XO clock in the dt as it is the
+parent of the TCSR refclk_src, so move the compatible to a section
+where the XO clock is not required.
 
-On SM8750, the M31 eUSB2 PHY is being used to support USB2. Add the
-binding definition for the PHY driver.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
 ---
- .../bindings/phy/qcom,m31-eusb2-phy.yaml           | 79 ++++++++++++++++++++++
- 1 file changed, 79 insertions(+)
+ Documentation/devicetree/bindings/usb/qcom,dwc3.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/qcom,m31-eusb2-phy.yaml b/Documentation/devicetree/bindings/phy/qcom,m31-eusb2-phy.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..c84c62d0e8cbd9fc1c0da6538f49149e5bc7e066
---- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/qcom,m31-eusb2-phy.yaml
-@@ -0,0 +1,79 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/qcom,m31-eusb2-phy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Qualcomm M31 eUSB2 phy
-+
-+maintainers:
-+  - Wesley Cheng <quic_wcheng@quicinc.com>
-+
-+description:
-+  M31 based eUSB2 controller, which supports LS/FS/HS usb connectivity
-+  on Qualcomm chipsets.  It is paired with a eUSB2 repeater.
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - qcom,sm8750-m31-eusb2-phy
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#phy-cells":
-+    const: 0
-+
-+  clocks:
-+    items:
-+      - description: reference clock
-+
-+  clock-names:
-+    items:
-+      - const: ref
-+
-+  resets:
-+    maxItems: 1
-+
-+  phys:
-+    maxItems: 1
-+    description:
-+      Phandle to eUSB2 repeater
-+
-+  vdd-supply:
-+    description:
-+      Phandle to 0.88V regulator supply to PHY digital circuit.
-+
-+  vdda12-supply:
-+    description:
-+      Phandle to 1.2V regulator supply to PHY refclk pll block.
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#phy-cells"
-+  - clocks
-+  - clock-names
-+  - resets
-+  - vdd-supply
-+  - vdda12-supply
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    usb_1_hsphy: phy@88e3000 {
-+        compatible = "qcom,sm8750-m31-eusb2-phy";
-+        reg = <0x88e3000 0x29c>;
-+
-+        clocks = <&tcsrcc_usb2_clkref_en>;
-+        clock-names = "ref";
-+
-+        resets = <&gcc_qusb2phy_prim_bcr>;
-+
-+        #phy-cells = <0>;
-+
-+        vdd-supply = <&vreg_l2d_0p88>;
-+        vdda12-supply = <&vreg_l3g_1p2>;
-+    };
+diff --git a/Documentation/devicetree/bindings/usb/qcom,dwc3.yaml b/Documentation/devicetree/bindings/usb/qcom,dwc3.yaml
+index a792434c59db2e6ba2b9b3b8498ca43f0f8d1ec4..298b1472ccbc4cfeb04927da29ea40b9883d03eb 100644
+--- a/Documentation/devicetree/bindings/usb/qcom,dwc3.yaml
++++ b/Documentation/devicetree/bindings/usb/qcom,dwc3.yaml
+@@ -227,6 +227,7 @@ allOf:
+               - qcom,sdx65-dwc3
+               - qcom,sdx75-dwc3
+               - qcom,sm6350-dwc3
++              - qcom,sm8750-dwc3
+     then:
+       properties:
+         clocks:
+@@ -366,7 +367,6 @@ allOf:
+               - qcom,sm8450-dwc3
+               - qcom,sm8550-dwc3
+               - qcom,sm8650-dwc3
+-              - qcom,sm8750-dwc3
+     then:
+       properties:
+         clocks:
 
 -- 
 2.48.1
