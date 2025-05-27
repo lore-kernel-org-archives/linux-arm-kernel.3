@@ -4,104 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54262C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 00:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 807EAC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 00:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Addthv64Q3TTSQf/2nFhVGk8jr68iUDk2g8AigrRaGQ=; b=fZMwCFs0XK1mhlTT6gDyVxL+MS
-	jJvnQ/HfAlW613uqgUK9id6W0jxdiamTIzSreo8ZEWJq/Y/n/fdM3p8osjfXOeQ8//A1CDwB4HbYt
-	1h8Cmmbd7gZ+FygbXwFEfonPyhedEnOKRDWXsCCvVnWb9ukx3dXaw/m2ead1QKX2MvbOw8QJ91FVe
-	tXTm+fQJFLcz+D7AR9GFKwYdKNofdOX22jIc1GMGkRcgvKmmJjXvEBhMRU+ENDxNSGM0+e3JxyW38
-	2c4e2fctkqOFyRNnN41FctdBdIrK7pCVaq+cuz7raIanbIc+3EbF44u8HYee3S7Gho18KIcnnYOOe
-	JOOOfysQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UOcEbDk1qfiDcX5DWviKvVm3NUschFW/SlGs49rdunw=; b=lcPUc/EhFdlRE0fecHqMPenY3y
+	Z0aow3wwyQkzskN3payXINnsNAJmGBRKa7TFEEgZ3v9AhYU1Zi9ze8tzAlWhqCQIibTgY1LdJFzQY
+	VKpUUo7dZpHCVCMZ5RhwGdKcUlsgVUovyGZU038RWMHuGGsEzsg+97ZHa/y5uoxQzPt28icgadWGP
+	noqF6l9LbMjjucY/dTQQtJTnVb43kQQmHQwX8BckKZssUKKz+2M+V3NP5Ky3z9xPCIpVPk1YU6rpz
+	7vwejos26uoyF07ZSXOdGdJrF4ZNxZ2oQCepyy05ne51h6dA/0C7gUgpY0gn0yVyxb9e0TJ6udYwJ
+	o/WIp26w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJhqx-00000009elI-0saP;
-	Tue, 27 May 2025 00:07:35 +0000
-Received: from mail-vk1-xa34.google.com ([2607:f8b0:4864:20::a34])
+	id 1uJi1m-00000009fIK-2S3a;
+	Tue, 27 May 2025 00:18:46 +0000
+Received: from mail-vs1-xe2b.google.com ([2607:f8b0:4864:20::e2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJhok-00000009ebK-43ph
+	id 1uJhzf-00000009fAB-0WbY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 00:05:20 +0000
-Received: by mail-vk1-xa34.google.com with SMTP id 71dfb90a1353d-52413efd0d3so924539e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 17:05:18 -0700 (PDT)
+	Tue, 27 May 2025 00:16:36 +0000
+Received: by mail-vs1-xe2b.google.com with SMTP id ada2fe7eead31-4e59012c7eeso17008137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 17:16:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748304317; x=1748909117; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Addthv64Q3TTSQf/2nFhVGk8jr68iUDk2g8AigrRaGQ=;
-        b=L+AYcBaT8C+rLbXa5fcoTekh6JOECWvk45X7ZRaieHalspodeFVd1GG0uqtV/MsJt/
-         3TWLR8CB4tEFbgYVP5dMbxR/X9lpCDy6YXmsd1s/PAoOxOUWQFcaEcC8jn6xblEga2xT
-         90j763HRCm1kbiArXxrmgwMEhKOXbiu/tb07sbYmteDeOJFV2izMUMYnKTVyFae406he
-         02pC37jRXjeudgex2QuY/TGnNaSolbdP9kYI+DGIYK99NCJ2J4le+Ef7o3Y3HebppnMK
-         RYhSLtKWAIS8G8q69uF9rXpOnmjlygvCZrfEnv9W8Yxu06H4t0mm5El44YBz+JFCxOvt
-         X0LA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748304317; x=1748909117;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1748304994; x=1748909794; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Addthv64Q3TTSQf/2nFhVGk8jr68iUDk2g8AigrRaGQ=;
-        b=MFQdS6lIDsipxJvsDDHYxQMBcPLZHl1uqwa7Fa8BL0lNI9pqbLMbaRtnNGAbPo6JGo
-         AZRtsrRN51a0B4kqscNmvIK+DuKbbYI8XlzG6xyXKewTUiuo9bnCQBeLdFVE8O1DQN9a
-         hy15il8XYtRxe/+RUUlIAkHmxD8rZBGFh8kNdDPjwYMHtYjQ3A2AGRjWIxVQRBR0OaR1
-         JZTBpRWPyuNmqeVvIQW0z/BZ4UasJSVsgg7wfnO1sxmYblF+Z6wIp1ZoDEGpryohmaSN
-         w1Utbe5eSBxphyZUdw9xCmfHjnGmp7CELCB988oQS5VEclpblNT7CvUigtpzHDq98ofk
-         7Kcg==
-X-Forwarded-Encrypted: i=1; AJvYcCUhdCtHIgloPphJyuYf8/bmH26PPXpg6O38rAc4AX0qQdZw0TdzkgoLetUi8IyZrvWYy23zaEwexSvtCn+g0RH+@lists.infradead.org
-X-Gm-Message-State: AOJu0YymxB36YSh7U6F9cdmEnS1fJFNo6sc8sh2Nb3SwdKje7P8+uxMO
-	RPq/SDc/LSQrMcnqcfsjDAibmcmJzOLcXYn3wSlf99yXBJ6TzFNFTzQ7
-X-Gm-Gg: ASbGncvhAue9vJkBuITNXunzBhL55lnnzj81UEmUPnRpaPC6QRYDyn/iaIkEkE2xnSk
-	j6nDl3pzPVf066gV2Eb7YcauDi4XQFc9qdm+d2LZV0R/l5eKTAQuxS3kpFkE9HeZAfIYDafukfi
-	HfmM3z+bHS6rKUXP+UUd/QpHmWgmO9yGRVR4X/7pjIjYi3tKn5vpdqHPrTT0+ikmU9qUyy9kW/K
-	ZojvE4H4keoJ4+VAz4sfc0VKYuUHo4HoyFvlNqI4sSJgJ4xfAP906PtsB+KwRdlAdl2upgNG0dZ
-	an0JWBL+uLawvVPh2MOXIntexH0f6RueJkIBvVgfsw8QYU/rnQM=
-X-Google-Smtp-Source: AGHT+IHEjq49q8FhVaC/VV5WmHQM/CAYARQEncGZ9g1VnXXQ7c/Eg+DEVGvPVjcXeeAr8+7lupfz7w==
-X-Received: by 2002:a05:6122:169b:b0:52a:863f:4189 with SMTP id 71dfb90a1353d-52f2c5923f8mr7340486e0c.8.1748304317399;
-        Mon, 26 May 2025 17:05:17 -0700 (PDT)
-Received: from hiago-nb ([2804:1b3:a7c1:78c2:1931:19db:1830:5cf4])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52f2f73d4b4sm4433946e0c.20.2025.05.26.17.05.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 May 2025 17:05:16 -0700 (PDT)
-Date: Mon, 26 May 2025 21:05:10 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Peng Fan <peng.fan@oss.nxp.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-Message-ID: <20250527000510.fofehmsdhifcwlys@hiago-nb>
-References: <CAPDyKFr3yF=yYZ=Xo5FicvSbDPOTx7+fMwc8dMCLYKPBMEtCKA@mail.gmail.com>
- <20250509191308.6i3ydftzork3sv5c@hiago-nb>
- <CAPDyKFpnLzk5YR3piksGhdB8ZoGNCzmweBTxm_rDX5=vjLFxqQ@mail.gmail.com>
- <20250519172357.vfnwehrbkk24vkge@hiago-nb>
- <CAPDyKFpGcgMzOUHf-JTRTLBviFdLdbjZKrMm8yd37ZqJ1nfkHw@mail.gmail.com>
- <20250521041306.GA28017@nxa18884-linux>
- <20250521041840.GB28017@nxa18884-linux>
- <CAPDyKFpSb+KsfDr1-=uk4TF4Op1dUQ9rDwPP5sSpMfxDRDhnZA@mail.gmail.com>
- <20250523191713.nylhi74jq6z4hqmr@hiago-nb>
- <CAPDyKFq6HG6iTZRnBSN25vhCU8Zj1c+r_ufGbiBsJ16N+1bJVg@mail.gmail.com>
+        bh=UOcEbDk1qfiDcX5DWviKvVm3NUschFW/SlGs49rdunw=;
+        b=c5qhhag5iKpvxCYPTQVzH7CymkqIY2Eyh31alV0aPG5vZ5Y+z9h4pcbP+7IlO9l4Ja
+         rVWC8izcTekBt24DuHsiQYlRF2SYybRkzF732oIY1GHvIIBgdMilneFw7fxIgxItQ3WD
+         V1Fobi2Th0AC334B+lzTj8O6G2h6mFmmdGI5Q+qyOnY1JxLx7PPvuiv4o+mzO/NRR9dX
+         XLSkFWnBP3bCqnwF7M28TQsWAtLSAQI3C37fS87vnVHSCWcTN7Qy869bzKaqYJrgHSkh
+         qE9hQO2Jz1I/QgKn0GL0d+MxLDKfYu/8CMjy2CMhrFQ3WK7uTOwbcj/clZgWfoya3hwO
+         tJeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748304994; x=1748909794;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UOcEbDk1qfiDcX5DWviKvVm3NUschFW/SlGs49rdunw=;
+        b=LdPTJWhKyWPTXXQdTmrlqEaE7K6NuRR85Xtj74gH2d/96RWBJL/cbMStUChxbzI52x
+         Emzvo9juucH+pewMWmFTQ7FXqsaiqfdHGznOucb1jYKMH/fJBncLi7+Cpe9IxF0Y0V9Q
+         xAVJ4hjD4dG6VPx6m1sKtkgZ0hHCKo5tnapVMWF1Nmo9pVRkmrP8UU2hY+rKyBnERfo2
+         bwsftP3J2If+h3mRsGN6MNaodfrbCmTXqGPaayhBwMIihTXQ5NdOg36QoPtpguQSiOSR
+         ahrIclwHeBaDlKKnj3LZYpitdhOmHMlnJILIJWNk0BtY1wzBMxysm0HLMAh2+dG/7xcQ
+         iG+g==
+X-Forwarded-Encrypted: i=1; AJvYcCU8lRNhaoOYsWcqmyIleH+NP2rzI3BO2Kis5mCBsj8BE66WG4OvDXy2LNkF7z96YBvDC6onlClzNIZbvCvOEOb0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoZUeY3KUUv8H4Nc3syPLWCK2mWBhbisfqpSEsSr4ORVXzVvj/
+	+XlKFCZqleS7hO/2XzU0GUG0Zf9oyUHxrJhpvl8pnXAzRtkz8O/O8DQZFM6TBhyPV+Gev21quBC
+	rjPyi9P67QAIj8Rl0FvqJ9SmhL0C87wM=
+X-Gm-Gg: ASbGncvXhXsJFl6yoWucIWYF7po1s0ixFgiM8Dohci6BBSiIK1niPce+vs8pOqCDWKo
+	4xz9/zMUhdKtdXK50L2gJhoGlT3UOfe1vqHOJLMFEwn3N3H0dDUsAd/kwAQiHK6Jkcjp/J9//k6
+	8+trpEtCEsUAuWc+/PREd1neZHydGCcp3DlQ==
+X-Google-Smtp-Source: AGHT+IHSdJELAoc1OfbG1X3kZVb5ldqSTuSeYhI72dMXIJ0HLefmckoLWqzNnulr7EDgBDJ6rEKu7PIcDwC6U64zr2w=
+X-Received: by 2002:a05:6102:cd1:b0:4e2:91ce:8cad with SMTP id
+ ada2fe7eead31-4e4241911f0mr9215317137.24.1748304993817; Mon, 26 May 2025
+ 17:16:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPDyKFq6HG6iTZRnBSN25vhCU8Zj1c+r_ufGbiBsJ16N+1bJVg@mail.gmail.com>
+References: <20250526182939.2593553-1-james.hilliard1@gmail.com>
+ <20250526182939.2593553-3-james.hilliard1@gmail.com> <959e576e-bf36-4d01-9ffb-023931b61574@lunn.ch>
+ <CADvTj4oqjCkMeK0p8ZBa8PQmctc77hpiFK2pqgBJaxRFDgQoDQ@mail.gmail.com>
+ <d4109cc5-83d5-4acd-b0fb-39a50043060b@lunn.ch> <CADvTj4qdoD-mo7CxNW8VitZf+wXTiZ7m28R4JPQ9kQJGhUH7bA@mail.gmail.com>
+ <d9d0881b-12cd-40af-bb22-d84236d2e04d@lunn.ch>
+In-Reply-To: <d9d0881b-12cd-40af-bb22-d84236d2e04d@lunn.ch>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Mon, 26 May 2025 18:16:22 -0600
+X-Gm-Features: AX0GCFsNBL9BmJB3bZajN52hoBf0v04Bs4dxVYW5eiTI4xBSNVhcu5-DVu6exkM
+Message-ID: <CADvTj4qZz5q7x3_+OB8FiSnkEehzzjikVcCaqdcwHDYesMzpWw@mail.gmail.com>
+Subject: Re: [PATCH v1 3/3] dt-bindings: net: sun8i-emac: Add AC300 EMAC1
+ nvmem phy selection
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_170519_021966_FE98C00C 
-X-CRM114-Status: GOOD (  54.05  )
+X-CRM114-CacheID: sfid-20250526_171635_171725_9FE50ED8 
+X-CRM114-Status: GOOD (  53.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,123 +104,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 12:07:49PM +0200, Ulf Hansson wrote:
-> On Fri, 23 May 2025 at 21:17, Hiago De Franco <hiagofranco@gmail.com> wrote:
-> >
-> > Hi Ulf,
-> >
-> > On Wed, May 21, 2025 at 02:11:02PM +0200, Ulf Hansson wrote:
-> > > You should not provide any flag (or attach_data to
-> > > dev_pm_domain_attach_list()) at all. In other words just call
-> > > dev_pm_domain_attach_list(dev, NULL, &priv->pd_list), similar to how
-> > > drivers/remoteproc/imx_dsp_rproc.c does it.
+On Mon, May 26, 2025 at 5:45=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Mon, May 26, 2025 at 05:22:48PM -0600, James Hilliard wrote:
+> > On Mon, May 26, 2025 at 4:38=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wr=
+ote:
 > > >
-> > > In this way, the device_link is created by making the platform->dev
-> > > the consumer and by keeping the supplier-devices (corresponding to the
-> > > genpds) in RPM_SUSPENDED state.
+> > > On Mon, May 26, 2025 at 03:32:03PM -0600, James Hilliard wrote:
+> > > > On Mon, May 26, 2025 at 1:36=E2=80=AFPM Andrew Lunn <andrew@lunn.ch=
+> wrote:
+> > > > >
+> > > > > > +        phy-mode =3D "rgmii";
+> > > > >
+> > > > > Does the PCB have extra long clock lines?
+> > > >
+> > > > I'm not sure, it's a copackaged(maybe on-die is the wrong terminolo=
+gy)
+> > > > PHY I think so I assume the clock lines are internal, in the device=
+ specific
+> > > > dts we set something like this on the emac1 node:
+> > > > allwinner,rx-delay-ps =3D <3100>;
+> > > > allwinner,tx-delay-ps =3D <700>;
 > > >
-> > > The PM domains (genpds) are then left in their current state, which
-> > > should allow us to call dev_pm_genpd_is_on() for the corresponding
-> > > supplier-devices, to figure out whether the bootloader turned them on
-> > > or not, I think.
-> > >
-> > > Moreover, to make sure the genpds are turned on when needed, we also
-> > > need to call pm_runtime_enable(platform->dev) and
-> > > pm_runtime_get_sync(platform->dev). The easiest approach is probably
-> > > to do that during ->probe() - and then as an improvement on top you
-> > > may want to implement more fine-grained support for runtime PM.
-> > >
-> > > [...]
-> > >
-> > > Kind regards
-> > > Uffe
+> > > Those values are just weird. The RGMII delay should be 2000ps. 3100 i=
+s
+> > > way too big, and 700 is way too small.
 > >
-> > I did some tests here and I might be missing something. I used the
-> > dev_pm_genpd_is_on() inside imx_rproc.c with the following changes:
+> > I think these may not actually be required when using the internal
+> > EPHY's now that I think about it again.
 > >
-> > @@ -902,7 +902,12 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> >         if (dev->pm_domain)
-> >                 return 0;
+> > > I think phy-mode =3D "internal" would be better, and just hard code t=
+he
+> > > delays either in the MAC or PHY driver.
 > >
-> >         ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
-> > +       printk("hfranco: returned pd devs is %d", ret);
-> > +       for (int i = 0; i < ret; i++) {
-> > +               test = dev_pm_genpd_is_on(priv->pd_list->pd_devs[i]);
-> > +               printk("hfranco: returned value is %d", test);
-> > +       }
-> >         return ret < 0 ? ret : 0;
-> >  }
-> >
-> > This was a quick test to check the returned value, and it always return
-> > 1 for both pds, even if I did not boot the remote core.
-> >
-> > So I was wondering if it was because of PD_FLAG_DEV_LINK_ON, I removed
-> > it and passed NULL to dev_pm_domain_attach_list().
-> 
-> Right, that's exactly what we should be doing.
-> 
-> > Booting the kernel
-> > now it correctly reports 0 for both pds, however when I start the
-> > remote core with a hello world firmware and boot the kernel, the CPU
-> > resets with a fault reset ("Reset cause: SCFW fault reset").
-> >
-> > I added both pm functions to probe, just to test:
-> >
-> > @@ -1152,6 +1158,9 @@ static int imx_rproc_probe(struct platform_device *pdev)
-> >                 goto err_put_clk;
-> >         }
-> >
-> > +       pm_runtime_enable(dev);
-> > +       pm_runtime_get_sync(dev);
-> > +
-> 
-> Indeed, calling pm_runtime_enable() and then pm_runtime_get_sync()
-> should turn on the PM domains for the device, which I assume is needed
-> at some point.
-> 
-> Although, I wonder if this may be a bit too late, I would expect that
-> you at least need to call these *before* the call to rproc_add(), as I
-> assume the rproc-core may start using the device/driver beyond that
-> point.
-> 
-> >         return 0
-> >
-> > Now the kernel boot with the remote core running, but it still returns
-> > 0 from dev_pm_genpd_is_on(). So basically now it always returns 0, with
-> > or without the remote core running.
-> 
-> dev_pm_genpd_is_on() is returning the current status of the PM domain
-> (genpd) for the device.
-> 
-> Could it be that the genpd provider doesn't register its PM domains
-> with the state that the HW is really in? pm_genpd_init() is the call
-> that allows the genpd provider to specify the initial state.
-> 
-> I think we need Peng's help here to understand what goes on.
-> 
-> >
-> > I tried to move pm_runtime_get_sync() to .prepare function but it make
-> > the kernel not boot anymore (with the SCU fault reset).
-> 
-> Try move pm_runtime_enable() before rproc_add().
+> > Hmm, would that make sense even though the MAC driver also
+> > supports external PHY's?
+>
+> If an external PHY is being used, i would not expect a phy-mode of
+> internal.
 
-Thanks Ulf, that indeed made it work, at least now the kernel does not
-reset anymore with the SCU fault reset. However I am still only getting
-0 from dev_pm_genpd_is_on(), no matter what the state of the remote
-core. Maybe I am missing something in between?
+Ok, I guess this is a bit of a separate issue vs phy selection right?
 
-Peng, do you know what could be the issue here?
-
-> 
+> > > Thanks for the link to the old thread, which was 5 years
+> > > ago. Hopefully since then, a bit more has been learnt. Quickly readin=
+g
+> > > through that thread, i don't think an MFD is not the correct solution=
+.
 > >
-> > Do you have any suggestions? Am I doing something wrong with these PDs?
+> > Well the current patches I've been playing around with for the AC200
+> > phy are pretty similar to those patches still.
 > >
-> > Best regards,
-> > Hiago.
-> 
-> Kind regards
-> Uffe
+> > Here's a branch that works on both AC200/AC300 but only if I do
+> > the PHY initialization in u-boot:
+> > https://github.com/jameshilliard/linux-h616/commits/acx00
+>
+> I personally don't like depending on the bootloader. I often replace
+> the bootloader, because it is a crippled version that does not let me
+> TFTP boot, does not have flash enabled for saving configuration, and i
+> want to use barebox etc. I think it is much better when Linux drives
+> the hardware, not the bootloader.
 
-Best regards,
-Hiago
+Yeah, I'm just using that for verifying the PHY selection logic at the
+moment is functional and that Linux can handle the PHY's once in
+an initialized state. The initialization sequence I'm using in u-boot
+is pretty far from being suitable for upstream as well.
+
+> > > In the last 5 years we have had to deal with more chicken/egg problem=
+s
+> > > with PHYs. It has now become pretty much standard practice to put the
+> > > ID values in DT, to get the driver probed when the device does not
+> > > respond on the bus.
+> >
+> > This is what I'm doing right? I mean I'm putting the phy ID in the
+> > DT for both the AC200 and AC300. When doing the reset driver
+> > for say the AC200 I would wire that up to only the AC200 phy
+> > node and not the AC300 node(since the AC300 reset is MDIO
+> > based while the AC200 is i2c based).
+> >
+> > > The DT node can then use phandles to the reset and
+> > > clock controller to configure them as needed, the core will probably
+> > > do that. I2C is a bit messier, you probably want a phandle pointing t=
+o
+> > > the i2c_adapter, so you can use i2c_transfer() on it in the probe()
+> > > function.
+> >
+> > Without a MFD or some other node that exposes a reset I'm a bit
+> > confused about what driver would actually issue the reset.
+> >
+> > Yeah, we need a phandle to the i2c_adapter, but since the resets
+> > would be under the AC200 PHY node I assume there would need
+> > to be some sort of intermediary driver implementing the i2c reset
+> > right?
+>
+> You need an reset controller, yes, but is that an MFD? Or just a reset
+> controller? Where does this reset controller live?
+
+Well at least the AC200(the i2c one) appears to be a full MFD:
+https://github.com/DeciHD/allwinner_docs/blob/main/mfd_xpowers/AC200_Datash=
+eet_V1.1.pdf
+
+The AC300 appears to only have EPHY related functionality:
+https://github.com/DeciHD/allwinner_docs/blob/main/mfd_xpowers/AC300_User_M=
+anual_V1.0.pdf
+
+> Question like this show we are missing the big picture. What are all
+> the different parts, how are they interconnected? Once we see that, we
+> can give you better advice.
+
+If you look at the block diagrams here it should hopefully give you
+a better idea of how the AC200 and AC300 PHY's are connected
+on the H616:
+http://file.whycan.com/files/202304/V85x/Linux_EMAC_%e5%bc%80%e5%8f%91%e6%8=
+c%87%e5%8d%97.pdf
 
