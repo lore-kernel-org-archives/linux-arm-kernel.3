@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE860C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 16:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A93C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 16:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFxVwoG4v/tI9dXCvxoc6Jj35graWV7F58OCxABwd3g=; b=kK7USTB7wezn421Zt/8eQaQwXW
-	qmE5OTswM6tgHq2D4kf5BDmFuTkdm9A8SZp6p71qCB+zgMZ0HP/cv8JYAdeAi+jL22XX6L+SNuaKq
-	6XZ/tnDPOfZy0rGoMOS+YT94Gd72lToUEfxEqDBUn1MHqkm/kyGFUvFCOCx7SnWkiV+cdOFMsDTn2
-	ijPLYk+a1zeNoKqJ6kEK5f2iJG2AlDKWICCjNuQNxa1EgI5hc4JQoTS/j9ZNE0jclhsgee7FqmHHS
-	2iAxS8CRP4EnqwD0H0HXdTAEOKT98+7VvCuVShkUQ0vIqtQ+kijBznmFVmbCCu66i54cQNtm0iJtx
-	R405jj0A==;
+	bh=MvbyqxXVQNHC5mh6gd7gRMge22HJjHVERWcwOyMawoE=; b=HQxSCOZto8Z4msdk+RcTWzpviH
+	aHvq1nPpHL4btUSDzZALyKwtwEtKbksOvdwzUmBiotF97WDw/5ZmIPg7U0RbM4Y2Xpu6PtSD9yrcL
+	ZEFrnqJgyaTIAYh88lewvYEMYdLTSBMSxhH5/ijgi2KUkRF1gj4RyzKm3IzxKTG0fOmNg8m8Oxnsu
+	qtoFqj6XBJSUi2vaO1e/w+QM7goHrwrgZrnLPnFes1echr5rQDf5sSjLUSBh01jKyALumPR9rwIX4
+	/DPsUSzhn1CuvoDRJSJl0DYLMLkSmAJTXsIHKnOkY9YSrTWS0OEgF3XmnKECGWr8vmKf1qv2vomYS
+	VRxRp0pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJwjI-0000000B6ot-1H14;
-	Tue, 27 May 2025 16:00:40 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uJwxX-0000000B8Sr-2Z55;
+	Tue, 27 May 2025 16:15:23 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJwh7-0000000B6ON-0qAN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 15:58:26 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uJwgz-0004eD-Ic; Tue, 27 May 2025 17:58:17 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uJwgx-000Rc3-37;
-	Tue, 27 May 2025 17:58:15 +0200
-Received: from pengutronix.de (p5b1645f7.dip0.t-ipconnect.de [91.22.69.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 8E8EB41AA8E;
-	Tue, 27 May 2025 15:58:15 +0000 (UTC)
-Date: Tue, 27 May 2025 17:58:15 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
-	kever.yang@rock-chips.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v6 0/4] rockchip: add can for RK3576 Soc
-Message-ID: <20250527-steady-dormouse-of-culture-c45bd6-mkl@pengutronix.de>
-References: <20250526062559.2061311-1-zhangqing@rock-chips.com>
+	id 1uJwvN-0000000B7w5-0qY7;
+	Tue, 27 May 2025 16:13:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1748362373; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NtLpvLpQ2cD63d250UpW91ucrcTkFj1f268fArWsk1u0o/kHwWNsaYZSuleG296zWy3w8a7PG18svX8qDwOhyaemO3eVLgjRsbTCn7KxRn+0a1DbBvUefz7VfffP1yqe6c3uCcTLXJOrpypVF4vIhjd7k9h/QU29ZgelazuHqGg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1748362373; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MvbyqxXVQNHC5mh6gd7gRMge22HJjHVERWcwOyMawoE=; 
+	b=Vyox1T7l5q/yil934iO+YkaxMAvKkeRaD7cqrreD9GitZ7Mr16O2LXJ3Fm3Oo4aJefi/slTn11y52TYxRAe4Qw618h3J13rWiZV1/GHJX47qF/yDC0Q3vQQmfLIiLpzYhG1YcIcZlxwgM22ZhV/s/0UnB69YG9hs6iILScA1rTU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748362373;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=MvbyqxXVQNHC5mh6gd7gRMge22HJjHVERWcwOyMawoE=;
+	b=C/vAoEXaySIIVAT1HZQUZly5ajYDs7+nr4uXNyc2cQLvEjQVIZ/hOUJeJGWaKZYe
+	srPw5HghmqrPUS3MWNv8STkH6nrwjVcUyOwF8rPGPMR/UX5/jXHjl2c8YROE7yoXIrA
+	Cl1W+kaVJNWEPDecgKuNg6i12tqaN9SEDEH5cFtk=
+Received: by mx.zohomail.com with SMTPS id 1748362370680719.5901778529433;
+	Tue, 27 May 2025 09:12:50 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: dmitry.baryshkov@oss.qualcomm.com, heiko@sntech.de,
+ linux-rockchip@lists.infradead.org, Andy Yan <andyshrk@163.com>
+Cc: neil.armstrong@linaro.org, sebastian.reichel@collabora.com,
+ Dmitry Baryshkov <lumag@kernel.org>, stephen@radxa.com,
+ dri-devel@lists.freedesktop.org, hjc@rock-chips.com, mripard@kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, yubing.zhang@rock-chips.com, naoki@radxa.com,
+ Laurent.pinchart@ideasonboard.com, Andy Yan <andy.yan@rock-chips.com>,
+ krzk+dt@kernel.org, robh@kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 3/9] drm/rockchip: Add RK3588 DPTX output support
+Date: Tue, 27 May 2025 18:12:43 +0200
+Message-ID: <2278911.CQOukoFCf9@workhorse>
+In-Reply-To: <20250403033748.245007-4-andyshrk@163.com>
+References: <20250403033748.245007-1-andyshrk@163.com>
+ <20250403033748.245007-4-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pckthsx2tg77kzdv"
-Content-Disposition: inline
-In-Reply-To: <20250526062559.2061311-1-zhangqing@rock-chips.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_085825_235781_A29973CE 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20250527_091309_311118_CBAC3AE3 
+X-CRM114-Status: GOOD (  38.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,55 +82,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andy,
 
---pckthsx2tg77kzdv
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 0/4] rockchip: add can for RK3576 Soc
-MIME-Version: 1.0
+thank you for the driver. I'll leave some review comments inline. I don't
+have specific knowledge on the DRM subsystem so my comments will be of more
+general nature.
 
-On 26.05.2025 14:25:55, Elaine Zhang wrote:
-> rk3576 can is a new controller,new register layout and Bit position
-> definition:
-> Support CAN and CANFD protocol.
-> Support Dma.
->=20
-> There are major differences from the previous rk3568.
-> All errata on the rk3568 have been fixed and redesigned.
+On Thursday, 3 April 2025 05:37:31 Central European Summer Time Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> Add driver extension for Synopsys DesignWare DPTX IP used
+> on Rockchip RK3588 SoC.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> Acked-by: Dmitry Baryshkov <lumag@kernel.org>
+> 
+> ---
+> 
+> (no changes since v2)
+> 
+> Changes in v2:
+> - no include uapi path
+> - switch to drmm_encoder_init
+> 
+>  drivers/gpu/drm/rockchip/Kconfig            |   9 ++
+>  drivers/gpu/drm/rockchip/Makefile           |   1 +
+>  drivers/gpu/drm/rockchip/dw_dp-rockchip.c   | 154 ++++++++++++++++++++
+>  drivers/gpu/drm/rockchip/rockchip_drm_drv.c |   1 +
+>  drivers/gpu/drm/rockchip/rockchip_drm_drv.h |   1 +
+>  5 files changed, 166 insertions(+)
+>  create mode 100644 drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+> 
+> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
+> index 26c4410b2407c..00315cc6be5a8 100644
+> --- a/drivers/gpu/drm/rockchip/Kconfig
+> +++ b/drivers/gpu/drm/rockchip/Kconfig
+> @@ -8,6 +8,7 @@ config DRM_ROCKCHIP
+>  	select DRM_PANEL
+>  	select VIDEOMODE_HELPERS
+>  	select DRM_ANALOGIX_DP if ROCKCHIP_ANALOGIX_DP
+> +	select DRM_DW_DP if ROCKCHIP_DW_DP
+>  	select DRM_DW_HDMI if ROCKCHIP_DW_HDMI
+>  	select DRM_DW_HDMI_QP if ROCKCHIP_DW_HDMI_QP
+>  	select DRM_DW_MIPI_DSI if ROCKCHIP_DW_MIPI_DSI
+> @@ -58,6 +59,14 @@ config ROCKCHIP_CDN_DP
+>  	  RK3399 based SoC, you should select this
+>  	  option.
+>  
+> +config ROCKCHIP_DW_DP
+> +	bool "Rockchip specific extensions for Synopsys DW DP"
+> +	help
+> +	  This selects support for Rockchip SoC specific extensions
+> +	  to enable Synopsys DesignWare Cores based DisplayPort transmit
+> +	  controller support on Rockchip SoC, If you want to enable DP on
+> +	  rk3588 based SoC, you should select this option.
+> +
+>  config ROCKCHIP_DW_HDMI
+>  	bool "Rockchip specific extensions for Synopsys DW HDMI"
+>  	help
+> diff --git a/drivers/gpu/drm/rockchip/Makefile b/drivers/gpu/drm/rockchip/Makefile
+> index 2b867cebbc121..097f062399c7a 100644
+> --- a/drivers/gpu/drm/rockchip/Makefile
+> +++ b/drivers/gpu/drm/rockchip/Makefile
+> @@ -14,6 +14,7 @@ rockchipdrm-$(CONFIG_ROCKCHIP_DW_HDMI) += dw_hdmi-rockchip.o
+>  rockchipdrm-$(CONFIG_ROCKCHIP_DW_HDMI_QP) += dw_hdmi_qp-rockchip.o
+>  rockchipdrm-$(CONFIG_ROCKCHIP_DW_MIPI_DSI) += dw-mipi-dsi-rockchip.o
+>  rockchipdrm-$(CONFIG_ROCKCHIP_DW_MIPI_DSI2) += dw-mipi-dsi2-rockchip.o
+> +rockchipdrm-$(CONFIG_ROCKCHIP_DW_DP) += dw_dp-rockchip.o
+>  rockchipdrm-$(CONFIG_ROCKCHIP_INNO_HDMI) += inno_hdmi.o
+>  rockchipdrm-$(CONFIG_ROCKCHIP_LVDS) += rockchip_lvds.o
+>  rockchipdrm-$(CONFIG_ROCKCHIP_RGB) += rockchip_rgb.o
+> diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+> new file mode 100644
+> index 0000000000000..5ff8a6a54997e
+> --- /dev/null
+> +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+> @@ -0,0 +1,154 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2020 Rockchip Electronics Co., Ltd.
+> + *
+> + * Author: Zhang Yubing <yubing.zhang@rock-chips.com>
+> + * Author: Andy Yan <andy.yan@rock-chips.com>
+> + */
+> +
+> +#include <linux/component.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <drm/bridge/dw_dp.h>
+> +#include <drm/drm_atomic_helper.h>
+> +#include <drm/drm_bridge.h>
+> +#include <drm/drm_bridge_connector.h>
 
-Can you configure the IP core for CAN-2.0 a.k.a. CAN-CC only mode, so
-that it only receives CAN-CC frames only and not CAN-FD?
+I think there's a missing #include <drm/display/drm_dp_helper.h> here. It
+gets pulled in implicitly in most configurations, but I think this is what
+the s390 build failure from the kernel test robot report is about.
 
-What happens if you configure register RKCAN_STR_CTL, ism_sel to 2'b01:
-CAN Fixed and receive a CAN-FD frame?
+> +#include <drm/drm_of.h>
+> +#include <drm/drm_print.h>
+> +#include <drm/drm_probe_helper.h>
+> +#include <drm/drm_simple_kms_helper.h>
+> +
+> +#include <linux/media-bus-format.h>
+> +#include <linux/videodev2.h>
+> +
+> +#include "rockchip_drm_drv.h"
+> +#include "rockchip_drm_vop.h"
+> +
+> +struct rockchip_dw_dp {
+> +	struct dw_dp *base;
+> +	struct device *dev;
+> +	struct rockchip_encoder encoder;
+> +};
+> +
+> +static inline struct rockchip_dw_dp *encoder_to_dp(struct drm_encoder *encoder)
+> +{
+> +	struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
+> +
+> +	return container_of(rkencoder, struct rockchip_dw_dp, encoder);
+> +}
 
-Is there a more detailed description to "2'b00: Flexible; cover_mode
-must disable" and "2'b11: Mixed. cover_mode must disable"?
+This function appears to be unused, and will generate a warning:
 
-regards,
-Marc
+  linux/drivers/gpu/drm/rockchip/dw_dp-rockchip.c:33:38: warning: unused
+  function 'encoder_to_dp' [-Wunused-function]
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+I assume it may be used in a follow-up series. I think it's fine to add it
+there when it's needed and avoid the warning for now by removing it.
 
---pckthsx2tg77kzdv
-Content-Type: application/pgp-signature; name="signature.asc"
+> +
+> +static int dw_dp_encoder_atomic_check(struct drm_encoder *encoder,
+> +				      struct drm_crtc_state *crtc_state,
+> +				      struct drm_connector_state *conn_state)
+> +{
+> +	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
+> +	struct drm_atomic_state *state = conn_state->state;
+> +	struct drm_display_info *di = &conn_state->connector->display_info;
+> +	struct drm_bridge *bridge  = drm_bridge_chain_get_first_bridge(encoder);
+> +	struct drm_bridge_state *bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
+> +	u32 bus_format = bridge_state->input_bus_cfg.format;
+> +
+> +	switch (bus_format) {
+> +	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
+> +	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
+> +		s->output_mode = ROCKCHIP_OUT_MODE_YUV420;
+> +		break;
+> +	case MEDIA_BUS_FMT_YUYV10_1X20:
+> +	case MEDIA_BUS_FMT_YUYV8_1X16:
+> +		s->output_mode = ROCKCHIP_OUT_MODE_S888_DUMMY;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB101010_1X30:
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> +	case MEDIA_BUS_FMT_RGB666_1X24_CPADHI:
+> +	case MEDIA_BUS_FMT_YUV10_1X30:
+> +	case MEDIA_BUS_FMT_YUV8_1X24:
+> +	default:
+> +		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
+> +		break;
+> +	}
+> +
+> +	s->output_type = DRM_MODE_CONNECTOR_DisplayPort;
+> +	s->bus_format = bus_format;
+> +	s->bus_flags = di->bus_flags;
+> +	s->color_space = V4L2_COLORSPACE_DEFAULT;
 
------BEGIN PGP SIGNATURE-----
+Reading the VOP2 code s->color_space gets read by, it seems this results
+in the output always using BT.709 as the colour space in YUV output mode.
+Is my understanding of the code correct?
 
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmg14RQACgkQDHRl3/mQ
-kZyZQgf7BB/yyOkv3ry1psGUXvjfa6oVbkh/JVbPbds5HJPB50UhBhjmhbGKPq30
-r4BTF8f4ZEPWK+cEbibjbBdW5DXR4VLJ1bMX4C2f53uDNua+5Z3C6TLq1R5IvDoy
-PDvwfcRTEba9Oivuu9TNEpsV7hMN9opc4UORUId8yU/2vco4Pt3bQSUlbm9iRgMk
-hrWJFWQ+YyEEiJfhVp7V5CarGiEB64ALiK7y8CTESWtc1IWINpFb7raFMF2RvSMW
-/oVTymupsa9ltY8nVa+Mz7o4BXe1wG2ReXfn2QIB+S7+nN+ZGF2PMl/V4a1s9ByH
-kBPX9qhW+6hvLQgeDJhzgFmF9bYpTQ==
-=y8iK
------END PGP SIGNATURE-----
+I don't know if DP 1.4 is limited with regards to HDR or if this is just
+left for later to implement, but BT.709 in the case of an HDR RGB VOP
+input seems wrong, unless VOP2 sets the output color_space to something like
+BT.2020 or similar in the case of output_mode == ROCKCHIP_OUT_MODE_AAAA and
+I'm not seeing it.
 
---pckthsx2tg77kzdv--
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct drm_encoder_helper_funcs dw_dp_encoder_helper_funcs = {
+> +	.atomic_check		= dw_dp_encoder_atomic_check,
+> +};
+> +
+> +static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *data)
+> +{
+> +	struct dw_dp_plat_data plat_data;
+> +	struct drm_device *drm_dev = data;
+> +	struct rockchip_dw_dp *dp;
+> +	struct drm_encoder *encoder;
+> +	struct drm_connector *connector;
+> +	int ret;
+> +
+> +	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
+> +	if (!dp)
+> +		return -ENOMEM;
+> +
+> +	dp->dev = dev;
+> +	plat_data.max_link_rate = 810000;
+> +	encoder = &dp->encoder.encoder;
+> +	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm_dev, dev->of_node);
+> +	rockchip_drm_encoder_set_crtc_endpoint_id(&dp->encoder, dev->of_node, 0, 0);
+> +
+> +	ret = drmm_encoder_init(drm_dev, encoder, NULL, DRM_MODE_ENCODER_TMDS, NULL);
+> +	if (ret)
+> +		return ret;
+> +	drm_encoder_helper_add(encoder, &dw_dp_encoder_helper_funcs);
+> +
+> +	dp->base = dw_dp_bind(dev, encoder, &plat_data);
+> +	if (IS_ERR(dp->base)) {
+> +		ret = PTR_ERR(dp->base);
+> +		return ret;
+> +	}
+> +
+> +	connector = drm_bridge_connector_init(drm_dev, encoder);
+> +	if (IS_ERR(connector)) {
+> +		ret = PTR_ERR(connector);
+> +		return dev_err_probe(dev, ret, "Failed to init bridge connector");
+> +	}
+> +
+> +	drm_connector_attach_encoder(connector, encoder);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct component_ops dw_dp_rockchip_component_ops = {
+> +	.bind = dw_dp_rockchip_bind,
+> +};
+> +
+> +static int dw_dp_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +
+> +	return component_add(dev, &dw_dp_rockchip_component_ops);
+> +}
+> +
+> +static void dw_dp_remove(struct platform_device *pdev)
+> +{
+> +	struct rockchip_dw_dp *dp = platform_get_drvdata(pdev);
+
+Does one of the helper functions or something else set drvdata? Otherwise
+I don't see how this is ever non-null.
+
+> +
+> +	component_del(dp->dev, &dw_dp_rockchip_component_ops);
+> +}
+> +
+> +static const struct of_device_id dw_dp_of_match[] = {
+> +	{ .compatible = "rockchip,rk3588-dp", },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, dw_dp_of_match);
+> +
+> +struct platform_driver dw_dp_driver = {
+> +	.probe	= dw_dp_probe,
+> +	.remove = dw_dp_remove,
+> +	.driver = {
+> +		.name = "dw-dp",
+> +		.of_match_table = dw_dp_of_match,
+> +	},
+> +};
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+> index ed88788e04dd2..687bb7b252e8e 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+> @@ -531,6 +531,7 @@ static int __init rockchip_drm_init(void)
+>  	ADD_ROCKCHIP_SUB_DRIVER(rockchip_dp_driver,
+>  				CONFIG_ROCKCHIP_ANALOGIX_DP);
+>  	ADD_ROCKCHIP_SUB_DRIVER(cdn_dp_driver, CONFIG_ROCKCHIP_CDN_DP);
+> +	ADD_ROCKCHIP_SUB_DRIVER(dw_dp_driver, CONFIG_ROCKCHIP_DW_DP);
+>  	ADD_ROCKCHIP_SUB_DRIVER(dw_hdmi_rockchip_pltfm_driver,
+>  				CONFIG_ROCKCHIP_DW_HDMI);
+>  	ADD_ROCKCHIP_SUB_DRIVER(dw_hdmi_qp_rockchip_pltfm_driver,
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
+> index c183e82a42a51..2e86ad00979c4 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
+> @@ -87,6 +87,7 @@ int rockchip_drm_encoder_set_crtc_endpoint_id(struct rockchip_encoder *rencoder,
+>  					      struct device_node *np, int port, int reg);
+>  int rockchip_drm_endpoint_is_subdriver(struct device_node *ep);
+>  extern struct platform_driver cdn_dp_driver;
+> +extern struct platform_driver dw_dp_driver;
+>  extern struct platform_driver dw_hdmi_rockchip_pltfm_driver;
+>  extern struct platform_driver dw_hdmi_qp_rockchip_pltfm_driver;
+>  extern struct platform_driver dw_mipi_dsi_rockchip_driver;
+> 
+
+Other than that, the driver looks great, thank you! I've tested it on my
+ROCK 5T over DP altmode, where it correctly interfaces with a DP monitor
+I have through an alt-mode adapter. So feel free to add a
+
+Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
+Kind regards,
+Nicolas Frattaroli
+
+
+
 
