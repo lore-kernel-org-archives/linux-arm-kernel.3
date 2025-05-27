@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5241C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 18:18:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2743EC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 18:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZcqNJR+8VtW41JbCbTfke1fL6148OIWbmIsZ4Ld5R8Q=; b=Qzy3eB62oL4lbbyMHYT9tSL9XZ
-	Op8ObJJAYTinK22sv0mscWMy+/IPnISbMrlVC1pjnPYKgcknJw73KasVBwyb19i/99BFWRha2YCWp
-	FO8LoV8IUDdbLhQaxNn41NFKn16NQE34k7antnFogu+7zhzcqPMto7BMttuCwGPiR9gB5/u/FCEY0
-	tQuNGv8Abzy3IiWwILdBmJVWvY5/mw5PsQ7pMMICKlq6HWjE00lhyXb/GKb/Cm1kojke+5db8688R
-	z6kfwJ8BxXo7XDXqIoSWCM0aQxrH5BuvRzMTban6TiRx4KFZnZsKPRGXthjvH5seA+JtD2zFAyo/Y
-	XZt0V5Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3CsvI9OTgZssZojEzUng3q3UpXAvPiHsj/3GXqU+umw=; b=rorGfxoFpgeO6Dif+8+98NNr85
+	QTo3migju400kNnsaHFwxJ6ORUEArUuKTDWA4SmzNwYp46kGo9iofCxn7RqvPopQi7nQBuDqva1+1
+	6idiu8M9B6i5SGs45Lr+djNtHjHIpy1THS1rGd6ws8auZg7qXkNL9R3S8Y5hibfqNxz10HYMjDBLe
+	tzvuWT/K/d/sYSCGd/Ehuy5Ulqu5SAOad05HgdsoHQB9MuiP/kQQica96L2bAHrRy0HnNWWCO2oH2
+	SOMxzOc+0ousVvdQGdfGjkx2CqId8wwIr1+HoVM4/4aykfCHwdEymoXpdbHXHyFaYVqR5nXqihBI1
+	CsImA3xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJys9-0000000BLFG-1D9p;
-	Tue, 27 May 2025 18:17:57 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uJyuR-0000000BLUG-47bp;
+	Tue, 27 May 2025 18:20:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJypZ-0000000BKyp-3UGD
+	id 1uJysI-0000000BLGZ-47r3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 18:15:19 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54RIF4qZ3029528;
-	Tue, 27 May 2025 13:15:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748369704;
-	bh=ZcqNJR+8VtW41JbCbTfke1fL6148OIWbmIsZ4Ld5R8Q=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=LgsIiN8ivuotwzi99cArhQCpWe5Zzmmm4px+h2fS/yv38NvM22Rae7Q3nSC8Ok47I
-	 pOe7poeaZYVZF2YSA4LeBzY8WigkzVTZTHiQnc1w1rqGYfDn2EP3+q7DpKmoF/y3M6
-	 MXziNOUsVl6dfmhXregThLQFGcllGI5UOefCBylk=
-Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54RIF4vD2831127
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 27 May 2025 13:15:04 -0500
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 27
- May 2025 13:15:04 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 27 May 2025 13:15:04 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54RIExut3555206;
-	Tue, 27 May 2025 13:15:00 -0500
-Message-ID: <0fe3f172-5a88-4f1d-9eb2-7b748f9f6743@ti.com>
-Date: Tue, 27 May 2025 23:44:59 +0530
+	Tue, 27 May 2025 18:18:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 26BA26135E;
+	Tue, 27 May 2025 18:18:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 972CAC4CEEB;
+	Tue, 27 May 2025 18:18:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748369885;
+	bh=u2Q2XMni/0JmEMXMetOaDQk6KPODTqKODiQyRO8bX4I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bW1PwfHaYmYSR7STkMPVjnVHcc/CIOquE5UXw42KaVlkKFGa4BDM2RgY139NhHr+k
+	 CN+59yCKhEyVqDMl5VuxGK/CGr+kfILSwlFaCe7UCovsFg0o7AzrG6ajZrt942K4JQ
+	 ivtLd6lxuPd+52rHCsrHuW7NY0LTCEQatXo/AtN6BdMbnkhhbzFK5cPDI5vKEdZdQx
+	 gHxZ/gy2TgkYrfiNGFIWf5dY/WTshP3WZ6VD4V6f1ZYOKjTJJ3UjfSun+Q9WPvkZk0
+	 tLKq2TzKR7yF0n47fyEuRAsnvZp3fRq5qXNydeBoc8ERIEPmz+6ARmH//zFXhJkO0n
+	 0HDNUqWRSyU0g==
+Date: Tue, 27 May 2025 13:18:03 -0500
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] dt-bindings: gpio: Move fsl,mxs-pinctrl.txt into
+ gpio-mxs.yaml
+Message-ID: <20250527181803.GA877374-robh@kernel.org>
+References: <20250523203159.570982-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] TI: K3: Switch MCU R5F cluster into Split mode
-To: Andrew Davis <afd@ti.com>, Nishanth Menon <nm@ti.com>,
-        Beleswar Prasad
- Padhi <b-padhi@ti.com>
-CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <hnagalla@ti.com>,
-        <jm@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <u-kumar1@ti.com>
-References: <20250522073426.329344-1-b-padhi@ti.com>
- <20250522155338.gpbcubkvygtju3qc@bagpipe>
- <5cfaed26-28ec-42dc-b9f6-836869ad3fa3@ti.com>
- <20250523114822.jrv73frz2wbzdd6d@falsify>
- <6f4b2271-7249-4285-9fee-1851135e1207@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <6f4b2271-7249-4285-9fee-1851135e1207@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_111518_038002_6BDFF5AF 
-X-CRM114-Status: GOOD (  24.63  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250523203159.570982-1-Frank.Li@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,80 +81,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 23, 2025 at 04:31:57PM -0400, Frank Li wrote:
+> Move mxs-pinctrl part into gpio-mxs.yaml and add pinctrl examples to fix
+> below CHECK_DTB warning:
+> 
+> arch/arm/boot/dts/nxp/mxs/imx28-xea.dtb: pinctrl@80018000 (fsl,imx28-pinctrl):
+>    'auart0-2pins@0', 'auart0@0',  ... 'usb1@1' do not match any of the regexes: 'gpio@[0-9]+$', 'pinctrl-[0-9]+'
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  .../devicetree/bindings/gpio/gpio-mxs.yaml    |  73 +++++++++-
+>  .../bindings/pinctrl/fsl,mxs-pinctrl.txt      | 127 ------------------
+>  2 files changed, 69 insertions(+), 131 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt
+> 
+> diff --git a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+> index b58e08c8ecd8a..b3cf4682be3fd 100644
+> --- a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+> @@ -18,9 +18,11 @@ description: |
+>  
+>  properties:
+>    compatible:
+> -    enum:
+> -      - fsl,imx23-pinctrl
+> -      - fsl,imx28-pinctrl
+> +    items:
+> +      - enum:
+> +          - fsl,imx23-pinctrl
+> +          - fsl,imx28-pinctrl
+> +      - const: simple-bus
 
-On 5/23/2025 6:46 PM, Andrew Davis wrote:
-> On 5/23/25 6:48 AM, Nishanth Menon wrote:
->> On 14:27-20250523, Beleswar Prasad Padhi wrote:
->>> Hi Nishanth,
->>>
->>> On 5/22/2025 9:23 PM, Nishanth Menon wrote:
->>>> On 13:04-20250522, Beleswar Padhi wrote:
->>>>> Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 
->>>>> have a
->>>>> R5F cluster in the MCU domain which is configured for LockStep 
->>>>> mode at
->>>>> the moment. Switch this R5F cluster to Split mode by default in all
->>>>> corresponding board level DTs to maximize the number of R5F cores.
->>>> Why? I can read the patch to understand what you are trying to do, but
->>>> the rationale needs to be explained.
->>>
->>>
->>> [..]
->> I suggest the following:
->> * SoC dts files - use a common standard for remote proc - lockstep makes
->>    sense as it is right now
->> * Modification to board specific dts files - call them out as board
->>    files specific patches to flip over to split mode - while considering
->>    the possibilities that users may NOT upgrade kernel and bootloader at
->>    the same time and the existence of EFI based dtb handover from
->>    bootloader to kernel - which means, kernel should be able to 
->> handle the
->>    same combinations correctly. Also handle the carveouts correctly for
->>    the new processors - at least state the strategy - overlays etc.. 
->> Come
->>    to think of it, I think we should fix up the carveout strategy for
->>    user programmable remote cores first before attempting all this new
->>    processor additions.
->
-> +1
->
-> The core issue here is that split vs lockstep is a *configuration*, which
-> means it doesn't belong in DT in the first place. This is the reason 
-> to keep
-> config out of DT, why should what mode my R5 core starts in be based 
-> on what
-> board I'm using? It hard-codes what should be configurable decisions.
+I don't think the use of simple-bus is correct here. The addresses are 
+not MMIO (there's no size), and I would guess the child nodes are 
+dependent on the parent.
 
-configurable decisions is bootloader build .
+>  
+>    '#address-cells':
+>      const: 1
+> @@ -31,6 +33,61 @@ properties:
+>      maxItems: 1
+>  
+>  patternProperties:
+> +  "^(?!gpio).*@[0-9]+$":
 
-and you know what you are building then change DT as well.
+Unit-address should be hex? If not, then another reason this is not a 
+simple-bus.
 
+> +    type: object
+> +    properties:
+> +      fsl,pinmux-ids:
+> +        $ref: /schemas/types.yaml#/definitions/uint32-array
+> +        description: |
+> +          An integer array.  Each integer in the array specify a pin
+> +          with given mux function, with bank, pin and mux packed as below.
+> +
+> +          [15..12] : bank number
+> +          [11..4]  : pin number
+> +          [3..0]   : mux selection
+> +
+> +          This integer with mux selection packed is used as an entity by both group
+> +          and config nodes to identify a pin.  The mux selection in the integer takes
+> +          effects only on group node, and will get ignored by driver with config node,
+> +          since config node is only meant to set up pin configurations.
+> +
+> +          Valid values for these integers are listed below.
+> +
+> +      reg:
+> +        maxItems: 1
 
->
-> Same issue with carveouts, so IMHO all of the: carveouts, mailbox 
-> selection,
-> timer reserved status, and mode selection belong in an overlay. It 
-> doesn't
-> fix the issues, but at least it isolates it.
->
-Its usage model, and split mode is enabled at board level.
+Would be good to say what 'reg' represents here.
 
-as default, split mode is used, in case lock-step is needed then change 
-DT in custom build too.
-
-
-Also, Patch 1/2 should be posted as different patch.
-
-
-> Andrew
->
->> * Split out the fixes patches separately out - no reason to mix it up
->>    with the rest of the refactoring.
->> * Fix your commit messages and subject lines to indicate clearly what is
->>    impacted, rationale, backward compatibility status
->>
->> [1] 
->> https://lore.kernel.org/all/20250522071828.285462-7-b-padhi@ti.com/#Z31dts:upstream:src:arm64:ti:k3-j7200-mcu-wakeup.dtsi
->> [2] https://lore.kernel.org/all/20250522073426.329344-2-b-padhi@ti.com/
->>
+> +
+> +      fsl,drive-strength:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1, 2, 3]
+> +        description: |
+> +          0: MXS_DRIVE_4mA
+> +          1: MXS_DRIVE_8mA
+> +          2: MXS_DRIVE_12mA
+> +          3: MXS_DRIVE_16mA
+> +
+> +      fsl,voltage:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1]
+> +        description: |
+> +          0: MXS_VOLTAGE_LOW  - 1.8 V
+> +          1: MXS_VOLTAGE_HIGH - 3.3 V
+> +
+> +      fsl,pull-up:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        enum: [0, 1]
+> +        description: |
+> +          0: MXS_PULL_DISABLE - Disable the internal pull-up
+> +          1: MXS_PULL_ENABLE  - Enable the internal pull-up
+> +
+> +          Note that when enabling the pull-up, the internal pad keeper gets disabled.
+> +          Also, some pins doesn't have a pull up, in that case, setting the fsl,pull-up
+> +          will only disable the internal pad keeper.
+> +
+> +    required:
+> +      - fsl,pinmux-ids
+> +
+> +    additionalProperties: false
+> +
+>    "gpio@[0-9]+$":
+>      type: object
+>      properties:
+> @@ -80,7 +137,7 @@ examples:
+>      pinctrl@80018000 {
+>          #address-cells = <1>;
+>          #size-cells = <0>;
+> -        compatible = "fsl,imx28-pinctrl";
+> +        compatible = "fsl,imx28-pinctrl", "simple-bus";
+>          reg = <0x80018000 0x2000>;
+>  
+>          gpio@0 {
+> @@ -132,4 +189,12 @@ examples:
+>              interrupt-controller;
+>              #interrupt-cells = <2>;
+>          };
+> +
+> +        lcdif-apx4@5 {
+> +            reg = <5>;
+> +            fsl,pinmux-ids = <0x1181 0x1191>;
+> +            fsl,drive-strength = <0>;
+> +            fsl,voltage = <0>;
+> +            fsl,pull-up = <0>;
+> +        };
+>      };
 
