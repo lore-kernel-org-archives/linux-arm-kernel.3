@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A656C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 08:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF14C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 08:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mvVJnQlIU00ktmH9TSavPdP0CJ/6D9ZVRCSa6Sbxhp4=; b=GQjxgE0AEbRB3l/wk+jpCCyYw6
-	0F3i6b0lWc9Er5ayBVt3i7riDwKeS3BVq3GeExlFh5lVkd3O5IUMdvYHRYW+H2ZLaUESfRCAQNXGB
-	ZOPX+XGnMQqC7FKuNpgwKd9SFJjuXyawK82azrUFkg/mY/m+SMB5tofTx7uXwt7gorgsPkeQEs7kS
-	pcWDIygcGPbQj12oxMiix4/qPeLbC9NfzXTQPUjGqCUFa8UmWMu2ZjypdhyYjZUmKDNHODDUYm9nF
-	B/Fm1rbggAntXYvBevlMzZsJEc4jDjQVtiq8sWUU0OOr+eLpz7hIU0xKUO56V+F/Jyd1w4ZHmudcN
-	wpAvvWYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Yb79EJcC8v+0loWb2s5hqKOarC0FNlz/EkB5OXIpGzI=; b=CNeiW2Rjm8uE7gskRc79Re7KiD
+	fHIHHur69sSTZrdNVTAK3mzbu6cCjZGnLYWWBz0+Q3M06vBCsY2hXbJUaAqIo2MISeXp4wCYsA+ix
+	EDBakCfzqFCeRufrHazbzBn+W0sSUT0BKySwbEwF05eLj25Ni0y3r4JH29k36hyngFE4KAE9IrJw7
+	2EvJOR2nEj4mXduDGNbe5RLqY9I05tIg1qWHHEG+YcBBnmzQxgXn8NwydLkBz2qxCd62LeW0WQsk/
+	CQM9twN1vccvY+w8X9NNZQ1p5fLiQZvrxC3cMcWg4i/nqCsXjLPjgMw0h3adlOU4uBlpKTfvwofcj
+	+Zmcq0dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJpRU-0000000ADqt-2Z0w;
-	Tue, 27 May 2025 08:13:48 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1uJpWA-0000000AEFb-3vIt;
+	Tue, 27 May 2025 08:18:38 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJpPK-0000000ADdi-0oU9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 08:11:36 +0000
-Received: from mail.maildlp.com (unknown [172.19.93.142])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4b651D14dfz4f3jXt
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 16:10:56 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 67F6E1A07BB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 16:11:21 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP4 (Coremail) with SMTP id gCh0CgCXRlunczVo2KyeNg--.19162S2;
-	Tue, 27 May 2025 16:11:21 +0800 (CST)
-Message-ID: <8d184497-fecf-497f-8b4c-bcd4b0a697ce@huaweicloud.com>
-Date: Tue, 27 May 2025 16:11:19 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 1/2] bpf, arm64: Support up to 12 function
- arguments
-To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Puranjay Mohan <puranjay@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Florent Revest <revest@chromium.org>
-Cc: Bastien Curutchet <bastien.curutchet@bootlin.com>,
- ebpf@linuxfoundation.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, Xu Kuohai <xukuohai@huawei.com>
-References: <20250522-many_args_arm64-v2-0-d6afdb9cf819@bootlin.com>
- <20250522-many_args_arm64-v2-1-d6afdb9cf819@bootlin.com>
-Content-Language: en-US
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <20250522-many_args_arm64-v2-1-d6afdb9cf819@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: gCh0CgCXRlunczVo2KyeNg--.19162S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCFyxAw1DZr17tr1xKryrtFb_yoWrCrWxpr
-	nYk3ZxGFs3Zw40g3WrXw4UX34FkFs5tF4Y9r48A343AF4DKrykKFsYkayjkFyfCr1kAF4j
-	93s0vrsxAF45J3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
-	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	4xRDUUUUU==
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+	id 1uJpU1-0000000AE5X-1nvC;
+	Tue, 27 May 2025 08:16:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1748333699;
+	bh=Yb79EJcC8v+0loWb2s5hqKOarC0FNlz/EkB5OXIpGzI=;
+	h=From:To:Subject:Date:Message-Id;
+	b=HVZJMCtgq5uGQ4FTIyURr/lbOaG88DuokVyyokOKTskbKcGs5QdEibGQwCCAMlTUR
+	 OdQ6/ppRu09F3578EH1VjNRmPjwH/EfCt9hRrYIQuOhjCxj0Zontq3ajzc6ClscdOd
+	 quJD7xMkXO+zoe0RIE3+jAONTaya/UjnxLL3ggzk=
+X-QQ-mid: zesmtpsz3t1748333691t0a00ae5b
+X-QQ-Originating-IP: jmMkXCCGuBV/psBnOvh48mmWPXdBIEZC0pQuzvzfIiE=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 27 May 2025 16:14:49 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1510287522126049275
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: [PATCH v3] drm/rockchip: cdn-dp: Convert to drm bridge
+Date: Tue, 27 May 2025 16:14:47 +0800
+Message-Id: <20250527081447.304-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: Nzm/ywkHpQhPfwad78O6VrSj37VhrEEReZ/7ghfHzzR8L4LOcMqa73wV
+	17/7ZWkDcfc0MLECcILuTfhEOs3Pzs9cIE5+9/XPYImbADHL8tbiGnWd385t7Ha26b4Suva
+	pXQtf6GecgjwNoHZ2jFvyK7W4T8yb6/FtMnJO6hiw/sRhS5GnpU/wmzPwyGH5k7extEdnWC
+	v6aCYI/NXy2G0CB8BkHFzQDV0vbbINJGSSKTxxuRozFKRw4rAkK/AvLwGjA8Xtn8YJoykKn
+	9HQda0z53NViOWUvshS5VYNbVuxUARdHi/Y0pobLp8jKszVsHHmOQW+EZ4Ez6MOCvrOrL5J
+	YgWt3UbCbrYQUntYtqxX44+eP96+ADlzW09fUuXz1za68qdRPycoqZcF1VhoyZsTP8EhAEJ
+	6mIU+W045Kt+m6bl9Nwn7DssoSrCDU4r72x8MjDiCLNiigVK5ZYTC8DX664F3rDGivcxiHz
+	8KHwRgBSeBo+0DYHrGsYkOquKI5LlTsVBVyMisO6yX04ZgcVQ80xVTGZx8pMT+Pn7MSLczv
+	46NPGJZ9Tiy+KxxZSh7oXkyG2TApBHmc99uG/HsJ1+KCAeFwDhhCskoukMZUEDyNRtcmLuw
+	zD9OzsufA9NuoBdhbliODlRjsX840Fr7itInwN24bD7dCVy1hX1sAL3e622oy1ew11BreX+
+	YFLOVdarMF1bhHWxYMADuR+5OwTbEBJo0nKsnP0Sd3DS+GvYJ+AfN69joP/HMkCobsHCBIy
+	oTtIzNfwAiOgcqluRnXnQJCMp4cQMw+9IuLKp42JG7JG7NF1KcCdDAVec++/qyMeaRpXQwI
+	fQwHzm81Np6Dr13VnOPA2alHZRhsEmXwEvsytxtePGSJyAfTUQzb4qV+jgAc4M5C7ceZVGH
+	6xlj+heRzltVZ4j8ejrqpc1dJlPQmy4tAtd1gvz7WB28kL/CmRKRfZptBZgeSvMcGv5R1MM
+	qyWM++ML7RHDldAj/7f3vi6mr/SDoEYaDlzPgGgBLxEZeew==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_011134_522774_B767F182 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20250527_011626_104524_C7E19AC7 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,157 +96,579 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/22/2025 6:14 PM, Alexis Lothoré wrote:
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-[...]
+Convert it to drm bridge driver, it will be convenient for us to
+migrate the connector part to the display driver later.
+Considering that some code depend on the connector, the following
+changes have been made:
+- Only process edid in &drm_bridge_funcs.edid_read(), so no need to
+store additional edid info.
+- Now cdn_dp_get_sink_capability() only focused on reading DPCD_REV.
+- Update bpc info in cdn_dp_bridge_atomic_enable() instead of
+cdn_dp_encoder_mode_set(). Actually, the bpc data will be used in
+cdn_dp_bridge_atomic_enable().
+- Switch to use DRM_BRIDGE_OP_DP_AUDIO helpers.
 
-> -static void save_args(struct jit_ctx *ctx, int args_off, int nregs)
-> +struct arg_aux {
-> +	/* how many args are passed through registers, the rest of the args are
-> +	 * passed through stack
-> +	 */
-> +	int args_in_regs;
-> +	/* how many registers are used to pass arguments */
-> +	int regs_for_args;
-> +	/* how much stack is used for additional args passed to bpf program
-> +	 * that did not fit in original function registers
-> +	 **/
+This patch also convert to use devm_drm_bridge_alloc() API.
 
-nit: "**/" should be "*/"
+Tested with RK3399 EVB IND board.
 
-> +	int bstack_for_args;
-> +	/* home much stack is used for additional args passed to the
-> +	 * original function when called from trampoline (this one needs
-> +	 * arguments to be properly aligned)
-> +	 */
-> +	int ostack_for_args;
-> +};
-> +
-> +static int calc_arg_aux(const struct btf_func_model *m,
-> +			 struct arg_aux *a)
->   {
-> -	int i;
-> +	int stack_slots, nregs, slots, i;
-> +
-> +	/* verifier ensures m->nr_args <= MAX_BPF_FUNC_ARGS */
-> +	for (i = 0, nregs = 0; i < m->nr_args; i++) {
-> +		slots = (m->arg_size[i] + 7) / 8;
-> +		if (nregs + slots <= 8) /* passed through register ? */
-> +			nregs += slots;
-> +		else
-> +			break;
-> +	}
-> +
-> +	a->args_in_regs = i;
-> +	a->regs_for_args = nregs;
-> +	a->ostack_for_args = 0;
-> +
-> +	/* the rest arguments are passed through stack */
-> +	for (a->ostack_for_args = 0, a->bstack_for_args = 0;
-> +	     i < m->nr_args; i++) {
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
 
-a->ostack_for_args is initialized twice.
+Changes in v3:
+- Link to V2: https://lore.kernel.org/all/20250523011310.120-1-kernel@airkyi.com/
+- Switch to use DRM_BRIDGE_OP_DP_AUDIO helpers
+- Remove the dependency for connector
+- Remove the extra stored edid
+- Code cleanup
 
-move all initializations before the loop?
+Changes in v2:
+- Link to V1: https://lore.kernel.org/all/20250507035148.415-1-kernel@airkyi.com/
+- Use drm_atomic_get_new_connector_for_encoder() to get connector
+- Convert to use devm_drm_bridge_alloc() API
+- Fix typo: cdn_dp_connector_edid_read -> cdn_dp_bridge_edid_read
 
-> +		/* We can not know for sure about exact alignment needs for
-> +		 * struct passed on stack, so deny those
-> +		 */
-> +		if (m->arg_flags[i] & BTF_FMODEL_STRUCT_ARG)
-> +			return -EOPNOTSUPP;
+ drivers/gpu/drm/rockchip/cdn-dp-core.c | 279 ++++++++++---------------
+ drivers/gpu/drm/rockchip/cdn-dp-core.h |   9 +-
+ 2 files changed, 110 insertions(+), 178 deletions(-)
 
-leave the error code as is, namely, return -ENOTSUPP?
-
-> +		stack_slots = (m->arg_size[i] + 7) / 8;
-> +		/* AAPCS 64 C.14: arguments passed on stack must be aligned to
-> +		 * max(8, arg_natural_alignment)
-> +		 */
-> +		a->bstack_for_args += stack_slots * 8;
-> +		a->ostack_for_args = round_up(a->ostack_for_args + stack_slots * 8, 8);
-
-since a->ostack_for_args starts from 0 and is always incremented
-by multiples of 8, round_up() to 8 is not needed.
-
-> +	}
->   
-> -	for (i = 0; i < nregs; i++) {
-> -		emit(A64_STR64I(i, A64_SP, args_off), ctx);
-> -		args_off += 8;
-> +	return 0;
-> +}
-> +
-> +static void clear_garbage(struct jit_ctx *ctx, int reg, int effective_bytes)
-> +{
-> +	if (effective_bytes) {
-> +		int garbage_bits = 64 - 8 * effective_bytes;
-> +#ifdef CONFIG_CPU_BIG_ENDIAN
-> +		/* garbage bits are at the right end */
-> +		emit(A64_LSR(1, reg, reg, garbage_bits), ctx);
-> +		emit(A64_LSL(1, reg, reg, garbage_bits), ctx);
-> +#else
-> +		/* garbage bits are at the left end */
-> +		emit(A64_LSL(1, reg, reg, garbage_bits), ctx);
-> +		emit(A64_LSR(1, reg, reg, garbage_bits), ctx);
-> +#endif
->   	}
->   }
->   
-> -static void restore_args(struct jit_ctx *ctx, int args_off, int nregs)
-> +static void save_args(struct jit_ctx *ctx, int bargs_off, int oargs_off,
-> +		      const struct btf_func_model *m,
-> +		      const struct arg_aux *a,
-> +		      bool for_call_origin)
->   {
->   	int i;
-> +	int reg;
-> +	int doff;
-> +	int soff;
-> +	int slots;
-> +	u8 tmp = bpf2a64[TMP_REG_1];
-> +
-> +	/* store arguments to the stack for the bpf program, or restore
-> +	 * arguments from stack for the original function
-> +	 */
-> +	for (reg = 0; reg < a->regs_for_args; reg++) {
-> +		emit(for_call_origin ?
-> +		     A64_LDR64I(reg, A64_SP, bargs_off) :
-> +		     A64_STR64I(reg, A64_SP, bargs_off),
-> +		     ctx);
-> +		bargs_off += 8;
-> +	}
-> +
-> +	soff = 32; /* on stack arguments start from FP + 32 */
-> +	doff = (for_call_origin ? oargs_off : bargs_off);
-> +
-> +	/* save on stack arguments */
-> +	for (i = a->args_in_regs; i < m->nr_args; i++) {
-> +		slots = (m->arg_size[i] + 7) / 8;
-> +		/* AAPCS C.14: additional arguments on stack must be
-> +		 * aligned on max(8, arg_natural_alignment)
-> +		 */
-> +		soff = round_up(soff, 8);
-> +		if (for_call_origin)
-> +			doff =  round_up(doff, 8);
-
-since both soff and doff start from multiples of 8 and are
-incremented by 8 each time, the two round_up()s are also
-not needed.
-
-> +		/* verifier ensures arg_size <= 16, so slots equals 1 or 2 */
-> +		while (slots-- > 0) {
-> +			emit(A64_LDR64I(tmp, A64_FP, soff), ctx);
-> +			/* if there is unused space in the last slot, clear
-> +			 * the garbage contained in the space.
-> +			 */
-> +			if (slots == 0 && !for_call_origin)
-> +				clear_garbage(ctx, tmp, m->arg_size[i] % 8);
-> +			emit(A64_STR64I(tmp, A64_SP, doff), ctx);
-> +			soff += 8;
-> +			doff += 8;
-> +		}
-> +	}
-> +}
-
-[...]
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+index 292c31de18f1..5e116d3e516b 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -16,6 +16,7 @@
+ #include <sound/hdmi-codec.h>
+ 
+ #include <drm/display/drm_dp_helper.h>
++#include <drm/display/drm_hdmi_audio_helper.h>
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_edid.h>
+ #include <drm/drm_of.h>
+@@ -25,9 +26,9 @@
+ #include "cdn-dp-core.h"
+ #include "cdn-dp-reg.h"
+ 
+-static inline struct cdn_dp_device *connector_to_dp(struct drm_connector *connector)
++static inline struct cdn_dp_device *bridge_to_dp(struct drm_bridge *bridge)
+ {
+-	return container_of(connector, struct cdn_dp_device, connector);
++	return container_of(bridge, struct cdn_dp_device, bridge);
+ }
+ 
+ static inline struct cdn_dp_device *encoder_to_dp(struct drm_encoder *encoder)
+@@ -231,9 +232,9 @@ static bool cdn_dp_check_sink_connection(struct cdn_dp_device *dp)
+ }
+ 
+ static enum drm_connector_status
+-cdn_dp_connector_detect(struct drm_connector *connector, bool force)
++cdn_dp_bridge_detect(struct drm_bridge *bridge)
+ {
+-	struct cdn_dp_device *dp = connector_to_dp(connector);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	enum drm_connector_status status = connector_status_disconnected;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -244,41 +245,25 @@ cdn_dp_connector_detect(struct drm_connector *connector, bool force)
+ 	return status;
+ }
+ 
+-static void cdn_dp_connector_destroy(struct drm_connector *connector)
++static const struct drm_edid *
++cdn_dp_bridge_edid_read(struct drm_bridge *bridge, struct drm_connector *connector)
+ {
+-	drm_connector_unregister(connector);
+-	drm_connector_cleanup(connector);
+-}
+-
+-static const struct drm_connector_funcs cdn_dp_atomic_connector_funcs = {
+-	.detect = cdn_dp_connector_detect,
+-	.destroy = cdn_dp_connector_destroy,
+-	.fill_modes = drm_helper_probe_single_connector_modes,
+-	.reset = drm_atomic_helper_connector_reset,
+-	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
+-	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
+-};
+-
+-static int cdn_dp_connector_get_modes(struct drm_connector *connector)
+-{
+-	struct cdn_dp_device *dp = connector_to_dp(connector);
+-	int ret = 0;
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
++	const struct drm_edid *drm_edid;
+ 
+ 	mutex_lock(&dp->lock);
+-
+-	ret = drm_edid_connector_add_modes(connector);
+-
++	drm_edid = drm_edid_read_custom(connector, cdn_dp_get_edid_block, dp);
+ 	mutex_unlock(&dp->lock);
+ 
+-	return ret;
++	return drm_edid;
+ }
+ 
+ static enum drm_mode_status
+-cdn_dp_connector_mode_valid(struct drm_connector *connector,
+-			    const struct drm_display_mode *mode)
++cdn_dp_bridge_mode_valid(struct drm_bridge *bridge,
++			 const struct drm_display_info *display_info,
++			 const struct drm_display_mode *mode)
+ {
+-	struct cdn_dp_device *dp = connector_to_dp(connector);
+-	struct drm_display_info *display_info = &dp->connector.display_info;
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	u32 requested, actual, rate, sink_max, source_max = 0;
+ 	u8 lanes, bpc;
+ 
+@@ -323,11 +308,6 @@ cdn_dp_connector_mode_valid(struct drm_connector *connector,
+ 	return MODE_OK;
+ }
+ 
+-static struct drm_connector_helper_funcs cdn_dp_connector_helper_funcs = {
+-	.get_modes = cdn_dp_connector_get_modes,
+-	.mode_valid = cdn_dp_connector_mode_valid,
+-};
+-
+ static int cdn_dp_firmware_init(struct cdn_dp_device *dp)
+ {
+ 	int ret;
+@@ -360,7 +340,6 @@ static int cdn_dp_firmware_init(struct cdn_dp_device *dp)
+ 
+ static int cdn_dp_get_sink_capability(struct cdn_dp_device *dp)
+ {
+-	const struct drm_display_info *info = &dp->connector.display_info;
+ 	int ret;
+ 
+ 	if (!cdn_dp_check_sink_connection(dp))
+@@ -373,17 +352,6 @@ static int cdn_dp_get_sink_capability(struct cdn_dp_device *dp)
+ 		return ret;
+ 	}
+ 
+-	drm_edid_free(dp->drm_edid);
+-	dp->drm_edid = drm_edid_read_custom(&dp->connector,
+-					    cdn_dp_get_edid_block, dp);
+-	drm_edid_connector_update(&dp->connector, dp->drm_edid);
+-
+-	dp->sink_has_audio = info->has_audio;
+-
+-	if (dp->drm_edid)
+-		DRM_DEV_DEBUG_KMS(dp->dev, "got edid: width[%d] x height[%d]\n",
+-				  info->width_mm / 10, info->height_mm / 10);
+-
+ 	return 0;
+ }
+ 
+@@ -488,10 +456,6 @@ static int cdn_dp_disable(struct cdn_dp_device *dp)
+ 	dp->active = false;
+ 	dp->max_lanes = 0;
+ 	dp->max_rate = 0;
+-	if (!dp->connected) {
+-		drm_edid_free(dp->drm_edid);
+-		dp->drm_edid = NULL;
+-	}
+ 
+ 	return 0;
+ }
+@@ -551,21 +515,8 @@ static void cdn_dp_encoder_mode_set(struct drm_encoder *encoder,
+ 				    struct drm_display_mode *adjusted)
+ {
+ 	struct cdn_dp_device *dp = encoder_to_dp(encoder);
+-	struct drm_display_info *display_info = &dp->connector.display_info;
+ 	struct video_info *video = &dp->video_info;
+ 
+-	switch (display_info->bpc) {
+-	case 10:
+-		video->color_depth = 10;
+-		break;
+-	case 6:
+-		video->color_depth = 6;
+-		break;
+-	default:
+-		video->color_depth = 8;
+-		break;
+-	}
+-
+ 	video->color_fmt = PXL_RGB;
+ 	video->v_sync_polarity = !!(mode->flags & DRM_MODE_FLAG_NVSYNC);
+ 	video->h_sync_polarity = !!(mode->flags & DRM_MODE_FLAG_NHSYNC);
+@@ -595,16 +546,41 @@ static bool cdn_dp_check_link_status(struct cdn_dp_device *dp)
+ static void cdn_dp_audio_handle_plugged_change(struct cdn_dp_device *dp,
+ 					       bool plugged)
+ {
+-	if (dp->codec_dev)
+-		dp->plugged_cb(dp->codec_dev, plugged);
++	if (dp->sink_has_audio)
++		drm_connector_hdmi_audio_plugged_notify(dp->connector, plugged);
+ }
+ 
+-static void cdn_dp_encoder_enable(struct drm_encoder *encoder)
++static void cdn_dp_display_info_update(struct cdn_dp_device *dp, struct drm_display_info *display_info)
+ {
+-	struct cdn_dp_device *dp = encoder_to_dp(encoder);
++	struct video_info *video = &dp->video_info;
++
++	switch (display_info->bpc) {
++	case 10:
++		video->color_depth = 10;
++		break;
++	case 6:
++		video->color_depth = 6;
++		break;
++	default:
++		video->color_depth = 8;
++		break;
++	}
++
++	dp->sink_has_audio = display_info->has_audio;
++}
++
++static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_atomic_state *state)
++{
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	int ret, val;
+ 
+-	ret = drm_of_encoder_active_endpoint_id(dp->dev->of_node, encoder);
++	dp->connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
++	if (!dp->connector)
++		return;
++
++	cdn_dp_display_info_update(dp, &dp->connector->display_info);
++
++	ret = drm_of_encoder_active_endpoint_id(dp->dev->of_node, &dp->encoder.encoder);
+ 	if (ret < 0) {
+ 		DRM_DEV_ERROR(dp->dev, "Could not get vop id, %d", ret);
+ 		return;
+@@ -625,7 +601,7 @@ static void cdn_dp_encoder_enable(struct drm_encoder *encoder)
+ 
+ 	ret = cdn_dp_enable(dp);
+ 	if (ret) {
+-		DRM_DEV_ERROR(dp->dev, "Failed to enable encoder %d\n",
++		DRM_DEV_ERROR(dp->dev, "Failed to enable bridge %d\n",
+ 			      ret);
+ 		goto out;
+ 	}
+@@ -661,9 +637,9 @@ static void cdn_dp_encoder_enable(struct drm_encoder *encoder)
+ 	mutex_unlock(&dp->lock);
+ }
+ 
+-static void cdn_dp_encoder_disable(struct drm_encoder *encoder)
++static void cdn_dp_bridge_atomic_disable(struct drm_bridge *bridge, struct drm_atomic_state *state)
+ {
+-	struct cdn_dp_device *dp = encoder_to_dp(encoder);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	int ret;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -672,7 +648,7 @@ static void cdn_dp_encoder_disable(struct drm_encoder *encoder)
+ 	if (dp->active) {
+ 		ret = cdn_dp_disable(dp);
+ 		if (ret) {
+-			DRM_DEV_ERROR(dp->dev, "Failed to disable encoder %d\n",
++			DRM_DEV_ERROR(dp->dev, "Failed to disable bridge %d\n",
+ 				      ret);
+ 		}
+ 	}
+@@ -705,8 +681,6 @@ static int cdn_dp_encoder_atomic_check(struct drm_encoder *encoder,
+ 
+ static const struct drm_encoder_helper_funcs cdn_dp_encoder_helper_funcs = {
+ 	.mode_set = cdn_dp_encoder_mode_set,
+-	.enable = cdn_dp_encoder_enable,
+-	.disable = cdn_dp_encoder_disable,
+ 	.atomic_check = cdn_dp_encoder_atomic_check,
+ };
+ 
+@@ -779,11 +753,12 @@ static int cdn_dp_parse_dt(struct cdn_dp_device *dp)
+ 	return 0;
+ }
+ 
+-static int cdn_dp_audio_hw_params(struct device *dev,  void *data,
+-				  struct hdmi_codec_daifmt *daifmt,
+-				  struct hdmi_codec_params *params)
++static int cdn_dp_audio_prepare(struct drm_connector *connector,
++				struct drm_bridge *bridge,
++				struct hdmi_codec_daifmt *daifmt,
++				struct hdmi_codec_params *params)
+ {
+-	struct cdn_dp_device *dp = dev_get_drvdata(dev);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	struct audio_info audio = {
+ 		.sample_width = params->sample_width,
+ 		.sample_rate = params->sample_rate,
+@@ -805,7 +780,7 @@ static int cdn_dp_audio_hw_params(struct device *dev,  void *data,
+ 		audio.format = AFMT_SPDIF;
+ 		break;
+ 	default:
+-		DRM_DEV_ERROR(dev, "Invalid format %d\n", daifmt->fmt);
++		DRM_DEV_ERROR(bridge->dev, "Invalid format %d\n", daifmt->fmt);
+ 		ret = -EINVAL;
+ 		goto out;
+ 	}
+@@ -819,9 +794,10 @@ static int cdn_dp_audio_hw_params(struct device *dev,  void *data,
+ 	return ret;
+ }
+ 
+-static void cdn_dp_audio_shutdown(struct device *dev, void *data)
++static void cdn_dp_audio_shutdown(struct drm_connector *connector,
++				  struct drm_bridge *bridge)
+ {
+-	struct cdn_dp_device *dp = dev_get_drvdata(dev);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	int ret;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -835,10 +811,11 @@ static void cdn_dp_audio_shutdown(struct device *dev, void *data)
+ 	mutex_unlock(&dp->lock);
+ }
+ 
+-static int cdn_dp_audio_mute_stream(struct device *dev, void *data,
++static int cdn_dp_audio_mute_stream(struct drm_connector *connector,
++				    struct drm_bridge *bridge,
+ 				    bool enable, int direction)
+ {
+-	struct cdn_dp_device *dp = dev_get_drvdata(dev);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	int ret;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -854,57 +831,21 @@ static int cdn_dp_audio_mute_stream(struct device *dev, void *data,
+ 	return ret;
+ }
+ 
+-static int cdn_dp_audio_get_eld(struct device *dev, void *data,
+-				u8 *buf, size_t len)
+-{
+-	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+-
+-	memcpy(buf, dp->connector.eld, min(sizeof(dp->connector.eld), len));
+-
+-	return 0;
+-}
+-
+-static int cdn_dp_audio_hook_plugged_cb(struct device *dev, void *data,
+-					hdmi_codec_plugged_cb fn,
+-					struct device *codec_dev)
+-{
+-	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+-
+-	mutex_lock(&dp->lock);
+-	dp->plugged_cb = fn;
+-	dp->codec_dev = codec_dev;
+-	cdn_dp_audio_handle_plugged_change(dp, dp->connected);
+-	mutex_unlock(&dp->lock);
+-
+-	return 0;
+-}
+-
+-static const struct hdmi_codec_ops audio_codec_ops = {
+-	.hw_params = cdn_dp_audio_hw_params,
+-	.audio_shutdown = cdn_dp_audio_shutdown,
+-	.mute_stream = cdn_dp_audio_mute_stream,
+-	.get_eld = cdn_dp_audio_get_eld,
+-	.hook_plugged_cb = cdn_dp_audio_hook_plugged_cb,
++static const struct drm_bridge_funcs cdn_dp_bridge_funcs = {
++	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
++	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
++	.atomic_reset = drm_atomic_helper_bridge_reset,
++	.detect = cdn_dp_bridge_detect,
++	.edid_read = cdn_dp_bridge_edid_read,
++	.atomic_enable = cdn_dp_bridge_atomic_enable,
++	.atomic_disable = cdn_dp_bridge_atomic_disable,
++	.mode_valid = cdn_dp_bridge_mode_valid,
++
++	.dp_audio_prepare = cdn_dp_audio_prepare,
++	.dp_audio_mute_stream = cdn_dp_audio_mute_stream,
++	.dp_audio_shutdown = cdn_dp_audio_shutdown,
+ };
+ 
+-static int cdn_dp_audio_codec_init(struct cdn_dp_device *dp,
+-				   struct device *dev)
+-{
+-	struct hdmi_codec_pdata codec_data = {
+-		.i2s = 1,
+-		.spdif = 1,
+-		.ops = &audio_codec_ops,
+-		.max_i2s_channels = 8,
+-		.no_capture_mute = 1,
+-	};
+-
+-	dp->audio_pdev = platform_device_register_data(
+-			 dev, HDMI_CODEC_DRV_NAME, PLATFORM_DEVID_AUTO,
+-			 &codec_data, sizeof(codec_data));
+-
+-	return PTR_ERR_OR_ZERO(dp->audio_pdev);
+-}
+-
+ static int cdn_dp_request_firmware(struct cdn_dp_device *dp)
+ {
+ 	int ret;
+@@ -1006,7 +947,8 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
+ 
+ out:
+ 	mutex_unlock(&dp->lock);
+-	drm_connector_helper_hpd_irq_event(&dp->connector);
++	if (dp->connector)
++		drm_connector_helper_hpd_irq_event(dp->connector);
+ }
+ 
+ static int cdn_dp_pd_event(struct notifier_block *nb,
+@@ -1062,26 +1004,35 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 
+ 	drm_encoder_helper_add(encoder, &cdn_dp_encoder_helper_funcs);
+ 
+-	connector = &dp->connector;
+-	connector->polled = DRM_CONNECTOR_POLL_HPD;
+-	connector->dpms = DRM_MODE_DPMS_OFF;
+-
+-	ret = drm_connector_init(drm_dev, connector,
+-				 &cdn_dp_atomic_connector_funcs,
+-				 DRM_MODE_CONNECTOR_DisplayPort);
+-	if (ret) {
+-		DRM_ERROR("failed to initialize connector with drm\n");
+-		goto err_free_encoder;
+-	}
++	dp->bridge.ops =
++			DRM_BRIDGE_OP_DETECT |
++			DRM_BRIDGE_OP_EDID |
++			DRM_BRIDGE_OP_HPD |
++			DRM_BRIDGE_OP_DP_AUDIO;
++	dp->bridge.of_node = dp->dev->of_node;
++	dp->bridge.type = DRM_MODE_CONNECTOR_DisplayPort;
++	dp->bridge.hdmi_audio_dev = dp->dev;
++	dp->bridge.hdmi_audio_max_i2s_playback_channels = 8;
++	dp->bridge.hdmi_audio_spdif_playback = 1;
++	dp->bridge.hdmi_audio_dai_port = -1;
++
++	ret = devm_drm_bridge_add(dev, &dp->bridge);
++	if (ret)
++		return ret;
+ 
+-	drm_connector_helper_add(connector, &cdn_dp_connector_helper_funcs);
++	ret = drm_bridge_attach(encoder, &dp->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	if (ret)
++		return ret;
+ 
+-	ret = drm_connector_attach_encoder(connector, encoder);
+-	if (ret) {
+-		DRM_ERROR("failed to attach connector and encoder\n");
+-		goto err_free_connector;
++	connector = drm_bridge_connector_init(drm_dev, encoder);
++	if (IS_ERR(connector)) {
++		ret = PTR_ERR(connector);
++		dev_err(dp->dev, "failed to init bridge connector: %d\n", ret);
++		return ret;
+ 	}
+ 
++	drm_connector_attach_encoder(connector, encoder);
++
+ 	for (i = 0; i < dp->ports; i++) {
+ 		port = dp->port[i];
+ 
+@@ -1101,30 +1052,19 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 	schedule_work(&dp->event_work);
+ 
+ 	return 0;
+-
+-err_free_connector:
+-	drm_connector_cleanup(connector);
+-err_free_encoder:
+-	drm_encoder_cleanup(encoder);
+-	return ret;
+ }
+ 
+ static void cdn_dp_unbind(struct device *dev, struct device *master, void *data)
+ {
+ 	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+ 	struct drm_encoder *encoder = &dp->encoder.encoder;
+-	struct drm_connector *connector = &dp->connector;
+ 
+ 	cancel_work_sync(&dp->event_work);
+-	cdn_dp_encoder_disable(encoder);
+ 	encoder->funcs->destroy(encoder);
+-	connector->funcs->destroy(connector);
+ 
+ 	pm_runtime_disable(dev);
+ 	if (dp->fw_loaded)
+ 		release_firmware(dp->fw);
+-	drm_edid_free(dp->drm_edid);
+-	dp->drm_edid = NULL;
+ }
+ 
+ static const struct component_ops cdn_dp_component_ops = {
+@@ -1171,9 +1111,10 @@ static int cdn_dp_probe(struct platform_device *pdev)
+ 	int ret;
+ 	int i;
+ 
+-	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
+-	if (!dp)
+-		return -ENOMEM;
++	dp = devm_drm_bridge_alloc(dev, struct cdn_dp_device, bridge,
++				   &cdn_dp_bridge_funcs);
++	if (IS_ERR(dp))
++		return PTR_ERR(dp);
+ 	dp->dev = dev;
+ 
+ 	match = of_match_node(cdn_dp_dt_ids, pdev->dev.of_node);
+@@ -1209,19 +1150,11 @@ static int cdn_dp_probe(struct platform_device *pdev)
+ 	mutex_init(&dp->lock);
+ 	dev_set_drvdata(dev, dp);
+ 
+-	ret = cdn_dp_audio_codec_init(dp, dev);
+-	if (ret)
+-		return ret;
+-
+ 	ret = component_add(dev, &cdn_dp_component_ops);
+ 	if (ret)
+-		goto err_audio_deinit;
++		return ret;
+ 
+ 	return 0;
+-
+-err_audio_deinit:
+-	platform_device_unregister(dp->audio_pdev);
+-	return ret;
+ }
+ 
+ static void cdn_dp_remove(struct platform_device *pdev)
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.h b/drivers/gpu/drm/rockchip/cdn-dp-core.h
+index 17498f576ce7..6aa3ce489382 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.h
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.h
+@@ -8,6 +8,8 @@
+ #define _CDN_DP_CORE_H
+ 
+ #include <drm/display/drm_dp_helper.h>
++#include <drm/drm_bridge.h>
++#include <drm/drm_bridge_connector.h>
+ #include <drm/drm_panel.h>
+ #include <drm/drm_probe_helper.h>
+ #include <sound/hdmi-codec.h>
+@@ -65,12 +67,12 @@ struct cdn_dp_port {
+ struct cdn_dp_device {
+ 	struct device *dev;
+ 	struct drm_device *drm_dev;
+-	struct drm_connector connector;
++	struct drm_bridge bridge;
++	struct drm_connector *connector;
+ 	struct rockchip_encoder encoder;
+ 	struct drm_display_mode mode;
+ 	struct platform_device *audio_pdev;
+ 	struct work_struct event_work;
+-	const struct drm_edid *drm_edid;
+ 
+ 	struct mutex lock;
+ 	bool connected;
+@@ -102,8 +104,5 @@ struct cdn_dp_device {
+ 
+ 	u8 dpcd[DP_RECEIVER_CAP_SIZE];
+ 	bool sink_has_audio;
+-
+-	hdmi_codec_plugged_cb plugged_cb;
+-	struct device *codec_dev;
+ };
+ #endif  /* _CDN_DP_CORE_H */
+-- 
+2.49.0
 
 
