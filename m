@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E500AC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 10:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FFEC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 10:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AHN+uDsSXaJTkD0laSVsn0A5Nrq0eTHXt3UKaa7Mqnc=; b=mK/gMOvzg/nMQ1Oaus6m+8+xZl
-	ihIybRE7DuXkrYz2UmOr/yYye8RDgUBtG5738GBvX+UPKkUg6hbmArwUwM4xWtkG3CqUMYGxoG+dR
-	os6Gkf4veT13ZcCMT0JJercQRnrcc57xXTxkTg7dMX+UKbLr5tfJKKihcK6F3NlZAdUWJKqncmSl9
-	nD8mSLt5uwoE+aINMZQJz3iNumkxF6BItlIBcPX64dyY6nvkBc/9tg2kYb/jSIDnUT39lDcbuFiyn
-	BynYT8u601+6WwV2AC8bxBD1b5YH6AC1N5H+SNBf8HK4Wn1bCitK46PDwgTdoe03L45vcBtiMnDrx
-	MhLawOEA==;
+	bh=yi+JDYL57ewf0irzru1gG1+7r9jGjICYz/MQy5TCGUw=; b=PfR3VP+mvssjugVdvK+r1ii516
+	RBChQzIUyn781uhMqkTOwBJ1XnPSsKFNW530zyZ3wHlWj+yytHa08OkGFMhiRroarexZlE59W820A
+	7j6If/ZZDsZcqehq814FTjAv0t8O36UNxqxDrJxmrKvvwN2HW/EXvd3vkqu+ub+1kID4hm3a2cEYz
+	j6O+K3Ed/48WTr0q8Uhp/JAPH6pozoq8DPdSioverCrPe/7Z97T6e2mwYGEkSKrbsRcZAL2i7BZgg
+	MS8A0bc/VX7yf8sim7tuVkAAitSZaNDyza07y8lh3ZslkX02eavMpJI1U+eEG2BxgLY1uzxnXICCM
+	h9J4faxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJrIh-0000000ARj5-2E0V;
-	Tue, 27 May 2025 10:12:51 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1uJrKn-0000000ARrx-1S8i;
+	Tue, 27 May 2025 10:15:01 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJrCL-0000000AR2n-0mPJ
+	id 1uJrFp-0000000ARQH-1m2o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 10:06:18 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 4CDE71FD77;
-	Tue, 27 May 2025 10:06:14 +0000 (UTC)
+	Tue, 27 May 2025 10:09:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4F76D43B1A;
+	Tue, 27 May 2025 10:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748340375;
+	t=1748340590;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=AHN+uDsSXaJTkD0laSVsn0A5Nrq0eTHXt3UKaa7Mqnc=;
-	b=nYrmYq/+92zawj6+lX9PdBhCrVDmQ1u+KN1e/25bQ/jqN1TV7Litbr5z7PhU3HApE33vW4
-	TT/ZyzJjsCYILkLI5EyQJXBWK1JuYCvlU0b0dj7p8JsZ9w7Puj4Mnx5/Hilyr7dcHN8dYJ
-	XZBgLIKewusiawvMz1lOz9pGHufISFZ3Efza9UOhoOqayEpGP/alVN+CB7apFpOEUa6t/y
-	B8D12jzYjagNp2sF+XfPk8YYm3CgK5MQb5yQ5jnSJtSyl9NYCb7dhNoAi6GhZIRRySXsUQ
-	U0MT2SiHeG/9V4zteRFnDfViSuVbHXshR9o+5rnsUUcfaRH89JrNrwiVfn6qqw==
-From: =?utf-8?q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>
-Date: Tue, 27 May 2025 12:06:04 +0200
-Subject: [PATCH bpf-next v3 2/2] selftests/bpf: enable many-args tests for
- arm64
+	bh=yi+JDYL57ewf0irzru1gG1+7r9jGjICYz/MQy5TCGUw=;
+	b=ERCndOZ4biQ61d8+Im5snI3+NFhcVZi3MhW7JlyrSpw79Xj7c+dBbjbQMiRFTqFk4jZsfu
+	kJebeynHP+3KxmKNGm1beHxPHnp2vSI17dBkvqJITXKQHnevTT0tSXH500x7GLT6i9yg8a
+	hDQNqN4bfkbBEpDxuMfT3EwAq421T/6sCy82RtuYxeqd0XQhJ1M4SEbOjYY7s0flhb6VUy
+	AnTcAxYSrkO8qd+0E83ja9ACbWh1Mr6ydf7hUJiyckaQP32ijneUClC00mxKAIWwbNuMP/
+	L7phdwpGOQiEADMw3W1k0K09ITIRNCCvnCGGdU4XU5ykHipdH2i1rWSOgc5kvg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: "Kumar, Udit" <u-kumar1@ti.com>
+Cc: Nishanth Menon <nm@ti.com>,  Vignesh Raghavendra <vigneshr@ti.com>,
+  Tero Kristo <kristo@kernel.org>,  Rob Herring <robh+dt@kernel.org>,
+  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+ <conor+dt@kernel.org>,  <devicetree@vger.kernel.org>,
+  <linux-arm-kernel@lists.infradead.org>,  Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>,  Steam Lin <stlin2@winbond.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Describe the SPI NAND
+In-Reply-To: <98b6208c-4cfd-4746-9e49-4f5596f8cf3e@ti.com> (Udit Kumar's
+	message of "Sat, 19 Apr 2025 18:35:47 +0530")
+References: <20250401135822.244402-1-miquel.raynal@bootlin.com>
+	<98b6208c-4cfd-4746-9e49-4f5596f8cf3e@ti.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Tue, 27 May 2025 12:09:48 +0200
+Message-ID: <87a56ytleb.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250527-many_args_arm64-v3-2-3faf7bb8e4a2@bootlin.com>
-References: <20250527-many_args_arm64-v3-0-3faf7bb8e4a2@bootlin.com>
-In-Reply-To: <20250527-many_args_arm64-v3-0-3faf7bb8e4a2@bootlin.com>
-To: Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Andrii Nakryiko <andrii@kernel.org>, 
- Martin KaFai Lau <martin.lau@linux.dev>, 
- Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, KP Singh <kpsingh@kernel.org>, 
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
- Xu Kuohai <xukuohai@huaweicloud.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Florent Revest <revest@chromium.org>
-Cc: Bastien Curutchet <bastien.curutchet@bootlin.com>, 
- ebpf@linuxfoundation.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- =?utf-8?q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29?= <alexis.lothore@bootlin.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvtddtleculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtkeertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrroculdgvuefrhfcuhfhouhhnuggrthhiohhnmdcuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepleejkeetffefveelgeeklefhtefhgfeigeduveffjeehleeifeefjedtudejgeeunecukfhppedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmeguieehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemugeihedphhgvlhhopegludelvddrudeikedruddrudeljegnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhgrohhluhhosehgohhoghhlvgdrtghomhdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhop
- ehsughfsehfohhmihgthhgvvhdrmhgvpdhrtghpthhtohepsghpfhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehjohhlshgrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehpuhhrrghnjhgrhieskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: alexis.lothore@bootlin.com
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvtddutdculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefujghffgffkfggtgfgsehtqhertddtreejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepffeghfejtdefieeguddukedujeektdeihfelleeuieeuveehkedvleduheeivdefnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddupdhrtghpthhtohepuhdqkhhumhgrrhdusehtihdrtghomhdprhgtphhtthhopehnmhesthhirdgtohhmpdhrtghpthhtohepvhhighhnvghshhhrsehtihdrtghomhdprhgtphhtthhopehkrhhishhtoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhor
+ hhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_030617_352702_EA5C4E46 
-X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-CacheID: sfid-20250527_030953_606822_8B9B0FAC 
+X-CRM114-Status: UNSURE (   9.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,28 +83,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that support for up to 12 args is enabled for tracing programs on
-ARM64, enable the existing tests for this feature on this architecture.
+Hello Kumar,
 
-Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
----
-Changes in v2:
-- keep tracing struct tests disabled, as structs passed on stack are not
-  handled by the new revision
----
- tools/testing/selftests/bpf/DENYLIST.aarch64 | 2 --
- 1 file changed, 2 deletions(-)
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+>> @@ -737,3 +737,43 @@ dpi1_out: endpoint {
+>>   		};
+>>   	};
+>>   };
+>> +
+>> +&fss {
+>> +	status =3D "okay";
+>> +};
+>> +
+>> +&ospi0 {
+>> +	pinctrl-names =3D "default";
+>> +	pinctrl-0 =3D <&ospi0_pins_default>;
+>> +
+>> +	flash@0 {
+>> +		compatible =3D "spi-nand";
+>
+> Since this is boot flash, so please add booth-all property as well
 
-diff --git a/tools/testing/selftests/bpf/DENYLIST.aarch64 b/tools/testing/selftests/bpf/DENYLIST.aarch64
-index 6d8feda27ce9de07d77d6e384666082923e3dc76..12e99c0277a8cbf9e63e8f6d3a108c8a1208407b 100644
---- a/tools/testing/selftests/bpf/DENYLIST.aarch64
-+++ b/tools/testing/selftests/bpf/DENYLIST.aarch64
-@@ -1,3 +1 @@
--fentry_test/fentry_many_args                     # fentry_many_args:FAIL:fentry_many_args_attach unexpected error: -524
--fexit_test/fexit_many_args                       # fexit_many_args:FAIL:fexit_many_args_attach unexpected error: -524
- tracing_struct/struct_many_args                  # struct_many_args:FAIL:tracing_struct_many_args__attach unexpected error: -524
+Ok.
 
--- 
-2.49.0
+>
+>
+>> +		reg =3D <0>;
+>> +		spi-tx-bus-width =3D <8>;
+>> +		spi-rx-bus-width =3D <8>;
+>> +		spi-max-frequency =3D <25000000>;
+>> +		cdns,tshsl-ns =3D <60>;
+>> +		cdns,tsd2d-ns =3D <60>;
+>> +		cdns,tchsh-ns =3D <60>;
+>> +		cdns,tslch-ns =3D <60>;
+>> +		cdns,read-delay =3D <2>;
+>
+> Since this flash is used as boot device, I suggest if you can add
+> partitions of flash as well .
+>
+> you can take reference from downstream version [0]
 
+The flash is currently not the primary boot device, and the flash is
+very fragmented in smaller mtd partitions, which is not ideal for wear
+levelling. I prefer to let TI people propose a partitioning scheme
+themselves.
+
+Thanks,
+Miqu=C3=A8l
 
