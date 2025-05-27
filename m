@@ -4,136 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DC3C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 21:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E99C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 21:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LPkqIIVJzTbHReDF6liD2MG4ODSDIeHW603+18LbzM4=; b=EleJR1P7IOTK/2De1Qa/sx/Zwc
-	Lp882ycvfmWiJmMYkH9+n1LE3S9gaisquELOpg86Dx/7JNbj4GZ5rdj/kTEVPNhmy5XvzHY2M0HXT
-	lLWx7V4DAQUNSxz01K5UQzqOmMKxtk0b8ieNw7AH1ikBKmaacLJyN2BfLuLAdq9g2CGYDMZQz3hAa
-	whxAWlFk4HVGVFhgqYV9pwn/2NXumUtFar57GQieSjG+31tt4vwsJj++lKdIKSg5GoQsdrQO6bLYK
-	v9TtY0DtxofZXoGq1Q8oU8tJJkGV4DVtFfLnNWH5YHl/edZf31/0fSkTtBq71dnK1gZo5smzU2UBi
-	+awXygNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rf03yAgQQGBhErkrSSaEFDElj+fjBRlARFLOXQZblAk=; b=IddTKh6u1E9b8tvOmoPp/KikcV
+	YZrMZK++Z91tDLBD7UshBevXUHp0Kau/FXPOu53Fx14AXSHmNBKCR6jWfC1DIVHb+xIlyRWs0t5kY
+	6yGKy8XzQBYla35Yb+I8gw9Szj1TABxGws1Ti3vj6r3BFFrTmVuJCAyGBtR1Y8Ivhd1vVCiGexRNH
+	AYkqqPZxGx4eoqCJJ5zq9UzDMePmCwlCErNpTvN5b7w4mpP/NsXFLtLdBI5ueeNOT8e4kClea1vQZ
+	5h9Je3Bblq0lml9Z923wGUqFmAPfM15eh6JXnuCNt7HprQg1JccNbNqiR3OYLbYuKeMkok4Q0MoX/
+	+rLPPF4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK1r6-0000000BbZs-48YP;
-	Tue, 27 May 2025 21:29:04 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uK1tD-0000000BbhW-1Gvc;
+	Tue, 27 May 2025 21:31:15 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK1U0-0000000BYzR-03LA
+	id 1uK1l3-0000000BarY-2rWs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 21:05:13 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54RJkw2n022962
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 21:05:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LPkqIIVJzTbHReDF6liD2MG4ODSDIeHW603+18LbzM4=; b=eFOUBIeAvN/dWFCq
-	xOi2G013rlZ7UNJ9SVpmPsTDwPGAB0oEuAjvAfGdvYksbrdY0symWV4SsdCUOsvr
-	H5m77PaAXjMPVVVdCT9P3/+YHl8oK9cv1yc7qN690fZPZXzsLObszn5SD3YFxVpb
-	nsJ6boRRZavZhS8IKbberwTGTRdwJqN0P9P2MJiWDKgdSIlh4kro4o67+Cydu+Cl
-	YA4eIzQHP/iwFdzCEDtfnZHghqC0g1ri76po2htmvubU5wzX8UV4jdokohDGlsNs
-	M4HGeox6sJpySVWdUqXm3ocOEI96B+VrtD5xDV0fycJ/NciETksjai7aCIAzwQIq
-	v0TNbw==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46vmgcvpxw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 21:05:11 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-742a969a4d0so3016859b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 14:05:11 -0700 (PDT)
+	Tue, 27 May 2025 21:22:50 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6045a3a2c5eso3976919a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 14:22:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1748380967; x=1748985767; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=rf03yAgQQGBhErkrSSaEFDElj+fjBRlARFLOXQZblAk=;
+        b=SwoNy3W3DMQZ/w8VKG455TfBS1zakWlqegCvKvTfq2n8VhHUZaygVK0b2vmU72BOP3
+         wTZcJpUsUo38aBMRZTVhcQP+NPSdxFr9kD40q+v2A58ly7v7A55urso/SLcsdB/WJZs8
+         FZRiysseOze6DtDfUQYlXEKNQ0NJbdj6ViFFg8o+0Ahh0uUc7BO+ES6kYpbJoUiTqSC+
+         MALIXSaBYkZplR/wa1xKYM75rPEhVwpMC1y1akZbOEpme9Wrb3QeS7phCQSzdcvvHgJo
+         Lh1dBBCLeLXHADsVqqq8ghck6FuNETtQ+hvbec4TDBKO+k+g/QJMyDszkBZhqpLFqw/W
+         lDrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748379910; x=1748984710;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LPkqIIVJzTbHReDF6liD2MG4ODSDIeHW603+18LbzM4=;
-        b=LlZSrzgjpQJx7B+BsnZ0QDRFVebymRFxT33wwdlVub6gmILZoTgwe/iO3VmFbQplTN
-         AecHDSSTYmKKeTEnHFGWhcB6oMKiyyzG6EXdUZcgsZSsxB400lZvmovmGxXG5PlKMLAB
-         me0czY79N+u1VtXT1UUrIRd6kjSjzH0+LwMWIkld5baHogz7rEIoXffLEaD5AiG9YXZ6
-         1QBDbhzWuF+EUZwgFuDm3gZWSVVC29bYrHa/0CUfz7sPjXA5hvpTMtZN764Ios4ua/KD
-         dPdCmlyoRDNZ75l+QiOnQYF9a6c4LD1HHJUYS23+EQHI7s6XFn8UaXyXNdVcxCkCiLD3
-         mcaA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/Pl3hp3FPMd1lGAl+rKYyyj/R+F3JR96xTrEfLEt8qMZAJlyLj4gOi5ExNbSIy2q8T51Dte0r3GIQZ3bRmW+M@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvNQeYNgT5z/jU9V7XgT402CT/Ha3fffDqc51oQeK8NTiTkhXa
-	tB4v4cUCA9u1BAtQcVQ4SX3FAS+wHSBl8qpbdJeVWw9o9a5Zoy77MwZgVynZxsJgQIBo+okPcjR
-	jABYEkdFTBEJlh88Tnv61U/M75NPde82d8LfwwMsftil6CYCT29OOCPMKbkyCH1G5LdTAqYxsUY
-	dOGXm+nlzv/A==
-X-Gm-Gg: ASbGnct7tB/2YRXtY8Q8kiyIuIIcj1S7h9C1HkcxBikWIyFnowpTmVGmCeHVjgt6Exm
-	+sb6ccgbQV5QXvA8hVAccCvPalmMy3xm18922YS2yc9sPROjW1vT9z+Ek3NUWEs4Co1l4Gu5w34
-	5GeyuzswOufSVZ0HJ4ihPV/FOkkEheBF9MXKBdY8keug20UE1Tp2HHHcnKSSM2mj2lCfsThwj06
-	S1g6IGfTfcxX9Ztd/NsLBs+P3Lj/4h6bPH2azM8tzP3LcwC6jIoPkJWGohxveFDbH2O4XLJgBYG
-	MNmzjqm3G+UriohJ0GcpQ5TXxg9RqofgwdEoTLzE2UTJ2VVuPWpdZdk3GqqWgbTngW0=
-X-Received: by 2002:a05:6a00:a96:b0:740:6f69:f52a with SMTP id d2e1a72fcca58-745fdac80demr20724862b3a.0.1748379909728;
-        Tue, 27 May 2025 14:05:09 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE89XO/JDVl6rd3hud7F4tMJEpNAb1237KFGDPWMLXu7CEJYly3v5ShxkxUVfmWpgn+xSWY/Q==
-X-Received: by 2002:a05:6a00:a96:b0:740:6f69:f52a with SMTP id d2e1a72fcca58-745fdac80demr20724807b3a.0.1748379909299;
-        Tue, 27 May 2025 14:05:09 -0700 (PDT)
-Received: from hu-molvera-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7465e64836fsm29167b3a.26.2025.05.27.14.05.07
+        d=1e100.net; s=20230601; t=1748380967; x=1748985767;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rf03yAgQQGBhErkrSSaEFDElj+fjBRlARFLOXQZblAk=;
+        b=r78rKH7sH7l/K4KrH4pAfIEMzT9jzVwnjzH9OB4MwrjJtcYGlC5qi+FRK/58KynoOK
+         YcNcjgNXaGhoEYFd+xq6XchVG5ynRgx0RXrBZVzo5sF6dnVnmrDY1KGg7ml6kp3dB7yc
+         14hfa325Pk7vy0TesoXcdAyO+s/YgAvBkLnxSUfAxWTk9LpZXYvUped0iPwxgK3tVhMg
+         QtH9EDbV0ZARPCFHNnnP5owjfDofAwB8JkpQZoSeoR7DUZtpAKlBm46RNhFq1paOru57
+         FmKOuIg29zlBlLeodgQdO/sO8lpQs6K+m5jb2VW78u11ZtumWCDV/qPEMehMjXUYLFDq
+         91Dg==
+X-Forwarded-Encrypted: i=1; AJvYcCWz9nhwTi2jORjXptlqcLvU2zVqs+zF3TydDKfd88U6xtjpWED8vaLOOCcYJ4AzrMWheYhIUrv/gBnJmxEMutNS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyrd0CvMNLfUrii1CsHkKNsYLKGWuc2G/ep8pMR4isQv2ssp++Q
+	O4D37Iw9BE0E1qQJ4TSROmkgB/CiQ/shh8TIPDBmDc+TMeOe8ygRwkaQp1DxJOgPtEY=
+X-Gm-Gg: ASbGncu/cbh0pWx5apzRQDb4DmDyJCqaSabZMUsCOI5v7ww+uxG0yabS3bwTn9YtzR1
+	LCs8ETj6L8i3cgbdtcer5HY44K7d2n6+QkZah5/v9ldLSMD88UlaFY7bpHjrD2F+folUdB6kmvv
+	u7Zleom3jBdzsUMGajMoad0T2aGS1ttOrQw5i9RF8WOT3HwD8LLgGPSnQTeQlzfrmWp8fk4AeeA
+	+jX0WolTSIwEWDx4olZO/9jw9yLLSvRuOmOnz700bqPubF+og94CVYbzVDldZoAesy8C4ZInCSv
+	3QpWjSyQREIAvk5qvJsgs8KRrj0SmQTlnlj94ZlYfDb85bL2/ra3PwGFaPonXsL0jQd8+79utKY
+	6T0Q/O/28qik+WJMoIosy+MRZKjJ84Hsg
+X-Google-Smtp-Source: AGHT+IFERg8h0M0q68ymhrrsY3ViILpvzLyzrWuNOWeP4SVGe1Wg+ZNpOzN/Rnmv7ShgttQHfLkmmw==
+X-Received: by 2002:a05:6402:1d4b:b0:601:f185:fc2 with SMTP id 4fb4d7f45d1cf-602d8e5e352mr13569888a12.3.1748380967163;
+        Tue, 27 May 2025 14:22:47 -0700 (PDT)
+Received: from localhost (host-87-21-228-106.retail.telecomitalia.it. [87.21.228.106])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-60517a7f920sm128296a12.53.2025.05.27.14.22.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 May 2025 14:05:08 -0700 (PDT)
-From: Melody Olvera <melody.olvera@oss.qualcomm.com>
-Date: Tue, 27 May 2025 14:04:46 -0700
-Subject: [PATCH v6 10/10] arm64: defconfig: Add M31 eUSB2 PHY config
+        Tue, 27 May 2025 14:22:46 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 27 May 2025 23:24:20 +0200
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Matthias Brugger <mbrugger@suse.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com
+Subject: Re: [PATCH v9 -next 08/12] arm64: dts: bcm2712: Add external clock
+ for RP1 chipset on Rpi5
+Message-ID: <aDYthG54Wz3khQ88@apocalypse>
+References: <cover.1745347417.git.andrea.porta@suse.com>
+ <38514415df9c174be49e72b88410d56c8de586c5.1745347417.git.andrea.porta@suse.com>
+ <aBp1wye0L7swfe1H@apocalypse>
+ <96272e42-855c-4acc-ac18-1ae9c5d4617f@broadcom.com>
+ <CAO50JKVF6x_=MUuzjhdK0QotcdUgHysMb9v1g0UvWjaJF2fjDA@mail.gmail.com>
+ <48AFA657-5683-42A4-888E-3E98A515F3B1@broadcom.com>
+ <aCIk40642nXZ3arz@apocalypse>
+ <3899c82c-d6a7-4daf-889b-b4d7f3185909@suse.com>
+ <6953caf0-0fef-4bd6-898c-4f86ee738f30@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250527-sm8750_usb_master-v6-10-d58de3b41d34@oss.qualcomm.com>
-References: <20250527-sm8750_usb_master-v6-0-d58de3b41d34@oss.qualcomm.com>
-In-Reply-To: <20250527-sm8750_usb_master-v6-0-d58de3b41d34@oss.qualcomm.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Wesley Cheng <quic_wcheng@quicinc.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Melody Olvera <melody.olvera@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748379891; l=926;
- i=melody.olvera@oss.qualcomm.com; s=20241204; h=from:subject:message-id;
- bh=wCdzpXsKw8zqQyaRyA8EfWIj8Ra4i9wLlBGWl4/WARQ=;
- b=JUlbr6mF6I6cr5T9ZHdAGEijiVb5Mu+5V1BZNQUxXDHvq3yjKg+SamgDa52qed7t8bmWdrkdW
- 42TjvtABTDkAncpbXnX/wXXb06bSMRhHbxRyyU16AIFkDNCwCzClSUq
-X-Developer-Key: i=melody.olvera@oss.qualcomm.com; a=ed25519;
- pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
-X-Proofpoint-ORIG-GUID: 2wTWMkUnuw4OB_41riCUyxOu6jlOTnRX
-X-Proofpoint-GUID: 2wTWMkUnuw4OB_41riCUyxOu6jlOTnRX
-X-Authority-Analysis: v=2.4 cv=Ws4rMcfv c=1 sm=1 tr=0 ts=68362907 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=EUspDBNiAAAA:8 a=yCBuECYR7Rf6QDnvud8A:9
- a=QEXdDO2ut3YA:10 a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI3MDE3NyBTYWx0ZWRfX3ryikEETdQ4/
- Bj4/YKHTWswxDxfkNPL8v4CNpdZKvcF8N4qBdPqqc7J9TSzGQsj6lRgjBJ4SFnx+/r+vYvBTprc
- ubo6qqOKlMNUOJqiwOJCCm3zFBUfwpDtO01wBzH/UzURsqEd66h5WV2zwNoroeA+/dMfbhDYsZZ
- pSYF58Su3nyO4vBMWL2kvHHzQ+zoF8/eizfWSnIb5gKHZ0fKEx6Tmx9zx+/Jbx5FftJ4pTcXP1K
- OP6fd5aCxPY3V7Br478XpUddg8oibdVc2OzeCuBLPOwfx756GjIqp3n8/l9R+eV3EhYEL+5trFF
- YWToO2bwP3Vs+v/uWRyyJ2q0XlTIuswchEns57U8TwtOb7ImJjxDwuMwqfTsjO/mkvh87NIdoon
- Ax2lBiGHV8fPk7FaZX9lXcU4XM2tctOrDshTazDZ7DNwgl/GNzenkejpscFKiPlORKrPFQih
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-27_10,2025-05-27_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 impostorscore=0 spamscore=0 adultscore=0
- phishscore=0 mlxlogscore=586 priorityscore=1501 malwarescore=0
- lowpriorityscore=0 bulkscore=0 mlxscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505160000 definitions=main-2505270177
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6953caf0-0fef-4bd6-898c-4f86ee738f30@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_140512_164773_E721DD3E 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250527_142249_723881_518429B4 
+X-CRM114-Status: GOOD (  29.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,30 +136,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Qualcomm SM8750 SoCs use an eUSB2 PHY driver different from the
-already existing M31 USB driver because it requires a connection
-to an eUSB2 repeater. Thus, for USB to probe and work properly on
-the Qualcomm SM8750 SoCs, enable the additional driver.
+Hi Florian,
 
-Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+On 09:18 Tue 27 May     , Florian Fainelli wrote:
+> On 5/26/25 07:06, Matthias Brugger wrote:
+> > 
+> > 
+> > On 12/05/2025 18:42, Andrea della Porta wrote:
+> > > Hi Florian,
+> > > 
+> > > On 15:02 Mon 12 May     , Florian Fainelli wrote:
+> > > > On May 7, 2025 5:01:05 PM GMT+02:00, Andrea della Porta
+> > > > <andrea.porta@suse.com> wrote:
+> > > > > Hi Florian, to accept the patches, what would work best for you?
+> > > > > 
+> > > > > 1) Send only the relevant updated patches (maybe as an entirely new
+> > > > > patchset with
+> > > > >    only those specific patches)
+> > > > 
+> > > > Only the updated patches work for me. I don't think there is
+> > > > that much coupling between the DT changes and the non-DT changes
+> > > > (other than without DT entries nothing is activated)
+> > > 
+> > > It's a little bit more involved than that:
+> > > 
+> > > - Patch 7 (misc driver) depends on 6 (RP1 common dts) which in turn
+> > >    depends on 1 (clock binding header). Should be taken by Greg.
+> > 
+> > Greg gave an Acked-by so I think Florian is good to take that patch.
+> > Which leaves us to the clock patches (driver + dt-bindings).
+> > 
+> > > 
+> > > - Patch 9 and 10 (board dts) depends on 6 (RP1 common dts) which again
+> > >    depends on 1 (clock binding header). Should be taken by Florian.
+> > > 
+> > > - Patch 4 (clock driver) depends on 1 (clock binding header) and
+> > >    should be taken by Stephen.
+> > > 
+> > 
+> > Steven reviewed the patches (driver + dt-binding) so he is waiting for a
+> > new version which addresses the review. He offered to either take them
+> > and provide a branch that Florian can merge into his branch or provide a
+> > Acked-by tag.
+> > 
+> > @Florian what would you prefer?
+> 
+> I am fine either way, it's definitively simpler if I can take all of the
+> patches in the respective Broadcom ARM SoC branches, but pulling a branch
+> from another maintainer's tree works just as well.
+> 
+> Andrea, sorry to ask you this, can you post a v10 and we aim to get that
+> version applied?
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 897fc686e6a91b79770639d3eb15beb3ee48ef77..f4de2473b3078543b68b01387ac7e3ab6951e4a4 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1600,6 +1600,7 @@ CONFIG_PHY_QCOM_QUSB2=m
- CONFIG_PHY_QCOM_SNPS_EUSB2=m
- CONFIG_PHY_QCOM_EUSB2_REPEATER=m
- CONFIG_PHY_QCOM_M31_USB=m
-+CONFIG_PHY_QCOM_M31_EUSB=m
- CONFIG_PHY_QCOM_USB_HS=m
- CONFIG_PHY_QCOM_USB_SNPS_FEMTO_V2=m
- CONFIG_PHY_QCOM_USB_HS_28NM=m
+No problem, just to avoid any confusion I'll summarize what-goes-where with
+respect to branches in your repo broadcom/stblinux, so I can adapt each patch
+to the relevant branch:
 
--- 
-2.48.1
+- dt-binding/DTS (patch 1,2,3,6,8,9,10) -> devicetree/next
+- defconfig (patch 11,12) -> defconfig/next
+- drivers (patch 4,5,7) -> drivers/next or soc/next?
 
+Also, should I split any patches that have MAINTAINERS changes so you can apply
+them to your maintainers/next branch? Those are patches 4,5,6,7.
+
+Many thanks,
+Andrea
+
+> Thanks!
+> -- 
+> Florian
 
