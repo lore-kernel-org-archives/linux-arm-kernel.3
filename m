@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8540C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 22:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA14C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 22:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtL25+x2x7tW+LP+uVFdYVOdezBzc1auuPCpudqddks=; b=cC4qS/KGEeN5vSPBVXv2groNef
-	opzHkNUZb/5QDWId7EZ1A2/MQpn0x1AW85IhoBDnzKFhcRob4PQgUaKY6wlN0IEO2YZmwEkjLt9/D
-	RIzZIax0aSZyybDQdFEmN6THgP9kz04ha6qxoCAs7lj/FsEMafdH3wqRSWiAVXlj8HmmCEgs4eW9U
-	+Sf8b0r85el2KY5/x0eLP33JhZjPTx1dfe/WFZ8R8rgY4ErjLd7m5b2qnuKoKr/01v7jg29w2LUnh
-	zMuKOwsN5WDXb8TaIQDMgjELP+a7mMFGF22afBUDe+MqBs84he16IQBMsdMylJ+zDRd6oSoabiGPX
-	dKTL0CZg==;
+	bh=mdmzyr4RLGil5tA/deRxcfecM4FmkUNEyzf9KUSi9uI=; b=oyohHPyoAZRusGQ5kti0nFdZ6o
+	p0ROZaxV/cwH2EMFvYpjq3pcuvD+H1AwPpV9qnvLG0VxgrAQPNdpNFp8Ma3f6vj0G2jBWO8TiWpkb
+	nnDQAi396fFGan2BaHb9WqVwkuCnFUweWNQ/fO01FxHA4OYVDEMG6Hnfag+TZm7CWjZY4xnmkoy72
+	KluJ+X9SESKgFmYcpjM1Z/88VlHqIiYB1c8iKBDAW3JiFdd08iWSGIX5KMX02MguMirFpiLjTtV0C
+	CelwRU+qB6oI5Vq13jg0zzAIZqOmDLpidzRl6gmFXaYSmIT8kLwzC/eFK99WM66mJk+0jsM1kdHBm
+	xgO9mrYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK2q4-0000000Bizx-2k5V;
-	Tue, 27 May 2025 22:32:04 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uK2sA-0000000Bj6O-38KB;
+	Tue, 27 May 2025 22:34:14 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK2fb-0000000Bh4K-0bkM;
-	Tue, 27 May 2025 22:21:16 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-44b1f5b917fso23884225e9.3;
-        Tue, 27 May 2025 15:21:14 -0700 (PDT)
+	id 1uK2fd-0000000Bh5g-35uA;
+	Tue, 27 May 2025 22:21:19 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3a37d24e607so1659962f8f.1;
+        Tue, 27 May 2025 15:21:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748384473; x=1748989273; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1748384476; x=1748989276; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NtL25+x2x7tW+LP+uVFdYVOdezBzc1auuPCpudqddks=;
-        b=kmlnN5HuDLJ1vgRJf9cUewPPOEEXo/CvqqCrz23n4XdgM7pE6yPm6FibXDyS3eV0Ef
-         2mrfGn3nvBUH6Q/GsQ36Rhtswv8CB2IcVINKEbq6JU6Sy/ciyo412BAzV4a0HGREuJL7
-         ZHu7ZGau9UnyDTQX6B2beB2Yen/7orDxi1kHnoBVToYDysTiTsNckPJuXxmb1CHFx+ks
-         QOJXGDk/g27GtpGcw8LXu2UTsNeNe6eXYPxX0Dm93J2ytlPER8sd0VRq7xjAPE+sOtBc
-         IAEGY+7YDmSulT01r58hK/I3RphruZNnAY+QcAJFpWolcnwPjHhaSnMqHpslWFnqbWp+
-         Pyag==
+        bh=mdmzyr4RLGil5tA/deRxcfecM4FmkUNEyzf9KUSi9uI=;
+        b=GQrAoyI1LcclssrIZcLoN6qpiMJWXl2uPngjvwk0dfWfN0hE+bglumKM/g9ojfmggy
+         pBjm1IPVsFBsMCW/9TbTvR8sphvA5Ph3f2Ij+rE5kcPXo2jUXmaYW2IysqIgRWEn4rKU
+         dqmqiRfdSsxjs/uVuRsaAhL1F4waT98rrDh/w3SxIigpi04tqQY7l3shQh1vqsYGzaNb
+         Ot+gi5CUu23dJ7veWv7atD2NESKxCCo2QxZ0QX01Qbf7RQJ07A/IrUJ9AFc8MdAzz0JO
+         3WoRrzbb5+RcICZu0HvVO0a3MS4oa48UCO6q13o2Hg7SEkU1Abh3X/Pc08Di8VxQ/jgh
+         aOjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748384473; x=1748989273;
+        d=1e100.net; s=20230601; t=1748384476; x=1748989276;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NtL25+x2x7tW+LP+uVFdYVOdezBzc1auuPCpudqddks=;
-        b=M/P6aoyu7qvd1h8dBLbIr8T9fJ8dOcPnCOIT/GT/IXrrtQwdCZG61fXyOoT+x3hSgl
-         61+PeE0tg9MxZsz7jhsOPWlEn+DDZ/fc5aVILMpSLPxWmsHlw43QojXKjwguqLfAKnLT
-         FhzcBa0o9ozKSGO7Q/V88LzepQfkHmMLTmEO55edjYe2bxr4V9PDdRbZM0XcjFfJASSb
-         Jumi5WW2/ZCSXgZHGZ9MMfjWCyJEf351SpboaCkv5Rir82UKmDAb526DdMTKhWPbkwit
-         IE1iYuZv1BtsAHkxibI/24lJekefSD4doy0wXPPVS96FK5x+qyKyFRJqMvvFxBwDTMvx
-         rD5g==
-X-Forwarded-Encrypted: i=1; AJvYcCV49To1e6q/0ObL3u2h69QYUAtSOo6C8KmbvufeWA1QPTLOYRj7cqRgT+JA0U/iJSocnZlwIJo8KrFFMyTPriY=@lists.infradead.org, AJvYcCVY6M1eikv7+7xX62kwsUcQ5npJ9jArCN6+jiwNz9sagNWRxALqd4VQ/P7c2cphBRFQcWLHUyp0Y0MwewIcx/3R@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQyGaQYCHK74hGdElCy6WThoth4MzDgda1zd83x7A79+VsAivn
-	+ZgQWFWbJxR1H0+aV4j95LjwiZXq56U47dWeRUsFIR4HOcO/vS7YC+GS
-X-Gm-Gg: ASbGnct+AyQwC1mGdC4A2CLSCubvRIuFGoeIqsZVTqF2Aw6T52HorAU01jZvdwfColv
-	y73ttdsqt0xskPYfHO70smGK/ed6WVBlR5tjlZ9+EsxC8xzMExzhdLs6Rs7pguO2nMMnAS/WnBN
-	hKZpeBxxc3Jrxr2/KOI/O/C+GX0/CQLKJQ6Rq+ZyoJx/GLNlN49arEtbHWVxiRhC/UTBPnFGxVA
-	4e9gleANC8shjNzUerK8w6zkkfLoVpmE6HKwncXdko2TOL7qnMRhaktFEqMWjLnlK3CbkOVt0Sa
-	/m2rWJNiH7y2UKccHL5cI7yDBnTljT+ItYuPuANutF+0mTEEzwI5Dv40jnlCrEAWUA1setEPO3n
-	KWQhwCKhc9SK3G79y7XUG
-X-Google-Smtp-Source: AGHT+IFXrLC/3TDzlVpVBCT5kPNh9gS4EkdPFS5QcaYLS+WN965lf7LRn2Ai/4ECmdf0cRui3enRJg==
-X-Received: by 2002:a05:6000:248a:b0:3a4:dd16:a26d with SMTP id ffacd0b85a97d-3a4dd16a2e9mr7513089f8f.38.1748384473183;
-        Tue, 27 May 2025 15:21:13 -0700 (PDT)
+        bh=mdmzyr4RLGil5tA/deRxcfecM4FmkUNEyzf9KUSi9uI=;
+        b=X6ZgTRMPA5N1HZW6GEV/ORbfM7+9GQu0KBqdmODXcK4QGLl1rIN2eMbTq2UrKi1Vi6
+         5oTTncdNMOWC8iPKROemSDfrVbFW9bBX63RR97hfOyYljDl8pIAIiMeRdCQGDhi4GRk6
+         +uDMewqb8HroKPnWWOAyRI7TAmLHO9ptz6MR8GDo0hz9l8W/eSqZVvs2EJDRSpjZG+5+
+         kiXR86IjoDtXQNs/ueBEzOq05qDFWkGH2XjHlTp4s2BSD6gJsbYmf/mxjOQsn4z/bgi1
+         vATASenOQq54Ab+7P0jxz1/8RZxNSsg2nhxh4N0BPk+WCeTbWqbVONMuSl853lDF8iNA
+         +7JA==
+X-Forwarded-Encrypted: i=1; AJvYcCUjbHuyWfnGk1EUMW0yyTZeb+gN2t0A1EdfQCTE9JeISBB0UMl66TPIcq6NJimfGPTZey405cgzDDW63xWTFHws@lists.infradead.org, AJvYcCVMLgRkTW9Lt/HMZJw3IhKanTiJIvFFCB64IEp9sg9tFQh0TD9mejvAoQZQvdZNevRRy5bCqTEb05+6qiN2yEc=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4XTjhUmyKzTfhiHoXo4Gy8pdF0Ljx1avkYIEnihIjOvttfFX/
+	dQPE8l0JEE/V2XFDp27GbKw+sioYxrIm18ECeUMv7Wdvc8MR5vQuQZ9K
+X-Gm-Gg: ASbGncvqnm1BHitlvRQAj5IdTaFHwtB5jPzrh6P6qxv9HKoqIdWOLUKmcUBOI1uAroj
+	ZXdudwz681KiM1t7ZuNe8XKtnlWF7Hkm0z/fbUiJSiiG//7fn6F8aXbItZ7I7inTBdL82PARW2G
+	vM5cwrHpHn61HoBZ7txVOx/y8VgBYqW3aO47FLxP8SqZVGV6sEQHzovBGQ7ILRb2ePU/d1by5E+
+	BtIbUceakwXk4ifr2VztyoALoJjk8ll9CDQng5Z6mY4WUxYO730rRABtzxf0SFocQHgevYmVBOm
+	NyeFsBW2gJpneGfG9L8dNXEXscndRKzHLQdaM6bbKO27wsEphvTQe6znosT6Rrs4XoJ8VGfNoUk
+	LAngDW2EaYXVN7w4RJwJa
+X-Google-Smtp-Source: AGHT+IHPFsfBZ7jep4HTPgB4xS2TrPI+GxC/0lSGwTIJL7shKIL3DXkoTKTKoqJselW/W7mVGW6RgA==
+X-Received: by 2002:a05:6000:2406:b0:3a4:e1e1:7779 with SMTP id ffacd0b85a97d-3a4e1e17966mr3329816f8f.32.1748384475767;
+        Tue, 27 May 2025 15:21:15 -0700 (PDT)
 Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a4e8bc377asm233366f8f.72.2025.05.27.15.21.11
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a4e8bc377asm233366f8f.72.2025.05.27.15.21.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 May 2025 15:21:12 -0700 (PDT)
+        Tue, 27 May 2025 15:21:14 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Lorenzo Bianconi <lorenzo@kernel.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
@@ -84,17 +84,17 @@ To: Lorenzo Bianconi <lorenzo@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH 4/6] pinctrl: airoha: convert PWM GPIO to macro
-Date: Wed, 28 May 2025 00:20:36 +0200
-Message-ID: <20250527222040.32000-5-ansuelsmth@gmail.com>
+Subject: [PATCH 5/6] dt-bindings: pinctrl: airoha: Document AN7583 Pin Controller
+Date: Wed, 28 May 2025 00:20:37 +0200
+Message-ID: <20250527222040.32000-6-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250527222040.32000-1-ansuelsmth@gmail.com>
 References: <20250527222040.32000-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_152115_195221_1130B7C1 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20250527_152117_778897_0B9C6A29 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,494 +109,368 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PWM GPIO struct definition follow the same pattern for every GPIO
-pin hence it can be converted to a macro.
+Document Airoha AN7583 Pin Controller based on Airoha EN7581 with some
+minor difference on some function group.
 
-Create 2 macro one for normal mux and one for ext mux and convert all
-the entry to these new macro to reduce code size.
+Make the PHY LEDs, pcie_reset and PCM SPI function dependent of the
+compatible and define the different group for AN7583.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/pinctrl/mediatek/pinctrl-airoha.c | 465 ++++------------------
- 1 file changed, 68 insertions(+), 397 deletions(-)
+ .../pinctrl/airoha,en7581-pinctrl.yaml        | 297 ++++++++++++------
+ 1 file changed, 207 insertions(+), 90 deletions(-)
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-index 2b532334d759..8c8d5b598f4f 100644
---- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-@@ -1075,404 +1075,75 @@ static const struct airoha_pinctrl_func_group pcie_reset_func_group[] = {
- };
+diff --git a/Documentation/devicetree/bindings/pinctrl/airoha,en7581-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/airoha,en7581-pinctrl.yaml
+index 21fd4f1ba78b..38511ad2f9e6 100644
+--- a/Documentation/devicetree/bindings/pinctrl/airoha,en7581-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/airoha,en7581-pinctrl.yaml
+@@ -4,17 +4,19 @@
+ $id: http://devicetree.org/schemas/pinctrl/airoha,en7581-pinctrl.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
  
- /* PWM */
-+#define AIROHA_PINCTRL_PWM(gpio, mux_val)		\
-+	{						\
-+		.name = (gpio),				\
-+		.regmap[0] = {				\
-+			AIROHA_FUNC_PWM_MUX,		\
-+			REG_GPIO_FLASH_MODE_CFG,	\
-+			(mux_val),			\
-+			(mux_val)			\
-+		},					\
-+		.regmap_size = 1,			\
-+	}						\
-+
-+#define AIROHA_PINCTRL_PWM_EXT(gpio, mux_val)		\
-+	{						\
-+		.name = (gpio),				\
-+		.regmap[0] = {				\
-+			AIROHA_FUNC_PWM_EXT_MUX,	\
-+			REG_GPIO_FLASH_MODE_CFG_EXT,	\
-+			(mux_val),			\
-+			(mux_val)			\
-+		},					\
-+		.regmap_size = 1,			\
-+	}						\
-+
- static const struct airoha_pinctrl_func_group pwm_func_group[] = {
--	{
--		.name = "gpio0",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO0_FLASH_MODE_CFG,
--			GPIO0_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio1",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO1_FLASH_MODE_CFG,
--			GPIO1_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio2",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO2_FLASH_MODE_CFG,
--			GPIO2_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio3",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO3_FLASH_MODE_CFG,
--			GPIO3_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio4",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO4_FLASH_MODE_CFG,
--			GPIO4_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio5",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO5_FLASH_MODE_CFG,
--			GPIO5_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio6",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO6_FLASH_MODE_CFG,
--			GPIO6_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio7",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO7_FLASH_MODE_CFG,
--			GPIO7_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio8",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO8_FLASH_MODE_CFG,
--			GPIO8_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio9",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO9_FLASH_MODE_CFG,
--			GPIO9_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio10",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO10_FLASH_MODE_CFG,
--			GPIO10_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio11",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO11_FLASH_MODE_CFG,
--			GPIO11_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio12",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO12_FLASH_MODE_CFG,
--			GPIO12_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio13",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO13_FLASH_MODE_CFG,
--			GPIO13_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio14",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO14_FLASH_MODE_CFG,
--			GPIO14_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio15",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_MUX,
--			REG_GPIO_FLASH_MODE_CFG,
--			GPIO15_FLASH_MODE_CFG,
--			GPIO15_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio16",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO16_FLASH_MODE_CFG,
--			GPIO16_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio17",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO17_FLASH_MODE_CFG,
--			GPIO17_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio18",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO18_FLASH_MODE_CFG,
--			GPIO18_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio19",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO19_FLASH_MODE_CFG,
--			GPIO19_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio20",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO20_FLASH_MODE_CFG,
--			GPIO20_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio21",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO21_FLASH_MODE_CFG,
--			GPIO21_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio22",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO22_FLASH_MODE_CFG,
--			GPIO22_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio23",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO23_FLASH_MODE_CFG,
--			GPIO23_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio24",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO24_FLASH_MODE_CFG,
--			GPIO24_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio25",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO25_FLASH_MODE_CFG,
--			GPIO25_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio26",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO26_FLASH_MODE_CFG,
--			GPIO26_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio27",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO27_FLASH_MODE_CFG,
--			GPIO27_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio28",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO28_FLASH_MODE_CFG,
--			GPIO28_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio29",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO29_FLASH_MODE_CFG,
--			GPIO29_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio30",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO30_FLASH_MODE_CFG,
--			GPIO30_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio31",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO31_FLASH_MODE_CFG,
--			GPIO31_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio36",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO36_FLASH_MODE_CFG,
--			GPIO36_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio37",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO37_FLASH_MODE_CFG,
--			GPIO37_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio38",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO38_FLASH_MODE_CFG,
--			GPIO38_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio39",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO39_FLASH_MODE_CFG,
--			GPIO39_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio40",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO40_FLASH_MODE_CFG,
--			GPIO40_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio41",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO41_FLASH_MODE_CFG,
--			GPIO41_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio42",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO42_FLASH_MODE_CFG,
--			GPIO42_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio43",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO43_FLASH_MODE_CFG,
--			GPIO43_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio44",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO44_FLASH_MODE_CFG,
--			GPIO44_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio45",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO45_FLASH_MODE_CFG,
--			GPIO45_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio46",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO46_FLASH_MODE_CFG,
--			GPIO46_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	}, {
--		.name = "gpio47",
--		.regmap[0] = {
--			AIROHA_FUNC_PWM_EXT_MUX,
--			REG_GPIO_FLASH_MODE_CFG_EXT,
--			GPIO47_FLASH_MODE_CFG,
--			GPIO47_FLASH_MODE_CFG
--		},
--		.regmap_size = 1,
--	},
-+	AIROHA_PINCTRL_PWM("gpio0", GPIO0_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio1", GPIO1_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio2", GPIO2_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio3", GPIO3_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio4", GPIO4_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio5", GPIO5_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio6", GPIO6_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio7", GPIO7_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio8", GPIO8_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio9", GPIO9_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio10", GPIO10_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio11", GPIO11_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio12", GPIO12_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio13", GPIO13_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio14", GPIO14_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM("gpio15", GPIO15_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio16", GPIO16_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio17", GPIO17_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio18", GPIO18_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio19", GPIO19_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio20", GPIO20_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio21", GPIO21_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio22", GPIO22_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio23", GPIO23_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio24", GPIO24_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio25", GPIO25_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio26", GPIO26_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio27", GPIO27_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio28", GPIO28_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio29", GPIO29_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio30", GPIO30_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio31", GPIO31_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio36", GPIO36_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio37", GPIO37_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio38", GPIO38_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio39", GPIO39_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio40", GPIO40_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio41", GPIO41_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio42", GPIO42_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio43", GPIO43_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio44", GPIO44_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio45", GPIO45_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio46", GPIO46_FLASH_MODE_CFG),
-+	AIROHA_PINCTRL_PWM_EXT("gpio47", GPIO47_FLASH_MODE_CFG),
- };
+-title: Airoha EN7581 Pin Controller
++title: Airoha EN7581/AN7583 Pin Controller
  
- #define AIROHA_PINCTRL_PHY_LED(gpio, mux_val, map_mask, map_val)	\
+ maintainers:
+   - Lorenzo Bianconi <lorenzo@kernel.org>
+ 
+ description:
+-  The Airoha's EN7581 Pin controller is used to control SoC pins.
++  The Airoha's EN7581/AN7583 Pin controller is used to control SoC pins.
+ 
+ properties:
+   compatible:
+-    const: airoha,en7581-pinctrl
++    enum:
++      - airoha,en7581-pinctrl
++      - airoha,an7583-pinctrl
+ 
+   interrupts:
+     maxItems: 1
+@@ -32,9 +34,6 @@ properties:
+   '#interrupt-cells':
+     const: 2
+ 
+-allOf:
+-  - $ref: pinctrl.yaml#
+-
+ required:
+   - compatible
+   - interrupts
+@@ -151,18 +150,6 @@ patternProperties:
+                   items:
+                     enum: [spi_quad, spi_cs1]
+                   maxItems: 2
+-          - if:
+-              properties:
+-                function:
+-                  const: pcm_spi
+-            then:
+-              properties:
+-                groups:
+-                  items:
+-                    enum: [pcm_spi, pcm_spi_int, pcm_spi_rst, pcm_spi_cs1,
+-                           pcm_spi_cs2_p156, pcm_spi_cs2_p128, pcm_spi_cs3,
+-                           pcm_spi_cs4]
+-                  maxItems: 7
+           - if:
+               properties:
+                 function:
+@@ -187,14 +174,6 @@ patternProperties:
+               properties:
+                 groups:
+                   enum: [pnand]
+-          - if:
+-              properties:
+-                function:
+-                  const: pcie_reset
+-            then:
+-              properties:
+-                groups:
+-                  enum: [pcie_reset0, pcie_reset1, pcie_reset2]
+           - if:
+               properties:
+                 function:
+@@ -209,70 +188,6 @@ patternProperties:
+                          gpio26, gpio27, gpio28, gpio29, gpio30, gpio31,
+                          gpio36, gpio37, gpio38, gpio39, gpio40, gpio41,
+                          gpio42, gpio43, gpio44, gpio45, gpio46, gpio47]
+-          - if:
+-              properties:
+-                function:
+-                  const: phy1_led0
+-            then:
+-              properties:
+-                groups:
+-                  enum: [gpio33, gpio34, gpio35, gpio42]
+-          - if:
+-              properties:
+-                function:
+-                  const: phy2_led0
+-            then:
+-              properties:
+-                groups:
+-                  enum: [gpio33, gpio34, gpio35, gpio42]
+-          - if:
+-              properties:
+-                function:
+-                  const: phy3_led0
+-            then:
+-              properties:
+-                groups:
+-                  enum: [gpio33, gpio34, gpio35, gpio42]
+-          - if:
+-              properties:
+-                function:
+-                  const: phy4_led0
+-            then:
+-              properties:
+-                groups:
+-                  enum: [gpio33, gpio34, gpio35, gpio42]
+-          - if:
+-              properties:
+-                function:
+-                  const: phy1_led1
+-            then:
+-              properties:
+-                groups:
+-                  enum: [gpio43, gpio44, gpio45, gpio46]
+-          - if:
+-              properties:
+-                function:
+-                  const: phy2_led1
+-            then:
+-              properties:
+-                groups:
+-                  enum: [gpio43, gpio44, gpio45, gpio46]
+-          - if:
+-              properties:
+-                function:
+-                  const: phy3_led1
+-            then:
+-              properties:
+-                groups:
+-                  enum: [gpio43, gpio44, gpio45, gpio46]
+-          - if:
+-              properties:
+-                function:
+-                  const: phy4_led1
+-            then:
+-              properties:
+-                groups:
+-                  enum: [gpio43, gpio44, gpio45, gpio46]
+ 
+         additionalProperties: false
+ 
+@@ -331,6 +246,208 @@ patternProperties:
+ 
+ additionalProperties: false
+ 
++allOf:
++  - $ref: pinctrl.yaml#
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: airoha,en7581-pinctrl
++    then:
++      patternProperties:
++        '-pins$':
++          type: object
++
++          patternProperties:
++            '^mux(-|$)':
++              type: object
++
++              allOf:
++                - if:
++                    properties:
++                      function:
++                        const: pcm_spi
++                  then:
++                    properties:
++                      groups:
++                        items:
++                          enum: [pcm_spi, pcm_spi_int, pcm_spi_rst, pcm_spi_cs1,
++                                 pcm_spi_cs2_p156, pcm_spi_cs2_p128, pcm_spi_cs3,
++                                 pcm_spi_cs4]
++                        maxItems: 7
++                - if:
++                    properties:
++                      function:
++                        const: pcie_reset
++                  then:
++                    properties:
++                      groups:
++                        enum: [pcie_reset0, pcie_reset1, pcie_reset2]
++                - if:
++                    properties:
++                      function:
++                        const: phy1_led0
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio33, gpio34, gpio35, gpio42]
++                - if:
++                    properties:
++                      function:
++                        const: phy2_led0
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio33, gpio34, gpio35, gpio42]
++                - if:
++                    properties:
++                      function:
++                        const: phy3_led0
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio33, gpio34, gpio35, gpio42]
++                - if:
++                    properties:
++                      function:
++                        const: phy4_led0
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio33, gpio34, gpio35, gpio42]
++                - if:
++                    properties:
++                      function:
++                        const: phy1_led1
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio43, gpio44, gpio45, gpio46]
++                - if:
++                    properties:
++                      function:
++                        const: phy2_led1
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio43, gpio44, gpio45, gpio46]
++                - if:
++                    properties:
++                      function:
++                        const: phy3_led1
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio43, gpio44, gpio45, gpio46]
++                - if:
++                    properties:
++                      function:
++                        const: phy4_led1
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio43, gpio44, gpio45, gpio46]
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: airoha,an7583-pinctrl
++    then:
++      patternProperties:
++        '-pins$':
++          type: object
++
++          patternProperties:
++            '^mux(-|$)':
++              type: object
++
++              allOf:
++                - if:
++                    properties:
++                      function:
++                        const: pcm_spi
++                  then:
++                    properties:
++                      groups:
++                        items:
++                          enum: [pcm_spi, pcm_spi_int, pcm_spi_rst, pcm_spi_cs1,
++                                 pcm_spi_cs2, pcm_spi_cs3, pcm_spi_cs4]
++                        maxItems: 7
++                - if:
++                    properties:
++                      function:
++                        const: pcie_reset
++                  then:
++                    properties:
++                      groups:
++                        enum: [pcie_reset0, pcie_reset1]
++                - if:
++                    properties:
++                      function:
++                        const: phy1_led0
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio1, gpio2, gpio3, gpio4]
++                - if:
++                    properties:
++                      function:
++                        const: phy2_led0
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio1, gpio2, gpio3, gpio4]
++                - if:
++                    properties:
++                      function:
++                        const: phy3_led0
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio1, gpio2, gpio3, gpio4]
++                - if:
++                    properties:
++                      function:
++                        const: phy4_led0
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio1, gpio2, gpio3, gpio4]
++                - if:
++                    properties:
++                      function:
++                        const: phy1_led1
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio8, gpio9, gpio10, gpio11]
++                - if:
++                    properties:
++                      function:
++                        const: phy2_led1
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio8, gpio9, gpio10, gpio11]
++                - if:
++                    properties:
++                      function:
++                        const: phy3_led1
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio8, gpio9, gpio10, gpio11]
++                - if:
++                    properties:
++                      function:
++                        const: phy4_led1
++                  then:
++                    properties:
++                      groups:
++                        enum: [gpio8, gpio9, gpio10, gpio11]
++
+ examples:
+   - |
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
 -- 
 2.48.1
 
