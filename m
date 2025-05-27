@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D556C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 13:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BEFC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 13:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=627XJD1AIOkdu1IaSFI3jHdwZHn7kpCZzRQmqFo9zDQ=; b=MKEqI066d/4FZREuy+ulo9qm0l
-	6zOGCC8718gyXHDow6EDrKBGv6+AkqCKUPS0fFtR940G8BgJdeEFG1BIIGwMjmxFHynbESUK6CVzH
-	67i9IsiMhLnw/0PM4xhNI0Y1OCnMWeV+3UMrWGoI9KAVbYSAi9+KmdoHjXxgEO6z3JIB5q21WwNue
-	gQoJhrJRcSzEkryNAusPWH0D0x4JUYAbmC1qqSg0xgKILCLUK8rkycvqigZcXI5LJ0MfmJfryTi/H
-	pOTCsvP7huguyvtqg/R5zY2x4XpTOL0CeGe7pewDXvGkwpIlWFvdxKVXZuGLPG05QDFhcd9EZoQuw
-	M6JF9bmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ish6o0Bhh995IK2wzs6updBAdJ3S2zxHBcJqrswtQm8=; b=XjnUTrw9khrCoNU3+73eF3jZ55
+	Etsw/aI+d9wPJMtlkuBD9fMO+si/i5pKTKv655ltAx6D67GuE59dGbWT65C0039LP/Dq8eQbllqjD
+	CZkKbg4/8r93hNWoeIjFFXHbXLUcX3tEyNNG4zJygoI2ySq+FzFvl0tmnSlUGCM7li17m+axJ5p7n
+	EymJDy7kwqw/ObK35oM/Hkp1F40AEZFnPC+VBUuqaJUN1+vLby3smJX8VlnA6plXTPWwSOJoZqth8
+	fDk439Ob768ABjFqL5x1IN/rxwvq1y838bl9j/aguVCGAfR8vW11kPoTVZ6eB4CXO9TPbMu/W6d2+
+	/Uh/r1wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJuZR-0000000ArCF-08Fh;
-	Tue, 27 May 2025 13:42:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uJubX-0000000ArNj-0AGT;
+	Tue, 27 May 2025 13:44:31 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJuLb-0000000Ap6o-1PUd
+	id 1uJuU6-0000000AqE9-36wA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 13:28:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7CCE743722
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 13:28:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AB13C4CEE9
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 13:28:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748352482;
-	bh=6n+ZjVHYJRruRP6QhiS37RnfCFSoYNr/NDgvQBN9BNE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kPL1+zNzo8eovVYJnZOxmhDr7c+ycetyKLvdsuHP2z27c5e9hktGSZxRbhN37wd5H
-	 cSpcqe4MO/tXOQ/po6PSOoQ60Pb54GKunFW0kq+jyt0ckRC952ybdi06MSbUNQknVc
-	 Cy2EwTIRQuhpDHnwPhSuikSzuMz6UWTbUKRJla3oohNL+/5XTgBSpbFuMuMMx5OgYf
-	 kJFizpgXTDo34u2aiSla+rEPWGBWJMd0170QM7vBMSRFLVVRI/b+o7animPG1JYtGD
-	 7Hbk7nr6fJtUCneLiDJ22cpxhvBUrsZHppE74oK9fVeFSuoQDDzG4RcM9gztacZ3X3
-	 Fg/bcae0SpVEQ==
-Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-6021e3daeabso1380489eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 06:28:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV6XENFJggPnERvkPuTfKcN0YgUAaiefjvhGhQPLORG2xz5o31sOWUhF5SLcjId9HrHG6ybMrrMEHgk7d7Tjq/G@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLLD/4H6QVwoXusUXPLxwgoO91m9pvnNJDo7e6n45X5j9Bco63
-	5zwjOU8msIZbI7YYUSfL1p2xMVFZuLO1OWemxRdV59Sij7yw0E7iTCliRwHNdrxG4xoSFuY/CvS
-	Qb/bBs3U5svhTm1CaGBpuEeXIjZ2TZRg=
-X-Google-Smtp-Source: AGHT+IFSAqGTRonCyHdzPHXzUnwF15GbCmScNUgBEQdqAtxS6EgzRVvQOgQAmShq5ZmtIno7kTA0NkVHIzzSEu9IsCQ=
-X-Received: by 2002:a05:6820:270c:b0:60b:c7bf:5ff4 with SMTP id
- 006d021491bc7-60bc7bf6141mr2188782eaf.2.1748352481726; Tue, 27 May 2025
- 06:28:01 -0700 (PDT)
+	Tue, 27 May 2025 13:36:53 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4768f90bf36so27438551cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 06:36:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1748353009; x=1748957809; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ish6o0Bhh995IK2wzs6updBAdJ3S2zxHBcJqrswtQm8=;
+        b=GMa+Z11z98ElNMoZS7W6FaaL/iUP/FpUzvLbuee/B9KT5n0gO0nf3X2CijHrde3ZDu
+         iaznqInIwRGD7WwR4XB0HU/y5a96QGB1TANe+86OIN9dihGwe/I2n2nMadtvEHZVvbif
+         HoynaHxnrcq2WKa5NrKF4qQQtMGJ/3g0C+xjP34N+Abdz12ku+6OGk9wV4lSBiB3UJqR
+         dTrm/joSH/rct80ZTaiM52o3TR/WeZp60JLcsHtkMyT10nPzzX1K2jHzWLD9Y7UOSt8F
+         zxG7Ro1VqNlhfl52c06uK3QhOtKZuNkXBuoIMu6fI1leP5lY3vt9MCKjS+KTrCqoJ35L
+         xPtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748353009; x=1748957809;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ish6o0Bhh995IK2wzs6updBAdJ3S2zxHBcJqrswtQm8=;
+        b=tvf95ER3QziBrLlrl9ehmUpCopTssnTnaj0JrP1mBs0IDWZsPdfvVq6BK5k3tjQVLw
+         qlb/4YUzMu/WQ5Y3uxZ9EHk1D+3OElh2M47mJequjgpylCCoIfUDIZqJ0Sogx7eoLy0w
+         KtYMiYmX50KtnqMEaQTFAhJQ+N0t4yfv5ffYjkYJIspyLwSD/eHwmbag62/unZU4ynMR
+         02ufqRS2ynVwJNW5n9bdMwrhuWBlAv9lNEebWXauoRp/zd5FfbfJvFJVFhXg1XCv8M86
+         0tMPPqkI6NKQyh8j8w/AISjdqbenTNPy2f3nhKG7z8hHdXSZyfaqkMGtEjFa3Fui6PNt
+         X4Qg==
+X-Forwarded-Encrypted: i=1; AJvYcCWU5achGmU7FGtjyGmQwgLU94svERjKy0fTQgGssk+zUOPsATYPFdDSBE1Av0B3zdCK8Aqbp/kju+5xguJQl2hX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDrmYM2bzcLFvARQP6JcxS1alHoCp9UURag8rW9bI7CG6eiMoN
+	ioWN9yXPLIUb1nWtUWH7ggnK6Z/UrXE9LBTgTrK3rwYZfG4QQYZSMR5huIFV+LD7Nfk9z3GFzTP
+	mvnjbxAPdr85QGxAQdorzz7hUn/EynD4qL39r2XihtA==
+X-Gm-Gg: ASbGncsCQywcApyeiL9kH1mmbSx4kjm4MJh8l/GG/ftQehUfv4Gg8bViPdR4Cq9NdQh
+	j5r7ghWS3S9GjDBq+uUzKswHUIaT0sF2iFpw+kJBzv8mwz0H85K5EHVcPcnnXl6PaZTMfARW3oK
+	F7PTzVAphLOSidY9xjQ6g2AI1mPf9yNw==
+X-Google-Smtp-Source: AGHT+IHr4jwrHqEJczRvGQzuN87CsS5C28zJXtY9UXRLqVMsScrfx0niqPKTlAIrCpVv2931fOLgMYPlwCUzMNEDANw=
+X-Received: by 2002:a05:622a:1f8e:b0:476:8eb5:1669 with SMTP id
+ d75a77b69052e-49f4781ed76mr216619901cf.32.1748353009174; Tue, 27 May 2025
+ 06:36:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <aDVRcfU8O8sez1x7@stanley.mountain>
-In-Reply-To: <aDVRcfU8O8sez1x7@stanley.mountain>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 27 May 2025 15:27:50 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0jAJN0dAHyUcpD1QvqZO36OmpGS2HpoRNkgG_-vNhO6tw@mail.gmail.com>
-X-Gm-Features: AX0GCFvDe7KgMteLqE5TkkcwRDYFaq8UOCj-peIRP-B2k_1-cXP7CZdFbN1z-YU
-Message-ID: <CAJZ5v0jAJN0dAHyUcpD1QvqZO36OmpGS2HpoRNkgG_-vNhO6tw@mail.gmail.com>
-Subject: Re: [PATCH next] cpuidle: psci: Fix uninitialized variable in dt_idle_state_present()
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel-janitors@vger.kernel.org
+References: <20250525051639.68753-2-krzysztof.kozlowski@linaro.org>
+ <CAPj87rMjAv-UphvFuQjop60o=wHrkfs4-XOM=JqH7f8Kk5dyVg@mail.gmail.com> <e462cdc4-7243-4cef-bd1d-a0ef551b3a87@kernel.org>
+In-Reply-To: <e462cdc4-7243-4cef-bd1d-a0ef551b3a87@kernel.org>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Tue, 27 May 2025 14:36:37 +0100
+X-Gm-Features: AX0GCFvEuF0JQkg3QiWt8vTrQrmgkUnYilTb6_QdjwVCLuie3br5KvhEpdyYryI
+Message-ID: <CAPj87rNZPub=hEs+86JNfR-iqiuRYGGGKGsYyXtE1aUt8dEyUA@mail.gmail.com>
+Subject: Re: [PATCH] media: dt-bindings: mediatek: Constrain iommus
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_062803_414960_E463A56C 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20250527_063650_881569_BBC59D73 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +100,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 7:45=E2=80=AFAM Dan Carpenter <dan.carpenter@linaro=
-.org> wrote:
->
-> If the first cpu_node =3D of_cpu_device_node_get() fails then the cleanup=
-.h
-> code will try to free "state_node" but it hasn't been initialized yet.
-> Declare the device_nodes where they are initialized to fix this.
->
-> Fixes: 5836ebeb4a2b ("cpuidle: psci: Avoid initializing faux device if no=
- DT idle states are present")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/cpuidle/cpuidle-psci.c | 9 ++++-----
->  1 file changed, 4 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psc=
-i.c
-> index 3c2756a539c4..4e1ba35deda9 100644
-> --- a/drivers/cpuidle/cpuidle-psci.c
-> +++ b/drivers/cpuidle/cpuidle-psci.c
-> @@ -456,14 +456,13 @@ static struct faux_device_ops psci_cpuidle_ops =3D =
-{
->
->  static bool __init dt_idle_state_present(void)
->  {
-> -       struct device_node *cpu_node __free(device_node);
-> -       struct device_node *state_node __free(device_node);
-> -
-> -       cpu_node =3D of_cpu_device_node_get(cpumask_first(cpu_possible_ma=
-sk));
-> +       struct device_node *cpu_node __free(device_node) =3D
-> +                       of_cpu_device_node_get(cpumask_first(cpu_possible=
-_mask));
->         if (!cpu_node)
->                 return false;
->
-> -       state_node =3D of_get_cpu_state_node(cpu_node, 0);
-> +       struct device_node *state_node __free(device_node) =3D
-> +                       of_get_cpu_state_node(cpu_node, 0);
->         if (!state_node)
->                 return false;
->
-> --
+Hi,
 
-Applied, thanks!
+On Sun, 25 May 2025 at 11:51, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On 25/05/2025 12:48, Daniel Stone wrote:
+> > On Sun, 25 May 2025 at 06:16, Krzysztof Kozlowski
+> > <krzysztof.kozlowski@linaro.org> wrote:
+> >> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
+> >> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
+> >> @@ -45,9 +45,8 @@ properties:
+> >>        - description: OVL-2L Clock
+> >>
+> >>    iommus:
+> >> -    description:
+> >> -      This property should point to the respective IOMMU block with master port as argument,
+> >> -      see Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for details.
+> >> +    minItems: 1
+> >> +    maxItems: 2
+> >
+> > The comment removals are not documented in the commit message, and
+> > it's not clear why removing information and references would be a good
+> > thing.
+> It's obvious, isn't? The consumer shall not define which provider has to
+> use or how many cells provider has.
+
+If you feel the change is good, then document it in the commit
+message, and ideally also use separate commits rather than throwing in
+unrelated changes into a commit which does not explain anything.
+Again, the kernel documentation explains how you can structure your
+commits in a better way.
+
+Cheers,
+Daniel
 
