@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05517C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126D1C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XaSDramaQ4ealF19zsjhv/7XrCvZ3oUf+OpS7nGNI+E=; b=rEhDTOFRUOXuj4k7dnq87OaobM
-	q8Hjuh9OIz5p6ypJsm4mhj3tvSlJWP4BXD8d2jqSBNazjFXxWDdj+zmd6zCWwImKIvpUE1hX8MaRz
-	OgY5BtypayzGPprfrfwgP9o3l8dJJJBOiH/rIiKkj02T1JJov8fy9Bi3bf/wZ7tU217YVFoNuSssH
-	MgpTZr9rDlxICoxliJTjgEA5vkLWD27jivYYBE3CWj2rcWtlVOKhHnFnifUaTekuXjwopJRL7PLuI
-	/strsHObY7P7AafOov/VmSzBuOypE/dVNKoxsvF0oHJID44WnyYn+OpD6ggBasxZoE3dHueJzfRGI
-	jjgLe8Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vAdJ/cT5QBHscP2gZxi7G3d4bBHjxu/r9X+j+h7O9D0=; b=q+5JGp1ZgZ+M+0+fHtIoI0ZA+f
+	A7bdJD+lkvNSuZv4jIaeFl6k6cPaVgpNe+q5jc2BC5LYabBy2bYJiMw4PObv4y+vOGQv6nmjVLmyn
+	9s1veAv+wcMiBXh9C84z4zIHibEkvO/JxVHFRxUic3cs59hNO5GavSf9apbeZ5BCs11BHoKbbtuEd
+	NhGsOOxGWrnYrXjPOjEEFOQnRjHIXHLeslyyJZEK+jg0qEh41KtUJVmqj+EtiXYsMEe/+l2QP7b3Y
+	kSzJCyLrraGMuDkrTfuynU8Zy70RioEqF0K4tl7JBG8se6mhgBPsiCbg/HzYwD9MGpxoVRySxgqE9
+	1qqdkIHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJn8r-00000009xRS-014A;
-	Tue, 27 May 2025 05:46:25 +0000
-Received: from smtp-19.smtpout.orange.fr ([80.12.242.19] helo=smtp.smtpout.orange.fr)
+	id 1uJnAw-00000009xf9-2vOW;
+	Tue, 27 May 2025 05:48:34 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJn6g-00000009x4Y-0dRr
+	id 1uJn7v-00000009xJH-0wdL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 05:44:12 +0000
-Received: from [IPV6:2a01:cb10:785:b00:8347:f260:7456:7662]
- ([IPv6:2a01:cb10:785:b00:8347:f260:7456:7662])
-	by smtp.orange.fr with ESMTPA
-	id Jn6TuvW38K8x9Jn6TuJ1uT; Tue, 27 May 2025 07:44:04 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1748324645;
-	bh=XaSDramaQ4ealF19zsjhv/7XrCvZ3oUf+OpS7nGNI+E=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=RuqfKSZEr3CG4BWdedgN5eVB3GxhSwHwxSTbYH9h7RUR5j4mU7wXvS51e1Eh7spnr
-	 VZEt6ixH2w73IfHBCz5gbF34YZwiMMuv7x1QVLLUUCUT+p7r4eF18zjdglLAoJjfde
-	 DueN8tNY+/fcyYDpvtdPpXgf5+K7jCKExyhWjWb1DJe+Zn0X2ljOpOrEXOib0oNTwO
-	 ssnhI8HZFd+1ocoiNCg7SDPLh4//RcuYV9+AUWMlULPgxE8SC60zHwDLXa0DJMeCDe
-	 ZT6vkRllvZ0LUWkTBi4kM1dsd1X72xNeKq97GF7SJ1LGiThP56Rytoh3UjKmXv3Ycd
-	 LAW+0luDsoOxQ==
-X-ME-Helo: [IPV6:2a01:cb10:785:b00:8347:f260:7456:7662]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Tue, 27 May 2025 07:44:05 +0200
-X-ME-IP: 2a01:cb10:785:b00:8347:f260:7456:7662
-Message-ID: <be687d2d-4c16-46d6-8828-b0e4866d91de@wanadoo.fr>
-Date: Tue, 27 May 2025 07:43:57 +0200
+	Tue, 27 May 2025 05:45:28 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-604533a2f62so4530640a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 22:45:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748324725; x=1748929525; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vAdJ/cT5QBHscP2gZxi7G3d4bBHjxu/r9X+j+h7O9D0=;
+        b=iTJq/tAwrMSRS2BdjQ4QXG89HHuyyUJW61VlIvxWETCPi4cfvnRTeM6c1oZ0JQxmwh
+         wgEqbjH4edQFz4NJxf/RAc1Z07VQ35vdLQgJko/ZZHyNtf7yMXscT447JrRHFhBg8uCb
+         TMjwswkg5/9dYsFgwv0fwzzOkEx1csT+w4b+ybaDEFwpdMRMSkiS8lWaZCkwfuWNl0UX
+         w39PzFD2a9yaaX104tmY5PsyYYzOVaMsNw7fXgnx3O+L2p/jlJ+uRaE7/eAIz9SUYSa2
+         1Cvst+AOf3lGl/h+HU13OaBlxJL+H2DkAvn+vhPVDSo5iucvGObUOLpCgmsUoYFL2Yqg
+         ZGTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748324725; x=1748929525;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vAdJ/cT5QBHscP2gZxi7G3d4bBHjxu/r9X+j+h7O9D0=;
+        b=qUummboX3r8cJJHSP0lwVvWMlZiCu8Y7C19qINXN73FLBbcxO/aRD59Zvk6NdQh/vU
+         RqvFGfnNthxSb0RnP3MvJu3pZfWeqabXedjOebIJkLTSjl7M+zduv1tksrQdrJIAvVEs
+         S+oUwE4I7KnwUD1K5XCC0Iy374poSLS9EMU+l7OjG54gBxyGJe/O5gopHJp3qI90HQs3
+         sM72AWNyt9CTivN0+au77agw7WO5sG7/ApW1g/MGludPCvBQJl3SFHDiQAOhVGBFSPE0
+         z0OCIkCSIZiDTwutY2lYOXood2aPGRZj6PNCPs1vY6lBilanKc8DW1tmh9Pwu6QEBWvU
+         S5xg==
+X-Forwarded-Encrypted: i=1; AJvYcCVcJJ+MtFml+wE1Lrd0cuaIjTjTDoYgZQja+WuTxCnAK9P+XXjodyPG7a1WAhmfgq6JvzHQaO8Bg7kk9JLS6vPF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7TY3Mtb1dCBHemrufA2t9ZK4lciQZgpeAE6cuQrro9fljyD7E
+	NJ4l7nxIAOFMidoI8J9H5mQvDOpjScBkWcPufSEm7puz1vIRlFl5AU4i3wWYlYjZuHc=
+X-Gm-Gg: ASbGncsPWJtOts0rfb5f5L6/11E3MOdfunBgeqWvkh+Jq9XvUH550Li4shZVnyLpF2A
+	M4utUIi4779RdWYe4l9goCK9UV37ptSiFCpumMjur7Pktqza3vKOoqVWyyn3ze4QpokU/sguumF
+	d+Goq98oSSt3aqzUL93ChitGGPjbrfDR1LbbPNwSvnm34SQ+HNiqis37I5K2dCAzUjnTNmBRtby
+	LHytzI+s7OmVqBDF4qMhuW5QDgRHuC10m8UcSfTPLYHQh2bXjZJygvCN5U9suyE8tv8E/7vCePF
+	XReEPAQaWqVmidZ9DYvuO+rT8ubul0fzIt+HPhlKZzNiQxFKdYveunccM6W4BDT0ucUfsuW346Y
+	=
+X-Google-Smtp-Source: AGHT+IFjfjGDL9+pR2wI6u63W8YFLk9uDG95aJV/jaoLvZt0KxL00PabZAJ4WGFqwimBN1PB88AkOg==
+X-Received: by 2002:a17:906:f58b:b0:ad2:499d:dfdb with SMTP id a640c23a62f3a-ad85b1bd259mr1048071866b.26.1748324725279;
+        Mon, 26 May 2025 22:45:25 -0700 (PDT)
+Received: from localhost (hf94.n1.ips.mtn.co.ug. [41.210.143.148])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ad52d047749sm1788284566b.8.2025.05.26.22.45.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 May 2025 22:45:24 -0700 (PDT)
+Date: Tue, 27 May 2025 08:45:21 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: [PATCH next] cpuidle: psci: Fix uninitialized variable in
+ dt_idle_state_present()
+Message-ID: <aDVRcfU8O8sez1x7@stanley.mountain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: dwmac-rk: No need to check the return value of the
- phy_power_on()
-To: =?UTF-8?B?5p2O5ZOy?= <sensor1010@163.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- jonas@kwiboo.se, rmk+kernel@armlinux.org.uk, david.wu@rock-chips.com,
- wens@csie.org, jan.petrous@oss.nxp.com
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250526161621.3549-1-sensor1010@163.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <20250526161621.3549-1-sensor1010@163.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_224410_596439_68AE0FD4 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250526_224527_265344_5AC6E2C3 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +100,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 26/05/2025 à 18:16, 李哲 a écrit :
-> since the return value of the phy_power_on() function is always 0,
-> checking its return value is redundant.
+If the first cpu_node = of_cpu_device_node_get() fails then the cleanup.h
+code will try to free "state_node" but it hasn't been initialized yet.
+Declare the device_nodes where they are initialized to fix this.
 
-Can you elaborate why?
+Fixes: 5836ebeb4a2b ("cpuidle: psci: Avoid initializing faux device if no DT idle states are present")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/cpuidle/cpuidle-psci.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-Looking at  (1], I think that it is obvious that non-0 values can be 
-returned.
-
-
-CJ
-
-[1]: 
-https://elixir.bootlin.com/linux/v6.15/source/drivers/phy/phy-core.c#L305
-
-> 
-> Signed-off-by: 李哲 <sensor1010@163.com>
-> ---
->   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 6 +-----
->   1 file changed, 1 insertion(+), 5 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 700858ff6f7c..6e8b10fda24d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> @@ -1839,11 +1839,7 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
->   		dev_err(dev, "NO interface defined!\n");
->   	}
->   
-> -	ret = phy_power_on(bsp_priv, true);
-> -	if (ret) {
-> -		gmac_clk_enable(bsp_priv, false);
-> -		return ret;
-> -	}
-> +	phy_power_on(bsp_priv, true);
->   
->   	pm_runtime_get_sync(dev);
->   
+diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+index 3c2756a539c4..4e1ba35deda9 100644
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -456,14 +456,13 @@ static struct faux_device_ops psci_cpuidle_ops = {
+ 
+ static bool __init dt_idle_state_present(void)
+ {
+-	struct device_node *cpu_node __free(device_node);
+-	struct device_node *state_node __free(device_node);
+-
+-	cpu_node = of_cpu_device_node_get(cpumask_first(cpu_possible_mask));
++	struct device_node *cpu_node __free(device_node) =
++			of_cpu_device_node_get(cpumask_first(cpu_possible_mask));
+ 	if (!cpu_node)
+ 		return false;
+ 
+-	state_node = of_get_cpu_state_node(cpu_node, 0);
++	struct device_node *state_node __free(device_node) =
++			of_get_cpu_state_node(cpu_node, 0);
+ 	if (!state_node)
+ 		return false;
+ 
+-- 
+2.47.2
 
 
