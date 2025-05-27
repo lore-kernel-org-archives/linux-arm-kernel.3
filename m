@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FE5C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 11:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8867EC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 11:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nT7cIrRybh6LbikgTpPxvFtoL3MIOWg7nn/7vwDh1rQ=; b=OGmJeO0p+ti+J/458+M5aFY9ze
-	rm9gGIds/PfE7TQ5D+gmJ3D4TmfXJA9jUXo2hNuizs4AxAaAK0AOII+oB7IORh06Er0i5rCVe7VPd
-	2BiAgMJp1byA5fOLenxCpUyOm7qU+7xln7Lwtm6mRPtOybzFBgnva6d4TAkHCqWYtHShGrGPFkCff
-	hnrV6kjYKuPmNrbLqUUrclDVCB0oSyTuSXV+92bdJbMTQY2bIHo104ytX+DtFj7SjJ/TEfbTnoCBz
-	2B7NZtRyrQ+Iz8SzD+U9B3jEws2liPpVV3zhPxbPYsc1uDH/iUrCcm+NqT5T4P4O4Dkm+XRIRcsqV
-	pW5E0GDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9yF1OUbT1bqu1NB/QJlao6B5ghagW3BtXAYQCUIhaR8=; b=TDcMxnlanVlsy9KJ1Dr+EX2s7y
+	vjAtI/6VtEnEq05yV0KIv37LOt9o/ycQUrreVWpN01B8sFbFG7uG0qNYyvZybhRhbWVXoKstKsoCB
+	VIARX7E1uTZXl72pGiAlBsxioPP4P2kM0fm/f/zo9xJS914QaG6GDvOg1SVZlPF7vxclxT22CrqHZ
+	oW3zwnYoplORnhA15ZO/JJp9p7hfLFGKaEnmsxbVArIYvM227yJ1LPq55TBjJB3yAjRm6iB15Iucu
+	QfrhTDXRICmMVNNo7ziOi4SnAtfEmdFEU6BYHzd8R4uqpdoLnHQ1Sr+9Dm30bnFKQvz8x8Eb4lx1z
+	4SrrBisQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJsie-0000000Abp5-2Sl5;
-	Tue, 27 May 2025 11:43:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uJsv6-0000000Acy5-0CMO;
+	Tue, 27 May 2025 11:56:36 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJsgV-0000000Abcx-22P8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 11:41:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1748346090;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nT7cIrRybh6LbikgTpPxvFtoL3MIOWg7nn/7vwDh1rQ=;
-	b=FWDVwU6CHQN62/F+Vcy7KuR7vnNBlHLRAhf0XjBlE1hGr7XwnGNaixgFIzFcrTR2+KtMW+
-	8fXiHZu5mEIGwKIisesXdc2PsouEdNga9L5hkmCrOhZnFWRNQG3e1Wp7qVG1T+1rcDcBY8
-	SJ2zUuIHZ3wMlWcR6089H2CgNHa0g60=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-185-Q8o_eQX1NCGVj3wYSBQx_g-1; Tue, 27 May 2025 07:40:04 -0400
-X-MC-Unique: Q8o_eQX1NCGVj3wYSBQx_g-1
-X-Mimecast-MFC-AGG-ID: Q8o_eQX1NCGVj3wYSBQx_g_1748346003
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3a3683aa00eso1533408f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 04:40:04 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748346003; x=1748950803;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nT7cIrRybh6LbikgTpPxvFtoL3MIOWg7nn/7vwDh1rQ=;
-        b=pghZyablwPTxzVtaA7UkmVgTVww0XPDgvugFYJajTvm9feZjRjUyL29WsSA9a96EMw
-         jNiJVBSdLqjzc60ETnJDM62+86Y+3jjufFJcq+vTV/8m+i9swe5eDJGVLEJgmthxCOP8
-         83a8MPaMTPriHHrdohlIIdhCt8wqcov3VecRTD7FPp+lqhWJsXWsI2wUeoy4RHE+sHBR
-         TKataKThFJ+++X2bui0STY7tY19/rzzCyLB0mcW2JcumjsaWRP+3FpOJVNBuJXv9ukvf
-         h1fxHlZiaXWVlsrHPqdpm9snbsTIN6yFXM9l91COIx7wopocQH5XbIGE0U4HcyUZUTas
-         uS3g==
-X-Forwarded-Encrypted: i=1; AJvYcCUgWg71GLElZj2EobaatFJInDuzAIMrgI2R3UklxPrMwqBND0OVeupO1mrJWfT60n59pRX5I65eB58yNFOd1YJz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvlHl/gfTZmRC3VcbmiaMo137E87Lp8tJi9m3CkQ4nKat8AiBJ
-	DlThmG8DFRtEbxJQ7IQBtnysnpXJnGNgelrhCzC0/drfJ0ogqk50Uj2o/bB28df2rAxX+oNiVfO
-	6eNMH4tXLyh/3FSiw+jz+eqzmV/Zf4On3qXSMysL43CYoneN5SnRH04REGfreaQ9I5V1bLWhzHt
-	bo
-X-Gm-Gg: ASbGnctfvZUxPkoGQ0OvI1iXun+haOsWNW7fjnB1g61VDLn1noZla6/pnOX9UlUGqpP
-	pYMDPuvURfD36fItAkpEUudgupS9D+6p9A/LwM0ZMAqYGuukxkiJXj9LU+vM+k+C7KyDUkO1Ug3
-	TZVPkCFI2eqsxduQY43CDHqpXbPuZLgQjbTo9zU6oVfc7ql7V09icvdnWXfNOT/VieHjde5RUmR
-	noUJDZs5lVEd3n3zvFp7Ew96GPnZOnpOV5s7iuow7qu4veGYG1tAR/SKO3FjpCDPGYnpA4V/dDf
-	gq7ZI6qOINB4t1yGCGs=
-X-Received: by 2002:a5d:5f55:0:b0:3a4:e1ea:3b38 with SMTP id ffacd0b85a97d-3a4e5e5d241mr322135f8f.7.1748346003054;
-        Tue, 27 May 2025 04:40:03 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IELMhcsA2f/uFLjMPoJvuMHyXx64VnNfgsaZOJQOZLfdMdByqjQpxsJ0DHCecIbJFbX7bOLwg==
-X-Received: by 2002:a5d:5f55:0:b0:3a4:e1ea:3b38 with SMTP id ffacd0b85a97d-3a4e5e5d241mr322102f8f.7.1748346002542;
-        Tue, 27 May 2025 04:40:02 -0700 (PDT)
-Received: from ?IPV6:2a0d:3344:2728:e810::f39? ([2a0d:3344:2728:e810::f39])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4dc7e69c8sm4613797f8f.95.2025.05.27.04.40.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 May 2025 04:40:02 -0700 (PDT)
-Message-ID: <f738d1ed-7ade-4a37-b8fd-25178f7c1dee@redhat.com>
-Date: Tue, 27 May 2025 13:39:59 +0200
+	id 1uJssx-0000000Achg-2CFd;
+	Tue, 27 May 2025 11:54:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1748346843; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XV4cwb62i9jbfKhN5YxgyKOpblJwfCS4esxG/Hl5r6XTpy40Ks+5/1Wxsd4w8d21C6Dp62xx6je0WdS5MTyeykTxg67JcVSGikhCIm/O6cl1ZZ6JGkoiFOXR0Ep/5XhGo05KKyDkggAUIA7oMl05BMaHL1Te9iI7/u/Jf65ZzvE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1748346843; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9yF1OUbT1bqu1NB/QJlao6B5ghagW3BtXAYQCUIhaR8=; 
+	b=Gfkxm9jbtRrUfZKi7vd0MLCn17HN0fTuH0PE0T8to3nJrkG77bwnm6RboXX0cZzK6YF06ZMxxVs6n/I3rbrkvGBMFvQ3W8erU29SfjqnJnv4+MlS8+sF3NxBKox73Iaj213zsH2AOpiwN953faCyfT69hURKY81Qeyy/gjs3Om8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748346843;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=9yF1OUbT1bqu1NB/QJlao6B5ghagW3BtXAYQCUIhaR8=;
+	b=VoZxWQ2IeFTd9cH4jQs4r4SzlZGf39Y8YHF1/y1CWVxa5UISmlLhsyWOZ28/0xhH
+	2WMDvv4/ZWr0FFF6+E0hJrKdnOiiKDwITtJrPR87WtwuFTgJ5c3h48Yz34khg77dbv8
+	dJTwToJj2bygZxc3nM1BD6O9SErZnnyiv/vmezUU=
+Received: by mx.zohomail.com with SMTPS id 1748346840882568.0136270447825;
+	Tue, 27 May 2025 04:54:00 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: heiko@sntech.de, linux-rockchip@lists.infradead.org,
+ Andy Yan <andyshrk@163.com>
+Cc: simic@manjaro.org, krzk+dt@kernel.org, robh@kernel.org,
+ devicetree@vger.kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, algea.cao@rock-chips.com,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Adjust the HDMI DDC IO driver strength
+ for rk3588
+Date: Tue, 27 May 2025 13:53:56 +0200
+Message-ID: <3704844.aeNJFYEL58@workhorse>
+In-Reply-To: <20250522020537.1884771-1-andyshrk@163.com>
+References: <20250522020537.1884771-1-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v12 4/7] net: mtip: The L2 switch driver for imx287
-To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>
-References: <20250522075455.1723560-1-lukma@denx.de>
- <20250522075455.1723560-5-lukma@denx.de>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250522075455.1723560-5-lukma@denx.de>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rRKWc2ChWGgTR-4yF_TTIFDILAGYPE1Do4TzEl-a4x8_1748346003
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_044131_672275_3CB5BCF4 
-X-CRM114-Status: GOOD (  37.13  )
+X-CRM114-CacheID: sfid-20250527_045423_659666_3A0359D6 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,509 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/22/25 9:54 AM, Lukasz Majewski wrote:
-> +/* dynamicms MAC address table learn and migration */
-> +static void
-> +mtip_atable_dynamicms_learn_migration(struct switch_enet_private *fep,
-> +				      int curr_time, unsigned char *mac,
-> +				      u8 *rx_port)
-> +{
-> +	u8 port = MTIP_PORT_FORWARDING_INIT;
-> +	struct mtip_port_info *port_info;
-> +	u32 rx_mac_lo = 0, rx_mac_hi = 0;
-> +	unsigned long flags;
-> +	int index;
-> +
-> +	spin_lock_irqsave(&fep->learn_lock, flags);
+On Thursday, 22 May 2025 04:05:24 Central European Summer Time Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> For the RK3588 HDMI controller, the falling edge of DDC SDA and SCL
+> almost coincide and cannot be adjusted by HDMI registrer, resulting
+> in poor compatibility of DDC communication.
+> 
+> An improvement of the compatibility of DDC can be done by increasing
+> the driver strength of SCL and decreasing the driver strength of SDA
+> to increase the slope of the falling edge.
+> 
+> It should be noted that the maximum driving strength of hdmim0_tx1_scl
+> is only 3, which is different from that of the other IOs.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> 
+> ---
+> 
+> Changes in v2:
+> - Correct the max drive level of hdmim0_tx1_scl.
+> 
+>  .../dts/rockchip/rk3588-base-pinctrl.dtsi     | 20 +++++------
+>  .../dts/rockchip/rk3588-extra-pinctrl.dtsi    |  5 +--
+>  .../boot/dts/rockchip/rockchip-pinconf.dtsi   | 35 +++++++++++++++++++
+>  3 files changed, 48 insertions(+), 12 deletions(-)
+> 
 
-AFAICS this is called by napi context and by a plain thread context,
-spin_lock_bh() should be sufficient.
+Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-> +
-> +	if (mac && is_valid_ether_addr(mac)) {
-> +		rx_mac_lo = (u32)((mac[3] << 24) | (mac[2] << 16) |
-> +				  (mac[1] << 8) | mac[0]);
-> +		rx_mac_hi = (u32)((mac[5] << 8) | (mac[4]));
-> +	}
-> +
-> +	port_info = mtip_portinfofifo_read(fep);
-> +	while (port_info) {
-> +		/* get block index from lookup table */
-> +		index = GET_BLOCK_PTR(port_info->hash);
-> +		mtip_update_atable_dynamic1(port_info->maclo, port_info->machi,
-> +					    index, port_info->port,
-> +					    curr_time, fep);
-> +
-> +		if (mac && is_valid_ether_addr(mac) &&
-> +		    port == MTIP_PORT_FORWARDING_INIT) {
-> +			if (rx_mac_lo == port_info->maclo &&
-> +			    rx_mac_hi == port_info->machi) {
-> +				/* The newly learned MAC is the source of
-> +				 * our filtered frame.
-> +				 */
-> +				port = (u8)port_info->port;
-> +			}
-> +		}
-> +		port_info = mtip_portinfofifo_read(fep);
-> +	}
-> +
-> +	if (rx_port)
-> +		*rx_port = port;
-> +
-> +	spin_unlock_irqrestore(&fep->learn_lock, flags);
-> +}
-> +
-> +static void mtip_aging_timer(struct timer_list *t)
-> +{
-> +	struct switch_enet_private *fep = from_timer(fep, t, timer_aging);
-> +
-> +	fep->curr_time = mtip_timeincrement(fep->curr_time);
-> +
-> +	mod_timer(&fep->timer_aging,
-> +		  jiffies + msecs_to_jiffies(LEARNING_AGING_INTERVAL));
-> +}
+Quickly tested this on both HDMI ports of a ROCK 5T with an HDMI capture
+card on the other end. While I didn't originally have any issues to begin
+with, this patch does not introduce any new ones, so seems good to me.
 
-It's unclear to me why you need to maintain a timer just to update a
-timestamp?!?
-
-(jiffies >> msecs_to_jiffies(LEARNING_AGING_INTERVAL)) & ((1 <<
-AT_DENTRY_TIMESTAMP_WIDTH) - 1)
-
-should yield the same value (and possibly define a bitmask as a shortcut)
-
-> +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
-> +					struct net_device *dev, int port)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	unsigned short	status;
-> +	unsigned long flags;
-> +	struct cbd_t *bdp;
-> +	void *bufaddr;
-> +
-> +	spin_lock_irqsave(&fep->hw_lock, flags);
-
-AFAICS this lock is acquired only by napi and thread context the _bh
-variant should be sufficient.
-
-> +
-> +	if (!fep->link[0] && !fep->link[1]) {
-> +		/* Link is down or autonegotiation is in progress. */
-> +		netif_stop_queue(dev);
-> +		spin_unlock_irqrestore(&fep->hw_lock, flags);
-> +		return NETDEV_TX_BUSY;
-
-Intead you should probably stop the queue when such events happen
-
-> +	}
-> +
-> +	/* Fill in a Tx ring entry */
-> +	bdp = fep->cur_tx;
-> +
-> +	status = bdp->cbd_sc;
-> +
-> +	if (status & BD_ENET_TX_READY) {
-> +		/* All transmit buffers are full. Bail out.
-> +		 * This should not happen, since dev->tbusy should be set.
-> +		 */
-> +		dev_err(&fep->pdev->dev, "%s: tx queue full!.\n", dev->name);
-> +		spin_unlock_irqrestore(&fep->hw_lock, flags);
-> +		return NETDEV_TX_BUSY;
-
-Instead you should use
-netif_txq_maybe_stop()/netif_subqueue_maybe_stop() to stop the queue
-eariler.
-
-> +	}
-> +
-> +	/* Clear all of the status flags */
-> +	status &= ~BD_ENET_TX_STATS;
-> +
-> +	/* Set buffer length and buffer pointer */
-> +	bufaddr = skb->data;
-> +	bdp->cbd_datlen = skb->len;
-> +
-> +	/* On some FEC implementations data must be aligned on
-> +	 * 4-byte boundaries. Use bounce buffers to copy data
-> +	 * and get it aligned.
-> +	 */
-> +	if ((unsigned long)bufaddr & MTIP_ALIGNMENT) {
-> +		unsigned int index;
-> +
-> +		index = bdp - fep->tx_bd_base;
-> +		memcpy(fep->tx_bounce[index],
-> +		       (void *)skb->data, skb->len);
-> +		bufaddr = fep->tx_bounce[index];
-> +	}
-> +
-> +	if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
-> +		swap_buffer(bufaddr, skb->len);
-
-Ouch, the above will kill performances. Also it looks like it will
-access uninitialized memory if skb->len is not 4 bytes aligned.
-
-> +
-> +	/* Save skb pointer. */
-> +	fep->tx_skbuff[fep->skb_cur] = skb;
-> +
-> +	dev->stats.tx_bytes += skb->len;
-
-It looks like this start is incremented too early, as tx could still
-fail later.
-
-> +	fep->skb_cur = (fep->skb_cur + 1) & TX_RING_MOD_MASK;
-> +
-> +	/* Push the data cache so the CPM does not get stale memory
-> +	 * data.
-> +	 */
-> +	bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, bufaddr,
-> +					  MTIP_SWITCH_TX_FRSIZE,
-> +					  DMA_TO_DEVICE);
-> +	if (unlikely(dma_mapping_error(&fep->pdev->dev, bdp->cbd_bufaddr))) {
-> +		dev_err(&fep->pdev->dev,
-> +			"Failed to map descriptor tx buffer\n");
-> +		dev->stats.tx_errors++;
-> +		dev->stats.tx_dropped++;
-> +		dev_kfree_skb_any(skb);
-> +		goto err;
-> +	}
-> +
-> +	/* Send it on its way.  Tell FEC it's ready, interrupt when done,
-> +	 * it's the last BD of the frame, and to put the CRC on the end.
-> +	 */
-> +
-
-Likely you need some memory barrier here to ensure the descriptor status
-update is seen by the device after the buffer addr update.
-
-> +	status |= (BD_ENET_TX_READY | BD_ENET_TX_INTR
-> +			| BD_ENET_TX_LAST | BD_ENET_TX_TC);
-> +	bdp->cbd_sc = status;
-> +
-> +	netif_trans_update(dev);
-> +	skb_tx_timestamp(skb);
-> +
-> +	/* For port separation - force sending via specified port */
-> +	if (!fep->br_offload && port != 0)
-> +		mtip_forced_forward(fep, port, 1);
-> +
-> +	/* Trigger transmission start */
-> +	writel(MCF_ESW_TDAR_X_DES_ACTIVE, fep->hwp + ESW_TDAR);
-
-Possibly you should check skb->xmit_more to avoid ringing the doorbell
-when not needed.
-
-> +static void mtip_timeout(struct net_device *dev, unsigned int txqueue)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	struct cbd_t *bdp;
-> +	int i;
-> +
-> +	dev->stats.tx_errors++;
-> +
-> +	if (IS_ENABLED(CONFIG_SWITCH_DEBUG)) {
-> +		dev_info(&dev->dev, "%s: transmit timed out.\n", dev->name);
-> +		dev_info(&dev->dev,
-> +			 "Ring data: cur_tx %lx%s, dirty_tx %lx cur_rx: %lx\n",
-> +			 (unsigned long)fep->cur_tx,
-> +			 fep->tx_full ? " (full)" : "",
-> +			 (unsigned long)fep->dirty_tx,
-> +			 (unsigned long)fep->cur_rx);
-> +
-> +		bdp = fep->tx_bd_base;
-> +		dev_info(&dev->dev, " tx: %u buffers\n", TX_RING_SIZE);
-> +		for (i = 0; i < TX_RING_SIZE; i++) {
-> +			dev_info(&dev->dev, "  %08lx: %04x %04x %08x\n",
-> +				 (kernel_ulong_t)bdp, bdp->cbd_sc,
-> +				 bdp->cbd_datlen, (int)bdp->cbd_bufaddr);
-> +			bdp++;
-> +		}
-> +
-> +		bdp = fep->rx_bd_base;
-> +		dev_info(&dev->dev, " rx: %lu buffers\n",
-> +			 (unsigned long)RX_RING_SIZE);
-> +		for (i = 0 ; i < RX_RING_SIZE; i++) {
-> +			dev_info(&dev->dev, "  %08lx: %04x %04x %08x\n",
-> +				 (kernel_ulong_t)bdp,
-> +				 bdp->cbd_sc, bdp->cbd_datlen,
-> +				 (int)bdp->cbd_bufaddr);
-> +			bdp++;
-> +		}
-> +	}
-> +
-> +	rtnl_lock();
-
-This is called in atomic scope, you can't acquire a mutex here. Instead
-you could schedule a work and do the reset in such scope.
-
-> +	if (netif_device_present(dev) || netif_running(dev)) {
-> +		napi_disable(&fep->napi);
-> +		netif_tx_lock_bh(dev);
-> +		mtip_switch_restart(dev, fep->full_duplex[0],
-> +				    fep->full_duplex[1]);
-> +		netif_tx_wake_all_queues(dev);
-> +		netif_tx_unlock_bh(dev);
-> +		napi_enable(&fep->napi);
-> +	}
-> +	rtnl_unlock();
-> +}
-
-> +
-> +/* During a receive, the cur_rx points to the current incoming buffer.
-> + * When we update through the ring, if the next incoming buffer has
-> + * not been given to the system, we just set the empty indicator,
-> + * effectively tossing the packet.
-> + */
-> +static int mtip_switch_rx(struct net_device *dev, int budget, int *port)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	u8 *data, rx_port = MTIP_PORT_FORWARDING_INIT;
-> +	struct switch_enet_private *fep = priv->fep;
-> +	unsigned short status, pkt_len;
-> +	struct net_device *pndev;
-> +	struct ethhdr *eth_hdr;
-> +	int pkt_received = 0;
-> +	struct sk_buff *skb;
-> +	unsigned long flags;
-> +	struct cbd_t *bdp;
-> +
-> +	spin_lock_irqsave(&fep->hw_lock, flags);
-> +
-> +	/* First, grab all of the stats for the incoming packet.
-> +	 * These get messed up if we get called due to a busy condition.
-> +	 */
-> +	bdp = fep->cur_rx;
-> +
-> +	while (!((status = bdp->cbd_sc) & BD_ENET_RX_EMPTY)) {
-> +		if (pkt_received >= budget)
-> +			break;
-> +
-> +		pkt_received++;
-> +		/* Since we have allocated space to hold a complete frame,
-> +		 * the last indicator should be set.
-> +		 */
-> +		if ((status & BD_ENET_RX_LAST) == 0)
-> +			dev_warn_ratelimited(&dev->dev,
-> +					     "SWITCH ENET: rcv is not +last\n");
-> +
-> +		if (!fep->usage_count)
-> +			goto rx_processing_done;
-> +
-> +		/* Check for errors. */
-> +		if (status & (BD_ENET_RX_LG | BD_ENET_RX_SH | BD_ENET_RX_NO |
-> +			      BD_ENET_RX_CR | BD_ENET_RX_OV)) {
-> +			dev->stats.rx_errors++;
-> +			if (status & (BD_ENET_RX_LG | BD_ENET_RX_SH)) {
-> +				/* Frame too long or too short. */
-> +				dev->stats.rx_length_errors++;
-> +			}
-> +			if (status & BD_ENET_RX_NO)	/* Frame alignment */
-> +				dev->stats.rx_frame_errors++;
-> +			if (status & BD_ENET_RX_CR)	/* CRC Error */
-> +				dev->stats.rx_crc_errors++;
-> +			if (status & BD_ENET_RX_OV)	/* FIFO overrun */
-> +				dev->stats.rx_fifo_errors++;
-> +		}
-> +
-> +		/* Report late collisions as a frame error.
-> +		 * On this error, the BD is closed, but we don't know what we
-> +		 * have in the buffer.  So, just drop this frame on the floor.
-> +		 */
-> +		if (status & BD_ENET_RX_CL) {
-> +			dev->stats.rx_errors++;
-> +			dev->stats.rx_frame_errors++;
-> +			goto rx_processing_done;
-> +		}
-> +
-> +		/* Process the incoming frame */
-> +		pkt_len = bdp->cbd_datlen;
-> +		data = (__u8 *)__va(bdp->cbd_bufaddr);
-> +
-> +		dma_unmap_single(&fep->pdev->dev, bdp->cbd_bufaddr,
-> +				 bdp->cbd_datlen, DMA_FROM_DEVICE);
-
-I have read your explaination WRT unmap/map. Actually you don't need to
-do any mapping here, since you are unconditionally copying the whole
-buffer (why???) and re-using it.
-
-Still you need a dma_sync_single() to ensure the CPUs see the correct data.
-
-> +
-> +		if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
-> +			swap_buffer(data, pkt_len);
-> +
-> +		if (data) {
-> +			eth_hdr = (struct ethhdr *)data;
-> +			mtip_atable_get_entry_port_number(fep,
-> +							  eth_hdr->h_source,
-> +							  &rx_port);
-> +			if (rx_port == MTIP_PORT_FORWARDING_INIT)
-> +				mtip_atable_dynamicms_learn_migration(fep,
-> +								      fep->curr_time,
-> +								      eth_hdr->h_source,
-> +								      &rx_port);
-> +		}
-> +
-> +		if (!fep->br_offload && (rx_port == 1 || rx_port == 2))
-> +			pndev = fep->ndev[rx_port - 1];
-> +		else
-> +			pndev = dev;
-> +
-> +		*port = rx_port;
-> +		pndev->stats.rx_packets++;
-> +		pndev->stats.rx_bytes += pkt_len;
-
-It looks like the stats are incremented too early, as the packets could
-still be dropped a few lines later
-
-> +
-> +		/* This does 16 byte alignment, exactly what we need.
-> +		 * The packet length includes FCS, but we don't want to
-> +		 * include that when passing upstream as it messes up
-> +		 * bridging applications.
-> +		 */
-> +		skb = netdev_alloc_skb(pndev, pkt_len + NET_IP_ALIGN);
-> +		if (unlikely(!skb)) {
-> +			dev_dbg(&fep->pdev->dev,
-> +				"%s: Memory squeeze, dropping packet.\n",
-> +				pndev->name);
-> +			pndev->stats.rx_dropped++;
-> +			goto err_mem;
-> +		} else {
-> +			skb_reserve(skb, NET_IP_ALIGN);
-> +			skb_put(skb, pkt_len);      /* Make room */
-> +			skb_copy_to_linear_data(skb, data, pkt_len);
-> +			skb->protocol = eth_type_trans(skb, pndev);
-> +			napi_gro_receive(&fep->napi, skb);
-> +		}
-> +
-> +		bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, data,
-> +						  bdp->cbd_datlen,
-> +						  DMA_FROM_DEVICE);
-> +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
-> +					       bdp->cbd_bufaddr))) {
-> +			dev_err(&fep->pdev->dev,
-> +				"Failed to map descriptor rx buffer\n");
-> +			pndev->stats.rx_errors++;
-> +			pndev->stats.rx_dropped++;
-> +			dev_kfree_skb_any(skb);
-
-The above statement is wrong even if you intend to keep the
-dma_unmap/dma_map pair (and please, don't do that! ;). At this point the
-skb ownership has been handed to the stack by the previous
-napi_gro_receive(), freeing it here will cause UaF and double free.
-
-> +			goto err_mem;
-> +		}
-> +
-> + rx_processing_done:
-> +		/* Clear the status flags for this buffer */
-> +		status &= ~BD_ENET_RX_STATS;
-
-With the dma map/unmap in place, you likely need a memory barrier to
-ensure the device will see the descriptor status update after bufferptr
-update.
-
-> +static int mtip_alloc_buffers(struct net_device *dev)
-> +{
-> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
-> +	struct switch_enet_private *fep = priv->fep;
-> +	struct sk_buff *skb;
-> +	struct cbd_t *bdp;
-> +	int i;
-> +
-> +	bdp = fep->rx_bd_base;
-> +	for (i = 0; i < RX_RING_SIZE; i++) {
-> +		skb = netdev_alloc_skb(dev, MTIP_SWITCH_RX_FRSIZE);
-> +		if (!skb)
-> +			goto err;
-> +
-> +		fep->rx_skbuff[i] = skb;
-> +
-> +		bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, skb->data,
-> +						  MTIP_SWITCH_RX_FRSIZE,
-> +						  DMA_FROM_DEVICE);
-> +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
-> +					       bdp->cbd_bufaddr))) {
-> +			dev_err(&fep->pdev->dev,
-> +				"Failed to map descriptor rx buffer\n");
-> +			dev_kfree_skb_any(skb);
-
-At this point fep->rx_skbuff[i] is still not NULL, and later
-mtip_free_buffers() will try to free it again. You should remove the
-above dev_kfree_skb_any(skb).
-
-> +static const struct ethtool_ops mtip_ethtool_ops = {
-> +	.get_link_ksettings     = phy_ethtool_get_link_ksettings,
-> +	.set_link_ksettings     = phy_ethtool_set_link_ksettings,
-> +	.get_drvinfo            = mtip_get_drvinfo,
-> +	.get_link               = ethtool_op_get_link,
-> +	.get_ts_info		= ethtool_op_get_ts_info,
-> +};
-> +
-> +static const struct net_device_ops mtip_netdev_ops = {
-> +	.ndo_open		= mtip_open,
-> +	.ndo_stop		= mtip_close,
-> +	.ndo_start_xmit	= mtip_start_xmit,
-> +	.ndo_set_rx_mode	= mtip_set_multicast_list,
-> +	.ndo_tx_timeout	= mtip_timeout,
-> +	.ndo_set_mac_address	= mtip_set_mac_address,
-> +};
-> +
-> +bool mtip_is_switch_netdev_port(const struct net_device *ndev)
-> +{
-> +	return ndev->netdev_ops == &mtip_netdev_ops;
-> +}
-> +
-> +static int mtip_switch_dma_init(struct switch_enet_private *fep)
-> +{
-> +	struct cbd_t *bdp, *cbd_base;
-> +	int ret, i;
-> +
-> +	/* Check mask of the streaming and coherent API */
-> +	ret = dma_set_mask_and_coherent(&fep->pdev->dev, DMA_BIT_MASK(32));
-> +	if (ret < 0) {
-> +		dev_err(&fep->pdev->dev, "No suitable DMA available\n");
-> +		return ret;
-> +	}
-> +
-> +	/* Allocate memory for buffer descriptors */
-> +	cbd_base = dma_alloc_coherent(&fep->pdev->dev, PAGE_SIZE, &fep->bd_dma,
-> +				      GFP_KERNEL);
-> +	if (!cbd_base)
-> +		return -ENOMEM;
-> +
-> +	/* Set receive and transmit descriptor base */
-> +	fep->rx_bd_base = cbd_base;
-> +	fep->tx_bd_base = cbd_base + RX_RING_SIZE;
-> +
-> +	/* Initialize the receive buffer descriptors */
-> +	bdp = fep->rx_bd_base;
-> +	for (i = 0; i < RX_RING_SIZE; i++) {
-> +		bdp->cbd_sc = 0;
-> +		bdp++;
-> +	}
-> +
-> +	/* Set the last buffer to wrap */
-> +	bdp--;
-> +	bdp->cbd_sc |= BD_SC_WRAP;
-
-This is a recurring pattern, you should use an helper for it.
-
-> +/* FEC MII MMFR bits definition */
-> +#define FEC_MMFR_ST             BIT(30)
-> +#define FEC_MMFR_OP_READ        BIT(29)
-> +#define FEC_MMFR_OP_WRITE       BIT(28)
-> +#define FEC_MMFR_PA(v)          (((v) & 0x1F) << 23)
-> +#define FEC_MMFR_RA(v)          (((v) & 0x1F) << 18)
-
-Here and elsewhere it looks like you could use FIELD_PREP and friends
-
-This patch is really too big, I'm pretty sure I missed some relevant
-issues. You should split it in multiple ones: i.e. initialization and
-h/w access, rx/tx, others ndos.
-
-/P
 
 
