@@ -4,160 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD52CC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 00:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D286FC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 01:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShDM+clk9upwE1ueL8ra8iP2EoLjVi6f+vUqU3Cdw3I=; b=gXUIJKIY02ML2OkwDyW6J8epGQ
-	j6td+oT9gNy+P/gW74mYh/RtvQknQLdaNmKLzQcpgfR2Vob4aJkHXR8ElIRIInPKPrmIN4M8Uo0o5
-	1gr/f/vJMqkNyj7d1RDFQgisqMHIFiMozEsQOPTuoMjsrQKrCtlIE1R2bTAXVRPl3mShM69efFLxU
-	O5oORzofHg5wHE4nn+ixmv+Z8MTIFtaDQVK7n4KW0kywoupvNxhs6qimo1pwmRx+PKR81SKknTTB/
-	t5gYh7ddBmmRLKAUBoZxLaK7NPvckgxTWne9mE1t99+FAaMlM03CmskzkNR6JANEuIhG61Ohj/MdW
-	yROxVk+w==;
+	bh=1LSPHf48+jgr1Krwix4nqJ/4kgUTfIyKyVvawGuD+JI=; b=bMuaxuEkPaU90bH9QWqAlU1wkw
+	ZfoFsOoZkcPU0F2dNOwycbl/Oy+JPcCvAGqZ0Xq5HtVjapDgDN7MVObRsRRefbOe1gYmdGTsbPAf9
+	L1RoreTa6Qa0yV4guRSFOVuMnBSMOXW6gfxY1qPKNZsQ7Q7KFz4onJ4/zqjBXJYieSuTplvhUsK4H
+	MvyM/ZRXHVz4URmvfSxaldY4DKgxby16AO/7rOnOGTISs62mRJ5H10F0y+rxdBlAjW/JNfsqEQBgZ
+	BrQov+mTMnHA5POic6oFDoDsQ2G/Zx4FCMX/7j6imVm3dW047XtQ+l1GVDK3eB4R7r9Lm+h9VMKZE
+	cVf6frKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJiCY-00000009fkd-1y3i;
-	Tue, 27 May 2025 00:29:54 +0000
-Received: from mail-mw2nam10on2061c.outbound.protection.outlook.com ([2a01:111:f403:2412::61c] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uJitj-00000009hIS-1tMx;
+	Tue, 27 May 2025 01:14:31 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJi9i-00000009fal-1nxj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 00:26:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MmrdC1MoexWj/DJ74NLsr7438pgTHrNyE2iC37agFh8tdc0QNMbo/bKfUg7BHmNEos/hArYlos/zBRN9Wkz4Uhrw2x8QEmgeUNgQitp/BVB/JZdmtTohq61yfsULVaRWbQ3uSZKIT4PO749SIFQaNluH/cIIQabW496FxXrKZGEy6jKHBPH6DX6QJ4H2UHQ02dOiHzAy9jkTqNNHufWYdhfgtxzeRUYFf/Fd8ih3aa1hCwfIYm4JrNY3okHAq1r/LJqU5a+bdQwk97zv6lwW31sgldDnu23ipoZVA5d0XxUfwnu92rGcmy8gbQv4nE6rLXV2RthpelFCYjkeZYN4Ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ShDM+clk9upwE1ueL8ra8iP2EoLjVi6f+vUqU3Cdw3I=;
- b=E+vnrmxr3HI3E93Bs3oFLryzXJad7mLa+YmdP4lxP3ZgdBYctZ64VPBqeXgly0XI19a9ug3p0DNJyJbncBk0tIxGAJH30E34/ew1lbog0ZVvzgwwxHQVlRffRaVDHOW7MjhXhZGZ6zY+5BRh9Fjiex5Q9d8H55c4MzRNJFjnoKMYYjaZIuDKUAE5QXuOVdDfM5WCfqJKb1HzEQFWJZ51zpwkTZ/ClzhRmBkoPlEUVwS72MIZlQ59O9pXmFLm3NvpJV1UcLGiFNZ9hVygnMxFs1Dyxd37yeKnLizM/uSV6TG8MvQHLRSPnqEjdMDWQgiSue2pkRg1aMyiHnIBelTsLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ShDM+clk9upwE1ueL8ra8iP2EoLjVi6f+vUqU3Cdw3I=;
- b=bdB7fzk65roXFattWEHSHNNFyV3+qfFCgoq12cBcpXfLiNOTIinWk+ORwEt07y5OGvnmshrRrj1Xp5dZYNS5yJD/IN4W0dbuBsiARJFufNHt1gzt6koqxJziFXMuk9s0LHf1GttqUwZr7iY6ZfDFQIrCPq0JMl91UwP+J6iqHoFjCqTaHWeIs9VhB3wXpQGlAFcStpLaSRHV5de1ejOqWvDxTz7Z3UUXhAMkBO90mJx86gEySrczAGhCOXBxIpM3xhCG2yJ9kepR7IGQITICjShqOMyExBSpgMvCglGpoPogH3/dFkKZ2Rr+x/9qIgNvUFehMeoW9Y3xIiJzqCzNRQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY3PR12MB9629.namprd12.prod.outlook.com (2603:10b6:930:101::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.24; Tue, 27 May
- 2025 00:26:53 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8769.022; Tue, 27 May 2025
- 00:26:53 +0000
-Date: Mon, 26 May 2025 21:26:52 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: ankita@nvidia.com
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com,
-	shahuang@redhat.com, lpieralisi@kernel.org, david@redhat.com,
-	aniketa@nvidia.com, cjia@nvidia.com, kwankhede@nvidia.com,
-	kjaju@nvidia.com, targupta@nvidia.com, vsethi@nvidia.com,
-	acurrid@nvidia.com, apopple@nvidia.com, jhubbard@nvidia.com,
-	danw@nvidia.com, zhiw@nvidia.com, mochs@nvidia.com,
-	udhoke@nvidia.com, dnigam@nvidia.com, alex.williamson@redhat.com,
-	sebastianene@google.com, coltonlewis@google.com,
-	kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org,
-	akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org,
-	ddutile@redhat.com, tabba@google.com, qperret@google.com,
-	seanjc@google.com, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	maobibo@loongson.cn
-Subject: Re: [PATCH v6 3/5] kvm: arm64: New memslot flag to indicate
- cacheable mapping
-Message-ID: <20250527002652.GM61950@nvidia.com>
-References: <20250524013943.2832-1-ankita@nvidia.com>
- <20250524013943.2832-4-ankita@nvidia.com>
+	id 1uJirb-00000009hCz-3Zmj;
+	Tue, 27 May 2025 01:12:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748308340; x=1779844340;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NaabEAXMenskDJ3R96u3GW/+2mPpv4nvngHgm8i51Lc=;
+  b=k4rm5vqojoGJPLFIxlswk+4Dyo6r++mqJvvcvDlX9loQSgv/uJLs2BWo
+   CTq3Ct77oF1s/kwA8+eagh/csUQ4AdttSp2X3VpQXgBsXs1c495tLSpYj
+   CcomcCDkUNYEhMg4gnbdCPF7YQ0jWd0LzhpQqj72R55sMsSVPgw8xqPWb
+   ZadaDuyyEKO9pDt09Stb6Vg7fQ8wSaRlIw7w8GXPvSlALYx6WRA7G46iJ
+   ouIiO3c1f1Ce4hqHN8FRYghzOOTN2PjhGS3zehwLm1TeZ4YK5V2PV3e69
+   +kdAzq2XGmy6DeQSMvG+W97Lw9r0m7K8TTTHIYMcoO0ZmQ/LHSIVR8EKR
+   A==;
+X-CSE-ConnectionGUID: SNN5qQ59QDuyZb60VPb9sQ==
+X-CSE-MsgGUID: QIL1UexrRAeESvgN9Sf7SQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11445"; a="50441042"
+X-IronPort-AV: E=Sophos;i="6.15,317,1739865600"; 
+   d="scan'208";a="50441042"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2025 18:12:08 -0700
+X-CSE-ConnectionGUID: +Fgy8SvXTX6Hb8gi2pMf3A==
+X-CSE-MsgGUID: F+DAm4N9SnyoR6cqrBXwUQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,317,1739865600"; 
+   d="scan'208";a="143026312"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 26 May 2025 18:12:04 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uJirK-000Sme-1i;
+	Tue, 27 May 2025 01:12:02 +0000
+Date: Tue, 27 May 2025 09:11:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Quentin Schulz <foss+kernel@0leil.net>, Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
+	Daniel Semkowicz <dse@thaumatec.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH 2/4] mfd: rk8xx-core: allow to customize RK806 reset
+ method
+Message-ID: <202505270807.tc7zzrMf-lkp@intel.com>
+References: <20250526-rk8xx-rst-fun-v1-2-ea894d9474e0@cherry.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250524013943.2832-4-ankita@nvidia.com>
-X-ClientProxiedBy: BL6PEPF0001641F.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:22e:400:0:1004:0:f) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY3PR12MB9629:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9270a877-42ed-45a0-a213-08dd9cb52dc3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1/VkNG4iFjsItvnXKnm4PcqW2SBOXpPVoHgZ7lp7dAjApRwlIy4ZMt9E8znz?=
- =?us-ascii?Q?USTfJBAG1MrQcOkQ/4TGALfUqB5Gu1R12bj7RoNFjo3LML1bnN/niwVbuXPx?=
- =?us-ascii?Q?+qBfwu4XzMthYvqQXzYTCxSbat61eaioE0spxuP3uZVQADL1Me8ia83d0S1U?=
- =?us-ascii?Q?T8x2M61qCVt3aT38GMKHP6+EQRNOE6+RuNFAq6MEXWbFqNhtqbhx+/C6/aYq?=
- =?us-ascii?Q?us7okptJ5dVJSMmCkWoKu/nUrDlmekUSx31a0Ikg9EAWMTT4PNrTU5uyGvNJ?=
- =?us-ascii?Q?jnjnUyLKbnoos6zLTapPO/RCt1xhfZFKQ2M0ptQ20bQ8Lm9rLK0M5wX0wPeL?=
- =?us-ascii?Q?/AqQWr7GScjPzCAlW7kQX9t0IhZsRvVZEWOEnOSspC12bHfluwmr2fjARxpN?=
- =?us-ascii?Q?gHCDRLlBAsWSsvE9e7zrFOWUj5+LouMGKxLYRzZrRIkDe+oqoV6q/Di0VX90?=
- =?us-ascii?Q?uiQwHWSuY5th28GB5d6e91hljbEulux3sZH7XEeoh7a96a/uXgiB0Fsj0FEr?=
- =?us-ascii?Q?oOia5mP9PeAwqk+BgzQSPuea4LGo/s94ILeKIRqhp+1OHBcS0VkXX4WVyfBD?=
- =?us-ascii?Q?wao4FCj5VJQqOrYI+W0Ozn2Lt+nc03stghFMLlzZC1yO1zflcOaoPlKUArPZ?=
- =?us-ascii?Q?N94MX/oUCL8iqDxIuncwwfdc+QDUzICAqyA5AnV9BDViOIshRje6g5AkqvuT?=
- =?us-ascii?Q?0pTcrZCtvaxasysNGNTyPLzkO6TLkEWV5Si+j6tLUyqWqCTHFZYB4ClSVhWP?=
- =?us-ascii?Q?+f38xHHne5mAovr7sD9cjzRZY0TiWmVGeqtsyqdBPyvcBYRuRpWkjeFJCkpf?=
- =?us-ascii?Q?x5mK4MAoLxexwKswFp3NM1YQKEL3m2RXtcHz4YbKUJpIARogspIunsBGoxX2?=
- =?us-ascii?Q?d9MFy7iRm0GPbxH97e3S5i+JbuIQyBDy9wwOxYSPUga8V2eFFNm99hRMo9iu?=
- =?us-ascii?Q?H52zivh7ubDZpnkysyVIBLstlZGQ5vW6NmJ+i9clAcb/Pya3/yy3DNmXRE37?=
- =?us-ascii?Q?ricqfzKc6dxqB1T9D4iKaKScB9TyH3/QsHgYS5ovFN/v2LtpQUaeeDNlE4j5?=
- =?us-ascii?Q?YIoGTplt2odOrjIMw4m0HpjFm9hGi+lRd49XNvL8elzF4F0cHO5F6qGtuGr8?=
- =?us-ascii?Q?3/VHGTuddGrKLscPPMMNwH1aB+6SodBiViAK/ArBKqxjJ4UCh4Lkco65En4V?=
- =?us-ascii?Q?vKLduKThDPzrGdLAZ1nhsKBUvIh0gihuunXCEQ5ebGk25V2mFcuvIrnJyaeN?=
- =?us-ascii?Q?zZ7H3FkZKJhdx35qAyirZEBdhEZSMFWf9ZVxqDP9Q8N/2On28SHpcxSx1qMd?=
- =?us-ascii?Q?udPCv1cQ5jdJ0IZwgBG2LDVgYSsjmUeQFvW+bXQx7qaSefByJBNqULx5OU5G?=
- =?us-ascii?Q?SgnUWbLzIxYt09dRWlotFpPT4AbUun8DZljr6kR3TcYp3csEzv5dyehyKGk3?=
- =?us-ascii?Q?G1aPCz4Jm/E=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lcdSp3MQmWThgsc8SivHHvJUld7NJHGTHFZFPIqF/GVtXtIe72k65l/hzaVo?=
- =?us-ascii?Q?rnmTldKhSvr9OPp0bn1TPd+cBfXdRVnCZU+xW9teVFWVPEe4ciwUDgvpg1/I?=
- =?us-ascii?Q?PqEkfhZpNZCMjmBbEaNUzG8nFx2l+/CJQP/v8obj4yWRtsV0F4jaFM74e+BZ?=
- =?us-ascii?Q?+4p//FBRAIDp6dVshsCIbe5ZgsG63thyFVOL91PAPA72Dmcc9mMVZRSie02K?=
- =?us-ascii?Q?TtYVZ3l0RKwTKPb3OsffAbc5sKKiYRE0bmSNU/0iYVATZYCw7KrN8kTVaGO/?=
- =?us-ascii?Q?7Jt2Hq07lFHuySadxXTP2PDAtkZgO/xIqXadmgBUpdXfaL8kOWcnEtss7tC6?=
- =?us-ascii?Q?KjRX5kafxjX+dDB/KgvALuUau9aqYYtG3zcfOMTeJajiMJvMQiQkwNun3346?=
- =?us-ascii?Q?ArPq2A2GcmlK1fxh67FeHRYszEt70uCHVMYB3EyrFnD7jF40hGPgMM75EV1B?=
- =?us-ascii?Q?dVEf1VgWPWDto1O+jXOpkXXQuTB2i52Xi+5rrSOzubADScrUuqSw08fU1IQc?=
- =?us-ascii?Q?EIK2snqofrrYyv3LXfvFBDhtzc5KMgZqBNr2p4w9ouxPp8to4Iz1eUgTAMTz?=
- =?us-ascii?Q?8CF4f9jeTCUlB6XA0cWEARzbn/DiMtvH8fIgFD7EY3kknGpREl+dEXxs6kPR?=
- =?us-ascii?Q?z9k6sb0yiB72Eg2RJR3KUkWUHTJqoFRbtXkH5/PQgckpUQK7RFmjhmm/ES2h?=
- =?us-ascii?Q?SfbC2Ab7LsPH15Yb9/KtwijCQylITM/Cfk05SFnqNEeyOhWpOVPA/lSoaV2e?=
- =?us-ascii?Q?NCEDorQq1BLk3hlwqmCBgOcEC7ipRbDcXZsQklhr8mHjFNRLtTwA8QtObF9b?=
- =?us-ascii?Q?KqHOp8MrSD+WjOog1TtodJY2NP2LBs651UjFSeIhFNFGKquvLZSgh0Mc3f4Y?=
- =?us-ascii?Q?OkrBV1wxFdtYdHvlD3+6GvsXeaf6YBRLjqM3kZrmqCCSqG9CsrDWQgOFa0Ru?=
- =?us-ascii?Q?xIUkQgxwBoA6Be+XKElT/L2iTstmGjB2OSl3aMqpXXJ0988xiCK7HyRU3hST?=
- =?us-ascii?Q?obIBG01FLzf/v93ONjaoJpoVeYzi8dboDE9NFKroU0vasGpbzUxt+bdUYmv3?=
- =?us-ascii?Q?0djivywKYHQtrN5loiZlIt9Fc52gMHT9bOjakwK7tX4rkj1MX3sku5pyFP/I?=
- =?us-ascii?Q?KCeZhDC394pawbcbbyaPoG7VS2WP2d14/qGRZxM1aH6zuDJjTPYS7ybMqjSd?=
- =?us-ascii?Q?HMlZcSYoL2KpWNSlLDWfq8wq1/jxd3ieNTtAgsUgqRX8t5zO9WdDfz6jnadI?=
- =?us-ascii?Q?wCCCKiSo3MaJ5FEHu41GYkhIIqrKtX8jd/SiNR6aAk3gK5RFPppDBbJp6zTV?=
- =?us-ascii?Q?1gkDfO8Omdoa5SQ79SgRiSIn4iCEjtd8b2P9wp4gr+QYfaUBGRjHUYnIrEc3?=
- =?us-ascii?Q?rodfuVY0dRUWc5VEyf8lIHgTHWMnSO+PjDd6UmQ0WBdgRcLSP72J2pCNlUmM?=
- =?us-ascii?Q?hteikAooTl03lj0u+V8Y+MWgjOEPNI6HGsh3ZCWxMr4qyF2D7J4Xumhvvfh/?=
- =?us-ascii?Q?SQIjqxZG5WYNlIUXV4NBF1tgila/OS4Xp7RpwVUpgbYCMfWiyXRv8DaR4HVa?=
- =?us-ascii?Q?4WAfA6pRotlsq8h9VRpAzr1ZzQa6BxKGx6FeoUeO?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9270a877-42ed-45a0-a213-08dd9cb52dc3
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2025 00:26:53.0928
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: USznFtW/E5icdPHB8CP8syRDYGy/I8mMIZtLb01lJ9MTj56bQtPGFSHqedGhYMPT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY3PR12MB9629
+In-Reply-To: <20250526-rk8xx-rst-fun-v1-2-ea894d9474e0@cherry.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_172658_476159_2B33A888 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20250526_181219_909210_665E60B0 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,33 +96,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 24, 2025 at 01:39:41AM +0000, ankita@nvidia.com wrote:
-> From: Ankit Agrawal <ankita@nvidia.com>
-> 
-> Introduce a new memslot flag KVM_MEM_ENABLE_CACHEABLE_PFNMAP
-> as a tool for userspace to indicate that it expects a particular
-> PFN range to be mapped cacheable.
-> 
-> This will serve as a guide for the KVM to activate the code that
-> allows cacheable PFNMAP.
-> 
-> CC: Oliver Upton <oliver.upton@linux.dev>
-> CC: Catalin Marinas <catalin.marinas@arm.com>
-> CC: Jason Gunthorpe <jgg@nvidia.com>
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
-> ---
->  include/uapi/linux/kvm.h | 1 +
->  virt/kvm/kvm_main.c      | 3 ++-
->  2 files changed, 3 insertions(+), 1 deletion(-)
+Hi Quentin,
 
-I thought we agreed not to do this? Sean was strongly against it
-right?
+kernel test robot noticed the following build warnings:
 
-There is no easy way for VFIO to know to set it, and the kernel will
-not allow switching a cachable VMA to non-cachable anyhow.
+[auto build test WARNING on 0ff41df1cb268fc69e703a08a57ee14ae967d0ca]
 
-So all it does is make it harder to create a memslot.
+url:    https://github.com/intel-lab-lkp/linux/commits/Quentin-Schulz/dt-bindings-mfd-rk806-allow-to-customize-PMIC-reset-method/20250527-011711
+base:   0ff41df1cb268fc69e703a08a57ee14ae967d0ca
+patch link:    https://lore.kernel.org/r/20250526-rk8xx-rst-fun-v1-2-ea894d9474e0%40cherry.de
+patch subject: [PATCH 2/4] mfd: rk8xx-core: allow to customize RK806 reset method
+config: arm-randconfig-001-20250527 (https://download.01.org/0day-ci/archive/20250527/202505270807.tc7zzrMf-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250527/202505270807.tc7zzrMf-lkp@intel.com/reproduce)
 
-Jason
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505270807.tc7zzrMf-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/mfd/rk8xx-core.c:723:3: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
+     723 |                 u32 rst_fun;
+         |                 ^
+   1 warning generated.
+
+
+vim +723 drivers/mfd/rk8xx-core.c
+
+   694	
+   695	int rk8xx_probe(struct device *dev, int variant, unsigned int irq, struct regmap *regmap)
+   696	{
+   697		struct rk808 *rk808;
+   698		const struct rk808_reg_data *pre_init_reg;
+   699		const struct mfd_cell *cells;
+   700		int dual_support = 0;
+   701		int nr_pre_init_regs;
+   702		int nr_cells;
+   703		int ret;
+   704		int i;
+   705	
+   706		rk808 = devm_kzalloc(dev, sizeof(*rk808), GFP_KERNEL);
+   707		if (!rk808)
+   708			return -ENOMEM;
+   709		rk808->dev = dev;
+   710		rk808->variant = variant;
+   711		rk808->regmap = regmap;
+   712		dev_set_drvdata(dev, rk808);
+   713	
+   714		switch (rk808->variant) {
+   715		case RK805_ID:
+   716			rk808->regmap_irq_chip = &rk805_irq_chip;
+   717			pre_init_reg = rk805_pre_init_reg;
+   718			nr_pre_init_regs = ARRAY_SIZE(rk805_pre_init_reg);
+   719			cells = rk805s;
+   720			nr_cells = ARRAY_SIZE(rk805s);
+   721			break;
+   722		case RK806_ID:
+ > 723			u32 rst_fun;
+   724	
+   725			rk808->regmap_irq_chip = &rk806_irq_chip;
+   726			pre_init_reg = rk806_pre_init_reg;
+   727			nr_pre_init_regs = ARRAY_SIZE(rk806_pre_init_reg);
+   728			cells = rk806s;
+   729			nr_cells = ARRAY_SIZE(rk806s);
+   730			dual_support = IRQF_SHARED;
+   731	
+   732			ret = device_property_read_u32(dev, "rockchip,rst-fun", &rst_fun);
+   733			if (ret) {
+   734				dev_dbg(dev,
+   735					"rockchip,rst-fun property missing, not setting RST_FUN\n");
+   736				break;
+   737			}
+   738	
+   739			ret = regmap_update_bits(rk808->regmap, RK806_SYS_CFG3,
+   740						 RK806_RST_FUN_MSK,
+   741						 FIELD_PREP(RK806_RST_FUN_MSK, rst_fun));
+   742			if (ret)
+   743				return dev_err_probe(dev, ret, "RST_FUN write err\n");
+   744			break;
+   745		case RK808_ID:
+   746			rk808->regmap_irq_chip = &rk808_irq_chip;
+   747			pre_init_reg = rk808_pre_init_reg;
+   748			nr_pre_init_regs = ARRAY_SIZE(rk808_pre_init_reg);
+   749			cells = rk808s;
+   750			nr_cells = ARRAY_SIZE(rk808s);
+   751			break;
+   752		case RK816_ID:
+   753			rk808->regmap_irq_chip = &rk816_irq_chip;
+   754			pre_init_reg = rk816_pre_init_reg;
+   755			nr_pre_init_regs = ARRAY_SIZE(rk816_pre_init_reg);
+   756			cells = rk816s;
+   757			nr_cells = ARRAY_SIZE(rk816s);
+   758			break;
+   759		case RK818_ID:
+   760			rk808->regmap_irq_chip = &rk818_irq_chip;
+   761			pre_init_reg = rk818_pre_init_reg;
+   762			nr_pre_init_regs = ARRAY_SIZE(rk818_pre_init_reg);
+   763			cells = rk818s;
+   764			nr_cells = ARRAY_SIZE(rk818s);
+   765			break;
+   766		case RK809_ID:
+   767		case RK817_ID:
+   768			rk808->regmap_irq_chip = &rk817_irq_chip;
+   769			pre_init_reg = rk817_pre_init_reg;
+   770			nr_pre_init_regs = ARRAY_SIZE(rk817_pre_init_reg);
+   771			cells = rk817s;
+   772			nr_cells = ARRAY_SIZE(rk817s);
+   773			break;
+   774		default:
+   775			dev_err(dev, "Unsupported RK8XX ID %lu\n", rk808->variant);
+   776			return -EINVAL;
+   777		}
+   778	
+   779		if (!irq)
+   780			return dev_err_probe(dev, -EINVAL, "No interrupt support, no core IRQ\n");
+   781	
+   782		ret = devm_regmap_add_irq_chip(dev, rk808->regmap, irq,
+   783					       IRQF_ONESHOT | dual_support, -1,
+   784					       rk808->regmap_irq_chip, &rk808->irq_data);
+   785		if (ret)
+   786			return dev_err_probe(dev, ret, "Failed to add irq_chip\n");
+   787	
+   788		for (i = 0; i < nr_pre_init_regs; i++) {
+   789			ret = regmap_update_bits(rk808->regmap,
+   790						pre_init_reg[i].addr,
+   791						pre_init_reg[i].mask,
+   792						pre_init_reg[i].value);
+   793			if (ret)
+   794				return dev_err_probe(dev, ret, "0x%x write err\n",
+   795						     pre_init_reg[i].addr);
+   796		}
+   797	
+   798		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, cells, nr_cells, NULL, 0,
+   799				      regmap_irq_get_domain(rk808->irq_data));
+   800		if (ret)
+   801			return dev_err_probe(dev, ret, "failed to add MFD devices\n");
+   802	
+   803		if (device_property_read_bool(dev, "system-power-controller") ||
+   804		    device_property_read_bool(dev, "rockchip,system-power-controller")) {
+   805			ret = devm_register_sys_off_handler(dev,
+   806					    SYS_OFF_MODE_POWER_OFF_PREPARE, SYS_OFF_PRIO_HIGH,
+   807					    &rk808_power_off, rk808);
+   808			if (ret)
+   809				return dev_err_probe(dev, ret,
+   810						     "failed to register poweroff handler\n");
+   811	
+   812			switch (rk808->variant) {
+   813			case RK809_ID:
+   814			case RK817_ID:
+   815				ret = devm_register_sys_off_handler(dev,
+   816								    SYS_OFF_MODE_RESTART, SYS_OFF_PRIO_HIGH,
+   817								    &rk808_restart, rk808);
+   818				if (ret)
+   819					dev_warn(dev, "failed to register rst handler, %d\n", ret);
+   820				break;
+   821			default:
+   822				dev_dbg(dev, "pmic controlled board reset not supported\n");
+   823				break;
+   824			}
+   825		}
+   826	
+   827		return 0;
+   828	}
+   829	EXPORT_SYMBOL_GPL(rk8xx_probe);
+   830	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
