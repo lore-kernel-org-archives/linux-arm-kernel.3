@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33197C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05517C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=exJ5R/SITAtKHRSbnEeb2WxH/6SphPAPMLJX/ww7Rwo=; b=SoYDWm+IlMGvIwKv9fJjpalK5P
-	72vzhX7XmFG4p+lAiGzvm+sK24k70OK/amuBG4JBLQxkJfWvWzQUxIQfUImLZi+M0AqsEEyr6Q+cV
-	HXnejUlt8VfQzhwdmngD+i9+KA1DYfrnDkL1yGm8xs8t4TEYYNrkbyO0ccjpvcob463YHYcQji5MN
-	92fArKDW0DSjaCXoH9MIQJvobb4U2NDZjibo5pmpLlri1cbDk5cotEDqpuXn3qhG8K1LrZCLWoSw8
-	rkurxYtFO3s2z0ZnMqF2bBcuBZ4sv1/YZ4VtNZkwiFEKVGhjzzqoPYO2UOPnq5yA9TGFVQ++g3GEc
-	CMeJ/48w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XaSDramaQ4ealF19zsjhv/7XrCvZ3oUf+OpS7nGNI+E=; b=rEhDTOFRUOXuj4k7dnq87OaobM
+	q8Hjuh9OIz5p6ypJsm4mhj3tvSlJWP4BXD8d2jqSBNazjFXxWDdj+zmd6zCWwImKIvpUE1hX8MaRz
+	OgY5BtypayzGPprfrfwgP9o3l8dJJJBOiH/rIiKkj02T1JJov8fy9Bi3bf/wZ7tU217YVFoNuSssH
+	MgpTZr9rDlxICoxliJTjgEA5vkLWD27jivYYBE3CWj2rcWtlVOKhHnFnifUaTekuXjwopJRL7PLuI
+	/strsHObY7P7AafOov/VmSzBuOypE/dVNKoxsvF0oHJID44WnyYn+OpD6ggBasxZoE3dHueJzfRGI
+	jjgLe8Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJn3n-00000009wr7-0B0q;
-	Tue, 27 May 2025 05:41:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uJn8r-00000009xRS-014A;
+	Tue, 27 May 2025 05:46:25 +0000
+Received: from smtp-19.smtpout.orange.fr ([80.12.242.19] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJmmi-00000009v6R-3C35;
-	Tue, 27 May 2025 05:23:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AEE565C1188;
-	Tue, 27 May 2025 05:21:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5B659C4CEEA;
-	Tue, 27 May 2025 05:23:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748323410;
-	bh=1GCpqYieVMUjZiRR1spl6SkovVlonsGalWojCmfHnU8=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=q/Ij7YmJmUW1NjByELEaA0Mhr7SA8x58hy9khjNtNUva/VJuZBWHe/2SERMvkF4z2
-	 YidQ55mxZQ4bu8wTMwr2K8cIGLadB8uo+xDssW+ec+J7RUAmOhPTEm3x8i59lqeWSk
-	 GSEhFIcWiicRs72HKuG2/y5Y8/fQ9q+fK7oWhOV5r3Hx4/asWj66aO2VYVVr3MfpDH
-	 VrOwv84+pn1pdVBGZ6IxblTyQPyD55IPXOtBxHPktNJhmfpJ8JJ3565l818KnE89K0
-	 a07BRjcFudPuR70UryE/bUXXcp9DF5xjhaZ/KA4RnwGVC/n4gdbZA6v7fGXYfJsmBa
-	 dYpGHfW8hyCmw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45F58C54ED1;
-	Tue, 27 May 2025 05:23:30 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Subject: [PATCH v3 0/6] Add support for Amlogic S7/S7D/S6 pinctrl
-Date: Tue, 27 May 2025 13:23:27 +0800
-Message-Id: <20250527-s6-s7-pinctrl-v3-0-44f6a0451519@amlogic.com>
+	id 1uJn6g-00000009x4Y-0dRr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 May 2025 05:44:12 +0000
+Received: from [IPV6:2a01:cb10:785:b00:8347:f260:7456:7662]
+ ([IPv6:2a01:cb10:785:b00:8347:f260:7456:7662])
+	by smtp.orange.fr with ESMTPA
+	id Jn6TuvW38K8x9Jn6TuJ1uT; Tue, 27 May 2025 07:44:04 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1748324645;
+	bh=XaSDramaQ4ealF19zsjhv/7XrCvZ3oUf+OpS7nGNI+E=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=RuqfKSZEr3CG4BWdedgN5eVB3GxhSwHwxSTbYH9h7RUR5j4mU7wXvS51e1Eh7spnr
+	 VZEt6ixH2w73IfHBCz5gbF34YZwiMMuv7x1QVLLUUCUT+p7r4eF18zjdglLAoJjfde
+	 DueN8tNY+/fcyYDpvtdPpXgf5+K7jCKExyhWjWb1DJe+Zn0X2ljOpOrEXOib0oNTwO
+	 ssnhI8HZFd+1ocoiNCg7SDPLh4//RcuYV9+AUWMlULPgxE8SC60zHwDLXa0DJMeCDe
+	 ZT6vkRllvZ0LUWkTBi4kM1dsd1X72xNeKq97GF7SJ1LGiThP56Rytoh3UjKmXv3Ycd
+	 LAW+0luDsoOxQ==
+X-ME-Helo: [IPV6:2a01:cb10:785:b00:8347:f260:7456:7662]
+X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
+X-ME-Date: Tue, 27 May 2025 07:44:05 +0200
+X-ME-IP: 2a01:cb10:785:b00:8347:f260:7456:7662
+Message-ID: <be687d2d-4c16-46d6-8828-b0e4866d91de@wanadoo.fr>
+Date: Tue, 27 May 2025 07:43:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAE9MNWgC/3WMyw6CMBQFf4V0bU1fQGXlfxgXtb3ATYCSljQaw
- r9bWKmJyzk5MyuJEBAiaYqVBEgY0U8Z5KkgtjdTBxRdZiKYKFnJFY0VjTWdcbJLGKhpOTyc0do
- oINmZA7T4PHq3e+Ye4+LD68gnvq//SolTRuXFyUpb4/LlasbBd2jP1o9kbyXx4Qv+64vsMwsly
- FpoxdS3v23bGxChhL/sAAAA
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748323408; l=2141;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=1GCpqYieVMUjZiRR1spl6SkovVlonsGalWojCmfHnU8=;
- b=wtHOhFlqk718sG5FN2taveblE9/ol8PL4CgX+7110oCYLvkhagcOQvvyZlh/2hYLAbg5nfqF6
- kzUF/U7ytpjB39z+NSCAiwFHG+f+LreRrPkI6u1+I4Ox2xUJfSwIYWp
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net: dwmac-rk: No need to check the return value of the
+ phy_power_on()
+To: =?UTF-8?B?5p2O5ZOy?= <sensor1010@163.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ jonas@kwiboo.se, rmk+kernel@armlinux.org.uk, david.wu@rock-chips.com,
+ wens@csie.org, jan.petrous@oss.nxp.com
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250526161621.3549-1-sensor1010@163.com>
+Content-Language: en-US, fr-FR
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <20250526161621.3549-1-sensor1010@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_222332_888885_584E5187 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20250526_224410_596439_68AE0FD4 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,59 +78,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some Amlogic SoCs, to save register space or due to some
-abnormal arrangements, two sets of pins share one mux register.
-A group starting from pin0 is the main pin group, which acquires
-the register address through DTS and has management permissions,
-but the register bit offset is undetermined.
-Another GPIO group as a subordinate group. Some pins mux use share
-register and bit offset from bit0 . But this group do not have
-register management permissions.
+Le 26/05/2025 à 18:16, 李哲 a écrit :
+> since the return value of the phy_power_on() function is always 0,
+> checking its return value is redundant.
 
-In SoC S7 and S7D, GPIOX(16~19) mux share with GPIOCC mux register.
+Can you elaborate why?
 
-In SoC S6, GPIOX(16~19) mux share with GPIOCC mux register, and GPIOD(6)
-mux share with GPIOF mux register.
+Looking at  (1], I think that it is obvious that non-0 values can be 
+returned.
 
-Add S7/S7D/S6 pinctrl compatible string and device node.
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
-Changes in v3:
-- Squash three submissons of bindings into one.
-- Link to v2: https://lore.kernel.org/r/20250521-s6-s7-pinctrl-v2-0-0ce5e3728404@amlogic.com
+CJ
 
-Changes in v2:
-- Add a unit address for pinctrl node.
-- Use pointer instead of flexible array to solve the problem tested by kernel test robot.
-- Link to v1: https://lore.kernel.org/r/20250514-s6-s7-pinctrl-v1-0-39d368cad250@amlogic.com
+[1]: 
+https://elixir.bootlin.com/linux/v6.15/source/drivers/phy/phy-core.c#L305
 
----
-Xianwei Zhao (6):
-      dt-bindings: pinctl: amlogic,pinctrl-a4: Add compatible string for S7/S7D/S6
-      pinctrl: meson: a4: remove special data processing
-      pinctrl: meson: support amlogic S6/S7/S7D SoC
-      dts: arm64: amlogic: add S7 pinctrl node
-      dts: arm64: amlogic: add S7D pinctrl node
-      dts: arm64: amlogic: add S6 pinctrl node
-
- .../bindings/pinctrl/amlogic,pinctrl-a4.yaml       |   9 +-
- arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        |  97 +++++++++++++++++
- arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi        |  81 ++++++++++++++
- arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi       |  90 ++++++++++++++++
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c         | 118 ++++++++++++++++-----
- 5 files changed, 370 insertions(+), 25 deletions(-)
----
-base-commit: 176e917e010cb7dcc605f11d2bc33f304292482b
-change-id: 20250514-s6-s7-pinctrl-af1ebda88a4e
-
-Best regards,
--- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
-
+> 
+> Signed-off-by: 李哲 <sensor1010@163.com>
+> ---
+>   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 6 +-----
+>   1 file changed, 1 insertion(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 700858ff6f7c..6e8b10fda24d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -1839,11 +1839,7 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
+>   		dev_err(dev, "NO interface defined!\n");
+>   	}
+>   
+> -	ret = phy_power_on(bsp_priv, true);
+> -	if (ret) {
+> -		gmac_clk_enable(bsp_priv, false);
+> -		return ret;
+> -	}
+> +	phy_power_on(bsp_priv, true);
+>   
+>   	pm_runtime_get_sync(dev);
+>   
 
 
