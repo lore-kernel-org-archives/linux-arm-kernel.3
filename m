@@ -4,89 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F11BC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 12:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8659DC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 12:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtZVnCnpRV6zUc59GkmlQwFl3jY/BTEQ8NrGfGIbdWA=; b=FxPdhyXQglBuwen/D7QmgTomet
-	LDLcNHeIetBJYRKJapdZx6AvQU+OPwUccDwpVVJal4+5y89KdrkskaQOZg/0YozDZi4LiNrPwUMas
-	3eMPZE2M93OEJv/BNYJ+/FpOwC4smnyEBqvF1BhpcQQrHB1K4bHt2LceFt+6Dd59ojdJ0OFmIKrbE
-	WlyNmrySS/G4V3E2D7/tFnRgCfBHBUNLIwzgRNYiY7AIjs+jq9wjaeWp4lSi4ccjSU+S5ADWTC2QR
-	6PBbZsq4R5P6CYkwcXiOsiE6T98XSU00b2OPYhyXKnCYUGu6omtq5RrKU8I3yc/zN2eB8wO03u9Pp
-	vYPoSCog==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jpUkWfMGwvv5SDHizivejVfJAasO8TxaXlqi3NQ9UUQ=; b=A22YUB8BXpuX4WUJiK4U9T+mJR
+	DB9oAQ7oQ6+rLVkDvMVB7MtApNWxv5HJh8Miv3LlavEmVBZR0wbdDfLGeftzRw2aRmE4neIUdgo4i
+	Bp88G9SaL6Mzvut0t48yP2JZxUGLT8rKDXahw6w4uFNOtswBH3HVZ14BsH1lZeRBZNhDLawiIHnxV
+	UIiajvFELLcvzOxRN0Rk5F3QJAjCCMU6h1gj8b/syQ9KkzNAjbfeeaq87F2djevf6JKbjpKrmqswr
+	KD9ExJkfagexb9/UEsyBRhANzV7mDehG9W9F/aplMmzYzzx0SHr5KLnKfNzNbsVRWqUGhyh7BZh49
+	GFmloh6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJtKo-0000000AhRf-0qKT;
-	Tue, 27 May 2025 12:23:10 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJtHK-0000000Ah9G-0ZUv
+	id 1uJtsV-0000000AkNi-0ylK;
+	Tue, 27 May 2025 12:57:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uJtqN-0000000AkAp-2fhG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 12:19:36 +0000
-Received: from mail.maildlp.com (unknown [172.19.93.142])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4b6BWt1VV4zKHMjZ
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 20:19:22 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id A279F1A0359
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 20:19:20 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP4 (Coremail) with SMTP id gCh0CgB33GDFrTVoSsiwNg--.53275S2;
-	Tue, 27 May 2025 20:19:18 +0800 (CST)
-Message-ID: <69b24e21-13aa-42b6-bb42-6aad89284aee@huaweicloud.com>
-Date: Tue, 27 May 2025 20:19:17 +0800
+	Tue, 27 May 2025 12:55:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8AA9D14BF;
+	Tue, 27 May 2025 05:55:28 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BE6543F673;
+	Tue, 27 May 2025 05:55:43 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: vincenzo.frascino@arm.com,
+	liviu.dudau@arm.com,
+	sudeep.holla@arm.com,
+	lpieralisi@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] arm64: dts: morello: Add CMN PMU
+Date: Tue, 27 May 2025 13:55:39 +0100
+Message-Id: <cbeb3832ded539c8c4616d49d3133078a34f88ad.1748350539.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v3 0/2] bpf, arm64: support up to 12 arguments
-Content-Language: en-US
-To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Puranjay Mohan <puranjay@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Florent Revest <revest@chromium.org>
-Cc: Bastien Curutchet <bastien.curutchet@bootlin.com>,
- ebpf@linuxfoundation.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, Xu Kuohai <xukuohai@huawei.com>
-References: <20250527-many_args_arm64-v3-0-3faf7bb8e4a2@bootlin.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <20250527-many_args_arm64-v3-0-3faf7bb8e4a2@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: gCh0CgB33GDFrTVoSsiwNg--.53275S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGF47tr47Xw1UJF1kWw1fCrg_yoW5Wr1rpF
-	Wvga13Kas7Aw4xuFsavw12ga15Ka95ta1a9F1ay343ZFn0yFy8XF4SkFsI9ry5Xr93Wry2
-	vr429F13G3WUZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
-	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	4xRDUUUUU==
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_051934_469003_3D9B67AE 
-X-CRM114-Status: GOOD (  21.63  )
+X-CRM114-CacheID: sfid-20250527_055547_719516_056C4B6D 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,69 +63,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/27/2025 6:06 PM, Alexis Lothoré wrote:
-> Hello,
-> 
-> this is the v2 of the many args series for arm64, being itself a revival
-> of Xu Kuhoai's work to enable larger arguments count for BPF programs on
-> ARM64 ([1]).
-> 
-> The discussions in v1 shed some light on some issues around specific
-> cases, for example with functions passing struct on stack with custom
-> packing/alignment attributes: those cases can not be properly detected
-> with the current BTF info. So this new revision aims to separate
-> concerns with a simpler implementation, just accepting additional args
-> on stack if we can make sure about the alignment constraints (and so,
-> refusing attachment to functions passing structs on stacks). I then
-> checked if the specific alignment constraints could be checked with
-> larger scalar types rather than structs, but it appears that this use
-> case is in fact rejected at the verifier level (see a9b59159d338 ("bpf:
-> Do not allow btf_ctx_access with __int128 types")). So in the end the
-> specific alignment corner cases raised in [1] can not really happen in
-> the kernel in its current state. This new revision still brings support
-> for the standard cases as a first step, it will then be possible to
-> iterate on top of it to add the more specific cases like struct passed
-> on stack and larger types.
-> 
-> [1] https://lore.kernel.org/all/20230917150752.69612-1-xukuohai@huaweicloud.com/#t
-> 
-> Signed-off-by: Alexis Lothoré (eBPF Foundation) <alexis.lothore@bootlin.com>
-> ---
-> Changes in v3:
-> - switch back -EOPNOTSUPP to -ENOTSUPP
-> - fix comment style
-> - group intializations for arg_aux
-> - remove some unneeded round_up
-> - Link to v2: https://lore.kernel.org/r/20250522-many_args_arm64-v2-0-d6afdb9cf819@bootlin.com
-> 
-> Changes in v2:
-> - remove alignment computation from btf.c
-> - deduce alignment constraints directly in jit compiler for simple types
-> - deny attachment to functions with "corner-cases" arguments (ie:
->    structs on stack)
-> - remove custom tests, as the corresponding use cases are locked either
->    by the JIT comp or the verifier
-> - drop RFC
-> - Link to v1: https://lore.kernel.org/r/20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com
-> 
-> ---
-> Alexis Lothoré (eBPF Foundation) (1):
->        selftests/bpf: enable many-args tests for arm64
-> 
-> Xu Kuohai (1):
->        bpf, arm64: Support up to 12 function arguments
-> 
->   arch/arm64/net/bpf_jit_comp.c                | 225 ++++++++++++++++++++-------
->   tools/testing/selftests/bpf/DENYLIST.aarch64 |   2 -
->   2 files changed, 171 insertions(+), 56 deletions(-)
-> ---
-> base-commit: 9435138c069117cd59a4912b5ea2ae44cc2c5ffa
-> change-id: 20250220-many_args_arm64-8bd3747e6948
-> 
-> Best regards,
+Although CMN-Skeena is mildly modified for the Morello hardware
+architecture, it still identifies itself as CMN-600 r3p1. Since
+there are also no documented changes to its PMU functionality,
+we can make the PMU accessible via the standard CMN-600 binding.
+In general, PMU registers are non-functional on CMN Fast Models,
+so this is only meaningful for the real SDP hardware.
 
-For the series:
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ arch/arm64/boot/dts/arm/morello-sdp.dts | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Acked-by: Xu Kuohai <xukuohai@huawei.com>
+diff --git a/arch/arm64/boot/dts/arm/morello-sdp.dts b/arch/arm64/boot/dts/arm/morello-sdp.dts
+index cee49dee7571..42c85f450fa9 100644
+--- a/arch/arm64/boot/dts/arm/morello-sdp.dts
++++ b/arch/arm64/boot/dts/arm/morello-sdp.dts
+@@ -108,6 +108,13 @@ smmu_pcie: iommu@4f400000 {
+ 		dma-coherent;
+ 	};
+ 
++	pmu@50000000 {
++		compatible = "arm,cmn-600";
++		reg = <0x0 0x50000000 0x0 0x4000000>;
++		interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
++		arm,root-node = <0x804000>;
++	};
++
+ 	pcie_ctlr: pcie@28c0000000 {
+ 		device_type = "pci";
+ 		compatible = "pci-host-ecam-generic";
+-- 
+2.39.2.101.g768bb238c484.dirty
 
 
