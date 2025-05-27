@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E12FAC5B542
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 22:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66FAC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 22:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7XytmjT0QYoYbr62wTzvh2jLYboBuJySkJ1IHPxAlMk=; b=QAMaZrN1dkrebzuIEopmoWjVZQ
-	5wHwH3TSqslCgQD3NLYEYMXTabdo7G+h1yoc8t1tYV/aXgp9Ez2mlY7/3XFZryEwM7Y3zRfwNBSIg
-	Afv6OIHv4wEGgf9gCpFkOgEAQUnhZD/16qaqJ6+Wv2g3DuyaczP+kRHf1dLY3yzVIsCn9BWo3jASV
-	/ZYH47v97EqEMTCloxzuEvW/0yJwOQ/mY/UtK1yzJcunWV5aL2IH3da5Z3suLiTtgzfin2bLgjwKF
-	nbM3/lhKjQb1EStHRR86REyIenElZ41TMzJ/KcPWMBNSoOBiCFP3lcMtDbaBH0UueDfa5wrrWE5C2
-	kTX4qnKA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qtRNQ56JCfgrnMcDjdIFoHIc0A/gd+Rgg9E20WRMEWg=; b=gXs4Dd+8ZqXWrDm+Vg2a8z9v0A
+	3x9GbUdYO3MvH8fAJlshvhrJ0LGpR0be1A8eSzqeW+PgehFxZYkxZePzMRnotwHju5yqTPBXz85cm
+	7FrNezS/lrkuRNHmO0WaKb8Oc01Hx90P66eHeBlR0f5WTYyKdxVjHhxTu1gfHNyA6vHjNoVFqDpde
+	ezFxQJ9eOYRMV+w3x0D6viZ1tgmC7f/PQ+VmmXZWNU0olbZt3ItM/lmZRZNRmPmW/2li30u/C2y+q
+	JjMGlnOLm+2jZWIgt8aiS7plu2gDSq0+MzmcS4Ek+pu+ZuXfoYeELSYFMV/v2ptX8qiYt62nI32YK
+	uShBowUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK2hd-0000000BhXo-3E8A;
-	Tue, 27 May 2025 22:23:21 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uK2jl-0000000Bi5F-3HHz;
+	Tue, 27 May 2025 22:25:33 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK2fU-0000000Bh1V-065r;
-	Tue, 27 May 2025 22:21:09 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so51033485e9.2;
-        Tue, 27 May 2025 15:21:07 -0700 (PDT)
+	id 1uK2fV-0000000Bh1w-2LhQ;
+	Tue, 27 May 2025 22:21:10 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a3798794d3so3899724f8f.1;
+        Tue, 27 May 2025 15:21:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748384466; x=1748989266; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7XytmjT0QYoYbr62wTzvh2jLYboBuJySkJ1IHPxAlMk=;
-        b=nk5TllOK4hJzwgiIxbL54tzR1wLXPIQwKZugB82TNXqXl2cgl/f6lkX79tENJrEYIK
-         1owvwS2BdSwAc89ta2P9HDyVV2pJXWHe/9whwfQGmF7yNMd3O01UKHeRC0BEe7q9+YRK
-         iPSgqlDLjhHEAC9bJppSi0rxBEp5k/PCCsyDgoiAdt68xEICBq0ISU6v/kOv7iDK0624
-         fXyrNTdx7tzodU3vlm4N8EFFIzAsqjBGfvKgk982JpJvEQt3Qbmty2pGG8EdkJgPVgqX
-         DaB7NOzWoYhn/g0jaDaDDpqvHS4d7tntAxMk1+3nSC4Pazs90WIP8/T/SL+aS1jrFSbM
-         0xIg==
+        d=gmail.com; s=20230601; t=1748384468; x=1748989268; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qtRNQ56JCfgrnMcDjdIFoHIc0A/gd+Rgg9E20WRMEWg=;
+        b=FN2xEcTtDfaAcb4FeUPHfgyhTFAHROX1dPsBj1GZbQCMqEX2M3g6fuItvbk/+b8YHZ
+         hezyUkEKpTdN77G1ZzKpgMQVOb78ZMUf0xGBbK/YEkOKcfBWgYEbzzKMK41LTh6yzfKs
+         KZtqTFbUKjKxZ2nYgwwZxa4vTHQ3tXZIS36agEf6Tw2w9RDl3XDq9LhmDjH/88CXw/km
+         LUUrct4sUJLsaPymzMqCGMZtmjpqyG8SlXxUb8WRfJHHNvS7rynTvb3DPP5ne9d4jChQ
+         y2jMgghGGqRTsS9X9TEjq3sK+42ZyYQdf0pIpRYj79cm1ONCZyAkOvnPzU5D7w0UrT+o
+         FFbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748384466; x=1748989266;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7XytmjT0QYoYbr62wTzvh2jLYboBuJySkJ1IHPxAlMk=;
-        b=nxFPT/xvo4DFtxfGUboIRWoepseb1cTD9aaB/qoc0TVZZO3HfkCOkrNH2usstBEN5p
-         hyF+ntAwfp05Qh0RUs2TNRNionjEPuECQKPP8umjMlRgGkiHmMSzXA91ApE4QL0i3gxp
-         hGlSJAno5DFNC32jyS3qxCToL2lrQKhfGo5PXYGwSyO3BqDQzl2F79EPL3/Gf5YHoZoh
-         cXPrcUqzFQLJXQS/7KyrO5/BjdV5f6S7L+dlml8gE7agKS+32H/k/uUUK2N89hCILeXp
-         3YT7xy+mP397GKwCWS157+GQ+H/HJAg+f18C64awhwusHbwvY2OzyIJ0Hhsu7iX3y6s5
-         cuug==
-X-Forwarded-Encrypted: i=1; AJvYcCWxy1OkJAEGqwHF6d86NyAIYRm2mMsZ+4d4HQ6669U+UZBO8MyCjAFkzb5d6OVq86ZjxU+XJgRqWPNZ71C8/jo=@lists.infradead.org, AJvYcCX0KimJEDmtSjmAuqUQujqKwtUQubUm3tluwUE4m6tPPasoLSli1oY9x0M27aC1i3tO7beu2oy48JEk/iySe+X8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzefnzwStmHuAY6cOCjid86hlqi0UN4EZ1YkEChEtZIGEpzBnUC
-	Kvbk1PrvvwFpo5JC7fahR/rqcX1yzGP6eL08wBs3LZ2KJ5/TtbSmL8Wp
-X-Gm-Gg: ASbGncu0wdPwIvR/VH9kt7nMuc/MN3FfWkYVudY4TMdPfLW0hnNMqXvzF1qeeeFcl5+
-	SX2OLSdtXDLs9CNOHub2w1M8HcUmurt7Xq3YHv0V7ShxFirLFV6D197NSQC39JcMWkCS6f0AxBm
-	M/gAVKIj0Ple/7g5veVdsfGT00H4unVTJz7LKbeg+2qxD+9me/qvV7e7xhxeIHk+0fXasA0Uusj
-	3DK++EzPJp8UQxqmjZVrE9o/lx5rP7z0dYFA8D2fomhZ9FuK/wzTJiP5z51P83H6DOZdGll64AG
-	jx+K+z0PXI1EqHF26mK7Ko2eKHMwaqnm/AqqHdEkE3b0hPanQffGKhYIDBiJ2l3yZQqw0+HEARw
-	9yZryuBoYRJUrsywt722jX4Pg2qM9rW0=
-X-Google-Smtp-Source: AGHT+IFdKWU8GcSeLjuTkimcHYGLyMLF9mUe1qrsMqtPgGlIFwLTef1kQexYipsKO1mCIPUpGPKSqA==
-X-Received: by 2002:a05:600c:1e02:b0:443:48:66d2 with SMTP id 5b1f17b1804b1-44c91dd0981mr170619255e9.16.1748384465884;
-        Tue, 27 May 2025 15:21:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1748384468; x=1748989268;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qtRNQ56JCfgrnMcDjdIFoHIc0A/gd+Rgg9E20WRMEWg=;
+        b=L8ab6XKORiKYM6IOZMcTOwQLPwjcI0i8L/nt7XXLlSXjE3BUmrtgsv2R++iA0oSPwN
+         rBbTq2bVxWyMqY55Wi1JGEGrakdXu132n+p/IQa8WOQ04bD0GMLDWFBktGLczMxCpmxZ
+         eWboHQXS7GVNDPhEEdLv9kDi0gSC8upUIFsCz+8VzfJPSlBaYX93xUEqBOBtElHgpkzi
+         xZBP9Q1VYUUvOeDIq/Q7da+RwQZxphwrdOvOX/NAVGE7CGPqdsJXyaaCIV/fDHGglyA1
+         3Jap/epSrW2Z6MqUwbt59ypyt3jjuvo9u10Q6MQoiAL82u2ccjQIaoyfB33jKr/yRKg9
+         gPEA==
+X-Forwarded-Encrypted: i=1; AJvYcCU/bi/NNnHwgYAlKB0EDO7aweaQqYmgoE8eaT1j2DVyfdFb/akalD6NJadjg8ehOXuauJBq71Ub/JF5zRefy/TZ@lists.infradead.org, AJvYcCXeELKm+x8jyDUlA5MuWh3BfeXSlJFzrOQXaecPboa1wmqLkEnCpD7stWejm4UrsfzttQhTPcaTQE1V5O1Sgc4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+oA9dSqcQxiRNLv7HzcXB8j00pDM3RISWfVwnP77sd1dRF4Jq
+	yR/+VHaIfcx26CgBdLYLAOL6bAQd2g3sSiz4guZvZEPW8khVvhZPWK6PNRZ7aA==
+X-Gm-Gg: ASbGncv+gut8h5rpytZnxW8cIwq2wA6BAZbUNOnPE5QU9fphyD/GGN0iYolYITRSSvt
+	sMwUgi9NPGGYW+e2xbyjaSkQGwYvOxM3e8QQcuuuIU5oHN5mmskOFJXlkZtJbVkSAsI5tx4WVtp
+	4Njq4iTQZdD1I9vjrLmUq52dhqZ7yExaFPWPGwZwpufqGoVqK3OGk1QNrveEBXTInKILpDpyi3d
+	446hZsJVdzX0orfPoWxDprWbiE/YD2mMdX5iatYRiGqm2gL4bNMCqy0ntKk8jejyEdnp0UVOU50
+	kz5LdmsuJRelTYz1ZKHlOvFL/dQ7GGyZxoSYsKEG1yy2nDmiwYKFKTn3rnYgULExN6E3eRvOPNp
+	oZChnCa8OGlM1xPky+cZl
+X-Google-Smtp-Source: AGHT+IGJ4GaZDmuiWlWBMloHir3Uikj0Tke7oxruLs3NxHUz24IFjqZ/+AijntCgg1SM/vUTphqGVA==
+X-Received: by 2002:adf:f192:0:b0:3a4:e629:6504 with SMTP id ffacd0b85a97d-3a4e6296763mr1500013f8f.49.1748384467687;
+        Tue, 27 May 2025 15:21:07 -0700 (PDT)
 Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a4e8bc377asm233366f8f.72.2025.05.27.15.21.04
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a4e8bc377asm233366f8f.72.2025.05.27.15.21.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 May 2025 15:21:05 -0700 (PDT)
+        Tue, 27 May 2025 15:21:06 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Lorenzo Bianconi <lorenzo@kernel.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
@@ -82,16 +83,19 @@ To: Lorenzo Bianconi <lorenzo@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH 0/6] pinctrl: Add Airoha AN7583 support
-Date: Wed, 28 May 2025 00:20:32 +0200
-Message-ID: <20250527222040.32000-1-ansuelsmth@gmail.com>
+Cc: Christian Marangi <ansuelsmth@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/6] pinctrl: airoha: fix wrong PHY LED mux value for LED1 GPIO46
+Date: Wed, 28 May 2025 00:20:33 +0200
+Message-ID: <20250527222040.32000-2-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250527222040.32000-1-ansuelsmth@gmail.com>
+References: <20250527222040.32000-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_152108_063783_1DA5A40F 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250527_152109_598490_6407D46D 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,36 +110,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This small series introduce support for Airoha AN7583 pinctrl
-support.
+In all the MUX value for LED1 GPIO46 there is a Copy-Paste error where
+the MUX value is set to LED0_MODE_MASK instead of LED1_MODE_MASK.
 
-Most of the changes are generalization and cleanup of the Airoha
-pinctrl driver. These are needed as all the array in the inner
-function were hardcoded to EN7581 and didn't reference stuff
-from the priv groups.
+This wasn't notice as there were no board that made use of the
+secondary PHY LED but looking at the internal Documentation the actual
+value should be LED1_MODE_MASK similar to the other GPIO entry.
 
-Everything is changed to match_data and priv struct so
-adding AN7583 is just a matter of adding the structs.
+Fix the wrong value to apply the correct MUX configuration.
 
-Also the schema is generalized where needed to address
-for the small difference between AN7583 and EN7581.
+Cc: stable@vger.kernel.org
+Fixes: 1c8ace2d0725 ("pinctrl: airoha: Add support for EN7581 SoC")
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/pinctrl/mediatek/pinctrl-airoha.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-While converting it, it was also found an additional copy-paste
-error for the PHY LEDs pins.
-
-Christian Marangi (6):
-  pinctrl: airoha: fix wrong PHY LED mux value for LED1 GPIO46
-  pinctrl: mediatek: airoha: generalize pins/group/function/confs
-    handling
-  pinctrl: airoha: convert PHY LED GPIO to macro
-  pinctrl: airoha: convert PWM GPIO to macro
-  dt-bindings: pinctrl: airoha: Document AN7583 Pin Controller
-  pinctrl: airoha: add support for Airoha AN7583 PINs
-
- .../pinctrl/airoha,en7581-pinctrl.yaml        |  297 +-
- drivers/pinctrl/mediatek/pinctrl-airoha.c     | 2497 +++++++++--------
- 2 files changed, 1489 insertions(+), 1305 deletions(-)
-
+diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
+index b97b28ebb37a..8ef7f88477aa 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
++++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
+@@ -1752,8 +1752,8 @@ static const struct airoha_pinctrl_func_group phy1_led1_func_group[] = {
+ 		.regmap[0] = {
+ 			AIROHA_FUNC_MUX,
+ 			REG_GPIO_2ND_I2C_MODE,
+-			GPIO_LAN3_LED0_MODE_MASK,
+-			GPIO_LAN3_LED0_MODE_MASK
++			GPIO_LAN3_LED1_MODE_MASK,
++			GPIO_LAN3_LED1_MODE_MASK
+ 		},
+ 		.regmap[1] = {
+ 			AIROHA_FUNC_MUX,
+@@ -1816,8 +1816,8 @@ static const struct airoha_pinctrl_func_group phy2_led1_func_group[] = {
+ 		.regmap[0] = {
+ 			AIROHA_FUNC_MUX,
+ 			REG_GPIO_2ND_I2C_MODE,
+-			GPIO_LAN3_LED0_MODE_MASK,
+-			GPIO_LAN3_LED0_MODE_MASK
++			GPIO_LAN3_LED1_MODE_MASK,
++			GPIO_LAN3_LED1_MODE_MASK
+ 		},
+ 		.regmap[1] = {
+ 			AIROHA_FUNC_MUX,
+@@ -1880,8 +1880,8 @@ static const struct airoha_pinctrl_func_group phy3_led1_func_group[] = {
+ 		.regmap[0] = {
+ 			AIROHA_FUNC_MUX,
+ 			REG_GPIO_2ND_I2C_MODE,
+-			GPIO_LAN3_LED0_MODE_MASK,
+-			GPIO_LAN3_LED0_MODE_MASK
++			GPIO_LAN3_LED1_MODE_MASK,
++			GPIO_LAN3_LED1_MODE_MASK
+ 		},
+ 		.regmap[1] = {
+ 			AIROHA_FUNC_MUX,
+@@ -1944,8 +1944,8 @@ static const struct airoha_pinctrl_func_group phy4_led1_func_group[] = {
+ 		.regmap[0] = {
+ 			AIROHA_FUNC_MUX,
+ 			REG_GPIO_2ND_I2C_MODE,
+-			GPIO_LAN3_LED0_MODE_MASK,
+-			GPIO_LAN3_LED0_MODE_MASK
++			GPIO_LAN3_LED1_MODE_MASK,
++			GPIO_LAN3_LED1_MODE_MASK
+ 		},
+ 		.regmap[1] = {
+ 			AIROHA_FUNC_MUX,
 -- 
 2.48.1
 
