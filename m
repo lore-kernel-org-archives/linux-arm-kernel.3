@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162A8C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 11:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FE5C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 11:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTDYVT4Fm2T/lUtc/RI1uCV4AArghUhC34ZH/UVhh9M=; b=hmq/kaQWXjd6cNNSly78p2gaH+
-	rYNa7jVkh6Al/OHjwdngWDXvnbq/Rvz71bcYjMnClRgF/gtD1xSWW8o/ds1dSP8K2tvX9VrP2l0TB
-	5VSE8f4Gg6vkm5B/5Rv9Dvp0SDLcr0Xy3A3ZjEsksL1C7b06XLDCj+BfJyKLfNnlJlN5cj108aWNz
-	DmzgNR5ylsXuq/NqeMMYbwBSM3x+v2icQGihvD/5KpZGR5QVB4KFsMhVfa07oho/jMAsmt1qaOG0t
-	3gVNeBwlqUCOOY2ykYOrEmrcCBQjPjfH9WlDuvQSNrTs4d/Ve3jccsmKUnEhLl0LU+qGXKonHy7U3
-	VkmLmKsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nT7cIrRybh6LbikgTpPxvFtoL3MIOWg7nn/7vwDh1rQ=; b=OGmJeO0p+ti+J/458+M5aFY9ze
+	rm9gGIds/PfE7TQ5D+gmJ3D4TmfXJA9jUXo2hNuizs4AxAaAK0AOII+oB7IORh06Er0i5rCVe7VPd
+	2BiAgMJp1byA5fOLenxCpUyOm7qU+7xln7Lwtm6mRPtOybzFBgnva6d4TAkHCqWYtHShGrGPFkCff
+	hnrV6kjYKuPmNrbLqUUrclDVCB0oSyTuSXV+92bdJbMTQY2bIHo104ytX+DtFj7SjJ/TEfbTnoCBz
+	2B7NZtRyrQ+Iz8SzD+U9B3jEws2liPpVV3zhPxbPYsc1uDH/iUrCcm+NqT5T4P4O4Dkm+XRIRcsqV
+	pW5E0GDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJsea-0000000AbLY-0NFY;
-	Tue, 27 May 2025 11:39:32 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uJsie-0000000Abp5-2Sl5;
+	Tue, 27 May 2025 11:43:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJscQ-0000000Ab0Q-1PnJ
+	id 1uJsgV-0000000Abcx-22P8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 11:37:19 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uJscK-0006US-6f; Tue, 27 May 2025 13:37:12 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uJscI-000PZg-1p;
-	Tue, 27 May 2025 13:37:10 +0200
-Received: from pengutronix.de (p5b1645f7.dip0.t-ipconnect.de [91.22.69.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 3364C41A77F;
-	Tue, 27 May 2025 11:37:10 +0000 (UTC)
-Date: Tue, 27 May 2025 13:37:09 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Elaine Zhang <zhangqing@rock-chips.com>
-Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com, 
-	kever.yang@rock-chips.com, linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v6 3/4] net: can: rockchip: add can for RK3576 Soc
-Message-ID: <20250527-sage-python-of-variation-1c7759-mkl@pengutronix.de>
-References: <20250526062559.2061311-1-zhangqing@rock-chips.com>
- <20250526062559.2061311-4-zhangqing@rock-chips.com>
+	Tue, 27 May 2025 11:41:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1748346090;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nT7cIrRybh6LbikgTpPxvFtoL3MIOWg7nn/7vwDh1rQ=;
+	b=FWDVwU6CHQN62/F+Vcy7KuR7vnNBlHLRAhf0XjBlE1hGr7XwnGNaixgFIzFcrTR2+KtMW+
+	8fXiHZu5mEIGwKIisesXdc2PsouEdNga9L5hkmCrOhZnFWRNQG3e1Wp7qVG1T+1rcDcBY8
+	SJ2zUuIHZ3wMlWcR6089H2CgNHa0g60=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-185-Q8o_eQX1NCGVj3wYSBQx_g-1; Tue, 27 May 2025 07:40:04 -0400
+X-MC-Unique: Q8o_eQX1NCGVj3wYSBQx_g-1
+X-Mimecast-MFC-AGG-ID: Q8o_eQX1NCGVj3wYSBQx_g_1748346003
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3a3683aa00eso1533408f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 04:40:04 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748346003; x=1748950803;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nT7cIrRybh6LbikgTpPxvFtoL3MIOWg7nn/7vwDh1rQ=;
+        b=pghZyablwPTxzVtaA7UkmVgTVww0XPDgvugFYJajTvm9feZjRjUyL29WsSA9a96EMw
+         jNiJVBSdLqjzc60ETnJDM62+86Y+3jjufFJcq+vTV/8m+i9swe5eDJGVLEJgmthxCOP8
+         83a8MPaMTPriHHrdohlIIdhCt8wqcov3VecRTD7FPp+lqhWJsXWsI2wUeoy4RHE+sHBR
+         TKataKThFJ+++X2bui0STY7tY19/rzzCyLB0mcW2JcumjsaWRP+3FpOJVNBuJXv9ukvf
+         h1fxHlZiaXWVlsrHPqdpm9snbsTIN6yFXM9l91COIx7wopocQH5XbIGE0U4HcyUZUTas
+         uS3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUgWg71GLElZj2EobaatFJInDuzAIMrgI2R3UklxPrMwqBND0OVeupO1mrJWfT60n59pRX5I65eB58yNFOd1YJz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvlHl/gfTZmRC3VcbmiaMo137E87Lp8tJi9m3CkQ4nKat8AiBJ
+	DlThmG8DFRtEbxJQ7IQBtnysnpXJnGNgelrhCzC0/drfJ0ogqk50Uj2o/bB28df2rAxX+oNiVfO
+	6eNMH4tXLyh/3FSiw+jz+eqzmV/Zf4On3qXSMysL43CYoneN5SnRH04REGfreaQ9I5V1bLWhzHt
+	bo
+X-Gm-Gg: ASbGnctfvZUxPkoGQ0OvI1iXun+haOsWNW7fjnB1g61VDLn1noZla6/pnOX9UlUGqpP
+	pYMDPuvURfD36fItAkpEUudgupS9D+6p9A/LwM0ZMAqYGuukxkiJXj9LU+vM+k+C7KyDUkO1Ug3
+	TZVPkCFI2eqsxduQY43CDHqpXbPuZLgQjbTo9zU6oVfc7ql7V09icvdnWXfNOT/VieHjde5RUmR
+	noUJDZs5lVEd3n3zvFp7Ew96GPnZOnpOV5s7iuow7qu4veGYG1tAR/SKO3FjpCDPGYnpA4V/dDf
+	gq7ZI6qOINB4t1yGCGs=
+X-Received: by 2002:a5d:5f55:0:b0:3a4:e1ea:3b38 with SMTP id ffacd0b85a97d-3a4e5e5d241mr322135f8f.7.1748346003054;
+        Tue, 27 May 2025 04:40:03 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IELMhcsA2f/uFLjMPoJvuMHyXx64VnNfgsaZOJQOZLfdMdByqjQpxsJ0DHCecIbJFbX7bOLwg==
+X-Received: by 2002:a5d:5f55:0:b0:3a4:e1ea:3b38 with SMTP id ffacd0b85a97d-3a4e5e5d241mr322102f8f.7.1748346002542;
+        Tue, 27 May 2025 04:40:02 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:2728:e810::f39? ([2a0d:3344:2728:e810::f39])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4dc7e69c8sm4613797f8f.95.2025.05.27.04.40.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 May 2025 04:40:02 -0700 (PDT)
+Message-ID: <f738d1ed-7ade-4a37-b8fd-25178f7c1dee@redhat.com>
+Date: Tue, 27 May 2025 13:39:59 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wm5rma25slqeowsj"
-Content-Disposition: inline
-In-Reply-To: <20250526062559.2061311-4-zhangqing@rock-chips.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v12 4/7] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>
+References: <20250522075455.1723560-1-lukma@denx.de>
+ <20250522075455.1723560-5-lukma@denx.de>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250522075455.1723560-5-lukma@denx.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: rRKWc2ChWGgTR-4yF_TTIFDILAGYPE1Do4TzEl-a4x8_1748346003
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_043718_529232_8AF3FDBE 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20250527_044131_672275_3CB5BCF4 
+X-CRM114-Status: GOOD (  37.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,325 +121,509 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---wm5rma25slqeowsj
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 3/4] net: can: rockchip: add can for RK3576 Soc
-MIME-Version: 1.0
-
-Hey,
-
-here's a partial review.
-
-On 26.05.2025 14:25:58, Elaine Zhang wrote:
-> Is new controller, new register layout and Bit position definition:
-> Support CAN and CANFD protocol, ISO 11898-1
-> Support transmit or receive error count
-> Support acceptance filter, more functional
-> Support interrupt and all interrupt can be masked
-> Support error code check
-> Support self test\silent\loop-back mode
-> Support auto retransmission mode
-> Support auto bus on after bus-off state
-> Support 2 transmit buffers
-> Support Internal Storage Mode
-> Support DMA
->=20
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
-> ---
->  .../net/can/rockchip/rockchip_canfd-core.c    | 453 ++++++++++++++++++
->  drivers/net/can/rockchip/rockchip_canfd-rx.c  | 111 +++++
->  drivers/net/can/rockchip/rockchip_canfd-tx.c  |  27 ++
->  drivers/net/can/rockchip/rockchip_canfd.h     | 267 +++++++++++
->  4 files changed, 858 insertions(+)
->=20
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net=
-/can/rockchip/rockchip_canfd-core.c
-> index c21ca4c1fb9a..92e260cb2527 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-> +++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-> @@ -31,6 +31,8 @@ static const char *__rkcanfd_get_model_str(enum rkcanfd=
-_model model)
->  		return "rk3568v2";
->  	case RKCANFD_MODEL_RK3568V3:
->  		return "rk3568v3";
-> +	case RKCANFD_MODEL_RK3576:
-> +		return "rk3576";
->  	}
-> =20
->  	return "<unknown>";
-> @@ -176,6 +178,30 @@ static void rkcanfd_get_berr_counter_corrected(struc=
-t rkcanfd_priv *priv,
->  		    !!(reg_state & RKCANFD_REG_STATE_ERROR_WARNING_STATE));
->  }
-> =20
-> +static void rk3576canfd_get_berr_counter_corrected(struct rkcanfd_priv *=
-priv,
-> +						   struct can_berr_counter *bec)
+On 5/22/25 9:54 AM, Lukasz Majewski wrote:
+> +/* dynamicms MAC address table learn and migration */
+> +static void
+> +mtip_atable_dynamicms_learn_migration(struct switch_enet_private *fep,
+> +				      int curr_time, unsigned char *mac,
+> +				      u8 *rx_port)
 > +{
+> +	u8 port = MTIP_PORT_FORWARDING_INIT;
+> +	struct mtip_port_info *port_info;
+> +	u32 rx_mac_lo = 0, rx_mac_hi = 0;
+> +	unsigned long flags;
+> +	int index;
+> +
+> +	spin_lock_irqsave(&fep->learn_lock, flags);
 
-Is the rk3576 affected by this problem?
-
-> +	struct can_berr_counter bec_raw;
-> +	u32 reg_state;
-> +
-> +	bec->rxerr =3D rkcanfd_read(priv, RK3576CANFD_REG_RXERRORCNT);
-> +	bec->txerr =3D rkcanfd_read(priv, RK3576CANFD_REG_TXERRORCNT);
-> +	bec_raw =3D *bec;
-> +
-> +	if (!bec->rxerr && !bec->txerr)
-> +		*bec =3D priv->bec;
-> +	else
-> +		priv->bec =3D *bec;
-> +
-> +	reg_state =3D rkcanfd_read(priv, RKCANFD_REG_STATE);
-> +	netdev_vdbg(priv->ndev,
-> +		    "%s: Raw/Cor: txerr=3D%3u/%3u rxerr=3D%3u/%3u Bus Off=3D%u Warning=
-=3D%u\n",
-> +		    __func__,
-> +		    bec_raw.txerr, bec->txerr, bec_raw.rxerr, bec->rxerr,
-> +		    !!(reg_state & RK3576CANFD_REG_STATE_BUS_OFF_STATE),
-> +		    !!(reg_state & RK3576CANFD_REG_STATE_ERROR_WARNING_STATE));
-> +}
-> +
->  static int rkcanfd_get_berr_counter(const struct net_device *ndev,
->  				    struct can_berr_counter *bec)
->  {
-> @@ -206,6 +232,11 @@ static void rkcanfd_chip_interrupts_disable(const st=
-ruct rkcanfd_priv *priv)
->  	rkcanfd_write(priv, RKCANFD_REG_INT_MASK, RKCANFD_REG_INT_ALL);
->  }
-> =20
-> +static void rk3576canfd_chip_interrupts_disable(const struct rkcanfd_pri=
-v *priv)
-> +{
-> +	rkcanfd_write(priv, RK3576CANFD_REG_INT_MASK, RK3576CANFD_REG_INT_ALL);
-> +}
-> +
->  static void rkcanfd_chip_fifo_setup(struct rkcanfd_priv *priv)
->  {
->  	u32 reg;
-> @@ -220,6 +251,72 @@ static void rkcanfd_chip_fifo_setup(struct rkcanfd_p=
-riv *priv)
->  	netdev_reset_queue(priv->ndev);
->  }
-> =20
-> +static void rk3576canfd_chip_fifo_setup(struct rkcanfd_priv *priv)
-> +{
-> +	u32 ism =3D 0, water =3D 0;
-
-no need to init as 0
+AFAICS this is called by napi context and by a plain thread context,
+spin_lock_bh() should be sufficient.
 
 > +
-> +	ism =3D RK3576CANFD_REG_STR_CTL_ISM_SEL_CANFD_FIXED;
-> +	water =3D RK3576CANFD_ISM_WATERMASK_CANFD;
-> +
-> +	/* internal sram mode */
-
-personally I would prefer:
-
-reg_ism =3D FIELD_PREP(RK3576CANFD_REG_STR_CTL_ISM_SEL,
-                    RK3576CANFD_REG_STR_CTL_ISM_SEL_CANFD_FIXED) |
-          RK3576CANFD_REG_STR_CTL_STORAGE_TIMEOUT_MODE;
-
-> +	rkcanfd_write(priv, RK3576CANFD_REG_STR_CTL,
-> +		      (FIELD_PREP(RK3576CANFD_REG_STR_CTL_ISM_SEL, ism) |
-> +		      RK3576CANFD_REG_STR_CTL_STORAGE_TIMEOUT_MODE));
-
-reg_water =3D RK3576CANFD_ISM_WATERMASK_CANFD;
-
-> +	rkcanfd_write(priv, RK3576CANFD_REG_STR_WTM, water);
-> +	WRITE_ONCE(priv->tx_head, 0);
-> +	WRITE_ONCE(priv->tx_tail, 0);
-> +	netdev_reset_queue(priv->ndev);
-> +}
-> +
-> +static int rk3576canfd_atf_config(struct rkcanfd_priv *priv, int mode)
-
-With the proposed cleanup, this will become a void function.
-
-> +{
-> +	u32 id[10] =3D {0};
-
-What's the use of this array?
-
-> +	u32 dlc =3D 0, dlc_over =3D 0;
-> +
-> +	switch (mode) {
-
-It's called with RK3576CANFD_REG_ATFM_MASK_SEL_MASK_MODE only...
-
-> +	case RK3576CANFD_REG_ATFM_MASK_SEL_MASK_MODE:
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF0, id[0]);
-
-why not call it with 0x0?
-
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF1, id[1]);
-
-create:
-
-#define RK3576CANFD_REG_ATF(n) (0x700 + (n) << 2)
-
-and use a for loop
-
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF2, id[2]);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF3, id[3]);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF4, id[4]);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM0, RK3576CANFD_REG_ATFM_ID);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM1, RK3576CANFD_REG_ATFM_ID);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM2, RK3576CANFD_REG_ATFM_ID);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM3, RK3576CANFD_REG_ATFM_ID);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM4, RK3576CANFD_REG_ATFM_ID);
-> +		break;
-> +	case RK3576CANFD_REG_ATFM_MASK_SEL_LIST_MODE:
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF0, id[0]);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF1, id[1]);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF2, id[2]);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF3, id[3]);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF4, id[4]);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM0, id[5] | RK3576CANFD_REG_ATF=
-M_MASK_SEL);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM1, id[6] | RK3576CANFD_REG_ATF=
-M_MASK_SEL);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM2, id[7] | RK3576CANFD_REG_ATF=
-M_MASK_SEL);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM3, id[8] | RK3576CANFD_REG_ATF=
-M_MASK_SEL);
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATFM4, id[9] | RK3576CANFD_REG_ATF=
-M_MASK_SEL);
-> +		break;
-> +	default:
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ATF_CTL, RK3576CANFD_REG_ATF_CTL_A=
-TF_DIS_ALL);
-> +		return -EINVAL;
+> +	if (mac && is_valid_ether_addr(mac)) {
+> +		rx_mac_lo = (u32)((mac[3] << 24) | (mac[2] << 16) |
+> +				  (mac[1] << 8) | mac[0]);
+> +		rx_mac_hi = (u32)((mac[5] << 8) | (mac[4]));
 > +	}
 > +
-> +	if (dlc) {
-> +		if (dlc_over)
+> +	port_info = mtip_portinfofifo_read(fep);
+> +	while (port_info) {
+> +		/* get block index from lookup table */
+> +		index = GET_BLOCK_PTR(port_info->hash);
+> +		mtip_update_atable_dynamic1(port_info->maclo, port_info->machi,
+> +					    index, port_info->port,
+> +					    curr_time, fep);
+> +
+> +		if (mac && is_valid_ether_addr(mac) &&
+> +		    port == MTIP_PORT_FORWARDING_INIT) {
+> +			if (rx_mac_lo == port_info->maclo &&
+> +			    rx_mac_hi == port_info->machi) {
+> +				/* The newly learned MAC is the source of
+> +				 * our filtered frame.
+> +				 */
+> +				port = (u8)port_info->port;
+> +			}
+> +		}
+> +		port_info = mtip_portinfofifo_read(fep);
+> +	}
+> +
+> +	if (rx_port)
+> +		*rx_port = port;
+> +
+> +	spin_unlock_irqrestore(&fep->learn_lock, flags);
+> +}
+> +
+> +static void mtip_aging_timer(struct timer_list *t)
+> +{
+> +	struct switch_enet_private *fep = from_timer(fep, t, timer_aging);
+> +
+> +	fep->curr_time = mtip_timeincrement(fep->curr_time);
+> +
+> +	mod_timer(&fep->timer_aging,
+> +		  jiffies + msecs_to_jiffies(LEARNING_AGING_INTERVAL));
+> +}
 
-both are 0, please remove the dead code
+It's unclear to me why you need to maintain a timer just to update a
+timestamp?!?
 
-> +			rkcanfd_write(priv, RK3576CANFD_REG_ATF_DLC,
-> +				      dlc | RK3576CANFD_REG_ATF_DLC_ATF_DLC_EN);
+(jiffies >> msecs_to_jiffies(LEARNING_AGING_INTERVAL)) & ((1 <<
+AT_DENTRY_TIMESTAMP_WIDTH) - 1)
+
+should yield the same value (and possibly define a bitmask as a shortcut)
+
+> +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
+> +					struct net_device *dev, int port)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	unsigned short	status;
+> +	unsigned long flags;
+> +	struct cbd_t *bdp;
+> +	void *bufaddr;
+> +
+> +	spin_lock_irqsave(&fep->hw_lock, flags);
+
+AFAICS this lock is acquired only by napi and thread context the _bh
+variant should be sufficient.
+
+> +
+> +	if (!fep->link[0] && !fep->link[1]) {
+> +		/* Link is down or autonegotiation is in progress. */
+> +		netif_stop_queue(dev);
+> +		spin_unlock_irqrestore(&fep->hw_lock, flags);
+> +		return NETDEV_TX_BUSY;
+
+Intead you should probably stop the queue when such events happen
+
+> +	}
+> +
+> +	/* Fill in a Tx ring entry */
+> +	bdp = fep->cur_tx;
+> +
+> +	status = bdp->cbd_sc;
+> +
+> +	if (status & BD_ENET_TX_READY) {
+> +		/* All transmit buffers are full. Bail out.
+> +		 * This should not happen, since dev->tbusy should be set.
+> +		 */
+> +		dev_err(&fep->pdev->dev, "%s: tx queue full!.\n", dev->name);
+> +		spin_unlock_irqrestore(&fep->hw_lock, flags);
+> +		return NETDEV_TX_BUSY;
+
+Instead you should use
+netif_txq_maybe_stop()/netif_subqueue_maybe_stop() to stop the queue
+eariler.
+
+> +	}
+> +
+> +	/* Clear all of the status flags */
+> +	status &= ~BD_ENET_TX_STATS;
+> +
+> +	/* Set buffer length and buffer pointer */
+> +	bufaddr = skb->data;
+> +	bdp->cbd_datlen = skb->len;
+> +
+> +	/* On some FEC implementations data must be aligned on
+> +	 * 4-byte boundaries. Use bounce buffers to copy data
+> +	 * and get it aligned.
+> +	 */
+> +	if ((unsigned long)bufaddr & MTIP_ALIGNMENT) {
+> +		unsigned int index;
+> +
+> +		index = bdp - fep->tx_bd_base;
+> +		memcpy(fep->tx_bounce[index],
+> +		       (void *)skb->data, skb->len);
+> +		bufaddr = fep->tx_bounce[index];
+> +	}
+> +
+> +	if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
+> +		swap_buffer(bufaddr, skb->len);
+
+Ouch, the above will kill performances. Also it looks like it will
+access uninitialized memory if skb->len is not 4 bytes aligned.
+
+> +
+> +	/* Save skb pointer. */
+> +	fep->tx_skbuff[fep->skb_cur] = skb;
+> +
+> +	dev->stats.tx_bytes += skb->len;
+
+It looks like this start is incremented too early, as tx could still
+fail later.
+
+> +	fep->skb_cur = (fep->skb_cur + 1) & TX_RING_MOD_MASK;
+> +
+> +	/* Push the data cache so the CPM does not get stale memory
+> +	 * data.
+> +	 */
+> +	bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, bufaddr,
+> +					  MTIP_SWITCH_TX_FRSIZE,
+> +					  DMA_TO_DEVICE);
+> +	if (unlikely(dma_mapping_error(&fep->pdev->dev, bdp->cbd_bufaddr))) {
+> +		dev_err(&fep->pdev->dev,
+> +			"Failed to map descriptor tx buffer\n");
+> +		dev->stats.tx_errors++;
+> +		dev->stats.tx_dropped++;
+> +		dev_kfree_skb_any(skb);
+> +		goto err;
+> +	}
+> +
+> +	/* Send it on its way.  Tell FEC it's ready, interrupt when done,
+> +	 * it's the last BD of the frame, and to put the CRC on the end.
+> +	 */
+> +
+
+Likely you need some memory barrier here to ensure the descriptor status
+update is seen by the device after the buffer addr update.
+
+> +	status |= (BD_ENET_TX_READY | BD_ENET_TX_INTR
+> +			| BD_ENET_TX_LAST | BD_ENET_TX_TC);
+> +	bdp->cbd_sc = status;
+> +
+> +	netif_trans_update(dev);
+> +	skb_tx_timestamp(skb);
+> +
+> +	/* For port separation - force sending via specified port */
+> +	if (!fep->br_offload && port != 0)
+> +		mtip_forced_forward(fep, port, 1);
+> +
+> +	/* Trigger transmission start */
+> +	writel(MCF_ESW_TDAR_X_DES_ACTIVE, fep->hwp + ESW_TDAR);
+
+Possibly you should check skb->xmit_more to avoid ringing the doorbell
+when not needed.
+
+> +static void mtip_timeout(struct net_device *dev, unsigned int txqueue)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	struct cbd_t *bdp;
+> +	int i;
+> +
+> +	dev->stats.tx_errors++;
+> +
+> +	if (IS_ENABLED(CONFIG_SWITCH_DEBUG)) {
+> +		dev_info(&dev->dev, "%s: transmit timed out.\n", dev->name);
+> +		dev_info(&dev->dev,
+> +			 "Ring data: cur_tx %lx%s, dirty_tx %lx cur_rx: %lx\n",
+> +			 (unsigned long)fep->cur_tx,
+> +			 fep->tx_full ? " (full)" : "",
+> +			 (unsigned long)fep->dirty_tx,
+> +			 (unsigned long)fep->cur_rx);
+> +
+> +		bdp = fep->tx_bd_base;
+> +		dev_info(&dev->dev, " tx: %u buffers\n", TX_RING_SIZE);
+> +		for (i = 0; i < TX_RING_SIZE; i++) {
+> +			dev_info(&dev->dev, "  %08lx: %04x %04x %08x\n",
+> +				 (kernel_ulong_t)bdp, bdp->cbd_sc,
+> +				 bdp->cbd_datlen, (int)bdp->cbd_bufaddr);
+> +			bdp++;
+> +		}
+> +
+> +		bdp = fep->rx_bd_base;
+> +		dev_info(&dev->dev, " rx: %lu buffers\n",
+> +			 (unsigned long)RX_RING_SIZE);
+> +		for (i = 0 ; i < RX_RING_SIZE; i++) {
+> +			dev_info(&dev->dev, "  %08lx: %04x %04x %08x\n",
+> +				 (kernel_ulong_t)bdp,
+> +				 bdp->cbd_sc, bdp->cbd_datlen,
+> +				 (int)bdp->cbd_bufaddr);
+> +			bdp++;
+> +		}
+> +	}
+> +
+> +	rtnl_lock();
+
+This is called in atomic scope, you can't acquire a mutex here. Instead
+you could schedule a work and do the reset in such scope.
+
+> +	if (netif_device_present(dev) || netif_running(dev)) {
+> +		napi_disable(&fep->napi);
+> +		netif_tx_lock_bh(dev);
+> +		mtip_switch_restart(dev, fep->full_duplex[0],
+> +				    fep->full_duplex[1]);
+> +		netif_tx_wake_all_queues(dev);
+> +		netif_tx_unlock_bh(dev);
+> +		napi_enable(&fep->napi);
+> +	}
+> +	rtnl_unlock();
+> +}
+
+> +
+> +/* During a receive, the cur_rx points to the current incoming buffer.
+> + * When we update through the ring, if the next incoming buffer has
+> + * not been given to the system, we just set the empty indicator,
+> + * effectively tossing the packet.
+> + */
+> +static int mtip_switch_rx(struct net_device *dev, int budget, int *port)
+> +{
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	u8 *data, rx_port = MTIP_PORT_FORWARDING_INIT;
+> +	struct switch_enet_private *fep = priv->fep;
+> +	unsigned short status, pkt_len;
+> +	struct net_device *pndev;
+> +	struct ethhdr *eth_hdr;
+> +	int pkt_received = 0;
+> +	struct sk_buff *skb;
+> +	unsigned long flags;
+> +	struct cbd_t *bdp;
+> +
+> +	spin_lock_irqsave(&fep->hw_lock, flags);
+> +
+> +	/* First, grab all of the stats for the incoming packet.
+> +	 * These get messed up if we get called due to a busy condition.
+> +	 */
+> +	bdp = fep->cur_rx;
+> +
+> +	while (!((status = bdp->cbd_sc) & BD_ENET_RX_EMPTY)) {
+> +		if (pkt_received >= budget)
+> +			break;
+> +
+> +		pkt_received++;
+> +		/* Since we have allocated space to hold a complete frame,
+> +		 * the last indicator should be set.
+> +		 */
+> +		if ((status & BD_ENET_RX_LAST) == 0)
+> +			dev_warn_ratelimited(&dev->dev,
+> +					     "SWITCH ENET: rcv is not +last\n");
+> +
+> +		if (!fep->usage_count)
+> +			goto rx_processing_done;
+> +
+> +		/* Check for errors. */
+> +		if (status & (BD_ENET_RX_LG | BD_ENET_RX_SH | BD_ENET_RX_NO |
+> +			      BD_ENET_RX_CR | BD_ENET_RX_OV)) {
+> +			dev->stats.rx_errors++;
+> +			if (status & (BD_ENET_RX_LG | BD_ENET_RX_SH)) {
+> +				/* Frame too long or too short. */
+> +				dev->stats.rx_length_errors++;
+> +			}
+> +			if (status & BD_ENET_RX_NO)	/* Frame alignment */
+> +				dev->stats.rx_frame_errors++;
+> +			if (status & BD_ENET_RX_CR)	/* CRC Error */
+> +				dev->stats.rx_crc_errors++;
+> +			if (status & BD_ENET_RX_OV)	/* FIFO overrun */
+> +				dev->stats.rx_fifo_errors++;
+> +		}
+> +
+> +		/* Report late collisions as a frame error.
+> +		 * On this error, the BD is closed, but we don't know what we
+> +		 * have in the buffer.  So, just drop this frame on the floor.
+> +		 */
+> +		if (status & BD_ENET_RX_CL) {
+> +			dev->stats.rx_errors++;
+> +			dev->stats.rx_frame_errors++;
+> +			goto rx_processing_done;
+> +		}
+> +
+> +		/* Process the incoming frame */
+> +		pkt_len = bdp->cbd_datlen;
+> +		data = (__u8 *)__va(bdp->cbd_bufaddr);
+> +
+> +		dma_unmap_single(&fep->pdev->dev, bdp->cbd_bufaddr,
+> +				 bdp->cbd_datlen, DMA_FROM_DEVICE);
+
+I have read your explaination WRT unmap/map. Actually you don't need to
+do any mapping here, since you are unconditionally copying the whole
+buffer (why???) and re-using it.
+
+Still you need a dma_sync_single() to ensure the CPUs see the correct data.
+
+> +
+> +		if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
+> +			swap_buffer(data, pkt_len);
+> +
+> +		if (data) {
+> +			eth_hdr = (struct ethhdr *)data;
+> +			mtip_atable_get_entry_port_number(fep,
+> +							  eth_hdr->h_source,
+> +							  &rx_port);
+> +			if (rx_port == MTIP_PORT_FORWARDING_INIT)
+> +				mtip_atable_dynamicms_learn_migration(fep,
+> +								      fep->curr_time,
+> +								      eth_hdr->h_source,
+> +								      &rx_port);
+> +		}
+> +
+> +		if (!fep->br_offload && (rx_port == 1 || rx_port == 2))
+> +			pndev = fep->ndev[rx_port - 1];
 > +		else
-> +			rkcanfd_write(priv, RK3576CANFD_REG_ATF_DLC,
-> +				      dlc | RK3576CANFD_REG_ATF_DLC_ATF_DLC_EN |
-> +				      RK3576CANFD_REG_ATF_DLC_ATF_DLC_MODE);
-> +	}
-> +	rkcanfd_write(priv, RK3576CANFD_REG_ATF_CTL, 0);
+> +			pndev = dev;
 > +
-> +	return 0;
-> +}
+> +		*port = rx_port;
+> +		pndev->stats.rx_packets++;
+> +		pndev->stats.rx_bytes += pkt_len;
+
+It looks like the stats are incremented too early, as the packets could
+still be dropped a few lines later
+
 > +
->  static void rkcanfd_chip_start(struct rkcanfd_priv *priv)
->  {
->  	u32 reg;
-> @@ -285,6 +382,68 @@ static void rkcanfd_chip_start(struct rkcanfd_priv *=
-priv)
->  		   rkcanfd_read(priv, RKCANFD_REG_MODE));
->  }
-> =20
-> +static void rk3576canfd_chip_start(struct rkcanfd_priv *priv)
+> +		/* This does 16 byte alignment, exactly what we need.
+> +		 * The packet length includes FCS, but we don't want to
+> +		 * include that when passing upstream as it messes up
+> +		 * bridging applications.
+> +		 */
+> +		skb = netdev_alloc_skb(pndev, pkt_len + NET_IP_ALIGN);
+> +		if (unlikely(!skb)) {
+> +			dev_dbg(&fep->pdev->dev,
+> +				"%s: Memory squeeze, dropping packet.\n",
+> +				pndev->name);
+> +			pndev->stats.rx_dropped++;
+> +			goto err_mem;
+> +		} else {
+> +			skb_reserve(skb, NET_IP_ALIGN);
+> +			skb_put(skb, pkt_len);      /* Make room */
+> +			skb_copy_to_linear_data(skb, data, pkt_len);
+> +			skb->protocol = eth_type_trans(skb, pndev);
+> +			napi_gro_receive(&fep->napi, skb);
+> +		}
 > +
+> +		bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, data,
+> +						  bdp->cbd_datlen,
+> +						  DMA_FROM_DEVICE);
+> +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
+> +					       bdp->cbd_bufaddr))) {
+> +			dev_err(&fep->pdev->dev,
+> +				"Failed to map descriptor rx buffer\n");
+> +			pndev->stats.rx_errors++;
+> +			pndev->stats.rx_dropped++;
+> +			dev_kfree_skb_any(skb);
+
+The above statement is wrong even if you intend to keep the
+dma_unmap/dma_map pair (and please, don't do that! ;). At this point the
+skb ownership has been handed to the stack by the previous
+napi_gro_receive(), freeing it here will cause UaF and double free.
+
+> +			goto err_mem;
+> +		}
+> +
+> + rx_processing_done:
+> +		/* Clear the status flags for this buffer */
+> +		status &= ~BD_ENET_RX_STATS;
+
+With the dma map/unmap in place, you likely need a memory barrier to
+ensure the device will see the descriptor status update after bufferptr
+update.
+
+> +static int mtip_alloc_buffers(struct net_device *dev)
 > +{
-> +	u32 reg;
+> +	struct mtip_ndev_priv *priv = netdev_priv(dev);
+> +	struct switch_enet_private *fep = priv->fep;
+> +	struct sk_buff *skb;
+> +	struct cbd_t *bdp;
+> +	int i;
 > +
-> +	rkcanfd_chip_set_reset_mode(priv);
+> +	bdp = fep->rx_bd_base;
+> +	for (i = 0; i < RX_RING_SIZE; i++) {
+> +		skb = netdev_alloc_skb(dev, MTIP_SWITCH_RX_FRSIZE);
+> +		if (!skb)
+> +			goto err;
 > +
-> +	/* Receiving Filter: accept all */
-> +	rk3576canfd_atf_config(priv, RK3576CANFD_REG_ATFM_MASK_SEL_MASK_MODE);
+> +		fep->rx_skbuff[i] = skb;
 > +
-> +	/* enable:
-> +	 * - CAN_FD: enable CAN-FD
-> +	 * - AUTO_RETX_MODE: auto retransmission on TX error
-> +	 * - COVER_MODE: RX-FIFO overwrite mode, do not send OVERLOAD frames
-> +	 * - RXSTX_MODE: Receive Self Transmit data mode
-> +	 * - WORK_MODE: transition from reset to working mode
-> +	 */
+> +		bdp->cbd_bufaddr = dma_map_single(&fep->pdev->dev, skb->data,
+> +						  MTIP_SWITCH_RX_FRSIZE,
+> +						  DMA_FROM_DEVICE);
+> +		if (unlikely(dma_mapping_error(&fep->pdev->dev,
+> +					       bdp->cbd_bufaddr))) {
+> +			dev_err(&fep->pdev->dev,
+> +				"Failed to map descriptor rx buffer\n");
+> +			dev_kfree_skb_any(skb);
 
-please adjust the comments
+At this point fep->rx_skbuff[i] is still not NULL, and later
+mtip_free_buffers() will try to free it again. You should remove the
+above dev_kfree_skb_any(skb).
 
-> +	reg =3D rkcanfd_read(priv, RKCANFD_REG_MODE);
-> +	priv->reg_mode_default =3D reg | RKCANFD_REG_MODE_WORK_MODE;
+> +static const struct ethtool_ops mtip_ethtool_ops = {
+> +	.get_link_ksettings     = phy_ethtool_get_link_ksettings,
+> +	.set_link_ksettings     = phy_ethtool_set_link_ksettings,
+> +	.get_drvinfo            = mtip_get_drvinfo,
+> +	.get_link               = ethtool_op_get_link,
+> +	.get_ts_info		= ethtool_op_get_ts_info,
+> +};
 > +
-> +	if (priv->can.ctrlmode & CAN_CTRLMODE_LOOPBACK) {
-> +		priv->reg_mode_default |=3D RKCANFD_REG_MODE_LBACK_MODE;
-> +		rkcanfd_write(priv, RK3576CANFD_REG_ERROR_MASK,
-> +			      RK3576CANFD_REG_ERROR_MASK_ACK_ERROR);
-> +	}
+> +static const struct net_device_ops mtip_netdev_ops = {
+> +	.ndo_open		= mtip_open,
+> +	.ndo_stop		= mtip_close,
+> +	.ndo_start_xmit	= mtip_start_xmit,
+> +	.ndo_set_rx_mode	= mtip_set_multicast_list,
+> +	.ndo_tx_timeout	= mtip_timeout,
+> +	.ndo_set_mac_address	= mtip_set_mac_address,
+> +};
 > +
-> +	/* mask, i.e. ignore:
-> +	 * - TIMESTAMP_COUNTER_OVERFLOW_INT - timestamp counter overflow interr=
-upt
-> +	 * - TX_ARBIT_FAIL_INT - TX arbitration fail interrupt
-> +	 * - OVERLOAD_INT - CAN bus overload interrupt
-> +	 * - TX_FINISH_INT - Transmit finish interrupt
-> +	 */
-> +	priv->reg_int_mask_default =3D RK3576CANFD_REG_INT_RX_FINISH_INT;
-
-please adjust the comments
-
-> +
-> +	/* Do not mask the bus error interrupt if the bus error
-> +	 * reporting is requested.
-> +	 */
-> +	if (!(priv->can.ctrlmode & CAN_CTRLMODE_BERR_REPORTING))
-> +		priv->reg_int_mask_default |=3D RKCANFD_REG_INT_ERROR_INT;
-> +
-> +	memset(&priv->bec, 0x0, sizeof(priv->bec));
-> +
-> +	priv->devtype_data.fifo_setup(priv);
-
-Why do you need a callback here? You're already know you're a
-rk3576canfd, here.
-
-> +
-> +	rkcanfd_write(priv, RK3576CANFD_REG_AUTO_RETX_CFG,
-> +		      RK3576CANFD_REG_AUTO_RETX_CFG_AUTO_RETX_EN);
-> +
-> +	rkcanfd_write(priv, RK3576CANFD_REG_BRS_CFG,
-> +		      RK3576CANFD_REG_BRS_CFG_BRS_NEGSYNC_EN |
-> +		      RK3576CANFD_REG_BRS_CFG_BRS_POSSYNC_EN);
-> +
-> +	rkcanfd_set_bittiming(priv);
-> +
-> +	priv->devtype_data.interrupts_disable(priv);
-> +	rkcanfd_chip_set_work_mode(priv);
-> +
-> +	priv->can.state =3D CAN_STATE_ERROR_ACTIVE;
-> +
-> +	netdev_dbg(priv->ndev, "%s: reg_mode=3D0x%08x\n", __func__,
-> +		   rkcanfd_read(priv, RKCANFD_REG_MODE));
+> +bool mtip_is_switch_netdev_port(const struct net_device *ndev)
+> +{
+> +	return ndev->netdev_ops == &mtip_netdev_ops;
 > +}
 > +
+> +static int mtip_switch_dma_init(struct switch_enet_private *fep)
+> +{
+> +	struct cbd_t *bdp, *cbd_base;
+> +	int ret, i;
+> +
+> +	/* Check mask of the streaming and coherent API */
+> +	ret = dma_set_mask_and_coherent(&fep->pdev->dev, DMA_BIT_MASK(32));
+> +	if (ret < 0) {
+> +		dev_err(&fep->pdev->dev, "No suitable DMA available\n");
+> +		return ret;
+> +	}
+> +
+> +	/* Allocate memory for buffer descriptors */
+> +	cbd_base = dma_alloc_coherent(&fep->pdev->dev, PAGE_SIZE, &fep->bd_dma,
+> +				      GFP_KERNEL);
+> +	if (!cbd_base)
+> +		return -ENOMEM;
+> +
+> +	/* Set receive and transmit descriptor base */
+> +	fep->rx_bd_base = cbd_base;
+> +	fep->tx_bd_base = cbd_base + RX_RING_SIZE;
+> +
+> +	/* Initialize the receive buffer descriptors */
+> +	bdp = fep->rx_bd_base;
+> +	for (i = 0; i < RX_RING_SIZE; i++) {
+> +		bdp->cbd_sc = 0;
+> +		bdp++;
+> +	}
+> +
+> +	/* Set the last buffer to wrap */
+> +	bdp--;
+> +	bdp->cbd_sc |= BD_SC_WRAP;
 
-more later...
+This is a recurring pattern, you should use an helper for it.
 
-regards,
-Marc
+> +/* FEC MII MMFR bits definition */
+> +#define FEC_MMFR_ST             BIT(30)
+> +#define FEC_MMFR_OP_READ        BIT(29)
+> +#define FEC_MMFR_OP_WRITE       BIT(28)
+> +#define FEC_MMFR_PA(v)          (((v) & 0x1F) << 23)
+> +#define FEC_MMFR_RA(v)          (((v) & 0x1F) << 18)
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+Here and elsewhere it looks like you could use FIELD_PREP and friends
 
---wm5rma25slqeowsj
-Content-Type: application/pgp-signature; name="signature.asc"
+This patch is really too big, I'm pretty sure I missed some relevant
+issues. You should split it in multiple ones: i.e. initialization and
+h/w access, rx/tx, others ndos.
 
------BEGIN PGP SIGNATURE-----
+/P
 
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmg1o+IACgkQDHRl3/mQ
-kZwlcAgAp0JdNemXDYJQP2NtGDnnNFQoPnjeNpkF+YvkXizqgIxjzLfewpIZf3Be
-MA2WfFN/ewOwBAX7TrBfWAoCiRqc4mdHlupNO5VrKflNq4cQXRkbSoB9Q2xl3SQX
-VFTUeyJDd5i/N1kGYa8iXDVQ5I3T9eNjlCmKqP9PwrXkQHAyKlfu17u1nW7Uf4GS
-h8ebrFhb5FlTtanZY5+GL7Qlngg0lEaYdqcvOx0JyepgNugewSmTcWf1QSUnwx7h
-bQF4IoVm12zELwQRPalBgC2qX/nwXeZKOi1i4GTzVMZvqqPSba7JOMYgnCNZagK3
-AHtBIhG91hPtC0ykR3IYV3LbR3SWcg==
-=wAW9
------END PGP SIGNATURE-----
-
---wm5rma25slqeowsj--
 
