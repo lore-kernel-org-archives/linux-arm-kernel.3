@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1189DC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 13:00:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4186C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 13:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pvZ9huD4LI30UeuMWHiYyzRnbuqvMT4vG4k0kQwsXFI=; b=vDamJqHy3YqLMvysZmng9+01zH
-	yIPY1TLT2DOjDFDhnigKHrJzRppCo5etCgLdNeRccWUZBis13Z7qG0TUeDTVmDzRuZfX5TqoxKj7e
-	2lYNb9Aonjt8/+N1/WY00P1hTWX8e4X2kGQ0ygXJyQ14ZptGw5qjp1Mg8LkGoSq/BOgw9ykjXHJtf
-	uZdteWHpu9OpjQtGjyErtpPbp+CBrkXlYNQOYz6HMlSNP0A0NrrgMjEhig8E0UznByoKZgBzw7ajJ
-	ip8Qe9uL7+F8WygFeoqRCLWgpRxbnnV25xEPXkDS4vsvTRG5NFUF0GihA2JJBeIah7BDb4AKbrp9D
-	exzWJSuQ==;
+	bh=9HBbWj+cWU9F3KjAKpSwDiEf0EShmH7Gm5YHr46a7Yg=; b=u0cBZyIj4eUPn5FUC0uP04SfTe
+	c5NNbElo4pNmXO6kGL4Ndr5X5iGxlz2SkXcI30taOb1eYxUpQ+1qQUB7SWIA0tiqMyxxoF4Fdhab8
+	12+lQxPG2QPQw4fFcPAngR50RhgHet1VZxac8QIzqZh7559NSOLL6N12u99esrOLV9BnmXgX2g1ig
+	9QJ9/8oHwIK7BcyrPQnq5rsGIX2NV6u/dgHgd5Lpx6kLGZfb8R4qcR8GGYNDtWwi8bE+tD8l05Idj
+	c+RlL5C0U0cSIQxRWBcz0XPB8CUU1S+kLx8fod8TRiM0ZflDU+nesXO/+c+gGNhpudAPJWRw+tlUV
+	IeGLMwmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJtua-0000000AkiU-3pUD;
-	Tue, 27 May 2025 13:00:08 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1uJu1l-0000000Am8I-2kmp;
+	Tue, 27 May 2025 13:07:33 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJtrf-0000000AkG8-0jT6
+	id 1uJtzc-0000000AldJ-0jnW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 12:57:09 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6397F43A20;
-	Tue, 27 May 2025 12:57:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748350622;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pvZ9huD4LI30UeuMWHiYyzRnbuqvMT4vG4k0kQwsXFI=;
-	b=ULy72exI63Ba8S3IBJFigMySEMXjDhoJa+JGvaoBwixoogOybnutxBk7+8Ir8p1I6jCmAx
-	FxsRP/8Uqr/Z/hjjZVQhPOQql9Jm8nmAmpE+thknL9UO7AFiQRMr27rElXR/3RLkEoGsEN
-	EOkz/6+XDsaCtBBqTLJtL1pcuVr3de3J1guRgB1H9njfx2JMi4NYzN3MYmdvGpuRydKpsk
-	l/lMXKaFUeXKIj3808pLVWRm/VB2RtIfVsWrMZpWvLZkHdXhVYS6zWqGz4nmpE665y5Ruz
-	Q5o2VhIHbOeM0TEfJsi9lKL1zGropxcmMXaWO9XL+beEI0e/EErh3sYX+TdO3g==
-Date: Tue, 27 May 2025 14:56:59 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jakob Unterwurzacher
- <jakob.unterwurzacher@cherry.de>, Heiko Stuebner <heiko@sntech.de>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Quentin
- Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH net v2] net: stmmac: platform: guarantee uniqueness of
- bus_id
-Message-ID: <20250527145659.00bd10ae@device-24.home>
-In-Reply-To: <20250527-stmmac-mdio-bus_id-v2-1-a5ca78454e3c@cherry.de>
-References: <20250527-stmmac-mdio-bus_id-v2-1-a5ca78454e3c@cherry.de>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Tue, 27 May 2025 13:05:21 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4b6CVm4T0kz13Lsf;
+	Tue, 27 May 2025 21:03:28 +0800 (CST)
+Received: from kwepemg100001.china.huawei.com (unknown [7.202.181.18])
+	by mail.maildlp.com (Postfix) with ESMTPS id D126C140134;
+	Tue, 27 May 2025 21:05:11 +0800 (CST)
+Received: from [10.67.121.183] (10.67.121.183) by
+ kwepemg100001.china.huawei.com (7.202.181.18) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 27 May 2025 21:05:11 +0800
+Message-ID: <86bcc70b-f41f-45d3-967e-c6190c6ceadd@huawei.com>
+Date: Tue, 27 May 2025 21:05:10 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvtdeggeculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemhedvrgefmeejsgeludemudehtgelmegtledtieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeehvdgrfeemjegsledumeduhegtleemtgeltdeipdhhvghlohepuggvvhhitggvqddvgedrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudehpdhrtghpthhtohepfhhoshhsodhkvghrnhgvlhestdhlvghilhdrnhgvthdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrv
- hgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohepmhgtohhquhgvlhhinhdrshhtmhefvdesghhmrghilhdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdhtohhrghhuvgesfhhoshhsrdhsthdrtghomh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Make HCX writable from userspace
+To: Oliver Upton <oliver.upton@linux.dev>
+CC: <maz@kernel.org>, <yuzenghui@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <wangzhou1@hisilicon.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <liuyonglong@huawei.com>,
+	<jiangkunkun@huawei.com>
+References: <20250325121126.1380681-1-yangjinqian1@huawei.com>
+ <Z-LX5H5mjGyTQ9N4@linux.dev>
+From: Jinqian Yang <yangjinqian1@huawei.com>
+In-Reply-To: <Z-LX5H5mjGyTQ9N4@linux.dev>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.183]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemg100001.china.huawei.com (7.202.181.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_055707_844690_0CEACE3C 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250527_060520_365925_475C5278 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,36 +74,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Quentin,
 
-On Tue, 27 May 2025 13:56:23 +0200
-Quentin Schulz <foss+kernel@0leil.net> wrote:
+> Hi Jinqian,
+>
+> On Tue, Mar 25, 2025 at 08:11:26PM +0800, Jinqian Yang wrote:
+>> Allow userspace to modify guest visible value for HCX in
+>> ID_AA64MMFR1_EL1.
+>>
+>> Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+>
+> This is fine, but I would rather we handle all the features like FEAT_HCX
+> instead of a trickle of one-off patches.
+>
+> So, could you please:
+>
+> - Identify all of the features that describe an *EL2* feature which
+>   we've exposed to non-nested VMs
+>
+> - Implement patch(es) to make those fields writable (i.e. allow them to
+>   be downgraded)
+>
+> - Add corresponding test cases to the set_id_regs selftest
+>
+> Thanks,
+> Oliver
+>
+Hi Oliver，
 
-> From: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> bus_id is currently derived from the ethernetX alias. If one is missing
-> for the device, 0 is used. If ethernet0 points to another stmmac device
-> or if there are 2+ stmmac devices without an ethernet alias, then bus_id
-> will be 0 for all of those.
-> 
-> This is an issue because the bus_id is used to generate the mdio bus id
-> (new_bus->id in drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-> stmmac_mdio_register) and this needs to be unique.
-> 
-> This allows to avoid needing to define ethernet aliases for devices with
-> multiple stmmac controllers (such as the Rockchip RK3588) for multiple
-> stmmac devices to probe properly.
-> 
-> Obviously, the bus_id isn't guaranteed to be stable across reboots if no
-> alias is set for the device but that is easily fixed by simply adding an
-> alias if this is desired.
-> 
-> Fixes: 25c83b5c2e82 ("dt:net:stmmac: Add support to dwmac version 3.610 and 3.710")
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+Thanks for the detailed explantation!
 
-This looks correct, thanks !
+During our testing of cross-generation live migration, we encountered
+an issue that requires applying the patch. The problem arises when two
+chips have inconsistent FEAT_HCX. To ensure consistent virtual machine
+behavior before and after migration, we need to make FEAT_HCX writable,
+thereby aligning the feature flags across source and destination hosts.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-Maxime
+Above is the context of this patch. I will revise this patch following your
+suggestions, but I need to confirm: does the term *EL2* feature specifically
+refer to capabilities related to ​​HCRX_EL2​​ and ​​HCR_EL2​​?
+
+Jinqian
+
+
+>> ---
+>>  arch/arm64/kvm/sys_regs.c | 1 -
+>>  1 file changed, 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+>> index 82430c1e1dd0..b105f156bdf6 100644
+>> --- a/arch/arm64/kvm/sys_regs.c
+>> +++ b/arch/arm64/kvm/sys_regs.c
+>> @@ -2666,7 +2666,6 @@ static const struct sys_reg_desc 
+>> sys_reg_descs[] = {
+>>                      ID_AA64MMFR0_EL1_TGRAN16_2 |
+>>                      ID_AA64MMFR0_EL1_ASIDBITS)),
+>>      ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
+>> -                    ID_AA64MMFR1_EL1_HCX |
+>>                      ID_AA64MMFR1_EL1_TWED |
+>>                      ID_AA64MMFR1_EL1_XNX |
+>>                      ID_AA64MMFR1_EL1_VH |
+>> -- 
+>> 2.33.0
+>>
+>
 
