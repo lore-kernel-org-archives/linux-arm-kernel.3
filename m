@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34EFC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 06:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B972C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 07:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EQf+Z2part0hsdtY7//u4THJS4IDXYFor1XjnfmY5gg=; b=rWTUdqByVE+cW7OKlf45LRv4mY
-	miZjXE/lnwTke8V4cEBZe+qPAK08pDnVr+5xWukGdApNFll5DW+RABLD4ormng94jE/wIwtRrDxlD
-	riS9iMDb673r2ujM4ya6BWfqIzEElM488j+U46iIy9wqB4kuv1fG4ydZj4rQZI/LDA4HaDTfRVQoR
-	oYF8mVfXuv9wd54kjGnsJt7Qu9gjaPhFQAbSI3VF5cEY4hrm9xbZYR9EFism4r4rRXxJBVHfNXyee
-	n7qs7sJC82EFdqxUbL0wNorVQuenS5Y2le0xLUQeO84GPne/wI63bG5/gRUc0jxHRGsN50huH5J6V
-	WFxNniVg==;
+	bh=YBLkKYkdQ5SiRC198gXvkCB/ma/yQ9E3LOnnNzaUpPE=; b=IOLbM04AG/gLqdYvXNIt8t+P9E
+	yeABGigEF8ync1ZsmubZ91glg05nbTxBh37EF2TmXSDLcbd5bvr9apbbXHTc7ZbWP/k4P/bo4vNpR
+	sOzd6q/M4RtIPZlREJMj03IJ0DRoJX5qGwNLPH1Kkv0z83OGMtc3ljkhFM332XTLiiZY3sHbfGoRb
+	8nSpZV+PUI6UPZn5C0eg7fVBcxEP6wSksVBsr+SJzh4sm/s9XJ4Ght+0sQ0lQPjAlBwV/HN7RsqLF
+	L3YLnvb+KxnclITPgQcIg37DHEVe1IZfhRfCVmtlqTV51AVfUvvOdyBz1Mrt4+TiHndP9gRDiXLYb
+	m4wI9WYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJoGC-0000000A5mx-0wOe;
-	Tue, 27 May 2025 06:58:04 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uJoII-0000000A6LE-3sAo;
+	Tue, 27 May 2025 07:00:14 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJo0w-0000000A3Uy-1pkD
+	id 1uJo0z-0000000A3WK-0d6q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 06:42:20 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3113a29e1fdso3154725a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 23:42:17 -0700 (PDT)
+	Tue, 27 May 2025 06:42:22 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-74292762324so2000393b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 23:42:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1748328137; x=1748932937; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1748328139; x=1748932939; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=EQf+Z2part0hsdtY7//u4THJS4IDXYFor1XjnfmY5gg=;
-        b=CkMDIgyLdVlFDpbz01PD00VRkt1/TqZiMqh7seg+RZuk/an9RwDA5SxV3B3XSz5Ba1
-         hdpnC6UqibbJeew8fON9dm51Kq3lnyvRq7cDNCl9ptLKlqcnHdvua7Ls0oWOa0BSwysI
-         GueJLz1pOfxu11vs8OiJLTkGUileGMbNhmi6SwD2RAyHYivI5cPlHq581czSDwW91iAw
-         pPjKEA49BzTlgJ5BIW5S5IFmd9h5Yv39i7QXlDZO7F464YdM/eicPXfoR67Rz3nLC3w3
-         1UyuYRHfok2RWJ2UaUUfoVSSqcluOp48ZOR1o+72FJ4r9gntM/fcosZjRDUDo8Iu86rs
-         7vDQ==
+        bh=YBLkKYkdQ5SiRC198gXvkCB/ma/yQ9E3LOnnNzaUpPE=;
+        b=rR3bCc6j6ao5xrTg+dWOV4fHQxeLP1AeNi2yL65bTtUEpTtxFX8GwT0kurPZkBx+dO
+         tO0iU6rn2x/D0ADyadMe89tqAgTPp3/AjB0ayw7dd7MmBlKF8dESt6w7jDW0iJxyfO+2
+         yLdM2Tf4CEE33t3iQxz+78RKGRAW8TSXjRYLV9bTtnxdVBZ71LS3WBeeJGPHfjmoCUTn
+         3fn8OUUht021PvYsYmfaympINnNfG4evMeZbx6UwbPNe8SZync4f1PsYrFCVWjriMljS
+         j/3Z1iQ3qhtMAS9cxtFNi2FvX12r3AQ4N+dp7nr+DTWKUcdgah4WVFHsr9UOVOwCv3pf
+         PU9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748328137; x=1748932937;
+        d=1e100.net; s=20230601; t=1748328139; x=1748932939;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EQf+Z2part0hsdtY7//u4THJS4IDXYFor1XjnfmY5gg=;
-        b=Ht9EtlsGOGb0aKkPvMJ9yWurShFTK6BCQCahmU1eHLoGB2ohNwOya5Bz0Z6WD9zEm4
-         tPM1Hfdv/9JTJYadhIJBPRZ5fGXZ4AcQb/MiYmaW0QmEO/lxH1HmT4tmu5TS1ChWPDMD
-         kru+zDn7SpvSGiirNHnmAUce0OubpHUxb3sBVTUVRhkwYcOfsIMmFy8aygOmdAHi/7fz
-         QNhgCuBC7kVVy8PhJGozAjtH0qDQHm3u3PHYIFgDqe2uPZxvwYw0LUZsUvA5eIkkmn8m
-         qPLk8v0MBuhflqcHijsPFTkfxTOQ9X0tU37ogtRM4qVXV2vLGlm3o5RZGCG/7mGIv47j
-         iR1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXNvpxe/bd2tWdkF3ZTI50NRorIJMyx5aNgkBc9sr4iMtKmnrBueB5sJ0iDKZNUBeD8dy2nKGi3acUshp4vVVcH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9ulidudOMIFVkxneI/hDWxgXYMbhYBhsEYJfJZ/5RcaOoLxuy
-	atQdIIlXUGFiBZBRdKcedxZoxUM2iSnkHyR/NbasF+3OxIdanXayccxCVXkj4uHzkspOpy6RG0q
-	gd+2xXqubwQ==
-X-Google-Smtp-Source: AGHT+IH63nXw7pXDu0b2FYWDPpqXAyJ0WhvWKd5PccXZpsPz9a+Wx6sv15yS8l2Bt2yFk1APhDR1qWujVQuT
-X-Received: from pjbpq14.prod.google.com ([2002:a17:90b:3d8e:b0:311:2c1f:b0d8])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3f0d:b0:309:f407:5ad1
- with SMTP id 98e67ed59e1d1-311108a1d6amr22190394a91.14.1748328137381; Mon, 26
- May 2025 23:42:17 -0700 (PDT)
-Date: Mon, 26 May 2025 23:41:48 -0700
+        bh=YBLkKYkdQ5SiRC198gXvkCB/ma/yQ9E3LOnnNzaUpPE=;
+        b=mKYgrfb3UwjVw45+uuvNO4SVIJb6HhEvp1w4plRxgTGvgnAjvSDHEEfxY++76+7ArW
+         XfEA38UANQKosHFCVctlXpVDv4M8HRxKH8Z1n6trTaTU7aInLYHpASiM114zmBfnsOPJ
+         tWx492PeoL45kHaRUNuNR/e9+Sf0WFRYs1n6EM5CIK3D7ZmDLl0kTVeDMgb0AzK4NFBn
+         hqdad9AuRNBHfL2TKXs2a+DLcxs1m3UdbyzxA6jIa874RP8aERPfOMkwezeyQBngkA1s
+         0GNeVV4lhxFoOvSzWKqhEEBMw1Nxgk0HvKsx1GtuuU3U9N06s00oTzjsl5reh/kwkLXx
+         V8Gg==
+X-Forwarded-Encrypted: i=1; AJvYcCXbpWAe9iWHHvFf3TUNCGlOYbwNGAumQXjfVIkifP9r3VgVGccFGZLEt3Wo3jHywXBmSkgRmAbuUSO4eWRJPNUE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyh2wCWp6mXIB6KU3xB4vkZwLRY7Wtfeht1A0YGw9YyCBdf1KbG
+	MqFcvie0IHACkHl8y2LxmDKPe6KLGlIwZnsd6oWsShs45hJ7tei/Wn5LHIBKbDnpT4htDOxnc4s
+	i4/lAmwMnIQ==
+X-Google-Smtp-Source: AGHT+IHqlWKmFD9yc2csGjHzi/9TzTaV3F/Ku4c45zz+W7Lqi3AOLD7NV2uIbBNeShcVb9hrPPZxDweD3Vwi
+X-Received: from pfad17.prod.google.com ([2002:a05:6a00:291:b0:746:1a2e:b29b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:2d1b:b0:740:4095:4d07
+ with SMTP id d2e1a72fcca58-745fdf4aabcmr19069753b3a.12.1748328139389; Mon, 26
+ May 2025 23:42:19 -0700 (PDT)
+Date: Mon, 26 May 2025 23:41:49 -0700
 In-Reply-To: <20250527064153.149939-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20250527064153.149939-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.1151.ga128411c76-goog
-Message-ID: <20250527064153.149939-7-irogers@google.com>
-Subject: [PATCH v1 06/11] perf top: Make perf_env locally scoped
+Message-ID: <20250527064153.149939-8-irogers@google.com>
+Subject: [PATCH v1 07/11] perf session: Add host_env argument to perf_session__new
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -90,8 +90,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_234218_477243_96255EB8 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20250526_234221_189936_A14183DF 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,113 +106,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The use of the global host perf_env variable is potentially
-inconsistent within the code. Switch perf top to using a locally
-scoped variable that is generally accessed through the session.
+When creating a perf_session the host perf_env may or may not want to
+be used. For example, `perf top` uses a host perf_env while `perf
+inject` does not. Add a host_env argument to perf_session__new so that
+sessions requiring a host perf_env can pass it in. Currently if none
+is specified the global perf_env variable is used, but this will
+change in later patches.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/builtin-top.c | 35 ++++++++++++++++++++++++-----------
- 1 file changed, 24 insertions(+), 11 deletions(-)
+ tools/perf/builtin-inject.c | 3 ++-
+ tools/perf/util/session.c   | 5 +++--
+ tools/perf/util/session.h   | 5 +++--
+ 3 files changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/tools/perf/builtin-top.c b/tools/perf/builtin-top.c
-index 3c89568dd6d0..9ca0617047fd 100644
---- a/tools/perf/builtin-top.c
-+++ b/tools/perf/builtin-top.c
-@@ -1301,7 +1301,7 @@ static int __cmd_top(struct perf_top *top)
- 	perf_set_multithreaded();
+diff --git a/tools/perf/builtin-inject.c b/tools/perf/builtin-inject.c
+index 1b8c4ff39124..e6f1bf093bc3 100644
+--- a/tools/perf/builtin-inject.c
++++ b/tools/perf/builtin-inject.c
+@@ -2532,7 +2532,8 @@ int cmd_inject(int argc, const char **argv)
+ 	inject.tool.auxtrace		= perf_event__repipe_auxtrace;
+ 	inject.tool.dont_split_sample_group = true;
+ 	inject.session = __perf_session__new(&data, &inject.tool,
+-					     /*trace_event_repipe=*/inject.output.is_pipe);
++					     /*trace_event_repipe=*/inject.output.is_pipe,
++					     /*host_env=*/NULL);
  
- 	if (perf_hpp_list.socket) {
--		ret = perf_env__read_cpu_topology_map(&perf_env);
-+		ret = perf_env__read_cpu_topology_map(perf_session__env(top->session));
- 		if (ret < 0) {
- 			char errbuf[BUFSIZ];
- 			const char *err = str_error_r(-ret, errbuf, sizeof(errbuf));
-@@ -1624,6 +1624,7 @@ int cmd_top(int argc, const char **argv)
- 		NULL
- 	};
- 	int status = hists__init();
-+	struct perf_env host_env;
+ 	if (IS_ERR(inject.session)) {
+ 		ret = PTR_ERR(inject.session);
+diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
+index beb74d9fcc07..9b477cc73c85 100644
+--- a/tools/perf/util/session.c
++++ b/tools/perf/util/session.c
+@@ -137,7 +137,8 @@ static int ordered_events__deliver_event(struct ordered_events *oe,
  
- 	if (status < 0)
- 		return status;
-@@ -1639,12 +1640,17 @@ int cmd_top(int argc, const char **argv)
- 
- 	status = perf_config(perf_top_config, &top);
- 	if (status)
--		return status;
-+		goto out_delete_evlist;
- 	/*
- 	 * Since the per arch annotation init routine may need the cpuid, read
- 	 * it here, since we are not getting this from the perf.data header.
- 	 */
--	status = perf_env__read_cpuid(&perf_env);
-+	perf_env__init(&host_env);
-+	status = perf_env__set_cmdline(&host_env, argc, argv);
-+	if (status)
-+		goto out_delete_evlist;
-+
-+	status = perf_env__read_cpuid(&host_env);
- 	if (status) {
- 		/*
- 		 * Some arches do not provide a get_cpuid(), so just use pr_debug, otherwise
-@@ -1661,18 +1667,24 @@ int cmd_top(int argc, const char **argv)
- 
- 	if (disassembler_style) {
- 		annotate_opts.disassembler_style = strdup(disassembler_style);
--		if (!annotate_opts.disassembler_style)
--			return -ENOMEM;
-+		if (!annotate_opts.disassembler_style) {
-+			status = -ENOMEM;
-+			goto out_delete_evlist;
-+		}
- 	}
- 	if (objdump_path) {
- 		annotate_opts.objdump_path = strdup(objdump_path);
--		if (!annotate_opts.objdump_path)
--			return -ENOMEM;
-+		if (!annotate_opts.objdump_path) {
-+			status = -ENOMEM;
-+			goto out_delete_evlist;
-+		}
- 	}
- 	if (addr2line_path) {
- 		symbol_conf.addr2line_path = strdup(addr2line_path);
--		if (!symbol_conf.addr2line_path)
--			return -ENOMEM;
-+		if (!symbol_conf.addr2line_path) {
-+			status = -ENOMEM;
-+			goto out_delete_evlist;
-+		}
- 	}
- 
- 	status = symbol__validate_sym_arguments();
-@@ -1826,7 +1838,7 @@ int cmd_top(int argc, const char **argv)
- 		top.session = NULL;
- 		goto out_delete_evlist;
- 	}
--	top.session->env = &perf_env;
-+	top.session->env = &host_env;
- 
- 	if (!evlist__needs_bpf_sb_event(top.evlist))
- 		top.record_opts.no_bpf_event = true;
-@@ -1841,7 +1853,7 @@ int cmd_top(int argc, const char **argv)
- 			goto out_delete_evlist;
+ struct perf_session *__perf_session__new(struct perf_data *data,
+ 					 struct perf_tool *tool,
+-					 bool trace_event_repipe)
++					 bool trace_event_repipe,
++					 struct perf_env *host_env)
+ {
+ 	int ret = -ENOMEM;
+ 	struct perf_session *session = zalloc(sizeof(*session));
+@@ -191,7 +192,7 @@ struct perf_session *__perf_session__new(struct perf_data *data,
+ 				symbol_conf.kallsyms_name = perf_data__kallsyms_name(data);
  		}
+ 	} else  {
+-		session->machines.host.env = &perf_env;
++		session->machines.host.env = host_env ?: &perf_env;
+ 	}
+ 	if (session->evlist)
+ 		session->evlist->session = session;
+diff --git a/tools/perf/util/session.h b/tools/perf/util/session.h
+index 088868f1004a..baa59fab761b 100644
+--- a/tools/perf/util/session.h
++++ b/tools/perf/util/session.h
+@@ -109,12 +109,13 @@ struct perf_tool;
  
--		if (evlist__add_bpf_sb_event(top.sb_evlist, &perf_env)) {
-+		if (evlist__add_bpf_sb_event(top.sb_evlist, &host_env)) {
- 			pr_err("Couldn't ask for PERF_RECORD_BPF_EVENT side band events.\n.");
- 			status = -EINVAL;
- 			goto out_delete_evlist;
-@@ -1863,6 +1875,7 @@ int cmd_top(int argc, const char **argv)
- 	evlist__delete(top.evlist);
- 	perf_session__delete(top.session);
- 	annotation_options__exit();
-+	perf_env__exit(&host_env);
+ struct perf_session *__perf_session__new(struct perf_data *data,
+ 					 struct perf_tool *tool,
+-					 bool trace_event_repipe);
++					 bool trace_event_repipe,
++					 struct perf_env *host_env);
  
- 	return status;
+ static inline struct perf_session *perf_session__new(struct perf_data *data,
+ 						     struct perf_tool *tool)
+ {
+-	return __perf_session__new(data, tool, /*trace_event_repipe=*/false);
++	return __perf_session__new(data, tool, /*trace_event_repipe=*/false, /*host_env=*/NULL);
  }
+ 
+ void perf_session__delete(struct perf_session *session);
 -- 
 2.49.0.1151.ga128411c76-goog
 
