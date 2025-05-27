@@ -4,117 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C12C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 18:46:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98197C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 19:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICYgeZcIgiodLy7K57CwDmuLNLm2wY1UuXDWLhCYpHY=; b=154WnfMEKloGDI5wxjfg1oaLx7
-	9aCJhBLR9/g87qE2FMu5NxMJKh3SbMpI3eMD7JZYTw8XPmEcxy/wuRqbkYuLglj1VEKkl8VCStEp/
-	xJur1xvl2kFEEyqOk1VdM6V6BLJQjCQfhq3iEWhLq2PuW6aRqMOqecR3GNu82n+aMFrRnMk87PKAu
-	dXSdm2zrJmzxyYeIGw6XSmS41ZUJRi8uaARJagbRcfbzgRq0WXPTNAy8kraImbd+0/xlRFAfZ4lvR
-	6DOTS7KY6WHipdUAtFyS7FmfMRJZ8yGeGssxXEz6agTv8mwRWhbRvi5XMAjGopBGmOhNMTerRoVp0
-	tev+76Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xfabu4AMllSeaju3LPHLpuFW8PQMwXw0t82FVJTwvEc=; b=CevbrwMCwgEWBnHcpMsk/FZYFI
+	eXYReJp7tbBWkeAqu6cPGWDWKYr0K4l+UmWhJQPT99vNZ+HcEhQbqUx0lq4Lz73ogKfGD7mJdlAYO
+	swlETjP7CUl7KoVvw1PK3trM0fw5PfjDS/YCUFLWqYF+jK9IIohQ2kmJFYFvliRiVD1GxfD1t+wTz
+	ko85RpQsjxLugY7JPbhfXJJx6oZry6eO756YokfadWPRfVkAR3YKH348RntH7nWYMJ4G2e5aoFbu0
+	bH5OsPUu7AJKHcXty7+DyYhrhD2Znn+XF0U3pVOX6+adpCv+UjkZDOKUgRNLLLhMsUloVgXTe3QoM
+	PGyM0Upw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJzJd-0000000BNQX-2U6R;
-	Tue, 27 May 2025 18:46:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uJzn0-0000000BPpy-0R1S;
+	Tue, 27 May 2025 19:16:42 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJzFe-0000000BMvG-1Nam
+	id 1uJzkq-0000000BPZq-24iN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 18:42:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C09595C490A;
-	Tue, 27 May 2025 18:39:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB86EC4CEE9;
-	Tue, 27 May 2025 18:42:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748371333;
-	bh=J2F2a7oDIb8i++RtPJjzNyagYxJNmyPAATFCaksPPZo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RUGZU5xHrhJpqzE0iB2oP+pG2PNC63M8DcwQ+tIk06JhDsJVyqXK3giOBStyCDZ2A
-	 Qn9Zb2AzT41bqJLLlL/zCptYYpKlVRPDIopZi5rHgboUc5Aqg53ZeOFCpz6aI6lELS
-	 9WDmut8gFVqPc7PmjPDOPJjuAEtp4SpS43rjKWgIsQIMF0xSoa6emb/8y/D7usGCEL
-	 cZzo3+J46+/1mE4LXAkm5mB98ZsRPIclQWmrlrh05/D4qqEvAkibXNP7tjKQ/xuuMp
-	 /aW+51YpZKRHFR4udkQBJ3G6l6NmAZw1ewlbzcb3aFF0NFOcIS9kFUtGSmWG9BUaw6
-	 nHxCO7YA/YTxQ==
-Message-ID: <b2ed96a4-a236-4ea2-9e02-6896ff03caaa@kernel.org>
-Date: Tue, 27 May 2025 20:42:07 +0200
+	Tue, 27 May 2025 19:14:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Xfabu4AMllSeaju3LPHLpuFW8PQMwXw0t82FVJTwvEc=; b=f/ceSIhl0pwULuwRwhuhzl4giN
+	laI4TYdBH7PBMivr1Zr5limINaFDa5BQwXAl6I9eEonOEKfY5qJMs4fMPq6APZpumbh0weKMCdbiL
+	zT6fTSynB1S5FEcYmY0UPJTQ0BKfb0WpDWjKIgkdi3S2EgpiFRHz3FobBqls235E6GRM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uJzka-00E6OW-CJ; Tue, 27 May 2025 21:14:12 +0200
+Date: Tue, 27 May 2025 21:14:12 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Furong Xu <0x1207@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
+ PHY device
+Message-ID: <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch>
+References: <20250527175558.2738342-1-james.hilliard1@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH v12 00/19] Support spread spectrum clocking for
- i.MX8M PLLs
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Abel Vesa <abel.vesa@linaro.org>
-Cc: linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
- Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- linux-amarula@amarulasolutions.com, Abel Vesa <abelvesa@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- Michael Nazzareno Trimarchi <michael@amarulasolutions.com>
-References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
- <174643143452.2950397.16722215892279685541.b4-ty@linaro.org>
- <CABGWkvq=pXhrzyCV2ABvQ3uwx4qKYL_G9280p5ECb8nsJ859yw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CABGWkvq=pXhrzyCV2ABvQ3uwx4qKYL_G9280p5ECb8nsJ859yw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250527175558.2738342-1-james.hilliard1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_114214_460067_84F1BE7B 
-X-CRM114-Status: GOOD (  29.28  )
+X-CRM114-CacheID: sfid-20250527_121428_534425_FE3BCCB6 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,83 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/05/2025 17:19, Dario Binacchi wrote:
-> Hello Abel,
-> 
-> On Mon, May 5, 2025 at 9:52 AM Abel Vesa <abel.vesa@linaro.org> wrote:
->>
->>
->> On Thu, 24 Apr 2025 08:21:30 +0200, Dario Binacchi wrote:
->>> This version keeps the version v9 patches that can be merged and
->>> removes the patches that will need to be modified in case Peng's
->>> PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
->>> The idea is to speed up the merging of the patches in the series
->>> that have already been reviewed and are not dependent on the
->>> introduction of the assigned-clocks-sscs property, and postpone
->>> the patches for spread spectrum to a future series once it becomes
->>> clear what needs to be done.
->>>
->>> [...]
->>
->> Applied, thanks!
-> 
-> I was surprised to see that the series has been removed from linux-next.
+On Tue, May 27, 2025 at 11:55:54AM -0600, James Hilliard wrote:
+> Some devices like the Allwinner H616 need the ability to select a phy
+> in cases where multiple PHY's may be present in a device tree due to
+> needing the ability to support multiple SoC variants with runtime
+> PHY selection.
 
-Did you miss entire email thread explaining why? I think you never
-answered to several emails in this thread... and we - including myself -
-sent them a lot.
+I'm not convinced about this yet. As far as i see, it is different
+variants of the H616. They should have different compatibles, since
+they are not actually compatible, and you should have different DT
+descriptions. So you don't need runtime PHY selection.
 
-> 
-> It’s been 8 months since the first version dated September 28, 2024.
-> The most critical phase was version 3 -
-> https://lore.kernel.org/all/20241106090549.3684963-1-dario.binacchi@amarulasolutions.com/
-> -
-> where two key issues emerged:
-> 
->  1 The CCM design is flawed because "in the current design, CCM is
->    taken as the producer of CLK_IMX8M_VIDEO_PLL, not the consumer."
-> 
->  2 A driver for anatop needs to be implemented because "using clocks
->    to replace fsl,ssc-clocks is possible under CCM mode, but you need
->    to develop the fsl,imx8mm-anatop clock driver."
-> 
-> These development guidelines, agreed upon with Krzysztof and Peng,
-> enabled a coherent implementation of both the DT bindings and the
-> code. The following versions, from v4 to v8, were necessary to
-> review and refine those implementations, bringing us to January 2025.
-> 
-> At that point, Peng opened a separate pull request -
-> https://github.com/devicetree-org/dt-schema/pull/154 -
-> for the definition of general-purpose DT bindings for spread spectrum
-> handling, which ended up invalidating mine.
-> 
-> While waiting for his pull request to be accepted, I submitted version 9,
-> trying to at least get the patches for the anatop driver merged,
-> eventually reaching version 12.
-> 
-> This final version was merged, but then a few days ago it was dropped.
-
-And explained why. There were bug reports which you completely ignored.
-
-> 
-> As it stands now:
-> 
-> - We still don’t have proper spread spectrum handling
-> - Peng’s pull request has been stalled since February 20
-> - We don’t have a driver for anatop
-> - The CCM design remains flawed
-> - Not even the first 4 patches of the series were merged — these were
->   simply a replication for i.MX8MM and i.MX8MP of patch
->   bedcf9d1dcf88 ("clk: imx: rename video\_pll1 to video\_pll"), which
->   was already merged some time ago.
-> 
-> Could you please let me know if you're still interested in this series?
-> If so, could you suggest how to resolve the issues that led you to drop it?
-
-
-You got several replies what is wrong. Can you respond to these instead
-of coming now surprised?
-
-Best regards,
-Krzysztof
+	Andrew
 
