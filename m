@@ -4,119 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A612C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 07:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81A2C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 07:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yVvwI+danOUr6KVr8ZkRJ6W0TRfqngHJU6Z1qVBpByc=; b=XrJUd1nN6y9Wni4XOuv6cKaQkf
-	ZpUAiEa5+AhXAAi9urYNxpk+KNrU61s15LAqb11yhkatjwHeQtK0dzXWbyjeb7iTBTCbfL1itK6iD
-	y0PKyCwOQqeLjoJj57WRSy3JUBqNhBOqs4WMwS32QD5rJ3WrMcniKIkyHvuaESxOP91Z/U5g4J5cO
-	ekSsZU3U565Vi4++CFV4un4TRQ9NCNPvoDQiDItRByunIClKrhL53cnbJuqKBvFWoLkgJO06Uqa33
-	3XrfXb5huTOIz+5hNyZ6/HcGGofeetD7fdvDVoI6V6o28gGQYenAR+YOnr3bAcHCsbuz0Va/xSPeh
-	x+KzyEzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ovgTSNz3TYyiCDsnyfyfrx1HVx/OB3Cs0a1lkx9bQp0=; b=oywmNS3VigCZOeAYSjKn0QgfwT
+	BBtc67Ur6BNKoedxCOJ7UgfJ10l1e75uchYkeuSzjtVywv8/6+/5rL5tOU0srRvO/aBvBt+8d0aHp
+	LijvwM4pCbQPYR303I+dxD7GhHMDiKSmk0c3vhtnB7kRGPvU184kZqBAZt5/7MWiNiKR5oo9Nz/7G
+	nh4pyAYsfnegmZZsgJus5ioxNnIt7tUNHglOppP0zhycJIFsNKi2orpnCi73SJ+U3r0K2okhd5ryD
+	1TtAwKzwT/49C7SoLwE+Cku9+iwKgaXrrUR3JksIulX41WBbNwvCz4W81hPXZl9mkNTb9V5GleJ62
+	b1XBIcCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJokK-0000000A9jn-0XRt;
-	Tue, 27 May 2025 07:29:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uJomQ-0000000A9uc-3BuD;
+	Tue, 27 May 2025 07:31:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJoav-0000000A8on-00Hk
+	id 1uJojH-0000000A9fH-2Sjz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 07:19:30 +0000
+	Tue, 27 May 2025 07:28:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A11C34A868;
-	Tue, 27 May 2025 07:19:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E89AC4CEE9;
-	Tue, 27 May 2025 07:19:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F3A234A6CE;
+	Tue, 27 May 2025 07:28:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99D8EC4CEE9;
+	Tue, 27 May 2025 07:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748330368;
-	bh=aXpE9FJ9Lj7B7fcorEbSAoxcZqJtxq0ES595G1wW60k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rqCSX3EBgK2QIymTVki/wrovWS1QCX8pMXWsNIONS2HrldqYgximqSaGD6ai+GuyS
-	 SHiXGSdMRSQGZKjoApzHrbGbhJHyzP6/d5yDMWlMUQSt7ylAbPNCD2HhbDw4TlY55r
-	 A+c6cySe5K8MjhfoYXaOvrHeOs8BeliV2OcH/f3IxeKnkzOpScfgb4/hpgp7cN4Tkj
-	 kwh9XsIkRdGp7CFYTAOM8nbzhEA/bUpgpzwLY4XyUihKAfcSCcIo/qpX/HevT7ASe8
-	 3EL7vVuJASAXwZXCPNzIGS648nnlHYGRqzKoi8e1bUCdkQM9QuZsS5UG4pFycdzfw/
-	 x0mgyQ0AhDWMA==
-Message-ID: <15dcde73-3c0e-4cc9-934f-4dbabd92905e@kernel.org>
-Date: Tue, 27 May 2025 09:19:22 +0200
+	s=k20201202; t=1748330886;
+	bh=XVQsHomBmGb1LhclIkasP5SGZ5XsvwTi9n6tsMPgyY0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=skjocDySfnd0Cx3lKYucz3c8YOKANMO1DxUJmuQc7e5uEcnauo0XOWOxySV6/aNRM
+	 b88/HyISicJURJ5O5/gsdSzKIprrvVJca8eslCOv/NrQaEbhhfuKik7RkdwIg4WO+W
+	 UrWFnNSXFnjw6LE22MKdJVP6nF0kCdayK1wABuPeQfD4/5xMF6lFHuJbfoyWwNIwPA
+	 xjD6j53pn1F1x2c5X5d9eduZeIUyCiBS+L1X03blgL/peQpUPPuoNXGBJQYWwdqLmk
+	 cHO0u6owwUYVnswkUhCaMGZ/u0vRHrgVkJxjmvy41CNCswJGnMThfTcp+mjdcxuFT1
+	 +IR7tmkRzG7bA==
+Date: Tue, 27 May 2025 02:28:04 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] dt-bindings: crypto: fsl,sec-v4.0: Add power
- domains for iMX8QM and iMX8QXP
-To: John Ernberg <john.ernberg@actia.se>, =?UTF-8?Q?Horia_Geant=C4=83?=
- <horia.geanta@nxp.com>, Pankaj Gupta <pankaj.gupta@nxp.com>,
- Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu <herbert@gondor.apana.org.au>,
- "David S . Miller" <davem@davemloft.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Frank Li <Frank.li@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Thomas Richard <thomas.richard@bootlin.com>,
- "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250527071552.1424997-1-john.ernberg@actia.se>
- <20250527071552.1424997-4-john.ernberg@actia.se>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250527071552.1424997-4-john.ernberg@actia.se>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, Shawn Guo <shawnguo@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux@ew.tq-group.com, 
+ linux-arm-kernel@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Matthias Schiffer <matthias.schiffer@tq-group.com>, 
+ Fabio Estevam <festevam@gmail.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+In-Reply-To: <20250527060400.1005757-1-alexander.stein@ew.tq-group.com>
+References: <20250527060400.1005757-1-alexander.stein@ew.tq-group.com>
+Message-Id: <174833088465.3257570.17816254353983478375.robh@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: add TQ-Systems boards
+ MBLS1028A and MBLS1028A-IND
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_001929_084856_7CD45AB7 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250527_002807_654076_4FD5932F 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,50 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/05/2025 09:16, John Ernberg wrote:
+
+On Tue, 27 May 2025 08:03:54 +0200, Alexander Stein wrote:
+> From: Matthias Schiffer <matthias.schiffer@tq-group.com>
 > 
-> diff --git a/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml b/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
-> index 75afa441e019..a3c938eb553e 100644
-> --- a/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
-> +++ b/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
-> @@ -48,6 +48,9 @@ properties:
->                - fsl,imx6ul-caam
->                - fsl,sec-v5.0
->            - const: fsl,sec-v4.0
-> +      - items:
-> +          - const: fsl,imx8qm-caam
+> Add two mainboards for the TQ-Systems TQMLS1028A SoM, based on the NXP
+> Layerscape LS1028A.
+> 
+> Signed-off-by: Matthias Schiffer <matthias.schiffer@tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
 
-That's part of previous enum, no?
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> +          - const: fsl,sec-v4.0
->        - const: fsl,sec-v4.0
->  
->    reg:
-> @@ -77,6 +80,9 @@ properties:
->    interrupts:
->      maxItems: 1
->  
-> +  power-domains:
-> +    maxItems: 1
-> +
->    fsl,sec-era:
->      description: Defines the 'ERA' of the SEC device.
->      $ref: /schemas/types.yaml#/definitions/uint32
-> @@ -108,6 +114,9 @@ patternProperties:
->            - items:
->                - const: fsl,sec-v5.0-job-ring
->                - const: fsl,sec-v4.0-job-ring
-> +          - items:
-> +              - const: fsl,imx8qm-job-ring
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/arm/fsl.yaml:1594:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
 
-Combine with previous entry into enum.
+dtschema/dtc warnings/errors:
 
-> +              - const: fsl,sec-v4.0-job-ring
->            - const: fsl,sec-v4.0-job-ring
->  
+doc reference errors (make refcheckdocs):
 
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250527060400.1005757-1-alexander.stein@ew.tq-group.com
 
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Best regards,
-Krzysztof
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
