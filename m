@@ -4,198 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B75DC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 09:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A7CC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 09:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEF8y0SgQX5pc82H8gyScwiXkCm1XwRV++xiUzEXOII=; b=2kJPlVgxTRcbdLZCu+7oOC33gb
-	fve99HQKEfW7WT0iEkLQT/fU3P8t773MQ0TEZSXqdW8TzOuYRh3PoCA8C/I4c494D2+e1jQ7Gpb8D
-	viGyROM9PiZu+1iU/kR8LU8dtaeceWCJzam8Om8ascb54pniICjCadRlEMmTn6vXrKzv5GWjLbeUr
-	Ib89Th7lqtpXqNRwAC52dbZNi+r4VXO9UkTWQ3UDFY8lrliNRi0JkUkwvsuLvl8MxBakQfMUxj/EI
-	2dxH+cvg6Oei5Qd61o3Gd4AvvGFcCOjHBuaVcaLxCyO4hXIuKwgZ5UAP/uHB2TbbdgVWyMVhiRq7+
-	UjMZ47VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W2mToIyIa5Ja0YaaEHQEF3YpU/0epNXWQBEOE7nzIqI=; b=GyZPPDiKeQ4RvCq5DC9m9gENdf
+	d8rHrSj2BIXPp2UdFf3uydhUvWyRHSnR/OgBEC9AN0hgPDnzB3aL6TdkCBvSHp/rxzrm2qnfxDSXl
+	aXChMu1JbFBh1MmAKQxuxvXgHYvqvKbPgtjWB9HWCNh/ocowUGa0IWUsWQk24KLBzGnq0TlbiXB5c
+	ubYCPWs9iLTHv32w21xL9IErBiesL9x+Mo0snfUK2CxP1jK7hwdo2mz5nvxPCDhx193vof7RFynBY
+	1BrekIlY/N4F156sv4E4Be9Nx+SJws3HstaoC4QBxZA26RUOvXaFgaPR17KFLS0/f4PT8iS5B0XKp
+	/EEP3Acg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJqnI-0000000AOQW-18pU;
-	Tue, 27 May 2025 09:40:24 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uJqvm-0000000APSU-3J6h;
+	Tue, 27 May 2025 09:49:10 +0000
+Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJql9-0000000AOKH-2QTD;
-	Tue, 27 May 2025 09:38:12 +0000
-Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54R69Z9F001727;
-	Tue, 27 May 2025 09:37:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=KEF8y0SgQX5pc82H8g
-	yScwiXkCm1XwRV++xiUzEXOII=; b=b6fes8xfPd/lsLsXZcGd1lEDnzfd9SG/aC
-	SIsJqtbiAb50PVdHEKotxvScsD5z9SjCloav5hlmiPEDRjkXVcpbn/oFrCrVUSCb
-	0+M+baQUt+kv5fiToESXVd9UVGSNLX6ADG37rEhx1hAwTNQUqzNehyh7id8Qrlfm
-	V+f85SGS4NuITURVKd1PAp9ima3ApBocY0yTEAMTTRN4s3IrgA3bZn2//lEmid/P
-	bRf8blwt+z09c/69XU3w5LfYPmzl5D+ilcF30JkuRXLOzDOAuJPCUtndH0QqREFT
-	NYSsNfEdSSzQ2KKEmVf8MtPNTKn22BZ4EO7CD8YMjUeg7wGpL3dg==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46v0g2av10-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 27 May 2025 09:37:53 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 54R9J6u5007424;
-	Tue, 27 May 2025 09:37:52 GMT
-Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11on2073.outbound.protection.outlook.com [40.107.220.73])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 46u4j8vh8n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 27 May 2025 09:37:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GkmxqkQE5T29imxvyqIQZAjaA7JS+XjD59dFz3X8stbRP02dW0+TkheKBUy7Az/CgRh+NVe4l2emzZj8q2ozIaxTeyx2qx9BaDSqmyW+z2OO1pZ0Am4a7M2SRELorAC7kiGmobLqV0DsGgA4Q2Yc4YNrTwSbSWIwv68/2aC0XXWBZ2U8b3k2kZrPOgU6RGrA0OXxeKsZ0U6nKwxfrHvTfmT7LiUru/r+pnUT5r6CIdyjgTg28QVmgSaP/PUYX8v3uapEOPfCqCxRbx5n1S8cT3vYlN57VUyGwjf3OhcGM9Ki1B1pB3wuEDKte8AMU/Eme2iKolMOkvMUZVHScQkQ8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KEF8y0SgQX5pc82H8gyScwiXkCm1XwRV++xiUzEXOII=;
- b=x9dvzhESb0jGxNBAD/2GdvD8eSDM1Kq/T7ElfXdYBinfb7uOp4mG6Aisc8S9YVqOK15lqr7+sZUEPqiT8UxMMMNP5O/3dZ2hgvcXUKQErFRQwaV8EXn+uxdZ0eWDbRUQgPEpLDftl0Z2IV3x+ACz25Jrm8AdT2V91IlymDXJ9PFps8LG6H/lliYHQgyJ0IZP4wvCOrl/wjPeEKrDetZKBDXyQ9kf58wkdpz11zEeiROL51J90c30Mv3uh6UARt5FNQR9kL1rsBxc9Yx+2b0iEJON0ONbyLWoT2tId7JSFocDAlfd6GFuJGkg/CJjJazFpJc4Gw79K8WU7jgqGc3igg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KEF8y0SgQX5pc82H8gyScwiXkCm1XwRV++xiUzEXOII=;
- b=XGsIjGIW9YervwfFU8IKSWygJvgmjwD+ngHiIKOHMF1KUIGphyc2T9phErpKb00WzVgXsCB0JpQT69VgAfwoPZ3/ud5ENN+1tcdjMGUx9uB0vhPhBp/I7nHxQ2uXPW7WBLbEa+PNkAklfs5c/o9ZxEvrX1qTpSuV1WtGIYXj40U=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by SA1PR10MB6662.namprd10.prod.outlook.com (2603:10b6:806:2b6::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.40; Tue, 27 May
- 2025 09:37:49 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.8746.030; Tue, 27 May 2025
- 09:37:49 +0000
-Date: Tue, 27 May 2025 10:37:47 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-        Alexandre Ghiti <alexghiti@rivosinc.com>,
-        Will Deacon <will@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Matthew Wilcox <willy@infradead.org>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-mm@kvack.org
-Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
-Message-ID: <a42e05b9-7568-4ebd-8797-c635c07d1884@lucifer.local>
-References: <20250321130635.227011-1-alexghiti@rivosinc.com>
- <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr>
- <64409a13-1c07-42cd-b1ec-572042738f1b@arm.com>
- <84cb893a-46e3-408a-ba0e-2eff0b44d2a1@ghiti.fr>
- <20250508123046.GA3706@willie-the-truck>
- <CAHVXubjZB-riBLv+RGis6ErS8NvU4ijVTgvUO06fTxPhbEjXfA@mail.gmail.com>
- <2ad910f4-6930-4da2-aa2b-f3875f71e001@arm.com>
- <e1ff054e-bfaf-48d1-9d6f-46ea73d09ac9@lucifer.local>
- <c5df4570-84a6-430a-ba49-81cf75930c16@ghiti.fr>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c5df4570-84a6-430a-ba49-81cf75930c16@ghiti.fr>
-X-ClientProxiedBy: LO4P265CA0227.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:315::13) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+	id 1uJqte-0000000AP6Q-1sI0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 May 2025 09:47:00 +0000
+Message-ID: <3a0cbaf2-4da8-466c-9e00-54a141e67f38@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1748339214;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W2mToIyIa5Ja0YaaEHQEF3YpU/0epNXWQBEOE7nzIqI=;
+	b=sf0H2jutzm+M6Kewo8aEN82uyhjWN2Cy7AQjNbz3gsYy9718T7noxdgiyaAQMzuovju2Mq
+	/hI2hQ9BfEwJUTDq/TCF/XzG2SMO13rKEYk55du1CQBT8ixog/9/tOFxD0m4TPKB+rQI4+
+	Y5KjB0kw+JLuxGzJCjmesXDL/QguquI=
+Date: Tue, 27 May 2025 17:46:46 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|SA1PR10MB6662:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7d8ba43f-edba-445b-b6eb-08dd9d02252e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EoLIjcfWg4JiRpo8vBTGzSim7VyBO4NOJU1mzX/PztpfGYfGZseQ8TSmW0No?=
- =?us-ascii?Q?Cn3gi/Qp5Zz7autfmFXo7pq4/fzFfoNtVThsl5hNdNjrjdMEIxGudXUl3ubb?=
- =?us-ascii?Q?apdXiv6RJkVIV7Uzmpgndzd/KTGER4DUhK1AKeFb/5PTinNRNUSbmBB3LY4m?=
- =?us-ascii?Q?WwBSbQuKWWh8NDNPORzKIOZLzPILHaohOGiB5p9+UzFOUn/c7xC4IfK3J7pM?=
- =?us-ascii?Q?9BYG0btBWatJnU1G7EffMYQqW55n3lsia7ExJhi9nhfYAoNkJU/Y/accOoqr?=
- =?us-ascii?Q?bTCVoo0mJtutAhBB6qhu/DvrNOZsUKOW49h24Ni/txphpWgDbKh77NQYXDZm?=
- =?us-ascii?Q?kU4tfn3bwKHla18MBaDg/Q4vF5+JFYI8/oc+AM4gRIdqtucPcQORV22+TaOG?=
- =?us-ascii?Q?dylfu4sfD/tK3XNSp/ByuvvG5QgGOiYpRR6ZDUyTvUWxJBFs1qvN5AVvoMap?=
- =?us-ascii?Q?k5CFJwg3ztTO28BqX68DldVSVt1Tb0F4GXlBrSX7DojSqhX9+YjkDwd6BoJ4?=
- =?us-ascii?Q?oF1jFZ5KSQwgs5Y+F2LjiddMluRNuraUM9dzJmZaIYXlzVNc+657rBHGFUGg?=
- =?us-ascii?Q?cqzf/XEFsDCC/pwGxBgM6Aj0BsjOmuJkVLc8NH5k5zZISZ+TMk/yoE82Hj/0?=
- =?us-ascii?Q?y1mft96Y+FxfSTXUtJse6jF/0LkmIpUMC58klyGQG7FgQ4UToumujr9nrx1O?=
- =?us-ascii?Q?XqqfC2qFz/a3XbbI2erAV9z8xlVebdZBOxuEQAxAb10EorTRZALCqMP6mDJQ?=
- =?us-ascii?Q?Jv/qdEHMDupNtjTFP4QMJ7ApdFjM+OOL1rFjyfaJzl5SykE1UDqa8SQunTWo?=
- =?us-ascii?Q?TdxuFbvOZyPqCi+F96jH1tUSWg8PaKDI4Y31RpurABJ+Mu+NMnittJhygmkd?=
- =?us-ascii?Q?x+cL6ff/D5U2DrotLnu9RyGx87DxmRBg0kTdlze2W2GBqXCtEP3bjmr+c7Q1?=
- =?us-ascii?Q?v/inm9yZchBptxljoaZ/sbVS/lv4zHFDi0y7cyqTBxUM/I94Qch3nD3jnx+1?=
- =?us-ascii?Q?QvT5jY6zoBhziDV24pCjcC0IKRNSWlJy4xndc0tHkoh0H0M9IScdjDh3fLkw?=
- =?us-ascii?Q?Py38KzBMs6IwOaEto1TNmbzX+2en7+LnErrtgszBN1R1z4b63KwSQuw3rFSp?=
- =?us-ascii?Q?PddRXjd6/PzRMM4rXPSeqQUOSb9xGWqjVJjCcUavS0z/vIPjGUIU5Nm6Poav?=
- =?us-ascii?Q?X7MKL21IgSz3jLxBB3LY2Y4jiZMqNayHw+vJKPbnKS7QZs3wdBCMu6gAqqrO?=
- =?us-ascii?Q?4oCn0OA7nYe+syyOdoyKjXJoTDklpjg1EoFsynqn2QusCuXfVIcFGkLYFjOG?=
- =?us-ascii?Q?gcdLiuJcr5S5IyVJYu7UexdUY7RrNFwfE1/ARBFgt6EbHrQr+MUe6G7zp1rM?=
- =?us-ascii?Q?wW9+fV6tsPcfX2oUafQIrtbHDWzBn0NA6Xtkk1XN1aOrz4QDkP4HP1hagLjt?=
- =?us-ascii?Q?pG9BabHumsY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4G0ZV4SmSHBYyp4/LzxdSzcP2iU8n+Wkq2iz7pEAIMOpYyIztO6pMAUezHGe?=
- =?us-ascii?Q?WZPbaYp1X0I/lTvi7XjUxTZXdEJFkKQ249e3Bxq0wnnrqull3XBPPcsL/gnH?=
- =?us-ascii?Q?up9r+CcVnYptyEvNaPDtQjPSxie3iXtfwCPErXCQvMAPZzPy2GNUwVl1e3RQ?=
- =?us-ascii?Q?BSDCXka/i0m1jQXvyso90aB21/HpPyBvmJdUqp9DZJwQPaLHkdxXMn3gDwd/?=
- =?us-ascii?Q?3VV3ipUYeTqkkRSpEatv6Jtp3nn/Hj7BsPqNlORwkgmB+0dy+13qqrdfzF7D?=
- =?us-ascii?Q?5vhHp56rmQUVRR9W34sKzXcvVmwJRcsvlKOF4MWmLo8hgpKqkJyYtoF0QPDz?=
- =?us-ascii?Q?pDVKbBpYjGCCphwOI+LENPYmiH4ycnis1LQzL7pnUHpWFTsEthFHHggIsMoe?=
- =?us-ascii?Q?aeWletY4qvwDUBmW0En9lm3xbmUfCxPa/1TD/jAaCq1Tr6IeDwgLm0HPoe8F?=
- =?us-ascii?Q?GKRMFxp6jWrK5vo9rPwbSh9c46WEQxE82VqbdZki94oU8be6kRcAY79W8P89?=
- =?us-ascii?Q?7kCYM++yVut01XNShIRQPZIFiIUM8mDc1SsXZZSMEQmlENNIY48oaw/eSuit?=
- =?us-ascii?Q?U+MMazcrRXmfW+KpvP5o6jUXXVt7iu/m7lfcfJNlmjUEHON5WNSlfb6stTMm?=
- =?us-ascii?Q?AyNcvJWsA3sfbUEVyfu4hFVt6xbTd5Pk4zV1HqzpR+GWF9+dWeVNYhk56HJq?=
- =?us-ascii?Q?TvwHZq894Sx5tXlU1/fV8epsMAMqWwH6Y2NG9fnjCW1RVmu+fFtUmhLqi3WH?=
- =?us-ascii?Q?dHnhGZu6C04O50qy/UkW/mt5FzGLcNLqspJxAW1euOvY7trD6aAfjEE0e4G2?=
- =?us-ascii?Q?FpXZh0lZ372l1z494VmmyDJEkrR7vijlUCI4QMvtAvoqxRcwdYS1BSzJ9nN0?=
- =?us-ascii?Q?X/LlQKVnxDIeLiWdrzLdn9HxxU8vBWQ2K0CsHuDVKspeXOLUiEOC3+TO/9Ts?=
- =?us-ascii?Q?pv4xmT8IGRKmTzpuDNuWrrvFkSx7cWY88Fa2kWnYnYlWlpArCa+xC5I2h81a?=
- =?us-ascii?Q?efBrhb+/fPSIhsUkwhoJ00w2i7Xdy49+kwkz7Ho3lc4kQ5pzfHbi52XxpD/g?=
- =?us-ascii?Q?AnjIv0vv2fg93zlX13yF1HNWL2RwhxhrKCEGc97CnZpnFUG86SUsaEhg5+Vy?=
- =?us-ascii?Q?QTD/xMBUWtjQwEE+Yhrw+cr51UW5zSNMnhXTtzUykK6ts37Q3NwMHb1kvrCE?=
- =?us-ascii?Q?NPZr4T9L1pCxMGHP1UKYQrII9PnK5EW0xJQBD4k+TTjAsnsR2hw+XR2zzsRt?=
- =?us-ascii?Q?ZQJro18IGKwogwtWSpOSX1afA62S7kqdyvFJnCLCbp05BlBJRR/7UNlCdvLS?=
- =?us-ascii?Q?Gmf+usGsxaP80R+5SQsdh15dM3rTpFEd9MZ+WLKTJqLfKScRrIdyEeYWFBPS?=
- =?us-ascii?Q?VSTltp6ewRnQriyP4wz8V5hflkUZbB/Y+WtSf6aMM0OvEpPcOdOwwaUNxFI5?=
- =?us-ascii?Q?Ayk2+pn7sE/1MvDQggJpeHRVg4LIl1jnYTpX0HBf94KZY/N2EofUMvv09IBa?=
- =?us-ascii?Q?UepFpOeFqOXwgeXjfyevwwv1CvoPlA136XOevgtbQLpkI5Dicpk3mAQK/QHP?=
- =?us-ascii?Q?6XCAF2y1HoGE9fvnFuUF0mOTMWltH/5w37hAKb/nmMxhwDEZm4tKXgCLRpM1?=
- =?us-ascii?Q?SQ=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: EySDLWHCv0T3mJFFFwNygFsEVcXn1Ls1Jbx+CwT7dzYTLZMJt0JTqhCZO33EvnZmjBAjZTA4H+iyhMhoI7Lu0HZiT2OZ/Ofws/t3InPjKK5MiQ8GQkXDGgjdxqHtky8oOWznplK5fjNFk/Gcbu0GwCjz/QHynPFkfDFa7kmdDozp77NNcFlo1vWJvDckT9PJ3Xr9ctI7wICdjEirKrSExZO/fGVqcSHanHKnv1TXLUE6Rf+LA9anoGJm41jtxTOPUJRnvmfDSq9Xm498s26j6aHvTfrjDaHdIQrIOPBTecHxTiE80dgnMyJHCLeAvhwGX5+g7HcAO4UhVAUSFHPuPIRO6+w294AJuvAn3s9lw6dvRku0BaVH09drUNT6aRt6l0P9qGdQlcYcdoLoMAtmFuuOxdu3bf5WsFeUSMJYbPE1BvNOfXlNzZmN5VTQnz9hye2/K8Gq+Vt81J0q3kUJ45q22yfrRIrMYDySmUp1WFvtn3wxbaeTYsOuRGRHRQ4Wb77bR39Olgy2h13xEvN3v8EOFLLx/hYTnB6y52yRCUA+JQqQ2fj7zoEDO5sEtzVMRWxhtvF5ON0gyGHV74Pl0lFBYSnY72JZ51LTViOdpl8=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d8ba43f-edba-445b-b6eb-08dd9d02252e
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2025 09:37:49.6464
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K2VaCI+krUHJRvflgMB5PPFHRKkIAjHZDutQS4eJZyRizqtklvBlkqZCUV3HksLfkv6mgCTFkCYlwceDQU6mLL9lzjYC0z3GXdzQOoXXKG4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6662
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-27_05,2025-05-26_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 mlxscore=0 adultscore=0
- malwarescore=0 mlxlogscore=999 bulkscore=0 spamscore=0 phishscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2505270077
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI3MDA3NyBTYWx0ZWRfXzsE4RxDWCFtj 9kgi8FY59Mq0FAFMK6qI+ndwkA8dIOjWZC8XL/2p2lFKXhJDdCJoPwyAyvOuDlk1UCGS6q80IHL 7o5hPdgjUOdePwSANDH40GO/ySTPbT2QQ+f5VPCgtu1xcxHyeYiYq3hvPlhNgdWkLzltKOzdS80
- ax1wKykUJEGBi14Z2GOEnKey7sFCb9KEVNLHpHORjfWx16KPgcvgEsDozk3EG4De48vl0o3I+TZ 7wDB11Aml0R7kN+d7kJmnr8VThhT3Ucknpp3bybi8sygD2Y7CQWlqlcdEAY2iBR/Hu2IpIFC5QB 69y/R5oj47HTlGUIRDxAB45HbT63VG0lJ3KJ1qdu4Hp31OWftaYnUw7j4o1iCpuPgsMEh70XWiS
- wKTg68Nxj6GX9JsiWeGogKXOI9wJfqTYe0DJMDIPhoDZbURYsxPnaqBo/W8/iTfI8OQAMK3w
-X-Authority-Analysis: v=2.4 cv=NJLV+16g c=1 sm=1 tr=0 ts=683587f1 b=1 cx=c_pps a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=dt9VzEwgFbYA:10 a=GoEa3M9JfhUA:10 a=VwQbUJbxAAAA:8 a=h0uksLzaAAAA:8 a=RUcTRLyfVu5KbG_1xbgA:9 a=CjuIK1q_8ugA:10 a=MSi_79tMYmZZG2gvAgS0:22
-X-Proofpoint-ORIG-GUID: 2C_f4M9mV3J2rXGAw7G6j-clLlyrxv8A
-X-Proofpoint-GUID: 2C_f4M9mV3J2rXGAw7G6j-clLlyrxv8A
+Subject: Re: [PATCH] net: stmmac: set multicast filter to zero if feature is
+ unsupported
+To: Nikunj Kela <nikunj.kela@sima.ai>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
+Cc: rmk+kernel@armlinux.org.uk, 0x1207@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250523221938.2980773-1-nikunj.kela@sima.ai>
+ <e0552940-9fbe-4375-a9a9-e26cd425591a@linux.dev>
+ <93ae82e6-44f4-4f2f-b3b6-71240f84500c@sima.ai>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yanteng Si <si.yanteng@linux.dev>
+In-Reply-To: <93ae82e6-44f4-4f2f-b3b6-71240f84500c@sima.ai>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_023811_729258_072F1C1F 
-X-CRM114-Status: GOOD (  33.69  )
+X-CRM114-CacheID: sfid-20250527_024658_932219_73AF53AF 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -210,131 +75,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Andrew - does taking this proposed MAINTAINERS change through the riscv tree
-work for you?
 
-This series introduces the files being added there, so it seems sensible to add
-the MAINTAINERS change to this series.
+在 5/27/25 12:17 AM, Nikunj Kela 写道:
+>
+> On 5/25/25 7:09 PM, Yanteng Si wrote:
+>> 在 5/24/25 6:19 AM, Nikunj Kela 写道:
+>>> Hash based multicast filtering is an optional feature. Currently,
+>>> driver overrides the value of multicast_filter_bins based on the hash
+>>> table size. If the feature is not supported, hash table size reads 0
+>>> however the value of multicast_filter_bins remains set to default
+>>> HASH_TABLE_SIZE which is incorrect. Let's override it to 0 if the
+>>> feature is unsupported.
+>>>
+>>> Signed-off-by: Nikunj Kela <nikunj.kela@sima.ai>
+>>> ---
+>>>   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
+>>>   1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c 
+>>> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>> index 085c09039af4..ccea9f811a05 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>> @@ -7241,6 +7241,9 @@ static int stmmac_hw_init(struct stmmac_priv 
+>>> *priv)
+>>>                       (BIT(priv->dma_cap.hash_tb_sz) << 5);
+>>>               priv->hw->mcast_bits_log2 =
+>>> ilog2(priv->hw->multicast_filter_bins);
+>>> +        } else {
+>>> +            priv->hw->multicast_filter_bins = 0;
+>>> +            priv->hw->mcast_bits_log2 = 0;
+>>>           }
+>>
+>> I didn't read the code carefully, just did a simple search：
+>>
+>> ❯ grep -rn multicast_filter_bins drivers/net/
+>> drivers/net/ethernet/stmicro/stmmac/common.h:611:    unsigned int 
+>> multicast_filter_bins;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c:26: 
+>> plat_dat->multicast_filter_bins = 0;
+>> ***
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:512: 
+>> plat->multicast_filter_bins = HASH_TABLE_SIZE;
+>> ***
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:536: 
+>> &plat->multicast_filter_bins);
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:541: 
+>> plat->multicast_filter_bins = dwmac1000_validate_mcast_bins(
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:542: 
+>> &pdev->dev, plat->multicast_filter_bins);
+>> drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c:523: 
+>> mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c:527:    if 
+>> (mac->multicast_filter_bins)
+>> drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c:528: 
+>> mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:516: 
+>> (netdev_mc_count(dev) > hw->multicast_filter_bins)) {
+>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1527: 
+>> mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1531:    if 
+>> (mac->multicast_filter_bins)
+>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1532: 
+>> mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1568: 
+>> mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1572:    if 
+>> (mac->multicast_filter_bins)
+>> drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:1573: 
+>> mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:543: if 
+>> (netdev_mc_count(priv->dev) >= priv->hw->multicast_filter_bins)
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:633: if 
+>> (netdev_mc_count(priv->dev) >= priv->hw->multicast_filter_bins)
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c:679: if 
+>> (netdev_mc_count(priv->dev) >= priv->hw->multicast_filter_bins)
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c:31: 
+>> plat->multicast_filter_bins = HASH_TABLE_SIZE;
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c:84: 
+>> plat->multicast_filter_bins = HASH_TABLE_SIZE;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:98: 
+>> plat->multicast_filter_bins = 256;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:365: 
+>> mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:369:    if 
+>> (mac->multicast_filter_bins)
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c:370: 
+>> mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:7240: 
+>> priv->hw->multicast_filter_bins =
+>> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:7243: 
+>> ilog2(priv->hw->multicast_filter_bins);
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c:570: 
+>> plat->multicast_filter_bins = HASH_TABLE_SIZE;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c:707: 
+>> plat->multicast_filter_bins = HASH_TABLE_SIZE;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c:479: 
+>> plat_dat->multicast_filter_bins = 0;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:456:    int 
+>> numhashregs = (hw->multicast_filter_bins >> 5);
+>> drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:485: 
+>> (netdev_mc_count(dev) > hw->multicast_filter_bins)) {
+>> drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:1057: 
+>> mac->multicast_filter_bins = priv->plat->multicast_filter_bins;
+>> drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:1061:    if 
+>> (mac->multicast_filter_bins)
+>> drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c:1062: 
+>> mac->mcast_bits_log2 = ilog2(mac->multicast_filter_bins);
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-generic.c:43: 
+>> plat_dat->multicast_filter_bins = HASH_TABLE_SIZE;
+>>
+>> and
+>>
+>> drivers/net/ethernet/stmicro/stmmac/common.h:265:#define 
+>> HASH_TABLE_SIZE 64
+>>
+>>
+>> From the search results, the default value of multicast_filter_bins
+>> may be meaningful. And I think that even if some hardware does not
+>> support this feature, it should still be overridden in its own 
+>> directory.
+>
+> There is a DT property 'snps,multicast-filter-bins' available to 
+> override the default value for a platform however this property is not 
+> taken into consideration in case of xgmac. That being said, 
+> stmmac_platform.c logic can be modified to extend the property use for 
+> xgmac also however the value will be overridden later based on hash 
+> table size read from the HW Feature register. So only zero value will 
+> be usable via DT in that case. Hence I thought of setting it to 0 in 
+> the else part of the code I 
 
-And I believe this series is intended to be taken through the riscv tree so
-seems sensible to do it there?
+> modified in this patch. If you think I should extend the DT property 
+> for xgmac, I can modify the patch too. 
 
-Proposed entry is 'MEMORY MANAGEMENT - CONTPTE (CONTIGUOUS PTE SUPPORT)', which
-is explicitly relevant for arm64, riscv.
+Thanks for your reply. I think this is better.
 
-Thanks!
 
-On Tue, May 27, 2025 at 11:25:57AM +0200, Alexandre Ghiti wrote:
-> Hi Lorenzo,
->
-> On 5/21/25 16:57, Lorenzo Stoakes wrote:
-[snip]
-> > So right now it seems the files would consist of:
-> >
-> > include/linux/hugetlb_contpte.h
-> > mm/hugetlb_contpte.c
-> >
-> > Is this correct?
->
->
-> For now, it is, yes. When this first series gets merged, I would come up
-> with another series that will introduce other files for riscv to support thp
-> contpte based on the arm64 implementation.
+Thanks,
 
-Cool!
+Yanteng
+
 
 >
+> Thanks,
 >
-> >
-> > Is this series intended to be taken by Andrew or through an arch tree?
+> -Nikunj
 >
->
-> I can pick it up in the riscv tree once I have Acked-by from arm64
-> maintainers.
-
-Have pinged Andrew above on this, you'd need an acked-by from mm people also of
-course.
-
-But I guess what makes sense is to take this as a patch in the next respin of
-this series that actually introduces this stuff.
-
-So if Andrew took it, he'd have to take the whole series I would say.
-
->
->
-> >
-> > And who would you sensibly propose for M's and R's?
->
->
-> Ryan is definitely a M, I would be happy to help as M too but if needed, a R
-> is enough for me.
-
-Ryan understands this area better than I do, so I would say it's up to him as to
-whether he thinks this makes sense.
-
->
->
-> >
-> > If we are definitely adding things that sit outside hugetlb or anything
-> > arch-specific, and is in fact generic mm code, then yes this should be a
-> > section.
-> >
-> > Does contpte stand for 'Contiguous PTE'?
->
->
-> Yes, that's the name arm64 gave to this feature (more understandable than
-> svnapot for the riscv feature).
-
-Cheers!
-
-svnapot, guys... what? :P
-
->
->
-> >
-> > Then entry could perhaps be:
-> >
-> > MEMORY MANAGEMENT - CONTPTE (CONTIGUOUS PTE SUPPORT)
-> >
-> > I'd say this entry should probably be added as a patch in this series.
-> >
-> > If you give me a list of R's and M's and confirm those files I can very quickly
-> > copy/pasta from an existing entry and then you could respin (and cc my work mail
-> > for the series :P) and include that as an additional patch?
->
->
-> You can do that or I can do it on my own based on your previous patches, as
-> you prefer.
-
-I absolutely prefer you to do the work haha! ;)
-
-Please cc- me on the next respin with this change in and I can take a look.
-
->
->
-> >
-> > Happy to ACK that in that case.
->
->
-> Thanks for jumping in!
-
-No problem!
-
->
-> Alex
->
->
-> >
-> >
-> > > > [1] https://lore.kernel.org/linux-riscv/20240508191931.46060-1-alexghiti@rivosinc.com/
-> > > >
-> > > > Thanks,
-> > > >
-> > > > Alex
-> > > >
-> > > > > Will
-> > Cheers, Lorenzo
-> >
-
-Cheers, Lorenzo
+>>
+>>
+>> Thanks,
+>> Yanteng
+>>
 
