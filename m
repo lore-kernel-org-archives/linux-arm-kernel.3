@@ -4,84 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A56C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 02:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 672E1C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 04:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rzJA4/pm/pA2bxNF/wk58VEO2UzjkTKWlqXXhPAwhuw=; b=PZSRZfvc8s/5H6JEAy8d6HBXqU
-	WGgwNVn1uVRgP7SQW6pKYKDObMq2DO1ZKTtE+Bj0M8vm7Lgae7SBtKkLM9bIVdUpedtASnFK8LvaU
-	omj9RLJd9f32QJ2iMeFlu0aWhxDX63OLHsQGsUULsrfcYFCxdznoK2L0kcXnyv1X7/Y4WNdZvmZbi
-	BuylfKycw8auomPjFLwsalSBUni86n2Cb44kG5uzJQE5hi96m78YnziDYd+A09Xch9eEe6C0+leu+
-	M/GR1c0hBAN7AoNtocF+kOEM8il4xpu9Q0XhOkyb+YjsxWRei5DK6LOdcpE1xG/6uzFBtSVY1UOHC
-	GocwT83w==;
+	bh=2yjyD2S09HvRAFzGBHJbqdQL+mcZYGub5gnDEImvqXU=; b=oP3TqfSGcmpopg0HFniLs39Hzh
+	TT61IgGyMDpSmJUKHLmgkuHna9Y/aka4x9KJ+IIn8EqT0rHIkbCgT6oBA5ZiFtfkCJofKP9Tm9+Vj
+	2Xst3JHZvomCWszH4T3TDAUYpBRxdoPME5F53yDLBjsm3bAmWXk3cYK5h/t1yfA7uGDGK8GRuGwZI
+	Kjg+EhNdjRAMQ0KZg2M+rVxLD988kYLv4dVMS9sCVP7qXJcjntoHaJjzyefc0VVXxMGYwLBp6mMOK
+	X3dkrRxt/5ByVXnOZDE7YsiAb0FbFlYA53lT0Ez9vfTQaAszVZ5dWLD4FnCFqrFcPb7QdAhhKSSWf
+	DemPYNcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJk2P-00000009l4w-1tnm;
-	Tue, 27 May 2025 02:27:33 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1uJla2-00000009rXM-3SN3;
+	Tue, 27 May 2025 04:06:22 +0000
+Received: from mail-dm6nam12on2062b.outbound.protection.outlook.com ([2a01:111:f403:2417::62b] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJk0H-00000009kyq-1doQ;
-	Tue, 27 May 2025 02:25:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748312722; x=1779848722;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=uhdc5SE6c1+rkMJuVDliirxqkL0mRepvjYykzS8hZjw=;
-  b=iv3xtNlPUfvBIFCTkNpwjovHlmfZLI3kDoxiu7hn6ZLUG4SVfoeRTlgZ
-   bsouDaZq464kPidTCpu8Z9AGiJYtcPoCL7jw8Osn5y4iuQAEyzcp7qV+Z
-   R6XH0E3l8OKX7th+vI0Zwrf9v87VLUOKFMzWzMpzjXevjY98ITQFR83/i
-   ScviiMTIVTDZM3S2wKe5ll6KFGzKmw2abia4MTxpI6sjGbwNWiDRydSaP
-   Vh4UBNqa1+bCUWoBFa2vZRk+HmEB5VWC4aV2T9dWK1ykV/UUM3HpoGAgH
-   t7TlmcU8I2OIcOby5YiaIvEq6RA163+pD6DmpiiBe9S+CtnvjnkD4Y/4P
-   g==;
-X-CSE-ConnectionGUID: ouD05WHYTe2NFU89KmVsMg==
-X-CSE-MsgGUID: 9zcgKymlSHiU5UjPbkc/8A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11445"; a="53941466"
-X-IronPort-AV: E=Sophos;i="6.15,317,1739865600"; 
-   d="scan'208";a="53941466"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2025 19:25:17 -0700
-X-CSE-ConnectionGUID: h1Q1B6PpQpqJ0899byqsyw==
-X-CSE-MsgGUID: rr/zJefnR9C5NUaZyYgZxA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,317,1739865600"; 
-   d="scan'208";a="142515732"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 26 May 2025 19:25:12 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uJk06-000Sou-0d;
-	Tue, 27 May 2025 02:25:10 +0000
-Date: Tue, 27 May 2025 10:24:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: Quentin Schulz <foss+kernel@0leil.net>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
-	Daniel Semkowicz <dse@thaumatec.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Quentin Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH 2/4] mfd: rk8xx-core: allow to customize RK806 reset
- method
-Message-ID: <202505271032.U9jloPe6-lkp@intel.com>
-References: <20250526-rk8xx-rst-fun-v1-2-ea894d9474e0@cherry.de>
+	id 1uJlXu-00000009rOg-0ruI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 May 2025 04:04:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KHR/41Zm1eV7WPgnfQuPvcoLhHOsrgX28qmbbdUaIqbwBEsyXF55FH9XfKuMG4/IPqxoJnEVg+AcCEFQa7ltXgcsgpycyyEaHG5xVxJDR3NGP8oto8QLeThD3kGEE0E8zi+o9VGmGuSkA0ZfT22N2M2djCZX58CYMfAPMy0oD8wqrTkEH99x1KF0dxDpxaD3+ZAzDXQAfy4Jb00x5e9sdEMSd8x/8fJRUamWBECokWIWrJnddc0HmNF350VsztSv+fERnNpgx6tfjTJbVG+JdjWqZUKO3RvnHuh1aQKzgv6yi3wM7EQWAf8Y5VMy3kicxYb6dRpqGdwlF/j0SaQCBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2yjyD2S09HvRAFzGBHJbqdQL+mcZYGub5gnDEImvqXU=;
+ b=Y2gUnk18tPNubkLrIDf6dz9BaWmkdzy7olAq2RhkbyAe/65NQsQI9/RZeuBO565UpvZX4w4aKHsTUM+HusR8dao0cFNAFy7AE1MpKTF3Mq+rBnvfQ9TyqXxOw12j7eaN66zRenIP3xUl2DyM7SPmpQYRybd2LSFjGbiD0tSfsQHlIrhxVTaJ+0SgMqQ/vStSdhUCiWcKQU4fQNQ4dqU54BkTBz1491P0uPsOrAfunCRmKdu12B1FMjRCNx+KWaVhQEjqLUgMOohoPpI6mArJF2nfZbYaAT2880HAJvcCMuIt+ZKKFo0B6JbhfvQXq1QEsrjiTzQTPb6Z6K+yMsDQXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2yjyD2S09HvRAFzGBHJbqdQL+mcZYGub5gnDEImvqXU=;
+ b=WahwaglEFHVBtUrxV1VhErOZ2uwHaAr9rLbZl7FxSPy7pJc25d2BB1HEbmHFVxa5MNqIlEZ6U3UBKCiYg3b4lEsGc74tM8zIOj+0XVELDVfNl+b56pd/pU+r4rsM7AONoquMZL/cMhTM+lqMAKFwDVoXKgGQcJ7U2xkpjqB12JIEKSPmyTlWHi/KVzT+L4WB0Ee5aFpyqVRUK74Kygp4ngYPCYdpYL6Sx5SW+3GDmNnKH7gOYJVLeRi5gyHrRGJNZe2bzWGmBKdwMRx+6WzEHsdEvWoYFoSEmT08gLQYyVAJWL9HNwgLHLfQCy1ErDvWDQPMlIBdWaS29RwBBB8KhA==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by SJ5PPFC41ACEE7B.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9a0) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Tue, 27 May
+ 2025 04:04:00 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%3]) with mapi id 15.20.8769.022; Tue, 27 May 2025
+ 04:04:00 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
+	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>, "ryan.roberts@arm.com"
+	<ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "david@redhat.com"
+	<david@redhat.com>, Aniket Agashe <aniketa@nvidia.com>, Neo Jia
+	<cjia@nvidia.com>, Kirti Wankhede <kwankhede@nvidia.com>, Krishnakant Jaju
+	<kjaju@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram
+ Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, Alistair Popple
+	<apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams
+	<danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
+	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
+	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
+	<linux-mm@kvack.org>, "ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com" <tabba@google.com>, "qperret@google.com"
+	<qperret@google.com>, "seanjc@google.com" <seanjc@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "maobibo@loongson.cn"
+	<maobibo@loongson.cn>
+Subject: Re: [PATCH v6 1/5] KVM: arm64: Block cacheable PFNMAP mapping
+Thread-Topic: [PATCH v6 1/5] KVM: arm64: Block cacheable PFNMAP mapping
+Thread-Index: AQHbzEzDl+XUj5qKLkGqyGQGUTire7PlDCcAgADTl94=
+Date: Tue, 27 May 2025 04:04:00 +0000
+Message-ID: <SA1PR12MB719952194BB7CF27915806A7B064A@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <20250524013943.2832-1-ankita@nvidia.com>
+ <20250524013943.2832-2-ankita@nvidia.com> <20250526152514.GE9786@nvidia.com>
+In-Reply-To: <20250526152514.GE9786@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|SJ5PPFC41ACEE7B:EE_
+x-ms-office365-filtering-correlation-id: 8ddab9ae-8f17-4ecc-f2a2-08dd9cd382cd
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?xfMWNILwAaeJKCvMV/e6Inj3JSH+jf8/CPi4Q/qUQuZtxQGl8FSE92DTS1?=
+ =?iso-8859-1?Q?90d/d3TrAqvT3J310zoA7O+EItdVnoflzcDWdx1XV03F03OrZFgOf+dooV?=
+ =?iso-8859-1?Q?W3qX1ljIbI3mVqCo0pDcqcvkF76SCuIX0Hfw5q5i6fanS0VDvVl+d5EWbp?=
+ =?iso-8859-1?Q?qlLayj9IjNpmeHLGAKlbgyUY8naL9ulC1rlk3b8vl1dHiTX1JAIgM3hZf1?=
+ =?iso-8859-1?Q?245EK8Uz26VqCdN8YMXj41LmpkjZ2mzEUFMfZ4LzXQMiRLHG28V5xy1v2v?=
+ =?iso-8859-1?Q?Tq6T3QK67GczTAS+ZZZ3+2jzsWZvsJss0esgXt5EraoWGJPoDi8mm3log2?=
+ =?iso-8859-1?Q?VQsHZ588wvI7Z0MNdv7FGHrv4Y9GNjhr0OyhbHTuYxU640dWztrbP921oU?=
+ =?iso-8859-1?Q?/V1/qecjs1bpkASxvf2GQ8DK8xPOAfI9/n5qnOIC4KhRPYtNsZByBxHVmJ?=
+ =?iso-8859-1?Q?gxwWGgvF1SffiMcNwORR9jgdvmz6nqceqRiKfsK/80aLG0eTat5oNLksNT?=
+ =?iso-8859-1?Q?/L3/dT4mgcSNCQlT5/Wqd5EgH1UC7FYkQaX/aDYDXjq01o0rUP/2JM/VV0?=
+ =?iso-8859-1?Q?FHpMWVB29rsqvcPQS/cQUzPfbZ/eI1bJAwIFZT1XsLVkCiMLAQhg6feCWB?=
+ =?iso-8859-1?Q?ZjxnKN4FMKeewhyNQRKwHWErzTCiQw+xaHZsvqYBPQJXa4uGf6+OmTbgr1?=
+ =?iso-8859-1?Q?mehJnDNUH4Bx4BRVNuw5ll1AHZuNtg7Ci96RORk/JNByPcX5OttBmdPJoS?=
+ =?iso-8859-1?Q?OKx6z/FJJZnDngs2ieLy8W4UkIR/7OUuaGhLV5BlkcsdUVnKswVH0Ldt8V?=
+ =?iso-8859-1?Q?J5YuwzEYopEsZ0AJOapt4IAhaoTsH4y9Cs8gOCglJ7yeVZ4vsUhp9kkXXd?=
+ =?iso-8859-1?Q?ZIZC+T2eexr5eJpe18kk5eX2q76NuA83eBihjDLRVWHt0coIiAo1pDLweQ?=
+ =?iso-8859-1?Q?G9sBsFV1+AsGRS6q12E/6iSLpNlBaZ0icRe7y6jPvZU0EPQru2XE8zEXlf?=
+ =?iso-8859-1?Q?iSyPiXeiCD2PObxCs6eRtPhnv9d454vaCGA/heeKIAhLyA/7hwvhAKOj5B?=
+ =?iso-8859-1?Q?EEZmo2xTzzjkMmrQpqtysQSzL1BJLKjUJ4lQWSCH6Qxitw7tqSNC7E5ium?=
+ =?iso-8859-1?Q?WjApNoIjfJVTc9ZzecYWfAS/VaICe4SF/uXMJfic+7QGs8woSG/esfxXmK?=
+ =?iso-8859-1?Q?rpLWLDNoqmAQfKh1If2WIl34zuWPt8VVj2aBDLYlXVDB9P9gT9qg4QqGE7?=
+ =?iso-8859-1?Q?n1f4Xqop3h0BkE3MFAVg5U6lYFit+4RXvxcxMGiiM643J1pJAuGAVuoOvd?=
+ =?iso-8859-1?Q?dmyT95CvvcF66J+0H2gHuqEHS+o60TXBi/k92QedES39SZHKerY7Hw0J+B?=
+ =?iso-8859-1?Q?Q6wlAlqXSCn6azJLQsC3Ie+/9RraEyKGTllR/vIFQwIg9Nhhti0HXdqBqw?=
+ =?iso-8859-1?Q?vUrb5EJ/qfbyxtm7droVL/UN/aggxnWNZgZcwdF18GbOlhMSDpKKJf3Y1p?=
+ =?iso-8859-1?Q?huZVXauPCgkGrjNmg3vt0aRZM/docQYswivB4V9r7mTw=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?dGrDK6G+kOjHrGN25fq3smLrAUEOzWhOJGZVj/7VCke74Z4WTY8NLywibs?=
+ =?iso-8859-1?Q?AqHer8uV8/AgmJkw9My9v01rKI8n0S8EOJgRiiQJkfLSG56VuInyb0OUJp?=
+ =?iso-8859-1?Q?a3Fm4ZQYb5/jl4SGD1qH92J67MGnauUI5mFDC6Ew6+Fz5gvJvONfHym4yt?=
+ =?iso-8859-1?Q?GxUeoY/LWerrNJwq8K6SPAyCn50mSCh0zwzz0qIY8RVVCKgK382OfSmKzs?=
+ =?iso-8859-1?Q?CeoVP7GbbpFU/wYsSMnQ2MXmOXEf9pfp9VWYStki82eaMFbVP+Iq4w8RBh?=
+ =?iso-8859-1?Q?0qaHZvyF9AkBLcXP3/jB44L0dg/2A3txwexJ5upDmDwUnbmThEle2qCVOt?=
+ =?iso-8859-1?Q?pE38hrII+Tr02TJn2MtBMl9k5v0czeI0XO4ZP539ymhYaKK/hp2VwRes3B?=
+ =?iso-8859-1?Q?3z4is5Vo1EcyCvtwtIbj3OhG+GdgZjMcn//Tv5LqxlYKqCR7W5Hik50QCa?=
+ =?iso-8859-1?Q?KGc+H6EI7S1bYs1vZnmRXXqUAd/dPSnlRyH8DkO0JbcYvyRv9Ag5whgPN4?=
+ =?iso-8859-1?Q?u67HrFTxNJvvKXwy97YGmxJfM/uCS+wAlEsY5dqLnk4rlSrIF0rXULO4+A?=
+ =?iso-8859-1?Q?ci3PbpMEvGTvPCSEDeWgDohnK9gV0QGEn9jwQ2KA0lXmCqHFhs3JEuslYL?=
+ =?iso-8859-1?Q?OZNemkrY0FxhZgrZkA870sTVPGLW3cBZGZUKG2cnYR+QM6xbiM3Z4yqoAG?=
+ =?iso-8859-1?Q?WtAupC5lMK6UA+elgaNhlQuHK9Coooxk+VinUS3qvlBFpC2LVppeUY6yrX?=
+ =?iso-8859-1?Q?AiWOAMdzJljvnK+8xXAbHTVxSPPstWNDjeA2Mfq7NXN3GzBU8FPLgBpcDS?=
+ =?iso-8859-1?Q?5x0FEf5isR6yLBlrBb9gdkMsmzLLf1asoB/pT/OuvqmwAvfJBJTUIu9UYW?=
+ =?iso-8859-1?Q?bkfAkJ1gI84+3WeomK3cTU/yoYxnAGjU6230AKHsWeekQEvB70YgmVg0bB?=
+ =?iso-8859-1?Q?CsQJTJMQD/xy681YCqHocRMD+agHa91Tv4WSKkwjXD/zdu0RCGcvL8yLMV?=
+ =?iso-8859-1?Q?DLcD3+JQIN3sKkdn2l8H76GrpwEifnEh4fAE3upD82Qcsoa73GJ0gLxDrW?=
+ =?iso-8859-1?Q?QOLN3pSbkGkYA376kAbXCjxzZBqAJ60X7VCJIDE+g3/x0RSfgkOAxA/Gn1?=
+ =?iso-8859-1?Q?QZ1KvAnP7d1J6etM8+uWEZLOSLazyON3T7NJi72tV+nObSDkY0CxyYbPJF?=
+ =?iso-8859-1?Q?WYNc+YEI1NlaTkolqdWcTdRt5k5xOmLUeePvdwd28FQP+9iMWD8wJC0MJp?=
+ =?iso-8859-1?Q?BI4PenixM3jz/XzdiBRKVAb15L+njyjX8wb2oo/wVesdKr1YJovMKVcrmw?=
+ =?iso-8859-1?Q?TwJy85bLmbKPkvWcgGgamJ3vr0lLPYb+cz7zElG7TIfU2CwIxGJqNDGSq5?=
+ =?iso-8859-1?Q?dI5KDE+T/mhlsTx6B6ko3bLLhnFUqtqhAnIqgnY/QmFURkEpAgeEdB04zh?=
+ =?iso-8859-1?Q?Vt2cRsHLB5r7ue84agevHtEp5qcXJBednXdqt92M0IqqhrBItEMafbCgzj?=
+ =?iso-8859-1?Q?JNABf0go4LHnN2JLeFmNzuNBP6jcAP0NHnnMsqj2BAs+O9tW2ZIDZwKTe0?=
+ =?iso-8859-1?Q?lRthIhGrvQFyQuZYJb4jDBoF6xrpI9jktlyp3UPtOWxWU8PaKUcp3bDuU/?=
+ =?iso-8859-1?Q?8lv5bJG82Qetg=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250526-rk8xx-rst-fun-v1-2-ea894d9474e0@cherry.de>
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ddab9ae-8f17-4ecc-f2a2-08dd9cd382cd
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 May 2025 04:04:00.2949
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Jxg009z0ahCEi4qyIm1LwSR1QVy5ASEBOEdTD4/LTOyT3+N6GclqycQM4kQ/Pdqg7DlTlYWj3yAXA8tS/Z0gIQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFC41ACEE7B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_192521_475772_8936B5C6 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20250526_210410_244782_D2C3DA8B 
+X-CRM114-Status: UNSURE (   5.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,191 +190,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 0ff41df1cb268fc69e703a08a57ee14ae967d0ca]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Quentin-Schulz/dt-bindings-mfd-rk806-allow-to-customize-PMIC-reset-method/20250527-011711
-base:   0ff41df1cb268fc69e703a08a57ee14ae967d0ca
-patch link:    https://lore.kernel.org/r/20250526-rk8xx-rst-fun-v1-2-ea894d9474e0%40cherry.de
-patch subject: [PATCH 2/4] mfd: rk8xx-core: allow to customize RK806 reset method
-config: arm64-randconfig-003-20250527 (https://download.01.org/0day-ci/archive/20250527/202505271032.U9jloPe6-lkp@intel.com/config)
-compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250527/202505271032.U9jloPe6-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505271032.U9jloPe6-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/mfd/rk8xx-core.c:723:3: error: expected expression
-                   u32 rst_fun;
-                   ^
->> drivers/mfd/rk8xx-core.c:732:60: error: use of undeclared identifier 'rst_fun'
-                   ret = device_property_read_u32(dev, "rockchip,rst-fun", &rst_fun);
-                                                                            ^
-   drivers/mfd/rk8xx-core.c:741:37: error: use of undeclared identifier 'rst_fun'
-                                            FIELD_PREP(RK806_RST_FUN_MSK, rst_fun));
-                                                                          ^
-   drivers/mfd/rk8xx-core.c:741:37: error: use of undeclared identifier 'rst_fun'
-   drivers/mfd/rk8xx-core.c:741:37: error: use of undeclared identifier 'rst_fun'
->> drivers/mfd/rk8xx-core.c:741:7: error: passing 'void' to parameter of incompatible type 'unsigned int'
-                                            FIELD_PREP(RK806_RST_FUN_MSK, rst_fun));
-                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:114:2: note: expanded from macro 'FIELD_PREP'
-           ({                                                              \
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/regmap.h:1312:42: note: passing argument to parameter 'val' here
-                                        unsigned int mask, unsigned int val)
-                                                                        ^
-   6 errors generated.
-
-
-vim +723 drivers/mfd/rk8xx-core.c
-
-   694	
-   695	int rk8xx_probe(struct device *dev, int variant, unsigned int irq, struct regmap *regmap)
-   696	{
-   697		struct rk808 *rk808;
-   698		const struct rk808_reg_data *pre_init_reg;
-   699		const struct mfd_cell *cells;
-   700		int dual_support = 0;
-   701		int nr_pre_init_regs;
-   702		int nr_cells;
-   703		int ret;
-   704		int i;
-   705	
-   706		rk808 = devm_kzalloc(dev, sizeof(*rk808), GFP_KERNEL);
-   707		if (!rk808)
-   708			return -ENOMEM;
-   709		rk808->dev = dev;
-   710		rk808->variant = variant;
-   711		rk808->regmap = regmap;
-   712		dev_set_drvdata(dev, rk808);
-   713	
-   714		switch (rk808->variant) {
-   715		case RK805_ID:
-   716			rk808->regmap_irq_chip = &rk805_irq_chip;
-   717			pre_init_reg = rk805_pre_init_reg;
-   718			nr_pre_init_regs = ARRAY_SIZE(rk805_pre_init_reg);
-   719			cells = rk805s;
-   720			nr_cells = ARRAY_SIZE(rk805s);
-   721			break;
-   722		case RK806_ID:
- > 723			u32 rst_fun;
-   724	
-   725			rk808->regmap_irq_chip = &rk806_irq_chip;
-   726			pre_init_reg = rk806_pre_init_reg;
-   727			nr_pre_init_regs = ARRAY_SIZE(rk806_pre_init_reg);
-   728			cells = rk806s;
-   729			nr_cells = ARRAY_SIZE(rk806s);
-   730			dual_support = IRQF_SHARED;
-   731	
- > 732			ret = device_property_read_u32(dev, "rockchip,rst-fun", &rst_fun);
-   733			if (ret) {
-   734				dev_dbg(dev,
-   735					"rockchip,rst-fun property missing, not setting RST_FUN\n");
-   736				break;
-   737			}
-   738	
-   739			ret = regmap_update_bits(rk808->regmap, RK806_SYS_CFG3,
-   740						 RK806_RST_FUN_MSK,
- > 741						 FIELD_PREP(RK806_RST_FUN_MSK, rst_fun));
-   742			if (ret)
-   743				return dev_err_probe(dev, ret, "RST_FUN write err\n");
-   744			break;
-   745		case RK808_ID:
-   746			rk808->regmap_irq_chip = &rk808_irq_chip;
-   747			pre_init_reg = rk808_pre_init_reg;
-   748			nr_pre_init_regs = ARRAY_SIZE(rk808_pre_init_reg);
-   749			cells = rk808s;
-   750			nr_cells = ARRAY_SIZE(rk808s);
-   751			break;
-   752		case RK816_ID:
-   753			rk808->regmap_irq_chip = &rk816_irq_chip;
-   754			pre_init_reg = rk816_pre_init_reg;
-   755			nr_pre_init_regs = ARRAY_SIZE(rk816_pre_init_reg);
-   756			cells = rk816s;
-   757			nr_cells = ARRAY_SIZE(rk816s);
-   758			break;
-   759		case RK818_ID:
-   760			rk808->regmap_irq_chip = &rk818_irq_chip;
-   761			pre_init_reg = rk818_pre_init_reg;
-   762			nr_pre_init_regs = ARRAY_SIZE(rk818_pre_init_reg);
-   763			cells = rk818s;
-   764			nr_cells = ARRAY_SIZE(rk818s);
-   765			break;
-   766		case RK809_ID:
-   767		case RK817_ID:
-   768			rk808->regmap_irq_chip = &rk817_irq_chip;
-   769			pre_init_reg = rk817_pre_init_reg;
-   770			nr_pre_init_regs = ARRAY_SIZE(rk817_pre_init_reg);
-   771			cells = rk817s;
-   772			nr_cells = ARRAY_SIZE(rk817s);
-   773			break;
-   774		default:
-   775			dev_err(dev, "Unsupported RK8XX ID %lu\n", rk808->variant);
-   776			return -EINVAL;
-   777		}
-   778	
-   779		if (!irq)
-   780			return dev_err_probe(dev, -EINVAL, "No interrupt support, no core IRQ\n");
-   781	
-   782		ret = devm_regmap_add_irq_chip(dev, rk808->regmap, irq,
-   783					       IRQF_ONESHOT | dual_support, -1,
-   784					       rk808->regmap_irq_chip, &rk808->irq_data);
-   785		if (ret)
-   786			return dev_err_probe(dev, ret, "Failed to add irq_chip\n");
-   787	
-   788		for (i = 0; i < nr_pre_init_regs; i++) {
-   789			ret = regmap_update_bits(rk808->regmap,
-   790						pre_init_reg[i].addr,
-   791						pre_init_reg[i].mask,
-   792						pre_init_reg[i].value);
-   793			if (ret)
-   794				return dev_err_probe(dev, ret, "0x%x write err\n",
-   795						     pre_init_reg[i].addr);
-   796		}
-   797	
-   798		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, cells, nr_cells, NULL, 0,
-   799				      regmap_irq_get_domain(rk808->irq_data));
-   800		if (ret)
-   801			return dev_err_probe(dev, ret, "failed to add MFD devices\n");
-   802	
-   803		if (device_property_read_bool(dev, "system-power-controller") ||
-   804		    device_property_read_bool(dev, "rockchip,system-power-controller")) {
-   805			ret = devm_register_sys_off_handler(dev,
-   806					    SYS_OFF_MODE_POWER_OFF_PREPARE, SYS_OFF_PRIO_HIGH,
-   807					    &rk808_power_off, rk808);
-   808			if (ret)
-   809				return dev_err_probe(dev, ret,
-   810						     "failed to register poweroff handler\n");
-   811	
-   812			switch (rk808->variant) {
-   813			case RK809_ID:
-   814			case RK817_ID:
-   815				ret = devm_register_sys_off_handler(dev,
-   816								    SYS_OFF_MODE_RESTART, SYS_OFF_PRIO_HIGH,
-   817								    &rk808_restart, rk808);
-   818				if (ret)
-   819					dev_warn(dev, "failed to register rst handler, %d\n", ret);
-   820				break;
-   821			default:
-   822				dev_dbg(dev, "pmic controlled board reset not supported\n");
-   823				break;
-   824			}
-   825		}
-   826	
-   827		return 0;
-   828	}
-   829	EXPORT_SYMBOL_GPL(rk8xx_probe);
-   830	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>> Fixes a security bug due to mismatched attributes between S1 and=0A=
+>> S2 mapping.=0A=
+>>=0A=
+>> Currently, it is possible for a region to be cacheable in S1, but=0A=
+>> mapped=0A=
+>=0A=
+> "cachable in the userspace VMA"=0A=
+=0A=
+Thanks Jason for catching that! Will update the text.=
 
