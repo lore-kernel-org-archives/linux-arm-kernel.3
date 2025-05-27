@@ -4,59 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A80C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 16:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A4DC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 16:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9rNlK/XBcvxaY6HC+BzHK/m/yi4kBfY4FGCOEbvM3Jk=; b=2c81Gee6jEFBdpBCyGHE+K+KVo
-	wdp2QQ679iCdLMfI/MWpUIwcaauTXIl0fj3kyeeaLjNkQQn4KY2udYn9uZi2tCvLhX5sU4jkjP/4P
-	zGIerDTvodUwyT1ePxqjykdBwr7wGwwxdyTdozSoptGqEqWKncxCjxRvO+auhSBGEY83qYRQEEaAJ
-	8g7nSn6/V9iRJ7dcpPGwaZSzqqzCX+D4f4r/m2Zsg0U7bayr/NY/9KbQJwpB0NoSNUM9ATPUjjbM8
-	q98SRZPaZ+/zn/9N18XQWFHFLtqGuvKAipZddICdPHpu0en8m67A4UVFQyNKkZADVKUU3JM1fl5FM
-	SnGylZow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UZYLROFC13QWr0WtIHITpKv2k/IYMUKl/Ik95XSzStc=; b=PmeXeYt0UH0V5LkOOe+W+g4kEL
+	3pHoOKvo5klPRrtUB2z/GUGzsUDKw2qfHFcBDsRmmIjlDAN7Xc2pA5QXJxl7m9YQDe/fg5O4K3GyE
+	8dM90OXTm1yN+GtghXHzatQNCk9LHpFm9bDuqIc/Nr//ItxJpjqBxARfefQbmUk7ky8iNtFiBuAUU
+	bfO0CpRWTWfvelRHy/j8jkBB3W97uLdyrgOnPLuKDSpHwh+rIAL/CLuPXwtfCkjdW6lzgRs/KcoDM
+	TqxNTXGzk+c+pJ8ByFgkSPh+zSxnJ+r7aTHxqOaxg5QB9KKZFA35CA8YtkmzVza3/eDoItr5WNji1
+	un7/M/ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJx5C-0000000B9TS-3ttm;
-	Tue, 27 May 2025 16:23:18 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uJxF0-0000000BAWk-1GNN;
+	Tue, 27 May 2025 16:33:26 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJx0m-0000000B8nY-4Adj;
-	Tue, 27 May 2025 16:18:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=9rNlK/XBcvxaY6HC+BzHK/m/yi4kBfY4FGCOEbvM3Jk=; b=cUegHvYd7VyL7dPW+3g+aWWXae
-	g4mkfYFK+DZFozxxITith4TlCR4ZCaeMCzSs/CoC3VY6rf8iHdzZ6SuF2cqWR9sBAAz4CbGi7eRC4
-	yZUYo5+J3eJh73/1irhNoqcOwip0Fv7a0ULF1Hb0aL6GL5INzpHQtGMXbF0gcCa7Dqk8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uJx0g-00E5r4-I7; Tue, 27 May 2025 18:18:38 +0200
-Date: Tue, 27 May 2025 18:18:38 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jakob Unterwurzacher <jakobunt@gmail.com>
-Cc: foss+kernel@0leil.net, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	heiko@sntech.de, jakob.unterwurzacher@cherry.de, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, quentin.schulz@cherry.de,
-	robh@kernel.org
-Subject: Re: [PATCH v2] arm64: dts: rockchip: support Ethernet Switch adapter
- for RK3588 Jaguar
-Message-ID: <35e0a925-4cba-41de-8fe4-4dd10e8816f1@lunn.ch>
-References: <20250523-jaguar-mezz-eth-switch-v2-1-aced8bf6612d@cherry.de>
- <20250527131142.1100673-1-jakob.unterwurzacher@cherry.de>
+	id 1uJxCp-0000000BADE-1BT2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 May 2025 16:31:13 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 538A81FCF2;
+	Tue, 27 May 2025 16:31:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1748363469;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UZYLROFC13QWr0WtIHITpKv2k/IYMUKl/Ik95XSzStc=;
+	b=IhRDeJrS9jEMuIKBecnBJriiCigzhovdLdAo8PcxOnxSCbLHAg2pE5zE5zYVmw1R4+039U
+	CK8W6lC0U0n5puU297QfUE5VkxhETbk9T+KybDCrRlalPEUgCI6a0740UOxd5Sbwd3cSL2
+	mYH8HJ8au6B/lR5hCQcIYrJhJye69OOHxk3cD3dKL0RXz7SNYbNHAEaaoAxe5DOl+XHiNp
+	hu2gde3xzMIE+FeM8/T8HK4PBLAbR+2FWXws0XHzYk8mKOP1L7b/Qv0aa9Dm4dU5Z6Me3B
+	0gtdejge1087acIokX/hgKqRFBJKeJRrdTYh4v+2O5SPx6Mj07/+3K8M5YqlMg==
+Date: Tue, 27 May 2025 18:31:05 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Alexis =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, Phil Reid <preid@electromag.com.au>, Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] net: stmmac: add explicit check and error on invalid
+ PTP clock rate
+Message-ID: <20250527183105.7c4bad49@device-24.home>
+In-Reply-To: <20250527-stmmac_tstamp_div-v2-1-663251b3b542@bootlin.com>
+References: <20250527-stmmac_tstamp_div-v2-1-663251b3b542@bootlin.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250527131142.1100673-1-jakob.unterwurzacher@cherry.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvtdekieculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeekheegieejkeetfffhleehteffgefhfffhueefieefffejfeethfevudetudeuueenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppeeltddrjeeirdeivddrudejudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrjeeirdeivddrudejuddphhgvlhhopeguvghvihgtvgdqvdegrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduiedprhgtphhtthhopegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdhtohhrghhuvgesfhhoshhsrdhsthdrtghomhdprhgtphhtthhopehjohgrsghrvghusehshihnohhpshihshdrtghomhdprhgtphhtt
+ hhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhm
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_091845_031105_327A31D3 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250527_093111_829082_3EC1AE09 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,42 +85,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 03:11:42PM +0200, Jakob Unterwurzacher wrote:
-> > @Jakob, is this something you could check? devmem2 0xfd58c31c w 0x3c0000
-> > should do the trick to disable the circuitry according to the TRM?
-> 
-> I measured TXCLK vs TXD3 on an oscilloscope on gmac1:
-> 
-> 	Setting	Decimal	Actual TXCLK delay (ps)
-> 	00	0	47
-> 	0a	10	283
-> 	10	16	440
-> 	20	32	893
-> 	30	48	1385
-> 	40	64	1913
-> 	50	80	2514
-> 	60	96	3077
-> 	70	112	3565
-> 	7f	127	4009
-> 
-> 	off	x	-315
-> 
-> Setting = tx_delay (hex)
-> Decimal = tx_delay (dec)
-> Actual TXCLK delay (ps) = Measurement from oscilloscope
-> 
-> Plotting this we can deduce that one tx_delay unit is about 31ps.
+Hi Alexis,
 
-Nice to see somebody actually do the measurements. Based on this, it
-would be good to implement:
+On Tue, 27 May 2025 08:33:44 +0200
+Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com> wrote:
 
-        tx-internal-delay-ps:
-          description:
-            RGMII Transmit Clock Delay defined in pico seconds. This is used for
-            controllers that have configurable TX internal delays. If this
-            property is present then the MAC applies the TX delay.
+> The stmmac platform drivers that do not open-code the clk_ptp_rate value
+> after having retrieved the default one from the device-tree can end up
+> with 0 in clk_ptp_rate (as clk_get_rate can return 0). It will
+> eventually propagate up to PTP initialization when bringing up the
+> interface, leading to a divide by 0:
+>=20
+>  Division by zero in kernel.
+>  CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.12.30-00001-g48313bd5=
+768a #22
+>  Hardware name: STM32 (Device Tree Support)
+>  Call trace:
+>   unwind_backtrace from show_stack+0x18/0x1c
+>   show_stack from dump_stack_lvl+0x6c/0x8c
+>   dump_stack_lvl from Ldiv0_64+0x8/0x18
+>   Ldiv0_64 from stmmac_init_tstamp_counter+0x190/0x1a4
+>   stmmac_init_tstamp_counter from stmmac_hw_setup+0xc1c/0x111c
+>   stmmac_hw_setup from __stmmac_open+0x18c/0x434
+>   __stmmac_open from stmmac_open+0x3c/0xbc
+>   stmmac_open from __dev_open+0xf4/0x1ac
+>   __dev_open from __dev_change_flags+0x1cc/0x224
+>   __dev_change_flags from dev_change_flags+0x24/0x60
+>   dev_change_flags from ip_auto_config+0x2e8/0x11a0
+>   ip_auto_config from do_one_initcall+0x84/0x33c
+>   do_one_initcall from kernel_init_freeable+0x1b8/0x214
+>   kernel_init_freeable from kernel_init+0x24/0x140
+>   kernel_init from ret_from_fork+0x14/0x28
+>  Exception stack(0xe0815fb0 to 0xe0815ff8)
+>=20
+> Prevent this division by 0 by adding an explicit check and error log
+> about the actual issue.
+>=20
+> Fixes: 19d857c9038e ("stmmac: Fix calculations for ptp counters when cloc=
+k input =3D 50Mhz.")
+> Signed-off-by: Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com>
+> ---
+> Changes in v2:
+> - Add Fixes tag
+> - Reword commit message to clarify the triggering cause of the issue
+> - Link to v1: https://lore.kernel.org/r/20250523-stmmac_tstamp_div-v1-1-b=
+ca8a5a3a477@bootlin.com
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 918d7f2e8ba992208d7d6521a1e9dba01086058f..f68e3ece919cc88d0bf199a39=
+4bc7e44b5dee095 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -835,6 +835,11 @@ int stmmac_init_tstamp_counter(struct stmmac_priv *p=
+riv, u32 systime_flags)
+>  	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp))
+>  		return -EOPNOTSUPP;
+> =20
+> +	if (!priv->plat->clk_ptp_rate) {
+> +		netdev_err(priv->dev, "Invalid PTP clock rate");
+> +		return -EINVAL;
+> +	}
+> +
+>  	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
+>  	priv->systime_flags =3D systime_flags;
 
-For the moment, please limit it to just the device you measured it on.
+This may be some nitpick that can be addressed at a later point, but we
+now have a guarantee that when stmmac_ptp_register() gets called,
+priv->ptp_clk_rate is non-zero, right ? If so, we can drop the test in
+said function :
 
-	Andrew
+	if (priv->plat->has_gmac4 && priv->plat->clk_ptp_rate)
+		priv->plat->cdc_error_adj =3D (2 * NSEC_PER_SEC) / priv->plat->clk_ptp_ra=
+te;
+
+There is another spot in the code, like in the EST handling, where we
+divide by priv->plat->ptp_clk_rate :
+
+stmmac_adjust_time(...)
+	stmmac_est_configure(priv, priv, priv->est,
+			     priv->plat->clk_ptp_rate)
+		.est_configure()
+			ctrl |=3D ((NSEC_PER_SEC / ptp_rate) [...]
+
+Maybe we should fail EST configuration as well if ptp_clk_rate is 0
+(probably in stmmac_tc.c's tc_taprio_configure or in the
+.est_configure). That can be a step for later as well, as I don't know
+if the setup you found this bug on even supports taprio/EST, and setups
+that do didn't seem to encounter the bug yet.
+
+Besides all that,
+
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Thanks,
+
+Maxime
 
