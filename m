@@ -4,85 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7744AC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 10:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7055C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 10:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9vKSPPco8uaYslgb3qMpB6uZMQh78r5qUBilSeR1pXE=; b=G42vXiiCkhc4mMcfNRg6fPKx2b
-	pvP+0zL08SEzE0zIlj0GU1i1uGi7AoRpVs4X1X6QSshGbc+UCEn0f90742dSGT0CTiymlqGr29k4D
-	tzEGVfzeN4hjOD9hTH6t3gSuzCMAU74AAmElVkgb0xHJaNyu/5Xc3InIMtPmZwZSfNPR9Bvulpvyp
-	nFg+2J0jSEjntHh9rcNu6STEat7YrB9smWmIwdeeUDONTLSWI8C8XUj+hSUN6uptZtYvKiB9Nh5IC
-	/Qi2OsmzN1bUbuNHATPO2rYN1RIk5j2Kjy8yLR0HvxyqG5ASwps5fwD2nMNOT/FFvGu/Qe5XLUAzm
-	z4Zud4Dg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qRBqOzOrv28UUdHO/wXjqy1ptt8k/i+66lCaL24WiV4=; b=ONuBmNYNBRb+gl3H3P8B3IC/PK
+	1fy4rDGgf7edVPNH2V12WYKROcfyKRQ74VAE8qwQFsfsH+GqGfnPDeL7jri3Ud7gt9tcWVIVqzs++
+	Y0Bhyw6iR9vv4VJJFACOTKUz1EY+IOrg59ZeAy6b9TQiJKpJUJfjSSEtfuH0/mk7DCglOQKSeTZYB
+	LKyoMGwp8HXPp1Cd7pWXo+6lFHTIAe+7Dfsrf1Gdp3wIiwUEURrA5n9tc1koK4BCZ976tGGyDP5D/
+	tDZtqC/0mv1RO0Xifbdh/KYvJgCCtHlbz6u3BACd6k5wpXDKh8YF3OGCCNG7FvF5Z80mKSj5b2Yfy
+	/WriKWPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJruM-0000000AVL6-3AYJ;
-	Tue, 27 May 2025 10:51:46 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1uJrwS-0000000AVUU-3K0j;
+	Tue, 27 May 2025 10:53:56 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJrrg-0000000AUnH-1jok
+	id 1uJrt6-0000000AV09-1OXN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 10:49:01 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-30db1bc464dso31355161fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 03:48:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748342938; x=1748947738; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9vKSPPco8uaYslgb3qMpB6uZMQh78r5qUBilSeR1pXE=;
-        b=tF7xt+dWaFWH2wny56sjXlKWYBJTuNoqWSfEwhsHMAAYegUzdxSQpJqzYEUQGc5DlJ
-         1hegZZvKspfaLdlFBhHjZ23aqiFJhuTD27GQnvv1cEQve/ETOPSU3hqNV/gd24DRkAdz
-         TU0NOx0ZIBnPxbQ4V0ji4bz7+V+gvYbfGsUR79xpkME9f5Iar9c0iQuQjSschEIyEEZG
-         VXNmQBF7HYV4orffVWs/gEyV5+3LdsaZ8K7SdJQVLPZxSfE7msal+oFyvOt5SLAqeCqr
-         k1xMu1HpkSxQG98v9Or6c9hnP5owTcqhOc50CsDa5G+06HMDr7ele6QDMocxqFwHLC4J
-         9QIw==
+	Tue, 27 May 2025 10:50:29 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54R4Jdpt012233
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 10:50:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	qRBqOzOrv28UUdHO/wXjqy1ptt8k/i+66lCaL24WiV4=; b=LLwVmvylktZaxbAL
+	uY5c3TpJQTil6NocAMmhUskKEkl6TdqPZ1GuvtZROG9KAY4fnA3oT1B7zn8BdJAY
+	Xvgh638EFk3D5WX100J0Jb6c1+OYXdPIPFD6Pc7tzQLaGATmjblCKtudbWy2aPHp
+	nYHNrHfmha5+qjXdHREnXQ6qqMuYJKNIfXkUK+hW3+524wPzYf0zu3qSmQbf0JGB
+	JkpmzYm6ErmZZpMw+eXjrlrYmgP1VUTmzhbmKmGpMfUodVtf44dHYofQSt9r+/zv
+	NyhLY+4TGJQzZyjjKig1i60m4fyzfE0JmBGfg3wVKnAzvHCNRY8W1n7VFtQTYplK
+	t8rHSw==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46w6918ymn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 10:50:27 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-47983a580dbso7888711cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 03:50:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748342938; x=1748947738;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9vKSPPco8uaYslgb3qMpB6uZMQh78r5qUBilSeR1pXE=;
-        b=uzeudjWCqkcZGVtfqJW//w04Ih3z2+XmUohpep5uRM9J9Up13LeP+cOOKEGeDTCXwO
-         +MkOL9LfOZFAhX5ksYi3yxwXBluQBIul/iYkYYVyCsx5dffTB6Q4Lqsj8RzIJODh7cNf
-         VM4OoApKP6PIJOX1UFh1MFiJK3TszKEZfppggfo+RkFv4QaS/UnSpJ11mJomiMnLQ+kv
-         VZzhkZuRxDffkL5UdA6yckYnP6f3oBIRfiLv0r1/p/Zry0A9j3CQrMxMyv8M+6gG+o+o
-         CfHk3aC3UgyXZqdNRjXcFQjmF5Vr9O0uutSmluVUpLl6/WrOGimfEb75mg5t0MqTPA/D
-         fLwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUT3inOBSdz3ItugZiM1LjCKkCHfVimHtrnmco1g+RptmddviActXDzkkX/axgHdSrZ1vYaiFSG1+i/qV53P6WM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHNHkpcikFhJALNpl+NMVTyu+i9tYxeSYnQt9P04Wi9km1ATEN
-	VPk4OivtfIA2EYatvU625mJsD8rmxNHXKt/kp7J9Qbmm5rE0ncaMpVAY7a1ghSBbFRo=
-X-Gm-Gg: ASbGncuVOanO3ee/NMZehXtRQ23lYANIMKxxwMKqfJqK+3wCfHybCVQyhLH3MKy6r3y
-	8Gbcrkfe70wISjgrH2+jd3BEMGGW7yGxs2q35gOyZW13cFoUQ7BmShWa/aiw21ZnPd1L2au8ADc
-	OO+4zvR0WlU0kxnK4F3USWkYlroUKDEWN1FcUKYwVjSmh/cHO+7WRj+qiOjkkI6Bmoj/G5p4xdd
-	56dCsiUiui2nTTIsbqshWTYN9pY7x1uCWzD7Mi8XwYHnfksrynHSjMm5NLGkUwDRnHVkzlW+zWY
-	MPRaqcSVhvol+Onmfs4b4dX1tSXoeCt8SCkYo8brzdBwGL3qgWHCYN02oJtPtc7c5iaLKFXbxfn
-	+2VC3Jei7kWEnepdeK5e1qlbCkg==
-X-Google-Smtp-Source: AGHT+IE9g01utC6Y6xeS//vjJ++/Yn75a8WpLtE+4tobVTnoaHBMkS9DP3t1Hn0PzpUeqXgyM5sSjw==
-X-Received: by 2002:a05:651c:146d:b0:30b:b7c3:949a with SMTP id 38308e7fff4ca-3295b9f26cfmr30739661fa.18.1748342938112;
-        Tue, 27 May 2025 03:48:58 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32a6cf9c68dsm2674441fa.58.2025.05.27.03.48.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 May 2025 03:48:57 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Linus <torvalds@linux-foundation.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain/cpuidle-psci updates for v6.16
-Date: Tue, 27 May 2025 12:48:56 +0200
-Message-ID: <20250527104856.206797-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1748343026; x=1748947826;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qRBqOzOrv28UUdHO/wXjqy1ptt8k/i+66lCaL24WiV4=;
+        b=b3m/7E8Ci66cZBmpVEhbbamMJFqihjYbCw9UOsFSP0eHm4tRZcjzTfyljIT4xPDnB8
+         sI/+wdMZlHa5IKThaaLEgaX8qsdnAVPSEJzqd/bnHN44kpvFcXOkPn+EPxcEcB3Uf/nX
+         kc6Z+OHW4IZBjnGkcRwgZpg0hP6ru2chb0ijxB0DBmtvMzKQ51HBNFO+DRRiPZZakOXO
+         5l/C+eug+c6Cp+qQ05SvHvL/MQ53qHLGzH7TXO0dIA9JXhJmXaf9rXiE8FiPxwFohR21
+         AWhGzb63SbVqq3bEef7K0ULR+fo1GMEZOiAVAtQhtf15kznMRSD69XV2iqfx3/+/EHNe
+         TBlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXGQhV2WZvohfFeoqf0HtsOkuNVrWkjWPnNGALSRkTUOJ56hDXMuaxtATD8H/UNxd9pEWGAjlBjaMjgagYlcLwX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSU48VOyn9W1JBbTLk8GLE9uloM7AcK81jfPdTfScbXCmOvjSl
+	SsXrNxC0As6A3PldSW0E5YcicdBSjVvHUEQZf0IVa9Zq+4HMrwZMek39dYXDv+G73yBk1vdgCSf
+	r8oZT0pNz83a0qfcMr0xOalAS2hcZOYkza71maaM1KmhuONgZNWDBfWMjIkMB64PLXOeM7I4y/Z
+	LRGg==
+X-Gm-Gg: ASbGncuG9RE3YwYUiv/occy6UhcX/4SkAHNlSkWUcmCS24oYDU3wTk2tL3INigSUPkC
+	jLvKSTqKXAsoqCqvi6TtS48dzjlLhVcGJqdnfR9a/fEcA5cVB8oMfeO2Z1d+aH1ojI+OpahZyqB
+	1j71oBncRD/MyXzh0Zz3omCQfPyuU7qqXCm4eXeSslV3Y2myU14ZnMJjlKYcZm+XUPtrDSqGWQC
+	E8MVSSm+Rk2QSjJnASKHU5mgvUR2pFaacCOoizkcEptGF9+OJDx1Xted+X+YusNBz1f7woM0fon
+	cDjUoi1s7shnyIuRkwSa6UukebATikuqCxJN2zsopUcFEZdEHGXeysBZN2zAlKH4OQ==
+X-Received: by 2002:a05:622a:204:b0:47a:ecc3:296c with SMTP id d75a77b69052e-49f437e5af0mr68352951cf.0.1748343025899;
+        Tue, 27 May 2025 03:50:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE6WSrw2nabesb+cdYzp0oNZGTkIWjS90wW23jZaW3xkQFZgwFkrJkpnTlVmdSvDu2G4AMqLw==
+X-Received: by 2002:a05:622a:204:b0:47a:ecc3:296c with SMTP id d75a77b69052e-49f437e5af0mr68352701cf.0.1748343025468;
+        Tue, 27 May 2025 03:50:25 -0700 (PDT)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad52d04af2asm1832533966b.4.2025.05.27.03.50.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 May 2025 03:50:24 -0700 (PDT)
+Message-ID: <7f525932-570e-4c81-a3f2-6d2e26b02233@oss.qualcomm.com>
+Date: Tue, 27 May 2025 12:50:21 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/5] phy: qcom: qmp-pcie: add x1e80100 qref supplies
+To: Johan Hovold <johan@kernel.org>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Qiang Yu <quic_qianyu@quicinc.com>, Wenbin Yao
+ <quic_wenbyao@quicinc.com>,
+        catalin.marinas@arm.com, will@kernel.org,
+        linux-arm-kernel@lists.infradead.org, andersson@kernel.org,
+        konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+        conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        vkoul@kernel.org, kishon@kernel.org, sfr@canb.auug.org.au,
+        linux-phy@lists.infradead.org, krishna.chundru@oss.qualcomm.com,
+        quic_vbadigan@quicinc.com, quic_mrana@quicinc.com,
+        quic_cang@quicinc.com, Johan Hovold <johan+linaro@kernel.org>,
+        Abel Vesa <abel.vesa@linaro.org>
+References: <20250508081514.3227956-1-quic_wenbyao@quicinc.com>
+ <20250508081514.3227956-6-quic_wenbyao@quicinc.com>
+ <aBxpMuFGKgWrw1TV@hovoldconsulting.com>
+ <5fd4abe7-3621-4119-9482-de823b247b0d@quicinc.com>
+ <aBx9LB_qQIvA0bj8@hovoldconsulting.com>
+ <55a85622-fe33-4b5f-81b2-4a4270fab680@oss.qualcomm.com>
+ <aDRw2rJ39t9W10YG@hovoldconsulting.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <aDRw2rJ39t9W10YG@hovoldconsulting.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=WfoMa1hX c=1 sm=1 tr=0 ts=683598f3 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=zitRP-D0AAAA:8
+ a=4PHQb4W1jccdVsicM3wA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+ a=xwnAI6pc5liRhupp6brZ:22
+X-Proofpoint-GUID: 55YuIn7wib0wsmJhr5hXWdiwPgPYmlzY
+X-Proofpoint-ORIG-GUID: 55YuIn7wib0wsmJhr5hXWdiwPgPYmlzY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI3MDA4OSBTYWx0ZWRfX83zxYXENSxRC
+ yQKlRFVFl3VXVkl1uKGKaaz6lmYgDAY7NJu2w2yKUJgJUMdSscm+6jsx+yvrAu2/bDom1wvEzwI
+ YcluLq86dcJsBZ74UnpGYwH/ZRtX5W608VQ6Py1ZhHFk6uAfjKA3HbXqOQAZffJGlZyevcvOhZ9
+ sCq2WHTygfvKFXYx+y1UQRxYnfvFiJtKNUSRCXCp3mCIY7HjgnGysCzvYpnRSHVB0FWW0T/FfjN
+ j78eFO2RRadjeHSrydvJTXwKLa1OhkhhYI3ozQoTmM5rQiCOC8ma+9jvfikXExtBRjLSgI4h6G0
+ yY990TYTQTXayAy/tZgC1fXw2mXhrWVkjrixI99oN3Bbf91cAE3uFJd7ZIPLxMBZVCGeCvrrdu6
+ RwvQzqsu6Ae8oHJql+zBR4e3bAaW4Z2SY90cUs30cGG8m5SehyU3Wrcz1GkTQRpAc6PG0W6f
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-27_05,2025-05-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 phishscore=0 mlxlogscore=999 priorityscore=1501 mlxscore=0
+ bulkscore=0 adultscore=0 spamscore=0 suspectscore=0 malwarescore=0
+ clxscore=1015 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
+ definitions=main-2505270089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_034900_471414_43A4B9F6 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20250527_035028_376358_956F1F7A 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,122 +148,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On 5/26/25 3:47 PM, Johan Hovold wrote:
+> On Thu, May 22, 2025 at 10:03:18PM +0200, Konrad Dybcio wrote:
+>> On 5/8/25 11:45 AM, Johan Hovold wrote:
+>>> On Thu, May 08, 2025 at 04:50:30PM +0800, Qiang Yu wrote:
+>>>> On 5/8/2025 4:20 PM, Johan Hovold wrote:
+> 
+>>>>> This still looks wrong and you never replied to why these supplies
+>>>>> shouldn't be handled by the tcsr clock driver that supplies these
+>>>>> clocks:
+>>>>>
+>>>>> 	https://lore.kernel.org/lkml/aBHUmXx6N72_sCH9@hovoldconsulting.com/
+>>>
+>>>> Sorry, I thought Konrad had convinced you.
+>>>
+>>> IIRC, he just said you guys were told to add the QREF supply to the PHY.
+>>> That's not an argument.
+>>>
+>>>> If the TCSR driver manages these supplies, would it be possible for tscr
+>>>> driver to recognize when it needs to turn vdda-qref on or off for a
+>>>> specific PCIe port?
+>>>
+>>> Sure, just add a lookup table to the driver and enable the required
+>>> supplies when a ref clock is enabled.
+>>>
+>>> As I mentioned in the other thread, the T14s has the following QREF
+>>> supplies:
+>>>
+>>> 	
+>>> 	VDD_A_QREFS_1P2_A
+>>> 	VDD_A_QREFS_1P2_B
+>>>
+>>> 	VDD_A_QREFS_0P875_A
+>>> 	VDD_A_QREFS_0P875_B
+>>> 	VDD_A_QREFS_0P875_0
+>>> 	VDD_A_QREFS_0P875_2
+>>> 	VDD_A_QREFS_0P875_3
+>>>
+>>> and it's not clear how these maps to the various consumer ref clocks,
+>>> including the PCIe ones:
+>>>
+>>> 	#define TCSR_PCIE_2L_4_CLKREF_EN
+>>> 	#define TCSR_PCIE_2L_5_CLKREF_EN
+>>> 	#define TCSR_PCIE_8L_CLKREF_EN
+>>> 	#define TCSR_PCIE_4L_CLKREF_EN
+>>>
+>>> That mapping can be done by the TCSR clock driver (which would also take
+>>> care of the 1.2 V supplies).
+>>
+>> So we had an internal discussion about this and while it may work, it
+>> would only do so for some SoCs, and maybe only on the surface, as the
+>> wiring behind it is rather peculiar..
+> 
+> Care to expand on why it cannot be made to work generally?
 
-Here's the pull-request with pmdomain and cpuidle-psci updates for v6.16.
-Details about the highlights are as usual found in the signed tag.
+"-ENODATA".. many connections are difficult to unambiguously decipher
 
-Please pull this in!
+> 
+> Also, what would the mapping of the above QREF supplies to PCIe PHYs
+> even look like?
 
-Kind regards
-Ulf Hansson
+I'm not sure I have a clear answer..
 
+> 
+>> Plus, not all QREF consumers have a clock expressed in TCSR as of
+>> right now.
+> 
+> Is that because there is no corresponding bit in the TCSR or simply
+> because it has not been described yet?
 
-The following changes since commit 0f5757667ec0aaf2456c3b76fcf0c6c3ea3591fe:
+Unfortunately, the former.. Some IPs have a non-TCSR ref clock and
+some are presumably implicitly fed by BI_TCXO
 
-  pmdomain: core: Fix error checking in genpd_dev_pm_attach_by_id() (2025-05-08 13:29:30 +0200)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.16
-
-for you to fetch changes up to 36795548dcc841c73f03793ed6cf741a88130922:
-
-  pmdomain: ti: Fix STANDBY handling of PER power domain (2025-05-19 16:11:05 +0200)
-
-----------------------------------------------------------------
-pmdomain core:
- - Add residency reflection for domain-idlestates to debugfs
- - Add genpd helper to correct the usage/rejected counters
-
-pmdomain providers:
- - mediatek: Add support for Dimensity 1200 MT6893
- - qcom: Add support for SM4450 power domains
- - rockchip: Add support for RK3562 SoC
- - sunxi: Add support for Allwinner H6/H616 PRCM PPU
- - ti: Fix STANDBY handling of OMAP2+ PER power domain
-
-cpuidle-psci:
- - Correct the domain-idlestate statistics in debugfs
-
-----------------------------------------------------------------
-Ajit Pandey (2):
-      dt-bindings: power: qcom,rpmpd: Add SM4450 compatible
-      pmdomain: qcom: rpmhpd: Add SM4450 power domains
-
-Andre Przywara (2):
-      dt-bindings: power: Add Allwinner H6/H616 PRCM PPU
-      pmdomain: sunxi: add H6 PRCM PPU driver
-
-AngeloGioacchino Del Regno (3):
-      dt-bindings: power: mediatek: Support Dimensity 1200 MT6893 MTCMOS
-      pmdomain: mediatek: Bump maximum bus protect data array elements
-      pmdomain: mediatek: Add support for Dimensity 1200 MT6893
-
-Chen-Yu Tsai (1):
-      pmdomain: mediatek: Add error messages for missing regmaps
-
-Christophe JAILLET (1):
-      pmdomain: amlogic: Constify some structures
-
-Finley Xiao (2):
-      dt-bindings: power: rockchip: Add support for RK3562 SoC
-      pmdomain: rockchip: Add support for RK3562 SoC
-
-Krzysztof Kozlowski (1):
-      pmdomain: arm: Do not enable by default during compile testing
-
-Stefan Wahren (1):
-      pmdomain: bcm: bcm2835-power: Use devm_clk_get_optional
-
-Sukrut Bellary (1):
-      pmdomain: ti: Fix STANDBY handling of PER power domain
-
-Ulf Hansson (15):
-      pmdomain: core: Add genpd helper to correct the usage/rejected counters
-      cpuidle: psci: Move the per CPU variable domain_state to a struct
-      cpuidle: psci: Correct the domain-idlestate statistics in debugfs
-      pmdomain: core: Add residency reflection for domain-idlestates to debugfs
-      pmdomain: core: Reset genpd->states to avoid freeing invalid data
-      pmdomain: Merge branch dt into next
-      pmdomain: Merge branch dt into next
-      pmdomain: Merge branch dt into next
-      pmdomain: Merge branch dt into next
-      pmdomain: core: Convert to device_awake_path()
-      pmdomain: Merge branch fixes into next
-      pmdomain: core: Convert genpd_power_off() to void
-      pmdomain: core: Simplify return statement in genpd_power_off()
-      pmdomain: core: Use genpd->opp_table to simplify error/remove path
-      pmdomain: Merge branch fixes into next
-
- .../power/allwinner,sun50i-h6-prcm-ppu.yaml        |  42 ++
- .../bindings/power/mediatek,power-controller.yaml  |   2 +
- .../devicetree/bindings/power/qcom,rpmpd.yaml      |   1 +
- .../bindings/power/rockchip,power-controller.yaml  |   1 +
- drivers/cpuidle/cpuidle-psci-domain.c              |   2 +-
- drivers/cpuidle/cpuidle-psci.c                     |  40 +-
- drivers/cpuidle/cpuidle-psci.h                     |   4 +-
- drivers/pmdomain/amlogic/meson-ee-pwrc.c           |  78 +--
- drivers/pmdomain/arm/Kconfig                       |   6 +-
- drivers/pmdomain/bcm/bcm2835-power.c               |  16 +-
- drivers/pmdomain/core.c                            | 131 +++--
- drivers/pmdomain/governor.c                        |   2 +
- drivers/pmdomain/mediatek/mt6893-pm-domains.h      | 585 +++++++++++++++++++++
- drivers/pmdomain/mediatek/mtk-pm-domains.c         |  17 +-
- drivers/pmdomain/mediatek/mtk-pm-domains.h         |   2 +-
- drivers/pmdomain/qcom/rpmhpd.c                     |  16 +
- drivers/pmdomain/rockchip/pm-domains.c             |  48 +-
- drivers/pmdomain/sunxi/Kconfig                     |  10 +
- drivers/pmdomain/sunxi/Makefile                    |   1 +
- drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c        | 208 ++++++++
- drivers/pmdomain/ti/omap_prm.c                     |   8 +-
- include/dt-bindings/power/mediatek,mt6893-power.h  |  35 ++
- include/dt-bindings/power/rockchip,rk3562-power.h  |  35 ++
- include/linux/pm_domain.h                          |  10 +
- 24 files changed, 1185 insertions(+), 115 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/power/allwinner,sun50i-h6-prcm-ppu.yaml
- create mode 100644 drivers/pmdomain/mediatek/mt6893-pm-domains.h
- create mode 100644 drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c
- create mode 100644 include/dt-bindings/power/mediatek,mt6893-power.h
- create mode 100644 include/dt-bindings/power/rockchip,rk3562-power.h
+Konrad
 
