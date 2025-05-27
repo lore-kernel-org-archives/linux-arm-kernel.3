@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB12C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 08:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE11FC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 08:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NW3nNH80UTKZBRJdor1Rs0Lq1+7xOcIJseCIVdwgQEk=; b=3fcVU9P5R+JqF9nDbKRbbNYkou
-	045UhndBADatficqCe4yeexZuTReRis67RGxUKI3m7xCKMDCKkwpxc2cmja05btX4UYJjRFyRuSYK
-	nTSfJ1h6pEUCNy1JJWVUyB0vRig10LrL2o3fW2beuiKRuTBiT2FHpxc5Mv8FiV50MQxFb+N2bZZE2
-	Kc62/pqM8eRAxjbUk12k3y6oRuNW826+Z7cPJ+8CKeQKTT+pYOcVL+8LTefC09Bb5cb66Nh/q+pnC
-	GshqTc0yuRo0tWKbjRe2YoofCRHZOHOE7xLCkytr2xP0b2BEgXFdWYhZKfO0n/yF4u6QUdN9EJnXp
-	O46Te8lg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+cEf943uTSdmXiSmhyGvjDeygM3UufmyUR7yv0s1mf4=; b=RPOakNO9GKQWmLqBH9JT8154g4
+	SvzG4z6HvPIaSFgZns+MZ3ijHEAdNTavZO99/F9dbsrXzW4UA/hZDMgdUYB3CTWu17BusaQeMCC5N
+	VQjbp4tEtP6AOpbbw7H83/0+xPhMc+BaGk2+H9Xq2u2nr3uWj50oQfW2lxIDc/Gjk84VtnL0wyby5
+	Aag27Im1iWkW5QC+K7IaFBGpjLuMoud+vg36rClgV14IvwWSVC53+NL5t3Yf4t76aKtUTUbH5ZYcM
+	oEuh8kEQIerErO8rC3/+p9iHWu3l+Czsk2rv51tKaIwNqAIkkq7EQ1otBdUd+aEcOmptIKYxkezhk
+	zD6iSMfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJper-0000000AFnA-1Y1n;
-	Tue, 27 May 2025 08:27:37 +0000
+	id 1uJpgy-0000000AG4U-1t9i;
+	Tue, 27 May 2025 08:29:48 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJpcb-0000000AFAs-1gfR;
-	Tue, 27 May 2025 08:25:19 +0000
-X-UUID: 16b3a29c3ad411f0b29709d653e92f7d-20250527
+	id 1uJpcc-0000000AFB1-3mIX;
+	Tue, 27 May 2025 08:25:20 +0000
+X-UUID: 19fda2543ad411f0b29709d653e92f7d-20250527
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:52dbf973-d560-4d92-ab36-debd7af511ff,IP:0,U
-	RL:0,TC:0,Content:33,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:33
-X-CID-META: VersionHash:6493067,CLOUDID:76905b17bcdc2d36468f4541233e31d5,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:4|50,EDM:-3,IP:nil,UR
-	L:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,S
-	PR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.1.45,REQID:5288ef3e-1cc9-479a-bf8b-78673f6d54d0,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:aba3c0aaf0b316ece59aa04ed4255f45,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 16b3a29c3ad411f0b29709d653e92f7d-20250527
+X-UUID: 19fda2543ad411f0b29709d653e92f7d-20250527
 Received: from node4.com.cn [(10.44.16.170)] by mailgw.kylinos.cn
 	(envelope-from <aichao@kylinos.cn>)
 	(Generic MTA)
-	with ESMTP id 756001150; Tue, 27 May 2025 16:25:03 +0800
+	with ESMTP id 2003112057; Tue, 27 May 2025 16:25:09 +0800
 Received: from node4.com.cn (localhost [127.0.0.1])
-	by node4.com.cn (NSMail) with SMTP id F0C9D16001F49;
-	Tue, 27 May 2025 16:25:02 +0800 (CST)
-X-ns-mid: postfix-683576DD-9767322679
+	by node4.com.cn (NSMail) with SMTP id D729716001F49;
+	Tue, 27 May 2025 16:25:08 +0800 (CST)
+X-ns-mid: postfix-683576E4-6788702683
 Received: from kylin-pc.. (unknown [172.25.130.133])
-	by node4.com.cn (NSMail) with ESMTPA id F384916001F49;
-	Tue, 27 May 2025 08:24:57 +0000 (UTC)
+	by node4.com.cn (NSMail) with ESMTPA id 572B316001F55;
+	Tue, 27 May 2025 08:25:05 +0000 (UTC)
 From: Ai Chao <aichao@kylinos.cn>
 To: perex@perex.cz,
 	tiwai@suse.com,
@@ -78,15 +78,17 @@ Cc: linux-sound@vger.kernel.org,
 	kernel@pengutronix.de,
 	linux-arm-msm@vger.kernel.org,
 	Ai Chao <aichao@kylinos.cn>
-Subject: [PATCH v3 0/6] Use helper function for_each_child_of_node_scoped()
-Date: Tue, 27 May 2025 16:24:40 +0800
-Message-ID: <20250527082446.2265500-1-aichao@kylinos.cn>
+Subject: [PATCH v3 1/6] ALSA: ppc: Use helper function for_each_child_of_node_scoped()
+Date: Tue, 27 May 2025 16:24:41 +0800
+Message-ID: <20250527082446.2265500-2-aichao@kylinos.cn>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20250527082446.2265500-1-aichao@kylinos.cn>
+References: <20250527082446.2265500-1-aichao@kylinos.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_012517_746236_7399234E 
-X-CRM114-Status: UNSURE (   6.32  )
+X-CRM114-CacheID: sfid-20250527_012519_237414_980F2E9F 
+X-CRM114-Status: UNSURE (   7.43  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,62 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces wrapper functions for_each_child_of_node_sco=
-ped().
+The for_each_child_of_node_scoped() helper provides a scope-based
+clean-up functionality to put the device_node automatically, and
+as such, there is no need to call of_node_put() directly.
 
-The for_each_child_of_node_scoped() helper provides a scope-based clean-u=
-p
-functionality to put the device_node automatically, and as such, there is
-no need to call of_node_put() directly.
-
-Summary:
-
- - Patch 1 ALSA: ppc: Use helper function for_each_child_of_node_scoped()
-
- - Patch 2 ALSA: aoa: Use helper function for_each_child_of_node_scoped()
-
- - Patch 3 ASoC: renesas: Use helper function for_each_child_of_node_scop=
-ed()
-
- - Patch 4 ASoC: meson: Use helper function for_each_child_of_node_scoped=
-()
-
- - Patch 5 ASoC: imx-card: Use helper function for_each_child_of_node_sco=
-ped()
-
- - Patch 6 ASoC: qcom: Use helper function for_each_child_of_node_scoped(=
-)
-
+Signed-off-by: Ai Chao <aichao@kylinos.cn>
 ---
-Changes in v3:
- - Change Patch name ASoC to ALSA for patch 1,2.
- - Change commit message information.
- - for_each_child_of_node_scoped() instead of
-   for_each_child_of_node() in i2cbus_add_dev().
+ sound/ppc/tumbler.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-Changes in v2:
- - Fix error reported by kernel test rebot
- - Keep "node"
----
-
- sound/aoa/soundbus/i2sbus/core.c   |  7 +++---
- sound/ppc/tumbler.c                |  5 ++---
- sound/soc/fsl/imx-card.c           | 13 +++++------
- sound/soc/meson/axg-card.c         |  3 +--
- sound/soc/meson/meson-card-utils.c | 16 +++++---------
- sound/soc/qcom/lpass-cpu.c         |  3 +--
- sound/soc/qcom/qdsp6/q6afe-dai.c   |  3 +--
- sound/soc/qcom/qdsp6/q6asm-dai.c   |  4 +---
- sound/soc/renesas/rcar/core.c      | 35 ++++++++++--------------------
- sound/soc/renesas/rcar/ctu.c       |  8 ++-----
- sound/soc/renesas/rcar/dma.c       |  4 +---
- sound/soc/renesas/rcar/dvc.c       |  8 ++-----
- sound/soc/renesas/rcar/mix.c       |  8 ++-----
- sound/soc/renesas/rcar/src.c       | 10 ++-------
- sound/soc/renesas/rcar/ssi.c       | 18 +++++----------
- sound/soc/renesas/rcar/ssiu.c      |  7 ++----
- 16 files changed, 46 insertions(+), 106 deletions(-)
-
+diff --git a/sound/ppc/tumbler.c b/sound/ppc/tumbler.c
+index 3c09660e1522..b81d0789b9fb 100644
+--- a/sound/ppc/tumbler.c
++++ b/sound/ppc/tumbler.c
+@@ -1343,7 +1343,7 @@ int snd_pmac_tumbler_init(struct snd_pmac *chip)
+ 	int i, err;
+ 	struct pmac_tumbler *mix;
+ 	const u32 *paddr;
+-	struct device_node *tas_node, *np;
++	struct device_node *tas_node;
+ 	char *chipname;
+=20
+ 	request_module("i2c-powermac");
+@@ -1358,13 +1358,12 @@ int snd_pmac_tumbler_init(struct snd_pmac *chip)
+ 	mix->anded_reset =3D 0;
+ 	mix->reset_on_sleep =3D 1;
+=20
+-	for_each_child_of_node(chip->node, np) {
++	for_each_child_of_node_scoped(chip->node, np) {
+ 		if (of_node_name_eq(np, "sound")) {
+ 			if (of_property_read_bool(np, "has-anded-reset"))
+ 				mix->anded_reset =3D 1;
+ 			if (of_property_present(np, "layout-id"))
+ 				mix->reset_on_sleep =3D 0;
+-			of_node_put(np);
+ 			break;
+ 		}
+ 	}
 --=20
 2.47.1
 
