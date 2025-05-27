@@ -4,79 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63CBC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDCAC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EjcdJV8brC5OrMLDlWcOSKf6R+VSqeR2IJaukT+tSAY=; b=oCvSszrdbxIjbP2k8z37iRDB0p
-	HDqeh/Hu1fto849wPYxaXXvtXW8WagVasc3xxw5w0RN9qkUusZ9eWr39ZSKnlx5YftPKcJTexmvhQ
-	XWDf499QDWTyIxSeVW3TZXAH/XzsBxgd5j9ojykm61YOTFDU3B9BxxP3iHsjIpLHrH/aQ25PJS+y/
-	2wMN89Q3S17lcP5hzL9lnUupjiM/Br5oYl9Lxjo1GUeXA6q73su63oUhTX62FYF/nIgRYDMPNPlFW
-	XyFIsShcE+u8Sq0HBvsaC8HGVhjPInVY+9e/dWeTILaJX1BHCL6BNLI8fRc7tok7m4Vs+gLPLgjs9
-	9JbSr1Lg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KFbY11UKk3FAl7qDd1qikSBTtMkriMMQjxt/cEY+GQE=; b=TlSuwqL2flLJUMLZt923qEnF6u
+	T+vYLLPhJelY6xwhK2j4+SBBai6riwTBWExcDhHUSImwxLRvgQONINK6urK3Gogw7pTgGeifiQBBQ
+	GFFP/lf0kRt2zNbA3r97Uw3zlKn/Yfj/XjmW7IpG0peY6xLm7hEQP5lkmg7wtI1RWomFuUPX6/i/u
+	bUah1NZtM1CdloJ3n7QOxrolj/6ikq1gE7AJsrhkzzknLsq3wagy+JKffEiMn+qWsJnHBEr/Pt5Iz
+	BLZ1wB8SWLe6V/uUkGYl06Vd1Nd0IOrIwX9YTPL2qU5M+rn+MuYX+tx4nUF8KYS+CF2RYJUl9s2Ku
+	TzQaTzWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJmza-00000009wV9-2gRI;
-	Tue, 27 May 2025 05:36:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uJn1g-00000009wek-1Mgr;
+	Tue, 27 May 2025 05:39:00 +0000
+Received: from mail-db8eur05on20625.outbound.protection.outlook.com ([2a01:111:f403:2614::625] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJmmi-00000009v6T-2qjl;
-	Tue, 27 May 2025 05:23:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EEABF5C338E;
-	Tue, 27 May 2025 05:21:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8061AC4CEF1;
-	Tue, 27 May 2025 05:23:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748323410;
-	bh=quOporxfDNGe0WOCFU1wm8cDs1FXS8mPxsye1M2mYFw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=YVw7eiD6TqtTeRTJiO0dec0wkPnIo3p7s3qkedCOyUh3rm0lVs63uo3LnNahvHQNi
-	 vY/DChRLi311KgQM3teuG/KoDkUTRjKmRvV7+JnaEZ1wmeCpyIrY0c3LoHDBLHYIlo
-	 AIcEkFbFp0A5lYcbyE8I5RI8TSC1DKIRjnarmgjavfvAkkE+IRVAxggKvmdlx3ICWE
-	 jO1zobcYQJOqK19Zl1sAHZlnQxOvIMprcnMAeilVqXTtte92TaXo8P+zU5VtZlfb7O
-	 ap967/OB1YlfOlrQenBjjQXT9djohKQJsNuRhBTrGG2EYkph2fLwePqsTz+F2t8OHF
-	 wkB4IBGvnxsTg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72C2FC5B549;
-	Tue, 27 May 2025 05:23:30 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Tue, 27 May 2025 13:23:30 +0800
-Subject: [PATCH v3 3/6] pinctrl: meson: support amlogic S6/S7/S7D SoC
+	id 1uJmnf-00000009vMb-2Ctp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 May 2025 05:24:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dbmECtOnilueZ2ow789Hjl4Tl984ubiULRY3oI7YwCOB+SAUoCvVVFCzUU0O3iA+ut5n9k0KrndaIt/Vb6qBrw1cI6KdNDL9QlvFLufcDte8Kc2Y44FMuo1zGaBRkVmlfqrLQjFdUuMiJhEABv7stPLnEobdxocCewk2gzuzXu7U4coGMFWwHHfnLHf8susx9u+UbchqUiNzH1+PHQNR2B8VaDVHPR6h10CIJs6dnEYtMutrzmeDp9HmRGWR36/ZTKtwxyE1r0cwUi0ibEoE9Rk0mH/fa5C3WDAdCIOCjAx7orf+fhd9KEThfd9rR9ydBpHLC/EKTx4eAc8nhYGMsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KFbY11UKk3FAl7qDd1qikSBTtMkriMMQjxt/cEY+GQE=;
+ b=FxwtleaSJSJRIm41uJZVBBoQU6X2cxsCvWZEP3ztoxG5ZmY4SE8vfieAS0zlzKI5/X5kzhrPwUVI75YbXrprSsglsyBhkKKkLLLoeArQIQBtQPImexB8SVY/E+BR0XHuSpOwLosHtHo3MpmhXcxFGmevPCOsbZtwfkWvn7h3MlCg1Ero75gFLm4R7ZegEeX/ec60kqS2lEGZOhoQs+mfZDxD4F/tPJ1d6HHZD/kwT4/1ySO+bc2rMcHBa3jFLVIpQEftM7YPiiWgLAM7P9CaSZkY6k3roJAv6xsPsVgl2pqF6NR/r8PJUbsQCgc4xtKAHjPGZFgwJS6x3mhdGkclpA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KFbY11UKk3FAl7qDd1qikSBTtMkriMMQjxt/cEY+GQE=;
+ b=X3IUmBAUorHls0fsO11h6xU2wnjnKJmVvSGqlahZkxTlLXi5o9eBZYK4TiM60/pBfebSHPg+mcMh4n2gwyX6XFQWZKncKk0iQ4510FCPdRhLnFoErTy6kY9f6SYQnYAeF2cXIVYY4xso6LH9W89lfN2noCOS/kr06Ohrst6TqhqPluPkl1z11ieA+ZPYeqJdLGRvTw8cNzD1+gslSwJRfqf5K3T/QPP8LZTcvGxP3FhuNPQQH4QGQMobkgCKkLSHAomKWPfhOWAQgtF+kR5DCzksMA2Dk1TetZZVpZeX+ycOvvpthIAqCCNOf3zsOWcR4Vp8IeE+9d179mxyjict1A==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DB9PR04MB9891.eurprd04.prod.outlook.com (2603:10a6:10:4c3::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.30; Tue, 27 May
+ 2025 05:24:24 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8769.022; Tue, 27 May 2025
+ 05:24:23 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Frank Li <frank.li@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Stefan Agner <stefan@agner.ch>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	"moderated list:ARM/FREESCALE VYBRID ARM ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, "open list:OPEN FIRMWARE AND
+ FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list
+	<linux-kernel@vger.kernel.org>
+CC: "imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: RE: [PATCH 4/6] ARM: dts: vf: rename io-expander@20 to pinctrl@20
+Thread-Topic: [PATCH 4/6] ARM: dts: vf: rename io-expander@20 to pinctrl@20
+Thread-Index: AQHby/5rcmkIYnq6ukiZ4Q/SIstRErPl9wmA
+Date: Tue, 27 May 2025 05:24:23 +0000
+Message-ID: <PAXPR04MB8459B664F892D4A8726C70B88864A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250523161726.548682-1-Frank.Li@nxp.com>
+ <20250523161726.548682-4-Frank.Li@nxp.com>
+In-Reply-To: <20250523161726.548682-4-Frank.Li@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DB9PR04MB9891:EE_
+x-ms-office365-filtering-correlation-id: befd92d0-9642-457b-d444-08dd9cdebdd7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018|921020;
+x-microsoft-antispam-message-info: =?us-ascii?Q?2Ieqvace+UQG/CMDwGJJiaANwdbxaw9tIX2jq2FBheTRFgwHwWd/KMnU+Bu+?=
+ =?us-ascii?Q?LjNpNW9VLCJeW1mM7QXCnxyl900WtbG6Ix89f+kAq0dbdin3JQU4Jxlk1VDh?=
+ =?us-ascii?Q?eNzQy5Vu6rib6fpKaUyHqDn3EV3CdRvS2oqrMHc6l7o7n/PiQKgFTilDAhH/?=
+ =?us-ascii?Q?s/FYofKxxY6MRTz8wqX4PmM803jrIdC8FloL9nY41PjSYjQlMyPqnOPbovGG?=
+ =?us-ascii?Q?eo6FS4AM8lPWtqEpXV3Iu2osyp3uf0pKOyExXVZ9orHus1rwx/ZaCOhcQ9Sz?=
+ =?us-ascii?Q?09CxX+ZS1Xgk6rgwv30LjmKKNXAKns3V99sAmQZ8uk4bWtQktUeKHodkNTeG?=
+ =?us-ascii?Q?aAV6idK+Wsz86ecNynmh5pKaAOkuwW2kFRdM+N7Fj56BAl5ZVHP0XQM3aFuJ?=
+ =?us-ascii?Q?zBXQuDFKZE6neQ+FI4sBnx2C9edvM/sB5Vm5ITO1lV3X3Yl34k1o98QrBxEF?=
+ =?us-ascii?Q?RKMxiWg34Y+NKe9/X/zE9h6/9wT3OUumxc7cG0I3o5+J1ZwPmUcDxRZ7X3GX?=
+ =?us-ascii?Q?iTqLrCUG951UvC+ojDCpZjV0FIcN71Skc/xCOmhPyiCVDaO7pWSbEFojEUyk?=
+ =?us-ascii?Q?wh8jDBqU1cUEYePTR1cYfskJM1D2mhbZ4EqtxVW2so2tmkS450WhFiwb2lNF?=
+ =?us-ascii?Q?1zTNtY+lLr4Hy5+YT9IrYZmFs/Bn6ymOZcoJmAqOdhT7UbWfUORhLFoMXEq9?=
+ =?us-ascii?Q?nMafUnGyDl6fzbUDqBJ5WORA68Km3yIrmyNlBeUIUG6FqRl3M8u/3R2DJpsj?=
+ =?us-ascii?Q?NsK/VzoF3QOu5IwFD98//Evqhy1Qy+q5NHui1OQ7Y1yOrNzIA84av8f751kv?=
+ =?us-ascii?Q?UoUUPw75wYwC/h82cp5ritlxLqzASyxFtRxiw5ltbEPcqi493Kp6cRrtiDyC?=
+ =?us-ascii?Q?nOaaJy60YCh5hdCkU9u7rQuUiwhNeqxkLGiYjvrL1VDJLn5PMoDfCndBnwUH?=
+ =?us-ascii?Q?MIhNJoOeDyKRhzF/dZjfb3kxTzAsIaurg7UPUr6HqcZRt47vcUQB2vtYPtgj?=
+ =?us-ascii?Q?/eM4eLVIpdlqU3VIvagsABkALg1fFFaMTip5LNrET3kFQgLVD05BY5my0rKn?=
+ =?us-ascii?Q?70pXs0ToU5vSu2yT63cG2IXK7VjCq5aLJ3mo75B0A1pGFIxnNYp4N2hn+d1s?=
+ =?us-ascii?Q?mdhBeeJrIG764KU+VVY61/t4oMbGH6ZC+8LpcWxoxPUbuCYoAESHhZ2Wdo5P?=
+ =?us-ascii?Q?3+fmf03UnhhpiFBLCK6aF+kU1VHM2WldOBTKG7JPAskwYWyd2fm9VFIebnE5?=
+ =?us-ascii?Q?cD2Sx+YKfJQ837yVs1j4gkzgqoodbcw6BP1JX4szgPrmpsfHYIhVvbpik05N?=
+ =?us-ascii?Q?Q1dQK/2g+cPFPYPUNIb9lep1Ry7Hkre0tYSOMMfCLKkuXFCPUOx8KRULJogW?=
+ =?us-ascii?Q?g5SFH9GPOrG5nENfqq7bB3qy1bPGwlWSxNGpa/LpRqDmCsWAVWcA9ZDW6OTZ?=
+ =?us-ascii?Q?b+HxmWdyNuf8oYX20bwLn4k2MYhjxQb83Z2xOLEVXeqyjZshCLgA11q0D+Vt?=
+ =?us-ascii?Q?J5emIi2pShuUPJQ=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Ccq2Drko7f/UWA5f3FCK23ZKibnqs5ESHpjhWm9/wkSbWGaRzL0t69j12+Ov?=
+ =?us-ascii?Q?SE97DPM8HHAZMlAjmp4r85Jat67nvN9fkBikv+88ImldzPk8Q4NeEhmvXDJa?=
+ =?us-ascii?Q?U+ST91FVOD9UJDqqzYbh519V8yx+VkqsY4XJ2i6qoYGkY0UOtCmCh9pgHV2Z?=
+ =?us-ascii?Q?F8J7RmGOqrv2LpG2Uuh97v9Z0mStqoprsD79+pLy/OEG823R59+OypbF01LI?=
+ =?us-ascii?Q?lyeRLff6R0UWqbvxWjY+4KICQzrJUlsNc9EH298pBcfKkhjuSOxGRB6+YzPh?=
+ =?us-ascii?Q?pRtgG7E6aBn8TLkjq4o032loqtU3j5owlbkRLeCsP1sdPdj7fd1I7/L4eKoj?=
+ =?us-ascii?Q?7nzFZ+a1W7VLf4Mvo1ijLehJbM6LdmKR5JRfM6CBqd4FVTvetB8iKG/ep7CH?=
+ =?us-ascii?Q?0tQ1QtG/n2ErMquq3gKPM8S3gtw2phuxa6XHTfhi1ncGkJXKAB9H1/SCgrqX?=
+ =?us-ascii?Q?RPjxTc0aBq5fDd02GiFGK0vvu37MaVLTjfV25DIh5Dfp6gvwTGSPLYhn5h6V?=
+ =?us-ascii?Q?J4xSJGwfBHMWDXbCPdrkOPv+w71W9cMO51qfpjfJ6GINC2ORiQxEgft0j+xv?=
+ =?us-ascii?Q?xI5ZNlzb1uZAjLsI1YDfkxr0OOWaqtxLSk5qLJ2ZCSxAWAb95tjXU1bC4Yim?=
+ =?us-ascii?Q?qG/7fmc8le3xtQyrVQxpy4mfEwKH44JZA7Ch/8Ga0JaBselqt4tKs01OGZqN?=
+ =?us-ascii?Q?KJ9VqYTPtE2+mJ2jOnaJzvYDHr9o1h+mjK5F33klNV6lUdJL81bhAyfX6VsO?=
+ =?us-ascii?Q?9XifF5JZXSnLIHmjNixwrLSB6YXBquQiOYOI5809p3AAEomS9Hjg2lrtav1+?=
+ =?us-ascii?Q?Lsi1JaIZR3RgQVTdZLmkg8sY62mXBkpXu0KZ6Ytug8zFr/hr+F30C0+3GLqY?=
+ =?us-ascii?Q?ZfpvPIlLeIhajmHYrjt81Y7xKlzHWlKloj1pyFwI0ZxlG3VhbksP0DcK55E0?=
+ =?us-ascii?Q?TzkyfPPzpJ3hSVO8XvUdN/coRBx+2nSzy0VnnRj9kxuptyRjSIDH7FZWt++r?=
+ =?us-ascii?Q?gXBydoaUxHF+Jo8M3c6tt5ONddT7yNkV2wz+qZNk36sop+I6INFKyqFzLHbg?=
+ =?us-ascii?Q?YJyBg1owyjAYz0U/ISSEDPHihsI7CsexzlLDt7DnIkiP1YjQChD7rpXk7aWf?=
+ =?us-ascii?Q?ibglBcvTmqwnuq7XDwYYaL9hRB0rWj5CSWOUC3iKnMD5WnsXF5bcnKgJZdhG?=
+ =?us-ascii?Q?JuejqxuL/YUK2CRvViqoMnxYXxWKP6emXiEOxiFHxE41SyIzgqcdagwtsb9G?=
+ =?us-ascii?Q?LCG88PlnSSy7sZCuO7ciN5lehy8bztXjp/MBNKyFMdu0BpizymAuOWIrp6o2?=
+ =?us-ascii?Q?Edz/ZuCszNMV79sSYBLyvkVBmFLxkKilw31fqveLs8AHCvVNaViXNdYEBMiO?=
+ =?us-ascii?Q?nrqWfEinZHiNNpJn/Be9pMJ37i9nZp3JPA83OeJk85ilqNvp71im5QEV2NlW?=
+ =?us-ascii?Q?c5zzTnH/qQ0LTDKPWefwZwtwVThDKuB17FU0PXoHcgs6g9TAmnA0y2eV3Dqy?=
+ =?us-ascii?Q?1M1vmtT/fChEN6NK8hcUy6Vy+PikDtK5ffqGF2t0xJkvOxTHW7P14n67l/Ti?=
+ =?us-ascii?Q?q0NPhdH6WHfJy7xlz0g=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250527-s6-s7-pinctrl-v3-3-44f6a0451519@amlogic.com>
-References: <20250527-s6-s7-pinctrl-v3-0-44f6a0451519@amlogic.com>
-In-Reply-To: <20250527-s6-s7-pinctrl-v3-0-44f6a0451519@amlogic.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748323408; l=5341;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=qwVCVEAnoBSq9I7w3IY19mvHAyrHN1ELUryPfTi/kbc=;
- b=wbXtugHHTmGqqZwpfNa/C/9aeKyj4bIAOBY4DnAoW0oG+TN4aXTn7R3nqUieW0QUjmfJIT7wb
- vYnp2NKxsUUDxljc3ltoSPRo+FEyBJPIGunqQaOlgk/7K6TDw0HA5ss
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: befd92d0-9642-457b-d444-08dd9cdebdd7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 May 2025 05:24:23.7937
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: afBSPK8X+sgM+tYpCec18LknjzpLttC7Y+IGijnTO58FgtVqHVGndmRzg2QUeowk14n3Vd5dYtTrkT4Hh3eGlA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9891
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_222332_816597_F5D437F1 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20250526_222431_584561_2979824E 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,200 +163,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> Subject: [PATCH 4/6] ARM: dts: vf: rename io-expander@20 to
+> pinctrl@20
+>=20
+> Rename io-expander@20 to pinctrl@20 to fix below CHECK_DTB
+> warning:
+>=20
+> arch/arm/boot/dts/nxp/vf/vf610-zii-dev-rev-c.dtb: sx1503@20
+> (semtech,sx1503q):
+>     $nodename:0: 'sx1503@20' does not match '^(pinctrl|pinmux)(@[0-
+> 9a-f]+)?$
+>=20
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm/boot/dts/nxp/vf/vf610-zii-dev-rev-c.dts | 2 +-
+> arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts  | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm/boot/dts/nxp/vf/vf610-zii-dev-rev-c.dts
+> b/arch/arm/boot/dts/nxp/vf/vf610-zii-dev-rev-c.dts
+> index 7a209c9c57a4d..79ea7cf57a4dc 100644
+> --- a/arch/arm/boot/dts/nxp/vf/vf610-zii-dev-rev-c.dts
+> +++ b/arch/arm/boot/dts/nxp/vf/vf610-zii-dev-rev-c.dts
+> @@ -311,7 +311,7 @@ gpio5: io-expander@18 {
+>  	 *    I/O14 - OPT1_TX_DIS
+>  	 *    I/O15 - OPT2_TX_DIS
+>  	 */
+> -	gpio6: sx1503@20 {
+> +	gpio6: pinctrl@20 {
 
-In some Amlogic SoCs, to save register space or due to some
-abnormal arrangements, two sets of pins share one mux register.
+Use gpio-controller?
 
-A group starting from pin0 is the main pin group, which acquires
-the register address through DTS and has management permissions,
-but the register bit offset is undetermined.
+>  		compatible =3D "semtech,sx1503q";
+>=20
+>  		pinctrl-names =3D "default";
+> diff --git a/arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts
+> b/arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts
+> index b3d338312df4f..8020a644dd9d1 100644
+> --- a/arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts
+> +++ b/arch/arm/boot/dts/nxp/vf/vf610-zii-scu4-aib.dts
+> @@ -583,7 +583,7 @@ &i2c2 {
+>  	pinctrl-0 =3D <&pinctrl_i2c2>;
+>  	status =3D "okay";
+>=20
+> -	gpio9: io-expander@20 {
+> +	gpio9: pinctrl@20 {
 
-Another GPIO group as a subordinate group. Some pins mux use share
-register and bit offset from bit0 . But this group do not have
-register management permissions.
+Ditto.
 
-This submission implements this situation.
+Regards
+Peng.
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 101 ++++++++++++++++++++++++++++-
- 1 file changed, 99 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-index 11f68224342e..2541c864086d 100644
---- a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-+++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
-@@ -50,8 +50,23 @@ struct aml_pio_control {
- 	u32 bit_offset[AML_NUM_REG];
- };
- 
-+/*
-+ * partial bank(subordinate) pins mux config use other bank(main) mux registgers
-+ * m_bank_id:	the main bank which pin_id from 0, but register bit not from bit 0
-+ * m_bit_offs:	bit offset the main bank mux register
-+ * sid:         start pin_id of subordinate bank
-+ * eid:         end pin_id of subordinate bank
-+ */
-+struct multi_mux {
-+	unsigned int m_bank_id;
-+	unsigned int m_bit_offs;
-+	unsigned int sid;
-+	unsigned int eid;
-+};
-+
- struct aml_pctl_data {
- 	unsigned int number;
-+	const struct multi_mux *p_mux;
- };
- 
- struct aml_pmx_func {
-@@ -71,10 +86,12 @@ struct aml_gpio_bank {
- 	struct gpio_chip		gpio_chip;
- 	struct aml_pio_control		pc;
- 	u32				bank_id;
-+	u32				mux_bit_offs;
- 	unsigned int			pin_base;
- 	struct regmap			*reg_mux;
- 	struct regmap			*reg_gpio;
- 	struct regmap			*reg_ds;
-+	const struct multi_mux		*p_mux;
- };
- 
- struct aml_pinctrl {
-@@ -106,13 +123,46 @@ static const char *aml_bank_name[31] = {
- "GPIOCC", "TEST_N", "ANALOG"
- };
- 
-+const struct multi_mux multi_mux_s7[] = {
-+	{
-+		.m_bank_id = AMLOGIC_GPIO_CC,
-+		.m_bit_offs = 24,
-+		.sid = (AMLOGIC_GPIO_X << 8) + 16,
-+		.eid = (AMLOGIC_GPIO_X << 8) + 19,
-+	},
-+};
-+
-+const struct aml_pctl_data s7_priv_data = {
-+	.number = ARRAY_SIZE(multi_mux_s7),
-+	.p_mux = multi_mux_s7,
-+};
-+
-+const struct multi_mux multi_mux_s6[] = {
-+	{
-+		.m_bank_id = AMLOGIC_GPIO_CC,
-+		.m_bit_offs = 24,
-+		.sid = (AMLOGIC_GPIO_X << 8) + 16,
-+		.eid = (AMLOGIC_GPIO_X << 8) + 19,
-+	}, {
-+		.m_bank_id = AMLOGIC_GPIO_F,
-+		.m_bit_offs = 4,
-+		.sid = (AMLOGIC_GPIO_D << 8) + 6,
-+		.eid = (AMLOGIC_GPIO_D << 8) + 6,
-+	},
-+};
-+
-+const struct aml_pctl_data s6_priv_data = {
-+	.number = ARRAY_SIZE(multi_mux_s6),
-+	.p_mux = multi_mux_s6,
-+};
-+
- static int aml_pmx_calc_reg_and_offset(struct pinctrl_gpio_range *range,
- 				       unsigned int pin, unsigned int *reg,
- 				       unsigned int *offset)
- {
- 	unsigned int shift;
- 
--	shift = (pin - range->pin_base) << 2;
-+	shift = ((pin - range->pin_base) << 2) + *offset;
- 	*reg = (shift / 32) * 4;
- 	*offset = shift % 32;
- 
-@@ -124,9 +174,36 @@ static int aml_pctl_set_function(struct aml_pinctrl *info,
- 				 int pin_id, int func)
- {
- 	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
-+	unsigned int shift;
- 	int reg;
--	int offset;
-+	int i;
-+	unsigned int offset = bank->mux_bit_offs;
-+	const struct multi_mux *p_mux;
-+
-+	/* peculiar mux reg set */
-+	if (bank->p_mux) {
-+		p_mux = bank->p_mux;
-+		if (pin_id >= p_mux->sid && pin_id <= p_mux->eid) {
-+			bank = NULL;
-+			for (i = 0; i < info->nbanks; i++) {
-+				if (info->banks[i].bank_id == p_mux->m_bank_id) {
-+					bank = &info->banks[i];
-+						break;
-+				}
-+			}
-+
-+			if (!bank || !bank->reg_mux)
-+				return -EINVAL;
-+
-+			shift = (pin_id - p_mux->sid) << 2;
-+			reg = (shift / 32) * 4;
-+			offset = shift % 32;
-+			return regmap_update_bits(bank->reg_mux, reg,
-+					0xf << offset, (func & 0xf) << offset);
-+		}
-+	}
- 
-+	/* normal mux reg set */
- 	if (!bank->reg_mux)
- 		return 0;
- 
-@@ -822,12 +899,30 @@ static const struct gpio_chip aml_gpio_template = {
- static void init_bank_register_bit(struct aml_pinctrl *info,
- 				   struct aml_gpio_bank *bank)
- {
-+	const struct aml_pctl_data *data = info->data;
-+	const struct multi_mux *p_mux;
- 	int i;
- 
- 	for (i = 0; i < AML_NUM_REG; i++) {
- 		bank->pc.reg_offset[i] = aml_def_regoffs[i];
- 		bank->pc.bit_offset[i] = 0;
- 	}
-+
-+	bank->mux_bit_offs = 0;
-+
-+	if (data) {
-+		for (i = 0; i < data->number; i++) {
-+			p_mux = &data->p_mux[i];
-+			if (bank->bank_id == p_mux->m_bank_id) {
-+				bank->mux_bit_offs = p_mux->m_bit_offs;
-+				break;
-+			}
-+			if (p_mux->sid >> 8 == bank->bank_id) {
-+				bank->p_mux = p_mux;
-+				break;
-+			}
-+		}
-+	}
- }
- 
- static int aml_gpiolib_register_bank(struct aml_pinctrl *info,
-@@ -994,6 +1089,8 @@ static int aml_pctl_probe(struct platform_device *pdev)
- 
- static const struct of_device_id aml_pctl_of_match[] = {
- 	{ .compatible = "amlogic,pinctrl-a4", },
-+	{ .compatible = "amlogic,pinctrl-s7", .data = &s7_priv_data, },
-+	{ .compatible = "amlogic,pinctrl-s6", .data = &s6_priv_data, },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, aml_pctl_dt_match);
-
--- 
-2.37.1
-
+>  		compatible =3D "semtech,sx1503q";
+>  		pinctrl-names =3D "default";
+>  		pinctrl-0 =3D <&pinctrl_sx1503_20>;
+> --
+> 2.34.1
+>=20
 
 
