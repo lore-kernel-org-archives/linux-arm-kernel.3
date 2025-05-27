@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E587CC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 06:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D07C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 06:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ugxtBlHTb3OFluSd7sIGAPr/vpouYAqWL5sP8bH4Iqo=; b=rAqP4tpBMfcFW400aa4zXc7sGu
-	PdHYFEK4GXJHL8m7g+88ujaI07SwZkdc7iLcUCKH3ZiF+NYxrgBxP1lyPUeAqVnUr4ZdHDkqVyVs3
-	AW6QBU6z8OxwfOCrRdKD6yIT1TlM+M81SomY5hLAc3yT/1u6MK95YVwz613Cqk66b94kPvR4BgNGy
-	4cICzPe/oOUh0sBgxrPaubO7SxeAjWnsBSV7jBFWFlwdalInOi45wND+zH2ZRrl1mhop5jcCRRZsQ
-	nzpypEZNA36L5Hqbq7QKMw+spwy1wUH3MDL/rSxcdYTckBvf65L6Lf3w3EkbsNQecwfDUNSQHE7DN
-	K/784qeQ==;
+	bh=FGYv5dBgM+8SHCufDBN8eseu6kUhnDZ4+FX7g2bRaVg=; b=AgwIsjCJxQueZqFCmVFP2bE57P
+	SXKlO1ooFnRF+na5vHDjN6OlZ1Stz2yC0bWuLPmBo+rYYXULBp/ZB5Yiv7Bd7Ew8uzTOSufpFxbom
+	FrbGlu9HX5ff9RCV5RF/MwZLGBfHPQB2RoC9JWUAud72payUs0VHfhwNZz8UMu2Tox7GiMmCZ7JGt
+	2N/rQ+sJNS6sZHzy6tb4oi24UBA3ghMqWbPhwHOElDroTDuKsYDCN3CxEk/2omSYgYBHmMwr1Q04k
+	O3KemTfM4FI/JHkNYsRKUHMa0FoRDR25KVato2C2tBDMXLSWR8u5OpHq9LqUutavX7N6GhSc6Q9/5
+	cxaOz/2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJnzO-0000000A3LT-2kpg;
-	Tue, 27 May 2025 06:40:42 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1uJo1W-0000000A3ec-1Tim;
+	Tue, 27 May 2025 06:42:54 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJnvk-0000000A35j-0hjX
+	id 1uJnwB-0000000A3AA-4BRt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 06:36:57 +0000
+	Tue, 27 May 2025 06:37:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748327816; x=1779863816;
+  t=1748327844; x=1779863844;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=J7zeaY485iuldgqut5ZbwwPrllwA1ayRl+Nd/rGxucU=;
-  b=ffcfsbDJuF0zdchxTCxjzc+x8h8HROa5tcAg0yo1hXJzxE3wR7yegbHs
-   EwQkegKRga115GBvQ2tMOSDcmSV0Ft929ufrvaEJlgll1SgshD/hDh0qY
-   m6LYR8dhm50R+1cNNkRmGmwIq71C0HXSIjWznL5xz1ZUAq+wkdNHhwRIL
-   x6uX4sslx0ijlpZOkOPcO9m3rJ2U5P4Ja/gUfXzqtsqCA59+qoXf5NqX7
-   Ti+Agfdb8j6b5HRdMW7AxNE4decRRdeFJ1WFDwQx1/nkGlnXwNwV2kydm
-   rOQ0r26b2C83BcPuwQ6KmowgQYXCdGze4+y/+lzydWIps4XcGJyAN6N4M
-   w==;
-X-CSE-ConnectionGUID: ZJbdv8v1TvKwMhoN5yVS8w==
-X-CSE-MsgGUID: GqSF6FPxQ2GbNT7w0+n+mw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11445"; a="75693438"
+  bh=zbO03nqPX+0Zq5BIX2ZmgYrviPnHxi0V6Sa09FjzZWM=;
+  b=O9CU7B2nD78O7q3Nl1L4FKg/RV/5AUzKNeF/TqHXnZz4BUTcXp16yWHE
+   HlLgmM4mTNSwD5jiZgXfJvLi0DmvaZ1XfM7ZzRZtK44l+MGYxuhZsz/SN
+   Sf3Euztf/4e6KLIthrKV97vbIvhJy4n0fu8wiz8WQHH7hOUH9AkmWWFX7
+   cdc3rW9AWqPlj8vchyTZwEcF4egD9Dxg0vqdgY/i47DUiOk+1gUBD/XOJ
+   b+5tkoHZDNVwnYTlBLmGCAAtjCb82dSEqs/KQ1riw712r4cgJQ7TlkI5X
+   V/Qdc1Ew8fC2QqzGLIhDCrJfsoXHhJgMYKoyp2/xUfggyGrpKkO2yHy46
+   g==;
+X-CSE-ConnectionGUID: 79Lq9T7IQMKBQ3ZbX32hkA==
+X-CSE-MsgGUID: AM3HZaSKSIWVyRFKhKzQwg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11445"; a="61657512"
 X-IronPort-AV: E=Sophos;i="6.15,317,1739865600"; 
-   d="scan'208";a="75693438"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2025 23:36:51 -0700
-X-CSE-ConnectionGUID: /PhxJ89BSNaYc6wNOcq0Vg==
-X-CSE-MsgGUID: xA3sQva5RqaRW2I2vgVTEQ==
+   d="scan'208";a="61657512"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2025 23:37:23 -0700
+X-CSE-ConnectionGUID: EsycDVlcSO+rjF2tzeG6qg==
+X-CSE-MsgGUID: +bvoh1g2TiC1Ol8d1apD6Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,317,1739865600"; 
-   d="scan'208";a="146557371"
+   d="scan'208";a="143628457"
 Received: from fdefranc-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.73])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2025 23:36:47 -0700
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 May 2025 23:37:18 -0700
 Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id ACC1511F738;
-	Tue, 27 May 2025 09:36:42 +0300 (EEST)
-Date: Tue, 27 May 2025 06:36:42 +0000
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 7DFB411F738;
+	Tue, 27 May 2025 09:37:16 +0300 (EEST)
+Date: Tue, 27 May 2025 06:37:16 +0000
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Mathis Foerst <mathis.foerst@mt.com>
-Cc: linux-kernel@vger.kernel.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Mathis Foerst <mathis.foerst@mt.com>, linux-kernel@vger.kernel.org,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -77,17 +76,17 @@ Cc: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-staging@lists.linux.dev,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	manuel.traut@mt.com, mathis.foerst@zuehlke.com
-Subject: Re: [PATCH v6 7/7] media: mt9m114: Set pad-slew-rate
-Message-ID: <aDVdekApG-GT5BHj@kekkonen.localdomain>
+Subject: Re: [PATCH v6 0/7] MT9M114 driver bugfix and improvements
+Message-ID: <aDVdnInPCWiSJ_NE@kekkonen.localdomain>
 References: <20250522143512.112043-1-mathis.foerst@mt.com>
- <20250522143512.112043-8-mathis.foerst@mt.com>
+ <20250526121520.GH17743@pendragon.ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250522143512.112043-8-mathis.foerst@mt.com>
+In-Reply-To: <20250526121520.GH17743@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_233656_220221_2B886784 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20250526_233724_048297_EDE662BC 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,98 +101,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathis,
+Hi Laurent,
 
-On Thu, May 22, 2025 at 04:35:11PM +0200, Mathis Foerst wrote:
-> The MT9M114 supports the different slew rates (0 to 7) on the output pads.
-> At the moment, this is hardcoded to 7 (the fastest rate).
-> The user might want to change this values due to EMC requirements.
+On Mon, May 26, 2025 at 02:15:20PM +0200, Laurent Pinchart wrote:
+> Hi Mathis, Sakari,
 > 
-> Read the 'slew-rate' from the DT and configure the pad slew rates of
-> the output pads accordingly in mt9m114_initialize().
-> Remove the hardcoded slew rate setting from the mt9m114_init table.
+> On Thu, May 22, 2025 at 04:35:04PM +0200, Mathis Foerst wrote:
+> > Hi,
+> > 
+> > this patch series contains the following bugfix and improvements
+> > for the MT9M114 camera driver:
 > 
-> Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> ---
->  drivers/media/i2c/mt9m114.c | 26 +++++++++++++++++++++++---
->  1 file changed, 23 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/media/i2c/mt9m114.c b/drivers/media/i2c/mt9m114.c
-> index 9ff46c72dbc1..f3f9ecc0866c 100644
-> --- a/drivers/media/i2c/mt9m114.c
-> +++ b/drivers/media/i2c/mt9m114.c
-> @@ -18,6 +18,7 @@
->  #include <linux/module.h>
->  #include <linux/mutex.h>
->  #include <linux/pm_runtime.h>
-> +#include <linux/property.h>
->  #include <linux/regmap.h>
->  #include <linux/regulator/consumer.h>
->  #include <linux/types.h>
-> @@ -42,6 +43,9 @@
->  #define MT9M114_RESET_AND_MISC_CONTROL			CCI_REG16(0x001a)
->  #define MT9M114_RESET_SOC					BIT(0)
->  #define MT9M114_PAD_SLEW				CCI_REG16(0x001e)
-> +#define MT9M114_PAD_SLEW_MIN					0
-> +#define MT9M114_PAD_SLEW_MAX					7
-> +#define MT9M114_PAD_SLEW_DEFAULT				7
->  #define MT9M114_PAD_CONTROL				CCI_REG16(0x0032)
->  
->  /* XDMA registers */
-> @@ -388,6 +392,7 @@ struct mt9m114 {
->  
->  	unsigned int pixrate;
->  	bool streaming;
-> +	u32 pad_slew_rate;
->  
->  	/* Pixel Array */
->  	struct {
-> @@ -650,9 +655,6 @@ static const struct cci_reg_sequence mt9m114_init[] = {
->  	{ MT9M114_CAM_SENSOR_CFG_FINE_INTEG_TIME_MAX,	1459 },
->  	{ MT9M114_CAM_SENSOR_CFG_FINE_CORRECTION,	96 },
->  	{ MT9M114_CAM_SENSOR_CFG_REG_0_DATA,		32 },
-> -
-> -	/* Miscellaneous settings */
-> -	{ MT9M114_PAD_SLEW,				0x0777 },
->  };
->  
->  /* -----------------------------------------------------------------------------
-> @@ -784,6 +786,13 @@ static int mt9m114_initialize(struct mt9m114 *sensor)
->  	if (ret < 0)
->  		return ret;
->  
-> +	value = (sensor->pad_slew_rate)
-> +	      | (sensor->pad_slew_rate) << 4
-> +	      |	(sensor->pad_slew_rate) << 8;
+> Review comments need to be addressed for patches 4/7 and 5/7, but the
+> rest of the series seems ready. Sakari, could you merge the other
+> patches, to reduce the size of the next version ?
 
-Please drop the redundant parentheses.
-
-> +	cci_write(sensor->regmap, MT9M114_PAD_SLEW, value, &ret);
-> +	if (ret < 0)
-> +		return ret;
-> +
->  	ret = mt9m114_set_state(sensor, MT9M114_SYS_STATE_ENTER_CONFIG_CHANGE);
->  	if (ret < 0)
->  		return ret;
-> @@ -2398,6 +2407,17 @@ static int mt9m114_parse_dt(struct mt9m114 *sensor)
->  		goto error;
->  	}
->  
-> +	sensor->pad_slew_rate = MT9M114_PAD_SLEW_DEFAULT;
-> +	device_property_read_u32(&sensor->client->dev, "slew-rate",
-> +				 &sensor->pad_slew_rate);
-> +
-> +	if (sensor->pad_slew_rate < MT9M114_PAD_SLEW_MIN ||
-> +	    sensor->pad_slew_rate > MT9M114_PAD_SLEW_MAX) {
-> +		dev_err(&sensor->client->dev, "Invalid slew-rate %u\n",
-> +			sensor->pad_slew_rate);
-> +		return -EINVAL;
-> +	}
-> +
->  	return 0;
->  
->  error:
+I've picked patches 1--3 and 6.
 
 -- 
 Sakari Ailus
