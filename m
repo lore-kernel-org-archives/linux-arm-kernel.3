@@ -4,104 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBC7C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 13:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F080C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 14:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DGgb0gI0WsEnrlnk5sBAIi/zTeFlXCSw5R23gVgvlik=; b=NLkrmM55tr8P5U1xnmMuDMfKqC
-	msHQV5oPx2bIg/g6AYZtbHiASer4W1VEGNEhM++A+Z8WLIB8Cm9u39Fyu1OVZP9rKJtcO1kX01XIc
-	7TXmtWzPoxUGfgwp6i2RDyVtI5rlRAv4y13tw1tpRhatroWYsMK1MA35JGCXAniYzaPHqS6nB1g45
-	nNWHA+tTobz03wQZQs3r3cgyPS7BNan3mFdC1w6UjZ8rxS/XOLogwjo4np0v8uYOURL0a6qBoDI5N
-	21IXEmJI2DyP97StzL5EF17PSZAF1W3iAz1A0rUoMhmVRT8Ed+jEr6kaffwhTgAkyI7sGHXG69Zga
-	tA+YoPBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9RneKTUgHV8QMOt165N0ghvpuDHAQ12Fmh+L+mVFhiE=; b=LYz0dp2Dv+L4mpeOPgLSG2Q6kU
+	afvEdqv/fg4V5UfTDnaTb3IriBvM6RkkhR1GLq9kSmXY8jIi6oSthar3Y/quybylDovVTKCZhmOoc
+	vhf3Vet3mOxIqIaRFgv1NjpMgK5cNXr8lI02DZDLo9JDHDq9gr96smCZ8mbUzcdc8n5V5gVLrW/rl
+	7vSomPKO0dfVQrC247aL/jhbRTIgBs407KkymglbQNjkUFXpISD6yW5QRtg2LGN/3OILq6SX6hyq2
+	IbBnoXRaOUp2uocfJVl+BUhcMhmYGkP0apLQSzsebB20Wy/rmHUsXwIYtBY0ffLjlwHvnbR4JshqV
+	pc/T/kxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJuen-0000000As2w-1i2D;
-	Tue, 27 May 2025 13:47:53 +0000
-Received: from mail-vk1-xa36.google.com ([2607:f8b0:4864:20::a36])
+	id 1uJuxo-0000000Atku-0GTS;
+	Tue, 27 May 2025 14:07:32 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJucX-0000000ArbH-3fKR
+	id 1uJuvd-0000000AtaX-0FEU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 13:45:35 +0000
-Received: by mail-vk1-xa36.google.com with SMTP id 71dfb90a1353d-52eff44a661so851506e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 06:45:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748353533; x=1748958333; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DGgb0gI0WsEnrlnk5sBAIi/zTeFlXCSw5R23gVgvlik=;
-        b=jexMKXi0eBo6vcoK5+nPjYd6gEmJJNfGe/jSNePiL0R5lgvrIyCsN0Ph8nHRUUBRfY
-         W4GjmZjG5UIO0Rjuq8SOO4S5aICP+4x4SvcL0fnOTjEvAjUPXPBm/2f8PGMV0QcMmLiY
-         4Hf0yurg8F0Hg/pbueBaezTRYMWwovJDOPdFscpvvrKrIhtZUVwG2WnjsY9b75AmH48A
-         iwxT1D/OVqtwCjZHbFQ3Q2me2lsTLSMBYKnJL0FyZ9XUIFWYC05gvyf5Qn/mpielFfpl
-         ktIvIjU/9x7Yyk9eg3QVqSBcHJNJk33D9DItcJsujdBshajUTuUMdL2HaD4vAUbsFpYN
-         tgvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748353533; x=1748958333;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DGgb0gI0WsEnrlnk5sBAIi/zTeFlXCSw5R23gVgvlik=;
-        b=vUru4LzkEMg9SPIEgaMPM2ffSeIOoViM51u65DEAtbn/tHlL+y+SZ/Y9t5ZVGFD3kh
-         evJKfgCMtOWlbEvoTCy0dgHxLu9Ai0T2sIdj4gx9fIVeFs3QLKtCt8iSKljQiwobfttX
-         paQVGD2hvvuUwQbTDbDGgM6qN6Nkr3OvfNdz5agN1AOLOwMBdyt3n7WkrTpsv3SvpBBi
-         kK19DJ0ExSzzJg4XeGU5ZP7GIdW6EN/fUB4kpyczw3ndvXNDOmaiIOtIkOQK9duH/qh/
-         6Dzpi68qsREZtOu1kvNEArPoIgZ68nF/5HSNU5pdSxpR9vBcMOvD2ZGay0Mn+wSoV61j
-         3sqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVZAMAQtYlHYGfFLFEsA9pujRW33XiUbJu658EZxjrIxUqTi/OYMj6MgnlS05+N/pnNCTXPYKZZW3AAGkqtv7vS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzzu4xj6aStAqo9ahyVVGxYdxOUQyEH62+bva8FNCzEBq+Ev+on
-	WIaoriyWBl1S6bOIfIlLrzF3Bcyv0hPAa9qnAstRTFKVu6gHv19XDJPq
-X-Gm-Gg: ASbGncv/n+F2Fxd7aYu4ZNCFmX5f+M87pTzGawT+uZh8w1vkdaGm6zB7CKBtM1QlWdW
-	xYCHQmPtQHgWM8HPkyAB/gta5z7164Cuk8ON/MaokBC2EcRt3aT2Y26OKbaKr+g/BjFo1JjWFuj
-	LaQrQvR9uMcyrlRnZtcZ7nKGal3XfP28xtefWbw/G+JOFnezX5zzL/1SBdrlbRPt0cJa60Xy6Nw
-	IC87ZeSNNscDPxowFF9YozIFd8iy3lW/bmtEZDNKEM6qiMTkYPGjX2DEjR4G2M/QVa8ntr90VCS
-	aTbssDpvpNJOCF+sV3lLyN7yCVHNcAnz595NXMLzKvO33F3NvQ==
-X-Google-Smtp-Source: AGHT+IE4BoE+wRq0vStmnqOD4qXT5MdjgPUfSxYYYKWtFbpYnegO3+6kCXHmykmhdGnIfdFOGCxs8g==
-X-Received: by 2002:a05:6122:891:b0:529:2644:8c with SMTP id 71dfb90a1353d-52f2c58c9cfmr8165088e0c.8.1748353532620;
-        Tue, 27 May 2025 06:45:32 -0700 (PDT)
-Received: from hiago-nb ([2804:1b3:a7c1:78c2:1962:9d1:d346:d848])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52f6b9253fdsm2499564e0c.27.2025.05.27.06.45.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 May 2025 06:45:31 -0700 (PDT)
-Date: Tue, 27 May 2025 10:45:25 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Peng Fan <peng.fan@oss.nxp.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-Message-ID: <20250527134525.f7yzs4ww64xxmjmr@hiago-nb>
-References: <20250519172357.vfnwehrbkk24vkge@hiago-nb>
- <CAPDyKFpGcgMzOUHf-JTRTLBviFdLdbjZKrMm8yd37ZqJ1nfkHw@mail.gmail.com>
- <20250521041306.GA28017@nxa18884-linux>
- <20250521041840.GB28017@nxa18884-linux>
- <CAPDyKFpSb+KsfDr1-=uk4TF4Op1dUQ9rDwPP5sSpMfxDRDhnZA@mail.gmail.com>
- <20250523191713.nylhi74jq6z4hqmr@hiago-nb>
- <CAPDyKFq6HG6iTZRnBSN25vhCU8Zj1c+r_ufGbiBsJ16N+1bJVg@mail.gmail.com>
- <20250527000510.fofehmsdhifcwlys@hiago-nb>
- <20250527023921.GA14252@nxa18884-linux>
- <CAPDyKFqZkcaGfss=Oi+H9UERFU29jY2t5uTPnGVGQgSAJSeCoA@mail.gmail.com>
+	Tue, 27 May 2025 14:05:18 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54RCJftD010084;
+	Tue, 27 May 2025 16:05:09 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	9RneKTUgHV8QMOt165N0ghvpuDHAQ12Fmh+L+mVFhiE=; b=MowcQnY11g1gANZG
+	Kz6qQJlw2baLFjg1snTrCdCc8Av4npmRHmQS6lrBFxwEfU1Uo4DX/YPNFgWLxju7
+	RG2sNCENxmvcPNGTdi84JR89FIplB5z7e/i4nle2zKzJkUvfx2Wl12tIZpCVuSII
+	/wImUKQXv/uk8MhegSTR0/Vr2CBIJSZcGRMAaXEEmsOXslof5Ev2HtaB+u1sLkCz
+	lL/Pu3qAT/bmHTD5LyzKYsCoPS63XmM27j8ucHyGK6KNSzygt14pkRjTIA/DH0n0
+	O9NhYY/exwuLIu6gg4/Jer/qTrkIO9qirvlwn0JpB+Elr0qjFoHh+ZTs79eI+0Tf
+	61qcWA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46u388v8cv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 27 May 2025 16:05:09 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 002E040046;
+	Tue, 27 May 2025 16:04:10 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4EF27AFB4E3;
+	Tue, 27 May 2025 16:03:25 +0200 (CEST)
+Received: from [10.48.86.139] (10.48.86.139) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 27 May
+ 2025 16:03:24 +0200
+Message-ID: <61011ea7-6cad-463e-9666-706fe56d98ce@foss.st.com>
+Date: Tue, 27 May 2025 16:03:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPDyKFqZkcaGfss=Oi+H9UERFU29jY2t5uTPnGVGQgSAJSeCoA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] ARM: dts: stm32: fullfill diversity with OPP for
+ STM32M15x SOCs
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark
+ Brown <broonie@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250527-stm32mp157f-dk2-v1-0-8aef885a4928@foss.st.com>
+ <20250527-stm32mp157f-dk2-v1-1-8aef885a4928@foss.st.com>
+ <eec2a1db-717e-46f2-a988-6beefab7b699@kernel.org>
+Content-Language: en-US
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+In-Reply-To: <eec2a1db-717e-46f2-a988-6beefab7b699@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.139]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-27_07,2025-05-27_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_064533_915701_DEA894F8 
-X-CRM114-Status: GOOD (  67.93  )
+X-CRM114-CacheID: sfid-20250527_070517_560381_0E0E437C 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,165 +101,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 01:58:46PM +0200, Ulf Hansson wrote:
-> On Tue, 27 May 2025 at 03:29, Peng Fan <peng.fan@oss.nxp.com> wrote:
-> >
-> > On Mon, May 26, 2025 at 09:05:10PM -0300, Hiago De Franco wrote:
-> > >On Mon, May 26, 2025 at 12:07:49PM +0200, Ulf Hansson wrote:
-> > >> On Fri, 23 May 2025 at 21:17, Hiago De Franco <hiagofranco@gmail.com> wrote:
-> > >> >
-> > >> > Hi Ulf,
-> > >> >
-> > >> > On Wed, May 21, 2025 at 02:11:02PM +0200, Ulf Hansson wrote:
-> > >> > > You should not provide any flag (or attach_data to
-> > >> > > dev_pm_domain_attach_list()) at all. In other words just call
-> > >> > > dev_pm_domain_attach_list(dev, NULL, &priv->pd_list), similar to how
-> > >> > > drivers/remoteproc/imx_dsp_rproc.c does it.
-> > >> > >
-> > >> > > In this way, the device_link is created by making the platform->dev
-> > >> > > the consumer and by keeping the supplier-devices (corresponding to the
-> > >> > > genpds) in RPM_SUSPENDED state.
-> > >> > >
-> > >> > > The PM domains (genpds) are then left in their current state, which
-> > >> > > should allow us to call dev_pm_genpd_is_on() for the corresponding
-> > >> > > supplier-devices, to figure out whether the bootloader turned them on
-> > >> > > or not, I think.
-> > >> > >
-> > >> > > Moreover, to make sure the genpds are turned on when needed, we also
-> > >> > > need to call pm_runtime_enable(platform->dev) and
-> > >> > > pm_runtime_get_sync(platform->dev). The easiest approach is probably
-> > >> > > to do that during ->probe() - and then as an improvement on top you
-> > >> > > may want to implement more fine-grained support for runtime PM.
-> > >> > >
-> > >> > > [...]
-> > >> > >
-> > >> > > Kind regards
-> > >> > > Uffe
-> > >> >
-> > >> > I did some tests here and I might be missing something. I used the
-> > >> > dev_pm_genpd_is_on() inside imx_rproc.c with the following changes:
-> > >> >
-> > >> > @@ -902,7 +902,12 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> > >> >         if (dev->pm_domain)
-> > >> >                 return 0;
-> > >> >
-> > >> >         ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
-> > >> > +       printk("hfranco: returned pd devs is %d", ret);
-> > >> > +       for (int i = 0; i < ret; i++) {
-> > >> > +               test = dev_pm_genpd_is_on(priv->pd_list->pd_devs[i]);
-> > >> > +               printk("hfranco: returned value is %d", test);
-> > >> > +       }
-> > >> >         return ret < 0 ? ret : 0;
-> > >> >  }
-> > >> >
-> > >> > This was a quick test to check the returned value, and it always return
-> > >> > 1 for both pds, even if I did not boot the remote core.
-> > >> >
-> > >> > So I was wondering if it was because of PD_FLAG_DEV_LINK_ON, I removed
-> > >> > it and passed NULL to dev_pm_domain_attach_list().
-> > >>
-> > >> Right, that's exactly what we should be doing.
-> > >>
-> > >> > Booting the kernel
-> > >> > now it correctly reports 0 for both pds, however when I start the
-> > >> > remote core with a hello world firmware and boot the kernel, the CPU
-> > >> > resets with a fault reset ("Reset cause: SCFW fault reset").
-> > >> >
-> > >> > I added both pm functions to probe, just to test:
-> > >> >
-> > >> > @@ -1152,6 +1158,9 @@ static int imx_rproc_probe(struct platform_device *pdev)
-> > >> >                 goto err_put_clk;
-> > >> >         }
-> > >> >
-> > >> > +       pm_runtime_enable(dev);
-> > >> > +       pm_runtime_get_sync(dev);
-> > >> > +
-> > >>
-> > >> Indeed, calling pm_runtime_enable() and then pm_runtime_get_sync()
-> > >> should turn on the PM domains for the device, which I assume is needed
-> > >> at some point.
-> > >>
-> > >> Although, I wonder if this may be a bit too late, I would expect that
-> > >> you at least need to call these *before* the call to rproc_add(), as I
-> > >> assume the rproc-core may start using the device/driver beyond that
-> > >> point.
-> > >>
-> > >> >         return 0
-> > >> >
-> > >> > Now the kernel boot with the remote core running, but it still returns
-> > >> > 0 from dev_pm_genpd_is_on(). So basically now it always returns 0, with
-> > >> > or without the remote core running.
-> > >>
-> > >> dev_pm_genpd_is_on() is returning the current status of the PM domain
-> > >> (genpd) for the device.
-> > >>
-> > >> Could it be that the genpd provider doesn't register its PM domains
-> > >> with the state that the HW is really in? pm_genpd_init() is the call
-> > >> that allows the genpd provider to specify the initial state.
-> > >>
-> > >> I think we need Peng's help here to understand what goes on.
-> > >>
-> > >> >
-> > >> > I tried to move pm_runtime_get_sync() to .prepare function but it make
-> > >> > the kernel not boot anymore (with the SCU fault reset).
-> > >>
-> > >> Try move pm_runtime_enable() before rproc_add().
-> > >
-> > >Thanks Ulf, that indeed made it work, at least now the kernel does not
-> > >reset anymore with the SCU fault reset. However I am still only getting
-> > >0 from dev_pm_genpd_is_on(), no matter what the state of the remote
-> > >core. Maybe I am missing something in between?
-> > >
-> > >Peng, do you know what could be the issue here?
-> >
-> > imx_rproc_attach_pd
-> >  ->dev_pm_domain_attach_list
-> >       ->genpd_dev_pm_attach_by_id
-> >               ->genpd_queue_power_off_work
-> >                  ->cm40_pid0 is powered off because the genpd is set with is_off=false
-> >
-> > So dev_pm_genpd_is_on will return false after attach.
-> >
-> > This means that with U-Boot kick M4, cm40 might be powered off when
-> > attaching the pd even with LINK_ON set, because genpd is set with is_off=false.
-> >
-> > The reason we set genpd to match real hardware status is to avoid RPC call
-> > and to save power. But seems it could not work well with U-boot kicking M4.
-> >
-> > I not have good idea on how to address this issue. The current driver
-> > could work with linux kick M4, M4 packed in flash.bin and M4 in a standalone
-> > partition.
-> 
-> Thanks for the detailed analysis!
-> 
-> This is a very similar issue as many other genpd providers are
-> suffering from - and something that I have been working on recently to
-> fix.
-> 
-> A few days ago I posted a new version of a series [1], which is based
-> upon using the fw_devlink and ->sync_state() support. In principle, we
-> need to prevent genpd from power-off a PM domain if it was powered-on
-> during boot , until all the consumer-drivers of a PM domain have been
-> probed.
-> 
-> I had a look at the DT description of how imx describes power-domain
-> providers/consumers, along with the corresponding genpd provider
-> implementation in drivers/pmdomain/imx/scu-pd.c. Unless I missed
-> something, I think [1] should do the trick for you, without any
-> further changes. Can you please give it a try and see if that solves
-> this problem?
 
-Cool! I can give a try and provide an answer soon. Thanks!
 
+On 5/27/25 15:12, Krzysztof Kozlowski wrote:
+> On 27/05/2025 15:03, Amelie Delaunay wrote:
+>> From: Alexandre Torgue <alexandre.torgue@foss.st.com>
+>>
+>> This commit creates new files to manage security features and supported OPP
+>> on STM32MP15x SOCs. On STM32MP15xY, "Y" gives information:
+>>   -Y = A means no cryp IP and no secure boot + A7-CPU@650MHz.
+>>   -Y = C means cryp IP + optee + secure boot + A7-CPU@650MHz.
+>>   -Y = D means no cryp IP and no secure boot + A7-CPU@800MHz.
+>>   -Y = F means cryp IP + optee + secure boot + A7-CPU@800MHz.
+>>
+>> It fullfills the initial STM32MP15x SoC diversity introduced by
+>> commit 0eda69b6c5f9 ("ARM: dts: stm32: Manage security diversity
+>> for STM32M15x SOCs").
+>>
+>> Signed-off-by: Alexandre Torgue <alexandre.torgue@foss.st.com>
+>> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+>> ---
+>>   arch/arm/boot/dts/st/stm32mp15xa.dtsi |  5 +++++
+>>   arch/arm/boot/dts/st/stm32mp15xc.dtsi |  4 +++-
+>>   arch/arm/boot/dts/st/stm32mp15xd.dtsi |  5 +++++
+>>   arch/arm/boot/dts/st/stm32mp15xf.dtsi | 20 ++++++++++++++++++++
+>>   4 files changed, 33 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm/boot/dts/st/stm32mp15xa.dtsi b/arch/arm/boot/dts/st/stm32mp15xa.dtsi
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..cb55f5966f74011d12d7a5c6ad047569d25d4e98
+>> --- /dev/null
+>> +++ b/arch/arm/boot/dts/st/stm32mp15xa.dtsi
+>> @@ -0,0 +1,5 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+>> +/*
+>> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
+>> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
 > 
-> [...]
+> You create entirely empty, unused file. There is literally no benefit of
+> this file, no impact, just more files to handle.
 > 
-> Kind regards
-> Uffe
-> 
-> [1]
-> https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
 
-Best regards,
-Hiago
+Indeed, this one is not useful and will be dropped in v2, as it won't be 
+populated with cpufreq/thermal updates due to fixed cpu clock frequency.
+
+>> + */
+>> diff --git a/arch/arm/boot/dts/st/stm32mp15xc.dtsi b/arch/arm/boot/dts/st/stm32mp15xc.dtsi
+>> index 97465717f932fc223647af76e88a6182cf3c870f..4d30a2a537f15c1e145635b090de0f0222526579 100644
+>> --- a/arch/arm/boot/dts/st/stm32mp15xc.dtsi
+>> +++ b/arch/arm/boot/dts/st/stm32mp15xc.dtsi
+>> @@ -1,9 +1,11 @@
+>> -// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+> 
+> License change is not explained in commit msg and anyway should be
+> separate commit with acks/sobs from all copyright holders. You also need
+> to CC them (Cc e.g. Gatien).
+> 
+
+License change is not needed, good to know how it should have been done. 
+Since stm32mp15xa.dtsi will be dropped in v2, this file won't be updated 
+and the license won't change.
+
+>>   /*
+>>    * Copyright (C) STMicroelectronics 2019 - All Rights Reserved
+>>    * Author: Alexandre Torgue <alexandre.torgue@st.com> for STMicroelectronics.
+>>    */
+>>   
+>> +#include "stm32mp15xa.dtsi"
+>> +
+>>   &etzpc {
+>>   	cryp1: cryp@54001000 {
+>>   		compatible = "st,stm32mp1-cryp";
+>> diff --git a/arch/arm/boot/dts/st/stm32mp15xd.dtsi b/arch/arm/boot/dts/st/stm32mp15xd.dtsi
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..cb55f5966f74011d12d7a5c6ad047569d25d4e98
+>> --- /dev/null
+>> +++ b/arch/arm/boot/dts/st/stm32mp15xd.dtsi
+>> @@ -0,0 +1,5 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+>> +/*
+>> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
+>> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+>> + */
+> 
+> Same problems.
+> 
+
+This file won't be empty, it will be populated with cpufreq/thermal 
+updates because STM32MP15xD and STM32MP15xF have dynamic CPU frequency 
+scaling.
+
+>> diff --git a/arch/arm/boot/dts/st/stm32mp15xf.dtsi b/arch/arm/boot/dts/st/stm32mp15xf.dtsi
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..5f6a2952125d00d468e2e4012024f02380cfaa49
+>> --- /dev/null
+>> +++ b/arch/arm/boot/dts/st/stm32mp15xf.dtsi
+>> @@ -0,0 +1,20 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+>> +/*
+>> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
+>> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+>> + */
+>> +
+>> +#include "stm32mp15xd.dtsi"
+>> +
+>> +/ {
+>> +	soc {
+>> +		cryp1: cryp@54001000 {
+>> +			compatible = "st,stm32mp1-cryp";
+>> +			reg = <0x54001000 0x400>;
+>> +			interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&rcc CRYP1>;
+>> +			resets = <&rcc CRYP1_R>;
+>> +			status = "disabled";
+>> +		};
+>> +	};
+>> +};
+>>
+> 
+> 
+> Best regards,
+> Krzysztof
+
+Regards,
+Amelie
 
