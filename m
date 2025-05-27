@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BF3C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 19:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7EFC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 19:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWXT/WupRqW0CupybvTkEKLCMDuWAmD/tW/zMc48HoA=; b=gQCzhytAhS7/41Zrb/7XTLFedz
-	YyAY5EZMuPj13ysi1n9S5Cms6JjKlxnigwUHL4biBaWtgxtcFwTUmkquWBGS1vc3XekhzDjI0ywS9
-	8ZMgFmpfdhd7o1W3hS+z9lJkAbvsSxUFak+YZ6QvNZU2f1WqlzeXZDG/aMN7paUwl2r14ljJHrRah
-	0xjfNZu/PMDlP0gZ8/zXV3dPpA+Dhu/9Nf4qILCT4y9LAIH5bcORyDMod++be5yd+NsZ70QOVHaXx
-	mEBgN2+csMgyBIJ/sYs8jh4K3jUfOikDWSgzUqQEFt+CtWHQSpE9DvtQqjyreKKq/bQq7tQDlQpYn
-	etGqufqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vDO6nFUTShVTRI2iq8gUfvNHc1/68/dnTMcWjAWG1oE=; b=1+kyI9UsLv8fao58GoV+PZUrtT
+	mVanLw5FLZBlhNbr13tP0BM4TVlrcROHyW83ggvrWzg11xA/xGmiDEunYKYuviw5gOwX0j6sXix60
+	rT2SNW0xCrpHtiwk6YZp5DvfAIWBsyJl60yvO3B8GduJ9BHnOL/3EO1lsnojPuVIxE4eG+2a085Ad
+	VIDg/f+b/LQzXpWJRcw6Vdlh/0W4/23T3bZcJ1bhRqRFwnBSvgEkp6Y9Aji1IsIRmL9nWWHYn3/Dz
+	A0rLiE+pFXLs8EmwVgIymHz+1gfJE9XjqtwoXpZchxZHoXpaP8VTIDIVjXbXvGws2wjEZR41MRPmd
+	vyRUCPrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJztu-0000000BQGl-21UY;
-	Tue, 27 May 2025 19:23:50 +0000
-Received: from mail-vs1-xe2b.google.com ([2607:f8b0:4864:20::e2b])
+	id 1uJzyj-0000000BQhK-1h9t;
+	Tue, 27 May 2025 19:28:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJzri-0000000BQ65-1ZGG
+	id 1uJzwa-0000000BQUr-2Mep
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 19:21:38 +0000
-Received: by mail-vs1-xe2b.google.com with SMTP id ada2fe7eead31-4e58d28ebb0so405980137.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 12:21:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748373693; x=1748978493; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aWXT/WupRqW0CupybvTkEKLCMDuWAmD/tW/zMc48HoA=;
-        b=ViUmQZORx8oOIZn0QA/dCf96Wt2GIhcx9uc3m3oTTIgH2I4ZlyqVS06fsQE0xKDAhD
-         oZE/BWD1WczSXCYRqYKW1S7i0hTurqLPIcOobTiPp2Iq6L34hxBIfL5fmzMSZSEucZXT
-         FP3DOoRXeBdFLuaR0kBQ6W/JJ2OTRLsQhvZzM+ftUmV58mYtITko4KopP1FPa7F1G6Ko
-         8qw2OiGeDY/AjrM4ayCD6hiJuKlXEilKzkltTOAx4H1rcAWOXyar1ICa5YLNCWpD7SRG
-         QWhftFwcZG0T2nLB3zKHGiDwl8hciI6aedwpwfUd9F8VgxzaEEv+SXyLsOUQWFxUFdeM
-         FadA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748373693; x=1748978493;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aWXT/WupRqW0CupybvTkEKLCMDuWAmD/tW/zMc48HoA=;
-        b=qoOzpKdz920/uVv+gjiHXWMR5tjVzosL5q3aRewj3oJ2z9liakaB5xyCy5FRmniGYa
-         2hqZhJx+fP1k0oFHiTqt80rD2OaDzD2Rbq75VABRBy41JXhABcSmdohNDSz1RC+ICNP6
-         0/1HC8YToHe0kjEHc7G8j/VKLmKq/9cXWgAWbI+5smTkp6TY3lnPc0lqvNKP+WCXZprF
-         KZoISyteqOpMWXtbXzX9bn+0KnZRu1/K7vPYHV7gnZmXbQGP4Iinih/mJkM80fjT4aoD
-         KiIX+xmUaLqiztwtA/RXK41mUB7A6eXJy0jh1gdSW+uhed8Opk0sl2O67I4V0yCqQKqE
-         GXbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXzIDX9Q9fpj5FBJP5EE7R2IhZofrqIayq+iOLh8VVt/Kk1HajHDkfZWXlzEgVrLX1tBuCM83Vsswvnua7znBVh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKMwCKZg/K5Qel7LYkemBHW8Mg3mnnFsS/Oo+f84NnZXpmmGWV
-	xgQ8PM1p1+S/AsxHLuaCUeuJvlod81ypwCMYaZRQsy52l1odYLaIoqWBFJq5Vy4T/dE8Dn9WjZj
-	GheypXa9MFWfXV93Vs6Vkihyw6hemKwg=
-X-Gm-Gg: ASbGncviYn102l+whz+Sgefxcv2zSgsmpnqNddTMN/dWsEcVs2C6s0oiK5TCZM/yCTw
-	ZWZ6Z2NcZPQAWgKXIMO4A8p3+qyBv4gQJpKR6eYvy/uwZlsccltYUn9OP/LjoiRNKXOC6L5hksS
-	jDBASW8BxwhJHtxgUT0B+Q1oJSclJ4f6YiBA==
-X-Google-Smtp-Source: AGHT+IEChjVJAaQHlGSjHa9hTKxCJFyJzR7c9+aL/0QxNkhj4bg8SHCtIwSUXtZJZi5/vjBpZfQlumATcldCYDUWxqA=
-X-Received: by 2002:a05:6102:290c:b0:4e5:9c06:39d6 with SMTP id
- ada2fe7eead31-4e59c063ae6mr471806137.2.1748373693026; Tue, 27 May 2025
- 12:21:33 -0700 (PDT)
+	Tue, 27 May 2025 19:26:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6AA7AA4F228;
+	Tue, 27 May 2025 19:26:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE022C4CEE9;
+	Tue, 27 May 2025 19:26:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748373995;
+	bh=8b7Ot1h0kWRufg9jq3azIqDVbfLb610Zg17izxeq5mE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lbWgiM8BThAq1FK9PnBWXw5Ea3jqTSikytUKVSl2TLgIvZiMebu1I70wy7sHvHuV7
+	 Mx/asaNJz8aXte7R/VQGO8OmA0QEHjtpQFGO49Maw23fNLD9mlu4DFAzMgV4I59AAb
+	 IrD8YsHZJjl7I19eX2M46MssS503LfabJ0eWIMs5JRxImghckhaDwOZqrsbOI/pMcm
+	 6C/wZe6lWOWaDmLT1mXeTBqbVocwP1SCkqJc8BT8PdsIkF7GOvXfztLu+pIyaLzC4+
+	 fYJpolT/yc9BItvVIXwfUO+pOxtQag+8D6zR40aLbQfp73D5JycanCY7u7jvq4bHkP
+	 6yjMeVfux3lLA==
+Date: Tue, 27 May 2025 14:26:33 -0500
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	gregkh@linuxfoundation.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	michal.simek@amd.com, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, git@amd.com
+Subject: Re: [PATCH] dt-bindings: usb: dwc3-xilinx: allow dma-coherent
+Message-ID: <20250527192633.GA1084631-robh@kernel.org>
+References: <1747401516-286356-1-git-send-email-radhey.shyam.pandey@amd.com>
+ <20250516-exclusion-suffocate-94a1c87c1262@spud>
 MIME-Version: 1.0
-References: <20250527175558.2738342-1-james.hilliard1@gmail.com> <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch>
-In-Reply-To: <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 27 May 2025 13:21:21 -0600
-X-Gm-Features: AX0GCFvF6Ti9-VC-WdHc6MfKeYhf1F3qOQDDP4BI4jj848sa9rzAvWhhkHP0KPs
-Message-ID: <CADvTj4rGdb_kHV_gjKTJNkzYEPMzqLcHY_1xw7wy5r-ryqDfNQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
- PHY device
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Russell King <linux@armlinux.org.uk>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Furong Xu <0x1207@gmail.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250516-exclusion-suffocate-94a1c87c1262@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_122134_409833_2B179D46 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250527_122636_667435_24AB14F0 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,22 +76,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 1:14=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Tue, May 27, 2025 at 11:55:54AM -0600, James Hilliard wrote:
-> > Some devices like the Allwinner H616 need the ability to select a phy
-> > in cases where multiple PHY's may be present in a device tree due to
-> > needing the ability to support multiple SoC variants with runtime
-> > PHY selection.
->
-> I'm not convinced about this yet. As far as i see, it is different
-> variants of the H616. They should have different compatibles, since
-> they are not actually compatible, and you should have different DT
-> descriptions. So you don't need runtime PHY selection.
+On Fri, May 16, 2025 at 03:16:02PM +0100, Conor Dooley wrote:
+> On Fri, May 16, 2025 at 06:48:36PM +0530, Radhey Shyam Pandey wrote:
+> > On Versal Gen 2 SoC the LPD USB DMA controller is coherent with the CPU
+> > so allow specifying the information.
+> 
+> Sounds like it should actually be marked required on this platform, no?
 
-Different compatibles for what specifically? I mean the PHY compatibles
-are just the generic "ethernet-phy-ieee802.3-c22" compatibles.
+Should still work without it, just more overhead of unnecessary cache 
+flushes.
 
->
->         Andrew
+Rob
 
