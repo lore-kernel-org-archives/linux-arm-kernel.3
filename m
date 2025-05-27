@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E170C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 16:58:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A306C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 17:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qcQMEm8JOg67JU210pbNv2bortehxKkM0ho6YyE5Px0=; b=rmvLs13KUSCzqG/ntw0i2ERLWT
-	tQWNFrgUMZEA2B88nN0Ph2ZP2EN4tkMC204aIykcYs6M5qKItLK6UHWcU/DQjL5IAxFdmusufL6UO
-	1Y2WcDfsvtbNcnyReA5U3dRfQdT0koO1kL4GQCiYC1xB2229k8dGpt9QD+MJRYkJfrk7CFMjAyYm/
-	vPQV9SZCNpLlizmUL/DOfP1cJsrgXSopgxa9KI9z9tXsoMw02xeYFNzEaVKIZ82tMSGCK7RlVFHkQ
-	EALBCB0UIUTYTafO9exxNDqYXK1HnnSAs9mhOmUa79LvezEx5YLRFWDzQLF5/g8I/tmPVhmrR8Pry
-	YTDkKQFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qWnoBSXhQA+cjh8QN8urqgiXaYgDs36NwZ54GDoGfFI=; b=FCHdEDvp1UVHFaO9zzGv7emAds
+	G/qHt9ijM1g7LefczPfaqCBeqQuI++uvMU9Wr30zDNripfeWyxAEDq1+jftzHPDrNA2MP0znw49pP
+	2F3fjlb133Qz6M3AmF57tNqCyQYDY+Sp0NNWD20Kk9tXqaL/1OZrk7Up2VBV6cXEce8hb1xqddoGs
+	YboQuYJuxazdQlE5fAjj4sPiRlj3CQEHVqAF9DVBor0NUtOENPyhsD0Hbjb0RxhTcF4oTOsf/EeyN
+	h2ArayMTFM0p5PT1pFH4cPB2boEhy7HehT2b8DikKCmFiIx+JODYUa9b5aIf+Ki2cyn+x9I4OZT3x
+	n8nPZKPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJxcs-0000000BDg1-34fO;
-	Tue, 27 May 2025 16:58:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uJy5M-0000000BG1m-04ib;
+	Tue, 27 May 2025 17:27:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJxYe-0000000BD9A-1065
+	id 1uJy3C-0000000BFl0-3kwL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 16:53:44 +0000
+	Tue, 27 May 2025 17:25:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C9B4614E0;
-	Tue, 27 May 2025 16:53:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E497FC4CEED;
-	Tue, 27 May 2025 16:53:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1748364823;
-	bh=cwXrtbihqwxd4lD4eRlLpyeAXzMJJzQSh2etFWMMXW0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=yhNPPqSRLpAgmuVBSM/McRcebQFt+JIuwj1ejdAx1AB43oKus7A7TCoCyEIcAMEFN
-	 lUOyDopmjbr87flarS5JuM57hrp0EIZoquNLQ8WMdaQbAdAaqehGPu6nLYmA56jSAT
-	 W9HkYgqsE0D6kWN8TYzC12QaIRTE8Wbf3tLggBdI=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.12 176/626] arm64/mm: Check PUD_TYPE_TABLE in pud_bad()
-Date: Tue, 27 May 2025 18:21:09 +0200
-Message-ID: <20250527162452.167269260@linuxfoundation.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250527162445.028718347@linuxfoundation.org>
-References: <20250527162445.028718347@linuxfoundation.org>
-User-Agent: quilt/0.68
-X-stable: review
-X-Patchwork-Hint: ignore
+	by dfw.source.kernel.org (Postfix) with ESMTP id 56C165C5614;
+	Tue, 27 May 2025 17:23:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2B24C4CEE9;
+	Tue, 27 May 2025 17:25:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748366718;
+	bh=junkeJlGysPy7xuXICzT2b/jFzfkYfjCQAKr5XJ8z+Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CUsJ2P2S8joJzEiWaXS91VGajLP7dsGlHthSCBMlTsw9fXmgbnAJ+xX5SWcceq0HL
+	 rFykLPlqp5tr6FgZhMWKOQtgKFfVT7Zq55IM3lvQIhI5XMM7CHvoPAiZg/2kmJhcMG
+	 4vNen0YomaFTBjoNGeNalXEOOR0APDEhbqlxCJu/rdSFLKdTQk4Nd0UkIMP6e1AT/A
+	 5+g21VWvwfc8JKkAVzab6BLMrJJCVhe20xpspqxelT/GigvPxtCOt0MOETKx8V6D+D
+	 /FyMoznRJzje8gAyKP9dSSUbv1XbIlGpWmU39M6O/G1ot4ZW6FgEB5Mi3R7x0IWRtV
+	 K3Je3idb9MG2g==
+Date: Tue, 27 May 2025 12:25:16 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Subject: Re: [PATCH 1/1] dt-bindings: watchdog: fsl-imx-wdt: add compatible
+ string fsl,ls1021a-wdt
+Message-ID: <174836671477.753304.3606658463007715272.robh@kernel.org>
+References: <20250522194732.493624-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250522194732.493624-1-Frank.Li@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250527_102518_982529_69CFF5F3 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +81,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.12-stable review patch.  If anyone has any objections, please let me know.
 
-------------------
+On Thu, 22 May 2025 15:47:31 -0400, Frank Li wrote:
+> Add compatible string fsl,ls1021a-wdt for ls1021a SoC. fsl,ls1021a-wdt
+> allow big-endian property.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
 
-From: Ryan Roberts <ryan.roberts@arm.com>
-
-[ Upstream commit bfb1d2b9021c21891427acc86eb848ccedeb274e ]
-
-pud_bad() is currently defined in terms of pud_table(). Although for some
-configs, pud_table() is hard-coded to true i.e. when using 64K base pages
-or when page table levels are less than 3.
-
-pud_bad() is intended to check that the pud is configured correctly. Hence
-let's open-code the same check that the full version of pud_table() uses
-into pud_bad(). Then it always performs the check regardless of the config.
-
-Cc: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Link: https://lore.kernel.org/r/20250221044227.1145393-7-anshuman.khandual@arm.com
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm64/include/asm/pgtable.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 8ee56ae999c16..5ba8376735cb0 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -806,7 +806,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
- 	pr_err("%s:%d: bad pmd %016llx.\n", __FILE__, __LINE__, pmd_val(e))
- 
- #define pud_none(pud)		(!pud_val(pud))
--#define pud_bad(pud)		(!pud_table(pud))
-+#define pud_bad(pud)		((pud_val(pud) & PUD_TYPE_MASK) != \
-+				 PUD_TYPE_TABLE)
- #define pud_present(pud)	pte_present(pud_pte(pud))
- #ifndef __PAGETABLE_PMD_FOLDED
- #define pud_leaf(pud)		(pud_present(pud) && !pud_table(pud))
--- 
-2.39.5
-
-
+Applied, thanks!
 
 
