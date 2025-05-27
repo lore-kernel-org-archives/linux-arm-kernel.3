@@ -4,110 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7170CC54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 09:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499BFC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 09:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mboLel025GJoWmeM2i10cXt9KyTUVBKRp2nP6uu17VI=; b=MqiiTzJbPGQqWylGpixjf5ecm5
-	QjzpS4Dqj/1FSFtrtGDoJvh9ykjRkF8wHMccYt1yAS5vy2AXLeC605/S1n4POTej/sp8+GkWiKNM8
-	ERZtOt6Q+fXoCNFIyIFdFXythEwf8gpt6M0l1UUgpJTMd/z5ox4xnO9Wikys2pstxNJKKpOQfsWY3
-	XrR4wB6CFDcfuCWgsQUWfXxmDVh0Y9c8M5HagoNx/+V1c3onGYH/gaY8pPqn8BFr0GqFiYsMu8aFL
-	U+HB+KW/DhWc1hcN83Bb2LDA/FX8B3Rfh1zNqq/MDd3wQqZFHmt+mvftrANMQxsTcWgsRUZkgbqpU
-	PMLHKR4A==;
+	bh=5iU7A6LCYuvE4xe70C6OUdLGyGDmsK15P5kepPFvaeE=; b=355MkY6iTKebp69khEJraHKtyM
+	3unYApJ+2sPKzT5zH5RyD31u9ZYC6i7nPhSxu6JtlQP0DCJGRERJ9BaS+ttz32Y5p4JShJ3+cDX63
+	LkoLEWz7O8knVqZtNDIGs67lnVFs8ISvw42HKrnMmjY4tTzsXzXnsFEgJMnD5Vqiv2GKwLeE02Fdi
+	7UdNOrCi5kMp53/aOmGgwkF6orTxKC33QqjG72u266DzsbDcb39W0UvW3Iul3ZFYdUxGknZz7OrEU
+	nMG4gY91na9n6xN92e8XbfVq79ND/wiYPblCKLfmW1zv33mSF7POh0g5yXSlg3aMbFCcXgWhtDlxw
+	Mvgh9qYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJqL4-0000000ALdS-46LD;
-	Tue, 27 May 2025 09:11:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uJqNB-0000000ALss-1Ac0;
+	Tue, 27 May 2025 09:13:25 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJqIv-0000000ALGA-0Hkz;
-	Tue, 27 May 2025 09:09:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4396161129;
-	Tue, 27 May 2025 09:09:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D77B6C4CEE9;
-	Tue, 27 May 2025 09:08:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748336940;
-	bh=iWsDzG0A2gdcMnQcWnkgpCC99IXz8MEny5NXCzqpqP8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cwUVlcMJ16P8lh2f9wleWCS4M2idFzbE6Tg39X+7rVp3b5ItduS7C4B2A66G5bm2D
-	 /MgicETuipCmuAArLNJx7zDEChfJMHkAPr3JNt2+YhTJwMO46rIz2bquKOtDHh+nzL
-	 MnXzj+/uwz3THQky165vfUh6wIGCQyRSplGKbG9JS8OD8wLoEWbuXwSfEqaR0zBB2l
-	 6A/6XBVy8YKrZiodBlpjPN0M+axWnUmFLJOcjajberVeKqTX0K0mSkO7iLXkmb/NbV
-	 tYYRgpBXSJYZ4RGWvEDfGd4qKeBw1d6KUBmR3HnexrxXW9KDXRuKI1+wBuEIMrdR+t
-	 lxWPbo/wFhHeQ==
-Message-ID: <8ca5a908-467f-4738-8bfa-185f3eecc399@kernel.org>
-Date: Tue, 27 May 2025 11:08:54 +0200
+	id 1uJqJL-0000000ALMx-1Ftk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 May 2025 09:09:29 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.235])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4b66Jd2RDQzKHM08
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 17:09:21 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id C225C1A0B26
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 17:09:19 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP4 (Coremail) with SMTP id gCh0CgDnSF0+gTVoOO+iNg--.59571S2;
+	Tue, 27 May 2025 17:09:19 +0800 (CST)
+Message-ID: <5535f49f-8903-4055-b99a-cf8b2d4666e1@huaweicloud.com>
+Date: Tue, 27 May 2025 17:09:18 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: mfd: rk806: allow to customize PMIC
- reset method
-To: Quentin Schulz <quentin.schulz@cherry.de>,
- Quentin Schulz <foss+kernel@0leil.net>, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
- Daniel Semkowicz <dse@thaumatec.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250526-rk8xx-rst-fun-v1-0-ea894d9474e0@cherry.de>
- <20250526-rk8xx-rst-fun-v1-1-ea894d9474e0@cherry.de>
- <79903ad6-0228-41a3-b733-415cc43ec786@kernel.org>
- <d1fab35d-a4e7-449d-9666-0c651e44929a@cherry.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH bpf-next v2 1/2] bpf, arm64: Support up to 12 function
+ arguments
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <d1fab35d-a4e7-449d-9666-0c651e44929a@cherry.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+ Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+ Puranjay Mohan <puranjay@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Florent Revest <revest@chromium.org>
+Cc: Bastien Curutchet <bastien.curutchet@bootlin.com>,
+ ebpf@linuxfoundation.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, Xu Kuohai <xukuohai@huawei.com>
+References: <20250522-many_args_arm64-v2-0-d6afdb9cf819@bootlin.com>
+ <20250522-many_args_arm64-v2-1-d6afdb9cf819@bootlin.com>
+ <8d184497-fecf-497f-8b4c-bcd4b0a697ce@huaweicloud.com>
+ <DA6T7OEF94IG.2BH2PWTCVEOTA@bootlin.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <DA6T7OEF94IG.2BH2PWTCVEOTA@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: gCh0CgDnSF0+gTVoOO+iNg--.59571S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYV7kC6x804xWl14x267AKxVWrJVCq3wAF
+	c2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII
+	0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xv
+	wVC0I7IYx2IY6xkF7I0E14v26r4UJVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4
+	x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG
+	64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r
+	1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kI
+	c2xKxwCF04k20xvY0x0EwIxGrwCF54CYxVCY1x0262kKe7AKxVW8ZVWrXwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
+	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x07UAkuxUUUUU=
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250527_020927_662151_48958D22 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,106 +104,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/05/2025 10:48, Quentin Schulz wrote:
-> Hi Krzysztof,
+On 5/27/2025 4:45 PM, Alexis Lothoré wrote:
+
+[...]
+
+>>> +		/* We can not know for sure about exact alignment needs for
+>>> +		 * struct passed on stack, so deny those
+>>> +		 */
+>>> +		if (m->arg_flags[i] & BTF_FMODEL_STRUCT_ARG)
+>>> +			return -EOPNOTSUPP;
+>> leave the error code as is, namely, return -ENOTSUPP?
+> Actually this change follows a complaint from checkpatch:
 > 
-> On 5/27/25 10:25 AM, Krzysztof Kozlowski wrote:
->> On 26/05/2025 19:05, Quentin Schulz wrote:
->>> From: Quentin Schulz <quentin.schulz@cherry.de>
->>>
->>> The RK806 PMIC (and RK809, RK817; but those aren't handled here) has a
->>> bitfield for configuring the restart/reset behavior (which I assume
->>> Rockchip calls "function") whenever the PMIC is reset (at least by
->>> software; c.f. DEV_RST in the datasheet).
->>>
->>> For RK806, the following values are possible for RST_FUN:
->>>
->>> 0b00 means "restart PMU"
->>> 0b01 means "Reset all the power off reset registers, forcing
->>>              the state to switch to ACTIVE mode"
->>> 0b10 means "Reset all the power off reset registers, forcing
->>>              the state to switch to ACTIVE mode, and simultaneously
->>>              pull down the RESETB PIN for 5mS before releasing"
->>> 0b11 means the same as for 0b10 just above.
->>>
->>> I don't believe this is suitable for a subsystem-generic property hence
->>> let's make it a vendor property called rockchip,rst-fun.
->>>
->>> The first few sentences in the description of the property are
->>> voluntarily generic so they could be copied to the DT binding for
->>> RK809/RK817 whenever someone wants to implement that for those PMIC.
->>>
->>> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
->>> ---
->>>   .../devicetree/bindings/mfd/rockchip,rk806.yaml    | 24 ++++++++++++++++++++++
->>>   1 file changed, 24 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
->>> index 3c2b06629b75ea94f90712470bf14ed7fc16d68d..0f931a6da93f7596eac89c5f0deb8ee3bd934c31 100644
->>> --- a/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
->>> +++ b/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
->>> @@ -31,6 +31,30 @@ properties:
->>>   
->>>     system-power-controller: true
->>>   
->>> +  rockchip,rst-fun:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>> +    enum: [0, 1, 2, 3]
->>> +    description:
->>> +      RST_FUN value to set for the PMIC.
->>> +
->>> +      This is the value in the RST_FUN bitfield according to the
->>> +      datasheet. I.e. if RST_FUN is bits 6 and 7 and the desired value
->>> +      of RST_FUN is 1, this property needs to be set to 1 (and not 64,
->>> +      0x40, or BIT(6)).
->>> +
->>> +      The meaning of this value is specific to the PMIC and is
->>> +      explained in the datasheet.
->>
->> And why would that be exactly board-level configuration? IOW, I expect
->> all boards to be reset in the same - correct and optimal - way. Looks
->> close to SW policy.
->>
-> 
-> All RK3588 boards except ours in downstream kernel have their RST_FUN 
-> set to 1, we need 0 and I cannot talk for what's the actual expected 
-> behavior for other vendors' boards. I do not feel confident 
-> indiscriminately changing the PMIC reset behavior for all boards using 
-> RK806 (which also includes RK3576 boards). Hence why I made that a property.
-> 
-> Additionally, if all boards were "to be reset in the same - correct and 
+> "WARNING: ENOTSUPP is not a SUSV4 error code, prefer EOPNOTSUPP"
 
-I don't know if they have to, but that's what I would assume in general.
-Unless you say there is some specific hardware aspect of your boards,
-but so far you just described the register.
+Seems we can just ignore this warning, as ENOTSUPP is already used
+throughout bpf, and the actual value -524 is well recognized.
 
-> optimal - way", why would Rockchip even have a register for that in the 
-> PMIC? It's not an IP they bought (as far as I could tell), so there's 
+[...]
 
-To allow SW to make a choice. Just like 1000 other registers for every
-other device which we do not add to DT.
-
-> likely a purpose to it. Especially if they also change the 
-> silicon-default in their own downstream fork AND provide you with a way 
-> to change their new default from Device Tree.
-> 
-> We can hardcode the change in the driver without using DT, but I wager 
-> we're going to see a revert in a few releases because it broke some 
-> devices. It may break in subtle ways as well, for example our boards 
-> seem to be working just fine except that because the PMIC doesn't 
-> entirely reset the power rails, our companion microcontroller doesn't 
-> detect the reboot.
-> 
-> If it's deemed a SW policy by the DT binding people, is there a way to 
-> customize this without having it hardcoded to the same value for all 
-> users of RK806 and without relying on module params?
-
-sysfs, reboot mode etc. I don't know what is the right here, because you
-did not explain the actual hardware issue being fixed here. You only
-described that bootloader does something, so you want to write something
-else there.
-
-
-Best regards,
-Krzysztof
 
