@@ -4,185 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62C4C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 14:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513E3C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 14:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ucUwK4rEk0oYEyui/mSutx+FXN8EabrmuN51kFpED0Y=; b=S3dZif66QGXIVep7B5F17VH3ip
-	1u+8piciT4/eOVSUqAna5/VDtvgSBeHYAIJaj85o9diJyNT+bwex7vrjqK+6wik1xQA5VleZA8aPT
-	nycB0at/q/gsUgldKFSd5+fT5IzJzJoHNhqk7lrGYWVbxLZDrZ36LmxqJzGLqZ8tr/15iVQ9cxZgm
-	cOzA1DbGBjvXj6ac10n+wRRqR6Iyufui6Jx6Jz7Es8xMGMfg1roZDvJy88RRpfBgVqgjM6VMPZWKA
-	61uawPqArlHyBO7abkksz2NxJA/pLwY7dZG7fLQjRPrr9TyBlFNFwBzOUlJQectOWjbpyeJR5P52B
-	lIxlDnlQ==;
+	bh=95DgJLZjEvQybIlPP+VCo5ApfOw6ewx9PjK94wls/Kk=; b=BnB3xVSPYbJMboF8KwOPtCZj7F
+	yOy9oXTuV7u56EFSI7VAFfB60keRxC0t1wgh7MSQiaTcBB+B0L5H+PdFQC3nPFXKKgKnaMS4+LQkS
+	UVfYzEYpJvMXmG0/FgkE+wNQ3ICzWWCwtt3SqDmFl/JaxMqhNk3250DC3atbe5AO5X1WKPNwzNCk5
+	30ywwVR+x0w9/GQYpBoPciPQZSH1qrOh5U9Hkhll0mre3TYivT8xC2K+dIqAPr3Imur6zqLeZ2X0A
+	rk5plz6VMXav2lHrJWUnO6YX5PZAlxw6XyaILodD0YzEDme4z9s/FKaD7J4dxPfnJkBQC9QKGsz4n
+	jbtA18TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJvUW-0000000AxXK-3Tiw;
-	Tue, 27 May 2025 14:41:20 +0000
-Received: from mail-francecentralazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c20a::] helo=PA5P264CU001.outbound.protection.outlook.com)
+	id 1uJvZI-0000000AyF0-3PlK;
+	Tue, 27 May 2025 14:46:16 +0000
+Received: from mail-oi1-x22e.google.com ([2607:f8b0:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJvMh-0000000AwbF-3I9I
+	id 1uJvX3-0000000AxpV-3ppA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 14:33:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mbmVu5krHPSvSsr/MijOVafdW8hyDGl+gSi9XiRB+7yz2q3iiro8DkOm+1f7B0PLXdBU6YqFwZ2/IzB/HVI/1ydWriU3GUUz8oA/Bk9X30/kIRz38iXj2sBQ+X1e+oQGCfgGIelGLeqqoq3swEcKT+WAGJiaWFfhPUlAzylYSsTQo+C+8Ozh/L2IAHLUIUZWkD4OX0rx9PLln/IqDF2Cotkp+HrZkG/EP+qnbz/wwbZoON5uj3CDIOQLnR3KWcfoJ4bYOXju27tKTnsbNjWaT3RItjKJlDdPACIBQeJeoML1t9m4hlydnuTTvVAgJNy6g4ovtejqPmqItToCcRs9Vw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ucUwK4rEk0oYEyui/mSutx+FXN8EabrmuN51kFpED0Y=;
- b=otwTOsdcVaT+T6TObV1pFfIhnVvqKyzw6COe9KHogvDEjgz7ViFBMEAE/vOVqUJqSLISQsIdHqYghpL3HFDcyHqMwt27lVdb3btgnseQPbj3YXcwd7PTesxGnBCWAhLiXmGrbsKW+L46wmHi+WEZh87xMig3ArOAhjIAv+ey+rY/CnU/2TXJaSsn9/z6X7L0gujtho3t1kiA50B9UsFat7pqOY7u5r+1xuTCEpgoLpF2Ry0sjJpszmX2LwMtFyrHv+Zr7KCBgrHNItc9GmyTU3S7cZhj6uwglW4JsclVmtn28AArZfm8GN+0Qe7GluksrID+DFpVYfDqG0qTWRhXcA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=allegrodvt.com; dmarc=pass action=none
- header.from=allegrodvt.com; dkim=pass header.d=allegrodvt.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=allegrodvt.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ucUwK4rEk0oYEyui/mSutx+FXN8EabrmuN51kFpED0Y=;
- b=eRQE5ceoJnafQbIdDbBmAbRFFi90m7ONrugnlfLDkm3+2W1pnVtyvNu8Hd98bnDokUKLuClhvcBqo5RNPcA03ZKF0ilH+nZya3gUnK79TlvLqy5fAahzz9tN1Q1RcbvpMX4LWZyaaXR+O0Lf8AmA3XsGiY/UcLl0iXyUZmzZLbndTDSlFdt0jA5hcmsjWJ/SSPJjp1h9ifnEXrS92H7DWm9TQnLrDV6ZLG4sDsYNr9Fr5W586BLCXADuB772eEi88/fOKStKM2hUZINAD3RElZ+qGEdMS9tNbu+6jE2qRnEVCeG1GauCUvWnZpeS4I5YWEuyymwdsd00RIU5Wnecrg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=allegrodvt.com;
-Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3d::18)
- by MR1P264MB3042.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:3b::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.24; Tue, 27 May
- 2025 14:33:10 +0000
-Received: from MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- ([fe80::4281:c926:ecc4:8ba5]) by MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- ([fe80::4281:c926:ecc4:8ba5%2]) with mapi id 15.20.8769.019; Tue, 27 May 2025
- 14:33:10 +0000
-Date: Tue, 27 May 2025 14:33:09 +0000
-From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Tretter <m.tretter@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Michal Simek <michal.simek@amd.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Junhao Xie <bigfoot@classfun.cn>, 
-	Rafa?? Mi??ecki <rafal@milecki.pl>, Kever Yang <kever.yang@rock-chips.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Hans Verkuil <hverkuil@xs4all.nl>, 
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Sebastian Fricke <sebastian.fricke@collabora.com>, 
-	Gaosheng Cui <cuigaosheng1@huawei.com>, Uwe Kleine-K??nig <u.kleine-koenig@baylibre.com>, 
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Ricardo Ribalda <ribalda@chromium.org>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/5] dt-bindings: media: allegro-dvt: add decoder
- dt-bindings for Gen3 IP
-Message-ID: <kqrngtgusod4cczeh33lz4seclgzn655ucnuhu76zh7ylrsybo@ndrecjbqvma4>
-References: <20250523134207.68481-1-yassine.ouaissa@allegrodvt.com>
- <20250523134207.68481-3-yassine.ouaissa@allegrodvt.com>
- <3e6be40a-2644-416a-bd32-f6256f1501ff@kernel.org>
- <7863d15a-fa20-4db5-89b5-77a026d3f937@kernel.org>
- <a72z6exgol5cbur2cy7wjwyroi4zddtki5ab3zdkfuwpskpavr@r26wahldhd3r>
- <b5bb919e-6273-48ed-b5d8-29177dbbfb76@kernel.org>
- <flwocneutp64bxxwfkfqvm6dq7klc2nu33ybr3ap6qeovopfq7@7qognvdf4zew>
- <04e1f361-b3cf-4fdb-a008-42eb489f6c4d@kernel.org>
- <uys462vhrhzeapzkve7z5k3xg6bjvpdne4xw44voqn6uhjdkmc@owrdgvraiqyb>
- <30acbaadc08869687c22e6a70052571c99556979.camel@ndufresne.ca>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <30acbaadc08869687c22e6a70052571c99556979.camel@ndufresne.ca>
-X-ClientProxiedBy: PR0P264CA0282.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:100:1::30) To MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:3d::18)
+	Tue, 27 May 2025 14:43:59 +0000
+Received: by mail-oi1-x22e.google.com with SMTP id 5614622812f47-3fbc00143d6so2062934b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 07:43:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748357037; x=1748961837; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=95DgJLZjEvQybIlPP+VCo5ApfOw6ewx9PjK94wls/Kk=;
+        b=aKa2R7qJ2aXLZocz1bNjRu4a3lN4SM705gOAkCiMjGghcyrKKMZ29XZMLAsOaEA3rB
+         2C/hozv13B87UoT/y8DObWBoqf1tqi0FV8vE5EzlpnKspMh1wJFfwK2batY4C7vd8Rg5
+         BqC9imS706UaWfC7nEtzyEGNjfp2XZXB+rClNyzXsQaJLbcDt5MrZKvTLkL2WuRK5nGN
+         9rrFg0SVaDohoM2LCbFaXwMUYZVc90EilWn0AIBo+K55apHNKSXDONJy6PNyfgB/EdCT
+         wKUykR0PS/KIBH6I42oyTt3oN0oo6hKcBCcuYYZXF6RU5+5s68YZ/Q06tp73hJpKZOTC
+         9wqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748357037; x=1748961837;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=95DgJLZjEvQybIlPP+VCo5ApfOw6ewx9PjK94wls/Kk=;
+        b=ExLAtCkr2Nr3os+lInnK1oDN1QAL+uplDmX9p5EkSW9c9Zbu/eCzsclqgaavchWLJ9
+         VuzqyyONvv3SqgFbviTBfR5qsJsJlhkQ4xOPxOryZQWiPGKesXT0uQ1L6KoNGq4MWLVd
+         3Xn5iEoyQohKzDhDJL2IcyDUQYGpWmTqsejaSYZ24WeH7tZ1QDtiHw+HD+cyZprxs+e0
+         Ch6fkYpGfxMo45UjP87pYXpkGZAKCIRc7FF6FVulp+IBBUoRwbNSu3aSXe8t1N6xXvoQ
+         T+pv61xdWXYUr/vbfxjm59GZccrQutfEXP+Qp7Jc/p6lmkptoIrS8hpZI37NohBInkNz
+         LsEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWev+bec9gofVph19/gPvHtCGN+t9jsITDC6x5RK9TY7JBYYdHGpZrQuwlbYHkpmdFx6OZK2lzileV/FoDXdcGl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSPC0WUxtths4/Ibwc6LTfNfS2DZL1tZyd5yTSv4/OCVUZatUu
+	qlfTjBOVobdsl148LPCZUobpGsVLf/rKxvF7XKXnnosFgf1fYB7Z+I0pXMp1wG1xGf9QsJ5q2ah
+	DR1DbxFft/1H737a2ArUQunbByZIGbQbVXpn5Fo9RJgrX2LPweffi
+X-Gm-Gg: ASbGnctwSiTNGx+MBxXLUi9U5uAPnZ+MmRnFCpqhptmhLWiyl7i4wUWXfBHpM+alOA3
+	QXlfWHstRrYhYbJjH/tYGYW7PYX61KW8iL8fDt41hJzIdDMwmEGKjjrrskUovdm2LMOUMdHEIdP
+	+mfa3pJe19EHBrExw/S4lWQrf5VKtCHndFlQ==
+X-Google-Smtp-Source: AGHT+IHpSqYMZnJIwMvd/4lAF+O9cYNaktKk9pOe7eLVIejN5m7i3i+I+Kqp9vE8g8yw+eb4yKgrKppgkbkYaaS4u4c=
+X-Received: by 2002:a05:6808:3a19:b0:403:3195:58cf with SMTP id
+ 5614622812f47-406467f6a5emr7481831b6e.1.1748357036861; Tue, 27 May 2025
+ 07:43:56 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MR1P264MB3140:EE_|MR1P264MB3042:EE_
-X-MS-Office365-Filtering-Correlation-Id: ba083bde-b756-46fa-f0a0-08dd9d2b67c2
-X-LD-Processed: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bndnbFJHUFhid1VtSm5udnIrVDBzK1NiRjRwanBHaSt5RVVOQ0g2Nzk5UVNm?=
- =?utf-8?B?b05xZkpuRDl2NjNVTjdQSm9OVHZ5V2lzTVNoajI2clo4MmFrSVZrMTZONi9F?=
- =?utf-8?B?NUxsbnh0RkZEZUhMYXpjYVZtdXdCTDdQZUFUYVhFSVVhOW1ZVUtYVCtFNnAx?=
- =?utf-8?B?eW05alJqQjlHSjg5a0xvRENyUlhMcHE0QWVncEIxeFlWbUdra2o1TCtQbDFL?=
- =?utf-8?B?WW1lQVhBYUNySlhVcG42WTIyUEpPQit0bXA4aUdFN3JCekJabzJsVUJtNGhr?=
- =?utf-8?B?MmVhMDlvUi9VL05WV0VvdDlqTHdlMC9oSWxobmsvRGZJeFBRdnJISld6TnlL?=
- =?utf-8?B?UHZMWnVCQi9EbUN6MGR1bDd2YzRKMGJpeE81YmxyOENrdWVtd2ZOOHJlWjBj?=
- =?utf-8?B?b052K1hnQUhaQzFIZjh1ZzZDSWRCVEFFN1JFYWpPK0VQSTFHeUYzejYrc3d1?=
- =?utf-8?B?QVFOd0FRYWMwTHdkSnpQYVBKM05BT0RCK2pwVkZLNmFZZG5GMGJEbG5SU1Rz?=
- =?utf-8?B?TUUzcGZXVzFIMXZxVzB4cENTN29tSDkyZ2RDbU1uOUd1UDNXM0dWRnhBUEc2?=
- =?utf-8?B?TGp6S0swY0h3NUxPaGVPS24zLzZyZVZpcEY5ODlGUEZoRm1TaGY4Tm5DKys4?=
- =?utf-8?B?anhmUDYwMkdVSnhpcnZKNktmcWxkbjVhZHhVTkFJaFlQNXROeXVXaW8vQWRX?=
- =?utf-8?B?RVRCeDFUQWcvQVk5R1Awd0hCRHprYTBvb2RIU0lLZ0xRMHl1OXJBV29BMElm?=
- =?utf-8?B?a081aERlSEFDb1VXeU1HdERFZzRLcmc5QXZadDNOa2RUNHFBdmFQZVNPSTBJ?=
- =?utf-8?B?RXZDUHRSVnRQZ0pPK0ZwYSt0TzlxdWhxV2FrdXdRM1Vkd09LMEhlelNGdWY2?=
- =?utf-8?B?VGlPVHhEY1FhZWR2dllTeHBRdFBvZHQyamRZZE1zYStVTWpoTTMxV0JaeEp5?=
- =?utf-8?B?b0ZDaSttWUh0Tzk1akpDUlNvUUtOa3ZXSDJ1aUNWWGhmdm9nUUNzT2hvV0Nn?=
- =?utf-8?B?WkhTcmhWY1J0R1A2Y09rOExIV0o4Sk0xYUZ4Q2RvU0wwN2NFVWMrZWUzbGtq?=
- =?utf-8?B?ZFp4TzNOUFJTZXoyTndnWVR3YWxjVENjcitLbDR3TURtQUVvcExaZk1UdUxm?=
- =?utf-8?B?Y1hHaHZhNzQvSkgvU3hxdGV6WW1YK1JYcWR5MUk3S3FsUVNlKzgyODhkejJN?=
- =?utf-8?B?TFdMYWFwRUVGc2RDdXI0VWRCS0t5dlV5bTBTVTdiRkllYW1Da0YwT25waVNm?=
- =?utf-8?B?a0lqeU5LRXdZckg3ZzNtRFlIcTdoRjMxNG5hL3pKRXB0UWNXWUxrMnJGZ0g4?=
- =?utf-8?B?VEt1NjRaV3dzY2NkUW43aGVPSG1aaTQ2VXY3S1lTZzlSWEtuMjBTVVhMQVpH?=
- =?utf-8?B?cGhjcS9SOU9KMXBleTNCQU45UWMwSjVXdFBaaE9lSmtOc3NDOERlQkQva2dO?=
- =?utf-8?B?Nzk0bndKOVVpaUIyS0FJMkYzM0FmWmlVWUlEU1dZMkR3UTFIOWxVN2kzVzZs?=
- =?utf-8?B?MGxKcVd2SnBHcDQ4VDdvdnhnV1N6WVNnOFlxaWhLL1E1ZGhpNmI4V1dWOFNC?=
- =?utf-8?B?R01vc0ZWeWdlWEE1dmJ4SHNIcWVoZnlVcGxDTjZLS3FLRURQbXZzdERkd2tl?=
- =?utf-8?B?YlZ1N2VWcE14aDhEbXJFNkxLQVYvUEx1Y01sak40anUwZ3JhN3VwQWZ4YjFL?=
- =?utf-8?B?OXp3NUlUc1FGcU04dDFvd001cXZFZ1JVOHNBOTZZM25jY054UHpkdFRJSnIy?=
- =?utf-8?B?c3VBLzVpcnNRUndQYUNwVzUrNE5GczJNbGVNQThTTGhxNm03UWp4em5XS2wz?=
- =?utf-8?B?cGJwejFMWjc3a25Rc1ZPK1BTbmpkNFR3ZGxwU3UxS1FaUmdodC96bVl3YTN1?=
- =?utf-8?B?S0xuNHVSb1VHSnIwaUtSY1F4cVZYdFFNWDZhMzJjbExtUTNQNzY0RXNaN3d0?=
- =?utf-8?Q?bZCUsqqAemg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q3NmazlmY05CbGhVOFluK3UwUU1OejZRWkJmdnlOcUFkaVlIRjBDTTNXcE5m?=
- =?utf-8?B?UUwwTmYyQWVvWVp5Q2tmaytwQmxEK3Z4MzRUMzJnanZGMjZMTURRbGd5YVow?=
- =?utf-8?B?bVlqUG11VlQyemxFZ1hLV1l5RGFUcDI1UnZWYnkzMm8wRnVEWm4vSkJWdEdp?=
- =?utf-8?B?UjV0eUlpZnJqNmtDTlZyZU8rMkJKcGYyTDhublM4eTZsZVlYaTUwZFlpSVA1?=
- =?utf-8?B?cm5IQWRKV0pRQUtlTDE3OVlBRzQweFNOTTNhWFgvaDAwT2ZBNjdIY0JCTXRt?=
- =?utf-8?B?c2llaDRNazdldFhBZkp6ci8vc1NaWWpFbllhMVMvd3FFTFRtSnNIVVFIalo3?=
- =?utf-8?B?ZnpSR09qdkIwQ3dPem5xcEVJVGhUSE1aOHF5bEpOMVNmV0dYVWQxeVpGUnFY?=
- =?utf-8?B?Tk90NitZQlpiTE02SzJweWcxUFNBeGl5OXZiRnV4ZVZHNEU2VUMvVmN1NmFD?=
- =?utf-8?B?UjBJUTFVUCs2bVQvaUJxa2tPWURWeHN1QkgrT2tUVm1FM3R6ZmRDVnl1aW5U?=
- =?utf-8?B?WnNVNFNFejJhSkJYQzIzcDh4T3I0elpYaG43V0U4RGFIa05uMnhzNW1ZOGVa?=
- =?utf-8?B?bWNIY1Q1NGJicy9SUnpXaWVhcXBqSTJCNjk3cy9OWWJ0NEkwbUJGd3B3eXlB?=
- =?utf-8?B?VVNuZFJ0NDR4NFRkcWlDSXhENHpTdHdXNlRqeHF0bHdLTU9hM0ZtQThMa3Nk?=
- =?utf-8?B?djBDeThzNGt4YXNFaFlZK2ZsY3ZkRXIyclhLWFRvYzE5SnFiMU5XVlJrL0JL?=
- =?utf-8?B?Q2hCK3BuaURkWW5uMm1XUWNJUFZGRk9FY3VhYSttcm4xY1hWd0hsZWZEOStx?=
- =?utf-8?B?cHl1Z2U4Nm1pWFRLLzF1UlRKRXBJbTNaMWs3OUUzbVFqUXhxcGJNWUJvYmdt?=
- =?utf-8?B?ek13eGRGTi9EbTZpMzdDakV4UDNFSk1ta0s4dTJMUFNrWTBqdE81N1ozSVpy?=
- =?utf-8?B?cVRTM2pnOFkwVE93V1pWR3BZR3FCdWxDeENUV3poSkxoVXZJZHRZOWZiTTlX?=
- =?utf-8?B?N2FkU25WWW8zTHZ4TlZzQXluSFp2QndaclUzb1JUTGR3UWRPL2hncDVrOWxs?=
- =?utf-8?B?UklzUHVZT0p5bFFDY05DSmx3dGU5Ui96K1poSmswNGpFVitubmNLQXpGUEty?=
- =?utf-8?B?OWtlVnV2czVnMDNZdTlRNGl1dUNabE5FWXExSlY5TEJaWmVzSjJEcHFLQW13?=
- =?utf-8?B?S2VZdHJ4SjhIM1EvQjc0N3Bsd2ZtSjBYbUlmSUxJalF4WDJRdXdpcDJXZ3JJ?=
- =?utf-8?B?OGNycFpHWjUzQWxFOG56TXdWSlRzRHZIdnNKcEdOemhSTlJVNlE4YWZrTHRu?=
- =?utf-8?B?eG5WSEdiUStMS2lhZTNrajN4NG5IMjhWSEZyQk1lSlpUZEZ4Y3JKbFVUdnI5?=
- =?utf-8?B?RE9TcHNpKy92cmVqVGNVeXdRVktRMlFNNjQ2R1B6dWxrWHNRcEU1K1FvTm00?=
- =?utf-8?B?ZUU0Rm1WY1JuSzAzbU5qVHh5SFlkemFKWWRQL0MzSEUrcnlYc3dJTUt4MTVE?=
- =?utf-8?B?VUNScW1mNWFyRTBuZFJqRlFBdXUxYjVDMXV2QTUxdmJRQmp6YU5xV1UrTVY5?=
- =?utf-8?B?eExScnB3M1AyakNLVFpoWDZaM2lBZ0VBNy9yT3BSWFE0L3hFYnhFTnkzaG5Q?=
- =?utf-8?B?S2lNaUN2bE1lZGdaOWVudmR4eUY5S3ZIdlFCSXZjcGw4V2ZhL0MrMVpnMEFr?=
- =?utf-8?B?REcxY0pxbDM3R3cvaTBzeE92dXNTV2RKZmRwREpnb3VaUjAvdWJaUUdmeUV5?=
- =?utf-8?B?Qkx4TlZFbWVZcEVoRndqZkEvNDVJMVNIL0RaNGhVV1JZT2cwd3lxTGUrYnNT?=
- =?utf-8?B?dmo2QVluaWJLb1FiN29qdnRLTE5vajlNY1hFU0I2a3krMDRkUGR4dGFxMjZG?=
- =?utf-8?B?bFZkUk82V0EraWNQUGJRMVdCYkUvUFhZUjNDaExUMng1YUJCMXlRNnFNTzQz?=
- =?utf-8?B?ekN0YU9xY0pabDNicVAyT3ZUUjZQZlpyeE9jWmFLcnM2MFNqL2ZqY0kxRzho?=
- =?utf-8?B?T0E4a0RIWEE1alhSNFhjZDgyZFdmMUZRdEw3V3JVSzVNRzFzR1BOSVk4aytn?=
- =?utf-8?B?TERRaHVZTUFka2RUbXY3MDdhNXlxbnRQOVQ5ZHg5dUlUcnJ4cGdaVVpBRjFV?=
- =?utf-8?B?cGR5QkpyOFNSVWpqTW44ZERGeVhlTmtCRWJHZDZnNXdVMW1LNGcyQ2dtMno5?=
- =?utf-8?B?Y1E9PQ==?=
-X-OriginatorOrg: allegrodvt.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ba083bde-b756-46fa-f0a0-08dd9d2b67c2
-X-MS-Exchange-CrossTenant-AuthSource: MR1P264MB3140.FRAP264.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2025 14:33:10.7933
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 6c7a5ec0-2d92-465a-a3e1-9e3f1e9fd917
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bon5bLTi1R5+DMWHXmJxyZt8DJRslkyeC7RTBP6I4QFw1wbdS0PCkks6yAKA+oUpIwczidjdUOPcgzIAft/mfqNLQLip1t7EknkV5p1jqtA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MR1P264MB3042
+References: <20250520152436.474778-1-jens.wiklander@linaro.org>
+ <20250520152436.474778-10-jens.wiklander@linaro.org> <aDQitSd27Z4qC0xT@sumit-X1>
+In-Reply-To: <aDQitSd27Z4qC0xT@sumit-X1>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Tue, 27 May 2025 16:43:44 +0200
+X-Gm-Features: AX0GCFsAg3SlBrsMFYU7wBuZbNCOqXi00PEfamwreFmZfzirEP5JjBZls3rnlgg
+Message-ID: <CAHUa44E=FKAGWk-pjq176b9ri7kgL8PqN6rpBeoPKgfj5EuWTA@mail.gmail.com>
+Subject: Re: [PATCH v9 9/9] optee: smc abi: dynamic protected memory allocation
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_073315_826381_5955D667 
-X-CRM114-Status: GOOD (  28.37  )
+X-CRM114-CacheID: sfid-20250527_074357_962043_DED666BE 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,70 +105,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27.05.2025 09:21, Nicolas Dufresne wrote:
->Hi Yassine,
+On Mon, May 26, 2025 at 10:13=E2=80=AFAM Sumit Garg <sumit.garg@kernel.org>=
+ wrote:
 >
->Le lundi 26 mai 2025 à 12:58 +0000, Yassine Ouaissa a écrit :
->> On 26.05.2025 14:46, Krzysztof Kozlowski wrote:
->> > On 26/05/2025 14:27, Yassine Ouaissa wrote:
->> > > On 26.05.2025 12:57, Krzysztof Kozlowski wrote:
->> > > > On 26/05/2025 09:25, Yassine Ouaissa wrote:
->> > > > > On 23.05.2025 19:13, Krzysztof Kozlowski wrote:
->> > > > > > On 23/05/2025 19:11, Krzysztof Kozlowski wrote:
->> > > > > > > On 23/05/2025 15:41, Yassine Ouaissa wrote:
->> > > > > > > > Add compatible for video decoder on allegrodvt Gen 3 IP.
->> > > > > > > >
->> > > > > > > > Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
->> > > > > > > Please do not send the same patches over and over again. You got review
->> > > > > > > which you need to address.
->> > > > > > >
->> > > > > > > Once address you send NEXT version with proper CHANGELOG for each patch
->> > > > > > > or top of cover letter. See submitting patches... or just use b4. This
->> > > > > > > should be actually requirement for this work.
->> > > > > > >
->> > > > > > > Anyway, I see all of previous review ignored so let's be explicit:
->> > > > > > >
->> > > > > > > NAK
->> > > > > > >
->> > > > > Hi Krzysztof,
->> > > > >
->> > > > > Make sure that i'm not ignoring anyone reviews, i sent a new set of
->> > > > > patches to start cleanly, and i have sent you an email about this.
->> > > >
->> > > > It is still v1 - the same? - while you already sent three patchsets before.
->> > >
->> > > As i mentioned, this patch is sent to start cleanly, so it still v1.
->> > > And the previous patchsets should be ignored.
->> > This is not how the process works and it is not making reviewers life
->> > easier. It makes it impossible for us to compare (try yourself with `b4
->> > diff`) and forces to re-review everything every time.
->>
->> I know that i made a mistake by not respecting the "submitting patches".
->> this is why, i prefer to start from a good base ( clean patches ).
->>  From this patchsets, You & I can use the b4 or other tools to get the diffs.
+> On Tue, May 20, 2025 at 05:16:52PM +0200, Jens Wiklander wrote:
+> > Add support in the OP-TEE backend driver for dynamic protected memory
+> > allocation using the SMC ABI.
+> >
+> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > ---
+> >  drivers/tee/optee/smc_abi.c | 102 ++++++++++++++++++++++++++++++------
+> >  1 file changed, 85 insertions(+), 17 deletions(-)
+> >
+> > diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
+> > index f3cae8243785..6b3fbe7f0909 100644
+> > --- a/drivers/tee/optee/smc_abi.c
+> > +++ b/drivers/tee/optee/smc_abi.c
+> > @@ -965,6 +965,70 @@ static int optee_smc_do_call_with_arg(struct tee_c=
+ontext *ctx,
+> >       return rc;
+> >  }
+> >
+> > +static int optee_smc_lend_protmem(struct optee *optee, struct tee_shm =
+*protmem,
+> > +                               u16 *end_points, unsigned int ep_count,
+> > +                               u32 use_case)
+> > +{
+> > +     struct optee_shm_arg_entry *entry;
+> > +     struct optee_msg_arg *msg_arg;
+> > +     struct tee_shm *shm;
+> > +     u_int offs;
+> > +     int rc;
+> > +
+> > +     msg_arg =3D optee_get_msg_arg(optee->ctx, 2, &entry, &shm, &offs)=
+;
+> > +     if (IS_ERR(msg_arg))
+> > +             return PTR_ERR(msg_arg);
+> > +
+> > +     msg_arg->cmd =3D OPTEE_MSG_CMD_LEND_PROTMEM;
+> > +     msg_arg->params[0].attr =3D OPTEE_MSG_ATTR_TYPE_VALUE_INPUT;
+> > +     msg_arg->params[0].u.value.a =3D use_case;
+> > +     msg_arg->params[1].attr =3D OPTEE_MSG_ATTR_TYPE_TMEM_INPUT;
+> > +     msg_arg->params[1].u.tmem.buf_ptr =3D protmem->paddr;
+> > +     msg_arg->params[1].u.tmem.size =3D protmem->size;
+> > +     msg_arg->params[1].u.tmem.shm_ref =3D (u_long)protmem;
+> > +
+> > +     rc =3D optee->ops->do_call_with_arg(optee->ctx, shm, offs, false)=
+;
+> > +     if (rc)
+> > +             goto out;
+> > +     if (msg_arg->ret !=3D TEEC_SUCCESS) {
+> > +             rc =3D -EINVAL;
+> > +             goto out;
+> > +     }
+> > +     protmem->sec_world_id =3D (u_long)protmem;
+> > +
+> > +out:
+> > +     optee_free_msg_arg(optee->ctx, entry, offs);
+> > +     return rc;
+> > +}
+> > +
+> > +static int optee_smc_reclaim_protmem(struct optee *optee,
+> > +                                  struct tee_shm *protmem)
+> > +{
+> > +     struct optee_shm_arg_entry *entry;
+> > +     struct optee_msg_arg *msg_arg;
+> > +     struct tee_shm *shm;
+> > +     u_int offs;
+> > +     int rc;
+> > +
+> > +     msg_arg =3D optee_get_msg_arg(optee->ctx, 1, &entry, &shm, &offs)=
+;
+> > +     if (IS_ERR(msg_arg))
+> > +             return PTR_ERR(msg_arg);
+> > +
+> > +     msg_arg->cmd =3D OPTEE_MSG_CMD_RECLAIM_PROTMEM;
+> > +     msg_arg->params[0].attr =3D OPTEE_MSG_ATTR_TYPE_RMEM_INPUT;
+> > +     msg_arg->params[0].u.rmem.shm_ref =3D (u_long)protmem;
+> > +
+> > +     rc =3D optee->ops->do_call_with_arg(optee->ctx, shm, offs, false)=
+;
+> > +     if (rc)
+> > +             goto out;
+> > +     if (msg_arg->ret !=3D TEEC_SUCCESS)
+> > +             rc =3D -EINVAL;
+> > +
+> > +out:
+> > +     optee_free_msg_arg(optee->ctx, entry, offs);
+> > +     return rc;
+> > +}
+> > +
+> >  /*
+> >   * 5. Asynchronous notification
+> >   */
+> > @@ -1216,6 +1280,8 @@ static const struct optee_ops optee_ops =3D {
+> >       .do_call_with_arg =3D optee_smc_do_call_with_arg,
+> >       .to_msg_param =3D optee_to_msg_param,
+> >       .from_msg_param =3D optee_from_msg_param,
+> > +     .lend_protmem =3D optee_smc_lend_protmem,
+> > +     .reclaim_protmem =3D optee_smc_reclaim_protmem,
+> >  };
+> >
+> >  static int enable_async_notif(optee_invoke_fn *invoke_fn)
+> > @@ -1586,11 +1652,14 @@ static inline int optee_load_fw(struct platform=
+_device *pdev,
+> >
+> >  static int optee_protmem_pool_init(struct optee *optee)
+> >  {
+> > +     bool protm =3D optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_PROTMEM;
+> > +     bool dyn_protm =3D optee->smc.sec_caps &
+> > +                      OPTEE_SMC_SEC_CAP_DYNAMIC_PROTMEM;
+> >       enum tee_dma_heap_id heap_id =3D TEE_DMA_HEAP_SECURE_VIDEO_PLAY;
+> > -     struct tee_protmem_pool *pool;
+> > -     int rc;
+> > +     struct tee_protmem_pool *pool =3D ERR_PTR(-EINVAL);
+> > +     int rc =3D -EINVAL;
+> >
+> > -     if (optee->smc.sec_caps & OPTEE_SMC_SEC_CAP_PROTMEM) {
+> > +     if (protm) {
+> >               union {
+> >                       struct arm_smccc_res smccc;
+> >                       struct optee_smc_get_protmem_config_result result=
+;
+> > @@ -1598,26 +1667,26 @@ static int optee_protmem_pool_init(struct optee=
+ *optee)
+> >
+> >               optee->smc.invoke_fn(OPTEE_SMC_GET_PROTMEM_CONFIG, 0, 0, =
+0, 0,
+> >                                    0, 0, 0, &res.smccc);
+> > -             if (res.result.status !=3D OPTEE_SMC_RETURN_OK) {
+> > -                     pr_err("Secure Data Path service not available\n"=
+);
+> > -                     return 0;
+> > -             }
+> > -             rc =3D optee_set_dma_mask(optee, res.result.pa_width);
+> > +             if (res.result.status =3D=3D OPTEE_SMC_RETURN_OK)
+> > +                     rc =3D optee_set_dma_mask(optee, res.result.pa_wi=
+dth);
 >
->For future submissions, once there is a base, don't try and "fix" things, just do
->add V2, V3 on future submissions, even if its completely rewritten. Just say so in
->your cover letter change log. If everyone was to reset to V1 all the time our work
->as reviewer and maintainers would be completely un-manageable. Please understand
->and take our explanations for the future. There is no need for you to argue on this,
->this is not just personal preference. Same driver, second submission mean v2. That is
->even true if you take over someone else series.
+> This change should be folded in patch 7/9.
 
-I'm aware of that, sins i started using the b4 tool.
-Thanks.
->
->regards,
->Nicolas
->
->>
+OK
 
-Best regards,
-Yassine OUAISSA
->> >
->> > Best regards,
->> > Krzysztof
->>
->> Best regards,
->> Yassine OUAISSA
+>
+> >               if (!rc)
+> >                       pool =3D tee_protmem_static_pool_alloc(res.result=
+.start,
+> >                                                            res.result.s=
+ize);
+> > -             if (IS_ERR(pool))
+> > -                     return PTR_ERR(pool);
+> > +     }
+> >
+> > +     if (dyn_protm && IS_ERR(pool))
+> > +             pool =3D optee_protmem_alloc_dyn_pool(optee, heap_id);
+> > +
+> > +     if (!IS_ERR(pool)) {
+> >               rc =3D tee_device_register_dma_heap(optee->teedev, heap_i=
+d, pool);
+> >               if (rc)
+> > -                     goto err;
+> > +                     pool->ops->destroy_pool(pool);
+> >       }
+> >
+> > +     if (protm || dyn_protm)
+> > +             return rc;
+> > +
+> >       return 0;
+> > -err:
+> > -     pool->ops->destroy_pool(pool);
+> > -     return rc;
+> >  }
+> >
+> >  static int optee_probe(struct platform_device *pdev)
+> > @@ -1788,9 +1857,8 @@ static int optee_probe(struct platform_device *pd=
+ev)
+> >               pr_info("Asynchronous notifications enabled\n");
+> >       }
+> >
+> > -     rc =3D optee_protmem_pool_init(optee);
+> > -     if (rc)
+> > -             goto err_notif_uninit;
+> > +     if (optee_protmem_pool_init(optee))
+> > +             pr_info("Protected memory service not available\n");
+>
+> This change can be folded in patch 7/9.
+
+Yes, that makes sense.
+
+Cheers,
+Jens
+
+>
+> Rest looks good to me.
+>
+> -Sumit
+>
+> >
+> >       /*
+> >        * Ensure that there are no pre-existing shm objects before enabl=
+ing
+> > --
+> > 2.43.0
+> >
 
