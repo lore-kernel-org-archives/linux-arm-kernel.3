@@ -4,180 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328D6C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 04:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DCBC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 05:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZz8gjfyP7pKzxpnQO5BIVe1YYz/zQshSs9gpsxy3j4=; b=d+q/QG31izrK9hzGfAJnAoGzWt
-	RktAMY/nbAOaZn+5aXe+xDtXnCsFHOueWWBe+IICPBXHhq0F4uiLnP4z/luDxyvFdk80u7/lFkFYZ
-	wS9F7tBOPQ/l4lzOiZjgnJNFbLlvfqXAEth5rMZ+Dzm7TmGSdKngp/dNaA7kAsaPESdDBkvxW6IjV
-	NRSVJm9GTpXCnVRW6FQzI97g5uhTF0z1i64TBTPmAg3yhkFyoQTVXmLgZ2PyDg4bmMi/8nuX/JfS7
-	001Z+4QBKqKkmQvaGCDc2z2xxNPKUWXzXB+dFjUceLIyTV85dK74XKN62S7h7ZBE4EB5BYZhHBJgZ
-	kqQtbdHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SmXlqe5R6hsGU4DBO6sbomkEKCbVcFPZco7aHxeCYgU=; b=r3a5nAo5KI+I8Tj6iDIV5R56q0
+	jeITtVqeBwIkea7M+zSWR4kezF2/0UuFDJruV+AMAbbH2UlbWQxGyGP56wOpQQMfmRFkVwOmwowgi
+	OuOWZadePUEvOdqIYHTvB2CXHmKxcKSKc/FmSPKU1vycSjdV5HUtrnCdscvUkme9Jxm1Nnd0YhY/n
+	sG2lO7s90Le2Hhmc55nbQt8z8tJn8654Qc+VDfqcs1T6wIQ7TwmJA0z6cLBOolALDolZJ9SmLCQoX
+	+yeFdUwIv7i1KrsZ4V71LoScdmQS4/DmHEKNqnJy1tJTvSulA56rvg/kX2AquUHabkQgou3VrzvPJ
+	2aYkmChg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJm2n-00000009sY4-1SEr;
-	Tue, 27 May 2025 04:36:05 +0000
-Received: from mail-bn8nam11on2060c.outbound.protection.outlook.com ([2a01:111:f403:2414::60c] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uJmor-00000009vUN-2lvQ;
+	Tue, 27 May 2025 05:25:45 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJm0f-00000009sSo-2sXP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 04:33:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wsy5mS7fWRMGG06CN4mHlHOF4ZqQOQ4LZ3b5GP6B1XYfKSNxV+0sIHvJ+cs6bngCnuHIr4hmMKr11Y+lcarESpRAUAfoHynwRwYCI4kGWJIqDOSpj51aksiMZVktbLQj4/ff4xOS4ufL3hN2vd6SV++KkftS8vCmEroxJTZyBBi/xf4jSv8uBjtxXeNP1P9X4tIxZ1M5xEn1/C0Nbs/M5+A5mRgGigolqErgKh9+xdPmty/MxNEvyv/kbAWe58Me5ceKTyzF3SkrAkaSli7LEam1pAzfSN/viDG7UM7BuAhIoK4ECjGNxbJMK+OC1aIbAYK/dZN8XOeEWpUCC6gHxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zZz8gjfyP7pKzxpnQO5BIVe1YYz/zQshSs9gpsxy3j4=;
- b=YOQi83Mc81aSqRhoK2DwnskE4AxzKkREv6MexREJSDbIkz+OcdYfXImNoBwUloi6B6te3UNzbU0gTE802YrP+h7eWalUlggeXSC2aq31yus5fGgtnlxND5UG8htMHkBdx7XCURNF6nP0Cn3nFwqxHoE7UaSOgUfbHxINoi4M0tOEOq6gkNVLgXJoy+CTNbYMnRKnyPzeRbQ1904VVp/jC97Frlu4Mk5eGDqtMbwbyEoBygyoMTx/mVGbjVaUZIiVh6QsWxYR/ZOqPymvC0BF/hrxR0RF2QZbfF8PdnbwatPkD9hymTtYfq3TdDrtwF15ttxn0LhcPt8FLL2j0jpAJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zZz8gjfyP7pKzxpnQO5BIVe1YYz/zQshSs9gpsxy3j4=;
- b=WR6WPSzOeoMTZ9juaNrXCF2g2Srluugx/Hg7SH41qad4Gb1SisS01OTLWXj18jrsKg96ThLLkhsATuKt1V25U+/ODy/HLoM7wXyC/XbUA+uyttX67qi10ZB3O+C6sdNJYMBaGlcSIHQRPaPnfwiO/XC0IGwJRnBmmUeDEnpC91tadx+6ohy5T+RMfM7Bj0LgWR9v7mqguLxK6ixzoxMI8SpSAfoBRVZ8nxQA6AhrssJ0Bx1H9JKRw6rzdH3BOlvlwZEAEZhE30nv+A/RNvZW7umucCScPpBaiJZkBFHqNCDOjGGSigG2Y4vWM71jTCcG+K+iLUTeJGHqT1GkgkZQUg==
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
- by MW4PR12MB6873.namprd12.prod.outlook.com (2603:10b6:303:20c::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.26; Tue, 27 May
- 2025 04:33:41 +0000
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2%3]) with mapi id 15.20.8769.022; Tue, 27 May 2025
- 04:33:41 +0000
-From: Ankit Agrawal <ankita@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "david@redhat.com"
-	<david@redhat.com>, Aniket Agashe <aniketa@nvidia.com>, Neo Jia
-	<cjia@nvidia.com>, Kirti Wankhede <kwankhede@nvidia.com>, Krishnakant Jaju
-	<kjaju@nvidia.com>, "Tarun Gupta (SW-GPU)" <targupta@nvidia.com>, Vikram
- Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>, Alistair Popple
-	<apopple@nvidia.com>, John Hubbard <jhubbard@nvidia.com>, Dan Williams
-	<danw@nvidia.com>, Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
-	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
-	"sebastianene@google.com" <sebastianene@google.com>, "coltonlewis@google.com"
-	<coltonlewis@google.com>, "kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com" <yi.l.liu@intel.com>, "ardb@kernel.org"
-	<ardb@kernel.org>, "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com" <gshan@redhat.com>, "linux-mm@kvack.org"
-	<linux-mm@kvack.org>, "ddutile@redhat.com" <ddutile@redhat.com>,
-	"tabba@google.com" <tabba@google.com>, "qperret@google.com"
-	<qperret@google.com>, "seanjc@google.com" <seanjc@google.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "maobibo@loongson.cn"
-	<maobibo@loongson.cn>
-Subject: Re: [PATCH v6 3/5] kvm: arm64: New memslot flag to indicate cacheable
- mapping
-Thread-Topic: [PATCH v6 3/5] kvm: arm64: New memslot flag to indicate
- cacheable mapping
-Thread-Index: AQHbzEzI+6vBCHMvLU6Sk33wF14jHrPlo3wAgABB1qg=
-Date: Tue, 27 May 2025 04:33:41 +0000
-Message-ID: <SA1PR12MB71990A84FDB4350DC02CEC6EB064A@SA1PR12MB7199.namprd12.prod.outlook.com>
-References: <20250524013943.2832-1-ankita@nvidia.com>
- <20250524013943.2832-4-ankita@nvidia.com> <20250527002652.GM61950@nvidia.com>
-In-Reply-To: <20250527002652.GM61950@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|MW4PR12MB6873:EE_
-x-ms-office365-filtering-correlation-id: 7924279c-963b-4553-75e1-08dd9cd7a85d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?hMLJ1iUgvPYl72UEKYSmtlJXV48jtpiOmhNVOia2ClLF9pY/6O2zJ9zCEA?=
- =?iso-8859-1?Q?va5aVx8mxMp3xccaJ6qnDraUaTZliQGQBFqJvYksEB+MmT8DOFWbEV2Gpz?=
- =?iso-8859-1?Q?Bah/284PVV3/7qbTjFzlOb5BZdw1Ps7jwu/aibh+nTUAgDXPBCf4WFrKEJ?=
- =?iso-8859-1?Q?4AtouCsirNzGHm/9eQrLxJgu5R6s7zXBbmifPN+wyWB4fMGq8DgH8q0vxI?=
- =?iso-8859-1?Q?++pSIir/JSxQTz3wJtWm64qP+hVBLuQIwkWa9n3xSM4riIPJ9pzHSO/Ppd?=
- =?iso-8859-1?Q?OYDnmyhbXZwx2wJe/OmraV3v5xKx+Y490dGKZjZ691CoXAlhhYH8baIAk8?=
- =?iso-8859-1?Q?NuvlpyUa7Bs/OMzSSPRGTO4JpKkmKYSJKMmzqu1FiE276l3/BEJgb4N0xQ?=
- =?iso-8859-1?Q?ymd5mw2RSt0jMsQuDBTjJJbXoXiVHpgnUiDP3Yk/OOs7D11v8ilWx8cYh4?=
- =?iso-8859-1?Q?cxLcSCdkRUdLfyB9VSlvihlWSMHPUxdoLQUlHno4UMuhSqr6wFlq8tsaQP?=
- =?iso-8859-1?Q?y7OTtp3xDxW0ZZqfgf0EMdJAdXwWe0bdQ3bmyomXEfH98xgHbo1lefumCG?=
- =?iso-8859-1?Q?klcNELeDP3A6jQl+7G28fIbVO4iLr4PbDCa5sgpw8yFvX+zDuQZ6SEu0EL?=
- =?iso-8859-1?Q?P3s7WDLjPB192QUTSMXeOaYv+SJ2oYbF9DHZfN7mqFQyl6Zmm1YdDCIbKk?=
- =?iso-8859-1?Q?qbYD0Ro7z6tP+2KBDiOZr/o15l4c3yG63xdxX44CsOAusyM1kgRL6Qj8Hm?=
- =?iso-8859-1?Q?828g9fLBuaCIope2W8k9V3EC01T8Td2qVABD9mPbZffuKVO7cZ+NeyhPAt?=
- =?iso-8859-1?Q?CwHXNrBOwADlkvHsjVQIxoRXZfBu6LNNJDLjgheHeX4dnKaOF+iAwEDwok?=
- =?iso-8859-1?Q?YoZVXFdLTaWr/2E7Cao808hjWN13W7uhoPQz1FZ1xGcNc3c4PSaI3USmQN?=
- =?iso-8859-1?Q?ssjdIKGCGQabIDZX1eaGGhtB47kPm3sWPB2SFr3r51BHKueh5HmT+qIPoC?=
- =?iso-8859-1?Q?YjgdcOpVvbe+uu87YXUu/+VdeJNHGmk5w/DODF1186PgbhLjrMP4ceZZbA?=
- =?iso-8859-1?Q?rAi6UWkATEAyrVR3B4QWDgv4EG3N9IBYNddF8xLag3B/vMXpb8hRgaukhW?=
- =?iso-8859-1?Q?Jh7k7Zc6JZEGepSi8V+qbfc+mzEC6um4nktJedr+ptWBgHMcjHgM/ZtTYH?=
- =?iso-8859-1?Q?bqefFPY6Brj3YLGKjwKrkFy5UxZ+M1M8IgG1D/q6hoCSE91JM4onOLFoME?=
- =?iso-8859-1?Q?rqTuFoa6jHYmhlzy7CX5dgm6hAqQ8PcfcPQMQwnzV/sryMlKxVcFFe7g7U?=
- =?iso-8859-1?Q?YzeKTV+HipaShCPzU7XyO1GMUbH5uBnDDnhWU3CEDG5brqyby8UnqvqQw4?=
- =?iso-8859-1?Q?3hhTMiaWbVfN/FwOHZJKtHvIxG0Cm3kha1ZMNE0SEUn8z8UjYpGFuvb0Qv?=
- =?iso-8859-1?Q?V8rgQXtMWeSwz3h6cgdA9J5gdsk1PfwvCCh8PEo4fnWDnrRNBaiE6rIGtr?=
- =?iso-8859-1?Q?lLg9oSS5fB2+AHilAQXWgkVPZ6nPwt456k4G7ZPTovrOUd85dAzNclAmSq?=
- =?iso-8859-1?Q?KjWzj1g=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?p7/HfBuRh13vCLGi7oohL0a1sz9JU3Lmz/voscZPxbBRrKLt/RCsixeIoD?=
- =?iso-8859-1?Q?KL9/gmGfAE13PkpQ9+rgaKLlSKk1R3vJ3X7Gg1cJzw247jYZPJQb9rewUw?=
- =?iso-8859-1?Q?VVhBz25lnEMFK7V5l/qTSn3U+4dL4gf+jbZ0/dWSyRa2uVWbwa3q2m4JvQ?=
- =?iso-8859-1?Q?AACiHNbdxMlpsljfvtfWymofnRbh+Wz+4H9LVzZBa6sz438pazhQ1nJHdS?=
- =?iso-8859-1?Q?Vx/httm+fP8MFY7Bu72B9aGOPd+v/VKV3ppXfgHuwRiQWmqP5LGFmeIODW?=
- =?iso-8859-1?Q?B5AowBDVfjzJMCf+KBFiDyUzdmRc97+oE5d8jD5pn5QJrHJFxjEwfjaGJt?=
- =?iso-8859-1?Q?1n9PVnjt6XkMPYs8cqSah8TDHtHzLi/2nf97FbLBohzM8ymtupJv1BurBx?=
- =?iso-8859-1?Q?cKTOHVGK6f+mXAznSDU7lHD4tFEuTQzbHX0mJvqcDOdpjdg0n998I3DISL?=
- =?iso-8859-1?Q?4xk/b01dVJeRZRlZQLSXWPzQcTlXFvnxv5dj+rBhWwBEcSWMVgf9tKQYNZ?=
- =?iso-8859-1?Q?wF+Zc2QguD5KhW3cztb/+LzujRtDrVuWPRwbE/uGrZ8PgWmHvd5N9ag9wq?=
- =?iso-8859-1?Q?lvhgw6VRUFwEqmSywg6lxM9aGLJuPhGPAQ7nbEzavX3EkUsctv9BDuNrLC?=
- =?iso-8859-1?Q?IPTglfHcjM67kMO82Wl24LTUlq265zqiKWOUdQWhkoXps+eumzKhd7D5t/?=
- =?iso-8859-1?Q?d7mzdwzsDAFbLfs4afBIGz8yRcNcqmphUEPsEvDADM/ZJjw4G2BGEX4b67?=
- =?iso-8859-1?Q?amtvY9LzRNovIXCOqo5gRHna2t6PsCFbROLgRiXN/fucn32taL/ZzDNkwM?=
- =?iso-8859-1?Q?hhRfBDHQDKd+ynjhsotCrxNp59+HWMl/iDU9cu3ofzIIzdUwrhBKUWL6aL?=
- =?iso-8859-1?Q?pjOAt0qnJ7zag6oZhVdeGAk++6EP0YNhgnSwUjRYQrXEjgAFAcyGym4XNs?=
- =?iso-8859-1?Q?gu02+prfa+6trMsq8BGz13tDWTxm23Pil2Rer3zLwekNXleWJBe/RTbw+X?=
- =?iso-8859-1?Q?kCOPaF1qiW4RpLdYBqR/FRWhAYVX7IotUMMU5BkqT2ldMWwSzORtonvtED?=
- =?iso-8859-1?Q?rnmVMSDHMKGLpBXRwenFZOO67sciyADwE/FvNIxbzBOFelg/oP8d3WJwSi?=
- =?iso-8859-1?Q?rZaWCgmEu3Vrdj/E9W5+nqEJlg5eAK1x32tKbMu+0GZ7BfT+Y/mc/vdegw?=
- =?iso-8859-1?Q?t8PoudO+1YzfZKa+nex9lyUdHAMj7JvLXDXubbbSdVBJevKcDFtUcrPnw4?=
- =?iso-8859-1?Q?hkcKf4zoqH8o7XkWRoNJELYihkIjUhUl1vbwOfgDbCytKKcdMfO+8ye2Rq?=
- =?iso-8859-1?Q?SQ9+ZF1/RC0AfI+qbcXrNvmNUStt9cucHUv4rXLTSWdhtxJMCLna8zVJID?=
- =?iso-8859-1?Q?M0Wx1dqm991h/zUSjL8CSE/+BMsZvE3t2M/ZpjrV3dBlvMVE47TP+hvpm/?=
- =?iso-8859-1?Q?Mr06IWXlF2C0SbfGOaf24Rt/RdvOY7tT67BOLPRQaeufNCYYp0aIoH8+Mk?=
- =?iso-8859-1?Q?UA3/PxPmjZN3H16lyNDnFJux5Lh+miNuvK7ZLkS9oAzDpLGjkSeDIhKLhk?=
- =?iso-8859-1?Q?dqBIcK+OjaizdIS1rh/7ox6ivJFFxaIM9y0N3f5RVNb0VYYmupWo4nZWU4?=
- =?iso-8859-1?Q?7u5zN5zojII0w=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1uJmmi-00000009v6P-1nGy;
+	Tue, 27 May 2025 05:23:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D39D9A4E748;
+	Tue, 27 May 2025 05:23:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 653C5C4CEED;
+	Tue, 27 May 2025 05:23:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748323410;
+	bh=EOFcyhTV/hOBYlu+9SROGy3FDiHIkp+vuQMdA1Ficts=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=gPwvftPO6lvCYD+4UwVVe8dox8JDhv79JpoN+BlmhVrGUXySwInK/ZJ2sDDOJcgYj
+	 kSZaKvgO4HAZWCJMptTVFkBPebSOAjx5Hl5hb/Ulmr5Cysin4dFXpD52FaF4VRKV+K
+	 xPlfvqVCs8kzFOv5vUgceMvjuN7dWkAAFrAoyt5dc3IbC/Fia9ziDQJK/7qZYv2Cew
+	 eswUQfXkE+QjY4XR1clL8JmoHgqwISBfPpQL+iPN9PF4ND4Xh10O9KkU2rCCzGsrih
+	 5k248zaI5HXxVFFaEhLi2978FzkpXz5hJoh9HQUuKSwyCX7qf3DVFMtF284A53in80
+	 XDHyAh/K5NHrg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 56310C5AD49;
+	Tue, 27 May 2025 05:23:30 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Tue, 27 May 2025 13:23:28 +0800
+Subject: [PATCH v3 1/6] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
+ compatible string for S7/S7D/S6
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7924279c-963b-4553-75e1-08dd9cd7a85d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 May 2025 04:33:41.2406
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: TMGBbf/CtH1gFK/l9kN2BLx4nSjlT7vgYE3kBucbrgikX0eTHAnqxK6Iks3CPzpHNiIlfgDDS4ZKL9ZmAqZarA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6873
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250527-s6-s7-pinctrl-v3-1-44f6a0451519@amlogic.com>
+References: <20250527-s6-s7-pinctrl-v3-0-44f6a0451519@amlogic.com>
+In-Reply-To: <20250527-s6-s7-pinctrl-v3-0-44f6a0451519@amlogic.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1748323408; l=1098;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=prX14EgQxx+RSrte6iKA/xDeT6QG01a/L3Prb2dIYk4=;
+ b=MCVkadAxc+QJWR8KLI+ziAQqDUO8mWkG838u+iFmr/ATnjWWjKDFcHPXR4qxu9ANnEbYFecVo
+ 6mSMypFlLH4CW+7lda4TvdDv01tO5gtZW0bMLIfy3NgfOvxUtDYvICt
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_213353_727141_19C2D8A8 
-X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-CacheID: sfid-20250526_222332_543245_34A9E8A8 
+X-CRM114-Status: UNSURE (   8.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -190,23 +90,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I thought we agreed not to do this? Sean was strongly against it=0A=
-> right?=0A=
-=0A=
-> There is no easy way for VFIO to know to set it, and the kernel will=0A=
-> not allow switching a cachable VMA to non-cachable anyhow.=0A=
-=0A=
-> So all it does is make it harder to create a memslot.=0A=
-=0A=
-Oliver had mentioned earlier that he would still prefer a memslot flag as=
-=0A=
-VMM should convey its intent through that flag:=0A=
-https://lore.kernel.org/all/aAdKCGCuwlUeUXKY@linux.dev/=0A=
-=0A=
-Oliver, could you please confirm if you are convinced with not having this=
-=0A=
-flag? Can we rely on MT_NORMAL in vma mapping to convey this?=0A=
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+
+Update dt-binding document for pinctrl of Amlogic S7/S7D/S6.
+
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+ .../devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml          | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+index c36b6fe377ad..61a4685f9748 100644
+--- a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+@@ -15,11 +15,18 @@ allOf:
+ properties:
+   compatible:
+     oneOf:
+-      - const: amlogic,pinctrl-a4
++      - enum:
++          - amlogic,pinctrl-a4
++          - amlogic,pinctrl-s6
++          - amlogic,pinctrl-s7
+       - items:
+           - enum:
+               - amlogic,pinctrl-a5
+           - const: amlogic,pinctrl-a4
++      - items:
++          - enum:
++              - amlogic,pinctrl-s7d
++          - const: amlogic,pinctrl-s7
+ 
+   "#address-cells":
+     const: 2
+
+-- 
+2.37.1
+
+
 
