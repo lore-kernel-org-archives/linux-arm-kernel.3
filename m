@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72D1C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 06:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9874DC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 06:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MUnLtN4WGSVmNn4Wi8d1LDZQIGLwuZhZKvVW1jdBqts=; b=BvqvEmguvxM5PAq1ykVODvDsyE
-	Jso0SDuxgv1nVzlCHPS1U/2OxHtgyKcuBx842piqGXUMu8xIlJAWq3goUkpJI+S42Q0MFv34e115b
-	hShUjaTnMgLhYHpeAf/Yy12gLqSk4E9uf1EYNHM7RTvAw7V4aW7deccnPS+w6eOcNmUXv2zSRP1wT
-	Gia/gbp9tWUSeecw7aCrVzB7vBSBXbdXoBk5Pp1wzvdftKUiRPBOeODAsZr77KKs4KJHeDmVOVGth
-	rhWnScrq7COsnFSWfKaoqd4xIOJrTSS5hmhOU14a4Eofdohrtarx4f/kU9H5FZ3myCUrmBhZbEIsj
-	XGPCvMEg==;
+	bh=osa5wtVgN75Qz2+/E2ShchmseliLYV0sbPvRf6suVCQ=; b=Uzfgz/4k3FWKwRfGaqC2lbnqfp
+	I8rkN/UwgisQZarbDvESgPn+5pKFhmEu3RW9FrIDKCl1gS8U9MUjgLMcBVwp/dBpv1mfpHLQBK44H
+	pRAua+a0A/bEHBe1LEfuGn6MPAnLKTMNzy9ykI44/IPzJpH8eyxjuovKbG/Ydb1b1O+FtAJTW7zTX
+	CmbcS7KESyo8sVMCZfciGlq6i9xrluiMYc+BqlHrVLcOqZCbql4Euxaextb+FkA16P5h7ubJ0biJx
+	99Qqfq3cj1jQ0hz152qkywr7zfhLyMRKxLWWBBrpLAVCCphzf77ifCrhdqVWn4DWQi6mlS7a391zd
+	MMUczbtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJoC0-0000000A52m-2w7K;
-	Tue, 27 May 2025 06:53:44 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1uJoE6-0000000A5MM-1oUB;
+	Tue, 27 May 2025 06:55:54 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJo0r-0000000A3TW-2sEu
+	id 1uJo0t-0000000A3UF-41UB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 06:42:14 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2341e468d02so13092485ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 23:42:13 -0700 (PDT)
+	Tue, 27 May 2025 06:42:17 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-22c31b55ac6so37935845ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 May 2025 23:42:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1748328133; x=1748932933; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1748328135; x=1748932935; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=MUnLtN4WGSVmNn4Wi8d1LDZQIGLwuZhZKvVW1jdBqts=;
-        b=YEN2emXx4KOuM/0Ai7plp1/g2DRSwDEmNYsbA3hbuS2LHESUVwK/+cONbmlmsx8ovH
-         6BM6+xUSvRvRwAXxaOIl4kFLKasd7PAHSW3XhfhAuk51l3LvsRP28dhBZMmKBD2pjGQs
-         PRms8Th34WEsWTXSLHRju+huYAkhOLTndKDx+T7CivHFkLIvIzc5HBso03wYdJAwMpMX
-         1x66Bdi8Vav5VlSyOD254fCm/eimZtt98ksvYq3ADY2V53XZ2y7B9gZO8XWRIZZfINtJ
-         OPTQDlnxJcZQCEnVlozqxzOMRrbSsoO8DDMuE92HzKVYOW1B0qdzAFbCP4Brq8/wVixV
-         Y+iA==
+        bh=osa5wtVgN75Qz2+/E2ShchmseliLYV0sbPvRf6suVCQ=;
+        b=EB5+WdfTbTyCDiRpiYKTsU5fO5fDBxN2n3fjV9xAb67ot3fNV/YyE8IUoz3NuUrkub
+         Lm5lT3Sk/gaGm29qZFyESGdDgKYvAosociyHyp6QKn/wMM6UYz7wsi3Kz2k81EAJGHX8
+         bbICztwXYBsRxFf34uf8DxTbmmdOjHV2Wu1vWUkX7FODI+zYm7kY+dhiRBDGr1ekLo1d
+         vO/xf3ub+6biviC31cGG5FjSjhXfxh9ecNd3M11+wsjw4Q4DsruBew1FAxPxwJ33Vy2n
+         l5+O0XbPi1a1NtcfjfpQc2usyBiGe2ctDtvRMYVZj7V2c8hro7XEWJb8HJ9B5sQf8GP9
+         /Szw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748328133; x=1748932933;
+        d=1e100.net; s=20230601; t=1748328135; x=1748932935;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MUnLtN4WGSVmNn4Wi8d1LDZQIGLwuZhZKvVW1jdBqts=;
-        b=TX6WcYWDO08KYMXxg5WwkqMPQgK3I6VeyW2BGHb8vBErU6tZPYipPE18ziJ8dS1Zdu
-         e1yfHatJKRNohC13214ihfMleCovFi3Cdt7x/Esxei+H0TYAUcBnk1TL4MC5W+dwxfaY
-         8BrB5adCB4s4GAIExpfT1lI/tAuNBlSAlMbPgw8Xh95Vvk32XW6+WRx+h+7nyAKbNOek
-         JvJJznWJi91FN/17cTinK6w40VK2lrV3oFq1ZyGy2TAWgP2/RNgmEA1o5/alzMP95ar7
-         q6VJs8C49AXpQuEPNK67qQIdVALGUxjoGG1OWn2ikWP7vWN5YVRBCndXxWFofHMR4q6t
-         zvog==
-X-Forwarded-Encrypted: i=1; AJvYcCUPmd3GE5oh+zx19zQ5RCUyeF31MyBVrM0sX40pBb8hk6KIXghxtviYPgTFXwYXgXMjyftqOKFLuoL+LIiPdu1e@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkpigM0SEfDCpEbSZFcAaZBlCbo8yM+o2SZ97yIofsFtR3Jhcm
-	USciq/ouLtk/WMOYXnZiXggWCxK/9KApOBS6E6fTYBm9cO+eFyZHl1wYjAugirm2p+Ml0E976iG
-	5zZp8t89HLA==
-X-Google-Smtp-Source: AGHT+IGHKk5a7AWx1PjC3QXyGO8PNB5ZFjuWpmgN79JUKqYAxatNVA8sujVhm0NZ0Vz4B0jASoO7rX0EVWw9
-X-Received: from plmt11.prod.google.com ([2002:a17:903:3d4b:b0:234:659b:127c])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:41cc:b0:22c:3294:f038
- with SMTP id d9443c01a7336-23414f5cda8mr160849955ad.18.1748328132578; Mon, 26
- May 2025 23:42:12 -0700 (PDT)
-Date: Mon, 26 May 2025 23:41:46 -0700
+        bh=osa5wtVgN75Qz2+/E2ShchmseliLYV0sbPvRf6suVCQ=;
+        b=vhsfaSOv3SVVQLPIiwOrijlEYVFYF2NwpiPNluws5Y9Hx9Ef3Alj0YgxJX1vAmrmS/
+         +LmVEI1+UG1pBb/Olfl6bs6Ewycm4ecRGBxBIe1qI3Sht80m3EYGDvOASDndSKHFqaqy
+         xpCWHMKqwOBzt5MDlBxZ3zBH+rMngC9yF5LnnHcIH/W6qat+Q8HZVP9o3y5gSvdT1u0X
+         ae5ASeg6lXa/DpbZx+A0rFEm6Rb6gV2u8nGnLLERSuE9cc1mc1yMbd/frbaV8RD4DkDI
+         YsGlu+AwZ2ytmQ7y/qZuxr0iudzk4rDIR/o5Jo78qc8OoDQTZroOhAZAe65iqCYCBgV+
+         gWQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW0p9JKoPiKDJIq3TnSwKtcn9UJLpPyz0vMzgl022TD4DGfsyj5YEMkn/Z4rkvHCKNXaiPO2gTWnQhVXyDKEg/z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFDl/kc85wEBOI7TK3Io3F+cVeQy/dPu+qgyDUO3OCJd05kXaa
+	hf8W2ocOFo2c5tf4oS+yYk9tzipsNw7B9czwWIJrAA6BLp8kTkBaeS+DUgpBrdiXxwOq1+NgbA0
+	8tyBwxKsP2Q==
+X-Google-Smtp-Source: AGHT+IHBlK8YqoPMAr7xh9aEs9BuP63hCf3vUPjkswlC+FGyc/S92WE6qVaUgB/MfYWJFOpNBewMgTCnn2Lz
+X-Received: from plgf13.prod.google.com ([2002:a17:902:ce8d:b0:234:711c:9397])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2402:b0:234:8aad:73cd
+ with SMTP id d9443c01a7336-2348aad7438mr34457945ad.30.1748328134808; Mon, 26
+ May 2025 23:42:14 -0700 (PDT)
+Date: Mon, 26 May 2025 23:41:47 -0700
 In-Reply-To: <20250527064153.149939-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20250527064153.149939-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.1151.ga128411c76-goog
-Message-ID: <20250527064153.149939-5-irogers@google.com>
-Subject: [PATCH v1 04/11] perf header: Clean up use of perf_env
+Message-ID: <20250527064153.149939-6-irogers@google.com>
+Subject: [PATCH v1 05/11] perf test: Avoid use perf_env
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -90,8 +90,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_234213_734033_37674C48 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20250526_234216_008732_7EDA45F1 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,586 +106,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Always use the perf_env from the feat_fd's perf_header. Cache the
-value on entry to a function in `env` and use `env->` consistently in
-the code. Ensure the header is initialized for use in
-perf_session__do_write_header.
+The perf_env global variable holds the host perf_env data but its use
+is hit and miss. Switch to using local perf_env variables and ensure
+scoped perf_env__init and perf_env__exit. This loses command line
+setting of the perf_env, but this doesn't matter for tests. So the
+perf_env is fully initialized, clear it with memset in perf_env__init.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/header.c | 178 ++++++++++++++++++++++-----------------
- 1 file changed, 100 insertions(+), 78 deletions(-)
+ tools/perf/tests/code-reading.c  |  5 +++-
+ tools/perf/tests/dlfilter-test.c | 50 ++++++++++++++++++--------------
+ tools/perf/util/env.c            |  1 +
+ 3 files changed, 33 insertions(+), 23 deletions(-)
 
-diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
-index c3621f718cb3..2e9a05e10ed5 100644
---- a/tools/perf/util/header.c
-+++ b/tools/perf/util/header.c
-@@ -557,6 +557,7 @@ static int write_event_desc(struct feat_fd *ff,
- static int write_cmdline(struct feat_fd *ff,
- 			 struct evlist *evlist __maybe_unused)
+diff --git a/tools/perf/tests/code-reading.c b/tools/perf/tests/code-reading.c
+index cf6edbe697b2..4b2461e93b2b 100644
+--- a/tools/perf/tests/code-reading.c
++++ b/tools/perf/tests/code-reading.c
+@@ -651,11 +651,13 @@ static int do_test_code_reading(bool try_kcore)
+ 	struct dso *dso;
+ 	const char *events[] = { "cycles", "cycles:u", "cpu-clock", "cpu-clock:u", NULL };
+ 	int evidx = 0;
++	struct perf_env host_env;
+ 
+ 	pid = getpid();
+ 
+ 	machine = machine__new_host();
+-	machine->env = &perf_env;
++	perf_env__init(&host_env);
++	machine->env = &host_env;
+ 
+ 	ret = machine__create_kernel_maps(machine);
+ 	if (ret < 0) {
+@@ -798,6 +800,7 @@ static int do_test_code_reading(bool try_kcore)
+ 	perf_cpu_map__put(cpus);
+ 	perf_thread_map__put(threads);
+ 	machine__delete(machine);
++	perf_env__exit(&host_env);
+ 
+ 	return err;
+ }
+diff --git a/tools/perf/tests/dlfilter-test.c b/tools/perf/tests/dlfilter-test.c
+index 54f59d1246bc..6427e3382711 100644
+--- a/tools/perf/tests/dlfilter-test.c
++++ b/tools/perf/tests/dlfilter-test.c
+@@ -319,11 +319,12 @@ static int run_perf_script(struct test_data *td)
+ 
+ static int test__dlfilter_test(struct test_data *td)
  {
-+	struct perf_env *env = &ff->ph->env;
- 	char pbuf[MAXPATHLEN], *buf;
- 	int i, ret, n;
++	struct perf_env host_env;
+ 	u64 sample_type = TEST_SAMPLE_TYPE;
+ 	pid_t pid = 12345;
+ 	pid_t tid = 12346;
+ 	u64 id = 99;
+-	int err;
++	int err = TEST_OK;
  
-@@ -564,7 +565,7 @@ static int write_cmdline(struct feat_fd *ff,
- 	buf = perf_exe(pbuf, MAXPATHLEN);
+ 	if (get_dlfilters_path(td->name, td->dlfilters, PATH_MAX))
+ 		return test_result("dlfilters not found", TEST_SKIP);
+@@ -353,37 +354,42 @@ static int test__dlfilter_test(struct test_data *td)
  
- 	/* account for binary path */
--	n = perf_env.nr_cmdline + 1;
-+	n = env->nr_cmdline + 1;
+ 	pr_debug("Creating new host machine structure\n");
+ 	td->machine = machine__new_host();
+-	td->machine->env = &perf_env;
++	perf_env__init(&host_env);
++	td->machine->env = &host_env;
  
- 	ret = do_write(ff, &n, sizeof(n));
- 	if (ret < 0)
-@@ -574,8 +575,8 @@ static int write_cmdline(struct feat_fd *ff,
- 	if (ret < 0)
- 		return ret;
+ 	td->fd = creat(td->perf_data_file_name, 0644);
+ 	if (td->fd < 0)
+ 		return test_result("Failed to create test perf.data file", TEST_FAIL);
  
--	for (i = 0 ; i < perf_env.nr_cmdline; i++) {
--		ret = do_write_string(ff, perf_env.cmdline_argv[i]);
-+	for (i = 0 ; i < env->nr_cmdline; i++) {
-+		ret = do_write_string(ff, env->cmdline_argv[i]);
- 		if (ret < 0)
- 			return ret;
- 	}
-@@ -586,6 +587,7 @@ static int write_cmdline(struct feat_fd *ff,
- static int write_cpu_topology(struct feat_fd *ff,
- 			      struct evlist *evlist __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	struct cpu_topology *tp;
- 	u32 i;
- 	int ret, j;
-@@ -613,17 +615,17 @@ static int write_cpu_topology(struct feat_fd *ff,
- 			break;
- 	}
+ 	err = perf_header__write_pipe(td->fd);
+-	if (err < 0)
+-		return test_result("perf_header__write_pipe() failed", TEST_FAIL);
+-
++	if (err < 0) {
++		err = test_result("perf_header__write_pipe() failed", TEST_FAIL);
++		goto out;
++	}
+ 	err = write_attr(td, sample_type, &id);
+-	if (err)
+-		return test_result("perf_event__synthesize_attr() failed", TEST_FAIL);
+-
+-	if (write_comm(td->fd, pid, tid, "test-prog"))
+-		return TEST_FAIL;
+-
+-	if (write_mmap(td->fd, pid, tid, MAP_START, 0x10000, 0, td->prog_file_name))
+-		return TEST_FAIL;
+-
+-	if (write_sample(td, sample_type, id, pid, tid) != TEST_OK)
+-		return TEST_FAIL;
+-
++	if (err) {
++		err = test_result("perf_event__synthesize_attr() failed", TEST_FAIL);
++		goto out;
++	}
++	if (write_comm(td->fd, pid, tid, "test-prog")) {
++		err = TEST_FAIL;
++		goto out;
++	}
++	if (write_mmap(td->fd, pid, tid, MAP_START, 0x10000, 0, td->prog_file_name)) {
++		err = TEST_FAIL;
++		goto out;
++	}
++	if (write_sample(td, sample_type, id, pid, tid) != TEST_OK) {
++		err = TEST_FAIL;
++		goto out;
++	}
+ 	if (verbose > 1)
+ 		system_cmd("%s script -i %s -D", td->perf, td->perf_data_file_name);
  
--	ret = perf_env__read_cpu_topology_map(&perf_env);
-+	ret = perf_env__read_cpu_topology_map(env);
- 	if (ret < 0)
- 		goto done;
- 
--	for (j = 0; j < perf_env.nr_cpus_avail; j++) {
--		ret = do_write(ff, &perf_env.cpu[j].core_id,
--			       sizeof(perf_env.cpu[j].core_id));
-+	for (j = 0; j < env->nr_cpus_avail; j++) {
-+		ret = do_write(ff, &env->cpu[j].core_id,
-+			       sizeof(env->cpu[j].core_id));
- 		if (ret < 0)
- 			return ret;
--		ret = do_write(ff, &perf_env.cpu[j].socket_id,
--			       sizeof(perf_env.cpu[j].socket_id));
-+		ret = do_write(ff, &env->cpu[j].socket_id,
-+			       sizeof(env->cpu[j].socket_id));
- 		if (ret < 0)
- 			return ret;
- 	}
-@@ -641,9 +643,9 @@ static int write_cpu_topology(struct feat_fd *ff,
- 			goto done;
- 	}
- 
--	for (j = 0; j < perf_env.nr_cpus_avail; j++) {
--		ret = do_write(ff, &perf_env.cpu[j].die_id,
--			       sizeof(perf_env.cpu[j].die_id));
-+	for (j = 0; j < env->nr_cpus_avail; j++) {
-+		ret = do_write(ff, &env->cpu[j].die_id,
-+			       sizeof(env->cpu[j].die_id));
- 		if (ret < 0)
- 			return ret;
- 	}
-@@ -2111,17 +2113,18 @@ static void print_cpu_pmu_caps(struct feat_fd *ff, FILE *fp)
- 
- static void print_pmu_caps(struct feat_fd *ff, FILE *fp)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	struct pmu_caps *pmu_caps;
- 
--	for (int i = 0; i < ff->ph->env.nr_pmus_with_caps; i++) {
--		pmu_caps = &ff->ph->env.pmu_caps[i];
-+	for (int i = 0; i < env->nr_pmus_with_caps; i++) {
-+		pmu_caps = &env->pmu_caps[i];
- 		__print_pmu_caps(fp, pmu_caps->nr_caps, pmu_caps->caps,
- 				 pmu_caps->pmu_name);
- 	}
- 
--	if (strcmp(perf_env__arch(&ff->ph->env), "x86") == 0 &&
--	    perf_env__has_pmu_mapping(&ff->ph->env, "ibs_op")) {
--		char *max_precise = perf_env__find_pmu_cap(&ff->ph->env, "cpu", "max_precise");
-+	if (strcmp(perf_env__arch(env), "x86") == 0 &&
-+	    perf_env__has_pmu_mapping(env, "ibs_op")) {
-+		char *max_precise = perf_env__find_pmu_cap(env, "cpu", "max_precise");
- 
- 		if (max_precise != NULL && atoi(max_precise) == 0)
- 			fprintf(fp, "# AMD systems uses ibs_op// PMU for some precise events, e.g.: cycles:p, see the 'perf list' man page for further details.\n");
-@@ -2130,18 +2133,19 @@ static void print_pmu_caps(struct feat_fd *ff, FILE *fp)
- 
- static void print_pmu_mappings(struct feat_fd *ff, FILE *fp)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	const char *delimiter = "# pmu mappings: ";
- 	char *str, *tmp;
- 	u32 pmu_num;
- 	u32 type;
- 
--	pmu_num = ff->ph->env.nr_pmu_mappings;
-+	pmu_num = env->nr_pmu_mappings;
- 	if (!pmu_num) {
- 		fprintf(fp, "# pmu mappings: not available\n");
- 		return;
- 	}
- 
--	str = ff->ph->env.pmu_mappings;
-+	str = env->pmu_mappings;
- 
- 	while (pmu_num) {
- 		type = strtoul(str, &tmp, 0);
-@@ -2223,17 +2227,18 @@ static void memory_node__fprintf(struct memory_node *n,
- 
- static void print_mem_topology(struct feat_fd *ff, FILE *fp)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	struct memory_node *nodes;
- 	int i, nr;
- 
--	nodes = ff->ph->env.memory_nodes;
--	nr    = ff->ph->env.nr_memory_nodes;
-+	nodes = env->memory_nodes;
-+	nr    = env->nr_memory_nodes;
- 
- 	fprintf(fp, "# memory nodes (nr %d, block size 0x%llx):\n",
--		nr, ff->ph->env.memory_bsize);
-+		nr, env->memory_bsize);
- 
- 	for (i = 0; i < nr; i++) {
--		memory_node__fprintf(&nodes[i], ff->ph->env.memory_bsize, fp);
-+		memory_node__fprintf(&nodes[i], env->memory_bsize, fp);
- 	}
+-	err = run_perf_script(td);
+-	if (err)
+-		return TEST_FAIL;
+-
+-	return TEST_OK;
++	err = run_perf_script(td) ? TEST_FAIL : TEST_OK;
++out:
++	perf_env__exit(&host_env);
++	return err;
  }
  
-@@ -2431,6 +2436,7 @@ static int process_build_id(struct feat_fd *ff, void *data __maybe_unused)
+ static void unlink_path(const char *path)
+diff --git a/tools/perf/util/env.c b/tools/perf/util/env.c
+index 36411749e007..b363c933e782 100644
+--- a/tools/perf/util/env.c
++++ b/tools/perf/util/env.c
+@@ -254,6 +254,7 @@ void perf_env__exit(struct perf_env *env)
  
- static int process_nrcpus(struct feat_fd *ff, void *data __maybe_unused)
+ void perf_env__init(struct perf_env *env)
  {
-+	struct perf_env *env = &ff->ph->env;
- 	int ret;
- 	u32 nr_cpus_avail, nr_cpus_online;
- 
-@@ -2441,20 +2447,21 @@ static int process_nrcpus(struct feat_fd *ff, void *data __maybe_unused)
- 	ret = do_read_u32(ff, &nr_cpus_online);
- 	if (ret)
- 		return ret;
--	ff->ph->env.nr_cpus_avail = (int)nr_cpus_avail;
--	ff->ph->env.nr_cpus_online = (int)nr_cpus_online;
-+	env->nr_cpus_avail = (int)nr_cpus_avail;
-+	env->nr_cpus_online = (int)nr_cpus_online;
- 	return 0;
- }
- 
- static int process_total_mem(struct feat_fd *ff, void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	u64 total_mem;
- 	int ret;
- 
- 	ret = do_read_u64(ff, &total_mem);
- 	if (ret)
- 		return -1;
--	ff->ph->env.total_mem = (unsigned long long)total_mem;
-+	env->total_mem = (unsigned long long)total_mem;
- 	return 0;
- }
- 
-@@ -2515,13 +2522,14 @@ process_event_desc(struct feat_fd *ff, void *data __maybe_unused)
- 
- static int process_cmdline(struct feat_fd *ff, void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	char *str, *cmdline = NULL, **argv = NULL;
- 	u32 nr, i, len = 0;
- 
- 	if (do_read_u32(ff, &nr))
- 		return -1;
- 
--	ff->ph->env.nr_cmdline = nr;
-+	env->nr_cmdline = nr;
- 
- 	cmdline = zalloc(ff->size + nr + 1);
- 	if (!cmdline)
-@@ -2541,8 +2549,8 @@ static int process_cmdline(struct feat_fd *ff, void *data __maybe_unused)
- 		len += strlen(str) + 1;
- 		free(str);
- 	}
--	ff->ph->env.cmdline = cmdline;
--	ff->ph->env.cmdline_argv = (const char **) argv;
-+	env->cmdline = cmdline;
-+	env->cmdline_argv = (const char **) argv;
- 	return 0;
- 
- error:
-@@ -2556,19 +2564,19 @@ static int process_cpu_topology(struct feat_fd *ff, void *data __maybe_unused)
- 	u32 nr, i;
- 	char *str = NULL;
- 	struct strbuf sb;
--	int cpu_nr = ff->ph->env.nr_cpus_avail;
-+	struct perf_env *env = &ff->ph->env;
-+	int cpu_nr = env->nr_cpus_avail;
- 	u64 size = 0;
--	struct perf_header *ph = ff->ph;
- 	bool do_core_id_test = true;
- 
--	ph->env.cpu = calloc(cpu_nr, sizeof(*ph->env.cpu));
--	if (!ph->env.cpu)
-+	env->cpu = calloc(cpu_nr, sizeof(*env->cpu));
-+	if (!env->cpu)
- 		return -1;
- 
- 	if (do_read_u32(ff, &nr))
- 		goto free_cpu;
- 
--	ph->env.nr_sibling_cores = nr;
-+	env->nr_sibling_cores = nr;
- 	size += sizeof(u32);
- 	if (strbuf_init(&sb, 128) < 0)
- 		goto free_cpu;
-@@ -2584,12 +2592,12 @@ static int process_cpu_topology(struct feat_fd *ff, void *data __maybe_unused)
- 		size += string_size(str);
- 		zfree(&str);
- 	}
--	ph->env.sibling_cores = strbuf_detach(&sb, NULL);
-+	env->sibling_cores = strbuf_detach(&sb, NULL);
- 
- 	if (do_read_u32(ff, &nr))
- 		return -1;
- 
--	ph->env.nr_sibling_threads = nr;
-+	env->nr_sibling_threads = nr;
- 	size += sizeof(u32);
- 
- 	for (i = 0; i < nr; i++) {
-@@ -2603,14 +2611,14 @@ static int process_cpu_topology(struct feat_fd *ff, void *data __maybe_unused)
- 		size += string_size(str);
- 		zfree(&str);
- 	}
--	ph->env.sibling_threads = strbuf_detach(&sb, NULL);
-+	env->sibling_threads = strbuf_detach(&sb, NULL);
- 
- 	/*
- 	 * The header may be from old perf,
- 	 * which doesn't include core id and socket id information.
- 	 */
- 	if (ff->size <= size) {
--		zfree(&ph->env.cpu);
-+		zfree(&env->cpu);
- 		return 0;
- 	}
- 
-@@ -2619,15 +2627,15 @@ static int process_cpu_topology(struct feat_fd *ff, void *data __maybe_unused)
- 	 * This depends on the configuration.
- 	 * AArch64 is the same.
- 	 */
--	if (ph->env.arch && (!strncmp(ph->env.arch, "s390", 4)
--			  || !strncmp(ph->env.arch, "aarch64", 7)))
-+	if (env->arch && (!strncmp(env->arch, "s390", 4)
-+		       || !strncmp(env->arch, "aarch64", 7)))
- 		do_core_id_test = false;
- 
- 	for (i = 0; i < (u32)cpu_nr; i++) {
- 		if (do_read_u32(ff, &nr))
- 			goto free_cpu;
- 
--		ph->env.cpu[i].core_id = nr;
-+		env->cpu[i].core_id = nr;
- 		size += sizeof(u32);
- 
- 		if (do_read_u32(ff, &nr))
-@@ -2639,7 +2647,7 @@ static int process_cpu_topology(struct feat_fd *ff, void *data __maybe_unused)
- 			goto free_cpu;
- 		}
- 
--		ph->env.cpu[i].socket_id = nr;
-+		env->cpu[i].socket_id = nr;
- 		size += sizeof(u32);
- 	}
- 
-@@ -2653,7 +2661,7 @@ static int process_cpu_topology(struct feat_fd *ff, void *data __maybe_unused)
- 	if (do_read_u32(ff, &nr))
- 		return -1;
- 
--	ph->env.nr_sibling_dies = nr;
-+	env->nr_sibling_dies = nr;
- 	size += sizeof(u32);
- 
- 	for (i = 0; i < nr; i++) {
-@@ -2667,13 +2675,13 @@ static int process_cpu_topology(struct feat_fd *ff, void *data __maybe_unused)
- 		size += string_size(str);
- 		zfree(&str);
- 	}
--	ph->env.sibling_dies = strbuf_detach(&sb, NULL);
-+	env->sibling_dies = strbuf_detach(&sb, NULL);
- 
- 	for (i = 0; i < (u32)cpu_nr; i++) {
- 		if (do_read_u32(ff, &nr))
- 			goto free_cpu;
- 
--		ph->env.cpu[i].die_id = nr;
-+		env->cpu[i].die_id = nr;
- 	}
- 
- 	return 0;
-@@ -2682,12 +2690,13 @@ static int process_cpu_topology(struct feat_fd *ff, void *data __maybe_unused)
- 	strbuf_release(&sb);
- 	zfree(&str);
- free_cpu:
--	zfree(&ph->env.cpu);
-+	zfree(&env->cpu);
- 	return -1;
- }
- 
- static int process_numa_topology(struct feat_fd *ff, void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	struct numa_node *nodes, *n;
- 	u32 nr, i;
- 	char *str;
-@@ -2722,8 +2731,8 @@ static int process_numa_topology(struct feat_fd *ff, void *data __maybe_unused)
- 		if (!n->map)
- 			goto error;
- 	}
--	ff->ph->env.nr_numa_nodes = nr;
--	ff->ph->env.numa_nodes = nodes;
-+	env->nr_numa_nodes = nr;
-+	env->numa_nodes = nodes;
- 	return 0;
- 
- error:
-@@ -2733,6 +2742,7 @@ static int process_numa_topology(struct feat_fd *ff, void *data __maybe_unused)
- 
- static int process_pmu_mappings(struct feat_fd *ff, void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	char *name;
- 	u32 pmu_num;
- 	u32 type;
-@@ -2746,7 +2756,7 @@ static int process_pmu_mappings(struct feat_fd *ff, void *data __maybe_unused)
- 		return 0;
- 	}
- 
--	ff->ph->env.nr_pmu_mappings = pmu_num;
-+	env->nr_pmu_mappings = pmu_num;
- 	if (strbuf_init(&sb, 128) < 0)
- 		return -1;
- 
-@@ -2765,14 +2775,14 @@ static int process_pmu_mappings(struct feat_fd *ff, void *data __maybe_unused)
- 			goto error;
- 
- 		if (!strcmp(name, "msr"))
--			ff->ph->env.msr_pmu_type = type;
-+			env->msr_pmu_type = type;
- 
- 		free(name);
- 		pmu_num--;
- 	}
- 	/* AMD may set it by evlist__has_amd_ibs() from perf_session__new() */
--	free(ff->ph->env.pmu_mappings);
--	ff->ph->env.pmu_mappings = strbuf_detach(&sb, NULL);
-+	free(env->pmu_mappings);
-+	env->pmu_mappings = strbuf_detach(&sb, NULL);
- 	return 0;
- 
- error:
-@@ -2782,6 +2792,7 @@ static int process_pmu_mappings(struct feat_fd *ff, void *data __maybe_unused)
- 
- static int process_group_desc(struct feat_fd *ff, void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	size_t ret = -1;
- 	u32 i, nr, nr_groups;
- 	struct perf_session *session;
-@@ -2795,7 +2806,7 @@ static int process_group_desc(struct feat_fd *ff, void *data __maybe_unused)
- 	if (do_read_u32(ff, &nr_groups))
- 		return -1;
- 
--	ff->ph->env.nr_groups = nr_groups;
-+	env->nr_groups = nr_groups;
- 	if (!nr_groups) {
- 		pr_debug("group desc not available\n");
- 		return 0;
-@@ -2879,6 +2890,7 @@ static int process_auxtrace(struct feat_fd *ff, void *data __maybe_unused)
- 
- static int process_cache(struct feat_fd *ff, void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	struct cpu_cache_level *caches;
- 	u32 cnt, i, version;
- 
-@@ -2919,8 +2931,8 @@ static int process_cache(struct feat_fd *ff, void *data __maybe_unused)
- 		#undef _R
- 	}
- 
--	ff->ph->env.caches = caches;
--	ff->ph->env.caches_cnt = cnt;
-+	env->caches = caches;
-+	env->caches_cnt = cnt;
- 	return 0;
- out_free_caches:
- 	for (i = 0; i < cnt; i++) {
-@@ -2956,6 +2968,7 @@ static int process_sample_time(struct feat_fd *ff, void *data __maybe_unused)
- static int process_mem_topology(struct feat_fd *ff,
- 				void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	struct memory_node *nodes;
- 	u64 version, i, nr, bsize;
- 	int ret = -1;
-@@ -2994,9 +3007,9 @@ static int process_mem_topology(struct feat_fd *ff,
- 		nodes[i] = n;
- 	}
- 
--	ff->ph->env.memory_bsize    = bsize;
--	ff->ph->env.memory_nodes    = nodes;
--	ff->ph->env.nr_memory_nodes = nr;
-+	env->memory_bsize    = bsize;
-+	env->memory_nodes    = nodes;
-+	env->nr_memory_nodes = nr;
- 	ret = 0;
- 
- out:
-@@ -3008,7 +3021,9 @@ static int process_mem_topology(struct feat_fd *ff,
- static int process_clockid(struct feat_fd *ff,
- 			   void *data __maybe_unused)
- {
--	if (do_read_u64(ff, &ff->ph->env.clock.clockid_res_ns))
-+	struct perf_env *env = &ff->ph->env;
-+
-+	if (do_read_u64(ff, &env->clock.clockid_res_ns))
- 		return -1;
- 
- 	return 0;
-@@ -3017,6 +3032,7 @@ static int process_clockid(struct feat_fd *ff,
- static int process_clock_data(struct feat_fd *ff,
- 			      void *_data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	u32 data32;
- 	u64 data64;
- 
-@@ -3031,26 +3047,27 @@ static int process_clock_data(struct feat_fd *ff,
- 	if (do_read_u32(ff, &data32))
- 		return -1;
- 
--	ff->ph->env.clock.clockid = data32;
-+	env->clock.clockid = data32;
- 
- 	/* TOD ref time */
- 	if (do_read_u64(ff, &data64))
- 		return -1;
- 
--	ff->ph->env.clock.tod_ns = data64;
-+	env->clock.tod_ns = data64;
- 
- 	/* clockid ref time */
- 	if (do_read_u64(ff, &data64))
- 		return -1;
- 
--	ff->ph->env.clock.clockid_ns = data64;
--	ff->ph->env.clock.enabled = true;
-+	env->clock.clockid_ns = data64;
-+	env->clock.enabled = true;
- 	return 0;
- }
- 
- static int process_hybrid_topology(struct feat_fd *ff,
- 				   void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	struct hybrid_node *nodes, *n;
- 	u32 nr, i;
- 
-@@ -3074,8 +3091,8 @@ static int process_hybrid_topology(struct feat_fd *ff,
- 			goto error;
- 	}
- 
--	ff->ph->env.nr_hybrid_nodes = nr;
--	ff->ph->env.hybrid_nodes = nodes;
-+	env->nr_hybrid_nodes = nr;
-+	env->hybrid_nodes = nodes;
- 	return 0;
- 
- error:
-@@ -3227,19 +3244,21 @@ static int process_bpf_btf(struct feat_fd *ff, void *data __maybe_unused)
- static int process_compressed(struct feat_fd *ff,
- 			      void *data __maybe_unused)
- {
--	if (do_read_u32(ff, &(ff->ph->env.comp_ver)))
-+	struct perf_env *env = &ff->ph->env;
-+
-+	if (do_read_u32(ff, &(env->comp_ver)))
- 		return -1;
- 
--	if (do_read_u32(ff, &(ff->ph->env.comp_type)))
-+	if (do_read_u32(ff, &(env->comp_type)))
- 		return -1;
- 
--	if (do_read_u32(ff, &(ff->ph->env.comp_level)))
-+	if (do_read_u32(ff, &(env->comp_level)))
- 		return -1;
- 
--	if (do_read_u32(ff, &(ff->ph->env.comp_ratio)))
-+	if (do_read_u32(ff, &(env->comp_ratio)))
- 		return -1;
- 
--	if (do_read_u32(ff, &(ff->ph->env.comp_mmap_len)))
-+	if (do_read_u32(ff, &(env->comp_mmap_len)))
- 		return -1;
- 
- 	return 0;
-@@ -3311,19 +3330,21 @@ static int __process_pmu_caps(struct feat_fd *ff, int *nr_caps,
- static int process_cpu_pmu_caps(struct feat_fd *ff,
- 				void *data __maybe_unused)
- {
--	int ret = __process_pmu_caps(ff, &ff->ph->env.nr_cpu_pmu_caps,
--				     &ff->ph->env.cpu_pmu_caps,
--				     &ff->ph->env.max_branches,
--				     &ff->ph->env.br_cntr_nr,
--				     &ff->ph->env.br_cntr_width);
-+	struct perf_env *env = &ff->ph->env;
-+	int ret = __process_pmu_caps(ff, &env->nr_cpu_pmu_caps,
-+				     &env->cpu_pmu_caps,
-+				     &env->max_branches,
-+				     &env->br_cntr_nr,
-+				     &env->br_cntr_width);
- 
--	if (!ret && !ff->ph->env.cpu_pmu_caps)
-+	if (!ret && !env->cpu_pmu_caps)
- 		pr_debug("cpu pmu capabilities not available\n");
- 	return ret;
- }
- 
- static int process_pmu_caps(struct feat_fd *ff, void *data __maybe_unused)
- {
-+	struct perf_env *env = &ff->ph->env;
- 	struct pmu_caps *pmu_caps;
- 	u32 nr_pmu, i;
- 	int ret;
-@@ -3361,8 +3382,8 @@ static int process_pmu_caps(struct feat_fd *ff, void *data __maybe_unused)
- 		}
- 	}
- 
--	ff->ph->env.nr_pmus_with_caps = nr_pmu;
--	ff->ph->env.pmu_caps = pmu_caps;
-+	env->nr_pmus_with_caps = nr_pmu;
-+	env->pmu_caps = pmu_caps;
- 	return 0;
- 
- err:
-@@ -3660,6 +3681,7 @@ static int perf_session__do_write_header(struct perf_session *session,
- 	struct perf_header *header = &session->header;
- 	struct evsel *evsel;
- 	struct feat_fd ff = {
-+		.ph = header,
- 		.fd = fd,
- 	};
- 	u64 attr_offset = sizeof(f_header), attr_size = 0;
++	memset(env, 0, sizeof(*env));
+ #ifdef HAVE_LIBBPF_SUPPORT
+ 	env->bpf_progs.infos = RB_ROOT;
+ 	env->bpf_progs.btfs = RB_ROOT;
 -- 
 2.49.0.1151.ga128411c76-goog
 
