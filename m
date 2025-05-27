@@ -4,100 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B49C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 18:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB55C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 18:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K66IbQMbjje707cA7mD5l9PP1/zHD1PIxR0a5Pb7bKE=; b=ewgcYmucLJXie8JqnIHxaOul+u
-	3QYH5RdrmVeb9AnGUe4p1NubE2B9JaWYYktzSm9IWmdfip2EmQIqk/Or1Oved6T62+PDpiAca47VC
-	gMS6C+NxebMmAHcvU6bhkN9c9Tc03gntheSpHw7kFeD6Tp74owrFzkIJ6zk6/BB7gl6qEhGwcH6iX
-	o6dJMHZk+SoslutmmgrQUCXlsgy37UoEAxXYYwDN3ybKd9obqS1H+bHTMS9rA6jJmNUcOr9/fzydd
-	Ww9aUOOQ3o/xZHrN3ley6gnEb88RFetc6AkHyR0RIOdKIzf2QCq/XNPn9SMLJXfJg43+s3UI9rFi+
-	l0vHGprg==;
+	bh=AdvaN06rYbXttOfugRFj2P0n6BUm0AH43O0rAkiSLiI=; b=JSWxNi3UrgI/Wl0GnKyLZ8J+1r
+	KLcMSCYK64SaHKrHYEVkwxgMQgMSiKZMv8lLFqfkCJiLxZnS3MLgmoXy/VkQEBsdPZ4PUYf9HZ+Ec
+	8GZo/+M81gXSeHq8w5mCUnPVEebnUGkgAj37onk207bVcIBDjVqo50taGv4+5XGFDEYBHPMgaayNS
+	/AQTpW0b8gpCkygdkbmafMvsNOQfDhYv7zRcflwHewJzNdUScTiYf5C2wxXmpasal0hIae1T/VSWT
+	KHCdsRjx6m6doEG0Hl0pB42K4v3PpkjFSVcZ9P13vsSswWahh90jbUdw82ViQI6s0w18JYdR5AH7P
+	x8X4I6BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJyl6-0000000BKfm-1QfD;
-	Tue, 27 May 2025 18:10:40 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1uJynC-0000000BKm6-09FM;
+	Tue, 27 May 2025 18:12:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJyYc-0000000BIeh-3Wc0
+	id 1uJyam-0000000BIzn-1nd3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 17:57:48 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-445b11306abso22888645e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 10:57:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748368665; x=1748973465; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=K66IbQMbjje707cA7mD5l9PP1/zHD1PIxR0a5Pb7bKE=;
-        b=o0TuhEWhLlUI2S2CjSyO4uZaKSi8ekWTOqXOMpmYYQrnECN/6rFKIrBgkpHO/AJEF9
-         aeOcUMGB0q1cczNyvrvgiMh+HnikLe7fodrp/RzHf6MIWFB3IZ+8mmBVO7eCjICjT/hF
-         NtFQZhfdEWmiY9JfEAoV/cLyap+GOYYMxc/weCrtUSR4M1mgr/1hehoXSHowgtXeZCIC
-         PeD3f5YwmJ19AEShvhTRRh3plE+uPEbusmnfqSbHu1K9wBdMPRGfY53g35gnsT7SjGqO
-         c+RuttWYvO6etsWxXFsEe4xKf5RIRymOmi384bHz9PHx6lONO3DRzD0SOFfuAkTpgm9w
-         YXCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748368665; x=1748973465;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K66IbQMbjje707cA7mD5l9PP1/zHD1PIxR0a5Pb7bKE=;
-        b=TFRRU3Tov9nOmSwKw8Gdw0GfhQnu6axq3m4r8NwkQDfzGhWeNcvGDwjvXjuQ05SXwB
-         X+SVNng3NckCgTtQUaJW/X+S9l7vQBNgH8YFLDR4cOXtpFMufGEj6/0Lq0P0R0z1pxLK
-         P2A6SaddxLB3f6sJLbwQAOO9aD4YJ8ozcwTSUeoqsmzijQm4KSJvCV9PQm2jFZiIkh6X
-         WKXIBXepmWwPW19KzFp7/9nKVGsuhsd4cwF37qHs5nAanSD0VQnCLe6jzZ+8yfrA7rUB
-         t238X23PQqsN1xcOH8PuV8j/Xp4ITR2JTGqJAOvUTOzndbEclPK9eCAGsyekZhAL6pRs
-         HVag==
-X-Forwarded-Encrypted: i=1; AJvYcCVNswf5IpDI6j2Da1EXHyHhk5csSnP6ndI5DEzjt1A0Mk76zzUh9Ns04//DX67NTAMjewT7lZcwQvKI0AqbDr4p@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNBXfegz9/ZuIs43ekq8kkltkn12vo8utQ96P2tGS4caSQFrFX
-	cL3/i9/q6Ujm+jQsK7yGk0ohf4J5asZLsSRdqh3E5584x69PkSn9wmh4HpyVt4ldGlQ=
-X-Gm-Gg: ASbGncuanHVJ3rqHUfktvSm9yF5m7IMqdke4lOwoymQLWsjCvcmyJXRS6mK2sITfVwN
-	IKDNg9Syycj3PMuelAC1LD1bIX/RbZ2EsicOVTtQy1IENme1YNy/tHUpc2oRC8Ltuo6gZ/yYe/f
-	OvWok1uiFsINNgQ3nANR3IUZNWo4wS7jn4hC+Wiq7NSzOZnvWw3kgX9jZvmNOx4fUN8mrXWxyhC
-	gIB21uJqZM86ODyrEBUBd7P8NAe2OATsdSp/ySVH1ZnC+8SINCYVxLdi3hzm/pvKGefjK33P3Su
-	Pq7Gi8fLJTaSW9qpAEP6fgW6i962E6bqENvZpeExZ/nLPW9KCMh2BFIa
-X-Google-Smtp-Source: AGHT+IGWVp+1pe2g72Y3zco5kiY52P50nzKLHDIXvLoqcgNBLuwmb5ic8TmQyg2vlxnYIHLktroXHw==
-X-Received: by 2002:a05:600c:1e1c:b0:441:d438:4ea5 with SMTP id 5b1f17b1804b1-44c9493e6b1mr107966315e9.20.1748368664703;
-        Tue, 27 May 2025 10:57:44 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f6b29548sm290642395e9.4.2025.05.27.10.57.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 May 2025 10:57:44 -0700 (PDT)
-Message-ID: <c2393238-d1cb-43bd-b67e-08105a9834fd@linaro.org>
-Date: Tue, 27 May 2025 18:57:43 +0100
+	Tue, 27 May 2025 18:00:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E0A535C5794;
+	Tue, 27 May 2025 17:57:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 828BBC4CEE9;
+	Tue, 27 May 2025 17:59:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748368798;
+	bh=tGyF8P4S3EbpCGhv5Z7+NumLX4kyyVCYj56OYjztRUc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=ggt6+u75DuvvhATXL/Ewb/Tq5FV0I1Sxv6il87g5pmcWFTwGMNBYEIz0F+RpIpq2L
+	 y5xDFiwe5FhVeBpkceQMQDA11szxUtqBezuC4ejM7PnpXXCsvb/leNkeqUCU2jyP+L
+	 iCzGf9c30L1bTSveU3ZRMPLosVFHfbFNftZUkyWSFKCOrqpO+AsoItqhbJYktg9BPe
+	 XRpxjQziE+o8xnvHVP8IjsEfpwzKrvJi+Q0lDl1yoCFm69wfQApAUbYYYr2KkM4ovI
+	 f1XcwM6CypG/fOxjpYJsYlGkXCYiKKwY5NoWZgzMzSjIosmKx9ZvbILKzeTX9Ha16t
+	 X7BNVlEMOv7pg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB29F380AAE2;
+	Tue, 27 May 2025 18:00:33 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v21 4/4] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-To: Will Deacon <will@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org>
- <20250407-arm-brbe-v19-v21-4-ff187ff6c928@kernel.org>
- <20250519150621.GA17177@willie-the-truck>
- <20250519215651.GB2650608-robh@kernel.org>
- <119c9a70-6ea8-46f0-b877-8a433d97ce84@linaro.org>
- <20250527105035.GA26328@willie-the-truck>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250527105035.GA26328@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH bpf-next v3 0/2] bpf, arm64: support up to 12 arguments
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174836883250.1728518.5524041990135634472.git-patchwork-notify@kernel.org>
+Date: Tue, 27 May 2025 18:00:32 +0000
+References: <20250527-many_args_arm64-v3-0-3faf7bb8e4a2@bootlin.com>
+In-Reply-To: <20250527-many_args_arm64-v3-0-3faf7bb8e4a2@bootlin.com>
+To: =?utf-8?q?Alexis_Lothor=C3=A9_=28eBPF_Foundation=29_=3Calexis=2Elothore=40bo?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
+	=?utf-8?q?otlin=2Ecom=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: ast@kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
+ andrii@kernel.org, martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
+ yonghong.song@linux.dev, kpsingh@kernel.org, sdf@fomichev.me,
+ haoluo@google.com, jolsa@kernel.org, puranjay@kernel.org,
+ xukuohai@huaweicloud.com, catalin.marinas@arm.com, will@kernel.org,
+ mykolal@fb.com, shuah@kernel.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, revest@chromium.org,
+ bastien.curutchet@bootlin.com, ebpf@linuxfoundation.org,
+ thomas.petazzoni@bootlin.com, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ xukuohai@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_105746_940036_C4F77116 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20250527_110000_553595_D3BFF789 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,67 +85,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
+This series was applied to bpf/bpf-next.git (master)
+by Alexei Starovoitov <ast@kernel.org>:
 
-On 27/05/2025 11:50 am, Will Deacon wrote:
-> On Wed, May 21, 2025 at 04:58:42PM +0100, James Clark wrote:
->>
->>
->> On 19/05/2025 10:56 pm, Rob Herring wrote:
->>> On Mon, May 19, 2025 at 04:06:22PM +0100, Will Deacon wrote:
->>>> Hey Rob,
->>>>
->>>> On Mon, Apr 07, 2025 at 12:41:33PM -0500, Rob Herring (Arm) wrote:
->>>>> From: Anshuman Khandual <anshuman.khandual@arm.com>
->>>>>
->>>>> The ARMv9.2 architecture introduces the optional Branch Record Buffer
->>>>> Extension (BRBE), which records information about branches as they are
->>>>> executed into set of branch record registers. BRBE is similar to x86's
->>>>> Last Branch Record (LBR) and PowerPC's Branch History Rolling Buffer
->>>>> (BHRB).
->>>>
->>>> Since you picked this up from v19, the driver has changed considerably
->>>> and I presume you will be continuing to extend it in future as the
->>>> architecture progresses. Perhaps having you listed as Author (and
->>>> crucially, in git blame :p) with Anshuman as a Co-developed-by: would be
->>>> more appropriate?
->>>
->>> Shrug.
->>>
->>>>> ---
->>>>>    drivers/perf/Kconfig         |  11 +
->>>>>    drivers/perf/Makefile        |   1 +
->>>>>    drivers/perf/arm_brbe.c      | 802 +++++++++++++++++++++++++++++++++++++++++++
->>>>>    drivers/perf/arm_brbe.h      |  47 +++
->>>>>    drivers/perf/arm_pmu.c       |  15 +-
->>>>>    drivers/perf/arm_pmuv3.c     | 129 ++++++-
->>>>>    include/linux/perf/arm_pmu.h |   8 +
->>>>>    7 files changed, 1006 insertions(+), 7 deletions(-)
->>>>
->>>> Do you know if James Clark's tests [1] are going to be respun for the
->>>> perf tool? It would be handy to have some way to test this new
->>>> functionality.
->>>
->>> Yes. I dropped them here because I've been told by Arnaldo in the past
->>> to send userspace stuff separately.
->>>
->>
->> That version of the test was out of date so I've pushed the new version
->> here: https://git.linaro.org/plugins/gitiles/people/james.clark/linux.git/+/16e4a18c2d5fc53736f05c9052b1d11d74909707
->>
->> But I'll wait for the driver changes to be finalised before posting it. Or
->> Rob can take it back into the patchset.
+On Tue, 27 May 2025 12:06:02 +0200 you wrote:
+> Hello,
 > 
-> Thanks, James. I just wanted to make sure that there was still a plan
-> for upstreaming these separately from the driver. Have you had a chance
-> to run them against this v21?
+> this is the v2 of the many args series for arm64, being itself a revival
+> of Xu Kuhoai's work to enable larger arguments count for BPF programs on
+> ARM64 ([1]).
 > 
-> Will
+> The discussions in v1 shed some light on some issues around specific
+> cases, for example with functions passing struct on stack with custom
+> packing/alignment attributes: those cases can not be properly detected
+> with the current BTF info. So this new revision aims to separate
+> concerns with a simpler implementation, just accepting additional args
+> on stack if we can make sure about the alignment constraints (and so,
+> refusing attachment to functions passing structs on stacks). I then
+> checked if the specific alignment constraints could be checked with
+> larger scalar types rather than structs, but it appears that this use
+> case is in fact rejected at the verifier level (see a9b59159d338 ("bpf:
+> Do not allow btf_ctx_access with __int128 types")). So in the end the
+> specific alignment corner cases raised in [1] can not really happen in
+> the kernel in its current state. This new revision still brings support
+> for the standard cases as a first step, it will then be possible to
+> iterate on top of it to add the more specific cases like struct passed
+> on stack and larger types.
+> 
+> [...]
 
+Here is the summary with links:
+  - [bpf-next,v3,1/2] bpf, arm64: Support up to 12 function arguments
+    https://git.kernel.org/bpf/bpf-next/c/9014cf56f13d
+  - [bpf-next,v3,2/2] selftests/bpf: enable many-args tests for arm64
+    https://git.kernel.org/bpf/bpf-next/c/149ead9d7e3d
 
-Yes I'll send it once the driver is merged. And yes they're passing 
-against v21, but I'll retest v22 as well.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-James
 
 
