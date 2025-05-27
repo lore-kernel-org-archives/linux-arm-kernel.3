@@ -4,91 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489D5C5B542
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 12:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F044DC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 12:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f4szaLzc/F2h1MlyYwOny8uUmi1IH+zWJep2HTDgXGs=; b=UkUQ7X6+0M6ecKIUIKzFOobhUw
-	El2Ntmd/4NnLnTB1MnijIX3ubKTBaOYlz0ucYL8vRz6NaoEjlINPf7YMAyWxUE4AXFFO4QoTCzJNj
-	qprFJyu+dMsrBhTLvDdljiyAcrNY5l6Ey9pQ43zfdk5YZrpaOFUVGqNzclJX48TMUnDdRruZ0Wxi5
-	J5B2nUskviZthMkfS7JNGIPtuHAhFHjeFrm4LZzvWLrj08zNhlzEMRcnL5e4lYFoEmcFkkf1qJCYE
-	rwXKCA1tZwStLqVjp2sVmcwfpQ58J9rSg3uSwlW7iy29jdXyLDrsmirCA18wwrZw1byGOYXwoZEn5
-	zJ5xLo7Q==;
+	bh=7JrC0udIghWjc4KyVO/uAkNGsjK3Pkq056eKyg75CSI=; b=pySSZFpePynxBDP0zxOe/TA3iU
+	ygy+92EACP1AzPqrojb7gG43GyQlqpfvlSr4kBrlsUZZ4lw7JdRoJWteMC0BWkeNhGYkZ8bumr9WY
+	b1YtdgUUs6EsCk3GzicI9sfn0GcVcEVU8C7Xh1ha5/cKSGDncA/+MMd3Q/Tuv7BAWeeYE9rdbfgdG
+	MhMWnwKAj62rV3YCCrzx8TruIVX+kP3UYRT1jKWfXvPPz+KhSSrJM3KFOae+MolxCkk7TRrc/f8o1
+	fmG3YfXOpBM2VmdySfNnzHihU07ODL2dJqjAm+920TZQ6Lroha/ijeXcOu2j8DV/8qJN/46t4qFQk
+	KikYTOzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJt00-0000000AeFg-05jH;
-	Tue, 27 May 2025 12:01:40 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1uJt3F-0000000AfHj-2N8J;
+	Tue, 27 May 2025 12:05:01 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJsxo-0000000AdTt-2AwC
+	id 1uJt16-0000000Aetb-25mr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 11:59:26 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e7dc5f8148bso554277276.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 04:59:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748347163; x=1748951963; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=f4szaLzc/F2h1MlyYwOny8uUmi1IH+zWJep2HTDgXGs=;
-        b=hx/k/Y1eiOR9zCnbgc4BpnIRyKmQE+sQ5VhFsLlInv7PRGxBrFo77DC6Og6z85p1OY
-         St9YygVdgHNryLnOGJpjIACsMwKr7FRzNlqTkTzwE/RPeW9ezwnD0RzT+3mg12rLsdiM
-         5h6Y7BJh2G5/RubGczrmr435R28ejKY3Y4e7kcqMof+2U1g3X4/6OKF1njWsiMu6DWDp
-         jeoDyAfhh4W1S+wBbklC8JfjxQx1f/AM7dovKGErBtx4noQHjN0iT6goFYAWYaVrh9ro
-         lq27Pr6gbGtbNPO8l4GA7qOkl76fDLd+46Gxr4Usq/V24PCRxh9QRjcevAe+vfHlBEt5
-         9VCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748347163; x=1748951963;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=f4szaLzc/F2h1MlyYwOny8uUmi1IH+zWJep2HTDgXGs=;
-        b=Jg9lnhOE+zRHo0+o6W9pA1wVFdpxtKfS9ILrgWOhIso1vGNBKeN24mBJSyFuGFQ2g4
-         85+j/aVgi7HZ2MoSvm6nWm32KJoVIXMQ7iOF1Ho2e+7+zBOA+bDonVSiwE/WLQ8ibPC2
-         M5xQvLWIntJQn39ibTIYnT+N05n35+2mvKL+891EO1nFToiop+9RuFrcE6jr7ZpmUidM
-         F8cS7OdQbVPTqKDBVAhb3NNSXD6fiN2v3KLQZaaTL/Ox7OPsBBQyWVx0b8q9ccvkcIrC
-         P1OrTolXQ7wgOCuFiCecfDjue2ty9SMsNba7IBhsXjZy8kUoqzsG+A2zq0pNsgsQ9hrs
-         9PRA==
-X-Forwarded-Encrypted: i=1; AJvYcCWDXmDrBw97axVgTy/7lwXVUMJx12AilvrSjiwB0BR/L1Qy3GIGK5BoZH8SobnHmI7XknlrrfMiaIfaEFstibYp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzC505E8SaqzO8Lz/HlItGuxpHhMU3tjuDLyQvxso1IHCivSX+1
-	PA+74YMfj4NBJkHnEYkr9p2ZaistAovrVNHqzLNqSG0Dt+TaVCLZhMzzjF5B08pUzUV0egzB4+C
-	bf9J9r4qMvJrCIYTJkNCjaxiRvU7SLHex3s63Y0D1Cw==
-X-Gm-Gg: ASbGnct2+gU7i02FUwpEW+In7cVhZR/+Ioei4OORIjkVKEil91WPBB9Avori5Kc7SIF
-	cQmY9V8gSPFexIJuEv1VAISfJMdWmYBIYd8VdK+5YeKzVPTjCU8z0a+kTtODRTDrrjGTb7u0JNx
-	RwHxHkv8yex87brsXfeQZDH1V/3vJXQbKoUg==
-X-Google-Smtp-Source: AGHT+IGKfe3vNrVmk4UJNSrzHf1HzxY3z+PLvn7rrFkkGWoEaq5BirzXQytDxVB9kstnSznqWcVD3oPaUzvTQgaFbac=
-X-Received: by 2002:a05:6902:722:b0:e7d:c4e4:3295 with SMTP id
- 3f1490d57ef6-e7dd031e2c1mr376900276.1.1748347163229; Tue, 27 May 2025
- 04:59:23 -0700 (PDT)
+	Tue, 27 May 2025 12:02:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fKVyzkzTCt91hGcjAXbOoUxBM+pzl3M2rCXSt0tAvE2p+UAoxVK3syW4HAx1GlHk/mJfUJMm7pOr234NvXdByTDKizEltTxciYIwThaUKRSw97HJkI0e/YfHmqbXikkVn48lwvp0PksZwnkUhwb1+UD+CouDavHlqqT1P45BAPlyRXSl6i9bkonxa2M+HOgDpGc42UjHK7Vy2RvbOeM+Y/9JFDnFWTmW9yBT5bLJ0ICrMXnr7wjZa//EHnDAudG0biTow284H+9L/ve5Zly+lDEXLPrpCG8WxY9Voyg8TC2/NkEoOxKF3qQ99uuREYbGleOzqO0gq3OV4KhiPkH+5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7JrC0udIghWjc4KyVO/uAkNGsjK3Pkq056eKyg75CSI=;
+ b=h/lm/iAR8Njo8yU4UD0p9ceL26bsq2HQ4ZxPumGua6OUCLgqdWXRwVlrODF4eYVnwNptRZQ9PBoDdpSSiupNS2aWYIAhh6+KrTdqK+EUAAeVeu3fxHbdXj3Ldicb+uMdadethh/kt+iTsB8Km1/Sq5/x7pmTqizMF8reLylElMRg3qQuM9eyO+S3S6VabLNAEMZmM1faICbdRtiZ4q5yvjG1vMgcm+GQ4dd9cwNgwPgD32Q6Rb+68nM4zR+RAchNQF/kLHr3+3cM1IZ3wY5DuaN6L4refhyC/I7L11KCyo6lbLnN/fBJB7LcVXgk/gOYgR4iRO8TFgOv7x4Iy8eXSg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=leica-geosystems.com; dmarc=pass action=none
+ header.from=leica-geosystems.com; dkim=pass header.d=leica-geosystems.com;
+ arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=leica-geosystems.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7JrC0udIghWjc4KyVO/uAkNGsjK3Pkq056eKyg75CSI=;
+ b=aPpPtdwOWpnskrlYc7xv8XKUYwRLxzcqO/cAdkmi1T9hV+lYQI+wCD4aF5hVibt9GYUyYRo7JIrVLOpgMMwmG+R1+/bSYaHhJ6yPROe1MbVRAGQrtopoDEBoxd8+ALI2QLpvSoOcuoTAnip6G6TZonhGBkVkOnjc1NPScHGUV5c=
+Received: from VI1PR06MB8616.eurprd06.prod.outlook.com (2603:10a6:800:1df::8)
+ by PA1PR06MB10065.eurprd06.prod.outlook.com (2603:10a6:102:4f6::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Tue, 27 May
+ 2025 12:02:39 +0000
+Received: from VI1PR06MB8616.eurprd06.prod.outlook.com
+ ([fe80::fac:a279:d192:7cbb]) by VI1PR06MB8616.eurprd06.prod.outlook.com
+ ([fe80::fac:a279:d192:7cbb%6]) with mapi id 15.20.8769.021; Tue, 27 May 2025
+ 12:02:39 +0000
+From: KUCHARCZYK Lukasz <lukasz.kucharczyk@leica-geosystems.com>
+To: Carlos Song <carlos.song@nxp.com>, Oleksij Rempel
+	<o.rempel@pengutronix.de>, "stefan.eichenberger@toradex.com"
+	<stefan.eichenberger@toradex.com>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Andi Shyti <andi.shyti@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>
+CC: "open list:FREESCALE IMX I2C DRIVER" <linux-i2c@vger.kernel.org>, "open
+ list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, open list
+	<linux-kernel@vger.kernel.org>, GEO-CHHER-bsp-development
+	<bsp-development.geo@leica-geosystems.com>,
+	"customers.leicageo@pengutronix.de" <customers.leicageo@pengutronix.de>
+Subject: RE: [PATCH] i2c: imx: fix emulated smbus block read
+Thread-Topic: [PATCH] i2c: imx: fix emulated smbus block read
+Thread-Index: AQHbyYH8Q0P//Q72iU2s4gRgqH2X3LPmVgqAgAAUlxA=
+Date: Tue, 27 May 2025 12:02:39 +0000
+Message-ID: <VI1PR06MB8616FBEE8A355BF5A314D504D864A@VI1PR06MB8616.eurprd06.prod.outlook.com>
+References: <20250520122252.1475403-1-lukasz.kucharczyk@leica-geosystems.com>
+ <VI2PR04MB11147245BA69A4C19B0DD037EE864A@VI2PR04MB11147.eurprd04.prod.outlook.com>
+In-Reply-To: <VI2PR04MB11147245BA69A4C19B0DD037EE864A@VI2PR04MB11147.eurprd04.prod.outlook.com>
+Accept-Language: en-US, en-GB
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=leica-geosystems.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI1PR06MB8616:EE_|PA1PR06MB10065:EE_
+x-ms-office365-filtering-correlation-id: 471b8b89-f587-43a1-fca6-08dd9d16609d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?VDcxRUp2L0FkNTl3eks5YnRoVyszS2E0bG91UjJGR0Q3MjgyMTBtUWhpZ0Jw?=
+ =?utf-8?B?Z2VKbDVIeTVqdkpSUkFYM0ZZRy9Qc0pidjZNZmNEVzNyWlhmbHpDWmJoUGtM?=
+ =?utf-8?B?YWh1bjJlcGlkWFYrVmdwYkpxT0lMTEt1OStPMHNpVDQxWHkzWWRvSXZEQ0ZM?=
+ =?utf-8?B?MEppL3piQ3QveisvdlJzZ1JJaFlTTW1pMzlGR2kvblkweC9ya2RuMno2cmZ6?=
+ =?utf-8?B?R2c5b1ZSTXM1ODBScTlDemxFcDNtOEhVNGJCMzkySG5JU3BwcW5jMjFqN2lL?=
+ =?utf-8?B?cFc0eE5pakJmZHpVRFNrK29SeWNhUHpvM2pVaUxvODRvemtYalZ0aHBpVmVv?=
+ =?utf-8?B?dlZKY2V0eWNhMWdhOGFEZmdicktPdGdROFlDRUllWDFXWE4rc2M5bnJabC8w?=
+ =?utf-8?B?aEJaK2FJTnhIZzZRRHlKSjk2SExSUFlPUkkrU3Z1b3BaOXJYaXplTHpadnZj?=
+ =?utf-8?B?Q2JEV1l6aXlxaGt3R0xNVGVqUTR3KzZ4eWhRbW9JOVJGNnk4NWc5Q2tQUjV2?=
+ =?utf-8?B?MkNKME12alAyYkhBYmlLQWMzR1E1YVJVZWI1WFBPRC8zT0pNVmYxcHpaSGFa?=
+ =?utf-8?B?UHd0T0NlMlhnNkRRc3lXaFpSdS9SSWRPeDdBaEZaYlU4UGRucXhtZ1k5UTBH?=
+ =?utf-8?B?allla3JuUXJIaG93aUVIaHMwdmxmWnBmTGd0NnFkVUE1Z2hwYzNNT1NiaFkr?=
+ =?utf-8?B?SHVvV2Zwb0E4cExCVUZuNExEQ1hKMThnTkF2R2laUWtqTDA5VElrRFJXSjFh?=
+ =?utf-8?B?NmtPVTdTQjBlWlhFZ3QvdXBTdHlCQnA1NmR0M1dBa01VdmtNZmV3ZFhXTitP?=
+ =?utf-8?B?NkVlSFN5RDRXTmI4WmovbnFRQ3RoN1htc3grbkxKT25ta044QWhlcHFacmJj?=
+ =?utf-8?B?SWZRRGdHcVRZQmw1YVBjUEx0eUNLUW1JWE9KemFzQndTK09vSm9GK05CMEYy?=
+ =?utf-8?B?T3drcXZkbldRZUVESDlZWDVPVVk0bkh6THNTNzBzM3dqdldZNzVBcGxIMXhn?=
+ =?utf-8?B?U2ZlOTBwM3dFTmpBdi9FbXlEQmZkQXQrS2ZqRkJ4TkJMQm1IVGpaSGhtckJM?=
+ =?utf-8?B?aGRPZ2RkUE9jbTZkTVhQUURrcHRGeXUvOXlGVGh4RWxEMkFka21CeWpzUG9p?=
+ =?utf-8?B?cGlFcHNWTmdDQ0VnYmxsdkRYNUhsdzRacnFxLzhreFdENmNkT0dGSHVaejgz?=
+ =?utf-8?B?aW50RHI5ZktMOUpWUWR6NGlhRVh6YU9aa2xqRjcwVld3MWpIUk8yVkR0UUlp?=
+ =?utf-8?B?TUsyNUxTMVo1cnh1UGNhREFkZy9LMzM2VFJWOHRsaUJENXVTZWZxS282Qldq?=
+ =?utf-8?B?Z05GR056Ry9PaVdUS2FSbEY5MUZ6bklnbGNmL200cVplbTljanMzUVVRcjBT?=
+ =?utf-8?B?N0dpT2ZhVXJVZk5YeGFBQUk3cEFLUW9hQklkazd2bE9VWHJwWmV3ZU0yUlZj?=
+ =?utf-8?B?YWhhZ2JpSENzS3o2QVQyb1pMMUFXRU5Sekk5Qmp3SEtkMThLV1NUdHNFZ0hF?=
+ =?utf-8?B?VytIUlZIT3Z2WHpVTDl6aUNhOW80cDVBdkl3WjIrenZMeTJsQllvUXpHcnZN?=
+ =?utf-8?B?bk5OV0c5VjJzUE9LSkpGTk0wKzFMUytDdWtFREZ1TkU1TkFYUWw5ditGME9S?=
+ =?utf-8?B?RTJYV0FmUU1kZ05tVkRxN1VTb2gxYVhXOGI2OXl5MlhZOTRoOFNCdjRjQjln?=
+ =?utf-8?B?YndiUXRnVDRkaHdqMXJkNENxYldDNC93TkJiZ0EvUVFIa2dxRHpudERlcnBO?=
+ =?utf-8?B?dThUSW8vekpnS2NFYjExVEQzTFp6K0xIM3h3SkMxenllU3Z4NFJHZ3UxZjY3?=
+ =?utf-8?B?WExNTDd4UFhpUU5Rck9tTm9LTEpOMW90akV4aUt1WFNrREZvTHhTNnU0TTVi?=
+ =?utf-8?B?LzFUbUlFMkJUTTliWHJFeXRUUkVRQ3A4QzBYSG81L1dHazYyeUk1NzJ3RStk?=
+ =?utf-8?B?eVhMdmF0dUpVUVNoMVBrMDJHS2xrY1BETk5OaXY5ZzlHUUM4TDdFZ3ZzRW9Z?=
+ =?utf-8?B?Y1RlNVdoMWxnPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR06MB8616.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TVhJKzNDbWUrWXdsSmZtMEYveWdmcEhYTGkvUWZNVTNlSWcweTFtMmJsanZP?=
+ =?utf-8?B?RWRLTEo4emlCd2tXa3V5Sjk4bnVhaUdlenk2Y0RQSDdqVmIvMUZlMkZOM3l1?=
+ =?utf-8?B?cWhIWVBQMEFkK3ByYmwwMEhrMkU2bmRzMUJXcytXdzlObkhJZjE5blZ3OUMx?=
+ =?utf-8?B?QWt1TFBCa25sTU5jM0ovdEYydXRGSzRvRWFVdXlZYVg3a3BFSHhPUnVnWjhX?=
+ =?utf-8?B?bVhodXRyS3VHaFVWU09FYnBOcTViajVRWVJUWTJndThWRnFLZ0NueWt0T3Fs?=
+ =?utf-8?B?RUhiNkNpMWxGaGkwU3RsNS85eWFnazNKeExjbm02aGRVazAxaExFbzM3UFZy?=
+ =?utf-8?B?SlY4NjA3Q09kN0xRWGVlOExVNzN6NFBGOGxmVXFzTWREbTQzNExtenMzU3Jo?=
+ =?utf-8?B?NVN4SGYrN1NvK2xoUHNYcmlNUmhHL3R1LzF1bjJud2dpM3pKZVpaNFpWNmhl?=
+ =?utf-8?B?ZWQrZENmYWk3TEFYd3ZOaW5sM3RFL3U0aExrWGwxeVhwNXB3SEYzeDhzSmhR?=
+ =?utf-8?B?ajdCUFNocGxnV0xSaXBkYUhuL2xFbXJ4T0l2T2M0QW84ZGFFZWJBU1JWTkIy?=
+ =?utf-8?B?Z1RlY29nZVl1QitmNXg0WGJUZ2ZuK3pYblY5cUpFaFlPTkFqalFGZnZuVWdr?=
+ =?utf-8?B?bVFYb09qMVRIMFBZcDhSQ2lFcE9sQkpXd0lYNlFidXA4akVkczY2aU9YS3F4?=
+ =?utf-8?B?VWVuai9UQkp6YmV2VUJnY2Q5UDNrd1JJemlkaHErR0h5WnJNaEJEbkVBbmlu?=
+ =?utf-8?B?LzRJa1ZkZVNuQXJub1NnUFdONDhiWEhTSlJjRW8vbFFVTDY1SVhTYlBuWlFn?=
+ =?utf-8?B?Ym40cUFIcm55TjhqUVBlOWNleFBoVEhpbVFPK0FjL1N0djlmM3YxK0ZJQmhj?=
+ =?utf-8?B?YXNmMWN5Q0REaTVYb3NXTnI4a3lITFhjS3RPOWwyWUtLMnVjSkVzcHF0R0lM?=
+ =?utf-8?B?UEpQN0NWeFlhQnhUYWVNVUNPZ0NQd1UxbE1JS3JRL3RyUzVGbkh2a0NqZ1JT?=
+ =?utf-8?B?ejkreVdJcXBxWDdveVVtOE41TkhXTGZvS1lyUVovbkZCQy9wNjEyenVTQnZt?=
+ =?utf-8?B?T1hnUGtlUVRmVnlvK2xjVzBKZm8vSzVoZ2I0U2tQaE8zTFFSUDd0YjM5bUMx?=
+ =?utf-8?B?SjBPdG1MSWhNWkQ1OXh2eWN1MTg0bU8yUjNjNi9qWTJaTG1SamluMkZjTEVK?=
+ =?utf-8?B?R2ozTWFyemt3MmZINWVuZzY4S2l1TmNyaFpnS1p3OW41YnErTzhiL3oyOFh6?=
+ =?utf-8?B?eGtqMXlEUGRCdnpLS2JQWnRyelhhV29JSkoxbFgwb2xsRFhUV0w4WkhsT0hH?=
+ =?utf-8?B?M3hGYjZZaFE4NlJuMnJtLyt5enVGZkVqa2NucmZDNTZkWUtVOUd4OWxCb0Iz?=
+ =?utf-8?B?ZkIwRTdob0d4ZXdjWS83MjM4cUhoaWVxWm80TG5XZmMrRTVxOTF3bzRneGsy?=
+ =?utf-8?B?eWJVb25HdGVIaWIzMDdDU2w3dUE2alZKZm5XMGc1NnVnZHVtZFVSYVNoaUJx?=
+ =?utf-8?B?ejJCZWVCRnhQZk9FWHl1Q2JZaFBic2lwL0hYMzVjMUJvTnBianJkVExGZjhP?=
+ =?utf-8?B?TFFxbG0xMEF0SExWclpoeVkrb29Rb3VzZnY0N3MrVHcvMDh1Zk8rbFNYcmtM?=
+ =?utf-8?B?ZEdhUHBhTmxObHRFaXB5Y3c1WnlxeE8wVktnVEkwdmhzMG1Pd0t0c1dyR1d6?=
+ =?utf-8?B?QVNORWNmZGZCYjN6di9BYUhIWmthUWxzYnFGVW4zaS9uRnNjREJQYkViS0Zs?=
+ =?utf-8?B?WXZzN3FaUEdLamEvZUpjYk9lbGJlc3VDS0xUekgrSTFZbDM2RHFGYlk4MDBa?=
+ =?utf-8?B?Y1lReVVJN3FTMWlPc0hmWlBIdkF4TlNta3pCTzhWL1BnZC9qYzdEQ3pmZHRC?=
+ =?utf-8?B?SSs4SFFFNk5iTTNZc3VNVGdTeStjbWVYdytWYUR3TzE4WUFpcWZjS1gwY3cy?=
+ =?utf-8?B?SFJGbnphbVVOR2xRbjdlbmJnRnV2Wm4zdHVFQ1FWckxzVTdhV0NLRWNiMWhC?=
+ =?utf-8?B?K001Z25UeFBGTGhNMk92RVQ0T1J6QThUM0QrUmVvay9ubkZEL2VnYStMcWI1?=
+ =?utf-8?B?NnBWdmsyckJPYXJiK0NrQ003cGFPejhMV1hPRVdwOWR0S2dFSnRQVmpVMDBy?=
+ =?utf-8?B?UkZrb3RtdzkzNHBOQmxjUDlpcnBFTFpVbGtMZ1p4WktGVUJrTFJRZ0NZYm5R?=
+ =?utf-8?Q?B3guO0A0qv4rSIUwqpVeHlI=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20250509191308.6i3ydftzork3sv5c@hiago-nb> <CAPDyKFpnLzk5YR3piksGhdB8ZoGNCzmweBTxm_rDX5=vjLFxqQ@mail.gmail.com>
- <20250519172357.vfnwehrbkk24vkge@hiago-nb> <CAPDyKFpGcgMzOUHf-JTRTLBviFdLdbjZKrMm8yd37ZqJ1nfkHw@mail.gmail.com>
- <20250521041306.GA28017@nxa18884-linux> <20250521041840.GB28017@nxa18884-linux>
- <CAPDyKFpSb+KsfDr1-=uk4TF4Op1dUQ9rDwPP5sSpMfxDRDhnZA@mail.gmail.com>
- <20250523191713.nylhi74jq6z4hqmr@hiago-nb> <CAPDyKFq6HG6iTZRnBSN25vhCU8Zj1c+r_ufGbiBsJ16N+1bJVg@mail.gmail.com>
- <20250527000510.fofehmsdhifcwlys@hiago-nb> <20250527023921.GA14252@nxa18884-linux>
-In-Reply-To: <20250527023921.GA14252@nxa18884-linux>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 27 May 2025 13:58:46 +0200
-X-Gm-Features: AX0GCFsGQsZvMPYEw23_m2_PwaUZ98TXNs_OMa1x3DVp8g7JgD3e4NzGOr3Ljfk
-Message-ID: <CAPDyKFqZkcaGfss=Oi+H9UERFU29jY2t5uTPnGVGQgSAJSeCoA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-To: Hiago De Franco <hiagofranco@gmail.com>, Peng Fan <peng.fan@oss.nxp.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, linux-pm@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com, 
-	Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
+X-OriginatorOrg: leica-geosystems.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR06MB8616.eurprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 471b8b89-f587-43a1-fca6-08dd9d16609d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 May 2025 12:02:39.2085
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qW3KSX3hCSiKSpczrqaxtTtQHmE3wK4+A3kGVBYpPR2Qi1Nmc4k4rJph2b71mYceIEYUfj4XvPXd3PP6jApujmKvWcb2z/JbNmm/DPqFnlaj1bJBz0V4SbrvN5DiDSSC
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR06MB10065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_045924_845950_1ABAB21F 
-X-CRM114-Status: GOOD (  64.43  )
+X-CRM114-CacheID: sfid-20250527_050248_579842_1136D298 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,158 +190,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 May 2025 at 03:29, Peng Fan <peng.fan@oss.nxp.com> wrote:
->
-> On Mon, May 26, 2025 at 09:05:10PM -0300, Hiago De Franco wrote:
-> >On Mon, May 26, 2025 at 12:07:49PM +0200, Ulf Hansson wrote:
-> >> On Fri, 23 May 2025 at 21:17, Hiago De Franco <hiagofranco@gmail.com> wrote:
-> >> >
-> >> > Hi Ulf,
-> >> >
-> >> > On Wed, May 21, 2025 at 02:11:02PM +0200, Ulf Hansson wrote:
-> >> > > You should not provide any flag (or attach_data to
-> >> > > dev_pm_domain_attach_list()) at all. In other words just call
-> >> > > dev_pm_domain_attach_list(dev, NULL, &priv->pd_list), similar to how
-> >> > > drivers/remoteproc/imx_dsp_rproc.c does it.
-> >> > >
-> >> > > In this way, the device_link is created by making the platform->dev
-> >> > > the consumer and by keeping the supplier-devices (corresponding to the
-> >> > > genpds) in RPM_SUSPENDED state.
-> >> > >
-> >> > > The PM domains (genpds) are then left in their current state, which
-> >> > > should allow us to call dev_pm_genpd_is_on() for the corresponding
-> >> > > supplier-devices, to figure out whether the bootloader turned them on
-> >> > > or not, I think.
-> >> > >
-> >> > > Moreover, to make sure the genpds are turned on when needed, we also
-> >> > > need to call pm_runtime_enable(platform->dev) and
-> >> > > pm_runtime_get_sync(platform->dev). The easiest approach is probably
-> >> > > to do that during ->probe() - and then as an improvement on top you
-> >> > > may want to implement more fine-grained support for runtime PM.
-> >> > >
-> >> > > [...]
-> >> > >
-> >> > > Kind regards
-> >> > > Uffe
-> >> >
-> >> > I did some tests here and I might be missing something. I used the
-> >> > dev_pm_genpd_is_on() inside imx_rproc.c with the following changes:
-> >> >
-> >> > @@ -902,7 +902,12 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
-> >> >         if (dev->pm_domain)
-> >> >                 return 0;
-> >> >
-> >> >         ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
-> >> > +       printk("hfranco: returned pd devs is %d", ret);
-> >> > +       for (int i = 0; i < ret; i++) {
-> >> > +               test = dev_pm_genpd_is_on(priv->pd_list->pd_devs[i]);
-> >> > +               printk("hfranco: returned value is %d", test);
-> >> > +       }
-> >> >         return ret < 0 ? ret : 0;
-> >> >  }
-> >> >
-> >> > This was a quick test to check the returned value, and it always return
-> >> > 1 for both pds, even if I did not boot the remote core.
-> >> >
-> >> > So I was wondering if it was because of PD_FLAG_DEV_LINK_ON, I removed
-> >> > it and passed NULL to dev_pm_domain_attach_list().
-> >>
-> >> Right, that's exactly what we should be doing.
-> >>
-> >> > Booting the kernel
-> >> > now it correctly reports 0 for both pds, however when I start the
-> >> > remote core with a hello world firmware and boot the kernel, the CPU
-> >> > resets with a fault reset ("Reset cause: SCFW fault reset").
-> >> >
-> >> > I added both pm functions to probe, just to test:
-> >> >
-> >> > @@ -1152,6 +1158,9 @@ static int imx_rproc_probe(struct platform_device *pdev)
-> >> >                 goto err_put_clk;
-> >> >         }
-> >> >
-> >> > +       pm_runtime_enable(dev);
-> >> > +       pm_runtime_get_sync(dev);
-> >> > +
-> >>
-> >> Indeed, calling pm_runtime_enable() and then pm_runtime_get_sync()
-> >> should turn on the PM domains for the device, which I assume is needed
-> >> at some point.
-> >>
-> >> Although, I wonder if this may be a bit too late, I would expect that
-> >> you at least need to call these *before* the call to rproc_add(), as I
-> >> assume the rproc-core may start using the device/driver beyond that
-> >> point.
-> >>
-> >> >         return 0
-> >> >
-> >> > Now the kernel boot with the remote core running, but it still returns
-> >> > 0 from dev_pm_genpd_is_on(). So basically now it always returns 0, with
-> >> > or without the remote core running.
-> >>
-> >> dev_pm_genpd_is_on() is returning the current status of the PM domain
-> >> (genpd) for the device.
-> >>
-> >> Could it be that the genpd provider doesn't register its PM domains
-> >> with the state that the HW is really in? pm_genpd_init() is the call
-> >> that allows the genpd provider to specify the initial state.
-> >>
-> >> I think we need Peng's help here to understand what goes on.
-> >>
-> >> >
-> >> > I tried to move pm_runtime_get_sync() to .prepare function but it make
-> >> > the kernel not boot anymore (with the SCU fault reset).
-> >>
-> >> Try move pm_runtime_enable() before rproc_add().
-> >
-> >Thanks Ulf, that indeed made it work, at least now the kernel does not
-> >reset anymore with the SCU fault reset. However I am still only getting
-> >0 from dev_pm_genpd_is_on(), no matter what the state of the remote
-> >core. Maybe I am missing something in between?
-> >
-> >Peng, do you know what could be the issue here?
->
-> imx_rproc_attach_pd
->  ->dev_pm_domain_attach_list
->       ->genpd_dev_pm_attach_by_id
->               ->genpd_queue_power_off_work
->                  ->cm40_pid0 is powered off because the genpd is set with is_off=false
->
-> So dev_pm_genpd_is_on will return false after attach.
->
-> This means that with U-Boot kick M4, cm40 might be powered off when
-> attaching the pd even with LINK_ON set, because genpd is set with is_off=false.
->
-> The reason we set genpd to match real hardware status is to avoid RPC call
-> and to save power. But seems it could not work well with U-boot kicking M4.
->
-> I not have good idea on how to address this issue. The current driver
-> could work with linux kick M4, M4 packed in flash.bin and M4 in a standalone
-> partition.
-
-Thanks for the detailed analysis!
-
-This is a very similar issue as many other genpd providers are
-suffering from - and something that I have been working on recently to
-fix.
-
-A few days ago I posted a new version of a series [1], which is based
-upon using the fw_devlink and ->sync_state() support. In principle, we
-need to prevent genpd from power-off a PM domain if it was powered-on
-during boot , until all the consumer-drivers of a PM domain have been
-probed.
-
-I had a look at the DT description of how imx describes power-domain
-providers/consumers, along with the corresponding genpd provider
-implementation in drivers/pmdomain/imx/scu-pd.c. Unless I missed
-something, I think [1] should do the trick for you, without any
-further changes. Can you please give it a try and see if that solves
-this problem?
-
-[...]
-
-Kind regards
-Uffe
-
-[1]
-https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBDYXJsb3MgU29uZyA8Y2FybG9z
+LnNvbmdAbnhwLmNvbT4NCj4gU2VudDogMjcgTWF5IDIwMjUgMTI6NDYNCj4gU3ViamVjdDogUkU6
+IFtQQVRDSF0gaTJjOiBpbXg6IGZpeCBlbXVsYXRlZCBzbWJ1cyBibG9jayByZWFkDQo+IA0KPiBJ
+MkMgU01CVVMgYmxvY2sgcmVhZCBuZWVkIGZpcnN0IHJlYWQgb25lIGJ5dGUgZnJvbSBkYXRhIGxl
+bmd0aCBvZmZzZXQgdGhlbg0KPiBJMkMgd2lsbCBrbm93IGhvdyBtYW55IGJ5dGVzIG5lZWQgdG8g
+Y29udGludWUgcmVhZC4gRm9yIHRoaXMgaXNzdWUgeW91IGNhbg0KPiBtZWV0ICIgRXJyb3I6IFJl
+YWQgZmFpbGVkICIgd2hlbiB1c2luZyBpMmNnZXQgLWYgLXkgYnVzIGFkZHJlc3Mgb2Zmc2V0IHMg
+dG8gdGVzdC4NCj4gDQo+IFNvIHlvdSBhcHBseSB0aGlzIGNoYW5nZSB0byBtYWtlIGkyYy1pbXgg
+Y29udHJvbGxlciBjYW4gYmVoYXZpb3IgbGlrZSB0aGlzOg0KPiANCj4gUyBBZGRyIFdyIFtBXSBD
+b21tIFtBXSBTciBBZGRyIFJkIFtBXSBbQ291bnRdIEEgW0RhdGFdIEEgW0RhdGFdIEEgLi4uIEEN
+Cj4gW0RhdGFdIE5BIFANCj4gDQo+IERvIEkgdW5kZXJzdGFuZCB0aGlzIHJpZ2h0Pw0KDQpoaSBD
+YXJsb3M7IHRoYW5rcyBmb3IgdGhlIG1lc3NhZ2UhIFllcywgZXhhY3RseSwgdGhhdCdzIGNvcnJl
+Y3QuDQoNCkkgcnVuIGludG8gdGhpcyBpc3N1ZSB3aGlsZSB0cnlpbmcgdG8gaW50ZWdyYXRlIGEg
+c21hcnQgYmF0dGVyeSBpbnRvIGENCklNWDgtYmFzZWQgc3lzdGVtLiBGZXRjaGluZyBvZiBwcm9w
+ZXJ0aWVzIHRoYXQgcmVseSBvbiBkYXRhIGJsb2NrIHJlYWQNCm9wZXJhdGlvbiAoaS5lLiwgTWFu
+dWZhY3R1cmVyTmFtZSwgRGV2aWNlTmFtZSwgIERldmljZUNoZW1pc3RyeSBhbmQNCk1hbnVmYWN0
+dXJlckRhdGEpIHdhcyBmYWlsaW5nLg0KDQpXaXRoIHRoZSBmaXggdGhlIGJsb2NrIHJlYWQgbG9v
+a3MganVzdCBsaWtlIHlvdSBkZXNjcmliZWQuDQoNCg0KV2l0aG91dCB0aGUgZml4LCB0aGUgdHJh
+bnNhY3Rpb24gb24gdGhlIGJ1cyBsb29rZWQgc29tZWhvdyBsaWtlOg0KUyBBZGRyIFdyIFtBXSBD
+b21tIFtBXSBTciBBZGRyIFJkIFtBXSBbQ291bnRdIE5BIFsweGZmXSBOQSBbMHhmZl0gTkEgLi4u
+IFsweGZmXSBOQSBQDQoNCihpLmUuLCB0aGUgQ291bnQgaXMgbm90IGFja25vd2xlZGdlZCBhbmQg
+U0RBIHJlbWFpbnMgaGlnaCBhZnRlcndhcmRzKS4NCg0KTHVrYXN6DQoNCg==
 
