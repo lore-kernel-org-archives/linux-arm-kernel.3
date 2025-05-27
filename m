@@ -4,113 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7878C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 14:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03400C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 14:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wVL4nwwjj7UDSWc1gw73IDfAfTiy3mvSgXmVnfx2Jks=; b=C03DGEp6h2RB4q+wn9dxEnso3F
-	2FheNtAiq0p1y+S8U8Goz1GRmJuljVhZCrkhVFF6YRy1KTNoiroED1TAgTtFso1lrfbGxweLp3f7G
-	p1wydVRvuJHhaCl/xWDDrl+chF9pDtF7yI9LPkP6qM07bdlEby0OpkYrv1CBEvtvz2fZO+fO/jJjR
-	D7yuH2PkhyVvdhXvZDmzbLlfkCvWJuDJO8XOl7y4PcpqDPA7G1UKHLM7uSIoifpyhBkhTmBnlCCjB
-	gQLWbzkbeN8LtOOildUGlwKRGwaepQ3qlXSrhiC+U7yOooxggsKvAXeM3ttL4ZVqZ33YntS4oMEqd
-	iv9TTePw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I3K86fNEmzLGXmR+LN27EJiuIkSaPt0ARV8IrPHQSGE=; b=dbxd/biDEKOMpxyU47gwpDkK+7
+	n1LkTtLbJxPytFeeBmT2avH0ag4/Af43GllTHkcuE+52utAKYArGI/OWdjJ5n05mhLN1nxYNkWvk+
+	uJU9mMizqozAXJHYUT3jdtyWN0tt+VGLITtqpLoQ21cpwuzSCPfxy5hXJi8PCg48DxkbLtKHFP73R
+	mIVk3bmcModaZJE4zDm1VbtZfDvoiZKcKjY7LeyGGKXF8fiVAjM1VzrhvarBtNbsyqLaI8E2IxNxU
+	qPxyG7qMI5IOP+qaebHRfl8VH/HLw2wz9i2/E0FusklfrixkHqFuLutDcf0U339c3fAxYOsqfdd0+
+	k4KOYoAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJv18-0000000AtyY-3RhZ;
-	Tue, 27 May 2025 14:10:58 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uJv5c-0000000AuP1-42H4;
+	Tue, 27 May 2025 14:15:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJuz1-0000000AtrK-0WuY
+	id 1uJv3T-0000000Au64-3YC4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 14:08:48 +0000
+	Tue, 27 May 2025 14:13:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 666FAA4A319;
-	Tue, 27 May 2025 14:08:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30B80C4CEE9;
-	Tue, 27 May 2025 14:08:42 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E7894A49FF4;
+	Tue, 27 May 2025 14:13:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4886C4CEED;
+	Tue, 27 May 2025 14:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748354926;
-	bh=mFNslVaqAxa0LPkqAUr2/u+ro37WCWT+QPYolVF9kV0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IgLtk7gO2X0NmwERhHuJs12dgFw+q+lZOYU5unniW4hSg+rPFfgkpBjQ3258pfJ7R
-	 kYRQ2C+QtJorf3Lx0Vq/6KTqZlRzXWqzzrRQJ3pUGm88phlxf4tcv7AqjFvn2Nh66/
-	 PoQhCgOvao+g0oCoWBhQqSR1jEJCQz4THaBRjdUC3ZoKX5ON9gFf0OsrpW++zCFMy6
-	 JaCnmCIhRlYYszbnqMk89eyNGddR9aQQLSJDvxsITbyYdEwYeuVY4K6d8AFWzpz8fs
-	 gvMxNCD0CyobpKKg+adNsYT3uwJEvlCgEoUZvnMH40ywkKkA3cuVY6G37X4SURXQBN
-	 m1/nw/3SoDDkQ==
-Message-ID: <e51415a5-9f55-48c8-91ca-02d27d3c9c24@kernel.org>
-Date: Tue, 27 May 2025 16:08:41 +0200
+	s=k20201202; t=1748355202;
+	bh=s1/Fl3iRmGCQlCudqjCG+PZ70PcwovATM6h2BAyhIz8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Dkn/sBqocoIftLHlFTZ2LSlb4tK30ZM9SKUm8A/A+h5H7XH2GqTiTqzc/tYvAejl0
+	 LwGIrtc//qPJNWvU51AoNto0CnTUxzaHfxd6wY7i/6WskrxAZv9vI5rXySLi47l9ha
+	 FTFaDaYQgxEexSY6vd5F1CAiXEuTXtpbisYVWW2EU9ddhinJhoOJCrXYqKL1PS/ETU
+	 FdErHUk5oVgvfzMcfbxPOIV0UKzqiEQJk+Of/8t05Fb8LoS5gWg6m9uGNfT6bhnL0I
+	 oFYM+7YuUq8g7x7Kbsqc8D0O2fy5PiLCrmYrhVNKMZV/daF9cXkTOZFMpu9/icjRNv
+	 UG4yWwL98RTMA==
+Date: Tue, 27 May 2025 15:13:16 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"joel@jms.id.au" <joel@jms.id.au>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	"mturquette@baylibre.com" <mturquette@baylibre.com>,
+	"sboyd@kernel.org" <sboyd@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: [net 1/4] dt-bindings: net: ftgmac100: Add resets property
+Message-ID: <20250527-sandy-uninvited-084d071c4418@spud>
+References: <20250520092848.531070-1-jacky_chou@aspeedtech.com>
+ <20250520092848.531070-2-jacky_chou@aspeedtech.com>
+ <20250520-creature-strenuous-e8b1f36ab82d@spud>
+ <SEYPR06MB51346A27CD1C50C2922FE30C9D64A@SEYPR06MB5134.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] ARM: dts: stm32: fullfill diversity with OPP for
- STM32M15x SOCs
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250527-stm32mp157f-dk2-v1-0-8aef885a4928@foss.st.com>
- <20250527-stm32mp157f-dk2-v1-1-8aef885a4928@foss.st.com>
- <eec2a1db-717e-46f2-a988-6beefab7b699@kernel.org>
- <61011ea7-6cad-463e-9666-706fe56d98ce@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <61011ea7-6cad-463e-9666-706fe56d98ce@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="oF1MzhfhQDns9knz"
+Content-Disposition: inline
+In-Reply-To: <SEYPR06MB51346A27CD1C50C2922FE30C9D64A@SEYPR06MB5134.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_070847_458791_4ABE5F08 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250527_071323_954816_C72E58ED 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,31 +93,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/05/2025 16:03, Amelie Delaunay wrote:
->>>   	cryp1: cryp@54001000 {
->>>   		compatible = "st,stm32mp1-cryp";
->>> diff --git a/arch/arm/boot/dts/st/stm32mp15xd.dtsi b/arch/arm/boot/dts/st/stm32mp15xd.dtsi
->>> new file mode 100644
->>> index 0000000000000000000000000000000000000000..cb55f5966f74011d12d7a5c6ad047569d25d4e98
->>> --- /dev/null
->>> +++ b/arch/arm/boot/dts/st/stm32mp15xd.dtsi
->>> @@ -0,0 +1,5 @@
->>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
->>> +/*
->>> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
->>> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
->>> + */
->>
->> Same problems.
->>
-> 
-> This file won't be empty, it will be populated with cpufreq/thermal 
-> updates because STM32MP15xD and STM32MP15xF have dynamic CPU frequency 
-> scaling.
-> 
-The problem is that file now is empty, so it brings no benefits. Just
-add the file when you have any content for it.
 
-Best regards,
-Krzysztof
+--oF1MzhfhQDns9knz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, May 27, 2025 at 02:20:48AM +0000, Jacky Chou wrote:
+> Hi Conor Dooley,
+>=20
+> Thank you for your reply
+>=20
+> > > +  resets:
+> > > +    maxItems: 1
+> > > +    description:
+> > > +      Optional reset control for the MAC controller (e.g. Aspeed
+> > > + SoCs)
+> >=20
+> > If only aspeed socs support this, then please restrict to just your pro=
+ducts.
+> >=20
+>=20
+> The reset function is optional in driver.
+> If there is reset function in the other SoC, it can also uses the reset p=
+roperty in their SoC.
+
+"if", sure. But you don't know about any other SoCs, so please restrict
+it to the systems that you do know have a reset.
+
+--oF1MzhfhQDns9knz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaDXIfAAKCRB4tDGHoIJi
+0gH9AQCRLkHk3neNHshJkYAPhnXtXcmS1T4OLHZhP/AyJZlligEAroQq3M9Xp8gF
+CRE717jgbijLXCXCNR11jW1nOPCN7g4=
+=2CfM
+-----END PGP SIGNATURE-----
+
+--oF1MzhfhQDns9knz--
 
