@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3788C54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 06:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B147C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 May 2025 06:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8NvlZhaCZrrL+NHIfbNrj2hpCYdKkS7iRK1kw0usz4=; b=ZMEJKccLVcgua1AbcDxt0+Gj09
-	nhT7NCSq2GMkEMuPU0DYxmshFfe3UBbGgFvp4+vOKSF1D9xOQX7n9UwJNE0Xd7BR2ZB7yAt1mEZ5o
-	tRxMVxmH3JxU7Jpln577lbaFwSScGTRnVC4SgTE+YcNQaaQOY5ZoXv/sQpVivEPuCPXzDaFZzIdPK
-	Iz6ar8xEJJMlSAc0tDtxvMY1vWEshsaDZwwolSTNcLfKulFBtoPpnwF3JN1HDFI/jta9iogfygtW2
-	C/mko2qp3fA84CJRZwj6yNf4QS2MZMaFe9Jiq8o2J5X/gRzj7ssfXN90fhilZGjNWyN6NRa13i5QX
-	zIAvm0FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K4ItIPSJUGERVzjcCNVhaNRtlv0U16ButxZn5MruJDA=; b=IBtRogDxvu3tSU7PDGsvR7HKWD
+	lX2sP0v4/YDyxG6TP30zh9MmyyKHTS7Qjg3IQOBIz4dwpmoYz+bjDpvgx6RaSWu8Z3wkhlWjiPWmW
+	in7n8FJuBeKXkuPbxHQ6TaoPCu9GKQ+V3BshnwsLmglkpBwGxjZuqNns01IMDre1iZBcv2EDgF2V+
+	ZeSZfXFRKrQi4yIoXvva9ubDYf7icw/ayxt7eAh4QpPRRba+DI9QWU3ECEh3xkOzW6yVQyGoYVtV/
+	WM8t3gEg4uovbjqR7FolLATvhUlQEYl08WmpwDyIyI+ssnM7TyZCf4lyc1myb9nxt1pdNlF9qj3gQ
+	ZtTfchzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJnWd-0000000A0Di-23F5;
-	Tue, 27 May 2025 06:11:01 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1uJnYi-0000000A0MT-3lcM;
+	Tue, 27 May 2025 06:13:08 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJnQR-00000009zYx-0TR5
+	id 1uJnVQ-0000000A03I-06bq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 May 2025 06:04:36 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 411DC240027
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 08:04:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=posteo.de; s=2017;
-	t=1748325870; bh=U8NvlZhaCZrrL+NHIfbNrj2hpCYdKkS7iRK1kw0usz4=;
-	h=Message-ID:Subject:From:To:Cc:Date:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:From;
-	b=AETXGKnVytt/E2B375IFDnZbTSg4bp0G4sSpXi8fXwtkx0hVfn64VkIVJ3nbXzjbW
-	 0p5UnpS3nKPEk2u9tC8gpUYjWDehvjkiznWaBYQtAuRHLZu5qjL+FkxSfos1N7chjv
-	 Npj7u2bMDpK5aUr4fiKpjjm+ewOqUgDqA1dWjm4Cv9bl86mdd6oIOIi15ZgcBdgd95
-	 LCisnQhBBFqgQyhfOrqjlPuQgVfcPqYOsjqzC1EsHi/ScaBcWJcliiriouYzFBvTwX
-	 gnS4OkhCiTM2T9ElTlMYANYvVLYAjoGvVx9WlNQ0Nh7bQ2PwvhFVs4OgJGLqrxOmJ+
-	 yddJGV8rcmqVw==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4b62CH6myRz9rxK;
-	Tue, 27 May 2025 08:04:27 +0200 (CEST)
-Message-ID: <7b3c24e2e99acb34b1e95e5b5dedb0ccf383162d.camel@posteo.de>
-Subject: Re: [PATCH] arm64: dts: imx8mp: Enable gpu passive throttling
-From: Martin Kepplinger-Novakovic <martink@posteo.de>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org,  s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de, festevam@gmail.com, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Tue, 27 May 2025 06:04:27 +0000
-In-Reply-To: <20250508101802.489712-1-martink@posteo.de>
-References: <20250508101802.489712-1-martink@posteo.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
+	Tue, 27 May 2025 06:09:45 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54R69TvK1727754;
+	Tue, 27 May 2025 01:09:29 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1748326169;
+	bh=K4ItIPSJUGERVzjcCNVhaNRtlv0U16ButxZn5MruJDA=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=l7PdZEVJKM8tLGoqqv9QMyLm4efTu7Y9eivAvafzJtpeapmVWfLdRGVVSx+AB3p7r
+	 SFSIgrQ7jYxq0/KhI9Ozoe3glTq2te7xt+4g4nCPa/qv7lNAKUytjCro9+WHHyzuQx
+	 JCAXpl1l0qvEJYIj7MHz43jmYziWFBGqlnvNCvQw=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54R69TSK2426125
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 27 May 2025 01:09:29 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 27
+ May 2025 01:09:29 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 27 May 2025 01:09:28 -0500
+Received: from [172.24.27.188] (ltpw0bk3z4.dhcp.ti.com [172.24.27.188])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54R69N4m3173133;
+	Tue, 27 May 2025 01:09:24 -0500
+Message-ID: <15b5d4c8-17fc-46b7-9d2c-d32f944fa47b@ti.com>
+Date: Tue, 27 May 2025 11:39:22 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] TI: K3: Switch MCU R5F cluster into Split mode
+To: Nishanth Menon <nm@ti.com>
+CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <afd@ti.com>,
+        <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250522073426.329344-1-b-padhi@ti.com>
+ <20250522155338.gpbcubkvygtju3qc@bagpipe>
+ <5cfaed26-28ec-42dc-b9f6-836869ad3fa3@ti.com>
+ <20250523114822.jrv73frz2wbzdd6d@falsify>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <20250523114822.jrv73frz2wbzdd6d@falsify>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_230435_434372_896A5E7E 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250526_230944_167354_8E198628 
+X-CRM114-Status: GOOD (  53.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,107 +90,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-QW0gRG9ubmVyc3RhZywgZGVtIDA4LjA1LjIwMjUgdW0gMTA6MTggKzAwMDAgc2NocmllYiBNYXJ0
-aW4gS2VwcGxpbmdlci0KTm92YWtvdmnEhzoKPiBIb29rIHVwIHRoZSBncHUgYXMgYSBwYXNzaXZl
-IGNvb2xpbmcgZGV2aWNlIHRvIHRoZSB0aGVybWFsIHpvbmVzJwo+IGFsZXJ0Cj4gdHJpcCBwb2lu
-dCBqdXN0IGxpa2UgdGhlIGNwdS4KPiAKPiBUaGUgZ3B1IGhlcmUgY29uc2lzdHMgb2YgM0QgR1BV
-LCAyRCBHUFUgYW5kIE5QVS4KPiAKPiBPbmUgd2F5IHRvIHRlc3Qgd291bGQgYmUgdG8gc2V0IG9u
-ZSAiYWxlcnQiIHRyaXAgcG9pbnQgbG93IGVub3VnaAo+IGFuZCB3YXRjaCB0aGUgY29vbGluZyBk
-ZXZpY2Ugc3RhdGUgaW5jcmVhc2U6Cj4gCj4gZWNobyAxMDAwMCA+IC9zeXMvY2xhc3MvdGhlcm1h
-bC90aGVybWFsX3pvbmUwL3RyaXBfcG9pbnRfMF90ZW1wCj4gd2F0Y2ggY2F0IC9zeXMvY2xhc3Mv
-dGhlcm1hbC9jb29saW5nX2RldmljZSovY3VyX3N0YXRlCj4gCj4gQW5kIG9mIGNvdXJzZSBzZXQg
-dGhlIHRyaXAgcG9pbnQgYmFjayB0byBpdHMgb3JpZ2luYWwgdmFsdWUgYW5kIHdhdGNoCj4gdGhl
-IGNvb2xpbmcgZGV2aWNlIHN0YXRlcyBqdW1wIHRvIDAgYWdhaW4uCj4gCj4gU2lnbmVkLW9mZi1i
-eTogTWFydGluIEtlcHBsaW5nZXItTm92YWtvdmnEhyA8bWFydGlua0Bwb3N0ZW8uZGU+Cj4gLS0t
-Cj4gwqBhcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bXAuZHRzaSB8IDEzICsrKysr
-KysrKysrLS0KPiDCoDEgZmlsZSBjaGFuZ2VkLCAxMSBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9u
-cygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4
-bXAuZHRzaQo+IGIvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1wLmR0c2kKPiBp
-bmRleCA1MGEwN2M1NmZhZmZjLi5kZWE5MzQyZDA3MWM0IDEwMDY0NAo+IC0tLSBhL2FyY2gvYXJt
-NjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtcC5kdHNpCj4gKysrIGIvYXJjaC9hcm02NC9ib290
-L2R0cy9mcmVlc2NhbGUvaW14OG1wLmR0c2kKPiBAQCAtMzIwLDcgKzMyMCwxMCBAQCBtYXAwIHsK
-PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8JkE1M18wCj4gVEhFUk1B
-TF9OT19MSU1JVCBUSEVSTUFMX05PX0xJTUlUPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqA8JkE1M18xCj4gVEhFUk1BTF9OT19MSU1JVCBUSEVSTUFMX05PX0xJTUlU
-PiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8JkE1M18yCj4gVEhF
-Uk1BTF9OT19MSU1JVCBUSEVSTUFMX05PX0xJTUlUPiwKPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoDwmQTUzXzMKPiBUSEVSTUFMX05PX0xJTUlUIFRIRVJNQUxfTk9fTElN
-SVQ+Owo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPCZBNTNfMwo+IFRI
-RVJNQUxfTk9fTElNSVQgVEhFUk1BTF9OT19MSU1JVD4sCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqA8JmdwdTNkCj4gVEhFUk1BTF9OT19MSU1JVCBUSEVSTUFMX05PX0xJ
-TUlUPiwKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwmZ3B1MmQKPiBU
-SEVSTUFMX05PX0xJTUlUIFRIRVJNQUxfTk9fTElNSVQ+LAo+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgPCZucHUKPiBUSEVSTUFMX05PX0xJTUlUIFRIRVJNQUxfTk9fTElN
-SVQ+Owo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqB9Owo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoH07Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Owo+IEBAIC0z
-NTAsNyArMzUzLDEwIEBAIG1hcDAgewo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoDwmQTUzXzAKPiBUSEVSTUFMX05PX0xJTUlUIFRIRVJNQUxfTk9fTElNSVQ+LAo+IMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwmQTUzXzEKPiBUSEVSTUFMX05P
-X0xJTUlUIFRIRVJNQUxfTk9fTElNSVQ+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoDwmQTUzXzIKPiBUSEVSTUFMX05PX0xJTUlUIFRIRVJNQUxfTk9fTElNSVQ+LAo+
-IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgPCZBNTNfMwo+IFRIRVJNQUxf
-Tk9fTElNSVQgVEhFUk1BTF9OT19MSU1JVD47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqA8JkE1M18zCj4gVEhFUk1BTF9OT19MSU1JVCBUSEVSTUFMX05PX0xJTUlUPiwK
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoDwmZ3B1M2QKPiBUSEVSTUFM
-X05PX0xJTUlUIFRIRVJNQUxfTk9fTElNSVQ+LAo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgPCZncHUyZAo+IFRIRVJNQUxfTk9fTElNSVQgVEhFUk1BTF9OT19MSU1JVD4s
-Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA8Jm5wdQo+IFRIRVJNQUxf
-Tk9fTElNSVQgVEhFUk1BTF9OT19MSU1JVD47Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoH07Cj4gwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfTsKPiDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoH07Cj4gQEAgLTIyMjksNiArMjIzNSw3IEBAIGdwdTNkOiBncHVAMzgwMDAw
-MDAgewo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgPCZjbGsgSU1YOE1QX0NMS19HUFVfUk9PVD4sCj4gwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA8JmNs
-ayBJTVg4TVBfQ0xLX0dQVV9BSEI+Owo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoGNsb2NrLW5hbWVzID0gImNvcmUiLCAic2hhZGVyIiwgImJ1cyIsICJy
-ZWciOwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgI2Nv
-b2xpbmctY2VsbHMgPSA8Mj47Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgYXNzaWduZWQtY2xvY2tzID0gPCZjbGsKPiBJTVg4TVBfQ0xLX0dQVTNEX0NP
-UkU+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgPCZjbGsKPiBJTVg4TVBfQ0xLX0dQVTNE
-X1NIQURFUl9DT1JFPjsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqBhc3NpZ25lZC1jbG9jay1wYXJlbnRzID0gPCZjbGsKPiBJTVg4TVBfU1lTX1BMTDJf
-MTAwME0+LAo+IEBAIC0yMjQ1LDYgKzIyNTIsNyBAQCBncHUyZDogZ3B1QDM4MDA4MDAwIHsKPiDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIDwmY2xrIElNWDhNUF9DTEtfR1BVX1JPT1Q+LAo+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgPCZjbGsgSU1YOE1Q
-X0NMS19HUFVfQUhCPjsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqBjbG9jay1uYW1lcyA9ICJjb3JlIiwgImJ1cyIsICJyZWciOwo+ICvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgI2Nvb2xpbmctY2VsbHMgPSA8Mj47
-Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgYXNzaWdu
-ZWQtY2xvY2tzID0gPCZjbGsKPiBJTVg4TVBfQ0xLX0dQVTJEX0NPUkU+Owo+IMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGFzc2lnbmVkLWNsb2NrLXBhcmVu
-dHMgPSA8JmNsawo+IElNWDhNUF9TWVNfUExMMl8xMDAwTT47Cj4gwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgYXNzaWduZWQtY2xvY2stcmF0ZXMgPSA8MTAw
-MDAwMDAwMD47Cj4gQEAgLTIzMDIsNiArMjMxMCw3IEBAIG5wdTogbnB1QDM4NTAwMDAwIHsKPiDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIDwmY2xrIElNWDhNUF9DTEtfTUxfQVhJPiwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDwmY2xrIElNWDhNUF9D
-TEtfTUxfQUhCPjsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqBjbG9jay1uYW1lcyA9ICJjb3JlIiwgInNoYWRlciIsICJidXMiLCAicmVnIjsKPiArwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCNjb29saW5nLWNlbGxz
-ID0gPDI+Owo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oHBvd2VyLWRvbWFpbnMgPSA8JnBnY19tbG1peD47Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqB9Owo+IMKgCgpoaSBTaGF3biBhbmQgYWxsLAoKRG8geW91IGhhdmUgYW55IG9iamVj
-dGlvbnMgb3Igc2Vjb25kIHRob3VnaHRzIGFib3V0IHRoaXM/Cgp0aGFuayB5b3UsCgogICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgbWFydGluCg==
+Hi Nishanth,
+
+On 5/23/2025 5:18 PM, Nishanth Menon wrote:
+> On 14:27-20250523, Beleswar Prasad Padhi wrote:
+>> Hi Nishanth,
+>>
+>> On 5/22/2025 9:23 PM, Nishanth Menon wrote:
+>>> On 13:04-20250522, Beleswar Padhi wrote:
+>>>> Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 have a
+>>>> R5F cluster in the MCU domain which is configured for LockStep mode at
+>>>> the moment. Switch this R5F cluster to Split mode by default in all
+>>>> corresponding board level DTs to maximize the number of R5F cores.
+>>> Why? I can read the patch to understand what you are trying to do, but
+>>> the rationale needs to be explained.
+>>
+>> Sure, rationale is lot of users of our SoCs want to control the R5 core in
+>> the MCU domain as a general purpose remote processor to increase
+>> performance. That means able to load applications from
+> This follows the board, then?
+>
+>> bootloader/kernel/userspace, poweroff/poweron core at runtime etc. The
+>> challenge with this is the MCU R5F cluster is reserved to run the central
+>> Device Manager (DM) Firmware.
+>>
+>> However, since the MCU R5F cluster is lockstep enabled, it supports both
+>> lockstep mode and split mode of booting. So here we decide to boot the
+>> cluster in split mode by which we can reserve the primary core to run DM and
+>> use the secondary core as a general purpose remote processor.
+>>
+>> Now why didn't we do this split mode booting since the inception? Well
+>> because MCU R5F Cluster is booted by ROM code, and when ROM boots it in
+>> split mode, it powers on the secondary core and puts it in WFI (as there is
+>> nothing to do for it yet). But the standard remoteproc drivers in Linux and
+>> other bootloaders can only load firmware on a core if it is powered off/held
+>> in reset. So there was some plumbing needed to be done at the bootloader
+>> stage to actually poweroff the secondary core in split mode; so that
+>> remoteproc drivers can then load & control the core as expected. Now that
+>> the plumbing[0] is posted for U-Boot, we can switch to split mode booting
+>> here in DT.
+>>
+>> [0]: https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
+> In effect, you are saying there are two set of usage models: one in
+> split and other in lock-step mode. U-Boot support for split mode was
+> missing and hence was not done yet. The benefit for users is the option
+> to get an extra processor to do what ever extra stuff they want to do.
+
+
+Yes...
+
+>
+>>>> Corresponding support to shutdown MCU R5F core 1 on SoC power on have
+>>>> been posted in U-Boot:
+>>>> https://lore.kernel.org/all/20250522071828.285462-1-b-padhi@ti.com/
+>>>>
+>>>> While at it, correct the firmware-name property for MCU R5F cores of
+>>>> J742S2 SoC in [PATCH 1/2].
+>>>>
+>>>> Testing Done:
+>>>> 1. Tested that each patch does not generate any new warnings/errors.
+>>>> 2. Build test on all existing TI K3 platforms.
+>>>> 3. Tested U-Boot and Linux load of MCU R5F core in split mode on all
+>>>> applicable boards (AM68-SK, AM69-SK, J7200-EVM, J721E-EVM, J721S2-EVM,
+>>>> J784S4-evm, J742S2-EVM)
+>>>>
+>>>> Test logs:
+>>>> https://gist.github.com/3V3RYONE/ee8e3cb9aa5f4c5c00b059b9c14bfa98
+>>>>
+>>>> Thanks,
+>>>> Beleswar
+>>>>
+>>>> Beleswar Padhi (2):
+>>>>     arm64: dts: ti: k3-j742s2-mcu-wakeup: Override firmware-name for MCU
+>>>>       R5F cores
+>>>>     arm64: dts: ti: k3: Switch MCU R5F cluster to Split-mode
+>>> NAK! We are once again churning downstream users again and for what
+>>> reason - coverletter and the patch is vague on that!
+>>>
+>>> I would prefer the entire remote proc dts stuff cleaned up once for all
+>>> in a comprehensive series.
+>>>
+>>> Let me be clear (once again): We DO NOT break backward compatibility.
+>>> We do not break downstream users without a clear cut rationale. We do
+>>> not break all other ecosystems depending on device tree without a very
+>>> very solid reason.
+>>
+>> I don't understand how this is breaking any backward compatibility. We are
+>> not removing the lockstep boot support entirely here. We are just switching
+>> to Split boot by default because of the usecases. If not today, someday we
+>> have to go with split mode booting by default.
+>>
+>> That's exactly what we did for the MAIN domain R5F clusters: 1. First we did
+>> the plumbing to have power synchronization between the cores of a cluster:
+>> https://lore.kernel.org/all/20240430105307.1190615-1-b-padhi@ti.com/ 2. Then
+>> we switched the Cluster to boot in split mode by default:
+>> https://lore.kernel.org/all/20240826093024.1183540-1-b-padhi@ti.com/
+>>
+>> Now, for users who prefer to use the fault-tolerant lockstep mode, they can
+>> still do that by setting `ti,cluster-mode` property to 1. However, I agree
+>> that we should not be doing 'hardware configuration' (split vs lockstep) in
+>> Device Tree which is supposed to be 'hardware description'. We have started
+>> to explore solutions where we can dictate this lockstep vs split core
+>> configuration from the firmware itself during runtime. Once that is done
+>> (long way to go thinking of upstream), we can get rid of this configuration
+>> from the DT entirely.
+> Please add this explanation to your patch. In addition, when you say
+> arm64: dts: ti: k3*: in subject line (implies you are touch soc dtsi)
+> and when co-related to the U-boot patch[1], it is confusing to know if
+> you have the same SoC dtsi change yet to be posted where you switch
+> from ti,cluster-mode = <1> to <0> - I am concerned if downstream board
+> dts files will have to consume the firmware names differently.
+
+
+firmware names should not be a problem. If downstream users decide to 
+boot with lockstep as default, in effect there will be only one 
+processor, and the primary firmware will be loaded into the CPU.
+
+> This is
+> the reason to ask for a comprehensive list of patches for the remote
+> proc. If a downstream device board dts can continue to move to newer
+> kernel revisions with no mods, you should state so in your commit
+> message.
+
+
+Other than ti,cluster-mode, no mods...
+
+> There is all kinds of side implications with memory carveouts
+> etc for a new processor that has to be factored in as well.
+>
+> Btw, [2] sounds like a bug fix.. So follow the stable kernel rules.
+
+
+It is a fix, but not so critical that it should be backported to stable 
+Kernels. That's because:
+
+a. The primary core's firmware-name/path does not matter in DT here, as 
+it is packed in the bootloader images and that core can not be loaded 
+from anywhere else (DM core).
+b. The support to boot this cluster in Split mode has just been posted 
+now. So users might not be able to load/boot the secondary core before 
+this support.
+
+So I think fixing it in mainline is good enough as the support is also 
+added now. Do you think we should add Fixes tag here?
+
+>
+> I suggest the following:
+> * SoC dts files - use a common standard for remote proc - lockstep makes
+>    sense as it is right now
+> * Modification to board specific dts files - call them out as board
+>    files specific patches to flip over to split mode - while considering
+>    the possibilities that users may NOT upgrade kernel and bootloader at
+>    the same time and the existence of EFI based dtb handover from
+>    bootloader to kernel - which means, kernel should be able to handle the
+>    same combinations correctly.
+
+
+The Kernel remoteproc driver handles that correctly by checking the CPU 
+registers to see if it is in split mode[3]. If the bootloader was not 
+able to boot this cluster in split mode, but the Kernel/bootloader DT 
+says "ti,cluster-mode = 0", the driver forces it to boot in lockstep mode.
+
+>   Also handle the carveouts correctly for
+>    the new processors - at least state the strategy - overlays etc.. Come
+>    to think of it, I think we should fix up the carveout strategy for
+>    user programmable remote cores first before attempting all this new
+>    processor additions.
+
+
+This is not really a new processor, its just a split CPU. As such we 
+already have the carveouts for this split CPU upstreamed[4].
+
+Do you want to see new overlays (containing mailbox configuration, timer 
+configuration, mem carveouts) for each of the board? Because each board 
+has a separate set of configuration for IPC.
+
+> * Split out the fixes patches separately out - no reason to mix it up
+>    with the rest of the refactoring.
+
+
+This was a minor fix, and it essentially was only needed when we added 
+split support for all SoCs, so I clubbed them together...
+
+> * Fix your commit messages and subject lines to indicate clearly what is
+>    impacted, rationale, backward compatibility status
+>
+> [1] https://lore.kernel.org/all/20250522071828.285462-7-b-padhi@ti.com/#Z31dts:upstream:src:arm64:ti:k3-j7200-mcu-wakeup.dtsi
+> [2] https://lore.kernel.org/all/20250522073426.329344-2-b-padhi@ti.com/
+
+[3]: 
+https://github.com/torvalds/linux/blob/master/drivers/remoteproc/ti_k3_r5_remoteproc.c#L1153 
+[4]: 
+https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi#L47-L57
+
+Thanks, Beleswar
 
 
