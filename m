@@ -4,155 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0593C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 17:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB63EC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 17:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yUXQ3tSndGwrXkjqYfGzUlroQjb/x/XoXqZ2955HnUQ=; b=OGmJbYyEHSwP4XGfcmU4nm9h2Z
-	yXZN32Ya3RSVhwUy1paUh1uMXJP2Sw4x6NfCwPjHzUivq2QUyaPco/WMPcc7Iy4f0yFz9QEKYCpdq
-	nxhPgf3j6ZzcY2XeqJohoJtFdT5CD4hyGVj4/ajOdCitibHCi97NoB/kmtMKy05u8SpNrrg67iifC
-	Sv6LsKAF9Jnwxk20auMxp11WsAHJ/aQ3T501XzKP0NjiJyP1Y4JzTAkDnuxjWle88Jrk1B7fZEave
-	+enkAoOQo7rFuUXLCcuETr047pYXs/RvdFRMBPqdD6p3ODq+sPLlyk6aosu5W4EmwaUVcv9KwbYa+
-	l7lAP7eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/OzUyuVqnOB7miLFV37uZy05en+YqG3p0V1Vv2/8lTk=; b=rpf1LTp3kvZP4nlizb1nAQB0wp
+	GcGTYEOkF/3H8sYgeA399af197lKzOGDdaJnx0CwJFsh93iYeSUxglMd4TqTTUwXPdP/8V85bIeSA
+	+p4vfXajntdlOw2lnS2ireQSIH2Wcue4nxeA6Gp+fre2kKcZi0+9jENUpYeIf0b4tD4jF91P1h73u
+	m5telDn2U0RErp0seWDy6ToYxm1fbg6C070iqf205cUEyo++nGT2Moit+euRINJxDbXYWyywigHQ/
+	rOWrIgCIE9wUoGw9de8yAbo67ai0EILXIkc812st+YiOid4BG4tzbF7N/J247eFDrPa3QScz/z9g9
+	bUEPzphg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKKRz-0000000DoKr-3wBM;
-	Wed, 28 May 2025 17:20:23 +0000
-Received: from mail-sn1nam02on2062e.outbound.protection.outlook.com ([2a01:111:f403:2406::62e] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1uKKZB-0000000Dp9A-0MUi;
+	Wed, 28 May 2025 17:27:49 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKKPl-0000000Do2N-3iNj
+	id 1uKKX0-0000000Doo1-47tX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 17:18:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i+7Kf2RYdAxZxl2/iuaEt0YIf2hXrnBjJ6P9PrtWHSAsRIQRzrCGKeqbNQQ6BoP8n0/mfWs6gBQouLRcNOom/okXJIFSxi6ZoHuE4QZOWflZWpccfw1ymKho9Pde7eJMYKZeYmYMOnATq5X0qZWKZI6Yeox9sbkXoBsfhaFis6tOWpuGX7hyvTza00biaykGDBwkdhQ3NcDHlesLZTiaJgJJMvO8lJMD6Rg1Nx/MBYB16++q6mUxktG/TOp6n1wr0Tru992XJxRReI9jAZkPJYofuZat53D+YYRpEy3tq3azx+lVsPqRYVphD96H0dRCtvxjGiThCB2n0o7obMkcOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yUXQ3tSndGwrXkjqYfGzUlroQjb/x/XoXqZ2955HnUQ=;
- b=L1Hr2jsTZk7oi23RYzOCSAaWOAj2jMui7wf8OUiA5U7Rf7Ov7SRNFUEavemq3QqVzDyHmVfRj6/B0rc6MQoL9/wDBfJWQ/oVk5azG5nmKJdrx9gAPVx2SrIlCprOktwixgvUwsIP+xklzlJIRMKLpPdrQwvTlNXcNgCMjk17v+XRXyEbzbDnKd7Uly5fsl3zp/aIAaLsKZEyxQSziKNGrXSVyG4mWBGuWdN1h9WvaYsm3ARvapLMJP/pE0cHsUJM9WU/+beNmBT3/Mc+oNOPhaqW9+ZegEbX1puQSETkLSwsUuF52V2T1tpNV/za1+Pz+B6ZW81/oK79ODuhH1ok+Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yUXQ3tSndGwrXkjqYfGzUlroQjb/x/XoXqZ2955HnUQ=;
- b=eJ910oSvvCCSx3eWP8iprKXUY6MMAkkqa3MdWg+1uzV/epioAUFmoK6I+GIl1hqnSCIefPY1sSEkXfBi22yGjATVm3dUPCJqQxad+ZZ21/BW5TOoTVNak/+Z3QDAenvgbfTWjx1D1Y4tFdsvTW705/xODbXoS5TXpi030+T0szbFOjK+zehMvouF4OSnCMhhVvyQjcsypEoJ/z9qQskuOxBL7CHrhB7aF5RQuY7Oeg60DwUSIApmcrMnnYHBGlCdr4yH49r8NMphGE3m+yXb11775kGyJg8unVNWpVFhypiKY9GRguLTwJ1Uep1MlYA2+9APDeaG2aoM64IxmVOtxw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by LV8PR12MB9229.namprd12.prod.outlook.com (2603:10b6:408:191::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.27; Wed, 28 May
- 2025 17:17:56 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8769.022; Wed, 28 May 2025
- 17:17:56 +0000
-Date: Wed, 28 May 2025 14:17:54 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v5 10/29] iommufd: Abstract iopt_pin_pages and
- iopt_unpin_pages helpers
-Message-ID: <20250528171754.GY61950@nvidia.com>
-References: <cover.1747537752.git.nicolinc@nvidia.com>
- <49f7143c1b513049fd8158278a11d9f8b6c837d3.1747537752.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <49f7143c1b513049fd8158278a11d9f8b6c837d3.1747537752.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BL0PR1501CA0024.namprd15.prod.outlook.com
- (2603:10b6:207:17::37) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Wed, 28 May 2025 17:25:36 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6fab467aad1so1729966d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 10:25:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748453134; x=1749057934; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/OzUyuVqnOB7miLFV37uZy05en+YqG3p0V1Vv2/8lTk=;
+        b=b3LaXQoMxSFR3vOkLBOA35FQBSwUQs6e+MYTsks4OXnm40I/dTvWYz0fbFyIA4P87W
+         I/GcitWyGPd5K01OBYJRglLvsd5/dNZZoxK7K6n4/L/dULK7s5W5JBJmzkkYqGmrf7D0
+         imPtc6xzjuR/GYHUtMt3XGPGqMFdD+1k8QAs2A9xvLccHvyV8+zMDzmUW10MuOH5aMZq
+         UwKZ4Ci5hj/hs7C9EGRNxMyYwRHHN7NNgYaQ4YNCUa5vGESegCozLH/jlWdZDyCRu5Jy
+         rIExrLSEtPeQp7PJo4v+ygWWu+SmSyBUPwIt1ffSfgL7LGsbzWAOglGj9OmDFkqsHcUg
+         dI3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748453134; x=1749057934;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/OzUyuVqnOB7miLFV37uZy05en+YqG3p0V1Vv2/8lTk=;
+        b=lfbbZVdH8m3QVtXcTLCz/+W+EMdwohwm576GlH5LRzt/snUnIq66O/1gdajgcssW/E
+         Or+X0Cd16ZcMug/LvYg5BMeY8Ke/k2CWQc3GCT2cKrdffZ6HLSBF/XVUkOCtySSBO57f
+         EmoTt/0iYd1oS3yUM4Zytf0nYiBFVo0vJYCpsww0cLBHKN8M0douBDDvUC0Yq1JHtcjM
+         KuLOmM92MoXM0usc6Wx51jIoNrekSweIJFxz1zKSiVbhhxV58/98PiaoqQkvbVzd5Kt9
+         SAx0UOFo/bc+gNxFbwBeQTV2jbD4l0jfHiKWc4MJLsycY+C48lEz+slXE2RvSZDTZEbo
+         m2hg==
+X-Forwarded-Encrypted: i=1; AJvYcCWEOEmlOZ3Wf5/tSC9s8xOOlvZ5sdqsfoxLqZJEne5x/dlurCg9WyrEHod8/4ANIh3AqQH9L56cC0PZUn40muL7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxG+JPhfTDAmJ19qbQ6XvEawiF3Z7kzYyBJuMzivUWlvG6u6n+
+	IXSA1Dg+fIFzuC7iRUgHlhwQOluoYH8AVgNCvqb6yMuVU33o2/QH5qC9WN0MIuODS2LKwrzwTuT
+	rdkwBGi+cQhhOJKBcW0ay0ybQEX3JttE=
+X-Gm-Gg: ASbGnctQlo4LUZ92WtT/182IIrjgYHtFQewjNl325zO4l3iH+fOL0TJDpW9CvaqfRVB
+	C1otkhdE3ZFVvCk/DF+GRcsqcgAdYhHjK/uYEKGjlj0oSmTPeQbrQHhpl4M+LDITUi9mwXSv62V
+	EcDAS3cl6OGJWJxXIWHofD5iSQYbPwcRdEig==
+X-Google-Smtp-Source: AGHT+IER5qx1DwG+fJoBcyq/OD8RJi4KmfX7CsQR2aaR2iNxoMBecCu9w8+lxoiC4pk7miaSH11257NF0qW83P2oVoA=
+X-Received: by 2002:a05:6214:20e5:b0:6e8:9dc9:1c03 with SMTP id
+ 6a1803df08f44-6fa9d290768mr317566926d6.21.1748453133588; Wed, 28 May 2025
+ 10:25:33 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|LV8PR12MB9229:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70a0a218-d960-4b28-8ea7-08dd9e0b9634
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mDVE71knRiIxjjmeQxH8vAIQKVUIpVrjErYds1qIQ2DC/3MsH8daTgq+mdom?=
- =?us-ascii?Q?US+DFBaIX63pL15SpcuUkFEDKha3iMJhR34r/IpXyUv1YDNxp8v3IM1ul8D0?=
- =?us-ascii?Q?+7fGxqAbkOfTrGFtrlkT7ESOhP1T5glZh8p3K0hz/kA5bmqPKyJ2qfdqvbFy?=
- =?us-ascii?Q?8ahGrc6S7AwbXmyrVXmFRvb/JqGY/EOGo3w2s6jwlQ7e4YzSYdkFOlxuReI0?=
- =?us-ascii?Q?2jAC92TLW7PYmIDi7utCOLlmY1HqZIsgFzyXk/Wy9/ji0v6dweyCSXg8dw73?=
- =?us-ascii?Q?CSF3UjeaDNPrum3sHcObQVleFC21D5BsjWtubW/2qLegaWLnW9s+69Owczou?=
- =?us-ascii?Q?33Tl+0hfHBNHe4p7lLLSMWmsemEO9M7PfyXkrOZ4+rcOsGdnRsPxJA/wIoCI?=
- =?us-ascii?Q?di/k+xGhvh1pC4dlRz9LZCvIxOpXKmlnE9T0sj9aA3DUWoW/fHzOYfrK5SwT?=
- =?us-ascii?Q?3w9jVeLYwWO1FnuGmx5+5e5xYfWQ/HQCynQZ3YBCJovf615xYjQEmr8ZTvsU?=
- =?us-ascii?Q?gGGcmmaHEp5ie65+aIkOI3upHwCmeaeRH4HqyxTYBXxehV0O36M0dYErPVcf?=
- =?us-ascii?Q?icanxl4t9iNYqGu+8x8EHUh0h/qOpZ/e/+E+CYBwI7mD7SBs4ZB9N2Ge6qky?=
- =?us-ascii?Q?sID4ln9V8Q9gNpAdBAqcBucq8GmeJpPh4Ve35km/7gokwjfBC9FNMlUUYBiZ?=
- =?us-ascii?Q?uVMzGGvGbm7wU6pqD81V6oyxD55XKxq4lWug+ctHohRejdD3aeRcdI2/sCiU?=
- =?us-ascii?Q?HqLAAprFopO4HFVrDL0UPdd7wLukW4qdhr2SbAXwODQcZRIb1BWSZ1+Y+y1Z?=
- =?us-ascii?Q?sNeRU+Ef5i+Qur0Rf1jeq9/phJnUQtpr3S7sHT+L+bqxPZ7zdenAbTQakRK/?=
- =?us-ascii?Q?TYnrhIibGcs+MP1CJWdRhUIRmJjB58gtb4RbFgCmw2SiIaQe1NG9rIDOtQAo?=
- =?us-ascii?Q?cNrtF3r8nLnJQMe93neV17+QxIkOGAf5SLTyIpT0epKNsw1Dp6OhVFf9fWFU?=
- =?us-ascii?Q?AckM3mcZY7U0ewjwVs7ZGUocVEeYVm4kdgoQfQWzrPtnhutku/k1O3Cts1fo?=
- =?us-ascii?Q?eO3htX0kQebC8u4ZxW5aAdtExQys9gQMNjCJnPKTqLR0qgu1Q6xuqZCesoWl?=
- =?us-ascii?Q?j4fCz7OkaYjSFXAqGi1dO2IRCgdbaOFe/oLl4FbezW/fIkhZudHTTbpTC4zo?=
- =?us-ascii?Q?weXeCpi3oNHbi7pbZUjzWw6IAXMmLw8xoPB0U/JOPxQujNmKWrs9cHWTf4uQ?=
- =?us-ascii?Q?JQshOI3hZ1YL1/47LCnGU0/c7wUCHCeddc3kQ4iXvwyKAP+zuuE6+BmTIPEz?=
- =?us-ascii?Q?mMbq6DX0K0JA8NTnhTP7HssB1Srx2/3VoRrcJczH378yoPOtREL5wJUcZXvU?=
- =?us-ascii?Q?QiE+//dMmQgs22ySDur2VtuGikAkkpkWESVDngU7pIYrVGQCFT0569XPsdvk?=
- =?us-ascii?Q?x/MSBu8MIs0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cxP8nJReXG+D2qjyC0XydHAEdNyw0V7afKt9gE5lWP9ZjmH1PFeYgr59g0CW?=
- =?us-ascii?Q?0cVHAgxTtbv+Uesz+1mw9Cf6beAyN/XUxus0bz0yuDLxOz09A7JFet990IH1?=
- =?us-ascii?Q?U+n1kiBnpGGlniuQW4nl2QDoRNvp7j+GjMW3Pwfymez56cK96uFLSpUec5LR?=
- =?us-ascii?Q?er6WWjPdzQBPZYnQdpkiJaxMWLRCley12ASu7zdh+QyixaHdu70nQzjSfI1i?=
- =?us-ascii?Q?NCbahTM5moS+rIfKT3t3pYBuOdHYzQiqcG4AH/u3WfQMXcljPuk07L6i0VtJ?=
- =?us-ascii?Q?nxf3lv9Z6plq0fb5hNCyvRA/fgWosbcZwBBbCkWYQGM0zI1Hb9SWvmj5khcv?=
- =?us-ascii?Q?Y6esMRAhxD0bJd84WA0YEV9l7u7fiSIUumaVNKBAJC22QVRYKecFd5FfE7xs?=
- =?us-ascii?Q?L6dMZGhaF6TkX6ysidAlmkYfEGpgRp6qLVDVvYJPXEXZbMfLeX7I6S857X0n?=
- =?us-ascii?Q?LqNnqf7HygsVDE78DXQZgD9Zg3HTycvSYhN0gLVbX0s1Prad+hF5WvVfgEAw?=
- =?us-ascii?Q?baMFvETn31oAXlMin5RF9vT2hs26m+tRCuiHHSx7tQo8fwyioPrpbI4s2k9w?=
- =?us-ascii?Q?BWFcvD/LM3BuG1BM6VNM7MUPwnz6cY5cFIvkhlcsg18hHYYELwVB9qprpXLj?=
- =?us-ascii?Q?UaqrY0n7tJQsNcl/y2ObadJGPWmm80pqRTP37JiwQDJ0SmjoRimJIcoeVqbI?=
- =?us-ascii?Q?uOP1xSZaRW3xIy0FqSml+eNIDtsEhxcpaI+/un13C2JYYr2f4Rcr5en3tzyN?=
- =?us-ascii?Q?xt/9r8gfhX7Bct8LAc76RCGHho2ce/pvAzcM7eNuKcCVM7bgCDJJvpogUAkd?=
- =?us-ascii?Q?Zf0q9jaF05rk1dij8Ty/3EJtjVTeEtBzCQkZvHKDsOcHnhGZyoJ6NxWCZMRl?=
- =?us-ascii?Q?XxjnQd7eaN+k0iX3eMoH+yL7Uc31Raa2UGRI2vNHHGe9yeS3/RGssd8jtNf0?=
- =?us-ascii?Q?sdP+q18FsRQdvpGcpwrZpUKKNlAGAaex/pv9CpW9tFc1nUFAt1gKbwTrlZ7n?=
- =?us-ascii?Q?oVNI4Mqcp8ivLaq1xo52OTKbvByCTiO/tP2cclYytaTg0sADNdO4HvKZnFF3?=
- =?us-ascii?Q?rPojro3jZ6XAF8hEHYxOdooDnejZ7YYU6jCk43+fW6D5J0VZMLYKNYHpEkkg?=
- =?us-ascii?Q?XLogM2SQe/xpwmi1It4QdawJAvkSNtEAYhbNPi32UjE6D9qK/qSbTbYQM8c9?=
- =?us-ascii?Q?RcJgqyPw7vkfgHMMr3k/57Ff+/Skr8XP3QJtjyJSzkclLitBLIZ3lClF31iE?=
- =?us-ascii?Q?156rlcw8gyBssTwXzZ5fUamEgLdFkq4/GlGsJvY2Bh+ds+IwzjtOmepadFhP?=
- =?us-ascii?Q?j6Sh3ve8ZRjPmIJa4IEUZJzDGBJ9ved/gkzg0HF/9UDfJ2N+L5je9xBYR0Be?=
- =?us-ascii?Q?gmPhOhBgMX2txrF+h7AqMY579L+D4pXtHXlK/W2WKH90PFB/Ptcghvh4PmSv?=
- =?us-ascii?Q?PIkZFfP+3LcO0ElBrkyZUL0I7Go38Wp0O0Mkm3+axnwbjEnFmTXl5vV0Z3EJ?=
- =?us-ascii?Q?Q9wpWG+aLGxPSeUYqdRqBYzTFtB3J4Z1YlgzWQu67jK4wPL5tj0U0fDjmFAK?=
- =?us-ascii?Q?hVNTKbNC7ocedk8t859VLMWn7uHZe9OIbYNL/qoi?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70a0a218-d960-4b28-8ea7-08dd9e0b9634
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 17:17:56.1034
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tqh17P7WFtFS954SAwNRL5vDcv/1emT+0gfDU62QAW8wR46gLuGWZd0WQpbO4rCx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9229
+References: <20250527175558.2738342-1-james.hilliard1@gmail.com>
+ <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch> <CADvTj4rGdb_kHV_gjKTJNkzYEPMzqLcHY_1xw7wy5r-ryqDfNQ@mail.gmail.com>
+ <fe8fb314-de99-45c2-b71e-5cedffe590b0@lunn.ch> <CADvTj4qRmjUQJnhamkWNpHGNAtvFyOJnbaQ5RZ6NYYqSNhxshA@mail.gmail.com>
+ <014d8d63-bfb1-4911-9ea6-6f4cdabc46e5@lunn.ch> <CADvTj4oVj-38ohw7Na9rkXLTGEEFkLv=4S40GPvHM5eZnN7KyA@mail.gmail.com>
+ <aDbA5l5iXNntTN6n@shell.armlinux.org.uk> <CADvTj4qP_enKCG-xpNG44ddMOJj42c+yiuMjV_N9LPJPMJqyOg@mail.gmail.com>
+ <f915a0ca-35c9-4a95-8274-8215a9a3e8f5@lunn.ch> <CAGb2v66PEA4OJxs2rHrYFAxx8bw4zab7TUXQr+DM-+ERBO-UyQ@mail.gmail.com>
+In-Reply-To: <CAGb2v66PEA4OJxs2rHrYFAxx8bw4zab7TUXQr+DM-+ERBO-UyQ@mail.gmail.com>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 28 May 2025 11:25:20 -0600
+X-Gm-Features: AX0GCFveR1vAlsAT85LmMrDh-cWJLkLNiCTzyzcFYtPEIKrvDRjHUdM3zbS3iJQ
+Message-ID: <CADvTj4qyRRCSnvvYHLvTq73P0YOjqZ=Z7kyjPMm206ezMePTpQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
+ PHY device
+To: wens@csie.org, Andrew Lunn <andrew@lunn.ch>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, netdev@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Furong Xu <0x1207@gmail.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_101805_933991_DD27F65B 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20250528_102535_022597_B5FF19CD 
+X-CRM114-Status: GOOD (  40.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,51 +106,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 17, 2025 at 08:21:27PM -0700, Nicolin Chen wrote:
-> The new HW QUEUE object will be added for HW to access the guest queue for
-> HW-accelerated virtualization feature. Some of HW QUEUEs are designed in a
-> way of accessing the guest queue via a host physical address without doing
-> a translation using the nesting parent IO page table, while others can use
-> the guest physical address. For the former case, kernel working with a VMM
-> needs to pin the physical pages backing the guest memory to lock them when
-> HW QUEUE is accessing, and to ensure those physical pages to be contiguous
-> in the physical address space.
-> 
-> This is very like the existing iommufd_access_pin_pages() that outputs the
-> pinned page list for the caller to test its contiguity.
-> 
-> Move those code from iommufd_access_pin/unpin_pages() and related function
-> for a pair of iopt helpers that can be shared with the HW QUEUE allocator.
-> 
-> Rename check_area_prot() to align with the existing iopt_area helpers, and
-> inline it to the header since iommufd_access_rw() still uses it.
-> 
-> Reviewed-by: Pranjal Shrivastava <praan@google.com>
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommufd/io_pagetable.h    |   8 ++
->  drivers/iommu/iommufd/iommufd_private.h |   6 ++
->  drivers/iommu/iommufd/device.c          | 119 ++----------------------
->  drivers/iommu/iommufd/io_pagetable.c    |  97 +++++++++++++++++++
->  4 files changed, 119 insertions(+), 111 deletions(-)
+On Wed, May 28, 2025 at 8:12=E2=80=AFAM Chen-Yu Tsai <wens@csie.org> wrote:
+>
+> On Wed, May 28, 2025 at 9:25=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrot=
+e:
+> >
+> > On Wed, May 28, 2025 at 05:57:38AM -0600, James Hilliard wrote:
+> > > On Wed, May 28, 2025 at 1:53=E2=80=AFAM Russell King (Oracle)
+> > > <linux@armlinux.org.uk> wrote:
+> > > >
+> > > > On Tue, May 27, 2025 at 02:37:03PM -0600, James Hilliard wrote:
+> > > > > On Tue, May 27, 2025 at 2:30=E2=80=AFPM Andrew Lunn <andrew@lunn.=
+ch> wrote:
+> > > > > >
+> > > > > > > Sure, that may make sense to do as well, but I still don't se=
+e
+> > > > > > > how that impacts the need to runtime select the PHY which
+> > > > > > > is configured for the correct MFD.
+> > > > > >
+> > > > > > If you know what variant you have, you only include the one PHY=
+ you
+> > > > > > actually have, and phy-handle points to it, just as normal. No =
+runtime
+> > > > > > selection.
+> > > > >
+> > > > > Oh, so here's the issue, we have both PHY variants, older hardwar=
+e
+> > > > > generally has AC200 PHY's while newer ships AC300 PHY's, but
+> > > > > when I surveyed our deployed hardware using these boards many
+> > > > > systems of similar age would randomly mix AC200 and AC300 PHY's.
+> > > > >
+> > > > > It appears there was a fairly long transition period where both v=
+ariants
+> > > > > were being shipped.
+> > > >
+> > > > Given that DT is supposed to describe the hardware that is being ru=
+n on,
+> > > > it should _describe_ _the_ _hardware_ that the kernel is being run =
+on.
+> > > >
+> > > > That means not enumerating all possibilities in DT and then having =
+magic
+> > > > in the kernel to select the right variant. That means having a corr=
+ect
+> > > > description in DT for the kernel to use.
+> > >
+> > > The approach I'm using is IMO quite similar to say other hardware
+> > > variant runtime detection DT features like this:
+> > > https://github.com/torvalds/linux/commit/157ce8f381efe264933e9366db82=
+8d845bade3a1
+> >
+> > That is for things link a HAT on a RPi. It is something which is easy
+> > to replace, and is expected to be replaced.
+>
+> Actually it's for second sourced components that are modules _within_
+> the device (a tablet or a laptop) that get swapped in at the factory.
+> Definitely not something easy to replace and not expected to be replaced
+> by the end user.
 
-And if you do what was suggested do we need this patch at all? Just
-use the normal access sequence:
+Yeah, to me it seems like the PHY situation is similar, it's not replaceabl=
+e
+due to being copackaged, it seems the vendor just switched over to a
+second source for the PHY partway through the production run without
+distinguishing different SoC variants with new model numbers.
 
- iommufd_access_create(ops=NULL)
- iommufd_access_attach(viommu->hwpt->ioas)
- iommufd_access_pin_pages()
+Keep in mind stmmac itself implements mdio PHY scanning already,
+which is a form of runtime PHY autodetection, so I don't really see
+how doing nvmem/efuse based PHY autodetection is all that different
+from that as both are forms of PHY runtime autodetection.
 
-And store a viommu->access pointer to undo it all.
+https://github.com/torvalds/linux/blob/v6.15/drivers/net/ethernet/stmicro/s=
+tmmac/stmmac_mdio.c#L646-L673
 
-This avoids making it all special with different internal behavior
-from a mdev. The only difference is we allowe ops=null for viommu but
-not for mdev.
+> The other thing is that there are no distinguishing identifiers for a
+> device tree match for the swap-in variants at the board / device level.
+> Though I do have something that does DT fixups in the kernel for IDs
+> passed over by the firmware. There are other reasons for this arrangement=
+,
+> one being that the firmware is not easily upgradable.
+>
+> ChenYu
+>
+> > You are talking about some form of chiplet like component within the
+> > SoC package. It is not easy to replace, and not expected to be
+> > replaced.
+> >
+> > Different uses cases altogether.
+> >
+> > What i think we will end up with is the base SoC .dtsi file, and two
+> > additional .dtsi files describing the two PHY variants.
 
-I don't think it is worth doing all these changes just to eliminate
-the access memory allocation.. viommu allocation is not fast path.
+I think having a single PHY .dtsi for both here is ideal if we can
+do runtime detection, since it's difficult to know which potential
+variants of PHY various devices shipped with, in our case we
+have access to enough hardware to determine that we have
+both variants but for other devices most developers will likely
+only have access to one PHY variant even if hardware at various
+points in time may have shipped with both variants.
 
-Jason
+IMO without runtime detection this will likely be a major footgun
+for anyone trying to add ethernet support to H616 boards as they
+will have difficulty testing on hardware they don't have. If we provide
+a single .dtsi that implements the autodetection correctly then they
+will simply be able to include that and the hardware will then likely
+function on both variants automatically by including the single .dtsi
+file.
+
+Requiring the bootloader to modify the DT adds a good bit of
+complexity and will be difficult for most developers to test as
+many will not have access to hardware with both PHY variants.
 
