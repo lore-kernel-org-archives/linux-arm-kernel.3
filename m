@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D920C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A38C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DzBWBIgcQZbh1kLxOi2N1jD2ieW0nbhwNKoeFP8JFog=; b=t9HTDkvAv6S0n6aeOhwOG1pe2/
-	TT2T2tYNwsB34ips8IzHKTOH/2tmFkpnh8bPMZ3k3q+06T7iL8MR3a2lv6JlfKnfpxMpw3VR7OXGI
-	f0Uq0PjaZUlBi4x13UucCrHaWJU4FUzpnMKdzUlThU/MQM9xKH8mx0nn754P3JTqcah2+eI3DfN/4
-	pcyUcua9sPqbfLnV3vGVgkX2Sy4w5mJAFWKleqUYDNcfpFEwi0A325SM8MgNfhhj+cKso2zftHzwO
-	+gU2KgYHu3bg4ask2Ktw/vEisD9RivL5+y7V3sEp3ouNTGGPy+UtQXek74vtRB7VVJMjlOwr0d0J8
-	tazUuqvw==;
+	bh=U+FDShjpx6kGEUB2/dQKTjU6xdyCNeX5trpYm619UV4=; b=vZcA9tb6m954nfWvCBNUwS585B
+	KfxLb7Phr1wbzLP4XZcywh65sz9uce+TbPd2obuGLVeV1ltnQld2SxXx+YhNjJ/jELya+ihQvScjd
+	zhSC3tUn1gJHM2CDcT+j3YEQ0JKQxmV2Oba3LeSITo5LZXZv5M6CInDwpRPiay1seLBPjU6LZFxaN
+	sbIKiyKUDpjFLd2obVdQGlHKspRXKrYF4KUy7TTZYB+4lIp7J7VUfrI0q/D6CiOOifpSLRrW0BuVC
+	x0m7cMVoIR1klKmFg6rlmDPv7j6UsIjwPXut5EuXcM4vt+A38GTbKXTTn6GB/1iI8v66kNwRAiKO9
+	dZ6gn9lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHsJ-0000000DQBI-2fQr;
-	Wed, 28 May 2025 14:35:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uKHuT-0000000DR76-22h8;
+	Wed, 28 May 2025 14:37:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHnV-0000000DPAc-451N
+	id 1uKHpq-0000000DPQt-3ka7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 14:30:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5C7E25C061F;
-	Wed, 28 May 2025 14:28:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1AF1C4CEE3;
-	Wed, 28 May 2025 14:30:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748442625;
-	bh=jRw483kLKF6vHdjKiRX9zkkws+EBqLZOZl2WRGzktK0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OAHZ1WsQXlff4iqaAu5tKd8JOIXR5fjx+s868eTzXBOzHYeN3azGgI7++pyxeUlU+
-	 vScL0aZzfhY015PrsVRJ0VCLHJuckAhC63a1YnpwqTMtKP9Ecyh7sfoY0KNnWJ66xv
-	 uQLH/K2esf1gEm691fBWnbi0FR+9j6hhzvsWuwyfnYiPurPQBbBUKZKGLAIHz2g10/
-	 GPByNjTT5pLzkvh0GRbknt5xOKG4OJs55y+UZoMFEbE5HH+XdMEgYEcLnUNLuQzCwZ
-	 7DotAIGnRZcylqYb8b4xaHFFnTqie0OGCeL6Q09zR1FusUM+nsQ0XM4MuZOf28pBTi
-	 Vs3l7WowTe1dg==
-Date: Wed, 28 May 2025 16:30:16 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 14/26] arm64/sysreg: Add ICH_HFGITR_EL2
-Message-ID: <aDcd+CyDORzgkfXK@lpieralisi>
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-14-b36e9b15a6c3@kernel.org>
- <20250528122826.0000566c@huawei.com>
+	Wed, 28 May 2025 14:32:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=U+FDShjpx6kGEUB2/dQKTjU6xdyCNeX5trpYm619UV4=; b=0g0dZYmb7qFGfQ6Gt46nLap1SM
+	L54LEYGcitbtYKGtm9Fz/qwyr1CXW4N6f2R0fuO8qrUfCyopQMDIvPocpm79WXDEZ6nYQVga+Dxli
+	tsnaCIBD9NDb0B3YXnWZ5FFmDWioIi3kERl1fFLstxdirVcevQWSL3slMVX/xcjm6J5fzLvljyKX6
+	DuK4Lq/+Zgs3yg0vnTiIurv7ny7d2x+Y9Ynr+4A6DwvY/9aZcbAAWJkLUC6TfjccvbKpNqTSjRuog
+	bu18UN9MXxuWyUJKrjjFyQjmJRpewfpkHUvev73LP6t2aRCste0h1QQmVmxs7Gwy0RQL8nQ5uYkcl
+	GCfODJSw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38612)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uKHpN-0000Ns-0k;
+	Wed, 28 May 2025 15:32:21 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uKHpF-0002UB-2v;
+	Wed, 28 May 2025 15:32:13 +0100
+Date: Wed, 28 May 2025 15:32:13 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: weishangjuan@eswincomputing.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	vladimir.oltean@nxp.com, yong.liang.choong@linux.intel.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+	jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
+	0x1207@gmail.com, boon.khai.ng@altera.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, lizhi2@eswincomputing.com
+Subject: Re: [PATCH v2 2/2] =?iso-8859-1?Q?ethernet?=
+ =?iso-8859-1?B?OqBlc3dpbjqgQWRkoGVpYzc3MDCgZXRoZXJuZXSgZHJpdmVy?=
+Message-ID: <aDcebRguDnM7sqVk@shell.armlinux.org.uk>
+References: <20250528041455.878-1-weishangjuan@eswincomputing.com>
+ <20250528041634.912-1-weishangjuan@eswincomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250528122826.0000566c@huawei.com>
+In-Reply-To: <20250528041634.912-1-weishangjuan@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_073026_056293_0A80AEE1 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20250528_073250_931435_E8F80F44 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +90,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 12:28:26PM +0100, Jonathan Cameron wrote:
-> On Tue, 13 May 2025 19:48:07 +0200
-> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> > Add ICH_HFGITR_EL2 register description to sysreg.
-> > 
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> 
-> Hi Lorenzo,
-> 
-> > ---
-> >  arch/arm64/tools/sysreg | 15 +++++++++++++++
-> >  1 file changed, 15 insertions(+)
-> > 
-> > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> > index 0927754d9fe2c5addbd9693d83b7324f1af66d3e..d2f53fb7929c69895fe8a21ba625d058a844d447 100644
-> > --- a/arch/arm64/tools/sysreg
-> > +++ b/arch/arm64/tools/sysreg
-> > @@ -3616,6 +3616,21 @@ Res0	1
-> >  Field	0	ICC_APR_EL1
-> >  EndSysreg
-> >  
-> > +Sysreg	ICH_HFGITR_EL2	3	4	12	9	7
-> > +Res0	63:11
-> > +Field	10	GICRCDNMIA
-> > +Field	9	GICRCDIA
-> > +Field	8	GICCDDI
-> > +Field	7	GICCDEOI
-> > +Field	6	GICCDHM
-> > +Field	5	GICCRDRCFG
-> 
-> GICCDRCFG in the spec. (you have a bonus R)
+On Wed, May 28, 2025 at 12:16:25PM +0800, weishangjuan@eswincomputing.com wrote:
+> +static struct clk *dwc_eth_find_clk(struct plat_stmmacenet_data *plat_dat,
+> +				    const char *name)
+> +{
+> +	for (int i = 0; i < plat_dat->num_clks; i++)
+> +		if (strcmp(plat_dat->clks[i].id, name) == 0)
+> +			return plat_dat->clks[i].clk;
+> +
+> +	return NULL;
+> +}
 
-Bah. Good catch - I should move to autogeneration.
+Okay, I think this driver is mindless copying of dwmac-dwc-qos-eth.c
+between 24th February and 9th April 2025. I can say this because I added
+this function to that driver and later removed it.
 
-> Of course the real question was what am I avoiding that made checking these
-> against the spec feel like a good idea? :)
+Looking at the rest of the code, I doubt this even does anything useful
+(hence "mindless copying") as you're not fetching any clocks into this
+array, and plat_dat->num_clks will be zero here. Thus, this will return
+NULL. Therefore, you haven't thought about whether you need this or not,
+but have just copied dwmac-dwc-qos-eth.c and then modified it until it
+works for you.
 
-:)
+You haven't acknowledged where you derived this code from - you've cut
+the header of your source file out, and basically are claiming it to be
+all your own work. I know this is rubbish for the reason I've stated
+above. This is quite simply plagiarism. I am not impressed.
 
-> FWIW with that fixed,
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> for patches 2 to 14.
+Thus I will end the review here, and simply state that this is not
+acceptable.
 
-Thanks,
-Lorenzo
-
-> > +Field	4	GICCDPEND
-> > +Field	3	GICCDAFF
-> > +Field	2	GICCDPRI
-> > +Field	1	GICCDDIS
-> > +Field	0	GICCDEN
-> > +EndSysreg
-> > +
-> >  Sysreg	ICH_HCR_EL2	3	4	12	11	0
-> >  Res0	63:32
-> >  Field	31:27	EOIcount
-> > 
-> 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
