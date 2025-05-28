@@ -4,182 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAABC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 18:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AA3C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 18:37:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IxfDTGCpGVLB+ehDE33Cz410rqNpJnpddBaXX0PHess=; b=hVUbkBV6wYUoBXBvOJ/vev/Gsa
-	hA9wSdM2rssAOPcRpbxDTRDVMHUhe8dohumdCwq0t6QDhJf9xL4tKV0u34TuxtTdvhqVsEfCZbeOQ
-	Fw33BjWAnrsrjOPm45YBjM8BohcgfEOUfSsGr2aVtNS5oasuTOioW/+kdpdeIoCA8x5PN/qqP2iTM
-	0fN6b9loSEQg9H3odk/GazHPUxAUCRFrfxdY4SD+HBSuW9XdfzFNiZQXmsc07bRLjWBp4Lho5cJTu
-	/ZZ4G7TtLiMkjkCkhuRRSM6JodslLnQ88/HntmtBvI35KNm0BavdW4msjuEizYwjretD3ga4J4LOw
-	Csj/8BOw==;
+	bh=oEfLgoqZZlV3CauhRyPut9aS8+kFBL6RAy2mXOuaG1k=; b=UglXiuULLs7KUVuP8Js7Yg2mlR
+	aivatnCLSc7ujD03HwJiRc0K1q+OhXV6yxvsh3iKdUt4vh2bHP/zcJPa9GltmPTsV78Rsx+eGDSXV
+	4xBi+8uyNEyFNVavPc3kOW/2tEfVMPDDMQW/iAL0T0J2g94CMF81RVzK+Z3eUQYkSTPx2ZzVMoxpg
+	6rLn3qjsuzEtJh1NJYg0v5KBdwHrnmnx8HIBPLqpwQsgyBqUii81/bZb9mwt5ucMYddR5TLz0kO/5
+	zzVLB6pxXbfruef/SWNnyETNAd8vWQu0c5ZFfRRY2ANKqBulWXLpdy3OU5ikKu8Ako3tddq0aFwfz
+	IwoLPzcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKLaS-0000000Dv6J-39bE;
-	Wed, 28 May 2025 18:33:12 +0000
-Received: from mail-am0eur02on2071a.outbound.protection.outlook.com ([2a01:111:f403:2606::71a] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1uKLeV-0000000DvZO-2SDX;
+	Wed, 28 May 2025 18:37:23 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKLYI-0000000Duwv-15Nl
+	id 1uKLcL-0000000DvJA-2XCo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 18:31:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H2oiVrhZd3iIRuGn3Ud6YGcbs/0s60fzPSvQHjHJfnkdpsLyBnxhixX82F+y9xPY49hVBh8ei0GndB6VRLQFt66ejjQMlebD5IQBUPHhdC7EurRHzv7/TyJUkm0Yaalx8xx+ao+bdszUqSSUhi09+3d5nIqEEwLjvJLXSh8UsKmnbSYjW3viPYmhjC8fbu05sp1B9uyGkvLxrXKLM9KPrwBijUxg2b0EL30wtxWi4cF8rXFCX60Iwo1VSKd7WX4K8chuRCobgc1lc+/Bp0/TtscfIFXrk0i14ib23+YWz1wThHEE74gSXWppB7EGz/emEWBqV1LI4x8RS0ilgZO33w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IxfDTGCpGVLB+ehDE33Cz410rqNpJnpddBaXX0PHess=;
- b=goc6moljtSdypsgZhNzDdbBXhj9NrTRnj+u4A5hpFq+RGWffVmuxm8nkvE6zw0bl0bM8LKToY+Vbgz8zrHss4pFa0bW7phYOfS7har6ZVg2uZ+4OfkW3rWY2q9dGMYxvXtbPzVj8ybkKhQUT/SyOFe4hjfJypx4DD3i9Ubn7KRXdYJbISkslae9sOTTlnKxTH+fN27NvOtZeXGZ/B8vCUruTagAFVVroGooTO7MamJJHAkGWi2fvzL8JumCKKLuNpExG1hRWPGN8oJNQDIr/DcqLo1XZgyD3+isi0rRO6gHk/DZIycBVTPT04LQzxhA6JgrmoeGL2bAdlxuEyyA9fw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IxfDTGCpGVLB+ehDE33Cz410rqNpJnpddBaXX0PHess=;
- b=dlK0EZsrgqRLO2uI5tNmTXrEWdFKaRpLgcTAwQII0eJ3wwMjNZCA9IoMtmbo5wDIewIZtzLLy6buS4+a5pV5m47TvG5HLBpIveOzgfyvBemv9qwCNYWlbAPUGnSegh9UR4tBOAz8i40iVG4Ygdu7goYkOSPDKjqAQn1zFF01oyBlAG9qGJeYjm3j5c0/HlhPfS8w2FMLHk+TX3CknGl4IC9i2jLzqcu3FbPbjRxf+OUbR231jO670brKgm8DnM9WibYee2DOmB3lfoTPwUwFTHuFJ+yhkJkaknQpYUatmk3GHsaGX0KUZ77NYqlXMdOEImnd0O7j0TJrUcfkywBybA==
-Received: from AM0P195MB0257.EURP195.PROD.OUTLOOK.COM (2603:10a6:208:b7::25)
- by PAVP195MB2260.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:2f4::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.24; Wed, 28 May
- 2025 18:30:48 +0000
-Received: from AM0P195MB0257.EURP195.PROD.OUTLOOK.COM
- ([fe80::9b92:3cc:22b3:4c59]) by AM0P195MB0257.EURP195.PROD.OUTLOOK.COM
- ([fe80::9b92:3cc:22b3:4c59%3]) with mapi id 15.20.8769.022; Wed, 28 May 2025
- 18:30:48 +0000
-From: Christoph Stoidner <C.Stoidner@phytec.de>
-To: Stefan Wahren <wahrenst@gmx.net>, Andrew Lunn <andrew@lunn.ch>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "upstream@lists.phytec.de"
-	<upstream@lists.phytec.de>
-Subject: Re: [PATCH v3] arm64: dts: freescale: imx93-phycore-som: Delay the
- phy reset by a gpio
-Thread-Topic: [PATCH v3] arm64: dts: freescale: imx93-phycore-som: Delay the
- phy reset by a gpio
-Thread-Index: AQHbzJ5IkKiCUrqPH06p42f/+549BbPiDcKAgAJsSwCAAChcgIAABDUAgAALOQCAACRcAIADjdKA
-Date: Wed, 28 May 2025 18:30:48 +0000
-Message-ID: <517be266ebc3b55da53372a76a139245f8945cd8.camel@phytec.de>
-References: <20250524112315.695376-1-c.stoidner@phytec.de>
-	 <047c963e-f24d-4995-aea0-4a8cf8e343f5@lunn.ch>
-	 <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
-	 <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
-	 <7f6d7199-0a20-4370-a8b0-1d05326af052@gmx.net>
-	 <bf0eb48fc72f4b0abbf62077c2f1fe4438579746.camel@phytec.de>
-	 <967484d9-4165-4b75-bbb7-a203c36e8beb@gmx.net>
-In-Reply-To: <967484d9-4165-4b75-bbb7-a203c36e8beb@gmx.net>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0P195MB0257:EE_|PAVP195MB2260:EE_
-x-ms-office365-filtering-correlation-id: 067db444-f2a9-4a11-e848-08dd9e15c497
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?RldyZkpXMFhIWlYrUDhOQmNhWElJUGozTlZRRXlpVGcycXNJNmkrNVNIUCs3?=
- =?utf-8?B?WWF4ay82ODQrcFhxeUhXbVp5Qm15TEZ0R2Rydis1YVlFRXIrY0w1c0FTWDdI?=
- =?utf-8?B?a1plbG1XbXoxcjdTd0QyVzZDNHY5cU5sTlFvRW1Qa0U4bS9RYzlnRnZhMWhj?=
- =?utf-8?B?RnVuelg0a29DQXRxcFFwM0xESTVwS3M3ZXprM2gxb3pPOHFicWVmNlhhZXdL?=
- =?utf-8?B?Wk90N1k3bHlNaStheGxjSjUwOXBtTWZSMVJhNWlFZWpScHM5QUJXaGd0aVZw?=
- =?utf-8?B?VWpER1BybU05RC80eWtuR3IvYVF5a2dmMThnMk4wUm1ldnArWmQ4Tm9RdDRS?=
- =?utf-8?B?VkVPYlFpbHRaZG5TcHZIcDRoM3ZRUjFSNlFpeVhYNXZUV25uU3o0VWVxRFEr?=
- =?utf-8?B?Qm9qaWlMNHVMMUxnWXROUC9kS0lqa0lnczlheHhYYU5oYWYyUzdlMXA1Y3ZQ?=
- =?utf-8?B?MG10MXdzTGxPSkFNLzVTMkd3QTJoRUxuYklpdzVDeHhEVVdzV1BiWmIzcFNH?=
- =?utf-8?B?SU1NczE4TWdPKzU1QzB0T2VOOXNtb09NZU1mZk83OTNBTmphUEhFWWUxS2dw?=
- =?utf-8?B?cGtBUjRUWEVhVHc2MHZaQ3ViU2VJK2hCMEdsN1ZFUXFYN3Y2MlZ5anBQZUp0?=
- =?utf-8?B?bzFoOWRnc2FNaTZVUWxFWGNZcTIzVUpBSzFhVXRIUCtnWmxuY1Y3VWhLendN?=
- =?utf-8?B?bExUbjRvNmM1MmkwRDUxK1QwSjVJL0VLQmprR2xOS1BhRU04ODZMZFRFU2Jl?=
- =?utf-8?B?SURCb0tCYmVtQXFCWVY2M3JGd0lrQTZ0Z1ByUVRKeGl2a2w0S1lWdU1EbTB2?=
- =?utf-8?B?V1RLMVN3SWluUXdaOWU2di9FalRxd3ltVi96NEhuWDlBeW1MNUtFZ3NLbVZp?=
- =?utf-8?B?aU5yMHNtYTZ2b1BnZWsyRVRJbGp6RmJRZ0pxc1ZlbzR3MUs3MUFucHBxREpP?=
- =?utf-8?B?VFpTZ0NiRCsvdjFUbG4yTVlFdDZVbmhTMHdSSzBUQ0tlNXI4MFR0dGZEdkF5?=
- =?utf-8?B?R0x2Q2ZVYmY3WWFlbXBlTDkvcVBMTnFSRURCUHU0Q2FZbkFMOGlFMWZadldv?=
- =?utf-8?B?UTJlVHFDbWFSTzBpNGplV3M5bUdwQjZjVUU4ZmxHaWdKeDNZT2dzRVI0VzNB?=
- =?utf-8?B?cU5YWms3UlJWOEZxQ3k5ZmhJWEpnNkcwdTBwcXhiOTc0WWVIczEvcmkzTmYv?=
- =?utf-8?B?VFpLSmNEMC9sKzhNbWJ4MjJ0RlhPclhBNEdQalBCVFcwTTlWUTVXd0lnaERj?=
- =?utf-8?B?UWlKWm42RURaMURsNDJQYm5VeW1udlc0OHFWYU4wTlQ3d1poaUUwSUJHV09j?=
- =?utf-8?B?TldOOVZzaCtPYzIxN2xlZFRaNllUR1c4R2FsK2J1OTlBOU9MZVBLQmxIQ203?=
- =?utf-8?B?c2FFMDVFaHlGR0pDNHcwZzdKeVlJTTJkNFdnUUpQTlRhM29vZk9tTXFOdk55?=
- =?utf-8?B?WWhKTERhM3UyU1k4T1pGblBVd29wMlZSRTNySk9kRE50dzBHMFdIUEJtd2hV?=
- =?utf-8?B?WG9aZ3ZjeXhiRzF3MExtSGpaTjdDN1FhQmsrMFdqN09jMFJFZHdTV1VZYkZS?=
- =?utf-8?B?bVhiK3RBVHJNR0hicVd5UzBpdVg3SlgwN3RzN0p2WDc0WHVUN1RhMENGc0Jk?=
- =?utf-8?B?NWVBMFZISzJmK2hVMXFpRkIzMjJBWTlVLzZETGlhRU1vVGdxVVdNZEhSNjgv?=
- =?utf-8?B?YWlkejBTcnBLT3dJSjB6SENIaG9scDAyRVR3R3M3bUViNFo1ZVoxUUpZekFF?=
- =?utf-8?B?bTUwODgvQXg4dGlTdFZaTCtFamRiUDVzMXlTUUhFNzduYjY5M2ZFeDM1R3hi?=
- =?utf-8?B?aDZOckU5TkROQ2Q4aXA3Tk44bnNHRDVUaCsxbXZEWG95SzBOK0hmSWlBMHBh?=
- =?utf-8?B?MEdHdHFIVmhqTDZDci9zQkp5TXdYZ1VnV3lFSTRxQXVaSWdQNVhaVmFtbWV2?=
- =?utf-8?B?UnBDTnlyWmhydFpFeXJFRTZrakZMZ0Q5bG0vaWtKeEJZWjVBcHB1bEoyYlNJ?=
- =?utf-8?Q?7IOfEbhcO9BYxdydMvcJ4DWs1y810o=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0P195MB0257.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TE5mc0hDL0kxNkNnc0RabUNaT0NJSGFCMWpUeTBneVpXNktIWEdCdGpwc3N0?=
- =?utf-8?B?WU9ZRzBmQ29mTkRWbW5POFlFWU9rQXZZdEVUZmUzN3BodmFTbVhSdmFqN0g3?=
- =?utf-8?B?WG5NSk1pSk5ZQitTQUZoMEJlc1FVTW1tQW85bnl2QTFJV1l5eHhqbzhRbjdh?=
- =?utf-8?B?YUxyRE5XTzJ5YzArQ05DTjRYRlVjUStaZWFMWXVZV01aNy9DQlpucXhIb25l?=
- =?utf-8?B?cXdIVTZuTnlZR1QzZ2pNTU1yVEIzNWZycFFWaUoyRFVHT3o2SDdvQmNwbzZ3?=
- =?utf-8?B?VEh2K082SUNZbTI4QWloRXJWaTNSSGJqSmxFZytabmVlLzVnZXpxVTdzdEdp?=
- =?utf-8?B?VVp5Q0ZVMS8wU1JJSnUwU0hvOWcrem5wc3J1SUlVZVBjdGw2Z3ZiZUJGbStt?=
- =?utf-8?B?TkN6dVJuUW9RTEl5TEFBc0plTGQzeDFBTFBmSmlmMDlHMnllbDJZWDdlQzRa?=
- =?utf-8?B?Rk1MY2xnbjhrZG9Tb1A4ajFaVjVHeU9Bei9jdjFseHFaVzRvWHNmUGpOU2h2?=
- =?utf-8?B?L0lVUFJxY0ZlbGt4QzgwNEZGVmRzRjlHaHNLWTE0M1BSQnhvYXhJc2MvdXM0?=
- =?utf-8?B?Z0FZL0xBbjZpejBnSVQ4bU11TjQ1NHVXRXFmWkt6QjRNR3ZQQnE2cGNKU0FT?=
- =?utf-8?B?b2MxWU92eWdpUWhkRjVDSFNvOWVVRUtVMzlIZjJ1QnZWdk5tTXV4OXVsdm1Q?=
- =?utf-8?B?OTE2WVloZ3BHRlRTRjJDTHdqUkhuMjhrcjVEMTFPbDB4em9vV0dpYmZLSyt5?=
- =?utf-8?B?VDFZTU1TMWlaYzhEYnIrMGh3Zmx0NmN3TmpjYUJtK2c2dHlTVEpTRCsyaUhi?=
- =?utf-8?B?eHc5d25BZ0ZESUZiWXdkcDMwV3pOQ1lkdEZpSUIzakpPc04ydmI5TTZ6YWM2?=
- =?utf-8?B?a0p4Slk4eGlzd0NpZ0F6NmNZVElWeitpcXQwT25QSlhlTEVEZmRmZWZ3YTd3?=
- =?utf-8?B?MDJUeGQ2U1hCVnZNdlFjQ054ckNKT1ZZSWJqWVh5cERrQkJKZ1AwOE1DTWhw?=
- =?utf-8?B?U3hkOWZXa1pTelY5Y0s3TThaWkNjU3d1M2VyV0pRYVdqTlNwdFZIM0pNR01a?=
- =?utf-8?B?cDdEZ3VvTnVCL0poNlVtOG1tcDJKTGVLa2YzT1MweVlvSEZhaVV2UlhtSmpP?=
- =?utf-8?B?dHVhK0N3NlEzaGxqWitjbnVQUkpkUUFPc1lLWlBFa1JZUzdHMHcwaDNyMElN?=
- =?utf-8?B?NlZibmJWUmZLdnZRcUpVaC9ONi9LeFhaakZkR3liRTFUMDVMaXZMYUFFamFZ?=
- =?utf-8?B?OWJlbXU3U1hGTFZoc3dtSFcyRVAwN1lrRTdCNEl1V0JrQUJUdkM4QWtieDlw?=
- =?utf-8?B?VTJRZUxOV3pROXVhVURPUENmWEg2Q0ZGZUg1UElrdkIyU2VNdXIwUVU2S3Nt?=
- =?utf-8?B?ZFFEdDdwdmEwU3cwczQ2cjNEWnVtczRLWkc1K0lnUWo0L1l2b1RsYmQ4TW1Z?=
- =?utf-8?B?T1k3dXNocUxGRUs2WDJ5S1Urd3owczhvQWlWbDJNakpWUnExa2xrMnNSaURM?=
- =?utf-8?B?empHQnVUMVpYMGR4cU9pcHR3NGlMRDRCZ2tUZllwaUg2MXJNbFptc3NBMm1P?=
- =?utf-8?B?bjVOS0ZCbUg1Vk5wc08yV3RxcVZ0V002TjUyTEt0UFAvOTJIT3M2R0VBcFBO?=
- =?utf-8?B?RkE0WDRJQ2JIY3NYYWc2STV2amVWNHN0RzBxN1B5NXFVQ2RGdHdCbHZDZW9z?=
- =?utf-8?B?UTZQTHB3UHlUZnFzdkpkeUJ5VXIrSkFrSFV2TTZuUWw1ckxINENreEZBTWFj?=
- =?utf-8?B?ZWtlV0NFbkdaU1p4WHB2N3VDTk12Z0h2ek9PYXExUVZEK1pSWE4xQTlySEhv?=
- =?utf-8?B?bmFzVDdDT3duQktUMjVNdnVQcklaTi9hVlZLb2Nzd3Nha2hsVENRS3VEMnhU?=
- =?utf-8?B?MXJZaUw0c3Nxc3ZOeWdoM24wVlNXU2dCc2FwdGpqMFprUE5TaEdXbU9acTFa?=
- =?utf-8?B?RTBOcS9uWGFIQmtoREhNbndDZ1MrNTM3ZEg4ZTdJb2dHRlJvRzNSS0pZNzJV?=
- =?utf-8?B?VlNtZ2YwekhWMFpQK2lQWkJEc090aUg0ZFhnNktON21pWDEyMk5FenZNN2ZV?=
- =?utf-8?B?LytDN2pxZzI3c2o5SlgrS3dvREtaU0xoSzVKMDE3QUpjVnpUN2VEMXhDbzlp?=
- =?utf-8?Q?s797221e9M+owyKABrFxGQ5bd?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <95ADB2AD62867D4E8FE6E26697DB761E@EURP195.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	Wed, 28 May 2025 18:35:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=oEfLgoqZZlV3CauhRyPut9aS8+kFBL6RAy2mXOuaG1k=; b=Wosndm3QpTZVvNqtddTO/EUoXb
+	G2aSMfofpfTs0Lj9HH36ZoGLLfL29XW2NdZptgFMhsLa4HiLJmIRkdeqv7/651xgC0r0P/ve6nFjK
+	QFQxC/4Ql5Bi0PD/gU1UHyqdJMizemvlygAL97MKyKy/l31HXEXeKcuTqXtchmTqSG3u7BbvuNwUl
+	wR4TI0dfDpSr3+Keyxz27/QnzYt/qxEsxU02bJbw0JG54MYdZwnf6PKG2ee1/3m98EsDkdlnl5nGy
+	wu5BiJNG0PHlg6yVdKWTnIIuO7RJ8l0+gdQCwwtIoYJo7bvIaE1s1Cqc1C9Mg9iX9fpnKBjlFABZS
+	jcD17Cog==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50888)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uKLc2-0000ci-1Y;
+	Wed, 28 May 2025 19:34:50 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uKLbx-0002d3-0P;
+	Wed, 28 May 2025 19:34:45 +0100
+Date: Wed, 28 May 2025 19:34:44 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: wens@csie.org, Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
+ PHY device
+Message-ID: <aDdXRPD2NpiZMsfZ@shell.armlinux.org.uk>
+References: <CADvTj4rGdb_kHV_gjKTJNkzYEPMzqLcHY_1xw7wy5r-ryqDfNQ@mail.gmail.com>
+ <fe8fb314-de99-45c2-b71e-5cedffe590b0@lunn.ch>
+ <CADvTj4qRmjUQJnhamkWNpHGNAtvFyOJnbaQ5RZ6NYYqSNhxshA@mail.gmail.com>
+ <014d8d63-bfb1-4911-9ea6-6f4cdabc46e5@lunn.ch>
+ <CADvTj4oVj-38ohw7Na9rkXLTGEEFkLv=4S40GPvHM5eZnN7KyA@mail.gmail.com>
+ <aDbA5l5iXNntTN6n@shell.armlinux.org.uk>
+ <CADvTj4qP_enKCG-xpNG44ddMOJj42c+yiuMjV_N9LPJPMJqyOg@mail.gmail.com>
+ <f915a0ca-35c9-4a95-8274-8215a9a3e8f5@lunn.ch>
+ <CAGb2v66PEA4OJxs2rHrYFAxx8bw4zab7TUXQr+DM-+ERBO-UyQ@mail.gmail.com>
+ <CADvTj4qyRRCSnvvYHLvTq73P0YOjqZ=Z7kyjPMm206ezMePTpQ@mail.gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0P195MB0257.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 067db444-f2a9-4a11-e848-08dd9e15c497
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 May 2025 18:30:48.6062
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: oktuFis8N++q/j1GhqIrfDFulp77PNVaRZWn3pZs9j32Zh+ty6HmxFhYjVEDkRfWpaAIdFdb6ewzKkd1RifQpQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVP195MB2260
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADvTj4qyRRCSnvvYHLvTq73P0YOjqZ=Z7kyjPMm206ezMePTpQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_113058_752698_7C1827A3 
-X-CRM114-Status: GOOD (  35.66  )
+X-CRM114-CacheID: sfid-20250528_113509_645380_7C74FE32 
+X-CRM114-Status: GOOD (  38.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,66 +98,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgpPbiBNbywgMjAyNS0wNS0yNiBhdCAxNDoxNCArMDIwMCwgU3RlZmFuIFdhaHJlbiB3cm90ZToK
-PiBBbSAyNi4wNS4yNSB1bSAxMjowNCBzY2hyaWViIENocmlzdG9waCBTdG9pZG5lcjoKPiA+IE9u
-IE1vLCAyMDI1LTA1LTI2IGF0IDExOjI0ICswMjAwLCBTdGVmYW4gV2FocmVuIHdyb3RlOgo+ID4g
-PiBBbSAyNi4wNS4yNSB1bSAxMTowOSBzY2hyaWViIENocmlzdG9waCBTdG9pZG5lcjoKPiA+ID4g
-PiBIaSBTdGVmYW4sCj4gPiA+ID4gCj4gPiA+ID4gT24gTW8sIDIwMjUtMDUtMjYgYXQgMDg6NDQg
-KzAyMDAsIFN0ZWZhbiBXYWhyZW4gd3JvdGU6Cj4gPiA+ID4gPiBIaSBBbmRyZXcsCj4gPiA+ID4g
-PiBoaSBDaHJpc3RvcGgKPiA+ID4gPiA+IAo+ID4gPiA+ID4gQW0gMjQuMDUuMjUgdW0gMTk6NDQg
-c2NocmllYiBBbmRyZXcgTHVubjoKPiA+ID4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02
-NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OTMtcGh5Y29yZS0KPiA+ID4gPiA+ID4gPiBzb20uZHRz
-aQo+ID4gPiA+ID4gPiA+IGIvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OTMtcGh5
-Y29yZS1zb20uZHRzaQo+ID4gPiA+ID4gPiA+IGluZGV4IDg4YzI2NTdiNTBlNi4uYjQ4MTA5N2Yw
-OGE0IDEwMDY0NAo+ID4gPiA+ID4gPiA+IC0tLSBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNj
-YWxlL2lteDkzLXBoeWNvcmUtCj4gPiA+ID4gPiA+ID4gc29tLmR0c2kKPiA+ID4gPiA+ID4gPiAr
-KysgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg5My1waHljb3JlLQo+ID4gPiA+
-ID4gPiA+IHNvbS5kdHNpCj4gPiA+ID4gPiA+ID4gQEAgLTY4LDYgKzY4LDggQEAgbWRpbzogbWRp
-byB7Cj4gPiA+ID4gPiA+ID4gwqDCoMKgwqAgZXRocGh5MTogZXRoZXJuZXQtcGh5QDEgewo+ID4g
-PiA+ID4gPiA+IMKgwqDCoMKgIGNvbXBhdGlibGUgPSAiZXRoZXJuZXQtcGh5LWllZWU4MDIuMy1j
-MjIiOwo+ID4gPiA+ID4gPiA+IMKgwqDCoMKgIHJlZyA9IDwxPjsKPiA+ID4gPiA+ID4gPiArIHJl
-c2V0LWdwaW9zID0gPCZncGlvNCAyMyBHUElPX0FDVElWRV9ISUdIPjsKPiA+ID4gPiA+ID4gPiAr
-IHJlc2V0LWFzc2VydC11cyA9IDwzMD47Cj4gPiA+ID4gPiA+IElzIHRoZXJlIGFueXRoaW5nIGlu
-IHRoZSBkYXRhc2hlZXQgYWJvdXQgbmVlZGluZyBhIGRlbGF5Cj4gPiA+ID4gPiA+IGFmdGVyCj4g
-PiA+ID4gPiA+IHRoZQo+ID4gPiA+ID4gPiByZXNldD8gVGhlcmUgaXMgYSBEVCBwcm9wZXJ0eSBm
-b3IgdGhpczoKPiA+ID4gPiA+ID4gCj4gPiA+ID4gPiA+IMKgwqDCoMKgIHJlc2V0LWRlYXNzZXJ0
-LXVzOgo+ID4gPiA+ID4gPiDCoMKgwqDCoMKgwqAgZGVzY3JpcHRpb246Cj4gPiA+ID4gPiA+IMKg
-wqDCoMKgwqDCoMKgwqAgRGVsYXkgYWZ0ZXIgdGhlIHJlc2V0IHdhcyBkZWFzc2VydGVkIGluCj4g
-PiA+ID4gPiA+IG1pY3Jvc2Vjb25kcy4KPiA+ID4gPiA+ID4gSWYKPiA+ID4gPiA+ID4gwqDCoMKg
-wqDCoMKgwqDCoCB0aGlzIHByb3BlcnR5IGlzIG1pc3NpbmcgdGhlIGRlbGF5IHdpbGwgYmUKPiA+
-ID4gPiA+ID4gc2tpcHBlZC4KPiA+ID4gPiA+IGlzIGl0IHRoZSB0aW1lIHVudGlsIHRoZSBQSFkg
-ZmluaXNoZWQgaXRzIHBvc3QgcmVzZXQKPiA+ID4gPiA+IHN0YWJpbGl6YXRpb24KPiA+ID4gPiA+
-IChkYXRhc2hlZXQgdG8gY2FsbCBpdCBUMiAicmVzZXQgdG8gU01JIHJlYWR5Iik/Cj4gPiA+ID4g
-VGhlIFQyICgiUG9zdCByZXNldCBzdGFiaWxpemF0aW9uIHRpbWUiKSBpbiB0aGUgZGF0YXNoZWV0
-IGlzCj4gPiA+ID4gdGhlCj4gPiA+ID4gdGltZQo+ID4gPiA+ICJwcmlvciB0byBNREMgcHJlYW1i
-bGUgZm9yIHJlZ2lzdGVyIGFjY2VzcyIsIHRoYXQgaXMgZGVmaW5lZAo+ID4gPiA+IHdpdGgKPiA+
-ID4gPiAybXMuCj4gPiA+ID4gSSBkaWQgbm90IHVzZSByZXNldC1kZWFzc2VydC11cyBmb3IgaXQs
-IGJlY2F1c2UgdGhlIGZpcnN0Cj4gPiA+ID4gcmVnaXN0ZXIKPiA+ID4gPiBhY2Nlc3MgZG9lcyBh
-bnl3YXkgb2NjdXIgbXVjaCBsYXRlciAoSSBtZWFzdXJlZCA0MDAwbXMpLgo+IEp1c3QgdG8gYmUg
-c3VyZSwgZG8geW91IHJlYWxseSBtZWFuIDQwMDAgbWlsbGlzZWNvbmRzID8KPiAKWWVzLCB0aGF0
-J3Mgd2hhdCBJIG1lYXN1cmVkLiBGb3IgYW5hbHlzaXMsIEkgYWRkZWQgc29tZSBkZWJ1Z8Kgb3V0
-cHV0cwp0bwp0aGUgcGh5IHJlc2V0IGFuZCB0aGUgMXN0IHBoeSByZWdpc3RlciBhY2Nlc3MuIEFu
-ZCBhcyBJIGNhbiBzZWUsIHRoZQpwaHkgcmVnaXN0ZXIgYWNjZXNzwqBoYXBwZW5zIHdoZW7CoHVz
-ZXJsYW5kIHNldHMgdXAgdGhlIG5ldHdvcms6CgoKICAgICAgIFsgICAxLjcyMzI5OF0gREVCLVBI
-WTogbWRpbyByZXNldCBleGV1Y3RlZAogICAgICAgLi4uCiAgICAgICAuLi4KICAgICAgIC4uLgog
-ICAgICAgWyAgT0sgIF0gU3RhcnRlZCBOZXR3b3JrIENvbmZpZ3VyYXRpb24uCiAgICAgICBbICAg
-NS43OTI3MDVdIERFQi1QSFk6IHJlZ2lzdGVyIGFjY2VzcwoKClRoZSBjYWxjdWxhdGVkIGRlbHRh
-IG9mIDQsMDY5NDA3IHNlY29uZHMgZml0cyB0byB3aGF0IEkgbWVhc3VyZWQgd2l0aAp0aGUgb3Nj
-aWxsb3Njb3BlICg0MDQwbXMpLgoKUmVnYXJkcywKQ2hyaXN0b3BoCgoKPiA+ID4gPiAKPiA+ID4g
-PiBBbmQgd2UgaGF2ZSB0aGUgc2FtZSBmb3IgVDQsIHRoZSAiUG9zdCBwb3dlci11cCBzdGFiaWxp
-emF0aW9uCj4gPiA+ID4gdGltZSIuCj4gPiA+ID4gSXQgaXMgZGVmaW5lZCB3aXRoIGEgdGltZSBv
-ZiA1MG1zIGFzICJwcmlvciB0byBNREMgcHJlYW1ibGUgZm9yCj4gPiA+ID4gcmVnaXN0ZXIgYWNj
-ZXNzIi4gQnV0IGFsc28gaGVyZSB3ZSBqdXN0IGtub3csIHRoZSByZWdpc3Rlcgo+ID4gPiA+IGFj
-Y2Vzcwo+ID4gPiA+IGhhcHBlbnMgbXVjaMKgbGF0ZXIgLSBhbmQgdHJlYXRlZCBpdCBhcyBlbm91
-Z2guCj4gPiA+ID4gCj4gPiA+ID4gRm9ybWFsbHksIHRoaXMgbWF5IGJlIHZhbGlkIHRvIHNwZWNp
-ZnkgdGhlIDJtcyBhcyByZXNldC0KPiA+ID4gPiBkZWFzc2VydC0KPiA+ID4gPiB1cy4KPiA+ID4g
-PiBCdXQgc2luY2UgdGhlIGZpcnN0IHJlZ2lzdGVyIGFjY2VzcyBpcyBzbyBtdWNoIGxhdGVyLCBJ
-IHRob3VnaHQKPiA+ID4gPiB3ZQo+ID4gPiA+IGNhbgo+ID4gPiA+IHNhdmUgdGhvc2UgMm1zLgo+
-ID4gPiA+IAo+ID4gPiA+IEFyZSB5b3UgZmluZSB3aXRoIHRoYXQ/Cj4gPiA+IEkgZG9uJ3QgaW5z
-aXN0IG9uIGFuIGFkZGl0aW9uYWwgInJlc2V0LWRlYXNzZXJ0LXVzIi4gVGhlIHF1ZXN0aW9uCj4g
-PiA+IHdhcwo+ID4gPiBtb3JlIGFib3V0IHVuZGVyc3RhbmRpbmcuCj4gPiBHcmVhdCwgdGhhbmtz
-IGZvciB0aHIgZmVlZGJhY2suCj4gPiAKPiA+ID4gPiBSZWdhcmRzLAo+ID4gPiA+IENocmlzdG9w
-aAo+ID4gPiA+IAo+ID4gPiA+IAo+ID4gPiA+ID4gPiBBbnl3YXk6Cj4gPiA+ID4gPiA+IAo+ID4g
-PiA+ID4gPiBSZXZpZXdlZC1ieTogQW5kcmV3IEx1bm4gPGFuZHJld0BsdW5uLmNoPgo+ID4gPiA+
-ID4gPiAKPiA+ID4gPiA+ID4gwqDCoMKgwqDCoMKgIEFuZHJldwo+ID4gPiA+ID4gPiAKPiAK
+On Wed, May 28, 2025 at 11:25:20AM -0600, James Hilliard wrote:
+> On Wed, May 28, 2025 at 8:12 AM Chen-Yu Tsai <wens@csie.org> wrote:
+> >
+> > On Wed, May 28, 2025 at 9:25 PM Andrew Lunn <andrew@lunn.ch> wrote:
+> > >
+> > > On Wed, May 28, 2025 at 05:57:38AM -0600, James Hilliard wrote:
+> > > > On Wed, May 28, 2025 at 1:53 AM Russell King (Oracle)
+> > > > <linux@armlinux.org.uk> wrote:
+> > > > >
+> > > > > On Tue, May 27, 2025 at 02:37:03PM -0600, James Hilliard wrote:
+> > > > > > On Tue, May 27, 2025 at 2:30 PM Andrew Lunn <andrew@lunn.ch> wrote:
+> > > > > > >
+> > > > > > > > Sure, that may make sense to do as well, but I still don't see
+> > > > > > > > how that impacts the need to runtime select the PHY which
+> > > > > > > > is configured for the correct MFD.
+> > > > > > >
+> > > > > > > If you know what variant you have, you only include the one PHY you
+> > > > > > > actually have, and phy-handle points to it, just as normal. No runtime
+> > > > > > > selection.
+> > > > > >
+> > > > > > Oh, so here's the issue, we have both PHY variants, older hardware
+> > > > > > generally has AC200 PHY's while newer ships AC300 PHY's, but
+> > > > > > when I surveyed our deployed hardware using these boards many
+> > > > > > systems of similar age would randomly mix AC200 and AC300 PHY's.
+> > > > > >
+> > > > > > It appears there was a fairly long transition period where both variants
+> > > > > > were being shipped.
+> > > > >
+> > > > > Given that DT is supposed to describe the hardware that is being run on,
+> > > > > it should _describe_ _the_ _hardware_ that the kernel is being run on.
+> > > > >
+> > > > > That means not enumerating all possibilities in DT and then having magic
+> > > > > in the kernel to select the right variant. That means having a correct
+> > > > > description in DT for the kernel to use.
+> > > >
+> > > > The approach I'm using is IMO quite similar to say other hardware
+> > > > variant runtime detection DT features like this:
+> > > > https://github.com/torvalds/linux/commit/157ce8f381efe264933e9366db828d845bade3a1
+> > >
+> > > That is for things link a HAT on a RPi. It is something which is easy
+> > > to replace, and is expected to be replaced.
+> >
+> > Actually it's for second sourced components that are modules _within_
+> > the device (a tablet or a laptop) that get swapped in at the factory.
+> > Definitely not something easy to replace and not expected to be replaced
+> > by the end user.
+> 
+> Yeah, to me it seems like the PHY situation is similar, it's not replaceable
+> due to being copackaged, it seems the vendor just switched over to a
+> second source for the PHY partway through the production run without
+> distinguishing different SoC variants with new model numbers.
+> 
+> Keep in mind stmmac itself implements mdio PHY scanning already,
+> which is a form of runtime PHY autodetection, so I don't really see
+> how doing nvmem/efuse based PHY autodetection is all that different
+> from that as both are forms of PHY runtime autodetection.
+
+What is different is using "phys" and "phy-names" which historically
+has never been used for ethernet PHYs. These have been used for serdes
+PHYs (e.g. multi-protocol PHYs that support PCIe, SATA, and ethernet
+protocols but do not provide ethernet PHY capability).
+
+Historically, "phys" and "phy-names" have been the domain of
+drivers/phy and not drivers/net/phy. drivers/net/phy PHYs have
+been described using "phy-handle".
+
+So, you're deviating from the common usage pattern, and I'm not sure
+whether that has been made clear to the DT maintainers that that is
+what is going on in this patch series.
+
+As for the PHY scanning is a driver implementation issue; it doesn't
+have any effect on device tree, it doesn't "abuse" DT properties to
+do so. The PHY scanning is likely historical, probably from times
+where the stmmac platform data was provided by board files (thus
+having the first detected PHY made things simpler.) Therefore, I
+don't think using it as a justification for more "autodetection"
+stands up.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
