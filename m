@@ -4,159 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7241CC3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F76AC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQP8e1hOsjMVduH4mUkZVLt+/S7HcZ82dt1IhcMZTQ8=; b=Cyq0FwZ06Pp2Wd+w+qxfYMXYcO
-	hKYcdKb5gtC0y1ACQN7JtUcuTMO3TAgI7w5pRs0yHA4vvz3pmLJ1lAg85Vbeo3w2Ori98ibWtbS1R
-	ShJ0nT+2DFeD93TWAvBy1Esla+pFAP6AZKdtKMSZH3v7pRURiUC92KQY92G6zpP6rCLXjAq3dvgfz
-	ppFkN5/fkn2Q+OLyjdvUttCuR3tDviWRxjy3kk2ESlgGiG6zBGFmCYOAHVQCOUNmz8ly/MzTq/avL
-	JrsSqFZ+GMioOAdP+J937evvPbXm1tggwEey+MnAbYYRh7LKvwSEbo6/ohK1laN0QBypjaVAjxGui
-	YXUrvT8w==;
+	bh=0ebk4FuXKBEehQnwIzWbtceY5Eq5Hvk7/WPMviultPQ=; b=imBDdB+AFGxVv/dGIUVPV6d/SW
+	qTM18RcR/NMCR+/2W7hCbyzNUpitVLn7UMnB0ByJoYD+B6ssO5SS1xemeruHXp5QAuhJ/vdA/U3t3
+	m9DELOR7yND+1vCd/8r7HSsBUSMA+EYMn9ZUrDIobD1SByqjceWChSmWxf7l2FWzGSMXsqaWz4vQh
+	CU8Hq9Csp0RA/5z0OWoruFiEglnbYknpBODwOGu7IAMKVsaSO+2W3G1yRek1KBQ8yyuvKmYJAThlU
+	wC9qm9qeEA379jgwgnZUZyNm9PPPYTJfogK50uR+QZJ2f61t2P84P1VdxoiWJY0UeAYlJM+MdB/Rp
+	CyPIpo7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJdx-0000000DfnM-0fE8;
-	Wed, 28 May 2025 16:28:41 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uKJe4-0000000Dg0p-1IGa;
+	Wed, 28 May 2025 16:28:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJD4-0000000Dbqx-0W2N;
-	Wed, 28 May 2025 16:00:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tyony/jd75CatrPgaRHPPSt18CyThN3/5l/zS6bGKSd0Kg9S/ToqDDa01nFfx4MrE10o+CNbzicFKWeG87cd7AFVx7AmnWlug8wIohFPgGmTckr8dPMFXnjt9HhvS2l7xOVssp0RSpBzBczL2rmQbllQh8e/Kdnuqb9bqM8/viA0Z8yOCRFdtovnPjjFT/nD4+oqRBP2UKKQLH8OO8D6yctKAVaPClTdCEijRleJQx/a6obGkipUho/bWSjNeDFGhwlVQxnE0DDSKOmHwFFLFHXwLPiL6ZnNPy6yPZwoB85R0+cJLizIn1bbk1suKS6N6D8w/5WYhZG+MDijTUyXzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cQP8e1hOsjMVduH4mUkZVLt+/S7HcZ82dt1IhcMZTQ8=;
- b=JY+QQuNaP2Yw0kRqlybVN1DOdnE0P6K5V6eeIm++zHiLmkEfcVO4SpMpLzcI5aA1NDdzpoNJl/5yLJTeYypA5UVcul0Biplq7MAB7XojdBZnNMsGD6ESBkmd3/n1ZM7ByndZxIBpe9hiyxWWPG/b4oaGrE1S8tS5lNfl2ehMiKkTQNVLk68NuuuT6sidaourM2SJ5Rml96sFdcxxQcwWJrgBbF9rcCvG1IFlsbTt2762HT5NRanaea1Baoy379wGgE1wHjMPsHxUllT19TbhDGPhOuR3R2WbP9jmr2627j44mXKMMywYyCFNP4/Z9Yf7y4/wBhDR9rufzMYlbQ4xlg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cQP8e1hOsjMVduH4mUkZVLt+/S7HcZ82dt1IhcMZTQ8=;
- b=SaHUBoZ1Spm3bjsHhsV18/ArsLdqQCCmKv4Og4GrEiRWmioXVRPyZpUPwj6neIN/rGkE+A5vfTQePVwc/VcSKKat/OmVn9ahGVJnRnk//IfVJT0AS7Gpcu216UTo5oDG5mteZWGMEtNcSVAL06FflJ+MuLxicQxrjQUwQEwAcz4zXMYwUvNXch2hvdq2g+zMONwtNj03Bd9MFqzv7VkE2AVeVK8/3oYU2VLwBUjHxTwgzykrkatlXvBODG4ixfpg34nFghDFADgV80dLrPd1AUOuqNYGfO27n5N/rQRdOom8W4b84OMbCYP0F/uOal9eUfPQCuC++M82BAx2o+uBbg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB9128.eurprd04.prod.outlook.com (2603:10a6:20b:44b::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.25; Wed, 28 May
- 2025 16:00:50 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
- 16:00:50 +0000
-Date: Wed, 28 May 2025 12:00:40 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
-	linux-pm@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] thermal: Constify struct thermal_zone_device_ops
-Message-ID: <aDczKA71dqJscfUK@lizhi-Precision-Tower-5810>
-References: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
-X-ClientProxiedBy: BY5PR04CA0006.namprd04.prod.outlook.com
- (2603:10b6:a03:1d0::16) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1uKJLC-0000000DcXp-3UpT
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 May 2025 16:09:21 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54S9IOfU027519
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 16:09:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=0ebk4FuXKBEehQnwIzWbtceY
+	5Eq5Hvk7/WPMviultPQ=; b=jATkvto2sObAkLZQpbEMzNj94YJNvCCQ5aSCVBDh
+	XTcWBQ2FjoLXpexqv68kpBzYdad4VozIQcq3xnzDnh6oCeqRE8Cx37JVopqaGCqO
+	2e7+CzGS4hS53+T6kLKboYju65mFsKpiovPevzTkySJTgNlZNKvX8jHhUERZMyDU
+	wlvDVWhnuJ5fzjf03HI1Q4z3j9BX8326ajLkaGaemlnbNYlpSHbXua0nIeutZnFq
+	9/aamuWTykZFzcQRz+i0Cs067IbHC+doHuMPO34fglInHZ9aFUBEm5H7MQH+x7tB
+	DOe0PnSFAaOqW9g/u3KXCnXVfQ0qYOolg1U13yusYooq+A==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46vmgcy8k3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 16:09:17 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-311b6d25163so1600338a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 09:09:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748448556; x=1749053356;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0ebk4FuXKBEehQnwIzWbtceY5Eq5Hvk7/WPMviultPQ=;
+        b=hHXELbZ8iWLv9MAx9XYvNFemP6XXpks+FF2Q+q3/WuD3jodg46wa3cnzeVl8k4ZPXa
+         XUaO8hYYgF0PFSck0oYZa94suwhN5I4y8N93dTqVXMekH4vynJxLLIV8TRYR8h57WxuI
+         LYQGKFtY58UIGKpH/JTqFDQq+FSQ3MqQRtgRycB2EtWinSLIfhGxCOQPE8TnU7+UDm+Y
+         74BASjF+VXps82ypW4hzHH34OnOyyIHdKj6NnE7yfepJzB06MsTcvYDKiKZzdle3TsVY
+         Oh7acW5uq0gaS6e7up5G9fMJoOwzqVtjFut6/x0j4EuBbIZOXmU8UNo8VVYMyvfLYzAl
+         vZzw==
+X-Forwarded-Encrypted: i=1; AJvYcCXORlVHtUIC/YyFm9qM6W9yabDDLlAtaQavyIueZkIjlK4eoIdzeWyRxrMebsFncCmV02lRS1Y+AgHokUL43PeS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWZ5/xXPEBG4x3ePOr1Og37+kPClGvO1QNQa9aGMz+3aHZBs06
+	37uBJcZjYHAORW+b/OMd7lhonctpbAE5ASC5Ow4s7KTKyOY8KJkkYmbXDTfeC0GOGEDmuh0K13E
+	Xp4nZXehmbPUeTxovKIvkWfdrbsIrSsy2DgszHjuzzddW+Gr2BWaF/3nu3O5OAZvD1P1lx7k3mI
+	i8Y9Y6EvmLPo4N6s6q3aqJ0JlS9r2wWdnWp80Y7t1PgzRLxlAQLrBi
+X-Gm-Gg: ASbGncvdBCzIO7g6YYdQPuyuSKHuYav6Y0d7aTe8ETcgRTOzwEuznQlrIIUvlVtrAhe
+	vjYb+GfMLUlFvLEsyKStrLLfOHI64YUX94lGPxn9rQ+3nH0bR9RyuqlgO2/j86TBJ+OyWFIC5oa
+	hpo9fsS/iMqqI7hKOARwYiVw8=
+X-Received: by 2002:a17:90b:1fc8:b0:311:e8cc:4264 with SMTP id 98e67ed59e1d1-311e8cc4409mr5694240a91.12.1748448556274;
+        Wed, 28 May 2025 09:09:16 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEEyU9Na6w19P6vBrFWsatyjVSIe0mXXTuG1XS0eEc1904ZaykvV6ov/DP09T7xW5vDmnuTXfgVmAxcYzfANhw=
+X-Received: by 2002:a17:90b:1fc8:b0:311:e8cc:4264 with SMTP id
+ 98e67ed59e1d1-311e8cc4409mr5694169a91.12.1748448555821; Wed, 28 May 2025
+ 09:09:15 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB9128:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62ea17f3-fe0e-4965-e8dd-08dd9e00d12c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mbjPqbBDmqgR+EMcagDD4bxA1N6wYw42bUvlHpZREdqObMCvReRNNSC3LYUQ?=
- =?us-ascii?Q?khbymmhlhV3hW0+g0Yd4l0Nu2JV58trFTEzWcNop58v7xvfWjIom+yA63hDL?=
- =?us-ascii?Q?ORW24vQVpoRdFmEo61gdQoKHnR4DlE6lD0dBlxqpMeMKH1WmHrxAnVLjO3ES?=
- =?us-ascii?Q?hKZyB/Uxq5nqX8zaFBtxnzN3K6HFsHggjxq6ovodIckh4OPaRepD6At5aYFm?=
- =?us-ascii?Q?UXqFFFs5F5L4pvfgGQunBmKRJ6WHNBrzgM0Jv0mQIvvOO/tMVmz8B9UXiizs?=
- =?us-ascii?Q?6AgQYxXD9Ve5Br2QnwzIguABCXqyU4TH1i5yCQN6xp7eWaYOHbXSA2ZyOZx8?=
- =?us-ascii?Q?UaompkifKOCQaf/CoJYjIC/JGJw0OBnAguJddAtM2JTOq2wEakBRGdrP1A0o?=
- =?us-ascii?Q?ajrIjp8iS+tp3TY6HsiEnWI5zgZP1TenTjA33Ne9UghkbOjcRbdPyN0Nu90p?=
- =?us-ascii?Q?HkbhdJ9BTFqL0bCKayxeqEXhLmIY0QJUaibQ06ZeVky6SKouwJhiHq1oSRqY?=
- =?us-ascii?Q?+W0Gs6G65zZuhbZLP5/em8fw/tzeyZ+ojSu1xnrnGu+zCAcG1U3EYZyWY3vU?=
- =?us-ascii?Q?29XiMwZw+WvDVoFhvmPMPxlOa7PgCjbNqFo9v6UPXgt+tPJNhxZKd2sE882w?=
- =?us-ascii?Q?zgZwjeptrKUrLgzVuOZZdKlymzCRWHThjeLvTokfMqlVuEFMspt55KE++Eon?=
- =?us-ascii?Q?7CNXMpWzhoHi5kfFuuqFGAnOzDsuEPWPEdb8A7bwhHmCWnWuZVDFPoPHjGAX?=
- =?us-ascii?Q?/X5xWqqe8wD4/6gyDlOJ9otJbUL5Vy3twGJk1VBmfutGN2aYF6OoNWvjrXsR?=
- =?us-ascii?Q?qwfiBkidwjKRLoSHQDOhMvrvrDr+WEuP0F2Ja30ACD4JdIC9zBADZC6ee1l/?=
- =?us-ascii?Q?diHnix0jI83z4v93zbUNm3EvEsg+PZAyxIxmOfFmiZ+2tMWh7jISeqL+pkgP?=
- =?us-ascii?Q?UB8cz3hL0ymD3eSgJkpAGSmSdyDUBPTQ+lz3osDvmQ+YIHpb/RD6y1s0cADj?=
- =?us-ascii?Q?Fu/r8DYX8FCzmprW4S6gC2B1F7MxjgMe1dNB3Sl3WgHRuFrTDq3EnV01GBQ3?=
- =?us-ascii?Q?rs/3TnlwyKOuGWATKspLKXqc30S2rKI81pQFCGnMtXiipHf9q8e0Czs4KwXX?=
- =?us-ascii?Q?WslLRnfOXnwOpgQvrDPdWJchdMfLJIr6hwdshOs/teX30AS8lv8vo/67Nl26?=
- =?us-ascii?Q?W63WsI3BqkY1pNWBdVlvR/rwbmoeI7EJ4ht4etnZE1rCxA5fj5L2Oczl4fr0?=
- =?us-ascii?Q?x8RmxgYOqOvVN+6yCXj35+oEGY3Vmucjuyj1sRAJZ3lqlW7hw9Eq6WlcPnpU?=
- =?us-ascii?Q?eA2cPoe5b7RwXUhAhyBxYiE2CI15PQJOMDOZG0GszOf2zo2XE3QIHfiUOs6i?=
- =?us-ascii?Q?47UTgWPYO62jtwU3pySrj+9vQmyupVe3rGQJSdw68JHjn9TH0XhGEnEw0L6C?=
- =?us-ascii?Q?9/fEAiZ5/cemanyPIGCh9IBPYZC1O5u1QZCu18gN0eC+WznYyxBtnA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z37KK/4imPu96DvXJCMMgPBgKiWtScUC8gY8K6eYWOmIPEozj1ejt089M1Nx?=
- =?us-ascii?Q?wOMqGXn5stOjVBEzkuSnEaNiVFfaFKyr/XwvRIkJnGmvIZpHfVUMAlAZ+iGt?=
- =?us-ascii?Q?pNTCSEisZu0mPQOtlxEkGL37KrK5ax3dqzx9YEm7yY4EgfzgwPE+dUveuPt8?=
- =?us-ascii?Q?FnXT8fkYiSdBOEN47CTJCwbXncpSNKDPjMaN2FRpL0m1qY3NmqTKo4GjJmU8?=
- =?us-ascii?Q?paFYKA5c7bwFCQR0y0kPpll4zAMZUUNSLtRnKRM2IuPdxD3Lo0aCjVqSbDbl?=
- =?us-ascii?Q?gKwf0/9PbIwinQhRp9cy7MeUEnGqciKGKBBbwSYV9Vc5BcKvj6TSlnLzVydS?=
- =?us-ascii?Q?sRpSwixI9ntCcslEUijrT3VooWvLYlCdElBBT4RteNRrsArUcJViW6/jijkh?=
- =?us-ascii?Q?IyGPmTY17YqE+1yCtPmIqjtC4UAD0/Ml6APWEHAZSjlEU21ZWuGP/bO+zNME?=
- =?us-ascii?Q?dndx0tmopVH44tQ4e1lGfCwCBSCuURuQcd1mgv1iDY3b45PeT0UOX6ec0rQK?=
- =?us-ascii?Q?mHD1mX1N3HrxO3Rrcnemzsktg3wgXnBs+XCuX8RBbI57YNZm7hhg14Z0QQow?=
- =?us-ascii?Q?pQBRfp7nFS2UGw3tgD9VD2cb7AgCyjVbuUr3Xam5O62zgY9ZOoZ3Gf0WMQqo?=
- =?us-ascii?Q?Tknhhl4oXQohZcL/ufUOMHd2StWtPZaNZGLhUHk8MDajRgMaOKWoJcFurCnS?=
- =?us-ascii?Q?cfbqMh+oXh7ncthE1Qz3W5MdqV12auxGdqJy0MuIiXJFHfmby9EjHPjWQEM0?=
- =?us-ascii?Q?l78nUwE5MEp5XUmyDToEmiOUIlszxiEhcvcm/y8M9VC8yEWljAwYahSaZEW9?=
- =?us-ascii?Q?Uoun3DlWZhqZGqJrWJxJCclRpJ/s0J7MHPavJzGzgYQgM/pANoIuGqoZV9eS?=
- =?us-ascii?Q?wMSOnepkFT64InaGRTdfMlcncESfpiAEXWmzI84sPkBK4prmK0bVdiAEafqX?=
- =?us-ascii?Q?IMV2pwLDN7p/3F1ZRZ4Lx5suViYqtijXKZ8dPRPj9eAduainlcwskJ+R3q9V?=
- =?us-ascii?Q?sSudGEJmowvGmlZhUobhVfQZeu92ea3eXt+4VF3poPvNhcwDmoXjkgqoALLZ?=
- =?us-ascii?Q?8o8cmHmiK32L4rafzJijbp/BwqN2SZYdfAiX9P/L82KSjznYSy9T/p6ZNb0/?=
- =?us-ascii?Q?2n1CDqzyUDzsg1lOiVAySTX+RU3oaIvoKfov1eOgEdEpcOmBC7JFPj4vcfzR?=
- =?us-ascii?Q?0Gf9T9TpAWxD9xNI4qCxPOyfmOFBPsmHaqufOIpD+2CFl81kMNNyTy6SfIXw?=
- =?us-ascii?Q?xt5yV5M0ORF6BbYsF5mbAOacnG4MF9XGn2adjovg0H5tqFvXjeJqhNqiDjnW?=
- =?us-ascii?Q?JQEMrzoJ/yR+bJ46gDBfg7gm3hG9r5kQ1DE1C2Ln4GxPV/Rj5vhXqL1h1rZQ?=
- =?us-ascii?Q?hp6EO4hNtG1p2ASAcVc3KtSEtbWZOd79iOOQuTXVKCq225dYg3gBzrCg8WIg?=
- =?us-ascii?Q?nBhcL6tfklB9lmMy56ak/IVcMl0MOVAFyf8yY89GB/Zt0OxGVDYjgC1E1LWx?=
- =?us-ascii?Q?uDC/S6dfueQS8cxkf/ZcchWJHWSlTtL3DZ3sCM1ySO9ILsY2bed+LFwdtKjw?=
- =?us-ascii?Q?U+iIwBjnJgleK+1cDd81JramJvLjFhukkjYKGwjv?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62ea17f3-fe0e-4965-e8dd-08dd9e00d12c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 16:00:50.5095
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lqMChZdpZB+dQrB+ZfIfYWKLj6iUgk9Ai0TsFcYDCPReEB9Jlepp8//cnp97XmzTaGHH7g3RyCIv5nCaOj690w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9128
+References: <20250527081447.304-1-kernel@airkyi.com> <e2dnvpbze4xuubggduqr3p5nnhg7huk3dnpdcb6tldxbrn2qtn@bfsewz5trfv3>
+ <bc321a71-1934-4889-bd8e-3bb593c8feba@rock-chips.com>
+In-Reply-To: <bc321a71-1934-4889-bd8e-3bb593c8feba@rock-chips.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Date: Wed, 28 May 2025 19:09:04 +0300
+X-Gm-Features: AX0GCFsUqNN07CMI1cNHp3U4iz8XhLlLFw-nWKQWlciyho8w9zoePiczSCHemug
+Message-ID: <CAO9ioeXLSQyBFuedtt4=_OjEWZW6T9HaaYr8_NiNy2eh4yw-qg@mail.gmail.com>
+Subject: Re: [PATCH v3] drm/rockchip: cdn-dp: Convert to drm bridge
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
+        Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Proofpoint-ORIG-GUID: Ufk-xHyAOq_Tn5G-p9qC9DMexXFCXora
+X-Proofpoint-GUID: Ufk-xHyAOq_Tn5G-p9qC9DMexXFCXora
+X-Authority-Analysis: v=2.4 cv=Ws4rMcfv c=1 sm=1 tr=0 ts=6837352d cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10
+ a=VwQbUJbxAAAA:8 a=ePr-TV-LAAAA:8 a=s8YR1HE3AAAA:8 a=RRhK3aCThXU4g2SLoiEA:9
+ a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22 a=uGDpjx9DKq9E8W49yboe:22
+ a=jGH_LyMDp9YhSvY-UuyI:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI4MDE0MSBTYWx0ZWRfX/CSNwR9y0Zga
+ tjrRFgw4xmplA1oSjVPib+9vvU0XDkzzTgiAVdQye5HXPo2BNpDFPlhJ3o5RJDKeMUbHnKmz2OT
+ AJZfEWpvwxDpmJq3YOs+ZTO/es6ZK248jyIzlYq6PxmKHcwBRqzorB/K7siJch8290g6eBTqonR
+ huRMdB6JcvrpVHNUSxtdKeX6V9f13XXb8ym94yp5/TQ/hO6sxBLPMm+hg5uXSfXxUXs/5s+c9Zz
+ yTzBXRgHHpqOSSNIMRp/E1xI+IkiVEdsh259Q19Y0sn6QgCVWr7/eh6KISVMUZnGI+Mf9iNBETv
+ xLFrkKFCaX64/tHUZoDeC9X6yrTV29Z6Sscf4qfItPKRSLYcTy/fEthQGKzGQKLeM6Bgy/uciGr
+ TzpAThPdOARciVObEAGNApoIWh6sPh9NaMlvQWnkYd3VBHdmosTCPbtWaOzmG4tA1TRKhL5Y
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-28_08,2025-05-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1015 impostorscore=0 spamscore=0 adultscore=0
+ phishscore=0 mlxlogscore=999 priorityscore=1501 malwarescore=0
+ lowpriorityscore=0 bulkscore=0 mlxscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505160000 definitions=main-2505280141
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_090054_327139_3DA4F159 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20250528_090918_998118_36E07127 
+X-CRM114-Status: GOOD (  33.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,190 +130,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 25, 2025 at 11:40:04AM +0200, Christophe JAILLET wrote:
-> 'struct thermal_zone_device_ops' are not modified in these drivers.
+On Wed, 28 May 2025 at 04:57, Chaoyi Chen <chaoyi.chen@rock-chips.com> wrote:
 >
-> Constifying these structures moves some data to a read-only section, so
-> increases overall security, especially when the structure holds some
-> function pointers.
+> Hi Dmitry,
 >
-> On a x86_64, with allmodconfig, as an example:
-> Before:
-> ======
->    text	   data	    bss	    dec	    hex	filename
->   28116	   5168	    128	  33412	   8284	drivers/thermal/armada_thermal.o
+> On 2025/5/28 4:25, Dmitry Baryshkov wrote:
+> > On Tue, May 27, 2025 at 04:14:47PM +0800, Chaoyi Chen wrote:
+> >> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> >>
+> >> Convert it to drm bridge driver, it will be convenient for us to
+> >> migrate the connector part to the display driver later.
+> >> Considering that some code depend on the connector, the following
+> >> changes have been made:
+> >> - Only process edid in &drm_bridge_funcs.edid_read(), so no need to
+> >> store additional edid info.
+> >> - Now cdn_dp_get_sink_capability() only focused on reading DPCD_REV.
+> >> - Update bpc info in cdn_dp_bridge_atomic_enable() instead of
+> >> cdn_dp_encoder_mode_set(). Actually, the bpc data will be used in
+> >> cdn_dp_bridge_atomic_enable().
+> >> - Switch to use DRM_BRIDGE_OP_DP_AUDIO helpers.
+> >>
+> >> This patch also convert to use devm_drm_bridge_alloc() API.
+> >>
+> >> Tested with RK3399 EVB IND board.
+> >>
+> >> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> >> ---
+> >>
+> >> Changes in v3:
+> >> - Link to V2: https://lore.kernel.org/all/20250523011310.120-1-kernel@airkyi.com/
+> >> - Switch to use DRM_BRIDGE_OP_DP_AUDIO helpers
+> >> - Remove the dependency for connector
+> >> - Remove the extra stored edid
+> >> - Code cleanup
+> >>
+> >> Changes in v2:
+> >> - Link to V1: https://lore.kernel.org/all/20250507035148.415-1-kernel@airkyi.com/
+> >> - Use drm_atomic_get_new_connector_for_encoder() to get connector
+> >> - Convert to use devm_drm_bridge_alloc() API
+> >> - Fix typo: cdn_dp_connector_edid_read -> cdn_dp_bridge_edid_read
+> >>
+> >>   drivers/gpu/drm/rockchip/cdn-dp-core.c | 279 ++++++++++---------------
+> >>   drivers/gpu/drm/rockchip/cdn-dp-core.h |   9 +-
+> >>   2 files changed, 110 insertions(+), 178 deletions(-)
+> >>
+> >
+> >> @@ -595,16 +546,41 @@ static bool cdn_dp_check_link_status(struct cdn_dp_device *dp)
+> >>   static void cdn_dp_audio_handle_plugged_change(struct cdn_dp_device *dp,
+> >>                                             bool plugged)
+> >>   {
+> >> -    if (dp->codec_dev)
+> >> -            dp->plugged_cb(dp->codec_dev, plugged);
+> >> +    if (dp->sink_has_audio)
+> >> +            drm_connector_hdmi_audio_plugged_notify(dp->connector, plugged);
+> > I'd say, notify always and let userspace figure it out via the ELD. Then
+> > you shouldn't need sink_has_audio. This would match the behaviour of
+> > HDMI drivers.
 >
-> After:
-> =====
->    text	   data	    bss	    dec	    hex	filename
->   28244	   5040	    128	  33412	   8284	drivers/thermal/armada_thermal.o
->
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-> ---
-> Compile tested only
-> ---
->  drivers/thermal/armada_thermal.c                        | 2 +-
->  drivers/thermal/da9062-thermal.c                        | 2 +-
->  drivers/thermal/dove_thermal.c                          | 2 +-
->  drivers/thermal/imx_thermal.c                           | 2 +-
+> Oh, I find that there are similar usages in qcom msm driver. Is there
+> any more progress?
 
-for imx thermal part
+For msm driver it is required as DSP requires HDMI to be plugged for
+the audio path to work.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+>
+> >
+> >>   }
+> >>
+> > [...]
+> >
+> >> @@ -705,8 +681,6 @@ static int cdn_dp_encoder_atomic_check(struct drm_encoder *encoder,
+> >>
+> >>   static const struct drm_encoder_helper_funcs cdn_dp_encoder_helper_funcs = {
+> >>      .mode_set = cdn_dp_encoder_mode_set,
+> >> -    .enable = cdn_dp_encoder_enable,
+> >> -    .disable = cdn_dp_encoder_disable,
+> >>      .atomic_check = cdn_dp_encoder_atomic_check,
+> > Nit: for the future cleanup, it should probably be possible to get rid
+> > of these encoder ops too by moving them to the bridge ops.
+>
+> Interesting, have these patches been submitted upstream yet?
 
->  drivers/thermal/intel/int340x_thermal/int3400_thermal.c | 2 +-
->  drivers/thermal/kirkwood_thermal.c                      | 2 +-
->  drivers/thermal/mediatek/lvts_thermal.c                 | 2 +-
->  drivers/thermal/renesas/rcar_thermal.c                  | 2 +-
->  drivers/thermal/spear_thermal.c                         | 2 +-
->  drivers/thermal/st/st_thermal.c                         | 2 +-
->  drivers/thermal/testing/zone.c                          | 2 +-
->  11 files changed, 11 insertions(+), 11 deletions(-)
->
-> diff --git a/drivers/thermal/armada_thermal.c b/drivers/thermal/armada_thermal.c
-> index 9bff21068721..c2fbdb534f61 100644
-> --- a/drivers/thermal/armada_thermal.c
-> +++ b/drivers/thermal/armada_thermal.c
-> @@ -408,7 +408,7 @@ static int armada_get_temp_legacy(struct thermal_zone_device *thermal,
->  	return ret;
->  }
->
-> -static struct thermal_zone_device_ops legacy_ops = {
-> +static const struct thermal_zone_device_ops legacy_ops = {
->  	.get_temp = armada_get_temp_legacy,
->  };
->
-> diff --git a/drivers/thermal/da9062-thermal.c b/drivers/thermal/da9062-thermal.c
-> index 2077e85ef5ca..a8d4b766ba21 100644
-> --- a/drivers/thermal/da9062-thermal.c
-> +++ b/drivers/thermal/da9062-thermal.c
-> @@ -137,7 +137,7 @@ static int da9062_thermal_get_temp(struct thermal_zone_device *z,
->  	return 0;
->  }
->
-> -static struct thermal_zone_device_ops da9062_thermal_ops = {
-> +static const struct thermal_zone_device_ops da9062_thermal_ops = {
->  	.get_temp	= da9062_thermal_get_temp,
->  };
->
-> diff --git a/drivers/thermal/dove_thermal.c b/drivers/thermal/dove_thermal.c
-> index f9157a47156b..723bc72f0626 100644
-> --- a/drivers/thermal/dove_thermal.c
-> +++ b/drivers/thermal/dove_thermal.c
-> @@ -106,7 +106,7 @@ static int dove_get_temp(struct thermal_zone_device *thermal,
->  	return 0;
->  }
->
-> -static struct thermal_zone_device_ops ops = {
-> +static const struct thermal_zone_device_ops ops = {
->  	.get_temp = dove_get_temp,
->  };
->
-> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-> index bab52e6b3b15..38c993d1bcb3 100644
-> --- a/drivers/thermal/imx_thermal.c
-> +++ b/drivers/thermal/imx_thermal.c
-> @@ -361,7 +361,7 @@ static bool imx_should_bind(struct thermal_zone_device *tz,
->  	return trip->type == THERMAL_TRIP_PASSIVE;
->  }
->
-> -static struct thermal_zone_device_ops imx_tz_ops = {
-> +static const struct thermal_zone_device_ops imx_tz_ops = {
->  	.should_bind = imx_should_bind,
->  	.get_temp = imx_get_temp,
->  	.change_mode = imx_change_mode,
-> diff --git a/drivers/thermal/intel/int340x_thermal/int3400_thermal.c b/drivers/thermal/intel/int340x_thermal/int3400_thermal.c
-> index 0e07693ecf59..5736638c586b 100644
-> --- a/drivers/thermal/intel/int340x_thermal/int3400_thermal.c
-> +++ b/drivers/thermal/intel/int340x_thermal/int3400_thermal.c
-> @@ -515,7 +515,7 @@ static int int3400_thermal_change_mode(struct thermal_zone_device *thermal,
->  	return result;
->  }
->
-> -static struct thermal_zone_device_ops int3400_thermal_ops = {
-> +static const struct thermal_zone_device_ops int3400_thermal_ops = {
->  	.get_temp = int3400_thermal_get_temp,
->  	.change_mode = int3400_thermal_change_mode,
->  };
-> diff --git a/drivers/thermal/kirkwood_thermal.c b/drivers/thermal/kirkwood_thermal.c
-> index 7c2265231668..4619e090f756 100644
-> --- a/drivers/thermal/kirkwood_thermal.c
-> +++ b/drivers/thermal/kirkwood_thermal.c
-> @@ -48,7 +48,7 @@ static int kirkwood_get_temp(struct thermal_zone_device *thermal,
->  	return 0;
->  }
->
-> -static struct thermal_zone_device_ops ops = {
-> +static const struct thermal_zone_device_ops ops = {
->  	.get_temp = kirkwood_get_temp,
->  };
->
-> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-> index 985925147ac0..acce8fde2cba 100644
-> --- a/drivers/thermal/mediatek/lvts_thermal.c
-> +++ b/drivers/thermal/mediatek/lvts_thermal.c
-> @@ -571,7 +571,7 @@ static irqreturn_t lvts_irq_handler(int irq, void *data)
->  	return iret;
->  }
->
-> -static struct thermal_zone_device_ops lvts_ops = {
-> +static const struct thermal_zone_device_ops lvts_ops = {
->  	.get_temp = lvts_get_temp,
->  	.set_trips = lvts_set_trips,
->  };
-> diff --git a/drivers/thermal/renesas/rcar_thermal.c b/drivers/thermal/renesas/rcar_thermal.c
-> index 00a66ee0a5b0..fdd7afdc4ff6 100644
-> --- a/drivers/thermal/renesas/rcar_thermal.c
-> +++ b/drivers/thermal/renesas/rcar_thermal.c
-> @@ -277,7 +277,7 @@ static int rcar_thermal_get_temp(struct thermal_zone_device *zone, int *temp)
->  	return rcar_thermal_get_current_temp(priv, temp);
->  }
->
-> -static struct thermal_zone_device_ops rcar_thermal_zone_ops = {
-> +static const struct thermal_zone_device_ops rcar_thermal_zone_ops = {
->  	.get_temp	= rcar_thermal_get_temp,
->  };
->
-> diff --git a/drivers/thermal/spear_thermal.c b/drivers/thermal/spear_thermal.c
-> index bb96be947521..603dadcd3df5 100644
-> --- a/drivers/thermal/spear_thermal.c
-> +++ b/drivers/thermal/spear_thermal.c
-> @@ -41,7 +41,7 @@ static inline int thermal_get_temp(struct thermal_zone_device *thermal,
->  	return 0;
->  }
->
-> -static struct thermal_zone_device_ops ops = {
-> +static const struct thermal_zone_device_ops ops = {
->  	.get_temp = thermal_get_temp,
->  };
->
-> diff --git a/drivers/thermal/st/st_thermal.c b/drivers/thermal/st/st_thermal.c
-> index a14a37d54698..1470ca519def 100644
-> --- a/drivers/thermal/st/st_thermal.c
-> +++ b/drivers/thermal/st/st_thermal.c
-> @@ -132,7 +132,7 @@ static int st_thermal_get_temp(struct thermal_zone_device *th, int *temperature)
->  	return 0;
->  }
->
-> -static struct thermal_zone_device_ops st_tz_ops = {
-> +static const struct thermal_zone_device_ops st_tz_ops = {
->  	.get_temp	= st_thermal_get_temp,
->  };
->
-> diff --git a/drivers/thermal/testing/zone.c b/drivers/thermal/testing/zone.c
-> index 1f4e450100e2..4257d813d572 100644
-> --- a/drivers/thermal/testing/zone.c
-> +++ b/drivers/thermal/testing/zone.c
-> @@ -381,7 +381,7 @@ static int tt_zone_get_temp(struct thermal_zone_device *tz, int *temp)
->  	return 0;
->  }
->
-> -static struct thermal_zone_device_ops tt_zone_ops = {
-> +static const struct thermal_zone_device_ops tt_zone_ops = {
->  	.get_temp = tt_zone_get_temp,
->  };
->
-> --
-> 2.49.0
->
+Everything is already there, see drm_bridge_funcs::mode_set() and
+drm_bridge_funcs::atomic_check().
+
+
+-- 
+With best wishes
+Dmitry
 
