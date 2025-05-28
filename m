@@ -4,95 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EDE0C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80036C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ksdw7M5oeACHV4O06/7f6T9AIjZYxql+qwEMoPd8Euo=; b=MOSqaSGSnH7lwO
-	ikLKc0+vY7IxCc3ccSdXwC9hhfq64810biNVTkrrLvci9who1xCDbpBycf2b1EQX0/FHSxQVHkYiL
-	YKOGw77s8x33pPI7O6uQvv/ExZm1lZWlZbHRwp/mEn1KBH4QboMO9BM5AbKIiswiDypDHZ3nGW+zE
-	2Es83ZMMzlqSOmhQjWI/dbG7Nmt9PlV3AboZSARxIxLl0P/kntRCeH5FPIoFomUGmfTx05TWAnQ/v
-	qj15xeL8EMgihA60YFa3SGY+t58HQJcUZ4HtZu+P3ODRUat0QrKwsvSdMTa4SWO14inH8iK0vFcX6
-	cj8X0fQie2HhU58SWnTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eRu1EOn3q8+EU57x4bsM/urqoopcUXdyeT7rdu2xDbw=; b=wtrq1vz+D/qGUX9Q8s7alGcYFy
+	SFQ7GppVl+GigK7Aue5s/ywpVbvWxTGz4X9N5lbEjcHqROaplVRyhP1FJNzA7ba2di2qISy8NISgY
+	SBzK7TVqXPKdTEiaFzElkqPs9Ai+KfD5eWY12bNsR1twp95en5GuJhkrDp9ruRCwZ2DPSbGJJA2ih
+	oYDVOKjjzhCApFzb2FRTFs308lYZE+4hSCenoxe/dsE7GKHshI6FuSo2nbcaI8CcMUuTpbUtZHU6f
+	mVm1Q7KvlD8yKA1BbsyCIbMBS5q3GSkapcn2BhzDQ1TD7ahnZXQkcgWXJvCCCtz/mXVJksP+MPwzv
+	u7GAfzNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHfZ-0000000DOOv-0xW9;
-	Wed, 28 May 2025 14:22:13 +0000
-Received: from mail-lj1-f169.google.com ([209.85.208.169])
+	id 1uKHhg-0000000DOXI-08RR;
+	Wed, 28 May 2025 14:24:24 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHVs-0000000DL2l-1QS9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 14:12:13 +0000
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-32a64f8480eso9979981fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 07:12:11 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748441527; x=1749046327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Ksdw7M5oeACHV4O06/7f6T9AIjZYxql+qwEMoPd8Euo=;
-        b=saDfYKWVTik0NRg+X8T7curCwwkW8+hOmLJ0uIZiUeaDqMBcWmav75yDuK6R0DomYw
-         pgd2shtpTEa+s/IorFR0FWLcMLtoPOrXwfokngVH6RmKTbo4bECTz/e0wOzvTq8Yhcw2
-         fisXp7MqdunLI1AiGr419o7dGaLb5W4GChNk3WOUR4tu9pfjAgnpWADXmXUdwN2a8lEP
-         NZsbm4W3EczeYm/MbO2w9obGNKenQyrkh04yVGMtjbqTXehXaCZH/9SNZ+dFWJVDjX9+
-         y5ewf/8Jdxb6dzoPztL/kM0dQQ0hsI3IFkK0nEplnwQbiVrkPcT+s28WA/r2jZvnceB6
-         EYBw==
-X-Forwarded-Encrypted: i=1; AJvYcCXPOKhWRX5XWBrS2oB1vEelM5rWZIbngCHYmemcGyWwT8iiJDPKg5Fca7i80XHHnai5M6AugyFXOfDpaX/aS3eb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yya80nWuAdV4PjZPzaOMMeO6zg5X1C9+Bmms0gOElT9YhZVTYi0
-	CCmiOov6wrX/hvGD3a6cUdW4PPXEBY6ED7TbreUztMS36l3OgMAWf2s7JpvV/NmS
-X-Gm-Gg: ASbGnct2rVG4pNCc5Kj+t+PodGS0PLi3+zGfzbQHnL0iYlVfgUjfyR5AvGgOY7aJvUK
-	rP2bKFYuRn4jinmXOY6v48uOVdCMbR+Mui0S6MI7rhd2/8vYZ2+OIzDKbTNXxV+uXWKDzp7GBPG
-	UJomL99RKHYWTrcxUDRyIzYgfOay6g/U9HH6SzaOonXOblmr1E4cUkmVFfyYeI6drju7NhTkjqN
-	DftI5tTjtQ3h4FJlSvUYFlq4+mOboWYPZJHxusP7pm6qx7Xl/+v0Rx/dm5YKT0bRE5YlRglWF3T
-	qQUgyfNJHi3/Ob086BtZIrUhvalyLCO8mE1SX6zRstDSsuiPB+MbsAsAoDSps8Klk/+WazDq82h
-	eFBOinNXTOOJ2C7yUkkw=
-X-Google-Smtp-Source: AGHT+IG6OeEVKLfXTDomXS2gYkAsVABfcP2lvyaVNMn+VJH6NM0A6m3piy/+rnEjjUiKnMBvoR134g==
-X-Received: by 2002:a05:651c:b0d:b0:329:136e:300f with SMTP id 38308e7fff4ca-32a737a016emr17070171fa.13.1748441527134;
-        Wed, 28 May 2025 07:12:07 -0700 (PDT)
-Received: from mail-lj1-f178.google.com (mail-lj1-f178.google.com. [209.85.208.178])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-32a79f88bcdsm2616101fa.112.2025.05.28.07.12.05
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 May 2025 07:12:05 -0700 (PDT)
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-32a61af11ffso11488791fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 07:12:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXImchfjs7A5+WetHf7wfwakZx3L5T8mbda5Pr43fe6akMzW6kvHyvyGOeD9YucZfmtwHLeYKFxbg3qjwKmnLr1@lists.infradead.org
-X-Received: by 2002:a05:651c:418e:b0:326:cf84:63c4 with SMTP id
- 38308e7fff4ca-32a736a7554mr15406341fa.1.1748441525068; Wed, 28 May 2025
- 07:12:05 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250527175558.2738342-1-james.hilliard1@gmail.com>
- <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch> <CADvTj4rGdb_kHV_gjKTJNkzYEPMzqLcHY_1xw7wy5r-ryqDfNQ@mail.gmail.com>
- <fe8fb314-de99-45c2-b71e-5cedffe590b0@lunn.ch> <CADvTj4qRmjUQJnhamkWNpHGNAtvFyOJnbaQ5RZ6NYYqSNhxshA@mail.gmail.com>
- <014d8d63-bfb1-4911-9ea6-6f4cdabc46e5@lunn.ch> <CADvTj4oVj-38ohw7Na9rkXLTGEEFkLv=4S40GPvHM5eZnN7KyA@mail.gmail.com>
- <aDbA5l5iXNntTN6n@shell.armlinux.org.uk> <CADvTj4qP_enKCG-xpNG44ddMOJj42c+yiuMjV_N9LPJPMJqyOg@mail.gmail.com>
- <f915a0ca-35c9-4a95-8274-8215a9a3e8f5@lunn.ch>
-In-Reply-To: <f915a0ca-35c9-4a95-8274-8215a9a3e8f5@lunn.ch>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Wed, 28 May 2025 22:11:50 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66PEA4OJxs2rHrYFAxx8bw4zab7TUXQr+DM-+ERBO-UyQ@mail.gmail.com>
-X-Gm-Features: AX0GCFvkvTc-VRmYOaYU5xGuR2czReptL7cuDFoxwx0sxNWmjpy1lDF4i_MRIR8
-Message-ID: <CAGb2v66PEA4OJxs2rHrYFAxx8bw4zab7TUXQr+DM-+ERBO-UyQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
- PHY device
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: James Hilliard <james.hilliard1@gmail.com>, 
-	"Russell King (Oracle)" <linux@armlinux.org.uk>, netdev@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Furong Xu <0x1207@gmail.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1uKHXv-0000000DLHM-1BbG;
+	Wed, 28 May 2025 14:14:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1748441656;
+	bh=Xck/nwOYiqy1ZVp9Sss2kWwcLSvKVmGgOkD7OBgsZBA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=lVVoA1jctbfwewW2KGob5hfTDoq2NQRzQk9gxJCzi1YcEl/+KT9lpM1mZDY7EpwAz
+	 C01gp7g9uaW3/+R4aPvO6wDfW5R1enrQHhY17Rc4ZbwusXt7h3uDWywQzwv3+uHrrJ
+	 eyXVnqTow726pX7uJU1Zh9KVXNThuEmBMg///ei+djpn3Olt5z7LlLIGYfjVzSUyVS
+	 Cob+tignic8jH9R0rI61lG5DM3Ej2AQt6cNGR2LAloGMo6fvEbUWpg5GqiDbnM6mLF
+	 WDNyYPavHzBqZqlWkUbSY/zfiMhnakM4/8bZ+WN4gDOyZVH9dAF3IHgby93SQWFHEg
+	 LI1+Pb7C4IL6Q==
+Received: from [IPv6:2606:6d00:17:b2fc::5ac] (unknown [IPv6:2606:6d00:17:b2fc::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 524C317E3700;
+	Wed, 28 May 2025 16:14:14 +0200 (CEST)
+Message-ID: <7cf3e219758a67d08137ebea5e52a1abad835e65.camel@collabora.com>
+Subject: Re: [RFC PATCH 07/11] arm64: dts: imx8mp: fix VPU_BUS clock setting
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Adam Ford <aford173@gmail.com>, Marco Felsch <m.felsch@pengutronix.de>
+Cc: benjamin.gaignard@collabora.com, p.zabel@pengutronix.de,
+ mchehab@kernel.org, 	shawnguo@kernel.org, Sascha Hauer
+ <s.hauer@pengutronix.de>, 	kernel@pengutronix.de, festevam@gmail.com,
+ robh@kernel.org, krzk+dt@kernel.org, 	conor+dt@kernel.org,
+ paulk@sys-base.io, hverkuil@xs4all.nl, 	laurent.pinchart@ideasonboard.com,
+ sebastian.fricke@collabora.com, 	ming.qian@nxp.com,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Date: Wed, 28 May 2025 10:14:12 -0400
+In-Reply-To: <CAHCN7xLecU12XtXFuwfNP+eee+9RLCSB9iErNmk7VFV+WrozJA@mail.gmail.com>
+References: <20250502150513.4169098-1-m.felsch@pengutronix.de>
+	 <20250502150513.4169098-8-m.felsch@pengutronix.de>
+	 <CAHCN7x+Lu9momgX3Vwp+Yu+Tet5Q=k2vCL83SMLuad24SDchEg@mail.gmail.com>
+	 <20250502165535.aeb2osq2vnxsudmq@pengutronix.de>
+	 <CAHCN7xLecU12XtXFuwfNP+eee+9RLCSB9iErNmk7VFV+WrozJA@mail.gmail.com>
+Organization: Collabora Canada
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_071212_386177_A727D8F2 
-X-CRM114-Status: GOOD (  31.48  )
+X-CRM114-CacheID: sfid-20250528_071419_493631_5BF884A5 
+X-CRM114-Status: GOOD (  28.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,80 +82,87 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 9:25=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Wed, May 28, 2025 at 05:57:38AM -0600, James Hilliard wrote:
-> > On Wed, May 28, 2025 at 1:53=E2=80=AFAM Russell King (Oracle)
-> > <linux@armlinux.org.uk> wrote:
-> > >
-> > > On Tue, May 27, 2025 at 02:37:03PM -0600, James Hilliard wrote:
-> > > > On Tue, May 27, 2025 at 2:30=E2=80=AFPM Andrew Lunn <andrew@lunn.ch=
-> wrote:
-> > > > >
-> > > > > > Sure, that may make sense to do as well, but I still don't see
-> > > > > > how that impacts the need to runtime select the PHY which
-> > > > > > is configured for the correct MFD.
-> > > > >
-> > > > > If you know what variant you have, you only include the one PHY y=
-ou
-> > > > > actually have, and phy-handle points to it, just as normal. No ru=
-ntime
-> > > > > selection.
-> > > >
-> > > > Oh, so here's the issue, we have both PHY variants, older hardware
-> > > > generally has AC200 PHY's while newer ships AC300 PHY's, but
-> > > > when I surveyed our deployed hardware using these boards many
-> > > > systems of similar age would randomly mix AC200 and AC300 PHY's.
-> > > >
-> > > > It appears there was a fairly long transition period where both var=
-iants
-> > > > were being shipped.
-> > >
-> > > Given that DT is supposed to describe the hardware that is being run =
-on,
-> > > it should _describe_ _the_ _hardware_ that the kernel is being run on=
-.
-> > >
-> > > That means not enumerating all possibilities in DT and then having ma=
-gic
-> > > in the kernel to select the right variant. That means having a correc=
-t
-> > > description in DT for the kernel to use.
-> >
-> > The approach I'm using is IMO quite similar to say other hardware
-> > variant runtime detection DT features like this:
-> > https://github.com/torvalds/linux/commit/157ce8f381efe264933e9366db828d=
-845bade3a1
->
-> That is for things link a HAT on a RPi. It is something which is easy
-> to replace, and is expected to be replaced.
+Hi,
 
-Actually it's for second sourced components that are modules _within_
-the device (a tablet or a laptop) that get swapped in at the factory.
-Definitely not something easy to replace and not expected to be replaced
-by the end user.
+Le mardi 27 mai 2025 à 22:05 -0500, Adam Ford a écrit :
+> On Fri, May 2, 2025 at 11:55 AM Marco Felsch <m.felsch@pengutronix.de> wrote:
+> > 
+> > On 25-05-02, Adam Ford wrote:
+> > > On Fri, May 2, 2025 at 10:10 AM Marco Felsch <m.felsch@pengutronix.de> wrote:
+> > > > 
+> > > > The VPU_PLL clock must be set before the VPU_BUS clock which is derived
+> > > > from the VPU_PLL clock else the VPU_BUS clock is 300MHz and not 600MHz.
+> 
+> I did verify the current clock rate ends up at 300MHz instead of the
+> desired 600 or 800MHz, so we should do something.
+> 
 
-The other thing is that there are no distinguishing identifiers for a
-device tree match for the swap-in variants at the board / device level.
-Though I do have something that does DT fixups in the kernel for IDs
-passed over by the firmware. There are other reasons for this arrangement,
-one being that the firmware is not easily upgradable.
+This reminded me of: 
 
-ChenYu
+https://patchwork.linuxtv.org/project/linux-media/patch/20250217-b4-hantro-av1-clock-rate-v2-1-e179fad52641@collabora.com/
 
-> You are talking about some form of chiplet like component within the
-> SoC package. It is not easy to replace, and not expected to be
-> replaced.
->
-> Different uses cases altogether.
->
-> What i think we will end up with is the base SoC .dtsi file, and two
-> additional .dtsi files describing the two PHY variants.
->
->         Andrew
->
+Which also made me discover that this patch wasn't picked despite being mark accepted. We
+will favour DT clock settings from here, since its not really managable otherwise, old board
+will stay like this, otherwise we face backward compatibility issues.
+
+Note that G2 and VC8K can be run at higher rate, but to be stable, you need
+to also control voltage and proper cooling, not something we want "by default".
+
+Nicolas
+
+> 
+> > > > 
+> > > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > > ---
+> > > >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 ++--
+> > > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > > index 97b09b647ec7..7f4bdefb3480 100644
+> > > > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > > @@ -2289,8 +2289,8 @@ vpumix_blk_ctrl: blk-ctrl@38330000 {
+> > > >                                  <&clk IMX8MP_CLK_VPU_G2_ROOT>,
+> > > >                                  <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>;
+> > > >                         clock-names = "g1", "g2", "vc8000e";
+> > > > -                       assigned-clocks = <&clk IMX8MP_CLK_VPU_BUS>, <&clk IMX8MP_VPU_PLL>;
+> > > > -                       assigned-clock-parents = <&clk IMX8MP_VPU_PLL_OUT>;
+> > > > +                       assigned-clocks = <&clk IMX8MP_VPU_PLL>, <&clk IMX8MP_CLK_VPU_BUS>;
+> > > > +                       assigned-clock-parents = <0>, <&clk IMX8MP_VPU_PLL_OUT>;
+> > > >                         assigned-clock-rates = <600000000>, <600000000>;
+> > > 
+> > > I think there was a move to make the default be overdrive [1]  and [2]
+> > > and use a 'nominal' device tree for those who are not in overdrive
+> > > mode.  According to the TRM, the VPU_BUS_CLK_ROOT, the nominal is
+> > > 600MHz and the overdrive is 800MHz.  Based on that, I wonder if the
+> > > values here should be 800MHz and if we should add the nominal values
+> > > of 600MHz to the imx8m-nominal.dtsi file.
+> > 
+> > You're right, Ahamd and Lucas did change this. I will adapt it later on.
+> 
+> I updated my device tree to run in overdrive mode and ran fluster at
+> the higher rates:
+> VPU_G1 - 800MHz,
+> VPU-G2 - 700MHz
+> VPU-Bus - 800MHz
+> 
+> ./fluster.py run -d GStreamer-VP8-V4L2SL-Gst1.0
+> Ran 57/61 tests successfully               in 5.922 secs
+> (vs 7.059 secs at nominal speed)
+> 
+> ./fluster.py run -dGStreamer-H.264-V4L2SL-Gst1.0
+> Ran 129/135 tests successfully               in 40.107 secs
+> (vs 45.741 secs at nominal speed)
+> 
+> If you want, I can submit the clock updates I have for overdrive or
+> send them to you to save you some time.
+> 
+> adam
+> 
+> > 
+> > Regards,
+> >   Marco
 
