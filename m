@@ -4,69 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 909FDC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 01:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE0DC54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 01:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LUNfJZwZpOwsGUio5AbrVHRa7zVGRHpu52TThY9D804=; b=OAqzDiHpKQwcujLSWNDPCG+bbx
-	3MCleBJCuM6u9Rc9OPFpUDiN1adt1QnEbNVBo+IHfkNXRc5uGYES+CYVN8QJ2FDndxMbDdgpYMqtX
-	35Ou0DvjpRO7z4ljzgW3Um7QZ78/qwo5jszaBcTPeZNk2rQ00bbCZlWpUnwTZGiS7NxaNnppG76s4
-	4jxFK1hLa3rgLArLZcuh6ZeV0Z1ZKOxqmgZw5G+dBDQOVz7UazLza4kNCsRUxTMmr3CWU5NoxW9Ce
-	V1KJqbYvWUDYUZiOnMNKOOrDQJbVLWzN5wvwyA1TLiQTmqyPV4LaU1+OWZ+aaP9OYxhZF0ap5HcZy
-	aH9+GQkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IUPmQLckLD3bKgkRnwdcjXEmylTPnhBf/XgCTqcGmcI=; b=LWg7uRztjy/gosFz5pD6AW9jhw
+	1o90hg5UpPFLiUOETj27n7AwHDJoARc6bCo04NThk+CyC2V+imINrs6C9RppmbUuWFRRFbeMfgxiY
+	JnBmgF3q9th6N4g/xV5rZyifCnTcoCGqfrzPp+66yvlkLrpxtuy0KF8sr1uTWR1X9TflEUId9U2vd
+	ha5HGkARNz/SfMFoLoAFi2ZtQ6tR3FMOcahAEQ3W0Z/xCWfL2BIWL3IALE32EXlyNYFkRwul5Xq+H
+	KDW/SDbuB0Wn7ULOi6tMjLjlZevWFIV3SFb1nrmlRjC9V8doJJ1hK8FxVJie+xQ5Ayj5S5a81T5IK
+	UB5UhQbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK5Ut-0000000BsyI-2Dch;
-	Wed, 28 May 2025 01:22:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uK5ym-0000000BvZD-3llR;
+	Wed, 28 May 2025 01:53:16 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK5Sk-0000000BscB-31nU;
-	Wed, 28 May 2025 01:20:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4135EA4F69B;
-	Wed, 28 May 2025 01:20:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6D02C4CEE9;
-	Wed, 28 May 2025 01:20:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748395207;
-	bh=m3QrveW3xV5EfuvOTv2NxE5UGUIv1X8HYHGlnoy2QMU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=QwsOZrthoiRtdDSxr2+iS+ztsOZjpmXeZQIs2HLNItofnDBw59If+rNh8T1ORTBaH
-	 njXmfi9yyOcQZJCKJbx7YGs7sY9ehLoOkuOrnLSYsInRkwwDJAnRDApbutBU0VC2Ii
-	 LNOoKB6chb5g0qF1bj3Bqd0QEsZPDY6DgjDl16L9rWLrsOor+p9mjAxMtB9l9ilyh0
-	 JB13zUXSI5KWAwfhUt+HkjcpRnP86ebVFdtfgcRhH9xmOinxIFrFBcnmD1RSfFtUBN
-	 LqNbpKfqteHCGyo3SbrYVhE7W/HmlZNNXNbIdRlXiF91/aDgCMQxistoMfeFiNNeF5
-	 wmko1C89JBhdQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33F25380AAE2;
-	Wed, 28 May 2025 01:20:43 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1uK5wc-0000000BvR9-2cZL
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 May 2025 01:51:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xIDULv1PlDhE+/YHN4WkSb/b5o1N2JHlDdFyJccR3WZUMFqZ1WEz7GTvxux5DJ19/wkMHOHPU6yiuVjEBYdsOCDAfJVlyugSji2mhNZYpGMFL1W9I8lzb9yBLoOYqDe209hiIyT1jNnysV1qTx/J+TgIyxdE9OJTEQ6NBTahwC67K+qvjRcpA0TLd1jaud5n7CNDM9P5cxqoqZSXAbiesbn/7uNWkb+HlUutJQ3PSeEwIg2sFO+9cID73DNCfI/l5pZ94GaLvVK+AO2C8Oyn1zVc6ZavABJRg0EX81cv0KDrd9qmbCtvGNuzpRUvhJH9eB5ei7MOTasnO8+ag8aOQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IUPmQLckLD3bKgkRnwdcjXEmylTPnhBf/XgCTqcGmcI=;
+ b=EywfDWhuUdmVe/fsJEp/q4Q5ZiMICZjyonug9+eCHJZLl3dKSffH4WH4JPKaiwy6qRmjtSfO+H2fpl/fgeHPOX22CHrC/2GzgeEqgXqreumy0vPTEMOHnGBJK7gcKTyDXeFw/lOfRN0gPhAH3zXca/H29Jjf8ENfnNaxTthZd5jsUKdDpkNo/J+Mztdyb0EHqDNFWX9uj7YJ1BwLqgNsYLz/iAggun1ZZcOhbVVedCbvAHPAMdIms/+HizYrNlAbmdCzFVIMwmlUmSZpORBdlh38eEdMgXobwlhKhQI6n72qvkFNFldO2Tw1rhG8kANyV6Co8DPLCfXvaLBf91REJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IUPmQLckLD3bKgkRnwdcjXEmylTPnhBf/XgCTqcGmcI=;
+ b=CVvMjFAhRNRK/tuPGCicKXUnC0+eyfwVM83IS2kywAdsZW93vyQaoikMC4KU3HgAIKNDQFQBnxA5UIg7iAwaOFyDNSkfuPLP51xwOoQYiQH7AzP991qRzPECoXbeHGqUTh7m74st9xFt4j7yc8qXnWoi08WC3kgN1TlEvIBvC+f6L2H4Kls2T8iZfp0tEnzKNf3xBogOovrW8gTNCPEgCf/1qouyn7mIpRC6ubUSK/pKKs+UbfQJQ+Qe+PkugiUo/CBiMpkgKD6ncjQU7qTCt8PWOnsXMr2hacU5dcKPTBpxMiXCtL/F/TDT6nTImMcrWO2kOTZiggJGPFlfA1iF/g==
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14) by GV2PR04MB11240.eurprd04.prod.outlook.com
+ (2603:10a6:150:27b::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Wed, 28 May
+ 2025 01:50:52 +0000
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.8769.019; Wed, 28 May 2025
+ 01:50:51 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: KUCHARCZYK Lukasz <lukasz.kucharczyk@leica-geosystems.com>, Oleksij Rempel
+	<o.rempel@pengutronix.de>, "stefan.eichenberger@toradex.com"
+	<stefan.eichenberger@toradex.com>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Andi Shyti <andi.shyti@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>
+CC: "open list:FREESCALE IMX I2C DRIVER" <linux-i2c@vger.kernel.org>, "open
+ list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, open list
+	<linux-kernel@vger.kernel.org>, GEO-CHHER-bsp-development
+	<bsp-development.geo@leica-geosystems.com>,
+	"customers.leicageo@pengutronix.de" <customers.leicageo@pengutronix.de>
+Subject: RE: [PATCH] i2c: imx: fix emulated smbus block read
+Thread-Topic: [PATCH] i2c: imx: fix emulated smbus block read
+Thread-Index: AQHbz3LwOG6Zi4G6CE6xFwOmWKlW/g==
+Date: Wed, 28 May 2025 01:50:51 +0000
+Message-ID: <VI2PR04MB11147341238F4D0531E1E6102E867A@VI2PR04MB11147.eurprd04.prod.outlook.com>
+References: <20250520122252.1475403-1-lukasz.kucharczyk@leica-geosystems.com>
+ <VI2PR04MB11147245BA69A4C19B0DD037EE864A@VI2PR04MB11147.eurprd04.prod.outlook.com>
+ <VI1PR06MB8616FBEE8A355BF5A314D504D864A@VI1PR06MB8616.eurprd06.prod.outlook.com>
+In-Reply-To: <VI1PR06MB8616FBEE8A355BF5A314D504D864A@VI1PR06MB8616.eurprd06.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|GV2PR04MB11240:EE_
+x-ms-office365-filtering-correlation-id: 54786da8-a9df-41db-4157-08dd9d8a1374
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7416014|7053199007|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?QPHnstJNM6SqF34YDt0mYWM19m4r42ti6CMp2Nti8qZxeBbZiWAFQZoPeyvk?=
+ =?us-ascii?Q?+/WQv4G4P9QIfVhmmdAgmzAFD9WRPUe7qF1Ftr0/c201b8dviTu4lDBNjAyM?=
+ =?us-ascii?Q?F4HW7HAGZD9KUyOiDvWYud/GKJq+TC62cHprFnqHuaD7BHQsnXRFAsSkEblH?=
+ =?us-ascii?Q?bHX5lQKbcixuVAu8AFbP2pwB2s2immFVxWdLaGogsS7lbayPkP3ZHYCM+6Ed?=
+ =?us-ascii?Q?Tvx5/y58FgHDOWi5FH9iTb9iMV2Aw7btZD0hyedpfDMQc7iBvVrsW2AChP26?=
+ =?us-ascii?Q?yLWBMoC0748Rnu6qlW9ePeiZ4rtNRdgs6TcjZ3LRgoOrPDksv9R0fJCikZkt?=
+ =?us-ascii?Q?U3bzGob9a4yy3SfsKYzWWgfzd9Uk3qzy14LsRfYC9xz/RYZFKmdHRVatBwEV?=
+ =?us-ascii?Q?awS9X7nBAmYNZE9JKFQo3d9YF1Op9MoWbqtU4HMDkHQOShkzWzzUeEtQYEK9?=
+ =?us-ascii?Q?WIVZ2tGG5qd2Cxh56V1Kr4bbYmhwx4n+4sjCSf+bT9fTzVKdL6BkFdug8MkE?=
+ =?us-ascii?Q?2Pr422GD1SjaIYbZ/z32frTm0KsY8RP7fPzyK7dzySsdJ4ZCnVNaKjPgZWXi?=
+ =?us-ascii?Q?2D7YvUxT6Gg2+YH+II7wqgPXptUcaW4Nt4Iw+H3psi01q6UTl67LJrD3u0Xn?=
+ =?us-ascii?Q?tMrZEAVK8tMg7mvdovC35sEZGOCRNTTbx8CxjIkBzC/5u+6RMFFZA1TPcCnm?=
+ =?us-ascii?Q?Whinxf68T4yo+6a4ldKdnMbrsbkBedOOdeZUKuFrTg+ChOH9HMrd91+atBLR?=
+ =?us-ascii?Q?6pUtqPMqOZAlcEmvKI4YPHmKFX8jQ3xHyTJLMf7W/DloORq5FClogB5w6MnU?=
+ =?us-ascii?Q?osxk0t+/60gR8giNr6DLTRliE4NC94zyOgRlw7eeJiujN1SyVFxYaUcVWQsW?=
+ =?us-ascii?Q?OtR458QJOl8btDtuF1E8Z8o7aD4RR6m1dIpTE20fVeec2D/4YZcTWb0K0wm2?=
+ =?us-ascii?Q?/P8JYuX3iFBoloj2bIL0y0J4HKUltbs7tVNIhqqeeo8mrcFniRyXuI5BJJj2?=
+ =?us-ascii?Q?zYdwwgK3Ls3Y238r2yEpHr7wZz7Nj3VFQYfbX9vqRO7tAK2vXnU9Y8CaVwWp?=
+ =?us-ascii?Q?sn6eUjRhuL1xKGnkeUsYilZsUKPF03FpUxXe4awDLrwFoZXsUrcrxliELZTK?=
+ =?us-ascii?Q?q2R9KHYJYoy5vGs1cpWAWJ6cM3FKzL367aN2l2nIjzMK8v07Z+/dQTvjFk8m?=
+ =?us-ascii?Q?PYYRKbkZehNWOsBCOApTRNud8iabkyf+9ItvfcyzpkIvPcw6xRwUiMFjoxA6?=
+ =?us-ascii?Q?lXChSUHtQdBJrdCDcWODzZtKSxYpo1MbY6XFA/x5uJX5LIvkEcGBA3hNVely?=
+ =?us-ascii?Q?O/igFqmIV989ZGhRIR3YHfh1v90g0AkocXeZm3RtNVbajY9o2ehgd1cuqoaI?=
+ =?us-ascii?Q?78UHB2i0zhUMbw7CM9cMXv+ZTxHyjAiAA3xAVrbH1KSkpPkWWbS099ZeY/Rn?=
+ =?us-ascii?Q?+CKGdvYsrv1nnSCmQNXbXgE3iBRlJAFPcr1mRsAVP9jHWKdpOyG4qg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(7053199007)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ONi71GtnHqfAhu7eoyKZ1nJQnvcnCkbMjZ5rcdx7WjBuTvtdp3RCJ/pQlLOL?=
+ =?us-ascii?Q?NteRhK2kRaVNjU1U0k3A6EcAcNvyNR0rUjWnL+xFiDqqYh2tt44ULjxOdCy9?=
+ =?us-ascii?Q?mY6I6esrV4AiAQfrBEQB//EWcj+IAUu3UvuPy64bF7fW9i/v7598owfOJLh5?=
+ =?us-ascii?Q?NJvnkaF9KLdmalbYJgyRcaXPsJpgpIhX9eOt5TKZ5TWF53DrJDLduS0it/ko?=
+ =?us-ascii?Q?b74iNHCI3tBqmNkr6CHzBLBgVM6Bz6XI4JtXws3rEoL2CroqHSSo47cnIB5C?=
+ =?us-ascii?Q?F72UYwC3fil8MiCUsAAYJ/yFE4nsyxQ9nYSGVh0yEV/0klmkjadEHdtE/Hwe?=
+ =?us-ascii?Q?5M228oFny1gk8uoA0YugFXt79j9q1waVW2fNOTpVSoPKMoeHtrGgaRBFK+jv?=
+ =?us-ascii?Q?ZYx2bb58VIB0/1mKiL6wB0ah4sVRLwZjGp4vVWgKnTVHIWFqOM9nPZzGAjer?=
+ =?us-ascii?Q?pi4GqPRB5xKJeVHHulfMarAwe9muqScPSYDy2sF20tz7vf3DyuHYwcGgyQUr?=
+ =?us-ascii?Q?MJ/2bzx0NOmCapg2ZzGxteKPNzbpnVXGITg3ADG1Zl3Tj1XfdYlO9weBf7iS?=
+ =?us-ascii?Q?Lzo7AxdDcVQ3nFcssmVYYWZL+mkb+7nnHe7kVPyaCPRM5/FSiyliCJGmhGQm?=
+ =?us-ascii?Q?dBYRkV9NFBpHOWbxcoAI1cW8rplVzJL3sok8MeQ/nRnYxf0quU3Fe2+8zI4n?=
+ =?us-ascii?Q?x6MIaa1jrMg/i4wR71+IFUyfJ5llaB2hOEj3FrSpNb8vnUfuX6b4EBaCeC1K?=
+ =?us-ascii?Q?zguskrLXp+k6uYKkU2RBbhYQIvITzaZxovcsY/f+bYF8/Dt2RGtrvq4Hd4D5?=
+ =?us-ascii?Q?y8jHSQlbdqOtyq/VoU0t8y0wLs94ahg+T/7eRywpMXBzHcGtX5phTPwR8O65?=
+ =?us-ascii?Q?zRfx+qIk6GK3Nt3AhdAQyM1AELQrJnWQ4El7tRiJfeGcligbX2fZlbF0azJT?=
+ =?us-ascii?Q?DkhzYJXz0RgmMkCuAG0je09vPztzIYQLlBl7jVCjYds/dINrxY6qkueLaLnZ?=
+ =?us-ascii?Q?fKYYIcEfrcMy70BlerG3OE8d/4/3Bz1jXhFHU2wQu6HkxgYw1qKkvBglJZw/?=
+ =?us-ascii?Q?kvx003F1Vw2YLkO636W5JiCG3auS+UoN7rTlsB5zrw7ShLOR35XBfWHgL61x?=
+ =?us-ascii?Q?AaYiTu5lzn5ApM6+WywBnaR7TBqk4nzRXzXnEf0lz2UGRUzpeeVArYlsZY6b?=
+ =?us-ascii?Q?9lTeGkvXnXgi+JBQMFJ+UT4kIjr1tJ00DDfN6NtRos3a7NX0kIvavi0QWd/F?=
+ =?us-ascii?Q?6/9m303WMbGMXDQVTg3SNUSAk+4FeLdS2TuzC+mHPr1uf0y5XYHxTLBIdlAy?=
+ =?us-ascii?Q?RD1qWo9VuuzdQ0d3ovYl6sY2gHb34yksZi2FCWw+CllQ8rPGriFiHDwhktdw?=
+ =?us-ascii?Q?utVCESl77lr70SAf824Pm9vgAsCKMQH5ovfjLsvWYlYJtEB2Zg9xa3XZoxFG?=
+ =?us-ascii?Q?JoyDoN0g7xHfleKUexO5v/uJvzs00lDvTKGJiq3AAQJ1zgSxd6bXuLYzh20Y?=
+ =?us-ascii?Q?hEW1kL/APIr5wuXAMG/bMxCVHW39Kz4D3uIif0/T5fMfltWzkxcNXRKSILnm?=
+ =?us-ascii?Q?vAGjjLytZpH/IEVtihQCIaaTy1pr+bNUV+3M4IIa?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [net-next PATCH 0/3] net: dsa: mt7530: Add AN7583 support + PHY
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174839524201.1849945.3988099260497875532.git-patchwork-notify@kernel.org>
-Date: Wed, 28 May 2025 01:20:42 +0000
-References: <20250522165313.6411-1-ansuelsmth@gmail.com>
-In-Reply-To: <20250522165313.6411-1-ansuelsmth@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
- daniel@makrotopia.org, dqfext@gmail.com, sean.wang@mediatek.com,
- SkyLake.Huang@mediatek.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
- arinc.unal@arinc9.com, Landen.Chao@mediatek.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54786da8-a9df-41db-4157-08dd9d8a1374
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 May 2025 01:50:51.3365
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: OLCH1xohZW9hiQcTQAIB8SNB8omb1KIsWW5/xkdhoKp24n+tubbFybBbZBOAdZSwHGAST8YE9AqcomUbcadtlQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11240
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_182010_829911_BC2637CA 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250527_185102_692034_3F538CF2 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +170,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
 
-On Thu, 22 May 2025 18:53:08 +0200 you wrote:
-> This small series add the required changes to make Airoha AN7583
-> Switch and Internal PHY work due to strange default configuration.
-> 
-> Christian Marangi (3):
->   dt-bindings: net: dsa: mediatek,mt7530: Add airoha,an7583-switch
->   net: dsa: mt7530: Add AN7583 support
->   net: phy: mediatek: Add Airoha AN7583 PHY support
-> 
-> [...]
+> -----Original Message-----
+> From: KUCHARCZYK Lukasz <lukasz.kucharczyk@leica-geosystems.com>
+> Sent: Tuesday, May 27, 2025 8:03 PM
+> To: Carlos Song <carlos.song@nxp.com>; Oleksij Rempel
+> <o.rempel@pengutronix.de>; stefan.eichenberger@toradex.com; Pengutronix
+> Kernel Team <kernel@pengutronix.de>; Andi Shyti <andi.shyti@kernel.org>;
+> Shawn Guo <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>;
+> Fabio Estevam <festevam@gmail.com>
+> Cc: open list:FREESCALE IMX I2C DRIVER <linux-i2c@vger.kernel.org>; open
+> list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE <imx@lists.linux.dev>;
+> moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE
+> <linux-arm-kernel@lists.infradead.org>; open list
+> <linux-kernel@vger.kernel.org>; GEO-CHHER-bsp-development
+> <bsp-development.geo@leica-geosystems.com>;
+> customers.leicageo@pengutronix.de
+> Subject: [EXT] RE: [PATCH] i2c: imx: fix emulated smbus block read
+>=20
+> [You don't often get email from lukasz.kucharczyk@leica-geosystems.com.
+> Learn why this is important at
+> https://aka.ms/LearnAboutSenderIdentification ]
+>=20
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report
+> this email' button
+>=20
+>=20
+> > -----Original Message-----
+> > From: Carlos Song <carlos.song@nxp.com>
+> > Sent: 27 May 2025 12:46
+> > Subject: RE: [PATCH] i2c: imx: fix emulated smbus block read
+> >
+> > I2C SMBUS block read need first read one byte from data length offset
+> > then I2C will know how many bytes need to continue read. For this
+> > issue you can meet " Error: Read failed " when using i2cget -f -y bus a=
+ddress
+> offset s to test.
+> >
+> > So you apply this change to make i2c-imx controller can behavior like t=
+his:
+> >
+> > S Addr Wr [A] Comm [A] Sr Addr Rd [A] [Count] A [Data] A [Data] A ...
+> > A [Data] NA P
+> >
+> > Do I understand this right?
+>=20
+> hi Carlos; thanks for the message! Yes, exactly, that's correct.
+>=20
+> I run into this issue while trying to integrate a smart battery into a IM=
+X8-based
+> system. Fetching of properties that rely on data block read operation (i.=
+e.,
+> ManufacturerName, DeviceName,  DeviceChemistry and
+> ManufacturerData) was failing.
+>=20
+> With the fix the block read looks just like you described.
+>=20
+>=20
+> Without the fix, the transaction on the bus looked somehow like:
+> S Addr Wr [A] Comm [A] Sr Addr Rd [A] [Count] NA [0xff] NA [0xff] NA ... =
+[0xff]
+> NA P
+>=20
+> (i.e., the Count is not acknowledged and SDA remains high afterwards).
+>=20
 
-Here is the summary with links:
-  - [net-next,1/3] dt-bindings: net: dsa: mediatek,mt7530: Add airoha,an7583-switch
-    https://git.kernel.org/netdev/net-next/c/fef184880923
-  - [net-next,2/3] net: dsa: mt7530: Add AN7583 support
-    https://git.kernel.org/netdev/net-next/c/d76556db10bf
-  - [net-next,3/3] net: phy: mediatek: Add Airoha AN7583 PHY support
-    https://git.kernel.org/netdev/net-next/c/8bc3c234dcb6
+Good, thank you for your work!
+Reviewed-by: Carlos Song <carlos.song@nxp.com>
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+> Lukasz
 
 
