@@ -4,98 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567C4C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 15:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79854C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 15:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+R8yVTWV7faHDggV+H50he2EYWDm1F+x1P6wR58APkU=; b=EtnCubJgLkxNi6ltGtLLbWPzPX
-	0RyA7ZhMYBvbynjgANqbjRjLEdxVAkA3ZJXcAUFqaEHfo5AlYvGEthsSwpeaWUfwf3ncs/LLoT9Du
-	Pnk96Gl4SUqVnPfmUKxZGnJXIdroQMS6rIPzZynGHJ3GnrLNjyccZAv+7dGVIwefUaQ6HFuCiVhkc
-	lTy7tVi8U9Jd27zlXdFE03iXuBBsn+dnJXDLDhoQBNE9ua33CeJq6ubrbvG+sgK59uOEbGeSbc1GM
-	JLB6I9hCjNCBmZnrzcb6pxOSA3ZldPp9odOm0jV3096BkgYQY6eajL37Swx/vItXtIAG24ipr6+HR
-	SAcFEPIw==;
+	bh=ps8PukVP0TSbT4CWFwXwDiyx++IXKP5NdORyr0t4W2w=; b=k0FX+JyGyFDjaDt9tDa/XBMIeL
+	OVi5sCJa6oL5At0R6vt2Jgt7GdAFGmzAFWaZJtc85LdPstbJ77xFknw3kWQLYp9J7qIMVZ5Inl64b
+	UQrvRGPa+7jXYyu4ZydnDMWh6kQsY6abUFFSCqau018A+Doj/0Ffe0PmGP+LhJD4TLedyGgVrxLF0
+	68fMMujSmQNxBkdx3NI0jIOaFWNno7MpuCEc4ddYRtXcptB0FGM/oJMey1eYRn/vIKO1kfcmszuj8
+	rPVUF3v4dbjCuYxAgRkWxf7GsSJIbd4UZR92NtYub+qL9qYX7NRpz/H9QoM0V3ZC7ibAmw2DQZ+sV
+	nWYwF3dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKIVn-0000000DWqI-3H1c;
-	Wed, 28 May 2025 15:16:11 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uKIXv-0000000DX79-0TlJ;
+	Wed, 28 May 2025 15:18:23 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKIP6-0000000DVts-1vYn
+	id 1uKIPo-0000000DW5r-2uM0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 15:09:18 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-442ea341570so33749555e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 08:09:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1748444954; x=1749049754; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+R8yVTWV7faHDggV+H50he2EYWDm1F+x1P6wR58APkU=;
-        b=FYTgPyB4pWuMOPu21AWDB9kKTG2dAovRqpWDm9gnNYa82fNpKCIJ3UWmRZ1GQyPbzf
-         +Dgue7szp8FXY+1iXfmCg/IZR96RANDTMHXBL+jtuWYDQKMoAa89wRD00cjlSLc+Oi86
-         nch+n9KkGLDPR9ksPhP5L9coRIIdDW+anTKZoK+mjMf32IZwBWw1E73OQ5pukuc9FaQz
-         UYohcmAMCNuViq1L04KCias3CNhfbvEP+uVbwZjKVe8WPfZejD7A4waEhPAg+5sBHeiY
-         9IkaecnRrHJ5oHXwRJvlP5AscvTCbU4Xat5PNEhJgCpYuvYyxof9I++QIfr1kTvq2pjs
-         s6CA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748444954; x=1749049754;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+R8yVTWV7faHDggV+H50he2EYWDm1F+x1P6wR58APkU=;
-        b=PV4cpcxe5zQ9Sbs8im12AqL1NZ902+OhtaeXV/joQFMNG5mACKCrH5jm/5eckwhNnu
-         X3XZZp/y2PZ6u4cFiJb3YKfsqpeFjp1+ocB47BsryKqwWOj7C73KMYQe7Elqx6zq1J6x
-         WQG9JaR8yXB4A72YakwMC4E+PTfoWHalBV79HKHoPV5YwkVjJ4VKXqFssfx0dnkeWvRV
-         ZGmm4vxSsPQOdx7f0EY6Gtbhb8jlK/+XfPlmOfapmY0qQfSQHeUkFNr5032wYt1wAkZ7
-         DMGbQglkpWQKu98jGYJJQE+e3mIVDAG4R6xntwo9oFevakFDPq0fMx3AC+MvW0oi3+Pe
-         B5jw==
-X-Forwarded-Encrypted: i=1; AJvYcCWT2wke0/fgTkncupRZUwdk8/vJLYI7aFXsSShVXcTYNgbiyOdiEJMoKgrqBF7cicv1Rz97TIMzfAOtk5UdT0eg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZUKpKyV0om+yl0OfyRgp2W22LJsVuA7R8ZUBQxKvxncT7o5yQ
-	G3EB34OVQFNMuHtBLu/RF1D8l2ovBsIHd42IKrLNx0oxMJAckEPqrbTjMQiAqp11myw=
-X-Gm-Gg: ASbGnctZoHhYHXR05cJMbdyui0q40Ikjtz5uf2LKttJb+j87eWNAR6j2QcFaZPn40lt
-	vK2cEN2dIrG09JcaAwCQA00JjHfml24Uwrv3wMeEnIAJH3DNprh/5J55AzNh+VSUEviIZIsx6n+
-	UtsIvPsaEvkY2MnOiKGr5pSDzL7LP2/hyBmY36GXruQ3VwfR053YQs2C7lZjVDe9ZUOGhibe/TB
-	Q0ya427DNsNEGzNI3iydMOlV1ZXP1iFlnfRRQJMHi6QiixV+VWUrbcdvh3QOcJKNvcgBAKNrgTu
-	AvVlSpkozpc5AjmsrKsA8Q9xykoZs+N/HPalG0I=
-X-Google-Smtp-Source: AGHT+IGlaccgtVXoxgdtRY0DaxB5E5oM1xLtWSVzQKwZmQedIB076PoZ1cGVyfI0Vth+zZs2F/ULAA==
-X-Received: by 2002:a05:600c:8487:b0:442:d9fb:d9f1 with SMTP id 5b1f17b1804b1-44c933ed9bbmr168819085e9.4.1748444954154;
-        Wed, 28 May 2025 08:09:14 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::ce80])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450064ae525sm24810625e9.21.2025.05.28.08.09.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 08:09:13 -0700 (PDT)
-Date: Wed, 28 May 2025 17:09:12 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atish.patra@linux.dev>
-Cc: Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv-bounces@lists.infradead.org>
-Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
- 3.0
-Message-ID: <20250528-ff9f6120de39c3e4eefc5365@orel>
-References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
- <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
- <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
- <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
- <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
- <20250526-224478e15ee50987124a47ac@orel>
- <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Wed, 28 May 2025 15:10:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NjBYfJQeqUHWFCEFV1OxSn5+RG7xuTPJ5YHWWSMu1UAmWui3FycuXBMzly0GiegPwQ7NFp6p8mt+tvGdd5zuoC5cgJC8L4Abp69RH6DkwzIH2QdM9OwKH88b/qDqLB8DiNTPT9U6zax9y0VDcLnWqoIEdQKQBAasuuPZ9+uqTaH2jSYWX2WqANHo5YIn21Ge8XWlvMhyPiwI2geBjlOZV0wMxcZwq2zye4O8rsx1RkAA/4ha1xKAJe682wWXWKHyrBWcBLRoqLGXxurBhnkE8hqg9AsewEYBLatEzwsOe6cDTgzeQG6U2u01npY6WpVoamsqWG4iKfRXsuwljtrurg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ps8PukVP0TSbT4CWFwXwDiyx++IXKP5NdORyr0t4W2w=;
+ b=MxAyuusGVkk2LFEGsHmYqaNXc/GKV4bdEjH3yqnNzUandgc+kvSl3Q+wbPsOB2yzkjFumBEHuQDsF7Djz6+gBriK1XqV1aAJZ2b6+9EgE7lPu1r+TWNLdVWXb+8QzvHPbPdG7VGIlKo+fJBR+TBIwrYvhanxkwXhlg5l9mQ+RDg/3jlVEGWmyHjqPfS7hOE6ValAeTh9aBm4YwoOf7xt5Sd23RXdtvgaEey6wiXoDBnDnjGnF3dIX+Cb3u/ZFZwyQp8wWuC5GAc43wdX4dMTHiV1mEN+HOIGqlZU/uRBVZnEPvj5Uub8excK65LTPvirAlIoMu3z0RE5SEnfX1R9fg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ps8PukVP0TSbT4CWFwXwDiyx++IXKP5NdORyr0t4W2w=;
+ b=OaGk8XuHeOPJnnocjqM9IUVw9UKY9AwLI8V5uwWnIbJ3vIHbAzA6Nxb5h7dQOoEsYr119tPGdtcSaJxEO6hvQkXNZBAQ0KiBw3BsWSDZfhScrBvbabsFZqVNnbUfjuoXzQcqsdULdcDXLsFRxOqL9wjk3xfKKS7rYgRtJpjKkayDRWB5Fo1314s/pEIx2VszBsgvz2le20ShFT3Ey01d+SgXv8OGaq3BCpscAeGKciQf8BVAJoaEOr3JOmx5bZ9XvGvautoolNqIEb0odM5vd/V3ywVRod0BZNmh8Eb5L4z5VGQc/ZOOeBtTTiKkiwbQiGH4CxgINTA9JyD8+dIjYA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA3PR04MB11250.eurprd04.prod.outlook.com (2603:10a6:102:4aa::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.22; Wed, 28 May
+ 2025 15:09:48 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
+ 15:09:47 +0000
+Date: Wed, 28 May 2025 11:09:38 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Wei Fang <wei.fang@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: dts: imx95: add SMMU support for NETC
+Message-ID: <aDcnMnAJO+YVQ6rJ@lizhi-Precision-Tower-5810>
+References: <20250528083433.3861625-1-wei.fang@nxp.com>
+ <20250528083433.3861625-4-wei.fang@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
+In-Reply-To: <20250528083433.3861625-4-wei.fang@nxp.com>
+X-ClientProxiedBy: SJ0PR13CA0233.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c1::28) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA3PR04MB11250:EE_
+X-MS-Office365-Filtering-Correlation-Id: 55ad0a3c-2b2d-4601-ed56-08dd9df9af43
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TTZ96uP0o59kCv4XpnWJRxxEhSPjwHmYYqg3geVXXK6d+6RhwePmtmME1K/A?=
+ =?us-ascii?Q?e+XIC3zb/9m8P/vI8EKUqU9iXicPwto7BUh3AwOL+Mfrt0bUe9YYOjVbRmRq?=
+ =?us-ascii?Q?Rg4jvBJ6Gi19Gwuo6651s7umNCRfpHm6SthzkijNcVHd0sXNP8Ff8tueMHoK?=
+ =?us-ascii?Q?rjtZQn0MaiRp2ci//GcIgjrsI4/iamMF+Dod5K/HEMFi53I/C3s0WfE9976p?=
+ =?us-ascii?Q?dO7d6sg6DFZ+rAVm94g8K966X4Y74Qtf8i1rSra4njpGJllueGWRQKpKp7cv?=
+ =?us-ascii?Q?DH2qIKf2CgUsDVGc71n5t5AnJldwQfGoj+2aVC3ul0hLU5eb0fPhDYLGHBfN?=
+ =?us-ascii?Q?McvXOyfnIXEzotLmCHIlw8CHjZjGC9aC7NRFn2qKJYs8lT6RsjamzUexhbAf?=
+ =?us-ascii?Q?DRIMSNm67AEENUe4MiRqpEvbHhwfm1zrnwyFOwfzF5VnJ5wFH0SSuxRf8K9T?=
+ =?us-ascii?Q?D/cZv2LreD259+RWQsqcRxAQRbyOtFJMhTlDycilPlGdWmnAIbLYMDL6/ht+?=
+ =?us-ascii?Q?kOfCve0+vP7emuFL2+/KWPlDMlMx/rgomqEscvZUcqHFycwy06upzybjxDUz?=
+ =?us-ascii?Q?Mf+5kT480T7Hc0gYSGQbTcxFpjCeDnyp1tko/gB52LH7gUW1avU+MaAIhAJg?=
+ =?us-ascii?Q?DKb8ba/HfXNUT6av6AIdI+p/zPWkma28oa8P5jBeeQAqRgeebkqu0+ut3UqW?=
+ =?us-ascii?Q?fBlSpnVuQEmivpdT7/SN5DorWgBvSLp588O+1uiuyB+zCNmJE52hmRbXA2Xx?=
+ =?us-ascii?Q?DYt8zgFRaYavNv1VcKC38pd+h5z1CW9pa8tvFbnC9o0BHNvsr0dVnU+hpHlV?=
+ =?us-ascii?Q?QqIppW3ae5aDTzjS7HRe00s9OLPqpbW9x88qdzDPDGge87EICTODcwHL3b6O?=
+ =?us-ascii?Q?Gj+FmqdFRuJOr9eEjJxTy2T+YwHUrcNYG3gbO0JFQt1o2kps3zI5l/zexrzl?=
+ =?us-ascii?Q?IKIBGdPAr8Gkgi/c/ntq16fncdlP6D0oS2Jb9kQydIzTfuCky1Ab6VEVQyCU?=
+ =?us-ascii?Q?oHAxEVUr5LJ+cY7uAeGehAsIC9UP4hV+ixlETcEuPVoaxCqFQMvbLjv9urri?=
+ =?us-ascii?Q?JyLWjwLTfmgR5C9hvLtbSTrNH6LVRCKEOtKiU+tc2qmhOR9WA/xHwoLTPUTO?=
+ =?us-ascii?Q?rFu/MlYNCAajzdx9QFrPyJ5v1IhtVrVkptQpgjNmEnwgEp7h8LfARlfrFvaY?=
+ =?us-ascii?Q?8GlqznVCEk/16cZWlm/1uEPG5Y5VhhChRev2hWVEAQ2YS/Mxh/lpccBa2UKm?=
+ =?us-ascii?Q?1h9xq0o0fzMSKr6exnc2lz1WloQ6oZlUW7tsVkAGAoSumNJy7Cp4BMMgNz4X?=
+ =?us-ascii?Q?zApd1vz2VskV3F2DRAcbAgND46ldAMI7rNEG4XEIHYsRzBvzmXzNORJjlPRd?=
+ =?us-ascii?Q?3tCvp1vxi0wY3gU7f0Kc09WQTH7+LGiT8mDIBntJ2kJvaoDpS/5uKNvJFGCX?=
+ =?us-ascii?Q?QgUfDn+/fkRAgTWDDrydLwCIA9kHkUJILBTu/ctlf1VTAe0o8zmng6Hz1KpX?=
+ =?us-ascii?Q?3Z6jRm5fyIqw0nU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LY7z6ZPMIx8mLmYKm63f0WhYYRqO4duwjdP2yEgnFVRBhrTYs7mp2CikB1Q4?=
+ =?us-ascii?Q?B3obRXpaSVLoFJ8240srGWZdRLtL5RHPUsB5WehbtKeWWovzqKEKuhNYdY7M?=
+ =?us-ascii?Q?jjtkvYnwbGSkvLJfdgLKyfO7VK4PpxaOAXpGvweAPVEcgUv6XrzVABG2DoXW?=
+ =?us-ascii?Q?yf76dBdwd1iyZUVnoqr/oVfrlF/G2Sprsyja3G7Yab0SyqyxTnR3lf8/02EH?=
+ =?us-ascii?Q?TdZEAugQNPNwW4nL3qsw7H2Whj9oz7Jprd0fdkVbAWcorEtvvybsxb/PgtH2?=
+ =?us-ascii?Q?LUZQcgiMLQx37v/4bu8w0hq2yE9viS4r1qc6gJ/iOuiXt1XG0oAE+LEh3khh?=
+ =?us-ascii?Q?mZNUrcUH0hablqCm91yj9ywoajOY7IyGEO+kt9NS6u8wq0fzPeS69zbUR1IW?=
+ =?us-ascii?Q?swdrL60EoxJAga/ZRhl7z0Q4iRBew6DDnc4HE2kO7tFMNNQm8cJ0YtKXXu7T?=
+ =?us-ascii?Q?W+ppsgjYrFhiXcEg1gpBRJN3bD1e9Uy+BAEPUM4WozbnT3L1oQQOlEo8cfoT?=
+ =?us-ascii?Q?sK3FA8cGQBCh4hcNOOviek110ejFva1aP67aIdd30cjQ2eNyOwbTjxPzrDEg?=
+ =?us-ascii?Q?uA55Wmhh0MjnKgRuK+6JNXTatMNFldaCYXuQmyQf4yg3eDGz2Je+WwviNger?=
+ =?us-ascii?Q?iTDWnyZZeAa9lf38qRsnB6ZZJeefnHdSZv+e/BKQDPrjJ1rDEH4YJqK3ywgR?=
+ =?us-ascii?Q?KvYH9CHWPN3zeSEjrgKAEOUwiOHFEyQCYiBI00BWIRo+KdEbjXxabLJLUaKh?=
+ =?us-ascii?Q?ir+guqbZcv3AAI220MFghdy2LqbqhmA5BSqydyJCwnoHQLKHnFnPvTNWfGJb?=
+ =?us-ascii?Q?zloA6yzRHjwTrt7w+g+RuSsWREeQwb8WE71tUea4CM+bPbT7jiwadTIufPrL?=
+ =?us-ascii?Q?BhbXy2gXHQXqZfJtj0/xySTqg8ljAxfZwFd2SDIGRPNMUkiwiAqZ0Xf/FX5m?=
+ =?us-ascii?Q?jlFWaufTH2mk2/sUvSM8yt933LgVIi/g5HswPbaCqYqMrhQHyA0LeboclsUx?=
+ =?us-ascii?Q?70ggLU/UqqCZJKpCebc4WhxcrEhaNgHwSVBhVrqkoFble/BUgwo/8c3184qT?=
+ =?us-ascii?Q?Hg8h2mADGE/Bpa/H1MCn3QosH2G+w3Da6ADvvVRQNOzX9NapOYZ9lsoP7NwW?=
+ =?us-ascii?Q?MdA0vQQRHXNmbs32O4j2mQZCZDPd7jGOD4gSxCuMWRXQZofJVqr8CPPOglBn?=
+ =?us-ascii?Q?hNRtYeone/qCh2q66GC6EHRbk+ZKRrqoX+FNH1DG4nQ3PE+Xyd22rzv0iz5T?=
+ =?us-ascii?Q?g0i6QdpaCUfXqeSNqR0W5AYtVxplty6C+1H64DJzPVdhqpIZdaRRtb3WYS1y?=
+ =?us-ascii?Q?ytlD2IBPLCJMhlBWWfI/lXcUWZPCJVki543HytjQp1ElOTFLzflgyORU0VVQ?=
+ =?us-ascii?Q?4mHU06oZBWk/EDJ5LO1Bx87mMCBLJo/ZH7Z9bLjY2K5Zxo6Ghq16J4MVXBY1?=
+ =?us-ascii?Q?lr3Ill3fshustMqVrkFUaOeyRDCHBOhG57Qs3Cu9yFQKlwT3d5XMexFmQt66?=
+ =?us-ascii?Q?eRS+sMfHgxf/Lkxya7aw2Jh4kRPxLJprhNCxSYYAXwO68frwPamnzxj3FcDy?=
+ =?us-ascii?Q?N8EmIWXhR40SEO+CRQ0hz4RyPikFfgTRvppN0QJh?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55ad0a3c-2b2d-4601-ed56-08dd9df9af43
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 15:09:47.3273
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3zJwndR+c8BNlVl4oL+22gmBYEbAeJnHP/bi5eZx7tzj9FpjLXeOiKrHxrhpDaKVH17dN7s4xiesltmMBbHDJA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11250
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_080916_499175_550A2D0B 
-X-CRM114-Status: GOOD (  39.02  )
+X-CRM114-CacheID: sfid-20250528_081000_734973_8C742063 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,81 +159,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 07:16:11AM -0700, Atish Patra wrote:
-> On 5/26/25 4:13 AM, Andrew Jones wrote:
-> > On Mon, May 26, 2025 at 11:00:30AM +0200, Radim Krčmář wrote:
-> > > 2025-05-23T10:16:11-07:00, Atish Patra <atish.patra@linux.dev>:
-> > > > On 5/23/25 6:31 AM, Radim Krčmář wrote:
-> > > > > 2025-05-22T12:03:43-07:00, Atish Patra <atishp@rivosinc.com>:
-> > > > > > Upgrade the SBI version to v3.0 so that corresponding features
-> > > > > > can be enabled in the guest.
-> > > > > > 
-> > > > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > > > > ---
-> > > > > > diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> > > > > > -#define KVM_SBI_VERSION_MAJOR 2
-> > > > > > +#define KVM_SBI_VERSION_MAJOR 3
-> > > > > I think it's time to add versioning to KVM SBI implementation.
-> > > > > Userspace should be able to select the desired SBI version and KVM would
-> > > > > tell the guest that newer features are not supported.
-> > 
-> > We need new code for this, but it's a good idea.
-> > 
-> > > > 
-> > > > We can achieve that through onereg interface by disabling individual SBI
-> > > > extensions.
-> > > > We can extend the existing onereg interface to disable a specific SBI
-> > > > version directly
-> > > > instead of individual ones to save those IOCTL as well.
-> > > 
-> > > Yes, I am all in favor of letting userspace provide all values in the
-> > > BASE extension.
-> > 
-> 
-> We already support vendorid/archid/impid through one reg. I think we just
-> need to add the SBI version support to that so that user space can set it.
-> 
-> > This is covered by your recent patch that provides userspace_sbi.
-> 
-> Why do we need to invent new IOCTL for this ? Once the user space sets the
-> SBI version, KVM can enforce it.
+On Wed, May 28, 2025 at 04:34:33PM +0800, Wei Fang wrote:
+> The i.MX95 NETC supports SMMU, so add SMMU support.
+>
+> Signed-off-by: Wei Fang <wei.fang@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 8 ++++++++
+>  arch/arm64/boot/dts/freescale/imx95.dtsi          | 8 ++++++++
+>  2 files changed, 16 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+> index 9f4d0899a94d..e9a5fb36f5d0 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
+> @@ -494,6 +494,14 @@ &netc_bus0 {
+>  		  <0x60 &its 0x66 0x1>, //ENETC1 VF1
+>  		  <0x80 &its 0x64 0x1>, //ENETC2 PF
+>  		  <0xc0 &its 0x67 0x1>;
+> +	iommu-map = <0x0 &smmu 0x20 0x1>,
+> +		    <0x10 &smmu 0x21 0x1>,
+> +		    <0x20 &smmu 0x22 0x1>,
+> +		    <0x40 &smmu 0x23 0x1>,
+> +		    <0x50 &smmu 0x25 0x1>,
+> +		    <0x60 &smmu 0x26 0x1>,
+> +		    <0x80 &smmu 0x24 0x1>,
+> +		    <0xc0 &smmu 0x27 0x1>;
 
-If an SBI spec version provides an extension that can be emulated by
-userspace, then userspace could choose to advertise that spec version,
-implement a BASE probe function that advertises the extension, and
-implement the extension, even if the KVM version running is older
-and unaware of it. But, in order to do that, we need KVM to exit to
-userspace for all unknown SBI calls and to allow BASE to be overridden
-by userspace. The new KVM CAP ioctl allows opting into that new behavior.
+Do you need iommu-map-mask to mask bus id in case difference probe order
+with pcie node?
 
-The old KVM with new VMM configuration isn't totally far-fetched. While
-host kernels tend to get updated regularly to include security fixes,
-enterprise kernels tend to stop adding features at some point in order
-to maximize stability. While enterprise VMMs would also eventually stop
-adding features, enterprise consumers are always free to use their own
-VMMs (at their own risk). So, there's a real chance we could have
-deployments with older, stable KVM where users want to enable later SBI
-extensions, and, in some cases, that should be possible by just updating
-the VMM -- but only if KVM is only acting as an SBI implementation
-accelerator and not as a userspace SBI implementation gatekeeper.
+Frank Li
 
-Thanks,
-drew
 
-> 
-> > With that, userspace can disable all extensions that aren't
-> > supported by a given spec version, disable BASE and then provide
-> > a BASE that advertises the version it wants. The new code is needed
-> > for extensions that userspace still wants KVM to accelerate, but then
-> > KVM needs to be informed it should deny all functions not included in
-> > the selected spec version.
-> > 
-> > Thanks,
-> > drew
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+>  };
+>
+>  &netc_emdio {
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> index 632631a29112..32a91d7b51e5 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -1861,6 +1861,14 @@ netc_bus0: pcie@4ca00000 {
+>  					  <0x90 &its 0x65 0x1>, //ENETC2 VF0
+>  					  <0xa0 &its 0x66 0x1>, //ENETC2 VF1
+>  					  <0xc0 &its 0x67 0x1>; //NETC Timer
+> +				iommu-map = <0x0 &smmu 0x20 0x1>,
+> +					    <0x10 &smmu 0x21 0x1>,
+> +					    <0x20 &smmu 0x22 0x1>,
+> +					    <0x40 &smmu 0x23 0x1>,
+> +					    <0x80 &smmu 0x24 0x1>,
+> +					    <0x90 &smmu 0x25 0x1>,
+> +					    <0xa0 &smmu 0x26 0x1>,
+> +					    <0xc0 &smmu 0x27 0x1>;
+>  					 /* ENETC0~2 and Timer BAR0 - non-prefetchable memory */
+>  				ranges = <0x82000000 0x0 0x4cc00000  0x0 0x4cc00000  0x0 0xe0000
+>  					 /* Timer BAR2 - prefetchable memory */
+> --
+> 2.34.1
+>
 
