@@ -4,101 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF67C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 09:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D65C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 09:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rx2tOr2eY+H+fF6DPR+iLBfDIJ9wmmt75sHUbD+GTn4=; b=H6MJlA+HnhRzxMX9f6UlVZXAe5
-	S08d3B57FD2GYDja6/9UQXf5YT7jQcQkV3JGowN/msI6LpWiTpDP4KmQMsZ6/GWw4kWN/PhC8BDv+
-	HkBpv+o2MUAg4f1sPry4+p4/rYlMre6IiRq9ywWuGz4t3IZhha5L5i7EMhJQf/2aGuMMW8hvaYrok
-	T/ZY8nfoDGotX2Z4ub++m6CYoqqxLrrhcm7wSeI02mWHz+ly9N6QkJfSWz99+u7jIW5OJepCwCP8y
-	7iJF+Q2tX8sdHktCbB3PlYbtBz/YisVkT2o5IyUT+1dxRi2BfWUdsIoaGrbLSABXhKjxvGtGPohdZ
-	tgnkbBoA==;
+	bh=zBGKEikn8sOkH8ifRQ7NlBifMPHUZcjmHH/o8wnfxQo=; b=mlLKcg8eizUaNJiUt/+Me7eAuc
+	wylsbAx3rKstm0BEVyBfB+W/kaaFqk79ircuv++dfJ1seVfbf8KjqxQJy6dJrN06meMemnTuk3BOA
+	qEHn8e5a0gBVYYyJnL3Cit1xLx1ITZJ9hQLH9pN+4fU3vPYcgdgYypTIEaYZQl/86efZR/GRJg4av
+	AhB0sECLl9zpRT1KW3WL9QsjtQjSL5zlSCNfLpzn85V6qa+HuwdaShFvv9CggQBGIdpUaq4IXQDCn
+	sFsX4d3Zilvjq3I6rRaMr1PhSSxKhKiAX2W3BoxYYQfJKE/5igBPlbVlXd9iV3+G5rnuKK6xhQqZi
+	T2e81HKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDRx-0000000CljO-2Ffj;
-	Wed, 28 May 2025 09:51:53 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uKDU3-0000000Clw4-1gcj;
+	Wed, 28 May 2025 09:54:03 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKCzD-0000000Ci9E-1dhT
+	id 1uKD22-0000000Cidu-0Sik
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 09:22:12 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-442e9c7cf0eso1325485e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 02:22:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748424129; x=1749028929; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rx2tOr2eY+H+fF6DPR+iLBfDIJ9wmmt75sHUbD+GTn4=;
-        b=DNgtSDiywaPWSPF7y7yOKpIEJsvvuf3wK0IKz24LWwR35SRivdRzTk41NTSF3w/CKG
-         YadKMD39U6mzev1GxC6T6dK/HX/MEMBGKetSTDb4se+BFFrz4/Lm0zzYzCnSJUil/Ppu
-         y9ZV9w3wr7Vyh/tYwl/VyXkc0bSUiQL4vbo4JCdOso6vVXmVJykDDf0xanu7a2b9Do2T
-         gYZ/CiNP4VJFIz1SxvsBrZ2vucZjbIYj5KrKkhXxlWkRPq6TH89rSgBUT8Xlq0ZFCW1C
-         0llxPmTaUvINMoGzZTj6dXPT6EcbxwidRyt2Yp8StPcc7jSC5qVA9NN5JbdFH3c6eqaV
-         ZzAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748424129; x=1749028929;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Rx2tOr2eY+H+fF6DPR+iLBfDIJ9wmmt75sHUbD+GTn4=;
-        b=GjNyH1xt8O0ew3csbIXbUHioFPidWA11QUZI2u0ul3DKpWFgHfBMDmR7X1ZLZzISZL
-         mMx2zVW4ED/tRJqkKMUqb8QjKpNcITigAviKrsSj/1sGM/deiXrbx6yCf3OWVwMmBlJY
-         YRNhsWXwd3xdnOsa/aXlCzI4UiegwtPAimNzy16Pym9xk76YHvLxDuSdLwhYhip5JyZ8
-         vCACjGvjBUjE18uTUzAaeiIqwTGBNIInnYbtTGR/1AYcVdKrUIB77XmuajoTjz9WNnUt
-         aFQNLsjlxJtFs9n5/q1lba0ogSoXQMdPLioxDoSaDhUTHhFjrDf+zHyd2IMT/8StsN4y
-         A+IA==
-X-Forwarded-Encrypted: i=1; AJvYcCWQhRQTPX0+b7TCvTlt6DtQpcmjn4Xy9N5SVSOWMYT7gXwUP8X+LFvGTndPLvJVirUVwF6ltsrBqwhYYFRn2/H+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeSpNtZTJ07iGeNlvy9ppc3v3AqFplDOP/Y02D7zX2tJ1kiIc2
-	Mdr8ZZtCMm2pee67/jYnTtVyOeGYEUg2kbSleRYqvwP4m86dhwPp0WxfLQihVn3FrZU=
-X-Gm-Gg: ASbGncthiJPyKA/vrE68A+6OCscMLIlBX8FO5ehioMy3b4yaqy+GZpl6rdchpdj18Nq
-	SZ9SMxI1G5Y5sh1kuGJwH+HkZGNVOZMVUmvwlahJLuDjE7jSjNRp8gJtOaFR1FXj/gv43JyR77/
-	gTckXwdjgdbT1GmE3gj98uoOYMtccXVQ076y0vXLDNzd39+bUoed2HQSmloG1TJdtS56IWZ/yc+
-	Kitr64Wv6WNLC12jNWl9/iWcYgkcAFicS2ulujjmZXJd1IFcMrx28VEwFSwX8GhGAcF0ueAZvgU
-	Dejn7TiAPE875YUEQcfA+wkK0WU2Sb6DTnyBJ7ZV/HumcQW/r4xvr3JojGOz1Q==
-X-Google-Smtp-Source: AGHT+IH5TQnhBjLCtJ2q/cfEBit7Ui0hALJWg1qthF8GaTLBAj1glOoq4NR08mgOFCiTUbTFHl0ZOQ==
-X-Received: by 2002:a05:600c:4752:b0:441:b397:e324 with SMTP id 5b1f17b1804b1-44c93caeb6amr53578465e9.9.1748424129243;
-        Wed, 28 May 2025 02:22:09 -0700 (PDT)
-Received: from kuoka.. ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450787d3be4sm11249795e9.35.2025.05.28.02.22.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 02:22:08 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Mark Brown <broonie@linaro.org>,
+	Wed, 28 May 2025 09:25:07 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 10763254015F;
+	Wed, 28 May 2025 05:25:01 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-10.internal (MEProxy); Wed, 28 May 2025 05:25:01 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm1; t=1748424300; x=1748510700; bh=zBGKEikn8s
+	OkH8ifRQ7NlBifMPHUZcjmHH/o8wnfxQo=; b=O/VLU+oUWxZk7sqparaKE5qfyu
+	YoOpgNPhu262RPk6CilrxbkzaYhBa5YQYi/FMyZEtj+xTMAvPdF7RVe1LlQCOFYy
+	ikdgMLcMJdfr2wf+MpcLCjF72rdZwI/7PMosx6ncPOENkAust6KkFeeBzMAv37cn
+	qf867JHUIJ0iv/fI+WNn9odm2nRyIWY8UHILRVO+1pQiY+pKcgBBmXve5LBk6pla
+	SAYpMPPRAikWwEwxOiByL2Myq9zQJsmVl9FX3PpzvIFYjJfp2E6SLBfPHRKo3tCX
+	jy9aLcEnLMNCj4C27pd7aHscBUwjkrT0ssdb1VxtGd/dyEKg+SuMffH9x91A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1748424300; x=1748510700; bh=zBGKEikn8sOkH8ifRQ7NlBifMPHUZcjmHH/
+	o8wnfxQo=; b=CriTHz4jm1M3j/TvCn02m1RyagJFon/APVekoU0dUi0SZbe0jcV
+	X8ECpsupQLZzpmewxZFhX1U7Vro+fHEULuQOILnpv93soyM+ATpczIusCMIlU3qq
+	Xj7dnGZIVYmKG81Hg6QwZL50wLz3IDJM1o2wSMI2GiLWVtZYyWGhtjIXFUlicwCC
+	F3R8CxxNA/YprKncCrnxbPhnpJmD8YyuDq80iXLf/huQH64ZCnPrktLODmIYhWsu
+	X16kgLD3sWNYq3MPHjoDncXVN+zKyTTWdYNZWgt+vWSAnHwIVbnN2cnHM6G0tiyo
+	n6n0x1HIR915xUBT0LX16QmM4YFsl5ioFvA==
+X-ME-Sender: <xms:a9Y2aFGKaxL4GsWdzp93Xp8LObzHvlxEtJF5KeLab-7MTIxZ84tEXw>
+    <xme:a9Y2aKXGsH7FcavMSBnswCaWfdBlxIIyTiCNcRN2yyNOeGumNPEEe3VHvy04ICwoU
+    QM7cZ-MafRRKnBuSA>
+X-ME-Received: <xmr:a9Y2aHIqOfEEUrdAxmIaDUhb0aoVYOG7RO5vnDgmpb_qP20bVpQKPWN2WsrNdI3hza6qUlOjaFe9eZgJeYieDPfqAEM7iJJmyo32jMK3QypN>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvvdeltdculddtuddrgeefvddrtd
+    dtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggft
+    fghnshhusghstghrihgsvgdpuffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftd
+    dtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffo
+    ggfgsedtkeertdertddtnecuhfhrohhmpefthigrnhcuhggrlhhklhhinhcuoehrhigrnh
+    esthgvshhtthhorghsthdrtghomheqnecuggftrfgrthhtvghrnhepuddvueduueegtdeu
+    ffetveevgeehhedvhfefudduveekgffgfedtheegtefhhfffnecuvehluhhsthgvrhfuih
+    iivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshht
+    rdgtohhmpdhnsggprhgtphhtthhopedvgedpmhhouggvpehsmhhtphhouhhtpdhrtghpth
+    htohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfigvnhhssegt
+    shhivgdrohhrghdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlih
+    hnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhu
+    shgvrdguvgdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpdhrtghpth
+    htohepuggrnhhivghlsehffhiflhhlrdgthhdprhgtphhtthhopehjvghrnhgvjhdrshhk
+    rhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehsrghmuhgvlhesshhhohhllh
+    grnhgurdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:a9Y2aLHqdFO_JkNcTpm99HFf3LVwJidnWLb2wtLlsY2bOmI8zcxV6g>
+    <xmx:a9Y2aLW3Eqkg6eukZiKHTQK5GIrdoA0z_0e4dULxg7LRaluSRM2XSw>
+    <xmx:a9Y2aGNyx5_7cYUqgYvsVMZ8KEA5P8wS99fXRE85Eqml6hrO6i0mVw>
+    <xmx:a9Y2aK03kvhg40LpptJsDHZsjBJ9_akNvbI2anDOnwwdvAWpa5uPeg>
+    <xmx:bNY2aBciyYTcOErPVoeyrRPHSm1oSMqb7sIc63L-Qm75xJ-bCPYC9CWH>
+Feedback-ID: idc0145fc:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 28 May 2025 05:24:53 -0400 (EDT)
+From: Ryan Walklin <ryan@testtoast.com>
+To: Maxime Ripard <mripard@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Chris Morgan <macroalpha82@gmail.com>,
+	Hironori KIKUCHI <kikuchan98@gmail.com>,
+	Philippe Simons <simons.philippe@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] pinctrl: st: Drop unused st_gpio_bank() function
-Date: Wed, 28 May 2025 11:22:02 +0200
-Message-ID: <20250528092201.52132-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
+	linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Ryan Walklin <ryan@testtoast.com>
+Subject: [PATCH v12 0/8] drm: sun4i: add Display Engine 3.3 (DE33) support
+Date: Wed, 28 May 2025 21:22:05 +1200
+Message-ID: <20250528092431.28825-1-ryan@testtoast.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=858; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=NBrvQMrhx/6hLM6e+tUOgjMzy9y+05NeL0rQjwNG5cg=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoNtW5SA81tOIk5iN4B9Z+3BqC9/qHt646YY3YJ
- uI9jWgBt8WJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaDbVuQAKCRDBN2bmhouD
- 19i9D/0eBMcTsNOBBePfRl2DZ3L4ypubeOhVG44mTQpYX2zsIdOEgGmwhjuOd077CghdZii0sJk
- qdSkTwdpZ28eXWCuOkwDDskSzmWCaZF/9Ex5OQFRSEsJQe337Ltz4y3+KFb/E5hh09XzvuVMbCG
- aPwR0jTfawKW8vW72lIZ70d/gyNq2gM9/pRpb6Nci1v8b7d1f0RNr623SXEO9fd6ELCz8aKP83k
- mJ3aoCIqhO6iXRbo2mwKoEmdyI5x6qqyWlYZrDsC+UsgNNiPS6nzSUq7Dvbg1i90WdlEylZGv8M
- cl6GK84UxYlWEmYX5abbyMAdsT0O0/MTHOua6jdDgbjZapsX+ypR/cBmzjjcVwVuJvr4j0PYjrX
- pVY5fxYML23Z60GMa+8SSNTHEZgQZ9p+CUqmEdV3KBWStCv5ufMECiXT8tnYpbnWaaUrr9ggYd9
- sB69rRw2YhtFFpAj00TrAkfzVzHyDRBo6LgDCu82aOjC6wInFLqaLOeCSkVEn8NHWgDcGs80eL5
- rILPvqvOCf45rWEOVgDTL/i42dseGOcwN0CjxDZ5p2foOGCt3EYQdn6RewBhkmhviwZIcWA7a3c
- JgiZtccCOEtRxwsNF8G6PLwEecG4yqwi7MZIbcK/AI3iNZIkIx9G41SX9Iy9kjb35LpddAxw/6G eIDbZeugPNeCrQg==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_022211_432885_26B70702 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20250528_022506_359509_CC556B22 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,33 +131,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Static inline st_gpio_bank() function is not referenced:
+Hi All,
 
-  pinctrl-st.c:377:19: error: unused function 'st_gpio_bank' [-Werror,-Wunused-function]
+V12 of this patch adding Allwinner DE33 Display Engine support. Just a single change from V11 to add missing documentation for a new sun8i_mixer_cfg struct member, and add Reviewed-by tags recieved on the previous version.
 
-Fixes: 701016c0cba5 ("pinctrl: st: Add pinctrl and pinconf support.")
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/pinctrl/pinctrl-st.c | 5 -----
- 1 file changed, 5 deletions(-)
+Regards,
 
-diff --git a/drivers/pinctrl/pinctrl-st.c b/drivers/pinctrl/pinctrl-st.c
-index fe2d52e434db..8a2ef74862d3 100644
---- a/drivers/pinctrl/pinctrl-st.c
-+++ b/drivers/pinctrl/pinctrl-st.c
-@@ -374,11 +374,6 @@ static struct st_pio_control *st_get_pio_control(
- }
- 
- /* Low level functions.. */
--static inline int st_gpio_bank(int gpio)
--{
--	return gpio/ST_GPIO_PINS_PER_BANK;
--}
--
- static inline int st_gpio_pin(int gpio)
- {
- 	return gpio%ST_GPIO_PINS_PER_BANK;
+Ryan
+
+Jernej Skrabec (7):
+  drm: sun4i: de2/de3: add mixer version enum
+  drm: sun4i: de2/de3: refactor mixer initialisation
+  drm: sun4i: de2/de3: add generic blender register reference function
+  drm: sun4i: de2/de3: use generic register reference function for layer
+    configuration
+  drm: sun4i: de33: mixer: add Display Engine 3.3 (DE33) support
+  drm: sun4i: de33: vi_scaler: add Display Engine 3.3 (DE33) support
+  drm: sun4i: de33: mixer: add mixer configuration for the H616
+
+Ryan Walklin (1):
+  dt-bindings: allwinner: add H616 DE33 mixer binding
+
+ .../allwinner,sun8i-a83t-de2-mixer.yaml       |  34 +++-
+ drivers/gpu/drm/sun4i/sun8i_csc.c             |   4 +-
+ drivers/gpu/drm/sun4i/sun8i_mixer.c           | 168 ++++++++++++++----
+ drivers/gpu/drm/sun4i/sun8i_mixer.h           |  33 +++-
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c        |  27 ++-
+ drivers/gpu/drm/sun4i/sun8i_ui_scaler.c       |   2 +-
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c        |  14 +-
+ drivers/gpu/drm/sun4i/sun8i_vi_scaler.c       |   6 +-
+ 8 files changed, 225 insertions(+), 63 deletions(-)
+
 -- 
-2.45.2
+2.49.0
 
 
