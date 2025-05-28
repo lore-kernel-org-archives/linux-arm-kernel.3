@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C3EC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 23:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99A8C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 23:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R63PwFVA/9d9S96TV3kYiTBL2lE7Bke5AfXlMMFR5tY=; b=RpxIW3vLCj+ZZ+q9Nzd7VAOmPq
-	WOHYPDpyezpON8Q11AjT7zHSE1FiV2xEjJpo0Oy9GlFiIJzI1ObEJuPSo3F9s0lXMHsNK1TRBfh0m
-	QA4dK2ga5hwBGFEl7mY7Yikd2qqSHeLcjQgIZtgfiwcT+BVxY7jmpDbpbF/wixVibtfg132t47l4H
-	ct/YQ7jDoWbKMyL1Swl4qBta9B+4xIk5fcnbbGZCZ5NGYzumTEHa5DtY1ZZF3qF8EdPjjjap1PC/C
-	r5BOta3Ek0RoRcID2JALnEWcFR6Wf02aqb3EIRnBCPj8PsdeWN9bACr0bMgy8ORxgKcb4yTauSngC
-	Kn/aLcoQ==;
+	bh=9A6NOAoXkPb4medfypRE/loheYUcbcMxOqq+Oi8Kdr0=; b=bFBJH3de1XaVeiR5OcnRoDZiJ8
+	AI2juXiiU1n5mAPMurUjjGXTPOzRyKOw4A9kUX7P/dtmRZqvVTkNOiU1V2790KsvfwZdY0YPHywdu
+	UKVmYCFYm52KNdnSbzISJHNvHD4hneW+qF4T8d8M9YfrsaqNPjutAYJErG9mWayoKNfhmOl128cR5
+	mTtgJeR1z531cqcuApXL9CHFtQzxrbGyFiruL2yRn6JOAcT6Q6KpRCSotiJekL5BYtNUkuS6zPznp
+	En/13ZnSXLyDwd5fPfkiEOlOz0mrPSveOgfjB71l3AQm9nxSHIMqpRYNmdPG37hHe767RMUFaUroU
+	3S/JAD/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKQPA-0000000EOit-2Qyx;
-	Wed, 28 May 2025 23:41:52 +0000
-Received: from out-178.mta0.migadu.com ([2001:41d0:1004:224b::b2])
+	id 1uKQWm-0000000EPrn-3SJs;
+	Wed, 28 May 2025 23:49:44 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKQMy-0000000EO4P-1NJz
+	id 1uKQUd-0000000EPfq-0YZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 23:39:38 +0000
-Date: Thu, 29 May 2025 08:39:20 +0900
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748475570;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R63PwFVA/9d9S96TV3kYiTBL2lE7Bke5AfXlMMFR5tY=;
-	b=I2OgV/fQdg913ekiXwixAf04eNpxY8BlshIyqFM1w2ABnm+F/Izd3iFHlm2e+SWYLrMDjF
-	3uUwaGtpH+Hj4HkrwnlBGeZLShKA9dZ32lkM9zHO3NzMrAYWXj2s6l9zZA++9QYp5w2EkA
-	1aH0q3KS3kX06nxIckn0hSai3npoqm0=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Itaru Kitayama <itaru.kitayama@linux.dev>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, seanjc@google.com,
-	darren@os.amperecomputing.com
-Subject: Re: [PATCH RFC v2 1/9] KVM: arm64: nv: selftests: Add support to run
- guest code in vEL2.
-Message-ID: <aDeeqMQ3JvAayTJF@vm4>
-References: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
- <20250512105251.577874-2-gankulkarni@os.amperecomputing.com>
+	Wed, 28 May 2025 23:47:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=9A6NOAoXkPb4medfypRE/loheYUcbcMxOqq+Oi8Kdr0=; b=o6hlCw7mvqwNkor+nhEqb5a8iW
+	WGypf7rK2YXmDxrWO2N/pFUYHNgiw9AFnEJnMusiQo7Y+NUbi612SxuzM4kgkjdlEXrw2JL0odRHk
+	ivMxyEAm0Ujad0H5cs0aX/A4wL6xceHx0gEfSi1J7N2tYdsvl3lmwpRLhqIwaLr38SAE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uKQUF-00EDZZ-M2; Thu, 29 May 2025 01:47:07 +0200
+Date: Thu, 29 May 2025 01:47:07 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, wens@csie.org,
+	netdev@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
+ PHY device
+Message-ID: <0c7a1602-61d3-4840-83f2-72a74ffd52b8@lunn.ch>
+References: <CAGb2v66PEA4OJxs2rHrYFAxx8bw4zab7TUXQr+DM-+ERBO-UyQ@mail.gmail.com>
+ <CADvTj4qyRRCSnvvYHLvTq73P0YOjqZ=Z7kyjPMm206ezMePTpQ@mail.gmail.com>
+ <aDdXRPD2NpiZMsfZ@shell.armlinux.org.uk>
+ <CADvTj4pKsAYsm6pm0sgZgQ+AxriXH5_DLmF30g8rFd0FewGG6w@mail.gmail.com>
+ <8306dac8-3a0e-4e79-938a-10e9ee38e325@lunn.ch>
+ <CADvTj4rWvEaFyOm2HdNonASE4y1qoPoNgP_9n_ZbLCqAo1gGYw@mail.gmail.com>
+ <1e6e4a44-9d2b-4af4-8635-150ccc410c22@lunn.ch>
+ <CADvTj4r1VvjiK4tj3tiHYVJtLDWtMSJ3GFQgYyteTnLGsQQ2Eg@mail.gmail.com>
+ <0bf48878-a3d0-455c-9110-5c67d29073c9@lunn.ch>
+ <CADvTj4qab272xTpZGRoPnCstufK_3e9CY99Og+2mey2co6u5dg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250512105251.577874-2-gankulkarni@os.amperecomputing.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <CADvTj4qab272xTpZGRoPnCstufK_3e9CY99Og+2mey2co6u5dg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_163936_876948_A3710162 
-X-CRM114-Status: GOOD (  30.83  )
+X-CRM114-CacheID: sfid-20250528_164731_170339_AF0E566A 
+X-CRM114-Status: GOOD (  28.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,330 +87,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ganapatrao
-On Mon, May 12, 2025 at 03:52:43AM -0700, Ganapatrao Kulkarni wrote:
-> This patch adds required changes to vcpu init to run a guest code
-> in vEL2 context and also adds NV specific helper functions.
+> > Or, as Russell suggested, you give the bootloader both .dtb blobs, and
+> > it can pick the correct one to pass to the kernel. Or the bootloader
+> > can patch the .dtb blob to make it fit the hardware.
 > 
-> Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+> This is what I'm really trying to avoid since it requires special
+> handling in the bootloader and therefore will result in a lot of broken
+> systems since most people doing ports to H616 based boards will only
+> ever test against one PHY variant.
 
-I'm interested in testing this, but is this series against kvmarm? which
-branch I can cleanly do git am?
+Which in some ways is good. They will then issue four letter words at
+Allwinner, and go find a better SoC vendor.
 
-Thanks,
-Itaru.
+> > > > Do you have examples of boards where the SoC variant changed during
+> > > > the boards production life?
+> > >
+> > > Yes, the boards I'm working for example, but this is likely an issue for
+> > > other boards as well(vendor BSP auto detects PHY variants):
+> > > https://www.zeusbtc.com/ASIC-Miner-Repair/Parts-Tools-Details.asp?ID=1139
+> >
+> > Mainline generally does not care what vendors do, because they often
+> > do horrible things. Which is O.K, it is open source, they can do what
+> > they want in their fork of the kernel.
+> 
+> That's not really true IMO, mainline implements all sorts of workarounds
+> for various vendor hardware quicks/weirdness.
+> 
+> > But for Mainline, we expect a high level of quality, and a uniform way
+> > of doing things.
+> 
+> Sure, and I'm trying to do that here rather than do some super hacky
+> unmaintainable bootloader based device tree selector.
+> 
+> > This can also act as push back on SoC vendors, for doing silly things
+> > like changing the PHY within a SoC without changing its name/number.
+> 
+> It won't here, because Allwinner doesn't care about non-BSP kernels.
 
-> ---
->  tools/testing/selftests/kvm/Makefile.kvm      |  2 +
->  .../kvm/include/arm64/kvm_util_arch.h         |  3 +
->  .../selftests/kvm/include/arm64/nv_util.h     | 45 ++++++++++++++
->  .../selftests/kvm/include/arm64/vgic.h        |  1 +
->  .../testing/selftests/kvm/include/kvm_util.h  |  3 +
->  tools/testing/selftests/kvm/lib/arm64/nv.c    | 46 ++++++++++++++
->  .../selftests/kvm/lib/arm64/processor.c       | 61 ++++++++++++++-----
->  tools/testing/selftests/kvm/lib/arm64/vgic.c  |  8 +++
->  8 files changed, 155 insertions(+), 14 deletions(-)
->  create mode 100644 tools/testing/selftests/kvm/include/arm64/nv_util.h
->  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nv.c
-> 
-> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> index f773f8f99249..3348f729d3b2 100644
-> --- a/tools/testing/selftests/kvm/Makefile.kvm
-> +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> @@ -37,6 +37,7 @@ LIBKVM_arm64 += lib/arm64/processor.c
->  LIBKVM_arm64 += lib/arm64/spinlock.c
->  LIBKVM_arm64 += lib/arm64/ucall.c
->  LIBKVM_arm64 += lib/arm64/vgic.c
-> +LIBKVM_arm64 += lib/arm64/nv.c
->  
->  LIBKVM_s390 += lib/s390/diag318_test_handler.c
->  LIBKVM_s390 += lib/s390/processor.c
-> @@ -155,6 +156,7 @@ TEST_GEN_PROGS_arm64 += arm64/vgic_irq
->  TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
->  TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
->  TEST_GEN_PROGS_arm64 += arm64/no-vgic-v3
-> +TEST_GEN_PROGS_arm64 += arm64/nv_guest_hypervisor
->  TEST_GEN_PROGS_arm64 += access_tracking_perf_test
->  TEST_GEN_PROGS_arm64 += arch_timer
->  TEST_GEN_PROGS_arm64 += coalesced_io_test
-> diff --git a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
-> index e43a57d99b56..ab5279c24413 100644
-> --- a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
-> +++ b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
-> @@ -2,6 +2,9 @@
->  #ifndef SELFTEST_KVM_UTIL_ARCH_H
->  #define SELFTEST_KVM_UTIL_ARCH_H
->  
-> +#define CurrentEL_EL1		(1 << 2)
-> +#define CurrentEL_EL2		(2 << 2)
-> +
->  struct kvm_vm_arch {};
->  
->  #endif  // SELFTEST_KVM_UTIL_ARCH_H
-> diff --git a/tools/testing/selftests/kvm/include/arm64/nv_util.h b/tools/testing/selftests/kvm/include/arm64/nv_util.h
-> new file mode 100644
-> index 000000000000..622a17c9d142
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/include/arm64/nv_util.h
-> @@ -0,0 +1,45 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2025 Ampere Computing
-> + */
-> +#ifndef SELFTEST_NV_UTIL_H
-> +#define SELFTEST_NV_UTIL_H
-> +
-> +#include <linux/bitmap.h>
-> +#include <vgic.h>
-> +
-> +#define HCR_NV2		(UL(1) << 45)
-> +#define HCR_AT		(UL(1) << 44)
-> +#define HCR_NV		(UL(1) << 42)
-> +#define HCR_E2H		(UL(1) << 34)
-> +#define HCR_TTLB        (UL(1) << 25)
-> +
-> +/* Enable NV2 and guest in VHE mode */
-> +#define HCR_EL2_NV_EANBLE (HCR_E2H | HCR_NV | HCR_NV2 | HCR_AT | HCR_TTLB)
-> +
-> +struct kvm_vm *nv_vm_create_with_vcpus_gic(uint32_t nr_vcpus,
-> +		struct kvm_vcpu **vcpus, int *gic_fd, void *guest_code);
-> +
-> +struct kvm_vm *__nv_vm_create_with_vcpus_gic(struct vm_shape shape,
-> +		uint32_t nr_vcpus, struct kvm_vcpu **vcpus,
-> +		uint64_t extra_mem_pages, int *gic_fd, void *guest_code);
-> +
-> +/* NV helpers */
-> +static inline void init_vcpu_nested(struct kvm_vcpu_init *init)
-> +{
-> +	init->features[0] |= (1 << KVM_ARM_VCPU_HAS_EL2);
-> +}
-> +
-> +static inline bool kvm_arm_vcpu_has_el2(struct kvm_vcpu_init *init)
-> +{
-> +	unsigned long features = init->features[0];
-> +
-> +	return test_bit(KVM_ARM_VCPU_HAS_EL2, &features);
-> +}
-> +
-> +static inline bool is_vcpu_nested(struct kvm_vcpu *vcpu)
-> +{
-> +	return vcpu->nested;
-> +}
-> +
-> +#endif /* SELFTEST_NV_UTIL_H */
-> diff --git a/tools/testing/selftests/kvm/include/arm64/vgic.h b/tools/testing/selftests/kvm/include/arm64/vgic.h
-> index c481d0c00a5d..46142fa36199 100644
-> --- a/tools/testing/selftests/kvm/include/arm64/vgic.h
-> +++ b/tools/testing/selftests/kvm/include/arm64/vgic.h
-> @@ -17,6 +17,7 @@
->  	index)
->  
->  int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs);
-> +void vgic_v3_close(int gic_fd);
->  
->  #define VGIC_MAX_RESERVED	1023
->  
-> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-> index 373912464fb4..9b26b9124dc3 100644
-> --- a/tools/testing/selftests/kvm/include/kvm_util.h
-> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-> @@ -65,6 +65,9 @@ struct kvm_vcpu {
->  	struct kvm_dirty_gfn *dirty_gfns;
->  	uint32_t fetch_index;
->  	uint32_t dirty_gfns_count;
-> +#ifdef __aarch64__
-> +	bool nested;
-> +#endif
->  };
->  
->  struct userspace_mem_regions {
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/nv.c b/tools/testing/selftests/kvm/lib/arm64/nv.c
-> new file mode 100644
-> index 000000000000..e930808a7ed4
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/lib/arm64/nv.c
-> @@ -0,0 +1,46 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025 Ampere Computing LLC
-> + */
-> +
-> +#include <linux/compiler.h>
-> +#include <assert.h>
-> +
-> +#include "guest_modes.h"
-> +#include "kvm_util.h"
-> +#include "nv_util.h"
-> +#include "processor.h"
-> +
-> +struct kvm_vm *__nv_vm_create_with_vcpus_gic(struct vm_shape shape, uint32_t nr_vcpus,
-> +		struct kvm_vcpu **vcpus, uint64_t extra_mem_pages, int *gic_fd, void *guest_code)
-> +{
-> +	struct kvm_vcpu_init init;
-> +	struct kvm_vm *vm;
-> +	int i;
-> +
-> +	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_EL2));
-> +
-> +	vm = __vm_create(shape, nr_vcpus, extra_mem_pages);
-> +	vm_ioctl(vm, KVM_ARM_PREFERRED_TARGET, &init);
-> +	init_vcpu_nested(&init);
-> +
-> +	for (i = 0; i < nr_vcpus; ++i) {
-> +		vcpus[i] = aarch64_vcpu_add(vm, i, &init, guest_code);
-> +		__TEST_REQUIRE(is_vcpu_nested(vcpus[i]), "Failed to Enable NV");
-> +	}
-> +
-> +	/* vgic is not created, If gic_fd argument is NULL */
-> +	if (gic_fd) {
-> +		*gic_fd = vgic_v3_setup(vm, nr_vcpus, 64);
-> +		__TEST_REQUIRE(*gic_fd >= 0, "Failed to create vgic-v3");
-> +	}
-> +
-> +	return vm;
-> +}
-> +
-> +struct kvm_vm *nv_vm_create_with_vcpus_gic(uint32_t nr_vcpus,
-> +		struct kvm_vcpu **vcpus, int *gic_fd, void *guest_code)
-> +{
-> +	return __nv_vm_create_with_vcpus_gic(VM_SHAPE_DEFAULT,
-> +				nr_vcpus, vcpus, 0, gic_fd, guest_code);
-> +}
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> index 7ba3aa3755f3..6e759981bf9e 100644
-> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> @@ -10,6 +10,7 @@
->  
->  #include "guest_modes.h"
->  #include "kvm_util.h"
-> +#include "nv_util.h"
->  #include "processor.h"
->  #include "ucall_common.h"
->  
-> @@ -258,14 +259,49 @@ void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
->  	}
->  }
->  
-> +static void aarch64_vcpu_set_reg(struct kvm_vcpu *vcpu, uint64_t sctlr_el1,
-> +			uint64_t tcr_el1, uint64_t ttbr0_el1)
-> +{
-> +	uint64_t fpen;
-> +
-> +	/*
-> +	 * Enable FP/ASIMD to avoid trapping when accessing Q0-Q15
-> +	 * registers, which the variable argument list macros do.
-> +	 */
-> +	fpen = 3 << 20;
-> +
-> +	if (is_vcpu_nested(vcpu)) {
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CPTR_EL2), fpen);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL2), sctlr_el1);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL2), tcr_el1);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MAIR_EL2), DEFAULT_MAIR_EL1);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TTBR0_EL2), ttbr0_el1);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2), HCR_EL2_NV_EANBLE);
-> +	} else {
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CPACR_EL1), fpen);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL1), sctlr_el1);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL1), tcr_el1);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MAIR_EL1), DEFAULT_MAIR_EL1);
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TTBR0_EL1), ttbr0_el1);
-> +
-> +	}
-> +
-> +	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL1), vcpu->id);
-> +}
-> +
->  void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
->  {
->  	struct kvm_vcpu_init default_init = { .target = -1, };
->  	struct kvm_vm *vm = vcpu->vm;
->  	uint64_t sctlr_el1, tcr_el1, ttbr0_el1;
->  
-> -	if (!init)
-> +	if (!init) {
->  		init = &default_init;
-> +	} else {
-> +		/* Is this vcpu a Guest-Hypersior */
-> +		if (kvm_arm_vcpu_has_el2(init))
-> +			vcpu->nested = true;
-> +	}
->  
->  	if (init->target == -1) {
->  		struct kvm_vcpu_init preferred;
-> @@ -275,12 +311,6 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
->  
->  	vcpu_ioctl(vcpu, KVM_ARM_VCPU_INIT, init);
->  
-> -	/*
-> -	 * Enable FP/ASIMD to avoid trapping when accessing Q0-Q15
-> -	 * registers, which the variable argument list macros do.
-> -	 */
-> -	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_CPACR_EL1), 3 << 20);
-> -
->  	sctlr_el1 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL1));
->  	tcr_el1 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL1));
->  
-> @@ -349,11 +379,7 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
->  	if (use_lpa2_pte_format(vm))
->  		tcr_el1 |= (1ul << 59) /* DS */;
->  
-> -	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SCTLR_EL1), sctlr_el1);
-> -	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TCR_EL1), tcr_el1);
-> -	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_MAIR_EL1), DEFAULT_MAIR_EL1);
-> -	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TTBR0_EL1), ttbr0_el1);
-> -	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL1), vcpu->id);
-> +	aarch64_vcpu_set_reg(vcpu, sctlr_el1, tcr_el1, ttbr0_el1);
->  }
->  
->  void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, uint8_t indent)
-> @@ -387,7 +413,11 @@ static struct kvm_vcpu *__aarch64_vcpu_add(struct kvm_vm *vm, uint32_t vcpu_id,
->  
->  	aarch64_vcpu_setup(vcpu, init);
->  
-> -	vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1), stack_vaddr + stack_size);
-> +	if (is_vcpu_nested(vcpu))
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_SP_EL2), stack_vaddr + stack_size);
-> +	else
-> +		vcpu_set_reg(vcpu, ARM64_CORE_REG(sp_el1), stack_vaddr + stack_size);
-> +
->  	return vcpu;
->  }
->  
-> @@ -457,7 +487,10 @@ void vcpu_init_descriptor_tables(struct kvm_vcpu *vcpu)
->  {
->  	extern char vectors;
->  
-> -	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VBAR_EL1), (uint64_t)&vectors);
-> +	if (is_vcpu_nested(vcpu))
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VBAR_EL2), (uint64_t)&vectors);
-> +	else
-> +		vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VBAR_EL1), (uint64_t)&vectors);
->  }
->  
->  void route_exception(struct ex_regs *regs, int vector)
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/vgic.c b/tools/testing/selftests/kvm/lib/arm64/vgic.c
-> index 4427f43f73ea..67822b803d0f 100644
-> --- a/tools/testing/selftests/kvm/lib/arm64/vgic.c
-> +++ b/tools/testing/selftests/kvm/lib/arm64/vgic.c
-> @@ -79,6 +79,14 @@ int vgic_v3_setup(struct kvm_vm *vm, unsigned int nr_vcpus, uint32_t nr_irqs)
->  	return gic_fd;
->  }
->  
-> +void  vgic_v3_close(int gic_fd)
-> +{
-> +	if (gic_fd < 0)
-> +		return;
-> +
-> +	close(gic_fd);
-> +}
-> +
->  /* should only work for level sensitive interrupts */
->  int _kvm_irq_set_level_info(int gic_fd, uint32_t intid, int level)
->  {
-> 
-> -- 
-> 2.48.1
-> 
+It can be indirect pressure. There are some OEMs which care about
+Mainline. They will do their due diligence, find that user report
+Mainline if flaky on these devices, and go find a different
+vendor. There will be some OEM which get burnt by this mess, and when
+they come to their second generation device, they will switch vendor
+and tell the old vendor why. It could well be Allwinner can support
+their bottom line without caring about Mainline, so really don't
+care. But Mainline can help point OEMs away from them to those which
+are more Mainline friendly.
+
+We also need to think about this as a two way street. What does this
+SoC bring to Mainline? Why should Mainline care about it? It has some
+major design issues, do we want to say that is O.K? Do we want other
+vendors to think we are O.K. with bad designs? Worse still, this is
+stmmac, which lots of vendors already abuse in lots of different
+ways. Russell has put in a lot of effort recently to clean up some of
+that abuse, and we are pushing back hard on new abusers.
+
+If you can hide this mess away in the bootloader, it just looks like a
+regular device, we are likely to accept it. If you try to do something
+different to the normal for PHYs, we are very likely to reject it.
+
+	Andrew
 
