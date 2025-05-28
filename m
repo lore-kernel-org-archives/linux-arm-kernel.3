@@ -4,78 +4,203 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7783EC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 10:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6D9C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 10:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8AmUS6TNrYkLRwZxzaG8NF3Ct7s6HtxqfyDKxPFrLc=; b=wVubOZuwEKb175rHwD1+lMdGrk
-	wPwjZUBX2Tdcl4BdIKHQUParosykRyQ70qi9SuqUgjLJ72J6pS+2pD+WBoSCMca+179RtTuvaYQFA
-	fm7QwuSSA0bcR/hElqd1w6XlqYI007NsCTkCvnmt08oBqkeRjOPBopyvfxcKucoza1uFNOXg6nXr0
-	JTqdNJsVxqjIgwEtnV+PW4RlB4/xyrvkftioNVqyeXEEOxHu8eOqE7CcPn+ecpEQI17DbCTi1kLSH
-	t9e9bQcEEbITEoLeGq/0ySzLVjm8ojZ/70LV7hAC9mHnMGEr6+wCDYqs4xKo1SZu4apJeJegR4BlQ
-	4YTmjHuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ufb0Ngp376V6g+y/3nGpJCJaYdkATRB/Oe1Dh76cZqU=; b=2vpqdpVBwmM+2ADz1HbCjJiip1
+	X0z2eBedgh3D2BWvl/jwZuZ4ziL7oQwcH3U/1pe+7yzY8o02EkhDNtSVh5ZYGPWql9Eiz71eeeXvN
+	o4/rc8dyvqbIXLcX21iQAHQub5ImDyhZfaPX9kxu5RiZMzgDwOScTcGo3nXOWMGPAEEaFcMJ+Wm40
+	jUGfnTybqsr4xTukWTfzsXuwfK2OPpd4hPwgLmpk12lmque6fDtybEKrmdXP7lt2tEi0w4guI3PmS
+	Fs26wcxH0lotk1fYZIzkahVc+wfXcRVFajtMT62555iW1V9HwVFRPYAv0kYCVShL6U5wWL8i2zVe5
+	24ErzXRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKE4V-0000000Cqsv-36A1;
-	Wed, 28 May 2025 10:31:43 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uKE9a-0000000CrTp-2zNs;
+	Wed, 28 May 2025 10:36:58 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKE2L-0000000Cqgs-0b26
+	id 1uKE7Q-0000000CrA5-3SZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 10:29:31 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54SATMNi3236486;
-	Wed, 28 May 2025 05:29:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748428162;
-	bh=m8AmUS6TNrYkLRwZxzaG8NF3Ct7s6HtxqfyDKxPFrLc=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=xLWfTKqKreLX83E7Sv7bJ60G/xqoWyLC028ZcbJwEzPTY9A76Glyl+04Mo3u9HbH1
-	 fhFr4Ics7qmR+WKvc3GD3NzfP8/b04tuoFeKvVIaqXCTx6TYm1Wc656bquRb5CSVwS
-	 29Mvkih+z9J4SHMT9dejzfRlcG3y6UKghjkSb89g=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54SATM8Q3369282
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 28 May 2025 05:29:22 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 28
- May 2025 05:29:22 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 28 May 2025 05:29:22 -0500
-Received: from [172.24.30.41] (lt2k2yfk3.dhcp.ti.com [172.24.30.41])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54SATGi7013764;
-	Wed, 28 May 2025 05:29:17 -0500
-Message-ID: <110b1fb3-da88-4b38-babf-eb0e375100a6@ti.com>
-Date: Wed, 28 May 2025 15:59:16 +0530
-MIME-Version: 1.0
+	Wed, 28 May 2025 10:34:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748428485; x=1779964485;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=0cJiCFRxAp12QhQQ7buvBJiYWLviyldY9uXGEaiqQpo=;
+  b=Wweq9XRv68N2FnQPqoqz/f4BTogB1Ry9Amm5cL5PTm5yZhzmIrffGCd+
+   NCFMDfQdqGxKOzRSLylTOIY7hLk3g6OFLGiI+z0Uay7qAoHQCrDy02pIN
+   deaUM3V9kQLJXbrQK25FLfsXq4JMaX8KuQKx41R8d9fIdzJy0Q1mb/tXh
+   m4/OmoUxDES08jz5RNbKaGOW9p5fLV7TvlqUCzmeq55vu+yUJfuFAguRe
+   Zym3jMG3j8Eq5L387aVOdJ9HFxxsqHI0aZCVHxXTTBG0/suTxLVfG1q7Q
+   hhLDPSn4j9Ksjn0f3xhjnwcRqF2SsQbpz1NxLFSfFW/knLwOT1SvLKgt9
+   g==;
+X-CSE-ConnectionGUID: S6PnlI6iRfK86AHSb/nW5g==
+X-CSE-MsgGUID: 7MhdhmDOS6Grs2QPQlLHLw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11446"; a="49695901"
+X-IronPort-AV: E=Sophos;i="6.15,320,1739865600"; 
+   d="scan'208";a="49695901"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 03:34:40 -0700
+X-CSE-ConnectionGUID: BD7w/KQTTlyDIDe4PAN6yQ==
+X-CSE-MsgGUID: IJ8PDw5PTw6ub/VqusjwMg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,320,1739865600"; 
+   d="scan'208";a="143235281"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 03:34:40 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 28 May 2025 03:34:39 -0700
+Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Wed, 28 May 2025 03:34:39 -0700
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com (40.107.236.74)
+ by edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.55; Wed, 28 May 2025 03:34:39 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n3WR2mXk6bnKq1eLdOBJ/bRcOaEaa+lwd1e0VYEgFPRv2zwPlIYBf6P+sD1RZB9SYRjvLLI+Y0tBGRF2eEOcHNDegpAdwiJgaU+EkLG6h11WCPMEOu03xcSTLPZOdtRsgmlNPaA5tcIlay/CUbTS3IIeg70OHj41MCG8riE+A7tArzcknHhljrwWsvpr2LxGNcvVFtaXBAngCuwpAaBWLJqhDErZwmFzowualoHWKfkLJTUB4OMlY/AgFCnSQ3tKEmnZtT6RewVyxQNkmHGPtXtvsH9nBumeCH1RMP1xjVGsbDS9N2A9OlH47g37rrC2pWmD60BFtWc5JN0hO77yRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ufb0Ngp376V6g+y/3nGpJCJaYdkATRB/Oe1Dh76cZqU=;
+ b=hM265kaH3K5fC8KmXmekHGo47K3FwJkx1FCXadNvoNlwwlfv9Ljp1FF0Jb2W8SP80KsJEUdrKHMdx5UN+FDMptW2ik5lddk8SU9/H0cbDwPob+73QmjHL5Z73Og0NCdavj3+u3MilE8xVgy3MzwB44qXM2EuPRyueGu1edMJg1xgGZ0DGv/ckpAJ5New1NlZrg/8OZZ5DFDmepa1CQaohje4UcrzqmojDZAuN90dz8eBeAADROUxthsKBGb+JBig3hG6A1GgAsJo4HPwjv2GfvkotYotlCRU1dCbZznfDCGEcnX+VavF+0p2lpwQWIKVssWsW3P/vlBOkA5j45vvrg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH7PR11MB6054.namprd11.prod.outlook.com (2603:10b6:510:1d2::8)
+ by DM4PR11MB6191.namprd11.prod.outlook.com (2603:10b6:8:ac::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.29; Wed, 28 May
+ 2025 10:34:37 +0000
+Received: from PH7PR11MB6054.namprd11.prod.outlook.com
+ ([fe80::a255:8692:8575:1301]) by PH7PR11MB6054.namprd11.prod.outlook.com
+ ([fe80::a255:8692:8575:1301%6]) with mapi id 15.20.8769.029; Wed, 28 May 2025
+ 10:34:35 +0000
+Message-ID: <6be8a114-7775-415d-a48f-751466cce44d@intel.com>
+Date: Wed, 28 May 2025 13:34:29 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] drivers: dma: ti: Refactor TI K3 UDMA driver
-To: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>,
-        <vkoul@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <nm@ti.com>, <ssantosh@kernel.org>,
-        <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <praneeth@ti.com>, <vigneshr@ti.com>, <u-kumar1@ti.com>,
-        <a-chavda@ti.com>
-References: <20250428072032.946008-1-s-adivi@ti.com>
- <20250428072032.946008-4-s-adivi@ti.com>
- <e823a43e-20a8-4142-875f-a3575cbb0d0b@gmail.com>
+Subject: Re: [PATCH 1/2] mmc: sdhci-esdhc-imx: refactor clock loopback
+ selection logic
+To: <ziniu.wang_1@nxp.com>, <haibo.chen@nxp.com>, <ulf.hansson@linaro.org>,
+	<linux-mmc@vger.kernel.org>
+CC: <shawnguo@kernel.org>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
+	<festevam@gmail.com>, <imx@lists.linux.dev>, <s32@nxp.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250521025502.112030-1-ziniu.wang_1@nxp.com>
 Content-Language: en-US
-From: "Adivi, Sai Sree Kartheek" <s-adivi@ti.com>
-In-Reply-To: <e823a43e-20a8-4142-875f-a3575cbb0d0b@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
+ Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+In-Reply-To: <20250521025502.112030-1-ziniu.wang_1@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU2PR04CA0267.eurprd04.prod.outlook.com
+ (2603:10a6:10:28e::32) To PH7PR11MB6054.namprd11.prod.outlook.com
+ (2603:10b6:510:1d2::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR11MB6054:EE_|DM4PR11MB6191:EE_
+X-MS-Office365-Filtering-Correlation-Id: a29c96c7-7048-4f6e-cfaa-08dd9dd33d93
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?T0RoRGZEWjFraUxrcFh3bjZBODdaYzdWWUhHRFRoME9vV3JxM09qTnVjNVBY?=
+ =?utf-8?B?Y09HVk9nS1I0cEJMQ1JCOGR6TVl5TjFjdTg5aGhNaXdYb0xVR2V6V081NGhs?=
+ =?utf-8?B?dTdjMWRkVnd0eGZycUIwODRhTWQrOC9tSFloNDl6OXJNdkVtckpzdGRNLzFx?=
+ =?utf-8?B?ZU9JNjZMUmxYYWZXUXJxUkZMU3NwOVc4cm1GQ3BPM3RmcHdKOW00eWpwYll4?=
+ =?utf-8?B?ZWhhSEcrUEIyUFh2TUwxaE42Z2wzTmVEalZ5aWJDdzE2c1pqRm13YzRrL1pD?=
+ =?utf-8?B?SktLMVNhWUlDcUFpcDhtWGp6TWsySzNDRmxUb3hHVFRSYkRYcDNEWTZES3JU?=
+ =?utf-8?B?YUlrUkNpOXZNODk5SzFYUVpaZkxhMC9KVDhOUndmYzZTaEVFVzU4STNXbzBJ?=
+ =?utf-8?B?Y0k4N1lpUTMxU3NhUkwyR1lnUnJPNHBzTWFpekxDZDFDMkFhRHhiY3RRWTNP?=
+ =?utf-8?B?V0p6RjZROS9OUVJkdEJSUTNPbzg3R1VIUWpqTEtEZ3hMbTNjZFE2NmtQNVdU?=
+ =?utf-8?B?SDY4VHVjWkpjRCtDcy9ueEdSbmdab2RBcG9WMTdsZDJGbnpVT21oMmxKaVUx?=
+ =?utf-8?B?MGo0Y2M3cDBnZDUrbEEwc1pKNTFXNjhJZEI2OFB1SWtRT2cvRWg4bHZvNTV1?=
+ =?utf-8?B?MXJaMXZDbnQ2SnhRalJra0dBbks0VnY3S0hKRlo4TXlMdGl5dzFJM2habGsx?=
+ =?utf-8?B?TXJ6bzljQUQ1dFpjelFqTktzMHlrUkYrRGx6ZXRNWlhNNUtsSW5KdjNiK1Rp?=
+ =?utf-8?B?TnZCKzF4R0JtbTVZS0t5Rms2SWpqY0FEckJ6L0JyZ2lwSWFHYkNMV29JRzd5?=
+ =?utf-8?B?akkxVzVEWk5RT0p2enU5ek8wU2ZhYU5hQno4WVRJejJEZE5rVkQ4cjEyVjFV?=
+ =?utf-8?B?UVpGaUlYL1dCT0VNbXVGeFVHVTZDajd4Q1pQdmk3RG40YWdyZ1JmR1lCbVQx?=
+ =?utf-8?B?K0x0V0UxczRCK0orOFNRQTJXZDhXaHdYd1JmNlAvS1RtNUwvUnFWTVkxU2lz?=
+ =?utf-8?B?R0RpS3FlcFNoYWJnY2N2QlJJWERHMC9wYjhJV2E0MlJoaytRY0VOMDRoV2lq?=
+ =?utf-8?B?RTAycnBMT0RIN3BpRUxONHdMN1VIVy9rYnFHN3hmTWlKZHpqaDl4RjloMDlY?=
+ =?utf-8?B?WmppUjJkQkhjOVgyb1pnaXh2aEE0eEhiejJIZXFjR2dRSm0rdksxdmY4NWJa?=
+ =?utf-8?B?NmZ3Zm5PZ1V1VmdZekZvV29EUHJycGNRUnJHcTZiejFpSTc4L2xGbG10ODFw?=
+ =?utf-8?B?aklSVUFTYy9KVXpuYm9zb0xFK3FKVlRwTlRWQWZhWm90SVVkTzlVR2VKN0or?=
+ =?utf-8?B?bHVxQzM5WDZCOGdhNHhPM3NXQXdyc3F4bHlOU0EyN2QyMHNxTTJUVlBzY0Nv?=
+ =?utf-8?B?Nm1meWFFQi8vSHNZS3h6Q3FLRjFUMUR6bmpLOFdnTG9lZEx3ZHVZOEZXb2VX?=
+ =?utf-8?B?WnJkcm1NUjNlUnJsMytFclVnQzduVDE5OG4ySllrTXI2RDMvS0tRU2R2MWpN?=
+ =?utf-8?B?eDVnekh1RVhmanUvQnMzaUpaeGxvdnNua080ZXpsY0Y0MkVpTUdndE5tMURm?=
+ =?utf-8?B?WXZ6OWhjenNwS2l4UTF6Y0Z4eE1Ga1dUejlxdjNJZUo5NFZOMTRrZEtDN3BE?=
+ =?utf-8?B?TWhteXZDZ3pEK2trdXBpZzZHdkxTTHZDMENOUEc3QTBYSWF4SVcyZG83R1NP?=
+ =?utf-8?B?aU5DK29IVGY0QlNHcmxnZm10dDZzNDJ6QUpxTFM1THVyVEVBOUExWWRCSHdP?=
+ =?utf-8?B?VlBEV1RUTkUyQkpBU0pBbmp1M0EzSDBMTy8vS0I5aGFHcktmZjhXcDl3eUxm?=
+ =?utf-8?B?US9CaDhIMXhwdFhzZXJwR2V6RU9scXVRRjZ0Q25oWFVkUzQxa1JyREZqYU1S?=
+ =?utf-8?B?U3BReHZWM29ETEhSUGZHdEVza1hueEhIeEM2Q1Y0UkpuMjc5T0pDT29jNlIz?=
+ =?utf-8?Q?FYAkYFlpy8E=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB6054.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RDYxZkcvNW1ZcUlLOFIwTHl3cHMwRkJjQWNwMmtJS2liUjd5YlMrd1UrbU03?=
+ =?utf-8?B?amdNYXZrV2dXa1I4dFp1QWdIMnpIcSs1WHhLMEdqT0Zac1FlMkMycmIxemxG?=
+ =?utf-8?B?S1ZDc3NoeFdmN0I0NzhqZ0svVmJVSjVqSHd2Z1lIOVBIaXhPTi9IU1FITkNv?=
+ =?utf-8?B?VWcxOXNiQldnQ3pyK2docjVkVWg0ZjhsV1luSUIxSFRaS2pYZmFuWURzVllT?=
+ =?utf-8?B?cW1JcDdqNEhNb3B2Sng4UW9QN2RyMkNpTDlUaGxpdzRaNU04V2ZZaUg1eXl4?=
+ =?utf-8?B?T3pxcW5vTHNoM3JBSjNZZUtEcTBZOW9zUlpkN1FEeXlSVTRycER4a2pCTHpk?=
+ =?utf-8?B?eDRYYWtySysvQXM5VVNFNnliYjRlbEtiZ053SWlaUFcyRHlSbG0vanQrSEM0?=
+ =?utf-8?B?dkRpdkNUVHZFSXpWYmM1RXpOcWh1Tm9yRGk4NUI2dW9YS0FVWXAxNktsSmdI?=
+ =?utf-8?B?MGx2Y1BMOHd6ZVF6NklGcjdUT3g4WjlqbTk5Q0tYdEh0eEFTb2lSNG1hbE5k?=
+ =?utf-8?B?enN1Wk94bGdRdUk0b3A5L093SHh3bEhPeFBqYXdQSTVwajRlZmk4QjlKeHFq?=
+ =?utf-8?B?K293ak1JZWZWRGdKMXZWZW1qRzFtWWVGaHc3WDlQZkNiaEN5ZkpyNkNDSW1J?=
+ =?utf-8?B?K3N5UVdWVDV5MGxiVnVleGJLL3pkbWZxbTRPTndJY04wbjZ0NUFnS05hT1dP?=
+ =?utf-8?B?K2N5aG5GSHFCcllxNXBiUXROeG1nMUlVa003dUNtTHVuakp5SklJbUdrcFV0?=
+ =?utf-8?B?Vkl6ektaSGxmOTJlb040VE9kcW1scloyNUMrVko2QndNUDFsdy9zbnU5cTZ6?=
+ =?utf-8?B?SFRNN25XZWtSL2h0MEJtckhoTFBTMmRmQzlnK2RZOGJuOTAwTWVoWnQzTFFS?=
+ =?utf-8?B?TkhaSTFGdXFzV1hwYjdlV2JLVzd0bmprSVBoWHhLSXFlRVZrMmZDUGQrWnlk?=
+ =?utf-8?B?azNZSUpvcXVUSFg4eGpSbndsQ3ZZNkt2dE5OWUlkL3Z1citUWHp5RHZnbVcz?=
+ =?utf-8?B?Q2Y5Nks3cWZteVBPM3kzdE90QUtaeVg2b1c1UDRIRlAvM1JkYk52cE9DVHAz?=
+ =?utf-8?B?bVVXbDc3T1NTaHA0a2tOTXlOaHFnNlJ0K3V4NldjMEF0SG93M1cyT3NqdExy?=
+ =?utf-8?B?bW9GTlh3L1VXRWEza2dLdnQ4N0JBTlZ0WG4zQ1VGbHFHeGV2MEx0elkxOGYv?=
+ =?utf-8?B?WkVhd3lPWmlSY2o1d3dRQjc3Q2pzcmdiWjl3aEhIQWovWjc1d0pESEhGVDJU?=
+ =?utf-8?B?L3NUTTdOTUYrU2UvWkRlb1djRngwN3NKKzhqM3RJODRuNXRvQzlwNVhXVWp4?=
+ =?utf-8?B?eFpwR2NpcDAvemduMmV1V1U2R2QvVkQ4a2NGcE14Z1lYMlZXbVlwS2NhZVJl?=
+ =?utf-8?B?UHF5K1BDNkErbjBLdnE4alFWR1JaYVg5OHgyQUdLejJMaEpjbmVydW5wOEdn?=
+ =?utf-8?B?NFRra1hrVkpyQTVpaHZZOVkxdmRtS2FsRE5vQ2JDY1o5bGZ2WmNlekkrbEZD?=
+ =?utf-8?B?Zks1cDNHU0tWZ2VJYjVNVnlWNGxoZ3NuUG80NjFkOURDQmExY2hrMVpxWWQx?=
+ =?utf-8?B?L1FMaTRRQVh3SHkvejFEN0N2SXgwczJuZU5lRDJqOEJ0dGVSOUdaM0xmVVZT?=
+ =?utf-8?B?ZzRnMlNRZzA1UFJJd2lSU0c1SGh4UGJKaDZ6V3I3ekJ4OVdVZWIxcWdnUU1Z?=
+ =?utf-8?B?Vm1pSlhGU1VqcWlkU3g3aHM5ZFA0RVlzWWZta0xkNDljWTArSG1hK2JoZitz?=
+ =?utf-8?B?SUk3aUFUQm80aTRoV2dhSlh1UkdxckE1c1h1c29JTTgyN014ZG11Qmg4VEd4?=
+ =?utf-8?B?cW4vRk1pMnFla0RDUUlvbFBOTnJrTWtNWVZ3ZXI0dEcvQWVQaFAvNENlZDV3?=
+ =?utf-8?B?NnkrUEFPblJhY1NsSDBnNUExblhwc21OOHJCV1VWVndzbmtBaXRUNFA3dFRZ?=
+ =?utf-8?B?UUdZZ0RFblJTR0czcnY4SXpaWTFrYzR6QzNQTmF3MVdyQjlPY3JWczFVUU1V?=
+ =?utf-8?B?YldTK3JyU1UvYzlzVXdPYk5xRlBWWW95SWRDOGcxN0JtcFlLMlcrMi84bHN1?=
+ =?utf-8?B?SFRDYnlaWXd2RTlJZHRjU3ZjalNvVHVrS2tGT1UwT2JvNEJDMTNQVEVqZTB4?=
+ =?utf-8?B?OEFTY0U5M1llaFRHanJRd1c4a1pON3BWWVlpZkMrZ01hblVOVGw1MWk0ckZX?=
+ =?utf-8?B?Y1E9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: a29c96c7-7048-4f6e-cfaa-08dd9dd33d93
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB6054.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 10:34:35.5593
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nnBIU3FHixVXa80BE490V+nwfO1aca5Hclnoh50oRQ3lg3/ksE11zJgMBKgfBkOZRBxwP7nCRMAv8pqQ9N9ucg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB6191
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_032929_269274_8B3E4906 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20250528_033444_936043_15068A10 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,137 +215,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21/05/2025 05:55, ziniu.wang_1@nxp.com wrote:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
+> 
+> i.MX reference manual specifies that internal clock loopback should be
+> used for SDR104/HS200/HS400 modes. Move ESDHC_MIX_CTRL_FBCLK_SEL
+> configuration into the timing selection function to:
+> 
+> 1. Explicitly set internal loopback path for SDR104/HS200/HS400 modes
+> 2. Avoid redundant bit manipulation across multiple functions
+> 
+> Preserve ESDHC_MIX_CTRL_FBCLK_SEL during system resume for SDIO devices
+> with MMC_PM_KEEP_POWER and MMC_PM_WAKE_SDIO_IRQ flag, as the controller
+> might lose register state during suspend while skipping card
+> re-initialization.
+> 
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
 
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
 
-On 5/9/2025 7:55 PM, Péter Ujfalusi wrote:
-> Hi,
+> ---
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 27 ++++++++++++++-------------
+>  1 file changed, 14 insertions(+), 13 deletions(-)
 > 
-> On 28/04/2025 10:20, Sai Sree Kartheek Adivi wrote:
->> Refactors and split the driver into common and device
->> specific parts. There are no functional changes.
->>
->> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
->> ---
->>   drivers/dma/ti/Makefile         |    2 +-
->>   drivers/dma/ti/k3-udma-common.c | 2909 ++++++++++++++++++++++++
->>   drivers/dma/ti/k3-udma.c        | 3751 ++-----------------------------
-> 
-> I'm affraid you do need to break this one up a bit. It might be doing it
-> correctly, but it is impossible to check with the churn, like ....
-noted. I'm working on splitting this. Will post a v2.
-
-> 
->>   drivers/dma/ti/k3-udma.h        |  548 ++++-
->>   4 files changed, 3700 insertions(+), 3510 deletions(-)
->>   create mode 100644 drivers/dma/ti/k3-udma-common.c
-> 
-> ...
-> 
->> -static bool udma_is_chan_running(struct udma_chan *uc)
->> -{
->> -	u32 trt_ctl = 0;
->> -	u32 rrt_ctl = 0;
->> -
->> -	if (uc->tchan)
->> -		trt_ctl = udma_tchanrt_read(uc, UDMA_CHAN_RT_CTL_REG);
->> -	if (uc->rchan)
->> -		rrt_ctl = udma_rchanrt_read(uc, UDMA_CHAN_RT_CTL_REG);
->> -
->> -	if (trt_ctl & UDMA_CHAN_RT_CTL_EN || rrt_ctl & UDMA_CHAN_RT_CTL_EN)
->> -		return true;
->> -
->> -	return false;
->> -}
->> -
->>   static bool udma_is_chan_paused(struct udma_chan *uc)
->>   {
->>   	u32 val, pause_mask;
->> @@ -643,189 +88,73 @@ static bool udma_is_chan_paused(struct udma_chan *uc)
->>   	return false;
->>   }
->>   
->> -static inline dma_addr_t udma_get_rx_flush_hwdesc_paddr(struct udma_chan *uc)
->> +static void udma_decrement_byte_counters(struct udma_chan *uc, u32 val)
-> 
-> 
-> These sort of diffs.
-> 
->>   {
->> -	return uc->ud->rx_flush.hwdescs[uc->config.pkt_mode].cppi5_desc_paddr;
->> +	if (uc->desc->dir == DMA_DEV_TO_MEM) {
->> +		udma_rchanrt_write(uc, UDMA_CHAN_RT_BCNT_REG, val);
->> +		udma_rchanrt_write(uc, UDMA_CHAN_RT_SBCNT_REG, val);
->> +		if (uc->config.ep_type != PSIL_EP_NATIVE)
->> +			udma_rchanrt_write(uc, UDMA_CHAN_RT_PEER_BCNT_REG, val);
->> +	} else {
->> +		udma_tchanrt_write(uc, UDMA_CHAN_RT_BCNT_REG, val);
->> +		udma_tchanrt_write(uc, UDMA_CHAN_RT_SBCNT_REG, val);
->> +		if (!uc->bchan && uc->config.ep_type != PSIL_EP_NATIVE)
->> +			udma_tchanrt_write(uc, UDMA_CHAN_RT_PEER_BCNT_REG, val);
->> +	}
->>   }
->>   
->> -static int udma_push_to_ring(struct udma_chan *uc, int idx)
->> +static void udma_reset_counters(struct udma_chan *uc)
->>   {
-> 
-> ...
-> 
->> +struct udma_dev {
->> +	struct dma_device ddev;
->> +	struct device *dev;
->> +	void __iomem *mmrs[MMR_LAST];
->> +	const struct udma_match_data *match_data;
->> +	const struct udma_soc_data *soc_data;
->> +
->> +	struct udma_tpl bchan_tpl;
->> +	struct udma_tpl tchan_tpl;
->> +	struct udma_tpl rchan_tpl;
->> +
->> +	size_t desc_align; /* alignment to use for descriptors */
->> +
->> +	struct udma_tisci_rm tisci_rm;
->> +
->> +	struct k3_ringacc *ringacc;
->> +
->> +	struct work_struct purge_work;
->> +	struct list_head desc_to_purge;
->> +	spinlock_t lock;
->> +
->> +	struct udma_rx_flush rx_flush;
->> +
->> +	int bchan_cnt;
->> +	int tchan_cnt;
->> +	int echan_cnt;
->> +	int rchan_cnt;
->> +	int rflow_cnt;
->> +	int tflow_cnt;
->> +	unsigned long *bchan_map;
->> +	unsigned long *tchan_map;
->> +	unsigned long *rchan_map;
->> +	unsigned long *rflow_gp_map;
->> +	unsigned long *rflow_gp_map_allocated;
->> +	unsigned long *rflow_in_use;
->> +	unsigned long *tflow_map;
->> +
->> +	struct udma_bchan *bchans;
->> +	struct udma_tchan *tchans;
->> +	struct udma_rchan *rchans;
->> +	struct udma_rflow *rflows;
->> +
->> +	struct udma_chan *channels;
->> +	u32 psil_base;
->> +	u32 atype;
->> +	u32 asel;
->> +
->> +	int (*udma_start)(struct udma_chan *uc);
->> +	int (*udma_stop)(struct udma_chan *uc);
->> +	int (*udma_reset_chan)(struct udma_chan *uc, bool hard);
->> +	bool (*udma_is_desc_really_done)(struct udma_chan *uc, struct udma_desc *d);
->> +	void (*udma_decrement_byte_counters)(struct udma_chan *uc, u32 val);
-> 
-> You can drop the udma_ prefix, it is clear that they are for udma..
-> 
->> +};
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index 7611682f10c3..c448a53530a5 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -728,23 +728,17 @@ static void esdhc_writew_le(struct sdhci_host *host, u16 val, int reg)
+>  		writel(new_val, host->ioaddr + ESDHC_VENDOR_SPEC);
+>  		if (imx_data->socdata->flags & ESDHC_FLAG_STD_TUNING) {
+>  			u32 v = readl(host->ioaddr + SDHCI_AUTO_CMD_STATUS);
+> -			u32 m = readl(host->ioaddr + ESDHC_MIX_CTRL);
+> -			if (val & SDHCI_CTRL_TUNED_CLK) {
+> +			if (val & SDHCI_CTRL_TUNED_CLK)
+>  				v |= ESDHC_MIX_CTRL_SMPCLK_SEL;
+> -			} else {
+> +			else
+>  				v &= ~ESDHC_MIX_CTRL_SMPCLK_SEL;
+> -				m &= ~ESDHC_MIX_CTRL_FBCLK_SEL;
+> -			}
+>  
+> -			if (val & SDHCI_CTRL_EXEC_TUNING) {
+> +			if (val & SDHCI_CTRL_EXEC_TUNING)
+>  				v |= ESDHC_MIX_CTRL_EXE_TUNE;
+> -				m |= ESDHC_MIX_CTRL_FBCLK_SEL;
+> -			} else {
+> +			else
+>  				v &= ~ESDHC_MIX_CTRL_EXE_TUNE;
+> -			}
+>  
+>  			writel(v, host->ioaddr + SDHCI_AUTO_CMD_STATUS);
+> -			writel(m, host->ioaddr + ESDHC_MIX_CTRL);
+>  		}
+>  		return;
+>  	case SDHCI_TRANSFER_MODE:
+> @@ -1082,7 +1076,6 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
+>  		ctrl &= ~ESDHC_MIX_CTRL_AUTO_TUNE_EN;
+>  		if (imx_data->socdata->flags & ESDHC_FLAG_MAN_TUNING) {
+>  			ctrl &= ~ESDHC_MIX_CTRL_SMPCLK_SEL;
+> -			ctrl &= ~ESDHC_MIX_CTRL_FBCLK_SEL;
+>  			writel(ctrl, host->ioaddr + ESDHC_MIX_CTRL);
+>  			writel(0, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
+>  		} else if (imx_data->socdata->flags & ESDHC_FLAG_STD_TUNING) {
+> @@ -1177,8 +1170,7 @@ static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
+>  		"warning! RESET_ALL never complete before sending tuning command\n");
+>  
+>  	reg = readl(host->ioaddr + ESDHC_MIX_CTRL);
+> -	reg |= ESDHC_MIX_CTRL_EXE_TUNE | ESDHC_MIX_CTRL_SMPCLK_SEL |
+> -			ESDHC_MIX_CTRL_FBCLK_SEL;
+> +	reg |= ESDHC_MIX_CTRL_EXE_TUNE | ESDHC_MIX_CTRL_SMPCLK_SEL;
+>  	writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
+>  	writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK, val),
+>  	       host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
+> @@ -1432,6 +1424,15 @@ static void esdhc_set_uhs_signaling(struct sdhci_host *host, unsigned timing)
+>  		break;
+>  	}
+>  
+> +	if (timing == MMC_TIMING_UHS_SDR104 ||
+> +	    timing == MMC_TIMING_MMC_HS200 ||
+> +	    timing == MMC_TIMING_MMC_HS400)
+> +		m |= ESDHC_MIX_CTRL_FBCLK_SEL;
+> +	else
+> +		m &= ~ESDHC_MIX_CTRL_FBCLK_SEL;
+> +
+> +	writel(m, host->ioaddr + ESDHC_MIX_CTRL);
+> +
+>  	esdhc_change_pinstate(host, timing);
+>  }
+>  
 
 
