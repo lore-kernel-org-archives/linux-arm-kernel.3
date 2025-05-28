@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B5AC3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4579C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5mLYhkH15cgSjxuuv6l4kYe/fzzBQUwpR9u2pfZOy8=; b=O6gx83gR+N1n/06hlbmv0oc8oP
-	4Fgm1IREHvjmFYBSsc3ceZi1FrKf7mbl6FEjqP3t6jQhi6piONqYHuk/1YJACYhYPTI/N4Oq4cSBp
-	RhoRmxqRlEyxMf5sTwRiYajSReqZzVWpCX8a6OXT+AVo7hc8fwxhJ/rqMNhEB4gNl0jcH+Zs5Ppyp
-	m8ankxEMKtJj3+UXGEd3Vh5HP/V6eT78BStcoiKMffZO/PxdyjtYHlD/Xrnx9BEGrYvYKWlTMhzt1
-	N6n3KovDruO5Sh27/WvMF/pevHXbSHfY9Drq06oPCmTMua1qXbXNH6iOrWLTkjZIGBnQw+jUfx7Qt
-	qGt4pjbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DnUw7T5dTAlGD+Mn8tzuDakTz2S3BGH1zLUIzlY5AS0=; b=Rq2s/2SAojmOwERqFgH60bHZt0
+	Pz2+KZI9NrYF1VwoC9rEPDgv2ZBIx5wGgqLFF4czyVJdh5rLLc/MGZjuh/fobc7AQhkGDtZgh9D2T
+	NRK+duYnak1Ry4nBg0rtNp85lqwA1d4WY41bHcXxEp9SC171YSbYEjkp/wTnGe8+rPRjZ+2xb0kxC
+	W4mqOTee20FlX81KpoEcYKCPcbN6KAzMNblz5aSf1fAXu2ClcSCCIgUQudsC2dIp+h7bT3ekIoE5y
+	AywSuIvRihoId+vW7R/DPP5wo66cuXQKCGXtGOszqaJC19P4gfoEuCHpuTAMsdDRqk8jF8yTRH+uF
+	N/Afk44Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHlt-0000000DOwI-47fR;
-	Wed, 28 May 2025 14:28:46 +0000
-Received: from out-189.mta0.migadu.com ([91.218.175.189])
+	id 1uKHo2-0000000DPHG-2iM9;
+	Wed, 28 May 2025 14:30:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHZw-0000000DLdR-18sG
+	id 1uKHlS-0000000DOtC-3aPy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 14:16:26 +0000
-Message-ID: <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748441779;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c5mLYhkH15cgSjxuuv6l4kYe/fzzBQUwpR9u2pfZOy8=;
-	b=qjpKfob7Z9nwJXoxx5GUB/npEZom5q2cVoX+WSrhUvhCp38miksFI15n7HED2ElCpa+Gzh
-	rMarA3QV5uYksrG/9PUOkqwZt07frFarx52lcp28KkCgCK6TwCddvcYR3TQi0qP59jouqi
-	jrs60IDKyBiuILyERrfCfy38ldk8MHk=
-Date: Wed, 28 May 2025 07:16:11 -0700
+	Wed, 28 May 2025 14:28:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D72AA40C4A;
+	Wed, 28 May 2025 14:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 589E9C4CEE3;
+	Wed, 28 May 2025 14:28:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748442497;
+	bh=Pj2dKcYrs8qtXXImT3zhxemqWnlmlXzSCeJP/bi3GqI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J7V4HdhH4LP0/xhdufXH7ukurAfnZkeM28NOSeG7dnwmm7xGN2Q21KwDYd99fZser
+	 ENBiRECT9v5o6UwShPCdLRJs5hb76XQNPWD2f/FtHeNJ16IQ1P1atj4YicGXgqoJn1
+	 Qd2um5zkwTUZJ2j0jGLZXafqR8nLyKbFR3akyuxesS0b0jKtOD4xUph+xmh7+49kee
+	 b927Nhc/iraXGDSm+YLrubDnVPbh8ckd6J+rDLrEABHeq1f/+nNRsVK6PeHmm6jOV6
+	 1a5v0NhCdVWXwv5mJEnlDyFrPrmCiExJ30hu90lAAlQ9yyNdZtG+Q+Zw+BxBaQHGoV
+	 bk/5c/9YQyLKA==
+Date: Wed, 28 May 2025 16:28:09 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 18/26] arm64: smp: Support non-SGIs for IPIs
+Message-ID: <aDcdeWuwCzZ4pA9y@lpieralisi>
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-18-b36e9b15a6c3@kernel.org>
+ <20250528131744.00001544@huawei.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
- 3.0
-To: Andrew Jones <ajones@ventanamicro.com>,
- =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv <linux-riscv-bounces@lists.infradead.org>
-References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
- <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
- <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
- <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
- <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
- <20250526-224478e15ee50987124a47ac@orel>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20250526-224478e15ee50987124a47ac@orel>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250528131744.00001544@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_071624_825461_61C9D839 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250528_072818_935838_B0D544F1 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,58 +84,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/26/25 4:13 AM, Andrew Jones wrote:
-> On Mon, May 26, 2025 at 11:00:30AM +0200, Radim Krčmář wrote:
->> 2025-05-23T10:16:11-07:00, Atish Patra <atish.patra@linux.dev>:
->>> On 5/23/25 6:31 AM, Radim Krčmář wrote:
->>>> 2025-05-22T12:03:43-07:00, Atish Patra <atishp@rivosinc.com>:
->>>>> Upgrade the SBI version to v3.0 so that corresponding features
->>>>> can be enabled in the guest.
->>>>>
->>>>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
->>>>> ---
->>>>> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
->>>>> -#define KVM_SBI_VERSION_MAJOR 2
->>>>> +#define KVM_SBI_VERSION_MAJOR 3
->>>> I think it's time to add versioning to KVM SBI implementation.
->>>> Userspace should be able to select the desired SBI version and KVM would
->>>> tell the guest that newer features are not supported.
+On Wed, May 28, 2025 at 01:17:44PM +0100, Jonathan Cameron wrote:
+> On Tue, 13 May 2025 19:48:11 +0200
+> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> We need new code for this, but it's a good idea.
+> > From: Marc Zyngier <maz@kernel.org>
+> > 
+> > The arm64 arch has relied so far on GIC architectural software
+> > generated interrupt (SGIs) to handle IPIs. Those are per-cpu
+> > software generated interrupts.
+> > 
+> > arm64 architecture code that allocates the IPIs virtual IRQs and
+> > IRQ descriptors was written accordingly.
+> > 
+> > On GICv5 systems, IPIs are implemented using LPIs that are not
+> > per-cpu interrupts - they are just normal routable IRQs.
+> > 
+> > Add arch code to set-up IPIs on systems where they are handled
+> > using normal routable IRQs.
+> > 
+> > For those systems, force the IRQ affinity (and make it immutable)
+> > to the cpu a given IRQ was assigned to.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > [timothy.hayes@arm.com: fixed ipi/irq conversion, irq flags]
+> > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> > [lpieralisi: changed affinity set-up, log]
+> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Hi Lorenzo,
 > 
->>>
->>> We can achieve that through onereg interface by disabling individual SBI
->>> extensions.
->>> We can extend the existing onereg interface to disable a specific SBI
->>> version directly
->>> instead of individual ones to save those IOCTL as well.
->>
->> Yes, I am all in favor of letting userspace provide all values in the
->> BASE extension.
+> A few trivial comments inline.
 > 
-
-We already support vendorid/archid/impid through one reg. I think we 
-just need to add the SBI version support to that so that user space can 
-set it.
-
-> This is covered by your recent patch that provides userspace_sbi.
-
-Why do we need to invent new IOCTL for this ? Once the user space sets 
-the SBI version, KVM can enforce it.
-
-> With that, userspace can disable all extensions that aren't
-> supported by a given spec version, disable BASE and then provide
-> a BASE that advertises the version it wants. The new code is needed
-> for extensions that userspace still wants KVM to accelerate, but then
-> KVM needs to be informed it should deny all functions not included in
-> the selected spec version.
+> > +
+> > +static int ipi_to_irq(int ipi, int cpu)
 > 
-> Thanks,
-> drew
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Maybe this naming needs a breadcrumb to indicate this only
+> applies only to lpi case as it's directly computed in the old ppi code?
+> A comment might do the job.
 
+Maybe rename it to ipi_to_irq_percpu() (similar to what we did for
+set_smp_ipi_range()) and then
+
+static int ipi_to_irq(int ipi)
+{
+	ipi_to_irq_percpu(ipi, 0);
+}
+
+and use ipi_to_irq() in ppi code ?
+
+Likely overkill, not a big deal anyway.
+
+> > +{
+> > +	return ipi_irq_base + (cpu * nr_ipi) + ipi;
+> > +}
+> > +
+> > +static int irq_to_ipi(int irq)
+> > +{
+> > +	return (irq - ipi_irq_base) % nr_ipi;
+> > +}
+> 
+> 
+> > +static void ipi_setup_lpi(int ipi, int ncpus)
+> > +{
+> > +	for (int cpu = 0; cpu < ncpus; cpu++) {
+> > +		int err, irq;
+> > +
+> > +		irq = ipi_to_irq(ipi, cpu);
+> > +
+> > +		err = irq_force_affinity(irq, cpumask_of(cpu));
+> > +
+> Trivial local consistency thing but maybe no blank line here or...
+> > +		WARN(err, "Could not force affinity IRQ %d, err=%d\n", irq, err);
+> > +
+> > +		err = request_irq(irq, ipi_handler, IRQF_NO_AUTOEN, "IPI",
+> > +				  &irq_stat);
+> > +
+> here to match the style in ipi_setup_ppi()
+
+Done.
+
+Thanks,
+Lorenzo
+
+> > +		WARN(err, "Could not request IRQ %d, err=%d\n", irq, err);
+> > +
+> > +		irq_set_status_flags(irq, (IRQ_HIDDEN | IRQ_NO_BALANCING_MASK));
+> > +
+> > +		get_ipi_desc(cpu, ipi) = irq_to_desc(irq);
+> > +	}
+> > +}
+> 
 
