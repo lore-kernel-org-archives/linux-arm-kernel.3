@@ -4,107 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3DB9C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 13:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CBBC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 13:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DM2QbUzIiVq1oAO1zYgkeLSN01UQu1uYF+2linnaY0w=; b=p4asC/mjxkeLJzXMTjVgMrMUjH
-	SB11GTkmr3bl1vvKbKjlm4J4LmUFPJ+rVQdi9EKmJ4clUnScMyNCZKum2S/9dXvCKxZXvmvWMbite
-	kywnUWxU6r/wwp+F65CCA50mRVCgRfyYvU3XVXbwydMpj2ZxPHkLTdf9075vJiNw9YTLnYtZSWe46
-	+ZF9lF2JSSXShLgl59buFWOShn2/Bu3mCYlNWfhUzwpxF8g13nKOR8Hb6qGEwNfXQBk1QdFYFEUAi
-	KrYrh9evvua/9xkLCI7LESeDK3U5NpqYujG/bE71R5gVa5e/76Sd77Eo/UqbblP+D1g9092vxbbfk
-	0JC+QbsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lhFFwHACWIeW/4ep5BhL9R3Wp6JYUJNGPHcV8EAW4ro=; b=PzEzLG7LQHDk1TtigoZvrwr9Ir
+	k5dFs9XArcxhythbg/J49yTvB0MVMPZPSTR7qQiytNzK3GoBY16rHGEsKRqJkgCST6Rf1fVlwgNJF
+	eK+jtCuBkSKNbTn3zVVTZjzBH5ewsfHkjOa/3vfJtL5iLm3cb3PIHCtPeP3QiWdLloCYPDVwt5nAo
+	5YmqciIhdSJbn0K0ZNZvoITCrlcJL7bGfz7gVkpndmcZIyjpUOJ0lIE2fajcLWII/hsvfhXLwVRJC
+	jHxPPyCobyMHubcecsN3Bx+urMSS56zcFAvCtsPL94pEfsO55LaA1v1WIES5wGX6GBifRJcIOPLib
+	NIeydmiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKGSF-0000000DC4U-2JTQ;
-	Wed, 28 May 2025 13:04:23 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uKGdR-0000000DDDR-2EZL;
+	Wed, 28 May 2025 13:15:57 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFQv-0000000D2Ji-3Qvr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 28 May 2025 11:58:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=DM2QbUzIiVq1oAO1zYgkeLSN01UQu1uYF+2linnaY0w=; b=qxhJCwWsQn4wQsHKKN6zZuE6Pt
-	Uy5XdjX9K2NIwgo3ZgtzWDdmxXxyVFO2kBOzfbLlQFJLxZPA3kLogJDtCK5A/wGdl3Wff8WxtX4Xf
-	fpLLjcsCQ57xnQmtI/3viq9hNnXh5KrAvdX0WrzxakdZhpxxlXIllUjkSEt4GFLsKF/I6jzTyU9v9
-	lXFWr6CAROsr2FcBJIvq7ZCOAn616ruC8LCHCvsj3Hf8mve3PSERXVc0MjXfyCr3BJcvLfLDVRP28
-	/Xfj1qk+xrQmLruU7jIDRaz7hpr92+Qa20FljMwGZd+LcfuS4KRn65waLhcRda5erl6ZKyLRxugzv
-	7GN+5PQQ==;
-Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFQs-0000000Dabi-2GXE
+	id 1uKGXn-0000000DCdh-32Ub
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 11:58:56 +0000
-Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-4e45cfc3a26so490092137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 04:58:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748433470; x=1749038270; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DM2QbUzIiVq1oAO1zYgkeLSN01UQu1uYF+2linnaY0w=;
-        b=LgcG7CZY4Js4BP3QE9wgs69dbCHu9ztR5FlUQVyOqC4Qn1rDTxodCYNR/fvA8s/72u
-         rur0ekRfnCk+4yDnr3KBMWxqJXEWyzaFFOLjYeyrO3Bh8alZK6accP1Pb4yN7ea7cMIO
-         5v3b/UoVT/YlxNL1UmEBBfjT3hDStnxWli7n7Sod2NgvV5LYy7LIzSeVNU2v+2Kji4D5
-         Y0LfKh15oEQcIMxkvb/jW1Tefce8O5PncPZG5O0c84WvvEzix4ubuAAg87jVl6eto1+N
-         1YpRtx9/tYQbeACwTcnzwPCb+vMEXpkG3zWRqL4Qa5A0kKvGpiObY3VR/mDsbj9cxhb2
-         pgJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748433470; x=1749038270;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DM2QbUzIiVq1oAO1zYgkeLSN01UQu1uYF+2linnaY0w=;
-        b=iokmjmXrQqCzCnIq3nMEIqCNXxdepMXDmBm0RPg0wQ7PcjrJ1f6keY+JbdmEESb3XS
-         DlunSgYkeNJbYXE/1aaPix1YEJEJDJEbmHseTBGCaq813lWDSjPtDJHpcSlK+9MzxIOd
-         K2vf0u9z2QNkyEED9RY5Tuzw1DWHLKJznz8gqO1hTykI1GH16WUa1J1MwB8neVQ14goj
-         LnHMkJ7n8uWNIoQ2r3dKF3Wx94TJ3fgI/Dv3gfM35IEF8reAaE/CB9dTJ/XELIg5UjMO
-         4qVaS+ByfylYtZr1GjBIXIcT0f0ltE6pdTObnRFS3lF7Ry5Q6LelW2Z8s/Dcr/lPNJ0I
-         ReNA==
-X-Forwarded-Encrypted: i=1; AJvYcCVOG60CsyzTps4OTpxS117jBoaNI+IfKSgzZ3wE/vA3i0FDkwO7nqqY8JVMQ3Wk2sVAp2q2GJ1gM/kSrmYFQY48@lists.infradead.org
-X-Gm-Message-State: AOJu0YywCjDfZttONAsbJDoQRHXpXAmE+dURrvCVmQsjfnyzgTvhkYWY
-	unR9sgAVModZxNkUIWyEvT7wnPRdE9QPFze/ZyDjNVY7IwWCKl9IPRsAcbOyUX9RxVls6TNkkUM
-	3oRUdrDSQdmcMLGRkMynVWK2SztsIZes=
-X-Gm-Gg: ASbGncvJw2JUN/i8zh3/YhxXTXv352pjetGnBVsFH2fDTkaqznJcDs8qoyu0hs7wky1
-	iuzJaOSOsuZiq4znZLd2rMpz5Ji3P69h5OM7RxywTXSJnyvJqJYfmt3rVufOXvxDFKsazbrGDp7
-	jpNarfLGGwTMQZvCQ0I3S1kt3ZMXR0WATWpg==
-X-Google-Smtp-Source: AGHT+IHccZ6u3wYBlr61chnbgjUWRM+9FVRKkSPAvmULH6YUlgEgMZxUk6AOBWwMA6JVLhM/7o4896YpQLK4HFLW4VU=
-X-Received: by 2002:a67:e70d:0:b0:4e4:1d6d:56cc with SMTP id
- ada2fe7eead31-4e597dee6afmr4608606137.12.1748433470075; Wed, 28 May 2025
- 04:57:50 -0700 (PDT)
+	Wed, 28 May 2025 13:10:09 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54SCiolB005896;
+	Wed, 28 May 2025 06:09:44 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=lhFFwHACWIeW/4ep5BhL9R3Wp
+	6JYUJNGPHcV8EAW4ro=; b=FZVJWZNx1k5Ry+wcedX0t7LEWZ6oG0S/JJrhPlbQX
+	krl7+d4j++obUfQqiT+zx+K1oIptoHlGb2rEAyO2jcxzvUWuKe4Ufdtt2EvEoxdI
+	XX7JjVd0io4MmcekL4RXIhrE4HQVHXW1Licp5nfcW1NeaQ6ETyldHk1HqgyNF1K8
+	3BhnpwEmTdSxzTDMbszAa0D6TKSo4OGsWxUrMzmnY0B8hXm5gnCPS0IpONgWxYQp
+	Qp+1EkWktCxOk3FPYvpHy9eOFiQBFpa33Ypk5dPmhvPAAq8DsB6XkPQRD2XCUA21
+	r6CGkrk3T72OKOjnGVDHGS/DfPKKv5+TTdaOKLNUYt5AA==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 46x2rkr2ug-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 28 May 2025 06:09:44 -0700 (PDT)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Wed, 28 May 2025 06:09:40 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Wed, 28 May 2025 06:09:40 -0700
+Received: from f50a6ab61f9a (unknown [10.193.66.37])
+	by maili.marvell.com (Postfix) with SMTP id 441653F7045;
+	Wed, 28 May 2025 06:09:34 -0700 (PDT)
+Date: Wed, 28 May 2025 13:09:33 +0000
+From: Subbaraya Sundeep <sbhatta@marvell.com>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+CC: Sean Anderson <sean.anderson@linux.dev>,
+        "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>,
+        "davem@davemloft.net" <davem@davemloft.net>,
+        "edumazet@google.com" <edumazet@google.com>,
+        "kuba@kernel.org"
+	<kuba@kernel.org>,
+        "pabeni@redhat.com" <pabeni@redhat.com>,
+        "vkoul@kernel.org" <vkoul@kernel.org>,
+        "Simek, Michal"
+	<michal.simek@amd.com>,
+        "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+        "horms@kernel.org" <horms@kernel.org>,
+        "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "git (AMD-Xilinx)" <git@amd.com>,
+        "Katakam,
+ Harini" <harini.katakam@amd.com>
+Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report
+ coalesce parameters in DMAengine flow
+Message-ID: <aDcLDdKA2GNRIY3G@f50a6ab61f9a>
+References: <20250525102217.1181104-1-suraj.gupta2@amd.com>
+ <679d6810-9e76-425c-9d4e-d4b372928cc3@linux.dev>
+ <BL3PR12MB6571ABA490895FDB8225CAEBC967A@BL3PR12MB6571.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-References: <20250527175558.2738342-1-james.hilliard1@gmail.com>
- <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch> <CADvTj4rGdb_kHV_gjKTJNkzYEPMzqLcHY_1xw7wy5r-ryqDfNQ@mail.gmail.com>
- <fe8fb314-de99-45c2-b71e-5cedffe590b0@lunn.ch> <CADvTj4qRmjUQJnhamkWNpHGNAtvFyOJnbaQ5RZ6NYYqSNhxshA@mail.gmail.com>
- <014d8d63-bfb1-4911-9ea6-6f4cdabc46e5@lunn.ch> <CADvTj4oVj-38ohw7Na9rkXLTGEEFkLv=4S40GPvHM5eZnN7KyA@mail.gmail.com>
- <aDbA5l5iXNntTN6n@shell.armlinux.org.uk>
-In-Reply-To: <aDbA5l5iXNntTN6n@shell.armlinux.org.uk>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 28 May 2025 05:57:38 -0600
-X-Gm-Features: AX0GCFvRg1G8o6RHpRasEA3gbglv1Max4m9hoMAbkTOqRd30AqyfzVMQn3V1-wU
-Message-ID: <CADvTj4qP_enKCG-xpNG44ddMOJj42c+yiuMjV_N9LPJPMJqyOg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
- PHY device
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Furong Xu <0x1207@gmail.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <BL3PR12MB6571ABA490895FDB8225CAEBC967A@BL3PR12MB6571.namprd12.prod.outlook.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI4MDExNSBTYWx0ZWRfX6XRbvJ3Qdt9e mMPjkhiUIbUREw3clM21ckDVA+Bq6UwtCLBQwE4HZ+Kycg4VI4XAFmMMC7K9+m+GA9RRxn/GNT6 KGIRVrJK4d+HiEFevevglF1PRTu697xhCZY9esibIH6o6zpq1pk9qepkEvQTIvd6D4e1nvc9lLt
+ Cw7kQMXec/ACqZSbZKXEsr2eHtMu1uXPKZJF4HwJF8VZmCPSkiSa6eAGRwphqEP40SfJCXgio4N g5N/+fAsC3mxb//WsyUIdn16iCxlfs8NVTMLhuvwEUB4pc35M9Fxo0AOkFpK6DCrWUa2XsyzSUv 9KP3Oq/+uc++YA6I9D5Cnj6b6GQK2u4dpJf/X0u2LxFZKRALmAuk3vG9CdUOf0U4LKbI1iRP9pA
+ lxIvN8rngti42iDbo6BXv8jqaecDAcsfO1d7CzhTsXHIDY1u3l8avhiccTizflVBJ8TUFJ8T
+X-Proofpoint-GUID: qPMMYTQBXYqk7OnWGy4VniD-WZ2prfLP
+X-Authority-Analysis: v=2.4 cv=fvzcZE4f c=1 sm=1 tr=0 ts=68370b18 cx=c_pps a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17 a=kj9zAlcOel0A:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=zd2uoN0lAAAA:8 a=J1Y8HTJGAAAA:8 a=1XWaLZrsAAAA:8 a=20KFwNOVAAAA:8
+ a=JfrnYn6hAAAA:8 a=Phdkh1rV2inUpnr7k2QA:9 a=CjuIK1q_8ugA:10 a=y1Q9-5lHfBjTkpIzbSAN:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-ORIG-GUID: qPMMYTQBXYqk7OnWGy4VniD-WZ2prfLP
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-28_06,2025-05-27_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_125854_594413_E61E11DF 
-X-CRM114-Status: GOOD (  25.16  )
+X-CRM114-CacheID: sfid-20250528_061007_777468_F692153B 
+X-CRM114-Status: GOOD (  37.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,59 +115,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 1:53=E2=80=AFAM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
+On 2025-05-28 at 12:00:56, Gupta, Suraj (Suraj.Gupta2@amd.com) wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
 >
-> On Tue, May 27, 2025 at 02:37:03PM -0600, James Hilliard wrote:
-> > On Tue, May 27, 2025 at 2:30=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wr=
-ote:
-> > >
-> > > > Sure, that may make sense to do as well, but I still don't see
-> > > > how that impacts the need to runtime select the PHY which
-> > > > is configured for the correct MFD.
-> > >
-> > > If you know what variant you have, you only include the one PHY you
-> > > actually have, and phy-handle points to it, just as normal. No runtim=
-e
-> > > selection.
+Fix your mail settings. Cannot be internal if posting to mailing list :)
+
+Thanks,
+Sundeep
+
+> > -----Original Message-----
+> > From: Sean Anderson <sean.anderson@linux.dev>
+> > Sent: Tuesday, May 27, 2025 9:47 PM
+> > To: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
+> > davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+> > pabeni@redhat.com; vkoul@kernel.org; Simek, Michal <michal.simek@amd.com>;
+> > Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org
+> > Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> > kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
+> > <harini.katakam@amd.com>
+> > Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report coalesce
+> > parameters in DMAengine flow
 > >
-> > Oh, so here's the issue, we have both PHY variants, older hardware
-> > generally has AC200 PHY's while newer ships AC300 PHY's, but
-> > when I surveyed our deployed hardware using these boards many
-> > systems of similar age would randomly mix AC200 and AC300 PHY's.
+> > Caution: This message originated from an External Source. Use proper caution
+> > when opening attachments, clicking links, or responding.
 > >
-> > It appears there was a fairly long transition period where both variant=
-s
-> > were being shipped.
->
-> Given that DT is supposed to describe the hardware that is being run on,
-> it should _describe_ _the_ _hardware_ that the kernel is being run on.
->
-> That means not enumerating all possibilities in DT and then having magic
-> in the kernel to select the right variant. That means having a correct
-> description in DT for the kernel to use.
-
-The approach I'm using is IMO quite similar to say other hardware
-variant runtime detection DT features like this:
-https://github.com/torvalds/linux/commit/157ce8f381efe264933e9366db828d845b=
-ade3a1
-
-There's already a good bit of mdio autodetection code like
-that which scans mdio buses for PHY ID's in stmmac. To me
-this is just allowing for device specific autodetection logic, it's
-not like we don't already have a good bit of generic PHY auto
-detection code in the kernel already.
-
-> I don't think that abusing "phys" is a good idea.
->
-> It's quite normal for the boot loader to fix up the device tree
-> according to the hardware - for example, adding the actual memory
-> location and sizes that are present, adding reserved memory regions,
-> etc. I don't see why you couldn't detect the differences and have
-> the boot loader patch the device tree appropriately.
-
-I mean, sure, that's technically possible, it just seems like it's
-not the best fit option here since there seems to be no real
-reason this sort of autodetection can't be handled in the
-kernel itself.
+> >
+> > On 5/25/25 06:22, Suraj Gupta wrote:
+> > > Add support to configure / report interrupt coalesce count and delay
+> > > via ethtool in DMAEngine flow.
+> > > Netperf numbers are not good when using non-dmaengine default values,
+> > > so tuned coalesce count and delay and defined separate default values
+> > > in dmaengine flow.
+> > >
+> > > Netperf numbers and CPU utilisation change in DMAengine flow after
+> > > introducing coalescing with default parameters:
+> > > coalesce parameters:
+> > >    Transfer type        Before(w/o coalescing)  After(with coalescing)
+> > > TCP Tx, CPU utilisation%      925, 27                 941, 22
+> > > TCP Rx, CPU utilisation%      607, 32                 741, 36
+> > > UDP Tx, CPU utilisation%      857, 31                 960, 28
+> > > UDP Rx, CPU utilisation%      762, 26                 783, 18
+> > >
+> > > Above numbers are observed with 4x Cortex-a53.
+> >
+> > How does this affect latency? I would expect these RX settings to increase latency
+> > around 5-10x. I only use these settings with DIM since it will disable coalescing
+> > during periods of light load for better latency.
+> >
+> > (of course the way to fix this in general is RSS or some other method involving
+> > multiple queues).
+> >
+> 
+> I took values before NAPI addition in legacy flow (rx_threshold: 24, rx_usec: 50) as reference. But netperf numbers were low with them, so tried tuning both and selected the pair which gives good numbers.
+> 
+> > > Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> > > ---
+> > > This patch depend on following AXI DMA dmengine driver changes sent to
+> > > dmaengine mailing list as pre-requisit series:
+> > > https://lore.kernel.org/all/20250525101617.1168991-1-suraj.gupta2@amd.
+> > > com/
+> > > ---
+> > >  drivers/net/ethernet/xilinx/xilinx_axienet.h  |  6 +++
+> > > .../net/ethernet/xilinx/xilinx_axienet_main.c | 53 +++++++++++++++++++
+> > >  2 files changed, 59 insertions(+)
+> > >
+> > > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h
+> > > b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+> > > index 5ff742103beb..cdf6cbb6f2fd 100644
+> > > --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
+> > > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+> > > @@ -126,6 +126,12 @@
+> > >  #define XAXIDMA_DFT_TX_USEC          50
+> > >  #define XAXIDMA_DFT_RX_USEC          16
+> > >
+> > > +/* Default TX/RX Threshold and delay timer values for SGDMA mode with
+> > DMAEngine */
+> > > +#define XAXIDMAENGINE_DFT_TX_THRESHOLD       16
+> > > +#define XAXIDMAENGINE_DFT_TX_USEC    5
+> > > +#define XAXIDMAENGINE_DFT_RX_THRESHOLD       24
+> > > +#define XAXIDMAENGINE_DFT_RX_USEC    16
+> > > +
+> > >  #define XAXIDMA_BD_CTRL_TXSOF_MASK   0x08000000 /* First tx packet */
+> > >  #define XAXIDMA_BD_CTRL_TXEOF_MASK   0x04000000 /* Last tx packet */
+> > >  #define XAXIDMA_BD_CTRL_ALL_MASK     0x0C000000 /* All control bits */
+> > > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > > b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > > index 1b7a653c1f4e..f9c7d90d4ecb 100644
+> > > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > > @@ -1505,6 +1505,7 @@ static int axienet_init_dmaengine(struct
+> > > net_device *ndev)  {
+> > >       struct axienet_local *lp = netdev_priv(ndev);
+> > >       struct skbuf_dma_descriptor *skbuf_dma;
+> > > +     struct dma_slave_config tx_config, rx_config;
+> > >       int i, ret;
+> > >
+> > >       lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0"); @@ -1520,6
+> > > +1521,22 @@ static int axienet_init_dmaengine(struct net_device *ndev)
+> > >               goto err_dma_release_tx;
+> > >       }
+> > >
+> > > +     tx_config.coalesce_cnt = XAXIDMAENGINE_DFT_TX_THRESHOLD;
+> > > +     tx_config.coalesce_usecs = XAXIDMAENGINE_DFT_TX_USEC;
+> > > +     rx_config.coalesce_cnt = XAXIDMAENGINE_DFT_RX_THRESHOLD;
+> > > +     rx_config.coalesce_usecs =  XAXIDMAENGINE_DFT_RX_USEC;
+> >
+> > I think it would be clearer to just do something like
+> >
+> >         struct dma_slave_config tx_config = {
+> >                 .coalesce_cnt = 16,
+> >                 .coalesce_usecs = 5,
+> >         };
+> >
+> > since these are only used once. And this ensures that you initialize the whole struct.
+> >
+> > But what tree are you using? I don't see these members on net-next or dmaengine.
+> 
+> These changes are proposed in separate series in dmaengine https://lore.kernel.org/all/20250525101617.1168991-2-suraj.gupta2@amd.com/ and I described it here below my SOB.
+> 
+> >
+> > > +     ret = dmaengine_slave_config(lp->tx_chan, &tx_config);
+> > > +     if (ret) {
+> > > +             dev_err(lp->dev, "Failed to configure Tx coalesce parameters\n");
+> > > +             goto err_dma_release_tx;
+> > > +     }
+> > > +     ret = dmaengine_slave_config(lp->rx_chan, &rx_config);
+> > > +     if (ret) {
+> > > +             dev_err(lp->dev, "Failed to configure Rx coalesce parameters\n");
+> > > +             goto err_dma_release_tx;
+> > > +     }
+> > > +
+> > >       lp->tx_ring_tail = 0;
+> > >       lp->tx_ring_head = 0;
+> > >       lp->rx_ring_tail = 0;
+> > > @@ -2170,6 +2187,19 @@ axienet_ethtools_get_coalesce(struct net_device
+> > *ndev,
+> > >       struct axienet_local *lp = netdev_priv(ndev);
+> > >       u32 cr;
+> > >
+> > > +     if (lp->use_dmaengine) {
+> > > +             struct dma_slave_caps tx_caps, rx_caps;
+> > > +
+> > > +             dma_get_slave_caps(lp->tx_chan, &tx_caps);
+> > > +             dma_get_slave_caps(lp->rx_chan, &rx_caps);
+> > > +
+> > > +             ecoalesce->tx_max_coalesced_frames = tx_caps.coalesce_cnt;
+> > > +             ecoalesce->tx_coalesce_usecs = tx_caps.coalesce_usecs;
+> > > +             ecoalesce->rx_max_coalesced_frames = rx_caps.coalesce_cnt;
+> > > +             ecoalesce->rx_coalesce_usecs = rx_caps.coalesce_usecs;
+> > > +             return 0;
+> > > +     }
+> > > +
+> > >       ecoalesce->use_adaptive_rx_coalesce = lp->rx_dim_enabled;
+> > >
+> > >       spin_lock_irq(&lp->rx_cr_lock);
+> > > @@ -2233,6 +2263,29 @@ axienet_ethtools_set_coalesce(struct net_device
+> > *ndev,
+> > >               return -EINVAL;
+> > >       }
+> > >
+> > > +     if (lp->use_dmaengine)  {
+> > > +             struct dma_slave_config tx_cfg, rx_cfg;
+> > > +             int ret;
+> > > +
+> > > +             tx_cfg.coalesce_cnt = ecoalesce->tx_max_coalesced_frames;
+> > > +             tx_cfg.coalesce_usecs = ecoalesce->tx_coalesce_usecs;
+> > > +             rx_cfg.coalesce_cnt = ecoalesce->rx_max_coalesced_frames;
+> > > +             rx_cfg.coalesce_usecs = ecoalesce->rx_coalesce_usecs;
+> > > +
+> > > +             ret = dmaengine_slave_config(lp->tx_chan, &tx_cfg);
+> > > +             if (ret) {
+> > > +                     NL_SET_ERR_MSG(extack, "failed to set tx coalesce parameters");
+> > > +                     return ret;
+> > > +             }
+> > > +
+> > > +             ret = dmaengine_slave_config(lp->rx_chan, &rx_cfg);
+> > > +             if (ret) {
+> > > +                     NL_SET_ERR_MSG(extack, "failed to set rx coalesce
+> > parameters");
+> > > +                     return ret;
+> > > +             }
+> > > +             return 0;
+> > > +     }
+> > > +
+> > >       if (new_dim && !old_dim) {
+> > >               cr = axienet_calc_cr(lp, axienet_dim_coalesce_count_rx(lp),
+> > >                                    ecoalesce->rx_coalesce_usecs);
 
