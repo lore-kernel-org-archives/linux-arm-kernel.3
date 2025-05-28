@@ -4,89 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091DAC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 23:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BC1C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 23:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z7aZNmc3EYxxnpLUK79I36ZjdnxWrRrlroGPp80/D9M=; b=vPMAyT2VVoWcqaitaRkme492tE
-	zp0j8ZBrYNvRMVVvr5lXo40JF57fyXqgfX6otOe6+d8LrXj9GhZGGa5W/qFqNnd8xazBTpwlriUsD
-	9sFbC4foYExuyqbBzwBvGQju7ae3YxhYEAwhG0G8oKJIVkJCjqVJMDDsqVES5Mo9ZraqB/SdQaHZk
-	FaWOB1KxgMZdIYUIM+uW5CAb6ZO2JCBeYiQvi6TGRfcESAsCGdmgWd/8gTq5ZDFfit3Ta/kJtZ5yp
-	/wSAEDW8WTT4umvcORMKDAoEZQYZuuGQa+RuuG/u1zjYF/NkTKvYelDGvSviJRQFmII/dJPNoOUES
-	MCrcPmYQ==;
+	bh=oRTAtS+PqLGgoX0KUF2yxa87zN4HrUWl2C+fmoRKzXw=; b=V9VkuAj+ZPuLd3KnGp+7/FVISV
+	QhnaHxuOjqac2Iy6NHVaBJYjEPGhrEr2cUEDKp623HnHFIeIOXSq5+rckENmAJJK6d7NYvoSgfUL5
+	b2ZNJ7twBxBM7rBztoQ/iA6RnEyhrHwUQzLg7m1IOFRLQEkRQFeAmaYJr7rtIiRFs/scjBnPGvGAS
+	ektNlIMM3dGC329A1UGvvQUWuuY9KLn1C3zEubL63D+9D7CGy9mdUTweI67pep/y5v0cCrxL8YhDK
+	x72I02gpT5XS7pztEQisWfrH844AuGLxfgTWQzrzwPwLo2PJADGHKhqJV8Dq4dgDB7CBgh3fY8mAK
+	+GUiIT9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKPki-0000000EJac-0gpr;
-	Wed, 28 May 2025 23:00:04 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uKQ4U-0000000EMiV-3bZ4;
+	Wed, 28 May 2025 23:20:30 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKPho-0000000EIsi-3fiM
+	id 1uKQ2C-0000000EMEx-0qpm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 22:57:06 +0000
+	Wed, 28 May 2025 23:18:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748473025; x=1780009025;
+  t=1748474288; x=1780010288;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=5ZmfanPQmTtVk2YHRo7PTIkRByqp8zV7HgvMhOjuEaE=;
-  b=MYL7yYkSVwcjKDjrKcVF/yWDF9kF+kRn5l0vZmUvSGQ6ETwVChEGsy55
-   /7ApZ1V7WUPOHHKtDRCM4FCV0K4EA/K11IhJ9qfDdwa0y1/iZ9Rm7IsIT
-   4hwcvf8VV+hi+lVOZtmRWVCyuDLBGWO3FGbR7effhxo5Q5lbaJiDmw193
-   ccr1CMfdkyKHsDoAz83vLj6/MF5AF/fuLeRf9J6+uUVv9bJt8TJyF+UNn
-   KAvj1Md3T/6GFjUEDrpbiyZewGY/xsGwm72/jNZh7DIIQqlYOk+YDc/Vv
-   PCexiJidjcR/GMahOSLbXLFK/FXfSJHWk/4j82xVpnXer9ngOgMZnvXS2
-   Q==;
-X-CSE-ConnectionGUID: 6ztB9v0nR7+DfKAyBkW8Aw==
-X-CSE-MsgGUID: of8C2t7BR1G3MB1DSvKwfA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11447"; a="61872055"
+  bh=OlkQ5LDNFcAG4+B3fU48CyA1LXgDRJ2eUlh71NIIl0g=;
+  b=Jlv4JkvB3rycat4AdDXxcybti9Vccu0M1XPEc5MasGtBxbD+giqNhjWd
+   be5h+WBZ3jpk9p7JLPITivUM75wiACWLYcK37f8JJxyC6pP1eFo+X0QwJ
+   lsMw/Ur+AYA+DG6s61lHJtzuDiWC6Xay/DB4HbHLmyEKE0vbHeejLjwKQ
+   YvGVZC7WNzkNFiUwwOflz4LOmDu90Q28T5kp0PJKaooNki19JQScaEzoI
+   s/uwDwE9pb6+/gOuC4GVJIM7HslqFTIXYZCoGupa9+hpS2dq1d/acTCPL
+   +Qj21TwuLKYYREwLd0iskHWA1vieMaRM+zKN2IQzZsuSIvMiud88BbXpd
+   g==;
+X-CSE-ConnectionGUID: HySF5D1ESE6D2LMnq4EEDA==
+X-CSE-MsgGUID: Oh8PwEUdRpKBvtV8xnUg9Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11447"; a="68070668"
 X-IronPort-AV: E=Sophos;i="6.15,322,1739865600"; 
-   d="scan'208";a="61872055"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 15:57:04 -0700
-X-CSE-ConnectionGUID: waQsBLFURWetypniVRmNwg==
-X-CSE-MsgGUID: K18uDSK1REGKaNJx/2ZpZQ==
+   d="scan'208";a="68070668"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 16:18:05 -0700
+X-CSE-ConnectionGUID: Ynjqfh96TUCxktsd33xPwA==
+X-CSE-MsgGUID: M+fn4Cj8S6uE04O0uNAhPg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,322,1739865600"; 
-   d="scan'208";a="174259087"
+   d="scan'208";a="148524148"
 Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 28 May 2025 15:56:59 -0700
+  by fmviesa004.fm.intel.com with ESMTP; 28 May 2025 16:18:01 -0700
 Received: from kbuild by 1992f890471c with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1uKPhh-000W8G-1z;
-	Wed, 28 May 2025 22:56:57 +0000
-Date: Thu, 29 May 2025 06:56:31 +0800
+	id 1uKQ23-000W9G-1F;
+	Wed, 28 May 2025 23:17:59 +0000
+Date: Thu, 29 May 2025 07:17:03 +0800
 From: kernel test robot <lkp@intel.com>
-To: Albert Yang <yangzh0906@thundersoft.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ge Gordon <gordon.ge@bst.ai>
-Cc: oe-kbuild-all@lists.linux.dev,
-	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Victor Shih <victor.shih@genesyslogic.com.tw>,
-	Shan-Chun Hung <shanchun1218@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Ben Chuang <ben.chuang@genesyslogic.com.tw>,
-	Albert Yang <yangzh0906@thundersoft.com>
-Subject: Re: [PATCH v1 5/9] mmc: sdhci: add Black Sesame Technologies BST
- C1200 controller driver
-Message-ID: <202505290615.GZzN5rNL-lkp@intel.com>
-References: <20250528085453.481320-1-yangzh0906@thundersoft.com>
+To: Umer Uddin <umer.uddin@mentallysanemainliners.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/2] clk: samsung: exynos990: Add CMU_HSI1 block
+Message-ID: <202505290752.ccgBnlpc-lkp@intel.com>
+References: <20250528105252.157533-3-umer.uddin@mentallysanemainliners.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250528085453.481320-1-yangzh0906@thundersoft.com>
+In-Reply-To: <20250528105252.157533-3-umer.uddin@mentallysanemainliners.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_155704_959135_3E6AF008 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20250528_161808_263735_1765FEF5 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,248 +96,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Albert,
+Hi Umer,
 
 kernel test robot noticed the following build warnings:
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on arm64/for-next/core soc/for-next krzk/for-next krzk-dt/for-next krzk-mem-ctrl/for-next linus/master v6.15 next-20250528]
+[auto build test WARNING on krzk/for-next]
+[also build test WARNING on krzk-dt/for-next clk/clk-next linus/master v6.15 next-20250528]
 [If your patch is applied to the wrong git tree, kindly drop us a note.
 And when submitting patch, we suggest to use '--base' as documented in
 https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Albert-Yang/dt-bindings-vendor-prefixes-Add-Black-Sesame-Technologies-Co-Ltd/20250528-190614
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250528085453.481320-1-yangzh0906%40thundersoft.com
-patch subject: [PATCH v1 5/9] mmc: sdhci: add Black Sesame Technologies BST C1200 controller driver
-config: i386-randconfig-002-20250529 (https://download.01.org/0day-ci/archive/20250529/202505290615.GZzN5rNL-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250529/202505290615.GZzN5rNL-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/Umer-Uddin/dt-bindings-clock-exynos990-Add-CMU_HSI1-bindings/20250528-185847
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250528105252.157533-3-umer.uddin%40mentallysanemainliners.org
+patch subject: [PATCH v1 2/2] clk: samsung: exynos990: Add CMU_HSI1 block
+config: arm-randconfig-002-20250529 (https://download.01.org/0day-ci/archive/20250529/202505290752.ccgBnlpc-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250529/202505290752.ccgBnlpc-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505290615.GZzN5rNL-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505290752.ccgBnlpc-lkp@intel.com/
 
 All warnings (new ones prefixed by >>):
 
->> drivers/mmc/host/sdhci-of-bst-c1200.c:64:6: warning: no previous prototype for 'sdhci_bst_print_vendor' [-Wmissing-prototypes]
-      64 | void sdhci_bst_print_vendor(struct sdhci_host *host)
-         |      ^~~~~~~~~~~~~~~~~~~~~~
->> drivers/mmc/host/sdhci-of-bst-c1200.c:153:6: warning: no previous prototype for 'sdhci_enable_bst_clk' [-Wmissing-prototypes]
-     153 | void sdhci_enable_bst_clk(struct sdhci_host *host, unsigned int clk)
-         |      ^~~~~~~~~~~~~~~~~~~~
->> drivers/mmc/host/sdhci-of-bst-c1200.c:245:6: warning: no previous prototype for 'sdhci_set_bst_clock' [-Wmissing-prototypes]
-     245 | void sdhci_set_bst_clock(struct sdhci_host *host, unsigned int clock)
-         |      ^~~~~~~~~~~~~~~~~~~
-   drivers/mmc/host/sdhci-of-bst-c1200.c: In function 'bst_sdhci_execute_tuning':
->> drivers/mmc/host/sdhci-of-bst-c1200.c:323:13: warning: unused variable 'val' [-Wunused-variable]
-     323 |         u32 val;
-         |             ^~~
-   drivers/mmc/host/sdhci-of-bst-c1200.c: At top level:
->> drivers/mmc/host/sdhci-of-bst-c1200.c:507:5: warning: no previous prototype for 'bst_sdhci_setup_host' [-Wmissing-prototypes]
-     507 | int bst_sdhci_setup_host(struct sdhci_host *host)
-         |     ^~~~~~~~~~~~~~~~~~~~
-   drivers/mmc/host/sdhci-of-bst-c1200.c: In function 'bst_sdhci_setup_host':
->> drivers/mmc/host/sdhci-of-bst-c1200.c:515:14: warning: variable 'enable_vqmmc' set but not used [-Wunused-but-set-variable]
-     515 |         bool enable_vqmmc = false;
-         |              ^~~~~~~~~~~~
->> drivers/mmc/host/sdhci-of-bst-c1200.c:513:13: warning: variable 'max_clk' set but not used [-Wunused-but-set-variable]
-     513 |         u32 max_clk;
-         |             ^~~~~~~
+   In file included from drivers/clk/samsung/clk-exynos990.c:15:
+>> drivers/clk/samsung/clk-exynos990.c:1666:7: warning: 'mout_hsi1_mmc_card_p' defined but not used [-Wunused-const-variable=]
+    PNAME(mout_hsi1_mmc_card_p) =  { "oscclk",
+          ^~~~~~~~~~~~~~~~~~~~
+   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
+    #define PNAME(x) static const char * const x[] __initconst
+                                               ^
+>> drivers/clk/samsung/clk-exynos990.c:1658:7: warning: 'mout_hsi1_bus_p' defined but not used [-Wunused-const-variable=]
+    PNAME(mout_hsi1_bus_p) =  { "dout_cmu_shared0_div3",
+          ^~~~~~~~~~~~~~~
+   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
+    #define PNAME(x) static const char * const x[] __initconst
+                                               ^
+>> drivers/clk/samsung/clk-exynos990.c:1657:7: warning: 'mout_hsi1_pcie_p' defined but not used [-Wunused-const-variable=]
+    PNAME(mout_hsi1_pcie_p) =  { "oscclk", "fout_shared2_pll" };
+          ^~~~~~~~~~~~~~~~
+   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
+    #define PNAME(x) static const char * const x[] __initconst
+                                               ^
+>> drivers/clk/samsung/clk-exynos990.c:1653:7: warning: 'mout_hsi1_ufs_card_p' defined but not used [-Wunused-const-variable=]
+    PNAME(mout_hsi1_ufs_card_p) =  { "oscclk",
+          ^~~~~~~~~~~~~~~~~~~~
+   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
+    #define PNAME(x) static const char * const x[] __initconst
+                                               ^
+>> drivers/clk/samsung/clk-exynos990.c:1649:7: warning: 'mout_hsi1_ufs_embd_p' defined but not used [-Wunused-const-variable=]
+    PNAME(mout_hsi1_ufs_embd_p) =  { "oscclk",
+          ^~~~~~~~~~~~~~~~~~~~
+   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
+    #define PNAME(x) static const char * const x[] __initconst
+                                               ^
 
 
-vim +/sdhci_bst_print_vendor +64 drivers/mmc/host/sdhci-of-bst-c1200.c
+vim +/mout_hsi1_mmc_card_p +1666 drivers/clk/samsung/clk-exynos990.c
 
-    63	
-  > 64	void sdhci_bst_print_vendor(struct sdhci_host *host)
-    65	{
-    66		SDHCI_DUMP_BST("============ SDHCI VENDOR REGISTER DUMP ===========\n");
-    67	
-    68		SDHCI_DUMP_BST("VER_ID:  0x%08x | VER_TPYE:  0x%08x\n",
-    69			       sdhci_readl(host, SDHC_MHSC_VER_ID_R),
-    70			       sdhci_readl(host, SDHC_MHSC_VER_TPYE_R));
-    71		SDHCI_DUMP_BST("MHSC_CTRL:  0x%08x | MBIU_CTRL:  0x%08x\n",
-    72			       sdhci_readw(host, SDHC_MHSC_CTRL_R),
-    73			       sdhci_readw(host, SDHC_MBIU_CTRL_R));
-    74		SDHCI_DUMP_BST("EMMC_CTRL:  0x%08x | BOOT_CTRL: 0x%08x\n",
-    75			       sdhci_readl(host, SDHC_EMMC_CTRL_R),
-    76			       sdhci_readw(host, SDHC_BOOT_CTRL_R));
-    77		SDHCI_DUMP_BST("GP_IN:   0x%08x | GP_OUT: 0x%08x\n",
-    78			       sdhci_readl(host, SDHC_GP_IN_R),
-    79			       sdhci_readb(host, SDHC_GP_OUT_R));
-    80		SDHCI_DUMP_BST("AT_CTRL:     0x%08x | AT_STAT:  0x%08x\n",
-    81			       sdhci_readb(host, SDHC_AT_CTRL_R),
-    82			       sdhci_readb(host, SDHC_AT_STAT_R));
-    83	}
-    84	EXPORT_SYMBOL_GPL(sdhci_bst_print_vendor);
-    85	
-    86	static u32 bst_read_phys_bst(u32 phys_addr)
-    87	{
-    88		u32 phys_addr_page = phys_addr & 0xFFFFE000;
-    89		u32 phys_offset = phys_addr & 0x00001FFF;
-    90		u32 map_size = phys_offset + sizeof(u32);
-    91		u32 ret = 0xDEADBEEF;
-    92		void *mem_mapped = ioremap(phys_addr_page, map_size);
-    93	
-    94		if (mem_mapped) {
-    95			ret = (u32)ioread32(((u8 *)mem_mapped) + phys_offset);
-    96			iounmap(mem_mapped);
-    97		}
-    98	
-    99		return ret;
-   100	}
-   101	
-   102	static void bst_write_phys_bst(u32 phys_addr, u32 value)
-   103	{
-   104		u32 phys_addr_page = phys_addr & 0xFFFFE000;
-   105		u32 phys_offset = phys_addr & 0x00001FFF;
-   106		u32 map_size = phys_offset + sizeof(u32);
-   107		void *mem_mapped = ioremap(phys_addr_page, map_size);
-   108	
-   109		if (mem_mapped) {
-   110			iowrite32(value, ((u8 *)mem_mapped) + phys_offset);
-   111			iounmap(mem_mapped);
-   112		}
-   113	}
-   114	
-   115	static unsigned int bst_get_max_clock(struct sdhci_host *host)
-   116	{
-   117		return host->mmc->f_max;
-   118	}
-   119	
-   120	static unsigned int bst_get_min_clock(struct sdhci_host *host)
-   121	{
-   122		return host->mmc->f_min;
-   123	}
-   124	
-   125	struct rx_ctrl {
-   126		struct {
-   127			u32 rx_revert:1;
-   128			u32 rx_clk_sel_sec:1;
-   129			u32 rx_clk_div:4;
-   130			u32 rx_clk_phase_inner:2;
-   131			u32 rx_clk_sel_first:1;
-   132			u32 rx_clk_phase_out:2;
-   133			u32 rx_clk_en:1;
-   134			u32 res0:20;
-   135		} bit;
-   136		u32 reg;
-   137	};
-   138	
-   139	struct sdmmc_iocfg {
-   140		struct {
-   141			u32 res0:16;
-   142			u32 SC_SDMMC0_PVDD18POCSD0:2;
-   143			u32 SC_SDMMC0_PVDD18POCSD1:2;
-   144			u32 SC_SDMMC0_PVDD18POCSD2:2;
-   145			u32 SC_SDMMC1_PVDD18POCSD0:2;
-   146			u32 SC_SDMMC1_PVDD18POCSD1:2;
-   147			u32 SC_SDMMC1_PVDD18POCSD2:2;
-   148			u32 res1:4;
-   149		} bit;
-   150		u32 reg;
-   151	};
-   152	
- > 153	void sdhci_enable_bst_clk(struct sdhci_host *host, unsigned int clk)
-   154	{
-   155		struct sdhci_pltfm_host *pltfm_host;
-   156		struct dwcmshc_priv *priv;
-   157		unsigned int div;
-   158		u32 val;
-   159		struct rx_ctrl rx_reg;
-   160	
-   161		pltfm_host = sdhci_priv(host);
-   162		priv = sdhci_pltfm_priv(pltfm_host);
-   163		if (clk == 0) {
-   164			div = clk;
-   165		} else if (clk > default_max_freq) {
-   166			div = clk / 1000;
-   167			div = default_max_freq / div;
-   168		} else if (clk < 1500) {
-   169			div = clk;
-   170		} else {
-   171			div = default_max_freq * 100;
-   172			div = div / clk;
-   173			div /= 100;
-   174		}
-   175	
-   176		clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-   177		clk &= ~SDHCI_CLOCK_CARD_EN;
-   178		sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-   179	
-   180		clk &= ~SDHCI_CLOCK_PLL_EN;
-   181		sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-   182	
-   183		val = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_TIMER_DIV_CTRL);
-   184		val &= ~(1 << 8);
-   185		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_TIMER_DIV_CTRL, val);
-   186	
-   187		val = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_TIMER_DIV_CTRL);
-   188		val &= ~(0xff);
-   189		val |= 0x20;
-   190		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_TIMER_DIV_CTRL, val);
-   191	
-   192		val = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_TIMER_DIV_CTRL);
-   193		val |= 1 << 8;
-   194		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_TIMER_DIV_CTRL, val);
-   195	
-   196		val = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_RX_CLK_CTRL);
-   197		val &= ~(1 << 11);
-   198		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_RX_CLK_CTRL, val);
-   199	
-   200		rx_reg.reg = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_RX_CLK_CTRL);
-   201	
-   202		rx_reg.bit.rx_revert = 0;
-   203		rx_reg.bit.rx_clk_sel_sec = 1;
-   204		rx_reg.bit.rx_clk_div = 4;
-   205		rx_reg.bit.rx_clk_phase_inner = 2;
-   206		rx_reg.bit.rx_clk_sel_first = 0;
-   207		rx_reg.bit.rx_clk_phase_out = 2;
-   208	
-   209		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_RX_CLK_CTRL, rx_reg.reg);
-   210	
-   211		val = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_RX_CLK_CTRL);
-   212		val |= 1 << 11;
-   213		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_RX_CLK_CTRL, val);
-   214	
-   215		/* Disable clock first */
-   216		val = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_BCLK_DIV_CTRL);
-   217		val &= ~0x0400;
-   218		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_BCLK_DIV_CTRL, val);
-   219	
-   220		/* Setup clock divider */
-   221		val = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_BCLK_DIV_CTRL);
-   222		val &= ~0x03ff;
-   223		val |= div;
-   224		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_BCLK_DIV_CTRL, val);
-   225	
-   226		/* Enable clock */
-   227		val = bst_read_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_BCLK_DIV_CTRL);
-   228		val |= 0x0400;
-   229		bst_write_phys_bst(priv->phy_crm_reg_base + SDEMMC_CRM_BCLK_DIV_CTRL, val);
-   230	
-   231		sdhci_writew(host, (div & 0xff) << 8, SDHCI_CLOCK_CONTROL);
-   232	
-   233		sdhci_writew(host, (div & 0xff) << 8, SDHCI_CLOCK_CONTROL);
-   234		clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
-   235		clk |= SDHCI_CLOCK_PLL_EN;
-   236		sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-   237	
-   238		clk |= SDHCI_CLOCK_CARD_EN;
-   239		sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-   240	
-   241		clk |= SDHCI_CLOCK_INT_EN;
-   242		sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
-   243	}
-   244	
- > 245	void sdhci_set_bst_clock(struct sdhci_host *host, unsigned int clock)
-   246	{
-   247		if (clock == 0)
-   248			return;
-   249		sdhci_enable_bst_clk(host, clock);
-   250	}
-   251	
+  1647	
+  1648	/* Parent clock list for CMU_HSI1 muxes */
+> 1649	PNAME(mout_hsi1_ufs_embd_p) =		{ "oscclk",
+  1650						  "dout_cmu_shared0_div4",
+  1651						  "dout_cmu_shared2_div2",
+  1652						  "oscclk" };
+> 1653	PNAME(mout_hsi1_ufs_card_p) =		{ "oscclk",
+  1654						  "dout_cmu_shared0_div4",
+  1655						  "dout_cmu_shared2_div2",
+  1656						  "oscclk" };
+> 1657	PNAME(mout_hsi1_pcie_p) =		{ "oscclk", "fout_shared2_pll" };
+> 1658	PNAME(mout_hsi1_bus_p) =		{ "dout_cmu_shared0_div3",
+  1659						  "dout_cmu_shared0_div4",
+  1660						  "dout_cmu_shared1_div4",
+  1661						  "dout_cmu_shared4_div3",
+  1662						  "dout_cmu_shared2_div2",
+  1663						  "fout_mmc_pll",
+  1664						  "oscclk",
+  1665						  "oscclk" };
+> 1666	PNAME(mout_hsi1_mmc_card_p) =		{ "oscclk",
+  1667						  "fout_shared2_pll",
+  1668						  "fout_mmc_pll",
+  1669						  "dout_cmu_shared0_div4" };
+  1670	PNAME(mout_hsi1_bus_user_p) =		{ "oscclk", "dout_cmu_hsi1_bus" };
+  1671	PNAME(mout_hsi1_mmc_card_user_p) =	{ "oscclk", "dout_cmu_hsi1_mmc_card" };
+  1672	PNAME(mout_hsi1_pcie_user_p) =		{ "oscclk", "dout_cmu_hsi1_pcie" };
+  1673	PNAME(mout_hsi1_ufs_card_user_p) =	{ "oscclk", "dout_cmu_hsi1_ufs_card" };
+  1674	PNAME(mout_hsi1_ufs_embd_user_p) =	{ "oscclk", "dout_cmu_hsi1_ufs_embd" };
+  1675	
 
 -- 
 0-DAY CI Kernel Test Service
