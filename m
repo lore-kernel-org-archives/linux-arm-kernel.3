@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4579C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30463C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DnUw7T5dTAlGD+Mn8tzuDakTz2S3BGH1zLUIzlY5AS0=; b=Rq2s/2SAojmOwERqFgH60bHZt0
-	Pz2+KZI9NrYF1VwoC9rEPDgv2ZBIx5wGgqLFF4czyVJdh5rLLc/MGZjuh/fobc7AQhkGDtZgh9D2T
-	NRK+duYnak1Ry4nBg0rtNp85lqwA1d4WY41bHcXxEp9SC171YSbYEjkp/wTnGe8+rPRjZ+2xb0kxC
-	W4mqOTee20FlX81KpoEcYKCPcbN6KAzMNblz5aSf1fAXu2ClcSCCIgUQudsC2dIp+h7bT3ekIoE5y
-	AywSuIvRihoId+vW7R/DPP5wo66cuXQKCGXtGOszqaJC19P4gfoEuCHpuTAMsdDRqk8jF8yTRH+uF
-	N/Afk44Q==;
+	bh=L71x5+rSvPj1zJezK3dif32i9JkRazX441gdrufRFrA=; b=RTFxrmTqCjq61OUjQfwEy6gPVa
+	zcoWf02th9/MHNs4AHNCeKKN8b7FYKlg6sd76+MIc8Q1fjrKg893fIoDQmvUFv6VP9vwzwfZKcNxo
+	FloUUWLHayX/mzAPbm6vc/QcxmtLyxf9aJH7zwfIA8X8ktlVUoBlrw/ZaP0PJn7PyAuYFNQ0kg39d
+	R2/PVfw5e23hQ9jqPu1LCQFKOyZNNADq6GhTQeApXtN98KkV95JmHfZgmlqC3WX249WMw6rhGfj6U
+	bkn26UT9HbF/Tk64UKbcJAnEqFm0f8ZB8iMjcRd4FIAU4eIIOLqLl5DEX4aTWCxxIohKuy8UlHiSQ
+	68iUsnyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHo2-0000000DPHG-2iM9;
-	Wed, 28 May 2025 14:30:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uKHq9-0000000DPV6-1VIV;
+	Wed, 28 May 2025 14:33:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHlS-0000000DOtC-3aPy
+	id 1uKHmg-0000000DP3C-2klG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 14:28:20 +0000
+	Wed, 28 May 2025 14:29:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D72AA40C4A;
-	Wed, 28 May 2025 14:28:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 589E9C4CEE3;
-	Wed, 28 May 2025 14:28:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0A21DA49E4C;
+	Wed, 28 May 2025 14:29:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70CBFC4CEE3;
+	Wed, 28 May 2025 14:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748442497;
-	bh=Pj2dKcYrs8qtXXImT3zhxemqWnlmlXzSCeJP/bi3GqI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J7V4HdhH4LP0/xhdufXH7ukurAfnZkeM28NOSeG7dnwmm7xGN2Q21KwDYd99fZser
-	 ENBiRECT9v5o6UwShPCdLRJs5hb76XQNPWD2f/FtHeNJ16IQ1P1atj4YicGXgqoJn1
-	 Qd2um5zkwTUZJ2j0jGLZXafqR8nLyKbFR3akyuxesS0b0jKtOD4xUph+xmh7+49kee
-	 b927Nhc/iraXGDSm+YLrubDnVPbh8ckd6J+rDLrEABHeq1f/+nNRsVK6PeHmm6jOV6
-	 1a5v0NhCdVWXwv5mJEnlDyFrPrmCiExJ30hu90lAAlQ9yyNdZtG+Q+Zw+BxBaQHGoV
-	 bk/5c/9YQyLKA==
-Date: Wed, 28 May 2025 16:28:09 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 18/26] arm64: smp: Support non-SGIs for IPIs
-Message-ID: <aDcdeWuwCzZ4pA9y@lpieralisi>
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-18-b36e9b15a6c3@kernel.org>
- <20250528131744.00001544@huawei.com>
+	s=k20201202; t=1748442573;
+	bh=ubMRziPv811a1c4W27GNJyX/xyPJhyiu/AXagdFgPWI=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=I7laG2ypimp7SHSqxMa5Zv8dK5qj7rZUUI7/nErluXMBjhHHMSEtM6yvXCbavNUhJ
+	 ey5iPZkBWJFk8SdpyOmPE4kc14L+AahhnxT82ig5yydt8ZG7426O9eTfU0PgtGGVRe
+	 xxUm5obNaIxguw+DGXasu5SNYMHJKYo3ZwA+moZEIC0Zh1EYIv/kuGIZpD27Mc3PFs
+	 S/T8x6XVxdLiEpgBzOnm7N4RHNl+O3rbxGrGNaiysI7sIoqd0AJeh3oRi0giO6QTLq
+	 5vjtSN63MVbmCnUuTtCt2hed50uiXtRzJcJndBPHYw5f+w44UAcfR7sRFzPy5iAn6o
+	 F4Q1/RWE7qBow==
+Date: Wed, 28 May 2025 09:29:31 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250528131744.00001544@huawei.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, linux-gpio@vger.kernel.org
+To: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+In-Reply-To: <20250528-hdp-upstream-v4-2-7e9b3ad2036d@foss.st.com>
+References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
+ <20250528-hdp-upstream-v4-2-7e9b3ad2036d@foss.st.com>
+Message-Id: <174844257180.4036102.7091043043619447480.robh@kernel.org>
+Subject: Re: [PATCH v4 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_072818_935838_B0D544F1 
-X-CRM114-Status: GOOD (  22.18  )
+X-CRM114-CacheID: sfid-20250528_072934_759137_4DF0E9FB 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +79,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 01:17:44PM +0100, Jonathan Cameron wrote:
-> On Tue, 13 May 2025 19:48:11 +0200
-> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+
+On Wed, 28 May 2025 15:30:55 +0200, Clément Le Goffic wrote:
+> 'HDP' stands for Hardware Debug Port, it is an hardware block in
+> STMicrolectronics' MPUs that let the user decide which internal SoC's
+> signal to observe.
+> It provides 8 ports and for each port there is up to 16 different
+> signals that can be output.
+> Signals are different for each MPU.
 > 
-> > From: Marc Zyngier <maz@kernel.org>
-> > 
-> > The arm64 arch has relied so far on GIC architectural software
-> > generated interrupt (SGIs) to handle IPIs. Those are per-cpu
-> > software generated interrupts.
-> > 
-> > arm64 architecture code that allocates the IPIs virtual IRQs and
-> > IRQ descriptors was written accordingly.
-> > 
-> > On GICv5 systems, IPIs are implemented using LPIs that are not
-> > per-cpu interrupts - they are just normal routable IRQs.
-> > 
-> > Add arch code to set-up IPIs on systems where they are handled
-> > using normal routable IRQs.
-> > 
-> > For those systems, force the IRQ affinity (and make it immutable)
-> > to the cpu a given IRQ was assigned to.
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > [timothy.hayes@arm.com: fixed ipi/irq conversion, irq flags]
-> > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> > [lpieralisi: changed affinity set-up, log]
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Hi Lorenzo,
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  .../devicetree/bindings/pinctrl/st,stm32-hdp.yaml  | 187 +++++++++++++++++++++
+>  1 file changed, 187 insertions(+)
 > 
-> A few trivial comments inline.
-> 
-> > +
-> > +static int ipi_to_irq(int ipi, int cpu)
-> 
-> Maybe this naming needs a breadcrumb to indicate this only
-> applies only to lpi case as it's directly computed in the old ppi code?
-> A comment might do the job.
 
-Maybe rename it to ipi_to_irq_percpu() (similar to what we did for
-set_smp_ipi_range()) and then
+My bot found errors running 'make dt_binding_check' on your patch:
 
-static int ipi_to_irq(int ipi)
-{
-	ipi_to_irq_percpu(ipi, 0);
-}
+yamllint warnings/errors:
 
-and use ipi_to_irq() in ppi code ?
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
+ 	 $id: http://devicetree.org/schemas/pinctrl/st,stm32-pinctrl-hdp.yaml
+ 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml
 
-Likely overkill, not a big deal anyway.
+doc reference errors (make refcheckdocs):
 
-> > +{
-> > +	return ipi_irq_base + (cpu * nr_ipi) + ipi;
-> > +}
-> > +
-> > +static int irq_to_ipi(int irq)
-> > +{
-> > +	return (irq - ipi_irq_base) % nr_ipi;
-> > +}
-> 
-> 
-> > +static void ipi_setup_lpi(int ipi, int ncpus)
-> > +{
-> > +	for (int cpu = 0; cpu < ncpus; cpu++) {
-> > +		int err, irq;
-> > +
-> > +		irq = ipi_to_irq(ipi, cpu);
-> > +
-> > +		err = irq_force_affinity(irq, cpumask_of(cpu));
-> > +
-> Trivial local consistency thing but maybe no blank line here or...
-> > +		WARN(err, "Could not force affinity IRQ %d, err=%d\n", irq, err);
-> > +
-> > +		err = request_irq(irq, ipi_handler, IRQF_NO_AUTOEN, "IPI",
-> > +				  &irq_stat);
-> > +
-> here to match the style in ipi_setup_ppi()
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250528-hdp-upstream-v4-2-7e9b3ad2036d@foss.st.com
 
-Done.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Thanks,
-Lorenzo
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-> > +		WARN(err, "Could not request IRQ %d, err=%d\n", irq, err);
-> > +
-> > +		irq_set_status_flags(irq, (IRQ_HIDDEN | IRQ_NO_BALANCING_MASK));
-> > +
-> > +		get_ipi_desc(cpu, ipi) = irq_to_desc(irq);
-> > +	}
-> > +}
-> 
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
