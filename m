@@ -4,90 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93CFC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 20:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 802ECC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 20:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=daVisNFo2JYOWor9frp9fd1E3MXvxdVufApsYKXj4R0=; b=jGZKMuvsLub7dg
-	VFP/q1/tqzFWjxBpv2QsEIk3xM1AB6NH/opFPX5Ca+eQ+tff57EWkadH6fWpHZynvnSEqv1gxwDC0
-	NgbyJ7l81qv6ehjy62yltQ/CtN4qtlUrvaqIqd0+g/mVFJL20is1J5c8HAqVW5aGGVnka93Jgr0PA
-	/8yhiefzsw6b8ZjAOwOic6ZnDFbAzVjrJpwvW2n5ZLFbdVrOOEpql1dRCtoKgphzvC+RK/Fa70O6S
-	2Baejsmt+JUT+ek6y7ruXZ23Lh8qA3yxBo2GpqJHthc2xjCoV/MmErO8tdXHVVwkN76kd5Opb/eeL
-	4e1Y8OUZy/TtJLx3owPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pS3L3KRfz5KN2f4PHSrDwEqqU16vREHLyymMNsMjI1o=; b=VdlKXINGE92nVkvxPWKo50kH2T
+	2vCsOXnUj5oCzsR6+p07ZUmNVHlayL2c76cePLGa5haHfZychUQBSnjaCI5Acw94pg6wAMxval/vx
+	mf1EedBHsXeez20XGb6rhpgscDDnEBus58wfNNZ701HdM4jg1ivS9Udwai50jvsOK5+EP1g1j1u/Q
+	4bWk7xVzqncQ0x7G+D6ZzXYeBgAk61GX6QL4Ws2UP6Rj45X2nuWr/muY22/o8YW3CsvtQ6SHEdIo9
+	xYUnfb7V9angTUtxZJqFeSPQbFssijG7bm8CbZYzlQAQqRL6GAJbTI+tcir4L7bVqahKxAsENR1bm
+	NwmNF1vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKN2E-0000000E2oC-2vyP;
-	Wed, 28 May 2025 20:05:58 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uKNG1-0000000E469-3Ex4;
+	Wed, 28 May 2025 20:20:13 +0000
+Received: from mail-ua1-x949.google.com ([2607:f8b0:4864:20::949])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKMuH-0000000E1x4-2VNN
+	id 1uKNDs-0000000E3n3-2shH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 19:57:46 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a3673e12c4so123675f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 12:57:45 -0700 (PDT)
+	Wed, 28 May 2025 20:18:01 +0000
+Received: by mail-ua1-x949.google.com with SMTP id a1e0cc1a2514c-87dfb4a92abso32716241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 13:17:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748462264; x=1749067064; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=daVisNFo2JYOWor9frp9fd1E3MXvxdVufApsYKXj4R0=;
-        b=fMtPahIhlQu7Auepp3dDMhaQogk966ZlsvTanKHYdjkxTBFxWmDFwI9qYZCbRcY28e
-         AKiVeQP5uO19Mog1KvlvJPFCVzVGOdoDM3rc19GptadnQUP9LuGmqa+aiqN7lClIkiGT
-         DYmXiP7XBpbE6zcSaZoJKdV5Sge/sWUGUXDRbF6LDLUl5/1mvl0nvUA8K1Li6Ri8F4bQ
-         pKj38Wuo5Co4vGeRnhFnUGV1dd4QahvtsOMOKeJYSR+75nAzRInUtmWJXlSLD7vK9xFm
-         TzTymjaR8+B9fODQTUxEcqmQGPzfzkUtoRBvVwzITBhI05LO2M7Fy2gyRd5zvJ1p1Dqr
-         YhDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748462264; x=1749067064;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=google.com; s=20230601; t=1748463479; x=1749068279; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=daVisNFo2JYOWor9frp9fd1E3MXvxdVufApsYKXj4R0=;
-        b=XEHT7lSvc1JpOY26Bw3DwJQOeF+rQtatuw3xjtDblAp0CSmap8jHupbVooCGxyqvnp
-         bR1DsmpTQRxBoeObu2OjgucR367UR9/h7b9+bmrGNFZg/7j06Ksw9btj8YsA/vYknEoJ
-         IpyzZFGxrjVTomKgB2F6Iyl+OQ3YSG9HeMYhLe8a9HdbU4EKkXxumhpeOO+F9BHIhlIX
-         HIh83av+bcqRzM1PckhxvbrSYDd5Oo9/BQYwsCzkWcyjonxnFiyofnC9uoQ7qWO7GPMY
-         WX1UGSQ0RpeBZe6jmVcdCdohO38F/0tw9zU5KTDkavG12ITOxFKrqYLrcPSp/MnXBg3N
-         Nebg==
-X-Forwarded-Encrypted: i=1; AJvYcCV3J8aIQ6ilUtB7bIQEtREt/0J/i4iUHIA3UfghFhlDTCVYJsvcaGokSHdw7ERdEnLu3LUNCurqbOAeW/cHxWdD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQvHTj+i425fwhVDJd2v8Ej1N6QmtAq8jdXWdnNM+nyCpokrQE
-	Q6aJ8VvbKznwjzgBKBOkWdGavdihBAVtUomNItUuSf2413jXXF77nQUerN0EXM6gv2w=
-X-Gm-Gg: ASbGncuJHMEcqlovdxvH3aj18IIqMzd0FOpfgmiiP8ycAJkLBP5ZTS0hQntkzw/U/qF
-	sqhOKqijo727NJUxniib7fg0X+Z1Am9Xvohp6qI4IyWBLybjYgKU73uvspvRmlfdQ2+x7tWfNuP
-	/gSJZHKkwj5YLvllTqcvEgXdpp3kkZjLH/dMjPEe++dEpisoG32mb6Nu7v2v71uM/ZA7FinvINU
-	gZLjOC1Nx4J8apsG2Yyxe8+ZvoGjQTWh0NYQ/yKnoWTdadxX8WiFI4UCfvZNpnSjGgY5e0ibohu
-	WGDZ1r+1v4EAOh6qqXFiYs3uFiaudwwZJhhmd3ru8LKESv6CiJrlTdg=
-X-Google-Smtp-Source: AGHT+IHg9XasKs+N0t/qumXHpJiiJ8sMTppJmHwcsmrYSwVnYilz8ut2u+dvhBQCw0zXqxv2hFdsXA==
-X-Received: by 2002:a05:6000:240d:b0:3a4:d6ed:8df8 with SMTP id ffacd0b85a97d-3a4d6eda63bmr10797738f8f.39.1748462264092;
-        Wed, 28 May 2025 12:57:44 -0700 (PDT)
-Received: from localhost ([41.210.143.146])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a4eace3260sm2353096f8f.90.2025.05.28.12.57.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 12:57:43 -0700 (PDT)
-Date: Wed, 28 May 2025 22:57:39 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Peter Chen <peter.chen@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-usb@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, s32@nxp.com,
-	linaro-s32@linaro.org
-Subject: [PATCH 4/4] usb: chipidea: s32g: Add usb support for s32g3
-Message-ID: <c7c9319793b439cb35909621381ca2d4a78699dd.1748461536.git.dan.carpenter@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1748453565.git.dan.carpenter@linaro.org>
+        bh=pS3L3KRfz5KN2f4PHSrDwEqqU16vREHLyymMNsMjI1o=;
+        b=XL67vNiCkxwQx5giKUNJHwA5zDOUFgyGLSNFqgcJyMtzOrV+tRAkZeL7NiKhSq1kxn
+         /RxBzd0rq+3OeN2CG2Qb9dEOVqkTo0kVKD8ZQ3nIR1EU4KV7z5aSkXQjs0ZMGMRhZlzu
+         Lk4fKUXztfT5mrmrVK9lPrIhpskgYVx3Wu7Kr+FQ+X+xKQRcAGL0DX01CL1Zo3zGaOY8
+         gf6AdQbrBlrAU9ryyiv+nhGrigEHjaL2Ak4DxuCQhLY5tWwVyvtZUtje8VX1OikqnEtL
+         cBdNlKV5mEBgrByRc3E6rzIlMMRu0EykxCCRBKlHsgnXvKoleuHQrUgxyRis2uE/cU2v
+         9hXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748463479; x=1749068279;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=pS3L3KRfz5KN2f4PHSrDwEqqU16vREHLyymMNsMjI1o=;
+        b=jzCHIv8Mz9z5ZtrZVBoqB1f43BqqibCaXZxxOLeVgXQFlJCToNzzL1YAd7OJYD9Byg
+         xUOW7SGSU1f3g5B+xVSS5dN7wMWp55OIsrMc8BS4zEzjLNc5IWE3VlzM5q/GSItuGDQu
+         qFrddY8VIspSlyIuuDKoDfmz/eM8LMmH6CrJA3qzSOVW7S6hkadQVV3JR8J5imWlqeBH
+         FPYmXgedVt/gxzCjJPW1Kc/sOJAheP+AR0Mc8OWJABrGJw+bxTlJgAUVDNfCP1FFgwyM
+         TbB+ELC0OFT4UTkFS5FLODYs9lOc1cdAlvnWZyqMO0hHC8CwgUMPDu9vatrQN4R/yyJB
+         ZsMA==
+X-Forwarded-Encrypted: i=1; AJvYcCXe/3nMM/S+v7lfx+gaB/fkzgOXkGwegOY9iwwMRU1OXXKy1Qq8FZbwH8yZCJ0F1dkZAlMxZPCrmq9d4zkXJQep@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfV1kGDPrpfPNjWj2TPpZbxUzPlnRMDE47YYUsYCROw9XKFRLY
+	5Xjv6LgyZW041X0MMhydrgyDk/2KAqEUWm3dlQUd3Zm9+mRwT7CYpJypT2c/GXpOslSgvBK37M/
+	QylVKgeYPdaPu0BH82Vv9zQ==
+X-Google-Smtp-Source: AGHT+IGyUJTOXQyn/15OsOvKdvYlJU2g7lRit6+I+UryLZeKjuoksIAEOAqNG3KzRBgJ4D83T1qgfTqVSbHb27/G
+X-Received: from vsve42.prod.google.com ([2002:a05:6102:faa:b0:4dd:b083:d38c])
+ (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6102:5092:b0:4e5:ac99:e466 with SMTP id ada2fe7eead31-4e5ac99f42fmr1294267137.18.1748463478924;
+ Wed, 28 May 2025 13:17:58 -0700 (PDT)
+Date: Wed, 28 May 2025 20:17:54 +0000
+In-Reply-To: <aDdILHOu9g-m5hSm@google.com>
+Mime-Version: 1.0
+References: <aDdILHOu9g-m5hSm@google.com>
+X-Mailer: git-send-email 2.49.0.1204.g71687c7c1d-goog
+Message-ID: <20250528201756.36271-1-jthoughton@google.com>
+Subject: Re: [PATCH v2 06/13] KVM: arm64: Add support for KVM_MEM_USERFAULT
+From: James Houghton <jthoughton@google.com>
+To: seanjc@google.com
+Cc: amoorthy@google.com, corbet@lwn.net, dmatlack@google.com, 
+	jthoughton@google.com, kalyazin@amazon.com, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, maz@kernel.org, 
+	oliver.upton@linux.dev, pbonzini@redhat.com, peterx@redhat.com, 
+	pgonda@google.com, wei.w.wang@intel.com, yan.y.zhao@intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_125745_640747_C98B36C4 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20250528_131800_727745_EA2F13AE 
+X-CRM114-Status: GOOD (  31.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,70 +96,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+On Wed, May 28, 2025 at 1:30=E2=80=AFPM Sean Christopherson <seanjc@google.=
+com> wrote:
+> On Wed, May 28, 2025, James Houghton wrote:
+> > On Wed, May 28, 2025 at 11:09=E2=80=AFAM James Houghton <jthoughton@goo=
+gle.com> wrote:
+> > > On Tue, May 6, 2025 at 8:06=E2=80=AFPM Sean Christopherson <seanjc@go=
+ogle.com> wrote:
+> > > > @@ -2127,14 +2131,19 @@ void kvm_arch_commit_memory_region(struct k=
+vm *kvm,
+> > > > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0const struct kvm=
+_memory_slot *new,
+> > > > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0enum kvm_mr_chan=
+ge change)
+> > > > =C2=A0{
+> > > > - =C2=A0 =C2=A0 =C2=A0 bool log_dirty_pages =3D new && new->flags &=
+ KVM_MEM_LOG_DIRTY_PAGES;
+> > > > + =C2=A0 =C2=A0 =C2=A0 u32 old_flags =3D old ? old->flags : 0;
+> > > > + =C2=A0 =C2=A0 =C2=A0 u32 new_flags =3D new ? new->flags : 0;
+> > > > +
+> > > > + =C2=A0 =C2=A0 =C2=A0 /* Nothing to do if not toggling dirty loggi=
+ng. */
+> > > > + =C2=A0 =C2=A0 =C2=A0 if (!((old_flags ^ new_flags) & KVM_MEM_LOG_=
+DIRTY_PAGES))
+> > > > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return;
+> > >
+> > > This is my bug, not yours, but I think this condition must also check
+> > > that `change =3D=3D KVM_MR_FLAGS_ONLY` for it to be correct. This, fo=
+r
+> > > example, will break the case where we are deleting a memslot that
+> > > still has KVM_MEM_LOG_DIRTY_PAGES enabled. Will fix in the next
+> > > version.
+> >
+> > Ah it wouldn't break that example, as `new` would be NULL. But I think
+> > it would break the case where we are moving a memslot that keeps
+> > `KVM_MEM_LOG_DIRTY_PAGES`.
+>
+> Can you elaborate? =C2=A0Maybe with the full snippet of the final code th=
+at's broken.
+> I'm not entirely following what's path you're referring to.
 
-Enable USB driver for the s32g3 USB device.
+This is even more broken than I realized.
 
-Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- drivers/usb/chipidea/ci_hdrc_imx.c |  1 +
- drivers/usb/chipidea/usbmisc_imx.c | 15 +++++++++++++++
- 2 files changed, 16 insertions(+)
+I mean that this diff should be applied on top of your patch:
 
-diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-index ce207f8566d5..d062399ce15e 100644
---- a/drivers/usb/chipidea/ci_hdrc_imx.c
-+++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-@@ -95,6 +95,7 @@ static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
- 	{ .compatible = "fsl,imx7ulp-usb", .data = &imx7ulp_usb_data},
- 	{ .compatible = "fsl,imx8ulp-usb", .data = &imx8ulp_usb_data},
- 	{ .compatible = "nxp,s32g2-usb", .data = &s32g_usb_data},
-+	{ .compatible = "nxp,s32g3-usb", .data = &s32g_usb_data},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, ci_hdrc_imx_dt_ids);
-diff --git a/drivers/usb/chipidea/usbmisc_imx.c b/drivers/usb/chipidea/usbmisc_imx.c
-index 43098a150e83..34fd26faa303 100644
---- a/drivers/usb/chipidea/usbmisc_imx.c
-+++ b/drivers/usb/chipidea/usbmisc_imx.c
-@@ -677,6 +677,11 @@ static int usbmisc_s32g2_init(struct imx_usbmisc_data *data)
- 	return usbmisc_s32g_init(data, S32G_UCMALLBE);
- }
- 
-+static int usbmisc_s32g3_init(struct imx_usbmisc_data *data)
-+{
-+	return usbmisc_s32g_init(data, 0);
-+}
-+
- static int usbmisc_imx7d_set_wakeup
- 	(struct imx_usbmisc_data *data, bool enabled)
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 5e2ccde66f43c..f1db3f7742b28 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2134,8 +2134,12 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+ 	u32 old_flags =3D old ? old->flags : 0;
+ 	u32 new_flags =3D new ? new->flags : 0;
+=20
+-	/* Nothing to do if not toggling dirty logging. */
+-	if (!((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES))
++	/*
++	 * If only changing flags, nothing to do if not toggling
++	 * dirty logging.
++	 */
++	if (change =3D=3D KVM_MR_FLAGS_ONLY &&
++	    !((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES))
+ 		return;
+=20
+ 	/*
+
+So the final commit looks like:
+
+commit 3c4b57b25b1123629c5f2b64065d51ecdadb6771
+Author: James Houghton <jthoughton@google.com>
+Date:   Tue May 6 15:38:31 2025 -0700
+
+    KVM: arm64: Add support for KVM userfault exits
+   =20
+    <to be written by James>
+   =20
+    Signed-off-by: James Houghton <jthoughton@google.com>
+    Signed-off-by: Sean Christopherson <seanjc@google.com>
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index c5d21bcfa3ed4..f1db3f7742b28 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2127,15 +2131,23 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+ 				   const struct kvm_memory_slot *new,
+ 				   enum kvm_mr_change change)
  {
-@@ -1200,6 +1205,12 @@ static const struct usbmisc_ops s32g2_usbmisc_ops = {
- 	.flags = REINIT_DURING_RESUME,
- };
- 
-+static const struct usbmisc_ops s32g3_usbmisc_ops = {
-+	.init = usbmisc_s32g3_init,
-+	.set_wakeup = usbmisc_s32g_set_wakeup,
-+	.flags = REINIT_DURING_RESUME,
-+};
+-	bool log_dirty_pages =3D new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
++	u32 old_flags =3D old ? old->flags : 0;
++	u32 new_flags =3D new ? new->flags : 0;
 +
- static inline bool is_imx53_usbmisc(struct imx_usbmisc_data *data)
- {
- 	struct imx_usbmisc *usbmisc = dev_get_drvdata(data->dev);
-@@ -1432,6 +1443,10 @@ static const struct of_device_id usbmisc_imx_dt_ids[] = {
- 		.compatible = "nxp,s32g2-usbmisc",
- 		.data = &s32g2_usbmisc_ops,
- 	},
-+	{
-+		.compatible = "nxp,s32g3-usbmisc",
-+		.data = &s32g3_usbmisc_ops,
-+	},
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, usbmisc_imx_dt_ids);
--- 
-2.47.2
++	/*
++	 * If only changing flags, nothing to do if not toggling
++	 * dirty logging.
++	 */
++	if (change =3D=3D KVM_MR_FLAGS_ONLY &&
++	    !((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES))
++		return;
+=20
+ 	/*
+ 	 * At this point memslot has been committed and there is an
+ 	 * allocated dirty_bitmap[], dirty pages will be tracked while the
+ 	 * memory slot is write protected.
+ 	 */
+-	if (log_dirty_pages) {
+-
++	if (new_flags & KVM_MEM_LOG_DIRTY_PAGES) {
+ 		if (change =3D=3D KVM_MR_DELETE)
+ 			return;
+=20
 
+So we need to bail out early if we are enabling KVM_MEM_USERFAULT but
+KVM_MEM_LOG_DIRTY_PAGES is already enabled, otherwise we'll be
+write-protecting a bunch of PTEs that we don't need or want to WP.
+
+When *disabling* KVM_MEM_USERFAULT, we definitely don't want to WP
+things, as we aren't going to get the unmap afterwards anyway.
+
+So the check we started with handles this:
+> > > > + =C2=A0 =C2=A0 =C2=A0 u32 old_flags =3D old ? old->flags : 0;
+> > > > + =C2=A0 =C2=A0 =C2=A0 u32 new_flags =3D new ? new->flags : 0;
+> > > > +
+> > > > + =C2=A0 =C2=A0 =C2=A0 /* Nothing to do if not toggling dirty loggi=
+ng. */
+> > > > + =C2=A0 =C2=A0 =C2=A0 if (!((old_flags ^ new_flags) & KVM_MEM_LOG_=
+DIRTY_PAGES))
+> > > > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return;
+
+So why also check for `change =3D=3D KVM_MR_FLAGS_ONLY` as well? Everything=
+ I just
+said doesn't really apply when the memslot is being created, moved, or
+destroyed. Otherwise, consider the case where we never enable dirty logging=
+:
+
+ - Memslot deletion would be totally broken; we'll see that
+   KVM_MEM_LOG_DIRTY_PAGES is not getting toggled and then bail out, skippi=
+ng
+   some freeing.
+
+ - Memslot creation would be broken in a similar way; we'll skip a bunch of
+   setup work.
+
+ - For memslot moving, the only case that we could possibly be leaving
+   KVM_MEM_LOG_DIRTY_PAGES set without the change being KVM_MR_FLAGS_ONLY,
+   I think we still need to do the split and WP stuff.
 
