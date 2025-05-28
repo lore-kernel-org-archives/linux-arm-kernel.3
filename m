@@ -4,88 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA798C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 09:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6BBC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 09:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AYU8Mi90KLdCAAJJaGYDubPex399S/3mu0JP984ggbk=; b=FMzW0oGe2dNlVSFPa7wOo6R33F
-	xTrJ8pqIXwV0/+Q0DUbmzxOpY3bYNk9AoPw2OFS5ove1ebmgO04dx2byw7a3rBu1Q4lhp9VEQmDrX
-	O16uwkdG4Popz1e0kpjWbbxrg6zBDliT0qBHAUB0dhGT/2b6IMv/+VDtGLTLWxO+p0/4G0F3lcMrB
-	ZHb55rX0GvbNt7ePmgQaMxwnTaX7x6EWuMw6D+e5uKTPGGECzT221/VzQgG5qJRuPgCpZu5lzON9G
-	DVj4jZguRfb9W3DvxUnbyUDjWA63IuNfsDSVBkGGCQL1jariM51jy9XgIJSkEtC67YdKdFPMTMD8m
-	c9fttemQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=goX6w82Wo0UEflgraQLZWYDhP6qBMUDrGc1LtqPEabo=; b=Ku4dbO5cHHNW9zUKkS7Ok4S8kT
+	t39dH5TxzU06Dj4CP54X7UC546P97lxvJ9zdN4Q2odiulPRBLvUZAApylDoC5lFudp6fP6iTzvlUl
+	pjHjPgTsS0ow6NhJ1oG5piinyS7mjybDA1Fk0Te+yQpgo4bW93SFdINmt2hzcCPKbCS/5tApnETha
+	lQ0dfaPL/43PuOGnBaSW79XfFuxjc0iWYeYfFyrO1pM9QZ2J0rei+IdF4lW+N0fbi4pWM3Wnyu1Gr
+	s7FjcTxKYdZ9wldW7jQQSbaRx7CZZo9wWwMez3+ZB9rzw2RWcbhHZ+Kcc39cE3/jA9IFrLJBe7V7E
+	VKN7qUig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDJV-0000000Ckjt-3KXg;
-	Wed, 28 May 2025 09:43:09 +0000
-Received: from mail-vk1-f172.google.com ([209.85.221.172])
+	id 1uKDLd-0000000Ckyy-2YVS;
+	Wed, 28 May 2025 09:45:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKCkR-0000000CfmJ-43xs
+	id 1uKCmg-0000000Cg2E-0Eqw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 09:06:57 +0000
-Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-52f298abd9eso2449991e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 02:06:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748423213; x=1749028013;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AYU8Mi90KLdCAAJJaGYDubPex399S/3mu0JP984ggbk=;
-        b=uRjvBCFPucFoZrWHXsEDi6Togx9TFIO/OWlsQGYauhIJkwJn/uahNvcOp4ZvFYEY4b
-         EbdMj9kOxezoei1kg85GzIAifU9IdNx+pwkR7PruHPpiIJimcYwe9ceNtKryfnnjnvRA
-         uDtQqAByPAIr0pPyJ+16V0/XSnGxog6/DY3s+pZ7eaALRjxiZ/B+fWi99xX1ZnOJNqto
-         k8Y8ycEyEaV59MGJsftm+v0ma8Ghkg16tqZ2DFSnW1s57ApUFuvVpVQT9jFAG1xtNS9R
-         IrZlKo18ExglsbwFxOw4EsIf96oETxiUdfsq9hPhpbw9StHjUoOffeGaU89eXnOoxkZV
-         gzRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU/ePHCOTkD9+f/KhdRWevaNCMDjxAArsZN7gYtJou7ek2DYFh3SEk2U+wDqkWgzcRN5XcKky1ouAtuQFI0VxcO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjoGzCOxO9Dk4cl9MXysz/AJYJkm4bcPY2bhPMFE1qGJFrK35b
-	7RQynKDCIhzJfJab+sPgk0pjc1KhbE6m0iA++W/wXgwf0dt2k2iiFmL/0azjv0xv
-X-Gm-Gg: ASbGncu4j9VoLCP7eUQxNHPWSMqwAytnN6fq7o3QgPlCi8j32fsOXkS0lxST1qlZnX+
-	SZwckBPsn8DJROBBssLuC6Ddw+xMrtMPgk45lAk0VxqLZPlhtXtnMsKqeq1dbQplloxn3Iq8cLs
-	8JilwOd9Q1DDwNIOnXVI9Ju+S72Z+6b6RTYf7vecmIGZ+lhVwKFsUmtzeLF28K/jABk9+X0AlP6
-	JzJ+3vCaCILvFFo1k+fTEmWHNjfjUcuuR+hKdPrWMribLSDKsWZ8dhFEIh+W2UHtNQsi8nFwgtX
-	kQhNtjDT/70t4fcZdDy6RIQR57ccXdv1WiHfIslB/y5iYmcyDXw4wDVazLrSY2uUoo69ojOa2Uf
-	NaUw/JRarRXwbzA==
-X-Google-Smtp-Source: AGHT+IE3yv7kdhaXEhRkMioZBiuzX1pBDAn9zHOv/gJvBoGK3NWJWJW/2DFneyKhev8jD/FpUPEI1A==
-X-Received: by 2002:a05:6122:8cf:b0:52a:79fd:34bd with SMTP id 71dfb90a1353d-52f2c4d8f4emr12947416e0c.4.1748423212866;
-        Wed, 28 May 2025 02:06:52 -0700 (PDT)
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53066884495sm605191e0c.23.2025.05.28.02.06.52
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 May 2025 02:06:52 -0700 (PDT)
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-877d7fa49e0so2655394241.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 02:06:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUkwU6P+cWS0lHX8tahbRCwthGrIYVdEp0QQKCoFaxIKL4o8gDp6cEjxuJWc3kyGzFEY0py7BxvHipyLc10nU/q@lists.infradead.org
-X-Received: by 2002:a05:6102:8006:b0:4e5:8d09:7b14 with SMTP id
- ada2fe7eead31-4e58d097d83mr5192536137.0.1748423212075; Wed, 28 May 2025
- 02:06:52 -0700 (PDT)
+	Wed, 28 May 2025 09:09:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A36F614B6;
+	Wed, 28 May 2025 09:09:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78ED3C4CEEB;
+	Wed, 28 May 2025 09:09:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748423353;
+	bh=jFv5cQIlrq8mQoRnawATs1ETAgrj4fY1PBOA8kx8G0o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=m8r1S2mwh4BizzgnesxNNREKtpE3ecaI05IGU7gv/k2HlVti8uDWlnZXelgExrjQI
+	 Q5aNCOynA0v9xjeC1ZXIKrLOhXrqm1iDulHG33NDjK1nlnfuCGid9Fq4fLnFIRicJy
+	 yzfdJN0gZlB793e7XNO+3STmWWg/sLyACYbYX5hB10gOqBmCVW+eUmPA/lcd6hXa3T
+	 BZSG2D8BDVQU7u0X2g2gd+ED/ABWrXEeKpbUuaKN6A6Bfpzsnt4CmQd8/c663AEI3n
+	 YGGMm7wkmtTF2cgUGzRK8SpHrgmZMrTNpV7v+cPKkZrACWU8cEVMNc8hhywEYsl31c
+	 p21fvrqYNZe1A==
+Message-ID: <4c93cea1-a27a-42dc-8248-06b23da3a558@kernel.org>
+Date: Wed, 28 May 2025 11:09:08 +0200
 MIME-Version: 1.0
-References: <20250528085453.481320-1-yangzh0906@thundersoft.com>
-In-Reply-To: <20250528085453.481320-1-yangzh0906@thundersoft.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 28 May 2025 11:06:40 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVjR0Ki_vLYtvv1HYpZVdLqUtacG=zs4_ooC0yLnK_CvA@mail.gmail.com>
-X-Gm-Features: AX0GCFv2umrJq54Eu_Z7Pa0M5hU7WaTzckrO6UyfF8NfUyYwIvRhoe3M_guovBM
-Message-ID: <CAMuHMdVjR0Ki_vLYtvv1HYpZVdLqUtacG=zs4_ooC0yLnK_CvA@mail.gmail.com>
-Subject: Re: [PATCH v1 5/9] mmc: sdhci: add Black Sesame Technologies BST
- C1200 controller driver
-To: Albert Yang <yangzh0906@thundersoft.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Ge Gordon <gordon.ge@bst.ai>, BST Linux Kernel Upstream Group <bst-upstream@bstai.top>, linux-mmc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Victor Shih <victor.shih@genesyslogic.com.tw>, 
-	Shan-Chun Hung <shanchun1218@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Peter Robinson <pbrobinson@gmail.com>, Ben Chuang <ben.chuang@genesyslogic.com.tw>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_020656_012987_B86AD7A1 
-X-CRM114-Status: GOOD (  28.58  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 6/9] arm64: dts: bst: add support for Black Sesame
+ Technologies C1200 CDCU1.0 board
+To: Albert Yang <yangzh0906@thundersoft.com>, Arnd Bergmann <arnd@arndb.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Ge Gordon <gordon.ge@bst.ai>
+Cc: BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250528085457.481372-1-yangzh0906@thundersoft.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250528085457.481372-1-yangzh0906@thundersoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,127 +117,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Albert,
-
-On Wed, 28 May 2025 at 10:55, Albert Yang <yangzh0906@thundersoft.com> wrote:
-> Add a driver for the DesignWare Mobile Storage Host Controller (DWCMSHC)
-> SDHCI controller found in Black Sesame Technologies C1200 SoCs.
->
-> The driver provides specialized clock configuration, tuning, voltage
-> switching, and power management for the BST DWCMSHC controller. It also
-> includes support for eMMC boot and memory-mapped I/O for CRM registers.
->
+On 28/05/2025 10:54, Albert Yang wrote:
+> Add device tree support for the Black Sesame Technologies (BST) C1200
+> CDCU1.0 ADAS 4C2G platform. This platform is based on the BST C1200 SoC
+> family.
+> 
+> The changes include:
+> - Adding a new BST device tree directory
+> - Adding Makefile entries to build the BST platform device trees
+> - Adding the device tree for the BST C1200 CDCU1.0 ADAS 4C2G board
+> 
+> This board features a quad-core Cortex-A78 CPU, and various peripherals
+> including UART, MMC, watchdog timer, and interrupt controller.
+> 
 > Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
 > Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+> ---
+>  arch/arm64/boot/dts/Makefile                  |   1 +
+>  arch/arm64/boot/dts/bst/Makefile              |  10 ++
+>  .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    |  44 ++++++
+>  arch/arm64/boot/dts/bst/bstc1200.dtsi         | 130 ++++++++++++++++++
+>  4 files changed, 185 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/bst/Makefile
+>  create mode 100644 arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
+>  create mode 100644 arch/arm64/boot/dts/bst/bstc1200.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
+> index 79b73a21ddc2..135965288100 100644
+> --- a/arch/arm64/boot/dts/Makefile
+> +++ b/arch/arm64/boot/dts/Makefile
+> @@ -35,3 +35,4 @@ subdir-y += tesla
+>  subdir-y += ti
+>  subdir-y += toshiba
+>  subdir-y += xilinx
+> +subdir-y += bst
 
-Thanks for your patch!
+Don't add to random places or at the end, but place entries in
+alphabetical order.
 
-> --- a/drivers/mmc/host/Kconfig
-> +++ b/drivers/mmc/host/Kconfig
-> @@ -1112,3 +1112,14 @@ config MMC_LITEX
->           module will be called litex_mmc.
->
->           If unsure, say N.
-> +
-> +config MMC_SDHCI_BST
-> +       tristate "SDHCI OF support for the BST DWC MSHC"
-
-depends on ARCH_BST || COMPILE_TEST
-
-> +       depends on MMC_SDHCI_PLTFM
-> +       depends on OF
-> +       depends on COMMON_CLK
-> +       help
-> +         This selects Synopsys DesignWare Cores Mobile Storage Controller
-> +         support.
-> +         If you have a controller with this interface, say Y or M here.
-> +         If unsure, say N.
-
+> diff --git a/arch/arm64/boot/dts/bst/Makefile b/arch/arm64/boot/dts/bst/Makefile
+> new file mode 100644
+> index 000000000000..64fd43c98275
 > --- /dev/null
-> +++ b/drivers/mmc/host/sdhci-of-bst-c1200.c
+> +++ b/arch/arm64/boot/dts/bst/Makefile
+> @@ -0,0 +1,10 @@
+> +ifeq ($(CONFIG_SECOND_KERNEL), )
 
-> +#define SDEMMC_CRM_BCLK_DIV_CTRL       0x08
-> +#define SDEMMC_CRM_RX_CLK_CTRL         0x14
-> +#define SDEMMC_CRM_TIMER_DIV_CTRL      0x0C
-> +#define SDEMMC_CRM_VOL_CTRL            0x1C
-> +#define DRIVER_NAME                    "sdhci_bst"
-> +#define BST_VOL_STABLE_ON              (0x1 << 7)
-> +#define SDHCI_DUMP_BST(f, x...)                \
-> +       pr_info("%s: " DRIVER_NAME ": " f, mmc_hostname(host->mmc), ##x)
-> +#define SD_3_3V                                0
-> +#define SD_1_8V                                1
-> +#define default_max_freq               200000ul
-> +
-> +void sdhci_bst_print_vendor(struct sdhci_host *host)
-> +{
-> +       SDHCI_DUMP_BST("============ SDHCI VENDOR REGISTER DUMP ===========\n");
-> +
-> +       SDHCI_DUMP_BST("VER_ID:  0x%08x | VER_TPYE:  0x%08x\n",
-> +                      sdhci_readl(host, SDHC_MHSC_VER_ID_R),
-> +                      sdhci_readl(host, SDHC_MHSC_VER_TPYE_R));
-> +       SDHCI_DUMP_BST("MHSC_CTRL:  0x%08x | MBIU_CTRL:  0x%08x\n",
-> +                      sdhci_readw(host, SDHC_MHSC_CTRL_R),
-> +                      sdhci_readw(host, SDHC_MBIU_CTRL_R));
-> +       SDHCI_DUMP_BST("EMMC_CTRL:  0x%08x | BOOT_CTRL: 0x%08x\n",
-> +                      sdhci_readl(host, SDHC_EMMC_CTRL_R),
-> +                      sdhci_readw(host, SDHC_BOOT_CTRL_R));
-> +       SDHCI_DUMP_BST("GP_IN:   0x%08x | GP_OUT: 0x%08x\n",
-> +                      sdhci_readl(host, SDHC_GP_IN_R),
-> +                      sdhci_readb(host, SDHC_GP_OUT_R));
-> +       SDHCI_DUMP_BST("AT_CTRL:     0x%08x | AT_STAT:  0x%08x\n",
-> +                      sdhci_readb(host, SDHC_AT_CTRL_R),
-> +                      sdhci_readb(host, SDHC_AT_STAT_R));
-> +}
-> +EXPORT_SYMBOL_GPL(sdhci_bst_print_vendor);
-
-Why do you need this?
+There is no such thing.
 
 > +
-> +static u32 bst_read_phys_bst(u32 phys_addr)
-> +{
-> +       u32 phys_addr_page = phys_addr & 0xFFFFE000;
-> +       u32 phys_offset = phys_addr & 0x00001FFF;
-> +       u32 map_size = phys_offset + sizeof(u32);
-> +       u32 ret = 0xDEADBEEF;
-> +       void *mem_mapped = ioremap(phys_addr_page, map_size);
+> +# Enables support for device-tree overlays
+> +DTC_FLAGS := -@
 > +
-> +       if (mem_mapped) {
-> +               ret = (u32)ioread32(((u8 *)mem_mapped) + phys_offset);
-> +               iounmap(mem_mapped);
-> +       }
+> +dtb-$(CONFIG_ARCH_BSTC1200) += bstc1200-cdcu1.0-adas_4c2g.dtb
+> +
+> +endif
+> +
+> +clean-files	:= *.dtb
 
-Please do not ioremap()/iounmap() for each register read...
+Why?
+
+> diff --git a/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts b/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
+> new file mode 100644
+> index 000000000000..92915e7630ff
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
+> @@ -0,0 +1,44 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/dts-v1/;
+> +
+> +#include "bstc1200.dtsi"
+> +
+> +/ {
+> +	model = "BST C1200-96 CDCU1.0 4C2G";
+> +
+> +	chosen {
+> +		bootargs = "earlycon=uart8250,mmio32,0x20008000 console=ttyS0,115200n8 rw";
+
+Earlycon is debugging, why do you  need it for general use?
+
+console: redundant
+rw: not suitable for DT
+
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	memory@8c0000000 {
+> +		device_type = "memory";
+> +		reg = <0x8 0x10000000 0x0 0x30000000
+> +		      0x8 0xc0000000 0x1 0x0
+> +		      0xc 0x0 0x0 0x40000000
+> +		      0x8 0x254000 0x0 0x1000
+> +		      0x8 0x151000 0x0 0x1000>;
+
+Multiple entries go into multiple entries <>.
+
+> +	};
+> +
+> +	reserved-memory {
+> +		#address-cells = <0x2>;
+> +		#size-cells = <0x2>;
+> +		ranges;
+> +
+> +		mmc0_reserved: mmc0_region@5160000 {
+
+Follow DTS coding style. Also drop redundant "region"
+
+
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x0 0x5160000 0x0 0x10000>;
+> +			no-map;
+> +		};
+> +	};
+> +};
+> +
+> +&uart0 {
+> +	status = "okay";
+> +};
+> +
+> +&mmc0 {
+> +	status = "okay";
+> +	memory-region = <&mmc0_reserved>;
+> +};
+> +
+> diff --git a/arch/arm64/boot/dts/bst/bstc1200.dtsi b/arch/arm64/boot/dts/bst/bstc1200.dtsi
+> new file mode 100644
+> index 000000000000..6ed2d8cbd720
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/bst/bstc1200.dtsi
+> @@ -0,0 +1,130 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +/ {
+> +	compatible = "bst,c1200";
+> +	#address-cells = <0x2>;
+> +	#size-cells = <0x2>;
+
+These are not hex.
 
 > +
-> +       return ret;
-> +}
+> +	cpus {
+> +		#address-cells = <0x1>;
+> +		#size-cells = <0x0>;
+
+Same comments
+
 > +
-> +static void bst_write_phys_bst(u32 phys_addr, u32 value)
-> +{
-> +       u32 phys_addr_page = phys_addr & 0xFFFFE000;
-> +       u32 phys_offset = phys_addr & 0x00001FFF;
-> +       u32 map_size = phys_offset + sizeof(u32);
-> +       void *mem_mapped = ioremap(phys_addr_page, map_size);
+> +		cpu@0 {
+> +			compatible = "arm,cortex-a78";
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			next-level-cache = <&l2_cache>;
+> +			reg = <0x0>;
+> +			freq-domain = <0x3 0x1>;
+> +		};
 > +
-> +       if (mem_mapped) {
-> +               iowrite32(value, ((u8 *)mem_mapped) + phys_offset);
-> +               iounmap(mem_mapped);
-> +       }
+> +		cpu@1 {
+> +			compatible = "arm,cortex-a78";
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			next-level-cache = <&l2_cache>;
+> +			reg = <0x100>;
+> +			freq-domain = <0x3 0x1>;
+> +		};
+> +
+> +		cpu@2 {
+> +			compatible = "arm,cortex-a78";
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			next-level-cache = <&l2_cache>;
+> +			reg = <0x200>;
+> +			freq-domain = <0x3 0x1>;
+> +		};
+> +
+> +		cpu@3 {
+> +			compatible = "arm,cortex-a78";
+> +			device_type = "cpu";
+> +			enable-method = "psci";
+> +			next-level-cache = <&l2_cache>;
+> +			reg = <0x300>;
+> +			freq-domain = <0x3 0x1>;
+> +		};
+> +
+> +		l2_cache: l2-cache-1 {
+> +			compatible = "cache";
+> +			cache-level = <2>;
+> +			cache-unified;
+> +		};
+> +	};
+> +
+> +	misc_clk: misc_clk {
 
-or write...
+Follow DTS coding style. Please use name for all fixed clocks which
+matches current format recommendation: 'clock-<freq>' (see also the
+pattern in the binding for any other options).
 
-> +}
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml?h=v6.11-rc1
 
-Aborting review.
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0x0>;
+> +		clock-frequency = <0x3d0900>;
 
-Gr{oetje,eeting}s,
+This is not a hex.
 
-                        Geert
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupt-parent = <&gic>;
+> +		always-on;
+> +		interrupts = <GIC_PPI 0xd (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)
+> +			      GIC_PPI 0xe (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)
+> +			      GIC_PPI 0xb (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)
+> +			      GIC_PPI 0xa (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
+> +	};
+> +
+> +	soc: soc@0 {
+> +		compatible = "simple-bus";
+> +		#address-cells = <0x2>;
+> +		#size-cells = <0x2>;
+> +		ranges = <0x0 0x0 0x0 0x0 0xffffffff 0xffffffff>;
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Follow DTS coding style
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> +
+> +		mmc0: dwmmc0@22200000 {
+
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+Maybe you need to update your dtschema and yamllint. Don't rely on
+distro packages for dtschema and be sure you are using the latest
+released dtschema.
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+
+> +			#address-cells = <0x2>;
+> +			#size-cells = <0x0>;
+> +			compatible = "bst,dwcmshc-sdhci";
+> +			reg = <0x0 0x22200000 0x0 0x1000>;
+> +			reg-names = "base";
+
+Order properties according to DTS coding style.
+
+Best regards,
+Krzysztof
 
