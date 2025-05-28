@@ -4,60 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D63C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 06:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78895C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 06:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mJCr006rkzx0rHeznFVbYO77+GKI3Gx0pNyCfV0wuq8=; b=EGbjqmLLZz6fnX0U6GnR6SJrYw
-	gp7q3irfZ6f6aV6V8AtNF2X7T+fat9j6keKqgn7HlolSQnNomKPW7wHQRfN/h5b1IU8aDwBM2YGv9
-	X5HyF1HGJtBLDx9bli4n+7jiBKZt6BI1nfu3FLgYKtmgnOOLqepDRW5DNM7WuGq9AV+wKyPv/c9DW
-	ojPjFFu0A2Er2+18CzyzJFK4YM/OeqEqhZssIPWatyGyCfby0gbPi2IMVP2/tplm3kZf8lW2wFjw3
-	mCOE7sy/Ahoa3i8cnWrKRaZgt3a5bhj3CQKZPUL/ExyMq94NsVudRdLyiTv/dVFIcLGPs9zpsZAIG
-	LRGnz/kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RES2k4ap3Nrqs11/YAgUGKIj+LgmhtABE1Sd43JDLzU=; b=483iurK8jRAh7MVzhFrgsvfhUf
+	TZr1GAiDmm9cTYY7Uyx/5c13gJ0c9nNTGlfqC3QIADN1QEKqr/D4ogba+6SQs9MWr/Z6T0Wd770lA
+	uwR7qxUHJkaWjHtxEtRRYWsEjvNbGG9mMDyfvunluTdYFh7yBHjn7Pwk751ar+gHOesLdQGivH+8s
+	G6h9E31/MH8PNIliFOaFnF3C9PXy97BHDPVFL8F5DDm3YxDMYrQYqptPflsFk6hvjNe+VaWOONna/
+	A56A+LbPOfy+q9necyCsz4ORJ5jwS7rMWCl7zAinNe+vLoNxBUNdI8Hcbk5yv/DWo+BlR/qum5BU/
+	JIDfq4xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKABN-0000000CHoE-2Ppi;
-	Wed, 28 May 2025 06:22:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uKAJZ-0000000CIan-3BwG;
+	Wed, 28 May 2025 06:31:01 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKA3p-0000000CHFv-1CFo
+	id 1uKAHP-0000000CILu-1zWv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 06:14:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54C30614C6;
-	Wed, 28 May 2025 06:14:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A98EFC4CEE7;
-	Wed, 28 May 2025 06:14:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748412884;
-	bh=gSS4CjRAoDJno8ZPj89/BweAbZmckAAF42wPMM0GsLU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aocLOYonwxONTi12LfiZ5xjosNb3Y5gKkNrj56+v0oqn+5bxipcc7fqfKMCLUiPqJ
-	 86koB/f3yH3JfJeFCzRulM0tj0iUYixZECMqlrrgJScAarzNXjZRjx0mo5Zc/ertnT
-	 8tvOuu4HUmgHrE5ANkuyKODt1Qj4IM4GjN2pJu4G+2hJp898Du/mknk+BrCDACyYrY
-	 cdhD6bs1tV3M5NFukEJcRQhBfTCDV7yjlZxxm8fSCmI3bDhNjtnt9hUHWF+Ioq30eW
-	 2vId+gOUX4vWP7jCqmsT4NHqRao2rZzclOgIRz3z+jiai+mHbfe19EkqU5HbAMTMQm
-	 xv3/SBt7Q0Rbg==
-Date: Tue, 27 May 2025 23:14:27 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
-Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	kernel test robot <oliver.sang@intel.com>
-Subject: Re: [linus:master] [crypto]  40b9969796:
- UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c
-Message-ID: <20250528061427.GA42911@sol>
-References: <202505281024.f42beaa7-lkp@intel.com>
+	Wed, 28 May 2025 06:28:49 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54S5qnKG021288;
+	Tue, 27 May 2025 23:28:23 -0700
+Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10on2113.outbound.protection.outlook.com [40.107.92.113])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 46wq820ncu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 27 May 2025 23:28:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=X1qpjrYWZXcZNSzx3bqGLnWZ6LoduVL9m2QAeEiBDitRQJU3ge0BNngGrkDEPsnrvWBOgxhVblq6GbGL+nci3CgVvbsAzT9Xtu7Mqxcv1kO6/6HTH/LGCmzv3ehTEiAwxcQuxQbqNxeVGDVCUmqRUym2Z74d51ZqUBxvQ8XfHuqhUWXzOA1kg0OMmVprnMAClt4m2MLCuSUVPY+7esHmK3AfzN3hF1J5otNlgI9+Occh20TI91hl5wAe1Y+J0l88Ba074Ibw5LAQHBoL1O8h8mlV10O6tGVrBUyjax8P0DYjIJVu8veOtV1BAuFJ67m9gAps1bSrpHMdUqoQTzGT9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RES2k4ap3Nrqs11/YAgUGKIj+LgmhtABE1Sd43JDLzU=;
+ b=yjMgRzoL5xJf34UE5lGh3lrh/YQXuiFnLdPbc2S1pTLGI08AzMIsIdfP5BtqvMvz2X6JfMVSEYRHCULe4Tl4aDUiqRCGmV2PiWI16NwFG3SUeaBMkt5IC0CfckMKzUpObXA3CpNYQ3bMIWaBg5wN9FVNa394wo5GwBSTLwru9fmfH6SNhAsZW/TxGi6D7Kej+L55tvKyEaayoXUaOhNYY297Tpziz9xZdafgwVg2RzBKJOaNbvX/2an5nGIShEFbCOJyEUgrXG/SXF/7ZiNxw+huxPkRwCb+bMsAtBXrSBe7egVwpgh17i/oH/+yy4+Cp5qIIXE0Tviw7soQhT1kRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
+ dkim=pass header.d=marvell.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RES2k4ap3Nrqs11/YAgUGKIj+LgmhtABE1Sd43JDLzU=;
+ b=tM/UB9MkdnfWkJ7l6VK538jnOPjL0OIOsMT4iE/Bsy8bov51yQObMiE1hKJ3+0Y8/iTjr5Pvr149r703iZUht5DZnVbOpJtMhkgZfDcy7gl9ptlRBO8ipgztSjeqtw4oxQb1ChjLBzUKpN9b0YkwHQnehEdV3LcnJYR+FjQdHbU=
+Received: from LV8PR18MB5914.namprd18.prod.outlook.com (2603:10b6:408:226::21)
+ by MW3PR18MB3625.namprd18.prod.outlook.com (2603:10b6:303:56::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.21; Wed, 28 May
+ 2025 06:28:20 +0000
+Received: from LV8PR18MB5914.namprd18.prod.outlook.com
+ ([fe80::30f2:fc3d:f58e:8305]) by LV8PR18MB5914.namprd18.prod.outlook.com
+ ([fe80::30f2:fc3d:f58e:8305%2]) with mapi id 15.20.8769.025; Wed, 28 May 2025
+ 06:28:20 +0000
+From: Linu Cherian <lcherian@marvell.com>
+To: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+CC: Suzuki Poulose <suzuki.poulose@arm.com>,
+        James Clark
+	<james.clark@linaro.org>,
+        Mike Leach <mike.leach@linaro.org>,
+        Sunil Kovvuri
+ Goutham <sgoutham@marvell.com>,
+        George Cherian <gcherian@marvell.com>
+Subject: Possibility of using Coresight STM - ETR as console for  System
+ Control Processor 
+Thread-Topic: Possibility of using Coresight STM - ETR as console for  System
+ Control Processor 
+Thread-Index: AdvPmRx3iCLKuwfyT4aOsliJqfc4hg==
+Date: Wed, 28 May 2025 06:28:19 +0000
+Message-ID: <LV8PR18MB5914F2903E66BABB272F02F3CE67A@LV8PR18MB5914.namprd18.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LV8PR18MB5914:EE_|MW3PR18MB3625:EE_
+x-ms-office365-filtering-correlation-id: 96937b73-a2b7-43e5-7eda-08dd9db0d6c8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?D3UlQhJ7m31d+6z3l9mYhtIzeBEtMOqfW2gDbH4IWOi1c5Pcx3rrRJESpvuk?=
+ =?us-ascii?Q?B8BDrojo65cDnqDh04ncVMXtZxKOBWemdCt5c82TtClwfWlQX1R1S0OXfJRP?=
+ =?us-ascii?Q?/qAbc8payCj1fi7okUC6E3eRVlAN6q/bf+zrvfNqmGsmp+z7VETt472/jmPX?=
+ =?us-ascii?Q?cG6D+V5cxN0cstEx78fHLiZNUvwRZjH2d6U4FJrT+GBAA8zQWRxZUlNhjYHN?=
+ =?us-ascii?Q?AXhN7thtsQiiNzMxxaKoUtAhSWew0NoOu7Q5KE7t4Z4HRjIQVx+1EjazEEmz?=
+ =?us-ascii?Q?ioF2mB90S88zkKlGGEypI41rv+l+ywsn2+Ym4K7wGjlzaHWe/CMWptJ1dmtS?=
+ =?us-ascii?Q?YggVEoHIlUWcbj0ELSB/vQgpmbD17vgAUKoSUC5mOCKwtJdpgeYlTHpXcgy2?=
+ =?us-ascii?Q?NNj5MUM/TTqpbk45PuOGQGmrJ2uj94XfkFHtPkSun4Bwa7OCJxQalPRvd5ps?=
+ =?us-ascii?Q?KxBTekjCK2lT+m/1qvioGLVJ118gO1ACdxK9iUchgogwvjOlKnfyBU/EqzOC?=
+ =?us-ascii?Q?jBa2zuN62HkuZgFyxFYWzsk/JOBXw68Yg5K365NL82+EnLkTJR6Jfc4spdwp?=
+ =?us-ascii?Q?z3m6imSp3BXyxaDgnopN0eSC2cG+XKesY7BdctH0aAEOCsDGBYTzA1DVzMDR?=
+ =?us-ascii?Q?7U3hOlegYSN8Po9dNgzJ5RCcn2Q+IuCC7EqF5PP7GEQJclSNMtPlmhHzdaW4?=
+ =?us-ascii?Q?qLCvnNS+d2gsaD3HUb7NFv+D7YzZodG3CRXLapksFxZmPA/TGj5LE43ha75v?=
+ =?us-ascii?Q?kFSTH0DY8dVlo/ZBz1DKWgEO9uUrsS3c/3IwAm9HymFG3LYlAg44ocBAwhcf?=
+ =?us-ascii?Q?jfzRWzsjWm9mvNOr0GfrD8TA/QgDSUXRnOLqShKFkvuxuX3J5X9GgK34Wy6J?=
+ =?us-ascii?Q?qp6QdAShY3eJ5YMYQNMOUj6Vm8EMXduXAhLMzc2016kG3csbryaqiCueC+zx?=
+ =?us-ascii?Q?A9iFV+ES3ndJLHVG1WDuaJHlKcs5MJSA6zYfTl/G2ERcW24QBKPelhXeYwrZ?=
+ =?us-ascii?Q?hCc2CQ7H11upSKAHNie/BdUYTS7/UL1qCtlQKHFP4zCWqj4t4eLugIyacjDF?=
+ =?us-ascii?Q?67CIv74I1v8dDf4IpNA2iuhqESbRdleegRW6sKs4zroqzkoZuokM0k0WGdOL?=
+ =?us-ascii?Q?nufyz8Kce1H7yz+7YsupYCUkqY6CbWXBN9R1LkiX0Uzrh8QYwtQFWvXnEQMI?=
+ =?us-ascii?Q?qgI+5H1pkEQnhSHGv/ZEb+8qR2f6LLrJrf3KNvy6MOprQT5eLFxjlNHG5UUB?=
+ =?us-ascii?Q?0KTZufSQSwNOtiQXseXVTrwSzquc4NWhTlDlIwba3VLkNnpTQ+EXA35ZUGss?=
+ =?us-ascii?Q?jnyGdk/O5wBkypBhj3mjPUnhAOQkS90SeYEtM28THRuC5b3DAMzkTDz24pdX?=
+ =?us-ascii?Q?+UuJiPD2TND8yYDhLZmBCB2SBHyyRL00pvdX+EUjSX0fPM1MM91SxsnHU7Sq?=
+ =?us-ascii?Q?GeJzI7bRavavUcOej5VRTqUW6J2ACx+Pt3/oVC8JCxOI4S1OXCk22QTUTrXl?=
+ =?us-ascii?Q?/AzsIqDI0KnAh+o=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR18MB5914.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?GRhzeWZ+CUCWf4hKdGy4vD2/McvPRS035KwGUmbKR5ZGz6YLZ2w8inut2XRu?=
+ =?us-ascii?Q?WfP+sduH93ax2ysU5Z+9g6bvfRWbYmu+MzpePEkSGbAq0DhfFvhULKPalG54?=
+ =?us-ascii?Q?2CiVDaVdgC/WNp4Mz519dc3DWD8uUwtqU0rbRFvUirfyxcqKUoiRbngVtQMn?=
+ =?us-ascii?Q?QWdW9BN1VaMQbngSWyW1SUnGvnuPyOKL1La0Tmg4t++wb7Dy5r5DRZo+piAu?=
+ =?us-ascii?Q?zCM3X9YPlfjdRv15QA2NCUr9Z8uc7Ca3LZTpVL+tEAaA+D+JqnkEKIFqPt7+?=
+ =?us-ascii?Q?g+EltHt/N4ns5GCp0lj3+MbGHNGN6rWarpjWbLd8M7zUewxWGHO1DFN6UNxe?=
+ =?us-ascii?Q?u9w9iQMvpHzg10wiJp0QBbwL12+7f5e/5TU7njXoaSSqwmZlKKi80Sf4e7Rk?=
+ =?us-ascii?Q?zizb/QrAEyc8CneZmzUplUpwYLi3qoC3k2dUowmnoBmt75PVvY+HueXWTxFN?=
+ =?us-ascii?Q?1L0Zwzz4Oszgc6iNm6z+soZrBVykYN9tk2wVa37PSP06RIR22J1dcwwmuS4J?=
+ =?us-ascii?Q?ThMj/2R3X5kyvlN3ekLgLXDnlL2MVMNFIdtKlzCRYQHd9G8aJsGOMYG+TAoi?=
+ =?us-ascii?Q?dyp2hlJ385La0PPUgbgT42vcl2pega9ARo3p3/gEYm57nm+zBncb+pf5myHF?=
+ =?us-ascii?Q?2eZtFQxp2ECeanOqGIHeFjU78xoNQayp2TVpuancQ2RUTHZu7opgvwARf+o7?=
+ =?us-ascii?Q?xUWPcCRwiwJ+rWUdzKBiRhIwXd8Dqbay4JICwvdLNCmflgcec82Hl+DLSkv9?=
+ =?us-ascii?Q?XK2Zk1+kKt93LD5MHkxoLYZ/LMdfW+9jZvsCqwoh8JOctV6Q2tSZcLv3rM1Z?=
+ =?us-ascii?Q?Bgr9dJxPF8kx0PckInnK483NFJd/yOxMlXWhAPER0Z0w/FzHvWPKiOGaR3lg?=
+ =?us-ascii?Q?lK+so3RILVXDJgUpN8uAZ88LG/vQ8firTYx9uddWkPm4Odvt4LppP9JWfO50?=
+ =?us-ascii?Q?4RxRKLxIEgqGO6K6m7m1NL7bl7CtuQJ+AGFkXetovmUXaCpEyYZ48OSu4wDd?=
+ =?us-ascii?Q?2xBXBilGnbdOWPei7Qo4D/XIY9pGZGKELD9hgSOoSBAzK/Q2e0SyF6/hK7bv?=
+ =?us-ascii?Q?+2yexTU0o09MrIOXNaUifY2TSIocz24Aice6g/lwvvwe1KRVNNdZMkD6ClS6?=
+ =?us-ascii?Q?2ieTXjWnamoAzqKe/12mLugrKjxNEsAUbaNgJgxGt/zXkzFTAxRplWlnr5Wi?=
+ =?us-ascii?Q?0CbCDmm0qoIo7iKVGqDHRFvs4LNZ1z6/AmEsLLAGCXSheTE9beqH0PevYdgh?=
+ =?us-ascii?Q?mhABHQ+6NZJxqV2wpV+X38CzXdhcKHjrhWMyy0DBh1+mBuk8fFljgQXOe8sv?=
+ =?us-ascii?Q?peCWyM+YMrC5j6jsuLu8JJk8npJelGTeNNHhAaWGYEqzgW7y9ZCmjsvNt0Cc?=
+ =?us-ascii?Q?TTspAdck+yFi5O8DHViGa7n47f6n0oGYJoajLony7opz2nDMv/+gqG2tJFUK?=
+ =?us-ascii?Q?PmrGnK0ZVeI2t7zEyymwKA2GDcyTacwzDxUutY3r8jJtqZqrSL6hJbZbtIF6?=
+ =?us-ascii?Q?zJiCM7isU78+arKvrVIw8JCtbdlOzx5rYYXvBvZB5VN0uwrI4KcWCgudyrfw?=
+ =?us-ascii?Q?DWfL/LDXprnq2zdNJKXKt9YRK3JZpQ7Yo75dKxgJ?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <202505281024.f42beaa7-lkp@intel.com>
+X-OriginatorOrg: marvell.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR18MB5914.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96937b73-a2b7-43e5-7eda-08dd9db0d6c8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 May 2025 06:28:19.9131
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: eJ1d1BZAGQc0GJud+Z3zfEO8XDeuuo4hCKmplfxEQ/+16H1pmzbGqwgi9CStLJVIouDATUvS7oXkopuP1bLZAA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR18MB3625
+X-Proofpoint-ORIG-GUID: JUlCWntYg_ydMnSi_YQ_hQbvS5b6zTF4
+X-Authority-Analysis: v=2.4 cv=EfnIQOmC c=1 sm=1 tr=0 ts=6836ad07 cx=c_pps a=6JPPvL0+Kp/bephKfSor1Q==:117 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=dt9VzEwgFbYA:10 a=-AAbraWEqlQA:10 a=IM6E2jOgcGZly9E7YVAA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI4MDA1NSBTYWx0ZWRfX+GOHYYlqSSaM y5dPoOSaYh6tNir4LaaXOHcjsziK1ipien8UFd7R50lI8fpp3jpVj3qR5kX0K9en4uqqo1gkGr1 HjwA3ZMFuIihSDOH2AKYJT5j1g1ocbnthJzua+pJUHsykp6jFy20f/9Tdif+l52uTuq/btG3sdQ
+ BvRg9yFK1GWbXzTR2Q5U6L7cdah0nvKg7Rdby39MXstN2Mdwx+IISs71HWPJgCvkyf9/wVHDlDe PRQwVKzfHB2kWRA7vgPAXLaXVAjR/OD0ccd9LERsZ1ZEV33FzzEK6Mb+hLPnEh7BTYw+EZdojKv p1t0i/ndV6pmT18zSnyNuyRjI80aNpT4O3OMjHCK7pi6omrF7rGW6OprTLCBs+GoR1S5EnGwGsm
+ /Z9npU8c6hdFCVEidFyGJ2hz3U6iTnPPZFsQ7/AY4XStBbTgHbMWdHQ3o+461m+8OagcnMn+
+X-Proofpoint-GUID: JUlCWntYg_ydMnSi_YQ_hQbvS5b6zTF4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-28_03,2025-05-27_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250527_232847_871494_76B24AAC 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,108 +181,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Kees and linux-hardening]
+Hi,
 
-On Wed, May 28, 2025 at 01:15:05PM +0800, kernel test robot wrote:
-> 
-> 
-> Hello,
-> 
-> by this commit, the config has below diff:
-> 
-> --- /pkg/linux/x86_64-randconfig-101-20250522/clang-20/d469eaed223fa485eabebd3bcd05ddd3c891f54e/.config 2025-05-23 23:44:56.781716572 +0800
-> +++ /pkg/linux/x86_64-randconfig-101-20250522/clang-20/40b9969796bfa49ed1b0f7ddc254f48cb2ac6d2c/.config 2025-05-24 02:08:29.858605300 +0800
-> @@ -4837,7 +4837,8 @@ CONFIG_CRYPTO_ACOMP2=y
->  CONFIG_CRYPTO_MANAGER=y
->  CONFIG_CRYPTO_MANAGER2=y
->  # CONFIG_CRYPTO_USER is not set
-> -CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=y
-> +CONFIG_CRYPTO_SELFTESTS=y
-> +# CONFIG_CRYPTO_MANAGER_EXTRA_TESTS is not set
->  # CONFIG_CRYPTO_NULL is not set
->  CONFIG_CRYPTO_PCRYPT=m
->  CONFIG_CRYPTO_CRYPTD=y
-> 
-> it seems tests are enabled then we observe the UBSAN issues
-> 
-> d469eaed223fa485 40b9969796bfa49ed1b0f7ddc25
-> ---------------- ---------------------------
->        fail:runs  %reproduction    fail:runs
->            |             |             |
->            :6          100%           6:6     dmesg.UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c
->            :6          100%           6:6     dmesg.UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305.c
-> 
-> it's hard for bot to apply this commit to previous commits in bisect, so we just
-> make out below report FYI that we observe UBSAN issues in boot tests.
-> 
-> 
-> kernel test robot noticed "UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c" on:
-> 
-> commit: 40b9969796bfa49ed1b0f7ddc254f48cb2ac6d2c ("crypto: testmgr - replace CRYPTO_MANAGER_DISABLE_TESTS with CRYPTO_SELFTESTS")
-> https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
-> 
-> [test failed on linux-next/master 176e917e010cb7dcc605f11d2bc33f304292482b]
-> 
-> in testcase: boot
-> 
-> config: x86_64-randconfig-101-20250522
-> compiler: clang-20
-> test machine: qemu-system-x86_64 -enable-kvm -cpu SandyBridge -smp 2 -m 16G
-> 
-> (please refer to attached dmesg/kmsg for entire log/backtrace)
-> 
-> 
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <oliver.sang@intel.com>
-> | Closes: https://lore.kernel.org/oe-lkp/202505281024.f42beaa7-lkp@intel.com
-> 
-> 
-> [   12.442846][    T1] ------------[ cut here ]------------
-> [   12.443261][    T1] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8854:47
-> [   12.444084][    T1] 16 - 114 cannot be represented in type 'size_t' (aka 'unsigned long')
-> [   12.444682][    T1] CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Tainted: G                T   6.15.0-rc5-00342-g40b9969796bf #1 VOLUNTARY
+We are looking for console options( output only) for the SCP(system control=
+ processor)cores in our SOC other than UART
+and was considering STM as an option.
 
-This issue predates the blamed commit, and it's specific to
-CONFIG_UBSAN_INTEGER_WRAP which was recently introduced.
+Something like this,
 
-CONFIG_UBSAN_INTEGER_WRAP apparently requires clang 20.
+SCP ----> STM ---> ETR ---> DDR   <--- Linux=20
 
-To try to reproduce this, I built clang from the release/20.x branch, then built
-a kernel with CONFIG_UBSAN_INTEGER_WRAP=y.  When booting that kernel, there are
-many UBSAN reports:
+On the Linux system, some user space scripts can retrieve the ETR trace buf=
+fers and move it to a file on a periodic basis.
 
-    [    0.000000] UBSAN: negation-overflow in lib/sort.c:199:36
+Do you see any basic issue with this approach or have better alternatives t=
+o suggest ?
 
-    [    0.000000] UBSAN: negation-overflow in lib/sort.c:185:14
+Few issues we could think of,=20
+1.  SCP wont be able to route the messages to the STM -> ETR path until tho=
+se are initialized by
+the Linux user space. Hence any messages until Linux comes up need to be bu=
+ffered in the SCP local memory=20
+and should get flushed once the STM - ETR path is ready.
 
-    [    0.276708] UBSAN: unsigned-integer-overflow in ./include/linux/min_heap.h:329:24
+2. Possible message loss due to buffer overwrite
+We might have to reserve the ETR trace buffers only to the SCP and keep suf=
+ficiently large buffers to reduce the message loss.=20
 
-    [    0.277376] UBSAN: negation-overflow in ./include/linux/min_heap.h:260:42
+Assume that reserving a STM port for use by an external core can be achieve=
+d from the Linux STM sysfs interface.
 
-    [    0.871191] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8854:47
-
-    [    0.890856] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8851:47
-
-    [    0.910455] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305.c:260:57
-
-    [    1.105542] UBSAN: unsigned-integer-overflow in lib/zstd/compress/zstd_compress_sequences.c:334:21
-
-    [    1.113539] UBSAN: unsigned-integer-overflow in lib/zstd/compress/huf_compress.c:889:23
-
-    [    1.114597] UBSAN: unsigned-integer-overflow in lib/lz4/lz4_compress.c:294:9
-
-So I did get the chacha20poly1305 ones, but they're hardly unique.
-
-If this new sanitizer is going to move forward, is there any sort of plan or
-guide for how to update code to be compatible with it?  Specifically considering
-common situations where unsigned wraparound (which is defined behavior in C) can
-be intentionally relied on, like calculating the distance from the next N-byte
-boundary.  What are the best practices now?
-
-Documentation/dev-tools/ubsan.rst says nothing about this and only mentions
-"undefined behavior", which this is not.
-
-- Eric
+Thanks,
+Linu Cherian.
 
