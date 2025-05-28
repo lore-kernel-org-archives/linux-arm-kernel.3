@@ -4,82 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9117EC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C28DC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V50E07Bshe0n5/d4A/sEnbHvwqtDL9kM998TesZAgNI=; b=2/det91zZfsteqjQKvWpYyi4r/
-	cm5llrsQmxBUe4Ig5NqHeQPBPHpG+LJtQgB7L/AmfBLAQyAOgF9W/Tefx4oRs912Ud4OJT3HVF2ei
-	QRITPURyLGA4u8Zb8YU6X+st/L3hzfr4vz+iXnRwTQX5zpNkXc5xIu8B6TZZIB/qtHHSDbKGmJ65e
-	tn8wuBwc+nXWKE0qot+kajcidLXMxhbTaWIxImtCzOT8TTSvh7HX31Gfc3iFLb6CYApGGGOd56+qu
-	8eoYywe67XObkOZctjFV7XDnd3vtpRJKjjZ5Zu/sCsRm5EDx3vjL5AgseKWpujRYCNgBv4Ff9F25j
-	C739Jb/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w+7zQ2o+FwKDg46WFIBroyECXa70RRbkpBUp8D3oHhs=; b=gWWb5LtS8ycLaA9mcXXZoxu802
+	Gztejf4OTaCDGbkO/K1xqZn+Jb2q8SoMo9SyjEuuF1/vnQqdDAj3sv9ONh+no2m8XNyEXRan4a9Wt
+	R6rQRKscQbPrXQIi0eEFS/NHw6N72OVCYnHHy1PWw1fhXRJDlYgT+KKaNXmtBI+nQjUdrnkS5QBMR
+	cptbJjrM5knD/T+S8tCVa8jYmc9XJ7bXqKdcbdkwgxiePV6UeDeerf48A2UxsE7zVjFBZ9lQZHRFd
+	dupLQ7o2khmYZQLmD8VI6S5e7agkBr2BqF6NkZjWzTANmv7knWZo9l3M9fbK8ycZhskWZG0kAhkmT
+	/B5dAGJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJdO-0000000DetR-3AHj;
-	Wed, 28 May 2025 16:28:06 +0000
-Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
+	id 1uKJdR-0000000DeyE-47PG;
+	Wed, 28 May 2025 16:28:09 +0000
+Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKIn4-0000000DYrT-2ROa
+	id 1uKIp1-0000000DZHJ-3LNo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 15:34:03 +0000
-Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-6063462098eso2654540eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 08:34:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748446441; x=1749051241; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V50E07Bshe0n5/d4A/sEnbHvwqtDL9kM998TesZAgNI=;
-        b=sa8O1vNrQf5ZJhd5cMIGXbztl0iBSiYblUNazOL6a3/3CAbbKmugBc0qTVTXJMx4DZ
-         f0j8bev016rGZ/F8szFty7szXkycV8JK7V7HU167lMG2+SyuX2ZVk9YSudsF12aa+M2N
-         Wtdkm8u3J3J7Lm+YYdRjDoU2Bd/N94CHmKp2wyuv6U0QLsTH5WV/v+DQlS3iUhzi/DHT
-         9notyZUYwFnBhYIZZ2nT5OxJJ3vrcUrHIL7MbzwFVfb8CSCj3k3riID/tkLePd4hXyr/
-         VON8Y+HCMLxaQFVNZmbAUGkvYKxX+Z7HilpzdLMKkKbGJTpo7/gLIDEuadyVLUPjL7ZL
-         0lAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748446441; x=1749051241;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=V50E07Bshe0n5/d4A/sEnbHvwqtDL9kM998TesZAgNI=;
-        b=l2MCK5SzmH9IHQYk8z0BPG4y85OcbPNt8yJkhETSuxfsayGLcRs9haKJJXO8aD2U0s
-         Anv40omxqOeJagekqGBwcLf7EDdThXbZLQDEW/bJpI5qd9sD54ZNItuYXIKbE1EiF3uu
-         cdKVGrd/21nTsuK5dY7B9Nyfeohb9c7I679XO0uSS6vj9auGYGTPyw/xF4negQE1Qyb0
-         S8WKUCt2cmke0s1oTmeo+DH/kYW5aLTpPAvZ4w0ms6DAByNOFEK5CbJGLva/29CW14Ea
-         JVTfPD8/lW6vLGGfVFp0N9KvRs2FI854fU23KzsEvVeElA6JHeLnAXRlWKbaZYNiZjYS
-         x4WA==
-X-Gm-Message-State: AOJu0YxBGXICE3lUweF9Nw3SUQY1SNoVkCqejgLnTO0iGPrECZiayf9j
-	Q+Gsh3+zMSwezjvhTUwsQ8GxQ4Nx5pbG+L5CT6QVey49KU0lkr4ADfHkbAabUcleOhXBG2qs4LD
-	UswAEYM92ywErPZzKLgd5QJu+AxD89HfuPROsOtzrkq6dW0Jn7iec5AI=
-X-Gm-Gg: ASbGncuii7vkwBmy6Vkx3NnJLd6wge9YMgwzS90wv7fHrWs5D+7JgXXqo7Qp7pImObU
-	+298deiaKVq6KKgNMbpZJrzlq16DeZnq84nN9nr09BA1gjYlBSMhuA61gds5q3WUKExYxFFZJ1+
-	My0XqE/6ux1zK1qSyJWLOS+az1RK+fYXqBVlkh1l6wzKyj
-X-Google-Smtp-Source: AGHT+IEniMZHQbxc4dt4F2x1tHo1KsHwEHrIoQNpmjaRPLITmNPATnnXVb6jvput6py+MvQ1YaI5hzeuvZZSY3OtXoY=
-X-Received: by 2002:a05:6820:2004:b0:60b:a8e7:b23e with SMTP id
- 006d021491bc7-60ba8e7d8damr8600114eaf.8.1748446430509; Wed, 28 May 2025
- 08:33:50 -0700 (PDT)
+	Wed, 28 May 2025 15:36:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VGxrX2MduLtoGvTJ5FfLcGroKkxZ9shUkQ2ExPaK4LqW8qhLgbt/Dx5s+IBMJ41LweevJjJKY9/wwmGqg5eWZKdr05lLXq1Abp8OPAfaaHqUdUUiJ8XlB3PbT+TIHT4F5pVMjKbnTeCsaaCAvA7lYV3ghziUZq0CIyYjAMhMdy2Jqfvs7mWst9LWH1/v7XgURmV5+EOQBQ0u/3LJfwMBRG0T5ts2lp0Ap6nAaPjzez4RhD4gn4syw38WjaqkgTPrXavSFTbVk+UZa6ikFaachir0QZT0IwjjbfiiVq3X1Pdbzw8uwRDd+gJHcEfzLaI+MxMkJbwPVubhu32bSdzZYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w+7zQ2o+FwKDg46WFIBroyECXa70RRbkpBUp8D3oHhs=;
+ b=OXXpHUEDjTpDzHpjuswit7s0h8kC/ob7l2QSGw7Vklr/RgArnOFXB1dKE6eqdUqHAzvIu18++8UX/0LnzMNzMB7NHhd/EcgA475VeIajSht6IWUZMXmv3pDBNx3jVrFdCSWDKdiAi7sbTnwmPR0uzgj5Du+MW2N+fa/YsamXOaiEv4z+aW6AHbFonwb2LFmMRMhO7XfqOUj+TKM9neI00dVWmZraaacw7Zd0ld5blfoMKhWWfYGk04i6z6i+KIW/GYcMfP608RB8ZTwf7ALaWsMSBi0HONmBC5uw7grPExRqo9yoyuP+lhVxfNIi5VXEDbSBnUGPwLvrgD5N++OkxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w+7zQ2o+FwKDg46WFIBroyECXa70RRbkpBUp8D3oHhs=;
+ b=RdmWONcgTDkqq5kmqRl5wY6EPMRJo6UMVQes4ikGj14Swl7QuTOu29aGbqywvXI5ZW+nyxcZWEB9OuqMRSIqqONeXDUEgHiNhVj81DJkw5HbDR5lWTsXOHOwx4uRFf1PCg8bZF5AfdSe+oDuWzCVVTBC9p28CGy4STQqL1sH/EPx8WvDRm/YX/r4CwCGneX8m3NgK5+i62NLJfM4B4oGtLVR78NXOFFLQhgx/E1+TVfGQjMZCfa9tHcakuhh8gjpaRPu4tk8u7EhrMIlh3u/6AAZKj+KA2FyHhqSqyCyh7dfG7H7qfwpU6/YC+cwutkEKnhP6QdG/B0DlfSkrIhDHg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by GV2PR04MB11424.eurprd04.prod.outlook.com (2603:10a6:150:2a2::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.29; Wed, 28 May
+ 2025 15:36:00 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
+ 15:36:00 +0000
+Date: Wed, 28 May 2025 11:35:52 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Gregor Herburger <gregor.herburger@tq-group.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com
+Subject: Re: [PATCH 2/2] arm64: dts: ls1028a: Add mbls1028a and mbls1028a-ind
+ devicetrees
+Message-ID: <aDctWKIvBKwF29lP@lizhi-Precision-Tower-5810>
+References: <20250527060400.1005757-1-alexander.stein@ew.tq-group.com>
+ <20250527060400.1005757-2-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250527060400.1005757-2-alexander.stein@ew.tq-group.com>
+X-ClientProxiedBy: PH7PR17CA0022.namprd17.prod.outlook.com
+ (2603:10b6:510:324::7) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-References: <20250528-ffa_notif_fix-v1-0-5ed7bc7f8437@arm.com> <20250528-ffa_notif_fix-v1-2-5ed7bc7f8437@arm.com>
-In-Reply-To: <20250528-ffa_notif_fix-v1-2-5ed7bc7f8437@arm.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Wed, 28 May 2025 17:33:38 +0200
-X-Gm-Features: AX0GCFunGnw6PrwW4snoTeu3Q1n7NKY-YLzkZ5yxhwalJKSoyFy2rAwPEsfJlg4
-Message-ID: <CAHUa44EG+SPt8QgMfLmEgLgGyu-EUhd8NL-9R+nbqk9Zf_bFvQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] firmware: arm_ffa: Move memory allocation outside the
- mutex locking
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	=?UTF-8?B?SsOpcsO0bWUgRm9yaXNzaWVy?= <jerome.forissier@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV2PR04MB11424:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7472d3df-c696-4f65-85ee-08dd9dfd58bf
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HNRUEw8PVyWz++Ur0utJ4vymjFkZSD3GG4mjrocZB+ashLHp2apLRkLm1ASN?=
+ =?us-ascii?Q?jvW8TVErPJ3q0lX12PhvNYbQ1PvvkzaDGszomonb7dBKLRk4S9E27rUgqeZ3?=
+ =?us-ascii?Q?hb8Tz2k6EcvGqa+CjyKMGrQKi+7Lg9SU9sidjMIMb4s4l3Xm0eK1WwneRR+u?=
+ =?us-ascii?Q?nW1oPVDsbCe2QREM14e6GLjkYaDZfAt08/idruC/FXQLz2BmGV/ojrfTPFsq?=
+ =?us-ascii?Q?eA+bUlAjHAumMAL/Rr3cvinuWNwP5jHio4PApch6qfaGmGgL1mUQe+rPZCCL?=
+ =?us-ascii?Q?61Ui7RfCwnChGvs8vto7Cz+3jZFKtsjy8c0ABPftsj6V3S0DZ4ATmdk4RqVn?=
+ =?us-ascii?Q?sdwQ+PmJqEA76HzUuc0dRpywCQedBOqZM8CnshIkKZfAxl/sWmeeOj15rjEy?=
+ =?us-ascii?Q?N/eDYkMyW44tt/2sz55SUQ/c/u92AWgHRCxjjanbEi39jBOSHCm9wIevVu6J?=
+ =?us-ascii?Q?K86uPG+sQDIy1V9dP5lAS42aIg0YajEWI2Rl5bSQrf/aVoPaujhoVVTeFRx4?=
+ =?us-ascii?Q?Y6lz8O2oxtacSpIjlp5zABemXtGcM4yt5i6Gv4Dlb8GgpaLEYXDP2LDKsmIL?=
+ =?us-ascii?Q?lFmijRlxunVpGa/iupJQNNOmVUZvZ+wqJo0FOv+FkMDPOPcK0ae9MEL97bzi?=
+ =?us-ascii?Q?/IEM4qPdQ/PTUnaeDhdISHyTE7C+NeP5GyZF3Y75Nw9/YyrkI+2YFsGjw2hh?=
+ =?us-ascii?Q?P9I4hTeXkG848fWWwRXCMe58gx8HwchNN2Qx445LIDczn5c269stkShsMXwh?=
+ =?us-ascii?Q?BEoXCf1G2gZFEuUZB1A6fzRFHT5fvLeEL4caWVgRd2jsnoJ/9iVP2+bXx3Qs?=
+ =?us-ascii?Q?eRUuJLhhbmuCO1q+OzgucPaT1/lL3tzaRoNfhn2kgmlVFz4WccFlGFs9p14L?=
+ =?us-ascii?Q?D3rFWyHlJqithQFyXsLKdgrSDOeCVKyqY3aDzWeiTHf8A4DCju4tHiFS8yVh?=
+ =?us-ascii?Q?MJxQTF9AP/8q+/d3RAjkOvyBlXW292Eal6On6cSdqa1lTuSdgy+i0uRBgatz?=
+ =?us-ascii?Q?+NnxW/AVQiIWIC8rtw3LRbcea3C1Gc99Y+7nWC8yHzeo271QB2H/t/wx+r7X?=
+ =?us-ascii?Q?Ha6bma46w6jTmKvinC2rnrleaR8z02WIekG51sYSwVg2rfvs+g0KgDbau5EZ?=
+ =?us-ascii?Q?zmbuKIA4xjUZ0LnqLepi5cYON2M4ry2Kyjw0SFcJV2qA/eRNLHOt8LoR51MZ?=
+ =?us-ascii?Q?bOorF6qa1R2Dz7Co3lCELCguqBEiTuVCJGrFtp3racV+y9lzjjretWj5Usng?=
+ =?us-ascii?Q?WVbUnmp9E7vpR+OCnrTz3NhFnx8yDMLIubfJYzASsPbQBBxYECOABX4qEvje?=
+ =?us-ascii?Q?8m4ECN5gGBcpLq1qugWrDag0gouO4mNARwlhxfr3s88a0He09l2Rlu7jOn3d?=
+ =?us-ascii?Q?irhh1TF/59qJsadeu41kQCGhsRLT48Htm0LwhxpxsbJXlUFrXWw88n2IGJrp?=
+ =?us-ascii?Q?7xt/WDZhzZ6Fo5ElQahxNFQKVADy1CNDcySrb0wFLhzr62wf6tFV9TEK0PiV?=
+ =?us-ascii?Q?H4pOcr51MNRq/B8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?62O9qscNTttcni2Al9gLTsidlx0DYXYiIfxr01f7uVexCYDDUXC+P39MPNFu?=
+ =?us-ascii?Q?AvFpYsnKidfxgtZ0st9nT+KFqxO4PwJmQS5kdFWMX8B75sahP9ZTJSHGN2Kj?=
+ =?us-ascii?Q?Z/DVLlLVcLMhUujAoNmVfPhjZsmeruf2lK2x9DGLsVXNFph+Qv7VlUOjcVFm?=
+ =?us-ascii?Q?dkorspzNRAig4+4Igj6bnfE0ivRqS5THMyAVuleXIUfHw6IwLgIaYgQYKGOz?=
+ =?us-ascii?Q?IWeMg3BnXaho1ti9t2UGTmsQVhoxusH02AMVh1nGFS5IDueX/ddOl9YgJ7oY?=
+ =?us-ascii?Q?BbS8uMWymv6WtkGF0mwwvQIghv2E13+zpX4zwld2DSue6C24uchXu4ReiJ5Q?=
+ =?us-ascii?Q?nx7MFebL0WU7rMcAtEhT71sMGt0lD+v0bFb09HDa8mJZOvGnZYcvV9WU8BNr?=
+ =?us-ascii?Q?Q/7s2j4LZYP4Uz2NSfDJQEKolxkQYyeRfrasJnHCvMklqLQMesq4xpHiYDt/?=
+ =?us-ascii?Q?0mqzRzAKDOdDY6EckaV0hZzC2XGRMTTtbglAiSuLUZCvx7d1gLDbKIz8L5af?=
+ =?us-ascii?Q?dDWWY1wDEy1ibOVN00bWcCuGzzj9Q6x+wNmCh8l6pQbEJy47WzOSBeOf9eq0?=
+ =?us-ascii?Q?0IVGTCHSRItegCL1lm6S6mW/2XoCL/wpOJsmCHqbfIqtpBYFmF2gxpQE+rR+?=
+ =?us-ascii?Q?sTiWNeYYblHVYg95r88WNEASBQbjyarDVQcTre0vsnyMbzPh3CLOylywvzwi?=
+ =?us-ascii?Q?rpz3HBWh5c4xx+R9fzM5UlYwH9/RnWSgfjI60YlB+/ObaHGFKbSE0WSYPZwd?=
+ =?us-ascii?Q?xhJs3eqmGfxrzrMoJyJDeVAUdO1ishkDDBBI09eyfQt+ytFrYX9wPDgmFGvW?=
+ =?us-ascii?Q?zehqSuKbfFqPr4tg4Gt2PVZO6OHQ2/PYxkyYrAHx94w7czjZCqwhhLiY2nww?=
+ =?us-ascii?Q?6fQxyXwb6TdLCyWfNqFjIeYL2MkMiuG8B2oRV3B36V/0CzY23AfHNU36lDs0?=
+ =?us-ascii?Q?QotM0lR7qVwPHQShwS2/aImtgwRNwXOpdEimFTK1EKUznwSsKG+MCkO8JIhy?=
+ =?us-ascii?Q?7cKiIhnNN+y2ROFs6wjzAx+qvAYzeZKnUlu+tMjf0UTKQu3gf4ugFQr6wnsK?=
+ =?us-ascii?Q?pYpig6TN4Pj7007cuPx5+Pm9dCPj1EyZaGswEpQNGVbRC4d9yh68/TflSalz?=
+ =?us-ascii?Q?rxUa3xiBlo4Di5m/j7ujeaA9I3sd9hTDnC+H7Y+UJWAH0gXf+0ByqfB3ZJMD?=
+ =?us-ascii?Q?8KOkc7jGR5cXGF8c7yGCOaNJ2H6S9K+OIpT07ZYgpvdi/EGLAiDd7PTRi2Gy?=
+ =?us-ascii?Q?rJybGmB1HjQekswT0xnskmipJp9M8fzeZhhicTk2h3Ctj4LgrZ1TAzdgHnSU?=
+ =?us-ascii?Q?VHpHOd5EmiZSVqBodCSJilxSCXtS1AjNJExJRNFL128zHYGXsRFoN6ZtLUjE?=
+ =?us-ascii?Q?aLvxYde6Q2wUayDSydTnOIO3U9Or17nevyTfVVSNGlL1ETuj9ksbimvc/lRS?=
+ =?us-ascii?Q?v+rB5qK4eUiaOtRFgIGPF+wV/4MStsssm6pHs1xigETZAxauL9DxuowwEg/S?=
+ =?us-ascii?Q?v/NPJi5xQfINoEwF+Nq9nLllQ6k9F/jHeYoJQeiZfgHJceE0uNwcWg+jv4Es?=
+ =?us-ascii?Q?NgDt9ywJLVQh38v9pkk=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7472d3df-c696-4f65-85ee-08dd9dfd58bf
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 15:36:00.2154
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3LZHV4wsrpHpNoeCkaGm17StpB2jojS+nLUivBLjXbgJ3TC8dRRdczrYT2V7O0gcXI3CoARk+7rIMpZT1r3HfA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11424
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_083402_630648_2E489539 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20250528_083604_026815_57D5308F 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,153 +166,663 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 10:50=E2=80=AFAM Sudeep Holla <sudeep.holla@arm.com=
-> wrote:
+On Tue, May 27, 2025 at 08:03:55AM +0200, Alexander Stein wrote:
+> From: Gregor Herburger <gregor.herburger@tq-group.com>
 >
-> The notifier callback node allocation is currently done while holding
-> the notify_lock mutex. While this is safe even if memory allocation may
-> sleep, we need to move the allocation outside the locked region in
-> preparation to move from using muxtes to rwlocks.
+> Add device trees for the MBLS1028A and the MBLS1028A-IND and the SoM
+> TQMLS1028A.
 >
-> Move the memory allocation to avoid potential sleeping in atomic context
-> once the locks are moved from mutex to rwlocks.
->
-> Fixes: e0573444edbf ("firmware: arm_ffa: Add interfaces to request notifi=
-cation callbacks")
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> Signed-off-by: Gregor Herburger <gregor.herburger@tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > ---
->  drivers/firmware/arm_ffa/driver.c | 48 +++++++++++++++++++--------------=
-------
->  1 file changed, 24 insertions(+), 24 deletions(-)
+>  arch/arm64/boot/dts/freescale/Makefile        |   2 +
+>  .../fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts  |  68 ++++
+>  .../fsl-ls1028a-tqmls1028a-mbls1028a.dts      | 118 +++++++
+>  .../fsl-ls1028a-tqmls1028a-mbls1028a.dtsi     | 291 ++++++++++++++++++
+>  .../dts/freescale/fsl-ls1028a-tqmls1028a.dtsi | 117 +++++++
 
-Reviewed-by: Jens Wiklander <jens.wiklander@linaro.org>
+New dts file, suggest run https://github.com/lznuaa/dt-format to nice order
 
-Cheers,
-Jens
+Frank
 
+>  5 files changed, 596 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+>  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a.dtsi
 >
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa=
-/driver.c
-> index 6f75cdf29720993b1cd95eb7d3a36d01b0fdd1de..44eecb786e67b205161e2d486=
-02e1f1b53533360 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -1250,13 +1250,12 @@ notifier_hnode_get_by_type(u16 notify_id, enum no=
-tify_type type)
->         return NULL;
->  }
->
-> -static int
-> -update_notifier_cb(struct ffa_device *dev, int notify_id, void *cb,
-> -                  void *cb_data, bool is_registration, bool is_framework=
-)
-> +static int update_notifier_cb(struct ffa_device *dev, int notify_id,
-> +                             struct notifier_cb_info *cb, bool is_framew=
-ork)
->  {
->         struct notifier_cb_info *cb_info =3D NULL;
->         enum notify_type type =3D ffa_notify_type_get(dev->vm_id);
-> -       bool cb_found;
-> +       bool cb_found, is_registration =3D !!cb;
->
->         if (is_framework)
->                 cb_info =3D notifier_hnode_get_by_vmid_uuid(notify_id, de=
-v->vm_id,
-> @@ -1270,18 +1269,7 @@ update_notifier_cb(struct ffa_device *dev, int not=
-ify_id, void *cb,
->                 return -EINVAL;
->
->         if (is_registration) {
-> -               cb_info =3D kzalloc(sizeof(*cb_info), GFP_KERNEL);
-> -               if (!cb_info)
-> -                       return -ENOMEM;
-> -
-> -               cb_info->dev =3D dev;
-> -               cb_info->cb_data =3D cb_data;
-> -               if (is_framework)
-> -                       cb_info->fwk_cb =3D cb;
-> -               else
-> -                       cb_info->cb =3D cb;
-> -
-> -               hash_add(drv_info->notifier_hash, &cb_info->hnode, notify=
-_id);
-> +               hash_add(drv_info->notifier_hash, &cb->hnode, notify_id);
->         } else {
->                 hash_del(&cb_info->hnode);
->                 kfree(cb_info);
-> @@ -1303,8 +1291,7 @@ static int __ffa_notify_relinquish(struct ffa_devic=
-e *dev, int notify_id,
->
->         mutex_lock(&drv_info->notify_lock);
->
-> -       rc =3D update_notifier_cb(dev, notify_id, NULL, NULL, false,
-> -                               is_framework);
-> +       rc =3D update_notifier_cb(dev, notify_id, NULL, is_framework);
->         if (rc) {
->                 pr_err("Could not unregister notification callback\n");
->                 mutex_unlock(&drv_info->notify_lock);
-> @@ -1335,6 +1322,7 @@ static int __ffa_notify_request(struct ffa_device *=
-dev, bool is_per_vcpu,
->  {
->         int rc;
->         u32 flags =3D 0;
-> +       struct notifier_cb_info *cb_info =3D NULL;
->
->         if (ffa_notifications_disabled())
->                 return -EOPNOTSUPP;
-> @@ -1342,6 +1330,17 @@ static int __ffa_notify_request(struct ffa_device =
-*dev, bool is_per_vcpu,
->         if (notify_id >=3D FFA_MAX_NOTIFICATIONS)
->                 return -EINVAL;
->
-> +       cb_info =3D kzalloc(sizeof(*cb_info), GFP_KERNEL);
-> +       if (!cb_info)
-> +               return -ENOMEM;
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 75ea65d718c1f..38674e4eeb4c3 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -16,6 +16,8 @@ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-sl28-var3-ads2.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-sl28-var4.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-qds.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-rdb.dtb
+> +dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-tqmls1028a-mbls1028a.dtb
+> +dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-tqmls1028a-mbls1028a-ind.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1043a-qds.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1043a-rdb.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1043a-tqmls1043a-mbls10xxa.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts
+> new file mode 100644
+> index 0000000000000..fb735c5d475ad
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts
+> @@ -0,0 +1,68 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright 2019-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Michael Krummsdorf
+> + * Author: Matthias Schiffer
+> + * Author: Alexander Stein
+> + */
 > +
-> +       cb_info->dev =3D dev;
-> +       cb_info->cb_data =3D cb_data;
-> +       if (is_framework)
-> +               cb_info->fwk_cb =3D cb;
-> +       else
-> +               cb_info->cb =3D cb;
+> +/dts-v1/;
 > +
->         mutex_lock(&drv_info->notify_lock);
->
->         if (!is_framework) {
-> @@ -1349,21 +1348,22 @@ static int __ffa_notify_request(struct ffa_device=
- *dev, bool is_per_vcpu,
->                         flags =3D PER_VCPU_NOTIFICATION_FLAG;
->
->                 rc =3D ffa_notification_bind(dev->vm_id, BIT(notify_id), =
-flags);
-> -               if (rc) {
-> -                       mutex_unlock(&drv_info->notify_lock);
-> -                       return rc;
-> -               }
-> +               if (rc)
-> +                       goto out_unlock_free;
->         }
->
-> -       rc =3D update_notifier_cb(dev, notify_id, cb, cb_data, true,
-> -                               is_framework);
-> +       rc =3D update_notifier_cb(dev, notify_id, cb_info, is_framework);
->         if (rc) {
->                 pr_err("Failed to register callback for %d - %d\n",
->                        notify_id, rc);
->                 if (!is_framework)
->                         ffa_notification_unbind(dev->vm_id, BIT(notify_id=
-));
->         }
+> +#include "fsl-ls1028a-tqmls1028a-mbls1028a.dtsi"
 > +
-> +out_unlock_free:
->         mutex_unlock(&drv_info->notify_lock);
-> +       if (rc)
-> +               kfree(cb_info);
->
->         return rc;
->  }
->
+> +/ {
+> +	model = "MBLS1028A-IND starterkit";
+> +	compatible = "tq,ls1028a-tqmls1028a-mbls1028a-ind", "tq,ls1028a-tqmls1028a", "fsl,ls1028a";
+> +};
+> +
+> +&i2c5 {
+> +	gpio_exp_3v3: gpio@71 {
+> +		compatible = "nxp,pca9538";
+> +		reg = <0x71>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		clk-intn-hog {
+> +			gpio-hog;
+> +			gpios = <0 GPIO_ACTIVE_HIGH>;
+> +			input;
+> +			line-name = "CLK_INT#";
+> +		};
+> +
+> +		mpcie-waken-hog {
+> +			gpio-hog;
+> +			gpios = <2 GPIO_ACTIVE_HIGH>;
+> +			input;
+> +			line-name = "MPCIE_WAKE#";
+> +		};
+> +
+> +		mpcie-disn-hog {
+> +			gpio-hog;
+> +			gpios = <3 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "MPCIE_DIS#";
+> +		};
+> +
+> +		mpcie-rstn-hog {
+> +			gpio-hog;
+> +			gpios = <4 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "MPCIE_RST#";
+> +		};
+> +
+> +		sata-perstn-hog {
+> +			gpio-hog;
+> +			gpios = <6 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "SATA_PERST#";
+> +		};
+> +
+> +		dcdc-reset-hog {
+> +			gpio-hog;
+> +			gpios = <7 GPIO_ACTIVE_HIGH>;
+> +			output-low;
+> +			line-name = "DCDC_RESET";
+> +		};
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dts
+> new file mode 100644
+> index 0000000000000..c5590c6d23995
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dts
+> @@ -0,0 +1,118 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright 2019-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Michael Krummsdorf
+> + * Author: Matthias Schiffer
+> + * Author: Alexander Stein
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include "fsl-ls1028a-tqmls1028a-mbls1028a.dtsi"
+> +
+> +/ {
+> +	model = "MBLS1028A starterkit";
+> +	compatible = "tq,ls1028a-tqmls1028a-mbls1028a", "tq,ls1028a-tqmls1028a", "fsl,ls1028a";
+> +
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +		autorepeat;
+> +
+> +		button-0 {
+> +			label = "S4";
+> +			linux,code = <BTN_0>;
+> +			gpios = <&gpio_exp_3v3 11 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		button-1 {
+> +			label = "S5";
+> +			linux,code = <BTN_1>;
+> +			gpios = <&gpio_exp_3v3 12 GPIO_ACTIVE_LOW>;
+> +		};
+> +	};
+> +
+> +	gpio-beeper {
+> +		compatible = "gpio-beeper";
+> +		gpios = <&gpio_exp_3v3 15 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	gpio-leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led-1 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_STATUS;
+> +			function-enumerator = <1>;
+> +			gpios = <&gpio_exp_3v3 14 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger = "default-on";
+> +		};
+> +
+> +		led-2 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_HEARTBEAT;
+> +			gpios = <&gpio_exp_3v3 13 GPIO_ACTIVE_HIGH>;
+> +			linux,default-trigger = "heartbeat";
+> +		};
+> +	};
+> +};
+> +
+> +&i2c5 {
+> +	gpio_exp_3v3: gpio@25 {
+> +		compatible = "nxp,pca9555";
+> +		reg = <0x25>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <30 IRQ_TYPE_LEVEL_LOW>;
+> +		vcc-supply = <&reg_3p3v>;
+> +
+> +		clk-intn-hog {
+> +			gpio-hog;
+> +			gpios = <0 GPIO_ACTIVE_HIGH>;
+> +			input;
+> +			line-name = "CLK_INT#";
+> +		};
+> +
+> +		mpcie-waken-hog {
+> +			gpio-hog;
+> +			gpios = <2 GPIO_ACTIVE_HIGH>;
+> +			input;
+> +			line-name = "MPCIE_WAKE#";
+> +		};
+> +
+> +		mpcie-disn-hog {
+> +			gpio-hog;
+> +			gpios = <3 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "MPCIE_DIS#";
+> +		};
+> +
+> +		mpcie-rstn-hog {
+> +			gpio-hog;
+> +			gpios = <4 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "MPCIE_RST#";
+> +		};
+> +
+> +		sata-perstn-hog {
+> +			gpio-hog;
+> +			gpios = <6 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "SATA_PERST#";
+> +		};
+> +	};
+> +};
+> +
+> +&gpio_exp_1v8 {
+> +	dcdc-reset-hog {
+> +		gpio-hog;
+> +		gpios = <6 GPIO_ACTIVE_HIGH>;
+> +		output-low;
+> +		line-name = "DCDC_RESET";
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+> new file mode 100644
+> index 0000000000000..6261100f3413a
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+> @@ -0,0 +1,291 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright 2019-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Michael Krummsdorf
+> + * Author: Matthias Schiffer
+> + * Author: Alexander Stein
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/net/ti-dp83867.h>
+> +#include "fsl-ls1028a-tqmls1028a.dtsi"
+> +
+> +/ {
+> +	aliases {
+> +		gpio0 = &gpio1;
+> +		gpio1 = &gpio2;
+> +		gpio2 = &gpio3;
+> +
+> +		crypto = &crypto;
+> +
+> +		mmc0 = &esdhc; /* SD-Card */
+> +		mmc1 = &esdhc1; /* eMMC */
+> +
+> +		serial0 = &duart0;
+> +		serial1 = &duart1;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = &duart0;
+> +	};
+> +
+> +	reg_1p8v: regulator-1p8v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "V_1V8";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_3p3v: regulator-3p3v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "V_3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		/* global autoconfigured region for contiguous allocations */
+> +		linux,cma {
+> +			compatible = "shared-dma-pool";
+> +			reusable;
+> +			/* 256 MiB */
+> +			size = <0 0x10000000>;
+> +			linux,cma-default;
+> +		};
+> +	};
+> +};
+> +
+> +&can0 {
+> +	status = "okay";
+> +};
+> +
+> +&can1 {
+> +	status = "okay";
+> +};
+> +
+> +&dspi2 {
+> +	bus-num = <2>;
+> +	status = "okay";
+> +};
+> +
+> +&duart0 {
+> +	status = "okay";
+> +};
+> +
+> +&duart1 {
+> +	status = "okay";
+> +};
+> +
+> +&esdhc {
+> +	cd-gpios = <&gpio1 31 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+> +	no-mmc;
+> +	no-sdio;
+> +	no-1-8-v;
+> +	bus-width = <4>;
+> +	status = "okay";
+> +};
+> +
+> +/* When switched to baseboard-internal i2c bus,
+> + * IIC5 has access to the following devices.
+> + */
+> +&i2c4 {
+> +	status = "okay";
+> +
+> +	/* SI5338 - set up in U-Boot */
+> +	/* clockgen@70 */
+> +};
+> +
+> +&i2c5 {
+> +	status = "okay";
+> +
+> +	gpio_exp_1v8: gpio@70 {
+> +		compatible = "nxp,pca9538";
+> +		reg = <0x70>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <30 IRQ_TYPE_LEVEL_LOW>;
+> +		vcc-supply = <&reg_1p8v>;
+> +
+> +		ec1-intn-hog {
+> +			gpio-hog;
+> +			gpios = <0 0>;
+> +			input;
+> +			line-name = "EC1_INT#";
+> +		};
+> +
+> +		sgmii-intn-hog {
+> +			gpio-hog;
+> +			gpios = <2 0>;
+> +			input;
+> +			line-name = "SGMII_INT#";
+> +		};
+> +
+> +		qsgmii-intn-hog {
+> +			gpio-hog;
+> +			gpios = <4 0>;
+> +			input;
+> +			line-name = "QSGMII_INT#";
+> +		};
+> +
+> +		qsgmii-rstn-hog {
+> +			gpio-hog;
+> +			gpios = <5 0>;
+> +			output-high;
+> +			line-name = "QSGMII_RESET#";
+> +		};
+> +	};
+> +};
+> +
+> +&enetc_mdio_pf3 {
+> +	mdio0_rgmii_phy00: ethernet-phy@0 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <0x00>;
+> +		reset-gpios = <&gpio_exp_1v8 1 GPIO_ACTIVE_LOW>;
+> +		reset-assert-us = <1>;
+> +		reset-deassert-us = <200>;
+> +		interrupt-parent = <&gpio_exp_1v8>;
+> +		interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
+> +		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_50_NS>;
+> +		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+> +		ti,led-function = <0x05b0>;
+> +		ti,led-ctrl = <0x1001>;
+> +		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+> +		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+> +	};
+> +
+> +	mdio0_sgmii_phy03: ethernet-phy@3 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <0x03>;
+> +		reset-gpios = <&gpio_exp_1v8 3 GPIO_ACTIVE_LOW>;
+> +		/*
+> +		 * Long reset to work around PHY incorrect strap pin sampling
+> +		 * due to external capacitors for SGMII
+> +		 */
+> +		reset-assert-us = <2500>;
+> +		reset-deassert-us = <200>;
+> +		interrupt-parent = <&gpio_exp_1v8>;
+> +		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
+> +		ti,led-function = <0x05b0>;
+> +		ti,led-ctrl = <0x1001>;
+> +		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+> +		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+> +	};
+> +
+> +	qsgmii_phy1: ethernet-phy@1c {
+> +		reg = <0x1c>;
+> +	};
+> +
+> +	qsgmii_phy2: ethernet-phy@1d {
+> +		reg = <0x1d>;
+> +	};
+> +
+> +	qsgmii_phy3: ethernet-phy@1e {
+> +		reg = <0x1e>;
+> +	};
+> +
+> +	qsgmii_phy4: ethernet-phy@1f {
+> +		reg = <0x1f>;
+> +	};
+> +};
+> +
+> +&enetc_port0 {
+> +	phy-handle = <&mdio0_sgmii_phy03>;
+> +	phy-mode = "sgmii";
+> +	managed = "in-band-status";
+> +	status = "okay";
+> +};
+> +
+> +&enetc_port1 {
+> +	phy-handle = <&mdio0_rgmii_phy00>;
+> +	phy-mode = "rgmii-id";
+> +	status = "okay";
+> +};
+> +
+> +&enetc_port2 {
+> +	status = "okay";
+> +};
+> +
+> +&mscc_felix {
+> +	status = "okay";
+> +};
+> +
+> +/* l2switch ports */
+> +&mscc_felix_port0 {
+> +	phy-handle = <&qsgmii_phy1>;
+> +	phy-mode = "qsgmii";
+> +	status = "okay";
+> +};
+> +
+> +&mscc_felix_port1 {
+> +	phy-handle = <&qsgmii_phy2>;
+> +	phy-mode = "qsgmii";
+> +	status = "okay";
+> +};
+> +
+> +&mscc_felix_port2 {
+> +	phy-handle = <&qsgmii_phy3>;
+> +	phy-mode = "qsgmii";
+> +	status = "okay";
+> +};
+> +
+> +&mscc_felix_port3 {
+> +	phy-handle = <&qsgmii_phy4>;
+> +	phy-mode = "qsgmii";
+> +	status = "okay";
+> +};
+> +
+> +&mscc_felix_port4 {
+> +	ethernet = <&enetc_port2>;
+> +	status = "okay";
+> +};
+> +
+> +&pcie2 {
+> +	status = "okay";
+> +};
+> +
+> +&sata {
+> +	status = "okay";
+> +};
+> +
+> +&usb0 {
+> +	/* dual role is implemented, but not a full featured OTG */
+> +	hnp-disable;
+> +	srp-disable;
+> +	adp-disable;
+> +	dr_mode = "otg";
+> +	status = "okay";
+> +};
+> +
+> +&usb1 {
+> +	dr_mode = "host";
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	status = "okay";
+> +
+> +	hub_2_0: hub@1 {
+> +		compatible = "usb451,8142";
+> +		reg = <1>;
+> +		peer-hub = <&hub_3_0>;
+> +		reset-gpios = <&gpio_exp_3v3 1 GPIO_ACTIVE_LOW>;
+> +		vdd-supply = <&reg_3p3v>;
+> +	};
+> +
+> +	hub_3_0: hub@2 {
+> +		compatible = "usb451,8140";
+> +		reg = <2>;
+> +		peer-hub = <&hub_2_0>;
+> +		reset-gpios = <&gpio_exp_3v3 1 GPIO_ACTIVE_LOW>;
+> +		vdd-supply = <&reg_3p3v>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a.dtsi
+> new file mode 100644
+> index 0000000000000..69aa36a3a0523
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a.dtsi
+> @@ -0,0 +1,117 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright 2019-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Michael Krummsdorf
+> + * Author: Matthias Schiffer
+> + * Author: Alexander Stein
+> + */
+> +
+> +#include "fsl-ls1028a.dtsi"
+> +
+> +/ {
+> +	compatible = "tq,ls1028a-tqmls1028a", "fsl,ls1028a";
+> +
+> +	reg_1p8v_som: regulator-1p8v-som {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1P8V_SOM";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_3p3v_som: regulator-3p3v-som {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "3P3V_SOM";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	thermal-zones {
+> +		/delete-node/ ddr-controller;
+> +
+> +		cluster-thermal {
+> +			thermal-sensors = <&sa56004_4c 1>;
+> +		};
+> +	};
+> +};
+> +
+> +&esdhc1 {
+> +	no-sdio;
+> +	no-sd;
+> +	non-removable;
+> +	mmc-hs200-1_8v;
+> +	mmc-hs400-1_8v;
+> +	mmc-ddr-1_8v;
+> +	bus-width = <8>;
+> +	status = "okay";
+> +};
+> +
+> +&fspi {
+> +	status = "okay";
+> +
+> +	flash@0 {
+> +		compatible = "jedec,spi-nor";
+> +		reg = <0>;
+> +		spi-max-frequency = <100000000>;
+> +		spi-tx-bus-width = <4>;
+> +		spi-rx-bus-width = <4>;
+> +		vcc-supply = <&reg_1p8v_som>;
+> +
+> +		partitions {
+> +			compatible = "fixed-partitions";
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +		};
+> +	};
+> +};
+> +
+> +&i2c0 {
+> +	status = "okay";
+> +
+> +	js42_18: temperature-sensor@18 {
+> +		compatible = "nxp,se97b", "jedec,jc-42.4-temp";
+> +		reg = <0x18>;
+> +	};
+> +
+> +	sa56004_4c: temperature-sensor@4c {
+> +		compatible = "nxp,sa56004";
+> +		reg = <0x4c>;
+> +		#thermal-sensor-cells = <1>;
+> +		vcc-supply = <&reg_3p3v_som>;
+> +	};
+> +
+> +	se97_50: eeprom@50 {
+> +		compatible = "nxp,se97b", "atmel,24c02";
+> +		read-only;
+> +		reg = <0x50>;
+> +		pagesize = <16>;
+> +		vcc-supply = <&reg_3p3v_som>;
+> +	};
+> +
+> +	rtc1: rtc@51 {
+> +		compatible = "nxp,pcf85063a";
+> +		reg = <0x51>;
+> +		quartz-load-femtofarads = <12500>;
+> +	};
+> +
+> +	m24c256_57: eeprom@57 {
+> +		compatible = "atmel,24c256";
+> +		reg = <0x57>;
+> +		pagesize = <32>;
+> +		vcc-supply = <&reg_3p3v_som>;
+> +	};
+> +};
+> +
+> +/*
+> + * We use a separate sensor IC to measure core temperature. Disable the TMU
+> + * as its driver can cause log spam outside of its measurement range (0-125C).
+> + *
+> + * Will have to be reevaluated if this DTS is ported to a mainline kernel,
+> + * as both sensors of the TMU are referenced by the default LS1028A
+> + * thermal-zones definitions there.
+> + */
+> +&tmu {
+> +	status = "disabled";
+> +};
 > --
-> 2.34.1
+> 2.43.0
 >
 
