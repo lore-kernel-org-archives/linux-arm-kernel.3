@@ -4,120 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A31C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 06:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD5FC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 06:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbSHV62Wuvy5Df5zaV9/pLva8CNc8x+VcthWIwNtRjw=; b=YXzOPoK5KkKRspOMvDdsimT0H+
-	bO+ssLDFHXSS3yrd389AuR5hoZjFDUTWRjzl/xHj9X3F3i9MJ0Uopbblq+Ykm9aHSEoHydmTmnfJz
-	EO9O2yh6kNSeCvg6tjvz6MmYbZRbTWxu8dvluZeIWBIDnzbTQ7WYm3Dqb19VmlbC9CqYFuO7ry0k1
-	fA/y2IhOZlMsoLkJcj5e7p/n6ZCatI79c9v8tOWY7Vk6yPAICuQpAxJEsABqbYXFJ3QKcXERZLS6R
-	OfI4P5Z3AWKWchVK9HS5Sowm0XbT/ztEmsZggQgiko4w363kBd8cTT0VylGfafUGOupCU9I/7dtmV
-	KgO/pQOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vFEL/YnwcknuU/DvJYicLEJtiozeg/YWGUA+T0JB3aM=; b=IRjR0TZXtTlp7OB/2zQ/9Titwx
+	pD/rPKtPMyKO0+3UpuceS44Z3JKd4gVaIC+aH81HOB9zSv3dTctw2XPdRMYIC6AwV7TrrqSRolRcC
+	vzoyWHLbmmW1xfWFuKlnBPXbgm7d2hTioM3RG8T2EnZ25Y9mlZSvTyAZF0LS8orwZOcRj4nADgGRS
+	jscQFczPqx83zVwHBtpJTBFM2F8GVv9ZIuXJamjpYKGgHAOUy4Xl+G9pm0058qmCvQBbexoIexuY4
+	LcqYVNK8X3eEPhGmvD8e7yGxszz7B1V2DC7A6R6VD7snJcCFKeTZVk4FRzHP71x6L5fLepYLw6j24
+	ONI3ERjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKAg5-0000000CMA0-3PHT;
-	Wed, 28 May 2025 06:54:17 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1uKAku-0000000CNZm-2v7e;
+	Wed, 28 May 2025 06:59:16 +0000
+Received: from mail-mw2nam12on2062a.outbound.protection.outlook.com ([2a01:111:f403:200a::62a] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKAQI-0000000CJOd-44kO
+	id 1uKAil-0000000CN8q-1GpM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 06:37:59 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54S5Zx0t008547;
-	Wed, 28 May 2025 06:37:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=BbSHV62Wuvy5Df5zaV9/pLva8CNc8x
-	+VcthWIwNtRjw=; b=BKYtFkTRw7R76/ZD9BeOohPHmddfU6KSDpBbXh8/Hmj2d3
-	cl65xW+vMHjBdsQrc1ZoE3csck2GaDr9J/ePSSQcnI5WcTNWhAKvBuSrfAJxQUY3
-	b/u3ai9mjhsw/S0Wq+zpVEBmvujlq31VzQ3Ouetxv7zRpscFyxppRklrEW27VC2a
-	n+IKEJboTMUULmkwoRi5FZIbbMf8YTpx1la43SzNOEuq1l5T8+gczgc+NTtNBamr
-	C0ZKfbP88H7xA6qglKR8YQvMcDSkh9Fs0vGL/j2YJCYB8wLNql9ApEh/3CWQUAam
-	KXFlVc3BJGd77JK8PTQ+Ja0qedYtM+d3DTifWB2A==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46wvfb07kq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 28 May 2025 06:37:39 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 54S6WLkA019749;
-	Wed, 28 May 2025 06:37:39 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46wvfb07kj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 28 May 2025 06:37:39 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 54S6FFpc016139;
-	Wed, 28 May 2025 06:37:38 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 46ureuegus-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 28 May 2025 06:37:38 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 54S6bY8O34144544
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 28 May 2025 06:37:34 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 781EC2004B;
-	Wed, 28 May 2025 06:37:34 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C463220040;
-	Wed, 28 May 2025 06:37:33 +0000 (GMT)
-Received: from osiris (unknown [9.152.212.133])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 28 May 2025 06:37:33 +0000 (GMT)
-Date: Wed, 28 May 2025 08:37:31 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Lyude Paul <lyude@redhat.com>
-Cc: rust-for-linux@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
-        Boqun Feng <boqun.feng@gmail.com>, linux-kernel@vger.kernel.org,
-        Daniel Almeida <daniel.almeida@collabora.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-        "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
-        Juergen Christ <jchrist@linux.ibm.com>,
-        Uros Bizjak <ubizjak@gmail.com>, Brian Gerst <brgerst@gmail.com>,
-        "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
-        "open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>,
-        "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
-Subject: Re: [RFC RESEND v10 02/14] preempt: Introduce __preempt_count_{sub,
- add}_return()
-Message-ID: <20250528063731.8022B19-hca@linux.ibm.com>
-References: <20250527222254.565881-1-lyude@redhat.com>
- <20250527222254.565881-3-lyude@redhat.com>
+	Wed, 28 May 2025 06:57:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mRhrdhNNlPihm9KaE/2MjRWNxTx90S++piOBt04zyQlAflkDdxlgCSuitpmiTc0kqb9/QG4Drx/j+6jDRYkIkBpS3eDiPlyIuvZCf4viAQ4Y/3P5eiX7eSmUBx1WbcVBxXsX66TwwXgiYP3st078yhtf344C4YZKJU4WedAuxHEHf9NbS3VJi0CgKTfBMWDgyEiYzI39WK7E1koRZ/25jM157WOL3p9zZhRGO5ZdS1fmlTTJE3I2RW+zaBxZVtydx7tE5OUYluFoTR6+5ej4AGG/GNmyLS/ftXptlrT2s8VLf2oMwkhuiCX2kcTTGFfOh34chVPcsb/WAoyeNZymHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vFEL/YnwcknuU/DvJYicLEJtiozeg/YWGUA+T0JB3aM=;
+ b=UGAxn3/KgqzDphKxPyDd58VBkQdY23JK+9CbW3PA4wqe1mR6XNq7WF6cAZxyiia2cvYlOboGoYEw5lEB+whr/fLWc2uy23IhSzj1ETxzZVeS3RP65Gr/O3yB6qOneLXPQA63B0xD91hW7bVz7G1bo4SGtBCMmTiKbvGjKAVEjQBmJ9X1xPxnS9FoYBALaN+n0npqjykkxfNz9xieIDHUje+Op61cb4Cd+OW9TgzwP2i8yfvSu2EyKhkWrxZw26W2EO02izV+ct/O2TDpWhD7odzXAMoM5v1nZccwQRbk5uXGN58gwN+2az2mSkhA0j03AcX6C2VvKuDh4ZUhjHHyuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vFEL/YnwcknuU/DvJYicLEJtiozeg/YWGUA+T0JB3aM=;
+ b=f2AuFdB6cKn31bbDRt390cLvi/yptDg94sL1n7FVf+AbhlMgibIjsEgxmTLrrmHi2JG8uGteQ/Dc5deXpC/N1LS4fiSG50vDULZjOidB3dZOpbdA0y5E6WX8/UBGC2rn8+PSi3VYwdzSIJdS549HuIWUmkBiVe1XC+m0IE0UZvM=
+Received: from MW4PR03CA0184.namprd03.prod.outlook.com (2603:10b6:303:b8::9)
+ by MN2PR12MB4453.namprd12.prod.outlook.com (2603:10b6:208:260::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.27; Wed, 28 May
+ 2025 06:56:57 +0000
+Received: from CO1PEPF000066ED.namprd05.prod.outlook.com
+ (2603:10b6:303:b8:cafe::63) by MW4PR03CA0184.outlook.office365.com
+ (2603:10b6:303:b8::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18 via Frontend Transport; Wed,
+ 28 May 2025 06:56:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ CO1PEPF000066ED.mail.protection.outlook.com (10.167.249.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8769.18 via Frontend Transport; Wed, 28 May 2025 06:56:56 +0000
+Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 28 May
+ 2025 01:56:55 -0500
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB05.amd.com
+ (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 28 May
+ 2025 01:56:54 -0500
+Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Wed, 28 May 2025 01:56:51 -0500
+From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-edac@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <git@amd.com>, Michal Simek <michal.simek@amd.com>, Borislav Petkov
+	<bp@alien8.de>, Tony Luck <tony.luck@intel.com>, James Morse
+	<james.morse@arm.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, "Robert
+ Richter" <rric@kernel.org>
+Subject: [PATCH] EDAC/synopsys: Clear the ecc counters at init
+Date: Wed, 28 May 2025 12:26:50 +0530
+Message-ID: <20250528065650.27646-1-shubhrajyoti.datta@amd.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250527222254.565881-3-lyude@redhat.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI4MDA1NiBTYWx0ZWRfX0T/cYI9jB324 vSOkEmOl/7vl/+6HuElcS05NMxCHyCHZKZUa7rWQoTV2IKtC+vCc9aIlSWRARa9fqEQABto5bvT zS5vjcJDKYXmd/2xx2JaERYo/JYPMwDyQKNJ/iCvvGY5MfNfA79Ppf84B/iY5viEHG8YAZI5KDD
- VHwUVyIWDTEPeOowg8agh2dZiByTvUE1CO0alL/yQUebOWcVxr5wJlf5h1s84FuVsh9trNEPsc3 z7R7vBbotBMpN3UTg/WY5qJBin5NB7Vod4IeuPVPysagNK/nLwz583gyxObIoFlbOTrm3LKKvjK BmfxjmphNEAElmmgKkDKPaFjOlCcdIKrFCIaIRXApSeq2ZqHdvjPAh5e2WcdkuXSNLYjqYamdMD
- yhNZP5Ebc0znmiYKJ2BUvJNzkwqo61fpjv/QXBZHXg6Aq24Uydz1r79z0AEKCIumHaakx+pj
-X-Proofpoint-ORIG-GUID: Po87WT_2gKohl3MVVII4-9DCSMQdYQMn
-X-Authority-Analysis: v=2.4 cv=bt5MBFai c=1 sm=1 tr=0 ts=6836af34 cx=c_pps a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17 a=kj9zAlcOel0A:10 a=dt9VzEwgFbYA:10 a=pGLkceISAAAA:8 a=20KFwNOVAAAA:8 a=sCjic1ysK2PjgQY2DYoA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: dwv2dCkek_F3F7nKzn0VlVIce0MIHx1s
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-28_03,2025-05-27_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=796
- impostorscore=0 malwarescore=0 bulkscore=0 spamscore=0 lowpriorityscore=0
- suspectscore=0 adultscore=0 priorityscore=1501 phishscore=0 mlxscore=0
- clxscore=1011 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
- definitions=main-2505280056
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB05.amd.com: shubhrajyoti.datta@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066ED:EE_|MN2PR12MB4453:EE_
+X-MS-Office365-Filtering-Correlation-Id: 27c3d367-38a5-4c91-e5e7-08dd9db4d5eb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/ShIgZ6Mw3VeK7OFq8I0F+TSXkAOx4n3vC4BEfj/6IxtHFWPlQ1N8j1prcxb?=
+ =?us-ascii?Q?aW2Qgc1ez+qTFluJL0FMiwhhIb18PF4XpgmWBPxb6qEFX4bToDC4Zh0hB/vj?=
+ =?us-ascii?Q?gRAzSPMvPACFn28DRDqQLRW5TS3XlIjYDsL+FboKiKuhLdJBWGk8GH+cxib8?=
+ =?us-ascii?Q?GTAuCFv+oQDkMDAN+h75KVi8tW5icV2Kse2BGX6G1A4R0h3DWweeSrMFIvHb?=
+ =?us-ascii?Q?ZpGhN1ZFSO0XVzflSFF6/iF8+BXTGO2q5tkh/f99Ewh84VdHD/zbLt5v4ov9?=
+ =?us-ascii?Q?VjPxwOrUj7yK95zJ128UOQEaE4Mq6sQmJgagQbPrYaOoYOWgKdl1qwKBYAGa?=
+ =?us-ascii?Q?IzWCPiOl+YhixxkAnd3NBOplGUItQzfZrKxZsrQ4MK01Wmxq/ieXqJMXDM3c?=
+ =?us-ascii?Q?m08XH3nFmDvNnG0Ktx9Eo+YBXE7LGZ0HogBkqsq9KTFH7rN/h2HZCQMn/kXM?=
+ =?us-ascii?Q?qIxgWjTgJLCuBciTW93weTfl+reINwgey24ReNzvv5VdaanUfFVD1qPqJHFD?=
+ =?us-ascii?Q?orLC9wyfy6uN7o7Ki8Bw0JgdNI4P6dgxJWbfK3FNwqfIcK8pRVCAFdSeTAGa?=
+ =?us-ascii?Q?uUlKIbpbnTjZppqqcHv0pkn7JbWa86hVLNGhGlJwA7cNqxFxTHfkuA4Blm/2?=
+ =?us-ascii?Q?FvfFWiPtRvy6J991p3FArp+ZsaErARW3HMuSv6g4MhnTnrTy35Hcw58xQXaO?=
+ =?us-ascii?Q?1yERNK1Hhy5+lW/wZNKxJ0ofQJJUFI6Z8sv+9KieEyz94oo443+hjb/CAc5a?=
+ =?us-ascii?Q?NaYI1dLzjcGMJDH7U9q/XVG1WZD2fGh5+2Rqw0yXbH6VN2oX02J6TyPnSEC3?=
+ =?us-ascii?Q?Xru68A2IV4ajow6GL6EdjsMl7HO+vZV/+t8vRHLuUfXa1Qy5dd7rRZOYChc7?=
+ =?us-ascii?Q?HRjKpzKCQCbeP5s7po//mYkLdmgrnk8+57nSJtPbv/sLV506Rko4ea/xsiUY?=
+ =?us-ascii?Q?5bp9jDAhDSspyI4uA0mmf96zXf8ONVq/fHDIa5ThNgPoPg1XQ3I2wB6kaHbq?=
+ =?us-ascii?Q?60gXiAaR077PmKFDExzohoO4zgKJQZZxs2g8ANEnIIA7xkr5HBbrm+7rdneE?=
+ =?us-ascii?Q?zGhcXdC1EHUAGQcWhgIxhICRBQkGPJs5GTWbGkcdX0dCSqX3FEAmCnNGKmc5?=
+ =?us-ascii?Q?QkGJKPr+iCHx+6boEYPhVDs/6bneXJ1VQMn1BTwvFUA2uviZQOarSxI9Fg1n?=
+ =?us-ascii?Q?PRjipRDewUsEFh3S7wFeyaY1+ZO56NpSfDVDsXzse8LLkg3VgQHyUATf29aU?=
+ =?us-ascii?Q?9A7JPZj7SmaWJz2LQaMFpEABLK4MmOnaVZpfNMOzPa2DPi4+41wmlkvdt2cd?=
+ =?us-ascii?Q?QsehEfqkRRY0xXpaI4WjTl3wLZd/DQOzds/SJhmdWxBbj+rW2ZzULw8pNHZB?=
+ =?us-ascii?Q?sodzfZAWfNE5XomrDu693d7SngXQjX2SSsHRphxylyemwh68ItLC7lK96xec?=
+ =?us-ascii?Q?g55ySzc6CSZzQSjEjy9tHALRUsiUtfB9bqJ1teKE7iHyL/2iJg9Ju8xUTweC?=
+ =?us-ascii?Q?orDSy1gcRdqjb3cxqL6WKySCcZ+srQXSyEoL?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 06:56:56.3699
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 27c3d367-38a5-4c91-e5e7-08dd9db4d5eb
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066ED.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4453
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_233759_011126_CE73BF54 
-X-CRM114-Status: GOOD (  25.74  )
+X-CRM114-CacheID: sfid-20250527_235703_383671_288C1F27 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,71 +149,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 06:21:43PM -0400, Lyude Paul wrote:
-> From: Boqun Feng <boqun.feng@gmail.com>
-> 
-> In order to use preempt_count() to tracking the interrupt disable
-> nesting level, __preempt_count_{add,sub}_return() are introduced, as
-> their name suggest, these primitives return the new value of the
-> preempt_count() after changing it. The following example shows the usage
-> of it in local_interrupt_disable():
-> 
-> 	// increase the HARDIRQ_DISABLE bit
-> 	new_count = __preempt_count_add_return(HARDIRQ_DISABLE_OFFSET);
-> 
-> 	// if it's the first-time increment, then disable the interrupt
-> 	// at hardware level.
-> 	if (new_count & HARDIRQ_DISABLE_MASK == HARDIRQ_DISABLE_OFFSET) {
-> 		local_irq_save(flags);
-> 		raw_cpu_write(local_interrupt_disable_state.flags, flags);
-> 	}
-> 
-> Having these primitives will avoid a read of preempt_count() after
-> changing preempt_count() on certain architectures.
-> 
-> Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
-> 
-> ---
-> V10:
-> * Add commit message I forgot
-> * Rebase against latest pcpu_hot changes
-> 
-> Signed-off-by: Lyude Paul <lyude@redhat.com>
-> ---
->  arch/arm64/include/asm/preempt.h | 18 ++++++++++++++++++
->  arch/s390/include/asm/preempt.h  | 19 +++++++++++++++++++
->  arch/x86/include/asm/preempt.h   | 10 ++++++++++
->  include/asm-generic/preempt.h    | 14 ++++++++++++++
->  4 files changed, 61 insertions(+)
+Clear ECC error and counter registers at init to ensure a clean state
+by clearing all ECC error and counter registers before registering
+the controller with the EDAC framework.
 
-...
+This avoids reporting stale errors that may have occurred during
+boot or prior configuration.
 
-> diff --git a/arch/s390/include/asm/preempt.h b/arch/s390/include/asm/preempt.h
-> index 6ccd033acfe52..67a6e265e9fff 100644
-> --- a/arch/s390/include/asm/preempt.h
-> +++ b/arch/s390/include/asm/preempt.h
-> @@ -98,6 +98,25 @@ static __always_inline bool should_resched(int preempt_offset)
->  	return unlikely(READ_ONCE(get_lowcore()->preempt_count) == preempt_offset);
->  }
->  
-> +static __always_inline int __preempt_count_add_return(int val)
-> +{
-> +	/*
-> +	 * With some obscure config options and CONFIG_PROFILE_ALL_BRANCHES
-> +	 * enabled, gcc 12 fails to handle __builtin_constant_p().
-> +	 */
-> +	if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES)) {
-> +		if (__builtin_constant_p(val) && (val >= -128) && (val <= 127)) {
-> +			return val + __atomic_add_const(val, &get_lowcore()->preempt_count);
-> +		}
-> +	}
-> +	return val + __atomic_add(val, &get_lowcore()->preempt_count);
-> +}
+Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+---
 
-This is still wrong and needs to be changed to:
+ drivers/edac/synopsys_edac.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-static __always_inline int __preempt_count_add_return(int val)
-{
-	return val + __atomic_add(val, &get_lowcore()->preempt_count);
-}
+diff --git a/drivers/edac/synopsys_edac.c b/drivers/edac/synopsys_edac.c
+index 5ed32a3299c4..ebd2d6e771a1 100644
+--- a/drivers/edac/synopsys_edac.c
++++ b/drivers/edac/synopsys_edac.c
+@@ -755,7 +755,7 @@ static bool zynq_get_ecc_state(void __iomem *base)
+ static bool zynqmp_get_ecc_state(void __iomem *base)
+ {
+ 	enum dev_type dt;
+-	u32 ecctype;
++	u32 ecctype, clearval;
+ 
+ 	dt = zynqmp_get_dtype(base);
+ 	if (dt == DEV_UNKNOWN)
+@@ -763,8 +763,13 @@ static bool zynqmp_get_ecc_state(void __iomem *base)
+ 
+ 	ecctype = readl(base + ECC_CFG0_OFST) & SCRUB_MODE_MASK;
+ 	if ((ecctype == SCRUB_MODE_SECDED) &&
+-	    ((dt == DEV_X2) || (dt == DEV_X4) || (dt == DEV_X8)))
++	    ((dt == DEV_X2) || (dt == DEV_X4) || (dt == DEV_X8))) {
++		clearval = readl(base + ECC_CLR_OFST) |
++				ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_CE_ERRCNT |
++				ECC_CTRL_CLR_UE_ERR | ECC_CTRL_CLR_UE_ERRCNT;
++		writel(clearval, base + ECC_CLR_OFST);
+ 		return true;
++	}
+ 
+ 	return false;
+ }
+-- 
+2.34.1
+
 
