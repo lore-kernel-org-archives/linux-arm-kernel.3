@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BC1C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 23:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C640C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 23:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oRTAtS+PqLGgoX0KUF2yxa87zN4HrUWl2C+fmoRKzXw=; b=V9VkuAj+ZPuLd3KnGp+7/FVISV
-	QhnaHxuOjqac2Iy6NHVaBJYjEPGhrEr2cUEDKp623HnHFIeIOXSq5+rckENmAJJK6d7NYvoSgfUL5
-	b2ZNJ7twBxBM7rBztoQ/iA6RnEyhrHwUQzLg7m1IOFRLQEkRQFeAmaYJr7rtIiRFs/scjBnPGvGAS
-	ektNlIMM3dGC329A1UGvvQUWuuY9KLn1C3zEubL63D+9D7CGy9mdUTweI67pep/y5v0cCrxL8YhDK
-	x72I02gpT5XS7pztEQisWfrH844AuGLxfgTWQzrzwPwLo2PJADGHKhqJV8Dq4dgDB7CBgh3fY8mAK
-	+GUiIT9Q==;
+	bh=gcxQaHt9YO/4vp8lHIwRWi8ySYcHIjzznVMdx4yu7+k=; b=hhhxmQ8K54RXGcZICxsI83L1K8
+	oR2KCeOzGkSsqDAX7KzCcZLnQAVO8NzCyOzX9evqpwftSWVIKNWq10XjWHi231ZHslggizrkPXPHb
+	NBSDo1KeUnSiw2TTPhlRF35IXGsWnrno0DkzxBO8WGfA4DSeH/rqbUaLNlcBDxKZ2/EL2Nqsr0y3V
+	k5tOZ+uZhOVzz381qUnZtVwT3gu2RwIIWFFUba5WCJq8VSiuwrP83tq5Y2U///hgHVvSOkvkeSxGF
+	RjjR/4PpXr85O/UjYgt0FYcyYoOtXsh+ky2rJnCGbQV538l8LCkyk7YW7XMrNIyMNiwM7/9S6/VMM
+	dhsaqcsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKQ4U-0000000EMiV-3bZ4;
-	Wed, 28 May 2025 23:20:30 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1uKQBQ-0000000ENEN-46XO;
+	Wed, 28 May 2025 23:27:40 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKQ2C-0000000EMEx-0qpm
+	id 1uKQ9G-0000000EN2B-3eZd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 23:18:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748474288; x=1780010288;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=OlkQ5LDNFcAG4+B3fU48CyA1LXgDRJ2eUlh71NIIl0g=;
-  b=Jlv4JkvB3rycat4AdDXxcybti9Vccu0M1XPEc5MasGtBxbD+giqNhjWd
-   be5h+WBZ3jpk9p7JLPITivUM75wiACWLYcK37f8JJxyC6pP1eFo+X0QwJ
-   lsMw/Ur+AYA+DG6s61lHJtzuDiWC6Xay/DB4HbHLmyEKE0vbHeejLjwKQ
-   YvGVZC7WNzkNFiUwwOflz4LOmDu90Q28T5kp0PJKaooNki19JQScaEzoI
-   s/uwDwE9pb6+/gOuC4GVJIM7HslqFTIXYZCoGupa9+hpS2dq1d/acTCPL
-   +Qj21TwuLKYYREwLd0iskHWA1vieMaRM+zKN2IQzZsuSIvMiud88BbXpd
-   g==;
-X-CSE-ConnectionGUID: HySF5D1ESE6D2LMnq4EEDA==
-X-CSE-MsgGUID: Oh8PwEUdRpKBvtV8xnUg9Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11447"; a="68070668"
-X-IronPort-AV: E=Sophos;i="6.15,322,1739865600"; 
-   d="scan'208";a="68070668"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 16:18:05 -0700
-X-CSE-ConnectionGUID: Ynjqfh96TUCxktsd33xPwA==
-X-CSE-MsgGUID: M+fn4Cj8S6uE04O0uNAhPg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,322,1739865600"; 
-   d="scan'208";a="148524148"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 28 May 2025 16:18:01 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uKQ23-000W9G-1F;
-	Wed, 28 May 2025 23:17:59 +0000
-Date: Thu, 29 May 2025 07:17:03 +0800
-From: kernel test robot <lkp@intel.com>
-To: Umer Uddin <umer.uddin@mentallysanemainliners.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] clk: samsung: exynos990: Add CMU_HSI1 block
-Message-ID: <202505290752.ccgBnlpc-lkp@intel.com>
-References: <20250528105252.157533-3-umer.uddin@mentallysanemainliners.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250528105252.157533-3-umer.uddin@mentallysanemainliners.org>
+	Wed, 28 May 2025 23:25:28 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7375e2642b4so159956b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 16:25:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1748474725; x=1749079525; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gcxQaHt9YO/4vp8lHIwRWi8ySYcHIjzznVMdx4yu7+k=;
+        b=WAvNsxt6lD6wQ1F39K0DpN+tzdSdJNR0lb6kPOrzhYljkZaMmivm5POcIHcSASRHni
+         oO/Btzox8TVi3ETyeIWQcU5zXFJe3sV4GH/vDhzu1Iebcl4Ucft/x/a+e7QmdpMB9W2l
+         B2Y52Y6c0ysxYfSxtIzO4M5xBmi7/r6g9RVrq9WWA/LgY6J6scq951riN2WQq6V7gAdV
+         JlcrJbOL5EuELOpDe8orATAAZWiNU9IqTNgoDsjCpqxuu6LHtXXXYyZSR2eQ3I7HZR0t
+         JB2+pZlk6KKUK5oe5l35XCxLumSRx9a1utglISDVw/frmsAyXnz8+0ZoOt3Y39ilCoOo
+         9xKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748474725; x=1749079525;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=gcxQaHt9YO/4vp8lHIwRWi8ySYcHIjzznVMdx4yu7+k=;
+        b=BsHGW46lC85t4P/ZWGhLc9dAf+rkv3HhpmAhjPUD7nJxVk4xaXjiybBsRevrGorprR
+         cG8irekrCF/hrLQP1UIskBDfpV9CYinorhewCSwGWr9bGYc3fXgcvhpzpuLyuRTKYn/J
+         ypFy7lfQ82fgDuO2OreLwMkfLifjpev2yAQdxFnvhFAQJnNHC+71jnVRQW0vDlIUj4uH
+         s1DoloC4oYt6WcaufZgUKNLnIFNEv8YF1N0DS5/93EWvfmEyNHKh4H3NBqVPT+fcmKro
+         BfD7QLu2L6ErbbMgPIdbnAmvOnfC51eqMFv6zCt8BC6+GDDhIBFYEJX5EIDbOaIyZons
+         0yKA==
+X-Forwarded-Encrypted: i=1; AJvYcCUHnd+JDKEnrCUpgsI5vqWbzaEDJiINhsQ/bDG6W8+xTHtQEqgWSjSRifF9jk/mRKBfAcQs3Yx9kpOCQtZ4HjNJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrMHDvy9ePaCWClBqYPtSi6euLV2Qp7vVFIRgMg/KGqpnNM3ju
+	p+tAj/k0naedQsPwHk0emkemES8eXL1aDxA0nbBn0Klr7uS82I3LubNIK87VDKk8KdDjjVekiIU
+	1C1PbLA==
+X-Google-Smtp-Source: AGHT+IErw9co+DcBT121540SfwKH6gZVIzfkdn9B2d2kwxMAwaFIuqhkwNuL6Huhgc39bFpmxXdGbf8i9Ig=
+X-Received: from pgdu5.prod.google.com ([2002:a05:6a02:2f45:b0:b2e:c392:14f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:699:b0:218:cdcf:106b
+ with SMTP id adf61e73a8af0-21aad7827femr6695431637.9.1748474725210; Wed, 28
+ May 2025 16:25:25 -0700 (PDT)
+Date: Wed, 28 May 2025 16:25:24 -0700
+In-Reply-To: <20250528201756.36271-1-jthoughton@google.com>
+Mime-Version: 1.0
+References: <aDdILHOu9g-m5hSm@google.com> <20250528201756.36271-1-jthoughton@google.com>
+Message-ID: <aDebZD1Kmmg15zs7@google.com>
+Subject: Re: [PATCH v2 06/13] KVM: arm64: Add support for KVM_MEM_USERFAULT
+From: Sean Christopherson <seanjc@google.com>
+To: James Houghton <jthoughton@google.com>
+Cc: amoorthy@google.com, corbet@lwn.net, dmatlack@google.com, 
+	kalyazin@amazon.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	pbonzini@redhat.com, peterx@redhat.com, pgonda@google.com, 
+	wei.w.wang@intel.com, yan.y.zhao@intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_161808_263735_1765FEF5 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20250528_162526_912130_ABD74429 
+X-CRM114-Status: GOOD (  29.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,97 +95,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Umer,
+On Wed, May 28, 2025, James Houghton wrote:
+> On Wed, May 28, 2025 at 1:30=E2=80=AFPM Sean Christopherson <seanjc@googl=
+e.com> wrote:
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index c5d21bcfa3ed4..f1db3f7742b28 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2127,15 +2131,23 @@ void kvm_arch_commit_memory_region(struct kvm *kv=
+m,
+>  				   const struct kvm_memory_slot *new,
+>  				   enum kvm_mr_change change)
+>  {
+> -	bool log_dirty_pages =3D new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
+> +	u32 old_flags =3D old ? old->flags : 0;
+> +	u32 new_flags =3D new ? new->flags : 0;
+> +
+> +	/*
+> +	 * If only changing flags, nothing to do if not toggling
+> +	 * dirty logging.
+> +	 */
+> +	if (change =3D=3D KVM_MR_FLAGS_ONLY &&
+> +	    !((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES))
+> +		return;
+> =20
+>  	/*
+>  	 * At this point memslot has been committed and there is an
+>  	 * allocated dirty_bitmap[], dirty pages will be tracked while the
+>  	 * memory slot is write protected.
+>  	 */
+> -	if (log_dirty_pages) {
+> -
+> +	if (new_flags & KVM_MEM_LOG_DIRTY_PAGES) {
+>  		if (change =3D=3D KVM_MR_DELETE)
+>  			return;
+> =20
+>=20
+> So we need to bail out early if we are enabling KVM_MEM_USERFAULT but
+> KVM_MEM_LOG_DIRTY_PAGES is already enabled, otherwise we'll be
+> write-protecting a bunch of PTEs that we don't need or want to WP.
+>=20
+> When *disabling* KVM_MEM_USERFAULT, we definitely don't want to WP
+> things, as we aren't going to get the unmap afterwards anyway.
+>=20
+> So the check we started with handles this:
+> > > > > + =C2=A0 =C2=A0 =C2=A0 u32 old_flags =3D old ? old->flags : 0;
+> > > > > + =C2=A0 =C2=A0 =C2=A0 u32 new_flags =3D new ? new->flags : 0;
+> > > > > +
+> > > > > + =C2=A0 =C2=A0 =C2=A0 /* Nothing to do if not toggling dirty log=
+ging. */
+> > > > > + =C2=A0 =C2=A0 =C2=A0 if (!((old_flags ^ new_flags) & KVM_MEM_LO=
+G_DIRTY_PAGES))
+> > > > > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return;
+>=20
+> So why also check for `change =3D=3D KVM_MR_FLAGS_ONLY` as well? Everythi=
+ng I just
+> said doesn't really apply when the memslot is being created, moved, or
+> destroyed. Otherwise, consider the case where we never enable dirty loggi=
+ng:
+>=20
+>  - Memslot deletion would be totally broken; we'll see that
+>    KVM_MEM_LOG_DIRTY_PAGES is not getting toggled and then bail out, skip=
+ping
+>    some freeing.
 
-kernel test robot noticed the following build warnings:
+No, because @new and thus new_flags will be 0.  If dirty logging wasn't ena=
+bled,
+then there's nothing to be done.
 
-[auto build test WARNING on krzk/for-next]
-[also build test WARNING on krzk-dt/for-next clk/clk-next linus/master v6.15 next-20250528]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>  - Memslot creation would be broken in a similar way; we'll skip a bunch =
+of
+>    setup work.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Umer-Uddin/dt-bindings-clock-exynos990-Add-CMU_HSI1-bindings/20250528-185847
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250528105252.157533-3-umer.uddin%40mentallysanemainliners.org
-patch subject: [PATCH v1 2/2] clk: samsung: exynos990: Add CMU_HSI1 block
-config: arm-randconfig-002-20250529 (https://download.01.org/0day-ci/archive/20250529/202505290752.ccgBnlpc-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250529/202505290752.ccgBnlpc-lkp@intel.com/reproduce)
+No, because @old and thus old_flags will be 0.  If dirty logging isn't bein=
+g
+enabled, then there's nothing to be done.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505290752.ccgBnlpc-lkp@intel.com/
+>  - For memslot moving, the only case that we could possibly be leaving
+>    KVM_MEM_LOG_DIRTY_PAGES set without the change being KVM_MR_FLAGS_ONLY=
+,
+>    I think we still need to do the split and WP stuff.
 
-All warnings (new ones prefixed by >>):
+No, because KVM invokes kvm_arch_flush_shadow_memslot() on the memslot and =
+marks
+it invalid prior to installing the new, moved memslot.  See kvm_invalidate_=
+memslot().
 
-   In file included from drivers/clk/samsung/clk-exynos990.c:15:
->> drivers/clk/samsung/clk-exynos990.c:1666:7: warning: 'mout_hsi1_mmc_card_p' defined but not used [-Wunused-const-variable=]
-    PNAME(mout_hsi1_mmc_card_p) =  { "oscclk",
-          ^~~~~~~~~~~~~~~~~~~~
-   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
-    #define PNAME(x) static const char * const x[] __initconst
-                                               ^
->> drivers/clk/samsung/clk-exynos990.c:1658:7: warning: 'mout_hsi1_bus_p' defined but not used [-Wunused-const-variable=]
-    PNAME(mout_hsi1_bus_p) =  { "dout_cmu_shared0_div3",
-          ^~~~~~~~~~~~~~~
-   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
-    #define PNAME(x) static const char * const x[] __initconst
-                                               ^
->> drivers/clk/samsung/clk-exynos990.c:1657:7: warning: 'mout_hsi1_pcie_p' defined but not used [-Wunused-const-variable=]
-    PNAME(mout_hsi1_pcie_p) =  { "oscclk", "fout_shared2_pll" };
-          ^~~~~~~~~~~~~~~~
-   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
-    #define PNAME(x) static const char * const x[] __initconst
-                                               ^
->> drivers/clk/samsung/clk-exynos990.c:1653:7: warning: 'mout_hsi1_ufs_card_p' defined but not used [-Wunused-const-variable=]
-    PNAME(mout_hsi1_ufs_card_p) =  { "oscclk",
-          ^~~~~~~~~~~~~~~~~~~~
-   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
-    #define PNAME(x) static const char * const x[] __initconst
-                                               ^
->> drivers/clk/samsung/clk-exynos990.c:1649:7: warning: 'mout_hsi1_ufs_embd_p' defined but not used [-Wunused-const-variable=]
-    PNAME(mout_hsi1_ufs_embd_p) =  { "oscclk",
-          ^~~~~~~~~~~~~~~~~~~~
-   drivers/clk/samsung/clk.h:237:44: note: in definition of macro 'PNAME'
-    #define PNAME(x) static const char * const x[] __initconst
-                                               ^
-
-
-vim +/mout_hsi1_mmc_card_p +1666 drivers/clk/samsung/clk-exynos990.c
-
-  1647	
-  1648	/* Parent clock list for CMU_HSI1 muxes */
-> 1649	PNAME(mout_hsi1_ufs_embd_p) =		{ "oscclk",
-  1650						  "dout_cmu_shared0_div4",
-  1651						  "dout_cmu_shared2_div2",
-  1652						  "oscclk" };
-> 1653	PNAME(mout_hsi1_ufs_card_p) =		{ "oscclk",
-  1654						  "dout_cmu_shared0_div4",
-  1655						  "dout_cmu_shared2_div2",
-  1656						  "oscclk" };
-> 1657	PNAME(mout_hsi1_pcie_p) =		{ "oscclk", "fout_shared2_pll" };
-> 1658	PNAME(mout_hsi1_bus_p) =		{ "dout_cmu_shared0_div3",
-  1659						  "dout_cmu_shared0_div4",
-  1660						  "dout_cmu_shared1_div4",
-  1661						  "dout_cmu_shared4_div3",
-  1662						  "dout_cmu_shared2_div2",
-  1663						  "fout_mmc_pll",
-  1664						  "oscclk",
-  1665						  "oscclk" };
-> 1666	PNAME(mout_hsi1_mmc_card_p) =		{ "oscclk",
-  1667						  "fout_shared2_pll",
-  1668						  "fout_mmc_pll",
-  1669						  "dout_cmu_shared0_div4" };
-  1670	PNAME(mout_hsi1_bus_user_p) =		{ "oscclk", "dout_cmu_hsi1_bus" };
-  1671	PNAME(mout_hsi1_mmc_card_user_p) =	{ "oscclk", "dout_cmu_hsi1_mmc_card" };
-  1672	PNAME(mout_hsi1_pcie_user_p) =		{ "oscclk", "dout_cmu_hsi1_pcie" };
-  1673	PNAME(mout_hsi1_ufs_card_user_p) =	{ "oscclk", "dout_cmu_hsi1_ufs_card" };
-  1674	PNAME(mout_hsi1_ufs_embd_user_p) =	{ "oscclk", "dout_cmu_hsi1_ufs_embd" };
-  1675	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+So I'm still not seeing what's buggy.
 
