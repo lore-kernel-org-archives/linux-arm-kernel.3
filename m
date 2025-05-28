@@ -4,153 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70755C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 21:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDB9C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 21:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qBWn6Iuo1TneHanK9lhKXFOEDE1dfutTQEu7PTG1x2k=; b=AYx+pC0mhVbMGgDc/a9ZP72EUl
-	t/PevmZL9ANztvgC5XtN1KM80gmPQWtRq+1L2FNE3SR88wxJ4KzDIgcKg36JJfX821fUiJIr4ji2J
-	aron5QEzpJdY+ZSxQr5C2fzhYdkQqKlyfUo4Dq+D8mSXwvBg5BnOIu5CpC/Muin402jKVM75lmxOc
-	aRLiWgfPhPuUoE0PnbMLF5BZcqsNiczYfTJJkQS+F3lU0ZQA7iouRkI69qCzZ0Tt/oaMPSmvA4XSG
-	Lo8yv01Km/u7DlhgQ9winAhZyxGXYR2tX8/b7JaZQjq7kgzj5tMQkXq2LffQqUu6VhES17UmxgIAY
-	SE5HTLPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hpEaJTEpfR9+TojleH3uk2aBSDLiXQVkHne1HqD9Ces=; b=GOhVVp7WM1uy/7o819YbPQHK6X
+	QMayz2xgUib9nSbqKukcL8TYrotBSa9sck7KonsWKaXcF31Qq3EzaEOn6XBWaokiIB87wIXAqGZ9X
+	+UxxEMoq+uzTBaspoSc9zKCJBDnxclCO3+qY3s3tT8tQXugY4m2oG2bThl2gqiq+pKroIaSVYss4t
+	gzli9kM4BdrEl1mr8YUuC9CXELi6YoR96q3PfosM/6srzjUWpBQWYkAKFatHcnGA/f9ZtACaPmVtk
+	Z73Y093IofDCo27L6nrusnyALqTeykq7+oNNHUkL9YtTulFGlETuom4ONuADXeUsSRXVd+yrdwfdl
+	4bJytYaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKOXq-0000000EA3p-0pDL;
-	Wed, 28 May 2025 21:42:42 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uKOd5-0000000EAbR-0rP5;
+	Wed, 28 May 2025 21:48:07 +0000
+Received: from mail-vk1-xa30.google.com ([2607:f8b0:4864:20::a30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKOVh-0000000E9uO-0arp
+	id 1uKOaw-0000000EAOs-1qJF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 21:40:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MwXZuTNXeYf/CM6wBafQ6aEDlrUWt9Mp4S8qaw4tSpuNzx9QvxZi5bShL8BfzThDgE+aKr8lTEKIZODHWJMuUSMONwAj9ixOSppaNvfdq1Lr5a8X/76U5u0Fc6GmWNW1pXF0j0uTs9UH+DJ9l1yegAeXYe0XGKdDJZWpI3ODx34roaBud3NjhRT6A4UCMAAytacJTUaJTqkSidIWzvWfrp5WyaP5hD86OCDLDBA/am9mrBZPVYYw4DsJiPbG6UUv+8eurmOE1ktB5N0oDuyaX8azoeYStSLtcCzEERT0BKYbedOb55PeyE5J8ZFzGekP3/4RRd/tUQw4AsPYfZaijw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qBWn6Iuo1TneHanK9lhKXFOEDE1dfutTQEu7PTG1x2k=;
- b=OhE6bt/TdcjeNSd3vWjB7aQkBdcRfypdaOHn7wJM/cXzw0ek8dsEF7fGN+PXCGNjR6uVYcFANBhGP2R3farI+RmaNC/uZ04ImrDHkoK8ynJwz4yh0zfM8S/J2LlyUCmyXhYPn0OGYdVL0KQEdICxB/87eX+A5gvScjMo1fZj6Fk4xyUSiw7MSJKq7SSLTtLzFE5KUyCc5Z/uiTdO/S4CD7k8NmnnhThxQDGfKvwsSychw6Y+0k4xHBpJ+/eZMALcS3tbTygy5i0cddvYfG2ygZAE/4qVgQoBAcYbLsBrb7AiWbKctBUQDC5DsIYlVzEzhnLhfM4DCkS3R9svqp57ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qBWn6Iuo1TneHanK9lhKXFOEDE1dfutTQEu7PTG1x2k=;
- b=ntHcVVbNcFaS6BA6IgO7zXwdPYBK5YgPiWHYDK29D6qxNoKa5siso2e/X+wg+ySHPWcJ4IBkLv94gPEkcuFuc2LePfe/V6hcu/bSjtf1MAjGXsw9G2nWOX4SddttTf9hYBItG6xpoQbDIPCQEdVo359uJ7CuVdd7HObH/NwKxbe/5sf7yo+vdgHGEmoMWHApP566fqR5OnhO0aEZ9G39DJabYQQJdCRChciwEfJvEzHVhYwrbrE8ksnqJHUT4qrKmK8b+48JlnQUqYx1SFLgZQ6x3N8BeTpdCw6eTxIiLmh4HzN0ya0pN59QqiHeQ9mzr89NMmuqq2ebVifeWsi9wg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB8772.eurprd04.prod.outlook.com (2603:10a6:20b:42f::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.31; Wed, 28 May
- 2025 21:40:26 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
- 21:40:26 +0000
-Date: Wed, 28 May 2025 17:40:17 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Peter Chen <peter.chen@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-usb@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, s32@nxp.com,
-	linaro-s32@linaro.org
-Subject: Re: [PATCH 4/4] usb: chipidea: s32g: Add usb support for s32g3
-Message-ID: <aDeCwUsYTh7z7uuo@lizhi-Precision-Tower-5810>
-References: <cover.1748453565.git.dan.carpenter@linaro.org>
- <c7c9319793b439cb35909621381ca2d4a78699dd.1748461536.git.dan.carpenter@linaro.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c7c9319793b439cb35909621381ca2d4a78699dd.1748461536.git.dan.carpenter@linaro.org>
-X-ClientProxiedBy: SJ0PR03CA0333.namprd03.prod.outlook.com
- (2603:10b6:a03:39c::8) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 28 May 2025 21:45:55 +0000
+Received: by mail-vk1-xa30.google.com with SMTP id 71dfb90a1353d-52403e39a23so115361e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 14:45:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748468753; x=1749073553; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hpEaJTEpfR9+TojleH3uk2aBSDLiXQVkHne1HqD9Ces=;
+        b=Mwuhc1ZaATOXuMW97Y2uJMOl/a6eT22V1HCwtazmZkZqr2nJmt9U8yw8+JhjG/ZkV+
+         LVpdBHewS73nZx+lqcjuAWaXJdv7Y4T7EGtiRgoaDM5WQEVi/qVafjkEPagJarU14ZG1
+         aE7SIFyRN8w1/qNcthCxAZ6RL0Zjj05hv0xro6zHwF5qAgqJWga3eUKhZjN1/MGPKuGu
+         Da1Xx+RrZwAMvIpJsh/01iIHsAjf4RkBM64A5suimbpdJCb6UeT3XwCu/w7oewpxDjAj
+         cvIBgMa9P1AKWYhy6Ox6UJucQV5B+t05oK4fKhiaJqJqR6VJTxu34oqUKimqpU6uGHAZ
+         4xHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748468753; x=1749073553;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hpEaJTEpfR9+TojleH3uk2aBSDLiXQVkHne1HqD9Ces=;
+        b=vjq4BjQjxu8KPsMAVm8ja9hHRlSkVCPBNG+xf26U/E1uZnwk3oGPg0KcZv5cxnY6LQ
+         0y6Y0innS5dsnynRhthUftEuVe/Edd2dlZ6rzWBIrJ/PH1ZGsWbUbCJOEQJ4n0L6TJWB
+         vRI8OWHcnBV+D9Xp/MXq3tzR2r9wPxzWN4/HK75bZ6bj7wxtIWU7PSiFoFz09/CKJJ7T
+         bv0uJwrnQcn+pK8tPy/T9I3XdcTiqlMIz3ESSlU72PeqFxqUvTB5CCBAw4+pPx4u+7cK
+         NZgoQ/zCOI3zZePaP0pm1WQgdGEtRNAStdICSoxYiRVvBfStipVh97ojSDTtScqGzGb/
+         cXaw==
+X-Forwarded-Encrypted: i=1; AJvYcCVMKHHSEGYy7H9RWg6TG4MhhPEpTYbbLr666bc5v7A20QRIIiuqSoGMKLbPZ9Ehl8VXkaDZ8aEQFj30uaFz9q+i@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQX33LgU9noadc7haCd0R1DFkYBREbqBv2viQhAMOqO2jxbQK2
+	Fc9GP6os+B0T6QeezNDBkke2hzaXRQcZd/PQAjlsVJ/U7YD0jfWnKAolVhzfJCU/m82pu7ZOwjl
+	irrO8GHeFo1Cv90+f1x9pzrTxNE5HDe0=
+X-Gm-Gg: ASbGncs9krstjjGlcU9Wt5ltE4y/kHuzRGbA+sO7cFKTGYovw9tdD5BIpJCOXNjZlbv
+	bBbjOA34X3a/Te0LuPi0wiMYYPrm7oq3NeLIUGNvuRHxs9VSBJcUbvSSLtM4f9w4f5WvemR5xq0
+	xBRWMpklkvzVPfjN8Nhtkl77cAB/DbCjWeTg==
+X-Google-Smtp-Source: AGHT+IGpsHKYbxIXwCy/oeyiPruU2kwkLfCm0N6ezu9dQx6lfofizVF8mmR7cTBw0/YoCHcNbrcZCx1R7ipPXQVnY1Y=
+X-Received: by 2002:a05:6122:6185:b0:52f:4624:35ef with SMTP id
+ 71dfb90a1353d-52f46243757mr6427374e0c.6.1748468753120; Wed, 28 May 2025
+ 14:45:53 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8772:EE_
-X-MS-Office365-Filtering-Correlation-Id: 80fe40c5-d0e0-4ece-ba3c-08dd9e3041f0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ipEmaicjd/fOKZ9riCg8m4E1FSDTpDByvU2lAFJcSAYbmgBePx9raNZtBAbK?=
- =?us-ascii?Q?Yn1NWY2eAIb5k2Mhe3Tr7WxVMDuNn2LRzWc6llVn5N0plxl1xzvmF7V1r5vx?=
- =?us-ascii?Q?nQB3i8bT900zP/P5gv01JDL650NFNk1KYmjrcLtuT0iJBIqASpo16gDAXSBC?=
- =?us-ascii?Q?BoDz5BYMq6OXDyMy84Nyb0yR19r6OOFfzW4mDWgRdJfvSZU7YbX/6TQkFmPc?=
- =?us-ascii?Q?ks8IxekClcNtPhdcFdvWxKb/LTSE2IHWaXz+jA+AiWPh5fDLDV66bg6oQdsK?=
- =?us-ascii?Q?tULbupWw+Inycilerh36nomyYPd8bYw44AvXoyc9MLVVS5TwLPPaWCUHDhsQ?=
- =?us-ascii?Q?OS1wH/Rlj53O4mGUJNyxNvOIwQjeStNcn1QtDHTSVkW4Bqqs4BpVlStMrRne?=
- =?us-ascii?Q?VGmZ74lbwIEqjO1QtoDk2mfEGdUWJqv4SMkRkoXO59N29XoFJDjyPzzIgrsL?=
- =?us-ascii?Q?xEuKMhdyjxXhhN5v6I+7QOGiu6NgQEDF1IDxEYqYey4LLz/vr5pTLU7CsCyt?=
- =?us-ascii?Q?L2WmBtWLG2xAm2CKPYYldfoFdbJAH1a/Ym8S178jr0oolsI0hbP8gcURmwBA?=
- =?us-ascii?Q?gx1cGGD7D+Ok2pHo9DtjajfJj7HaBIiuXLNKElh5fIaVQ8XnHqhqxlAm5D0d?=
- =?us-ascii?Q?hBE/7TBZrL/CKJppE+oxCvPUTTMHmaN2wlf4HwXBsWfFdC8PAwJ3SWLlrwaB?=
- =?us-ascii?Q?dYmTsb+gkOPvScDYMwwsRgBS+ICBUlssswh3BVCJExBhq3bSFoCWKMchdL1x?=
- =?us-ascii?Q?iIHNH7oBywOIpUhUM61T1mdZzc2jZfwScTVJcuWK8gm1RcpcYk5kt2rkmh7g?=
- =?us-ascii?Q?XUFTvs0H8bRqB5MxDdA7erNQw7OYFs7UHh5pITONdbNWPWLAD3UxYtkjp0e7?=
- =?us-ascii?Q?M890Y8sZ/kdIfKr2p4jvI3yRb6xsdr3qL8x7dvMCNBlop5DkfljCEXNoyb6z?=
- =?us-ascii?Q?SfYZxmCA28y5KkEbpvFO5zzbLlh1rGVoEVxTSaQWlZZ1/l6CP7DuIwwNK9ip?=
- =?us-ascii?Q?ABwAXeuWEwCzX4ErCjta9MDVk5zVJlRtgQyLWssCp0oEz3fIX/LSUfsrgFuj?=
- =?us-ascii?Q?UfhdWnOoi9HXIAvyZMxgxXJ2sfxyrDm7JJt67RltW7lu935he2nabZ/e8bE8?=
- =?us-ascii?Q?Xk+45fp3z82OaVniugB3lLpAE0J+1qVKare+NKVI9c1N2E3BY2+CX3A2b2cb?=
- =?us-ascii?Q?Iks2iCDz52VlCsrlltwF8eBCgR+Q0R9H/dDlbiie+IlgGgUi0dV47I233Vs6?=
- =?us-ascii?Q?QKPbp5qa8TUihK5vT3ev99EO2h1IwsZyb5Z8165WEZ580OzT+ZXfJR/pna2i?=
- =?us-ascii?Q?9k+3ICMCeoFz4HbQqQoZjBQi4S0jrVBP5AjiVZjPd+3hP7evrtK1ebb8iurZ?=
- =?us-ascii?Q?4xWfSefxl4HjVG91Vw70Zmpr0M86Ba68sbwBEkG511NyaWZoAPZa6Px7ygdn?=
- =?us-ascii?Q?A6eF6iu2IRDtkSTey5JPLp2N8sh7J5YX7z1O9YzZBLSAQTdDJzrdimM+0DE0?=
- =?us-ascii?Q?rGqqkhXJ/km/uVY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8cyuoHKr1Gy0rUz3LubARIdWY09epvDdZhHNJ7CQ/HijNbmvaggeGu7rjK1G?=
- =?us-ascii?Q?PdFaMKWYkK0WaHatPC9Xp/zSRuUcgtM9nxLUfyF+e0zMRqmLRPXKSZMDolgB?=
- =?us-ascii?Q?3o9jFPsgWBRs/hgge+p2LIeTpeIwheg1HJRK0PQ/e4at2jFdbqvsBxXNSSet?=
- =?us-ascii?Q?t2HpnKIhtlq6URON5yzNJ3R4oOOKWmg5HSEUN/kDFCzLJiRymVfWchfJSZuC?=
- =?us-ascii?Q?TnEh05KwA5aZFiaje1OjrqE1sQSTUfSxgNBTvEKYmsKB/XK6oFU4UFSUXi8C?=
- =?us-ascii?Q?BPIsWBaMo2RiY2oxqKRazeyMS+Zf5L5Tpq4KmcHvGy0Wy8UB7vUPFN8vaznJ?=
- =?us-ascii?Q?SC88uqM+/iDHeCzT7t7PZB7Q2FBVN7qmFeNZLM3DmUwJVrQK8i0BxgrMKShJ?=
- =?us-ascii?Q?YomJQx7urBmmHQvqeuHEM97BAIhWXnHIWFGTWVAGhZaSJPPiUILRedJFC6Ar?=
- =?us-ascii?Q?+BKQT125etuJlclRIo1mCr9VA8dnMxfJpytcLspVmKJhDQbewm5+kr8FwxLc?=
- =?us-ascii?Q?gRIRpKYsaB8BSG5hkvjQ+PotcJZDqhKY/6faNCOSWUT+ciVWtp8oPKTa2fLC?=
- =?us-ascii?Q?E17hEV6Iq7VefrAYo9BDTY+h5WjCd0TNYaPvLL2r3K9uDji1odzxIty2SLpi?=
- =?us-ascii?Q?pp5rLpC4nwJ809Lv+8LaiMDVSmNOfA6lPnvtJsXaJIbLiG0Fs5dG1VJmHKAc?=
- =?us-ascii?Q?cFJt3UZ3r3vPt9Pu4g0i4IN67gwRrlm18mNg2a4TmltpyrwQ7MKCas3liNMg?=
- =?us-ascii?Q?j68ODJX+eBKTnISou0sRKWMca1IEQ4H4HPeG9gpAq396If6XzSibrPqW5KMw?=
- =?us-ascii?Q?MA0kKNcws7fa7d8AArW/R5qddFV2BOll7fe2qOQibfmlOAnTjLx+eh2R93dr?=
- =?us-ascii?Q?I34KU6nrxHFxB8drgf/vAR4kW6hccqcSXa8O90yGRI59Z9QvjiF1+zIUUSAo?=
- =?us-ascii?Q?XbtKQYxx40D35SVhrajW/jZ1JkhTL73ZmYPqHQ85dQEXBTq71+C+rtGmFwkt?=
- =?us-ascii?Q?kH1mAQcXGrdg6bj0n5i7nHu2S4kUCWSxm7f5XKbgnlU8nROxB0FIdG0c8u43?=
- =?us-ascii?Q?imL5r4F3sFh96yxz+ImVDVfJj3LnoGxRp+JapGZ4W20xT1W47sHKKX7063Ug?=
- =?us-ascii?Q?sY/NcwQCVi0hvM/rUTjmGQ35WgvIUQJsaPSP9383ebY/FgXnuxDkBHjNE1ae?=
- =?us-ascii?Q?fVlya95LWIIS2K1xU/Y17Fxey1iPjs/NJGTMoQGybTA4V8jXNfyOMTwUD4XL?=
- =?us-ascii?Q?NJVlx29fnOCuxQAc2Q+R0YcUY77YuWl+VzaeuEeYhz9oUpMbxXU9F8W4XICp?=
- =?us-ascii?Q?R83B2vs2UOqtHQQl0NSsJiE2nw7n+II+8y7iwPzdL4DT2EHrswEu08B1p8O/?=
- =?us-ascii?Q?GCrHgsSMeskgQsoiz6Q3A7srySyHH+s1TWFVAvtUODLTuY4deuziqlyRxtV4?=
- =?us-ascii?Q?DDo3HavRtKGSruOO5ctSzAdoMRO2JbHCgny7MzLLuIP823YsNc17gMvuDVa+?=
- =?us-ascii?Q?dVFwC9eXNRdpwJlSQMCMesseSGuWaO7795OcOb+DukermbqdsKX3BuwGHxdZ?=
- =?us-ascii?Q?zVqPCbDCH0IAgs/cMz3AuIbvdb7va7P3JoH+wGun?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 80fe40c5-d0e0-4ece-ba3c-08dd9e3041f0
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 21:40:26.0961
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Xz0FEL+6p3u3Yo2WCEttFfzP0kDclJOpZGiDqzwHQiPjATT02wG3QsmB7/fsMVotX71IHkpaksxmnnQQBhPHBg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8772
+References: <CADvTj4qP_enKCG-xpNG44ddMOJj42c+yiuMjV_N9LPJPMJqyOg@mail.gmail.com>
+ <f915a0ca-35c9-4a95-8274-8215a9a3e8f5@lunn.ch> <CAGb2v66PEA4OJxs2rHrYFAxx8bw4zab7TUXQr+DM-+ERBO-UyQ@mail.gmail.com>
+ <CADvTj4qyRRCSnvvYHLvTq73P0YOjqZ=Z7kyjPMm206ezMePTpQ@mail.gmail.com>
+ <aDdXRPD2NpiZMsfZ@shell.armlinux.org.uk> <CADvTj4pKsAYsm6pm0sgZgQ+AxriXH5_DLmF30g8rFd0FewGG6w@mail.gmail.com>
+ <8306dac8-3a0e-4e79-938a-10e9ee38e325@lunn.ch> <CADvTj4rWvEaFyOm2HdNonASE4y1qoPoNgP_9n_ZbLCqAo1gGYw@mail.gmail.com>
+ <1e6e4a44-9d2b-4af4-8635-150ccc410c22@lunn.ch> <CADvTj4r1VvjiK4tj3tiHYVJtLDWtMSJ3GFQgYyteTnLGsQQ2Eg@mail.gmail.com>
+ <0bf48878-a3d0-455c-9110-5c67d29073c9@lunn.ch>
+In-Reply-To: <0bf48878-a3d0-455c-9110-5c67d29073c9@lunn.ch>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 28 May 2025 15:45:40 -0600
+X-Gm-Features: AX0GCFsQQOiCt1aAs6THJH6hfyWkXOQcM4Hww3s0-x--VPr5n56VGuMBPUsnYgI
+Message-ID: <CADvTj4qab272xTpZGRoPnCstufK_3e9CY99Og+2mey2co6u5dg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
+ PHY device
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, wens@csie.org, netdev@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Furong Xu <0x1207@gmail.com>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_144029_182111_2ED30888 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20250528_144554_513530_AF3FC9D4 
+X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,78 +107,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 10:57:39PM +0300, Dan Carpenter wrote:
-> From: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+On Wed, May 28, 2025 at 3:29=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
 >
-> Enable USB driver for the s32g3 USB device.
+> > > Describe the one PHY which actually exists in device tree for the
+> > > board, and point to it using phy-handle. No runtime detection, just
+> > > correctly describe the hardware.
+> >
+> > But the boards randomly contain SoC's with different PHY's so we
+> > have to support both variants.
 >
-> Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/usb/chipidea/ci_hdrc_imx.c |  1 +
->  drivers/usb/chipidea/usbmisc_imx.c | 15 +++++++++++++++
->  2 files changed, 16 insertions(+)
+> You have two .dts files, resulting in two .dtb files, which are 95%
+> identical, but import a different .dtsi file for the PHY.
 >
-> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-> index ce207f8566d5..d062399ce15e 100644
-> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
-> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-> @@ -95,6 +95,7 @@ static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
->  	{ .compatible = "fsl,imx7ulp-usb", .data = &imx7ulp_usb_data},
->  	{ .compatible = "fsl,imx8ulp-usb", .data = &imx8ulp_usb_data},
->  	{ .compatible = "nxp,s32g2-usb", .data = &s32g_usb_data},
-> +	{ .compatible = "nxp,s32g3-usb", .data = &s32g_usb_data},
+> You can test if the correct .dtb blob is used by checking the fuse. If
+> it is wrong, you can give a hint what .dtb should be used.
 
-If it is same, suggest compatible string fallback to nxp,s32g2-usb
+How is this better than just choosing the correct PHY based on the
+efuse?
 
-compatible = "nxp,s32g3-usb", "nxp,s32g2-usb".
+> Or, as Russell suggested, you give the bootloader both .dtb blobs, and
+> it can pick the correct one to pass to the kernel. Or the bootloader
+> can patch the .dtb blob to make it fit the hardware.
 
-Frank
+This is what I'm really trying to avoid since it requires special
+handling in the bootloader and therefore will result in a lot of broken
+systems since most people doing ports to H616 based boards will only
+ever test against one PHY variant.
 
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, ci_hdrc_imx_dt_ids);
-> diff --git a/drivers/usb/chipidea/usbmisc_imx.c b/drivers/usb/chipidea/usbmisc_imx.c
-> index 43098a150e83..34fd26faa303 100644
-> --- a/drivers/usb/chipidea/usbmisc_imx.c
-> +++ b/drivers/usb/chipidea/usbmisc_imx.c
-> @@ -677,6 +677,11 @@ static int usbmisc_s32g2_init(struct imx_usbmisc_data *data)
->  	return usbmisc_s32g_init(data, S32G_UCMALLBE);
->  }
+> > > Do you have examples of boards where the SoC variant changed during
+> > > the boards production life?
+> >
+> > Yes, the boards I'm working for example, but this is likely an issue fo=
+r
+> > other boards as well(vendor BSP auto detects PHY variants):
+> > https://www.zeusbtc.com/ASIC-Miner-Repair/Parts-Tools-Details.asp?ID=3D=
+1139
 >
-> +static int usbmisc_s32g3_init(struct imx_usbmisc_data *data)
-> +{
-> +	return usbmisc_s32g_init(data, 0);
-> +}
-> +
->  static int usbmisc_imx7d_set_wakeup
->  	(struct imx_usbmisc_data *data, bool enabled)
->  {
-> @@ -1200,6 +1205,12 @@ static const struct usbmisc_ops s32g2_usbmisc_ops = {
->  	.flags = REINIT_DURING_RESUME,
->  };
->
-> +static const struct usbmisc_ops s32g3_usbmisc_ops = {
-> +	.init = usbmisc_s32g3_init,
-> +	.set_wakeup = usbmisc_s32g_set_wakeup,
-> +	.flags = REINIT_DURING_RESUME,
-> +};
-> +
->  static inline bool is_imx53_usbmisc(struct imx_usbmisc_data *data)
->  {
->  	struct imx_usbmisc *usbmisc = dev_get_drvdata(data->dev);
-> @@ -1432,6 +1443,10 @@ static const struct of_device_id usbmisc_imx_dt_ids[] = {
->  		.compatible = "nxp,s32g2-usbmisc",
->  		.data = &s32g2_usbmisc_ops,
->  	},
-> +	{
-> +		.compatible = "nxp,s32g3-usbmisc",
-> +		.data = &s32g3_usbmisc_ops,
-> +	},
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, usbmisc_imx_dt_ids);
-> --
-> 2.47.2
->
+> Mainline generally does not care what vendors do, because they often
+> do horrible things. Which is O.K, it is open source, they can do what
+> they want in their fork of the kernel.
+
+That's not really true IMO, mainline implements all sorts of workarounds
+for various vendor hardware quicks/weirdness.
+
+> But for Mainline, we expect a high level of quality, and a uniform way
+> of doing things.
+
+Sure, and I'm trying to do that here rather than do some super hacky
+unmaintainable bootloader based device tree selector.
+
+> This can also act as push back on SoC vendors, for doing silly things
+> like changing the PHY within a SoC without changing its name/number.
+
+It won't here, because Allwinner doesn't care about non-BSP kernels.
 
