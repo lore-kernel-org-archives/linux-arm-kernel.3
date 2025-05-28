@@ -4,148 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5ED3C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 15:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567C4C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 15:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgRyuc1tlcuAEiLoRvj9YDojwwp0s1sKT6QsYbZrxKA=; b=VKtY2zAlqmthqBIKlsa/tJmu8G
-	+Sewr74DQ4ysg5D6LfYjQziiH+fAxUaGXeX+83LMvQOJWU+W08Gy2ROFrdM0Hgdur2IEb2GYdpIoc
-	5kLnzS4z2LoAjki7pyPViu1bIb1ZwPyG5L2DC6Bfo3k5jcsBcX2csbcNx4Im9dxoDaVRl/PSOsnrT
-	fcx0CkXK9fpl8g6FAXsst5/maCxsG2dDU5ZHTwED3H4tC7CtHV6+toj7VVdVz/ozkhtas6UXj756L
-	5sMdQl4/ZPyKfOLDoKa1fI/Wm0RMyHATfT0hrcUNJVO+qcTYHqI8f60gHvqVv1qDd7OpVCDk8emgp
-	3rSKUU8A==;
+	bh=+R8yVTWV7faHDggV+H50he2EYWDm1F+x1P6wR58APkU=; b=EtnCubJgLkxNi6ltGtLLbWPzPX
+	0RyA7ZhMYBvbynjgANqbjRjLEdxVAkA3ZJXcAUFqaEHfo5AlYvGEthsSwpeaWUfwf3ncs/LLoT9Du
+	Pnk96Gl4SUqVnPfmUKxZGnJXIdroQMS6rIPzZynGHJ3GnrLNjyccZAv+7dGVIwefUaQ6HFuCiVhkc
+	lTy7tVi8U9Jd27zlXdFE03iXuBBsn+dnJXDLDhoQBNE9ua33CeJq6ubrbvG+sgK59uOEbGeSbc1GM
+	JLB6I9hCjNCBmZnrzcb6pxOSA3ZldPp9odOm0jV3096BkgYQY6eajL37Swx/vItXtIAG24ipr6+HR
+	SAcFEPIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKITg-0000000DWho-2vMW;
-	Wed, 28 May 2025 15:14:00 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uKIVn-0000000DWqI-3H1c;
+	Wed, 28 May 2025 15:16:11 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKIOC-0000000DVkj-2ws6
+	id 1uKIP6-0000000DVts-1vYn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 15:08:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CtSzGti6MnbaJUEl2ZxT+I4IP2np0tl/vum5zR2YQUeY/OR/e+gJKAOp4JaXL4p/DIJhANguh8KqPSYnsqHG7hcTu+N5wK3T7ZXs/j3wNMAdK6D+LuHHQj/WG5oJMXUQOax3/gSg/JmwA16/Vux+UmsUN1i/YMB3FeshwrJgBgX8/AdT1BBD1V8gH9SEq+9etJYEXSq/yVKlDqxGTy0H6KhxaZryN3vtJLeV1DmCmZefu2t3YjTqRhmRCIeuT1nxG/0mTEw38UY1Q1f9eorlg+bA6Lao4HL5uNyur9AheIo37GGAKV+WOljKi8rMU1XHRpWPuNwNM9NEINOVHMixhA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pgRyuc1tlcuAEiLoRvj9YDojwwp0s1sKT6QsYbZrxKA=;
- b=Ud3ueSe7CNghfPbo56MdpKlgDr/NcFQU7yJruwK49cOK5hg4dVHczUlfn0St6k4A2XKRZ1InfRXC5e7ND3uzp6gBMeYJdpv5Q2ENJAl2JH77fetODJ6C2HMWPEHG4NZA6CA6ceulv3rnEYVj2wrI5Y/7gmi5u5Sm1C3o1HmmwF93/m67rdwnv7dhRB/JRCwlPrvvo72T1wM0kcqcAM+UjwGoE+qXSgkhKEAzkiT4GTsikTJaQabd4qOZUJ2SDQOGachF4HjIt/blIsbxKT4mawkQ7h9+2kF0cO+9H6CMTYTnuDaQUaS0wQZ8p04g2RQKKgvCV9FrtYkmwcj2F+dVtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pgRyuc1tlcuAEiLoRvj9YDojwwp0s1sKT6QsYbZrxKA=;
- b=PM9KS47K96LyTPs4NH2QKxJQFJLogg74rl6rijGM67MA+EyhJe+ygr5Jq9BlR9uNOstjKXJp+J78XlZEeSdY7tVmY+sJQ2pdUheiMQYoqpVLezD8L5Oqbo5cJw4PzhfIX8QIzM/z4bVCtMd/ajtdiFqTzCNkZB3ba4TlKPL6AS+tnPLDjt7dEpqvL7xnBa2wmm5l0MysRC4aJJclV8/nGlbFilBYOz9v+nhnzw75tWi5Op7dvaLHSiFfwixrYFrwCQJRq8slJTflyC2ETXe2+1JepRnhj3m4MqmZU05bOVkmLxboj1dvo6pcmBE2kn2zSgmfi9Z5uhifUlAUhjXHvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA3PR04MB11250.eurprd04.prod.outlook.com (2603:10a6:102:4aa::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.22; Wed, 28 May
- 2025 15:08:06 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
- 15:08:06 +0000
-Date: Wed, 28 May 2025 11:08:01 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: dts: imx95-15x15-evk: fix the overshoot issue
- of NETC
-Message-ID: <aDcm0QC4PMEEZzX1@lizhi-Precision-Tower-5810>
-References: <20250528083433.3861625-1-wei.fang@nxp.com>
- <20250528083433.3861625-3-wei.fang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250528083433.3861625-3-wei.fang@nxp.com>
-X-ClientProxiedBy: AM6P195CA0097.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:209:86::38) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 28 May 2025 15:09:18 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-442ea341570so33749555e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 08:09:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1748444954; x=1749049754; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+R8yVTWV7faHDggV+H50he2EYWDm1F+x1P6wR58APkU=;
+        b=FYTgPyB4pWuMOPu21AWDB9kKTG2dAovRqpWDm9gnNYa82fNpKCIJ3UWmRZ1GQyPbzf
+         +Dgue7szp8FXY+1iXfmCg/IZR96RANDTMHXBL+jtuWYDQKMoAa89wRD00cjlSLc+Oi86
+         nch+n9KkGLDPR9ksPhP5L9coRIIdDW+anTKZoK+mjMf32IZwBWw1E73OQ5pukuc9FaQz
+         UYohcmAMCNuViq1L04KCias3CNhfbvEP+uVbwZjKVe8WPfZejD7A4waEhPAg+5sBHeiY
+         9IkaecnRrHJ5oHXwRJvlP5AscvTCbU4Xat5PNEhJgCpYuvYyxof9I++QIfr1kTvq2pjs
+         s6CA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748444954; x=1749049754;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+R8yVTWV7faHDggV+H50he2EYWDm1F+x1P6wR58APkU=;
+        b=PV4cpcxe5zQ9Sbs8im12AqL1NZ902+OhtaeXV/joQFMNG5mACKCrH5jm/5eckwhNnu
+         X3XZZp/y2PZ6u4cFiJb3YKfsqpeFjp1+ocB47BsryKqwWOj7C73KMYQe7Elqx6zq1J6x
+         WQG9JaR8yXB4A72YakwMC4E+PTfoWHalBV79HKHoPV5YwkVjJ4VKXqFssfx0dnkeWvRV
+         ZGmm4vxSsPQOdx7f0EY6Gtbhb8jlK/+XfPlmOfapmY0qQfSQHeUkFNr5032wYt1wAkZ7
+         DMGbQglkpWQKu98jGYJJQE+e3mIVDAG4R6xntwo9oFevakFDPq0fMx3AC+MvW0oi3+Pe
+         B5jw==
+X-Forwarded-Encrypted: i=1; AJvYcCWT2wke0/fgTkncupRZUwdk8/vJLYI7aFXsSShVXcTYNgbiyOdiEJMoKgrqBF7cicv1Rz97TIMzfAOtk5UdT0eg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZUKpKyV0om+yl0OfyRgp2W22LJsVuA7R8ZUBQxKvxncT7o5yQ
+	G3EB34OVQFNMuHtBLu/RF1D8l2ovBsIHd42IKrLNx0oxMJAckEPqrbTjMQiAqp11myw=
+X-Gm-Gg: ASbGnctZoHhYHXR05cJMbdyui0q40Ikjtz5uf2LKttJb+j87eWNAR6j2QcFaZPn40lt
+	vK2cEN2dIrG09JcaAwCQA00JjHfml24Uwrv3wMeEnIAJH3DNprh/5J55AzNh+VSUEviIZIsx6n+
+	UtsIvPsaEvkY2MnOiKGr5pSDzL7LP2/hyBmY36GXruQ3VwfR053YQs2C7lZjVDe9ZUOGhibe/TB
+	Q0ya427DNsNEGzNI3iydMOlV1ZXP1iFlnfRRQJMHi6QiixV+VWUrbcdvh3QOcJKNvcgBAKNrgTu
+	AvVlSpkozpc5AjmsrKsA8Q9xykoZs+N/HPalG0I=
+X-Google-Smtp-Source: AGHT+IGlaccgtVXoxgdtRY0DaxB5E5oM1xLtWSVzQKwZmQedIB076PoZ1cGVyfI0Vth+zZs2F/ULAA==
+X-Received: by 2002:a05:600c:8487:b0:442:d9fb:d9f1 with SMTP id 5b1f17b1804b1-44c933ed9bbmr168819085e9.4.1748444954154;
+        Wed, 28 May 2025 08:09:14 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::ce80])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450064ae525sm24810625e9.21.2025.05.28.08.09.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 May 2025 08:09:13 -0700 (PDT)
+Date: Wed, 28 May 2025 17:09:12 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atish.patra@linux.dev>
+Cc: Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, 
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
+	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv <linux-riscv-bounces@lists.infradead.org>
+Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
+ 3.0
+Message-ID: <20250528-ff9f6120de39c3e4eefc5365@orel>
+References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
+ <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
+ <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
+ <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
+ <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
+ <20250526-224478e15ee50987124a47ac@orel>
+ <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA3PR04MB11250:EE_
-X-MS-Office365-Filtering-Correlation-Id: 489ce511-6573-4475-687b-08dd9df9732d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G+d9R9jD4VvulV8eTFHIwaHGxyNE4CB8uhzUj1ndS9gwpEw0nmm4Y0nJt09Q?=
- =?us-ascii?Q?3CPiUiIwr0TVkOJlXgE00FPsceUvpqq/iXCD7U1E0dVn3K4d+YtbkmsfJ1Tz?=
- =?us-ascii?Q?cc5/zHf2o4oc6AKpOzOq06drn+08/PiYKmD5WKSG3NCiRzZrj56bxDw9jVB8?=
- =?us-ascii?Q?y887+DwJEtwL96N+JMGNXLFbZlzuEeYoquJVFELooPMhcwux71/mzg48AgAf?=
- =?us-ascii?Q?PdJPM4xMKQ7tyqYS5VNcfOYjBhFOGWUh0K7Jw1MS1jVdFKEBrjNzBv8AATTE?=
- =?us-ascii?Q?MqSoNGQ+2u/5buvYNC/PjDHsqOahUShE75Q1vOZAOMbxx0edYOf4m96aqKKO?=
- =?us-ascii?Q?JKQI1C+s38HOet7GF0WCRxjpfB1QJTx+qfJfAzDH7NKtTP5Co8PFlr9zfW6P?=
- =?us-ascii?Q?cctqU61DVM6RDnGVBkOXBSA9L6VQtjbX7IyJNsOJdzq35jzOwDYilnMSlzPB?=
- =?us-ascii?Q?iwIWa2uQ+eL0G+wHcb9BsSv7MdZbysCnSH5G00da3Xmuxd1R2upk6slDeWYl?=
- =?us-ascii?Q?LbmBCRvO1H6AvuBlnthrO1pZkl+G4BgwYT/rJvLG6RJqz1tmK3SgRaxF2U6r?=
- =?us-ascii?Q?SntFDtO9lIP3Tm5BQkq1AcihpvX7ItrDxy54B0vv8VweTbWZVetajcBtTYrb?=
- =?us-ascii?Q?ktLGPg5MLEzIJPTIDkrEd68lUYi0mCz7IDckXzbf69OcYHQjCgiB3izqY6sI?=
- =?us-ascii?Q?PFpLUpyNP9QpVbPVWgKprepozrVCNSTT34RP+SOMSGQYMfTsHNoZkt6qdkL7?=
- =?us-ascii?Q?6qoGfkmcrhnkvJHXqY3WVnmKs6eCtSAUtYo2oQHTsu8+S5+sXJVVvdC2PjPu?=
- =?us-ascii?Q?62otDNhkSnuiLp4SlYBK/K7wAeuSsVbXMzX9/9je6UYXxrcNdl4j8TJap85I?=
- =?us-ascii?Q?9bsy0NX7IG0Z53327IRBPU0s8H6v/BOfyFD4f/GkJ7Q6qb03k+OGSqCdfdAI?=
- =?us-ascii?Q?1ga7vBE1o41RFWN2rpQxHKGvAQ+ZUlKvJBiwc3t0TLCoc9gq00+tSPg7E0dZ?=
- =?us-ascii?Q?5cQUs3EBEvVTAq0LxXGIvs8woiulN3CKEjHRJ0raFJ0ytotQf5lI2E5bO+Un?=
- =?us-ascii?Q?2Ty3LS8ADqLEalWDZHtPB2U38VqOdpUAAInZJcXa6ndMVF5Qi9gqSfikNySl?=
- =?us-ascii?Q?mAJvyzbrPnWF2G8EO8DV3uyo4QyRWvhgkLyXLrq1IVUCFs2K8CMV5LSyj1Ov?=
- =?us-ascii?Q?WOvtkH/bDlJM1WOHOlwYQ42gr8f7y6To3VBV6Ub3CV0ZL1LHtAJZ5wNme/0x?=
- =?us-ascii?Q?D9Z9SQvUW6fAbJJ3097U9UzAuDDf5BZB7yaCfrVz+Oi1mYrH8TDa3tMU8wEb?=
- =?us-ascii?Q?8teaJDbQX8poXLrbcJiDU2+A1lTJK5yYrEThswjIAZBCjzC99/RYYcZEJAUQ?=
- =?us-ascii?Q?wniDfllyI59llFaKe1hEkBUBsTcrZINMZW3aQ0fJX6juXTKcZeDBl/lVPIO6?=
- =?us-ascii?Q?14LQo/sPowLVyPvjV9ptetWeU7tmD/ZSjMSgt+UDGyEF+G2phKEVc7b0EcqQ?=
- =?us-ascii?Q?kFKRsqCGuIQD/38=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9iLjBGwyJTbARbh9+u8IaaL5eTYwcRlY1ALQ7RgVfFu6uXUGtGEx0kGYB83C?=
- =?us-ascii?Q?LpoAphaedLbcSnXxeE56d9MdPfENFcN4GgS4IDgMiSTESJ7Pf7Ii1VxWNYh7?=
- =?us-ascii?Q?ZqlHawb0I936vmnUG5ENNxpSYrZYufPg+QvlOFa4A4BGdQql/B2xMjsp+UOF?=
- =?us-ascii?Q?ilG6M6jQ+ZFMZF8ea7A/2K4QWDMZsJvbPXnSCeulVYuiMx6zUaPRAIMrl709?=
- =?us-ascii?Q?cpOXEjPGIoIwQSQ/I3o6QUfD0VjK7j/K4Qm3cB8fwWO89+56Nhx4hmOvrAQX?=
- =?us-ascii?Q?O2QxJXGqExVD6HFvCjTPWklx3RULk1iWvRALBJnGercRj/ymjWgq32mdThfC?=
- =?us-ascii?Q?zeZ826yVb7FvP2km/F5smaJig98uNj9E8+HBTsaL182Vr7CbkSymZOQ6/91N?=
- =?us-ascii?Q?PWn0JlRQYoL/66K7FSRuJG/YhreCDfk04cdpvolSLvvGiBUn0RQQlW5mlc/D?=
- =?us-ascii?Q?7JwpoonMAcaCxG3gk1A3bUDxUHpbJFWdOywW3b7Xw3Cf73Z0o/QBpRY0/4bM?=
- =?us-ascii?Q?OyMoh6w9vY5UjHpUh2z3a9M6dO5hW1hpkTHKHlC1z123lwn4acxmIFg5FyQN?=
- =?us-ascii?Q?6+73a2uTflFr7wwLtZ0KwrbOtWgFW8osPJ1HPB9MHx48voGUO+3s3GR67KKM?=
- =?us-ascii?Q?2reKkbyLlxa6xj2GQWqnFog1zJcuOLf4uG5G7UCrDb+2WEW0m0T6LJbjcpE7?=
- =?us-ascii?Q?Sx3Q2zorHCC4R4iPJrpbcFX1rC+/SaRtIkjdPTQHm+4MMvJNJhjMofV4kfCs?=
- =?us-ascii?Q?GTOBtkS21R9TMKh2weWI4oNbpK0r/m3CVVA6cVKhWgjpfiMWb9pcUUb29bI1?=
- =?us-ascii?Q?ujNXG9eMumxUVKSwQyFCMFoxDvavjvoK7S8KbUwqVasz0ruROdGdsnh8Gjh4?=
- =?us-ascii?Q?m2+p0VUhUHS0tacKYmshWEHFC2a7QWCYvohqNmyrbaWIXOMUx4JfrYQ5lyk8?=
- =?us-ascii?Q?4ipc5y3UkA2lqrSHJCG9PkpGsg1TeUkYPTXt9PWpyxbx6gSTsrRXsbrvY52p?=
- =?us-ascii?Q?nWJg5SngmPjNyDGGvlfuMp/hVSnd8bFXiYiM97WsMkvR/M8L44/J2pAPASls?=
- =?us-ascii?Q?2U8fL34p+wCg0bheHvDkEkeyyRI7L5k/2rRmt+H5tkF2dXj76FMcVkj8hCbl?=
- =?us-ascii?Q?jybBivv7MszC5T4yPKMahp/YRxoZIq6Ob8DSNJDtDul+rx69zYv8qHv01jXS?=
- =?us-ascii?Q?BWUnSauij0tqf+9/lRqVb71HEeeHLRBZHvpsDImJoZVy7+M4p3b3Gd6pOwk7?=
- =?us-ascii?Q?urdGYYO7YoucjGgqogpVtUS3ckDssrb78Mv9rglTLOvLNDaf3Zy4YSXQGdea?=
- =?us-ascii?Q?0P97Z+N/iIgesWbWExWphchYnyTOMPXMmNl5Y4/wvzraNydZElnWL1X3Hx2s?=
- =?us-ascii?Q?KwVAqy9/gksP2Xx6jmzzgakIY9qcqwwjlEI9hE3Mg5kmuWq2LB1rrvz2kMQB?=
- =?us-ascii?Q?mdW3ISX7p62UW9iDqLVF8xY241rru9y22qzuitX65weNroDoN0RclHm9HRwP?=
- =?us-ascii?Q?pQAtyPxrwgdcBVgfvrRco2LxO9AUVUppM82euPci2Dl0IrCssxsfJljeu1p7?=
- =?us-ascii?Q?NCXTuAtV03Zp79YQFFDhX7Zh2IxNdI5tkBXhofIE?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 489ce511-6573-4475-687b-08dd9df9732d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 15:08:06.3935
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yHi76PljxKgYSxYwgqIt6lsiXj64LpVYQieLauvG2VXx37Rc91S9I46hzWhMvnn387F02loSRhxnYeSumWacXw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11250
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_080820_743970_ADE361FE 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20250528_080916_499175_550A2D0B 
+X-CRM114-Status: GOOD (  39.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,63 +110,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 04:34:32PM +0800, Wei Fang wrote:
-> The overshoot of MDIO, MDC, ENET1_TDx and ENET2_TDx is too high, so
-> reduce the drive strength of these pins.
->
-> Fixes: e3e8b199aff8 ("arm64: dts: imx95: Add imx95-15x15-evk support")
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
+On Wed, May 28, 2025 at 07:16:11AM -0700, Atish Patra wrote:
+> On 5/26/25 4:13 AM, Andrew Jones wrote:
+> > On Mon, May 26, 2025 at 11:00:30AM +0200, Radim Krčmář wrote:
+> > > 2025-05-23T10:16:11-07:00, Atish Patra <atish.patra@linux.dev>:
+> > > > On 5/23/25 6:31 AM, Radim Krčmář wrote:
+> > > > > 2025-05-22T12:03:43-07:00, Atish Patra <atishp@rivosinc.com>:
+> > > > > > Upgrade the SBI version to v3.0 so that corresponding features
+> > > > > > can be enabled in the guest.
+> > > > > > 
+> > > > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > > > > > ---
+> > > > > > diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+> > > > > > -#define KVM_SBI_VERSION_MAJOR 2
+> > > > > > +#define KVM_SBI_VERSION_MAJOR 3
+> > > > > I think it's time to add versioning to KVM SBI implementation.
+> > > > > Userspace should be able to select the desired SBI version and KVM would
+> > > > > tell the guest that newer features are not supported.
+> > 
+> > We need new code for this, but it's a good idea.
+> > 
+> > > > 
+> > > > We can achieve that through onereg interface by disabling individual SBI
+> > > > extensions.
+> > > > We can extend the existing onereg interface to disable a specific SBI
+> > > > version directly
+> > > > instead of individual ones to save those IOCTL as well.
+> > > 
+> > > Yes, I am all in favor of letting userspace provide all values in the
+> > > BASE extension.
+> > 
+> 
+> We already support vendorid/archid/impid through one reg. I think we just
+> need to add the SBI version support to that so that user space can set it.
+> 
+> > This is covered by your recent patch that provides userspace_sbi.
+> 
+> Why do we need to invent new IOCTL for this ? Once the user space sets the
+> SBI version, KVM can enforce it.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+If an SBI spec version provides an extension that can be emulated by
+userspace, then userspace could choose to advertise that spec version,
+implement a BASE probe function that advertises the extension, and
+implement the extension, even if the KVM version running is older
+and unaware of it. But, in order to do that, we need KVM to exit to
+userspace for all unknown SBI calls and to allow BASE to be overridden
+by userspace. The new KVM CAP ioctl allows opting into that new behavior.
 
-> ---
->  .../boot/dts/freescale/imx95-15x15-evk.dts    | 20 +++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> index 6c47f4b47356..9f4d0899a94d 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-> @@ -574,17 +574,17 @@ &sai3 {
->  &scmi_iomuxc {
->  	pinctrl_emdio: emdiogrp {
->  		fsl,pins = <
-> -			IMX95_PAD_ENET2_MDC__NETCMIX_TOP_NETC_MDC		0x57e
-> -			IMX95_PAD_ENET2_MDIO__NETCMIX_TOP_NETC_MDIO		0x97e
-> +			IMX95_PAD_ENET2_MDC__NETCMIX_TOP_NETC_MDC		0x50e
-> +			IMX95_PAD_ENET2_MDIO__NETCMIX_TOP_NETC_MDIO		0x90e
->  		>;
->  	};
->
->  	pinctrl_enetc0: enetc0grp {
->  		fsl,pins = <
-> -			IMX95_PAD_ENET1_TD3__NETCMIX_TOP_ETH0_RGMII_TD3		0x57e
-> -			IMX95_PAD_ENET1_TD2__NETCMIX_TOP_ETH0_RGMII_TD2		0x57e
-> -			IMX95_PAD_ENET1_TD1__NETCMIX_TOP_ETH0_RGMII_TD1		0x57e
-> -			IMX95_PAD_ENET1_TD0__NETCMIX_TOP_ETH0_RGMII_TD0		0x57e
-> +			IMX95_PAD_ENET1_TD3__NETCMIX_TOP_ETH0_RGMII_TD3		0x50e
-> +			IMX95_PAD_ENET1_TD2__NETCMIX_TOP_ETH0_RGMII_TD2		0x50e
-> +			IMX95_PAD_ENET1_TD1__NETCMIX_TOP_ETH0_RGMII_TD1		0x50e
-> +			IMX95_PAD_ENET1_TD0__NETCMIX_TOP_ETH0_RGMII_TD0		0x50e
->  			IMX95_PAD_ENET1_TX_CTL__NETCMIX_TOP_ETH0_RGMII_TX_CTL	0x57e
->  			IMX95_PAD_ENET1_TXC__NETCMIX_TOP_ETH0_RGMII_TX_CLK	0x58e
->  			IMX95_PAD_ENET1_RX_CTL__NETCMIX_TOP_ETH0_RGMII_RX_CTL	0x57e
-> @@ -598,10 +598,10 @@ IMX95_PAD_ENET1_RD3__NETCMIX_TOP_ETH0_RGMII_RD3		0x57e
->
->  	pinctrl_enetc1: enetc1grp {
->  		fsl,pins = <
-> -			IMX95_PAD_ENET2_TD3__NETCMIX_TOP_ETH1_RGMII_TD3		0x57e
-> -			IMX95_PAD_ENET2_TD2__NETCMIX_TOP_ETH1_RGMII_TD2		0x57e
-> -			IMX95_PAD_ENET2_TD1__NETCMIX_TOP_ETH1_RGMII_TD1		0x57e
-> -			IMX95_PAD_ENET2_TD0__NETCMIX_TOP_ETH1_RGMII_TD0		0x57e
-> +			IMX95_PAD_ENET2_TD3__NETCMIX_TOP_ETH1_RGMII_TD3		0x50e
-> +			IMX95_PAD_ENET2_TD2__NETCMIX_TOP_ETH1_RGMII_TD2		0x50e
-> +			IMX95_PAD_ENET2_TD1__NETCMIX_TOP_ETH1_RGMII_TD1		0x50e
-> +			IMX95_PAD_ENET2_TD0__NETCMIX_TOP_ETH1_RGMII_TD0		0x50e
->  			IMX95_PAD_ENET2_TX_CTL__NETCMIX_TOP_ETH1_RGMII_TX_CTL	0x57e
->  			IMX95_PAD_ENET2_TXC__NETCMIX_TOP_ETH1_RGMII_TX_CLK	0x58e
->  			IMX95_PAD_ENET2_RX_CTL__NETCMIX_TOP_ETH1_RGMII_RX_CTL	0x57e
-> --
-> 2.34.1
->
+The old KVM with new VMM configuration isn't totally far-fetched. While
+host kernels tend to get updated regularly to include security fixes,
+enterprise kernels tend to stop adding features at some point in order
+to maximize stability. While enterprise VMMs would also eventually stop
+adding features, enterprise consumers are always free to use their own
+VMMs (at their own risk). So, there's a real chance we could have
+deployments with older, stable KVM where users want to enable later SBI
+extensions, and, in some cases, that should be possible by just updating
+the VMM -- but only if KVM is only acting as an SBI implementation
+accelerator and not as a userspace SBI implementation gatekeeper.
+
+Thanks,
+drew
+
+> 
+> > With that, userspace can disable all extensions that aren't
+> > supported by a given spec version, disable BASE and then provide
+> > a BASE that advertises the version it wants. The new code is needed
+> > for extensions that userspace still wants KVM to accelerate, but then
+> > KVM needs to be informed it should deny all functions not included in
+> > the selected spec version.
+> > 
+> > Thanks,
+> > drew
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
