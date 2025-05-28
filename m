@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00EC8C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:54:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDAEC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0xV6EzExbkEJOL/y+gejGBDzr+C+HIce0XGvVtJSLE=; b=FHSmA6lYczOKmTORlXOqAtEvyB
-	bFjaeXEkTwdUcXgrNIQj93/nHGbvohQd5GE1+xtJOMi+aMIHDpN+oEWck+AFyLIzKx+xPTx3bkaUJ
-	adSK0IT7md2NQiPrd2Uk8L+wxckw9ThCieQJ+rzArsOktME5bcJWAJkfgdxAuuquQu/sgR35Ei+tr
-	Cx3EjErjisPvejOgjE9VlLz7XJ2WkXlZwo5uE9uejo5SJpZLv+c3bv6jg8F/0+e7IdRAVyC97BwfA
-	eGjB1lnZ9jf7BORw4WZx0z/2AXu4yIweKjiN9KkHBlocrZkXRET4JJAw76Jp6YwQ4j7Faal/k0LR0
-	4rdNhO3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jeSugzNf1/4gi32f7Z56MbpoGgBCaskHwFTFR4uqoEA=; b=yMivhFuBWnVuMYtn9njSjSeVrV
+	F85nH0dTru8HHGVUHzMcR3Ohvvbw6S9T1KGCtqFEzDqoXRAqcMM9ElLvzzOucUBymCni5HD+Q5VaC
+	aBcztXA37u3fzfC0HMmeCkaOpFgg4wMUszZnf2V5crhEaPJHyNH9SNeXK/PYz9jTEnZrjelQSSVvR
+	5vOa6JIUH5Vl/AyO3v1rbd5TuRXotyQyQYT2uUrA7KjmwyIQgln9J0jD/SnuIbplhdJip4UdzZTGB
+	UlIl+6f053kyR1CwYcOddhaRpP0bSTgq31qfL5t4206wYonApbk7rUfHevPoXFRgOMhZU5v3HzDFC
+	pUZS5bkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKIAY-0000000DTtF-46J6;
-	Wed, 28 May 2025 14:54:14 +0000
-Received: from mail.actia.se ([212.181.117.226])
+	id 1uKICg-0000000DU7E-1YMO;
+	Wed, 28 May 2025 14:56:26 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKHzx-0000000DRuP-0kJn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 14:43:18 +0000
-Received: from S036ANL.actianordic.se (10.12.31.117) by S035ANL.actianordic.se
- (10.12.31.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 28 May
- 2025 16:43:08 +0200
-Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
- S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
- 15.01.2507.039; Wed, 28 May 2025 16:43:08 +0200
-From: John Ernberg <john.ernberg@actia.se>
-To: =?utf-8?B?SG9yaWEgR2VhbnTEgw==?= <horia.geanta@nxp.com>, Pankaj Gupta
-	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>
-CC: Frank Li <Frank.li@nxp.com>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Thomas Richard
-	<thomas.richard@bootlin.com>, "linux-crypto@vger.kernel.org"
-	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, John Ernberg <john.ernberg@actia.se>
-Subject: [PATCH v3 4/4] arm64: dts: freescale: imx8qxp/imx8qm: Add CAAM
- support
-Thread-Topic: [PATCH v3 4/4] arm64: dts: freescale: imx8qxp/imx8qm: Add CAAM
- support
-Thread-Index: AQHbz97Tt285JTpbTEmv8WU56gl5og==
-Date: Wed, 28 May 2025 14:43:08 +0000
-Message-ID: <20250528144259.2603914-5-john.ernberg@actia.se>
-References: <20250528144259.2603914-1-john.ernberg@actia.se>
-In-Reply-To: <20250528144259.2603914-1-john.ernberg@actia.se>
-Accept-Language: en-US, sv-SE
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.49.0
-x-originating-ip: [10.12.12.63]
-x-esetresult: clean, is OK
-x-esetid: 37303A2956B14453607C60
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <0A8DC40C555BA24E83914717FD2E9602@actia.se>
-Content-Transfer-Encoding: base64
+	id 1uKI40-0000000DScO-3kcK;
+	Wed, 28 May 2025 14:47:30 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-31149f0393dso2798628a91.1;
+        Wed, 28 May 2025 07:47:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748443648; x=1749048448; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jeSugzNf1/4gi32f7Z56MbpoGgBCaskHwFTFR4uqoEA=;
+        b=TI/64BRdJhFZsddpZ6jFJEMUcAFI52xFV/nfQ6kY3rl2hBoJIoh7Uu16OXdjECgkIA
+         x6GMLFW12OJXeb83XDJ7LMUBCIGii0kX1mWXMGjILdDLpHm585CZ/g59cPzSyg8tIM8S
+         NhGiwd3TahVWBEQuvwfP1eHRppzT7v2oXAaC2r6lygCio62iNd1bHJqQ1kuo8/x2Pxxe
+         gdlHUsvsyghLfmj5/S5k/U/OZqq2dZ8A5D0jDxeupId1KOAHQH6UXoZyPaQPrihH3u7j
+         DoN3ZX3mTSMshiD68F7oTAGb2ouJ+d6nkjr4T/BMdaOcn27zNszWNxkSNCKxDhqE2usX
+         XBGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748443648; x=1749048448;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jeSugzNf1/4gi32f7Z56MbpoGgBCaskHwFTFR4uqoEA=;
+        b=PQjqF9pslNYNUomVil7LduxvK+BUjmFM+wLHrqOPub7jhM//zawMlkJzBZam/P2gb8
+         MKaRcFUhZWxn8SapGmB8Nz5EdOS1jbBnSihgJQogE3lG85bFeHCLoVwNmB84rRKP/edz
+         enKXwUZbZFZW8ulPZSsABvfXCglxNYpew3FOBKQmvUje+T9fnJ5yRt0nPZcfvW+mJVRA
+         ZlDzkC3mFabE4kRxm9nlZbz31ovPUG8ievCPLy2MKGkK/Psrej7fz+nan46Lb9D62Yj/
+         H3lW2U2xI5FaOdbnvHRU1RKwO8vwxmoz2aX0S+RV1soXSmak/MA8cfdXuZe4BjyB1yIo
+         xmYg==
+X-Forwarded-Encrypted: i=1; AJvYcCUQM0P+28dwH8b5orDY0vALVd7NH/1NZCOGaNlpkQzm8x0eVClDkZ/OarZKPEQXDurIk/Tj7Ues6p0j613s/zj4@lists.infradead.org, AJvYcCVXAQhUoKxtWrsjDld0D/mpkswYd5UrtJMbmxFzWVh1aC/eTEELCQqnwEiZjI/F//UaxjSDCJ4yEU0jkJxPazQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyO/rWtCq86wzf/HtnCE3Bz2qELdVAlULPOhz1kldqXJEIQNVC
+	IeePm0jRr6tJo6Wb10+j6WS3STYpsg9SyPvk5DSGRZcgvDrLspOU0wGhtTntcpa4kJ9WAVU60RD
+	uR7yZ6dWUb9I6lHQfYAfiwiUoKnWyErI=
+X-Gm-Gg: ASbGncurqGo/oPMeDKUrjelEhEambcfpMQdhtXwLuBmNIgdiHWCCrZ/cM9rIH3CwkXn
+	64ysPu4wx6DdJ7U98lCRFQGFkxSIZK/OYK4a3QgKDAMbjt23XsR+OgOOxh2MCHHMoWfdqkDIype
+	mnW/KvxA344tE4AYPApyDG5SWwta+HkDVt
+X-Google-Smtp-Source: AGHT+IHQJXU3p+rSsWqzxaLHSULaSjkoRZugP1vvKeH7LmxHkr7nUsvjweRVqC9eZYhDskDFMsLev7oBi7HQV+tKXmM=
+X-Received: by 2002:a17:90b:4b8b:b0:311:d670:a0e9 with SMTP id
+ 98e67ed59e1d1-311d670ad95mr4555012a91.21.1748443647809; Wed, 28 May 2025
+ 07:47:27 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250502150513.4169098-1-m.felsch@pengutronix.de>
+ <20250502150513.4169098-8-m.felsch@pengutronix.de> <CAHCN7x+Lu9momgX3Vwp+Yu+Tet5Q=k2vCL83SMLuad24SDchEg@mail.gmail.com>
+ <20250502165535.aeb2osq2vnxsudmq@pengutronix.de> <CAHCN7xLecU12XtXFuwfNP+eee+9RLCSB9iErNmk7VFV+WrozJA@mail.gmail.com>
+ <7cf3e219758a67d08137ebea5e52a1abad835e65.camel@collabora.com>
+In-Reply-To: <7cf3e219758a67d08137ebea5e52a1abad835e65.camel@collabora.com>
+From: Adam Ford <aford173@gmail.com>
+Date: Wed, 28 May 2025 09:47:14 -0500
+X-Gm-Features: AX0GCFs7evzjkWRmfqngQQTZHj2yQaZWL0ja3DzZVNAah62H09qmX0qG_o41Jko
+Message-ID: <CAHCN7xJJz2cOHBbyT0mr3QTndiB4Z6_Gtgy4k2giJt5qg4fH6A@mail.gmail.com>
+Subject: Re: [RFC PATCH 07/11] arm64: dts: imx8mp: fix VPU_BUS clock setting
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Marco Felsch <m.felsch@pengutronix.de>, benjamin.gaignard@collabora.com, 
+	p.zabel@pengutronix.de, mchehab@kernel.org, shawnguo@kernel.org, 
+	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, paulk@sys-base.io, 
+	hverkuil@xs4all.nl, laurent.pinchart@ideasonboard.com, 
+	sebastian.fricke@collabora.com, ming.qian@nxp.com, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_074317_218051_F4E6D39E 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20250528_074728_938202_C15F47C4 
+X-CRM114-Status: GOOD (  35.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,66 +103,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogSG9yaWEgR2VhbnTEgyA8aG9yaWEuZ2VhbnRhQG54cC5jb20+DQoNClRoZSBpTVg4UVhQ
-IGFuZCBpTVg4UU0gaGF2ZSBhIENBQU0gKENyeXB0b2dyYXBoaWMgQWNjZWxlcmF0aW9uIGFuZA0K
-QXNzdXJhbmNlIE1vZHVsZSkgbGlrZSBtYW55IG90aGVyIGlNWHMuDQoNCkFkZCB0aGUgZGVmaW5p
-dGlvbnMgZm9yIGl0Lg0KDQpKb2IgUmluZ3MgMCBhbmQgMSBhcmUgYm91bmQgdG8gdGhlIFNFQ08g
-KFNlY3VyaXR5IENvbnRyb2xsZXIpIEFSTSBjb3JlDQphbmQgYXJlIG5vdCBleHBvc2VkIG91dHNp
-ZGUgaXQuIFRoZXJlJ3Mgbm8gcG9pbnQgdG8gZGVmaW5lIHRoZW0gaW4gdGhlDQpiaW5kaW5ncyBh
-cyB0aGV5IGNhbm5vdCBiZSB1c2VkIG91dHNpZGUgdGhlIFNFQ08uDQoNClNpZ25lZC1vZmYtYnk6
-IEhvcmlhIEdlYW50xIMgPGhvcmlhLmdlYW50YUBueHAuY29tPg0KW2plcm5iZXJnOiBDb21taXQg
-bWVzc2FnZSwgZml4ZWQgZHRic19jaGVjayB3YXJuaW5ncywgdHJpbW1lZCBtZW1vcnkgcmFuZ2Vz
-XQ0KU2lnbmVkLW9mZi1ieTogSm9obiBFcm5iZXJnIDxqb2huLmVybmJlcmdAYWN0aWEuc2U+DQoN
-Ci0tLQ0KDQpJbXBvcnRlZCBmcm9tIE5YUCB0cmVlLCB0cmltbWVkIGRvd24gYW5kIGZpeGVkIHRo
-ZSBkdGJzX2NoZWNrIHdhcm5pbmdzLg0KQ29uc3RyYWluZWQgdGhlIHJhbmdlcyB0byB0aGUgbmVl
-ZGVkIG9uZXMuDQpDaGFuZ2VkIHRoZSBjb21taXQgbWVzc2FnZS4NCk9yaWdpbmFsIGhlcmU6IGh0
-dHBzOi8vZ2l0aHViLmNvbS9ueHAtaW14L2xpbnV4LWlteC9jb21taXQvNjk5ZTU0YjM4NmNiOWI1
-M2RlZjQwMTc5OGQwYTRlNjQ2MTA1NTgzZA0KDQotLS0NCg0KdjM6DQogLSBubyBjaGFuZ2VzDQoN
-CnYyOg0KIC0gVXNlIG5ldyBjb21wYXRpYmxlcyBpbnRyb2R1Y2VkIGluIDMvNCAoRnJhbmsgTGkp
-DQotLS0NCiAuLi4vYm9vdC9kdHMvZnJlZXNjYWxlL2lteDgtc3Mtc2VjdXJpdHkuZHRzaSAgfCAz
-OCArKysrKysrKysrKysrKysrKysrDQogYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14
-OHFtLmR0c2kgICAgIHwgIDEgKw0KIGFyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhx
-eHAuZHRzaSAgICB8ICAxICsNCiAzIGZpbGVzIGNoYW5nZWQsIDQwIGluc2VydGlvbnMoKykNCiBj
-cmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OC1zcy1z
-ZWN1cml0eS5kdHNpDQoNCmRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2Fs
-ZS9pbXg4LXNzLXNlY3VyaXR5LmR0c2kgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9p
-bXg4LXNzLXNlY3VyaXR5LmR0c2kNCm5ldyBmaWxlIG1vZGUgMTAwNjQ0DQppbmRleCAwMDAwMDAw
-MDAwMDAuLjllY2FiYjJkMDNlOQ0KLS0tIC9kZXYvbnVsbA0KKysrIGIvYXJjaC9hcm02NC9ib290
-L2R0cy9mcmVlc2NhbGUvaW14OC1zcy1zZWN1cml0eS5kdHNpDQpAQCAtMCwwICsxLDM4IEBADQor
-Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjArDQorLyoNCisgKiBDb3B5cmlnaHQg
-MjAxOSBOWFANCisgKi8NCisNCisjaW5jbHVkZSA8ZHQtYmluZGluZ3MvZmlybXdhcmUvaW14L3Jz
-cmMuaD4NCisNCitzZWN1cml0eV9zdWJzeXM6IGJ1c0AzMTQwMDAwMCB7DQorCWNvbXBhdGlibGUg
-PSAic2ltcGxlLWJ1cyI7DQorCSNhZGRyZXNzLWNlbGxzID0gPDE+Ow0KKwkjc2l6ZS1jZWxscyA9
-IDwxPjsNCisJcmFuZ2VzID0gPDB4MzE0MDAwMDAgMHgwIDB4MzE0MDAwMDAgMHg5MDAwMD47DQor
-DQorCWNyeXB0bzogY3J5cHRvQDMxNDAwMDAwIHsNCisJCWNvbXBhdGlibGUgPSAiZnNsLGlteDhx
-bS1jYWFtIiwgImZzbCxzZWMtdjQuMCI7DQorCQlyZWcgPSA8MHgzMTQwMDAwMCAweDkwMDAwPjsN
-CisJCWludGVycnVwdHMgPSA8R0lDX1NQSSAxNDggSVJRX1RZUEVfTEVWRUxfSElHSD47DQorCQkj
-YWRkcmVzcy1jZWxscyA9IDwxPjsNCisJCSNzaXplLWNlbGxzID0gPDE+Ow0KKwkJcmFuZ2VzID0g
-PDAgMHgzMTQwMDAwMCAweDkwMDAwPjsNCisJCWZzbCxzZWMtZXJhID0gPDk+Ow0KKwkJcG93ZXIt
-ZG9tYWlucyA9IDwmcGQgSU1YX1NDX1JfQ0FBTV9KUjI+Ow0KKw0KKwkJc2VjX2pyMjoganJAMzAw
-MDAgew0KKwkJCWNvbXBhdGlibGUgPSAiZnNsLGlteDhxbS1qb2ItcmluZyIsICJmc2wsc2VjLXY0
-LjAtam9iLXJpbmciOw0KKwkJCXJlZyA9IDwweDMwMDAwIDB4MTAwMDA+Ow0KKwkJCWludGVycnVw
-dHMgPSA8R0lDX1NQSSA0NTMgSVJRX1RZUEVfTEVWRUxfSElHSD47DQorCQkJcG93ZXItZG9tYWlu
-cyA9IDwmcGQgSU1YX1NDX1JfQ0FBTV9KUjI+Ow0KKwkJfTsNCisNCisJCXNlY19qcjM6IGpyQDQw
-MDAwIHsNCisJCQljb21wYXRpYmxlID0gImZzbCxpbXg4cW0tam9iLXJpbmciLCAiZnNsLHNlYy12
-NC4wLWpvYi1yaW5nIjsNCisJCQlyZWcgPSA8MHg0MDAwMCAweDEwMDAwPjsNCisJCQlpbnRlcnJ1
-cHRzID0gPEdJQ19TUEkgNDU0IElSUV9UWVBFX0xFVkVMX0hJR0g+Ow0KKwkJCXBvd2VyLWRvbWFp
-bnMgPSA8JnBkIElNWF9TQ19SX0NBQU1fSlIzPjsNCisJCX07DQorCX07DQorfTsNCmRpZmYgLS1n
-aXQgYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4cW0uZHRzaSBiL2FyY2gvYXJt
-NjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhxbS5kdHNpDQppbmRleCA2ZmEzMWJjOWVjZTguLjZk
-ZjAxODY0M2YyMCAxMDA2NDQNCi0tLSBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lt
-eDhxbS5kdHNpDQorKysgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4cW0uZHRz
-aQ0KQEAgLTYxMiw2ICs2MTIsNyBAQCB2cHVfZHNwOiBkc3BANTU2ZTgwMDAgew0KIAl9Ow0KIA0K
-IAkvKiBzb3J0ZWQgaW4gcmVnaXN0ZXIgYWRkcmVzcyAqLw0KKwkjaW5jbHVkZSAiaW14OC1zcy1z
-ZWN1cml0eS5kdHNpIg0KIAkjaW5jbHVkZSAiaW14OC1zcy1jbTQxLmR0c2kiDQogCSNpbmNsdWRl
-ICJpbXg4LXNzLWF1ZGlvLmR0c2kiDQogCSNpbmNsdWRlICJpbXg4LXNzLXZwdS5kdHNpIg0KZGlm
-ZiAtLWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhxeHAuZHRzaSBiL2Fy
-Y2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhxeHAuZHRzaQ0KaW5kZXggMDUxMzgzMjZm
-MGE1Li5lMTQwMTU1ZDY1YzYgMTAwNjQ0DQotLS0gYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVz
-Y2FsZS9pbXg4cXhwLmR0c2kNCisrKyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lt
-eDhxeHAuZHRzaQ0KQEAgLTMyMSw2ICszMjEsNyBAQCBtYXAwIHsNCiAJLyogc29ydGVkIGluIHJl
-Z2lzdGVyIGFkZHJlc3MgKi8NCiAJI2luY2x1ZGUgImlteDgtc3MtaW1nLmR0c2kiDQogCSNpbmNs
-dWRlICJpbXg4LXNzLXZwdS5kdHNpIg0KKwkjaW5jbHVkZSAiaW14OC1zcy1zZWN1cml0eS5kdHNp
-Ig0KIAkjaW5jbHVkZSAiaW14OC1zcy1jbTQwLmR0c2kiDQogCSNpbmNsdWRlICJpbXg4LXNzLWdw
-dTAuZHRzaSINCiAJI2luY2x1ZGUgImlteDgtc3MtYWRtYS5kdHNpIg0KLS0gDQoyLjQ5LjANCg==
+On Wed, May 28, 2025 at 9:14=E2=80=AFAM Nicolas Dufresne
+<nicolas.dufresne@collabora.com> wrote:
+>
+> Hi,
+>
+> Le mardi 27 mai 2025 =C3=A0 22:05 -0500, Adam Ford a =C3=A9crit :
+> > On Fri, May 2, 2025 at 11:55=E2=80=AFAM Marco Felsch <m.felsch@pengutro=
+nix.de> wrote:
+> > >
+> > > On 25-05-02, Adam Ford wrote:
+> > > > On Fri, May 2, 2025 at 10:10=E2=80=AFAM Marco Felsch <m.felsch@peng=
+utronix.de> wrote:
+> > > > >
+> > > > > The VPU_PLL clock must be set before the VPU_BUS clock which is d=
+erived
+> > > > > from the VPU_PLL clock else the VPU_BUS clock is 300MHz and not 6=
+00MHz.
+> >
+> > I did verify the current clock rate ends up at 300MHz instead of the
+> > desired 600 or 800MHz, so we should do something.
+> >
+>
+> This reminded me of:
+>
+> https://patchwork.linuxtv.org/project/linux-media/patch/20250217-b4-hantr=
+o-av1-clock-rate-v2-1-e179fad52641@collabora.com/
+>
+> Which also made me discover that this patch wasn't picked despite being m=
+ark accepted. We
+> will favour DT clock settings from here, since its not really managable o=
+therwise, old board
+> will stay like this, otherwise we face backward compatibility issues.
+>
+> Note that G2 and VC8K can be run at higher rate, but to be stable, you ne=
+ed
+> to also control voltage and proper cooling, not something we want "by def=
+ault".
+
+From what I can tell, imx8m_vpu_hw.c doesn't actually set the clock
+rates.  It looks like it just enables and disables them.  I think the
+clocks are all set via the device tree.  The 8MP datasheets list the
+clock rates based on what they call 'nominal' and 'overdrive' which
+determined by some SoC voltages.  600MHz seems reasonable for what NXP
+states as Nominal.  I didn't see any NXP downstream voltage or cooling
+options.
+
+adam
+
+>
+> Nicolas
+>
+> >
+> > > > >
+> > > > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > > > ---
+> > > > >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 ++--
+> > > > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > > > >
+> > > > > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm=
+64/boot/dts/freescale/imx8mp.dtsi
+> > > > > index 97b09b647ec7..7f4bdefb3480 100644
+> > > > > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > > > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > > > @@ -2289,8 +2289,8 @@ vpumix_blk_ctrl: blk-ctrl@38330000 {
+> > > > >                                  <&clk IMX8MP_CLK_VPU_G2_ROOT>,
+> > > > >                                  <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>=
+;
+> > > > >                         clock-names =3D "g1", "g2", "vc8000e";
+> > > > > -                       assigned-clocks =3D <&clk IMX8MP_CLK_VPU_=
+BUS>, <&clk IMX8MP_VPU_PLL>;
+> > > > > -                       assigned-clock-parents =3D <&clk IMX8MP_V=
+PU_PLL_OUT>;
+> > > > > +                       assigned-clocks =3D <&clk IMX8MP_VPU_PLL>=
+, <&clk IMX8MP_CLK_VPU_BUS>;
+> > > > > +                       assigned-clock-parents =3D <0>, <&clk IMX=
+8MP_VPU_PLL_OUT>;
+> > > > >                         assigned-clock-rates =3D <600000000>, <60=
+0000000>;
+> > > >
+> > > > I think there was a move to make the default be overdrive [1]  and =
+[2]
+> > > > and use a 'nominal' device tree for those who are not in overdrive
+> > > > mode.  According to the TRM, the VPU_BUS_CLK_ROOT, the nominal is
+> > > > 600MHz and the overdrive is 800MHz.  Based on that, I wonder if the
+> > > > values here should be 800MHz and if we should add the nominal value=
+s
+> > > > of 600MHz to the imx8m-nominal.dtsi file.
+> > >
+> > > You're right, Ahamd and Lucas did change this. I will adapt it later =
+on.
+> >
+> > I updated my device tree to run in overdrive mode and ran fluster at
+> > the higher rates:
+> > VPU_G1 - 800MHz,
+> > VPU-G2 - 700MHz
+> > VPU-Bus - 800MHz
+> >
+> > ./fluster.py run -d GStreamer-VP8-V4L2SL-Gst1.0
+> > Ran 57/61 tests successfully               in 5.922 secs
+> > (vs 7.059 secs at nominal speed)
+> >
+> > ./fluster.py run -dGStreamer-H.264-V4L2SL-Gst1.0
+> > Ran 129/135 tests successfully               in 40.107 secs
+> > (vs 45.741 secs at nominal speed)
+> >
+> > If you want, I can submit the clock updates I have for overdrive or
+> > send them to you to save you some time.
+> >
+> > adam
+> >
+> > >
+> > > Regards,
+> > >   Marco
 
