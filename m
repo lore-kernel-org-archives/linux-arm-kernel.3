@@ -4,104 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F65DC3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 17:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884B0C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 17:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XuU7vghs/Roa4fUMqe76N60+pRs9TTlZ7VpQ6fcHfmM=; b=BNwfUHjZH4AOMMH1PxUPXgz3Nb
-	8iDSuijQbTjBZemmIfSIJemeQfJNKpTzPNu3lzJ7HN0JjFa9JrVGPOBk8TKEDXxL88AxlxY7LWGlH
-	zm0ZeRqv8exEQls0NnUgPspAPutHURQFY703d2DMflP4gIbOD0bBKtfZiLES7rpXA2m6mijnSbtjn
-	LKuKijUeXbnTgIag66+dA3QbsFRFcoH9FsmufL0vfeC2rxKRgeZIeKhWEVDvboVnQVP1lR5vZ2PRd
-	0ofOIDaDt9sCfjl7VSDwtoHpTy5aBirsnrj1MF8UQG171O4Zzt9SDDWtQLPFocjTc3nxUhL8EPgbC
-	u+5oENPQ==;
+	bh=UxS9LOz/lna+lajGxPcojitM/qIvBOh9GofGcmD1jvI=; b=s9s76Itol65KoVP9YFroCHkUvf
+	5k6F804eWOG0HZ2dgnLSsJyI4Lnovz8LumF/w8FN1pPyxfcGFxQ9s92+ScLvDttxFFMrz1IW3e9t4
+	w2pQYZSNDxscZLXA96uRkkMKPOfEPkdPpp7woRkE3mmOtUkGV3DBnBToaz5pCgWyXvsF7m0E0HqWZ
+	HO5hDjQ8lMhkfUjbDX1Wd2bFuL1kN744BIRldL+/mCXj7PapFPydTWpdCPlKgBhQZ3pir/TC7mqG9
+	RwDsWyKBCmwx6LGBel9T9ICGn/Q1PyCaZuMA2KRx71JI1m2dm8cpMc7vrfKU+/to6E9G/jUVGgsgk
+	eLnT/tqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKKlX-0000000DqCZ-0Ps9;
-	Wed, 28 May 2025 17:40:35 +0000
-Received: from mail-ua1-x930.google.com ([2607:f8b0:4864:20::930])
+	id 1uKKog-0000000DqZn-3iCo;
+	Wed, 28 May 2025 17:43:50 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKKjN-0000000Dq2Y-0LOp
+	id 1uKKmX-0000000DqHe-0GVt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 17:38:22 +0000
-Received: by mail-ua1-x930.google.com with SMTP id a1e0cc1a2514c-87e0ce80ed4so1034241.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 10:38:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748453899; x=1749058699; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XuU7vghs/Roa4fUMqe76N60+pRs9TTlZ7VpQ6fcHfmM=;
-        b=CYqg1SH7uRt8b9he7ZWQz4ySgp4DcZ3YKu3IjJE+3t2ms1IFuWkElWFpl5kErjqWZp
-         cRc0db8xLfSLoGj2+7U+9DV6OdycjC6oJyrNnFKnZCIgUHgLSxEgv0GFS/VlsMNduF0U
-         /Fgpkh45BIBy3yl1No8dc1lj4YtaUMiP4ovWeCUONGhWgM4EAK6xmmTN4+ybAcFEePSx
-         WIUcgFTtGlKFII3NzUu9zaJnQKxTAW1gUTJZRRtUC2jD9t7oqg4FQHgmX4pMe3jjWnyB
-         Vgr2GIPvodBGNZPyGdor/07CFx/X+vPo+qQrgBBfeigxgEoO0fRq4h+yiwucI5Qcal90
-         RhJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748453899; x=1749058699;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XuU7vghs/Roa4fUMqe76N60+pRs9TTlZ7VpQ6fcHfmM=;
-        b=R9JflF2PPCION7Jdv21rJ0HL/A2im9nmzNvDuQmyOTyL0m4rjTXVwPNcOpyIK026Vg
-         2e6egh6RVNM5K47hETR3DvXF2vYf2lLuR6a+LtP/ndWG9v00bnUQ92NIUh9uyiV6kNZv
-         oDlbB0mWKuFgMNZNihoEuM+q9OI5/9PWdvpasxcPRDO/2Daq6lCelAvnukHdvldISOLK
-         0MIjInc27S8KKkra3+Cn7zQIogwtX0O1pfFkrxyWor1AS2AKOv+exXGWCC8XCA/9QXfh
-         aYAv1j4OsgUwmuiqsXIc8Tv3JU5VATdZ9H7tzfNPVD5yEX6hpYSk4V7JwGWGOHwwfg7/
-         9eQw==
-X-Forwarded-Encrypted: i=1; AJvYcCUrLHxg27RH9UtGRHZdIoWrVKOMmNtXrcMzuHgenjleP55XVCaXk9iT+Ze6TYmIur0eZV5FoTl6ClqfUC0AYWnu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzu2/ZA9r4m7YL5WrLAALcz+wwKSZPGrP7tyxuzaeZFoYyP45Z4
-	lvydVzjtazkFFDt3kGZCdA2+/HUZhk0t5fKsdd/i3ZS8AM5RBJMNkO8s
-X-Gm-Gg: ASbGncvKNXTWZ8fGvpZtw7js8MSmcquqkb52V3nj01Th+hUrp09q7QfoDNWFPrXGNit
-	NEwp5RrGOa0hc5nA8CEHvfmu3DoPPBjWqZ0WJiPg+AUPolIP/pls5bevQ2ERR3TadXaOq+K712G
-	/ZF5bNreMMED23yzH9+NiyUm6vV3CASOZfe/O0SAfyW5YeK1xP5MAH9FdQEynkWL2Mc19XjDvZW
-	ui/KyrDtuwxo1Hg3haiaI6wxX/8HT7KoAqdl9zC2wCf0v2ecB5njqUI0ICpq1P5qrlIfzhby57m
-	oE+xb9dw2W5BZVDbF74P5A5dtNylXJOCs0E5QoBThIr3/t9iSwBBjsGDjmif
-X-Google-Smtp-Source: AGHT+IH0yWuJoUrC0OxGQWzTqljadyq7cuFUTOFbkQW4fn/ETHGhWue+swzwXlHVyYeAv2NimJNc6A==
-X-Received: by 2002:a05:6122:4286:b0:523:dd87:fe95 with SMTP id 71dfb90a1353d-52f2c5919c0mr15157933e0c.9.1748453899161;
-        Wed, 28 May 2025 10:38:19 -0700 (PDT)
-Received: from hiago-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53066973c62sm1439097e0c.44.2025.05.28.10.38.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 10:38:18 -0700 (PDT)
-Date: Wed, 28 May 2025 14:38:13 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Peng Fan <peng.fan@oss.nxp.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	daniel.baluta@nxp.com, iuliana.prodan@oss.nxp.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
- remote core attachment
-Message-ID: <20250528173813.rxqu6pzqgu4m5joo@hiago-nb>
-References: <CAPDyKFpGcgMzOUHf-JTRTLBviFdLdbjZKrMm8yd37ZqJ1nfkHw@mail.gmail.com>
- <20250521041306.GA28017@nxa18884-linux>
- <20250521041840.GB28017@nxa18884-linux>
- <CAPDyKFpSb+KsfDr1-=uk4TF4Op1dUQ9rDwPP5sSpMfxDRDhnZA@mail.gmail.com>
- <20250523191713.nylhi74jq6z4hqmr@hiago-nb>
- <CAPDyKFq6HG6iTZRnBSN25vhCU8Zj1c+r_ufGbiBsJ16N+1bJVg@mail.gmail.com>
- <20250527000510.fofehmsdhifcwlys@hiago-nb>
- <20250527023921.GA14252@nxa18884-linux>
- <CAPDyKFqZkcaGfss=Oi+H9UERFU29jY2t5uTPnGVGQgSAJSeCoA@mail.gmail.com>
- <20250527134525.f7yzs4ww64xxmjmr@hiago-nb>
+	Wed, 28 May 2025 17:41:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2EB8CA4F8EC;
+	Wed, 28 May 2025 17:41:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1279C4CEED;
+	Wed, 28 May 2025 17:41:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748454095;
+	bh=wKtF2TTBr95PsHmFi5eC75IGaydJ9FAvyCT1U7OGi2E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VyDBcMSYJjRDXdJy03WeDhWnlWXnaVGjLHm7CF/wOV9cyCp0wLkY8Gu+dXFOLhpUm
+	 8ZWDDIutYeuQoLisXfnZaETOqR73mi8Yk/6NvuG5gzCmU865gKBHzqz8aJsGW8LkZ8
+	 /D/eOieVlO0JXUCWSfuwW6fq7gWY5IVUAD4B7hJkEd6A1n6q1904ylhlThRJx6C2Nl
+	 Xi7+DW6tu0/fuTO1QssdqXPLtAaXty+SSOSEsTrMVNy926zTXoNa74KCQnB0OTOfC5
+	 2jQHewgBoz0EpiAN5HsM+utAswYG7hsCd5OnrgIo4fVSAQxzAfSfmITXzouH7C5IZf
+	 5xT3DeFEuuWHw==
+Date: Wed, 28 May 2025 10:41:32 -0700
+From: Kees Cook <kees@kernel.org>
+To: Jann Horn <jannh@google.com>
+Cc: Eric Biggers <ebiggers@kernel.org>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-hardening@vger.kernel.org, oe-lkp@lists.linux.dev,
+	lkp@intel.com, linux-kernel@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+	kernel test robot <oliver.sang@intel.com>,
+	Arnd Bergmann <arnd@arndb.de>, llvm@lists.linux.dev,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>, linux-kbuild@vger.kernel.org
+Subject: Re: [linus:master] [crypto] 40b9969796:
+ UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c
+Message-ID: <202505281040.C8E022E@keescook>
+References: <202505281024.f42beaa7-lkp@intel.com>
+ <20250528061427.GA42911@sol>
+ <202505280937.6802F0F210@keescook>
+ <CAG48ez3i37DYjM+SjBjC-VKQOiJs7-YVdLEQ7aqXQwxWs-rS9Q@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250527134525.f7yzs4ww64xxmjmr@hiago-nb>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAG48ez3i37DYjM+SjBjC-VKQOiJs7-YVdLEQ7aqXQwxWs-rS9Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_103821_122906_6375FD29 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20250528_104137_230281_A961240C 
+X-CRM114-Status: GOOD (  27.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,86 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 10:45:25AM -0300, Hiago De Franco wrote:
-
-[...]
-
-> > 
-> > Thanks for the detailed analysis!
-> > 
-> > This is a very similar issue as many other genpd providers are
-> > suffering from - and something that I have been working on recently to
-> > fix.
-> > 
-> > A few days ago I posted a new version of a series [1], which is based
-> > upon using the fw_devlink and ->sync_state() support. In principle, we
-> > need to prevent genpd from power-off a PM domain if it was powered-on
-> > during boot , until all the consumer-drivers of a PM domain have been
-> > probed.
-> > 
-> > I had a look at the DT description of how imx describes power-domain
-> > providers/consumers, along with the corresponding genpd provider
-> > implementation in drivers/pmdomain/imx/scu-pd.c. Unless I missed
-> > something, I think [1] should do the trick for you, without any
-> > further changes. Can you please give it a try and see if that solves
-> > this problem?
+On Wed, May 28, 2025 at 07:15:18PM +0200, Jann Horn wrote:
+> On Wed, May 28, 2025 at 6:46 PM Kees Cook <kees@kernel.org> wrote:
+> > On Tue, May 27, 2025 at 11:14:27PM -0700, Eric Biggers wrote:
+> > > If this new sanitizer is going to move forward, is there any sort of plan or
+> > > guide for how to update code to be compatible with it?  Specifically considering
+> > > common situations where unsigned wraparound (which is defined behavior in C) can
+> > > be intentionally relied on, like calculating the distance from the next N-byte
+> > > boundary.  What are the best practices now?
+> >
+> > Hi, yes, this is still under development. I tried to make it hard to
+> > enable accidentally (not via COMPILE_TEST, not UBSAN-default, etc), but
+> > we (still) don't have a way to disable configs for randconfigs. :(
+> >
+> > We're hoping to see Clang 21 with the more versatile Overflow Behavior Types:
+> > https://discourse.llvm.org/t/rfc-v2-clang-introduce-overflowbehaviortypes-for-wrapping-and-non-wrapping-arithmetic/86507
+> >
+> > and our current testing is showing many fewer false positives. (Having
+> > run syzkaller for weeks now.)
+> >
+> > > Documentation/dev-tools/ubsan.rst says nothing about this and only mentions
+> > > "undefined behavior", which this is not.
+> >
+> > Right -- this will get extensive documentation before we move it out of
+> > its development phase.
+> >
+> > I'm not sure how to enforce "don't enable this unless you're developing
+> > the Overflow Behavior Types" with current Kconfig, given the randconfig
+> > gap... I have some memory of Arnd doing something special with his
+> > randconfigs to avoid these kinds of things, but I can't find it now.
 > 
-> Cool! I can give a try and provide an answer soon. Thanks!
+> You could depend on CONFIG_BROKEN, the canonical "if you enable this
+> and stuff breaks, it's your fault" flag?
 
-We are making progress ;-)
+Yeah. Talking with Justin out of band, he suggested the same. It's
+easier to carry a 1 line patch downstream while we're testing to enable
+this feature, so I'll send a patch to add CONFIG_BROKEN for now.
 
-With the patches you shared Ulf (I added them on top of the current
-master branch), it works as expected, dev_pm_genpd_is_on() returns 0
-when I boot the kernel without M4 running and it returns 1 when I boot
-the kernel with M4 running with a hello-world demo.
+-Kees
 
-However now I tried to, if dev_pm_genpd_is_on() returns 1, put the
-DETACHED state, something as
-
-if (dev_pm_genpd_is_on(priv->pd_list->pd_devs[0]))
-	priv->rproc->state = RPROC_DETACHED;
-
-In this case I used 0 because I understand this is the
-IMX_SC_R_M4_0_PID0 defined in my device tree overlay:
-
-		power-domains = <&pd IMX_SC_R_M4_0_PID0>,
-				<&pd IMX_SC_R_M4_0_MU_1A>;
-
-But in this case, the kernel does not boot anymore, I see the "Starting
-kernel..." and nothing else.
-
-I am using the pm_runtime functions before rproc_add():
-
-@@ -1146,6 +1154,9 @@ static int imx_rproc_probe(struct platform_device *pdev)
-                }
-        }
-
-+       pm_runtime_enable(dev);
-+       pm_runtime_get_sync(dev);
-+
-        ret = rproc_add(rproc);
-        if (ret) {
-                dev_err(dev, "rproc_add failed\n");
-
-and calling dev_pm_genpd_is_on() after dev_pm_domain_attach_list() has
-been called.
-
-With kernel not starting I cannot even debug it. Do you have any
-suggestion on why this might be happening?
-
-> 
-> > 
-> > [...]
-> > 
-> > Kind regards
-> > Uffe
-> > 
-> > [1]
-> > https://lore.kernel.org/all/20250523134025.75130-1-ulf.hansson@linaro.org/
-> 
-> Best regards,
-> Hiago
- 
-Best regards,
-Hiago
+-- 
+Kees Cook
 
