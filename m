@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A04A6C5B552
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E09C5B549
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,183 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Huwhz6YsgEowKuH+pqCiP2JwY2drKMvPhzQleiaHXd4=; b=WDF2N41ldVHx378BzwKnyfY6z1
-	t6zhObasLwg9zYLi1xRXS+yd0XtODNjwJgEpiWHzbmxRImiYmPo03gsxaseM94ImP/kC1f53noQIh
-	fh1Bb5esWJVHXnTKoGc6+vcPE82nCfca66+dchLYMDsy7BIFY7GVoBVg5QvzNZ0GC9PyAJ3qX4fna
-	LrB9kHy5v2GjbZsNeFJ13VdgIm0ZI6a+J40Nge1Vi6Z1sZFh0S5WJZbL9u/T6VjEKReXwkcH63AGJ
-	dCiMGcHa63FZcegZQo/bf4fVrl6MI0m/3l59DXAqY/l/NIfrvDZqgYMli1wAM0403gkoljZGTrdhJ
-	xAs1UvYw==;
+	bh=u08B+em4gzK6P9FvSleq/IeRx5REGlJAmj6OjBJhsys=; b=aCy9c78zuLC8v8hBTGG27aBB63
+	4MdjmSiGBWVtlG3muxeOFSl/atzY+yE/cy+6Z3sK9mNtjmKcQFQsiJXNNiv8nHJP6ZCOdQTXma1U7
+	zU9mTyBZqyrJieVd8lm1+PEZpKN0+w82ye49VLjkwq8ubYAHz9kZfoYhs7mwsV0T/ibQImDPCKQPG
+	M4TOLvuCeCPfgNTlQChLXUJltZ7zWVuZpRyiHideUB5JHkeKL4MgF4qSGdIm3zmqxPYHszMHUWaj1
+	cM4Z+RIDbpYkauvbsSQ0YcM3nedwz8eReXAzA+gT7CQGMRIyfAMvEjfKeFE6J0V7XoMZInHl/rIjO
+	+mfQYkTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJx8-0000000DjjO-3BwT;
-	Wed, 28 May 2025 16:48:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uKJx6-0000000DjhN-38Co;
+	Wed, 28 May 2025 16:48:28 +0000
+Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJuj-0000000DjKj-2wQW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 16:46:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A171F5C582F;
-	Wed, 28 May 2025 16:43:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4561BC4CEE3;
-	Wed, 28 May 2025 16:45:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748450759;
-	bh=ZzP3dZbIvqBIvFOURta05rer0syVpr9AYK8L5vT3Cwk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LVXzyTZMwmjueFCXAoq3KZlHkwl9jf4A8JjFcq88dAM8hfAUvmtIJwb4Bxl1ws/Tr
-	 ApiRG/VITi515B6Pd224PL11E1tw2OcX/bfPd9uyszUuCLjVdgABdingNaaqyC7mzp
-	 zIF8RYFthHLqWDi0F8kgcOQGCEuFDmi74VyHJq4TwH3+1LZ9YFgH+QGTaJqYd6q0el
-	 qWnBQpBmvMyzupU04McJocy6KvMvfgj9+u3CCT9Io12x+Eg2mBF88vXa+v2YwWoPti
-	 bnkKh0jPV2DP3SpwsBor/BcnjC4nejO+DYEbJIIIS9yKBw543336xSXo+fmxCKwpFg
-	 lpXE8h/tMxsPg==
-Date: Wed, 28 May 2025 09:45:55 -0700
-From: Kees Cook <kees@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>,
-	Justin Stitt <justinstitt@google.com>
-Cc: linux-hardening@vger.kernel.org, oe-lkp@lists.linux.dev, lkp@intel.com,
-	linux-kernel@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	kernel test robot <oliver.sang@intel.com>,
-	Arnd Bergmann <arnd@arndb.de>, llvm@lists.linux.dev
-Subject: Re: [linus:master] [crypto]  40b9969796:
- UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c
-Message-ID: <202505280937.6802F0F210@keescook>
-References: <202505281024.f42beaa7-lkp@intel.com>
- <20250528061427.GA42911@sol>
+	id 1uKJrB-0000000Dj39-13bj;
+	Wed, 28 May 2025 16:42:22 +0000
+Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
+	by mx0a-001ae601.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54SDiAOs031715;
+	Wed, 28 May 2025 11:41:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=PODMain02222019; bh=u08B+em4gzK6P9FvSl
+	eq/IeRx5REGlJAmj6OjBJhsys=; b=kfGWocLV76iX64DqEWbqEOkt64mWbWldJ+
+	r8EuZh5mGmabK6gtUfv6meM1Fwor7UgqZ8Gcq2EnikyKxLePDgW5WgHfUlPr5YCi
+	DQP2IdC5YcBftBjNUc6K8cdW00XWKzR3FWHMjAnXq/qcf/VdR+67SJnyUR1BtdJa
+	AQ9cJ83s6X0oHDp32yEnEbyR7EwWhrHLjpBvHLFCaxVt6OpjtjVVtVpoGB7pfmq9
+	fC/tvQ3rTizAYP1mPrv77mqpEgT4WIbGptP+IrypkbQbDAOo9KJtrNaNkQn+aY0q
+	R3llRnj2+rEAbXj24HHx/YhgGLmxGlz2Ai0dQkn8EzZ/3t5gH7bw==
+Received: from nam12-bn8-obe.outbound.protection.outlook.com (mail-bn8nam12on2125.outbound.protection.outlook.com [40.107.237.125])
+	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 46x3msra2b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 28 May 2025 11:41:29 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yaZTHDs5t21c2Fnb6GU+D7mSjgmDKVhAuJAr1XS+fb6lY0o9EgwM73D7jOSHpdxk2MAyHvtgWGvTrTtvAqRccExwm/ReDJvl46MLqKGHsvhHBi/zeJdaHfVmQtFwPRc6I2/JhLnxFv5/guo6XTOHGH8fK2PvC/mIrxWE6suxbzkDb4RbkMBU4HEefHetSnSmpiLBki+2arAKCifDOKAYzu7lfAqciJi1v4vC0wSZ1Xkop48vNTY3PmHhjt4wcJ2qTWe6QVSVaN9c9mexjdfqxSy0IXUZ86GeGLLKzzYPC2hTFVQRb1Zl4P3DCRMK68Z7gOLyovO/gpbgZR44AJoyoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=u08B+em4gzK6P9FvSleq/IeRx5REGlJAmj6OjBJhsys=;
+ b=WqLIbtEmT1N8KPX2UBD4nUzF2nEt4Dp4FgBNkHbgx0WSDu59zmR6cvJUa4iiqO3Hk4J8ZdSkB0IHaZ2Haf9yAX1q5nytGZ6fEXbvPWszQsvU8ecbJkAFg6LhdM7p3pk+BfwPUYHomjmhQBAYB3jK9ci8d2eH4x76sVFsb8y9fv2EGqkRPyVDL60YRYwu/1MGuPDDaG9dm5bmvTPmYlC+TrLabwr1WZDZKlA5XwznJlvuK2RBklgKWNpCvXays5jUeMySdj3QBGc4TytkRJc/Crgpwjs2VXwLoCCtTEow8QqK26DN6ybXwvlf5yXJJauZTCBenIBZMAJvr3OBrbEP0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 84.19.233.75) smtp.rcpttodomain=amd.com smtp.mailfrom=opensource.cirrus.com;
+ dmarc=fail (p=reject sp=reject pct=100) action=oreject
+ header.from=opensource.cirrus.com; dkim=none (message not signed); arc=none
+ (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=u08B+em4gzK6P9FvSleq/IeRx5REGlJAmj6OjBJhsys=;
+ b=IYdfo65IywPdGNiU7yuA3Eye0+K2riFsoZde3T1Tu40iu5ZlvynqHwUGPO3CZmUr/KCvRbAdVd//ps0Ynz+bXCfPc8iHezyH01K1jKruKfgvcx14ojVxq0hkujxPItkaOeb4njj7jbrpvG2H6TeodlzwamiDWkN/FJdsH7nok/g=
+Received: from PH8P220CA0034.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:348::17)
+ by DM4PR19MB6025.namprd19.prod.outlook.com (2603:10b6:8:6c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.29; Wed, 28 May
+ 2025 16:41:24 +0000
+Received: from CY4PEPF0000EDD0.namprd03.prod.outlook.com
+ (2603:10b6:510:348:cafe::86) by PH8P220CA0034.outlook.office365.com
+ (2603:10b6:510:348::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.21 via Frontend Transport; Wed,
+ 28 May 2025 16:41:24 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 84.19.233.75)
+ smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
+Received-SPF: Fail (protection.outlook.com: domain of opensource.cirrus.com
+ does not designate 84.19.233.75 as permitted sender)
+ receiver=protection.outlook.com; client-ip=84.19.233.75;
+ helo=edirelay1.ad.cirrus.com;
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ CY4PEPF0000EDD0.mail.protection.outlook.com (10.167.241.196) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18
+ via Frontend Transport; Wed, 28 May 2025 16:41:22 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 71C38406545;
+	Wed, 28 May 2025 16:41:21 +0000 (UTC)
+Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPS id 4A81E820249;
+	Wed, 28 May 2025 16:41:21 +0000 (UTC)
+Date: Wed, 28 May 2025 17:41:20 +0100
+From: Charles Keepax <ckeepax@opensource.cirrus.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+        Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
+        Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Joel Stanley <joel@jms.id.au>, Avi Fishman <avifishman70@gmail.com>,
+        Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>,
+        Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+        Benjamin Fair <benjaminfair@google.com>,
+        Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+        =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+        Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        David Rhodes <david.rhodes@cirrus.com>,
+        Richard Fitzgerald <rf@opensource.cirrus.com>,
+        Lorenzo Bianconi <lorenzo@kernel.org>,
+        Sean Wang <sean.wang@kernel.org>,
+        Jesper Nilsson <jesper.nilsson@axis.com>,
+        Lars Persson <lars.persson@axis.com>,
+        Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+        Damien Le Moal <dlemoal@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>,
+        Michal Simek <michal.simek@amd.com>,
+        Emil Renner Berthing <kernel@esmil.dk>,
+        Jianlong Huang <jianlong.huang@starfivetech.com>,
+        Hal Feng <hal.feng@starfivetech.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-renesas-soc@vger.kernel.org, linux-sound@vger.kernel.org,
+        patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
+        linux-arm-kernel@axis.com, linux-riscv@lists.infradead.org,
+        linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 16/17] pinctrl: Constify static 'pinctrl_desc'
+Message-ID: <aDc8sEMh2UpcHzVr@opensource.cirrus.com>
+References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
+ <20250528-pinctrl-const-desc-v1-16-76fe97899945@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250528061427.GA42911@sol>
+In-Reply-To: <20250528-pinctrl-const-desc-v1-16-76fe97899945@linaro.org>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD0:EE_|DM4PR19MB6025:EE_
+X-MS-Office365-Filtering-Correlation-Id: 08f9df47-b677-4a4c-3ecf-08dd9e067b1d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|61400799027|36860700013|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VBEBjkAyTr2kN8QdSs5yBj6FRJ96ftcJDl2LthDFL3T/SWMTgRwHtbQN8eEY?=
+ =?us-ascii?Q?OLN0Bibox3b/rgwbsd9da7jE4g7qYBb+8nacteJM85/WDgW+cTLSnWLTd6Uv?=
+ =?us-ascii?Q?KMOl0gZ14B0eR/D0iiH12Vcp25jRSfuulayJW6coo/ndMs6BmuWqnuyBmeDK?=
+ =?us-ascii?Q?XnIcgp77Nx9/1fZnoZMpB4m0Nu0I+KgxXBav0fWMrsIBb5yXUWqwX0nrjIa9?=
+ =?us-ascii?Q?4jQIl4isCnCRZ/CRS+iImfZXEwQ2wh0H97i/8lnjK4bsBnCV0Zle6ACUwcPO?=
+ =?us-ascii?Q?1kIU4b0hcRNiJHoaA9NnlQc/gEJYshqDkakhKX8vwaTL/GeYjAF6HXWOfBt1?=
+ =?us-ascii?Q?+D2RMaRn/upVD2sfqzTevNuyLrsX/ZPFy9NQd54SGXEfMkJILkj5yG4VJbj2?=
+ =?us-ascii?Q?qiZVLfHvfpa+/R0QDxNzKXa/PhU4Cana0zrsAGqY9UJ7LFl1WP0ilUqFFrDo?=
+ =?us-ascii?Q?r5kg1b6X7rhbg+uKFHLED++FagdzPbdeb//JPO7jbfifIe4OeM0xtT+jqyvi?=
+ =?us-ascii?Q?6XKmeGRI+Qw+b1cq4jODBsmxSN4cEk6DRh2RlC28lvjqze+8YleGxlVyzGha?=
+ =?us-ascii?Q?7RAhHXjvaje1oC+QcyLzAt02gWZtq53wipgSz/LPixeeziTK30nSVF9tBe5K?=
+ =?us-ascii?Q?yepUe1179kfWAFGcKSsI/21i3cKqYZfLALMynD9axBYv732BHPc8b8yJCMwi?=
+ =?us-ascii?Q?JyAjmVaecSFYlDqaJMKsIPiDKj7h55aEDrEZcDT1hnCzHfwpOarrA5cphZAs?=
+ =?us-ascii?Q?XtAFrXOKs2uxWGQcZ0lYKL1yci/3feXheOAPU0MMyFtCepw7NRZWyMcHT+qw?=
+ =?us-ascii?Q?qKqF4tPNVsYBNxxbgKspg8psGTi22YqyrwafZVuggNe+Eu4Fno8P6RqAg2Uu?=
+ =?us-ascii?Q?PNim4XuU1KWYE8juLIvuYLKwgOjo77dr/y6mPLKmL/gFmzX+hvC7CXg88LYe?=
+ =?us-ascii?Q?XLhEnzx/l9dJxXaoYcSI89TgGBroQsRd9lxSEKBSc/TKXmiLozCJIpMzTOcb?=
+ =?us-ascii?Q?bwvUoGObEgtPf+uN3NsWAhEYivhSdBcNbQXcN1ruazynRRku2v4aQaKbRdZI?=
+ =?us-ascii?Q?Z1llvbNHfahNb9fr75cdHFjfjhel5ADtf3dmX3e3d2AMfMK3xLwl5GxrK0+n?=
+ =?us-ascii?Q?D1lDZp6GJT6DZwfSw6oixXuxYnCfZsWVHNWAqmpmzOOThfFImrcQijF5QSam?=
+ =?us-ascii?Q?ciwvf/paT1kBGlTrYLv/5i+2Ts0bv6lDn5hml4xe4T/SuLznBCFMMcWNzjfW?=
+ =?us-ascii?Q?d7vq65hH8i1rbJmGk/1nSMzqOS/rUJXCImh+CF62j+8L4umMfm2FOqMqo/yE?=
+ =?us-ascii?Q?qepxP0zXPJeu/UkucazQRq1fiEpQxlcaZLe3WXJ4QvI0IHXSM+HrQPM1HF+L?=
+ =?us-ascii?Q?+h+tgrbBkknjXWlUzeIDXpLf53QwNUe/TQw4lcTTZtV+MBKHuxlA/OLXQYTS?=
+ =?us-ascii?Q?NYd289wkYBlQ4a/RGBgiG8q5NrJkz8gs0vwIyoIWOU/ctfe+qm+O5woiedZc?=
+ =?us-ascii?Q?yFKY5cggqSIdpbGKguROvrCPub6dOqBSr64G?=
+X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(61400799027)(36860700013)(82310400026)(376014)(7416014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 16:41:22.6358
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 08f9df47-b677-4a4c-3ecf-08dd9e067b1d
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD0.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR19MB6025
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI4MDE0NSBTYWx0ZWRfX/77eowpPrNJV okq6AGhdh+AeiBWGgUus89iUbeeaBfd7Mg7o+Qg5Aq+ap5mU+ABWR9xIGXXrgUETVF51XLqcO0K EBQ4ZEK0J4mPeaewxak2JSy6cuw7J/uOyD/zRuLQrElfr65RzqbAAQyw3u1wu3ni071nJfxLScB
+ EUbUVDKMobW0SZPK4hVoBDkc7HcqKEFzKLSuLpCJaiRGN5Tw4XYLeD6Ku8nxqwMBmRq2u/TLRBR WebC+iuPrSTvxiAbrYr6GXASv4/sn18IlcmbO9op+iJyx4BN320G9Jg+qd97rHk+F8ADbFjH9Qw NFPsgP23DASexd8l/WwclQNdR7loBCgz+tRZUYx7bPtcBqZ6dXVNs8dHu523n9WXOYpYH3keJLQ
+ QFl8eJF43GCDRdEAUvhvm5SeSj4ZmfcvSHlYGnhPTjXNjWXnpzhJy8uic1W0ZmMl33rpfkNp
+X-Authority-Analysis: v=2.4 cv=Qohe3Uyd c=1 sm=1 tr=0 ts=68373cb9 cx=c_pps a=azKGx87FDiaoMypZd7Lp/w==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=kj9zAlcOel0A:10
+ a=dt9VzEwgFbYA:10 a=RWc_ulEos4gA:10 a=KKAkSRfTAAAA:8 a=w1d2syhTAAAA:8 a=pp8jMgpbGpZJBU6_-_QA:9 a=CjuIK1q_8ugA:10 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: FhwEZxe0gSqpkkLY4NWltVICs7azydqM
+X-Proofpoint-ORIG-GUID: FhwEZxe0gSqpkkLY4NWltVICs7azydqM
+X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_094602_044380_338B2CBB 
-X-CRM114-Status: GOOD (  32.45  )
+X-CRM114-CacheID: sfid-20250528_094221_319234_19B0AE97 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,130 +203,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 11:14:27PM -0700, Eric Biggers wrote:
-> [+Kees and linux-hardening]
+On Wed, May 28, 2025 at 12:41:12PM +0200, Krzysztof Kozlowski wrote:
+> The local static 'struct pinctrl_desc' is not modified, so can be made
+> const for code safety.
 > 
-> On Wed, May 28, 2025 at 01:15:05PM +0800, kernel test robot wrote:
-> > 
-> > 
-> > Hello,
-> > 
-> > by this commit, the config has below diff:
-> > 
-> > --- /pkg/linux/x86_64-randconfig-101-20250522/clang-20/d469eaed223fa485eabebd3bcd05ddd3c891f54e/.config 2025-05-23 23:44:56.781716572 +0800
-> > +++ /pkg/linux/x86_64-randconfig-101-20250522/clang-20/40b9969796bfa49ed1b0f7ddc254f48cb2ac6d2c/.config 2025-05-24 02:08:29.858605300 +0800
-> > @@ -4837,7 +4837,8 @@ CONFIG_CRYPTO_ACOMP2=y
-> >  CONFIG_CRYPTO_MANAGER=y
-> >  CONFIG_CRYPTO_MANAGER2=y
-> >  # CONFIG_CRYPTO_USER is not set
-> > -CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=y
-> > +CONFIG_CRYPTO_SELFTESTS=y
-> > +# CONFIG_CRYPTO_MANAGER_EXTRA_TESTS is not set
-> >  # CONFIG_CRYPTO_NULL is not set
-> >  CONFIG_CRYPTO_PCRYPT=m
-> >  CONFIG_CRYPTO_CRYPTD=y
-> > 
-> > it seems tests are enabled then we observe the UBSAN issues
-> > 
-> > d469eaed223fa485 40b9969796bfa49ed1b0f7ddc25
-> > ---------------- ---------------------------
-> >        fail:runs  %reproduction    fail:runs
-> >            |             |             |
-> >            :6          100%           6:6     dmesg.UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c
-> >            :6          100%           6:6     dmesg.UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305.c
-> > 
-> > it's hard for bot to apply this commit to previous commits in bisect, so we just
-> > make out below report FYI that we observe UBSAN issues in boot tests.
-> > 
-> > 
-> > kernel test robot noticed "UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c" on:
-> > 
-> > commit: 40b9969796bfa49ed1b0f7ddc254f48cb2ac6d2c ("crypto: testmgr - replace CRYPTO_MANAGER_DISABLE_TESTS with CRYPTO_SELFTESTS")
-> > https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
-> > 
-> > [test failed on linux-next/master 176e917e010cb7dcc605f11d2bc33f304292482b]
-> > 
-> > in testcase: boot
-> > 
-> > config: x86_64-randconfig-101-20250522
-> > compiler: clang-20
-> > test machine: qemu-system-x86_64 -enable-kvm -cpu SandyBridge -smp 2 -m 16G
-> > 
-> > (please refer to attached dmesg/kmsg for entire log/backtrace)
-> > 
-> > 
-> > 
-> > If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> > the same patch/commit), kindly add following tags
-> > | Reported-by: kernel test robot <oliver.sang@intel.com>
-> > | Closes: https://lore.kernel.org/oe-lkp/202505281024.f42beaa7-lkp@intel.com
-> > 
-> > 
-> > [   12.442846][    T1] ------------[ cut here ]------------
-> > [   12.443261][    T1] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8854:47
-> > [   12.444084][    T1] 16 - 114 cannot be represented in type 'size_t' (aka 'unsigned long')
-> > [   12.444682][    T1] CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Tainted: G                T   6.15.0-rc5-00342-g40b9969796bf #1 VOLUNTARY
-> 
-> This issue predates the blamed commit, and it's specific to
-> CONFIG_UBSAN_INTEGER_WRAP which was recently introduced.
-> 
-> CONFIG_UBSAN_INTEGER_WRAP apparently requires clang 20.
-> 
-> To try to reproduce this, I built clang from the release/20.x branch, then built
-> a kernel with CONFIG_UBSAN_INTEGER_WRAP=y.  When booting that kernel, there are
-> many UBSAN reports:
-> 
->     [    0.000000] UBSAN: negation-overflow in lib/sort.c:199:36
-> 
->     [    0.000000] UBSAN: negation-overflow in lib/sort.c:185:14
-> 
->     [    0.276708] UBSAN: unsigned-integer-overflow in ./include/linux/min_heap.h:329:24
-> 
->     [    0.277376] UBSAN: negation-overflow in ./include/linux/min_heap.h:260:42
-> 
->     [    0.871191] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8854:47
-> 
->     [    0.890856] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8851:47
-> 
->     [    0.910455] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305.c:260:57
-> 
->     [    1.105542] UBSAN: unsigned-integer-overflow in lib/zstd/compress/zstd_compress_sequences.c:334:21
-> 
->     [    1.113539] UBSAN: unsigned-integer-overflow in lib/zstd/compress/huf_compress.c:889:23
-> 
->     [    1.114597] UBSAN: unsigned-integer-overflow in lib/lz4/lz4_compress.c:294:9
-> 
-> So I did get the chacha20poly1305 ones, but they're hardly unique.
-> 
-> If this new sanitizer is going to move forward, is there any sort of plan or
-> guide for how to update code to be compatible with it?  Specifically considering
-> common situations where unsigned wraparound (which is defined behavior in C) can
-> be intentionally relied on, like calculating the distance from the next N-byte
-> boundary.  What are the best practices now?
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
 
-Hi, yes, this is still under development. I tried to make it hard to
-enable accidentally (not via COMPILE_TEST, not UBSAN-default, etc), but
-we (still) don't have a way to disable configs for randconfigs. :(
+For the cs42l43:
 
-We're hoping to see Clang 21 with the more versatile Overflow Behavior Types:
-https://discourse.llvm.org/t/rfc-v2-clang-introduce-overflowbehaviortypes-for-wrapping-and-non-wrapping-arithmetic/86507
+Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
 
-and our current testing is showing many fewer false positives. (Having
-run syzkaller for weeks now.)
-
-> Documentation/dev-tools/ubsan.rst says nothing about this and only mentions
-> "undefined behavior", which this is not.
-
-Right -- this will get extensive documentation before we move it out of
-its development phase.
-
-I'm not sure how to enforce "don't enable this unless you're developing
-the Overflow Behavior Types" with current Kconfig, given the randconfig
-gap... I have some memory of Arnd doing something special with his
-randconfigs to avoid these kinds of things, but I can't find it now.
-
--Kees
-
--- 
-Kees Cook
+Thanks,
+Charles
 
