@@ -4,154 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C28DC3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 132ACC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+7zQ2o+FwKDg46WFIBroyECXa70RRbkpBUp8D3oHhs=; b=gWWb5LtS8ycLaA9mcXXZoxu802
-	Gztejf4OTaCDGbkO/K1xqZn+Jb2q8SoMo9SyjEuuF1/vnQqdDAj3sv9ONh+no2m8XNyEXRan4a9Wt
-	R6rQRKscQbPrXQIi0eEFS/NHw6N72OVCYnHHy1PWw1fhXRJDlYgT+KKaNXmtBI+nQjUdrnkS5QBMR
-	cptbJjrM5knD/T+S8tCVa8jYmc9XJ7bXqKdcbdkwgxiePV6UeDeerf48A2UxsE7zVjFBZ9lQZHRFd
-	dupLQ7o2khmYZQLmD8VI6S5e7agkBr2BqF6NkZjWzTANmv7knWZo9l3M9fbK8ycZhskWZG0kAhkmT
-	/B5dAGJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/xxvQd++y7EnTgMMEVQbGeZAD8fz0r4wC/tmiy3K++8=; b=h2tpSHwTdL7g8EVsQJEXwKoD3u
+	kfD9T7vo+Nf5L9l4GqlITvD9pGTLKOWcR3zP79CxFZE6QiNnBT+nrRM4oWWN5FDzuANYF1J/nc9hp
+	G4HE+S+IYX7fG81MHthrmwTk/8RLej4pLbGiv1SkxM8BFOm1hQAERIoP2DxI2d4UDvCizUctIRfce
+	TmAu0L7Mz1v/ke6ug+wkO/QxqtlDxTu0kMnBjx+rEE+glUXkmX81s37kwPz6Ds3LbMvY9pgmaz/0b
+	aC5ZaVZ2YE+N6NrGx4c9+UG3HJCrmKkrOIk13a0xUBqjGtBntMUA8xF+ZZVUaUdOmtiLtKd64Pa22
+	2EKnLCSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJdR-0000000DeyE-47PG;
-	Wed, 28 May 2025 16:28:09 +0000
-Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uKJdQ-0000000DewT-3ITt;
+	Wed, 28 May 2025 16:28:08 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKIp1-0000000DZHJ-3LNo
+	id 1uKIoC-0000000DZ4Q-0ppE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 15:36:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VGxrX2MduLtoGvTJ5FfLcGroKkxZ9shUkQ2ExPaK4LqW8qhLgbt/Dx5s+IBMJ41LweevJjJKY9/wwmGqg5eWZKdr05lLXq1Abp8OPAfaaHqUdUUiJ8XlB3PbT+TIHT4F5pVMjKbnTeCsaaCAvA7lYV3ghziUZq0CIyYjAMhMdy2Jqfvs7mWst9LWH1/v7XgURmV5+EOQBQ0u/3LJfwMBRG0T5ts2lp0Ap6nAaPjzez4RhD4gn4syw38WjaqkgTPrXavSFTbVk+UZa6ikFaachir0QZT0IwjjbfiiVq3X1Pdbzw8uwRDd+gJHcEfzLaI+MxMkJbwPVubhu32bSdzZYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w+7zQ2o+FwKDg46WFIBroyECXa70RRbkpBUp8D3oHhs=;
- b=OXXpHUEDjTpDzHpjuswit7s0h8kC/ob7l2QSGw7Vklr/RgArnOFXB1dKE6eqdUqHAzvIu18++8UX/0LnzMNzMB7NHhd/EcgA475VeIajSht6IWUZMXmv3pDBNx3jVrFdCSWDKdiAi7sbTnwmPR0uzgj5Du+MW2N+fa/YsamXOaiEv4z+aW6AHbFonwb2LFmMRMhO7XfqOUj+TKM9neI00dVWmZraaacw7Zd0ld5blfoMKhWWfYGk04i6z6i+KIW/GYcMfP608RB8ZTwf7ALaWsMSBi0HONmBC5uw7grPExRqo9yoyuP+lhVxfNIi5VXEDbSBnUGPwLvrgD5N++OkxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w+7zQ2o+FwKDg46WFIBroyECXa70RRbkpBUp8D3oHhs=;
- b=RdmWONcgTDkqq5kmqRl5wY6EPMRJo6UMVQes4ikGj14Swl7QuTOu29aGbqywvXI5ZW+nyxcZWEB9OuqMRSIqqONeXDUEgHiNhVj81DJkw5HbDR5lWTsXOHOwx4uRFf1PCg8bZF5AfdSe+oDuWzCVVTBC9p28CGy4STQqL1sH/EPx8WvDRm/YX/r4CwCGneX8m3NgK5+i62NLJfM4B4oGtLVR78NXOFFLQhgx/E1+TVfGQjMZCfa9tHcakuhh8gjpaRPu4tk8u7EhrMIlh3u/6AAZKj+KA2FyHhqSqyCyh7dfG7H7qfwpU6/YC+cwutkEKnhP6QdG/B0DlfSkrIhDHg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GV2PR04MB11424.eurprd04.prod.outlook.com (2603:10a6:150:2a2::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.29; Wed, 28 May
- 2025 15:36:00 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
- 15:36:00 +0000
-Date: Wed, 28 May 2025 11:35:52 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Gregor Herburger <gregor.herburger@tq-group.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com
-Subject: Re: [PATCH 2/2] arm64: dts: ls1028a: Add mbls1028a and mbls1028a-ind
- devicetrees
-Message-ID: <aDctWKIvBKwF29lP@lizhi-Precision-Tower-5810>
-References: <20250527060400.1005757-1-alexander.stein@ew.tq-group.com>
- <20250527060400.1005757-2-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250527060400.1005757-2-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: PH7PR17CA0022.namprd17.prod.outlook.com
- (2603:10b6:510:324::7) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 28 May 2025 15:35:13 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e7da099de49so3324412276.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 08:35:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tomeuvizoso-net.20230601.gappssmtp.com; s=20230601; t=1748446510; x=1749051310; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/xxvQd++y7EnTgMMEVQbGeZAD8fz0r4wC/tmiy3K++8=;
+        b=TCfJbF893FmU4tghZk5qv9EAAkolVaWt61vD13VEBkweL0uKvw5DLEEtAWqqZF7LlG
+         T2izbtUMyBllSDfgJRbnyJBRz0Hh1Ay5GpX0QucZkKq9Omplvkla1r7ZREoI1e6lMxfu
+         tkCoIClsOloUkXGNgHCulF843nOeeFZ0czX/s5KEjf8Sf/jbNTgleb4xel+/WmckPhZt
+         G88GTFkQQBqju7ETEvnLdPWexndiTW6ND2Wqdb+rm39c+zEHTTE8hTSfd2Go8xR0gvCT
+         zQ3lppr6weOzVDdBbpwfrnaJv1v3MjMpXiJAFeX9J9q59XnBbbWde7zPe0OrO476H1MP
+         iaKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748446510; x=1749051310;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/xxvQd++y7EnTgMMEVQbGeZAD8fz0r4wC/tmiy3K++8=;
+        b=OZR82ReVuhYBq0F9TV5zTdKoqEJW2yhIn1rwivsqIaxlb4HprGQbyjjHmym+QaHWE4
+         DN4VOtJReM4U3BMWFywHLHcU+j6DUlWTrWM6mVQYV9DkRAvFajIIlOLUwTIQLsSx7B44
+         lDvxw9ZoDckVrOt6upJRjI9/m02CqSvvNyh/6lbJoSTXYWx3lPKN4gPAXlYYy1JUUUG+
+         vPAJvX7JSTdNB/5ngBudo8EVsA2a1jWLlLbxgSf1FniRkTXlRsRdbkl+ZWsryqV9ZdCp
+         xsmgt6qHKZGxp41zH//WdGm8rXNW1/vmSayBUEIDDeXqUQ/B1BspXotc2mIAr9vqGLg3
+         WZLw==
+X-Forwarded-Encrypted: i=1; AJvYcCUhsU7vypvlAIrCcgkZkp0AQyjutEOHBHDXtw3kAZmy4sBkjG1uC5deSRRcJrjR3IDe0TrOXrv4RafaIf88okJq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2RlAK4ViPVS0n7gcwFb5oHQa4k10jBE3TrrPnlgb8d9IjL+/v
+	zzBs3xklkYrJKTutPcJ9avYpqxMnTqSO+41fWeBe8Peiow4NnU/bWgQBg/97nI8gGSn73clTn1g
+	AD/JgGwPHug==
+X-Gm-Gg: ASbGnctY1zvbRq8rc8EPd2QpvTQaplH6fqp1eu5oeJ9MbzHHRjJbbEOV0/1DPIenjsF
+	rC/NjkPUWYp55RBdMC+HTd5p9NuynxcsY/Hzm+mN1RzCVWLHgNqRlehqVY6D3yiVTxAH+IkmsAw
+	WAumKYQxDg0qEnsB+K7+YRdboCGUE/iSG68HnZ6I9MEoIVNyM/rNdGgAKWMwUzlYSDQwVRVJKBl
+	xXiD2yQdoxZ2JDntZvMQtA/GKBv/mhoTATbe6vqg47s3nSm2UE635g4XIEbHc5ORB0pwE1B3QTv
+	EckuXSy8kXkqCXm9yZHDbzRqcXdqRQISzXnEioEgUCxGL6zoP1R/8vuPiKuGBtyKhDyAQbT8GIB
+	bsf2TQnv5WfSn+l1MkGo=
+X-Google-Smtp-Source: AGHT+IGiOL6x42T0jsPHvb8a5661YLptrmV907N8otuGHZQUTt1oTogSJcKwYAqfLR7NwmGaq2sMbg==
+X-Received: by 2002:a05:6902:10c2:b0:e7d:cdca:8ed9 with SMTP id 3f1490d57ef6-e7dcdca9345mr7373955276.14.1748446510592;
+        Wed, 28 May 2025 08:35:10 -0700 (PDT)
+Received: from mail-yb1-f169.google.com (mail-yb1-f169.google.com. [209.85.219.169])
+        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e7f6185ed68sm312947276.46.2025.05.28.08.35.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 May 2025 08:35:09 -0700 (PDT)
+Received: by mail-yb1-f169.google.com with SMTP id 3f1490d57ef6-e7da099de49so3324373276.2;
+        Wed, 28 May 2025 08:35:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW7ky+VdrxidqLjXj7/TyyptQOiPxTiygQlqcSmBI1/NatcOahTgiIdnhgwvLelETJ6NIm0JHVyaL/QaTelDgx1@lists.infradead.org, AJvYcCWUGkGxwRUj/cv6nxR/3GF857RAO8BuvcHno79vSrNt4nzG28CWuF39sDXQ6wVNmzAR7B2AmvY/v20s8+saMiM=@lists.infradead.org
+X-Received: by 2002:a05:6902:1021:b0:e7d:ca07:a144 with SMTP id
+ 3f1490d57ef6-e7dca07a23dmr8541656276.5.1748446509068; Wed, 28 May 2025
+ 08:35:09 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV2PR04MB11424:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7472d3df-c696-4f65-85ee-08dd9dfd58bf
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HNRUEw8PVyWz++Ur0utJ4vymjFkZSD3GG4mjrocZB+ashLHp2apLRkLm1ASN?=
- =?us-ascii?Q?jvW8TVErPJ3q0lX12PhvNYbQ1PvvkzaDGszomonb7dBKLRk4S9E27rUgqeZ3?=
- =?us-ascii?Q?hb8Tz2k6EcvGqa+CjyKMGrQKi+7Lg9SU9sidjMIMb4s4l3Xm0eK1WwneRR+u?=
- =?us-ascii?Q?nW1oPVDsbCe2QREM14e6GLjkYaDZfAt08/idruC/FXQLz2BmGV/ojrfTPFsq?=
- =?us-ascii?Q?eA+bUlAjHAumMAL/Rr3cvinuWNwP5jHio4PApch6qfaGmGgL1mUQe+rPZCCL?=
- =?us-ascii?Q?61Ui7RfCwnChGvs8vto7Cz+3jZFKtsjy8c0ABPftsj6V3S0DZ4ATmdk4RqVn?=
- =?us-ascii?Q?sdwQ+PmJqEA76HzUuc0dRpywCQedBOqZM8CnshIkKZfAxl/sWmeeOj15rjEy?=
- =?us-ascii?Q?N/eDYkMyW44tt/2sz55SUQ/c/u92AWgHRCxjjanbEi39jBOSHCm9wIevVu6J?=
- =?us-ascii?Q?K86uPG+sQDIy1V9dP5lAS42aIg0YajEWI2Rl5bSQrf/aVoPaujhoVVTeFRx4?=
- =?us-ascii?Q?Y6lz8O2oxtacSpIjlp5zABemXtGcM4yt5i6Gv4Dlb8GgpaLEYXDP2LDKsmIL?=
- =?us-ascii?Q?lFmijRlxunVpGa/iupJQNNOmVUZvZ+wqJo0FOv+FkMDPOPcK0ae9MEL97bzi?=
- =?us-ascii?Q?/IEM4qPdQ/PTUnaeDhdISHyTE7C+NeP5GyZF3Y75Nw9/YyrkI+2YFsGjw2hh?=
- =?us-ascii?Q?P9I4hTeXkG848fWWwRXCMe58gx8HwchNN2Qx445LIDczn5c269stkShsMXwh?=
- =?us-ascii?Q?BEoXCf1G2gZFEuUZB1A6fzRFHT5fvLeEL4caWVgRd2jsnoJ/9iVP2+bXx3Qs?=
- =?us-ascii?Q?eRUuJLhhbmuCO1q+OzgucPaT1/lL3tzaRoNfhn2kgmlVFz4WccFlGFs9p14L?=
- =?us-ascii?Q?D3rFWyHlJqithQFyXsLKdgrSDOeCVKyqY3aDzWeiTHf8A4DCju4tHiFS8yVh?=
- =?us-ascii?Q?MJxQTF9AP/8q+/d3RAjkOvyBlXW292Eal6On6cSdqa1lTuSdgy+i0uRBgatz?=
- =?us-ascii?Q?+NnxW/AVQiIWIC8rtw3LRbcea3C1Gc99Y+7nWC8yHzeo271QB2H/t/wx+r7X?=
- =?us-ascii?Q?Ha6bma46w6jTmKvinC2rnrleaR8z02WIekG51sYSwVg2rfvs+g0KgDbau5EZ?=
- =?us-ascii?Q?zmbuKIA4xjUZ0LnqLepi5cYON2M4ry2Kyjw0SFcJV2qA/eRNLHOt8LoR51MZ?=
- =?us-ascii?Q?bOorF6qa1R2Dz7Co3lCELCguqBEiTuVCJGrFtp3racV+y9lzjjretWj5Usng?=
- =?us-ascii?Q?WVbUnmp9E7vpR+OCnrTz3NhFnx8yDMLIubfJYzASsPbQBBxYECOABX4qEvje?=
- =?us-ascii?Q?8m4ECN5gGBcpLq1qugWrDag0gouO4mNARwlhxfr3s88a0He09l2Rlu7jOn3d?=
- =?us-ascii?Q?irhh1TF/59qJsadeu41kQCGhsRLT48Htm0LwhxpxsbJXlUFrXWw88n2IGJrp?=
- =?us-ascii?Q?7xt/WDZhzZ6Fo5ElQahxNFQKVADy1CNDcySrb0wFLhzr62wf6tFV9TEK0PiV?=
- =?us-ascii?Q?H4pOcr51MNRq/B8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?62O9qscNTttcni2Al9gLTsidlx0DYXYiIfxr01f7uVexCYDDUXC+P39MPNFu?=
- =?us-ascii?Q?AvFpYsnKidfxgtZ0st9nT+KFqxO4PwJmQS5kdFWMX8B75sahP9ZTJSHGN2Kj?=
- =?us-ascii?Q?Z/DVLlLVcLMhUujAoNmVfPhjZsmeruf2lK2x9DGLsVXNFph+Qv7VlUOjcVFm?=
- =?us-ascii?Q?dkorspzNRAig4+4Igj6bnfE0ivRqS5THMyAVuleXIUfHw6IwLgIaYgQYKGOz?=
- =?us-ascii?Q?IWeMg3BnXaho1ti9t2UGTmsQVhoxusH02AMVh1nGFS5IDueX/ddOl9YgJ7oY?=
- =?us-ascii?Q?BbS8uMWymv6WtkGF0mwwvQIghv2E13+zpX4zwld2DSue6C24uchXu4ReiJ5Q?=
- =?us-ascii?Q?nx7MFebL0WU7rMcAtEhT71sMGt0lD+v0bFb09HDa8mJZOvGnZYcvV9WU8BNr?=
- =?us-ascii?Q?Q/7s2j4LZYP4Uz2NSfDJQEKolxkQYyeRfrasJnHCvMklqLQMesq4xpHiYDt/?=
- =?us-ascii?Q?0mqzRzAKDOdDY6EckaV0hZzC2XGRMTTtbglAiSuLUZCvx7d1gLDbKIz8L5af?=
- =?us-ascii?Q?dDWWY1wDEy1ibOVN00bWcCuGzzj9Q6x+wNmCh8l6pQbEJy47WzOSBeOf9eq0?=
- =?us-ascii?Q?0IVGTCHSRItegCL1lm6S6mW/2XoCL/wpOJsmCHqbfIqtpBYFmF2gxpQE+rR+?=
- =?us-ascii?Q?sTiWNeYYblHVYg95r88WNEASBQbjyarDVQcTre0vsnyMbzPh3CLOylywvzwi?=
- =?us-ascii?Q?rpz3HBWh5c4xx+R9fzM5UlYwH9/RnWSgfjI60YlB+/ObaHGFKbSE0WSYPZwd?=
- =?us-ascii?Q?xhJs3eqmGfxrzrMoJyJDeVAUdO1ishkDDBBI09eyfQt+ytFrYX9wPDgmFGvW?=
- =?us-ascii?Q?zehqSuKbfFqPr4tg4Gt2PVZO6OHQ2/PYxkyYrAHx94w7czjZCqwhhLiY2nww?=
- =?us-ascii?Q?6fQxyXwb6TdLCyWfNqFjIeYL2MkMiuG8B2oRV3B36V/0CzY23AfHNU36lDs0?=
- =?us-ascii?Q?QotM0lR7qVwPHQShwS2/aImtgwRNwXOpdEimFTK1EKUznwSsKG+MCkO8JIhy?=
- =?us-ascii?Q?7cKiIhnNN+y2ROFs6wjzAx+qvAYzeZKnUlu+tMjf0UTKQu3gf4ugFQr6wnsK?=
- =?us-ascii?Q?pYpig6TN4Pj7007cuPx5+Pm9dCPj1EyZaGswEpQNGVbRC4d9yh68/TflSalz?=
- =?us-ascii?Q?rxUa3xiBlo4Di5m/j7ujeaA9I3sd9hTDnC+H7Y+UJWAH0gXf+0ByqfB3ZJMD?=
- =?us-ascii?Q?8KOkc7jGR5cXGF8c7yGCOaNJ2H6S9K+OIpT07ZYgpvdi/EGLAiDd7PTRi2Gy?=
- =?us-ascii?Q?rJybGmB1HjQekswT0xnskmipJp9M8fzeZhhicTk2h3Ctj4LgrZ1TAzdgHnSU?=
- =?us-ascii?Q?VHpHOd5EmiZSVqBodCSJilxSCXtS1AjNJExJRNFL128zHYGXsRFoN6ZtLUjE?=
- =?us-ascii?Q?aLvxYde6Q2wUayDSydTnOIO3U9Or17nevyTfVVSNGlL1ETuj9ksbimvc/lRS?=
- =?us-ascii?Q?v+rB5qK4eUiaOtRFgIGPF+wV/4MStsssm6pHs1xigETZAxauL9DxuowwEg/S?=
- =?us-ascii?Q?v/NPJi5xQfINoEwF+Nq9nLllQ6k9F/jHeYoJQeiZfgHJceE0uNwcWg+jv4Es?=
- =?us-ascii?Q?NgDt9ywJLVQh38v9pkk=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7472d3df-c696-4f65-85ee-08dd9dfd58bf
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 15:36:00.2154
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3LZHV4wsrpHpNoeCkaGm17StpB2jojS+nLUivBLjXbgJ3TC8dRRdczrYT2V7O0gcXI3CoARk+7rIMpZT1r3HfA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11424
+References: <20250520-6-10-rocket-v5-0-18c9ca0fcb3c@tomeuvizoso.net>
+ <20250520-6-10-rocket-v5-1-18c9ca0fcb3c@tomeuvizoso.net> <CAL_Jsq+2mvUDWWvtPSryAiCNJP_=1vNRxARxWTS=-O-LTQO3Dg@mail.gmail.com>
+In-Reply-To: <CAL_Jsq+2mvUDWWvtPSryAiCNJP_=1vNRxARxWTS=-O-LTQO3Dg@mail.gmail.com>
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Date: Wed, 28 May 2025 17:34:57 +0200
+X-Gmail-Original-Message-ID: <CAAObsKDE33kZ27XbgeWBqQzrZXDHwHzp2Q6A7y_osC50UG-n7g@mail.gmail.com>
+X-Gm-Features: AX0GCFtwrQfY2JjemntUXNTLyymu_4uxtqwB53YlQ42a11mlnVkp6EMD0QhiJuw
+Message-ID: <CAAObsKDE33kZ27XbgeWBqQzrZXDHwHzp2Q6A7y_osC50UG-n7g@mail.gmail.com>
+Subject: Re: [PATCH v5 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+	Kever Yang <kever.yang@rock-chips.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_083604_026815_57D5308F 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20250528_083512_531901_41EB7218 
+X-CRM114-Status: GOOD (  32.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,663 +118,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 08:03:55AM +0200, Alexander Stein wrote:
-> From: Gregor Herburger <gregor.herburger@tq-group.com>
+On Wed, May 28, 2025 at 3:41=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
+:
 >
-> Add device trees for the MBLS1028A and the MBLS1028A-IND and the SoM
-> TQMLS1028A.
+> On Tue, May 20, 2025 at 5:27=E2=80=AFAM Tomeu Vizoso <tomeu@tomeuvizoso.n=
+et> wrote:
+> >
+> > Add the bindings for the Neural Processing Unit IP from Rockchip.
+> >
+> > v2:
+> > - Adapt to new node structure (one node per core, each with its own
+> >   IOMMU)
+> > - Several misc. fixes from Sebastian Reichel
+> >
+> > v3:
+> > - Split register block in its constituent subblocks, and only require
+> >   the ones that the kernel would ever use (Nicolas Frattaroli)
+> > - Group supplies (Rob Herring)
+> > - Explain the way in which the top core is special (Rob Herring)
+> >
+> > v4:
+> > - Change required node name to npu@ (Rob Herring and Krzysztof Kozlowsk=
+i)
+> > - Remove unneeded items: (Krzysztof Kozlowski)
+> > - Fix use of minItems/maxItems (Krzysztof Kozlowski)
+> > - Add reg-names to list of required properties (Krzysztof Kozlowski)
+> > - Fix example (Krzysztof Kozlowski)
+> >
+> > v5:
+> > - Rename file to rockchip,rk3588-rknn-core.yaml (Krzysztof Kozlowski)
+> > - Streamline compatible property (Krzysztof Kozlowski)
+> >
+> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > ---
+> >  .../bindings/npu/rockchip,rk3588-rknn-core.yaml    | 147 +++++++++++++=
+++++++++
+> >  1 file changed, 147 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn=
+-core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-cor=
+e.yaml
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..9eb426367afcbc03c387d43=
+c4b8250cdd1b9ee86
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.y=
+aml
+> > @@ -0,0 +1,147 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/npu/rockchip,rk3588-rknn-core.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Neural Processing Unit IP from Rockchip
+> > +
+> > +maintainers:
+> > +  - Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > +
+> > +description:
+> > +  Rockchip IP for accelerating inference of neural networks, based on =
+NVIDIA's
+> > +  open source NVDLA IP.
+> > +
+> > +  There is to be a node per each core in the NPU. In Rockchip's design=
+ there
+> > +  will be one core that is special and needs to be powered on before a=
+ny of the
+> > +  other cores can be used. This special core is called the top core an=
+d should
+> > +  have the compatible string that corresponds to top cores.
 >
-> Signed-off-by: Gregor Herburger <gregor.herburger@tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile        |   2 +
->  .../fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts  |  68 ++++
->  .../fsl-ls1028a-tqmls1028a-mbls1028a.dts      | 118 +++++++
->  .../fsl-ls1028a-tqmls1028a-mbls1028a.dtsi     | 291 ++++++++++++++++++
->  .../dts/freescale/fsl-ls1028a-tqmls1028a.dtsi | 117 +++++++
+> Is this really a distinction in the h/w? If you change which core is
+> the top one in the DT, does it still work?
 
-New dts file, suggest run https://github.com/lznuaa/dt-format to nice order
+No, I really need to power on that one before the others can work (the
+first core is also marked as special in a diagram in the TRM).
 
-Frank
+> > +
+> > +properties:
+> > +  $nodename:
+> > +    pattern: '^npu@[a-f0-9]+$'
+> > +
+> > +  compatible:
+> > +    enum:
+> > +      - rockchip,rk3588-rknn-core-top
+> > +      - rockchip,rk3588-rknn-core
+> > +
+> > +  reg:
+> > +    maxItems: 3
+> > +
+> > +  reg-names:
+> > +    items:
+> > +      - const: pc
+> > +      - const: cna
+> > +      - const: core
+> > +
+> > +  clocks:
+> > +    minItems: 2
+> > +    maxItems: 4
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: aclk
+> > +      - const: hclk
+> > +      - const: npu
+> > +      - const: pclk
+> > +    minItems: 2
+>
+> It is odd that the non-top cores only have bus clocks and no module
+> clock. But based on the clock names, I'm guessing the aclk/hclk are
+> not shared, but the npu and pclk are shared. Since you make the top
+> core probe first, then it will enable the shared clocks and the
+> non-top cores don't have to worry about them. If so, that is wrong as
+> it is letting the software design define the bindings.
 
->  5 files changed, 596 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts
->  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dts
->  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
->  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a.dtsi
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 75ea65d718c1f..38674e4eeb4c3 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -16,6 +16,8 @@ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-sl28-var3-ads2.dtb
->  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-sl28-var4.dtb
->  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-qds.dtb
->  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-rdb.dtb
-> +dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-tqmls1028a-mbls1028a.dtb
-> +dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-tqmls1028a-mbls1028a-ind.dtb
->  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1043a-qds.dtb
->  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1043a-rdb.dtb
->  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1043a-tqmls1043a-mbls10xxa.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts
-> new file mode 100644
-> index 0000000000000..fb735c5d475ad
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a-ind.dts
-> @@ -0,0 +1,68 @@
-> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> +/*
-> + * Copyright 2019-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> + * D-82229 Seefeld, Germany.
-> + * Author: Michael Krummsdorf
-> + * Author: Matthias Schiffer
-> + * Author: Alexander Stein
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "fsl-ls1028a-tqmls1028a-mbls1028a.dtsi"
-> +
-> +/ {
-> +	model = "MBLS1028A-IND starterkit";
-> +	compatible = "tq,ls1028a-tqmls1028a-mbls1028a-ind", "tq,ls1028a-tqmls1028a", "fsl,ls1028a";
-> +};
-> +
-> +&i2c5 {
-> +	gpio_exp_3v3: gpio@71 {
-> +		compatible = "nxp,pca9538";
-> +		reg = <0x71>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +
-> +		clk-intn-hog {
-> +			gpio-hog;
-> +			gpios = <0 GPIO_ACTIVE_HIGH>;
-> +			input;
-> +			line-name = "CLK_INT#";
-> +		};
-> +
-> +		mpcie-waken-hog {
-> +			gpio-hog;
-> +			gpios = <2 GPIO_ACTIVE_HIGH>;
-> +			input;
-> +			line-name = "MPCIE_WAKE#";
-> +		};
-> +
-> +		mpcie-disn-hog {
-> +			gpio-hog;
-> +			gpios = <3 GPIO_ACTIVE_HIGH>;
-> +			output-high;
-> +			line-name = "MPCIE_DIS#";
-> +		};
-> +
-> +		mpcie-rstn-hog {
-> +			gpio-hog;
-> +			gpios = <4 GPIO_ACTIVE_HIGH>;
-> +			output-high;
-> +			line-name = "MPCIE_RST#";
-> +		};
-> +
-> +		sata-perstn-hog {
-> +			gpio-hog;
-> +			gpios = <6 GPIO_ACTIVE_HIGH>;
-> +			output-high;
-> +			line-name = "SATA_PERST#";
-> +		};
-> +
-> +		dcdc-reset-hog {
-> +			gpio-hog;
-> +			gpios = <7 GPIO_ACTIVE_HIGH>;
-> +			output-low;
-> +			line-name = "DCDC_RESET";
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dts b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dts
-> new file mode 100644
-> index 0000000000000..c5590c6d23995
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dts
-> @@ -0,0 +1,118 @@
-> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> +/*
-> + * Copyright 2019-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> + * D-82229 Seefeld, Germany.
-> + * Author: Michael Krummsdorf
-> + * Author: Matthias Schiffer
-> + * Author: Alexander Stein
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include "fsl-ls1028a-tqmls1028a-mbls1028a.dtsi"
-> +
-> +/ {
-> +	model = "MBLS1028A starterkit";
-> +	compatible = "tq,ls1028a-tqmls1028a-mbls1028a", "tq,ls1028a-tqmls1028a", "fsl,ls1028a";
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +		autorepeat;
-> +
-> +		button-0 {
-> +			label = "S4";
-> +			linux,code = <BTN_0>;
-> +			gpios = <&gpio_exp_3v3 11 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		button-1 {
-> +			label = "S5";
-> +			linux,code = <BTN_1>;
-> +			gpios = <&gpio_exp_3v3 12 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +
-> +	gpio-beeper {
-> +		compatible = "gpio-beeper";
-> +		gpios = <&gpio_exp_3v3 15 GPIO_ACTIVE_HIGH>;
-> +	};
-> +
-> +	gpio-leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-1 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			function = LED_FUNCTION_STATUS;
-> +			function-enumerator = <1>;
-> +			gpios = <&gpio_exp_3v3 14 GPIO_ACTIVE_HIGH>;
-> +			linux,default-trigger = "default-on";
-> +		};
-> +
-> +		led-2 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			function = LED_FUNCTION_HEARTBEAT;
-> +			gpios = <&gpio_exp_3v3 13 GPIO_ACTIVE_HIGH>;
-> +			linux,default-trigger = "heartbeat";
-> +		};
-> +	};
-> +};
-> +
-> +&i2c5 {
-> +	gpio_exp_3v3: gpio@25 {
-> +		compatible = "nxp,pca9555";
-> +		reg = <0x25>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		interrupt-parent = <&gpio1>;
-> +		interrupts = <30 IRQ_TYPE_LEVEL_LOW>;
-> +		vcc-supply = <&reg_3p3v>;
-> +
-> +		clk-intn-hog {
-> +			gpio-hog;
-> +			gpios = <0 GPIO_ACTIVE_HIGH>;
-> +			input;
-> +			line-name = "CLK_INT#";
-> +		};
-> +
-> +		mpcie-waken-hog {
-> +			gpio-hog;
-> +			gpios = <2 GPIO_ACTIVE_HIGH>;
-> +			input;
-> +			line-name = "MPCIE_WAKE#";
-> +		};
-> +
-> +		mpcie-disn-hog {
-> +			gpio-hog;
-> +			gpios = <3 GPIO_ACTIVE_HIGH>;
-> +			output-high;
-> +			line-name = "MPCIE_DIS#";
-> +		};
-> +
-> +		mpcie-rstn-hog {
-> +			gpio-hog;
-> +			gpios = <4 GPIO_ACTIVE_HIGH>;
-> +			output-high;
-> +			line-name = "MPCIE_RST#";
-> +		};
-> +
-> +		sata-perstn-hog {
-> +			gpio-hog;
-> +			gpios = <6 GPIO_ACTIVE_HIGH>;
-> +			output-high;
-> +			line-name = "SATA_PERST#";
-> +		};
-> +	};
-> +};
-> +
-> +&gpio_exp_1v8 {
-> +	dcdc-reset-hog {
-> +		gpio-hog;
-> +		gpios = <6 GPIO_ACTIVE_HIGH>;
-> +		output-low;
-> +		line-name = "DCDC_RESET";
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
-> new file mode 100644
-> index 0000000000000..6261100f3413a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
-> @@ -0,0 +1,291 @@
-> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> +/*
-> + * Copyright 2019-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> + * D-82229 Seefeld, Germany.
-> + * Author: Michael Krummsdorf
-> + * Author: Matthias Schiffer
-> + * Author: Alexander Stein
-> + */
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/net/ti-dp83867.h>
-> +#include "fsl-ls1028a-tqmls1028a.dtsi"
-> +
-> +/ {
-> +	aliases {
-> +		gpio0 = &gpio1;
-> +		gpio1 = &gpio2;
-> +		gpio2 = &gpio3;
-> +
-> +		crypto = &crypto;
-> +
-> +		mmc0 = &esdhc; /* SD-Card */
-> +		mmc1 = &esdhc1; /* eMMC */
-> +
-> +		serial0 = &duart0;
-> +		serial1 = &duart1;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = &duart0;
-> +	};
-> +
-> +	reg_1p8v: regulator-1p8v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "V_1V8";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_3p3v: regulator-3p3v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "V_3V3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		/* global autoconfigured region for contiguous allocations */
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +			/* 256 MiB */
-> +			size = <0 0x10000000>;
-> +			linux,cma-default;
-> +		};
-> +	};
-> +};
-> +
-> +&can0 {
-> +	status = "okay";
-> +};
-> +
-> +&can1 {
-> +	status = "okay";
-> +};
-> +
-> +&dspi2 {
-> +	bus-num = <2>;
-> +	status = "okay";
-> +};
-> +
-> +&duart0 {
-> +	status = "okay";
-> +};
-> +
-> +&duart1 {
-> +	status = "okay";
-> +};
-> +
-> +&esdhc {
-> +	cd-gpios = <&gpio1 31 GPIO_ACTIVE_LOW>;
-> +	disable-wp;
-> +	no-mmc;
-> +	no-sdio;
-> +	no-1-8-v;
-> +	bus-width = <4>;
-> +	status = "okay";
-> +};
-> +
-> +/* When switched to baseboard-internal i2c bus,
-> + * IIC5 has access to the following devices.
-> + */
-> +&i2c4 {
-> +	status = "okay";
-> +
-> +	/* SI5338 - set up in U-Boot */
-> +	/* clockgen@70 */
-> +};
-> +
-> +&i2c5 {
-> +	status = "okay";
-> +
-> +	gpio_exp_1v8: gpio@70 {
-> +		compatible = "nxp,pca9538";
-> +		reg = <0x70>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <2>;
-> +		interrupt-parent = <&gpio1>;
-> +		interrupts = <30 IRQ_TYPE_LEVEL_LOW>;
-> +		vcc-supply = <&reg_1p8v>;
-> +
-> +		ec1-intn-hog {
-> +			gpio-hog;
-> +			gpios = <0 0>;
-> +			input;
-> +			line-name = "EC1_INT#";
-> +		};
-> +
-> +		sgmii-intn-hog {
-> +			gpio-hog;
-> +			gpios = <2 0>;
-> +			input;
-> +			line-name = "SGMII_INT#";
-> +		};
-> +
-> +		qsgmii-intn-hog {
-> +			gpio-hog;
-> +			gpios = <4 0>;
-> +			input;
-> +			line-name = "QSGMII_INT#";
-> +		};
-> +
-> +		qsgmii-rstn-hog {
-> +			gpio-hog;
-> +			gpios = <5 0>;
-> +			output-high;
-> +			line-name = "QSGMII_RESET#";
-> +		};
-> +	};
-> +};
-> +
-> +&enetc_mdio_pf3 {
-> +	mdio0_rgmii_phy00: ethernet-phy@0 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x00>;
-> +		reset-gpios = <&gpio_exp_1v8 1 GPIO_ACTIVE_LOW>;
-> +		reset-assert-us = <1>;
-> +		reset-deassert-us = <200>;
-> +		interrupt-parent = <&gpio_exp_1v8>;
-> +		interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
-> +		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_50_NS>;
-> +		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-> +		ti,led-function = <0x05b0>;
-> +		ti,led-ctrl = <0x1001>;
-> +		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
-> +		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-> +	};
-> +
-> +	mdio0_sgmii_phy03: ethernet-phy@3 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x03>;
-> +		reset-gpios = <&gpio_exp_1v8 3 GPIO_ACTIVE_LOW>;
-> +		/*
-> +		 * Long reset to work around PHY incorrect strap pin sampling
-> +		 * due to external capacitors for SGMII
-> +		 */
-> +		reset-assert-us = <2500>;
-> +		reset-deassert-us = <200>;
-> +		interrupt-parent = <&gpio_exp_1v8>;
-> +		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
-> +		ti,led-function = <0x05b0>;
-> +		ti,led-ctrl = <0x1001>;
-> +		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
-> +		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-> +	};
-> +
-> +	qsgmii_phy1: ethernet-phy@1c {
-> +		reg = <0x1c>;
-> +	};
-> +
-> +	qsgmii_phy2: ethernet-phy@1d {
-> +		reg = <0x1d>;
-> +	};
-> +
-> +	qsgmii_phy3: ethernet-phy@1e {
-> +		reg = <0x1e>;
-> +	};
-> +
-> +	qsgmii_phy4: ethernet-phy@1f {
-> +		reg = <0x1f>;
-> +	};
-> +};
-> +
-> +&enetc_port0 {
-> +	phy-handle = <&mdio0_sgmii_phy03>;
-> +	phy-mode = "sgmii";
-> +	managed = "in-band-status";
-> +	status = "okay";
-> +};
-> +
-> +&enetc_port1 {
-> +	phy-handle = <&mdio0_rgmii_phy00>;
-> +	phy-mode = "rgmii-id";
-> +	status = "okay";
-> +};
-> +
-> +&enetc_port2 {
-> +	status = "okay";
-> +};
-> +
-> +&mscc_felix {
-> +	status = "okay";
-> +};
-> +
-> +/* l2switch ports */
-> +&mscc_felix_port0 {
-> +	phy-handle = <&qsgmii_phy1>;
-> +	phy-mode = "qsgmii";
-> +	status = "okay";
-> +};
-> +
-> +&mscc_felix_port1 {
-> +	phy-handle = <&qsgmii_phy2>;
-> +	phy-mode = "qsgmii";
-> +	status = "okay";
-> +};
-> +
-> +&mscc_felix_port2 {
-> +	phy-handle = <&qsgmii_phy3>;
-> +	phy-mode = "qsgmii";
-> +	status = "okay";
-> +};
-> +
-> +&mscc_felix_port3 {
-> +	phy-handle = <&qsgmii_phy4>;
-> +	phy-mode = "qsgmii";
-> +	status = "okay";
-> +};
-> +
-> +&mscc_felix_port4 {
-> +	ethernet = <&enetc_port2>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie2 {
-> +	status = "okay";
-> +};
-> +
-> +&sata {
-> +	status = "okay";
-> +};
-> +
-> +&usb0 {
-> +	/* dual role is implemented, but not a full featured OTG */
-> +	hnp-disable;
-> +	srp-disable;
-> +	adp-disable;
-> +	dr_mode = "otg";
-> +	status = "okay";
-> +};
-> +
-> +&usb1 {
-> +	dr_mode = "host";
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	status = "okay";
-> +
-> +	hub_2_0: hub@1 {
-> +		compatible = "usb451,8142";
-> +		reg = <1>;
-> +		peer-hub = <&hub_3_0>;
-> +		reset-gpios = <&gpio_exp_3v3 1 GPIO_ACTIVE_LOW>;
-> +		vdd-supply = <&reg_3p3v>;
-> +	};
-> +
-> +	hub_3_0: hub@2 {
-> +		compatible = "usb451,8140";
-> +		reg = <2>;
-> +		peer-hub = <&hub_2_0>;
-> +		reset-gpios = <&gpio_exp_3v3 1 GPIO_ACTIVE_LOW>;
-> +		vdd-supply = <&reg_3p3v>;
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a.dtsi
-> new file mode 100644
-> index 0000000000000..69aa36a3a0523
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a.dtsi
-> @@ -0,0 +1,117 @@
-> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-> +/*
-> + * Copyright 2019-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-> + * D-82229 Seefeld, Germany.
-> + * Author: Michael Krummsdorf
-> + * Author: Matthias Schiffer
-> + * Author: Alexander Stein
-> + */
-> +
-> +#include "fsl-ls1028a.dtsi"
-> +
-> +/ {
-> +	compatible = "tq,ls1028a-tqmls1028a", "fsl,ls1028a";
-> +
-> +	reg_1p8v_som: regulator-1p8v-som {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "1P8V_SOM";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_3p3v_som: regulator-3p3v-som {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "3P3V_SOM";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	thermal-zones {
-> +		/delete-node/ ddr-controller;
-> +
-> +		cluster-thermal {
-> +			thermal-sensors = <&sa56004_4c 1>;
-> +		};
-> +	};
-> +};
-> +
-> +&esdhc1 {
-> +	no-sdio;
-> +	no-sd;
-> +	non-removable;
-> +	mmc-hs200-1_8v;
-> +	mmc-hs400-1_8v;
-> +	mmc-ddr-1_8v;
-> +	bus-width = <8>;
-> +	status = "okay";
-> +};
-> +
-> +&fspi {
-> +	status = "okay";
-> +
-> +	flash@0 {
-> +		compatible = "jedec,spi-nor";
-> +		reg = <0>;
-> +		spi-max-frequency = <100000000>;
-> +		spi-tx-bus-width = <4>;
-> +		spi-rx-bus-width = <4>;
-> +		vcc-supply = <&reg_1p8v_som>;
-> +
-> +		partitions {
-> +			compatible = "fixed-partitions";
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +		};
-> +	};
-> +};
-> +
-> +&i2c0 {
-> +	status = "okay";
-> +
-> +	js42_18: temperature-sensor@18 {
-> +		compatible = "nxp,se97b", "jedec,jc-42.4-temp";
-> +		reg = <0x18>;
-> +	};
-> +
-> +	sa56004_4c: temperature-sensor@4c {
-> +		compatible = "nxp,sa56004";
-> +		reg = <0x4c>;
-> +		#thermal-sensor-cells = <1>;
-> +		vcc-supply = <&reg_3p3v_som>;
-> +	};
-> +
-> +	se97_50: eeprom@50 {
-> +		compatible = "nxp,se97b", "atmel,24c02";
-> +		read-only;
-> +		reg = <0x50>;
-> +		pagesize = <16>;
-> +		vcc-supply = <&reg_3p3v_som>;
-> +	};
-> +
-> +	rtc1: rtc@51 {
-> +		compatible = "nxp,pcf85063a";
-> +		reg = <0x51>;
-> +		quartz-load-femtofarads = <12500>;
-> +	};
-> +
-> +	m24c256_57: eeprom@57 {
-> +		compatible = "atmel,24c256";
-> +		reg = <0x57>;
-> +		pagesize = <32>;
-> +		vcc-supply = <&reg_3p3v_som>;
-> +	};
-> +};
-> +
-> +/*
-> + * We use a separate sensor IC to measure core temperature. Disable the TMU
-> + * as its driver can cause log spam outside of its measurement range (0-125C).
-> + *
-> + * Will have to be reevaluated if this DTS is ported to a mainline kernel,
-> + * as both sensors of the TMU are referenced by the default LS1028A
-> + * thermal-zones definitions there.
-> + */
-> +&tmu {
-> +	status = "disabled";
-> +};
-> --
-> 2.43.0
->
+Yes, I think it's probably as you say, but I don't know how I could
+check. Maybe Kever, Heiko or Sebastian would have any ideas?
+
+Thanks,
+
+Tomeu
 
