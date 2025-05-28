@@ -4,107 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18631C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 12:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4481BC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 12:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=riKR+ikn9pqTRZr9QK52Dn8usb+TT24tbqNMERJBrOs=; b=Y/qRKMeIsm/5QQn953rs3ztCvD
-	nkfrm/7o0bDnsp1JCY6bRHktYSeG/KNFFC60olH8vnaeP1MgIxZKNmBmSJ1WeQflPvkZyewbNCdbd
-	4giZ/HrT/L7LWf8AvibaBcR8VLy5zmXJDMjDV1MHgs5A2suoqfGz50JM2I1gPOGNrtLG3FMsj7JxO
-	uCM/i1FCNJj1Su6CF7+nxcCi6rxAAcjd287DHag3czQAoKrD9SrmrSSC984ixyO3Bw4hYwaOOmj9Q
-	63f80ZIM19DMhtVL4O5sgGKV8BZ1gya6OZuTtdhCHYvODTmG636914oaU2vbSRN/nxwg2dDnuHCVk
-	NCyNHgtA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kIm5zjYKMN6OFYzQuz3a5OKGZSsL3cGIU0/LJYInxwI=; b=3qwpgGTelFGMI/VMZJ0ehzFYZ6
+	EEpKtoKcXwZW8GMG7hZ9KN3SO7EIFk0NCCtYHkyX7SJgVlkiFmJ6MgisdRezpHiUSGMkH6QNZCICs
+	ZoSnbXZNZ2xIUuH/F6NFxmFyrSB/82vWRuTUEpBmnRcr4e8U4SzuK0pIF1G7qzvhhApIrWXrLhAgz
+	Nwr/5+SuELbBjldXDRZljSBoiaC4DbXn9y1SyLym6i0nJJpKXktEKX5w5FBwFTFryGtsZPrRaHhbu
+	ji4EBkB4V1C8XJ1ShBUyGj22ppgC/E5+y/A5I9ouBAFdE99QeHJUtHa8kaeejtK45sSxDDkZM5lZs
+	vbLMFH9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFd2-0000000D4Jb-17We;
-	Wed, 28 May 2025 12:11:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uKFgs-0000000D4oe-1mY4;
+	Wed, 28 May 2025 12:15:26 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFat-0000000D44g-1SNO
+	id 1uKFei-0000000D4Sj-0rNb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 12:09:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B55844EEF;
-	Wed, 28 May 2025 12:09:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8623EC4CEE7;
-	Wed, 28 May 2025 12:09:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748434154;
-	bh=riKR+ikn9pqTRZr9QK52Dn8usb+TT24tbqNMERJBrOs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ztk1FPVzlKwuilqD7GP4y5A+W3e5sSSt4CxuAtySRJXitxh7mbK5KRdviOUHdKlWL
-	 Pq2a3EDKv/4T3pBNOagwUcgJWyj65r1VFYzgDl1D8HlS0+j+Wj2XULCgBEgqrnuOHv
-	 +3teLfWWZUFJF1fNWHEaa8aZFXMMBm7liyGNXSUYQSlN9o63TgW7KQej9fP2w7e0uE
-	 mBrFGWvkoAoSXzTN7i7S5rBAOx+lBSekQHXVIWj9OSr1+wxyXz6ttxAHc+X+Avizc4
-	 TKs1o18tNYyleQDYuLEz4NksUwfGN38J2Tn+3H2UX5LFZtcgRDAknAoAfH++6TDAu7
-	 VW59HhGLDVOzA==
-Message-ID: <960907ec-61e5-4fcc-9980-7df1d533cd77@kernel.org>
-Date: Wed, 28 May 2025 14:09:10 +0200
+	Wed, 28 May 2025 12:13:13 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ad69e4f2100so662319066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 05:13:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1748434391; x=1749039191; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kIm5zjYKMN6OFYzQuz3a5OKGZSsL3cGIU0/LJYInxwI=;
+        b=duvt6sI48jxtVvshS8H5EORYG/sMLCeBwhUcmuQv9ufaCk/iBv7daciIMtSCu+TIl2
+         gxIpNZ1nUkwMpaH3S4/OtX+09JM3myOKiWv49XNDr2OtRxt860XnjSZzCSWDGG543WDF
+         xy2oafBDyWQHrvV+cwSmmTlM4aC+wwyQsMeSM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748434391; x=1749039191;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kIm5zjYKMN6OFYzQuz3a5OKGZSsL3cGIU0/LJYInxwI=;
+        b=tjC9W26jNeDCJv0V77v0vTiEbuacbzeN249dHlFZPPOO4NaE3NEdmFJnal9MPsy0ZA
+         NmciqGoxZBxVBvYRl+dRslo069XRi8WiRMBbbkinWV7vDl+gW0jBqST8DhvKsi+QJ8C4
+         JTlW2zzelDFEJJU8TXHhTfXdyMIv3nM/nJYjjyz9yav/d7SmcHpjuYiLFaYcM4TIndaC
+         dm928af+TzmvR7vXmUeJroRUujCg0KIlMm99tzR7xMFVSg6CquPmgWg8oSz/Dx0I2A8+
+         VNF/kXhiJpypNvwJnf59RtvEwbTFVkuXIAWdCspAu6dLWc1wgEOgzYK+NU4zHCd5Fhtb
+         2k+w==
+X-Forwarded-Encrypted: i=1; AJvYcCWuR+xnmLosHb1p29P/mCDzUvqQNcR2vM2naLPNilwYCkoVZxQdgsDM4ptUt/hlMuu0hisXfKZiJM6+b6DpB+Db@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDz0P2HunS/aC31tCgxnffVH/b4I6T/K/eOOCYOPSx8auZDtD1
+	PO4+8ckmybMesmu0SS427nWE0X9lIpTPn3bWEEj8yNVjfEf/DfyImNJ3xnsgo9UHx0I=
+X-Gm-Gg: ASbGncvP2elUROIVkzr0DD8JYVZ+jbk3Okp4PHTkjNB8WrJ2VBFBiSgaIgqKnAhi1i1
+	g+l+HhoU+vkYNNbT8otWmFVfUM6BrjqIzmZYPyX0op31XV7AAdDDosojOBlzoCRZWnRx0jl5xYV
+	oadbJN9Gh57Z45nC7h9inQAmIzCkRbsVECkLxE6ODechE9vFj4VNvwPzVTXfieoheZhOZy1ryR8
+	zqH4ysfs9DL51zqRhMmk17SOgrYebnm2i6QnNrT8w3DblH+8TU5r8wBTRX4sWywzx9IATBQvUu4
+	eOgs7Y+3S5iQWUXmUjtGTthKxh3LBQILPqgxRkv0xYp3BHeSiLL6iKaRxdwm80fby7Ipxrwo2Ip
+	u1tT94AYHVbmN
+X-Google-Smtp-Source: AGHT+IETyf2GSBL4as/yohckfyx/K6gSToAZaD2CCVz7+dNiszWCRp1kQVLr9GgDovIvyA8Dl2hlzQ==
+X-Received: by 2002:a17:907:608b:b0:ad8:91e4:a91c with SMTP id a640c23a62f3a-ad891e4ab51mr577513966b.29.1748434390436;
+        Wed, 28 May 2025 05:13:10 -0700 (PDT)
+Received: from localhost.localdomain ([2001:b07:6474:ebbf:5631:61bf:398a:c492])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad8a1b5b8afsm98523266b.170.2025.05.28.05.13.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 May 2025 05:13:09 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: michael@amarulasolutions.com,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@denx.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Heiko Schocher <hs@denx.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/4] Support i.MX28 Amarula rmm board
+Date: Wed, 28 May 2025 14:11:37 +0200
+Message-ID: <20250528121306.1464830-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arch: arm64: dts: add big-endian property back into
- watchdog node
-To: Meng Li <Meng.Li@windriver.com>, shawnguo@kernel.org, robh@kernel.org,
- conor+dt@kernel.org, Frank.Li@nxp.com
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250528111751.3505224-1-Meng.Li@windriver.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250528111751.3505224-1-Meng.Li@windriver.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_050915_429250_48DA2B36 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250528_051312_248283_49D8F2C8 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,14 +115,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/05/2025 13:17, Meng Li wrote:
-> When verifying watchdog feature on NXP ls1046ardb board,
-> it doesn't work. Because the big-endian is deleted by accident,
-> add it back.
+The series adds support for i.MX28 Amarula rmm board.
 
-It is not removed by accident. It was removed intentionally. Bring
-arguments (bindings, hardware, drivers) why this is correct choice.
+The board includes the following resources:
+ - 256 Mbytes NAND Flash
+ - 128 Mbytes DRAM DDR2
+ - CAN
+ - USB 2.0 high-speed/full-speed
+ - Ethernet MAC
 
-Best regards,
-Krzysztof
+Changes in v2:
+- In imx28-amarula-rmm.dts:
+  - Replace '-' with '@' for the pinctrl sub-nodes.
+  - Replace edt,edt-ft5x06 with edt,edt-ft5306.
+  - Drop LCD reset hog pin.
+  - Add correct #address-cells and #size-cells to gpmi node.
+  - Replace edt-ft5x06@38 with touchscreen@38.
+- Drop from commit messages all references to LCD display.
+- Add patch [1/4] "dt-bindings: mfd: convert mxs-lradc bindings to
+  json-schema".
+
+Dario Binacchi (4):
+  dt-bindings: mfd: convert mxs-lradc bindings to json-schema
+  ARM: dts: imx28: add pwm7 muxing options
+  dt-bindings: arm: fsl: add i.MX28 Amarula rmm board
+  ARM: dts: mxs: support i.MX28 Amarula rmm board
+
+ .../devicetree/bindings/arm/fsl.yaml          |   1 +
+ .../devicetree/bindings/mfd/mxs-lradc.txt     |  45 ---
+ .../devicetree/bindings/mfd/mxs-lradc.yaml    | 106 ++++++
+ arch/arm/boot/dts/nxp/mxs/Makefile            |   1 +
+ .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 303 ++++++++++++++++++
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |  10 +
+ 6 files changed, 421 insertions(+), 45 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.txt
+ create mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
+ create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
+
+-- 
+2.43.0
+
+base-commit: 33f410b0eaf4ebc3272720b4a68943a73a59cb05
+branch: imx28-amarula-rmm
 
