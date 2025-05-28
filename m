@@ -4,86 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1B4C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 05:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B80C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 05:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGClTHgroxBcfOqGpSNsGz5pDhgYGNK3UlpzTs482Pc=; b=Qb0MQVpGmVXFVvnb4Ga02NdDWC
-	Qw4WWizEryo96kO0Xv6isZGEFGC83kK+tAeq+YK0dAsO722yaxFgkXQBPwBHZ5nUoU10Zbfp2ODhS
-	g3KoFUulQustvAI1a3VvvvBT5vSUu8FXbJZgFmfy1fdl5+Wjb0bf2FI9Pq81J5Nh4V1RUrtcqzka2
-	XPJyGxXCjzaSRq5Sk9gw7UooxmDlJtOJKxHSiTdmKjIJuSfJrxpmGXQ4jBtTCYXnPJgdfj4s1gO5x
-	2nfzy71tuJdkRpd68Lu/y3haLOEKp04agU0gnn1UtfAY5WrGgbAMMcPCJmAGsmjcvVE9OFBgSbaID
-	v9yu/LoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H6Nt19NKYvrQfNX0nSSlBpK/oMtMgi2a0IVbAwOEvyg=; b=hpX//KBl3Xhfd19rwIF/BIXYdc
+	yqxeQtGtegZKR8qAKzmdRvS6PxI32TiqVtA0wXnv89xAhFOD1gz+WanvQVb68lKpBFiSmJM53kEMM
+	LGqNaU+0lCJWOLZeItdk0tqEPbgyUVgb2aEGyp1JhJ/KRo70muZn9r8iUBWRXLD6r2+dvIpYypfnb
+	lgolzIZxDzF6gDCamtgMBHAvLz7aU5DhnTafz7IqSWQATrfSJjDmxknyyneaBgTmVpZFgv/azhbhj
+	FDO7b3sY5v656kaCSC+tlPphkLHTFO8sA2LJhZJg1Wla4lZbBocQRVjIdZO4L6Xq7R6b4HTow6HNi
+	5UxI7evw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK9Lr-0000000CDYa-2YKZ;
-	Wed, 28 May 2025 05:29:19 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uK9h4-0000000CEi6-2FiR;
+	Wed, 28 May 2025 05:51:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK9Iq-0000000CDBP-0LUq
+	id 1uK9ew-0000000CEY3-2cP2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 05:26:13 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ad1f6aa2f84so111274066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 22:26:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748409970; x=1749014770; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=eGClTHgroxBcfOqGpSNsGz5pDhgYGNK3UlpzTs482Pc=;
-        b=afTY6utcc+W+dhUb79gSe0GipDLcibocjKlRX35WazqifOEAjRy8o62nEGMSrSSCLV
-         veYoxe7hfwWX7NnBaP0DSy66KXp9Pa6XlzahA+7BtCOTNI71w2N8enF8FT/T8Lg5xIF/
-         Sfyf48REcr/DMh4WWwqJNfEA93/BH2KPba9zTWvGmZ/ISUIW0P1muF8wESXTSHO9QHqv
-         ttJck1uOLq/PmGczGwXERiyBVNwAYiraxpF2+YfPyozmhWjTbAgontD2NDH+Y8RVcZh/
-         kea3YDoivu4S5g/WNic1ojoWnNtq6blzRX02qwkC9DU6cKHf5MRoEITvPH52qhULhviL
-         i4FQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748409970; x=1749014770;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=eGClTHgroxBcfOqGpSNsGz5pDhgYGNK3UlpzTs482Pc=;
-        b=hZA/ByKjNozPnDOHeNplMx7zv9a0eeZzfIPhYJgOo1pTZud/f8mniDJP80MZ56tNMN
-         Sp/tkUaSxPzPQZHDgU/xEw/gRuItFXsRxL1ZFhk6PU+nz78yM7jYY/X+MtiyfEB+5Dv5
-         qNWO3FBFhlsR0dYIEe0hPz7SlawSN3ApgVoNNeIM7hgEcaQcD623s/FeEC+WGfxRK34H
-         1mh4jqvLtY7rKUqNtFSKYaeCKWeHwFGoLh0prVRYCZiRHKEpOHCp2w3vdB4iNMC0ozD4
-         TZ2yzFc7w1zJMvtn9Cq/oz/aCunrWUMivp+kfk9naOtytiilhZPYVj4oVj9nTJ0BFZkJ
-         GRdA==
-X-Gm-Message-State: AOJu0YzuhtBoszrDyntu88f2D2Gu0PpkezsrxDnoaOSmhFrPxaQIf2hk
-	1XCyRu/eaFw2RHpElRKn4HRfTWCx/hTIUujYvJcKbVxSXtbuY2Kmf0wnIapFOHPvy4kQCO/FtQS
-	3gvPHIMfjioWBl6ZC3b556WTAyv/D1rs=
-X-Gm-Gg: ASbGncv4r8f4bq8ZYUXNwFrAdLSbZpxQtvmPyYOeKXHY9Ba2nXT6n4onP1hgLDTWjCs
-	Fn/+IvBYhf0rcNuKDjhxflJgYo3hlG4jbxpjQBxRrwFaguwmphvshJrVH29+zhkkSn9LysdKOd1
-	S4GTwWX+V/1rxTUVJkhFoEFNXO3iRa3QULtu53cxG8Fw==
-X-Google-Smtp-Source: AGHT+IGtzXS7r014ksMOyLWyv3PY+eL9kVmReP9BCXuY+JhbQJHaBU9SpOog9pV/WyubUhLYHA04NIb+oVSmRa6PrEA=
-X-Received: by 2002:a17:907:1c2a:b0:ad5:9ff3:c6ce with SMTP id
- a640c23a62f3a-ad89886abebmr283385766b.4.1748409969604; Tue, 27 May 2025
- 22:26:09 -0700 (PDT)
+	Wed, 28 May 2025 05:49:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BE5225C47A7;
+	Wed, 28 May 2025 05:46:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28AE1C4CEE7;
+	Wed, 28 May 2025 05:48:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748411340;
+	bh=KGxwizXyq77M4Y/aYZ8pvgoLSWCoKk87bmX4kaNkaFc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=m3UvmjVPTGnqK3eapjTiclUiTdJK1FO35G/m+POk9YoHm30o/+KWRDwVfg/KryaSQ
+	 Q1fEdM5C+Cy5v+1jUziV8ztOwQUu0aZonXvdPUKNk/ntCl5kcV5MFjVJPzBFoOn8vu
+	 A+gFpLoLA4TPBTPHTDJIrqcfjuSwre76/ZIHJxjpHEHGoF8PNWXGmH9SgFhKc+Osav
+	 YOo96MAT7kW1TMpGIAZTrFPXqw0AtGiR4MAwSdiSoKBW76GEsjHSEx11yor9JcPEh0
+	 t52CV7P6gHMAWT3cuhqTXAo5iLbNn6sHiCNvGOFCcdaAhn3HVRyZiLUcPLX5ZHWUFr
+	 Rr+5tym7lW+hw==
+Message-ID: <ad7cd2e3-c061-4f17-83dc-2a6df8095d30@kernel.org>
+Date: Wed, 28 May 2025 07:48:52 +0200
 MIME-Version: 1.0
-References: <20250525160513.83029-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20250525160513.83029-1-marek.vasut+renesas@mailbox.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Wed, 28 May 2025 10:55:52 +0530
-X-Gm-Features: AX0GCFvOx05IZ5_kXJ72iIXw3IbiUdPuTxyEyjCQN5yHvmLpaXyXqe_dfeV4Hz8
-Message-ID: <CANAwSgRXDLGAaXGXHfiS2rA3=+r2is2g557Bozu+SocQoBMySQ@mail.gmail.com>
-Subject: Re: [PATCH 1/2] PCI/pwrctrl: Add optional slot clock to pwrctrl
- driver for PCI slots
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: ethernet: eswin: Document for EIC7700
+ SoC
+To: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, vladimir.oltean@nxp.com,
+ rmk+kernel@armlinux.org.uk, yong.liang.choong@linux.intel.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+ jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
+ 0x1207@gmail.com, boon.khai.ng@altera.com,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ lizhi2@eswincomputing.com
+References: <20250528041455.878-1-weishangjuan@eswincomputing.com>
+ <20250528041558.895-1-weishangjuan@eswincomputing.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250528041558.895-1-weishangjuan@eswincomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_222612_139114_D8552943 
-X-CRM114-Status: GOOD (  27.55  )
+X-CRM114-CacheID: sfid-20250527_224902_761080_A304DC36 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,115 +129,293 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
-
-On Sun, 25 May 2025 at 21:35, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
->
-> Add the ability to enable optional slot clock into the pwrctrl driver.
-> This is used to enable slot clock in split-clock topologies, where the
-> PCIe host/controller supply and PCIe slot supply are not provided by
-> the same clock. The PCIe host/controller clock should be described in
-> the controller node as the controller clock, while the slot clock should
-> be described in controller bridge/slot subnode.
->
-> Example DT snippet:
-> &pcicontroller {
->     clocks = <&clk_dif 0>;             /* PCIe controller clock */
->
->     pci@0,0 {
->         #address-cells = <3>;
->         #size-cells = <2>;
->         reg = <0x0 0x0 0x0 0x0 0x0>;
->         compatible = "pciclass,0604";
->         device_type = "pci";
->         clocks = <&clk_dif 1>;         /* PCIe slot clock */
->         vpcie3v3-supply = <&reg_3p3v>;
->         ranges;
->     };
-> };
->
-> Example clock topology:
->  ____________                    ____________
-> |  PCIe host |                  | PCIe slot  |
-> |            |                  |            |
-> |    PCIe RX<|==================|>PCIe TX    |
-> |    PCIe TX<|==================|>PCIe RX    |
-> |            |                  |            |
-> |   PCIe CLK<|======..  ..======|>PCIe CLK   |
-> '------------'      ||  ||      '------------'
->                     ||  ||
->  ____________       ||  ||
-> |  9FGV0441  |      ||  ||
-> |            |      ||  ||
-> |   CLK DIF0<|======''  ||
-> |   CLK DIF1<|==========''
-> |   CLK DIF2<|
-> |   CLK DIF3<|
-> '------------'
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On 28/05/2025 06:15, weishangjuan@eswincomputing.com wrote:
+> From: Shangjuan Wei <weishangjuan@eswincomputing.com>
+> 
+> Add ESWIN EIC7700 Ethernet controller, supporting
+> multi-rate (10M/100M/1G) auto-negotiation, clock/reset control,
+> and AXI bus parameter optimization.
+> 
+> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
 > ---
-> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Magnus Damm <magnus.damm@gmail.com>
-> Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-pci@vger.kernel.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
->  drivers/pci/pwrctrl/slot.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
->
-> diff --git a/drivers/pci/pwrctrl/slot.c b/drivers/pci/pwrctrl/slot.c
-> index 18becc144913e..222c14056cfae 100644
-> --- a/drivers/pci/pwrctrl/slot.c
-> +++ b/drivers/pci/pwrctrl/slot.c
-> @@ -4,6 +4,7 @@
->   * Author: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
->   */
->
-> +#include <linux/clk.h>
->  #include <linux/device.h>
->  #include <linux/mod_devicetable.h>
->  #include <linux/module.h>
-> @@ -30,6 +31,7 @@ static int pci_pwrctrl_slot_probe(struct platform_device *pdev)
->  {
->         struct pci_pwrctrl_slot_data *slot;
->         struct device *dev = &pdev->dev;
-> +       struct clk *clk;
->         int ret;
->
->         slot = devm_kzalloc(dev, sizeof(*slot), GFP_KERNEL);
-> @@ -50,6 +52,13 @@ static int pci_pwrctrl_slot_probe(struct platform_device *pdev)
->                 goto err_regulator_free;
->         }
->
-> +       clk = devm_clk_get_optional_enabled(dev, NULL);
-> +       if (IS_ERR(clk)) {
-> +               ret = PTR_ERR(clk);
-> +               dev_err_probe(dev, ret, "Failed to enable slot clock\n");
-you can user the return from ret = dev_err_probe()
-> +               goto err_regulator_disable;
-> +       }
+>  .../bindings/net/eswin,eic7700-eth.yaml       | 200 ++++++++++++++++++
+>  1 file changed, 200 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+> new file mode 100644
+> index 000000000000..c76d2fbf0ebd
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+> @@ -0,0 +1,200 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/eswin,eic7700-eth.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->         ret = devm_add_action_or_reset(dev, devm_pci_pwrctrl_slot_power_off,
->                                        slot);
->         if (ret)
+> +title: Eswin EIC7700 SOC Eth Controller
+> +
+> +maintainers:
+> +  - Shuang Liang <liangshuang@eswincomputing.com>
+> +  - Zhi Li <lizhi2@eswincomputing.com>
+> +  - Shangjuan Wei <weishangjuan@eswincomputing.com>
+> +
+> +description:
+> +  The eth controller registers are part of the syscrg block on
+> +  the EIC7700 SoC.
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - eswin,eic7700-qos-eth
+> +  required:
+> +    - compatible
+> +
+> +allOf:
+> +  - $ref: snps,dwmac.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: eswin,eic7700-qos-eth
+> +      - const: snps,dwmac
+> +
+> +  reg:
+> +    description: Base address and size of the Ethernet controller registers
 
-with that change.
-Reviewed-by: Anand Moon <linux.amoon@gmail.com>
+Drop description, wasn't here.
 
-Thanks
--Anand
-> --
-> 2.47.2
->
->
+> +    items:
+> +      - description: Register base address
+> +      - description: Register size
+
+The second item makes no sense. Size is part of one entry. Looking at
+your example you have only one item. Last time you said this is
+extension region, so I really do not understand what is happening here.
+
+
+> +
+> +  interrupt-names:
+> +    const: macirq
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  phy-mode:
+> +    $ref: /schemas/types.yaml#/definitions/string
+> +    enum:
+> +      - rgmii
+> +      - rgmii-rxid
+> +      - rgmii-txid
+> +      - rgmii-id
+> +
+> +  phy-handle:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: Reference to the PHY device
+> +
+> +  clocks:
+> +    minItems: 3
+> +    maxItems: 7
+
+No improvements. Read feedback given to other eswin patches. This cannot
+be flexible.
+
+
+> +
+> +  clock-names:
+> +    minItems: 3
+> +    contains:
+> +      enum:
+> +        - app
+> +        - stmmaceth
+> +        - tx
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  reset-names:
+> +    items:
+> +      - const: stmmaceth
+> +
+> +  dma-noncoherent: true
+> +
+> +  # Custom properties
+
+Drop
+
+> +  eswin,hsp_sp_csr:
+
+Nothing improved. Eswin upstreamed several bindings at once with same
+issues. I commented on multiple of them, but here I stopped commenting
+asking you to fix the same things I asked your colleagues. The point is
+that it is beneficial if you learn together, not each repeat same
+mistake and receive same feedback from reviewer.
+
+Follow DTS coding style naming for property.
+
+
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: HSP peripheral control register area
+
+What is HSP?
+
+> +          - description: Control registers (such as used to select TX clock
+> +                         source, PHY interface mode)
+> +          - description: AXI bus low-power control related registers
+> +          - description: Status register
+> +    description:
+> +      Configure TX clock source selection, set PHY interface mode,
+> +      and control low-power bus behavior
+> +
+> +  eswin,syscrg_csr:
+
+Nothing improved.
+
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: CRG's device tree node handle
+
+What is CRG? Anyway, use the same style. If previously phandle is
+control register area, why this is phandle? Drop redundant parts,
+because this cannot be anything else than phandle, and describe what is
+the device you are pointing here.
+
+> +          - description: Enable and divide HSP ACLK control
+> +          - description: Behavior of configuring HSP controller
+> +    description:
+> +      Register that accesses the system clock controller.
+> +      Used to configure HSP clocks for Ethernet subsystems
+> +
+> +  eswin,dly_hsp_reg:
+
+Nothing improved.
+
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: TX delay control register offset
+> +          - description: RX delay control register offset
+
+No... These are not phandles. Look at your example - where is a phandle
+there?
+
+> +          - description: Switch for controlling delay function
+> +    description:
+> +      Register for configuring delay compensation between MAC/PHY
+> +
+> +  snps,axi-config:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: AXI bus configuration
+
+Do not redefine properties. Include proper ref and fix your
+additionalProps to unevaluateadProperties.
+
+> +
+> +  stmmac-axi-config:
+
+Don't duplicate with snps dwmac.
+
+> +    type: object
+> +    unevaluatedProperties: false
+> +    properties:
+> +      snps,blen:
+> +        $ref: /schemas/types.yaml#/definitions/uint32-array
+> +        description: Set the burst transmission length of AXI bus
+> +      snps,rd_osr_lmt:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        description: Set OSR restrictions for read operations
+> +      snps,wr_osr_lmt:
+> +        $ref: /schemas/types.yaml#/definitions/uint32
+> +        description: Set OSR restrictions for write operations
+> +      snps,lpi_en:
+> +        $ref: /schemas/types.yaml#/definitions/flag
+> +        description: Low Power Interface enable flag (true/false)
+> +    required:
+> +      - snps,blen
+> +      - snps,rd_osr_lmt
+> +      - snps,wr_osr_lmt
+> +      - snps,lpi_en
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupt-names
+> +  - interrupts
+> +  - phy-mode
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - eswin,hsp_sp_csr
+> +  - eswin,syscrg_csr
+> +  - eswin,dly_hsp_reg
+> +  - snps,axi-config
+> +
+> +additionalProperties: false
+
+unevaluatedProperties instead
+
+> +
+> +examples:
+> +  - |
+> +    gmac0: ethernet@50400000 {
+> +        compatible = "eswin,eic7700-qos-eth", "snps,dwmac";
+> +        reg = <0x0 0x50400000 0x0 0x10000>;
+> +        interrupt-parent = <&plic>;
+> +        interrupt-names = "macirq";
+> +        interrupts = <61>;
+> +        phy-mode = "rgmii-txid";
+> +        phy-handle = <&phy0>;
+> +        status = "okay";
+
+Drop
+
+> +        clocks = <&clock 550>,
+> +                 <&clock 551>,
+> +                 <&clock 552>;
+> +        clock-names = "app", "stmmaceth", "tx";
+> +        resets = <&reset 0x07 (1 << 26)>;
+> +        reset-names = "stmmaceth";
+> +        dma-noncoherent;
+> +        eswin,hsp_sp_csr = <&hsp_sp_csr 0x1030 0x100 0x108>;
+> +        eswin,syscrg_csr = <&sys_crg 0x148 0x14c>;
+> +        eswin,dly_hsp_reg = <0x114 0x118 0x11c>;
+> +        snps,axi-config = <&stmmac_axi_setup>;
+> +        stmmac_axi_setup: stmmac-axi-config {
+> +            snps,blen = <0 0 0 0 16 8 4>;
+> +            snps,rd_osr_lmt = <2>;
+> +            snps,wr_osr_lmt = <2>;
+> +            snps,lpi_en;
+> +        };
+> +        /* mdio {
+
+Don't post dead code.
+
+> +          compatible = "snps,dwmac-mdio";
+> +          status = "okay";
+
+Drop
+
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
+> +
+> +          phy0: ethernet-phy@0 {
+> +            device_type = "ethernet-phy";
+> +            reg = <0>;
+> +            compatible = "ethernet-phy-id001c.c916", "realtek,rtl8211f";
+> +          };
+> +        }; */
+> +    };
+
+
+Best regards,
+Krzysztof
 
