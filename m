@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B6EC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 07:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B738C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 07:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6f331hY1dKklTJC3M7r5PSvsoBF2GanNNKIO4y/o6PU=; b=GdgSAQGU0Dk1wxTDIdjqov9sl5
-	xKDRMvCB/a976fG5MC0DWbHwMYEz9LX23ovywJsW6XvzR1yA/Cb1WRnm9TLIRzcR3FMdrznse/AzA
-	mjitX8GYZI00Mjnz10fECIEUYl483Ezf8bHK4ZkffAIVhf8hWxdhX0xb9zM3co4kr8lKwYH0fQn6z
-	ovgN+WtD8TAmrph9Hrsx1PtLxU+OnrV2Tl+cWgvQy427OFC6TU54s6FPeEDVRC453HnFGcKvUiczE
-	vzhHUO0+PGfwW9DEBKpojCXe5zDyIeybuQZBwJ1h1zcstJhTqJNayfAUHfoQHN9COR1TuThy2NlRd
-	n/aUrXCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xqyFlrQNnrOFMkrHG9lvTlzgz/nAJIiDsV2HEdjtv58=; b=5EUDlwf4B+luXQtlbNmJotW/5m
+	1pE3iedlR2CaENKF7a5unfKyIxVly/2RlxoTvBqlQ2yjsM3J6yMeGN0asYYtAHTHzu85N0bcj7JKl
+	St3mOcCzrH8XmTD4Wvxy+2goegtNX/HFyfXywKBf/5PS5E8X37qlmmMYvjXVutJng06RairH1RO+B
+	uMuRizDXM7/8+Vg9Dm68EsWMIFn0YxXp6psPQDNS1twfU95pHt8U3XKAdjSeiPE3FQwG8NRpwXE/5
+	o4+UT0LIvpcwJ68iYNFNIt9+fDa0gP2oQGDJbl/ME2S4q6tZbbodgEiHYEYd3pPioetGCQd3uRfme
+	uMA3CmmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKB5W-0000000CPuW-16SR;
-	Wed, 28 May 2025 07:20:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uKB8T-0000000CQHI-3Vuf;
+	Wed, 28 May 2025 07:23:37 +0000
+Received: from mail-m49232.qiye.163.com ([45.254.49.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKB1E-0000000CPJg-1u6k;
-	Wed, 28 May 2025 07:16:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BFB58614B7;
-	Wed, 28 May 2025 07:16:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECC15C4CEE7;
-	Wed, 28 May 2025 07:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748416567;
-	bh=K9xLFL3YjxEg/yT53Mbd2sI0G3a9mzJ1vSU6/nzZZGc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LrJmZD+eu3rGOkhdZyxN4JM0eL8FuhebF+ryNOrcZ3k1MneHJ1X5+eEXS7NrupIye
-	 wA5u5eQFtYyQuPWcieS+EjiAS5elaLKloPDwlUe9b6vJBmF1sWotJ45tquAxoX47KP
-	 ao5OXqAWHI+6evaZxj0jDiKgTEEPTST6erF+kpU7erw3SKEuo7IU48OTDJW2u/3lng
-	 u2P/FTign5MUZqI4L/xBu9AqdJBd86+DU0xYw0yu6xeGuoC6ONgeweeRJk6PcHWB+p
-	 ROe0CE/Xk8BE0qKGzovhVkhfKPVBhYf2Oq5fXfqZDBdNXudraKMyoJEco5YK1XljO8
-	 xw2DClFYdtBRg==
-Date: Wed, 28 May 2025 09:16:04 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benjamin Larsson <benjamin.larsson@genexis.eu>,
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/6] pinctrl: airoha: fix wrong PHY LED mux value for
- LED1 GPIO46
-Message-ID: <aDa4NCTzyzw0mnfE@lore-desk>
-References: <20250527222040.32000-1-ansuelsmth@gmail.com>
- <20250527222040.32000-2-ansuelsmth@gmail.com>
+	id 1uKB6K-0000000CQ2f-2eui;
+	Wed, 28 May 2025 07:21:26 +0000
+Received: from [172.16.12.30] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 16ad6a08f;
+	Wed, 28 May 2025 15:21:18 +0800 (GMT+08:00)
+Message-ID: <c3884749-7d26-425c-8ca4-2e2d708aa7f9@rock-chips.com>
+Date: Wed, 28 May 2025 15:21:17 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="CoT/qmCue5gfNYHx"
-Content-Disposition: inline
-In-Reply-To: <20250527222040.32000-2-ansuelsmth@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/4] net: can: rockchip: support dma for rk3576 rx
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: kernel@pengutronix.de, mailhol.vincent@wanadoo.fr, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, cl@rock-chips.com,
+ kever.yang@rock-chips.com, linux-can@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250526062559.2061311-1-zhangqing@rock-chips.com>
+ <20250526062559.2061311-5-zhangqing@rock-chips.com>
+ <20250527-benevolent-rainbow-sturgeon-55c33b-mkl@pengutronix.de>
+From: zhangqing <zhangqing@rock-chips.com>
+In-Reply-To: <20250527-benevolent-rainbow-sturgeon-55c33b-mkl@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh9PQlYYQx1DGUtJGh9KGkpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a9715c457cd03a3kunm7db02ee67c217e
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NDo6PRw5AzE2GEkSCiMhPAID
+	HxoaCQFVSlVKTE9DT0pNQ0NKSUlCVTMWGhIXVQETGhUcChIVHDsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUpPT0tJNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=IQSjxLSkv153Y/Qna1clKI8BTL3sq9ZrV1PtCeXuuO/fxOcJIE9SGv/uTrc2LL5sFT5OKN8rK/QxFrIrmKWsxJ911nnxKEpoS/Sq4mGGmbBejK3NS5c5MtSsmqyhG1JTmKCm2/Ri87IkT4AMRDc80Ajm46Bkty4QF2lgRumPzik=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=xqyFlrQNnrOFMkrHG9lvTlzgz/nAJIiDsV2HEdjtv58=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250528_002124_897743_46AFD4D4 
+X-CRM114-Status: GOOD (  45.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,97 +78,351 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---CoT/qmCue5gfNYHx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+在 2025/5/27 19:00, Marc Kleine-Budde 写道:
+> On 26.05.2025 14:25:59, Elaine Zhang wrote:
+>> The new can controller of rk3576 supports rx dma.
+> I'm missing dma_sync_single_for_cpu() and dma_sync_single_for_device().
+>
+> What does the overall picture look like?
+>
+> The CAN controller receives a CAN frame, it triggers an interrupt, the
+> driver starts a RX-DMA, the RX-DMA finishes triggers the callback, the
+> driver allocates an skb and copies the data from the DMA dest memory to
+> the skb. Finally the skb is passed to the networking stack.
+After enabling dma, when the water level of the fifo reaches the 
+expected level, dma is initiated. First, the frame numbers in the fifo 
+are read, and dma moves the data of these frame numbers at one time.
+Then the dma completion interrupt is returned, and the cpu begins to 
+process the data moved by dma.
+>
+> Have you done any measurements if using DMA brings any benefits here? I
+> doubt that.
+It has been tested that for the RK3576 cpu with relatively strong 
+capabilities, switching dma has little impact.
 
-> In all the MUX value for LED1 GPIO46 there is a Copy-Paste error where
-> the MUX value is set to LED0_MODE_MASK instead of LED1_MODE_MASK.
->=20
-> This wasn't notice as there were no board that made use of the
-> secondary PHY LED but looking at the internal Documentation the actual
-> value should be LED1_MODE_MASK similar to the other GPIO entry.
->=20
-> Fix the wrong value to apply the correct MUX configuration.
+However, for the RK3506 with only three cpu cores, enabling dma can 
+reduce cpu interruption. The most obvious one is that after enabling 
+dma, there will be no frame loss problem when the CAN load is over 90%.
 
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Subsequently, both rk3506 and rv1126b used the rk3576 canfd controller.
 
->=20
-> Cc: stable@vger.kernel.org
-> Fixes: 1c8ace2d0725 ("pinctrl: airoha: Add support for EN7581 SoC")
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  drivers/pinctrl/mediatek/pinctrl-airoha.c | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
->=20
-> diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/=
-mediatek/pinctrl-airoha.c
-> index b97b28ebb37a..8ef7f88477aa 100644
-> --- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
-> +++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-> @@ -1752,8 +1752,8 @@ static const struct airoha_pinctrl_func_group phy1_=
-led1_func_group[] =3D {
->  		.regmap[0] =3D {
->  			AIROHA_FUNC_MUX,
->  			REG_GPIO_2ND_I2C_MODE,
-> -			GPIO_LAN3_LED0_MODE_MASK,
-> -			GPIO_LAN3_LED0_MODE_MASK
-> +			GPIO_LAN3_LED1_MODE_MASK,
-> +			GPIO_LAN3_LED1_MODE_MASK
->  		},
->  		.regmap[1] =3D {
->  			AIROHA_FUNC_MUX,
-> @@ -1816,8 +1816,8 @@ static const struct airoha_pinctrl_func_group phy2_=
-led1_func_group[] =3D {
->  		.regmap[0] =3D {
->  			AIROHA_FUNC_MUX,
->  			REG_GPIO_2ND_I2C_MODE,
-> -			GPIO_LAN3_LED0_MODE_MASK,
-> -			GPIO_LAN3_LED0_MODE_MASK
-> +			GPIO_LAN3_LED1_MODE_MASK,
-> +			GPIO_LAN3_LED1_MODE_MASK
->  		},
->  		.regmap[1] =3D {
->  			AIROHA_FUNC_MUX,
-> @@ -1880,8 +1880,8 @@ static const struct airoha_pinctrl_func_group phy3_=
-led1_func_group[] =3D {
->  		.regmap[0] =3D {
->  			AIROHA_FUNC_MUX,
->  			REG_GPIO_2ND_I2C_MODE,
-> -			GPIO_LAN3_LED0_MODE_MASK,
-> -			GPIO_LAN3_LED0_MODE_MASK
-> +			GPIO_LAN3_LED1_MODE_MASK,
-> +			GPIO_LAN3_LED1_MODE_MASK
->  		},
->  		.regmap[1] =3D {
->  			AIROHA_FUNC_MUX,
-> @@ -1944,8 +1944,8 @@ static const struct airoha_pinctrl_func_group phy4_=
-led1_func_group[] =3D {
->  		.regmap[0] =3D {
->  			AIROHA_FUNC_MUX,
->  			REG_GPIO_2ND_I2C_MODE,
-> -			GPIO_LAN3_LED0_MODE_MASK,
-> -			GPIO_LAN3_LED0_MODE_MASK
-> +			GPIO_LAN3_LED1_MODE_MASK,
-> +			GPIO_LAN3_LED1_MODE_MASK
->  		},
->  		.regmap[1] =3D {
->  			AIROHA_FUNC_MUX,
-> --=20
-> 2.48.1
->=20
+>
+> If your hardware supports, a better setup would be to allocate a bunch
+> of skbs and setup the a DMA request per skb and push them all to the DMA
+> engine during open(). If the CAN controller receives a CAN frame, the
+> DMA automatically starts and raises an IRQ after finish of the DMA
+> transfer. Transform the header and then pass the skb to the networking
+> stack - no need for memcpy.
+>
+> This _might_ lower the total CPU cost of RX, but a lot of additional
+> code is used for that.
+I can try to modify.
+Including other modifications proposed below, they will be updated in 
+the next version
+>
+> Never the less, review inline.
+>
+>> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+>> ---
+>>   .../net/can/rockchip/rockchip_canfd-core.c    | 39 +++++++++
+>>   drivers/net/can/rockchip/rockchip_canfd-rx.c  | 87 +++++++++++++++++++
+>>   drivers/net/can/rockchip/rockchip_canfd.h     | 11 +++
+>>   3 files changed, 137 insertions(+)
+>>
+>> diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+>> index 92e260cb2527..9ef4a9ae19d8 100644
+>> --- a/drivers/net/can/rockchip/rockchip_canfd-core.c
+>> +++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+>> @@ -433,6 +433,9 @@ static void rk3576canfd_chip_start(struct rkcanfd_priv *priv)
+>>   		      RK3576CANFD_REG_BRS_CFG_BRS_NEGSYNC_EN |
+>>   		      RK3576CANFD_REG_BRS_CFG_BRS_POSSYNC_EN);
+>>   
+>> +	if (priv->use_dma)
+>> +		rkcanfd_write(priv, RK3576CANFD_REG_DMA_CTRL,
+>> +			      RK3576CANFD_REG_DMA_CTRL_DMA_RX_EN | priv->dma_thr);
+>>   	rkcanfd_set_bittiming(priv);
+>>   
+>>   	priv->devtype_data.interrupts_disable(priv);
+>> @@ -1324,10 +1327,31 @@ static const struct of_device_id rkcanfd_of_match[] = {
+>>   };
+>>   MODULE_DEVICE_TABLE(of, rkcanfd_of_match);
+>>   
+>> +static void rk3576_canfd_dma_init(struct rkcanfd_priv *priv)
+>> +{
+>> +	struct dma_slave_config rxconf = {
+>> +		.direction = DMA_DEV_TO_MEM,
+>> +		.src_addr = priv->rx_dma_src_addr,
+>> +		.src_addr_width = 4,
+>> +		.dst_addr_width = 4,
+>> +		.src_maxburst = 9,
+>> +	};
+>> +
+>> +	priv->dma_thr = rxconf.src_maxburst - 1;
+>> +	priv->rxbuf = dma_alloc_coherent(priv->dev, priv->dma_size * 14,
+> Where does the 14 come from?
+In the fixed mode of CANFD, there are 18 words per frame, and the 
+maximum number of words in the fifo is 256. The fifo can store up to 
+256/18=14 frames at most.
+>
+>> +					 &priv->rx_dma_dst_addr, GFP_KERNEL);
+> I'm missing the cleanup for priv->rxbuf.
+>
+>> +	if (!priv->rxbuf) {
+>> +		priv->use_dma = 0;
+>> +		return;
+>> +	}
+>> +	dmaengine_slave_config(priv->rxchan, &rxconf);
+> Please add error handling.
+>
+>> +}
+>> +
+>>   static int rkcanfd_probe(struct platform_device *pdev)
+>>   {
+>>   	struct rkcanfd_priv *priv;
+>>   	struct net_device *ndev;
+>> +	struct resource *res;
+>>   	const void *match;
+>>   	int err;
+>>   
+>> @@ -1349,6 +1373,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
+>>   		goto out_free_candev;
+>>   	}
+>>   
+>> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+>>   	priv->regs = devm_platform_ioremap_resource(pdev, 0);
+> Please use devm_platform_get_and_ioremap_resource();
+>
+>>   	if (IS_ERR(priv->regs)) {
+>>   		err = PTR_ERR(priv->regs);
+>> @@ -1376,6 +1401,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
+>>   	priv->can.do_set_mode = rkcanfd_set_mode;
+>>   	priv->can.do_get_berr_counter = rkcanfd_get_berr_counter;
+>>   	priv->ndev = ndev;
+>> +	priv->dev = &pdev->dev;
+> Please remove, priv->dev is not used in the hot path, use
+> priv->ndev->dev.parent instead.
+>
+>>   
+>>   	match = device_get_match_data(&pdev->dev);
+>>   	if (match) {
+>> @@ -1384,6 +1410,19 @@ static int rkcanfd_probe(struct platform_device *pdev)
+>>   			priv->can.ctrlmode_supported |= CAN_CTRLMODE_FD;
+>>   	}
+>>   
+>> +	priv->rxchan = dma_request_chan(&pdev->dev, "rx");
+> I'm missing the cleanup for priv->rxchan.
+>
+>> +	if (IS_ERR(priv->rxchan)) {
+> Please handle -EPROBE_DEFER properly.
+>
+>> +		dev_warn(&pdev->dev, "Failed to request rxchan\n");
+> Please print the error value and state that you are continuing w/o DMA,
+> e.g.:
+>
+>      netdev_warn("Failed to request RX-DMA channel: %pe, continuing without DMA", priv->rxchan);
+>
+>> +		priv->rxchan = NULL;
+>> +		priv->use_dma = 0;
+>> +	} else {
+>> +		priv->rx_dma_src_addr = res->start + RK3576CANFD_REG_RXFRD;
+>> +		priv->dma_size = RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT * 4;
+> Why do you need priv->dma_size, it doesn't change during runtime, does it?
+>
+>> +		priv->use_dma = 1;
+>> +	}
+>> +	if (priv->use_dma)
+>> +		rk3576_canfd_dma_init(priv);
+>> +
+> Can you move all DMA related functionality into rk3576_canfd_dma_init(),
+> pass res as a parameter, remove rx_dma_src_addr.
+>
+> I think you don't need use_dma, checking rxchan != NULL should be
+> sufficient.
+>
+>>   	err = can_rx_offload_add_manual(ndev, &priv->offload,
+>>   					RKCANFD_NAPI_WEIGHT);
+>>   	if (err)
+>> diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/can/rockchip/rockchip_canfd-rx.c
+>> index 8a383cabd9d2..ac06e876552e 100644
+>> --- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
+>> +++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
+>> @@ -285,6 +285,52 @@ static int rk3576canfd_handle_rx_int_one(struct rkcanfd_priv *priv)
+>>   	return 0;
+>>   }
+>>   
+>> +static int rk3576canfd_handle_rx_dma(struct rkcanfd_priv *priv, u32 addr)
+>> +{
+>> +	struct net_device_stats *stats = &priv->ndev->stats;
+>> +	struct canfd_frame cfd[1] = { }, *skb_cfd;
+>> +	struct rk3576canfd_fifo_header header[1] = { };
+>> +	struct sk_buff *skb;
+>> +	u32 __iomem *rxbuf = (u32 __iomem *)priv->rxbuf;
+> Why do you cast rx_buf to __iomem? It's normal memory, isn't it?
+>
+>> +	unsigned int len;
+>> +	int i;
+>> +
+>> +	header->frameinfo = readl(rxbuf +
+>> +				  addr * RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
+>> +	header->id = readl(rxbuf + 1 +
+>> +			   addr * RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
+>> +	for (i = 0; i < (RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT - 2); i++)
+>> +		cfd->data[i] = readl(rxbuf + 2 + i +
+>> +				     addr * RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
+>> +
+> Remove cfd and header and directly access the rxbuf.
+>
+>> +	len = rk3576canfd_fifo_header_to_cfd_header(priv, header, cfd);
+>> +
+>> +	/* Manual handling of CAN Bus Error counters. See
+>> +	 * rkcanfd_get_corrected_berr_counter() for detailed
+>> +	 * explanation.
+>> +	 */
+>> +	if (priv->bec.rxerr)
+>> +		priv->bec.rxerr = min(CAN_ERROR_PASSIVE_THRESHOLD,
+>> +				      priv->bec.rxerr) - 1;
+>> +
+>> +	if (header->frameinfo & RK3576CANFD_REG_RXFRD_FRAMEINFO_FDF)
+>> +		skb = alloc_canfd_skb(priv->ndev, &skb_cfd);
+>> +	else
+>> +		skb = alloc_can_skb(priv->ndev, (struct can_frame **)&skb_cfd);
+> copy the data to the allocated skb directly.
+>
+>> +
+>> +	if (!skb) {
+>> +		stats->rx_dropped++;
+>> +
+>> +		return 0;
+>> +	}
+>> +
+>> +	memcpy(skb_cfd, cfd, len);
+>> +	stats->rx_packets++;
+>> +	stats->rx_bytes += cfd->len;
+>> +	netif_rx(skb);
+> Use the rx_offload_helper here too.
+>
+>> +	return 0;
+>> +}
+>> +
+>>   static int rkcanfd_handle_rx_int_one(struct rkcanfd_priv *priv)
+>>   {
+>>   	struct net_device_stats *stats = &priv->ndev->stats;
+>> @@ -380,6 +426,43 @@ rk3576canfd_rx_fifo_get_len(const struct rkcanfd_priv *priv)
+>>   	return DIV_ROUND_UP(val, RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
+>>   }
+>>   
+>> +static void rk3576_canfd_rx_dma_callback(void *data)
+>> +{
+>> +	struct rkcanfd_priv *priv = data;
+>> +	int i;
+>> +
+>> +	for (i = 0; i < priv->quota; i++)
+>> +		rk3576canfd_handle_rx_dma(priv, i);
+>> +
+>> +	rkcanfd_write(priv, RK3576CANFD_REG_INT_MASK, priv->reg_int_mask_default);
+>> +}
+>> +
+>> +static int rk3576_canfd_rx_dma(struct rkcanfd_priv *priv)
+>> +{
+>> +	struct dma_async_tx_descriptor *rxdesc = NULL;
+>> +	const u32 reg = rkcanfd_read(priv, RK3576CANFD_REG_STR_STATE);
+>> +	int quota = FIELD_GET(RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT, reg);
+>> +
+>> +	quota = DIV_ROUND_UP(quota, RK3576CANFD_REG_STR_STATE_INTM_LEFT_CNT_UNIT);
+>> +	priv->quota = quota;
+>> +	if (priv->quota == 0) {
+>> +		rkcanfd_write(priv, RK3576CANFD_REG_INT_MASK, priv->reg_int_mask_default);
+>> +		return 0;
+>> +	}
+>> +
+>> +	rxdesc = dmaengine_prep_slave_single(priv->rxchan, priv->rx_dma_dst_addr,
+>> +					     priv->dma_size * priv->quota, DMA_DEV_TO_MEM, 0);
+>> +	if (!rxdesc)
+>> +		return -ENOMSG;
+>> +
+>> +	rxdesc->callback = rk3576_canfd_rx_dma_callback;
+>> +	rxdesc->callback_param = priv;
+>> +
+>> +	dmaengine_submit(rxdesc);
+> Please add error handling.
+>
+>> +	dma_async_issue_pending(priv->rxchan);
+>> +	return 0;
+>> +}
+>> +
+>>   int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv)
+>>   {
+>>   	unsigned int len;
+>> @@ -399,6 +482,10 @@ int rkcanfd_handle_rk3576_rx_int(struct rkcanfd_priv *priv)
+>>   	unsigned int len;
+>>   	int err;
+>>   
+>> +	if (priv->use_dma) {
+>> +		rk3576_canfd_rx_dma(priv);
+>> +		return 0;
+> Please add error handling.
+>
+>> +	}
+>>   	while ((len = rk3576canfd_rx_fifo_get_len(priv))) {
+>>   		err = rk3576canfd_handle_rx_int_one(priv);
+>>   		if (err)
+>> diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
+>> index 9b91d757d054..c7d6845c6d95 100644
+>> --- a/drivers/net/can/rockchip/rockchip_canfd.h
+>> +++ b/drivers/net/can/rockchip/rockchip_canfd.h
+>> @@ -11,6 +11,8 @@
+>>   #include <linux/can/dev.h>
+>>   #include <linux/can/rx-offload.h>
+>>   #include <linux/clk.h>
+>> +#include <linux/dma-mapping.h>
+>> +#include <linux/dmaengine.h>
+>>   #include <linux/io.h>
+>>   #include <linux/netdevice.h>
+>>   #include <linux/reset.h>
+>> @@ -737,6 +739,7 @@ struct rkcanfd_priv {
+>>   	struct can_priv can;
+>>   	struct can_rx_offload offload;
+>>   	struct net_device *ndev;
+>> +	struct device *dev;
+> It's not used in the hot path, please remove.
+>
+>>   
+>>   	void __iomem *regs;
+>>   	unsigned int tx_head;
+>> @@ -758,6 +761,14 @@ struct rkcanfd_priv {
+>>   	struct reset_control *reset;
+>>   	struct clk_bulk_data *clks;
+>>   	int clks_num;
+>> +	bool use_dma;
+>> +	u32 dma_size;
+>> +	u32 dma_thr;
+>> +	int quota;
+>> +	struct dma_chan *rxchan;
+>> +	u32 *rxbuf;
+>> +	dma_addr_t rx_dma_src_addr;
+>> +	dma_addr_t rx_dma_dst_addr;
+>>   };
+>>   
+>>   static inline u32
+> I'll look at patch 3/4 later this week or next week.
+>
+> regards,
+> Marc
+>
+-- 
+张晴
+瑞芯微电子股份有限公司
+Rockchip Electronics Co.,Ltd
+地址：福建省福州市铜盘路软件大道89号软件园A区21号楼
+Add:No.21 Building, A District, No.89 Software Boulevard Fuzhou, Fujian 350003, P.R.China
+Tel:+86-0591-83991906-8601
+邮编：350003
+E-mail:elaine.zhang@rock-chips.com
+****************************************************************************
+保密提示：本邮件及其附件含有机密信息，仅发送给本邮件所指特定收件人。若非该特定收件人，请勿复制、使用或披露本邮件的任何内容。若误收本邮件，请从系统中永久性删除本邮件及所有附件，并以回复邮件或其他方式即刻告知发件人。福州瑞芯微电子有限公司拥有本邮件信息的著作权及解释权，禁止任何未经授权许可的侵权行为。
 
---CoT/qmCue5gfNYHx
-Content-Type: application/pgp-signature; name=signature.asc
+IMPORTANT NOTICE: This email is from Fuzhou Rockchip Electronics Co., Ltd .The contents of this email and any attachments may contain information that is privileged, confidential and/or exempt from disclosure under applicable law and relevant NDA. If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or use of the information is STRICTLY PROHIBITED. Please immediately contact the sender as soon as possible and destroy the material in its entirety in any format. Thank you.
 
------BEGIN PGP SIGNATURE-----
+****************************************************************************
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaDa4NAAKCRA6cBh0uS2t
-rOCOAQDIlVEn3j31KLCPSoLJ6jFOUiwWCNqW5qOv7UtW1mOCagEAh6LZiTafRxQs
-HXf7z9JkF4bcnAu1w5WH7iDwvjnpNw0=
-=lKi2
------END PGP SIGNATURE-----
-
---CoT/qmCue5gfNYHx--
 
