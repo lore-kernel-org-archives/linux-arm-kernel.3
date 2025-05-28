@@ -4,92 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D7CC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 09:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 642EBC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 09:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aq3WV+O2bYKN04nPLa/IM/y7JcSQg3FEsNEEzJZKpcs=; b=kqQje485EulxhYATimMXqFf6Rh
-	jNc6It4Ezn4XpmZWlegVgpbMVzsCFsPW47JT4uPMVWBFnvyNmPRJhnyi4fWA2r/9sIIr3Y+iNckbV
-	K9boi3EuFTQBlUwlC9lZz/o/21UMy82pVLYa2KG66gUG/4jXgJsEkka/uBQYBVPfxJwSBdWlXRi4D
-	qBnrKeYouFVeCUkqbQEsSBeNRdcQix8ogFIBVsaQUYzSiJLoZhkxmhpJ3hwkRiFafncL+7ti4GS/B
-	0Nw1CTkbFotGTLK8vok8mLi9srIfghKE+dRC8/f976QG9imz6qQ643tIY/uFDOC8wLTdfuSJFwBBs
-	XTRbiz0A==;
+	bh=nv35wmBFFWGjNnhY+W3jWEIqulBHmw2d55oRdcomZGI=; b=u88eT7pAyb4DzPy5bUPPcYV6tT
+	hJD2vgFzwymgmbVsK1nkTe7j183tJIGCwrkgKLCUJO6rxJUCmonCVOFTLcnvJMmR7fheac64xLM7p
+	jwqrtflJnC+oO0X7Upb8GR4UbZdpWXBBSpbw7uGPtGN7KRsfcJ5lh+VreqrX6G2oJHx1U4PGwHrXS
+	JBUwdaGKsnMZ70WzsFmsDCC//ayDHtkor/LKOG+2ijEULBogx0jGStvTPkATK12zXGrGqqgyI0Gk8
+	gkG0LdKv4+Igk33kFMy1PLkohdw3DmaVGbMzXfRSIrdDssVuTQo/ZklLH3GlIVWHV6D946txZrone
+	fdeIURjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKCjc-0000000Cfc1-0QxS;
-	Wed, 28 May 2025 09:06:04 +0000
-Received: from mail-m15567.qiye.163.com ([101.71.155.67])
+	id 1uKCll-0000000CfvG-0plA;
+	Wed, 28 May 2025 09:08:17 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKCYD-0000000CdXL-3AnR
+	id 1uKCYb-0000000CdZm-2zuP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 08:54:19 +0000
-Received: from localhost.localdomain (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 16b13e7e0;
-	Wed, 28 May 2025 16:54:07 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ge Gordon <gordon.ge@bst.ai>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Junhao Xie <bigfoot@classfun.cn>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	linux-mmc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Victor Shih <victor.shih@genesyslogic.com.tw>,
-	Shan-Chun Hung <shanchun1218@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Ben Chuang <ben.chuang@genesyslogic.com.tw>,
-	soc@lists.linux.dev,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Ross Burton <ross.burton@arm.com>,
-	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
-	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v1 0/9] arm64: Introduce Black Sesame Technologies C1200 SoC and CDCU1.0 board 
-Date: Wed, 28 May 2025 16:54:03 +0800
-Message-Id: <20250528085403.481055-1-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+	Wed, 28 May 2025 08:54:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=neX9ANvrSIuXDT1uLGdiET4cBegQ8OPctCCcnqY8iCILuPxhqkGHo+tbyHBPtuZsn5sxIzMb+vkfkz4O0ph7g1jTJP+VKk8YOabHlBukpS1v4keB8AMqfw1MW/2VsAceZWesRfkW4qLIMrabp1B9RTcMOC0+RSEFN0/ywBrMa3vHgaG8ylfWULJL2iCQCxsBykEfGH/maLHWpkvD5SevYhM0GXiDkXrwQfCzch+XnuyZuVfp/h9OvS5JSCZCR3BKeCTWFu3O97AitB9crTmt+w4c2usw3pVjPXTM8kvnRdz53pJhZewG73DYz+/llnLVGCh0UMuUrQLH7oLbBcI4Pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nv35wmBFFWGjNnhY+W3jWEIqulBHmw2d55oRdcomZGI=;
+ b=qHoTDuBR7TG9VAzo3MTQqH6yU+j2gEGLHPs20Hf46ka0Wf4uxDKZhTf/LTtAjjKPQzPDDxc1gFFJDOp0U14CgR8FWPc1AB1OL1D3bozJNZhKnZRYpA3bJhRbVKhSh0eH8MaY9hrybFOxxJdf2w4TiMWJBGOrEelurS2XA/FTuhoFUempjv4FBhgrZkQZkbRedMi6bfzMg51oM5v0uLMSG2OO+NfF0R+3XusMmBE/kQJOMEXbVkcKuQNL7FccDAGCjA6jZIT1wViMgFMrjSbHlDlLJea8a1YmUNPJJf3bBDlZNMWB1k9KWaR7Wv52VqkjwYg4CNAdSjT5HGCnBQVdXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nv35wmBFFWGjNnhY+W3jWEIqulBHmw2d55oRdcomZGI=;
+ b=RiB73NK/PojrvsT7RM91ao/201E1WFRZD2EGWSD5lY6J3HMx+zY2hNOPIFnBM4Isu4GL89bwi9U0r4ayClIKmelwMXFvUGtvKsF6JPZLca5F3jlPilxzvuxlUxrRoJecTN8UeIF7utdHC/MIYg0QN/mPWYjilHLO2bO55FQ51yAHAcYV3ozQDTi0itrdFyPvgG/SDQT3kHqmUyDGn/3DbqGvxuKqnWAIruQiCOi7ah5S+txPNK7eU3b0JitbPPBecEtDl5/QoeQFJ7Dh70GkwkEWYBgOSZR4f5NWoIO2Gqt4wrkwmkF0jcKhadztXl7XdOuWywa/Nf0Ne19qxcZmIw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by DUZPR04MB9948.eurprd04.prod.outlook.com (2603:10a6:10:4dd::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.26; Wed, 28 May
+ 2025 08:54:34 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8769.025; Wed, 28 May 2025
+ 08:54:34 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	Frank.Li@nxp.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] update NETC node of i.MX95
+Date: Wed, 28 May 2025 16:34:30 +0800
+Message-Id: <20250528083433.3861625-1-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDQ0gdVk1KGRhIGksfTUlNS1YVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSk
-	tLVUpCS0tZBg++
-X-HM-Tid: 0a971619533c09cckunm56b16e873977ff
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PxA6PQw4QzExLkg8UQ4POg8#
-	MhUaCTxVSlVKTE9DT0lJT05LS0JNVTMWGhIXVQIaFRwBE0tCS007DxMOFR8eCQgUHQ9VGBQWRVlX
-	WRILWUFZSkpMVUpDT1VKSUJVSkhPWVdZCAFZQU1LTU83Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=X92BVYze+FDykM3ZBObdOjojJQdlAV/2cTwFjvMT6/Xgl+LBFpnnRmsVeWD2scpXayORmz8+50gqzdjr1gNbbReYh/8o5rT662nj8gQ6IDydF+kW+TT58ZO0myp6ezLKEn5ZS4CyzQ8goN/RWjGTyxBPofsBe9CPgz/ExxoIK60=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=aq3WV+O2bYKN04nPLa/IM/y7JcSQg3FEsNEEzJZKpcs=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0026.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::16) To PAXPR04MB8510.eurprd04.prod.outlook.com
+ (2603:10a6:102:211::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|DUZPR04MB9948:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81d72cc3-8d33-4b4f-6bf2-08dd9dc54499
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+aNFjZyp/m3b01+CTjvt3zLIG9/t1aNH0kJ/33dJTkVoQEFHLTQuN66lmgAt?=
+ =?us-ascii?Q?SZrXQj/DqyJvPmi/Xe6a8azJjYa2foK7zfRbvq/xwKr4yNt43gow6lsDdIkh?=
+ =?us-ascii?Q?sgJfJ8fsgb8x8OeWjoYXIb+wCf4MH+eCNybyCJxhfnHDKyq6qIwNpM0Xa407?=
+ =?us-ascii?Q?vI0FtwvltNfa6Ji0KUh/pBMhwJewAmAStabakfNuN4JQCbtPS7SrH3VTIoA8?=
+ =?us-ascii?Q?Qu0z49+FYSBimAZS8q9jzCtzXqoGZSqeK4E+l6JAHyazQskgk5sOIKiVL7dT?=
+ =?us-ascii?Q?xg2SsMvtJDPxE228UfI8Kpn2oW5QYQQzQjNS/hFtGqrDma3aEkZzHU987lIS?=
+ =?us-ascii?Q?LHKUxRl1P9wOScNKBR02n4fJ4WTIcLPykYrZvPXYIU663tewBEilGPFhJOry?=
+ =?us-ascii?Q?odhN3PIw7flBGvc02PcSy9yH+RtZZFSwRyyPTy2lDMAkD26arp9nno5IlG0q?=
+ =?us-ascii?Q?nX3sphdXItYwKIOBqgburoTlEt6jeLqSwJKhtkCbccogHP2rHDS/CpjZXaU8?=
+ =?us-ascii?Q?pW7No7IABqSZc7xBUIPcoEfjzKydlERpbFn7eeKQhHMhxYPyieor5y4jutRT?=
+ =?us-ascii?Q?ujq1iNAPDOSJ8fDoub6K/1JHVgwZugtsvJI8kXcY8uPSHfo+aSZUT2WhOCSK?=
+ =?us-ascii?Q?Lz9RTf2stYN/4ryN2ZYYlvqEc+fslSJNxMWVTe6YHh5Y2dqqG09+aDOKBz1G?=
+ =?us-ascii?Q?zwLCb9rSMGkgv9eCu19iPFrFIjWASkNd4OmeH/Zv01yffF8+J5uN/mrFVZqU?=
+ =?us-ascii?Q?2fOp+ZmWABkVFdNboJkJo7t184yi+T6TdBKoRM78fRL5YZ4EGyL4RY+l82Fm?=
+ =?us-ascii?Q?TuHcVnuF+iGeBNj3oVvEMkU/fopsPFuG3WGHs8sbXOeHj2176Z0dcyEHKlq+?=
+ =?us-ascii?Q?WTxEiSMdGYw2rfLfnUZZPzLJjAt92HJ1fFaLlgfxf0UMaL5rh1zLKUJbRmNn?=
+ =?us-ascii?Q?S5t1PAo7ovr6lqxzr430evRZodCrW5xtMMNO2anDSgniAGzoCIlfyqef2gC8?=
+ =?us-ascii?Q?yIakty+zI3iKK1LK6Rm61gUcFK+iWzO2H49KSAZy2PI9F0XKMyveH43jVnwk?=
+ =?us-ascii?Q?62vTDNVkNow0mIODROandPrfX0rJfQiHBawMrBTxxQmEGdaDs9v0DPSLRsAp?=
+ =?us-ascii?Q?W0HsMocXLrsE6x6ymjwRvbb6MfVLc2NofdrvDtSL59DnwHRMtka924M4TgfU?=
+ =?us-ascii?Q?0Peka4ZSexw0rTxhjbMOVdtkChtd2gOOFUYDl4rGJIp0xKFH/t8/UqZ7GoT+?=
+ =?us-ascii?Q?iDTIuaW2f7KVAlcrUl3spL6//KxBEZlFWWi7e+Qpux6Bfd6gAadJF0jqxl0P?=
+ =?us-ascii?Q?uPmaT0RFTq+9B380PpV06NYgvtpGrJMwtwcrUiCsthoIqQinzAKMlB4nlw61?=
+ =?us-ascii?Q?tEQmXVGPzHw2O7H33lTObMDTMncHozUGHkRPwr28YMQBwhASPiO5gHRGepnt?=
+ =?us-ascii?Q?NehEf0siz4e8SD9dF9HJxktbRHJPuVLCsGciuBpSGHePkNKgdDKGgw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jcAKiH8+EpH2V2xb6g76cgwW1D3gW9dO1J7b8MJyOjhz+g2QSm/PF58juX37?=
+ =?us-ascii?Q?8/Wd/2esXGAaKho5wRAOXx5G/Xdta5E4uUwiYTsW5JKxwMypbrFdvlDvFCVa?=
+ =?us-ascii?Q?3j9mq9NKqqfKqqMuKE/pN2zKE5PDxeFfAYvdUSP26ZcOjA2jUMqc/husFPsL?=
+ =?us-ascii?Q?HUiYfhdPz/kNdF1vAjqLt88sMvfQrFiYf2Rq7ueSqJC7769sJJxNaAHZ4V9Q?=
+ =?us-ascii?Q?mp4ZP/U7YETjMzGafje1qegJO8cYcNy9Jt08LRhrey2ODza/PA8yVB53BFaO?=
+ =?us-ascii?Q?h3a0lobzvy8k7mIPZ34HEEJVpo8J3juOz4b7GDDwCUQ6JHYpdQLxN8hse1eX?=
+ =?us-ascii?Q?ZvkXKaNrEeSv4GVu+83UnmfQ7U8NnSmIGDEMafZ/ayJDpBWBV4NdheW1bJZ6?=
+ =?us-ascii?Q?Ao7B+OIu6Ivj/WLv2NuMfl5bWq4rw5rYt7SVnmlHvVVkEzILYiCZqKeoVQQC?=
+ =?us-ascii?Q?CyBkriX3MCyInuKCEByUz3Cl92/Xd28hyiW5G9VltACEaa9K/OJ0oUxy9bt3?=
+ =?us-ascii?Q?7NkkmV0EzNeq48S5OTvjEhYIjrM7qOX0jo+exqSTWd/sBBQQ/KWkZO2UcYvX?=
+ =?us-ascii?Q?cY+IGFOTB9KegbNuZt/QspSeOY3jBD5CnXRf3JX/Q141sEb5KNmyti/V5lbf?=
+ =?us-ascii?Q?EfhbtAA3rfYH9oKEAb0KCDmjC0KVvImF5EEseE7dKxz/+aB8GzIcTJSUW9Iz?=
+ =?us-ascii?Q?7Q9dV3Y8pgnYwOTSb2LX26hey905hENiZ45cIh+ONH9+iv46y8IQifd9PjVm?=
+ =?us-ascii?Q?WjUt6Ez63nAfXVdiDs3Culfn8Ax2sKoj3liztD+7CbXavPR70um2X4LzLYNC?=
+ =?us-ascii?Q?RqDqAgFtYi1RAx6WuepgF+DHUpYUNYTEnZj6F2/3V1mD4q1bZjB5DfZgf7PI?=
+ =?us-ascii?Q?r57q/DEImgy5m0M55FuCn/PMNi2BBaShnYgyHw+lklrgOXCYEFshewDIjphp?=
+ =?us-ascii?Q?jXd8Gf8OXWtSeZ9hl5JJ947txm7UDDynIPZ2Nh2+wJxcDjRRLVOl0nmjv6R4?=
+ =?us-ascii?Q?KXoacuFbLqxPwpnClu0bpE2o0jk0mOYNeExKgGMqneS7wikAKXhMHMWbST00?=
+ =?us-ascii?Q?tZPflqqjaq4PeFSmXQs/OdJJBrHouePF75aHeHzeUao/rR/sIdvrRu3HK+7V?=
+ =?us-ascii?Q?G0/vMbw3PfBQ1wwzgsAiapMX0y/6S4ElP0RHTuPI3jmKnswTy+Te9AQXTsqu?=
+ =?us-ascii?Q?AuUVoIOR7b8Wzrp2JlOHg7LqlLKJjz/VE6jQKsDRz1WywLipHCCMk6Io93Gq?=
+ =?us-ascii?Q?bbi980UvvpBTcC7TURUB3CzJEWF7dlrD46mm7Q9GqvOwZxYjPbzw2zp6L9GZ?=
+ =?us-ascii?Q?E5EIcxnAhaSiroIz2e7tWilWgT0YrkVIulETAot9p8R70Et7kfVesQNGon68?=
+ =?us-ascii?Q?5z3kijkASiMcCrieOKZPsWt16jKj89oZ97AqdtRrqB/gLydZIYRnYkWfdaPW?=
+ =?us-ascii?Q?NVD0l7S/IWQyZARn/4XbUqh+Y1gtHVZW5WbeWdjMbFxTdMj7VQ5wFVcCpq1l?=
+ =?us-ascii?Q?jUs39cjZlU6BLjnbKLemGNDLVoMhVuR+hcYbdGhO3aAyzvnLFeFvLHGtZVSf?=
+ =?us-ascii?Q?SgF3IKDh6VaKmKCydiQcydm6CFcMO48tuJxltLMW?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81d72cc3-8d33-4b4f-6bf2-08dd9dc54499
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 08:54:34.4846
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JOEED21ghTkeVqDqH1/3AX86dkOB8P4oG3GkLwSOQ/Dyo7Lkk5kgErrUFh3fe9Qsl86U+idCbFZRlz/a8wmHhA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9948
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_015418_143792_6AEC9048 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20250528_015441_783104_C1914E0E 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,90 +163,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Black Sesame Technologies C1200 is a high-performance Armv8 SoC designed for automotive
-and industrial applications. The CDCU1.0 (Central Domain Control Unit) board is the
-development platform built by Black Sesame Technologies. You can find more information
-about the SoC and related boards at:
-https://bst.ai
+We found that NETC has an overshoot issue, so the drive strength of the
+related pins needs to be reduced. The first two patches are used to fix
+this issue. The third patch adds SMMU support for NETC.
 
-Currently, to run the upstream kernel on the CDCU1.0 board, you need to use the
-bootloader provided by Black Sesame Technologies. The board supports various
-interfaces including MMC/SD card, which is implemented using the BST C1200 DWCMSHC
-SDHCI controller.
+Wei Fang (3):
+  arm64: dts: imx95-19x19-evk: fix the overshoot issue of NETC
+  arm64: dts: imx95-15x15-evk: fix the overshoot issue of NETC
+  arm64: dts: imx95: add SMMU support for NETC
 
-In this series, we add initial SoC and board support for kernel building. The series
-includes:
-
-Patch 1: Add Black Sesame Technologies vendor prefix in vendor-prefixes.yaml
-- Adds "bst" vendor prefix for Black Sesame Technologies Co., Ltd.
-- Required for device tree bindings to properly identify BST hardware
-
-Patch 2: Add device tree bindings for BST SoC platforms
-- Creates new binding file Documentation/devicetree/bindings/arm/bst.yaml
-- Defines compatible strings for BST C1200 family and C1200 CDCU1.0 board
-- Documents BST's focus on automotive-grade SoCs for ADAS applications
-
-Patch 3: Add ARCH_BST configuration for BST silicon support
-- Adds Kconfig option for BST architecture support
-- Enables building kernel for BST platforms
-
-Patch 4: Add device tree binding for BST DWCMSHC SDHCI controller
-- Documents the BST C1200 SDHCI controller binding
-- Required for MMC/SD card support on BST platforms
-
-Patch 5: Add BST C1200 SDHCI controller driver
-- Implements the MMC host controller driver for BST C1200
-- Enables SD card support on BST platforms
-
-Patch 6: Add device tree support for BST C1200 CDCU1.0 board
-- Adds device tree source files for C1200 SoC and CDCU1.0 board
-- Configures hardware components including MMC controller
-
-Patch 7: Enable BST SoC in arm64 defconfig
-- Adds ARCH_BST configuration to default arm64 config
-
-Patch 8: Enable BST C1200 DWCMSHC controller in defconfig
-- Enables MMC controller driver in default arm64 config
-
-Patch 9: Update MAINTAINERS for BST support
-- Adds maintainer information for BST ARM SoC support
-- Consolidates BST-related entries
-
-Albert Yang (9):
-  dt-bindings: vendor-prefixes: Add Black Sesame Technologies Co., Ltd.
-  dt-bindings: arm: add Black Sesame Technologies (bst) SoC
-  arm64: Kconfig: add ARCH_BST for bst silicons
-  dt-bindings: mmc: add binding for BST DWCMSHC SDHCI controller
-  mmc: sdhci: add Black Sesame Technologies BST C1200 controller driver
-  arm64: dts: bst: add support for Black Sesame Technologies C1200
-    CDCU1.0 board
-  arm64: defconfig: Enable BST SoC
-  arm64: defconfig: enable BST C1200 DWCMSHC SDHCI controller
-  MAINTAINERS: add and consolidate Black Sesame Technologies (BST) ARM
-    SoC support
-
- .../devicetree/bindings/arm/bst.yaml          |  34 +
- .../bindings/mmc/bst,dwcmshc-sdhci.yaml       | 115 +++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |  10 +
- arch/arm64/Kconfig.platforms                  |  19 +
- arch/arm64/boot/dts/Makefile                  |   1 +
- arch/arm64/boot/dts/bst/Makefile              |  10 +
- .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    |  44 +
- arch/arm64/boot/dts/bst/bstc1200.dtsi         | 130 +++
- arch/arm64/configs/defconfig                  |   3 +
- drivers/mmc/host/Kconfig                      |  11 +
- drivers/mmc/host/Makefile                     |   1 +
- drivers/mmc/host/sdhci-of-bst-c1200.c         | 920 ++++++++++++++++++
- 13 files changed, 1300 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/bst.yaml
- create mode 100644 Documentation/devicetree/bindings/mmc/bst,dwcmshc-sdhci.yaml
- create mode 100644 arch/arm64/boot/dts/bst/Makefile
- create mode 100644 arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
- create mode 100644 arch/arm64/boot/dts/bst/bstc1200.dtsi
- create mode 100644 drivers/mmc/host/sdhci-of-bst-c1200.c
+ .../boot/dts/freescale/imx95-15x15-evk.dts    | 28 ++++++++++++-------
+ .../boot/dts/freescale/imx95-19x19-evk.dts    | 12 ++++----
+ arch/arm64/boot/dts/freescale/imx95.dtsi      |  8 ++++++
+ 3 files changed, 32 insertions(+), 16 deletions(-)
 
 -- 
-2.25.1
+2.34.1
 
 
