@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD509C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 08:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E6AC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 08:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFyA/Ev6J4dUYbbORf9U6czVrOpgGxA4vABlRFXcEts=; b=F5E9g/Ik020prvvuyBUHV1Cwaj
-	78qT2qDLauq8ZNEYaB6CIj6O5sRKz8JR/+cNWIbObrto97jqaqKj7F3H7h8efC7h2xN1PdT75Bzjn
-	KN5Jxc0SRgFlJxnT+mpTGVkAUZFHrMWOW8V2sJGD6nlWYOYXdJ6X41FwOl3XVOdGSDPXpMPknMeEX
-	9uqQsqBHUwvnztUPmf4s5OoeC49aYpvZhQhfOgFrBqGhSo0PfMTFG1dGqL3gITiSgfU2wLO7xlEOY
-	JQwQKCLDe4qO6EaTCcUR8EzgdAfCUYyewWv1aft3GSki/CRout7k0doca5CGYTKvSsdh/DXrUBPrf
-	Pb76Dd1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u8Snn3M2Xto80GFCTzGDH4eMJtf9SvjbeLQR53HTuGQ=; b=UH8PXoIQUKiJZm+s0PXTTRtv8s
+	U/RWYD1M3wbMp/J+D9EJGPWOtPjxQNmmlDuixjViTnMW5d9+H2xE17L2iBueI/Kw+ON9/6lKJKtUT
+	Eh+DVxlMX/BilqI8q65GRf9SZxEJnkYjHFXxw4WSEQ707VE/CR7LFC1fzNI+1ZTvhS0T7COAxE9qq
+	y4OmQOJ3Ont1PsL053GjPrIsfSFEFao1nU7UiDzvvvk2kofDa6V5wcVNiX/4OCEczKGLA5MCWO2/J
+	higYlSNfTfO0f77sL/lxSyMIP77QQkw9uR2IjxwqZNvsj/llz7KoR8txTWSRVvlHpAzxDJtbhB2/b
+	SroC6V9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKBjv-0000000CUsh-3IGn;
-	Wed, 28 May 2025 08:02:19 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uKBq7-0000000CVjj-19ZE;
+	Wed, 28 May 2025 08:08:43 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKBgS-0000000CUSY-1JIf
+	id 1uKBny-0000000CVUq-1mdh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 07:58:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=IFyA/Ev6J4dUYbbORf9U6czVrOpgGxA4vABlRFXcEts=; b=evO/lKUw5MnJ7tsXnKrD9jnoqg
-	b+PYF3g+tT3s31UjYVEVLUGD4QbVFxAfDe3jTt6zSBYs+BqcW7L4o5H/4lV7IAFO87k6z8drWy5fa
-	+vScF2jVlpn9cLiY4WYiOtgEi5WgKmCMIPgwHxusoT7b3o06F4DVQjoJZe9dfpVaBHibLWbrJd6IW
-	Gu1oxMalrZustOdJN5UvUSgvwrh1CdrLPzbN+K2eLneCuzGPxEUMaOW3MhnK4aFdt455xrGh5qZC7
-	Zo/NTYKwb6lkek7YVLTY6lXsIjJqz+8AwcuyThkWfOmH+M4By7TooetgF5MUQQ5zdFOoTXrpTeUEt
-	P7lO75mA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41916)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uKBg3-0008Nv-1S;
-	Wed, 28 May 2025 08:58:19 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uKBfw-0002GD-2Q;
-	Wed, 28 May 2025 08:58:12 +0100
-Date: Wed, 28 May 2025 08:58:12 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: "Abhishek Chauhan (ABC)" <quic_abchauha@quicinc.com>
-Cc: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
-	Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org,
-	alexandre.torgue@foss.st.com, joabreu@synopsys.com,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	bcm-kernel-feedback-list@broadcom.com, richardcochran@gmail.com,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, fancer.lancer@gmail.com,
-	ahalaney@redhat.com, xiaolei.wang@windriver.com,
-	rohan.g.thomas@intel.com, Jianheng.Zhang@synopsys.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	horms@kernel.org, florian.fainelli@broadcom.com,
-	Sagar Cheluvegowda <quic_scheluve@quicinc.com>
-Subject: Re: [PATCH net-next v6 0/5] net: stmmac: Add PCI driver support for
- BCM8958x
-Message-ID: <aDbCFGIi09h1irho@shell.armlinux.org.uk>
-References: <20241018205332.525595-1-jitendra.vegiraju@broadcom.com>
- <CAMdnO-+FjsRX4fjbCE_RVNY4pEoArD68dAWoEM+oaEZNJiuA3g@mail.gmail.com>
- <67919001-1cb7-4e9b-9992-5b3dd9b03406@quicinc.com>
- <CAMdnO-+HwXf7c=igt2j6VHcki3cYanXpFApZDcEe7DibDz810g@mail.gmail.com>
- <7ac5c034-9e6d-45c4-b20a-2a386b4d9117@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7ac5c034-9e6d-45c4-b20a-2a386b4d9117@quicinc.com>
+	Wed, 28 May 2025 08:06:32 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9370A44393;
+	Wed, 28 May 2025 08:06:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1748419586;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=u8Snn3M2Xto80GFCTzGDH4eMJtf9SvjbeLQR53HTuGQ=;
+	b=H0WSSbShJ0Gz7Vg8g+HKsOFdUBIafPRnGn2jUS3PRcl77WiUdJ9uR25cfFiY7ItPIDyii/
+	gppDVRhJ/E+EiQx2GzxL/QxaIylJmxFNR8xsY5x5UqkpWbQfyAgVLQ0jq7JCE95lsooIL4
+	QV0kYkFlCSVo0RDy3BGQK0+36/6pMrHGVySCDuQbk1Z8tJPL/YicoKHGZ0oR4fGJF00K9f
+	loiiuW0yTVcTH+XXAI14PJROcA3E1HMWlO4t1VV4x4Y9xSu1negVKjX+EFApwCfZuBQoqb
+	akMwK1VWuR5S1uEz1ESV/mFcLaOnDptzmhJrUPbOXs8ueYrooE10alPOZDnmyA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 28 May 2025 10:06:23 +0200
+Message-Id: <DA7N0K4FSI14.QARGA1ALU2XV@bootlin.com>
+Cc: "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Jose Abreu"
+ <joabreu@synopsys.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>, "Richard Cochran"
+ <richardcochran@gmail.com>, "Phil Reid" <preid@electromag.com.au>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, <netdev@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] net: stmmac: add explicit check and error on invalid
+ PTP clock rate
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Maxime Chevallier" <maxime.chevallier@bootlin.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250527-stmmac_tstamp_div-v2-1-663251b3b542@bootlin.com>
+ <20250527183105.7c4bad49@device-24.home>
+In-Reply-To: <20250527183105.7c4bad49@device-24.home>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvvdejfeculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepggfgtgffkfevuffhvffofhgjsehtqhertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepleekheeihfefheevhfdtgeeuleekheffffffuedvkeekkeduvdeugeeugfeiueeknecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduiedprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhmpdhrtghpthhtohepjhhorggsrhgvuhesshihnhhophhshihsrdgtohhmpdhrtghpthhtoheprghnughrvgifo
+ dhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_005844_354212_F2F18065 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250528_010630_934243_30AB80DA 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,21 +85,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 05:04:52PM -0700, Abhishek Chauhan (ABC) wrote:
-> Thanks Jitendra, I am sorry but just a follow up. 
-> 
-> Do we know if stmmac maintainer are identified now ?
-> 
-> Andrew/Russell - Can you please help us ? 
+Hey Maxime,
 
-My mainline work is in abayence at the moment (apart from occasionally
-replying to a few emails from time to time) as I have other commitments
-at the moment. I still have my own patches from before the previous
-merge window that I didn't get around to submitting.
+On Tue May 27, 2025 at 6:31 PM CEST, Maxime Chevallier wrote:
+> Hi Alexis,
+>
+> On Tue, 27 May 2025 08:33:44 +0200
+> Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com> wrote:
 
-Sorry, I'm not in a position to help right now.
+[...]
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>> +	if (!priv->plat->clk_ptp_rate) {
+>> +		netdev_err(priv->dev, "Invalid PTP clock rate");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>>  	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
+>>  	priv->systime_flags =3D systime_flags;
+>
+> This may be some nitpick that can be addressed at a later point, but we
+> now have a guarantee that when stmmac_ptp_register() gets called,
+> priv->ptp_clk_rate is non-zero, right ? If so, we can drop the test in
+> said function :
+>
+> 	if (priv->plat->has_gmac4 && priv->plat->clk_ptp_rate)
+> 		priv->plat->cdc_error_adj =3D (2 * NSEC_PER_SEC) / priv->plat->clk_ptp_=
+rate;
+
+You are right, my series makes this check a duplicate, I'll remove it.
+
+> There is another spot in the code, like in the EST handling, where we
+> divide by priv->plat->ptp_clk_rate :
+>
+> stmmac_adjust_time(...)
+> 	stmmac_est_configure(priv, priv, priv->est,
+> 			     priv->plat->clk_ptp_rate)
+> 		.est_configure()
+> 			ctrl |=3D ((NSEC_PER_SEC / ptp_rate) [...]
+>
+> Maybe we should fail EST configuration as well if ptp_clk_rate is 0
+> (probably in stmmac_tc.c's tc_taprio_configure or in the
+> .est_configure). That can be a step for later as well, as I don't know
+> if the setup you found this bug on even supports taprio/EST, and setups
+> that do didn't seem to encounter the bug yet.
+
+I guess you are right as well, it may not make sense to try to configure
+EST if we have a bogus clk_ptp_rate value. est_configure seems to be called
+in both tc_taprio_configure and stmmac_adjust_time, so I'll add the check
+in est_configure.
+
+Thanks,
+
+Alexis
+
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
