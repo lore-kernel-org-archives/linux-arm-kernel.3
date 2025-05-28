@@ -4,64 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D74C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 22:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B600EC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 22:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/UhymLIMd5eLnLGVlqof6gLqgaGUQuR9VsSEm0PQjQg=; b=qIgfIF5BLeYzMWh0cszarvOUT0
-	SNQ2hjRewLDIhAZ+vUQR7OCvXfzPQfoxqInVNaISVz15WM4zMZ01o23xTefcu3SalBDc30TGQT/+P
-	xENgCQE7NI7ws2IRXPo2j61M8izDPS/BzWUa6T+sR5STFrW8pdOiY8iltI00hIGrG9d1jkUpHMsgL
-	7wnS5BOCuqh3goBHQHjwrXLKe2p/LitoD/h0+FMtKnXc5yb3+yAIVZ5OYUpc7km/A3Kgicrk7QxiD
-	JrWjgvIXTS9q4vVpBOYw8+3irFGO5nwwidJkdFEihu2PWQ4Lk4/82zMQpkPOVAdhIi9iIgf1bqRel
-	WmSRMh8A==;
+	bh=vuas8GZta+tCv3fdB3+Z32BrRF2EdaSj7wMJQtjDyXs=; b=HuMi4SNQfLaVzFURSkr054FCtE
+	X38oPLnTU0IdwFOJp5w8SShU03Ya8Xa6SwnuMwcD/a6MRm67ZlzyC1tRrF08K7rJLJfv3rYDaCGBX
+	C1X2CO+Fl4kQ45XizPrmUfCzz5TMjMFMpvGeBomaPwGx409enXMAPv2KBBcqVgPbEjpabmsueEMX/
+	ONy4jRowXWQFll87k9k8n3xyRF+r7buucoUOk9deYdy6DZFNXz6AV2vLn7rotx6D+0pELqP3q/NG6
+	wykO48/Lrw7aXia80EiSSVOBq3fTwj7aDyHo9MIfKEKLsxAvUEEyeTODv8grGL2cWa+1hjwmaX+KS
+	1ET2k31A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKP9D-0000000EFVo-3HmC;
-	Wed, 28 May 2025 22:21:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uKPEt-0000000EG29-2YTK;
+	Wed, 28 May 2025 22:27:11 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKP5W-0000000EF0C-2dzk
+	id 1uKPCk-0000000EFpk-1Q1d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 22:17:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 772464A520;
-	Wed, 28 May 2025 22:17:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 368E3C4CEE3;
-	Wed, 28 May 2025 22:17:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748470649;
-	bh=zNpLWP0iLRo2SdsjN4iDx0HkI1x+t7mIhg4FFPTD5Tk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=G7muyCJcjzQJFr92jjgnWBBlpxhlTSkns9tT7dVBsYZ8p066RrwEMoBi52I4Dw0DI
-	 eaRLiDhYqbn6faw+B+Y2GJED9hg08bsaHGlfETA9F75ftIxkrXqIi4OsD5QT9YrZYf
-	 CsaqSf2zXr1M9TJ7oIMBiqykalOfsuUlS5XATez3+9oY1oYBUkrSTNXzSwCuLDw77P
-	 mAIoJS7lnZh5pfi+61KTh5B/5D6Udfk/l7Ahoof46MrGPhVaDAeUDAObZJ7cfpg/mX
-	 uxLm3Rt7vPXY3FPlpscg8hjt7CgYs1Zxxy83Afgeh3cmTznC8ByVXp36g6rIFklFa6
-	 k/AeUR12dZOyg==
-From: sven@kernel.org
-To: soc@lists.linux.dev
-Cc: Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>,
-	Sven Peter <sven@svenpeter.dev>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] MAINTAINERS, mailmap: update Sven Peter's email address
-Date: Thu, 29 May 2025 00:17:18 +0200
-Message-Id: <20250528221718.45204-1-sven@kernel.org>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-MIME-Version: 1.0
+	Wed, 28 May 2025 22:24:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WVnhNKeDcGDKBm35KGpjgrOE2/h66rcLW3cPEvYIOY1+UYfWU7pdj1phMpgP4uFNF17E+DAHvuW9LVb8XcDA01hWnEG+carWkfpSDCsKh73WXdb9ft1EQCvUlaSD23SBhytDwZqpZIraBX8j8SPzgA4pM7seMlcw/z1uHQs9TtvCnznDPc2U6zpm+hXJXRZ4lopPI+S0FAhz1ZylJG5MhVRfMHRVctVqATGRe1ZOkotnt7yhpx2l9qseViApfh8k3OLdXMG005C51Mj31ej0GRJXr0RGS/zMbZoOofQ18O6WSXa2Id5XTO78uEkjKo4U2Wzg9xFCj7J4eIrVHSWp7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vuas8GZta+tCv3fdB3+Z32BrRF2EdaSj7wMJQtjDyXs=;
+ b=fQ/HC+747pfVulk7qXxHDTbdKBms22Ke7uY3lPO2v39eJ3/XtIH3KSULwYbYiH2hW5+7BNDED7E9xZu1hzwNJ10bECI2a7kgvA4REtn77etoyd0NMhnEz03kBLMtxM90PdbJd7M9Im0I5WcnL/ZayvUK7qQmwRE96VaSNT6Ig8j6yptUF6S9CeNNeUwFhohugW03sJ6OQ3vEZxFH2PWUreI7SpFtT68iieQNc8iarh88CcfcWajschBeWcxjrW/U0wmXfNQS2IImlQSXIaMzwF4uNF6KFBcosXT796dE93OSI6IfWccercEZq3UcUCpPszuxnVncLXI/T057oN/l7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vuas8GZta+tCv3fdB3+Z32BrRF2EdaSj7wMJQtjDyXs=;
+ b=VbWQxl789K5yvJaxiMdfzaDLakkr1+R2Wm5Z/lEfhsBZYKHclCU3te8BEJJjW+/mhDRAaBThYUUPKKZc+CgvdHHvrkXV1lhxUWRab9x9SBWQeaK60yIwpOJoVx6JsQ+U5cvvszdzyLtAAfGduMInYE8nysvCOrhhWeC+RULZj5DkC5I8wgONTHSKA6XJWBlnmmWIrdTEmt2/aubTH2vaXczNFcaP1qjDru4cWjww2ZDcZwvaaxtyXWNgPNZmeiPoHhQe9ouC7v2b+k0/qfvFFn+LZMFxUfn+qvKNDcpeVJIsiM/1Fws4067yScMKAl2WOObNkj28Xvyf/+BhLOAcMQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8762.eurprd04.prod.outlook.com (2603:10a6:20b:409::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.30; Wed, 28 May
+ 2025 22:24:49 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
+ 22:24:49 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-mmc@vger.kernel.org (open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND...),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH 1/1] dt-bindings: mmc: mxs-mmc: change ref to mmc-controller-common.yaml from mmc-controller.yaml
+Date: Wed, 28 May 2025 18:24:33 -0400
+Message-Id: <20250528222433.727633-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR05CA0106.namprd05.prod.outlook.com
+ (2603:10b6:a03:334::21) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8762:EE_
+X-MS-Office365-Filtering-Correlation-Id: dcc1d4be-9063-4749-bb4a-08dd9e367552
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|1800799024|376014|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?laJSm+tK45aXXiHzqK8UGHX+Zxz7Q75Io2pEtcfeS3krtXjIDDyFGXGu8pIK?=
+ =?us-ascii?Q?a+1RfJtJwBH61ENYAsW+55MTXB2z0fILTsUunMJTxlil21rGwbAb1ehfFkVX?=
+ =?us-ascii?Q?r0uXUjE1PFV1NE2FE00hvy73SbuSzj5WIYk/pEplt+eTo4wH15CuwtyQjZQg?=
+ =?us-ascii?Q?stPubMIjSj4ccpY6FVqwzG5sYAfk+6WYW0l5ogsTCP2KyeJfhf1xxR4uDNO1?=
+ =?us-ascii?Q?RKMG69w3cXV7pxT6Evq+2jJuJmmIfuBep4UwS7l9ldB/y5fQfItcixXzrxe1?=
+ =?us-ascii?Q?ts04qSLLqYCM347TFrJ0+RVkJQN4Rftj8+6Xxlo8rtDAeVKoi81UTlVaKASN?=
+ =?us-ascii?Q?O04xZE7Ndw0go6G12hekvrWLErcpaSJgiKfB93Aziw3ffaUih2jo+7LaDDAe?=
+ =?us-ascii?Q?Kp+g4bcWQWstWiNETNJfK3O0EmLciDTKOT7LSPhlFozkGvkZr8ip+7UBfU1U?=
+ =?us-ascii?Q?fL4T4FUTJmLFHeCHWbR/dfFHlCTwS/P6o03nrp9YhYL39Xfmh7R5I8jFCrxc?=
+ =?us-ascii?Q?H7PJMI33bIqduM3vBbEnd47RGzWT39MCZqQeYt8urAYY8oYc9q+2D8n0Ym5p?=
+ =?us-ascii?Q?HPbXo6uEjeRQzp+qxIVexYNgtOFdbrFvLRyEL9QzOkNS+lcRLWnBaDF3EzHN?=
+ =?us-ascii?Q?duux3IPIkJQ9DzBap4Ldc4pXPMl++RLwJZDT++eyeZyBrOvUyJLeNnTcqflx?=
+ =?us-ascii?Q?MxJyVqWTTDHyVfx0gzBBs+muRNcb9jfcFZoSgFRvU7pKMVSTcvBmzn05X0PS?=
+ =?us-ascii?Q?dBfL37xQmZZxIuwhI35rb6zi3jEioyVdgxxkrfkjWj6E8jOyf3pbgSEco0pP?=
+ =?us-ascii?Q?pMI2Xqv8mSfur+bg2vPzG13bbEluUMohSkigjy3wzlSl+i7V8YVmrRBTZwdi?=
+ =?us-ascii?Q?F8+nha7mTD57wqOOp3dsyb26jGmDVXKN7/9ldDycd1/y8CJwFuQ34ntkXTsV?=
+ =?us-ascii?Q?itpASNr8RBoAWd2xLGKlvJDFWvxJTKGy/mGnbjL6/dK6ddtNJiZbEhqhXmvV?=
+ =?us-ascii?Q?2wr50fwnOxHz0OYtx9c7+UVujGJNzN7vKbemvjBeSO/5BL/9PP3hBQgUbA3a?=
+ =?us-ascii?Q?4tGWvJlNJEwR+Lbw/T7vd4RqYYXFStbBH6Cl0c4Sg95IjckG6kumHIZZZBi8?=
+ =?us-ascii?Q?HhmdAFLVH5Hi3S6sTPQRbUMCXA6egQXCwKQMWhbsZRdTb+EH8bwmcrDp3lE4?=
+ =?us-ascii?Q?yfW1Rtmg0QMQbnomsioGh4Yj8HGM+x4yEwNdYtuVimDP0PujnMPw9Wh+htjl?=
+ =?us-ascii?Q?T9S3/hU3jJKByyd21bCAsZDFLDP8GqyLlPdujKf5dFhR2RLza9i5Ifzk/1YD?=
+ =?us-ascii?Q?ARy8wFHGYnbPFZTqp948YdjiiqVvmzmv+MdQ58jHCYIH/pMLWEzigKjp0HQR?=
+ =?us-ascii?Q?oDHBS8yUG+6hFwE3iZfsv88DWI7LLasvfkKzjdbLUxsCUcgpmQTH4xVbsCAc?=
+ =?us-ascii?Q?2TiXwkkpDWkSFGKf2DsSClGl2tjbOg2bM7uRvQLFuP5EYGa7puZ9tck80yKL?=
+ =?us-ascii?Q?W4ztzz9Z4LpeTso=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(1800799024)(376014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ax9llx0Vq33YrQxjFOKZuzqzORcXVRf/E2YYNyaKr8O2weljDqAsu/VuTTb3?=
+ =?us-ascii?Q?JBUfseVyMw0earIS3mmry72MYoKBJbQHJakoeWojQ0Kbi2hSfR2VEZttQKti?=
+ =?us-ascii?Q?Xc5b1GpQriE9YMPN0Xu3+ZEnAB02YLe9LKzU3twKMpuYnyKm2xmOqu3oKWcw?=
+ =?us-ascii?Q?3g0IJgzS7UBwpdJSp7ykZdPtpbDC3DvdgBPkKbpgh8QcgHryGAdVGGVfUN6I?=
+ =?us-ascii?Q?iUlqM3nIvQG4iK6N7M9s0mNMVY+aZEFRq9RTeDJWUcQmHJYcRmrt2TfipSjC?=
+ =?us-ascii?Q?6DXdp75/Md5Vq9xgbbZW4sjepFBE38UqUUKvps0CZZga1R+Aw7HIn+sw/xSz?=
+ =?us-ascii?Q?R0HC17jjEUgT4iTUYUf4SjYlmrk8en78+I6cOhJUGjGRk269RPOF4kTzNWQ1?=
+ =?us-ascii?Q?2G5cEhD5HRY22OvJAp/S77qI0KbUSVKlS0oB/U7P4K4cTiEUhlge4hfKhWGv?=
+ =?us-ascii?Q?MAiN/SvtZFRl29rw6Sxg0l+o0xc7Vk+h21Nsqh0JoYEk1/v4/KF2FXQ/5Oc9?=
+ =?us-ascii?Q?VGvoUpIuBNmAjS31TrSRMVcdPSsmyNanR9m6qI0UWVTRFAzUQdCraKIwgRZU?=
+ =?us-ascii?Q?ks3St12cx4tAD+lXY+n4MoHo5mNfqP3FPo5r8Z3VJNlZPWazeYvgZitJoNpY?=
+ =?us-ascii?Q?zVVfg1kH5z9+SvszzNi6/Wlw0lRZF/gmmgBer9ZY4uenskWzHy3AmplBmwev?=
+ =?us-ascii?Q?6G7gxGRl7rkNaFZMFm3PZBFW04XHYToacrIIBPpG5Hqf62DnGA5xVlyAfyLD?=
+ =?us-ascii?Q?iQ1q3tZdcNOgWnZGEagzzaUrTS4lIXFErzLYhY4p8snBc6pTkV7FolNUii0P?=
+ =?us-ascii?Q?4Nj+yg+/CEwvvPkpRNtKz8yTfNZ+tvsxAPq5aqT88fhebr0CKC+LrWgMG5Bw?=
+ =?us-ascii?Q?9VoaT7ZGcqSrudGcxU2tDMB7xkabACGvdgJUnQcF9gQCNuJFwS4Qr6PX6RSm?=
+ =?us-ascii?Q?TuxPLZeU4fBU0EUpg3pUxE2HPM/fDiuoPDbuCTRcDAERtaKoA2uJUBDD93Vp?=
+ =?us-ascii?Q?+i6IjHxypi3Bgw0nk6z4FUhcXP1IGTBbApyVV7jQ5LrS+6MkBPvamaQLcfhe?=
+ =?us-ascii?Q?jGi7HRxUDkW62T69pis9PQHPpUqBZLCa9BeHHmuV/2+pXA8FDancOEoII+eU?=
+ =?us-ascii?Q?RChzB+tBe0FnZZSTEsZbUFVxgQgFPpr7VH772MCY8RoxQKM4QQ7MNVQkSjk/?=
+ =?us-ascii?Q?hjcHRYKzVWzscM6G6T9Hi+1me/P8XtLZhZx4np+gw9kW9o9FQlTp+nARC/FU?=
+ =?us-ascii?Q?EkaMAhteLAUoFRxoqZt/BxLdgKT0DUrRd/EBjwN1rNPotQb6OE/qvnP+0QDc?=
+ =?us-ascii?Q?yya8kvMH+MmRiIQ/HaBcpn5aUM/n1vdz5gDOeSdxezhItfZTNOzErSV5XoKD?=
+ =?us-ascii?Q?rBG8+DvD5uTV6FptYqg6zgzwdi96S1UO/wht+hP2yYwVME1wfKbBLrmH9IuC?=
+ =?us-ascii?Q?xsBn9S/S3BWoGsTT0/uaKk2jWMpW+DJSDsn8q8y1j3o3oNNUc7034Jw5m4r5?=
+ =?us-ascii?Q?/Qyw4oKeIsVaNT11aUkAwDopthsMo/clhhhz2IkZwWb3F8O4CNLdMrdux5Nb?=
+ =?us-ascii?Q?lKkGTWaLo5UvfN/oHtc=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dcc1d4be-9063-4749-bb4a-08dd9e367552
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 22:24:49.3543
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TJP8L0dXstL0a+sowlWMNxO96NLgUYxlWLqY3aksMdrybAkY7upH1N0Xthr+3DEcxVktkvfudw/qM4nHOamgSQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8762
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_151730_689725_89B21F86 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250528_152458_407578_5FC104B3 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +166,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sven Peter <sven@kernel.org>
+Change ref to mmc-controller-common.yaml from mmc-controller.yaml because
+imx23/imx28 use dual mode controller (spi and mmc). So default dts node
+name use spi instead of mmc. The legancy reason, it use difference
+compatible string to distringuish work mode (spi / mmc).
 
-Update my mail address to my new @kernel.org one and also add a mailmap
-entry to make sure everything gets sent there for easier filtering.
+Fix below CHECK_DTB warnings:
+arch/arm/boot/dts/nxp/mxs/imx23-olinuxino.dtb: spi@80010000 (fsl,imx23-mmc): $nodename:0: 'spi@80010000' does not match '^mmc(@.*)?$'
 
-Signed-off-by: Sven Peter <sven@kernel.org>
+Additional add clocks property.
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- .mailmap    | 1 +
- MAINTAINERS | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/mmc/mxs-mmc.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/.mailmap b/.mailmap
-index 4f7cd8e23177..7a9cd664183a 100644
---- a/.mailmap
-+++ b/.mailmap
-@@ -712,6 +712,7 @@ Sven Eckelmann <sven@narfation.org> <sven.eckelmann@gmx.de>
- Sven Eckelmann <sven@narfation.org> <sven.eckelmann@open-mesh.com>
- Sven Eckelmann <sven@narfation.org> <sven.eckelmann@openmesh.com>
- Sven Eckelmann <sven@narfation.org> <sven@open-mesh.com>
-+Sven Peter <sven@kernel.org> <sven@svenpeter.dev>
- Takashi YOSHII <takashi.yoshii.zj@renesas.com>
- Tamizh Chelvam Raja <quic_tamizhr@quicinc.com> <tamizhr@codeaurora.org>
- Taniya Das <quic_tdas@quicinc.com> <tdas@codeaurora.org>
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 96b827049501..b389195fb9cd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2251,7 +2251,7 @@ F:	sound/soc/codecs/cs42l84.*
- F:	sound/soc/codecs/ssm3515.c
-
- ARM/APPLE MACHINE SUPPORT
--M:	Sven Peter <sven@svenpeter.dev>
-+M:	Sven Peter <sven@kernel.org>
- M:	Janne Grunau <j@jannau.net>
- R:	Alyssa Rosenzweig <alyssa@rosenzweig.io>
- R:	Neal Gompa <neal@gompa.dev>
---
+diff --git a/Documentation/devicetree/bindings/mmc/mxs-mmc.yaml b/Documentation/devicetree/bindings/mmc/mxs-mmc.yaml
+index 32e512a68ed61..ca40ca92f858d 100644
+--- a/Documentation/devicetree/bindings/mmc/mxs-mmc.yaml
++++ b/Documentation/devicetree/bindings/mmc/mxs-mmc.yaml
+@@ -17,7 +17,7 @@ description: |
+   and the properties used by the mxsmmc driver.
+ 
+ allOf:
+-  - $ref: mmc-controller.yaml
++  - $ref: mmc-controller-common.yaml#
+ 
+ properties:
+   compatible:
+@@ -31,6 +31,9 @@ properties:
+   interrupts:
+     maxItems: 1
+ 
++  clocks:
++    maxItems: 1
++
+   dmas:
+     maxItems: 1
+ 
+-- 
 2.34.1
 
 
