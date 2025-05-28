@@ -4,154 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 345C6C3ABB2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AF0C5B549
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kYQtwrCw+MX/gECF32P1RLrNEcJi3TazTt9akbUxPQM=; b=WNqEy5HZ9sl8DzkSBfT/IwA2+j
-	rJsm9fJHaBNnonGhJACx1RCR22ZUBGLjC3IAzlgddu7gFWyMogX4sOBTwt/AO2sdGQ4dGloFYEu+o
-	kvegxpXDfTNeB4ruVvZsVAzYML0/IgfxpBXTh7UXkJ2cfKcRbzmvuR7gYypEutCi6hxSnFzG12bux
-	Rq8zL7NcwIdmPECccRcwzOPEggTAeezRMKK8Hb5yjvNmLenBkM+CGWTut0NI4BzrTL8Uf2SMaBVAX
-	t5o0vovl5unA28p3Z7SW9WI2cc/6pIBi9kLEH3u3r2Ep1UqggEz4R/oMzSVejmj9T9VOX357WUipl
-	dSFG1yzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qJhBrTcV/2KTHPEGx8A5eIEZm9bF8mIMQSTTxnrKh3w=; b=GgMbn0T7bVnC1iU+6LZVG8Tp3j
+	VD7onUKQXYrOHZYSph4wgr/ruhP0AOfhne7EV8liFa5J3Ve51LaAGGXT6ko/49caukTfKDaXbCCgz
+	N6k1sNueaU6DKt1iRUF4u3nBvfdPK9sIMnZJyHx6GtlbLEJOMe84qCxrHYT6GwtteDb9j4K04sALt
+	Tn+/ppVZV785tq/oxlO5x8/giSbxRYcAyTFeEasPlGKpvXwdc8wXqiuESv64juMWIAAKQGSAMpULy
+	3AsfoQy/fRdHDdOwZW0XkuzTV2dWlOUT1+U7Cz7UbAdnHVvZMtmovSOXqifRSoJQnFC0RMl8eslvA
+	bTHuNFkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJdp-0000000DfbA-3RTU;
-	Wed, 28 May 2025 16:28:33 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uKJdn-0000000DfX7-2KwO;
+	Wed, 28 May 2025 16:28:31 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJ3O-0000000Db4P-1Gub
+	id 1uKJ1K-0000000DarF-40Yd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 15:50:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NbZwOfaHqsLz3yOyrk+KryIAtyul/YsVkpxX2Q5bNqb11Kbq0wEZOQEdTcVmOOApZxEQcyOFl4Pw3zQgP3YE5Iml5i8TIBHl4yJPfVmTfyt7hQ+xOADB3A+MQITKAnCctSpNSZju+wVWp6wFSEdCsvlGMg9jobepvKkCsRZMiNb1PyC9hbEGn+Ev32rN2eaGEGc3O9wWy+9e+B84C8n9jCtIWXa2TS7l7/YuI1kKNLgnDViSjmjDdAr0Lcw5sunROZTcTtJc17jesW4voYSdtCPfxmn/I6Snty0+xfymQkaza8zxglaVPNCSnShbfPzd2MkyKzFBwBvnQWMvUL8L4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kYQtwrCw+MX/gECF32P1RLrNEcJi3TazTt9akbUxPQM=;
- b=VVczaZStVsrUmg3lOL9HvR5wbqDYSAOtA4pCbOX1Hf3BM4KXysxW+zyXQVWH32McGdi5XSciks4wyraEiEvpXCkXtGazzRHg/RfvQ47/qxmri1ZfjoooFA8SJ/zSVEQfdyoc8ukgW0rdh8rbz0+ZsWQ9ACu4oLnbPcI2JyKA+eqI1zp5YnN5+6+TLGL/EdNBBS2ybTgEZcHwP6X8uq8/RwXvNl0tguTi3n0GDxYbBPWvlXGMhFR7uujYHCIcCpQHAzt24+kIHSnDv6+k/xd0jFWYUaKGwjbRKq08KFuMTRJhMT907wY9sQKpvnTKadbV9gC1q7tgT0he30BTkjLcaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kYQtwrCw+MX/gECF32P1RLrNEcJi3TazTt9akbUxPQM=;
- b=InY11afnM2XTp+AaY6cPHy8cwUI0HPMDIeeWOAxTxnfS1geHuWUxKRs6O69MKecBGMsJpIm2fRroqpx82xb7STo92K+eWOIqc1r66RIRjsuARa80FPXbqDuY+nx2ZsX5ahSGAkPNQHh5stTflIZ+vg8MqLa/7NP0++NNJClfW9Gn7e3uoJGzewzMPKbSo4rr1SlO5VgWfe3NDbta5h7IDMEooGCpEtUVQI2q4x+ljipUBLIyAQWoyPUC/VLNLMZ80J3ZQSNlBer9Yug41gSL5+Oj7gdEEkBus+Fd667AgiPFyqS1/OfgE5slAkpS9GnROaLXk4qKuW+/ygY0llOd4A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8491.eurprd04.prod.outlook.com (2603:10a6:102:1df::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.31; Wed, 28 May
- 2025 15:50:51 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
- 15:50:51 +0000
-Date: Wed, 28 May 2025 11:50:42 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>,
-	"open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM" <dmaengine@vger.kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] dt-bindings: dma: fsl-mxs-dma: allow interrupt-names
- for fsl,imx23-dma-apbx
-Message-ID: <aDcw0sgN1ZX0kCCZ@lizhi-Precision-Tower-5810>
-References: <20250523213252.582366-1-Frank.Li@nxp.com>
- <20250526-plural-nifty-b43938d9f180@spud>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250526-plural-nifty-b43938d9f180@spud>
-X-ClientProxiedBy: SJ0PR03CA0195.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 28 May 2025 15:48:49 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-70e1d8c2dc2so70297b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 08:48:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1748447326; x=1749052126; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qJhBrTcV/2KTHPEGx8A5eIEZm9bF8mIMQSTTxnrKh3w=;
+        b=PqXKXClKzQ3Sfeuv2nVRZ3k9fgX1hg1/loye/XtBC9hqNd72OaMWwBZNTEulKJw2FW
+         zg3f/oeTDigjoHLqHzKdkGoHhQb9NQZCJ/xQk4CdMPtacH9Qb+Tle4jq08g9jDH7B71G
+         f2Tf6GCv8xSZmKxCexdvyTuBHzp6vqLPIg2B3z2tKbIeklFMmYayisoqmETRLzGutMv4
+         1QggDLqL3THmihd9CO+fi2+kKt8QsiWGSUJ3bHbUe1YJ9kIXBO4d+j6Tc/fXGy8ndPYp
+         BwKNM0NABkBU6KnYN5/Cs6vJf2gqaPz/yEG7xizwYWRKGOMZs7iFoPNM2DiLAJB39Zm7
+         7T7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748447326; x=1749052126;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qJhBrTcV/2KTHPEGx8A5eIEZm9bF8mIMQSTTxnrKh3w=;
+        b=pt2kN370WrKEpXohHnCpn8eWSEFocHAI4CvidJxjWWfJzi8XWUxfT4yo91Drglctys
+         DVI+/LvAuPPID+vQIJUB5JmJuG/ysTkri9EpObfm+JPiRO2YsncKRROC6Y0d6o/4g19P
+         5sERBpb9j9M2k5da+dJ3I76BJgJWYeXbfxbr38eodCzK1OiS6gNGT8jni3LXntvryaWC
+         x/KsAmBLjHYPXWJ9089gvZIH48JiAju6TbZD09Uyat7WvykTwxirCOuVNM5MqYpljS8v
+         0DuFEtJ5BVvY3IRkXrMhaeL3KlLTkBlaSyaaVNXRxcqc181AYk1rizsf1YbD4cHowG0b
+         DMkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUtdKG1vI+7CVo7ANalgADLBIRvwb+OTIQN5CObNSK7EbxtM6CI4myWbh4uTDm2NhMxknQ19ZtTlNoo98nd3s7Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmxZMs6z25qTvzc2d9oApPwBy6AfQsOGtMQskyH3gvarQ/d+b2
+	hBiz/p3s+T5SFKIoAnPaI+cJvy3fb68y0aZDNA3alWXQ0s0af1SyS5bHLZwVTsp0BM8cbXKb4OH
+	3dKfgKfnCT9F2v4VG7OOhkmohMH8T2CdnYx1A9jFn
+X-Gm-Gg: ASbGncuDDm271ULypJmyKzvQS2lGnLnxFYmopZDCAj6z6tiY1Yi5uc1vyNzh2bKl5EO
+	CVAY4znfrCAm1yK5HVX1DByyUtcQxA8BSB2COlR/HgFPZhVXY44ch2kcVHfobeoq7aCwS68NW+w
+	yHl81MG/Nr+vSTONKQ59R5Dbbttws0TxiqdlU92yHg5yIy5U0fzo6XkITJKFQdvkNRqbDkDacGt
+	m9x6w==
+X-Google-Smtp-Source: AGHT+IELfFCth5Pbkc2q+fs3hGfuRfgdVh0Gdule7jkxxm4LWUKEs85HrAmHhTzH2guxXlvKX1XFjzs03oe3LxVeaz0=
+X-Received: by 2002:a05:690c:c02:b0:6fb:9280:5bf4 with SMTP id
+ 00721157ae682-70e2da69ba1mr219329397b3.30.1748447325426; Wed, 28 May 2025
+ 08:48:45 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8491:EE_
-X-MS-Office365-Filtering-Correlation-Id: b1518a72-93dd-44e2-0920-08dd9dff6c01
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hLqDDbKZMnP1R6GoZSHSgYB0zjvHP67t2UuQHxk9rydfb3os/CtdeBztBNj+?=
- =?us-ascii?Q?AHuaJ/AuSnm1srZC2ANHlaWF1fK9vAtz6s1XFCkWMe4CKi15+x3q31XIxrji?=
- =?us-ascii?Q?MIw1jBMCMCbop9CSNaHPCX3+dlXDDilEhGsUfHquc85ct1pZWg7kkT3il6lL?=
- =?us-ascii?Q?wwk6OmxHtzEe0TfWvCIoZyZLuVWH9/VxZ5oA72GREtHG1KmemwHbOlZ2Dp9y?=
- =?us-ascii?Q?2dpYKC9ym0XviuXDHxrRX1P3rx0s3XAGUaFnwosLoi7GTi+5631pfbiRtbti?=
- =?us-ascii?Q?kiLGbtugoK78v9wXuh83SV0u8/rMJD1DP7VQKZPUQj8xBf7rE0rrr87QX70A?=
- =?us-ascii?Q?JT+CAHbpv7t+E1BumG1M5nVEqBC2NpdYqX9oyNQWtW+1jV/tGJhiTGw+45Ls?=
- =?us-ascii?Q?rvtVswU2iR0dp6feZf0wXsxU9MQDzuOBCXA2+hnE1O18slxvB0F6GUy8O+wI?=
- =?us-ascii?Q?VH+ulOSO7OirsU5OKdikzXjHsHDogZYdxZGnMo5xUamP2GpVUQwQTfE+jYaw?=
- =?us-ascii?Q?7DyyPzurU7H7L52H9m5RrrINhvQk8P/L5NCQYHmZWGNz7WSOcdUzziY9sQfn?=
- =?us-ascii?Q?pTFEIpW9Op6nfWHVALrFwcQc13MLJ1/6ElRinquvWSh5BSQUWkQwk7GdG3+n?=
- =?us-ascii?Q?an17Qr8P7kBYroBnG0AR+JA5fXx0bDbzt9ZnYnnu0LFa8h9ch5Zq5J/BeT1O?=
- =?us-ascii?Q?9xsRbHtaUbYAAyWjKmVXeddRGPkAdevkQesUhdMPk+/72X/tZr5It8ITKA1X?=
- =?us-ascii?Q?bzb9NKrZ4tDpn0DBrh47KrydKtxpSjSB36WCEWRaIrUcMFP+u4RCAegEmILr?=
- =?us-ascii?Q?5zuFQIPQTeWaEOBrLbaalJdr48mUH2I+t0d8A9/AclxZBMZ7wx6JQ80lbtNT?=
- =?us-ascii?Q?Oz0G/MM/R+K6eGAFCahMq+UT6Eiit/OzX4dAeZciFHMB4UugAF+mirAs3tvR?=
- =?us-ascii?Q?acm7pHZAsLogSrtP+tO98PwiYrxPap7U6Pk+y27QyX41LbdWFYswJxdUhox8?=
- =?us-ascii?Q?JxLNrnSTNhfhEW1YqQR6Y0l7IfLblG5SCiabvV/6nZUfbQLx6hwyyUpTNdu7?=
- =?us-ascii?Q?w0ooOJEkaohPsK3nJA4OqGwUa06X76IUfqlajm3aRiIacNRsZrAMmbBApmlv?=
- =?us-ascii?Q?855dpPaSJT+xIjg9e0Oe91W/QV9KPNEHxd9/0G3m6Cij7T1sLdDCFt2oOR65?=
- =?us-ascii?Q?P5f3RpQ0G6ZmALrqbVEQb5IhyKjopVcCvmzUmXCtRrggYjkYhAYLX/PzJbcg?=
- =?us-ascii?Q?na0FqH3LKRY7F9Q7hj7Due1AS16WEvRg9P7S+VYCvqETZiPS6P9392O5ENH1?=
- =?us-ascii?Q?B4WW+57lJaHm9RYlS6bqASf1H82vANFzWZKUakrNmowpBDdqVqWl/s1csKvm?=
- =?us-ascii?Q?Y+srn6A9S5+B9EyGreC6+KmJpYAAi1G9gYLa5HZ8aCwl3OqLgVeFqxUQUucH?=
- =?us-ascii?Q?Q/7O1UhbjdNpW8V2EqI5iPsbcoL4YGQo0yWtVPoxsKcBvViWDohyjg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yR4UJvP/YdoXr9nsYn8EYnODIpK1jF+HqA270Zo1apV/mGxZS7wHSMYNonSX?=
- =?us-ascii?Q?4M5ohTOdPONPiq2bQ4kfKrfwTbU07HMJ9vUpOGOBvQAoTkezxsA+mbmvP1ev?=
- =?us-ascii?Q?R6hcNwzJZovsAHWZPFPOxXEcb2hZVIYi+uLATNFSwxAVXtA6rrn2s0Ituznu?=
- =?us-ascii?Q?KjadOE7DmiDPeZmJ1K1777WLucRZOLRcpBStA8rq/klzyXHicdV2lJ5U8eSq?=
- =?us-ascii?Q?ub5RtjEJwzJJGbZjUkjMXuqOxT8phunh8DM4le2BPqof4TAZV6/4GIH8sTEo?=
- =?us-ascii?Q?S3GZOhF1E0wMFZCHXxIHvDHvIBL45AHHuFOV2fdqjtFuLTQ4TWmhrSfocc+q?=
- =?us-ascii?Q?hgnykdVU/rRN9vahiiiik4a+orALdn//3cVdEAAi7l6Ty6v+jWZqfgRoaHuD?=
- =?us-ascii?Q?6TobaU+8xDcXiiNr6l4XQJtpkjD8DF6nT5mKFzt6xKqXPY1OYxuRNYSJCITU?=
- =?us-ascii?Q?oRdYkF3wgPQGKuwP9nZ45Sy/ox+Z5ufnZDRaWFjSKHHfzWxmnSes8yoISS4s?=
- =?us-ascii?Q?ixPfR25AJXcTvwE37doYYaJ/7qB06NCTT3u559ImFKMq1QtELeUA3cVeehJz?=
- =?us-ascii?Q?YaECAMrfxx1RfvIx4/9iNSKSjc8TAMTbsmEScPcXg8FXog0UIUl2rwBlCHDN?=
- =?us-ascii?Q?h1p6CwlA2bWzM60KET0s+9arCyhxJ+eXnl6k2Fij82cc0Rdpj1yHOVwrIwlt?=
- =?us-ascii?Q?fwShoGibYgB4t1nAVk21rIgrU/AXUYySE954veq8ocUKB0yj/FXwDhLVg+oi?=
- =?us-ascii?Q?/dtEcWllG+3pK/jFPIGsfbwgUkBQJ0uj6+zP3Lkeb6U+fJG6Huvj7evHe0Cr?=
- =?us-ascii?Q?KqVcAKW4NjtljcrKOG3soGdCLOnyBqcaaEAnRnZOQz5VPUAqUi2JZDamqojK?=
- =?us-ascii?Q?ycNSevXHuZcIPGaoHbazMyRBeINyCvVgeAagUA8XA+g8BHC+wBzG/Koz2oQx?=
- =?us-ascii?Q?YA83NVjh8dorWNwmsP4AD+Y992AO8wAzceGs69G97BkH2LXIQVtuOq2iiqsm?=
- =?us-ascii?Q?KcbBRLgcH3h4dA2ri2EfBO5/SsRMp4yKqhLplNwwlToy4F8mSbavjxc3VHww?=
- =?us-ascii?Q?fCc5BhBtozIJys9NleVVwO53IUV2kLdjXGYwsbMwc9YrIxlRLlY5YoiM9Uvk?=
- =?us-ascii?Q?fhH4l2xeqqVLWnsxxRrH2cnyLp6YlhPvWHPlFIftDKzlDJyRMsc1Ko28uWee?=
- =?us-ascii?Q?Xn3QXPXykRScvHlmOS3u7hONa9v514iIXxITsuvUb84+pRm9zM2a6fsFsDi8?=
- =?us-ascii?Q?fnpqPDjRLr/aiQerAv/FlkxodxMimm9ZJe7fsR280/h2n0EsRatdpzH4GcM2?=
- =?us-ascii?Q?h8EQSpDX80m5O7CqaHbWbvwhEBMyDLNCBibOEsPA6FA758+SItOHT4gC8UTG?=
- =?us-ascii?Q?337SPGXjxcXVlLnBHu1c2LkCxdhUywnV/FSpKO60n8569OA683NkZjvg3fsM?=
- =?us-ascii?Q?BT1qZW6DN15a+V8sPs6mrN0SmXgapQ4TyLVi8x08Q/bIcPDJXlSpuL6T66UO?=
- =?us-ascii?Q?ipRkamccEOfN4JJXFvLypdFBv2QoN3ViBcGQkRuy9j1OGCMapAZsHXDW/fuw?=
- =?us-ascii?Q?ZEyitFL4SEnCP96oG/U=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b1518a72-93dd-44e2-0920-08dd9dff6c01
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 15:50:51.2980
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: y/Co4ZJdfTb6Vkzr9S0V5pGs2jJ9lfT1PUZvM8KP/FEMoupHvbQRwYaZL1m35HKHWOLhFa0SXkLWfrcSdoi/iA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8491
+References: <20250109204929.1106563-1-jthoughton@google.com> <aBqlkz1bqhu-9toV@google.com>
+In-Reply-To: <aBqlkz1bqhu-9toV@google.com>
+From: James Houghton <jthoughton@google.com>
+Date: Wed, 28 May 2025 11:48:09 -0400
+X-Gm-Features: AX0GCFuLPsZ5TxH5z7efpKpwgvPpjgQZqJBp0wjKrKAAM8LNrge9ZlG7omP9Ut0
+Message-ID: <CADrL8HXjLjVyFiFee9Q58TQ9zBfXiO+VG=25Rw4UD+fbDmxQFg@mail.gmail.com>
+Subject: Re: [PATCH v2 00/13] KVM: Introduce KVM Userfault
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Yan Zhao <yan.y.zhao@intel.com>, 
+	Nikita Kalyazin <kalyazin@amazon.com>, Anish Moorthy <amoorthy@google.com>, 
+	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
+	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Jiaqi Yan <jiaqiyan@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_085054_349269_536FA976 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20250528_084846_994595_F139D6DD 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,79 +101,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 04:28:07PM +0100, Conor Dooley wrote:
-> On Fri, May 23, 2025 at 05:32:52PM -0400, Frank Li wrote:
-> > Allow interrupt-names for fsl,imx23-dma-apbx and keep the same restriction
-> > for others.
+On Tue, May 6, 2025 at 8:13=E2=80=AFPM Sean Christopherson <seanjc@google.c=
+om> wrote:
 >
-> The content of the patch seems okay, but why are you doing this? What is
-> the value on this particular platform but not the others?
-
-Actually it is not used in dma driver, i.MX23 is quite old chips (over 10year).
-Just to match existed dts to reduce warnings.
-
-Frank
+> On Thu, Jan 09, 2025, James Houghton wrote:
+> >   KVM: Add KVM_MEM_USERFAULT memslot flag and bitmap
+> >   KVM: Add KVM_MEMORY_EXIT_FLAG_USERFAULT
+> >   KVM: Allow late setting of KVM_MEM_USERFAULT on guest_memfd memslot
+> >   KVM: Advertise KVM_CAP_USERFAULT in KVM_CHECK_EXTENSION
+> >   KVM: x86/mmu: Add support for KVM_MEM_USERFAULT
+> >   KVM: arm64: Add support for KVM_MEM_USERFAULT
+> >   KVM: selftests: Fix vm_mem_region_set_flags docstring
+> >   KVM: selftests: Fix prefault_mem logic
+> >   KVM: selftests: Add va_start/end into uffd_desc
+> >   KVM: selftests: Add KVM Userfault mode to demand_paging_test
+> >   KVM: selftests: Inform set_memory_region_test of KVM_MEM_USERFAULT
+> >   KVM: selftests: Add KVM_MEM_USERFAULT + guest_memfd toggle tests
+> >   KVM: Documentation: Add KVM_CAP_USERFAULT and KVM_MEM_USERFAULT
+> >     details
+> >
+> >  Documentation/virt/kvm/api.rst                |  33 +++-
+> >  arch/arm64/kvm/Kconfig                        |   1 +
+> >  arch/arm64/kvm/mmu.c                          |  26 +++-
+> >  arch/x86/kvm/Kconfig                          |   1 +
+> >  arch/x86/kvm/mmu/mmu.c                        |  27 +++-
+> >  arch/x86/kvm/mmu/mmu_internal.h               |  20 ++-
+> >  arch/x86/kvm/x86.c                            |  36 +++--
+> >  include/linux/kvm_host.h                      |  19 ++-
+> >  include/uapi/linux/kvm.h                      |   6 +-
+> >  .../selftests/kvm/demand_paging_test.c        | 145 ++++++++++++++++--
+> >  .../testing/selftests/kvm/include/kvm_util.h  |   5 +
+> >  .../selftests/kvm/include/userfaultfd_util.h  |   2 +
+> >  tools/testing/selftests/kvm/lib/kvm_util.c    |  42 ++++-
+> >  .../selftests/kvm/lib/userfaultfd_util.c      |   2 +
+> >  .../selftests/kvm/set_memory_region_test.c    |  33 ++++
+> >  virt/kvm/Kconfig                              |   3 +
+> >  virt/kvm/kvm_main.c                           |  54 ++++++-
+> >  17 files changed, 419 insertions(+), 36 deletions(-)
 >
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  .../devicetree/bindings/dma/fsl,mxs-dma.yaml  | 33 +++++++++++++++++++
-> >  1 file changed, 33 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml b/Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml
-> > index 75a7d9556699c..9102b615dbd61 100644
-> > --- a/Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml
-> > +++ b/Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml
-> > @@ -23,6 +23,35 @@ allOf:
-> >        properties:
-> >          power-domains: false
-> >
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: fsl,imx23-dma-apbx
-> > +    then:
-> > +      properties:
-> > +        interrupt-names:
-> > +          items:
-> > +            - const: audio-adc
-> > +            - const: audio-dac
-> > +            - const: spdif-tx
-> > +            - const: i2c
-> > +            - const: saif0
-> > +            - const: empty0
-> > +            - const: auart0-rx
-> > +            - const: auart0-tx
-> > +            - const: auart1-rx
-> > +            - const: auart1-tx
-> > +            - const: saif1
-> > +            - const: empty1
-> > +            - const: empty2
-> > +            - const: empty3
-> > +            - const: empty4
-> > +            - const: empty5
-> > +    else:
-> > +      properties:
-> > +        interrupt-names: false
-> > +
-> >  properties:
-> >    compatible:
-> >      oneOf:
-> > @@ -54,6 +83,10 @@ properties:
-> >      minItems: 4
-> >      maxItems: 16
-> >
-> > +  interrupt-names:
-> > +    minItems: 4
-> > +    maxItems: 16
-> > +
-> >    "#dma-cells":
-> >      const: 1
-> >
-> > --
-> > 2.34.1
-> >
+> I didn't look at the selftests changes, but nothing in this series scares=
+ me.  We
+> bikeshedded most of this death this in the "exit on missing" series, so f=
+or me at
+> least, the only real question is whether or not we want to add the uAPI. =
+ AFAIK,
+> this is best proposal for post-copy guest_memfd support (and not just bec=
+ause it's
+> the only proposal :-D).
 
+The only thing that I want to call out again is that this UAPI works
+great for when we are going from userfault --> !userfault. That is, it
+works well for postcopy (both for guest_memfd and for standard
+memslots where userfaultfd scalability is a concern).
 
+But there is another use case worth bringing up: unmapping pages that
+the VMM is emulating as poisoned.
+
+Normally this can be handled by mm (e.g. with UFFDIO_POISON), but for
+4K poison within a HugeTLB-backed memslot (if the HugeTLB page remains
+mapped in userspace), KVM Userfault is the only option (if we don't
+want to punch holes in memslots). This leaves us with three problems:
+
+1. If using KVM Userfault to emulate poison, we are stuck with small
+pages in stage 2 for the entire memslot.
+2. We must unmap everything when toggling on KVM Userfault just to
+unmap a single page.
+3. If KVM Userfault is already enabled, we have no choice but to
+toggle KVM Userfault off and on again to unmap the newly poisoned
+pages (i.e., there is no ioctl to scan the bitmap and unmap
+newly-userfault pages).
+
+All of these are non-issues if we emulate poison by removing memslots,
+and I think that's possible. But if that proves too slow, we'd need to
+be a little bit more clever with hugepage recovery and with unmapping
+newly-userfault pages, both of which I think can be solved by adding
+some kind of bitmap re-scan ioctl. We can do that later if the need
+arises.
+
+> So... yes?
+
+Thanks Sean!
+
+> Attached are a variation on the series using the common "struct kvm_page_=
+fault"
+> idea.  The documentation change could be squashed with the final enableme=
+nt patch.
+>
+> Compile tested only.  I would not be the least bit surprised if I complet=
+ely
+> butchered something.
+
+Looks good! The new selftests work just fine.
 
