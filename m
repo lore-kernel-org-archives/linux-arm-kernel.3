@@ -4,79 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D4D4C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 06:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A31C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 06:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyydQE6YDeAByew+ptZ/+RplCdDZOgzzk65SMk9HPXE=; b=vP359dXUsbuiWsb0SIWkbr0Vw4
-	qSGX1Bq2EpIO6ouO1vTQ+DLvqEpKlgeDHg1+c61zPZRLkF1iggkPW2S2mlS/jgYV+QYxW/X8cXTe+
-	R7oHe8h4dCGLWX250HkaRFyipsOQLA6p8h9kZE4Zldvy7kdpdoA8SqUTlIL/tAgkDPWHggQhTeNW4
-	7aOtfEa09Ocuefn97qPaX5EVA6YAo8K1UnSNQgZxz1yO8dDaVZX5tbSa7n1Cc5XCiKrsZbvDra+4W
-	KEOfNpT4UrB1TQ3bbpzLOF0jBDo7k5BroK/gUHKgQr/nwUSufMkc2wc8qtyIuoe2tZTTc6S/RCmIe
-	woSH3ybQ==;
+	bh=BbSHV62Wuvy5Df5zaV9/pLva8CNc8x+VcthWIwNtRjw=; b=YXzOPoK5KkKRspOMvDdsimT0H+
+	bO+ssLDFHXSS3yrd389AuR5hoZjFDUTWRjzl/xHj9X3F3i9MJ0Uopbblq+Ykm9aHSEoHydmTmnfJz
+	EO9O2yh6kNSeCvg6tjvz6MmYbZRbTWxu8dvluZeIWBIDnzbTQ7WYm3Dqb19VmlbC9CqYFuO7ry0k1
+	fA/y2IhOZlMsoLkJcj5e7p/n6ZCatI79c9v8tOWY7Vk6yPAICuQpAxJEsABqbYXFJ3QKcXERZLS6R
+	OfI4P5Z3AWKWchVK9HS5Sowm0XbT/ztEmsZggQgiko4w363kBd8cTT0VylGfafUGOupCU9I/7dtmV
+	KgO/pQOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKAdz-0000000CLtm-3Baw;
-	Wed, 28 May 2025 06:52:07 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uKAg5-0000000CMA0-3PHT;
+	Wed, 28 May 2025 06:54:17 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKAPG-0000000CJ9o-14ux;
-	Wed, 28 May 2025 06:36:55 +0000
-X-UUID: 211afd383b8e11f08d385d50fb11b32d-20250527
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=UyydQE6YDeAByew+ptZ/+RplCdDZOgzzk65SMk9HPXE=;
-	b=VmiCj6VtUYb0khZ5J5BZi/TkAXw5aEYKXZbpjWTu71LRXxQD4hj9AqoBMkl82bYGZS1EAF20ajd4GIvlJai6n7922gBiNHoYSdiGSp/Sn7srmZ8x3Q22O9bcgfGLy696oWCXP2lZNez0TjCRRrNNbnN8zb2P8JZRaK9A8vIVjD8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:bc7e462a-240d-4b3b-ab38-8337970dc7b3,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:b05c3259-eac4-4b21-88a4-d582445d304a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 211afd383b8e11f08d385d50fb11b32d-20250527
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
-	(envelope-from <irui.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 479216080; Tue, 27 May 2025 23:36:47 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 28 May 2025 14:36:43 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Wed, 28 May 2025 14:36:43 +0800
-From: Irui Wang <irui.wang@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	<angelogioacchino.delregno@collabora.com>, <nicolas.dufresne@collabora.com>,
-	<wenst@chromium.org>
-CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, Yunfei Dong <yunfei.dong@mediatek.com>,
-	Longfei Wang <longfei.wang@mediatek.com>, Irui Wang <irui.wang@mediatek.com>
-Subject: [PATCH v2 4/6] media: mediatek: encoder: Add a new platform data member
-Date: Wed, 28 May 2025 14:36:30 +0800
-Message-ID: <20250528063633.14054-5-irui.wang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250528063633.14054-1-irui.wang@mediatek.com>
-References: <20250528063633.14054-1-irui.wang@mediatek.com>
+	id 1uKAQI-0000000CJOd-44kO
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 May 2025 06:37:59 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54S5Zx0t008547;
+	Wed, 28 May 2025 06:37:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=BbSHV62Wuvy5Df5zaV9/pLva8CNc8x
+	+VcthWIwNtRjw=; b=BKYtFkTRw7R76/ZD9BeOohPHmddfU6KSDpBbXh8/Hmj2d3
+	cl65xW+vMHjBdsQrc1ZoE3csck2GaDr9J/ePSSQcnI5WcTNWhAKvBuSrfAJxQUY3
+	b/u3ai9mjhsw/S0Wq+zpVEBmvujlq31VzQ3Ouetxv7zRpscFyxppRklrEW27VC2a
+	n+IKEJboTMUULmkwoRi5FZIbbMf8YTpx1la43SzNOEuq1l5T8+gczgc+NTtNBamr
+	C0ZKfbP88H7xA6qglKR8YQvMcDSkh9Fs0vGL/j2YJCYB8wLNql9ApEh/3CWQUAam
+	KXFlVc3BJGd77JK8PTQ+Ja0qedYtM+d3DTifWB2A==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46wvfb07kq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 28 May 2025 06:37:39 +0000 (GMT)
+Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 54S6WLkA019749;
+	Wed, 28 May 2025 06:37:39 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46wvfb07kj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 28 May 2025 06:37:39 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 54S6FFpc016139;
+	Wed, 28 May 2025 06:37:38 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 46ureuegus-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 28 May 2025 06:37:38 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 54S6bY8O34144544
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 28 May 2025 06:37:34 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 781EC2004B;
+	Wed, 28 May 2025 06:37:34 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C463220040;
+	Wed, 28 May 2025 06:37:33 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.133])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 28 May 2025 06:37:33 +0000 (GMT)
+Date: Wed, 28 May 2025 08:37:31 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Lyude Paul <lyude@redhat.com>
+Cc: rust-for-linux@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+        Boqun Feng <boqun.feng@gmail.com>, linux-kernel@vger.kernel.org,
+        Daniel Almeida <daniel.almeida@collabora.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+        "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
+        Juergen Christ <jchrist@linux.ibm.com>,
+        Uros Bizjak <ubizjak@gmail.com>, Brian Gerst <brgerst@gmail.com>,
+        "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
+        "open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>,
+        "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
+Subject: Re: [RFC RESEND v10 02/14] preempt: Introduce __preempt_count_{sub,
+ add}_return()
+Message-ID: <20250528063731.8022B19-hca@linux.ibm.com>
+References: <20250527222254.565881-1-lyude@redhat.com>
+ <20250527222254.565881-3-lyude@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250527222254.565881-3-lyude@redhat.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI4MDA1NiBTYWx0ZWRfX0T/cYI9jB324 vSOkEmOl/7vl/+6HuElcS05NMxCHyCHZKZUa7rWQoTV2IKtC+vCc9aIlSWRARa9fqEQABto5bvT zS5vjcJDKYXmd/2xx2JaERYo/JYPMwDyQKNJ/iCvvGY5MfNfA79Ppf84B/iY5viEHG8YAZI5KDD
+ VHwUVyIWDTEPeOowg8agh2dZiByTvUE1CO0alL/yQUebOWcVxr5wJlf5h1s84FuVsh9trNEPsc3 z7R7vBbotBMpN3UTg/WY5qJBin5NB7Vod4IeuPVPysagNK/nLwz583gyxObIoFlbOTrm3LKKvjK BmfxjmphNEAElmmgKkDKPaFjOlCcdIKrFCIaIRXApSeq2ZqHdvjPAh5e2WcdkuXSNLYjqYamdMD
+ yhNZP5Ebc0znmiYKJ2BUvJNzkwqo61fpjv/QXBZHXg6Aq24Uydz1r79z0AEKCIumHaakx+pj
+X-Proofpoint-ORIG-GUID: Po87WT_2gKohl3MVVII4-9DCSMQdYQMn
+X-Authority-Analysis: v=2.4 cv=bt5MBFai c=1 sm=1 tr=0 ts=6836af34 cx=c_pps a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17 a=kj9zAlcOel0A:10 a=dt9VzEwgFbYA:10 a=pGLkceISAAAA:8 a=20KFwNOVAAAA:8 a=sCjic1ysK2PjgQY2DYoA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: dwv2dCkek_F3F7nKzn0VlVIce0MIHx1s
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-28_03,2025-05-27_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=796
+ impostorscore=0 malwarescore=0 bulkscore=0 spamscore=0 lowpriorityscore=0
+ suspectscore=0 adultscore=0 priorityscore=1501 phishscore=0 mlxscore=0
+ clxscore=1011 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
+ definitions=main-2505280056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_233654_301415_A7D74731 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250527_233759_011126_CE73BF54 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,130 +132,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new platform data member to indicate each encoder IC, so that the
-get chip name function by 'of_device_is_compatible' can be removed.
+On Tue, May 27, 2025 at 06:21:43PM -0400, Lyude Paul wrote:
+> From: Boqun Feng <boqun.feng@gmail.com>
+> 
+> In order to use preempt_count() to tracking the interrupt disable
+> nesting level, __preempt_count_{add,sub}_return() are introduced, as
+> their name suggest, these primitives return the new value of the
+> preempt_count() after changing it. The following example shows the usage
+> of it in local_interrupt_disable():
+> 
+> 	// increase the HARDIRQ_DISABLE bit
+> 	new_count = __preempt_count_add_return(HARDIRQ_DISABLE_OFFSET);
+> 
+> 	// if it's the first-time increment, then disable the interrupt
+> 	// at hardware level.
+> 	if (new_count & HARDIRQ_DISABLE_MASK == HARDIRQ_DISABLE_OFFSET) {
+> 		local_irq_save(flags);
+> 		raw_cpu_write(local_interrupt_disable_state.flags, flags);
+> 	}
+> 
+> Having these primitives will avoid a read of preempt_count() after
+> changing preempt_count() on certain architectures.
+> 
+> Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
+> 
+> ---
+> V10:
+> * Add commit message I forgot
+> * Rebase against latest pcpu_hot changes
+> 
+> Signed-off-by: Lyude Paul <lyude@redhat.com>
+> ---
+>  arch/arm64/include/asm/preempt.h | 18 ++++++++++++++++++
+>  arch/s390/include/asm/preempt.h  | 19 +++++++++++++++++++
+>  arch/x86/include/asm/preempt.h   | 10 ++++++++++
+>  include/asm-generic/preempt.h    | 14 ++++++++++++++
+>  4 files changed, 61 insertions(+)
 
-Signed-off-by: Irui Wang <irui.wang@mediatek.com>
----
- .../mediatek/vcodec/encoder/mtk_vcodec_enc.c  | 23 ++-----------------
- .../vcodec/encoder/mtk_vcodec_enc_drv.c       |  6 +++++
- .../vcodec/encoder/mtk_vcodec_enc_drv.h       |  2 ++
- 3 files changed, 10 insertions(+), 21 deletions(-)
+...
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-index 03512bf7a072..1a7be3e57eef 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-@@ -198,34 +198,15 @@ static int vidioc_enum_fmt_vid_out(struct file *file, void *priv,
- 			       pdata->num_output_formats);
- }
- 
--static int mtk_vcodec_enc_get_chip_name(void *priv)
--{
--	struct mtk_vcodec_enc_ctx *ctx = fh_to_enc_ctx(priv);
--	struct device *dev = &ctx->dev->plat_dev->dev;
--
--	if (of_device_is_compatible(dev->of_node, "mediatek,mt8173-vcodec-enc"))
--		return 8173;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8183-vcodec-enc"))
--		return 8183;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8192-vcodec-enc"))
--		return 8192;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8195-vcodec-enc"))
--		return 8195;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8188-vcodec-enc"))
--		return 8188;
--	else
--		return 8173;
--}
--
- static int vidioc_venc_querycap(struct file *file, void *priv,
- 				struct v4l2_capability *cap)
- {
- 	struct mtk_vcodec_enc_ctx *ctx = fh_to_enc_ctx(priv);
-+	const struct mtk_vcodec_enc_pdata *pdata = ctx->dev->venc_pdata;
- 	struct device *dev = &ctx->dev->plat_dev->dev;
--	int platform_name = mtk_vcodec_enc_get_chip_name(priv);
- 
- 	strscpy(cap->driver, dev->driver->name, sizeof(cap->driver));
--	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", platform_name);
-+	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", pdata->venc_model_num);
- 
- 	return 0;
- }
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index bb913dfe5f04..50936949d527 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -380,6 +380,7 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
- }
- 
- static const struct mtk_vcodec_enc_pdata mt8173_avc_pdata = {
-+	.venc_model_num = 8173,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
- 	.output_formats = mtk_video_formats_output,
-@@ -390,6 +391,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_avc_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8173_vp8_pdata = {
-+	.venc_model_num = 8173,
- 	.capture_formats = mtk_video_formats_capture_vp8,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_vp8),
- 	.output_formats = mtk_video_formats_output,
-@@ -400,6 +402,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_vp8_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8183_pdata = {
-+	.venc_model_num = 8183,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -411,6 +414,7 @@ static const struct mtk_vcodec_enc_pdata mt8183_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8188_pdata = {
-+	.venc_model_num = 8188,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -423,6 +427,7 @@ static const struct mtk_vcodec_enc_pdata mt8188_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8192_pdata = {
-+	.venc_model_num = 8192,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -434,6 +439,7 @@ static const struct mtk_vcodec_enc_pdata mt8192_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8195_pdata = {
-+	.venc_model_num = 8195,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-index 426b1398f815..b3206a7b592d 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-@@ -21,6 +21,7 @@
- /**
-  * struct mtk_vcodec_enc_pdata - compatible data for each IC
-  *
-+ * @venc_model_num: encoder model number
-  * @uses_ext: whether the encoder uses the extended firmware messaging format
-  * @min_bitrate: minimum supported encoding bitrate
-  * @max_bitrate: maximum supported encoding bitrate
-@@ -33,6 +34,7 @@
-  * @uses_common_fw_iface: whether the encoder uses common driver interface
-  */
- struct mtk_vcodec_enc_pdata {
-+	u16 venc_model_num;
- 	bool uses_ext;
- 	u64 min_bitrate;
- 	u64 max_bitrate;
--- 
-2.45.2
+> diff --git a/arch/s390/include/asm/preempt.h b/arch/s390/include/asm/preempt.h
+> index 6ccd033acfe52..67a6e265e9fff 100644
+> --- a/arch/s390/include/asm/preempt.h
+> +++ b/arch/s390/include/asm/preempt.h
+> @@ -98,6 +98,25 @@ static __always_inline bool should_resched(int preempt_offset)
+>  	return unlikely(READ_ONCE(get_lowcore()->preempt_count) == preempt_offset);
+>  }
+>  
+> +static __always_inline int __preempt_count_add_return(int val)
+> +{
+> +	/*
+> +	 * With some obscure config options and CONFIG_PROFILE_ALL_BRANCHES
+> +	 * enabled, gcc 12 fails to handle __builtin_constant_p().
+> +	 */
+> +	if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES)) {
+> +		if (__builtin_constant_p(val) && (val >= -128) && (val <= 127)) {
+> +			return val + __atomic_add_const(val, &get_lowcore()->preempt_count);
+> +		}
+> +	}
+> +	return val + __atomic_add(val, &get_lowcore()->preempt_count);
+> +}
 
+This is still wrong and needs to be changed to:
+
+static __always_inline int __preempt_count_add_return(int val)
+{
+	return val + __atomic_add(val, &get_lowcore()->preempt_count);
+}
 
