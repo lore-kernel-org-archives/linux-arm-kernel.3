@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56782C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 12:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DC1C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 12:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LbcaZGbt/aOu/lBCcUk69RNM6cMf8NN5vQOyyRIAIOw=; b=LcwaDA26op83jcJfS83zIlCD49
-	bZ58KlO+QWhlQgfLIh6DVSQigp+xQ5RaldHCUjsbFhBqRjSunCeBkcweH3+df6AYjhzwtGWkxUmv3
-	oqIA2/X7eVb+P1MkTUyOGP1iG5wq9hgiY88a3xJqKIsaAY7Ga/evxkmRmAB2wW7cs3BLp939VUpXo
-	HfaM8C2Aw41YlDczxdzPOVgHU3h2rQyUhXnnhT7GoKn76wXOsnGrS/IQ7qGGnBUZZhaAehCBq+IY+
-	dHp9JVZKUa5ey1RVtAVhw6vnvJywLjCXG6spuZCAsPoIqdRrS/7aOfjGDf9igWB5j/nXUmDlNODbL
-	pw5JvR3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R8dbhw+LYdkd4TOTNPIvOM6Z1wEZC4oLrl9AOkPJtUw=; b=Ur/FVW6iPziS+PH82LY31CC/MC
+	Ryye1VPn6I51YUeTWRoIV8BKvGbi1JBO0ZHK3EamWNC2AYuCF/J0DxCBRnOoP+xW/ZfGomz3iKHuM
+	za9Vb7ANqW6l3K4albOmLmMQ91emUxN5As7n9XBCu7gt9jAX6UAIYwPdAxKKyLIQ7XsX0J3EIphn+
+	REKu+Wk4OTM0ALO3s+Uvi6l3B4pMgJBzYEVFBrKglQ68ZUHHt2rbEpK0r2VutxU80TRnpxR1Sflb7
+	b0+8JtqwF0v9TQm4ZhfHFIJNoqCWGnUVCXJmE7vJpzO/QcyU3/+Pzsl3hw0r3o/Zx8oxdcvlMwvEP
+	119LV9iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFj1-0000000D56C-0lve;
-	Wed, 28 May 2025 12:17:39 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1uKFkz-0000000D5aZ-1nID;
+	Wed, 28 May 2025 12:19:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFej-0000000D4Sz-3Aix
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 12:13:15 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ad89333d603so296133966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 05:13:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1748434392; x=1749039192; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LbcaZGbt/aOu/lBCcUk69RNM6cMf8NN5vQOyyRIAIOw=;
-        b=ad5ie1Dcpe5OWtP1ytneRAzy6AtLVBltYulpjL9okjELyekVhSmcElLpBWwNgvw0jI
-         xMBCQktuWS2XI8hc2A4Rus5h1FgEMNRyzYQuWx94S0li2H3owWIQ59rirtsvzLCv6qnl
-         62SCtDTTlQi8emZeHmlLYbI0azuaJ7Rz6oD/w=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748434392; x=1749039192;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LbcaZGbt/aOu/lBCcUk69RNM6cMf8NN5vQOyyRIAIOw=;
-        b=IIi+117LJlO2CurUMeJUHT4Od90UK+dhjxfv8zkpsDlfP+3rGZ1tg43rQ0InH5esgn
-         IN+PisTVufulO70p5A59k2vrAv0zQbG/4ZDGSkb38wRResDgslV5/gfyTIr3Y1Iu2Hkp
-         /cpWptK2wHWBc5eGNhajahNPdxfaqldqBVc7Li55Cj1vO5u63mJgZMb8iANBlkqlC/v+
-         Skwfzuo7uobBH/LHIrS+geEoqa0WKUp89NMacVddj5ZcTq1znpK5qub5GXo7X6MW3qaO
-         RWiZ3HpftWqGDGIDN7ttn+hf8/hGDUSvo/mDUpZYSoHJ9PydB/qmEdi5zVTdKvK9lMqY
-         tJbw==
-X-Forwarded-Encrypted: i=1; AJvYcCUz4HGX0ULPahppL9LhFWzmKn/omsJ0/Iuz8Zgx4FN7oTEDtx5jvG6CYOzNyFhIyUg3p5oqm0XzUGbDNhHWIpS9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnUwT0gR0wPJ02kucxy2xrdzSom3XNcFYK1KEXkicG6szJNqDK
-	X130YQM9KdZyHb8UQ9K/gyfOHI3n/CQ4PADteC1kK9nHcXf8rDW0ryDq1A9ywK2otaI=
-X-Gm-Gg: ASbGncu0zYjqbFndc20NMAg8XqTknOt4MOqY8vEy5GD03mV5frOLe2m8X1dyhDAKTBa
-	g+gFjwLeaAgw0K/deP9p5rCaqux/EbbsWi1t5Va2XXuQOdoyvAvtcN3lqESXyf+D3CkwvKcApiv
-	zi1y4cOW7DNA30DHE6qu2jpx3u3tIttzzvFXa1ELcoPDNDDTV4OKqX0RZNe1TLmTVVne6VWv/Ma
-	fIfhIYv/sdrHLfntTeghtacEpCZUklAOFnA5Etbx5OG4jor0xo1GC4DSaDTkzxDRXGbXVY57hxK
-	rBD69XMt2N3iRti2p5w6hLRH+q1OInIg370Gr8YLUfvLsxWTHQFI6KA4CnUB45uRDbXxI2Ivyjb
-	+S4Q+Qnr9X+BS
-X-Google-Smtp-Source: AGHT+IH9dXEwPMbdH9wy3rWwV7hw5jvz1DJDb7y8RMmtXntuIkZHQwYgbcjzUf91UXx0NsuCLx/ImQ==
-X-Received: by 2002:a17:907:2d0e:b0:ad8:89c7:2735 with SMTP id a640c23a62f3a-ad889c72964mr703027166b.58.1748434391971;
-        Wed, 28 May 2025 05:13:11 -0700 (PDT)
-Received: from localhost.localdomain ([2001:b07:6474:ebbf:5631:61bf:398a:c492])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad8a1b5b8afsm98523266b.170.2025.05.28.05.13.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 05:13:11 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: michael@amarulasolutions.com,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 1/4] dt-bindings: mfd: convert mxs-lradc bindings to json-schema
-Date: Wed, 28 May 2025 14:11:38 +0200
-Message-ID: <20250528121306.1464830-2-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250528121306.1464830-1-dario.binacchi@amarulasolutions.com>
-References: <20250528121306.1464830-1-dario.binacchi@amarulasolutions.com>
+	id 1uKEeL-0000000Cwbp-1aCD;
+	Wed, 28 May 2025 11:08:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CEA55614B3;
+	Wed, 28 May 2025 11:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F219AC4CEE7;
+	Wed, 28 May 2025 11:08:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748430524;
+	bh=vs9C+yM7jX/8lBqahjesUiVEoedayFKv4eRr8WPo1Z8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BTAu1Tjew7E5vCuzuLnwXVsjhaJk4oq4cIksA970ux59BFH+zbRzt1E1a9TzFsyOG
+	 xEdwj6FCowDGIzbsGCACPUzH+f4UfPvUUXkflpf7Soagv2DC3m3UpFLZ7SEMBGZ5IT
+	 yOIoWZctn0xSy1MInbuUzfU8rL063kyt3UFj9qEUmhTmGXPmk9JkXmVM49xsCDUtFz
+	 UxF22UnKNzhzGi0OabAhcsiJMQDsWCI7+ZHjZ0pE3YsnmijTp/vRQ/R99jXW+rCEsT
+	 +Fa55E+B2opUBxi0dVMKxgHvc5Iq/v836GAtrRgmqAuihWEZ0yCwwE4/HLKXU1FcQP
+	 qnh4rhbBUvi6A==
+Date: Wed, 28 May 2025 13:08:40 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: =?utf-8?B?0JDQu9C10LrRgdCw0L3QtNGAINCo0YPQsdC40L0=?= <privatesub2@gmail.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, linux-kernel@vger.kernel.org, 
+	Brandon Cheo Fusi <fusibrandon13@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v12 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
+ support
+Message-ID: <hetih6ul7hdj3kflhy2s2zkkh3r7pcupgwde3xnwmjzs6cujp3@vcw4pde76bdb>
+References: <20250427142500.151925-1-privatesub2@gmail.com>
+ <20250427142500.151925-3-privatesub2@gmail.com>
+ <20250512233944.06bc1cb7@minigeek.lan>
+ <CAF4idN=Kwp8bDYVyjM52eUwVEEZcPM9YyK9KiqUzyf8Dm=cXTQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_051313_794985_094BD1C0 
-X-CRM114-Status: GOOD (  21.14  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="j6nnrxchndqyddxe"
+Content-Disposition: inline
+In-Reply-To: <CAF4idN=Kwp8bDYVyjM52eUwVEEZcPM9YyK9KiqUzyf8Dm=cXTQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,188 +78,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Freescale MXS Low-Resoulution ADC (LRADC) device tree
-binding documentation to json-schema.
 
-The clocks and #io-channel-cells properties have also been added; They
-are present in the respective SoC DTSI files but were missing from the
-old mxs-lradc.txt file.
+--j6nnrxchndqyddxe
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v12 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
+ support
+MIME-Version: 1.0
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
----
+Hello,
 
-(no changes since v1)
+On Sat, May 24, 2025 at 12:07:28PM +0300, =D0=90=D0=BB=D0=B5=D0=BA=D1=81=D0=
+=B0=D0=BD=D0=B4=D1=80 =D0=A8=D1=83=D0=B1=D0=B8=D0=BD wrote:
+> =D0=B2=D1=82, 13 =D0=BC=D0=B0=D1=8F 2025=E2=80=AF=D0=B3. =D0=B2 01:39, An=
+dre Przywara <andre.przywara@arm.com>:
+> >
+> > On Sun, 27 Apr 2025 17:24:54 +0300
+> > Aleksandr Shubin <privatesub2@gmail.com> wrote:
+> > > +              */
+> > > +             use_bus_clk =3D false;
+> > > +             val =3D mul_u64_u64_div_u64(state->period, hosc_rate, N=
+SEC_PER_SEC);
+> > > +             /*
+> > > +              * If the calculated value is =E2=89=A4 1, the period i=
+s too short
+> > > +              * for proper PWM operation
+> > > +              */
+> > > +             if (val <=3D 1) {
+> >
+> > So if I get the code correctly, it prefers HOSC over APB? Is that
+> > really the best way? Shouldn't it be the other way around: we use the
+> > faster clock, since this will not limit the sibling channel?
+> >
+> > And another thing to consider are rounding errors due to integer
+> > division: certain period rates might be better achievable with one or
+> > the other source clock: 3 MHz works best as 24MHz/8, 3.125MHz as
+> > 100MHz/32.
+> > So shall we calculate the values and compare the errors instead?
+> > Oh, and also we need to consider bypassing, I feel like this should be
+> > checked first.
+> >
+> > In any case I think there should be a comment describing the strategy
+> > and give some rationale, I think.
+>=20
+> I like the idea of comparing the quantization error for each clock source
+> (i.e. computing the actual period for both APB and HOSC and choosing
+> whichever is closer to the requested period).
+> I can try to implement that error-minimization approach in the next
+> series of patches and add a comment explaining the strategy.
 
- .../devicetree/bindings/mfd/mxs-lradc.txt     |  45 --------
- .../devicetree/bindings/mfd/mxs-lradc.yaml    | 106 ++++++++++++++++++
- 2 files changed, 106 insertions(+), 45 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.txt
- create mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
+Consumers have different needs. Some might prefer a better match for
+period, but in my experience most would go for a fine-grained selection
+of duty_cycle, so prefering the faster clock sounds sane.
 
-diff --git a/Documentation/devicetree/bindings/mfd/mxs-lradc.txt b/Documentation/devicetree/bindings/mfd/mxs-lradc.txt
-deleted file mode 100644
-index 755cbef0647d..000000000000
---- a/Documentation/devicetree/bindings/mfd/mxs-lradc.txt
-+++ /dev/null
-@@ -1,45 +0,0 @@
--* Freescale MXS LRADC device driver
--
--Required properties:
--- compatible: Should be "fsl,imx23-lradc" for i.MX23 SoC and "fsl,imx28-lradc"
--              for i.MX28 SoC
--- reg: Address and length of the register set for the device
--- interrupts: Should contain the LRADC interrupts
--
--Optional properties:
--- fsl,lradc-touchscreen-wires: Number of wires used to connect the touchscreen
--                               to LRADC. Valid value is either 4 or 5. If this
--                               property is not present, then the touchscreen is
--                               disabled. 5 wires is valid for i.MX28 SoC only.
--- fsl,ave-ctrl: number of samples per direction to calculate an average value.
--                Allowed value is 1 ... 32, default is 4
--- fsl,ave-delay: delay between consecutive samples. Allowed value is
--                 2 ... 2048. It is used if 'fsl,ave-ctrl' > 1, counts at
--                 2 kHz and its default is 2 (= 1 ms)
--- fsl,settling: delay between plate switch to next sample. Allowed value is
--                1 ... 2047. It counts at 2 kHz and its default is
--                10 (= 5 ms)
--
--Example for i.MX23 SoC:
--
--	lradc@80050000 {
--		compatible = "fsl,imx23-lradc";
--		reg = <0x80050000 0x2000>;
--		interrupts = <36 37 38 39 40 41 42 43 44>;
--		fsl,lradc-touchscreen-wires = <4>;
--		fsl,ave-ctrl = <4>;
--		fsl,ave-delay = <2>;
--		fsl,settling = <10>;
--	};
--
--Example for i.MX28 SoC:
--
--	lradc@80050000 {
--		compatible = "fsl,imx28-lradc";
--		reg = <0x80050000 0x2000>;
--		interrupts = <10 14 15 16 17 18 19 20 21 22 23 24 25>;
--		fsl,lradc-touchscreen-wires = <5>;
--		fsl,ave-ctrl = <4>;
--		fsl,ave-delay = <2>;
--		fsl,settling = <10>;
--	};
-diff --git a/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml b/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
-new file mode 100644
-index 000000000000..90391b02c715
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
-@@ -0,0 +1,106 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/mxs-lradc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Freescale MXS Low-Resoulution ADC (LRADC)
-+
-+maintainers:
-+  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+
-+description: |
-+  The LRADC provides 16 physical channels of 12-bit resolution
-+  for analog-to-digital conversion and includes an integrated
-+  4-wire/5-wire touchscreen controller.
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - fsl,imx23-lradc
-+          - fsl,imx28-lradc
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 1
-+
-+  interrupts:
-+    minItems: 9
-+    maxItems: 13
-+
-+  fsl,lradc-touchscreen-wires:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: |
-+      Number of wires used to connect the touchscreen to LRADC.
-+      If this property is not present, then the touchscreen is disabled.
-+
-+  fsl,ave-ctrl:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 1
-+    maximum: 32
-+    default: 4
-+    description: |
-+      Number of samples per direction to calculate an average value.
-+
-+  fsl,ave-delay:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 2
-+    maximum: 2048
-+    default: 2
-+    description: |
-+      Delay between consecutive samples.
-+      It is used if 'fsl,ave-ctrl' > 1, counts at 2 kHz and its
-+      default value (i. e. 2) is 1 ms.
-+
-+  fsl,settling:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 1
-+    maximum: 2047
-+    default: 10
-+    description: |
-+      Delay between plate switch to next sample.
-+      It counts at 2 kHz and its default (i. e. 10) is 5 ms.
-+
-+  "#io-channel-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - interrupts
-+
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - fsl,imx23-lradc
-+then:
-+  properties:
-+    fsl,lradc-touchscreen-wires:
-+      const: 4
-+else:
-+  properties:
-+    fsl,lradc-touchscreen-wires:
-+      enum: [4, 5]
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    lradc@80050000 {
-+        compatible = "fsl,imx23-lradc";
-+        reg = <0x80050000 0x2000>;
-+        interrupts = <36>, <37>, <38>, <39>, <40>,
-+                     <41>, <42>, <43>, <44>;
-+        clocks = <&clks 26>;
-+        #io-channel-cells = <1>;
-+        fsl,lradc-touchscreen-wires = <4>;
-+        fsl,ave-ctrl = <4>;
-+        fsl,ave-delay = <2>;
-+        fsl,settling = <10>;
-+    };
--- 
-2.43.0
+I don't say minimizing the error is wrong, but if it's unclear that
+this matches what a consumer wants I object to make the procedure to
+select the hardware settings considerably more complicated and run-time
+intensive.
 
+> > > +static int sun20i_pwm_probe(struct platform_device *pdev)
+> > > +{
+> > > +     struct pwm_chip *chip;
+> > > +     struct sun20i_pwm_chip *sun20i_chip;
+> > > +     struct clk *clk_bus;
+> > > +     struct reset_control *rst;
+> > > +     u32 npwm;
+> > > +     int ret;
+> > > +
+> > > +     ret =3D of_property_read_u32(pdev->dev.of_node, "allwinner,npwm=
+s", &npwm);
+> > > +     if (ret < 0)
+> > > +             npwm =3D 8; /* Default value */
+> > > +
+> > > +     if (npwm > 16) {
+> > > +             dev_info(&pdev->dev, "Limiting number of PWM lines from=
+ %u to 16", npwm);
+> >
+> > I don't think we should proceed if the firmware information is clearly
+> > wrong. Just bail out with -EINVAL or so here, so that gets fixed in the
+> > DT.
+
+To me it's not obvious that the "firmware information is clearly wrong".
+Maybe the next Allwinner SoC will have 24 outputs and the problem is
+only that this driver isn't prepared to cope for that number of outputs?
+
+If that really happens it's arguable if it's better to refuse completely
+or just cope for the 16 outputs that the driver is able to. IMHO it's
+better to continue because a partially workable pwmchip is better than
+no chip at all. But I'd upgrade the message to dev_warn().
+
+> > > +             npwm =3D 16;
+> > > +     }
+> > > +
+> > > +     chip =3D devm_pwmchip_alloc(&pdev->dev, npwm, sizeof(*sun20i_ch=
+ip));
+> > > +     if (IS_ERR(chip))
+> > > +             return PTR_ERR(chip);
+> > > +     sun20i_chip =3D to_sun20i_pwm_chip(chip);
+> > > +
+> > > +     sun20i_chip->base =3D devm_platform_ioremap_resource(pdev, 0);
+> > > +     if (IS_ERR(sun20i_chip->base))
+> > > +             return PTR_ERR(sun20i_chip->base);
+> > > +
+> > > +     clk_bus =3D devm_clk_get_enabled(&pdev->dev, "bus");
+> > > +     if (IS_ERR(clk_bus))
+> > > +             return dev_err_probe(&pdev->dev, PTR_ERR(clk_bus),
+> > > +                                  "Failed to get bus clock\n");
+> > > +
+> > > +     sun20i_chip->clk_hosc =3D devm_clk_get_enabled(&pdev->dev, "hos=
+c");
+> > > +     if (IS_ERR(sun20i_chip->clk_hosc))
+> > > +             return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->c=
+lk_hosc),
+> > > +                                  "Failed to get hosc clock\n");
+> > > +
+> > > +     ret =3D devm_clk_rate_exclusive_get(&pdev->dev, sun20i_chip->cl=
+k_hosc);
+> >
+> > Just ignoring for a bit that the 24 MHz oscillator is a fixed clock
+> > anyway, but why would we want exclusivity already at probe time? Isn't
+> > that too limiting, as no one might ever use any PWM channels, but it
+> > would still "belong to us"?
+
+That's a soft concept of "belong to us". Other consumers can still use
+it and even also call clk_rate_exclusive_get(). IMHO it's a good idea to
+call clk_rate_exclusive_get() for each clock that a driver relies on not
+to change. You could make the driver more flexible and only call that
+when the rate is actually relied on, but that's again a compromise with
+complexity of the driver. And if the clock rate is fixed anyhow, it
+doesn't hurt to do it here, right?
+
+> > > +     if (ret)
+> > > +             return dev_err_probe(&pdev->dev, ret,
+> > > +                                  "Failed to get hosc exclusive rate=
+\n");
+> > > +
+> > > +     sun20i_chip->clk_apb =3D devm_clk_get_enabled(&pdev->dev, "apb"=
+);
+> > > +     if (IS_ERR(sun20i_chip->clk_apb))
+> > > +             return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->c=
+lk_apb),
+> > > +                                  "Failed to get apb clock\n");
+> > > +
+> > > +     ret =3D devm_clk_rate_exclusive_get(&pdev->dev, sun20i_chip->cl=
+k_apb);
+> >
+> > Just for the records: APB is practically also a fixed clock, set up
+> > once in firmware and never changed, since it drives a lot of other
+> > peripherals.
+> > But same question as above, why do we lock its rate already here?
+>=20
+> That step was actually recommended by Uwe Kleine-K=C3=B6nig,
+> so the decision on whether to keep or drop exclusive reservation
+> is really a question for him=E2=80=94please coordinate with Uwe
+> to agree on how best to proceed here.
+
+Same as above. Iff the driver relies on the rate of this clock to keep
+constant, calling clk_rate_exclusive_get() is right.
+
+> > > +     if (ret)
+> > > +             return dev_err_probe(&pdev->dev, ret,
+> > > +                                  "Failed to get apb exclusive rate\=
+n");
+> > > +
+> > > +     if (clk_get_rate(sun20i_chip->clk_apb) <=3D clk_get_rate(sun20i=
+_chip->clk_hosc))
+> > > +             dev_info(&pdev->dev, "APB clock must be greater than ho=
+sc clock");
+> >
+> > Why this check? Does the code make any assumptions about this relation?
+> > If yes, we must surely deny this and bail out.
+> > If not (and I feel we should handle it this way), we can just ignore
+> > this and not print anything.
+
+ack.
+
+Best regards
+Uwe
+
+--j6nnrxchndqyddxe
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmg27rUACgkQj4D7WH0S
+/k7eMQf+MFh+WPOSnrL0ChmTNdZTkd/HHROpjXJFoKvZp8zcSHMTplW1nj2woA1/
+Va88dWGfc9SB3t8CtiIDNa5+Uqe1TKApG1dH+Wa85exLeIamnSGMlmr2UrslLX+Z
+U4CO0QmYVZGBjQtwEulMwGIfhZr/v4xBCLhwB0NoHqn2R1S1rxDjK6LHQFBj1RHl
+IqvMLUGJ0XSg5bzLiS3OqRH0FpHKyAggpEoqJPYOBBc7yjhxklvLN+u5Gb6riPaT
+pm7nwLkH/qBqpTgJfHxGf92AuW23qp/PcytQABrRXlsGNhFJBilXQPcFjN16JthK
+FxuATRizXxGVnnfFjeGzHSc9RoSOvw==
+=DLbu
+-----END PGP SIGNATURE-----
+
+--j6nnrxchndqyddxe--
 
