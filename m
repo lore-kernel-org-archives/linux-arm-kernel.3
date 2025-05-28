@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 295B9C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 12:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6ED1C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 12:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qfmkwNJuQPgRSv5nRvippWgZ2ln8+OwhTXxV/tbD23s=; b=BqJgP6IaibnsRYVexbNnqgall7
-	q9squd6raT4W7ql70uvKeZO8fRFPQFWPoeRBc/HX2qBRG0/HapjbkylEjaeEqaer1rUu0UX+x2jWv
-	9g76VcSYBaE7yXhcaqK+kONFsDMenlNTevMIZrYVEBtL3GNG2U36i6W3WgX5quKQMhTu3LbAmp/I/
-	Zah+fxd20h34gY58xp0vN/MSQwniO2DzDs4hUb+rKt3zWwM9pM8DMyDEWBb4IGzxa/4qMfe072SKf
-	IsF+c3d6ZDndSfaGV2Bgk87DzgUKzir+NLUeVIJd/ycf94I39DmO2tBAX6J8zGVZNyir9YFq+lyEt
-	TT4KgR4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KuB6YiXUH5Cy1JleX5O5eP/e5BT3QeJ1hhc0fVYSO70=; b=BW/AcoWez90VkN9mr5B6E/rntg
+	PIeq5SiJoamM29/koYff4btnL/bWyS/4gHPJHD2IB2PVfXVBQZr+4E06sNcuH2ZVh3P0rii2BfZa4
+	0m0+mkqNv0Uyg02B2MtgbpcDMm/ylx8NI8lLMFQJDJ3bnDWMNXJcwiYuuCmMmkUpijwGsYAUzqATw
+	/g92FUxieOGCnckkfBTEflBMaXpXfc6zadGIG1F6D6G3XGc8q19DhCIL7BNrKNm7rR8BK8faNIWdN
+	pf9CBeb0qEN1urXVCoY0hAQXtpIa7f4+665hiabCCTaVKgovCA3c6IRG2vtEF1O8Sj/t+mzVhyrfk
+	0mLvqdcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFvt-0000000D7T5-3rAV;
-	Wed, 28 May 2025 12:30:57 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uKFy7-0000000D7l7-30Ks;
+	Wed, 28 May 2025 12:33:15 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFjT-0000000D5BE-31FR
+	id 1uKFnQ-0000000D6Se-34V3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 28 May 2025 12:22:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KuB6YiXUH5Cy1JleX5O5eP/e5BT3QeJ1hhc0fVYSO70=; b=YSAhahEvCmpsdErRcx3eJ1l9/U
+	gYVlDN1Ik2sQ4AYNrsJCvBHyl5dJ1nJHz/8nM+u+a3OSzLd0J0lfrRKtbHmMcVoEi2X2PawmvRtoZ
+	iUrS82lprQkJP4/aLaPIrwUllm6Ey2stBQnJS/Y1LbOx+hxrjIoAjty2cIMKfApkFeuU+uKpub2qs
+	uskkBXubjLBmlWombEYMibLrbJ0uMefCnRLhmmP9NBqDPKWXTO0GPfsbtNYDV+n3AY6StOfIuVz/g
+	bVrM2ocSEfoRAf9BrTArpgZpp7pC2Olp/puU3cvm+TptVn0o/Re//1q/mSnnAme1qVZknMExq+T4b
+	g2BRfkpA==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKFnN-0000000DcIL-2ao2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 12:18:09 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54S8ewG3017013;
-	Wed, 28 May 2025 14:17:58 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	qfmkwNJuQPgRSv5nRvippWgZ2ln8+OwhTXxV/tbD23s=; b=390QO/o2W/+aXv2v
-	rSzQAJskUa0wTrEFkuE2s6XzLs2G6pTQ6qpfRW6NOe1nKuhJjYIrSB2VlsQUNiCZ
-	r5TwU5UlnQAVk+c2cqucPwSw+TUaBJvim16OoKktuZVA0qdAI5Z+wKVWuATxw9iK
-	a4jy3ZchWVpFupWMeBrVBN/gRKYRNHdOid9Q3f7XGJOwmGugCCcT081pEAkf1QYv
-	KcOdXSHx+LG584DetTSm9RGsTuKNDz6N1xI0+9d3ru1L8bF4GwsA5OmDNIjSrcel
-	RzidRptdgNA2lFeXQ0dffhx2LEjxTby6EqEBBdxZGFd2ytx4VK+7ErSMXlmXhjck
-	RgypBQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46uqp4q18h-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 28 May 2025 14:17:57 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C0EEB4004A;
-	Wed, 28 May 2025 14:16:49 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 68E786D6652;
-	Wed, 28 May 2025 14:16:00 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 28 May
- 2025 14:15:59 +0200
-Message-ID: <ef481451-b7d2-4f9a-a3d0-c67e8f5061dd@foss.st.com>
-Date: Wed, 28 May 2025 14:15:58 +0200
+	Wed, 28 May 2025 12:22:11 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uKFn3-0002SH-Bf; Wed, 28 May 2025 14:21:49 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uKFn2-000aSn-37;
+	Wed, 28 May 2025 14:21:48 +0200
+Received: from pengutronix.de (p5b1645f7.dip0.t-ipconnect.de [91.22.69.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 930EB41B601;
+	Wed, 28 May 2025 12:21:48 +0000 (UTC)
+Date: Wed, 28 May 2025 14:21:48 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Sascha Hauer <s.hauer@pengutronix.de>, imx@lists.linux.dev, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, michael@amarulasolutions.com, Fabio Estevam <festevam@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] ARM: dts: mxs: support i.MX28 Amarula rmm board
+Message-ID: <20250528-toucanet-of-utter-conversion-2bb1c7-mkl@pengutronix.de>
+References: <20250528121306.1464830-1-dario.binacchi@amarulasolutions.com>
+ <20250528121306.1464830-5-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp15
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Linus Walleij
-	<linus.walleij@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
- <20250523-hdp-upstream-v3-6-bd6ca199466a@foss.st.com>
- <1c21f915-e067-4801-925a-3d4882f358f2@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <1c21f915-e067-4801-925a-3d4882f358f2@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-28_06,2025-05-27_01,2025-03-28_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="d4u36iwafj365ic5"
+Content-Disposition: inline
+In-Reply-To: <20250528121306.1464830-5-dario.binacchi@amarulasolutions.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_051808_042534_BC881608 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20250528_132209_671950_AC19A713 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +99,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/28/25 11:00, Krzysztof Kozlowski wrote:
-> On 23/05/2025 14:38, Clément Le Goffic wrote:
->> Add the hdp devicetree node for stm32mp15 SoC family
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> ---
->>   arch/arm/boot/dts/st/stm32mp151.dtsi | 7 +++++++
->>   1 file changed, 7 insertions(+)
->>
->> diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
->> index 0daa8ffe2ff5..b1b568dfd126 100644
->> --- a/arch/arm/boot/dts/st/stm32mp151.dtsi
->> +++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
->> @@ -270,6 +270,13 @@ dts: thermal@50028000 {
->>   			status = "disabled";
->>   		};
->>   
->> +		hdp: pinctrl@5002a000 {
->> +			compatible = "st,stm32mp151-hdp";
->> +			reg = <0x5002a000 0x400>;
->> +			clocks = <&rcc HDP>;
->> +			status = "disabled";
-> 
-> Same questions here and in further patches.
 
-Same, disabled by default and enable in board's dts file
+--d4u36iwafj365ic5
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 4/4] ARM: dts: mxs: support i.MX28 Amarula rmm board
+MIME-Version: 1.0
 
-> 
-> Best regards,
-> Krzysztof
+On 28.05.2025 14:11:41, Dario Binacchi wrote:
+> The board includes the following resources:
+>  - 256 Mbytes NAND Flash
+>  - 128 Mbytes DRAM DDR2
+>  - CAN
+>  - USB 2.0 high-speed/full-speed
+>  - Ethernet MAC
+>=20
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-Clément
+[...]
 
+> +	reg_3v3: regulator-3v3 {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "3v3";
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-max-microvolt =3D <3300000>;
+> +		regulator-always-on;
+> +	};
+
+[...]
+
+> +&can0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&can0_pins_a>;
+> +	xceiver-supply =3D <&reg_3v3>;
+
+The xceiver-supply "reg_3v3" is an always fixed regulator, that doesn't
+switch a GPIO, so IMHO, you can remove it. Saves a bit of runtime mem.
+
+> +	status =3D "okay";
+> +};
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--d4u36iwafj365ic5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmg2/9kACgkQDHRl3/mQ
+kZyAngf+N7jzZFlLipBmBOA/ABOkh8i4xKnSDc8VZEjAK8pgExYn3GEOwfRnRwrE
+EH6bJllykyHzbXfS9/xHs657upS0FW9caUJK2WrWj/8gUfJKVHYs1h0fRa5Cw3TC
+6OPZRsWvOaarYXj7+EnnhyfJ79H3/00LwVBMqc3Arne0fz/iienfgPjW8OEDBHin
+tibPVj8IDRdEoa7ZROykjv0xbfvCpuSXCKUqfCy8z60KH1m/a2yeWpjrgqDv4Pg0
+pYMak6V2+BFkLpRvEzEQEG023ftbkb2FuizWwrFj+/B7K+D5iOefx3PFVblfWXwh
+D2cgAu3iOjcjElKDelSSG2QRmdkD7A==
+=LqyP
+-----END PGP SIGNATURE-----
+
+--d4u36iwafj365ic5--
 
