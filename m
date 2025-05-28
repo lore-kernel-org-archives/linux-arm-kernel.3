@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9612C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 11:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DF3C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 11:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0tsLc8siM+0HW9pE+Gb2ZSVB1MZ9waX5wUxfXK54WP4=; b=vvi0Zam8zcofwffdWZdRLuX20Q
-	GjCSFSuYwzNRjT3zFBp/Mh0Gj8Klfp6TdCIzmbfNuuDbbhIMdx57I6IX3WH50B6cPaTweuQ9trpj0
-	EUDxRwThWe0ciZ/PlqaTIEFz54OGN5smZVSaO8WKsQv/mMkJZohFUywaDgz0disk1ulHX9iB3U57a
-	8mSoGOkbr/wzIniBpe+4V9GdGCwPsocY6jZr4gtY2eICiO0JoGGO+++2ARYHeZ+c7qcrQ87RwOVl3
-	y65UXrlKxEQNPFtFjiCbCfPlsDFKGYnqd+d+mPAhTv+vzmTJuoXTWAMT0SXPLt6ug3rY3McFb5DyG
-	u/193XNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pxDo9IO9ATTuQyALamZSwSmn+16k7bv0aYEa/a+N+TE=; b=Yx5FPrlgjEt4d9+NXDfVkF525Q
+	ZPqUV8AwWLc7cmPUiSgrHPMHrvECfbpYIwzUXALF38SqO2yGc9ldC2IGf8CIQAPC1A01Yfl5futga
+	AM6vldvZ8572xCzGE/2NET4f/UKnMNSty5zcBIZnwA/wYcm6Oh9nQZ5l593BanQs5AeLPmfkN29D+
+	vFkkrBjecmw7/Jf1YHvwXTMuS/OUtFrN3a4mfHjRpix/OLdB8T6h4jDdcUQ1fgfq3NXqhiayMF7HE
+	FYYemB/Lnv2k155UBJ7c/Dq/R46NDtn0cIfi98lI2Vbmwh75Sd/Nr6t8hRQFCtVtOp7mZIuwS3ger
+	x1fNPdDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKEzp-0000000CyvV-0U72;
-	Wed, 28 May 2025 11:30:57 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uKF5M-0000000CzSV-0nIS;
+	Wed, 28 May 2025 11:36:40 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKExf-0000000Cyq2-3hLK
+	id 1uKF3D-0000000CzK1-10XZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 11:28:45 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4b6nLd5W1Nz6M4sd;
-	Wed, 28 May 2025 19:28:25 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4B605140113;
-	Wed, 28 May 2025 19:28:28 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 28 May
- 2025 13:28:27 +0200
-Date: Wed, 28 May 2025 12:28:26 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-CC: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, "Sascha
- Bischoff" <sascha.bischoff@arm.com>, Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Mark Rutland
-	<mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-Subject: Re: [PATCH v4 14/26] arm64/sysreg: Add ICH_HFGITR_EL2
-Message-ID: <20250528122826.0000566c@huawei.com>
-In-Reply-To: <20250513-gicv5-host-v4-14-b36e9b15a6c3@kernel.org>
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
-	<20250513-gicv5-host-v4-14-b36e9b15a6c3@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 28 May 2025 11:34:28 +0000
+Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id 5BAD51FC91;
+	Wed, 28 May 2025 13:34:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1748432059;
+	bh=pxDo9IO9ATTuQyALamZSwSmn+16k7bv0aYEa/a+N+TE=; h=From:To:Subject;
+	b=kIe2dk6UVZiF19EuFHoJjx5/xbuPmkmdu8StW+SA/Ai7aStdASEzonHThl7qB5dnR
+	 CEAQIqUuim4oh/QL7e+IR5BUZ2aI1W7JT+yMXNnOtB8gTjlW5vcXbL1uu6OGKUkH+X
+	 Ne4o2nzkAFgxdnqqrz+KuFTVVkZWtZPMns761Ts5l778QqlE+aA33ayRCgFXnUrHpm
+	 xxJv2IvcG0r6Odg2VYfl9/B3msT/nVgWcj09VMg95w1FBgeWOHL03rFfeQ+/SXeGCO
+	 DnQIo2zHYtvxNS5LPfEYDSUFGAtLRNztqBZjM9HkVpSfczNyocrxLq9W8G9hHvHR88
+	 cdcmYBA/hWRiw==
+Date: Wed, 28 May 2025 13:34:15 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Emanuele Ghidoli <ghidoliemanuele@gmail.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62-verdin: Enable pull-ups on
+ I2C buses
+Message-ID: <20250528113415.GA43553@francesco-nb>
+References: <20250528110741.262336-1-ghidoliemanuele@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250528110741.262336-1-ghidoliemanuele@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_042844_066956_22B3FB60 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250528_043427_436586_D17D07E0 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 May 2025 19:48:07 +0200
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-
-> Add ICH_HFGITR_EL2 register description to sysreg.
+On Wed, May 28, 2025 at 01:07:37PM +0200, Emanuele Ghidoli wrote:
+> From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 > 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-
-Hi Lorenzo,
-
-> ---
->  arch/arm64/tools/sysreg | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
+> Enable internal bias pull-ups on the SoC-side I2C buses that do not have
+> external pull resistors populated on the SoM. This ensures proper
+> default line levels.
 > 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 0927754d9fe2c5addbd9693d83b7324f1af66d3e..d2f53fb7929c69895fe8a21ba625d058a844d447 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -3616,6 +3616,21 @@ Res0	1
->  Field	0	ICC_APR_EL1
->  EndSysreg
->  
-> +Sysreg	ICH_HFGITR_EL2	3	4	12	9	7
-> +Res0	63:11
-> +Field	10	GICRCDNMIA
-> +Field	9	GICRCDIA
-> +Field	8	GICCDDI
-> +Field	7	GICCDEOI
-> +Field	6	GICCDHM
-> +Field	5	GICCRDRCFG
+> Cc: stable@vger.kernel.org
+> Fixes: 316b80246b16 ("arm64: dts: ti: add verdin am62")
+> Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 
-GICCDRCFG in the spec. (you have a bonus R)
-
-Of course the real question was what am I avoiding that made checking these
-against the spec feel like a good idea? :)
-
-FWIW with that fixed,
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-for patches 2 to 14.
-
-> +Field	4	GICCDPEND
-> +Field	3	GICCDAFF
-> +Field	2	GICCDPRI
-> +Field	1	GICCDDIS
-> +Field	0	GICCDEN
-> +EndSysreg
-> +
->  Sysreg	ICH_HCR_EL2	3	4	12	11	0
->  Res0	63:32
->  Field	31:27	EOIcount
-> 
+Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
 
