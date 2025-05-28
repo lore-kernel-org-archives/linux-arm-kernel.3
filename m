@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 729D4C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 10:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1291FC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 10:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tcp+3qiZKrZ/yFS9++J4sy6UEvxx9WuKX4FnkxkfHz0=; b=Ngp6AIpE2NRnXYgseBBvTcp7Pt
-	vvnbbCv4ClpOlNfh6RlzVmw6T4xfRWYQOWT5RAjsQ32BCKgWwI6182E8La3/0i3g4+UsrO3hPqcob
-	KIWzRd8zxyXWmZXnEwnbJe8K5NCIAvjl1C501qCWOkHZj8FsMzbxYLLC1CR7ymXgPl2GHrB9Gk2F6
-	shTbkxiC2/wWg510Ay4ZAkG6JUXF9ozSKeV14lUFjsS229dLxaqifgUX+9z01mc7m9nA16kh1NXMS
-	d/b3+fDLB7i8GQwYd8c5V134P26UPGhEQbmGLlY6zD5UH/p6lQ2vlp7tEBtjy1EaN6cG+P4TSN+b4
-	wbgPZCFg==;
+	bh=UIPzmvmserW3V83wIIJ6pIfzB+Tlkfw7bJvzEN1FiIM=; b=f4nMpIR+FrGjYJSEaHt2o0FnPV
+	UBOud6RZZYZRlQ3rdP7ozJYCBEsqS/QZlC6JhUNrJVxh9ZexHcv42c6UHPiboh8yb4OkLpeRfcQR1
+	y1U8D+bQEjjzaIP12anCXY5GOlhiam1phpaAodMnspnfRxSgY9rASvqTtfh9RDq4+j0o4GRsxq0i/
+	quzVx3tJElW1PziqcssdGIyXnpC7FNmI6O4qwU6eZ2kricWlsruFg4T2+Zvv72Op6sfBMf3aHU/xX
+	p/HMFWMuHLHtgs6/VprC7YsCo5Yvo198jfgjSxjTjrFLCmx3Sz1pG1jeHVn0lImgeB9q4MvJsOxXe
+	DB0JtpBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDn7-0000000CooA-3A0x;
-	Wed, 28 May 2025 10:13:46 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1uKDpE-0000000Cp0T-08TA;
+	Wed, 28 May 2025 10:15:56 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKD6g-0000000CjNk-47lP;
-	Wed, 28 May 2025 09:29:57 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id BB4C44341E;
-	Wed, 28 May 2025 09:29:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748424590;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=tcp+3qiZKrZ/yFS9++J4sy6UEvxx9WuKX4FnkxkfHz0=;
-	b=COYg7XrYSHalG4owcEpWOBAsjunxlDmdWc1VFAql1a5dnt3Eq4iRRkHe8TdRFLaIUq/lE3
-	BTjSw2u8n6EW5pI60SAdQE4OEAU2xDNFEYZ/ZXVOZQaEq/evnqR4GQQoLp+stts5l4Xzyh
-	9NxJ5SJLHMAM26XYxsE1dojYL0J8BIYSQmtkEzJac/3nCK8CkQ9z38zM4bvUqdq7jeKKPF
-	L+WvN5GVjQ+BsVjsVYFYgX2Buqlxrda9UW8piAoXYcs47WqLi42eXnFG3tT+UbeakSLn8t
-	pUSmxs5n/Rvf//Npg+HsS3oq5Cw33wds1WdawIaZGSjII/9sfUTORa7Zu0NSYw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 28 May 2025 11:29:36 +0200
-Subject: [PATCH v4] drm/bridge: tc358767: convert to
- devm_drm_bridge_alloc() API
+	id 1uKDYZ-0000000Cmdg-3Gfz;
+	Wed, 28 May 2025 09:58:45 +0000
+X-UUID: 53c44bb03baa11f08d385d50fb11b32d-20250528
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=UIPzmvmserW3V83wIIJ6pIfzB+Tlkfw7bJvzEN1FiIM=;
+	b=Bk3+5v7wLwVtuBV2aEcFIEkwHUEWfmWdHR5dOIpGmGwpMjyRAevgqwY+P2AOLqsewMbGW3iaAp/bF3++Dm46ap3W2IgquIzc9YePLZzLPNdfkCTtEJS2fJAqjvvSI2aTMB9BXXl8ORX0uSb1Kp8T3VaYqatnjHdDOHyd8aRBgVQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:f3ba60e0-c903-48b2-8261-3dedae6f5897,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:0ef645f,CLOUDID:db8d1158-abad-4ac2-9923-3af0a8a9a079,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 53c44bb03baa11f08d385d50fb11b32d-20250528
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1397772655; Wed, 28 May 2025 02:58:38 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 28 May 2025 17:58:34 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 28 May 2025 17:58:34 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jianhua Lin
+	<jianhua.lin@mediatek.com>
+Subject: [PATCH 0/2] Add MT8189 jpeg encoder and decoder compatible
+Date: Wed, 28 May 2025 17:57:46 +0800
+Message-ID: <20250528095748.17485-1-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250528-drm-bridge-convert-to-alloc-api-v4-1-f04e698c9a77@bootlin.com>
-X-B4-Tracking: v=1; b=H4sIAH/XNmgC/4WNywrCMBBFf6Vk7UgSY7Wu/A/pos3DDrSZkoSgl
- Py7seDa5bkXztlYtAFtZLdmY8FmjEi+gjo0TE+Df1pAU5lJLs9ccQUmLDAGNPXR5LMNCRLBMM+
- kYVgRWqFGq10rZadYtazBOnzthUdfecKYKLz3YBbf9ee+/HVnARyUFOLk3NV0mt9HojSjP2paW
- F9K+QA4RBdR0AAAAA==
-X-Change-ID: 20250404-drm-bridge-convert-to-alloc-api-614becf62294
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Anusha Srivatsa <asrivats@redhat.com>, 
- Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvvdeludculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkffvvefosehtkeertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepfeeitedtfeefjeeijeejveevleeijefgkefhjeeuffelveelieetleduveetieetnecuffhomhgrihhnpehfrhgvvgguvghskhhtohhprdhorhhgpdhkvghrnhgvlhdrohhrghenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdejhegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeelpdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidru
- ggvpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehjrghgrghnsegrmhgrrhhulhgrshholhhuthhiohhnshdrtghomhdprhgtphhtthhopehrfhhoshhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepphgruhhlkhesshihshdqsggrshgvrdhiohdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhm
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_022955_464962_9B152EBF 
-X-CRM114-Status: GOOD (  27.94  )
+X-CRM114-CacheID: sfid-20250528_025843_827645_A7FEA9EA 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,237 +86,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the new API for allocating DRM bridges.
+This series is based on tag: next-20250528, linux-next/master
 
-Converting this driver is a bit complex because the drm_bridge funcs
-pointer differs based on the bridge mode. So the current code does:
+jianhua.lin (2):
+  dt-bindings: media: mediatek-jpeg-encoder: Add MT8189 compatible
+    string
+  dt-bindings: media: mediatek-jpeg-decoder: Add MT8189 compatible
+    string
 
- * tc_probe()
-   * devm_kzalloc() private struct embedding drm_bridge
-   * call tc_probe_bridge_endpoint() which
-     * parses DT description into struct fields
-     * computes the mode
-     * calls different bridge init functions based on the mode
-       * each sets a different bridge.funcs pointer
+ .../devicetree/bindings/media/mediatek-jpeg-decoder.yaml         | 1 +
+ .../devicetree/bindings/media/mediatek-jpeg-encoder.yaml         | 1 +
+ 2 files changed, 2 insertions(+)
 
-The new API expects the funcs pointer to be known at alloc time, which does
-not fit in the current code structure.
-
-Solve this by splitting tc_probe_bridge_endpoint() in two functions:
-
- * tc_probe_get_mode(), computing the mode without needing the private
-   driver structure
- * tc_probe_bridge_endpoint(), only initializing the endpoints
-
-So now the mode is known before allocation and so
-is the funcs pointer, while all other operations are still happening after
-allocation, directly into the private struct data, as they used to.
-
-The new code flow is:
-
- * tc_probe()
-   * tc_probe_get_mode()
-     * parses DT description
-     * computes and returns the mode
-   * based onf the mode, pick the funcs pointer
-   * devm_drm_bridfge_alloc(..., funcs)
-   * call tc_probe_bridge_endpoint() which
-     * calls different bridge init functions based on the mode
-       * these don't set the funcs pointer, it was done by _alloc
-
-This solution is chosen to minimize the changes in the driver logical code
-flow. The drawback is we now iterate twice over the endpoints during probe.
-
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
----
-devm_drm_bridge_alloc() [0] is the new API to allocate and initialize a DRM
-bridge, and the only one supported from now on. It is the first milestone
-towards removal of bridges from a still existing DRM pipeline without
-use-after-free.
-
-The steps in the grand plan [1] are:
-
- 1. ➜ add refcounting to DRM bridges (struct drm_bridge)
- 2. handle gracefully atomic updates during bridge removal
- 3. avoid DSI host drivers to have dangling pointers to DSI devices
- 4. finish the hotplug bridge work, removing the "always-disconnected"
-    connector, moving code to the core and potentially removing the
-    hotplug-bridge itself (this needs to be clarified as points 1-3 are
-    developed)
-
-This series is part of step 1 of the grand plan.
-
-Current tasks in step 1 of the grand plan:
-
- A. ✔ add new alloc API and refcounting -> (now in drm-misc-next)
- B. ➜ convert all bridge drivers to new API (this series)
- C. … documentation, kunit tests (v1 under discussion)
- D. after (B), add get/put to drm_bridge_add/remove() + attach/detech()
- E. after (B), convert accessors; this is a large work and can be done
-    in chunks
- F. debugfs improvements
-
-More info about this series in the v2 cover [2].
-
-Luca
-
-[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/0cc6aadd7fc1e629b715ea3d1ba537ef2da95eec
-[1] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/t/#u
-[2] https://lore.kernel.org/lkml/20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com/
----
-Changes in v4:
-- Removed patches already in drm-misc-next -> only 1 left
-- Improve commit message of patch 1
-- Link to v3: https://lore.kernel.org/all/20250509-drm-bridge-convert-to-alloc-api-v3-0-b8bc1f16d7aa@bootlin.com/
-
-Changes in v3:
-- Fixed issues reported for some patches
-- Added review tags
-- Removed patches that have been applied
-- Added revert for the exynos patch, applied by mistake
-- Update cover with grand plan info and trim some of it
-- Updated bouncing e-mail address in Cc list
-- Link to v2: https://lore.kernel.org/lkml/20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com/
-
-Changes in v2:
-- Improved cover letter with link to commit adding devm_drm_bridge_alloc()
-- add review tags
-- fix bugs in zynqmp, vc4 patches
-- fix patch 1 error code checking
-- Link to v1: https://lore.kernel.org/r/20250407-drm-bridge-convert-to-alloc-api-v1-0-42113ff8d9c0@bootlin.com
----
-
-changes in v4:
-- improved commit message
----
- drivers/gpu/drm/bridge/tc358767.c | 56 ++++++++++++++++++++++++++++-----------
- 1 file changed, 40 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/tc358767.c b/drivers/gpu/drm/bridge/tc358767.c
-index 7e5449fb86a3fcdae8255bc490d12c543ef3f8ae..61559467e2d22b4b1b4223c97766ca3bf58908fd 100644
---- a/drivers/gpu/drm/bridge/tc358767.c
-+++ b/drivers/gpu/drm/bridge/tc358767.c
-@@ -344,6 +344,14 @@
- #define COLOR_BAR_MODE_BARS	2
- #define PLL_DBG			0x0a04
- 
-+enum tc_mode {
-+	mode_dpi_to_edp = BIT(1) | BIT(2),
-+	mode_dpi_to_dp  = BIT(1),
-+	mode_dsi_to_edp = BIT(0) | BIT(2),
-+	mode_dsi_to_dp  = BIT(0),
-+	mode_dsi_to_dpi = BIT(0) | BIT(1),
-+};
-+
- static bool tc_test_pattern;
- module_param_named(test, tc_test_pattern, bool, 0644);
- 
-@@ -2327,7 +2335,6 @@ static int tc_probe_dpi_bridge_endpoint(struct tc_data *tc)
- 	if (bridge) {
- 		tc->panel_bridge = bridge;
- 		tc->bridge.type = DRM_MODE_CONNECTOR_DPI;
--		tc->bridge.funcs = &tc_dpi_bridge_funcs;
- 
- 		return 0;
- 	}
-@@ -2360,7 +2367,6 @@ static int tc_probe_edp_bridge_endpoint(struct tc_data *tc)
- 		tc->bridge.type = DRM_MODE_CONNECTOR_DisplayPort;
- 	}
- 
--	tc->bridge.funcs = &tc_edp_bridge_funcs;
- 	if (tc->hpd_pin >= 0)
- 		tc->bridge.ops |= DRM_BRIDGE_OP_DETECT;
- 	tc->bridge.ops |= DRM_BRIDGE_OP_EDID;
-@@ -2368,17 +2374,11 @@ static int tc_probe_edp_bridge_endpoint(struct tc_data *tc)
- 	return 0;
- }
- 
--static int tc_probe_bridge_endpoint(struct tc_data *tc)
-+static enum tc_mode tc_probe_get_mode(struct device *dev)
- {
--	struct device *dev = tc->dev;
- 	struct of_endpoint endpoint;
- 	struct device_node *node = NULL;
--	const u8 mode_dpi_to_edp = BIT(1) | BIT(2);
--	const u8 mode_dpi_to_dp = BIT(1);
--	const u8 mode_dsi_to_edp = BIT(0) | BIT(2);
--	const u8 mode_dsi_to_dp = BIT(0);
--	const u8 mode_dsi_to_dpi = BIT(0) | BIT(1);
--	u8 mode = 0;
-+	enum tc_mode mode = 0;
- 
- 	/*
- 	 * Determine bridge configuration.
-@@ -2401,7 +2401,27 @@ static int tc_probe_bridge_endpoint(struct tc_data *tc)
- 			return -EINVAL;
- 		}
- 		mode |= BIT(endpoint.port);
-+	}
-+
-+	if (mode != mode_dpi_to_edp &&
-+	    mode != mode_dpi_to_dp  &&
-+	    mode != mode_dsi_to_dpi &&
-+	    mode != mode_dsi_to_edp &&
-+	    mode != mode_dsi_to_dp) {
-+		dev_warn(dev, "Invalid mode (0x%x) is not supported!\n", mode);
-+		return -EINVAL;
-+	}
-+
-+	return mode;
-+}
- 
-+static int tc_probe_bridge_endpoint(struct tc_data *tc, enum tc_mode mode)
-+{
-+	struct device *dev = tc->dev;
-+	struct of_endpoint endpoint;
-+	struct device_node *node = NULL;
-+
-+	for_each_endpoint_of_node(dev->of_node, node) {
- 		if (endpoint.port == 2) {
- 			of_property_read_u8_array(node, "toshiba,pre-emphasis",
- 						  tc->pre_emphasis,
-@@ -2427,24 +2447,28 @@ static int tc_probe_bridge_endpoint(struct tc_data *tc)
- 		return tc_probe_edp_bridge_endpoint(tc);
- 	}
- 
--	dev_warn(dev, "Invalid mode (0x%x) is not supported!\n", mode);
--
-+	/* Should never happen, mode was validated by tc_probe_get_mode() */
- 	return -EINVAL;
- }
- 
- static int tc_probe(struct i2c_client *client)
- {
- 	struct device *dev = &client->dev;
-+	const struct drm_bridge_funcs *funcs;
- 	struct tc_data *tc;
-+	int mode;
- 	int ret;
- 
--	tc = devm_kzalloc(dev, sizeof(*tc), GFP_KERNEL);
--	if (!tc)
--		return -ENOMEM;
-+	mode = tc_probe_get_mode(dev);
-+	funcs = (mode == mode_dsi_to_dpi) ? &tc_dpi_bridge_funcs : &tc_edp_bridge_funcs;
-+
-+	tc = devm_drm_bridge_alloc(dev, struct tc_data, bridge, funcs);
-+	if (IS_ERR(tc))
-+		return PTR_ERR(tc);
- 
- 	tc->dev = dev;
- 
--	ret = tc_probe_bridge_endpoint(tc);
-+	ret = tc_probe_bridge_endpoint(tc, mode);
- 	if (ret)
- 		return ret;
- 
-
----
-base-commit: 18fb864d3afccf7ecdf13d0435464465d31ccf1d
-change-id: 20250404-drm-bridge-convert-to-alloc-api-614becf62294
-
-Best regards,
 -- 
-Luca Ceresoli <luca.ceresoli@bootlin.com>
+2.46.0
 
 
