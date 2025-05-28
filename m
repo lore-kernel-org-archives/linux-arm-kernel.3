@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDB8C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9117EC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q37W/QCIajIBqdwlX8JxBJ+RS4ZcUOJmjX4FthbBh28=; b=zL5svaLgjRw+Cy8g6qDkb90rZJ
-	C6XkwXIISp95IOIYjna+fsmPQmP51LM4j6KX/rYgvnj7Np2gulpEufiNHBnZ5fg3KaADHduCNuWz/
-	Y7emrnLSyBMrJUtp7Gz6JzSCzaCvBWxNEebJ1k+6KBUBn/GqiuPPmDn3tUeCoCkv1cLt3uvxjKSdq
-	l1DQLBMbry6AfkJHD+N2dB8ReQEdROsATDLZA1R390snsYnbGCXxGGp+N2BXslgikGrxIqH4Xw8s3
-	h19/sA4eMNELktQJFO5Q/WgjJbtxc3I5TCaEGScnmikKLbewlA7s8YOPx/J5qEtPcpXznqI4hkDEK
-	++R+nycw==;
+	bh=V50E07Bshe0n5/d4A/sEnbHvwqtDL9kM998TesZAgNI=; b=2/det91zZfsteqjQKvWpYyi4r/
+	cm5llrsQmxBUe4Ig5NqHeQPBPHpG+LJtQgB7L/AmfBLAQyAOgF9W/Tefx4oRs912Ud4OJT3HVF2ei
+	QRITPURyLGA4u8Zb8YU6X+st/L3hzfr4vz+iXnRwTQX5zpNkXc5xIu8B6TZZIB/qtHHSDbKGmJ65e
+	tn8wuBwc+nXWKE0qot+kajcidLXMxhbTaWIxImtCzOT8TTSvh7HX31Gfc3iFLb6CYApGGGOd56+qu
+	8eoYywe67XObkOZctjFV7XDnd3vtpRJKjjZ5Zu/sCsRm5EDx3vjL5AgseKWpujRYCNgBv4Ff9F25j
+	C739Jb/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJdQ-0000000Dev1-0FXQ;
-	Wed, 28 May 2025 16:28:08 +0000
-Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
+	id 1uKJdO-0000000DetR-3AHj;
+	Wed, 28 May 2025 16:28:06 +0000
+Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKInt-0000000DZ0N-27Te
+	id 1uKIn4-0000000DYrT-2ROa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 15:34:54 +0000
-Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-603f54a6cb5so1862163eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 08:34:53 -0700 (PDT)
+	Wed, 28 May 2025 15:34:03 +0000
+Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-6063462098eso2654540eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 08:34:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748446492; x=1749051292; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748446441; x=1749051241; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Q37W/QCIajIBqdwlX8JxBJ+RS4ZcUOJmjX4FthbBh28=;
-        b=kyom7V6GZhGFar1kXCVmk/EQymg+7AHorFWkWJPUVdxM2B3pap4z8zcFu81WSPNDdl
-         /gIIaGUBlv1u95x0z0q4s26Z7P0kHS3/GlOLCopjDwTvBbnU5lD/ZwEBpT9vGyL/7UVK
-         /7Dq6NLdQpLsM3dMwi7kC7A7KZha02mq4iJ1J3u5DF0fiURs4QZOZo5SDoBtfBjCN4UK
-         JDS3jyX/o1tMAq3LnFLd8gMF9rHafm5cNUntwgHp9oHECT9lG/EbMD/mOvuctxWUDgV9
-         Pm6TKQT0CBTDhJmnmIlfNcCGyNXiz+xvpHlMtg9ZeXXM/spmDcAYC7JIw0STY2cgjVAu
-         HrQw==
+        bh=V50E07Bshe0n5/d4A/sEnbHvwqtDL9kM998TesZAgNI=;
+        b=sa8O1vNrQf5ZJhd5cMIGXbztl0iBSiYblUNazOL6a3/3CAbbKmugBc0qTVTXJMx4DZ
+         f0j8bev016rGZ/F8szFty7szXkycV8JK7V7HU167lMG2+SyuX2ZVk9YSudsF12aa+M2N
+         Wtdkm8u3J3J7Lm+YYdRjDoU2Bd/N94CHmKp2wyuv6U0QLsTH5WV/v+DQlS3iUhzi/DHT
+         9notyZUYwFnBhYIZZ2nT5OxJJ3vrcUrHIL7MbzwFVfb8CSCj3k3riID/tkLePd4hXyr/
+         VON8Y+HCMLxaQFVNZmbAUGkvYKxX+Z7HilpzdLMKkKbGJTpo7/gLIDEuadyVLUPjL7ZL
+         0lAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748446492; x=1749051292;
+        d=1e100.net; s=20230601; t=1748446441; x=1749051241;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Q37W/QCIajIBqdwlX8JxBJ+RS4ZcUOJmjX4FthbBh28=;
-        b=oXUZVMELq3vSzmYG7Gfax0PLc9bxoYvYdAIiW6mVjp0VU6XMkqbv02LRf8fa8MhS1T
-         JoMQiS3HUG0gyVzSuifC7wekjPhUb5liIcj93ZdG3jw1JHTsvXcquZDjOGIPd0rc1ktI
-         cOhH/8jSmIbsrAsQURKaBmHqxiPWpxoCpjPAxBpPklC5Q6myrcp0DjGFPHlyjxWYxZ94
-         oYE7kpuca4dqFPXZW3l0dgtKVwuRlHXF1c7SaxVrBzZtMwiauOVDmvRqnXynWgcEX/jc
-         0PD+vmOz1nnisAdffyQvQwZCimXYgRzKGeuPCcdvhbwyOcFdQVBX1KHojKL/4C44ac2L
-         G0Fw==
-X-Gm-Message-State: AOJu0YwX2d6e0UPiSMT1CNJSOTO6OGXKL3zzq9QUelfeICi9qsEq1bb3
-	bahvjXrDCd6bOEmvElhs6SxrRgu2LNMqpIrzkb9ixzee90upPUM97QMKBBgNsxb2ruCNdus5ZLv
-	hQKHXlXYCzrM39J3AT+ToXC9sZMlecKrGSL5c0cbx/NX6GgHMcbomagw=
-X-Gm-Gg: ASbGncuAd0SPlZZKCim/ymUazfiN8ETwRu8P2FNgdpeA6PUNn7VYxW+ZePGHbXWOXqH
-	Kmrw+yUeAvluyvgRn8t6vuDXYovbas1j9alAecAjOjqPGH5vgXm3atgZdz7GgLWWe38S9hemyhU
-	iwbHtQhYV+Znu3ena3bfue4E2tVzyxp6MfMQ==
-X-Google-Smtp-Source: AGHT+IFUSKRJvzUK9Z26xs3uZ3t0I6t2CrJeTGXb8XUjdm5/FKiOx1YWjR4XQGbv++oHvpCQjLQB6sfRAHvl2IeOCSU=
-X-Received: by 2002:a05:6820:4c8a:b0:60b:cd81:9079 with SMTP id
- 006d021491bc7-60bd9b5db35mr1257707eaf.5.1748446492453; Wed, 28 May 2025
- 08:34:52 -0700 (PDT)
+        bh=V50E07Bshe0n5/d4A/sEnbHvwqtDL9kM998TesZAgNI=;
+        b=l2MCK5SzmH9IHQYk8z0BPG4y85OcbPNt8yJkhETSuxfsayGLcRs9haKJJXO8aD2U0s
+         Anv40omxqOeJagekqGBwcLf7EDdThXbZLQDEW/bJpI5qd9sD54ZNItuYXIKbE1EiF3uu
+         cdKVGrd/21nTsuK5dY7B9Nyfeohb9c7I679XO0uSS6vj9auGYGTPyw/xF4negQE1Qyb0
+         S8WKUCt2cmke0s1oTmeo+DH/kYW5aLTpPAvZ4w0ms6DAByNOFEK5CbJGLva/29CW14Ea
+         JVTfPD8/lW6vLGGfVFp0N9KvRs2FI854fU23KzsEvVeElA6JHeLnAXRlWKbaZYNiZjYS
+         x4WA==
+X-Gm-Message-State: AOJu0YxBGXICE3lUweF9Nw3SUQY1SNoVkCqejgLnTO0iGPrECZiayf9j
+	Q+Gsh3+zMSwezjvhTUwsQ8GxQ4Nx5pbG+L5CT6QVey49KU0lkr4ADfHkbAabUcleOhXBG2qs4LD
+	UswAEYM92ywErPZzKLgd5QJu+AxD89HfuPROsOtzrkq6dW0Jn7iec5AI=
+X-Gm-Gg: ASbGncuii7vkwBmy6Vkx3NnJLd6wge9YMgwzS90wv7fHrWs5D+7JgXXqo7Qp7pImObU
+	+298deiaKVq6KKgNMbpZJrzlq16DeZnq84nN9nr09BA1gjYlBSMhuA61gds5q3WUKExYxFFZJ1+
+	My0XqE/6ux1zK1qSyJWLOS+az1RK+fYXqBVlkh1l6wzKyj
+X-Google-Smtp-Source: AGHT+IEniMZHQbxc4dt4F2x1tHo1KsHwEHrIoQNpmjaRPLITmNPATnnXVb6jvput6py+MvQ1YaI5hzeuvZZSY3OtXoY=
+X-Received: by 2002:a05:6820:2004:b0:60b:a8e7:b23e with SMTP id
+ 006d021491bc7-60ba8e7d8damr8600114eaf.8.1748446430509; Wed, 28 May 2025
+ 08:33:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250528-ffa_notif_fix-v1-0-5ed7bc7f8437@arm.com> <20250528-ffa_notif_fix-v1-3-5ed7bc7f8437@arm.com>
-In-Reply-To: <20250528-ffa_notif_fix-v1-3-5ed7bc7f8437@arm.com>
+References: <20250528-ffa_notif_fix-v1-0-5ed7bc7f8437@arm.com> <20250528-ffa_notif_fix-v1-2-5ed7bc7f8437@arm.com>
+In-Reply-To: <20250528-ffa_notif_fix-v1-2-5ed7bc7f8437@arm.com>
 From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Wed, 28 May 2025 17:34:40 +0200
-X-Gm-Features: AX0GCFs-yLHQEJ9iEAsL75ibAAqIeyrWnzKLxzwLIDc74kts0liswYeErWZvhTY
-Message-ID: <CAHUa44HRsYUV8U-jBYvhsPoLNizXamxYK+Th+O4ZJ2VpRQ9A7A@mail.gmail.com>
-Subject: Re: [PATCH 3/3] firmware: arm_ffa: Replace mutex with rwlock to avoid
- sleep in atomic context
+Date: Wed, 28 May 2025 17:33:38 +0200
+X-Gm-Features: AX0GCFunGnw6PrwW4snoTeu3Q1n7NKY-YLzkZ5yxhwalJKSoyFy2rAwPEsfJlg4
+Message-ID: <CAHUa44EG+SPt8QgMfLmEgLgGyu-EUhd8NL-9R+nbqk9Zf_bFvQ@mail.gmail.com>
+Subject: Re: [PATCH 2/3] firmware: arm_ffa: Move memory allocation outside the
+ mutex locking
 To: Sudeep Holla <sudeep.holla@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	=?UTF-8?B?SsOpcsO0bWUgRm9yaXNzaWVy?= <jerome.forissier@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_083453_544555_F91A5F4F 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20250528_083402_630648_2E489539 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,57 +97,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Wed, May 28, 2025 at 10:50=E2=80=AFAM Sudeep Holla <sudeep.holla@arm.com=
 > wrote:
 >
-> The current use of a mutex to protect the notifier hashtable accesses
-> can lead to issues in the atomic context. It results in the below
-> kernel warnings:
+> The notifier callback node allocation is currently done while holding
+> the notify_lock mutex. While this is safe even if memory allocation may
+> sleep, we need to move the allocation outside the locked region in
+> preparation to move from using muxtes to rwlocks.
 >
->   |  BUG: sleeping function called from invalid context at kernel/locking=
-/mutex.c:258
->   |  in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 9, name: kwor=
-ker/0:0
->   |  preempt_count: 1, expected: 0
->   |  RCU nest depth: 0, expected: 0
->   |  CPU: 0 UID: 0 PID: 9 Comm: kworker/0:0 Not tainted 6.14.0 #4
->   |  Workqueue: ffa_pcpu_irq_notification notif_pcpu_irq_work_fn
->   |  Call trace:
->   |   show_stack+0x18/0x24 (C)
->   |   dump_stack_lvl+0x78/0x90
->   |   dump_stack+0x18/0x24
->   |   __might_resched+0x114/0x170
->   |   __might_sleep+0x48/0x98
->   |   mutex_lock+0x24/0x80
->   |   handle_notif_callbacks+0x54/0xe0
->   |   notif_get_and_handle+0x40/0x88
->   |   generic_exec_single+0x80/0xc0
->   |   smp_call_function_single+0xfc/0x1a0
->   |   notif_pcpu_irq_work_fn+0x2c/0x38
->   |   process_one_work+0x14c/0x2b4
->   |   worker_thread+0x2e4/0x3e0
->   |   kthread+0x13c/0x210
->   |   ret_from_fork+0x10/0x20
+> Move the memory allocation to avoid potential sleeping in atomic context
+> once the locks are moved from mutex to rwlocks.
 >
-> To address this, replace the mutex with an rwlock to protect the notifier
-> hashtable accesses. This ensures that read-side locking does not sleep an=
-d
-> multiple readers can acquire the lock concurrently, avoiding unnecessary
-> contention and potential deadlocks. Writer access remains exclusive,
-> preserving correctness.
->
-> This change resolves warnings from lockdep about potential sleep in
-> atomic context.
->
-> Cc: Jens Wiklander <jens.wiklander@linaro.org>
-> Reported-by: J=C3=A9r=C3=B4me Forissier <jerome.forissier@linaro.org>
-> Closes: https://github.com/OP-TEE/optee_os/issues/7394
 > Fixes: e0573444edbf ("firmware: arm_ffa: Add interfaces to request notifi=
 cation callbacks")
 > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 > ---
->  drivers/firmware/arm_ffa/driver.c | 22 +++++++++++-----------
->  1 file changed, 11 insertions(+), 11 deletions(-)
+>  drivers/firmware/arm_ffa/driver.c | 48 +++++++++++++++++++--------------=
+------
+>  1 file changed, 24 insertions(+), 24 deletions(-)
 
 Reviewed-by: Jens Wiklander <jens.wiklander@linaro.org>
-Tested-by: Jens Wiklander <jens.wiklander@linaro.org>
 
 Cheers,
 Jens
@@ -155,100 +121,124 @@ Jens
 >
 > diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa=
 /driver.c
-> index 44eecb786e67b205161e2d48602e1f1b53533360..37eb2e6c2f9f4d30831b7bf6c=
-e5142a39a19f50c 100644
+> index 6f75cdf29720993b1cd95eb7d3a36d01b0fdd1de..44eecb786e67b205161e2d486=
+02e1f1b53533360 100644
 > --- a/drivers/firmware/arm_ffa/driver.c
 > +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -110,7 +110,7 @@ struct ffa_drv_info {
->         struct work_struct sched_recv_irq_work;
->         struct xarray partition_info;
->         DECLARE_HASHTABLE(notifier_hash, ilog2(FFA_MAX_NOTIFICATIONS));
-> -       struct mutex notify_lock; /* lock to protect notifier hashtable  =
-*/
-> +       rwlock_t notify_lock; /* lock to protect notifier hashtable  */
->  };
+> @@ -1250,13 +1250,12 @@ notifier_hnode_get_by_type(u16 notify_id, enum no=
+tify_type type)
+>         return NULL;
+>  }
 >
->  static struct ffa_drv_info *drv_info;
-> @@ -1289,19 +1289,19 @@ static int __ffa_notify_relinquish(struct ffa_dev=
-ice *dev, int notify_id,
+> -static int
+> -update_notifier_cb(struct ffa_device *dev, int notify_id, void *cb,
+> -                  void *cb_data, bool is_registration, bool is_framework=
+)
+> +static int update_notifier_cb(struct ffa_device *dev, int notify_id,
+> +                             struct notifier_cb_info *cb, bool is_framew=
+ork)
+>  {
+>         struct notifier_cb_info *cb_info =3D NULL;
+>         enum notify_type type =3D ffa_notify_type_get(dev->vm_id);
+> -       bool cb_found;
+> +       bool cb_found, is_registration =3D !!cb;
+>
+>         if (is_framework)
+>                 cb_info =3D notifier_hnode_get_by_vmid_uuid(notify_id, de=
+v->vm_id,
+> @@ -1270,18 +1269,7 @@ update_notifier_cb(struct ffa_device *dev, int not=
+ify_id, void *cb,
+>                 return -EINVAL;
+>
+>         if (is_registration) {
+> -               cb_info =3D kzalloc(sizeof(*cb_info), GFP_KERNEL);
+> -               if (!cb_info)
+> -                       return -ENOMEM;
+> -
+> -               cb_info->dev =3D dev;
+> -               cb_info->cb_data =3D cb_data;
+> -               if (is_framework)
+> -                       cb_info->fwk_cb =3D cb;
+> -               else
+> -                       cb_info->cb =3D cb;
+> -
+> -               hash_add(drv_info->notifier_hash, &cb_info->hnode, notify=
+_id);
+> +               hash_add(drv_info->notifier_hash, &cb->hnode, notify_id);
+>         } else {
+>                 hash_del(&cb_info->hnode);
+>                 kfree(cb_info);
+> @@ -1303,8 +1291,7 @@ static int __ffa_notify_relinquish(struct ffa_devic=
+e *dev, int notify_id,
+>
+>         mutex_lock(&drv_info->notify_lock);
+>
+> -       rc =3D update_notifier_cb(dev, notify_id, NULL, NULL, false,
+> -                               is_framework);
+> +       rc =3D update_notifier_cb(dev, notify_id, NULL, is_framework);
+>         if (rc) {
+>                 pr_err("Could not unregister notification callback\n");
+>                 mutex_unlock(&drv_info->notify_lock);
+> @@ -1335,6 +1322,7 @@ static int __ffa_notify_request(struct ffa_device *=
+dev, bool is_per_vcpu,
+>  {
+>         int rc;
+>         u32 flags =3D 0;
+> +       struct notifier_cb_info *cb_info =3D NULL;
+>
+>         if (ffa_notifications_disabled())
+>                 return -EOPNOTSUPP;
+> @@ -1342,6 +1330,17 @@ static int __ffa_notify_request(struct ffa_device =
+*dev, bool is_per_vcpu,
 >         if (notify_id >=3D FFA_MAX_NOTIFICATIONS)
 >                 return -EINVAL;
 >
-> -       mutex_lock(&drv_info->notify_lock);
-> +       write_lock(&drv_info->notify_lock);
+> +       cb_info =3D kzalloc(sizeof(*cb_info), GFP_KERNEL);
+> +       if (!cb_info)
+> +               return -ENOMEM;
+> +
+> +       cb_info->dev =3D dev;
+> +       cb_info->cb_data =3D cb_data;
+> +       if (is_framework)
+> +               cb_info->fwk_cb =3D cb;
+> +       else
+> +               cb_info->cb =3D cb;
+> +
+>         mutex_lock(&drv_info->notify_lock);
 >
->         rc =3D update_notifier_cb(dev, notify_id, NULL, is_framework);
->         if (rc) {
->                 pr_err("Could not unregister notification callback\n");
-> -               mutex_unlock(&drv_info->notify_lock);
-> +               write_unlock(&drv_info->notify_lock);
->                 return rc;
+>         if (!is_framework) {
+> @@ -1349,21 +1348,22 @@ static int __ffa_notify_request(struct ffa_device=
+ *dev, bool is_per_vcpu,
+>                         flags =3D PER_VCPU_NOTIFICATION_FLAG;
+>
+>                 rc =3D ffa_notification_bind(dev->vm_id, BIT(notify_id), =
+flags);
+> -               if (rc) {
+> -                       mutex_unlock(&drv_info->notify_lock);
+> -                       return rc;
+> -               }
+> +               if (rc)
+> +                       goto out_unlock_free;
 >         }
 >
->         if (!is_framework)
->                 rc =3D ffa_notification_unbind(dev->vm_id, BIT(notify_id)=
-);
->
-> -       mutex_unlock(&drv_info->notify_lock);
-> +       write_unlock(&drv_info->notify_lock);
+> -       rc =3D update_notifier_cb(dev, notify_id, cb, cb_data, true,
+> -                               is_framework);
+> +       rc =3D update_notifier_cb(dev, notify_id, cb_info, is_framework);
+>         if (rc) {
+>                 pr_err("Failed to register callback for %d - %d\n",
+>                        notify_id, rc);
+>                 if (!is_framework)
+>                         ffa_notification_unbind(dev->vm_id, BIT(notify_id=
+));
+>         }
+> +
+> +out_unlock_free:
+>         mutex_unlock(&drv_info->notify_lock);
+> +       if (rc)
+> +               kfree(cb_info);
 >
 >         return rc;
 >  }
-> @@ -1341,7 +1341,7 @@ static int __ffa_notify_request(struct ffa_device *=
-dev, bool is_per_vcpu,
->         else
->                 cb_info->cb =3D cb;
->
-> -       mutex_lock(&drv_info->notify_lock);
-> +       write_lock(&drv_info->notify_lock);
->
->         if (!is_framework) {
->                 if (is_per_vcpu)
-> @@ -1361,7 +1361,7 @@ static int __ffa_notify_request(struct ffa_device *=
-dev, bool is_per_vcpu,
->         }
->
->  out_unlock_free:
-> -       mutex_unlock(&drv_info->notify_lock);
-> +       write_unlock(&drv_info->notify_lock);
->         if (rc)
->                 kfree(cb_info);
->
-> @@ -1407,9 +1407,9 @@ static void handle_notif_callbacks(u64 bitmap, enum=
- notify_type type)
->                 if (!(bitmap & 1))
->                         continue;
->
-> -               mutex_lock(&drv_info->notify_lock);
-> +               read_lock(&drv_info->notify_lock);
->                 cb_info =3D notifier_hnode_get_by_type(notify_id, type);
-> -               mutex_unlock(&drv_info->notify_lock);
-> +               read_unlock(&drv_info->notify_lock);
->
->                 if (cb_info && cb_info->cb)
->                         cb_info->cb(notify_id, cb_info->cb_data);
-> @@ -1447,9 +1447,9 @@ static void handle_fwk_notif_callbacks(u32 bitmap)
->
->         ffa_rx_release();
->
-> -       mutex_lock(&drv_info->notify_lock);
-> +       read_lock(&drv_info->notify_lock);
->         cb_info =3D notifier_hnode_get_by_vmid_uuid(notify_id, target, &u=
-uid);
-> -       mutex_unlock(&drv_info->notify_lock);
-> +       read_unlock(&drv_info->notify_lock);
->
->         if (cb_info && cb_info->fwk_cb)
->                 cb_info->fwk_cb(notify_id, cb_info->cb_data, buf);
-> @@ -1974,7 +1974,7 @@ static void ffa_notifications_setup(void)
->                 goto cleanup;
->
->         hash_init(drv_info->notifier_hash);
-> -       mutex_init(&drv_info->notify_lock);
-> +       rwlock_init(&drv_info->notify_lock);
->
->         drv_info->notif_enabled =3D true;
->         return;
 >
 > --
 > 2.34.1
