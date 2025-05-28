@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B07C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 22:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D74C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 22:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ARvWG8gKjLmat/63jyq3yeDBJpuQ/8WhQZhGIcH0HN8=; b=2kjVM5A6NZ0IM1uUtEUNXCCTLl
-	GvgIp/s526pjWyLlaSZHao6mCDGUEeJnkCxZ8e2CZLoVeOdbU74U4YAwkhOL+hzyzVyo1xm+d+fDX
-	lhDF4sxxv80tjs+YpcqxUCrFIooiwrAiF6bY5WdCiuqLr658InUzScY9avX6mYj+fO7CECsdg9Ttx
-	VgR0KLlzJHasMmWC6y/Oz4lwhCx8Ms5hvLKDy6zWGZKWfB9kZ4Q8ljctnbDaiUGY+bm5ro+bYTvcn
-	EasswPb/qOYUhw5kL0zoDFa/RTDdo6NAQi8lpCoOqW9Fg+gHp1T8oyDUPXDxE9L0/T1H0k0Kz7wNq
-	m2vNHsxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/UhymLIMd5eLnLGVlqof6gLqgaGUQuR9VsSEm0PQjQg=; b=qIgfIF5BLeYzMWh0cszarvOUT0
+	SNQ2hjRewLDIhAZ+vUQR7OCvXfzPQfoxqInVNaISVz15WM4zMZ01o23xTefcu3SalBDc30TGQT/+P
+	xENgCQE7NI7ws2IRXPo2j61M8izDPS/BzWUa6T+sR5STFrW8pdOiY8iltI00hIGrG9d1jkUpHMsgL
+	7wnS5BOCuqh3goBHQHjwrXLKe2p/LitoD/h0+FMtKnXc5yb3+yAIVZ5OYUpc7km/A3Kgicrk7QxiD
+	JrWjgvIXTS9q4vVpBOYw8+3irFGO5nwwidJkdFEihu2PWQ4Lk4/82zMQpkPOVAdhIi9iIgf1bqRel
+	WmSRMh8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKP76-0000000EFHO-0Iqx;
-	Wed, 28 May 2025 22:19:08 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uKP9D-0000000EFVo-3HmC;
+	Wed, 28 May 2025 22:21:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKP4v-0000000EEvU-1hHC
+	id 1uKP5W-0000000EF0C-2dzk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 22:16:54 +0000
+	Wed, 28 May 2025 22:17:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9E807A4FB3F;
-	Wed, 28 May 2025 22:16:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47F5DC4CEE3;
-	Wed, 28 May 2025 22:16:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748470612;
-	bh=ME97XvHP1p/V2KP9dL0rNzabOMCHQocn0bMBshCDqEY=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=bY8oYg+WH5wXr+R1LSgLvMOs0WJ4knWwqMWhgq2cYtwFK1wIS4Ww4n8k8pKc1U4wv
-	 RII9pc5JXDFi4OPTTd7pV5yPBAyaiqTj16hZvnHZMxHq88wbnYCnEq7cM02+/xNgRm
-	 GBSeJlI+G9d4AdQk4FXbWdhSI44hYKTM3+gidkos06Y5SrKna7dj1QrB/4gwOLOtYM
-	 EgtRsBsHQCjULHPt6jj/1txwBHDT/jakHN48iyU+E7I8yXAbmBsGMGlVwfhl7RgHrr
-	 R74joo7Yy8E5/wd6fxhsDuM7trc3B7FQZ8+LigPhxJOdUQ9u8qWVaKX3RAMcCtu80H
-	 hjI3DADA6fIyQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70CD53822D1A;
+	by sea.source.kernel.org (Postfix) with ESMTP id 772464A520;
+	Wed, 28 May 2025 22:17:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 368E3C4CEE3;
 	Wed, 28 May 2025 22:17:27 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 updates for 6.16
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20250528114103.GA27965@willie-the-truck>
-References: <20250528114103.GA27965@willie-the-truck>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20250528114103.GA27965@willie-the-truck>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-upstream
-X-PR-Tracked-Commit-Id: 217e3cbba3d6613bee9ac33ddc330f8676eb9eca
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 47cf96fbe393839b125a9b694a8cfdd3f4216baa
-Message-Id: <174847064592.2608061.11972465031439133363.pr-tracker-bot@kernel.org>
-Date: Wed, 28 May 2025 22:17:25 +0000
-To: Will Deacon <will@kernel.org>
-Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748470649;
+	bh=zNpLWP0iLRo2SdsjN4iDx0HkI1x+t7mIhg4FFPTD5Tk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=G7muyCJcjzQJFr92jjgnWBBlpxhlTSkns9tT7dVBsYZ8p066RrwEMoBi52I4Dw0DI
+	 eaRLiDhYqbn6faw+B+Y2GJED9hg08bsaHGlfETA9F75ftIxkrXqIi4OsD5QT9YrZYf
+	 CsaqSf2zXr1M9TJ7oIMBiqykalOfsuUlS5XATez3+9oY1oYBUkrSTNXzSwCuLDw77P
+	 mAIoJS7lnZh5pfi+61KTh5B/5D6Udfk/l7Ahoof46MrGPhVaDAeUDAObZJ7cfpg/mX
+	 uxLm3Rt7vPXY3FPlpscg8hjt7CgYs1Zxxy83Afgeh3cmTznC8ByVXp36g6rIFklFa6
+	 k/AeUR12dZOyg==
+From: sven@kernel.org
+To: soc@lists.linux.dev
+Cc: Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>,
+	Sven Peter <sven@svenpeter.dev>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] MAINTAINERS, mailmap: update Sven Peter's email address
+Date: Thu, 29 May 2025 00:17:18 +0200
+Message-Id: <20250528221718.45204-1-sven@kernel.org>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_151653_502616_DF65F244 
-X-CRM114-Status: UNSURE (   4.47  )
+X-CRM114-CacheID: sfid-20250528_151730_689725_89B21F86 
+X-CRM114-Status: UNSURE (   9.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,16 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Wed, 28 May 2025 12:41:04 +0100:
+From: Sven Peter <sven@kernel.org>
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-upstream
+Update my mail address to my new @kernel.org one and also add a mailmap
+entry to make sure everything gets sent there for easier filtering.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/47cf96fbe393839b125a9b694a8cfdd3f4216baa
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ .mailmap    | 1 +
+ MAINTAINERS | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-Thank you!
+diff --git a/.mailmap b/.mailmap
+index 4f7cd8e23177..7a9cd664183a 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -712,6 +712,7 @@ Sven Eckelmann <sven@narfation.org> <sven.eckelmann@gmx.de>
+ Sven Eckelmann <sven@narfation.org> <sven.eckelmann@open-mesh.com>
+ Sven Eckelmann <sven@narfation.org> <sven.eckelmann@openmesh.com>
+ Sven Eckelmann <sven@narfation.org> <sven@open-mesh.com>
++Sven Peter <sven@kernel.org> <sven@svenpeter.dev>
+ Takashi YOSHII <takashi.yoshii.zj@renesas.com>
+ Tamizh Chelvam Raja <quic_tamizhr@quicinc.com> <tamizhr@codeaurora.org>
+ Taniya Das <quic_tdas@quicinc.com> <tdas@codeaurora.org>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 96b827049501..b389195fb9cd 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2251,7 +2251,7 @@ F:	sound/soc/codecs/cs42l84.*
+ F:	sound/soc/codecs/ssm3515.c
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+ ARM/APPLE MACHINE SUPPORT
+-M:	Sven Peter <sven@svenpeter.dev>
++M:	Sven Peter <sven@kernel.org>
+ M:	Janne Grunau <j@jannau.net>
+ R:	Alyssa Rosenzweig <alyssa@rosenzweig.io>
+ R:	Neal Gompa <neal@gompa.dev>
+--
+2.34.1
+
 
