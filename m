@@ -4,101 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A900C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 13:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56142C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 13:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UQ9g5LYyLjb8/iVLB1DcVfsrw8TL+AlPQukLnrUz7KA=; b=RPyfBXrGyNrnpWuLqpSevkeVwt
-	qOnxp3of/+J/1064y9iA+aDz+O1tvaULvfvhApa++8Mns1m1Csb0aTrRvxlvvVIuh8/KD61gr8Chg
-	QVczAo20zfiVdmEVSy1/chhag8NveZMBPDuA3WZs+uMTrQQPurxL3Nxjm2rcxd8Ji02ABIFOabHqE
-	fswm51wdLzG2B3lc29mssyCmVEVAAZS+5SKFOz1aaPlp7ZshpLqq6t8aoXiAgCil6EicRI824MM32
-	KaPeFpHpaVfADrFxln5Mt7Y4jqr67Ifz8h4D2fhdeNzzxvGG3+14V2oiG6Kl7ZdT+JKiod6gzT0Jb
-	czOz6QMQ==;
+	bh=XDiPaUX7L0zqYZu1CgdfB/6W9p+CHs7zwPywjjpA6ls=; b=ij903pvzAcLulXTbjVXJsDTrqH
+	1kB1qXYJm1QnDJ3Q9zLxNmAdh+0Rlz5CId1Rht6UjBazeGmn8aQFggE4wsC/qh2x+SR6p5OO7vkZS
+	IpNIWF/be9kE0iJP5ovFFFrPAI0eq7QOor8EQBYf1M1LQX6ERJdfp/7kaNkK6EU8/UV+WZESlRAQ0
+	D1CnuI1lvsOsqIQ5Mbgv0j07gid0/UCslRcLjdp+qbEz9c3nzgwUvW9BvYv+e0z710x/O7sg/Y+Jv
+	5JEA/MeWtJmHez3q+6cm4BDspHZI4R/DkT/o1tBc19a/ylBxJ/6hAiQwXbeLgieG9KwAhfMMFxCsJ
+	zKHaE44A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKGt1-0000000DFZh-3gzM;
-	Wed, 28 May 2025 13:32:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uKH0Z-0000000DGUm-0Kni;
+	Wed, 28 May 2025 13:39:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKGqd-0000000DF9y-2RaM
+	id 1uKGuD-0000000DFjT-2SKC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 28 May 2025 13:33:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=XDiPaUX7L0zqYZu1CgdfB/6W9p+CHs7zwPywjjpA6ls=; b=i3Pw6MBQOlklRmxDPiEP5/PxOF
+	0ImsWAUSPKO0fnvTurY/5iTc8RTPIjUvyw1SmF2ak/MV5fxvSDL8LizDjFENYQSwHSfUXYAozPxCi
+	eSA+3MlROJC8z/69vC0740KuO3oYXTUDCHCjDBxmtCSp8b8/IvwJ8kYamZexq4hhw84LMRwN6+LXA
+	zLYxA6adERCb9qG5sp+wedIV5kKHDmbTUu0CcEIeR0ZZ6FBrKc19K6SxF1KwwZlt8zIXoIpuUOS8d
+	AAjzKurjVuYr5jWMI0xDm3CHbRbJJbQ3c/2jR1OiK4JbbOayNv0PzfKEfOIASpMt2zb8li4QyNtnb
+	Q1VuTWkA==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKGu9-000000000XW-1dJm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 13:29:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1748438973;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UQ9g5LYyLjb8/iVLB1DcVfsrw8TL+AlPQukLnrUz7KA=;
-	b=BgTusbLIjxBSm5SL7HV5FYCEnRjL0hKmkEpbNHqiDd6tzu/z3NUpBQJnryM8dQHtNzUoiO
-	6CqMUmJPU8gumbjriMmSuq13B07uvUr31hup0mi2yx9sWxHKsbrb1J51QnyVUqP4S+sApS
-	gFbu3RIaTGamoAmEztTUJdvY8IMPs1A=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-520-rEXD6ZIkN_yxLWVC4M4kwQ-1; Wed, 28 May 2025 09:28:10 -0400
-X-MC-Unique: rEXD6ZIkN_yxLWVC4M4kwQ-1
-X-Mimecast-MFC-AGG-ID: rEXD6ZIkN_yxLWVC4M4kwQ_1748438889
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a3696a0d3aso2062507f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 06:28:10 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748438888; x=1749043688;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UQ9g5LYyLjb8/iVLB1DcVfsrw8TL+AlPQukLnrUz7KA=;
-        b=BubAEdG7+85v9Lhv7mLqt8nl24BYhuhghr7S0AmfOaWYVSnV2dPQwkNy6u8tQ2alXP
-         XufTwMKdnLSP9iKXSPGk3Yne4ndu3uF9ukjl5Yz8JA3ZeSRjZ5zPetecZjLUtoHIDCx1
-         WycQZJATZ7zqDhH93ySndXDJ4JZAaXMTXT1v0XIQ417Ni4ED36ue5ZT0tBS/F7HZfiXV
-         lpWyYgYMQ4RSCx0fCN4Z3CNYer9hrFjX3GvPwGt7R5W8+0BaYbuV1jZ/ubVUzCLWZPAJ
-         MMEDKeoldy21Tqkc2K/ufKk5GQFHp7RNXOzWkfaHD1R5Zij/YpnKRx369Qacb8IlPcU0
-         whnw==
-X-Forwarded-Encrypted: i=1; AJvYcCVJ5K0CAcyDMY7kHy5V4zYvCfIwhdxirPC4TG2Ie8vDW4Ww6BGOnqPge7835tKmfIxQWRhEcFKOxekUv46iAKHr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyr0jfi6sn9rQyMWieMoIttAtN/idybxf4LZkZWEmuKn4Jxp6ST
-	XBwr4Bksmq2L/S0RVnQvTn2Wxc0Klra4cOzVrEwF/f20zacm3e0PMVft0vVOWFDBZXA5vOBnPMM
-	X2q4p+AI1n7g6KdPeCkQw10zyNyQc4kD8HtjcYaOrKhmElq02uI+vcx6JNLz1dxhi5LGZkNmdUW
-	MjMKa2qZPa
-X-Gm-Gg: ASbGncvBHJ63Z7fP7b2ihnX1kX+ceqcO754zvhjwMRWzVFImZd0UnjRoAW67AZG1w24
-	WamtvWzFrIEy3Qp1c71wMKIPRaXTInx2bhP9Sl2UFqYZntzH2FNgH6yGbGgtlAoo5stnBYEVvMd
-	e8f6u/L/4f6tUxh6VRXuTCBVlCJrz/LD3CIrZSUMbupm3uGT69SJ5tm7vwVjB1I4jOrKZXiJDk3
-	qcPuq2YT2utzFz/5Nlifdsb3QCZjpJk6Zqh+rKvQEYbr2kiuGqIj81iW05tXvVL29kzWAysTgT7
-	jzDX4prqW9a6vfxK7DwADs2JDx1I1pk32lLQH5Ip+T4eWQODIFIxQw==
-X-Received: by 2002:a05:6000:250f:b0:3a4:eac6:e320 with SMTP id ffacd0b85a97d-3a4eac6e4cfmr2302686f8f.3.1748438888529;
-        Wed, 28 May 2025 06:28:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFbyayzrF6O0WPxMeyUA9UrtC3EPJ8bgX9wDZpJ1+cDqAh15SKbYxky+R1yioFLQpmt8Yx37g==
-X-Received: by 2002:a05:6000:250f:b0:3a4:eac6:e320 with SMTP id ffacd0b85a97d-3a4eac6e4cfmr2302654f8f.3.1748438888177;
-        Wed, 28 May 2025 06:28:08 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45072555885sm17994055e9.17.2025.05.28.06.28.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 May 2025 06:28:07 -0700 (PDT)
-Message-ID: <92c7e99c-5574-422c-92f1-62d5cde58fec@redhat.com>
-Date: Wed, 28 May 2025 15:28:06 +0200
+	Wed, 28 May 2025 13:33:15 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54SBAXrj009337;
+	Wed, 28 May 2025 15:33:05 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	XDiPaUX7L0zqYZu1CgdfB/6W9p+CHs7zwPywjjpA6ls=; b=WdYSj0zss0JLMrhz
+	BBK6oxqpQpWLDCothYG4R3TiJJp89TYqqVpJEQ2vPcrglPaYtWkhQT0vgOF292j0
+	mRZOQqkbdLo6U3uRnzY83Rswc+70/apKF75Sq6ICbGjYXMWhUtn552pGXgvX+jK8
+	HwHvY3NkCxs5Qu8DCtnRAs+3e3fyKLYEniiCFvBsLXQnBEe/ALyR8WrBnnmFm6cN
+	v+KUdjkm45aYi36NW1AfImbc0sgqBBhx6T7M6IlP+prBqeXOd10VLAqfk5tLUYTc
+	NcQjJhSoG58sd8Kkv3Q3/F9dQaBFhzfo5TF+AzgL2V4PqKJ0rPm4DpBWvdslZnal
+	C7TpZw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46w54hrb5v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 28 May 2025 15:33:05 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 620134006B;
+	Wed, 28 May 2025 15:31:48 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id ADAF86CCEF6;
+	Wed, 28 May 2025 15:31:04 +0200 (CEST)
+Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 28 May
+ 2025 15:31:04 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Wed, 28 May 2025 15:30:59 +0200
+Subject: [PATCH v4 6/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp15
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 0/9] KVM: Enable Nested Virt selftests
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
- suzuki.poulose@arm.com, yuzenghui@huawei.com, seanjc@google.com,
- darren@os.amperecomputing.com
-References: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fZ1Wmw4QQig0vc4OgtNpMuFm4njHQLTVpkpb8aG4XMA_1748438889
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20250528-hdp-upstream-v4-6-7e9b3ad2036d@foss.st.com>
+References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
+In-Reply-To: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
+	<clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-6f78e
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-28_06,2025-05-27_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_062935_692915_290A9C4C 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20250528_143313_888036_1F29049A 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,71 +117,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ganapatrao,
+Add the hdp devicetree node for stm32mp15 SoC family
 
-On 5/12/25 12:52 PM, Ganapatrao Kulkarni wrote:
-> This patch series makes the selftest work with NV enabled. The guest code
-> is run in vEL2 instead of EL1. We add a command line option to enable
-> testing of NV. The NV tests are disabled by default.
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+---
+ arch/arm/boot/dts/st/stm32mp151.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-For commodity, I would add in the coverletter that for all tests
-enhanced with vEL2 testing "-g 1" option shall be added to force that mode.
+diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
+index 0daa8ffe2ff5..b1b568dfd126 100644
+--- a/arch/arm/boot/dts/st/stm32mp151.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
+@@ -270,6 +270,13 @@ dts: thermal@50028000 {
+ 			status = "disabled";
+ 		};
+ 
++		hdp: pinctrl@5002a000 {
++			compatible = "st,stm32mp151-hdp";
++			reg = <0x5002a000 0x400>;
++			clocks = <&rcc HDP>;
++			status = "disabled";
++		};
++
+ 		mdma1: dma-controller@58000000 {
+ 			compatible = "st,stm32h7-mdma";
+ 			reg = <0x58000000 0x1000>;
 
-I don't really get how you chose tests capable to run at vEL2 and
-excluded others? Wouldn't it make sense to have a way to run all tests
-in either mode?
-
-Thanks
-
-Eric
-
-> 
-> Modified around 12 selftests in this series.
-> 
-> Changes since v1:
-> 	- Updated NV helper functions as per comments [1].
-> 	- Modified existing testscases to run guest code in vEL2.
-> 
-> [1] https://lkml.iu.edu/hypermail/linux/kernel/2502.0/07001.html 
-> 
-> Ganapatrao Kulkarni (9):
->   KVM: arm64: nv: selftests: Add support to run guest code in vEL2.
->   KVM: arm64: nv: selftests: Add simple test to run guest code in vEL2
->   KVM: arm64: nv: selftests: Enable hypervisor timer tests to run in
->     vEL2
->   KVM: arm64: nv: selftests: enable aarch32_id_regs test to run in vEL2
->   KVM: arm64: nv: selftests: Enable vgic tests to run in vEL2
->   KVM: arm64: nv: selftests: Enable set_id_regs test to run in vEL2
->   KVM: arm64: nv: selftests: Enable test to run in vEL2
->   KVM: selftests: arm64: Extend kvm_page_table_test to run guest code in
->     vEL2
->   KVM: arm64: nv: selftests: Enable page_fault_test test to run in vEL2
-> 
->  tools/testing/selftests/kvm/Makefile.kvm      |   2 +
->  tools/testing/selftests/kvm/arch_timer.c      |   8 +-
->  .../selftests/kvm/arm64/aarch32_id_regs.c     |  34 ++++-
->  .../testing/selftests/kvm/arm64/arch_timer.c  | 118 +++++++++++++++---
->  .../selftests/kvm/arm64/nv_guest_hypervisor.c |  68 ++++++++++
->  .../selftests/kvm/arm64/page_fault_test.c     |  35 +++++-
->  .../testing/selftests/kvm/arm64/set_id_regs.c |  57 ++++++++-
->  tools/testing/selftests/kvm/arm64/vgic_init.c |  54 +++++++-
->  tools/testing/selftests/kvm/arm64/vgic_irq.c  |  27 ++--
->  .../selftests/kvm/arm64/vgic_lpi_stress.c     |  19 ++-
->  .../testing/selftests/kvm/guest_print_test.c  |  32 +++++
->  .../selftests/kvm/include/arm64/arch_timer.h  |  16 +++
->  .../kvm/include/arm64/kvm_util_arch.h         |   3 +
->  .../selftests/kvm/include/arm64/nv_util.h     |  45 +++++++
->  .../selftests/kvm/include/arm64/vgic.h        |   1 +
->  .../testing/selftests/kvm/include/kvm_util.h  |   3 +
->  .../selftests/kvm/include/timer_test.h        |   1 +
->  .../selftests/kvm/kvm_page_table_test.c       |  30 ++++-
->  tools/testing/selftests/kvm/lib/arm64/nv.c    |  46 +++++++
->  .../selftests/kvm/lib/arm64/processor.c       |  61 ++++++---
->  tools/testing/selftests/kvm/lib/arm64/vgic.c  |   8 ++
->  21 files changed, 604 insertions(+), 64 deletions(-)
->  create mode 100644 tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c
->  create mode 100644 tools/testing/selftests/kvm/include/arm64/nv_util.h
->  create mode 100644 tools/testing/selftests/kvm/lib/arm64/nv.c
-> 
+-- 
+2.43.0
 
 
