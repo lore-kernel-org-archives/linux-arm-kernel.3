@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7788EC3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 08:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569FFC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 08:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WOFwRpfANHjb3otGmi54M/pace4GHz369sqF3SK7s9s=; b=MzZN2Slnop7iJ2nAoSQZaxc1Uf
-	nBMVXozAZC9TnOxccpE8BUW/Z5sxWj3Q8a0jKOP8b8E29MVLMTJDKZMJjO9QVxuP3XWGCPD7rNT7t
-	38N+x+hPBbfpXrDNb5y+q6BGRvzeIutWJNrdCjPX6gcZidhP9fvS+SWYzfXtM4YtqNCDieMxVUvc8
-	eFco20GlDaQC0njMeNf1Me/JB6Y4mGAVhF2id2+G8LEM1hCVPEumHLY23Ue15wvQ2qNG9SYRh+WTg
-	K8azwUYAoGPAZHBVQsUdrLozaGzu7/LyHqYWiA/O+sJPGC54PYjOQLnK0KmWC+oGW7AH1AFF7vKMO
-	SefCNG6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VmfTvvPStnYNFbapNxW0qFHGxJZE9z8RXtIY6Yccn4A=; b=SJPTZVBYKEBp+8unkNl7Stl5CA
+	vd+L+ycOqEQIjGtkyl7YsQKDXa7X9GTMwPvZYuwFzwbOOqChsb0PAPDCp6FhBJaNHTF4hHf65rdyk
+	KnJaEemnTTaknTD1huCsbqbnDR6hE7VCN754PabCCRWqwvespDEje29FOzNZ2lEfeeHYkwtZWvNuf
+	XrNFwtNZg3/gIi8KZAFPiFcxtdTKt0CTcD/NXm3dihAg2Jov7DbaLJsNsPCCj6rjDm0X+DgHP13uK
+	T0ypb7qWEigddIFOiRKuV8ne3cp8eYGa0S3BJr4/K5kPbWRm0r+PSjbUGJ29kuOHPeJAd66uo9IOb
+	9/v8JUSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKC1C-0000000CYSg-0ghW;
-	Wed, 28 May 2025 08:20:10 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1uKC1B-0000000CYSM-2U32;
+	Wed, 28 May 2025 08:20:09 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKBxV-0000000CXbU-3tMr
+	id 1uKBvs-0000000CXA7-1NeU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 08:16:23 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 34DE94316E;
-	Wed, 28 May 2025 08:16:17 +0000 (UTC)
+	Wed, 28 May 2025 08:14:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1870B433B8;
+	Wed, 28 May 2025 08:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748420179;
+	t=1748420077;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WOFwRpfANHjb3otGmi54M/pace4GHz369sqF3SK7s9s=;
-	b=TzGTVOWSeG0ERVh6bKRs0qdcd1m4lV9KndnAXHTDn+w0KnetXd6u8qnR2pZE1KaHPgEwvr
-	/M5TGa6cqjIMBT4UNKZ9B0A/yDb+5PETGbCK51oYkMEurLG2E//hkP9grtvki06EhUme/6
-	5wdnrCQM0mFBis0HYzTirGmtYz4dF/1SFqRKsw0BLWXJ5soCgTIXLG2ScFmE826gDbyS9A
-	d9fzlH2C07VkJ594+dekbfvD16jIFRzvwYUHAiuOv5ncJF1YeU6iAf6j/RNGwYwPpehNzn
-	ixUxRR2asqalM/HBulxvSYbxSWsssaXE0mlL0CQfBNz6LWE8N2k+4IhFEgxixg==
-From: Romain Gantois <romain.gantois@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
- Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
- Marek =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?B?Tmljb2zDsg==?= Veronese <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v6 06/14] net: phy: Introduce generic SFP handling for
- PHY drivers
-Date: Wed, 28 May 2025 10:16:12 +0200
-Message-ID: <2915123.mvXUDI8C0e@fw-rgant>
-In-Reply-To: <20250528101433.138b2f31@device-24.home>
+	bh=VmfTvvPStnYNFbapNxW0qFHGxJZE9z8RXtIY6Yccn4A=;
+	b=GmmKet9pX4CZPw9vI2RkFp/fskWOZW5hzm+5bATRMs6c2CGqeUyOozqvUoX/cRCytBBJeF
+	RYIKU/EbxzcFCEvO8+961dKMO0gU8QgqDzL9HTYRldcw0qvKx/FUDBQQZhSFXtjn5yycYy
+	c0bv7PZO0Aztx2iSYbXaazwJ/y3hhG0X7AKwiWIM2LPaUKyOo+2i+fem4AdyJ8D0n0z3uR
+	HNpQr1YzhybeV/vq5eZUrWDI1u7t12V7euX9kUmuLmMeLPTiKkBcxEsqvLvTHDOGkFrAL/
+	TyPLnZFmGsQXo54XMeOVOxdAR0stbcp/o8qD9dJeHbwgpXd2GbtI1R8cL6L5Pw==
+Date: Wed, 28 May 2025 10:14:33 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Romain Gantois <romain.gantois@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
+ =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
+ <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
+ mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Daniel Golle
+ <daniel@makrotopia.org>, Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v6 06/14] net: phy: Introduce generic SFP
+ handling for PHY drivers
+Message-ID: <20250528101433.138b2f31@device-24.home>
+In-Reply-To: <13770694.uLZWGnKmhe@fw-rgant>
 References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
- <13770694.uLZWGnKmhe@fw-rgant> <20250528101433.138b2f31@device-24.home>
+	<23936783.6Emhk5qWAg@fw-rgant>
+	<20250523145457.07b1e7db@2a02-8428-0f40-1901-f412-2f85-a503-26ba.rev.sfr.net>
+	<13770694.uLZWGnKmhe@fw-rgant>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart12805152.O9o76ZdvQC";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvvdejieculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkjghfgggtsehgtderredttdejnecuhfhrohhmpeftohhmrghinhcuifgrnhhtohhishcuoehrohhmrghinhdrghgrnhhtohhishessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfdvleekvefgieejtdduieehfeffjefhleegudeuhfelteduiedukedtieehlefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehffidqrhhgrghnthdrlhhotggrlhhnvghtpdhmrghilhhfrhhomheprhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkv
- ghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: romain.gantois@bootlin.com
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvvdejheculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepuggvvhhitggvqddvgedrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhop
+ ehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_011622_110036_ED898D6B 
-X-CRM114-Status: GOOD (  58.58  )
+X-CRM114-CacheID: sfid-20250528_011440_524911_FAF86130 
+X-CRM114-Status: GOOD (  52.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,258 +96,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart12805152.O9o76ZdvQC
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Romain Gantois <romain.gantois@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Date: Wed, 28 May 2025 10:16:12 +0200
-Message-ID: <2915123.mvXUDI8C0e@fw-rgant>
-In-Reply-To: <20250528101433.138b2f31@device-24.home>
-MIME-Version: 1.0
+Hi Romain
 
-On Wednesday, 28 May 2025 10:14:33 CEST Maxime Chevallier wrote:
-> Hi Romain
-> 
-> On Wed, 28 May 2025 09:35:35 +0200
-> 
-> Romain Gantois <romain.gantois@bootlin.com> wrote:
-> > On Friday, 23 May 2025 14:54:57 CEST Maxime Chevallier wrote:
-> > > Hi Romain,
-> > > 
-> > > On Mon, 12 May 2025 10:38:52 +0200
-> > > 
-> > > Romain Gantois <romain.gantois@bootlin.com> wrote:
-> > > > Hi Maxime,
-> > > > 
-> > > > On Wednesday, 7 May 2025 15:53:22 CEST Maxime Chevallier wrote:
-> > > > > There are currently 4 PHY drivers that can drive downstream SFPs:
-> > > > > marvell.c, marvell10g.c, at803x.c and marvell-88x2222.c. Most of the
-> > > > > logic is boilerplate, either calling into generic phylib helpers
-> > > > > (for
-> > > > > SFP PHY attach, bus attach, etc.) or performing the same tasks with
-> > > > > a
-> > > > > 
-> > > > > bit of validation :
-> > > > >  - Getting the module's expected interface mode
-> > > > >  - Making sure the PHY supports it
-> > > > >  - Optionnaly perform some configuration to make sure the PHY
-> > > > >  outputs
-> > > > >  
-> > > > >    the right mode
-> > > > > 
-> > > > > This can be made more generic by leveraging the phy_port, and its
-> > > > > configure_mii() callback which allows setting a port's interfaces
-> > > > > when
-> > > > > the port is a serdes.
-> > > > > 
-> > > > > Introduce a generic PHY SFP support. If a driver doesn't probe the
-> > > > > SFP
-> > > > > bus itself, but an SFP phandle is found in devicetree/firmware, then
-> > > > > the
-> > > > > generic PHY SFP support will be used, relying on port ops.
-> > > > > 
-> > > > > PHY driver need to :
-> > > > >  - Register a .attach_port() callback
-> > > > >  - When a serdes port is registered to the PHY, drivers must set
-> > > > >  
-> > > > >    port->interfaces to the set of PHY_INTERFACE_MODE the port can
-> > > > >    output
-> > > > >  
-> > > > >  - If the port has limitations regarding speed, duplex and aneg, the
-> > > > >  
-> > > > >    port can also fine-tune the final linkmodes that can be supported
-> > > > >  
-> > > > >  - The port may register a set of ops, including .configure_mii(),
-> > > > >  that
-> > > > >  
-> > > > >    will be called at module_insert time to adjust the interface
-> > > > >    based on
-> > > > >    the module detected.
-> > > > > 
-> > > > > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > > > > ---
-> > > > > 
-> > > > >  drivers/net/phy/phy_device.c | 107
-> > > > >  +++++++++++++++++++++++++++++++++++
-> > > > >  include/linux/phy.h          |   2 +
-> > > > >  2 files changed, 109 insertions(+)
-> > > > > 
-> > > > > diff --git a/drivers/net/phy/phy_device.c
-> > > > > b/drivers/net/phy/phy_device.c
-> > > > > index aaf0eccbefba..aca3a47cbb66 100644
-> > > > > --- a/drivers/net/phy/phy_device.c
-> > > > > +++ b/drivers/net/phy/phy_device.c
-> > > > > @@ -1450,6 +1450,87 @@ void phy_sfp_detach(void *upstream, struct
-> > > > > sfp_bus
-> > > > > *bus) }
-> > > > > 
-> > > > >  EXPORT_SYMBOL(phy_sfp_detach);
-> > > > > 
-> > > > > +static int phy_sfp_module_insert(void *upstream, const struct
-> > > > > sfp_eeprom_id *id) +{
-> > > > > +	struct phy_device *phydev = upstream;
-> > > > > +	struct phy_port *port = phy_get_sfp_port(phydev);
-> > > > > +
-> > > > 
-> > > > RCT
-> > > 
-> > > Can't be done here, it won't build if in the other order...
+On Wed, 28 May 2025 09:35:35 +0200
+Romain Gantois <romain.gantois@bootlin.com> wrote:
+
+> On Friday, 23 May 2025 14:54:57 CEST Maxime Chevallier wrote:
+> > Hi Romain,
 > > 
-> > You could always separate the declaration from the assignment, I've seen
-> > that done quite a lot to keep things in RCT.
+> > On Mon, 12 May 2025 10:38:52 +0200
 > > 
-> > > > > +	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
-> > > > > +	DECLARE_PHY_INTERFACE_MASK(interfaces);
-> > > > > +	phy_interface_t iface;
-> > > > > +
-> > > > > +	linkmode_zero(sfp_support);
-> > > > > +
-> > > > > +	if (!port)
-> > > > > +		return -EINVAL;
-> > > > > +
-> > > > > +	sfp_parse_support(phydev->sfp_bus, id, sfp_support, 
-interfaces);
-> > > > > +
-> > > > > +	if (phydev->n_ports == 1)
-> > > > > +		phydev->port = sfp_parse_port(phydev->sfp_bus, id,
-> > > > 
-> > > > sfp_support);
-> > > > 
-> > > > As mentionned below, this check looks a bit strange to me. Why are we
-> > > > only
-> > > > parsing the SFP port if the PHY device only has one registered port?
+> > Romain Gantois <romain.gantois@bootlin.com> wrote:  
+> > > Hi Maxime,
 > > > 
-> > > Because phydev->port is global to the PHY. If we have another port,
-> > > then phydev->port must be handled differently so that SFP insertion /
-> > > removal doesn't overwrite what the other port is.
-> > 
-> > Okay, I see, thanks for explaining.
-> > 
-> > > Handling of phydev->port is still fragile in this state of the series,
-> > > I'll try to improve on that for V7 and document it better.
+> > > On Wednesday, 7 May 2025 15:53:22 CEST Maxime Chevallier wrote:  
+> > > > There are currently 4 PHY drivers that can drive downstream SFPs:
+> > > > marvell.c, marvell10g.c, at803x.c and marvell-88x2222.c. Most of the
+> > > > logic is boilerplate, either calling into generic phylib helpers (for
+> > > > SFP PHY attach, bus attach, etc.) or performing the same tasks with a
+> > > > 
+> > > > bit of validation :
+> > > >  - Getting the module's expected interface mode
+> > > >  - Making sure the PHY supports it
+> > > >  - Optionnaly perform some configuration to make sure the PHY outputs
+> > > >  
+> > > >    the right mode
+> > > > 
+> > > > This can be made more generic by leveraging the phy_port, and its
+> > > > configure_mii() callback which allows setting a port's interfaces when
+> > > > the port is a serdes.
+> > > > 
+> > > > Introduce a generic PHY SFP support. If a driver doesn't probe the SFP
+> > > > bus itself, but an SFP phandle is found in devicetree/firmware, then the
+> > > > generic PHY SFP support will be used, relying on port ops.
+> > > > 
+> > > > PHY driver need to :
+> > > >  - Register a .attach_port() callback
+> > > >  - When a serdes port is registered to the PHY, drivers must set
+> > > >  
+> > > >    port->interfaces to the set of PHY_INTERFACE_MODE the port can output
+> > > >  
+> > > >  - If the port has limitations regarding speed, duplex and aneg, the
+> > > >  
+> > > >    port can also fine-tune the final linkmodes that can be supported
+> > > >  
+> > > >  - The port may register a set of ops, including .configure_mii(), that
+> > > >  
+> > > >    will be called at module_insert time to adjust the interface based on
+> > > >    the module detected.
+> > > > 
+> > > > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> > > > ---
+> > > > 
+> > > >  drivers/net/phy/phy_device.c | 107 +++++++++++++++++++++++++++++++++++
+> > > >  include/linux/phy.h          |   2 +
+> > > >  2 files changed, 109 insertions(+)
+> > > > 
+> > > > diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+> > > > index aaf0eccbefba..aca3a47cbb66 100644
+> > > > --- a/drivers/net/phy/phy_device.c
+> > > > +++ b/drivers/net/phy/phy_device.c
+> > > > @@ -1450,6 +1450,87 @@ void phy_sfp_detach(void *upstream, struct
+> > > > sfp_bus
+> > > > *bus) }
+> > > > 
+> > > >  EXPORT_SYMBOL(phy_sfp_detach);
+> > > > 
+> > > > +static int phy_sfp_module_insert(void *upstream, const struct
+> > > > sfp_eeprom_id *id) +{
+> > > > +	struct phy_device *phydev = upstream;
+> > > > +	struct phy_port *port = phy_get_sfp_port(phydev);
+> > > > +  
 > > > 
-> > > > > +
-> > > > > +	linkmode_and(sfp_support, port->supported, sfp_support);
-> > > > > +
-> > > > > +	if (linkmode_empty(sfp_support)) {
-> > > > > +		dev_err(&phydev->mdio.dev, "incompatible SFP module
-> > > > 
-> > > > inserted\n");
-> > > > 
-> > > > > +		return -EINVAL;
-> > > > > +	}
-> > > > > +
-> > > > > +	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
-> > > > > +
-> > > > > +	/* Check that this interface is supported */
-> > > > > +	if (!test_bit(iface, port->interfaces)) {
-> > > > > +		dev_err(&phydev->mdio.dev, "incompatible SFP module
-> > > > 
-> > > > inserted\n");
-> > > > 
-> > > > > +		return -EINVAL;
-> > > > > +	}
-> > > > > +
-> > > > > +	if (port->ops && port->ops->configure_mii)
-> > > > > +		return port->ops->configure_mii(port, true, iface);
-> > > > 
-> > > > The name "configure_mii()" seems a bit narrow-scoped to me, as this
-> > > > callback might have to configure something else than a MII link. For
-> > > > example, if a DAC SFP module is inserted, the downstream side of the
-> > > > transciever will have to be configured to 1000Base-X or something
-> > > > similar.
+> > > RCT  
+> > 
+> > Can't be done here, it won't build if in the other order...
+> >   
+> 
+> You could always separate the declaration from the assignment, I've seen that 
+> done quite a lot to keep things in RCT.
+> 
+> > > > +	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
+> > > > +	DECLARE_PHY_INTERFACE_MASK(interfaces);
+> > > > +	phy_interface_t iface;
+> > > > +
+> > > > +	linkmode_zero(sfp_support);
+> > > > +
+> > > > +	if (!port)
+> > > > +		return -EINVAL;
+> > > > +
+> > > > +	sfp_parse_support(phydev->sfp_bus, id, sfp_support, interfaces);
+> > > > +
+> > > > +	if (phydev->n_ports == 1)
+> > > > +		phydev->port = sfp_parse_port(phydev->sfp_bus, id,  
 > > > 
-> > > In that regard, you can consider 1000BaseX as a MII mode (we do have
-> > > PHY_INTERFACE_MODE_1000BASEX).
-> > 
-> > Ugh, the "1000BaseX" terminology never ceases to confuse me, but yes
-> > you're
-> > right.
-> > 
-> > > > I'd suggest something like "post_sfp_insert()", please let me know
-> > > > what
-> > > > you
-> > > > think.
+> > > sfp_support);
 > > > 
-> > > That's not intended to be SFP-specific though. post_sfp_insert() sounds
-> > > lke the narrow-scoped name to me :) Here we are dealing with a PHy that
-> > > has a media-side port that isn't a MDI port, but an MII interface like
-> > > a MAC would usually export. There may be an SFP here, or something else
-> > > entirely :)
+> > > As mentionned below, this check looks a bit strange to me. Why are we only
+> > > parsing the SFP port if the PHY device only has one registered port?  
 > > 
-> > Is that callback really not meant to be SFP-specific? It's only called
-> > from
-> > phy_sfp_module_insert() though.
+> > Because phydev->port is global to the PHY. If we have another port,
+> > then phydev->port must be handled differently so that SFP insertion /
+> > removal doesn't overwrite what the other port is.
+> >   
 > 
-> Well for now yeah as this is the only user now, but ports are meant to
-> be about more than drving SFPs.
+> Okay, I see, thanks for explaining.
 > 
-> This series as of today is quite long but doesn't cover the other
-> classes of use-cases which are non-phy-driven ports.
+> > Handling of phydev->port is still fragile in this state of the series,
+> > I'll try to improve on that for V7 and document it better.
+> >   
+> > > > +
+> > > > +	linkmode_and(sfp_support, port->supported, sfp_support);
+> > > > +
+> > > > +	if (linkmode_empty(sfp_support)) {
+> > > > +		dev_err(&phydev->mdio.dev, "incompatible SFP module  
+> > > 
+> > > inserted\n");
+> > >   
+> > > > +		return -EINVAL;
+> > > > +	}
+> > > > +
+> > > > +	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
+> > > > +
+> > > > +	/* Check that this interface is supported */
+> > > > +	if (!test_bit(iface, port->interfaces)) {
+> > > > +		dev_err(&phydev->mdio.dev, "incompatible SFP module  
+> > > 
+> > > inserted\n");
+> > >   
+> > > > +		return -EINVAL;
+> > > > +	}
+> > > > +
+> > > > +	if (port->ops && port->ops->configure_mii)
+> > > > +		return port->ops->configure_mii(port, true, iface);  
+> > > 
+> > > The name "configure_mii()" seems a bit narrow-scoped to me, as this
+> > > callback might have to configure something else than a MII link. For
+> > > example, if a DAC SFP module is inserted, the downstream side of the
+> > > transciever will have to be configured to 1000Base-X or something
+> > > similar.  
+> > 
+> > In that regard, you can consider 1000BaseX as a MII mode (we do have
+> > PHY_INTERFACE_MODE_1000BASEX).
+> >   
 > 
-> Taking the example of the Turris Omnia, we have something like that :
+> Ugh, the "1000BaseX" terminology never ceases to confuse me, but yes you're 
+> right.
 > 
->       +------------------+
+> > > I'd suggest something like "post_sfp_insert()", please let me know what
+> > > you
+> > > think.  
+> > 
+> > That's not intended to be SFP-specific though. post_sfp_insert() sounds
+> > lke the narrow-scoped name to me :) Here we are dealing with a PHy that
+> > has a media-side port that isn't a MDI port, but an MII interface like
+> > a MAC would usually export. There may be an SFP here, or something else
+> > entirely :)
+> >   
 > 
->       | MUX  +--------+  |
->       | 
->       |    +-| port 1 | --- SGMII - PHY
->       |    
->       |    | +--------+  |
-> 
-> MAC -------+             |
-> 
->       |    | +--------+  |
->       |    
->       |    +-| port 2 | ---- SGMII/1000BaseX - SFP
->       |    
->       |      +--------+  |
-> 
->       +------------------+
-> 
-> Here we have 1 mac that drives 2 ports through a MUX. So the ports here
-> would be driven by the mux driver (which I have a framewrok for ready to
-> send once this series lands). The goal would be to use the same
-> phy_port representation for these 2 ports, the .configure_mii()
-> callback will be used to switch between ports (so, perform the muxing),
-> then the rest of the stack takes over through the usual means (phylink,
-> phylib and all that). So here, the .configure_mii() ops doesn't
-> necessarily drives an SFP :)
+> Is that callback really not meant to be SFP-specific? It's only called from 
+> phy_sfp_module_insert() though.
 
-I see, thanks again for explaining.
+Well for now yeah as this is the only user now, but ports are meant to
+be about more than drving SFPs.
 
-Thanks,
+This series as of today is quite long but doesn't cover the other
+classes of use-cases which are non-phy-driven ports.
 
--- 
-Romain Gantois, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Taking the example of the Turris Omnia, we have something like that :
 
---nextPart12805152.O9o76ZdvQC
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
+      +------------------+ 
+      | MUX  +--------+  |
+      |    +-| port 1 | --- SGMII - PHY
+      |    | +--------+  |
+MAC -------+             |
+      |    | +--------+  |
+      |    +-| port 2 | ---- SGMII/1000BaseX - SFP
+      |      +--------+  |
+      +------------------+
 
------BEGIN PGP SIGNATURE-----
+Here we have 1 mac that drives 2 ports through a MUX. So the ports here
+would be driven by the mux driver (which I have a framewrok for ready to
+send once this series lands). The goal would be to use the same
+phy_port representation for these 2 ports, the .configure_mii()
+callback will be used to switch between ports (so, perform the muxing),
+then the rest of the stack takes over through the usual means (phylink,
+phylib and all that). So here, the .configure_mii() ops doesn't
+necessarily drives an SFP :)
 
-iQIzBAABCgAdFiEEYFZBShRwOvLlRRy+3R9U/FLj284FAmg2xkwACgkQ3R9U/FLj
-2871iRAAgQamZldk5/l3rtmKpYjN6tVlCAfp8Itpq7UsG+NBnJHjGKDhdNt5KLMt
-P44MHwli5WlyRVXuIYYA3XxilyqAKUkBaMQBWPzg4mZbaZGSPJl1uVanurWkE7lJ
-y7KWe/LiVDdTkOTvstzlPCqPMsj7bhmoezTlQsWJZSO5XKQHXIxK/pMHSHvLopm1
-ev5g4RW0uvLk5JyvZQJsUKBr2ImQLAcy1yszQgpGGSjrRFNCR3LN9tdJdrkEKzid
-R2h8CMjvRdZ/G8B1RUITv7F9QnA3Sie28dKVLzFQqBbD/bTAiWhSJ5pV1Pmvevql
-W6hNt7gQsNPWnZYIUJ5L48iLd8pXuypaDpsWcNZOW+BZkCzpdu5TMURHQHoLM8NO
-7ocpwL7e0PSmY2opOy5WEiBMbruvm23d/BZJQxJWJOWjSbjgXjpts5GMcllKjwxG
-J8Nl26Y0S1luX/CDaqF8p1eX4ACqCSkep9uc4kVOr2tawffXC2GLInXbNtY00kWT
-oFKyZmTIYBPgmM++EeduBEEV+JAXdWcQDNmIqKr6hljL+OdDHjL6syrtTfgjgIEO
-rfTXYKSP7wpSgiZ1UKTMvo0F+QEjllLLxQ6pE1aQVZJ9K5KrecpnvSDMf6xA2YYv
-M6LGxBfbzDXilciejANK/66uoAfFw9CNjNfeyPonBnVq65700gc=
-=a0JB
------END PGP SIGNATURE-----
-
---nextPart12805152.O9o76ZdvQC--
-
-
-
+Maxime
 
