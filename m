@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A18C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 02:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9AB6C54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 03:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4QVCrwFga7VCzG3Y0sAuFXlGZgCRKGevrmncrDPwjQQ=; b=zl1wsFYBUTymxNeGTc2O+YigTL
-	Q7tZgvXHN1mE3F04Cwbzi9M9CCXbXuJW/nlRzYT9gqV1KY1nLqmWm42ejq4pbrdIjQi77yc4LYLb7
-	v3gkg5o2Lbc21GnhrlmLnIZ8lW+OIWpJrz+SxH9CFHF+cP4n07p+xyhOAL0sRiqFI9HOmMth+Z3xh
-	z+TmqRu5cFuboptNYN3UBJqp0NbI/WbnHg2S8ykBi7lmOHLWHhgHpY8U8FXMOEnep4a/uy5/Z7arV
-	a9l9CyggpXFSiR6ZdoLjftVYjbVYsfqVnL09wRIyVbgQgW7w8N+f2C5IRiyAUI5GyOzjwdXo4pWI8
-	t+FS1jLg==;
+	bh=qYmnbtrMxduOKu9ITGTitlSbMtTKd5M645QiTbXrAaY=; b=ytVU/5SDbaOrKqWeDNeCFHt8t7
+	8zcINCZmTeTtDvF2x/0diEtQew0BD8XYVI6RIG+vM0Jtd5NYMCufFYX6fbI2N3BhyLEE+fjdwM8FY
+	q0Bm9hSpHW7up3VD7TjQkEk+wVfKj0p1nI6nh1O8Np1cWYtg1L9OLNxBEXnAaTzr+7sC5eRYXJJig
+	N3xFBblhGWgYEys8uXM0/uahNmK2uZU9hos+bi2hsfW3AlVVWyBxhlZzqcaswQL9RUaj0rR0heFa2
+	G7ShwrNaBzOP8cW9MOU1JJUvgonaIv5M4qvDL0Zs+XYQSbGHJaEydhE4G9m2Y8aFWkW/3WntbohBx
+	4vz/Q1dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK6kl-0000000C0Y1-3RCo;
-	Wed, 28 May 2025 02:42:51 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1uK78t-0000000C1YJ-3BWX;
+	Wed, 28 May 2025 03:07:47 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK6ie-0000000C0RG-1Vn6;
-	Wed, 28 May 2025 02:40:41 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3114416a5e1so2182824a91.3;
-        Tue, 27 May 2025 19:40:39 -0700 (PDT)
+	id 1uK76m-0000000C1Pu-1bmX;
+	Wed, 28 May 2025 03:05:37 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-31149f0393dso2309200a91.1;
+        Tue, 27 May 2025 20:05:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748400039; x=1749004839; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1748401535; x=1749006335; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4QVCrwFga7VCzG3Y0sAuFXlGZgCRKGevrmncrDPwjQQ=;
-        b=Eo/kyk+obxMVswOcIkKnfrgRcyZSWItFyJN+FZjvYDigv4lpo6lQ52g8p9j1zOV0Sf
-         Llq0Jv+QQitXGWQR/aI3BTUdbA2N/WgukP3oesk2ZC9idpxtHzCzDZqO0aLKHBYWh1l4
-         p35YrhGc0QKpgQ6/oD7h1vdsqKRM8Dby8DTqCTz2vH8jlRCo4Jb5q0fcKg5K3vp0yxil
-         QaRq8YdmPgUL5x4P1WIsHikLcV3zhga+s7uvtGiR2yYiy9iLg4JWaz6PzsIVN4r5jX3s
-         k8/mg12hQICo6Fc20juRDjhP/TBKFze1D3WOFQZlI0calepVHievhR7bzd9nqgbg3Lvq
-         ZB8A==
+        bh=qYmnbtrMxduOKu9ITGTitlSbMtTKd5M645QiTbXrAaY=;
+        b=ZHMAsfZc5YNpPZ/T7nY/qV1ZQVfyTt5LpEaiz4b66itgXfbnu8Lo8x+HmgMX6XcKSU
+         0TE6ICAMAmSjPRHFezKJugQg2kPXseSDOxja38PDskpZ5mu6dybxGpTX4xIaw8ABpXsu
+         7thDMW13rh+yGuC7HUVMrpE2lkGnxxildmVAOc3NSVJkbu3ALOAxrcny26EHTMwtr8vl
+         6WkKfpFmvaJAJJKIjFLGYRpFd6Aj0hTF5agMrN1oVM3qozhURCj4Pi8M1z6sLf9DNrYL
+         SnS+fPhpyRbgHj5S9RheNlU87l6QuMiRv0h9Jye6YH9q96G6yApgj2GOMZubDevUPDFK
+         1qzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748400039; x=1749004839;
+        d=1e100.net; s=20230601; t=1748401535; x=1749006335;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4QVCrwFga7VCzG3Y0sAuFXlGZgCRKGevrmncrDPwjQQ=;
-        b=hA4EXqTufNF2PguUPldzOd09xZeu5DB7xCqDdGXauwoWRaeFGMVwGo4gHj6V/XPtFY
-         4SMOKzdDh5zq//d4xzNrUjf78Pk5uwkRSZB89gzWJuSwk2Et5Bpvtl9IMOcQFNFGynwV
-         oVL5vaCVdD59hoHMza/ZoC2cruyRoQbKX5V3yZUAWyBv57BONynVEWUx7I9fhLnGUCpD
-         sCq0bIMRVlN2BcfoeN15ySe4FsbLXcKbdVASduviGwSixDi2veRDPoef4dt4G6dHqP9j
-         +o9cXaAJJnRQaasW5RZH5rWkNwrgMBTsXWnAkSiA75Stq5wwpGsK1AnuXCj/+ONaZN8f
-         04JA==
-X-Forwarded-Encrypted: i=1; AJvYcCUlsYnluW7Vvm2xN6OVLKcJOtRDbDWGa+GsWqpWW7m0kH5HZeWFQ8pqqdxGOyZgBWOnyk8RqACRtZQV4RTfjCE=@lists.infradead.org, AJvYcCWPqjgdQFcgmpY38Ukg/R6pPQ0mXb0S56M5qEoyo67228f9fHphE5DbKpsvLuH4Oar9R8AmwUjLyc+/MMbWuJX8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDn3ribhCHpQ+wtElhLuf8lzMhJXWFcBHzRlCiz/7BkWl0e6hD
-	aNWeelSl6eXMU0gzuduIpi9LMQJ7NzPz6RA/oKBCs/zqST3Cmd4LOTWpADpmuFcNg5LkPiLvFjh
-	kA0zqNlK1OywslWkaeVkgSihx+4heDJU=
-X-Gm-Gg: ASbGnct/CFy3QMeebLzjCq2DtwD/0TqeUq0QefjRA7AY3i2/WqZmQ/lEnNZqL0fbtWf
-	Sjma+61EjXu34VhfZtDemOJ2ijwzWRTjExmgJHRWnBFfHEUdazReRVbhH1zUon/YMqyUrbQsJBO
-	I4ntCBPFJ6VKg/R8WuFqS1h5w+P+g+bT11
-X-Google-Smtp-Source: AGHT+IHRMZo43pEeAtLI78ACPEQsq81r4IdJpe7xwrqhoPqeVeSetdh3kIm1Bu4kbG/AqnuQglUbFQNYsL16HqS/f2o=
-X-Received: by 2002:a17:90b:350f:b0:311:b3e7:fb3c with SMTP id
- 98e67ed59e1d1-311e7470ad2mr865718a91.31.1748400038884; Tue, 27 May 2025
- 19:40:38 -0700 (PDT)
+        bh=qYmnbtrMxduOKu9ITGTitlSbMtTKd5M645QiTbXrAaY=;
+        b=NTJncceniYRVW6QdJP13HJUCzVtmUAxcovZtCJ/xL4qAAZgkIOleHmPyxReorlPl+5
+         0xmsfhqdtxLMrcOe/U1tO/2a0lQ951jCgCFc6f0KJnrJL/41cUmonzakL4soelOphA+I
+         nT9P8VEEv7vz/9GwkdUyFHKjFvxTJSmi9yF5TasCroEEoYp7uq0CGK4sm5XMTiMrIyUk
+         DpJLTJy7uHCBNWY8CuildeLigIPmNyDByvtNLlqI1UCB10a4rVdQkflPpcgU0B0AhGIR
+         Gt0rH6dynecW5wEULKtGZ3eM+wKsbvcInGioCmbq0QJwagFuI7PGuhGG37crVfwxFjWO
+         HXwg==
+X-Forwarded-Encrypted: i=1; AJvYcCVDlnmZStMEkXrkh6PbIWus0fvM+fQ31d4+XrpYuQq4zdG2h+cKRjOwwP6Qa8JAYR2ZjI7P4njlLWqQT1rNOIXa@lists.infradead.org, AJvYcCXFr9jMfPFVaGqyPhfXLSrLk690PTnRNFsJ86KZiGiRGdQrhewskHQjAwZjyoxiRbVQAFSLgsGX4BNpa8QXxy8=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxd5MgIOYnSGosJcl0ctJ2bfAO69dHig0jjYEV1rNYcnx9KKN0y
+	3om4dFaP5iqo83FbnLYsflLo3lqpUN7doVks2WfeWE0qG0g+015Jv/d8yT2GTBen1O9yRvEHUzm
+	SlZMEo1rLA1XuzWUWtW5w6MxBGo48r9Y=
+X-Gm-Gg: ASbGncs07mOvHWpryUWMuJXq/oM/bwDFRyzhY1X+BGm4nl/NxrR7szmghqQRQ9O6j7J
+	V5IyDZv53infbxw+SXIDsLxTd0ICWFXE47sfZPNe81q0fXQBwbepuN9Cd87c0Q8YER0afdRGXli
+	a/i3CEAyfr4tNYp5eO4/eaazKFt9004L4wutCT6JqTMpQ=
+X-Google-Smtp-Source: AGHT+IEZ6LkUmKwlZlKmCgrqaa17DjFrtDszVlcH7RcGvuUieg+Ee25K0BY70YK/3VI5vchDvPkcpByMtCn4N3Ku04o=
+X-Received: by 2002:a17:90b:4b8b:b0:311:d670:a0e9 with SMTP id
+ 98e67ed59e1d1-311d670ad95mr2330419a91.21.1748401535339; Tue, 27 May 2025
+ 20:05:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250502150513.4169098-1-m.felsch@pengutronix.de> <20250502150513.4169098-6-m.felsch@pengutronix.de>
-In-Reply-To: <20250502150513.4169098-6-m.felsch@pengutronix.de>
+References: <20250502150513.4169098-1-m.felsch@pengutronix.de>
+ <20250502150513.4169098-8-m.felsch@pengutronix.de> <CAHCN7x+Lu9momgX3Vwp+Yu+Tet5Q=k2vCL83SMLuad24SDchEg@mail.gmail.com>
+ <20250502165535.aeb2osq2vnxsudmq@pengutronix.de>
+In-Reply-To: <20250502165535.aeb2osq2vnxsudmq@pengutronix.de>
 From: Adam Ford <aford173@gmail.com>
-Date: Tue, 27 May 2025 21:40:27 -0500
-X-Gm-Features: AX0GCFtDk6wBi6zhuoVYcuypl9PXHMAr0D_EC9JmX8PK8nOKUAJQE21kF0uG_U0
-Message-ID: <CAHCN7x+KiZKwN6hHji38xqid8A-wLVSFgqrbx0jkj+KyjvuKhg@mail.gmail.com>
-Subject: Re: [RFC PATCH 05/11] arm64: dts: imx8mp: drop gpcv2 vpu
- power-domains and clocks
+Date: Tue, 27 May 2025 22:05:23 -0500
+X-Gm-Features: AX0GCFu8yyPWk2ODj0OO3w1sV1GGZuj2FPHpU_Gczh74crcCq6_GDYUbvmDndvY
+Message-ID: <CAHCN7xLecU12XtXFuwfNP+eee+9RLCSB9iErNmk7VFV+WrozJA@mail.gmail.com>
+Subject: Re: [RFC PATCH 07/11] arm64: dts: imx8mp: fix VPU_BUS clock setting
 To: Marco Felsch <m.felsch@pengutronix.de>
 Cc: nicolas.dufresne@collabora.com, benjamin.gaignard@collabora.com, 
 	p.zabel@pengutronix.de, mchehab@kernel.org, shawnguo@kernel.org, 
@@ -85,8 +86,8 @@ Cc: nicolas.dufresne@collabora.com, benjamin.gaignard@collabora.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_194040_408019_D35B6846 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20250527_200536_429585_40F1B237 
+X-CRM114-Status: GOOD (  25.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,79 +102,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 2, 2025 at 10:10=E2=80=AFAM Marco Felsch <m.felsch@pengutronix.=
+On Fri, May 2, 2025 at 11:55=E2=80=AFAM Marco Felsch <m.felsch@pengutronix.=
 de> wrote:
 >
-> The GPCv2 G1, G2 and VC8000E power-domain don't need to reference the
-> VPUMIX power-domain nor their module clocks since the power and reset
-> handling is done by the VPUMIX blkctrl driver.
+> On 25-05-02, Adam Ford wrote:
+> > On Fri, May 2, 2025 at 10:10=E2=80=AFAM Marco Felsch <m.felsch@pengutro=
+nix.de> wrote:
+> > >
+> > > The VPU_PLL clock must be set before the VPU_BUS clock which is deriv=
+ed
+> > > from the VPU_PLL clock else the VPU_BUS clock is 300MHz and not 600MH=
+z.
+
+I did verify the current clock rate ends up at 300MHz instead of the
+desired 600 or 800MHz, so we should do something.
+
+> > >
+> > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > ---
+> > >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 ++--
+> > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/b=
+oot/dts/freescale/imx8mp.dtsi
+> > > index 97b09b647ec7..7f4bdefb3480 100644
+> > > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > @@ -2289,8 +2289,8 @@ vpumix_blk_ctrl: blk-ctrl@38330000 {
+> > >                                  <&clk IMX8MP_CLK_VPU_G2_ROOT>,
+> > >                                  <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>;
+> > >                         clock-names =3D "g1", "g2", "vc8000e";
+> > > -                       assigned-clocks =3D <&clk IMX8MP_CLK_VPU_BUS>=
+, <&clk IMX8MP_VPU_PLL>;
+> > > -                       assigned-clock-parents =3D <&clk IMX8MP_VPU_P=
+LL_OUT>;
+> > > +                       assigned-clocks =3D <&clk IMX8MP_VPU_PLL>, <&=
+clk IMX8MP_CLK_VPU_BUS>;
+> > > +                       assigned-clock-parents =3D <0>, <&clk IMX8MP_=
+VPU_PLL_OUT>;
+> > >                         assigned-clock-rates =3D <600000000>, <600000=
+000>;
+> >
+> > I think there was a move to make the default be overdrive [1]  and [2]
+> > and use a 'nominal' device tree for those who are not in overdrive
+> > mode.  According to the TRM, the VPU_BUS_CLK_ROOT, the nominal is
+> > 600MHz and the overdrive is 800MHz.  Based on that, I wonder if the
+> > values here should be 800MHz and if we should add the nominal values
+> > of 600MHz to the imx8m-nominal.dtsi file.
 >
-Using fluster, I wanted to test this.  I didn't test fluster before this:
+> You're right, Ahamd and Lucas did change this. I will adapt it later on.
+
+I updated my device tree to run in overdrive mode and ran fluster at
+the higher rates:
+VPU_G1 - 800MHz,
+VPU-G2 - 700MHz
+VPU-Bus - 800MHz
 
 ./fluster.py run -d GStreamer-VP8-V4L2SL-Gst1.0
-Ran 57/61 tests successfully               in 7.059 secs
+Ran 57/61 tests successfully               in 5.922 secs
+(vs 7.059 secs at nominal speed)
 
 ./fluster.py run -dGStreamer-H.264-V4L2SL-Gst1.0
-Ran 129/135 tests successfully               in 45.741 secs
+Ran 129/135 tests successfully               in 40.107 secs
+(vs 45.741 secs at nominal speed)
 
-Both of these outperformed the tests I ran a while ago on the imx8mm
-running at 600MHz.  I haven't updated my clocks to run at overdrive
-rates yet, but if you want, I could help with that.  Either way, I
-think you could push submit patch as a stand-alone or with some clock
-updates even before the adding the encoder stuff.
+If you want, I can submit the clock updates I have for overdrive or
+send them to you to save you some time.
 
-Tested-by: Adam Ford <aford173@gmail.com> #imx8mp-beacon-kit
+adam
 
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 7 -------
->  1 file changed, 7 deletions(-)
 >
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/=
-dts/freescale/imx8mp.dtsi
-> index e0d3b8cba221..cf9b6c487bd5 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> @@ -879,24 +879,17 @@ pgc_mediamix: power-domain@10 {
->
->                                         pgc_vpu_g1: power-domain@11 {
->                                                 #power-domain-cells =3D <=
-0>;
-> -                                               power-domains =3D <&pgc_v=
-pumix>;
->                                                 reg =3D <IMX8MP_POWER_DOM=
-AIN_VPU_G1>;
-> -                                               clocks =3D <&clk IMX8MP_C=
-LK_VPU_G1_ROOT>;
->                                         };
->
->                                         pgc_vpu_g2: power-domain@12 {
->                                                 #power-domain-cells =3D <=
-0>;
-> -                                               power-domains =3D <&pgc_v=
-pumix>;
->                                                 reg =3D <IMX8MP_POWER_DOM=
-AIN_VPU_G2>;
-> -                                               clocks =3D <&clk IMX8MP_C=
-LK_VPU_G2_ROOT>;
-> -
->                                         };
->
->                                         pgc_vpu_vc8000e: power-domain@13 =
-{
->                                                 #power-domain-cells =3D <=
-0>;
-> -                                               power-domains =3D <&pgc_v=
-pumix>;
->                                                 reg =3D <IMX8MP_POWER_DOM=
-AIN_VPU_VC8000E>;
-> -                                               clocks =3D <&clk IMX8MP_C=
-LK_VPU_VC8KE_ROOT>;
->                                         };
->
->                                         pgc_hdmimix: power-domain@14 {
-> --
-> 2.39.5
->
->
+> Regards,
+>   Marco
 
