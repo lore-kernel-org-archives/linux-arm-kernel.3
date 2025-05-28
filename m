@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC63C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 06:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D63C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 06:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0h2GSbYno9GnN+SE7DSago4DWsquREdEphyEsb2V8jU=; b=hTMb/UJ6UVUMdand7eEZQ9D19j
-	GqWUeTdr6D+C3cDcyjjS0XjPogAKEkjacpm8WXJXUqzEgqYGFNAzHak9hyweA+MgToSGMujkh7lTi
-	nmNukXZAefcV70h5Zr7cDbVWsMQrcpsHW9hSuoJLr+4Wt0V7IDZfiyeBZEags0KWGZ3h/MLZurCJe
-	Y12YR+3DZAI3Ot1EZwUT7bo/aTZuM89Vtiupf8u+qmGDZoZpGE3IJ8oN8BJy4p5yeOKJ6sciA8+hL
-	RLpdo4kdnxmFluWZiIZBox0zts9zVzHrP6aODUy+3uyzSCpF/teDJIUAPv440GrQWkhwoKeA8GmXm
-	99VWnieg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mJCr006rkzx0rHeznFVbYO77+GKI3Gx0pNyCfV0wuq8=; b=EGbjqmLLZz6fnX0U6GnR6SJrYw
+	gp7q3irfZ6f6aV6V8AtNF2X7T+fat9j6keKqgn7HlolSQnNomKPW7wHQRfN/h5b1IU8aDwBM2YGv9
+	X5HyF1HGJtBLDx9bli4n+7jiBKZt6BI1nfu3FLgYKtmgnOOLqepDRW5DNM7WuGq9AV+wKyPv/c9DW
+	ojPjFFu0A2Er2+18CzyzJFK4YM/OeqEqhZssIPWatyGyCfby0gbPi2IMVP2/tplm3kZf8lW2wFjw3
+	mCOE7sy/Ahoa3i8cnWrKRaZgt3a5bhj3CQKZPUL/ExyMq94NsVudRdLyiTv/dVFIcLGPs9zpsZAIG
+	LRGnz/kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKA9I-0000000CHeY-3hAR;
-	Wed, 28 May 2025 06:20:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uKABN-0000000CHoE-2Ppi;
+	Wed, 28 May 2025 06:22:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKA3T-0000000CHAc-1elD
+	id 1uKA3p-0000000CHFv-1CFo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 06:14:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1748412863; x=1779948863;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=TktazPySSKGEf/0fslH0MvDKjlP70/UT5hkBSp27kl0=;
-  b=Dg0UZRlZiau9QwNwFHUW4gn6WpjzvSZZW3oBab0o3BpRzkfpMZNHi5Y9
-   wErRjkMnnxLOiMnuucIqRB/kLbMsZBIIeZ/AFhaLzyz1IOcHfeG30DOmI
-   0L29st1CxpZE/z0+cQxr31hYUnH8qkIaFTbDbOLBGPWjxbHaNvKnEOq7D
-   HmklUV+ryVmCWpxDjmr42ywGtzJTS0ja12T9CCp8T732gd+0oFOdT7Z6F
-   zmYq4rAVB2jhJJkq+DBJARDv8NEN+g+m+oKQESyxi64IWqNRTyPXpMdnl
-   CnZFRjH8Vb19pm1JWZsxEjKM2lj6sWLbR013mutn/mm9HzSI8W63i5zOW
-   A==;
-X-CSE-ConnectionGUID: eU1T+fZHR4iBV5joZbGgXA==
-X-CSE-MsgGUID: 73BKs1QST4O0fd8eBA9Lwg==
-X-IronPort-AV: E=Sophos;i="6.15,320,1739862000"; 
-   d="scan'208";a="209641304"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 May 2025 23:14:21 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 27 May 2025 23:13:19 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Tue, 27 May 2025 23:13:16 -0700
-From: Dharma Balasubiramani <dharma.b@microchip.com>
-Date: Wed, 28 May 2025 11:43:04 +0530
-Subject: [PATCH 1/2] counter: microchip-tcb-capture: Retrieve and map
- parent base address
+	Wed, 28 May 2025 06:14:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 54C30614C6;
+	Wed, 28 May 2025 06:14:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A98EFC4CEE7;
+	Wed, 28 May 2025 06:14:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748412884;
+	bh=gSS4CjRAoDJno8ZPj89/BweAbZmckAAF42wPMM0GsLU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aocLOYonwxONTi12LfiZ5xjosNb3Y5gKkNrj56+v0oqn+5bxipcc7fqfKMCLUiPqJ
+	 86koB/f3yH3JfJeFCzRulM0tj0iUYixZECMqlrrgJScAarzNXjZRjx0mo5Zc/ertnT
+	 8tvOuu4HUmgHrE5ANkuyKODt1Qj4IM4GjN2pJu4G+2hJp898Du/mknk+BrCDACyYrY
+	 cdhD6bs1tV3M5NFukEJcRQhBfTCDV7yjlZxxm8fSCmI3bDhNjtnt9hUHWF+Ioq30eW
+	 2vId+gOUX4vWP7jCqmsT4NHqRao2rZzclOgIRz3z+jiai+mHbfe19EkqU5HbAMTMQm
+	 xv3/SBt7Q0Rbg==
+Date: Tue, 27 May 2025 23:14:27 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+	kernel test robot <oliver.sang@intel.com>
+Subject: Re: [linus:master] [crypto]  40b9969796:
+ UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c
+Message-ID: <20250528061427.GA42911@sol>
+References: <202505281024.f42beaa7-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250528-mchp-tcb-dma-v1-1-083a41fb7b51@microchip.com>
-References: <20250528-mchp-tcb-dma-v1-0-083a41fb7b51@microchip.com>
-In-Reply-To: <20250528-mchp-tcb-dma-v1-0-083a41fb7b51@microchip.com>
-To: Kamel Bouhara <kamel.bouhara@bootlin.com>, William Breathitt Gray
-	<wbg@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, "Alexandre
- Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Dharma Balasubiramani
-	<dharma.b@microchip.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748412791; l=2336;
- i=dharma.b@microchip.com; s=20240209; h=from:subject:message-id;
- bh=TktazPySSKGEf/0fslH0MvDKjlP70/UT5hkBSp27kl0=;
- b=EAc2uHlbuqLve1VW5JZDmKi9XT9LMUfU0eHvGLFn/cY0hKmuGha2kLctmQ9DuSGgrd5GAJjeq
- iCD8XMsq//NDmlAV08a/pEX6qXjvlt8leFAbv+5H2ySrbly0AgOMCte
-X-Developer-Key: i=dharma.b@microchip.com; a=ed25519;
- pk=kCq31LcpLAe9HDfIz9ZJ1U7T+osjOi7OZSbe0gqtyQ4=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_231423_499820_F2EDCA21 
-X-CRM114-Status: GOOD (  12.67  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <202505281024.f42beaa7-lkp@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,76 +72,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Retrieve the parent TCB controller's platform_device and map its MMIO
-region using devm_ioremap_resource(). This allows direct register access
-through a base address, which is required for features like DMA that need
-physical addresses.
+[+Kees and linux-hardening]
 
-Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
----
- drivers/counter/microchip-tcb-capture.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+On Wed, May 28, 2025 at 01:15:05PM +0800, kernel test robot wrote:
+> 
+> 
+> Hello,
+> 
+> by this commit, the config has below diff:
+> 
+> --- /pkg/linux/x86_64-randconfig-101-20250522/clang-20/d469eaed223fa485eabebd3bcd05ddd3c891f54e/.config 2025-05-23 23:44:56.781716572 +0800
+> +++ /pkg/linux/x86_64-randconfig-101-20250522/clang-20/40b9969796bfa49ed1b0f7ddc254f48cb2ac6d2c/.config 2025-05-24 02:08:29.858605300 +0800
+> @@ -4837,7 +4837,8 @@ CONFIG_CRYPTO_ACOMP2=y
+>  CONFIG_CRYPTO_MANAGER=y
+>  CONFIG_CRYPTO_MANAGER2=y
+>  # CONFIG_CRYPTO_USER is not set
+> -CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=y
+> +CONFIG_CRYPTO_SELFTESTS=y
+> +# CONFIG_CRYPTO_MANAGER_EXTRA_TESTS is not set
+>  # CONFIG_CRYPTO_NULL is not set
+>  CONFIG_CRYPTO_PCRYPT=m
+>  CONFIG_CRYPTO_CRYPTD=y
+> 
+> it seems tests are enabled then we observe the UBSAN issues
+> 
+> d469eaed223fa485 40b9969796bfa49ed1b0f7ddc25
+> ---------------- ---------------------------
+>        fail:runs  %reproduction    fail:runs
+>            |             |             |
+>            :6          100%           6:6     dmesg.UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c
+>            :6          100%           6:6     dmesg.UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305.c
+> 
+> it's hard for bot to apply this commit to previous commits in bisect, so we just
+> make out below report FYI that we observe UBSAN issues in boot tests.
+> 
+> 
+> kernel test robot noticed "UBSAN:unsigned-integer-overflow_in_lib/crypto/chacha20poly1305-selftest.c" on:
+> 
+> commit: 40b9969796bfa49ed1b0f7ddc254f48cb2ac6d2c ("crypto: testmgr - replace CRYPTO_MANAGER_DISABLE_TESTS with CRYPTO_SELFTESTS")
+> https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git master
+> 
+> [test failed on linux-next/master 176e917e010cb7dcc605f11d2bc33f304292482b]
+> 
+> in testcase: boot
+> 
+> config: x86_64-randconfig-101-20250522
+> compiler: clang-20
+> test machine: qemu-system-x86_64 -enable-kvm -cpu SandyBridge -smp 2 -m 16G
+> 
+> (please refer to attached dmesg/kmsg for entire log/backtrace)
+> 
+> 
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <oliver.sang@intel.com>
+> | Closes: https://lore.kernel.org/oe-lkp/202505281024.f42beaa7-lkp@intel.com
+> 
+> 
+> [   12.442846][    T1] ------------[ cut here ]------------
+> [   12.443261][    T1] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8854:47
+> [   12.444084][    T1] 16 - 114 cannot be represented in type 'size_t' (aka 'unsigned long')
+> [   12.444682][    T1] CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Tainted: G                T   6.15.0-rc5-00342-g40b9969796bf #1 VOLUNTARY
 
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index 1a299d1f350b..9634da75bd1a 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -12,6 +12,7 @@
- #include <linux/mutex.h>
- #include <linux/of.h>
- #include <linux/of_irq.h>
-+#include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- #include <uapi/linux/counter/microchip-tcb-capture.h>
-@@ -29,7 +30,9 @@
- 
- struct mchp_tc_data {
- 	const struct atmel_tcb_config *tc_cfg;
-+	struct platform_device *pdev;
- 	struct regmap *regmap;
-+	void __iomem *base;
- 	int qdec_mode;
- 	int num_channels;
- 	int channel[2];
-@@ -479,6 +482,8 @@ static int mchp_tc_probe(struct platform_device *pdev)
- 	const struct atmel_tcb_config *tcb_config;
- 	const struct of_device_id *match;
- 	struct counter_device *counter;
-+	struct platform_device *parent_pdev;
-+	struct resource *parent_res;
- 	struct mchp_tc_data *priv;
- 	char clk_name[7];
- 	struct regmap *regmap;
-@@ -491,6 +496,18 @@ static int mchp_tc_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 	priv = counter_priv(counter);
- 
-+	parent_pdev = of_find_device_by_node(np->parent);
-+	if (!parent_pdev)
-+		return -EPROBE_DEFER;
-+
-+	parent_res = platform_get_resource(parent_pdev, IORESOURCE_MEM, 0);
-+	if (!parent_res)
-+		return -EINVAL;
-+
-+	priv->base = devm_ioremap_resource(&parent_pdev->dev, parent_res);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
- 	match = of_match_node(atmel_tc_of_match, np->parent);
- 	tcb_config = match->data;
- 	if (!tcb_config) {
-@@ -563,6 +580,7 @@ static int mchp_tc_probe(struct platform_device *pdev)
- 
- 	priv->tc_cfg = tcb_config;
- 	priv->regmap = regmap;
-+	priv->pdev = pdev;
- 	counter->name = dev_name(&pdev->dev);
- 	counter->parent = &pdev->dev;
- 	counter->ops = &mchp_tc_ops;
+This issue predates the blamed commit, and it's specific to
+CONFIG_UBSAN_INTEGER_WRAP which was recently introduced.
 
--- 
-2.43.0
+CONFIG_UBSAN_INTEGER_WRAP apparently requires clang 20.
 
+To try to reproduce this, I built clang from the release/20.x branch, then built
+a kernel with CONFIG_UBSAN_INTEGER_WRAP=y.  When booting that kernel, there are
+many UBSAN reports:
+
+    [    0.000000] UBSAN: negation-overflow in lib/sort.c:199:36
+
+    [    0.000000] UBSAN: negation-overflow in lib/sort.c:185:14
+
+    [    0.276708] UBSAN: unsigned-integer-overflow in ./include/linux/min_heap.h:329:24
+
+    [    0.277376] UBSAN: negation-overflow in ./include/linux/min_heap.h:260:42
+
+    [    0.871191] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8854:47
+
+    [    0.890856] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305-selftest.c:8851:47
+
+    [    0.910455] UBSAN: unsigned-integer-overflow in lib/crypto/chacha20poly1305.c:260:57
+
+    [    1.105542] UBSAN: unsigned-integer-overflow in lib/zstd/compress/zstd_compress_sequences.c:334:21
+
+    [    1.113539] UBSAN: unsigned-integer-overflow in lib/zstd/compress/huf_compress.c:889:23
+
+    [    1.114597] UBSAN: unsigned-integer-overflow in lib/lz4/lz4_compress.c:294:9
+
+So I did get the chacha20poly1305 ones, but they're hardly unique.
+
+If this new sanitizer is going to move forward, is there any sort of plan or
+guide for how to update code to be compatible with it?  Specifically considering
+common situations where unsigned wraparound (which is defined behavior in C) can
+be intentionally relied on, like calculating the distance from the next N-byte
+boundary.  What are the best practices now?
+
+Documentation/dev-tools/ubsan.rst says nothing about this and only mentions
+"undefined behavior", which this is not.
+
+- Eric
 
