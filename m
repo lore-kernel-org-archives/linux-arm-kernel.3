@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AF0C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86731C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qJhBrTcV/2KTHPEGx8A5eIEZm9bF8mIMQSTTxnrKh3w=; b=GgMbn0T7bVnC1iU+6LZVG8Tp3j
-	VD7onUKQXYrOHZYSph4wgr/ruhP0AOfhne7EV8liFa5J3Ve51LaAGGXT6ko/49caukTfKDaXbCCgz
-	N6k1sNueaU6DKt1iRUF4u3nBvfdPK9sIMnZJyHx6GtlbLEJOMe84qCxrHYT6GwtteDb9j4K04sALt
-	Tn+/ppVZV785tq/oxlO5x8/giSbxRYcAyTFeEasPlGKpvXwdc8wXqiuESv64juMWIAAKQGSAMpULy
-	3AsfoQy/fRdHDdOwZW0XkuzTV2dWlOUT1+U7Cz7UbAdnHVvZMtmovSOXqifRSoJQnFC0RMl8eslvA
-	bTHuNFkQ==;
+	bh=ynhKtHNZhTRwVq9palurI4MyzZVC73NWoLGXB5vY6Bg=; b=ZJg1/A6ez5PWcMMjWB9133jwEU
+	gCSi9l8JS770uwWjYDZIb+NuySwMtzBMblELQM/NeSjb6D8sEQ6yd3Fb84NGNh5c4l7uue2ilIiUO
+	movJ8oRMP/FOHOMv8I1cjTWQ7KJ3Hn9kRMO6qsIRndDk5UIVGv4ZYZ57s1YdKqm4E+JC30zZ46U5c
+	yH8obWrR1w38jZ9ch24acePwTRFxrViH+4IetR/7n324wVYkAImcqaK2qNELuqF5lm42+6yZQy+Zm
+	RMrly/k6mzaYPZrm5SPGjA6NtsiNGlkQ2853wshmwMx6E0La9H7Frk/eSpgp0xGtdBC7IeTCdRob6
+	yGZ09h+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJdn-0000000DfX7-2KwO;
-	Wed, 28 May 2025 16:28:31 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1uKJdr-0000000Dfes-3iDS;
+	Wed, 28 May 2025 16:28:35 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJ1K-0000000DarF-40Yd
+	id 1uKJ76-0000000DbJN-1hBB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 15:48:49 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-70e1d8c2dc2so70297b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 08:48:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1748447326; x=1749052126; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qJhBrTcV/2KTHPEGx8A5eIEZm9bF8mIMQSTTxnrKh3w=;
-        b=PqXKXClKzQ3Sfeuv2nVRZ3k9fgX1hg1/loye/XtBC9hqNd72OaMWwBZNTEulKJw2FW
-         zg3f/oeTDigjoHLqHzKdkGoHhQb9NQZCJ/xQk4CdMPtacH9Qb+Tle4jq08g9jDH7B71G
-         f2Tf6GCv8xSZmKxCexdvyTuBHzp6vqLPIg2B3z2tKbIeklFMmYayisoqmETRLzGutMv4
-         1QggDLqL3THmihd9CO+fi2+kKt8QsiWGSUJ3bHbUe1YJ9kIXBO4d+j6Tc/fXGy8ndPYp
-         BwKNM0NABkBU6KnYN5/Cs6vJf2gqaPz/yEG7xizwYWRKGOMZs7iFoPNM2DiLAJB39Zm7
-         7T7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748447326; x=1749052126;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qJhBrTcV/2KTHPEGx8A5eIEZm9bF8mIMQSTTxnrKh3w=;
-        b=pt2kN370WrKEpXohHnCpn8eWSEFocHAI4CvidJxjWWfJzi8XWUxfT4yo91Drglctys
-         DVI+/LvAuPPID+vQIJUB5JmJuG/ysTkri9EpObfm+JPiRO2YsncKRROC6Y0d6o/4g19P
-         5sERBpb9j9M2k5da+dJ3I76BJgJWYeXbfxbr38eodCzK1OiS6gNGT8jni3LXntvryaWC
-         x/KsAmBLjHYPXWJ9089gvZIH48JiAju6TbZD09Uyat7WvykTwxirCOuVNM5MqYpljS8v
-         0DuFEtJ5BVvY3IRkXrMhaeL3KlLTkBlaSyaaVNXRxcqc181AYk1rizsf1YbD4cHowG0b
-         DMkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUtdKG1vI+7CVo7ANalgADLBIRvwb+OTIQN5CObNSK7EbxtM6CI4myWbh4uTDm2NhMxknQ19ZtTlNoo98nd3s7Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmxZMs6z25qTvzc2d9oApPwBy6AfQsOGtMQskyH3gvarQ/d+b2
-	hBiz/p3s+T5SFKIoAnPaI+cJvy3fb68y0aZDNA3alWXQ0s0af1SyS5bHLZwVTsp0BM8cbXKb4OH
-	3dKfgKfnCT9F2v4VG7OOhkmohMH8T2CdnYx1A9jFn
-X-Gm-Gg: ASbGncuDDm271ULypJmyKzvQS2lGnLnxFYmopZDCAj6z6tiY1Yi5uc1vyNzh2bKl5EO
-	CVAY4znfrCAm1yK5HVX1DByyUtcQxA8BSB2COlR/HgFPZhVXY44ch2kcVHfobeoq7aCwS68NW+w
-	yHl81MG/Nr+vSTONKQ59R5Dbbttws0TxiqdlU92yHg5yIy5U0fzo6XkITJKFQdvkNRqbDkDacGt
-	m9x6w==
-X-Google-Smtp-Source: AGHT+IELfFCth5Pbkc2q+fs3hGfuRfgdVh0Gdule7jkxxm4LWUKEs85HrAmHhTzH2guxXlvKX1XFjzs03oe3LxVeaz0=
-X-Received: by 2002:a05:690c:c02:b0:6fb:9280:5bf4 with SMTP id
- 00721157ae682-70e2da69ba1mr219329397b3.30.1748447325426; Wed, 28 May 2025
- 08:48:45 -0700 (PDT)
+	Wed, 28 May 2025 15:54:46 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4b6v9Z09hfz6H6py;
+	Wed, 28 May 2025 23:50:58 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id E14461400CA;
+	Wed, 28 May 2025 23:54:31 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 28 May
+ 2025 17:54:31 +0200
+Date: Wed, 28 May 2025 16:54:29 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Alireza Sanaee <alireza.sanaee@huawei.com>
+CC: <devicetree@vger.kernel.org>, <robh@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxarm@huawei.com>, <mark.rutland@arm.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <krzk@kernel.org>,
+	<dianders@chromium.org>, <catalin.marinas@arm.com>, <suzuki.poulose@arm.com>,
+	<mike.leach@linaro.org>, <james.clark@linaro.org>,
+	<linux-perf-users@vger.kernel.org>, <coresight@lists.linaro.org>,
+	<gshan@redhat.com>, <ruanjinjie@huawei.com>, <saravanak@google.com>
+Subject: Re: [PATCH v3 1/7] of: add infra for finding CPU id from phandle
+Message-ID: <20250528165429.00000d4d@huawei.com>
+In-Reply-To: <20250512080715.82-2-alireza.sanaee@huawei.com>
+References: <20250512080715.82-1-alireza.sanaee@huawei.com>
+	<20250512080715.82-2-alireza.sanaee@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20250109204929.1106563-1-jthoughton@google.com> <aBqlkz1bqhu-9toV@google.com>
-In-Reply-To: <aBqlkz1bqhu-9toV@google.com>
-From: James Houghton <jthoughton@google.com>
-Date: Wed, 28 May 2025 11:48:09 -0400
-X-Gm-Features: AX0GCFuLPsZ5TxH5z7efpKpwgvPpjgQZqJBp0wjKrKAAM8LNrge9ZlG7omP9Ut0
-Message-ID: <CADrL8HXjLjVyFiFee9Q58TQ9zBfXiO+VG=25Rw4UD+fbDmxQFg@mail.gmail.com>
-Subject: Re: [PATCH v2 00/13] KVM: Introduce KVM Userfault
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Yan Zhao <yan.y.zhao@intel.com>, 
-	Nikita Kalyazin <kalyazin@amazon.com>, Anish Moorthy <amoorthy@google.com>, 
-	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
-	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	Jiaqi Yan <jiaqiyan@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_084846_994595_F139D6DD 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20250528_085444_733363_A60206E7 
+X-CRM114-Status: GOOD (  24.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,95 +77,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 6, 2025 at 8:13=E2=80=AFPM Sean Christopherson <seanjc@google.c=
-om> wrote:
->
-> On Thu, Jan 09, 2025, James Houghton wrote:
-> >   KVM: Add KVM_MEM_USERFAULT memslot flag and bitmap
-> >   KVM: Add KVM_MEMORY_EXIT_FLAG_USERFAULT
-> >   KVM: Allow late setting of KVM_MEM_USERFAULT on guest_memfd memslot
-> >   KVM: Advertise KVM_CAP_USERFAULT in KVM_CHECK_EXTENSION
-> >   KVM: x86/mmu: Add support for KVM_MEM_USERFAULT
-> >   KVM: arm64: Add support for KVM_MEM_USERFAULT
-> >   KVM: selftests: Fix vm_mem_region_set_flags docstring
-> >   KVM: selftests: Fix prefault_mem logic
-> >   KVM: selftests: Add va_start/end into uffd_desc
-> >   KVM: selftests: Add KVM Userfault mode to demand_paging_test
-> >   KVM: selftests: Inform set_memory_region_test of KVM_MEM_USERFAULT
-> >   KVM: selftests: Add KVM_MEM_USERFAULT + guest_memfd toggle tests
-> >   KVM: Documentation: Add KVM_CAP_USERFAULT and KVM_MEM_USERFAULT
-> >     details
-> >
-> >  Documentation/virt/kvm/api.rst                |  33 +++-
-> >  arch/arm64/kvm/Kconfig                        |   1 +
-> >  arch/arm64/kvm/mmu.c                          |  26 +++-
-> >  arch/x86/kvm/Kconfig                          |   1 +
-> >  arch/x86/kvm/mmu/mmu.c                        |  27 +++-
-> >  arch/x86/kvm/mmu/mmu_internal.h               |  20 ++-
-> >  arch/x86/kvm/x86.c                            |  36 +++--
-> >  include/linux/kvm_host.h                      |  19 ++-
-> >  include/uapi/linux/kvm.h                      |   6 +-
-> >  .../selftests/kvm/demand_paging_test.c        | 145 ++++++++++++++++--
-> >  .../testing/selftests/kvm/include/kvm_util.h  |   5 +
-> >  .../selftests/kvm/include/userfaultfd_util.h  |   2 +
-> >  tools/testing/selftests/kvm/lib/kvm_util.c    |  42 ++++-
-> >  .../selftests/kvm/lib/userfaultfd_util.c      |   2 +
-> >  .../selftests/kvm/set_memory_region_test.c    |  33 ++++
-> >  virt/kvm/Kconfig                              |   3 +
-> >  virt/kvm/kvm_main.c                           |  54 ++++++-
-> >  17 files changed, 419 insertions(+), 36 deletions(-)
->
-> I didn't look at the selftests changes, but nothing in this series scares=
- me.  We
-> bikeshedded most of this death this in the "exit on missing" series, so f=
-or me at
-> least, the only real question is whether or not we want to add the uAPI. =
- AFAIK,
-> this is best proposal for post-copy guest_memfd support (and not just bec=
-ause it's
-> the only proposal :-D).
+On Mon, 12 May 2025 09:07:09 +0100
+Alireza Sanaee <alireza.sanaee@huawei.com> wrote:
 
-The only thing that I want to call out again is that this UAPI works
-great for when we are going from userfault --> !userfault. That is, it
-works well for postcopy (both for guest_memfd and for standard
-memslots where userfaultfd scalability is a concern).
+> Get CPU id from phandle. Many drivers get do this by getting hold of CPU
+> node first through a phandle and then find the CPU ID using the relevant
+> function. This commit encapsulates cpu node finding and improves
+> readability.
+> 
+> The API interface requires two parameters, 1) node, 2) pointer to CPU
+> node. API sets the pointer to the CPU node and allows the driver to play
+> with the CPU itself, for logging purposes for instance.
+> 
+> Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+> ---
+>  drivers/of/cpu.c   | 29 +++++++++++++++++++++++++++++
+>  include/linux/of.h |  9 +++++++++
+>  2 files changed, 38 insertions(+)
+> 
+> diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
+> index 5214dc3d05ae..fba17994fc20 100644
+> --- a/drivers/of/cpu.c
+> +++ b/drivers/of/cpu.c
+> @@ -173,6 +173,35 @@ int of_cpu_node_to_id(struct device_node *cpu_node)
+>  }
+>  EXPORT_SYMBOL(of_cpu_node_to_id);
+>  
+> +/**
+> + * of_cpu_phandle_to_id: Get the logical CPU number for a given device_node
+> + *
+> + * @node: Pointer to the device_node containing CPU phandle.
+> + * @cpu_np: Pointer to the device_node for CPU.
+> + * @cpu_idx: The index of the CPU in the list of CPUs.
+> + *
+> + * Return: The logical CPU number of the given CPU device_node or -ENODEV if
+> + * the CPU is not found, or if the node is NULL, it returns -1. On success,
+> + * cpu_np will always point to the retrieved CPU device_node with refcount
+> + * incremented, use of_node_put() on it when done.
+> + */
+> +int of_cpu_phandle_to_id(const struct device_node *node,
+> +			 struct device_node **cpu_np,
+> +			 uint8_t cpu_idx)
+> +{
+> +	if (!node)
+> +		return -1;
+> +
+> +	*cpu_np = of_parse_phandle(node, "cpu", 0);
+> +	if (!*cpu_np)
+> +		*cpu_np = of_parse_phandle(node, "cpus", cpu_idx);
+> +			if (!*cpu_np)
+> +				return -ENODEV;
 
-But there is another use case worth bringing up: unmapping pages that
-the VMM is emulating as poisoned.
+Indent has gone a bit crazy here.
 
-Normally this can be handled by mm (e.g. with UFFDIO_POISON), but for
-4K poison within a HugeTLB-backed memslot (if the HugeTLB page remains
-mapped in userspace), KVM Userfault is the only option (if we don't
-want to punch holes in memslots). This leaves us with three problems:
+> +
+> +	return of_cpu_node_to_id(*cpu_np);
+> +}
+> +EXPORT_SYMBOL(of_cpu_phandle_to_id);
+> +
+>  /**
+>   * of_get_cpu_state_node - Get CPU's idle state node at the given index
+>   *
+> diff --git a/include/linux/of.h b/include/linux/of.h
+> index eaf0e2a2b75c..194f1cb0f6c6 100644
+> --- a/include/linux/of.h
+> +++ b/include/linux/of.h
+> @@ -360,6 +360,8 @@ extern const void *of_get_property(const struct device_node *node,
+>  extern struct device_node *of_get_cpu_node(int cpu, unsigned int *thread);
+>  extern struct device_node *of_cpu_device_node_get(int cpu);
+>  extern int of_cpu_node_to_id(struct device_node *np);
+> +extern int of_cpu_phandle_to_id(const struct device_node *np,
+> +				struct device_node **cpu_np, uint8_t cpu_idx);
+>  extern struct device_node *of_get_next_cpu_node(struct device_node *prev);
+>  extern struct device_node *of_get_cpu_state_node(const struct device_node *cpu_node,
+>  						 int index);
+> @@ -662,6 +664,13 @@ static inline int of_cpu_node_to_id(struct device_node *np)
+>  	return -ENODEV;
+>  }
+>  
+> +static inline int of_cpu_phandle_to_id(const struct device_node *np,
+> +				       struct device_node **cpu_np,
+> +				       uint8_t cpu_idx)
+> +{
+> +	return -ENODEV;
+> +}
+> +
+>  static inline struct device_node *of_get_next_cpu_node(struct device_node *prev)
+>  {
+>  	return NULL;
 
-1. If using KVM Userfault to emulate poison, we are stuck with small
-pages in stage 2 for the entire memslot.
-2. We must unmap everything when toggling on KVM Userfault just to
-unmap a single page.
-3. If KVM Userfault is already enabled, we have no choice but to
-toggle KVM Userfault off and on again to unmap the newly poisoned
-pages (i.e., there is no ioctl to scan the bitmap and unmap
-newly-userfault pages).
-
-All of these are non-issues if we emulate poison by removing memslots,
-and I think that's possible. But if that proves too slow, we'd need to
-be a little bit more clever with hugepage recovery and with unmapping
-newly-userfault pages, both of which I think can be solved by adding
-some kind of bitmap re-scan ioctl. We can do that later if the need
-arises.
-
-> So... yes?
-
-Thanks Sean!
-
-> Attached are a variation on the series using the common "struct kvm_page_=
-fault"
-> idea.  The documentation change could be squashed with the final enableme=
-nt patch.
->
-> Compile tested only.  I would not be the least bit surprised if I complet=
-ely
-> butchered something.
-
-Looks good! The new selftests work just fine.
 
