@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E85C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 22:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3009CC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 22:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Yw1RJGzlDE2w07brM+upPyskcDJaRABg4F6jib8c+Y4=; b=RRft4DBrRm2fvM
-	56FiJANGOamvrfzibQ0TlvL1v4ovPA779xwerrhDPThK+ur2QDNqLBURGdv9V+1nxVGPNCuvMxn8k
-	CMy3Qgq3wQu4Uv94Do5dqqGcsPtYrH5XndcH4p/PtRBTx8xPtVvL9Mnr1kVAT31jaUMUozDfS7U0i
-	0uz0ddUUX36kVDGuVHZJKZ8Q8hWpIXD/t8Dtr5oSYH6hB8PNDxn4UmC6eIKFmUSE9/jByOQvbrr8p
-	vOX3l04Y29+JrCe/mu4m2kAtghOPjYKMusv8uFJ9DpQVSkW3gRWOij/4b6H2vAcZZoC977arhxHWV
-	C0cI8wYyMqC4J+tP36dQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BBNnTlhHJfRhv50gKjTeM2IF6Sms1SVDjpmf3Got7WQ=; b=wV3j2lI/FR/jD+bgt7Rbo8IUzZ
+	u9hUCMlLoZJx+knDWmWbCNB/+uYb0XDh3DgVMfXYpy2qzIYrGd1+iu+c6aIJGTFpGK8u56O326/OZ
+	kDAYg+shUsEZzbkLAst0Vl5OyHOLYf+ms8tRanBuBUdCQYYpxV3iq4hIsXdDHD7OiUJXDC3coOXIV
+	NbLQH5kDyG5TXXWvFLxgiRH9pkOCVGO6vNFABXkzabjD6cSfp2F/J1mWsBlCV+2gbYCAE3b/QkmD0
+	T75uhJ5+JZmfahdTHOTS4nPsbh3c306Pvxy3HD6WjT7Z9VfmteQ++fXFB5PZ/8J6RpQqe7caREMnS
+	Od4tk3rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKPWG-0000000EIBE-47Yb;
-	Wed, 28 May 2025 22:45:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKPU6-0000000EHlR-0aHH;
-	Wed, 28 May 2025 22:42:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A74565C5B0D;
-	Wed, 28 May 2025 22:40:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2025EC4CEE3;
-	Wed, 28 May 2025 22:42:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748472173;
-	bh=BgtgZ94JV4lty9f7aKpjE/K76PxuE3tb9eltRydrPzQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=F9b51zZJVSXTny6ilejAjYKo46E47eW7SnLAWMckqe5uEYoa2mF7gWDVsfBDqMcfh
-	 5g2tP+c+9uNyElC+EKifehRog4JsBXOK0Tjv28wpC++aNp8ysTRfuNuXMbORUHy2dJ
-	 4+P85wzqo4Sts4xHJxsmUGli/Pf+kHQzjT70XWVMp55RfKejRQFtbI/ZppJltUsE+r
-	 QoKIozXi1dmYs9lW/gMjlnfj3wzWczOY4ub3VJFI2Rj5RN21okGs0gYbbSpZdgo/iW
-	 6Trt+TYWzyteYUDuOTToFJOnv7n6Kl6QbjSYMapxn8CFBKuvfb9s8yzmdQBj5iBnoq
-	 eTHGuRTL5hjDQ==
-Date: Wed, 28 May 2025 17:42:51 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Hans Zhang <18255117159@163.com>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <20250528224251.GA58400@bhelgaas>
+	id 1uKPYO-0000000EIJl-0MJK;
+	Wed, 28 May 2025 22:47:20 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKPUA-0000000EHm4-3qxv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 28 May 2025 22:43:00 +0000
+Received: from DESKTOP-0403QTC. (unknown [20.236.10.120])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 112512068337;
+	Wed, 28 May 2025 15:42:56 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 112512068337
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1748472177;
+	bh=BBNnTlhHJfRhv50gKjTeM2IF6Sms1SVDjpmf3Got7WQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:Reply-To:From;
+	b=eEO2qnr/d9KBIV2c9UfOMrsgOxO8ffJ8l9rq15vuEQBLDFh5iBI555Do3su8BZVjI
+	 kLM+luZtvxH46g0otgcojJ+UHPeWMEbsvfAZyVUdSVvlv2DAxduzoBCXsWO9aXsDnK
+	 tgc4dE26hxnh6h5muSK7GIUUmcJbcjj4uIw6yP7U=
+Date: Wed, 28 May 2025 15:42:55 -0700
+From: Jacob Pan <jacob.pan@linux.microsoft.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ virtualization@lists.linux.dev, will@kernel.org, eric.auger@redhat.com,
+ code@tyhicks.com, eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
+ jacob.pan@linux.microsoft.com
+Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
+Message-ID: <20250528154255.769e07dc@DESKTOP-0403QTC.>
+In-Reply-To: <20250528000425.GC146260@ziepe.ca>
+References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
+	<20250410230008.GA6905@ziepe.ca>
+	<67fff12d.650a0220.208c7c.d69dSMTPIN_ADDED_BROKEN@mx.google.com>
+	<20250416181759.GF493866@ziepe.ca>
+	<20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+	<20250525190703.GD12328@ziepe.ca>
+	<20250527205428.GA14019@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+	<20250528000425.GC146260@ziepe.ca>
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250506073934.433176-7-cassel@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_154254_258038_4FC65B0B 
-X-CRM114-Status: GOOD (  26.78  )
+X-CRM114-CacheID: sfid-20250528_154259_016497_7CD7027F 
+X-CRM114-Status: GOOD (  37.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +75,89 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jacob.pan@linux.microsoft.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 09:39:36AM +0200, Niklas Cassel wrote:
-> Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
-> detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
-> and instead enumerate the bus when receiving a Link Up IRQ.
-> 
-> Laszlo Fiat reported (off-list) that his PLEXTOR PX-256M8PeGN NVMe SSD is
-> no longer functional, and simply reverting commit ec9fd499b9c6 ("PCI:
-> dw-rockchip: Don't wait for link since we can detect Link Up") makes his
-> SSD functional again.
-> 
-> It seems that we are enumerating the bus before the endpoint is ready.
-> Adding a msleep(PCIE_T_RRS_READY_MS) before enumerating the bus in the
-> threaded IRQ handler makes the SSD functional once again.
+Hi Jason,
 
-This sounds like a problem that could happen with any controller, not
-just dw-rockchip?  Are we missing some required delay that should be
-in generic code?  Or is this a PLEXTOR defect that everybody has to
-pay the price for?
+On Tue, 27 May 2025 21:04:25 -0300
+Jason Gunthorpe <jgg@ziepe.ca> wrote:
 
-Delays like this are really hard to get rid of once we add them, so
-I'm a little bit cautious.
+> On Tue, May 27, 2025 at 01:54:28PM -0700, Shyam Saini wrote:
+> > > The above is the only place that creates a IOMMU_RESV_SW_MSI so
+> > > it is definately called and used, right? If not where does your
+> > > IOMMU_RESV_SW_MSI come from?  
+> > 
+> > code tracing and printks in that code path suggests
+> > iommu_dma_get_resv_regions() called by vfio-pci driver,   
+> 
+> Yes, I know it is, that is how it setups the SW_MSI.
+> 
+> > > As above, I've asked a few times now if your resv_regions() is
+> > > correct, meaning there is a reserved range covering the address
+> > > space that doesn't have working translation. That means
+> > > iommu_get_resv_regions() returns such a range.  
+> > 
+> > sorry about missing that, i see msi iova being reserved:
+> > 
+> > cat /sys/kernel/iommu_groups/*/reserved_regions
+> > 0x0000000008000000 0x00000000080fffff msi
+> > 0x0000000008000000 0x00000000080fffff msi
+> > 0x0000000008000000 0x00000000080fffff msi
+> > 0x0000000008000000 0x00000000080fffff msi
+> > [output trimmed]  
+> 
+> But this does not seem correct, you should have a "reserved" region
+> covering 0x8000000 as well because you say your platform cannot do DMA
+> to 0x8000000 and this is why you are doing all this.
+> 
+> All IOVA that the platform cannot DMA from should be reported in the
+> reserved_regions file as "reserved". You must make your platform
+> achieve this.
+> 
+Just to double confirm, the expected reserved region should be marked as
+"direct" instead of "msi", right?
 
-> What appears to happen is that before ec9fd499b9c6, we called
-> dw_pcie_wait_for_link(), and in the first iteration of the loop, the link
-> will never be up (because the link was just started),
-> dw_pcie_wait_for_link() will then sleep for LINK_WAIT_SLEEP_MS (90 ms),
-> before trying again.
+> > Yes, i tried that,
+> > 
+> > This is how my dts node looked like
+> > reserved-memory {
+> >                faulty_iova: resv_faulty {
+> >                        iommu-addresses = <&pcieX 0x8000000
+> > 0x100000>; };
+> >                ..
+> >                ..
+> > }
+> > 
+> > &pcieX {
+> >     memory-region = <&faulty_iova>;
+> > };
+> > 
+> > I see it working for the devices which are calling
+> > iommu_get_resv_regions(), eg if I specify faulty_iova for dma
+> > controller dts node then i see an additional entry in the related
+> > group  
 > 
-> This means that even if a driver was missing a msleep(PCIE_T_RRS_READY_MS)
-> (100 ms), because of the call to dw_pcie_wait_for_link(), enumerating the
-> bus would essentially be delayed by that time anyway (because of the sleep
-> LINK_WAIT_SLEEP_MS (90 ms)).
+> Exactly, it has to flow from the DT into the reserved_regions, that is
+> essential.
 > 
-> While we could add the msleep(PCIE_T_RRS_READY_MS) after deasserting PERST,
-> that would essentially bring back an unconditional delay during synchronous
-> probe (the whole reason to use a Link Up IRQ was to avoid an unconditional
-> delay during probe).
+> So what is the problem if you have figured out how to fix up
+> /sys/kernel/iommu_groups/Y/reserved_regions?
 > 
-> Thus, add the msleep(PCIE_T_RRS_READY_MS) before enumerating the bus in the
-> IRQ handler. This way, we will not have an unconditional delay during boot
-> for unpopulated PCIe slots.
+> If you found some cases where you can't get /sys/../reserved_regions
+> to report the right things from the DT then that needs to be addressed
+> first before you think about fixing SW_MSI.
 > 
-> Cc: Laszlo Fiat <laszlo.fiat@proton.me>
-> Fixes: ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect Link Up")
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
-> ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 2 ++
->  1 file changed, 2 insertions(+)
+> I very vaguely recall we have some gaps on OF where the DMA-API code
+> is understanding parts of the DT that don't get mapped into
+> reserved_regions and nobody has cared to fix it because it only
+> effects VFIO. You may have landed in the seat that has to fix it :)
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 3c6ab71c996e..6a7ec3545a7f 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -23,6 +23,7 @@
->  #include <linux/reset.h>
->  
->  #include "pcie-designware.h"
-> +#include "../../pci.h"
->  
->  /*
->   * The upper 16 bits of PCIE_CLIENT_CONFIG are a write
-> @@ -458,6 +459,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
->  	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
->  		if (rockchip_pcie_link_up(pci)) {
->  			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
-> +			msleep(PCIE_T_RRS_READY_MS);
->  			/* Rescan the bus to enumerate endpoint devices */
->  			pci_lock_rescan_remove();
->  			pci_rescan_bus(pp->bridge->bus);
-> -- 
-> 2.49.0
+> But I still don't have a clear sense of what your actual problem is as
+> you are show DT that seems reasonable and saying that
+> /sys/../reserved_regions is working..
 > 
+> Jason
+
 
