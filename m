@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04849C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 20:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E530C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 21:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJF9HWy7wkusHjQ5XOzTnD26subHMVamVnoXMJ3j9ys=; b=z0BS0ISMeHtr7LU+afjp8r8kya
-	CqTPpTcjGDKYPXeVRB1Z0M9pvNedICl64/CeikJPEKQtl5cd87nicY5JOqd3OfmTJRDj6IrMpv7xy
-	9IGjalio3ezo0LEVSlA0ZlTNyNk/tm7wDjzS+g0r32O9cySY7Oa8fCzY2cwZhgr3WyxmJUVRl5mWs
-	HZOHbggZNVhEC9GE3pYwHaLY8asqCwKv15txlAjWNu/HM9GlyZcElaqrI3jEFKz0vJ6iqGwlLICnT
-	JRj0X/OykA6MCNaEl7bMgeyHZ+A7Gj3ZxUZTTpO1cn+0hlsVpgEfaz0ECGhkDTPDSiOmAlhUXhhj5
-	BHLbQOvw==;
+	bh=b95mbv58GC1sLRpCdVviPp1TGSLCgwADdPiOEMX8kAs=; b=3fTWG+4smrYagIuC6UDzrMCm+7
+	bdmlWk1kfDquQqwMOeBjxnwrBDNV2afprLOqDWx58jv1XNm7uiW5bFwarJ5GT5nZYkUJ5ysLN1Wo6
+	Ml8zsLJeYNVZ5nN/JgRuTFDobcPBK0gF8Zwt6dbuWEdelC7yN4b+2ko3gNtbIeJ+l7wWCOksm8Lf/
+	8Qvont9QahWSm0BmxTNFdGLdNqOemOmOoGlZ3aZEaJgAMNtk/ODt9ItL2lgcEr/IYGcgsG9/rmCAd
+	YRJpGDcFa942c4Cr8SSlXOoh3Rtw5rqQ6bP/4Xbkgp2P3RPOm0IkdDkVkHFiCgAUqrcAmtIJjkhmF
+	5Ot8dYyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKNK0-0000000E4a3-2paH;
-	Wed, 28 May 2025 20:24:20 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1uKO0O-0000000E7VY-1qzu;
+	Wed, 28 May 2025 21:08:08 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKNHo-0000000E4JR-2zSJ
+	id 1uKNyG-0000000E7O5-02Sh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 20:22:08 +0000
-Date: Wed, 28 May 2025 13:21:50 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748463720;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZJF9HWy7wkusHjQ5XOzTnD26subHMVamVnoXMJ3j9ys=;
-	b=lWaSbmnesIXm8TvqRaGJyb4mtKLnRTErMhmaV0isdSqCDAUXJtv5slw7A+8jLeTIwU6k5M
-	kLCq8ZAZWXOIGy3Um5AcDj1pA7a6FPgFpMMw0brsDPLtDla6O0Bq85rKGuqthWj+wjKRdo
-	1X29WU4k78nHFAS3E3MD/bNL587ZQAE=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: James Houghton <jthoughton@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Yan Zhao <yan.y.zhao@intel.com>,
-	Nikita Kalyazin <kalyazin@amazon.com>,
-	Anish Moorthy <amoorthy@google.com>,
-	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>,
-	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com,
-	kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 05/13] KVM: x86/mmu: Add support for KVM_MEM_USERFAULT
-Message-ID: <aDdwXrbAHmVqu0kA@linux.dev>
-References: <20250109204929.1106563-1-jthoughton@google.com>
- <20250109204929.1106563-6-jthoughton@google.com>
- <aBqj3s8THH9SFzLO@google.com>
+	Wed, 28 May 2025 21:05:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=b95mbv58GC1sLRpCdVviPp1TGSLCgwADdPiOEMX8kAs=; b=4L
+	8mlfeRvliv9ijr/wpaHqc6/m0DT95i0TweNRw89IsfTxUOZnG0O1o0KeOLB19ufZ+HsFnaxD3i5Ts
+	XssIZNhQxsjOi4mcw1okG4dYNjkby2gZWp5YFVilP1G+kR0xz7chzpgpvJNNB0vrjgUZNLTaWFF4m
+	A2gneThrUTubonA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uKNxl-00ED1x-It; Wed, 28 May 2025 23:05:25 +0200
+Date: Wed, 28 May 2025 23:05:25 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, wens@csie.org,
+	netdev@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
+ PHY device
+Message-ID: <1e6e4a44-9d2b-4af4-8635-150ccc410c22@lunn.ch>
+References: <CADvTj4oVj-38ohw7Na9rkXLTGEEFkLv=4S40GPvHM5eZnN7KyA@mail.gmail.com>
+ <aDbA5l5iXNntTN6n@shell.armlinux.org.uk>
+ <CADvTj4qP_enKCG-xpNG44ddMOJj42c+yiuMjV_N9LPJPMJqyOg@mail.gmail.com>
+ <f915a0ca-35c9-4a95-8274-8215a9a3e8f5@lunn.ch>
+ <CAGb2v66PEA4OJxs2rHrYFAxx8bw4zab7TUXQr+DM-+ERBO-UyQ@mail.gmail.com>
+ <CADvTj4qyRRCSnvvYHLvTq73P0YOjqZ=Z7kyjPMm206ezMePTpQ@mail.gmail.com>
+ <aDdXRPD2NpiZMsfZ@shell.armlinux.org.uk>
+ <CADvTj4pKsAYsm6pm0sgZgQ+AxriXH5_DLmF30g8rFd0FewGG6w@mail.gmail.com>
+ <8306dac8-3a0e-4e79-938a-10e9ee38e325@lunn.ch>
+ <CADvTj4rWvEaFyOm2HdNonASE4y1qoPoNgP_9n_ZbLCqAo1gGYw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aBqj3s8THH9SFzLO@google.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADvTj4rWvEaFyOm2HdNonASE4y1qoPoNgP_9n_ZbLCqAo1gGYw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_132204_975016_03E771D7 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250528_140556_041128_AB1DF1BB 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,33 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 05:05:50PM -0700, Sean Christopherson wrote:
-> > +	if ((old_flags ^ new_flags) & KVM_MEM_USERFAULT &&
-> > +	    (change == KVM_MR_FLAGS_ONLY)) {
-> > +		if (old_flags & KVM_MEM_USERFAULT)
-> > +			kvm_mmu_recover_huge_pages(kvm, new);
-> > +		else
-> > +			kvm_arch_flush_shadow_memslot(kvm, old);
+On Wed, May 28, 2025 at 01:45:40PM -0600, James Hilliard wrote:
+> On Wed, May 28, 2025 at 1:27 PM Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> > > I think a lot of ethernet drivers use phy_find_first() for phy scanning
+> > > as well so it's not limited to just stmmac AFAIU.
+> >
+> > You need to differentiate by time. It has become a lot less used in
+> > the last decade. DT describes the PHY, so there is no need to hunt
+> > around for it. The only real use case now a days is USB dongles, which
+> > don't have DT, and maybe PCIe devices without ACPI support.
 > 
-> The call to kvm_arch_flush_shadow_memslot() should definitely go in common code.
-> The fancy recovery logic is arch specific, but blasting the memslot when userfault
-> is toggled on is not.
+> I mean, hardware probing features for this sort of use case have been
+> getting added outside the network subsystem so I'm not sure what the
+> issue with this is as those use cases don't appear to be meaningfully
+> different.
+> 
+> > I suggest you give up pushing this. You have two Maintainers saying no
+> > to this, so it is very unlikely you are going to succeed.
+> 
+> So what should I be doing instead?
 
-Not like anything in KVM is consistent but sprinkling translation
-changes / invalidations between arch and generic code feels
-error-prone. Especially if there isn't clear ownership of a particular
-flag, e.g. 0 -> 1 transitions happen in generic code and 1 -> 0 happens
-in arch code.
+Describe the one PHY which actually exists in device tree for the
+board, and point to it using phy-handle. No runtime detection, just
+correctly describe the hardware.
 
-Even in the case of KVM_MEM_USERFAULT, an architecture could potentially
-preserve the stage-2 translations but reap access permissions without
-modifying page tables / TLBs.
+Do you have examples of boards where the SoC variant changed during
+the boards production life?
 
-I'm happy with arch interfaces that clearly express intent (make this
-memslot inaccessible), then the architecture can make an informed
-decision about how to best achieve that. Otherwise we're always going to
-use the largest possible hammer potentially overinvalidate.
+	Andrew
 
-Thanks,
-Oliver
 
