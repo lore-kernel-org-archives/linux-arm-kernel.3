@@ -4,83 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CEE8C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 21:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 289C9C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 21:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BT+c6zGpxWunPJzCyibqWW9XXWypfHDjrKmTt1TSPms=; b=ppWf8tY7VN1MnnjmSjIGxUGgq3
-	C1vJ4nNyF+1CypBhtk0TaJbDLKTiTLSjZmkGLu7yVYXqtG14liNjjSZf3sR/u4l801hDHcUapQUCV
-	rNLtVjmTEiLvKT2NLWGjn5f6qOw+PSsMNnGuQyjJx1DQ/XdKqxJTPPV0ofHrQTcghuQWAWxYd3Qh+
-	bH98Vn8PqmVCmC9FJqbDxoTi3JXkm+GLcJhiGfZskwoteS4BpyLdkhvUtVS7C0Umd+XWv6vM7o+/7
-	FjQKzmGKT5myOQsg9AP6ii6Erl+EVehRH//+RjUaljHvTrzniDY5HGJq12mioCXG5Om3Emjsp+/lA
-	QEeX5NTA==;
+	bh=auyMPcc629dAK9a+jKzb6d1UxeFdCDyOCswZjjLMer0=; b=aOEi9M6FrLVHAvdEt5wok7uKwM
+	A3kL6EDnQiFiHFHLDXXZi3ezxQTe35SA40v5MI8fRyPNKBwX2BSIeLQHWCueebEh9eYxXzBSPtK7I
+	xIhMWkqDZSTVot5HqhqR6ZvOcIYhL08fEzYlu0RFS2p1V5eDU72QZ+rlc2i1iFb5lhI8m+nLjIvWN
+	z0MhfC3XboymKm+lfmL1dwkcnCHY9dKKbdOHSmneMWl/nNOj6kXkqO6ZcFiEsS+44kWe7Y/11KCAP
+	c2B9ZlaZfr/OEn73Vski8CiKl8ZkNoCJWBOBolHLzLFqKwRQawNetuVQhQEvc59XgSiP+IGDW1+nh
+	3LyQ0Mpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKOGT-0000000E8eX-0ZBu;
-	Wed, 28 May 2025 21:24:45 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1uKOL5-0000000E8wI-081o;
+	Wed, 28 May 2025 21:29:31 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKOEK-0000000E8SZ-0nxL
+	id 1uKOIv-0000000E8q8-1jxQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 21:22:33 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-311fa374c2fso220856a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 14:22:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1748467350; x=1749072150; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BT+c6zGpxWunPJzCyibqWW9XXWypfHDjrKmTt1TSPms=;
-        b=1CXhGjR25S8ZpxmT/gbr2ahiAh2vOa6SCC5hury7j7BgadLl1Bk6Y48YcSUjdQdo/+
-         FW8kep+DQ2KYX97llhZf5k4ttP/Ueq/AeNER8qoEiDBlt+BicYb/bG44f6oVELMZncoQ
-         +dzd/Aum13aciUJkaQicVUoKY8zMqy0szrT/sohSZlMFSxoQLsw4LfmyqkRsuYW+9tiG
-         Lx6lg3wmj5O3f8CTP57cuOweaWCR9CHnG8bgaE2knZOO/eIbGLqAyXRahtXOcC255k1I
-         ShhSvsnjb4YJRe6MfGSlhCJNZmndcX/HSreethNolmDDf1HjXGE4Xv9tJlls7MW9uPXc
-         eumg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748467350; x=1749072150;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BT+c6zGpxWunPJzCyibqWW9XXWypfHDjrKmTt1TSPms=;
-        b=Pc5j5oCv/xg5v0fphdHabXLeqXQ4gfp+/qTOvQoNZ2nhUenfinFpPZFfWa2p8Ln+Kv
-         ucgf6mM/mrvdE8kYklrvR0HbaI5I5z/GlgUbNt6PQ4rkp779IMEsm2o5XfPTpYnFDl5Q
-         pZYN2XVoqw78z4tiuSt0A78vaaSJr5fjXgoX8RYFTmlWLbyG6R4gpziMe+IkgHUjcveK
-         KnaJExKl5nL5kbeSbnhILPYFpJ9tvGJsyeqJmb1jCwY9TRUk4PX/N2hlcOJJFQYhSDFI
-         7qc3V2FTv5KjCLOYB/EnNbcXFy4IiPyq1xzNiT9RTd89W21eUUFc8b/x0CGjGL/5hO+R
-         2xSg==
-X-Forwarded-Encrypted: i=1; AJvYcCVYVb0QOVQlCM/uixx5/GL9PQ/2gXyGuF9uJBSO50k3DY4N/h4X0thcHBylZxGAEbyKqYfS+jviwiRTON0JAAWC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/OM1sfo31Vh4Sv4C818ZfJDPoPKLeZuxTHCEvWFo0AcJFeeNx
-	eHQezZPdYPTbEulggLbmVO6PVXNBHuChtOGDpit/nVC+Zp+LBgFWeeRkR8nLEeM38t/2CTwYnxb
-	HB+RCNA==
-X-Google-Smtp-Source: AGHT+IF+NBSwn27LCwHruaYCKMmwinUtCZExXbbsFzSAslFn8KGj0A9s44fdNVHSd+EufkBdd/ISjeqX35w=
-X-Received: from pjbrr5.prod.google.com ([2002:a17:90b:2b45:b0:311:b3fb:9f74])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3510:b0:312:1ae9:152b
- with SMTP id 98e67ed59e1d1-3121ae9232dmr446908a91.23.1748467350549; Wed, 28
- May 2025 14:22:30 -0700 (PDT)
-Date: Wed, 28 May 2025 14:22:29 -0700
-In-Reply-To: <aDdwXrbAHmVqu0kA@linux.dev>
-Mime-Version: 1.0
-References: <20250109204929.1106563-1-jthoughton@google.com>
- <20250109204929.1106563-6-jthoughton@google.com> <aBqj3s8THH9SFzLO@google.com>
- <aDdwXrbAHmVqu0kA@linux.dev>
-Message-ID: <aDd-lbrJAX62UQLn@google.com>
-Subject: Re: [PATCH v2 05/13] KVM: x86/mmu: Add support for KVM_MEM_USERFAULT
-From: Sean Christopherson <seanjc@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: James Houghton <jthoughton@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, 
-	Nikita Kalyazin <kalyazin@amazon.com>, Anish Moorthy <amoorthy@google.com>, 
-	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
-	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 28 May 2025 21:27:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LuhWjAkpzekPFvCgr2uY3L8yBKFGMa/SxveBb4oKBBsQKIXINpnRATPAek11G55q/oPr1NaK4v89kZXDuo5JldAXX/kgCwRQzkmGOrrfo/wVy4TEWzNlGCqXpnD/nJhzZB/CtScUH14VeGql7sgWZddVQQsPAnHF0xMr3Okp2NQ4zgdeROT4Xf9xJVai/leBcG43UEvh5sOfw0w3d+u+SqfdyOSFjy63cRvz+unxlYQ6f89uqd7SGYrA48nPIPjV3hsJCkr2/jW0L9NB0cQdwQaXSPkxG0iC9XKRF6o0smnlsakJF7K+YvBAj2O/E92pdGIbPaDmyjFAhqhE/F9yUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=auyMPcc629dAK9a+jKzb6d1UxeFdCDyOCswZjjLMer0=;
+ b=LNUABe8/F8jZo0STMxHhxAKL9I9u3UG5kB4TBDq9mAXWLszNJIvENf2yLgjJXm/wi3dF9PIpOrJqa74C0l/nT3bxOC5hy2jA7chcv/NBPn+C70s1xgrJhPO9mhkOqYXGv3BUUoUgL2PzMglNQqBSFUd6lKeNqULaxNDb0XjkKwiyTIuF/5rMNkAy7PzEtuPrxiu8aUyUMYX9316Ni41uwuYWIG0mT2BUrmcgrylVNvpX8tF7++T1LQ0FcjmHHaR4eliw94wRZta9fz3BWLKjBZu1d1odqxyzTzBMGhlWkPaZ0Tosn85E+PimS1DMRw7g6uMKBZr0biGtOPqvpIrhWQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=auyMPcc629dAK9a+jKzb6d1UxeFdCDyOCswZjjLMer0=;
+ b=du0BDBYBiehQDs0pflgYdX6ftqkrsWI+fzt9ZiE4ba+LexQdzsLJHQ3ETIDqCtyuIJC3SBbNPpRZcsF4LUKX8jda/hTN5QfY2oIkMggHYjEUvgAkB6RjFbWx0G9fJlS6N/gYX0Lo+K7GLMVM/YAJcLkcM/6n7nH+j1wGCyaf8DBNZRjq84Cct+5i9TJ0QCm0cpzB4Oz1gPdQ7Uf2PA9rYFWHmhOIdZY0DIBDb1njVI+aYG3ZyrRA/zlhuXvyyWD1W3zF6Ovw+iJ8O41sh4PtkmRNAa5vJeOCBAoTrZyWr8dO6uoth0CEZrP3OZaLEQy61837yazfhDBjVyyPi0AEIA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB9351.eurprd04.prod.outlook.com (2603:10a6:102:2b6::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.25; Wed, 28 May
+ 2025 21:27:09 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
+ 21:27:09 +0000
+Date: Wed, 28 May 2025 17:27:00 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Peter Chen <peter.chen@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-usb@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, s32@nxp.com,
+	linaro-s32@linaro.org
+Subject: Re: [PATCH 2/4] usb: chipidea: usbmisc: s32g: Add a
+ REINIT_DURING_RESUME flag
+Message-ID: <aDd/pNP0jt73PKtb@lizhi-Precision-Tower-5810>
+References: <cover.1748453565.git.dan.carpenter@linaro.org>
+ <b1ddbc5993b2906cf916d023fdf27b07088a9672.1748453565.git.dan.carpenter@linaro.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b1ddbc5993b2906cf916d023fdf27b07088a9672.1748453565.git.dan.carpenter@linaro.org>
+X-ClientProxiedBy: BY5PR04CA0014.namprd04.prod.outlook.com
+ (2603:10b6:a03:1d0::24) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB9351:EE_
+X-MS-Office365-Filtering-Correlation-Id: bce559c2-0fc7-4ab8-065e-08dd9e2e66e1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hKEgBY3Nn68voOtp3XEZLjdAVJ9t3mtbxalu4K0OfD5RJxtgWnrqRYVGPaai?=
+ =?us-ascii?Q?yfurd3FbZph0vdS1wnKL4RqeMl2kyzyrGk+miTJPVSLVhlPkO3KNd4Es7UC7?=
+ =?us-ascii?Q?C8fK/D1pcCVvRMTWJniB3K5Q87PrbDpuprkmCgXfQidesLiRYTzc7bokJ/fg?=
+ =?us-ascii?Q?53QEz0bn38ZT09TdZLfQlkH2oXaIQI2nQnAiA5qznC67N+erRF+N194iFdkC?=
+ =?us-ascii?Q?PeA+NFoRnwwN93OsHPUUCQSpD1PgFMbeHbKFSk/Fg2y8JKfe15HN1TeXyqgH?=
+ =?us-ascii?Q?4C8dREzj18MCOYB4aJhyHZiKVa2wbpkkuOE0n9SpVWibdaY4h3AuhMdjMgFZ?=
+ =?us-ascii?Q?R4TpBRJUN9IvoOGG8GB/zFGSNC6vyGffU9ZQvsFlYn9WcyirYGOH929mvvqQ?=
+ =?us-ascii?Q?tmQQihAgA2RhqaMIludjR06y9U1MLrkB11kCX+oy21CLQCIMN3PpXRozD5l4?=
+ =?us-ascii?Q?rqi60Qd5hpQt6aLKs+PCajQjgcboMUraqmNU7nnQXK+C4pyy6PNShP9YQMuP?=
+ =?us-ascii?Q?9afE8bCuoiLEyaBDDl8De23ROjf8/fKUAal/nhyNZ9IH45cOjVayIWZvhG26?=
+ =?us-ascii?Q?91HyiCSmxz9R1wLmEXHsYU3dzob33GuYBi9JMzeOFpa0xgawThG19J7ZYMpD?=
+ =?us-ascii?Q?sQ7yKy4lXtiFDMFVbmvHxE0E4k4mC9HC6GW9Oxzhw8MxsD+3jC6LF9rJlyp9?=
+ =?us-ascii?Q?f1qcMOMmdHtVaCXvWKYNZfrvKvDfld4DogIs6GNsRrOirWmZEs75EBq+Ayzz?=
+ =?us-ascii?Q?rr8vw23GTmYv+UeBBOOf3VOLmMSVE1l2TUNWOtvL5qacp49Jl+tZyQqjJZaK?=
+ =?us-ascii?Q?nO0SC8dweuSI+7Zh2wNpy5Vu6asIO5sgZh3816rAJcq2pro+F4Ql7nWWjMZy?=
+ =?us-ascii?Q?uaL6WO/FKs8j8q5sWglDwYDmqgehVo5FfIlSKuotguz89SJvNLXVmXdU8wtx?=
+ =?us-ascii?Q?pvkn8t39rOErt6NE7z8VOlL5Vq5rlE1fMwWecx9BgfsOYOQ76jdZjxdZc/c6?=
+ =?us-ascii?Q?taX6Flsj3hGvxbIdgw25ZZXxR9EhOLOekPeHSPdoaHL1rs2M4LUd7Dkq2uzx?=
+ =?us-ascii?Q?cOcJzEEE+gK9j3mnYc5UjB7cz5qdStRstHWJP9kYpik6hP4xQJYeXcmasfNg?=
+ =?us-ascii?Q?06oSdaK2C1Is107M/ZkuWbBvmY45e8mb7QOyGjiOVOF89PPEnKtryNkltQNF?=
+ =?us-ascii?Q?b5qgWxnXQ2ze26OCHPOcA6Zelv7OAyf+qRB1jZjCCSHbnz0zVuv4WUrZLc+C?=
+ =?us-ascii?Q?oCH5/FXjMpe5YbHlOm7R45DR1zqoOD6hu7zarJmGxRitGOia6dHPWTplJBfD?=
+ =?us-ascii?Q?HKSENzlCO+Wv0/5idp4ICD0m9Rju/1AxAz595zDMml7YZtPHNs3QsQZ26qaW?=
+ =?us-ascii?Q?nefORS+aAlAgojJbIBQ/dbr0zsFW9dzC0R2JEIa0LDs3HETWvg/2gJu+J5/l?=
+ =?us-ascii?Q?Zzn5oLNv42ydxPMUMnc9HePXLlS6L8F/RseR6xAT5cbaMiGfwBtpCn3X+yTL?=
+ =?us-ascii?Q?k1I315h5VD8RsiE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2mQDkJXMXtbNSyNebbPbx0rwqi9EWG6eByFvkzmGq8PfIfYF0WTyAX9JjLVB?=
+ =?us-ascii?Q?ZiSdn7Z+5e8kn6mxu7V6Iz4HD06hKq6mqzf2cXNByekFxhwLZ1ooscxGUyFv?=
+ =?us-ascii?Q?ySAHnPMRzVZdSxr0Kf14486gUob9WhA/53ghs6+sYZ0T1Z8jbznMYS/DV3PO?=
+ =?us-ascii?Q?85HoqmV7zPGgZexO8h4UaAh7HXCxR/Sin4dxQv02/th6DkB831rukXvZZZB7?=
+ =?us-ascii?Q?UGRyH9oiuu8wp1WXKwQ9W+YGNv05brHWaerS0+cD5E4oHxcsJuZSOuPZJAS2?=
+ =?us-ascii?Q?zdDZqkbFQcKDKhicdRHs360mM1itoi2GjU4wIHPx8WPuqzj/IDifjrauZdBI?=
+ =?us-ascii?Q?U2/1rkfupm6d8BkTUE4UXFhTVqAxd9iHpgOlMLJLW/q69R+uypgOv2aMj7JZ?=
+ =?us-ascii?Q?6Ix6e14yuqzmgs7WaMCZspgKCAzsTV1aHEHnxDU1VBvJzs4YnQSdMvkcF7Xq?=
+ =?us-ascii?Q?jFWYTQDUROU40kAQmBYMvKNqYoxS9L1XSPz4SlF84ReX5yVSfdAevYZID/GH?=
+ =?us-ascii?Q?QWJXIgM21XcESAmnySSaoPR7dTuIMtb8hWhCjxog79QyJNgV5Kf29Rqm0Mu4?=
+ =?us-ascii?Q?XJgrb2RCz3Tczg5UJxhA/HzuXJVdVMYitvLCbqYcmhyN1ZQWjvDR+88G05tY?=
+ =?us-ascii?Q?r4uaKW3t1jMcKer4AOQ9n4IL769tKkFkSmOtOArbSKgXvO6wIhM3l4aQmXMv?=
+ =?us-ascii?Q?pC9g0aDlCSofpL5CWNIPom/v1wWAWucqyldopohepnIVQrM0DcVAR87H9DW3?=
+ =?us-ascii?Q?YbGVo7oAO1MIWkB4eRwwgL4gfwI0HFjefuC1BiuSzMdM4RqwfVsTAeh3MjZJ?=
+ =?us-ascii?Q?sketMwLbQz8aQdEw7xhR5aLKzRf2xhxIKV+vB7+l/GEZVz4PR1pElD4tZSUo?=
+ =?us-ascii?Q?fW9jmO95PG2RIWyeu74VPbCMnarL6NvluwCQRe9UvkenbtF1WhmHke1hbUdK?=
+ =?us-ascii?Q?ffaObk+68Zm1PFU3hlQFo+RLe60ykEoQxbPmU2b8W5UMcC0DQSWfgUnFpFMV?=
+ =?us-ascii?Q?gsTdGmuFSkulwihWr1Wl35PkQTkURIyQA+5y83QsOxOuqxAewwdW6stxuuyR?=
+ =?us-ascii?Q?ZhlwaHQfYMhAeJrGfk0rQjS62HbamR3Nl5lDHVYPr9Um0KE+zc0ZsdVhe7ow?=
+ =?us-ascii?Q?uXin7STUCdkEVaOxyDmwW8ctGqZxOrNL7Zh0vAbfVOSbpSPed5c2Up12ycgn?=
+ =?us-ascii?Q?zFkyGK1SG/l8mm2bT3HWxg5N4hwZGrL+Sf/eDl3B/97J5ctRMrNSI/+HYhYD?=
+ =?us-ascii?Q?q9V5S+45jYpw0IL3NGiEqF4MdPThx1yIUtOUzRhiEW4av56N0aodALS6BlUA?=
+ =?us-ascii?Q?UW7DBIt21WMscK7L8NLmTpz5/137cs6KHAPF5Z0g0ESlWd8lUkGg6WUseKIo?=
+ =?us-ascii?Q?kFuGLrAkE+itcbCVhv2ZvQ8ND6JNzW0iyOTQunVYeRVBc2b5Kmcc2DwIYr78?=
+ =?us-ascii?Q?YkZU3p1hIIOHnGkqcZNHpSyPMXfoaCsmYvg7iBFvGeUUhWA0bNls1FXcn8TO?=
+ =?us-ascii?Q?zx3r55GivOuNXG62nyWcVPKUiK0z4uMTuBFCCK3Td9eJZUrAQVIQqMj7xl9X?=
+ =?us-ascii?Q?UsGyM/3qC+ETskPehqev3PimMe7Vbd0rDX8nWuBU?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bce559c2-0fc7-4ab8-065e-08dd9e2e66e1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 21:27:08.9747
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RPtatODNelVa0tS76s8KqpL6PKaqdJZYV8L8PVJXyA6NWLliAljw6AS5deA4RvPPIXQdlsdRQ59o4mGFHwg1Ig==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9351
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_142232_234992_2DB23E6A 
-X-CRM114-Status: GOOD (  23.22  )
+X-CRM114-CacheID: sfid-20250528_142717_455713_18CA13E0 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,55 +166,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025, Oliver Upton wrote:
-> On Tue, May 06, 2025 at 05:05:50PM -0700, Sean Christopherson wrote:
-> > > +	if ((old_flags ^ new_flags) & KVM_MEM_USERFAULT &&
-> > > +	    (change == KVM_MR_FLAGS_ONLY)) {
-> > > +		if (old_flags & KVM_MEM_USERFAULT)
-> > > +			kvm_mmu_recover_huge_pages(kvm, new);
-> > > +		else
-> > > +			kvm_arch_flush_shadow_memslot(kvm, old);
-> > 
-> > The call to kvm_arch_flush_shadow_memslot() should definitely go in common code.
-> > The fancy recovery logic is arch specific, but blasting the memslot when userfault
-> > is toggled on is not.
-> 
-> Not like anything in KVM is consistent but sprinkling translation
-> changes / invalidations between arch and generic code feels
-> error-prone.
+On Wed, May 28, 2025 at 10:57:20PM +0300, Dan Carpenter wrote:
+> From: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+>
+> The s32g2 and s32g3 chips will need to re-initialize in the resume path.
+> Add a REINIT_DURING_RESUME flag which will trigger the reinitialization.
 
-Eh, leaving critical operations to arch code isn't exactly error free either :-)
+why power_lost_check() doesn't work for you?
 
-> Especially if there isn't clear ownership of a particular flag, e.g. 0 -> 1
-> transitions happen in generic code and 1 -> 0 happens in arch code.
-
-The difference I see is that removing access to the memslot on 0=>1 is mandatory,
-whereas any action on 1=>0 is not.  So IMO it's not arbitrary sprinkling of
-invalidations, it's deliberately putting the common, mandatory logic in generic
-code, while leaving optional performance tweaks to arch code.
-
-> Even in the case of KVM_MEM_USERFAULT, an architecture could potentially
-> preserve the stage-2 translations but reap access permissions without
-> modifying page tables / TLBs.
-
-Yes, but that wouldn't be strictly unique to KVM_MEM_USERFAULT.
-
-E.g. for NUMA balancing faults (or rather, the PROT_NONE conversions), KVM could
-handle the mmu_notifier invalidations by removing access while keeping the PTEs,
-so that faulting the memory back would be a lighter weight operation.  Ditto for
-reacting to other protection changes that come through mmu_notifiers.
-
-If we want to go down that general path, my preference would be to put the control
-logic in generic code, and then call dedicated arch APIs for removing protections.
-
-> I'm happy with arch interfaces that clearly express intent (make this
-> memslot inaccessible), then the architecture can make an informed
-> decision about how to best achieve that. Otherwise we're always going to
-> use the largest possible hammer potentially overinvalidate.
-
-Yeah, definitely no argument there given x86's history in this area.  Though if
-we want to tackle that problem straightaway, I think I'd vote to add the
-aforementioned dedicated APIs for removing protections, with a generic default
-implementation that simply invokes kvm_arch_flush_shadow_memslot().
-
+Frank
+>
+> Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+>  drivers/usb/chipidea/usbmisc_imx.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/drivers/usb/chipidea/usbmisc_imx.c b/drivers/usb/chipidea/usbmisc_imx.c
+> index 118b9a68496b..95759a4ec60c 100644
+> --- a/drivers/usb/chipidea/usbmisc_imx.c
+> +++ b/drivers/usb/chipidea/usbmisc_imx.c
+> @@ -155,6 +155,9 @@
+>  					 BLKCTL_OTG_VBUS_WAKEUP_EN | \
+>  					 BLKCTL_OTG_DPDM_WAKEUP_EN)
+>
+> +/* Flags for 'struct imx_usbmisc' */
+> +#define REINIT_DURING_RESUME	BIT(1)
+> +
+>  struct usbmisc_ops {
+>  	/* It's called once when probe a usb device */
+>  	int (*init)(struct imx_usbmisc_data *data);
+> @@ -171,6 +174,7 @@ struct usbmisc_ops {
+>  	/* It's called when system resume from usb power lost */
+>  	int (*power_lost_check)(struct imx_usbmisc_data *data);
+>  	void (*vbus_comparator_on)(struct imx_usbmisc_data *data, bool on);
+> +	u32 flags;
+>  };
+>
+>  struct imx_usbmisc {
+> @@ -1266,6 +1270,9 @@ int imx_usbmisc_resume(struct imx_usbmisc_data *data, bool wakeup)
+>
+>  	usbmisc = dev_get_drvdata(data->dev);
+>
+> +	if ((usbmisc->ops->flags & REINIT_DURING_RESUME) && usbmisc->ops->init)
+> +		usbmisc->ops->init(data);
+> +
+>  	if (usbmisc->ops->power_lost_check)
+>  		ret = usbmisc->ops->power_lost_check(data);
+>  	if (ret > 0) {
+> --
+> 2.47.2
+>
 
