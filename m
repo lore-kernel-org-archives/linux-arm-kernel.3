@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D744C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 795CDC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 14:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R4Em2WOCtNmZnECHj9cB8orbqHwuCdEzrhZKZaFoeaU=; b=UgiJ0GIcMzHZ5K8NZUp+6ohx/6
-	0V3VYKsIa1klspD2O1un7GgJ0Js2SG/Si9DYAAIT3mEUNJsloXebt93LeYTJ3pkoQa0iamlcQt59U
-	WfvIlAXtuGfvny9zdowWUB7a14edwmpTqNghU3yxO8PonxyYXLazV7JbUqcGtlOjP97F1SaJcrotQ
-	rAdgPJFj7N+BP0zoMK9N2uV66QXN3lqHaTrtdwLmlGFtq7JoXsi69Adjko++33yf7tq7DvkVLOYRs
-	t2k2LeSOYA67RgkO+iZPvjF+3sYEGQS/HVfTa5bv1puH/QKb47M0F/UUuZakrFJXED6RqhQz5HjPd
-	28+u512w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4+GR7KqifG/hoxA80BGM5aHd6V/vsSmJeIziOqF6FLU=; b=vfPfdghBBDDyVdCNFgJ1HqsPUq
+	p0TzALPVutrNT8LpS+h2f7o55jwc5FdIStDD+1aeLAlZqglRkPVoBfypQnMV6JjcrCsJmHbDQO9Uw
+	8Sw44L4zKDGgtGsyP9x4p24PqE55DuYF2WzKCRh5Sp0yIgWHly3HFr8vgsV9gIvjGyI/73Pshvz5t
+	MbCYHjcgbnzaxB0lcAczxrp9go7ZFil8m8ixayTQxNkYjRs6+uPmPeEe+WnGPeomI/UbiP0y5t2Ri
+	XNMjWvisFDNzQE8fCm9uiOz3JPzwFodC3Z7PefQVXmNkjDNeQnEz9hpQ8yysUns2wBnd0uqGbNlLR
+	qmMVbXrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKI5r-0000000DT6Q-3BQh;
-	Wed, 28 May 2025 14:49:23 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uKI6J-0000000DTDR-1hAT;
+	Wed, 28 May 2025 14:49:51 +0000
+Received: from mail.actia.se ([212.181.117.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKGu8-0000000DFiB-05At
+	id 1uKHzv-0000000DRuP-3Ekq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 13:33:14 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54SC8uDe028907;
-	Wed, 28 May 2025 15:33:05 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	R4Em2WOCtNmZnECHj9cB8orbqHwuCdEzrhZKZaFoeaU=; b=baW+lHSG6gqHQtNc
-	WioG13qng65SbE66I+iN7vtV2Bfhy7OpljEHKFm9tgq5sEfkke044NNyjCqszh0h
-	oinxydP5M3D8WElRd9PfrGJtwa94KGvlr8w8PW56fljMYLnbcSE0eFa2ityk5EgZ
-	9D+2+qDvj8yYv7YPhwfWpKuP6Q+w2zFWPx8u2Ci4vzIr+fymwJxgHYJWQ13k/U5B
-	6vr5EQ/SzM7CWdZdj9Yar6cpwngbaTLU152SYi7fEkloqEBHsXz4YTDGPjso0Jcy
-	jzWcrlLUjcTMwBxjtIVc4ruM59sXMA2AO0zcFp1+bjIr6oGqRdW2+MDBDJetZJLD
-	PUpSXg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46u3891qv2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 28 May 2025 15:33:05 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CA49F4005C;
-	Wed, 28 May 2025 15:31:52 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0326E6CCEFD;
-	Wed, 28 May 2025 15:31:07 +0200 (CEST)
-Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 28 May 2025 14:43:16 +0000
+Received: from S036ANL.actianordic.se (10.12.31.117) by S035ANL.actianordic.se
+ (10.12.31.116) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 28 May
- 2025 15:31:06 +0200
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Wed, 28 May 2025 15:31:02 +0200
-Subject: [PATCH v4 9/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp157c-dk2 board
+ 2025 16:43:08 +0200
+Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
+ S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
+ 15.01.2507.039; Wed, 28 May 2025 16:43:08 +0200
+From: John Ernberg <john.ernberg@actia.se>
+To: =?iso-8859-2?Q?Horia_Geant=E3?= <horia.geanta@nxp.com>, Pankaj Gupta
+	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>
+CC: Frank Li <Frank.li@nxp.com>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Thomas Richard
+	<thomas.richard@bootlin.com>, "linux-crypto@vger.kernel.org"
+	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, John Ernberg <john.ernberg@actia.se>
+Subject: [PATCH v3 3/4] dt-bindings: crypto: fsl,sec-v4.0: Add power domains
+ for iMX8QM and iMX8QXP
+Thread-Topic: [PATCH v3 3/4] dt-bindings: crypto: fsl,sec-v4.0: Add power
+ domains for iMX8QM and iMX8QXP
+Thread-Index: AQHbz97TDhLekXOKbkmerT2PfEO8vg==
+Date: Wed, 28 May 2025 14:43:07 +0000
+Message-ID: <20250528144259.2603914-4-john.ernberg@actia.se>
+References: <20250528144259.2603914-1-john.ernberg@actia.se>
+In-Reply-To: <20250528144259.2603914-1-john.ernberg@actia.se>
+Accept-Language: en-US, sv-SE
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.49.0
+x-originating-ip: [10.12.12.63]
+x-esetresult: clean, is OK
+x-esetid: 37303A2956B14453607C60
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20250528-hdp-upstream-v4-9-7e9b3ad2036d@foss.st.com>
-References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
-In-Reply-To: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
-	<clement.legoffic@foss.st.com>
-X-Mailer: b4 0.15-dev-6f78e
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-28_06,2025-05-27_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_063312_664114_91AC4820 
-X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-CacheID: sfid-20250528_074315_816503_5B88469E 
+X-CRM114-Status: UNSURE (   9.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,35 +87,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the stm32mp157fc-dk2 board, we can observe the hdp GPOVAL function on
-SoC pin E13 accessible on the pin 5 on the Arduino connector CN13.
-Add the relevant configuration but keep it disabled as it's used for
-debug only.
+NXP SoCs like the iMX8QM, iMX8QXP or iMX8DXP use power domains for
+resource management.
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+Allow specifying them for such SoCs.
+
+Signed-off-by: John Ernberg <john.ernberg@actia.se>
+
 ---
- arch/arm/boot/dts/st/stm32mp157c-dk2.dts | 6 ++++++
- 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-index 324f7bb988d1..8a8fdf338d1d 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-@@ -63,6 +63,12 @@ &dsi_out {
- 	remote-endpoint = <&panel_in>;
- };
- 
-+&hdp {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&hdp2_gpo &hdp2_pins_a>;
-+	pinctrl-1 = <&hdp2_sleep_pins_a>;
-+};
+v3:
+ - Fix warnings discovered by Rob Herring's bot
+ - Declare the compatibles correctly (Krzysztof Kozlowski)
+
+v2:
+ - Adjust commit message (Frank Li)
+ - Only allow power-domains when compatible with imx8qm (Frank Li)
+---
+ .../bindings/crypto/fsl,sec-v4.0.yaml         | 45 ++++++++++++++++++-
+ 1 file changed, 44 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml b/D=
+ocumentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
+index 75afa441e019..a4ada0e2d97c 100644
+--- a/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
++++ b/Documentation/devicetree/bindings/crypto/fsl,sec-v4.0.yaml
+@@ -46,6 +46,7 @@ properties:
+       - items:
+           - enum:
+               - fsl,imx6ul-caam
++              - fsl,imx8qm-caam
+               - fsl,sec-v5.0
+           - const: fsl,sec-v4.0
+       - const: fsl,sec-v4.0
+@@ -77,6 +78,9 @@ properties:
+   interrupts:
+     maxItems: 1
+=20
++  power-domains:
++    maxItems: 1
 +
- &i2c1 {
- 	touchscreen@38 {
- 		compatible = "focaltech,ft6236";
-
--- 
-2.43.0
-
+   fsl,sec-era:
+     description: Defines the 'ERA' of the SEC device.
+     $ref: /schemas/types.yaml#/definitions/uint32
+@@ -106,7 +110,9 @@ patternProperties:
+               - const: fsl,sec-v5.0-job-ring
+               - const: fsl,sec-v4.0-job-ring
+           - items:
+-              - const: fsl,sec-v5.0-job-ring
++              - enum:
++                - fsl,imx8qm-job-ring
++                - fsl,sec-v5.0-job-ring
+               - const: fsl,sec-v4.0-job-ring
+           - const: fsl,sec-v4.0-job-ring
+=20
+@@ -116,6 +122,9 @@ patternProperties:
+       interrupts:
+         maxItems: 1
+=20
++      power-domains:
++        maxItems: 1
++
+       fsl,liodn:
+         description:
+           Specifies the LIODN to be used in conjunction with the ppid-to-l=
+iodn
+@@ -212,6 +221,40 @@ required:
+   - reg
+   - ranges
+=20
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: fsl,imx8qm-caam
++    then:
++      required:
++        - power-domains
++    else:
++      properties:
++        power-domains: false
++
++  - if:
++      patternProperties:
++        '^jr@[0-9a-f]+$':
++          type: object
++          properties:
++            compatible:
++              contains:
++                const: fsl,imx8qm-job-ring
++    then:
++      patternProperties:
++        '^jr@[0-9a-f]+$':
++          type: object
++          required:
++            - power-domains
++    else:
++      patternProperties:
++        '^jr@[0-9a-f]+$':
++          type: object
++          properties:
++            power-domains: false
++
+ additionalProperties: false
+=20
+ examples:
+--=20
+2.49.0
 
