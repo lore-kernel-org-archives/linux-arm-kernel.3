@@ -4,119 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E40C54ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 00:09:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE54C54ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 00:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDUNQStuy0jRMfLgtZNwbSDgWxeyT3CWPdpJ9IflsOA=; b=UnoiY4MJdNiPSRT49cZT0p6P0z
-	8UggceF5iAKi4B2t5byUfC1CsAkCBv+oHgdyzz4uRiSTK3T5jI+m3QO1j1+uhuLYmnYx+ocj2cRxy
-	dLlQCOC3EOZK0uXg/8TuKee7BwV5/gILrljybdvSPnoBe/NI8R36F/WdQ8rCBdG7Kal57TTss+OzL
-	eattwJgLsox+12haFhm1I25YliJvGZj3V6KSl3eUpbz7wkcW4ceaQEUeOPixLYMiIM2dydUGGAEpn
-	n0h00C8pLeGIZi2oTdVrwaQC1SvFlPgdGb5nTCpIxYLOe5BNxnFc7J4GGXc4mjIIN9svNw/zSto1X
-	T8wS23Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hvL7Y1puAYMJvjVAAOLp36Z2Kjbr2kxEAcXrHRHw7Fg=; b=FhgDR3ru+F6U5Klc28oXxldsg8
+	RYdKS/fN8Vl5IvgL8KwyKgp9UI0mC88ROjn7vBOG+O4Yvq5hk7n1y9AsotyQ60WlRz8a27JtY0MJ0
+	kgaXe/yZ/n21Jf72MTWoIbRId7pKtCiKhCRveMCJAPFJ/UyKcc+twB4/cjCsZHenueTl3Hj+IR582
+	KGqk4T09nS65FbOljLRAGk8QzdSBXPt0VyHp3F5dvqU9kfD4ji1k1q7Ui9LPzUP6g1M223Cne1d6W
+	3TjNaRt0fRPocZjqJ8wJEj5c2rbUTmv2N574eDnReQAFHCtjsYEM6vnHEbaMa5ra+ALwQLLsozQ5l
+	O6Lm5u9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK4Ll-0000000BoTA-1e2p;
-	Wed, 28 May 2025 00:08:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uK4hg-0000000BpyN-2HSo;
+	Wed, 28 May 2025 00:31:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK4IV-0000000BoDj-1BzQ
+	id 1uK4fO-0000000BpYk-0Dpz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 00:05:32 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54RHTw0m029872;
-	Wed, 28 May 2025 00:04:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	aDUNQStuy0jRMfLgtZNwbSDgWxeyT3CWPdpJ9IflsOA=; b=KPa9xkJnirrwzekO
-	bDz3gfL44EL6qyKyMqf8l+ZazG8GyQ+Pp+Q2VEW9BJK+Hrk++Vnco1Ch3P2Hr6aj
-	y2+1FGK/8JQE4sOUa6aIl6dR9BS14FycJvUHzIdKiuiEu/YMnJ/6gVoj8dyIxNud
-	PYmG99yMkuEOC4P5YhenxRTbg9f+g/1xMcxnKgdP8pqwpyWCROVfg3cvS6lmNWyu
-	aRsgre5v8zia5HJlWjSrPuBgQ+32tmg2ZTiKhniIdKp8mCAKdezQVe3lPMEVo29/
-	YcsC2kt0lYQFYlgVT5A5/oBiI8U8KSWMIuuAXsXOdYdlOY0+/PgK+rdGNxne2Ulg
-	yPZZuA==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46whuf0v68-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 28 May 2025 00:04:59 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54S04wpi029950
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 28 May 2025 00:04:58 GMT
-Received: from [10.46.19.239] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 27 May
- 2025 17:04:58 -0700
-Message-ID: <7ac5c034-9e6d-45c4-b20a-2a386b4d9117@quicinc.com>
-Date: Tue, 27 May 2025 17:04:52 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 0/5] net: stmmac: Add PCI driver support for
- BCM8958x
-To: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>,
-        Andrew Lunn
-	<andrew@lunn.ch>,
-        "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-CC: <netdev@vger.kernel.org>, <alexandre.torgue@foss.st.com>,
-        <joabreu@synopsys.com>, <davem@davemloft.net>, <edumazet@google.com>,
-        <kuba@kernel.org>, <pabeni@redhat.com>, <mcoquelin.stm32@gmail.com>,
-        <bcm-kernel-feedback-list@broadcom.com>, <richardcochran@gmail.com>,
-        <ast@kernel.org>, <daniel@iogearbox.net>, <hawk@kernel.org>,
-        <john.fastabend@gmail.com>, <fancer.lancer@gmail.com>,
-        <rmk+kernel@armlinux.org.uk>, <ahalaney@redhat.com>,
-        <xiaolei.wang@windriver.com>, <rohan.g.thomas@intel.com>,
-        <Jianheng.Zhang@synopsys.com>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <bpf@vger.kernel.org>,
-        <andrew@lunn.ch>, <linux@armlinux.org.uk>, <horms@kernel.org>,
-        <florian.fainelli@broadcom.com>,
-        Sagar Cheluvegowda
-	<quic_scheluve@quicinc.com>
-References: <20241018205332.525595-1-jitendra.vegiraju@broadcom.com>
- <CAMdnO-+FjsRX4fjbCE_RVNY4pEoArD68dAWoEM+oaEZNJiuA3g@mail.gmail.com>
- <67919001-1cb7-4e9b-9992-5b3dd9b03406@quicinc.com>
- <CAMdnO-+HwXf7c=igt2j6VHcki3cYanXpFApZDcEe7DibDz810g@mail.gmail.com>
-Content-Language: en-US
-From: "Abhishek Chauhan (ABC)" <quic_abchauha@quicinc.com>
-In-Reply-To: <CAMdnO-+HwXf7c=igt2j6VHcki3cYanXpFApZDcEe7DibDz810g@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=OslPyz/t c=1 sm=1 tr=0 ts=6836532b cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8
- a=Q-fNiiVtAAAA:8 a=GcoI09lhNaN5Dz-92OEA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: zpgw-8AFVHvXHtIYfQ8he9X3VaAn-d9R
-X-Proofpoint-GUID: zpgw-8AFVHvXHtIYfQ8he9X3VaAn-d9R
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI3MDIwNSBTYWx0ZWRfX8H1fR9ASfCTa
- ZlnZzyxxTeEKKwpoBS+icLkuaoKXs4Azv6NRGJGyRSh+Ov1Dgd8gUpITWQcc8f917X6MsQWXJq8
- DNiWojEgXqeKeMQ4jEMgKanGjYrxyECFJlj77JL2zanB+lj6nZJBW95l4BphnN2vvIlMiVmgwiG
- AqJX7RuCgI6rc+kZzA731mkW4JFsWNk7eazg4sZGM9zNctL3mnh3Es4qQD9rOEXN+PfGop+t8YK
- 4PQvT7toq/X8Cuj+P45Z4i+lAXRLvdR/ZQJvDfl3uAXazTazV/Z/vG6s6ytO7h6LH0anFkC4EMp
- 0bzre8YvTRSTEe/CQ5IcStqOjxZeBE6zyiQnvZzPxlrc58QS/arf2cuUmTGcfBvpuN5lQDEPlRC
- FRBsxV9WT+kO5VYpNEo/kls+YIB6bYXc3PQOoGZWTk6jxeRYgVk8T+OpApL1UpiHg9e822RW
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-27_11,2025-05-27_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 mlxlogscore=999 adultscore=0 malwarescore=0
- bulkscore=0 priorityscore=1501 clxscore=1011 mlxscore=0 lowpriorityscore=0
- spamscore=0 suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
- definitions=main-2505270205
+	Wed, 28 May 2025 00:29:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B16CD43D3E;
+	Wed, 28 May 2025 00:29:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87305C4CEED;
+	Wed, 28 May 2025 00:29:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748392147;
+	bh=E0bPhgFZCMLFbSxypsa1RlNtcOqOpu3ifA2g26DwHNE=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=Mvt8V/XSgOndO9JRXaat6YHE1t041IA5oMiHE63hpIoa4HsXn1/y4iq0b3Pe56mIy
+	 lO2iUWG3j+2qOcsa7MgW8VWyi+zqbyDlWQ9popP4I4IoXFhTv1LJ1leKxMGueGsACH
+	 3ohC8dYPNzX2D7nNWGZdAf8GsnniLBrrqNBOXM7oi7ssQKITdxkNraZDJM+UDRANP8
+	 n9ME5QnqRBmmQv9moKmwXLsZdC0/T2v2Jo1K2pgbjzw51TtwwkcpBVF42zi9R9ig9+
+	 ilSrNhgmY28dHR0G2dEhgaeVWnp3vsFe3lgWJg6Bkt6JceINQ/OeuTe9JnmzPThSrY
+	 RvQ39MYOzLlGQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB01D380AAE2;
+	Wed, 28 May 2025 00:29:42 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain/cpuidle-psci updates for v6.16
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20250527104856.206797-1-ulf.hansson@linaro.org>
+References: <20250527104856.206797-1-ulf.hansson@linaro.org>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <20250527104856.206797-1-ulf.hansson@linaro.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.16
+X-PR-Tracked-Commit-Id: 36795548dcc841c73f03793ed6cf741a88130922
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 418da6ee1ea62090f6b66d95b8fcf7db2f42c00f
+Message-Id: <174839218144.1837144.13413788928509105361.pr-tracker-bot@kernel.org>
+Date: Wed, 28 May 2025 00:29:41 +0000
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_170531_338699_4C00E539 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20250527_172910_119528_EC4D5FE7 
+X-CRM114-Status: UNSURE (   4.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,53 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Tue, 27 May 2025 12:48:56 +0200:
 
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.16
 
-On 2/7/2025 3:18 PM, Jitendra Vegiraju wrote:
-> Hi Abhishek,
-> 
-> On Fri, Feb 7, 2025 at 10:21 AM Abhishek Chauhan (ABC) <
-> quic_abchauha@quicinc.com> wrote:
-> 
->>
->>
->> On 11/5/2024 8:12 AM, Jitendra Vegiraju wrote:
->>> Hi netdev team,
->>>
->>> On Fri, Oct 18, 2024 at 1:53 PM <jitendra.vegiraju@broadcom.com> wrote:
->>>>
->>>> From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
->>>>
->>>> This patchset adds basic PCI ethernet device driver support for Broadcom
->>>> BCM8958x Automotive Ethernet switch SoC devices.
->>>>
->>>
->>> I would like to seek your guidance on how to take this patch series
->> forward.
->>> Thanks to your feedback and Serge's suggestions, we made some forward
->>> progress on this patch series.
->>> Please make any suggestions to enable us to upstream driver support
->>> for BCM8958x.
->>
->> Jitendra,
->>          Have we resent this patch or got it approved ? I dont see any
->> updates after this patch.
->>
->>
-> Thank you for inquiring about the status of this patch.
-> As stmmac driver is going through a maintainer transition, we wanted to
-> wait until a new maintainer is identified.
-> We would like to send the updated patch as soon as possible.
-> Thanks,
-> Jitendra
-Thanks Jitendra, I am sorry but just a follow up. 
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/418da6ee1ea62090f6b66d95b8fcf7db2f42c00f
 
-Do we know if stmmac maintainer are identified now ?
+Thank you!
 
-Andrew/Russell - Can you please help us ? 
-
-Best regards
-ABC
-
-> 
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
