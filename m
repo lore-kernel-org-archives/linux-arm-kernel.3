@@ -4,53 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61338C5AD49
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7241CC3ABB2
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 16:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=moZDet3kPr+CVy3Dt4QLK4BT13c2GN2/ubGebRT+trg=; b=IPcD06OfyhTC5U
-	PR8UkPn7Acx433GKsYQgA03l9xj6BoJCqiPOjAZSY9j3zvU8IP1dWR9AgrRJR7qUknLqk4sRIr57W
-	BYXF3hieE1Q+qFw4ytt7XA0WvD4Io4T8FBLapBixCOJmYiOB4cgXAJzrmCql+HiilN2dqdLDKB5ag
-	rRJkr4cn2VOEyh5YfwQYr+YeOhhD8bQBmg9/Wrl3ikKsfp7TJa2srpeGHbq8La38OUBeisTHkJl/4
-	9QLQn42GQj7dKac3uwyiAictgeza6ChjZdSgc1XABVF/r1/QfhgX7Pl167MtznTxjIMnZRQ+mYmqL
-	GCskMrVtqNhzIBshj9yQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQP8e1hOsjMVduH4mUkZVLt+/S7HcZ82dt1IhcMZTQ8=; b=Cyq0FwZ06Pp2Wd+w+qxfYMXYcO
+	hKYcdKb5gtC0y1ACQN7JtUcuTMO3TAgI7w5pRs0yHA4vvz3pmLJ1lAg85Vbeo3w2Ori98ibWtbS1R
+	ShJ0nT+2DFeD93TWAvBy1Esla+pFAP6AZKdtKMSZH3v7pRURiUC92KQY92G6zpP6rCLXjAq3dvgfz
+	ppFkN5/fkn2Q+OLyjdvUttCuR3tDviWRxjy3kk2ESlgGiG6zBGFmCYOAHVQCOUNmz8ly/MzTq/avL
+	JrsSqFZ+GMioOAdP+J937evvPbXm1tggwEey+MnAbYYRh7LKvwSEbo6/ohK1laN0QBypjaVAjxGui
+	YXUrvT8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJdz-0000000Dfrl-1KAL;
-	Wed, 28 May 2025 16:28:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKJEl-0000000Dbyr-43mt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 16:02:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1ED421A2D;
-	Wed, 28 May 2025 09:02:21 -0700 (PDT)
-Received: from [10.1.34.177] (e137867.arm.com [10.1.34.177])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DB753F673;
-	Wed, 28 May 2025 09:02:36 -0700 (PDT)
-Message-ID: <c91901c9-b443-429d-acbf-558322ce152b@arm.com>
-Date: Wed, 28 May 2025 17:02:34 +0100
+	id 1uKJdx-0000000DfnM-0fE8;
+	Wed, 28 May 2025 16:28:41 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKJD4-0000000Dbqx-0W2N;
+	Wed, 28 May 2025 16:00:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Tyony/jd75CatrPgaRHPPSt18CyThN3/5l/zS6bGKSd0Kg9S/ToqDDa01nFfx4MrE10o+CNbzicFKWeG87cd7AFVx7AmnWlug8wIohFPgGmTckr8dPMFXnjt9HhvS2l7xOVssp0RSpBzBczL2rmQbllQh8e/Kdnuqb9bqM8/viA0Z8yOCRFdtovnPjjFT/nD4+oqRBP2UKKQLH8OO8D6yctKAVaPClTdCEijRleJQx/a6obGkipUho/bWSjNeDFGhwlVQxnE0DDSKOmHwFFLFHXwLPiL6ZnNPy6yPZwoB85R0+cJLizIn1bbk1suKS6N6D8w/5WYhZG+MDijTUyXzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cQP8e1hOsjMVduH4mUkZVLt+/S7HcZ82dt1IhcMZTQ8=;
+ b=JY+QQuNaP2Yw0kRqlybVN1DOdnE0P6K5V6eeIm++zHiLmkEfcVO4SpMpLzcI5aA1NDdzpoNJl/5yLJTeYypA5UVcul0Biplq7MAB7XojdBZnNMsGD6ESBkmd3/n1ZM7ByndZxIBpe9hiyxWWPG/b4oaGrE1S8tS5lNfl2ehMiKkTQNVLk68NuuuT6sidaourM2SJ5Rml96sFdcxxQcwWJrgBbF9rcCvG1IFlsbTt2762HT5NRanaea1Baoy379wGgE1wHjMPsHxUllT19TbhDGPhOuR3R2WbP9jmr2627j44mXKMMywYyCFNP4/Z9Yf7y4/wBhDR9rufzMYlbQ4xlg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cQP8e1hOsjMVduH4mUkZVLt+/S7HcZ82dt1IhcMZTQ8=;
+ b=SaHUBoZ1Spm3bjsHhsV18/ArsLdqQCCmKv4Og4GrEiRWmioXVRPyZpUPwj6neIN/rGkE+A5vfTQePVwc/VcSKKat/OmVn9ahGVJnRnk//IfVJT0AS7Gpcu216UTo5oDG5mteZWGMEtNcSVAL06FflJ+MuLxicQxrjQUwQEwAcz4zXMYwUvNXch2hvdq2g+zMONwtNj03Bd9MFqzv7VkE2AVeVK8/3oYU2VLwBUjHxTwgzykrkatlXvBODG4ixfpg34nFghDFADgV80dLrPd1AUOuqNYGfO27n5N/rQRdOom8W4b84OMbCYP0F/uOal9eUfPQCuC++M82BAx2o+uBbg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB9128.eurprd04.prod.outlook.com (2603:10a6:20b:44b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.25; Wed, 28 May
+ 2025 16:00:50 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8746.030; Wed, 28 May 2025
+ 16:00:50 +0000
+Date: Wed, 28 May 2025 12:00:40 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
+	linux-pm@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] thermal: Constify struct thermal_zone_device_ops
+Message-ID: <aDczKA71dqJscfUK@lizhi-Precision-Tower-5810>
+References: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5bba3bf0139e2418b306a0f9a2f1f81ef49e88a6.1748165978.git.christophe.jaillet@wanadoo.fr>
+X-ClientProxiedBy: BY5PR04CA0006.namprd04.prod.outlook.com
+ (2603:10b6:a03:1d0::16) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 03/11] arm64: debug: call step handlers statically
-To: Will Deacon <will@kernel.org>
-References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
- <20250512174326.133905-4-ada.coupriediaz@arm.com>
- <20250520153558.GC18901@willie-the-truck>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US
-Organization: Arm Ltd.
-In-Reply-To: <20250520153558.GC18901@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB9128:EE_
+X-MS-Office365-Filtering-Correlation-Id: 62ea17f3-fe0e-4965-e8dd-08dd9e00d12c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mbjPqbBDmqgR+EMcagDD4bxA1N6wYw42bUvlHpZREdqObMCvReRNNSC3LYUQ?=
+ =?us-ascii?Q?khbymmhlhV3hW0+g0Yd4l0Nu2JV58trFTEzWcNop58v7xvfWjIom+yA63hDL?=
+ =?us-ascii?Q?ORW24vQVpoRdFmEo61gdQoKHnR4DlE6lD0dBlxqpMeMKH1WmHrxAnVLjO3ES?=
+ =?us-ascii?Q?hKZyB/Uxq5nqX8zaFBtxnzN3K6HFsHggjxq6ovodIckh4OPaRepD6At5aYFm?=
+ =?us-ascii?Q?UXqFFFs5F5L4pvfgGQunBmKRJ6WHNBrzgM0Jv0mQIvvOO/tMVmz8B9UXiizs?=
+ =?us-ascii?Q?6AgQYxXD9Ve5Br2QnwzIguABCXqyU4TH1i5yCQN6xp7eWaYOHbXSA2ZyOZx8?=
+ =?us-ascii?Q?UaompkifKOCQaf/CoJYjIC/JGJw0OBnAguJddAtM2JTOq2wEakBRGdrP1A0o?=
+ =?us-ascii?Q?ajrIjp8iS+tp3TY6HsiEnWI5zgZP1TenTjA33Ne9UghkbOjcRbdPyN0Nu90p?=
+ =?us-ascii?Q?HkbhdJ9BTFqL0bCKayxeqEXhLmIY0QJUaibQ06ZeVky6SKouwJhiHq1oSRqY?=
+ =?us-ascii?Q?+W0Gs6G65zZuhbZLP5/em8fw/tzeyZ+ojSu1xnrnGu+zCAcG1U3EYZyWY3vU?=
+ =?us-ascii?Q?29XiMwZw+WvDVoFhvmPMPxlOa7PgCjbNqFo9v6UPXgt+tPJNhxZKd2sE882w?=
+ =?us-ascii?Q?zgZwjeptrKUrLgzVuOZZdKlymzCRWHThjeLvTokfMqlVuEFMspt55KE++Eon?=
+ =?us-ascii?Q?7CNXMpWzhoHi5kfFuuqFGAnOzDsuEPWPEdb8A7bwhHmCWnWuZVDFPoPHjGAX?=
+ =?us-ascii?Q?/X5xWqqe8wD4/6gyDlOJ9otJbUL5Vy3twGJk1VBmfutGN2aYF6OoNWvjrXsR?=
+ =?us-ascii?Q?qwfiBkidwjKRLoSHQDOhMvrvrDr+WEuP0F2Ja30ACD4JdIC9zBADZC6ee1l/?=
+ =?us-ascii?Q?diHnix0jI83z4v93zbUNm3EvEsg+PZAyxIxmOfFmiZ+2tMWh7jISeqL+pkgP?=
+ =?us-ascii?Q?UB8cz3hL0ymD3eSgJkpAGSmSdyDUBPTQ+lz3osDvmQ+YIHpb/RD6y1s0cADj?=
+ =?us-ascii?Q?Fu/r8DYX8FCzmprW4S6gC2B1F7MxjgMe1dNB3Sl3WgHRuFrTDq3EnV01GBQ3?=
+ =?us-ascii?Q?rs/3TnlwyKOuGWATKspLKXqc30S2rKI81pQFCGnMtXiipHf9q8e0Czs4KwXX?=
+ =?us-ascii?Q?WslLRnfOXnwOpgQvrDPdWJchdMfLJIr6hwdshOs/teX30AS8lv8vo/67Nl26?=
+ =?us-ascii?Q?W63WsI3BqkY1pNWBdVlvR/rwbmoeI7EJ4ht4etnZE1rCxA5fj5L2Oczl4fr0?=
+ =?us-ascii?Q?x8RmxgYOqOvVN+6yCXj35+oEGY3Vmucjuyj1sRAJZ3lqlW7hw9Eq6WlcPnpU?=
+ =?us-ascii?Q?eA2cPoe5b7RwXUhAhyBxYiE2CI15PQJOMDOZG0GszOf2zo2XE3QIHfiUOs6i?=
+ =?us-ascii?Q?47UTgWPYO62jtwU3pySrj+9vQmyupVe3rGQJSdw68JHjn9TH0XhGEnEw0L6C?=
+ =?us-ascii?Q?9/fEAiZ5/cemanyPIGCh9IBPYZC1O5u1QZCu18gN0eC+WznYyxBtnA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z37KK/4imPu96DvXJCMMgPBgKiWtScUC8gY8K6eYWOmIPEozj1ejt089M1Nx?=
+ =?us-ascii?Q?wOMqGXn5stOjVBEzkuSnEaNiVFfaFKyr/XwvRIkJnGmvIZpHfVUMAlAZ+iGt?=
+ =?us-ascii?Q?pNTCSEisZu0mPQOtlxEkGL37KrK5ax3dqzx9YEm7yY4EgfzgwPE+dUveuPt8?=
+ =?us-ascii?Q?FnXT8fkYiSdBOEN47CTJCwbXncpSNKDPjMaN2FRpL0m1qY3NmqTKo4GjJmU8?=
+ =?us-ascii?Q?paFYKA5c7bwFCQR0y0kPpll4zAMZUUNSLtRnKRM2IuPdxD3Lo0aCjVqSbDbl?=
+ =?us-ascii?Q?gKwf0/9PbIwinQhRp9cy7MeUEnGqciKGKBBbwSYV9Vc5BcKvj6TSlnLzVydS?=
+ =?us-ascii?Q?sRpSwixI9ntCcslEUijrT3VooWvLYlCdElBBT4RteNRrsArUcJViW6/jijkh?=
+ =?us-ascii?Q?IyGPmTY17YqE+1yCtPmIqjtC4UAD0/Ml6APWEHAZSjlEU21ZWuGP/bO+zNME?=
+ =?us-ascii?Q?dndx0tmopVH44tQ4e1lGfCwCBSCuURuQcd1mgv1iDY3b45PeT0UOX6ec0rQK?=
+ =?us-ascii?Q?mHD1mX1N3HrxO3Rrcnemzsktg3wgXnBs+XCuX8RBbI57YNZm7hhg14Z0QQow?=
+ =?us-ascii?Q?pQBRfp7nFS2UGw3tgD9VD2cb7AgCyjVbuUr3Xam5O62zgY9ZOoZ3Gf0WMQqo?=
+ =?us-ascii?Q?Tknhhl4oXQohZcL/ufUOMHd2StWtPZaNZGLhUHk8MDajRgMaOKWoJcFurCnS?=
+ =?us-ascii?Q?cfbqMh+oXh7ncthE1Qz3W5MdqV12auxGdqJy0MuIiXJFHfmby9EjHPjWQEM0?=
+ =?us-ascii?Q?l78nUwE5MEp5XUmyDToEmiOUIlszxiEhcvcm/y8M9VC8yEWljAwYahSaZEW9?=
+ =?us-ascii?Q?Uoun3DlWZhqZGqJrWJxJCclRpJ/s0J7MHPavJzGzgYQgM/pANoIuGqoZV9eS?=
+ =?us-ascii?Q?wMSOnepkFT64InaGRTdfMlcncESfpiAEXWmzI84sPkBK4prmK0bVdiAEafqX?=
+ =?us-ascii?Q?IMV2pwLDN7p/3F1ZRZ4Lx5suViYqtijXKZ8dPRPj9eAduainlcwskJ+R3q9V?=
+ =?us-ascii?Q?sSudGEJmowvGmlZhUobhVfQZeu92ea3eXt+4VF3poPvNhcwDmoXjkgqoALLZ?=
+ =?us-ascii?Q?8o8cmHmiK32L4rafzJijbp/BwqN2SZYdfAiX9P/L82KSjznYSy9T/p6ZNb0/?=
+ =?us-ascii?Q?2n1CDqzyUDzsg1lOiVAySTX+RU3oaIvoKfov1eOgEdEpcOmBC7JFPj4vcfzR?=
+ =?us-ascii?Q?0Gf9T9TpAWxD9xNI4qCxPOyfmOFBPsmHaqufOIpD+2CFl81kMNNyTy6SfIXw?=
+ =?us-ascii?Q?xt5yV5M0ORF6BbYsF5mbAOacnG4MF9XGn2adjovg0H5tqFvXjeJqhNqiDjnW?=
+ =?us-ascii?Q?JQEMrzoJ/yR+bJ46gDBfg7gm3hG9r5kQ1DE1C2Ln4GxPV/Rj5vhXqL1h1rZQ?=
+ =?us-ascii?Q?hp6EO4hNtG1p2ASAcVc3KtSEtbWZOd79iOOQuTXVKCq225dYg3gBzrCg8WIg?=
+ =?us-ascii?Q?nBhcL6tfklB9lmMy56ak/IVcMl0MOVAFyf8yY89GB/Zt0OxGVDYjgC1E1LWx?=
+ =?us-ascii?Q?uDC/S6dfueQS8cxkf/ZcchWJHWSlTtL3DZ3sCM1ySO9ILsY2bed+LFwdtKjw?=
+ =?us-ascii?Q?U+iIwBjnJgleK+1cDd81JramJvLjFhukkjYKGwjv?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 62ea17f3-fe0e-4965-e8dd-08dd9e00d12c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 May 2025 16:00:50.5095
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lqMChZdpZB+dQrB+ZfIfYWKLj6iUgk9Ai0TsFcYDCPReEB9Jlepp8//cnp97XmzTaGHH7g3RyCIv5nCaOj690w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_090240_058414_A2A56B15 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250528_090054_327139_3DA4F159 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,46 +168,193 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2025 16:35, Will Deacon wrote:
-
-> On Mon, May 12, 2025 at 06:43:18PM +0100, Ada Couprie Diaz wrote:
->> +#if CONFIG_UPROBES
-> nit: this should be #ifdef and my compiler complains about that:
+On Sun, May 25, 2025 at 11:40:04AM +0200, Christophe JAILLET wrote:
+> 'struct thermal_zone_device_ops' are not modified in these drivers.
 >
->    | arch/arm64/kernel/debug-monitors.c:172:5: warning: 'CONFIG_UPROBES' is not defined, evaluates to 0 [-Wundef]
-Indeed, that's my bad.
-Replacing it in v3 with an #ifndef for the stand-in.
->> +		return uprobe_singlestep_handler(regs, esr);
->> +#else
->> +		return DBG_HOOK_ERROR;
->> +#endif
-> It would probably be cleaner to have a static inline definition of
-> uprobe_singlestep_handler() when !CONFIG_UPROBES that just returns
-> DBG_HOOK_ERROR.
+> Constifying these structures moves some data to a read-only section, so
+> increases overall security, especially when the structure holds some
+> function pointers.
 >
->>   	}
->>   
->> -	return retval;
->> +#ifdef CONFIG_KGDB
->> +	return kgdb_singlestep_handler(regs, esr);
->> +#else
->> +	return DBG_HOOK_ERROR;
->> +#endif
-> Similarly here.
+> On a x86_64, with allmodconfig, as an example:
+> Before:
+> ======
+>    text	   data	    bss	    dec	    hex	filename
+>   28116	   5168	    128	  33412	   8284	drivers/thermal/armada_thermal.o
+>
+> After:
+> =====
+>    text	   data	    bss	    dec	    hex	filename
+>   28244	   5040	    128	  33412	   8284	drivers/thermal/armada_thermal.o
+>
+> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> ---
+> Compile tested only
+> ---
+>  drivers/thermal/armada_thermal.c                        | 2 +-
+>  drivers/thermal/da9062-thermal.c                        | 2 +-
+>  drivers/thermal/dove_thermal.c                          | 2 +-
+>  drivers/thermal/imx_thermal.c                           | 2 +-
 
-That's fair, it does make the function itself very clear !
+for imx thermal part
 
-Replaced the #ifdefs in the function with static inline stand-ins
-when the configs are disabled for v3.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-> Will
-
-Thanks,
-
-Ada
-
+>  drivers/thermal/intel/int340x_thermal/int3400_thermal.c | 2 +-
+>  drivers/thermal/kirkwood_thermal.c                      | 2 +-
+>  drivers/thermal/mediatek/lvts_thermal.c                 | 2 +-
+>  drivers/thermal/renesas/rcar_thermal.c                  | 2 +-
+>  drivers/thermal/spear_thermal.c                         | 2 +-
+>  drivers/thermal/st/st_thermal.c                         | 2 +-
+>  drivers/thermal/testing/zone.c                          | 2 +-
+>  11 files changed, 11 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/thermal/armada_thermal.c b/drivers/thermal/armada_thermal.c
+> index 9bff21068721..c2fbdb534f61 100644
+> --- a/drivers/thermal/armada_thermal.c
+> +++ b/drivers/thermal/armada_thermal.c
+> @@ -408,7 +408,7 @@ static int armada_get_temp_legacy(struct thermal_zone_device *thermal,
+>  	return ret;
+>  }
+>
+> -static struct thermal_zone_device_ops legacy_ops = {
+> +static const struct thermal_zone_device_ops legacy_ops = {
+>  	.get_temp = armada_get_temp_legacy,
+>  };
+>
+> diff --git a/drivers/thermal/da9062-thermal.c b/drivers/thermal/da9062-thermal.c
+> index 2077e85ef5ca..a8d4b766ba21 100644
+> --- a/drivers/thermal/da9062-thermal.c
+> +++ b/drivers/thermal/da9062-thermal.c
+> @@ -137,7 +137,7 @@ static int da9062_thermal_get_temp(struct thermal_zone_device *z,
+>  	return 0;
+>  }
+>
+> -static struct thermal_zone_device_ops da9062_thermal_ops = {
+> +static const struct thermal_zone_device_ops da9062_thermal_ops = {
+>  	.get_temp	= da9062_thermal_get_temp,
+>  };
+>
+> diff --git a/drivers/thermal/dove_thermal.c b/drivers/thermal/dove_thermal.c
+> index f9157a47156b..723bc72f0626 100644
+> --- a/drivers/thermal/dove_thermal.c
+> +++ b/drivers/thermal/dove_thermal.c
+> @@ -106,7 +106,7 @@ static int dove_get_temp(struct thermal_zone_device *thermal,
+>  	return 0;
+>  }
+>
+> -static struct thermal_zone_device_ops ops = {
+> +static const struct thermal_zone_device_ops ops = {
+>  	.get_temp = dove_get_temp,
+>  };
+>
+> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+> index bab52e6b3b15..38c993d1bcb3 100644
+> --- a/drivers/thermal/imx_thermal.c
+> +++ b/drivers/thermal/imx_thermal.c
+> @@ -361,7 +361,7 @@ static bool imx_should_bind(struct thermal_zone_device *tz,
+>  	return trip->type == THERMAL_TRIP_PASSIVE;
+>  }
+>
+> -static struct thermal_zone_device_ops imx_tz_ops = {
+> +static const struct thermal_zone_device_ops imx_tz_ops = {
+>  	.should_bind = imx_should_bind,
+>  	.get_temp = imx_get_temp,
+>  	.change_mode = imx_change_mode,
+> diff --git a/drivers/thermal/intel/int340x_thermal/int3400_thermal.c b/drivers/thermal/intel/int340x_thermal/int3400_thermal.c
+> index 0e07693ecf59..5736638c586b 100644
+> --- a/drivers/thermal/intel/int340x_thermal/int3400_thermal.c
+> +++ b/drivers/thermal/intel/int340x_thermal/int3400_thermal.c
+> @@ -515,7 +515,7 @@ static int int3400_thermal_change_mode(struct thermal_zone_device *thermal,
+>  	return result;
+>  }
+>
+> -static struct thermal_zone_device_ops int3400_thermal_ops = {
+> +static const struct thermal_zone_device_ops int3400_thermal_ops = {
+>  	.get_temp = int3400_thermal_get_temp,
+>  	.change_mode = int3400_thermal_change_mode,
+>  };
+> diff --git a/drivers/thermal/kirkwood_thermal.c b/drivers/thermal/kirkwood_thermal.c
+> index 7c2265231668..4619e090f756 100644
+> --- a/drivers/thermal/kirkwood_thermal.c
+> +++ b/drivers/thermal/kirkwood_thermal.c
+> @@ -48,7 +48,7 @@ static int kirkwood_get_temp(struct thermal_zone_device *thermal,
+>  	return 0;
+>  }
+>
+> -static struct thermal_zone_device_ops ops = {
+> +static const struct thermal_zone_device_ops ops = {
+>  	.get_temp = kirkwood_get_temp,
+>  };
+>
+> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
+> index 985925147ac0..acce8fde2cba 100644
+> --- a/drivers/thermal/mediatek/lvts_thermal.c
+> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+> @@ -571,7 +571,7 @@ static irqreturn_t lvts_irq_handler(int irq, void *data)
+>  	return iret;
+>  }
+>
+> -static struct thermal_zone_device_ops lvts_ops = {
+> +static const struct thermal_zone_device_ops lvts_ops = {
+>  	.get_temp = lvts_get_temp,
+>  	.set_trips = lvts_set_trips,
+>  };
+> diff --git a/drivers/thermal/renesas/rcar_thermal.c b/drivers/thermal/renesas/rcar_thermal.c
+> index 00a66ee0a5b0..fdd7afdc4ff6 100644
+> --- a/drivers/thermal/renesas/rcar_thermal.c
+> +++ b/drivers/thermal/renesas/rcar_thermal.c
+> @@ -277,7 +277,7 @@ static int rcar_thermal_get_temp(struct thermal_zone_device *zone, int *temp)
+>  	return rcar_thermal_get_current_temp(priv, temp);
+>  }
+>
+> -static struct thermal_zone_device_ops rcar_thermal_zone_ops = {
+> +static const struct thermal_zone_device_ops rcar_thermal_zone_ops = {
+>  	.get_temp	= rcar_thermal_get_temp,
+>  };
+>
+> diff --git a/drivers/thermal/spear_thermal.c b/drivers/thermal/spear_thermal.c
+> index bb96be947521..603dadcd3df5 100644
+> --- a/drivers/thermal/spear_thermal.c
+> +++ b/drivers/thermal/spear_thermal.c
+> @@ -41,7 +41,7 @@ static inline int thermal_get_temp(struct thermal_zone_device *thermal,
+>  	return 0;
+>  }
+>
+> -static struct thermal_zone_device_ops ops = {
+> +static const struct thermal_zone_device_ops ops = {
+>  	.get_temp = thermal_get_temp,
+>  };
+>
+> diff --git a/drivers/thermal/st/st_thermal.c b/drivers/thermal/st/st_thermal.c
+> index a14a37d54698..1470ca519def 100644
+> --- a/drivers/thermal/st/st_thermal.c
+> +++ b/drivers/thermal/st/st_thermal.c
+> @@ -132,7 +132,7 @@ static int st_thermal_get_temp(struct thermal_zone_device *th, int *temperature)
+>  	return 0;
+>  }
+>
+> -static struct thermal_zone_device_ops st_tz_ops = {
+> +static const struct thermal_zone_device_ops st_tz_ops = {
+>  	.get_temp	= st_thermal_get_temp,
+>  };
+>
+> diff --git a/drivers/thermal/testing/zone.c b/drivers/thermal/testing/zone.c
+> index 1f4e450100e2..4257d813d572 100644
+> --- a/drivers/thermal/testing/zone.c
+> +++ b/drivers/thermal/testing/zone.c
+> @@ -381,7 +381,7 @@ static int tt_zone_get_temp(struct thermal_zone_device *tz, int *temp)
+>  	return 0;
+>  }
+>
+> -static struct thermal_zone_device_ops tt_zone_ops = {
+> +static const struct thermal_zone_device_ops tt_zone_ops = {
+>  	.get_temp = tt_zone_get_temp,
+>  };
+>
+> --
+> 2.49.0
+>
 
