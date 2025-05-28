@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 777F2C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 05:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1B4C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 05:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9GPiiOWg2WcilvsIQa/HwiogYZD85OO9PHBPobF64+M=; b=3/aKw5sOhgiIz9hmVUlHrrubhO
-	SW1De77BQDmFhoC8VQ3xPBhk4YN2tpSU/duYAOQADr2nV74dacB1KKpffEDIDri5nq2m5s4nI6q41
-	a7rGxd6ggz9+wp/ZMP77VvbgXYaZHqjqRNFD4EkzY4vUV25Ebo+ZE/AP2zAq2nVxV9PLCC5wlm0Zq
-	yzJ3fsDzL5XZhT1lr9ig20M0iuE/rt2EgJu/3jBR8DK/8cF+y9m3u2q1HdiyHJnKK+fL3tkn++c/F
-	OPFP6UHjwojMJTMIr3VYh27VwJnYolCXTzCaNdWJ1O0W4/sXvJhS92xGFPAbeV1sHwFHoYFQNU/16
-	V2e3AW0A==;
+	bh=eGClTHgroxBcfOqGpSNsGz5pDhgYGNK3UlpzTs482Pc=; b=Qb0MQVpGmVXFVvnb4Ga02NdDWC
+	Qw4WWizEryo96kO0Xv6isZGEFGC83kK+tAeq+YK0dAsO722yaxFgkXQBPwBHZ5nUoU10Zbfp2ODhS
+	g3KoFUulQustvAI1a3VvvvBT5vSUu8FXbJZgFmfy1fdl5+Wjb0bf2FI9Pq81J5Nh4V1RUrtcqzka2
+	XPJyGxXCjzaSRq5Sk9gw7UooxmDlJtOJKxHSiTdmKjIJuSfJrxpmGXQ4jBtTCYXnPJgdfj4s1gO5x
+	2nfzy71tuJdkRpd68Lu/y3haLOEKp04agU0gnn1UtfAY5WrGgbAMMcPCJmAGsmjcvVE9OFBgSbaID
+	v9yu/LoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK9Jl-0000000CDIa-3MKw;
-	Wed, 28 May 2025 05:27:09 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1uK9Lr-0000000CDYa-2YKZ;
+	Wed, 28 May 2025 05:29:19 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uK9Hd-0000000CD1d-25Qa
+	id 1uK9Iq-0000000CDBP-0LUq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 05:24:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748409898; x=1779945898;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=17rSp5U/xGeglZ8H7tF6/G2owk/7blSgg3sqoGfP+0U=;
-  b=W9NwoCpYcVxQ0/KsEUl2ATeUMqloDrH38h6ssOel7WqyU56SH7YGpMfg
-   3x1vzMJF44tFdfdV47F7ZLiVwk3opwXEUraslNchQYxZr/dZvbR93tjzO
-   g3+I0ZYTvYLyLZDClus+FvpKAY9jRyLO0miWVVT26vBL0kCSJXmusTQ/X
-   bFkb+fhNyEqZtZGGckI9gUeu9NIPdu7UbSCpHot5SXgakwkDjNWkbo+zI
-   XkFZzE0jQR6MUy/wcf+rAi16fY2jYowQ5jVcuGsUp7V+dpLwCnZXX36x3
-   DdiS5ju7H3rESBpnkg8F8hfpU37ZBBKfpz3t/oFm2qlxvk1AR4mCzRNEJ
-   A==;
-X-CSE-ConnectionGUID: mmdMXZVcQz6eWk3A4byT1w==
-X-CSE-MsgGUID: lCwC28fRRyKmMZ02aLMkhg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11446"; a="50576511"
-X-IronPort-AV: E=Sophos;i="6.15,320,1739865600"; 
-   d="scan'208";a="50576511"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2025 22:24:56 -0700
-X-CSE-ConnectionGUID: 43PRHqaxS/iGGHO6XHx9aA==
-X-CSE-MsgGUID: 9VBCuzvETsG4GSy2PbL5cg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,320,1739865600"; 
-   d="scan'208";a="142947801"
-Received: from mev-dev.igk.intel.com ([10.237.112.144])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2025 22:24:50 -0700
-Date: Wed, 28 May 2025 07:24:11 +0200
-From: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
-To: weishangjuan@eswincomputing.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	vladimir.oltean@nxp.com, rmk+kernel@armlinux.org.uk,
-	yong.liang.choong@linux.intel.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
-	jan.petrous@oss.nxp.com, jszhang@kernel.org, p.zabel@pengutronix.de,
-	0x1207@gmail.com, boon.khai.ng@altera.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, lizhi2@eswincomputing.com
-Subject: Re: [PATCH v2 0/2] Add driver support for Eswin eic7700 SoC ethernet
- controller
-Message-ID: <aDad+8YHEFdOIs38@mev-dev.igk.intel.com>
-References: <20250528041455.878-1-weishangjuan@eswincomputing.com>
+	Wed, 28 May 2025 05:26:13 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ad1f6aa2f84so111274066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 May 2025 22:26:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748409970; x=1749014770; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=eGClTHgroxBcfOqGpSNsGz5pDhgYGNK3UlpzTs482Pc=;
+        b=afTY6utcc+W+dhUb79gSe0GipDLcibocjKlRX35WazqifOEAjRy8o62nEGMSrSSCLV
+         veYoxe7hfwWX7NnBaP0DSy66KXp9Pa6XlzahA+7BtCOTNI71w2N8enF8FT/T8Lg5xIF/
+         Sfyf48REcr/DMh4WWwqJNfEA93/BH2KPba9zTWvGmZ/ISUIW0P1muF8wESXTSHO9QHqv
+         ttJck1uOLq/PmGczGwXERiyBVNwAYiraxpF2+YfPyozmhWjTbAgontD2NDH+Y8RVcZh/
+         kea3YDoivu4S5g/WNic1ojoWnNtq6blzRX02qwkC9DU6cKHf5MRoEITvPH52qhULhviL
+         i4FQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748409970; x=1749014770;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eGClTHgroxBcfOqGpSNsGz5pDhgYGNK3UlpzTs482Pc=;
+        b=hZA/ByKjNozPnDOHeNplMx7zv9a0eeZzfIPhYJgOo1pTZud/f8mniDJP80MZ56tNMN
+         Sp/tkUaSxPzPQZHDgU/xEw/gRuItFXsRxL1ZFhk6PU+nz78yM7jYY/X+MtiyfEB+5Dv5
+         qNWO3FBFhlsR0dYIEe0hPz7SlawSN3ApgVoNNeIM7hgEcaQcD623s/FeEC+WGfxRK34H
+         1mh4jqvLtY7rKUqNtFSKYaeCKWeHwFGoLh0prVRYCZiRHKEpOHCp2w3vdB4iNMC0ozD4
+         TZ2yzFc7w1zJMvtn9Cq/oz/aCunrWUMivp+kfk9naOtytiilhZPYVj4oVj9nTJ0BFZkJ
+         GRdA==
+X-Gm-Message-State: AOJu0YzuhtBoszrDyntu88f2D2Gu0PpkezsrxDnoaOSmhFrPxaQIf2hk
+	1XCyRu/eaFw2RHpElRKn4HRfTWCx/hTIUujYvJcKbVxSXtbuY2Kmf0wnIapFOHPvy4kQCO/FtQS
+	3gvPHIMfjioWBl6ZC3b556WTAyv/D1rs=
+X-Gm-Gg: ASbGncv4r8f4bq8ZYUXNwFrAdLSbZpxQtvmPyYOeKXHY9Ba2nXT6n4onP1hgLDTWjCs
+	Fn/+IvBYhf0rcNuKDjhxflJgYo3hlG4jbxpjQBxRrwFaguwmphvshJrVH29+zhkkSn9LysdKOd1
+	S4GTwWX+V/1rxTUVJkhFoEFNXO3iRa3QULtu53cxG8Fw==
+X-Google-Smtp-Source: AGHT+IGtzXS7r014ksMOyLWyv3PY+eL9kVmReP9BCXuY+JhbQJHaBU9SpOog9pV/WyubUhLYHA04NIb+oVSmRa6PrEA=
+X-Received: by 2002:a17:907:1c2a:b0:ad5:9ff3:c6ce with SMTP id
+ a640c23a62f3a-ad89886abebmr283385766b.4.1748409969604; Tue, 27 May 2025
+ 22:26:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250528041455.878-1-weishangjuan@eswincomputing.com>
+References: <20250525160513.83029-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250525160513.83029-1-marek.vasut+renesas@mailbox.org>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Wed, 28 May 2025 10:55:52 +0530
+X-Gm-Features: AX0GCFvOx05IZ5_kXJ72iIXw3IbiUdPuTxyEyjCQN5yHvmLpaXyXqe_dfeV4Hz8
+Message-ID: <CANAwSgRXDLGAaXGXHfiS2rA3=+r2is2g557Bozu+SocQoBMySQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] PCI/pwrctrl: Add optional slot clock to pwrctrl
+ driver for PCI slots
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_222457_547498_5A25AF94 
-X-CRM114-Status: GOOD (  20.52  )
+X-CRM114-CacheID: sfid-20250527_222612_139114_D8552943 
+X-CRM114-Status: GOOD (  27.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,56 +98,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 12:14:42PM +0800, weishangjuan@eswincomputing.com wrote:
-> From: Shangjuan Wei <weishangjuan@eswincomputing.com>
-> 
-> Updates:
-> 
->   dt-bindings: ethernet: eswin: Document for EIC7700 SoC
->   v1 -> v2:
->     1. Remove the code related to PHY LED configuration from the MAC driver.
->     2. Use phylib instead of the GPIO API in the driver to implement the PHY reset function.
->     3. Align with the latest stmmac API, use the API provided by stmmac helper to refactor the driver,
->        and replace or remove duplicate code.
->     4. Adjust the code format and driver interfaces, such as replacing kzalloc with devm_kzalloc, etc.
-> 
->   ethernet: eswin: Add eic7700 ethernet driver
->   v1 -> v2:
->     1. Significant errors have been corrected in the email reply for version v1.
->     2. Add snps,dwmac.
->     3. Chang the names of reset-names and phy-mode.
->     4. Add descriptions of eswin, hsp_sp_csr, eswin, syscrg.csr, eswin, dly_hsp.reg.
-> 
->   Regarding the question about delay parameters in the previous email reply, the explanation is as follows:
->     Dly_hsp_reg: Configure the delay compensation register between MAC/PHY;
->     Dly_param_ *: The value written to the dly_hsp_reg register at a rate of 1000/100/10, which varies due 
->                   to the routing of the board;
-> 
->   In addition, your bot found errors running 'make dt_binding_check' on our patch about yamllint warnings/errors,
->   it looks like the validation failure is because missing eswin entry in vendor-prefixes.yaml. 
->   When we run "make dt_binding_check", we get the same error. We have already added 'eswin' in the vendor-prefixes.yaml 
->   file before, and the code has mentioned the community, but you have not yet integrated it.
+Hi Marek,
 
-Usualy description is above the changelog. Please try to follow 72 line
-length rule.
+On Sun, 25 May 2025 at 21:35, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+>
+> Add the ability to enable optional slot clock into the pwrctrl driver.
+> This is used to enable slot clock in split-clock topologies, where the
+> PCIe host/controller supply and PCIe slot supply are not provided by
+> the same clock. The PCIe host/controller clock should be described in
+> the controller node as the controller clock, while the slot clock should
+> be described in controller bridge/slot subnode.
+>
+> Example DT snippet:
+> &pcicontroller {
+>     clocks = <&clk_dif 0>;             /* PCIe controller clock */
+>
+>     pci@0,0 {
+>         #address-cells = <3>;
+>         #size-cells = <2>;
+>         reg = <0x0 0x0 0x0 0x0 0x0>;
+>         compatible = "pciclass,0604";
+>         device_type = "pci";
+>         clocks = <&clk_dif 1>;         /* PCIe slot clock */
+>         vpcie3v3-supply = <&reg_3p3v>;
+>         ranges;
+>     };
+> };
+>
+> Example clock topology:
+>  ____________                    ____________
+> |  PCIe host |                  | PCIe slot  |
+> |            |                  |            |
+> |    PCIe RX<|==================|>PCIe TX    |
+> |    PCIe TX<|==================|>PCIe RX    |
+> |            |                  |            |
+> |   PCIe CLK<|======..  ..======|>PCIe CLK   |
+> '------------'      ||  ||      '------------'
+>                     ||  ||
+>  ____________       ||  ||
+> |  9FGV0441  |      ||  ||
+> |            |      ||  ||
+> |   CLK DIF0<|======''  ||
+> |   CLK DIF1<|==========''
+> |   CLK DIF2<|
+> |   CLK DIF3<|
+> '------------'
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Magnus Damm <magnus.damm@gmail.com>
+> Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+>  drivers/pci/pwrctrl/slot.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+>
+> diff --git a/drivers/pci/pwrctrl/slot.c b/drivers/pci/pwrctrl/slot.c
+> index 18becc144913e..222c14056cfae 100644
+> --- a/drivers/pci/pwrctrl/slot.c
+> +++ b/drivers/pci/pwrctrl/slot.c
+> @@ -4,6 +4,7 @@
+>   * Author: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+>   */
+>
+> +#include <linux/clk.h>
+>  #include <linux/device.h>
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/module.h>
+> @@ -30,6 +31,7 @@ static int pci_pwrctrl_slot_probe(struct platform_device *pdev)
+>  {
+>         struct pci_pwrctrl_slot_data *slot;
+>         struct device *dev = &pdev->dev;
+> +       struct clk *clk;
+>         int ret;
+>
+>         slot = devm_kzalloc(dev, sizeof(*slot), GFP_KERNEL);
+> @@ -50,6 +52,13 @@ static int pci_pwrctrl_slot_probe(struct platform_device *pdev)
+>                 goto err_regulator_free;
+>         }
+>
+> +       clk = devm_clk_get_optional_enabled(dev, NULL);
+> +       if (IS_ERR(clk)) {
+> +               ret = PTR_ERR(clk);
+> +               dev_err_probe(dev, ret, "Failed to enable slot clock\n");
+you can user the return from ret = dev_err_probe()
+> +               goto err_regulator_disable;
+> +       }
+> +
+>         ret = devm_add_action_or_reset(dev, devm_pci_pwrctrl_slot_power_off,
+>                                        slot);
+>         if (ret)
 
-net-next is closed, you should resend it when open (after June 9th) [1]
+with that change.
+Reviewed-by: Anand Moon <linux.amoon@gmail.com>
 
-[1] https://lore.kernel.org/netdev/20250527191710.7d94a61c@kernel.org/T/#m0bc90575288f5f1bcf5e50ecff59fb904b79505c
-
-> 
-> Shangjuan Wei (2):
->   dt-bindings: ethernet: eswin: Document for EIC7700 SoC
->   ethernet: eswin: Add eic7700 ethernet driver
-> 
->  .../bindings/net/eswin,eic7700-eth.yaml       | 200 +++++++++
->  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 +
->  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->  .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 410 ++++++++++++++++++
->  4 files changed, 622 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
->  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-> 
-> -- 
-> 2.17.1
+Thanks
+-Anand
+> --
+> 2.47.2
+>
+>
 
