@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 697A7C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 09:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E44C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 28 May 2025 09:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLbVnlbvPPTZS/GEHUpPTOom17BRl8grLYARbR+09Wg=; b=kjQF3fYe+GpWjpyMqeGNE7OB1f
-	AkfOd0mvbRRtYpT39LHXHr4yPP75owJeofc3BMtUvcHOV5WTvyRyXTjkZJqQ+t0aO9M88112w6gVf
-	7E5J3pU1f1pS9aN02j5JdswMKOyYItuo94Fow9MMmd6QBIimJ+/AynrZNLbNp052PfT9mwQCxMf4P
-	BJRFf4xqcHRfXeU6XQWXvrnXzgtH64o6Nb6zie17jV1fLIWYsbko1sJ3ze/YqlRDZHS0sU6lDBYAH
-	L62+MbN3N7nwS/b/W5q45Hpi4uHnaz6BKHOHj3923SkwGm/1HTa6HQyJi7nABpOGBF4mObnN0EOk7
-	IkNh7WmA==;
+	bh=P0dCgTuvugz3sx7E/frAug62wo3HysHsvrpWYtwbM3k=; b=L/pwLFIiasZL/9RhU3/1KdgHIV
+	R2IErZY1c1F4g0PQf3zlf70dOOHIIOHZa1huZhrSB6z+9n8wDnSBR36PShMned+xRHX9z7Ec2dIhL
+	/FbdxctBepFnarOAyzYJXJjLdiufoLtEAeFGE+VKySo35zsiPZkmaAz15b/5Pasae9SaF2QhCbXa1
+	noUn7EMPC9YIhiPf5ztPwNbd+Tw1ZbHIkl5MpjRnFDEp8IHL7ADD9IlLYKSFweZZSNS45JX4xYi4Q
+	6j9QDIa2/k8TTGnWP67h5meTu86GObxQB5Zrcd1WMxE/MvloNYrUFLWv32yCBXCgdL59mWjW34o7J
+	LHLIeBTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDDC-0000000CkAy-1zRt;
-	Wed, 28 May 2025 09:36:38 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uKDFJ-0000000CkNX-0oxz;
+	Wed, 28 May 2025 09:38:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKCel-0000000CewY-1aEO
+	id 1uKCgl-0000000CfIW-3CKv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 28 May 2025 09:01:04 +0000
+	Wed, 28 May 2025 09:03:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 948FEA4F5CB;
-	Wed, 28 May 2025 09:01:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F008C4CEE7;
-	Wed, 28 May 2025 09:00:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1AA66A4F5CB;
+	Wed, 28 May 2025 09:03:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3920FC4CEE7;
+	Wed, 28 May 2025 09:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748422862;
-	bh=J3/nOkg/8f8JrZ1t4/PcLLyxxxqdmeW2cz37Tm5RRlw=;
+	s=k20201202; t=1748422986;
+	bh=z/dRPzqpE2qvyf5kxN+PDppxBSqyzjqGDEmXEJZ6X5g=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZSuuMhPmYMGsEOJrNG1sqCanRwH+qk9qBp9C42OYbb/TextqwbmaBZyIWU1dUKt1b
-	 pW4Rzife6LdGXtdGQT0gUfw0JqkAFPBDP1US0/L5wZUyl64rdEpLl3IufIV1+z6/sb
-	 iyethRYargVBNMQSN0d3Ynq4IK86CrLfWNj2ebbvb5MXiv94pMW5nTsAeBFpTQ+mOU
-	 udXP+z5cI83BbIk57vN56IMASghjkWIkQImx2LotJC+jMIJ8WkcNekhyqPkyXysDMv
-	 s7BIaZwCX2MKS8D2zt2CT3APjerxiQXOtqEcjvxHIlDZpEsUQZWDbNvwqoT16UJ4CP
-	 Lw2X7Ejcmkgdw==
-Message-ID: <1c21f915-e067-4801-925a-3d4882f358f2@kernel.org>
-Date: Wed, 28 May 2025 11:00:57 +0200
+	b=SI6uDx/iiO8/cWNJ8Yxi2Pkb9kD1pOgCukxNmFFvBNZjKRNNax4suu2p6+yxPAbC3
+	 IOboaFHhd6/01c3zty9T804+rl9YxUmYJE/FBhoOV08HNTMg/ya8yvKoTv90gWkHVG
+	 6n1E1fwz/6E2gx3YXmQIQtgQsQEA7INcWiUHkqjPQ7Pf+KYQ5uhJPAGJeD8UKCyK0J
+	 oRCIpn2D6jTYvj/qasHDg5XchD2o1AR2CW03o08nVqxrXKHyzU5bUK1y8n/Jkk6tnB
+	 MvRMchD2gEyfzRYs8790Pq9JlBHIF8Vhvukzoev6cH98KXx/7wCYkXfcRG62F50JSF
+	 uB3ZV/5mcgPLw==
+Message-ID: <04fcec27-3c70-44df-b62c-aeb646aa55f6@kernel.org>
+Date: Wed, 28 May 2025 11:03:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp15
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v1 9/9] MAINTAINERS: add and consolidate Black Sesame
+ Technologies (BST) ARM SoC support
+To: Albert Yang <yangzh0906@thundersoft.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
- <20250523-hdp-upstream-v3-6-bd6ca199466a@foss.st.com>
+ <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+ Ge Gordon <gordon.ge@bst.ai>
+References: <20250528085505.481528-1-yangzh0906@thundersoft.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250523-hdp-upstream-v3-6-bd6ca199466a@foss.st.com>
+In-Reply-To: <20250528085505.481528-1-yangzh0906@thundersoft.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_020103_550769_4B356FBE 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250528_020307_932969_5E4D3EFF 
+X-CRM114-Status: UNSURE (   7.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,29 +122,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/05/2025 14:38, Clément Le Goffic wrote:
-> Add the hdp devicetree node for stm32mp15 SoC family
+On 28/05/2025 10:55, Albert Yang wrote:
+> Add and consolidate the MAINTAINERS entry for Black Sesame Technologies
+> ARM SoC support. This entry covers device tree bindings, drivers, and board
+> files for BST SoCs, including MMC, and platform support.
 > 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
+> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
 > ---
->  arch/arm/boot/dts/st/stm32mp151.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
-> index 0daa8ffe2ff5..b1b568dfd126 100644
-> --- a/arch/arm/boot/dts/st/stm32mp151.dtsi
-> +++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
-> @@ -270,6 +270,13 @@ dts: thermal@50028000 {
->  			status = "disabled";
->  		};
->  
-> +		hdp: pinctrl@5002a000 {
-> +			compatible = "st,stm32mp151-hdp";
-> +			reg = <0x5002a000 0x400>;
-> +			clocks = <&rcc HDP>;
-> +			status = "disabled";
 
-Same questions here and in further patches.
+
+I think your patchset got somehow lost or not sent properly (no
+in-reply-to). I only got this 9/9.
+
 
 Best regards,
 Krzysztof
