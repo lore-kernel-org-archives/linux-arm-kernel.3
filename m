@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD326C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B039C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktm3H4JoTcBPhvijSXu1K0RN9L58nKBd88Iy0VSKeiU=; b=mERBn0gz+GBYeWfkWOVyY9HVpx
-	H70zE6XiHCgKCHL6xZzr3ejDp9pwslh2XmBZ7OIj63xsg1c4FStKXj/ZlY9JN1qRu5buJbLRzSJ10
-	c3P9jtGi91X9ynxAVcx7J4MWnU6ymIA7C3vQvJW+Hz4sKT68Q/Ee408A7lSbKEJFK6Jp60d+UkelS
-	W8K1ruyl5kEjRr9ntdTq1yqaxa+G74fh9Z63mNwaXzNfSwIgoaAoJB1XDzomktg2vqWHkn1zccU8r
-	875MZrUcrzPwF9T2YNL3GHW9TQEzQk14jyXA6BnBicF6Gg6OutYymW30Pea+90Wpq+jCr6yXLnS6P
-	K+9ifyWg==;
+	bh=zBTL/STJmtvp2VqDgiDgK4iklSQ0paUUUgoWg/0K4tc=; b=cwCirkkTaWUA2HRipmEjBVuxE/
+	BrpjPh4Br+J16BUNsPIguZH9TLuwgRdH7McGRp8ITh22rC09BKUfFPIiPy/HEDVK+RqCmP+yNEHAE
+	Vjk+8sFD7bfx+tqLXjIiIOJ9LoxSZYKifuUrNx1ALFnkJ036Em6ywXrFq+JirQrXcAsCdVfWQdXzG
+	oMcVNNF74S60Hl8BIrbJcWqAIhCygh9L62hro9vR/jOMIAh9jaZz2HVpewXOdRfS5IwZdUJbGiBc8
+	/V06DbEOJrT957Dr747R6Zbl4SvWaMu78Hlehp/Q/8eZ1DgCPdQ680aHanl4XyvVgoneM0C7o3NHT
+	R8Gc9bBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKe6v-0000000FxAo-0whQ;
-	Thu, 29 May 2025 14:19:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uKe92-0000000FxP5-06bv;
+	Thu, 29 May 2025 14:22:08 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKdAB-0000000FqGX-1F7G
+	id 1uKdEU-0000000FqfO-2Nf5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 13:19:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 967EF44DDA;
-	Thu, 29 May 2025 13:19:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23FFAC4CEE7;
-	Thu, 29 May 2025 13:19:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748524754;
-	bh=0FPlq097Hcbp5iDFnnpPEASquDvr0YwVHBR1ZnHEybM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bGpNNkhuC+2wzq01z4Hg6fg9gFT4OCGfEH33UX/SRQFSxkuIstRSlH8RLLfCGnjJP
-	 uLFY9f0FoIssiPqFtK9kkSboA5flQ+CQUdZkyEvUwI67Iiz3100skqqJj3zl5NaBIC
-	 Vp4raynx46b7liwMGM5/alirwYlvjt0bi622Gh8UzySB9RP2UZTKFwyuOOACBZsj5A
-	 pSpwn6kw8oVm/aNX63avKm3Mz/WoaVdPCbAW/fWLnWIr9O0l/EKUmgRgHLwFGzWJCx
-	 /PUGfC1aBQdwZF90uxJqFFjJOuTfvP2Yg5RcNQ/yU4N0Y5PYuqmpr1pgm64RrXUaE4
-	 IXj77ReiEv96Q==
-Date: Thu, 29 May 2025 08:19:12 -0500
-From: Rob Herring <robh@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Herve Codina <herve.codina@bootlin.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Peter Rosin <peda@axentia.se>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v2 23/26] misc: lan966x_pci: Introduce board specific data
-Message-ID: <20250529131912.GA2798026-robh@kernel.org>
-References: <20250507071315.394857-1-herve.codina@bootlin.com>
- <20250507071315.394857-24-herve.codina@bootlin.com>
- <8b97e095-dbed-438c-9c6d-d3c2c5929fc0@lunn.ch>
- <CAMuHMdUVvOMavxSAKaSMOwj_zXR=5h8KrrqNg4RS2Yaw3WXpKg@mail.gmail.com>
+	Thu, 29 May 2025 13:23:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=zBTL/STJmtvp2VqDgiDgK4iklSQ0paUUUgoWg/0K4tc=; b=HV2UtNB2S1YdQPm65D3plaVeJJ
+	rS8dbZCmEBE8hNa2SKqutR8/LSMMDcPJCzrBeKp7x9VeDvjUE8kZAiefsXQgFAYOyPLvpbJLscpb7
+	hsUlRtD+mvZ7xh5a58YHxqMIL0Edd26bJ513M5L6iHeoHzpJdmLiktSVODuAfOXtH6Yoj7aKBP9rf
+	bpFmXHijHgT4dfAYYFX+T1wiE+fxLo12DRGJOZJFDCAt//iquqt3pEiLLE4JnuwQkNeVIS1tJRC+K
+	ZaGnGtO/q++vAZWrS88u3tU0udE6CGIc+ctokgqA56J/0xF3HrI3DYNHi8u4kDZzY/9jIx5DhK9l5
+	UxuuEzjg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43512)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uKdEG-0001Qi-0z;
+	Thu, 29 May 2025 14:23:28 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uKdEA-0003Ti-1O;
+	Thu, 29 May 2025 14:23:22 +0100
+Date: Thu, 29 May 2025 14:23:22 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Romain Gantois <romain.gantois@bootlin.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v6 06/14] net: phy: Introduce generic SFP
+ handling for PHY drivers
+Message-ID: <aDhfyiSOnyA709oX@shell.armlinux.org.uk>
+References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
+ <23936783.6Emhk5qWAg@fw-rgant>
+ <20250523145457.07b1e7db@2a02-8428-0f40-1901-f412-2f85-a503-26ba.rev.sfr.net>
+ <13770694.uLZWGnKmhe@fw-rgant>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdUVvOMavxSAKaSMOwj_zXR=5h8KrrqNg4RS2Yaw3WXpKg@mail.gmail.com>
+In-Reply-To: <13770694.uLZWGnKmhe@fw-rgant>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_061915_373740_1AD385CF 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20250529_062342_607425_F2357FB9 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,35 +101,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 09:13:33AM +0200, Geert Uytterhoeven wrote:
-> On Thu, 8 May 2025 at 00:24, Andrew Lunn <andrew@lunn.ch> wrote:
-> > On Wed, May 07, 2025 at 09:13:05AM +0200, Herve Codina wrote:
-> > > Only one device-tree overlay (lan966x_evb_lan9662_nic.dtbo) is handled
-> > > and this overlay is directly referenced in lan966x_pci_load_overlay().
-> > >
-> > > This avoid to use the code for an other board.
-> > >
-> > > In order to be more generic and to allow support for other boards (PCI
-> > > Vendor/Device IDs), introduce the lan966x_pci_info structure and attach
-> > > it to PCI Vendor/Device IDs handled by the driver.
-> > >
-> > > This structure contains information related to the PCI board such as
-> > > information related to the dtbo describing the board we have to load.
-> > >
-> > > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> >
-> > How big is the dtbo ?
-> >
-> > This is going in the right direction. I'm just wondering if each dtbo
-> > should be wrapped in its own very slim PCI driver, which simply
-> > registers its lan966x_pci_info structure to a core driver. Only the
-> > needed dtbo will then be loaded into memory as a module, not them all.
+On Wed, May 28, 2025 at 09:35:35AM +0200, Romain Gantois wrote:
+> > In that regard, you can consider 1000BaseX as a MII mode (we do have
+> > PHY_INTERFACE_MODE_1000BASEX).
+> > 
 > 
-> Alternatively, the dtbo could be loaded through request_firmware().
-> That could lead to a generic support option in the PCI core, which would
-> fallback to loading pci-<vid>-<pid>.dtbo when no driver is available.
+> Ugh, the "1000BaseX" terminology never ceases to confuse me, but yes you're 
+> right.
 
-Yes!
+1000BASE-X is exactly what is described in IEEE 802.3. It's a PHY
+interface mode because PHYs that use SerDes can connect to the host
+using SGMII or 1000BASE-X over the serial link.
 
-Rob
+1000BASE-X's purpose in IEEE 802.3 is as a protocol for use over
+fibre links, as the basis for 1000BASE-SX, 1000BASE-LX, 1000BASE-EX
+etc where the S, L, E etc are all to do with the properties of the
+medium that the electrical 1000BASE-X is sent over. It even includes
+1000BASE-CX which is over copper cable.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
