@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DABC3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 02:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CFEAC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 02:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VP/IQdT2nGS/s+RGboroFvF7fX6MZ+U9ZwH4o4Nlc4Y=; b=IoTfJJUqtLe7POPr/S85VE11b3
-	Mm1Or8/SzNU+90PlZfkaVrvh6t41qY2qXqGjuH5uVijxrfFthXP2pt9pPjUdO6b0ftxvAwlioV4hR
-	bGLsYYbbqmb6wdfrbaQSHfDpcI0yhYJATaWxm12fAxKIppsz3JQDyamdzt8srTW7+e95TteoF7rpu
-	b8QVO8w2xGoia4I/SXOD4DsS/4fDnSNJBYvAqvNGXIqRm9gaMFJoF5CGg4fxvreL264tJBltyGbXM
-	vWjIvu/DGQIW7P2Y2HKfDT2+y6pFLvtPkCkhsULjJanUvia7F1sCVP+LT6M3usSVCAAioGfySWFv2
-	CnZpypIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
+	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PMA2zJJZCYXAPessq+dGAob85oJzfqAxOdnCKlqiAWg=; b=0uQyTaO/WzKLukJNauTNMt/dSN
+	vIhI5Y4wbIS146pa6SpPfslvlUO2mjzj3ojMPV2OpGz3+Tmi0WaTS1mmU6cPnxNu31FBw207GI0SP
+	614wEkqtSNWgAuthhrISQrNduwBSdbTt62h81l5kYkv9pa5a+3huKQoVVt47Yedr3S28nD1p7p5cH
+	35X/ZQ9rsZa6FA8ZfFd+qo9JFwHCwoh3EHCPfuWjZ4ulIovvOykjknXLsxrd8XA2wgWXTTCbhMJEp
+	wjLzYWXq4H9VEOqlyjfuaO9CvZ3tsVax9v/+tuyQKYrYnVs0N+101221Eb556DK26aSBEW/wWjLwz
+	s93FkjTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKSqa-0000000Ejaf-0BgL;
-	Thu, 29 May 2025 02:18:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uKSsg-0000000EjmM-3A43;
+	Thu, 29 May 2025 02:20:30 +0000
+Received: from mxhk.zte.com.cn ([63.216.63.40])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKSoS-0000000EjMj-2Row
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 02:16:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98AC1614AC;
-	Thu, 29 May 2025 02:16:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D39DDC4CEE3;
-	Thu, 29 May 2025 02:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748484967;
-	bh=VP/IQdT2nGS/s+RGboroFvF7fX6MZ+U9ZwH4o4Nlc4Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=iUJX5dXw3a9NowbtG9QFD71irkXCZh7CBN6jIJVPGflF05BtdPBfQWEAZFhl6G7Kh
-	 DwjF6+Lyuc+vXaa6Y3SJ33rGHopC6CArMOeXebJjHE4mZpqLYZ0iOwxebMp8Cb/xGV
-	 wmAUy1QJ0HnWG3CNveRLvaMCdP/LaBI1IKkdWo9LbTM1W3YiDS5MmZVBWkeuHl/HX5
-	 6zJ0W5VPWgkj9M5Vi8tYn4gpUKGFHmeUJNV/ZMkWM0jQuDw0SzSBjCvmAVAGmIQOMH
-	 66Yj8lsujPYS6EdiAY3NuVUkRsszgOlp4Tz90XeEIkgPPyrl83LcjrEhIkI+JaDBja
-	 ltk+hdZUgSvsg==
-Date: Wed, 28 May 2025 19:16:06 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Alexis =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
- Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, Phil Reid
- <preid@electromag.com.au>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Jose
- Abreu <Jose.Abreu@synopsys.com>
-Subject: Re: [PATCH v3 0/2] net: stmmac: prevent div by 0
-Message-ID: <20250528191606.66034ab3@kernel.org>
-In-Reply-To: <20250528-stmmac_tstamp_div-v3-0-b525ecdfd84c@bootlin.com>
-References: <20250528-stmmac_tstamp_div-v3-0-b525ecdfd84c@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+	id 1uKSow-0000000EjRp-3kKb;
+	Thu, 29 May 2025 02:16:40 +0000
+Received: from mse-fl1.zte.com.cn (unknown [10.5.228.132])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4b793G2LQgz8R044;
+	Thu, 29 May 2025 10:16:26 +0800 (CST)
+Received: from xaxapp02.zte.com.cn ([10.88.97.241])
+	by mse-fl1.zte.com.cn with SMTP id 54T2GG2H029125;
+	Thu, 29 May 2025 10:16:16 +0800 (+08)
+	(envelope-from shao.mingyin@zte.com.cn)
+Received: from mapi (xaxapp02[null])
+	by mapi (Zmail) with MAPI id mid32;
+	Thu, 29 May 2025 10:16:17 +0800 (CST)
+Date: Thu, 29 May 2025 10:16:17 +0800 (CST)
+X-Zmail-TransId: 2afa6837c3712a5-4a972
+X-Mailer: Zmail v1.0
+Message-ID: <20250529101617844lQtR4fOKHch_xIBWSgzgX@zte.com.cn>
+Mime-Version: 1.0
+From: <shao.mingyin@zte.com.cn>
+To: <ulf.hansson@linaro.org>
+Cc: <heiko@sntech.de>, <sebastian.reichel@collabora.com>,
+        <detlev.casanova@collabora.com>, <krzysztof.kozlowski@linaro.org>,
+        <finley.xiao@rock-chips.com>, <shawn.lin@rock-chips.com>,
+        <pgwipeout@gmail.com>, <linux-pm@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <yang.yang29@zte.com.cn>, <xu.xin16@zte.com.cn>,
+        <yang.tao172@zte.com.cn>, <ye.xingchen@zte.com.cn>
+Subject: =?UTF-8?B?cG1kb21haW46IHJvY2tjaGlwOiBVc2Ugc3RyX29uX29mZigpIGhlbHBlciBpbsKgcm9ja2NoaXBfZG9fcG11X3NldF9wb3dlcl9kb21haW4oKQ==?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL: mse-fl1.zte.com.cn 54T2GG2H029125
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6837C37A.000/4b793G2LQgz8R044
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250528_191639_084420_9ED24EFA 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,12 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 May 2025 10:29:49 +0200 Alexis Lothor=C3=A9 wrote:
-> Hello,
-> this small series aims to fix a small splat I am observing on a STM32MP157
-> platform at boot (see commit 1) due to a division by 0. This new
-> revision add the same check in another code path possibly affected by
-> the same issue, as discussed in v2.
+From: Shao Mingyin <shao.mingyin@zte.com.cn>
 
-v3 doesnt apply cleanly. Could you rebase on latest net and repost?
+Remove hard-coded strings by using the str_on_off() helper function.
+
+Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+---
+ drivers/pmdomain/rockchip/pm-domains.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index 4cce407bb1eb..0681c763f843 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -21,6 +21,7 @@
+ #include <linux/regmap.h>
+ #include <linux/regulator/consumer.h>
+ #include <linux/mfd/syscon.h>
++#include <linux/string_choices.h>
+ #include <soc/rockchip/pm_domains.h>
+ #include <soc/rockchip/rockchip_sip.h>
+ #include <dt-bindings/power/px30-power.h>
+@@ -595,7 +596,7 @@ static int rockchip_do_pmu_set_power_domain(struct rockchip_pm_domain *pd,
+ 					is_on == on, 0, 10000);
+ 	if (ret) {
+ 		dev_err(pmu->dev, "failed to set domain '%s' %s, val=%d\n",
+-			genpd->name, on ? "on" : "off", is_on);
++			genpd->name, str_on_off(on), is_on);
+ 		return ret;
+ 	}
+
+-- 
+2.25.1
 
