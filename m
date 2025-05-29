@@ -4,104 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE5FC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 17:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54FBC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 17:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVXYcQRv3WLSWQAfJBtkuGRCwO3gzeCu1+3GwyAE/8U=; b=DhpTHqXuaakDL07Uc8FAYyoT76
-	704fHJNH11Xr1WZ6d78NOhQiPIUqxM0xaY7TSOaWfMnAFEtIt/yRgbZRzL55kf+hYNMxHzViTpIoa
-	2q7pQQtMe+rWzsv/ChYwLDqMDCqLdGbeRZi2iCIRplKsJ40vvOgNuZISgwLzcmZDOoTuDu0zrkGeM
-	A2bxD9TM+NI5XBy++0AEmGrbzB/kL+ArFyFtBVV+6DJSAS1ClNyjF2s4g8fv1mI8zWDNFfBtGNecz
-	7h+zMmQp3iionksuYGQ6QQu9Sgon+ZVUAOo5BtmMZWU+NLK+mPdZogKuxNrZ62O62WGC4JtR/M5XZ
-	1Pqd59ag==;
+	bh=qNwkLAnqK894as9s9mKIIiJB+bRwSGT/2fsFsNmBFKc=; b=A185Ht5zRanlEqPYYQ9wpvELhQ
+	Ow5JIpwCte2KgG50jMPS4vkh+uWfUV9I+0Rvm5nNVRjgPMWBdpzNsdvkSMa9lWPVg1rDCNiW9PEkW
+	UsgwQOr9suHOjIdhO6z824jNARw06+o81CxdMBexEatXL11AMzWPk+QVO2lRPP9U5jjNVMxK2FW6T
+	BEVxlbJyB03URTfxF2MRg1rdAbNu97NLPyLL0WdRrAOEnyDa56b5vtK61BQTmZRSd/1j4U2ZU7ibP
+	y4Q7CkVOQBWOCqA6/FfesObW72xDi0kkUzp4JWynJqRwQEgJVsXb45Wswr7ijVbUBzWkVPE/2lX4M
+	8K/V7cwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKgko-0000000GFvp-2bC4;
-	Thu, 29 May 2025 17:09:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uKgot-0000000GGSE-3GSP;
+	Thu, 29 May 2025 17:13:31 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKgif-0000000GFnO-0qr8
+	id 1uKgml-0000000GGDp-0vYH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 17:07:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1748538423;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YVXYcQRv3WLSWQAfJBtkuGRCwO3gzeCu1+3GwyAE/8U=;
-	b=jUohAsugpgKX6gXUjKHd0Culi5q4Rw1f0xHP7PXQrzlUDb0ku7VW9Qvtcc4oTBcn3pDc9V
-	k2CKM6+ZyXgUj50ef1qP0tsbdbkvUtOwtPLjAWHLJc6/8HLNmqBuhaW9CkvO72eehbTTtd
-	UkCzTmyYj3IfAHCvzCVOaoBlQ4NCcOU=
-Received: from mail-il1-f198.google.com (mail-il1-f198.google.com
- [209.85.166.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-440-JvgRpIjwPSWASG0cvFyUlA-1; Thu, 29 May 2025 13:05:31 -0400
-X-MC-Unique: JvgRpIjwPSWASG0cvFyUlA-1
-X-Mimecast-MFC-AGG-ID: JvgRpIjwPSWASG0cvFyUlA_1748538330
-Received: by mail-il1-f198.google.com with SMTP id e9e14a558f8ab-3dd77fda439so1101965ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 10:05:30 -0700 (PDT)
+	Thu, 29 May 2025 17:11:20 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b271f3ae786so841044a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 10:11:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1748538678; x=1749143478; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qNwkLAnqK894as9s9mKIIiJB+bRwSGT/2fsFsNmBFKc=;
+        b=SrmlhvXuynwJyRK32Zgp4R8VKDtV5brTF2Or8mkAefiTMxB0oHhV47ZYrXQYHxkjjj
+         D8DrqX0yyXWdFqgVNNTec68HMZ1BzVgAIqww4slQD20xQYedGZhlKWK23xgG409EFMEs
+         do0bXODnAgSRk8ejvHAp7VeL+fP2Sk9Lw30YRRDE4+wyDDeMDRPynsArO6q0s83e41rX
+         3QEBarzIfdcE4I19v9JxjT/m8cfMCPXSr/PrFYujPs7iJrOWNSImHQSweQPyjNT7lgue
+         f/VDQIUpGB6qGBINhI5Z14XEzDplYb7LWQmk/ky41LNBu1hl19TbIx/dINW1CGqDHj8/
+         I0vA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748538330; x=1749143130;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1748538678; x=1749143478;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YVXYcQRv3WLSWQAfJBtkuGRCwO3gzeCu1+3GwyAE/8U=;
-        b=Wa1mud0OLeYqNXysbU85LGyPY+CPsnFFmAtu+OmlUvT4JYnVw0yrUCqJn6zJzq/Uol
-         BQ64uPk24iDCqTaMrS3wwGXmG2n/PJ8OVLfAou6KdhFZpaNeIqhfiam/P7glzI4/Ua1H
-         sAp5SgBE+j/s9s6NgPGAbg5Wjonr8fTpvLuG9kCHu2YT7JP6T4a+kag7v6sErh/jkt/2
-         I9/j5WTCr/3curFECXHjLAXdx6T1TFX3ibI9KQJ+uRKSS5OoYD5et9BG5jg2dypVXHFd
-         QdaucngSZh91JnFiwDu+SCYn8nwUcHr72fIXzWDeYChK8wg4DzG4vJqRmyYxI/l/ZEvI
-         taGw==
-X-Forwarded-Encrypted: i=1; AJvYcCX7soqMAfzNQk+b8dX8zMZtkNdI2xhvTjbM3w0MqV4cyrRSBar6gkvBeezG+tbNxcOfPjijq3RjOnpMBb0SnUhM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFVy21TjSJ/kZMOV32ZN36ii6cCWw2SXGCVdZyuLTgvtEk+Z+N
-	BA5VZ14cTab5qtQ1PmZDtVbQoe9Aj0sJddoJHdaCrcGJFAu/Vf6JIC46ScneScpPueXfzUSsnEM
-	RPHrpE9fwuhkS0DWLdOEJhyKRGFaKtAP7WRlczXgLOjHdVJy/kBCNCRoJ0a6KSAb1h6td6Vhrck
-	6p
-X-Gm-Gg: ASbGnctUPdNbng5TONgUiVYnQoFsntOClEsJFx95nO2IvOwNLHw0w8NjeuE8E1GY9kI
-	vPqZ5KByOK+BZuNXIMn8yQZ0z9mBxccOY+mrJZnGlBpMtpIN1S0OfzkPrIbf45p9pmvLE4YfV8n
-	CEPz5pg/WWGHcA0dTcMtR4V7AB+o02zUyXcu2BZHo7Xvah2nUW9JKd501U/ra1IpZM120fMIjFA
-	RyfGHLJXuPOOKqc9xs2e6D9jgAbOZTiL8boJsqwD0gPeNI9ZioJH1mtXLf69MKzb9KUpGKMxyX0
-	ja9VLo5IkS4U3Q0=
-X-Received: by 2002:a05:6e02:2789:b0:3dc:7cd7:688 with SMTP id e9e14a558f8ab-3dd99bd0681mr1264925ab.1.1748538329896;
-        Thu, 29 May 2025 10:05:29 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFfF2IypLjTHDTvX90AOSKarc6ttkVaDkLoPGB0d3lYBRme4WFH0Ya+stqq3YBkEYUuHUQECg==
-X-Received: by 2002:a05:6e02:2789:b0:3dc:7cd7:688 with SMTP id e9e14a558f8ab-3dd99bd0681mr1264795ab.1.1748538329510;
-        Thu, 29 May 2025 10:05:29 -0700 (PDT)
-Received: from redhat.com ([38.15.36.11])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3dd935462c8sm3928805ab.36.2025.05.29.10.05.27
+        bh=qNwkLAnqK894as9s9mKIIiJB+bRwSGT/2fsFsNmBFKc=;
+        b=ebD+3Q8ow1k67FMVH79xv7QI4C2oqU5HoQHQDlxGlZ/aBVmaunBlAMB5vxUQubWfuQ
+         3lFoV4lo7/s88UR4nb+DzUoSrIvzrviUoKztozjsHXF/rPWLEf1cxfdoD+Wo5SHJo3W9
+         uOuuv1Qnw9GsMKvxqzF2PTw2IX4htSlS3ipqXJJtCDPsb+QY17J8SRS6ZbLQa5hFQkdZ
+         elx0kICYfO5sTLpafk4o5TroUFfJfSjYNRLfVsKUIFdJvn8bhaom04wWCPnVhQie48OM
+         R/41/oTuL2eHCeSdKUt//Hw1u/ktJY1HH6GLw+FAaXhEDCm2S0cxurhwq+u1hEznjCjv
+         oRDg==
+X-Forwarded-Encrypted: i=1; AJvYcCUWU+KB0vUWSh485ZKipKH4VgxonKMVm0P4NgkRjgeNyw+G1C6Z+eW506QiggpUVr4z5bmKahgRmvhl7QtOP0xI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzd3xPVhNekWJJEqQ47qmFF9KiL5iGwCHTcydOGENwAe+/QNl9W
+	SNnbf6Y2gLRczGGEuKGYl7bXiRRLkFAU6M8wHqCvLqNW/4xsl1Awj93Zb3tf3UabFyI=
+X-Gm-Gg: ASbGncvXNvr3kuVz9qymCoMNehYcfz6BSYMhIjH8zl5LBy1Iproy/jNWUptfHOpybWF
+	rHYfwpiea8Y+JubQ0nb5Z+BKzmnsSnlgyiBs3R1euGLmh0CygZ6o8xLojnESwpywsPn+YVt89Y8
+	sdTB8/GH1hgx/BgX9BbOHCa1+zVtXp4bd/hkUwCED7WF/H2ov86B51H1nr60Ri7n2udYDZmXDZX
+	yqEur9YDpzVP2z3NojUtgATafBXSvRDNUHTe3guwu9MjmFLr/aIVvQLBRhQ04ir6usYhcpmwmyC
+	FhyMTdKmHKvzC2Pccl0k+Ia2XCQZuRwV8Jx3SaO2YDCljD/cUg==
+X-Google-Smtp-Source: AGHT+IF8U4LS5Ha4ZVJlb6Xexvhz/gVZeJ8PZz0LFT+vBQf4rmFuB/wcLf4M5M+AqpPj3eAYBAnv6w==
+X-Received: by 2002:a05:6a21:516:b0:20d:5076:dd78 with SMTP id adf61e73a8af0-21ad9966437mr590567637.42.1748538677957;
+        Thu, 29 May 2025 10:11:17 -0700 (PDT)
+Received: from localhost ([97.126.182.119])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2eceb29b20sm217068a12.30.2025.05.29.10.11.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 10:05:28 -0700 (PDT)
-Date: Thu, 29 May 2025 11:05:26 -0600
-From: Alex Williamson <alex.williamson@redhat.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
- linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel
- <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>, Linus Torvalds
- <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v4 08/13] crypto: s390/sha256 - implement library
- instead of shash
-Message-ID: <20250529110526.6d2959a9.alex.williamson@redhat.com>
-In-Reply-To: <20250428170040.423825-9-ebiggers@kernel.org>
-References: <20250428170040.423825-1-ebiggers@kernel.org>
-	<20250428170040.423825-9-ebiggers@kernel.org>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+        Thu, 29 May 2025 10:11:17 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: s-vadapalli@ti.com, Frank Li <Frank.Li@nxp.com>
+Cc: bhelgaas@google.com, conor+dt@kernel.org, devicetree@vger.kernel.org, 
+ krzk+dt@kernel.org, kw@linux.com, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org, 
+ linux-pci@vger.kernel.org, lpieralisi@kernel.org, 
+ manivannan.sadhasivam@linaro.org, robh@kernel.org, tony@atomide.com, 
+ vigneshr@ti.com
+In-Reply-To: <20250411153454.3258098-1-Frank.Li@nxp.com>
+References: <20250411153454.3258098-1-Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 1/1] Revert "ARM: dts: Update pcie ranges for dra7"
+Message-Id: <174853867693.3632160.17627654159190851191.b4-ty@baylibre.com>
+Date: Thu, 29 May 2025 10:11:16 -0700
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: zNTyqR4Foov0UxWWCSNFxoW1eAz67k8ABPEOkggGUd8_1748538330
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3-dev-d7477
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_100705_312931_57246420 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20250529_101119_262679_8FBD6FC6 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,48 +103,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Apr 2025 10:00:33 -0700
-Eric Biggers <ebiggers@kernel.org> wrote:
 
-> From: Eric Biggers <ebiggers@google.com>
+On Fri, 11 Apr 2025 11:34:54 -0400, Frank Li wrote:
+> This reverts commit c761028ef5e27f477fe14d2b134164c584fc21ee.
 > 
-> Instead of providing crypto_shash algorithms for the arch-optimized
-> SHA-256 code, instead implement the SHA-256 library.  This is much
-> simpler, it makes the SHA-256 library functions be arch-optimized, and
-> it fixes the longstanding issue where the arch-optimized SHA-256 was
-> disabled by default.  SHA-256 still remains available through
-> crypto_shash, but individual architectures no longer need to handle it.
+> The commit being reverted updated the "ranges" property for the sake of
+> readability. However, this change is no longer appropriate due to the
+> following reasons:
+> 
+> - On many SoCs, the PCIe parent bus translates CPU addresses to different
+> values before passing them to the PCIe controller.
+> - The reverted commit introduced a fake address translation, which violates
+> the fundamental DTS principle: the device tree should reflect actual
+> hardware behavior.
+> 
+> [...]
 
-I can get to the following error after this patch, now merged as commit
-b9eac03edcf8 ("crypto: s390/sha256 - implement library instead of shash"):
+Applied, thanks!
 
-error: the following would cause module name conflict:
-  crypto/sha256.ko
-  arch/s390/lib/crypto/sha256.ko
+[1/1] Revert "ARM: dts: Update pcie ranges for dra7"
+      commit: 8c178057e734188eeeceaec33848eaca2766ca07
 
-Base config file is generated from:
-
-$ CONFIG=$(mktemp)
-$ cat << EOF > $CONFIG
-CONFIG_MODULES=y
-CONFIG_CRYPTO=y
-CONFIG_CRYPTO_SHA256=m
-EOF
-
-Base config applied to allnoconfig:
-
-$ KCONFIG_ALLCONFIG=$CONFIG make ARCH=s390 CROSS_COMPILE=s390x-linux-gnu- allnoconfig
-
-Resulting in:
-
-$ grep SHA256 .config
-CONFIG_CRYPTO_SHA256=m
-CONFIG_CRYPTO_LIB_SHA256=m
-CONFIG_CRYPTO_ARCH_HAVE_LIB_SHA256=y
-CONFIG_CRYPTO_LIB_SHA256_GENERIC=m
-CONFIG_CRYPTO_SHA256_S390=m
-
-Thanks,
-Alex
+Best regards,
+-- 
+Kevin Hilman <khilman@baylibre.com>
 
 
