@@ -4,115 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D391C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 15:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1855FC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 15:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bd/re0W0O3SfKxkSQq5B/C3J4e51HN+gv/k4x6dlG2s=; b=4uIRgb5uOjhi6nNchAn9Hp7O+6
-	1ko4SBubolNdYtAEYucFak04koAUHwn0n1cqhWzBa5v1hlOj3qHrBRR02iOrHdmpiCqw4BFwUbP/L
-	r9S+9p0Dd6MazDGd3ZnwJdshkKj7fclt1qqDQEPynOmToeMHXt9oCVnMidV69k4SWnxTXvCW/TNsG
-	1IqgfunrZ6QdKXjV/nQUrqEOzmasEAihZCRIzyNWj/pccQAI8G4/rDkr5it5CEUFqVmfFf4KCDgBj
-	eZVSU26XBjIqha624ZL0WUgpKxikWoISLXKfPmn7MdPyPkIPZUZ3fd2KST5IAxU+1VQtEb6i9YBIR
-	Kg6yFX8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ngz82wMOl5404DyPdkqsVuyRGZZ/f6A/F2lmTRxHH5c=; b=GvpoLJp9Yop5Du05qpUNiYEUez
+	3AEsxX5fCNjDzieVG2mTjm+ZJDsDCOsoUzc9rRFjuHpYaxbkRKUpQHiFhYKFfm8s362808ARq+2xy
+	lreI9TOs7xblvu9Xw4KBO5nQJl/M1iqkLzIXtGZSdywY+fTlJwTx/cU1v8k7T96KRaPAs48e4lD7U
+	UjpM5mIlkvRTg2zV7Pp1XC4iJHeJeb9yIWfFHyaGtwJThmr+O8cDSNnx8AtejHfgVn/1cwOOrrsIc
+	JIFWjogsgXwthjo6WkjDr6zRaXe+DJ4pRJqFQGZ3fgLIyQDOADDr43+k7vbaeNk2TjhLctoaEjk7f
+	wRnj92Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKep0-0000000G1u6-0BA3;
-	Thu, 29 May 2025 15:05:30 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uKer6-0000000G27L-0sby;
+	Thu, 29 May 2025 15:07:40 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKdmw-0000000FvbM-446Y
+	id 1uKdpt-0000000Fvx2-1DaZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 13:59:20 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ad88eb71eb5so111203966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 06:59:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1748527157; x=1749131957; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bd/re0W0O3SfKxkSQq5B/C3J4e51HN+gv/k4x6dlG2s=;
-        b=gSxgUJ8DVDLwcDlGnoExgZlSoT/Aj0CK/KwrrnDlVlX+pVXLHV4GzNnoIwQuSSamti
-         bWbPcpT6NBihyNuMvkgMfPsmPYrKxKiRV+rjZHlsdw+PmAyX3wfx3F9GO3Y1kECRT2fd
-         rLdpxFEx9KEXy/2YslrwRf/hZteBuKoaykMxEjzK9gWnrxHwxKbAt6ZndGYIF1G69AYq
-         bBULHg8wpF0eikOrAq30e0Y/h2si+4iP2mlU8m1oIAUwtMnC7cempM8mmy/ocY6Qr6vw
-         dYD1mzhIV2hS4c4dwov58OAu1VaPRw1SsO+tWA10C1fG4oaioiT/eAzN0gNwz3sY2+4t
-         7hSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748527157; x=1749131957;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bd/re0W0O3SfKxkSQq5B/C3J4e51HN+gv/k4x6dlG2s=;
-        b=EIsgxLHQuBUBJIN+v72wsqsAmAzmfik5Ab8jgWlLbMaaih6wq6qyCc13fcmjJpnmjv
-         IfOwgWSCzSvDyP/YpYlQVN4yoi4skQKl9lNvg4boQhiA01Mew2xgUHsqOQMCEUhpjXya
-         mIrNFOfX/sEFKF4RI1rb2x3wg46D78+UJAs+yVK6nGp7xLr+TUNNAb3lD6KaZ5LR2m8f
-         /uInqAhGKz4yHvVB51s6szCUiSDW1wgStrEAij4xTuCPSJCJzzFeFWZcCUqVOMYQUlna
-         Y1klSvPfvbqO85COuTYB3TWwo/Bgi7EHMpglS9c9VQbYSxwos67JHJ3B2x6qS66hT705
-         4Fdg==
-X-Forwarded-Encrypted: i=1; AJvYcCWSwkxuPM93C1EF4ttc68S5UAFYS5ktjAKpkMtJDa0dCrLZkx9zs5DYzSPvxvQN4ZHnkdvzuFX3ZK2LzN7j3xnD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxP8IGMpFVvnof/0lGE61raP1yHh/s2hdc/2mhbTSlx2WRVTrj+
-	ZMfjLPbEEihQon8xcMzB8uZUNYbna/n0XG+Sou6K5yOsK2C+fKokJSqNCbzmcEh1l/8=
-X-Gm-Gg: ASbGnctpWEwUmzdZppUcHYzSkkRRUCSMT1t4h3w4c8cS1g7E865pCC6Nx492qoBbcBg
-	dn00jaavsIa2RJC0UdKv8PKSaNzvsmJ6RWrq52Pv+PkkH4EAoxG4YWfTBugYI/rA4/YZMR+jukv
-	T9JQum8Jrjr966FtF3icfwKrWcfHQLkTUpLt67TTMVEEno0cpDN8MfLeWSE7yTkk+OjqwM1gOkR
-	j3ZICKp0sKVR8HyU/b2fobCsUjqNkeTC+fAKl/F8UmKvP52xc3h22LKvNxbyqUXJw38Y6BtB0EX
-	GzQMRQ/JIrDMrWq9fAHikiRwMAp2TW87vMqBQbffsYCeumfmOyfZBCyIjbOiNqgsXsoh1wXAC9V
-	c+DIapxk/D6/4zeHAiasJcA==
-X-Google-Smtp-Source: AGHT+IFe10hNzzDGzxOKftk1BYzLU57XNvgcDOZ24VhiK0GAx5icGmaI6U2aVUUNIweLENXOhsxpSA==
-X-Received: by 2002:a17:906:4fca:b0:ad8:9878:b898 with SMTP id a640c23a62f3a-adacda56014mr193178466b.9.1748527157319;
-        Thu, 29 May 2025 06:59:17 -0700 (PDT)
-Received: from localhost (host-87-21-228-106.retail.telecomitalia.it. [87.21.228.106])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5dd045e2sm148109966b.90.2025.05.29.06.59.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 06:59:17 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 29 May 2025 16:00:52 +0200
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	Thu, 29 May 2025 14:02:25 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250529140215epoutp02e47e61a5576fa880bd8585afc5e2edd9~EBFj-YydA1954119541epoutp02f
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 14:02:15 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250529140215epoutp02e47e61a5576fa880bd8585afc5e2edd9~EBFj-YydA1954119541epoutp02f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1748527335;
+	bh=ngz82wMOl5404DyPdkqsVuyRGZZ/f6A/F2lmTRxHH5c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JctV4H9WIHZaiqKzwpzJkSTxTy3of+wwR1rkobpUnWdnRlHZ6WKEfX5Wq0EYkAJrp
+	 8QSPdYwLQa0fhJ5+vUsHj6IlqntOhXtkQa7lroAokCnC1DLYaT46yESVFsGRqqE87K
+	 w4QygLG4XXFmbt4pCxrLXqdekRe74/nOiZfwIprc=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250529140214epcas5p4b30a94fef30da102d97ceddd87383af3~EBFjSxnZv3230132301epcas5p4x;
+	Thu, 29 May 2025 14:02:14 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.182]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4b7Sjc5jNrz3hhT3; Thu, 29 May
+	2025 14:02:12 +0000 (GMT)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250529111708epcas5p232b8bb6b05795b7014d718003daef0cb~D_1ZpDcMz3240232402epcas5p2I;
+	Thu, 29 May 2025 11:17:08 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250529111708epsmtrp2a3d44bba823829fe1e9b4d8af762493e~D_1ZnbkkW2239822398epsmtrp2k;
+	Thu, 29 May 2025 11:17:08 +0000 (GMT)
+X-AuditID: b6c32a28-46cef70000001e8a-1b-68384234d330
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	72.BF.07818.43248386; Thu, 29 May 2025 20:17:08 +0900 (KST)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250529111705epsmtip1663cf218914df0b247f64e91ac67fbdf~D_1W5MQW61843718437epsmtip1k;
+	Thu, 29 May 2025 11:17:05 +0000 (GMT)
+From: Raghav Sharma <raghav.s@samsung.com>
+To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
+	alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
+	robh@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com,
+	sunyeal.hong@samsung.com, shin.son@samsung.com
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
-Subject: Re: [PATCH v12 0/13] Add support for RaspberryPi RP1 PCI device
- using a DT overlay
-Message-ID: <aDholLnKwql-jHm1@apocalypse>
-References: <cover.1748526284.git.andrea.porta@suse.com>
- <0580b026-5139-4079-b1a7-464224a7d239@kernel.org>
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	chandan.vn@samsung.com, karthik.sun@samsung.com, dev.tailor@samsung.com,
+	Raghav Sharma <raghav.s@samsung.com>
+Subject: [PATCH v3 1/4] dt-bindings: clock: exynosautov920: sort clock
+ definitions
+Date: Thu, 29 May 2025 16:56:37 +0530
+Message-Id: <20250529112640.1646740-2-raghav.s@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250529112640.1646740-1-raghav.s@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0580b026-5139-4079-b1a7-464224a7d239@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprAIsWRmVeSWpSXmKPExsWy7bCSnK6Jk0WGwaV9+hYP5m1js5jwJcJi
+	zd5zTBbXvzxntbi3Yxm7xfwj51gtGme8YbI4f34Du8Wmx9dYLT723GO1uLxrDpvFjPP7mCwu
+	nnK1OLZAzOL7yjuMFkfOvGC2+L9nB7vF4TftrBb/rm1ksZh8fC2rRdOy9UwOoh7vb7Sye+yc
+	dZfdY9OqTjaPzUvqPfq2rGL0+LxJLoAtissmJTUnsyy1SN8ugStj0dq9TAUTuSo2ve1jamDc
+	xNHFyMkhIWAisf7YfeYuRi4OIYHdjBJPdp9lh0hISOz7/5sRwhaWWPnvOTtE0VtGiaetu8AS
+	bAJaEle2v2MDSYgIdDFJnPv3igXEYRbYySTR9ngb2ChhgSCJfxeug3WwCKhK/J/7mQnE5hWw
+	lli7sY0JYoW8xP6DZ5lBbE4BG4m7N5+zgNhCQDUft59hhqgXlDg58wlYnBmovnnrbOYJjAKz
+	kKRmIUktYGRaxSiZWlCcm56bbFhgmJdarlecmFtcmpeul5yfu4kRHGlaGjsY331r0j/EyMTB
+	eIhRgoNZSYS3yd4sQ4g3JbGyKrUoP76oNCe1+BCjNAeLkjjvSsOIdCGB9MSS1OzU1ILUIpgs
+	EwenVAOTz9r8mhcXlc77nT2coGF5uruSmUvyD6vPjAet5R/ZOh32HVSI23wkRX0R8wfdxpUn
+	89PuT4k9+Cr13hntC+0efYcYPj1ou6mwOvxi+2fD+YFPAjKS7+x9f3/ZpHk1a25fOrr5/EpB
+	4y1dKxc9ii19vvYD/00hh8LyrD9/5kj7Zl1u//VnVR/rX5+w6DXVBz4vu1nv8nDNRtnjb7VW
+	PJ0pkrhZ4KDJpqTWXXbm+aJlW7rz+aOtdsb1+fz8HNBS+F3SUOvvzw8CTntWzdyi1rfnhsPn
+	SR3n/76aqJfixTPv4lPV4z9quz7VONWEdmo4akx8nb3lj6G0PvOhw6kJAZc4k53Ea1MelRxZ
+	yPjbJiaZR4mlOCPRUIu5qDgRALd3VcsjAwAA
+X-CMS-MailID: 20250529111708epcas5p232b8bb6b05795b7014d718003daef0cb
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-543,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250529111708epcas5p232b8bb6b05795b7014d718003daef0cb
+References: <20250529112640.1646740-1-raghav.s@samsung.com>
+	<CGME20250529111708epcas5p232b8bb6b05795b7014d718003daef0cb@epcas5p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_065919_009017_CDC64643 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250529_070222_772369_908EFB82 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,23 +121,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Sort all the clock compatible strings in alphabetical order
 
-On 15:50 Thu 29 May     , Krzysztof Kozlowski wrote:
-> On 29/05/2025 15:50, Andrea della Porta wrote:
-> > *** RESENDING PATCHSET AS V12 SINCE LAST ONE HAS CLOBBERED EMAIL Message-Id ***
-> > 
-> Can you slow down please? It's merge window and you keep sending the
-> same big patchset third time today.
+Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
+---
+ .../bindings/clock/samsung,exynosautov920-clock.yaml      | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Sorry for that, I was sending it so Florian can pick it up for this
-merge window, and I had some trouble with formatting. Hopefully
-this was the last one.
+diff --git a/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml b/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
+index 6961a68098f4..77117b887e19 100644
+--- a/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
+@@ -32,15 +32,15 @@ description: |
+ properties:
+   compatible:
+     enum:
+-      - samsung,exynosautov920-cmu-top
+       - samsung,exynosautov920-cmu-cpucl0
+       - samsung,exynosautov920-cmu-cpucl1
+       - samsung,exynosautov920-cmu-cpucl2
+-      - samsung,exynosautov920-cmu-peric0
+-      - samsung,exynosautov920-cmu-peric1
+-      - samsung,exynosautov920-cmu-misc
+       - samsung,exynosautov920-cmu-hsi0
+       - samsung,exynosautov920-cmu-hsi1
++      - samsung,exynosautov920-cmu-misc
++      - samsung,exynosautov920-cmu-peric0
++      - samsung,exynosautov920-cmu-peric1
++      - samsung,exynosautov920-cmu-top
+ 
+   clocks:
+     minItems: 1
+-- 
+2.34.1
 
-Regards,
-Andrea
-
-> 
-> Best regards,
-> Krzysztof
 
