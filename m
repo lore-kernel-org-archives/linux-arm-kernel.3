@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5932BC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A33B4C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uq6yFKkalOl4LwtolvwfyGp+iifxQRx+6zneX+9HCGw=; b=uF74v1opvsACfxOInD+hhGhg1J
-	UKG9nru69sCHET5eCO8fWVd28tPmDeMP9XU2mYTi70BXV1AL+ysp6XP67/pfe9+P7v60F+T7AjVoH
-	+S/zd4bc/gwA+YH0lci+RDuwUtS7szlCamEiv79DjKxQ+Ldcb+XngF/IzAVZkTeWTRcE93vKOe4O0
-	9UpEMOjbpnCNgn+JQz/bwOrCgbiOhV+rHgaMtPuiE4D9moOpfrUvc87oCLn0fa6joMiCH7RjQL0Te
-	e2Vk7hwo5yqCQ2H5XAs6mh8vEA8IXzdJ59+L3jK3Eqzn8by1asIn9DCOhlp1XdHDTPicu1R7qXf9K
-	XvWaLktw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=914ioYTBrQrx2PypTshl4Y0e5nj206dcoNXuwOvgkyg=; b=oCauYuQhj+KfnpfNRG61pr+i86
+	EYP1h9I3rSOBtGP0ZdEedNBBK5S+dUYS2YFQ8puc/KuGMrYuPDwUxf7mvXJ0l/PwMfyWauo8ijh3d
+	8zlfE66mejS2+cjIGnUoFNLQZkK2ptlHwYL10VsMna7JLyz26vDW/wf3z93j15XlAF+QWglLxYDBi
+	Ox6jdVMMsfpYPg3MtEA3MRlLVemRXILxKaq0qGFxJhwzmkR2EUPy7HCL0Prfj3aPYi6P48aKBkwUY
+	8UAJwqg2P/Tj/uTzXdMJec+UpMt89lNRheFt3fsjSe1brFoNq+1ttkaikpGksmO5tpAkbnXzTlWks
+	WLN+84RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKftk-0000000G9NE-1y9a;
-	Thu, 29 May 2025 16:14:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uKftf-0000000G9K9-1dEb;
+	Thu, 29 May 2025 16:14:23 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKfYz-0000000G7uR-2PkD;
-	Thu, 29 May 2025 15:53:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0776E5C67D9;
-	Thu, 29 May 2025 15:50:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25163C4CEE7;
-	Thu, 29 May 2025 15:52:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748533980;
-	bh=dBrwp1lSjo0/zOXj6+oiqnIpBPI1NPg/5I0TXg2hVv8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Yw+rhh/7vLdzy29EEq4xkty36nZuNp/uVPHljZW42ReP4ZM0WRx5x00cuKa8nKoWW
-	 cehhCWZD2qR5mAB9p7IPwFaxZ57fAMxlQdZbMmPU65C+9U9vwNu7pX2j58pUoNappk
-	 5IffxJ5eBVEc3ui9eV7Yy1bZQWajrtJTvZcrLaS672kA1Q4lMxXddS7BFJ03sF7Yi9
-	 seAOrSV0ZVz4riIGZjG133mrmxPWWox+J6l3T+6Ht0uBdtQXB6eYr80J2wQTqaT0Qj
-	 5hzRAllPMLyk2rjcCIeb3KtkrzyJjisjwW7tesfif8Bj4v/B/NKPoEZqQJ/6nUorL0
-	 JxVVdPWvO1hGQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 29 May 2025 17:52:38 +0200
-Subject: [PATCH net 2/2] net: airoha: Fix IPv6 hw acceleration in bridge
- mode
+	id 1uKfIG-0000000G5ea-1zEV;
+	Thu, 29 May 2025 15:35:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748532945; x=1780068945;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GPdqafqU2tPrO3Kwr1heLn8rpZD1wUwbKicBkAIdz60=;
+  b=OGc0FvTY9ShVbHD44XIAyC0V/Qsmq57bwilebHX/U+PyNASwnjjKkAvD
+   zqsuEGR9itlIUjOZ98gXM0BIjHHf7hg4pR+MiquKBoyoaqK6hFCaBgmcw
+   njatS5ye09FyDQNV7L8ZkRNIPs1wUPLoN0VTlbmRQ2xJwrEaYf26QbQgG
+   AkXSXX7JwVjkBNYBMOHQHsh2vJ3fQYCdvYEHMbRbVK8zSwvToM22CwwrX
+   VbGv0IhA7eNGJdYDfIsw4154etEpFy49uqR0i1vR/Ij/1ll5Y+skKmXlO
+   5jJHhJ6fYV2zi9BGGxObqxZVHl1CZJn2kM4mDd5bytltXQeQr/KNnEszA
+   A==;
+X-CSE-ConnectionGUID: GurwNw5eTGe/vieQfFt8dg==
+X-CSE-MsgGUID: FeoDSDM8RTKiFiW4eor3Xg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11448"; a="50302770"
+X-IronPort-AV: E=Sophos;i="6.16,193,1744095600"; 
+   d="scan'208";a="50302770"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 May 2025 08:35:32 -0700
+X-CSE-ConnectionGUID: W1hnYaAwS2CKSIOXxah0vw==
+X-CSE-MsgGUID: Hz/Y3PS0ShSJB8EDBEqtNA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,193,1744095600"; 
+   d="scan'208";a="148887384"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 29 May 2025 08:35:26 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uKfHv-000WpE-2L;
+	Thu, 29 May 2025 15:35:23 +0000
+Date: Thu, 29 May 2025 23:34:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Pingfan Liu <piliu@redhat.com>, linux-arm-kernel@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, Pingfan Liu <piliu@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Simon Horman <horms@kernel.org>, Gerd Hoffmann <kraxel@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Philipp Rudo <prudo@redhat.com>, Viktor Malik <vmalik@redhat.com>,
+	Jan Hendrik Farr <kernel@jfarr.cc>, Baoquan He <bhe@redhat.com>,
+	Dave Young <dyoung@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	kexec@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCHv3 9/9] arm64/kexec: Add PE image format support
+Message-ID: <202505292305.zHTx5StD-lkp@intel.com>
+References: <20250529041744.16458-10-piliu@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250529-airoha-flowtable-ipv6-fix-v1-2-7c7e53ae0854@kernel.org>
-References: <20250529-airoha-flowtable-ipv6-fix-v1-0-7c7e53ae0854@kernel.org>
-In-Reply-To: <20250529-airoha-flowtable-ipv6-fix-v1-0-7c7e53ae0854@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Michal Kubiak <michal.kubiak@intel.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250529041744.16458-10-piliu@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_085301_703864_10A6160C 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250529_083544_553033_4CCA1295 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +103,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ib2 and airoha_foe_mac_info_common have not the same offsets in
-airoha_foe_bridge and airoha_foe_ipv6 structures. Fix IPv6 hw
-acceleration in bridge mode resolving ib2 and airoha_foe_mac_info_common
-overwrite in airoha_ppe_foe_commit_subflow_entry routine. Moreover, set
-AIROHA_FOE_MAC_SMAC_ID to 0xf in airoha_ppe_foe_commit_subflow_entry()
-to configure the PPE module to keep original source mac address of the
-bridged packets.
+Hi Pingfan,
 
-Fixes: cd53f622611f ("net: airoha: Add L2 hw acceleration support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_ppe.c | 26 +++++++++++++++-----------
- 1 file changed, 15 insertions(+), 11 deletions(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index a783f16980e6b7fdb69cec7ff09883a9c83d42d5..d5dbcb556f2b10b23ebbdd32a66a3c4f32cfb460 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -639,7 +639,6 @@ airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
- 	u32 mask = AIROHA_FOE_IB1_BIND_PACKET_TYPE | AIROHA_FOE_IB1_BIND_UDP;
- 	struct airoha_foe_entry *hwe_p, hwe;
- 	struct airoha_flow_table_entry *f;
--	struct airoha_foe_mac_info *l2;
- 	int type;
- 
- 	hwe_p = airoha_ppe_foe_get_entry(ppe, hash);
-@@ -656,18 +655,23 @@ airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
- 
- 	memcpy(&hwe, hwe_p, sizeof(*hwe_p));
- 	hwe.ib1 = (hwe.ib1 & mask) | (e->data.ib1 & ~mask);
--	l2 = &hwe.bridge.l2;
--	memcpy(l2, &e->data.bridge.l2, sizeof(*l2));
- 
- 	type = FIELD_GET(AIROHA_FOE_IB1_BIND_PACKET_TYPE, hwe.ib1);
--	if (type == PPE_PKT_TYPE_IPV4_HNAPT)
--		memcpy(&hwe.ipv4.new_tuple, &hwe.ipv4.orig_tuple,
--		       sizeof(hwe.ipv4.new_tuple));
--	else if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T &&
--		 l2->common.etype == ETH_P_IP)
--		l2->common.etype = ETH_P_IPV6;
--
--	hwe.bridge.ib2 = e->data.bridge.ib2;
-+	if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
-+		memcpy(&hwe.ipv6.l2, &e->data.bridge.l2, sizeof(hwe.ipv6.l2));
-+		hwe.ipv6.ib2 = e->data.bridge.ib2;
-+		/* keep origianl source mac address */
-+		hwe.ipv6.l2.src_mac_hi = FIELD_PREP(AIROHA_FOE_MAC_SMAC_ID,
-+						    0xf);
-+	} else {
-+		memcpy(&hwe.bridge.l2, &e->data.bridge.l2,
-+		       sizeof(hwe.bridge.l2));
-+		hwe.bridge.ib2 = e->data.bridge.ib2;
-+		if (type == PPE_PKT_TYPE_IPV4_HNAPT)
-+			memcpy(&hwe.ipv4.new_tuple, &hwe.ipv4.orig_tuple,
-+			       sizeof(hwe.ipv4.new_tuple));
-+	}
-+
- 	hwe.bridge.data = e->data.bridge.data;
- 	airoha_ppe_foe_commit_entry(ppe, &hwe, hash);
- 
+[auto build test ERROR on bpf-next/net]
+[also build test ERROR on bpf/master arm64/for-next/core v6.15]
+[cannot apply to bpf-next/master linus/master next-20250529]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Pingfan-Liu/kexec_file-Make-kexec_image_load_default-global-visible/20250529-122124
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git net
+patch link:    https://lore.kernel.org/r/20250529041744.16458-10-piliu%40redhat.com
+patch subject: [PATCHv3 9/9] arm64/kexec: Add PE image format support
+config: arm64-randconfig-004-20250529 (https://download.01.org/0day-ci/archive/20250529/202505292305.zHTx5StD-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 13.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250529/202505292305.zHTx5StD-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505292305.zHTx5StD-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from kernel/kexec_bpf/kexec_pe_parser_bpf.lskel.h:6,
+                    from kernel/kexec_pe_image.c:25:
+   tools/lib/bpf/skel_internal.h: In function 'skel_finalize_map_data':
+   tools/lib/bpf/skel_internal.h:155:15: error: implicit declaration of function 'bpf_map_get'; did you mean 'bpf_map_put'? [-Werror=implicit-function-declaration]
+     155 |         map = bpf_map_get(fd);
+         |               ^~~~~~~~~~~
+         |               bpf_map_put
+   tools/lib/bpf/skel_internal.h:155:13: warning: assignment to 'struct bpf_map *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+     155 |         map = bpf_map_get(fd);
+         |             ^
+   kernel/kexec_pe_image.c: In function 'kexec_bpf_prog_run_init':
+>> kernel/kexec_pe_image.c:283:16: error: implicit declaration of function 'register_btf_fmodret_id_set'; did you mean 'register_btf_kfunc_id_set'? [-Werror=implicit-function-declaration]
+     283 |         return register_btf_fmodret_id_set(&kexec_modify_return_set);
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |                register_btf_kfunc_id_set
+   kernel/kexec_pe_image.c: In function 'pe_image_load':
+   kernel/kexec_pe_image.c:325:44: warning: variable 'cmdline_sz' set but not used [-Wunused-but-set-variable]
+     325 |         unsigned long linux_sz, initrd_sz, cmdline_sz, bpf_sz;
+         |                                            ^~~~~~~~~~
+   cc1: some warnings being treated as errors
+
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for KEXEC_PE_IMAGE
+   Depends on [n]: KEXEC_FILE [=y] && DEBUG_INFO_BTF [=n] && BPF_SYSCALL [=n]
+   Selected by [y]:
+   - ARCH_SELECTS_KEXEC_FILE [=y] && KEXEC_FILE [=y]
+
+
+vim +283 kernel/kexec_pe_image.c
+
+536de0ba3b982c Pingfan Liu 2025-05-29  280  
+536de0ba3b982c Pingfan Liu 2025-05-29  281  static int __init kexec_bpf_prog_run_init(void)
+536de0ba3b982c Pingfan Liu 2025-05-29  282  {
+536de0ba3b982c Pingfan Liu 2025-05-29 @283  	return register_btf_fmodret_id_set(&kexec_modify_return_set);
+536de0ba3b982c Pingfan Liu 2025-05-29  284  }
+536de0ba3b982c Pingfan Liu 2025-05-29  285  late_initcall(kexec_bpf_prog_run_init);
+536de0ba3b982c Pingfan Liu 2025-05-29  286  
 
 -- 
-2.49.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
