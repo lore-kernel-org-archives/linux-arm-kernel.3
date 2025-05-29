@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02B8C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 11:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C2EEC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 11:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rgxPKVq6wwZTho8Z5w88rjxN+cD9bfwQRNHyzTFMlas=; b=ni7lnk2Ob9YKhSaEIgdEQ05gvU
-	ulI+SXgImOaWth3dCXK7ArYvd6NFfwkcMeGwWSAjeSCN6ZcKzFT6xuZjOZS7DfAEZBiVB7FmG3/mT
-	MB94NWRtO6LO8xecnwhw9iqPglZvJ3uWr6+PaL1Ezt12mcALRMp3o4Lgqvu5+anJQfBcSR5QLbM5Y
-	CQPG/8p+ORCisfG7tb8XjrH1vF84bT3U4v/tPUwocdK8rX5DNEzTf3OhPocFjshdLeY0zAdgsmcsj
-	vNYAT+lOjhqdIc4kCf/df2/iMHmafuXoDfy79dx3cDK7mX0mbVnbMX0O7v9ev9amwfnXWMi45Fp6m
-	uJYyAQ2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6rdlam9aQVHC9nQQf3LUw/+fZ9OoCSBGpql4Labh3I0=; b=mslJiYxoREozsNO/1J276Y7UkG
+	rmljs7jkWuSGoDUAVmHKn1wq25FWcebFtki7ugizXbGubPiOemsHK1AHaPBYdEYCCVR+MSUxi1MPP
+	qocgozc95OxsWyAzQa6JWzhSxMzG3vxQVpr2qSZ4DRL5hm3+eut01/6bGtWlBtH6YOdiA6t3YrLJQ
+	dbZRAFbubUnH9REHhFuKnxX/2qDragUfDPN2hTVtFh5slclGPsprAB2Ct9QEOh2QJG3HtJjhJiJVU
+	NhgdY4wox1JojSdjp2Zfc4eQQjtPqR+IzeZeic0X3OK6q3XvBsbABayOTK4LrdnGZBbNwGJ0kkZnr
+	H+0awz5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKbRh-0000000FckH-28Dp;
-	Thu, 29 May 2025 11:29:13 +0000
-Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
+	id 1uKbTn-0000000Fcun-15i5;
+	Thu, 29 May 2025 11:31:23 +0000
+Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKbJr-0000000Fb5n-1n7W
+	id 1uKbKz-0000000FbBh-0M0h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 11:21:11 +0000
-Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-ad88d77314bso146810166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 04:21:06 -0700 (PDT)
+	Thu, 29 May 2025 11:22:18 +0000
+Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-ad69e4f2100so115943466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 04:22:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1748517666; x=1749122466; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rgxPKVq6wwZTho8Z5w88rjxN+cD9bfwQRNHyzTFMlas=;
-        b=ZvRO0CTSCi3sxhX/xuFqDJgjWyFuNcLN4E01GH/ay6EWsu9+mz3fmvw0SRVqSw749j
-         cPOV1+jC1WhfQ8NY/u00I0se6f4QmOFwo9oB1lRKs0tYqkpJdPkc/S1FR8Zw54b7vV8z
-         O49PAUc+UqIzh7K0PeUAazQu+sD+t9TrrAUOLuvbxrtL+cisdzVqy1syPOrYZneCVLlF
-         m2t2e/24YBIiJ+WtVYojUmugtDGcz/kpxn+CXDRjg6K1VlOroaDKWivchxO+mf9HQN5M
-         /oxvHMZzZJXgCvlt5JCbrBiPgxAdhSSNeb9soyXT12282Cbp4gMwKAP7/8zegx/yceNZ
-         sr3A==
+        d=suse.com; s=google; t=1748517735; x=1749122535; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6rdlam9aQVHC9nQQf3LUw/+fZ9OoCSBGpql4Labh3I0=;
+        b=d1WRB2Gnj6GmVvgDsb6vTd7oO/oivEE4ytW9OMiUTIjzBpO5TawXo4i4uN+wV8kuVn
+         L4F34iCWIcA37xMUoK93YxhqffTzRBSLp2XmcaCC2bpv3L/ZFDNoSWrCq268ElInPfhg
+         9WmswQU0xrUIpQ2RdBayVfO+hsvCBvaUnYEieFzl63Ebxp/xSD3SBbtY/jsS7K/r8f78
+         uAE1Esnz/AFo6ceTx/O30VoFUWEikQQK7qt1fbASo7fhPMtRnCjK8GxiwNeTfVV9IWMe
+         HkWBWhvUEfkfev70qQlLI6jBa1ahe2QW/SPG39890pudE+vZ7eB/4fi61kDFOqz2QmA+
+         ikcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748517666; x=1749122466;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rgxPKVq6wwZTho8Z5w88rjxN+cD9bfwQRNHyzTFMlas=;
-        b=jJlOpzXYdGQOCM7Y+3nbdcWM0YKXz+e5n89kGkv0hwtRG/67QZ29uZ6QiEz7hy5hYl
-         K2JLXMSkXfWdxtmtkGSw1hEWrgybtS/6DG3ur3P5Aw4oE5j+Ole69bs01oQydRXoiZAV
-         f9Lu448O9V87FCJ0JQqXx/n+LQWC11bbLF7VNCzi4CuVDOSXJ6kl7qctHpwrfjTyv3dG
-         7QNBxMGcA3zOaYcMbuj5cfq8bNzLh53R/iaahINX2JMysbdjG75lA807GTa5QSLZcePT
-         +2oNbA2x87IKxY2MBHuhaYOs0TDihnzAn9Ya6xz3g78pcHvG5n4yKF9TY1OOsSRcVv3T
-         2pmw==
-X-Forwarded-Encrypted: i=1; AJvYcCXef3hMbwxlZ0EwSETzAY48wD+s9szhaHbN9QTekbuM3wPrim6NlwZFXbTPzI2m6oG+zhH9vusmYHhOGM/7551n@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywfl2HRdvW8dYfWiKlJzPDptEcr0ockBvh7QdCI2nXTWbWqJSp5
-	ZViTzRXRm0ZqvVZDDCvUdm3HDEwhy1SSfVgzZsnMiuQBL2MrFjKnEHGjmJsj7ZivV28=
-X-Gm-Gg: ASbGncuoGelDRwz+OJQiMROG6wq6tACpbAU/CZ6o73VeFK7/W9solykd1xNIKCfKS2x
-	Wqlgqy3jnmjNvzmXBcyFxuVQTURS+p8gJh9IOZjmJsbI1qzOleE/aGVsdnDb6CUHIqpP9YyZMe0
-	fyqET1bY/iWvIzJCe5JBu8Ffrq4KeJpLULMvPm7Sz1NXTgUBw6GS1Ob5j4XkMLN6zTxAqQREqtK
-	bqiGlkkvuUXH3GCgV6sZW4NVFP5rxo5ECoPqSVSEn4NKqjfQimjD/WC+7Vgv9KwS7x8Wl7ebpDq
-	1xl+vWMSx6+PR8XRTUUnPzdGuoW9RgIZM2r0V8cC8l3CEWYLZnuhwe98Ggcj6my1rWA/ZpMY8YS
-	MbXwuT0uI661XuNqbUmaTkzcJfowzOuXg
-X-Google-Smtp-Source: AGHT+IHkWFZgWfVC3wsduslv1JW97TLkP+ID17A3dJTf4p7mD0EKIiXxaa5IifbRmSh1qLG7Wy61mg==
-X-Received: by 2002:a17:907:2d9e:b0:ad8:8efe:3206 with SMTP id a640c23a62f3a-adadeeb9748mr168671666b.42.1748517665519;
-        Thu, 29 May 2025 04:21:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1748517735; x=1749122535;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6rdlam9aQVHC9nQQf3LUw/+fZ9OoCSBGpql4Labh3I0=;
+        b=eXmzsYJWAwe0H+3yIiRke2uiKhkwAMuVLA+dkq+dpeSfC9WrR+yZ5olMLBlxlVrOxT
+         vPfDUGAHNv075pNRV2Ix/v1EfNYeflnnlTKX2Bs/k8VyxA0VoAvzCi+sa1EP5H8P8tKU
+         luPYLd+dqu+mTtq++jjO5zQUUd3joCM/XJYHFI/t7U5KrIkYnKtqEl3nQXdVgTZ6RFGf
+         d1wO3q47YtK4BH3dH5JzfOeA1qqKQ3PAM2CndSAFAP0orKBrWEZZe/q+/PR13r6PsGnL
+         Y1k353qp7Ge5Nko2lvXgCFm7o1DmA0aqZSBTYSAuEQa3bMBW3O1aZt1V8dXj2eKYB0et
+         p8SA==
+X-Forwarded-Encrypted: i=1; AJvYcCURHyNI6HeteayMnxXsZtHJ+SPJbcwwHDoCckzMEpZ+XpbM2JsriZeHuOUa1pZ3tEtKTJsYRG00SoNIqHUwzwCK@lists.infradead.org
+X-Gm-Message-State: AOJu0YweN9aVEiQVH7b9445c/IS/Pd46MjP1FJPg2bR7z+KJewbYu4CD
+	s2LUrz/neiEd41UB9NtNFB0a1b5rSoM/1Zd2WkRjUpo8QIZqCOWdVKX6HYHmi9rujJA=
+X-Gm-Gg: ASbGncuV5/Kw96ikELjN5vrE5QJcBg332Wy1EHAqXV0WgCOxnFsn6wM5sldnBaAQk6a
+	VEEk5pqtAlL6Zo7qbrDuCiAKZf7/kMBNLQcTBzzwBIpNQQZxLBdvKYXj4FY8HRpD6JaZrXmJ6/P
+	qoW7Kh5YgKF7A8BvhBYH5L+XXeldq77bXK8K+gdBPqJV4M5bV++J13iW4t9TmPkLPOqFaF4Nzki
+	WM53NBVj24/6bS18pLVqSr1fg9vmVn8Q/CBndCpERyqFHzdqMLU9n9JUv1P14zTRLQJHP773h5j
+	fHu6E/jw8OsC+eY+SqWoRz8y70sKwI/S8iv9RbGjBfP7szbwBEdB1dIxNVUxxQzPsenn3oXbvC0
+	UCAOp38P8Vmwf91saP80rWA==
+X-Google-Smtp-Source: AGHT+IGoYhNxVyRb9SNtEYzwCekqQ4ERTvXnL+fFZRAQqJP/4RU1USDSHdMhCXZ3yteLbewZ98pD1A==
+X-Received: by 2002:a17:907:1b02:b0:ad2:3f54:1834 with SMTP id a640c23a62f3a-ad85b2d76b7mr1974487266b.40.1748517735166;
+        Thu, 29 May 2025 04:22:15 -0700 (PDT)
 Received: from localhost (host-87-21-228-106.retail.telecomitalia.it. [87.21.228.106])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5d82d95bsm125977666b.57.2025.05.29.04.21.04
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5d82e861sm125918366b.67.2025.05.29.04.22.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 04:21:05 -0700 (PDT)
+        Thu, 29 May 2025 04:22:14 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 29 May 2025 13:22:40 +0200
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+To: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -84,33 +82,38 @@ Cc: Michael Turquette <mturquette@baylibre.com>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Will Deacon <will@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
 	Derek Kiernan <derek.kiernan@amd.com>,
 	Dragan Cvetic <dragan.cvetic@amd.com>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
 	Stefan Wahren <wahrenst@gmx.net>,
 	Herve Codina <herve.codina@bootlin.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Phil Elwell <phil@raspberrypi.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
-Subject: Re: [PATCH v10 0/13] Add support for RaspberryPi RP1 PCI device
- using a DT overlay
-Message-ID: <aDhDgJtLp9Fhs7V9@apocalypse>
-References: <cover.1748514765.git.andrea.porta@suse.com>
+	kernel-list@raspberrypi.com,
+	Matthias Brugger <mbrugger@suse.com>
+Subject: [PATCH v10 0/13] Add support for RaspberryPi RP1 PCI device using a DT overlay
+Date: Thu, 29 May 2025 13:23:35 +0200
+Message-ID: <cover.1748516814.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1748514765.git.andrea.porta@suse.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_042107_472881_E472DB94 
-X-CRM114-Status: GOOD (  40.58  )
+X-CRM114-CacheID: sfid-20250529_042217_133302_C0504FC9 
+X-CRM114-Status: GOOD (  24.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,144 +128,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please ignore this set since it has clobbered sequence number in subject.
-I'll resend it in a moment.
+*** RESENDING PATCHSET SINCE LAST ONE HAS CLOBBERED SEQUENCE NUMBER ***
 
-Apologies for the inconvenience,
-Andrea
+RP1 is an MFD chipset that acts as a south-bridge PCIe endpoint sporting
+a pletora of subdevices (i.e.  Ethernet, USB host controller, I2C, PWM,
+etc.) whose registers are all reachable starting from an offset from the
+BAR address.  The main point here is that while the RP1 as an endpoint
+itself is discoverable via usual PCI enumeraiton, the devices it contains
+are not discoverable and must be declared e.g. via the devicetree.
 
-On 12:49 Thu 29 May     , Andrea della Porta wrote:
-> RP1 is an MFD chipset that acts as a south-bridge PCIe endpoint sporting
-> a pletora of subdevices (i.e.  Ethernet, USB host controller, I2C, PWM,
-> etc.) whose registers are all reachable starting from an offset from the
-> BAR address.  The main point here is that while the RP1 as an endpoint
-> itself is discoverable via usual PCI enumeraiton, the devices it contains
-> are not discoverable and must be declared e.g. via the devicetree.
-> 
-> This patchset is an attempt to provide a minimum infrastructure to allow
-> the RP1 chipset to be discovered and perpherals it contains to be added
-> from a devictree overlay loaded during RP1 PCI endpoint enumeration. To
-> ensure compatibility with downstream, a devicetree already comprising the
-> RP1 node is also provided, so it's not strictly necessary to use the
-> dynamically loaded overlay if the devicetree is already fully defined at
-> the origin.
-> To achieve this modularity, the RP1 node DT definitions are arranged by
-> file inclusion as per following schema (the arrow points to the includer,
-> see also [9]):
->  
->  rp1-pci.dtso         rp1.dtso
->      ^                    ^
->      |                    |
-> rp1-common.dtsi ----> rp1-nexus.dtsi ----> bcm2712-rpi-5-b.dts
->                                                ^
->                                                |
->                                            bcm2712-rpi-5-b-ovl-rp1.dts
-> 
-> Followup patches should add support for the several peripherals contained
-> in RP1.
-> 
-> This work is based upon dowstream drivers code and the proposal from RH
-> et al. (see [1] and [2]). A similar approach is also pursued in [3].
-> 
-> The patches are ordered as follows:
-> 
-> -PATCHES 1 to 3: add binding schemas for clock, gpio and RP1 peripherals.
->  They are needed to support the other peripherals, e.g. the ethernet mac
->  depends on a clock generated by RP1 and the phy is reset through the
->  on-board gpio controller.
-> 
-> -PATCH 4 and 5: add clock and gpio device drivers.
-> 
-> -PATCH 6: the devicetree node describing the RP1 chipset. 
-> 
-> -PATCH 7: this is the main patch to support RP1 chipset. It can work
->  either with a fully defined devicetree (i.e. one that already included
->  the rp1 node since boot time) or with a runtime loaded dtb overlay
->  which is linked as binary blob in the driver obj. This duality is
->  useful to comply with both downstream and upstream needs (see [9]).
->  The real dtso is in devicetree folder while the dtso in driver folder is
->  just a placeholder to include the real dtso.
->  In this way it is possible to check the dtso against dt-bindings.
->  The reason why drivers/misc has been selected as containing folder
->  for this driver can be seen in [6], [7] and [8].
-> 
-> -PATCH 8: add the external clock node (used by RP1) to the main dts.
-> 
-> -PATCH 9: the fully fledged devictree containing also the rp1 node.
->  This devicetree is functionally similar to the one downstream is using.
-> 
-> -PATCH 10 (OPTIONAL): this patch introduces a new scenario about how
->  the rp1 node is specified and loaded in DT. On top of the base DT
->  (without rp1 node), the fw loads this overlay and the end result is
->  the same devicetree as in patch 9, which is then passed to the next
->  stage (either the kernel or u-boot/bootloader).
->  While this patch is not strictly necessary and can therefore be dropped
->  (see [10]), it's not introducing much extra work and maybe can come
->  in handy while debugging.
-> 
-> -PATCH 11: add the relevant kernel CONFIG_ options to defconfig.
-> 
-> -PATCH 12: enable CONFIG_OF_OVERLAY in order for 'make defconfig'
->  to produce a configuration valid for the RP1 driver. Without this
->  patch, the user has to explicitly enable it since the misc driver
->  depends on OF_OVERLAY.
-> 
-> -PATCH 13: collect all changes for MAINTAINERS file.
-> 
-> This patchset is also a first attempt to be more agnostic wrt hardware
-> description standards such as OF devicetree and ACPI, where 'agnostic'
-> means "using DT in coexistence with ACPI", as been already promoted
-> by e.g. AL (see [4]). Although there's currently no evidence it will also
-> run out of the box on purely ACPI system, it is a first step towards
-> that direction.
-> 
-> Many thanks,
-> Andrea della Porta
-> 
-> Links:
-> - [1]: https://lpc.events/event/17/contributions/1421/attachments/1337/2680/LPC2023%20Non-discoverable%20devices%20in%20PCI.pdf
-> - [2]: https://lore.kernel.org/lkml/20230419231155.GA899497-robh@kernel.org/t/
-> - [3]: https://lore.kernel.org/all/20240808154658.247873-1-herve.codina@bootlin.com/#t
-> - [4]: https://lore.kernel.org/all/73e05c77-6d53-4aae-95ac-415456ff0ae4@lunn.ch/
-> - [5]: https://lore.kernel.org/all/20240626104544.14233-1-svarbanov@suse.de/
-> - [6]: https://lore.kernel.org/all/20240612140208.GC1504919@google.com/
-> - [7]: https://lore.kernel.org/all/83f7fa09-d0e6-4f36-a27d-cee08979be2a@app.fastmail.com/
-> - [8]: https://lore.kernel.org/all/2024081356-mutable-everyday-6f9d@gregkh/
-> - [9]: https://lore.kernel.org/all/Z87wTfChRC5Ruwc0@apocalypse/
-> - [10]: https://lore.kernel.org/all/CAMEGJJ0f4YUgdWBhxvQ_dquZHztve9KO7pvQjoDWJ3=zd3cgcg@mail.gmail.com/#t
-> 
-> CHANGES IN V10
-> 
-> 
-> PATCH RELATED -------------------------------------------------
-> 
-> - Patch 10,11,12: Added: Reviewed-by: Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> 
-> - Patches reworked to apply cleanly on broadcom/stblinux branches:
->   patch 1,2,3,6,8,9,10 -> devicetree/next
->   patch 11,12 -> defconfig/next
->   patch 4,5,7 -> drivers/next
->   patch 13 -> maintainers/next
-> 
-> - Patch 13: new patch gathering all changes for MAINTAINERS
-> 
-> 
-> RP1 CLOCK DRIVER ------------------------------------
-> 
-> - Dropped some WARN_ONCE() lines that are basically useless
-> 
-> - rp1_clock_set_parent() now returns EINVAL in case the parent check
->   is failing. As a result, rp1_clock_set_rate_and_parent() has also
->   been adapted to return rp1_clock_set_parent() retcode.
-> 
-> - Return an ERR_PTR from rp1_register_clock() instead of just NULL
-> 
-> - Dropped some unaesthetic blank lines
-> 
-> - Disabled the builtin locking in regmap since we're already dealing
->   with concurrency in the code
-> 
-> - rp1_clk_probe(): dropped dev_err_probe() as redundant due to commit
->   12a0fd23e870 ("clk: Print an error when clk registration fails")
-> 
+This patchset is an attempt to provide a minimum infrastructure to allow
+the RP1 chipset to be discovered and perpherals it contains to be added
+from a devictree overlay loaded during RP1 PCI endpoint enumeration. To
+ensure compatibility with downstream, a devicetree already comprising the
+RP1 node is also provided, so it's not strictly necessary to use the
+dynamically loaded overlay if the devicetree is already fully defined at
+the origin.
+To achieve this modularity, the RP1 node DT definitions are arranged by
+file inclusion as per following schema (the arrow points to the includer,
+see also [9]):
+ 
+ rp1-pci.dtso         rp1.dtso
+     ^                    ^
+     |                    |
+rp1-common.dtsi ----> rp1-nexus.dtsi ----> bcm2712-rpi-5-b.dts
+                                               ^
+                                               |
+                                           bcm2712-rpi-5-b-ovl-rp1.dts
+
+Followup patches should add support for the several peripherals contained
+in RP1.
+
+This work is based upon dowstream drivers code and the proposal from RH
+et al. (see [1] and [2]). A similar approach is also pursued in [3].
+
+The patches are ordered as follows:
+
+-PATCHES 1 to 3: add binding schemas for clock, gpio and RP1 peripherals.
+ They are needed to support the other peripherals, e.g. the ethernet mac
+ depends on a clock generated by RP1 and the phy is reset through the
+ on-board gpio controller.
+
+-PATCH 4 and 5: add clock and gpio device drivers.
+
+-PATCH 6: the devicetree node describing the RP1 chipset. 
+
+-PATCH 7: this is the main patch to support RP1 chipset. It can work
+ either with a fully defined devicetree (i.e. one that already included
+ the rp1 node since boot time) or with a runtime loaded dtb overlay
+ which is linked as binary blob in the driver obj. This duality is
+ useful to comply with both downstream and upstream needs (see [9]).
+ The real dtso is in devicetree folder while the dtso in driver folder is
+ just a placeholder to include the real dtso.
+ In this way it is possible to check the dtso against dt-bindings.
+ The reason why drivers/misc has been selected as containing folder
+ for this driver can be seen in [6], [7] and [8].
+
+-PATCH 8: add the external clock node (used by RP1) to the main dts.
+
+-PATCH 9: the fully fledged devictree containing also the rp1 node.
+ This devicetree is functionally similar to the one downstream is using.
+
+-PATCH 10 (OPTIONAL): this patch introduces a new scenario about how
+ the rp1 node is specified and loaded in DT. On top of the base DT
+ (without rp1 node), the fw loads this overlay and the end result is
+ the same devicetree as in patch 9, which is then passed to the next
+ stage (either the kernel or u-boot/bootloader).
+ While this patch is not strictly necessary and can therefore be dropped
+ (see [10]), it's not introducing much extra work and maybe can come
+ in handy while debugging.
+
+-PATCH 11: add the relevant kernel CONFIG_ options to defconfig.
+
+-PATCH 12: enable CONFIG_OF_OVERLAY in order for 'make defconfig'
+ to produce a configuration valid for the RP1 driver. Without this
+ patch, the user has to explicitly enable it since the misc driver
+ depends on OF_OVERLAY.
+
+-PATCH 13: collect all changes for MAINTAINERS file.
+
+This patchset is also a first attempt to be more agnostic wrt hardware
+description standards such as OF devicetree and ACPI, where 'agnostic'
+means "using DT in coexistence with ACPI", as been already promoted
+by e.g. AL (see [4]). Although there's currently no evidence it will also
+run out of the box on purely ACPI system, it is a first step towards
+that direction.
+
+Many thanks,
+Andrea della Porta
+
+Links:
+- [1]: https://lpc.events/event/17/contributions/1421/attachments/1337/2680/LPC2023%20Non-discoverable%20devices%20in%20PCI.pdf
+- [2]: https://lore.kernel.org/lkml/20230419231155.GA899497-robh@kernel.org/t/
+- [3]: https://lore.kernel.org/all/20240808154658.247873-1-herve.codina@bootlin.com/#t
+- [4]: https://lore.kernel.org/all/73e05c77-6d53-4aae-95ac-415456ff0ae4@lunn.ch/
+- [5]: https://lore.kernel.org/all/20240626104544.14233-1-svarbanov@suse.de/
+- [6]: https://lore.kernel.org/all/20240612140208.GC1504919@google.com/
+- [7]: https://lore.kernel.org/all/83f7fa09-d0e6-4f36-a27d-cee08979be2a@app.fastmail.com/
+- [8]: https://lore.kernel.org/all/2024081356-mutable-everyday-6f9d@gregkh/
+- [9]: https://lore.kernel.org/all/Z87wTfChRC5Ruwc0@apocalypse/
+- [10]: https://lore.kernel.org/all/CAMEGJJ0f4YUgdWBhxvQ_dquZHztve9KO7pvQjoDWJ3=zd3cgcg@mail.gmail.com/#t
+
+CHANGES IN V10
+
+
+PATCH RELATED -------------------------------------------------
+
+- Patch 10,11,12: Added: Reviewed-by: Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+
+- Patches reworked to apply cleanly on broadcom/stblinux branches:
+  patch 1,2,3,6,8,9,10 -> devicetree/next
+  patch 11,12 -> defconfig/next
+  patch 4,5,7 -> drivers/next
+  patch 13 -> maintainers/next
+
+- Patch 13: new patch gathering all changes for MAINTAINERS
+
+
+RP1 CLOCK DRIVER ------------------------------------
+
+- Dropped some WARN_ONCE() lines that are basically useless
+
+- rp1_clock_set_parent() now returns EINVAL in case the parent check
+  is failing. As a result, rp1_clock_set_rate_and_parent() has also
+  been adapted to return rp1_clock_set_parent() retcode.
+
+- Return an ERR_PTR from rp1_register_clock() instead of just NULL
+
+- Dropped some unaesthetic blank lines
+
+- Disabled the builtin locking in regmap since we're already dealing
+  with concurrency in the code
+
+- rp1_clk_probe(): dropped dev_err_probe() as redundant due to commit
+  12a0fd23e870 ("clk: Print an error when clk registration fails")
+
 
