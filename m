@@ -4,130 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07AFC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E0CC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOD287QS0fpGWmLkl73qXJLRrRdbB/PWBAC8P4gOOcE=; b=Pw3jkWokwNseWgApsf/asyVvd/
-	HttjHxepNJyPiA++Xp1qsw8GiGftzUZxNuVMZkBV7Jbs+FbokHoDqzWuhInlLGiYqJoyUn/TG3Oh2
-	3w2RJm9pqJVHAz3GKCT+BvQZxmRhubaeQTwI1dq3fumxgiI2NC5pDH023m5I5vW/LZ1hvY5H0aG40
-	5H9HUtqWu1WvCQw0e2tV3USInqRzonOJS2wbghG0xR8SnsjPSGCq8IMGr89CzYd5qLMe7ZAacGWyU
-	+Kzvb3+2r5vgWdB/qbqAF4OtmA8ASrT3lpBItMSsxynHYP6bJJ9whTk/7EfU3/LPHoqpMuz5aJow/
-	w1xLtteA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xQHSTRSKOekJJMs8udF9w585lS0iH2zHlq6C7/wvG2M=; b=RqffExv1ao/QLi34j1+t0MgiVg
+	OzfMFcaqcQZZp9PoalNA8SqI7IrcnyECQrBnnK0nnNTh8ZH6r6wT2fSwjBvunF4L0antD2knjlQkA
+	z/t6aMEArwxkCr4dCgq2f7Bb0219VKR6TOgojg/p0CpimIAC8Py6Z8ypR0y2I1zl7Zru2vXYibwRx
+	hxpscLAb0buTJ41PizKv4FH+hIUOd0LeX8jI+hI2x3p/Lquc6z1iAorwG2dWdwsF/Lmv6n2Q69oyi
+	jj0hFMPku+fmUQOufLVGi74372eARHMU+zu6ytvOVreiplAHth1Rysecnfx6s3o34u2/hbsG6YjfW
+	qOOP4fag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZ6c-0000000FJIP-0UJF;
-	Thu, 29 May 2025 08:59:18 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1uKZ6T-0000000FJ8n-06xg;
+	Thu, 29 May 2025 08:59:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKYpw-0000000FGhI-1gdD
+	id 1uKYUv-0000000FFBv-0qup
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 08:42:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1748508111; x=1749112911; i=wahrenst@gmx.net;
-	bh=UOD287QS0fpGWmLkl73qXJLRrRdbB/PWBAC8P4gOOcE=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=nPrFQVkwzGVBXHyU834utKM14RjCtEQoD9cyOITpTnRNX4VBCTBioW8aYpw9bSQC
-	 WJiXOeiwlz4ZeHDjtbQR/6o4ORHC2qFkzVG+qMMHbbdRqYkeQ70YGSgV5L+qXpSBt
-	 1nl0Yyx5d+Hr5V2A4ea65RuANN2ftky8WkERJ3IuD7BhNrUGHyZdA8m4t9H8Il3ps
-	 snZyAzscWNswk9tGryWOsHX9GDlI7cAVOZBgdXGmx1FXearejOHvLYpAHZ126dfgn
-	 /GpfB60uS+XPMaIC1+Mmjp2mYis17HvbjolZnft7aORXgmko5jaO7iV0VOV4A//tp
-	 9XRDXiLBcJv7uVpL8Q==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.104] ([91.41.216.208]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N4zAy-1v3tSk2hcK-00u7UX; Thu, 29
- May 2025 10:41:50 +0200
-Message-ID: <8c0662e9-3f7a-4b71-80e6-3898842e49de@gmx.net>
-Date: Thu, 29 May 2025 10:41:49 +0200
+	Thu, 29 May 2025 08:20:22 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54T7Cg6G004364;
+	Thu, 29 May 2025 08:20:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	xQHSTRSKOekJJMs8udF9w585lS0iH2zHlq6C7/wvG2M=; b=KpZHTnjwvyQW2wl/
+	4Rd6OmzU8iU+a88S8P2A/NrkW6GTUs9GE3i2X1WvBLD5M4nIhwNlM3917axT1l2M
+	6Gim93UjzCROHQPR7OWpgQhf45moT+Ovunu4zckDXsWMZ2pyPC/fvd1VuQA3Iia6
+	EtmcMqmYqywj372VZWGwMfBKn1tnG2JrN2Rkc7dtBwlITmmj26QKOiMS9984FMOJ
+	4odP4WghNYLz2rng2+E5iAb37LiMFiLxeG9/jvAcXoJPiy1vhtbVqKVwiBg+DdKm
+	MilNp14hrKKP+s9n6XuYY4RWQXVtEFN4KLblK0TOtg3VDGdflDRDSevoDxeHX3SF
+	4cGo6g==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46x8d79p9m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 29 May 2025 08:20:12 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54T8KBVN006922
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 29 May 2025 08:20:11 GMT
+Received: from ap-cloud-sh02-lnx.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 29 May 2025 01:20:08 -0700
+From: Songwei Chai <quic_songchai@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Andy Gross
+	<agross@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Rob Herring
+	<robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, <quic_songchai@quicinc.com>
+CC: <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
+Subject: [PATCH v5 2/7] coresight: Add coresight TGU driver
+Date: Thu, 29 May 2025 16:19:43 +0800
+Message-ID: <20250529081949.26493-3-quic_songchai@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250529081949.26493-1-quic_songchai@quicinc.com>
+References: <20250529081949.26493-1-quic_songchai@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] ARM: dts: mxs: support i.MX28 Amarula rmm board
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: michael@amarulasolutions.com, linux-amarula@amarulasolutions.com,
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250528121306.1464830-1-dario.binacchi@amarulasolutions.com>
- <20250528121306.1464830-5-dario.binacchi@amarulasolutions.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250528121306.1464830-5-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:HwcLHcfp+wmgZaWwVrg9XzWtKXnek0CBVHSQTgCsObv1iFQZ+/U
- WaYQCWzAE61a7g6oLCfCpzgmLG00uujGoJUuG6b3Jbkpg7oNWcFzh7gpe5q/0txTtowdX/5
- DpO1Xt0tz+KYyWsodOrU6sRboAlI3DIjPMqPKbHtzqma0AZ6H2ISrOLcaVe+LNSZnD7c7PC
- 3j2ojKa4eF2QB3MDo7H0w==
-UI-OutboundReport: notjunk:1;M01:P0:fWyCDTFUc18=;xD8GD5bQclGsIh/jOg3xXELay79
- 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
- NNrOIdGlzFi/EWaCsWruLu1yO79X9SN8Ob0rsA==
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: lNaclzt17bHow7Z5TIWT4SKGc44IBbDw
+X-Proofpoint-ORIG-GUID: lNaclzt17bHow7Z5TIWT4SKGc44IBbDw
+X-Authority-Analysis: v=2.4 cv=X8pSKHTe c=1 sm=1 tr=0 ts=683818bc cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8 a=nhKqEqSUTGs5iBferFwA:9
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI5MDA4MCBTYWx0ZWRfXwbnP7+xK7P4u
+ 7S+lqjvQcmVrpDQOEsJ2tGKIzx3PmMLUXG6fmUxMWOjP2ULcGZunxDgquVCIMJGc/4H14ubNpUg
+ AYi7V6AN/yowqezBjmfvdo4NKxbBNy5drPmj8O57taBRwI5ef0DPsAiw79A0JjZZqjpSV6fuu+w
+ lJShu71GZqswWectNkzt7RMFp/hjyK99PNf3QIKQsw5FENR3qnveKVLioWkTpLiqfjDcmcb5Tnc
+ ygG+adPfxu0H7sWcAzMC/xj5Am4WJhDhhXtBtWVP4XFoXN2VIhFE6HyNyRuR/mA7FQ2Oxr1j37U
+ RAiIgI8Xyc581U2trMNdnQ3TYNza/UqCu5zJuN88v57ltxfbRBD2XyW+XEd3lqxX9ZzQwvYgxEf
+ Ni9yP/vyepB/bYgBnvVAcrTsnGAglKlPcxFRPfgPdazEx3e1uKcT708+JlbOzdSoA8DwjILi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-29_04,2025-05-29_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 mlxscore=0 lowpriorityscore=0 phishscore=0 spamscore=0
+ adultscore=0 impostorscore=0 bulkscore=0 mlxlogscore=999 suspectscore=0
+ clxscore=1015 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
+ definitions=main-2505290080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_014204_753446_D4D0FDB3 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20250529_012021_365242_86FBAC2F 
+X-CRM114-Status: GOOD (  30.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,367 +122,330 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dario,
+Add driver to support Coresight device TGU (Trigger Generation Unit).
+TGU is a Data Engine which can be utilized to sense a plurality of
+signals and create a trigger into the CTI or generate interrupts to
+processors. Add probe/enable/disable functions for tgu.
 
-Am 28.05.25 um 14:11 schrieb Dario Binacchi:
-> The board includes the following resources:
->   - 256 Mbytes NAND Flash
->   - 128 Mbytes DRAM DDR2
->   - CAN
->   - USB 2.0 high-speed/full-speed
->   - Ethernet MAC
->
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
->
-> ---
->
-> Changes in v2:
-> - In imx28-amarula-rmm.dts:
->    - Replace '-' with '@' for the pinctrl sub-nodes.
->    - Replace edt,edt-ft5x06 with edt,edt-ft5306.
->    - Drop LCD reset hog pin.
->    - Add correct #address-cells and #size-cells to gpmi node.
->    - Replace edt-ft5x06@38 with touchscreen@38.
-> - Drop from commit messages all references to LCD display.
-> - Add patch [1/4] "dt-bindings: mfd: convert mxs-lradc bindings to
->    json-schema".
->
->   arch/arm/boot/dts/nxp/mxs/Makefile            |   1 +
->   .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 303 ++++++++++++++++++
->   2 files changed, 304 insertions(+)
->   create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
->
-> diff --git a/arch/arm/boot/dts/nxp/mxs/Makefile b/arch/arm/boot/dts/nxp/=
-mxs/Makefile
-> index 96dd31ea19ba..d72ba702b6fa 100644
-> --- a/arch/arm/boot/dts/nxp/mxs/Makefile
-> +++ b/arch/arm/boot/dts/nxp/mxs/Makefile
-> @@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_MXS) +=3D \
->   	imx23-sansa.dtb \
->   	imx23-stmp378x_devb.dtb \
->   	imx23-xfi3.dtb \
-> +	imx28-amarula-rmm.dtb \
->   	imx28-apf28.dtb \
->   	imx28-apf28dev.dtb \
->   	imx28-apx4devkit.dtb \
-> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts b/arch/arm/=
-boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-> new file mode 100644
-> index 000000000000..5daa9e22715d
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-> @@ -0,0 +1,303 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2025 Amarula Solutions, Dario Binacchi <dario.binacchi=
-@amarulasolutions.com>
-> + */
-> +
-> +/dts-v1/;
-> +#include "imx28.dtsi"
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +/ {
-> +	model =3D "Amarula i.MX28 rmm";
-> +	compatible =3D "amarula,imx28-rmm", "fsl,imx28";
-> +
-> +	memory@40000000 {
-> +		device_type =3D "memory";
-> +		reg =3D <0x40000000 0x08000000>;
-> +	};
-> +
-> +	reg_5v: regulator-5v {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "5v";
-> +		regulator-min-microvolt =3D <5000000>;
-> +		regulator-max-microvolt =3D <5000000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_3v3: regulator-3v3 {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "3v3";
-> +		regulator-min-microvolt =3D <3300000>;
-> +		regulator-max-microvolt =3D <3300000>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_1v8: regulator-1v8 {
-> +		compatible =3D "regulator-fixed";
-> +		regulator-name =3D "1v8";
-> +		regulator-min-microvolt =3D <1800000>;
-> +		regulator-max-microvolt =3D <1800000>;
-> +	};
-> +
-> +	reg_fec_3v3: regulator-fec-3v3 {
-> +		compatible =3D "regulator-fixed";
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&fec_3v3_enable_pin>;
-> +		regulator-name =3D "fec-3v3";
-> +		regulator-min-microvolt =3D <3300000>;
-> +		regulator-max-microvolt =3D <3300000>;
-> +		gpios =3D <&gpio3 27 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +		startup-delay-us =3D <300000>;
-> +		vin-supply =3D <&reg_5v>;
-> +	};
-> +
-> +	reg_usb0_vbus: regulator-usb0-vbus {
-> +		compatible =3D "regulator-fixed";
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&usb0_vbus_enable_pin>;
-> +		regulator-name =3D "usb0_vbus";
-> +		regulator-min-microvolt =3D <5000000>;
-> +		regulator-max-microvolt =3D <5000000>;
-> +		gpio =3D <&gpio2 5 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_usb1_vbus: regulator-usb1-vbus {
-> +		compatible =3D "regulator-fixed";
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&usb1_vbus_enable_pin>;
-> +		regulator-name =3D "usb1_vbus";
-> +		regulator-min-microvolt =3D <5000000>;
-> +		regulator-max-microvolt =3D <5000000>;
-> +		gpio =3D <&gpio2 6 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +		regulator-always-on;
-> +	};
-> +
-> +	backlight {
-> +		compatible =3D "pwm-backlight";
-> +		pwms =3D <&pwm 4 5000000 0>;
-> +		brightness-levels =3D <0 255>;
-> +		num-interpolated-steps =3D <255>;
-> +		default-brightness-level =3D <255>;
-> +		power-supply =3D <&reg_5v>;
-> +	};
-> +
-> +	beeper {
-> +		compatible =3D "pwm-beeper";
-This driver is not enabled in mxs_defconfig, shouldn't this be added?
-> +		pwms =3D <&pwm 7 100000 0>;
-> +	};
-> +
-> +	leds {
-> +		compatible =3D "gpio-leds";
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&leds_pins>;
-> +
-> +		led-0 {
-> +			label =3D "status";
-According to Documentation/devicetree/bindings/leds/common.yaml this=20
-property is deprecated, please use function and color instead.
-> +			gpios =3D <&gpio2 7 GPIO_ACTIVE_HIGH>;
-> +			default-state =3D "off";
-> +		};
-> +
-> +		led-1 {
-> +			label =3D "x22_5";
-> +			gpios =3D <&gpio3 16 GPIO_ACTIVE_HIGH>;
-> +			default-state =3D "off";
-> +		};
-> +
-> +		led-2 {
-> +			label =3D "x22_4";
-> +			gpios =3D <&gpio3 17 GPIO_ACTIVE_HIGH>;
-> +			default-state =3D "off";
-> +		};
-> +	};
-> +};
-> +
-> +&auart0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&auart0_2pins_a>;
-> +	status =3D "okay";
-> +};
-> +
-> +&auart1 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&auart1_pins_a>;
-> +	status =3D "okay";
-> +};
-> +
-> +&can0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&can0_pins_a>;
-> +	xceiver-supply =3D <&reg_3v3>;
-> +	status =3D "okay";
-> +};
-> +
-> +&duart {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&duart_pins_b>;
-> +	status =3D "okay";
-> +};
-> +
-> +&duart_pins_b {
-> +	fsl,voltage =3D <MXS_VOLTAGE_LOW>;
-> +};
-> +
-> +&gpmi {
-> +	#address-cells =3D <1>;
-> +	#size-cells =3D <0>;
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&gpmi_pins_a &gpmi_status_cfg>;
-> +	status =3D "okay";
-> +};
-> +
-> +&i2c0 {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&i2c0_pins_a>;
-> +	status =3D "okay";
-> +
-> +	touchscreen: touchscreen@38 {
-> +		compatible =3D "edt,edt-ft5306";
-This driver isn't enabled in mxs_defconfig, too.
-> +		reg =3D <0x38>;
-> +		pinctrl-names =3D "default";
-> +		pinctrl-0 =3D <&edt_ft5x06_pins &edt_ft5x06_wake_pin>;
-> +		interrupt-parent =3D <&gpio0>;
-> +		interrupts =3D <19 IRQ_TYPE_EDGE_RISING>;
-> +		reset-gpios =3D <&gpio0 21 GPIO_ACTIVE_LOW>;
-> +		wake-gpios =3D <&gpio0 18 GPIO_ACTIVE_HIGH>;
-> +	};
-> +};
-> +
-> +&lradc {
-> +	status =3D "okay";
-> +};
-> +
-> +&mac0 {
-> +	phy-mode =3D "rmii";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&mac0_pins_a>;
-> +	phy-supply =3D <&reg_fec_3v3>;
-> +	phy-handle =3D <&ethphy>;
-> +	status =3D "okay";
-> +
-> +	mdio {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +
-> +		ethphy: ethernet-phy@0 {
-> +			compatible =3D "ethernet-phy-ieee802.3-c22";
-> +			reg =3D <0>;
-> +			max-speed =3D <100>;
-> +			reset-gpios =3D <&gpio3 28 GPIO_ACTIVE_LOW>;
-> +			reset-assert-us =3D <4000>;
-> +			reset-deassert-us =3D <4000>;
-> +		};
-> +	};
-> +};
-> +
-> +&pinctrl {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&hog_pins_a>;
-> +
-> +	hog_pins_a: hog@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_SSP2_SS1__GPIO_2_20  /* External power */
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	edt_ft5x06_pins: edt-ft5x06@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_GPMI_RDY1__GPIO_0_21 /* Reset */
-> +			MX28_PAD_GPMI_CE3N__GPIO_0_19 /* Interrupt */
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_ENABLE>;
-> +	};
-> +
-> +	edt_ft5x06_wake_pin: edt-ft5x06-wake@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <MX28_PAD_GPMI_CE2N__GPIO_0_18>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_16mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	fec_3v3_enable_pin: fec-3v3-enable@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <MX28_PAD_SPDIF__GPIO_3_27>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	leds_pins: leds@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <
-> +			MX28_PAD_SSP0_DATA7__GPIO_2_7
-> +			MX28_PAD_PWM0__GPIO_3_16
-> +			MX28_PAD_PWM1__GPIO_3_17
-> +		>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	usb0_vbus_enable_pin: usb0-vbus-enable@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <MX28_PAD_SSP0_DATA5__GPIO_2_5>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +
-> +	usb1_vbus_enable_pin: usb1-vbus-enable@0 {
-> +		reg =3D <0>;
-> +		fsl,pinmux-ids =3D <MX28_PAD_SSP0_DATA6__GPIO_2_6>;
-> +		fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> +		fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> +		fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> +	};
-> +};
-> +
-> +&pwm {
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pwm4_pins_a &pwm7_pins_a>;
-> +	status =3D "okay";
-> +};
-> +
-> +&ssp0 {
-Just an advice, sometimes it's helpful to clarify the role of a MMC=20
-interface with a comment like "microSD" or "eMMC" above the whole node.
+Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+---
+ .../testing/sysfs-bus-coresight-devices-tgu   |   9 +
+ drivers/hwtracing/coresight/Kconfig           |  11 +
+ drivers/hwtracing/coresight/Makefile          |   1 +
+ drivers/hwtracing/coresight/coresight-tgu.c   | 213 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tgu.h   |  37 +++
+ 5 files changed, 271 insertions(+)
+ create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+ create mode 100644 drivers/hwtracing/coresight/coresight-tgu.c
+ create mode 100644 drivers/hwtracing/coresight/coresight-tgu.h
 
-Regards
-> +	compatible =3D "fsl,imx28-mmc";
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&mmc0_4bit_pins_a &mmc0_sck_cfg>;
-> +	status =3D "okay";
-> +	bus-width =3D <4>;
-> +	broken-cd;
-> +};
-> +
-> +&usb0 {
-> +	status =3D "okay";
-> +	vbus-supply =3D <&reg_usb0_vbus>;
-> +	dr_mode =3D "host";
-> +};
-> +
-> +&usb1 {
-> +	status =3D "okay";
-> +	vbus-supply =3D <&reg_usb1_vbus>;
-> +	dr_mode =3D "host";
-> +};
-> +
-> +&usbphy0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&usbphy1 {
-> +	status =3D "okay";
-> +};
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+new file mode 100644
+index 000000000000..cccd11e44db9
+--- /dev/null
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+@@ -0,0 +1,9 @@
++What:		/sys/bus/coresight/devices/<tgu-name>/enable_tgu
++Date:		May 2025
++KernelVersion	6.16
++Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
++Description:
++		(RW) Set/Get the enable/disable status of TGU
++		Accepts only one of the 2 values -  0 or 1.
++		0 : disable TGU.
++		1 : enable TGU.
+diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+index ecd7086a5b83..f284cef80d2f 100644
+--- a/drivers/hwtracing/coresight/Kconfig
++++ b/drivers/hwtracing/coresight/Kconfig
+@@ -259,4 +259,15 @@ config CORESIGHT_DUMMY
+ 
+ 	  To compile this driver as a module, choose M here: the module will be
+ 	  called coresight-dummy.
++
++config CORESIGHT_TGU
++	tristate "CoreSight Trigger Generation Unit driver"
++	help
++	  This driver provides support for Trigger Generation Unit that is
++	  used to detect patterns or sequences on a given set of signals.
++	  TGU is used to monitor a particular bus within a given region to
++	  detect illegal transaction sequences or slave responses. It is also
++	  used to monitor a data stream to detect protocol violations and to
++	  provide a trigger point for centering data around a specific event
++	  within the trace data buffer.
+ endif
+diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+index 8e62c3150aeb..b24c8491bb1f 100644
+--- a/drivers/hwtracing/coresight/Makefile
++++ b/drivers/hwtracing/coresight/Makefile
+@@ -51,5 +51,6 @@ coresight-cti-y := coresight-cti-core.o	coresight-cti-platform.o \
+ 		   coresight-cti-sysfs.o
+ obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+ obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
++obj-$(CONFIG_CORESIGHT_TGU) += coresight-tgu.o
+ obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+ coresight-ctcu-y := coresight-ctcu-core.o
+diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
+new file mode 100644
+index 000000000000..a1a02602f7b3
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-tgu.c
+@@ -0,0 +1,213 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++#include <linux/amba/bus.h>
++#include <linux/coresight.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/of.h>
++
++#include "coresight-priv.h"
++#include "coresight-tgu.h"
++
++DEFINE_CORESIGHT_DEVLIST(tgu_devs, "tgu");
++
++static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
++{
++	CS_UNLOCK(drvdata->base);
++	/* Enable TGU to program the triggers */
++	tgu_writel(drvdata, 1, TGU_CONTROL);
++	CS_LOCK(drvdata->base);
++}
++
++static int tgu_enable(struct coresight_device *csdev, enum cs_mode mode,
++		      void *data)
++{
++	struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
++
++	spin_lock(&drvdata->spinlock);
++
++	if (drvdata->enable) {
++		spin_unlock(&drvdata->spinlock);
++		return -EBUSY;
++	}
++	tgu_write_all_hw_regs(drvdata);
++	drvdata->enable = true;
++
++	spin_unlock(&drvdata->spinlock);
++	return 0;
++}
++
++static int tgu_disable(struct coresight_device *csdev, void *data)
++{
++	struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
++
++	spin_lock(&drvdata->spinlock);
++	if (drvdata->enable) {
++		CS_UNLOCK(drvdata->base);
++		tgu_writel(drvdata, 0, TGU_CONTROL);
++		CS_LOCK(drvdata->base);
++
++		drvdata->enable = false;
++	}
++	spin_unlock(&drvdata->spinlock);
++	return 0;
++}
++
++static ssize_t enable_tgu_show(struct device *dev,
++			       struct device_attribute *attr, char *buf)
++{
++	bool enabled;
++
++	struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	spin_lock(&drvdata->spinlock);
++	enabled = drvdata->enable;
++	spin_unlock(&drvdata->spinlock);
++
++	return sysfs_emit(buf, "%d\n", enabled);
++}
++
++/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
++static ssize_t enable_tgu_store(struct device *dev,
++				struct device_attribute *attr, const char *buf,
++				size_t size)
++{
++	int ret = 0;
++	unsigned long val;
++	struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	ret = kstrtoul(buf, 0, &val);
++	if (ret)
++		return ret;
++
++	if (val) {
++		ret = pm_runtime_resume_and_get(dev->parent);
++		if (ret)
++			return ret;
++		ret = tgu_enable(drvdata->csdev, CS_MODE_SYSFS, NULL);
++		if (ret)
++			pm_runtime_put(dev->parent);
++	} else {
++		ret = tgu_disable(drvdata->csdev, NULL);
++		pm_runtime_put(dev->parent);
++	}
++
++	if (ret)
++		return ret;
++	return size;
++}
++static DEVICE_ATTR_RW(enable_tgu);
++
++static const struct coresight_ops_helper tgu_helper_ops = {
++	.enable = tgu_enable,
++	.disable = tgu_disable,
++};
++
++static const struct coresight_ops tgu_ops = {
++	.helper_ops = &tgu_helper_ops,
++};
++
++static struct attribute *tgu_common_attrs[] = {
++	&dev_attr_enable_tgu.attr,
++	NULL,
++};
++
++static const struct attribute_group tgu_common_grp = {
++	.attrs = tgu_common_attrs,
++	{ NULL },
++};
++
++static const struct attribute_group *tgu_attr_groups[] = {
++	&tgu_common_grp,
++	NULL,
++};
++
++static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
++{
++	int ret = 0;
++	struct device *dev = &adev->dev;
++	struct coresight_desc desc = { 0 };
++	struct coresight_platform_data *pdata;
++	struct tgu_drvdata *drvdata;
++
++	desc.name = coresight_alloc_device_name(&tgu_devs, dev);
++	if (!desc.name)
++		return -ENOMEM;
++
++	pdata = coresight_get_platform_data(dev);
++	if (IS_ERR(pdata))
++		return PTR_ERR(pdata);
++
++	adev->dev.platform_data = pdata;
++
++	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
++	if (!drvdata)
++		return -ENOMEM;
++
++	drvdata->dev = &adev->dev;
++	dev_set_drvdata(dev, drvdata);
++
++	drvdata->base = devm_ioremap_resource(dev, &adev->res);
++	if (!drvdata->base)
++		return -ENOMEM;
++
++	spin_lock_init(&drvdata->spinlock);
++
++	drvdata->enable = false;
++	desc.type = CORESIGHT_DEV_TYPE_HELPER;
++	desc.pdata = adev->dev.platform_data;
++	desc.dev = &adev->dev;
++	desc.ops = &tgu_ops;
++	desc.groups = tgu_attr_groups;
++
++	drvdata->csdev = coresight_register(&desc);
++	if (IS_ERR(drvdata->csdev)) {
++		ret = PTR_ERR(drvdata->csdev);
++		goto err;
++	}
++
++	pm_runtime_put(&adev->dev);
++	return 0;
++err:
++	pm_runtime_put(&adev->dev);
++	return ret;
++}
++
++static void tgu_remove(struct amba_device *adev)
++{
++	struct tgu_drvdata *drvdata = dev_get_drvdata(&adev->dev);
++
++	coresight_unregister(drvdata->csdev);
++}
++
++static const struct amba_id tgu_ids[] = {
++	{
++		.id = 0x000f0e00,
++		.mask = 0x000fffff,
++		.data = "TGU",
++	},
++	{ 0, 0, NULL },
++};
++
++MODULE_DEVICE_TABLE(amba, tgu_ids);
++
++static struct amba_driver tgu_driver = {
++	.drv = {
++		.name = "coresight-tgu",
++		.suppress_bind_attrs = true,
++	},
++	.probe = tgu_probe,
++	.remove = tgu_remove,
++	.id_table = tgu_ids,
++};
++
++module_amba_driver(tgu_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("CoreSight TGU driver");
+diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtracing/coresight/coresight-tgu.h
+new file mode 100644
+index 000000000000..6c849a2f78fa
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-tgu.h
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++#ifndef _CORESIGHT_TGU_H
++#define _CORESIGHT_TGU_H
++
++/* Register addresses */
++#define TGU_CONTROL 0x0000
++
++/* Register read/write */
++#define tgu_writel(drvdata, val, off) __raw_writel((val), drvdata->base + off)
++#define tgu_readl(drvdata, off) __raw_readl(drvdata->base + off)
++
++/**
++ * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit)
++ * @base: Memory-mapped base address of the TGU device
++ * @dev: Pointer to the associated device structure
++ * @csdev: Pointer to the associated coresight device
++ * @spinlock: Spinlock for handling concurrent access
++ * @enable: Flag indicating whether the TGU device is enabled
++ *
++ * This structure defines the data associated with a TGU device,
++ * including its base address, device pointers, clock, spinlock for
++ * synchronization, trigger data pointers, maximum limits for various
++ * trigger-related parameters, and enable status.
++ */
++struct tgu_drvdata {
++	void __iomem *base;
++	struct device *dev;
++	struct coresight_device *csdev;
++	spinlock_t spinlock;
++	bool enable;
++};
++
++#endif
 
 
