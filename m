@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0B9C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:27:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA51AC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HwowqU2A2Oz8kMongy5nIRgTOs0J645sNyJgbe8ukqE=; b=ra+M8a7i6UlPShNfa3Iodty57K
-	MGlOugZNI1K1eGt+SrJ103GuVsaTvbbc07GFacnjjejPrM6vc0zF0Jq07U84ofcvzTpVeqsiOqGaz
-	445w8szAek0zL/qdnRVqLyK4P6MkCA4IRAIjH35u8T3S25cF67JrmrL0TpIycqju8KE/U8WByxIsE
-	NgZgYDmXi5m066vEM+v1jmJuefKSpgciWYhjtlBnMM868h/cxtNS+uxiLDe8+6iwglrA+mIUIDdiN
-	a/2x5dBmCEsloxHbvfGltQxmMAifiFAWl0Ee6LAx4a95JCvlb6O0vrCDLQyN0nSPHBYgTb/ptkitI
-	UMhK3prA==;
+	bh=V3e2BPcB5JQ4jFGxceyN25LtRA0V5qVp18IUuPkwCaw=; b=mO/MtklwkKQ3rTVZDoU+uPIYLe
+	Z1BHkIUHe3e9mEHFQrBvsw1EA3TfB1ft1tvIIxIPBPjMgniIT2bJGqpSjUJDgW3PsoS2DZAQ512hU
+	deREJljAk+3RV1Z7dlldkZVKwLO61vMHqBPOzRXfk753M+4UfMGvAN/XvTjyBLp8wYVY3UBF4Q+Y2
+	DdLmaxsfzwPzB7uopcycvZfq07FKIk51ynb0thmpxTKbIyQSQPYukME6s0uKjgLDTPD++Xd5aU/Br
+	y/zm0vebFvrujOKyLnwDmeqF63D/ER9ealIFUnOwdRKuZqYqM4PqKpbhvuoEN+wRXfUwZ/x87pAu4
+	iwbV79+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZY1-0000000FPIN-1MNZ;
-	Thu, 29 May 2025 09:27:37 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uKZa7-0000000FPVA-06xE;
+	Thu, 29 May 2025 09:29:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZL4-0000000FNl7-3THj
+	id 1uKZMa-0000000FO7r-3akH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:14:16 +0000
+	Thu, 29 May 2025 09:15:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1199DA4F4EB;
-	Thu, 29 May 2025 09:14:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C015C4CEE7;
-	Thu, 29 May 2025 09:14:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5CC075C629C;
+	Thu, 29 May 2025 09:13:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A3BEC4CEE7;
+	Thu, 29 May 2025 09:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748510053;
-	bh=nsB0nVxz+JJc3yI5M3RfBBdILPJfmZjk/4dwV4uYOAg=;
+	s=k20201202; t=1748510148;
+	bh=inZFYIcTejA8G1GdPwrsuH7UVnHj585geeq4wpJCGK8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XjEjNiMmNF4QyQXKqZ96EBVPLdhph3Csowe2ehr9ecQcm2XIadsZIgL9YCdp32C0k
-	 CLRwHmltzlnY0rUqnrsRHaRXcLHbtCRfuJRYKTVJ4my7l7HAJCiJSorfqkoRf1PqzJ
-	 1f68M4vi/E9PDVHXF+6pCnr9bcXnXeJQ8+refWKu2w+54QJDkLJv+rkB7fwI7iB9Dn
-	 W90l0BB3jSJtlp77wiCIgNCB1UNGOqymRmi1fkcYeZCIJDH72wXRHw8R8q0qAHJyP6
-	 iprnfI4nFXLhMAsSWaMSMKHXAjU2QWGZ6dlVjsoOGUeLHgkV/aRIpB7Th+PfxejdYY
-	 v1uOTEgBJ25Sw==
-Message-ID: <57667ad9-d98f-4f8b-9b70-428960765ddb@kernel.org>
-Date: Thu, 29 May 2025 11:14:09 +0200
+	b=BOqWRz9xNUz7eIjJjJoG61gmIicXT8zH523w8z+2LYGsKJmQCldQD8O9qN7yR6MAC
+	 IOSBhPFU0a7SK/FkXZODZqJe6d/sa/cOTPuXpfE6Y4UDbNnlqt4WiYe9uBIX90I0FM
+	 OtYb1j/qlN2Uz2VGBej6N210H1r9B2kAIhrmXRT4y9WUYx3hhXFBPhVl6Nh6hmqaIL
+	 otMmRcV+MyUDIM567rD5vBM0fMfV+56/NBwjrD/0wF9Q2cnh+NSsRpEitrKvFynefP
+	 OKfobDq6zpykLp7U/WB8WAKL9Vxqk5jYj9osfd8gxQaAtri9B5BZSC9h9Gu+0N0+9H
+	 xwDJN7jZi0jMg==
+Message-ID: <673768c4-e727-4e5e-82e9-e69ef05e3975@kernel.org>
+Date: Thu, 29 May 2025 11:15:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
+Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp13
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
  Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
@@ -55,10 +56,11 @@ To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
  Bartosz Golaszewski <brgl@bgdev.pl>
 Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
  devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
- <20250528-hdp-upstream-v4-2-7e9b3ad2036d@foss.st.com>
+ linux-arm-kernel@lists.infradead.org
+References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
+ <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
+ <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
+ <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250528-hdp-upstream-v4-2-7e9b3ad2036d@foss.st.com>
+In-Reply-To: <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_021415_020736_A203745B 
-X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-CacheID: sfid-20250529_021548_988610_B779E85C 
+X-CRM114-Status: UNSURE (   7.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,20 +127,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/05/2025 15:30, Clément Le Goffic wrote:
-> 'HDP' stands for Hardware Debug Port, it is an hardware block in
-> STMicrolectronics' MPUs that let the user decide which internal SoC's
-> signal to observe.
-> It provides 8 ports and for each port there is up to 16 different
-> signals that can be output.
-> Signals are different for each MPU.
+On 28/05/2025 14:14, Clement LE GOFFIC wrote:
+>>
+>>> +		};
+>>> +
+>>> +		hdp: pinctrl@5002a000 {
+>>> +			compatible = "st,stm32mp131-hdp";
+>>> +			reg = <0x5002a000 0x400>;
+>>> +			clocks = <&rcc HDP>;
+>>>   			status = "disabled";
+>>
+>> Why are you disabling it? What is missing?
 > 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Drop reviewed tag. It was given under assumption that you will test your
-code before sending.
-
+> Nothing is missing just disabled by default.
+> The node is then enabled when needed in board's dts file.
+> 
+How much time did you give me to respond to this feedback? 1 hour 15
+minutes. That's too short. We have also other work except constantly
+checking inbox.
 
 Best regards,
 Krzysztof
