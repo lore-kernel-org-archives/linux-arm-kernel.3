@@ -4,82 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF97CC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1C7C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vb6WBFoivshC9+Yzx2xONn+OQ3UuWc93E6/iR71zSN0=; b=EHSJkLRL0mKN+2EnVkgQSXgOMi
-	dkmou86CvRryrouKMupU+T0WGRnIATXb73yan0XV5aatr1SZe1f6ITp4sKV7uAc1L+GpDx7KBsKqc
-	CpDwEjYg3jGVf/2fvk2LEvBeec8hiPKOwD5oyaKHon5NlP0H/U+cdPP/CPnHd1mKOJB3fScZarFIx
-	6USEvOU3lxPbr0qTOAX4Wjo6kVshg3lBrHRLE4s6H+tTnETjvW28eQbOG8UVhjot+i8ttHqDoIJbi
-	40kGxmgf4U/SWOT2NEKEm7Ip7aZOwQgwxP02PBelrZOwXdzXEwmQ2g+PwWOx+1o5r5m2UAGrQhF2x
-	HCPC1I7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/SI7E2GMu5zwFD88Hqb3B6EoNDTjnLpF2X6w7dcTEhI=; b=rox+IaQmzM1n0eWLMi62MeMU2J
+	8KCbu7pEFwJvTNxuqbJM4H1dan+lqNNM4vy8taDkzJMneYzjFjkp+cP9MfF4cPxWP+l5DXLaqqUjM
+	D/G7tPEKBktwkdESoAzxHhTmPdl+Rtd/luHOfzq2dG1+YQpU+AnxEPC5OII7nL79liizl7SBZiqqK
+	hloc8moGaofC1sVdUvvTBWEJkp416ZiLOPHT3vQdg8a2jczJKd0dHAPzwHayIANorS47HDAoa2sKs
+	3CXlAgP1Qflg9Acjl1GTjXfuj2netkLCo2JePh/mYafXiOcAS7J/TA+TmBBMtSEZ+wWxiC9EU6GI6
+	3NMof/eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZcC-0000000FPuf-2Iis;
-	Thu, 29 May 2025 09:31:56 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZTV-0000000FOs1-2Fpm
+	id 1uKZeH-0000000FQ9y-1AO3;
+	Thu, 29 May 2025 09:34:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKZTa-0000000FOsW-2deQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:22:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748510577; x=1780046577;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=i3CAwiCoEjbFznMoQgq/hG6fd2mUML8gqX6vftdQ8DM=;
-  b=RRRkbhBxo25WNu3Whvgzym25tZ2hTrCaJeT+wXN3E4Kn+vDRg0OK1Nrh
-   5teWZWqEqvpyhnpLsDmHkwV2IIFwUEKH1KD7PPtpWaoiggdzdJpKkN6vC
-   WiRBX3ny5KJmk548URCnz5Q2g7GhZvPOaiO0Z7xiFo3K8NlEPd/JRDHjE
-   gUnWaowGZEcz8E2XMHD6f5GXgHQ3aoeJm46URqrIOo5ilu76DErDnPwvX
-   QwF7Iy2XRXg3CrjCAinpRRWebtWePA4kEult0wOKBJDfTi3x4UyTGMCRl
-   pcPSC96alnIwO5Hn/KsxR+8nYCeoasg3oci9ARM9Om/W7DNlvlF2m7kNC
-   Q==;
-X-CSE-ConnectionGUID: tP6+L8ReSca6e7FHJdlV4A==
-X-CSE-MsgGUID: uIMVrvXeSr6oYkDslPxErA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11447"; a="54361429"
-X-IronPort-AV: E=Sophos;i="6.15,323,1739865600"; 
-   d="scan'208";a="54361429"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 May 2025 02:22:55 -0700
-X-CSE-ConnectionGUID: 7upNn49tQPG7cPBFS1RClw==
-X-CSE-MsgGUID: dtQC3ucUR0CdobThUdO6iQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,323,1739865600"; 
-   d="scan'208";a="143475369"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 29 May 2025 02:22:53 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uKZTO-000WWm-2F;
-	Thu, 29 May 2025 09:22:50 +0000
-Date: Thu, 29 May 2025 17:21:59 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dharma Balasubiramani <dharma.b@microchip.com>,
-	Kamel Bouhara <kamel.bouhara@bootlin.com>,
-	William Breathitt Gray <wbg@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Dharma Balasubiramani <dharma.b@microchip.com>
-Subject: Re: [PATCH 2/2] counter: microchip-tcb-capture: Add DMA support for
- TC_RAB register reads
-Message-ID: <202505291723.WYIWqmvP-lkp@intel.com>
-References: <20250528-mchp-tcb-dma-v1-2-083a41fb7b51@microchip.com>
+	Thu, 29 May 2025 09:23:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D847176A;
+	Thu, 29 May 2025 02:22:45 -0700 (PDT)
+Received: from [10.163.62.34] (unknown [10.163.62.34])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC93B3F5A1;
+	Thu, 29 May 2025 02:22:57 -0700 (PDT)
+Message-ID: <6aacbf96-e685-43fd-b77d-2242d57cb2f3@arm.com>
+Date: Thu, 29 May 2025 14:52:54 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250528-mchp-tcb-dma-v1-2-083a41fb7b51@microchip.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: Restrict pagetable teardown to avoid false
+ warning
+To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: david@redhat.com, ryan.roberts@arm.com, mark.rutland@arm.com,
+ yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+References: <20250527082633.61073-1-dev.jain@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250527082633.61073-1-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_022257_592974_4A42B6B0 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20250529_022302_716031_C697DA6F 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,76 +66,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dharma,
+On 5/27/25 13:56, Dev Jain wrote:
+> Commit 9c006972c3fe removes the pxd_present() checks because the caller
+> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller only
+> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
+> pmd_free_pte_page(), wherein the pmd may be none. Thus it is possible to
+> hit a warning in the latter, since pmd_none => !pmd_table(). Thus, add
+> a pmd_present() check in pud_free_pmd_page().
+> 
+> This problem was found by code inspection.
+> 
+> Fixes: 9c006972c3fe (arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table())
+> Cc: <stable@vger.kernel.org>
+> Reported-by: Ryan Roberts <ryan.roberts@arm.com> 
+> Acked-by: David Hildenbrand <david@redhat.com>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+> This patch is based on 6.15-rc6.
+> 
+> v2->v3:
+>  - Use pmdp_get()
+> 
+> v1->v2:
+>  - Enforce check in caller
+> 
+>  arch/arm64/mm/mmu.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index ea6695d53fb9..5a9bf291c649 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1286,7 +1286,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>  	next = addr;
+>  	end = addr + PUD_SIZE;
+>  	do {
+> -		pmd_free_pte_page(pmdp, next);
+> +		if (pmd_present(pmdp_get(pmdp)))
+> +			pmd_free_pte_page(pmdp, next);
+>  	} while (pmdp++, next += PMD_SIZE, next != end);
+>  
+>  	pud_clear(pudp);
 
-kernel test robot noticed the following build warnings:
+Agree with Ryan about keeping pmd_present() to be consistent.
 
-[auto build test WARNING on fefff2755f2aa4125dce2a1edfe7e545c7c621f2]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Dharma-Balasubiramani/counter-microchip-tcb-capture-Retrieve-and-map-parent-base-address/20250528-141627
-base:   fefff2755f2aa4125dce2a1edfe7e545c7c621f2
-patch link:    https://lore.kernel.org/r/20250528-mchp-tcb-dma-v1-2-083a41fb7b51%40microchip.com
-patch subject: [PATCH 2/2] counter: microchip-tcb-capture: Add DMA support for TC_RAB register reads
-config: arm-randconfig-r121-20250529 (https://download.01.org/0day-ci/archive/20250529/202505291723.WYIWqmvP-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 14.3.0
-reproduce: (https://download.01.org/0day-ci/archive/20250529/202505291723.WYIWqmvP-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505291723.WYIWqmvP-lkp@intel.com/
-
-sparse warnings: (new ones prefixed by >>)
->> drivers/counter/microchip-tcb-capture.c:140:16: sparse: sparse: cast to restricted __le32
-
-vim +140 drivers/counter/microchip-tcb-capture.c
-
-   101	
-   102	static int mchp_tc_dma_transfer(struct mchp_tc_data *priv, u32 *val)
-   103	{
-   104		struct dma_async_tx_descriptor *desc;
-   105		struct device *dev = &priv->pdev->dev;
-   106		dma_cookie_t cookie;
-   107		int ret;
-   108	
-   109		ret = dmaengine_slave_config(priv->dma.chan, &priv->dma.slave_cfg);
-   110		if (ret) {
-   111			dev_err(dev, "DMA slave_config failed (%d)\n", ret);
-   112			return ret;
-   113		}
-   114	
-   115		desc = dmaengine_prep_dma_memcpy(priv->dma.chan,
-   116						 priv->dma.addr,
-   117						 priv->dma.slave_cfg.src_addr,
-   118						 sizeof(u32),
-   119						 DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
-   120		if (!desc) {
-   121			dev_err(dev, "DMA prep descriptor failed\n");
-   122			return -ENOMEM;
-   123		}
-   124	
-   125		cookie = dmaengine_submit(desc);
-   126		if (dma_submit_error(cookie)) {
-   127			dev_err(dev, "DMA submit error (%d)\n", cookie);
-   128			return cookie ?: -EIO;
-   129		}
-   130	
-   131		dma_async_issue_pending(priv->dma.chan);
-   132	
-   133		ret = dma_sync_wait(priv->dma.chan, cookie);
-   134		if (ret) {
-   135			dev_err(dev, "DMA transfer timed out (%d)\n", ret);
-   136			return ret;
-   137		}
-   138	
-   139		/* Retrieve the 32-bit value the engine just copied */
- > 140		*val = le32_to_cpu(*(u32 *)priv->dma.buf);
-   141	
-   142		return 0;
-   143	}
-   144	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
