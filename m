@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB11C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B24ECC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mPkPFeJr+GG2QcllwMOxn9k+r0jQZG2uRhor86+okS8=; b=q2SKEU3bK/5W6O
-	+6dxVu9J9Wg47KvhRQz5RDBb0DSgZLwjJTQ4Iw3yaDpSu2ZivRITIzRQHcsQ6prTkTGVxn638LHq1
-	WA1zcyYcMvPWKSEMYR6QoygYaWIcWNoY3Q2tgZSwbOXKXdzUvC1D412FXbkwEzpfRH4QbWwn+W8qD
-	XJ1gMB47wsRgVdDiBJwCfvDL0YuRvhPqI5LfB5yo522BdgsPt7TVLNsioWJwJrdkCElKOM3sOp3z7
-	DByKrZ60SOUvW+Vh8Jm9i5p/OTmmN93M/C9j/LGMgSZ9s8wg3ZVfdzJlW0/IBOfIjlZodka/skiOx
-	uQXN6Mlu4PF4MsgQn4+Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vP+cBqQl4oU5V6STKgR9qkSDk+GPXxR/Qkbrnuthsrw=; b=UxwpIUD8OCxGGBhJKDj139LH38
+	8FuiO/leJTQ2egR6LCKlaKv/gCdFd1Qz63Vzjjf9CMj2Tax1J0fTIiDCmrjg6jYOQglteYNlkAoXu
+	LK0Ekj0U5rNw0WetkeMGuz+dkJh2vZ1c5tqlEIGTwSg4Z80n8MpxLyYtJJPAANTz+IPhjiqhrE/dg
+	t0AVB0hTmIgY66BwrjtPuCANpSCAUiHqpfYudA+Z2yyJ8cSnXCsFX6uHQzjq08/mdiOFPdB3o8Q6j
+	PTVxHhdCcD1PF11G17Fqw3toACw7yf2VH3HuAsJ2oBhaDa2vsn9NQvNndFf92X/U9l39AXL/pRk9/
+	PEIYlyPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZLR-0000000FNrO-46if;
-	Thu, 29 May 2025 09:14:37 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1uKZNZ-0000000FONG-2oNA;
+	Thu, 29 May 2025 09:16:49 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZEf-0000000FMDX-2oua
+	id 1uKZEh-0000000FMDf-2fKS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:07:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D39D3432F7;
-	Thu, 29 May 2025 09:07:29 +0000 (UTC)
+	Thu, 29 May 2025 09:07:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E708A43302;
+	Thu, 29 May 2025 09:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748509652;
+	t=1748509654;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=mPkPFeJr+GG2QcllwMOxn9k+r0jQZG2uRhor86+okS8=;
-	b=GjSyVNNhLuWD0eGfSgz+3Na5WuC2OLzLh+5UnSJNzmVrch94OoeOIFQsbUUciQ5mVMulgU
-	+QFiWpUrs3eTBRdCWjtrqiIWAj36uYmsahEcEjnm8tOxk/lEiniaH/9BTj1vf5is09GDXs
-	QPbSLpgKtUIPgHaUY8tGCqdYrdu4eLsPs7hI6I/dU8hb065JCHL5il/ka5TewcMuDSQZq6
-	6IRdyaD40n/GlpN7kwPFjaCuPnEDyVd2PPjEwaSf0GTe3aHp05g1uua356TOMb1nwSn53v
-	/7x3obzzl3JCMiCjQRlmex//ESAt1MC5dqgiGZaIkGiEfRUE0TZPmFZNt9izoA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vP+cBqQl4oU5V6STKgR9qkSDk+GPXxR/Qkbrnuthsrw=;
+	b=PZJP+2eq8AeMj9IpLi1meIJZZuysN3MuFx2xm06qM+HGf2PTvo6TxHv/bDeAj9wfwkrT+4
+	qOeKetKK88G6R7XEcZ4+H75HCJNDD5oyiOkntMNUAo7taylJN5voJdDlIA9SXKx5rwEctb
+	vEqeQxdyePpEXp9h3AcnbZpHfxosPP3PmI3qhz4FJ2Vq5mI0Y2lCrmgt9Sp8Ptp95QIK6A
+	S6yDLki2Y+ole9CwHpj6YLcWDUc9i9Mrfgxhxaw5BhULSTTObgVM0EA2InCtlgZkcK6rgB
+	1r3yHRVkd7Mg/wZsxYsSsGFSgwAQxwIgxo382G4YHjE6DptAmUr9z9ztWhfPbQ==
 From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Subject: [PATCH v4 0/2] net: stmmac: prevent div by 0
-Date: Thu, 29 May 2025 11:07:22 +0200
-Message-Id: <20250529-stmmac_tstamp_div-v4-0-d73340a794d5@bootlin.com>
+Date: Thu, 29 May 2025 11:07:24 +0200
+Subject: [PATCH v4 2/2] net: stmmac: make sure that ptp_rate is not 0
+ before configuring EST
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAMojOGgC/23N0QqCMBTG8VeJXbfYzjxqXfUeEbLNmYN04sYox
- HdvCoGRl/8Pzu9MxJvRGk8uh4mMJlpvXZ8iOx6IbmX/MNTWqQkwQIYA1Ieuk7oKPshuqGobaYP
- IOTQsZ3Am6W4YTWNfq3m7p26tD258ry8iX9avJna0yCmnSstSohQyK4qrci48bX/SriOLF2FrF
- HsGJCPPBSBXQmEG/4bYGuWeISijCgGNrpu6zPSvMc/zB2EIctk8AQAA
-X-Change-ID: 20250522-stmmac_tstamp_div-f55112f06029
+Message-Id: <20250529-stmmac_tstamp_div-v4-2-d73340a794d5@bootlin.com>
+References: <20250529-stmmac_tstamp_div-v4-0-d73340a794d5@bootlin.com>
+In-Reply-To: <20250529-stmmac_tstamp_div-v4-0-d73340a794d5@bootlin.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>, 
  Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
@@ -68,12 +67,12 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvheejfeculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffufffkgggtgffvvefosehtkeertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepffefvdelledtfeekudelvdekvdeuffduieevkedviedtgeefueehgfdvuedthfeunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekheenucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehpdhhvghloheplgduledvrdduieekrddurddvtdekngdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtoheprhhitghhrghruggtohgthhhrrghnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgtohhquhgvlhhinhdrshhtmhefvdesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrt
- ghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeflohhsvgdrtegsrhgvuhesshihnhhophhshihsrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehjohgrsghrvghusehshihnohhpshihshdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvheejfeculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtkeertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevgefhteffuefhheekkeelffffvdeugffgveejffdtvdffudehtedtieevteetnecukfhppedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhedphhgvlhhopegludelvddrudeikedruddrvddtkegnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopehrihgthhgrrhgutghotghhrhgrnhesghhmrghilhdrtghomhdprhgtphhtthhopehmtghoqhhuvghlihhnrdhsthhmfedvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhop
+ ehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplfhoshgvrdetsghrvghusehshihnohhpshihshdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohepjhhorggsrhgvuhesshihnhhophhshihsrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
 X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_020738_133330_BCDAACB3 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250529_020739_836226_E7B12446 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +87,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-this small series aims to fix a small splat I am observing on a STM32MP157
-platform at boot (see commit 1) due to a division by 0.
-There is no functional change in this revision, this has just been
-rebased on top of net/main.
+If the ptp_rate recorded earlier in the driver happens to be 0, this
+bogus value will propagate up to EST configuration, where it will
+trigger a division by 0.
 
+Prevent this division by 0 by adding the corresponding check and error
+code.
+
+Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
+Fixes: 8572aec3d0dc ("net: stmmac: Add basic EST support for XGMAC")
 ---
 Changes in v4:
-- collect RB tags
 - rebased on net/main
-- Link to v3: https://lore.kernel.org/r/20250528-stmmac_tstamp_div-v3-0-b525ecdfd84c@bootlin.com
-
 Changes in v3:
-- remove now duplicate check
-- add ptp_rate check in est_configure
-- Link to v2: https://lore.kernel.org/r/20250527-stmmac_tstamp_div-v2-1-663251b3b542@bootlin.com
-
-Changes in v2:
-- Add Fixes tag
-- Reword commit message to clarify the triggering cause of the issue
-- Link to v1: https://lore.kernel.org/r/20250523-stmmac_tstamp_div-v1-1-bca8a5a3a477@bootlin.com
-
+- new patch
 ---
-Alexis Lothoré (2):
-      net: stmmac: make sure that ptp_rate is not 0 before configuring timestamping
-      net: stmmac: make sure that ptp_rate is not 0 before configuring EST
+ drivers/net/ethernet/stmicro/stmmac/stmmac_est.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  | 5 +++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 2 +-
- 3 files changed, 11 insertions(+), 1 deletion(-)
----
-base-commit: 271683bb2cf32e5126c592b5d5e6a756fa374fd9
-change-id: 20250522-stmmac_tstamp_div-f55112f06029
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+index c9693f77e1f61fe5c92f95f5e544371445626c4d..ac6f2e3a3fcd2f9ae21913845282ff015cd2f7ec 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+@@ -32,6 +32,11 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+ 	int i, ret = 0;
+ 	u32 ctrl;
+ 
++	if (!ptp_rate) {
++		netdev_warn(priv->dev, "Invalid PTP rate");
++		return -EINVAL;
++	}
++
+ 	ret |= est_write(est_addr, EST_BTR_LOW, cfg->btr[0], false);
+ 	ret |= est_write(est_addr, EST_BTR_HIGH, cfg->btr[1], false);
+ 	ret |= est_write(est_addr, EST_TER, cfg->ter, false);
 
-Best regards,
 -- 
-Alexis Lothoré, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.49.0
 
 
