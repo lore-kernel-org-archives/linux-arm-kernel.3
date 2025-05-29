@@ -4,102 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB23C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 19:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CA6C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 19:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PETGhQTSZRzlo7qrX63Z+YHbFnHKtUVwIfZH3bLWHOY=; b=POKaJgEep9Oc5X05e9PZqk9e/c
-	CW4Oc2WQ9qK4e9QsGK7nXukG6gbQX8rkJTwW33+qnGa22PrEZzQZFuGL0pS/oeaqmg3EJeEKQ6XKi
-	pOGeamBwzUqdxGQ/EOle4C2VKT8UiE0o/9+c8STtjUAhVU143ZSXH6cXRwvvJS2+HfFdiX6T/hh/N
-	/Se30NfI39w4UkYh2YS3ZZOSwvPhdjTBRpS19BH8VfP9QKcsAnygjsEwTOixbyzmaysWxaOh+J7eT
-	oTUd7FuuVIp7iK9ADg4ZQyaKq8PFlqjiwlj3AM+P6lOon9rQSPtW9GWJvceg4jV2+otCZdsFRodqa
-	YpI9rKkA==;
+	bh=2/0u2vcIpA86p9roF8eOtQKMwnO7/KT7ia9ELsZzBrA=; b=GT5anMxAeuhoBRm4Lc2WSGjIp1
+	H3nQlOeAXNB7+uHR3ZuUu5ORtUZn8I/IqH8dhZ2NzXlZdtjHOvu4mdT4TMJ3OKEtW3GgpuFpn+l1I
+	VmA1IqsMDnUg5uLWEQYqbu4YcCOnZ16emkqC6gYJSqJnehtK2FPe9nss55su1pA8HwdOUr3lh4gnP
+	wxdKB/yNM7MgSs1wngVLELutqHV6RZAQvT4pIQ0M6v+YiVjK3v6as+r421uNGKoSC5M/v2/aTZIPy
+	NpfXlSZb8JFl1xyv8jrmglVXqJBMkDgt0OrR7VdcVXOon4YHqygSgCM5gvPk4Y73/GVCBa/cLW+eP
+	B2PXuDHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKikc-0000000GQFK-2jYl;
-	Thu, 29 May 2025 19:17:14 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1uKjKo-0000000GSqu-3Ri3;
+	Thu, 29 May 2025 19:54:38 +0000
+Received: from mail-bn8nam11on2070e.outbound.protection.outlook.com ([2a01:111:f403:2414::70e] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKiiS-0000000GQ10-3tlY
+	id 1uKjIg-0000000GSlt-2KMC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 19:15:03 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a4f78ebec8so105377f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 12:15:00 -0700 (PDT)
+	Thu, 29 May 2025 19:52:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r6cXgixYuXyZqbGu7xARwZQr8A0dKZtaIufLawEF9oQatQD0pSQudRX/RGLs5eZYDg4ClBB/JTNZ5Z3L9NUdIT1rBlABYYr5GPL/ADIoWkE6yK+Da7G2ijZQcN/neAxa0rGUbdZxCj2CRx0zsisauCUzWHwQgy4DP6S74k3zPkTzz0Uch1YpbWJ3HvkQVyAcuKeDHlpv2rGBUKAf1FOzE431ejqnDhqtQ/KT9qXY0iFNWdgeHMrjHb58GUNfGHpH/GlpZbNA4fzQqU7UPzKlVxkiQSPN4xKJjwg1OofMsYW3sqLMRZ4NWSc1bh0YfzE/j3RPrx/h2BgWDCT1YVic+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2/0u2vcIpA86p9roF8eOtQKMwnO7/KT7ia9ELsZzBrA=;
+ b=bjjy2z03EY6iYSeGotuJDNdS+l8i2ZEO8jPReYVhMqQmOP0ni7tjPg2R299QNBSrvgSkTzx+Ko62MJH/sK3TVIUZfSGBu0SmuSOhP+Gxvq38Fs/Jleei+8eHJ12d3QGpTXAruz0auIPMAa/9n8rfLv/HDy9aatpnLBo44eun//DBJ78OAlhpYrV9hIQV49gz99QY47eJHmEd8tO29grIJBkqB7KiH1q4ij55mS0FdrZxpMSJdR3nlFOyeGdu9BZ/YC6WUB53Abnyc+qZIUikWuRTbeGqhQwJxN/l2uC8mRZaN0Fs75BzSgJ6VgDCSZK/9ZrpJFRlc7IT02RzDznVhw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1748546099; x=1749150899; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=PETGhQTSZRzlo7qrX63Z+YHbFnHKtUVwIfZH3bLWHOY=;
-        b=N+HHhDtU4eTPy1ENfd1nJsPY+tz/DftyPIk/yAo6U2urlkJ67fV8NaiyjlFi9Io8r6
-         N9MNMiTEdZFO2uGxbHwUUC/sdBCLW2TMGcuCYfcyQwGM15+b5CYx5AVlDQS+8x9PWQTc
-         ZB/kTQnBXwvR7WH4moz+QECYdZpqVxW0soJHjUy/bFHLYAmCfouS5xqfEvh5G4EO6ly2
-         6qJIiOP9FgMMU5IxAE/yUuczdWnUFi0lloulJeAecQV6SLixAQT+EWokEOgtk9vhcx+m
-         +4b8WOJVV/jynY1o7oUCXYZhsj42waH2dNXqjokUjKv0p7rro/R9h2ov4w/8P7D8tF6u
-         Yk9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748546099; x=1749150899;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PETGhQTSZRzlo7qrX63Z+YHbFnHKtUVwIfZH3bLWHOY=;
-        b=EMMZ/6LDgfpFr+c7+ugd02i4Skv2gCuuAlMKC+spzI9mYQtjgewQRVj0Y84DkSmRvS
-         vDvHAjfsdWvRJmeQdFdr9fG1oAppTcj8jkRjKjSSu/khB9oAi7OlrmIPZ1IV0UWi+fqY
-         EbirXSmezvBcf00+XuomNfuEGkS61mP4ycI4HYAm6HK2oKddlBYm3UHMfn4nR5OL1pQl
-         UMuYb0FqEOFwiUCiEyFhFe0oMBal8ODYp+iUd5Ja5TDVvLBHL4Yywa2w6aAOMmw5kv2f
-         0pTRzxnYwKWdW3HiNKRcqyYed4yKJ1qqToLvsZCQqyh5sYemw6HpdMIkeG8tE+7MMAbG
-         tRXA==
-X-Forwarded-Encrypted: i=1; AJvYcCXnnKs3s1sof3htAbEHvUYzm5czOjz7omaZKrJm7mRL9DSagCYFK396xKvs/upxTapuhV39PjpgTQVGE/JsquA+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2lWv38WMi0iqG1F2dWJuB81q3I4hQPUIP/c1BP34CB8b2Ap4v
-	U6cbgX4/EZCFWiZk+E92uJahpTjdkNC1yQyXQpO2kmRcmejwY/bK9JenzyrWLZ8JLk0=
-X-Gm-Gg: ASbGncvhjiMU4ojpp0QDTv1TY5uZMamNtKE42V5bS/YJba+sOsByXjIQXoWSYgcbvtO
-	atfYdewm+ByxSsYorH1W7/G1TVUHV8eSUTYO8x4lTfOsd74nHYwG5b5sbLwi5J39QksphRiLEDC
-	8frDR7bzi1HmcUoNtqJqpf9ICtsPY9GiDfwNTsdp0tPy5+n6tL6ticAZVyUxdN/fg98oxGJ0HVN
-	612mLkeejm2H16A8Q9SarwftiEiwN/OoXAMhJSWYzs9DE5C1eN7Kc9rDI+JY/p7v4/SpV1dBUxt
-	3RqFJ6LGukPu8WsRUHYDSQYzEsDSP+rncxr6HpxAt+2QJ/mWbh+dHZw8rDMK/83u2dBzwclWW+S
-	JJ7q+P6F+FWaPbUk=
-X-Google-Smtp-Source: AGHT+IGhExYqvgFvSbs5q9ZpMpC1uzEuDKmNj/YazFyKTWl/Thue3B6m/H9d1jT5tZwjFvDXoPguhQ==
-X-Received: by 2002:a05:6000:430a:b0:3a4:f00b:69b6 with SMTP id ffacd0b85a97d-3a4f7ab15f4mr336349f8f.54.1748546098772;
-        Thu, 29 May 2025 12:14:58 -0700 (PDT)
-Received: from localhost (cst2-173-28.cust.vodafone.cz. [31.30.173.28])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4f009fb0bsm2747906f8f.87.2025.05.29.12.14.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 12:14:58 -0700 (PDT)
-Date: Thu, 29 May 2025 21:14:57 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atish.patra@linux.dev>
-Cc: Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>, 
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv <linux-riscv-bounces@lists.infradead.org>
-Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
- 3.0
-Message-ID: <20250529-badd99c8168a8f607c84338a@orel>
-References: <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
- <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
- <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
- <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
- <20250526-224478e15ee50987124a47ac@orel>
- <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
- <20250528-ff9f6120de39c3e4eefc5365@orel>
- <1169138f-8445-4522-94dd-ad008524c600@linux.dev>
- <DA8KL716NTCA.2QJX4EW2OI6AL@ventanamicro.com>
- <2bac252c-883c-4f8a-9ae1-283660991520@linux.dev>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2/0u2vcIpA86p9roF8eOtQKMwnO7/KT7ia9ELsZzBrA=;
+ b=KN2IcHEJ5gTKYqErcI+48zdSxjClOU9o391NKBizm+Ef7nPKN9upLCIbdtNDrDSJjlQiE9gaDM1mpy8EN/IS/5XH3Dr+3ouUVy+krTvxDYEtER/d4d6IJXUhTNeeyaDWXJ8bxfWbsmIY2RXgqlKk14lGC80Py9OYIj7hlaqISck=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ DM8PR01MB6838.prod.exchangelabs.com (2603:10b6:8:23::11) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8769.29; Thu, 29 May 2025 19:52:10 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%6]) with mapi id 15.20.8769.029; Thu, 29 May 2025
+ 19:52:10 +0000
+Message-ID: <c2625558-a63e-4a63-a893-d2a31b3cc559@os.amperecomputing.com>
+Date: Thu, 29 May 2025 12:52:07 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+To: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
+ catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Dev Jain <dev.jain@arm.com>
+References: <20250304222018.615808-1-yang@os.amperecomputing.com>
+ <22b53cff-00db-48f1-b1e8-b11a54ebb147@os.amperecomputing.com>
+ <4794885d-2e17-4bd8-bdf3-8ac37047e8ee@os.amperecomputing.com>
+ <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
+ <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
+ <912c3126-8ba7-4c3a-b168-438f92e89217@arm.com>
+ <2ab5f65c-b9dc-471c-9b61-70d765af285e@os.amperecomputing.com>
+ <239d4e93-7ab6-4fc9-b907-7ca9d71f81fd@arm.com>
+ <1141d96c-f785-48ee-a0f6-9ec658cc11c2@os.amperecomputing.com>
+ <9cdb027c-27db-4195-825d-1d63bec1b69b@os.amperecomputing.com>
+ <e3e6a3e0-3012-4d95-9236-4b4d57c7974c@arm.com>
+ <0769dbcb-bd9e-4c36-b2c1-a624abaeb5ce@os.amperecomputing.com>
+ <e8d74579-2e32-424f-bfed-5d3eb33b0a07@os.amperecomputing.com>
+ <c44cb356-112d-4dd8-854b-82212ee4815f@arm.com>
+ <936cc91a-b345-4e52-9cb5-922c9810c469@arm.com>
+ <a1ff2646-f429-4626-8541-19c7f301fc23@os.amperecomputing.com>
+ <d1226612-7ad8-4405-93a7-28148699ce45@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <d1226612-7ad8-4405-93a7-28148699ce45@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: CH0PR03CA0185.namprd03.prod.outlook.com
+ (2603:10b6:610:e4::10) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2bac252c-883c-4f8a-9ae1-283660991520@linux.dev>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|DM8PR01MB6838:EE_
+X-MS-Office365-Filtering-Correlation-Id: a5c3b4c2-72eb-4768-4ec4-08dd9eea4cb9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?b1ZsUmFXN1JHNWZZNzlZYWxkbEY1Z2VGZVZrcDdOcGhLc3pmWjJPTUJRNHBB?=
+ =?utf-8?B?U1pkaUYvUWpYekFBaGIyQUZnSjJ4dkduU1JUUkhncTU3OUtKTDRnRGtKTUVJ?=
+ =?utf-8?B?ME5MMHgvemd6Vm5MSTNxbnVoWFZOVFI5Mkd3bGFrdDNOaGhaOGVGQnZFNWZS?=
+ =?utf-8?B?QWYzK3ZXcWppNjM3VXdxamQ4am94cHNzTms1N0tHaG8wMkJleHlCYjkvdFB6?=
+ =?utf-8?B?TUpZWFhQZHprQTRjcWRoQmpUbjVEaTBZNGsrQjNERlNVczBqak5EMGRidFZH?=
+ =?utf-8?B?VisyNkJGNHNENlU3MVN4a2x2amdIckN0SDNTSVBia3EydytGMHF2TWdaV1dp?=
+ =?utf-8?B?V3dBeVBidUVaUEpobjFzWlNYeEtvbHZNZys5MGNnVFlQcnFTUXBuOFBlV1h3?=
+ =?utf-8?B?UE54VHZHR3ExTjIyd1ZnM1lsRCtTTkZ1R0FFL3JpdmJMLyt3Y2NIOGVabDRk?=
+ =?utf-8?B?c2RTMnNiT294Rjg2ZEJMK2NaOEdpanQzMmxzelNpbVVoMDlqaVQ5dTFka0Rh?=
+ =?utf-8?B?U1Judi9raTdjcW5NUzFjM0RyRVVTSllsZ3Q0WThnbGtVa2ZFZ0VhZHh3VmNl?=
+ =?utf-8?B?SVFSNERnMkUxR3k3OVlINTBzQjRmOENmZlMrVjJ4OVBXOUgzTTN5MjFzbTdp?=
+ =?utf-8?B?TFpTeTdDWE42SGN0clRzSGltK2R2WURLVnFOODhLR0RRckhXRVhUVjFPREow?=
+ =?utf-8?B?dXRmYXRROGF6bS83RXZwek16bURnb0M2Q2ExL2hIbEk0VnZHM0JVWjN1YWE4?=
+ =?utf-8?B?b09BYU50c1NyNEpNZUt2cXFDeDJ6R1lIQlU3MUhzMzk4QzR4YUk1L1NLQTln?=
+ =?utf-8?B?eGN6cGtSeFQ5WXBkajJoSHBzd1Q5ak1ST3hDeks0M1BUZVlVL0tCaVhuZWov?=
+ =?utf-8?B?M0ZvZ0dMc1U3ZXFTLzM0VjlHa01Mck9WOEEyOVA3Z2F0dGhneUdzRDloRTlD?=
+ =?utf-8?B?Ulk2TU5rQ3dIOHVHUFA2cEJqKzZDY2xFZit5V2d3aGl6Z1llZWM1MVMvTjRM?=
+ =?utf-8?B?ZVVla0dSZFV1Nm1jazRUZC90RkpYTXdXMkdBSXNZYzY4SXdPdDVpZlJ3NTF0?=
+ =?utf-8?B?MkRxcXl2VjNEUGJqTWJKRVhUY3pEQ1dLL201QnhYMHI4SmdvYmVTNWZqM2pU?=
+ =?utf-8?B?OSsrd2dQZndvbHVlSkpSUU5RUE9nTVpmMVRNSS9TVEtlQVprMnQzV0I5bEg0?=
+ =?utf-8?B?M3RWS2xJZUN0YmV6dGd4RVpDeFRVdGIwYmR1WnR3YlJBSHdaS3pjaTJHWlU5?=
+ =?utf-8?B?bnYwV0tsRXlrT09VeFZFaHJNNXp0THA0dVpGQTdub0t2clYyOWlsaDk0NE8z?=
+ =?utf-8?B?SzNFQlZMUHlsOGNtTDJ1VlBWaGd5M3NUa0xnanRoTE10R2ppWTFGbUxpcml5?=
+ =?utf-8?B?bFQwUmZia0gvRzJRNU1OWXpacHBmT2FOZTVGeE5vRDllWVU2STZIRHFINllT?=
+ =?utf-8?B?YlVtOXlac2twdk80MkE0TVBTNjlQM0NqS2EzOTJBalBud2QyelovcHFkR092?=
+ =?utf-8?B?RFBhWTdtTXJTNnBJTVFDcHJYYXlMYjgzZTIxTS9Jay9QbUpoeGkwU1k1cmVS?=
+ =?utf-8?B?VS9mVzJ6ajRUdVFNa2h0YkdMOXcvM3AwbWpKRjdjK3dSK2lSaDBieGRZMjFZ?=
+ =?utf-8?B?SEdHR2NhUVJLb2dWNzNDcWhxNitBWkV5RWZRMU9IWDZ6aTBieW9TQVJ3V0pw?=
+ =?utf-8?B?WHhKK29aS3VKZ0dBYnQ3M2JzSEhqYnVCUmhhUFk2L00vVzlGYlBoSnY1cUdG?=
+ =?utf-8?B?ZTdMUFhlMFA0dTRmTFdVZGJ3dy9rMnhXaG1rd041Qk85NTBxTnFybHNzbmFu?=
+ =?utf-8?B?MzlSdGFCa0t5eTNSNldUcDQ3U0FXZ1gxZGplTmhkZGtUUG9CR2RlWXo2ZGlv?=
+ =?utf-8?B?d3VFZ1lXeHpFYWNBR0YrYzR2aElPTDJONkVxQldObEdHbGV3bWd1Vm9uWXhv?=
+ =?utf-8?Q?YmiPjqmZ5l8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U3Qxd1czS1FoYXZKWDZvQ0JDeC92SlFWVjZ1MUNCNForazkwb3g0UkhHcWI4?=
+ =?utf-8?B?aEkvWnBlRTdsL1IxcDVBb0dTZFVvWVp0WEJ2MW5GSXh4cDREeFgzRmNpZ3Y2?=
+ =?utf-8?B?VW1hR0Rscy9KR2NnQlRMQkh4bS9vSUVmQUZXWHZCQ0xCZWgrOXZKNU8xcGlK?=
+ =?utf-8?B?L3BzclRGMlRBUmdjeWw1bHVwRlRtNmthNXYxZnU2MnFoYTI5bEZSanVnZEV6?=
+ =?utf-8?B?YW9TZVl4NUtUekZIcTZDQ2F3U05pUnRWMndSWWFMbFZFbFRKUDMyajNrY2d6?=
+ =?utf-8?B?TTZQblprNEZUUUhxaDlxdUV1U1RWenlzOWFQbGNLUXg3bUdGVjIzVWs4Q0Fs?=
+ =?utf-8?B?c2ZmeWQyNTBWeWEzdzdlVUtNZXJ1dGYzc29sdHlFMy85RkRkTnlSeWVGb3dy?=
+ =?utf-8?B?bThPNXhnM2trNHBnclNzbG9kL0VPaWVzVFJ0c001ck94SE1kL3pVTWd4dTZC?=
+ =?utf-8?B?L0sxdnFEbWVYL3lINVgzK05OL1JtRWt0SlNZSGw2Qm42YlQzL25VeVpkNW5S?=
+ =?utf-8?B?bzdnWU5vR2dWcko1ZnU2Mjk5VlZlSWxINmNvZ1AyejdEb3pwd3R2alBqSXYz?=
+ =?utf-8?B?OWJ0U2orT1hFVmszWkZxenE3OFhoclBJcGtoQ1c5Slk1SHRxRVJHa1UvN1Qv?=
+ =?utf-8?B?VS9RKzJSeVpINmRkVzg4Wmx3SzM5SjhSTmVSa2wwdTJQUUw1YTNGeWlKQ0lw?=
+ =?utf-8?B?Y0xLL3B1dHkvNVlqVGNaTTh2UlpLZmxZa2FZRGxUQitiRVJDdXI3N05XSUVJ?=
+ =?utf-8?B?WVh4dTV4dlFodGxpb1luZUc5UTZ1UTVwTVo5QU1xRWc1dmFHb1MwMWgwRnEx?=
+ =?utf-8?B?MVB4RUxiR3Z3YTk5UnE2bng1dEhmY1FHZGRoZEVnUG5ZaHg2MDV6VmpDdjVD?=
+ =?utf-8?B?SFY0cFZIblVnMDRXbC9tZE5yc1JlUURpdDNhWCtDVzdLY1duLzNkY0YyRlRu?=
+ =?utf-8?B?MVREbmlnc3VlbCtkVXlDanRmN2ExMjQrSGVySmNRY2dwOUxKclJaZHJHQUNF?=
+ =?utf-8?B?SFEzanVEZnJXTTFDK0Q2SENYQlhUaldIVGtpY3ljQnpRcE5ESnJrMHo1U0R6?=
+ =?utf-8?B?MXQ4cWtvQms3Q3p4cm9LQUVDU0RVR3MyNEhNSzF4VDBqTk8raUZ3ZkJqT0k4?=
+ =?utf-8?B?cThMQzdaMWJkUFhweDA2cnp5WUFUZE1kT3AvanltdXB5Y050enZqeHBLYjFw?=
+ =?utf-8?B?eXRNT0hweUFiSnY0R0h5Y2krVTdYclI2b1AzRGU4ODJEc01yR3pCTDg4QmlX?=
+ =?utf-8?B?c0FYSXQ2MVZ2MlRjVUpFWnAyWUJCMlhFSDR1ZVVYb3RaN3I1QkZZTklMMW1i?=
+ =?utf-8?B?TlRLemdBd1JMKzFOVXQvVHUya0hZK05JditnR0gvaUMrTkMvUDlWdzA4NWh2?=
+ =?utf-8?B?cG90RG8rNmZYckluT1hBeFExQTFaMTF4Y2EyYjZjcnNYRnZ6V3lsYWxHeFVo?=
+ =?utf-8?B?RFpFeHlDS0pKMmN5WnNvNjFiTmU1R1B3VnIxVGxZVzF0c0hSdWkwZ2tLMjJJ?=
+ =?utf-8?B?Nk1JZXVXL2pRaGJhS3JaR0w0MjByZVAvV1NGQitMWWxBY2FEbHZVeUJGcnlp?=
+ =?utf-8?B?Y0xjdVRTQVlmblBMMnptbDhlUERMUEdDakUya3gwNFFvMWRkWGVQMGFQMUFG?=
+ =?utf-8?B?YmJvbEpUcVQwa2hBdW9EUUkxanJMK01wMzJIMEtaUForWUtPVXZVSUwzU0E3?=
+ =?utf-8?B?bk5LSUJvb2xFKzZOMTk5MWtTVStoVjF1cUhhRzN6NGJ6MjVWYkJCc2pldXA3?=
+ =?utf-8?B?SjBKVmVOVWtxdW1EVFRLUkFTaHN4SnBJRmVERko2MWVXak5PT0VJMnYrVWlZ?=
+ =?utf-8?B?TDNNeXBDNitvQ3YxS2ZjUDhOVERZWmVEQWN5Zm14ZkdrYjQvUVhYaFVQRFF1?=
+ =?utf-8?B?d3VlNVoySDJkQitwcnNUU0JLVDZURzRuaVpRMWl3Y09EWXFEeXowSllBVmcx?=
+ =?utf-8?B?c0xXUmtpUlhMU0ZuMHc4alMxSFJSOFhFd2FEVGU2TnMyd2szc1p4ejE0SmpJ?=
+ =?utf-8?B?K05mOGk3aVJVU3BFdHNwZi9WbU54NE44Nk9zT1ZEdWdvTkpTZUdVcTJWSHpF?=
+ =?utf-8?B?T3NHeUFtS3JvaWZBTDFNcDNFU1VBREdWL2JhMXIwQTJlMEJtZDMyVmRLVy96?=
+ =?utf-8?B?K3diM284K1hXWm51S3F1VjRYcGNieGJkaURXbzFPeFpNdmVXWE44azdvZWZZ?=
+ =?utf-8?Q?yBohAT2smY5xHa/oKsVcabQ=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a5c3b4c2-72eb-4768-4ec4-08dd9eea4cb9
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2025 19:52:10.4779
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: k6484lzyqhI71sDGQ/6IKVBA3ceX4zl/6VLdeKa4YyyKDZzmVsB8AkvoAGfQV4F8rvNojxlNXRn3iyzHxCti30ezN6ujCtMN7RVB24XAIPI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM8PR01MB6838
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_121500_966199_A05FA08D 
-X-CRM114-Status: GOOD (  76.66  )
+X-CRM114-CacheID: sfid-20250529_125226_590181_3696D766 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,181 +195,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 11:44:38AM -0700, Atish Patra wrote:
-> 
-> On 5/29/25 3:24 AM, Radim Krčmář wrote:
-> > I originally gave up on the idea, but I feel kinda bad for Drew now, so
-> > trying again:
-> 
-> I am sorry if some of my replies came across in the wrong way. That was
-> never
-> the intention.
+>>> I just had another conversation about this internally, and there is another
+>>> concern; we obviously don't want to modify the pgtables while other CPUs that
+>>> don't support BBML2 could be accessing them. Even in stop_machine() this may be
+>>> possible if the CPU stacks and task structure (for example) are allocated out of
+>>> the linear map.
+>>>
+>>> So we need to be careful to follow the pattern used by kpti; all secondary CPUs
+>>> need to switch to the idmap (which is installed in TTBR0) then install the
+>>> reserved map in TTBR1, then wait for CPU 0 to repaint the linear map, then have
+>>> the secondary CPUs switch TTBR1 back to swapper then switch back out of idmap.
+>> So the below code should be ok?
+>>
+>> cpu_install_idmap()
+>> Busy loop to wait for cpu 0 done
+>> cpu_uninstall_idmap()
+> Once you have installed the idmap, you'll need to call a function by its PA so
+> you are actually executing out of the idmap. And you will need to be in assembly
+> so you don't need the stack, and you'll need to switch TTBR1 to the reserved
+> pgtable, so that the CPU has no access to the swapper pgtable (which CPU 0 is
+> able to modify).
+>
+> You may well be able to reuse __idmap_kpti_secondary in proc.S, or lightly
+> refactor it to work for both the existing idmap_kpti_install_ng_mappings case,
+> and your case.
 
-Not at all. Radim only meant that I was defending his patches, even though
-he wasn't :-)
+I'm wondering whether we really need idmap for repainting. I think 
+repainting is different from kpti. We just split linear map which is 
+*not* used by kernel itself, the mappings for kernel itself is intact, 
+we don't touch it at all. So as long as CPU 0 will not repaint the 
+linear map until all other CPUs busy looping in stop_machine fn, then we 
+are fine.
 
-> 
-> 
-> > 2025-05-28T12:21:59-07:00, Atish Patra <atish.patra@linux.dev>:
-> > > On 5/28/25 8:09 AM, Andrew Jones wrote:
-> > > > On Wed, May 28, 2025 at 07:16:11AM -0700, Atish Patra wrote:
-> > > > > On 5/26/25 4:13 AM, Andrew Jones wrote:
-> > > > > > On Mon, May 26, 2025 at 11:00:30AM +0200, Radim Krčmář wrote:
-> > > > > > > 2025-05-23T10:16:11-07:00, Atish Patra <atish.patra@linux.dev>:
-> > > > > > > > On 5/23/25 6:31 AM, Radim Krčmář wrote:
-> > > > > > > > > 2025-05-22T12:03:43-07:00, Atish Patra <atishp@rivosinc.com>:
-> > > > > > > > > > Upgrade the SBI version to v3.0 so that corresponding features
-> > > > > > > > > > can be enabled in the guest.
-> > > > > > > > > > 
-> > > > > > > > > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > > > > > > > > ---
-> > > > > > > > > > diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
-> > > > > > > > > > -#define KVM_SBI_VERSION_MAJOR 2
-> > > > > > > > > > +#define KVM_SBI_VERSION_MAJOR 3
-> > > > > > > > > I think it's time to add versioning to KVM SBI implementation.
-> > > > > > > > > Userspace should be able to select the desired SBI version and KVM would
-> > > > > > > > > tell the guest that newer features are not supported.
-> > > > > > We need new code for this, but it's a good idea.
-> > > > > > 
-> > > > > > > > We can achieve that through onereg interface by disabling individual SBI
-> > > > > > > > extensions.
-> > > > > > > > We can extend the existing onereg interface to disable a specific SBI
-> > > > > > > > version directly
-> > > > > > > > instead of individual ones to save those IOCTL as well.
-> > > > > > > Yes, I am all in favor of letting userspace provide all values in the
-> > > > > > > BASE extension.
-> > > > > We already support vendorid/archid/impid through one reg. I think we just
-> > > > > need to add the SBI version support to that so that user space can set it.
-> > > > > 
-> > > > > > This is covered by your recent patch that provides userspace_sbi.
-> > > > > Why do we need to invent new IOCTL for this ? Once the user space sets the
-> > > > > SBI version, KVM can enforce it.
-> > > > If an SBI spec version provides an extension that can be emulated by
-> > > > userspace, then userspace could choose to advertise that spec version,
-> > > > implement a BASE probe function that advertises the extension, and
-> > > > implement the extension, even if the KVM version running is older
-> > > > and unaware of it. But, in order to do that, we need KVM to exit to
-> > > > userspace for all unknown SBI calls and to allow BASE to be overridden
-> > > You mean only the version field in BASE - Correct ?
-> > No, "BASE probe function" is the sbi_probe_extension() ecall.
-> > 
-> > > > by userspace. The new KVM CAP ioctl allows opting into that new behavior.
-> > > But why we need a new IOCTL for that ? We can achieve that with existing
-> > > one reg interface with improvements.
-> > It's an existing IOCTL with a new data payload, but I can easily use
-> > ONE_REG if you want to do everything through that.
-> > 
-> > KVM doesn't really need any other IOCTL than ONE_REGs, it's just
-> > sometimes more reasonable to use a different IOCTL, like ENABLE_CAP.
-> > 
-> > > > The old KVM with new VMM configuration isn't totally far-fetched. While
-> > > > host kernels tend to get updated regularly to include security fixes,
-> > > > enterprise kernels tend to stop adding features at some point in order
-> > > > to maximize stability. While enterprise VMMs would also eventually stop
-> > > > adding features, enterprise consumers are always free to use their own
-> > > > VMMs (at their own risk). So, there's a real chance we could have
-> > > I think we are years away from that happening (if it happens). My
-> > > suggestion was not to
-> > > try to build a world where no body lives ;). When we get to that
-> > > scenario, the default KVM
-> > > shipped will have many extension implemented. So there won't be much
-> > > advantage to
-> > > reimplement them in the user space. We can also take an informed
-> > > decision at that time
-> > > if the current selective forwarding approach is better
-> > Please don't repeat the design of SUSP/SRST/DBCN.
-> > Seeing them is one of the reasons why I proposed the new interface.
-> > 
-> > "Blindly" forwarding DBCN to userspace is even a minor optimization. :)
-> > 
-> > >                                                         or we need to
-> > > blindly forward any
-> > > unknown SBI calls to the user space.
-> > Yes, KVM has to do what userpace configures it to do.
-> > 
-> > I don't think that implementing unsupported SBI extensions in KVM is
-> > important -- they should not be a hot path.
-> > 
-> > > > deployments with older, stable KVM where users want to enable later SBI
-> > > > extensions, and, in some cases, that should be possible by just updating
-> > > > the VMM -- but only if KVM is only acting as an SBI implementation
-> > > > accelerator and not as a userspace SBI implementation gatekeeper.
-> > > But some of the SBI extensions are so fundamental that it must be
-> > > implemented in KVM
-> > > for various reasons pointed by Anup on other thread.
-> > No, SBI does not have to be implemented in KVM at all.
-> > 
-> > We do have a deep disagreement on what is virtualization and the role of
-> > KVM in it.  I think that userspace wants a generic ISA accelerator.
-> 
-> I think the disagreement is the role of SBI in KVM virtualization rather
-> than
-> a generic virtualization and the role of KVM in it. I completely agree that
-> KVM should act as an accelerator and defer the control to the user space in
-> most of the cases
-> such e.g I/O operations or system related functionalities. However, SBI
-> specification solves
-> much wider problems than those. Broadly we can categorize SBI
-> functionalities into the following
-> areas
-> 
-> 1. Bridging ISA GAP
-> 2. Higher Privilege Assistance
-> 3. Virtualization
-> 4. Platform abstraction
-> 5. Confidential computing
-> 
-> For #1, #3 and #5, I believe user space shouldn't be involved in
-> implementation
-> some of them are in hot path as well.
+We can have two flags to control it. The first one should be a cpu mask, 
+all secondary CPUs set its own mask bit to tell CPU 0 it is in stop 
+machine fn (ready for repainting). The other flag is used by CPU 0 to 
+tell all secondary CPUs repainting is done, please resume. We need have 
+the two flags in kernel data section instead of stack.
 
-IMO, userspace should still be in control of whether or not it's involved
-in #1, #3, and #5. It may make little sense for it to be involved, but the
-choice should still be its.
+The code of fn is in kernel text section, the flags are in kernel data 
+section. I don't see how come fn (just doing simple busy loop) on 
+secondary CPUs need to access linear map while repainting the linear 
+map. After repainting the TLB will be flushed before letting secondary 
+CPUs resume, so any access to linear map address after that point should 
+be safe too.
 
-> For #4 and #2, there are some
-> opportunities which
-> can be implemented in user space depending on the exact need. I am still not
-> clear what is the exact
-> motivation /right now/ to pursue such a path. May be I missed something.
-> As per my understanding from our discussion threads, there are two use cases
-> possible
-> 
-> 1. userspace wants to update more states in HSM. What are the states user
-> space should care about scounteren (fixed already in usptream) ?
-> 2. VMM vs KVM version difference - this may be true in the future depending
-> on the speed of RISC-V virtualization adoption in the industry.
-> But we are definitely not there yet. Please let me know if I misunderstood
-> any use cases.
-
-That's what I'm aware of as well, but I see giving userspace back full
-control of what gets accelerated by KVM, and what doesn't, as a fix, which
-is why I wouldn't want to delay it any longer.
-
-> 
-> > Even if userspace wants SBI for the M-mode interface, security minded
-> This is probably a 3rd one ? Why we want M-mode interface in the user space
-> ?
-> > userspace aims for as little kernel code as possible.
-> 
-> We trust VMM code more than KVM code ?
-
-We should be skeptical of both, which is why we'd rather put as much code
-in userspace as possible. Insecure/faulty userspace will hopefully have
-exploits/bugs contained to the single process. An insecure/faulty KVM
-means the host is compromised/crashed. On x86, Google put a lot of effort
-into moving instruction emulation out of KVM for security concerns[1]. In
-general, if it's not a hot path and there's a way to do it in userspace,
-then it should be done in userspace (or at least there should be an
-option to use userspace -- each use case can choose what's best for
-itself).
-
-[1] https://www.linux-kvm.org/images/3/3d/01x02-Steve_Rutherford-Performant_Security_Hardening_of_KVM.pdf
+Does it sound reasonable to you? Did I miss something?
 
 Thanks,
-drew
+Yang
 
-> 
-> > Userspace might want to accelerate some SBI extension in KVM, but it
-> > should not be KVM who decides what userspace wants.
+>
+> Thanks,
+> Ryan
+>
+>>> Given CPU 0 supports BBML2, I think it can just update the linear map live,
+>>> without needing to do the idmap dance?
+>> Yes, I think so too.
+>>
+>> Thanks,
+>> Yang
+>>
+>>> Thanks,
+>>> Ryan
+>>>
+>>>
+>>>> Thanks,
+>>>> Ryan
+>>>>
+
 
