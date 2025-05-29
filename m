@@ -4,120 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B80FFC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 13:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB4FC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 13:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i8LMEHYmovrRN8zYWQwYy5+2ddqvSDMDQcnZraZcEHI=; b=WC9ozDzS4+yKMy+lmEJ1covEJw
-	t+iLlmgPsNroOA5fo4uNUgAxKl+pMKCxCYO9hjIisv07dhRgfrIgDJsHxZEqBFugKoxSM+gswmj0T
-	v7MAdWkBdqtP1PGu1v08lfS0us1RhxJXON3MYEf+m12gSs6x+KyBN6hF1z4z9BFOKg/GxJby4NGxh
-	9JjN/c7yHx/KfmMuSlsk7H932xYaVac5ygS+DD3lFL3Qa9+sWmLhzSi1gO4Q4lK4lXpG2flOfVWQc
-	dzKjL9MTTcJ4VMOm9uZNkGxZKx9Vu0embZSO/RFrBGOIL2cJi7CJfeNig26wwTDKcJfX8LGYaLe8O
-	OnRstSdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XrzF6F7p3iys9ZmtS67LJbnjTQLjnFCV1+9y0CgID24=; b=dTSOqTHrjx1JBXf7CN3KgZV6TM
+	FXI/6rqyxcyZQc7DMmcbMSNnuEHNya4xhnwihUpDsiMZWlQjubFU8qGa2HNWVkb+d+9lvcI49uYA2
+	C4TgARQqEZhX5IQD+D6VVeTh9ybPdwuWPP2CFlzUXv2EODoZNYnDKJ9k1LMR/95wL85HnczS+AgqG
+	gn0EbZmkT67ypIvKpv40a5yVI1xYpu5Cxnv/1EuHocoogtpPwArjMSDv3hX2Ydiqf98HREcGFns2U
+	3+3ZcazMEReaCygfEHS29k+1WH0Nm20/Gw+TX363YbTFtdE+rbp5lWUBJRYDh4xIAIbSqjx6S8pDU
+	W5xGg/Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKdLD-0000000FrPB-2LuW;
-	Thu, 29 May 2025 13:30:39 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1uKdNK-0000000Frc1-0mu1;
+	Thu, 29 May 2025 13:32:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKcas-0000000FklW-2VzS
+	id 1uKccL-0000000FlDF-1cV1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 12:42:47 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6046ecc3e43so1318971a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 05:42:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1748522565; x=1749127365; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=i8LMEHYmovrRN8zYWQwYy5+2ddqvSDMDQcnZraZcEHI=;
-        b=AVcjyfU5OSroV0xjcYXNHEKv3k4gnxf0PID14iroafQVutiup/JQ5miIyCj+cRhs4a
-         aaOnsNj/cWf0GnRlUqL/YgwHPj2JHY8nGkdTv7GB9dZlEGP01a3tLes/aHLkePSfVx1+
-         Rhcyh2Jn/LVFgqoVvPXSBxEN0koY526vLjlWOIk6kYxiCK3XoRA+mIPO0oBx76zkOepe
-         0X8LuHuKrVzbCvMCxFPgjTP3r9YM97Ap1e44odzIBrPmwMB0qYPoO0pPN1K2RHIJRcPd
-         u2Xwawpoz88P3SzGBsl5GrtbCh6K3w4YWVqwKJKpjPvTNI7ARJlwmmlYSGXTSBbLoICq
-         hSCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748522565; x=1749127365;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=i8LMEHYmovrRN8zYWQwYy5+2ddqvSDMDQcnZraZcEHI=;
-        b=EPUvX4KJn0E5O2Bucm38NEDKU4+1xpdyvVW0+CCmNQB7FZUGfMYNhyF+osZqCA1GfA
-         FDDQtk+EK2gFQSvPFCAG0NIOiy+bqBmydyJDvc9f11+/faYwk8q8Cj7JfGDDiFKA/0Qr
-         xGep3a/+SAceanT6OSL9f/nedTITml7j8wb50lWvTw9K1+aIa7+7gDVFQTUyZ8r5gW8M
-         yaU4Nj7LouonbAaSJfLU1qf4goL56Z9VRudGV/LW7sNv84vYd/AnEkTAjIcy8vwGBrRv
-         gWqqE6918c/19IjYR57FSsI2/tRNGLjMDsBOowhFwt4unmiSMpTJyBPkme/I4FsX5erR
-         qtjA==
-X-Forwarded-Encrypted: i=1; AJvYcCUdaVtZA9var9cxVKXGc8h5HFl11gX4AskPJwQSbGzw783nj+tResh8bP3tkz988uXnQnyInq4CDaK01JaSQbmy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGfyWSM/pMVc1g0Tz5Di7h+yQBvJlN+OG36gx2tHfI2qX6aF+1
-	Pab3XbIvYn+AQZsVOjKZWIFTYMpReJYF5cQk4L+5l62AZR1y7MBCgKNJ/m+fdAJW3CY=
-X-Gm-Gg: ASbGncui73/tHZnW8M1uZ8jiA8TOO91Blek8GJv8L4wfYCdB0J3d+J7b+zaMz8Qv+yD
-	TSJvlwGqHV1OsYRBP6aXsUIHH5g8kikVpasakD6Xy2909WvZY63uF4wnmS4i9LtL1B7I0PUQ65Q
-	u/H6qSeaQTd9SdeqA8faptyW7lcy4zpHOfCNHD3bLdPKKarCnqOPuoajU9nYfHm2SxF6rl84Eni
-	+Uq8U5nRcZr56MQmHDNloXsWy1DTdC1WmexhYNydzejGDTQB6not2IvriE393kY87OtQ89h4gtn
-	2BEyovxPaQB/fiQ3qTvsr5XH2/csq8wTSxDnK5ImF5WLmiq4eDSSnoge9Sw0VtNCg+i91pLlW+A
-	xlqBp4mt2+txbxn/uiX7bQ0BQMhbvvcVF
-X-Google-Smtp-Source: AGHT+IGSKPwPkYLca5xt4DTsp41XrvIAXEH42/7GBMAHBHwSDsKU5tUb2elBTXwGWSigWuI5ixWpNw==
-X-Received: by 2002:a17:907:72cb:b0:ad8:9909:20a3 with SMTP id a640c23a62f3a-ad8a1fcd782mr609032066b.43.1748522564992;
-        Thu, 29 May 2025 05:42:44 -0700 (PDT)
-Received: from localhost (host-87-21-228-106.retail.telecomitalia.it. [87.21.228.106])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5d7fed3dsm139572166b.12.2025.05.29.05.42.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 05:42:44 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
+	Thu, 29 May 2025 12:44:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 83EC3A4F993;
+	Thu, 29 May 2025 12:44:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 807BEC4CEE7;
+	Thu, 29 May 2025 12:44:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748522656;
+	bh=/jrSP6yN6Ik99p3pz+dkFU53s4pI3KuRDwCiogvnSkc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tETzAO10Nvjt+ZyDwwUYkxnnb7k7IPlXoWK0Ou9nutJvpwHXbL9PQPAIHdQWbW9P+
+	 i/eKv/pr7s9QmdP41aPEWgM9A1BLa8m/cyc8El7qvA2GtyQz8PKm1R6yTGLBDyFOta
+	 4phECYvwGjO2aQZVaExHqm+ukxROq3sfYT0PRpViXoa4PsSHRijcQ8ckoLMCGNAt5C
+	 pBSF4q2gc+fAVCi2rQy6DejsAeJmNHEBWIjD9q2qnt9HpO1OsCTiMY8sBlvhdNCdy1
+	 EnEYwiEGclOCWJ6biGq3THhiAJSHHOWU6oMcqqYx4yd0bM+Bhs1Bt4z1x/5Aes4BKR
+	 REM8TjLEqH00w==
+Date: Thu, 29 May 2025 14:44:07 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com,
-	Matthias Brugger <mbrugger@suse.com>
-Subject: [PATCH v11 13/13] MAINTAINERS: add Raspberry Pi RP1 section
-Date: Thu, 29 May 2025 14:44:02 +0200
-Message-ID: <20250529124412.26311-8-andrea.porta@suse.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <cover.1748522349.git.andrea.porta@suse.com>
-References: <cover.1748522349.git.andrea.porta@suse.com>
+	Will Deacon <will@kernel.org>, peter.maydell@linaro.org,
+	andre.przywara@arm.com
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
+Message-ID: <aDhWlytLCxONZdF9@lpieralisi>
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_054246_630382_2A288C93 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20250529_054417_576546_26F46208 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,36 +84,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Raspberry Pi RP1 is a southbridge PCIe device which embeds several
-peripherals.
-Add a new section to cover the main RP1 driver, DTS and specific
-subperipherals (such as clock and pinconf/pinmux/gpio controller).
+[+Andre, Peter]
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+On Tue, May 13, 2025 at 07:47:54PM +0200, Lorenzo Pieralisi wrote:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2b16ba4eb1ce..2add073f5bdf 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20197,6 +20197,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/media/raspberrypi,rp1-cfe.yaml
- F:	drivers/media/platform/raspberrypi/rp1-cfe/
- 
-+RASPBERRY PI RP1 PCI DRIVER
-+M:	Andrea della Porta <andrea.porta@suse.com>
-+S:	Maintained
-+F:	arch/arm64/boot/dts/broadcom/rp1*.dts*
-+F:	drivers/clk/clk-rp1.c
-+F:	drivers/misc/rp1/
-+F:	drivers/pinctrl/pinctrl-rp1.c
-+
- RC-CORE / LIRC FRAMEWORK
- M:	Sean Young <sean@mess.org>
- L:	linux-media@vger.kernel.org
--- 
-2.35.3
+[...]
 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c8d124c3aa63fd1ec24acb40de72ac2164adeebd
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5.yaml
+> @@ -0,0 +1,202 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/arm,gic-v5.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ARM Generic Interrupt Controller, version 5
+> +
+> +maintainers:
+> +  - Lorenzo Pieralisi <lpieralisi@kernel.org>
+> +  - Marc Zyngier <maz@kernel.org>
+> +
+> +description: |
+> +  The GICv5 architecture defines the guidelines to implement GICv5
+> +  compliant interrupt controllers for AArch64 systems.
+> +
+> +  The GICv5 specification can be found at
+> +  https://developer.arm.com/documentation/aes0070
+> +
+> +  The GICv5 architecture is composed of multiple components:
+> +    - one or more IRS (Interrupt Routing Service)
+> +    - zero or more ITS (Interrupt Translation Service)
+> +
+> +  The architecture defines:
+> +    - PE-Private Peripheral Interrupts (PPI)
+> +    - Shared Peripheral Interrupts (SPI)
+> +    - Logical Peripheral Interrupts (LPI)
+> +
+> +allOf:
+> +  - $ref: /schemas/interrupt-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: arm,gic-v5
+> +
+> +  "#address-cells":
+> +    enum: [ 1, 2 ]
+> +
+> +  "#size-cells":
+> +    enum: [ 1, 2 ]
+> +
+> +  ranges: true
+> +
+> +  "#interrupt-cells":
+> +    description: |
+> +      The 1st cell corresponds to the INTID.Type field in the INTID; 1 for PPI,
+> +      3 for SPI. LPI interrupts must not be described in the bindings since
+> +      they are allocated dynamically by the software component managing them.
+> +
+> +      The 2nd cell contains the interrupt INTID.ID field.
+> +
+> +      The 3rd cell is the flags, encoded as follows:
+> +      bits[3:0] trigger type and level flags.
+> +
+> +        1 = low-to-high edge triggered
+> +        2 = high-to-low edge triggered
+> +        4 = active high level-sensitive
+> +        8 = active low level-sensitive
+> +
+> +    const: 3
+> +
+> +  interrupt-controller: true
+> +
+> +  interrupts:
+> +    description:
+> +      The VGIC maintenance interrupt.
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - ranges
+> +  - "#interrupt-cells"
+> +  - interrupt-controller
+> +
+> +patternProperties:
+> +  "^irs@[0-9a-f]+$":
+> +    type: object
+> +    description:
+> +      GICv5 has one or more Interrupt Routing Services (IRS) that are
+> +      responsible for handling IRQ state and routing.
+> +
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      compatible:
+> +        const: arm,gic-v5-irs
+> +
+> +      reg:
+> +        minItems: 1
+> +        items:
+> +          - description: IRS control frame
+
+I came across it while testing EL3 firmware, raising the topic for
+discussion.
+
+The IRS (and the ITS) has a config frame (need to patch the typo
+s/control/config, already done) per interrupt domain supported, that is,
+it can have up to 4 config frames:
+
+- EL3
+- Secure
+- Realm
+- Non-Secure
+
+The one described in this binding is the non-secure one.
+
+IIUC, everything described in the DT represents the non-secure address
+space. Two questions:
+
+- I don't have to spell out the IRS/ITS config frame (and SETLPI, by
+  the way) as non-secure, since that's implicit, is that correct ?
+- How can the schema describe, if present, EL3, Secure and Realm frames ?
+
+It would be good if this schema could be reused in firmware to describe
+the platform, for that to happen we need to have the questions above
+resolved.
+
+Thanks,
+Lorenzo
+
+> +          - description: IRS setlpi frame
+> +
+> +      "#address-cells":
+> +        enum: [ 1, 2 ]
+> +
+> +      "#size-cells":
+> +        enum: [ 1, 2 ]
+> +
+> +      ranges: true
+> +
+> +      dma-noncoherent:
+> +        description:
+> +          Present if the GIC IRS permits programming shareability and
+> +          cacheability attributes but is connected to a non-coherent
+> +          downstream interconnect.
+> +
+> +      cpus:
+> +        description:
+> +          CPUs managed by the IRS.
+> +
+> +      arm,iaffids:
+> +        $ref: /schemas/types.yaml#/definitions/uint16-array
+> +        description:
+> +          Interrupt AFFinity ID (IAFFID) associated with the CPU whose
+> +          CPU node phandle is at the same index in the cpus array.
+> +
+> +    patternProperties:
+> +      "^msi-controller@[0-9a-f]+$":
+> +        type: object
+> +        description:
+> +          GICv5 has zero or more Interrupt Translation Services (ITS) that are
+> +          used to route Message Signalled Interrupts (MSI) to the CPUs. Each
+> +          ITS is connected to an IRS.
+> +        additionalProperties: false
+> +
+> +        properties:
+> +          compatible:
+> +            const: arm,gic-v5-its
+> +
+> +          reg:
+> +            items:
+> +              - description: ITS control frame
+> +              - description: ITS translate frame
+> +
+> +          dma-noncoherent:
+> +            description:
+> +              Present if the GIC ITS permits programming shareability and
+> +              cacheability attributes but is connected to a non-coherent
+> +              downstream interconnect.
+> +
+> +          "#msi-cells":
+> +            description:
+> +              The single msi-cell is the DeviceID of the device which will
+> +              generate the MSI.
+> +            const: 1
+> +
+> +          msi-controller: true
+> +
+> +        required:
+> +          - compatible
+> +          - reg
+> +          - "#msi-cells"
+> +          - msi-controller
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - cpus
+> +      - arm,iaffids
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    interrupt-controller {
+> +      compatible = "arm,gic-v5";
+> +
+> +      #interrupt-cells = <3>;
+> +      interrupt-controller;
+> +
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+> +      ranges;
+> +
+> +      interrupts = <1 25 4>;
+> +
+> +      irs@2f1a0000 {
+> +        compatible = "arm,gic-v5-irs";
+> +        reg = <0x2f1a0000 0x10000>;  // IRS_CONFIG_FRAME for NS
+> +
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +        ranges;
+> +
+> +        cpus = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>, <&cpu4>, <&cpu5>, <&cpu6>, <&cpu7>;
+> +        arm,iaffids = /bits/ 16 <0 1 2 3 4 5 6 7>;
+> +
+> +        msi-controller@2f120000 {
+> +          compatible = "arm,gic-v5-its";
+> +          reg = <0x2f120000 0x10000>,   // ITS_CONFIG_FRAME for NS
+> +                <0x2f130000 0x10000>;   // ITS_TRANSLATE_FRAME
+> +
+> +          #msi-cells = <1>;
+> +          msi-controller;
+> +
+> +        };
+> +      };
+> +    };
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 69511c3b2b76fb7090a2a550f4c59a7daf188493..d51efac8f9aa21629a0486977fdc76a2eaf5c52f 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -1901,6 +1901,13 @@ F:	drivers/irqchip/irq-gic*.[ch]
+>  F:	include/linux/irqchip/arm-gic*.h
+>  F:	include/linux/irqchip/arm-vgic-info.h
+>  
+> +ARM GENERIC INTERRUPT CONTROLLER V5 DRIVERS
+> +M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
+> +M:	Marc Zyngier <maz@kernel.org>
+> +L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/interrupt-controller/arm,gic-v5*.yaml
+> +
+>  ARM HDLCD DRM DRIVER
+>  M:	Liviu Dudau <liviu.dudau@arm.com>
+>  S:	Supported
+> 
+> -- 
+> 2.48.0
+> 
 
