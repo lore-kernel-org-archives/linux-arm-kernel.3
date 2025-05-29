@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF2FEC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 21:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE7EC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 22:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LTNYtq1UD+R7Rv0tjNNBO8Ei3GpFoMN9I+bpJd0/ywc=; b=2/bnCqAuaLvEvyjadQXJtWLaMm
-	fxOjY5l8NbY6nLvoV36ZMdRbUGaX9RClfsidNReNlv+tdhjVziJUC3wPuUN3/+ujtUnZLia97f+8l
-	tgpcE+8W+Ef1Ci73o31C6h/+LsIu1gm3bYTilduq5XT8BjxWIZceOG+TqD28lDsgK6S8zZBPsU2eC
-	hI5isw42nKCtUZzRyLU0HdYW9bERdnYzhCf8+/SAKnw3U/o4jryVJSJ7RN81R6CShc1IFjl1uIm69
-	mMCwKL8su/qPw3mfpfRwzzioDG+DOkeC2yvmxBJifzR+6iTpNp2+pZJx4oKMMfbGXQIYHOlVPwjz9
-	GuiTHIog==;
+	bh=juarSgwBFGe3iViHJxllLX5IRN9Zg1P5MRm4SRs7zB0=; b=CERWRu7PpUGz79GzEQqtEWcrmn
+	k7Ct4XsH65Q5XJZAmNkbDQzZCzKvE2CE0ELQ4sG6ZTPUfdyDdOWD+/5M9i4owDfO2HHMAnytffKr3
+	G3/cfMYP1GzyDmqczw+IG+PGMBkILKHeLh27N2q4iBnPWek8feCdP9eUpj/+xHhihkAWuQf4IVsHT
+	Nyg6ZPMuZarzSNRpIgbdA2WnjDjumoKTxt6YTS+LzMbPuZ4Jsk7CKV92wsz/mEBS9T934HEp42sGv
+	AhT/H0+gIpkPjiZRSLv2kKTXb+m59bGNocoGZmqCJymClM3QEEXgDBJ1uZaAMbW5olUUjN/uYLJum
+	LKWA84cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKkec-0000000GYXR-1aKS;
-	Thu, 29 May 2025 21:19:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKkcT-0000000GYHZ-3zTo;
-	Thu, 29 May 2025 21:16:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D0A95A4FCA7;
-	Thu, 29 May 2025 21:16:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1369DC4CEE7;
-	Thu, 29 May 2025 21:16:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748553416;
-	bh=XwSNpCLmOFYgZlT+vqB/zkYXZoNvF9LKBVo7R5SnQvU=;
+	id 1uKlSf-0000000GbgW-1VBG;
+	Thu, 29 May 2025 22:10:53 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKlQX-0000000GbWg-1vfJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 May 2025 22:08:42 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1152)
+	id 055982078637; Thu, 29 May 2025 15:08:39 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 055982078637
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1748556520;
+	bh=juarSgwBFGe3iViHJxllLX5IRN9Zg1P5MRm4SRs7zB0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QE8FafhOJkbO0j8ajuGRE3oOAuSmqOSe7+1Bbv1xaRWE+GEqFHoQqKjHSPvlNvh8X
-	 xaUXj42tdidF41Kr/O4VBBHdBcT46ME5JSAvysORACebdBaYt/za2ZLB9918zp+HG/
-	 MnTpyOhxty75uU+RXJ/hyhZ6ZnSbvFM0C/SEeS/SzucQNcldj5qInocL0jscgQrZRV
-	 HhOFx1gcMCLB7GCwEsyACsRzhuz4ZFAVektyXrTVvZu3lyC0ag9CwrjioZ4ERbFnpv
-	 2HihaHdw1NUs7EO0PJ+YiMAi46LzXEFvynTHxRPB6/YcS/xwivV8yxQqvqZb39Kokc
-	 VTl+yzDZkdWRA==
-Date: Thu, 29 May 2025 14:16:39 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Alex Williamson <alex.williamson@redhat.com>,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
-	linux-s390@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [PATCH v4 08/13] crypto: s390/sha256 - implement library instead
- of shash
-Message-ID: <20250529211639.GD23614@sol>
-References: <20250428170040.423825-1-ebiggers@kernel.org>
- <20250428170040.423825-9-ebiggers@kernel.org>
- <20250529110526.6d2959a9.alex.williamson@redhat.com>
- <20250529173702.GA3840196@google.com>
- <CAHk-=whCp-nMWyLxAot4e6yVMCGANTUCWErGfvmwqNkEfTQ=Sw@mail.gmail.com>
+	b=LHMwxnqHXXo3wa+V+35wQifLfvXLriHKHW5eGkkdJAjqAkADrNIZdIxDyen4qxLBx
+	 4WjJ/ExVEV4qmWcel4XSNsNtuShzmN84HakhkafW1rJbAg1hkLGTLf1ayRVa6iaHer
+	 IJoO60jJYrYbH59KUyDuBJZ/IbSn3zDGk7uP/yno=
+Date: Thu, 29 May 2025 15:08:39 -0700
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org
+Cc: Jacob Pan <jacob.pan@linux.microsoft.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev, will@kernel.org,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
+Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
+Message-ID: <20250529220839.GA9911@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
+ <20250410230008.GA6905@ziepe.ca>
+ <67fff12d.650a0220.208c7c.d69dSMTPIN_ADDED_BROKEN@mx.google.com>
+ <20250416181759.GF493866@ziepe.ca>
+ <20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+ <20250525190703.GD12328@ziepe.ca>
+ <20250527205428.GA14019@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+ <20250528000425.GC146260@ziepe.ca>
+ <20250529182219.GA20289@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+ <20250529183815.GA236098@ziepe.ca>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAHk-=whCp-nMWyLxAot4e6yVMCGANTUCWErGfvmwqNkEfTQ=Sw@mail.gmail.com>
+In-Reply-To: <20250529183815.GA236098@ziepe.ca>
+User-Agent: Mutt/1.5.21 (2010-09-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_141658_148068_B0BB1B74 
-X-CRM114-Status: GOOD (  39.72  )
+X-CRM114-CacheID: sfid-20250529_150841_551542_4C080956 
+X-CRM114-Status: GOOD (  35.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,114 +80,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 01:14:31PM -0700, Linus Torvalds wrote:
-> On Thu, 29 May 2025 at 10:37, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > Long-term, I'd like to find a clean way to consolidate the library code for each
-> > algorithm into a single module.
+On Thu, May 29, 2025 at 03:38:15PM -0300, Jason Gunthorpe wrote:
+> On Thu, May 29, 2025 at 11:22:19AM -0700, Shyam Saini wrote:
+> > > All IOVA that the platform cannot DMA from should be reported in the
+> > > reserved_regions file as "reserved". You must make your platform
+> > > achieve this.
+> > 
+> > so should it be for all the iommu groups?
+> > 
+> >                 no_dma_mem {
+> >                        reg = <0x0 0x8000000 0x0 0x100000>;
+> >                         no-map;
+> >                 };
+> >  
+> > i think that's how we reserve memory in general, eg: ramoops
+> > but this doesn't show up in:
+> >   /sys/kernel/iommu_groups/*/reserved_regions
 > 
-> No, while I think the current situation isn't great, I think the "make
-> it one single module" is even worse.
-> 
-> For most architectures - including s390 - you end up being in the
-> situation that these kinds of hw accelerated crypto things depend on
-> some CPU capability, and aren't necessarily statically always
-> available.
-> 
-> So these things end up having stupid extra overhead due to having some
-> conditional.
-> 
-> That extra overhead is then in turn minimized with tricks like static
-> branches, but that's all just just piling more ugly hacks on top
-> because it picked a bad choice to begin with.
-> 
-> So what's the *right* thing to do?
-> 
-> The right thing to do is to just link the right routine in the first
-> place, and *not* have static branch hackery at all. Because you didn't
-> need it.
-> 
-> And we already do runtime linking at module loading time. So if it's a
-> module, if the hardware acceleration doesn't exist, the module load
-> should just fail, and the loader should go on to load the next option.
+> I don't know anymore, I've forgotten these details about DT, you will
+> need to consult with DT experts..
 
-So using crc32c() + ext4 + x86 as an example (but SHA-256 would be very
-similar), the current behavior is that ext4.ko depends on the crc32c_arch()
-symbol.  That causes crc32-x86.ko to be loaded, which then depends on the
-crc32c_base() symbol as a fallback, which causes crc32.ko to be loaded too.  My
-idea is to consolidate the two crc32 modules into one (they always go together,
-after all), keeping the same symbols.  The main challenge is just the current
-directory structure.
+no worries, added maintainers and the list
 
-Your suggestion sounds like: ext4.ko would depend on the crc32c() symbol, which
-would be defined in *both* crc32-x86.ko and crc32.ko.  The module loader would
-try to load crc32-x86.ko first.  If the CPU does not support any of the x86
-accelerated CRC32 code, then loading that module would fail.  The module loader
-would then load crc32.ko instead.
+> > > But I still don't have a clear sense of what your actual problem is as
+> > > you are show DT that seems reasonable and saying that
+> > > /sys/../reserved_regions is working..
+> > 
+> > /sys/../reserved_regions is working for certain devices like dma controller
+> > but it doesn't work for pcie devices and its vfio-pcie driver calling
+> > iommu_get_resv_regions() but we don't have dts node for vfio.
+> > I have confirmed this about pcie on two different platforms, it seems to be
+> > OF DMA-API gap that you hinted above, happy to work on that :), it would be
+> > great if you can share any other reference discussions to that problem
+> 
+> Some of it was around the dma_mask and the ranges, but I'm not sure
+> exactly what is your issue here..
+> 
+> It is very important the the dma-iommu.c code also knows not to use
+> the non-working IOVA or your system will be buggy and eventually fail.
+> If that isn't happening you have a critical bug beyond the SW_MSI
+> issue.
 
-Does any of the infrastructure to handle "this symbol is in multiple modules and
-they must be loaded in this particular order" actually exist, though?
+thanks, i will look into this
 
-And how do we avoid the issues the crypto API often has where the accelerated
-modules don't get loaded, causing slow generic code to unnecessarily be used?
+> The easiest way to fix it is to have reserved_regions report the right
+> stuff.
+> 
+> > When i specify this for dma controller:
+> > 
+> > 		faulty_iova: resv_faulty {
+> > 			iommu-addresses = <&dmaX 0x8000000 0x100000>;
+> > 		};
+> > &dmaX {
+> > 	memory-region = <&faulty_iova>;
+> > };
+> > 
+> > I see following:
+> > $ cat /sys/kernel/iommu_groups/y/reserved_regions 
+> > 0x0000000008000000 0x00000000080fffff reserved
+> > 0x00000000a0000000 0x00000000a00fffff msi
+> 
+> See, that looks better. You need to make that happen for all the
+> effected devices.
+> 
+> > Upon investigation, our hardware team confirmed that the memory region
+> > containing 0x08000000 is already mapped for other peripherals, making it
+> > unavailable for MSI usage.
+> 
+> See, that's just wrong HW design. The path from PCI to the SMMU should
+> not have any other decodes on it, isn't that SBSA?
 
-IMO this sounds questionable compared to just using static keys and/or branches,
-which we'd need anyway to support the non-modular case.
+I am not 100% sure
 
-> Not any silly "one module to rule them all" hackery that only results
-> in worse code. Just a simple "if this module loads successfully,
-> you'll link the optimal hw acceleration".
-> 
-> Now, the problem with this all is the *non*modular case.
-> 
-> For modules, we already have the optimal solution in the form of
-> init-module error handling and runtime linking.
-> 
-> So I think the module case is "solved" (except the solution is not
-> what we actually do).
-> 
-> For the non-module case, the problem is that "I linked this
-> unconditionally, and now it turns out I run on hardware that doesn't
-> have the capability to run this".
-> 
-> And that's when you need to do things like static_call_update() to
-> basically do runtime re-linking of a static decision.
-> 
-> And currently we very much do this wrong. See how s390 and x86-64 (and
-> presumably others) basically have the *exact* same problems, but they
-> then mix static branches and static calls (in the case of x86-64) and
-> just have non-optimal code in general.
-> 
-> What I think the generic code should do (for the built-in case) is just have
-> 
->         DEFINE_STATIC_CALL(sha256_blocks_fn, sha256_blocks_generic);
-> 
-> and do
-> 
->         static_call(sha256_blocks_fn)(args..);
-> 
-> and then architecture code can do the static_call_update() to set
-> their optimal version.
-> 
-> And yeah, we'd presumably need multiple versions, since there's the
-> whole "is simd usable" thing. Although maybe that's going away?
+> How does your platform work at all? Isn't 0x08000000 physical memory in
+> your address map? 
 
-Moving the static_call into the generic code might make sense.  I don't think
-it's a win in all cases currently, though.  Only x86 and PPC32 actually have a
-real static_call implementation; everywhere else it's an indirect call which is
-slower than a static branch.  Also, some arch code is just usable
-unconditionally without any CPU feature check, e.g. the MIPS ChaCha code.  That
-doesn't use (or need to use) a static call or branch at all.
+unfornately, this 0x08000000 physical address is not in our address map
 
-Also, while the centralized static_call would *allow* for the generic code to be
-loaded while the arch code is not, in the vast majority of cases that would be a
-bug, not a feature.  The generic crypto infrastructure has that bug, and this
-has caused a huge amount of pain over the years.  People have to go out of the
-way to ensure that the arch-optimized crypto code gets loaded.  And they often
-forget, resulting in the slow generic code being used unnecessarily...
-
-Making the arch-optimized code be loaded through a direct symbol dependency
-solves that problem.
-
-- Eric
+Thanks,
+Shyam
 
