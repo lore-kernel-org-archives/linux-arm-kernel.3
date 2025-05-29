@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DC2C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5932BC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qaVnxtea8tiIbbe8Fj9suxHjs4yHfJKqNNkXIu7pr0Y=; b=0tFJetkCDshcQJ87zmciBvNgMj
-	QQmksNWbja0SUFkQWxQSgvZ+s6W5k1XHmfFGO+Ewhh2mZUN2vpXI2I38Difmpzvq7ZH30crPUhako
-	rMseHHcP1WSyF7/chvoKryuruSdfREp4kbQzMoVWuvEnNgtS4CWPTCEYp8QFWJ7fW7Fq2AqG/qb6v
-	cyTLNiL2hc0GT2Xa7wm2NjoLfg5ntLBsT7MariaY9skDFJlvz0LOpIN9n58MuhBjXfOxmRLH8CYoO
-	EOniJmTNf6JFhjAL/dEeaAxN/6GO+jwhuq1LqYTqNY9e/HxLiFzNxslsViQPQhjPG3dxeUTfX6mfl
-	Qg4HXMRg==;
+	bh=uq6yFKkalOl4LwtolvwfyGp+iifxQRx+6zneX+9HCGw=; b=uF74v1opvsACfxOInD+hhGhg1J
+	UKG9nru69sCHET5eCO8fWVd28tPmDeMP9XU2mYTi70BXV1AL+ysp6XP67/pfe9+P7v60F+T7AjVoH
+	+S/zd4bc/gwA+YH0lci+RDuwUtS7szlCamEiv79DjKxQ+Ldcb+XngF/IzAVZkTeWTRcE93vKOe4O0
+	9UpEMOjbpnCNgn+JQz/bwOrCgbiOhV+rHgaMtPuiE4D9moOpfrUvc87oCLn0fa6joMiCH7RjQL0Te
+	e2Vk7hwo5yqCQ2H5XAs6mh8vEA8IXzdJ59+L3jK3Eqzn8by1asIn9DCOhlp1XdHDTPicu1R7qXf9K
+	XvWaLktw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKfte-0000000G9K4-3gAs;
-	Thu, 29 May 2025 16:14:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKfGN-0000000G51E-3Nee
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 15:33:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 876B1176A;
-	Thu, 29 May 2025 08:33:27 -0700 (PDT)
-Received: from [10.57.95.14] (unknown [10.57.95.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 90C953F5A1;
-	Thu, 29 May 2025 08:33:42 -0700 (PDT)
-Message-ID: <936cc91a-b345-4e52-9cb5-922c9810c469@arm.com>
-Date: Thu, 29 May 2025 16:33:41 +0100
+	id 1uKftk-0000000G9NE-1y9a;
+	Thu, 29 May 2025 16:14:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKfYz-0000000G7uR-2PkD;
+	Thu, 29 May 2025 15:53:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0776E5C67D9;
+	Thu, 29 May 2025 15:50:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25163C4CEE7;
+	Thu, 29 May 2025 15:52:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748533980;
+	bh=dBrwp1lSjo0/zOXj6+oiqnIpBPI1NPg/5I0TXg2hVv8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Yw+rhh/7vLdzy29EEq4xkty36nZuNp/uVPHljZW42ReP4ZM0WRx5x00cuKa8nKoWW
+	 cehhCWZD2qR5mAB9p7IPwFaxZ57fAMxlQdZbMmPU65C+9U9vwNu7pX2j58pUoNappk
+	 5IffxJ5eBVEc3ui9eV7Yy1bZQWajrtJTvZcrLaS672kA1Q4lMxXddS7BFJ03sF7Yi9
+	 seAOrSV0ZVz4riIGZjG133mrmxPWWox+J6l3T+6Ht0uBdtQXB6eYr80J2wQTqaT0Qj
+	 5hzRAllPMLyk2rjcCIeb3KtkrzyJjisjwW7tesfif8Bj4v/B/NKPoEZqQJ/6nUorL0
+	 JxVVdPWvO1hGQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 29 May 2025 17:52:38 +0200
+Subject: [PATCH net 2/2] net: airoha: Fix IPv6 hw acceleration in bridge
+ mode
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Dev Jain <dev.jain@arm.com>
-References: <20250304222018.615808-1-yang@os.amperecomputing.com>
- <3750d3f8-17c6-4bb8-8107-215d442e4ec3@os.amperecomputing.com>
- <2fb974bb-1470-4a5f-90d5-97456140c98f@arm.com>
- <22b53cff-00db-48f1-b1e8-b11a54ebb147@os.amperecomputing.com>
- <4794885d-2e17-4bd8-bdf3-8ac37047e8ee@os.amperecomputing.com>
- <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
- <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
- <912c3126-8ba7-4c3a-b168-438f92e89217@arm.com>
- <2ab5f65c-b9dc-471c-9b61-70d765af285e@os.amperecomputing.com>
- <239d4e93-7ab6-4fc9-b907-7ca9d71f81fd@arm.com>
- <1141d96c-f785-48ee-a0f6-9ec658cc11c2@os.amperecomputing.com>
- <9cdb027c-27db-4195-825d-1d63bec1b69b@os.amperecomputing.com>
- <e3e6a3e0-3012-4d95-9236-4b4d57c7974c@arm.com>
- <0769dbcb-bd9e-4c36-b2c1-a624abaeb5ce@os.amperecomputing.com>
- <e8d74579-2e32-424f-bfed-5d3eb33b0a07@os.amperecomputing.com>
- <c44cb356-112d-4dd8-854b-82212ee4815f@arm.com>
-In-Reply-To: <c44cb356-112d-4dd8-854b-82212ee4815f@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250529-airoha-flowtable-ipv6-fix-v1-2-7c7e53ae0854@kernel.org>
+References: <20250529-airoha-flowtable-ipv6-fix-v1-0-7c7e53ae0854@kernel.org>
+In-Reply-To: <20250529-airoha-flowtable-ipv6-fix-v1-0-7c7e53ae0854@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Michal Kubiak <michal.kubiak@intel.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_083347_943493_474D4468 
-X-CRM114-Status: GOOD (  29.09  )
+X-CRM114-CacheID: sfid-20250529_085301_703864_10A6160C 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,73 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/05/2025 09:48, Ryan Roberts wrote:
+ib2 and airoha_foe_mac_info_common have not the same offsets in
+airoha_foe_bridge and airoha_foe_ipv6 structures. Fix IPv6 hw
+acceleration in bridge mode resolving ib2 and airoha_foe_mac_info_common
+overwrite in airoha_ppe_foe_commit_subflow_entry routine. Moreover, set
+AIROHA_FOE_MAC_SMAC_ID to 0xf in airoha_ppe_foe_commit_subflow_entry()
+to configure the PPE module to keep original source mac address of the
+bridged packets.
 
-[...]
+Fixes: cd53f622611f ("net: airoha: Add L2 hw acceleration support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_ppe.c | 26 +++++++++++++++-----------
+ 1 file changed, 15 insertions(+), 11 deletions(-)
 
->>>> Regarding the linear map repainting, I had a chat with Catalin, and he reminded
->>>> me of a potential problem; if you are doing the repainting with the machine
->>>> stopped, you can't allocate memory at that point; it's possible a CPU was inside
->>>> the allocator when it stopped. And I think you need to allocate intermediate
->>>> pgtables, right? Do you have a solution to that problem? I guess one approach
->>>> would be to figure out how much memory you will need and pre-allocate prior to
->>>> stoping the machine?
->>>
->>> OK, I don't remember we discussed this problem before. I think we can do
->>> something like what kpti does. When creating the linear map we know how many
->>> PUD and PMD mappings are created, we can record the number, it will tell how
->>> many pages we need for repainting the linear map.
->>
->> Looking the kpti code further, it looks like kpti also allocates memory with the
->> machine stopped, but it calls memory allocation on cpu 0 only. 
-> 
-> Oh yes, I hadn't spotted that. It looks like a special case that may be ok for
-> kpti though; it's allocating a fairly small amount of memory (max levels=5 so
-> max order=3) and it's doing it with GFP_ATOMIC. So if my understanding of the
-> page allocator is correct, then this should be allocated from a per-cpu reserve?
-> Which means that it never needs to take a lock that other, stopped CPUs could be
-> holding. And GFP_ATOMIC guarrantees that the thread will never sleep, which I
-> think is not allowed while the machine is stopped.
-> 
->> IIUC this
->> guarantees the code will not be called on a CPU which was inside the allocator
->> when it stopped because CPU 0 is running stop_machine().
-> 
-> My concern was a bit more general; if any other CPU was inside the allocator
-> holding a lock when the machine was stopped, then if CPU 0 comes along and makes
-> a call to the allocator that requires the lock, then we have a deadlock.
-> 
-> All that said, looking at the stop_machine() docs, it says:
-> 
->  * Description: This causes a thread to be scheduled on every cpu,
->  * each of which disables interrupts.  The result is that no one is
->  * holding a spinlock or inside any other preempt-disabled region when
->  * @fn() runs.
-> 
-> So I think my deadlock concern was unfounded. I think as long as you can
-> garrantee that fn() won't try to sleep then you should be safe? So I guess
-> allocating from within fn() should be safe as long as you use GFP_ATOMIC?
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index a783f16980e6b7fdb69cec7ff09883a9c83d42d5..d5dbcb556f2b10b23ebbdd32a66a3c4f32cfb460 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -639,7 +639,6 @@ airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
+ 	u32 mask = AIROHA_FOE_IB1_BIND_PACKET_TYPE | AIROHA_FOE_IB1_BIND_UDP;
+ 	struct airoha_foe_entry *hwe_p, hwe;
+ 	struct airoha_flow_table_entry *f;
+-	struct airoha_foe_mac_info *l2;
+ 	int type;
+ 
+ 	hwe_p = airoha_ppe_foe_get_entry(ppe, hash);
+@@ -656,18 +655,23 @@ airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
+ 
+ 	memcpy(&hwe, hwe_p, sizeof(*hwe_p));
+ 	hwe.ib1 = (hwe.ib1 & mask) | (e->data.ib1 & ~mask);
+-	l2 = &hwe.bridge.l2;
+-	memcpy(l2, &e->data.bridge.l2, sizeof(*l2));
+ 
+ 	type = FIELD_GET(AIROHA_FOE_IB1_BIND_PACKET_TYPE, hwe.ib1);
+-	if (type == PPE_PKT_TYPE_IPV4_HNAPT)
+-		memcpy(&hwe.ipv4.new_tuple, &hwe.ipv4.orig_tuple,
+-		       sizeof(hwe.ipv4.new_tuple));
+-	else if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T &&
+-		 l2->common.etype == ETH_P_IP)
+-		l2->common.etype = ETH_P_IPV6;
+-
+-	hwe.bridge.ib2 = e->data.bridge.ib2;
++	if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
++		memcpy(&hwe.ipv6.l2, &e->data.bridge.l2, sizeof(hwe.ipv6.l2));
++		hwe.ipv6.ib2 = e->data.bridge.ib2;
++		/* keep origianl source mac address */
++		hwe.ipv6.l2.src_mac_hi = FIELD_PREP(AIROHA_FOE_MAC_SMAC_ID,
++						    0xf);
++	} else {
++		memcpy(&hwe.bridge.l2, &e->data.bridge.l2,
++		       sizeof(hwe.bridge.l2));
++		hwe.bridge.ib2 = e->data.bridge.ib2;
++		if (type == PPE_PKT_TYPE_IPV4_HNAPT)
++			memcpy(&hwe.ipv4.new_tuple, &hwe.ipv4.orig_tuple,
++			       sizeof(hwe.ipv4.new_tuple));
++	}
++
+ 	hwe.bridge.data = e->data.bridge.data;
+ 	airoha_ppe_foe_commit_entry(ppe, &hwe, hash);
+ 
 
-I just had another conversation about this internally, and there is another
-concern; we obviously don't want to modify the pgtables while other CPUs that
-don't support BBML2 could be accessing them. Even in stop_machine() this may be
-possible if the CPU stacks and task structure (for example) are allocated out of
-the linear map.
+-- 
+2.49.0
 
-So we need to be careful to follow the pattern used by kpti; all secondary CPUs
-need to switch to the idmap (which is installed in TTBR0) then install the
-reserved map in TTBR1, then wait for CPU 0 to repaint the linear map, then have
-the secondary CPUs switch TTBR1 back to swapper then switch back out of idmap.
-
-Given CPU 0 supports BBML2, I think it can just update the linear map live,
-without needing to do the idmap dance?
-
-Thanks,
-Ryan
-
-
-> 
-> Thanks,
-> Ryan
-> 
 
