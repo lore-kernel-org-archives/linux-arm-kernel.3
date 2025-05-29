@@ -4,87 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13F2C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD326C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LRoGRMBV7PqtgKTAeThep6xLjkOzYN0wpsMcbJOtKx4=; b=Wx2qvI6R/r2vX/eXcHo5FEJexZ
-	c/96NTs1IFtN3FBMRO28kOgcoedH4AbPPH1xagnYOB79Kebb0q9hHQv/eY+6FqyzBxGD5Zn9UKo4Q
-	U6CW3kCUF9cLKHCZOcAC/xkm/IkqPMvUvgClm/pNEgtUh8OaMHzkXEmLTwDoViqTMVJrOxExGrcnX
-	j+4ZbuhynZsrANF2kByXOkt+ExteAH0vziCez16v0KV9LEeRhBmMFC7Vma3+L57wHax6z3LqLhvrB
-	K9AXuOMYqAtoCm40mV4bMBVIRBhY21VJ1ZVk6bYaC28v0RTYj3EZCETekqAeWR4GrqB1+daq7c+0f
-	tGFziOHw==;
+	bh=ktm3H4JoTcBPhvijSXu1K0RN9L58nKBd88Iy0VSKeiU=; b=mERBn0gz+GBYeWfkWOVyY9HVpx
+	H70zE6XiHCgKCHL6xZzr3ejDp9pwslh2XmBZ7OIj63xsg1c4FStKXj/ZlY9JN1qRu5buJbLRzSJ10
+	c3P9jtGi91X9ynxAVcx7J4MWnU6ymIA7C3vQvJW+Hz4sKT68Q/Ee408A7lSbKEJFK6Jp60d+UkelS
+	W8K1ruyl5kEjRr9ntdTq1yqaxa+G74fh9Z63mNwaXzNfSwIgoaAoJB1XDzomktg2vqWHkn1zccU8r
+	875MZrUcrzPwF9T2YNL3GHW9TQEzQk14jyXA6BnBicF6Gg6OutYymW30Pea+90Wpq+jCr6yXLnS6P
+	K+9ifyWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKe4q-0000000Fx0u-2Ftm;
-	Thu, 29 May 2025 14:17:48 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1uKe6v-0000000FxAo-0whQ;
+	Thu, 29 May 2025 14:19:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKd8d-0000000Fq2f-2Kn2
+	id 1uKdAB-0000000FqGX-1F7G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 13:17:40 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-70e4bd65106so9393507b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 06:17:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748524658; x=1749129458; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=LRoGRMBV7PqtgKTAeThep6xLjkOzYN0wpsMcbJOtKx4=;
-        b=GGThjfPqPBrUFpNmeBxJSjOfD+VA1wZjhbiEUFq2Rqc3Q767QlH4JYrzhwFGd02HN9
-         fwLc9O/0xKgkKqctxIrxXJGQl0b8FTsOvYb7PGWRg9waOv4SIuWTsJIq6IWbRch98EQk
-         XdSFtyqSo84oyGb4OowGw6Q6sa7PH84bNxy57lQ0rCb0tO+C9NG57wFTdudAGMdRmtSg
-         YnMn+thCFRs9xpT9MyI+6SP5SZjq3z5drBkanZey6E24vhB+PRd4oMKgJP2lBg+bv76/
-         gDHSwFnmJRg+P0tcALM9V7rnN9xDwhKR2jdY3Ucp4vyp36YH1nD9bHHtyUD5FUxM5Wnb
-         wPPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748524658; x=1749129458;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LRoGRMBV7PqtgKTAeThep6xLjkOzYN0wpsMcbJOtKx4=;
-        b=RFPU5+5tMJJUJ91VKt0E77TftUeTkwZoklgaqGgkynSYbtg9BDYXO7KWXzXTtWzBbX
-         Kaa3pqBIjzNGPX6x0k2/fhh8uUiEHHSHrCXC9uUP7LPnO2foDUQBx+FBUvduwa4maqgi
-         RXu4AqFVfyrjJrXLN1JU5hVeOaoRn3MsFxu13Aio5p16+CMCHxJ4mqfURuJL8RLi1I0W
-         Vs47xTfY8CvqiHfzwew1GzjfcC8vIqJkfmW5Jb//apNY4dX+Rxb/NQQqRlovrSNrOUG6
-         U7na9Fm1lACdBS9iX6vD92cwkCxGIMe0x4Z8BEVBJTZhD8ugPjcwf/0WLNAQxBZTEmzY
-         feng==
-X-Forwarded-Encrypted: i=1; AJvYcCUCgO/NrIfMzIM/bvuryIpSRWue9H43oQAxX8w/PUy1FWHdehaKpFHZky30KJJsv4uaZdbusA54kje29pFUCN+T@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjVb7L43rXGARZroqhljM87rr5HfrWtPo+TIyGM1t47RTuTXEm
-	cwVRvvCLr7a9TrZ5vbv7zQNcTJCqPECF+Z2ANZt3AGy932uvei7ZoQbJxE1wd9n8R0vURf+bG9O
-	XbfQcu9xyeWmRzvkhP/lUoOaqfqRPvhctWYmBxAr8gg==
-X-Gm-Gg: ASbGnctGLPvDOzxjlbIrZlilP9OdRLjrIow1JS1BuqF5B7WwjWiODgvjTi2Cggr6Uue
-	Y2Wy8nwKngCjDFGBWFUeLC/tRS5VqW7+rjDSXIIArFQThN7zzYfFW4NslMy+UnSq42HDIR/INNR
-	4j+lmifv6RvCx5sPKzdQhvFs1+owLVwI4iug==
-X-Google-Smtp-Source: AGHT+IFmyl1zNSP/1T1Fu+Ipq6e7NtBsNPd9Sq1kBRpXHvD2CvYn2FtBpyWhYLC/DqeY2/E2ImvPRZWBInKH8wClwcU=
-X-Received: by 2002:a05:690c:6905:b0:70e:2cba:868c with SMTP id
- 00721157ae682-70e2d9a6cb3mr318642537b3.11.1748524657490; Thu, 29 May 2025
- 06:17:37 -0700 (PDT)
+	Thu, 29 May 2025 13:19:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 967EF44DDA;
+	Thu, 29 May 2025 13:19:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23FFAC4CEE7;
+	Thu, 29 May 2025 13:19:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748524754;
+	bh=0FPlq097Hcbp5iDFnnpPEASquDvr0YwVHBR1ZnHEybM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bGpNNkhuC+2wzq01z4Hg6fg9gFT4OCGfEH33UX/SRQFSxkuIstRSlH8RLLfCGnjJP
+	 uLFY9f0FoIssiPqFtK9kkSboA5flQ+CQUdZkyEvUwI67Iiz3100skqqJj3zl5NaBIC
+	 Vp4raynx46b7liwMGM5/alirwYlvjt0bi622Gh8UzySB9RP2UZTKFwyuOOACBZsj5A
+	 pSpwn6kw8oVm/aNX63avKm3Mz/WoaVdPCbAW/fWLnWIr9O0l/EKUmgRgHLwFGzWJCx
+	 /PUGfC1aBQdwZF90uxJqFFjJOuTfvP2Yg5RcNQ/yU4N0Y5PYuqmpr1pgm64RrXUaE4
+	 IXj77ReiEv96Q==
+Date: Thu, 29 May 2025 08:19:12 -0500
+From: Rob Herring <robh@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Herve Codina <herve.codina@bootlin.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v2 23/26] misc: lan966x_pci: Introduce board specific data
+Message-ID: <20250529131912.GA2798026-robh@kernel.org>
+References: <20250507071315.394857-1-herve.codina@bootlin.com>
+ <20250507071315.394857-24-herve.codina@bootlin.com>
+ <8b97e095-dbed-438c-9c6d-d3c2c5929fc0@lunn.ch>
+ <CAMuHMdUVvOMavxSAKaSMOwj_zXR=5h8KrrqNg4RS2Yaw3WXpKg@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org> <aDhWlytLCxONZdF9@lpieralisi>
-In-Reply-To: <aDhWlytLCxONZdF9@lpieralisi>
-From: Peter Maydell <peter.maydell@linaro.org>
-Date: Thu, 29 May 2025 14:17:26 +0100
-X-Gm-Features: AX0GCFttNUvo5SsO8pMKnRvfFUtx-_6vAOX9kBCeKJ98X_-miBgBYJmCbmILETs
-Message-ID: <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
-Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, andre.przywara@arm.com, 
-	Arnd Bergmann <arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>, 
-	Timothy Hayes <timothy.hayes@arm.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdUVvOMavxSAKaSMOwj_zXR=5h8KrrqNg4RS2Yaw3WXpKg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_061739_603550_F58B1D5E 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20250529_061915_373740_1AD385CF 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,80 +105,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 May 2025 at 13:44, Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
->
-> [+Andre, Peter]
->
-> On Tue, May 13, 2025 at 07:47:54PM +0200, Lorenzo Pieralisi wrote:
-> > +      reg:
-> > +        minItems: 1
-> > +        items:
-> > +          - description: IRS control frame
->
-> I came across it while testing EL3 firmware, raising the topic for
-> discussion.
->
-> The IRS (and the ITS) has a config frame (need to patch the typo
-> s/control/config, already done) per interrupt domain supported, that is,
-> it can have up to 4 config frames:
->
-> - EL3
-> - Secure
-> - Realm
-> - Non-Secure
->
-> The one described in this binding is the non-secure one.
->
-> IIUC, everything described in the DT represents the non-secure address
-> space.
+On Thu, May 08, 2025 at 09:13:33AM +0200, Geert Uytterhoeven wrote:
+> On Thu, 8 May 2025 at 00:24, Andrew Lunn <andrew@lunn.ch> wrote:
+> > On Wed, May 07, 2025 at 09:13:05AM +0200, Herve Codina wrote:
+> > > Only one device-tree overlay (lan966x_evb_lan9662_nic.dtbo) is handled
+> > > and this overlay is directly referenced in lan966x_pci_load_overlay().
+> > >
+> > > This avoid to use the code for an other board.
+> > >
+> > > In order to be more generic and to allow support for other boards (PCI
+> > > Vendor/Device IDs), introduce the lan966x_pci_info structure and attach
+> > > it to PCI Vendor/Device IDs handled by the driver.
+> > >
+> > > This structure contains information related to the PCI board such as
+> > > information related to the dtbo describing the board we have to load.
+> > >
+> > > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> >
+> > How big is the dtbo ?
+> >
+> > This is going in the right direction. I'm just wondering if each dtbo
+> > should be wrapped in its own very slim PCI driver, which simply
+> > registers its lan966x_pci_info structure to a core driver. Only the
+> > needed dtbo will then be loaded into memory as a module, not them all.
+> 
+> Alternatively, the dtbo could be loaded through request_firmware().
+> That could lead to a generic support option in the PCI core, which would
+> fallback to loading pci-<vid>-<pid>.dtbo when no driver is available.
 
-The dt bindings do allow for describing Secure-world devices:
-Documentation/devicetree/bindings/arm/secure.txt has the
-details. We use this in QEMU so we can provide a DTB to
-guest EL3 firmware that tells it where the hardware is
-(and which EL3 can then pass on to an NS kernel). It would
-be helpful for the GICv5 binding to be defined in a way that
-we can do this for a GICv5 system too.
+Yes!
 
-> Two questions:
->
-> - I don't have to spell out the IRS/ITS config frame (and SETLPI, by
->   the way) as non-secure, since that's implicit, is that correct ?
-
-Do you want the DT binding to handle the case of "CPU and GIC do not
-implement EL3, and the only implemented security state is Secure"
-without the kernel needing to do something different from "ditto ditto
-but the only implemented security state is Nonsecure" ?
-(Currently booting.html says you must be in NS, so we effectively
-say we don't support booting on this particular unicorn :-)
-But the secure.txt bindings envisage "kernel got booted in S",
-mostly for the benefit of aarch32.)
-
-> - How can the schema describe, if present, EL3, Secure and Realm frames ?
-
-The tempting thing to do is to have regs[] list the frames
-in some given order, but the spec makes them not simple
-supersets, allowing all of:
- * NS
- * S
- * NS, S, EL3
- * NS, Realm, EL3
- * NS, Realm, S, EL3
-
-secure.txt says:
-# The general principle of the naming scheme for Secure world bindings
-# is that any property that needs a different value in the Secure world
-# can be supported by prefixing the property name with "secure-". So for
-# instance "secure-foo" would override "foo".
-
-So maybe we could have
- reg : the NS frame(s)
- secure-reg : the S frame(s)
- realm-reg : the Realm frame(s)
- root-reg : the EL3 frame(s)
-
-??
-
-thanks
--- PMM
+Rob
 
