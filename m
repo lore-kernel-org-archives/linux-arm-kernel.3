@@ -4,84 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96143C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4A4C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICpkuwnIB07t0a1LMiJBD/dY2z9XSzrmegYeMjwWFeY=; b=2kF+uHK7y+dW+XXJolfIWNDtSq
-	G4oarPWTNoBgN6XDhOK4Z5ll+TgD0bh7ya9vIfpc7M5hpL16swHDMgLkiBQmAjxbLC4Y5voBuebw1
-	7HX8sNae73Yq2aGFDGvctqQoD0VOGbVMpIhUZe14mvdh+z6iajFL3FAreBQfV1RepF/Ronh5TdQc/
-	336ITUROLmN+TtoY6dGRSkI6x2MEYZOb9BLMYCtk1APRHYcc21KmGqZmVDBWxCpSwxJOf9oWJCzHY
-	z1U/eaYvJp3rRElGnYRc6OOTKbhaMtA3o+pk6EqDvsILNQlubYBLAqu2C4mnw5QxG1Fb3qQpxHIBJ
-	ujG5hn9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8WDj0z8Z/+2+7K0w4PntZI/0c7kFcJ0xy5PPyEOtDcQ=; b=m5u3iCARu6REGzloABfZWoIaHZ
+	pnevIKe5eEWUDtFTMX6714t3MYVL9JNavedA9jUigz0+7+QrKSKXJMXzb3azkITucsrybj4n/5bqw
+	YMdW50duznW/flWwRpGrh0Yl0Yz42gu43aH2HmSdK8LfYMyFHgaCjenwytZoGSkEu2VYRre0n3G1U
+	5YVJ34dKLWvKxVgIwwQAWTR3I7E02dOujxLzNaAK0pzw8vxX1Nq2oIp62X+9Km+F80Blz0RJF6DfQ
+	zqJs30LL5NmzMCdP/xCad0D/bj022JOTCKxJUIV8Qt64FWCld2m9uJHgDP716BdSDQ+5q7+nPtqfc
+	0xWMl4Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKYQR-0000000FEqU-3uiG;
-	Thu, 29 May 2025 08:15:43 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
+	id 1uKYX0-0000000FFVi-1DIs;
+	Thu, 29 May 2025 08:22:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKYOK-0000000FEkz-1xzy
+	id 1uKYUr-0000000FFBB-370A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 08:13:33 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e7dd151f79eso563978276.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 01:13:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1748506411; x=1749111211; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ICpkuwnIB07t0a1LMiJBD/dY2z9XSzrmegYeMjwWFeY=;
-        b=IfsTIKe3EnKAUmdkESYKmtBUf2AZv+5ueL+swAlrKfBjiRsZFyZTz59w98JTfFxfQR
-         pagvvtPqQsXKBdeE81gAau4mIShadDjhGxhEbUY35mda29I90gf2Ztz2hUuweGK8WgHq
-         dPVAVPkKco+Gj4ku5L3hWNvWjUVWEkbiC+XOY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748506411; x=1749111211;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ICpkuwnIB07t0a1LMiJBD/dY2z9XSzrmegYeMjwWFeY=;
-        b=szCFO+a82xzfgtXTkvF46P5V9Id9gCQsUMqcvNUjWj1GcmaoqcMDgkMPDd71yNd4Rp
-         oyBRS3WMXQz4asVHYGZO9I2Tsb3RjKO7YXBmmiEC9A9B3A/XaxH2SMAwZBqLMxKAGX/Y
-         DYu7cQ8NFMM5/DEtHnaAQmU0dq9UY2zaPxgdPbbeEDPTKI2a+rlciC4uObp57Xv5di9i
-         q4H2r7fql8JhUlJ1o3/NA+jYwgWgdsOgn9yl65QzQTGJKD7FKequLo8IiP0o4/gvmknv
-         5GGDcFefv+NpQSEvGl+vYEPslnZF/wYLM7fayu+skMKimumrcddJbLuc1r9bi/2s0k9y
-         ndYg==
-X-Forwarded-Encrypted: i=1; AJvYcCVTkuRPAf4mO29BucbTyK+UAFGcUTiSposb2l0w7Ys28MxQOXyEjuR0BvuH9YiE2C8a6X7ga1xY+DSyjeRc5Lcs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNawC827hkdq9oNh8VfZL7XpQBs0yPpTNuTilASh1H4j1E9zWH
-	qWqE+GbgCKn61NnJkO+9dRgnY2W5uD3Uq33V0Wsb6zsHYGIz6VtN7Cl94VQ1jCH1AeqaXCLxlWS
-	96NGWdclkQ8n4piLk/Zh3hK54BI3rME7gpcIvILcaPA==
-X-Gm-Gg: ASbGnct5jJw8fnnVHcI+Nw9CC6e51rG36KObSb19cy99igJZSpyqvdEQcA95/3FeVRv
-	ucnH0zwoV65qMY1qYI2xNJAbaT2lmqO0bhUn67Pa8z0ttzwLEG2Ufn4FBAY+RZtswDqBPCgcmLy
-	EFVtzfwOE8DZ8+EWdJhqH/3M1BNwv5eM0=
-X-Google-Smtp-Source: AGHT+IFU5bz24+L9U9Lk3j0eXGd/ajUx6skYk6d365ox59VO9f0gJTHfBW+FNUqLd9X/ZJAVZxoazSQmYjLoy63FvbA=
-X-Received: by 2002:a05:6902:1504:b0:e7d:6791:9c10 with SMTP id
- 3f1490d57ef6-e7f744d5e2fmr1456637276.17.1748506410916; Thu, 29 May 2025
- 01:13:30 -0700 (PDT)
+	Thu, 29 May 2025 08:20:19 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54T74qjj014049;
+	Thu, 29 May 2025 08:20:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	8WDj0z8Z/+2+7K0w4PntZI/0c7kFcJ0xy5PPyEOtDcQ=; b=TV7Gb+6wpi3VlPMo
+	mVma3yVr+KMx2PzbpX1Ewpiv/nHJ/H4ldEu623P9R2/ejjW/xzYIa3mJZ5Py8RMQ
+	Cl28SDJKUVMQxT6pTzw3eRY4CVccTrX/W1XwvcLHofnDqas2LB2GPrz4FX7fw5N/
+	JoaMZl46oBkk77RHwKU8gIkfU2jTO6tKtByzgJJq+bB78W4orPcBkUkc1RrG9Rrq
+	PfhFXiCRpE9JHBlNcOPbkW2qJTM0pqdRPws5bABD5XHpMlVa0HTOEvxtLDGbKg4O
+	JyVrYtFdYKuoMr5WCmF6b21/r9I1P4T3aVfMGB8mb99wwC7YMZ4T6roAIQ5pVKiV
+	TJkszg==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46u5ek4vuv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 29 May 2025 08:20:09 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54T8K7Ia012221
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 29 May 2025 08:20:07 GMT
+Received: from ap-cloud-sh02-lnx.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 29 May 2025 01:20:04 -0700
+From: Songwei Chai <quic_songchai@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Andy Gross
+	<agross@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Rob Herring
+	<robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, <quic_songchai@quicinc.com>
+CC: <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
+Subject: [PATCH v5 1/7] dt-bindings: arm: Add support for Coresight TGU trace
+Date: Thu, 29 May 2025 16:19:42 +0800
+Message-ID: <20250529081949.26493-2-quic_songchai@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250529081949.26493-1-quic_songchai@quicinc.com>
+References: <20250529081949.26493-1-quic_songchai@quicinc.com>
 MIME-Version: 1.0
-References: <20250528121306.1464830-1-dario.binacchi@amarulasolutions.com>
- <20250528121306.1464830-5-dario.binacchi@amarulasolutions.com> <aDcmWddO3+q+4qI1@lizhi-Precision-Tower-5810>
-In-Reply-To: <aDcmWddO3+q+4qI1@lizhi-Precision-Tower-5810>
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Date: Thu, 29 May 2025 10:13:20 +0200
-X-Gm-Features: AX0GCFslQFsmjgK20Th0LuWMG0L2ISJsdlKwxt0PnxTJnAi4jbI-fa627EQHTkE
-Message-ID: <CABGWkvrY+27C=Ds8uCWBp4seQiV1RNs2dp1jNRPpUNxgNOSxYg@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] ARM: dts: mxs: support i.MX28 Amarula rmm board
-To: Frank Li <Frank.li@nxp.com>
-Cc: linux-kernel@vger.kernel.org, michael@amarulasolutions.com, 
-	linux-amarula@amarulasolutions.com, Conor Dooley <conor+dt@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=GIgIEvNK c=1 sm=1 tr=0 ts=683818b9 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=dt9VzEwgFbYA:10 a=gEfo2CItAAAA:8 a=COk6AnOGAAAA:8
+ a=N3VNWiZ0WD7Ir0aJMQYA:9 a=sptkURWiP4Gy88Gu7hUp:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: le2hIwC3eVZo02HaQfhzxvzS8rSrEbup
+X-Proofpoint-GUID: le2hIwC3eVZo02HaQfhzxvzS8rSrEbup
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI5MDA4MCBTYWx0ZWRfX0e4T1/+0/vAt
+ ZJB7lgw2Ox0/WD2waRSSe2xMkGpzZP3Xd2ryVSS8ipmnixeTY+1mc4nUsHAH1nI81oY3qWcFRFt
+ 28syZp53nIqqIokvPM0csVcNETHNT1cvwUycWeZpFMrrOQ3pqJM09pmjocw3IUtTl8eKYJRIKDk
+ BZBfrnd8iZmxd2VBOR9n3bvVy5VO0FuHafijG9xzdJn2UObT/mUl8ppTFvErDt2RzbYTQdJzy+S
+ UvYhKIA4JOSprP9F/ziCl7ak5D05S/fccMCfKPRDjFqFZqH39yDXc/8DIC9GcvUGCDp168HuuSL
+ gqEiKEvHOVGJu0QXSPCVyqI1Q5Wtj2R3dsTJkOpJwSb7+dfD+HUJ23+s64+ggUzJqIuH3NLMv73
+ 2G55TSHXK9ZgI12f0G2alHSFCkGTONSJlJb16VG9vhFr7/ICk4BUJtCWGI/S6gdraQXB7YqI
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-29_04,2025-05-29_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0
+ adultscore=0 priorityscore=1501 mlxscore=0 phishscore=0 spamscore=0
+ suspectscore=0 mlxlogscore=999 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
+ definitions=main-2505290080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_011332_528585_D6D56C2B 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20250529_012017_897349_233ACB9C 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,404 +122,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+The Trigger Generation Unit (TGU) is designed to detect patterns or
+sequences within a specific region of the System on Chip (SoC). Once
+configured and activated, it monitors sense inputs and can detect a
+pre-programmed state or sequence across clock cycles, subsequently
+producing a trigger.
 
-On Wed, May 28, 2025 at 5:06=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
->
-> On Wed, May 28, 2025 at 02:11:41PM +0200, Dario Binacchi wrote:
-> > The board includes the following resources:
-> >  - 256 Mbytes NAND Flash
-> >  - 128 Mbytes DRAM DDR2
-> >  - CAN
-> >  - USB 2.0 high-speed/full-speed
-> >  - Ethernet MAC
-> >
-> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> >
-> > ---
-> >
-> > Changes in v2:
-> > - In imx28-amarula-rmm.dts:
-> >   - Replace '-' with '@' for the pinctrl sub-nodes.
-> >   - Replace edt,edt-ft5x06 with edt,edt-ft5306.
-> >   - Drop LCD reset hog pin.
-> >   - Add correct #address-cells and #size-cells to gpmi node.
-> >   - Replace edt-ft5x06@38 with touchscreen@38.
-> > - Drop from commit messages all references to LCD display.
-> > - Add patch [1/4] "dt-bindings: mfd: convert mxs-lradc bindings to
-> >   json-schema".
-> >
-> >  arch/arm/boot/dts/nxp/mxs/Makefile            |   1 +
-> >  .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 303 ++++++++++++++++++
->
-> please run https://github.com/lznuaa/dt-format to keep nice node/property
-> order for new dts file.
+   TGU configuration space
+        offset table
+ x-------------------------x
+ |                         |
+ |                         |
+ |                         |                           Step configuration
+ |                         |                             space layout
+ |   coresight management  |                           x-------------x
+ |        registers        |                     |---> |             |
+ |                         |                     |     |  reserve    |
+ |                         |                     |     |             |
+ |-------------------------|                     |     |-------------|
+ |                         |                     |     | priority[3] |
+ |         step[7]         |<--                  |     |-------------|
+ |-------------------------|   |                 |     | priority[2] |
+ |                         |   |                 |     |-------------|
+ |           ...           |   |Steps region     |     | priority[1] |
+ |                         |   |                 |     |-------------|
+ |-------------------------|   |                 |     | priority[0] |
+ |                         |<--                  |     |-------------|
+ |         step[0]         |-------------------->      |             |
+ |-------------------------|                           |  condition  |
+ |                         |                           |             |
+ |     control and status  |                           x-------------x
+ |           space         |                           |             |
+ x-------------------------x                           |Timer/Counter|
+                                                       |             |
+						       x-------------x
+TGU Configuration in Hardware
 
-Thank you for the suggestion. I made some changes, although I didn=E2=80=99=
-t follow the
-dt-format output for imx28-amarula-rmm.dtsi to the letter. In some cases, w=
-hen
-I had to choose between alphabetical order and the =E2=80=9Ccustomary=E2=80=
-=9D conventions of
-DTS files, I opted for the latter.
+The TGU provides a step region for user configuration, similar
+to a flow chart. Each step region consists of three register clusters:
 
-Thanks and regards,
-Dario
+1.Priority Region: Sets the required signals with priority.
+2.Condition Region: Defines specific requirements (e.g., signal A
+reaches three times) and the subsequent action once the requirement is
+met.
+3.Timer/Counter (Optional): Provides timing or counting functionality.
 
->
-> Frank
->
-> >  2 files changed, 304 insertions(+)
-> >  create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-> >
-> > diff --git a/arch/arm/boot/dts/nxp/mxs/Makefile b/arch/arm/boot/dts/nxp=
-/mxs/Makefile
-> > index 96dd31ea19ba..d72ba702b6fa 100644
-> > --- a/arch/arm/boot/dts/nxp/mxs/Makefile
-> > +++ b/arch/arm/boot/dts/nxp/mxs/Makefile
-> > @@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_MXS) +=3D \
-> >       imx23-sansa.dtb \
-> >       imx23-stmp378x_devb.dtb \
-> >       imx23-xfi3.dtb \
-> > +     imx28-amarula-rmm.dtb \
-> >       imx28-apf28.dtb \
-> >       imx28-apf28dev.dtb \
-> >       imx28-apx4devkit.dtb \
-> > diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts b/arch/arm=
-/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-> > new file mode 100644
-> > index 000000000000..5daa9e22715d
-> > --- /dev/null
-> > +++ b/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-> > @@ -0,0 +1,303 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2025 Amarula Solutions, Dario Binacchi <dario.binacch=
-i@amarulasolutions.com>
-> > + */
-> > +
-> > +/dts-v1/;
-> > +#include "imx28.dtsi"
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/interrupt-controller/irq.h>
-> > +
-> > +/ {
-> > +     model =3D "Amarula i.MX28 rmm";
-> > +     compatible =3D "amarula,imx28-rmm", "fsl,imx28";
-> > +
-> > +     memory@40000000 {
-> > +             device_type =3D "memory";
-> > +             reg =3D <0x40000000 0x08000000>;
-> > +     };
-> > +
-> > +     reg_5v: regulator-5v {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "5v";
-> > +             regulator-min-microvolt =3D <5000000>;
-> > +             regulator-max-microvolt =3D <5000000>;
-> > +             regulator-always-on;
-> > +     };
-> > +
-> > +     reg_3v3: regulator-3v3 {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "3v3";
-> > +             regulator-min-microvolt =3D <3300000>;
-> > +             regulator-max-microvolt =3D <3300000>;
-> > +             regulator-always-on;
-> > +     };
-> > +
-> > +     reg_1v8: regulator-1v8 {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-name =3D "1v8";
-> > +             regulator-min-microvolt =3D <1800000>;
-> > +             regulator-max-microvolt =3D <1800000>;
-> > +     };
-> > +
-> > +     reg_fec_3v3: regulator-fec-3v3 {
-> > +             compatible =3D "regulator-fixed";
-> > +             pinctrl-names =3D "default";
-> > +             pinctrl-0 =3D <&fec_3v3_enable_pin>;
-> > +             regulator-name =3D "fec-3v3";
-> > +             regulator-min-microvolt =3D <3300000>;
-> > +             regulator-max-microvolt =3D <3300000>;
-> > +             gpios =3D <&gpio3 27 GPIO_ACTIVE_HIGH>;
-> > +             enable-active-high;
-> > +             startup-delay-us =3D <300000>;
-> > +             vin-supply =3D <&reg_5v>;
-> > +     };
-> > +
-> > +     reg_usb0_vbus: regulator-usb0-vbus {
-> > +             compatible =3D "regulator-fixed";
-> > +             pinctrl-names =3D "default";
-> > +             pinctrl-0 =3D <&usb0_vbus_enable_pin>;
-> > +             regulator-name =3D "usb0_vbus";
-> > +             regulator-min-microvolt =3D <5000000>;
-> > +             regulator-max-microvolt =3D <5000000>;
-> > +             gpio =3D <&gpio2 5 GPIO_ACTIVE_HIGH>;
-> > +             enable-active-high;
-> > +             regulator-always-on;
-> > +     };
-> > +
-> > +     reg_usb1_vbus: regulator-usb1-vbus {
-> > +             compatible =3D "regulator-fixed";
-> > +             pinctrl-names =3D "default";
-> > +             pinctrl-0 =3D <&usb1_vbus_enable_pin>;
-> > +             regulator-name =3D "usb1_vbus";
-> > +             regulator-min-microvolt =3D <5000000>;
-> > +             regulator-max-microvolt =3D <5000000>;
-> > +             gpio =3D <&gpio2 6 GPIO_ACTIVE_HIGH>;
-> > +             enable-active-high;
-> > +             regulator-always-on;
-> > +     };
-> > +
-> > +     backlight {
-> > +             compatible =3D "pwm-backlight";
-> > +             pwms =3D <&pwm 4 5000000 0>;
-> > +             brightness-levels =3D <0 255>;
-> > +             num-interpolated-steps =3D <255>;
-> > +             default-brightness-level =3D <255>;
-> > +             power-supply =3D <&reg_5v>;
-> > +     };
-> > +
-> > +     beeper {
-> > +             compatible =3D "pwm-beeper";
-> > +             pwms =3D <&pwm 7 100000 0>;
-> > +     };
-> > +
-> > +     leds {
-> > +             compatible =3D "gpio-leds";
-> > +             pinctrl-names =3D "default";
-> > +             pinctrl-0 =3D <&leds_pins>;
-> > +
-> > +             led-0 {
-> > +                     label =3D "status";
-> > +                     gpios =3D <&gpio2 7 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-1 {
-> > +                     label =3D "x22_5";
-> > +                     gpios =3D <&gpio3 16 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +
-> > +             led-2 {
-> > +                     label =3D "x22_4";
-> > +                     gpios =3D <&gpio3 17 GPIO_ACTIVE_HIGH>;
-> > +                     default-state =3D "off";
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&auart0 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&auart0_2pins_a>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&auart1 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&auart1_pins_a>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&can0 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&can0_pins_a>;
-> > +     xceiver-supply =3D <&reg_3v3>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&duart {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&duart_pins_b>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&duart_pins_b {
-> > +     fsl,voltage =3D <MXS_VOLTAGE_LOW>;
-> > +};
-> > +
-> > +&gpmi {
-> > +     #address-cells =3D <1>;
-> > +     #size-cells =3D <0>;
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&gpmi_pins_a &gpmi_status_cfg>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&i2c0 {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&i2c0_pins_a>;
-> > +     status =3D "okay";
-> > +
-> > +     touchscreen: touchscreen@38 {
-> > +             compatible =3D "edt,edt-ft5306";
-> > +             reg =3D <0x38>;
-> > +             pinctrl-names =3D "default";
-> > +             pinctrl-0 =3D <&edt_ft5x06_pins &edt_ft5x06_wake_pin>;
-> > +             interrupt-parent =3D <&gpio0>;
-> > +             interrupts =3D <19 IRQ_TYPE_EDGE_RISING>;
-> > +             reset-gpios =3D <&gpio0 21 GPIO_ACTIVE_LOW>;
-> > +             wake-gpios =3D <&gpio0 18 GPIO_ACTIVE_HIGH>;
-> > +     };
-> > +};
-> > +
-> > +&lradc {
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&mac0 {
-> > +     phy-mode =3D "rmii";
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&mac0_pins_a>;
-> > +     phy-supply =3D <&reg_fec_3v3>;
-> > +     phy-handle =3D <&ethphy>;
-> > +     status =3D "okay";
-> > +
-> > +     mdio {
-> > +             #address-cells =3D <1>;
-> > +             #size-cells =3D <0>;
-> > +
-> > +             ethphy: ethernet-phy@0 {
-> > +                     compatible =3D "ethernet-phy-ieee802.3-c22";
-> > +                     reg =3D <0>;
-> > +                     max-speed =3D <100>;
-> > +                     reset-gpios =3D <&gpio3 28 GPIO_ACTIVE_LOW>;
-> > +                     reset-assert-us =3D <4000>;
-> > +                     reset-deassert-us =3D <4000>;
-> > +             };
-> > +     };
-> > +};
-> > +
-> > +&pinctrl {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&hog_pins_a>;
-> > +
-> > +     hog_pins_a: hog@0 {
-> > +             reg =3D <0>;
-> > +             fsl,pinmux-ids =3D <
-> > +                     MX28_PAD_SSP2_SS1__GPIO_2_20  /* External power *=
-/
-> > +             >;
-> > +             fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> > +             fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> > +             fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> > +     };
-> > +
-> > +     edt_ft5x06_pins: edt-ft5x06@0 {
-> > +             reg =3D <0>;
-> > +             fsl,pinmux-ids =3D <
-> > +                     MX28_PAD_GPMI_RDY1__GPIO_0_21 /* Reset */
-> > +                     MX28_PAD_GPMI_CE3N__GPIO_0_19 /* Interrupt */
-> > +             >;
-> > +             fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> > +             fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> > +             fsl,pull-up =3D <MXS_PULL_ENABLE>;
-> > +     };
-> > +
-> > +     edt_ft5x06_wake_pin: edt-ft5x06-wake@0 {
-> > +             reg =3D <0>;
-> > +             fsl,pinmux-ids =3D <MX28_PAD_GPMI_CE2N__GPIO_0_18>;
-> > +             fsl,drive-strength =3D <MXS_DRIVE_16mA>;
-> > +             fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> > +             fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> > +     };
-> > +
-> > +     fec_3v3_enable_pin: fec-3v3-enable@0 {
-> > +             reg =3D <0>;
-> > +             fsl,pinmux-ids =3D <MX28_PAD_SPDIF__GPIO_3_27>;
-> > +             fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> > +             fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> > +             fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> > +     };
-> > +
-> > +     leds_pins: leds@0 {
-> > +             reg =3D <0>;
-> > +             fsl,pinmux-ids =3D <
-> > +                     MX28_PAD_SSP0_DATA7__GPIO_2_7
-> > +                     MX28_PAD_PWM0__GPIO_3_16
-> > +                     MX28_PAD_PWM1__GPIO_3_17
-> > +             >;
-> > +             fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> > +             fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> > +             fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> > +     };
-> > +
-> > +     usb0_vbus_enable_pin: usb0-vbus-enable@0 {
-> > +             reg =3D <0>;
-> > +             fsl,pinmux-ids =3D <MX28_PAD_SSP0_DATA5__GPIO_2_5>;
-> > +             fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> > +             fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> > +             fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> > +     };
-> > +
-> > +     usb1_vbus_enable_pin: usb1-vbus-enable@0 {
-> > +             reg =3D <0>;
-> > +             fsl,pinmux-ids =3D <MX28_PAD_SSP0_DATA6__GPIO_2_6>;
-> > +             fsl,drive-strength =3D <MXS_DRIVE_4mA>;
-> > +             fsl,voltage =3D <MXS_VOLTAGE_HIGH>;
-> > +             fsl,pull-up =3D <MXS_PULL_DISABLE>;
-> > +     };
-> > +};
-> > +
-> > +&pwm {
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&pwm4_pins_a &pwm7_pins_a>;
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&ssp0 {
-> > +     compatible =3D "fsl,imx28-mmc";
-> > +     pinctrl-names =3D "default";
-> > +     pinctrl-0 =3D <&mmc0_4bit_pins_a &mmc0_sck_cfg>;
-> > +     status =3D "okay";
-> > +     bus-width =3D <4>;
-> > +     broken-cd;
-> > +};
-> > +
-> > +&usb0 {
-> > +     status =3D "okay";
-> > +     vbus-supply =3D <&reg_usb0_vbus>;
-> > +     dr_mode =3D "host";
-> > +};
-> > +
-> > +&usb1 {
-> > +     status =3D "okay";
-> > +     vbus-supply =3D <&reg_usb1_vbus>;
-> > +     dr_mode =3D "host";
-> > +};
-> > +
-> > +&usbphy0 {
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&usbphy1 {
-> > +     status =3D "okay";
-> > +};
-> > --
-> > 2.43.0
-> >
+Add a new coresight-tgu.yaml file to describe the bindings required to
+define the TGU in the device trees.
 
+Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+---
+ .../bindings/arm/qcom,coresight-tgu.yaml      | 92 +++++++++++++++++++
+ 1 file changed, 92 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-tgu.yaml
 
+diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tgu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tgu.yaml
+new file mode 100644
+index 000000000000..3576d3871126
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tgu.yaml
+@@ -0,0 +1,92 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++# Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/qcom,coresight-tgu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Trigger Generation Unit - TGU
++
++description: |
++  The Trigger Generation Unit (TGU) is a Data Engine which can be utilized
++  to sense a plurality of signals and create a trigger into the CTI or
++  generate interrupts to processors. The TGU is like the trigger circuit
++  of a Logic Analyzer. The corresponding trigger logic can be realized by
++  configuring the conditions for each step after sensing the signal.
++  Once setup and enabled, it will observe sense inputs and based upon
++  the activity of those inputs, even over clock cycles, may detect a
++  preprogrammed state/sequence and then produce a trigger or interrupt.
++
++  The primary use case of the TGU is to detect patterns or sequences on a
++  given set of signals within some region to indentify the issue in time
++  once there is abnormal behavior in the subsystem.
++
++maintainers:
++  - Mao Jinlong <quic_jinlmao@quicinc.com>
++  - Sam Chai <quic_songchai@quicinc.com>
++
++# Need a custom select here or 'arm,primecell' will match on lots of nodes
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - qcom,coresight-tgu
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: qcom,coresight-tgu
++      - const: arm,primecell
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    items:
++      - const: apb_pclk
++
++  in-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    additionalProperties: false
++
++    properties:
++      port:
++        description:
++          The port mechanism here ensures the relationship between TGU and
++          TPDM, as TPDM is one of the inputs for TGU. It will allow TGU to
++          function as TPDM's helper and enable TGU when the connected
++          TPDM is enabled.
++        $ref: /schemas/graph.yaml#/properties/port
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    tgu@10b0e000 {
++        compatible = "qcom,coresight-tgu", "arm,primecell";
++        reg = <0x10b0e000 0x1000>;
++
++        clocks = <&aoss_qmp>;
++        clock-names = "apb_pclk";
++
++        in-ports {
++            port {
++                tgu_in_tpdm_swao: endpoint{
++                    remote-endpoint = <&tpdm_swao_out_tgu>;
++                };
++            };
++        };
++    };
++...
 
---=20
-
-Dario Binacchi
-
-Senior Embedded Linux Developer
-
-dario.binacchi@amarulasolutions.com
-
-__________________________________
-
-
-Amarula Solutions SRL
-
-Via Le Canevare 30, 31100 Treviso, Veneto, IT
-
-T. +39 042 243 5310
-info@amarulasolutions.com
-
-www.amarulasolutions.com
 
