@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7725EC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 13:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283A0C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 13:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZmKSMbzA96hgjOUpKAldzAt0+MepqVPTK1rf+kG3Dk=; b=iNvKs3nRXAKTn79kZ/J0Mds46m
-	TVjQS7hEAyRrQIF+KXYYaSkwcm/7tn2qrzeMRoYYZn6aIL3XmzG0qOsGa79yBDl85fiJFECbgb34t
-	KSvt2TQstTW9o269sEKw1T6ab7rV7zDX1+LTphYhiBn2EOxvym26GayhSyG7tVhkhsc9EYXw6G16+
-	nndyC89e6GLNS6XP/m7C5ZRfkq+DhItCopQIrS4VKswm4wHz2vV+GLec9RFC/ApHfk5E1E8Q9VKJF
-	od59BVsFGvjKzRRf8J/FvzhNZMMkz4wkqB/zlEPQBv0AnGcJZJGY3kmm4FX0t+YJiMWFsWZvHkL+b
-	Q0nM4O1A==;
+	bh=R10/6b6Xf36HyFSNb4SRKN0wr+JLKLnM/MuUs7P42Sk=; b=wr7uKJus2EpDII6CNkdmssVHeL
+	moXj0vyWA036iV1SsVDGbr0jqBatZjL3pSTo0yfeDlHiK8mduw8AoHXsgfRAJPyLp/+LrwhN1M4bl
+	asMUsPdgXlE31YJC/0PaAc7JntTu61tk7DCjBi6pumS1Cj1Mh/lkxhLigF2E6gVbhMucr97EkYaoO
+	FH5Nfjl/SI0QfHQi4Z7NvJbjWDgh2XIUAcC8ODXI776Maifg8tiRPqFl61UbnIK+2IeA5Aw30VLWh
+	rSOz+gpeDeeshUTTT6yR5T3GQizCgEcM7gNb3JKbmqaK1IAFUpgOlhOvD2OGFSytsonou/pcx66r5
+	8ur2oq5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKd6X-0000000FpgN-1xk5;
-	Thu, 29 May 2025 13:15:29 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uKd8d-0000000Fq2l-0ink;
+	Thu, 29 May 2025 13:17:39 +0000
+Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKcal-0000000FkiY-0x7V
+	id 1uKcam-0000000Fkj0-0P6v
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 12:42:40 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ad88105874aso123743266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 05:42:38 -0700 (PDT)
+	Thu, 29 May 2025 12:42:41 +0000
+Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-ad89f9bb725so164870166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 05:42:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1748522557; x=1749127357; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1748522559; x=1749127359; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RZmKSMbzA96hgjOUpKAldzAt0+MepqVPTK1rf+kG3Dk=;
-        b=FwKAGejMv5gPwf0qQRFQuVtR9+xIVc34at4eQF3XA5fgLnp/i1qVDGXbcxl+KL+DmI
-         l9E2M+dZtCCBK7e7msRzJUgo2NlX8kXV8ybktabHK9cESaV7KgH4k+ekZTtZJClNBuX/
-         b3Zz2+cdv1QWdgSkZkeN5izCZBYtK7kc5XbAZbxMzfV5xBlvGoNKHUfoFtyZUEg7aD46
-         PTo7Wn7RJ/xOakkvd54EfW4OUczGPiG3CZa9vySisN63RY0CAsLuyKCPaWPf/isRHavG
-         KuuwpuwSe7UrZj0DhcidqBXyebPpj5FER8SwffcMihf7OVAbCAmjEj7oDi/yUco3cU1h
-         IbEg==
+        bh=R10/6b6Xf36HyFSNb4SRKN0wr+JLKLnM/MuUs7P42Sk=;
+        b=MzZ+SmbxLuTblFs7b64YGr0bwZUu+aXkXySSZ3EANvVwbE/7l5sdqsq02YqMC/2oiA
+         G8vxmrJMLonHS/eod3FvAPcBbvBiGvLbTaWT2okYepeRg3vr8EzWQPfJ/FGQUmh+1Aaq
+         HQmg32vC4tIk9MCkZ6fbXTX9sCXuMYHx38lzYrm992IdI3PhxTUrB/+NWuVJbbOCZjg8
+         hOuzGWXQi0s2we434LoEVZhG2YTKfJsvuE4DH8GMUZgjCH7jn5hMy+L+4/z2lAhLl9Zd
+         sjOUt4jJuhyQXFWZFEHoBARckrqs7GIX/dMiKQ1GP9jLBHRUGtMAVHfFb5qLq+67Z19Z
+         stMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748522557; x=1749127357;
+        d=1e100.net; s=20230601; t=1748522559; x=1749127359;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=RZmKSMbzA96hgjOUpKAldzAt0+MepqVPTK1rf+kG3Dk=;
-        b=GCaOGPgB5yAOWuno2T9c6rtgc9FARIxlpPafZUqPraRyaCLXHSP3X6/Ny6IvdUVzy3
-         GSD9gsNokMqjgg/CUyRCPTY/mKL8UhIGU0lXpvj2XsJFZ9sadfZtG02PPeZWFWHVg0sw
-         Huogpu9dlnNkwgvP43yD4P8p5AeTdxgJwYm8EQpw6am2tTqTgdAJhPX1R4cDH/lh/FwR
-         lwf5/WrAmUaEiT3lVcluUObw0uVNpjxflLdhvoUJ2Ht5YVKz+AzPWRJy95reO2ah9RvL
-         sM/tKVOjlsXalP3j6qx92sqgyel6Q+QyeLKE+/NajwebIYWGQn4Smb3Op/NRME5Wyy67
-         L5zg==
-X-Forwarded-Encrypted: i=1; AJvYcCWVBReSCLW/Ispwrvg3ganor0yXyFHJmjybNhgYkhyfAYvPBuja6maTMp5Uy/tdg1FDnKJB4rvhA24Az1e/lEuZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnJX+r+rSECDUrM8vWOsJGttDx9fXTFyzkgPTgBFFxWN8gbeP6
-	LSqxh6MEFiIG9Jyc6FXiGUkijqTOksC3t2EAY3nkZqCLRpIZ21Ed3lh6hWt+pR8JnQ0=
-X-Gm-Gg: ASbGncuJ811xlyP5aXJFcx/xLxbLoA/3GzcAq4OQLh3sfjjXfRXk2dGASqhGUHQHOn8
-	sx9L3sOJgA0L+UeyPDrjfFxdkQ+Q5Ep3tziaPMq/+mY2sJxGyzxbqQ4h4SofLRB+nYJjVWADC8n
-	+ZH3ypBUQsT5lplUtvnWzRd0m7hITDqkZci0/QpDwBg0f38bnu9UKMIZ6Pn9r7q3yfnj5ZV1TJo
-	5NHR7oxBMQzd3u9YDurtA3LEHVazkCGpX/rSRyupM629rCV+UFdYOPZs9Bctew5aGW/OKRxi7Ky
-	K7tqFDzU6cJbzwUq7c0gx9NrRn9LjisWFKXejkD7XBXarEzETgcTuZxPSCjIbonfw5RaT60t71w
-	HUor4CSaYCpCDXuoxduQOHw==
-X-Google-Smtp-Source: AGHT+IFgiCpfokGYPqFfNbRAwtykuDbZ9l9nPVNQ028I3fcbAmrbjnUjF4hg+nzReyJrKKzdPC5Qhw==
-X-Received: by 2002:a17:907:3f1b:b0:ad8:9d41:371e with SMTP id a640c23a62f3a-adadee36a88mr195092466b.36.1748522557299;
-        Thu, 29 May 2025 05:42:37 -0700 (PDT)
+        bh=R10/6b6Xf36HyFSNb4SRKN0wr+JLKLnM/MuUs7P42Sk=;
+        b=NILy+cvMyH0tX446hyih9W7APFp6BcXNVPAqTzgsxvX1hSsNKz3ZtXKpTbEPf4/Ozp
+         +Ctw4PFUKAVTRriCUrzx2S/hk2rfijP9/Etj3p/LQMWTwBaYd9yuPwQyDdfTczlR9dMv
+         3Zf15WtQly1kQdgfhisDC4D16q7VZ9TiH43dZ5OhNnI/fnX0AsM3KMSkElHi7kvnGKOB
+         NTLzDaEsTlZv0h6Y/9YLjAD9VKjj6kc6+Gx73VnZj1HBRyoyShNV8SksZW+23XB+mXwC
+         ugFu2iMMtEXnH5qOvXBadc8DbZ6ZLd5nQE00LsR8QFBZocEvQ09+nu2KZyLY5p0o0ZRZ
+         jT6g==
+X-Forwarded-Encrypted: i=1; AJvYcCW/zGp49Giek+kkYQq/s/xV5a6aWSWffiYmhDjEhXtVSnvgItUbkd5RU3gBpsjFWwBcsIEGcMESDMzhWyaLm7B+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRwrSnXvpM3d7ZAzmBpVjESxhM8se+ZNzxJJTqu3UxNuEJQgcB
+	SF58LvnzCuVufZqO+I/KSaS5jHVoP3muJ7Si5nsFW/M5fkN4mNIeBljtgH4EFLcZreI=
+X-Gm-Gg: ASbGncvlJfS4PJF0g7QpvhEWxtWsDbrbMjSKg7NIm/HjfxCoOq1451kC9SFkhqRdvgf
+	t4AjLTfWj9d2kUrDoACLeY98s8i/io2vxcGVWEZdQfDS9k0+FdF84rbh/0TqlztLvVF9b3iHH7s
+	oI8nTX8uz3IMXBcb/w+2pEeDOtseEE5x5u188+ITlr7dwhTGbwdP/rIco2lpDCvfJgrQjMbrsFM
+	iidtgcVEUkoZOzWecbB7te/a3pUFTWBZjlwwAT5KR24jOlMscot3usL65V4JmTId5hwCtVl35Ek
+	StsNebj8owBRy3QqBKJqaWYxjxLAb0lauVxGN8eWSjHz4uGmhaOET6HcP+0hY8biT2QM1CxWeyj
+	lhtlGDTbJR2nG6YpDlAnZkw==
+X-Google-Smtp-Source: AGHT+IGDlrGTxoXUszNucMnwp5TfCQG8aTq2bHfOgx+fFODeGR1fQBA2iwY1zCWEeVzdy495Zb9rvg==
+X-Received: by 2002:a17:907:25c7:b0:ad2:2a2f:7064 with SMTP id a640c23a62f3a-ad85b070c3amr2175559666b.25.1748522558548;
+        Thu, 29 May 2025 05:42:38 -0700 (PDT)
 Received: from localhost (host-87-21-228-106.retail.telecomitalia.it. [87.21.228.106])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada6ad3952esm136308766b.126.2025.05.29.05.42.36
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5dd045edsm133515966b.119.2025.05.29.05.42.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 05:42:36 -0700 (PDT)
+        Thu, 29 May 2025 05:42:38 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: Andrea della Porta <andrea.porta@suse.com>,
 	Michael Turquette <mturquette@baylibre.com>,
@@ -107,17 +107,17 @@ To: Andrea della Porta <andrea.porta@suse.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	kernel-list@raspberrypi.com,
 	Matthias Brugger <mbrugger@suse.com>
-Subject: [PATCH v11 06/13] arm64: dts: rp1: Add support for RaspberryPi's RP1 device
-Date: Thu, 29 May 2025 14:43:55 +0200
-Message-ID: <20250529124412.26311-1-andrea.porta@suse.com>
+Subject: [PATCH v11 07/13] misc: rp1: RaspberryPi RP1 misc driver
+Date: Thu, 29 May 2025 14:43:56 +0200
+Message-ID: <20250529124412.26311-2-andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <cover.1748522349.git.andrea.porta@suse.com>
 References: <cover.1748522349.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_054239_258927_470E0459 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20250529_054240_292252_BD23B8DE 
+X-CRM114-Status: GOOD (  35.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,93 +132,518 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RaspberryPi RP1 is a multi function PCI endpoint device that
-exposes several subperipherals via PCI BAR.
+The RaspberryPi RP1 is a PCI multi function device containing
+peripherals ranging from Ethernet to USB controller, I2C, SPI
+and others.
 
-Add a dtb overlay that will be compiled into a binary blob
-and linked in the RP1 driver.
+Implement a bare minimum driver to operate the RP1, leveraging
+actual OF based driver implementations for the on-board peripherals
+by loading a devicetree overlay during driver probe if the RP1
+node is not already present in the DT.
 
-This overlay offers just minimal support to represent the
-RP1 device itself, the sub-peripherals will be added by
-future patches.
+The peripherals are accessed by mapping MMIO registers starting
+from PCI BAR1 region.
+
+With the overlay approach we can achieve more generic and agnostic
+approach to managing this chipset, being that it is a PCI endpoint
+and could possibly be reused in other hw implementations. The
+presented approach is also used by Bootlin's Microchip LAN966x
+patchset (see link) as well, for a similar chipset.
+In this case, the inclusion tree for the DT overlay is as follow
+(the arrow points to the includer):
+
+ rp1-pci.dtso <---- rp1-common.dtsi
+
+On the other hand, to ensure compatibility with downstream, this
+driver can also work with a DT already comprising the RP1 node, so
+the dynamically loaded overlay will not be used if the DT is already
+fully defined.
+
+The reason why this driver is contained in drivers/misc has
+been paved by Bootlin's LAN966X driver, which first used the
+overlay approach to implement non discoverable peripherals behind a
+PCI bus. For RP1, the same arguments apply: it's not used as an SoC
+since the driver code is not running on-chip and is not like an MFD
+since it does not really need all the MFD infrastructure (shared regs,
+etc.). So, for this particular use, misc has been proposed and deemed
+as a good choice. For further details about that please check the links.
+
+This driver is heavily based on downstream code from RaspberryPi
+Foundation, and the original author is Phil Elwell.
+
+Link: https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf
+Link: https://lore.kernel.org/all/20240612140208.GC1504919@google.com/
+Link: https://lore.kernel.org/all/83f7fa09-d0e6-4f36-a27d-cee08979be2a@app.fastmail.com/
+Link: https://lore.kernel.org/all/2024081356-mutable-everyday-6f9d@gregkh/
+Link: https://lore.kernel.org/all/20240808154658.247873-1-herve.codina@bootlin.com/
 
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>   # quirks.c, pci_ids.h
 ---
- arch/arm64/boot/dts/broadcom/rp1-common.dtsi | 42 ++++++++++++++++++++
- arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi  | 14 +++++++
- 2 files changed, 56 insertions(+)
- create mode 100644 arch/arm64/boot/dts/broadcom/rp1-common.dtsi
- create mode 100644 arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi
+ drivers/misc/Kconfig          |   1 +
+ drivers/misc/Makefile         |   1 +
+ drivers/misc/rp1/Kconfig      |  20 ++
+ drivers/misc/rp1/Makefile     |   3 +
+ drivers/misc/rp1/rp1-pci.dtso |  25 +++
+ drivers/misc/rp1/rp1_pci.c    | 333 ++++++++++++++++++++++++++++++++++
+ drivers/pci/quirks.c          |   1 +
+ include/linux/pci_ids.h       |   3 +
+ 8 files changed, 387 insertions(+)
+ create mode 100644 drivers/misc/rp1/Kconfig
+ create mode 100644 drivers/misc/rp1/Makefile
+ create mode 100644 drivers/misc/rp1/rp1-pci.dtso
+ create mode 100644 drivers/misc/rp1/rp1_pci.c
 
-diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
+index 6b37d61150ee..3b9606bb4ccc 100644
+--- a/drivers/misc/Kconfig
++++ b/drivers/misc/Kconfig
+@@ -648,4 +648,5 @@ source "drivers/misc/uacce/Kconfig"
+ source "drivers/misc/pvpanic/Kconfig"
+ source "drivers/misc/mchp_pci1xxxx/Kconfig"
+ source "drivers/misc/keba/Kconfig"
++source "drivers/misc/rp1/Kconfig"
+ endmenu
+diff --git a/drivers/misc/Makefile b/drivers/misc/Makefile
+index d6c917229c45..e15a732de690 100644
+--- a/drivers/misc/Makefile
++++ b/drivers/misc/Makefile
+@@ -74,3 +74,4 @@ lan966x-pci-objs		:= lan966x_pci.o
+ lan966x-pci-objs		+= lan966x_pci.dtbo.o
+ obj-$(CONFIG_MCHP_LAN966X_PCI)	+= lan966x-pci.o
+ obj-y				+= keba/
++obj-$(CONFIG_MISC_RP1)		+= rp1/
+diff --git a/drivers/misc/rp1/Kconfig b/drivers/misc/rp1/Kconfig
 new file mode 100644
-index 000000000000..5002a375eb0b
+index 000000000000..5232e70d3079
 --- /dev/null
-+++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
-@@ -0,0 +1,42 @@
++++ b/drivers/misc/rp1/Kconfig
+@@ -0,0 +1,20 @@
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# RaspberryPi RP1 misc device
++#
++
++config MISC_RP1
++	tristate "RaspberryPi RP1 misc device"
++	depends on OF_IRQ && OF_OVERLAY && PCI_MSI && PCI_QUIRKS
++	select PCI_DYNAMIC_OF_NODES
++	help
++	  Support the RP1 peripheral chip found on Raspberry Pi 5 board.
++
++	  This device supports several sub-devices including e.g. Ethernet
++	  controller, USB controller, I2C, SPI and UART.
++
++	  The driver is responsible for enabling the DT node once the PCIe
++	  endpoint has been configured, and handling interrupts.
++
++	  This driver uses an overlay to load other drivers to support for
++	  RP1 internal sub-devices.
+diff --git a/drivers/misc/rp1/Makefile b/drivers/misc/rp1/Makefile
+new file mode 100644
+index 000000000000..508b4cb05627
+--- /dev/null
++++ b/drivers/misc/rp1/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_MISC_RP1)		+= rp1-pci.o
++rp1-pci-objs			:= rp1_pci.o rp1-pci.dtbo.o
+diff --git a/drivers/misc/rp1/rp1-pci.dtso b/drivers/misc/rp1/rp1-pci.dtso
+new file mode 100644
+index 000000000000..eea826b36e02
+--- /dev/null
++++ b/drivers/misc/rp1/rp1-pci.dtso
+@@ -0,0 +1,25 @@
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/clock/raspberrypi,rp1-clocks.h>
++/*
++ * The dts overlay is included from the dts directory so
++ * it can be possible to check it with CHECK_DTBS while
++ * also compile it from the driver source directory.
++ */
 +
-+pci_ep_bus: pci-ep-bus@1 {
-+	compatible = "simple-bus";
-+	ranges = <0x00 0x40000000  0x01 0x00 0x00000000  0x00 0x00400000>;
-+	dma-ranges = <0x10 0x00000000  0x43000000 0x10 0x00000000  0x10 0x00000000>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
++/dts-v1/;
++/plugin/;
 +
-+	rp1_clocks: clocks@40018000 {
-+		compatible = "raspberrypi,rp1-clocks";
-+		reg = <0x00 0x40018000 0x0 0x10038>;
-+		#clock-cells = <1>;
-+		clocks = <&clk_rp1_xosc>;
-+		assigned-clocks = <&rp1_clocks RP1_PLL_SYS_CORE>,
-+				  <&rp1_clocks RP1_PLL_SYS>,
-+				  <&rp1_clocks RP1_PLL_SYS_SEC>,
-+				  <&rp1_clocks RP1_CLK_SYS>;
-+		assigned-clock-rates = <1000000000>, // RP1_PLL_SYS_CORE
-+				       <200000000>,  // RP1_PLL_SYS
-+				       <125000000>,  // RP1_PLL_SYS_SEC
-+				       <200000000>;  // RP1_CLK_SYS
-+	};
++/ {
++	fragment@0 {
++		target-path="";
++		__overlay__ {
++			compatible = "pci1de4,1";
++			#address-cells = <3>;
++			#size-cells = <2>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
 +
-+	rp1_gpio: pinctrl@400d0000 {
-+		compatible = "raspberrypi,rp1-gpio";
-+		reg = <0x00 0x400d0000  0x0 0xc000>,
-+		      <0x00 0x400e0000  0x0 0xc000>,
-+		      <0x00 0x400f0000  0x0 0xc000>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_HIGH>,
-+			     <1 IRQ_TYPE_LEVEL_HIGH>,
-+			     <2 IRQ_TYPE_LEVEL_HIGH>;
++			#include "arm64/broadcom/rp1-common.dtsi"
++		};
 +	};
 +};
-diff --git a/arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi b/arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi
+diff --git a/drivers/misc/rp1/rp1_pci.c b/drivers/misc/rp1/rp1_pci.c
 new file mode 100644
-index 000000000000..0ef30d7f1c35
+index 000000000000..803832006ec8
 --- /dev/null
-+++ b/arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++++ b/drivers/misc/rp1/rp1_pci.c
+@@ -0,0 +1,333 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2018-2025 Raspberry Pi Ltd.
++ *
++ * All rights reserved.
++ */
 +
-+rp1_nexus {
-+	compatible = "pci1de4,1";
-+	#address-cells = <3>;
-+	#size-cells = <2>;
-+	ranges = <0x01 0x00 0x00000000
-+		  0x02000000 0x00 0x00000000
-+		  0x0 0x400000>;
-+	interrupt-controller;
-+	#interrupt-cells = <2>;
++#include <linux/err.h>
++#include <linux/interrupt.h>
++#include <linux/irq.h>
++#include <linux/irqchip/chained_irq.h>
++#include <linux/irqdomain.h>
++#include <linux/module.h>
++#include <linux/msi.h>
++#include <linux/of_platform.h>
++#include <linux/pci.h>
++#include <linux/platform_device.h>
 +
-+	#include "rp1-common.dtsi"
++#define RP1_HW_IRQ_MASK		GENMASK(5, 0)
++
++#define REG_SET			0x800
++#define REG_CLR			0xc00
++
++/* MSI-X CFG registers start at 0x8 */
++#define MSIX_CFG(x) (0x8 + (4 * (x)))
++
++#define MSIX_CFG_IACK_EN        BIT(3)
++#define MSIX_CFG_IACK           BIT(2)
++#define MSIX_CFG_ENABLE         BIT(0)
++
++/* Address map */
++#define RP1_PCIE_APBS_BASE	0x108000
++
++/* Interrupts */
++#define RP1_INT_END		61
++
++/* Embedded dtbo symbols created by cmd_wrap_S_dtb in scripts/Makefile.lib */
++extern char __dtbo_rp1_pci_begin[];
++extern char __dtbo_rp1_pci_end[];
++
++struct rp1_dev {
++	struct pci_dev *pdev;
++	struct irq_domain *domain;
++	struct irq_data *pcie_irqds[64];
++	void __iomem *bar1;
++	int ovcs_id;	/* overlay changeset id */
++	bool level_triggered_irq[RP1_INT_END];
 +};
++
++static void msix_cfg_set(struct rp1_dev *rp1, unsigned int hwirq, u32 value)
++{
++	iowrite32(value, rp1->bar1 + RP1_PCIE_APBS_BASE + REG_SET + MSIX_CFG(hwirq));
++}
++
++static void msix_cfg_clr(struct rp1_dev *rp1, unsigned int hwirq, u32 value)
++{
++	iowrite32(value, rp1->bar1 + RP1_PCIE_APBS_BASE + REG_CLR + MSIX_CFG(hwirq));
++}
++
++static void rp1_mask_irq(struct irq_data *irqd)
++{
++	struct rp1_dev *rp1 = irqd->domain->host_data;
++	struct irq_data *pcie_irqd = rp1->pcie_irqds[irqd->hwirq];
++
++	pci_msi_mask_irq(pcie_irqd);
++}
++
++static void rp1_unmask_irq(struct irq_data *irqd)
++{
++	struct rp1_dev *rp1 = irqd->domain->host_data;
++	struct irq_data *pcie_irqd = rp1->pcie_irqds[irqd->hwirq];
++
++	pci_msi_unmask_irq(pcie_irqd);
++}
++
++static int rp1_irq_set_type(struct irq_data *irqd, unsigned int type)
++{
++	struct rp1_dev *rp1 = irqd->domain->host_data;
++	unsigned int hwirq = (unsigned int)irqd->hwirq;
++
++	switch (type) {
++	case IRQ_TYPE_LEVEL_HIGH:
++		dev_dbg(&rp1->pdev->dev, "MSIX IACK EN for IRQ %u\n", hwirq);
++		msix_cfg_set(rp1, hwirq, MSIX_CFG_IACK_EN);
++		rp1->level_triggered_irq[hwirq] = true;
++	break;
++	case IRQ_TYPE_EDGE_RISING:
++		msix_cfg_clr(rp1, hwirq, MSIX_CFG_IACK_EN);
++		rp1->level_triggered_irq[hwirq] = false;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static struct irq_chip rp1_irq_chip = {
++	.name		= "rp1_irq_chip",
++	.irq_mask	= rp1_mask_irq,
++	.irq_unmask	= rp1_unmask_irq,
++	.irq_set_type	= rp1_irq_set_type,
++};
++
++static void rp1_chained_handle_irq(struct irq_desc *desc)
++{
++	unsigned int hwirq = desc->irq_data.hwirq & RP1_HW_IRQ_MASK;
++	struct rp1_dev *rp1 = irq_desc_get_handler_data(desc);
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	unsigned int virq;
++
++	chained_irq_enter(chip, desc);
++
++	virq = irq_find_mapping(rp1->domain, hwirq);
++	generic_handle_irq(virq);
++	if (rp1->level_triggered_irq[hwirq])
++		msix_cfg_set(rp1, hwirq, MSIX_CFG_IACK);
++
++	chained_irq_exit(chip, desc);
++}
++
++static int rp1_irq_xlate(struct irq_domain *d, struct device_node *node,
++			 const u32 *intspec, unsigned int intsize,
++			 unsigned long *out_hwirq, unsigned int *out_type)
++{
++	struct rp1_dev *rp1 = d->host_data;
++	struct irq_data *pcie_irqd;
++	unsigned long hwirq;
++	int pcie_irq;
++	int ret;
++
++	ret = irq_domain_xlate_twocell(d, node, intspec, intsize,
++				       &hwirq, out_type);
++	if (ret)
++		return ret;
++
++	pcie_irq = pci_irq_vector(rp1->pdev, hwirq);
++	pcie_irqd = irq_get_irq_data(pcie_irq);
++	rp1->pcie_irqds[hwirq] = pcie_irqd;
++	*out_hwirq = hwirq;
++
++	return 0;
++}
++
++static int rp1_irq_activate(struct irq_domain *d, struct irq_data *irqd,
++			    bool reserve)
++{
++	struct rp1_dev *rp1 = d->host_data;
++
++	msix_cfg_set(rp1, (unsigned int)irqd->hwirq, MSIX_CFG_ENABLE);
++
++	return 0;
++}
++
++static void rp1_irq_deactivate(struct irq_domain *d, struct irq_data *irqd)
++{
++	struct rp1_dev *rp1 = d->host_data;
++
++	msix_cfg_clr(rp1, (unsigned int)irqd->hwirq, MSIX_CFG_ENABLE);
++}
++
++static const struct irq_domain_ops rp1_domain_ops = {
++	.xlate      = rp1_irq_xlate,
++	.activate   = rp1_irq_activate,
++	.deactivate = rp1_irq_deactivate,
++};
++
++static void rp1_unregister_interrupts(struct pci_dev *pdev)
++{
++	struct rp1_dev *rp1 = pci_get_drvdata(pdev);
++	int irq, i;
++
++	if (rp1->domain) {
++		for (i = 0; i < RP1_INT_END; i++) {
++			irq = irq_find_mapping(rp1->domain, i);
++			irq_dispose_mapping(irq);
++		}
++
++		irq_domain_remove(rp1->domain);
++	}
++
++	pci_free_irq_vectors(pdev);
++}
++
++static int rp1_probe(struct pci_dev *pdev, const struct pci_device_id *id)
++{
++	u32 dtbo_size = __dtbo_rp1_pci_end - __dtbo_rp1_pci_begin;
++	void *dtbo_start = __dtbo_rp1_pci_begin;
++	struct device *dev = &pdev->dev;
++	struct device_node *rp1_node;
++	bool skip_ovl = true;
++	struct rp1_dev *rp1;
++	int err = 0;
++	int i;
++
++	/*
++	 * Either use rp1_nexus node if already present in DT, or
++	 * set a flag to load it from overlay at runtime
++	 */
++	rp1_node = of_find_node_by_name(NULL, "rp1_nexus");
++	if (!rp1_node) {
++		rp1_node = dev_of_node(dev);
++		skip_ovl = false;
++	}
++
++	if (!rp1_node) {
++		dev_err(dev, "Missing of_node for device\n");
++		err = -EINVAL;
++		goto err_put_node;
++	}
++
++	rp1 = devm_kzalloc(&pdev->dev, sizeof(*rp1), GFP_KERNEL);
++	if (!rp1) {
++		err = -ENOMEM;
++		goto err_put_node;
++	}
++
++	rp1->pdev = pdev;
++
++	if (pci_resource_len(pdev, 1) <= 0x10000) {
++		dev_err(&pdev->dev,
++			"Not initialized - is the firmware running?\n");
++		err = -EINVAL;
++		goto err_put_node;
++	}
++
++	err = pcim_enable_device(pdev);
++	if (err < 0) {
++		err = dev_err_probe(&pdev->dev, err,
++				    "Enabling PCI device has failed");
++		goto err_put_node;
++	}
++
++	rp1->bar1 = pcim_iomap(pdev, 1, 0);
++	if (!rp1->bar1) {
++		dev_err(&pdev->dev, "Cannot map PCI BAR\n");
++		err = -EIO;
++		goto err_put_node;
++	}
++
++	pci_set_master(pdev);
++
++	err = pci_alloc_irq_vectors(pdev, RP1_INT_END, RP1_INT_END,
++				    PCI_IRQ_MSIX);
++	if (err < 0) {
++		err = dev_err_probe(&pdev->dev, err,
++				    "Failed to allocate MSI-X vectors\n");
++		goto err_put_node;
++	} else if (err != RP1_INT_END) {
++		dev_err(&pdev->dev, "Cannot allocate enough interrupts\n");
++		err = -EINVAL;
++		goto err_put_node;
++	}
++
++	pci_set_drvdata(pdev, rp1);
++	rp1->domain = irq_domain_add_linear(rp1_node, RP1_INT_END,
++					    &rp1_domain_ops, rp1);
++	if (!rp1->domain) {
++		dev_err(&pdev->dev, "Error creating IRQ domain\n");
++		err = -ENOMEM;
++		goto err_unregister_interrupts;
++	}
++
++	for (i = 0; i < RP1_INT_END; i++) {
++		unsigned int irq = irq_create_mapping(rp1->domain, i);
++
++		if (!irq) {
++			dev_err(&pdev->dev, "Failed to create IRQ mapping\n");
++			err = -EINVAL;
++			goto err_unregister_interrupts;
++		}
++
++		irq_set_chip_and_handler(irq, &rp1_irq_chip, handle_level_irq);
++		irq_set_probe(irq);
++		irq_set_chained_handler_and_data(pci_irq_vector(pdev, i),
++						 rp1_chained_handle_irq, rp1);
++	}
++
++	if (!skip_ovl) {
++		err = of_overlay_fdt_apply(dtbo_start, dtbo_size, &rp1->ovcs_id,
++					   rp1_node);
++		if (err)
++			goto err_unregister_interrupts;
++	}
++
++	err = of_platform_default_populate(rp1_node, NULL, dev);
++	if (err) {
++		dev_err_probe(&pdev->dev, err, "Error populating devicetree\n");
++		goto err_unload_overlay;
++	}
++
++	return 0;
++
++err_unload_overlay:
++	of_overlay_remove(&rp1->ovcs_id);
++err_unregister_interrupts:
++	rp1_unregister_interrupts(pdev);
++err_put_node:
++	if (skip_ovl)
++		of_node_put(rp1_node);
++
++	return err;
++}
++
++static void rp1_remove(struct pci_dev *pdev)
++{
++	struct rp1_dev *rp1 = pci_get_drvdata(pdev);
++	struct device *dev = &pdev->dev;
++
++	of_platform_depopulate(dev);
++	of_overlay_remove(&rp1->ovcs_id);
++	rp1_unregister_interrupts(pdev);
++}
++
++static const struct pci_device_id dev_id_table[] = {
++	{ PCI_DEVICE(PCI_VENDOR_ID_RPI, PCI_DEVICE_ID_RPI_RP1_C0), },
++	{ }
++};
++MODULE_DEVICE_TABLE(pci, dev_id_table);
++
++static struct pci_driver rp1_driver = {
++	.name		= KBUILD_MODNAME,
++	.id_table	= dev_id_table,
++	.probe		= rp1_probe,
++	.remove		= rp1_remove,
++};
++
++module_pci_driver(rp1_driver);
++
++MODULE_AUTHOR("Phil Elwell <phil@raspberrypi.com>");
++MODULE_AUTHOR("Andrea della Porta <andrea.porta@suse.com>");
++MODULE_DESCRIPTION("RaspberryPi RP1 misc device");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+index 8d610c17e0f2..dad0ca42707f 100644
+--- a/drivers/pci/quirks.c
++++ b/drivers/pci/quirks.c
+@@ -6284,6 +6284,7 @@ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_XILINX, 0x5020, of_pci_make_dev_node);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_XILINX, 0x5021, of_pci_make_dev_node);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_REDHAT, 0x0005, of_pci_make_dev_node);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_EFAR, 0x9660, of_pci_make_dev_node);
++DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_RPI, PCI_DEVICE_ID_RPI_RP1_C0, of_pci_make_dev_node);
+ 
+ /*
+  * Devices known to require a longer delay before first config space access
+diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
+index 2e28182c3af0..ddfe09722d54 100644
+--- a/include/linux/pci_ids.h
++++ b/include/linux/pci_ids.h
+@@ -2624,6 +2624,9 @@
+ #define PCI_VENDOR_ID_TEKRAM		0x1de1
+ #define PCI_DEVICE_ID_TEKRAM_DC290	0xdc29
+ 
++#define PCI_VENDOR_ID_RPI		0x1de4
++#define PCI_DEVICE_ID_RPI_RP1_C0	0x0001
++
+ #define PCI_VENDOR_ID_ALIBABA		0x1ded
+ 
+ #define PCI_VENDOR_ID_CXL		0x1e98
 -- 
 2.35.3
 
