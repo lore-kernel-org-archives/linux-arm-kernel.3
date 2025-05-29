@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F199CC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D9AC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQcCCRJcmoJGe/Ytwe0GcZgHDaSsO3JHKK47D+mnI3w=; b=jNe3FjwMMA9hLmFJGjHsIg4XQ0
-	h10wbCGxasreI3GK0yP76kFdhDaMqR5x69q6NrQgNzrocu4ouibfsNQrsSO7DSKKA65p8ww48E1V6
-	fPsDpfYkuC/kFNcgn8hog40EzXN7vWrxrnlUnmkXWvVEv7lOA5tkm4AYi97lMAbwmjlzaWu/cnYiO
-	HIgsGVKooH7MbNK7irWW6X75xWmtYyOx3WB1W/yzfymBsF9Alm08lSspna21Yj5ey60Y+Qu2d4UAp
-	OfiBx3rhZVKt4GclNkZEtbfdMQYhUTi3JMsxGwZHv8oNGzVxwdrDuOdLw4ArdJS/hLJ+9jDssqaO9
-	1O86ZArw==;
+	bh=1tSel3scbAebqAGaqx0WAdDuK59jgb/Kgus0RNUA+zc=; b=Md4Djdg9pEdzgZm7pPdQvKcpki
+	NnMvbS3kUcHzHP9iXBOjjw1KupMixIBJZTGpoFGFDKRTxKkI4iTz4OKA52D8NEbCWRXLE0Ytw0jyu
+	4zWYVu0K4MUY3b52OcbWzwtU0k/9aaLosJ49HAXnJh97Hvv97R2u8npM3Q2luaBr7DR/EYmPJI5Cm
+	f7H6vCcVKzllPdT4q3Ssqm7dVGky8sjz908D7VdtLJaM0tneXARUJnSKTg0+v5c/GvgxCrwkGwoMx
+	zAWzxh2Tr1xOScki197EjgI2EWQwuUx4hYcDKuYYT3l1ziHO0E6bVYmiT5AOMN3Z+u7lpaw66lilJ
+	jNdCgAOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKg1A-0000000GAkF-3SUy;
-	Thu, 29 May 2025 16:22:08 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1uKg3G-0000000GAxZ-3iSl;
+	Thu, 29 May 2025 16:24:18 +0000
+Received: from out-177.mta1.migadu.com ([95.215.58.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKfwv-0000000GAKk-37uN;
-	Thu, 29 May 2025 16:17:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id AB09D43B46;
-	Thu, 29 May 2025 16:17:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748535461;
+	id 1uKfxH-0000000GAP2-2BG3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 May 2025 16:18:10 +0000
+Message-ID: <d5be7218-8ec1-4208-ac24-94d4831bfdb6@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1748535480;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=aQcCCRJcmoJGe/Ytwe0GcZgHDaSsO3JHKK47D+mnI3w=;
-	b=ecMAFBB8gulRYOvzlecnreKo0ztVIWO90fKLAItMRQVCsdXgoqN63xBiKB2FnJpIQvs2RQ
-	u4ZvXw5HJuNQ3LeyYyw9DZpnfwIUD2o0NkPOpfu5bO/OOht5HAPXp+tVR6qEkrhWDKQ1Cg
-	K7LOJbOMUZTmwPjFGJ+K2szY0clYVBVIYDpiB1uHI4S9LeWys82YKyiFvp8iXzknmqyJii
-	v/SOxoDcgsxTqCzbuaUkLQgHDTXkMOTCYnwxCj963SpLskoKaemGwVVJHBZcJI4IJYF4Nr
-	bqoI9aLA8kC6QzsNJhuaWio644A1EvC28rFeWTxhJpHmMmzD9Blf59k63KSPaQ==
-Message-ID: <f7689c91-8586-4223-8b4c-9345881ba961@bootlin.com>
-Date: Thu, 29 May 2025 18:17:38 +0200
+	bh=1tSel3scbAebqAGaqx0WAdDuK59jgb/Kgus0RNUA+zc=;
+	b=fRZLaRWG0s9LorTzK+I2Z89Vbphji7APvt/VS0CeeHvrPpv+E8wYcxtcXhT4liPtTHaBxU
+	j9YC6A2GgoX81qroo8JCpr2wkLW0H/LoQWveGpUnUDK6an2phNi/uxLLgE+oNDbKffOuV5
+	QYYN/2OjYhEGS1mnJzxGPsmyCfOAyEQ=
+Date: Thu, 29 May 2025 12:17:55 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] arm64: dts: rockchip: describe I2c Bus 1 and
- IMX258 world camera on PinePhone Pro
-From: Olivier Benjamin <olivier.benjamin@bootlin.com>
-To: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Nicholas Roth <nicholas@rothemail.net>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
- imx@lists.linux.dev, Dragan Simic <dsimic@manjaro.org>,
- Ondrej Jirman <megi@xff.cz>
-References: <20250509-camera-v3-0-dab2772d229a@bootlin.com>
- <20250509-camera-v3-3-dab2772d229a@bootlin.com> <3359896.e9J7NaK4W3@phil>
- <e8af352a-bfcf-4aa5-b113-e8b845c3a2c6@bootlin.com>
+Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report
+ coalesce parameters in DMAengine flow
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>,
+ "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "edumazet@google.com" <edumazet@google.com>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "vkoul@kernel.org" <vkoul@kernel.org>,
+ "Simek, Michal" <michal.simek@amd.com>,
+ "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+ "horms@kernel.org" <horms@kernel.org>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "git (AMD-Xilinx)" <git@amd.com>, "Katakam, Harini" <harini.katakam@amd.com>
+References: <20250525102217.1181104-1-suraj.gupta2@amd.com>
+ <679d6810-9e76-425c-9d4e-d4b372928cc3@linux.dev>
+ <BL3PR12MB6571ABA490895FDB8225CAEBC967A@BL3PR12MB6571.namprd12.prod.outlook.com>
 Content-Language: en-US
-In-Reply-To: <e8af352a-bfcf-4aa5-b113-e8b845c3a2c6@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvieehkeculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffhvfevfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpefqlhhivhhivghruceuvghnjhgrmhhinhcuoeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfdvfeetudfgfedvkeefleehieetvdejtedvuefgvddtvdegiedvjeehgfffleegnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiedphhgvlhhopeglkffrggeimedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiegnpdhmrghilhhfrhhomhepohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvvddprhgtphhtthhopehhvghikhhosehsnhhtvggthhdruggvp
- dhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhgrtghophhordhmohhnughisehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehnihgthhholhgrshesrhhothhhvghmrghilhdrnhgvthdprhgtphhtthhopehmtghhvghhrggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrghkrghrihdrrghilhhusheslhhinhhugidrihhnthgvlhdrtghomh
-X-GND-Sasl: olivier.benjamin@bootlin.com
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <BL3PR12MB6571ABA490895FDB8225CAEBC967A@BL3PR12MB6571.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_091746_584795_19B44541 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20250529_091807_863445_9350BBC9 
+X-CRM114-Status: GOOD (  29.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,241 +83,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/28/25 08:00, Gupta, Suraj wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
+> 
+>> -----Original Message-----
+>> From: Sean Anderson <sean.anderson@linux.dev>
+>> Sent: Tuesday, May 27, 2025 9:47 PM
+>> To: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
+>> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+>> pabeni@redhat.com; vkoul@kernel.org; Simek, Michal <michal.simek@amd.com>;
+>> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org
+>> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+>> kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
+>> <harini.katakam@amd.com>
+>> Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report coalesce
+>> parameters in DMAengine flow
+>>
+>> Caution: This message originated from an External Source. Use proper caution
+>> when opening attachments, clicking links, or responding.
+>>
+>>
+>> On 5/25/25 06:22, Suraj Gupta wrote:
+>> > Add support to configure / report interrupt coalesce count and delay
+>> > via ethtool in DMAEngine flow.
+>> > Netperf numbers are not good when using non-dmaengine default values,
+>> > so tuned coalesce count and delay and defined separate default values
+>> > in dmaengine flow.
+>> >
+>> > Netperf numbers and CPU utilisation change in DMAengine flow after
+>> > introducing coalescing with default parameters:
+>> > coalesce parameters:
+>> >    Transfer type        Before(w/o coalescing)  After(with coalescing)
+>> > TCP Tx, CPU utilisation%      925, 27                 941, 22
+>> > TCP Rx, CPU utilisation%      607, 32                 741, 36
+>> > UDP Tx, CPU utilisation%      857, 31                 960, 28
+>> > UDP Rx, CPU utilisation%      762, 26                 783, 18
+>> >
+>> > Above numbers are observed with 4x Cortex-a53.
+>>
+>> How does this affect latency? I would expect these RX settings to increase latency
+>> around 5-10x. I only use these settings with DIM since it will disable coalescing
+>> during periods of light load for better latency.
+>>
+>> (of course the way to fix this in general is RSS or some other method involving
+>> multiple queues).
+>>
+> 
+> I took values before NAPI addition in legacy flow (rx_threshold: 24, rx_usec: 50) as reference. But netperf numbers were low with them, so tried tuning both and selected the pair which gives good numbers.
 
+Yeah, but the reason is that you are trading latency for throughput.
+There is only one queue, so when the interface is saturated you will not
+get good latency anyway (since latency-sensitive packets will get
+head-of-line blocked). But when activity is sparse you can good latency
+if there is no coalescing. So I think coalescing should only be used
+when there is a lot of traffic. Hence why I only adjusted the settings
+once I implemented DIM. I think you should be able to implement it by
+calling net_dim from axienet_dma_rx_cb, but it will not be as efficient
+without NAPI.
 
-On 5/14/25 06:59, Olivier Benjamin wrote:
-> 
-> 
-> On 5/13/25 20:23, Heiko Stuebner wrote:
->> Hi Olivier,
->>
-> Hello Heiko, thanks for having a look!
-> 
-Hi again Heiko,
->> Am Freitag, 9. Mai 2025, 23:51:39 Mitteleuropäische Sommerzeit schrieb 
->> Olivier Benjamin:
->>> Add the description of the rear/world camera (IMX258) on the 
->>> PinePhone Pro
->>> to the device dts file.
->>> It receives commands on the I2C Bus 1 at address 0x1a and transmits data
->>> over CSI-MIPI.
->>>
->>> The I2C address for IMX258 can be found in the IMX258-0AQH5 Software
->>> Reference Manual, page 24, section 2.3.1: 0b0011010 = 0x1a.
->>> Section 3 indicates the module has 4 pairs of data lines. While 4-lane
->>> mode is nominal, 2-lane mode should also be supported.
->>>
->>> The pin muxing info was extracted from the PinePhone Pro schematic v1.0
->>> as well as the RK3399 datasheet revision 1.8.
->>>
->>> Table 2-3 in section 2.8 of the RK3399 datasheet contains the mapping
->>> of IO functions for the SoC pins. Page 52 shows GPIO1_A0, page 54 shows
->>> GPIO2_D4.
->>>
->>> For I2C power, the PinePhone Pro schematic page 11 quadrants A4 and A5:
->>> RK3399_J.AA8 and RK3399_J.Y8 get power from vcaa1v8_codec, so turn it on
->>>
->>> The IMX258 also uses the following regulators, expected by its driver:
->>>   - vana (2.8V analog), called AVDD2V8_DVP on P.18 q.C1 and derived from
->>>     VCC1V8_S3 on P.13 q.B2
->>>   - vdig (1.2V digital core), called DVDD_DVP on P.18 q.C1 and shown on
->>>     P.18 q.D3 to be equivalent to VCC1V2_DVP derived from VCC3V3_SYS on
->>>     P.13 q.B3. Note that this regulator's voltage is inconsistently
->>>     labeled either 1.2V or 1.5V
->>>
->>> RK3399_J.AG1 is GPIO4_A1/I2C1_SDA, RK3399_J.Y6 is GPIO4_A2/I2C1_SCL
->>> This is the default pinctrl "i2c1_xfer" for i2c1 from rk3399-base.
->>>
->>> For the reset (RESET) signal:
->>> page 11 quadrant D2             | p.18 q.C3-4 | p.18 q.C2
->>> RK3399_E.R25 -> GPIO1_A0 -> Camera_RST -> MIPI_RST0 -> IMX258.12
->>>
->>> For the powerdown (PWDN) signal:
->>> page 11 quadrants B4-5          | p.18 q.C2
->>> RK3399_G.AF8 -> GPIO2_D4 -> DVP_PDN1_H -> IMX258.14
->>>
->>> Helped-by: Dragan Simic <dsimic@manjaro.org>
->>> Co-developed-by: Ondrej Jirman <megi@xff.cz>
->>> Signed-off-by: Ondrej Jirman <megi@xff.cz>
->>> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
->>
->> how independent are the devicetree changes from the binding changes?
->> As the binding change "only" includes other properties.
->>
-> They are pretty independent: the binding changes are only needed to 
-> suppress warnings on the devicetree.
-> However, the changes to the devicetree are the motivation for the 
-> changes to the binding: the other properties are not strictly necessary 
-> otherwise.
-> 
-Have you had a chance to have a look?
-Are any changes needed in your opinion?
->> Heiko
->>
->>
->>> ---
->>>   .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 94 +++++++++++ 
->>> +++++++++++
->>>   1 file changed, 94 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/ 
->>> arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->>> index 
->>> 04ba4c4565d0a205e2e46d7535c6a3190993621d..588e2d8a049cc649aa227c7a885bd494f23fbdf8 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
->>> @@ -114,6 +114,16 @@ vcc3v3_sys: regulator-vcc3v3-sys {
->>>           vin-supply = <&vcc_sys>;
->>>       };
->>> +    avdd2v8_dvp: regulator-avdd2v8-dvp {
->>> +        compatible = "regulator-fixed";
->>> +        regulator-name = "avdd2v8_dvp";
->>> +        regulator-always-on;
->>> +        regulator-boot-on;
->>> +        regulator-min-microvolt = <2800000>;
->>> +        regulator-max-microvolt = <2800000>;
->>> +        vin-supply = <&vcc3v3_sys>;
->>> +    };
->>> +
->>>       vcca1v8_s3: regulator-vcc1v8-s3 {
->>>           compatible = "regulator-fixed";
->>>           regulator-name = "vcca1v8_s3";
->>> @@ -136,6 +146,16 @@ vcc1v8_codec: regulator-vcc1v8-codec {
->>>           vin-supply = <&vcc3v3_sys>;
->>>       };
->>> +    vcc1v2_dvp: regulator-vcc1v2-dvp {
->>> +        compatible = "regulator-fixed";
->>> +        regulator-name = "vcc1v2_dvp";
->>> +        regulator-always-on;
->>> +        regulator-boot-on;
->>> +        regulator-min-microvolt = <1200000>;
->>> +        regulator-max-microvolt = <1200000>;
->>> +        vin-supply = <&vcca1v8_s3>;
->>> +    };
->>> +
->>>       wifi_pwrseq: sdio-wifi-pwrseq {
->>>           compatible = "mmc-pwrseq-simple";
->>>           clocks = <&rk818 1>;
->>> @@ -312,6 +332,8 @@ vcc3v0_touch: LDO_REG2 {
->>>               vcca1v8_codec: LDO_REG3 {
->>>                   regulator-name = "vcca1v8_codec";
->>> +                regulator-always-on;
->>> +                regulator-boot-on;
->>>                   regulator-min-microvolt = <1800000>;
->>>                   regulator-max-microvolt = <1800000>;
->>>               };
->>> @@ -420,6 +442,46 @@ regulator-state-mem {
->>>       };
->>>   };
->>> +&i2c1 {
->>> +    clock-frequency = <400000>;
->>> +    pinctrl-0 = <&i2c1_xfer &cif_clkouta>;
->>> +    assigned-clocks = <&cru SCLK_CIF_OUT>;
->>> +    assigned-clock-rates = <24000000>;
->>> +    status = "okay";
->>> +
->>> +    wcam: camera@1a {
->>> +        compatible = "sony,imx258";
->>> +        reg = <0x1a>;
->>> +        clocks = <&cru SCLK_CIF_OUT>; /* MIPI_MCLK0, derived from 
->>> CIF_CLKO */
->>> +        clock-names = "xvclk";
->>> +        pinctrl-names = "default";
->>> +        pinctrl-0 = <&wcam_rst>;
->>> +        /* Note: both cameras also depend on vcca1v8_codec to power 
->>> the I2C bus. */
->>> +        vif-supply = <&vcc1v8_dvp>;
->>> +        vana-supply = <&avdd2v8_dvp>;
->>> +        vdig-supply = <&vcc1v2_dvp>; /* DVDD_DVP is the same as 
->>> VCC1V2_DVP */
->>> +        reset-gpios = <&gpio1 RK_PA0 GPIO_ACTIVE_LOW>;
->>> +        orientation = <1>; /* V4L2_CAMERA_ORIENTATION_BACK */
->>> +        rotation = <270>;
->>> +        lens-focus = <&wcam_lens>;
->>> +
->>> +        port {
->>> +            wcam_out: endpoint {
->>> +                remote-endpoint = <&mipi_in_wcam>;
->>> +                data-lanes = <1 2 3 4>;
->>> +                link-frequencies = /bits/ 64 <636000000>;
->>> +            };
->>> +        };
->>> +    };
->>> +
->>> +    wcam_lens: camera-lens@c {
->>> +        compatible = "dongwoon,dw9714";
->>> +        reg = <0x0c>;
->>> +        /* Same I2c bus as both cameras, depends on vcca1v8_codec 
->>> for power. */
->>> +        vcc-supply = <&vcc1v8_dvp>;
->>> +    };
->>> +};
->>> +
->>>   &i2c3 {
->>>       i2c-scl-rising-time-ns = <450>;
->>>       i2c-scl-falling-time-ns = <15>;
->>> @@ -462,6 +524,28 @@ &io_domains {
->>>       status = "okay";
->>>   };
->>> +&isp1 {
->>> +    status = "okay";
->>> +
->>> +    ports {
->>> +        port@0 {
->>> +            mipi_in_wcam: endpoint@0 {
->>> +                reg = <0>;
->>> +                remote-endpoint = <&wcam_out>;
->>> +                data-lanes = <1 2 3 4>;
->>> +            };
->>> +        };
->>> +    };
->>> +};
->>> +
->>> +&mipi_dphy_rx0 {
->>> +    status = "okay";
->>> +};
->>> +
->>> +&isp1_mmu {
->>> +    status = "okay";
->>> +};
->>> +
->>>   &mipi_dsi {
->>>       status = "okay";
->>>       clock-master;
->>> @@ -495,6 +579,10 @@ mipi_in_panel: endpoint {
->>>       };
->>>   };
->>> +&mipi_dsi1 {
->>> +    status = "okay";
->>> +};
->>> +
->>>   &pmu_io_domains {
->>>       pmu1830-supply = <&vcc_1v8>;
->>>       status = "okay";
->>> @@ -507,6 +595,12 @@ pwrbtn_pin: pwrbtn-pin {
->>>           };
->>>       };
->>> +    camera {
->>> +        wcam_rst: wcam-rst {
->>> +            rockchip,pins = <1 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
->>> +        };
->>> +    };
->>> +
->>>       leds {
->>>           red_led_pin: red-led-pin {
->>>               rockchip,pins = <4 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
->>>
->>>
->>
->>
->>
->>
->>
-> 
+Actually, if you are looking into improving performance, I think lack of
+NAPI is probably the biggest limitation with the dmaengine backend.
 
--- 
-Olivier Benjamin, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+>> > Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+>> > ---
+>> > This patch depend on following AXI DMA dmengine driver changes sent to
+>> > dmaengine mailing list as pre-requisit series:
+>> > https://lore.kernel.org/all/20250525101617.1168991-1-suraj.gupta2@amd.
+>> > com/
+>> > ---
+>> >  drivers/net/ethernet/xilinx/xilinx_axienet.h  |  6 +++
+>> > .../net/ethernet/xilinx/xilinx_axienet_main.c | 53 +++++++++++++++++++
+>> >  2 files changed, 59 insertions(+)
+>> >
+>> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h
+>> > b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+>> > index 5ff742103beb..cdf6cbb6f2fd 100644
+>> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
+>> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
+>> > @@ -126,6 +126,12 @@
+>> >  #define XAXIDMA_DFT_TX_USEC          50
+>> >  #define XAXIDMA_DFT_RX_USEC          16
+>> >
+>> > +/* Default TX/RX Threshold and delay timer values for SGDMA mode with
+>> DMAEngine */
+>> > +#define XAXIDMAENGINE_DFT_TX_THRESHOLD       16
+>> > +#define XAXIDMAENGINE_DFT_TX_USEC    5
+>> > +#define XAXIDMAENGINE_DFT_RX_THRESHOLD       24
+>> > +#define XAXIDMAENGINE_DFT_RX_USEC    16
+>> > +
+>> >  #define XAXIDMA_BD_CTRL_TXSOF_MASK   0x08000000 /* First tx packet */
+>> >  #define XAXIDMA_BD_CTRL_TXEOF_MASK   0x04000000 /* Last tx packet */
+>> >  #define XAXIDMA_BD_CTRL_ALL_MASK     0x0C000000 /* All control bits */
+>> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+>> > b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+>> > index 1b7a653c1f4e..f9c7d90d4ecb 100644
+>> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+>> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+>> > @@ -1505,6 +1505,7 @@ static int axienet_init_dmaengine(struct
+>> > net_device *ndev)  {
+>> >       struct axienet_local *lp = netdev_priv(ndev);
+>> >       struct skbuf_dma_descriptor *skbuf_dma;
+>> > +     struct dma_slave_config tx_config, rx_config;
+>> >       int i, ret;
+>> >
+>> >       lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0"); @@ -1520,6
+>> > +1521,22 @@ static int axienet_init_dmaengine(struct net_device *ndev)
+>> >               goto err_dma_release_tx;
+>> >       }
+>> >
+>> > +     tx_config.coalesce_cnt = XAXIDMAENGINE_DFT_TX_THRESHOLD;
+>> > +     tx_config.coalesce_usecs = XAXIDMAENGINE_DFT_TX_USEC;
+>> > +     rx_config.coalesce_cnt = XAXIDMAENGINE_DFT_RX_THRESHOLD;
+>> > +     rx_config.coalesce_usecs =  XAXIDMAENGINE_DFT_RX_USEC;
+>>
+>> I think it would be clearer to just do something like
+>>
+>>         struct dma_slave_config tx_config = {
+>>                 .coalesce_cnt = 16,
+>>                 .coalesce_usecs = 5,
+>>         };
+>>
+>> since these are only used once. And this ensures that you initialize the whole struct.
+>>
+>> But what tree are you using? I don't see these members on net-next or dmaengine.
+> 
+> These changes are proposed in separate series in dmaengine https://lore.kernel.org/all/20250525101617.1168991-2-suraj.gupta2@amd.com/ and I described it here below my SOB.
 
+I think you should post those patches with this series to allow them to
+be reviewed appropriately.
+
+--Sean
+
+>>
+>> > +     ret = dmaengine_slave_config(lp->tx_chan, &tx_config);
+>> > +     if (ret) {
+>> > +             dev_err(lp->dev, "Failed to configure Tx coalesce parameters\n");
+>> > +             goto err_dma_release_tx;
+>> > +     }
+>> > +     ret = dmaengine_slave_config(lp->rx_chan, &rx_config);
+>> > +     if (ret) {
+>> > +             dev_err(lp->dev, "Failed to configure Rx coalesce parameters\n");
+>> > +             goto err_dma_release_tx;
+>> > +     }
+>> > +
+>> >       lp->tx_ring_tail = 0;
+>> >       lp->tx_ring_head = 0;
+>> >       lp->rx_ring_tail = 0;
+>> > @@ -2170,6 +2187,19 @@ axienet_ethtools_get_coalesce(struct net_device
+>> *ndev,
+>> >       struct axienet_local *lp = netdev_priv(ndev);
+>> >       u32 cr;
+>> >
+>> > +     if (lp->use_dmaengine) {
+>> > +             struct dma_slave_caps tx_caps, rx_caps;
+>> > +
+>> > +             dma_get_slave_caps(lp->tx_chan, &tx_caps);
+>> > +             dma_get_slave_caps(lp->rx_chan, &rx_caps);
+>> > +
+>> > +             ecoalesce->tx_max_coalesced_frames = tx_caps.coalesce_cnt;
+>> > +             ecoalesce->tx_coalesce_usecs = tx_caps.coalesce_usecs;
+>> > +             ecoalesce->rx_max_coalesced_frames = rx_caps.coalesce_cnt;
+>> > +             ecoalesce->rx_coalesce_usecs = rx_caps.coalesce_usecs;
+>> > +             return 0;
+>> > +     }
+>> > +
+>> >       ecoalesce->use_adaptive_rx_coalesce = lp->rx_dim_enabled;
+>> >
+>> >       spin_lock_irq(&lp->rx_cr_lock);
+>> > @@ -2233,6 +2263,29 @@ axienet_ethtools_set_coalesce(struct net_device
+>> *ndev,
+>> >               return -EINVAL;
+>> >       }
+>> >
+>> > +     if (lp->use_dmaengine)  {
+>> > +             struct dma_slave_config tx_cfg, rx_cfg;
+>> > +             int ret;
+>> > +
+>> > +             tx_cfg.coalesce_cnt = ecoalesce->tx_max_coalesced_frames;
+>> > +             tx_cfg.coalesce_usecs = ecoalesce->tx_coalesce_usecs;
+>> > +             rx_cfg.coalesce_cnt = ecoalesce->rx_max_coalesced_frames;
+>> > +             rx_cfg.coalesce_usecs = ecoalesce->rx_coalesce_usecs;
+>> > +
+>> > +             ret = dmaengine_slave_config(lp->tx_chan, &tx_cfg);
+>> > +             if (ret) {
+>> > +                     NL_SET_ERR_MSG(extack, "failed to set tx coalesce parameters");
+>> > +                     return ret;
+>> > +             }
+>> > +
+>> > +             ret = dmaengine_slave_config(lp->rx_chan, &rx_cfg);
+>> > +             if (ret) {
+>> > +                     NL_SET_ERR_MSG(extack, "failed to set rx coalesce
+>> parameters");
+>> > +                     return ret;
+>> > +             }
+>> > +             return 0;
+>> > +     }
+>> > +
+>> >       if (new_dim && !old_dim) {
+>> >               cr = axienet_calc_cr(lp, axienet_dim_coalesce_count_rx(lp),
+>> >                                    ecoalesce->rx_coalesce_usecs);
 
