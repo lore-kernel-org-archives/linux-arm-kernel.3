@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80198C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C6DC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GhH8BIMCpcoQpJ8qZno/ZHGpypa4Rb+npt+pl2+m8dA=; b=Yg5n58dQxCbmsW5fzRBDAyuG4A
-	WORi4u6A1xPp/G1YXTRJxKvjbvy5WA+7tm337GIaQVmVWau3gg1UDEMNVdshUJcN5pKXTrZ5BNYs2
-	B09v3XEeZlBVCiCxfZTl/4DTLTTT+XpNdOG88gIDVTzg5hSI7NqiAZOH8J8R6rz9Jh0qgLMZ4EGG9
-	OWZe1TEAhr65PnL3cvV/eNJ0nfvciUymn7w4JcAE4CWw9DdVT/irl/5+yQTHH2vm8m8+Ebb1kKLtY
-	n4Zi42M6DIdrDCE+Ryso9CyrDAZic9hMQFyKUXFgu/ljQc3yzpbUtkpEX3RFvQ0qKITvxI1vdh/YN
-	ST76vnqw==;
+	bh=fnxgv96uYDR73DM/spJxKTB+GgYx4dhdRH39JtU9Y2E=; b=hQP9ijvNeUGEU0nDMkYGmpnimv
+	Pn4FJnvPkhotDuzAMjzJBpL7UtS2W1+bh5PZUpIVqTRBu0VrRnYqZxkzA9PgsmDVB51O5gKdrvWh+
+	Jw04f1pi+GDZ9F0pU9SB4CicfnB/1ArkQSDonCwQU6Ljam4ogSW9V+vs9JW2ppkN/QukZ60gl82+O
+	/xQhjluyIgccIcjCkCScR/IvgcPineNIFuzIiyMmt3XOBznYe2ZjMRT6EaGJgL3Gmb2k9eXJVwbfU
+	6GVTcez+5bjQhnci0BVNxy+jAeCiavz00PaSJOOmMYpbEPwqmTUyg3neF4X+jCBe9lypVppowxTgN
+	zNV/gNjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKe0e-0000000Fwn7-0R8a;
-	Thu, 29 May 2025 14:13:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uKe2k-0000000FwuS-3aeU;
+	Thu, 29 May 2025 14:15:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKdSa-0000000Fslz-0RuB
+	id 1uKdTE-0000000FstV-051t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 13:38:17 +0000
+	Thu, 29 May 2025 13:38:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 728665C6354;
-	Thu, 29 May 2025 13:35:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 458F3C4CEED;
-	Thu, 29 May 2025 13:38:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 79BA349D0C;
+	Thu, 29 May 2025 13:38:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFD31C4CEE7;
+	Thu, 29 May 2025 13:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748525895;
-	bh=z3RAuLwIyuINQ8SMdDHWYwZ5RjodA6MXZTl5mOCso/k=;
+	s=k20201202; t=1748525935;
+	bh=fnxgv96uYDR73DM/spJxKTB+GgYx4dhdRH39JtU9Y2E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LmibuwGjuiKzIEiGjPseWgcbBeQzskbjxFKLY8oOw4uhgNbDmJyMzrfkEXxE0PCFO
-	 +ucsNa3TkzH2ZZv3IHHQTQ/eIszQfufcqrEK1n1oqeJdI4swTpREQsYkB2pyFVMz+8
-	 F6yUZcoEKXnzoepXFIwTGqVCrHJelMq/C6D+gVo6o44zgdRoafnFdEJfDVnWZqSQg0
-	 uBmb+TgaSBKHfDwT9/ThqdW1lgXI7nHtk4U8LXwxcbMRbTnybJDFqaa2DqhtwUuraA
-	 7dSv5tpnJs5jXy7CN/sMg4pRftuddc3KTBw36qrLV4qgpdyYxSY6l+nbRkf3n0paBl
-	 2T8/ENMFUMLvQ==
-Message-ID: <4d2eeedb-0b3e-485c-ba15-82fb78fca4c7@kernel.org>
-Date: Thu, 29 May 2025 15:38:10 +0200
+	b=q0o1Oo8CTcTekB2PEtBPcKfoLDzMvSgGelZEDChpNqEzWg+TjKMXQPLZE4cMQf5EA
+	 UXrjbUnW90MAO6tct3LQV32r2+2ZUATDPwxy1ETKhMBD255ig7dX09focEBwk/dydA
+	 aGG7rBMK60OQ2JdK+bE6AuFoSenYORzz5kMAERPcuo8AVLWqbWgFlmFEXanBip1LCW
+	 GDYDKNSB2Wt8xcofLQ7cHsrZYKrhKYxEKMXytcIsao4i2wf7zUhz/BqLWIdKxi+ktl
+	 fiIGr1r1okoJSkNYL1JRc5sW5Pvf/M2Gdi8gOfDnzBr9xSMewxadXv1FMOPWklG1kJ
+	 L2p3r1eq7t+vQ==
+Message-ID: <c0fdeecf-4a76-473d-9b66-e547d8fe9d1f@kernel.org>
+Date: Thu, 29 May 2025 15:38:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 13/13] arm64: dts: ti: k3-j721s2-mcu-wakeup: Disable
- "mcu_cpsw" in the SoC file
+Subject: Re: [PATCH 07/13] arm64: dts: ti: iot2050-common: Remove redundant
+ "mcu_cpsw" node status
 To: Siddharth Vadapalli <s-vadapalli@ti.com>, nm@ti.com, vigneshr@ti.com,
  kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, srk@ti.com
 References: <20250529133443.1252293-1-s-vadapalli@ti.com>
- <20250529133443.1252293-14-s-vadapalli@ti.com>
+ <20250529133443.1252293-8-s-vadapalli@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250529133443.1252293-14-s-vadapalli@ti.com>
+In-Reply-To: <20250529133443.1252293-8-s-vadapalli@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_063816_234676_F385AC97 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20250529_063856_101389_7EC9D88B 
+X-CRM114-Status: UNSURE (   6.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,15 +121,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 29/05/2025 15:34, Siddharth Vadapalli wrote:
-> Following the existing convention of disabling nodes in the SoC file and
-> enabling only the required ones in the board file, disable "mcu_cpsw" node.
-> 
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-Really all of this is fake split. One line per commit.
+> Now that the SoC file "k3-am65-mcu.dtsi" disables the "mcu_cpsw" node by
+> default, following the existing convention of disabling nodes in the SoC
+> file, remove the redundant section for disabling the "mcu_cpsw" node.
+
+It became redundant when you disabled it, so this must be part of that
+commit. Do not create redundant code with some artificial split of one
+logical work.
+
 
 Best regards,
 Krzysztof
