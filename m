@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0652C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 10:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39074C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 10:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XnZTfx4DJ/20VLdE21durXqBLl/6baSWFBSIgLYZamY=; b=x/82PmFq/ZVW8PlRyn361La9SY
-	veRyEyAJM3iXxBX3jCvZA4TLOFZo2788DINX5u3gSQeCefZmHan6AQd01YiSXZ3tC5PB8UHpFI5fQ
-	2q0RNZEHFH3fDfX/kFkeWAGBzsBqVY7xFOnvGWKY4ArGa+ZNILXdDzs8kVN8mn0qiSvOINj4J2YsX
-	2Cep2App9DajxJHUuXSJFyxEERcKmUDNzt/w6BAJLPu1XacpknZYdI1eNItGihm54FTfL46P0SySB
-	0DGGOd3/IU+SzdYjKrOG9N6RCvxBHH6fMVQCwOQuifXs+vur1NCdTe0+oIQqsASB4rse5iRA3XEr1
-	MaEwtIng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kUaGzQSQIr1eLMt9M2T1F9Lo08/3wx/C+PnRzg1d9bQ=; b=EB3DYPV0PYWL0EUj5ndPc5ijiN
+	U5ldX2t0c6aKhumJjSvmvyHAOaRiG/t/Kz2CQAIPOTT8rDI1MmrB+ZaT4FkDfJNKJjrB+gmz8geey
+	jz0LavQDBaJpRvSq4rHrCI42zKmwy+fm2zTj1ZQMu6TWV7iIdFufljmZ/19oDCbHZVCnbgsvF7glm
+	7TEclVwLdVzzI3np7/tf9qPNlmVWNtvHY08aWM96sqBi6jyDwKNzNjHlPxfsIgj6I2WW7zAZjgb+U
+	y+U6S4yTAkCzoMCWcjb/TYcRacU7dPjRPuXxQ2i4Jazv2TJQKWka9cUVqBsLAZUqLrT78lRLI9X1D
+	7/qifmqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKaVo-0000000FVbw-1vpQ;
-	Thu, 29 May 2025 10:29:24 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1uKaYT-0000000FVuq-0uF8;
+	Thu, 29 May 2025 10:32:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKaSu-0000000FVDu-35AW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 10:26:25 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ad5740dd20eso104699566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 03:26:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748514382; x=1749119182; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XnZTfx4DJ/20VLdE21durXqBLl/6baSWFBSIgLYZamY=;
-        b=UfuLJSNXQZ8mR+xPQOwP5k57ldSQvo8T/raD0B2AdcbSs8/SqrVqCLh9c5P295elYA
-         68MXWTG1N64MKv+Vl/XGEPWCjfZ1ExzS5+uhrM7Q3zYyQEzty0BQLWWhpZ9Ig5o8TsXH
-         Z6wPxHnEK7c7oz3GPtLP3IaoRzI4C077paeDI2fA57ziPjNoOLYu+1FJfjVP7p5tOBaj
-         0U1gdr4a4oSWpR1xtxCx28rMF2/mOf0eQU+nG+/sCvm/dEpC2ddJyV9mHQptkdh2lJwH
-         n4uPq85tAi1zFl2LSTIpu+g5Y0zqqutNkDx+rrcBQnmSHgfGeNCny6d2r9i36SEhZ4fn
-         FTEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748514382; x=1749119182;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XnZTfx4DJ/20VLdE21durXqBLl/6baSWFBSIgLYZamY=;
-        b=BtY2HLPQ0QtfVBmGa5zYXa9qlj1B4JNVcFLIZe645HWmOux5ghnL4s65s8imIkk66K
-         uJ1FN4fc6VuzLhHaxVXrVKqSl85/ZBW/CLCoBBcQSpF5Qakv+W35WacMTfJPuSeWiSai
-         59yE2jWIqQocdsEAngTNrqRgYMdoiGYT6LWi3C5Exyu1fzT41EQK/ulXM6owFCdOelVH
-         F8dLrGBhjCtDdbVgoH0V1iWEVNl9RjzvvDhwteMCuH2s7XDyYHFqFvDbpz78JYuJDfuy
-         aI/UMOWvnrf/1zlxAi3WhTrVilUxUQW+PdOrPyEJPo9sf9O2G7z48eLD3RqtXhLw4OC5
-         nSdw==
-X-Forwarded-Encrypted: i=1; AJvYcCWBjnG8yUM3D/68DXahy115Cj6L9jDdumvYuM0OFtLU2J06HVAZxCUVlS5lFEppgp/qTQMf9bqANKJuYSHIjdGY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy2upXtRaMldQe2oPqYI8J1qZVaAbHPSF2OjMb3HKWFFypwsRZ
-	dW4UQ3JJPGzLvHb+PIDGnFBlUbJLNT0xCm2ZaJIS0svRpqyOKXNKatu+
-X-Gm-Gg: ASbGncuIjnIenuPUzUz1ZccUM3yxMf5LY/g4efvL/SwAPlTTrrmoTl3dW9gP700CQzq
-	FnxAkgXHhHXP5fU3OAw8gHfqMJTiaS9oMyi9u36lHHBAIjijlOfJUiVzjtzSwIaMC9SuUGOiPwP
-	RaGFklhVEALBi/hwYe5/f7Q2WofiEFCM60JAXmcuk7Eq/e7c9isc7MQKQhIhDOl4fgPZB8V2niU
-	2BZIu7SWIxT+YEjefTLV3dBXeYTogJd+NU3bwUYc3+85nMXdoterIUn/zgmddI3VUFXmmqUyGyG
-	P/nxe/HwjbMy5vYpyvvUDKWreI/KAC9aQnXF9Mjf2Hk2irTTTdePLXsKfbHyTXedoW6gv3waTd8
-	YiKSm3Vu6CKUHrrXuBj0GlHcCYqfYz8GF
-X-Google-Smtp-Source: AGHT+IFNwqYb6hYLokA1iAbB99kihXj8zRaHpm5oMrFkFKhkmT44PK7Oed6ASI3bLbpvYocD8G0UBg==
-X-Received: by 2002:a17:906:7305:b0:ad5:40ab:ad38 with SMTP id a640c23a62f3a-ad85b2a42d6mr1750899066b.51.1748514382137;
-        Thu, 29 May 2025 03:26:22 -0700 (PDT)
-Received: from emanuele-nb.int.toradex.com (93-44-16-92.ip95.fastwebnet.it. [93.44.16.92])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5d84f389sm116052466b.82.2025.05.29.03.26.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 03:26:21 -0700 (PDT)
-From: Emanuele Ghidoli <ghidoliemanuele@gmail.com>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] arm64: dts: ti: k3-am62p-verdin: Enable pull-ups on I2C_3_HDMI
-Date: Thu, 29 May 2025 12:25:54 +0200
-Message-ID: <20250529102601.452859-1-ghidoliemanuele@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uKaWM-0000000FVft-0Epa;
+	Thu, 29 May 2025 10:29:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 76402615F2;
+	Thu, 29 May 2025 10:29:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CF21C4CEE7;
+	Thu, 29 May 2025 10:29:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748514597;
+	bh=riHvhwPiH5V6qKln4d0cb8sN5WbGv/6Yin393zmcsl0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=NIIt6U3Mz7JfYs6BhrDomKTfQW5Hs7Dk/3Y5KJAhY9nK68ageTVQLd/fkk2e1tCDP
+	 Bx2ZKdJckBn5gFir9KGvk2vj/JkTJpuwjTbwTAZPqCWAyUdqWPXEJ7ZVJbte/yqr9U
+	 B17xzrJCe7fzPEmBqbBhRW0S9nbi7LXDfpab432tWRHdEwyCWGcsAw9Bl3Rhv2y7/v
+	 w4KVjKDUDS0Mh4GTR/ff1aXdSqPVByYhm2+zl7Lm26HxoX93zDn2PnVCPwzy9AJdfb
+	 zaZ7HqjLsIXVFOMBLy2laIlUMLcHqtQBm87hmU5FnT0dm64y97dxMFAZ2uo0xzUr++
+	 XUll5MCL9JSlQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3685F39F1DEE;
+	Thu, 29 May 2025 10:30:32 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_032624_776691_E4453FA4 
-X-CRM114-Status: GOOD (  11.54  )
+Subject: Re: [PATCH] driver: net: ethernet: mtk_star_emac: fix suspend/resume
+ issue
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174851463074.3219366.15490415696108954366.git-patchwork-notify@kernel.org>
+Date: Thu, 29 May 2025 10:30:30 +0000
+References: <20250528075351.593068-1-macpaul.lin@mediatek.com>
+In-Reply-To: <20250528075351.593068-1-macpaul.lin@mediatek.com>
+To: Macpaul Lin <macpaul.lin@mediatek.com>
+Cc: nbd@nbd.name, sean.wang@mediatek.com, lorenzo@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, brgl@bgdev.pl,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ bear.wang@mediatek.com, pablo.sun@mediatek.com, ramax.lo@mediatek.com,
+ macpaul@gmail.com, stable@vger.kernel.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ ot_yanqing.wang@mediatek.com, biao.huang@mediatek.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+Hello:
 
-Enable internal bias pull-ups on the SoC-side I2C_3_HDMI that do not have
-external pull resistors populated on the SoM. This ensures proper
-default line levels.
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Fixes: 87f95ea316ac ("arm64: dts: ti: Add Toradex Verdin AM62P")
-Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
----
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On Wed, 28 May 2025 15:53:51 +0800 you wrote:
+> From: Yanqing Wang <ot_yanqing.wang@mediatek.com>
+> 
+> Identify the cause of the suspend/resume hang: netif_carrier_off()
+> is called during link state changes and becomes stuck while
+> executing linkwatch_work().
+> 
+> To resolve this issue, call netif_device_detach() during the Ethernet
+> suspend process to temporarily detach the network device from the
+> kernel and prevent the suspend/resume hang.
+> 
+> [...]
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-index 226398c37fa9..d90d13287076 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-@@ -717,8 +717,8 @@ AM62PX_MCU_IOPAD(0x0010, PIN_INPUT, 7) /* (D10) MCU_SPI0_D1.MCU_GPIO0_4 */ /* SO
- 	/* Verdin I2C_3_HDMI */
- 	pinctrl_mcu_i2c0: mcu-i2c0-default-pins {
- 		pinctrl-single,pins = <
--			AM62PX_MCU_IOPAD(0x0044, PIN_INPUT, 0) /* (E11) MCU_I2C0_SCL */ /* SODIMM 59 */
--			AM62PX_MCU_IOPAD(0x0048, PIN_INPUT, 0) /* (D11) MCU_I2C0_SDA */ /* SODIMM 57 */
-+			AM62PX_MCU_IOPAD(0x0044, PIN_INPUT_PULLUP, 0) /* (E11) MCU_I2C0_SCL */ /* SODIMM 59 */
-+			AM62PX_MCU_IOPAD(0x0048, PIN_INPUT_PULLUP, 0) /* (D11) MCU_I2C0_SDA */ /* SODIMM 57 */
- 		>;
- 	};
- 
+Here is the summary with links:
+  - driver: net: ethernet: mtk_star_emac: fix suspend/resume issue
+    https://git.kernel.org/netdev/net/c/ba99c627aac8
+
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
