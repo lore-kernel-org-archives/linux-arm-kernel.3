@@ -4,100 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 256D3C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 18:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECCDC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 18:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j6U4iis3R5XjOi+aCw7RCiw2bmEOQJGCtpg1KsnzGR0=; b=wWFzEMPadKgxdV9nnWxfBskeJg
-	eFjogRZzT9f3tkZu2F0tThLpojA27nhmor0aeeBuEAjwc16hqVDzXrNXYjj/GO5hXND5KfJ/EK1rn
-	VeJAn5UOg1vHMh3T6Si2uqSFW4uLWGpalZEZjiUty1DNPhnlW05pgp0GzJtCZMqd2NHOqu3TKnRh/
-	Zyu+r5SdV1fTyIEZkqSvDSIuWzzDFu4yUT+t6oK1M/WTbaWjWQOSWLcoMwI6fPfTbZRjhf4mxvtAK
-	U5jTy9Ll+MdvH7XBOwVbRzFG/kvv8CcqU4scH+fQ4mORcc8rW/5l0gYPAnA7b5vIHnIzUzgJDHD4d
-	oDsxqgwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D/pRYWDTxiG5vCNFI6iYMlgTAzPGEOIy86Z1rIh0MtM=; b=dF3etldCZL7fL0q8lnlSbDkQ3S
+	iDV3Ss02LwUVRzw4pMcrHDBeMN6wHHZwKTyrXpuparYcyHh26Hyrfawa0Nt6GxP+8MVdb6c2tE+XR
+	+ESpKy8uhn/RYFD6ANWxHYMa1wjwnxoLW2qniqcVHaOfDxM7MUuYKHcEXrnN6mn9rZBxS+MLJIIDE
+	Y4Ac5QkHlCQJgTZGqdq8ov7bIa4REFe6ODBEKTrF9W+pK6UjIa9p9Oj14uHI5d0Qn/hiqk07DOWsv
+	sfMLqMf9koekjP80T1Y4ah2wG2/AJ52y0QF1zJdQH7VlaZ4WyoZsOFh7c+SN13t4NskBppwLg9Uyf
+	2N2n/0hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKiB5-0000000GNEt-288F;
-	Thu, 29 May 2025 18:40:31 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1uKiHV-0000000GO1f-3klR;
+	Thu, 29 May 2025 18:47:09 +0000
+Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKi8w-0000000GN8U-1472
+	id 1uKiFN-0000000GNsG-3miv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 18:38:19 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7cadd46ea9aso145986385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 11:38:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748543897; x=1749148697; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=j6U4iis3R5XjOi+aCw7RCiw2bmEOQJGCtpg1KsnzGR0=;
-        b=JTmj1dSIP76NZQAYxmUtodr1CCuWI+VHd58YAyC/kqtggDEAJ81zzMxBWkCITzkDA/
-         iZ6bao0enO+G/58YSY3WyOSyOxCLviy9mjPY2keUvRU874VEt7K5gid8A/P+u1rDgvZj
-         i4RYb18uQIx/PYdEx94iQ6uUjnkhKr0hvFw+EP4qCFjwek1Q97XJpGjMib7bLxZxsczc
-         XgpNMLGOf8G5BocrANP6HwxkfSavT01IApzcBKUU8bgCMjqr/ayApF6ARiUWEZuem5dP
-         M9VLHekA4j1UE+YlYBm6Y1u9VXLA/Z5mqY2SMyfVuGOybW2TbxmoFfIZSYb0kF+9eMzw
-         nq3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748543897; x=1749148697;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=j6U4iis3R5XjOi+aCw7RCiw2bmEOQJGCtpg1KsnzGR0=;
-        b=O7xTRnVC6Vx3HZ3/PYheQdOS4S6rpY+Vakc2AFoeVFebvRdP2Ft7+HQ6cTG0uSz3GK
-         vnHxLZWUwe5fUDk1y3bNvsclFxeUqpGwuYpnmv4pwD3zl3BJIkZQX4otY4Iyjpq98SJE
-         1l7uwjf08DonPAiKX+aEdEUl8GZWfT7FpEEc0ttG4XDAY9vQorDO/U/O2g3h+xnZ2ces
-         pa1oRwLBPmrQ+3f55vLWHIPAcb/B9JR82L2LfXwhbhwJ4B+zKa7FMF1Uhrx73VMW7oRX
-         QNeHlYv/3Jznx/k1Pq4PVri6sfpna4xe5DjEz2AqXp90EgNoJSdhdm0eC30lb0ihfqvk
-         rGSg==
-X-Forwarded-Encrypted: i=1; AJvYcCU0rs++6GugJtwS8NRQvpUsMltvSWgcuVxVd5syjl45eBDs9E9rjaKPwKFB/0olEk0cUQtxbtS4+ZXiL7PJI9ls@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRSqdfq7XDyC3rRi9WfeiajSj0IlgxungWVWwfmzFcn98PFL3r
-	mySa/S2fHVPxw//f0Sd7Rp/NgjcECWBjLzpPsbcaKCx5ZFSCqVJB5NB1buWzYoFvYcc=
-X-Gm-Gg: ASbGncvt+HT0AHqc3DaaqLuwiDFVyBjnA3ctQLG7dGxrXixqfw9JD1ojouKG0qOmegU
-	MaLpNVx2HxtC0O/3gNblEy1onFSKWnbPG73eRpzftmpFp65SrkLEmYxSiTl/N2IdbSPe41Bc/br
-	J1K8+ZZ4Gzlll3MU21cG3+3+hJTHG5UmjMHqsRtVhqGP3NK+LCsuqSN1By9aCT9eSbYZoC89uQR
-	ZnXaWV8sZVyLwaCpyQr9N8cd6aTUda2FOFy9kwurdqfkYroI/ntmizy+Ps/OMQWoJ3XhzbtpkCZ
-	0SvtslrY/NDSxd43SWQunGX2Eh6nfjVqmouv2ibekul3yUdI+ol2tHTHNDYtxy0aBQkh4dcNW/Z
-	6KI4k1rPUKfuf2bfcku8p0l6Nb7Mg/T4r6PEZzA==
-X-Google-Smtp-Source: AGHT+IEg275FMxde1zTXTRnOX2l5C2eqH11zCR4cQAT539QqGLVvAFWBmzNkj2MQGivWQQr0ei8qBw==
-X-Received: by 2002:a05:620a:4711:b0:7c5:47c6:b888 with SMTP id af79cd13be357-7d0a2013056mr95749785a.40.1748543896682;
-        Thu, 29 May 2025 11:38:16 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d09a0e3fdfsm122585685a.9.2025.05.29.11.38.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 11:38:16 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uKi8t-00000000zty-2gm0;
-	Thu, 29 May 2025 15:38:15 -0300
-Date: Thu, 29 May 2025 15:38:15 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Shyam Saini <shyamsaini@linux.microsoft.com>
-Cc: Jacob Pan <jacob.pan@linux.microsoft.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	virtualization@lists.linux.dev, will@kernel.org,
-	eric.auger@redhat.com, code@tyhicks.com,
-	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
-Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
-Message-ID: <20250529183815.GA236098@ziepe.ca>
-References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
- <20250410230008.GA6905@ziepe.ca>
- <67fff12d.650a0220.208c7c.d69dSMTPIN_ADDED_BROKEN@mx.google.com>
- <20250416181759.GF493866@ziepe.ca>
- <20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
- <20250525190703.GD12328@ziepe.ca>
- <20250527205428.GA14019@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
- <20250528000425.GC146260@ziepe.ca>
- <20250529182219.GA20289@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+	Thu, 29 May 2025 18:44:59 +0000
+Message-ID: <2bac252c-883c-4f8a-9ae1-283660991520@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1748544285;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=D/pRYWDTxiG5vCNFI6iYMlgTAzPGEOIy86Z1rIh0MtM=;
+	b=t6mBC+6Vi9P2ogn7IGSjVpOGG1D0PLvPIsnclmwguKD8GZzY2EEBw/0/oi4M/Egs3o+WNK
+	HH1NOZh09QJrVEtpDa095Akv9MrBQAzRDOB0r2l/HaMNV1G8fR9FrQ3JwJG9336cGDa+IH
+	hJYSzpx0d4G0hPc4CWp7pb1SJGYRCiM=
+Date: Thu, 29 May 2025 11:44:38 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250529182219.GA20289@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
+ 3.0
+To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+ Andrew Jones <ajones@ventanamicro.com>
+Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org,
+ linux-riscv <linux-riscv-bounces@lists.infradead.org>
+References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
+ <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
+ <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
+ <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
+ <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
+ <20250526-224478e15ee50987124a47ac@orel>
+ <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
+ <20250528-ff9f6120de39c3e4eefc5365@orel>
+ <1169138f-8445-4522-94dd-ad008524c600@linux.dev>
+ <DA8KL716NTCA.2QJX4EW2OI6AL@ventanamicro.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <DA8KL716NTCA.2QJX4EW2OI6AL@ventanamicro.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_113818_469052_07C727E3 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20250529_114458_077897_8A9A8C14 
+X-CRM114-Status: GOOD (  42.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,73 +86,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 11:22:19AM -0700, Shyam Saini wrote:
-> > All IOVA that the platform cannot DMA from should be reported in the
-> > reserved_regions file as "reserved". You must make your platform
-> > achieve this.
-> 
-> so should it be for all the iommu groups?
-> 
->                 no_dma_mem {
->                        reg = <0x0 0x8000000 0x0 0x100000>;
->                         no-map;
->                 };
->  
-> i think that's how we reserve memory in general, eg: ramoops
-> but this doesn't show up in:
->   /sys/kernel/iommu_groups/*/reserved_regions
 
-I don't know anymore, I've forgotten these details about DT, you will
-need to consult with DT experts..
+On 5/29/25 3:24 AM, Radim Krčmář wrote:
+> I originally gave up on the idea, but I feel kinda bad for Drew now, so
+> trying again:
 
-> > But I still don't have a clear sense of what your actual problem is as
-> > you are show DT that seems reasonable and saying that
-> > /sys/../reserved_regions is working..
-> 
-> /sys/../reserved_regions is working for certain devices like dma controller
-> but it doesn't work for pcie devices and its vfio-pcie driver calling
-> iommu_get_resv_regions() but we don't have dts node for vfio.
-> I have confirmed this about pcie on two different platforms, it seems to be
-> OF DMA-API gap that you hinted above, happy to work on that :), it would be
-> great if you can share any other reference discussions to that problem
+I am sorry if some of my replies came across in the wrong way. That was 
+never
+the intention.
 
-Some of it was around the dma_mask and the ranges, but I'm not sure
-exactly what is your issue here..
 
-It is very important the the dma-iommu.c code also knows not to use
-the non-working IOVA or your system will be buggy and eventually fail.
-If that isn't happening you have a critical bug beyond the SW_MSI
-issue.
+> 2025-05-28T12:21:59-07:00, Atish Patra <atish.patra@linux.dev>:
+>> On 5/28/25 8:09 AM, Andrew Jones wrote:
+>>> On Wed, May 28, 2025 at 07:16:11AM -0700, Atish Patra wrote:
+>>>> On 5/26/25 4:13 AM, Andrew Jones wrote:
+>>>>> On Mon, May 26, 2025 at 11:00:30AM +0200, Radim Krčmář wrote:
+>>>>>> 2025-05-23T10:16:11-07:00, Atish Patra <atish.patra@linux.dev>:
+>>>>>>> On 5/23/25 6:31 AM, Radim Krčmář wrote:
+>>>>>>>> 2025-05-22T12:03:43-07:00, Atish Patra <atishp@rivosinc.com>:
+>>>>>>>>> Upgrade the SBI version to v3.0 so that corresponding features
+>>>>>>>>> can be enabled in the guest.
+>>>>>>>>>
+>>>>>>>>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+>>>>>>>>> ---
+>>>>>>>>> diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+>>>>>>>>> -#define KVM_SBI_VERSION_MAJOR 2
+>>>>>>>>> +#define KVM_SBI_VERSION_MAJOR 3
+>>>>>>>> I think it's time to add versioning to KVM SBI implementation.
+>>>>>>>> Userspace should be able to select the desired SBI version and KVM would
+>>>>>>>> tell the guest that newer features are not supported.
+>>>>> We need new code for this, but it's a good idea.
+>>>>>
+>>>>>>> We can achieve that through onereg interface by disabling individual SBI
+>>>>>>> extensions.
+>>>>>>> We can extend the existing onereg interface to disable a specific SBI
+>>>>>>> version directly
+>>>>>>> instead of individual ones to save those IOCTL as well.
+>>>>>> Yes, I am all in favor of letting userspace provide all values in the
+>>>>>> BASE extension.
+>>>> We already support vendorid/archid/impid through one reg. I think we just
+>>>> need to add the SBI version support to that so that user space can set it.
+>>>>
+>>>>> This is covered by your recent patch that provides userspace_sbi.
+>>>> Why do we need to invent new IOCTL for this ? Once the user space sets the
+>>>> SBI version, KVM can enforce it.
+>>> If an SBI spec version provides an extension that can be emulated by
+>>> userspace, then userspace could choose to advertise that spec version,
+>>> implement a BASE probe function that advertises the extension, and
+>>> implement the extension, even if the KVM version running is older
+>>> and unaware of it. But, in order to do that, we need KVM to exit to
+>>> userspace for all unknown SBI calls and to allow BASE to be overridden
+>> You mean only the version field in BASE - Correct ?
+> No, "BASE probe function" is the sbi_probe_extension() ecall.
+>
+>>> by userspace. The new KVM CAP ioctl allows opting into that new behavior.
+>> But why we need a new IOCTL for that ? We can achieve that with existing
+>> one reg interface with improvements.
+> It's an existing IOCTL with a new data payload, but I can easily use
+> ONE_REG if you want to do everything through that.
+>
+> KVM doesn't really need any other IOCTL than ONE_REGs, it's just
+> sometimes more reasonable to use a different IOCTL, like ENABLE_CAP.
+>
+>>> The old KVM with new VMM configuration isn't totally far-fetched. While
+>>> host kernels tend to get updated regularly to include security fixes,
+>>> enterprise kernels tend to stop adding features at some point in order
+>>> to maximize stability. While enterprise VMMs would also eventually stop
+>>> adding features, enterprise consumers are always free to use their own
+>>> VMMs (at their own risk). So, there's a real chance we could have
+>> I think we are years away from that happening (if it happens). My
+>> suggestion was not to
+>> try to build a world where no body lives ;). When we get to that
+>> scenario, the default KVM
+>> shipped will have many extension implemented. So there won't be much
+>> advantage to
+>> reimplement them in the user space. We can also take an informed
+>> decision at that time
+>> if the current selective forwarding approach is better
+> Please don't repeat the design of SUSP/SRST/DBCN.
+> Seeing them is one of the reasons why I proposed the new interface.
+>
+> "Blindly" forwarding DBCN to userspace is even a minor optimization. :)
+>
+>>                                                         or we need to
+>> blindly forward any
+>> unknown SBI calls to the user space.
+> Yes, KVM has to do what userpace configures it to do.
+>
+> I don't think that implementing unsupported SBI extensions in KVM is
+> important -- they should not be a hot path.
+>
+>>> deployments with older, stable KVM where users want to enable later SBI
+>>> extensions, and, in some cases, that should be possible by just updating
+>>> the VMM -- but only if KVM is only acting as an SBI implementation
+>>> accelerator and not as a userspace SBI implementation gatekeeper.
+>> But some of the SBI extensions are so fundamental that it must be
+>> implemented in KVM
+>> for various reasons pointed by Anup on other thread.
+> No, SBI does not have to be implemented in KVM at all.
+>
+> We do have a deep disagreement on what is virtualization and the role of
+> KVM in it.  I think that userspace wants a generic ISA accelerator.
 
-The easiest way to fix it is to have reserved_regions report the right
-stuff.
+I think the disagreement is the role of SBI in KVM virtualization rather 
+than
+a generic virtualization and the role of KVM in it. I completely agree 
+that KVM should act as an accelerator and defer the control to the user 
+space in most of the cases
+such e.g I/O operations or system related functionalities. However, SBI 
+specification solves
+much wider problems than those. Broadly we can categorize SBI 
+functionalities into the following
+areas
 
-> When i specify this for dma controller:
-> 
-> 		faulty_iova: resv_faulty {
-> 			iommu-addresses = <&dmaX 0x8000000 0x100000>;
-> 		};
-> &dmaX {
-> 	memory-region = <&faulty_iova>;
-> };
-> 
-> I see following:
-> $ cat /sys/kernel/iommu_groups/y/reserved_regions 
-> 0x0000000008000000 0x00000000080fffff reserved
-> 0x00000000a0000000 0x00000000a00fffff msi
+1. Bridging ISA GAP
+2. Higher Privilege Assistance
+3. Virtualization
+4. Platform abstraction
+5. Confidential computing
 
-See, that looks better. You need to make that happen for all the
-effected devices.
+For #1, #3 and #5, I believe user space shouldn't be involved in 
+implementation
+some of them are in hot path as well. For #4 and #2, there are some 
+opportunities which
+can be implemented in user space depending on the exact need. I am still 
+not clear what is the exact
+motivation /right now/ to pursue such a path. May be I missed something.
+As per my understanding from our discussion threads, there are two use 
+cases possible
 
-> Upon investigation, our hardware team confirmed that the memory region
-> containing 0x08000000 is already mapped for other peripherals, making it
-> unavailable for MSI usage.
+1. userspace wants to update more states in HSM. What are the states 
+user space should care about scounteren (fixed already in usptream) ?
+2. VMM vs KVM version difference - this may be true in the future 
+depending on the speed of RISC-V virtualization adoption in the industry.
+But we are definitely not there yet. Please let me know if I 
+misunderstood any use cases.
 
-See, that's just wrong HW design. The path from PCI to the SMMU should
-not have any other decodes on it, isn't that SBSA?
+> Even if userspace wants SBI for the M-mode interface, security minded
+This is probably a 3rd one ? Why we want M-mode interface in the user 
+space ?
+> userspace aims for as little kernel code as possible.
 
-How does your platform work at all? Isn't 0x08000000 physical memory in
-your address map?
+We trust VMM code more than KVM code ?
 
-Jason
+> Userspace might want to accelerate some SBI extension in KVM, but it
+> should not be KVM who decides what userspace wants.
 
