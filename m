@@ -4,94 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D028EC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C60DC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZgN9AVJjp38qn//MPJ9bGqWJk/ibzEBx7kgTbrCvNV8=; b=g/+SShe6hJw2ViZfo6I8t+q4Gg
-	T2Dl1eY/P1CyUcasiFClnl3oLbGOf6iVXA3aInzHBR3iPiwPnHRrcsZx9Tp7BbsfECwhkjC+2+Qlo
-	55PulD2GcDmfx3pdyf8QSRQMAq/kfhCRBgCwnLyP0c+FZo0ohpKT2nEMAMhP5OaTReNdYl5aBQlZ6
-	YM+0biaPwhSf6/FbLUZ2NewMSPbrndUc8WorPc9C7j6eMRJUYpXttwX4WKbXHMFSsnF9mPby2Y6il
-	9Ve+b7URdAGxDboYRn+Z9S3tsEpIYGMN5H0X8LZ8HJKnGad5kmFjSID5N87LOtBGPEZqNTmfbkRL9
-	oVTrUDgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iSv2doR+6C+GHraPmXy0YIADFLkwj7ttD0ptbpFBjiI=; b=aPq+ZtbmAW/4xWUu8v9JB+7mXu
+	ukqsxFhmS1uOjyZAUR/EGJkGZQThOSqjc4ExXfLak5/VGcarYs4569E+Eo+KUtN8iVUFkEYPkViO8
+	xFzTt1+9GCtM7djRErIq/ayhxwKJflz6/RygPmOOihKpAhYydxmGD99u9gv5IWyJxfzbT7Z+5FO8d
+	TxuohyxqfRvz6dOfHw9UNLHHf3ufdhyauhZ+iOtAMnnxIybhmjuAbrGcejOx4OM5AR5noN8EyyeZ8
+	V4DLrcc0pStx83qMD0YDrcMGmqPMEWMmYSb9KPu4u53LNGDJV3J8o4i0Re8/SL4vsXKJ3ZJxoy2hD
+	KTI/l1iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZ6Z-0000000FJEw-30tm;
-	Thu, 29 May 2025 08:59:15 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1uKZ6b-0000000FJHW-1dst;
+	Thu, 29 May 2025 08:59:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKYgR-0000000FG6W-1FEY
+	id 1uKYmF-0000000FGSm-2spD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 08:32:16 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6021b8b2c5fso1189466a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 01:32:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1748507533; x=1749112333; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZgN9AVJjp38qn//MPJ9bGqWJk/ibzEBx7kgTbrCvNV8=;
-        b=lOG1+1GlE2RA0kY/iyQCZIikIsFbxVO8pngpIBpDbHVlFID1ZSHQ51DW5i7RpDOMF+
-         hIb4jZqKgcodDFG0coqFMOBXWu0oZ4w02GRRbj6UwODGTybSLo4Ht1rkv5T7KHau5UKO
-         k6tOR/j/w91xqq/+DXbDnaa/uRJTiKTopy2Ss=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748507533; x=1749112333;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZgN9AVJjp38qn//MPJ9bGqWJk/ibzEBx7kgTbrCvNV8=;
-        b=gGNUKwSnE4Ip9hJjKj8obr+XumUq8Q2hPn/R8AALUU+m2AEb0KYu4g+3Q6cVfRUD2/
-         hNqChQTcHiQ1ZOUxYd3ckkD4QLSaSppt9C2jq8Aa1sVOHLUBUpdBTvVZUnWIbEeEY9W5
-         hQ9/TJ8fGf+P0C1eFUxILUlThv1WNhMAFx1BZsUoRpKTOoqyOeeRZfqWY2y5AH9nk8pu
-         fEGk5rGu4p5QKcsPTWQd/BnzGHEsUrmuulFryWnbulepbauLuQV5isqqiXfVAwTejq8z
-         yh0KFSKuOPERWZEmNThic5vIFpcWJ45V7XVYV1aml9w/TN5GstSuu/pnWns+UbqeQ2Pb
-         31HQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUOUiuy7/zoHKzb4r9t/OsCSjuOWJd2l6Lahzl7/ygmQ73PT6JI5lh9O03zwpSLhy/VUqa1i652XGbOS8CYlJ/W@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxCvrih9P+oV66zgF+b4ro6Pp/S+uD9QWBpaD00023ZRWOqg/c
-	ldN5sGGrNNurTO586yeqeJdy0NR2QCUJYC0iFOdSJFLKTn0Y3HaoLlVkekVmj0icbS0=
-X-Gm-Gg: ASbGncu5MiK9mtn3r6o85nmMM0DY64DxarSt3TzyzCTKEw63JYXn6uSKfRPlwoTQxop
-	GMdJnDihl6A6DFr+ppCW6J8DAY+plPKSPyXmcLLyQ9zYLLO/gzXdbjWM4KTF7edRgpr1gp2uriB
-	getMRn48NZp3xQ+EjT6DRMO4vzqMVMvLOXUmOmvSeXFxSeOSM1kuT4PUFmkdWG9KlEFHv7eb9/j
-	y4+8y+sAqUTOYSSjAwTTZbD9xMXMGyjPT1fUdg5RsBt7pvEDm6q2A2r0t0BAlzqZfhmE3xGU+4Z
-	AwAQYhqSvE+lrEmE1q8laJC+loY4TW/914sVKEWyeC3krHtx/I9FlS+yRQPYuikN1+CppJ9CEWu
-	00lJn4BI6+4sXbZzFVMAExCVFqJs=
-X-Google-Smtp-Source: AGHT+IHrwgHwBZEwqgmdfFcvMdKs/R/4FvKMtsdtQta3AkpUWAE/0fmR4c4NoqV2g+YZPRTfCoNmvg==
-X-Received: by 2002:a17:907:3d42:b0:ad8:e477:970c with SMTP id a640c23a62f3a-ad8e486d957mr262287266b.23.1748507533480;
-        Thu, 29 May 2025 01:32:13 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.42.248])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5d82e87esm100609866b.63.2025.05.29.01.32.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 May 2025 01:32:13 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: michael@amarulasolutions.com,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 4/4] ARM: dts: mxs: support i.MX28 Amarula rmm board
-Date: Thu, 29 May 2025 10:31:07 +0200
-Message-ID: <20250529083201.2286915-5-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250529083201.2286915-1-dario.binacchi@amarulasolutions.com>
-References: <20250529083201.2286915-1-dario.binacchi@amarulasolutions.com>
+	Thu, 29 May 2025 08:38:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BDAD3614BA;
+	Thu, 29 May 2025 08:38:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AED5C4CEE7;
+	Thu, 29 May 2025 08:38:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748507894;
+	bh=auDYBHCheMKN79wvAyDINlXlq8qBJZfxKgWN3WWW6Z4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XUMXNfrGUi2yiKDbM7nPrMgEPK4TU7d1/r6cS6DJuqZvwiBiGEODepBQksMqmF3pf
+	 RC/WPi+DC3M8QN9QqVinLfoavVbML0kKrbXFAUiwn9VuKOpJoHALMUGD47XN91ZX4n
+	 jXgxG+96lLhlx+Iy9mVaK1yOSsSwm9kjelgQrAEDVV6Eez6R2uiARjtl71Fehzai97
+	 5JW8ZO3BEP6VJtEeMlYJEpwK7okW094AGUPR8EV2ZtczXAUtwbRajAEdaUk8X7CR7X
+	 Bv3Tqy+JTZSFWDh4Mjod/4TzP98UHBhC7rIWYVD03e1Afif9IQWD3lTirUXe+IffNv
+	 2yV+T0YHVGe2A==
+Date: Thu, 29 May 2025 10:38:05 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Subject: Re: [PATCH v4 21/26] irqchip/gic-v5: Add GICv5 IRS/SPI support
+Message-ID: <aDgc7URS+jPBlfQX@lpieralisi>
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-21-b36e9b15a6c3@kernel.org>
+ <20250528170318.00001dd8@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_013215_338251_71EFC575 
-X-CRM114-Status: GOOD (  16.43  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250528170318.00001dd8@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,364 +65,410 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, devicetree@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>, linux-kernel@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>, Sascha Bischoff <sascha.bischoff@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The board includes the following resources:
- - 256 Mbytes NAND Flash
- - 128 Mbytes DRAM DDR2
- - CAN
- - USB 2.0 high-speed/full-speed
- - Ethernet MAC
+On Wed, May 28, 2025 at 05:03:18PM +0100, Jonathan Cameron wrote:
+> On Tue, 13 May 2025 19:48:14 +0200
+> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> > The GICv5 Interrupt Routing Service (IRS) component implements
+> > interrupt management and routing in the GICv5 architecture.
+> > 
+> > A GICv5 system comprises one or more IRSes, that together
+> > handle the interrupt routing and state for the system.
+> > 
+> > An IRS supports Shared Peripheral Interrupts (SPIs), that are
+> > interrupt sources directly connected to the IRS; they do not
+> > rely on memory for storage. The number of supported SPIs is
+> > fixed for a given implementation and can be probed through IRS
+> > IDR registers.
+> > 
+> > SPI interrupt state and routing are managed through GICv5
+> > instructions.
+> > 
+> > Each core (PE in GICv5 terms) in a GICv5 system is identified with
+> > an Interrupt AFFinity ID (IAFFID).
+> > 
+> > An IRS manages a set of cores that are connected to it.
+> > 
+> > Firmware provides a topology description that the driver uses
+> > to detect to which IRS a CPU (ie an IAFFID) is associated with.
+> > 
+> > Use probeable information and firmware description to initialize
+> > the IRSes and implement GICv5 IRS SPIs support through an
+> > SPI-specific IRQ domain.
+> > 
+> > The GICv5 IRS driver:
+> > 
+> > - Probes IRSes in the system to detect SPI ranges
+> > - Associates an IRS with a set of cores connected to it
+> > - Adds an IRQchip structure for SPI handling
+> > 
+> > SPIs priority is set to a value corresponding to the lowest
+> > permissible priority in the system (taking into account the
+> > implemented priority bits of the IRS and CPU interface).
+> > 
+> > Since all IRQs are set to the same priority value, the value
+> > itself does not matter as long as it is a valid one.
+> > 
+> > Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> > Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
+> > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> 
+> A few comments inline. Mostly around of cpu phandle parsing.
+> +CC Ali as there is a comment on his SMT DT patch set inline.
+> 
+> 
+> > ---
+> >  arch/arm64/include/asm/sysreg.h    |  36 +++
+> >  drivers/irqchip/Makefile           |   2 +-
+> >  drivers/irqchip/irq-gic-v5-irs.c   | 433 +++++++++++++++++++++++++++++++++++++
+> >  drivers/irqchip/irq-gic-v5.c       | 341 +++++++++++++++++++++++++++--
+> >  include/linux/irqchip/arm-gic-v5.h | 130 +++++++++++
+> >  5 files changed, 920 insertions(+), 22 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> > index 9d28d408f9c6df24526dd8ecbf3c7d920246b22d..fbac3b6f056ae6fafd64457600d45808e4904ae3 100644
+> > --- a/arch/arm64/include/asm/sysreg.h
+> > +++ b/arch/arm64/include/asm/sysreg.h
+> > @@ -1082,14 +1082,50 @@
+> >  /*
+> >   * Definitions for GICv5 instructions
+> >   */
+> 
+> >  
+> > +/* Shift and mask definitions for GIC CDAFF */
+> 
+> Similar comment. Mask definitions seems more accurate to me.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Fixed.
 
----
+> > +/* Shift and mask definitions for GIC CDDIS */
+> > +#define GICV5_GIC_CDDIS_TYPE_MASK	GENMASK_ULL(31, 29)
+> > +#define GICV5_GIC_CDDIS_TYPE(r)		FIELD_GET(GICV5_GIC_CDDIS_TYPE_MASK, r)
+> > +#define GICV5_GIC_CDDIS_ID_MASK		GENMASK_ULL(23, 0)
+> > +#define GICV5_GIC_CDDIS_ID(r)		FIELD_GET(GICV5_GIC_CDDIS_ID_MASK, r)
+> 
+> Similar to earlier comment. I'm not sure the shortened forms are worth the bother.
 
-Changes in v3:
-- In imx28-amarula-rmm.dts:
-  - Drop xceiver-supply property from can0 node.
-  - Rearrange the order of specific nodes and properties
-    alphabetically.
+Same as previous replies.
 
-Changes in v2:
-- In imx28-amarula-rmm.dts:
-  - Replace '-' with '@' for the pinctrl sub-nodes.
-  - Replace edt,edt-ft5x06 with edt,edt-ft5306.
-  - Drop LCD reset hog pin.
-  - Add correct #address-cells and #size-cells to gpmi node.
-  - Replace edt-ft5x06@38 with touchscreen@38.
-- Drop from commit messages all references to LCD display.
-- Add patch [1/4] "dt-bindings: mfd: convert mxs-lradc bindings to
-  json-schema".
+> > diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..8c448487b909c7d3b4e1f95a5bc02b741ecc40b3
+> > --- /dev/null
+> > +++ b/drivers/irqchip/irq-gic-v5-irs.c
+> > @@ -0,0 +1,433 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
+> > + */
+> > +
+> > +#define pr_fmt(fmt)	"GICv5 IRS: " fmt
+> > +
+> > +#include <linux/of.h>
+> > +#include <linux/of_address.h>
+> > +
+> > +#include <linux/irqchip.h>
+> > +#include <linux/irqchip/arm-gic-v5.h>
+> 
+> 
+> 
+> > +int gicv5_spi_irq_set_type(struct irq_data *d, unsigned int type)
+> > +{
+> > +	struct gicv5_irs_chip_data *irs_data = d->chip_data;
+> > +	u32 selr, cfgr;
+> > +	bool level;
+> > +	int ret;
+> > +
+> > +	switch (type) {
+> > +	case IRQ_TYPE_EDGE_RISING:
+> > +	case IRQ_TYPE_EDGE_FALLING:
+> > +		level = false;
+> > +		break;
+> > +	case IRQ_TYPE_LEVEL_HIGH:
+> > +	case IRQ_TYPE_LEVEL_LOW:
+> > +		level = true;
+> > +		break;
+> > +	default:
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	guard(raw_spinlock)(&irs_data->spi_config_lock);
+> > +
+> > +	selr = FIELD_PREP(GICV5_IRS_SPI_SELR_ID, d->hwirq);
+> > +	irs_writel_relaxed(irs_data, selr, GICV5_IRS_SPI_SELR);
+> > +	ret = gicv5_irs_wait_for_spi_op(irs_data);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	cfgr = FIELD_PREP(GICV5_IRS_SPI_CFGR_TM, level);
+> > +
+> > +	irs_writel_relaxed(irs_data, cfgr, GICV5_IRS_SPI_CFGR);
+> > +	ret = gicv5_irs_wait_for_spi_op(irs_data);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	return 0;
+> 	return gicv5_irq_wait_for_spi_op()
+> 
+> unless more code turns up here in a later patch.
 
- arch/arm/boot/dts/nxp/mxs/Makefile            |   1 +
- .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 303 ++++++++++++++++++
- 2 files changed, 304 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
+Ok.
 
-diff --git a/arch/arm/boot/dts/nxp/mxs/Makefile b/arch/arm/boot/dts/nxp/mxs/Makefile
-index 96dd31ea19ba..d72ba702b6fa 100644
---- a/arch/arm/boot/dts/nxp/mxs/Makefile
-+++ b/arch/arm/boot/dts/nxp/mxs/Makefile
-@@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_MXS) += \
- 	imx23-sansa.dtb \
- 	imx23-stmp378x_devb.dtb \
- 	imx23-xfi3.dtb \
-+	imx28-amarula-rmm.dtb \
- 	imx28-apf28.dtb \
- 	imx28-apf28dev.dtb \
- 	imx28-apx4devkit.dtb \
-diff --git a/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts b/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-new file mode 100644
-index 000000000000..5824eb9e9557
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
-@@ -0,0 +1,303 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx28.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	compatible = "amarula,imx28-rmm", "fsl,imx28";
-+	model = "Amarula i.MX28 rmm";
-+
-+	memory@40000000 {
-+		reg = <0x40000000 0x08000000>;
-+		device_type = "memory";
-+	};
-+
-+	backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&pwm 4 5000000 0>;
-+		brightness-levels = <0 255>;
-+		num-interpolated-steps = <255>;
-+		default-brightness-level = <255>;
-+		power-supply = <&reg_5v>;
-+	};
-+
-+	beeper {
-+		compatible = "pwm-beeper";
-+		pwms = <&pwm 7 100000 0>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&leds_pins>;
-+
-+		led-0 {
-+			label = "status";
-+			gpios = <&gpio2 7 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-1 {
-+			label = "x22_5";
-+			gpios = <&gpio3 16 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+
-+		led-2 {
-+			label = "x22_4";
-+			gpios = <&gpio3 17 GPIO_ACTIVE_HIGH>;
-+			default-state = "off";
-+		};
-+	};
-+
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
-+
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	reg_5v: regulator-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	reg_fec_3v3: regulator-fec-3v3 {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&fec_3v3_enable_pin>;
-+		regulator-name = "fec-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpios = <&gpio3 27 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		startup-delay-us = <300000>;
-+		vin-supply = <&reg_5v>;
-+	};
-+
-+	reg_usb0_vbus: regulator-usb0-vbus {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb0_vbus_enable_pin>;
-+		regulator-name = "usb0_vbus";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&gpio2 5 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-always-on;
-+	};
-+
-+	reg_usb1_vbus: regulator-usb1-vbus {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb1_vbus_enable_pin>;
-+		regulator-name = "usb1_vbus";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&gpio2 6 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		regulator-always-on;
-+	};
-+};
-+
-+&auart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&auart0_2pins_a>;
-+	status = "okay";
-+};
-+
-+&auart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&auart1_pins_a>;
-+	status = "okay";
-+};
-+
-+&can0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&can0_pins_a>;
-+	status = "okay";
-+};
-+
-+&duart {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&duart_pins_b>;
-+	status = "okay";
-+};
-+
-+&duart_pins_b {
-+	fsl,voltage = <MXS_VOLTAGE_LOW>;
-+};
-+
-+&gpmi {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gpmi_pins_a &gpmi_status_cfg>;
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0_pins_a>;
-+	status = "okay";
-+
-+	touchscreen: touchscreen@38 {
-+		compatible = "edt,edt-ft5306";
-+		reg = <0x38>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&edt_ft5x06_pins &edt_ft5x06_wake_pin>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <19 IRQ_TYPE_EDGE_RISING>;
-+		reset-gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
-+		wake-gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+&lradc {
-+	status = "okay";
-+};
-+
-+&mac0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mac0_pins_a>;
-+	phy-mode = "rmii";
-+	phy-supply = <&reg_fec_3v3>;
-+	phy-handle = <&ethphy>;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy: ethernet-phy@0 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <0>;
-+			max-speed = <100>;
-+			reset-gpios = <&gpio3 28 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <4000>;
-+			reset-deassert-us = <4000>;
-+		};
-+	};
-+};
-+
-+&pinctrl {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&hog_pins_a>;
-+
-+	edt_ft5x06_pins: edt-ft5x06@0 {
-+		reg = <0>;
-+		fsl,pinmux-ids = <
-+			MX28_PAD_GPMI_RDY1__GPIO_0_21 /* Reset */
-+			MX28_PAD_GPMI_CE3N__GPIO_0_19 /* Interrupt */
-+		>;
-+		fsl,drive-strength = <MXS_DRIVE_4mA>;
-+		fsl,pull-up = <MXS_PULL_ENABLE>;
-+		fsl,voltage = <MXS_VOLTAGE_HIGH>;
-+	};
-+
-+	edt_ft5x06_wake_pin: edt-ft5x06-wake@0 {
-+		reg = <0>;
-+		fsl,pinmux-ids = <MX28_PAD_GPMI_CE2N__GPIO_0_18>;
-+		fsl,drive-strength = <MXS_DRIVE_16mA>;
-+		fsl,pull-up = <MXS_PULL_DISABLE>;
-+		fsl,voltage = <MXS_VOLTAGE_HIGH>;
-+	};
-+
-+	fec_3v3_enable_pin: fec-3v3-enable@0 {
-+		reg = <0>;
-+		fsl,pinmux-ids = <MX28_PAD_SPDIF__GPIO_3_27>;
-+		fsl,drive-strength = <MXS_DRIVE_4mA>;
-+		fsl,pull-up = <MXS_PULL_DISABLE>;
-+		fsl,voltage = <MXS_VOLTAGE_HIGH>;
-+	};
-+
-+	hog_pins_a: hog@0 {
-+		reg = <0>;
-+		fsl,pinmux-ids = <
-+			MX28_PAD_SSP2_SS1__GPIO_2_20  /* External power */
-+		>;
-+		fsl,drive-strength = <MXS_DRIVE_4mA>;
-+		fsl,pull-up = <MXS_PULL_DISABLE>;
-+		fsl,voltage = <MXS_VOLTAGE_HIGH>;
-+	};
-+
-+	leds_pins: leds@0 {
-+		reg = <0>;
-+		fsl,pinmux-ids = <
-+			MX28_PAD_SSP0_DATA7__GPIO_2_7
-+			MX28_PAD_PWM0__GPIO_3_16
-+			MX28_PAD_PWM1__GPIO_3_17
-+		>;
-+		fsl,drive-strength = <MXS_DRIVE_4mA>;
-+		fsl,pull-up = <MXS_PULL_DISABLE>;
-+		fsl,voltage = <MXS_VOLTAGE_HIGH>;
-+	};
-+
-+	usb0_vbus_enable_pin: usb0-vbus-enable@0 {
-+		reg = <0>;
-+		fsl,pinmux-ids = <MX28_PAD_SSP0_DATA5__GPIO_2_5>;
-+		fsl,drive-strength = <MXS_DRIVE_4mA>;
-+		fsl,pull-up = <MXS_PULL_DISABLE>;
-+		fsl,voltage = <MXS_VOLTAGE_HIGH>;
-+	};
-+
-+	usb1_vbus_enable_pin: usb1-vbus-enable@0 {
-+		reg = <0>;
-+		fsl,pinmux-ids = <MX28_PAD_SSP0_DATA6__GPIO_2_6>;
-+		fsl,drive-strength = <MXS_DRIVE_4mA>;
-+		fsl,pull-up = <MXS_PULL_DISABLE>;
-+		fsl,voltage = <MXS_VOLTAGE_HIGH>;
-+	};
-+};
-+
-+&pwm {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm4_pins_a &pwm7_pins_a>;
-+	status = "okay";
-+};
-+
-+&ssp0 {
-+	compatible = "fsl,imx28-mmc";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mmc0_4bit_pins_a &mmc0_sck_cfg>;
-+	broken-cd;
-+	bus-width = <4>;
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	dr_mode = "host";
-+	vbus-supply = <&reg_usb0_vbus>;
-+	status = "okay";
-+};
-+
-+&usb1 {
-+	dr_mode = "host";
-+	vbus-supply = <&reg_usb1_vbus>;
-+	status = "okay";
-+};
-+
-+&usbphy0 {
-+	status = "okay";
-+};
-+
-+&usbphy1 {
-+	status = "okay";
-+};
--- 
-2.43.0
+> 
+> > +}
+> 
+> > +
+> > +static void __init gicv5_irs_init_bases(struct gicv5_irs_chip_data *irs_data,
+> > +					void __iomem *irs_base,
+> > +					struct fwnode_handle *handle)
+> > +{
+> > +	struct device_node *np = to_of_node(handle);
+> > +	u32 cr0, cr1;
+> > +
+> > +	irs_data->fwnode = handle;
+> > +	irs_data->irs_base = irs_base;
+> > +
+> > +	if (of_property_read_bool(np, "dma-noncoherent")) {
+> > +		/*
+> > +		 * A non-coherent IRS implies that some cache levels cannot be
+> > +		 * used coherently by the cores and GIC. Our only option is to mark
+> > +		 * memory attributes for the GIC as non-cacheable; by default,
+> > +		 * non-cacheable memory attributes imply outer-shareable
+> > +		 * shareability, the value written into IRS_CR1_SH is ignored.
+> > +		 */
+> > +		cr1 = FIELD_PREP(GICV5_IRS_CR1_VPED_WA, GICV5_NO_WRITE_ALLOC)	|
+> As per earlier comments is this less clear as:
+> 		cr1 = FIELD_PREP(GICV5_IRS_CR1_VPED_WA, 0)	|
+> 
+> To me, seems fine but up to you.
+> 
+> > +			FIELD_PREP(GICV5_IRS_CR1_VPED_RA, GICV5_NO_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VMD_WA, GICV5_NO_WRITE_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VMD_RA, GICV5_NO_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VPET_RA, GICV5_NO_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VMT_RA, GICV5_NO_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_IST_WA, GICV5_NO_WRITE_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_IST_RA, GICV5_NO_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_IC, GICV5_NON_CACHE)		|
+> > +			FIELD_PREP(GICV5_IRS_CR1_OC, GICV5_NON_CACHE);
+> > +			irs_data->flags |= IRS_FLAGS_NON_COHERENT;
+> > +	} else {
+> > +		cr1 = FIELD_PREP(GICV5_IRS_CR1_VPED_WA, GICV5_WRITE_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VPED_RA, GICV5_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VMD_WA, GICV5_WRITE_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VMD_RA, GICV5_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VPET_RA, GICV5_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_VMT_RA, GICV5_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_IST_WA, GICV5_WRITE_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_IST_RA, GICV5_READ_ALLOC)	|
+> > +			FIELD_PREP(GICV5_IRS_CR1_IC, GICV5_WB_CACHE)		|
+> > +			FIELD_PREP(GICV5_IRS_CR1_OC, GICV5_WB_CACHE)		|
+> > +			FIELD_PREP(GICV5_IRS_CR1_SH, GICV5_INNER_SHARE);
+> > +	}
+> > +
+> > +	irs_writel_relaxed(irs_data, cr1, GICV5_IRS_CR1);
+> > +
+> > +	cr0 = FIELD_PREP(GICV5_IRS_CR0_IRSEN, 0x1);
+> > +	irs_writel_relaxed(irs_data, cr0, GICV5_IRS_CR0);
+> > +	gicv5_irs_wait_for_idle(irs_data);
+> > +}
+> > +
+> > +static int __init gicv5_irs_of_init_affinity(struct device_node *node,
+> > +					     struct gicv5_irs_chip_data *irs_data,
+> > +					     u8 iaffid_bits)
+> > +{
+> > +	/*
+> > +	 * Detect IAFFID<->CPU mappings from the device tree and
+> > +	 * record IRS<->CPU topology information.
+> > +	 */
+> > +	u16 iaffid_mask = GENMASK(iaffid_bits - 1, 0);
+> > +	u16 *iaffids __free(kfree) = NULL;
+> 
+> See comments in cleanup.h.  Linus has been fairly clear he doesn't like
+> separating the constructor and destructor like this - just declare
+> iaffids where you construct it.
 
+Right.
+
+> > +	int ret, i, ncpus, niaffids;
+> > +
+> 
+> > +	ncpus = of_property_count_elems_of_size(node, "cpus", sizeof(u32));
+> 
+> cpus is a phandle? I think this is going to run into current discussion
+> on what phandles to CPUs on an SMT system look like (Rob Herring and Mark
+> Rutland have different views)
+> https://lore.kernel.org/linux-arm-kernel/20250512080715.82-1-alireza.sanaee@huawei.com/
+
+I will make sure to steer clear of that then ;-), whatever the outcome
+the current "cpus" bindings should continue to work as-is, right ?
+
+> Anyhow this doesn't look right to me.
+> I think it should be of_count_phandle_with_args() 
+
+Aren't they equivalent in functionality if of_count_phandle_with_args()
+cells_name == NULL ?
+
+I will update the code but if the functionality provided is not the
+same there is kernel code to fix (it is an example, there are others):
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/irqchip/irq-apple-aic.c?h=v6.15#n903
+
+> Potentially with cpu-cells as the argument depending on how that
+> thread goes.
+> 
+> > +	if (ncpus < 0)
+> > +		return -EINVAL;
+> > +
+> > +	niaffids = of_property_count_elems_of_size(node, "arm,iaffids",
+> > +						   sizeof(u16));
+> > +	if (niaffids != ncpus)
+> > +		return -EINVAL;
+> > +
+> 	u16 *iaffids __free(kfree) = kcalloc(niaffids, sizeof(*iaffids),
+> 					     GFP_KERNEL);
+
+Maybe I should rewrite this in Rust :)
+
+> > +	iaffids = kcalloc(niaffids, sizeof(*iaffids), GFP_KERNEL);
+> > +	if (!iaffids)
+> > +		return -ENOMEM;
+> > +
+> > +	ret = of_property_read_u16_array(node, "arm,iaffids", iaffids, niaffids);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	for (i = 0; i < ncpus; i++) {
+> > +		struct device_node *cpu_node;
+> > +		u32 cpu_phandle;
+> > +		int cpu;
+> > +
+> > +		if (of_property_read_u32_index(node, "cpus", i, &cpu_phandle))
+> > +			continue;
+> > +
+> > +		cpu_node = of_find_node_by_phandle(cpu_phandle);
+> 
+> 		cpu_node = of_parse_phandle(node, "cpus", i);
+> 
+> not work here?
+
+I think it would.
+
+>  
+> > +		if (WARN_ON(!cpu_node))
+> > +			continue;
+> > +
+> > +		cpu = of_cpu_node_to_id(cpu_node);
+> 
+> If this is all you want then Ali's series gives you a helper
+> 
+> 		cpu = of_cpu_phandle_to_id(node, &cpu_node, i);
+> 
+> Though even better to have a helper that allows
+> 		cpu = of_cpu_phandle_to_id(node, NULL, i); and handles
+> the node put as internally.
+> 
+> Ali, any reason we can't do that?  Seems to be a fairly common
+> pattern.
+> 
+> 
+>  
+> > +		of_node_put(cpu_node);
+> > +		if (WARN_ON(cpu < 0))
+> > +			continue;
+> > +
+> > +		if (iaffids[i] & ~iaffid_mask) {
+> > +			pr_warn("CPU %d iaffid 0x%x exceeds IRS iaffid bits\n",
+> > +				cpu, iaffids[i]);
+> > +			continue;
+> > +		}
+> > +
+> > +		per_cpu(cpu_iaffid, cpu).iaffid = iaffids[i];
+> > +		per_cpu(cpu_iaffid, cpu).valid = true;
+> > +
+> > +		/* We also know that the CPU is connected to this IRS */
+> > +		per_cpu(per_cpu_irs_data, cpu) = irs_data;
+> > +	}
+> > +
+> > +	return ret;
+> > +}
+> 
+> > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> > index a50982e5d98816d88e4fca37cc0ac31684fb6c76..e58ff345dbfaf840b17ad63c4fdb6c227137cf4b 100644
+> > --- a/drivers/irqchip/irq-gic-v5.c
+> > +++ b/drivers/irqchip/irq-gic-v5.c
+> >
+> > +
+> > +static int gicv5_spi_irq_set_irqchip_state(struct irq_data *d,
+> > +					   enum irqchip_irq_state which,
+> > +					   bool val)
+> > +{
+> 
+> Similar to previous, I'd call the state parameter state rather than val.
+
+Right.
+
+> > diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+> > index 4ff0ba64d9840c3844671f7850bb3d81ba2eb1b6..187af307de9170d9569898cb1e50de376a38bd0a 100644
+> > --- a/include/linux/irqchip/arm-gic-v5.h
+> > +++ b/include/linux/irqchip/arm-gic-v5.h
+> > @@ -5,6 +5,8 @@
+> >  #ifndef __LINUX_IRQCHIP_ARM_GIC_V5_H
+> >  #define __LINUX_IRQCHIP_ARM_GIC_V5_H
+> 
+> >  
+> > +#define GICV5_NO_READ_ALLOC		0b0
+> > +#define GICV5_READ_ALLOC		0b1
+> > +#define GICV5_NO_WRITE_ALLOC		0b0
+> > +#define GICV5_WRITE_ALLOC		0b1
+> 
+> Given these are being written to fields called _RA and _WA
+> so the defines provide value over 0 and 1 in appropriate places?
+> Maybe just about. Anyhow, your code so on this up to you.
+> 
+> > +
+> > +#define GICV5_NON_CACHE			0b00
+> > +#define GICV5_WB_CACHE			0b01
+> > +#define GICV5_WT_CACHE			0b10
+> > +
+> > +#define GICV5_NON_SHARE			0b00
+> > +#define GICV5_OUTER_SHARE		0b10
+> > +#define GICV5_INNER_SHARE		0b11
+> > +
+> > +#define GICV5_IRS_IDR1			0x0004
+> > +#define GICV5_IRS_IDR2			0x0008
+> > +#define GICV5_IRS_IDR5			0x0014
+> > +#define GICV5_IRS_IDR6			0x0018
+> > +#define GICV5_IRS_IDR7			0x001c
+> > +#define GICV5_IRS_CR0			0x0080
+> > +#define GICV5_IRS_CR1			0x0084
+> > +#define GICV5_IRS_SPI_SELR		0x0108
+> > +#define GICV5_IRS_SPI_CFGR		0x0114
+> > +#define GICV5_IRS_SPI_STATUSR		0x0118
+> > +#define GICV5_IRS_PE_SELR		0x0140
+> > +#define GICV5_IRS_PE_STATUSR		0x0144
+> > +#define GICV5_IRS_PE_CR0		0x0148
+> 
+> Blank line here as this is end of register offsets.
+
+Yep, fixed it.
+
+Thanks for having a look !
+Lorenzo
+
+> > +#define GICV5_IRS_IDR1_PRIORITY_BITS	GENMASK(22, 20)
+> > +#define GICV5_IRS_IDR1_IAFFID_BITS	GENMASK(19, 16)
+> 
+> 
+> 
 
