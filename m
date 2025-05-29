@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AE4C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0B9C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAnOFYgkpZLUkzWXlnNDDjCH+ITFIexSer1PmsDLuiU=; b=UgKOQGkXow+UZrE+lQv6T4vniZ
-	6XnGJUME8XIVNlsqlwsjQJC1+RACoS7wTUL9OpEusVlh9nFxnX4ehtBkNjjaB6lZTT8aJNyx23yRA
-	6Sc2vO339jDvTOFvpOLUMHLKugGAkqqhJ08XKG2nkgKrv4tvu5gsjG2Jx1q2geZkPYInP0TqxoaQj
-	bAn9ypKnEvdR1FfvJnU/PAhrn1svFXkkOq48iKtLJqAXlV2kX2WHxf6GH3gbadBIWDnvwwWHiM41i
-	FDqwK1jaibyAFNvSNrH621WunCCn8CdLh5rAK0UJZcLWuHr+m4e09YohbkgC7xOb4cEe8AZ4z89d4
-	9N9xRNsg==;
+	bh=HwowqU2A2Oz8kMongy5nIRgTOs0J645sNyJgbe8ukqE=; b=ra+M8a7i6UlPShNfa3Iodty57K
+	MGlOugZNI1K1eGt+SrJ103GuVsaTvbbc07GFacnjjejPrM6vc0zF0Jq07U84ofcvzTpVeqsiOqGaz
+	445w8szAek0zL/qdnRVqLyK4P6MkCA4IRAIjH35u8T3S25cF67JrmrL0TpIycqju8KE/U8WByxIsE
+	NgZgYDmXi5m066vEM+v1jmJuefKSpgciWYhjtlBnMM868h/cxtNS+uxiLDe8+6iwglrA+mIUIDdiN
+	a/2x5dBmCEsloxHbvfGltQxmMAifiFAWl0Ee6LAx4a95JCvlb6O0vrCDLQyN0nSPHBYgTb/ptkitI
+	UMhK3prA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZVv-0000000FP6J-2kmI;
-	Thu, 29 May 2025 09:25:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uKZY1-0000000FPIN-1MNZ;
+	Thu, 29 May 2025 09:27:37 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZKY-0000000FNaA-0odb
+	id 1uKZL4-0000000FNl7-3THj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:13:43 +0000
+	Thu, 29 May 2025 09:14:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A058D5C629F;
-	Thu, 29 May 2025 09:11:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25031C4CEEB;
-	Thu, 29 May 2025 09:13:37 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1199DA4F4EB;
+	Thu, 29 May 2025 09:14:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C015C4CEE7;
+	Thu, 29 May 2025 09:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748510021;
-	bh=STUwJDo6edB2rYB+1OgDpYTIjZtzhbvx4FZHvhQiXeA=;
+	s=k20201202; t=1748510053;
+	bh=nsB0nVxz+JJc3yI5M3RfBBdILPJfmZjk/4dwV4uYOAg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Dm9EHB9Dym1P4YSNVcAw+j4JySIBaRBj7KwkbBbwFOKxXgrLYXFq9wwogw3AMj+SI
-	 5lluzAHzDnczCS2lAy49igbyZhsMt2DXVotzAP7mSgP7OR9JYxwxqzya03OX7JWd7d
-	 6vgU0t14XaCz1aWIMKek65jc/IrpjdSMohOBKqCdWnlWJ5ro6d1VR9iNHphlwJY4+A
-	 xzkhQAoRoMNujsiu9IARLgJepqidJWTYz3+Ugb1Lzsf2Sq4urg6YruSLvYqL/QwtYi
-	 1BPSRCUzgbxOyyqrMqtM4BnOeOhGFJXQZuj9WziJJv8v4Ib2/S8INK5ZbdVxkSrI6T
-	 MBXDD+5xQ8TxA==
-Message-ID: <e5b5a526-e710-4ed3-ae05-7c5bda55e293@kernel.org>
-Date: Thu, 29 May 2025 11:13:37 +0200
+	b=XjEjNiMmNF4QyQXKqZ96EBVPLdhph3Csowe2ehr9ecQcm2XIadsZIgL9YCdp32C0k
+	 CLRwHmltzlnY0rUqnrsRHaRXcLHbtCRfuJRYKTVJ4my7l7HAJCiJSorfqkoRf1PqzJ
+	 1f68M4vi/E9PDVHXF+6pCnr9bcXnXeJQ8+refWKu2w+54QJDkLJv+rkB7fwI7iB9Dn
+	 W90l0BB3jSJtlp77wiCIgNCB1UNGOqymRmi1fkcYeZCIJDH72wXRHw8R8q0qAHJyP6
+	 iprnfI4nFXLhMAsSWaMSMKHXAjU2QWGZ6dlVjsoOGUeLHgkV/aRIpB7Th+PfxejdYY
+	 v1uOTEgBJ25Sw==
+Message-ID: <57667ad9-d98f-4f8b-9b70-428960765ddb@kernel.org>
+Date: Thu, 29 May 2025 11:14:09 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp15
+Subject: Re: [PATCH v4 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
 To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
  Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -56,9 +55,10 @@ To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
  Bartosz Golaszewski <brgl@bgdev.pl>
 Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
  devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
+ linux-arm-kernel@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
- <20250528-hdp-upstream-v4-6-7e9b3ad2036d@foss.st.com>
+ <20250528-hdp-upstream-v4-2-7e9b3ad2036d@foss.st.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +104,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250528-hdp-upstream-v4-6-7e9b3ad2036d@foss.st.com>
+In-Reply-To: <20250528-hdp-upstream-v4-2-7e9b3ad2036d@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_021342_312934_A65D4D2A 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250529_021415_020736_A203745B 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,27 +126,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 28/05/2025 15:30, Clément Le Goffic wrote:
-> Add the hdp devicetree node for stm32mp15 SoC family
+> 'HDP' stands for Hardware Debug Port, it is an hardware block in
+> STMicrolectronics' MPUs that let the user decide which internal SoC's
+> signal to observe.
+> It provides 8 ports and for each port there is up to 16 different
+> signals that can be output.
+> Signals are different for each MPU.
 > 
 > Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
->  arch/arm/boot/dts/st/stm32mp151.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
-> index 0daa8ffe2ff5..b1b568dfd126 100644
-> --- a/arch/arm/boot/dts/st/stm32mp151.dtsi
-> +++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
-> @@ -270,6 +270,13 @@ dts: thermal@50028000 {
->  			status = "disabled";
->  		};
->  
-> +		hdp: pinctrl@5002a000 {
-> +			compatible = "st,stm32mp151-hdp";
-> +			reg = <0x5002a000 0x400>;
-> +			clocks = <&rcc HDP>;
-> +			status = "disabled";
-Same problem.
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Drop reviewed tag. It was given under assumption that you will test your
+code before sending.
+
 
 Best regards,
 Krzysztof
