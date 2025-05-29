@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743E1C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13AC4C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=R1LgwZo8Yy9jHnLiG1r4EpMcCCNsir16DglYBKVIjxk=; b=ZxJT197pVRJZOi
-	kUBUZISizX6p3coIh78059sXqSFq2hqek7GVicPuQdxG3oAXM4wJ1/zljKzJgGNpgwGsUmXZoY12t
-	StOj8yKkFaJQoSPOGA+CZJIRwci2pbuN7ktQ7khbW+b1dqFgB7aElzuR+SE6lzgxHKx5rzOvZ1sy0
-	bosKfQ49NyphqxA54eXc+V+mKqtVWTetF46TCbew7a/P+JhyG387qawN6JtvrGJNoxQhIfiscbg2z
-	EHSGzmSk7+pfqsv0xpV4MABOhyCzafha8vh/0QWUyWWeP4NWu6XGo5Rqm8xBUcFDNZeKPMaZERNdC
-	xCo3Arlx3FYCXyIbT9uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nFXz1a5AzZ0BGVhwiRYx2U+xdcfYzrs9yjeyMb/mIK4=; b=waLugTEXzvH2uQpqAjaVW+u8Xe
+	8PFYfTXkIczIdlZu5iOdSVMRjYNmv5z+eyFtfA6uv3Y/7sEgjMo04rupww0VqoeUIkNtm8ipXPOLE
+	Kiu0aPZ+HgjN89HIWUWWDNMp2ZhTCRpO8LjuUBt+ANVroChBhxrQMmV0koZZ/Hlvv4qwZdlMNIly4
+	6bKKRFbO8miOnqWiAZHbZM8ir2pXFy1PZJ4lWb5Tw5hztDfHpKwjmoLkL88oUE+9oJIofJwoOD2g8
+	kx2KCxGknsTwwbWcC/Yqew+BVzAckQ9CFB6DPYDetsCk/10f1leEaX0HRs9CDZPoUSztz/c6sVXAE
+	myj90OPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKfti-0000000G9L7-3IKT;
-	Thu, 29 May 2025 16:14:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uKfz4-0000000GAZ7-0ZcG;
+	Thu, 29 May 2025 16:19:58 +0000
+Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKfYv-0000000G7ta-0Y2S;
-	Thu, 29 May 2025 15:52:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 953B85C67D9;
-	Thu, 29 May 2025 15:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79AC8C4CEE7;
-	Thu, 29 May 2025 15:52:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748533975;
-	bh=hl2EGsrGA6DGqbMtlfQBtSfBMc1FbsIADq0RXh96ZlM=;
-	h=From:Subject:Date:To:Cc:From;
-	b=kCV2Z42yGt0npy4Ex2G+oPRP+thc3Fkcwhd8enV06PV5M8H2VwCiYZesrJFsBUQQT
-	 qgL9LkWnJfGIJMZRbuXBJixkUSLqwMDDV/T3tTKZEMwKleSgfTuCFTWRUOLVtkO5Lp
-	 WA/SDlmfskrmgbGIQYBcBMEoYiCcF+i5PNz6yiduLgHy4oJBvZ+VpXg2wmHUAmOIRm
-	 LttEO5uOCgA8Qe/7PwyCSEJ8/wBb07GbWbGkODIAGVCbARJ9zhhNe3wwFu0JedvdCA
-	 58CWZMz01/lvXOjYEd85XmjNIxFQV7KThwR5bvqc8vJJsVs8nf/vb4FH152iRoFLXw
-	 jlRuFHa9LKWaw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net 0/2] net: airoha: Fix IPv6 hw acceleration
-Date: Thu, 29 May 2025 17:52:36 +0200
-Message-Id: <20250529-airoha-flowtable-ipv6-fix-v1-0-7c7e53ae0854@kernel.org>
+	id 1uKfwv-0000000GAKv-3fGW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 May 2025 16:17:47 +0000
+Received: by mail-yb1-xb31.google.com with SMTP id 3f1490d57ef6-e7da099de49so1039819276.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 09:17:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1748535465; x=1749140265; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nFXz1a5AzZ0BGVhwiRYx2U+xdcfYzrs9yjeyMb/mIK4=;
+        b=GMGHj+hie9aCDKCesh2ruZHAS3FA/Q2OVylE/Yaxgzp0S7sDRcVupz5/6cYFubGkz5
+         HnpAwiAP7toadANFnCsOSH6qxKyiE8iuagdoHwfKrccT1B6T0Ne03ZCYhuTXTSChY7xE
+         29ZPp8XKiwEpDmHyfpsmcXm/Zqk4WqbwbPS8ujgQW4fU8AgcRMNteS045zQZ6Ycxffow
+         gcSfIEXEeUdQbRcxilV/qH2FjCiiOZ43GGY+23Wf3VEQoB2NeaBz83I4Tl0yrfIk3lOE
+         DnBMm3g1mG31UtLSodWYbqHeoUeWAEHAwQuigVBHQwlV2+4ewk6VaJUL+gI1Irhg65V9
+         p0pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748535465; x=1749140265;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nFXz1a5AzZ0BGVhwiRYx2U+xdcfYzrs9yjeyMb/mIK4=;
+        b=UmM3iBIOepA2BKhvRG+6QmFf+0lZFf8cctxSNy+6Wr4JenDh08xLl7i49S/bpCdCV3
+         kwwBKSPWShFl9WIjoazSMh+h1ET00mGm7bZ95nbXoSlpEepMAIg3PA+ghzRhgV+Yq8fB
+         0RgvJ0SgHLtJEfF3P5h1q1xLA3Twh6zjnsTWLeUpt7NJIonU2akrBG6YOal+eQ3npHzL
+         PRvTUoPHnGLMrcEX2tocxA9pkJC9RQT263E4g8sINQMm8npYQ/iBzKGBIehLsGcX7kfd
+         uRVGEamM4OhecRxp8iqnuHFETR5fehBUhrnkkghS+TG3AGWWiHw6CE+8CoVBH7wYMJ5C
+         IjBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUvKQ2krLE0XdYmnEVmKlGPmA2z7zuVpvQ6KCzKSjCvn5tiR72jH7bvSok8NBd9/K1ubt1DOuxwlxPMPEI4hz75@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2Fw5YPsgNX/CnzhWE4Paf2Mdyn5fv6GPzoA7GFe035XByULib
+	UKhA2hfT0ta4GglO5pLX1kbKkUOyfSidfooWKYeGdWPkpqlXTex6g/jo4BbMyFf3zm75P3qfrqb
+	ghNzD3+N7huvsvz7sIgHQHcxeHNdy8qS+gHPY1Wq0
+X-Gm-Gg: ASbGncsTat3m+iv0PaU3BZ2tqygQSunc6Mdr5DMvWWEY4LWZCCIKvVfFktWjn2fBrgH
+	+3iOkF20Foh2Fqyo0g7VtUzQWGdTz8JyZ1roDlDnqgtesvywIn1N09k5WTzD0T4TaLFAcRMoY5p
+	BVWHbg5tW+kX76ctBB77lWIecJXgQnq46zQchKuz/Rp7xzO4fcDAAUxh53VEvgiHg/xN53eAeLv
+	kEgow==
+X-Google-Smtp-Source: AGHT+IF2r9KlCyWj26WmElOEW91mfbdAeVcd/eA82K9ZIcXgbLmgmEn0mrSZRnVH71gS/1JkigbmLcuptMyfDe0ic3c=
+X-Received: by 2002:a05:6902:2b10:b0:e7a:b37b:725e with SMTP id
+ 3f1490d57ef6-e7f81e54c0bmr349501276.24.1748535464377; Thu, 29 May 2025
+ 09:17:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMSCOGgC/x2MSwqAMAwFryJZG6gF6+cq4iJqqgGx0ooK4t0NL
- ucNbx5IHIUTtNkDkU9JEjaFIs9gXGibGWVSBmtsaUrbIEkMC6Ffw3XQsKrfT4debmwqR8XIteF
- qAv3vkXX+213/vh9poXh1awAAAA==
-X-Change-ID: 20250529-airoha-flowtable-ipv6-fix-976a1ce80e7d
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Michal Kubiak <michal.kubiak@intel.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+References: <20250109204929.1106563-1-jthoughton@google.com>
+ <aBqlkz1bqhu-9toV@google.com> <CADrL8HXjLjVyFiFee9Q58TQ9zBfXiO+VG=25Rw4UD+fbDmxQFg@mail.gmail.com>
+ <aDh9GtncjlVvvVJ1@google.com>
+In-Reply-To: <aDh9GtncjlVvvVJ1@google.com>
+From: James Houghton <jthoughton@google.com>
+Date: Thu, 29 May 2025 12:17:07 -0400
+X-Gm-Features: AX0GCFtfh9MpZ-FDeJh2HrOczvbP9Hqyb2MdkVjRGdhWtHrFMpUcFHJvfRdVctg
+Message-ID: <CADrL8HUVf0wekmZHfZeb59w1j1=gFhs6oRZgNkufB3gOL-TENQ@mail.gmail.com>
+Subject: Re: [PATCH v2 00/13] KVM: Introduce KVM Userfault
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Yan Zhao <yan.y.zhao@intel.com>, 
+	Nikita Kalyazin <kalyazin@amazon.com>, Anish Moorthy <amoorthy@google.com>, 
+	Peter Gonda <pgonda@google.com>, Peter Xu <peterx@redhat.com>, 
+	David Matlack <dmatlack@google.com>, wei.w.wang@intel.com, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Jiaqi Yan <jiaqiyan@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_085257_218099_56507308 
-X-CRM114-Status: UNSURE (   5.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250529_091745_912970_09303F59 
+X-CRM114-Status: GOOD (  36.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +103,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix IPv6 hw acceleration in bridge mode resolving ib2 and
-airoha_foe_mac_info_common overwrite in
-airoha_ppe_foe_commit_subflow_entry routine.
-Introduce UPDMEM source-mac table used to set source mac address for
-L3 IPv6 hw accelerated traffic.
+On Thu, May 29, 2025 at 11:28=E2=80=AFAM Sean Christopherson <seanjc@google=
+.com> wrote:
+>
+> On Wed, May 28, 2025, James Houghton wrote:
+> > The only thing that I want to call out again is that this UAPI works
+> > great for when we are going from userfault --> !userfault. That is, it
+> > works well for postcopy (both for guest_memfd and for standard
+> > memslots where userfaultfd scalability is a concern).
+> >
+> > But there is another use case worth bringing up: unmapping pages that
+> > the VMM is emulating as poisoned.
+> >
+> > Normally this can be handled by mm (e.g. with UFFDIO_POISON), but for
+> > 4K poison within a HugeTLB-backed memslot (if the HugeTLB page remains
+> > mapped in userspace), KVM Userfault is the only option (if we don't
+> > want to punch holes in memslots). This leaves us with three problems:
+> >
+> > 1. If using KVM Userfault to emulate poison, we are stuck with small
+> > pages in stage 2 for the entire memslot.
+> > 2. We must unmap everything when toggling on KVM Userfault just to
+> > unmap a single page.
+> > 3. If KVM Userfault is already enabled, we have no choice but to
+> > toggle KVM Userfault off and on again to unmap the newly poisoned
+> > pages (i.e., there is no ioctl to scan the bitmap and unmap
+> > newly-userfault pages).
+> >
+> > All of these are non-issues if we emulate poison by removing memslots,
+> > and I think that's possible. But if that proves too slow, we'd need to
+> > be a little bit more clever with hugepage recovery and with unmapping
+> > newly-userfault pages, both of which I think can be solved by adding
+> > some kind of bitmap re-scan ioctl. We can do that later if the need
+> > arises.
+>
+> Hmm.
+>
+> On the one hand, punching a hole in a memslot is generally gross, e.g. re=
+quires
+> deleting the entire memslot and thus unmapping large swaths of guest memo=
+ry (or
+> all of guest memory for most x86 VMs).
+>
+> On the other hand, unless userspace sets KVM_MEM_USERFAULT from time zero=
+, KVM
+> will need to unmap guest memory (or demote the mapping size a la eager pa=
+ge
+> splitting?) when KVM_MEM_USERFAULT is toggled from 0=3D>1.
+>
+> One thought would be to change the behavior of KVM's processing of the us=
+erfault
+> bitmap, such that KVM doesn't infer *anything* about the mapping sizes, a=
+nd instead
+> give userspace more explicit control over the mapping size.  However, on =
+non-x86
+> architectures, implementing such a control would require a non-trivial am=
+ount of
+> code and complexity, and would incur overhead that doesn't exist today (i=
+.e. we'd
+> need to implement equivalent infrastructure to x86's disallow_lpage track=
+ing).
+>
+> And IIUC, another problem with KVM Userfault is that it wouldn't Just Wor=
+k for
+> KVM accesses to guest memory.  E.g. if the HugeTLB page is still mapped i=
+nto
+> userspace, then depending on the flow that gets hit, I'm pretty sure that=
+ emulating
+> an access to the poisoned memory would result in KVM_EXIT_INTERNAL_ERROR,=
+ whereas
+> punching a hole in a memslot would result in a much more friendly KVM_EXI=
+T_MMIO.
 
----
-Lorenzo Bianconi (2):
-      net: airoha: Initialize PPE UPDMEM source-mac table
-      net: airoha: Fix IPv6 hw acceleration in bridge mode
+Oh, yes, of course. KVM Userfault is not enough for memory poison
+emulation for non-guest-memfd memslots. Like how for these memslots we
+need userfaultfd to do post-copy properly, for memory poison, we still
+need userfaultfd (so 4K emulated poison within a HugeTLB memslot is
+not possible).
 
- drivers/net/ethernet/airoha/airoha_eth.c  |  2 ++
- drivers/net/ethernet/airoha/airoha_eth.h  |  1 +
- drivers/net/ethernet/airoha/airoha_ppe.c  | 52 ++++++++++++++++++++++++-------
- drivers/net/ethernet/airoha/airoha_regs.h | 10 ++++++
- 4 files changed, 53 insertions(+), 12 deletions(-)
----
-base-commit: 27eab4c644236a9324084a70fe79e511cbd07393
-change-id: 20250529-airoha-flowtable-ipv6-fix-976a1ce80e7d
+So yeah in this case (4K poison in a still-mapped HugeTLB page), we
+would need to punch a hole and get KVM_EXIT_MMIO. SGTM.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+For guest_memfd memslots, we can handle uaccess to emulated poison
+like tmpfs: with UFFDIO_POISON (Nikita has already started on
+UFFDIO_CONTINUE support[1]). We *could* make the gmem page fault
+handler (what Fuad is implementing) respect KVM Userfault, but that
+isn't necessary (and would look quite like a reimplementation of
+userfaultfd).
 
+[1]: https://lore.kernel.org/kvm/20250404154352.23078-1-kalyazin@amazon.com=
+/
+
+> All in all, given that KVM needs to correctly handle hugepage vs. memslot
+> alignment/size issues no matter what, and that KVM has well-established b=
+ehavior
+> for handling no-memslot accesses, I'm leaning towards saying userspace sh=
+ould
+> punch a hole in the memslot in order to emulate a poisoned page.  The onl=
+y reason
+> I can think of for preferring a different approach is if userspace can't =
+provide
+> the desired latency/performance characteristics when punching a hole in a=
+ memslot.
+> Hopefully reacting to a poisoned page is a fairly slow path?
+
+In general, yes it is. Memory poison is rare.
+
+For non-HugeTLB (tmpfs or guest_memfd), I don't think we need to punch
+a hole, so that's good. For HugeTLB, there are two circumstances that
+are perhaps concerning:
+
+1. Learning about poison during post-copy? This should be vanishingly
+rare, as most poison is discovered in the first pre-copy pass. If we
+didn't do *any* pre-copy passes, then it could be a concern.
+2. Learning about poison during pre-copy after shattering? If doing
+lazy page splitting with incremental dirty log clearing, this isn't a
+*huge* problem, otherwise it could be.
+
+I think userspace has two ways out: (1) don't make super large
+memslots, or (2) don't use HugeTLB.
+
+Just to be clear, this isn't really an issue with KVM Userfault -- in
+its current form (not preventing KVM's uaccess), it cannot help here.
 
