@@ -4,72 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB9BC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 10:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7FDC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 10:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YL3cCrAmduC3pAr5lj+i53+3Rt7gqGymhRdZHiv1+0=; b=FxY7Hvj3B29ww3Lz6XJoXCQMy7
-	2eN79cOeACV+INkX5AO9nJ1VCLucpS1jwxeGBqUK+Y46yoOZsc459DXLJjc2L4kbJgsww65pG3wxr
-	Dq49lIxwj+vRFxIaqYG3nWzpNcw4baWq9wuxeRcu2LxNECfD2jHqUbdPyv+WxZGPXsnLGSjGMqejA
-	KGPhy4lOqZNvtpZGkIJVLOZ9+Vg3A1DO5GIaHYlaEkipw47q9ShYcImMZG2d+nuLg0rdOiuN5qBqh
-	KqqB6VQHxU13Yu+c/ZadfGBEGm9/MvMMfrwJC3iyTkcVRutmNqBuBDfFzm317A3uhE0XpD9QpDJCZ
-	rHtVSCAw==;
+	bh=OZcdendBCBxXZan7EZgbVCa1SbJ31tjrguzc96olDUk=; b=4xMK7PHzz4nn5baMvKkA0cnCA9
+	tC6/d3GPm7+sspXkqpwsd3bLYB8WOR/mco/O2xIoVZaCaIXob3DFonhAJ2snQbQYN2Evb6LcrEqpY
+	ak82VG9FDT69TTgokOU1PoRn7Owr5C94OzTXm9c9QXKs0g5glDyl7dy8nt/nfE/3fXWBo7OpxC+Ax
+	DXVPvK95N9mjE5QQjVX3zJlMf88NpxLGKH1Xcc10qmu+YXbXDzAQfPR1fcCkJmqn/jc+2A6RJOYwv
+	9CCQe6kOH5f1UKYmmq09c8dQ6W+/scGVo4Dw8znQ57BBagMHlzzqxc1xnz0K0YWBaC60d1BmiefoH
+	E2Q2w/Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKa3P-0000000FT49-0xDV;
-	Thu, 29 May 2025 10:00:03 +0000
+	id 1uKa80-0000000FTPj-3Pbm;
+	Thu, 29 May 2025 10:04:48 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZyT-0000000FScj-41G6
+	id 1uKa5G-0000000FTGC-1rx6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:54:59 +0000
+	Thu, 29 May 2025 10:01:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 609EE5C63BB;
-	Thu, 29 May 2025 09:52:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3766CC4CEE7;
-	Thu, 29 May 2025 09:54:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 70C085C0FFE;
+	Thu, 29 May 2025 09:59:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E975AC4CEE7;
+	Thu, 29 May 2025 10:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748512494;
-	bh=p8bTd3R8QqEl2fi6VDqo5Vv2oBJDWSobyKoefPozxi8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Mm/BJaqT9j09R5484NuixQcFzKwi1VxzPF8w9ohL6UpDzW3Nuy9sNqoWYzQ+fBgJm
-	 iPCQY/Zvtn/O307jaW7bu82luyPbql3adEAHxAcmR3gyff3tzx1ZiWDSbR7o3Lf3yP
-	 LfuHyVnnmsJaGcbmwt1umAq5VWuqP/XsmaU+1n/byW7wrWzsYhCTUG59MuGI4Ij+7d
-	 qHbku1cXZLvAOc5Rb91nYnQl167jvT62uTXHfU018CvB/kx/3WNekACdsG/jv+GUCr
-	 WUGUf8vRR5M3ddJoNQCuki+aUz7NqQzAfKShJ6eteiUUVEA1x/M5+Eay/saQrZHx8w
-	 g1uPc2PYWlAgQ==
-Date: Thu, 29 May 2025 10:54:46 +0100
-From: Will Deacon <will@kernel.org>
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, sebastianene@google.com,
-	qperret@google.com, qwandor@google.com, arve@android.com,
-	perl@immunant.com, lpieralisi@kernel.org, kernel-team@android.com,
-	tabba@google.com, james.morse@arm.com, armellel@google.com,
-	jean-philippe@linaro.org, ahomescu@google.com
-Subject: Re: [PATCH v4 1/5] KVM: arm64: Restrict FF-A host version
- renegotiation
-Message-ID: <20250529095446.GA29035@willie-the-truck>
-References: <20250516-virtio-msg-ffa-v4-0-580ee70e5081@google.com>
- <20250516-virtio-msg-ffa-v4-1-580ee70e5081@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250516-virtio-msg-ffa-v4-1-580ee70e5081@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	s=k20201202; t=1748512917;
+	bh=2ufONresXyN9nIBS/2CJIER+Gx2fXtM+NLFEO+g/v88=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MU/N+FbkykER5J1L/qfhrbLxajINqVHNMb1tOglbmRrEe4LdbgxScBGcJlE478FnQ
+	 /7sKYH1CEuqUTlY5k/45ZJdxrhiUCHOePILfXORHy1vudIXx3ZK7KDDG4hxv8FFtLT
+	 dIxv5pb0ZNDxtgYPjK1kgibH25cxVrkiDVndeqa+nNK17xPVp263vJpK09clO8uipR
+	 hWbwbheTBWezQMcLpZefEwCgUMXoM2nuC2FmULzyhBioxsqs/PR5FC48o8cDFXpk9V
+	 gUAnV1gxLCgk20FoW2bPFbfzK1CDbEEVFFwCtgfMwx9lQhFq9LHSlS8JjsOaWbvQKA
+	 4yzz7T2d4H+1w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uKa5C-001WZG-F1;
+	Thu, 29 May 2025 11:01:54 +0100
+Date: Thu, 29 May 2025 11:01:54 +0100
+Message-ID: <86cybrenvx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Xi Ruoyao <xry111@xry111.site>
+Cc: James Morse <james.morse@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Mingcong Bai <jeffbai@aosc.io>,
+	Shaopeng Tan <tan.shaopeng@fujitsu.com>
+Subject: Re: [PATCH v3] arm64: Add override for MPAM
+In-Reply-To: <20250516102556.9688-1-xry111@xry111.site>
+References: <20250516102556.9688-1-xry111@xry111.site>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: xry111@xry111.site, james.morse@arm.com, anshuman.khandual@arm.com, ben.horgan@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, shameerali.kolothum.thodi@huawei.com, jeffbai@aosc.io, tan.shaopeng@fujitsu.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_025458_046262_E8CD86D2 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20250529_030158_579839_C591C7F3 
+X-CRM114-Status: GOOD (  36.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +89,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 12:14:00PM +0000, Per Larsen via B4 Relay wrote:
-> From: Per Larsen <perlarsen@google.com>
+On Fri, 16 May 2025 11:25:56 +0100,
+Xi Ruoyao <xry111@xry111.site> wrote:
 > 
-> Prevent the host from re-negotiating a lesser minor version with the
-> hypervisor. Once the hypervisor negotiates a version, that should
-> remain locked in. Fix the current behaviour by returning NOT_SUPPORTED
-> to avoid the FF-A interoperability rules with lesser minor versions that
-> allow the host version to downgrade.
+> As the message of the commit 09e6b306f3ba ("arm64: cpufeature: discover
+> CPU support for MPAM") already states, if a buggy firmware fails to
+> either enable MPAM or emulate the trap as if it were disabled, the
+> kernel will just fail to boot.  While upgrading the firmware should be
+> the best solution, we have some hardware of which the vendor have made
+> no response 2 months after we requested a firmware update.  Allow
+> overriding it so our devices don't become some e-waste.
 > 
-> Signed-off-by: Per Larsen <perlarsen@google.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+> Cc: Mingcong Bai <jeffbai@aosc.io>
+> Tested-by: Shaopeng Tan <tan.shaopeng@fujitsu.com>
+> Tested-by: Ben Horgan <ben.horgan@arm.com>
+> Signed-off-by: Xi Ruoyao <xry111@xry111.site>
 > ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 3369dd0c4009f84ad3cf9481c747bdc57a162370..2c199d40811efb5bfae199c4a67d8ae3d9307357 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -712,7 +712,10 @@ static void do_ffa_version(struct arm_smccc_res *res,
+> [v2]->v3:
+> - Fix typos in the subject and a comment.
+> - Remove a useless #include directive.
+> 
+> [v1]->v2:
+> - Handle the override and initialize EL2 mpam in finalise_el2_state
+> - Move info->mpamidr assignment to {init,update}_cpu_features
+> 
+> [v1]: https://lore.kernel.org/linux-arm-kernel/20250401055650.22542-1-xry111@xry111.site/
+> 
+>  .../admin-guide/kernel-parameters.txt         |  3 +++
+>  arch/arm64/include/asm/el2_setup.h            | 24 ++++++++-----------
+>  arch/arm64/kernel/cpufeature.c                |  7 ++++--
+>  arch/arm64/kernel/cpuinfo.c                   |  7 ++++--
+>  arch/arm64/kernel/pi/idreg-override.c         |  2 ++
+>  5 files changed, 25 insertions(+), 18 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 8f75ec177399..0bfcbeab7a3b 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -458,6 +458,9 @@
+>  	arm64.nomops	[ARM64] Unconditionally disable Memory Copy and Memory
+>  			Set instructions support
 >  
->  	hyp_spin_lock(&version_lock);
->  	if (has_version_negotiated) {
-> -		res->a0 = hyp_ffa_version;
-> +		if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version))
-> +			res->a0 = FFA_RET_NOT_SUPPORTED;
-> +		else
-> +			res->a0 = hyp_ffa_version;
->  		goto unlock;
+> +	arm64.nompam	[ARM64] Unconditionally disable Memory Partitioning And
+> +			Monitoring support
+> +
+>  	arm64.nomte	[ARM64] Unconditionally disable Memory Tagging Extension
+>  			support
+>  
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index d40e427ddad9..2e6b9086efc5 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -294,19 +294,6 @@
+>  .Lskip_gcs_\@:
+>  .endm
+>  
+> -.macro __init_el2_mpam
+> -	/* Memory Partitioning And Monitoring: disable EL2 traps */
+> -	mrs	x1, id_aa64pfr0_el1
+> -	ubfx	x0, x1, #ID_AA64PFR0_EL1_MPAM_SHIFT, #4
+> -	cbz	x0, .Lskip_mpam_\@		// skip if no MPAM
+> -	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
+> -						// and disable lower traps
+> -	mrs_s	x0, SYS_MPAMIDR_EL1
+> -	tbz	x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@	// skip if no MPAMHCR reg
+> -	msr_s	SYS_MPAMHCR_EL2, xzr		// clear TRAP_MPAMIDR_EL1 -> EL2
+> -.Lskip_mpam_\@:
+> -.endm
+> -
+>  /**
+>   * Initialize EL2 registers to sane values. This should be called early on all
+>   * cores that were booted in EL2. Note that everything gets initialised as
+> @@ -324,7 +311,6 @@
+>  	__init_el2_stage2
+>  	__init_el2_gicv3
+>  	__init_el2_hstr
+> -	__init_el2_mpam
+>  	__init_el2_nvhe_idregs
+>  	__init_el2_cptr
+>  	__init_el2_fgt
+> @@ -371,6 +357,16 @@
+>  #endif
+>  
+>  .macro finalise_el2_state
+> +	check_override id_aa64pfr0, ID_AA64PFR0_EL1_MPAM_SHIFT, .Linit_mpam_\@, .Lskip_mpam_\@, x1, x2
+> +
+
+I'm afraid this is not completely correct, see below.
+
+> +.Linit_mpam_\@:
+> +	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
+> +						// and disable lower traps
+> +	mrs_s	x0, SYS_MPAMIDR_EL1
+> +	tbz	x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@  // skip if no MPAMHCR reg
+> +	msr_s   SYS_MPAMHCR_EL2, xzr		// clear TRAP_MPAMIDR_EL1 -> EL2
+> +
+> +.Lskip_mpam_\@:
+>  	check_override id_aa64pfr0, ID_AA64PFR0_EL1_SVE_SHIFT, .Linit_sve_\@, .Lskip_sve_\@, x1, x2
+>  
+>  .Linit_sve_\@:	/* SVE register access */
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 4c46d80aa64b..7b8c998a0466 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -1198,8 +1198,10 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
+>  		cpacr_restore(cpacr);
 >  	}
+>  
+> -	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
+> +	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1))) {
+> +		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+>  		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
+> +	}
+>  
+>  	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
+>  		init_cpu_ftr_reg(SYS_GMID_EL1, info->reg_gmid);
+> @@ -1450,7 +1452,8 @@ void update_cpu_features(int cpu,
+>  		cpacr_restore(cpacr);
+>  	}
+>  
+> -	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0)) {
+> +	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1))) {
+> +		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+>  		taint |= check_update_ftr_reg(SYS_MPAMIDR_EL1, cpu,
+>  					info->reg_mpamidr, boot->reg_mpamidr);
+>  	}
+> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+> index 285d7d538342..15d39fbc6085 100644
+> --- a/arch/arm64/kernel/cpuinfo.c
+> +++ b/arch/arm64/kernel/cpuinfo.c
+> @@ -494,8 +494,11 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+>  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
+>  		__cpuinfo_store_cpu_32bit(&info->aarch32);
+>  
+> -	if (id_aa64pfr0_mpam(info->reg_id_aa64pfr0))
+> -		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
+> +	/*
+> +	 * info->reg_mpamidr deferred to {init,update}_cpu_features because we
+> +	 * don't want to read it (and trigger a trap on buggy firmware) if
+> +	 * using an aa64pfr0_el1 override to unconditionally disable MPAM.
+> +	 */
+>  
+>  	if (IS_ENABLED(CONFIG_ARM64_SME) &&
+>  	    id_aa64pfr1_sme(info->reg_id_aa64pfr1)) {
+> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+> index c6b185b885f7..836e5a9b98d0 100644
+> --- a/arch/arm64/kernel/pi/idreg-override.c
+> +++ b/arch/arm64/kernel/pi/idreg-override.c
+> @@ -127,6 +127,7 @@ static const struct ftr_set_desc pfr0 __prel64_initconst = {
+>  	.fields		= {
+>  	        FIELD("sve", ID_AA64PFR0_EL1_SVE_SHIFT, pfr0_sve_filter),
+>  		FIELD("el0", ID_AA64PFR0_EL1_EL0_SHIFT, NULL),
+> +		FIELD("mpam", ID_AA64PFR0_EL1_MPAM_SHIFT, NULL),
+>  		{}
+>  	},
+>  };
+> @@ -246,6 +247,7 @@ static const struct {
+>  	{ "rodata=off",			"arm64_sw.rodataoff=1" },
+>  	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
+>  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
+> +	{ "arm64.nompam",		"id_aa64pfr0.mpam=0" },
 
-I already Acked this one:
+ID_AA64PFR0_EL1.MPAM represents the *major* version. Setting it to 0
+is only meaningful if ID_AA64PFR1_EL1.MPAM_frac (the minor version) is
+also 0 (i.e. if the HW implements MPAMv1.0).
 
-https://lore.kernel.org/all/20250513142113.GA9443@willie-the-truck/
+If the HW implements MPAMv0.1 or MPAMv1.1, this change will definitely
+not do the right thing, as you will always expose MPAMv0.1 (which is
+in general the worse possible option).
 
-So please add the tag to the patch if/when you post a new version of the
-series without any changes to this patch.
+So you would need to:
 
-For the bots:
+- nuke both MPAM and MPAM_frac in their respective ID registers,
+  ensuring that we effectively advertise the absence of MPAM
 
-Acked-by: Will Deacon <will@kernel.org>
+- either check for both fields wherever we currently refer only to
+  MPAM, as what we have today looks fragile, or unconditionally
+  override both ID fields if the HW actually implements MPAMv0.1.
 
-Will
+  I personally think the former is easier to implement.
+
+Note that these would be two separate changes, and that you only need
+to implement the first one to achieve what you're after for the
+current level of MPAM support.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
