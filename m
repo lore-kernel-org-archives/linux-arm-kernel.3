@@ -4,100 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E83E0C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 00:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BCFC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 00:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVQkha02xf9SMmtYT1jV9HNI/f56xB5GG/vabKlGDf4=; b=wwF2lqLwyiXgTMdwE1yFgLyEB6
-	NsMQ86sWVT/qddqKUAk5572n4wEp7p3qRsrWKh0LHuIYrSfTg5+JNLmlqFbmtHg1WQMxGnTvivSbx
-	T16nn4Ag5SRvk3c7mq1qs6Td4zND/HZLmAsmkLytX3zyV6WjAXfwizkQaupStGpqrbx8mcMIQThp6
-	fTjAHvGqYQl0yftgbPwbZMVUZ1TjmvbGCk/0L63aeWFuNtPG5DjC2jCwQquW8VEHNUtD05Ah0u4Q2
-	7YA+mK+QteZ8GApZC7RHdVW4s3bMtCW/br7bvVdbH76NivSvcZL/PFsDN6I6oU/oL8Dej12d1W8ZZ
-	Usd86uhg==;
+	bh=ny8UrZV+yDW12ChrpSJinfCzQgq9Rotc7NxMtarbZ9w=; b=LFQQfOfK0voPP7/cBDuCs3AICw
+	aoKCx0y8BRe3SOXJR9I96UHHThKNbu6ukd8b1d1ewqFYUz+Ijz5vDZuFzuikoOtCnhDI3FQ3igLUW
+	TeiiYaQvirf74M59K/mRZb26Z5i1N+1uHKWloPjeyYL+K6++WlXiSh10nYjN8rXc3H1OCYaJNRCTO
+	A5f1cpET5phu0rkeim/YMKuJH4lpNMMZ64x2KcZtxZbgpmczpso3ZuZ5IRmwbDY+61KlSB2FYEqVI
+	qs0TOM1sJce3IidjV4qsdPP/L9hWaPkLs3oLE32J76D/wmtj/oJtSolvt63O7V5nQloY+PlwTo055
+	ygFTHUNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKRKD-0000000EWrZ-03is;
-	Thu, 29 May 2025 00:40:49 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1uKRMI-0000000EX8H-336r;
+	Thu, 29 May 2025 00:42:58 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKRHx-0000000EWL2-3JGf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 00:38:34 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6fac8c5b262so1422856d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 28 May 2025 17:38:28 -0700 (PDT)
+	id 1uKRIq-0000000EWdE-1gvt;
+	Thu, 29 May 2025 00:39:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748479108; x=1749083908; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sVQkha02xf9SMmtYT1jV9HNI/f56xB5GG/vabKlGDf4=;
-        b=jojGDOSm2GWrYdVQHkt7zpbCQwbcIthIMMEwaMrRe+w+ZzbImrYun1WmMBG02qXJoo
-         n7SxUiFTipiAnmPCslmYr9E58hk0DJuP+M2cBoKl667+mUgDB4NnnwNRY86SbyngPfZJ
-         ZNBP4rX7Cn1FwIJtkQP7V52xzMPJE60nIqXPMIPxQsMX5HkLVZor5BJoT243FuhO4/BT
-         Teth5iyWnytBzU1Jqzn7AIXxMLx7qJEfLUuToc+G3wuJLnjOWxrKHzUxSYMEJ8AFHoZe
-         0ry5B5xlTTlqTzlbX9zNXu1nxhK2fzvFQVwjx+zoacH4Wm5cU+T5clYtT1LRIcKyxIAb
-         RCLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748479108; x=1749083908;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sVQkha02xf9SMmtYT1jV9HNI/f56xB5GG/vabKlGDf4=;
-        b=Chn9Z83dj5CGXetXACYuDCu6Srqk9DxYXR4RA5FmyRarQo0gc2yEk0KU0O0IBjct/H
-         ddhIw88xnjH8gQzVMKYcCqOfmlWruSdtvI3QGyaDBBurFm5SeBqhg12vsf7jHXgsiaXG
-         oVHbLegl0WqLL8wUgTtYCtfughBfEgakR1HowQXMogw1kHUjCKR1qwE6SnLJdqIMZWvh
-         +MmrKOGGClltKNmYJMi+ixS2Ri1X8NKsJ129idRck6O8HLLb7Vdt2A7VhoR4UALsN92s
-         wGR4CkJos/hTYPYlfsI/JShbQEApPtlEHYVgv/vc6vxfQrtqQDiHahCpEV3i7+33tePm
-         QeSA==
-X-Forwarded-Encrypted: i=1; AJvYcCWkZtCC9a1viS/Y9GIIhhjrVRX2Om8AZQsEfLpKZ0TjTYS09BvLIVJbFRYoG9y4VLMvqZuWs1qVhjYY/a5kgD2R@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPjXXb05znowhV6GLLNc+HltHa3S2HxbYbpLB3l+2hvn9jOEsP
-	oxD+6pEe8NlvFlvSNEQ2bFxYeLNMB9RBnaooa+U5ZrX/wAyILmRuD5ikmqs2s5SAqBA=
-X-Gm-Gg: ASbGncudcwXaRgPh2SD4azO+Eyz7QmZZyldY4tLjz76l98/gvw+7pdlWSa495CMvBPS
-	o+62hIHryh06ao3Psrbmi3BtzkARFUT9qLl6Gkrf5WJdsxnWWpN8Fy4dayJ8xTZDOh5rr5ZkypC
-	RlOWzFBwFxs29SHeWFp2P7r39W9KMWWNWporju7eCQMVlT1ZpNf0tPAXDw2zc5n1MXY7kCE/5J/
-	XyqV7yadWFJwucf9Gn3spWqyKnMaEXo5zF84HNiw/gbXds/+/yWSxodjYA7PZDMXsr7rz2zjvF9
-	hICoqt2k0BZsnM+zH0M18TjzaVvUY/emTUxwGN4T8/quNrAcrCaZqtAtLO/2DToeJnJGt2DXUza
-	fXCezzwLhI7VRPLJ57GSZvlfzNbI=
-X-Google-Smtp-Source: AGHT+IGrrQU6seLehXMngMNgswY4d6WsTh2X0qCSzttXJecRsw5bF1myMzmOuM/dLs2M8hI+8CLE1g==
-X-Received: by 2002:a05:6214:234e:b0:6fa:c85a:20c0 with SMTP id 6a1803df08f44-6fac85a2328mr4035616d6.28.1748479107982;
-        Wed, 28 May 2025 17:38:27 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fac6d337aesm2521866d6.8.2025.05.28.17.38.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 17:38:27 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uKRHu-00000000qmU-32Wy;
-	Wed, 28 May 2025 21:38:26 -0300
-Date: Wed, 28 May 2025 21:38:26 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Jacob Pan <jacob.pan@linux.microsoft.com>
-Cc: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	virtualization@lists.linux.dev, will@kernel.org,
-	eric.auger@redhat.com, code@tyhicks.com,
-	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com
-Subject: Re: [PATCH v2 0/3] arm-smmu: select suitable IOVA
-Message-ID: <20250529003826.GA192517@ziepe.ca>
-References: <20250410225030.2528385-1-shyamsaini@linux.microsoft.com>
- <20250410230008.GA6905@ziepe.ca>
- <67fff12d.650a0220.208c7c.d69dSMTPIN_ADDED_BROKEN@mx.google.com>
- <20250416181759.GF493866@ziepe.ca>
- <20250520224224.GA16365@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
- <20250525190703.GD12328@ziepe.ca>
- <20250527205428.GA14019@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
- <20250528000425.GC146260@ziepe.ca>
- <68379171.170a0220.191ee0.8d6bSMTPIN_ADDED_BROKEN@mx.google.com>
+	d=codeconstruct.com.au; s=2022a; t=1748479155;
+	bh=ny8UrZV+yDW12ChrpSJinfCzQgq9Rotc7NxMtarbZ9w=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=lhVxSlw1XDyalKK+FYY9gimu5uKVHJnqaeDIt0HjfhB9x7uQWy4SQI/TGIY1Wadbb
+	 OBr8B5u5921nStK7WPkz8zc4MGzv2ocjjcgGlJ5cdSLqKRB3yuwNNZFghEaoqXOuCU
+	 XGaz4hQH9WJDhXlF8jAqHQVlbLn9J2xItnpaLWAaOSf8uRWGcOYpJzwJ/z8Yza+HV2
+	 WSRl6+BECuvxv7ZqlPnd0zrRetMjz80rmuwva0+xhB1ZJ6+J3uQ3VeB2RJYY7yrZD8
+	 LjDNdWRt2mnVqiGXOpycjhV17I3sk9KD2OTyKXx3l5mPgsYmNZWnz+Ux5vXkgut4Mj
+	 cMaTpUDMxrqLQ==
+Received: from [192.168.68.112] (unknown [180.150.112.166])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id DE6426449F;
+	Thu, 29 May 2025 08:39:07 +0800 (AWST)
+Message-ID: <af3edc0a454eecbe52608e0bc16d82b99be6bad7.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 05/17] pinctrl: aspeed: Constify static 'pinctrl_desc'
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Linus Walleij
+ <linus.walleij@linaro.org>, Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
+ Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, Joel Stanley <joel@jms.id.au>,
+ Avi Fishman <avifishman70@gmail.com>,  Tomer Maimon <tmaimon77@gmail.com>,
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
+ Jonathan =?ISO-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
+ =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>,  Broadcom internal
+ kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Geert
+ Uytterhoeven <geert+renesas@glider.be>, David Rhodes
+ <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
+ Charles Keepax <ckeepax@opensource.cirrus.com>, Lorenzo Bianconi
+ <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, Jesper Nilsson
+ <jesper.nilsson@axis.com>, Lars Persson <lars.persson@axis.com>, Manivannan
+ Sadhasivam <manivannan.sadhasivam@linaro.org>, Damien Le Moal
+ <dlemoal@kernel.org>,  Vladimir Zapolskiy <vz@mleia.com>, Michal Simek
+ <michal.simek@amd.com>, Emil Renner Berthing <kernel@esmil.dk>, Jianlong
+ Huang <jianlong.huang@starfivetech.com>, Hal Feng
+ <hal.feng@starfivetech.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@axis.com, 
+	linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Date: Thu, 29 May 2025 10:09:06 +0930
+In-Reply-To: <20250528-pinctrl-const-desc-v1-5-76fe97899945@linaro.org>
+References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
+	 <20250528-pinctrl-const-desc-v1-5-76fe97899945@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <68379171.170a0220.191ee0.8d6bSMTPIN_ADDED_BROKEN@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_173829_934401_710F38FC 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20250528_173924_647308_DC5506D6 
+X-CRM114-Status: UNSURE (   5.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +98,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 03:42:55PM -0700, Jacob Pan wrote:
+On Wed, 2025-05-28 at 12:41 +0200, Krzysztof Kozlowski wrote:
+> The local static 'struct pinctrl_desc' is not modified, so can be made
+> const for code safety.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> > All IOVA that the platform cannot DMA from should be reported in the
-> > reserved_regions file as "reserved". You must make your platform
-> > achieve this.
-> > 
-> Just to double confirm, the expected reserved region should be marked as
-> "direct" instead of "msi", right?
-
-I don't know, it depends what is wrong with this platform.
-
-"msi" is the SW_MSI region created by the iommu driver, ignore it.
-
-"reserved" should be from the DT and it says "my platform is broken,
-this IOVA doesn't work, don't use it"
-
-"direct" is something entirely different, it also should come from the
-DT and it says "must be mapped 1:1 (iova:physical) at all times" which
-usually means some FW or other component is controlling the device and
-doing DMA using that physical memory space which is unknown to the OS.
-
-Both cases would interfere with the MSI so if the DT/ACPI declares
-such regions that overlap with the SW_MSI address then Linux should
-select another SW_MSI address.
-
-From a linux perspective "reserved" just ignores those IOVA spaces
-while "direct" sets up 1:1 translations there. So FW using direct
-incorrectly could become a security problem.
-
-Jason
+Reviewed-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 
