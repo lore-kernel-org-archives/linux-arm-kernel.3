@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA072C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A60C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 17:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnN6aokzFvRoa5uTLqMPMco2dz+Musk44pp+yD73yG8=; b=IgV2Qc6r8XjFvFfety07btcunp
-	oCiMoGY+9dKq3gyHimB9ifxa9uXahtinODxmJNcaPpyt7YYruPSXFArkAkN8kPtMglwdulclh3nab
-	ET/C5DZH8FzkrO8gRx/DEOY6VLBHJFte6EaSiUXLiXd2Cb2Ga4innf0lIJ4mijbUH+K9Mo1igltLE
-	JAaNbiCYHz2HZwR5Yb3AS39p3IslJJZCcskiIzwLLapIXe6IrVBdnhv9DbifI0LWSuiv2+tKbM5v9
-	48F41XjTdnI4SvMlaGO7JBQVONfNBqIjY8IAgAa38V7VAc/wSj64gwYqFDLDgY0xlEbl7kZ+u3XbH
-	V7zTRd1w==;
+	bh=CGkp2+wLn4AjRLTEFuo60upRcoSou3qAwW38U/f+xJw=; b=mYCH4kiHUJ4BPWUT03covjA/Cv
+	Z6J9Qxkv76VJIPLGwub+/0EXj2ttyCtU/8vQqdwv1cNkKhrL1iHvkCMZV706nfObdZM8+eN0rgyI/
+	h5JnENBia1vsYCsmAM69H2iuHnCg+PuaISc56neogo4jYFJwwFE8ElVKyZkwMlMdueUZ7O/fumRed
+	wn+08jJedbp479okDWwwGzIfGVR+DfCpbTULSGPsXJ8TwXQGeWPZRenYcGU0NMuBZ/F+9gX3HJ9XC
+	1K6Qh6JgWhIm3bIBrIJ0N+ZS3ItF9gdJX6++dGIed7lG3x3qOpkpjROxBluT2w8vofPNMqsOsOUP7
+	pxuxFuLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKgaJ-0000000GEpI-2ym2;
-	Thu, 29 May 2025 16:58:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uKgcQ-0000000GF2q-1cw5;
+	Thu, 29 May 2025 17:00:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKgYC-0000000GEXn-3wW4
+	id 1uKgZM-0000000GEgv-2DhP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 16:56:17 +0000
+	Thu, 29 May 2025 16:57:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D2AA60008;
-	Thu, 29 May 2025 16:56:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB6ECC4CEE7;
-	Thu, 29 May 2025 16:56:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9083FA4FBE5;
+	Thu, 29 May 2025 16:57:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3891FC4CEE7;
+	Thu, 29 May 2025 16:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748537774;
-	bh=DRaD1/jwNIxgIiu48AG/4frKcAETzPdIlDu3ZM3psGY=;
+	s=k20201202; t=1748537847;
+	bh=nTb8EzIrvGiW+oT3lk+HKRBUzG7cl6yVbYX2HGFS1wY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=gIDhpcE1ynd3+7vSpPrOvxUKNvDMgUoOkEX4LZUgb0B6MUhwkkQ7qSGAf2Ei/Ka37
-	 tuU84O9CJlS5vUKpzniOmU/Z+V2IxZ6KWX56UvBIIEYF3orRMkseqfL++q2Av7uVUN
-	 GU9ezDGkYsxDDJ822W2OmGAmZpwW9u8dAusndcwrkIaSj8um7Lp2eMhNZNnOyMwwqf
-	 IKc0PdGmhD+/ulFCTvN0sXsURVqZFaH2dJp+eu3zZAAk60A6Tf9mgnbVxu2+VokQin
-	 bwOIQVnnB8360DYl7zLIajbDaS/QbFjopslOYyD4PYXZHZSwB+aNnjutIUOVDuYj1R
-	 51DyHqGiFTpNA==
+	b=ocydWOce2vgQ01StCxi2p8JIr5rtxb48tv1V7H37/y3VwgQFMz/G/OC8MgZFiAdK5
+	 5sLWjC4vr7ThGNaftjRtqwxLh1KmpBBcTMf0i+AzWSa31JT55xS+wPOw5oDF3DXVol
+	 +ktqh8a1R+ROKDCVXuT7JR64GyottFxcT+kVzap4ZJkhIqCaTpPsTTFd0I0AIev3hK
+	 lucd3K9DUfRO+vtFpXtBcn7uDeTY7FnrI20xUBr1wGCZv0Kykw2nAVn8voYXH0Ykv9
+	 tCNTNoIZAwJpB2bPTqrFoLra/CEEa9dCSMMz016V7PzpTxb0l0pKkNWyY6hOOKxwhU
+	 ryg4iHafOGHXw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uKgY8-001ckx-7m;
-	Thu, 29 May 2025 17:56:12 +0100
-Date: Thu, 29 May 2025 17:56:11 +0100
-Message-ID: <867c1ze4pg.wl-maz@kernel.org>
+	id 1uKgZI-001cmR-Ja;
+	Thu, 29 May 2025 17:57:24 +0100
+Date: Thu, 29 May 2025 17:57:24 +0100
+Message-ID: <865xhje4nf.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: James Clark <james.clark@linaro.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -73,10 +73,10 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-perf-users@vger.kernel.org,
 	linux-doc@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 06/11] KVM: arm64: Add trap configs for PMSDSFR_EL1
-In-Reply-To: <20250529-james-perf-feat_spe_eft-v2-6-a01a9baad06a@linaro.org>
+Subject: Re: [PATCH v2 05/11] arm64/boot: Enable EL2 requirements for SPE_FEAT_FDS
+In-Reply-To: <20250529-james-perf-feat_spe_eft-v2-5-a01a9baad06a@linaro.org>
 References: <20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org>
-	<20250529-james-perf-feat_spe_eft-v2-6-a01a9baad06a@linaro.org>
+	<20250529-james-perf-feat_spe_eft-v2-5-a01a9baad06a@linaro.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -86,6 +86,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: james.clark@linaro.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250529_095728_695481_836199FE 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +103,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 May 2025 12:30:27 +0100,
+On Thu, 29 May 2025 12:30:26 +0100,
 James Clark <james.clark@linaro.org> wrote:
 > 
-> SPE data source filtering (SPE_FEAT_FDS) adds a new register
-> PMSDSFR_EL1, add the trap configs for it.
+> SPE data source filtering (optional from Armv8.8) requires that traps to
+> the filter register PMSDSFR be disabled. Document the requirements and
+> disable the traps if the feature is present.
 > 
 > Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
->  arch/arm64/kvm/emulate-nested.c | 1 +
->  arch/arm64/kvm/sys_regs.c       | 1 +
->  2 files changed, 2 insertions(+)
+>  Documentation/arch/arm64/booting.rst | 11 +++++++++++
+>  arch/arm64/include/asm/el2_setup.h   | 14 ++++++++++++++
+>  2 files changed, 25 insertions(+)
 > 
-> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> index 0fcfcc0478f9..05d3e6b93ae9 100644
-> --- a/arch/arm64/kvm/emulate-nested.c
-> +++ b/arch/arm64/kvm/emulate-nested.c
-> @@ -1169,6 +1169,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
->  	SR_TRAP(SYS_PMSIRR_EL1,		CGT_MDCR_TPMS),
->  	SR_TRAP(SYS_PMSLATFR_EL1,	CGT_MDCR_TPMS),
->  	SR_TRAP(SYS_PMSNEVFR_EL1,	CGT_MDCR_TPMS),
-> +	SR_TRAP(SYS_PMSDSFR_EL1,	CGT_MDCR_TPMS),
->  	SR_TRAP(SYS_TRFCR_EL1,		CGT_MDCR_TTRF),
->  	SR_TRAP(SYS_TRBBASER_EL1,	CGT_MDCR_E2TB),
->  	SR_TRAP(SYS_TRBLIMITR_EL1,	CGT_MDCR_E2TB),
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 5dde9285afc8..9f544ac7b5a6 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2956,6 +2956,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  	{ SYS_DESC(SYS_PMBLIMITR_EL1), undef_access },
->  	{ SYS_DESC(SYS_PMBPTR_EL1), undef_access },
->  	{ SYS_DESC(SYS_PMBSR_EL1), undef_access },
-> +	{ SYS_DESC(SYS_PMSDSFR_EL1), undef_access },
+> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+> index dee7b6de864f..abd75085a239 100644
+> --- a/Documentation/arch/arm64/booting.rst
+> +++ b/Documentation/arch/arm64/booting.rst
+> @@ -404,6 +404,17 @@ Before jumping into the kernel, the following conditions must be met:
+>      - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
+>      - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
+>  
+> +  For CPUs with SPE data source filtering (FEAT_SPE_FDS):
+> +
+> +  - If EL3 is present:
+> +
+> +    - MDCR_EL3.EnPMS3 (bit 42) must be initialised to 0b1.
+> +
+> +  - If the kernel is entered at EL1 and EL2 is present:
+> +
+> +    - HDFGRTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+> +    - HDFGWTR2_EL2.nPMSDSFR_EL1 (bit 19) must be initialised to 0b1.
+> +
+>    For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
+>  
+>    - If the kernel is entered at EL1 and EL2 is present:
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index f6d72ca03133..6d0d8c25e912 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -279,6 +279,20 @@
+>  	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+>  	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
+>  .Lskip_pmuv3p9_\@:
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+> +	/* If SPE is implemented, */
+> +	cmp	x1, #ID_AA64DFR0_EL1_PMSVer_IMP
+> +	b.lt	.Lskip_spefds_\@
+> +	/* we can read PMSIDR and */
+> +	mrs_s	x1, SYS_PMSIDR_EL1
+> +	and	x1, x1,  #(1 << PMSIDR_EL1_FDS_SHIFT)
 
-PMSDSFR_EL1 has an offset in the VNCR page (0x858), and must be
-described as such. This is equally true for a bunch of other
-SPE-related registers, so you might as well fix those while you're at
-it.
-
-Thanks,
+Use PMSIDR_EL1_FDS directly, just like you do for the other register
+fields.
 
 	M.
 
