@@ -4,62 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77194C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8960C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZmwT3S6qnsDYq9vLb7EV+FnhJgCFYNVQnLN2KszkuxU=; b=O+Mywlc6fCiOYkkrjRFnPweCbP
-	5J+xEhJ/V58w0pKO40BKgKBYHjebKGVlSMuZwCrEQuk/3PlpE+s2s1W4G6+oLskTDkYOWruSRvsut
-	gHKTjgQ5akWzdWJ2VG52lfx0SXmtiP9q9npwsQK/MONAt7vcfGzgrPlAln4+Au8zBQnY0sFHJJu8p
-	KBOd1h7O6e4K+DIlYzCgWuwCk1V72qJl/6OV1HlrzW+4WXCBsoighNnMJN6ujvPU1AvyyWEydEbLF
-	6qSLx+fMotSynQNO8vRaMHLe5KZr20LFup7A+ueAb/cbi2GBlj/dzm22hDlorpTdFUs5kzne9hTV+
-	mJHIJ39g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A7xcJfhxx1ckzZ21ms+yP8NXvhvk/3lvm0y7YiGSI8A=; b=mBZjPVsjSQkrozC4TERN2NtZ3c
+	FqjUylQhVj4mcWdNr4X3+B8obAZYVDIOTKPkMtsV95t8PSgs2KDhoNTWY3gFbj9p79961wjrEv4dA
+	EFQXp3l4lXXlHiCoT+v96epSl53MJ7cMPiDj3BVGaIWC1134aovbe/MsN9IB29/UCqOSu36JUPdR+
+	nO5emJhUQatgFBfcAuGCai5NfLFT36z11hjJU3bEm7GmHGrE7rKwcEPuCj1syjztchn138XmfCbip
+	VjhnN8FEVmjqy0S5RjOGB/RGTgFcKnORmyuVZucyrL6mOnkqPWaWmfxvwSiYJzYsttSXvcp1bExqS
+	Lob3lR6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZgM-0000000FQHg-3zQO;
-	Thu, 29 May 2025 09:36:14 +0000
-Received: from [195.187.100.5] (helo=ni.piap.pl)
+	id 1uKZiS-0000000FQc8-35UE;
+	Thu, 29 May 2025 09:38:24 +0000
+Received: from ni.piap.pl ([195.187.100.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZVk-0000000FP5d-1dij
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:25:18 +0000
+	id 1uKZa1-0000000FPU5-0ZSW;
+	Thu, 29 May 2025 09:29:42 +0000
 Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id CC1DBC3EEAC9;
-	Thu, 29 May 2025 11:25:08 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl CC1DBC3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: =?utf-8?Q?S=C3=A9bastien?= Szymanski <sebastien.szymanski@armadeus.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,  Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>,  Rui Miguel Silva <rmfrfs@gmail.com>,
-  Martin Kepplinger <martink@posteo.de>,  Purism Kernel Team
- <kernel@puri.sm>,  Mauro Carvalho Chehab <mchehab@kernel.org>,  Shawn Guo
- <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
-  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
- <festevam@gmail.com>,  <linux-media@vger.kernel.org>,
-  <imx@lists.linux.dev>,  <linux-arm-kernel@lists.infradead.org>,
-  <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
-In-Reply-To: <65670a02-e217-4d0f-955d-d13ca0240819@armadeus.com>
- (=?utf-8?Q?=22S=C3=A9bastien?=
-	Szymanski"'s message of "Fri, 23 May 2025 17:34:01 +0200")
-References: <m3h61u9jy2.fsf@t19.piap.pl>
-	<20250509103733.GE28896@pendragon.ideasonboard.com>
-	<m3o6vn8np5.fsf@t19.piap.pl>
-	<iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
-	<m31psg97dy.fsf@t19.piap.pl> <m3plfz7io0.fsf@t19.piap.pl>
-	<65670a02-e217-4d0f-955d-d13ca0240819@armadeus.com>
-Date: Thu, 29 May 2025 11:25:08 +0200
-Message-ID: <m3v7pj6a6j.fsf@t19.piap.pl>
+	by ni.piap.pl (Postfix) with ESMTPS id 68AFEC3EEAC9;
+	Thu, 29 May 2025 11:29:39 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 68AFEC3EEAC9
+From: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>
+To: Dafna Hirschfeld <dafna@fastmail.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho
+ Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Jacopo
+ Mondi <jacopo.mondi@ideasonboard.com>, Paul Elder
+ <paul.elder@ideasonboard.com>, Ondrej Jirman <megi@xff.cz>, Tomi Valkeinen
+ <tomi.valkeinen@ideasonboard.com>
+Subject: [PATCH] media: rkisp1: correct histogram window size
+Date: Thu, 29 May 2025 11:29:39 +0200
+Message-ID: <m3sekn69z0.fsf@t19.piap.pl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_022516_597529_78364434 
-X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-CacheID: sfid-20250529_022941_337263_453BBFBC 
+X-CRM114-Status: UNSURE (   7.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,49 +63,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi S=C3=A9bastien,
+The histogram window dimensions are unnecessarily decremented. This can be
+seen in the following example, where when all pixels are of maximum intensi=
+ty
+there are pixels that we expect to be counted but are missing from the high=
+est
+bin. Fix this by removing the unnecessary decrement.
 
-S=C3=A9bastien Szymanski <sebastien.szymanski@armadeus.com> writes:
+Without the patch (i.MX8MP, all-white RGGB-12 full HD input from
+the sensor, YUV NV12 output from ISP, full range, histogram Y mode).
+HIST_STEPSIZE =3D 3 (lowest permitted), all weights are set to 1:
 
-> On i.MX8MM mipi_csi is at 32e30000. NXP kernel (6.12.3) with ov5640 camer=
-a:
->
-> # devmem 0x32E30000 32
-> 0x03060301
+isp_hist_h_size: 383 (=3D 1920 / 5 - 1)
+isp_hist_v_size: 215 (=3D 1080 / 5 - 1)
+histogram_measurement_result[16]: 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 229401
 
-Thanks a lot. So at least the version register is the same as on
-i.MX8MP.
-I wonder if you could test if the CSIC possibly supports filtering by
-DT.
+Apparently the histogram is missing the last column (3-pixel wide,
+though only single pixels count) and the last (same idea) row
+of the input image: 1917 * 1077 / 3 / 3 =3D 229401.
 
-How would such a test be performed?
+E.g. without the patch, the pixels counted in lines are:
+0, 3, ... 1914 (which makes 1917/3), and patched:
+0, 3, ... 1914, 1917 (which makes 1920/3).
+The same is true for rows.
 
-Maybe: while streaming (otherwise the system may lock up):
+With the patch applied:
+isp_hist_h_size: 384 (=3D 1920 / 5)
+isp_hist_v_size: 216 (=3D 1080 / 5)
+histogram_measurement_result[16]: 0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 230400
 
-I assume 'devmem 0x32E30004 32' shows 0x4305.
-# devmem 0x32E30004 32 0x14705
+1920 * 1080 / 3 / 3 =3D 230400
 
-and:
-- does it change anything? If the streaming stops, you may try
-  restarting and writing with devmem again - writing to this register
-  directly frequently stops streaming on my 8MP.
+Signed-off-by: Krzysztof Ha=C5=82asa <khalasa@piap.pl>
+Reviewed-by: Paul Elder <paul.elder@ideasonboard.com>
 
-- what does the register contain after write?
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drive=
+rs/media/platform/rockchip/rkisp1/rkisp1-params.c
+index b28f4140c8a3..ca9b3e711e5f 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+@@ -819,8 +819,8 @@ static void rkisp1_hst_config_v10(struct rkisp1_params =
+*params,
+ 		     arg->meas_window.v_offs);
+=20
+ 	block_hsize =3D arg->meas_window.h_size /
+-		      RKISP1_CIF_ISP_HIST_COLUMN_NUM_V10 - 1;
+-	block_vsize =3D arg->meas_window.v_size / RKISP1_CIF_ISP_HIST_ROW_NUM_V10=
+ - 1;
++		      RKISP1_CIF_ISP_HIST_COLUMN_NUM_V10;
++	block_vsize =3D arg->meas_window.v_size / RKISP1_CIF_ISP_HIST_ROW_NUM_V10;
+=20
+ 	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_HIST_H_SIZE_V10,
+ 		     block_hsize);
 
-- you may also try:
-  # devmem 0x32E30004 32 0xfffffffd
-  # devmem 0x32E30004 32
-
-On i.MX8MP the above returns:
-# ./devmem write32 0x32Ex0004 0xfffffffd
-# ./devmem read32 0x32Ex0004
-0x0000FF05
-(and the streaming still works, usually).
-
-The above is not a very good test, I admit, but it may show 8MM really
-doesn't have those/that bit.
-
-TIA.
 --=20
 Krzysztof "Chris" Ha=C5=82asa
 
