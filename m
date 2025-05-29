@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637C2C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21442C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UtAIo4LC5nz/LIrUdiNzKJEHmPZG+tC7ntAkO02ma7M=; b=Yuyc1rvBit1bPs+ieO8CzjPR2F
-	VSMLBBAGiZALSgHDe7rkPH2CE8fOV/F3m5nhsO1rgIyt04MdrwHexWbhTnV0yuRoXS3xRcqTJQe0I
-	iXSETJ3n51ZWAC4GrGV7+UudIX7CElNu+yacAHaMZconzeCTSsX3Gy+36PvckTnrvq0ARW+m0ZJWl
-	cnAKQQy7qAE8LTmcxIDxx/8EXgV7E1n9Z77DKWDboW8zaCD1RwX6bxRAZriTAS/PFqF3sdu/mWInF
-	9DHFdNHz424LwVKkCmiikDBbmmObvonlR1MunZX+i/5SlpRuxrfhb8fxJMmk/6vijZeyKAYBD68tx
-	j+bX0pdQ==;
+	bh=VomYZ8DhUGSyNUtNd2VjxUdO/qFiwBiW7v/8dYm1pFg=; b=woDMkH6uw17M8s+/hhSg7pOEM7
+	qqyiFoEuJ8Dp+Jqoz67kw2glbnEFw1QvhR2T7OguzxWSud7N1RkNlSHHn9s4IM8MOwkBVYlrqV65C
+	ch2mQ0HSpwwz2KvvOaxmHXvw2AGkxl5vNfvYVlQlDSorl1NX2M7JYtpelNXF7Sr8HbsfFaXc4T5k3
+	Yj347oJsT0S2xhKg2MDLMuhzTXSiNKS6jBFzjZNTmOSKbt6mtlJoSLouVlh0R+xUuwW2bEkaMf9ad
+	s3mTWMIbE8gcxg6+rEwLLyJp+b6xjMTuO/ImjEMmbImBg4AFxQ/rguXhfcpDfYh16FWSDvuv1cVy3
+	1aitf0AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZPf-0000000FOUH-1tGV;
-	Thu, 29 May 2025 09:18:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZH3-0000000FMdg-43Ha
+	id 1uKZRl-0000000FOfb-0kIR;
+	Thu, 29 May 2025 09:21:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKZKM-0000000FNWL-00vw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:10:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 89FA6A4F500;
-	Thu, 29 May 2025 09:10:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32F9AC4CEEF;
-	Thu, 29 May 2025 09:10:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748509804;
-	bh=Yb2uSf81m/g9NlDY7wmvxatJgdvhAEkJ2SZriq2WmG8=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cpuc0gljbw7Wel8lndc9mBJ6wKLR2x1eW0jJMO9g8nZ6QrREy5jr9bWDS2rnNd3Kt
-	 3828I2yiiEBHzYBGtEjCUyeVP8fzrFgNXi16tghzh2vxXuK/bMWwX5Idrh+rtK5Z1n
-	 5nlbEHz3Hj7+Shfs/mHCQefQK+L1buCyoz30c3Rk0n8B5sgpUV819bID9G8gY3B8T7
-	 bQQ34g5U9bfVDRUeYFlM3VC9HmFyYP9TSVof/Ij53VfJzkAci/d5G92IV0Igodh+b3
-	 Od5wZ/LIOitZJInY3nhFQK/WajIY83+/LsVv7rPR9HpBZeCetNdNa6dZGnnsTrHQdV
-	 MysXznv41IAfw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33F2939F1DEE;
-	Thu, 29 May 2025 09:10:39 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 29 May 2025 09:13:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CDA95176A;
+	Thu, 29 May 2025 02:13:12 -0700 (PDT)
+Received: from [10.57.95.14] (unknown [10.57.95.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C3FD13F5A1;
+	Thu, 29 May 2025 02:13:27 -0700 (PDT)
+Message-ID: <9a9f18e7-db69-48f2-916f-4565cdb59821@arm.com>
+Date: Thu, 29 May 2025 10:13:26 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2] net: stmmac: platform: guarantee uniqueness of
- bus_id
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174850983774.3198213.12132601744057177877.git-patchwork-notify@kernel.org>
-Date: Thu, 29 May 2025 09:10:37 +0000
-References: <20250527-stmmac-mdio-bus_id-v2-1-a5ca78454e3c@cherry.de>
-In-Reply-To: <20250527-stmmac-mdio-bus_id-v2-1-a5ca78454e3c@cherry.de>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, jakob.unterwurzacher@cherry.de,
- heiko@sntech.de, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- quentin.schulz@cherry.de
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: Restrict pagetable teardown to avoid false
+ warning
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>, Dev Jain
+ <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: david@redhat.com, mark.rutland@arm.com, yang@os.amperecomputing.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ stable@vger.kernel.org
+References: <20250527082633.61073-1-dev.jain@arm.com>
+ <7b9a9ad4-7a7a-4e99-ba72-f5be0f609a21@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <7b9a9ad4-7a7a-4e99-ba72-f5be0f609a21@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_021006_085313_98781558 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250529_021330_096645_00DE3C70 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +68,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Tue, 27 May 2025 13:56:23 +0200 you wrote:
-> From: Quentin Schulz <quentin.schulz@cherry.de>
+On 29/05/2025 10:02, Anshuman Khandual wrote:
 > 
-> bus_id is currently derived from the ethernetX alias. If one is missing
-> for the device, 0 is used. If ethernet0 points to another stmmac device
-> or if there are 2+ stmmac devices without an ethernet alias, then bus_id
-> will be 0 for all of those.
 > 
-> [...]
+> On 5/27/25 13:56, Dev Jain wrote:
+>> Commit 9c006972c3fe removes the pxd_present() checks because the caller
+>> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller only
+>> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
+>> pmd_free_pte_page(), wherein the pmd may be none. Thus it is possible to
+>> hit a warning in the latter, since pmd_none => !pmd_table(). Thus, add
+>> a pmd_present() check in pud_free_pmd_page().
+>>
+>> This problem was found by code inspection.
+>>
+>> Fixes: 9c006972c3fe (arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table())
+>> Cc: <stable@vger.kernel.org>
+>> Reported-by: Ryan Roberts <ryan.roberts@arm.com> 
+>> Acked-by: David Hildenbrand <david@redhat.com>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
 
-Here is the summary with links:
-  - [net,v2] net: stmmac: platform: guarantee uniqueness of bus_id
-    https://git.kernel.org/netdev/net/c/eb7fd7aa35bf
+LGTM!
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
+>> ---
+>> This patch is based on 6.15-rc6.
+>>
+>> v2->v3:
+>>  - Use pmdp_get()
+>>
+>> v1->v2:
+>>  - Enforce check in caller
+>>
+>>  arch/arm64/mm/mmu.c | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index ea6695d53fb9..5a9bf291c649 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -1286,7 +1286,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>>  	next = addr;
+>>  	end = addr + PUD_SIZE;
+>>  	do {
+>> -		pmd_free_pte_page(pmdp, next);
+>> +		if (pmd_present(pmdp_get(pmdp)))
+> 
+> This code path is only called for the kernel mapping. Hence should
+> pmd_valid() be used instead of pmd_present() which also checks for
+> present invalid scenarios as well ? 
+
+I think a similar question came up in a previous round, where we concluded that
+it's better to be consistent with what vmalloc is already doing. So personally
+I'd leave it as pmd_present():
+
+	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
+		return 0;
+
+> 
+>> +			pmd_free_pte_page(pmdp, next);
+>>  	} while (pmdp++, next += PMD_SIZE, next != end);
+>>  
+>>  	pud_clear(pudp);
 
 
