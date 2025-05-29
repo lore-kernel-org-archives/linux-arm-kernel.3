@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C6DC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13F2C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fnxgv96uYDR73DM/spJxKTB+GgYx4dhdRH39JtU9Y2E=; b=hQP9ijvNeUGEU0nDMkYGmpnimv
-	Pn4FJnvPkhotDuzAMjzJBpL7UtS2W1+bh5PZUpIVqTRBu0VrRnYqZxkzA9PgsmDVB51O5gKdrvWh+
-	Jw04f1pi+GDZ9F0pU9SB4CicfnB/1ArkQSDonCwQU6Ljam4ogSW9V+vs9JW2ppkN/QukZ60gl82+O
-	/xQhjluyIgccIcjCkCScR/IvgcPineNIFuzIiyMmt3XOBznYe2ZjMRT6EaGJgL3Gmb2k9eXJVwbfU
-	6GVTcez+5bjQhnci0BVNxy+jAeCiavz00PaSJOOmMYpbEPwqmTUyg3neF4X+jCBe9lypVppowxTgN
-	zNV/gNjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LRoGRMBV7PqtgKTAeThep6xLjkOzYN0wpsMcbJOtKx4=; b=Wx2qvI6R/r2vX/eXcHo5FEJexZ
+	c/96NTs1IFtN3FBMRO28kOgcoedH4AbPPH1xagnYOB79Kebb0q9hHQv/eY+6FqyzBxGD5Zn9UKo4Q
+	U6CW3kCUF9cLKHCZOcAC/xkm/IkqPMvUvgClm/pNEgtUh8OaMHzkXEmLTwDoViqTMVJrOxExGrcnX
+	j+4ZbuhynZsrANF2kByXOkt+ExteAH0vziCez16v0KV9LEeRhBmMFC7Vma3+L57wHax6z3LqLhvrB
+	K9AXuOMYqAtoCm40mV4bMBVIRBhY21VJ1ZVk6bYaC28v0RTYj3EZCETekqAeWR4GrqB1+daq7c+0f
+	tGFziOHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKe2k-0000000FwuS-3aeU;
-	Thu, 29 May 2025 14:15:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uKe4q-0000000Fx0u-2Ftm;
+	Thu, 29 May 2025 14:17:48 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKdTE-0000000FstV-051t
+	id 1uKd8d-0000000Fq2f-2Kn2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 13:38:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79BA349D0C;
-	Thu, 29 May 2025 13:38:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFD31C4CEE7;
-	Thu, 29 May 2025 13:38:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748525935;
-	bh=fnxgv96uYDR73DM/spJxKTB+GgYx4dhdRH39JtU9Y2E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q0o1Oo8CTcTekB2PEtBPcKfoLDzMvSgGelZEDChpNqEzWg+TjKMXQPLZE4cMQf5EA
-	 UXrjbUnW90MAO6tct3LQV32r2+2ZUATDPwxy1ETKhMBD255ig7dX09focEBwk/dydA
-	 aGG7rBMK60OQ2JdK+bE6AuFoSenYORzz5kMAERPcuo8AVLWqbWgFlmFEXanBip1LCW
-	 GDYDKNSB2Wt8xcofLQ7cHsrZYKrhKYxEKMXytcIsao4i2wf7zUhz/BqLWIdKxi+ktl
-	 fiIGr1r1okoJSkNYL1JRc5sW5Pvf/M2Gdi8gOfDnzBr9xSMewxadXv1FMOPWklG1kJ
-	 L2p3r1eq7t+vQ==
-Message-ID: <c0fdeecf-4a76-473d-9b66-e547d8fe9d1f@kernel.org>
-Date: Thu, 29 May 2025 15:38:51 +0200
+	Thu, 29 May 2025 13:17:40 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-70e4bd65106so9393507b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 06:17:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748524658; x=1749129458; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=LRoGRMBV7PqtgKTAeThep6xLjkOzYN0wpsMcbJOtKx4=;
+        b=GGThjfPqPBrUFpNmeBxJSjOfD+VA1wZjhbiEUFq2Rqc3Q767QlH4JYrzhwFGd02HN9
+         fwLc9O/0xKgkKqctxIrxXJGQl0b8FTsOvYb7PGWRg9waOv4SIuWTsJIq6IWbRch98EQk
+         XdSFtyqSo84oyGb4OowGw6Q6sa7PH84bNxy57lQ0rCb0tO+C9NG57wFTdudAGMdRmtSg
+         YnMn+thCFRs9xpT9MyI+6SP5SZjq3z5drBkanZey6E24vhB+PRd4oMKgJP2lBg+bv76/
+         gDHSwFnmJRg+P0tcALM9V7rnN9xDwhKR2jdY3Ucp4vyp36YH1nD9bHHtyUD5FUxM5Wnb
+         wPPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748524658; x=1749129458;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LRoGRMBV7PqtgKTAeThep6xLjkOzYN0wpsMcbJOtKx4=;
+        b=RFPU5+5tMJJUJ91VKt0E77TftUeTkwZoklgaqGgkynSYbtg9BDYXO7KWXzXTtWzBbX
+         Kaa3pqBIjzNGPX6x0k2/fhh8uUiEHHSHrCXC9uUP7LPnO2foDUQBx+FBUvduwa4maqgi
+         RXu4AqFVfyrjJrXLN1JU5hVeOaoRn3MsFxu13Aio5p16+CMCHxJ4mqfURuJL8RLi1I0W
+         Vs47xTfY8CvqiHfzwew1GzjfcC8vIqJkfmW5Jb//apNY4dX+Rxb/NQQqRlovrSNrOUG6
+         U7na9Fm1lACdBS9iX6vD92cwkCxGIMe0x4Z8BEVBJTZhD8ugPjcwf/0WLNAQxBZTEmzY
+         feng==
+X-Forwarded-Encrypted: i=1; AJvYcCUCgO/NrIfMzIM/bvuryIpSRWue9H43oQAxX8w/PUy1FWHdehaKpFHZky30KJJsv4uaZdbusA54kje29pFUCN+T@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjVb7L43rXGARZroqhljM87rr5HfrWtPo+TIyGM1t47RTuTXEm
+	cwVRvvCLr7a9TrZ5vbv7zQNcTJCqPECF+Z2ANZt3AGy932uvei7ZoQbJxE1wd9n8R0vURf+bG9O
+	XbfQcu9xyeWmRzvkhP/lUoOaqfqRPvhctWYmBxAr8gg==
+X-Gm-Gg: ASbGnctGLPvDOzxjlbIrZlilP9OdRLjrIow1JS1BuqF5B7WwjWiODgvjTi2Cggr6Uue
+	Y2Wy8nwKngCjDFGBWFUeLC/tRS5VqW7+rjDSXIIArFQThN7zzYfFW4NslMy+UnSq42HDIR/INNR
+	4j+lmifv6RvCx5sPKzdQhvFs1+owLVwI4iug==
+X-Google-Smtp-Source: AGHT+IFmyl1zNSP/1T1Fu+Ipq6e7NtBsNPd9Sq1kBRpXHvD2CvYn2FtBpyWhYLC/DqeY2/E2ImvPRZWBInKH8wClwcU=
+X-Received: by 2002:a05:690c:6905:b0:70e:2cba:868c with SMTP id
+ 00721157ae682-70e2d9a6cb3mr318642537b3.11.1748524657490; Thu, 29 May 2025
+ 06:17:37 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/13] arm64: dts: ti: iot2050-common: Remove redundant
- "mcu_cpsw" node status
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, nm@ti.com, vigneshr@ti.com,
- kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com
-References: <20250529133443.1252293-1-s-vadapalli@ti.com>
- <20250529133443.1252293-8-s-vadapalli@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250529133443.1252293-8-s-vadapalli@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org> <aDhWlytLCxONZdF9@lpieralisi>
+In-Reply-To: <aDhWlytLCxONZdF9@lpieralisi>
+From: Peter Maydell <peter.maydell@linaro.org>
+Date: Thu, 29 May 2025 14:17:26 +0100
+X-Gm-Features: AX0GCFttNUvo5SsO8pMKnRvfFUtx-_6vAOX9kBCeKJ98X_-miBgBYJmCbmILETs
+Message-ID: <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
+Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, andre.przywara@arm.com, 
+	Arnd Bergmann <arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>, 
+	Timothy Hayes <timothy.hayes@arm.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_063856_101389_7EC9D88B 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250529_061739_603550_F58B1D5E 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,16 +99,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/05/2025 15:34, Siddharth Vadapalli wrote:
-> Now that the SoC file "k3-am65-mcu.dtsi" disables the "mcu_cpsw" node by
-> default, following the existing convention of disabling nodes in the SoC
-> file, remove the redundant section for disabling the "mcu_cpsw" node.
+On Thu, 29 May 2025 at 13:44, Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+>
+> [+Andre, Peter]
+>
+> On Tue, May 13, 2025 at 07:47:54PM +0200, Lorenzo Pieralisi wrote:
+> > +      reg:
+> > +        minItems: 1
+> > +        items:
+> > +          - description: IRS control frame
+>
+> I came across it while testing EL3 firmware, raising the topic for
+> discussion.
+>
+> The IRS (and the ITS) has a config frame (need to patch the typo
+> s/control/config, already done) per interrupt domain supported, that is,
+> it can have up to 4 config frames:
+>
+> - EL3
+> - Secure
+> - Realm
+> - Non-Secure
+>
+> The one described in this binding is the non-secure one.
+>
+> IIUC, everything described in the DT represents the non-secure address
+> space.
 
-It became redundant when you disabled it, so this must be part of that
-commit. Do not create redundant code with some artificial split of one
-logical work.
+The dt bindings do allow for describing Secure-world devices:
+Documentation/devicetree/bindings/arm/secure.txt has the
+details. We use this in QEMU so we can provide a DTB to
+guest EL3 firmware that tells it where the hardware is
+(and which EL3 can then pass on to an NS kernel). It would
+be helpful for the GICv5 binding to be defined in a way that
+we can do this for a GICv5 system too.
 
+> Two questions:
+>
+> - I don't have to spell out the IRS/ITS config frame (and SETLPI, by
+>   the way) as non-secure, since that's implicit, is that correct ?
 
-Best regards,
-Krzysztof
+Do you want the DT binding to handle the case of "CPU and GIC do not
+implement EL3, and the only implemented security state is Secure"
+without the kernel needing to do something different from "ditto ditto
+but the only implemented security state is Nonsecure" ?
+(Currently booting.html says you must be in NS, so we effectively
+say we don't support booting on this particular unicorn :-)
+But the secure.txt bindings envisage "kernel got booted in S",
+mostly for the benefit of aarch32.)
+
+> - How can the schema describe, if present, EL3, Secure and Realm frames ?
+
+The tempting thing to do is to have regs[] list the frames
+in some given order, but the spec makes them not simple
+supersets, allowing all of:
+ * NS
+ * S
+ * NS, S, EL3
+ * NS, Realm, EL3
+ * NS, Realm, S, EL3
+
+secure.txt says:
+# The general principle of the naming scheme for Secure world bindings
+# is that any property that needs a different value in the Secure world
+# can be supported by prefixing the property name with "secure-". So for
+# instance "secure-foo" would override "foo".
+
+So maybe we could have
+ reg : the NS frame(s)
+ secure-reg : the S frame(s)
+ realm-reg : the Realm frame(s)
+ root-reg : the EL3 frame(s)
+
+??
+
+thanks
+-- PMM
 
