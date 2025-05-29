@@ -4,65 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2754EC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 12:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A1EC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 12:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZmGQGPLdo98p+w4fo8+0lOvFSw7pzRAfcSN37CALGiE=; b=FyQcG3jPGvNBHO+Z/obSP3vrLB
-	+c4+dtFlufeMTLS8Z5NXigekBo2c8J+FTDZifu3QDr87sZLEmGhMX19IEVhoPL7G4rOIbWG5MZ+2+
-	cSoik9PC+hU3KJsXn4pLLhpLCxCLgfa0osuesy2ieD4oxuYSuKlL5P7WdaV8BJ/CEcOamF4/970DF
-	2f9QczyCFGgOZA1EPsTMxQXIbt5viM/reUi1ZPFTaMO6WeHmhdZ1nCV9eBWGVMCn741PcrAt3fBiP
-	MGd6/XY56JrrGby4D5/fOTV0fuPSVEQUGsJ6DukmSJathXORu5yJuf7OQJuF29oB+t6Kzgp67UY05
-	jxQvIZ6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9RGEjbS+3C/e9OMoWBvhsdf9eFJydSpRbxivnh7opTI=; b=GU374S5xBCEWrY
+	8tPmarFiX4ZFc4AKMq7uTip1WckGdCbuaHtnsY0DxOGjA/49vjNWs0VoNS5TdtJDwiKCrA5GemuNx
+	M6Y0ej26yt7EqGHEiTQjVNF6hr82vwXnFKoD+eFIuJGdp0eFj7G68F1Td1FsFB2gB7e2smf+h/N0l
+	ap419OSgGm83MkZ4z6UCfcy/YzuF2WuWeupHCT0m2JqeT6By6bRfNTfWuBvFu9n6gOb6K58H3+6Fj
+	CB1LdNL6Q0Sx7vETf9pUa2Zwh+SeJx7/u78Swjvn5qv7orP4QNfbi09ZXHW85S8QWlUnPUYcpjYGT
+	H/VA5qiw1ZzQEqZUz2+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKc7a-0000000Fhzq-0Vfc;
-	Thu, 29 May 2025 12:12:30 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uKc9g-0000000Fi9O-1pxF;
+	Thu, 29 May 2025 12:14:40 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKbUe-0000000Fd3t-2RJW
+	id 1uKbVV-0000000Fd8A-3uQa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 11:32:17 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4b7PJG3z5wz6L5kh;
-	Thu, 29 May 2025 19:28:30 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1036614022E;
-	Thu, 29 May 2025 19:32:07 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 29 May
- 2025 13:32:06 +0200
-Date: Thu, 29 May 2025 12:32:04 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Songwei Chai <quic_songchai@quicinc.com>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>, "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>, Andy Gross
-	<agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v5 4/7] coresight-tgu: Add TGU decode support
-Message-ID: <20250529123204.00005b78@huawei.com>
-In-Reply-To: <20250529081949.26493-5-quic_songchai@quicinc.com>
-References: <20250529081949.26493-1-quic_songchai@quicinc.com>
-	<20250529081949.26493-5-quic_songchai@quicinc.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 29 May 2025 11:33:11 +0000
+Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-45024721cbdso6996765e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 04:33:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748518388; x=1749123188; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9RGEjbS+3C/e9OMoWBvhsdf9eFJydSpRbxivnh7opTI=;
+        b=zc13VfgF8XUXmEuyK3F9bgegr7V3T6M73WFqqo2pIPFDu0foOYFeWcapiTpxkTNFtx
+         KLgZQ5LrdlG8mv9WtNjTJ0yQwm2D3NB8Fnez15rAsaPrTWQ3uRckuyu2O+GgvQJZMmXw
+         gAUmdvhGDdMfV2XTsZkEQIl0s55goo3e5B9dZIimSqpEMAoqvh5hcZvTZXToA0y0wdPW
+         FNIwaYF38FmQ5iJ0gMEZoC6xC7EMYMxxlKJEbeXjVsFfJ1E0o88I/C0feDzwYJ3cL9a0
+         j3BFbYdXEsUio5vrrFv0uuN9J/5O8wQt+EyEZOGRHkAOQ+SoP/xrr0NIIanMDeKnW1/h
+         bCPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748518388; x=1749123188;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9RGEjbS+3C/e9OMoWBvhsdf9eFJydSpRbxivnh7opTI=;
+        b=AM4MGRsiJ9M7hjMxhHnpWUG9B3O71ZibCik4bVIrgHlPOaXBqecL8ErXA/CK60PRAp
+         fXxVdIfOZz3hlGcPYxlCQRpnEWBv37PIGpdnzeQDg0nHrCLwvijr+EAr8ql2XW9TBRCW
+         LOMVLjrwMiwSuzVuKVJ3Z1OOM8UQ3TbXT4ysG+ugkTq4G+7IRByA9TnJ0RUYzV3j8fTi
+         5ZGqrPNU+ZM8UbWbc0zXfhE21BHPl1BEirpwR4gzYCYYowo1K+keQE6jzkv5A4KBBrLi
+         cd7g2tGvey9qOhDogX+EL37T7MgZ9zF/1/21O5jJT+mpYye1iLD0ifmGc3HUfOKZBSoK
+         h9zg==
+X-Gm-Message-State: AOJu0Yz6okkKvLlG4ni05V1QVT6QuneiDkpkPxGgosCG2QNe3/Hkqctf
+	N+CjHJrx6l+ADsNItQ0m7bVekuZyJ6M+I3Hw7wf9VRzessqaohGD5DxYHBWNLlyRpPE=
+X-Gm-Gg: ASbGnctkH1KkyX/sSCe7BPcs3zqUErlxWnwfJCUTvBQPnjXhbTcdWxEnPsRb6PLohl5
+	n1pz1hwnhfRik8xS9G4Pev34Cwqn8Xao0tYMq1B1vI9a9aOMZiBSrYdCNeYNV30HAyMr4L3cojE
+	TNDYfLmo0Qb9F+rPcCnuxPTFDCvBcs2RG5sl/LRkmC7LlYSa3gPwnySAxfRbyCRQ2OIju2PcL+U
+	V+iWRJZtQ5+1nKWnquVyKh+tlUS9LNKAEBH/D6iX7Y1KipKeJvTUXHgEOlEwB2bUgb/KkK9JWYr
+	xpg1J3ZJtVUVZwoT2k2drf6wkIMzQB/pQFumhqkIUL8YXf8/HXkkzK2tDxdj
+X-Google-Smtp-Source: AGHT+IFDz2Nzk5rV8H17aE5jP5Yo1dXjiKY7Wt+ZcHiSvBCRbRuqUmfh+W28PJ1soWP3lufeYbHSmw==
+X-Received: by 2002:a05:600c:3482:b0:441:b00d:e9d1 with SMTP id 5b1f17b1804b1-450d055ba9fmr18892675e9.2.1748518388273;
+        Thu, 29 May 2025 04:33:08 -0700 (PDT)
+Received: from ho-tower-lan.lan ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450cfc3785bsm17443945e9.40.2025.05.29.04.33.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 May 2025 04:33:07 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v2 00/11] perf: arm_spe: Armv8.8 SPE features
+Date: Thu, 29 May 2025 12:30:21 +0100
+Message-Id: <20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE1FOGgC/33N0QqDIBTG8VcJr+c4mjXb1d5jRIgey7FpaMRG9
+ O6zYLCb7fJ/4Py+hSSMDhM5FwuJOLvkgs/BDwXRg/I9UmdyEw68gpJxelMPTHTEaKlFNXVpxA7
+ tROtaGyuMtNg0JH+PEa177vK1zT24NIX42odmtl0/ZvnTnBkFypXmYASctJaXu/MqhmOI/baxA
+ xXU/wFjhASUKGTFvoF2Xdc3cIeZJgABAAA=
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_043216_760130_9DB9FA8E 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20250529_043310_006657_ED621DC0 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +110,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 May 2025 16:19:45 +0800
-Songwei Chai <quic_songchai@quicinc.com> wrote:
+Support 3 new SPE features: FEAT_SPEv1p4 filters, FEAT_SPE_EFT extended
+filtering, and SPE_FEAT_FDS data source filtering. The features are
+independent can be applied separately:
 
-> Decoding is when all the potential pieces for creating a trigger
-> are brought together for a given step. Example - there may be a
-> counter keeping track of some occurrences and a priority-group that
-> is being used to detect a pattern on the sense inputs. These 2
-> inputs to condition_decode must be programmed, for a given step,
-> to establish the condition for the trigger, or movement to another
-> steps.
->=20
-> Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+  * Prerequisite sysreg changes - patches 1 - 2
+  * FEAT_SPEv1p4 - patch 3
+  * FEAT_SPE_EFT - patch 4
+  * FEAT_SPE_FDS - patches 5 - 8
+  * FEAT_SPE_FDS Perf tool changes - patches 9 - 11
 
-> diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtrac=
-ing/coresight/coresight-tgu.c
-> index 6dbfd4c604b1..8dbe8ab30174 100644
-> --- a/drivers/hwtracing/coresight/coresight-tgu.c
-> +++ b/drivers/hwtracing/coresight/coresight-tgu.c
-> @@ -21,13 +21,35 @@ static int calculate_array_location(struct tgu_drvdat=
-a *drvdata,
+The first two features will work with old Perfs but a Perf change to
+parse the new config4 is required for the last feature.
 
-> +
->  static int tgu_enable(struct coresight_device *csdev, enum cs_mode mode,
->  		      void *data)
->  {
-> +	int ret =3D 0;
-=46rom what can be seen here, looks like ret is always set, so no need to ini=
-t.
->  	struct tgu_drvdata *drvdata =3D dev_get_drvdata(csdev->dev.parent);
-> =20
->  	spin_lock(&drvdata->spinlock);
-> @@ -150,11 +264,15 @@ static int tgu_enable(struct coresight_device *csde=
-v, enum cs_mode mode,
->  		spin_unlock(&drvdata->spinlock);
->  		return -EBUSY;
->  	}
-> -	tgu_write_all_hw_regs(drvdata);
-> +	ret =3D tgu_write_all_hw_regs(drvdata);
-> +
-> +	if (ret =3D=3D -EINVAL)
-> +		goto exit;
->  	drvdata->enable =3D true;
-> =20
-> +exit:
->  	spin_unlock(&drvdata->spinlock);
-> -	return 0;
-> +	return ret;
->  }
+---
+Changes in v2:
+- Fix detection of FEAT_SPE_FDS in el2_setup.h
+- Pickup Marc Z's sysreg change instead which matches the json
+- Restructure and expand docs changes
+- Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
 
-> diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtrac=
-ing/coresight/coresight-tgu.h
-> index f07ead505365..691da393ffa3 100644
-> --- a/drivers/hwtracing/coresight/coresight-tgu.h
-> +++ b/drivers/hwtracing/coresight/coresight-tgu.h
+---
+James Clark (10):
+      arm64: sysreg: Add new PMSFCR_EL1 fields and PMSDSFR_EL1 register
+      perf: arm_spe: Support FEAT_SPEv1p4 filters
+      perf: arm_spe: Add support for FEAT_SPE_EFT extended filtering
+      arm64/boot: Enable EL2 requirements for SPE_FEAT_FDS
+      KVM: arm64: Add trap configs for PMSDSFR_EL1
+      perf: Add perf_event_attr::config4
+      perf: arm_spe: Add support for filtering on data source
+      tools headers UAPI: Sync linux/perf_event.h with the kernel sources
+      perf tools: Add support for perf_event_attr::config4
+      perf docs: arm-spe: Document new SPE filtering features
 
->  enum operation_index {
->  	TGU_PRIORITY0,
->  	TGU_PRIORITY1,
->  	TGU_PRIORITY2,
-> -	TGU_PRIORITY3
-> +	TGU_PRIORITY3,
+Marc Zyngier (1):
+      arm64: sysreg: Update PMSIDR_EL1 description
 
-And here is why the previous patch should definitely have had the ,
+ Documentation/arch/arm64/booting.rst      |  11 ++++
+ arch/arm64/include/asm/el2_setup.h        |  14 +++++
+ arch/arm64/include/asm/sysreg.h           |   7 +++
+ arch/arm64/kvm/emulate-nested.c           |   1 +
+ arch/arm64/kvm/sys_regs.c                 |   1 +
+ arch/arm64/tools/sysreg                   |  45 ++++++++++++--
+ drivers/perf/arm_spe_pmu.c                | 100 +++++++++++++++++++++++++++++-
+ include/uapi/linux/perf_event.h           |   2 +
+ tools/include/uapi/linux/perf_event.h     |   2 +
+ tools/perf/Documentation/perf-arm-spe.txt |  97 ++++++++++++++++++++++++++---
+ tools/perf/tests/parse-events.c           |  14 ++++-
+ tools/perf/util/parse-events.c            |  11 ++++
+ tools/perf/util/parse-events.h            |   1 +
+ tools/perf/util/parse-events.l            |   1 +
+ tools/perf/util/pmu.c                     |   8 +++
+ tools/perf/util/pmu.h                     |   1 +
+ 16 files changed, 301 insertions(+), 15 deletions(-)
+---
+base-commit: 90b83efa6701656e02c86e7df2cb1765ea602d07
+change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
 
-> +	TGU_CONDITION_DECODE
-> =20
->  };
-
->=20
->=20
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
 
 
