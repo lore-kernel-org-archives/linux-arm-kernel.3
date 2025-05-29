@@ -4,54 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1C7C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77194C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SI7E2GMu5zwFD88Hqb3B6EoNDTjnLpF2X6w7dcTEhI=; b=rox+IaQmzM1n0eWLMi62MeMU2J
-	8KCbu7pEFwJvTNxuqbJM4H1dan+lqNNM4vy8taDkzJMneYzjFjkp+cP9MfF4cPxWP+l5DXLaqqUjM
-	D/G7tPEKBktwkdESoAzxHhTmPdl+Rtd/luHOfzq2dG1+YQpU+AnxEPC5OII7nL79liizl7SBZiqqK
-	hloc8moGaofC1sVdUvvTBWEJkp416ZiLOPHT3vQdg8a2jczJKd0dHAPzwHayIANorS47HDAoa2sKs
-	3CXlAgP1Qflg9Acjl1GTjXfuj2netkLCo2JePh/mYafXiOcAS7J/TA+TmBBMtSEZ+wWxiC9EU6GI6
-	3NMof/eQ==;
+	bh=ZmwT3S6qnsDYq9vLb7EV+FnhJgCFYNVQnLN2KszkuxU=; b=O+Mywlc6fCiOYkkrjRFnPweCbP
+	5J+xEhJ/V58w0pKO40BKgKBYHjebKGVlSMuZwCrEQuk/3PlpE+s2s1W4G6+oLskTDkYOWruSRvsut
+	gHKTjgQ5akWzdWJ2VG52lfx0SXmtiP9q9npwsQK/MONAt7vcfGzgrPlAln4+Au8zBQnY0sFHJJu8p
+	KBOd1h7O6e4K+DIlYzCgWuwCk1V72qJl/6OV1HlrzW+4WXCBsoighNnMJN6ujvPU1AvyyWEydEbLF
+	6qSLx+fMotSynQNO8vRaMHLe5KZr20LFup7A+ueAb/cbi2GBlj/dzm22hDlorpTdFUs5kzne9hTV+
+	mJHIJ39g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZeH-0000000FQ9y-1AO3;
-	Thu, 29 May 2025 09:34:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZTa-0000000FOsW-2deQ
+	id 1uKZgM-0000000FQHg-3zQO;
+	Thu, 29 May 2025 09:36:14 +0000
+Received: from [195.187.100.5] (helo=ni.piap.pl)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKZVk-0000000FP5d-1dij
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:23:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D847176A;
-	Thu, 29 May 2025 02:22:45 -0700 (PDT)
-Received: from [10.163.62.34] (unknown [10.163.62.34])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC93B3F5A1;
-	Thu, 29 May 2025 02:22:57 -0700 (PDT)
-Message-ID: <6aacbf96-e685-43fd-b77d-2242d57cb2f3@arm.com>
-Date: Thu, 29 May 2025 14:52:54 +0530
+	Thu, 29 May 2025 09:25:18 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id CC1DBC3EEAC9;
+	Thu, 29 May 2025 11:25:08 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl CC1DBC3EEAC9
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: =?utf-8?Q?S=C3=A9bastien?= Szymanski <sebastien.szymanski@armadeus.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,  Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>,  Rui Miguel Silva <rmfrfs@gmail.com>,
+  Martin Kepplinger <martink@posteo.de>,  Purism Kernel Team
+ <kernel@puri.sm>,  Mauro Carvalho Chehab <mchehab@kernel.org>,  Shawn Guo
+ <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
+  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>,  <linux-media@vger.kernel.org>,
+  <imx@lists.linux.dev>,  <linux-arm-kernel@lists.infradead.org>,
+  <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
+In-Reply-To: <65670a02-e217-4d0f-955d-d13ca0240819@armadeus.com>
+ (=?utf-8?Q?=22S=C3=A9bastien?=
+	Szymanski"'s message of "Fri, 23 May 2025 17:34:01 +0200")
+References: <m3h61u9jy2.fsf@t19.piap.pl>
+	<20250509103733.GE28896@pendragon.ideasonboard.com>
+	<m3o6vn8np5.fsf@t19.piap.pl>
+	<iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
+	<m31psg97dy.fsf@t19.piap.pl> <m3plfz7io0.fsf@t19.piap.pl>
+	<65670a02-e217-4d0f-955d-d13ca0240819@armadeus.com>
+Date: Thu, 29 May 2025 11:25:08 +0200
+Message-ID: <m3v7pj6a6j.fsf@t19.piap.pl>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: Restrict pagetable teardown to avoid false
- warning
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: david@redhat.com, ryan.roberts@arm.com, mark.rutland@arm.com,
- yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <20250527082633.61073-1-dev.jain@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250527082633.61073-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_022302_716031_C697DA6F 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20250529_022516_597529_78364434 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,49 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/27/25 13:56, Dev Jain wrote:
-> Commit 9c006972c3fe removes the pxd_present() checks because the caller
-> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller only
-> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
-> pmd_free_pte_page(), wherein the pmd may be none. Thus it is possible to
-> hit a warning in the latter, since pmd_none => !pmd_table(). Thus, add
-> a pmd_present() check in pud_free_pmd_page().
-> 
-> This problem was found by code inspection.
-> 
-> Fixes: 9c006972c3fe (arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table())
-> Cc: <stable@vger.kernel.org>
-> Reported-by: Ryan Roberts <ryan.roberts@arm.com> 
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
-> This patch is based on 6.15-rc6.
-> 
-> v2->v3:
->  - Use pmdp_get()
-> 
-> v1->v2:
->  - Enforce check in caller
-> 
->  arch/arm64/mm/mmu.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index ea6695d53fb9..5a9bf291c649 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1286,7 +1286,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->  	next = addr;
->  	end = addr + PUD_SIZE;
->  	do {
-> -		pmd_free_pte_page(pmdp, next);
-> +		if (pmd_present(pmdp_get(pmdp)))
-> +			pmd_free_pte_page(pmdp, next);
->  	} while (pmdp++, next += PMD_SIZE, next != end);
->  
->  	pud_clear(pudp);
+Hi S=C3=A9bastien,
 
-Agree with Ryan about keeping pmd_present() to be consistent.
+S=C3=A9bastien Szymanski <sebastien.szymanski@armadeus.com> writes:
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> On i.MX8MM mipi_csi is at 32e30000. NXP kernel (6.12.3) with ov5640 camer=
+a:
+>
+> # devmem 0x32E30000 32
+> 0x03060301
+
+Thanks a lot. So at least the version register is the same as on
+i.MX8MP.
+I wonder if you could test if the CSIC possibly supports filtering by
+DT.
+
+How would such a test be performed?
+
+Maybe: while streaming (otherwise the system may lock up):
+
+I assume 'devmem 0x32E30004 32' shows 0x4305.
+# devmem 0x32E30004 32 0x14705
+
+and:
+- does it change anything? If the streaming stops, you may try
+  restarting and writing with devmem again - writing to this register
+  directly frequently stops streaming on my 8MP.
+
+- what does the register contain after write?
+
+- you may also try:
+  # devmem 0x32E30004 32 0xfffffffd
+  # devmem 0x32E30004 32
+
+On i.MX8MP the above returns:
+# ./devmem write32 0x32Ex0004 0xfffffffd
+# ./devmem read32 0x32Ex0004
+0x0000FF05
+(and the streaming still works, usually).
+
+The above is not a very good test, I admit, but it may show 8MM really
+doesn't have those/that bit.
+
+TIA.
+--=20
+Krzysztof "Chris" Ha=C5=82asa
+
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
