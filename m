@@ -4,56 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C60DC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C623C5B553
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iSv2doR+6C+GHraPmXy0YIADFLkwj7ttD0ptbpFBjiI=; b=aPq+ZtbmAW/4xWUu8v9JB+7mXu
-	ukqsxFhmS1uOjyZAUR/EGJkGZQThOSqjc4ExXfLak5/VGcarYs4569E+Eo+KUtN8iVUFkEYPkViO8
-	xFzTt1+9GCtM7djRErIq/ayhxwKJflz6/RygPmOOihKpAhYydxmGD99u9gv5IWyJxfzbT7Z+5FO8d
-	TxuohyxqfRvz6dOfHw9UNLHHf3ufdhyauhZ+iOtAMnnxIybhmjuAbrGcejOx4OM5AR5noN8EyyeZ8
-	V4DLrcc0pStx83qMD0YDrcMGmqPMEWMmYSb9KPu4u53LNGDJV3J8o4i0Re8/SL4vsXKJ3ZJxoy2hD
-	KTI/l1iQ==;
+	bh=PNYQLbe7AzOPQWttHDbITXhlyU7YZHyksvjosqIEvYg=; b=s8j17tJapP58RnJ5FPSfhM3KHp
+	dUGcBGEAxCkMj+pbHRjNnWAhixCu5RJVHfSDbf8gfS9ke/9Jqs7iP3u87PH9NrpRYzKk/laAr21AR
+	SRl0RnVA15OGXKg6t39WrBXNzaY/AgX6eYAmgc42zH2K8IQn5XBUEeCIaM7krtekyrt77wkdLWIPw
+	omVSJMvgTlgnay0idQExhCYlpPto/iGIfFm2iF/+EBh75C9VzHr/p65VZDhv9s31OWWMChIDAJagz
+	UIGwFfCuwA3CBYoKS+NAYEA9rAaGrr/9IggJ8309rvd4r8+evpVz7YSbySdvFEauZn30H9iTPq9ko
+	KiFdp3fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZ6b-0000000FJHW-1dst;
-	Thu, 29 May 2025 08:59:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uKZ6U-0000000FJ93-0Q67;
+	Thu, 29 May 2025 08:59:10 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKYmF-0000000FGSm-2spD
+	id 1uKYV1-0000000FFCU-04B1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 08:38:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BDAD3614BA;
-	Thu, 29 May 2025 08:38:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AED5C4CEE7;
-	Thu, 29 May 2025 08:38:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748507894;
-	bh=auDYBHCheMKN79wvAyDINlXlq8qBJZfxKgWN3WWW6Z4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XUMXNfrGUi2yiKDbM7nPrMgEPK4TU7d1/r6cS6DJuqZvwiBiGEODepBQksMqmF3pf
-	 RC/WPi+DC3M8QN9QqVinLfoavVbML0kKrbXFAUiwn9VuKOpJoHALMUGD47XN91ZX4n
-	 jXgxG+96lLhlx+Iy9mVaK1yOSsSwm9kjelgQrAEDVV6Eez6R2uiARjtl71Fehzai97
-	 5JW8ZO3BEP6VJtEeMlYJEpwK7okW094AGUPR8EV2ZtczXAUtwbRajAEdaUk8X7CR7X
-	 Bv3Tqy+JTZSFWDh4Mjod/4TzP98UHBhC7rIWYVD03e1Afif9IQWD3lTirUXe+IffNv
-	 2yV+T0YHVGe2A==
-Date: Thu, 29 May 2025 10:38:05 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: Re: [PATCH v4 21/26] irqchip/gic-v5: Add GICv5 IRS/SPI support
-Message-ID: <aDgc7URS+jPBlfQX@lpieralisi>
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-21-b36e9b15a6c3@kernel.org>
- <20250528170318.00001dd8@huawei.com>
+	Thu, 29 May 2025 08:20:28 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54T7HENo010449;
+	Thu, 29 May 2025 08:20:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PNYQLbe7AzOPQWttHDbITXhlyU7YZHyksvjosqIEvYg=; b=RxQTQKKpWUMQ5WfG
+	RuTj6papPkyPGyxYbEiMt1jrH7c4GglUmHaGBT3QFsMuyfqKtK/oDBU3e7NS07Vr
+	A6kinfzqeF7ma05Mp7YHhkROEXQfMlERUPr2v6UzooS6YhI+j0+wIlmKkut7oySm
+	84C63zpamSaJF8jwbOSXsSjnJsczkKLAi24oS3mAS/TVjQjT8wlkqVomQ0PWburz
+	mnZ5NX8aTr0ddXfzW8C8bzm1H2tEtI/xvKAXbkp5NZIEy57jq4yLKOpBnlcKikp4
+	KCXPdj2DkYvlGl9VIo7qISp9RdQjh9fo8gWsHhQGF608gbRSERtWRYqe4XFoTYLA
+	PiHLnA==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46u3fqd67q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 29 May 2025 08:20:19 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54T8KIr3007033
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 29 May 2025 08:20:18 GMT
+Received: from ap-cloud-sh02-lnx.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 29 May 2025 01:20:15 -0700
+From: Songwei Chai <quic_songchai@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Andy Gross
+	<agross@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Rob Herring
+	<robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, <quic_songchai@quicinc.com>
+CC: <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
+Subject: [PATCH v5 4/7] coresight-tgu: Add TGU decode support
+Date: Thu, 29 May 2025 16:19:45 +0800
+Message-ID: <20250529081949.26493-5-quic_songchai@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250529081949.26493-1-quic_songchai@quicinc.com>
+References: <20250529081949.26493-1-quic_songchai@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250528170318.00001dd8@huawei.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: N01gLKJD-cOssCccpHmXCbTmADrCj2bG
+X-Proofpoint-ORIG-GUID: N01gLKJD-cOssCccpHmXCbTmADrCj2bG
+X-Authority-Analysis: v=2.4 cv=X8FSKHTe c=1 sm=1 tr=0 ts=683818c3 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8 a=tUVMKqKpm64dBOVCEmMA:9
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI5MDA4MCBTYWx0ZWRfXwMB3xj/gHK1s
+ khDizaozwRmhAnXaOcsfAklTU2D4/vRHYEwHBNOeHuEqRjnwXCD4JUgKmmOOD6xNMWaVqhXLiMu
+ BFR2R0eUcIFmFoqtDDWCm3N0NbBdlEoaYq3z45HEd9lQpA4wPaYvmCRvDg65WP4s64vh/9aKzw3
+ jEgGG+NMk2C3l5k0MiIk+Qr/k/SnIlaT85kXlpExgFj31fNufgK1Yeq+ed+5Z2x14EraijxkJMS
+ 0GMB3l/9TvpxWMRskg6pN3531W+aoZ7t/4rH3O+7gVaUABmvChR8kBJwW9efhvPzPA05uCnUZTs
+ Objs0YJv19KRnuoAxYjXlfrvnZ7kKid6P10u0HuZTOGG/oyC9r1csRYCmmFmG/PzV6x3sXtev4g
+ XmM996PFKjUTufhfanood5FpBAfWR18ULufxzOXgwmNqKYMDbtSvW16dm2eumX1gQrImd8Bl
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-29_04,2025-05-29_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 suspectscore=0 phishscore=0 bulkscore=0 mlxlogscore=999
+ mlxscore=0 clxscore=1015 priorityscore=1501 spamscore=0 adultscore=0
+ malwarescore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505160000 definitions=main-2505290080
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250529_012027_178718_93D56706 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,410 +119,430 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, devicetree@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>, linux-kernel@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>, Sascha Bischoff <sascha.bischoff@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 05:03:18PM +0100, Jonathan Cameron wrote:
-> On Tue, 13 May 2025 19:48:14 +0200
-> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> > The GICv5 Interrupt Routing Service (IRS) component implements
-> > interrupt management and routing in the GICv5 architecture.
-> > 
-> > A GICv5 system comprises one or more IRSes, that together
-> > handle the interrupt routing and state for the system.
-> > 
-> > An IRS supports Shared Peripheral Interrupts (SPIs), that are
-> > interrupt sources directly connected to the IRS; they do not
-> > rely on memory for storage. The number of supported SPIs is
-> > fixed for a given implementation and can be probed through IRS
-> > IDR registers.
-> > 
-> > SPI interrupt state and routing are managed through GICv5
-> > instructions.
-> > 
-> > Each core (PE in GICv5 terms) in a GICv5 system is identified with
-> > an Interrupt AFFinity ID (IAFFID).
-> > 
-> > An IRS manages a set of cores that are connected to it.
-> > 
-> > Firmware provides a topology description that the driver uses
-> > to detect to which IRS a CPU (ie an IAFFID) is associated with.
-> > 
-> > Use probeable information and firmware description to initialize
-> > the IRSes and implement GICv5 IRS SPIs support through an
-> > SPI-specific IRQ domain.
-> > 
-> > The GICv5 IRS driver:
-> > 
-> > - Probes IRSes in the system to detect SPI ranges
-> > - Associates an IRS with a set of cores connected to it
-> > - Adds an IRQchip structure for SPI handling
-> > 
-> > SPIs priority is set to a value corresponding to the lowest
-> > permissible priority in the system (taking into account the
-> > implemented priority bits of the IRS and CPU interface).
-> > 
-> > Since all IRQs are set to the same priority value, the value
-> > itself does not matter as long as it is a valid one.
-> > 
-> > Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> > Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
-> > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Thomas Gleixner <tglx@linutronix.de>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> 
-> A few comments inline. Mostly around of cpu phandle parsing.
-> +CC Ali as there is a comment on his SMT DT patch set inline.
-> 
-> 
-> > ---
-> >  arch/arm64/include/asm/sysreg.h    |  36 +++
-> >  drivers/irqchip/Makefile           |   2 +-
-> >  drivers/irqchip/irq-gic-v5-irs.c   | 433 +++++++++++++++++++++++++++++++++++++
-> >  drivers/irqchip/irq-gic-v5.c       | 341 +++++++++++++++++++++++++++--
-> >  include/linux/irqchip/arm-gic-v5.h | 130 +++++++++++
-> >  5 files changed, 920 insertions(+), 22 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> > index 9d28d408f9c6df24526dd8ecbf3c7d920246b22d..fbac3b6f056ae6fafd64457600d45808e4904ae3 100644
-> > --- a/arch/arm64/include/asm/sysreg.h
-> > +++ b/arch/arm64/include/asm/sysreg.h
-> > @@ -1082,14 +1082,50 @@
-> >  /*
-> >   * Definitions for GICv5 instructions
-> >   */
-> 
-> >  
-> > +/* Shift and mask definitions for GIC CDAFF */
-> 
-> Similar comment. Mask definitions seems more accurate to me.
+Decoding is when all the potential pieces for creating a trigger
+are brought together for a given step. Example - there may be a
+counter keeping track of some occurrences and a priority-group that
+is being used to detect a pattern on the sense inputs. These 2
+inputs to condition_decode must be programmed, for a given step,
+to establish the condition for the trigger, or movement to another
+steps.
 
-Fixed.
+Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+---
+ .../testing/sysfs-bus-coresight-devices-tgu   |   7 +
+ drivers/hwtracing/coresight/coresight-tgu.c   | 186 +++++++++++++++---
+ drivers/hwtracing/coresight/coresight-tgu.h   |  29 ++-
+ 3 files changed, 196 insertions(+), 26 deletions(-)
 
-> > +/* Shift and mask definitions for GIC CDDIS */
-> > +#define GICV5_GIC_CDDIS_TYPE_MASK	GENMASK_ULL(31, 29)
-> > +#define GICV5_GIC_CDDIS_TYPE(r)		FIELD_GET(GICV5_GIC_CDDIS_TYPE_MASK, r)
-> > +#define GICV5_GIC_CDDIS_ID_MASK		GENMASK_ULL(23, 0)
-> > +#define GICV5_GIC_CDDIS_ID(r)		FIELD_GET(GICV5_GIC_CDDIS_ID_MASK, r)
-> 
-> Similar to earlier comment. I'm not sure the shortened forms are worth the bother.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+index ecd22214353b..a98ceb5bfdd1 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+@@ -14,3 +14,10 @@ KernelVersion	6.16
+ Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
+ Description:
+ 		(RW) Set/Get the sensed signal with specific step and priority for TGU.
++
++What:		/sys/bus/coresight/devices/<tgu-name>/step[0:7]_condition_decode/reg[0:3]
++Date:		May 2025
++KernelVersion	6.16
++Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
++Description:
++		(RW) Set/Get the decode mode with specific step for TGU.
+diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
+index 6dbfd4c604b1..8dbe8ab30174 100644
+--- a/drivers/hwtracing/coresight/coresight-tgu.c
++++ b/drivers/hwtracing/coresight/coresight-tgu.c
+@@ -21,13 +21,35 @@ static int calculate_array_location(struct tgu_drvdata *drvdata,
+ 				    int step_index, int operation_index,
+ 				    int reg_index)
+ {
+-	int ret;
++	int ret = -EINVAL;
++
++	switch (operation_index) {
++	case TGU_PRIORITY0:
++	case TGU_PRIORITY1:
++	case TGU_PRIORITY2:
++	case TGU_PRIORITY3:
++		ret = operation_index * (drvdata->max_step) *
++			      (drvdata->max_reg) +
++		      step_index * (drvdata->max_reg) + reg_index;
++		break;
++	case TGU_CONDITION_DECODE:
++		ret = step_index * (drvdata->max_condition_decode) +
++		      reg_index;
++		break;
++	default:
++		break;
++	}
++	return ret;
++}
+ 
+-	ret = operation_index * (drvdata->max_step) *
+-		      (drvdata->max_reg) +
+-	      step_index * (drvdata->max_reg) + reg_index;
++static int check_array_location(struct tgu_drvdata *drvdata, int step,
++				int ops, int reg)
++{
++	int result = calculate_array_location(drvdata, step, ops, reg);
+ 
+-	return ret;
++	if (result == -EINVAL)
++		dev_err(&drvdata->csdev->dev, "%s - Fail\n", __func__);
++	return result;
+ }
+ 
+ static ssize_t tgu_dataset_show(struct device *dev,
+@@ -36,13 +58,33 @@ static ssize_t tgu_dataset_show(struct device *dev,
+ 	struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct tgu_attribute *tgu_attr =
+ 		container_of(attr, struct tgu_attribute, attr);
++	int ret = 0;
++
++	ret = check_array_location(drvdata, tgu_attr->step_index,
++				tgu_attr->operation_index, tgu_attr->reg_num);
++	if (ret == -EINVAL)
++		return ret;
+ 
+-	return sysfs_emit(buf, "0x%x\n",
+-			  drvdata->value_table->priority[
+-					calculate_array_location(
+-					drvdata, tgu_attr->step_index,
+-					tgu_attr->operation_index,
+-					tgu_attr->reg_num)]);
++	switch (tgu_attr->operation_index) {
++	case TGU_PRIORITY0:
++	case TGU_PRIORITY1:
++	case TGU_PRIORITY2:
++	case TGU_PRIORITY3:
++		return sysfs_emit(buf, "0x%x\n",
++				  drvdata->value_table->priority[calculate_array_location(
++					  drvdata, tgu_attr->step_index,
++					  tgu_attr->operation_index,
++					  tgu_attr->reg_num)]);
++	case TGU_CONDITION_DECODE:
++		return sysfs_emit(buf, "0x%x\n",
++				  drvdata->value_table->condition_decode[calculate_array_location(
++					  drvdata, tgu_attr->step_index,
++					  tgu_attr->operation_index,
++					  tgu_attr->reg_num)]);
++	default:
++		break;
++	}
++	return -EINVAL;
+ }
+ 
+ static ssize_t tgu_dataset_store(struct device *dev,
+@@ -51,20 +93,44 @@ static ssize_t tgu_dataset_store(struct device *dev,
+ 				 size_t size)
+ {
+ 	unsigned long val;
++	int ret = -EINVAL;
+ 
+ 	struct tgu_drvdata *tgu_drvdata = dev_get_drvdata(dev->parent);
+ 	struct tgu_attribute *tgu_attr =
+ 		container_of(attr, struct tgu_attribute, attr);
+ 
+ 	if (kstrtoul(buf, 0, &val))
+-		return -EINVAL;
++		return ret;
+ 
+-	guard(spinlock)(&tgu_drvdata->spinlock);
+-	tgu_drvdata->value_table->priority[calculate_array_location(
+-		tgu_drvdata, tgu_attr->step_index, tgu_attr->operation_index,
+-		tgu_attr->reg_num)] = val;
++	ret = check_array_location(tgu_drvdata, tgu_attr->step_index,
++		tgu_attr->operation_index, tgu_attr->reg_num);
+ 
+-	return size;
++	if (ret == -EINVAL)
++		return ret;
++
++	guard(spinlock)(&tgu_drvdata->spinlock);
++	switch (tgu_attr->operation_index) {
++	case TGU_PRIORITY0:
++	case TGU_PRIORITY1:
++	case TGU_PRIORITY2:
++	case TGU_PRIORITY3:
++		tgu_drvdata->value_table->priority[calculate_array_location(
++			tgu_drvdata, tgu_attr->step_index,
++			tgu_attr->operation_index,
++			tgu_attr->reg_num)] = val;
++		ret = size;
++		break;
++	case TGU_CONDITION_DECODE:
++		tgu_drvdata->value_table->condition_decode[calculate_array_location(
++			tgu_drvdata, tgu_attr->step_index,
++			tgu_attr->operation_index,
++			tgu_attr->reg_num)] = val;
++		ret = size;
++		break;
++	default:
++		break;
++	}
++	return ret;
+ }
+ 
+ static umode_t tgu_node_visible(struct kobject *kobject,
+@@ -81,34 +147,70 @@ static umode_t tgu_node_visible(struct kobject *kobject,
+ 		container_of(dev_attr, struct tgu_attribute, attr);
+ 
+ 	if (tgu_attr->step_index < drvdata->max_step) {
+-		ret = (tgu_attr->reg_num < drvdata->max_reg) ?
+-			      attr->mode :
+-			      0;
++		switch (tgu_attr->operation_index) {
++		case TGU_PRIORITY0:
++		case TGU_PRIORITY1:
++		case TGU_PRIORITY2:
++		case TGU_PRIORITY3:
++			ret = (tgu_attr->reg_num < drvdata->max_reg) ?
++				      attr->mode :
++				      0;
++			break;
++		case TGU_CONDITION_DECODE:
++			ret = (tgu_attr->reg_num <
++			       drvdata->max_condition_decode) ?
++				      attr->mode :
++				      0;
++			break;
++		default:
++			break;
++		}
+ 	}
+ 	return ret;
+ }
+ 
+-static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
++static ssize_t tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+ {
+-	int i, j, k;
++	int i, j, k, ret;
+ 
+ 	CS_UNLOCK(drvdata->base);
+ 
+ 	for (i = 0; i < drvdata->max_step; i++) {
+ 		for (j = 0; j < MAX_PRIORITY; j++) {
+ 			for (k = 0; k < drvdata->max_reg; k++) {
++
++				ret = check_array_location(drvdata, i, j, k);
++				if (ret == -EINVAL)
++					goto exit;
++
+ 				tgu_writel(drvdata,
+ 					   drvdata->value_table->priority
+ 						   [calculate_array_location(
+-							drvdata, i, j, k)],
++							   drvdata, i, j, k)],
+ 					   PRIORITY_REG_STEP(i, j, k));
+ 			}
+ 		}
+ 	}
+ 
++	for (i = 0; i < drvdata->max_step; i++) {
++		for (j = 0; j < drvdata->max_condition_decode; j++) {
++			ret = check_array_location(drvdata, i, TGU_CONDITION_DECODE, j);
++			if (ret == -EINVAL)
++				goto exit;
++
++			tgu_writel(drvdata,
++				   drvdata->value_table->condition_decode
++					   [calculate_array_location(
++						   drvdata, i,
++						   TGU_CONDITION_DECODE, j)],
++				   CONDITION_DECODE_STEP(i, j));
++		}
++	}
+ 	/* Enable TGU to program the triggers */
+ 	tgu_writel(drvdata, 1, TGU_CONTROL);
++exit:
+ 	CS_LOCK(drvdata->base);
++	return ret >= 0 ? 0 : ret;
+ }
+ 
+ static void tgu_set_reg_number(struct tgu_drvdata *drvdata)
+@@ -139,9 +241,21 @@ static void tgu_set_steps(struct tgu_drvdata *drvdata)
+ 	drvdata->max_step = num_steps;
+ }
+ 
++static void tgu_set_conditions(struct tgu_drvdata *drvdata)
++{
++	int num_conditions;
++	u32 devid;
++
++	devid = readl_relaxed(drvdata->base + CORESIGHT_DEVID);
++
++	num_conditions = TGU_DEVID_CONDITIONS(devid);
++	drvdata->max_condition_decode = num_conditions;
++}
++
+ static int tgu_enable(struct coresight_device *csdev, enum cs_mode mode,
+ 		      void *data)
+ {
++	int ret = 0;
+ 	struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 
+ 	spin_lock(&drvdata->spinlock);
+@@ -150,11 +264,15 @@ static int tgu_enable(struct coresight_device *csdev, enum cs_mode mode,
+ 		spin_unlock(&drvdata->spinlock);
+ 		return -EBUSY;
+ 	}
+-	tgu_write_all_hw_regs(drvdata);
++	ret = tgu_write_all_hw_regs(drvdata);
++
++	if (ret == -EINVAL)
++		goto exit;
+ 	drvdata->enable = true;
+ 
++exit:
+ 	spin_unlock(&drvdata->spinlock);
+-	return 0;
++	return ret;
+ }
+ 
+ static int tgu_disable(struct coresight_device *csdev, void *data)
+@@ -271,6 +389,14 @@ static const struct attribute_group *tgu_attr_groups[] = {
+ 	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 1),
+ 	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 2),
+ 	PRIORITY_ATTRIBUTE_GROUP_INIT(7, 3),
++	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(0),
++	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(1),
++	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(2),
++	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(3),
++	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(4),
++	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(5),
++	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(6),
++	CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(7),
+ 	NULL,
+ };
+ 
+@@ -307,6 +433,7 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+ 
+ 	tgu_set_reg_number(drvdata);
+ 	tgu_set_steps(drvdata);
++	tgu_set_conditions(drvdata);
+ 
+ 	drvdata->value_table =
+ 		devm_kzalloc(dev, sizeof(*drvdata->value_table), GFP_KERNEL);
+@@ -322,6 +449,15 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+ 	if (!drvdata->value_table->priority)
+ 		return -ENOMEM;
+ 
++	drvdata->value_table->condition_decode = devm_kzalloc(
++		dev,
++		drvdata->max_condition_decode * drvdata->max_step *
++			sizeof(*(drvdata->value_table->condition_decode)),
++		GFP_KERNEL);
++
++	if (!drvdata->value_table->condition_decode)
++		return -ENOMEM;
++
+ 	drvdata->enable = false;
+ 	desc.type = CORESIGHT_DEV_TYPE_HELPER;
+ 	desc.pdata = adev->dev.platform_data;
+diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtracing/coresight/coresight-tgu.h
+index f07ead505365..691da393ffa3 100644
+--- a/drivers/hwtracing/coresight/coresight-tgu.h
++++ b/drivers/hwtracing/coresight/coresight-tgu.h
+@@ -15,6 +15,7 @@
+ 
+ #define TGU_DEVID_SENSE_INPUT(devid_val) ((int) BMVAL(devid_val, 10, 17))
+ #define TGU_DEVID_STEPS(devid_val) ((int)BMVAL(devid_val, 3, 6))
++#define TGU_DEVID_CONDITIONS(devid_val) ((int)BMVAL(devid_val, 0, 2))
+ #define NUMBER_BITS_EACH_SIGNAL 4
+ #define LENGTH_REGISTER 32
+ 
+@@ -48,6 +49,7 @@
+  */
+ #define STEP_OFFSET 0x1D8
+ #define PRIORITY_START_OFFSET 0x0074
++#define CONDITION_DECODE_OFFSET 0x0050
+ #define PRIORITY_OFFSET 0x60
+ #define REG_OFFSET 0x4
+ 
+@@ -56,6 +58,9 @@
+ 	(PRIORITY_START_OFFSET + PRIORITY_OFFSET * priority +\
+ 	REG_OFFSET * reg + STEP_OFFSET * step)
+ 
++#define CONDITION_DECODE_STEP(step, decode) \
++	(CONDITION_DECODE_OFFSET + REG_OFFSET * decode + STEP_OFFSET * step)
++
+ #define tgu_dataset_rw(name, step_index, type, reg_num)                  \
+ 	(&((struct tgu_attribute[]){ {                                   \
+ 		__ATTR(name, 0644, tgu_dataset_show, tgu_dataset_store), \
+@@ -68,6 +73,9 @@
+ 	tgu_dataset_rw(reg##reg_num, step_index, TGU_PRIORITY##priority, \
+ 		       reg_num)
+ 
++#define STEP_DECODE(step_index, reg_num) \
++	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_DECODE, reg_num)
++
+ #define STEP_PRIORITY_LIST(step_index, priority)  \
+ 	{STEP_PRIORITY(step_index, 0, priority),  \
+ 	 STEP_PRIORITY(step_index, 1, priority),  \
+@@ -90,6 +98,14 @@
+ 	 NULL			\
+ 	}
+ 
++#define STEP_DECODE_LIST(n) \
++	{STEP_DECODE(n, 0), \
++	 STEP_DECODE(n, 1), \
++	 STEP_DECODE(n, 2), \
++	 STEP_DECODE(n, 3), \
++	 NULL           \
++	}
++
+ #define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
+ 	(&(const struct attribute_group){\
+ 		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
+@@ -97,11 +113,19 @@
+ 		.name = "step" #step "_priority" #priority \
+ 	})
+ 
++#define CONDITION_DECODE_ATTRIBUTE_GROUP_INIT(step)\
++	(&(const struct attribute_group){\
++		.attrs = (struct attribute*[])STEP_DECODE_LIST(step),\
++		.is_visible = tgu_node_visible,\
++		.name = "step" #step "_condition_decode" \
++	})
++
+ enum operation_index {
+ 	TGU_PRIORITY0,
+ 	TGU_PRIORITY1,
+ 	TGU_PRIORITY2,
+-	TGU_PRIORITY3
++	TGU_PRIORITY3,
++	TGU_CONDITION_DECODE
+ 
+ };
+ 
+@@ -117,6 +141,7 @@ struct tgu_attribute {
+ 
+ struct value_table {
+ 	unsigned int *priority;
++	unsigned int *condition_decode;
+ };
+ 
+ /**
+@@ -129,6 +154,7 @@ struct value_table {
+  * @value_table: Store given value based on relevant parameters.
+  * @max_reg: Maximum number of registers
+  * @max_step: Maximum step size
++ * @max_condition_decode: Maximum number of condition_decode
+  *
+  * This structure defines the data associated with a TGU device,
+  * including its base address, device pointers, clock, spinlock for
+@@ -144,6 +170,7 @@ struct tgu_drvdata {
+ 	struct value_table *value_table;
+ 	int max_reg;
+ 	int max_step;
++	int max_condition_decode;
+ };
+ 
+ #endif
 
-Same as previous replies.
-
-> > diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..8c448487b909c7d3b4e1f95a5bc02b741ecc40b3
-> > --- /dev/null
-> > +++ b/drivers/irqchip/irq-gic-v5-irs.c
-> > @@ -0,0 +1,433 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (C) 2024-2025 ARM Limited, All Rights Reserved.
-> > + */
-> > +
-> > +#define pr_fmt(fmt)	"GICv5 IRS: " fmt
-> > +
-> > +#include <linux/of.h>
-> > +#include <linux/of_address.h>
-> > +
-> > +#include <linux/irqchip.h>
-> > +#include <linux/irqchip/arm-gic-v5.h>
-> 
-> 
-> 
-> > +int gicv5_spi_irq_set_type(struct irq_data *d, unsigned int type)
-> > +{
-> > +	struct gicv5_irs_chip_data *irs_data = d->chip_data;
-> > +	u32 selr, cfgr;
-> > +	bool level;
-> > +	int ret;
-> > +
-> > +	switch (type) {
-> > +	case IRQ_TYPE_EDGE_RISING:
-> > +	case IRQ_TYPE_EDGE_FALLING:
-> > +		level = false;
-> > +		break;
-> > +	case IRQ_TYPE_LEVEL_HIGH:
-> > +	case IRQ_TYPE_LEVEL_LOW:
-> > +		level = true;
-> > +		break;
-> > +	default:
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	guard(raw_spinlock)(&irs_data->spi_config_lock);
-> > +
-> > +	selr = FIELD_PREP(GICV5_IRS_SPI_SELR_ID, d->hwirq);
-> > +	irs_writel_relaxed(irs_data, selr, GICV5_IRS_SPI_SELR);
-> > +	ret = gicv5_irs_wait_for_spi_op(irs_data);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	cfgr = FIELD_PREP(GICV5_IRS_SPI_CFGR_TM, level);
-> > +
-> > +	irs_writel_relaxed(irs_data, cfgr, GICV5_IRS_SPI_CFGR);
-> > +	ret = gicv5_irs_wait_for_spi_op(irs_data);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return 0;
-> 	return gicv5_irq_wait_for_spi_op()
-> 
-> unless more code turns up here in a later patch.
-
-Ok.
-
-> 
-> > +}
-> 
-> > +
-> > +static void __init gicv5_irs_init_bases(struct gicv5_irs_chip_data *irs_data,
-> > +					void __iomem *irs_base,
-> > +					struct fwnode_handle *handle)
-> > +{
-> > +	struct device_node *np = to_of_node(handle);
-> > +	u32 cr0, cr1;
-> > +
-> > +	irs_data->fwnode = handle;
-> > +	irs_data->irs_base = irs_base;
-> > +
-> > +	if (of_property_read_bool(np, "dma-noncoherent")) {
-> > +		/*
-> > +		 * A non-coherent IRS implies that some cache levels cannot be
-> > +		 * used coherently by the cores and GIC. Our only option is to mark
-> > +		 * memory attributes for the GIC as non-cacheable; by default,
-> > +		 * non-cacheable memory attributes imply outer-shareable
-> > +		 * shareability, the value written into IRS_CR1_SH is ignored.
-> > +		 */
-> > +		cr1 = FIELD_PREP(GICV5_IRS_CR1_VPED_WA, GICV5_NO_WRITE_ALLOC)	|
-> As per earlier comments is this less clear as:
-> 		cr1 = FIELD_PREP(GICV5_IRS_CR1_VPED_WA, 0)	|
-> 
-> To me, seems fine but up to you.
-> 
-> > +			FIELD_PREP(GICV5_IRS_CR1_VPED_RA, GICV5_NO_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VMD_WA, GICV5_NO_WRITE_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VMD_RA, GICV5_NO_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VPET_RA, GICV5_NO_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VMT_RA, GICV5_NO_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_IST_WA, GICV5_NO_WRITE_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_IST_RA, GICV5_NO_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_IC, GICV5_NON_CACHE)		|
-> > +			FIELD_PREP(GICV5_IRS_CR1_OC, GICV5_NON_CACHE);
-> > +			irs_data->flags |= IRS_FLAGS_NON_COHERENT;
-> > +	} else {
-> > +		cr1 = FIELD_PREP(GICV5_IRS_CR1_VPED_WA, GICV5_WRITE_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VPED_RA, GICV5_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VMD_WA, GICV5_WRITE_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VMD_RA, GICV5_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VPET_RA, GICV5_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_VMT_RA, GICV5_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_IST_WA, GICV5_WRITE_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_IST_RA, GICV5_READ_ALLOC)	|
-> > +			FIELD_PREP(GICV5_IRS_CR1_IC, GICV5_WB_CACHE)		|
-> > +			FIELD_PREP(GICV5_IRS_CR1_OC, GICV5_WB_CACHE)		|
-> > +			FIELD_PREP(GICV5_IRS_CR1_SH, GICV5_INNER_SHARE);
-> > +	}
-> > +
-> > +	irs_writel_relaxed(irs_data, cr1, GICV5_IRS_CR1);
-> > +
-> > +	cr0 = FIELD_PREP(GICV5_IRS_CR0_IRSEN, 0x1);
-> > +	irs_writel_relaxed(irs_data, cr0, GICV5_IRS_CR0);
-> > +	gicv5_irs_wait_for_idle(irs_data);
-> > +}
-> > +
-> > +static int __init gicv5_irs_of_init_affinity(struct device_node *node,
-> > +					     struct gicv5_irs_chip_data *irs_data,
-> > +					     u8 iaffid_bits)
-> > +{
-> > +	/*
-> > +	 * Detect IAFFID<->CPU mappings from the device tree and
-> > +	 * record IRS<->CPU topology information.
-> > +	 */
-> > +	u16 iaffid_mask = GENMASK(iaffid_bits - 1, 0);
-> > +	u16 *iaffids __free(kfree) = NULL;
-> 
-> See comments in cleanup.h.  Linus has been fairly clear he doesn't like
-> separating the constructor and destructor like this - just declare
-> iaffids where you construct it.
-
-Right.
-
-> > +	int ret, i, ncpus, niaffids;
-> > +
-> 
-> > +	ncpus = of_property_count_elems_of_size(node, "cpus", sizeof(u32));
-> 
-> cpus is a phandle? I think this is going to run into current discussion
-> on what phandles to CPUs on an SMT system look like (Rob Herring and Mark
-> Rutland have different views)
-> https://lore.kernel.org/linux-arm-kernel/20250512080715.82-1-alireza.sanaee@huawei.com/
-
-I will make sure to steer clear of that then ;-), whatever the outcome
-the current "cpus" bindings should continue to work as-is, right ?
-
-> Anyhow this doesn't look right to me.
-> I think it should be of_count_phandle_with_args() 
-
-Aren't they equivalent in functionality if of_count_phandle_with_args()
-cells_name == NULL ?
-
-I will update the code but if the functionality provided is not the
-same there is kernel code to fix (it is an example, there are others):
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/irqchip/irq-apple-aic.c?h=v6.15#n903
-
-> Potentially with cpu-cells as the argument depending on how that
-> thread goes.
-> 
-> > +	if (ncpus < 0)
-> > +		return -EINVAL;
-> > +
-> > +	niaffids = of_property_count_elems_of_size(node, "arm,iaffids",
-> > +						   sizeof(u16));
-> > +	if (niaffids != ncpus)
-> > +		return -EINVAL;
-> > +
-> 	u16 *iaffids __free(kfree) = kcalloc(niaffids, sizeof(*iaffids),
-> 					     GFP_KERNEL);
-
-Maybe I should rewrite this in Rust :)
-
-> > +	iaffids = kcalloc(niaffids, sizeof(*iaffids), GFP_KERNEL);
-> > +	if (!iaffids)
-> > +		return -ENOMEM;
-> > +
-> > +	ret = of_property_read_u16_array(node, "arm,iaffids", iaffids, niaffids);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	for (i = 0; i < ncpus; i++) {
-> > +		struct device_node *cpu_node;
-> > +		u32 cpu_phandle;
-> > +		int cpu;
-> > +
-> > +		if (of_property_read_u32_index(node, "cpus", i, &cpu_phandle))
-> > +			continue;
-> > +
-> > +		cpu_node = of_find_node_by_phandle(cpu_phandle);
-> 
-> 		cpu_node = of_parse_phandle(node, "cpus", i);
-> 
-> not work here?
-
-I think it would.
-
->  
-> > +		if (WARN_ON(!cpu_node))
-> > +			continue;
-> > +
-> > +		cpu = of_cpu_node_to_id(cpu_node);
-> 
-> If this is all you want then Ali's series gives you a helper
-> 
-> 		cpu = of_cpu_phandle_to_id(node, &cpu_node, i);
-> 
-> Though even better to have a helper that allows
-> 		cpu = of_cpu_phandle_to_id(node, NULL, i); and handles
-> the node put as internally.
-> 
-> Ali, any reason we can't do that?  Seems to be a fairly common
-> pattern.
-> 
-> 
->  
-> > +		of_node_put(cpu_node);
-> > +		if (WARN_ON(cpu < 0))
-> > +			continue;
-> > +
-> > +		if (iaffids[i] & ~iaffid_mask) {
-> > +			pr_warn("CPU %d iaffid 0x%x exceeds IRS iaffid bits\n",
-> > +				cpu, iaffids[i]);
-> > +			continue;
-> > +		}
-> > +
-> > +		per_cpu(cpu_iaffid, cpu).iaffid = iaffids[i];
-> > +		per_cpu(cpu_iaffid, cpu).valid = true;
-> > +
-> > +		/* We also know that the CPU is connected to this IRS */
-> > +		per_cpu(per_cpu_irs_data, cpu) = irs_data;
-> > +	}
-> > +
-> > +	return ret;
-> > +}
-> 
-> > diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-> > index a50982e5d98816d88e4fca37cc0ac31684fb6c76..e58ff345dbfaf840b17ad63c4fdb6c227137cf4b 100644
-> > --- a/drivers/irqchip/irq-gic-v5.c
-> > +++ b/drivers/irqchip/irq-gic-v5.c
-> >
-> > +
-> > +static int gicv5_spi_irq_set_irqchip_state(struct irq_data *d,
-> > +					   enum irqchip_irq_state which,
-> > +					   bool val)
-> > +{
-> 
-> Similar to previous, I'd call the state parameter state rather than val.
-
-Right.
-
-> > diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-> > index 4ff0ba64d9840c3844671f7850bb3d81ba2eb1b6..187af307de9170d9569898cb1e50de376a38bd0a 100644
-> > --- a/include/linux/irqchip/arm-gic-v5.h
-> > +++ b/include/linux/irqchip/arm-gic-v5.h
-> > @@ -5,6 +5,8 @@
-> >  #ifndef __LINUX_IRQCHIP_ARM_GIC_V5_H
-> >  #define __LINUX_IRQCHIP_ARM_GIC_V5_H
-> 
-> >  
-> > +#define GICV5_NO_READ_ALLOC		0b0
-> > +#define GICV5_READ_ALLOC		0b1
-> > +#define GICV5_NO_WRITE_ALLOC		0b0
-> > +#define GICV5_WRITE_ALLOC		0b1
-> 
-> Given these are being written to fields called _RA and _WA
-> so the defines provide value over 0 and 1 in appropriate places?
-> Maybe just about. Anyhow, your code so on this up to you.
-> 
-> > +
-> > +#define GICV5_NON_CACHE			0b00
-> > +#define GICV5_WB_CACHE			0b01
-> > +#define GICV5_WT_CACHE			0b10
-> > +
-> > +#define GICV5_NON_SHARE			0b00
-> > +#define GICV5_OUTER_SHARE		0b10
-> > +#define GICV5_INNER_SHARE		0b11
-> > +
-> > +#define GICV5_IRS_IDR1			0x0004
-> > +#define GICV5_IRS_IDR2			0x0008
-> > +#define GICV5_IRS_IDR5			0x0014
-> > +#define GICV5_IRS_IDR6			0x0018
-> > +#define GICV5_IRS_IDR7			0x001c
-> > +#define GICV5_IRS_CR0			0x0080
-> > +#define GICV5_IRS_CR1			0x0084
-> > +#define GICV5_IRS_SPI_SELR		0x0108
-> > +#define GICV5_IRS_SPI_CFGR		0x0114
-> > +#define GICV5_IRS_SPI_STATUSR		0x0118
-> > +#define GICV5_IRS_PE_SELR		0x0140
-> > +#define GICV5_IRS_PE_STATUSR		0x0144
-> > +#define GICV5_IRS_PE_CR0		0x0148
-> 
-> Blank line here as this is end of register offsets.
-
-Yep, fixed it.
-
-Thanks for having a look !
-Lorenzo
-
-> > +#define GICV5_IRS_IDR1_PRIORITY_BITS	GENMASK(22, 20)
-> > +#define GICV5_IRS_IDR1_IAFFID_BITS	GENMASK(19, 16)
-> 
-> 
-> 
 
