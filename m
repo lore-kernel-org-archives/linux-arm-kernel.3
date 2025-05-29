@@ -4,114 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 619CBC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691FCC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=omUgGzzvPTnhdkAw90GZs3HNTF1QrJwiIoRIWzkBC7A=; b=R9HEmiHSer72FT5/QqW0tLlTzQ
-	NmW3wUyha9h7DRRppEB98xPVfssVNIxK6aI3kxhV9ZJAO8bT6x5AMef+04Pq+dPfB0YtmQ4CAS9Sr
-	RhuCfbY6lQtvOAkchMvP0O8yT0WbfJ+hvQeTVL1Q9InHBnrwIW2J8hwWXsLUC0zH8TrUF6EQk5T82
-	zBH/khQYONj+0aL9xluHhLygQdi4S7+Hl9Oy0nUDN1ZpLBNS4nyksmO4MLZu+ZZc1P4jB7i/2pwgf
-	1EyKXbtHK2M9/za5bzZDC2VQM36DcU3UFfB39/7Beyxrf/xTN/9OwT7evLRwpmR3byHZuGpMfk4PZ
-	MwaQ8PLg==;
+	bh=x6wot1gRg0WAdFuBzRiotu4nSFuSVtI0sI02NlwNVjI=; b=yU5Jme6K3OmcKOJ/lWykA7MYp+
+	zrG/m10Qa9Mv25XdvrV6jpDefcx3Nxx9x1K078wHvhciaP4TVftBFfh0cjf2PRWNaBV63LjzUduRy
+	N1WYVBSJ5zInLpd6Q0iaYBLoIQ9s8IKvWYp040SM4dXEMtA2Iclglv9A5jwQSLg6tO5B+tOMCrTzB
+	xMNzGnT1qWSikel5zYzSPjT04fOV8e7EBOVDPn/k/Z9AnX/dYBZmUktULwtv6Rf1Zea3JQzp3m4fr
+	cg/Be6qW9JVus3sy8ZfQZ1G/ROpI1zsVd3mxl0GB6ydDYz44YVofAxAWU4hFBU4FURwetkYZ8zFi2
+	QPbND5vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZD3-0000000FLuv-2fFh;
-	Thu, 29 May 2025 09:05:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZ92-0000000FKtM-2mv2
+	id 1uKZF8-0000000FMKx-1gBH;
+	Thu, 29 May 2025 09:08:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKZ9m-0000000FL4B-2kYa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:01:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2040A4A8DB;
-	Thu, 29 May 2025 09:01:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 276A3C4CEE7;
-	Thu, 29 May 2025 09:01:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748509308;
-	bh=cmvLbyKtwXSsyts5o0RR2FI3M0/ZIWZMEocPoXjVbQw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=drZETqKXlgA/V3CUDK3etEu0hiRuzGsOsb69fY9pCdojKyxdY4SzBfIGsPTEdq7w8
-	 ZZgXKvWzVSVechyEQYLirh6AXqAPzbf2lqt84vlYeZv+LeJ4gMwJAtktl78Eu0jw/K
-	 7lg31kdgAOOZVrK4plJ0ZugV9vIRtlcf0Wi3yYRKQ/CQqScIhgVNkeScYcWEboKNtQ
-	 1MKhUOu+FJTjflZ/azgOJiAGDsL2dynDfPdUJ7AKzMGRr/WCvVSaKA1o/zM5Nk+wO5
-	 P5R7hoFbYkHV6SnrF53f7wWjMofhG8EruQC05958yP9PuLILuklYW8vbDRsjCX6DCo
-	 ykOW4ORBQuwGg==
-Message-ID: <ebf1eded-aa78-4d50-8aa3-b1b7004c10f8@kernel.org>
-Date: Thu, 29 May 2025 11:01:43 +0200
+	Thu, 29 May 2025 09:02:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0632176A;
+	Thu, 29 May 2025 02:02:15 -0700 (PDT)
+Received: from [10.163.62.34] (unknown [10.163.62.34])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 024513F5A1;
+	Thu, 29 May 2025 02:02:25 -0700 (PDT)
+Message-ID: <7b9a9ad4-7a7a-4e99-ba72-f5be0f609a21@arm.com>
+Date: Thu, 29 May 2025 14:32:23 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp15
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
- <20250523-hdp-upstream-v3-6-bd6ca199466a@foss.st.com>
- <1c21f915-e067-4801-925a-3d4882f358f2@kernel.org>
- <ef481451-b7d2-4f9a-a3d0-c67e8f5061dd@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3] arm64: Restrict pagetable teardown to avoid false
+ warning
+To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: david@redhat.com, ryan.roberts@arm.com, mark.rutland@arm.com,
+ yang@os.amperecomputing.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+References: <20250527082633.61073-1-dev.jain@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <ef481451-b7d2-4f9a-a3d0-c67e8f5061dd@foss.st.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250527082633.61073-1-dev.jain@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_020148_745796_0A72E44A 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20250529_020234_743205_F1BD1760 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,37 +66,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/05/2025 14:15, Clement LE GOFFIC wrote:
-> On 5/28/25 11:00, Krzysztof Kozlowski wrote:
->> On 23/05/2025 14:38, Clément Le Goffic wrote:
->>> Add the hdp devicetree node for stm32mp15 SoC family
->>>
->>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->>> ---
->>>   arch/arm/boot/dts/st/stm32mp151.dtsi | 7 +++++++
->>>   1 file changed, 7 insertions(+)
->>>
->>> diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
->>> index 0daa8ffe2ff5..b1b568dfd126 100644
->>> --- a/arch/arm/boot/dts/st/stm32mp151.dtsi
->>> +++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
->>> @@ -270,6 +270,13 @@ dts: thermal@50028000 {
->>>   			status = "disabled";
->>>   		};
->>>   
->>> +		hdp: pinctrl@5002a000 {
->>> +			compatible = "st,stm32mp151-hdp";
->>> +			reg = <0x5002a000 0x400>;
->>> +			clocks = <&rcc HDP>;
->>> +			status = "disabled";
->>
->> Same questions here and in further patches.
+
+
+On 5/27/25 13:56, Dev Jain wrote:
+> Commit 9c006972c3fe removes the pxd_present() checks because the caller
+> checks pxd_present(). But, in case of vmap_try_huge_pud(), the caller only
+> checks pud_present(); pud_free_pmd_page() recurses on each pmd through
+> pmd_free_pte_page(), wherein the pmd may be none. Thus it is possible to
+> hit a warning in the latter, since pmd_none => !pmd_table(). Thus, add
+> a pmd_present() check in pud_free_pmd_page().
 > 
-> Same, disabled by default and enable in board's dts file
+> This problem was found by code inspection.
+> 
+> Fixes: 9c006972c3fe (arm64: mmu: drop pXd_present() checks from pXd_free_pYd_table())
+> Cc: <stable@vger.kernel.org>
+> Reported-by: Ryan Roberts <ryan.roberts@arm.com> 
+> Acked-by: David Hildenbrand <david@redhat.com>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+> This patch is based on 6.15-rc6.
+> 
+> v2->v3:
+>  - Use pmdp_get()
+> 
+> v1->v2:
+>  - Enforce check in caller
+> 
+>  arch/arm64/mm/mmu.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index ea6695d53fb9..5a9bf291c649 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1286,7 +1286,8 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>  	next = addr;
+>  	end = addr + PUD_SIZE;
+>  	do {
+> -		pmd_free_pte_page(pmdp, next);
+> +		if (pmd_present(pmdp_get(pmdp)))
 
+This code path is only called for the kernel mapping. Hence should
+pmd_valid() be used instead of pmd_present() which also checks for
+present invalid scenarios as well ? 
 
-So the same answer, node is complete so should it be enabled.
-
-Best regards,
-Krzysztof
+> +			pmd_free_pte_page(pmdp, next);
+>  	} while (pmdp++, next += PMD_SIZE, next != end);
+>  
+>  	pud_clear(pudp);
 
