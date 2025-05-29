@@ -4,109 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC099C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 15:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213CFC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 15:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gCzfbZekv4htNUijIC+SbkqBGyLEFOMaleFjXJEgatk=; b=ieB2spGGnvMTTY2cOwomPCahRG
-	TaSKoC7HxCxlx40PPJio1/L5kkZA0+wToK7duBAqQDnWICpWUcgjT6VL6SQnjz/oNpNBJDTE7tDun
-	SIS3Mq8Gw/rkToUp9nZ2F494PrHteZkkjZFMl0wki940ugQftPqQOFlTvRPE44LzARPxqRAXTLUPu
-	Uev/SxVWg4Q0YcqfpIILEB6Els21NhbDJGMjwi+w/YkPU5KafeFSwc7ed5P4em0wRCQWibT65AMSR
-	aidZSIMDfNhR5LHtGqaffAdG/4Capq6UvmvopkA0w+v5y24jZ0hbySHOwGsZVKpQRBXpMj4gsYk34
-	ScN3Yypg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j82cCYPndSZwfBmjPdJciyIu+NtE/P/9II4fvOfF44M=; b=yaOSun8RDGxpjErH2MTeDnscVv
+	UnLVu/yttYYWl/qMjq/ejkiONvTvNau0dGNyPl9nq/7nZLKMyeiFBZ+GDgXxHFcvheYIGEVu79ooJ
+	PQPcMtijlacwQbvX7iCGZrJrvDkXdesmwyeM9HD8zU40k8swcBaxOh+DCcWKYT/yw6KgxEuBhN3Lh
+	x88uldS7ABI/sfvItRDqyVDlePtGSBtuJLt4QexfjmFQFBOfQB/WNSbwShPgarQNy/Rba6Hxaocg7
+	fJ9V8JQCusaXEeR4nEbxUJJ0SQNS7ycdBt4QlBLrxh0OAiBP3ApQmnGiwYo063UnJyMUixEShg3oB
+	JugBc+gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKezS-0000000G2mV-3BOE;
-	Thu, 29 May 2025 15:16:18 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1uKf1a-0000000G2yF-0uaZ;
+	Thu, 29 May 2025 15:18:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKdq3-0000000FvzR-0zlG
+	id 1uKe8G-0000000FxJa-0ckj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 14:02:32 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250529140227epoutp04763dd4ce8ded5e3c598a06d4c074d43f~EBFunsBHc2061820618epoutp04z
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 14:02:27 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250529140227epoutp04763dd4ce8ded5e3c598a06d4c074d43f~EBFunsBHc2061820618epoutp04z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1748527347;
-	bh=gCzfbZekv4htNUijIC+SbkqBGyLEFOMaleFjXJEgatk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pQRhGPFoL+9I1NyzEAuNZMzXCCh+59SIW5X+Soj1sPdR/Kb+oC4OO89NDIUAXx9bt
-	 ojZh0s28UbNv4XP9xM/04xKAnL/ldctCENwxlKRiDy4xIWis8EmNPd5yA4pd9TafW8
-	 I91Y5viLqoNBVZxeYBKmIKzR9XDaX8GgZuZM31Pk=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250529140226epcas5p25bdafdf609607873ca08557b6ad3a85f~EBFt-QyMW1140911409epcas5p2c;
-	Thu, 29 May 2025 14:02:26 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.175]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4b7Sjr3GW2z2SSKX; Thu, 29 May
-	2025 14:02:24 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250529111718epcas5p4572d6aa7ae959b585b658d5a94f2b4ef~D_1iJ4i-t0282202822epcas5p4D;
-	Thu, 29 May 2025 11:17:18 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250529111718epsmtrp1257cc470d2823aa85b322766527d6595~D_1iJE18d1149011490epsmtrp1p;
-	Thu, 29 May 2025 11:17:18 +0000 (GMT)
-X-AuditID: b6c32a52-40bff70000004c16-35-6838423d6874
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	8D.D0.19478.D3248386; Thu, 29 May 2025 20:17:17 +0900 (KST)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250529111715epsmtip16ae03b6cb035bd17825b1eb64d85c26c~D_1fb-zLZ2103321033epsmtip1G;
-	Thu, 29 May 2025 11:17:14 +0000 (GMT)
-From: Raghav Sharma <raghav.s@samsung.com>
-To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
-	alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
-	robh@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com,
-	sunyeal.hong@samsung.com, shin.son@samsung.com
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	chandan.vn@samsung.com, karthik.sun@samsung.com, dev.tailor@samsung.com,
-	Raghav Sharma <raghav.s@samsung.com>
-Subject: [PATCH v3 4/4] arm64: dts: exynosautov920: add CMU_HSI2 clock DT
- nodes
-Date: Thu, 29 May 2025 16:56:40 +0530
-Message-Id: <20250529112640.1646740-5-raghav.s@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250529112640.1646740-1-raghav.s@samsung.com>
+	Thu, 29 May 2025 14:21:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 41B86614BA;
+	Thu, 29 May 2025 14:21:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4D2DC4CEE7;
+	Thu, 29 May 2025 14:21:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748528479;
+	bh=myGypAtrlqF5QAHUeHQu/mXkeB8quQt8Js7lwyNSDAU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eJLh73X4YcITKyQPqx52wB2t0hNu4C5ASGe6s0sIXIMoBYcwNXk9FD4mWCp+2lHMx
+	 wdcq1dR2LIxZ7Cw3OrugA4pn3fMloQ4lfhE7uVYI0+bVEWgpjh8YW2gZbfIEfggN6N
+	 pogU96zX/N20nG58C5KGWM9x8w/iujRuxx4wIer2H4FAdPXIKsIFUga4dnPZ86tw31
+	 /q7Pf0BHm6agrKIzDxd6a6m8OfddVtJMxLUdeEiz1p190oL7VETrlZtq50s7rCJD14
+	 PHNsR8YAB4RaKJzQEWulTcnYRQ7t+MmO/WR7PXq1bQngU5q8g0wS6Ktrvd8CmPl3XG
+	 JXrEUTpIl7iAw==
+Date: Thu, 29 May 2025 16:21:10 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Peter Maydell <peter.maydell@linaro.org>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, andre.przywara@arm.com,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
+Message-ID: <aDhtVkHfJvDfkfaX@lpieralisi>
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
+ <aDhWlytLCxONZdF9@lpieralisi>
+ <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFuphkeLIzCtJLcpLzFFi42LZdlhJTtfWySLDYOMxK4sH87axWUz4EmGx
-	Zu85JovrX56zWtzbsYzdYv6Rc6wWjTPeMFmcP7+B3WLT42usFh977rFaXN41h81ixvl9TBYX
-	T7laHFsgZvF95R1GiyNnXjBb/N+zg93i8Jt2Vot/1zayWEw+vpbVomnZeiYHUY/3N1rZPXbO
-	usvusWlVJ5vH5iX1Hn1bVjF6fN4kF8AWxWWTkpqTWZZapG+XwJWxf3InW8EDzoqrvVvYGxjf
-	sncxcnJICJhIvGltY+5i5OIQEtjOKHFi12dmiISExL7/vxkhbGGJlf+es0MUvWWUaO7fD5Zg
-	E9CSuLL9HRtIQkSgi0ni3L9XLCAOs8BOJom2x9vAdggL+Ess/vIKbCyLgKrEre2P2EBsXgFr
-	iS+XN7JBrJCX2H/wLFgNp4CNxN2bz1lAbCGgmo/bzzBD1AtKnJz5BCzODFTfvHU28wRGgVlI
-	UrOQpBYwMq1iFE0tKM5Nz00uMNQrTswtLs1L10vOz93ECI4wraAdjMvW/9U7xMjEwXiIUYKD
-	WUmEt8neLEOINyWxsiq1KD++qDQntfgQozQHi5I4r3JOZ4qQQHpiSWp2ampBahFMlomDU6qB
-	idvibYjTjh3t77kylfP2Bt03DHy/lcnuflfZzI6fJV6Pftw7LKM2qzA+a8Nke72v5z/9nTd1
-	u+DuQzdO7jd5YNB9WlAxd/7iz1OcfhdHMh2w8A3am/Vzts8u4/bc1WnPTDIOWcn+ivy9VVVp
-	s/xtFRWV2X/v+uelL38i+UfFLUrhRl5Mw926w1V712uGzn+Wt3lZ9C3PD1M6TsfdXlF2+s7H
-	7KvX3m2QUZZvTp6cqFQ89X/RJls//8SLHim80dsuVLP8O6GhFtuknO45qXrpPsO5cpdUr/V6
-	7+3QnM7y6hzDGaW7zb+aLcNeeqQdSEiVWv8vqDrMPkj6icty1ZNfeVf01Ur+WPmn1MTU7IRH
-	gRJLcUaioRZzUXEiAAc6exQfAwAA
-X-CMS-MailID: 20250529111718epcas5p4572d6aa7ae959b585b658d5a94f2b4ef
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250529111718epcas5p4572d6aa7ae959b585b658d5a94f2b4ef
-References: <20250529112640.1646740-1-raghav.s@samsung.com>
-	<CGME20250529111718epcas5p4572d6aa7ae959b585b658d5a94f2b4ef@epcas5p4.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_070231_706197_FE784DC7 
-X-CRM114-Status: GOOD (  13.00  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,43 +83,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add required dt node for CMU_HSI2 block, which
-provides clocks to ufs and ethernet IPs
+On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
+> On Thu, 29 May 2025 at 13:44, Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> >
+> > [+Andre, Peter]
+> >
+> > On Tue, May 13, 2025 at 07:47:54PM +0200, Lorenzo Pieralisi wrote:
+> > > +      reg:
+> > > +        minItems: 1
+> > > +        items:
+> > > +          - description: IRS control frame
+> >
+> > I came across it while testing EL3 firmware, raising the topic for
+> > discussion.
+> >
+> > The IRS (and the ITS) has a config frame (need to patch the typo
+> > s/control/config, already done) per interrupt domain supported, that is,
+> > it can have up to 4 config frames:
+> >
+> > - EL3
+> > - Secure
+> > - Realm
+> > - Non-Secure
+> >
+> > The one described in this binding is the non-secure one.
+> >
+> > IIUC, everything described in the DT represents the non-secure address
+> > space.
+> 
+> The dt bindings do allow for describing Secure-world devices:
+> Documentation/devicetree/bindings/arm/secure.txt has the
+> details. We use this in QEMU so we can provide a DTB to
+> guest EL3 firmware that tells it where the hardware is
+> (and which EL3 can then pass on to an NS kernel). It would
+> be helpful for the GICv5 binding to be defined in a way that
+> we can do this for a GICv5 system too.
+> 
+> > Two questions:
+> >
+> > - I don't have to spell out the IRS/ITS config frame (and SETLPI, by
+> >   the way) as non-secure, since that's implicit, is that correct ?
+> 
+> Do you want the DT binding to handle the case of "CPU and GIC do not
+> implement EL3, and the only implemented security state is Secure"
+> without the kernel needing to do something different from "ditto ditto
+> but the only implemented security state is Nonsecure" ?
 
-Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
----
- arch/arm64/boot/dts/exynos/exynosautov920.dtsi | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+Not sure I follow you here sorry :)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-index 2cb8041c8a9f..7890373f5da0 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
-@@ -1048,6 +1048,23 @@ pinctrl_hsi1: pinctrl@16450000 {
- 			interrupts = <GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
-+		cmu_hsi2: clock-controller@16b00000 {
-+			compatible = "samsung,exynosautov920-cmu-hsi2";
-+			reg = <0x16b00000 0x8000>;
-+			#clock-cells = <1>;
-+
-+			clocks = <&xtcxo>,
-+				 <&cmu_top DOUT_CLKCMU_HSI2_NOC>,
-+				 <&cmu_top DOUT_CLKCMU_HSI2_NOC_UFS>,
-+				 <&cmu_top DOUT_CLKCMU_HSI2_UFS_EMBD>,
-+				 <&cmu_top DOUT_CLKCMU_HSI2_ETHERNET>;
-+			clock-names = "oscclk",
-+				      "noc",
-+				      "ufs",
-+				      "embd",
-+				      "ethernet";
-+		};
-+
- 		pinctrl_hsi2: pinctrl@16c10000 {
- 			compatible = "samsung,exynosautov920-pinctrl";
- 			reg = <0x16c10000 0x10000>;
--- 
-2.34.1
+> (Currently booting.html says you must be in NS, so we effectively
+> say we don't support booting on this particular unicorn :-)
+> But the secure.txt bindings envisage "kernel got booted in S",
+> mostly for the benefit of aarch32.)
+> 
+> > - How can the schema describe, if present, EL3, Secure and Realm frames ?
+> 
+> The tempting thing to do is to have regs[] list the frames
+> in some given order, but the spec makes them not simple
+> supersets, allowing all of:
+>  * NS
+>  * S
+>  * NS, S, EL3
+>  * NS, Realm, EL3
+>  * NS, Realm, S, EL3
+> 
+> secure.txt says:
+> # The general principle of the naming scheme for Secure world bindings
+> # is that any property that needs a different value in the Secure world
+> # can be supported by prefixing the property name with "secure-". So for
+> # instance "secure-foo" would override "foo".
+> 
+> So maybe we could have
+>  reg : the NS frame(s)
+>  secure-reg : the S frame(s)
+>  realm-reg : the Realm frame(s)
+>  root-reg : the EL3 frame(s)
+> 
+> ??
 
+I assume someone has to write the root/realm binding extensions.
+
+In Documentation/devicetree/bindings/arm/secure.txt I don't think that
+reg is a contemplated property - I don't know if the list of properties
+is up-to-date.
+
+If what you suggest is OK, is it really needed to add the
+{secure/realm/root}-reg property to this binding ?
+
+Or implicitly a, say, realm-reg property is allowed using the
+yet-to-be-written realm.txt rules ?
+
+This would also slightly change the "required" properties, a "reg"
+property would not be required if eg the GIC does not implement a NS
+interrupt domain (but we would require a secure-reg if it implements a
+secure interrupt domain). I am making this up, obviously, I don't know
+what's best to do here.
+
+Lorenzo
 
