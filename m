@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D66CC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 02:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05061C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 02:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QH+9LbKgzSSxVg9sDNO4PK5Zcfbm6EKo7JyEYRq1ozI=; b=g1iDcxOyjgnIGmld17IYn3Vsvo
-	rVsJIVgh+PjyeOKVGabvGOEAukhnn6fGC/S2w3cqCw3szJy30JBEjGf2jWI7w27o32Up9vyNM5/xv
-	qDv3xv6tNaliQ9d+7gZg/L+lJnAvuuDrP6QoGD2c2dZULuMwrm7YBXfQBOCyGSBwZ7y0kBxR7O4Tr
-	lj/PxiZ46/pnxOOR8TLmdGHbDtDWXZ3zxCesOwdiMVrx+K4LgxuBXbG+fj9LvoCc5HiAQN9ASfxVC
-	QHxu48c0ukcYZ/bW5SmUaYT1HTk9L5U7r6URPYsho6yF9gfd/HRnAUCuHzmTf446/o6YKpaGPi+n8
-	YveoRKxA==;
+	bh=RrkJpe6ONucaIWLjzVtP9QdQqZNebC9xfURfpCjRs7s=; b=uM2RB8Axv4KBzp4ZpApJhRzluI
+	1o89gC81jqQA+2S7OBhZNycGiJk9AjLVEcVRMOZoMJa3VQFxF0EeOtFPY2eCMJTdpSnvsp48UpAAC
+	E4XTAEDGtB6KkKbew8gdYcy5b5I2gLrJb+gjSVu6BjzeS4HREgC5pwWfNiSTPPHDc1FezkVb3WLoB
+	6XE7E7OlibmNdBNzZ4FLyIp82GwJ2YF2j3EyUWlqoSujrRhFsrYoJ/bkXHClkv63CGCN+GPsZI+gX
+	MZAfjPP1c6pJvQ9CfxVXD76PweZ+rqml7et0Xf1NTfQWJ0/6M0uG7CTQpPeddVN8n+5+lWPAX/HNX
+	yR24D2mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKSZH-0000000EiTK-2TJW;
-	Thu, 29 May 2025 02:00:27 +0000
-Received: from mail-m49233.qiye.163.com ([45.254.49.233])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKSX5-0000000Ehzv-4BW6;
-	Thu, 29 May 2025 01:58:14 +0000
-Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-3-entmail-virt135.gy.ntes [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 16c60e019;
-	Thu, 29 May 2025 09:57:54 +0800 (GMT+08:00)
-Message-ID: <91d19262-05a1-4127-a66b-e141add02c3f@rock-chips.com>
-Date: Thu, 29 May 2025 09:57:52 +0800
+	id 1uKSfx-0000000Einu-2v4L;
+	Thu, 29 May 2025 02:07:21 +0000
+Received: from mail.loongson.cn ([114.242.206.163])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKSdp-0000000EijZ-2Bdq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 May 2025 02:05:11 +0000
+Received: from loongson.cn (unknown [10.20.42.164])
+	by gateway (Coremail) with SMTP id _____8DxzOLNwDdoBjEBAQ--.20398S3;
+	Thu, 29 May 2025 10:05:01 +0800 (CST)
+Received: from [10.20.42.164] (unknown [10.20.42.164])
+	by front1 (Coremail) with SMTP id qMiowMBxXRvHwDdot1z5AA--.27553S2;
+	Thu, 29 May 2025 10:04:57 +0800 (CST)
+Subject: Re: [PATCH v5 3/4] tpm/tpm_ftpm_tee: support TPM_CHIP_FLAG_SYNC
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>, linuxppc-dev@lists.ozlabs.org,
+ Peter Huewe <peterhuewe@gmx.de>, Jens Wiklander <jens.wiklander@linaro.org>,
+ linux-integrity@vger.kernel.org,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Sumit Garg <sumit.garg@kernel.org>,
+ James Bottomley <James.Bottomley@HansenPartnership.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ linux-kernel@vger.kernel.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Sumit Garg <sumit.garg@oss.qualcomm.com>
+References: <20250514134630.137621-1-sgarzare@redhat.com>
+ <20250514134630.137621-4-sgarzare@redhat.com>
+From: Qunqin Zhao <zhaoqunqin@loongson.cn>
+Message-ID: <3569b41c-123b-4fd4-458d-f7b2d2ec00f7@loongson.cn>
+Date: Thu, 29 May 2025 10:03:58 +0800
+User-Agent: Mozilla/5.0 (X11; Linux mips64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] drm/rockchip: cdn-dp: Convert to drm bridge
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
- Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250527081447.304-1-kernel@airkyi.com>
- <e2dnvpbze4xuubggduqr3p5nnhg7huk3dnpdcb6tldxbrn2qtn@bfsewz5trfv3>
- <bc321a71-1934-4889-bd8e-3bb593c8feba@rock-chips.com>
- <CAO9ioeXLSQyBFuedtt4=_OjEWZW6T9HaaYr8_NiNy2eh4yw-qg@mail.gmail.com>
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <CAO9ioeXLSQyBFuedtt4=_OjEWZW6T9HaaYr8_NiNy2eh4yw-qg@mail.gmail.com>
+In-Reply-To: <20250514134630.137621-4-sgarzare@redhat.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0MZGlZIGElIGENNQ05CHRpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a9719c29dab03abkunmb6e35c2d3ed6f0
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OVE6Sxw5UTE#Ik5LTzoNAxop
-	SgEaFDJVSlVKTE9DT0NIQ0xCTE9PVTMWGhIXVRgTGhQCElUYEx4VOwkUGBBWGBMSCwhVGBQWRVlX
-	WRILWUFZTkNVSUlVTFVKSk9ZV1kIAVlBSElNSjcG
-DKIM-Signature: a=rsa-sha256;
-	b=hKr/jMDGb/QUNMUXmrYROwQsGX0fdWG6CFNzSLAsgz6yP2c9A4+03vNR/TDCHiDTBkbnoXzs5TNXL5C/DlnPCQ9evCjCr48FrSH+5RxP9DH9OR9yJSWaUE8Aphat5Cxd3HyEY9xd9pvI5d3sLOybjf+s9zBdjychWG4hKU3RcfQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=QH+9LbKgzSSxVg9sDNO4PK5Zcfbm6EKo7JyEYRq1ozI=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
+Content-Language: en-US
+X-CM-TRANSID: qMiowMBxXRvHwDdot1z5AA--.27553S2
+X-CM-SenderInfo: 52kd01pxqtx0o6or00hjvr0hdfq/
+X-Coremail-Antispam: 1Uk129KBj93XoW3Gw1xZF4rXFyUGry7uFyUJwc_yoWxury5pF
+	Z8G39rAFZ3t3WkJr97tFs7ZrWa9w48KFWUJay8Gas3Ar1qkr90gFyqgFy0qFy5trs7Gr1f
+	tF4qgFy5Z3WUZrcCm3ZEXasCq-sJn29KB7ZKAUJUUUUD529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUP2b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6F4UJVW0owAaw2AFwI0_JF0_Jw1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0c
+	Ia020Ex4CE44I27wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jw0_
+	WrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrw
+	CYjI0SjxkI62AI1cAE67vIY487MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48J
+	MxC20s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v26r126r1DMI8I3I0E5I8CrVAFwI
+	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y
+	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+	W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1l
+	IxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8TCJPUUUU
+	U==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_185812_506280_CB6FF3E0 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250528_190509_869834_C848722A 
+X-CRM114-Status: GOOD (  29.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +98,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
 
-On 2025/5/29 0:09, Dmitry Baryshkov wrote:
->>>> @@ -595,16 +546,41 @@ static bool cdn_dp_check_link_status(struct cdn_dp_device *dp)
->>>>    static void cdn_dp_audio_handle_plugged_change(struct cdn_dp_device *dp,
->>>>                                              bool plugged)
->>>>    {
->>>> -    if (dp->codec_dev)
->>>> -            dp->plugged_cb(dp->codec_dev, plugged);
->>>> +    if (dp->sink_has_audio)
->>>> +            drm_connector_hdmi_audio_plugged_notify(dp->connector, plugged);
->>> I'd say, notify always and let userspace figure it out via the ELD. Then
->>> you shouldn't need sink_has_audio. This would match the behaviour of
->>> HDMI drivers.
->> Oh, I find that there are similar usages in qcom msm driver. Is there
->> any more progress?
-> For msm driver it is required as DSP requires HDMI to be plugged for
-> the audio path to work.
+在 2025/5/14 下午9:46, Stefano Garzarella 写道:
+> From: Stefano Garzarella <sgarzare@redhat.com>
+>
+> This driver does not support interrupts, and receiving the response is
+> synchronous with sending the command.
+>
+> Enable synchronous send() with TPM_CHIP_FLAG_SYNC, which implies that
+> ->send() already fills the provided buffer with a response, and ->recv()
+> is not implemented.
+>
+> Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+> ---
+> v5:
+> - changed order and parameter names to match tpm_try_transmit() [Jarkko]
+> v4:
+> - added Sumit's R-b
+> - reworked commit description [Jarkko]
+> v2:
+> - set TPM_CHIP_FLAG_SYNC and support it in the new send()
+> - removed Jens' T-b
+> v1:
+> - added Jens' T-b
+> ---
+>   drivers/char/tpm/tpm_ftpm_tee.h |  4 ---
+>   drivers/char/tpm/tpm_ftpm_tee.c | 64 ++++++++++-----------------------
+>   2 files changed, 19 insertions(+), 49 deletions(-)
+>
+> diff --git a/drivers/char/tpm/tpm_ftpm_tee.h b/drivers/char/tpm/tpm_ftpm_tee.h
+> index e39903b7ea07..8d5c3f0d2879 100644
+> --- a/drivers/char/tpm/tpm_ftpm_tee.h
+> +++ b/drivers/char/tpm/tpm_ftpm_tee.h
+> @@ -22,16 +22,12 @@
+>    * struct ftpm_tee_private - fTPM's private data
+>    * @chip:     struct tpm_chip instance registered with tpm framework.
+>    * @session:  fTPM TA session identifier.
+> - * @resp_len: cached response buffer length.
+> - * @resp_buf: cached response buffer.
+>    * @ctx:      TEE context handler.
+>    * @shm:      Memory pool shared with fTPM TA in TEE.
+>    */
+>   struct ftpm_tee_private {
+>   	struct tpm_chip *chip;
+>   	u32 session;
+> -	size_t resp_len;
+> -	u8 resp_buf[MAX_RESPONSE_SIZE];
+>   	struct tee_context *ctx;
+>   	struct tee_shm *shm;
+>   };
+> diff --git a/drivers/char/tpm/tpm_ftpm_tee.c b/drivers/char/tpm/tpm_ftpm_tee.c
+> index dbad83bf798e..4e63c30aeaf1 100644
+> --- a/drivers/char/tpm/tpm_ftpm_tee.c
+> +++ b/drivers/char/tpm/tpm_ftpm_tee.c
+> @@ -31,47 +31,19 @@ static const uuid_t ftpm_ta_uuid =
+>   		  0x82, 0xCB, 0x34, 0x3F, 0xB7, 0xF3, 0x78, 0x96);
+>   
+>   /**
+> - * ftpm_tee_tpm_op_recv() - retrieve fTPM response.
+> - * @chip:	the tpm_chip description as specified in driver/char/tpm/tpm.h.
+> - * @buf:	the buffer to store data.
+> - * @count:	the number of bytes to read.
+> - *
+> - * Return:
+> - *	In case of success the number of bytes received.
+> - *	On failure, -errno.
+> - */
+> -static int ftpm_tee_tpm_op_recv(struct tpm_chip *chip, u8 *buf, size_t count)
+> -{
+> -	struct ftpm_tee_private *pvt_data = dev_get_drvdata(chip->dev.parent);
+> -	size_t len;
+> -
+> -	len = pvt_data->resp_len;
+> -	if (count < len) {
+> -		dev_err(&chip->dev,
+> -			"%s: Invalid size in recv: count=%zd, resp_len=%zd\n",
+> -			__func__, count, len);
+> -		return -EIO;
+> -	}
+> -
+> -	memcpy(buf, pvt_data->resp_buf, len);
+> -	pvt_data->resp_len = 0;
+> -
+> -	return len;
+> -}
+> -
+> -/**
+> - * ftpm_tee_tpm_op_send() - send TPM commands through the TEE shared memory.
+> + * ftpm_tee_tpm_op_send() - send TPM commands through the TEE shared memory
+> + * and retrieve the response.
+>    * @chip:	the tpm_chip description as specified in driver/char/tpm/tpm.h
+> - * @buf:	the buffer to send.
+> + * @buf:	the buffer to send and to store the response.
+>    * @bufsiz:	the size of the buffer.
+> - * @len:	the number of bytes to send.
+> + * @cmd_len:	the number of bytes to send.
+>    *
+>    * Return:
+> - *	In case of success, returns 0.
+> + *	In case of success, returns the number of bytes received.
+>    *	On failure, -errno
+>    */
+>   static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+> -				size_t len)
+> +				size_t cmd_len)
+>   {
+>   	struct ftpm_tee_private *pvt_data = dev_get_drvdata(chip->dev.parent);
+>   	size_t resp_len;
+> @@ -82,16 +54,15 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>   	struct tee_param command_params[4];
+>   	struct tee_shm *shm = pvt_data->shm;
+>   
+> -	if (len > MAX_COMMAND_SIZE) {
+> +	if (cmd_len > MAX_COMMAND_SIZE) {
+>   		dev_err(&chip->dev,
+>   			"%s: len=%zd exceeds MAX_COMMAND_SIZE supported by fTPM TA\n",
+> -			__func__, len);
+> +			__func__, cmd_len);
+>   		return -EIO;
+>   	}
+>   
+>   	memset(&transceive_args, 0, sizeof(transceive_args));
+>   	memset(command_params, 0, sizeof(command_params));
+> -	pvt_data->resp_len = 0;
+>   
+>   	/* Invoke FTPM_OPTEE_TA_SUBMIT_COMMAND function of fTPM TA */
+>   	transceive_args = (struct tee_ioctl_invoke_arg) {
+> @@ -105,7 +76,7 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>   		.attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INPUT,
+>   		.u.memref = {
+>   			.shm = shm,
+> -			.size = len,
+> +			.size = cmd_len,
+>   			.shm_offs = 0,
+>   		},
+>   	};
+> @@ -117,7 +88,7 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>   		return PTR_ERR(temp_buf);
+>   	}
+>   	memset(temp_buf, 0, (MAX_COMMAND_SIZE + MAX_RESPONSE_SIZE));
+> -	memcpy(temp_buf, buf, len);
+> +	memcpy(temp_buf, buf, cmd_len);
+>   
+>   	command_params[1] = (struct tee_param) {
+>   		.attr = TEE_IOCTL_PARAM_ATTR_TYPE_MEMREF_INOUT,
+> @@ -158,17 +129,20 @@ static int ftpm_tee_tpm_op_send(struct tpm_chip *chip, u8 *buf, size_t bufsiz,
+>   			__func__, resp_len);
+>   		return -EIO;
+>   	}
+> +	if (resp_len > bufsiz) {
+> +		dev_err(&chip->dev,
+> +			"%s: resp_len=%zd exceeds bufsiz=%zd\n",
+> +			__func__, resp_len, bufsiz);
+> +		return -EIO;
+> +	}
+>   
+> -	/* sanity checks look good, cache the response */
+> -	memcpy(pvt_data->resp_buf, temp_buf, resp_len);
+> -	pvt_data->resp_len = resp_len;
+> +	memcpy(buf, temp_buf, resp_len);
 
-I see, will fix in v4.
+We are confusing the callback name.  Prototype of the send function 
+should be:
 
->>>> @@ -705,8 +681,6 @@ static int cdn_dp_encoder_atomic_check(struct drm_encoder *encoder,
->>>>
->>>>    static const struct drm_encoder_helper_funcs cdn_dp_encoder_helper_funcs = {
->>>>       .mode_set = cdn_dp_encoder_mode_set,
->>>> -    .enable = cdn_dp_encoder_enable,
->>>> -    .disable = cdn_dp_encoder_disable,
->>>>       .atomic_check = cdn_dp_encoder_atomic_check,
->>> Nit: for the future cleanup, it should probably be possible to get rid
->>> of these encoder ops too by moving them to the bridge ops.
->> Interesting, have these patches been submitted upstream yet?
-> Everything is already there, see drm_bridge_funcs::mode_set() and
-> drm_bridge_funcs::atomic_check().
+diff --git a/include/linux/tpm.h b/include/linux/tpm.h
+index 6c3125300..063126711 100644
+--- a/include/linux/tpm.h
++++ b/include/linux/tpm.h
+@@ -87,7 +87,7 @@ struct tpm_class_ops {
+         const u8 req_complete_val;
+         bool (*req_canceled)(struct tpm_chip *chip, u8 status);
+         int (*recv) (struct tpm_chip *chip, u8 *buf, size_t len);
+-       int (*send) (struct tpm_chip *chip, u8 *buf, size_t len);
++       int (*send) (struct tpm_chip *chip, const u8 *buf, size_t len);
+         void (*cancel) (struct tpm_chip *chip);
+         u8 (*status) (struct tpm_chip *chip);
+         void (*update_timeouts)(struct tpm_chip *chip,
 
-Thanks for the clarification. I will move mode_set() to bridge ops.
 
-And for the drm_encoder_helper_funcs::atomic_check(), most Rockchip 
-drivers will set some Rockchip-specific properties here so that the VOP 
-driver can process them. In the future, we may integrate a new encoder 
-driver to process these private properties. So, I prefer to keep this as 
-it is.
+But if Jarkko insist not use a send_recv callback, everything is fine.
 
+BR, Qunqin
+
+>   
+> -	return 0;
+> +	return resp_len;
+>   }
+>   
+>   static const struct tpm_class_ops ftpm_tee_tpm_ops = {
+>   	.flags = TPM_OPS_AUTO_STARTUP,
+> -	.recv = ftpm_tee_tpm_op_recv,
+>   	.send = ftpm_tee_tpm_op_send,
+>   };
+>   
+> @@ -253,7 +227,7 @@ static int ftpm_tee_probe(struct device *dev)
+>   	}
+>   
+>   	pvt_data->chip = chip;
+> -	pvt_data->chip->flags |= TPM_CHIP_FLAG_TPM2;
+> +	pvt_data->chip->flags |= TPM_CHIP_FLAG_TPM2 | TPM_CHIP_FLAG_SYNC;
+>   
+>   	/* Create a character device for the fTPM */
+>   	rc = tpm_chip_register(pvt_data->chip);
 
 
