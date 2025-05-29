@@ -4,91 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A33B4C5B552
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B8CC5AE59
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=914ioYTBrQrx2PypTshl4Y0e5nj206dcoNXuwOvgkyg=; b=oCauYuQhj+KfnpfNRG61pr+i86
-	EYP1h9I3rSOBtGP0ZdEedNBBK5S+dUYS2YFQ8puc/KuGMrYuPDwUxf7mvXJ0l/PwMfyWauo8ijh3d
-	8zlfE66mejS2+cjIGnUoFNLQZkK2ptlHwYL10VsMna7JLyz26vDW/wf3z93j15XlAF+QWglLxYDBi
-	Ox6jdVMMsfpYPg3MtEA3MRlLVemRXILxKaq0qGFxJhwzmkR2EUPy7HCL0Prfj3aPYi6P48aKBkwUY
-	8UAJwqg2P/Tj/uTzXdMJec+UpMt89lNRheFt3fsjSe1brFoNq+1ttkaikpGksmO5tpAkbnXzTlWks
-	WLN+84RA==;
+	bh=eMbjaPsxYuVP31GUR/ks0DXJQn5uzSusZw+6ciAJV38=; b=asQahz95onnxO2SxmLj4/MMJCt
+	t5+2ehHZsvXhVsNfm1SR6J0lJ3OTrGfoYXMpyEqNfrvuU5iY6p0SNH2lEvLfLLTV88Uwe3AigszDt
+	7+eQXubEvloA3bCjLzkf5gKi244Xu3m0AsAfJ3WI0fnfTWWyBDe1HuIrxjPTXnIW3FLnqrN3iAGBT
+	6vu4BtC3YZtfT+XF1OqIInap44zdVaX5ma/KxQFGMcZ4W+I4eEgN2KCdaiwRzr/YjAkk2ppeuhttL
+	XQpUFbEjpfoeQZRZLzMy8+mT6l0tRHd9JKDQBJEYQ9tLcE47oJRmQ3WJojg+AbhkjIOkLv64F4YXL
+	3hP1pJtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKftf-0000000G9K9-1dEb;
-	Thu, 29 May 2025 16:14:23 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1uKfth-0000000G9Kq-2V2O;
+	Thu, 29 May 2025 16:14:25 +0000
+Received: from mail-vi1eur05on20605.outbound.protection.outlook.com ([2a01:111:f403:2613::605] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKfIG-0000000G5ea-1zEV;
-	Thu, 29 May 2025 15:35:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748532945; x=1780068945;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GPdqafqU2tPrO3Kwr1heLn8rpZD1wUwbKicBkAIdz60=;
-  b=OGc0FvTY9ShVbHD44XIAyC0V/Qsmq57bwilebHX/U+PyNASwnjjKkAvD
-   zqsuEGR9itlIUjOZ98gXM0BIjHHf7hg4pR+MiquKBoyoaqK6hFCaBgmcw
-   njatS5ye09FyDQNV7L8ZkRNIPs1wUPLoN0VTlbmRQ2xJwrEaYf26QbQgG
-   AkXSXX7JwVjkBNYBMOHQHsh2vJ3fQYCdvYEHMbRbVK8zSwvToM22CwwrX
-   VbGv0IhA7eNGJdYDfIsw4154etEpFy49uqR0i1vR/Ij/1ll5Y+skKmXlO
-   5jJHhJ6fYV2zi9BGGxObqxZVHl1CZJn2kM4mDd5bytltXQeQr/KNnEszA
-   A==;
-X-CSE-ConnectionGUID: GurwNw5eTGe/vieQfFt8dg==
-X-CSE-MsgGUID: FeoDSDM8RTKiFiW4eor3Xg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11448"; a="50302770"
-X-IronPort-AV: E=Sophos;i="6.16,193,1744095600"; 
-   d="scan'208";a="50302770"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 May 2025 08:35:32 -0700
-X-CSE-ConnectionGUID: W1hnYaAwS2CKSIOXxah0vw==
-X-CSE-MsgGUID: Hz/Y3PS0ShSJB8EDBEqtNA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,193,1744095600"; 
-   d="scan'208";a="148887384"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 29 May 2025 08:35:26 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uKfHv-000WpE-2L;
-	Thu, 29 May 2025 15:35:23 +0000
-Date: Thu, 29 May 2025 23:34:48 +0800
-From: kernel test robot <lkp@intel.com>
-To: Pingfan Liu <piliu@redhat.com>, linux-arm-kernel@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Pingfan Liu <piliu@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Simon Horman <horms@kernel.org>, Gerd Hoffmann <kraxel@redhat.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Philipp Rudo <prudo@redhat.com>, Viktor Malik <vmalik@redhat.com>,
-	Jan Hendrik Farr <kernel@jfarr.cc>, Baoquan He <bhe@redhat.com>,
-	Dave Young <dyoung@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	kexec@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCHv3 9/9] arm64/kexec: Add PE image format support
-Message-ID: <202505292305.zHTx5StD-lkp@intel.com>
-References: <20250529041744.16458-10-piliu@redhat.com>
-MIME-Version: 1.0
+	id 1uKfVa-0000000G7d5-46ux
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 29 May 2025 15:49:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SX/BOvKuBIo0wsR3IlTnpCGYvjaFM95jm9K3eXm+U1QoI93kJh7Mxf9idvZo+3mAHfUYhVAIAPig/FIcQV6oYow09BPxRgqCfoClhY3c0cvAzmlzcXoq1J67eKhVqpuUJrclmlJi2UmPlXi7+VbpoCHz1bUJbyjF/FAiMjnQ6RaAxyxcnNDnQeKOOkygRW+Q+DIbwdKFbWazkMgGZj3IZiKxJzDWRuNJzvEfV3NqrHfRznT0C/PhFiC1653t/ykF/OrfAJqzIDq2TPJcr2MBJEzJBxCsYhphN3e0DGprEN6/I2egBDzGHUNQXtcmgwg72CFaL/AjwyNIQKHNjCATXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eMbjaPsxYuVP31GUR/ks0DXJQn5uzSusZw+6ciAJV38=;
+ b=wBl+dcF4wRteUiwY3psPducTEQIa13VdiKnuraMAY3ce4gNKZrGvpDJMJf+OaWzcDG3X2ZoEW5yu4SnsDLoIF+ckr1DssePqJ9jdMzDpuv0iP3L851Heq35SGMraFySI/hQQpejj/aVVePooqLV1NKuY6uGHunOodCQR8uuAfbm6floQNR4+FzZztHuNPlk/HakhBVG3El0bZL6kYPvPGN+YcwxB2sxqtzdt5MQm04qUxfzceNgU1yJJldfNgNaUtwh4RuhLyPPo3+LjSF2ePlEcHvJ/Q173GfUA0O1vzQ7pJ44pLFAz/DiKaS/1fH14I7xjc46aDZY+JJK1zj/2Cg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eMbjaPsxYuVP31GUR/ks0DXJQn5uzSusZw+6ciAJV38=;
+ b=Gc0+KiCXUq0UP357I5J7YE649t9AYGdfkfDkUhMpvTydTi+ZgWMc9V9NkojGkVcr0a2aXg2EALISjYcjKSkeDJMdI1jieH55VacmDbk1YhXC3D4TxX3CQZHoxXpVaAb6CVoUC2jaE2DC+9jCE4/wS9hZ2/5WQMp4T1O2aCgt6574G06pSKcnzApjOosNut0ZBxIXh9mjeXfg/uB0m579oLamb8UQyM3A5bqrLWZIvNNQBjvFJcRuG7FcZ04BeefQy7I9/p/jj7wBoCcll8eZm84MLSbdaccX9hDsgf17fFC1UfD3hXudtV23GRdXVYehNkMU7Her/an5i1rGqd5ijg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AM9PR04MB8414.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.31; Thu, 29 May
+ 2025 15:49:23 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.8769.022; Thu, 29 May 2025
+ 15:49:23 +0000
+Date: Thu, 29 May 2025 11:49:13 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	michael@amarulasolutions.com, Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/6] ARM: dts: imx28: add pwm7 muxing options
+Message-ID: <aDiB+ZAPwZbkhWWE@lizhi-Precision-Tower-5810>
+References: <20250529143544.2381031-1-dario.binacchi@amarulasolutions.com>
+ <20250529143544.2381031-3-dario.binacchi@amarulasolutions.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250529041744.16458-10-piliu@redhat.com>
+In-Reply-To: <20250529143544.2381031-3-dario.binacchi@amarulasolutions.com>
+X-ClientProxiedBy: BY1P220CA0008.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:59d::16) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM9PR04MB8414:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e82ea86-f652-4fff-8c03-08dd9ec861bc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7416014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rQ8vHicIK/hWGtnJpOT7ITbs/Pq8RdreKdvMs9pvX3OMCG6dr0l1xA1d0wba?=
+ =?us-ascii?Q?d4wCzZ7wTIxrlzHDJH0EVVGfOidd7OeKUFDW7DsyhU56jJb5vuyzzpr2hHd4?=
+ =?us-ascii?Q?US9xG5Cvr6LbCkbjvoaHddMtOJUJPq0ioNXYxsT54cxGf2u+vtbXhQFKVg/8?=
+ =?us-ascii?Q?sigxR74QIOjq/nG0tvzjd5CnpwYB+aTUOZINn44nTlzMUm4zReHiMEIiu+H4?=
+ =?us-ascii?Q?cVYUYhh3dhA2qgdb3Lo2qSN7VAxBcYkAoOSwnjL/D5DIPRlMFyQ09IhqNuyZ?=
+ =?us-ascii?Q?J9n11P0Tf5TfoHAKgt2JJQEiz6BiZaO6HprbHbQGDgOXCK0l1g4riiQtZUeB?=
+ =?us-ascii?Q?ji56E4dX/DJxsDleXASKgLZ1NBYd8YGvBwKrN1PHCVu5XHGn05DTaY0cD5Yj?=
+ =?us-ascii?Q?DNGU/9LlbCwg1MVrhMlR+mhsG5UAAi1nGD0RG1M3afScrg8ofRYMBshNo743?=
+ =?us-ascii?Q?z+H92hLTHrRSMb58Risn5PlJP2F0TwdRE99C3jgZoBUKrCt6gbC/tiTqdO/b?=
+ =?us-ascii?Q?aMqNVAaJFFNbFX7GnZ8PwtMRCEeTt8qqKgKIu4yv1nWQedMokIELukFTF8JB?=
+ =?us-ascii?Q?waMP7b04gwqIEnbHru3yK6wyKqWgnQnwIdg8iQeW3+8483wl6R4XhMJGP2Oz?=
+ =?us-ascii?Q?Au0jNUEEFabYSbA+trCRBBsoDGcE8DJO1X/R0F0C9llwfXgT+I9fcRrOVD0g?=
+ =?us-ascii?Q?Sonbmd0u4v1nM2W2B/qGMXk9VSXGmsNs1q8dl3AueAAIpt1le2Ej2CBIg/t3?=
+ =?us-ascii?Q?6IY3byF4+Cu+BaNPW8JUq/kHacvHlkj8w8r4nTl/fk1G7i12fOX8UYE8s/Qn?=
+ =?us-ascii?Q?/cE/9M38vFgzkUjp5cAvnkjFbgC8xP6RLtBmcJdHvnuLPiVORllJ6STJ/nKG?=
+ =?us-ascii?Q?pMPebGuGoNzeZIPREFPjEuHiBrX2cQvgx84yYdyJ0pE7LymNVwrCgh6XHeYY?=
+ =?us-ascii?Q?G9lShWF+cOEFjkFYNJN3u62kPctsJWwyeiirQ+oKKb5si8fH0D5GJ/U3ma/X?=
+ =?us-ascii?Q?Ikqf92iVmgz6SqOjc7IMuUvBWfNrvKPwP4t/dBHp0ZYTwe+PSkdm5rAUbERY?=
+ =?us-ascii?Q?nsLYUbkqycLASjKRoHM8UHLmsjxKfo9WPJOfvzla4A2g1eaSp2wcalCeHNfX?=
+ =?us-ascii?Q?VClEoVYd2QmR6AOV9i25VC+biodL5Lygg4baECuxg6MIuucaL7kIRTgAP3hE?=
+ =?us-ascii?Q?fhF2W74ib9PJePc3Q/WL0zbF1NO6gJIMiFty71fYDw/ls/dOvKTB/PbFFk05?=
+ =?us-ascii?Q?veZuHM8JMYJ+ASSZ9b88StcdABCxzf1iRi9yx6yCWQVTAxeHyPIonixNpY+H?=
+ =?us-ascii?Q?c9Kxd2idfp9nmeoPM8Lbg2z85HhEVzxMcMYekU4BjNde03oVS61ZNWgyqMGw?=
+ =?us-ascii?Q?AYKxq0KZwK7bybfaFLusUlR9TwBbe/ukjXqXTyyo/gflhDncabRKfSnq0Fhb?=
+ =?us-ascii?Q?y06eFLUZhLAXFMOOq6ViA6/5uOo9MsgQ2iAaarcMyu5HN6Q4snqaVg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EnRQHmrrdivaq7+4cbhHpiXP0rSysf95t+p36vpuP+0YhO0/9NOGc+BiNDuG?=
+ =?us-ascii?Q?9szxyix+HCBOQeNMuVXsOgD3ldg8WVnRH0t5YA5DDQShdn8wqtYrvhXtwNbv?=
+ =?us-ascii?Q?/czsuBGu+8RDLwk0tqXndFzU/VMNkIiFtJvjTAbPFtZoHpMh2NzQrB2ziqCb?=
+ =?us-ascii?Q?apCQrLnjNBRnBb8yGVgu2k2QizbbaHBYwvoyzW9nyd33KSLwtIzhHsSGpzhs?=
+ =?us-ascii?Q?XrP7xw3+bjOmQkXl7soF3W3r6C23262lnnNDUFnpOFog6T2RD0Mxd4C8XFGL?=
+ =?us-ascii?Q?ZEghkStoWTKGAr1W4jKvx3UfuWKj77mzn8fZgydjD5NB4RTEwDIrfy3hART+?=
+ =?us-ascii?Q?FoX1K+4Oc0w2j7bj62IZel+gXOLW86LnHpGqf1SLwIbqAjVyQvQnuIlVyo1g?=
+ =?us-ascii?Q?zCfoRRqpGQ1ymSCz/GYE4ru07R8xFELj4bjjic6OxLP+pCABLXDf+AOQmr/T?=
+ =?us-ascii?Q?Xun7Fnx9iSekWndbtezwjfZmGdGq0z9XoaEwgWjjci4ROSPrTwadaFoA6xTQ?=
+ =?us-ascii?Q?+VCcq7l95OkXShwkvlbs9DqVyIzxRf4JcwbPdvBnD/0vnuTsoFdCt0eqrrDN?=
+ =?us-ascii?Q?xOpoIrfuo8k5xrdDl00zh82PYWiKRFcUZ0P1upykdJ+1eyRHtqf0ZNHyUQQr?=
+ =?us-ascii?Q?T4pI52I/gFmzP7L7UQWPKzduozC5To0J/CGmML4yKjOSS2pVnKwwSxoG/0ke?=
+ =?us-ascii?Q?Eifu0VqKKHSa7aurEa4aEPh4Ubaq66zAZSsjeZ9pc74m2jNq9ShUnPlA+ddc?=
+ =?us-ascii?Q?ZgcG5HwsieTzxidRoA7X+GevPizE5SvkD5uzplJla51ifetU+trskw6RqW2h?=
+ =?us-ascii?Q?mXV+cIsWn9pD+qcTr7tuewky3rimkhZxOCwlBfid0Iey5dICXvCgoflCYtKz?=
+ =?us-ascii?Q?vcNTxIdfJC68JeyHuVdpMUar2r41uTy9PbY2Ie8OHLULj6FgiQi4PE7qwBNO?=
+ =?us-ascii?Q?o2z133m+XDcQkMKuxQ1DkecL03YCc6QDMmOeiYPHBVXck32bmMgPnL7VGJ1s?=
+ =?us-ascii?Q?T3IMT7KKk6CLK1b0p+/a351WO1iRJyy7vogERMr6NQlEH94nnM+JttdwJGZ/?=
+ =?us-ascii?Q?Mk7QcYJ/aZt/6Kd1ev7Y5Dlix/E3eXeekypI+wf3v2ssccK+Vd8tdcNwpseA?=
+ =?us-ascii?Q?6zqYZJMA2hFUToDiF7hk4mFmSnS9t+piLcoacdH7qISOUQxjdtoqcjudO3PB?=
+ =?us-ascii?Q?oEedbEb84soFWOrL95QylT5epWIbBf9sWqTUb1suJcQ/gqteAwL8OibhfRfB?=
+ =?us-ascii?Q?br5gwxswZE55n7I0C4b3/jYsRaMn4+qrPDidzT2oX4UJQPfX72G8Q41Att7B?=
+ =?us-ascii?Q?TrLLy5z0ERT8ff0fnzOoi5BXcryw8htLlK28ucqllQirweRk7uI7X1u+spkT?=
+ =?us-ascii?Q?6fKxTg6Nrm0umEnGyqJoD1WIUbYoF5iBnH6hRJu0RCLYdlVIICbl44mCI20T?=
+ =?us-ascii?Q?64DKbR7pwJ8wQhegXALnJqtMzl+QevyO6wa9M2vALitrfHEvnFDylQSdqlcH?=
+ =?us-ascii?Q?5jE7HF2WSJ5nQhKc3VwSScZv8gQDw/UjRRlfMGoHIKmolzSaEdz6HKYTsg6a?=
+ =?us-ascii?Q?L3XXx2busUlSHfu72Hk=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e82ea86-f652-4fff-8c03-08dd9ec861bc
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 May 2025 15:49:22.9494
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: B+NNfza/Uct9CJRUHpOnyZVU+MRs0wFJcISE5Ql5gnpsiLri3Pu7VGTnaeMh8tnCcHQT4+165Ude+Rv/lvrW4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8414
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_083544_553033_4CCA1295 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20250529_084931_049124_7D77C0B0 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,71 +163,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pingfan,
+On Thu, May 29, 2025 at 04:35:09PM +0200, Dario Binacchi wrote:
+> Add alternative pinmuxing for pwm7.
+>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+>
+> ---
 
-kernel test robot noticed the following build errors:
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-[auto build test ERROR on bpf-next/net]
-[also build test ERROR on bpf/master arm64/for-next/core v6.15]
-[cannot apply to bpf-next/master linus/master next-20250529]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Pingfan-Liu/kexec_file-Make-kexec_image_load_default-global-visible/20250529-122124
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git net
-patch link:    https://lore.kernel.org/r/20250529041744.16458-10-piliu%40redhat.com
-patch subject: [PATCHv3 9/9] arm64/kexec: Add PE image format support
-config: arm64-randconfig-004-20250529 (https://download.01.org/0day-ci/archive/20250529/202505292305.zHTx5StD-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 13.3.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250529/202505292305.zHTx5StD-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505292305.zHTx5StD-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from kernel/kexec_bpf/kexec_pe_parser_bpf.lskel.h:6,
-                    from kernel/kexec_pe_image.c:25:
-   tools/lib/bpf/skel_internal.h: In function 'skel_finalize_map_data':
-   tools/lib/bpf/skel_internal.h:155:15: error: implicit declaration of function 'bpf_map_get'; did you mean 'bpf_map_put'? [-Werror=implicit-function-declaration]
-     155 |         map = bpf_map_get(fd);
-         |               ^~~~~~~~~~~
-         |               bpf_map_put
-   tools/lib/bpf/skel_internal.h:155:13: warning: assignment to 'struct bpf_map *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-     155 |         map = bpf_map_get(fd);
-         |             ^
-   kernel/kexec_pe_image.c: In function 'kexec_bpf_prog_run_init':
->> kernel/kexec_pe_image.c:283:16: error: implicit declaration of function 'register_btf_fmodret_id_set'; did you mean 'register_btf_kfunc_id_set'? [-Werror=implicit-function-declaration]
-     283 |         return register_btf_fmodret_id_set(&kexec_modify_return_set);
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                register_btf_kfunc_id_set
-   kernel/kexec_pe_image.c: In function 'pe_image_load':
-   kernel/kexec_pe_image.c:325:44: warning: variable 'cmdline_sz' set but not used [-Wunused-but-set-variable]
-     325 |         unsigned long linux_sz, initrd_sz, cmdline_sz, bpf_sz;
-         |                                            ^~~~~~~~~~
-   cc1: some warnings being treated as errors
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for KEXEC_PE_IMAGE
-   Depends on [n]: KEXEC_FILE [=y] && DEBUG_INFO_BTF [=n] && BPF_SYSCALL [=n]
-   Selected by [y]:
-   - ARCH_SELECTS_KEXEC_FILE [=y] && KEXEC_FILE [=y]
-
-
-vim +283 kernel/kexec_pe_image.c
-
-536de0ba3b982c Pingfan Liu 2025-05-29  280  
-536de0ba3b982c Pingfan Liu 2025-05-29  281  static int __init kexec_bpf_prog_run_init(void)
-536de0ba3b982c Pingfan Liu 2025-05-29  282  {
-536de0ba3b982c Pingfan Liu 2025-05-29 @283  	return register_btf_fmodret_id_set(&kexec_modify_return_set);
-536de0ba3b982c Pingfan Liu 2025-05-29  284  }
-536de0ba3b982c Pingfan Liu 2025-05-29  285  late_initcall(kexec_bpf_prog_run_init);
-536de0ba3b982c Pingfan Liu 2025-05-29  286  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>
+> (no changes since v3)
+>
+> Changes in v3:
+> - Add commit body
+>
+>  arch/arm/boot/dts/nxp/mxs/imx28.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>
+> diff --git a/arch/arm/boot/dts/nxp/mxs/imx28.dtsi b/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
+> index bbea8b77386f..ece46d0e7c7f 100644
+> --- a/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
+> +++ b/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
+> @@ -755,6 +755,16 @@ MX28_PAD_PWM4__PWM_4
+>  					fsl,pull-up = <MXS_PULL_DISABLE>;
+>  				};
+>
+> +				pwm7_pins_a: pwm7@0 {
+> +					reg = <0>;
+> +					fsl,pinmux-ids = <
+> +						MX28_PAD_SAIF1_SDATA0__PWM_7
+> +					>;
+> +					fsl,drive-strength = <MXS_DRIVE_4mA>;
+> +					fsl,voltage = <MXS_VOLTAGE_HIGH>;
+> +					fsl,pull-up = <MXS_PULL_DISABLE>;
+> +				};
+> +
+>  				lcdif_24bit_pins_a: lcdif-24bit@0 {
+>  					reg = <0>;
+>  					fsl,pinmux-ids = <
+> --
+> 2.43.0
+>
 
