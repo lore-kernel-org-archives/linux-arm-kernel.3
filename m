@@ -4,202 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD78C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 04:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59179C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 05:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/qioMlpApMqt+A1CQCoNF9t5zFK0+B2haNOrT7LS6vI=; b=yessULRb3/maug+zmw5Gh9CzU7
-	UnRVDvCtCAKbo0lit1nzz5atigpynPT2hSLwTNoBrRG2We8KX1V3SKYSefk3f65GOCQoOEtmRS9b1
-	bdSCK1KSH0dVJE8yRt1ZBFUHJVuR2QWcNcPTA/JCqPhdd2IoTym8Z4YVI9Vo1XUsQETwUPAE9xxH6
-	1iMTgakD3Gju21e74X8w9rG7ZKySm6xzYtQKNqzxIrWFyWiPq2OpXDyptwkMoUbZB2j3cxj71wkGS
-	u3LQBLe8aUR+/brbHiU52b1DAVCslOTzXz6QFAbv+5CCN8uxASn8b3Q6ryA3vqQioXKuPdzxoThhU
-	KDCspvcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Pk1Eb2vSHZbYbbZLyo5U1NwioDIXYgsUp9ezTkNplY=; b=m8DElNWlzeAX3ZhHmuMNjI+fE0
+	kGtgcfGtUYmFfKfmaIFmonrtDTannTqMH1EF56LOw5n4pQybZTGryzzXLV2HPq4FsJ1/0VNGi0CK2
+	a896DcY7jNsW4XHtii0RXzROeNaeC1wbFD0uWS76DM7QXCI/xIV0fGjg++i5Th4yy0qJLskfZBcHf
+	ga1YJPs1nWf4F2vNY46TVBGl+8S61wjDxxmHkrSdyh/17NeWZkER/j+z13WU1rpg+PCAVZb5GiD1t
+	wI/G8/UFH8m3yPvQQpeIkFundxEnMoOBWRZ0qTln7hssQYMSUOyE1knwWYN9B0sKdXhRU/USNxAAE
+	VBFyFSow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKVID-0000000Ewjj-0not;
-	Thu, 29 May 2025 04:55:01 +0000
-Received: from esa13.fujitsucc.c3s2.iphmx.com ([68.232.156.96])
+	id 1uKVeA-0000000ExvZ-1D4v;
+	Thu, 29 May 2025 05:17:42 +0000
+Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKVG3-0000000EwZM-0iCS
+	id 1uKVbz-0000000Exjo-0X0H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 04:52:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
-  t=1748494368; x=1780030368;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=HNjsYSNDGfMO2NUSLrakQDxfb0LfG7oIOoPopN0Mh3M=;
-  b=a353/E7q0/NfQ7Wz4R8T/bhDBG/cbbcM46nfzxw2hQFr7dJ3MQhv+xwO
-   FYkCbybikVWV+4KIRt6Q4RBE0hOrOKqou1VhD/frgQnTBddkm3R2IBXZW
-   RwUIVVzhdM5DQa4DhR2L9aEWCssgrFeySWpuCQb5w3/Pq0pC+Rd3m2gX0
-   TqTxvMdG7ExKDAcWfC6KIjMIe7saSUxNDzNuLDjL0oK9cBuSJap4zxUs3
-   v1EUnOgwjcXW+OztrpZjOW14sd6ooUWhUR1hHCMfGJirl1eESa2cRowA5
-   wINi9rPYInUcIqmnyJkSlfZSXqpljiugQvWZ4bj3eAt4mACezDkUOrsYs
-   g==;
-X-CSE-ConnectionGUID: FyHafbDsRBKvy0YdeCEdGw==
-X-CSE-MsgGUID: ej/iXiCsSTG/j2S/EqHquA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11447"; a="156450964"
-X-IronPort-AV: E=Sophos;i="6.15,323,1739804400"; 
-   d="scan'208";a="156450964"
-Received: from mail-japanwestazlp17011026.outbound.protection.outlook.com (HELO OS0P286CU010.outbound.protection.outlook.com) ([40.93.130.26])
-  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 May 2025 13:52:37 +0900
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Pr9SLaVpeKgJ7OEHwAcYPXogfgGbZnp/yzPvOMv5+AtzBQtU51xkAH3s+UFvBRKeRf6/JCXhKJuVxzDHo6qE1ET7Y1v7Z64SrWKb+eEQWlGs+wXvLyGBkWEM8vsPyrBwQVqNoUu3gIKAIDBg+RiHli01h1lV4Xe7Xgc93zVPc9y7mwe+qiYdhK+76Ef3PYs3LP8+stDcTILudk9lLvUxUXH9XU86F2MMbbod4tVrKDkkMiteqlq4Nb2TqkWAeckvephEabtozND1PkVkSDjthCqtePV01tU40Z99yt2iC19JboHCi4gry/fOm+5bwsLM1kpmX2lGzEgXZbjksx13nA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/qioMlpApMqt+A1CQCoNF9t5zFK0+B2haNOrT7LS6vI=;
- b=yDwHEBW4uF2Sb9rpd7gDXLlYGVtJ97VhHnXqiz4rROCMVY0hb5sOev8ulcEsXDNEA67QEMI18oR+BpX7fHQHqP/nlvB/AJa0b6e7hgVxklsCRqWUnirwiFZr0UXvfK4ZotLM4MRcOReNLpcnZ+OCIzY3jiY6aRnnIGBknTYcoFTr+SXY0nj+esVcUW2oTixaKkPWLpbXScIB4ws713ZfSxI1VHtGZ6pUtwJb0p0VXfYAwSR3GIAXHRO2+17C138QN6x0qnX7jBwwItify094MrW+4ynsVuEfT3RaCcO28CiSUgtm6yPrRtA2aa7GDqg0jJF1brROaTDfv15anTUH7A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-Received: from TYCPR01MB11463.jpnprd01.prod.outlook.com
- (2603:1096:400:389::10) by OS7PR01MB15077.jpnprd01.prod.outlook.com
- (2603:1096:604:36f::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.30; Thu, 29 May
- 2025 04:52:33 +0000
-Received: from TYCPR01MB11463.jpnprd01.prod.outlook.com
- ([fe80::5df7:5225:6f58:e8e8]) by TYCPR01MB11463.jpnprd01.prod.outlook.com
- ([fe80::5df7:5225:6f58:e8e8%6]) with mapi id 15.20.8769.022; Thu, 29 May 2025
- 04:52:33 +0000
-From: "Emi Kisanuki (Fujitsu)" <fj0570is@fujitsu.com>
-To: 'Steven Price' <steven.price@arm.com>, "'kvm@vger.kernel.org'"
-	<kvm@vger.kernel.org>, "'kvmarm@lists.linux.dev'" <kvmarm@lists.linux.dev>
-CC: 'Catalin Marinas' <catalin.marinas@arm.com>, 'Marc Zyngier'
-	<maz@kernel.org>, 'Will Deacon' <will@kernel.org>, 'James Morse'
-	<james.morse@arm.com>, 'Oliver Upton' <oliver.upton@linux.dev>, 'Suzuki K
- Poulose' <suzuki.poulose@arm.com>, 'Zenghui Yu' <yuzenghui@huawei.com>,
-	"'linux-arm-kernel@lists.infradead.org'"
-	<linux-arm-kernel@lists.infradead.org>, "'linux-kernel@vger.kernel.org'"
-	<linux-kernel@vger.kernel.org>, 'Joey Gouly' <joey.gouly@arm.com>, 'Alexandru
- Elisei' <alexandru.elisei@arm.com>, 'Christoffer Dall'
-	<christoffer.dall@arm.com>, 'Fuad Tabba' <tabba@google.com>,
-	"'linux-coco@lists.linux.dev'" <linux-coco@lists.linux.dev>, 'Ganapatrao
- Kulkarni' <gankulkarni@os.amperecomputing.com>, 'Gavin Shan'
-	<gshan@redhat.com>, 'Shanker Donthineni' <sdonthineni@nvidia.com>, 'Alper
- Gun' <alpergun@google.com>, "'Aneesh Kumar K . V'" <aneesh.kumar@kernel.org>
-Subject: RE: [PATCH v8 16/43] arm64: RME: Handle realm enter/exit
-Thread-Topic: [PATCH v8 16/43] arm64: RME: Handle realm enter/exit
-Thread-Index: AQMPKfif4GpC56WX1Xmo2sNneTWC8QG0s1FFsXSt8vA=
-Date: Thu, 29 May 2025 04:52:33 +0000
-Message-ID: <TYCPR01MB11463D8002D90705A7F860B85C366A@TYCPR01MB11463.jpnprd01.prod.outlook.com>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-17-steven.price@arm.com>
-In-Reply-To: <20250416134208.383984-17-steven.price@arm.com>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ActionId=3cfb0c78-9ffe-4273-9732-ec034cb20816;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ContentBits=0;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Enabled=true;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Method=Privileged;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Name=FUJITSU-PUBLIC?;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SetDate=2025-05-29T04:40:31Z;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYCPR01MB11463:EE_|OS7PR01MB15077:EE_
-x-ms-office365-filtering-correlation-id: fac4332e-36d8-4937-52f8-08dd9e6ca004
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|1580799027|38070700018;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?OWxVTVNQNk1Ia0xCSmRnUFdDUG5rL0I2Y2VsOVhWTUVZeVhDUVdwRTM5?=
- =?iso-2022-jp?B?QUhudk1NbzVwaEV2Nm80VCtqek9vdzJ3Sk56dG10cUNmMk45bm5YdHBs?=
- =?iso-2022-jp?B?Z0dOazRiRkVlVlVleHprNTNtVENNNVZHdFdSNzFYUlVPTmdnM2ptWFdD?=
- =?iso-2022-jp?B?Sm1mUGRRTXJaVHJPdXVOLytwWDJGTlhQeHFQbTdmRmtZbGpObFlxTXJa?=
- =?iso-2022-jp?B?aGtOeG1sWjd6MFBINXh4QXdIWW9RRE9UcnlVcDRnaWpvNnN3V2R4d2oz?=
- =?iso-2022-jp?B?UnRkODYwZXQxZk9KNW1PNzJ2elhCWFUrZFpTdGxESnlsK1BycVNQWGli?=
- =?iso-2022-jp?B?Y2lNNzJpMHY4Z2ZPWEFDM0dsVHZhck9aYWJrVGRET0ZDaDJDbmFlQmRk?=
- =?iso-2022-jp?B?azlFTUN1cG1OazdBcnhzbWhmRk43UFI3Tit1QzZ0TWlEVE9CREIvUlph?=
- =?iso-2022-jp?B?Skc2WnBER04vQkxoSHdKbnBkOURuTSt6K0xFdDFyRE4vS1FVVTg2b040?=
- =?iso-2022-jp?B?UnNXYnVhMGZBY0NQTWt6L2ZyN0l5c3V2VFZUSmhuVklBdmxDanlXajRk?=
- =?iso-2022-jp?B?N0NZOWJZeitMS0hDRWsyTE1KQzlUalh4WStGa1BSMlhhY0pSUFNmWW54?=
- =?iso-2022-jp?B?bTRTbWdndmxsYmYzbDVBdXdPcEQrZFRaV3g4L2ttS3F4VWFoZ0I1MGFZ?=
- =?iso-2022-jp?B?d0gvdERWOUE5MjM3enh6RnZGVVJ6VTliblFQdzB6Nkh6TXBQdDVWMDZH?=
- =?iso-2022-jp?B?aGRSTnQrYjhOYzdSUXhnb3B3aWVPZCtZSGxpSy9BbEo3eWRQc0lJbnhD?=
- =?iso-2022-jp?B?aUdXZitvbkNDSENrUTFMaURQTmNyUmw3T1kxNm5DUmVNcFlNcXJ2VkVI?=
- =?iso-2022-jp?B?U0d6alBqWW96bS9UMTkraklNbE93cnl0SktmcnJqbEp0UW5DWi9wdktP?=
- =?iso-2022-jp?B?RUNTbDhCaXlZa0xaa2NKYmF1dHU3SGxvMUlIdm1kRVhuQTV1d2lEVnFD?=
- =?iso-2022-jp?B?VTBZUGtCS2NEbjNYTFVrcFNpejVkSWlyU0pOUFFIOGpxa1c2bG8xZVpT?=
- =?iso-2022-jp?B?YkFwbzRFWlBzY01FOHQwaHBsRjFzTTVWMDRUaGZmdlJrbXVNTGtTZmpF?=
- =?iso-2022-jp?B?WjJTQzZCOFN6dVc0RFJrZFBCcGJSbzBGdkhzWmNSTmpBRXZEKzJxdmxK?=
- =?iso-2022-jp?B?VEtocUIvSDFiSlpjRUlJbStFemdnWGpTR2wxMkdLZUQreFZqL1lNYjk4?=
- =?iso-2022-jp?B?Z2x4Z2NicmJBT2srUzFETjB2V0phN21rN2JhMnRrOGJ6WnJDMERhSGFx?=
- =?iso-2022-jp?B?L2VJUzZ6M1VNL25ySi90eXBaTzJlM3lKWDIxaEpzTTJuSGF2OXBFM3hZ?=
- =?iso-2022-jp?B?Q0pyWE9NajZqY0lTRHFCSjlaTVdZRFM0SmthMGpnUmppQ1FkSFpvbnNS?=
- =?iso-2022-jp?B?RjFobWNpMTRXVFN3VTNPUHhhS0xjV3pVcE1oR1ROZUVEQlEzQVFvWFpP?=
- =?iso-2022-jp?B?ZVpwS29mSzc3eWtvSkduQVZxaFJhZ1ZGVHFCRVNaSUhUUHNoY0hvNVEz?=
- =?iso-2022-jp?B?eSt3TVB0Sld3TUVxZzVuQS9qNXlvLzN0dUZGMjUwdFFoK1JFejdTUmZq?=
- =?iso-2022-jp?B?eVhCVUQ1YVgvUlViYXpCVGRsZFlRS0Zvak02Z3RPRlIwQkRRSVJDQ2d0?=
- =?iso-2022-jp?B?REZrNDdyNmxrQ3RpSmxLZWFDR0p2VGpUaDdMSWNid1llczZCZytlWEhj?=
- =?iso-2022-jp?B?RUsxVzRkN0NnYno3aUR2YkhUMFR0aFFHMFFPVHFqM1p5d0VvUHRkbkxF?=
- =?iso-2022-jp?B?dHFYQzBibFJ0R29pc0xINlJNN3FxakRuR0IzSVJBOTBZdXVEbDRzcnZG?=
- =?iso-2022-jp?B?SW9iQXU1eU9iSFlVai8rdVdYTS9RRTVFMWJpWEtiNUlyd1gwTEl5TEEr?=
- =?iso-2022-jp?B?SXB6YWlWVVF2M0hTalU2bEl0aDlCcjg0U29ZVXY3cUNUUzZvMkZXYSto?=
- =?iso-2022-jp?B?dkhwTjZzWmZBWkwxZURGWUJ5V1VrZGkvNGZKcU9EMnVmdjlCMEVVb2lP?=
- =?iso-2022-jp?B?WTFMWCttOC8vcW1ma1IxNzZGbmlqSHl3bnB6NHJ6MzloUUJaNm04dS9N?=
- =?iso-2022-jp?B?UWFNaFMrcWxJcWRiM0cwQjRCOVNMRkZQYm4zRElSRHVkNEg4N1VmL25a?=
- =?iso-2022-jp?B?QytxWXg4MjFFQ0lzd1cvNGQ3YnZQdXha?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB11463.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(1580799027)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?U2QwODlwS0NJL0xHR1lDamdSS1dtTzBWUzlxcG9RVmlZTGdCeXFvVW9u?=
- =?iso-2022-jp?B?OUd6ZzBucmVFVVdtUnhPQ0g3QXg3T3BQUDcwNnNNV3AxMzNlTDRRUFZU?=
- =?iso-2022-jp?B?WENmbmI4NFYvSkE3WGNuMEkyUUhzMEJONFFmbEtwSjBxbDBvQmJBSHd0?=
- =?iso-2022-jp?B?WDJYbVdJTHpPcGJRU3pVU2EybHQwaTBiSGZmQkhRdDNCTE01ajBrSXdo?=
- =?iso-2022-jp?B?c2V5STA2bmRjczVhMzhLUDFWdTk3amFpYVJza2M4dXpOZXEvK3NuVThL?=
- =?iso-2022-jp?B?eTIwUFo4bG9NeDkzL0FZdjMxWDJOZTlqcThUblB1VjBPMXdML1hBRXlD?=
- =?iso-2022-jp?B?cnhMUFVLS2pTWHV3T0JpUWhaTlVpeU1kTlRUNjRkNlZxQzIyaFg5YXFS?=
- =?iso-2022-jp?B?YlR5bll1NFY4bHhEcmZINUVIQTJsVFk1dE9FdjdMRFdrSUxHN2hmdDUw?=
- =?iso-2022-jp?B?SVl2YXgzaEhjUXFmckc0K1dmMGIraGRWV3pVYnVVaFpwdXNRbHZaeVVL?=
- =?iso-2022-jp?B?MDFUSk9uLzZVY3ZPNDN6VDd1b0E3TDY4NlJiMHlaV2FETys5bDJZRTQx?=
- =?iso-2022-jp?B?RlJEQWJUalU5RTdtOEN0eHdjS3NXV2VRYnVRUWkwY3JWMWVPdmFtT1ZH?=
- =?iso-2022-jp?B?cEVxY3RqQjhyWnN0MXNlWjc5V3E4TlZQd1JHUFpCYTBkaklWMDA4Wnlr?=
- =?iso-2022-jp?B?ZUFLMnZTTzBrKzFYeGpjOVdpRnJSOWJzL2VVYnpxbHd4cGZwdWh5NkdQ?=
- =?iso-2022-jp?B?T2V5ZzMwbFM0OWxLZVJqYkpVcTB1aHFWSitFUXl5bGtvcTZvdDZHK0ZU?=
- =?iso-2022-jp?B?WmdycHo0UTFob09kUDdkTncrQmVqRnUxSk5lZXBKTGY5R01xZkxWZ2lk?=
- =?iso-2022-jp?B?K3EweTZKMVZNMjI0ei9WVUlTRTErN25RWVU0UkJmMkRQOGVJcEk0T3Rl?=
- =?iso-2022-jp?B?UnpxSHN1UzNNUzhDNGtSUXV3NUUzOFdyVWZKaXNOc203Wm1oQVIzRkNj?=
- =?iso-2022-jp?B?bksrNkZ1VUY0Y1B4Q0JmbFFUUnk2aUUxQnZSKytVZTFCcEI3TEQ0bGN3?=
- =?iso-2022-jp?B?WTBMRUp2T2ZiZEhUTDBQdk5SSStwTjFIREhiTVkxTk8rN1pnK1U1UmVQ?=
- =?iso-2022-jp?B?UytoallUS0hmSUNpWmNaWjhUZ3ZKUlZ1VzExN28zU2RvV1Q0TXVvc1Qz?=
- =?iso-2022-jp?B?a1BUMkVHVWVJbENwd3NaVDF6OVhSN1RyYm9KMnJDYTRmbGpHSHV3b0ph?=
- =?iso-2022-jp?B?TDdaN09oZGM1WVc0NXZqN29KWDczUUx4a0twTHZuZ3ZRS1dZRTc2dzd3?=
- =?iso-2022-jp?B?MTZ4K3dHYVJRM1JZMmY4Um9DaUMxVEtvMjBnaS94eUdubFNpRWdRSzIz?=
- =?iso-2022-jp?B?WWJFTWRnUW5EUVNZaFpENXNXejhMdVc0UFdKL0Zza09UZDZyMThxclVH?=
- =?iso-2022-jp?B?NTJrMzZxVmhRZERPVURLMWZBL2Fvd25oYWp1R0s4S1V1aEdBdkNaODBi?=
- =?iso-2022-jp?B?REJVT2FmS0pIczVBdGVCaCt4a2JZTGtzek1xYm5mWUwwMU4yZnRzODBu?=
- =?iso-2022-jp?B?ODdsT21GNXVpcUNvZTRQckdLcHJ2Z3Q4eGFJNnp5cC92ci9mY1RncGdC?=
- =?iso-2022-jp?B?NjNJeUViWGtaTzBrTmMwUW9zeXBMSXUzenlZMnRHaVV3bDBWNmpRa01O?=
- =?iso-2022-jp?B?eWl0b1kzakJNNnpZeHdyajJYQWtXUFlmczE4ck1WVmUwaHB3TFpCMWhM?=
- =?iso-2022-jp?B?ekZOcHRBRG8yL2lKRFZIVlBMa0JLQ2NJaEV3RlZMWGJLN2J5c3JzSmQr?=
- =?iso-2022-jp?B?TTg2YTh1WFhtaS81YjZkWjZrY2VmM0grdGVtS2I2djgwanJkZW44d2Nw?=
- =?iso-2022-jp?B?OTY3clptMU9YNEZBdmpZclNWMFJUWGJOTTVCeFNQUnpLQlBSMHd2OVVq?=
- =?iso-2022-jp?B?bGVmOENsclhiZjVXdG95RDI3Njd0bytvYWVJRURmWkNFWXpJVU1sQ1pK?=
- =?iso-2022-jp?B?VXpYZ1lVVkh5eEI1NHVTTFZxeUFDcW1MaXlXRXB2NFAwS0U3NGYxU1Qw?=
- =?iso-2022-jp?B?QzkwUmxlTUNlclJGR0N2Q0x0dVZLNVRXODZCTWg2K2pLSmlaSTBoNlhY?=
- =?iso-2022-jp?B?amd2OUdOQWpqN0hrNnJuTldXcE5WRTIvMThiRTNsK212cEVjNnEzdVA1?=
- =?iso-2022-jp?B?dnRQb29meFVSY2xYZFV4bmg2ZXQyNnpEZldZbVZuelM2K3VxbGEwTlh0?=
- =?iso-2022-jp?B?YlA1dWxXcnBPT0Q2QWpBaVpFVkt4NmhtWWNpKytaOG4vY2RzdFBaa291?=
- =?iso-2022-jp?B?d0pOOUNSY2FyTHc2b2lFbUVnZ0R4dXUzQWc9PQ==?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 29 May 2025 05:15:28 +0000
+Message-ID: <eb591c65-0106-45f4-9e57-434dac54e923@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1748495722;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5Pk1Eb2vSHZbYbbZLyo5U1NwioDIXYgsUp9ezTkNplY=;
+	b=ObYYFtehliQgfdv9YsufkQYdreAjIYc0E64+xUmOXpyZAGLUi3KQ5qjBDKGKhGQbr2gXbl
+	+Ckk8pCdISYyqIC+bjZEqZ7+pMCxl2Ism9o12gOkQVTM0OVV0O9pH/x0Izj/T+Ru3xfAPq
+	s7AfyOVLoGxpdbAhyE7WWpwl1QlON9Q=
+Date: Thu, 29 May 2025 13:14:32 +0800
 MIME-Version: 1.0
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: WxLDkPAEpMI2Xx1tfDcv8nKQOwDVFyKGOKNgb37qncakhY2c8UBj7OcpU95/+dl4oCzUd/1a0TXTfg5ZpLZx4ftIOqBQS9tSzlrgzirh3nCPGZUEuYzH/MZWHTRg7XeMNGKC3uduy9bZM87Nhs3XsENMf+EIOtQrTAwHRa3ZC9ZBx/FRQe1hDIdNSE6Lu1UKr53X7zDKSFy6gN5y8zNbSdYJS6GdmlKFG89g+4ccJWUEyA1A60XUT+U/u6IZmAgRKWKT8wleVrOoW/LH/tqK3UKGhay3na2C4jER/tSXudeLDfbE3NhxtzyaMvpsMlJMRAFKwuRKsAJr8MswL2DqN9etoMJkRUd2Q1DzcT9Xk10Ho1SIhDT8jpiiOY9QRvGm6kkjD2ixIDbq62fLejMNedb9aB7fnVJuU2f+7jeJtZdp6jQsY8OS+EXhRkro2/pk3IQytwLxO1M+ipYvuqnqwonKvcxdObDuQb3ZfRCGIL/KfDjlPPq10zQnLsEfLaRQQz0Ut6A29SXP8cwDz+jpoVOVQLHvba6l7eSpeK983kJ0C+THSd0uUhVAcqeZ5Db6vC26uBIwgDshNqCus6Nq+62d6BUf+rL5C8bFNheEh4qjpxGxeQ8in7Tt3bqfYOKc
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB11463.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fac4332e-36d8-4937-52f8-08dd9e6ca004
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 May 2025 04:52:33.4637
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: /Ki8nnxDmH4fxSJetE9now9JCenf+CjVsVcYYzjDR05RYF3fttQpctQSX2gu/SXwkuPeuVwhxQyBNvCeoii6VG9+/cyxf4qiAHD0gmfmVb0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB15077
+Subject: Re: [PATCH net-next v6 0/5] net: stmmac: Add PCI driver support for
+ BCM8958x
+To: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+Cc: "Abhishek Chauhan (ABC)" <quic_abchauha@quicinc.com>,
+ Andrew Lunn <andrew@lunn.ch>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ netdev@vger.kernel.org, alexandre.torgue@foss.st.com, joabreu@synopsys.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ bcm-kernel-feedback-list@broadcom.com, richardcochran@gmail.com,
+ ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+ john.fastabend@gmail.com, fancer.lancer@gmail.com, ahalaney@redhat.com,
+ xiaolei.wang@windriver.com, rohan.g.thomas@intel.com,
+ Jianheng.Zhang@synopsys.com, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+ linux@armlinux.org.uk, horms@kernel.org, florian.fainelli@broadcom.com,
+ Sagar Cheluvegowda <quic_scheluve@quicinc.com>
+References: <20241018205332.525595-1-jitendra.vegiraju@broadcom.com>
+ <CAMdnO-+FjsRX4fjbCE_RVNY4pEoArD68dAWoEM+oaEZNJiuA3g@mail.gmail.com>
+ <67919001-1cb7-4e9b-9992-5b3dd9b03406@quicinc.com>
+ <CAMdnO-+HwXf7c=igt2j6VHcki3cYanXpFApZDcEe7DibDz810g@mail.gmail.com>
+ <7ac5c034-9e6d-45c4-b20a-2a386b4d9117@quicinc.com>
+ <51768fa6-007e-4f30-ac1f-eed01ae1a3c5@linux.dev>
+ <CAMdnO-KNfH79PG1=21Dbyaart2JN_e1XcF+tTG93BG5BobX+Gg@mail.gmail.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yanteng Si <si.yanteng@linux.dev>
+In-Reply-To: <CAMdnO-KNfH79PG1=21Dbyaart2JN_e1XcF+tTG93BG5BobX+Gg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_215247_797461_8541CE3C 
-X-CRM114-Status: GOOD (  20.64  )
+X-CRM114-CacheID: sfid-20250528_221527_313239_7D5B7AAD 
+X-CRM114-Status: GOOD (  27.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -214,350 +89,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello, I comment below.
 
-> Subject: [PATCH v8 16/43] arm64: RME: Handle realm enter/exit
->=20
-> Entering a realm is done using a SMC call to the RMM. On exit the exit-co=
-des
-> need to be handled slightly differently to the normal KVM path so define =
-our own
-> functions for realm enter/exit and hook them in if the guest is a realm g=
-uest.
->=20
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v7:
->  * A return of 0 from kvm_handle_sys_reg() doesn't mean the register has
->    been read (although that can never happen in the current code). Tidy
->    up the condition to handle any future refactoring.
-> Changes since v6:
->  * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
->    vcpu to the error.
->  * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation
-> for
->    this exit type.
->  * Split code handling a RIPAS change triggered by the guest to the
->    following patch.
-> Changes since v5:
->  * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
->    change on next entry rather than immediately on the exit. This allows
->    the VMM to 'reject' a RIPAS change by refusing to continue
->    scheduling.
-> Changes since v4:
->  * Rename handle_rme_exit() to handle_rec_exit()
->  * Move the loop to copy registers into the REC enter structure from the
->    to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
->    where the handler exits to user space and user space wants to modify
->    the GPRS.
->  * Some code rearrangement in rec_exit_ripas_change().
-> Changes since v2:
->  * realm_set_ipa_state() now provides an output parameter for the
->    top_iap that was changed. Use this to signal the VMM with the correct
->    range that has been transitioned.
->  * Adapt to previous patch changes.
-> ---
->  arch/arm64/include/asm/kvm_rme.h |   3 +
->  arch/arm64/kvm/Makefile          |   2 +-
->  arch/arm64/kvm/arm.c             |  19 +++-
->  arch/arm64/kvm/rme-exit.c        | 170
-> +++++++++++++++++++++++++++++++
->  arch/arm64/kvm/rme.c             |  19 ++++
->  5 files changed, 207 insertions(+), 6 deletions(-)  create mode 100644
-> arch/arm64/kvm/rme-exit.c
->=20
-> diff --git a/arch/arm64/include/asm/kvm_rme.h
-> b/arch/arm64/include/asm/kvm_rme.h
-> index b916db8565a2..d86051ef0c5c 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -101,6 +101,9 @@ void kvm_realm_destroy_rtts(struct kvm *kvm, u32
-> ia_bits);  int kvm_create_rec(struct kvm_vcpu *vcpu);  void
-> kvm_destroy_rec(struct kvm_vcpu *vcpu);
->=20
-> +int kvm_rec_enter(struct kvm_vcpu *vcpu); int handle_rec_exit(struct
-> +kvm_vcpu *vcpu, int rec_run_status);
-> +
->  void kvm_realm_unmap_range(struct kvm *kvm,
->  			   unsigned long ipa,
->  			   unsigned long size,
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile index
-> 2ebc66812d49..c4b10012faa3 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -24,7 +24,7 @@ kvm-y +=3D arm.o mmu.o mmio.o psci.o hypercalls.o pvtim=
-e.o
-> \
->  	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
->  	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
->  	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
-> -	 rme.o
-> +	 rme.o rme-exit.o
->=20
->  kvm-$(CONFIG_HW_PERF_EVENTS)  +=3D pmu-emul.o pmu.o
->  kvm-$(CONFIG_ARM64_PTR_AUTH)  +=3D pauth.o diff --git
-> a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c index
-> 7c0bb1b05f4c..cf707130ef66 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1263,7 +1263,10 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  		trace_kvm_entry(*vcpu_pc(vcpu));
->  		guest_timing_enter_irqoff();
->=20
-> -		ret =3D kvm_arm_vcpu_enter_exit(vcpu);
-> +		if (vcpu_is_rec(vcpu))
-> +			ret =3D kvm_rec_enter(vcpu);
-> +		else
-> +			ret =3D kvm_arm_vcpu_enter_exit(vcpu);
->=20
->  		vcpu->mode =3D OUTSIDE_GUEST_MODE;
->  		vcpu->stat.exits++;
-> @@ -1319,10 +1322,13 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu=
-)
->=20
->  		local_irq_enable();
->=20
-> -		trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu),
-> *vcpu_pc(vcpu));
-> -
->  		/* Exit types that need handling before we can be preempted */
-> -		handle_exit_early(vcpu, ret);
-> +		if (!vcpu_is_rec(vcpu)) {
-> +			trace_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu),
-> +				       *vcpu_pc(vcpu));
-> +
-> +			handle_exit_early(vcpu, ret);
-> +		}
->=20
->  		preempt_enable();
->=20
-> @@ -1345,7 +1351,10 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  			ret =3D ARM_EXCEPTION_IL;
->  		}
->=20
-> -		ret =3D handle_exit(vcpu, ret);
-> +		if (vcpu_is_rec(vcpu))
-> +			ret =3D handle_rec_exit(vcpu, ret);
-> +		else
-> +			ret =3D handle_exit(vcpu, ret);
->  	}
->=20
->  	/* Tell userspace about in-kernel device output levels */ diff --git
-> a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c new file mode
-> 100644 index 000000000000..a1adf5610455
-> --- /dev/null
-> +++ b/arch/arm64/kvm/rme-exit.c
-> @@ -0,0 +1,170 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2023 ARM Ltd.
-> + */
-> +
-> +#include <linux/kvm_host.h>
-> +#include <kvm/arm_hypercalls.h>
-> +#include <kvm/arm_psci.h>
-> +
-> +#include <asm/rmi_smc.h>
-> +#include <asm/kvm_emulate.h>
-> +#include <asm/kvm_rme.h>
-> +#include <asm/kvm_mmu.h>
-> +
-> +typedef int (*exit_handler_fn)(struct kvm_vcpu *vcpu);
-> +
-> +static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu) {
-> +	struct realm_rec *rec =3D &vcpu->arch.rec;
-> +
-> +	vcpu_err(vcpu, "Unhandled exit reason from realm (ESR: %#llx)\n",
-> +		 rec->run->exit.esr);
-> +	return -ENXIO;
-> +}
-> +
-> +static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu) {
-> +	return kvm_handle_guest_abort(vcpu);
-> +}
-> +
-> +static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu) {
-> +	struct realm_rec *rec =3D &vcpu->arch.rec;
-> +
-> +	vcpu_err(vcpu, "Unhandled instruction abort (ESR: %#llx).\n",
-> +		 rec->run->exit.esr);
-> +	return -ENXIO;
-> +}
-> +
-> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu) {
-> +	struct realm_rec *rec =3D &vcpu->arch.rec;
-> +	unsigned long esr =3D kvm_vcpu_get_esr(vcpu);
-> +	int rt =3D kvm_vcpu_sys_get_rt(vcpu);
-> +	bool is_write =3D !(esr & 1);
-> +	int ret;
-> +
-> +	if (is_write)
-> +		vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[0]);
-> +
-> +	ret =3D kvm_handle_sys_reg(vcpu);
-> +	if (ret > 0 && !is_write)
-> +		rec->run->enter.gprs[0] =3D vcpu_get_reg(vcpu, rt);
-> +
-> +	return ret;
-> +}
-> +
-> +static exit_handler_fn rec_exit_handlers[] =3D {
-> +	[0 ... ESR_ELx_EC_MAX]	=3D rec_exit_reason_notimpl,
-> +	[ESR_ELx_EC_SYS64]	=3D rec_exit_sys_reg,
-> +	[ESR_ELx_EC_DABT_LOW]	=3D rec_exit_sync_dabt,
-> +	[ESR_ELx_EC_IABT_LOW]	=3D rec_exit_sync_iabt
-> +};
-> +
-> +static int rec_exit_psci(struct kvm_vcpu *vcpu) {
-> +	struct realm_rec *rec =3D &vcpu->arch.rec;
-> +	int i;
-> +
-> +	for (i =3D 0; i < REC_RUN_GPRS; i++)
-> +		vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
-> +
-> +	return kvm_smccc_call_handler(vcpu);
-> +}
-> +
-> +static int rec_exit_ripas_change(struct kvm_vcpu *vcpu) {
-> +	struct kvm *kvm =3D vcpu->kvm;
-> +	struct realm *realm =3D &kvm->arch.realm;
-> +	struct realm_rec *rec =3D &vcpu->arch.rec;
-> +	unsigned long base =3D rec->run->exit.ripas_base;
-> +	unsigned long top =3D rec->run->exit.ripas_top;
-> +	unsigned long ripas =3D rec->run->exit.ripas_value;
-> +
-> +	if (!kvm_realm_is_private_address(realm, base) ||
-> +	    !kvm_realm_is_private_address(realm, top - 1)) {
-> +		vcpu_err(vcpu, "Invalid RIPAS_CHANGE for %#lx - %#lx,
-> ripas: %#lx\n",
-> +			 base, top, ripas);
-> +		return -EINVAL;
-> +	}
-> +
-> +	/* Exit to VMM, the actual RIPAS change is done on next entry */
-> +	kvm_prepare_memory_fault_exit(vcpu, base, top - base, false, false,
-> +				      ripas =3D=3D RMI_RAM);
-> +
-> +	/*
-> +	 * KVM_EXIT_MEMORY_FAULT requires an return code of -EFAULT, see
-> the
-> +	 * API documentation
-> +	 */
-> +	return -EFAULT;
-> +}
-> +
-> +static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu) {
-> +	struct realm_rec *rec =3D &vcpu->arch.rec;
-> +
-> +	__vcpu_sys_reg(vcpu, CNTV_CTL_EL0) =3D rec->run->exit.cntv_ctl;
-> +	__vcpu_sys_reg(vcpu, CNTV_CVAL_EL0) =3D rec->run->exit.cntv_cval;
-> +	__vcpu_sys_reg(vcpu, CNTP_CTL_EL0) =3D rec->run->exit.cntp_ctl;
-> +	__vcpu_sys_reg(vcpu, CNTP_CVAL_EL0) =3D rec->run->exit.cntp_cval;
-> +
-> +	kvm_realm_timers_update(vcpu);
-> +}
-> +
-> +/*
-> + * Return > 0 to return to guest, < 0 on error, 0 (and set exit_reason)
-> +on
-> + * proper exit to userspace.
-> + */
-> +int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret) {
-> +	struct realm_rec *rec =3D &vcpu->arch.rec;
-> +	u8 esr_ec =3D ESR_ELx_EC(rec->run->exit.esr);
-> +	unsigned long status, index;
-> +
-> +	status =3D RMI_RETURN_STATUS(rec_run_ret);
-> +	index =3D RMI_RETURN_INDEX(rec_run_ret);
-> +
-> +	/*
-> +	 * If a PSCI_SYSTEM_OFF request raced with a vcpu executing, we
-> might
-> +	 * see the following status code and index indicating an attempt to run
-> +	 * a REC when the RD state is SYSTEM_OFF.  In this case, we just need
-> to
-> +	 * return to user space which can deal with the system event or will tr=
-y
-> +	 * to run the KVM VCPU again, at which point we will no longer attempt
-> +	 * to enter the Realm because we will have a sleep request pending on
-> +	 * the VCPU as a result of KVM's PSCI handling.
-> +	 */
-> +	if (status =3D=3D RMI_ERROR_REALM && index =3D=3D 1) {
-> +		vcpu->run->exit_reason =3D KVM_EXIT_UNKNOWN;
-> +		return 0;
-> +	}
-Running kvm-unit-tests-cca selftest(smp) test in quick succession may trigg=
-er these conditions, resulting in the following error logs.
- Error: KVM exit reason: 0 ("KVM_EXIT_UNKNOWN")
+在 5/29/25 10:56 AM, Jitendra Vegiraju 写道:
+> Hi Yanteng,
+>
+> On Wed, May 28, 2025 at 6:36 PM Yanteng Si <si.yanteng@linux.dev> wrote:
+>> 在 5/28/25 8:04 AM, Abhishek Chauhan (ABC) 写道:
+>>>
+>>> On 2/7/2025 3:18 PM, Jitendra Vegiraju wrote:
+>>>> Hi Abhishek,
+>>>>
+>>>> On Fri, Feb 7, 2025 at 10:21 AM Abhishek Chauhan (ABC) <
+>>>> quic_abchauha@quicinc.com> wrote:
+>>>>
+>>>>>
+>>>>> On 11/5/2024 8:12 AM, Jitendra Vegiraju wrote:
+>>>>>> Hi netdev team,
+>>>>>>
+>>>>>> On Fri, Oct 18, 2024 at 1:53 PM <jitendra.vegiraju@broadcom.com> wrote:
+>>>>>>> From: Jitendra Vegiraju <jitendra.vegiraju@broadcom.com>
+>>>>>>>
+>>>>>>> This patchset adds basic PCI ethernet device driver support for Broadcom
+>>>>>>> BCM8958x Automotive Ethernet switch SoC devices.
+>>>>>>>
+>>>>>> I would like to seek your guidance on how to take this patch series
+>>>>> forward.
+>>>>>> Thanks to your feedback and Serge's suggestions, we made some forward
+>>>>>> progress on this patch series.
+>>>>>> Please make any suggestions to enable us to upstream driver support
+>>>>>> for BCM8958x.
+>>>>> Jitendra,
+>>>>>            Have we resent this patch or got it approved ? I dont see any
+>>>>> updates after this patch.
+>>>>>
+>>>>>
+>>>> Thank you for inquiring about the status of this patch.
+>>>> As stmmac driver is going through a maintainer transition, we wanted to
+>>>> wait until a new maintainer is identified.
+>>>> We would like to send the updated patch as soon as possible.
+>>>> Thanks,
+>>>> Jitendra
+>>> Thanks Jitendra, I am sorry but just a follow up.
+>>>
+>>> Do we know if stmmac maintainer are identified now ?
+>> I'm curious why such a precondition is added？
+>>
+> It's not a precondition. Let me give some context.
+> This patch series adds support for a new Hyper DMA(HDMA) MAC from Synopsis.
+> Many of the netdev community members reviewed the patches at that time.
+> Being the module maintainer at that time, Serge took the initiative to
+> guide us through integrating the new MAC into the stmmac driver.
+> We addressed all the review comments and submitted the last patch series.
+> Without an official maintainer, we didn't get feedback on the last patch series.
+> Because of this, we wanted to wait until a new maintainer is assigned
+> to this module.
+> As Abhishek expressed in his email, it appears the HDMA MAC is
+> becoming more mainstream.
+> We are hoping to rebase the patch series and resubmit for review if
+> netdev team members show interest.
 
-Since KVM_EXIT_UNKNOWN is used when no specific exit reason applies, I thin=
-k it would be better to make it identifiable as an error.
-How about adding and setting a new ARM64 exit_reason value to indicate that=
- the PSCI_SYSTEM_OFF request is conflicting with a running vcpu?
 
-Best Regards,
-Emi Kisanuki
-> +
-> +	if (rec_run_ret)
-> +		return -ENXIO;
-> +
-> +	vcpu->arch.fault.esr_el2 =3D rec->run->exit.esr;
-> +	vcpu->arch.fault.far_el2 =3D rec->run->exit.far;
-> +	vcpu->arch.fault.hpfar_el2 =3D rec->run->exit.hpfar;
-> +
-> +	update_arch_timer_irq_lines(vcpu);
-> +
-> +	/* Reset the emulation flags for the next run of the REC */
-> +	rec->run->enter.flags =3D 0;
-> +
-> +	switch (rec->run->exit.exit_reason) {
-> +	case RMI_EXIT_SYNC:
-> +		return rec_exit_handlers[esr_ec](vcpu);
-> +	case RMI_EXIT_IRQ:
-> +	case RMI_EXIT_FIQ:
-> +		return 1;
-> +	case RMI_EXIT_PSCI:
-> +		return rec_exit_psci(vcpu);
-> +	case RMI_EXIT_RIPAS_CHANGE:
-> +		return rec_exit_ripas_change(vcpu);
-> +	}
-> +
-> +	kvm_pr_unimpl("Unsupported exit reason: %u\n",
-> +		      rec->run->exit.exit_reason);
-> +	vcpu->run->exit_reason =3D KVM_EXIT_INTERNAL_ERROR;
-> +	return 0;
-> +}
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c index
-> 33eb793d8bdb..bee9dfe12e03 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -863,6 +863,25 @@ void kvm_destroy_realm(struct kvm *kvm)
->  	kvm_free_stage2_pgd(&kvm->arch.mmu);
->  }
->=20
-> +int kvm_rec_enter(struct kvm_vcpu *vcpu) {
-> +	struct realm_rec *rec =3D &vcpu->arch.rec;
-> +
-> +	switch (rec->run->exit.exit_reason) {
-> +	case RMI_EXIT_HOST_CALL:
-> +	case RMI_EXIT_PSCI:
-> +		for (int i =3D 0; i < REC_RUN_GPRS; i++)
-> +			rec->run->enter.gprs[i] =3D vcpu_get_reg(vcpu, i);
-> +		break;
-> +	}
-> +
-> +	if (kvm_realm_state(vcpu->kvm) !=3D REALM_STATE_ACTIVE)
-> +		return -EINVAL;
-> +
-> +	return rmi_rec_enter(virt_to_phys(rec->rec_page),
-> +			     virt_to_phys(rec->run));
-> +}
-> +
->  static void free_rec_aux(struct page **aux_pages,
->  			 unsigned int num_aux)
->  {
-> --
-> 2.43.0
->=20
+https://lore.kernel.org/netdev/20241018205332.525595-1-jitendra.vegiraju@broadcom.com/
 
+In my opinion, the precondition for waiting for a maintainer is that
+
+the patch set has passed the review. I checked lore and did not find
+
+any R&B tags in the patch set, which means your patch set has not
+
+yet met the merging requirements.
+
+Therefore, I think you can continue to push forward with this patch
+
+set and not let it stagnate. I will take some time to review the previous
+
+versions (which may take a while) and hope to be helpful.
+
+Thanks,
+
+Yanteng
+
+> Thanks,
+> Jitendra
+>> Thanks,
+>> Yanteng
 
