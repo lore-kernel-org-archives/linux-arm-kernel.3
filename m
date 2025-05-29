@@ -4,94 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F97C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E212C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 09:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BaFVkQVJDKjRYWtNug3oA8cOPJXftESUXFz7M4SIesM=; b=qhYteE1HWr2cH0LZTm3OWv0V4L
-	18vpq0wrM+GHknO13IBld/YYYZSM2tbZAqRJgOpTE23RDS52tOcoy/jmJJ8RSpyTRBmFsdDrwy5Uq
-	6SsO9XvtPiEuAzy/0NLoFjaWZfLY7As+USvF1z6y2TF0xAcOwzn6iA9Qwzh0SSlkslIs59KMvouTf
-	gZHoC/mgXUkmghHpBcrUcaBBiMkZq2RsJ8/Z8wcVD3evPmoOL8yhXA07QvtyeCMeDEqW6zs6XWwAz
-	TDSbTfR+dwpknM89yImqiyb8WBDsJg7/+nMbzwbTB1McAtjBS9P/pcoqx3HfeoqWfpIdQbWxoLnjk
-	Oogv3EMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OinrcQkKP+invtmfZEgmKc9uaH1M7ZYOcO3eHfnnWrM=; b=ZaJI2wWcJSl/VikSYGT37Cu7oU
+	WgCSq5kXRIqeeyPeVchboRAczoI6Q15a0oryJR7V9VXkLG+1pZmhi3S0bebBR1FOC/0fnsMmlTvze
+	JF2kAnV2jlDjkSk52hX5wNJpIkDMQiWzIp+/ieJeEXAOnuam0l4Mi8r9160l+zoRHyW9zrbr6PPRe
+	KfLBVO4UjyFseV6z15FijFTA/xfColT9fn4uK+fP+Uf72phDCjIEwSMMyl9hqDwabej8XgUYdBvDN
+	2sffsxbOdhpdTX2BSXMqoa2SxZmYsSE0pp47As8v79Gy9NxdEFIlQ8Jys2YjdIxx9hejLwxYF4NwO
+	D76crdNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZx7-0000000FSVs-2alW;
-	Thu, 29 May 2025 09:53:33 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1uKZzD-0000000FShg-1IwT;
+	Thu, 29 May 2025 09:55:43 +0000
+Received: from mail.actia.se ([212.181.117.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZs8-0000000FRys-0XPU
+	id 1uKZtA-0000000FSDC-2S5M
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 09:48:25 +0000
-Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-450cf214200so5832475e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 02:48:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748512102; x=1749116902; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BaFVkQVJDKjRYWtNug3oA8cOPJXftESUXFz7M4SIesM=;
-        b=pa65MTah72Fxb7PLWYf5xJGbDHd28UzAaIcygsL2/4gnJZoihuN0yiPzf+ZA1I1eQd
-         PE8oDneHDW6Apx92YFLluQ/nKQ3DOm+HwaQ1JX44q1acCsbsGbOLuZNDolT91K7eCAiD
-         tnNxUEvgRlGClYhypg2Gxhbn6P4Bk9bmIfJ4IvTSAEkWO9HWBdlev9OovcSEOAHm5pkB
-         2bjV42qi9cWliZ4rkrFtGRcBMzHo+iaeMOFGwxZRZ9gtimsnFUq+8roFhsa7x07H4QOs
-         pUM9BXJreHf4n9QSObXm5xppM2/796tUGzU7qTa1YvdYRX5uxLTDwcwO5TVrdDyNxd1y
-         b9oQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748512102; x=1749116902;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BaFVkQVJDKjRYWtNug3oA8cOPJXftESUXFz7M4SIesM=;
-        b=ZvHyJaYsy3y45bfHkfGL6XD36X251aAr2aGzp1/zqkBm9/XjxdqDvPhmki1YagAWYv
-         vNvswdL0hOrIT8v3PIuIU1NrUVBTy9Xjh77lJhGq941/dwArVn3g7GeCiW4ScHPtDMrh
-         dZBf6S4g1B7+H4Wm8OsKsP6itP8fLt7TMyWHNCLHbC6lAOttCO+zj2Airow7eJ4WrKg3
-         SnhhXEmdBiEkeeXkU3H1sKpAOV0FyiEEIxaHjzcZ7QY7w2XSHp+Nf84m9dyhCC4c94fv
-         WCEznWFyEXBWZefIYSuZZvs3O8tGu0CIVA6O1bGLeBqLjlVYzA+8CAeL8bHQodb1rna2
-         QGmw==
-X-Gm-Message-State: AOJu0YzOZBkXFpmbxXvoyDn6MzlsUHNGzslFtMikGW5fCUDHY43mGq4b
-	4ZWnTnd1NOXVRffnvZY18/IlyW3rEprxFL4rnS7PRa1Zy7/BP3C/NshTto6lo1dJwTSWzDsGY2g
-	hqJrge6etdpT4
-X-Gm-Gg: ASbGncvkOtJrWriT6u7j2qUjjItlWCWPA3YsBjKaY52Rvz8asG/iy6MPkzdcz1INY6n
-	LqL8tOXFcp18X/nCnmcPDUBzFCZkXD7OCmN1zLsRNJppIUwGII6/1zw78UXJs/RiwuFkczA3Yf5
-	OTXdJdMAUQ0lxj3rhgOVYGXU5c4wLQdStGyiSDJH6CZl7ooR+ClodFcePGEhH0/+6/3s1prHVt/
-	Kzn3sRc8KfCPCJbqUgKkKZasox2HtlV5cR06y3XVMz+dsp0CiS9WKMUCLo1I7vyNL+hKohmF1M3
-	ezeZjMAcb2x33//KIOi79fQ+n2QFCyyI8ysaYXLnWeKyBhI89tU5bf/D
-X-Google-Smtp-Source: AGHT+IGqR9/I2Bjkk0qR5H6OlZDpGRs84NmDbQcbBpPkkl4lqLIAxu7/3yK/uxy3vBcppOHkP1XOiw==
-X-Received: by 2002:a05:600c:4e14:b0:444:34c7:3ed9 with SMTP id 5b1f17b1804b1-44c955da4f7mr185008435e9.26.1748512101772;
-        Thu, 29 May 2025 02:48:21 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450cfc27dd8sm15171385e9.26.2025.05.29.02.48.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 May 2025 02:48:21 -0700 (PDT)
-Message-ID: <d412031a-cdfa-4983-8702-1e1bb93d5641@linaro.org>
-Date: Thu, 29 May 2025 10:48:20 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 0/5] arm64/perf: Enable branch stack sampling
-To: "Rob Herring (Arm)" <robh@kernel.org>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev, Mark Brown <broonie@kernel.org>,
- Dave Martin <Dave.Martin@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>
-References: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
+	Thu, 29 May 2025 09:49:29 +0000
+Received: from S036ANL.actianordic.se (10.12.31.117) by S035ANL.actianordic.se
+ (10.12.31.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 29 May
+ 2025 11:49:26 +0200
+Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
+ S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
+ 15.01.2507.039; Thu, 29 May 2025 11:49:26 +0200
+From: John Ernberg <john.ernberg@actia.se>
+To: Frank Li <Frank.li@nxp.com>
+CC: =?utf-8?B?SG9yaWEgR2VhbnTEgw==?= <horia.geanta@nxp.com>, Pankaj Gupta
+	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Thomas Richard
+	<thomas.richard@bootlin.com>, "linux-crypto@vger.kernel.org"
+	<linux-crypto@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 4/4] arm64: dts: freescale: imx8qxp/imx8qm: Add CAAM
+ support
+Thread-Topic: [PATCH v3 4/4] arm64: dts: freescale: imx8qxp/imx8qm: Add CAAM
+ support
+Thread-Index: AQHbz97Tt285JTpbTEmv8WU56gl5orPoAYiAgAE7H4A=
+Date: Thu, 29 May 2025 09:49:26 +0000
+Message-ID: <aDgtpd_pXyLjgoIJ@w447anl.localdomain>
+References: <20250528144259.2603914-1-john.ernberg@actia.se>
+ <20250528144259.2603914-5-john.ernberg@actia.se>
+ <aDclTQ8Z5WcHMxgT@lizhi-Precision-Tower-5810>
+In-Reply-To: <aDclTQ8Z5WcHMxgT@lizhi-Precision-Tower-5810>
+Accept-Language: en-US, sv-SE
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.12.12.63]
+x-esetresult: clean, is OK
+x-esetid: 37303A2956B14453637562
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <1915B73BA669544EBEE2CF7E9C60C389@actia.se>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_024824_183741_A41B58F6 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20250529_024928_620629_9C45B7D7 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,119 +87,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 20/05/2025 11:27 pm, Rob Herring (Arm) wrote:
-> This series enables perf branch stack sampling support on arm64 via a
-> v9.2 arch feature called Branch Record Buffer Extension (BRBE). Details
-> on BRBE can be found in the Arm ARM[1] chapter D18.
-> 
-> I've picked up this series from Anshuman. v19 and later versions have
-> been reworked quite a bit by Mark and myself. The bulk of those changes
-> are in patch 5.
-> 
-> A git branch is here[2].
-> 
-> [1] https://developer.arm.com/documentation/ddi0487/latest/
-> [2] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git arm/brbe-v22
-> 
-> Changes in v22:
->   - New patch reworking the labels in el2_setup.h
->   - Move branch stack disabling after armpmu_stop() in armpmu_del()
->   - Fix branch_records_alloc() to work on heterogeneous systems
->   - Make setting .sched_task function ptr conditional on BRBE support
->   - Reword booting.rst section name (s/feature/the/) and move next to
->     other PMU related features instead of in the middle of SME features.
->   - Drop setting SYS_BRBCR_EL1
->   - Drop CONFIG_ARM64_BRBE ifdef
->   - Rework initialization of HFGITR_EL2
-> 
-> v21:
->   - https://lore.kernel.org/r/20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org
->   - Drop clean-up patches 1-7 already applied
->   - Rebase on v6.15-rc1
-> 
-> v20:
->   - https://lore.kernel.org/r/20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org
->   - Added back some of the arm64 specific exception types. The x86 IRQ
->     branches also include other exceptions like page faults. On arm64, we
->     can distinguish the exception types, so we do. Also, to better
->     align with x86, we convert 'call' branches which are user to kernel
->     to 'syscall'.
->   - Only enable exceptions and exception returns if recording kernel
->     branches (matching x86)
->   - Drop requiring event and branch privileges to match
->   - Add "branches" caps sysfs attribute like x86
->   - Reword comment about FZP and MDCR_EL2.HPMN interaction
->   - Rework BRBE invalidation to avoid invalidating in interrupt handler
->     when no handled events capture the branch stack (i.e. when there are
->     multiple users).
->   - Also clear BRBCR_ELx bits in brbe_disable(). This is for KVM nVHE
->     checks if BRBE is enabled.
->   - Document that MDCR_EL3.SBRBE can be 0b01 also
-> 
-> v19:
->   - https://lore.kernel.org/all/20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org/
->   - Drop saving of branch records when task scheduled out (Mark). Make
->     sched_task() callback actually get called. Enabling requires a call
->     to perf_sched_cb_inc(). So the saving of branch records never
->     happened.
->   - Got rid of added armpmu ops. All BRBE support is contained within
->     pmuv3 code.
->   - Fix freeze on overflow for VHE
->   - The cycle counter doesn't freeze BRBE on overflow, so avoid assigning
->     it when BRBE is enabled.
->   - Drop all the Arm specific exception branches. Not a clear need for
->     them.
->   - Fix handling of branch 'cycles' reading. CC field is
->     mantissa/exponent, not an integer.
->   - Rework s/w filtering to better match h/w filtering
->   - Reject events with disjoint event filter and branch filter or with
->     exclude_host set
->   - Dropped perf test patch which has been applied for 6.14
->   - Dropped patch "KVM: arm64: Explicitly handle BRBE traps as UNDEFINED"
->     which has been applied for 6.14
-> 
-> v18:
->   - https://lore.kernel.org/all/20240613061731.3109448-1-anshuman.khandual@arm.com/
-> 
-> For v1-v17, see the above link. Not going to duplicate it all here...
-> 
-> Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
-> ---
-> ---
-> Anshuman Khandual (4):
->        arm64/sysreg: Add BRBE registers and fields
->        arm64: el2_setup.h: Make __init_el2_fgt labels consistent, again
->        arm64: Handle BRBE booting requirements
->        KVM: arm64: nvhe: Disable branch generation in nVHE guests
-> 
-> Rob Herring (Arm) (1):
->        perf: arm_pmuv3: Add support for the Branch Record Buffer Extension (BRBE)
-> 
->   Documentation/arch/arm64/booting.rst |  21 +
->   arch/arm64/include/asm/el2_setup.h   |  81 +++-
->   arch/arm64/include/asm/kvm_host.h    |   2 +
->   arch/arm64/include/asm/sysreg.h      |  17 +-
->   arch/arm64/kvm/debug.c               |   4 +
->   arch/arm64/kvm/hyp/nvhe/debug-sr.c   |  32 ++
->   arch/arm64/kvm/hyp/nvhe/switch.c     |   2 +-
->   arch/arm64/tools/sysreg              | 132 ++++++
->   drivers/perf/Kconfig                 |  11 +
->   drivers/perf/Makefile                |   1 +
->   drivers/perf/arm_brbe.c              | 802 +++++++++++++++++++++++++++++++++++
->   drivers/perf/arm_brbe.h              |  47 ++
->   drivers/perf/arm_pmu.c               |  16 +-
->   drivers/perf/arm_pmuv3.c             | 125 +++++-
->   include/linux/perf/arm_pmu.h         |   8 +
->   15 files changed, 1276 insertions(+), 25 deletions(-)
-> ---
-> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-> change-id: 20250129-arm-brbe-v19-24d5d9e5e623
-> 
-> Best regards,
-
-Tested-by: James Clark <james.clark@linaro.org>
-
-
+SGkgRnJhbmssDQoNCk9uIFdlZCwgTWF5IDI4LCAyMDI1IGF0IDExOjAxOjMzQU0gLTA0MDAsIEZy
+YW5rIExpIHdyb3RlOg0KPiBPbiBXZWQsIE1heSAyOCwgMjAyNSBhdCAwMjo0MzowOFBNICswMDAw
+LCBKb2huIEVybmJlcmcgd3JvdGU6DQo+ID4gRnJvbTogSG9yaWEgR2VhbnTEgyA8aG9yaWEuZ2Vh
+bnRhQG54cC5jb20+DQo+ID4NCj4gPiBUaGUgaU1YOFFYUCBhbmQgaU1YOFFNIGhhdmUgYSBDQUFN
+IChDcnlwdG9ncmFwaGljIEFjY2VsZXJhdGlvbiBhbmQNCj4gPiBBc3N1cmFuY2UgTW9kdWxlKSBs
+aWtlIG1hbnkgb3RoZXIgaU1Ycy4NCj4gPg0KPiA+IEFkZCB0aGUgZGVmaW5pdGlvbnMgZm9yIGl0
+Lg0KPiA+DQo+ID4gSm9iIFJpbmdzIDAgYW5kIDEgYXJlIGJvdW5kIHRvIHRoZSBTRUNPIChTZWN1
+cml0eSBDb250cm9sbGVyKSBBUk0gY29yZQ0KPiA+IGFuZCBhcmUgbm90IGV4cG9zZWQgb3V0c2lk
+ZSBpdC4gVGhlcmUncyBubyBwb2ludCB0byBkZWZpbmUgdGhlbSBpbiB0aGUNCj4gPiBiaW5kaW5n
+cyBhcyB0aGV5IGNhbm5vdCBiZSB1c2VkIG91dHNpZGUgdGhlIFNFQ08uDQo+ID4NCj4gPiBTaWdu
+ZWQtb2ZmLWJ5OiBIb3JpYSBHZWFudMSDIDxob3JpYS5nZWFudGFAbnhwLmNvbT4NCj4gPiBbamVy
+bmJlcmc6IENvbW1pdCBtZXNzYWdlLCBmaXhlZCBkdGJzX2NoZWNrIHdhcm5pbmdzLCB0cmltbWVk
+IG1lbW9yeSByYW5nZXNdDQo+IA0KPiB3aGF0J3MgdGhpcyBmb3I/ICByZW1vdmUgaXQgaWYgbm90
+IHJlbGF0ZWQgd2l0aCB0aGlzIHBhdGNoLg0KDQpUaGVzZSBhcmUgdGhlIGFkanVzdG1lbnRzIEkg
+ZGlkIHRvIHRoZSBwYXRjaCBieSBIb3JpYSB0aGF0IEkgdG9vayBvdXQgb2YNCnRoZSBsaW51eC1p
+bXggdHJlZSAob3JpZ2luYWwgcGF0Y2ggbGlua2VkIGJlbG93IGluIGNvbnRleHQpLg0KDQpXaGls
+ZSBub3QgcGFydCBvZiB0aGUgcHJvY2VzcyBJIGhhdmUgc2VlbiB0aGVtIHVzZWQgYW5kIGZvdW5k
+IHRoZW0gaGVscGZ1bCwNCkkgY2FuIGRyb3AgaXQgaWYgcHJlZmVycmVkLg0KDQpCZXN0IHJlZ2Fy
+ZHMgLy8gSm9obiBFcm5iZXJnDQoNCj4gDQo+IEZyYW5rDQo+IA0KPiA+IFNpZ25lZC1vZmYtYnk6
+IEpvaG4gRXJuYmVyZyA8am9obi5lcm5iZXJnQGFjdGlhLnNlPg0KPiA+DQo+ID4gLS0tDQo+ID4N
+Cj4gPiBJbXBvcnRlZCBmcm9tIE5YUCB0cmVlLCB0cmltbWVkIGRvd24gYW5kIGZpeGVkIHRoZSBk
+dGJzX2NoZWNrIHdhcm5pbmdzLg0KPiA+IENvbnN0cmFpbmVkIHRoZSByYW5nZXMgdG8gdGhlIG5l
+ZWRlZCBvbmVzLg0KPiA+IENoYW5nZWQgdGhlIGNvbW1pdCBtZXNzYWdlLg0KPiA+IE9yaWdpbmFs
+IGhlcmU6IGh0dHBzOi8vZ2l0aHViLmNvbS9ueHAtaW14L2xpbnV4LWlteC9jb21taXQvNjk5ZTU0
+YjM4NmNiOWI1M2RlZjQwMTc5OGQwYTRlNjQ2MTA1NTgzZA0KPiA+DQo+ID4gLS0t
 
