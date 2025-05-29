@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99258C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 12:56:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97755C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 12:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MtkAfTOtokgdjv7gIn/IjoAQhtTTK4DWnbsWh0KRPqo=; b=krn87+ppWXzEa06nsdZeC+tEhb
-	GQ9bPPrhBbEqz7WlUSc876zsLjqo3bsXY0pBiXOhxnIY4K8+ghpAiSoG5V6DZYalmvAcOo5T8sOZ5
-	CCtGxI9b1MgJdUzUXGpIrBMpPWermrn6OZ8SNO/nh41n9DCWS25KzfPzQe6ZMOd7Jdy3Ejgg0MfIJ
-	xli9R/J2DZK+1vpNqVRkSbhW+HX7PQwfciyeNHWUB3bKqts7jFII4+5CCqAEhC/tTv4oETS107Xcd
-	8Ybp+bnHF/9UpzpcEe9N5rfhWDJ7ZeVxt95soootsgT9DI/6b/roA17Ekn3wuRiy8ASjKZMWntwUJ
-	yIAiTuCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t6cER3ficNDF4FhcfcYO1N7q4wJKI5SWkwqRzuLuAeM=; b=WKo0rk7/KYQouBoWY1/crZjeWh
+	k0qLkueAkZXVEvKAJrtRHlsaQ58S7662viUagHm/SsMmyQZDX4lsodk+R7HknQhQp1uaO/MlnZwEe
+	6WaekHqxb8K4lsjnhJRr7PyeOHQL1dFfJdfL6hEt0fPRB8i1Z5SXYDDQNeKepDTTTJXkIjQgdrGTz
+	4h+scpwQsAf+HjuoO3BKCfI7UQVlQ9qsPhzABp0ZjBrRw6VP/tchb4NpVOYgQLbotmpyCTBNQLGoJ
+	9EBoQpuAuDcxr5UJa6lB6JG3Ry6dDMc87/YQwdspG/AI0t7XT4ifPFKfykB4UK9ZTbSLSk6zJRVJG
+	a+6ziEtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKcnd-0000000FnHR-2dA8;
-	Thu, 29 May 2025 12:55:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uKcpi-0000000Fnbg-3zBT;
+	Thu, 29 May 2025 12:58:06 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKcCu-0000000FiVh-45nQ
+	id 1uKcIe-0000000FiwE-2ORr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 12:18:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EB6885C4AF3;
-	Thu, 29 May 2025 12:15:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91365C4CEE7;
-	Thu, 29 May 2025 12:17:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748521079;
-	bh=T9ZQY4CGugD2MH+iTUeDacs8pgXvAPcZYmxnuyRAiSU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ASMqB7f4OJsnn10KsXlKeQM/6y2euEGVS1tST7xQP41q2zFYIFm2pMkZYy0KeKxlv
-	 lRyrOX1aodcUCzR/FXUyNQcsj8bPBY7XP+lKehhvIqua5iyr05BmGjtt6STEtWzXOX
-	 2esSec+XG+Iy5UQE4hSECHcaRkfe278g2RlaECY+mljC000Rh33knCq0XcPookZng5
-	 mOhHU8huR6bsWDo29BaNgX6/pYnltWyWmdtlxLPpYmyzIMSRN9Q8T8TFKjgLsaZawi
-	 Bz/yI4DVbNjiqyL8vru1iItVnVjH43YjHF/4CDlhcD5BBTZjdUQaG+e5woFS2c+wbV
-	 rAKKNUd3UN83g==
-Date: Thu, 29 May 2025 13:17:52 +0100
-From: Will Deacon <will@kernel.org>
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, sebastianene@google.com,
-	qperret@google.com, qwandor@google.com, arve@android.com,
-	perl@immunant.com, lpieralisi@kernel.org, kernel-team@android.com,
-	tabba@google.com, james.morse@arm.com, armellel@google.com,
-	jean-philippe@linaro.org, ahomescu@google.com
-Subject: Re: [PATCH v4 2/5] KVM: arm64: Zero x4-x7 in ffa_set_retval
-Message-ID: <20250529121751.GB29242@willie-the-truck>
-References: <20250516-virtio-msg-ffa-v4-0-580ee70e5081@google.com>
- <20250516-virtio-msg-ffa-v4-2-580ee70e5081@google.com>
+	Thu, 29 May 2025 12:23:57 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54TCNmcb3516960;
+	Thu, 29 May 2025 07:23:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1748521428;
+	bh=t6cER3ficNDF4FhcfcYO1N7q4wJKI5SWkwqRzuLuAeM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=XWTLZMYWWFxT/mYUd2ZX48f7/r7RmX7tip+47bt6JQcGFi1zglwp/Zh3ir8ayywkP
+	 GpE/ARyRWvCj0LePc/WpKJ0+gi+Ww6G4+F3KN5KhtUFYZqqu6nw0DqrjdvPOPc5uk9
+	 V/1fbn/XThiX3Qe6G39d0mvrWcEvsQodZSCja+7w=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54TCNm7c2164812
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 29 May 2025 07:23:48 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 29
+ May 2025 07:23:48 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 29 May 2025 07:23:48 -0500
+Received: from [172.24.18.242] (lt9560gk3.dhcp.ti.com [172.24.18.242])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54TCNhtB1577009;
+	Thu, 29 May 2025 07:23:44 -0500
+Message-ID: <c9cd4687-0959-4e1f-8a44-a34b74da43a7@ti.com>
+Date: Thu, 29 May 2025 17:53:43 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250516-virtio-msg-ffa-v4-2-580ee70e5081@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: ti: icssg-prueth: Fix swapped TX stats for MII
+ interfaces.
+To: Simon Horman <horms@kernel.org>
+CC: <saikrishnag@marvell.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+References: <20250527121325.479334-1-m-malladi@ti.com>
+ <20250528161250.GE1484967@horms.kernel.org>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <20250528161250.GE1484967@horms.kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_051801_096326_5BDB5780 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20250529_052356_776111_CA2256AF 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +91,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 16, 2025 at 12:14:01PM +0000, Per Larsen via B4 Relay wrote:
-> From: Per Larsen <perlarsen@google.com>
-> 
-> FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi). The results of
-> an SMC32/HVC32 are returned in W1-W7 in SMCCC 1.2. However, W4-W7 must be
-> preserved unless they contain results according to the function definition.
-> 
-> ffa_set_retval is commonly used to report FFA_SUCCESS or FFA_ERROR back to
-> the caller. FFA_SUCCESS requires that x2-x7 must be zero (MBZ) unless a
-> register is explicitly used in the function response. FFA_ERROR requires
-> x3-x7 MBZ.
-> 
-> ffa_set_retval is also used to return results of:
-> - FFA_VERSION which requires x1-x7 MBZ
-> - FFA_MEM_FRAG_TX which returns FFA_MEM_FRAG_RX or FFA_ERROR.
->   FFA_MEM_FRAG_RAX always requires that x5-x7 MBZ and x4 MBZ
->   at any virtual FF-A instance (applies to kvm).
-> 
-> Messaging interfaces such as FFA_MSG_SEND_DIRECT_{REQ,REQ2}, will not use
-> ffa_set_retval.
-> 
-> Given the above, it is safe to zero x4-x7 in ffa_set_retval.
-> 
-> Signed-off-by: Per Larsen <perlarsen@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 2c199d40811efb5bfae199c4a67d8ae3d9307357..b3d016bee404ce3f8c72cc57befb4ef4e6c1657f 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -101,6 +101,10 @@ static void ffa_set_retval(struct kvm_cpu_context *ctxt,
->  	cpu_reg(ctxt, 1) = res->a1;
->  	cpu_reg(ctxt, 2) = res->a2;
->  	cpu_reg(ctxt, 3) = res->a3;
-> +	cpu_reg(ctxt, 4) = 0;
-> +	cpu_reg(ctxt, 5) = 0;
-> +	cpu_reg(ctxt, 6) = 0;
-> +	cpu_reg(ctxt, 7) = 0;
->  }
+Hi Simon,
 
-Hmm. On reflection, isn't the root of the problem actually that we're
-using SMCCC 1.1 to communicate with TZ, whereas FF-A requires SMCCC 1.2
-(and we even enforce that in hyp_ffa_init())?
+On 5/28/2025 9:42 PM, Simon Horman wrote:
+> On Tue, May 27, 2025 at 05:43:25PM +0530, Meghana Malladi wrote:
+>> In MII mode, Tx lines are swapped for port0 and port1, which means
+>> Tx port0 receives data from PRU1 and the Tx port1 receives data from
+>> PRU0. This is an expected hardware behavior and reading the Tx stats
+>> needs to be handled accordingly in the driver. Update the driver to
+>> read Tx stats from the PRU1 for port0 and PRU0 for port1.
+>>
+>> Fixes: c1e10d5dc7a1 ("net: ti: icssg-prueth: Add ICSSG Stats")
+>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+>> ---
+>>   drivers/net/ethernet/ti/icssg/icssg_stats.c | 4 ++++
+>>   1 file changed, 4 insertions(+)
+>>
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/net/ethernet/ti/icssg/icssg_stats.c
+>> index 6f0edae38ea2..0b77930b2f08 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
+>> @@ -29,6 +29,10 @@ void emac_update_hardware_stats(struct prueth_emac *emac)
+>>   	spin_lock(&prueth->stats_lock);
+>>   
+>>   	for (i = 0; i < ARRAY_SIZE(icssg_all_miig_stats); i++) {
+> 
+> Hi Meghana,
+> 
+> Perhaps it would be nice to include a comment here.
+> 
 
-If we moved all of the hyp FF-A code over to SMCCC 1.2 unconditionally,
-then we could just assign everything from res back to the CPU context
-without having to worry about zeroing. That would also simplify your
-later patches because we wouldn't have to deal with SMCCC 1.1 at all.
+That makes sense, sure will do that.
 
-I'm aware that we're carrying a patch in Android to permit SMCCC 1.1,
-but that's only for Pixel 6 iirc and we shouldn't worry about that
-upstream.
+>> +		if (emac->phy_if == PHY_INTERFACE_MODE_MII &&
+>> +		    icssg_all_miig_stats[i].offset >= ICSSG_TX_PACKET_OFFSET &&
+>> +		    icssg_all_miig_stats[i].offset <= ICSSG_TX_BYTE_OFFSET)
+>> +			base = stats_base[slice ^ 1];
+>>   		regmap_read(prueth->miig_rt,
+>>   			    base + icssg_all_miig_stats[i].offset,
+>>   			    &val);
+>>
+>> base-commit: 32374234ab0101881e7d0c6a8ef7ebce566c46c9
+>> -- 
+>> 2.43.0
+>>
+>>
 
-Will
+-- 
+Thanks,
+Meghana Malladi
+
 
