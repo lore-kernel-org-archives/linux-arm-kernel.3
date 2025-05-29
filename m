@@ -4,110 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD7EC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1C5C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 08:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FeLRfqV14JmpLOsO8dBpDmI4P0qOsswe03KivfM+pSg=; b=dNwHW1yl7cbujyEeXQCrGso5vz
-	HOS+k3sy6z68TXKohHBjjAAikyQLjHrbYMo5POjuEZ/8hGyspx5jidEuQ2KSvM6hxpFyPZKItExIT
-	ZJLSkOuJKniSbcC+BxWv7bqg63t75rFN04g/EdqmCa3tZP/Z45txeY7C8dxGtGecYJs8g6wHGqo/H
-	NKAHwxX5ks0xAF1NGI/BQO9dR+ARDWXNQ2Sz0lPwpDVMv7ftJrtav5bkQ6Lnyx9CXn/qGlKwRIQAs
-	V+cxneEIJJToDJGGX4u1rCU8ud9iIHIvBwYQLbrKPQ6U1SNa7C5MJUlsktvRZDMBHBa7ELGHUxRPc
-	bvFNU1eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+yd0OdHrM2Itm96/YuqXehoTn8EREnI2dfLKcvCeLuM=; b=sBcQ4q5LikLxp0LAXd2XFoaCYo
+	1dTNQaQc8GJJI7qIo0Ex5rdOqtkj06Xj8UYj8Q4gdFgGlz+iRyaIAgMpTDU/RSqSzxPwCCawRjR6+
+	V3wiTjWR6E87qnOjDAC+FzLKHJOA46nB6bRW6F0c/tOmIIBzS7e6KHPgFCdP2fCXD5thNlwOt0w8q
+	+Jf5HRabA4nitQVzjw1huDrqxfTEWierYj2aHvlUL6RvY6EQfymZOhtGnzgpW1kIDYV0yQcLcqfXA
+	MsDQy4Vbow8wtLqupTtcZX1jvJH7BMBtEQz9OjJm5BGYvDf3Ql7618iIvWybaASWDjbOrxsF1gDsm
+	tVpALrKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKZ6V-0000000FJAY-1Kxh;
-	Thu, 29 May 2025 08:59:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uKZ6X-0000000FJCM-3JcM;
+	Thu, 29 May 2025 08:59:13 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKYV8-0000000FFDZ-2SrT
+	id 1uKYgJ-0000000FG5K-3ZPM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 08:20:35 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54T4VcwJ028888;
-	Thu, 29 May 2025 08:20:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FeLRfqV14JmpLOsO8dBpDmI4P0qOsswe03KivfM+pSg=; b=SSz/TKMGXfq2uJtn
-	jtteFMqgN2L7ZzxEX0wHfQaovXGfSmeAElB2ZSiSC+iqDKGE5wZ/jHoOx3dJqWrI
-	mX903i6JUFR5RqneuP7OPxL6OixXGnRawo+ngxZKsBaUqTomeVAJGJauDCF94YVB
-	EQ6rAzsStk0rzL4yG5ZkQ2SnDxlVLeAjKOY//MuxeIwDs7eCvoEsADUBt09Eshdj
-	SxIJAN8fHGC+khnldX4Y3h6X70JjVG4Hym2aC47usK9557KP25GKVxPf0ovMdFCJ
-	nkw0+is5uLto7AOMWHTKQ2ABWP3sECG94kI6kAoP5tHCz3MaKpxR+AvEdX2Abzlm
-	xf8jgA==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46whuf5cv1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 29 May 2025 08:20:26 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54T8KPLs023920
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 29 May 2025 08:20:25 GMT
-Received: from ap-cloud-sh02-lnx.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 29 May 2025 01:20:22 -0700
-From: Songwei Chai <quic_songchai@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Andy Gross
-	<agross@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Rob Herring
-	<robh+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, <quic_songchai@quicinc.com>
-CC: <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: [PATCH v5 6/7] coresight-tgu: add timer/counter functionality for TGU
-Date: Thu, 29 May 2025 16:19:47 +0800
-Message-ID: <20250529081949.26493-7-quic_songchai@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250529081949.26493-1-quic_songchai@quicinc.com>
-References: <20250529081949.26493-1-quic_songchai@quicinc.com>
+	Thu, 29 May 2025 08:32:08 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ad574992fcaso111949566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 01:32:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1748507526; x=1749112326; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+yd0OdHrM2Itm96/YuqXehoTn8EREnI2dfLKcvCeLuM=;
+        b=LJaUzltK1cwAWlS5IAc821l1wZYlQ2ERK4837jP4l1KvmfOONccKbrm/43I17/HG1f
+         nrjViTBxRpYdD6IVoYTh6Y5k1vYqp64ctYihPey/19b2s/8JtXXc6DZ3HrUp7alY6ZJu
+         cNJWCCPygvrqeS/LYBVjmaQenMp5hD9WDCT5s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748507526; x=1749112326;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+yd0OdHrM2Itm96/YuqXehoTn8EREnI2dfLKcvCeLuM=;
+        b=BfZDEOko9yqtCK2OUOqowa5qqUFyZsXufvWdU1AP9Lo2nyFrTf/iSZZitSa6p+Zp5O
+         Hb60JdsrN+8J/mchUnEuSv3UWm1Er7tjN4iFxSuwefzdtMNYGlBO4hJoOdYqb9hVzxLu
+         2zXMl6KNXVqVwB3JhDCgFbYXHYDxHMredWzUtP4mNzV5C7Yqw69qP1ymq8mNmBVGsTHn
+         OWFeUbVtSVu1YUR+3mrV8Qzfa5qGEa8D5vV5Z3Tb4CpujOq3L3SaC+kTijMfQmF1s0/O
+         caWqJvhr9ablsu1h15ORpcg2n9lZRZ3b7/+0QZCG8aUd2iwmXGjmHMp9Vjgmt4stTjle
+         LvuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXDSWI6v2jYtsOmCIUzVNDkakCF8qZ4S69Ffx8Tg71EcKX2rp3yXujaUzUQPEWQc/uY5pbC/dKoS4cxsg4xgcWX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAs8vbJG6NSjXGFnkFnbQGOSoklh95QnyByKzcvTB1U2MUu11y
+	tQMNzn0jvMVkBsiw19o8jZO6OaowzbCau5bxTudx6o+ux4KtMputv8nnivX+S99Jp2o=
+X-Gm-Gg: ASbGncv78afoSi4kMDuyKnyoS7iIkkOselpOch+1898lTUlZWDhswvq2Oy7vwb2SxjW
+	m0D5Ru3flyuPY3JdEIH6dZZaYGMyEvpQ1TaY7r5r8hTRQRG7syzg+YpUuRrj11WSlWpleFOi2TF
+	nfs9rnbyChLv5IInAKN/CrDTo8mucL7okkK1ZoPPl2YBGRqqjAyxNeuA1TzL0u6jdSJQjDioQ9y
+	W07KpEIahz0K7LaJ7OdIyhaIjndVQOa54Y/xTS2AdmmchV5ruK3/l95hNBzVSH+oBxv4RpGOcPD
+	XgFaFwOhs5G5b1kq42GGAePhrIUfQRsSNgn1adeZZXgKvw7qZsq7zcyKWLGjjajWJ1S1+3hdqUI
+	lQCLxp6ZSRUAl4BaY
+X-Google-Smtp-Source: AGHT+IHJPmyMvrXWwF+oJ+y1YEj0csZRYNNz7OEbL3/Z3gW/L6Zao3qlTysBk8RNZogBxgTqOB++Gw==
+X-Received: by 2002:a17:907:9611:b0:adb:1b2b:fe1c with SMTP id a640c23a62f3a-adb1b2c0f71mr86246766b.2.1748507526094;
+        Thu, 29 May 2025 01:32:06 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.42.248])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5d82e87esm100609866b.63.2025.05.29.01.32.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 May 2025 01:32:05 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: michael@amarulasolutions.com,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@denx.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Heiko Schocher <hs@denx.de>,
+	=?UTF-8?q?Jo=C3=A3o=20Paulo=20Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 0/4] Support i.MX28 Amarula rmm board
+Date: Thu, 29 May 2025 10:31:03 +0200
+Message-ID: <20250529083201.2286915-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=OslPyz/t c=1 sm=1 tr=0 ts=683818ca cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=dt9VzEwgFbYA:10 a=COk6AnOGAAAA:8 a=BcM_5deOPQQ-aTJjZ08A:9
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: RH11JaOUHQDu8QygBCnfcnq1PqpSSbtH
-X-Proofpoint-GUID: RH11JaOUHQDu8QygBCnfcnq1PqpSSbtH
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTI5MDA4MCBTYWx0ZWRfX0Lt0m0/w3Kxq
- 2xdHY/VZn88HbVRy3iVy+0VDdK7xkwDjxum5aEy6m/TIxZufUbS7Ca8Qkfqy6oLXuHTOOsG9EPU
- SdnSOXmtIm3Tjv35rhgEmeRqQ/6DGFB4TYXV6MeG0B1xepqh9xwQXQp7uIDMEV6TwC26d8EXR2L
- paU+LPBvAaZmE4OaIkeFUZm+dQm/yrMq1VFICgsYsONw01Y8iSpqbwPcPEnh9l1A6ytPRM9t8JU
- gS0p3SD84D5w7tFEW01QUL8WP5upEt0/+Q8safUKOn8MS3EYheMVXknecuc22hz4AfboS5T7Fxx
- Bv917JLONMHRikL/BESXjQtFNdE/zZafVe1gtUGU4FJL9/dL+TNzeKkmN2GeEqumEK5HATTX4sF
- u9Icj+jQrs8+3ymnZ+o70FCdRDYetoHE+fk6VwOKb9MrWjMR3iDOcp6Om6lmNjX5vopDhYlV
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-29_04,2025-05-29_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 mlxlogscore=999 adultscore=0 malwarescore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 mlxscore=0 lowpriorityscore=0
- spamscore=0 suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
- definitions=main-2505290080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_012034_638416_152B306E 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20250529_013207_902553_30FD6B49 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,375 +116,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add counter and timer node for each step which could be
-programed if they are to be utilized in trigger event/sequence.
+The series adds support for i.MX28 Amarula rmm board.
 
-Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
----
- .../testing/sysfs-bus-coresight-devices-tgu   |  14 ++
- drivers/hwtracing/coresight/coresight-tgu.c   | 134 ++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tgu.h   |  57 +++++++-
- 3 files changed, 203 insertions(+), 2 deletions(-)
+The board includes the following resources:
+ - 256 Mbytes NAND Flash
+ - 128 Mbytes DRAM DDR2
+ - CAN
+ - USB 2.0 high-speed/full-speed
+ - Ethernet MAC
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-index 374982f0e76a..cfdc80ab1cea 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-@@ -28,3 +28,17 @@ KernelVersion	6.16
- Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
- Description:
- 		(RW) Set/Get the next action with specific step for TGU.
-+
-+What:		/sys/bus/coresight/devices/<tgu-name>/step[0:7]_timer/reg[0:1]
-+Date:		May 2025
-+KernelVersion	6.16
-+Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
-+Description:
-+		(RW) Set/Get the timer value with specific step for TGU.
-+
-+What:		/sys/bus/coresight/devices/<tgu-name>/step[0:7]_counter/reg[0:1]
-+Date:		May 2025
-+KernelVersion	6.16
-+Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
-+Description:
-+		(RW) Set/Get the counter value with specific step for TGU.
-diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
-index 41f648b9e0ee..4a58f2cb8d8c 100644
---- a/drivers/hwtracing/coresight/coresight-tgu.c
-+++ b/drivers/hwtracing/coresight/coresight-tgu.c
-@@ -39,6 +39,12 @@ static int calculate_array_location(struct tgu_drvdata *drvdata,
- 	case TGU_CONDITION_SELECT:
- 		ret = step_index * (drvdata->max_condition_select) + reg_index;
- 		break;
-+	case TGU_COUNTER:
-+		ret = step_index * (drvdata->max_counter) + reg_index;
-+		break;
-+	case TGU_TIMER:
-+		ret = step_index * (drvdata->max_timer) + reg_index;
-+		break;
- 	default:
- 		break;
- 	}
-@@ -90,6 +96,16 @@ static ssize_t tgu_dataset_show(struct device *dev,
- 					  drvdata, tgu_attr->step_index,
- 					  tgu_attr->operation_index,
- 					  tgu_attr->reg_num)]);
-+	case TGU_TIMER:
-+		return sysfs_emit(buf, "0x%x\n",
-+				  drvdata->value_table->timer[calculate_array_location(
-+					  drvdata, tgu_attr->step_index, tgu_attr->operation_index,
-+					  tgu_attr->reg_num)]);
-+	case TGU_COUNTER:
-+		return sysfs_emit(buf, "0x%x\n",
-+				  drvdata->value_table->counter[calculate_array_location(
-+					  drvdata, tgu_attr->step_index, tgu_attr->operation_index,
-+					  tgu_attr->reg_num)]);
- 	default:
- 		break;
- 	}
-@@ -143,6 +159,18 @@ static ssize_t tgu_dataset_store(struct device *dev,
- 			tgu_attr->reg_num)] = val;
- 		ret = size;
- 		break;
-+	case TGU_TIMER:
-+		tgu_drvdata->value_table->timer[calculate_array_location(
-+			tgu_drvdata, tgu_attr->step_index, tgu_attr->operation_index,
-+			tgu_attr->reg_num)] = val;
-+		ret = size;
-+		break;
-+	case TGU_COUNTER:
-+		tgu_drvdata->value_table->counter[calculate_array_location(
-+			tgu_drvdata, tgu_attr->step_index, tgu_attr->operation_index,
-+			tgu_attr->reg_num)] = val;
-+		ret = size;
-+		break;
- 	default:
- 		break;
- 	}
-@@ -188,6 +216,24 @@ static umode_t tgu_node_visible(struct kobject *kobject,
- 				      attr->mode :
- 				      0;
- 			break;
-+		case TGU_COUNTER:
-+			if (drvdata->max_counter == 0)
-+				ret = SYSFS_GROUP_INVISIBLE;
-+			else
-+				ret = (tgu_attr->reg_num <
-+				       drvdata->max_counter) ?
-+					      attr->mode :
-+					      0;
-+			break;
-+		case TGU_TIMER:
-+			if (drvdata->max_timer == 0)
-+				ret = SYSFS_GROUP_INVISIBLE;
-+			else
-+				ret = (tgu_attr->reg_num <
-+				       drvdata->max_timer) ?
-+					      attr->mode :
-+					      0;
-+			break;
- 		default:
- 			break;
- 		}
-@@ -246,6 +292,34 @@ static ssize_t tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
- 				   CONDITION_SELECT_STEP(i, j));
- 		}
- 	}
-+
-+	for (i = 0; i < drvdata->max_step; i++) {
-+		for (j = 0; j < drvdata->max_timer; j++) {
-+			ret = check_array_location(drvdata, i, TGU_TIMER, j);
-+			if (ret == -EINVAL)
-+				goto exit;
-+
-+			tgu_writel(drvdata,
-+					drvdata->value_table->timer
-+					[calculate_array_location(drvdata, i,
-+					TGU_TIMER, j)],
-+					TIMER_COMPARE_STEP(i, j));
-+		}
-+	}
-+
-+	for (i = 0; i < drvdata->max_step; i++) {
-+		for (j = 0; j < drvdata->max_counter; j++) {
-+			ret = check_array_location(drvdata, i, TGU_COUNTER, j);
-+			if (ret == -EINVAL)
-+				goto exit;
-+
-+			tgu_writel(drvdata,
-+					drvdata->value_table->counter
-+					[calculate_array_location(drvdata, i,
-+					TGU_COUNTER, j)],
-+					COUNTER_COMPARE_STEP(i, j));
-+		}
-+	}
- 	/* Enable TGU to program the triggers */
- 	tgu_writel(drvdata, 1, TGU_CONTROL);
- exit:
-@@ -294,6 +368,31 @@ static void tgu_set_conditions(struct tgu_drvdata *drvdata)
- 	drvdata->max_condition_select = num_conditions + 1;
- }
- 
-+static void tgu_set_timer_counter(struct tgu_drvdata *drvdata)
-+{
-+	int num_timers, num_counters;
-+	u32 devid2;
-+
-+	devid2 = readl_relaxed(drvdata->base + CORESIGHT_DEVID2);
-+
-+	if (TGU_DEVID2_TIMER0(devid2) && TGU_DEVID2_TIMER1(devid2))
-+		num_timers = 2;
-+	else if (TGU_DEVID2_TIMER0(devid2) || TGU_DEVID2_TIMER1(devid2))
-+		num_timers = 1;
-+	else
-+		num_timers = 0;
-+
-+	if (TGU_DEVID2_COUNTER0(devid2) && TGU_DEVID2_COUNTER1(devid2))
-+		num_counters = 2;
-+	else if (TGU_DEVID2_COUNTER0(devid2) || TGU_DEVID2_COUNTER1(devid2))
-+		num_counters = 1;
-+	else
-+		num_counters = 0;
-+
-+	drvdata->max_timer = num_timers;
-+	drvdata->max_counter = num_counters;
-+}
-+
- static int tgu_enable(struct coresight_device *csdev, enum cs_mode mode,
- 		      void *data)
- {
-@@ -447,6 +546,22 @@ static const struct attribute_group *tgu_attr_groups[] = {
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(5),
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(6),
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(7),
-+	TIMER_ATTRIBUTE_GROUP_INIT(0),
-+	TIMER_ATTRIBUTE_GROUP_INIT(1),
-+	TIMER_ATTRIBUTE_GROUP_INIT(2),
-+	TIMER_ATTRIBUTE_GROUP_INIT(3),
-+	TIMER_ATTRIBUTE_GROUP_INIT(4),
-+	TIMER_ATTRIBUTE_GROUP_INIT(5),
-+	TIMER_ATTRIBUTE_GROUP_INIT(6),
-+	TIMER_ATTRIBUTE_GROUP_INIT(7),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(0),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(1),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(2),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(3),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(4),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(5),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(6),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(7),
- 	NULL,
- };
- 
-@@ -484,6 +599,7 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- 	tgu_set_reg_number(drvdata);
- 	tgu_set_steps(drvdata);
- 	tgu_set_conditions(drvdata);
-+	tgu_set_timer_counter(drvdata);
- 
- 	drvdata->value_table =
- 		devm_kzalloc(dev, sizeof(*drvdata->value_table), GFP_KERNEL);
-@@ -517,6 +633,24 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- 	if (!drvdata->value_table->condition_select)
- 		return -ENOMEM;
- 
-+	drvdata->value_table->timer = devm_kzalloc(
-+		dev,
-+		drvdata->max_step * drvdata->max_timer *
-+			sizeof(*(drvdata->value_table->timer)),
-+		GFP_KERNEL);
-+
-+	if (!drvdata->value_table->timer)
-+		return -ENOMEM;
-+
-+	drvdata->value_table->counter = devm_kzalloc(
-+		dev,
-+		drvdata->max_step * drvdata->max_counter *
-+			sizeof(*(drvdata->value_table->counter)),
-+		GFP_KERNEL);
-+
-+	if (!drvdata->value_table->counter)
-+		return -ENOMEM;
-+
- 	drvdata->enable = false;
- 	desc.type = CORESIGHT_DEV_TYPE_HELPER;
- 	desc.pdata = adev->dev.platform_data;
-diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtracing/coresight/coresight-tgu.h
-index 214ee67d1947..be9c87ec7e3c 100644
---- a/drivers/hwtracing/coresight/coresight-tgu.h
-+++ b/drivers/hwtracing/coresight/coresight-tgu.h
-@@ -8,7 +8,7 @@
- 
- /* Register addresses */
- #define TGU_CONTROL 0x0000
--
-+#define CORESIGHT_DEVID2	0xfc0
- /* Register read/write */
- #define tgu_writel(drvdata, val, off) __raw_writel((val), drvdata->base + off)
- #define tgu_readl(drvdata, off) __raw_readl(drvdata->base + off)
-@@ -16,6 +16,11 @@
- #define TGU_DEVID_SENSE_INPUT(devid_val) ((int) BMVAL(devid_val, 10, 17))
- #define TGU_DEVID_STEPS(devid_val) ((int)BMVAL(devid_val, 3, 6))
- #define TGU_DEVID_CONDITIONS(devid_val) ((int)BMVAL(devid_val, 0, 2))
-+#define TGU_DEVID2_TIMER0(devid_val) ((int)BMVAL(devid_val, 18, 23))
-+#define TGU_DEVID2_TIMER1(devid_val) ((int)BMVAL(devid_val, 13, 17))
-+#define TGU_DEVID2_COUNTER0(devid_val) ((int)BMVAL(devid_val, 6, 11))
-+#define TGU_DEVID2_COUNTER1(devid_val) ((int)BMVAL(devid_val, 0, 5))
-+
- #define NUMBER_BITS_EACH_SIGNAL 4
- #define LENGTH_REGISTER 32
- 
-@@ -51,6 +56,8 @@
- #define PRIORITY_START_OFFSET 0x0074
- #define CONDITION_DECODE_OFFSET 0x0050
- #define CONDITION_SELECT_OFFSET 0x0060
-+#define TIMER_START_OFFSET 0x0040
-+#define COUNTER_START_OFFSET 0x0048
- #define PRIORITY_OFFSET 0x60
- #define REG_OFFSET 0x4
- 
-@@ -62,6 +69,12 @@
- #define CONDITION_DECODE_STEP(step, decode) \
- 	(CONDITION_DECODE_OFFSET + REG_OFFSET * decode + STEP_OFFSET * step)
- 
-+#define TIMER_COMPARE_STEP(step, timer) \
-+	(TIMER_START_OFFSET + REG_OFFSET * timer + STEP_OFFSET * step)
-+
-+#define COUNTER_COMPARE_STEP(step, counter) \
-+	(COUNTER_START_OFFSET + REG_OFFSET * counter + STEP_OFFSET * step)
-+
- #define CONDITION_SELECT_STEP(step, select) \
- 	(CONDITION_SELECT_OFFSET + REG_OFFSET * select + STEP_OFFSET * step)
- 
-@@ -83,6 +96,12 @@
- #define STEP_SELECT(step_index, reg_num) \
- 	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_SELECT, reg_num)
- 
-+#define STEP_TIMER(step_index, reg_num) \
-+	tgu_dataset_rw(reg##reg_num, step_index, TGU_TIMER, reg_num)
-+
-+#define STEP_COUNTER(step_index, reg_num) \
-+	tgu_dataset_rw(reg##reg_num, step_index, TGU_COUNTER, reg_num)
-+
- #define STEP_PRIORITY_LIST(step_index, priority)  \
- 	{STEP_PRIORITY(step_index, 0, priority),  \
- 	 STEP_PRIORITY(step_index, 1, priority),  \
-@@ -122,6 +141,18 @@
- 	 NULL           \
- 	}
- 
-+#define STEP_TIMER_LIST(n) \
-+	{STEP_TIMER(n, 0), \
-+	 STEP_TIMER(n, 1), \
-+	 NULL           \
-+	}
-+
-+#define STEP_COUNTER_LIST(n) \
-+	{STEP_COUNTER(n, 0), \
-+	 STEP_COUNTER(n, 1), \
-+	 NULL           \
-+	}
-+
- #define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
- 	(&(const struct attribute_group){\
- 		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
-@@ -143,13 +174,29 @@
- 		.name = "step" #step "_condition_select" \
- 	})
- 
-+#define TIMER_ATTRIBUTE_GROUP_INIT(step)\
-+	(&(const struct attribute_group){\
-+		.attrs = (struct attribute*[])STEP_TIMER_LIST(step),\
-+		.is_visible = tgu_node_visible,\
-+		.name = "step" #step "_timer" \
-+	})
-+
-+#define COUNTER_ATTRIBUTE_GROUP_INIT(step)\
-+	(&(const struct attribute_group){\
-+		.attrs = (struct attribute*[])STEP_COUNTER_LIST(step),\
-+		.is_visible = tgu_node_visible,\
-+		.name = "step" #step "_counter" \
-+	})
-+
- enum operation_index {
- 	TGU_PRIORITY0,
- 	TGU_PRIORITY1,
- 	TGU_PRIORITY2,
- 	TGU_PRIORITY3,
- 	TGU_CONDITION_DECODE,
--	TGU_CONDITION_SELECT
-+	TGU_CONDITION_SELECT,
-+	TGU_TIMER,
-+	TGU_COUNTER
- };
- 
- /* Maximum priority that TGU supports */
-@@ -166,6 +213,8 @@ struct value_table {
- 	unsigned int *priority;
- 	unsigned int *condition_decode;
- 	unsigned int *condition_select;
-+	unsigned int *timer;
-+	unsigned int *counter;
- };
- 
- /**
-@@ -180,6 +229,8 @@ struct value_table {
-  * @max_step: Maximum step size
-  * @max_condition_decode: Maximum number of condition_decode
-  * @max_condition_select: Maximum number of condition_select
-+ * @max_timer: Maximum number of timers
-+ * @max_counter: Maximum number of counters
-  *
-  * This structure defines the data associated with a TGU device,
-  * including its base address, device pointers, clock, spinlock for
-@@ -197,6 +248,8 @@ struct tgu_drvdata {
- 	int max_step;
- 	int max_condition_decode;
- 	int max_condition_select;
-+	int max_timer;
-+	int max_counter;
- };
- 
- #endif
+Changes in v3:
+- In imx28-amarula-rmm.dts:
+  - Drop xceiver-supply property from can0 node.
+  - Rearrange the order of specific nodes and properties
+    alphabetically.
 
+Changes in v2:
+- In imx28-amarula-rmm.dts:
+  - Replace '-' with '@' for the pinctrl sub-nodes.
+  - Replace edt,edt-ft5x06 with edt,edt-ft5306.
+  - Drop LCD reset hog pin.
+  - Add correct #address-cells and #size-cells to gpmi node.
+  - Replace edt-ft5x06@38 with touchscreen@38.
+- Drop from commit messages all references to LCD display.
+- Add patch [1/4] "dt-bindings: mfd: convert mxs-lradc bindings to
+  json-schema".
+
+Dario Binacchi (4):
+  dt-bindings: mfd: convert mxs-lradc bindings to json-schema
+  ARM: dts: imx28: add pwm7 muxing options
+  dt-bindings: arm: fsl: add i.MX28 Amarula rmm board
+  ARM: dts: mxs: support i.MX28 Amarula rmm board
+
+ .../devicetree/bindings/arm/fsl.yaml          |   1 +
+ .../devicetree/bindings/mfd/mxs-lradc.txt     |  45 ---
+ .../devicetree/bindings/mfd/mxs-lradc.yaml    | 106 ++++++
+ arch/arm/boot/dts/nxp/mxs/Makefile            |   1 +
+ .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 303 ++++++++++++++++++
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |  10 +
+ 6 files changed, 421 insertions(+), 45 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.txt
+ create mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
+ create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
+
+-- 
+2.43.0
+
+base-commit: 2d1e9b3978bc041336f1bf6c611fbbf435a297f5
+branch: imx28-amarula-rmm
 
