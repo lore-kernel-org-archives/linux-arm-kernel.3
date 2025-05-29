@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DA0C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F61C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 14:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hcaf0i1yzSnlXG0VMMe4a71gA+Cd90Mc4SySd7/rJBY=; b=YkLTO16h50tc7PBfAMzH5UIU2s
-	kwZv68/Cu38lK2BK59K1OGad1Qx12jG4k2qtJOe7c+O+dxYM1H4Co7qyMy+iKSLD5sZ75xiIkDI+c
-	qz3/Z/PN6As7LH3/Ke7YhrtoVCr8drp9Yc+qAhx1U7pL51QfHchVQiBOPAMDCvcIVcdI4Z4B+vI6k
-	x+McelaOYXuJ6NuOn6AT+9+yhINYBgts+snl37hHs0a9T5V34HzpPz3uIisdzc8G4tz7o0JTmEsev
-	yiPXSU6QUfZZuiUmII2ODtKPfIAFYlj38pDkU21fz3YYLlld1AXABIkgyXpdq78fDyNh8mi2OrfdT
-	Fr0LWT5w==;
+	bh=LB8Z0NdebTCSX3P28O31aPVquD8FAYcpb5/udEKYrn4=; b=gZSnN63092xIx419DH7UFurRBs
+	dqfW4EQCvMdKtyppH35RMs2tZgyjSNLYoIcBk8MJFL7AMBNFLKLha8t8WPNpOhbuYULLfi5CRlThn
+	Y48Kiz7bbBsWl1hTB3pmOK54nmZIUBDUO24yooUNzZIu0BEuoSN0tQWJMBP7WOhq6GFWnWVGV1NJ8
+	6ddya+ZYzLyJK58zwGXosvke5JhQUwSzEmsthBDf5zTAJJYM3OHioSqt6o3/dUrIVRLS7ma/T7FSb
+	J2v7STwkl+o6lFnZYDBO7TXyBgTN1dRe0a8gHLWfcmdmYvLg5HtOsAEKe/52moyy7Zm/DNDachEy3
+	W11qW5Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKdsH-0000000FwL2-0luC;
-	Thu, 29 May 2025 14:04:49 +0000
+	id 1uKduM-0000000FwSO-3bUI;
+	Thu, 29 May 2025 14:06:58 +0000
 Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKdPw-0000000Fs6S-184G
+	id 1uKdPz-0000000Fs7r-2tcK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 13:35:33 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54TDZUem3591417;
-	Thu, 29 May 2025 08:35:30 -0500
+	Thu, 29 May 2025 13:35:36 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54TDZXvu3591425;
+	Thu, 29 May 2025 08:35:33 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748525730;
-	bh=Hcaf0i1yzSnlXG0VMMe4a71gA+Cd90Mc4SySd7/rJBY=;
+	s=ti-com-17Q1; t=1748525733;
+	bh=LB8Z0NdebTCSX3P28O31aPVquD8FAYcpb5/udEKYrn4=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=RrlRSEJ+s1PlrKUjakvJMGsJ0wRfuBt72A3wyQ/9l7LxSGD4EIqH3YD5Ej44wXzSy
-	 TdahktdyAs8Ir8ro1QD1VMxglsvKZCo4BUOTM65zYRy21yoFrpsJ3vOqYsF67zuGJc
-	 4tFtfZBjDkCTD38hRvaYx3QWyKfiVHDqWeuSmLb4=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54TDZUnm180349
+	b=TCe6Zrw1eggZ34MGHhi6X/HAmnKCXcHCrDAeQx0wxHCKI4aZP+hm7oIANlArNWPlT
+	 lcwaMVp9e/IdaCvX1fjR6wv1C6LjKaxQvk7+AkiElGINDoIqj6vzv5GQrLG6g509YK
+	 wCK+HPcfenKUdpXEpkbYS3taxs0C8Oxijs+4ZJCI=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54TDZX7o2202210
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 29 May 2025 08:35:30 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 29 May 2025 08:35:33 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 29
- May 2025 08:35:29 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 08:35:33 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 29 May 2025 08:35:29 -0500
+ Frontend Transport; Thu, 29 May 2025 08:35:32 -0500
 Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [172.24.227.169])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54TDYi8s1650971;
-	Thu, 29 May 2025 08:35:26 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54TDYi8t1650971;
+	Thu, 29 May 2025 08:35:30 -0500
 From: Siddharth Vadapalli <s-vadapalli@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
         <s-vadapalli@ti.com>
-Subject: [PATCH 12/13] arm64: dts: ti: k3-j721s2-common-proc-board: Enable "mcu_cpsw" in board file
-Date: Thu, 29 May 2025 19:04:42 +0530
-Message-ID: <20250529133443.1252293-13-s-vadapalli@ti.com>
+Subject: [PATCH 13/13] arm64: dts: ti: k3-j721s2-mcu-wakeup: Disable "mcu_cpsw" in the SoC file
+Date: Thu, 29 May 2025 19:04:43 +0530
+Message-ID: <20250529133443.1252293-14-s-vadapalli@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250529133443.1252293-1-s-vadapalli@ti.com>
 References: <20250529133443.1252293-1-s-vadapalli@ti.com>
@@ -69,8 +69,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_063532_352194_5408EA64 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20250529_063535_776541_A94BB76E 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for disabling "mcu_cpsw" device-tree node in the SoC file,
-namely "k3-j721s2-mcu-wakeup.dtsi", enable it in the board file.
-
-The motivation for this change is that of following the existing convention
-of disabling nodes in the SoC file and only enabling the required ones in
-the board file.
+Following the existing convention of disabling nodes in the SoC file and
+enabling only the required ones in the board file, disable "mcu_cpsw" node.
 
 Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-index e2fc1288ed07..a482b3ad5095 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
-@@ -409,6 +409,7 @@ &main_sdhci1 {
- };
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
+index bc31266126d0..b5fd012d9564 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
+@@ -552,6 +552,8 @@ mcu_cpsw: ethernet@46000000 {
+ 			    "tx4", "tx5", "tx6", "tx7",
+ 			    "rx";
  
- &mcu_cpsw {
-+	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&mcu_cpsw_pins_default>, <&mcu_mdio_pins_default>;
- };
++		status = "disabled";
++
+ 		ethernet-ports {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
 -- 
 2.34.1
 
