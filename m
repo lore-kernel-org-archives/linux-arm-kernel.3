@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D9AC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:24:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C59EEC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 16:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1tSel3scbAebqAGaqx0WAdDuK59jgb/Kgus0RNUA+zc=; b=Md4Djdg9pEdzgZm7pPdQvKcpki
-	NnMvbS3kUcHzHP9iXBOjjw1KupMixIBJZTGpoFGFDKRTxKkI4iTz4OKA52D8NEbCWRXLE0Ytw0jyu
-	4zWYVu0K4MUY3b52OcbWzwtU0k/9aaLosJ49HAXnJh97Hvv97R2u8npM3Q2luaBr7DR/EYmPJI5Cm
-	f7H6vCcVKzllPdT4q3Ssqm7dVGky8sjz908D7VdtLJaM0tneXARUJnSKTg0+v5c/GvgxCrwkGwoMx
-	zAWzxh2Tr1xOScki197EjgI2EWQwuUx4hYcDKuYYT3l1ziHO0E6bVYmiT5AOMN3Z+u7lpaw66lilJ
-	jNdCgAOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vKsJBpnLk/08e874ONiX4VGfefkwWilar7u3v3aQIIc=; b=FkoBZ1a3JQUwPSSE5/MND9L1oL
+	Gzt8WdA7o4WXHRCBm2grv6OwqbNiWfLdPNLWfbYfBRuA/4a/N6f0RiLTuqHyabMr81tQP2Iq+dykd
+	IogGPlFrWQZKZgAfVotMkmD1LwP3V+uLpv8ybaIcAEIcJIGLlUAUKgHu29z9skd1BmTMpl4ftyqh7
+	++UfWlYUHYFi6iHYcpUQ6D+fXvy9OCFFNB0G5GfLvc/A6rICVOHLngiIi/Gm3cV9rmNVQhXGKjDf1
+	uZZtj0jX6WnEjuoFdNtPKMmQFOSCUdB06k0F8mm8mJuEq6DtAOiLnd8nB/zwV18yfDeyQRT5iYcOD
+	1n/b2Tfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKg3G-0000000GAxZ-3iSl;
-	Thu, 29 May 2025 16:24:18 +0000
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKfxH-0000000GAP2-2BG3
+	id 1uKg6S-0000000GBJf-2BNK;
+	Thu, 29 May 2025 16:27:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKg4K-0000000GB7z-2duG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 16:18:10 +0000
-Message-ID: <d5be7218-8ec1-4208-ac24-94d4831bfdb6@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748535480;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1tSel3scbAebqAGaqx0WAdDuK59jgb/Kgus0RNUA+zc=;
-	b=fRZLaRWG0s9LorTzK+I2Z89Vbphji7APvt/VS0CeeHvrPpv+E8wYcxtcXhT4liPtTHaBxU
-	j9YC6A2GgoX81qroo8JCpr2wkLW0H/LoQWveGpUnUDK6an2phNi/uxLLgE+oNDbKffOuV5
-	QYYN/2OjYhEGS1mnJzxGPsmyCfOAyEQ=
-Date: Thu, 29 May 2025 12:17:55 -0400
+	Thu, 29 May 2025 16:25:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED9E2176A;
+	Thu, 29 May 2025 09:25:04 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85B843F673;
+	Thu, 29 May 2025 09:25:18 -0700 (PDT)
+Date: Thu, 29 May 2025 17:25:13 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v22 2/5] arm64: el2_setup.h: Make __init_el2_fgt labels
+ consistent, again
+Message-ID: <aDiBuC2JjAUNDq29@e133380.arm.com>
+References: <20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org>
+ <20250520-arm-brbe-v19-v22-2-c1ddde38e7f8@kernel.org>
+ <aC9NhvYzajduVm7y@e133380.arm.com>
+ <CAL_JsqKWY7rRGTbHXTmm4RC9F8fqrs133=75XFkVdm91bLHfaw@mail.gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report
- coalesce parameters in DMAengine flow
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>,
- "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "vkoul@kernel.org" <vkoul@kernel.org>,
- "Simek, Michal" <michal.simek@amd.com>,
- "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
- "horms@kernel.org" <horms@kernel.org>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "git (AMD-Xilinx)" <git@amd.com>, "Katakam, Harini" <harini.katakam@amd.com>
-References: <20250525102217.1181104-1-suraj.gupta2@amd.com>
- <679d6810-9e76-425c-9d4e-d4b372928cc3@linux.dev>
- <BL3PR12MB6571ABA490895FDB8225CAEBC967A@BL3PR12MB6571.namprd12.prod.outlook.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <BL3PR12MB6571ABA490895FDB8225CAEBC967A@BL3PR12MB6571.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAL_JsqKWY7rRGTbHXTmm4RC9F8fqrs133=75XFkVdm91bLHfaw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_091807_863445_9350BBC9 
-X-CRM114-Status: GOOD (  29.05  )
+X-CRM114-CacheID: sfid-20250529_092524_761355_DF05CE28 
+X-CRM114-Status: GOOD (  29.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,203 +77,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/28/25 08:00, Gupta, Suraj wrote:
-> [AMD Official Use Only - AMD Internal Distribution Only]
+Hi,
+
+On Thu, May 22, 2025 at 12:20:35PM -0500, Rob Herring wrote:
+> On Thu, May 22, 2025 at 11:15 AM Dave Martin <Dave.Martin@arm.com> wrote:
+> >
+> > On Tue, May 20, 2025 at 05:27:37PM -0500, Rob Herring (Arm) wrote:
+> > > From: Anshuman Khandual <anshuman.khandual@arm.com>
+> > >
+> > > Commit 5b39db6037e7 ("arm64: el2_setup.h: Rename some labels to be more
+> > > diff-friendly") reworked the labels in __init_el2_fgt to say what's
+> > > skipped rather than what the target location is. The exception was
+> > > "set_fgt_" which is where registers are written. In reviewing the BRBE
+> > > additions, Will suggested "set_debug_fgt_" where HDFGxTR_EL2 are
+> > > written. Doing that would partially revert commit 5b39db6037e7 undoing
+> > > the goal of minimizing additions here, but it would follow the
+> > > convention for labels where registers are written.
+> > >
+> > > So let's do both. Branches that skip something go to a "skip" label and
+> > > places that set registers have a "set" label. This results in some
+> > > double labels, but it makes things entirely consistent.
+> > >
+> > > While we're here, the SME skip label was incorrectly named, so fix it.
+> > >
+> > > Reported-by: Will Deacon <will@kernel.org>
+> > > Cc: Dave Martin <Dave.Martin@arm.com>
+> > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > > ---
+> > > This one can be applied even if the rest of the series is not.
+> > >
+> > > v22:
+> > >  - New patch
+> > > ---
+> > >  arch/arm64/include/asm/el2_setup.h | 10 +++++++---
+> > >  1 file changed, 7 insertions(+), 3 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> > > index ebceaae3c749..30f57b0334a3 100644
+> > > --- a/arch/arm64/include/asm/el2_setup.h
+> > > +++ b/arch/arm64/include/asm/el2_setup.h
+> > > @@ -204,19 +204,21 @@
+> > >       orr     x0, x0, #(1 << 62)
+> > >
+> > >  .Lskip_spe_fgt_\@:
+> > > +
+> > > +.Lset_debug_fgt_\@:
+> >
+> > Dangling label?  There doesn't seem to be any branch to it in this
+> > series, unless I've missed something.
 > 
->> -----Original Message-----
->> From: Sean Anderson <sean.anderson@linux.dev>
->> Sent: Tuesday, May 27, 2025 9:47 PM
->> To: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
->> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
->> pabeni@redhat.com; vkoul@kernel.org; Simek, Michal <michal.simek@amd.com>;
->> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org
->> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
->> kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
->> <harini.katakam@amd.com>
->> Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report coalesce
->> parameters in DMAengine flow
->>
->> Caution: This message originated from an External Source. Use proper caution
->> when opening attachments, clicking links, or responding.
->>
->>
->> On 5/25/25 06:22, Suraj Gupta wrote:
->> > Add support to configure / report interrupt coalesce count and delay
->> > via ethtool in DMAEngine flow.
->> > Netperf numbers are not good when using non-dmaengine default values,
->> > so tuned coalesce count and delay and defined separate default values
->> > in dmaengine flow.
->> >
->> > Netperf numbers and CPU utilisation change in DMAengine flow after
->> > introducing coalescing with default parameters:
->> > coalesce parameters:
->> >    Transfer type        Before(w/o coalescing)  After(with coalescing)
->> > TCP Tx, CPU utilisation%      925, 27                 941, 22
->> > TCP Rx, CPU utilisation%      607, 32                 741, 36
->> > UDP Tx, CPU utilisation%      857, 31                 960, 28
->> > UDP Rx, CPU utilisation%      762, 26                 783, 18
->> >
->> > Above numbers are observed with 4x Cortex-a53.
->>
->> How does this affect latency? I would expect these RX settings to increase latency
->> around 5-10x. I only use these settings with DIM since it will disable coalescing
->> during periods of light load for better latency.
->>
->> (of course the way to fix this in general is RSS or some other method involving
->> multiple queues).
->>
-> 
-> I took values before NAPI addition in legacy flow (rx_threshold: 24, rx_usec: 50) as reference. But netperf numbers were low with them, so tried tuning both and selected the pair which gives good numbers.
+> I tried to explain that in the commit message. To have both what you
+> wanted and what Will suggested, you end up with 2 labels in between
+> the last skip and setting registers.
 
-Yeah, but the reason is that you are trading latency for throughput.
-There is only one queue, so when the interface is saturated you will not
-get good latency anyway (since latency-sensitive packets will get
-head-of-line blocked). But when activity is sparse you can good latency
-if there is no coalescing. So I think coalescing should only be used
-when there is a lot of traffic. Hence why I only adjusted the settings
-once I implemented DIM. I think you should be able to implement it by
-calling net_dim from axienet_dma_rx_cb, but it will not be as efficient
-without NAPI.
+Hmm, I wasn't trying to advocate for adding dead labels in anticipation
+of their use, just to avoid labels whose names conflict with an
+anticipated future use.
 
-Actually, if you are looking into improving performance, I think lack of
-NAPI is probably the biggest limitation with the dmaengine backend.
+I guess this is harmless, but I may look at this again as and when...
 
->> > Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
->> > ---
->> > This patch depend on following AXI DMA dmengine driver changes sent to
->> > dmaengine mailing list as pre-requisit series:
->> > https://lore.kernel.org/all/20250525101617.1168991-1-suraj.gupta2@amd.
->> > com/
->> > ---
->> >  drivers/net/ethernet/xilinx/xilinx_axienet.h  |  6 +++
->> > .../net/ethernet/xilinx/xilinx_axienet_main.c | 53 +++++++++++++++++++
->> >  2 files changed, 59 insertions(+)
->> >
->> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> > b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> > index 5ff742103beb..cdf6cbb6f2fd 100644
->> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> > @@ -126,6 +126,12 @@
->> >  #define XAXIDMA_DFT_TX_USEC          50
->> >  #define XAXIDMA_DFT_RX_USEC          16
->> >
->> > +/* Default TX/RX Threshold and delay timer values for SGDMA mode with
->> DMAEngine */
->> > +#define XAXIDMAENGINE_DFT_TX_THRESHOLD       16
->> > +#define XAXIDMAENGINE_DFT_TX_USEC    5
->> > +#define XAXIDMAENGINE_DFT_RX_THRESHOLD       24
->> > +#define XAXIDMAENGINE_DFT_RX_USEC    16
->> > +
->> >  #define XAXIDMA_BD_CTRL_TXSOF_MASK   0x08000000 /* First tx packet */
->> >  #define XAXIDMA_BD_CTRL_TXEOF_MASK   0x04000000 /* Last tx packet */
->> >  #define XAXIDMA_BD_CTRL_ALL_MASK     0x0C000000 /* All control bits */
->> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> > b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> > index 1b7a653c1f4e..f9c7d90d4ecb 100644
->> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> > @@ -1505,6 +1505,7 @@ static int axienet_init_dmaengine(struct
->> > net_device *ndev)  {
->> >       struct axienet_local *lp = netdev_priv(ndev);
->> >       struct skbuf_dma_descriptor *skbuf_dma;
->> > +     struct dma_slave_config tx_config, rx_config;
->> >       int i, ret;
->> >
->> >       lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0"); @@ -1520,6
->> > +1521,22 @@ static int axienet_init_dmaengine(struct net_device *ndev)
->> >               goto err_dma_release_tx;
->> >       }
->> >
->> > +     tx_config.coalesce_cnt = XAXIDMAENGINE_DFT_TX_THRESHOLD;
->> > +     tx_config.coalesce_usecs = XAXIDMAENGINE_DFT_TX_USEC;
->> > +     rx_config.coalesce_cnt = XAXIDMAENGINE_DFT_RX_THRESHOLD;
->> > +     rx_config.coalesce_usecs =  XAXIDMAENGINE_DFT_RX_USEC;
->>
->> I think it would be clearer to just do something like
->>
->>         struct dma_slave_config tx_config = {
->>                 .coalesce_cnt = 16,
->>                 .coalesce_usecs = 5,
->>         };
->>
->> since these are only used once. And this ensures that you initialize the whole struct.
->>
->> But what tree are you using? I don't see these members on net-next or dmaengine.
-> 
-> These changes are proposed in separate series in dmaengine https://lore.kernel.org/all/20250525101617.1168991-2-suraj.gupta2@amd.com/ and I described it here below my SOB.
-
-I think you should post those patches with this series to allow them to
-be reviewed appropriately.
-
---Sean
-
->>
->> > +     ret = dmaengine_slave_config(lp->tx_chan, &tx_config);
->> > +     if (ret) {
->> > +             dev_err(lp->dev, "Failed to configure Tx coalesce parameters\n");
->> > +             goto err_dma_release_tx;
->> > +     }
->> > +     ret = dmaengine_slave_config(lp->rx_chan, &rx_config);
->> > +     if (ret) {
->> > +             dev_err(lp->dev, "Failed to configure Rx coalesce parameters\n");
->> > +             goto err_dma_release_tx;
->> > +     }
->> > +
->> >       lp->tx_ring_tail = 0;
->> >       lp->tx_ring_head = 0;
->> >       lp->rx_ring_tail = 0;
->> > @@ -2170,6 +2187,19 @@ axienet_ethtools_get_coalesce(struct net_device
->> *ndev,
->> >       struct axienet_local *lp = netdev_priv(ndev);
->> >       u32 cr;
->> >
->> > +     if (lp->use_dmaengine) {
->> > +             struct dma_slave_caps tx_caps, rx_caps;
->> > +
->> > +             dma_get_slave_caps(lp->tx_chan, &tx_caps);
->> > +             dma_get_slave_caps(lp->rx_chan, &rx_caps);
->> > +
->> > +             ecoalesce->tx_max_coalesced_frames = tx_caps.coalesce_cnt;
->> > +             ecoalesce->tx_coalesce_usecs = tx_caps.coalesce_usecs;
->> > +             ecoalesce->rx_max_coalesced_frames = rx_caps.coalesce_cnt;
->> > +             ecoalesce->rx_coalesce_usecs = rx_caps.coalesce_usecs;
->> > +             return 0;
->> > +     }
->> > +
->> >       ecoalesce->use_adaptive_rx_coalesce = lp->rx_dim_enabled;
->> >
->> >       spin_lock_irq(&lp->rx_cr_lock);
->> > @@ -2233,6 +2263,29 @@ axienet_ethtools_set_coalesce(struct net_device
->> *ndev,
->> >               return -EINVAL;
->> >       }
->> >
->> > +     if (lp->use_dmaengine)  {
->> > +             struct dma_slave_config tx_cfg, rx_cfg;
->> > +             int ret;
->> > +
->> > +             tx_cfg.coalesce_cnt = ecoalesce->tx_max_coalesced_frames;
->> > +             tx_cfg.coalesce_usecs = ecoalesce->tx_coalesce_usecs;
->> > +             rx_cfg.coalesce_cnt = ecoalesce->rx_max_coalesced_frames;
->> > +             rx_cfg.coalesce_usecs = ecoalesce->rx_coalesce_usecs;
->> > +
->> > +             ret = dmaengine_slave_config(lp->tx_chan, &tx_cfg);
->> > +             if (ret) {
->> > +                     NL_SET_ERR_MSG(extack, "failed to set tx coalesce parameters");
->> > +                     return ret;
->> > +             }
->> > +
->> > +             ret = dmaengine_slave_config(lp->rx_chan, &rx_cfg);
->> > +             if (ret) {
->> > +                     NL_SET_ERR_MSG(extack, "failed to set rx coalesce
->> parameters");
->> > +                     return ret;
->> > +             }
->> > +             return 0;
->> > +     }
->> > +
->> >       if (new_dim && !old_dim) {
->> >               cr = axienet_calc_cr(lp, axienet_dim_coalesce_count_rx(lp),
->> >                                    ecoalesce->rx_coalesce_usecs);
+Cheers
+---Dave
 
