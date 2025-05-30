@@ -4,73 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA24FC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 20:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14BD0C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 21:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/7Rjw+WopmTa1vaLvNS1VCjRXs+bdi21LWvZ4+BSm4=; b=3QsVSKMmlOorwaAmM9BDt75Emu
-	dYBavPdAQa8PDqkHw14kw0D7eZ/C8Wkc04oQWi2njwhpYM5AvmYWNPmqRpa5pJXBgoQeTzRfj3T6s
-	5ScW7Fd5resaX5NRtJ5CQJGg0LOu7PnJnAlL5c8T1O/0ZnnGCsyBQWXqIjwPhv3Six4TMlIXR7jQS
-	GpubZjUMEPDEn7cHUDJ90Ky0K+ZzQSsLZ/O2IOgD9tN+x47Sk199cysEIXjiEXLxWBpBZh0xXywA5
-	bE4Y+STORk/UaWF/XgBjnPt5RfcR4cEFri/FjjmO0UsYF6/OZEyVjegjfTqHNKI+wqSYWBM9SeaLi
-	Ke3cNehA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ui/QrbL7NYYx3NkBF4L355Bj0a2stDxg8CIKmYEffdE=; b=zB7vyn01ZvdswL3DqoZn8lPSJO
+	/Aj7xHrEwVSrwKbc2Pqlg+E3uxYNIOGyhK4LA7aoeQXqrtFaP23s1DssGWv0cQ+DTD9NH5WK9J3GR
+	9TxbejUbD6TwhmCOU1u2wOz7OeeQYN1Pczu3MKTia39h4W+SGqGqym+L+AV53drAWf8rJbkjtNo1e
+	ubweQS/7l+rtwju6a4ffH4UvMqOK7I+iTpgMOR5BW6NL1wHdOMnJ620UPi3prBWjiLplfZNReFsid
+	w9xYaQldZaFrEEHEX0RGScIjgLiNkbp+8oSe2mrQ60vW1NXnjOrB6DDvi3ihloLk4q+Sp716Iw9f3
+	JeeryTxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL6dN-00000001qJY-1fMd;
-	Fri, 30 May 2025 20:47:21 +0000
-Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	id 1uL7CR-00000001uss-3qbT;
+	Fri, 30 May 2025 21:23:35 +0000
+Received: from mail-dm6nam12on20703.outbound.protection.outlook.com ([2a01:111:f403:2417::703] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL6bB-00000001pcU-3pOR
+	id 1uL7AI-00000001ueL-3Kvo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 20:45:08 +0000
-Message-ID: <e6f20d3c-65fb-4809-a105-36ad8f2b2645@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748637900;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V/7Rjw+WopmTa1vaLvNS1VCjRXs+bdi21LWvZ4+BSm4=;
-	b=wgTv7ZFzuDrEitYZ5MS8IP+Z11ysmO775gDIsE9WW/aQp24Xv8kAr0htlnYVlgzDMWkUM/
-	WypaObQwodd5JfdOeavCTx6Vh+ez9+1uYfsXIcCfsKLmpa622ZEGqjC8gkeYKwH8XDSTIn
-	BF4TbEDqLaAkP4lK4Jue+2ttGk1rMNA=
-Date: Fri, 30 May 2025 16:44:56 -0400
-MIME-Version: 1.0
-Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report
- coalesce parameters in DMAengine flow
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>,
- "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "edumazet@google.com" <edumazet@google.com>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "vkoul@kernel.org" <vkoul@kernel.org>,
- "Simek, Michal" <michal.simek@amd.com>,
- "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
- "horms@kernel.org" <horms@kernel.org>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "git (AMD-Xilinx)" <git@amd.com>, "Katakam, Harini" <harini.katakam@amd.com>
-References: <20250525102217.1181104-1-suraj.gupta2@amd.com>
- <679d6810-9e76-425c-9d4e-d4b372928cc3@linux.dev>
- <BL3PR12MB6571ABA490895FDB8225CAEBC967A@BL3PR12MB6571.namprd12.prod.outlook.com>
- <d5be7218-8ec1-4208-ac24-94d4831bfdb6@linux.dev>
- <BL3PR12MB6571A48E5FD0092231D0B0A5C961A@BL3PR12MB6571.namprd12.prod.outlook.com>
+	Fri, 30 May 2025 21:21:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MW4ElJjKFB++kQ/tQuYB5Zw2aoNPCB4fCPyOKbLCvpSL7l7ws3cV1CvvA8aclIpjU4iFt5DqpojJIUx9GFTdUXRvBEmlGPnHiElORk/Kw8/3KF4wR9QzCUJPC216SCR2Bqo04nXMiSCeG3jdRr8234SgK7DN3IfTDsRhkm0eDVp1xKc36YEOlOklPC00h++GJ1IUNDdL2GmYWackW0200w+Qq/uyzekVk3kL1DNQBZUJ4M/nk9M6RrztoAsNn/nktueBCGN0Iif5C24Gv4Uj66nxkfZM/INADF4xLrIZRr1IasYFS6BIT9e48WF75Y30zDKtOnfC+SHM4aqn5xLfyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ui/QrbL7NYYx3NkBF4L355Bj0a2stDxg8CIKmYEffdE=;
+ b=IvTIWk/qxwUnoUm8r2lQ+iEKQhRD4Vw9wyggjuvVIV9l91EYZH3IMC7uaSOwI3ibz1cl5wyiQfQojG5iEvSCy9MXMSxKT6Yt6H0+x+A1eJ3EIVf5jX1RTo2+beJP+hEl771Z6CZ1Xl1IkuFQMJsg0ODrkiWeFmRuKI+R5T/PS2lKoA2nRl4IdTMdVG4sbuPf6cNjPxkthRyrxZwDkO1CDe37YecNsUDL7kslPk6mKCai7G4VibNIAdPbztYRBEFpq3ce6LD0axpmikbHGUOEkMaYY87gHdw78nJ6DiIND+BRWUBCeAulW6rYsx9gRI+v0NX8n0exVc6sLmGwmZrG4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ui/QrbL7NYYx3NkBF4L355Bj0a2stDxg8CIKmYEffdE=;
+ b=UQKXdc4Qogo6DceI/KcwmF0uqgDz+crIP/iqHsXf8I4Kpuel5YU0ZNjla+1iGMdyHS87jyczfDufMCLZhdM5K/hOHED9XW7gI6KEv0b4fxavtP4g0e4qJx26n26mgDhIcBFDeb+WA7ozemynMOrjpZjCoUbO4WgxKbXNSYPILGA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ BN0PR01MB6958.prod.exchangelabs.com (2603:10b6:408:16d::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8769.30; Fri, 30 May 2025 21:21:17 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%6]) with mapi id 15.20.8769.029; Fri, 30 May 2025
+ 21:21:17 +0000
+Message-ID: <12f987c5-0e7f-4930-945f-bf7a2e73f5c2@os.amperecomputing.com>
+Date: Fri, 30 May 2025 14:21:11 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+To: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
+ catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Dev Jain <dev.jain@arm.com>
+References: <20250304222018.615808-1-yang@os.amperecomputing.com>
+ <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
+ <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
+ <912c3126-8ba7-4c3a-b168-438f92e89217@arm.com>
+ <2ab5f65c-b9dc-471c-9b61-70d765af285e@os.amperecomputing.com>
+ <239d4e93-7ab6-4fc9-b907-7ca9d71f81fd@arm.com>
+ <1141d96c-f785-48ee-a0f6-9ec658cc11c2@os.amperecomputing.com>
+ <9cdb027c-27db-4195-825d-1d63bec1b69b@os.amperecomputing.com>
+ <e3e6a3e0-3012-4d95-9236-4b4d57c7974c@arm.com>
+ <0769dbcb-bd9e-4c36-b2c1-a624abaeb5ce@os.amperecomputing.com>
+ <e8d74579-2e32-424f-bfed-5d3eb33b0a07@os.amperecomputing.com>
+ <c44cb356-112d-4dd8-854b-82212ee4815f@arm.com>
+ <936cc91a-b345-4e52-9cb5-922c9810c469@arm.com>
+ <a1ff2646-f429-4626-8541-19c7f301fc23@os.amperecomputing.com>
+ <d1226612-7ad8-4405-93a7-28148699ce45@arm.com>
+ <c2625558-a63e-4a63-a893-d2a31b3cc559@os.amperecomputing.com>
+ <1cc04c6b-ba0f-4e7f-ab85-46c364c66300@arm.com>
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <BL3PR12MB6571A48E5FD0092231D0B0A5C961A@BL3PR12MB6571.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <1cc04c6b-ba0f-4e7f-ab85-46c364c66300@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-ClientProxiedBy: CYZPR11CA0008.namprd11.prod.outlook.com
+ (2603:10b6:930:8d::14) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BN0PR01MB6958:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e22c27b-9cab-4a87-8607-08dd9fbfe9f5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SUtUcnE2MzNtVTRlbnJ4QTRxM0NaQWZabzVvSDRYTjdwb3BQT28xU2JDck4r?=
+ =?utf-8?B?MzBNU2l2S3VDM0FqbTJ1RTVBcDRhVWxBUzdNdlpWbnBBNEk5akpMd2JPc3lN?=
+ =?utf-8?B?aENoeWM2RXkvT3BUcEEvbEROV0tCRUdlNHpoWVAwempMQXpBcW9ROGtyY0RQ?=
+ =?utf-8?B?UDViajJRZXcvendCNWtyWFg4clV1RCswL2hURXB3TXpiYndoVFYxTHMrRHRP?=
+ =?utf-8?B?V2NuUkFuc0ovaVVCMFB6VHZOSzVqdkEvaUQvVmtaYVI1Z1NzTXU3Nmlta2oy?=
+ =?utf-8?B?anJ4Z2NpZ1FHNnkvcjNlOXhkTjFIVWZKaTA0VkRvdFo5YkZ6SmZRSGxFSHhq?=
+ =?utf-8?B?Zy9DVkhsR3dabjh6eXJWLzJrazE2NTRSSm5aLzVzckxpT3pOVUNqMUk2UlV6?=
+ =?utf-8?B?NDE2SFFPL2hRRHA0YWEyR2JZbU1KVG1LUnp4L3daQ2JENUJtQnVOUVJLeEhU?=
+ =?utf-8?B?b3VzbTY3SXd3L0dnUEFWSkZkMDFQdnJULzdaS3hnaFFBMTAyNmFmc2J5a1ZQ?=
+ =?utf-8?B?OElodm1KMUtGakkvaTNVVXMwTU5iVk1EU2ZnRER5UzhDVHd0RmZRRnVnd29x?=
+ =?utf-8?B?VlFMM1Q2NjlncllyK21FU1dlWjNvVTRhcmRPbGJRT1NQS09yZmtsWlBsS0ZE?=
+ =?utf-8?B?UVYxekUwaDBkL2NFWDVHUDJvdjlQYXcxOXlRSGpvekVYNzZxaERCaGdhYUVs?=
+ =?utf-8?B?YW5HTWJtNjZBa3hOakYzRVhmemQ0WVdTeEV5Sys4YTh5YVRiUXg4STZyT2RZ?=
+ =?utf-8?B?MnlVbjlUR0hVRDZwcHpZU2xDNzZISjFDc2JLZUZRUk5XWUMzcXhWSThRajAx?=
+ =?utf-8?B?TkFLWGYzK1F0ZWtuTlRFNFF0UVZUazRRcmtuTFM3dnBDNXBzdnBsY3F4YWRz?=
+ =?utf-8?B?ZFYrUE0wVlk1cDhlT0s1M0F6NmhoT21RUG1DRlF2eVk3UVdEVCszNDJva1Z0?=
+ =?utf-8?B?aVBvOHczY3hoTk8xeHEvc2xwZFA0WHBLWWNwVDBLeVBFTjJBWUVTWlJ3SUxx?=
+ =?utf-8?B?MmlxYjZCRElrZVZhWDVKcXlrY2dsd00xdUkvZHNGMzVaZUxjYXlucXUzWWpE?=
+ =?utf-8?B?QWpmQVRsV3ZZeS9DUERFZjJVRnpENVFqZm1SK3RlZ0FHRHpEbzIwd1Y4ZHow?=
+ =?utf-8?B?dHhTSXJ0a2d3c1dsM3JsRGdQZk5JeUJtdjBNcmdXelAxc1FnMlY0Vzc2WTZI?=
+ =?utf-8?B?WlBVeFZ0dFlsZFM2R1VtcmdxZDg1dzFab0l6MWw2SEF2UUt5NCt5bDNWdCty?=
+ =?utf-8?B?UHp5RzNUZWZydDdUSTk0ZWtUOTdmSFU4K1RqbVhTN0o2cWNZNzZhdWVFdzJL?=
+ =?utf-8?B?d2dJNThnRm9uSnVuZ0VBY2JyZCtBelhxMlczQXNuN2hXL3JvME9MVXRwdGtY?=
+ =?utf-8?B?UTVDSEtidXVLelN6U1ZKOE1la3NWVUFwdHJabm0yc09aeUtjM1JhaVNpTHRG?=
+ =?utf-8?B?bGdSbC9YOHU1ZTNYcW5va2pSYXNoNUl1K2dqYjErVGRYejI4ZnY3OEZtL3JE?=
+ =?utf-8?B?QVZURmFuUkdkd215TUVoTURjYWRRa2ltWXhLT1pJTXlKSkcwUkxkbFkyc3lF?=
+ =?utf-8?B?WGlxem5DbUZNc2hTU3lNQnFCSVJCTitXOVNlRDh3dWhIUUsrN0YwNThEU2dV?=
+ =?utf-8?B?bVBSZmNFU2g1a2d1UTZ6dzQvVVJhOTJhOTl0ejU3eTlHbVNmUnIzZTdDdGo4?=
+ =?utf-8?B?WWcwWEdUY0crZXVhM1FMMmxrUEV0Z1UvYVNBblVEUmM3S3JiYWpTVWt0ZFQ3?=
+ =?utf-8?B?T0NmUlZVU0htSGRWQkxCZDFQSWd3azdidmxWazVOR2RPWkZ2bkdxdEpzYzFR?=
+ =?utf-8?B?TTZ1Q0VzUlZCSlZLNnRGMnpjcnh1Nmo1dkFDNXY1TEg3SkhkM2VPYWM5MmZS?=
+ =?utf-8?B?WXZvWWpWRTg1OVp5VllNRnZEVzZ3eXlybEtlcFg3bnYzUXNFeExldENlbGF6?=
+ =?utf-8?Q?marESG8bxE8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OG0yaWpoL212TUxGWkFacTFxMmE2d0J4KzQyb0xWWEhQYkdwZFF5MG5JVDNj?=
+ =?utf-8?B?dDdBK1RRVVdzZUlSQWFnNGVlakozWDVzTkpKQ0l1ZXZZSWN4NjhpVWJRTmpo?=
+ =?utf-8?B?bVZkMlhtYXk1RW5qSDljTmVMNXZTc0h0dWltQVJOcWNyMEtteHVZMVlvQTF5?=
+ =?utf-8?B?T21uRnlrdGx6SSttUTNaL0dmN045cXdWS21EelhNTkowV0QxeXlCR3FOZWdI?=
+ =?utf-8?B?YW1zeVVxQzM3SVdCSVlvbXJUYVlnQUp5TW1OcW9Ma2pjSnJPcEJVWlRvR2lv?=
+ =?utf-8?B?dkNRWFlyRnZmNk1ROUZlUHVLWlNPbjlzY0hVYVlNK0hFY24wWEtvZkxWbWRZ?=
+ =?utf-8?B?bFVHS1BIaFJtQmc2bUJtTGNlUTk5NThaejBVbDFaek9kQWkydWVyTWxTQ29W?=
+ =?utf-8?B?TWRYUHNvWWhDTEMya3VFNlUrLzNYcDJCallHTjZsVEdjbzI2REQxYzByMUlM?=
+ =?utf-8?B?QzM1ZlJrb1NXb3liRHovR0N4MitYb2RReHRLSVVjcnltYVlETEZMcndrc01E?=
+ =?utf-8?B?VGJFTzFTZFlScW1nNTlnbGxScm5scHhuVjJldFdhYzBjRmg3TG5DM3hCUkQz?=
+ =?utf-8?B?SVhHWXZGMWhLdFZGc3lBUGZtSlBPbWl5c2JkcEV0L0RHR3lhbzdrNk9TMDVq?=
+ =?utf-8?B?SnB2WWRsK0VWYnNuZmpkTlBEb1hwSG5SNkh0Y2t6eEZONWs2K2lPc3QxeEdY?=
+ =?utf-8?B?cko4Z2dud0h3a1BXQlJ0NGRsNWpzb29SRThZbmpaQ0FBam84N3BCcDU4SzJm?=
+ =?utf-8?B?eXdhSUZndU4xWnczd3VsVlBrTHlPeHhSRGE3VHAzZVFxbWNsUmFKZFdTNXBl?=
+ =?utf-8?B?VFQxM2ZSNWs0eG94NFNYWVY4MmRqWFA0RUtIQUtya3Jodm9KZU84b3AyeHdD?=
+ =?utf-8?B?WkhZL2ZvaVJWcTU3VWptdGJWbERISTgrc2tjYnZCejlFUGdmR0daVlVmSHg0?=
+ =?utf-8?B?SVcrWDJrbFp0N2t1Q292SnB2UWtVSEdIK0ZmZi93YmUrNmRMNmszcW1Ic3Vk?=
+ =?utf-8?B?aHhkTDJTNHdiVCt0RjBMKzdiWlprbk11dzQ3VlNudHVqSDkrNEdlMlR6ZndE?=
+ =?utf-8?B?MTV0a0VZRTlZclllL295aWVYWTliYXAzcnlsSU5ubkNWNVo1UWNIdnNLcUxq?=
+ =?utf-8?B?TktNMCtxRTJSVktlVlNVZ2ZyQm44eDhhZG9VY1o2dzV3N0pVUFFiYXZlWEpU?=
+ =?utf-8?B?eCtycTZnTkgxbFFPUURici9lZlArampvcnhZY0NkbWkzQzVkZmMvOXFiYlNN?=
+ =?utf-8?B?bkMxM1h5K244Qm9ISG1EMEFhdW44UDRzWkZWUVFua09zNEw2NWhxd3pvN1BV?=
+ =?utf-8?B?TzNQYWhGMlN6cFJ4T0gzYUp0eTNrUUNwZUdCTFJVbk1NdWVuVm1LdDBGUGFt?=
+ =?utf-8?B?SHl0Nit2V2xuRE9HWmxSK1VCb0NGcC9jRGptNnBxVWhsT1ZxdXBFOCt0b1RB?=
+ =?utf-8?B?QVNZa05qakRzdkdhLy9Vc0VKeURyeWNPZDk2UFYxb21La1FvS25mNkRwSVR4?=
+ =?utf-8?B?M1BkQzRhM0hrelRHT0ZOWW0wR0pVVnp1cU5RMnc3Z2pOVW53M2YxK3ppTmhV?=
+ =?utf-8?B?ZUlMQTRVbjJobFpaajh2OTV2cVlNQjRPYW10NTRFSHkxdGVnLzR4aEFtMGw0?=
+ =?utf-8?B?cGZZN1k0TWlGTDJGZk1OWkhKT1VHSDZaUENwM2ZkTTBIK1BtSHBsa3VYSGhI?=
+ =?utf-8?B?aGNZQlYzWE9ZMzlFZ3ZHNGE1MnVSNVlhQ2h4UnBja2R2RU5EdWUycVRIZWV0?=
+ =?utf-8?B?MkF4eWV6VzQrUmJvMDYwc2hhN2JmWC9OTnFEaHVTOUgwK2pRcUYva2FqVW1z?=
+ =?utf-8?B?bHdySUNuNzhPdk4xNzVYbXlMaTZxWEI5UXUxcEpwZUQ4Nit1ZEtBMjNnRmN3?=
+ =?utf-8?B?K0QwSjNJdG94ZFJOMUJvM3M4NG9nYjdQUTVwV2xLV2FBK2hiWVRncEVySEtj?=
+ =?utf-8?B?eHdmTU1TZVd4VGJ6ZW5ZT0pXUGVkb1p2elJadlJoc0lHVXRRTFRQZGpGbUFK?=
+ =?utf-8?B?MWNnTW5pSE9PMDNGOFBPcmpPV2N4em5TOWtzVEM5ZXZDQWtxaWd1aGErUkM2?=
+ =?utf-8?B?VG52RnNTazNsU2NqTWdvNU5lclVyZCt0L05pdmorYmZqSEgxZXFSQWU5eC9a?=
+ =?utf-8?B?cWtYM09yaW5EaVZERFN6WGh1RVFUc2hEMG5HOTZrYzNCNGVnMUdmS2ZIRFZ5?=
+ =?utf-8?Q?6REqT0Su3j5rKR6mAKj9zFU=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e22c27b-9cab-4a87-8607-08dd9fbfe9f5
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2025 21:21:17.1314
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YXFXyYKzfDtWvz2hhv8gW80cpg3/Ga1bdSu6Ck9YEcBz9O0rbRx/as7npytUycGBmeKzbzURqeFoj7tE+7lgS0cCsbeogp7VTz4wSuVrQ/g=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR01MB6958
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_134506_729154_6853BFAD 
-X-CRM114-Status: GOOD (  33.55  )
+X-CRM114-CacheID: sfid-20250530_142122_908049_F74B0BF1 
+X-CRM114-Status: GOOD (  37.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,195 +195,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/30/25 06:18, Gupta, Suraj wrote:
-> [AMD Official Use Only - AMD Internal Distribution Only]
-> 
->> -----Original Message-----
->> From: Sean Anderson <sean.anderson@linux.dev>
->> Sent: Thursday, May 29, 2025 9:48 PM
->> To: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
->> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
->> pabeni@redhat.com; vkoul@kernel.org; Simek, Michal <michal.simek@amd.com>;
->> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org
->> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
->> kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
->> <harini.katakam@amd.com>
->> Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and report coalesce
->> parameters in DMAengine flow
->>
->> Caution: This message originated from an External Source. Use proper caution
->> when opening attachments, clicking links, or responding.
->>
->>
->> On 5/28/25 08:00, Gupta, Suraj wrote:
->> > [AMD Official Use Only - AMD Internal Distribution Only]
->> >
->> >> -----Original Message-----
->> >> From: Sean Anderson <sean.anderson@linux.dev>
->> >> Sent: Tuesday, May 27, 2025 9:47 PM
->> >> To: Gupta, Suraj <Suraj.Gupta2@amd.com>; andrew+netdev@lunn.ch;
->> >> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
->> >> pabeni@redhat.com; vkoul@kernel.org; Simek, Michal
->> >> <michal.simek@amd.com>; Pandey, Radhey Shyam
->> >> <radhey.shyam.pandey@amd.com>; horms@kernel.org
->> >> Cc: netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
->> >> linux- kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>;
->> >> Katakam, Harini <harini.katakam@amd.com>
->> >> Subject: Re: [PATCH net-next] net: xilinx: axienet: Configure and
->> >> report coalesce parameters in DMAengine flow
->> >>
->> >> Caution: This message originated from an External Source. Use proper
->> >> caution when opening attachments, clicking links, or responding.
->> >>
->> >>
->> >> On 5/25/25 06:22, Suraj Gupta wrote:
->> >> > Add support to configure / report interrupt coalesce count and
->> >> > delay via ethtool in DMAEngine flow.
->> >> > Netperf numbers are not good when using non-dmaengine default
->> >> > values, so tuned coalesce count and delay and defined separate
->> >> > default values in dmaengine flow.
->> >> >
->> >> > Netperf numbers and CPU utilisation change in DMAengine flow after
->> >> > introducing coalescing with default parameters:
->> >> > coalesce parameters:
->> >> >    Transfer type        Before(w/o coalescing)  After(with coalescing)
->> >> > TCP Tx, CPU utilisation%      925, 27                 941, 22
->> >> > TCP Rx, CPU utilisation%      607, 32                 741, 36
->> >> > UDP Tx, CPU utilisation%      857, 31                 960, 28
->> >> > UDP Rx, CPU utilisation%      762, 26                 783, 18
->> >> >
->> >> > Above numbers are observed with 4x Cortex-a53.
->> >>
->> >> How does this affect latency? I would expect these RX settings to
->> >> increase latency around 5-10x. I only use these settings with DIM
->> >> since it will disable coalescing during periods of light load for better latency.
->> >>
->> >> (of course the way to fix this in general is RSS or some other method
->> >> involving multiple queues).
->> >>
->> >
->> > I took values before NAPI addition in legacy flow (rx_threshold: 24, rx_usec: 50) as
->> reference. But netperf numbers were low with them, so tried tuning both and
->> selected the pair which gives good numbers.
->>
->> Yeah, but the reason is that you are trading latency for throughput.
->> There is only one queue, so when the interface is saturated you will not get good
->> latency anyway (since latency-sensitive packets will get head-of-line blocked). But
->> when activity is sparse you can good latency if there is no coalescing. So I think
->> coalescing should only be used when there is a lot of traffic. Hence why I only
->> adjusted the settings once I implemented DIM. I think you should be able to
->> implement it by calling net_dim from axienet_dma_rx_cb, but it will not be as efficient
->> without NAPI.
->>
-> 
-> Ok, got it. I'll keep default values used before NAPI in legacy flow (coalesce count: 24, delay: 50) for both Tx and Rx and remove perf comparisons.
 
-Those settings are actually probably even worse for latency. I'd leave
-the settings at 0/0 (coalescing disabled) to match the existing
-behavior. I think the perf comparisons are helpful, especially for
-people who know they are going to be throughput-limited.
 
-My main point is that I think extending the dmaengine API to allow for
-DIM will have practical benefits in reduced latency.
+On 5/30/25 12:17 AM, Ryan Roberts wrote:
+> On 29/05/2025 20:52, Yang Shi wrote:
+>>>>> I just had another conversation about this internally, and there is another
+>>>>> concern; we obviously don't want to modify the pgtables while other CPUs that
+>>>>> don't support BBML2 could be accessing them. Even in stop_machine() this may be
+>>>>> possible if the CPU stacks and task structure (for example) are allocated
+>>>>> out of
+>>>>> the linear map.
+>>>>>
+>>>>> So we need to be careful to follow the pattern used by kpti; all secondary CPUs
+>>>>> need to switch to the idmap (which is installed in TTBR0) then install the
+>>>>> reserved map in TTBR1, then wait for CPU 0 to repaint the linear map, then have
+>>>>> the secondary CPUs switch TTBR1 back to swapper then switch back out of idmap.
+>>>> So the below code should be ok?
+>>>>
+>>>> cpu_install_idmap()
+>>>> Busy loop to wait for cpu 0 done
+>>>> cpu_uninstall_idmap()
+>>> Once you have installed the idmap, you'll need to call a function by its PA so
+>>> you are actually executing out of the idmap. And you will need to be in assembly
+>>> so you don't need the stack, and you'll need to switch TTBR1 to the reserved
+>>> pgtable, so that the CPU has no access to the swapper pgtable (which CPU 0 is
+>>> able to modify).
+>>>
+>>> You may well be able to reuse __idmap_kpti_secondary in proc.S, or lightly
+>>> refactor it to work for both the existing idmap_kpti_install_ng_mappings case,
+>>> and your case.
+>> I'm wondering whether we really need idmap for repainting. I think repainting is
+>> different from kpti. We just split linear map which is *not* used by kernel
+>> itself, the mappings for kernel itself is intact, we don't touch it at all. So
+>> as long as CPU 0 will not repaint the linear map until all other CPUs busy
+>> looping in stop_machine fn, then we are fine.
+> But *how* are the other CPUs busy looping? Are they polling a variable? Where
+> does that variable live? The docs say that a high priority thread is run for
+> each CPU. So there at least needs to be a task struct and a stack. There are
+> some Kconfigs where the stack comes from the linear map, so if the variable that
+> is polls is on its stack (or even on CPU 0's stack then that's a problem. If the
+> scheduler runs and accesses the task struct which may be allocated from the
+> linear map (e.g. via kmalloc), that's a problem.
+>
+> The point is that you have to understand all the details of stop_machine() to be
+> confident that it is never accessing the linear map. And even if you can prove
+> that today, there is nothing stopping from the implementation changing in future.
+>
+> But then you have non-architectural memory accesses too (i.e. speculative
+> accesses). It's possible that the CPU does a speculative load, which causes the
+> TLB to do a translation and cache a TLB entry to the linear map. Then CPU 0
+> changes the pgtable and you have broken the BBM requirements from the secondary
+> CPU's perspective.
+>
+> So personally I think the only truely safe way to solve this is to switch the
+> secondary CPUs to the idmap, then install the reserved map in TTBR1. That way,
+> the secondary CPUs can't see the swapper pgtable at all and CPU 0 is free to do
+> what it likes.
 
->> Actually, if you are looking into improving performance, I think lack of NAPI is
->> probably the biggest limitation with the dmaengine backend.
+OK, I agree it is safer to run the busy loop (wait for repainting done 
+on boot CPU) in idmap address space.
+
+IIUC I should just need map the flag polled by the secondary CPU in 
+idmap so that both CPU 0 and secondary CPUs can access it. And have the 
+wait function in .idmap.text section. I may not reuse kpti code because 
+it is much simpler than kpti.
+
+Thanks,
+Yang
+
+>
+>> We can have two flags to control it. The first one should be a cpu mask, all
+>> secondary CPUs set its own mask bit to tell CPU 0 it is in stop machine fn
+>> (ready for repainting). The other flag is used by CPU 0 to tell all secondary
+>> CPUs repainting is done, please resume. We need have the two flags in kernel
+>> data section instead of stack.
 >>
-> Yes, I agree. NAPI for DMAEngine implementation is underway and will be sent to mainline soon.
-
-Looking forward to it.
-
->> >> > Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
->> >> > ---
->> >> > This patch depend on following AXI DMA dmengine driver changes sent
->> >> > to dmaengine mailing list as pre-requisit series:
->> >> > https://lore.kernel.org/all/20250525101617.1168991-1-suraj.gupta2@amd.
->> >> > com/
->> >> > ---
->> >> >  drivers/net/ethernet/xilinx/xilinx_axienet.h  |  6 +++
->> >> > .../net/ethernet/xilinx/xilinx_axienet_main.c | 53
->> >> > +++++++++++++++++++
->> >> >  2 files changed, 59 insertions(+)
->> >> >
->> >> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> >> > b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> >> > index 5ff742103beb..cdf6cbb6f2fd 100644
->> >> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> >> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
->> >> > @@ -126,6 +126,12 @@
->> >> >  #define XAXIDMA_DFT_TX_USEC          50
->> >> >  #define XAXIDMA_DFT_RX_USEC          16
->> >> >
->> >> > +/* Default TX/RX Threshold and delay timer values for SGDMA mode
->> >> > +with
->> >> DMAEngine */
->> >> > +#define XAXIDMAENGINE_DFT_TX_THRESHOLD       16
->> >> > +#define XAXIDMAENGINE_DFT_TX_USEC    5
->> >> > +#define XAXIDMAENGINE_DFT_RX_THRESHOLD       24
->> >> > +#define XAXIDMAENGINE_DFT_RX_USEC    16
->> >> > +
->> >> >  #define XAXIDMA_BD_CTRL_TXSOF_MASK   0x08000000 /* First tx packet
->> */
->> >> >  #define XAXIDMA_BD_CTRL_TXEOF_MASK   0x04000000 /* Last tx packet
->> */
->> >> >  #define XAXIDMA_BD_CTRL_ALL_MASK     0x0C000000 /* All control bits */
->> >> > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> > b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> > index 1b7a653c1f4e..f9c7d90d4ecb 100644
->> >> > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
->> >> > @@ -1505,6 +1505,7 @@ static int axienet_init_dmaengine(struct
->> >> > net_device *ndev)  {
->> >> >       struct axienet_local *lp = netdev_priv(ndev);
->> >> >       struct skbuf_dma_descriptor *skbuf_dma;
->> >> > +     struct dma_slave_config tx_config, rx_config;
->> >> >       int i, ret;
->> >> >
->> >> >       lp->tx_chan = dma_request_chan(lp->dev, "tx_chan0"); @@
->> >> > -1520,6
->> >> > +1521,22 @@ static int axienet_init_dmaengine(struct net_device
->> >> > +*ndev)
->> >> >               goto err_dma_release_tx;
->> >> >       }
->> >> >
->> >> > +     tx_config.coalesce_cnt = XAXIDMAENGINE_DFT_TX_THRESHOLD;
->> >> > +     tx_config.coalesce_usecs = XAXIDMAENGINE_DFT_TX_USEC;
->> >> > +     rx_config.coalesce_cnt = XAXIDMAENGINE_DFT_RX_THRESHOLD;
->> >> > +     rx_config.coalesce_usecs =  XAXIDMAENGINE_DFT_RX_USEC;
->> >>
->> >> I think it would be clearer to just do something like
->> >>
->> >>         struct dma_slave_config tx_config = {
->> >>                 .coalesce_cnt = 16,
->> >>                 .coalesce_usecs = 5,
->> >>         };
->> >>
->> >> since these are only used once. And this ensures that you initialize the whole
->> struct.
->> >>
->> >> But what tree are you using? I don't see these members on net-next or
->> dmaengine.
->> >
->> > These changes are proposed in separate series in dmaengine
->> https://lore.kernel.org/all/20250525101617.1168991-2-suraj.gupta2@amd.com/ and I
->> described it here below my SOB.
+>> The code of fn is in kernel text section, the flags are in kernel data section.
+>> I don't see how come fn (just doing simple busy loop) on secondary CPUs need to
+>> access linear map while repainting the linear map. After repainting the TLB will
+>> be flushed before letting secondary CPUs resume, so any access to linear map
+>> address after that point should be safe too.
 >>
->> I think you should post those patches with this series to allow them to be reviewed
->> appropriately.
+>> Does it sound reasonable to you? Did I miss something?
+> I think the potential for speculative access is the problem. Personally, I would
+> follow the pattern laid out by kpti. Then you can more easily defend it by
+> pointing to an established pattern.
+>
+> Thanks,
+> Ryan
+>
+>> Thanks,
+>> Yang
 >>
->> --Sean
-> 
-> DMAengine series functionality depends on commit
-> (https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git/commit/drivers/dma/xilinx?h=next&id=7e01511443c30a55a5ae78d3debd46d4d872517e)
-> in dmaengine which is currently not there in net-next. So I sent that
-> to dmaengine only. Please let me know if any way to send as single
-> series.
+>>> Thanks,
+>>> Ryan
+>>>
+>>>>> Given CPU 0 supports BBML2, I think it can just update the linear map live,
+>>>>> without needing to do the idmap dance?
+>>>> Yes, I think so too.
+>>>>
+>>>> Thanks,
+>>>> Yang
+>>>>
+>>>>> Thanks,
+>>>>> Ryan
+>>>>>
+>>>>>
+>>>>>> Thanks,
+>>>>>> Ryan
+>>>>>>
 
-It looks like this won't cause any conflicts, so I think you can just
-send the whole series with a note in the cover letter like
-
-| This series depends on commit 7e01511443c3 ("dmaengine: xilinx_dma:
-| Set dma_device directions") currently in dmaengine/next.
-
---Sean
 
