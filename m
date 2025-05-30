@@ -4,98 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E888C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 29 May 2025 23:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA552C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 00:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VCpgeKXbWpRtz3XeS2MBk7nO0oA3f7brSdzLdQTvzhc=; b=nQhvDSg3aPzhpcbbkAAgCG26A5
-	Xqvi7e+fjo5dqIip+2xibV/1RU/ZGeK6VXrPGuIEFWZeHLsHLII4s0gYLMT+pAnzc7dI3UD+jXCe+
-	cfdr/UvogIHDWFX0sY8UyqFe2AU3HHO/LIdOVmxtEAfT24Gi8i/C6IJU5OOGJEMnM97iJlYyBDclC
-	wCAf+2HdNTo9el+pq9XQ7qBJdsXXQmFY2QuUrsnoODNBNYI7eYcvGonePNmYTtUppxgzv8yjOugBu
-	UafQslxtrNimMHSxRiabFaqEy/CGmdMB+y6OLci1dWmtdzQ+Vet/AA/HAL1Z82XYul0wqo5zidgv/
-	mShr/evg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oqV2zaZYb16msnNvkKWqjXHPhCsvjDjyIHn68xDKX7U=; b=F22ZpwT8v4PyZtfpvnEIH7dl2k
+	O1lVDIf2iM3vpRBUKF3oAf2VUrKfRYqYCursab1UBq1SoWP3sr991tNZBtIBQGtQ9GV7l7xsDbPD1
+	EbGV5SX6/WwJvvaEgwmcUBFY+a5HlTcsQyX17OqitkK/x+hjOiZWG37r5MOba/hRY9p5fuyUW9Dr+
+	20IbNDWLiLo/MEJ6+ZxyH95QpwqHIMzmUo+lj4jwUUuJUTBRjOfi3o3osQkPPJmU0xGgW8kAsZUuK
+	jdS8u1JYXdYFPHIddRqC+GputyNxdI32lcMfjujOYFBDvWli8ze9l4buhVF4nsAWYrXOXo2vYZe5U
+	F9lBYbhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKn7T-0000000Gm0C-3tVS;
-	Thu, 29 May 2025 23:57:07 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1uKnDF-0000000GmQl-2AZc;
+	Fri, 30 May 2025 00:03:05 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKn5L-0000000GlmT-2v96
+	id 1uKnB7-0000000GmHK-111n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 29 May 2025 23:54:56 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ad56cbc7b07so236785466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 16:54:55 -0700 (PDT)
+	Fri, 30 May 2025 00:00:54 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-23505adcac8so10867125ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 17:00:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1748562894; x=1749167694; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=VCpgeKXbWpRtz3XeS2MBk7nO0oA3f7brSdzLdQTvzhc=;
-        b=Hb24Hv9M1M9R9B9OIg3K2RXNw6D7SPoV14Sp2Bu0VeeGSCTzHl9zf1vCIo/bqwUEcL
-         omoN+ycAAlwfyrWMca88C8BgaGt5w7Fwt9A72DtO3exPiUJ9+kmkanQek6NSSvj5xKUm
-         S8IZU8lQ+V0sETujghWI9pPQAoqIkMgrozWWc=
+        d=google.com; s=20230601; t=1748563252; x=1749168052; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=oqV2zaZYb16msnNvkKWqjXHPhCsvjDjyIHn68xDKX7U=;
+        b=MbTJ/TYdmN1ZqlKvterwMPjN9FF2X5aJodMxv2UzVnNHIg5AGREPLkDUwilnHMCYgr
+         vfrpeEDYFWmkvl7gpHEOZvZ0nGhVyZxC9r31866uGzRKGAhj6DHapdeRzwcZL5H5X63h
+         zRuSRF88rajoyMY+sjdPypTHL69sNByCJytiPRgky+9DDj/UCjMvlGsec3k+IEdnhqxW
+         f8t1d2Ta6KMFoLO+VuC2SQZFyiv/fhJsKssWre/Jw6oJCzPR3xV0J064kItybsALroRc
+         nXkEBSOhksKz9YQ6ZE9bp1+X74N6gJ0qNPX7PhUcpA9rGAfd0OD26NUzYnZ0OJFwl1cM
+         6Mcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748562894; x=1749167694;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VCpgeKXbWpRtz3XeS2MBk7nO0oA3f7brSdzLdQTvzhc=;
-        b=oFSFWJ6h3jMSatY/eoYookZ+Xy9FNqiSv5Ld4q5/0/mcZspGz9YIW4sBS03rLB8ToA
-         qs9yhTb+xXOBk+9xcOrgOIP60+87T6ByoULgfRE0pMy95XKv5v+IzjyyU27hivE0gYwh
-         vypbX5pytRlTQCNabXege3j9GOdu+uu9gL1HM6i0NX1SrC1zZ+Gkb7eHeVBqyBj/qOiQ
-         pAQXS6jCbkTMthtSn3K19Z59BRncEtXLBZXtXLyruChtEitEuCi9y5OBW9YtfOYnFWqo
-         V7xxX9lWcCajvnmovTPcLp+k9P/NxFtq/iV5VUT+/JwPc4mIe471pQSaLn1z84FweBQ3
-         6Syg==
-X-Forwarded-Encrypted: i=1; AJvYcCVxpwhavS6WaqvVmg6+p/DUWKgrHCWjZIHsCTV8V8TQoU3RWHA7BDE8Xsms83C1bTJrPcX8u+044dvm0tgk+A2N@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCXXZttIDeKGj7AeFJgKTYiFYUOs1qzihYIDrZ7VEL8H1S6cx8
-	4wNfkmfBYyFeyT4kSpsDhgbnThOj/sNWyq3PdK/5liSukOs3enhqy+vYyn8eSbm9e9Ze0uFtZy0
-	+gqGLCWw=
-X-Gm-Gg: ASbGncvexsn56M/1azeNGMiDKqx8ZqusYtqRTTulO6IgnpsznrMVsgLR8bAycY1igYM
-	TW9TwL0uXaayH1ILu48rzdbcq3UoFnSBpjWB6p82SYiumZZZUV+DBw3xp0h83VGi+7GbYHCeeNR
-	oMf1NIhWwegqXHC73msADmzguE36VjtiRkZe+GpmkKA7hACXJaigENmiBuskae4MPPFGgnifJps
-	tVvJoXtKNuROmd7WRVZpLY5eoOJaU2d5Q6lhy+jUdDmaTpgFM6HPKjv8nb3+W/Pkp9BfpwpxgNJ
-	OE2xttAXjTWXSckojvjKb3Kj2HKh7AMZ61fGiDNB+UIjjBs5ekWYS9IdV3L8iriwpaYmrbJeYdO
-	poiZU4fBwDtQtHpAVFvmNDf97Kg==
-X-Google-Smtp-Source: AGHT+IHzl/H6N+8MkKgW26xuN2xl1ZK02VjUltTp55BCeGHa5mnhktv+DOpa9yn3vJXkl/i8sMAKJg==
-X-Received: by 2002:a17:907:9449:b0:ad8:a935:b8e8 with SMTP id a640c23a62f3a-adb322456b2mr122819166b.5.1748562893998;
-        Thu, 29 May 2025 16:54:53 -0700 (PDT)
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com. [209.85.208.52])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5d82e846sm223212266b.70.2025.05.29.16.54.51
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 May 2025 16:54:51 -0700 (PDT)
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6055f106811so1182477a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 29 May 2025 16:54:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVtlB4oSSob+egHHc/eth24z3x+FtpIhhWNeu5K7y3jJWpj3o5YjBZ3G5X6CIeCLgOn3mbA85jHpeNaIm8L2wwh@lists.infradead.org
-X-Received: by 2002:a05:6402:35c6:b0:5f8:357e:bb1 with SMTP id
- 4fb4d7f45d1cf-6056e1597eamr926476a12.22.1748562890813; Thu, 29 May 2025
- 16:54:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250428170040.423825-1-ebiggers@kernel.org> <20250428170040.423825-9-ebiggers@kernel.org>
- <20250529110526.6d2959a9.alex.williamson@redhat.com> <20250529173702.GA3840196@google.com>
- <CAHk-=whCp-nMWyLxAot4e6yVMCGANTUCWErGfvmwqNkEfTQ=Sw@mail.gmail.com> <20250529211639.GD23614@sol>
-In-Reply-To: <20250529211639.GD23614@sol>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 29 May 2025 16:54:34 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wh+H-9649NHK5cayNKn0pmReH41rvG6hWee+oposb3EUg@mail.gmail.com>
-X-Gm-Features: AX0GCFuuQZJkBnHy-mtAufGSUKbxBrKrMtOhVAT8ZxGCHwWeq3lbFPW0g13cPtE
-Message-ID: <CAHk-=wh+H-9649NHK5cayNKn0pmReH41rvG6hWee+oposb3EUg@mail.gmail.com>
-Subject: Re: [PATCH v4 08/13] crypto: s390/sha256 - implement library instead
- of shash
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Alex Williamson <alex.williamson@redhat.com>, linux-crypto@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>
+        d=1e100.net; s=20230601; t=1748563252; x=1749168052;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oqV2zaZYb16msnNvkKWqjXHPhCsvjDjyIHn68xDKX7U=;
+        b=Wb9nCw7aJSdgc9SUce6tUB8f/+YLJpi6j8CYRGyKEPtbK+eR8lLZrEhWKpAFAKr+5J
+         eBoH1JKjWpGo1ArU8V7uH31JctwWbEMJWeoLicFL4vt531heoSbJZU6vBQEyys+5q2jr
+         r9M1VZ+RetkmOHUCtASbHBslmSKCHmsOcxTaK31nSgP95B6ZXoAH1nfkxj6p6AON8fqf
+         xt3GQgFnTFfwTPTMbU+wwAqhCp96Gw8JFmVa0UvQIl38cJh3MEQyU8jBVvV3W2GNpPTy
+         ZFM6XWei1QsBL2V8Oy9ngOjVHE/OdWNiwB9TAfx9Vkj9hRpx8rnD9t7MTyBarDLmyDi/
+         LbbA==
+X-Gm-Message-State: AOJu0Yy4nMrL59t1lWJy7SJDdZ9etN9OJnoiWiPEpuqcSQuMOMh2ODWD
+	i4YsKYWVl8u0cgcbT9ms0Jdz4/ICqLCxhsHzInBCr4vkRpzTR0kqoodyVIRfu41rpJ0+xW5WrXO
+	NJXR5rkuSoGdmLsGxAXwb/lzsTw==
+X-Google-Smtp-Source: AGHT+IFdBTb1UXSqpPt5cykjw9rqT6+HOnXH5PPgiJXNByeADrqw52IRjSlVO7u2LJ43PKOwmtraEC4P0wAYvbLsSQ==
+X-Received: from plsl18.prod.google.com ([2002:a17:903:2452:b0:223:690d:fd84])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:f711:b0:235:1962:1c13 with SMTP id d9443c01a7336-23539563146mr1447435ad.14.1748563252125;
+ Thu, 29 May 2025 17:00:52 -0700 (PDT)
+Date: Fri, 30 May 2025 00:00:44 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.1204.g71687c7c1d-goog
+Message-ID: <20250530000044.341911-1-dylanbhatch@google.com>
+Subject: [PATCH v5] arm64/module: Use text-poke API for late relocations.
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Song Liu <song@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Dylan Hatch <dylanbhatch@google.com>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_165455_853880_69B535E1 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20250529_170053_290916_740FBF68 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,53 +89,349 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 May 2025 at 14:16, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> So using crc32c() + ext4 + x86 as an example (but SHA-256 would be very
-> similar), the current behavior is that ext4.ko depends on the crc32c_arch()
-> symbol.
+To enable late module patching, livepatch modules need to be able to
+apply some of their relocations well after being loaded. In this
+scenario however, the livepatch module text and data is already RX-only,
+so special treatment is needed to make the late relocations possible. To
+do this, use the text-poking API for these late relocations.
 
-Yes, I think that's a good example.
+This patch is partially based off commit 88fc078a7a8f6 ("x86/module: Use
+text_poke() for late relocations").
 
-I think it's an example of something that "works", but it certainly is
-a bit hacky.
+Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+Acked-by: Song Liu <song@kernel.org>
+---
+ arch/arm64/kernel/module.c | 110 ++++++++++++++++++++++---------------
+ 1 file changed, 66 insertions(+), 44 deletions(-)
 
-Wouldn't it be nicer if just plain "crc32c()" did the right thing,
-instead of users having to do strange hacks just to get the optimized
-version that they are looking for?
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 06bb680bfe975..93e6d63074afe 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -23,6 +23,7 @@
+ #include <asm/insn.h>
+ #include <asm/scs.h>
+ #include <asm/sections.h>
++#include <asm/text-patching.h>
+ 
+ enum aarch64_reloc_op {
+ 	RELOC_OP_NONE,
+@@ -48,7 +49,26 @@ static u64 do_reloc(enum aarch64_reloc_op reloc_op, __le32 *place, u64 val)
+ 	return 0;
+ }
+ 
+-static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
++static void write_data(void *place, s64 *sval, size_t len, struct module *me)
++{
++	if (me->state == MODULE_STATE_UNFORMED)
++		memcpy(place, sval, len);
++	else
++		aarch64_insn_copy(place, sval, len);
++}
++
++static void write_insn(__le32 *place, u32 insn, struct module *me)
++{
++	__le32 le = cpu_to_le32(insn);
++
++	if (me->state == MODULE_STATE_UNFORMED)
++		*place = le;
++	else
++		aarch64_insn_copy(place, &le, sizeof(le));
++}
++
++static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len,
++		      struct module *me)
+ {
+ 	s64 sval = do_reloc(op, place, val);
+ 
+@@ -66,7 +86,7 @@ static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
+ 
+ 	switch (len) {
+ 	case 16:
+-		*(s16 *)place = sval;
++		write_data(place, &sval, sizeof(s16), me);
+ 		switch (op) {
+ 		case RELOC_OP_ABS:
+ 			if (sval < 0 || sval > U16_MAX)
+@@ -82,7 +102,7 @@ static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
+ 		}
+ 		break;
+ 	case 32:
+-		*(s32 *)place = sval;
++		write_data(place, &sval, sizeof(s32), me);
+ 		switch (op) {
+ 		case RELOC_OP_ABS:
+ 			if (sval < 0 || sval > U32_MAX)
+@@ -98,7 +118,7 @@ static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
+ 		}
+ 		break;
+ 	case 64:
+-		*(s64 *)place = sval;
++		write_data(place, &sval, sizeof(s64), me);
+ 		break;
+ 	default:
+ 		pr_err("Invalid length (%d) for data relocation\n", len);
+@@ -113,7 +133,8 @@ enum aarch64_insn_movw_imm_type {
+ };
+ 
+ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+-			   int lsb, enum aarch64_insn_movw_imm_type imm_type)
++			   int lsb, enum aarch64_insn_movw_imm_type imm_type,
++			   struct module *me)
+ {
+ 	u64 imm;
+ 	s64 sval;
+@@ -145,7 +166,7 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ 
+ 	/* Update the instruction with the new encoding. */
+ 	insn = aarch64_insn_encode_immediate(AARCH64_INSN_IMM_16, insn, imm);
+-	*place = cpu_to_le32(insn);
++	write_insn(place, insn, me);
+ 
+ 	if (imm > U16_MAX)
+ 		return -ERANGE;
+@@ -154,7 +175,8 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ }
+ 
+ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
+-			  int lsb, int len, enum aarch64_insn_imm_type imm_type)
++			  int lsb, int len, enum aarch64_insn_imm_type imm_type,
++			  struct module *me)
+ {
+ 	u64 imm, imm_mask;
+ 	s64 sval;
+@@ -170,7 +192,7 @@ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ 
+ 	/* Update the instruction's immediate field. */
+ 	insn = aarch64_insn_encode_immediate(imm_type, insn, imm);
+-	*place = cpu_to_le32(insn);
++	write_insn(place, insn, me);
+ 
+ 	/*
+ 	 * Extract the upper value bits (including the sign bit) and
+@@ -189,17 +211,17 @@ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ }
+ 
+ static int reloc_insn_adrp(struct module *mod, Elf64_Shdr *sechdrs,
+-			   __le32 *place, u64 val)
++			   __le32 *place, u64 val, struct module *me)
+ {
+ 	u32 insn;
+ 
+ 	if (!is_forbidden_offset_for_adrp(place))
+ 		return reloc_insn_imm(RELOC_OP_PAGE, place, val, 12, 21,
+-				      AARCH64_INSN_IMM_ADR);
++				      AARCH64_INSN_IMM_ADR, me);
+ 
+ 	/* patch ADRP to ADR if it is in range */
+ 	if (!reloc_insn_imm(RELOC_OP_PREL, place, val & ~0xfff, 0, 21,
+-			    AARCH64_INSN_IMM_ADR)) {
++			    AARCH64_INSN_IMM_ADR, me)) {
+ 		insn = le32_to_cpu(*place);
+ 		insn &= ~BIT(31);
+ 	} else {
+@@ -211,7 +233,7 @@ static int reloc_insn_adrp(struct module *mod, Elf64_Shdr *sechdrs,
+ 						   AARCH64_INSN_BRANCH_NOLINK);
+ 	}
+ 
+-	*place = cpu_to_le32(insn);
++	write_insn(place, insn, me);
+ 	return 0;
+ }
+ 
+@@ -255,23 +277,23 @@ int apply_relocate_add(Elf64_Shdr *sechdrs,
+ 		/* Data relocations. */
+ 		case R_AARCH64_ABS64:
+ 			overflow_check = false;
+-			ovf = reloc_data(RELOC_OP_ABS, loc, val, 64);
++			ovf = reloc_data(RELOC_OP_ABS, loc, val, 64, me);
+ 			break;
+ 		case R_AARCH64_ABS32:
+-			ovf = reloc_data(RELOC_OP_ABS, loc, val, 32);
++			ovf = reloc_data(RELOC_OP_ABS, loc, val, 32, me);
+ 			break;
+ 		case R_AARCH64_ABS16:
+-			ovf = reloc_data(RELOC_OP_ABS, loc, val, 16);
++			ovf = reloc_data(RELOC_OP_ABS, loc, val, 16, me);
+ 			break;
+ 		case R_AARCH64_PREL64:
+ 			overflow_check = false;
+-			ovf = reloc_data(RELOC_OP_PREL, loc, val, 64);
++			ovf = reloc_data(RELOC_OP_PREL, loc, val, 64, me);
+ 			break;
+ 		case R_AARCH64_PREL32:
+-			ovf = reloc_data(RELOC_OP_PREL, loc, val, 32);
++			ovf = reloc_data(RELOC_OP_PREL, loc, val, 32, me);
+ 			break;
+ 		case R_AARCH64_PREL16:
+-			ovf = reloc_data(RELOC_OP_PREL, loc, val, 16);
++			ovf = reloc_data(RELOC_OP_PREL, loc, val, 16, me);
+ 			break;
+ 
+ 		/* MOVW instruction relocations. */
+@@ -280,88 +302,88 @@ int apply_relocate_add(Elf64_Shdr *sechdrs,
+ 			fallthrough;
+ 		case R_AARCH64_MOVW_UABS_G0:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 0,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_UABS_G1_NC:
+ 			overflow_check = false;
+ 			fallthrough;
+ 		case R_AARCH64_MOVW_UABS_G1:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 16,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_UABS_G2_NC:
+ 			overflow_check = false;
+ 			fallthrough;
+ 		case R_AARCH64_MOVW_UABS_G2:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 32,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_UABS_G3:
+ 			/* We're using the top bits so we can't overflow. */
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 48,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_SABS_G0:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 0,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_SABS_G1:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 16,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_SABS_G2:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 32,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G0_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 0,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G0:
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 0,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G1_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 16,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G1:
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 16,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G2_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 32,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G2:
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 32,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G3:
+ 			/* We're using the top bits so we can't overflow. */
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 48,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 
+ 		/* Immediate instruction relocations. */
+ 		case R_AARCH64_LD_PREL_LO19:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2, 19,
+-					     AARCH64_INSN_IMM_19);
++					     AARCH64_INSN_IMM_19, me);
+ 			break;
+ 		case R_AARCH64_ADR_PREL_LO21:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 0, 21,
+-					     AARCH64_INSN_IMM_ADR);
++					     AARCH64_INSN_IMM_ADR, me);
+ 			break;
+ 		case R_AARCH64_ADR_PREL_PG_HI21_NC:
+ 			overflow_check = false;
+ 			fallthrough;
+ 		case R_AARCH64_ADR_PREL_PG_HI21:
+-			ovf = reloc_insn_adrp(me, sechdrs, loc, val);
++			ovf = reloc_insn_adrp(me, sechdrs, loc, val, me);
+ 			if (ovf && ovf != -ERANGE)
+ 				return ovf;
+ 			break;
+@@ -369,46 +391,46 @@ int apply_relocate_add(Elf64_Shdr *sechdrs,
+ 		case R_AARCH64_LDST8_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 0, 12,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_LDST16_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 1, 11,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_LDST32_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 2, 10,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_LDST64_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 3, 9,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_LDST128_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 4, 8,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_TSTBR14:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2, 14,
+-					     AARCH64_INSN_IMM_14);
++					     AARCH64_INSN_IMM_14, me);
+ 			break;
+ 		case R_AARCH64_CONDBR19:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2, 19,
+-					     AARCH64_INSN_IMM_19);
++					     AARCH64_INSN_IMM_19, me);
+ 			break;
+ 		case R_AARCH64_JUMP26:
+ 		case R_AARCH64_CALL26:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2, 26,
+-					     AARCH64_INSN_IMM_26);
++					     AARCH64_INSN_IMM_26, me);
+ 			if (ovf == -ERANGE) {
+ 				val = module_emit_plt_entry(me, sechdrs, loc, &rel[i], sym);
+ 				if (!val)
+ 					return -ENOEXEC;
+ 				ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2,
+-						     26, AARCH64_INSN_IMM_26);
++						     26, AARCH64_INSN_IMM_26, me);
+ 			}
+ 			break;
+ 
+-- 
+2.49.0.1204.g71687c7c1d-goog
 
-> Does any of the infrastructure to handle "this symbol is in multiple modules and
-> they must be loaded in this particular order" actually exist, though?
-
-Hmm. I was sure we already did that for other things, but looking
-around, I'm not finding any cases.
-
-Or rather, I _am_ finding cases where we export the same symbol from
-different code, but all the ones I found were being careful to not be
-active at the same time.
-
-I really thought we had cases where depending on which module you
-loaded you got different implementations, but it looks like it either
-was some historical thing that no longer exists - or that I need to go
-take my meds.
-
-> IMO this sounds questionable compared to just using static keys and/or branches,
-> which we'd need anyway to support the non-modular case.
-
-I really wish the non-modular case used static calls, not static keys
-like it does now.
-
-In fact, that should work even for modular users.
-
-Of course, not all architectures actually do the optimized thing, and
-the generic fallback uses indirect calls through a function pointer,
-but hey, if an architecture didn't bother with the rewriting code that
-is fixable - if the architecture maintainer cares.
-
-(On some architectures, indirect calls are not noticeably slower than
-direct calls - because you have to load the address from some global
-pointer area anyway - so not having the rewriting can be a "we don't
-need it" thing)
-
-               Linus
 
