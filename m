@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED32BC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 14:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A071C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 14:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L53dXikqTNXJkZTSFekn3I5MrGgFa0Qzi3Fg74QfOfE=; b=2Tdgx0Gl7hR0pqFf8rw5hQZQir
-	Y1UqSN/5piuJZ1dTjDwC+yKxkkbuxm5dMRQx9yxFJnyVm2i9I2xdx6K6zVUIgJ3qFHW3uVEXZHyyU
-	TYuP96Aui4AexEcbADGxWFDQqYvkyBm35u3BF296NljaRIgE0gNhJwR3LLlq4ZTQ6Pmj42hz/unBx
-	i046oaKqQoIBLeKnqqYW2YFJ35OKIGZhvBvFwklgEOneh4UJqEX+su27MBXZkGGUs1ReyMgvoNeNX
-	Gq2sRVhQDZcKvOaFUou87nQKOXuVXoAt47ErdB+H+P6M+8zL0kd6xh4LRCtvxNnhYd6bfgiByGY6J
-	k7o5uxSA==;
+	bh=XyVAQX0joFIksCWFAdgdsELtQX8CthYuIl66NHCVL6U=; b=DW1iZwvMDNavntY3q8gPBlMWtO
+	Kb5ceJ9+jU7i9eaadFbYWGvHWkBUT/yWYFJIcjdBRD7IzBDa88h5ojsbioyLVlKmqAuYE/h2YWnf3
+	Ntr70AnWyxsOxe7g+7jSI1KJxn+H8DgqOqrPszOqtcFCoujpUoSCxrIZO0SRW0STFWLXHih9PIQDE
+	lWzBjVvWsdJjuYta3HXQr9Y8s//75JgbgJKViR2w22Dg5mC20Ig6MEprmPYU8xdRuFGh0m+aLCdZ8
+	5OLSCn+gt9iywNCBc409n6BqmqE8IBpWcAbcCnXQ2pGets+QU9j01E8/19l5yQ8gD8/BbU+cxtcPD
+	hjK557qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL0hp-00000000u2z-46Fm;
-	Fri, 30 May 2025 14:27:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uL0u3-00000000vD8-1NYS;
+	Fri, 30 May 2025 14:40:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL0dx-00000000tQW-0D5y
+	id 1uL0ru-00000000v4P-1ciE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 14:23:34 +0000
+	Fri, 30 May 2025 14:37:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 14B41A4F654
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 14:23:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9714AC4CEEB
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 14:23:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D45DB5C03BB;
+	Fri, 30 May 2025 14:35:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F35CC4CEE9;
+	Fri, 30 May 2025 14:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748615009;
-	bh=G1DHqL85O4M7V9gqQeeeLVXS9o1JqvnLgjJ0b/R3998=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Kh+0GJAZgF9ocuGGvCpcj14yF/KsAoPDFdkcNZTBX11vSxNlxEVpWvxlhIY/pNRww
-	 KKLMXmTOaOG4JfN/kjaQydvmwzMSgbw5O3na6AwKMq7kqap9t0YaWI+dtdC2gIER4J
-	 ufOLi4JGLxgnZbAyWisY8tMNSNk5QQ8m7TjMxNHGDTfZuzeofdl2kDIf8D5P5/caVL
-	 XekITB6/ZmkITNSae0qeCdR7iz19oUGV1oJsIc5o7y79nTz4MbgjDW61ApyW0xx3nH
-	 eQXkqs8HWsCfTTzXEua71lmzYCbznr9wfAa6+nK5VEboNJX0+MoCgBlOMqyY4MjXSD
-	 nphD72Vpp7TPw==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-552206ac67aso2521137e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 07:23:29 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUsiH3b1HNGdGBax62uB1wRZN0wEzwLj+GuZfJAo29AtKc9yk+8zQlCOatfPx0oWH2Ohq4Pnz1+7NAOyNMAVGlY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuLFT3sZlnKKE/ZJqI8FLyW3jNq5gKWRXRx05Uc3InL6ZKG8Rd
-	YjtLzvvL3Mhqs4GujdQ14MhRKW7w6NcdVmkNuaLQQ/xHo9+tPYBTmC+orR5JNWPJKpdVT6qLkOK
-	czrBGRIzC9a9wJRO+y378D0H/UUf+z3s=
-X-Google-Smtp-Source: AGHT+IGt/ob5oIdyFBNz3BNQJMytXMyiUKhYop+0LOnh+OuVTmEFUuUGiES8anXXR0vfHxL+cc3/rDK2U4LsEG3cMBU=
-X-Received: by 2002:a05:6512:1150:b0:553:2a2f:22eb with SMTP id
- 2adb3069b0e04-5533d1ab3d4mr864981e87.36.1748615007973; Fri, 30 May 2025
- 07:23:27 -0700 (PDT)
+	s=k20201202; t=1748615877;
+	bh=DcExpfUxA2y7MtLpRIkfyTCIoZyjbCW7UxtG5yfs9T0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tSFMWDrjZ2HR7LSMPSo57mUpYR2XxepzeXCA6iv+/09XCbAjBI3b4PHs9q8YbeOtu
+	 9nEwLWShgt77KCAV6ghfrs+XVUg8U9MFDRofWNciTyzq2N4IxdLk/4d2/oZOZ1zYUe
+	 a1Vxt0EWAtXOho32Iqoo1tFaBKPRsUC8eUCvmOPIvPaIeYRR4rybAdhfH0ceCTdut2
+	 nvBshykW/gRXjqow72O/J4KHPhEZytRmkTOGxgi4kQ1ITAuxpPYQCEPvsMDK/01B/e
+	 OTwJQ/OibnkIzMGd9H+cutIfjWGZqDGBLDLKXhnc7wbW63tiKTtsiTry6gEoiFj3w6
+	 INxsPugdbtRZA==
+Date: Fri, 30 May 2025 09:37:55 -0500
+From: Rob Herring <robh@kernel.org>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
+	michael@amarulasolutions.com,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/6] dt-bindings: mfd: convert mxs-lradc bindings to
+ json-schema
+Message-ID: <20250530143755.GA1750861-robh@kernel.org>
+References: <20250529143544.2381031-1-dario.binacchi@amarulasolutions.com>
+ <20250529143544.2381031-2-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-References: <20250529073507.2984959-2-ardb+git@google.com> <20250530133811.GB30622@willie-the-truck>
-In-Reply-To: <20250530133811.GB30622@willie-the-truck>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 30 May 2025 16:23:16 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHypqdC9O+8WH7n1=aDOySMScZc2y526S3gc_-QNpqO=w@mail.gmail.com>
-X-Gm-Features: AX0GCFv9Ullf4B8cpH7c41fIue3JQUkh9LV84qL1g7sdVxmnSnjW5Ar7V20Dwwk
-Message-ID: <CAMj1kXHypqdC9O+8WH7n1=aDOySMScZc2y526S3gc_-QNpqO=w@mail.gmail.com>
-Subject: Re: [PATCH] arm64: Disable LLD linker ASSERT()s for the time being
-To: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
-	llvm@lists.linux.dev, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, 
-	nathan@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250529143544.2381031-2-dario.binacchi@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_072333_229937_78B0F348 
-X-CRM114-Status: GOOD (  24.91  )
+X-CRM114-CacheID: sfid-20250530_073758_513971_BA5F861B 
+X-CRM114-Status: GOOD (  29.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +82,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 May 2025 at 15:38, Will Deacon <will@kernel.org> wrote:
->
-> On Thu, May 29, 2025 at 09:35:08AM +0200, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > It turns out that the way LLD handles ASSERT()s in the linker script can
-> > result in spurious failures, so disable them for the newly introduced
-> > BSS symbol export checks.
-> >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/2094
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> >  arch/arm64/kernel/image-vars.h | 6 ++++++
-> >  1 file changed, 6 insertions(+)
-> >
-> > diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-> > index c5266430284b..86f088a16147 100644
-> > --- a/arch/arm64/kernel/image-vars.h
-> > +++ b/arch/arm64/kernel/image-vars.h
-> > @@ -10,6 +10,10 @@
-> >  #error This file should only be included in vmlinux.lds.S
-> >  #endif
-> >
-> > +#if defined(CONFIG_LD_IS_LLD) && CONFIG_LLD_VERSION < 210000
-> > +#define ASSERT(...)
-> > +#endif
-> > +
-> >  #define PI_EXPORT_SYM(sym)           \
-> >       __PI_EXPORT_SYM(sym, __pi_ ## sym, Cannot export BSS symbol sym to startup code)
-> >  #define __PI_EXPORT_SYM(sym, pisym, msg)\
-> > @@ -142,4 +146,6 @@ KVM_NVHE_ALIAS(kvm_protected_mode_initialized);
-> >  _kernel_codesize = ABSOLUTE(__inittext_end - _text);
-> >  #endif
-> >
-> > +#undef ASSERT
->
-> What about the ASSERT()s at the end of vmlinux.lds.S? Are they not
-> affected by the bug, for some reason?
->
-> Also, even with this patch applied, I still see a link failure:
->
->   | ld.lld: error: assignment to symbol __init_end does not converge
->
-> with the .config you sent me off-list.
->
+On Thu, May 29, 2025 at 04:35:08PM +0200, Dario Binacchi wrote:
+> Convert the Freescale MXS Low-Resoulution ADC (LRADC) device tree
+> binding documentation to json-schema.
+> 
+> The clocks and #io-channel-cells properties have also been added; They
+> are present in the respective SoC DTSI files but were missing from the
+> old mxs-lradc.txt file.
+> 
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> ---
+> 
+> Changes in v4:
+> - Fix typo Low-Resoulution -> Low-Resolution'
+> - Wrap lines at 80 char.
+> - Drop '|' from the description
+> - Describe what each interrupt is for.
+> - Move touchscreen-wires constraint for imx28 to the top level
+> 
+> Changes in v3:
+> - Add Reviewed-by tag of Conor Dooley
+> 
+>  .../devicetree/bindings/mfd/mxs-lradc.txt     |  45 ------
+>  .../devicetree/bindings/mfd/mxs-lradc.yaml    | 131 ++++++++++++++++++
+>  2 files changed, 131 insertions(+), 45 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.txt
+>  create mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/mxs-lradc.txt b/Documentation/devicetree/bindings/mfd/mxs-lradc.txt
+> deleted file mode 100644
+> index 755cbef0647d..000000000000
+> --- a/Documentation/devicetree/bindings/mfd/mxs-lradc.txt
+> +++ /dev/null
+> @@ -1,45 +0,0 @@
+> -* Freescale MXS LRADC device driver
+> -
+> -Required properties:
+> -- compatible: Should be "fsl,imx23-lradc" for i.MX23 SoC and "fsl,imx28-lradc"
+> -              for i.MX28 SoC
+> -- reg: Address and length of the register set for the device
+> -- interrupts: Should contain the LRADC interrupts
+> -
+> -Optional properties:
+> -- fsl,lradc-touchscreen-wires: Number of wires used to connect the touchscreen
+> -                               to LRADC. Valid value is either 4 or 5. If this
+> -                               property is not present, then the touchscreen is
+> -                               disabled. 5 wires is valid for i.MX28 SoC only.
+> -- fsl,ave-ctrl: number of samples per direction to calculate an average value.
+> -                Allowed value is 1 ... 32, default is 4
+> -- fsl,ave-delay: delay between consecutive samples. Allowed value is
+> -                 2 ... 2048. It is used if 'fsl,ave-ctrl' > 1, counts at
+> -                 2 kHz and its default is 2 (= 1 ms)
+> -- fsl,settling: delay between plate switch to next sample. Allowed value is
+> -                1 ... 2047. It counts at 2 kHz and its default is
+> -                10 (= 5 ms)
+> -
+> -Example for i.MX23 SoC:
+> -
+> -	lradc@80050000 {
+> -		compatible = "fsl,imx23-lradc";
+> -		reg = <0x80050000 0x2000>;
+> -		interrupts = <36 37 38 39 40 41 42 43 44>;
+> -		fsl,lradc-touchscreen-wires = <4>;
+> -		fsl,ave-ctrl = <4>;
+> -		fsl,ave-delay = <2>;
+> -		fsl,settling = <10>;
+> -	};
+> -
+> -Example for i.MX28 SoC:
+> -
+> -	lradc@80050000 {
+> -		compatible = "fsl,imx28-lradc";
+> -		reg = <0x80050000 0x2000>;
+> -		interrupts = <10 14 15 16 17 18 19 20 21 22 23 24 25>;
+> -		fsl,lradc-touchscreen-wires = <5>;
+> -		fsl,ave-ctrl = <4>;
+> -		fsl,ave-delay = <2>;
+> -		fsl,settling = <10>;
+> -	};
+> diff --git a/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml b/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
+> new file mode 100644
+> index 000000000000..f90fdfbb74a8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
+> @@ -0,0 +1,131 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/mxs-lradc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Freescale MXS Low-Resolution ADC (LRADC)
+> +
+> +maintainers:
+> +  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> +
+> +description:
+> +  The LRADC provides 16 physical channels of 12-bit resolution for
+> +  analog-to-digital conversion and includes an integrated 4-wire/5-wire
+> +  touchscreen controller.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - fsl,imx23-lradc
+> +          - fsl,imx28-lradc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 1
+> +
+> +  interrupts:
+> +    minItems: 9
+> +    maxItems: 13
+> +
+> +  fsl,lradc-touchscreen-wires:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [4, 5]
+> +    description:
+> +      Number of wires used to connect the touchscreen to LRADC.
+> +      If this property is not present, then the touchscreen is disabled.
 
-That is a different error that has been lurking for a while now; Arnd
-occasionally hits it but I haven't seen any other reports of it. AIUI,
-the issue is that INIT_IDMAP_DIR_PAGES and INIT_DIR_SIZE are defined
-in terms of (_end - KIMAGE_VADDR), resulting in a circular dependency.
+Is this 1 paragraph or 2? If 1, it is not wrapped properly.
 
-The config in the kernel test robot's report [0] appears to build fine
-with this patch applied.
+If 2, then it should have a blank line in between paragraphs and use 
+'>':
+
+    description: >
+      Number of wires used to connect the touchscreen to LRADC.
+
+      If this property is not present, then the touchscreen is disabled.
 
 
-[0] https://lore.kernel.org/all/202505261019.OUlitN6m-lkp@intel.com/T/#u
+See writing-schema.rst for more details.
+
+> +
+> +  fsl,ave-ctrl:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 1
+> +    maximum: 32
+> +    default: 4
+> +    description: |
+
+Don't need '|'.
+
+> +      Number of samples per direction to calculate an average value.
+> +
+> +  fsl,ave-delay:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 2
+> +    maximum: 2048
+> +    default: 2
+> +    description:
+> +      Delay between consecutive samples.
+> +      It is used if 'fsl,ave-ctrl' > 1, counts at 2 kHz and its
+> +      default value (i. e. 2) is 1 ms.
+
+1 paragraph or 2?
+
+> +
+> +  fsl,settling:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 1
+> +    maximum: 2047
+> +    default: 10
+> +    description:
+> +      Delay between plate switch to next sample.
+> +      It counts at 2 kHz and its default (i. e. 10) is 5 ms.
+
+1 paragraph or 2?
+
+> +
+> +  "#io-channel-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - interrupts
+> +
+> +if:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - fsl,imx23-lradc
+> +then:
+> +  properties:
+> +    interrupts:
+> +      items:
+> +        - description: channel 0
+> +        - description: channel 1
+> +        - description: channel 2
+> +        - description: channel 3
+> +        - description: channel 4
+> +        - description: channel 5
+> +        - description: touchscreen
+> +        - description: channel 6
+> +        - description: channel 7
+> +    fsl,lradc-touchscreen-wires:
+> +      const: 4
+> +else:
+> +  properties:
+> +    interrupts:
+> +      items:
+> +        - description: threshold 0
+> +        - description: threshold 1
+> +        - description: channel 0
+> +        - description: channel 1
+> +        - description: channel 2
+> +        - description: channel 3
+> +        - description: channel 4
+> +        - description: channel 5
+> +        - description: button 0
+> +        - description: button 1
+> +        - description: touchscreen
+> +        - description: channel 6
+> +        - description: channel 7
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    lradc@80050000 {
+> +        compatible = "fsl,imx23-lradc";
+> +        reg = <0x80050000 0x2000>;
+> +        interrupts = <36>, <37>, <38>, <39>, <40>,
+> +                     <41>, <42>, <43>, <44>;
+> +        clocks = <&clks 26>;
+> +        #io-channel-cells = <1>;
+> +        fsl,lradc-touchscreen-wires = <4>;
+> +        fsl,ave-ctrl = <4>;
+> +        fsl,ave-delay = <2>;
+> +        fsl,settling = <10>;
+> +    };
+> -- 
+> 2.43.0
+> 
 
