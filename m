@@ -4,73 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C42C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 06:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0AAC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 06:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ecKNrKm5R03gkkJIvnHhpSWSjbRS3g+1PEp+BASn93Q=; b=X61kK9husON+zfpgoLP6fY1bGs
-	+yQJKHnV6FklXftp0lZOIHnf2u6VAzcLxVhgfnJIlij+yQM05Soym7fwEmbQYzxmqubzLcbCfBvfQ
-	L5wtLbUbnIHmenf/daK7HrH61r79qlEjpbtpVnGes0IUptnE9b8DgjutZ2XTdxDO7BcxcCYvcaf3r
-	RQXLB3HFaXNyTvfhjdwf6hnI4H3TCmQDERDCfDHfQRmqlOjfC2md4U/7GjEq2mPMiJFoXK9Vg721l
-	NiadYrUqxff1iK0cWjbZD6uYVTSnsn13ancZlrLo9op0UoAzldu8VEI6HKQVtit7xL++TWmJYzzPN
-	PAjwlbyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i4haqSXLls4cGXCJV0jsL0/1LVmc6rWPImypim9zABc=; b=XrOmV/8uhI6gMM0QE5cfpL9UQq
+	bOuSOy58Oms/GXkVkEBbKbHONmXv/qpcaQgGkqNYVCrtbkPj3bTmofOCQjqHG+f3g4L5GSsb73/EZ
+	DZjQ0mbTMNs1kLEWZjJVqCRjJNAK5JX1sZ2XR1Wg3QxW1uS1MPKMsXdwSVVRNHSuoSMDdd1pO0jOn
+	t5Yo3ODJirr07jcriT0KbQ7umkOy7avoNioYiDjifNi6OxIkwOSKmg8p+b/PxaDZydKQ+bjAjhX6Y
+	QiQt1NYdJhpmSkPIjJSPg/oUP1drMtoNMNtX4jQKUeCqV51tY4jbk/jsrG8pa7zYFrPDeiRXD64KC
+	NXchLIgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKsoT-0000000HKFB-3iDd;
-	Fri, 30 May 2025 06:01:53 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uKssL-0000000HKZ8-3lP1;
+	Fri, 30 May 2025 06:05:53 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKsmK-0000000HK2g-3xen
+	id 1uKsqD-0000000HKMd-2b3t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 05:59:42 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ore@pengutronix.de>)
-	id 1uKsmF-0003MO-7W; Fri, 30 May 2025 07:59:35 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1uKsmE-000vgM-2K;
-	Fri, 30 May 2025 07:59:34 +0200
-Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <ore@pengutronix.de>)
-	id 1uKsmE-000n62-1w;
-	Fri, 30 May 2025 07:59:34 +0200
-Date: Fri, 30 May 2025 07:59:34 +0200
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Troy Mitchell <troymitchell988@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Yongchao Jia <jyc0019@gmail.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH v3 2/2] i2c: imx: drop master prefix
-Message-ID: <aDlJRg3ebTVHksTQ@pengutronix.de>
-References: <20250513-i2c-imx-update-v3-0-817b7426a67e@gmail.com>
- <20250513-i2c-imx-update-v3-2-817b7426a67e@gmail.com>
+	Fri, 30 May 2025 06:03:43 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 49795114015E;
+	Fri, 30 May 2025 02:03:38 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Fri, 30 May 2025 02:03:38 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1748585018;
+	 x=1748671418; bh=i4haqSXLls4cGXCJV0jsL0/1LVmc6rWPImypim9zABc=; b=
+	1RHkxvfZRR7Km8IoSd1pTKrCV3lbuBltgiXlAz9CPu/cZM4DaR1rTQcvh+/Q9iQc
+	/qV/UpPn2bVRh1TIC3Jv4JiknU5ASCjckII5jnWHlDVfODCwLZ+uFACccUf8ZYJy
+	cbY470Oe58LhyVUG+uxY4/boQCUb/5HIkLG8K9R7+Bdk0ySexafuDe4VDgpqlDJ1
+	ho/MyP+uu8XpOjjeQ9F+kijniawhTH/7mAC5lWKxPfbfA/oVag0t1V7NpANMdc9I
+	KW6CK5NxZrjrRxfFXez+YddLTa/cjFDQAxzLjm2IrLnotIDuEFuRlIDR/sV36//P
+	bDXgW3jn0KNoQh3/otcjzQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1748585018; x=
+	1748671418; bh=i4haqSXLls4cGXCJV0jsL0/1LVmc6rWPImypim9zABc=; b=I
+	e/YWIY87T+cUEAvQFtppd7cjOR332cAEv+X17P8BwTgZKHIXebSBUPV1a9BEtZ7R
+	b5U2BaEPF0H5QsgBj/0WtW/lAInLK1rW84pUo+urcmupFfI7NhvCpquRb3G4rArg
+	ahqi8ChDGt9a/AHCW4n82scvtV2J89YxCw5dVt8t/UArIGMJLnbYjxIhxcZ+veL3
+	x701C9FG8q4Q+s+bXLnS9UBKsBr4UVrSdzCdKcf/B0IqglFYkSa/BznyqbAkauPc
+	lJgZGXHpaIl1EY7BKrVqSp8K6qvCZITGxapyjj4wBPJYnTO9i2RfqBSPkVyVHZGJ
+	P8Lz+wWjFQwXWstVnz3EA==
+X-ME-Sender: <xms:OEo5aFMSBGzHZtO45qItzUyweRayyBWmiZtmaF1FoqeKZHG0B8rYzw>
+    <xme:OEo5aH97rMybNfXNW7BYwlmAOI1LHYHd73OY6mx1Y9PJ_s2BIJkTSRZSU9-Fl0rFY
+    Lmpnuo-doxr5lJOLqM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvkedvgeculddtuddrgeefvddrtd
+    dtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggft
+    fghnshhusghstghrihgsvgdpuffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftd
+    dtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefk
+    jghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfd
+    cuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpeefhfehteffuddv
+    gfeigefhjeetvdekteekjeefkeekleffjeetvedvgefhhfeihfenucffohhmrghinhepkh
+    gvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghi
+    lhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfeejpdhmoh
+    guvgepshhmthhpohhuthdprhgtphhtthhopeguvghrvghkrdhkihgvrhhnrghnsegrmhgu
+    rdgtohhmpdhrtghpthhtohepughrrghgrghnrdgtvhgvthhitgesrghmugdrtghomhdprh
+    gtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthht
+    ohepmhhtuhhrqhhuvghtthgvsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopegsrh
+    hglhessghguggvvhdrphhlpdhrtghpthhtohephhgvrhhvvgdrtghoughinhgrsegsohho
+    thhlihhnrdgtohhmpdhrtghpthhtoheplhhutggrrdgtvghrvghsohhlihessghoohhtlh
+    hinhdrtghomhdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohht
+    lhhinhdrtghomhdprhgtphhtthhopegstghmqdhkvghrnhgvlhdqfhgvvggusggrtghkqd
+    hlihhsthessghrohgruggtohhmrdgtohhm
+X-ME-Proxy: <xmx:OEo5aEQH2Q6JkkQH-Mlv0t1AMoGS16Ov8O8B30zEuqzVmPS6okklKg>
+    <xmx:OEo5aBucgj621crqtYvLM-vDiDsAUtyFBxlpmn2KDBs-BWsGvxW41g>
+    <xmx:OEo5aNd9BIUZkutK3ua0dDcK95tdzyAXLq6yuQIGKaAKzADNQwuc5g>
+    <xmx:OEo5aN1aE6H6kxyxHxd0clkYHHcMNSvW3A6L6TujH5b7Wplg8PK8MA>
+    <xmx:Oko5aPQ2arYbS3SdyF_6oXUPjPShCgul_31qN6OgSnW-bIWEuAIVFICC>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 9918B700062; Fri, 30 May 2025 02:03:36 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250513-i2c-imx-update-v3-2-817b7426a67e@gmail.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ore@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-ThreadId: Tc6bcdd190696c0ef
+Date: Fri, 30 May 2025 08:03:16 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Andrea della Porta" <andrea.porta@suse.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>
+Cc: "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Florian Fainelli" <florian.fainelli@broadcom.com>,
+ "Broadcom internal kernel review list"
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ "Manivannan Sadhasivam" <manivannan.sadhasivam@linaro.org>,
+ "Bjorn Helgaas" <bhelgaas@google.com>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Bartosz Golaszewski" <brgl@bgdev.pl>,
+ "derek.kiernan@amd.com" <derek.kiernan@amd.com>,
+ "dragan.cvetic@amd.com" <dragan.cvetic@amd.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Saravana Kannan" <saravanak@google.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "Masahiro Yamada" <masahiroy@kernel.org>,
+ "Stefan Wahren" <wahrenst@gmx.net>,
+ "Herve Codina" <herve.codina@bootlin.com>,
+ "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
+ "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
+ "Andrew Lunn" <andrew@lunn.ch>, "Phil Elwell" <phil@raspberrypi.com>,
+ "Dave Stevenson" <dave.stevenson@raspberrypi.com>,
+ kernel-list@raspberrypi.com, "Matthias Brugger" <mbrugger@suse.com>
+Message-Id: <7934ae2a-3fc5-4ea2-b79a-ecbe668fd032@app.fastmail.com>
+In-Reply-To: <aDholLnKwql-jHm1@apocalypse>
+References: <cover.1748526284.git.andrea.porta@suse.com>
+ <0580b026-5139-4079-b1a7-464224a7d239@kernel.org>
+ <aDholLnKwql-jHm1@apocalypse>
+Subject: Re: [PATCH v12 0/13] Add support for RaspberryPi RP1 PCI device using a DT
+ overlay
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_225940_982328_D8855A23 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20250529_230342_233891_BD221830 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,20 +147,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 13, 2025 at 02:36:14PM +0800, Troy Mitchell wrote:
-> In light of the recent updates to the i2c subsystem,
-> drop master prefix.
-> 
-> Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+On Thu, May 29, 2025, at 16:00, Andrea della Porta wrote:
+> Hi Krzysztof,
+>
+> On 15:50 Thu 29 May     , Krzysztof Kozlowski wrote:
+>> On 29/05/2025 15:50, Andrea della Porta wrote:
+>> > *** RESENDING PATCHSET AS V12 SINCE LAST ONE HAS CLOBBERED EMAIL Message-Id ***
+>> > 
+>> Can you slow down please? It's merge window and you keep sending the
+>> same big patchset third time today.
+>
+> Sorry for that, I was sending it so Florian can pick it up for this
+> merge window, and I had some trouble with formatting. Hopefully
+> this was the last one.
 
-Acked-by: Oleksij Rempel <o.rempel@pengutronix.de>
+That's not how the merge window works, you missed 6.16 long ago:
 
-Thank you!
+Florian sent his pull requests for 6.16 in early may, see
+https://lore.kernel.org/linux-arm-kernel/20250505165810.1948927-1-florian.fainelli@broadcom.com/
 
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+and he needed time to test the contents before sending them to me.
+
+If the driver is ready to be merged now, Florian can pick it up
+after -rc1 is out, and then include it in the 6.17 pull requests
+so I can include them in the next merge window.
+
+      Arnd
 
