@@ -4,156 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E4CC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 16:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823DCC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 16:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2XMe+gYMSpoxIwtiIcSDIDH82espNK8OGnmEfvtx7Fw=; b=NUAWzcGT+Tr0d/0DMu2vKBQDMg
-	c1ZbSqouQJpUW6nZBPh3/ZxXv4s6XZI5/KV5yHZB62/EN1tYe26yiBQFVkaDpEcnCxF14Sw8TcT5+
-	EZ+3F3TBDyA7TehFQUKo1K7Jj8Zzgxqfgt60jIdPwbZU+wqanvrrrDw6yfb53jma1ui1hvrMZZ1tM
-	9ZEfdNazWI1jJUWISLoCmOH6NGRC7k5OP0XBDpscahYzM+r1MhntYq+HWuCLFO3rbNfIR+dq3pL/V
-	ntNRzFUK3uNnf5MsMuhGyc3sbnc68FyfmaADrmSRZ/4DP9UgFvrJVcoxX/4yftGPJO8nTNyOjXkEM
-	EgjappJA==;
+	bh=bxxufLK3KekEdbbP35QTahMDHa855MkqcMEQ8g1zMTk=; b=J2aGDK99xDUlUwcQhyO9QDnCEz
+	eipmfaM9yKmocC7Vqwb4l/hRif/4CA17K5urNPhUX8vwdPkKEvex5OJBl+jiDVi85MJHrML6qOBpo
+	2BrUXjtqa8R90MAVn8rCJy3DIL8jWd6ows93X7INB0wAcgFod0FHTEzcEE1jLq5iT6+ie4CVMnWyw
+	/NG1TIJ7LD2rNaGkz2t8B+fs8JrPJ+xmqzPdmWeT8rFAnBhhcQFB3jvAYwi0be2obYrF5OLchbrMf
+	6ZJjozlUQIZQu8D2EKCO5hg7sk4q/gc+jhcvO3G108CbXB3ZKPl1CoHnhSYNxj3sOkhfbv+1t4CUd
+	3lqBOZgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL2Vl-000000019sJ-2roH;
-	Fri, 30 May 2025 16:23:13 +0000
-Received: from mail-mw2nam10on2061c.outbound.protection.outlook.com ([2a01:111:f403:2412::61c] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uL2Xt-00000001AlR-1faW;
+	Fri, 30 May 2025 16:25:25 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL2H9-000000016yr-0FWI
+	id 1uL2Ic-000000017G9-3Z2q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 16:08:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oWhwxkxm/MdWPcYeXRzf7XtlYFf+TU2pR0s4OZJ6VaHuG8EhEWMd7bi41cllIgaZeuxy4MOUJ+MfBxsoDCras0B/9Be8WOy+ODv3hywr4tVxcOPIJ1piarnbd+DiMHjBZvlRAHZ2Sn4OzHoaWfW6WDjOwtehEdYuWCiYtEw5vaEn0vj+iuPUrXrPXFEpmq7gwRi9HbqLC8tdq8lLzySHAuVmd7SQaTt8ViE+ZR07g8Zg6IQoLolVX71KEV2dq2h5nzunyFZtQZZUjz6+3ndHcq98fpa+k1JACmGhLNNsitIRgl7FDPzOrUmkpWv23Vbl+2MLhFtV1ervN67iVksOxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2XMe+gYMSpoxIwtiIcSDIDH82espNK8OGnmEfvtx7Fw=;
- b=goSeOqfCVgD+WqeFZD+cld2dGN1nGHAcmKA5o578EffM0EfBe4D7NFvBfLm5Xe01dxEqDR66l9g7CkHrlpuJpEXmLbvTna4Zs32+3nLnSNiObYXTaVSiqPx9Oh/jJYMgzyTDPyVE/O6+wzuO582L5h+/0RGRsI0s9zfMzjpkGYH718lR2OIO5g7xQJ/sR7oLNhQ+eX7OUBgXq2zWIBmpPM6labGnnlXfhmMwmlYyf4m/zQQRzghAAlvRLYdx0StKE/JIKP6Bb4pjJ+5VV1Qz44a2Bibl64rDtJukD1JDX1iFzBsTXiu3N+FXmI9hp6hPy1z/f0+ewhAhYb5UyBUp0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2XMe+gYMSpoxIwtiIcSDIDH82espNK8OGnmEfvtx7Fw=;
- b=bndxmcsoEJkP+Wn3j1LO6/UGtQiCHu+yY/nbls/0Xj0q2YzDqG5vTv2xUST7Rq6kctMWOHiZgGHeV3NZ7+ifH3wRCRxhfYNqvL6ROKR36vH4T3c0P+YD91qsRSZSWgZ6yWkHegJ0Tr5PmzrTmUe01BCa173I/hfGmLMnJ7Wvc96eqPbhRfvwcJB4xlGM3+1GqRDTkqqbwG2rdENbyLwZN5N5MYarsg3kFGLEOsax/w1i0/B9v7s6dgHjIQptKAQLc2d7mf4uUBygR8YkqeQGvtx7vAkeCvX6ySQs7bhn6DqNcA51VFKPI3Q4WJ2CWjSytM/mqXOhz80JG5XeMjCS1A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by BY5PR12MB4209.namprd12.prod.outlook.com (2603:10b6:a03:20d::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.31; Fri, 30 May
- 2025 16:07:55 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8769.029; Fri, 30 May 2025
- 16:07:54 +0000
-Date: Fri, 30 May 2025 13:07:53 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v5 13/29] iommufd/viommu: Introduce IOMMUFD_OBJ_HW_QUEUE
- and its related struct
-Message-ID: <20250530160753.GD233377@nvidia.com>
-References: <cover.1747537752.git.nicolinc@nvidia.com>
- <580a36f629402506d232052ddd20ef21ec91d5bc.1747537752.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <580a36f629402506d232052ddd20ef21ec91d5bc.1747537752.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BN0PR07CA0026.namprd07.prod.outlook.com
- (2603:10b6:408:141::26) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Fri, 30 May 2025 16:09:40 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2349f096605so26967505ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 09:09:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748621378; x=1749226178; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bxxufLK3KekEdbbP35QTahMDHa855MkqcMEQ8g1zMTk=;
+        b=AoAgJ262hFG5aijsaRfq5QziMrRf/C9NUgbzEuOqb5Hqwxh0Ku97As6np3yIek+ZDU
+         93XccZnnB2dIFBfapkH4i5fB1roLjleP9+fedHOiRvD+6f1Yq3Ze2DPyur7fiX/50kkD
+         KTQF44jm4eNLzhO7xPC6vwJa7BSnh6auzJ797w10xAntRhXTiazoicLn6dpXjBIuls7h
+         yC1A4mL5V9wkajzLIFgSP3+aF/ZLp7XovkdjrM/Kwmf/j6av6asZRqxgYb4OnFCuSs75
+         qlZu6+TikFoLah8ERsxVe6zOu2Yx39C1/v3VJFvTatmYBhyeTeMzZCKsBsZHNKF8bcqR
+         tp0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748621378; x=1749226178;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bxxufLK3KekEdbbP35QTahMDHa855MkqcMEQ8g1zMTk=;
+        b=fH6KTJU2MC6X+W6whG4wRBLI47Em0efD/X+ulJIsRKW6S/070/jUSqsplzuw6Ro3wd
+         KP61u7LtAz9ULHwz/xZkUNXI6o2YcKeTA9Qksu0CJvjfT1YEjVK56uRb+geHoQsqhoM1
+         YJNS3fsPjplbJXypUGPVho05KJr5XJaqJp8rF89ksGX0/WztwYJUE7CicBKCrOsJ0Vwg
+         Kr4WNQ4sZO3DIK4MzYBxHwTwZPaZ+T0MUs6gud/ykuZXYaHmBqYPI+70esCe8kmFPS/N
+         aM+ip5LcQWY7BcI48/dF141HPT5QgPTNKiKtNIakkESEG75bJiasyXRTfzZywAFJhUlX
+         0l1w==
+X-Forwarded-Encrypted: i=1; AJvYcCUFctS4gy0n8gE9LqOCepTIFuUaRVb+e/v63gsWphWpedCFoYMGY0De/GfmuxtjeG54NwIZoqhZ+ZLx4e1Dl6Bd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7w63DoscqKqWX7D0FfGRSCHUh+b2607UOmVVUdok4gx7W7Ztb
+	UeOjI6pZaMtM3/qlHh+UHJrHuHjT/WKhsgfvcprMP4e1GAxH4dSImTuVOFwXReNqgw==
+X-Gm-Gg: ASbGncsaRRjodIYKgj8xKJhpuRPo7v1/pFz+RItC+5U8TkTm5OyJdTJ/qqRDqLydB3K
+	A5i5Hv/iXfgseZvheZankpxA6Z9SDKqU/qZmA4UK6aHgsG7gAw2yv3UAaun/KKimgnYNK1qbdAf
+	V9Niy3/SnlX9H4MrpCy8A305G6pmnUbcj0DLDcswQ4qJ2Y9KL6s4pVNcf51NGE4uleHD2husgOU
+	064Ev+Pl+MnY+cff6nLeuXkmeX7Giz8ebCLRxEhIw1fd7DJ/rW3eF1rzTJfMVM2MP1xnd1FTbd8
+	+Zfb6qzkwFS/sF1OJtHe/IszjZoVJJ/kl7PSrsd2OXrsfRahN/ZmG+D0nDuhkg==
+X-Google-Smtp-Source: AGHT+IEaQI64EZVaM9JygVJu/CqqQgOOBJm+b8JHY4a69IBYYuuTYL7zefQI+S32XWNK9lzdgNMIBQ==
+X-Received: by 2002:a17:903:291:b0:234:b44c:d3c8 with SMTP id d9443c01a7336-23529a28ab7mr65505535ad.37.1748621377852;
+        Fri, 30 May 2025 09:09:37 -0700 (PDT)
+Received: from thinkpad ([120.60.139.33])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506bd9478sm30412095ad.77.2025.05.30.09.09.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 May 2025 09:09:37 -0700 (PDT)
+Date: Fri, 30 May 2025 21:39:28 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
+	Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
+	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>, 
+	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 4/5] PCI: host-common: Add link down handling for host
+ bridges
+Message-ID: <bixtbu7hzs5rwrgj22ff53souxvpd7vqysktpcnxvd66jrsizf@pelid4rjhips>
+References: <fr6orvqq62hozn5g3svpyyazdshv4kh4xszchxbmpdcpgp5pg6@mlehmlasbvrm>
+ <20250530113404.GA138859@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|BY5PR12MB4209:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39edca38-5860-40a7-cc91-08dd9f9422ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xhbAuWqT4C2dAt3rQ1moSrYgHoDBsJSBWfLB0Ce3qgt4NKWuTE1YZSZbs/fS?=
- =?us-ascii?Q?HrPQaNbsMaiWv4s51j3mlsukio46/DxiARACME2K6XYieJmTvSVQet3vWisX?=
- =?us-ascii?Q?1uxeaLppEWtrj3MoyRM8A5oz9VbBRv8VKGJBzqp8za8jtqe8JLWVFm1p7CnQ?=
- =?us-ascii?Q?CnlMKxiZJdsS7vkLfNC0JHo1QDRLfN+vkl1bD4WEZxrXn4EjAO7ygvf494r3?=
- =?us-ascii?Q?pXXfHrOM5MvH9uiI6g+4Nxa1k+Pjf9mAgTd9wF09JwJfcHKIQQ5n/ZK6g9C1?=
- =?us-ascii?Q?mjqCfFRzkcsu0k+lXtgJW/xbXzdBA3MHcWnVV5iBvS1NUFUXP5tSF1EFQoeA?=
- =?us-ascii?Q?NmJqS+lit5y4T4q4HaPGCjcVTcsjLYF82yty5z5zhEnnaS3CFznOB5dhNRp9?=
- =?us-ascii?Q?rEhXrslTPwbgOg3nC2/IX33vtVfUFvg2H14J4nZW3Er9//7N4HWB1kCn5H2D?=
- =?us-ascii?Q?rdqF1yntgcULr591DF5CDHewnq5+QzrapgO0ayzw6Wa6pl+hqSuJSwDp++mJ?=
- =?us-ascii?Q?eSf66bYS3hQc5BXa36UNuCJAyTV9bc2V4wm9wpyS8TNbSRalbhTCsSX1kWuH?=
- =?us-ascii?Q?4CKCd412FuJX65jHCSp3+ZOIuKFzDDeCFvM9LjlxkgRnq2QdMSOH/+spSPyq?=
- =?us-ascii?Q?l21nlv3B5BGU5HC/hpa/RD1FZmAFvTRxicshaSDFCifXmyBeaTJ/y6JUXSvk?=
- =?us-ascii?Q?9xNIvRhko8ZtK3N712p88rVrEFSePWAPfZMNx5omSbh6NxjQnmgv7PL8+ptS?=
- =?us-ascii?Q?36e4Hj4miygcppalPrADw14l7R9gZtbeiUYkxtkATTN3pv+ESW/H2ejrwtyD?=
- =?us-ascii?Q?1fJlSs9yJBS9JHfilI2X2luJvIryCIfBge6+sUhF/wVORKySowSTnkZ0OiAr?=
- =?us-ascii?Q?9XhhDQRnOHvTLO+2aR7FDn8ZKQxSAQUf4MBdlYxtW51WNIitKVQz1NxVVOSy?=
- =?us-ascii?Q?6Ol7/pCHI3yyC005XBZ/MOYzEA0oVcSpI/qRa+v430XwRHPFOpDCIM6kJGXs?=
- =?us-ascii?Q?QlAgAk20KkUDIidGFOx1rA3Rhm2oRta31QVbeftEcRKq+DGNaWc92NIZDAYh?=
- =?us-ascii?Q?k4p80U7z5LXL9FDGycbz7f25kb7cD7OtpojvER33jbMP2mqXeikcNEUZMZbA?=
- =?us-ascii?Q?3RC1Z4afLhMYr7HDxi/EZAKeze6DhnvISGkJkvBvYuwgThyruZ1lB9zBrtZ/?=
- =?us-ascii?Q?C6JpONzkF1VD2dQDGrJXtBdjVK4p8Woylgfe1WP9TvuPMAkKItDJeTOhoB/T?=
- =?us-ascii?Q?FhBZnCbul59+mL+piURRzFt3yV9sZiHo4NgRR2C/wHUC8jW+XtYhxRi+nffJ?=
- =?us-ascii?Q?abUu+eLJpR9hS1hk2wNUB48Xw1rzVqmT5GIcIBCZYR+IX1zPwgA7LMJ0iR1w?=
- =?us-ascii?Q?AR5wOXayF66605iUT+I7hdUIC7VAxPAeAAKi4cK4Ix/Dop85r66Ee72wxqIF?=
- =?us-ascii?Q?WbCJQVSiQPk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zr+/lDkZmzjdeprSHQs8SL4uD5GauTycyJpQOVNqqVP6RHeB0qlYpjvA6QtY?=
- =?us-ascii?Q?qHLLQUaEAhFPoomRHQ4UazU91IoWIFMg+fjySv4DoOjebJuYZImZ6yOnRVSk?=
- =?us-ascii?Q?K5aEudg7NDHy+onnancW2nNk2YzBc7ExIyS+r8oK0YegecX3TM51G9AIEXYr?=
- =?us-ascii?Q?VBSlt8h+AiMg+f6z92OXvL92lHa+BqqVKZDfJDT0hnLOUSTjsNn/uiaqI71L?=
- =?us-ascii?Q?n+9OKlZbOmDaJkZt4qlgxgKWRSkwMOKKIoK7zn6yY/e3TB4+4+0wp8Bkhlla?=
- =?us-ascii?Q?EClLSD49+JdrJzqSDLbgAwaCV955WJmeF4Yt8LaKPsbveZYgvFSSiZR5LSfY?=
- =?us-ascii?Q?qhjCSgwtBUud+49WXIqZw2g6CyYJZxZlGSjEZhn7m8Vsq7a4X7yA5RFKuzmo?=
- =?us-ascii?Q?Sm34q0nxwB5MpQhGANYmXrZwr81FdDjL9Nt61vaQVy3ZJg2bHNXEXMTKTehW?=
- =?us-ascii?Q?kDgX7zztJm9PmSyRsP5A+fqVAeMojSvzCWo0xTLvnGpt3ajZIW2x65xnUjg3?=
- =?us-ascii?Q?tHnLqy5xnmoy14xND8G5oYjqKT46vbcUTpU3geJIUuPJbV1p+NiAgfaVy1cr?=
- =?us-ascii?Q?RKa7F1CoRKtDHElrDGvt1wmRXp2QklAu8edxZBqM4uvwNBALFsq9d1fY0ELQ?=
- =?us-ascii?Q?eVI1zbhrN7AHSEfi/I6rsL9WaP2YLUadlZR+gp0Fli6VCV9bnsf7+3wwI5jn?=
- =?us-ascii?Q?7PTXCssrrWe8pL6fkfojNJLOC3o+nVClehV+3ysgYtxmWdEa7/DIeLZ4l3Tq?=
- =?us-ascii?Q?Ulsnpr3RL02dDahxt/fgkEna2QA8cgBakLBR41znU1AipiEOro/iw8Zo9rj7?=
- =?us-ascii?Q?j775Ah8GImuDG1bJjV0FNcPuejv97BQGf7i/R8seBPIL5LHeYy0aCJ7mfWx/?=
- =?us-ascii?Q?Xf7qUs29K6Z+BOsIG8kINgxvL98n6Ojh3J3W6qjYiufE8ahvpQRwxvJjhCzX?=
- =?us-ascii?Q?jjcaWzz4OWo1aVpEvX5E6KH688Q353MDFGtALCG8CcLslNuhIW0LDR3G/M+j?=
- =?us-ascii?Q?nWaWHKsB9yTde4qlRMcD9WI/1y7xO1usk+7cNQXa23c5qE05V9ctKQ9j995X?=
- =?us-ascii?Q?57SpBFk4hfYE8Vn0zXDloXD+qMKPhFBaMFWiRQKXRgCWl2zfP6+/Sad/s+su?=
- =?us-ascii?Q?Y0Ss0PruUSD7w9g0tdi56R4ArHvty9eGSIs8s6OOT2J33qxosdk7ai3cGVVW?=
- =?us-ascii?Q?4w3UaOqNaaTSPs7wXOj9AjODajOC2n+2AhPUXKn/Iba8x/c4NWBSCkGwgYof?=
- =?us-ascii?Q?JPKtf4wtP2DBLGYYLmhz8LkejY8kBg1KC6L6zrEFBxehrgXH924FbxmdSo2L?=
- =?us-ascii?Q?gane8mfSDp5/WyIi2MqcTENfp9mdNyRWho0haPxvDCe4IwdW0lbAIHk1txNQ?=
- =?us-ascii?Q?SxSfHNCscIJVCeuXqqXeymU0qxPwYb1EVv9oq61rMFVhXgB2ofGxHRq4tQRy?=
- =?us-ascii?Q?3QsLwV9P0A0ww/zzBRikPCelT9HN1ojqE8LjxktSuV7064SWHs5ypW/3Sss4?=
- =?us-ascii?Q?Hsnil8SPz87oHFvLRuktTJqNSlHVAhhc4eXQ0Zn6X8MldLrO8/BfSf4KGOqr?=
- =?us-ascii?Q?UkY0jwkre3dj/iAPz2w=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39edca38-5860-40a7-cc91-08dd9f9422ee
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2025 16:07:54.8619
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Opur+jK6UiC8x2nhgW6CX19kQShO/y0zPeMk4JwoICm0uyB6zkuGmW8tq4WOb/CD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4209
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250530113404.GA138859@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_090807_100072_B348228A 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250530_090938_891407_7C09FB9F 
+X-CRM114-Status: GOOD (  32.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,30 +109,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 17, 2025 at 08:21:30PM -0700, Nicolin Chen wrote:
->  struct iommufd_viommu_ops {
-> +	u32 flags;
->  	void (*destroy)(struct iommufd_viommu *viommu);
->  	struct iommu_domain *(*alloc_domain_nested)(
->  		struct iommufd_viommu *viommu, u32 flags,
-> @@ -171,6 +200,10 @@ struct iommufd_viommu_ops {
->  						 struct device *dev,
->  						 u64 virt_id);
->  	void (*vdevice_destroy)(struct iommufd_vdevice *vdev);
-> +	struct iommufd_hw_queue *(*hw_queue_alloc)(
-> +		struct iommufd_ucmd *ucmd, struct iommufd_viommu *viommu,
-> +		unsigned int type, u32 index, u64 base_addr, size_t length);
+On Fri, May 30, 2025 at 06:34:04AM -0500, Bjorn Helgaas wrote:
+> On Fri, May 30, 2025 at 09:16:59AM +0530, Manivannan Sadhasivam wrote:
+> > On Wed, May 28, 2025 at 05:35:00PM -0500, Bjorn Helgaas wrote:
+> > > On Thu, May 08, 2025 at 12:40:33PM +0530, Manivannan Sadhasivam wrote:
+> > > > The PCI link, when down, needs to be recovered to bring it back. But that
+> > > > cannot be done in a generic way as link recovery procedure is specific to
+> > > > host bridges. So add a new API pci_host_handle_link_down() that could be
+> > > > called by the host bridge drivers when the link goes down.
+> > > > 
+> > > > The API will iterate through all the slots and calls the pcie_do_recovery()
+> > > > function with 'pci_channel_io_frozen' as the state. This will result in the
+> > > > execution of the AER Fatal error handling code. Since the link down
+> > > > recovery is pretty much the same as AER Fatal error handling,
+> > > > pcie_do_recovery() helper is reused here. First the AER error_detected
+> > > > callback will be triggered for the bridge and the downstream devices. Then,
+> > > > pci_host_reset_slot() will be called for the slot, which will reset the
+> > > > slot using 'reset_slot' callback to recover the link. Once that's done,
+> > > > resume message will be broadcasted to the bridge and the downstream devices
+> > > > indicating successful link recovery.
+> > > 
+> > > Link down is an event for a single Root Port.  Why would we iterate
+> > > through all the Root Ports if the link went down for one of them?
+> > 
+> > Because on the reference platform (Qcom), link down notification is
+> > not per-port, but per controller. So that's why we are iterating
+> > through all ports.  The callback is supposed to identify the ports
+> > that triggered the link down event and recover them.
+> 
+> Maybe I'm missing something.  Which callback identifies the port(s)
+> that triggered the link down event?
 
-I think it would better to have two function pointers here than the flags:
+I was referring to the host_bridge::reset_root_port() callback that resets the
+root ports.
 
- +	struct iommufd_hw_queue *(*hw_queue_alloc)(
- +		struct iommufd_ucmd *ucmd, struct iommufd_viommu *viommu,
- +		unsigned int type, u32 index, u64 s2_iova, size_t length);
+>  I see that
+> pci_host_handle_link_down() is called by
+> rockchip_pcie_rc_sys_irq_thread() and qcom_pcie_global_irq_thread(),
+> but I don't see the logic that identifies a particular Root Port.
+> 
+> Per-controller notification of per-port events is a controller
+> deficiency, not something inherent to PCIe.  I don't think we should
+> build common infrastructure that resets all the Root Ports just
+> because one of them had an issue.
+> 
 
+Hmm, fair enough.
 
- +	struct iommufd_hw_queue *(*hw_queue_alloc_phys)(
- +		struct iommufd_ucmd *ucmd, struct iommufd_viommu *viommu,
- +		unsigned int type, u32 index, phys_addr_t phys, size_t length);
+> I think pci_host_handle_link_down() should take a Root Port, not a
+> host bridge, and the controller driver should figure out which port
+> needs to be recovered, or the controller driver can have its own loop
+> to recover all of them if it can't figure out which one needs it.
+> 
 
-Jason
+This should also work. Feel free to drop the relevant commits for v6.16, I can
+resubmit them (including dw-rockchip after -rc1).
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
