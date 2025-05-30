@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF5FBC3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C5DC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5uXLy3aVascoGW7+x+sYRkxemKiyBvlPpkaZTuHscc=; b=dWjVkJIwx8w83WAm5ZQnuvCxw7
-	FAw2zCcO/GalZAR/R6ChxynE0UUI4RY4AUyn+5vFUKnpGo2UdQXMBIwR5hRNw2dbj9vVEGepAfuui
-	8nv7snKX2TcHTrzukFS9xlIjWixhY2tGE2o+ea8TZMRuMc+NeI1JlrjrtHP5W8Rd2IXTvsfbZ6PR2
-	FxNfuEZhP5tPHdK0RCm5Yt4+A4tfeWMgTrcjERqYDrY3TVImVU3D1nC6HZPz86LwaHq5p/LRJeAEx
-	L2kJ2SOFqEg2k0f96FFp8XRc4/pLzgGmjnAD0YZ0COrpl8OrAvbPvuLlXVpSsyUdCoKCSjhl9ZwI8
-	eEbSAmUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gEcq7IGJvPoL2u14n8g+xYzffC4Et4FZ8eopaIlTimI=; b=piezRTzL1k1WgVlirt2kyStfTi
+	RN6nATvJ+eJ+dsuM9yVdD5cGPBKOPNzXpSnYJGdM80VOxKREQs35WB3KeEGQFe9ZwEvaEWP91MzPX
+	1EPv7WbeJ5KjxaujZ5lMuh6FYk5LFIN/J0bU1IbY6m6u3FIaO2pACjpKlxAW9eajr6hC3n+FLysmk
+	ETZxYlBnACjKklqSNgrbBEW4oG2WCEbZcHXHp3VIwLV4GkBPTKNF6Rf5h+9Z/dnJDlY0Fm6JMJkZG
+	Rr0tBvN6mY09jmsX2R+/BPXEoekDQwZcSQ/fJaf33AnODbCVMMuve2XIVuKcOhX663sJy9dv0WU5p
+	qBjFkBOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKuyh-0000000HaSB-2QOU;
-	Fri, 30 May 2025 08:20:35 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1uKv0n-0000000HadL-2teY;
+	Fri, 30 May 2025 08:22:45 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKub9-0000000HWo8-06dE
+	id 1uKubZ-0000000HWsh-0W2K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 07:56:16 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 4383543A63;
-	Fri, 30 May 2025 07:56:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748591770;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d5uXLy3aVascoGW7+x+sYRkxemKiyBvlPpkaZTuHscc=;
-	b=j5BdfYpAd3WxUunXRmpE2ibM9G+KVDDhSfYDrSD1+PDUyzarJgvym3lOUXc72O4YUFn6hc
-	xtiF6q4PRjWDB4Ynzs5ip4KMmRnhYdWNJfqKcpglpe4CiCwTgndCnAFRO7b2gTl2unPo+f
-	bUqgleDvtC492VcnYkRX15i7xRzTNRoXi+JhRBpALr9TfOM9+n6euiYdParj1gbWj91gbi
-	51ZCpLIqtSjDSdBsmGlnLxdhcrd3PfQfqrJKwziiui2JNdbfJtxTV+ch/7RGBSB2yHbbof
-	aOvr3GZVFPMWbkQLJ6BqlCP9NpgrgBvw8vrsdUAnr2vPGEdaTBEmP3MUuW9pmg==
-Date: Fri, 30 May 2025 09:56:08 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Jijie Shao <shaojijie@huawei.com>
-Cc: <davem@davemloft.net>, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>, Heiner Kallweit
- <hkallweit1@gmail.com>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <thomas.petazzoni@bootlin.com>,
- <linux-arm-kernel@lists.infradead.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
- <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
- <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>, "shenjian15@huawei.com"
- <shenjian15@huawei.com>
-Subject: Re: [PATCH net-next v5 07/13] net: phy: phy_caps: Allow looking-up
- link caps based on speed and duplex
-Message-ID: <20250530095608.63c42399@fedora.home>
-In-Reply-To: <5bbf1201-e803-40ea-a081-c25919f5e89d@huawei.com>
-References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
-	<20250307173611.129125-8-maxime.chevallier@bootlin.com>
-	<5bbf1201-e803-40ea-a081-c25919f5e89d@huawei.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Fri, 30 May 2025 07:56:42 +0000
+Received: from ideasonboard.com (mob-5-90-143-247.net.vodafone.it [5.90.143.247])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 65AC782E;
+	Fri, 30 May 2025 09:56:08 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1748591768;
+	bh=uO3O3inxposTI0kQEYf2CJBUDFQHsCwBhLgCj9tgYIE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BV1KlzZZI7s9MALqSYrJAL9VWbB9HE0WU5uVPB39ajpQA8s6PyZjeOUxXn2t5j836
+	 A+T8efsnTiEsKB+363tozLYudNVpQTzQ7lSN2AHPfJWiVAin+/itZAEcPHbrlk2Fl+
+	 2U8T7SgXyamo3LoB5eJOnOUkGgxOYduym9mZsBqA=
+Date: Fri, 30 May 2025 09:56:32 +0200
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Krzysztof =?utf-8?Q?Ha=C5=82asa?= <khalasa@piap.pl>, 
+	Xavier Roumegue <xavier.roumegue@oss.nxp.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Rui Miguel Silva <rmfrfs@gmail.com>, 
+	Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
+Message-ID: <2fd6wgsiwfx4raharcrpmmtayhkipjnz64u2cbprhsxkna3lhv@yshftexhmgns>
+References: <m3h61u9jy2.fsf@t19.piap.pl>
+ <20250509103733.GE28896@pendragon.ideasonboard.com>
+ <m3o6vn8np5.fsf@t19.piap.pl>
+ <iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
+ <m31psg97dy.fsf@t19.piap.pl>
+ <jqjptsphbtdtziuucehxutseaz7j4kjiirz2hk77f3dznswvza@avbjjzu3jcam>
+ <m3o6vb64hv.fsf@t19.piap.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvkeegieculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeuhfefgffgtdfhgffhvdfhhffhteeutdektefghfetveehheejjefgudeiudehudenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvuddprhgtphhtthhopehshhgrohhjihhjihgvsehhuhgrfigvihdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehlu
- hhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhm
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <m3o6vb64hv.fsf@t19.piap.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_005615_510224_F2053CEB 
-X-CRM114-Status: GOOD (  41.51  )
+X-CRM114-CacheID: sfid-20250530_005641_441520_1B5684A3 
+X-CRM114-Status: GOOD (  40.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,282 +79,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 May 2025 17:36:11 +0800
-Jijie Shao <shaojijie@huawei.com> wrote:
+Hi Krzysztof
+  thanks for the detailed analysis
 
-> on 2025/3/8 1:36, Maxime Chevallier wrote:
-> > As the link_caps array is efficient for <speed,duplex> lookups,
-> > implement a function for speed/duplex lookups that matches a given
-> > mask. This replicates to some extent the phy_lookup_settings()
-> > behaviour, matching full link_capabilities instead of a single linkmode.
+On Thu, May 29, 2025 at 01:27:56PM +0200, Krzysztof Hałasa wrote:
+> Hi Jacopo,
+>
+> Jacopo Mondi <jacopo.mondi@ideasonboard.com> writes:
+>
+> >> - 10 User Defined 8-bit Data Type 8 packets, line-sized, DT=0x37, called
+> >>   apparently "Vertical OB" by Sony datasheet
 > >
-> > phy.c's phy_santize_settings() and phylink's
-> > phylink_ethtool_ksettings_set() performs such lookup using the
-> > phy_settings table, but are only interested in the actual speed/duplex
-> > that were matched, rathet than the individual linkmode.
+> > These are optically black pixels and should probably be discarded by
+> > the gasket as well as embedded data ?
+>
+> Yes, apparently.
+>
+> >> I hope I got this right, this is straight from oscilloscope (only
+> >> checked IDs on IMX462, will confirm IMX290 later but it looks the same).
+> >> In 1280x1080p25 mode there are 4 (not 10) "vertical OB" packets, and 720
+> >> RGGB lines instead of 1080.
 > >
-> > Similar to phy_lookup_settings(), the newly introduced phy_caps_lookup()
-> > will run through the link_caps[] array by descending speed/duplex order.
+> > Is this correct ? you ask for 1280x1080 and get back 720 lines ?
+>
+> Well, no, I just checked both modes and these are the differences.
+> IOW, nothing unexpected. Wrong copy & paste or so.
+>
+> >> IMX462 produces just a tiny 2-pixel dot in the left top corner, possibly
+> >> shifting some data to the right (I remember it did that, but I can't
+> >> observe it now - could be a kernel (driver) version change?).
 > >
-> > If the link_capabilities for a given <speed/duplex> tuple intersects the
-> > passed linkmodes, we consider that a match.
+> > What are those two pixels ? Does the datasheet describes them ?
+>
+> Nope, I guess it's a silicon bug. It corrupts 3 RAW-12 pixels, though
+> (32 bits > 2 * 12 bits).
+>
+> >>    32EC0138h    2D8000h ISP Dewarp Control Register (ISP_DEWARP_CONTROL)
+> >>       ISP ID mode 0, ISP1: DT 0h (unknown), ISP2: DT 2Ch (RAW12) left-just mode
 > >
-> > Similar to phy_lookup_settings(), we also allow passing an 'exact'
-> > boolean, allowing non-exact match. Here, we MUST always match the
-> > linkmodes mask, but we allow matching on lower speed settings.
+> > But this other register has (again) one other filtering option and
+> > reading the value here it is set to filter RAW12 (mipi_isp2_data_type)
 > >
-> > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > ---
-> >   drivers/net/phy/phy-caps.h |  4 ++++
-> >   drivers/net/phy/phy.c      | 32 ++++++--------------------
-> >   drivers/net/phy/phy_caps.c | 47 ++++++++++++++++++++++++++++++++++++++
-> >   drivers/net/phy/phylink.c  | 17 +++++++-------
-> >   4 files changed, 67 insertions(+), 33 deletions(-)
-> >
-> > diff --git a/drivers/net/phy/phy-caps.h b/drivers/net/phy/phy-caps.h
-> > index 8833798f141f..aef4b54a8429 100644
-> > --- a/drivers/net/phy/phy-caps.h
-> > +++ b/drivers/net/phy/phy-caps.h
-> > @@ -51,4 +51,8 @@ phy_caps_lookup_by_linkmode(const unsigned long *link=
-modes);
-> >   const struct link_capabilities *
-> >   phy_caps_lookup_by_linkmode_rev(const unsigned long *linkmodes, bool =
-fdx_only);
-> >  =20
-> > +const struct link_capabilities *
-> > +phy_caps_lookup(int speed, unsigned int duplex, const unsigned long *s=
-upported,
-> > +		bool exact);
-> > +
-> >   #endif /* __PHY_CAPS_H */
-> > diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
-> > index 8df37d221fba..562acde89224 100644
-> > --- a/drivers/net/phy/phy.c
-> > +++ b/drivers/net/phy/phy.c
-> > @@ -213,25 +213,6 @@ int phy_aneg_done(struct phy_device *phydev)
-> >   }
-> >   EXPORT_SYMBOL(phy_aneg_done);
-> >  =20
-> > -/**
-> > - * phy_find_valid - find a PHY setting that matches the requested para=
-meters
-> > - * @speed: desired speed
-> > - * @duplex: desired duplex
-> > - * @supported: mask of supported link modes
-> > - *
-> > - * Locate a supported phy setting that is, in priority order:
-> > - * - an exact match for the specified speed and duplex mode
-> > - * - a match for the specified speed, or slower speed
-> > - * - the slowest supported speed
-> > - * Returns the matched phy_setting entry, or %NULL if no supported phy
-> > - * settings were found.
-> > - */
-> > -static const struct phy_setting *
-> > -phy_find_valid(int speed, int duplex, unsigned long *supported)
-> > -{
-> > -	return phy_lookup_setting(speed, duplex, supported, false);
-> > -}
-> > -
-> >   /**
-> >    * phy_supported_speeds - return all speeds currently supported by a =
-phy device
-> >    * @phy: The phy device to return supported speeds of.
-> > @@ -274,13 +255,14 @@ EXPORT_SYMBOL(phy_check_valid);
-> >    */
-> >   static void phy_sanitize_settings(struct phy_device *phydev)
-> >   {
-> > -	const struct phy_setting *setting;
-> > +	const struct link_capabilities *c;
-> > +
-> > +	c =3D phy_caps_lookup(phydev->speed, phydev->duplex, phydev->supporte=
-d,
-> > +			    false);
-> >  =20
-> > -	setting =3D phy_find_valid(phydev->speed, phydev->duplex,
-> > -				 phydev->supported);
-> > -	if (setting) {
-> > -		phydev->speed =3D setting->speed;
-> > -		phydev->duplex =3D setting->duplex;
-> > +	if (c) {
-> > +		phydev->speed =3D c->speed;
-> > +		phydev->duplex =3D c->duplex;
-> >   	} else {
-> >   		/* We failed to find anything (no supported speeds?) */
-> >   		phydev->speed =3D SPEED_UNKNOWN;
-> > diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
-> > index c39f38c12ef2..0366feee2912 100644
-> > --- a/drivers/net/phy/phy_caps.c
-> > +++ b/drivers/net/phy/phy_caps.c
-> > @@ -170,6 +170,53 @@ phy_caps_lookup_by_linkmode_rev(const unsigned lon=
-g *linkmodes, bool fdx_only)
-> >   	return NULL;
-> >   }
-> >  =20
-> > +/**
-> > + * phy_caps_lookup() - Lookup capabilities by speed/duplex that matche=
-s a mask
-> > + * @speed: Speed to match
-> > + * @duplex: Duplex to match
-> > + * @supported: Mask of linkmodes to match
-> > + * @exact: Perform an exact match or not.
-> > + *
-> > + * Lookup a link_capabilities entry that intersect the supported linkm=
-odes mask,
-> > + * and that matches the passed speed and duplex.
-> > + *
-> > + * When @exact is set, an exact match is performed on speed and duplex=
-, meaning
-> > + * that if the linkmodes for the given speed and duplex intersect the =
-supported
-> > + * mask, this capability is returned, otherwise we don't have a match =
-and return
-> > + * NULL.
-> > + *
-> > + * When @exact is not set, we return either an exact match, or matchin=
-g capabilities
-> > + * at lower speed, or the lowest matching speed, or NULL.
-> > + *
-> > + * Returns: a matched link_capabilities according to the above process=
-, NULL
-> > + *	    otherwise.
-> > + */
-> > +const struct link_capabilities *
-> > +phy_caps_lookup(int speed, unsigned int duplex, const unsigned long *s=
-upported,
-> > +		bool exact)
-> > +{
-> > +	const struct link_capabilities *lcap, *last =3D NULL;
-> > +
-> > +	for_each_link_caps_desc_speed(lcap) {
-> > +		if (linkmode_intersects(lcap->linkmodes, supported)) {
-> > +			last =3D lcap;
-> > +			/* exact match on speed and duplex*/
-> > +			if (lcap->speed =3D=3D speed && lcap->duplex =3D=3D duplex) {
-> > +				return lcap;
-> > +			} else if (!exact) {
-> > +				if (lcap->speed <=3D speed)
-> > +					return lcap;
-> > +			}
-> > +		}
-> > +	}
-> > +
-> > +	if (!exact)
-> > +		return last;
-> > +
-> > +	return NULL;
-> > +}
-> > +EXPORT_SYMBOL_GPL(phy_caps_lookup);
-> > +
-> >   /**
-> >    * phy_caps_linkmode_max_speed() - Clamp a linkmodes set to a max spe=
-ed
-> >    * @max_speed: Speed limit for the linkmode set
-> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> > index a3f64b6d2d34..cf9f019382ad 100644
-> > --- a/drivers/net/phy/phylink.c
-> > +++ b/drivers/net/phy/phylink.c
-> > @@ -20,6 +20,7 @@
-> >   #include <linux/timer.h>
-> >   #include <linux/workqueue.h>
-> >  =20
-> > +#include "phy-caps.h"
-> >   #include "sfp.h"
-> >   #include "swphy.h"
-> >  =20
-> > @@ -2852,8 +2853,8 @@ int phylink_ethtool_ksettings_set(struct phylink =
-*pl,
-> >   				  const struct ethtool_link_ksettings *kset)
-> >   {
-> >   	__ETHTOOL_DECLARE_LINK_MODE_MASK(support);
-> > +	const struct link_capabilities *c;
-> >   	struct phylink_link_state config;
-> > -	const struct phy_setting *s;
-> >  =20
-> >   	ASSERT_RTNL();
-> >  =20
-> > @@ -2896,23 +2897,23 @@ int phylink_ethtool_ksettings_set(struct phylin=
-k *pl,
-> >   		/* Autonegotiation disabled, select a suitable speed and
-> >   		 * duplex.
-> >   		 */
-> > -		s =3D phy_lookup_setting(kset->base.speed, kset->base.duplex,
-> > -				       pl->supported, false);
-> > -		if (!s)
-> > +		c =3D phy_caps_lookup(kset->base.speed, kset->base.duplex,
-> > +				    pl->supported, false);
-> > +		if (!c)
-> >   			return -EINVAL; =20
->=20
->=20
->=20
-> Hi Maxime,  fc81e257d19f ("net: phy: phy_caps: Allow looking-up link caps=
- based on speed and duplex") might have different behavior than the modific=
-ation.
-> My case is set 10M Half with disable autoneg both sides and I expect it is
-> link in 10M Half. But now, it is link in 10M Full=EF=BC=8Cwhich is not wh=
-at I
-> expect.
->=20
-> I used followed command and trace how phy worked.
-> 	ethtool -s eth1 autoneg off speed 10 duplex half
-> The log is showed as followed:
-> ethtool-13127	[067]	6164.771853: phy_ethtool_ksettings set: (phy_ethtool =
-ksettings set+0x0/0x200) duplex=3D0 speed=3D10
-> kworker/u322:2-11096	[070]	6164.771853:	_phy_start_aneq: ( _phy_start_ane=
-g+0x0/0xb8) duplex=3D0 speed=3D10
-> kworker/u322:2-11096	[070]	6164.771854:	phy_caps_lookup: (phy_caps_lookup=
-+0x0/0xf0) duplex=3D0 speed=3D10
-> kworker/u322:2-11096	[070]	6164.771855:	phy_config_aneg: (phy_config_aneg=
-+0x0/0x70) duplex=3D1 speed=3D10
-> kworker/u322:2-11096	[070]	6164.771856:	genphy_config_aneg:	(__genphy_con=
-fig_aneg+0X0/0X270) duplex=3D1 speed=3D10
->=20
-> I also try to fixed it and it works. Do you have any idea about it.
+> > Weirdly enough, I don't see this register being programmed in the
+> > mainline gasket driver...
+>
+> I guess it's drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c:
+>
+> static int rkisp1_gasket_enable(struct rkisp1_device *rkisp1,
+>                                 struct media_pad *source)
+> {
+> ...
+>         regmap_update_bits(rkisp1->gasket, ISP_DEWARP_CONTROL, mask, val);
 
-The !exact match logic in the rework is wrong indeed, sorry...
+Ah indeed, thanks!
 
-For non-exact matches we return a non-exact match too early without
-giving the chance for a potentially exact half-duplex match...
+>
+> Now this register doesn't filter data: if you set it with a different
+> value, the data still goes through. It's just processed differently.
+> For example, my sensor is 12-bit (in addition to 10-bit). If I set
+> ISP_DEWARP_CONTROL to 0xB68 (or 0x368) meaning RAW 14-bit, the image
+> only gets darker - ISP thinks it's getting 14-bit samples.
 
-As for the fix, can you try this out :
+Thanks for testing
 
-diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
-index 703321689726..d80f6a37edf1 100644
---- a/drivers/net/phy/phy_caps.c
-+++ b/drivers/net/phy/phy_caps.c
-@@ -195,7 +195,7 @@ const struct link_capabilities *
- phy_caps_lookup(int speed, unsigned int duplex, const unsigned long *suppo=
-rted,
- 		bool exact)
- {
--	const struct link_capabilities *lcap, *last =3D NULL;
-+	const struct link_capabilities *lcap, *match =3D NULL, *last =3D NULL;
-=20
- 	for_each_link_caps_desc_speed(lcap) {
- 		if (linkmode_intersects(lcap->linkmodes, supported)) {
-@@ -204,16 +204,19 @@ phy_caps_lookup(int speed, unsigned int duplex, const=
- unsigned long *supported,
- 			if (lcap->speed =3D=3D speed && lcap->duplex =3D=3D duplex) {
- 				return lcap;
- 			} else if (!exact) {
--				if (lcap->speed <=3D speed)
--					return lcap;
-+				if (!match && lcap->speed <=3D speed)
-+					match =3D lcap;
-+
-+				if (lcap->speed < speed)
-+					break;
- 			}
- 		}
- 	}
-=20
--	if (!exact)
--		return last;
-+	if (!match && !exact)
-+		match =3D last;
-=20
--	return NULL;
-+	return match;
- }
- EXPORT_SYMBOL_GPL(phy_caps_lookup);
+>
+> The only filtering (while using ISP) is, apparently, in the ISP
+> Configuration Register (MIPI_CSIS_ISPCONFIG_CH0) and subsequently in its
+> shadow counterpart. And it somehow may be enabled in CSIS Common Control
+> Register (MIPI_CSIS_CMN_CTRL). But if you don't enable it there, the
+> data is still filtered (e.g. wrong value in MIPI_CSIS_ISPCONFIG_CH0
+> prevents data flow). The filtering is only needed for preventing pixel
+> corruption (these 3 pixels).
+
+Let me recap all of this.
+
+With:
+
+- MIPI_CSIx_CSIS_COMMON_CTRL[11:10]
+ "Select Interleave mode" = 0x00 = CH0 only, no data interleave
+
+- MIPI_CSIx_ISP_CONFIGn[7:2]
+  "Image Data Format" = 0x2c = RAW12
+
+Embedded data and OB pixels are filtered (which means we're filtering
+on DT even if MIPI_CSIx_CSIS_COMMON_CTRL[11:10] = 0x0x would suggest
+filtering is not enabled)
+
+However corrupted pixels are still sent through.
+
+If you
+
+- MIPI_CSIx_CSIS_COMMON_CTRL[11:10]
+ "Select Interleave mode" = 0x01 = DT (Data type) only
+
+Embedded data and OB pixels are still filtered, and your corrupt
+pixels are filtered as well.
+
+Now, why are "corrupted pixels" filtered away by enabling this option ?
+
+As far as I understand bad pixels are corrupt in their data values,
+the CSI-2 packet header which contains the DT is correct. Is my
+understanding correct ?
+
+
+>
+> So it means, for at least i.MX8MP, the DT filtering bit in
+> MIPI_CSIS_CMN_CTRL should always be enabled.
+
+It would be nice to actually understand what it does before enabling
+it unconditionally.
+
+I've cc-ed Xavier from NXP which maybe can help shed some light on
+that register function ?
+
+Thanks for the investigation
+
+>
+> >> MIPI_CSI2:
+> >>    32E50004h      4705h CSIS Common Control Register (MIPI_CSIS_CMN_CTRL)
+> >
+> > Do you mean 0x14705 ? I'm asking because Shadow Crtl is BIT(16). Surprisingly
+> > BIT(14) is marked as reserved in the datasheet version I have
+>
+> No, it's 0x4705 (usually).
+> With 0xFF05 (resulting from write with 0xfffffffd) it's still working
+> correctly (with DT filtering). Write 0xfffffbfd (= no DT filtering) and
+> the magic light pixels in the left top corner reappear. So it means the
+> INTERLEAVE_MODE bits (11 and 10) are probably two independent bits, with
+> bit 11 probably not used at all.
+>
+>
+> In my copy (i.MX 8M Plus Applications Processor Reference Manual, Rev.
+> 1, 06/2021), CSIS Common Control Register (MIPI_CSIx_CSIS_COMMON_CTRL):
+> - bits 31-17, 15, 13, 12, 7-2 are zero and reserved (though bits 12 and
+>   2 are additionally marked "This read-only field is reserved and always
+>   has the value 0")
+> - bit 14 is reserved and shown as "1"
+> - bit 16 is "UPDATE_SHADOW", and it clears itself after a write (unless
+>   the pipeline locks up or something alike)
+> - bits 11 and 10 are "INTERLEAVE_MODE":
+>     Select Interleave mode
+>     ISP Configuration register of CH# is used for data interleave.
+>       00 CH0 only, no data interleave
+>       01 DT (Data type) only
+>       10 Reserved
+>       11 Reserved
+> - bits 9 and 8 are LANE_NUMBER, 0 to 3 means 1 to 4.
+> - bit 1 is SW_RESET
+> - bit 0 is CSI_EN
+>
+> In fact, bit 2 does not "always have the value 0", it's set to 1. Both
+> bits 14 and 2 can be reset to 0, though (without apparent change in the
+> image).
+> --
+> Krzysztof "Chris" Hałasa
+>
+> Sieć Badawcza Łukasiewicz
+> Przemysłowy Instytut Automatyki i Pomiarów PIAP
+> Al. Jerozolimskie 202, 02-486 Warszawa
+>
 
