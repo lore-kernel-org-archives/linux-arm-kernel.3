@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1494C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 10:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31771C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 10:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VrKOZNSqaZlbN58D6xqbea+e1XVfSTF4kSC0uBKMAdQ=; b=kFxZUwzqdQfxrAr4Z1KnGJoxlg
-	tEbaW9icWgpPyvBUzSkRrIbiit0N8ft1VQ9vy9VZqKWPVlwk9QUarXiR0RD9mF2Lt16aFiykqji4h
-	2uIjHGTxw0Kv88Az4s1rXuhubQO4OLnFXFJuW9wMB9lYd3JBXWc9qbuPM1bnsA45YVpJwf710GRYo
-	WzCM0fNywy02PdXut+o50HJZYJZSX29l3ciBkwjt3kHz4JuE1HkeFz+bVEaKoknNcFf+mPPtTgK1w
-	MKoUror6UeQYQyHjeGbZ0aCR0PmObQ2rKVco3UGpcyT3kgt89pk6bX81dUm3iKllw4BImQsRh1U/7
-	xYb/iMFA==;
+	bh=CTzSZ9olDTno0mjswXGJwTAaIz9iKLd2D6NNKCY/+BM=; b=zFMPcLgtA31HrXygQjvgWBarB3
+	r+7EgcfOjDomI7vf/sxAeT1qV7Xa2u/W2eYOUvf9++Q6bjXAiUKW5On4PpWdpshQzIgs+LPUSUP4n
+	6z2i9WrIMf0uLSF1pTxaidzaVTKqva2Rjz+oEoISAgApfvHT6pXhU1KYwZIw8yP0TLJhJzKe1g8NS
+	kHIEvWMi/0X2JAu+h/QXntQ2Wokm8tr4uTX240WHuVkVxGogXE+1KM8oN2mNSLmG3q+bQYA/n8Isa
+	y05zVh64xHCEsutlvsLH1nRwwWkoyVK6nsm8BwPEKyFoXZ764sKuia3S26YDWTrBdsvYNfLBjt8Q9
+	iMBdrNuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKxKK-00000000KhB-0B0p;
-	Fri, 30 May 2025 10:51:04 +0000
-Received: from ni.piap.pl ([195.187.100.5])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKxIA-00000000KXy-0E85
+	id 1uKxN5-00000000L37-0VID;
+	Fri, 30 May 2025 10:53:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKxKx-00000000Kok-0AaU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 10:48:52 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id D12B4C405A45;
-	Fri, 30 May 2025 12:48:39 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl D12B4C405A45
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Xavier Roumegue <xavier.roumegue@oss.nxp.com>,  Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>,  Rui Miguel Silva <rmfrfs@gmail.com>,
-  Martin Kepplinger <martink@posteo.de>,  Purism Kernel Team
- <kernel@puri.sm>,  Mauro Carvalho Chehab <mchehab@kernel.org>,  Shawn Guo
- <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
-  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
- <festevam@gmail.com>,  linux-media@vger.kernel.org,  imx@lists.linux.dev,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
-In-Reply-To: <2fd6wgsiwfx4raharcrpmmtayhkipjnz64u2cbprhsxkna3lhv@yshftexhmgns>
-	(Jacopo Mondi's message of "Fri, 30 May 2025 09:56:32 +0200")
-References: <m3h61u9jy2.fsf@t19.piap.pl>
-	<20250509103733.GE28896@pendragon.ideasonboard.com>
-	<m3o6vn8np5.fsf@t19.piap.pl>
-	<iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
-	<m31psg97dy.fsf@t19.piap.pl>
-	<jqjptsphbtdtziuucehxutseaz7j4kjiirz2hk77f3dznswvza@avbjjzu3jcam>
-	<m3o6vb64hv.fsf@t19.piap.pl>
-	<2fd6wgsiwfx4raharcrpmmtayhkipjnz64u2cbprhsxkna3lhv@yshftexhmgns>
-Date: Fri, 30 May 2025 12:48:38 +0200
-Message-ID: <m3frgm5q7t.fsf@t19.piap.pl>
+	Fri, 30 May 2025 10:51:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E031616F2;
+	Fri, 30 May 2025 03:51:25 -0700 (PDT)
+Received: from [10.57.95.14] (unknown [10.57.95.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB0233F5A1;
+	Fri, 30 May 2025 03:51:39 -0700 (PDT)
+Message-ID: <23fc2527-cd32-4750-9b3b-df65f4f76609@arm.com>
+Date: Fri, 30 May 2025 11:51:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] Enable huge-vmalloc permission change
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
+ gshan@redhat.com, linux-arm-kernel@lists.infradead.org
+References: <20250530090407.19237-1-dev.jain@arm.com>
+ <adfe981a-ec9a-4051-a26f-91b691230161@arm.com>
+ <381fec11-0e05-4bf0-9cd8-f272fde7558f@arm.com>
+ <090440b6-9501-4f29-8b9f-1f6e6f3a6fbc@arm.com>
+ <6f8d893e-ddb9-4416-979f-eca3b0f9fb5b@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <6f8d893e-ddb9-4416-979f-eca3b0f9fb5b@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_034850_256877_15C5F44B 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20250530_035143_167166_C9BD6211 
+X-CRM114-Status: GOOD (  24.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,122 +71,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jacopo,
+On 30/05/2025 11:42, Dev Jain wrote:
+> 
+> On 30/05/25 4:07 pm, Ryan Roberts wrote:
+>> On 30/05/2025 11:10, Dev Jain wrote:
+>>> On 30/05/25 3:33 pm, Ryan Roberts wrote:
+>>>> On 30/05/2025 10:04, Dev Jain wrote:
+>>>>> This series paves the path to enable huge mappings in vmalloc space by
+>>>>> default on arm64. > For this we must ensure that we can handle any permission
+>>>>> games on vmalloc space.
+>>>> And the linear map :)
+>>>>
+>>>>> Currently, __change_memory_common() uses
+>>>>> apply_to_page_range() which does not support changing permissions for
+>>>>> leaf mappings.
+>>>> nit: A "leaf mapping" is the lowest level entry in the page tables for a given
+>>>> address - i.e. it maps an address to some actual memory rather than to another
+>>>> pgtable. It includes what the Arm ARM calls "page mappings" (PTE level) and
+>>>> "block mappings" (PMD/PUD/.. level). apply_to_page_range() does support page
+>>>> mappings, so saying it doesn't support leaf mappings is incorrect. It doesn't
+>>>> support block mappings.
+>>> Sorry, again got confused by nomenclature : )
+>>>
+>>>>> We attempt to move away from this by using walk_page_range_novma(),
+>>>>> similar to what riscv does right now; however, it is the responsibility
+>>>>> of the caller to ensure that we do not pass a range, or split the range
+>>>>> covering a partial leaf mapping.
+>>>>>
+>>>>> This series is tied with Yang Shi's attempt [1] at using huge mappings
+>>>>> in the linear mapping in case the system supports BBML2, in which case
+>>>>> we will be able to split the linear mapping if needed without break-before-
+>>>>> make.
+>>>>> Thus, Yang's series, IIUC, will be one such user of my series; suppose we
+>>>>> are changing permissions on a range of the linear map backed by PMD-hugepages,
+>>>>> then the sequence of operations should look like the following:
+>>>>>
+>>>>> split_range(start, (start + HPAGE_PMD_SIZE) & ~HPAGE_PMD_MASK);
+>>>>> split_range(end & ~HPAGE_PMD_MASK, end);
+>>>> I don't understand what the HPAGE_PMD_MASK twiddling is doing? That's not
+>>>> right.
+>>>> It's going to give you the offset within the 2M region. You just want:
+>>>>
+>>>> split_range(start)
+>>>> split_range(end)
+>>>>
+>>>> right?
+>>> Suppose start = 2M + 4K, end = 8M + 5K. Then my sequence will compute to
+>> 8M + 5K is not a valid split point. It has to be at least page aligned.
+> 
+> Sorry, so consider 8M + 4K.
+> 
+>>> split_range(2M + 4K, 3M)
+>>> split_range(8M, 8M + 5K)
+>> We just want to split at start and end. What are the 3M and 8M params supposed
+>> to be? Anyway, this is off-topic for this series.
+> 
+> I think we are both saying the same thing; yes we will split only the start and
+> the end,
+> so if the address 2Mb + 4Kb is mapped as a PMD-hugepage, we need to split this
+> PMD into
+> a PTE table, which will map 2Mb till 4Mb as base pages now.
 
-> Let me recap all of this.
->
-> With:
->
-> - MIPI_CSIx_CSIS_COMMON_CTRL[11:10]
->  "Select Interleave mode" =3D 0x00 =3D CH0 only, no data interleave
->
-> - MIPI_CSIx_ISP_CONFIGn[7:2]
->   "Image Data Format" =3D 0x2c =3D RAW12
->
-> Embedded data and OB pixels are filtered (which means we're filtering
-> on DT even if MIPI_CSIx_CSIS_COMMON_CTRL[11:10] =3D 0x0x would suggest
-> filtering is not enabled)
->
-> However corrupted pixels are still sent through.
+Not quite; if you start with [2M, 4M) mapped by PMD, then want to ensure a
+boundary at 2M+4K, I think you would end up with the first 64K (16 pages) mapped
+by base page, then the then the next 1984K mapped by contpte blocks (31 contpte
+blocks).
 
-Right.
+But yes, we agree :)
 
-But there is more: there are 3 separate "DT filters":
+> 
+>>
+>>> __change_memory_common(2M + 4K, 8M + 5K)
+>>>
+>>> So now __change_memory_common() wouldn't have to deal with splitting the
+>>> starts and ends. Please correct me if I am wrong.
+>>>
+>>>>> __change_memory_common(start, end);
+>>>>>
+>>>>> However, this series can be used independently of Yang's; since currently
+>>>>> permission games are being played only on pte mappings (due to
+>>>>> apply_to_page_range
+>>>>> not supporting otherwise), this series provides the mechanism for enabling
+>>>>> huge mappings for various kernel mappings like linear map and vmalloc.
+>>>> In other words, you are saying that this series is a prerequisite for Yang's
+>>>> series (and both are prerequisites for huge vmalloc by default). Your series
+>>>> adds a new capability that Yang's series will rely on (the ability to change
+>>>> permissions on block mappings).
+>>> That's right.
+>>>
+>>>> Thanks,
+>>>> Ryan
+>>>>
+>>>>> [1] https://lore.kernel.org/all/20250304222018.615808-1-
+>>>>> yang@os.amperecomputing.com/
+>>>>>
+>>>>> Dev Jain (3):
+>>>>>     mm: Allow pagewalk without locks
+>>>>>     arm64: pageattr: Use walk_page_range_novma() to change memory
+>>>>>       permissions
+>>>>>     mm/pagewalk: Add pre/post_pte_table callback for lazy MMU on arm64
+>>>>>
+>>>>>    arch/arm64/mm/pageattr.c | 81 +++++++++++++++++++++++++++++++++++++---
+>>>>>    include/linux/pagewalk.h |  4 ++
+>>>>>    mm/pagewalk.c            | 18 +++++++--
+>>>>>    3 files changed, 94 insertions(+), 9 deletions(-)
+>>>>>
 
-0x32E40040       0xB0 ISP Configuration Register (ISP_CONFIG_CH0)
-   DT 2Ch (RAW12)
-0x32E40044  0x2D00500 ISP Resolution Register (ISP_RESOLUTION_CH0) =3D> 128=
-0 * 720
-
-0x32E40050       0xDC ISP Configuration Register (ISP_CONFIG_CH1)
-   DT 37h (User Defined 8-bit Data Type 8)
-0x32E40054  0x2D00500 ISP Resolution Register (ISP_RESOLUTION_CH1) =3D> 128=
-0 * 720
-
-0x32E40060       0x48 ISP Configuration Register (ISP_CONFIG_CH2)
-   DT 12h (Embedded 8-bit non Image Data)
-0x32E40064  0x2D00500 ISP Resolution Register (ISP_RESOLUTION_CH2) =3D> 128=
-0 * 720
-
-The 4th set looks the same, but doesn't appear to have its SHADOW
-register set, so I'll ignore it for now. I'm ignoring the SYNC registers
-as well (offsets ...0x58) - they are zeroed.
-
-It appears the 2 LS bits of ISP_CONFIG_CH* are the number of some output
-port. #0 goes to ISP, not sure about the others. Will have a look.
-
-I.e., I can disable CH0 and use CH1 or CH2 to feed image data do ISP -
-it works.
-
-MIPI_CSIx_CSIS_COMMON_CTRL:
-Bits 18, 17 and 16 respectively reload SHADOW registers for CH2, CH1 and
-CH0. For these tests, I have to use
-"devmem write 32-bit CSIS_COMMON_CTRL 0x7xxxx" instead of 0x1xxxx so that
-all 3 shadow sets are updated (and not only #0, the one in the docs and
-used by the drivers).
-
-0x32E40080       0xB0 Shadow Configuration Register (SHADOW_CONFIG_CH0)
-   DT 2Ch (RAW12)
-0x32E40084  0x2D00500 Shadow Resolution Register (SHADOW_RESOLUTION_CH0) =
-=3D> 1280 * 720
-0x32E40090       0xDC Shadow Configuration Register (SHADOW_CONFIG_CH1)
-   DT 37h (User Defined 8-bit Data Type 8)
-0x32E40094  0x2D00500 Shadow Resolution Register (SHADOW_RESOLUTION_CH1) =
-=3D> 1280 * 720
-0x32E400A0       0x48 Shadow Configuration Register (SHADOW_CONFIG_CH2)
-   DT 12h (Embedded 8-bit non Image Data)
-0x32E400A4  0x2D00500 Shadow Resolution Register (SHADOW_RESOLUTION_CH2) =
-=3D> 1280 * 720
-
-Also:
-0x32E40100     0x5F10 Frame Counter (FRAME_COUNTER_CH0)
-0x32E40104     0x57C4 Frame Counter (FRAME_COUNTER_CH1)
-0x32E40108     0x33CF Frame Counter (FRAME_COUNTER_CH2)
-
-Data selected by all 3 sets is somehow fed to the ISP. Now the data
-isn't simply appended to the previous fragment. It seems the DT 37h
-lines (which appear before the actual image data on the MIPI bus)
-somehow overwrite (only) the first line of the image. I'm looking at
-it.
-
-INTERLEAVE_MODE =3D 0 or 2 =3D> only CH0 is used, the first 32 bit in the i=
-mage
-		on CSI1 are corrupted.
-INTERLEAVE_MODE =3D 1 =3D> all 3 CHannels are used, no corruption
-
-There appear to be some subtle differences between 0 and 2, and 1 vs 3.
-
-> If you
->
-> - MIPI_CSIx_CSIS_COMMON_CTRL[11:10]
->  "Select Interleave mode" =3D 0x01 =3D DT (Data type) only
->
-> Embedded data and OB pixels are still filtered, and your corrupt
-> pixels are filtered as well.
-
-Right.
-
-> Now, why are "corrupted pixels" filtered away by enabling this option ?
->
-> As far as I understand bad pixels are corrupt in their data values,
-> the CSI-2 packet header which contains the DT is correct. Is my
-> understanding correct ?
-
-I think so. Maybe the corruption happens after the packets are received,
-on the 32-bit internal bus maybe.
-
-> It would be nice to actually understand what it does before enabling
-> it unconditionally.
-
-Still trying :-) Next Monday, maybe.
-
-Especially I don't know how do I receive multiple DT types, including
-12-bit RAW pixels and 8-bit user data. I know it wasn't probably
-designed for this, but nevertheless.
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
 
