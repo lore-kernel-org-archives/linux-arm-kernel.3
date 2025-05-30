@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80732C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 10:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7708CC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 10:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uD0mL2zxMMFJvd6Ka4STEIFq5MhY4PRVQMxaMd1KBoc=; b=a7VTePeEqlwcNgvPC7kPW9pekP
-	zuT3zCrkjzc4AEyWFzGxBRMzPgkr1h4N+I23vs3QWzbq7ZWlnny+oWp3hKH/QQUEMdOn6Ltk5ojdO
-	hdPoYPJSF8wTmAxhCLKtHrLutzAa4nImtanNfPhqmt5hWgyR0kmzp3N+s6HOaYiYqfyRl4eHjjHsS
-	1qcqaXg/JCfFKqgze2aXHmdUFNwBdTYHbY3jDyHgwXAS7wVQcj2KhZ3i0v7qIrgV+qbnN9JC93mDQ
-	NIGgrcnn5Z8o7P0TxuoEM8f9mfZ4+/YJY/xz8RwVU+grXH5KiYKC1fKzZrtF2a82I5kpiq2xZJLrk
-	iWnJmosA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tT/U7ULtKLzKCpEKOMNNm5nvTaxFZwdDpBqvlMNie/I=; b=glGvHxgOFl+U6TimnOTShOQ1m2
+	pQOhuYS72Y8XRRpAx2RQAEPifLUkdcL2t20lzrF7avveq8p2/l4yUkQv2wEzRXB4OnRwzsEFAX52x
+	EupRMAFdEtrDWbO3H5KflY4qM8ae5RxHW20/QDzZanvqbOzxCec4AfK990Wcnzx8Eg8Sg28hRORyI
+	KyjQXgPJ8g7eM965RkfV0Bcc5p8Fpfr2/rrlbEzse7Nh+gFgtMNNjppnLOmRzl7mMHUZ1k3h92mpT
+	exmu3PTutcpwj9MeqI5gxb3GUJSqCZTQXThUJt9cpsQKtDCqY4EzusZQilFMm705NpCyRBkcLxjN6
+	N9SPAzKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKx5w-00000000Ijc-1hGG;
-	Fri, 30 May 2025 10:36:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKx3m-00000000IPp-2cFZ
+	id 1uKx83-00000000J0z-0RYQ;
+	Fri, 30 May 2025 10:38:23 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKx5N-00000000Ieo-0sih
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 10:34:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E46BB16F2;
-	Fri, 30 May 2025 03:33:40 -0700 (PDT)
-Received: from [10.57.95.14] (unknown [10.57.95.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B6553F673;
-	Fri, 30 May 2025 03:33:54 -0700 (PDT)
-Message-ID: <1c17a9e6-b04b-4754-8af5-521fcadba1bd@arm.com>
-Date: Fri, 30 May 2025 11:33:52 +0100
+	Fri, 30 May 2025 10:35:39 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54UAZVxj3765537;
+	Fri, 30 May 2025 05:35:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1748601331;
+	bh=tT/U7ULtKLzKCpEKOMNNm5nvTaxFZwdDpBqvlMNie/I=;
+	h=From:To:CC:Subject:Date;
+	b=BdTvHEnM9dVFcwbJJywBCX9ymRKOZ2amTJIV0aqM9ggWpJdx5q2XRvXtAhk9qIPD1
+	 2WiCKx6duFF1xquVplbd9IyHceiXZ5YELJZce1KlMPOuQtydm2wRQHQpAzIcddIQTD
+	 bNsQiFf6mUifpQbRTZNv437heun7Yjq6T5qhBO6Q=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54UAZUJ4749463
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 30 May 2025 05:35:31 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 30
+ May 2025 05:35:30 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 30 May 2025 05:35:30 -0500
+Received: from lcpd911.dhcp.ti.com (lcpd911.dhcp.ti.com [172.24.227.226])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54UAZRNE2989964;
+	Fri, 30 May 2025 05:35:28 -0500
+From: Dhruva Gole <d-gole@ti.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: Ulf Hansson <ulf.hansson@linaro.org>, <arm-scmi@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Dhruva Gole <d-gole@ti.com>
+Subject: [RFC PATCH] pmdomain: arm: scmi_pm_domain: Do lazy init as part of probe
+Date: Fri, 30 May 2025 16:05:27 +0530
+Message-ID: <20250530103527.2244951-1-d-gole@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] mm: Allow pagewalk without locks
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
- catalin.marinas@arm.com, will@kernel.org, yang@os.amperecomputing.com
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
- gshan@redhat.com, linux-arm-kernel@lists.infradead.org
-References: <20250530090407.19237-1-dev.jain@arm.com>
- <20250530090407.19237-2-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250530090407.19237-2-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_033358_758850_FF694A9D 
-X-CRM114-Status: GOOD (  25.91  )
+X-CRM114-CacheID: sfid-20250530_033537_382433_49603D2F 
+X-CRM114-Status: GOOD (  30.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,94 +82,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/05/2025 10:04, Dev Jain wrote:
-> It is noted at [1] that KFENCE can manipulate kernel pgtable entries during
-> softirqs. It does this by calling set_memory_valid() -> __change_memory_common().
-> This being a non-sleepable context, we cannot take the init_mm mmap lock.
-> Therefore, add PGWALK_NOLOCK to enable walk_page_range_novma() usage without
-> locks.
+Optimize the SCMI power domain driver to only initialize domains that are
+actually referenced in the device tree. Previously, the driver would
+initialize all possible domains up to the maximum ID, which could lead to
+unnecessary firmware calls and longer probe times.
 
-It looks like riscv solved this problem by moving from walk_page_range_novma()
-to apply_to_existing_page_range() in Commit fb1cf0878328 ("riscv: rewrite
-__kernel_map_pages() to fix sleeping in invalid context"). That won't work for
-us because the whole point is that we want to support changing permissions on
-block mappings.
+Key changes:
+- Scan device tree to identify which power domains are actually referenced
+- Use bitmap to track needed domains instead of initializing all
+- Only perform state queries and initialization for referenced domains
+- Maintain proper array sizing for power domain framework compatibility
+- Keep full provider structure to support late binding
 
-Yang:
+This optimization reduces probe time and unnecessary firmware interactions
+by only initializing power domains that are actually used in the system.
+For example, in a system with 100 possible domains but only 3 referenced
+in the device tree, we now only initialize those 3 domains instead of
+all 100.
 
-Not directly relavent to this patch, but I do worry about the potential need to
-split the range here though once Yang's series comes in - we would need to
-allocate memory for pgtables atomically in softirq context. KFENCE is intended
-to be enabled in production IIRC, so we can't just not allow block mapping when
-KFENCE is enabled and will likely need to think of a solution for this?
+Signed-off-by: Dhruva Gole <d-gole@ti.com>
+---
 
+Hi all,
+The approach of doing a lazy init was briefly proposed in this [1] 2024
+Embedded Open Source talk. It was also brought up in the monthly ARM
+SCMI meetings that take place and it didn't recieve too much opposition.
 
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/89d0ad18-4772-4d8f-ae8a-7c48d26a927e@arm.com/
-> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
->  include/linux/pagewalk.h |  2 ++
->  mm/pagewalk.c            | 12 ++++++++----
->  2 files changed, 10 insertions(+), 4 deletions(-)
-> 
-> diff --git a/include/linux/pagewalk.h b/include/linux/pagewalk.h
-> index 9700a29f8afb..9bc8853ed3de 100644
-> --- a/include/linux/pagewalk.h
-> +++ b/include/linux/pagewalk.h
-> @@ -14,6 +14,8 @@ enum page_walk_lock {
->  	PGWALK_WRLOCK = 1,
->  	/* vma is expected to be already write-locked during the walk */
->  	PGWALK_WRLOCK_VERIFY = 2,
-> +	/* no lock is needed */
-> +	PGWALK_NOLOCK = 3,
+This greatly helps to improve the boot time, and I have some data to
+back this up as well. This[2] experiment was done on a TI AM62L SoC
+(which is yet to make it upstream) to measure the time taken in the scmi
+pm domain probe function when it does a full 0..N scmi pd init vs just
+the ones being used in the device tree.
 
-I'd imagine you either want to explicitly forbid this option for the other
-entrypoints (i.e. the non- _novma variants) or you need to be able to handle
-this option being passed in to the other functions, which you currently don't
-do. I'd vote for explcitly disallowing (document it and return error if passed in).
+If you have any feedback on this, please let me know. If not, I will go
+ahead and post a "non-RFC" patch assuming everyone is mostly on board
+with this. Also request other SCMI consumers to test this out as much as
+possible to see if it breaks in any situations.
 
->  };
->  
->  /**
-> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-> index e478777c86e1..9657cf4664b2 100644
-> --- a/mm/pagewalk.c
-> +++ b/mm/pagewalk.c
-> @@ -440,6 +440,8 @@ static inline void process_vma_walk_lock(struct vm_area_struct *vma,
->  	case PGWALK_RDLOCK:
->  		/* PGWALK_RDLOCK is handled by process_mm_walk_lock */
->  		break;
-> +	default:
-> +		break;
->  	}
->  #endif
->  }
-> @@ -640,10 +642,12 @@ int walk_page_range_novma(struct mm_struct *mm, unsigned long start,
->  	 * specified address range from being freed. The caller should take
->  	 * other actions to prevent this race.
->  	 */
-> -	if (mm == &init_mm)
-> -		mmap_assert_locked(walk.mm);
+[1] https://static.sched.com/hosted_files/eoss24/2f/ARM_SCMI_Primer_Dhruva_kamlesh.pdf
+[2] https://gist.github.com/DhruvaG2000/75d6a4c31e817f56587537b022761c45
 
-Given apply_to_page_range() doesn't do any locking for kernel pgtable walking, I
-can be convinced that it's also not required for our case using this framework.
-But why does this framework believe it is necessary? Should the comment above
-this at least be updated?
+Applies cleanly on top of next-20250530, built and tested on top of the
+same
 
-Thanks,
-Ryan
+---
 
-> -	else
-> -		mmap_assert_write_locked(walk.mm);
-> +	if (ops->walk_lock != PGWALK_NOLOCK) {
-> +		if (mm == &init_mm)
-> +			mmap_assert_locked(walk.mm);
-> +		else
-> +			mmap_assert_write_locked(walk.mm);
-> +	}
->  
->  	return walk_pgd_range(start, end, &walk);
->  }
+ drivers/pmdomain/arm/scmi_pm_domain.c | 88 ++++++++++++++++++++-------
+ 1 file changed, 66 insertions(+), 22 deletions(-)
+
+diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
+index 2a213c218126..8acbfe249ed2 100644
+--- a/drivers/pmdomain/arm/scmi_pm_domain.c
++++ b/drivers/pmdomain/arm/scmi_pm_domain.c
+@@ -10,6 +10,8 @@
+ #include <linux/module.h>
+ #include <linux/pm_domain.h>
+ #include <linux/scmi_protocol.h>
++#include <linux/of.h>
++
+ 
+ static const struct scmi_power_proto_ops *power_ops;
+ 
+@@ -47,14 +49,20 @@ static int scmi_pd_power_off(struct generic_pm_domain *domain)
+ 
+ static int scmi_pm_domain_probe(struct scmi_device *sdev)
+ {
+-	int num_domains, i;
+ 	struct device *dev = &sdev->dev;
+-	struct device_node *np = dev->of_node;
++	struct device_node *np;
+ 	struct scmi_pm_domain *scmi_pd;
+-	struct genpd_onecell_data *scmi_pd_data;
+-	struct generic_pm_domain **domains;
++	struct of_phandle_args args;
+ 	const struct scmi_handle *handle = sdev->handle;
+ 	struct scmi_protocol_handle *ph;
++	struct genpd_onecell_data *scmi_pd_data;
++	struct generic_pm_domain **domains;
++	int max_id = -1;
++	int index, num_domains;
++	ktime_t start_time = ktime_get();
++	unsigned long *domain_ids;
++
++	dev_err(dev, "Starting optimized SCMI power domain probe\n");
+ 
+ 	if (!handle)
+ 		return -ENODEV;
+@@ -69,54 +77,90 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
+ 		return num_domains;
+ 	}
+ 
+-	scmi_pd = devm_kcalloc(dev, num_domains, sizeof(*scmi_pd), GFP_KERNEL);
+-	if (!scmi_pd)
++	domain_ids = devm_bitmap_zalloc(dev, num_domains, GFP_KERNEL);
++	if (!domain_ids)
+ 		return -ENOMEM;
+ 
++	/* Find referenced domain IDs and mark them in bitmap */
++	for_each_node_with_property(np, "power-domains") {
++		index = 0;
++		while (!of_parse_phandle_with_args(np, "power-domains",
++					"#power-domain-cells",
++					index, &args)) {
++			if (args.args_count >= 1 && args.np == dev->of_node) {
++				int id = args.args[0];
++				if (id < num_domains) {
++					set_bit(id, domain_ids);
++					max_id = max(max_id, id);
++					dev_dbg(dev, "Found power domain reference %d from node %pOF\n",
++							id, np);
++				}
++			}
++			of_node_put(args.np);
++			index++;
++		}
++	}
++
++	if (max_id < 0) {
++		dev_warn(dev, "No power domains referenced in device tree\n");
++		/* Create provider anyway as domains might be referenced later */
++		max_id = 0;
++	}
++
++	dev_warn(dev, "Highest referenced domain ID: %d\n", max_id);
++
+ 	scmi_pd_data = devm_kzalloc(dev, sizeof(*scmi_pd_data), GFP_KERNEL);
+ 	if (!scmi_pd_data)
+ 		return -ENOMEM;
+ 
+-	domains = devm_kcalloc(dev, num_domains, sizeof(*domains), GFP_KERNEL);
++	domains = devm_kcalloc(dev, max_id + 1, sizeof(*domains), GFP_KERNEL);
+ 	if (!domains)
+ 		return -ENOMEM;
+ 
+-	for (i = 0; i < num_domains; i++, scmi_pd++) {
++	scmi_pd = devm_kcalloc(dev, max_id + 1, sizeof(*scmi_pd), GFP_KERNEL);
++	if (!scmi_pd)
++		return -ENOMEM;
++
++	/* Initialize only referenced domains */
++	for_each_set_bit(index, domain_ids, num_domains) {
+ 		u32 state;
+ 
+-		if (power_ops->state_get(ph, i, &state)) {
+-			dev_warn(dev, "failed to get state for domain %d\n", i);
++		if (power_ops->state_get(ph, index, &state)) {
++			dev_err(dev, "Domain %d not available\n", index);
+ 			continue;
+ 		}
+ 
+-		/*
+-		 * Register the explicit power on request to the firmware so
+-		 * that it is tracked as used by OSPM agent and not
+-		 * accidentally turned off with OSPM's knowledge
+-		 */
+-		if (state == SCMI_POWER_STATE_GENERIC_ON)
+-			power_ops->state_set(ph, i, state);
++		dev_warn(dev, "Initializing referenced domain %d\n", index);
+ 
+-		scmi_pd->domain = i;
++		scmi_pd->domain = index;
+ 		scmi_pd->ph = ph;
+-		scmi_pd->name = power_ops->name_get(ph, i);
++		scmi_pd->name = power_ops->name_get(ph, index);
+ 		scmi_pd->genpd.name = scmi_pd->name;
+ 		scmi_pd->genpd.power_off = scmi_pd_power_off;
+ 		scmi_pd->genpd.power_on = scmi_pd_power_on;
+ 		scmi_pd->genpd.flags = GENPD_FLAG_ACTIVE_WAKEUP;
+ 
++		if (state == SCMI_POWER_STATE_GENERIC_ON) {
++			dev_warn(dev, "Domain %d is ON, registering state\n", index);
++			power_ops->state_set(ph, index, state);
++		}
++
+ 		pm_genpd_init(&scmi_pd->genpd, NULL,
+ 			      state == SCMI_POWER_STATE_GENERIC_OFF);
+ 
+-		domains[i] = &scmi_pd->genpd;
++		domains[index] = &scmi_pd->genpd;
++		scmi_pd++;
+ 	}
+ 
+ 	scmi_pd_data->domains = domains;
+-	scmi_pd_data->num_domains = num_domains;
++	scmi_pd_data->num_domains = max_id + 1;
+ 
+ 	dev_set_drvdata(dev, scmi_pd_data);
+ 
+-	return of_genpd_add_provider_onecell(np, scmi_pd_data);
++	dev_err(dev, "SCMI power domains probe completed in %lld us\n",
++			ktime_us_delta(ktime_get(), start_time));
++
++	return of_genpd_add_provider_onecell(dev->of_node, scmi_pd_data);
+ }
+ 
+ static void scmi_pm_domain_remove(struct scmi_device *sdev)
+-- 
+2.34.1
 
 
