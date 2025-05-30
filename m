@@ -4,97 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823DCC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 16:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D82C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 16:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bxxufLK3KekEdbbP35QTahMDHa855MkqcMEQ8g1zMTk=; b=J2aGDK99xDUlUwcQhyO9QDnCEz
-	eipmfaM9yKmocC7Vqwb4l/hRif/4CA17K5urNPhUX8vwdPkKEvex5OJBl+jiDVi85MJHrML6qOBpo
-	2BrUXjtqa8R90MAVn8rCJy3DIL8jWd6ows93X7INB0wAcgFod0FHTEzcEE1jLq5iT6+ie4CVMnWyw
-	/NG1TIJ7LD2rNaGkz2t8B+fs8JrPJ+xmqzPdmWeT8rFAnBhhcQFB3jvAYwi0be2obYrF5OLchbrMf
-	6ZJjozlUQIZQu8D2EKCO5hg7sk4q/gc+jhcvO3G108CbXB3ZKPl1CoHnhSYNxj3sOkhfbv+1t4CUd
-	3lqBOZgg==;
+	bh=w5MhHppldrzGV9m4F/68Wpfv/22VTibFt5G79tY8Z8E=; b=WBCloVA7ZmKV4Tb0+yiVzvDzSs
+	9de/9DMVtPGjTi1AWaAOaq0aAHZFUpTWEYSm3c1y2gf8NooBqiQXgwUBOaqhvieSsW3T8vCA/UJwR
+	iW45cMqKidEitgn+VTnSkTwahgEipcAet//EycveaufQI2VunvQ3rG4vCO1VqZfHgOIWhCKwaOvyz
+	UARYH2+roJbSW3N7R8VSRjuqMvOVWc6btCAqdOEwHizz78iFKQHuo2wvKIk6OCky0FnmksZXahQQO
+	t3fMJzMI6FiJTzblSMm510QbAvSWsFjffDdfdUn1wkOTkanq3eMN9eFjVBOcH/zVxqbkeArwotKmY
+	a1HrdPKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL2Xt-00000001AlR-1faW;
-	Fri, 30 May 2025 16:25:25 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uL2a1-00000001BFf-0ZlP;
+	Fri, 30 May 2025 16:27:37 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL2Ic-000000017G9-3Z2q
+	id 1uL2KS-000000017eh-2Two
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 16:09:40 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2349f096605so26967505ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 09:09:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748621378; x=1749226178; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=bxxufLK3KekEdbbP35QTahMDHa855MkqcMEQ8g1zMTk=;
-        b=AoAgJ262hFG5aijsaRfq5QziMrRf/C9NUgbzEuOqb5Hqwxh0Ku97As6np3yIek+ZDU
-         93XccZnnB2dIFBfapkH4i5fB1roLjleP9+fedHOiRvD+6f1Yq3Ze2DPyur7fiX/50kkD
-         KTQF44jm4eNLzhO7xPC6vwJa7BSnh6auzJ797w10xAntRhXTiazoicLn6dpXjBIuls7h
-         yC1A4mL5V9wkajzLIFgSP3+aF/ZLp7XovkdjrM/Kwmf/j6av6asZRqxgYb4OnFCuSs75
-         qlZu6+TikFoLah8ERsxVe6zOu2Yx39C1/v3VJFvTatmYBhyeTeMzZCKsBsZHNKF8bcqR
-         tp0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748621378; x=1749226178;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bxxufLK3KekEdbbP35QTahMDHa855MkqcMEQ8g1zMTk=;
-        b=fH6KTJU2MC6X+W6whG4wRBLI47Em0efD/X+ulJIsRKW6S/070/jUSqsplzuw6Ro3wd
-         KP61u7LtAz9ULHwz/xZkUNXI6o2YcKeTA9Qksu0CJvjfT1YEjVK56uRb+geHoQsqhoM1
-         YJNS3fsPjplbJXypUGPVho05KJr5XJaqJp8rF89ksGX0/WztwYJUE7CicBKCrOsJ0Vwg
-         Kr4WNQ4sZO3DIK4MzYBxHwTwZPaZ+T0MUs6gud/ykuZXYaHmBqYPI+70esCe8kmFPS/N
-         aM+ip5LcQWY7BcI48/dF141HPT5QgPTNKiKtNIakkESEG75bJiasyXRTfzZywAFJhUlX
-         0l1w==
-X-Forwarded-Encrypted: i=1; AJvYcCUFctS4gy0n8gE9LqOCepTIFuUaRVb+e/v63gsWphWpedCFoYMGY0De/GfmuxtjeG54NwIZoqhZ+ZLx4e1Dl6Bd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7w63DoscqKqWX7D0FfGRSCHUh+b2607UOmVVUdok4gx7W7Ztb
-	UeOjI6pZaMtM3/qlHh+UHJrHuHjT/WKhsgfvcprMP4e1GAxH4dSImTuVOFwXReNqgw==
-X-Gm-Gg: ASbGncsaRRjodIYKgj8xKJhpuRPo7v1/pFz+RItC+5U8TkTm5OyJdTJ/qqRDqLydB3K
-	A5i5Hv/iXfgseZvheZankpxA6Z9SDKqU/qZmA4UK6aHgsG7gAw2yv3UAaun/KKimgnYNK1qbdAf
-	V9Niy3/SnlX9H4MrpCy8A305G6pmnUbcj0DLDcswQ4qJ2Y9KL6s4pVNcf51NGE4uleHD2husgOU
-	064Ev+Pl+MnY+cff6nLeuXkmeX7Giz8ebCLRxEhIw1fd7DJ/rW3eF1rzTJfMVM2MP1xnd1FTbd8
-	+Zfb6qzkwFS/sF1OJtHe/IszjZoVJJ/kl7PSrsd2OXrsfRahN/ZmG+D0nDuhkg==
-X-Google-Smtp-Source: AGHT+IEaQI64EZVaM9JygVJu/CqqQgOOBJm+b8JHY4a69IBYYuuTYL7zefQI+S32XWNK9lzdgNMIBQ==
-X-Received: by 2002:a17:903:291:b0:234:b44c:d3c8 with SMTP id d9443c01a7336-23529a28ab7mr65505535ad.37.1748621377852;
-        Fri, 30 May 2025 09:09:37 -0700 (PDT)
-Received: from thinkpad ([120.60.139.33])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506bd9478sm30412095ad.77.2025.05.30.09.09.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 May 2025 09:09:37 -0700 (PDT)
-Date: Fri, 30 May 2025 21:39:28 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
-	Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>, 
-	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 4/5] PCI: host-common: Add link down handling for host
- bridges
-Message-ID: <bixtbu7hzs5rwrgj22ff53souxvpd7vqysktpcnxvd66jrsizf@pelid4rjhips>
-References: <fr6orvqq62hozn5g3svpyyazdshv4kh4xszchxbmpdcpgp5pg6@mlehmlasbvrm>
- <20250530113404.GA138859@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Fri, 30 May 2025 16:11:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aKVRwN8M0HVcdV8HxzWI7BnO21i8w9OeSJUaRvG13DZG75kr0vzlKzkvKbTJN2B9ZCVflRacu4NWOwnXRdGTAF0ArI8/+b/oCJKhLIwYzgw9cjPrDZXdZuoD3V3emNYuzKNuIU5YCJE4vqQUFWzFKBRA9xb4AYVhQnlYHLhIVhiNwa3AE0KZko4TLHLFUNdaAmvMCuIvfXFdCtDGS9/zRyowKBCIyN79+1FNUZKOPqdgWaG2G+m/Qu+buG8FYfuRzyKpwDBLKyK+DPZ3Xl+FghFGZx6pzfKad/wLRGZ+Blaz/PiOcedQ8n79tFdzUWbzcNvTwqgsvfa72N5NUvC7yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w5MhHppldrzGV9m4F/68Wpfv/22VTibFt5G79tY8Z8E=;
+ b=VzwTm6QI6YQMqnUBHRgy7+esjvhQKmpfQHfToc8VPw2mNXagzXk2mMxHcdhwR/RQnHLwP4C9v806U9sASJWY1SOwgzMOsFGWJ/INV9X+nsCP2pEbEBEQo85K+w4FWvW1R11c68sRSSlUYbpTiJZm0HgIK3fL+4DXHae6EVxvJEy4atTZhDuu09hUZq2rKTt76GxCIaxTxEZcQI4CgUgh24RX4mFA0X3xvK6suafaP60X1IoM3N9OeaNxCPTZsUXd4yOXxghFr6MfJK/B/THbG18v3o5RUFLx9nKn95lpeNTaQciPwS7KMIr2jK58coGjQroa6V+cl9WPld8L9ytcag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w5MhHppldrzGV9m4F/68Wpfv/22VTibFt5G79tY8Z8E=;
+ b=f7SBEZtjhOsVRimpQnEX544kmDZjcNGKcVCo1ZbhunrNGpecRzwAVbGdn3KzAKhJF1ZNQVe/UzllJqbJlEMAGwCI5euqWcUEO4C/ZLm8oGKXb2XviXkj0bCEUE1pBPD5faw5+YpaffoLYMjNKRsbDVSPurYjPpIhTkm50LhnxUhmfComzqUhgvgJE54VJDYZU4WtrgUbrSox770a3oUhFWCXGxswzWiDDxa8r8S4Ugj9ks0zkHhGtHee1/lV74ic5MDeb2eBbnshxjztpQKGqiCjiwhCi8G00MmihXis99Lrckj8gCkSE3H7Aw7Pl5YxARVEHgyliTXLQE8mcgJ9Lg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA1PR04MB10398.eurprd04.prod.outlook.com (2603:10a6:102:44d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.32; Fri, 30 May
+ 2025 16:11:27 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8769.025; Fri, 30 May 2025
+ 16:11:26 +0000
+Date: Fri, 30 May 2025 12:11:17 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>,
+	"open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM" <dmaengine@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] dt-bindings: dma: fsl-mxs-dma: allow interrupt-names
+ for fsl,imx23-dma-apbx
+Message-ID: <aDnYpeViGvIsGCLD@lizhi-Precision-Tower-5810>
+References: <20250523213252.582366-1-Frank.Li@nxp.com>
+ <20250526-plural-nifty-b43938d9f180@spud>
+ <aDcw0sgN1ZX0kCCZ@lizhi-Precision-Tower-5810>
+ <20250530-those-frequency-f8106275769f@spud>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250530113404.GA138859@bhelgaas>
+In-Reply-To: <20250530-those-frequency-f8106275769f@spud>
+X-ClientProxiedBy: SJ0PR05CA0139.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::24) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA1PR04MB10398:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95976927-3b57-429c-22dc-08dd9f94a0f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8GUZl1AM2hX1oDsJK4q+wBkCyaJYPEcmXMlkwPbR7I6jNLcqbFiVMpJ/4Fni?=
+ =?us-ascii?Q?GrQRuW11KjoH3+CBFbp8Nx8Zpe8qBw6/jm9n+CgX9Ntm2lnoT12Rh68X6bLU?=
+ =?us-ascii?Q?twkTHGZhQ/uJAH8viidwjg9q/FHKZGjYogv4i2hLPGYpeJLr1MU6ILKXY0T6?=
+ =?us-ascii?Q?EhqSmLiGdwyRSR53KWPNalLqFAuwOiqOdGvr+ZycBERkBBhkcMoOh32DmnLt?=
+ =?us-ascii?Q?ysa0doKnzAbWr9MWuIlrcApGUYRB9o2Sjd4fioYajqqfgrQNFxsZgKxKafG4?=
+ =?us-ascii?Q?FzquYCseachcwjSAJr/1hV2Swj1g52qc3wBMwgyFb8qcMW4ZBO79RlFRiGlN?=
+ =?us-ascii?Q?UrVZCLZARV+iX2LTwvEw/Vi/XUeGjkrSlpEvJTpunSsCvgu+QltrZnxOw3GA?=
+ =?us-ascii?Q?Em8EodZaDfsuytCDLQMLzsRKbW2zjhOHESLdfcMZ2tg/UPBKu1owLs2J0nzC?=
+ =?us-ascii?Q?aVMkP9JWr7qL9ejuKrb4pYF9x76WrzqE4pdpcmPn/fxZOp9NsEhIpjgFevVg?=
+ =?us-ascii?Q?MkR+utDhGIbzkgS/eVvpBMJdztFiJ0adJyNkFoy4mX3TzCMLER+CnDmLEMEm?=
+ =?us-ascii?Q?Lof793cJmC2Uk40zBRid7qq9Wh2RlvyTrGdbOrGZvq0QxfV5Ega9urIA0sMa?=
+ =?us-ascii?Q?q41RGwm8+onmWxa9zVZDuUPzSrwCBpse4NcYbUG1LdlOSkwiBjQkjgDFN/Ww?=
+ =?us-ascii?Q?wNLTN6isx1QAnrHPJUiHUzZpH33XH0QDMIj1m195iXNtI6sd4g/0BvijV9+w?=
+ =?us-ascii?Q?hSdGbJVRXfr3tFioIPHLOe4xeZmzLY6JpiEvcLh/FFnotTPMFkfA4KV8lBhQ?=
+ =?us-ascii?Q?YZEmfDkqMBQ7Q2jz1K9LE+NhxnGhAO8B6stliOmeqhrmeI1TuuF9IouxC0V8?=
+ =?us-ascii?Q?yy85NdrlnK6UOlUDJWU5/Bt7THUQCDJ/WKEQvQfxkDowXuCyH5q17xXHezX4?=
+ =?us-ascii?Q?TO63/rv0bPGJOrLD7O70Ma0gDvuoxlsNE6lJPXj/4UQ/AoSU1VHrxBwG85Te?=
+ =?us-ascii?Q?p8ZEX3rdaN8VCIdYV6ZIdQz/oUs4+5/QK/E6VWGhJqucjrPX3b9mA/9g7VCd?=
+ =?us-ascii?Q?SJGTVNCp6pF2jmWlxytFNXHTyz2jc7DjXb1RfO+TLxn8nquwYebLogB1pGAE?=
+ =?us-ascii?Q?u4yFUbOztjHuJVfJiavazgMCcpWKS/RQRZ6c9ABDw2kqiCoEtMl9i2siDJZr?=
+ =?us-ascii?Q?Vb9BNgIuXQETf4bTsSMFfkLtfXmLKzJcpfqjo1stO+3uPNAtZgHl9R8ZihRe?=
+ =?us-ascii?Q?gv5iLLzS97vC45IWT7MyCllGez4p+5RlDZ530ZZyTrJPBFcXFwFCZ+phyNhC?=
+ =?us-ascii?Q?kjPK6ajtedoVdnPmbcllFnq9qM0NpgWGMbNDx7D/jaukVtD7rjStTu9ajlAl?=
+ =?us-ascii?Q?taDXRj1cn9RHYqlIMHdZvyckL0tNYgoSVdzyyxIQr8Yv8IyCjbIrzLGr22RL?=
+ =?us-ascii?Q?dV+JOyb7fw/siAiwgb4kJN8ttrcWx/m8yi0sajDRdnAmd/W+dbvyNgn56146?=
+ =?us-ascii?Q?c3TU1b3EyplpIFU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ddUHQS1owlHL5fEIwbAHIozEhphvBCn+KL6MGqoITx9VA8uoTrGJL3zDIWlC?=
+ =?us-ascii?Q?2bL9H05jS9iMl50ecdZ3lFvCyNyPRuPo5tgvxBtPipysJJqg16UJSCPl/ViE?=
+ =?us-ascii?Q?7GDxZQj7itulYw7VKZ7sNIccCLd7C2XQQ1nURZmYjIbY77YJzQPy9sg9AWxp?=
+ =?us-ascii?Q?dJuc9bXZyW50OH23Hxj8COEYPKEQaYLWOXHFfe8MI43tZzM2gKe8l3ThMPrC?=
+ =?us-ascii?Q?rLON9faDld4Qv/EQ2NNIWu0iPRxIw098hjBOt84Ynr00pKwwGcZdyyZSQ7AM?=
+ =?us-ascii?Q?Zxm7YB6FzddAU0aDf5tpgeoxvs7eaJQbpg7i7XNDillu6K7xyoX/+is7k2kc?=
+ =?us-ascii?Q?EPYYW25BA6PUk8ACna+OKuYdxtlxccJkURLEON08c+qwVLOs0DkUYApVJ8bR?=
+ =?us-ascii?Q?VYIxdAcepeZ5DlbfEn7AlP6agT0D7ooggf5KbS6jF80XHW8kYnLa/EZaxAEb?=
+ =?us-ascii?Q?rv6nzJ+LDd88C619OnYgasUPwGap8QFIqW5wXpw+bovU0xLcS+Tt4HRf2Hsu?=
+ =?us-ascii?Q?bF1+njhKc/pBCFjnz+4V2QHP7eJg5tYxiXdHXtXekyl+8BhDuVJjjXFZxTlk?=
+ =?us-ascii?Q?fIdaSL2GbZj6a2qS4O+7AB0xjyG17YqiIAapydpU/PrrkK0c8JJ6pe2DD3UT?=
+ =?us-ascii?Q?fL5ikUfE+7HQmvkVo1XCajPatZjyGt+3Ej64ADaj6xTCtX5w37camA4M/2t/?=
+ =?us-ascii?Q?PdajfGjPVUqz0DNSjXgrVLQBLX2bxotqCo9BbGfLZuHnM86C7YgkVldcEJ1K?=
+ =?us-ascii?Q?aQ3zKAFfQJ5WIs5V5HD3br5dUFF8QjBj7bMzZ9D47idhVi+KGyk67rEf87Kt?=
+ =?us-ascii?Q?0ZKBXySbLrGDU/0QGXMlwGNPpEkKw4/XySXciCWmlFqq4iw4yQxPKuZ3mP9b?=
+ =?us-ascii?Q?BEByQowlj9eVcS4Rje8A/f5Wck5kijvZkRu31N2L+pwj2w3XMlIfAEPELLU6?=
+ =?us-ascii?Q?s+raPMlgfLTW849dNV9D5IxtmMm9MRXcELkTaGR83oVEpcQ23cD0N+dVQXe5?=
+ =?us-ascii?Q?oCJfDaTUagMcFHKlNIhBhzPVVweiEfdo9wthjVO48+JwmQqOp01S/gDX/bml?=
+ =?us-ascii?Q?E+LVWlP4SMLHR5IgQZcXJiCEaPeFKtJ51JQqDDe60liELVChu5G3/J3gqikf?=
+ =?us-ascii?Q?NX9JC3Se1iE9dr4aXe5HuIoLyIb7ECoaFNVJatBpl5tm9q+kmngLXAS4qwsP?=
+ =?us-ascii?Q?TFklQJmw4tjjIXkX/AU+a1Zsnh64SNWA+fCwB6w1c72X+3x/Fo2FB9ZwOe5P?=
+ =?us-ascii?Q?S6z3ESoHvBHB2XqXbbJQovDXDqfomRmPThS3jtA4Sy8shkPPUTxIJ332ZoCe?=
+ =?us-ascii?Q?3sDsxitThEcNfA3aSLKszAqAJJK5BCEIuPE1So+X5lKovC1PQLbvE8A0MxE4?=
+ =?us-ascii?Q?4hbuOTExQa82er34U0YeJX340/krkhWb+hiU176PXsCnzR2KyY3cHlh6ztnz?=
+ =?us-ascii?Q?/cnVFgQcoJl6q3975Uc+xLae/uKj/jeGDSympVJHb99Nnf/eq79EmjA5I+zR?=
+ =?us-ascii?Q?UgiNjS2KJ1bImIx3shnrcUcAvA6dIsiS3L6ZHe9suugTf8l62lmljXs0ztp9?=
+ =?us-ascii?Q?F6veipuK+e9y0RSVfiw=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95976927-3b57-429c-22dc-08dd9f94a0f3
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2025 16:11:26.2154
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +ZTWHXGzZ6+n55C7+Mh4Qw9mAl1RLuNyS2jyQoQYn8ZCEFXcLjCiWMvYFg7QfwbprcfjnyhAYb892YembdSN3w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10398
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_090938_891407_7C09FB9F 
-X-CRM114-Status: GOOD (  32.22  )
+X-CRM114-CacheID: sfid-20250530_091132_643116_096328A2 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,64 +169,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 06:34:04AM -0500, Bjorn Helgaas wrote:
-> On Fri, May 30, 2025 at 09:16:59AM +0530, Manivannan Sadhasivam wrote:
-> > On Wed, May 28, 2025 at 05:35:00PM -0500, Bjorn Helgaas wrote:
-> > > On Thu, May 08, 2025 at 12:40:33PM +0530, Manivannan Sadhasivam wrote:
-> > > > The PCI link, when down, needs to be recovered to bring it back. But that
-> > > > cannot be done in a generic way as link recovery procedure is specific to
-> > > > host bridges. So add a new API pci_host_handle_link_down() that could be
-> > > > called by the host bridge drivers when the link goes down.
-> > > > 
-> > > > The API will iterate through all the slots and calls the pcie_do_recovery()
-> > > > function with 'pci_channel_io_frozen' as the state. This will result in the
-> > > > execution of the AER Fatal error handling code. Since the link down
-> > > > recovery is pretty much the same as AER Fatal error handling,
-> > > > pcie_do_recovery() helper is reused here. First the AER error_detected
-> > > > callback will be triggered for the bridge and the downstream devices. Then,
-> > > > pci_host_reset_slot() will be called for the slot, which will reset the
-> > > > slot using 'reset_slot' callback to recover the link. Once that's done,
-> > > > resume message will be broadcasted to the bridge and the downstream devices
-> > > > indicating successful link recovery.
-> > > 
-> > > Link down is an event for a single Root Port.  Why would we iterate
-> > > through all the Root Ports if the link went down for one of them?
-> > 
-> > Because on the reference platform (Qcom), link down notification is
-> > not per-port, but per controller. So that's why we are iterating
-> > through all ports.  The callback is supposed to identify the ports
-> > that triggered the link down event and recover them.
-> 
-> Maybe I'm missing something.  Which callback identifies the port(s)
-> that triggered the link down event?
+On Fri, May 30, 2025 at 04:24:51PM +0100, Conor Dooley wrote:
+> On Wed, May 28, 2025 at 11:50:42AM -0400, Frank Li wrote:
+> > On Mon, May 26, 2025 at 04:28:07PM +0100, Conor Dooley wrote:
+> > > On Fri, May 23, 2025 at 05:32:52PM -0400, Frank Li wrote:
+> > > > Allow interrupt-names for fsl,imx23-dma-apbx and keep the same restriction
+> > > > for others.
+> > >
+> > > The content of the patch seems okay, but why are you doing this? What is
+> > > the value on this particular platform but not the others?
+> >
+> > Actually it is not used in dma driver, i.MX23 is quite old chips (over 10year).
+>
+> If they provide no value, why not just delete them?
 
-I was referring to the host_bridge::reset_root_port() callback that resets the
-root ports.
+The platform is too old. I have not hardware to test if it really unused.
 
->  I see that
-> pci_host_handle_link_down() is called by
-> rockchip_pcie_rc_sys_irq_thread() and qcom_pcie_global_irq_thread(),
-> but I don't see the logic that identifies a particular Root Port.
-> 
-> Per-controller notification of per-port events is a controller
-> deficiency, not something inherent to PCIe.  I don't think we should
-> build common infrastructure that resets all the Root Ports just
-> because one of them had an issue.
-> 
+Frank
 
-Hmm, fair enough.
+>
+> > Just to match existed dts to reduce warnings.
+>
+> You should mention this in your commit message.
 
-> I think pci_host_handle_link_down() should take a Root Port, not a
-> host bridge, and the controller driver should figure out which port
-> needs to be recovered, or the controller driver can have its own loop
-> to recover all of them if it can't figure out which one needs it.
-> 
 
-This should also work. Feel free to drop the relevant commits for v6.16, I can
-resubmit them (including dw-rockchip after -rc1).
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
