@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982A4C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 17:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4AAC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 17:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=buVLTLGIIGSDQEPVaBKvvla56/HpfEM5pnwMP7FjQZ0=; b=3pdpq7l/4/wGx3TNoBsnw7Er8W
-	oBzBoxqf5UHnXbaG8fS1EEoc03IVxE/XnZFwCk7e+i6SnZcWVaydm3s8Pkw5XTNq+gWAxOT+P0CKP
-	VfLdYUGoj/8PxV/3aReNUkpvGeyCvOptt1uRAsULcuXpACeJ5dBgErNpKS/Fxc5RWpt+vAJffuxgS
-	n0aRddZhf6IT2KRsKpFDE+M8Mo3lrpw3djS7tHMkHiMFdNvirieItZW2sMqG67nVCXyR267qxYVjZ
-	VEP6/hFi9Wf2OzzbB9/t/lALvnwMgRFourwVxJALf6QNncdd830CdA8j9FQVa1ho7uIWpNY9MysGF
-	B0eVnr2A==;
+	bh=4XJgKivtCt5LJoQcbBThiFJZHfZb7pmb6uFcMoblf8Q=; b=HQ968R4IBV+FIuHhQ5DX0QEsL5
+	6bxaV2k3ffZEVeWTGsS93zZZtQ6q52dPzWy0PPCLqCx89YCy4YXiGpxoWMcw9yVKfzdr9ftTkfQRb
+	EidPAqQXpIhDYtBLxCdbE+oTldbGF2OTqJnF6mjOq04qkb5X9ZxJwVIPnZQZRZ8zUMCwht/+x4pWk
+	+/eEclVSAsnKMDQztz59QLrl2Zqcbf7rB24YrNg0onWQgLZGrMqLhj0ta+JNKMYA02n2Fl9qHqLQZ
+	uicA/qVVeQdWJPcj8CIj0TAxYjy03FnSkxyIjlULg8CRmXElcLUjlKQElfhb4h9RhT0+R8HC9CR5u
+	IgyKGI0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL3hl-00000001QGc-1qXo;
-	Fri, 30 May 2025 17:39:41 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1uL3jr-00000001QdJ-2JZn;
+	Fri, 30 May 2025 17:41:51 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL3cV-00000001Pfa-0fRn
+	id 1uL3gP-00000001Q3D-3ZZM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 17:34:16 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4769aef457bso28391401cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 10:34:14 -0700 (PDT)
+	Fri, 30 May 2025 17:38:19 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-6facf4d8e9eso13496096d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 10:38:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1748626453; x=1749231253; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1748626696; x=1749231496; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=buVLTLGIIGSDQEPVaBKvvla56/HpfEM5pnwMP7FjQZ0=;
-        b=IlLSXh49SkNUft/uho6V1C5EiaUVQvV7E9HTFlMXdjrxuHUN7aaRG5/P926TWFy5v8
-         wLQsVVrOYtQbD3SsDx+lF9PMtAYedHDSZ7Z7tnSjm03uXAYhLeLCozNTpSStqBcZNicW
-         tbnqwWFdeQ8M5Xx9gVny+rU0cnpgvgX04D7eT8ajF2AqL5TnkC7bUlURRD950dYy4DC6
-         fxwOz9jfSMtak4X7iaH+ero5puO2znnsSYonnoQheVTPyk9iHzLOlodbHOjFW2lSumXD
-         W9DJlfQKSsqQ0n9M7kaiRfNFewTtBdhJWidLnFQz4uanopPCdr9D5rfCLfajfgMP9bJg
-         gPQQ==
+        bh=4XJgKivtCt5LJoQcbBThiFJZHfZb7pmb6uFcMoblf8Q=;
+        b=ybocLm3In3sB6Cz/UZ+MiRCADIZHqkh1hHqbhfdXf6og40a9fRWOh2yR34DO8sqJpw
+         rbEO0WZBYTJfwrLdJn1kmyAnyJIkRg3qv+olHlW0NrWNRaDLhGKi486BghmdXE9kmXq5
+         g+uxkjpiS2G22rGhN9H0mEjSxbKklf0qJngNqSLg2xvbkhYqNx3UxD6avJ5pUBpx3CzB
+         G5+LYMgGXhWCW74gMp4ZpeNl92hi/k0ueOizhKeJ8jzHlRPELq3mOOFUAOB7ppXwRZVh
+         kM3xA4AmKGnzAUsxSRxQWQUAbkWKm4JV76dP9RAVzjE2o/osCenMXHc6gG9nU30IPWyK
+         vqhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748626453; x=1749231253;
+        d=1e100.net; s=20230601; t=1748626696; x=1749231496;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=buVLTLGIIGSDQEPVaBKvvla56/HpfEM5pnwMP7FjQZ0=;
-        b=h7GpgmZ3p5w/O1ZvD1GxSP4BT8Lb9nW24ZMGy4Iv3uNWmq80EDBFwnsgB2S3D5nlsc
-         smERrqlQO+dPmiHaPdGf7B7BwDFInTUKbhnGpi38sIIxVbVaqzYEgg0PECE6Cnx9OV6W
-         D8t/Hz7nXngpXiR9EcmENDzrDp1DSDkEklmIo+OQw+XUwc6iPJfU9BNO0XR/jAL51scN
-         OZClpET1gFPqcnntYz6G6EcLhwqUWSlUarrybcs7+nLuUss+CWAC0CmnPOEFf5gsImT/
-         A1bjIT7pVrwMaJMONhajgCDL/TLuCshaiisKfE3ClqtTxCQqD+aMrQgViENBg111NX94
-         yUSA==
-X-Forwarded-Encrypted: i=1; AJvYcCVuCmGKzqrx88QqMHmwB2zxQiEq+10thhm7B+ZzwBahW410MxI3t59A6YpWV0lv22RGD1NdZjC/WgNBMKRS5uET@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoIET1KAOqOJ+Y/d4W05ExAh2Sa5FpkQ8bLiYNbgTU5iMPSZGx
-	s51xSlv7HaokOB1SicOTaFfMP5clAS6Agtu8COKudZqd+8uhJV/wgnii7wivAgLFJUQB57HNlP4
-	fYQe66cI=
-X-Gm-Gg: ASbGncv/XCxF7otvbsTq4S7lkXzKpqCSgCgQ/nsR/A583m8A8Ik4imuVpd0CTMFL9vJ
-	QEHT/esSBW95vNgI04+1vizrkUX9mC4bYtYYWTrVRns9MJsFxOfibuhBUZ/PMBMD3T1UQ5dsqzW
-	i7NaXQCLMvyg4CDkFZ8m12BnjfczKQmlG+FfxCuLW6U/1Rmp9YvEa1JlUrsm+b7Kjvat8Fbpx6N
-	2OziLR/bHK0swhyslalSW3G5Z6QXq47N14nBPMU+o0bOYEGq9p+lASISLkWrWVx8jMAGTHsWyI+
-	vhjeXa28rGhIlT6BKTnIr3jhaWEtRmlG0PYZFSPK7fHlZgHIWAtcgKmUhsiLeU0wlHmKvmebfwC
-	kZw==
-X-Google-Smtp-Source: AGHT+IHjLHOAn3d1xA8OLMjNNh0KseItAA4qflnmZwhssThdabG4QAR2XR2GIUqKvALq3wp6IsH/tg==
-X-Received: by 2002:a05:622a:260a:b0:4a3:d015:38b9 with SMTP id d75a77b69052e-4a4400c18cdmr80240681cf.39.1748626441532;
-        Fri, 30 May 2025 10:34:01 -0700 (PDT)
+        bh=4XJgKivtCt5LJoQcbBThiFJZHfZb7pmb6uFcMoblf8Q=;
+        b=BDfKE6L/IoUHEW3oiY4C7xL5XchlmW18/isDSPP7EYep1EM32vgg8QY3pwTdDp/gQJ
+         iKoz/rrEa0C4Yq4PSFe+ghZlVlLOHM4b1TsfOpgR22JZecAk7zlhrBrKnmQhmW3LY2x7
+         u4J/CU88vEDj7YjKuNZmQrTrQ733LaJOI6RGVOclaZrBs1h/yExmkd6+lU7vV6AJc+PE
+         hbHJ+LRQz2uz16UFItrSnILy1zfH5HeCIbX9poQqcB6+Q5MhIZI5T8QLj6X6LjHcOlyM
+         UqESfqWjERKjUerUNZNMQa1T3CEHSjP5rtghZUy1ORlV4K16dwFKvrQyFr7WTpVVR81t
+         foeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVpQSXWxT9MoneCr3l3/CnFuAPlxGY08nOQZ4GiXnSblTlsCmERBV0BrLZPW7t5fFZFep/u8lvTna1TharJYPEv@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeUx0JFao9Z2khqMTI7zZ4UhThOfot6HZTsJHbTsQCe86DUeR5
+	ah2AE5oYUKkcXG08pt77VYGOJtoep39cLJAiydZq3NxiPizAvhV3Lqtyzc+ENsI/P+g=
+X-Gm-Gg: ASbGnctMIPkClB6QLgNn/Eruq3/sKe1gS1EePgrteUfw96RaChTy72EaF4Olo4PX5Rv
+	SzbeC2dcup5W+0hs0Isd9ycm8RD9NMN5AE9oz4HYFVuE1V3onk7XL8zMaR/7fwhPkw+jQlRHSWU
+	TfukY4QM8UaYNwjWAxh50e5LtrfM/Ul7avY+ZB6norV43pKH1HOJjUVaeGdrEBfHKM2qgN+s4xX
+	7Mb/QK31XUPD4i2H8nWWAJI8pVKB8pgmy84NhpmBONK4cnKoIAKjY+wC3BIT/kS3kzg8NSxakJX
+	5wpPpScK5aJv+JSOwjhICu7o23gKT2GBai0obl5nhuAtPl2zWJ0iRjdDLVl1q2d8SY0=
+X-Google-Smtp-Source: AGHT+IEm6WRR1loVcMiU2DqaH+dlvJGnjKbEYabizfJDoQi11LUDznGgxwtmSqdbcL6beHmdAwv8gA==
+X-Received: by 2002:a05:6214:2524:b0:6f8:c23c:5257 with SMTP id 6a1803df08f44-6facebdbb1amr58096746d6.11.1748626696550;
+        Fri, 30 May 2025 10:38:16 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:10:5285::5ac? ([2606:6d00:10:5285::5ac])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a435a633c8sm23319031cf.70.2025.05.30.10.34.00
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fac6e1a90esm26195946d6.105.2025.05.30.10.38.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 May 2025 10:34:01 -0700 (PDT)
-Message-ID: <ac655c582609b7887381e1b68ed99f6b128fd794.camel@ndufresne.ca>
-Subject: Re: [PATCH v5 06/12] media: mediatek: jpeg: refactor jpeg buffer
- payload setting
+        Fri, 30 May 2025 10:38:16 -0700 (PDT)
+Message-ID: <8eadc152c3542c30fb31bb67093087f2bb0a6c31.camel@ndufresne.ca>
+Subject: Re: [PATCH v5 07/12] media: mediatek: jpeg: refactor jpeg dst
+ buffer layout
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
 To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
  <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
@@ -83,17 +81,17 @@ To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 Cc: srv_heupstream@mediatek.com
-Date: Fri, 30 May 2025 13:33:58 -0400
-In-Reply-To: <20250530074537.26338-7-kyrie.wu@mediatek.com>
+Date: Fri, 30 May 2025 13:38:14 -0400
+In-Reply-To: <20250530074537.26338-8-kyrie.wu@mediatek.com>
 References: <20250530074537.26338-1-kyrie.wu@mediatek.com>
-	 <20250530074537.26338-7-kyrie.wu@mediatek.com>
+	 <20250530074537.26338-8-kyrie.wu@mediatek.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_103415_193849_9F35E514 
-X-CRM114-Status: GOOD (  19.51  )
+X-CRM114-CacheID: sfid-20250530_103817_895387_80C872E2 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,80 +106,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kyrie,
+Hi,
 
 Le vendredi 30 mai 2025 =C3=A0 15:45 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
-> 1. for multi-core jpegdec:
-> =C2=A0=C2=A0 core0: |<-------- decoding buffer0 and resolution changed to=
- smaller
-> =C2=A0=C2=A0 core1:=C2=A0 |<-------- decoding buffer1
-> =C2=A0=C2=A0 core0:=C2=A0=C2=A0 |<- handling resolution changing
-> =C2=A0=C2=A0 core0:=C2=A0=C2=A0=C2=A0 |<- vb2_set_plane_payload
-> 2. the payload size is changed on the step of set format. Because core1
-> is running and streaming has not been stopped, the format cannot be
-> set again, resulting in no change in the payload size.
-> 3. at this time, the payload size is bigger than buffer length,
-> it will print a warnning call trace
-> 4. set payload size must less than buffer length
+> 1. change dst buffer size to same as struct mtk_jpeg_src_buf
+> to make sure all params of mtk_jpeg_src_buf could get a memory.
+> 2. For memory alloc operation:
+> the v4l2 framework malloc a memory, the base addr is vb2_buffer and
+> the size is sizeof(struct mtk_jpeg_src_buf), mtk_jpeg_src_buf could get
+> itself addr by container_of like that:
+> vb2_buffer -> vb2_v4l2_buffer -> mtk_jpeg_src_buf.
+> vb2_v4l2_buffer must keep on the top of mtk_jpeg_src_buf.
 
-You'll have to rework the text in this commit message, I must admit I don't
-understand from this text what exactly the problem is, make it really hard =
-to
-review your solution.
+The subject imply a refactoring, but the most important change in your
+patch is to fix the wrong buf strut size. Can you rework the subject
+and message to state what you are fixing please.
+
+Add a Fixes tag, and moved it at the start of the series to show this
+isn't a problem you have introduced in previous patch.
 
 >=20
 > Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 > ---
-> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0=C2=A0 =
-| 18 +++++++++++++++---
-> =C2=A01 file changed, 15 insertions(+), 3 deletions(-)
+> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 2 +-
+> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h | 2 +-
+> =C2=A02 files changed, 2 insertions(+), 2 deletions(-)
 >=20
 > diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
 > b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index 0074d1edb534..52d59bb5c9ad 100644
+> index 52d59bb5c9ad..7e3509be6f69 100644
 > --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
 > +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -720,10 +720,22 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *=
-vb)
-> =C2=A0		plane_fmt =3D q_data->pix_mp.plane_fmt[i];
-> =C2=A0		if (ctx->enable_exif &&
-> =C2=A0		=C2=A0=C2=A0=C2=A0 q_data->fmt->fourcc =3D=3D V4L2_PIX_FMT_JPEG)
-> -			vb2_set_plane_payload(vb, i, plane_fmt.sizeimage +
-> -					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MTK_JPEG_MAX_EXIF_SIZE);
-> +			if (vb->planes[i].length > (plane_fmt.sizeimage +
-> +			=C2=A0=C2=A0=C2=A0 MTK_JPEG_MAX_EXIF_SIZE))
-> +				vb2_set_plane_payload(vb, i,
-> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 plane_fmt.sizeimage +
-> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MTK_JPEG_MAX_EXIF_SIZE);
-> +			else
-> +				vb2_set_plane_payload(vb, i,
-> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vb->planes[i].length);
-> +
-> =C2=A0		else
-> -			vb2_set_plane_payload(vb, i,=C2=A0 plane_fmt.sizeimage);
-> +			if (vb->planes[i].length > plane_fmt.sizeimage)
-> +				vb2_set_plane_payload(vb, i,
-> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 plane_fmt.sizeimage);
-> +			else
-> +				vb2_set_plane_payload(vb, i,
-> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vb->planes[i].length);
+> @@ -1103,7 +1103,7 @@ static int mtk_jpeg_queue_init(void *priv, struct v=
+b2_queue *src_vq,
+> =C2=A0	dst_vq->type =3D V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
+> =C2=A0	dst_vq->io_modes =3D VB2_DMABUF | VB2_MMAP;
+> =C2=A0	dst_vq->drv_priv =3D ctx;
+> -	dst_vq->buf_struct_size =3D sizeof(struct v4l2_m2m_buffer);
+> +	dst_vq->buf_struct_size =3D sizeof(struct mtk_jpeg_src_buf);
+> =C2=A0	dst_vq->ops =3D jpeg->variant->qops;
+> =C2=A0	dst_vq->mem_ops =3D &vb2_dma_contig_memops;
+> =C2=A0	dst_vq->timestamp_flags =3D V4L2_BUF_FLAG_TIMESTAMP_COPY;
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> index 655dc9c3280c..186cd1862028 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> @@ -96,10 +96,10 @@ struct mtk_jpeg_variant {
+> =C2=A0};
+> =C2=A0
+> =C2=A0struct mtk_jpeg_src_buf {
+> -	u32 frame_num;
+> =C2=A0	struct vb2_v4l2_buffer b;
+> =C2=A0	struct list_head list;
+> =C2=A0	u32 bs_size;
+> +	u32 frame_num;
 
-Is this the same as ?
-
-		unsigned long max_size =3D plane_fmt.sizeimage;
-
-		if (ctx->enable_exif && q_data->fmt->fourcc =3D=3D V4L2_PIX_FMT_JPEG)
-			max_size +=3D MTK_JPEG_MAX_EXIF_SIZE;
-
-		vb2_set_plane_payload(vb, i, MIN(vb->planes[i].length, max_size));
-
-It is unclear to me how this isn't just a workaround though, looking forwar=
-d
-your reworked commit message.
+This "refactoring" should be split, it does not fix anything.
 
 Nicolas
 
-> =C2=A0	}
+> =C2=A0	struct mtk_jpeg_dec_param dec_param;
 > =C2=A0
-> =C2=A0	return 0;
+> =C2=A0	struct mtk_jpeg_ctx *curr_ctx;
 
