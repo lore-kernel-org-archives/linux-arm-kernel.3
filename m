@@ -4,53 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AB3C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 13:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF143C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 13:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z7OxFbjgxAqQhG2qjcloe2Q0BLRuzZKIXA55VLRJ9NE=; b=VmlvuSWs50THO21AJcjysRsBQn
-	Dqf6Ny1IThD6NO+69Wegf3M5C4UuWDdoH3Vgi9+/vfcyz3kBHk59dlX76VV0MLTWhC+sIVpKF2fav
-	rJSshPJg1xPDaOfhakEPPNBwfZYEzjTVACrmbNTkbUsiK7DwL6tKb4k4rDf+fIqwDdeJwd7vcH/bG
-	Yx+mdMcGoR3dHL4as8z6HWrcXzeGCHMrh+YpeRZVMXijkR0G60Wmu1IxvnYGTTRHWawHC3QkekEo9
-	l3VU2yfYdCXSkvhPW9sAI/U7eQBNOwwxfws4X+OfLbPZXp6+XKQ9iMV5v/Qu9cS2btcjBo2b/PUuQ
-	9KmFz8pQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bYGgQxhNq7A81glSs5pyPmsLNIk2C60jJUsKFfVg7a8=; b=ZjR3xKg7irsyGINYTFYT/RvWB0
+	5t4FtShrB5Wm6dYOA383dd9y7006aABq9o37nybA9Mp/AK9rOLl3EQ2i9I42ERIBgbUbxiO3sEORm
+	cCnwIDZcburb5QpvtT7uCaOA4DGnExBRkuCiQMXIaZk21CFRpjqwcHdAh/xVH8lJDID4mPAybfp/o
+	Sujq65b1vTEn2/6FCyuhq5EUKgYwewBbjcmRR7Y15z89xxPZl9izmI+n4GOYeLpXFh5w39x0HEams
+	hATce1HKSZJv+tqNj7vyLF0VnGh0hX7zUyUg0+IM/aA2wnGGl+mLaBiPBN8X+AWxCNZnXgs1gZ1Zn
+	q6NTql6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKzW7-00000000iae-3LsM;
-	Fri, 30 May 2025 13:11:23 +0000
+	id 1uKzYW-00000000j4a-28Zu;
+	Fri, 30 May 2025 13:13:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKzTx-00000000hjh-3tVI
+	id 1uKzWN-00000000id8-3vx1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 13:09:11 +0000
+	Fri, 30 May 2025 13:11:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4F0F1692;
-	Fri, 30 May 2025 06:08:52 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 363A63F5A1;
-	Fri, 30 May 2025 06:09:08 -0700 (PDT)
-Date: Fri, 30 May 2025 14:09:05 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC 2/7] firmware: arm_scmi: add is_gpio() function
-Message-ID: <aDmt8biXL1HrKykw@pluto>
-References: <cover.1746443762.git.dan.carpenter@linaro.org>
- <de456bd70a3e092a6379f548ce35e38253ff97b1.1746443762.git.dan.carpenter@linaro.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9B1C1692;
+	Fri, 30 May 2025 06:11:22 -0700 (PDT)
+Received: from [10.57.95.14] (unknown [10.57.95.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9744B3F5A1;
+	Fri, 30 May 2025 06:11:37 -0700 (PDT)
+Message-ID: <b223245d-c43c-4d3e-86d4-9fbfd90cfacf@arm.com>
+Date: Fri, 30 May 2025 14:11:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <de456bd70a3e092a6379f548ce35e38253ff97b1.1746443762.git.dan.carpenter@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: Enable vmalloc-huge with ptdump
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com,
+ anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com, kevin.brodsky@arm.com,
+ yangyicong@hisilicon.com, joey.gouly@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ david@redhat.com
+References: <20250530082021.18182-1-dev.jain@arm.com>
+ <d2b63b97-232e-4d2e-816b-71fd5b0ffcfa@arm.com>
+ <832e84a9-4303-4e21-a88b-94395898fa3e@arm.com>
+ <4202a03d-dacd-429c-91e6-81a5d05726a4@arm.com>
+ <20250530123527.GA30463@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250530123527.GA30463@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_060910_058500_C060A190 
-X-CRM114-Status: GOOD (  27.01  )
+X-CRM114-CacheID: sfid-20250530_061140_068786_6AB3DA29 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,201 +71,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 02:37:36PM +0300, Dan Carpenter wrote:
-> Parse the GPIO response in scmi_pinctrl_attributes(), set the gpio
-> flag, and create an is_gpio() function pointer so that it can be queried.
+On 30/05/2025 13:35, Will Deacon wrote:
+> On Fri, May 30, 2025 at 12:50:40PM +0100, Ryan Roberts wrote:
+>> On 30/05/2025 10:14, Dev Jain wrote:
+>>>
+>>> On 30/05/25 2:10 pm, Ryan Roberts wrote:
+>>>> On 30/05/2025 09:20, Dev Jain wrote:
+>>>>> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
+>>>>> because an intermediate table may be removed, potentially causing the
+>>>>> ptdump code to dereference an invalid address. We want to be able to
+>>>>> analyze block vs page mappings for kernel mappings with ptdump, so to
+>>>>> enable vmalloc-huge with ptdump, synchronize between page table removal in
+>>>>> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
+>>>>> use mmap_read_lock and not write lock because we don't need to synchronize
+>>>>> between two different vm_structs; two vmalloc objects running this same
+>>>>> code path will point to different page tables, hence there is no race.
+>>>
+>>> My "correction" from race->no problem was incorrect after all :) There will
+>>> be no race too since the vm_struct object has exclusive access to whatever
+>>> table it is clearing.
+>>>
+>>>>>
+>>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>>> ---
+>>>>>   arch/arm64/include/asm/vmalloc.h | 6 ++----
+>>>>>   arch/arm64/mm/mmu.c              | 7 +++++++
+>>>>>   2 files changed, 9 insertions(+), 4 deletions(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+>>>>> index 38fafffe699f..28b7173d8693 100644
+>>>>> --- a/arch/arm64/include/asm/vmalloc.h
+>>>>> +++ b/arch/arm64/include/asm/vmalloc.h
+>>>>> @@ -12,15 +12,13 @@ static inline bool arch_vmap_pud_supported(pgprot_t prot)
+>>>>>       /*
+>>>>>        * SW table walks can't handle removal of intermediate entries.
+>>>>>        */
+>>>>> -    return pud_sect_supported() &&
+>>>>> -           !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
+>>>>> +    return pud_sect_supported();
+>>>>>   }
+>>>>>     #define arch_vmap_pmd_supported arch_vmap_pmd_supported
+>>>>>   static inline bool arch_vmap_pmd_supported(pgprot_t prot)
+>>>>>   {
+>>>>> -    /* See arch_vmap_pud_supported() */
+>>>>> -    return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
+>>>>> +    return true;
+>>>>>   }
+>>>>>     #endif
+>>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>>> index ea6695d53fb9..798cebd9e147 100644
+>>>>> --- a/arch/arm64/mm/mmu.c
+>>>>> +++ b/arch/arm64/mm/mmu.c
+>>>>> @@ -1261,7 +1261,11 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+>>>>>       }
+>>>>>         table = pte_offset_kernel(pmdp, addr);
+>>>>> +
+>>>>> +    /* Synchronize against ptdump_walk_pgd() */
+>>>>> +    mmap_read_lock(&init_mm);
+>>>>>       pmd_clear(pmdp);
+>>>>> +    mmap_read_unlock(&init_mm);
+>>>> So this works because ptdump_walk_pgd() takes the write_lock (which is mutually
+>>>> exclusive with any read_lock holders) for the duration of the table walk, so it
+>>>> will either consistently see the pgtables before or after this removal. It will
+>>>> never disappear during the walk, correct?
+>>>>
+>>>> I guess there is a risk of this showing up as contention with other init_mm
+>>>> write_lock holders. But I expect that pmd_free_pte_page()/pud_free_pmd_page()
+>>>> are called sufficiently rarely that the risk is very small. Let's fix any perf
+>>>> problem if/when we see it.
+>>>
+>>> We can avoid all of that by my initial approach - to wrap the lock around
+>>> CONFIG_PTDUMP_DEBUGFS.
+>>> I don't have a strong opinion, just putting it out there.
+>>
+>> (I wrote then failed to send earlier):
+>>
+>> It's ugly though. Personally I'd prefer to keep it simple unless we have clear
+>> evidence that its needed. I was just laying out my justification for not needing
+>> to doing the conditional wrapping in this comment.
 > 
-
-Hi,
-
-> In SCMI only functions and pins have a GPIO flag so that's why groups are
-> not handled here.
+> I really don't think we should be adding unconditional locking overhead
+> to core mm routines purely to facilitate a rarely used debug option.
 > 
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/firmware/arm_scmi/pinctrl.c | 38 ++++++++++++++++++++++++++---
->  include/linux/scmi_protocol.h       |  2 ++
->  2 files changed, 36 insertions(+), 4 deletions(-)
+> Instead, can we either adopt something like the RCU-like walk used by
+> fast GUP or stick the locking behind a static key that's only enabled
+> when a ptdump walk is in progress (a bit like how
+> hugetlb_vmemmap_optimize_folio() manipulates hugetlb_optimize_vmemmap_key)?
+
+My sense is that the static key will be less effort and can be contained fully
+in arm64. I think we would need to enable the key around the call to
+ptdump_walk_pgd() in both ptdump_walk() and ptdump_check_wx(). Then where Dev is
+currently taking the read lock, that would be contingent on the key being
+enabled and the unlock would be contingent on having taken the lock.
+
+Does that sound like an acceptable approach?
+
 > 
-> diff --git a/drivers/firmware/arm_scmi/pinctrl.c b/drivers/firmware/arm_scmi/pinctrl.c
-> index d18c2d248f04..f842bf7fe628 100644
-> --- a/drivers/firmware/arm_scmi/pinctrl.c
-> +++ b/drivers/firmware/arm_scmi/pinctrl.c
-> @@ -28,6 +28,7 @@
->  
->  #define EXT_NAME_FLAG(x)	le32_get_bits((x), BIT(31))
->  #define NUM_ELEMS(x)		le32_get_bits((x), GENMASK(15, 0))
-> +#define GPIO_FUNC(x)		le32_get_bits((x), BIT(17))
->  
->  #define REMAINING(x)		le32_get_bits((x), GENMASK(31, 16))
->  #define RETURNED(x)		le32_get_bits((x), GENMASK(11, 0))
-> @@ -107,6 +108,7 @@ struct scmi_group_info {
->  struct scmi_function_info {
->  	char name[SCMI_MAX_STR_SIZE];
->  	bool present;
-> +	bool gpio;
->  	u32 *groups;
->  	u32 nr_groups;
->  };
-> @@ -114,6 +116,7 @@ struct scmi_function_info {
->  struct scmi_pin_info {
->  	char name[SCMI_MAX_STR_SIZE];
->  	bool present;
-> +	bool gpio;
->  };
->  
->  struct scmi_pinctrl_info {
-> @@ -189,7 +192,7 @@ static int scmi_pinctrl_validate_id(const struct scmi_protocol_handle *ph,
->  
->  static int scmi_pinctrl_attributes(const struct scmi_protocol_handle *ph,
->  				   enum scmi_pinctrl_selector_type type,
-> -				   u32 selector, char *name,
-> +				   u32 selector, char *name, bool *gpio,
->  				   u32 *n_elems)
->  {
->  	int ret;
-> @@ -217,6 +220,8 @@ static int scmi_pinctrl_attributes(const struct scmi_protocol_handle *ph,
->  
->  	ret = ph->xops->do_xfer(ph, t);
->  	if (!ret) {
-> +		if (gpio)
-> +			*gpio = GPIO_FUNC(rx->attributes);
->  		if (n_elems)
->  			*n_elems = NUM_ELEMS(rx->attributes);
->  
-> @@ -610,7 +615,7 @@ static int scmi_pinctrl_get_group_info(const struct scmi_protocol_handle *ph,
->  		return 0;
->  
->  	ret = scmi_pinctrl_attributes(ph, GROUP_TYPE, selector, group->name,
-> -				      &group->nr_pins);
-> +				      NULL, &group->nr_pins);
->  	if (ret)
->  		return ret;
->  
-> @@ -679,6 +684,7 @@ static int scmi_pinctrl_get_function_info(const struct scmi_protocol_handle *ph,
->  {
->  	struct scmi_pinctrl_info *pi = ph->get_priv(ph);
->  	struct scmi_function_info *func;
-> +	bool gpio;
-
-...can we just avoid this local var and just...
-
->  	int ret;
->  
->  	if (selector >= pi->nr_functions)
-> @@ -689,7 +695,7 @@ static int scmi_pinctrl_get_function_info(const struct scmi_protocol_handle *ph,
->  		return 0;
->  
->  	ret = scmi_pinctrl_attributes(ph, FUNCTION_TYPE, selector, func->name,
-> -				      &func->nr_groups);
-> +				      &gpio, &func->nr_groups);
-
-				      &func->gpio, &func->nr_groups);
-
->  	if (ret)
->  		return ret;
->  
-> @@ -698,6 +704,7 @@ static int scmi_pinctrl_get_function_info(const struct scmi_protocol_handle *ph,
->  		return -ENODATA;
->  	}
->  
-> +	func->gpio = gpio;
-
-...and dropping this...
-
->  	func->groups = kmalloc_array(func->nr_groups, sizeof(*func->groups),
->  				     GFP_KERNEL);
->  	if (!func->groups)
-> @@ -763,6 +770,7 @@ static int scmi_pinctrl_get_pin_info(const struct scmi_protocol_handle *ph,
->  {
->  	struct scmi_pinctrl_info *pi = ph->get_priv(ph);
->  	struct scmi_pin_info *pin;
-> +	bool gpio;
-
-... same here...
-
->  	int ret;
->  
->  	if (selector >= pi->nr_pins)
-> @@ -772,10 +780,12 @@ static int scmi_pinctrl_get_pin_info(const struct scmi_protocol_handle *ph,
->  	if (pin->present)
->  		return 0;
->  
-> -	ret = scmi_pinctrl_attributes(ph, PIN_TYPE, selector, pin->name, NULL);
-> +	ret = scmi_pinctrl_attributes(ph, PIN_TYPE, selector, pin->name, &gpio,
-> +				      NULL);
-
-Ditto.
-
->  	if (ret)
->  		return ret;
->  
-> +	pin->gpio = gpio;
-
-Ditto.
-
->  	pin->present = true;
->  	return 0;
->  }
-> @@ -815,9 +825,29 @@ static int scmi_pinctrl_name_get(const struct scmi_protocol_handle *ph,
->  	}
->  }
->  
-> +static int scmi_pinctrl_is_gpio(const struct scmi_protocol_handle *ph,
-> +				u32 selector,
-> +				enum scmi_pinctrl_selector_type type)
-
-being an is_something function could not make it return a bool ?
-
-...but of course loosing the return error code in case of query is_gpio
-on a group, and just maybe returning false in that case and a
-dev_warn()... (but I have still not seen how this is used by your driver
-as of this review...)
-
-> +{
-> +	struct scmi_pinctrl_info *pi = ph->get_priv(ph);
-> +	int ret;
-> +
-> +	ret = scmi_pinctrl_get_pin_info(ph, selector);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (type == PIN_TYPE)
-> +		return pi->pins[selector].gpio;
-> +	if (type == FUNCTION_TYPE)
-> +		return pi->functions[selector].gpio;
-> +
-> +	return -EINVAL;
-> +}
-> +
->  static const struct scmi_pinctrl_proto_ops pinctrl_proto_ops = {
->  	.count_get = scmi_pinctrl_count_get,
->  	.name_get = scmi_pinctrl_name_get,
-> +	.is_gpio = scmi_pinctrl_is_gpio,
->  	.group_pins_get = scmi_pinctrl_group_pins_get,
->  	.function_groups_get = scmi_pinctrl_function_groups_get,
->  	.mux_set = scmi_pinctrl_mux_set,
-> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> index 688466a0e816..b4ad32067fc4 100644
-> --- a/include/linux/scmi_protocol.h
-> +++ b/include/linux/scmi_protocol.h
-> @@ -792,6 +792,8 @@ struct scmi_pinctrl_proto_ops {
->  	int (*name_get)(const struct scmi_protocol_handle *ph, u32 selector,
->  			enum scmi_pinctrl_selector_type type,
->  			const char **name);
-> +	int (*is_gpio)(const struct scmi_protocol_handle *ph, u32 selector,
-> +		       enum scmi_pinctrl_selector_type type);o
-
-Doxygen comment above too please...
-
->  	int (*group_pins_get)(const struct scmi_protocol_handle *ph,
->  			      u32 selector, const unsigned int **pins,
->  			      unsigned int *nr_pins);
-> -- 
-> 2.47.2
-> 
-
-Thanks,
-Cristian
+> Will
 
 
