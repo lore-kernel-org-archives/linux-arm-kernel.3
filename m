@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C031C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46B36C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N0tPegYoongyaCY6bs5X+PjA8xXy8hsIicZmNQUSMw8=; b=umkwn9Amap1+5+xZkws7bNFENb
-	mBOGFcM9ojezyuiruV2kGVe2G969NXKV4WIDqRQosbGtiESs+XsZJ21RZyO39F5Efe46cidwFJaMz
-	ffe80YtbS1aPyhaTmJy9eMdQz5ueQReKB/vwHLfq26/QaTq49k20hy1ulXzVS8HcMzbRZP/6FD/VJ
-	yDyWAieBEKs+wKiLVY8puqWeVCY/2SOdH5aVfEQPI8o3zcSFXCC7/K08Kx+wnn3u6Oc70LL9Mm9cD
-	EVB0qhY00vmkvjEEoktEX62UODdOW2GylJRCrxGBkO/wfYPeypdqBS2H7p6KU69RMiUgBXmcsY9n9
-	gBfedeew==;
+	bh=Ut2tpuuqRAyjo9B+qNNd6yMUFNVjo/29ecFKGIED0ig=; b=G7YR+hJ7hOJMfBkehYJOWHg77C
+	MR3K9YLIAqP5/X1KaeeMOr10HhbKRaMsT4oPRJjzYIpw3XIpjujQkTuoU5BJ4wJ+2oD4PZmlB5sfM
+	gKQUzB5dwG2eJGq2+v/lhFDxiAbq6pdOjJTz/A2vBRRuw3SNcO9h9hv/r9pdRni8C55J9unR5paRz
+	LRQSU5fO/v4zaxEX5kAb1yoxhUHUWZppfg4MQONlS7Ueb9ZFtuXzGgFWpTczERkVu1hgFfOuzngYD
+	Uc17zmFtporlHZXloVc88nLb6+XilUWWMQnHHMNw4Zt6WzO8D6g2OZ8VmuD6rQbc3ncMqE2F6dyTO
+	ROJkPymQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKusO-0000000HZUh-27IG;
-	Fri, 30 May 2025 08:14:04 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uKuuV-0000000HZwf-0qPT;
+	Fri, 30 May 2025 08:16:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKuRA-0000000HUoC-3oCl;
-	Fri, 30 May 2025 07:45:58 +0000
-X-UUID: 1c740f3e3d2a11f0bed96b30c12bc3d6-20250530
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=N0tPegYoongyaCY6bs5X+PjA8xXy8hsIicZmNQUSMw8=;
-	b=Cd0RsXmjZx8naoG2lcsLyQJO2NHGqWGzCF0tIS6h3F3J2oGp8nQhVGkBTMWKG6yLBtNQJ+wHl9P2sJ0Ps5uZqNic4P3NNnT3V4PbojQRB1NAys4p5NgxsyHVO32sMsjOPZFZ6Ja4s2HbztFwACsRcIHXg+z9584XCsbIsN6xDfU=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:fe159441-ef20-4985-8e27-a38f2af50e51,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:44f472f1-2ded-45ed-94e2-b3e9fa87100d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 1c740f3e3d2a11f0bed96b30c12bc3d6-20250530
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 900606542; Fri, 30 May 2025 00:45:52 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 30 May 2025 15:45:49 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 30 May 2025 15:45:48 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: <srv_heupstream@mediatek.com>
-Subject: [PATCH v5 11/12] media: mediatek: jpeg: refactor decoding resolution change operation
-Date: Fri, 30 May 2025 15:45:36 +0800
-Message-ID: <20250530074537.26338-12-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250530074537.26338-1-kyrie.wu@mediatek.com>
-References: <20250530074537.26338-1-kyrie.wu@mediatek.com>
+	id 1uKuRs-0000000HV0V-49vN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 May 2025 07:46:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Ut2tpuuqRAyjo9B+qNNd6yMUFNVjo/29ecFKGIED0ig=; b=O/mKfuQB0BUcNmKRdmWHnd9iSG
+	YG+hJVA3Yn5K2Cyf7t9KIzf9KxAnua8o59fak2AfljqKfB8sgaL/fJtW/VJHi+0FT0XD14AO/yh0h
+	WBYb4GNg8RPO6rM8zhtWY1VqZe77B8ZTC6DS34hH2Lje4+TY59ss4FN9jqBaXeyHrHMS089dZy7IO
+	v6tIHTswLxoPoyt4C75BFzlOtlJqTBYYKJ+BuahW0po4IZOKX596tYectV7YVC0scKjOZXFK9o3uM
+	Du8yGWMTEI5Wq0NzmCH2n21bMfmg6tTQ/LbkC/7mjUgqnyIKNEpS0AlTSXjs1pNNCiYYZTfoCFKxs
+	d4ZMt7sg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40490)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uKuRe-00027t-2K;
+	Fri, 30 May 2025 08:46:26 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uKuRX-0004Rl-1d;
+	Fri, 30 May 2025 08:46:19 +0100
+Date: Fri, 30 May 2025 08:46:19 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Romain Gantois <romain.gantois@bootlin.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v6 06/14] net: phy: Introduce generic SFP
+ handling for PHY drivers
+Message-ID: <aDliS9uMFaLf2lCV@shell.armlinux.org.uk>
+References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
+ <13770694.uLZWGnKmhe@fw-rgant>
+ <aDhfyiSOnyA709oX@shell.armlinux.org.uk>
+ <6159237.lOV4Wx5bFT@fw-rgant>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6159237.lOV4Wx5bFT@fw-rgant>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_004556_981835_2087DA41 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20250530_004641_028388_7DC7B435 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,54 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For multi-core:
-1.if there are only two src buffers, hw0 and hw1 are decoding
-at the same time. When resolution change occurred on one hw,
-the src buffer cannot be got in the stop streaming function,
-which will cause a crash.
-2.When a resolution change occurs, immediately set the new
-resolution parameter to save the new resolution;
-3.After a resolution change occurred, decoding should not continue,
-needs to wait until new buffers are ready and the state machine
-changed.
+On Fri, May 30, 2025 at 09:28:11AM +0200, Romain Gantois wrote:
+> On Thursday, 29 May 2025 15:23:22 CEST Russell King (Oracle) wrote:
+> > On Wed, May 28, 2025 at 09:35:35AM +0200, Romain Gantois wrote:
+> > > > In that regard, you can consider 1000BaseX as a MII mode (we do have
+> > > > PHY_INTERFACE_MODE_1000BASEX).
+> > > 
+> > > Ugh, the "1000BaseX" terminology never ceases to confuse me, but yes
+> > > you're
+> > > right.
+> > 
+> > 1000BASE-X is exactly what is described in IEEE 802.3. It's a PHY
+> > interface mode because PHYs that use SerDes can connect to the host
+> > using SGMII or 1000BASE-X over the serial link.
+> > 
+> > 1000BASE-X's purpose in IEEE 802.3 is as a protocol for use over
+> > fibre links, as the basis for 1000BASE-SX, 1000BASE-LX, 1000BASE-EX
+> > etc where the S, L, E etc are all to do with the properties of the
+> > medium that the electrical 1000BASE-X is sent over. It even includes
+> > 1000BASE-CX which is over copper cable.
+> 
+> Ah makes sense, thanks for the explanation. I guess my mistake was assuming 
+> that MAC/PHY interface modes were necessarily strictly at the reconciliation 
+> sublayer level, and didn't include PCS/PMA functions.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
----
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+When a serdes protocol such as SGMII, 1000BASE-X, or 10GBASE-R is being
+used with a PHY, the IEEE 802.3 setup isn't followed exactly - in
+effect there are more layers.
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 795916206c7c..eba9f58b9198 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -891,7 +891,8 @@ static void mtk_jpeg_dec_stop_streaming(struct vb2_queue *q)
- 
- 		vb = v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
- 		src_buf = mtk_jpeg_vb2_to_srcbuf(&vb->vb2_buf);
--		mtk_jpeg_set_queue_data(ctx, &src_buf->dec_param);
-+		if (!IS_ERR_OR_NULL(src_buf))
-+			mtk_jpeg_set_queue_data(ctx, &src_buf->dec_param);
- 		ctx->state = MTK_JPEG_RUNNING;
- 	} else if (V4L2_TYPE_IS_OUTPUT(q->type)) {
- 		ctx->state = MTK_JPEG_INIT;
-@@ -1785,11 +1786,15 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 
- 	if (mtk_jpeg_check_resolution_change(ctx,
- 					     &jpeg_src_buf->dec_param)) {
--		mtk_jpeg_queue_src_chg_event(ctx);
-+		mtk_jpeg_set_queue_data(ctx, &jpeg_src_buf->dec_param);
- 		ctx->state = MTK_JPEG_SOURCE_CHANGE;
-+		mtk_jpeg_queue_src_chg_event(ctx);
- 		goto getbuf_fail;
- 	}
- 
-+	if (ctx->state == MTK_JPEG_SOURCE_CHANGE)
-+		goto getbuf_fail;
-+
- 	mtk_jpegdec_set_hw_param(ctx, hw_id, src_buf, dst_buf);
- 	ret = pm_runtime_resume_and_get(comp_jpeg[hw_id]->dev);
- 	if (ret < 0) {
+On the SoC:
+
+	MAC
+	Reconciliation (RS)
+	PCS
+	SerDes (part of the PMA layer)
+
+On the PHY side of the SerDes host-to-phy link:
+
+	SerDes
+	PCS (which may or may not be exposed in the PHY register set,
+	     and is normally managed by the PHY itself)
+	(maybe other layers, could include MACs	back-to-back)
+	PCS
+	PMA
+	PMD
+
+Hope that helps explain what's going on a little more.
+
+Another way to look at it is that with SGMII, 1000BASE-X etc between
+the PHY and host, the PHY is a media converter.
+
 -- 
-2.46.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
