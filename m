@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A50FC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 23:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B706C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 23:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hmG1I8xhVnCiBwSXq6QpN0WmJiTAuzrBEO6bQWWZSuU=; b=g5bI5oS6JgPqGvABaoXzEkJwdA
-	PyuBZr6ht0MrhHGK0W1G6vX7xbnL/poUbtZadCEUazTPXNgChIHTMN76tQTVJy81TXCZX05OI9Fuk
-	fSB4ydI4z38XfWpkSkoGNzTcf9/EIUkN3cT5x1krQPNO/bfvWdh1LQYipInaAQS3IfvtCVRWRU8LM
-	uegmeK1UP665zjE7Yx/0BEPR94Y3fw+oZ+wzdv8r75+5pvfCGljBQk8xZORuMTzIJBpi5u9gwen3H
-	7RYQYN03bjW6K6GWOnZyFjhOaAfuKcBDjTYXuMqm37aCByg52/n2gneyywtacPJeoQ7Syu6h32SC8
-	K/WCF0MA==;
+	bh=DVipRtLrzELAZewLAlWWkSCxiEw6Eh1VWvbKwSDp3ws=; b=OV2dtI21kPS8UYra2/FJ5LSjK+
+	fu1YhxQS4BuNv5cPSs9T1SeaSYmADROas8AXDAPAoeQw5xryBuvIZcS41ThrMNvylBEpv3F+3w04D
+	cPuwoSC++Wo6dxFOxj7zAaBDBVwp4AmWotR8f/yjGgNgO6bu6J6cqqM+nmcyqJ3OemFinzqoxEDaj
+	g4MNHWwXQjAbrR6JNNpmJFdJ/p2lrQP8Iu09jA8MwlwWgRp+LSSiyXMtskBP/hqiC2qAxhaPe8m97
+	BNGt4kyLcX9T77CfyiQ+Mcq3Z9rj5UUYXVfDVHMN7L99uBOr8FrQe1BKsi6P8J//oHE+qrTi+ZK86
+	PayBUtqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL9Mc-00000002RRq-3Dvi;
-	Fri, 30 May 2025 23:42:14 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
+	id 1uL9Ol-00000002ShI-2vx8;
+	Fri, 30 May 2025 23:44:27 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL9Jq-00000002QIJ-1dKv
+	id 1uL9KD-00000002QOO-07ZY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 23:39:23 +0000
+	Fri, 30 May 2025 23:39:46 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 81EF5C000957;
-	Fri, 30 May 2025 16:39:20 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 81EF5C000957
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 7269AC003AB1;
+	Fri, 30 May 2025 16:39:42 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 7269AC003AB1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1748648360;
-	bh=qiSi2RMw4OCprktJ66ksyftuz6LIjongIXBr0hh9PtA=;
+	s=dkimrelay; t=1748648382;
+	bh=uXtMeHYnc/oPonqfKUQW9+2wh0nmnb+RChVQF07BalY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lOvtW1LzpnNuJqngJe9FrZ3ZYg08+HYibZrfRYOcHamFTiE6qpnCcc2mtJ/RTyC8s
-	 RqEUSr22l93aWfIXke41YgIGRSGThtn9l22o55FNoha4nA4C/Bu9lehloawgfqx5Wy
-	 3phfPGOUR3gfMDNXlD11eiiePKK45zNi/DDVL1RE=
+	b=lcc7J+btWA+TNsSIebmaHweiiSIcMQqyaP4nJIpTvijYkglWUv7hFziqEqDfMMYgk
+	 yW5xb6JRlPt0CD9lNv17MaaQrkB9hpH7qJEndW+YcJchXgVCBc+jX4x9Z7amLR5gNV
+	 CbnK2/ROmpGlpjVq5TQ38uCT3u8hRnQP8tg1yizM=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 12F7718000530;
-	Fri, 30 May 2025 16:39:20 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id D84D618000530;
+	Fri, 30 May 2025 16:39:41 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Andrea della Porta <andrea.porta@suse.com>,
@@ -82,20 +82,18 @@ To: bcm-kernel-feedback-list@broadcom.com,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	kernel-list@raspberrypi.com,
 	Matthias Brugger <mbrugger@suse.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v12 01/13] dt-bindings: clock: Add RaspberryPi RP1 clock bindings
-Date: Fri, 30 May 2025 16:39:19 -0700
-Message-ID: <20250530233919.464832-1-florian.fainelli@broadcom.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>
+Subject: Re: [PATCH v12 03/13] dt-bindings: misc: Add device specific bindings for RaspberryPi RP1
+Date: Fri, 30 May 2025 16:39:41 -0700
+Message-ID: <20250530233941.465046-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250529135052.28398-1-andrea.porta@suse.com>
-References: <cover.1748526284.git.andrea.porta@suse.com> <20250529135052.28398-1-andrea.porta@suse.com>
+In-Reply-To: <20250529135052.28398-3-andrea.porta@suse.com>
+References: <cover.1748526284.git.andrea.porta@suse.com> <20250529135052.28398-3-andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_163922_474231_9C09B2DE 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250530_163945_148332_0E05F186 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,12 +110,13 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Thu, 29 May 2025 15:50:38 +0200, Andrea della Porta <andrea.porta@suse.com> wrote:
-> Add device tree bindings for the clock generator found in RP1 multi
-> function device, and relative entries in MAINTAINERS file.
+On Thu, 29 May 2025 15:50:40 +0200, Andrea della Porta <andrea.porta@suse.com> wrote:
+> The RP1 is a MFD that exposes its peripherals through PCI BARs. This
+> schema is intended as minimal support for the clock generator and
+> gpio controller peripherals which are accessible through BAR1.
 > 
 > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 > Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 > ---
 
