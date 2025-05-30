@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CEAC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 17:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAD0C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 17:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFob6bHbt9evz3lA1lPRqmDyommaykyRcKttnYjRsmk=; b=2NhdR7wiroMPAbEAON8LdnwiU7
-	SjjX6xQAWZTIb9RUqmzJb6SqWlZLHazeH+nB91MWYYRDl9xVOw58fPN0HGBDzOOw72avMuk4RpMMn
-	gibJkL77C34WNcXl77902ebQEpUvtY1lGYzDJFiOGHVX9+0EGpcXnEoHFu/gG2+nfoA1WP8050Kus
-	bwvQnTSAlluTfb1T9qnhmYnNnjhKwTzpNVYci2q4gC8ViAH2+9eVskn/2PoQejPzURjbk95QPFLpz
-	dTyXLs/vUlMYufpGI59gLVX06aAJ6Lzw2/1CkBGc0ynl+pc4ga130Ex9jFsJLvERmpQ4kq+2T/xt7
-	GzeihzTA==;
+	bh=NSFyTYUgxQ9ulN36hABpmpERB1KVLKjF7DW8D0u3oMo=; b=R0gwYBUNyWi6//eCyiqCLl9oP0
+	i7r05ahAEIon1dJxOzwqoyhu3jfpTK/Kon6K2eHeLZaF8uOItwDy/UuQ0zXUH/EdE3WvJaHp0VBi6
+	V5emtYIp1oMbmcTzbsrxnyvkAXvNhWt5EXRY6qHl8Kh1miztHdhqr7WDiiq8UA3Jwl4L2GE2z/Arx
+	bNMupWaCV70iuzUisQ0jOFYoqRZ/eoPKh3hiXtDOAELdNEhOzxqKeH7LSBBzVt9xf+E2sspCMlpDN
+	WlowuUYS2HdrcX8IZyQZPHNZ6UxPm6giD4xThEBJqDulCVFou6tywVhvNz5gx6e/RcRsXnA/2xdR3
+	rP/yeHUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL35l-00000001IgS-0wIS;
-	Fri, 30 May 2025 17:00:25 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uL37t-00000001JdH-2aLa;
+	Fri, 30 May 2025 17:02:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL2mH-00000001Cie-16gl
+	id 1uL2qT-00000001Dth-0CGz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 16:40:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=TFob6bHbt9evz3lA1lPRqmDyommaykyRcKttnYjRsmk=; b=uHJFaY3ojfDQ39JRVwhAlbj8t8
-	1Y5rFZax7qQUv5Cij4StrfieciR/Co5CJwpK5qF7VQia1udFwAObBb4qN3q7xzZrUMhYZKK97F+JZ
-	xjy8OW2hrcSbn/lwTqXuqrjDYtD7Qvp8DGUssryzW86/rd7piheZNH9yUJ7jlZ4jRyGfi1ReXW6+F
-	t4Z2rO9xKJvT+KUrMh8aVEecqXkGTx4Bha4rvpaiIkf05EZQviIhjAfB05PimgT93oP8nju4ugggV
-	8EDDqj05B1X/blg87CNyQ0wwusKrU6SDEvUe4DBaWgx8vE6gcqFMD2DwsfwLZ158BF/lxdGqRGGAI
-	cwgA5dgw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50618)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uL2js-0002Yx-2v;
-	Fri, 30 May 2025 17:37:48 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uL2jl-0004kI-2u;
-	Fri, 30 May 2025 17:37:41 +0100
-Date: Fri, 30 May 2025 17:37:41 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: =?utf-8?B?5p2O5ZOy?= <sensor1010@163.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, jonas@kwiboo.se,
-	david.wu@rock-chips.com, jan.petrous@oss.nxp.com,
-	detlev.casanova@collabora.com, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: dwmac-rk: No need to check the return value of the
- phy_power_on()
-Message-ID: <aDne1Ybuvbk0AwG0@shell.armlinux.org.uk>
-References: <20250530162017.3661-1-sensor1010@163.com>
+	Fri, 30 May 2025 16:44:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 968A15C583B;
+	Fri, 30 May 2025 16:42:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12162C4CEE9;
+	Fri, 30 May 2025 16:44:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748623475;
+	bh=W5OpwwUyJIIM5VqI45VotpF5enCBTC5BSFX/2o6LIuo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E1LkJqF7WWdLxXgE6GXThQxaANeHlK2/YO+4RzDNtgNYnx3C+q6JJV6xO6BzxkDSr
+	 rbmBm6Ds4EnWVMylvEy66N0V/cah6rL98swZNnty9fnd/nAQyNoZdWzLRq7ZhsHj7O
+	 iXGOS0Pksrut4PgAlL2LECTnwUo6Q18qZdqUQJs3M9EBEkhH6NMc3JGZRYuQaTAQvz
+	 n6mKpG3oShMiwwAMwUmrx/u4jqh9h1+nJkeFbXqK4hbvA8ieGj4U7cfguADG8B5u6z
+	 LizuhbySsVIo8dDXJk7wJvkNCQ0vHVy9Y4KQgcrsLLhNXgPrGmDWRFTKAwa5qMTsQw
+	 5ayriPv8tcAhw==
+Date: Fri, 30 May 2025 17:44:31 +0100
+From: Lee Jones <lee@kernel.org>
+To: Stephen Rothwell <sfr@canb.auug.org.au>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	ARM <linux-arm-kernel@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: Re: linux-next: duplicate patch in the mfd tree
+Message-ID: <20250530164431.GB7758@google.com>
+References: <20250526140400.54ac8a6c@canb.auug.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250530162017.3661-1-sensor1010@163.com>
+In-Reply-To: <20250526140400.54ac8a6c@canb.auug.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_094017_306559_E282D897 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20250530_094437_129638_2A4FA3B8 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 09:20:17AM -0700, 李哲 wrote:
-> phy_power_on() is a local scope one within the driver, since the return
-> value of the phy_power_on() function is always 0, checking its return
-> value is redundant.
+On Mon, 26 May 2025, Stephen Rothwell wrote:
+
+> Hi all,
 > 
-> Signed-off-by: 李哲 <sensor1010@163.com>
+> The following commit is also in the arm-soc tree as a different commit
+> (but the same patch):
+> 
+>   0ffcf5f1e41c ("dt-bindings: mfd: qcom,tcsr: Add compatible for ipq5018")
+> 
+> This is commit
+> 
+>   1d2c5d5f3f44 ("dt-bindings: mfd: qcom,tcsr: Add compatible for ipq5018")
+> 
+> in the arm-soc tree.
 
-Patch looks generally good, nice to see the reverse christmas tree
-ordering of local variables resulting from this patch. However, the
-subject line needs to be adjusted to meet netdev requirements. Please
-see
-https://www.kernel.org/doc/html/v5.1/networking/netdev-FAQ.html#q-how-do-i-indicate-which-tree-net-vs-net-next-my-patch-should-be-in
-Please wait a minimum of one day before sending an updated version.
-
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-
-Please can you also follow up with a patch to change the function name
-from "phy_power_on()" as this may conflict with the PHY subsystems
-"int phy_power_on(struct phy *phy);"
-
-"rk_phy_power_set()" would probably be a good alternative name,
-especially as when the 2nd argument is false, the function turns the
-PHY off.
-
-Thanks!
+Why is this patch in the arm-soc tree?
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Lee Jones [李琼斯]
 
