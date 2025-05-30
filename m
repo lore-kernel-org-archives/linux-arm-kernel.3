@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1320C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 13:45:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D22C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 13:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0nGgQrHIvxE5u/t+uTXqnjxXC5oFqExc+UD/soosM+A=; b=LXWQPNv8IJUaNOv0VxRNZGVkvD
-	igSqyEqkVCSQM8Gdd7+3+uPf3lqWiwy7+99EeJdu1fZofN3+yqR67K5LlhVSPI3xa6bCODWcL96KH
-	t1Yej7FW4aBTD6Zw6tEza1Oki6ry4CDH1NVM6TQ3eeMbC50pPwYLKxhv1ez3i+0Q/o3TY0NbVBTG8
-	QTsEvDrk9tx6VQfi9i2xCc7roQTcoEIAJxCvRlrDRbtgqOv5Ffv32ni2cxY7mrh+a8QIFFCA3KHPZ
-	AiT2j+THl8vp8oNur8t75Fkr6h28lt9939ujTHBpxI6z/DI5E3Zka02t60Ygc604Z1RNKA0VuClwp
-	bIlbC9cQ==;
+	bh=V3OqSA9b11oKNgkPDYr1xA9wl1ljVHhNL13TiqJ42tA=; b=y0N+IE8+ORDyjspZma246EyFT1
+	odeFRCmqEX4NT85vwVQpjHiSfxLn6dm/4vXLCNJztrM2M0DswsTVVsCOjviLXh3+QpwYbIdmi9bQs
+	UG/xHCjVyRffKjhPn6QfRQnfIQxA6D+eQudj1CbvHz9xt+Hv/S66Ldgm4Zi4nHimGrNg1bhG5Ym+Q
+	OwIHQvxjQUGWoyqIbShZrhAtkRq7mt7oi3sEGBo5TYQ9lHhb9hJk5ea3SMz6j7vxtfSpTcKyvZEJT
+	D4dRAe3nK1uiZJQXc8h9xHgm7lDwiKaMQPPsrKPJLxGY90l4MiQrqxOQ58Kh2t1SyZVf9jIMODYM8
+	9ZuA0tbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL02u-00000000nbb-1B2a;
-	Fri, 30 May 2025 13:45:16 +0000
+	id 1uL050-00000000ny6-2a5d;
+	Fri, 30 May 2025 13:47:26 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKzwl-00000000mbX-3ac8;
-	Fri, 30 May 2025 13:38:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1748612323; cv=none; 
+	id 1uKzwp-00000000me1-1JW7;
+	Fri, 30 May 2025 13:39:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1748612327; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=m+WSjo+Zqh5eToFYu8giick7htO+p+Lxhm2o5GOi9950lvDydU3Y9Wm16JKv+kq9VNEG4xDgYDi8/yAEskxlq5YMVxsHUBUu3fpFnEDTergC7rCodYf4FtfgCW7wTfJKGMLOB6b6FAPlLWe8Fep05xxqDZBXEIAsQyE1Rt0dNkU=
+	b=ca2JV1NvoRKv5pME+qb9G/ZrKNrPhFrJv4PWVsA586GumZI7xFu0nY1/ZmG7c7/RMPLDPTEtwdgo9zbD9QOQ6QmIvRxzHx2osUOcaOao5389zazozFKOBocEIv8iXm2z3p/zpAFlbcGIFe/+4UHge9vxhInXLvoFO+yD8CnHk4Q=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1748612323; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=0nGgQrHIvxE5u/t+uTXqnjxXC5oFqExc+UD/soosM+A=; 
-	b=ZnGopw/+HKzg6RYtSg3nOrw3IC+CsKx4K4+Cdy7MwvLlk0WNKnvpW/Nz4AzkNh7MZO2wuzkquYvgpDdCiq9dUvc88merOhMbVl7y5GLn+wTIYtFVwItSAdk9F4jDF6bzyh4XV9XEaH3F0DIZHr5AvTx7VO7ZRJZfGlfJ/rqZcV4=
+	t=1748612327; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=V3OqSA9b11oKNgkPDYr1xA9wl1ljVHhNL13TiqJ42tA=; 
+	b=CORaZ4hP1D6sx4LhiK+ihZQEJKwHBDfu0HlJqsUpqY8SQMjVwVM0L85w6sd4LKjhq+oUF3JUxtvnnupO+2rbUfYEhigUm4Ns9yZCCRn3b32PCxfNGIS1KJtHZpjqOrB8JWxSo8T9daAjFtO7gqVc+agGextqVv1k3xNMK6s2NPM=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748612323;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748612327;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=0nGgQrHIvxE5u/t+uTXqnjxXC5oFqExc+UD/soosM+A=;
-	b=PIsyC/KYzKKSuepcOkv6sQRAyjBhmoj7QNJIJ0nDxejKN+QRhS+8zs2KfOlaxW5I
-	PsaNmAPSIXzfDbLZHJae77ff9CqGksFJBe98fLZSqAneIqJJzLVc7ffMDYlx/E0kltn
-	P9KzJMG5dbDF4SlvXtbK3aiAEM6t4Aj00NzIUsuA=
-Received: by mx.zohomail.com with SMTPS id 1748612321549996.3145139147584;
-	Fri, 30 May 2025 06:38:41 -0700 (PDT)
+	bh=V3OqSA9b11oKNgkPDYr1xA9wl1ljVHhNL13TiqJ42tA=;
+	b=TUtxtTDXOcsQVd3PeEEi5CSpXzuFLcz/yiAJPn/ts3eUJKscSAj6mfzBqm+fQzeM
+	IaR8BX7vh+Mps0TLUMBE7GFGIcMz+UY+64bVzExGGxt9NZ57lcVUKUG/o6tyOSg5Qs4
+	uD+NJ6b06t8L0xoovPIwj1TxWeqACSqnpLg2vQSo=
+Received: by mx.zohomail.com with SMTPS id 1748612325008737.6186102251434;
+	Fri, 30 May 2025 06:38:45 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 30 May 2025 15:38:08 +0200
-Subject: [PATCH 1/2] PM / devfreq: rockchip-dfi: double count on RK3588
+Date: Fri, 30 May 2025 15:38:09 +0200
+Subject: [PATCH 2/2] PM / devfreq: rockchip-dfi: add support for LPDDR5
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250530-rk3588-dfi-improvements-v1-1-6e077c243a95@collabora.com>
+Message-Id: <20250530-rk3588-dfi-improvements-v1-2-6e077c243a95@collabora.com>
 References: <20250530-rk3588-dfi-improvements-v1-0-6e077c243a95@collabora.com>
 In-Reply-To: <20250530-rk3588-dfi-improvements-v1-0-6e077c243a95@collabora.com>
 To: Chanwoo Choi <cw00.choi@samsung.com>, 
@@ -67,8 +67,8 @@ Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_063855_984502_470148A5 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20250530_063859_420145_9F1041B1 
+X-CRM114-Status: GOOD (  31.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,79 +83,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On RK3588 with LPDDR4X memory, the cycle count as returned by
+The Rockchip RK3588 SoC can also support LPDDR5 memory. This type of
+memory needs some special case handling in the rockchip-dfi driver.
 
-  perf stat -a -e rockchip_ddr/cycles/ sleep 1
+Add support for it in rockchip-dfi, as well as the needed GRF register
+definitions.
 
-consistently reads half as much as what the actual DDR frequency is at.
-For a LPDDR4X module running at 2112MHz, I get more like 1056059916
-cycles per second, which is almost bang-on half what it should be. No,
-I'm not mixing up megatransfers and megahertz.
+This has been tested as returning both the right cycle count and
+bandwidth on a LPDDR5 board where the CKR bit is 1. I couldn't test
+whether the values are correct on a system where CKR is 0, as I'm not
+savvy enough with the Rockchip tooling to know whether this can be set
+in the DDR init blob.
 
-Consulting the downstream driver, this appears to be because the RK3588
-hardware specifically (and RK3528 as well, for future reference) needs a
-multiplier of 2 to get to the correct frequency with everything but
-LPDDR5.
+Downstream has some special case handling for a hardware version where
+not just the control bits differ, but also the register. Since I don't
+know whether that hardware version is in any production silicon, it's
+left unimplemented for now, with an error message urging users to report
+if they have such a system.
 
-The RK3588's actual memory bandwidth measurements in MB/s are correct
-however, as confirmed with stress-ng --stream. This makes me think the
-access counters are not affected in the same way. This tracks with the
-vendor kernel not multiplying the access counts either.
+There is a slight change of behaviour for non-LPDDR5 systems: instead of
+writing 0 as the control flags to the control register and pretending
+everything is alright if the memory type is unknown, we now explicitly
+return an error.
 
-Solve this by adding a new member to the dfi struct, which each SoC can
-set to whatever they want, but defaults to 1 if left unset by the SoC
-init functions. The event_get_count op can then use this multiplier if
-the cycle count is requested.
-
-The cycle multiplier is not used in rockchip_dfi_get_event because the
-vendor driver doesn't use it there either, and we don't do other actual
-bandwidth unit conversion stuff in there anyway.
-
-Fixes: 481d97ba61e1 ("PM / devfreq: rockchip-dfi: add support for RK3588")
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/devfreq/event/rockchip-dfi.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/devfreq/event/rockchip-dfi.c | 84 ++++++++++++++++++++++++++++--------
+ include/soc/rockchip/rk3588_grf.h    |  8 +++-
+ include/soc/rockchip/rockchip_grf.h  |  1 +
+ 3 files changed, 73 insertions(+), 20 deletions(-)
 
 diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
-index 0470d7c175f4f6bb3955e36c713f4c55538d1a87..54effb63519653d20b40eed88681330983399a77 100644
+index 54effb63519653d20b40eed88681330983399a77..5a2c9badcc64c552303c2f55c52e5420dec5ffc1 100644
 --- a/drivers/devfreq/event/rockchip-dfi.c
 +++ b/drivers/devfreq/event/rockchip-dfi.c
-@@ -116,6 +116,7 @@ struct rockchip_dfi {
+@@ -34,15 +34,18 @@
+ 
+ /* DDRMON_CTRL */
+ #define DDRMON_CTRL	0x04
++#define DDRMON_CTRL_LPDDR5		BIT(6)
+ #define DDRMON_CTRL_DDR4		BIT(5)
+ #define DDRMON_CTRL_LPDDR4		BIT(4)
+ #define DDRMON_CTRL_HARDWARE_EN		BIT(3)
+ #define DDRMON_CTRL_LPDDR23		BIT(2)
+ #define DDRMON_CTRL_SOFTWARE_EN		BIT(1)
+ #define DDRMON_CTRL_TIMER_CNT_EN	BIT(0)
+-#define DDRMON_CTRL_DDR_TYPE_MASK	(DDRMON_CTRL_DDR4 | \
++#define DDRMON_CTRL_DDR_TYPE_MASK	(DDRMON_CTRL_LPDDR5 | \
++					 DDRMON_CTRL_DDR4 | \
+ 					 DDRMON_CTRL_LPDDR4 | \
+ 					 DDRMON_CTRL_LPDDR23)
++#define DDRMON_CTRL_LP5_BANK_MODE_MASK	GENMASK(8, 7)
+ 
+ #define DDRMON_CH0_WR_NUM		0x20
+ #define DDRMON_CH0_RD_NUM		0x24
+@@ -116,13 +119,60 @@ struct rockchip_dfi {
  	int buswidth[DMC_MAX_CHANNELS];
  	int ddrmon_stride;
  	bool ddrmon_ctrl_single;
-+	unsigned int count_multiplier;	/* number of data clocks per count */
++	u32 lp5_bank_mode;
++	bool lp5_ckr;	/* true if in 4:1 command-to-data clock ratio mode */
+ 	unsigned int count_multiplier;	/* number of data clocks per count */
  };
  
++static int rockchip_dfi_ddrtype_to_ctrl(struct rockchip_dfi *dfi, u32 *ctrl,
++					u32 *mask)
++{
++	u32 ddrmon_ver;
++
++	*mask = DDRMON_CTRL_DDR_TYPE_MASK;
++
++	switch (dfi->ddr_type) {
++	case ROCKCHIP_DDRTYPE_LPDDR2:
++	case ROCKCHIP_DDRTYPE_LPDDR3:
++		*ctrl = DDRMON_CTRL_LPDDR23;
++		break;
++	case ROCKCHIP_DDRTYPE_LPDDR4:
++	case ROCKCHIP_DDRTYPE_LPDDR4X:
++		*ctrl = DDRMON_CTRL_LPDDR4;
++		break;
++	case ROCKCHIP_DDRTYPE_LPDDR5:
++		ddrmon_ver = readl_relaxed(dfi->regs);
++		if (ddrmon_ver < 0x40) {
++			*ctrl = DDRMON_CTRL_LPDDR5 | dfi->lp5_bank_mode;
++			*mask |= DDRMON_CTRL_LP5_BANK_MODE_MASK;
++			break;
++		}
++
++		/*
++		 * As it is unknown whether the unpleasant special case
++		 * behaviour used by the vendor kernel is needed for any
++		 * shipping hardware, ask users to report if they have
++		 * some of that hardware.
++		 */
++		dev_err(&dfi->edev->dev,
++			"unsupported DDRMON version 0x%04X, please let linux-rockchip know!\n",
++			ddrmon_ver);
++		return -EOPNOTSUPP;
++	default:
++		dev_err(&dfi->edev->dev, "unsupported memory type 0x%X\n",
++			dfi->ddr_type);
++		return -EOPNOTSUPP;
++	}
++
++	return 0;
++}
++
  static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
-@@ -435,7 +436,7 @@ static u64 rockchip_ddr_perf_event_get_count(struct perf_event *event)
+ {
+ 	void __iomem *dfi_regs = dfi->regs;
+ 	int i, ret = 0;
++	u32 ctrl;
++	u32 ctrl_mask;
  
- 	switch (event->attr.config) {
- 	case PERF_EVENT_CYCLES:
--		count = total.c[0].clock_cycles;
-+		count = total.c[0].clock_cycles * dfi->count_multiplier;
- 		break;
- 	case PERF_EVENT_READ_BYTES:
- 		for (i = 0; i < dfi->max_channels; i++)
-@@ -655,6 +656,9 @@ static int rockchip_ddr_perf_init(struct rockchip_dfi *dfi)
- 		break;
+ 	mutex_lock(&dfi->mutex);
+ 
+@@ -136,8 +186,11 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
+ 		goto out;
  	}
  
-+	if (!dfi->count_multiplier)
-+		dfi->count_multiplier = 1;
++	ret = rockchip_dfi_ddrtype_to_ctrl(dfi, &ctrl, &ctrl_mask);
++	if (ret)
++		goto out;
 +
- 	ret = perf_pmu_register(pmu, "rockchip_ddr", -1);
- 	if (ret)
- 		return ret;
-@@ -751,6 +755,7 @@ static int rk3588_dfi_init(struct rockchip_dfi *dfi)
- 	dfi->max_channels = 4;
+ 	for (i = 0; i < dfi->max_channels; i++) {
+-		u32 ctrl = 0;
  
+ 		if (!(dfi->channel_mask & BIT(i)))
+ 			continue;
+@@ -147,21 +200,7 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
+ 			       DDRMON_CTRL_SOFTWARE_EN | DDRMON_CTRL_HARDWARE_EN),
+ 			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
+ 
+-		/* set ddr type to dfi */
+-		switch (dfi->ddr_type) {
+-		case ROCKCHIP_DDRTYPE_LPDDR2:
+-		case ROCKCHIP_DDRTYPE_LPDDR3:
+-			ctrl = DDRMON_CTRL_LPDDR23;
+-			break;
+-		case ROCKCHIP_DDRTYPE_LPDDR4:
+-		case ROCKCHIP_DDRTYPE_LPDDR4X:
+-			ctrl = DDRMON_CTRL_LPDDR4;
+-			break;
+-		default:
+-			break;
+-		}
+-
+-		writel_relaxed(HIWORD_UPDATE(ctrl, DDRMON_CTRL_DDR_TYPE_MASK),
++		writel_relaxed(HIWORD_UPDATE(ctrl, ctrl_mask),
+ 			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
+ 
+ 		/* enable count, use software mode */
+@@ -652,6 +691,7 @@ static int rockchip_ddr_perf_init(struct rockchip_dfi *dfi)
+ 		break;
+ 	case ROCKCHIP_DDRTYPE_LPDDR4:
+ 	case ROCKCHIP_DDRTYPE_LPDDR4X:
++	case ROCKCHIP_DDRTYPE_LPDDR5:
+ 		dfi->burst_len = 16;
+ 		break;
+ 	}
+@@ -730,7 +770,7 @@ static int rk3568_dfi_init(struct rockchip_dfi *dfi)
+ static int rk3588_dfi_init(struct rockchip_dfi *dfi)
+ {
+ 	struct regmap *regmap_pmu = dfi->regmap_pmu;
+-	u32 reg2, reg3, reg4;
++	u32 reg2, reg3, reg4, reg6;
+ 
+ 	regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG2, &reg2);
+ 	regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG3, &reg3);
+@@ -757,6 +797,14 @@ static int rk3588_dfi_init(struct rockchip_dfi *dfi)
  	dfi->ddrmon_stride = 0x4000;
-+	dfi->count_multiplier = 2;
+ 	dfi->count_multiplier = 2;
  
++	if (dfi->ddr_type == ROCKCHIP_DDRTYPE_LPDDR5) {
++		regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG6, &reg6);
++		dfi->lp5_bank_mode = FIELD_GET(RK3588_PMUGRF_OS_REG6_LP5_BANK_MODE, reg6) << 7;
++		dfi->lp5_ckr = FIELD_GET(RK3588_PMUGRF_OS_REG6_LP5_CKR, reg6);
++		if (dfi->lp5_ckr)
++			dfi->count_multiplier *= 2;
++	}
++
  	return 0;
  };
+ 
+diff --git a/include/soc/rockchip/rk3588_grf.h b/include/soc/rockchip/rk3588_grf.h
+index 630b35a550640e57f1b5a50dfbe362653a7cbcc1..02a7b2432d9942e15a77424c44fefec189faaa33 100644
+--- a/include/soc/rockchip/rk3588_grf.h
++++ b/include/soc/rockchip/rk3588_grf.h
+@@ -12,7 +12,11 @@
+ #define RK3588_PMUGRF_OS_REG3_DRAMTYPE_INFO_V3		GENMASK(13, 12)
+ #define RK3588_PMUGRF_OS_REG3_SYSREG_VERSION		GENMASK(31, 28)
+ 
+-#define RK3588_PMUGRF_OS_REG4           0x210
+-#define RK3588_PMUGRF_OS_REG5           0x214
++#define RK3588_PMUGRF_OS_REG4				0x210
++#define RK3588_PMUGRF_OS_REG5				0x214
++#define RK3588_PMUGRF_OS_REG6				0x218
++#define RK3588_PMUGRF_OS_REG6_LP5_BANK_MODE		GENMASK(2, 1)
++/* Whether the LPDDR5 is in 2:1 (= 0) or 4:1 (= 1) CKR a.k.a. DQS mode */
++#define RK3588_PMUGRF_OS_REG6_LP5_CKR			BIT(0)
+ 
+ #endif /* __SOC_RK3588_GRF_H */
+diff --git a/include/soc/rockchip/rockchip_grf.h b/include/soc/rockchip/rockchip_grf.h
+index e46fd72aea8d1f649768a3269b85176dacceef0e..41c7bb26fd5387df85e5b58186b67bf74706f360 100644
+--- a/include/soc/rockchip/rockchip_grf.h
++++ b/include/soc/rockchip/rockchip_grf.h
+@@ -13,6 +13,7 @@ enum {
+ 	ROCKCHIP_DDRTYPE_LPDDR3	= 6,
+ 	ROCKCHIP_DDRTYPE_LPDDR4	= 7,
+ 	ROCKCHIP_DDRTYPE_LPDDR4X = 8,
++	ROCKCHIP_DDRTYPE_LPDDR5	= 9,
+ };
+ 
+ #endif /* __SOC_ROCKCHIP_GRF_H */
 
 -- 
 2.49.0
