@@ -4,53 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB44C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 15:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C92D1C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 15:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=83sqinDKnlClCE9ZR7D8pvOgQQld/ZoauB7Nc1qPBpY=; b=PwTIce2dJPcQmmVl1DeObulU+I
-	BGPYJlHXzJxnbPIGL2OeA03rO4EMA1WbTryITA3CfVot//UScW4DzM1ZeXUnsRAsBfRb6KM0L8X09
-	qArEO+qpSyfrJQVeNuYTqIQU/FUZuZh5y4n7FGzrH80mXKr9g2pfB1yqshNGZmt2INCmkCGbzyncc
-	rIkraXTKWcIIzRQtXrtRSjkaxA6Q5Iz5PKdsgfpa+lvGRFgTQZAD9M9tOQestUVl/hGwu5dg4MmGQ
-	xODwnr7b5jwXPOIbxxqFRfZbHmBmTQUmON3Nl8DynsEq9SBTmB+PVZHyvdxiudLX0CqbA7+a1UGXp
-	ivwdQvxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xIG3Sui9OiCFTTQa85qTNyKEQhSn2TC454W39iD5xaY=; b=bhPdxOOmRQCuFWewY2K6/W76ZF
+	vDgvwHX3DEEeKk65h3qae9+nzc2w0SrsXFE56RyjREleITIY6AFbGjVhdh1S5dYzMPXlXvN+7WJ5V
+	uAeANhg189wYq8I7vzY1+Qcq586Dan4hXXve4LqFOAOnT78TkffowhTVFfUxjwl4HTxL+esQmGWh/
+	LYqoUl/XqyWGp96nGEYaceH7SyUc7uHHZebuEIrONlPiB7er/+bFwpTkQudt0bcc/9r8Ve9KozzKS
+	MXOzspSAxiKqX3oGc5M+gLJwYXqVagQ69aj7Ho/XL9OSNYOwyxpcHbqZMhkoSokkj95r7dapR4h7T
+	hufRuPMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL1eT-000000010hw-1Idi;
-	Fri, 30 May 2025 15:28:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL1bL-000000010O3-1VxP
+	id 1uL1ga-000000010rj-0KMf;
+	Fri, 30 May 2025 15:30:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uL1bO-000000010OU-0zEY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 15:24:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADDE41692;
-	Fri, 30 May 2025 08:24:37 -0700 (PDT)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E68E13F5A1;
-	Fri, 30 May 2025 08:24:52 -0700 (PDT)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Barry Song <baohua@kernel.org>,
-	Yicong Yang <yangyicong@hisilicon.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] arm64/mm: Close theoretical race where stale TLB entry remains valid
-Date: Fri, 30 May 2025 16:23:47 +0100
-Message-ID: <20250530152445.2430295-1-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 30 May 2025 15:24:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5AAFE6115E;
+	Fri, 30 May 2025 15:24:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A933C4CEE9;
+	Fri, 30 May 2025 15:24:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748618697;
+	bh=xIG3Sui9OiCFTTQa85qTNyKEQhSn2TC454W39iD5xaY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lx1wEBIOAO63u8ZhQUuPgC/vyo7g9uGJ185gwTnofX4yt8gS1kQ0dD2Hs55EVw6Js
+	 6rMXqUT7xEXk32NpYu9bDFTOztCkfkq95GNiFvfPE3XL0eI8ZoMebv3T/vQZ1wlxcA
+	 M9xoeOVk/a4fvAtUyPtfCx/XGclH6hNLTDQteCaMEWjSL78OhFUUNE4DZzqBGpCtwu
+	 wvOP/opjCXJ9otQwldSPYgrlgnpnVPYLHagBjqkF7/FX2gSA2PaX+2coNEHIocN+5t
+	 xUhqjinEP68tg6DqstERqqk5Q0DqgPpd0sQjATvv4W2vEQsY/QyGwzEWChc79yWWvf
+	 rfG7gBj60pqlg==
+Date: Fri, 30 May 2025 16:24:51 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>,
+	"open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM" <dmaengine@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] dt-bindings: dma: fsl-mxs-dma: allow interrupt-names
+ for fsl,imx23-dma-apbx
+Message-ID: <20250530-those-frequency-f8106275769f@spud>
+References: <20250523213252.582366-1-Frank.Li@nxp.com>
+ <20250526-plural-nifty-b43938d9f180@spud>
+ <aDcw0sgN1ZX0kCCZ@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_082455_491176_85C42332 
-X-CRM114-Status: GOOD (  16.24  )
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Aj1tJsIztP5dXenP"
+Content-Disposition: inline
+In-Reply-To: <aDcw0sgN1ZX0kCCZ@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,101 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 3ea277194daa ("mm, mprotect: flush TLB if potentially racing with
-a parallel reclaim leaving stale TLB entries") describes a race that,
-prior to the commit, could occur between reclaim and operations such as
-mprotect() when using reclaim's tlbbatch mechanism. See that commit for
-details but the summary is:
 
-"""
-Nadav Amit identified a theoritical race between page reclaim and
-mprotect due to TLB flushes being batched outside of the PTL being held.
+--Aj1tJsIztP5dXenP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-He described the race as follows:
+On Wed, May 28, 2025 at 11:50:42AM -0400, Frank Li wrote:
+> On Mon, May 26, 2025 at 04:28:07PM +0100, Conor Dooley wrote:
+> > On Fri, May 23, 2025 at 05:32:52PM -0400, Frank Li wrote:
+> > > Allow interrupt-names for fsl,imx23-dma-apbx and keep the same restri=
+ction
+> > > for others.
+> >
+> > The content of the patch seems okay, but why are you doing this? What is
+> > the value on this particular platform but not the others?
+>=20
+> Actually it is not used in dma driver, i.MX23 is quite old chips (over 10=
+year).
 
-	CPU0				CPU1
-	----				----
-					user accesses memory using RW PTE
-					[PTE now cached in TLB]
-	try_to_unmap_one()
-	==> ptep_get_and_clear()
-	==> set_tlb_ubc_flush_pending()
-					mprotect(addr, PROT_READ)
-					==> change_pte_range()
-					==> [ PTE non-present - no flush ]
+If they provide no value, why not just delete them?
 
-					user writes using cached RW PTE
-	...
+> Just to match existed dts to reduce warnings.
 
-	try_to_unmap_flush()
-"""
+You should mention this in your commit message.
 
-The solution was to insert flush_tlb_batched_pending() in mprotect() and
-friends to explcitly drain any pending reclaim TLB flushes. In the
-modern version of this solution, arch_flush_tlb_batched_pending() is
-called to do that synchronisation.
+--Aj1tJsIztP5dXenP
+Content-Type: application/pgp-signature; name="signature.asc"
 
-arm64's tlbbatch implementation simply issues TLBIs at queue-time
-(arch_tlbbatch_add_pending()), eliding the trailing dsb(ish). The
-trailing dsb(ish) is finally issued in arch_tlbbatch_flush() at the end
-of the batch to wait for all the issued TLBIs to complete.
+-----BEGIN PGP SIGNATURE-----
 
-Now, the Arm ARM states:
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaDnNwwAKCRB4tDGHoIJi
+0plVAP9xUhFgW9G3H70h10nX3DElaVl3XrEFf30bWGpPQbwUvQEAyjrFGC6Voo7o
+aa/qdRMjImiKKvS4eMDSOBxpXBeWAA8=
+=RMOT
+-----END PGP SIGNATURE-----
 
-"""
-The completion of the TLB maintenance instruction is guaranteed only by
-the execution of a DSB by the observer that performed the TLB
-maintenance instruction. The execution of a DSB by a different observer
-does not have this effect, even if the DSB is known to be executed after
-the TLB maintenance instruction is observed by that different observer.
-"""
-
-arch_tlbbatch_add_pending() and arch_tlbbatch_flush() conform to this
-requirement because they are called from the same task (either kswapd or
-caller of madvise(MADV_PAGEOUT)), so either they are on the same CPU or
-if the task was migrated, __switch_to() contains an extra dsb(ish).
-
-HOWEVER, arm64's arch_flush_tlb_batched_pending() is also implemented as
-a dsb(ish). But this may be running on a CPU remote from the one that
-issued the outstanding TLBIs. So there is no architectural gurantee of
-synchonization. Therefore we are still vulnerable to the theoretical
-race described in Commit 3ea277194daa ("mm, mprotect: flush TLB if
-potentially racing with a parallel reclaim leaving stale TLB entries").
-
-Fix this by flushing the entire mm in arch_flush_tlb_batched_pending().
-This aligns with what the other arches that implement the tlbbatch
-feature do.
-
-Fixes: 43b3dfdd0455 ("arm64: support batched/deferred tlb shootdown during page reclamation/migration")
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- arch/arm64/include/asm/tlbflush.h | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index eba1a98657f1..7d564c2a126f 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -323,13 +323,14 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
- }
-
- /*
-- * If mprotect/munmap/etc occurs during TLB batched flushing, we need to
-- * synchronise all the TLBI issued with a DSB to avoid the race mentioned in
-- * flush_tlb_batched_pending().
-+ * If mprotect/munmap/etc occurs during TLB batched flushing, we need to ensure
-+ * all the previously issued TLBIs targeting mm have completed. But since we
-+ * can be executing on a remote CPU, a DSB cannot guarrantee this like it can
-+ * for arch_tlbbatch_flush(). Our only option is to flush the entire mm.
-  */
- static inline void arch_flush_tlb_batched_pending(struct mm_struct *mm)
- {
--	dsb(ish);
-+	flush_tlb_mm(mm);
- }
-
- /*
---
-2.43.0
-
+--Aj1tJsIztP5dXenP--
 
