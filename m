@@ -4,112 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB5BC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 10:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80732C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 10:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A51p7QqjaXVhq/X6ZId6qxk/TZtmy9x/0PBeEDiqRug=; b=uEdsYv90fNvRABZ3CbheugVd8J
-	/UZL/jddWpB3qul8vFN3SINGGnhYCm5WM/YZdEf8XsbPV1Kgw68pwsoKdxp2XBWf2bB8bIo8O6tMM
-	gDb+QY819vVwE9U4xTOU08YxrdTlWLz9Cku+vKrbbgLWKVKYnaKpx8wEYOt8gItEAgJaXUclJgB4A
-	gsWI65SHTKUbVVk8F2jZ4ZXudcOeNJgRDj4kmg2SAVukEe0kibPbu/K3P+z+xmscJeswQRpRQyhvh
-	X1LoXGEGbBj8SmbLFaVn5lIJ/1KcwzNuNSd7rGcnpDvFEnAaWhHNZeZ5dWJnRkquBU6wsSOkW5OZV
-	rgsHZWng==;
+	bh=uD0mL2zxMMFJvd6Ka4STEIFq5MhY4PRVQMxaMd1KBoc=; b=a7VTePeEqlwcNgvPC7kPW9pekP
+	zuT3zCrkjzc4AEyWFzGxBRMzPgkr1h4N+I23vs3QWzbq7ZWlnny+oWp3hKH/QQUEMdOn6Ltk5ojdO
+	hdPoYPJSF8wTmAxhCLKtHrLutzAa4nImtanNfPhqmt5hWgyR0kmzp3N+s6HOaYiYqfyRl4eHjjHsS
+	1qcqaXg/JCfFKqgze2aXHmdUFNwBdTYHbY3jDyHgwXAS7wVQcj2KhZ3i0v7qIrgV+qbnN9JC93mDQ
+	NIGgrcnn5Z8o7P0TxuoEM8f9mfZ4+/YJY/xz8RwVU+grXH5KiYKC1fKzZrtF2a82I5kpiq2xZJLrk
+	iWnJmosA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKx0V-00000000I5U-1sJX;
-	Fri, 30 May 2025 10:30:35 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKwyM-00000000HpU-291c
+	id 1uKx5w-00000000Ijc-1hGG;
+	Fri, 30 May 2025 10:36:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKx3m-00000000IPp-2cFZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 10:28:24 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54U0dhw6031636;
-	Fri, 30 May 2025 10:28:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	A51p7QqjaXVhq/X6ZId6qxk/TZtmy9x/0PBeEDiqRug=; b=OqwPchuX4ruA4Is+
-	fWPQeqkXbn5AdVNH0OZI+Of8ObYImuqrPB26lMmOi0RimzTMwy/HPHRRMPA7a90k
-	+zahYakljIiHOue5qvptLmz2cONxm6i00E1Ys2PHHrEsCRsFJOJxaA6H+evsXHbo
-	1/EtW9B8KGfsn0j1PqLjZESv+N+EVURRVoExrFLap8ob2vShfEeL8/YpmfYVGfl+
-	xdGsNbVTmK8FTlQ1WX1P0XUNe70YSYRh5Aml4whBYaGQlBuH3ptiBS4a6TD+Kda+
-	+AsSnlpjriPdDwqfG9RdsC4VA2yJMhTij91Gai4GYh+nVBDLhIuAb6AhApzHIDOr
-	7BUkwg==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46u6vk0qg4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 30 May 2025 10:28:14 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 54UASD9I009759
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 30 May 2025 10:28:13 GMT
-Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 30 May
- 2025 03:28:10 -0700
-Message-ID: <62d1e4cb-cc13-4333-a160-66a280dca5f6@quicinc.com>
-Date: Fri, 30 May 2025 18:28:08 +0800
+	Fri, 30 May 2025 10:34:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E46BB16F2;
+	Fri, 30 May 2025 03:33:40 -0700 (PDT)
+Received: from [10.57.95.14] (unknown [10.57.95.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B6553F673;
+	Fri, 30 May 2025 03:33:54 -0700 (PDT)
+Message-ID: <1c17a9e6-b04b-4754-8af5-521fcadba1bd@arm.com>
+Date: Fri, 30 May 2025 11:33:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] coresight: add coresight Trace Network On Chip
- driver
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Leo Yan <leo.yan@arm.com>
-CC: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>,
-        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com>
- <20250522-trace-noc-v6-2-f5a9bcae90ee@quicinc.com>
- <3a19197d-b534-458c-b4d7-51fd9d2c954d@arm.com>
- <40599afc-4342-467c-87d8-3f53cbcfd242@quicinc.com>
- <20250523085655.GD2566836@e132581.arm.com>
- <4d54e620-abb9-4a36-bab0-3970c7e30a5f@arm.com>
-Content-Language: en-US
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-In-Reply-To: <4d54e620-abb9-4a36-bab0-3970c7e30a5f@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=UOXdHDfy c=1 sm=1 tr=0 ts=6839883e cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=r03utmzGDo6xATuXh-kA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: IW1NTlKSK6P1c9yx8AtZwPR1z2zQiOt-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTMwMDA5MCBTYWx0ZWRfX+hgg0vSkh/9I
- UooJahbzKz+/d79vt0JomJfOtdXN04i+OIocJI2NfHTgmz95teSKUR+5BirWFFdv/h4QyWnDpFL
- UtnrnOnIs+tz0ZIkORtqRbAn/TAk42k6aEXB0XzgwjylUPCIgIP44Afh/EGW2gMo7y/zqnH8o09
- Gu2oC1Q3eb3Wer6+T/y9N2SuIw87qpHDPGDsFBgg4VvBZVfzPvuRCBQAgy9mbtV3CVU3LohNZVA
- QroHeHuJNV4VPt6C2//7wHxv60WROK7CJUd4Vm0ZpDBELLccFIfD72CJGbU2w9Oi/iZ3jEcTlYn
- pZ20YQVOn7GJiMdpHDpSLOF1XZHHC+zbXbrS/yAFxgyjFRtWf1AAMttSNg2MeWMqFaLuCihuAu2
- agYZrhu8nio03cUD1PbyQm+MKusxZkJKarMwWrA85bueBehneptlW7Le/muoAmcvL4KMYNH3
-X-Proofpoint-GUID: IW1NTlKSK6P1c9yx8AtZwPR1z2zQiOt-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-30_04,2025-05-29_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 mlxscore=0 adultscore=0 priorityscore=1501
- mlxlogscore=999 bulkscore=0 malwarescore=0 impostorscore=0 spamscore=0
- suspectscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505160000 definitions=main-2505300090
+Subject: Re: [PATCH 1/3] mm: Allow pagewalk without locks
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
+ catalin.marinas@arm.com, will@kernel.org, yang@os.amperecomputing.com
+Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
+ gshan@redhat.com, linux-arm-kernel@lists.infradead.org
+References: <20250530090407.19237-1-dev.jain@arm.com>
+ <20250530090407.19237-2-dev.jain@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250530090407.19237-2-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_032822_572931_3A32DCDE 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20250530_033358_758850_FF694A9D 
+X-CRM114-Status: GOOD (  25.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,70 +68,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 30/05/2025 10:04, Dev Jain wrote:
+> It is noted at [1] that KFENCE can manipulate kernel pgtable entries during
+> softirqs. It does this by calling set_memory_valid() -> __change_memory_common().
+> This being a non-sleepable context, we cannot take the init_mm mmap lock.
+> Therefore, add PGWALK_NOLOCK to enable walk_page_range_novma() usage without
+> locks.
+
+It looks like riscv solved this problem by moving from walk_page_range_novma()
+to apply_to_existing_page_range() in Commit fb1cf0878328 ("riscv: rewrite
+__kernel_map_pages() to fix sleeping in invalid context"). That won't work for
+us because the whole point is that we want to support changing permissions on
+block mappings.
+
+Yang:
+
+Not directly relavent to this patch, but I do worry about the potential need to
+split the range here though once Yang's series comes in - we would need to
+allocate memory for pgtables atomically in softirq context. KFENCE is intended
+to be enabled in production IIRC, so we can't just not allow block mapping when
+KFENCE is enabled and will likely need to think of a solution for this?
 
 
-On 5/27/2025 6:19 PM, Suzuki K Poulose wrote:
-> On 23/05/2025 09:56, Leo Yan wrote:
->> On Fri, May 23, 2025 at 04:08:58PM +0800, Yuanfang Zhang wrote:
->>
->> [...]
->>
->>>>> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
->>>>> +{
->>>>> +    int atid;
->>>>> +
->>>>> +    atid = coresight_trace_id_get_system_id();
->>>>> +    if (atid < 0)
->>>>> +        return atid;
->>>>> +
->>>>> +    drvdata->atid = atid;
->>>>
->>>> Do you need to expose this via sysfs ? Otherwise, how can you map
->>>> a trace to a TNOC at decoding ?
->>>
->>> yes, need to expose the atid via sysfs, but it better to expose it on source driver which connect with
->>> this TNOC. so dont expose it on this driver.
 > 
-> But why ? How does that work ? The packets that come via TNOC (irrespective of the source(s)) will have the same ATID as that of the TNOC. So :
+> [1] https://lore.kernel.org/linux-arm-kernel/89d0ad18-4772-4d8f-ae8a-7c48d26a927e@arm.com/
 > 
-> 1) How does it help if the source exports the ID that was allocated in the TNOC driver ?
->
-The sources connecting to TNOC will have the same ATID which allocate in TNOC.
-This is convenient as users do not need to know which source is connected to this TNOC, 
-to get ID can through reading the trace_id sysfs node in the source directory.
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  include/linux/pagewalk.h |  2 ++
+>  mm/pagewalk.c            | 12 ++++++++----
+>  2 files changed, 10 insertions(+), 4 deletions(-)
+> 
+> diff --git a/include/linux/pagewalk.h b/include/linux/pagewalk.h
+> index 9700a29f8afb..9bc8853ed3de 100644
+> --- a/include/linux/pagewalk.h
+> +++ b/include/linux/pagewalk.h
+> @@ -14,6 +14,8 @@ enum page_walk_lock {
+>  	PGWALK_WRLOCK = 1,
+>  	/* vma is expected to be already write-locked during the walk */
+>  	PGWALK_WRLOCK_VERIFY = 2,
+> +	/* no lock is needed */
+> +	PGWALK_NOLOCK = 3,
 
-> 2) How does the source driver know the TraceID for exposing via sysfs ?
-> Does it expose its own traceid ?
-No, sources connecting to TNOC don't have their own traceid, it expose the ATID which allocated in TNOC.
-TNOC will maintain the ID in coresight_path:: trace_id, when enable source, the source can get it from path.
+I'd imagine you either want to explicitly forbid this option for the other
+entrypoints (i.e. the non- _novma variants) or you need to be able to handle
+this option being passed in to the other functions, which you currently don't
+do. I'd vote for explcitly disallowing (document it and return error if passed in).
 
-Here is the patch to expose id in source:
-https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250530-showtraceid-v1-1-2761352cf7b4@quicinc.com/ 
-> 
->>
->> If so, why the ID is not maintained in coresight_path::trace_id?
->>
->> A source device allocates ID and maintains in coresight path, then
->> this ID is passed (when enabling the link) to TNOC driver to consume it.
-> 
-This is because there can be multiple sources connected to one TNOC, and these sources share one Trace ID, so the ID is allocated in TNOC.
+>  };
+>  
+>  /**
+> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
+> index e478777c86e1..9657cf4664b2 100644
+> --- a/mm/pagewalk.c
+> +++ b/mm/pagewalk.c
+> @@ -440,6 +440,8 @@ static inline void process_vma_walk_lock(struct vm_area_struct *vma,
+>  	case PGWALK_RDLOCK:
+>  		/* PGWALK_RDLOCK is handled by process_mm_walk_lock */
+>  		break;
+> +	default:
+> +		break;
+>  	}
+>  #endif
+>  }
+> @@ -640,10 +642,12 @@ int walk_page_range_novma(struct mm_struct *mm, unsigned long start,
+>  	 * specified address range from being freed. The caller should take
+>  	 * other actions to prevent this race.
+>  	 */
+> -	if (mm == &init_mm)
+> -		mmap_assert_locked(walk.mm);
 
-> Good question, since we have the "path" maintaining the TraceID, we
-> should use that here for the TNOC. But the other question is, can there be multiple sources connected to a single TNOC ? (I am guessing, yes!. And thus it may not work with what you are proposing.
->
- 
-yes, there can be multiple sources connected to one TNOC, and these sources share one Trace ID which allocate in TNOC. 
-To decode the scenario relay on TraceID + Inport number, TraceID identifies the TNOC, the decoder maintains a table that maps each TNOC inport to its corresponding source.
+Given apply_to_page_range() doesn't do any locking for kernel pgtable walking, I
+can be convinced that it's also not required for our case using this framework.
+But why does this framework believe it is necessary? Should the comment above
+this at least be updated?
 
-> Cheers
-> Suzuki
-> 
-> 
->>
->> Thanks,
->> Leo
-> 
-> 
-> 
+Thanks,
+Ryan
+
+> -	else
+> -		mmap_assert_write_locked(walk.mm);
+> +	if (ops->walk_lock != PGWALK_NOLOCK) {
+> +		if (mm == &init_mm)
+> +			mmap_assert_locked(walk.mm);
+> +		else
+> +			mmap_assert_write_locked(walk.mm);
+> +	}
+>  
+>  	return walk_pgd_range(start, end, &walk);
+>  }
 
 
