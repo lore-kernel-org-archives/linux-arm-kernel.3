@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44234C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 18:07:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA5CC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 18:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXu72W2c/dHaudGYlcHs6MkLFzBam6sTjxfym1g2Cqw=; b=4EvvE6o9XxuZQf+1C7Fw5/Mgfj
-	ZZaZ5x2CAmDvJwr+ObsLtOoWV4aRfuxpIrvci7COvWdNZcOSLttCVNjCfaEpqaNMM+0blw4fQtyMk
-	tGGTEEPtitDSSTNVrW5wZOMRdFt8Qb47SbmiOcclDKTVVnfftYriiTSXaKlpLTAqYJdCxc/b+e9Pd
-	olE5Pp6lrJmYqqeCffs5iwTg3Ye8zNA1N3PqBiEMLDNUDv+DBYZ3EafaA9OVRUbKOtSHHl6XEchQE
-	mKsHK2m0tHRQfGbWhtmNMVWnwWe6jOEwrkxeOAfqgaRchKUucKiuLIduHY9EoTG4jvrNkg7mec3sj
-	mgwZBO0Q==;
+	bh=T8QPO6Ef1FQ5IIXSBD6+Fdg7tVKaYzmd0kVEhLTxmWk=; b=t6eXWWhLuPrUwANeSQjqgJkPWG
+	dHPctAMscIJsu0t3FQeIEZcfMC0XgZofp/isRuGUx9+dOux59WwWMBiHIAQNEYk2kxcqWEHd9bfrY
+	ZZ8KKd4yVxtF1YbX/E9FMtHzGSAhj95Omb65EGJYFFHL4NXrLFT3ae17Se+xYa02zPCxwN7GpRsGV
+	xw4Dvx+CYo1L0hdZ/neydn585ccaW1OeGVJmPlz8u5cDwCZuMMJC1vpZ0dzABlgR62fMoxWnjQpCY
+	zAliVDwdsPdgTAHSGlohAATCTXwbg2G28WC77wVd66kZmmk9syDiPbkGs1JlGXJWnzZDfsruG4Vkr
+	rTVAzYKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL48W-00000001UFa-2GJg;
-	Fri, 30 May 2025 18:07:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uL4Ac-00000001UTz-3ima;
+	Fri, 30 May 2025 18:09:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL46O-00000001U6f-06xN;
-	Fri, 30 May 2025 18:05:09 +0000
+	id 1uL47u-00000001UDD-3f9p;
+	Fri, 30 May 2025 18:06:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D93DA5C3BA6;
-	Fri, 30 May 2025 18:02:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CA28C4CEE9;
-	Fri, 30 May 2025 18:05:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F3A16629C1;
+	Fri, 30 May 2025 18:06:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B016BC4CEE9;
+	Fri, 30 May 2025 18:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748628305;
-	bh=tQpBvjWo6fQcYB1zRJnFf6X7KFUMIqebgPWBvhFMjyU=;
+	s=k20201202; t=1748628401;
+	bh=t9lFh+oAmPOl6ZvE6QL+On8ZD++9uCDEr437mOmG80I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NmX9XATJYAPtUmZolpbebzc0KHk9SdL+M4W9kGFcTtD12VCQ/gvikG8/VatI5NE9q
-	 o5Keb/Aishab28SR3sLWw5khn8V8U+kU2uIBOIOBkwxrj49JmZ/YexpFLKVmk2keeo
-	 dYX//hLxHMedFMuXgBD89kePPhteHByakHJnT7LfrYUt+R63j6XHvHpxWLsEhgIROL
-	 YWHrbzjgSqvkBoaZgEUussLpEvwB2hubu273inRnshRulvi/+K9/NLVTJfKqWAYlF6
-	 rT74e9a/Wvy8t2yWPlrOzS35jtYXcPWglYRjmX28Gpbi61t5A76Ty9F/EUb+J0fMH3
-	 1S5yKab1HqdZQ==
-Date: Fri, 30 May 2025 19:05:01 +0100
+	b=UrszsRdlThRSA3XyFYc1ail8rRNTabDt5j2soWnh75hkIKMZofrTXD1mPXkxFKuUD
+	 3bT88hyWWsBT/Hr/RmZM7hT31aJcOdCO+DwwTNqnVWiRWlW86v94dc4UYhafetUEWT
+	 rD0Xg/ZiAmmQ00YOcMv+lpMALwfnlFJCUYCHK/py1LCpsrk8F9HAaiLqHBb23c5Xud
+	 UBsTBjVPTh9mfuZczJfND/wUCgOPIdB/bKFey8R3G5wVTnTt1f7CSBUMTge90HskM+
+	 eKcqhFRu2Mcrshb3L6nW9X0zCB8XnIwyhDGVLHhmXwool8NEhnurcDIq+tOchKd4Qy
+	 ZxVzPTHywWWhg==
+Date: Fri, 30 May 2025 19:06:37 +0100
 From: Simon Horman <horms@kernel.org>
 To: Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -51,18 +51,15 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Michal Kubiak <michal.kubiak@intel.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net 1/2] net: airoha: Initialize PPE UPDMEM source-mac
- table
-Message-ID: <20250530180501.GQ1484967@horms.kernel.org>
+Subject: Re: [PATCH net 2/2] net: airoha: Fix IPv6 hw acceleration in bridge
+ mode
+Message-ID: <20250530180637.GR1484967@horms.kernel.org>
 References: <20250529-airoha-flowtable-ipv6-fix-v1-0-7c7e53ae0854@kernel.org>
- <20250529-airoha-flowtable-ipv6-fix-v1-1-7c7e53ae0854@kernel.org>
+ <20250529-airoha-flowtable-ipv6-fix-v1-2-7c7e53ae0854@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250529-airoha-flowtable-ipv6-fix-v1-1-7c7e53ae0854@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_110508_110579_B6BE3E79 
-X-CRM114-Status: GOOD (  11.97  )
+In-Reply-To: <20250529-airoha-flowtable-ipv6-fix-v1-2-7c7e53ae0854@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +74,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 05:52:37PM +0200, Lorenzo Bianconi wrote:
-> UPDMEM source-mac table is a key-value map used to store devices mac
-> addresses according to the port identifier. UPDMEM source mac table is
-> used during IPv6 traffic hw acceleration since PPE entries, for space
-> constraints, do not contain the full source mac address but just the
-> identifier in the UPDMEM source-mac table.
+On Thu, May 29, 2025 at 05:52:38PM +0200, Lorenzo Bianconi wrote:
+> ib2 and airoha_foe_mac_info_common have not the same offsets in
+> airoha_foe_bridge and airoha_foe_ipv6 structures. Fix IPv6 hw
+> acceleration in bridge mode resolving ib2 and airoha_foe_mac_info_common
+> overwrite in airoha_ppe_foe_commit_subflow_entry routine.
 
-Hi Lorenzo,
+I'd lean towards splitting this into two patches. One to address the issue
+described above, and one to address the issue described below.
 
-I think it would be nice to also mention a bit more clearly what (broken)
-behaviour this fixes. Likewise for patch 2/2.
-
+> Moreover, set
+> AIROHA_FOE_MAC_SMAC_ID to 0xf in airoha_ppe_foe_commit_subflow_entry()
+> to configure the PPE module to keep original source mac address of the
+> bridged packets.
 > 
-> Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
+> Fixes: cd53f622611f ("net: airoha: Add L2 hw acceleration support")
 > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
 ...
