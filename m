@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B19C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 22:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7081BC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 22:26:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YqOT/fzFZhw9tODgMNpZ7Zh9gU62VfKJbyQr/u6ucPo=; b=LfYymLqT283NXFMXGfUD1pmByH
-	gt11/iU5ML08+Rz/hNRJnZwaErtKGESQWS2XpCrdEiBZb0kl6r4GSxVDo98KrAXiN/xvQZXlTmbNq
-	LHd/37kAPkW2T/qQrT2mO3OX578DXQQTsRtRQIVxj99jIKNGri0hyP+SpVhfPDci5TEtSgqeRpyfh
-	/H2sO77cDQOGie+kwKdMCubhHp1a4VkhRcJxSEz6tREP5qwP30wXKqHi8kgSGy7TGGPv5phFkqF3W
-	Roqc0h+ygB5AX5gqnr7sKYKzKCwnp1kPGCTcMi3TkbBPpjb8/KSXK/HqzB8vIXMxzkTHU0FLE2B23
-	WysztjeQ==;
+	bh=xYgSXYoxLM00aOyWXvUIDH2ECy0jZwwoRHPTqVPqBfY=; b=NqVLVCKa4CsGZXHwGw9EeBqD9F
+	EOHgtH8SCTwVbxSWKpPf6zLZiM4MEEQtQS4EzBFDwWXImxI7njGNIkrpv/jF/YdaRYUO4DUE9Qg5v
+	gMAI9MoLDE4q+8YCcsytN6kLgke6cAyDBnB/PNWoF/zzoXR74zpKzsNitLoxvQWlRp5keqnr8pgCj
+	WefM59OAkg2r+Fi+RaFJeVaoT1iWeVj7b+ogy9P7SmgyQBWysqS83c55nMM454P0kqq1k+TokbKQc
+	7buv1j7MPHGOId1DdEoxok6TL7ukMt2bzsEjof823pmkdLQs/2t5vhGfD/MygnZ3S0LcqZkpvT6KO
+	sneNgrxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL88t-000000023Hv-2Ai8;
-	Fri, 30 May 2025 22:23:59 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1uL8B0-000000023iA-1Lqy;
+	Fri, 30 May 2025 22:26:10 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL82Z-000000021Yc-1vHZ
+	id 1uL82b-000000021ZD-0UPR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 22:17:28 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6fad4e6d949so5386866d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 15:17:27 -0700 (PDT)
+	Fri, 30 May 2025 22:17:30 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-6facacf521eso20627496d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 15:17:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748643446; x=1749248246; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1748643447; x=1749248247; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YqOT/fzFZhw9tODgMNpZ7Zh9gU62VfKJbyQr/u6ucPo=;
-        b=DQOkFtBqFazP1BpA0K0t1vM/60iDvAhmiHmkda2bPHTQxV4f6i6Y3VA/sW2ZqX7gdW
-         R2od4cl7+wv0IADPjk4jqePfgTfE42d5yGGSMlPRLCvtTi0dWH2CMkMzhhWrQIEv52Gf
-         vsMal/rTIgA7vxjx2qtyIzxJy/+be/trie6qQzaUJIDaCLSeEKs0EnnI9eQxu8v9MFXy
-         bHvWV3lnc2iZUgVqifbDNsYLGKbRFqXW+HkwCcl4ZYT4sOxIxx2aeu/0oQFD/oZ5bghv
-         kXqsQ2DRY+21fQsu1ZqfrVKzZvkmR7TnRsyRDrP0gCFupR8sbAQ0oS0T38QiedDOGE/z
-         ckBQ==
+        bh=xYgSXYoxLM00aOyWXvUIDH2ECy0jZwwoRHPTqVPqBfY=;
+        b=TFBsxhmpgtVrttDNCkkE448gt9y8Kw+pFcvhmrytb1OW5kaKV8meDsAU9IRxQqH+gF
+         DZKr/JWsRzA1Rj9u9u4ZpT+lnfOySVojibYgdQXXpt+/JXV1hyhI/Zk9PCEOJdX1qKZi
+         sf0zoU80vN0L4VPQ1wDGgquMG2kz3SBemk5S0eahi/4Q6yCce4O6aVPQueH8n7g/ipul
+         xQ0NgW8BkydwgHti7YPAXrlSTQkzryknWuKW78zf4nrUsRJmCC+BYSHiosLAEG3NkVrE
+         xfUJxRAN3iNAH1afzUV3pzXFBXHJxUr5HQUf8vM/M3luygSDkx/SzjS69Mqr8aHYfDN4
+         mp+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748643446; x=1749248246;
+        d=1e100.net; s=20230601; t=1748643447; x=1749248247;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YqOT/fzFZhw9tODgMNpZ7Zh9gU62VfKJbyQr/u6ucPo=;
-        b=NMilk+TCtprL9xV+WJksyNbYxoYYMW9e7RRzxoelwiMzQDnQHYfXHCfZrqFIiMSrhu
-         lfhbuBnia75cBMTXy+1rnXfpkOFxQKL0gsISeR8JlRsLMT9lc+3C+42AhXmWrduQ25nB
-         9g2QF81Qi2O0Fan/fz173OaQaDPsQSweZ4AcudIdAInO0yY4pevB1smSxqqDaoV/rePM
-         P6hCXH2YB5JytrEBA3xXyExtRKshSLeB27qHXC277ShDWwRJ6OnoINsAObARHtOq/g+f
-         5KGLH9CV3D2IMaenngotAJ7j33s7R7U6NEUl+PfSci5K9VZGlQQUXTWDUH2pEMQzfowp
-         TlzQ==
-X-Gm-Message-State: AOJu0YwXsMj6XM30Uc5ZIgaF3efY9L2zrJe/aj7w3WDIWc0KylcvOHwV
-	QfvOusqj5N3UpBrnlyOZu5bczYe04HFLyKe/mV8jwWRKMm5BXe5mgKhFeHA4Ew==
-X-Gm-Gg: ASbGncugovl37qfqFDssITlE3cOtu6+jSV5p/d2WKT1VeGBMsVCzQTBAGGoHZZBji32
-	cGj4kgPU9uQW4rEDYFbjBZyUsia6rBqR56UXP6jf1AtbarF72nubZGuKdLRDRmNphK9XfoZ8krW
-	G6dwHCfDLhOYScg5EIkXd/7lwsXFA0alb3Mwt9rNM9Pkfu4WENo+OK3zjwm48ctpcz9aM9vAd3i
-	b2hA5szGj/RiHiOW/J0KaJsOeQ4p7dIifX7qiWi0daLUkxnzAQPTs5a4zP6PPMcrjD8vLrS+93f
-	83+j43g8dqydCnle7/ui1I8X3sDXu1P7h/IJxdQ64fxJDvWAVCqjSs2jgwpyvZhMwHcK7ziTOt7
-	l6Ay8j7bLcwq8WKOwkRnSv+qvRw==
-X-Google-Smtp-Source: AGHT+IG5/kDcd76kYK3js7nON8eVvFn7F/M4ye+7rDR9BOtAKIBHqXL1giHYzo1HsEvEPCKdjFVk0A==
-X-Received: by 2002:a05:6214:29c7:b0:6fa:c043:7781 with SMTP id 6a1803df08f44-6fad9090d99mr2047706d6.6.1748643445856;
-        Fri, 30 May 2025 15:17:25 -0700 (PDT)
+        bh=xYgSXYoxLM00aOyWXvUIDH2ECy0jZwwoRHPTqVPqBfY=;
+        b=mtaeSg/Lh9iO23CiQEy5d/sGo9Olskj5TsRoUg99RV1ad9BcHImVtB3erwO0aQxxu4
+         rRlIPVru5IiPx7MDUrGVbfOXuzua/BZ4RPd2fgwBiVOV53QKW1CFqSBi8x8Hkxu7ipy7
+         Naq/L+IUl820d6yzjxM7UUsHapfSkfNQlXT/0d6W9bqNjV8kgCQDpnId9yox5HegEpDe
+         TXVY3SeyTZtmBvL6F0X6Ry3LkQShRm7Ea4hqfQQYxrpK+96zESgaRaN2j/WaYkhEAF21
+         r2Qr8FgKrFC6hxPAnQPFHNy/J4dkKmhqLJdl2zoLrOkGQwOkLDU/s4GI8Ot/mWvySrRf
+         w09A==
+X-Gm-Message-State: AOJu0YzwB3I0vfzBVheuBmM7BlEsp8lSKm4ARC4ZSOEsmWgRJ68+CumY
+	SSB/oWX8rSnUPcw7TXafeQjAyS3tE3x2z6TA2JXLBEq4EruoFA73kBlsO7Qutw==
+X-Gm-Gg: ASbGncsDpBu8uuVu0HyLe68BX4gwx6fQn7vgQ+FZBR8sQZ7T6TVb1W4zRyEtOqM5bgR
+	p41TuM0lxWGG15+wMW0442FD0IW7PAD/P9sb07fkrqGT688a4ZnZWckyLnqG+2EeHmgM4Dl/v4m
+	SZ31xP6MkDt5Ul+f9sFkHVJljawlkLWjAJV4PZoZXuydGRqwg/90xnMxyC4sA0R5Lhv4eVQbtfq
+	8H15rEma7g1/TRQY+mG9bF8g1mLsZ3AOm8y+v7wxO2CkTg2rMbKg2rWyusOKsqtO42Pb3SKXYix
+	oY/R18BE4kWEEfp63hYuXY4y7OjbsDEEc/eIJi71V6T9Kw5T/8JhduVc2NpwsJP6re8ZZUbcgum
+	hcaW7msmbW91qtJ+EzavPb0WsKgVGUWyMFlR2
+X-Google-Smtp-Source: AGHT+IHVMoarSqMhD1xuUWKY4a33bFNL62O9B28e7MoyTtfr7/Zp5UT6kyBFKWJTYEphHxoEKF6rQw==
+X-Received: by 2002:a05:6214:4119:b0:6fa:c0c8:4666 with SMTP id 6a1803df08f44-6faceba8590mr72186116d6.11.1748643447544;
+        Fri, 30 May 2025 15:17:27 -0700 (PDT)
 Received: from aford-System-Version.. (c-75-72-162-184.hsd1.mn.comcast.net. [75.72.162.184])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fac6d4d0cesm29986866d6.35.2025.05.30.15.17.24
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fac6d4d0cesm29986866d6.35.2025.05.30.15.17.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 May 2025 15:17:25 -0700 (PDT)
+        Fri, 30 May 2025 15:17:27 -0700 (PDT)
 From: Adam Ford <aford173@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: aford@beaconembedded.com,
 	m.felsch@pengutronix.de,
+	Adam Ford <aford173@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -82,17 +83,17 @@ Cc: aford@beaconembedded.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/4] arm64: dts: imx8mp: fix VPU_BUS clock setting
-Date: Fri, 30 May 2025 17:17:09 -0500
-Message-ID: <20250530221713.54804-3-aford173@gmail.com>
+Subject: [PATCH 3/4] arm64: dts: imx8mp-nominal: Explicitly configure nominal VPU clocks
+Date: Fri, 30 May 2025 17:17:10 -0500
+Message-ID: <20250530221713.54804-4-aford173@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250530221713.54804-1-aford173@gmail.com>
 References: <20250530221713.54804-1-aford173@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_151727_495714_93673CEB 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250530_151729_153074_D84F118B 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +108,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marco Felsch <m.felsch@pengutronix.de>
+In preparation for increasing the default VPU clocks to overdrive,
+configure the nominal values first to avoid running the nominal
+devices out of spec when imx8mp.dtsi is changed.
 
-The VPU_PLL clock must be set before the VPU_BUS clock which is derived
-from the VPU_PLL clock else the VPU_BUS clock is 300MHz and not 600MHz.
-
-Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+Signed-off-by: Adam Ford <aford173@gmail.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ .../boot/dts/freescale/imx8mp-nominal.dtsi     | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index 1bf15c502280..909555a5da4b 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -2283,8 +2283,8 @@ vpumix_blk_ctrl: blk-ctrl@38330000 {
- 				 <&clk IMX8MP_CLK_VPU_G2_ROOT>,
- 				 <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>;
- 			clock-names = "g1", "g2", "vc8000e";
--			assigned-clocks = <&clk IMX8MP_CLK_VPU_BUS>, <&clk IMX8MP_VPU_PLL>;
--			assigned-clock-parents = <&clk IMX8MP_VPU_PLL_OUT>;
-+			assigned-clocks = <&clk IMX8MP_VPU_PLL>, <&clk IMX8MP_CLK_VPU_BUS>;
-+			assigned-clock-parents = <0>, <&clk IMX8MP_VPU_PLL_OUT>;
- 			assigned-clock-rates = <600000000>, <600000000>;
- 			interconnects = <&noc IMX8MP_ICM_VPU_G1 &noc IMX8MP_ICN_VIDEO>,
- 					<&noc IMX8MP_ICM_VPU_G2 &noc IMX8MP_ICN_VIDEO>,
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+index 2ce1860b244d..f269f7a004fc 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+@@ -89,4 +89,22 @@ &media_blk_ctrl {
+ 			       <1039500000>;
+ };
+ 
++&vpu_g1 {
++	assigned-clocks = <&clk IMX8MP_CLK_VPU_G1>;
++	assigned-clock-parents = <&clk IMX8MP_VPU_PLL_OUT>;
++	assigned-clock-rates = <600000000>;
++};
++
++&vpu_g2 {
++	assigned-clocks = <&clk IMX8MP_CLK_VPU_G2>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL2_1000M>;
++	assigned-clock-rates = <500000000>;
++};
++
++&vpumix_blk_ctrl {
++	assigned-clocks = <&clk IMX8MP_VPU_PLL>, <&clk IMX8MP_CLK_VPU_BUS>;
++	assigned-clock-parents = <0>, <&clk IMX8MP_VPU_PLL_OUT>;
++	assigned-clock-rates = <600000000>, <600000000>;
++};
++
+ /delete-node/ &{noc_opp_table/opp-1000000000};
 -- 
 2.48.1
 
