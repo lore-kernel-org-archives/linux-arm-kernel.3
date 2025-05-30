@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90117C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 13:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96BBC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 14:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LFymtFLteooWlqBOwC4BZ9DDhvy3zbPIReDymrSJTCs=; b=AxfPtRQCcImiiu9M2/jpGuwOkq
-	6mXnDWGzzQH7LKL7prulyuAFqW1NjyAO7y8XVN9+5KBoEBpJieXThURbXHimXbntLIuFgTYH+yIqm
-	gxUKMdjIAoRtCvM3ZZbJ0OXDU1J2tX9IF2DdUqTju8ABPkpTiht0ysVGtq7dJr73PRPAIBAqv9VPr
-	XqwEEt1BHWt2/4y+r72sz6VBYbc4f376k5bQNIqcA3HdiVD0F4gXO4sYjHwqHcdaVd1Fezt5L3ay2
-	TMzxvXCw599YEYDVFnu5NmFqyEUanY1VYVNCJjnjWl4qYjmIRLnUD3YZfUlZWskrSzf+ZG3A+8RBP
-	MQaxQrmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m/1XyZhkINgjqjL6rNsMcBMnKJ0gfD5AmRtZg+RBhuk=; b=paTM0eSiLq89M8KW8yP9EJmkF9
+	aoCc8hhk8FTHvdunClBcWvrwVLOqdaPaRB2L7OSjsaB+dGUKUtNc7YbKyyaUO7PHHscjBf6XRXNTn
+	MKI2pX63BRAl6Hhqre6ZMwVhguoMM7u+ycT/w3NO9g8YO82dkhxA9EoKNQCQXEOLxv+AeGNeDsuxp
+	Zf251YMl2YXfFqw9Iprqfesd2bnbAQ/E2gsgAcIUQ6ma1gQOaol/355Yol+q/XjNuD0O0CyNTF5sB
+	o88fybKi+TFqjmF9i3hK+3F+3Qhgn0KjNCvbOGo6w6CIPx/f/e8kvDHNpyGUC2E7ZrcgfVETy9b3X
+	/qpH7GUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL0Gk-00000000pmj-3kmi;
-	Fri, 30 May 2025 13:59:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL0Ec-00000000pTN-19pc;
-	Fri, 30 May 2025 13:57:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2877B4416B;
-	Fri, 30 May 2025 13:57:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 055F7C4CEE9;
-	Fri, 30 May 2025 13:57:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748613440;
-	bh=+zsqPWkubdWde6jUz5nwbNsl1reIqr5AbthKVOWyVIM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jwGcrnkwftu0mRb4vYazECZefxBEn32Ml69pqE3voqrBsZ2HudhGYiS3fmtSTSeba
-	 sbealA6C6En3If72ionzzfA1RrF0ZuX3FQSK19NQA9O0xe6ZdpinNY/GwISm9ImvUm
-	 roCTom/CvdGu5Vt5Qr7zFBH9nZOc2mTqGR1rgSc554fQC0AH2MQGMQHgb55QZG7nt7
-	 fR1XZR6Ikf26BiCsKQGCjbVMOTfdxmPC7DigpKLWMOiIQdYXPGeYiPOjG3+tnoQobr
-	 szn0cnby/s20t7pVDljl8GlggS4ImPdTdvrBELiCt4p+ZQdHrcaoOVtfbwz1U7zyQz
-	 LILL1Pvupb3jQ==
-Date: Fri, 30 May 2025 15:57:14 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Hans Zhang <18255117159@163.com>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <aDm5Osv_k-yK6Lbh@ryzen>
-References: <20250506073934.433176-7-cassel@kernel.org>
- <20250528224251.GA58400@bhelgaas>
+	id 1uL0OG-00000000rNC-2TJk;
+	Fri, 30 May 2025 14:07:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uL0M6-00000000qXa-2mXT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 May 2025 14:05:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82C55169C;
+	Fri, 30 May 2025 07:04:48 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D6E5D3F673;
+	Fri, 30 May 2025 07:04:59 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Juergen Gross <jgross@suse.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	xen-devel@lists.xenproject.org,
+	linux-mm@kvack.org
+Subject: [RFC PATCH v1 0/6] Lazy mmu mode fixes and improvements
+Date: Fri, 30 May 2025 15:04:38 +0100
+Message-ID: <20250530140446.2387131-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250528224251.GA58400@bhelgaas>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_065722_360053_E661E443 
-X-CRM114-Status: GOOD (  29.36  )
+X-CRM114-CacheID: sfid-20250530_070506_789720_AEFAD5F9 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,86 +95,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 05:42:51PM -0500, Bjorn Helgaas wrote:
-> On Tue, May 06, 2025 at 09:39:36AM +0200, Niklas Cassel wrote:
-> > Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
-> > detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
-> > and instead enumerate the bus when receiving a Link Up IRQ.
-> > 
-> > Laszlo Fiat reported (off-list) that his PLEXTOR PX-256M8PeGN NVMe SSD is
-> > no longer functional, and simply reverting commit ec9fd499b9c6 ("PCI:
-> > dw-rockchip: Don't wait for link since we can detect Link Up") makes his
-> > SSD functional again.
-> > 
-> > It seems that we are enumerating the bus before the endpoint is ready.
-> > Adding a msleep(PCIE_T_RRS_READY_MS) before enumerating the bus in the
-> > threaded IRQ handler makes the SSD functional once again.
-> 
-> This sounds like a problem that could happen with any controller, not
-> just dw-rockchip?
+Hi All,
 
-Correct.
+I recently added support for lazy mmu mode on arm64. The series is now in
+Linus's tree so should be in v6.16-rc1. But during testing in linux-next we
+found some ugly corners (unexpected nesting). I was able to fix those issues by
+making the arm64 implementation more permissive (like the other arches). But
+this is quite fragile IMHO. So I'd rather fix the root cause and ensure that
+lazy mmu mode never nests, and more importantly, that code never makes pgtable
+modifications expecting them to be immediate, not knowing that it's actually in
+lazy mmu mode so the changes get deferred.
 
+The first 2 patches are unrelated, very obvious bug fixes. They don't affect
+arm64 because arm64 only uses lazy mmu for kernel mappings. But I noticed them
+during code review and think they should be fixed.
 
-> Are we missing some required delay that should be
-> in generic code?  Or is this a PLEXTOR defect that everybody has to
-> pay the price for?
+The next 3 patches are aimed at solving the nesting issue.
 
-So far, the Plextor drive is the only endpoint that we know of, which is
-not working without the delay.
+And the final patch is reverting the "permissive" fix I did for arm64, which is
+no longer needed after the previous 3 patches.
 
-We have no idea if this Plextor drive is the only bad behaving endpoint or
-if there are many endpoints with similar issues, because before the
-use_linkup_irq() callback was introduced, we always had (the equivalent of)
-this delay.
+I've labelled this RFC for now because it depends on the arm64 lazy mmu patches
+in Linus's master, so it won't apply to mm-unstable. But I'm keen to get review
+and siince I'm touching various arches and modifying some core mm stuff, I
+thought that might take a while so thought I'd beat the rush and get a first
+version out early.
 
-Since this will only delay once the link up IRQ is triggered, it will not
-affect the boot time when there are no endpoint plugged in to the slot, so
-it seemed quite harmless to reintroduce this delay before enumeration.
+I've build-tested all the affected arches. And I've run mm selftests for the
+arm64 build, with no issues (with DEBUG_PAGEALLOC and KFENCE enabled).
 
-But other suggestions are of course welcome.
+Applies against Linus's master branch (f66bc387efbe).
+
+Thanks,
+Ryan
 
 
-Since it seems that we can read the PCI vendor and PCI device ID, it seems
-that at least some config space reads seem to work, so I guess that we could
-try to quirk the PCI vendor and PCI device ID in the nvme driver.
+Ryan Roberts (6):
+  fs/proc/task_mmu: Fix pte update and tlb maintenance ordering in
+    pagemap_scan_pmd_entry()
+  mm: Fix pte update and tlb maintenance ordering in
+    migrate_vma_collect_pmd()
+  mm: Avoid calling page allocator from apply_to_page_range()
+  mm: Introduce arch_in_lazy_mmu_mode()
+  mm: Avoid calling page allocator while in lazy mmu mode
+  Revert "arm64/mm: Permit lazy_mmu_mode to be nested"
 
-The nvme driver does have a NVME_QUIRK_DELAY_BEFORE_CHK_RDY quirk for some
-Samsung drive, perhaps we could try something similar to the Plextor drive?
+ arch/arm64/include/asm/pgtable.h              | 22 ++++----
+ .../include/asm/book3s/64/tlbflush-hash.h     | 15 ++++++
+ arch/sparc/include/asm/tlbflush_64.h          |  1 +
+ arch/sparc/mm/tlb.c                           | 12 +++++
+ arch/x86/include/asm/paravirt.h               |  5 ++
+ arch/x86/include/asm/paravirt_types.h         |  1 +
+ arch/x86/kernel/paravirt.c                    |  6 +++
+ arch/x86/xen/mmu_pv.c                         |  6 +++
+ fs/proc/task_mmu.c                            |  3 +-
+ include/asm-generic/tlb.h                     |  2 +
+ include/linux/mm.h                            |  6 +++
+ include/linux/pgtable.h                       |  1 +
+ kernel/bpf/arena.c                            |  6 +--
+ mm/kasan/shadow.c                             |  2 +-
+ mm/memory.c                                   | 54 ++++++++++++++-----
+ mm/migrate_device.c                           |  3 +-
+ mm/mmu_gather.c                               | 15 ++++++
+ 17 files changed, 128 insertions(+), 32 deletions(-)
 
-I don't personally have this problematic NVMe drive, so I am not able to test
-such a patch. The user who reported the problem, Laszlo, has been doing all
-the testing.
+--
+2.43.0
 
-
-Perhaps Laszlo could try something like:
-
-
-diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
-index 6b04473c0ab7..9c409af34548 100644
---- a/drivers/nvme/host/core.c
-+++ b/drivers/nvme/host/core.c
-@@ -2865,6 +2865,12 @@ static const struct nvme_core_quirk_entry core_quirks[] = {
-                .quirks = NVME_QUIRK_DELAY_BEFORE_CHK_RDY |
-                          NVME_QUIRK_NO_DEEPEST_PS |
-                          NVME_QUIRK_IGNORE_DEV_SUBNQN,
-+       },
-+       {
-+
-+               .vid = 0x144d,
-+               .mn = "Samsung Portable SSD X5",
-+               .quirks = NVME_QUIRK_DELAY_BEFORE_CHK_RDY,
-        }
- };
-
-
-.. with the .vid and .mn fields replacd with the correct ones for the Plextor
-drive. (Don't forget to revert patch in $subject when testing this alternate
-solution.)
-
-I don't have a preference for either solution.
-
-
-Kind regards,
-Niklas
 
