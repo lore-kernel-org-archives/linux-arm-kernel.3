@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D066EC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 12:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9581C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 12:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EdOhohl4N8xgnbqDD5leJzczQ311iItsjWmcqewFijs=; b=KrpDuW6OpcB5cPX1tj900wrFsg
-	muK7xwH4X4g5cd4xULDYq33H2tFuyiZbZJgrV+1eurmLu8Z1xIOCOFeEwsN1R1FE6I2ajajcshSEt
-	+hI2G0G4KtODzGNSh8bF9UFmxt61iGkjbe/VeHeaUoop7NzUcyc2yLKcEYONZOjgDM8qzR5Hzg0ds
-	LhS+z5/AxAkAYSTDCIlUc8PZ6aFzRbrirbEycnzTM5hjIma2duiJ17waIC7V79Q3VxM6AFjHOtYho
-	bKNDc0VHKjkki/oylJHLDoU1jNaxHXeA4yHpWG+0ZvopvGu7vluCyJxIhEqlaVxazrxmn+1MoCVAr
-	yNWDdvGA==;
+	bh=+oHagcnKKj/0Xwv5zmXu2LIIfVV1Vg6wOsrOEO4F++U=; b=ajzoCIWntg6rcZn9fi81oh3oGM
+	XTbq2W1NS5twA8Wod+vmi0+o3eGyTHy9JktcG0j2VyEFWd3lYSGzXVrvdKnV9v3eWj6B5pdaeaA0c
+	I/ukIokYXvIrslF/BtUlkk2srEoIagfXHoqWFTO5jaB6NetANrqESR7nCZBa/V4BeOpsxSrfCEB7H
+	IxEUhCVvp3eCpHjxIxfprUsY+lfSTiIIFJZNAoIfx3DtR27zRB+i8BFRj9qV5eGutbH2uY5K2rpSQ
+	QFazUu3cAzuxvSmDJd+UOyaoyGhhLdzNiYYQMU2Yg5WL1hJhBdIdeGk8uSHwUHpCFPc0SuD7YphT4
+	oI2cH9yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKz7E-00000000a8S-2Qx8;
-	Fri, 30 May 2025 12:45:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uKz9L-00000000aqx-49XC;
+	Fri, 30 May 2025 12:47:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKz28-00000000Yli-2Rhw
+	id 1uKz2h-00000000Yrb-2eUN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 12:40:24 +0000
+	Fri, 30 May 2025 12:41:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A52B629F5;
-	Fri, 30 May 2025 12:40:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B011C4CEE9;
-	Fri, 30 May 2025 12:40:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0C8E65C1394;
+	Fri, 30 May 2025 12:38:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE49FC4CEE9;
+	Fri, 30 May 2025 12:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748608823;
-	bh=QTNfA46crIymmlEzcgVDgcXnH+8yB5rPB3Yp3hpTkiw=;
+	s=k20201202; t=1748608858;
+	bh=UD+5TLB2bz4d2xUkoAyU+8q0CipzLr4x2rwxkiGKeyk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fzLMWoerbLOICeK5+wWoeArgBbaY8ch9+oZvYF9QODpuFbi0vDVXbyKorB1aHOvU3
-	 rXnUJw+Gfk08duWmIBnDX3IC7ilSDKuGlnY9QFOgj+hQZfAblRjsZF5po/4UlZ4EyH
-	 311XZJ6CtGbF9tiSEa22Mkbnk+ZrwS2wtTYsbiMonPmNtDF+wKI874I+9n6X2JVcV7
-	 0wWc2YRY8xeFMcjZb/LS3cWZ/5yTx/QIpLdnaTbdDJoLtL+YrRXbpsyAIasqr89Z7v
-	 PFsz7Eqxo4ibyUwSZgnxBJTCi1FsZixY9WFV+n7c2yceXlTX1x80BWiP9+BwNJVvYX
-	 wh0+TrP/7/ikQ==
+	b=qlLH3YOnKGEb1XBki6M+VUxudpjrHwBKbnjSyHsjxQOww6YVHwprMPM06CzIu2B1v
+	 yfHDRLcfjnWGT2ElwYBbLCS7i+VXjBgY5YnGvNK3/YrxjMLaUvHkRI9MUp97lDpGJt
+	 X03+3nsH6gGOFT28eZpTz34hx7Pa61xCWG6ieBOIUcXxc/LzkKeEaLfO6yPwggmkQB
+	 NoHTlJlqBUB6s2r4KgbOOyY+wl+AzHQprOhK8fqD5RViC27j7u78klf/dpG8i0djI2
+	 EajNBAdm7Aj5XuTdNdoTqSN3Bs2kzoXjNHJUroMHdaBYbjNIWgrfi+oWHgyWIqzddx
+	 KyoJpKp62Qneg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -53,17 +53,20 @@ Cc: Luke Wang <ziniu.wang_1@nxp.com>,
 	linux-mmc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.12 08/26] mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend
-Date: Fri, 30 May 2025 08:39:54 -0400
-Message-Id: <20250530124012.2575409-8-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 08/18] mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend
+Date: Fri, 30 May 2025 08:40:37 -0400
+Message-Id: <20250530124047.2575954-8-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250530124012.2575409-1-sashal@kernel.org>
-References: <20250530124012.2575409-1-sashal@kernel.org>
+In-Reply-To: <20250530124047.2575954-1-sashal@kernel.org>
+References: <20250530124047.2575954-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.31
+X-stable-base: Linux 6.6.92
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250530_054059_766423_6DDBB10E 
+X-CRM114-Status: GOOD (  28.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,7 +170,7 @@ benefit to affected users is significant.
  1 file changed, 86 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index d84aa20f03589..7a0b7bfa1bb69 100644
+index e4e9b84f210b2..28ece6839aead 100644
 --- a/drivers/mmc/host/sdhci-esdhc-imx.c
 +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
 @@ -80,6 +80,8 @@
@@ -179,7 +182,7 @@ index d84aa20f03589..7a0b7bfa1bb69 100644
  
  /* strobe dll register */
  #define ESDHC_STROBE_DLL_CTRL		0x70
-@@ -234,6 +236,7 @@ struct esdhc_platform_data {
+@@ -231,6 +233,7 @@ struct esdhc_platform_data {
  	unsigned int tuning_step;       /* The delay cell steps in tuning procedure */
  	unsigned int tuning_start_tap;	/* The start delay cell point in tuning procedure */
  	unsigned int strobe_dll_delay_target;	/* The delay cell for strobe pad (read clock) */
@@ -187,7 +190,7 @@ index d84aa20f03589..7a0b7bfa1bb69 100644
  };
  
  struct esdhc_soc_data {
-@@ -1056,7 +1059,7 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
+@@ -1052,7 +1055,7 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
  {
  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
  	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
@@ -196,7 +199,7 @@ index d84aa20f03589..7a0b7bfa1bb69 100644
  	int ret;
  
  	/* Reset the tuning circuit */
-@@ -1070,6 +1073,16 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
+@@ -1066,6 +1069,16 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
  			writel(0, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
  		} else if (imx_data->socdata->flags & ESDHC_FLAG_STD_TUNING) {
  			writel(ctrl, host->ioaddr + ESDHC_MIX_CTRL);
@@ -213,7 +216,7 @@ index d84aa20f03589..7a0b7bfa1bb69 100644
  			ctrl = readl(host->ioaddr + SDHCI_AUTO_CMD_STATUS);
  			ctrl &= ~ESDHC_MIX_CTRL_SMPCLK_SEL;
  			ctrl &= ~ESDHC_MIX_CTRL_EXE_TUNE;
-@@ -1148,7 +1161,8 @@ static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
+@@ -1144,7 +1157,8 @@ static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
  	reg |= ESDHC_MIX_CTRL_EXE_TUNE | ESDHC_MIX_CTRL_SMPCLK_SEL |
  			ESDHC_MIX_CTRL_FBCLK_SEL;
  	writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
@@ -223,7 +226,7 @@ index d84aa20f03589..7a0b7bfa1bb69 100644
  	dev_dbg(mmc_dev(host->mmc),
  		"tuning with delay 0x%x ESDHC_TUNE_CTRL_STATUS 0x%x\n",
  			val, readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS));
-@@ -1556,6 +1570,57 @@ static void sdhci_esdhc_imx_hwinit(struct sdhci_host *host)
+@@ -1532,6 +1546,57 @@ static void sdhci_esdhc_imx_hwinit(struct sdhci_host *host)
  	}
  }
  
@@ -281,7 +284,7 @@ index d84aa20f03589..7a0b7bfa1bb69 100644
  static void esdhc_cqe_enable(struct mmc_host *mmc)
  {
  	struct sdhci_host *host = mmc_priv(mmc);
-@@ -1887,6 +1952,15 @@ static int sdhci_esdhc_suspend(struct device *dev)
+@@ -1856,6 +1921,15 @@ static int sdhci_esdhc_suspend(struct device *dev)
  	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
  		mmc_retune_needed(host->mmc);
  
@@ -297,7 +300,7 @@ index d84aa20f03589..7a0b7bfa1bb69 100644
  	ret = sdhci_suspend_host(host);
  	if (ret)
  		return ret;
-@@ -1903,6 +1977,8 @@ static int sdhci_esdhc_suspend(struct device *dev)
+@@ -1872,6 +1946,8 @@ static int sdhci_esdhc_suspend(struct device *dev)
  static int sdhci_esdhc_resume(struct device *dev)
  {
  	struct sdhci_host *host = dev_get_drvdata(dev);
@@ -306,7 +309,7 @@ index d84aa20f03589..7a0b7bfa1bb69 100644
  	int ret;
  
  	ret = pinctrl_pm_select_default_state(dev);
-@@ -1916,6 +1992,14 @@ static int sdhci_esdhc_resume(struct device *dev)
+@@ -1885,6 +1961,14 @@ static int sdhci_esdhc_resume(struct device *dev)
  	if (ret)
  		return ret;
  
