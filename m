@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832B0C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 23:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A842C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 23:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xr1+w5+uYznBuVJWcWFTz7Ujw3t04pdZLQ9tRwFO6uM=; b=ZVzABhdf/icMJ1Y+DPq566mfAo
-	v8kZ6/4fGNLbc4mk9CT0NG43cLNtN5Bn6NmUNFmymqHa+ii1SeuM/XBDQZDU61pyONXAORkTdzjCU
-	dKnnpqecjIkQR39LJ8caiaYRff3KBLvm+Ltb5yA9bw/T96gw2nkEwNIkE+S7G451Yc/I8u3LW+vRZ
-	vutvh13/wH5d6ZWg+2KmnOTjjzMI+a+iSVdO+SmZwAoekO5ZVEiRZeyL1r7pNBFLh6B17foB0kHtA
-	qXqSGzu+2AhDaEl6Na7ya60BGRR0PYj5JcY6K3ykeqmZTSwhkurSljs7f0t3oOIjg4OIK6SIT59GY
-	jlzYK8jQ==;
+	bh=ky401c5wP+KoGHt75Ssdbs6pvVpBVbwAyqgrdvNqy58=; b=h0WwnT58U+woTR2XMv5OWn5tMg
+	6s50qEegTqDgvMyyUQDFIwDQN41DXuzlJXI9Eqqk2jYE1xKqbR3E/0mt9dpEOO437bHdYUK8oAd6D
+	H+kRJZRzxkh1Q6y5RxVrRgrISDDDA+OC5iRPo2u1NZgOE2scHIsmNzBpg0rEeObuKmGp9QFgnK2Jx
+	iKUspV2yEiVDABGOTEEtadmUfcxDpOLCfKBhl7SCvmZKDh9FEF9RiJFTnQ34aZTZ1yreoT41Sq/GL
+	EECKkq7owirj38V6HVgDijolFSXKmFc6zs4kFisfXfCISjNXlXxywMvgIn1weXy7/4r4P5XSfd6uF
+	SGWhlmag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL9XD-00000002VDA-2eqn;
-	Fri, 30 May 2025 23:53:11 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
+	id 1uL9ZK-00000002WDz-1k8j;
+	Fri, 30 May 2025 23:55:22 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL9Ku-00000002Qdf-3KsS
+	id 1uL9LJ-00000002Qn7-2URQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 23:40:30 +0000
+	Fri, 30 May 2025 23:40:55 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 5FF82C00054D;
-	Fri, 30 May 2025 16:40:28 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 5FF82C00054D
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 25C59C003DE0;
+	Fri, 30 May 2025 16:40:52 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 25C59C003DE0
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1748648428;
-	bh=T1ohdffHOsv4b9JTLNJUeOA9slqM1AlruRXgmQZnb98=;
+	s=dkimrelay; t=1748648452;
+	bh=D4QcDPea5XYtBJWDOg5IiEHbc6+seukZ74zzCSld5Hg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F+nhaIP21q5osUynz/UqGqFQQu5bO7cZ3iM0jDibkxLZeuLtS4fLZF3LlPoZnCSFI
-	 pY9Y8bKJZCqnzulkV9x2Lqs1v5Z0ImgDHjDr1kFsnai1NF5Ey4UagDHv8RCT0k3PkF
-	 uXjG9lIzx3Tu+LHUEjeRdXaskkrtWoq4fpanZ13M=
+	b=JJA2jZUCWp5m/OhAeLrqJjrDv19ZmyF+sz+3y7xuWzjVlG9yl2oTRsf03co/K8Uw+
+	 p7A/vNcUc6zK5mHLza5lvG3mefiihuuC/PgCE7LndLfUwClrD6yAe08RebUFLWu6wZ
+	 gZEXpoK+8MDfKjSaSzCQDQtPAI5ySYm0CHqDYPiI=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 03FC918000530;
-	Fri, 30 May 2025 16:40:28 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 82BC6180008FB;
+	Fri, 30 May 2025 16:40:51 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Andrea della Porta <andrea.porta@suse.com>,
@@ -83,17 +83,17 @@ To: bcm-kernel-feedback-list@broadcom.com,
 	kernel-list@raspberrypi.com,
 	Matthias Brugger <mbrugger@suse.com>
 Cc: Florian Fainelli <f.fainelli@gmail.com>
-Subject: Re: [PATCH v12 09/13] arm64: dts: broadcom: Add board DTS for Rpi5 which includes RP1 node
-Date: Fri, 30 May 2025 16:40:27 -0700
-Message-ID: <20250530234027.465367-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH v12 04/13] clk: rp1: Add support for clocks provided by RP1
+Date: Fri, 30 May 2025 16:40:51 -0700
+Message-ID: <20250530234051.465593-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250529135052.28398-9-andrea.porta@suse.com>
-References: <cover.1748526284.git.andrea.porta@suse.com> <20250529135052.28398-9-andrea.porta@suse.com>
+In-Reply-To: <20250529135052.28398-4-andrea.porta@suse.com>
+References: <cover.1748526284.git.andrea.porta@suse.com> <20250529135052.28398-4-andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_164028_859639_7256FDFE 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250530_164053_714945_80F40041 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +110,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Thu, 29 May 2025 15:50:46 +0200, Andrea della Porta <andrea.porta@suse.com> wrote:
-> Add the fully populated DTS for RaspberryPi 5 which includes
-> the RP1 node definition. The inclusion tree is as follow (the
-> arrow points to the includer):
-> 
-> rp1-common.dtsi ----> rp1-nexus.dtsi ----> bcm2712-rpi-5-b.dts
->                                                ^
->                                                |
->                                            bcm2712-rpi-5-b-ovl-rp1.dts
-> 
-> This is designed to maximize the compatibility with downstream DT
-> while ensuring that a fully defined DT (one which includes the RP1
-> node as opposed to load it from overlay at runtime) is present
-> since early boot stage.
-> 
-> Since the preferred board DT is the fully populated one, name it
-> bcm2712-rpi-5-b.dts and move the previous one into
-> bcm2712-rpi-5-b-ovl-rp1.dts.
+On Thu, 29 May 2025 15:50:41 +0200, Andrea della Porta <andrea.porta@suse.com> wrote:
+> RaspberryPi RP1 is an MFD providing, among other peripherals, several
+> clock generators and PLLs that drives the sub-peripherals.
+> Add the driver to support the clock providers.
 > 
 > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 > ---
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
+Applied to https://github.com/Broadcom/stblinux/commits/drivers/next, thanks!
 --
 Florian
 
