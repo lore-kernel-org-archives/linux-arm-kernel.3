@@ -4,71 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED4CC54F30
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 07:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F55AC54F30
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 07:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nC+HhywLhja+geZgrACU7GlqxjOQzMPIjfQPseHiQK4=; b=MHhRNS5gcDEh9F6qus6VWqZd1R
-	gpSGcelUDv3EVyZB+pEFcr4aTadBLLTt6G6myxo85Vg2ffU7Mq0vE0ySV2MmV3T+m7uc7Lz2GvSHm
-	DWrlPPvo+0NN7z6d+G020L8N41Uw4qR1OTZFJMhe94c1glH3fVt80KVIPtat9CdSbSsLMB2AZdCXZ
-	+OWig/b0iE+ar9Ro0OSdOlEH5DlE6FwSUz4pPDPUReWkQwiP4tS4aQ5uKRMKeuTLegRGMqJu2Cg4E
-	aBHdzoZfaLoZKwaQo4j/rvE1NqZnFRjdTy1Hpl8+i+J/d1Khb9zP7pwmaAu6eJmkf6SNaeChXAZ7U
-	q3dcs0xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WxJKQnlngqPKzQgieYcZOedSyyuKtQwXRQsJDRHek1A=; b=wvBe/LDJXqIsZWtZXbb4NJycOa
+	+8VR6M7NyBkjx67d83G49I3WLaV+rCgvd7ZXrz8tPh1o7iW8WRiepzCBe5zv2bh6X40xO6w6cgZZ0
+	S7nSuyzBdAXlADLhXZL/qaF72S0M709LGPkiXms6giOnOylU1S6i/exs9gZHuMKufNZba8FDyL6xB
+	nk5TciosXtDTeQR9ubCEzuFh57ZYMMQ+OqegcxCBefFNxlOpg/x/Cxwr90sIyoC7z7EG8947sHT9t
+	ga1J53at2fwRIighuN/wDRcS3Nr5RxDP0m7vcGqIVZDPCI4Jex56a7V2UUcuAq1OEJLVqNjw6W0nW
+	5xkVHEsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKu2e-0000000HQll-3Wtc;
-	Fri, 30 May 2025 07:20:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKtzS-0000000HQBJ-1BqW
+	id 1uKuCH-0000000HSAM-0Ukm;
+	Fri, 30 May 2025 07:30:33 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKuA6-0000000HRvL-4Bk0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 07:17:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 700BF16F8;
-	Fri, 30 May 2025 00:17:00 -0700 (PDT)
-Received: from [10.57.95.14] (unknown [10.57.95.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A91D3F5A1;
-	Fri, 30 May 2025 00:17:15 -0700 (PDT)
-Message-ID: <1cc04c6b-ba0f-4e7f-ab85-46c364c66300@arm.com>
-Date: Fri, 30 May 2025 08:17:13 +0100
+	Fri, 30 May 2025 07:28:21 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D35A843A63;
+	Fri, 30 May 2025 07:28:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1748590094;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WxJKQnlngqPKzQgieYcZOedSyyuKtQwXRQsJDRHek1A=;
+	b=DOYOTYnGlX46ngRBabnkMLB8PdI8LP7g+Z5auY7q2nXgqXll22UC4qv4S0hL6ZfQJOgtNM
+	NKMQhvbkS59CKkdfZFzdB//Y3EBgwzYZ0EFs13gCjWvnyxikQnj8Arnt5z85fzr0cBeCYQ
+	yyD/lVKi3UbGBtdTNIwC8qcr59aQJ95z1BfkX7T9aE0pbgb4n7KxzBZsqebQd/MiBOR0xA
+	N9kuQOfPbkcdZdpMJE12LyG0SwsG2NM7E7t15jtg3kECxFz46ImvC4DoBxPnKpO+V/fW1B
+	vZjrsrW3t0ArlrUk/ozCHZbVdoVWgsDh8W42aKpNLzgkZBrpyljE8oW6QFZ3hQ==
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
+ Marek =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?B?Tmljb2zDsg==?= Veronese <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v6 06/14] net: phy: Introduce generic SFP handling for
+ PHY drivers
+Date: Fri, 30 May 2025 09:28:11 +0200
+Message-ID: <6159237.lOV4Wx5bFT@fw-rgant>
+In-Reply-To: <aDhfyiSOnyA709oX@shell.armlinux.org.uk>
+References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
+ <13770694.uLZWGnKmhe@fw-rgant> <aDhfyiSOnyA709oX@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Dev Jain <dev.jain@arm.com>
-References: <20250304222018.615808-1-yang@os.amperecomputing.com>
- <4794885d-2e17-4bd8-bdf3-8ac37047e8ee@os.amperecomputing.com>
- <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
- <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
- <912c3126-8ba7-4c3a-b168-438f92e89217@arm.com>
- <2ab5f65c-b9dc-471c-9b61-70d765af285e@os.amperecomputing.com>
- <239d4e93-7ab6-4fc9-b907-7ca9d71f81fd@arm.com>
- <1141d96c-f785-48ee-a0f6-9ec658cc11c2@os.amperecomputing.com>
- <9cdb027c-27db-4195-825d-1d63bec1b69b@os.amperecomputing.com>
- <e3e6a3e0-3012-4d95-9236-4b4d57c7974c@arm.com>
- <0769dbcb-bd9e-4c36-b2c1-a624abaeb5ce@os.amperecomputing.com>
- <e8d74579-2e32-424f-bfed-5d3eb33b0a07@os.amperecomputing.com>
- <c44cb356-112d-4dd8-854b-82212ee4815f@arm.com>
- <936cc91a-b345-4e52-9cb5-922c9810c469@arm.com>
- <a1ff2646-f429-4626-8541-19c7f301fc23@os.amperecomputing.com>
- <d1226612-7ad8-4405-93a7-28148699ce45@arm.com>
- <c2625558-a63e-4a63-a893-d2a31b3cc559@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <c2625558-a63e-4a63-a893-d2a31b3cc559@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; boundary="nextPart5012516.31r3eYUQgx";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvkeegudculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkjghfgggtsehgtderredttdejnecuhfhrohhmpeftohhmrghinhcuifgrnhhtohhishcuoehrohhmrghinhdrghgrnhhtohhishessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfdvleekvefgieejtdduieehfeffjefhleegudeuhfelteduiedukedtieehlefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehffidqrhhgrghnthdrlhhotggrlhhnvghtpdhmrghilhhfrhhomheprhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepnhgvthguvghvsehvg
+ hgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthh
+X-GND-Sasl: romain.gantois@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_001718_412159_7E2DC126 
-X-CRM114-Status: GOOD (  33.22  )
+X-CRM114-CacheID: sfid-20250530_002819_778968_391B3F3E 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,106 +94,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/05/2025 20:52, Yang Shi wrote:
->>>> I just had another conversation about this internally, and there is another
->>>> concern; we obviously don't want to modify the pgtables while other CPUs that
->>>> don't support BBML2 could be accessing them. Even in stop_machine() this may be
->>>> possible if the CPU stacks and task structure (for example) are allocated
->>>> out of
->>>> the linear map.
->>>>
->>>> So we need to be careful to follow the pattern used by kpti; all secondary CPUs
->>>> need to switch to the idmap (which is installed in TTBR0) then install the
->>>> reserved map in TTBR1, then wait for CPU 0 to repaint the linear map, then have
->>>> the secondary CPUs switch TTBR1 back to swapper then switch back out of idmap.
->>> So the below code should be ok?
->>>
->>> cpu_install_idmap()
->>> Busy loop to wait for cpu 0 done
->>> cpu_uninstall_idmap()
->> Once you have installed the idmap, you'll need to call a function by its PA so
->> you are actually executing out of the idmap. And you will need to be in assembly
->> so you don't need the stack, and you'll need to switch TTBR1 to the reserved
->> pgtable, so that the CPU has no access to the swapper pgtable (which CPU 0 is
->> able to modify).
->>
->> You may well be able to reuse __idmap_kpti_secondary in proc.S, or lightly
->> refactor it to work for both the existing idmap_kpti_install_ng_mappings case,
->> and your case.
+--nextPart5012516.31r3eYUQgx
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Date: Fri, 30 May 2025 09:28:11 +0200
+Message-ID: <6159237.lOV4Wx5bFT@fw-rgant>
+In-Reply-To: <aDhfyiSOnyA709oX@shell.armlinux.org.uk>
+MIME-Version: 1.0
+
+On Thursday, 29 May 2025 15:23:22 CEST Russell King (Oracle) wrote:
+> On Wed, May 28, 2025 at 09:35:35AM +0200, Romain Gantois wrote:
+> > > In that regard, you can consider 1000BaseX as a MII mode (we do have
+> > > PHY_INTERFACE_MODE_1000BASEX).
+> > 
+> > Ugh, the "1000BaseX" terminology never ceases to confuse me, but yes
+> > you're
+> > right.
 > 
-> I'm wondering whether we really need idmap for repainting. I think repainting is
-> different from kpti. We just split linear map which is *not* used by kernel
-> itself, the mappings for kernel itself is intact, we don't touch it at all. So
-> as long as CPU 0 will not repaint the linear map until all other CPUs busy
-> looping in stop_machine fn, then we are fine.
-
-But *how* are the other CPUs busy looping? Are they polling a variable? Where
-does that variable live? The docs say that a high priority thread is run for
-each CPU. So there at least needs to be a task struct and a stack. There are
-some Kconfigs where the stack comes from the linear map, so if the variable that
-is polls is on its stack (or even on CPU 0's stack then that's a problem. If the
-scheduler runs and accesses the task struct which may be allocated from the
-linear map (e.g. via kmalloc), that's a problem.
-
-The point is that you have to understand all the details of stop_machine() to be
-confident that it is never accessing the linear map. And even if you can prove
-that today, there is nothing stopping from the implementation changing in future.
-
-But then you have non-architectural memory accesses too (i.e. speculative
-accesses). It's possible that the CPU does a speculative load, which causes the
-TLB to do a translation and cache a TLB entry to the linear map. Then CPU 0
-changes the pgtable and you have broken the BBM requirements from the secondary
-CPU's perspective.
-
-So personally I think the only truely safe way to solve this is to switch the
-secondary CPUs to the idmap, then install the reserved map in TTBR1. That way,
-the secondary CPUs can't see the swapper pgtable at all and CPU 0 is free to do
-what it likes.
-
+> 1000BASE-X is exactly what is described in IEEE 802.3. It's a PHY
+> interface mode because PHYs that use SerDes can connect to the host
+> using SGMII or 1000BASE-X over the serial link.
 > 
-> We can have two flags to control it. The first one should be a cpu mask, all
-> secondary CPUs set its own mask bit to tell CPU 0 it is in stop machine fn
-> (ready for repainting). The other flag is used by CPU 0 to tell all secondary
-> CPUs repainting is done, please resume. We need have the two flags in kernel
-> data section instead of stack.
-> 
-> The code of fn is in kernel text section, the flags are in kernel data section.
-> I don't see how come fn (just doing simple busy loop) on secondary CPUs need to
-> access linear map while repainting the linear map. After repainting the TLB will
-> be flushed before letting secondary CPUs resume, so any access to linear map
-> address after that point should be safe too.
-> 
-> Does it sound reasonable to you? Did I miss something?
+> 1000BASE-X's purpose in IEEE 802.3 is as a protocol for use over
+> fibre links, as the basis for 1000BASE-SX, 1000BASE-LX, 1000BASE-EX
+> etc where the S, L, E etc are all to do with the properties of the
+> medium that the electrical 1000BASE-X is sent over. It even includes
+> 1000BASE-CX which is over copper cable.
 
-I think the potential for speculative access is the problem. Personally, I would
-follow the pattern laid out by kpti. Then you can more easily defend it by
-pointing to an established pattern.
+Ah makes sense, thanks for the explanation. I guess my mistake was assuming 
+that MAC/PHY interface modes were necessarily strictly at the reconciliation 
+sublayer level, and didn't include PCS/PMA functions.
 
 Thanks,
-Ryan
 
-> 
-> Thanks,
-> Yang
-> 
->>
->> Thanks,
->> Ryan
->>
->>>> Given CPU 0 supports BBML2, I think it can just update the linear map live,
->>>> without needing to do the idmap dance?
->>> Yes, I think so too.
->>>
->>> Thanks,
->>> Yang
->>>
->>>> Thanks,
->>>> Ryan
->>>>
->>>>
->>>>> Thanks,
->>>>> Ryan
->>>>>
-> 
+-- 
+Romain Gantois, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+--nextPart5012516.31r3eYUQgx
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEYFZBShRwOvLlRRy+3R9U/FLj284FAmg5XgsACgkQ3R9U/FLj
+286GbBAAmB3Nz5sjbXmWSvq8T+BWKMW6/ADtfZoynbL1liHfm02INS3KBq6v80Ev
+V9bV7+DHe2VPHiWTQdVDfKXwsdlHRtzknR5d9paXM2l+EdaXgi4g1WI6tPjCNcdA
+HGCxoRnc0xEAWpVO7cCQWkq+77Z7LVt1QY19KFQiWMjvrerTynW4aKiCC3Y1TyEV
+/qFbXLC4cweZM0KYY4bkBezlWMEkSM74nNZ2Wd2NyZTX9PvtrhIrJJk+PEufYtcl
+N/boaRq6clQ3fMPzmRBRLdW7a4OyFQo5ua7FN5rfTPjvLwGWs3R50CnITGdjmZab
+sj7Gz44GSIjCW180sr9LBxCxyghqwOPaDAVu+hzw3zWGOr49upOdvKXwfPx/W50h
+d8coBTgF1dfcMipO7QVwzvDOsFu27IsOCJ8YQs3UwnjUX3i1zIWwmwy5JVehMoJX
+Y2RH3AJdTvcoiEE8dMn6iDh1ytPWiZuCTBT/1wUQ6BgG1Nzkv/ZWE/OZVupszzph
+vYDgNRdKMUlh6p/rT/PX7b5CjY30O7i3d1qd3kEihJD6ilFBRrcp9GDoiBH3QcFR
+CzXnQ+v8JSe3d/M/Z8tbiTakjyb5138Jms/AriV+/JXluotuoWm0f8QI32PJURpC
+x+1WTrHPNlRPBQfj15Z3h5191R0pskPp4Q219ZJB8pYPrEJ9Z2w=
+=aVaE
+-----END PGP SIGNATURE-----
+
+--nextPart5012516.31r3eYUQgx--
+
+
 
 
