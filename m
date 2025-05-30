@@ -4,56 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A590C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90287C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tq7LVwqxa1FduznDb8QjxTKP/j5xIKuVkMfMvE87Bqw=; b=EstHuiN1gTnZgThuY/7lxE17K0
-	hegd/xVOqYbMnx3CdcPjvHSxbYulZMzYp3AYloI9RA/SAAsjginraPSR/JbLwmqPyWLXnE9uSrpwO
-	zhAy/Gn7bmMHxnX2IbkwhX3lZ5JkL9Z1bwRIAyKkaYsOdYUu2A5aTHGBXZNyvc7DtQubWx3jPrXno
-	/MLuo2W86Vbmu09k8lfMYQmt4uQ86jkbi5mwg2MCNNplJQ7XPjB1FodjC2EtC9UAV8BAdD7vEkxFb
-	S3HDvFyrD9lbriOM+IgPXAb9SpJQcTJniA/FC18GMqT4lO9V971zlQTOLMEfNvao3UeW5GppeK2HR
-	j/BAA2iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BX16TfDwmJeuNsVzAioGXDE8NBNHgG/KwWmvHJtVfv4=; b=vmc7zrglWVW8yxZu9WWuo97e9D
+	aMWIcxkStUA1SRkddikzIHdneGJv7pEhdloO2RtPLtIvqMp1Pn9Qh9mNCDqAJHFxqORUgkcom9YCK
+	g+PdjL3iLJvcvMEMZa2J8Mre7cl+xtDUi2RtBRcAWoY46ueuOaidmdySFwMYFzvumlncjcZdqQPuq
+	UPajHvEMX4PGIfUNYzmzkiSzSfiISISYYDhoQGAsANndBSDlqRh3EkWU/T/MtE5XdDtCKg9aZDon5
+	hHqpl/+YL25EWy9QkUej6A6NEIM9TxEy4RQFLziU0zluMKXhZJH+dEXy2vpvNuMqYtd6ciKttJkxk
+	RbUWae4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKwOJ-00000000DPk-1v1r;
-	Fri, 30 May 2025 09:51:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKwKr-00000000Cu1-2zUO
+	id 1uKwQQ-00000000Dlc-2KGS;
+	Fri, 30 May 2025 09:53:18 +0000
+Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKwMI-00000000D7k-1FU0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 09:47:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 86A5E16F2;
-	Fri, 30 May 2025 02:47:16 -0700 (PDT)
-Received: from [10.57.95.14] (unknown [10.57.95.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CD193F5A1;
-	Fri, 30 May 2025 02:47:31 -0700 (PDT)
-Message-ID: <6280e181-9f05-4aa0-9fe7-23d4e86000e5@arm.com>
-Date: Fri, 30 May 2025 10:47:29 +0100
+	Fri, 30 May 2025 09:49:03 +0000
+Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4e45dae6c8cso1263887137.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 02:49:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748598540; x=1749203340; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=BX16TfDwmJeuNsVzAioGXDE8NBNHgG/KwWmvHJtVfv4=;
+        b=xeS3NO5w6jZw26+owFhkBlR6Wh2JkS4M+7KYP4cqR2/FKMjod/r8mkb9kUo8B80rtm
+         7k9c6ZjlbQsNsHk9lkn9nlTobBfg+Pyeozzyl3kUQPCWSpcACrcxWH4vlv8G/2VuD7FS
+         TyMC9sT5zVrSqChTPJ93Jxo44bl+dPSmY9X+vUtyO1/0Q1/4geJce0JgRdjOmFPMTt2F
+         T7CR040Us1i15LiW2lEKa5hIGLtRT1VXx71+rL26s8MoGI8folO2F2+FlP3qNNxYDn3q
+         lxqwCNO95msE97FAbV+4yXGLiOEFT/qm+Hv3T7vRuDmAbiOIdaQRXKre4ca0Zsppx8ob
+         bhDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748598540; x=1749203340;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BX16TfDwmJeuNsVzAioGXDE8NBNHgG/KwWmvHJtVfv4=;
+        b=IVXaVBv7E4JhzrVOnngc30FESZ3pcAxAs/gPsJqdMRseRFpDPPkqeGCXRWXD4DLeDf
+         OkXqrz4iuc6VHKL2s5G5SMkFpM+xCY/O3j/mi0sQU8mMiUWPoM5Zo1I+AgEdPMrMGlRy
+         6aRj/q68uVYa1e2KrvCJKsjcuYceWleu1b4LcfmCTPKwwWcSYuctBj4SRnQLh6ljhMOz
+         zU7A04BYXrKo3xwU5FqJvhasXORR0MwaJx88v9laWXoLSNy02zla6F7hXDEmv0qLd9J7
+         BYL+ktKvWW8mdI0bXzEhyoI9987Cvu7EufEulO9Y6p8BwNFYNT1ECfNIb8awkpLWCm56
+         tj6g==
+X-Gm-Message-State: AOJu0YxkAs/kLrGvGcNaw0DRkcqWwXpqeM1puVl5McBGmUCJ2mZMXwHV
+	btumlPOHv5NcADZ200HiDljWoPsaZmiue18bnfaTy3Kb+l61fCdeDzzl3qvXkLWrA6sLe3B/cnt
+	aLEkMNDRjn+RQG1z7OBi2pUi12yGs3oHjRSa6Wos+XBwFxd/B4hogHn8=
+X-Gm-Gg: ASbGncv72A8QQpn1K35J8ei15hWeV+R5minVaHyKUdgNlWwgz0iPAch482Fo5yHvtgI
+	ce1MUMLPIO6Vf2dcL4V7VjfwBVNFUrD729NhWOvioCG6EB6KASBBFX0WZia8J3frqoOg8oeaATM
+	i2jtym+WF9OiwqTqz+r4cXnJlWUYoBDJcrAwuHyTq6/xCH
+X-Google-Smtp-Source: AGHT+IFCDzCsC18lIEI9eoPRpN1VBwQuWtrYeQzK5FfBQTEKVxOjXzBK+FhiElxrVAbMsJjHyUqfWwTNH+a+X8F2fyY=
+X-Received: by 2002:a05:6102:4b08:b0:4e5:8eb6:e8dd with SMTP id
+ ada2fe7eead31-4e6e40d655dmr2670174137.5.1748598540530; Fri, 30 May 2025
+ 02:49:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Enable vmalloc-huge with ptdump
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- david@redhat.com
-References: <20250530082021.18182-1-dev.jain@arm.com>
- <d2b63b97-232e-4d2e-816b-71fd5b0ffcfa@arm.com>
- <832e84a9-4303-4e21-a88b-94395898fa3e@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <832e84a9-4303-4e21-a88b-94395898fa3e@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <CA+G9fYt0F_vR-zOV4P8m4HTv6AecT-eEnrL+t5wgAaKPodi0mQ@mail.gmail.com>
+ <6e0ef5cc-b692-4d39-bec4-a75c1af3f0aa@arm.com> <CA+G9fYs_nUN2x8fFJ0cfudHWbCOLSJK=OhEK0Efd1ifcjq_LRg@mail.gmail.com>
+ <5a277d1d-c7b1-430c-a463-1e307a2823f6@arm.com> <03e6283e-2ef7-498c-9460-8411114711e2@arm.com>
+ <e6db6396-cb1e-4e24-8fd0-3cce388a3913@arm.com>
+In-Reply-To: <e6db6396-cb1e-4e24-8fd0-3cce388a3913@arm.com>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Fri, 30 May 2025 15:18:49 +0530
+X-Gm-Features: AX0GCFuc1bDuO-IvLHLzjp596VNTvH9_C6fgPX5wyzKbvtGEon1kLQjQtXhQSq4
+Message-ID: <CA+G9fYuroDkk3qrd7yJJG7twZV0sM=t3mDjhrBMm==q2MjS41A@mail.gmail.com>
+Subject: Re: arm64: juno-r2: SSD detect failed on mainline and next
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, iommu@lists.linux.dev, 
+	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
+	Linux Regressions <regressions@lists.linux.dev>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Anders Roxell <anders.roxell@linaro.org>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_024733_847647_6916EA3C 
-X-CRM114-Status: GOOD (  29.41  )
+X-CRM114-CacheID: sfid-20250530_024902_341775_55C6E5DB 
+X-CRM114-Status: GOOD (  37.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,186 +99,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/05/2025 10:14, Dev Jain wrote:
-> 
-> On 30/05/25 2:10 pm, Ryan Roberts wrote:
->> On 30/05/2025 09:20, Dev Jain wrote:
->>> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
->>> because an intermediate table may be removed, potentially causing the
->>> ptdump code to dereference an invalid address. We want to be able to
->>> analyze block vs page mappings for kernel mappings with ptdump, so to
->>> enable vmalloc-huge with ptdump, synchronize between page table removal in
->>> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
->>> use mmap_read_lock and not write lock because we don't need to synchronize
->>> between two different vm_structs; two vmalloc objects running this same
->>> code path will point to different page tables, hence there is no race.
-> 
-> My "correction" from race->no problem was incorrect after all :) There will
-> be no race too since the vm_struct object has exclusive access to whatever
-> table it is clearing.
-> 
->>>
->>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>> ---
->>>   arch/arm64/include/asm/vmalloc.h | 6 ++----
->>>   arch/arm64/mm/mmu.c              | 7 +++++++
->>>   2 files changed, 9 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
->>> index 38fafffe699f..28b7173d8693 100644
->>> --- a/arch/arm64/include/asm/vmalloc.h
->>> +++ b/arch/arm64/include/asm/vmalloc.h
->>> @@ -12,15 +12,13 @@ static inline bool arch_vmap_pud_supported(pgprot_t prot)
->>>       /*
->>>        * SW table walks can't handle removal of intermediate entries.
->>>        */
->>> -    return pud_sect_supported() &&
->>> -           !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
->>> +    return pud_sect_supported();
->>>   }
->>>     #define arch_vmap_pmd_supported arch_vmap_pmd_supported
->>>   static inline bool arch_vmap_pmd_supported(pgprot_t prot)
->>>   {
->>> -    /* See arch_vmap_pud_supported() */
->>> -    return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
->>> +    return true;
->>>   }
->>>     #endif
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index ea6695d53fb9..798cebd9e147 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -1261,7 +1261,11 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
->>>       }
->>>         table = pte_offset_kernel(pmdp, addr);
->>> +
->>> +    /* Synchronize against ptdump_walk_pgd() */
->>> +    mmap_read_lock(&init_mm);
->>>       pmd_clear(pmdp);
->>> +    mmap_read_unlock(&init_mm);
->> So this works because ptdump_walk_pgd() takes the write_lock (which is mutually
->> exclusive with any read_lock holders) for the duration of the table walk, so it
->> will either consistently see the pgtables before or after this removal. It will
->> never disappear during the walk, correct?
->>
->> I guess there is a risk of this showing up as contention with other init_mm
->> write_lock holders. But I expect that pmd_free_pte_page()/pud_free_pmd_page()
->> are called sufficiently rarely that the risk is very small. Let's fix any perf
->> problem if/when we see it.
-> 
-> We can avoid all of that by my initial approach - to wrap the lock around
-> CONFIG_PTDUMP_DEBUGFS.
-> I don't have a strong opinion, just putting it out there.
-> 
->>
->>>       __flush_tlb_kernel_pgtable(addr);
->> And the tlbi doesn't need to be serialized because there is no security issue.
->> The walker can be trusted to only dereference memory that it sees as it walks
->> the pgtable (obviously).
->>
->>>       pte_free_kernel(NULL, table);
->>>       return 1;
->>> @@ -1289,7 +1293,10 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->>>           pmd_free_pte_page(pmdp, next);
->>>       } while (pmdp++, next += PMD_SIZE, next != end);
->>>   +    /* Synchronize against ptdump_walk_pgd() */
->>> +    mmap_read_lock(&init_mm);
->>>       pud_clear(pudp);
->>> +    mmap_read_unlock(&init_mm);
->> Hmm, so pud_free_pmd_page() is now going to cause us to acquire and release the
->> (upto) lock 513 times (for a 4K kernel). I wonder if there is an argument for
->> clearing the pud first (under the lock), then the pmds can all be cleared
->> without a lock, since the walker won't be able to see the pmds once the pud is
->> cleared.
-> 
-> Yes, we can isolate the PMD table in case the caller of pmd_free_pte_page is
-> pud_free_pmd_page. In this case, vm_struct_1 has exclusive access to the entire
-> pmd page, hence no race will occur. But, in case of vmap_try_huge_pmd() being the
-> caller, we cannot drop the locks around pmd_free_pte_page. So we can have something
-> like
-> 
-> #ifdef CONFIG_PTDUMP_DEBUGFS
-> static inline void ptdump_synchronize_lock(bool flag)
-> {
->     if (flag)
->         mmap_read_lock(&init_mm);
-> }
-> 
-> and pass false when the caller is pud_free_pmd_page.
+Hi Robin,
 
-of something like this? (completely untested):
-
----8<---
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 8fcf59ba39db..1f3a922167e4 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1267,7 +1267,7 @@ int pmd_clear_huge(pmd_t *pmdp)
-        return 1;
- }
-
--int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-+static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr, bool lock)
- {
-        pte_t *table;
-        pmd_t pmd;
-@@ -1280,12 +1280,23 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-        }
-
-        table = pte_offset_kernel(pmdp, addr);
-+
-+       if (lock)
-+               mmap_read_lock(&init_mm);
-        pmd_clear(pmdp);
-+       if (lock)
-+               mmap_read_unlock(&init_mm);
-+
-        __flush_tlb_kernel_pgtable(addr);
-        pte_free_kernel(NULL, table);
-        return 1;
- }
-
-+int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-+{
-+       return __pmd_free_pte_page(pmdp, addr, true);
-+}
-+
- int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
- {
-        pmd_t *table;
-@@ -1300,15 +1311,19 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
-                return 1;
-        }
-
-+       /* Synchronize against ptdump_walk_pgd() */
-+       mmap_read_lock(&init_mm);
-+       pud_clear(pudp);
-+       mmap_read_unlock(&init_mm);
-+
-        table = pmd_offset(pudp, addr);
-        pmdp = table;
-        next = addr;
-        end = addr + PUD_SIZE;
-        do {
--               pmd_free_pte_page(pmdp, next);
-+               __pmd_free_pte_page(pmdp, next, false);
-        } while (pmdp++, next += PMD_SIZE, next != end);
-
--       pud_clear(pudp);
-        __flush_tlb_kernel_pgtable(addr);
-        pmd_free(NULL, table);
-        return 1;
----8<---
+On Fri, 25 Apr 2025 at 20:48, Robin Murphy <robin.murphy@arm.com> wrote:
+>
+> On 11/04/2025 8:11 pm, Robin Murphy wrote:
+> [...]
+> > OK, I found it, but I'm still not sure what exactly to make of it - it's
+> > the pci_request_acs() in of_iommu_configure(), now being called early
+> > enough to actually have an effect. Booting with EDK2 already using PCI
+> > prior to Linux, here's what I get for `sudo lspci -vv | grep ACSctl`
 
 
+Linux version 6.14.9-rc1
+# lscpi
+00:00.0 PCI bridge: PLDA PCI Express Core Reference Design
+01:00.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:01.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:02.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:03.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:0c.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:10.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:1f.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+03:00.0 Mass storage controller: Silicon Image, Inc. SiI 3132 Serial
+ATA Raid II Controller (rev 01)
+08:00.0 Ethernet controller: Marvell Technology Group Ltd. 88E8057
+PCI-E Gigabit Ethernet Controller
 
-> 
->>
->> Thanks,
->> Ryan
->>
->>>       __flush_tlb_kernel_pgtable(addr);
->>>       pmd_free(NULL, table);
->>>       return 1;
 
+Linux version 6.15.0
+# lscpi
+00:00.0 PCI bridge: PLDA PCI Express Core Reference Design
+01:00.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:01.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:02.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:03.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:0c.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:10.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:1f.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+
+> > with 6.15-rc1:
+> >
+> >          ACSCtl:    SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
+> > UpstreamFwd+ EgressCtrl- DirectTrans-
+> >          ACSCtl:    SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
+> > UpstreamFwd+ EgressCtrl- DirectTrans-
+> >          ACSCtl:    SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
+> > UpstreamFwd+ EgressCtrl- DirectTrans-
+> >          ACSCtl:    SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
+> > UpstreamFwd+ EgressCtrl- DirectTrans-
+> >          ACSCtl:    SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
+> > UpstreamFwd+ EgressCtrl- DirectTrans-
+> >          ACSCtl:    SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
+> > UpstreamFwd+ EgressCtrl- DirectTrans-
+> >
+> > whereas with the 6.14 behaviour they are all '-'. I don't have a working
+> > root filesystem with the U-Boot setup, but if I boot it with
+> > "pci=config_acs=000000@pci:0:0" then the kernel does assign the bridge
+> > windows and discover the ethernet/SATA endpoints again. I can spend some
+> > time getting NFS working next week, but if you're able to get lspci
+> > output off a machine in the "broken" state easily that would be handy to
+> > compare.
+
+
+On the 6.15, After adding this into Kernel boot args
+pci=config_acs=000000@pci:0:0
+
+The SSD was detected and mounted successfully.
+
+Linux version 6.15.0 +  pci=config_acs=000000@pci:0:0
+# lspci
+00:00.0 PCI bridge: PLDA PCI Express Core Reference Design
+01:00.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:01.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:02.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:03.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:0c.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:10.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+02:1f.0 PCI bridge: Microsemi / PMC / IDT 89HPES16NT16G2 16-Lane
+16-Port PCIe Gen2 System Interconnect Switch (rev 02)
+03:00.0 Mass storage controller: Silicon Image, Inc. SiI 3132 Serial
+ATA Raid II Controller (rev 01)
+08:00.0 Ethernet controller: Marvell Technology Group Ltd. 88E8057
+PCI-E Gigabit Ethernet Controller
+
+> >
+> > So at this point it would seem to be something about how Linux
+> > configures ACS when doing it from scratch. What I don't really know is
+> > where to go from there. I do know Juno's possibly a bit odd in that the
+> > switch supports ACS, but both the root port and endpoints either side of
+> > it don't. Could this be tickling some subtle bug in the PCI layer, and
+> > what is EDK2 doing that makes it not happen?
+>
+> Just following up on where I ran out of ideas. I poked at things a
+> little more, and from a process of elimination, the culprit appears to
+> be is that we enable ACS source validation on the downstream port while
+> its secondary bus is still 0, *then* we get to the "bridge configuration
+> invalid" bit and reconfigure the bus numbers, but after that, config
+> space accesses to the secondary bus still apparently fail to work as
+> expected.
+>
+> What's now beyond me is whether this is just an ACS quirk of this
+> particular switch, and/or whether there's something we could or should
+> be doing in the PCI layer.
+>
+> All I can suggest a this point is that you could at least sidestep the
+> problem on the LKFT boards by updating them to a less-ancient version of
+> U-Boot which supports PCIe for Juno (looks like that landed in 2020.10),
+> which should then configure the switch at boot such that the bus
+> numbering doesn't need to change when Linux probes it - that appears to
+> be the only "magic" thing that EDK2 is doing.
+
+I will work with my team to address these issues.
+Thanks for your suggestions.
+
+>
+> Thanks,
+> Robin.
+
+- Naresh
 
