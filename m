@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB93C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF99C5B556
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HsXX6R0HPP/biqLepMPHpr/VTNhNhquA8c3ePXroJI=; b=z8FNzFKgWPhnM/trSpvlg/Hlh7
-	jG9z0MYLsnyJBmH9Y2+sUsRKmbsisbCzFBUI/6/44k6p5EtSAM36qERPnu/6VRjeSgC7ivQc/GaT8
-	E/SdOVity+AYgd2LCZQDNpZYQK9kvPve5RBDfMYOJ7KevibxbiZQKCrsahUYMTw2f04tAhbLQPTy0
-	yN1bHCwjZ8Fda4Jx8DJOjN8tQZFK1wUT/u5JrNTogA6EK+X2DmgMBYAp4gLTUugOB+XiFgQ5Idzvw
-	jKLw+FxRBZ8SG9NeMt3/BFwFF5fXaBtp4Bri9aL93Ub4NgkXcxmRXrhiRQEkGqUHVZL6EB/9G56mP
-	jvUpH6Lw==;
+	bh=yhyTHW9/iNSmJ3o1/+Kc2KlH+vX1ja7mHJ+mDxpkv9E=; b=HIAtRD9+Nd+IW6jgfFiK2HZZtT
+	fpYMKQutOEhQNLSjzXV14yiKuj+gH7yH2mwhp1ukjWcD6LO/jrjMDmLLRYOTEMBZgGzXUvPVg23+C
+	Tjy40elBeweaQjneH5KhRWVnV1vYOCNRD5xfW6TaaygNmktOdBrQCkNQGoXQtDbbixGpPQm/fI+Nj
+	FYELK7pOhUFs2IzxzUc47CLm5cW4YHbxYiseVRxdNTKjINyutdTkhEC14jB5Bx4dECPepgay5Qta+
+	5FHZX/Dyl+AqX6iUaYY3Q86jrVN7nUtfuoNW5Z6tbhf5u2fnRSKLbcx26SZOqhNDMObjipOa/haTc
+	HEfGQgAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKwFr-00000000BZr-0BNV;
-	Fri, 30 May 2025 09:42:23 +0000
+	id 1uKwHx-00000000CAl-3aR0;
+	Fri, 30 May 2025 09:44:33 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKw7b-000000008zX-33rv
+	id 1uKwB5-00000000AB6-3IGm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 09:33:53 +0000
+	Fri, 30 May 2025 09:37:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1748597630;
+	s=mimecast20190719; t=1748597846;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3HsXX6R0HPP/biqLepMPHpr/VTNhNhquA8c3ePXroJI=;
-	b=D+pAZ8WuD9J24oomtH2M3ZVs3+xWmPjRXiblHrzlpCKBeOwF2MqrydB4nO5ecYBGGi7hA3
-	6uN3D98SD1AA3RATM83/XsTqi53eQQxdCKpvHZ5potyZwj2EkxTN8iKYOrdWm5v2hYDGJj
-	62hgVe/yS04jgXbO2hf8fBGtMpJ4VYo=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=yhyTHW9/iNSmJ3o1/+Kc2KlH+vX1ja7mHJ+mDxpkv9E=;
+	b=DY3NG2HjIHrDin4d3KPLRqtKEZs2d0c17bWrS+6pxwaFkhGLp+C86KrCscAKUrD7SHlg3x
+	OHR0BcexiZcKHpI72C/W2QK/0tsEEx2XO0sMbsLsjMGpA//ltVI4udxuxeZNpePL0DzoRz
+	m0PsqlX3vjOA3YmNjcRSw1HaxFvFaMU=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-345-spEDuYrCPQmbnGxpyGTyNA-1; Fri, 30 May 2025 05:33:49 -0400
-X-MC-Unique: spEDuYrCPQmbnGxpyGTyNA-1
-X-Mimecast-MFC-AGG-ID: spEDuYrCPQmbnGxpyGTyNA_1748597628
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3a4cceb558aso879469f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 02:33:49 -0700 (PDT)
+ us-mta-581-1bWEQT5yNl-iNbThHiEfvQ-1; Fri, 30 May 2025 05:37:25 -0400
+X-MC-Unique: 1bWEQT5yNl-iNbThHiEfvQ-1
+X-Mimecast-MFC-AGG-ID: 1bWEQT5yNl-iNbThHiEfvQ_1748597844
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-442f4a3851fso15613815e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 02:37:25 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748597628; x=1749202428;
+        d=1e100.net; s=20230601; t=1748597844; x=1749202644;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=3HsXX6R0HPP/biqLepMPHpr/VTNhNhquA8c3ePXroJI=;
-        b=mnrvAF/DVqhZQ+ANGd9wdasdwg5lkGvP++ncRbqRlviCBjQvhRIL9jIrdIx2BSVbOh
-         haOZLTJuzr++NIH7zfkiVEaCvhFGu7PxSt2dU6Y1V7w40q/L05KvaFcZrxFfvxlMk7hw
-         QwheocLHZ5FLMn9rWDJUkUsK3KCEAmNXRodZ8/PPDyj1qZzQse1xuw1OJo7RN7Ge8gmC
-         vBgL1QHu4b/WfV6UNaNOcs2g16KDyojYDr1eoz7g3Yf6qrtAHPWZxpqw/V5c01RKgzuP
-         TCeF+b3f3ncFjAhcYkym8rJz0XZxrYF9g1KywnUMqLYtKXz2vH3+xmAEDqiStskNQ/y7
-         FRZw==
-X-Forwarded-Encrypted: i=1; AJvYcCXxYovT9Sb6LBIjFjdJU9ncw+lbmMba6Wxippvx4b0fF4Zu2xejXOHzVbjQZDxgb00UvJDRoAxwQrF499H+PBHl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyxo3dB4BhBxCcZE0f+bzDkd366WSX9qMeHiCWe8b6305mUMtq5
-	7Ki14WCjkV357gu/aVfPGX/n1oKLA/udgpIMJxZVvmcy5xAs4q0jjyh0Z5WvbsxBETCYnsijDcx
-	DAEhavq75FShW6zI+1At8lqD57WIrDIHz3D/a/uenFyEjSIaNQLvovRbn6godWfsYIzrSYgBvRu
-	MY
-X-Gm-Gg: ASbGncuFISGes27HSHlJ+X0Pf4GiEt5KfzxBEUwBGaL14jiv+N4lm7uyhFauDtJ6LSI
-	PY0qqbScnGzhivRsXF47WPzT4olq3+eJucppJXIGWOzNY+NGEGRNykZggOQz4wxlXbA1+EwRjf5
-	JsTYXFumwVwG3i4vapBRcq6LMz2l2K1CfvvGa8trkYrNCZDkIP+yux05a5haTW8afa94zxaqx9c
-	PPhNi2ar/ftkSNY50tGoSmpv4CRgqUGKeykvffjXxCM69AAzLEVrmLw+kcDRUI322iNK7Pt3yc+
-	dagLohLNgSKRh/MzIaQUeME5e0g0DVtD87nVnWGt9I+WYOLgiO+RErWheRHjchPf07n491rONp1
-	8j3ijNwQGGJ1HvqZ/iz2m2s6mvmGFee6+TppxQKCQe8kK1ytImQ==
-X-Received: by 2002:a05:6000:188b:b0:3a4:e393:11e2 with SMTP id ffacd0b85a97d-3a4f7a366bbmr2070873f8f.34.1748597628385;
-        Fri, 30 May 2025 02:33:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFPLwoEcfpG65ruS1QubjzGQLrQH9J6REe/EFj1LtU5rHML/KjwauHHFCNN+LVLagp2fysdSQ==
-X-Received: by 2002:a05:6000:188b:b0:3a4:e393:11e2 with SMTP id ffacd0b85a97d-3a4f7a366bbmr2070847f8f.34.1748597627996;
-        Fri, 30 May 2025 02:33:47 -0700 (PDT)
+        bh=yhyTHW9/iNSmJ3o1/+Kc2KlH+vX1ja7mHJ+mDxpkv9E=;
+        b=dn9eWh/IMB7d8e9x0hhwk/VVR2e9m5pc2y+z774eCzn4LjNajN5+nBYRQjCL9Xh2WI
+         z5Vvp2qmKVo6qEN8BbbrZtiZBC5ckZgmspGYA3sxDKnEmdeWWh2qOwhJ1fF1bliAvUk/
+         SZ/vJI83MHlHhCoOnr6A8ZbRyqRK+NazU7qU/yJyKNd1zjn2LzpJKdMtbFAIE7vOUhNz
+         oMnZUkPfS5EKI0jcgzlPzg1PHQWX5nV0nXyuWJSpiunTleNPH+EylPKrkgClv6B0AZi0
+         NxDY3XGwRK9khmQyYa+d1Cxb1BglPEnTFoGLuYErvjzl55JmUF5Y34S3seTZ3eADNXuS
+         qeqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU5aTIn31+vk/qHnJYKRAI6m/VY2tYFPPrkqJDzHwTeDwqHWDmJP1kIiy4dlzrQeMvx8uToITgHWNRhwNnFGtPN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgTRI+RM7PHaA5nI5laEDURjCeC0LtUOCV62Es7rjLPCdcBD/g
+	F2W6t/nfFXeAeOf5ZujVZrHRGbFi2eMooA7gs9XCuMGd8D7ONmTRBNwZXvzkTzGElb8LBxOYG5Z
+	i1NGOvJjCfNLVwoyW4+WHsRgS+jWjtwb5iUOPTUFZk27PxlLb0dU8Q9K9J5IvqAm1h2DGtYPAjx
+	UH
+X-Gm-Gg: ASbGncvH6VvGAVNPaRVPwHCuEX4pDvanSvceGTkNzjiDQDS7eR6V7AH76M5JDb2VGD1
+	epBswsj+OLvOva3pvMhPuupADay2N4OyB+965z4IlkW+R3f5SsiovFHOSutfz+J0zL0ZFKbpozZ
+	ngbYkmA2x86UAcqJX9+NBGkWCa75tVNfmIKUtIheja4ix1AEaZdPjtaRiRbaMXTuiX/uGXwUIUC
+	LNcsEX4JUXKAAVKjm38hEkcp6hM0ZtUb8T8IVYd1hUbOyaJMWZkUhjmGXjgTXx0K08G5ZlEZ/kZ
+	W8PYWShJRP96tptuSsJn/gzWP0qE9IjGFxgShrvTD24xPIOkQeggSKY4oiMtHtou8nX8zkO5BsX
+	K/uG9PWXD9rTNI0EQSmuPwYn56NAHcZHvPNhBhqE=
+X-Received: by 2002:a05:600c:6207:b0:43c:ea36:9840 with SMTP id 5b1f17b1804b1-450d885e38amr12675525e9.22.1748597844514;
+        Fri, 30 May 2025 02:37:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGccFKRFTCgkkT3ae/QFUuhHOQzucrbv9tCboH5VNdb/K0MlBO6YnvTUAz5zFzNoWT7UAvZNw==
+X-Received: by 2002:a05:600c:6207:b0:43c:ea36:9840 with SMTP id 5b1f17b1804b1-450d885e38amr12675135e9.22.1748597844047;
+        Fri, 30 May 2025 02:37:24 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f03:5b00:f549:a879:b2d3:73ee? (p200300d82f035b00f549a879b2d373ee.dip0.t-ipconnect.de. [2003:d8:2f03:5b00:f549:a879:b2d3:73ee])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4f00972d9sm4415633f8f.64.2025.05.30.02.33.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d800671csm12953125e9.30.2025.05.30.02.37.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 May 2025 02:33:47 -0700 (PDT)
-Message-ID: <bbb19f59-54bc-4399-a387-1df9713fc621@redhat.com>
-Date: Fri, 30 May 2025 11:33:45 +0200
+        Fri, 30 May 2025 02:37:22 -0700 (PDT)
+Message-ID: <371b8fdd-129d-4fe3-bbc7-f0a1bc433b30@redhat.com>
+Date: Fri, 30 May 2025 11:37:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/12] mm: Remove PFN_MAP, PFN_SG_CHAIN and PFN_SG_LAST
+Subject: Re: [PATCH 02/12] mm: Convert pXd_devmap checks to vma_is_dax
 To: Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org
 Cc: gerald.schaefer@linux.ibm.com, dan.j.williams@intel.com, jgg@ziepe.ca,
  willy@infradead.org, linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
@@ -94,7 +94,7 @@ Cc: gerald.schaefer@linux.ibm.com, dan.j.williams@intel.com, jgg@ziepe.ca,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net
 References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <cb45fa705b2eefa1228e262778e784e9b3646827.1748500293.git-series.apopple@nvidia.com>
+ <224f0265027a9578534586fa1f6ed80270aa24d5.1748500293.git-series.apopple@nvidia.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -141,17 +141,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <cb45fa705b2eefa1228e262778e784e9b3646827.1748500293.git-series.apopple@nvidia.com>
+In-Reply-To: <224f0265027a9578534586fa1f6ed80270aa24d5.1748500293.git-series.apopple@nvidia.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: XmLxkXlcB5oiNpTb5CfOZoQNkoErc91KXJA3tCPQE74_1748597628
+X-Mimecast-MFC-PROC-ID: vhFHby9IoRvND5miVQH2-ratK0zj2yKdo_GHqji8oe4_1748597844
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_023351_845079_C4F019CB 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250530_023727_893108_FC26CE4F 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,17 +166,69 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 29.05.25 08:32, Alistair Popple wrote:
-> The PFN_MAP flag is no longer used for anything, so remove it. The
-> PFN_SG_CHAIN and PFN_SG_LAST flags never appear to have been used so
-> also remove them.
+> Currently dax is the only user of pmd and pud mapped ZONE_DEVICE
+> pages. Therefore page walkers that want to exclude DAX pages can check
+> pmd_devmap or pud_devmap. However soon dax will no longer set PFN_DEV,
+> meaning dax pages are mapped as normal pages.
+> 
+> Ensure page walkers that currently use pXd_devmap to skip DAX pages
+> continue to do so by adding explicit checks of the VMA instead.
 > 
 > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
 > ---
+>   fs/userfaultfd.c | 2 +-
+>   mm/hmm.c         | 2 +-
+>   mm/userfaultfd.c | 2 +-
+>   3 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/fs/userfaultfd.c b/fs/userfaultfd.c
+> index 22f4bf9..de671d3 100644
+> --- a/fs/userfaultfd.c
+> +++ b/fs/userfaultfd.c
+> @@ -304,7 +304,7 @@ static inline bool userfaultfd_must_wait(struct userfaultfd_ctx *ctx,
+>   		goto out;
+>   
+>   	ret = false;
+> -	if (!pmd_present(_pmd) || pmd_devmap(_pmd))
+> +	if (!pmd_present(_pmd) || vma_is_dax(vmf->vma))
+>   		goto out;
+>   
+>   	if (pmd_trans_huge(_pmd)) {
+> diff --git a/mm/hmm.c b/mm/hmm.c
+> index 082f7b7..db12c0a 100644
+> --- a/mm/hmm.c
+> +++ b/mm/hmm.c
+> @@ -429,7 +429,7 @@ static int hmm_vma_walk_pud(pud_t *pudp, unsigned long start, unsigned long end,
+>   		return hmm_vma_walk_hole(start, end, -1, walk);
+>   	}
+>   
+> -	if (pud_leaf(pud) && pud_devmap(pud)) {
+> +	if (pud_leaf(pud) && vma_is_dax(walk->vma)) {
+>   		unsigned long i, npages, pfn;
+>   		unsigned int required_fault;
+>   		unsigned long *hmm_pfns;
+> diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
+> index e0db855..133f750 100644
+> --- a/mm/userfaultfd.c
+> +++ b/mm/userfaultfd.c
+> @@ -1791,7 +1791,7 @@ ssize_t move_pages(struct userfaultfd_ctx *ctx, unsigned long dst_start,
+>   
+>   		ptl = pmd_trans_huge_lock(src_pmd, src_vma);
+>   		if (ptl) {
+> -			if (pmd_devmap(*src_pmd)) {
+> +			if (vma_is_dax(src_vma)) {
+>   				spin_unlock(ptl);
+>   				err = -ENOENT;
+>   				break;
 
-With SPECIAL mentioned as well
+I assume we could also just refuse dax folios, right?
 
-Acked-by: David Hildenbrand <david@redhat.com>
+If we decide to check VMAs, we should probably check earlier.
+
+But I wonder, what about anonymous non-dax pages in COW mappings? Is it 
+possible? Not supported?
+
+If supported, checking the actual folio would be the right thing to do.
 
 -- 
 Cheers,
