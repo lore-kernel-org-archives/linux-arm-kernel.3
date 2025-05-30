@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5109BC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 12:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E453CC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 12:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nKQIv7kFUOyC6Re7hESHXTUHt8q0nVJc6hg5/SEQX9E=; b=PPMZvVwNVvzXPWxNd1UaPRFuTD
-	VSF4P2vM8ohojMcO76RpkGgbI5G62uJZ39t2JpPmW9i8SzJnOJhh7o4mdckiFm559vfraXcFbnT3K
-	DFZ1jnflxe0NSwmfTRaLU6szummhzXsWUqkh5ne+Y3oovfNuV3LsbNFwRyhSTfoEhwuLTlTCSawAs
-	tekX8n1GqF9aXNbRSjCzR+15D2gjW01I5TQfm2p5/tY5oNeecjCLnjW4zcRc4qpR+RzKGaky20g+B
-	VyaquVLHSjNfCdpn2ZDQg8c1NvFX6NqBzSYprXoCHeigPAUnXAzDu9ONjHG4Gpgfffbi3blqzDu+M
-	+8lufh+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zST7fOyfUXzujgLWo7a+xP09hr2f/bg8V9cDDQMRXCU=; b=N8Ag1yctvQbfL1x26RSo96Jdxi
+	EH/PYDCXHHOjZ+ERv/vZMYj7FntfGkGSA5fMshYAQxPbfE+YCuxMD5BQn3O2x002ihP4PoFjPG9w3
+	b2rCU22jjRISkOWGVz0fiL5REczGV0kUEdG9RkEhio20w5GTfcIoelOp5kPr0SzsMC8AdyhnYVnVa
+	+w44trAqJ4YA06i/+kACPZRig4v8RFX64HP/uhPfPHUy4J29Tl4p8Wia34QIqmLd20rCrqPHRaYhj
+	YJ3TGw4TpO3l2cRjpdbqxU3vDMQgYrFSakrDqdEk0rIp+I3APVHZju/ocZTGnJfH6PlsnaZkWLbS/
+	WyreP7tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKzFg-00000000cOQ-1Acq;
-	Fri, 30 May 2025 12:54:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKzDV-00000000bp9-17f1;
-	Fri, 30 May 2025 12:52:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 786144A706;
-	Fri, 30 May 2025 12:52:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 223FFC4CEE9;
-	Fri, 30 May 2025 12:52:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748609528;
-	bh=UQcVtwjs57NCo0a9YDF3wREUlaK90WOqq5g46sAvigg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Ra2olD78R+++u/Q1wQAKNFyK/4T9kaxrz3Srtkq9PeX6OmziR448c53Lcgghrathh
-	 OKRKbr6kJttLG1p8E9BJ68u4tH4LkbGZfsEtmhlFJXF+GofHpt99TiW+M+L50EmF/u
-	 kESczJ/S8aSLX0l4YWtHplRy9G/caV9ZSGB/MS0Z5/A7S2tejjbQkIrsQVnzeQPcYw
-	 1kforgKu/xq1IMD79Y7gbul6YEDjDlF8e3GOhuJUm9WupaLKV0NuPTcA6QfUZ1nmab
-	 OvN+iObUZHeEDfQ4Sx57XzGwksmiH3NFey4NfbgG1Xnc3gK4pIq+EeORaJcIzhDqkM
-	 hAVeT1v8tJCHA==
-Date: Fri, 30 May 2025 07:52:06 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uKzHm-00000000d98-1gVp;
+	Fri, 30 May 2025 12:56:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKzEt-00000000cCV-2dCj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 May 2025 12:53:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 115CB16F2;
+	Fri, 30 May 2025 05:53:18 -0700 (PDT)
+Received: from [10.57.95.14] (unknown [10.57.95.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E28393F5A1;
+	Fri, 30 May 2025 05:53:31 -0700 (PDT)
+Message-ID: <d195c7bc-0c04-4514-b536-b503d4827914@arm.com>
+Date: Fri, 30 May 2025 13:53:30 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: heiko@sntech.de, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- quentin.schulz@cherry.de, inindev@gmail.com, sfr@canb.auug.org.au, 
- conor+dt@kernel.org, linux-kernel@vger.kernel.org, krzk+dt@kernel.org, 
- nicolas.frattaroli@collabora.com, krzysztof.kozlowski@linaro.org, 
- andrew@lunn.ch, jonas@kwiboo.se
-To: Hsun Lai <i@chainsx.cn>
-In-Reply-To: <20250530031046.166202-1-i@chainsx.cn>
-References: <20250530031046.166202-1-i@chainsx.cn>
-Message-Id: <174860938675.1571999.8236778735226903385.robh@kernel.org>
-Subject: Re: [PATCH v5 0/2] Add support for Firefly
- Station-M3/ROC-RK3588S-PC
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: pageattr: Use walk_page_range_novma() to
+ change memory permissions
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
+ gshan@redhat.com, linux-arm-kernel@lists.infradead.org
+References: <20250530090407.19237-1-dev.jain@arm.com>
+ <20250530090407.19237-3-dev.jain@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250530090407.19237-3-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_055209_347048_C42E8EC6 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20250530_055335_762433_FDA2F173 
+X-CRM114-Status: GOOD (  31.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,88 +69,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 30/05/2025 10:04, Dev Jain wrote:
+> Move away from apply_to_page_range(), which does not honour leaf mappings,
+> to walk_page_range_novma(). The callbacks emit a warning and return EINVAL
+> if a partial range is detected.
 
-On Fri, 30 May 2025 11:10:44 +0800, Hsun Lai wrote:
-> This series add support for Firefly Station-M3/ROC-RK3588S-PC.
+Perhaps:
+
+"""
+apply_to_page_range(), which was previously used to change permissions for
+kernel mapped memory, can only operate on page mappings. In future we want to
+support block mappings for more efficient TLB usage. Reimplement pageattr.c to
+instead use walk_page_range_novma() to visit and modify leaf mappings of all sizes.
+
+We only require that the start and end of a given range lie on leaf mapping
+boundaries. If this is not the case, emit a warning and return -EINVAL.
+"""
+
+
 > 
-> Info of device can be found at:
-> https://wiki.t-firefly.com/en/Station-M3/index.html
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  arch/arm64/mm/pageattr.c | 69 +++++++++++++++++++++++++++++++++++++---
+>  1 file changed, 64 insertions(+), 5 deletions(-)
 > 
-> Changes in v5:
-> - Make led-1 off by default (Chukun Pan, v4)
-> - Add color settings for led (Chukun Pan, v4)
-> - Remove vcc5v0_usbdcin
-> - Put enable/gpio before regulator (Chukun Pan, v4)
-> - Remove always-on and boot-on from vcc5v0_host (Chukun Pan, v4)
-> - Update the name of vbus_typec (Chukun Pan, v4)
-> - Remove always-on and boot-on from vbus5v0_typec (Chukun Pan, v4)
-> - Put pinctrl-names before pinctrl-0 (Chukun Pan, v4)
-> - Remove usb_con node
-> - Remove extra blank lines (Chukun Pan, v4)
-> - Add phy-supply for u2phy3_host (Chukun Pan, v4)
-> 
-> Changes in v4:
-> - Update the name of the regulator
-> - Remove the i2s5_8ch node
-> 
-> Changes in v3:
-> - Update the name of leds
-> - Add more cpu nodes
-> - Update mdio compatible
-> - Fix the order in the node
-> - Add the default serial port(uart2)
-> - Patch 1: Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> Changes in v2:
-> - Fix rgmii delays
-> 
-> Changes in v1:
-> - Add support for Firefly ROC-RK3588S-PC
-> 
-> Hsun Lai (2):
->   dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
->   arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC
-> 
->  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../boot/dts/rockchip/rk3588s-roc-pc.dts      | 838 ++++++++++++++++++
->  3 files changed, 844 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts
-> 
-> --
-> 2.34.1
-> 
-> 
-> 
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 39fd1f7ff02a..a5c829c64969 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/mem_encrypt.h>
+>  #include <linux/sched.h>
+>  #include <linux/vmalloc.h>
+> +#include <linux/pagewalk.h>
+>  
+>  #include <asm/cacheflush.h>
+>  #include <asm/pgtable-prot.h>
+> @@ -20,6 +21,67 @@ struct page_change_data {
+>  	pgprot_t clear_mask;
+>  };
+>  
+> +static pteval_t set_pageattr_masks(unsigned long val, struct mm_walk *walk)
 
+Please don't use unsigned long for raw ptes; This will break with D128 pgtables.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Anshuman had a patch in flight to introduce ptdesc_t as a generic/any level raw
+value. It would be preferable to incorporate that patch and use it. pteval_t
+isn't really correct because this is for any level and that implies pte level only.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+> +{
+> +	struct page_change_data *masks = walk->private;
+> +	unsigned long new_val = val;
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+why do you need new_val? Why not just update and return val?
 
-  pip3 install dtschema --upgrade
+> +
+> +	new_val &= ~(pgprot_val(masks->clear_mask));
+> +	new_val |= (pgprot_val(masks->set_mask));
+> +
+> +	return new_val;
+> +}
 
+One potential pitfall of having a generic function that can change the
+permissions for ptes at all levels is that bit 1 is defined differently for
+level 3 vs the other levels. I don't think there should be any issues here in
+practice having had a quick look at all the masks that users currently pass in
+though.
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: remotes/arm-soc/rockchip/dt64-31-ge463625af7f9 (exact match)
+> +
+> +static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
+> +			      unsigned long next, struct mm_walk *walk)
+> +{
+> +	pud_t val = pudp_get(pud);
+> +
+> +	if (pud_leaf(val)) {
+> +		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
+> +			return -EINVAL;
+> +		val = __pud(set_pageattr_masks(pud_val(val), walk));
+> +		set_pud(pud, val);
+> +		walk->action = ACTION_CONTINUE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
+> +			      unsigned long next, struct mm_walk *walk)
+> +{
+> +	pmd_t val = pmdp_get(pmd);
+> +
+> +	if (pmd_leaf(val)) {
+> +		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
+> +			return -EINVAL;
+> +		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
+> +		set_pmd(pmd, val);
+> +		walk->action = ACTION_CONTINUE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
+> +			      unsigned long next, struct mm_walk *walk)
+> +{
+> +	pte_t val = ptep_get(pte);
 
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
+BUG: Use __ptep_get(), which is "below" the contpte management layer. ptep_get()
+will look at the contiguous bit and potentially decide to accumulate all the a/d
+bits in the block which is not relavent for kernel mappings.
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250530031046.166202-1-i@chainsx.cn:
+> +
+> +	val = __pte(set_pageattr_masks(pte_val(val), walk));
+> +	set_pte(pte, val);
 
-arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dtb: /edp@fdec0000: failed to match any schema with compatible: ['rockchip,rk3588-edp']
+BUG: Use __set_pte(). Same reasoning as above. But this is more harmful because
+set_pte() will try to detect contpte blocks and may zero/flush the entries.
+Which would be very bad for kernel mappings.
 
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct mm_walk_ops pageattr_ops = {
+> +	.pud_entry	= pageattr_pud_entry,
+> +	.pmd_entry	= pageattr_pmd_entry,
+> +	.pte_entry	= pageattr_pte_entry,
 
+Is there a reason why you don't have pgd and p4d entries? I think there are
+configs where the pgd may contain leaf mappings. Possibly 64K/42-bit, which will
+have 2 levels and I think they will be pgd and pte. So I think you'd better
+implement all levels to be correct.
 
+> +	.walk_lock	= PGWALK_NOLOCK,
+> +};
+> +
+>  bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
+>  
+>  bool can_set_direct_map(void)
+> @@ -49,9 +111,6 @@ static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
+>  	return 0;
+>  }
+>  
+> -/*
+> - * This function assumes that the range is mapped with PAGE_SIZE pages.
+> - */
+>  static int __change_memory_common(unsigned long start, unsigned long size,
+>  				pgprot_t set_mask, pgprot_t clear_mask)
+>  {
+> @@ -61,8 +120,8 @@ static int __change_memory_common(unsigned long start, unsigned long size,
+>  	data.set_mask = set_mask;
+>  	data.clear_mask = clear_mask;
+>  
+> -	ret = apply_to_page_range(&init_mm, start, size, change_page_range,
+> -					&data);
+> +	ret = walk_page_range_novma(&init_mm, start, start + size,
+> +				    &pageattr_ops, NULL, &data);
+>  
+>  	/*
+>  	 * If the memory is being made valid without changing any other bits
 
+I notice that set_direct_map_invalid_noflush() and
+set_direct_map_default_noflush() don't use __change_memory_common() but instead
+call apply_to_page_range() direct. (presumably because they don't want the
+associated tlb flush). Is there a reason not to update these callers too?
+
+Perhaps it would be cleaner to wrap in ___change_memory_common (3 leading
+underscores) which does everything except the flush).
+
+Thanks,
+Ryan
 
 
