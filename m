@@ -4,147 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D705FC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 00:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E1BC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 00:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uw+SDAnpbyE75QriiKMqcjkIQkdnuBseYuvRivKp4tE=; b=JzV20lIzI8x5feaTS0MjlXwKip
-	MqWR+K46VBdZQVaU/Pmnu5fBHS1AaoCEFIeji9qen4Ee/oRukJLJZ+uZg9rR7mO2r+hQXVdhJLF7O
-	owWAIZYjlUYcrI04rxG3ElS1XHnsNWAiVQ3UMQHdEHGDg8V59gN5kEDPTuPll51p7NtXKAGOii0JO
-	x2ZAFPT5XGjAOr1iMNOiF8ujvq3prSRHjCrhMsHfrM/8ocYpQhYMKvM5xrAYVjKqTV3NrQJCGy91S
-	aZPwvA+I05+GYGkO/dpd7jtkRJwHYIzQ7I9m6ZIK3GHWAmaeyH/hqlyKJmw+I8qSx5spY0qBomWsV
-	ZNDe+F4g==;
+	bh=o8r1VhQxE8YGMw2E+RF6ib2Y5lg3+2mjo9SImYhpolU=; b=OyuRA2ElxNztazIhT6gTtYzZ+P
+	xF88nFwl5+j/lCh0A5caFJnmm67lWeaL7XJPU0xd78Ao24sUn3R1OCKidEoYUVcqccZmylPqxIDlK
+	CjmAe1HDjBIilJF9wYCVsfkgxBjJtICXtRUi7TbKTgkTchyIU1xOSq6E3R8tFB3GCDFb+F4QAMOjJ
+	fa0hBQi7eC+OsKSN3DMnBUoCOkLeZhVyQpmfJ7WImuW7OCXOL39L48m+SeRUauss1SLn663Du4CmX
+	Y4DVEtahiTN6NgmdOkucwxL7zPY1yK/XZ7v63XBfNFZYdj/ON6E8Rzyrb9JXxLqEE7XRhCB7WX/gG
+	EHPMhFew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL9oB-00000002c1M-2kGF;
-	Sat, 31 May 2025 00:10:43 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1uL9qH-00000002cEm-1luF;
+	Sat, 31 May 2025 00:12:53 +0000
+Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL9Qq-00000002Ttr-1pPy
+	id 1uL9Qx-00000002Txo-25LF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 23:46:37 +0000
-Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-234d366e5f2so34030105ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 16:46:36 -0700 (PDT)
+	Fri, 30 May 2025 23:46:44 +0000
+Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-4dfa2aeec86so1088304137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 16:46:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1748648795; x=1749253595; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=uw+SDAnpbyE75QriiKMqcjkIQkdnuBseYuvRivKp4tE=;
-        b=GRT9wd3zEL8yDMntIR6mTq5VY4gmI/wIEsfBoHtyjY8YmLNBWUfn/VX+98ePczVFHy
-         ulcKhnNTZC1BADxzYPGJ601jg3HdEzF4S5uA51bL9Z71MrtQDls8VJFVm5zRnTcGlU5w
-         BS1KRnkV79ouW2NfVfreUvp3QhffpvZTZhzPY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748648795; x=1749253595;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1748648802; x=1749253602; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uw+SDAnpbyE75QriiKMqcjkIQkdnuBseYuvRivKp4tE=;
-        b=lhpbzH5AZCfNj4IkGdEFXk68KHXl6fXK+iyr4zdGmpHU+2ui+DNEFWiwTFGduFEiXA
-         Kqm7Z4/TwnbhvDA/iJpYv8wPvBxzgZMgnwgiJjl55IbN/hZccuOxbn3hBwD3giGVGBhR
-         HRMhinKuD41J1ZxMa7v54uMI7Z4xoHAxHwAhUsQLuloaGBfUTgc5Akfp/puc1IABwf/x
-         cSQ6OkgUM/nAW7KpGvGVAYrlIEQSHrs9JlEcai/BMoP5kUVFPtscLK/D8dLQPnz4n4Uj
-         paqMp4eFj+K9aXoBqi9rRflw39J/AXKcUAR3EomRJFihOV/uneY8vZPd69dl8yeLfkfJ
-         Lf9w==
-X-Forwarded-Encrypted: i=1; AJvYcCX5zz9tnMdgu+hJosuWrbNcdckcTa113QcTLp4DnuYv0HKBHt3HG3iXaTnGs2w2CmdjIkPFgsSKu7f9bBfZ944y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yws/L9vQuyAsMJmn+4CQAbMYavyila07JW1PGJ+tPcpCnLqhgAD
-	mHi/e3qkCKQDOqJbeE9b+xUqdrlFEZ/sh/fMiFmPwkL8sLnQZ+nYsXJrmtzqWiH0KQ==
-X-Gm-Gg: ASbGnctZWzM07P9vjaMq/ouJG66pwNVgUw5R/Oalbg+HhADPAAGG72982bz60oukI8t
-	jXduLyWnN/n6UiupXAq+ZeNWqcaWMehFB7LnKXxq7cADZIttXu682UfUHnREy/G+TpT/I7Fqsdr
-	ADr59iqUKF6ToWJN5Dz6X+ZqQ5rahqm1b/VUiMQ31CsKSoE65EBTR3RGUzaNezH7TXcfEEWkyF6
-	197sWunH5bxSzTxpM/YcIa0sSBAxfo/7aW0t0ekjzZO4+eZiUfABHuWMLQJAoFu2pi+xsKJ0C/f
-	yTQkPD24zhwbhVdpRTkKmvD3kPwV3fx+45ekCpJMJNDMyyvvXy4RtTEKCLmPrEaqxgWy2b3RMY/
-	Bbge/NzY/5RB+vvY=
-X-Google-Smtp-Source: AGHT+IG83D6Hba6mlpJeLWEewKcWggxnySdPP7v+S+J2gMmNbRwekT+k4Hu5mnjnjd6GtQ0EvgHHiQ==
-X-Received: by 2002:a17:902:f792:b0:22e:3e0e:5945 with SMTP id d9443c01a7336-2355fa0125dmr1403535ad.50.1748648795586;
-        Fri, 30 May 2025 16:46:35 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2eceb0a005sm1768319a12.7.2025.05.30.16.46.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 May 2025 16:46:34 -0700 (PDT)
-Message-ID: <0e154ae3-e0ab-4a4e-aa39-999ea1c720ed@broadcom.com>
-Date: Fri, 30 May 2025 16:46:31 -0700
+        bh=o8r1VhQxE8YGMw2E+RF6ib2Y5lg3+2mjo9SImYhpolU=;
+        b=bcmvtjdEX0UDDe9GwVkSRA3kHe4qvtHAVHmjhtJ4DE3avIGzDHWkqXRTV5Osj3mHer
+         8KJxIY678V5fesPf6KDUQYCO2QosWaO4YgCbBCyCV3ZT3dllwSm+Z2ILI4iegfF9mzlI
+         C6OjMllJ6TiBQxlld6fgFWnYJOqKYXmsgZYwr1Md8I9/GiRd8wFh7lfDE79uYGypcR8p
+         MyR6zoHvel4eBKKCSKkq9uko8jZvYKB6kC4klzjiWmtv2N+NgplziIkErU0SZ4J3B7Iy
+         KTa87zMHTL+0CeKPJBtjfKiaKm1uCCQQ7tIIWs8+gN3f9UgWnc1D00jk2pPiWRD8zM0K
+         AxXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748648802; x=1749253602;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=o8r1VhQxE8YGMw2E+RF6ib2Y5lg3+2mjo9SImYhpolU=;
+        b=ItUTiIhHKYaxZWJjrLaAymjnXSJzlmdaRLE0zl+bGpH/DRKztcZNUdnVB/6gg2prAy
+         pT0iel02dNWUm4+AQOXcZkdocoizoFeT/Au8GpkGkmz47NZbDO2b5AMHZT2BHpXRIiQU
+         lT/Ojt+8xaH1Ytl/3FDiYFVkH1+QP51iQkt2lEDUW/zL1zgs469an8HQviSD3o3FYhe4
+         WThDbhWP3qAdmdGiE3V2aaAurLW+x+/WgTMkRLuIEfA5NHT90ICyWbxmimnAtf9OCXlq
+         LjM92Kgk7WZDLMk6LigWc11wJu9UXNNnNO5+GkrB6dmlxAKV6ZzGhLtN0a1zODkLHE0S
+         DDBg==
+X-Forwarded-Encrypted: i=1; AJvYcCXzpX5Zl24sFMSYM4XvnSPBo52Al7Vlj/NpIumVYIVfkFjIbeWmqzbdzLzWEiKk2ElgNBMQK5Olzp5xdVESqefc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPyZpFIj14UmHSHKRd25gzqcFvW4/je4cZ8VZ0xrZofdGsq0PJ
+	GANKB0mvXRNkwKN3OqvElpmmr+09GvZG4/jGsJxlXknwaTA0AenkrXL5uf0tCAGR6Y6dQFAwRMi
+	SGi4iTHfa6nPy+U7QHZI+2L1qoL+fW9ckrqQr
+X-Gm-Gg: ASbGncuF+l7zsR6E1jLtVPDxtPJl8Drq/RPoIO4ORiOZO26lHxCn2OqJf1rMaWSns1w
+	wCHE9MARKH8dhA5Vzb6JsjVSY6PJLGRVQVe2a3ekohwxPAU6YEYrLZLFjR/kCsq2HfrrlNi4w9Q
+	ozMfRarjbVT+JWucDejP6XpM1C56MBX7j4FA==
+X-Google-Smtp-Source: AGHT+IGWYRqljBTNqRjcHJ1Qx5MgLEMU3w+EcX3w2i25x1ph1+e4wdYuKsPwq6FXpfXezjeuLLMkh2UEwUEoxLdnS0I=
+X-Received: by 2002:a05:6102:41ab:b0:4e6:1a8c:13dd with SMTP id
+ ada2fe7eead31-4e701bcd515mr59445137.7.1748648802024; Fri, 30 May 2025
+ 16:46:42 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 0/13] Add support for RaspberryPi RP1 PCI device using
- a DT overlay
-To: Arnd Bergmann <arnd@arndb.de>, Andrea della Porta
- <andrea.porta@suse.com>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Linus Walleij
- <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- "derek.kiernan@amd.com" <derek.kiernan@amd.com>,
- "dragan.cvetic@amd.com" <dragan.cvetic@amd.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>, Stefan Wahren <wahrenst@gmx.net>,
- Herve Codina <herve.codina@bootlin.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Andrew Lunn
- <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
-References: <cover.1748526284.git.andrea.porta@suse.com>
- <0580b026-5139-4079-b1a7-464224a7d239@kernel.org>
- <aDholLnKwql-jHm1@apocalypse>
- <7934ae2a-3fc5-4ea2-b79a-ecbe668fd032@app.fastmail.com>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <7934ae2a-3fc5-4ea2-b79a-ecbe668fd032@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250527175558.2738342-1-james.hilliard1@gmail.com>
+ <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch> <CADvTj4rGdb_kHV_gjKTJNkzYEPMzqLcHY_1xw7wy5r-ryqDfNQ@mail.gmail.com>
+ <fe8fb314-de99-45c2-b71e-5cedffe590b0@lunn.ch>
+In-Reply-To: <fe8fb314-de99-45c2-b71e-5cedffe590b0@lunn.ch>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Fri, 30 May 2025 17:46:30 -0600
+X-Gm-Features: AX0GCFsAv-uR3T4qW04ZGESiTbXNp1RMaFKH2XrMAyyDm-M83KQe_2yzaPmKFXE
+Message-ID: <CADvTj4posNXP4FCXPqABtP0cMD1dPUH+hXcRQnetZ65ReKjOKQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
+ PHY device
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Russell King <linux@armlinux.org.uk>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Furong Xu <0x1207@gmail.com>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_164636_483405_54A738A4 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20250530_164643_564275_5ABE2C0D 
+X-CRM114-Status: GOOD (  26.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,48 +103,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/25 23:03, Arnd Bergmann wrote:
-> On Thu, May 29, 2025, at 16:00, Andrea della Porta wrote:
->> Hi Krzysztof,
->>
->> On 15:50 Thu 29 May     , Krzysztof Kozlowski wrote:
->>> On 29/05/2025 15:50, Andrea della Porta wrote:
->>>> *** RESENDING PATCHSET AS V12 SINCE LAST ONE HAS CLOBBERED EMAIL Message-Id ***
->>>>
->>> Can you slow down please? It's merge window and you keep sending the
->>> same big patchset third time today.
->>
->> Sorry for that, I was sending it so Florian can pick it up for this
->> merge window, and I had some trouble with formatting. Hopefully
->> this was the last one.
-> 
-> That's not how the merge window works, you missed 6.16 long ago:
-> 
-> Florian sent his pull requests for 6.16 in early may, see
-> https://lore.kernel.org/linux-arm-kernel/20250505165810.1948927-1-florian.fainelli@broadcom.com/
-> 
-> and he needed time to test the contents before sending them to me.
-> 
-> If the driver is ready to be merged now, Florian can pick it up
-> after -rc1 is out, and then include it in the 6.17 pull requests
-> so I can include them in the next merge window.
+On Tue, May 27, 2025 at 2:02=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Tue, May 27, 2025 at 01:21:21PM -0600, James Hilliard wrote:
+> > On Tue, May 27, 2025 at 1:14=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wr=
+ote:
+> > >
+> > > On Tue, May 27, 2025 at 11:55:54AM -0600, James Hilliard wrote:
+> > > > Some devices like the Allwinner H616 need the ability to select a p=
+hy
+> > > > in cases where multiple PHY's may be present in a device tree due t=
+o
+> > > > needing the ability to support multiple SoC variants with runtime
+> > > > PHY selection.
+> > >
+> > > I'm not convinced about this yet. As far as i see, it is different
+> > > variants of the H616. They should have different compatibles, since
+> > > they are not actually compatible, and you should have different DT
+> > > descriptions. So you don't need runtime PHY selection.
+> >
+> > Different compatibles for what specifically? I mean the PHY compatibles
+> > are just the generic "ethernet-phy-ieee802.3-c22" compatibles.
+>
+> You at least have a different MTD devices, exporting different
+> clocks/PWM/Reset controllers. That should have different compatibles,
+> since they are not compatible. You then need phandles to these
+> different clocks/PWM/Reset controllers, and for one of the PHYs you
+> need a phandle to the I2C bus, so the PHY driver can do the
+> initialisation. So i think in the end you know what PHY you have on
+> the board, so there is no need to do runtime detection.
 
-I have applied all of the patches in the respective branch as we had 
-discussed with Andrea and also merged all of the branches into my "next" 
-branch so we can give this some proper soak testing. Once 6.16-rc1 is 
-available, all those branches (devicetree/next, defconfig-arm64/next, 
-drivers/next, etc.) will be rebased against that tag such that the 
-patches that are already included will be dropped, and only this patch 
-set plus what I have accumulated will be applied on top (if that makes 
-sense).
+Hmm, thinking about this again, maybe it makes sense to just
+do the runtime detection in the MFD driver entirely, as it turns
+out the AC300 initialization sequence is largely a subset of the
+AC200 initialization sequence(AC300 would just not need any
+i2c part of the initialization sequence). So if we use the same
+MFD driver which internally does autodetection then we can
+avoid the need for selecting separate PHY's entirely. This at
+least is largely how the vendor BSP driver works at the moment.
 
-As Arnd says though, this is too late for 6.16 so this would be included 
-in 6.17. Andrea, thank you very much for your persistence working on 
-this patch series, and sorry that the request to merge those patches 
-came in during a time where I was away. The good news is that I am not 
-doing that again anytime soon.
+Would this approach make sense?
 
-Thank you!
--- 
-Florian
+> What you might want however is to validate the MTD device compatible
+> against the fuse and return -ENODEV if the compatible is wrong for the
+> fuse.
+>
+>         Andrew
 
