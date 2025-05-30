@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D0AC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 19:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3ADC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 19:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkiGcg9Pp6HB9HenrxwiWzm/IMuLvXwvBc2ohIpTcuU=; b=Og7mx+4OJrk+Z/GggqtjLkIi6a
-	cJEe1waiwqY0iqKpY8w866bbAD95uK915xqmI0nCTd+k+oMkqBokZ/0wfSsEo5tmKlNUqCa3vq5gG
-	5dJ/PiYVMKdVYnhIU+oRfNDaM5WC+YxMx5IbCPQDGThJnnY7wSAS/z+WC2smzqcXCABLq0cNZ5RLm
-	LpKmZ/bsxxMruhFf3EMUPlpcy/K8ZGSMqHiSryQtmijgS+VEtSzoI/v0e2GE3/5poz0K4wU+qX1zY
-	qYut8zzoOz2oNRalkSIcadGq/MUayl8oyRYJOurcwY2Ehf5dHz94wf7yvoaLSKQCA+UWBstAB1vjJ
-	U4o91Ycg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i9yrYiN9prEo+OO6sc9fo3FDSPyG2CkihxTlubKGzhQ=; b=rjYYH1nM9Rb9G5BqZP79GhZypW
+	6c54VNWr890Q/CNHPU68pJfoFw1ek47laFBQJkLxH+ZRr2Z5Lj4dn/U4w4gGVGnPySWT22BhTcHXk
+	dSlxtuF1HzhnMLKgkAOAdrnKSHYOqwsov+sWqtddTzcSanhQd3VRsh4HtxYzwZhy4rMplgRUOpDcs
+	2MC415ouNgi/gx3DZ++ou+pSBEFR6nCJ8udGmbuUF4N/pO0yfkTt/q57QOXYmOGKlxKxuyAKxvoq4
+	JX3ddosQqnmKjULnktNaOtrXNLnCPUw71s6BmFM3ENDBWN218+QfYvkLe4NeL6lkDCwUmC7IQqO9K
+	2/vY+8aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL5SM-00000001bvR-3tcC;
-	Fri, 30 May 2025 19:31:54 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	id 1uL5bG-00000001crh-2XCT;
+	Fri, 30 May 2025 19:41:06 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL5QD-00000001bSI-10Ic;
-	Fri, 30 May 2025 19:29:43 +0000
-Message-ID: <0dcd01cd-419f-4225-b22c-cbaf82718235@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748633376;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tkiGcg9Pp6HB9HenrxwiWzm/IMuLvXwvBc2ohIpTcuU=;
-	b=qejIatAl3IVBpVjd5b1sjdObGZ7rJABj1bGentvPoaT9Gk2nMpl/NODNwtlNVuxD7mIwiW
-	xTQUdOt6Gu3DaCC7BjJCdrWEHh521evt/yWAJJhiesYDNH5GuqToxdnr9DVQXVDc4uDjZ3
-	Hq4CVYV8tCgSZSBhWUbuMlqAshgB7wA=
-Date: Fri, 30 May 2025 12:29:30 -0700
-MIME-Version: 1.0
-Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
- 3.0
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
- Andrew Jones <ajones@ventanamicro.com>
-Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org,
- linux-riscv <linux-riscv-bounces@lists.infradead.org>
-References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
- <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
- <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
- <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
- <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
- <20250526-224478e15ee50987124a47ac@orel>
- <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
- <20250528-ff9f6120de39c3e4eefc5365@orel>
- <1169138f-8445-4522-94dd-ad008524c600@linux.dev>
- <DA8KL716NTCA.2QJX4EW2OI6AL@ventanamicro.com>
- <2bac252c-883c-4f8a-9ae1-283660991520@linux.dev>
- <DA9G60UI0ZLC.1KIWBXCTX0427@ventanamicro.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <DA9G60UI0ZLC.1KIWBXCTX0427@ventanamicro.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+	id 1uL5Z7-00000001cfP-3XDi
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 May 2025 19:38:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748633934; x=1780169934;
+  h=date:from:to:cc:subject:message-id;
+  bh=q1JEwOfGkELsBWpM27vuEC7S9ArBNQ+wgq8CsiPPgoc=;
+  b=Sw2ewfv/glRILTIVJ4AfF/J1woA4Sz3/qme0eJeS4dp8TBS/lIe/A/1/
+   QJmWHEcUoQMPHrRm4+IAHc6+Nn0hgImgGUKIoY6EWOyX4JQCPbnZm+hrx
+   9Cgm3pdPQM+1aNBT3cn331Ip7QmqKognI6xE5XZX9eBYKfP8d3FTHt14o
+   zEl/17UxmOGBtYntSQF02qh6hFyqcJZT8jNAFXCVqWsyw6eGeeiEv7Ii8
+   NKAcCAwWBjLIMGg0S0Rmms84mPHRi8C0F/taHroejupi5QKYm/4AAmAu7
+   Hm7n73q+myYHnaP2mMw+6ScTD566qwKKG3EVUiVDLRadXRqWpneqzmXgL
+   w==;
+X-CSE-ConnectionGUID: cTM4I3jUQd2NassC54J3Lg==
+X-CSE-MsgGUID: X+0h7VTTT4ik71Z+GKYXkg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11449"; a="54531521"
+X-IronPort-AV: E=Sophos;i="6.16,196,1744095600"; 
+   d="scan'208";a="54531521"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 May 2025 12:38:52 -0700
+X-CSE-ConnectionGUID: KB2puAFpRcSAnPNf/XggUw==
+X-CSE-MsgGUID: oHaXR15MSlu78xjd1+38xw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,196,1744095600"; 
+   d="scan'208";a="144938057"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 30 May 2025 12:38:51 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uL5Z2-000Xuo-31;
+	Fri, 30 May 2025 19:38:48 +0000
+Date: Sat, 31 May 2025 03:38:11 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ 3f07353e2fd3e154921e539044b26e85ca910dbe
+Message-ID: <202505310301.nPzF55Hj-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_122941_810180_9EF1482A 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250530_123853_956316_55FD7213 
+X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +83,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: 3f07353e2fd3e154921e539044b26e85ca910dbe  Merge tag 'renesas-dts-for-v6.16-tag5' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/dt
 
-On 5/30/25 4:09 AM, Radim Krčmář wrote:
-> 2025-05-29T11:44:38-07:00, Atish Patra <atish.patra@linux.dev>:
->> On 5/29/25 3:24 AM, Radim Krčmář wrote:
->>> I originally gave up on the idea, but I feel kinda bad for Drew now, so
->>> trying again:
->> I am sorry if some of my replies came across in the wrong way. That was
->> never
->> the intention.
-> I didn't mean to accuse you, my apologies.  I agree with Drew's
-> positions, so to expand on a question that wasn't touched in his mail:
->
->>> Even if userspace wants SBI for the M-mode interface, security minded
->> This is probably a 3rd one ? Why we want M-mode interface in the user
->> space ?
-> It is about turning KVM into an ISA accelerator.
->
-> A guest thinks it is running in S/HS-mode.
-> The ecall instruction traps to M-mode.  RISC-V H extension doesn't
-> accelerate M-mode, so we have to emulate the trap in software.
-We don't need to accelerate M-mode. That's the beauty of the RISC-V H 
-extension.
-The ISA is designed in such a way that the SBI is the interface between 
-the supervisor environment (VS/HS)
-and the supervisor execution environment (HS/M).
+elapsed time: 721m
 
+configs tested: 134
+configs skipped: 3
 
->
-> The ISA doesn't say that M-mode means SBI.  We try really hard to have
-> SBI on all RISC-V, but I think KVM is taking it a bit too far.
->
-> We can discuss how best to describe SBI, so userspace can choose to
-> accelerate the M-mode in KVM, but I think that the ability to emulate
-> M-mode in userspace should be provided.
-I am still trying to understand the advantages of emulating the M-mode 
-in the user space.
-Can you please elaborate ?
-I am assuming you are not hinting Nested virtualization which can be 
-achieved with existing
-ISA provided mechanisms and accelerated by SBI NACL.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
+tested configs:
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    gcc-15.1.0
+alpha                               defconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
+arc                                 defconfig    gcc-15.1.0
+arc                   randconfig-001-20250530    gcc-15.1.0
+arc                   randconfig-002-20250530    gcc-10.5.0
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-21
+arm                              allyesconfig    gcc-15.1.0
+arm                       imx_v6_v7_defconfig    clang-16
+arm                   randconfig-001-20250530    gcc-15.1.0
+arm                   randconfig-002-20250530    gcc-14.3.0
+arm                   randconfig-003-20250530    clang-21
+arm                   randconfig-004-20250530    clang-21
+arm                           sama5_defconfig    gcc-15.1.0
+arm                           sunxi_defconfig    gcc-15.1.0
+arm                       versatile_defconfig    gcc-15.1.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-15.1.0
+arm64                 randconfig-001-20250530    gcc-12.3.0
+arm64                 randconfig-002-20250530    gcc-5.5.0
+arm64                 randconfig-003-20250530    gcc-7.5.0
+arm64                 randconfig-004-20250530    clang-21
+csky                              allnoconfig    gcc-15.1.0
+csky                                defconfig    gcc-15.1.0
+csky                  randconfig-001-20250530    gcc-15.1.0
+csky                  randconfig-002-20250530    gcc-9.3.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-21
+hexagon                          allyesconfig    clang-21
+hexagon                             defconfig    clang-21
+hexagon               randconfig-001-20250530    clang-21
+hexagon               randconfig-002-20250530    clang-21
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-001-20250530    clang-20
+i386        buildonly-randconfig-002-20250530    clang-20
+i386        buildonly-randconfig-003-20250530    clang-20
+i386        buildonly-randconfig-004-20250530    clang-20
+i386        buildonly-randconfig-005-20250530    clang-20
+i386        buildonly-randconfig-006-20250530    clang-20
+i386                                defconfig    clang-20
+loongarch                        allmodconfig    gcc-15.1.0
+loongarch                         allnoconfig    gcc-15.1.0
+loongarch             randconfig-001-20250530    gcc-15.1.0
+loongarch             randconfig-002-20250530    gcc-15.1.0
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    gcc-15.1.0
+m68k                        m5307c3_defconfig    gcc-15.1.0
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                          ath25_defconfig    clang-21
+mips                  cavium_octeon_defconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                 randconfig-001-20250530    gcc-5.5.0
+nios2                 randconfig-002-20250530    gcc-10.5.0
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-15.1.0
+parisc                           alldefconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250530    gcc-12.4.0
+parisc                randconfig-002-20250530    gcc-8.5.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                          allyesconfig    clang-21
+powerpc                   bluestone_defconfig    clang-21
+powerpc               randconfig-001-20250530    gcc-14.3.0
+powerpc               randconfig-002-20250530    clang-21
+powerpc               randconfig-003-20250530    gcc-8.5.0
+powerpc                    sam440ep_defconfig    gcc-15.1.0
+powerpc64             randconfig-001-20250530    gcc-14.3.0
+powerpc64             randconfig-002-20250530    clang-21
+powerpc64             randconfig-003-20250530    gcc-15.1.0
+riscv                            allmodconfig    clang-21
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    clang-21
+riscv                 randconfig-001-20250530    gcc-15.1.0
+riscv                 randconfig-002-20250530    gcc-10.5.0
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-21
+s390                             allyesconfig    gcc-15.1.0
+s390                                defconfig    clang-21
+s390                  randconfig-001-20250530    clang-20
+s390                  randconfig-002-20250530    clang-21
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-15.1.0
+sh                 kfr2r09-romimage_defconfig    gcc-15.1.0
+sh                    randconfig-001-20250530    gcc-14.3.0
+sh                    randconfig-002-20250530    gcc-15.1.0
+sh                           se7751_defconfig    gcc-15.1.0
+sh                  sh7785lcr_32bit_defconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                 randconfig-001-20250530    gcc-8.5.0
+sparc                 randconfig-002-20250530    gcc-10.3.0
+sparc64                             defconfig    gcc-15.1.0
+sparc64               randconfig-001-20250530    gcc-8.5.0
+sparc64               randconfig-002-20250530    gcc-15.1.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-21
+um                               allyesconfig    gcc-12
+um                                  defconfig    clang-21
+um                             i386_defconfig    gcc-12
+um                    randconfig-001-20250530    gcc-11
+um                    randconfig-002-20250530    clang-21
+um                           x86_64_defconfig    clang-21
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250530    clang-20
+x86_64      buildonly-randconfig-002-20250530    clang-20
+x86_64      buildonly-randconfig-003-20250530    gcc-12
+x86_64      buildonly-randconfig-004-20250530    gcc-11
+x86_64      buildonly-randconfig-005-20250530    clang-20
+x86_64      buildonly-randconfig-006-20250530    gcc-12
+x86_64                              defconfig    gcc-11
+x86_64                          rhel-9.4-rust    clang-18
+xtensa                           alldefconfig    gcc-15.1.0
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20250530    gcc-15.1.0
+xtensa                randconfig-002-20250530    gcc-14.3.0
 
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
