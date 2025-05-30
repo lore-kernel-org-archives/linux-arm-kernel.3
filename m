@@ -4,82 +4,207 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92CFBC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5838FC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDcQoFFC4NqCXcyobvRRuP1Ua4ytiuIE7XjIkD34fbk=; b=u43uYEzmtHNM8ipTs5MYajjL38
-	h0qaOgQURML+i4g8WYK6SZE6R/6vSdVucCMMgxLc745llOTW/QQL69mBag++0aGF9KLl+m/ZXgtZG
-	ERHfuFXlRXoJcNR+uX0xfjm0zS+dvkpNhxom36iTzVa0xRZIqfCig6N7MU/NtoY2DE2FwEDoH/eeS
-	F97trEHNCcBPOPf/KbXBdsgCxqAHh/AAYnRHtzmwv7KbnwmNAJsArklM80frzMop2hNk3Y7CdpUmF
-	c+ZSxY3AfIv/JyvvsTW6xQ1ebEK96vLAnUrVrKqofK9uPgVVQDyjglmbexPmrfjJ8sk38os0jdTPI
-	NHAzngZg==;
+	bh=8NYD8lIwEtkyeiGV2hg5zGeooAcj2uoDesyDxL28Vpc=; b=DPpji5jsPAMK5st01v4mVaexib
+	uBIfGbGOp41Q4mUPhWHowQ40XoTb5/3PDE3nZMvZzBlbrR3v8nAASycVcv+NhfiyqSbJ7qL7G+vNE
+	+UgzAX+8aWU9MV2Z1SoiXmlJ7PTzVxe1kjRC7iEc62qQd4TVHj+mJh9CPte0Qs7Tsva1PUdbKvyRC
+	SqQXAmb+hmkN1/cPISlVQH0nAMzZgamwJPF0JoNQiUN9b3w2KmcqcwzcbtUw0qVRTCN/PJHSOCZvR
+	Bwme/MACg7P33KkyHsYHw6iXI1dXWL7fnXCPIfj+ema+nFkwO3GH32IU21r1Qg9fXUbp25jF+BEho
+	V5iSETOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKvrv-000000005wg-2Ngx;
-	Fri, 30 May 2025 09:17:39 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1uKvu1-000000006F8-098T;
+	Fri, 30 May 2025 09:19:49 +0000
+Received: from mail-db5eur02on20618.outbound.protection.outlook.com ([2a01:111:f403:2608::618] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKvjR-000000004uC-0cQM
+	id 1uKvpq-000000005ch-3IYy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 09:08:55 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D06D643349;
-	Fri, 30 May 2025 09:08:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1748596129;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YDcQoFFC4NqCXcyobvRRuP1Ua4ytiuIE7XjIkD34fbk=;
-	b=ZB1U/Pdfi7HtDnqYB1OWNlxulO3P8Fzu1T1afPYQ754WfHDNuOCqhr37hUY6ZczMdot6mN
-	iKfgB57p8ne86qqiVAZL4T0zsuD2oXjkNi9Lx3+FRbgiijwLmb9ZSxZ3KK2eC8Xqd9CioZ
-	yzOYPApcG7YNnNy58ZNYVwhc7L78+lx/W8BrCXo2NEU35lMAFE1SSpZx26hyQJVZ3Nrnmb
-	w6+mG5x8R8W7GNQ2s81ezwluiyStYudEhpPnKiYruUKX3GhapRbICKk4/l3DWhZDNjo9ME
-	QUFFW58toUQT05s34GNXa92rPdx7Bu+JwK3kC06Yh9cWmK4T9/7lyc5QvFJqLA==
-From: Romain Gantois <romain.gantois@bootlin.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
- Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
- Marek =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?B?Tmljb2zDsg==?= Veronese <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v6 06/14] net: phy: Introduce generic SFP handling for
- PHY drivers
-Date: Fri, 30 May 2025 11:08:41 +0200
-Message-ID: <12687918.O9o76ZdvQC@fw-rgant>
-In-Reply-To: <aDliS9uMFaLf2lCV@shell.armlinux.org.uk>
-References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
- <6159237.lOV4Wx5bFT@fw-rgant> <aDliS9uMFaLf2lCV@shell.armlinux.org.uk>
+	Fri, 30 May 2025 09:15:32 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=dYA742EnvUMoA+AdBiYf8ua2VRRuF4qNLnun6xT6MqTdhcT0QUXq8QHkfq4k+AieVTgKdnqgk3VhT7O3hKi1d0+6XaYSIFZm7Ckub5d2LMIcqCRBS+azvJd9HzAJybwZbuo6e+zi+uSkoFz30AQPum/EgtYP443rKb0cGGjYPGYBuqOV62Tvb9pi1pq01DSXlQBwfIK8ny8k6bL2wh2EJSAOylBS5JFtN7wL+n9+He6M76WH3RRQfzeXMoFwbqSXXUekkV2ot84X3eGQzUkPRH3v0NSA7Hj/A05epjWh3jDdNzDmnzbUAuL4rtEngkVWL0laGQng10P+F5A5qWK9hg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8NYD8lIwEtkyeiGV2hg5zGeooAcj2uoDesyDxL28Vpc=;
+ b=rJKec4mqLDvYAM968nxaU50oD+DEkL2hgd1N0XHHCf0LvufGbpdyDkLLjtSSJN+ecNNdEEQPPjnc4DXaE1Gwy3h0sNU7uMszeXumERXJTkf5+1Kwy6oU9V1nL/XAXE+RNkpjyEdJ9DUcM7rTubRdtVUW5+x0ZLYW8gEK+C8tC9OJCr9ZMXF8aHc7qYKZrcRokpzXAaHLEu9QIXZaYBrIZPE8B3Xpjgg1lzKgtllU2FmqKK/nZUaITZMBrjlVo5zpWLNoqdC8syfvR726QNKjYyrmLl0ghN3orhKx3cuzofJBbO9sRm7FVBj+z6EQNYDh2OVW8wXcaydISi/ADLPDYQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8NYD8lIwEtkyeiGV2hg5zGeooAcj2uoDesyDxL28Vpc=;
+ b=nXNoqDvZ1/gQ+uCeGIakKLOY44V7l9Gv9Exf0OZkXi5atN8WVXOxwMMHKIo+K/fCS/diLMkg/uo1KhO/Z1eD+LOvjqckCj3vb6QpCVPP43BORe1Rb3/BrLu0Jw9ZTHxjsO6t1ipnl46SPHPiB2FWGtoa/1E3U0oFgB4XAKFE5fY=
+Received: from AS4P251CA0028.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:5d3::17)
+ by DU0PR08MB9439.eurprd08.prod.outlook.com (2603:10a6:10:42d::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.27; Fri, 30 May
+ 2025 09:15:25 +0000
+Received: from AM2PEPF0001C716.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d3:cafe::5) by AS4P251CA0028.outlook.office365.com
+ (2603:10a6:20b:5d3::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.19 via Frontend Transport; Fri,
+ 30 May 2025 09:15:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM2PEPF0001C716.mail.protection.outlook.com (10.167.16.186) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18
+ via Frontend Transport; Fri, 30 May 2025 09:15:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jL3VNaHe12SwJf0TD9EbnJmINdyf1dbLi+sr9HoPxAbl976UmpjbWcQGXoX/IW3gb+XmSbp0XU4MnmFZMghnPdczHjuWijKSiRYk/5SEtvMxxVZEA7alKGLxeBHU8fDFXxCZEmYW5pY11+3eRIlcaQnCQuCofNFuJ96JS7jQIFCJmw69jicAkG1hVXPU/5YeHRvfZ85nVRPdkQBiWbQHxbmmog3MjQYlmWuoQf4v2SPiGiA/C2F5P39gsJWMWPOPcT62jFrX4gicrl04um7vh5uBAbpTei5iXNH5rZ5CEtFQNTuwo2uzipiha+3KjxMRLUgr9+XBO25mIs3BwNQbXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8NYD8lIwEtkyeiGV2hg5zGeooAcj2uoDesyDxL28Vpc=;
+ b=sKBqGKisdEl/jSYbjryeCvWz8UT/QJiQ61Dd15/53313077HtkyGLuYnYKAfBV1jG3RUKu976zdHKuUo+PBUioYu//aA6gWno77KZiylfWCCL5p/qgNxn3xxQz630NT3lsz2Z/8o3wdVBO5Qml7i7XNWu3ax3AaQq5pr822fJIx89uZziJAa6Tn/dpyD+4KGIrPktA1tV91hhjjyLDm92KpYrMEv3JbJGkdlY7dtLF7AOhugZgM+80MqB3ZMgHcLBf34QmIObxfErj9o0II1KOQttK7NVPN+u5OCAvgorCPKMsoVQb7Ok62xIg9RhS9YNcEovthHpjdZV3SF6Ls1Ug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8NYD8lIwEtkyeiGV2hg5zGeooAcj2uoDesyDxL28Vpc=;
+ b=nXNoqDvZ1/gQ+uCeGIakKLOY44V7l9Gv9Exf0OZkXi5atN8WVXOxwMMHKIo+K/fCS/diLMkg/uo1KhO/Z1eD+LOvjqckCj3vb6QpCVPP43BORe1Rb3/BrLu0Jw9ZTHxjsO6t1ipnl46SPHPiB2FWGtoa/1E3U0oFgB4XAKFE5fY=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
+ by AS8PR08MB6503.eurprd08.prod.outlook.com (2603:10a6:20b:33b::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.32; Fri, 30 May
+ 2025 09:14:52 +0000
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e%2]) with mapi id 15.20.8769.025; Fri, 30 May 2025
+ 09:14:52 +0000
+Message-ID: <832e84a9-4303-4e21-a88b-94395898fa3e@arm.com>
+Date: Fri, 30 May 2025 14:44:47 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: Enable vmalloc-huge with ptdump
+To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
+ kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ david@redhat.com
+References: <20250530082021.18182-1-dev.jain@arm.com>
+ <d2b63b97-232e-4d2e-816b-71fd5b0ffcfa@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <d2b63b97-232e-4d2e-816b-71fd5b0ffcfa@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0057.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ac::15) To AM9PR08MB7120.eurprd08.prod.outlook.com
+ (2603:10a6:20b:3dc::22)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart5904461.DvuYhMxLoT";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvkeeiudculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkjghfgggtsehgtderredttdejnecuhfhrohhmpeftohhmrghinhcuifgrnhhtohhishcuoehrohhmrghinhdrghgrnhhtohhishessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfdvleekvefgieejtdduieehfeffjefhleegudeuhfelteduiedukedtieehlefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehffidqrhhgrghnthdrlhhotggrlhhnvghtpdhmrghilhhfrhhomheprhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepnhgvthguvghvsehvg
- hgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthh
-X-GND-Sasl: romain.gantois@bootlin.com
+X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|AS8PR08MB6503:EE_|AM2PEPF0001C716:EE_|DU0PR08MB9439:EE_
+X-MS-Office365-Filtering-Correlation-Id: a393d67c-6e50-4528-b182-08dd9f5a8317
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?NHR5Z2dxMDliQnVhUWxPOXJtU0krUlpML3c1dGIrd0VwSkRSci9UamJ0blNH?=
+ =?utf-8?B?cVJYeDdwREUrTW1JMWd2Mm91cm5kbXdwSnVkbEppV3pTN29hK2VvQVV0bTZz?=
+ =?utf-8?B?aUhONFJhN0RrU0pSSkt4K3BVWVB5eThMcnFCanRVeWpYVXRlRi94UHQ0d3hO?=
+ =?utf-8?B?UDU3WTRQMTFYa2xjQlExSTBRNmVGS0xLOEhUak1jTGpQaWY3WjZWMXRhbDYw?=
+ =?utf-8?B?SnhUaHpmZWRudE9VWkc5TlZLcWkrWEJJMnIzclJ6WW1kUDBGc0hRL3NWTzhy?=
+ =?utf-8?B?RXBnL3VHOG1SNUhxblhrcHNmaDREdzBFZlFnc0twdGJxVms2aGdYVzI4VTZW?=
+ =?utf-8?B?cVBkQ0FwUnpwYUdURDlONmhWa0xYV054cTQ5SDNtdk9ZOXpmVis4TEdJb09p?=
+ =?utf-8?B?dTNpV3ZGOTFNeXl0dlBFR2kwYzdLcmJ6ekRodm42MEhUTXZNY0h4TjE2aGtF?=
+ =?utf-8?B?L1Rlb0V5b0oxUVVsY2QwMzRHUHlWSHVYUDg0cHJNN1ZFS3pLc09KZjRiSGJH?=
+ =?utf-8?B?cWdOOVg3b3pTb3B6VXUxa2xJYUJDaWpZbmlwNE9FUk1PMi9CSEJ4VmhMUDdT?=
+ =?utf-8?B?cVFINEF3WWc2VUJRU0hiWmxwSFZiUFBab2o3dUxrMzhodDg0d1BETGlzR2tT?=
+ =?utf-8?B?NHczcGozaG9oSHRaMU9qS052d2dxOWdKQ2hBbXJ3M2lkTCtNazExaUJTaUV5?=
+ =?utf-8?B?VFNXbWQzS3haMTJ3bzVJK0NLdkRNQjRGM1E5QlE1RXEvL0dLUzRpdU4zSWhI?=
+ =?utf-8?B?QVJDSWxrNzBGOXl4YndNSkNXMlU4bng3U3QvYW9JK25ieGsvNXR4WFd3NWhJ?=
+ =?utf-8?B?Q1doOWlwelRKZ3lxZzZoN0dRenJQWUdYRldNUlJQQlhaKy9rdVBSODgvMjZy?=
+ =?utf-8?B?VmZoNUxRalZlekwwdHp1dDZaTlJnRVpkMzFlRUg2WE1KbUFRc1MyRXBLQVg0?=
+ =?utf-8?B?ZUxLVkFPUjF2NElMMlprU2prWTl0cDNzVEpVVUZzUHdFa0YyVytERlp5OGRC?=
+ =?utf-8?B?K3g1akxXdnZBZExab3ZnVHZadGgyU0ZLUUZVR3U4WFNKZnFBTThOekpINnMz?=
+ =?utf-8?B?cGl6TlRSTnQ4SEgzSERnTC9kTytLOWY0ZGF5ZVpBTkJ1c0NrMUNaTmc1dEh0?=
+ =?utf-8?B?OEVhUlNaYkFTc2xlZ0hmWDJZSXd3K0V6Vm51Q3pSWTduNmNwd2U1S2xpL0xT?=
+ =?utf-8?B?Mk01b2REbFp4VkJ5ellUb2tvb0w2NEF1aTVaczFCckRHcGl4VW1qWTc1MHhm?=
+ =?utf-8?B?OWZKSmtSVmYraEdtd1BFazRQMUdvNmE4dklzTUM1Z25uaW5ISFQzSlRBQlIw?=
+ =?utf-8?B?Qm1yU2NLV0g3S1VMelZ0bFJpNUh3UERjM0o4cU8zYVN6dCsrM3psT0V3UU1I?=
+ =?utf-8?B?TndwYWRTdVprUVF3ZlpnNGwvSVpNMzRMNkZMell3S0hWeGhMMWZxRTJHV0ww?=
+ =?utf-8?B?c3FncU03aWlUSk9JaHlyY3NXRWhGVWtyRmoyMzNsOVVCSGE1eFJ4NEZieUpz?=
+ =?utf-8?B?VHlLbjluZ1o3MkFEQTAraHhraXl0RU0vdG01VWQ1cmZ6RDB1NHUyOUdGOTQ5?=
+ =?utf-8?B?QUc4VWNpeTZPQ1ZqOFNTQnZqR3BUaytFbXdoUEZTcitGV0lBd3ozRXBBaDJw?=
+ =?utf-8?B?WHREK2hMaUtGUHBYUjk0RG1zRDlaRmFkbnJxdSticnRoY2JVZUVoMGxGUDA1?=
+ =?utf-8?B?bmpZSmdpOGVGMG1Kejg1ZVJra2o2RDM3Ri9EaEQ4aFNFWVZGYVNKTEZkcEVY?=
+ =?utf-8?B?QW8rQ3JzYitCYlIvVFk0ZzljL1lzcmlocmVYRTI2MitJRWR5a1U3aVU1c2Ey?=
+ =?utf-8?B?YWV0d3E3aURQeHBqRWNtT2FLQlJKQUFDbFFHMy9rT0M4d3FOL2M1ZzdEN2kw?=
+ =?utf-8?B?MVZVejg1cVRMOU5JRmtJL1Fjb2lVbDJFOFV0THJtWmZoa2c9PQ==?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6503
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF0001C716.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: f64290b3-6508-461d-3941-08dd9f5a6f72
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|35042699022|376014|14060799003|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aS9mR3RFb2dYL0pJRXUrNjRCQ3EvbFI3RFF3dXh6M1JvdUxiY0R0ZmxYVG9h?=
+ =?utf-8?B?VlNobEd0WnhlYXI3cTVDVkh4bG1QWURGOFNYVm9Nbm1JZFh4Mnd3YnBYaEkv?=
+ =?utf-8?B?RFRXMFRBM042VTlyZEUvZVM4OExXa3c0OUpnSXBPckRPRHZ5Yko2cURRaVRo?=
+ =?utf-8?B?K2dOUEFMMDUvQ3M1UU5ia29iZWJQYkdKSkg1QjZyVTUyRnNWTmYwNHg1Qmdn?=
+ =?utf-8?B?N3Q0b3ZuNmRoT1liY0ExNGpVYklZVmhXUUtmMHB3eVNmeGx6a0p3QjVtaW1Z?=
+ =?utf-8?B?Q3lEYXRqRmJFY1YwblYrTjVtMUIyUHNhSHdQTy90Vnllb3BLR0liWE1ZdEtx?=
+ =?utf-8?B?bDF2NmtnbHhmUG1mNUpicllibEVMOTN3a3E3Y2lxWUFMVjhQZUtIMm5vWkR3?=
+ =?utf-8?B?aENDY2tEWFVQTGxjdENJY25BY3RyaWRQSkpOYzIyUG9kNlV2U2hwL0cxVm9p?=
+ =?utf-8?B?dmdZMWc2RG50cHExQTJXWVVnSDdJd1FadDNmQ1BDSEU1bDE1VGtWYmtKdnhw?=
+ =?utf-8?B?M01GTTZDdHhxN09hRHVDZnpHbzZLendrcGxaQktwTEYybGlSMDZlZE5GV2FF?=
+ =?utf-8?B?M1VsTVZuemdIajg4S1RyVHIrKzhUR3VIQlE0TW1BK25SYXJnRW1IWlViSURK?=
+ =?utf-8?B?SDgvNm1WRDA5ZXVLZXIwb2ZDVU9GN2Vyc0hOb2EwclZ4eUZRQWt3QkpCYkps?=
+ =?utf-8?B?MEZsSjhaWVFXenRhcXMzc1dTaTdqSmFWZUFmWkpndjJ5WDFTQkNQY3JGYTIw?=
+ =?utf-8?B?eUhhZUZGZnVXNUI3TW5sUzdtcGRqK0pjUG5WRzdVTlVKUEI0emIrQ285eGk0?=
+ =?utf-8?B?Z2lVWHZOZTdJVEpwdjdKaHhJNTFsRjRjQktZbWYrUnNuZU00cktlZFZQMVVl?=
+ =?utf-8?B?cDFObE9iSEpKUmE0REpCZ1pQc1ZyTDEzU2IwbGpZL3g2Y0dPSEl1RWNKT1pk?=
+ =?utf-8?B?N2wrWGJkejg5MmRXaktjTERrZGJNZGl4TnlYeVhqMXFYaTcyOUVHRUNPYUdC?=
+ =?utf-8?B?ZzZJL0NyRTl5TURWMmhwZ0YwNFhSQlkyQ3ZMN1JzTWh6RG52bTdKMjRqYjRs?=
+ =?utf-8?B?c2xxZGRRdndCamIyQnM2d29peHZkRkhTS284RStnZjY0aTFFL3BTdVdMNmxE?=
+ =?utf-8?B?TUlvOXRJcjRVZGJ0cXVnblZqZ3Z0TWQ0ZDdJUzJJa0l4cmhveGJoVTk2YTJ2?=
+ =?utf-8?B?OXloRkU2TVUvODhQU3VtWWNlN2xwNkhUZElVcXZwaHY2cjhOcVVPMzA3aS9Y?=
+ =?utf-8?B?US82SjY2SWhkRSszVHJ6b01QTWhieUdpRzBQYWo4MGt5TVJ2cFdnVFJYUjNl?=
+ =?utf-8?B?VzFYeVRBSWV1b0daTWI1MjBleTkyTFR0OTZHMmZJVmFBRmdIbnJmbUsxaGh6?=
+ =?utf-8?B?cVBBR1E5SXNhZzFnbW9uejd2R3QwdUpkaVdxbkM2ZkxoQktFYUdldGxYaWs1?=
+ =?utf-8?B?NjdRM09mWWZaYVdhbzUrNHFFTndsRWJLZ2tZbUhoaUxHMXhCVVA3QUVKdHVH?=
+ =?utf-8?B?eFVDR0pHNjNnMHphL2xheHBPT0dJWGsxK0JraTVFQmd6NWpUbGJiUGQ1eHA2?=
+ =?utf-8?B?UHZQNGwzMEVXVnVEZDBPRjhwNHVKdXVaTXoweHovY3JXRVZPaCsrR3l5K0E4?=
+ =?utf-8?B?Wm5tTE1CZS9WNWxKM1F1NGozQzNIaEJMRVVHQ1Jzc3BuZ0NIMUovazcxMkZM?=
+ =?utf-8?B?YndTRnovbGVQNkhMU1RRQURkNExPdVU0VnM1bHVJcldGbVNraFRaYXBNV2NW?=
+ =?utf-8?B?VHUreW56VURhaWhKd0x3SVFSMUNpZFJ5dTBaS3dycXBkZWZJUXQxci9DdXVE?=
+ =?utf-8?B?Qk82R280NE00Q1ltSW9qTW5mTmt5MW14aGxjc1dWd2tWNFBKb2Z6dytodVlq?=
+ =?utf-8?B?SHphS0V2RHk1LzNIZHgyK1BJWlptODRRWms2dnQ2dHMxSEJReVhNNWtrdzhC?=
+ =?utf-8?B?d0M0NmJQWTBndnZ6QmthM3REZEhxcGNlWE9wbUNoakRpdHRRMWN4elhaMFZm?=
+ =?utf-8?B?ZkJsRDZycjZSQURnMjJtbG42Mktia0dJZ0J4dnkvTnRwUGhtWkF2WEhoazNW?=
+ =?utf-8?Q?S5Ocb9?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(35042699022)(376014)(14060799003)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2025 09:15:25.0729
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a393d67c-6e50-4528-b182-08dd9f5a8317
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C716.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9439
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_020853_817792_B3E9E890 
-X-CRM114-Status: GOOD (  24.77  )
+X-CRM114-CacheID: sfid-20250530_021530_979464_D6813855 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,96 +219,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart5904461.DvuYhMxLoT
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Romain Gantois <romain.gantois@bootlin.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Date: Fri, 30 May 2025 11:08:41 +0200
-Message-ID: <12687918.O9o76ZdvQC@fw-rgant>
-In-Reply-To: <aDliS9uMFaLf2lCV@shell.armlinux.org.uk>
-MIME-Version: 1.0
 
-On Friday, 30 May 2025 09:46:19 CEST Russell King (Oracle) wrote:
-> On Fri, May 30, 2025 at 09:28:11AM +0200, Romain Gantois wrote:
-> > On Thursday, 29 May 2025 15:23:22 CEST Russell King (Oracle) wrote:
-> > > On Wed, May 28, 2025 at 09:35:35AM +0200, Romain Gantois wrote:
-> > > > > In that regard, you can consider 1000BaseX as a MII mode (we do have
-> > > > > PHY_INTERFACE_MODE_1000BASEX).
-> > > > 
-> > > > Ugh, the "1000BaseX" terminology never ceases to confuse me, but yes
-> > > > you're
-> > > > right.
-> > > 
-> > > 1000BASE-X is exactly what is described in IEEE 802.3. It's a PHY
-> > > interface mode because PHYs that use SerDes can connect to the host
-> > > using SGMII or 1000BASE-X over the serial link.
-> > > 
-> > > 1000BASE-X's purpose in IEEE 802.3 is as a protocol for use over
-> > > fibre links, as the basis for 1000BASE-SX, 1000BASE-LX, 1000BASE-EX
-> > > etc where the S, L, E etc are all to do with the properties of the
-> > > medium that the electrical 1000BASE-X is sent over. It even includes
-> > > 1000BASE-CX which is over copper cable.
-> > 
-> > Ah makes sense, thanks for the explanation. I guess my mistake was
-> > assuming
-> > that MAC/PHY interface modes were necessarily strictly at the
-> > reconciliation sublayer level, and didn't include PCS/PMA functions.
-> 
-> When a serdes protocol such as SGMII, 1000BASE-X, or 10GBASE-R is being
-> used with a PHY, the IEEE 802.3 setup isn't followed exactly - in
-> effect there are more layers.
-> 
-> On the SoC:
-> 
-> 	MAC
-> 	Reconciliation (RS)
-> 	PCS
-> 	SerDes (part of the PMA layer)
-> 
-> On the PHY side of the SerDes host-to-phy link:
-> 
-> 	SerDes
-> 	PCS (which may or may not be exposed in the PHY register set,
-> 	     and is normally managed by the PHY itself)
-> 	(maybe other layers, could include MACs	back-to-back)
-> 	PCS
-> 	PMA
-> 	PMD
-> 
-> Hope that helps explain what's going on a little more.
+On 30/05/25 2:10 pm, Ryan Roberts wrote:
+> On 30/05/2025 09:20, Dev Jain wrote:
+>> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
+>> because an intermediate table may be removed, potentially causing the
+>> ptdump code to dereference an invalid address. We want to be able to
+>> analyze block vs page mappings for kernel mappings with ptdump, so to
+>> enable vmalloc-huge with ptdump, synchronize between page table removal in
+>> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
+>> use mmap_read_lock and not write lock because we don't need to synchronize
+>> between two different vm_structs; two vmalloc objects running this same
+>> code path will point to different page tables, hence there is no race.
 
-Definitely helps a lot, thanks.
+My "correction" from race->no problem was incorrect after all :) There will
+be no race too since the vm_struct object has exclusive access to whatever
+table it is clearing.
 
--- 
-Romain Gantois, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+>>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>>   arch/arm64/include/asm/vmalloc.h | 6 ++----
+>>   arch/arm64/mm/mmu.c              | 7 +++++++
+>>   2 files changed, 9 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+>> index 38fafffe699f..28b7173d8693 100644
+>> --- a/arch/arm64/include/asm/vmalloc.h
+>> +++ b/arch/arm64/include/asm/vmalloc.h
+>> @@ -12,15 +12,13 @@ static inline bool arch_vmap_pud_supported(pgprot_t prot)
+>>   	/*
+>>   	 * SW table walks can't handle removal of intermediate entries.
+>>   	 */
+>> -	return pud_sect_supported() &&
+>> -	       !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
+>> +	return pud_sect_supported();
+>>   }
+>>   
+>>   #define arch_vmap_pmd_supported arch_vmap_pmd_supported
+>>   static inline bool arch_vmap_pmd_supported(pgprot_t prot)
+>>   {
+>> -	/* See arch_vmap_pud_supported() */
+>> -	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
+>> +	return true;
+>>   }
+>>   
+>>   #endif
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index ea6695d53fb9..798cebd9e147 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -1261,7 +1261,11 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+>>   	}
+>>   
+>>   	table = pte_offset_kernel(pmdp, addr);
+>> +
+>> +	/* Synchronize against ptdump_walk_pgd() */
+>> +	mmap_read_lock(&init_mm);
+>>   	pmd_clear(pmdp);
+>> +	mmap_read_unlock(&init_mm);
+> So this works because ptdump_walk_pgd() takes the write_lock (which is mutually
+> exclusive with any read_lock holders) for the duration of the table walk, so it
+> will either consistently see the pgtables before or after this removal. It will
+> never disappear during the walk, correct?
+>
+> I guess there is a risk of this showing up as contention with other init_mm
+> write_lock holders. But I expect that pmd_free_pte_page()/pud_free_pmd_page()
+> are called sufficiently rarely that the risk is very small. Let's fix any perf
+> problem if/when we see it.
 
---nextPart5904461.DvuYhMxLoT
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
+We can avoid all of that by my initial approach - to wrap the lock around CONFIG_PTDUMP_DEBUGFS.
+I don't have a strong opinion, just putting it out there.
 
------BEGIN PGP SIGNATURE-----
+>
+>>   	__flush_tlb_kernel_pgtable(addr);
+> And the tlbi doesn't need to be serialized because there is no security issue.
+> The walker can be trusted to only dereference memory that it sees as it walks
+> the pgtable (obviously).
+>
+>>   	pte_free_kernel(NULL, table);
+>>   	return 1;
+>> @@ -1289,7 +1293,10 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>>   		pmd_free_pte_page(pmdp, next);
+>>   	} while (pmdp++, next += PMD_SIZE, next != end);
+>>   
+>> +	/* Synchronize against ptdump_walk_pgd() */
+>> +	mmap_read_lock(&init_mm);
+>>   	pud_clear(pudp);
+>> +	mmap_read_unlock(&init_mm);
+> Hmm, so pud_free_pmd_page() is now going to cause us to acquire and release the
+> (upto) lock 513 times (for a 4K kernel). I wonder if there is an argument for
+> clearing the pud first (under the lock), then the pmds can all be cleared
+> without a lock, since the walker won't be able to see the pmds once the pud is
+> cleared.
 
-iQIzBAABCgAdFiEEYFZBShRwOvLlRRy+3R9U/FLj284FAmg5dZkACgkQ3R9U/FLj
-285M0g/+Nz1A6obdeKee0RLc6MA2gBvM/EmqYPQ6ZduN6VFL2D6J4NATyQRqu/VW
-u4d0pjD2ZOe44w6eAeRcWHsC0LJYfnHPPMhxekF2l+qqggkvZDGp9BmWJZd5UUe0
-dDxur4qI6XF2WlWDXyf9auZ3iGvqOUnWYK7VsLu/1hMYeC8M0Q+5dwy72//aAGnH
-9lyBU77a7sd3Qhlnd5Flg5f9ZuQmfqcD7Hyjp0OXdSJr7TlXLPJ+4FffNTivOQMK
-WonmDnfUOSPfxukMd0ozR7Z2BdvUeKPrlQq6yvcC5aS+9WZvVWCZzLOLrlBylu50
-wtEnYLpXd8QVehLsZGfE8mB4u+IuJICnEKhhrQ7YSLdjmXkj4VHCZHjl28WrI5rP
-wMCczhfYk4tDM83L2TBDVX5DTvcIcBawWlGxwzOdZ8WbipSVt5LZMtAkICE9TZzz
-j0oJ6+4xxi8mXGVduWD7kztOgXFl+UAx9GG8RsWoSPE0+t1f2nO0YV55UTW5RhEA
-/hNR+P1Z8pB9SHjHM9TskW6LC4Z/NEIBnI0N98BacAdjSc/KX4uHSH01ANVHRyEs
-wD5PJQKAj705h81tvNA4RzUkqC+UAa9bjtE3gtqj0KnusZhSiPBtIRe55sJ3W9aU
-uYNbFO3CW8dD+WMqYm9fQrWtbqX/tOWRCOzdM5KMSNpbVyBWNDs=
-=r0Tf
------END PGP SIGNATURE-----
+Yes, we can isolate the PMD table in case the caller of pmd_free_pte_page is
+pud_free_pmd_page. In this case, vm_struct_1 has exclusive access to the entire
+pmd page, hence no race will occur. But, in case of vmap_try_huge_pmd() being the
+caller, we cannot drop the locks around pmd_free_pte_page. So we can have something
+like
 
---nextPart5904461.DvuYhMxLoT--
+#ifdef CONFIG_PTDUMP_DEBUGFS
+static inline void ptdump_synchronize_lock(bool flag)
+{
+	if (flag)
+		mmap_read_lock(&init_mm);
+}
 
+and pass false when the caller is pud_free_pmd_page.
 
-
+>
+> Thanks,
+> Ryan
+>
+>>   	__flush_tlb_kernel_pgtable(addr);
+>>   	pmd_free(NULL, table);
+>>   	return 1;
 
