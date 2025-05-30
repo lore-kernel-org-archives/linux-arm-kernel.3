@@ -4,188 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A72AAC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 11:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E10C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 11:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vLqng+x8Fa+UPr/ZKu7BkxGdcJCzORYk2NEFJIK+wLg=; b=qFaoXzGnjmKO5TETNPw7Hb74Y7
-	/YHpwLruV6aDKC/d9fNHx69NR8KgFkCDjiMmjVmtWjnOI8BmobFVALsoux4j5vqbDvfRrzwmBnVLm
-	pchAMrde3i+ocYgKPvq7eiVs8zS+/auSAVJS7njLFBOntRQjWne5uzy2CqPTrA/ylljOvtLhdMFsG
-	uBzMk7cvbelq0LbxfXLn0j0iDI1UoMyAB0razfy03d7IvgtWRay7c8ZPMGBvuLXTeTeiSnXE9ZrSw
-	8sRLV6LBP9dQ2iHzV29lS97ZQ3KCIdNXmytrvWq0XS+4Dp7QeQ3s5YPJJ+9IwuP95HG7tLoccGTyc
-	fYxulmew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=USDzPWtwfClWp+wqP7p23s9TnEvWK9VkLl4tGpc0TUk=; b=z4L8zCpORoVNBYCMroQiSgzjOp
+	nrtFloUGA18NTFqxt2lP36hraa+KpovJuM+tCXEes10dWFOPw+AEJoaffQ8A5Tkzv24o1DkQ+rAje
+	GIcr6qToZzy7JVeFEqQMpDO7MPxg8Oina9f5s+J2kR7IxVg5MaVwNzz1EFPIbysg6ei1SNadNxfZa
+	thhdzLLeYxVyaEJE6IR5A5qQnrmJ8roXWTcjlPPo29p83HYUURju5p5ckpAX2Fl1jSkIPTuSaXtAF
+	8lHbvW+TA7Ooh2kdRhrU8b9a2HMAxJLxHqyjchRpSbahya5srnr3faLtnIDOh1DL4eatmyHUwes+g
+	S5BzGLRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKxjT-00000000OkQ-0qno;
-	Fri, 30 May 2025 11:17:03 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1uKxoF-00000000PfB-0mhj;
+	Fri, 30 May 2025 11:21:59 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKxhJ-00000000O8R-2XMz
+	id 1uKxm6-00000000P8D-015a
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 11:14:50 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54UAt1vY005005;
-	Fri, 30 May 2025 11:14:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=vLqng+x8Fa+UPr/ZKu
-	7BkxGdcJCzORYk2NEFJIK+wLg=; b=p6ApJPox0ThvACgv+8qzVWCrPpRKjBDWbg
-	1KccbHBskERwdeotOsJ6z5Felwj1Ut09HvDzqHZHpGFxtdEO6T9SSDlzZ49gQk7r
-	xR+RkL42mb7r44Lgmy0txK2/7nWlq40+FMDo4LlRcOPns82/yt9yWGcZ9NVaK6Uq
-	ieMM3vLBrTkku/XZBRzidRX3OsEjb3WC4XbqyP7tWAV7ya9BsfU1KuheY+Ki5UcU
-	+MaC0/M/nm8WrdEc5u8eQKErPV0XHS4mrr88Nr/my4FJFgP+fDQvl3d2Lche3pTc
-	2cRDE+2+sJugadGfM4ea7bqiWrRddlxoIVhOtpjvOc4r7Km46CfA==
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46v3pd9tg9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 30 May 2025 11:14:37 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 54UAKBmd025680;
-	Fri, 30 May 2025 11:14:36 GMT
-Received: from nam11-bn8-obe.outbound.protection.outlook.com (mail-bn8nam11on2060.outbound.protection.outlook.com [40.107.236.60])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 46u4jkdj7w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 30 May 2025 11:14:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V0Wh8P9oX7ngkcTKkUpxgkr8mRFidrSKBNc4J6jHKVwZv5eR5t1PE/KusoP7wcaXw22QFnw6GCv7c2/42mEDw1vIE6EPXbZjoRvyPWwh7lvSp1pyPYWaKGiokvxoQZAYWzkeqTOkFdW6MSyfplpAU7D14YceQEnNm+4rjzRNNGgT+pWcpA1EAr3jukX/EoytJ2MP/sCF1Y6B3btSQRL0uZEp7DVZdqvqk2+TTZ+Mlu6/5Do70lKNj+oMZbqEi6D3fVsreDa8H8++LCgIVnNv9MoZXLNpwdttdDcvhflWzlS3DADNzqWrk8mAJgyEM0AeGkhKgMNP3MZOlWQlxo3ISQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vLqng+x8Fa+UPr/ZKu7BkxGdcJCzORYk2NEFJIK+wLg=;
- b=wrAGuaCY8yGVhHgaWH83HMSy5PZNv1QJYLVPWH1HiaIg/30Hrq0NhuOI7+kyCWxY6OoKzqoUgnITBuFceNcZRD5bmXv2qQNrtRLO3tbNhPoI+CMZOAsfEHXfzalIVfHtIUlpvPXnNoJjwr6QoRC0SvvjYyTCW4/teaG8ixueljepgKqjNUhhndRLHrDiCY7hWTDw24g5YvXxksRJ8tov6q8Wv3G7pdshG1rmpb8fG68mLFxUB8g0X/jxVJ/0qfkT9qWg2HRna0TdIqUoM9W7R10PS2LAGQoMwjpAoTilvhODcKWZL/jkkRMsmt6B6VjyuHMKQbIkPNqgSAymarFg4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	Fri, 30 May 2025 11:19:47 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-450cfb6a794so10536515e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 04:19:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vLqng+x8Fa+UPr/ZKu7BkxGdcJCzORYk2NEFJIK+wLg=;
- b=ns07iXdiN9OrnSZz+hYHC2X0F2qv7Qw3wtSK2qLUTbQ4YZQXAPSz2L5vV1rzEjd2m4teBBS62Gb1jDAfKM0jLcxnep1tQ1iO6W7OdwVFyXAHfVbc/JWZZdU+Wpk46myvMxGrC66IWWySE5+G4LTj7p/KjkPJEFqD7Yy/3F03xDA=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by SJ0PR10MB7691.namprd10.prod.outlook.com (2603:10b6:a03:51a::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.40; Fri, 30 May
- 2025 11:14:33 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.8746.030; Fri, 30 May 2025
- 11:14:33 +0000
-Date: Fri, 30 May 2025 12:14:31 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, catalin.marinas@arm.com,
-        will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz,
-        rppt@kernel.org, surenb@google.com, mhocko@suse.com,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        suzuki.poulose@arm.com, steven.price@arm.com, gshan@redhat.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/3] mm/pagewalk: Add pre/post_pte_table callback for
- lazy MMU on arm64
-Message-ID: <7b4360a0-42ef-45ab-9e63-eace52943529@lucifer.local>
-References: <20250530090407.19237-1-dev.jain@arm.com>
- <20250530090407.19237-4-dev.jain@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250530090407.19237-4-dev.jain@arm.com>
-X-ClientProxiedBy: LO4P265CA0272.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:37a::12) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+        d=tuxon.dev; s=google; t=1748603984; x=1749208784; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=USDzPWtwfClWp+wqP7p23s9TnEvWK9VkLl4tGpc0TUk=;
+        b=g6+lvhFRki1NANrPjon1pFnonONXqA3aiMQTpFWx2jftvIgGhOar78eAZ5zrosUokN
+         V2qtp/i3xzaEWRc9qlBucZ3CexBU2o53nZkQeF6aakB1r1T9ObfmwflI3HZy/GoZrwZD
+         Ls4/H6V906NQaIHBxUMCxhnE9CLp/xl0COkG48azYn6FYgN4/TdCpnqkZkbPIzVZmyEE
+         2ySeDn3oNLbSIWtD5z5XVsQMdUlxUYmYz5SFiWqyrDMdn59yhGPkvubcSMsyl33ahw50
+         8ZAJ5f16p/YubcjLb2RNlw0lT8pMQRq+PrtkQzlmoIpHuYGziGsftK7zg4xwC7Uo/KtN
+         IhEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748603984; x=1749208784;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=USDzPWtwfClWp+wqP7p23s9TnEvWK9VkLl4tGpc0TUk=;
+        b=hYI/ozac9R3AvcVuwMPQ4pcm9wgpr3mWIJg9K+RvzC3WMhzoCQeOzyxQscxDOuaPcc
+         SIknPUWdUpHaztbxlG7vi1ji619J7HHyOdb2f1tfSyS4Sv7geLuweFSXFkZMuGOJZ512
+         4Sd0R8L9yUCUVWCqyr8t+u/Jik4cqZt1fqxSeQ+ZvlPjvtkdy2TWQ+NR8YO4Ostn89Sn
+         AwHaocoAO7rx2FoYEFcI4SZGzxVTcHn4bo/MlNJlB2t5zkL12oQ7m/hXAmNH/VwRpAmY
+         Kyk61kspkhlLywbfBrkUGmIv68Xc5oXCaTqKiuH1HAwHbM6N6vU+HOpSg3g4ARO06grV
+         GFnw==
+X-Forwarded-Encrypted: i=1; AJvYcCV95i+gdoRRebhNCRI5c2Ey5BP1oUnEfLP9njMMIDKU8xmWVQMkbOl/adBgNGKAk42Kgp4bo9n/HYr6J4TZ40CT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRrrtgcrmbbrErIYtVFT25OD3wCM/Om6wWWEE/FMrSft93PpVJ
+	tq9zDvfNwKalu9ZRw7lXJ/RI3pvHT+iCkRfBAigG2WNDZGmC7oFpDTI23CJQQV/2C+8=
+X-Gm-Gg: ASbGncsS0LUA2KtJMd2sJmp6ejzQbbc1JruTBLPZLWozeindXCzMWSk8MmssfJIPHph
+	pbvYGqvLibiXY1UzZbzkePOXrEyc5syKXtQc1j0OM40woCiRz3rMu+UxHClX6sp7V+rF/QuJ//j
+	3y9il8Tt5Xg5zkiB2tYy2n/Snjei2QjcQJsg7LZoDp3OO6oDMAINoVE0ssnhQgmaS5z9+n7RAJd
+	d3UK+JX91aqiNgux4x5n5/4osVqAJGNJYL5Bz4tIz8zEScJMzdYDmKRWm1iiz20Sw0pQEzYZF5F
+	cuWP+l3VIvZU3IF6/3jnB1QCQQdQCG5wbszzcZVnFmM7//rO2irSHlg17j7grCFN3fqorlP4tDT
+	VhX4Cyw==
+X-Google-Smtp-Source: AGHT+IEbp0QcHOdy/Wep78m1G3gFrb9KOos/vWXOjVVBlX3y+lsRN5K2Os1MzG3FOYd4Bwb4BIL7Jw==
+X-Received: by 2002:a05:600c:1c96:b0:450:d386:1afb with SMTP id 5b1f17b1804b1-450d64d63d1mr31026995e9.9.1748603983832;
+        Fri, 30 May 2025 04:19:43 -0700 (PDT)
+Received: from claudiu-X670E-Pro-RS.. ([82.78.167.126])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450dc818f27sm3986435e9.18.2025.05.30.04.19.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 May 2025 04:19:42 -0700 (PDT)
+From: Claudiu <claudiu.beznea@tuxon.dev>
+X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
+To: bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	geert+renesas@glider.be,
+	magnus.damm@gmail.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	p.zabel@pengutronix.de
+Cc: claudiu.beznea@tuxon.dev,
+	linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	john.madieu.xa@bp.renesas.com,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH v2 0/8] PCI: rzg3s-host: Add PCIe driver for Renesas RZ/G3S SoC
+Date: Fri, 30 May 2025 14:19:09 +0300
+Message-ID: <20250530111917.1495023-1-claudiu.beznea.uj@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|SJ0PR10MB7691:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4df462ed-a886-4d22-7221-08dd9f6b27af
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XhEJc5GviLopTXBn3Bi3QfDovO6xyWO0ODfXOUKB6hwRWtGpBtrvL84TfDrt?=
- =?us-ascii?Q?QziJfMzDUXldrLWKA4tiEwyvmHkobLN7WrfzmtS3NKOZ7MLOVJqa/OjR3gaI?=
- =?us-ascii?Q?IfAXSLmGmy8G7kGCLvRGIp61ucf+cayQQlzyoMBVEzpLh2nDCvPoZDx7v/Ak?=
- =?us-ascii?Q?1YFvrYwqKlwquMyYxjWFuzPbDFcW/50UefWUQMKDdIZYnejZuUc7JQW0PP8o?=
- =?us-ascii?Q?VbqeV4OvaoazFd+6vDdPtwoayqoF84L0/Xf+R6XZbntxQ20h8Nn5PSDVTCFG?=
- =?us-ascii?Q?AP1AIkGVZ4blO6ghcSvOKOTLxdHebw1iX8Z6D5+u45yzIbYGdv5D2UTJQRfc?=
- =?us-ascii?Q?rcjOsNkPpZ5el/ZvebZTEBrATNra9RBtrbvoadQnSsAhPQKcZi/QhpRIbI1E?=
- =?us-ascii?Q?D5MUahhHyxSZcHIQ3l1ktu76NqgtyUNxO3w///uG72Dg90CHzgzs4OgQ9bUr?=
- =?us-ascii?Q?ws5uj8TgsTmAV3HShpeWuw18v2G7bxjAc0O3LP2b35LvCsqg+9FK2qxoetXW?=
- =?us-ascii?Q?iAwbgOvh442Pb5FElzwgTUkEoioD7sZohrBrx6WX/UdMuEwK6qJC6AppWzK4?=
- =?us-ascii?Q?ukdIA1DBJFz4jM7GgTKSyPI/qrW9N5hFMcaDqUbiqgIB47QqWuH5L/w3IzMh?=
- =?us-ascii?Q?DMfnAEfR1GlhV//gCtQVGSNbNe7NgPypnWH7Y8sH01jTLq8C9l/9aA245CuE?=
- =?us-ascii?Q?8TentkUth2DSil0isw+w4iyGaikg0mg01tlJDcEJC/4ki4YBQtrYHSmCl/fz?=
- =?us-ascii?Q?3JwhZpC3xMJM5ZV/tDW3omDUu3A5g/Ycf/RuGnJH03l29wFcLoGp4C39WlKc?=
- =?us-ascii?Q?e2wX+saNJ6plNFAPSGZFKQADLHYHQPB1L57BjZCxBumn3Sm6kBelixRN+E+6?=
- =?us-ascii?Q?XAv+Q0bF2JfzKOgc2WSnFO553kJ7Szcb79/CPMP0Q9wIUNY4H73VgI6Gioft?=
- =?us-ascii?Q?H+23JVMeqxUXnPky6G95Kfm5TFay3gI0WeRL4NViM0dlr4o91mKSrn3GHdcQ?=
- =?us-ascii?Q?WRrfZ0wlgo88LhOpz0vcljINKdQfwb9APSXEHOALv226iLYlgr9paDMdbLBx?=
- =?us-ascii?Q?U36vcxNc5GRv+SouvW7DyTk/W/KTKbAv1bmeftOQ+sRywVQYYNq8ZSWv7kMF?=
- =?us-ascii?Q?C3K+8l6jQ7QJx5g+KEfvsXONOEDWLqaAqBF8yG+VjYwJIfNPMx2+nIJI6NAg?=
- =?us-ascii?Q?lPKRxHqe/MVhvFf6V+W3cOTGsRxCkByV8BMD6tILyijrcuLqJYqRoW/oj1ru?=
- =?us-ascii?Q?EoB8F0dBScrkxABdmJiMcHgkNxVdiM7Fwr20N4Av3IanM0PTpuu1SwnNurcj?=
- =?us-ascii?Q?cHYg66QfawWNFn2XA/VIlqOR4hXg/zcYsoZdLH7JCejuJRIqNNMQMBHlMBmt?=
- =?us-ascii?Q?UmA2a4dVNhn1eadlsv7mhZFuyItH5s36oWHoW5mFINxHd1IIv3cIGX0YYlcY?=
- =?us-ascii?Q?WvZy3xLNU5o=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?N1G1aueg/QsAPjlCJYCU3xnmLOqDJvEBBaRziep+b1bRsOyTwfaHOiWnLBR5?=
- =?us-ascii?Q?qsM8OppYexM7CtD/YOr+RVNJLDm4/c9k26RNsYuNubOO5fNdWkjR7t0mVfWr?=
- =?us-ascii?Q?f/AgpBwa99W/zcGFmMckP75aqZWHeiBjI71aFhY3KXdeoAi6jtX8HhgegLx2?=
- =?us-ascii?Q?bM5VPDrWpu9EttSiByAprfG9WofdNuOYBV/cUbx77RGg2W54ekUI2uAfTADq?=
- =?us-ascii?Q?uCQEq25opoEgGc226IBXXMpokaLdVBIammHTHHTsxz2Y561HghR3eWZELlc4?=
- =?us-ascii?Q?dLQEP7YvcinfUJLaVaLA/M2kJ1zYvuksaBGfvARvLCdnxxj2OD4t381iEA/n?=
- =?us-ascii?Q?khvRyNtNYBa1e8vcLYt1dqzEcxXjNPAmDE9JHJeL4XSpMUhELWO2FQKWmOmz?=
- =?us-ascii?Q?m5VR8hUVlXy82EwDfGYwjdkjX5nT/eytBTFmCwDzus4NJz0DcAxZf0Vumm2u?=
- =?us-ascii?Q?DguFLotV0fMXXh+fnMB640vFjmh8GWbtP2h+ahDw1FPobrZkeN79ok4nluA8?=
- =?us-ascii?Q?SEavUJOpeVscvHJ9Y9C+kAMzIXetfI9HTTNpi4zaExLC0GfBloQypyvxJjut?=
- =?us-ascii?Q?9OjUe5lyXlwwRQ9IAbb93jZryidCIGAkLd1mTbD+SpLjH8SPFCCf6eszP2R/?=
- =?us-ascii?Q?DG2IIUBZ85Djy3CbV8mO3kom9TZDreYkUQ8UAYVyYB9vtX05J0fFfDK6Qy33?=
- =?us-ascii?Q?67vmKy0MnRqaOjrZZNLx3iN77Fzm8DHxodicniRAnixMDrIzZwPEWQvYmLeE?=
- =?us-ascii?Q?tug9tSLgTW6szlQW5I8+tRQs/Ahd9vny0CdjTGcjagvJ0VGW+I/B7eCCJoS+?=
- =?us-ascii?Q?ePTS4BhliKQVWNcH7H4CKcb6t9svh0X8jN5dpKEPw17RAQitBKsylg+0ln2P?=
- =?us-ascii?Q?X0cxofg0E4RLTr+gf6ZFlkiHLL6VRbdUiJSfGtzUnQXt/UreC7zKvdkSgPgA?=
- =?us-ascii?Q?SJEDWhSBMXL05u6qnjncSvQldq47mkJRbtOrCDWGnTraSPp3NPSNSQqaMgTw?=
- =?us-ascii?Q?NT3A1fbwn11Hm5ikkqLXnTlhe+Pmh7w8ZNC/++7REM5RzM57PX+7Cb9WOq1y?=
- =?us-ascii?Q?9qgTbB046eKE/juS+YPM3d+M3swniO23Y1/txNnofKgChqL76BowDdY8/0BO?=
- =?us-ascii?Q?JY9LX49mAQ7DJoTxQ2b/i8NJ6aM2pXqerG0z/bEIWRS/rxKWdtL8ARIMNOw4?=
- =?us-ascii?Q?w5Gw0kVR6V/KQo5B/n3+XEWBoEzpLSy2TbvhcljrgBIPRYKVFlc9zaQezddt?=
- =?us-ascii?Q?1McCP4uwBd7pJdd4tvNwy26peIp9F7xL2ADTsp5RCmcqpUlm4cnjjCaDUPEr?=
- =?us-ascii?Q?sSTLIplnhcoyV1eRQWbZYd2zKZRMz2D5a+KARO1JO9m0vY5YTiArD30cwm0p?=
- =?us-ascii?Q?7k+m4OFG2jveqXDnwFBMwsChI+N1BEQ4OBWwm1PYzxTZ7BwH7Jatz0fsezLV?=
- =?us-ascii?Q?qh4VOeIkUTttM31E5Km4Qn16KplUQznVQ7bvmLBaF93hRIgsjXHsJ+BmIdPH?=
- =?us-ascii?Q?Rf/0JofFX3KGOpFPoisg6PJbDsIGx5TJOl1weuWMBF9jJMIJf3CYdjR6r70+?=
- =?us-ascii?Q?UXGavMIPjunFIiI7kccQ+Mn6nsd86F2NR3Y2MpZ9nJhVJBKJNOuQUnooYaZz?=
- =?us-ascii?Q?hw=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: R04Ra5yYQp+aUHguxWMVU5giieaMJs2hqqUOkydjLcWG//gPsglUaD/EdY3D9deUCBpYIs5NSiDsd1K+CY2NYLJFttRgGiYSjBv6nuUa9J9nzwj2vcQds6XNAcmoJVi18zBQSeO8dYeiOBGrvckdS271oM4l3j/R21cP9PAYTsyTg6MrspnAQicbMZ+mgYLMF0+UPpK6F5ViL2Ew4Vn4D7bWErP6mZZUwLkf4LX/oACCUkQgOM65ztfNzWrdn3itVqwbkQtQPyhI/05GCRP+lQ4sFgsfSM05M1wpB8KpEl52JtsEJH1dQvtjq1RQ3xByXChOE+aEPB/J9W1jvoz2Q7vmJPh5c6KNT+1PEhORan0H8E5YS5Rfpk4Akpol9ZsfWfhgZ8XzsWOuMWUHIIaWUt3AyANqgiCQkG3pqgDJULkjw3f7gFAwnWYKHYUux3ho37TXdsOFOG5QWz6LF89byoY0idi9aFBqHy720RANic8aZ6+nArxs8NHb9GNvy05Ne+RVCe12w6STHhuo4jUlNkQPZbIG+Bcg/x9ap6xGz4071chORvTheJRLawnVtNRmUPT/SnGNTn59KOB4yvFApp0dVUsiMeuwvTtTGfi/uDE=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4df462ed-a886-4d22-7221-08dd9f6b27af
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2025 11:14:33.3206
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +pEOQi8N2UGIQ5R6kSYDWM0jsBVej3bNc2EQWRcb+AbBK2YVERRdUkY84bnOz+tCQgXtLTTGdHZ3U18tCb+aFc3rS/tPnmBVwz1enlJ6W0A=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB7691
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-30_05,2025-05-29_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 mlxscore=0 phishscore=0
- adultscore=0 suspectscore=0 malwarescore=0 mlxlogscore=997 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2505300097
-X-Proofpoint-ORIG-GUID: 7uw4yUUV2EAsgDob3n17OcmtsTtCQkGv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTMwMDA5NyBTYWx0ZWRfX04sUwbOSm3cT 9K9xApOuCNooROa7vujUzkjenFt66jVLn/R/jh9GmucRCJQ+YfeaNishm4ZVbAlan7mX0Gq90xF GgDnJda83+lrfsSodQRqp2P22h/0iEav884jeNBPvt1OSe4ZJhdCjPUL8RAhoq0BTqeNkbUtUXt
- gVOt5m8cvdPVVuv+ITBRsAKtrcIlsLmgtv1J6oUQqRvjN9v9mkaZlpr1EXlFjVZWbN6DzAc1XOs HvwSO6BAMo/wDD0i/YpMDAr9avqMtx+zu02nyVJPGPGks44QHTMchOOR5ke3rDq5lM6WCI6ly9z iakXVu5sO3fuZynrST5ehoEhG5yT5xgwLGw5xFgxYHxknCSYbZeoSd82RkpqoJXQxu2gX9Fb9PJ
- 3LdyWk2BAPY04dyfgzIJ7xlIK4NugtJLxaO22I+bX0FTtmTfqMcMt8bstzAuvkYbGmkYYcLT
-X-Authority-Analysis: v=2.4 cv=UZNRSLSN c=1 sm=1 tr=0 ts=6839931d b=1 cx=c_pps a=qoll8+KPOyaMroiJ2sR5sw==:117 a=qoll8+KPOyaMroiJ2sR5sw==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=dt9VzEwgFbYA:10 a=GoEa3M9JfhUA:10 a=7CQSdrXTAAAA:8 a=PADozcFKNrlWWUR8ROMA:9 a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22 cc=ntf awl=host:13207
-X-Proofpoint-GUID: 7uw4yUUV2EAsgDob3n17OcmtsTtCQkGv
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_041449_667528_6362DB33 
-X-CRM114-Status: GOOD (  30.28  )
+X-CRM114-CacheID: sfid-20250530_041946_202970_EFF7975F 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,125 +114,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 02:34:07PM +0530, Dev Jain wrote:
-> arm64 implements lazy_mmu_mode to allow deferral and batching of barriers
-> when updating kernel PTEs, which provides a nice performance boost. arm64
-> currently uses apply_to_page_range() to modify kernel PTE permissions,
-> which runs inside lazy_mmu_mode. So to prevent a performance regression,
-> let's add hooks to walk_page_range_novma() to allow continued use of
-> lazy_mmu_mode.
->
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
-> Credits to Ryan for the patch description.
->
->  arch/arm64/mm/pageattr.c | 12 ++++++++++++
->  include/linux/pagewalk.h |  2 ++
->  mm/pagewalk.c            |  6 ++++++
->  3 files changed, 20 insertions(+)
->
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index a5c829c64969..9163324b12a0 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -75,11 +75,23 @@ static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
->  	return 0;
->  }
->
-> +static void pte_lazy_mmu_enter(void)
-> +{
-> +	arch_enter_lazy_mmu_mode();
-> +}
+From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Hm am I missing something? I don't see this function or the leave version
-defined in arch/arm64?
+Hi,
 
-No do I see __HAVE_ARCH_ENTER_LAZY_MMU_MODE?
+Series adds a PCIe driver for the Renesas RZ/G3S SoC.
+It is split as follows:
+- patch 1/8:		updates the max register offset for RZ/G3S SYSC;
+			this is necessary as the PCIe need to setup the
+			SYSC for proper functioning
+- patch 2/8:		adds clock, reset and power domain support for
+			the PCIe IP
+- patches 3-4/8:	add PCIe support for the RZ/G3S SoC
+- patches 5-8/8:	add device tree support and defconfig flag
 
-> +
-> +static void pte_lazy_mmu_leave(void)
-> +{
-> +	arch_leave_lazy_mmu_mode();
-> +}
+Please provide your feedback.
 
-Are you absolutely sure you will never need to hook this stuff on higher level
-page tables?
+Merge strategy, if any:
+- patches 1-2,5-8/8 can go through the Renesas tree
+- patches 3-4/8 can go through the PCI tree
 
-If this relates to vmalloc, then we do have huge page mappings in vmalloc logic?
+Thank you,
+Claudiu Beznea
 
-> +
->  static const struct mm_walk_ops pageattr_ops = {
->  	.pud_entry	= pageattr_pud_entry,
->  	.pmd_entry	= pageattr_pmd_entry,
->  	.pte_entry	= pageattr_pte_entry,
->  	.walk_lock	= PGWALK_NOLOCK,
-> +	.pre_pte_table	= pte_lazy_mmu_enter,
-> +	.post_pte_table	= pte_lazy_mmu_leave,
+Changes in v2:
+- dropped "of/irq: Export of_irq_count()" as it is not needed anymore
+  in this version
+- added "arm64: dts: renesas: rzg3s-smarc-som: Update dma-ranges for PCIe"
+  to reflect the board specific memory constraints
+- addressed review comments
+- updated patch "soc: renesas: rz-sysc: Add syscon/regmap support"
+- per-patch changes are described in each individual patch
 
-This is kind of horrid really, are we sure the lazy mmu mode is valid for
-everything that occurs within the the loop? I suppose it's only simple logic for
-the ops->pte_entry stuff.
+Claudiu Beznea (7):
+  clk: renesas: r9a08g045: Add clocks, resets and power domain support
+    for the PCIe
+  dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add documentation for the
+    PCIe IP on Renesas RZ/G3S
+  PCI: rzg3s-host: Add Initial PCIe Host Driver for Renesas RZ/G3S SoC
+  arm64: dts: renesas: r9a08g045s33: Add PCIe node
+  arm64: dts: renesas: rzg3s-smarc-som: Update dma-ranges for PCIe
+  arm64: dts: renesas: rzg3s-smarc: Enable PCIe
+  arm64: defconfig: Enable PCIe for the Renesas RZ/G3S SoC
 
-But it feels like hacking something in for this specific case.
+John Madieu (1):
+  soc: renesas: rz-sysc: Add syscon/regmap support
 
-At the same time I don't want to get in the way of an optimisation. We could do
-something in ops->pmd_entry, but then we'd not get to turn it off afterwards...
+ .../pci/renesas,r9a08g045s33-pcie.yaml        |  202 ++
+ MAINTAINERS                                   |    8 +
+ arch/arm64/boot/dts/renesas/r9a08g045s33.dtsi |   60 +
+ .../boot/dts/renesas/rzg3s-smarc-som.dtsi     |    5 +
+ arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi  |   11 +
+ arch/arm64/configs/defconfig                  |    1 +
+ drivers/clk/renesas/r9a08g045-cpg.c           |   19 +
+ drivers/pci/controller/Kconfig                |    7 +
+ drivers/pci/controller/Makefile               |    1 +
+ drivers/pci/controller/pcie-rzg3s-host.c      | 1686 +++++++++++++++++
+ drivers/soc/renesas/Kconfig                   |    1 +
+ drivers/soc/renesas/r9a08g045-sysc.c          |   10 +
+ drivers/soc/renesas/r9a09g047-sys.c           |   10 +
+ drivers/soc/renesas/r9a09g057-sys.c           |   10 +
+ drivers/soc/renesas/rz-sysc.c                 |   17 +-
+ drivers/soc/renesas/rz-sysc.h                 |    3 +
+ 16 files changed, 2050 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
+ create mode 100644 drivers/pci/controller/pcie-rzg3s-host.c
 
-Same for any higher level page table hm.
+-- 
+2.43.0
 
-Is this really the only way to get this? I guess it's not feasible having this
-just switched on for the whole operation...
-
-I just fear that we could end up populating these mm_walk_ops with every corner
-case thing we think of.
-
->  };
->
->  bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
-> diff --git a/include/linux/pagewalk.h b/include/linux/pagewalk.h
-> index 9bc8853ed3de..2157d345974c 100644
-> --- a/include/linux/pagewalk.h
-> +++ b/include/linux/pagewalk.h
-> @@ -88,6 +88,8 @@ struct mm_walk_ops {
->  	int (*pre_vma)(unsigned long start, unsigned long end,
->  		       struct mm_walk *walk);
->  	void (*post_vma)(struct mm_walk *walk);
-> +	void (*pre_pte_table)(void);
-> +	void (*post_pte_table)(void);
->  	int (*install_pte)(unsigned long addr, unsigned long next,
->  			   pte_t *ptep, struct mm_walk *walk);
->  	enum page_walk_lock walk_lock;
-> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-> index 9657cf4664b2..a441f5cbbc45 100644
-> --- a/mm/pagewalk.c
-> +++ b/mm/pagewalk.c
-> @@ -33,6 +33,9 @@ static int walk_pte_range_inner(pte_t *pte, unsigned long addr,
->  	const struct mm_walk_ops *ops = walk->ops;
->  	int err = 0;
->
-> +	if (walk->ops->pre_pte_table)
-> +		walk->ops->pre_pte_table();
-
-NIT: you have 'ops' already, no need for walk-> :)
-
-> +
->  	for (;;) {
->  		if (ops->install_pte && pte_none(ptep_get(pte))) {
->  			pte_t new_pte;
-> @@ -56,6 +59,9 @@ static int walk_pte_range_inner(pte_t *pte, unsigned long addr,
->  		addr += PAGE_SIZE;
->  		pte++;
->  	}
-> +
-> +	if (walk->ops->post_pte_table)
-> +		walk->ops->post_pte_table();
-
-NIT: same as above.
-
->  	return err;
->  }
->
-> --
-> 2.30.2
->
 
