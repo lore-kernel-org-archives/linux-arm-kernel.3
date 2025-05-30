@@ -4,56 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74AA5C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92CFBC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4taA8ifIIfvxRNHMgaG5ZelTZRNIMgPDJEIMG15cYe8=; b=udaE2gOztZ3FKQLo7tX/1+mlTc
-	hEnPjF5JIE1O2CmRkM2xLa7r25++HVAkRiaJbQVQpgpmxgepBXI7XImtUgK9qh5aiQvSVAVePk9J6
-	NBSYXMoH0NYpPBAytOGx3fmnQ5Q0Kw/F1TVTuE9lOxGevLRw2lZUZkVfMIkUVVhsIDvFcaUw2umJZ
-	ZImWPmOlfVgMT0Xfy/BB6b9s2CM4Fbd0xV0jmQQxLKrHpn8dv4TIZFIm9bgkEe9ZojXioLDWZDHsk
-	z4tMa6lJTAohX4Ygl8A9M3XbZ0uCh+/dJarLeUFk4lATpjd9fN9u+bTBPTE0ON5a2FlpIt4ca5Eeo
-	f0jR856w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDcQoFFC4NqCXcyobvRRuP1Ua4ytiuIE7XjIkD34fbk=; b=u43uYEzmtHNM8ipTs5MYajjL38
+	h0qaOgQURML+i4g8WYK6SZE6R/6vSdVucCMMgxLc745llOTW/QQL69mBag++0aGF9KLl+m/ZXgtZG
+	ERHfuFXlRXoJcNR+uX0xfjm0zS+dvkpNhxom36iTzVa0xRZIqfCig6N7MU/NtoY2DE2FwEDoH/eeS
+	F97trEHNCcBPOPf/KbXBdsgCxqAHh/AAYnRHtzmwv7KbnwmNAJsArklM80frzMop2hNk3Y7CdpUmF
+	c+ZSxY3AfIv/JyvvsTW6xQ1ebEK96vLAnUrVrKqofK9uPgVVQDyjglmbexPmrfjJ8sk38os0jdTPI
+	NHAzngZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKvpp-000000005cg-1zMX;
-	Fri, 30 May 2025 09:15:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKvi6-000000004js-11yf
+	id 1uKvrv-000000005wg-2Ngx;
+	Fri, 30 May 2025 09:17:39 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKvjR-000000004uC-0cQM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 09:07:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63F6F16F2;
-	Fri, 30 May 2025 02:07:11 -0700 (PDT)
-Received: from [10.164.18.46] (a077893.blr.arm.com [10.164.18.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AC7B3F5A1;
-	Fri, 30 May 2025 02:07:24 -0700 (PDT)
-Message-ID: <9b605943-cac0-447f-9cd0-286a45a937c4@arm.com>
-Date: Fri, 30 May 2025 14:37:20 +0530
+	Fri, 30 May 2025 09:08:55 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D06D643349;
+	Fri, 30 May 2025 09:08:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1748596129;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YDcQoFFC4NqCXcyobvRRuP1Ua4ytiuIE7XjIkD34fbk=;
+	b=ZB1U/Pdfi7HtDnqYB1OWNlxulO3P8Fzu1T1afPYQ754WfHDNuOCqhr37hUY6ZczMdot6mN
+	iKfgB57p8ne86qqiVAZL4T0zsuD2oXjkNi9Lx3+FRbgiijwLmb9ZSxZ3KK2eC8Xqd9CioZ
+	yzOYPApcG7YNnNy58ZNYVwhc7L78+lx/W8BrCXo2NEU35lMAFE1SSpZx26hyQJVZ3Nrnmb
+	w6+mG5x8R8W7GNQ2s81ezwluiyStYudEhpPnKiYruUKX3GhapRbICKk4/l3DWhZDNjo9ME
+	QUFFW58toUQT05s34GNXa92rPdx7Bu+JwK3kC06Yh9cWmK4T9/7lyc5QvFJqLA==
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
+ Marek =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?B?Tmljb2zDsg==?= Veronese <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v6 06/14] net: phy: Introduce generic SFP handling for
+ PHY drivers
+Date: Fri, 30 May 2025 11:08:41 +0200
+Message-ID: <12687918.O9o76ZdvQC@fw-rgant>
+In-Reply-To: <aDliS9uMFaLf2lCV@shell.armlinux.org.uk>
+References: <20250507135331.76021-1-maxime.chevallier@bootlin.com>
+ <6159237.lOV4Wx5bFT@fw-rgant> <aDliS9uMFaLf2lCV@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Enable vmalloc-huge with ptdump
-To: Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- catalin.marinas@arm.com, will@kernel.org
-Cc: quic_zhenhuah@quicinc.com, kevin.brodsky@arm.com,
- yangyicong@hisilicon.com, joey.gouly@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- david@redhat.com
-References: <20250530082021.18182-1-dev.jain@arm.com>
- <d2b63b97-232e-4d2e-816b-71fd5b0ffcfa@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <d2b63b97-232e-4d2e-816b-71fd5b0ffcfa@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; boundary="nextPart5904461.DvuYhMxLoT";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvkeeiudculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkjghfgggtsehgtderredttdejnecuhfhrohhmpeftohhmrghinhcuifgrnhhtohhishcuoehrohhmrghinhdrghgrnhhtohhishessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfdvleekvefgieejtdduieehfeffjefhleegudeuhfelteduiedukedtieehlefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehffidqrhhgrghnthdrlhhotggrlhhnvghtpdhmrghilhhfrhhomheprhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeeftddprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepnhgvthguvghvsehvg
+ hgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthh
+X-GND-Sasl: romain.gantois@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_020730_377414_D161F3CC 
-X-CRM114-Status: GOOD (  26.82  )
+X-CRM114-CacheID: sfid-20250530_020853_817792_B3E9E890 
+X-CRM114-Status: GOOD (  24.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,136 +94,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/30/25 14:10, Ryan Roberts wrote:
-> On 30/05/2025 09:20, Dev Jain wrote:
->> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
->> because an intermediate table may be removed, potentially causing the
->> ptdump code to dereference an invalid address. We want to be able to
->> analyze block vs page mappings for kernel mappings with ptdump, so to
->> enable vmalloc-huge with ptdump, synchronize between page table removal in
->> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
->> use mmap_read_lock and not write lock because we don't need to synchronize
->> between two different vm_structs; two vmalloc objects running this same
->> code path will point to different page tables, hence there is no race. 
->>
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->>  arch/arm64/include/asm/vmalloc.h | 6 ++----
->>  arch/arm64/mm/mmu.c              | 7 +++++++
->>  2 files changed, 9 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
->> index 38fafffe699f..28b7173d8693 100644
->> --- a/arch/arm64/include/asm/vmalloc.h
->> +++ b/arch/arm64/include/asm/vmalloc.h
->> @@ -12,15 +12,13 @@ static inline bool arch_vmap_pud_supported(pgprot_t prot)
->>  	/*
->>  	 * SW table walks can't handle removal of intermediate entries.
->>  	 */
->> -	return pud_sect_supported() &&
->> -	       !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
->> +	return pud_sect_supported();
->>  }
->>  
->>  #define arch_vmap_pmd_supported arch_vmap_pmd_supported
->>  static inline bool arch_vmap_pmd_supported(pgprot_t prot)
->>  {
->> -	/* See arch_vmap_pud_supported() */
->> -	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
->> +	return true;
->>  }
->>  
->>  #endif
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index ea6695d53fb9..798cebd9e147 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -1261,7 +1261,11 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
->>  	}
->>  
->>  	table = pte_offset_kernel(pmdp, addr);
->> +
->> +	/* Synchronize against ptdump_walk_pgd() */
->> +	mmap_read_lock(&init_mm);
->>  	pmd_clear(pmdp);
->> +	mmap_read_unlock(&init_mm);
-> 
-> So this works because ptdump_walk_pgd() takes the write_lock (which is mutually
-> exclusive with any read_lock holders) for the duration of the table walk, so it
-> will either consistently see the pgtables before or after this removal. It will
-> never disappear during the walk, correct?
+--nextPart5904461.DvuYhMxLoT
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Date: Fri, 30 May 2025 11:08:41 +0200
+Message-ID: <12687918.O9o76ZdvQC@fw-rgant>
+In-Reply-To: <aDliS9uMFaLf2lCV@shell.armlinux.org.uk>
+MIME-Version: 1.0
 
-Agreed.
-
+On Friday, 30 May 2025 09:46:19 CEST Russell King (Oracle) wrote:
+> On Fri, May 30, 2025 at 09:28:11AM +0200, Romain Gantois wrote:
+> > On Thursday, 29 May 2025 15:23:22 CEST Russell King (Oracle) wrote:
+> > > On Wed, May 28, 2025 at 09:35:35AM +0200, Romain Gantois wrote:
+> > > > > In that regard, you can consider 1000BaseX as a MII mode (we do have
+> > > > > PHY_INTERFACE_MODE_1000BASEX).
+> > > > 
+> > > > Ugh, the "1000BaseX" terminology never ceases to confuse me, but yes
+> > > > you're
+> > > > right.
+> > > 
+> > > 1000BASE-X is exactly what is described in IEEE 802.3. It's a PHY
+> > > interface mode because PHYs that use SerDes can connect to the host
+> > > using SGMII or 1000BASE-X over the serial link.
+> > > 
+> > > 1000BASE-X's purpose in IEEE 802.3 is as a protocol for use over
+> > > fibre links, as the basis for 1000BASE-SX, 1000BASE-LX, 1000BASE-EX
+> > > etc where the S, L, E etc are all to do with the properties of the
+> > > medium that the electrical 1000BASE-X is sent over. It even includes
+> > > 1000BASE-CX which is over copper cable.
+> > 
+> > Ah makes sense, thanks for the explanation. I guess my mistake was
+> > assuming
+> > that MAC/PHY interface modes were necessarily strictly at the
+> > reconciliation sublayer level, and didn't include PCS/PMA functions.
 > 
-> I guess there is a risk of this showing up as contention with other init_mm
-> write_lock holders. But I expect that pmd_free_pte_page()/pud_free_pmd_page()
-> are called sufficiently rarely that the risk is very small. Let's fix any perf
-> problem if/when we see it.
-
-Checking against CONFIG_PTDUMP_DEBUGFS being enabled is simple enough without much
-cost. So why not make this conditional only for scenarios, where this read lock is
-really required. Something like
-
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1293,11 +1293,15 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
-                pmd_free_pte_page(pmdp, next);
-        } while (pmdp++, next += PMD_SIZE, next != end);
- 
--       /* Synchronize against ptdump_walk_pgd() */
--       mmap_read_lock(&init_mm);
--       pud_clear(pudp);
--       mmap_read_unlock(&init_mm);
-        __flush_tlb_kernel_pgtable(addr);
-+       if (IS_ENABLED(CONFIG_PTDUMP_DEBUGFS)) {
-+               /* Synchronize against ptdump_walk_pgd() */
-+               mmap_read_lock(&init_mm);
-+               pud_clear(pudp);
-+               mmap_read_unlock(&init_mm);
-+       } else {
-+               pud_clear(pudp);
-+       }
-        pmd_free(NULL, table);
-        return 1;
- }
-
+> When a serdes protocol such as SGMII, 1000BASE-X, or 10GBASE-R is being
+> used with a PHY, the IEEE 802.3 setup isn't followed exactly - in
+> effect there are more layers.
 > 
->>  	__flush_tlb_kernel_pgtable(addr);
+> On the SoC:
 > 
-> And the tlbi doesn't need to be serialized because there is no security issue.
-> The walker can be trusted to only dereference memory that it sees as it walks
-> the pgtable (obviously).
+> 	MAC
+> 	Reconciliation (RS)
+> 	PCS
+> 	SerDes (part of the PMA layer)
+> 
+> On the PHY side of the SerDes host-to-phy link:
+> 
+> 	SerDes
+> 	PCS (which may or may not be exposed in the PHY register set,
+> 	     and is normally managed by the PHY itself)
+> 	(maybe other layers, could include MACs	back-to-back)
+> 	PCS
+> 	PMA
+> 	PMD
+> 
+> Hope that helps explain what's going on a little more.
 
-Agreed.
+Definitely helps a lot, thanks.
 
-> 
->>  	pte_free_kernel(NULL, table);
->>  	return 1;
->> @@ -1289,7 +1293,10 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->>  		pmd_free_pte_page(pmdp, next);
->>  	} while (pmdp++, next += PMD_SIZE, next != end);
->>  
->> +	/* Synchronize against ptdump_walk_pgd() */
->> +	mmap_read_lock(&init_mm);
->>  	pud_clear(pudp);
->> +	mmap_read_unlock(&init_mm);
-> 
-> Hmm, so pud_free_pmd_page() is now going to cause us to acquire and release the
-> (upto) lock 513 times (for a 4K kernel). I wonder if there is an argument for
-> clearing the pud first (under the lock), then the pmds can all be cleared
-> without a lock, since the walker won't be able to see the pmds once the pud is
-> cleared.
+-- 
+Romain Gantois, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-Makes sense if pud_free_pmd_page() would have been the only caller but seems like
-vmap_try_huge_pmd() calls pmd_free_pte_page() directly as well.
+--nextPart5904461.DvuYhMxLoT
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
-> 
-> Thanks,
-> Ryan
-> 
->>  	__flush_tlb_kernel_pgtable(addr);
->>  	pmd_free(NULL, table);
->>  	return 1;
-> 
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEYFZBShRwOvLlRRy+3R9U/FLj284FAmg5dZkACgkQ3R9U/FLj
+285M0g/+Nz1A6obdeKee0RLc6MA2gBvM/EmqYPQ6ZduN6VFL2D6J4NATyQRqu/VW
+u4d0pjD2ZOe44w6eAeRcWHsC0LJYfnHPPMhxekF2l+qqggkvZDGp9BmWJZd5UUe0
+dDxur4qI6XF2WlWDXyf9auZ3iGvqOUnWYK7VsLu/1hMYeC8M0Q+5dwy72//aAGnH
+9lyBU77a7sd3Qhlnd5Flg5f9ZuQmfqcD7Hyjp0OXdSJr7TlXLPJ+4FffNTivOQMK
+WonmDnfUOSPfxukMd0ozR7Z2BdvUeKPrlQq6yvcC5aS+9WZvVWCZzLOLrlBylu50
+wtEnYLpXd8QVehLsZGfE8mB4u+IuJICnEKhhrQ7YSLdjmXkj4VHCZHjl28WrI5rP
+wMCczhfYk4tDM83L2TBDVX5DTvcIcBawWlGxwzOdZ8WbipSVt5LZMtAkICE9TZzz
+j0oJ6+4xxi8mXGVduWD7kztOgXFl+UAx9GG8RsWoSPE0+t1f2nO0YV55UTW5RhEA
+/hNR+P1Z8pB9SHjHM9TskW6LC4Z/NEIBnI0N98BacAdjSc/KX4uHSH01ANVHRyEs
+wD5PJQKAj705h81tvNA4RzUkqC+UAa9bjtE3gtqj0KnusZhSiPBtIRe55sJ3W9aU
+uYNbFO3CW8dD+WMqYm9fQrWtbqX/tOWRCOzdM5KMSNpbVyBWNDs=
+=r0Tf
+-----END PGP SIGNATURE-----
+
+--nextPart5904461.DvuYhMxLoT--
+
+
+
 
