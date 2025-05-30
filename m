@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27617C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 12:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857FFC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 12:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ztBp8em84e81U+guTyvnmzdit/8a/fAJViBACOyZInI=; b=DeulRh9jSbG5783adGdt145gxp
-	JXe1WdPOftjCh/8GjloLL0XE4bS/I0cIWCnc5rkxUWifM0FmY/Mdcx5H1Q6/1p6V1ilLWsagr5+rm
-	ZV94KKbQhpch5kHLcr9Rg4z8BCAvJuh2mli88475giWDzYxurYCK+LiTtFRQpVe+pn/6mkdLkpMA5
-	Z3DZdXUHPsuz6M4sdWbP74SRX3AS14YmgjbHbD4wBSzrPavWiioZSIP627CLJpkDvi5xuvCCt6Qrt
-	uYGgLHvuf+hsSyLfyyM7COLL4h+yHgEkDNV9tLx3zg97xc+NEeKZZZN0alIz/M5yEvVfWRn/KjY4y
-	dIP6IxUw==;
+	bh=ztBp8em84e81U+guTyvnmzdit/8a/fAJViBACOyZInI=; b=Mmj9bmVX8ctBPFvHL9QpN94Gpt
+	mk21lQb55iq9XoQ0uN8i6AnpK4K+WmBLLfwEfc6p8idEL1NJl0SGwt4/3pLicmh/lODSi59aAwjuo
+	qHih4ZCH4JVvAl9vUPxbDfMtIGy31BW6w3dUKYQVGtf6T3HfHkl1YNywFUOJcCnXHPUDXrTgG295g
+	KV+wSBldr76F89NI2HZDJhTGxfPK5f3TE0g7TU43GTTztR8cMTsj+klk7ei0pxel62k8zv8SpRrat
+	HnUJhvlfIFU66/Xub5CmX8l9OYLQPaLhr3jnC+BgjE09zCdUpjkalbDcy5uNtAXOXZAXrtlRnDVPD
+	I0JomimA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKz30-00000000YxY-3Cv2;
-	Fri, 30 May 2025 12:41:18 +0000
+	id 1uKz58-00000000ZWD-0bTH;
+	Fri, 30 May 2025 12:43:30 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKz0s-00000000YTv-0s4q
+	id 1uKz1X-00000000Ybl-1QnX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 12:39:06 +0000
+	Fri, 30 May 2025 12:39:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51A7A629F1;
-	Fri, 30 May 2025 12:39:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CEF3C4CEE9;
-	Fri, 30 May 2025 12:39:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A582629C8;
+	Fri, 30 May 2025 12:39:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49E54C4CEF0;
+	Fri, 30 May 2025 12:39:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748608745;
+	s=k20201202; t=1748608786;
 	bh=WCfPEgF7U60SODsr12OJ4UDT8DSIMuvTRTm+GCIA8F0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kJlS6b7lqWHQAdADFPzh0zijsSPOXW+ascVjiTpmVSd4mRJkDg3lEg16jWJjI6CRA
-	 i+Ybduv9vIHycZUkIbyUBZ0u0ic+NOwBGouo16iOaWe4ALdEU/x0QLyqbbYXwy6nkh
-	 WCP0nmdkgccmJQPIJVrTmacyQRnoHkq3RylOzyUQbDrYBE2RoEnf5bCaWze5DY4cLE
-	 B50Ib15YUqCM9C//NnyPlv3/FxcAp/Fc7++P7OyMlamBxi8LAgQGD9ysJdDkpgsEl+
-	 Np07ukdHOzma1r3Cw/bYdyoR49qezjGazSle9qCWd4Qhhlw6ad3iSw0SbHGFGWmRtZ
-	 9LcmaHrbG7R+Q==
+	b=QugkCWIk+lc+prLUscbvxu03O1lou4bXaxBNeV49i7Y3LGfDzkdnYkJrZa/kFwkQz
+	 4525Y2hIW6ZiY3p+fnYmCZJ+CsgzJNcjTlkNepTxC1wyLQ66RiDWsMc8K7SNHd2CX0
+	 I04DiEjyc8wi0IhC9EIuGL8JAGUpCbdtv2w7t0GRyoBQ4QeHl0yXIDP/YKfDH44rxp
+	 +GET6VwFRtLrvuCmuAmzvkENx3SLJBXGkFhHaOwx+JBElZLwrPhf0+8t5jZvJsrIGC
+	 hqsRAaTSITpnYE4mC5LgHWyccUo8AIKjnfgWUbTDMSy8rY6U2oQavg1iDekTGILR7u
+	 bWybTzfjKlJfQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -53,16 +53,16 @@ Cc: Luke Wang <ziniu.wang_1@nxp.com>,
 	linux-mmc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.15 09/30] mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend
-Date: Fri, 30 May 2025 08:38:31 -0400
-Message-Id: <20250530123852.2574030-9-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.14 09/28] mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend
+Date: Fri, 30 May 2025 08:39:15 -0400
+Message-Id: <20250530123934.2574748-9-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250530123852.2574030-1-sashal@kernel.org>
-References: <20250530123852.2574030-1-sashal@kernel.org>
+In-Reply-To: <20250530123934.2574748-1-sashal@kernel.org>
+References: <20250530123934.2574748-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.15
+X-stable-base: Linux 6.14.9
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
