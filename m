@@ -4,71 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D22C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 13:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A3AC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 13:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V3OqSA9b11oKNgkPDYr1xA9wl1ljVHhNL13TiqJ42tA=; b=y0N+IE8+ORDyjspZma246EyFT1
-	odeFRCmqEX4NT85vwVQpjHiSfxLn6dm/4vXLCNJztrM2M0DswsTVVsCOjviLXh3+QpwYbIdmi9bQs
-	UG/xHCjVyRffKjhPn6QfRQnfIQxA6D+eQudj1CbvHz9xt+Hv/S66Ldgm4Zi4nHimGrNg1bhG5Ym+Q
-	OwIHQvxjQUGWoyqIbShZrhAtkRq7mt7oi3sEGBo5TYQ9lHhb9hJk5ea3SMz6j7vxtfSpTcKyvZEJT
-	D4dRAe3nK1uiZJQXc8h9xHgm7lDwiKaMQPPsrKPJLxGY90l4MiQrqxOQ58Kh2t1SyZVf9jIMODYM8
-	9ZuA0tbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cPC6MJmOMZFiwLqbplidJcahA9dRBXMLIP5nSyJbUUg=; b=xwPtEe/UmqyctcB2ybQkIMXIWY
+	GoBetezdlrQmGLeRXbYq5lrRugKhNhEKX+T2Y9LV1erYITsK81ISNQhIJr810dGn/VOLkDirFvX3m
+	Ep8ll9NJExO0KiM1EcFKrsQH/zs07IPDj+5nFPFa12eQ6TqTAO36XfX41UuAhGDeMQvZDj93cIJ+0
+	FaVnECtyRoaArQkbYG+UttGywNsDiqq7ZdV0cTreGYCu9tn5QuX5iPueFIXSyE9xL2EEKzfrDr1gA
+	mJWmqNyQ4RAXXGe4voW2zwsRXM+0X/I0U9E3YT3nXnH0UyCjnrYCOtIKpZxfWWl4LTAEBa131KJsZ
+	CQZRs+fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL050-00000000ny6-2a5d;
-	Fri, 30 May 2025 13:47:26 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uL07R-00000000oHt-1zzs;
+	Fri, 30 May 2025 13:49:57 +0000
+Received: from mail-vi1eur05on20714.outbound.protection.outlook.com ([2a01:111:f403:2613::714] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKzwp-00000000me1-1JW7;
-	Fri, 30 May 2025 13:39:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1748612327; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ca2JV1NvoRKv5pME+qb9G/ZrKNrPhFrJv4PWVsA586GumZI7xFu0nY1/ZmG7c7/RMPLDPTEtwdgo9zbD9QOQ6QmIvRxzHx2osUOcaOao5389zazozFKOBocEIv8iXm2z3p/zpAFlbcGIFe/+4UHge9vxhInXLvoFO+yD8CnHk4Q=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1748612327; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=V3OqSA9b11oKNgkPDYr1xA9wl1ljVHhNL13TiqJ42tA=; 
-	b=CORaZ4hP1D6sx4LhiK+ihZQEJKwHBDfu0HlJqsUpqY8SQMjVwVM0L85w6sd4LKjhq+oUF3JUxtvnnupO+2rbUfYEhigUm4Ns9yZCCRn3b32PCxfNGIS1KJtHZpjqOrB8JWxSo8T9daAjFtO7gqVc+agGextqVv1k3xNMK6s2NPM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748612327;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=V3OqSA9b11oKNgkPDYr1xA9wl1ljVHhNL13TiqJ42tA=;
-	b=TUtxtTDXOcsQVd3PeEEi5CSpXzuFLcz/yiAJPn/ts3eUJKscSAj6mfzBqm+fQzeM
-	IaR8BX7vh+Mps0TLUMBE7GFGIcMz+UY+64bVzExGGxt9NZ57lcVUKUG/o6tyOSg5Qs4
-	uD+NJ6b06t8L0xoovPIwj1TxWeqACSqnpLg2vQSo=
-Received: by mx.zohomail.com with SMTPS id 1748612325008737.6186102251434;
-	Fri, 30 May 2025 06:38:45 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 30 May 2025 15:38:09 +0200
-Subject: [PATCH 2/2] PM / devfreq: rockchip-dfi: add support for LPDDR5
-MIME-Version: 1.0
+	id 1uKzyX-00000000mw7-3lhs
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 May 2025 13:40:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DLqVC9KoEJA6lC6k8pu9DCWo+90blaOwIC39tWw4cJ2mebCQMJupZEvAZJSs7ozg2oG3oLeKgSBhqBvfJJAt+bPW8wT5cDoWdWYWekLeHlkBYlW4z3/BOUcPIQL2hcGWKaTz0qyG9oTTtrycw7/KHYYNCtyvWv9KixZwJL8B9NSTrXXrzlYYak2GcxvixnjN90EUbb6gOfnjwkn5CGBWg8Z3A7tXvU5M3uO5UP9oTmnsN2XSXnLdIuKAHjm6J8dwprWUdlTnjIp+Q43trWWhbDrbrxD259mMGM5Pjwx6M8Mm7gP22Bfhe6xDYt/kr0YxGPY+LwEkrg/K7B/dZOe2SQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cPC6MJmOMZFiwLqbplidJcahA9dRBXMLIP5nSyJbUUg=;
+ b=CFkD3igy34Y9pJTw/dPVF2/16idyNYeCMr+O25GEqpZc7hiYCS/ZgfIUTE30IJguvkFqzLuAKeFcnPASVHkGPEvA8Klk15ANATB2vz7tophzfYu4UhmGbsIuo+AKcr9yv/PJVzRmqHtr0/VPbFX5mHVRI6psun4RwzUQEVpE6jOX+dI1PWxEchgNY2UBXQ478SPbF+21+IQDRZhXnDa6U3QOsko743B9qsoIZahMob/E1tUuCvDONtWi32g8s7m985nI6wa8IGmxizo5n+knNHL4u4XiYUWA7ZbqVH7KfcrcqPyoJq++nSnYDtk4FfSwCJzarbxmJn/yyvFXBNGdow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cPC6MJmOMZFiwLqbplidJcahA9dRBXMLIP5nSyJbUUg=;
+ b=M9eCJYfQJy4QASO0nPmmF7LiWQcpLLacj0QmxQWrRWb4dfXXUCdHNoKcSuFLOCDwmvRr2FMuPy+7C0CDRnjB/gzgi3wGkC9nOqVwIeVr7vfyGb/c3wOyoFx7fVVWqOD1F20l46aIRrFFtXyQZN5nQtCDw/YtAuTiPHuMamfh4cbTUHkc916f3KuAnrxxVlCfCWgU+9DTKeLcpphoowtqGSepeot/xweX4IOjJHVgT3ExBF2k99YRYbc8teJPWlbob3E6H7553s2BtFweDk44UHwqoGxib+e0mF12ZmHEikIjF63qCJwMuJ2EbTbrw91VE8aNtOMFeqZlQ2XDmkBRHg==
+Received: from DB9P195MB1212.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:294::16)
+ by AM9P195MB1298.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:3ab::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.30; Fri, 30 May
+ 2025 13:40:38 +0000
+Received: from DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
+ ([fe80::2d26:fa56:5972:5247]) by DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
+ ([fe80::2d26:fa56:5972:5247%4]) with mapi id 15.20.8722.031; Fri, 30 May 2025
+ 13:40:38 +0000
+From: Christoph Stoidner <C.Stoidner@phytec.de>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "upstream@lists.phytec.de"
+	<upstream@lists.phytec.de>
+Subject: Re: [PATCH v3] arm64: dts: freescale: imx93-phycore-som: Delay the
+ phy reset by a gpio
+Thread-Topic: [PATCH v3] arm64: dts: freescale: imx93-phycore-som: Delay the
+ phy reset by a gpio
+Thread-Index: AQHbzJ5IkKiCUrqPH06p42f/+549BbPiDcKAgAJsSwCAAChcgIAABDUAgAALOQCAACRcAIADjdKAgAAQWYCAAsNAAA==
+Date: Fri, 30 May 2025 13:40:38 +0000
+Message-ID: <a948b903766a82897e5fc17a840ab40e29f5eda4.camel@phytec.de>
+References: <20250524112315.695376-1-c.stoidner@phytec.de>
+	 <047c963e-f24d-4995-aea0-4a8cf8e343f5@lunn.ch>
+	 <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
+	 <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
+	 <7f6d7199-0a20-4370-a8b0-1d05326af052@gmx.net>
+	 <bf0eb48fc72f4b0abbf62077c2f1fe4438579746.camel@phytec.de>
+	 <967484d9-4165-4b75-bbb7-a203c36e8beb@gmx.net>
+	 <517be266ebc3b55da53372a76a139245f8945cd8.camel@phytec.de>
+	 <5afa6d62-4a3f-4c28-8165-363075ac36d8@lunn.ch>
+In-Reply-To: <5afa6d62-4a3f-4c28-8165-363075ac36d8@lunn.ch>
+Accept-Language: de-DE, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DB9P195MB1212:EE_|AM9P195MB1298:EE_
+x-ms-office365-filtering-correlation-id: 5d7b386e-d6b5-4fde-54c9-08dd9f7f9030
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?WFhuczFuNS81VGQ5T1pRRVV6SnhWWnp2TU1VK1lUdEF1MXFjTWlUQ0hRQWtt?=
+ =?utf-8?B?L29VSzJxRlNocVBibTY4QmdsVlhCNUVHT2ZyakRGem9tRmxwcTNtKytyU3FQ?=
+ =?utf-8?B?OFA4MnNHN0RMTXpBWnovWFFQVFgwamxrUHI4ek5vbEplMmQ3cFhHbzZ3ekpC?=
+ =?utf-8?B?bzNsbkQ2WC95WEFINXhLZllqWmNtUXNIOGh0SndsbmJJNDZMU09MYmwvci9P?=
+ =?utf-8?B?Z0JxMHJMRlBadkZEOFVMU2phdGdYUVkrQ3BkYWN0OFNzaWtlTVB2V3hRZnlv?=
+ =?utf-8?B?N1crWG1BRFBkYU42R0loNnpzK0tWQVMzSkY3Qll1VERDMFRrTHpGS1FTRUtt?=
+ =?utf-8?B?ZHlkR2RRM0R2VGlhSmEvSllNb1FoMTIrYnNITkpIVWNaNU1CamIzQmJmUWlI?=
+ =?utf-8?B?Z3B0YnJwOWZZdjZjK1J2U2VmQk5TSDlFR1FYL3FCU0VtaVZTajB0UXQ2SUdV?=
+ =?utf-8?B?TXpyTVRTNUpRSFY5cElqV0d1RTlabnBqby9PRG1LclRwSUN0T2M4ZE1aUGxX?=
+ =?utf-8?B?SnJtREhUTi9XQzJ3YmI2YUVVOElpSk9wdS8wemZzdDlxek0yYnB2aWZPOXJL?=
+ =?utf-8?B?aEw4Y3ZvRlNKOVZpcUs4OTJIS1JOSC9Bb0tzaWRyMkI1Mjl6ZDUvM0NTa3RH?=
+ =?utf-8?B?d2pnMElPNjJnTTZLeHFFM2UvaDR4RVRlbUxHdEo3cGRkYU5rUjdaS05VZkVl?=
+ =?utf-8?B?MmQ4M2Z3TkxoZStBK1hqaWc3ZlRMc3hmOHl1aUV2MlpYRWVBbzBXc0ZDbnM2?=
+ =?utf-8?B?ekR5djRzQ2ViVTNXVksvV29aT0l5U1FqWTdrTVhPMHVtR3c2NnNSQ3RXUU42?=
+ =?utf-8?B?TGZkZDVjV3QvbzA0L2Zkc3I0MVk4WkVRWGt1NjU3bHd6UGdhbFZxdXlYOXRp?=
+ =?utf-8?B?UE1PWEh2UCsvaXpiZDU3dzNWaW12Wjg2d04zdEZYS0ZGbUJRcDBheVFQb1Nw?=
+ =?utf-8?B?bHJDVFkyZUxmd0J0STNMS0xWdUMyY2dCbHJ1WjZWM245N1F4NHowSlpGRWNn?=
+ =?utf-8?B?R2RxT3Bqc056eElwV0tFUU1GMUg5MEI3NkZSU1RvZU5IbkZmcXo3K3ZZM1JT?=
+ =?utf-8?B?VVFFZkt2bE0zYWt0WFY2a2xGdStMUHg0UTdHdTRmQm5pUFBKTlB4dTE1dWh4?=
+ =?utf-8?B?cmNLS1o4ejIzNTdIUUQwUjAwYUJVbjZ2WGV2ZGl3citoTzdMOGZPN1FWVER4?=
+ =?utf-8?B?TFA3TmNZVzR2WFJ1WmlwRHpHK2lmSk5HcnZmM2R0TGx4MW1yWFA5WUJ1aE5K?=
+ =?utf-8?B?VDM2YWIyeE9XZEh6RkRVbTY2SUJZWDRPWkJERE1NZ2pCOFdVMitqOEViZWZw?=
+ =?utf-8?B?Y2NNQ2pvTS81anZmSGM1RFBvYWoxTlU4MXpaRFlkZDdVdWZMSXpvN0NlTTVE?=
+ =?utf-8?B?YWF6ZStTL1lkUmhCQS9rbGZGMTVSbEpFMWNYL2EzOU5ENnRjeUlwSTJLcHdX?=
+ =?utf-8?B?Y1FLQWpZSHFkUmx0SzRMeTdhY2tsNkFCM2xZbXB6T1poOTJhQjlwb1NlaWxD?=
+ =?utf-8?B?Vm1PSU1LRHR4czRUTkZQM1hZQUt6ekMwQWRFTVpjajg0K3NMWVlmeGowSXow?=
+ =?utf-8?B?Y09zVDBwQnF5M2JyZDY5WUZ0QnFHYm9FNTdzY1JFVEtkM0JvdWVKMnNFOGlV?=
+ =?utf-8?B?d0tiUW92WUlZVnhOOUIxY21oeDlxYmorV2dTTko4R21JQUFHdmRxajV6KzVw?=
+ =?utf-8?B?YzhZQTRhWUIvZTFjSDJCSFI5dkNkSEdUVWpuL2JSeGlmS2lZcXUyTjNqOXpD?=
+ =?utf-8?B?UTRYeFZJbkJBaURIaHo1MEJud09XNGt1d3BVNk1OQzdIeS9aaisycVNlWmZJ?=
+ =?utf-8?B?MVV1RHYzL2F5Zmh2VmQwTnVIa0RRei9Kc1ZRMklLaXdiRzFIVGdkcGJIRTg5?=
+ =?utf-8?B?WGVIR243cmRXRHdETjVHUVljZzdOa0xwQ0hmTXp3bDVucUl5bStFNWZKbUxp?=
+ =?utf-8?B?dEpUWXA4dW5lL3l6Q3VQK0V3NFVaMS9maEVrMENabTNPZzJ2V0habWNhVEt0?=
+ =?utf-8?Q?V2efU0350QNsepZSPRwYDfCcphjOt4=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9P195MB1212.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TEcwSWh4b0RhTko0enpBcERVU1dkY3drTFFaTDdNZE1aQVVac0x6N1FMWjRn?=
+ =?utf-8?B?NitjRlB6Tm5IelJUbDhhMzVieHdGRlFlc3VTSWh0MDJnVzIvM2ZOREY5bkUr?=
+ =?utf-8?B?Z1lHc0JpQjZUQ2UrMlV4c2JPZFJmdC9UMWlSb3ZvYmt2aEk2am5mYkJNYkJm?=
+ =?utf-8?B?alMyVzB3RTRiWklad3E4dmtncElMaDRlYzFGUDY5RzFkOUtlTjFJcU5YNVBv?=
+ =?utf-8?B?dXl1Z01mYVhZTndhaWVhTmNweGtzYXp3c0RvQkp5aEIyYm9MK3IreERKNjlG?=
+ =?utf-8?B?SjNYMHhDemx1VlozamhzTmNBUHVHK0hJK2pPeG51WmtDam9BZVlRMkcxR1J3?=
+ =?utf-8?B?S0QzaWdyZzlpS3ZlanBuZ2tFcVRjR1JBUlZINkhXWXo5bjUrWGcxNWU0WXM2?=
+ =?utf-8?B?NnJ4ZFpBTHBBQmt3b0VrUm92WmdWanRKaWxzSjZVNWRVR2graGJuUHFyNUxh?=
+ =?utf-8?B?U3F1V1lLcTNoWTZ1SUl1VXcwc0hOOVpwT3pmaDcxbytXUEVKL0Fpd3ZlanF2?=
+ =?utf-8?B?ODB3YXlKelMyYldFUFpmSml3MGt4eWJuNjZXdzFEVUp3bTF5MXpDMEVqTTRU?=
+ =?utf-8?B?MS9NTm1FVHdPTytVM1ErM0pYdEp3a25LYVdtWU5mVms5MTdpbFRsSjl2SXlU?=
+ =?utf-8?B?ci9SVGx4MEVTa0JEWE1kcjZWQWR2c2haREJxNkhlQ2NTdWF6VkgvYXhyaE5Z?=
+ =?utf-8?B?c0RDUU1kNDlBMWNPQm54eDQ2bVBXSVZSZkdaSzUvRXBqd1YzanI0OVR1T0cv?=
+ =?utf-8?B?VUIyNVF1TnJtclJPL0FMUlZYbDdFb0NFNTJ5NUpwRWJOd1NiQ2IrTE9yQ1FY?=
+ =?utf-8?B?aGxSSkV4VTMzVGw4YzA4TmxyRjl3RzFqYzlFQlZxUVVIbStGQjV2VmthREZi?=
+ =?utf-8?B?eWdPWmlxY204NDFFNmlZRUFDMExZL2tScmE2eHZmKzQ3QkZ0N1JMZUlteFd5?=
+ =?utf-8?B?cVIzY2dYeGxGaUlQU1JHZjhldDJsWUtpY0QrS1kyK0srVUNObDAwVXp3dmJY?=
+ =?utf-8?B?UFk3Nkc3NkhnZVA0ZzVkT1BWZURIbThPZ05aWWx6NjlVTk8vYWJSV0RvMlhR?=
+ =?utf-8?B?UW1uMFNlYUk3VVhkM0hZcVRVVGhyZUlTM1ZnaEttWFBpS0xJSDNOMzNXcWJq?=
+ =?utf-8?B?aXVaZFlsWTJqL2txbFN5MlFSeVVKaUVkN3N6bXFoMC83ZDdCYW1vT2EvUU9N?=
+ =?utf-8?B?Sm1xVGVvbzZyR1RFTWRheTljV1I1NnVoUVVudE85MzJNWk1HMG51dXd1YzV0?=
+ =?utf-8?B?MkxpSWNsVW15bXRWZjhwWm1razA1NUZEUCtqQStjb2FkcTY1emRLUkRKM0hF?=
+ =?utf-8?B?R2NJS1pYRWlSdDJpZHZQOW9YNEoyU3UrMENVV0U4dEJrZWJwRE4zZHFMbTRa?=
+ =?utf-8?B?QzI3dHpzSW9yR05zWFN1MXVxV09Jb1N5YVdrUzRtcUdISzZZVXpGa1lVYUpQ?=
+ =?utf-8?B?L1RmRzlPREMrd2NSek5GQ1Z1ampxY2NPY2RvZUpPZmZnR252QUdQczg3QnhM?=
+ =?utf-8?B?eE9aTjdKbmJZeDduRytPM1hNV3g2b1puVkJwcDEvQzVsQUFWWmROcHdDVmR1?=
+ =?utf-8?B?MUJvOWRnUnNOeGUvWW9BQkpybHFxRmZyc1hqMlFQYzJjVnBLQzJESzZvUGUx?=
+ =?utf-8?B?WHBZMW03dmVNNUxzaVkvb0o2cStWOUk3cnEyTGFBNjdSWUlEdFZVRDBVdElw?=
+ =?utf-8?B?OGpOQkp6eEpMcHhLRkdFeUgraHR5NmdsVUE1MHpta1owNHgyaEE0and1cktD?=
+ =?utf-8?B?QVN4TVF1MDhRYzZHbDU0dzJMSVpjOVFBKzZZcFNvRWdHTHhmMzBiMDI4MEdM?=
+ =?utf-8?B?SU1UWkIvNzY3WGpJVlp4MG9VeUhNY0xVSTFMbUIwWVI3QnYrMmozWE5CSnBo?=
+ =?utf-8?B?d2RSTHhzQUZKY25ERFFsZVpRYjhscGhMMk9tMU9yVTc3czVTMmxPdmZhT0Uy?=
+ =?utf-8?B?SkJJUWg5NHR6alYwK0JjbloxMEtHN0V3MlNWQjBLQkpBZit0dFgrdDYvcDBm?=
+ =?utf-8?B?bHV0cWV0azZBa3J6SVlqK0lWWU1yZUNOalJxeDNzSlFBTGRYa2xJVHpBczJ4?=
+ =?utf-8?B?RFpwWGx6SHdibjZkOUhjT0srV1BwaWtaQW4zckQ4c0dtM1JlT25jd1A1TzBS?=
+ =?utf-8?Q?4YgnFw2Ypeg9KNXcgNz+VRob7?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250530-rk3588-dfi-improvements-v1-2-6e077c243a95@collabora.com>
-References: <20250530-rk3588-dfi-improvements-v1-0-6e077c243a95@collabora.com>
-In-Reply-To: <20250530-rk3588-dfi-improvements-v1-0-6e077c243a95@collabora.com>
-To: Chanwoo Choi <cw00.choi@samsung.com>, 
- MyungJoo Ham <myungjoo.ham@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, Heiko Stuebner <heiko@sntech.de>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Jonathan Cameron <Jonathan.Cameron@huawei.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: kernel@collabora.com, linux-pm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+Content-ID: <4E6ADDEDEC068E469430D089486E3383@EURP195.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d7b386e-d6b5-4fde-54c9-08dd9f7f9030
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 May 2025 13:40:38.5058
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: GtkmIII6r8WMiWkTYpa2GMEF6xXYjfdcLQFvm7FxKvkPQJLbi+hPwxlf3K7Srzl/CKuDM71KK5ZT6UGFH14pmA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9P195MB1298
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_063859_420145_9F1041B1 
-X-CRM114-Status: GOOD (  31.28  )
+X-CRM114-CacheID: sfid-20250530_064046_237945_59257BF7 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,221 +196,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3588 SoC can also support LPDDR5 memory. This type of
-memory needs some special case handling in the rockchip-dfi driver.
-
-Add support for it in rockchip-dfi, as well as the needed GRF register
-definitions.
-
-This has been tested as returning both the right cycle count and
-bandwidth on a LPDDR5 board where the CKR bit is 1. I couldn't test
-whether the values are correct on a system where CKR is 0, as I'm not
-savvy enough with the Rockchip tooling to know whether this can be set
-in the DDR init blob.
-
-Downstream has some special case handling for a hardware version where
-not just the control bits differ, but also the register. Since I don't
-know whether that hardware version is in any production silicon, it's
-left unimplemented for now, with an error message urging users to report
-if they have such a system.
-
-There is a slight change of behaviour for non-LPDDR5 systems: instead of
-writing 0 as the control flags to the control register and pretending
-everything is alright if the memory type is unknown, we now explicitly
-return an error.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/devfreq/event/rockchip-dfi.c | 84 ++++++++++++++++++++++++++++--------
- include/soc/rockchip/rk3588_grf.h    |  8 +++-
- include/soc/rockchip/rockchip_grf.h  |  1 +
- 3 files changed, 73 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
-index 54effb63519653d20b40eed88681330983399a77..5a2c9badcc64c552303c2f55c52e5420dec5ffc1 100644
---- a/drivers/devfreq/event/rockchip-dfi.c
-+++ b/drivers/devfreq/event/rockchip-dfi.c
-@@ -34,15 +34,18 @@
- 
- /* DDRMON_CTRL */
- #define DDRMON_CTRL	0x04
-+#define DDRMON_CTRL_LPDDR5		BIT(6)
- #define DDRMON_CTRL_DDR4		BIT(5)
- #define DDRMON_CTRL_LPDDR4		BIT(4)
- #define DDRMON_CTRL_HARDWARE_EN		BIT(3)
- #define DDRMON_CTRL_LPDDR23		BIT(2)
- #define DDRMON_CTRL_SOFTWARE_EN		BIT(1)
- #define DDRMON_CTRL_TIMER_CNT_EN	BIT(0)
--#define DDRMON_CTRL_DDR_TYPE_MASK	(DDRMON_CTRL_DDR4 | \
-+#define DDRMON_CTRL_DDR_TYPE_MASK	(DDRMON_CTRL_LPDDR5 | \
-+					 DDRMON_CTRL_DDR4 | \
- 					 DDRMON_CTRL_LPDDR4 | \
- 					 DDRMON_CTRL_LPDDR23)
-+#define DDRMON_CTRL_LP5_BANK_MODE_MASK	GENMASK(8, 7)
- 
- #define DDRMON_CH0_WR_NUM		0x20
- #define DDRMON_CH0_RD_NUM		0x24
-@@ -116,13 +119,60 @@ struct rockchip_dfi {
- 	int buswidth[DMC_MAX_CHANNELS];
- 	int ddrmon_stride;
- 	bool ddrmon_ctrl_single;
-+	u32 lp5_bank_mode;
-+	bool lp5_ckr;	/* true if in 4:1 command-to-data clock ratio mode */
- 	unsigned int count_multiplier;	/* number of data clocks per count */
- };
- 
-+static int rockchip_dfi_ddrtype_to_ctrl(struct rockchip_dfi *dfi, u32 *ctrl,
-+					u32 *mask)
-+{
-+	u32 ddrmon_ver;
-+
-+	*mask = DDRMON_CTRL_DDR_TYPE_MASK;
-+
-+	switch (dfi->ddr_type) {
-+	case ROCKCHIP_DDRTYPE_LPDDR2:
-+	case ROCKCHIP_DDRTYPE_LPDDR3:
-+		*ctrl = DDRMON_CTRL_LPDDR23;
-+		break;
-+	case ROCKCHIP_DDRTYPE_LPDDR4:
-+	case ROCKCHIP_DDRTYPE_LPDDR4X:
-+		*ctrl = DDRMON_CTRL_LPDDR4;
-+		break;
-+	case ROCKCHIP_DDRTYPE_LPDDR5:
-+		ddrmon_ver = readl_relaxed(dfi->regs);
-+		if (ddrmon_ver < 0x40) {
-+			*ctrl = DDRMON_CTRL_LPDDR5 | dfi->lp5_bank_mode;
-+			*mask |= DDRMON_CTRL_LP5_BANK_MODE_MASK;
-+			break;
-+		}
-+
-+		/*
-+		 * As it is unknown whether the unpleasant special case
-+		 * behaviour used by the vendor kernel is needed for any
-+		 * shipping hardware, ask users to report if they have
-+		 * some of that hardware.
-+		 */
-+		dev_err(&dfi->edev->dev,
-+			"unsupported DDRMON version 0x%04X, please let linux-rockchip know!\n",
-+			ddrmon_ver);
-+		return -EOPNOTSUPP;
-+	default:
-+		dev_err(&dfi->edev->dev, "unsupported memory type 0x%X\n",
-+			dfi->ddr_type);
-+		return -EOPNOTSUPP;
-+	}
-+
-+	return 0;
-+}
-+
- static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
- {
- 	void __iomem *dfi_regs = dfi->regs;
- 	int i, ret = 0;
-+	u32 ctrl;
-+	u32 ctrl_mask;
- 
- 	mutex_lock(&dfi->mutex);
- 
-@@ -136,8 +186,11 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
- 		goto out;
- 	}
- 
-+	ret = rockchip_dfi_ddrtype_to_ctrl(dfi, &ctrl, &ctrl_mask);
-+	if (ret)
-+		goto out;
-+
- 	for (i = 0; i < dfi->max_channels; i++) {
--		u32 ctrl = 0;
- 
- 		if (!(dfi->channel_mask & BIT(i)))
- 			continue;
-@@ -147,21 +200,7 @@ static int rockchip_dfi_enable(struct rockchip_dfi *dfi)
- 			       DDRMON_CTRL_SOFTWARE_EN | DDRMON_CTRL_HARDWARE_EN),
- 			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
- 
--		/* set ddr type to dfi */
--		switch (dfi->ddr_type) {
--		case ROCKCHIP_DDRTYPE_LPDDR2:
--		case ROCKCHIP_DDRTYPE_LPDDR3:
--			ctrl = DDRMON_CTRL_LPDDR23;
--			break;
--		case ROCKCHIP_DDRTYPE_LPDDR4:
--		case ROCKCHIP_DDRTYPE_LPDDR4X:
--			ctrl = DDRMON_CTRL_LPDDR4;
--			break;
--		default:
--			break;
--		}
--
--		writel_relaxed(HIWORD_UPDATE(ctrl, DDRMON_CTRL_DDR_TYPE_MASK),
-+		writel_relaxed(HIWORD_UPDATE(ctrl, ctrl_mask),
- 			       dfi_regs + i * dfi->ddrmon_stride + DDRMON_CTRL);
- 
- 		/* enable count, use software mode */
-@@ -652,6 +691,7 @@ static int rockchip_ddr_perf_init(struct rockchip_dfi *dfi)
- 		break;
- 	case ROCKCHIP_DDRTYPE_LPDDR4:
- 	case ROCKCHIP_DDRTYPE_LPDDR4X:
-+	case ROCKCHIP_DDRTYPE_LPDDR5:
- 		dfi->burst_len = 16;
- 		break;
- 	}
-@@ -730,7 +770,7 @@ static int rk3568_dfi_init(struct rockchip_dfi *dfi)
- static int rk3588_dfi_init(struct rockchip_dfi *dfi)
- {
- 	struct regmap *regmap_pmu = dfi->regmap_pmu;
--	u32 reg2, reg3, reg4;
-+	u32 reg2, reg3, reg4, reg6;
- 
- 	regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG2, &reg2);
- 	regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG3, &reg3);
-@@ -757,6 +797,14 @@ static int rk3588_dfi_init(struct rockchip_dfi *dfi)
- 	dfi->ddrmon_stride = 0x4000;
- 	dfi->count_multiplier = 2;
- 
-+	if (dfi->ddr_type == ROCKCHIP_DDRTYPE_LPDDR5) {
-+		regmap_read(regmap_pmu, RK3588_PMUGRF_OS_REG6, &reg6);
-+		dfi->lp5_bank_mode = FIELD_GET(RK3588_PMUGRF_OS_REG6_LP5_BANK_MODE, reg6) << 7;
-+		dfi->lp5_ckr = FIELD_GET(RK3588_PMUGRF_OS_REG6_LP5_CKR, reg6);
-+		if (dfi->lp5_ckr)
-+			dfi->count_multiplier *= 2;
-+	}
-+
- 	return 0;
- };
- 
-diff --git a/include/soc/rockchip/rk3588_grf.h b/include/soc/rockchip/rk3588_grf.h
-index 630b35a550640e57f1b5a50dfbe362653a7cbcc1..02a7b2432d9942e15a77424c44fefec189faaa33 100644
---- a/include/soc/rockchip/rk3588_grf.h
-+++ b/include/soc/rockchip/rk3588_grf.h
-@@ -12,7 +12,11 @@
- #define RK3588_PMUGRF_OS_REG3_DRAMTYPE_INFO_V3		GENMASK(13, 12)
- #define RK3588_PMUGRF_OS_REG3_SYSREG_VERSION		GENMASK(31, 28)
- 
--#define RK3588_PMUGRF_OS_REG4           0x210
--#define RK3588_PMUGRF_OS_REG5           0x214
-+#define RK3588_PMUGRF_OS_REG4				0x210
-+#define RK3588_PMUGRF_OS_REG5				0x214
-+#define RK3588_PMUGRF_OS_REG6				0x218
-+#define RK3588_PMUGRF_OS_REG6_LP5_BANK_MODE		GENMASK(2, 1)
-+/* Whether the LPDDR5 is in 2:1 (= 0) or 4:1 (= 1) CKR a.k.a. DQS mode */
-+#define RK3588_PMUGRF_OS_REG6_LP5_CKR			BIT(0)
- 
- #endif /* __SOC_RK3588_GRF_H */
-diff --git a/include/soc/rockchip/rockchip_grf.h b/include/soc/rockchip/rockchip_grf.h
-index e46fd72aea8d1f649768a3269b85176dacceef0e..41c7bb26fd5387df85e5b58186b67bf74706f360 100644
---- a/include/soc/rockchip/rockchip_grf.h
-+++ b/include/soc/rockchip/rockchip_grf.h
-@@ -13,6 +13,7 @@ enum {
- 	ROCKCHIP_DDRTYPE_LPDDR3	= 6,
- 	ROCKCHIP_DDRTYPE_LPDDR4	= 7,
- 	ROCKCHIP_DDRTYPE_LPDDR4X = 8,
-+	ROCKCHIP_DDRTYPE_LPDDR5	= 9,
- };
- 
- #endif /* __SOC_ROCKCHIP_GRF_H */
-
--- 
-2.49.0
-
+CgpPbiBNaSwgMjAyNS0wNS0yOCBhdCAyMToyOSArMDIwMCwgQW5kcmV3IEx1bm4gd3JvdGU6Cj4g
+PiBZZXMsIHRoYXQncyB3aGF0IEkgbWVhc3VyZWQuIEZvciBhbmFseXNpcywgSSBhZGRlZCBzb21l
+Cj4gPiBkZWJ1Z8Kgb3V0cHV0cwo+ID4gdG8KPiA+IHRoZSBwaHkgcmVzZXQgYW5kIHRoZSAxc3Qg
+cGh5IHJlZ2lzdGVyIGFjY2Vzcy4gQW5kIGFzIEkgY2FuIHNlZSwKPiA+IHRoZQo+ID4gcGh5IHJl
+Z2lzdGVyIGFjY2Vzc8KgaGFwcGVucyB3aGVuwqB1c2VybGFuZCBzZXRzIHVwIHRoZSBuZXR3b3Jr
+Ogo+IAo+IFBsZWFzZSByZXBlYXQgdGhlIG1lYXN1cmVtZW50cyB3aXRoIE5GUyByb290Lgo+IAo+
+IFlvdSB3aWxsIGZpbmQgdGhhdCB0aGUga2VybmVsIGJyaW5ncyB0aGUgaW50ZXJmYWNlIHVwIHJp
+Z2h0IGhhdmUKPiByZWdpc3Rlcl9uZXRkZXYoKSBpcyBjYWxsZWQsIGFuZCBzdGFydHMgdHJhbnNt
+aXR0aW5nLiBJdCBjYW4gaGFwcGVuCj4gYmVmb3JlIHJlZ2lzdGVyX25ldGRldigpIGV2ZW4gcmV0
+dXJucy4KClRoYW5rcyBmb3IgdGhhdCBoaW50LiBBcyB5b3Ugc2FpZCwgd2l0aCBuZnMgcm9vdMKg
+dGhlIHJlZ2lzdGVyIGFjY2VzcwpoYXBwZW5zIG11Y2ggZWFybGllci4gSSBtZWFzdXJlZDoKCiAg
+ICAgICBbICAgMS43MTMxODVdIERFQi1QSFk6IG1kaW8gcmVzZXQgZXhldWN0ZWQKICAgICAgIC4u
+LgogICAgICAgLi4uCiAgICAgICAuLi4KICAgICAgIFsgICAyLjY3Mjg5Ml0gREVCLVBIWTogcmVn
+aXN0ZXIgYWNjZXNzCgpIb3dldmVyLCB0aGUgZGVsdGEgdGltZSBvZiAwLjk1OTcwN3MgKDk1OTdt
+cykgc3RpbGwgbWVldHMgdGhlIFQyCigicHJpb3IgdG8gTURDIHByZWFtYmxlIGZvciByZWdpc3Rl
+ciBhY2Nlc3MiKSB0aGF0IGlzIGRlZmluZWQgaW4gdGhlClBIWSdzIGRhdGFzaGVldCB3aXRoIDJt
+cy4KClNlZW1zIHRvIGJlIGZpbmUgZnJvbSBteSBwb2ludCBvZiB2aWV3LgoKUmVnYXJkcywKQ2hy
+aXN0b3BoCgo+IAo+IMKgQW5kcmV3Cg==
 
