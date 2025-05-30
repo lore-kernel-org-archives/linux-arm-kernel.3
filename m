@@ -4,54 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5600C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AEEC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BEtjdQWVmUUIDWfuXFiJWebkpsnnmSwPHKfsZD+NnoQ=; b=Li4F1cbOvKhYd6Vga4xU+fGGko
-	COWktUVuRgJyO8EMIt3UGP0j9Cb+rhP6WLs/PM3jTLNjC7/QVxy8/R+isH3YRYAzb2D5mB4JTkLA8
-	5Soz08DJu/IbeCDTqdzcivUfmLK0Ji2I6pqxj2sD+1PjGuQ0otKQEv+frmsu6ZC5z5YjHDOrAr80u
-	7zhRyIKHzEV6BiARfj9vdpSxqDKIgR7o+kC1LTfXyDptmBQGmUXOyfLxm4Ip10uH14sjrRjuBLZBd
-	O/ZFAGSmIdVMsorx6YHMeiLS0qR073bOouRtItOMkc1JgarkOjfbAzb/+jLT5R3znkM3iMPXafBKT
-	30cR6ong==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GL3ATgB6DA2rUXTlv2zuiuGWoKvVxRGOzVbYYRUhipw=; b=pL4p1AYl7qQcc1n8Lk+zDQg30r
+	UvEUyse0BRFkrl7ut99r/qPFwowk6j7klmpRejn5vdz7rF1qa8fUh2yDNEfX3kXxCfBjLDUUFwiNo
+	lKCTXI84coFfz4HwtOwp5f5Si+rMFfzsHaJHDR6+IKt7dxNddOzkrj2JswceFzU+kwMnBBtehcn4s
+	VIgT9J2jKezKPQg5fGc+0whxWzSbTga/itjR4Lw0v7TkDMq4jzAz9aCSgsncbTeM57b9pCS3DCOf7
+	S5ltcNGRXGmCummuTKLahlqcfSi792ROVqG+HAQUNOxElxN8imzpbhZmg01VVMj7VZnMy0y4e80Xn
+	5LQetWjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKw3C-000000007cq-0BJj;
-	Fri, 30 May 2025 09:29:18 +0000
+	id 1uKw5J-000000008HA-0i5Z;
+	Fri, 30 May 2025 09:31:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKvyM-000000006mE-3ilE
+	id 1uKw1R-000000007BU-3vNv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 09:24:20 +0000
+	Fri, 30 May 2025 09:27:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 050CE16F2;
-	Fri, 30 May 2025 02:24:02 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B0A93F5A1;
-	Fri, 30 May 2025 02:24:17 -0700 (PDT)
-Date: Fri, 30 May 2025 10:24:13 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	kernel@oss.qualcomm.com, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] coresight-tpdm: add trace_id sysfs node
-Message-ID: <20250530092413.GA666854@e132581.arm.com>
-References: <20250530-showtraceid-v1-1-2761352cf7b4@quicinc.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A66D16F2;
+	Fri, 30 May 2025 02:27:11 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 406103F5A1;
+	Fri, 30 May 2025 02:27:25 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	geert@linux-m68k.org,
+	broonie@kernel.org,
+	mcgrof@kernel.org,
+	joey.gouly@arm.com,
+	kristina.martsenko@arm.com,
+	rppt@kernel.org,
+	pcc@google.com,
+	bigeasy@linutronix.de,
+	ptosi@google.com,
+	mark.rutland@arm.com,
+	james.morse@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH] arm64/trap: fix broken ct->nmi_nesting when die() is called in a kthread
+Date: Fri, 30 May 2025 10:27:23 +0100
+Message-Id: <20250530092723.3307630-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250530-showtraceid-v1-1-2761352cf7b4@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_022419_054511_D9538AD8 
-X-CRM114-Status: GOOD (  30.90  )
+X-CRM114-CacheID: sfid-20250530_022730_064822_9FE32279 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,113 +74,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 03:29:14PM +0800, Yuanfang Zhang wrote:
-> The trace ID of TPMD is the trace ID of the TPDA or TNOC
-> which it is connected to, this change adds trace_id sysfs
-> node to expose this trace id to userspace.
-> 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> ---
->  drivers/hwtracing/coresight/coresight-tpdm.c | 16 ++++++++++++++++
->  drivers/hwtracing/coresight/coresight-tpdm.h |  2 ++
->  2 files changed, 18 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-> index 7214e65097ec9ac69f6c7c9278bcd28d25945c9e..8a5d115157924f39b09f8e3005827d7d64aa376c 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-> @@ -497,6 +497,9 @@ static int tpdm_enable(struct coresight_device *csdev, struct perf_event *event,
->  
->  	__tpdm_enable(drvdata);
->  	drvdata->enable = true;
-> +
-> +	if (path)
-> +		drvdata->traceid = path->trace_id;
+When a kernel thread hits BUG() outside of an interrupt handler and
+panic_on_oops is not set, it exits via make_task_dead(), which is called by die().
+In this case, the nmi_nesting value in context_tracking becomes
+inconsistent because the proper context tracking exit functions are not reached.
 
-In Sysfs mode, the core layer calls coresight_path_assign_trace_id().
-Eventually, the source driver's trace_id() callback is invoked to
-retrieve the trace ID.
+Here’s an example scenario on arm64:
+  1. A kernel thread hits the BUG() macro outside an interrupt handler,
+     and panic_on_oops is not set (ct->nmi_nesting == CT_NESTING_IRQ_NONIDLE).
 
-I don't see TPDM driver provides trace_id() callback, so here
-"path->trace_id" is an invalid value?
+  2. The exception handler jumps to el1_dbg() and calls arm64_enter_el1_dbg(),
+     which invokes ct_nmi_enter(). (ct->nmi_nesting == CT_NESTING_IRQ_NONIDLE + 2)
 
-Please refer to STM driver (see stm_trace_id()) for this part.
+  3. bug_handler() runs, and if the bug type is BUG_TRAP_TYPE_BUG, it calls die().
 
->  	spin_unlock(&drvdata->spinlock);
->  
->  	dev_dbg(drvdata->dev, "TPDM tracing enabled\n");
-> @@ -554,6 +557,7 @@ static void tpdm_disable(struct coresight_device *csdev,
->  	__tpdm_disable(drvdata);
->  	coresight_set_mode(csdev, CS_MODE_DISABLED);
->  	drvdata->enable = false;
-> +	drvdata->traceid = 0;
+  4. die() then calls make_task_dead(), which terminates the kernel thread and
+     schedules another task—assume this is the idle_task.
 
-Seems to me, a source device can reserve a trace ID until the module
-is unloaded.  So it is not necessary to clean up trace ID when
-disabling it.
+  5. The idle_task attempts to enter the idle state by calling ct_idle_enter().
+     However, since the current ct->nmi_nesting value is CT_NESTING_IRQ_NONIDLE + 2,
+     ct_kernel_exit() triggers a WARN_ON_ONCE() warning.
 
-BTW, my understanding is that you are trying to allocate a trace ID in
-the TPDM driver and propagate the ID to the TNOC driver.  It would be
-helpful if you could send the patches in one go, we can review it in
-global picture.
+Because the kernel thread couldn’t call the appropriate context tracking exit
+function in step 3, the ct->nmi_nesting value remains incorrect.
+This leads to warnings like the following:
 
-Leo.
+[    7.133093] ------------[ cut here ]------------
+[    7.133129] WARNING: CPU: 2 PID: 0 at kernel/context_tracking.c:127 ct_kernel
+[    7.134157] Modules linked in:
+[    7.134158]     not ok 62 kasan_strings
+[    7.134280]
+[    7.134506] CPU: 2 UID: 0 PID: 0 Comm: swapper/2 Tainted: G    B D W        N
+[    7.134930] Tainted: [B]=BAD_PAGE, [D]=DIE, [W]=WARN, [N]=TEST
+[    7.135150] pstate: 204003c5 (nzCv DAIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    7.135441] pc : ct_kernel_exit+0xa4/0xb0
+[    7.135656] lr : ct_kernel_exit+0x1c/0xb0
+[    7.135866] sp : ffff8000829bbd90
+[    7.136011] x29: ffff8000829bbd90 x28: ffff80008224ecf0 x27: 0000000000000004
+[    7.136379] x26: ffff80008228ed30 x25: ffff80008228e000 x24: 0000000000000000
+[    7.137016] x23: f3ff000800a52280 x22: 0000000000000000 x21: ffff00087b6c7408
+[    7.137380] x20: ffff80008224b408 x19: 0000000000000005 x18: 0000000000000000
+[    7.137741] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+[    7.311316] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+[    7.311673] x11: 0000000000000000 x10: 0000000000000000 x9 : 4000000000000000
+[    7.312031] x8 : 4000000000000002 x7 : 0000000000000000 x6 : 0000000000000000
+[    7.312387] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
+[    7.312740] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff8007f947c000
+[    7.313096] Call trace:
+[    7.313210]  ct_kernel_exit+0xa4/0xb0 (P)
+[    7.313445]  ct_idle_enter+0x14/0x28
+[    7.313666]  default_idle_call+0x2c/0x60
+[    7.313902]  do_idle+0xec/0x320
+[    7.314104]  cpu_startup_entry+0x40/0x50
+[    7.314331]  secondary_start_kernel+0x120/0x1a0
 
->  	spin_unlock(&drvdata->spinlock);
->  
->  	dev_dbg(drvdata->dev, "TPDM tracing disabled\n");
-> @@ -655,9 +659,21 @@ static ssize_t integration_test_store(struct device *dev,
->  }
->  static DEVICE_ATTR_WO(integration_test);
->  
-> +static ssize_t traceid_show(struct device *dev,
-> +			    struct device_attribute *attr, char *buf)
-> +{
-> +	unsigned long val;
-> +	struct tpdm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +
-> +	val = drvdata->traceid;
-> +	return sprintf(buf, "%#lx\n", val);
-> +}
-> +static DEVICE_ATTR_RO(traceid);
-> +
->  static struct attribute *tpdm_attrs[] = {
->  	&dev_attr_reset_dataset.attr,
->  	&dev_attr_integration_test.attr,
-> +	&dev_attr_traceid.attr,
->  	NULL,
->  };
->  
-> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.h b/drivers/hwtracing/coresight/coresight-tpdm.h
-> index b117543897344b689f666f6890cabb59c8ee4869..e12a64f265daa86f1b82fa3640e271e8386f99af 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpdm.h
-> +++ b/drivers/hwtracing/coresight/coresight-tpdm.h
-> @@ -300,6 +300,7 @@ struct cmb_dataset {
->   * @cmb         Specifics associated to TPDM CMB.
->   * @dsb_msr_num Number of MSR supported by DSB TPDM
->   * @cmb_msr_num Number of MSR supported by CMB TPDM
-> + * @traceid:    Value of the current ID for this component.
->   */
->  
->  struct tpdm_drvdata {
-> @@ -313,6 +314,7 @@ struct tpdm_drvdata {
->  	struct cmb_dataset	*cmb;
->  	u32			dsb_msr_num;
->  	u32			cmb_msr_num;
-> +	u8			traceid;
->  };
->  
->  /* Enumerate members of various datasets */
-> 
-> ---
-> base-commit: 94305e83eccb3120c921cd3a015cd74731140bac
-> change-id: 20250523-showtraceid-2df91c89be8f
-> 
-> Best regards,
-> -- 
-> Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> 
-> _______________________________________________
-> CoreSight mailing list -- coresight@lists.linaro.org
-> To unsubscribe send an email to coresight-leave@lists.linaro.org
+This behavior is specific to the arm64 architecture, where ct_nmi_enter()
+is called when handling a debug exception.
+In contrast, on other architectures, ct_nmi_enter() is not called when
+handling BUG().
+(i.e) when handling X86_TRAP_UD via handle_invalid_op(), it doesn't call
+ct_nmi_enter(). so it doesn’t cause any issues
+(While irq_entry_enter() does call ct_nmi_enter() for idle tasks,
+that doesn’t apply to debug exception handling).
+
+To address the issue of a corrupted ct->nmi_nesting value,
+add a check before calling make_task_dead() in die().
+If the current CPU’s ct->nmi_nesting is non-zero and not equal to
+CT_NESTING_IRQ_NONIDLE, then ct_nmi_exit() should be called.
+
+Fixes: 2a9b3e6ac69a ("arm64: entry: fix EL1 debug transitions")
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ arch/arm64/kernel/traps.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 529cff825531..9cf03b9ce691 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -227,8 +227,14 @@ void die(const char *str, struct pt_regs *regs, long err)
+
+ 	raw_spin_unlock_irqrestore(&die_lock, flags);
+
+-	if (ret != NOTIFY_STOP)
++	if (ret != NOTIFY_STOP) {
++#ifdef CONFIG_CONTEXT_TRACKING_IDLE
++		long nmi_nesting = ct_nmi_nesting();
++		if (nmi_nesting && nmi_nesting != CT_NESTING_IRQ_NONIDLE)
++			ct_nmi_exit();
++#endif
+ 		make_task_dead(SIGSEGV);
++	}
+ }
+
+ static void arm64_show_signal(int signo, const char *str)
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
 
