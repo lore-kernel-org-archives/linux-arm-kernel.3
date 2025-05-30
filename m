@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696BBC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66EEC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NC/npkzttGhkm7/aOaRE1XLBdXNeOE+DBMwptaCSHxs=; b=c6SO98cQtuNUaFbdtjer7eZNRl
-	ukqeshN/E9iTUV/lugvyb842L/R7ySvpxg0R9qZUGKQaZUR/2KeLCzbI9HZc0eI0SD78UQXbt5zfn
-	xmptL8f4tlLWh3Xe3NeKibJt74q5uMo9OhpQPgrSTD9tdNSNYWg+T0RGrUKLmu9u1DQyh3RCSYTV7
-	SUiIRbB56rqRkvIFumPtXcy+lyWbIYNfCTAFMKHcDapo0qRzGNCDHy+d0IE527l/CGC2BzeaAOiyL
-	U8k3a7/q/RjTg3lo3+X2yg1FPGmxnCR/enDnhdZ2ZTx0UyFXCr5Rgcp2jXnahTxaQr/WNajM4whsK
-	dvWcsV/Q==;
+	bh=dtu5AYC+2HBQQqzHNniOotAidzq+BnhVH9Ig4llAsl0=; b=P1ISqn4jPPX6wBZxUTzoDVZxu6
+	i1T3ZvL0rW73BRE0LWZ1caYLO/pA7tGqYTohvbUljzcGNYwbyux+ugLYq24YZp/GAW1RX60cauhHA
+	Yi0si+OrZxTxGfcfnj0WnIqPq5kII/AnTVI1uy7zWt4wmnEOpVvWQA8r1wHeE3d/qSO2qrq6HLI45
+	MSS05e4bjQ82vHvr2nCbFf1vS4oAeZO0OVFRl2ihgsPKvaCV2FxLZg2N0iUY0OiSYdKEdW9LohI3f
+	Cugf8NHQ2IZiX4teyzCfjO6K2P9KG1ARt0KQGi5qlnuuNq/XHsz+pogYGJ/kZGa8ntANFJCxuzpha
+	i6/dzTag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKvBL-000000000pJ-0FkG;
-	Fri, 30 May 2025 08:33:39 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uKvDR-000000001LF-2kaN;
+	Fri, 30 May 2025 08:35:49 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKv2g-0000000Haqi-0DET
+	id 1uKv7D-000000000N3-3yGy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 08:24:43 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4b7x4b6grVzQjvN;
-	Fri, 30 May 2025 16:20:15 +0800 (CST)
-Received: from kwepemo100006.china.huawei.com (unknown [7.202.195.47])
-	by mail.maildlp.com (Postfix) with ESMTPS id B1E8118046A;
-	Fri, 30 May 2025 16:24:23 +0800 (CST)
-Received: from localhost.localdomain (10.90.31.46) by
- kwepemo100006.china.huawei.com (7.202.195.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 30 May 2025 16:24:22 +0800
-From: Jie Zhan <zhanjie9@hisilicon.com>
-To: <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>
-Subject: [PATCH v4 1/2] PM / devfreq: Allow devfreq driver to add custom sysfs ABIs
-Date: Fri, 30 May 2025 16:17:21 +0800
-Message-ID: <20250530081722.280776-2-zhanjie9@hisilicon.com>
-X-Mailer: git-send-email 2.30.0
-In-Reply-To: <20250530081722.280776-1-zhanjie9@hisilicon.com>
-References: <20250530081722.280776-1-zhanjie9@hisilicon.com>
+	Fri, 30 May 2025 08:29:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uKv71-00076R-2j; Fri, 30 May 2025 10:29:11 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uKv70-000wlp-2I;
+	Fri, 30 May 2025 10:29:10 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uKv70-000oiP-1q;
+	Fri, 30 May 2025 10:29:10 +0200
+Date: Fri, 30 May 2025 10:29:10 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	carlos.song@nxp.com
+Subject: Re: [PATCH v2 4/6] arm64: dts: imx943-evk: add sound-wm8962 support
+Message-ID: <20250530082910.o5jg7s5ckbm6knms@pengutronix.de>
+References: <20250528015837.488376-1-shengjiu.wang@nxp.com>
+ <20250528015837.488376-5-shengjiu.wang@nxp.com>
+ <20250528083704.ne6wyoj6vcmy7azq@pengutronix.de>
+ <CAA+D8AMDbenx8scnBZdABAxF8MaYsBRzxXZjgGhMRbCJ-1wwcw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemo100006.china.huawei.com (7.202.195.47)
+In-Reply-To: <CAA+D8AMDbenx8scnBZdABAxF8MaYsBRzxXZjgGhMRbCJ-1wwcw@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_012442_241834_8059D1BE 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250530_012923_987491_ED65B808 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,55 +80,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: zhanjie9@hisilicon.com, yubowen8@huawei.com, linux-pm@vger.kernel.org, zhenglifeng1@huawei.com, liwei728@huawei.com, linuxarm@huawei.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the devfreq_dev_profile to allow drivers optionally create
-device-specific sysfs ABIs together with other common devfreq ABIs under
-the devfreq device path.
+On 25-05-30, Shengjiu Wang wrote:
+> On Wed, May 28, 2025 at 4:37 PM Marco Felsch <m.felsch@pengutronix.de> wrote:
+> >
+> > Hi,
+> >
+> > On 25-05-28, Shengjiu Wang wrote:
+> > > Add WM8962 codec connected to SAI1 interface.
+> > >
+> > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > >  arch/arm64/boot/dts/freescale/imx943-evk.dts | 79 ++++++++++++++++++++
+> > >  1 file changed, 79 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> > > index ff6e9ac5477f..da08aaa95904 100644
+> > > --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> > > +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+> > > @@ -36,6 +36,15 @@ reg_usdhc2_vmmc: regulator-usdhc2 {
+> > >               enable-active-high;
+> > >       };
+> > >
+> > > +     reg_audio_pwr: regulator-wm8962-pwr {
+> > > +             compatible = "regulator-fixed";
+> > > +             regulator-max-microvolt = <3300000>;
+> > > +             regulator-min-microvolt = <3300000>;
+> > > +             regulator-name = "audio-pwr";
+> > > +             gpio = <&pcal6416_i2c3_u171 12 GPIO_ACTIVE_HIGH>;
+> > > +             enable-active-high;
+> > > +     };
+> > > +
+> > >       reserved-memory {
+> > >               ranges;
+> > >               #address-cells = <2>;
+> > > @@ -50,6 +59,21 @@ linux,cma {
+> > >               };
+> > >       };
+> > >
+> > > +     sound-wm8962 {
+> > > +             compatible = "fsl,imx-audio-wm8962";
+> >
+> > Out of curiosity did you considered making use of "audio-graph-card2"?
+> >
+> > The "fsl,imx-audio-wm8962" seems like a pretty simple sound card which
+> > could be added via the "audio-graph-card2" as well. Don't get me wrong,
+> > it's not wrong what you're doing here but making use of the generic
+> > sound card would be nice because it's very common to just copy'n'paste
+> > the audio integration from the corresponding evk.dts file.
+> 
+> Thanks for the suggestion.
+> 
+> WM8962 has a function .set_pll(), which hasn't been supported in
+> audio-graph-card2.  so we still use fsl,imx-audio-wm8962.
 
-Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
----
- drivers/devfreq/devfreq.c | 1 +
- include/linux/devfreq.h   | 4 ++++
- 2 files changed, 5 insertions(+)
+Thanks for the explanation.
 
-diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-index 46f3a8053197..59f4656f5ed6 100644
---- a/drivers/devfreq/devfreq.c
-+++ b/drivers/devfreq/devfreq.c
-@@ -831,6 +831,7 @@ struct devfreq *devfreq_add_device(struct device *dev,
- 	mutex_lock(&devfreq->lock);
- 	devfreq->dev.parent = dev;
- 	devfreq->dev.class = devfreq_class;
-+	devfreq->dev.groups = profile->dev_groups;
- 	devfreq->dev.release = devfreq_dev_release;
- 	INIT_LIST_HEAD(&devfreq->node);
- 	devfreq->profile = profile;
-diff --git a/include/linux/devfreq.h b/include/linux/devfreq.h
-index d312ffbac4dd..dc1075dc3446 100644
---- a/include/linux/devfreq.h
-+++ b/include/linux/devfreq.h
-@@ -103,6 +103,8 @@ struct devfreq_dev_status {
-  *
-  * @is_cooling_device: A self-explanatory boolean giving the device a
-  *                     cooling effect property.
-+ * @dev_groups:		Optional device-specific sysfs attribute groups that to
-+ *			be attached to the devfreq device.
-  */
- struct devfreq_dev_profile {
- 	unsigned long initial_freq;
-@@ -119,6 +121,8 @@ struct devfreq_dev_profile {
- 	unsigned int max_state;
- 
- 	bool is_cooling_device;
-+
-+	const struct attribute_group **dev_groups;
- };
- 
- /**
--- 
-2.33.0
-
+Regards,
+  Marco
 
