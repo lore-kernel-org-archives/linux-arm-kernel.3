@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 760D6C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 17:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9482C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 17:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=qn/S/WhXvov4eS4P5stmS+0GCYN3iXUKtHYDCJi7t1Y=; b=JKFsqNwx/r6mW2BsWoQr1X6s+F
-	PA1rAP4Gm7UfSt8wBYvbX0FRuWr8/xxh4XwKxQt13PJeMhwuTAL8wkmXR3MG4OYHiocQVLgeVqIAq
-	3bFeP5SckEeKnwN7apUmBowW1DS6czkxGMIdSfkldRUviTxA/IVhpciMBXbQ6xU6BD9Rs5CbuFxIm
-	UYSyrQDdz5mw1cNRdBvV7s1XaCRghq+N75YIPtxyjb9LkfnrKC225a3A5ivmdahOdS5K+Glo+jWVs
-	WTnxtqDz+aBwp8ZVZjxTgY8bJP4gF7miEOgCkYLjFaR2wcatVdHoT5yXqKWDMfDNNgYt1s/8u74ok
-	0sEvI7wA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W4fxQxvhG4/x4tmZxvPANPWuOA0z5ICH1/aN5DMWia0=; b=Mtb9v1QimUBKCuZmZPq31a7xN9
+	tFzsLzGnXEtl7P3nhMa65eRZQgngnvAwDZ/HDClMDBf4Sp+Jv6f7zfNve1EXqbkrV53dkxvXThqoq
+	N8bvJ6LIj7x5pcXPcC/Tl8ImtzUPn5ekpt9JUXIuehTBr2J86WpkliI1vjWyLFCqPxhoHAx4mBT98
+	vdlD0fADaQy7g7kVdOZgAfDw5N7sC8N6+EkIOzjB9LBCPxSjHYeLNlPx71iwUsJsLyoyCEQlJURlr
+	KnHJr2KmGYvBBp/R72UibbgIa/3SHvxyzjc3ct4T3PuIu3EiSaAkhmEn/RlkhfqeuAmN0j2JoMbjV
+	styk5txQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL3bT-00000001PYa-07Bj;
-	Fri, 30 May 2025 17:33:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uL3dZ-00000001PlU-1f8v;
+	Fri, 30 May 2025 17:35:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL3ON-00000001O0v-1ebt;
-	Fri, 30 May 2025 17:19:40 +0000
+	id 1uL3TT-00000001Oei-43r4;
+	Fri, 30 May 2025 17:24:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 264444A841;
-	Fri, 30 May 2025 17:19:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C713BC4CEE9;
-	Fri, 30 May 2025 17:19:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6FEEC5C57FB;
+	Fri, 30 May 2025 17:22:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EF92C4CEEB;
+	Fri, 30 May 2025 17:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748625579;
-	bh=r75gyDrLGguzONHF8H73EFamx8iEhr+JOYtKKCo4xv8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=aBXBtw7hPt5+MiQPWv6+6d/vPcbxlur8A9dvcQsNL1iOU8Z5M8CNWOZhKNYKj/QWv
-	 SlgXOWD1Q3pcSYl2PcyR3ZvNrdrWFGuFyeZYBXFFKuXDn/xIGFo3elxaFJgiZOfdHu
-	 4y4DcCjdio6aDA2qbFQPz+t0drZhicR7ldwnNouwxEc0XCr4DacokmvfJtxklQr53t
-	 vVxnVbbTOhq0lh6+y+KZ43rCs4J4ykIPfdCqy+FYI3jl1CAYNiI1hJqomtBmIr57In
-	 9BtyJQX3YzScR0CqjMR4rb6Rm7SDS1lRwJ1RYOSOW6XfvPa2ZFk0HLNTYVsKzF8rr7
-	 x0Bm/xt/NSzvw==
-Date: Fri, 30 May 2025 12:19:37 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Niklas Cassel <cassel@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Hans Zhang <18255117159@163.com>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <20250530171937.GA198252@bhelgaas>
+	s=k20201202; t=1748625895;
+	bh=Fi8xBM8N/1UJOJHg+QvBM0v5UxznL2mUiHKiHfA5xiU=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=WA07GutGWsgZNiDexF2R2ziRpCuD5VGsGMBidzJJNXYwr3fAn4/40SRxfqbxHNV41
+	 zcUTDtgSPsC86Knw91KtxVKLGXAHVo2TPns+MEEwP491DS9HGMyFFbf3HwA+N4h0Z1
+	 TdnbHnNfGrUbrQyg1fz6pfn+w30ZTooUa4LKxAyn8/vlGzaTrcjXkJbrdVKbn9V2vo
+	 vdLLkw75u6tBwb2+q3y17llDCBF+laGq91eSEzZPCN3nP0lLdlIMcY5x4vlYTtQ4WH
+	 Ze5Hb5tgH8x5oUUPF76E3SfWU58s+TCOXyrwjNB4/mDlGKhRUzawgiMAKqQGaTJo9v
+	 WLdVLGubVBVsw==
+Date: Fri, 30 May 2025 19:24:53 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+CC: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+ Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>,
+ Laszlo Fiat <laszlo.fiat@proton.me>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_1/4=5D_PCI=3A_dw-rockchip=3A_Do_not_e?=
+ =?US-ASCII?Q?numerate_bus_before_endpoint_devices_are_ready?=
+User-Agent: Thunderbird for Android
+In-Reply-To: <20250530171937.GA198252@bhelgaas>
+References: <20250530171937.GA198252@bhelgaas>
+Message-ID: <76F22449-6A2D-4F64-BF23-DF733E6B9165@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fbvatgydh64wr2z2srivbuurjonxpq46xie3bq57grtosesfti@v6vplhyxc343>
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_101939_471311_D6354850 
-X-CRM114-Status: GOOD (  29.31  )
+X-CRM114-CacheID: sfid-20250530_102456_056223_2584A4E9 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +82,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 09:29:57PM +0530, Manivannan Sadhasivam wrote:
-> On Wed, May 28, 2025 at 05:42:51PM -0500, Bjorn Helgaas wrote:
-> > On Tue, May 06, 2025 at 09:39:36AM +0200, Niklas Cassel wrote:
-> > > Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
-> > > detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
-> > > and instead enumerate the bus when receiving a Link Up IRQ.
-> > > 
-> > > Laszlo Fiat reported (off-list) that his PLEXTOR PX-256M8PeGN NVMe SSD is
-> > > no longer functional, and simply reverting commit ec9fd499b9c6 ("PCI:
-> > > dw-rockchip: Don't wait for link since we can detect Link Up") makes his
-> > > SSD functional again.
-> > > 
-> > > It seems that we are enumerating the bus before the endpoint is ready.
-> > > Adding a msleep(PCIE_T_RRS_READY_MS) before enumerating the bus in the
-> > > threaded IRQ handler makes the SSD functional once again.
-> > 
-> > This sounds like a problem that could happen with any controller, not
-> > just dw-rockchip?  Are we missing some required delay that should be
-> > in generic code?  Or is this a PLEXTOR defect that everybody has to
-> > pay the price for?
-> > 
-> > Delays like this are really hard to get rid of once we add them, so
-> > I'm a little bit cautious.
-> 
-> Ok, I digged into the spec a little more and I could see below
-> paragraph in r6.0, sec 6.6.1 for devices not supporting Device
-> Readiness Status (DRS):
-> 
-> "With a Downstream Port that does not support Link speeds greater
-> than 5.0 GT/s, software must wait a minimum of 100 ms following exit
-> from a Conventional Reset before sending a Configuration Request to
-> the device immediately below that Port.
-> 
-> With a Downstream Port that supports Link speeds greater than 5.0
-> GT/s, software must wait a minimum of 100 ms after Link training
-> completes before sending a Configuration Request to the device
-> immediately below that Port.  Software can determine when Link
-> training completes by polling the Data Link Layer Link Active bit or
-> by setting up an associated interrupt (see § Section 6.7.3.3 ). It
-> is strongly recommended for software to use this mechanism whenever
-> the Downstream Port supports it."
-> 
-> We are not checking for DRS after the PERST# deassert or after link
-> is up, I think DRS check only applies to enumerated devices, but I'm
-> not 100% sure. But if we assume that the devices doesn't support
-> DRS, then we should make sure that all controller drivers wait for
-> 100ms even after link up event before issuing the config request.
+On 30 May 2025 19:19:37 CEST, Bjorn Helgaas <helgaas@kernel=2Eorg> wrote:
+>
+>I think all drivers should wait PCIE_T_RRS_READY_MS (100ms) after exit
+>from Conventional Reset (if port only supports <=3D 5=2E0 GT/s) or after
+>link training completes (if port supports > 5=2E0 GT/s)=2E
+>
+>> So I don't think this is a device specific issue but rather
+>> controller specific=2E  And this makes the Qcom patch that I dropped a
+>> valid one (ofc with change in description)=2E
+>
+>URL?
 
-I don't think we have any DRS support yet.
+PATCH 4/4 of this series=2E
 
-I think all drivers should wait PCIE_T_RRS_READY_MS (100ms) after exit
-from Conventional Reset (if port only supports <= 5.0 GT/s) or after
-link training completes (if port supports > 5.0 GT/s).
 
-> So I don't think this is a device specific issue but rather
-> controller specific.  And this makes the Qcom patch that I dropped a
-> valid one (ofc with change in description).
+Kind regards,
+Niklas
 
-URL?
-
-Bjorn
 
