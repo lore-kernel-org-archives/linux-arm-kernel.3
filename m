@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B5C3C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 10:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1494C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 10:51:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PT0MJjr6h+sjKtj45n5Ffv1RGeDB0XEv19iMD9iMQI=; b=dhFf/qq4jXAf+5sZ1ud5qfJcBg
-	3QZWjzclDI1IkV3Oy1AVHoEFC4v16aXcQJfmkHPtP/bw/dzYrdGwdCSlsdik0GkZMaJAQ9hwKfn9i
-	lNJJf75sOLTzdsTMgBTBTq2tOrpq44j+JT4T7jzxves994KCkc4E6c+SY4Txn2slxadJgmKIZQl8k
-	SMYnPuNzzD7wpVD6nhts9r2L/OBkkqvvllUoAQEFp+iJOgxD/AWGu67UY2zNTrs8HJx69D+NtFHCo
-	VmK6xwm+JxO/g/KkLkyt6ENgLQh5VJD51HwSLiwIxpL8zlxl+Z0Evj6tCxMJqH1i24ydrK5WDEOMh
-	N9FS7ihA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VrKOZNSqaZlbN58D6xqbea+e1XVfSTF4kSC0uBKMAdQ=; b=kFxZUwzqdQfxrAr4Z1KnGJoxlg
+	tEbaW9icWgpPyvBUzSkRrIbiit0N8ft1VQ9vy9VZqKWPVlwk9QUarXiR0RD9mF2Lt16aFiykqji4h
+	2uIjHGTxw0Kv88Az4s1rXuhubQO4OLnFXFJuW9wMB9lYd3JBXWc9qbuPM1bnsA45YVpJwf710GRYo
+	WzCM0fNywy02PdXut+o50HJZYJZSX29l3ciBkwjt3kHz4JuE1HkeFz+bVEaKoknNcFf+mPPtTgK1w
+	MKoUror6UeQYQyHjeGbZ0aCR0PmObQ2rKVco3UGpcyT3kgt89pk6bX81dUm3iKllw4BImQsRh1U/7
+	xYb/iMFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKxGr-00000000KKu-0VIT;
-	Fri, 30 May 2025 10:47:29 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uKxKK-00000000KhB-0B0p;
+	Fri, 30 May 2025 10:51:04 +0000
+Received: from ni.piap.pl ([195.187.100.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKxDo-00000000JvL-1EYe
+	id 1uKxIA-00000000KXy-0E85
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 10:44:22 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54UAiEwv3855647;
-	Fri, 30 May 2025 05:44:14 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748601854;
-	bh=6PT0MJjr6h+sjKtj45n5Ffv1RGeDB0XEv19iMD9iMQI=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=jG22c/7vTLxuFatEBkh800+/XGXG4wsKFtJdoJubj017uUYbfs6RvVmsbCcK+DX48
-	 9QXiefzIvbpXHSFLZ49tr7cLGHWlVLLbvussUhfgQMJ6dzToSExsg6TEJB4/Mr6rRM
-	 PAsQS4uRpGCNNWvzcE407c3uG/oW6qicuImhjNsw=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54UAiEv02817456
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 30 May 2025 05:44:14 -0500
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 30
- May 2025 05:44:13 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 30 May 2025 05:44:13 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.227.226])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54UAiCng2997568;
-	Fri, 30 May 2025 05:44:13 -0500
-Date: Fri, 30 May 2025 16:14:12 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-        Sudeep Holla
-	<sudeep.holla@arm.com>
-CC: Ulf Hansson <ulf.hansson@linaro.org>, <arm-scmi@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        Dan Carpenter <dan.carpenter@linaro.org>,
-        Vincent Guittot <vincent.guittot@linaro.org>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>, <kamlesh@ti.com>
-Subject: Re: [RFC PATCH] pmdomain: arm: scmi_pm_domain: Do lazy init as part
- of probe
-Message-ID: <20250530104412.cc73ewso5ydjhmsk@lcpd911>
-References: <20250530103527.2244951-1-d-gole@ti.com>
+	Fri, 30 May 2025 10:48:52 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id D12B4C405A45;
+	Fri, 30 May 2025 12:48:39 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl D12B4C405A45
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Xavier Roumegue <xavier.roumegue@oss.nxp.com>,  Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>,  Rui Miguel Silva <rmfrfs@gmail.com>,
+  Martin Kepplinger <martink@posteo.de>,  Purism Kernel Team
+ <kernel@puri.sm>,  Mauro Carvalho Chehab <mchehab@kernel.org>,  Shawn Guo
+ <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
+  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>,  linux-media@vger.kernel.org,  imx@lists.linux.dev,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Enable MIPI filtering by DT on i.MX8M*
+In-Reply-To: <2fd6wgsiwfx4raharcrpmmtayhkipjnz64u2cbprhsxkna3lhv@yshftexhmgns>
+	(Jacopo Mondi's message of "Fri, 30 May 2025 09:56:32 +0200")
+References: <m3h61u9jy2.fsf@t19.piap.pl>
+	<20250509103733.GE28896@pendragon.ideasonboard.com>
+	<m3o6vn8np5.fsf@t19.piap.pl>
+	<iegnn5xoosqpk52hvipcr73aliwhqtsq6r6ctvt5756bhy6yen@rqcdongb7fdf>
+	<m31psg97dy.fsf@t19.piap.pl>
+	<jqjptsphbtdtziuucehxutseaz7j4kjiirz2hk77f3dznswvza@avbjjzu3jcam>
+	<m3o6vb64hv.fsf@t19.piap.pl>
+	<2fd6wgsiwfx4raharcrpmmtayhkipjnz64u2cbprhsxkna3lhv@yshftexhmgns>
+Date: Fri, 30 May 2025 12:48:38 +0200
+Message-ID: <m3frgm5q7t.fsf@t19.piap.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250530103527.2244951-1-d-gole@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_034420_453554_7C5E222E 
-X-CRM114-Status: GOOD (  43.59  )
+X-CRM114-CacheID: sfid-20250530_034850_256877_15C5F44B 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,212 +74,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On May 30, 2025 at 16:05:27 +0530, Dhruva Gole wrote:
-> Optimize the SCMI power domain driver to only initialize domains that are
-> actually referenced in the device tree. Previously, the driver would
-> initialize all possible domains up to the maximum ID, which could lead to
-> unnecessary firmware calls and longer probe times.
-> 
-> Key changes:
-> - Scan device tree to identify which power domains are actually referenced
-> - Use bitmap to track needed domains instead of initializing all
-> - Only perform state queries and initialization for referenced domains
-> - Maintain proper array sizing for power domain framework compatibility
-> - Keep full provider structure to support late binding
-> 
-> This optimization reduces probe time and unnecessary firmware interactions
-> by only initializing power domains that are actually used in the system.
-> For example, in a system with 100 possible domains but only 3 referenced
-> in the device tree, we now only initialize those 3 domains instead of
-> all 100.
-> 
-> Signed-off-by: Dhruva Gole <d-gole@ti.com>
-> ---
+Jacopo,
 
+> Let me recap all of this.
+>
+> With:
+>
+> - MIPI_CSIx_CSIS_COMMON_CTRL[11:10]
+>  "Select Interleave mode" =3D 0x00 =3D CH0 only, no data interleave
+>
+> - MIPI_CSIx_ISP_CONFIGn[7:2]
+>   "Image Data Format" =3D 0x2c =3D RAW12
+>
+> Embedded data and OB pixels are filtered (which means we're filtering
+> on DT even if MIPI_CSIx_CSIS_COMMON_CTRL[11:10] =3D 0x0x would suggest
+> filtering is not enabled)
+>
+> However corrupted pixels are still sent through.
 
-Adding Sudeep and a few others who I missed adding initially.
+Right.
 
-> 
-> Hi all,
-> The approach of doing a lazy init was briefly proposed in this [1] 2024
-> Embedded Open Source talk. It was also brought up in the monthly ARM
-> SCMI meetings that take place and it didn't recieve too much opposition.
-> 
-> This greatly helps to improve the boot time, and I have some data to
-> back this up as well. This[2] experiment was done on a TI AM62L SoC
-> (which is yet to make it upstream) to measure the time taken in the scmi
-> pm domain probe function when it does a full 0..N scmi pd init vs just
-> the ones being used in the device tree.
-> 
-> If you have any feedback on this, please let me know. If not, I will go
-> ahead and post a "non-RFC" patch assuming everyone is mostly on board
-> with this. Also request other SCMI consumers to test this out as much as
-> possible to see if it breaks in any situations.
-> 
-> [1] https://static.sched.com/hosted_files/eoss24/2f/ARM_SCMI_Primer_Dhruva_kamlesh.pdf
-> [2] https://gist.github.com/DhruvaG2000/75d6a4c31e817f56587537b022761c45
-> 
-> Applies cleanly on top of next-20250530, built and tested on top of the
-> same
-> 
-> ---
-> 
->  drivers/pmdomain/arm/scmi_pm_domain.c | 88 ++++++++++++++++++++-------
->  1 file changed, 66 insertions(+), 22 deletions(-)
-> 
-> diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
-> index 2a213c218126..8acbfe249ed2 100644
-> --- a/drivers/pmdomain/arm/scmi_pm_domain.c
-> +++ b/drivers/pmdomain/arm/scmi_pm_domain.c
-> @@ -10,6 +10,8 @@
->  #include <linux/module.h>
->  #include <linux/pm_domain.h>
->  #include <linux/scmi_protocol.h>
-> +#include <linux/of.h>
-> +
->  
->  static const struct scmi_power_proto_ops *power_ops;
->  
-> @@ -47,14 +49,20 @@ static int scmi_pd_power_off(struct generic_pm_domain *domain)
->  
->  static int scmi_pm_domain_probe(struct scmi_device *sdev)
->  {
-> -	int num_domains, i;
->  	struct device *dev = &sdev->dev;
-> -	struct device_node *np = dev->of_node;
-> +	struct device_node *np;
->  	struct scmi_pm_domain *scmi_pd;
-> -	struct genpd_onecell_data *scmi_pd_data;
-> -	struct generic_pm_domain **domains;
-> +	struct of_phandle_args args;
->  	const struct scmi_handle *handle = sdev->handle;
->  	struct scmi_protocol_handle *ph;
-> +	struct genpd_onecell_data *scmi_pd_data;
-> +	struct generic_pm_domain **domains;
-> +	int max_id = -1;
-> +	int index, num_domains;
-> +	ktime_t start_time = ktime_get();
-> +	unsigned long *domain_ids;
-> +
-> +	dev_err(dev, "Starting optimized SCMI power domain probe\n");
->  
->  	if (!handle)
->  		return -ENODEV;
-> @@ -69,54 +77,90 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
->  		return num_domains;
->  	}
->  
-> -	scmi_pd = devm_kcalloc(dev, num_domains, sizeof(*scmi_pd), GFP_KERNEL);
-> -	if (!scmi_pd)
-> +	domain_ids = devm_bitmap_zalloc(dev, num_domains, GFP_KERNEL);
-> +	if (!domain_ids)
->  		return -ENOMEM;
->  
-> +	/* Find referenced domain IDs and mark them in bitmap */
-> +	for_each_node_with_property(np, "power-domains") {
-> +		index = 0;
-> +		while (!of_parse_phandle_with_args(np, "power-domains",
-> +					"#power-domain-cells",
-> +					index, &args)) {
-> +			if (args.args_count >= 1 && args.np == dev->of_node) {
-> +				int id = args.args[0];
-> +				if (id < num_domains) {
-> +					set_bit(id, domain_ids);
-> +					max_id = max(max_id, id);
-> +					dev_dbg(dev, "Found power domain reference %d from node %pOF\n",
-> +							id, np);
-> +				}
-> +			}
-> +			of_node_put(args.np);
-> +			index++;
-> +		}
-> +	}
-> +
-> +	if (max_id < 0) {
-> +		dev_warn(dev, "No power domains referenced in device tree\n");
-> +		/* Create provider anyway as domains might be referenced later */
-> +		max_id = 0;
-> +	}
-> +
-> +	dev_warn(dev, "Highest referenced domain ID: %d\n", max_id);
-> +
->  	scmi_pd_data = devm_kzalloc(dev, sizeof(*scmi_pd_data), GFP_KERNEL);
->  	if (!scmi_pd_data)
->  		return -ENOMEM;
->  
-> -	domains = devm_kcalloc(dev, num_domains, sizeof(*domains), GFP_KERNEL);
-> +	domains = devm_kcalloc(dev, max_id + 1, sizeof(*domains), GFP_KERNEL);
->  	if (!domains)
->  		return -ENOMEM;
->  
-> -	for (i = 0; i < num_domains; i++, scmi_pd++) {
-> +	scmi_pd = devm_kcalloc(dev, max_id + 1, sizeof(*scmi_pd), GFP_KERNEL);
-> +	if (!scmi_pd)
-> +		return -ENOMEM;
-> +
-> +	/* Initialize only referenced domains */
-> +	for_each_set_bit(index, domain_ids, num_domains) {
->  		u32 state;
->  
-> -		if (power_ops->state_get(ph, i, &state)) {
-> -			dev_warn(dev, "failed to get state for domain %d\n", i);
-> +		if (power_ops->state_get(ph, index, &state)) {
-> +			dev_err(dev, "Domain %d not available\n", index);
->  			continue;
->  		}
->  
-> -		/*
-> -		 * Register the explicit power on request to the firmware so
-> -		 * that it is tracked as used by OSPM agent and not
-> -		 * accidentally turned off with OSPM's knowledge
-> -		 */
-> -		if (state == SCMI_POWER_STATE_GENERIC_ON)
-> -			power_ops->state_set(ph, i, state);
-> +		dev_warn(dev, "Initializing referenced domain %d\n", index);
->  
-> -		scmi_pd->domain = i;
-> +		scmi_pd->domain = index;
->  		scmi_pd->ph = ph;
-> -		scmi_pd->name = power_ops->name_get(ph, i);
-> +		scmi_pd->name = power_ops->name_get(ph, index);
->  		scmi_pd->genpd.name = scmi_pd->name;
->  		scmi_pd->genpd.power_off = scmi_pd_power_off;
->  		scmi_pd->genpd.power_on = scmi_pd_power_on;
->  		scmi_pd->genpd.flags = GENPD_FLAG_ACTIVE_WAKEUP;
->  
-> +		if (state == SCMI_POWER_STATE_GENERIC_ON) {
-> +			dev_warn(dev, "Domain %d is ON, registering state\n", index);
-> +			power_ops->state_set(ph, index, state);
-> +		}
-> +
->  		pm_genpd_init(&scmi_pd->genpd, NULL,
->  			      state == SCMI_POWER_STATE_GENERIC_OFF);
->  
-> -		domains[i] = &scmi_pd->genpd;
-> +		domains[index] = &scmi_pd->genpd;
-> +		scmi_pd++;
->  	}
->  
->  	scmi_pd_data->domains = domains;
-> -	scmi_pd_data->num_domains = num_domains;
-> +	scmi_pd_data->num_domains = max_id + 1;
->  
->  	dev_set_drvdata(dev, scmi_pd_data);
->  
-> -	return of_genpd_add_provider_onecell(np, scmi_pd_data);
-> +	dev_err(dev, "SCMI power domains probe completed in %lld us\n",
-> +			ktime_us_delta(ktime_get(), start_time));
-> +
-> +	return of_genpd_add_provider_onecell(dev->of_node, scmi_pd_data);
->  }
->  
->  static void scmi_pm_domain_remove(struct scmi_device *sdev)
-> -- 
-> 2.34.1
-> 
+But there is more: there are 3 separate "DT filters":
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+0x32E40040       0xB0 ISP Configuration Register (ISP_CONFIG_CH0)
+   DT 2Ch (RAW12)
+0x32E40044  0x2D00500 ISP Resolution Register (ISP_RESOLUTION_CH0) =3D> 128=
+0 * 720
+
+0x32E40050       0xDC ISP Configuration Register (ISP_CONFIG_CH1)
+   DT 37h (User Defined 8-bit Data Type 8)
+0x32E40054  0x2D00500 ISP Resolution Register (ISP_RESOLUTION_CH1) =3D> 128=
+0 * 720
+
+0x32E40060       0x48 ISP Configuration Register (ISP_CONFIG_CH2)
+   DT 12h (Embedded 8-bit non Image Data)
+0x32E40064  0x2D00500 ISP Resolution Register (ISP_RESOLUTION_CH2) =3D> 128=
+0 * 720
+
+The 4th set looks the same, but doesn't appear to have its SHADOW
+register set, so I'll ignore it for now. I'm ignoring the SYNC registers
+as well (offsets ...0x58) - they are zeroed.
+
+It appears the 2 LS bits of ISP_CONFIG_CH* are the number of some output
+port. #0 goes to ISP, not sure about the others. Will have a look.
+
+I.e., I can disable CH0 and use CH1 or CH2 to feed image data do ISP -
+it works.
+
+MIPI_CSIx_CSIS_COMMON_CTRL:
+Bits 18, 17 and 16 respectively reload SHADOW registers for CH2, CH1 and
+CH0. For these tests, I have to use
+"devmem write 32-bit CSIS_COMMON_CTRL 0x7xxxx" instead of 0x1xxxx so that
+all 3 shadow sets are updated (and not only #0, the one in the docs and
+used by the drivers).
+
+0x32E40080       0xB0 Shadow Configuration Register (SHADOW_CONFIG_CH0)
+   DT 2Ch (RAW12)
+0x32E40084  0x2D00500 Shadow Resolution Register (SHADOW_RESOLUTION_CH0) =
+=3D> 1280 * 720
+0x32E40090       0xDC Shadow Configuration Register (SHADOW_CONFIG_CH1)
+   DT 37h (User Defined 8-bit Data Type 8)
+0x32E40094  0x2D00500 Shadow Resolution Register (SHADOW_RESOLUTION_CH1) =
+=3D> 1280 * 720
+0x32E400A0       0x48 Shadow Configuration Register (SHADOW_CONFIG_CH2)
+   DT 12h (Embedded 8-bit non Image Data)
+0x32E400A4  0x2D00500 Shadow Resolution Register (SHADOW_RESOLUTION_CH2) =
+=3D> 1280 * 720
+
+Also:
+0x32E40100     0x5F10 Frame Counter (FRAME_COUNTER_CH0)
+0x32E40104     0x57C4 Frame Counter (FRAME_COUNTER_CH1)
+0x32E40108     0x33CF Frame Counter (FRAME_COUNTER_CH2)
+
+Data selected by all 3 sets is somehow fed to the ISP. Now the data
+isn't simply appended to the previous fragment. It seems the DT 37h
+lines (which appear before the actual image data on the MIPI bus)
+somehow overwrite (only) the first line of the image. I'm looking at
+it.
+
+INTERLEAVE_MODE =3D 0 or 2 =3D> only CH0 is used, the first 32 bit in the i=
+mage
+		on CSI1 are corrupted.
+INTERLEAVE_MODE =3D 1 =3D> all 3 CHannels are used, no corruption
+
+There appear to be some subtle differences between 0 and 2, and 1 vs 3.
+
+> If you
+>
+> - MIPI_CSIx_CSIS_COMMON_CTRL[11:10]
+>  "Select Interleave mode" =3D 0x01 =3D DT (Data type) only
+>
+> Embedded data and OB pixels are still filtered, and your corrupt
+> pixels are filtered as well.
+
+Right.
+
+> Now, why are "corrupted pixels" filtered away by enabling this option ?
+>
+> As far as I understand bad pixels are corrupt in their data values,
+> the CSI-2 packet header which contains the DT is correct. Is my
+> understanding correct ?
+
+I think so. Maybe the corruption happens after the packets are received,
+on the 32-bit internal bus maybe.
+
+> It would be nice to actually understand what it does before enabling
+> it unconditionally.
+
+Still trying :-) Next Monday, maybe.
+
+Especially I don't know how do I receive multiple DT types, including
+12-bit RAW pixels and 8-bit user data. I know it wasn't probably
+designed for this, but nevertheless.
+--=20
+Krzysztof "Chris" Ha=C5=82asa
+
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
