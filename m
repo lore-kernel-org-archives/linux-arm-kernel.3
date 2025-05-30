@@ -4,153 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B0BC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2DBC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 09:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zWtS7BX4jv3Md6oma03aZLTPAuckL46QoolFrxWb6FY=; b=cgXO/z5c91ot6ayrM+7r04TSnV
-	jFUClQRIcUPAhE89KAuRoAes/jLai8RDfo1MiAfZqQcWFSoSo556WdO9B/M94dx2/oKYFU5PM6a5N
-	ZmeyZxqSqy/rcyqz7xYmaafGcOguCfMnLPtDP1MMyy1YyM1Zt4zig4MPJQ/SEjaXYUnq3mOhZIcLA
-	86lkIdZGLigqCwsGAQXlcS8kWr/rJWF/t2J71J68dY+q/9azHj/j9D/XL8itpl9PIxaHu+qfJGWgP
-	h/9Z5Y9DASGcin9ukAnxnq15jSWtZsfT+2whhmJYi7sdMv6rNdzMnZ+hgi/u4dNSONFk4Z1G2M57D
-	Zir54Mtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N6UY2y9MOEwZlIGv1rKrrngNk7HNQITxylPxlIC9Qrk=; b=mF55KO4U1BxawR92AlrZGGVqR1
+	Q3ajCMTkeQk9MCgcro8PZwskoCQ2JpqAFILXXWdx7jNNsO52Ru5ncNgWMUYaKwSOnZqQsJj1Bvb8z
+	KzAaL3uoHALmxjomwXJD2LFzWNME8LrBQY0gu20Mn25DOINL+6XaYIvr6R2FOEjrHIsiO0MQwKh71
+	YdCcsnB2s6nlDnS08qSRVb6zrs1jdr3fSJY62F2gfgN4rvmBVmXrO6uVDCuhadWzWyIO+7rUTT6aX
+	ZWBpxPqaNkEFk+bzBQewdRA4GSxffmF2DNiRf+HuPiUfENtGY16gibExwwTmUytrUJqoH2mWxmUYv
+	BqsBU4Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKwK5-00000000Cp7-46QT;
-	Fri, 30 May 2025 09:46:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uKwMB-00000000D62-31kI;
+	Fri, 30 May 2025 09:48:55 +0000
+Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKwGN-00000000Bla-3op8
+	id 1uKwJl-00000000CmV-2jDM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 09:42:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1748598174;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=zWtS7BX4jv3Md6oma03aZLTPAuckL46QoolFrxWb6FY=;
-	b=Xy9siocLka+h+1OEd2m1Jn8Xf5oDrHB2xcKtClGkcunvOIYdtEluAjqBhWKVab36je8gUw
-	XOeyyJ2y261lCyutyHfw54JoczHoyOWdl/X2YcS1Xb9h9Je/v1EuyqEZVqC/thsgiF038w
-	qBWNj06r/oIGUb6fOiy1++axKycQwmY=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-8-9_ynJYSMMl6krlCnx70ZXQ-1; Fri, 30 May 2025 05:42:53 -0400
-X-MC-Unique: 9_ynJYSMMl6krlCnx70ZXQ-1
-X-Mimecast-MFC-AGG-ID: 9_ynJYSMMl6krlCnx70ZXQ_1748598172
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-450d9f96f61so3142565e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 02:42:53 -0700 (PDT)
+	Fri, 30 May 2025 09:46:26 +0000
+Received: by mail-yb1-xb2f.google.com with SMTP id 3f1490d57ef6-e803de44790so214835276.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 02:46:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748598384; x=1749203184; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=N6UY2y9MOEwZlIGv1rKrrngNk7HNQITxylPxlIC9Qrk=;
+        b=NT3vGuoCTqTHwRb1t3EBXmkby3Bc+oNpRY8gYThRmVmMgWcW9CGagX3W6sVziUHlW4
+         dxpi9C/6hjpezQvyLBOQ5CcJmuMxCcKLTj/mD/QtYXLBFST1NDsQyd6S5QbJWDhYaLn8
+         NAlkzkYzSeqnccJaZ18tjYusVxfc8FudCxCu4OuN3FDB7Ks5jhpLH9QUgoSB7rX9duIE
+         BTBHi0kQhvtKriZWFdhWXoIvyUbqIRJvRR29iDAjyEhpxk9wVt9irJnJGIJ3gE3SYEQF
+         rJu5vN4KVFdyRI9jjVk41NB2a2ZZGY7ymWHdbKDET0a8tMrr4jJVZKXtZilyCVk1USHD
+         AwDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748598172; x=1749202972;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=zWtS7BX4jv3Md6oma03aZLTPAuckL46QoolFrxWb6FY=;
-        b=dfb3o5MNAS0eaFAU1RjG503BpAqsOt61fWoDp7E/bOxuu2wplNjovwXfd7x4oH43ec
-         YPUxzbLF+dB1w6vveuJV8ahS/+or1vqnpKdCyyzT3TBr2eMJxdJJbB/xTWaqkGVkxv1X
-         pxHCQz2APcfwIQDaVKYqGe0852rhfoWlJ/04aY6nq7EuYxCI+kcS5Tdq5erJfBJqhk3Z
-         DB9XfCvkw4QF9URdS/Hm4mGPdGcPi3IMSB9eCgZ0ceaCH/uZAu5tX4UyGQH0Vyd2S32y
-         gInSv5QUJT+czKaa/ZBLYcshe+BG7gsI0zFDtWvcJ4Req38z0ldtjl7gMKWJzZKskRuy
-         4WSg==
-X-Forwarded-Encrypted: i=1; AJvYcCWUBS13dWq/A9gA6AbGo1/RO5l+2KsPj44A7t85J08KigJ/wok+3N7k9edxabRrU0+VJtSTF9AMGK/k5WX7d1F9@lists.infradead.org
-X-Gm-Message-State: AOJu0YytE+/2WOYqauSCjrrTQBlX/SO1fe19NghHdy105jUeVjMkUv38
-	KktDidXSHDccH8HUK4F1AqbDkyQbyz44f2S55gAPnVge0EesqJAd/MaCAFW2SYkpUJ9dzNArE06
-	zK7Zcu2OorG10WVoKZvchlYTsReU0iZdkh16TkWdcKD9nYHz1OyKl0aTjn+T/ufYJ5NGDEUdVz7
-	Q+
-X-Gm-Gg: ASbGncsl7Zxw/SqXj7EY8fZ7HR+4UcyjfTerSIiDGM9vkzwNok7TJjpKetauNdtCm8g
-	9gi7jCkd+Enzidlxd+gr8ixXvG3avxoIQwEmVpL+WCyNJnRtXwxfFarGvntej3hhofWm9mLXkyq
-	gnL77EleTicZ6T83gc1MmaYjXpu+qcXFRpQpNvbAEJIO2jg18xV9CE1mzmzez5XALGo8xGMoTdV
-	+5dKKzjWp74mSydOXFQA2DhlJg4akEhZf9JUlvzOUsM1hM2fuvQ+hl55OCrEMsI+75kLmXDUO9X
-	zSocxNXpegvsloMpHHAyC/+y8nv5wFaOkzAHspEExX1azChPpfj5JJwSpjP/dy8vfJbKw++mYly
-	rEXJHNTqki3RvIMcG4vQ6ImMMe2cZHjNamoOYlhA=
-X-Received: by 2002:a05:6000:1ac6:b0:39f:175b:a68d with SMTP id ffacd0b85a97d-3a4f7a3e745mr1997141f8f.11.1748598172267;
-        Fri, 30 May 2025 02:42:52 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEE2cC4rOgIu1Bk0E4HwZEgbfvuVj5Yx/rDkAqlZuc3fKNMuN3WR3Ck+7U4WmY934x7i63eYg==
-X-Received: by 2002:a05:6000:1ac6:b0:39f:175b:a68d with SMTP id ffacd0b85a97d-3a4f7a3e745mr1997108f8f.11.1748598171812;
-        Fri, 30 May 2025 02:42:51 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f03:5b00:f549:a879:b2d3:73ee? (p200300d82f035b00f549a879b2d373ee.dip0.t-ipconnect.de. [2003:d8:2f03:5b00:f549:a879:b2d3:73ee])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d7fc24d7sm13138915e9.36.2025.05.30.02.42.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 May 2025 02:42:51 -0700 (PDT)
-Message-ID: <473e974b-39a1-4ee1-b321-58f6a74c0155@redhat.com>
-Date: Fri, 30 May 2025 11:42:49 +0200
+        d=1e100.net; s=20230601; t=1748598384; x=1749203184;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=N6UY2y9MOEwZlIGv1rKrrngNk7HNQITxylPxlIC9Qrk=;
+        b=Erw464QIrihOkpXijwEhp5Yv0LPcmy2OlYk1+PfeYsnl05T/GHxyLTyL3DEUBaZqyr
+         i20etVclIym6EEBdL3mA5UaZZZJG0OjnQ3P0xlbZsv4XhYregVH8pbt4hC/iRZrzemzj
+         CRlHwP8XWcuws1ZpdePeaPQSMvFQjl/q80tM/X0N70Fm5+KkUUr4HTl30fxALBAjwqf7
+         C2VICA3ek9b+K1hc6038Clt+iWLjPYTcsCK7rpW5Rq+62IwJdvjmQIL6s5TV1cvC7S/B
+         0SoPAp2LdTa2RoU3BM/bA41onRrFPn/cMCwPsZTSI6c6pl1W+1vYQ03KkduXQ+qBoN57
+         yPJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXFOiGw/DjzyiJrrNUPlJe/ASnACPmnrEfhGDZvO/dIatTxOILmPx2Cprpl4N3AIRc91eoDyy26z5vi0ZjWaQK8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx/slt3d7HZ+bUw/em8rIZKYDycmVLBHV/yphALvQTAdzdt8Hi
+	4yDlvYMzqE8/zzSdWFEn6cO+uVrcM1FJuPT2RLSG+jO09QjBQQq6zIJ10LCykVReXPWEF03PHnd
+	7F4jlL888X1Cj7RPry0zoAwXWiNUg3Yh8rnVWvPt/4w==
+X-Gm-Gg: ASbGncukKTw8XXS4u12ASmdEVa4TZCL86lx6nYil0t2ECJ8xxynxLb5IFlqeCx3UZoU
+	DcxlTUXvUiw9UsMjwsboogz7bwLnwFnRhN3UyMW9J9OtXhiBK4ugm4l0sebOPhSDrDazLWlAQbg
+	MEllb8077kq7nmzHVKLq/KCFU9gZ39QKnI0A==
+X-Google-Smtp-Source: AGHT+IHDOOob+rYy5PewBfFSnwrXwwsdqV4NLiR/14XgYNCnd/4FiuYQbhODXW8eT2YWicTg9hQl3xI77mVLBp8m+Dw=
+X-Received: by 2002:a05:6902:26c3:b0:e7d:8875:bfe2 with SMTP id
+ 3f1490d57ef6-e7f81f15dedmr3191276276.43.1748598384251; Fri, 30 May 2025
+ 02:46:24 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/12] mm/pagewalk: Skip dax pages in pagewalk
-To: Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org
-Cc: gerald.schaefer@linux.ibm.com, dan.j.williams@intel.com, jgg@ziepe.ca,
- willy@infradead.org, linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
- linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
- linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
- zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
- balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net
-References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Th1jHyFVJoy0-1ajRD303lZuMu5mtUEgqYKTz_sT6rk_1748598172
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250521041840.GB28017@nxa18884-linux> <CAPDyKFpSb+KsfDr1-=uk4TF4Op1dUQ9rDwPP5sSpMfxDRDhnZA@mail.gmail.com>
+ <20250523191713.nylhi74jq6z4hqmr@hiago-nb> <CAPDyKFq6HG6iTZRnBSN25vhCU8Zj1c+r_ufGbiBsJ16N+1bJVg@mail.gmail.com>
+ <20250527000510.fofehmsdhifcwlys@hiago-nb> <20250527023921.GA14252@nxa18884-linux>
+ <CAPDyKFqZkcaGfss=Oi+H9UERFU29jY2t5uTPnGVGQgSAJSeCoA@mail.gmail.com>
+ <20250527134525.f7yzs4ww64xxmjmr@hiago-nb> <20250528173813.rxqu6pzqgu4m5joo@hiago-nb>
+ <PAXPR04MB845941FFF347274012A0ECA88866A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250529201544.azoqdrgnlqfxi6mb@hiago-nb>
+In-Reply-To: <20250529201544.azoqdrgnlqfxi6mb@hiago-nb>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Fri, 30 May 2025 11:45:48 +0200
+X-Gm-Features: AX0GCFsQvcDOUqaNaQ5cjuiIbQU68DMjg5d50KglTL5dTEGM-jQJUgFg_7R2SME
+Message-ID: <CAPDyKFrDvxpFeBU5noRDBZCA1N96iPNYYjM0kqd1R4z_4CUV3w@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] remoteproc: imx_rproc: add power mode check for
+ remote core attachment
+To: Hiago De Franco <hiagofranco@gmail.com>
+Cc: Peng Fan <peng.fan@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>, 
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Hiago De Franco <hiago.franco@toradex.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Daniel Baluta <daniel.baluta@nxp.com>, 
+	"Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_024256_029669_2882113C 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20250530_024625_705274_5FD3FBDF 
+X-CRM114-Status: GOOD (  48.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,52 +107,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29.05.25 08:32, Alistair Popple wrote:
-> Previously dax pages were skipped by the pagewalk code as pud_special() or
-> vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
-> refcounted normally that is no longer the case, so add explicit checks to
-> skip them.
-
-Is this really what we want, though? If these are now just "normal" 
-pages, they shall be handled as being normal.
-
-I would assume that we want to check that in the callers instead.
-
-E.g., in get_mergeable_page() we already have a folio_is_zone_device() 
-check.
-
-> 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> ---
->   include/linux/memremap.h | 11 +++++++++++
->   mm/pagewalk.c            | 12 ++++++++++--
->   2 files changed, 21 insertions(+), 2 deletions(-)
-> 
-> diff --git a/include/linux/memremap.h b/include/linux/memremap.h
-> index 4aa1519..54e8b57 100644
-> --- a/include/linux/memremap.h
-> +++ b/include/linux/memremap.h
-> @@ -198,6 +198,17 @@ static inline bool folio_is_fsdax(const struct folio *folio)
->   	return is_fsdax_page(&folio->page);
->   }
->   
-> +static inline bool is_devdax_page(const struct page *page)
+On Thu, 29 May 2025 at 22:15, Hiago De Franco <hiagofranco@gmail.com> wrote:
+>
+> On Thu, May 29, 2025 at 03:54:47AM +0000, Peng Fan wrote:
+>
+> [...]
+>
+> > > We are making progress ;-)
+> > >
+> > > With the patches you shared Ulf (I added them on top of the current
+> > > master branch), it works as expected, dev_pm_genpd_is_on() returns 0
+> > > when I boot the kernel without M4 running and it returns 1 when I
+> > > boot the kernel with M4 running with a hello-world demo.
+> > >
+> > > However now I tried to, if dev_pm_genpd_is_on() returns 1, put the
+> > > DETACHED state, something as
+> > >
+> > > if (dev_pm_genpd_is_on(priv->pd_list->pd_devs[0]))
+> > >     priv->rproc->state = RPROC_DETACHED;
+> > >
+> > > In this case I used 0 because I understand this is the
+> > > IMX_SC_R_M4_0_PID0 defined in my device tree overlay:
+> > >
+> > >             power-domains = <&pd IMX_SC_R_M4_0_PID0>,
+> > >                             <&pd IMX_SC_R_M4_0_MU_1A>;
+> > >
+> > > But in this case, the kernel does not boot anymore, I see the "Starting
+> > > kernel..." and nothing else.
+> >
+> > Please add "earlycon" in bootargs to see where it hangs.
+>
+> Thanks Peng! I was able to catch the kernel panic yesterday, however I
+> must say that today I was doing the tests again and the issue is gone.
+> Sorry, I might have done something wrong yesterday with the tests.
+> Anyway, here is the log:
+>
+> [    1.271163] remoteproc remoteproc0: imx-rproc is available
+> [    1.280296] remoteproc remoteproc0: attaching to imx-rproc
+> [    1.285756] Unable to handle kernel paging request at virtual address ffff80005ae3dd79
+> [    1.293624] Mem abort info:
+> [    1.294655] mmc0: SDHCI controller on 5b010000.mmc [5b010000.mmc] using ADMA
+> [    1.296386]   ESR = 0x0000000096000005
+> [    1.307194]   EC = 0x25: DABT (current EL), IL = 32 bits
+> [    1.312473]   SET = 0, FnV = 0
+> [    1.315566]   EA = 0, S1PTW = 0
+> [    1.318649]   FSC = 0x05: level 1 translation fault
+> [    1.323510] Data abort info:
+> [    1.326370]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+> [    1.331846]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> [    1.336882]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [    1.342182] swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000096bc1000
+> [    1.348870] [ffff80005ae3dd79] pgd=0000000000000000, p4d=1000000097054003, pud=0000000000000000
+> [    1.357565] Internal error: Oops: 0000000096000005 [#1]  SMP
+> [    1.363198] Modules linked in:
+> [    1.366236] CPU: 2 UID: 0 PID: 47 Comm: kworker/u16:3 Not tainted 6.15.0-03667-g3f5f09105c40-dirty #826 PREEMPT
+> [    1.376405] Hardware name: Toradex Colibri iMX8QXP on Colibri Evaluation Board V3 (DT)
+> [    1.384313] Workqueue: events_unbound deferred_probe_work_func
+> [    1.390128] pstate: 00000005 (nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [    1.397076] pc : rproc_handle_resources.constprop.0+0x78/0x1d0
+> [    1.402896] lr : rproc_boot+0x368/0x56c
+> [    1.406717] sp : ffff8000819c3990
+> [    1.410017] x29: ffff8000819c3990 x28: ffff80005ae3dd7d x27: 0000000000000000
+> [    1.417145] x26: 0000000000000000 x25: ffff0000015ec038 x24: ffff800080f0c0a8
+> [    1.424268] x23: ffff8000813a6110 x22: 00000000d999ad79 x21: ffff0000015ec000
+> [    1.431392] x20: 0000000026665683 x19: ffff80005ae3dd79 x18: 0000000000000006
+> [    1.438516] x17: ffff000001799400 x16: ffff000001798e00 x15: 4addd15cca11c529
+> [    1.445639] x14: 53ebce6d5564d787 x13: 4addd15cca11c529 x12: 53ebce6d5564d787
+> [    1.452763] x11: 95a1e33b6b190674 x10: 9e3c9abdb41ca345 x9 : ab17b4eaffd6fd1c
+> [    1.459887] x8 : d5da055de4cfbb87 x7 : dfd7fa31596acbbc x6 : 9946d97107d0dcca
+> [    1.467011] x5 : ffff0000010c7800 x4 : 00000000000003fc x3 : ffff0000010c7780
+> [    1.474134] x2 : fffffffffffffff0 x1 : ffff8000814a3000 x0 : ffff8000814a3000
+> [    1.481261] Call trace:
+> [    1.483690]  rproc_handle_resources.constprop.0+0x78/0x1d0 (P)
+> [    1.487705] mmc0: new HS400 MMC card at address 0001
+> [    1.489502]  rproc_boot+0x368/0x56c
+> [    1.495349] mmcblk0: mmc0:0001 Q2J55L 7.09 GiB
+> [    1.497929]  rproc_add+0x184/0x190
+> [    1.504356]  mmcblk0: p1 p2
+> [    1.505747]  imx_rproc_probe+0x458/0x528
+> [    1.509238] mmcblk0boot0: mmc0:0001 Q2J55L 16.0 MiB
+> [    1.512437]  platform_probe+0x68/0xc0
+> [    1.512452]  really_probe+0xc0/0x38c
+> [    1.520584] mmcblk0boot1: mmc0:0001 Q2J55L 16.0 MiB
+> [    1.520951]  __driver_probe_device+0x7c/0x15c
+> [    1.527522] mmcblk0rpmb: mmc0:0001 Q2J55L 4.00 MiB, chardev (242:0)
+> [    1.529377]  driver_probe_device+0x3c/0x10c
+> [    1.544263]  __device_attach_driver+0xbc/0x158
+> [    1.548586]  bus_for_each_drv+0x84/0xe0
+> [    1.552407]  __device_attach+0x9c/0x1ac
+> [    1.556231]  device_initial_probe+0x14/0x20
+> [    1.560401]  bus_probe_device+0xac/0xb0
+> [    1.564221]  deferred_probe_work_func+0x9c/0xec
+> [    1.568741]  process_one_work+0x14c/0x28c
+> [    1.572735]  worker_thread+0x2cc/0x3d4
+> [    1.576473]  kthread+0x12c/0x208
+> [    1.579687]  ret_from_fork+0x10/0x20
+> [    1.583253] Code: 8b36c033 9100127c 54000924 d503201f (b9400261)
+> [    1.589337] ---[ end trace 0000000000000000 ]---
+>
+> But again, the issue is not happening anymore ;-) I will keep testing to
+> see if the issue happens again, but for now is working fine, I can now
+> attach to the remote processor.
+>
+> This is the git diff on top of Ulf patches I have been testing:
+>
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index 6da25e2c81d2..661a6aad40a8 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -599,6 +599,23 @@ int dev_pm_genpd_set_performance_state(struct device *dev, unsigned int state)
+>  }
+>  EXPORT_SYMBOL_GPL(dev_pm_genpd_set_performance_state);
+>
+> +bool dev_pm_genpd_is_on(struct device *dev)
 > +{
-> +	return is_zone_device_page(page) &&
-> +		page_pgmap(page)->type == MEMORY_DEVICE_GENERIC;
-> +}
+> +        struct generic_pm_domain *genpd;
+> +        bool is_on;
 > +
-> +static inline bool folio_is_devdax(const struct folio *folio)
-> +{
-> +	return is_devdax_page(&folio->page);
+> +        genpd = dev_to_genpd_safe(dev);
+> +        if (!genpd)
+> +                return false;
+> +
+> +        genpd_lock(genpd);
+> +        is_on = genpd_status_on(genpd);
+> +        genpd_unlock(genpd);
+> +
+> +        return is_on;
 > +}
+> +EXPORT_SYMBOL_GPL(dev_pm_genpd_is_on);
+> +
+>  /**
+>   * dev_pm_genpd_set_next_wakeup - Notify PM framework of an impending wakeup.
+>   *
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 627e57a88db2..9688370f9bb5 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -18,6 +18,7 @@
+>  #include <linux/of_reserved_mem.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_domain.h>
+> +#include <linux/pm_runtime.h>
+>  #include <linux/reboot.h>
+>  #include <linux/regmap.h>
+>  #include <linux/remoteproc.h>
+> @@ -891,9 +892,7 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
+>  {
+>         struct device *dev = priv->dev;
+>         int ret;
+> -       struct dev_pm_domain_attach_data pd_data = {
+> -               .pd_flags = PD_FLAG_DEV_LINK_ON,
+> -       };
+> +       bool test;
+>
+>         /*
+>          * If there is only one power-domain entry, the platform driver framework
+> @@ -902,7 +901,16 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
+>         if (dev->pm_domain)
+>                 return 0;
+>
+> -       ret = dev_pm_domain_attach_list(dev, &pd_data, &priv->pd_list);
+> +       ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
+> +       printk("hfranco: returned pd devs is %d", ret);
+> +       for (int i = 0; i < ret; i++) {
+> +               test = dev_pm_genpd_is_on(priv->pd_list->pd_devs[i]);
+> +               printk("hfranco: returned value is %d", test);
+> +               if (test) {
+> +                       priv->rproc->state = RPROC_DETACHED;
+> +                       break;
+> +               }
+> +       }
+>         return ret < 0 ? ret : 0;
+>  }
+>
+> @@ -1146,6 +1154,9 @@ static int imx_rproc_probe(struct platform_device *pdev)
+>                 }
+>         }
+>
+> +       pm_runtime_enable(dev);
+> +       pm_runtime_get_sync(dev);
+> +
+>         ret = rproc_add(rproc);
+>         if (ret) {
+>                 dev_err(dev, "rproc_add failed\n");
+> diff --git a/include/linux/pm_runtime.h b/include/linux/pm_runtime.h
+> index 756b842dcd30..16d1fca2a8c5 100644
+> --- a/include/linux/pm_runtime.h
+> +++ b/include/linux/pm_runtime.h
+> @@ -95,6 +95,7 @@ extern void pm_runtime_put_suppliers(struct device *dev);
+>  extern void pm_runtime_new_link(struct device *dev);
+>  extern void pm_runtime_drop_link(struct device_link *link);
+>  extern void pm_runtime_release_supplier(struct device_link *link);
+> +bool dev_pm_genpd_is_on(struct device *dev);
+>
+>  int devm_pm_runtime_set_active_enabled(struct device *dev);
+>  extern int devm_pm_runtime_enable(struct device *dev);
+>
+> This is the rproc output when bootaux is used:
+>
+> root@colibri-imx8x-07308754:~# dmesg | grep hfranco
+> [    0.478475] hfranco: returned pd devs is 2
+> [    0.478496] hfranco: returned value is 1
+> root@colibri-imx8x-07308754:~# dmesg | grep rproc
+> [    0.478797] remoteproc remoteproc0: imx-rproc is available
+> [    0.478878] remoteproc remoteproc0: attaching to imx-rproc
+> [    0.478961] remoteproc remoteproc0: remote processor imx-rproc is now attached
+>
+> I will cleanup everything and try to come up with a patch. Ulf, in this
+> case, as your patches have not yet been merged, should I wait for them?
 
-Hm, nobody uses folio_is_devdax() in this patch :)
+I think you can state in the cover-letter that your series depends on
+mine, so please go ahead and submit them.
 
+>
+> Thanks for all the help guys.
+>
+> >
+> > >
+> > > I am using the pm_runtime functions before rproc_add():
+> > >
+> > > @@ -1146,6 +1154,9 @@ static int imx_rproc_probe(struct
+> > > platform_device *pdev)
+> > >                 }
+> > >         }
+> > >
+> > > +       pm_runtime_enable(dev);
+> > > +       pm_runtime_get_sync(dev);
+> >
+> > I think only make this apply for i.MX8QX/8QM/DX, then no
+> > impact to other patforms.
 
--- 
-Cheers,
+In general I think we should avoid such quirks in drivers, unless it's
+really needed. Just wanted to share my opinion, but it's totally up to
+you.
 
-David / dhildenb
+[...]
 
+Kind regards
+Uffe
 
