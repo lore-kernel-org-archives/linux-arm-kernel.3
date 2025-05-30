@@ -4,170 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96985C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 21:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC906C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 22:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5e00HIB4g/S3fg3UJnyixTDwUZmA63nA9/iv1zAQZxU=; b=qd52yLKESybEGiifCI+cd3Ph4s
-	BJmG2lnh7gd8aJLlqGitICr0GXwNypSEYYan6CWJZ8JWq+oDSOOjFO5YNFXmiRrIdJibKwLvde2pG
-	JZK8I5blVMsMqeN6l/xlyfXawN8S58EX+Em92JNF3iBMRl5FtGtiPxMFfL9UmQ7IhgE1qckOjJP54
-	47eXHc3KJkZeiRmAmjsVJwOryfYYJmVQ0ezJEoa4DCzs5Btyud40fzOCnULbwkEc0iJQPVutuC3DJ
-	qBsON7BT1FoxqsYM+FL1sOYqQvFTAORIxO5ZMdvhdElSBt7oCINpOSOWnc0h6W4ki95RjD2/mjr8S
-	HL9MuyoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ritVIo6/pizYmJa/ItJGi3Xo7T9ZQHS7lp34Yj6k3Y0=; b=kf7PYokcYA81Swj8g37MlJtrRf
+	60M77VAuftwhp2qjcF4iklaOKI513NtPaEddQMWflioMO4dFMp5PAe9eWzhUmVG/mwjFIXUfGbn+v
+	GBb2K/GjHEGnZj/gyGdmfWAXJaHDwxF6/yqJt9w/EJdrcOnN9O9KR5oDeZrKkyyiOPGdE+vuBAtxn
+	ehtnj7y4sH7iJUAq09R3PEV0CAv27pljrDs+QeOVOIA+ka+/IP+wGyxZTJo6IwvTNgp17YOBVqSUl
+	rAg9R5yYI5tiIH3qs25cahhYXt3n70lvKg/2kTZ0uzA4r+F2oXrsSaoBRtmOpnSe1Qf50agByA8lu
+	1DX8hV1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL7Pn-00000001x3u-2T9F;
-	Fri, 30 May 2025 21:37:23 +0000
-Received: from mail-dm6nam04on20704.outbound.protection.outlook.com ([2a01:111:f403:2409::704] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1uL7yd-000000021A6-3uzW;
+	Fri, 30 May 2025 22:13:23 +0000
+Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL7Lx-00000001wWa-2KgB
+	id 1uL7wT-000000020xG-1rJL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 21:33:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hkYeOsV2fda2/H3c67aP/yMunsl15l9BzjizyLCw/tpIYx9QsGgxG4eoFGRou+MkmGkkpSX8htsxgsSFBaSyvYcKzUrg9O4Od2vp6tuEVAQ3mCwgBL570gzAGBYOxXfUzQhk+Oz7odp6EMiMUe8mYwzTzL34AX2TmXrbc+85veJOIYDKIDowPDstqaR9L26uou2hAHcub8Tu5wiWpj1aRLWExmu0WuqFjLzE/4+i+dveJS+PHFlFo8zI7I1Kb0wFzwNpvisWPJOOVu8glyAnxcGyKYMUQhUJpjqryQNyr0AU5jCmwOr3ZNzPNgAShVW25TY7SJLJTNRZi0uf5rL6Tg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5e00HIB4g/S3fg3UJnyixTDwUZmA63nA9/iv1zAQZxU=;
- b=lM91i68bQQlPAWJ+TWv/Nyk2VEvE+xLzmPqi3vt4lDLisY+FiizJRRzyo5lQM62JM7f1OVfRm5nA8Ft8ZmqAPHN9d2B9yLebY4v0BPV97z9A27LlldEsWDvfrTUUbhNrrgeSKJT7yKFWUIwzeTyvZdbGT5uKfKI8HnJlxQ2bOIHhfB1g3vNy9xLpGbF1XJRaTn3c/YzYzdZMb9jljVNH2nVX9ES+O53k0kQSLK632M45kkbAr4EuQdunSniehtLMSENih3HLXWlTPIWUjTm2g7gbRhcCrlBohw9nJePvetaUtUHIqwToG4xiLyocbYLLSd8FSksRjUTNKag626XEIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Fri, 30 May 2025 22:11:12 +0000
+Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-4e700699dffso17882137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 15:11:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5e00HIB4g/S3fg3UJnyixTDwUZmA63nA9/iv1zAQZxU=;
- b=ifXlTmEWjDS2AHq3HqloUlnOJ8HoFg1N1rs4ZD8s6gqbTSb3HpB4BXm1UXo/mbaW+83t29M5hemofkA2sKpyPlwoFtY/tMEGtI1FNXV72KX/gGVj+K9wDZAvCchLmzY8V8/UifFghwZ720Hl7UXaiG0P313aj3Xow8Mu3HIJLCM=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- LV3PR01MB8651.prod.exchangelabs.com (2603:10b6:408:1bb::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8769.32; Fri, 30 May 2025 21:33:18 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%6]) with mapi id 15.20.8769.029; Fri, 30 May 2025
- 21:33:18 +0000
-Message-ID: <972a602e-27c0-48bc-aa69-acf6425a3871@os.amperecomputing.com>
-Date: Fri, 30 May 2025 14:33:12 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] mm: Allow pagewalk without locks
-To: Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- akpm@linux-foundation.org, david@redhat.com, catalin.marinas@arm.com,
- will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
- gshan@redhat.com, linux-arm-kernel@lists.infradead.org
-References: <20250530090407.19237-1-dev.jain@arm.com>
- <20250530090407.19237-2-dev.jain@arm.com>
- <1c17a9e6-b04b-4754-8af5-521fcadba1bd@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <1c17a9e6-b04b-4754-8af5-521fcadba1bd@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CYZPR05CA0041.namprd05.prod.outlook.com
- (2603:10b6:930:a3::16) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=gmail.com; s=20230601; t=1748643068; x=1749247868; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ritVIo6/pizYmJa/ItJGi3Xo7T9ZQHS7lp34Yj6k3Y0=;
+        b=TbTndsS0UDbLoociYyEt8rVRorPRNp9zfryuG1cSmYU6wYmlttEuuSfRVF28I1SKa9
+         oOOpZp5FaIyVlvcCUzgNQi+goPjlAtf8RNghmlZ9TF41qbGa5IEUGjKVreozxV618ECA
+         ms04VXxRrwSPxWZl89ll0L8hqlOCPcxoJBiIS9Mje5vDfMirrGlJ5qP6FN6CK5gxrZMX
+         1CNM3OkN26kDbzV89QB8zJQ4SM6U5NviqMj9ksdaiRPZlBT1DBwdMgvovojTl4ckWh/Z
+         pEIWS5l5jXdsk4HffnzjGnAKPT9bRqwZZQdybqQu3dYGPMK1GoBjyIImxP11qvSZT8ow
+         qehg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748643068; x=1749247868;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ritVIo6/pizYmJa/ItJGi3Xo7T9ZQHS7lp34Yj6k3Y0=;
+        b=W94NTE4WGndvQ9/wyAV4QZwr6TrxaVXiJ1S6Lz6N/7BAmC3zQWkN3OO5yIr1Yf2TOR
+         oI7X4snIBWRlwaK3TBhlDlVMYNyO8w68vN+IfQI3tmAaQJuz/+THl7TQe7zFqXVxJ10F
+         2yXwM7a/RbC/nQ9KV06kyZCi906a3pOsbeFCowgYNVbqOmDoAq/kQAonirPQhxunB5r+
+         cFaWkyB7aXSronYvHdyl6U1Eu59upSJMBwnWbPNoEuoKtpfc7xd0cIm1cP9J/ic65nGN
+         11kj6ONTOW6/h8EvBWaQgn8/SHK5BiAK84zKcVfLp9BhYqK+PEGs+9r0wjAFY3mzZQzX
+         7Zfg==
+X-Forwarded-Encrypted: i=1; AJvYcCVmUvjjxTbXQym9iw6CmcTmFxx0qDigGagnvBUoP/Pn+S7AWk/a8fMeiqtozWBI6DHIiVEsWFbktECNsORByvRl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKoXgbq00D50ppBn67XBGZcZ8LvJRANbXM4T8LDf4N+6sv0n2i
+	DnpHwTgQ/mPRg8fjDjTse5xN+2grPEvUB1ZBp/ZeqNeTlFoJUDwyoFO5j71S9HEbY1WPWQzYkCG
+	X4Depcq6jexq2AjzGXt7DyZAuJsAk6Uk=
+X-Gm-Gg: ASbGncsCT722GH4wYd4XYvJlJJ5ydUUS3Pzhy04mxuCf2fqZyxhi5yOe2dX0rS9yvYF
+	QpNjY+D+oDal5KUDuraDnVt2+eD+cqI2QF9FazSxG/uYfIa1E+VUNmXtRrpkBP/Y2dO7FSgZLSI
+	B8CzDNvX/3JcOQXpQZ2kzhl6eNUMLlX3lH6A==
+X-Google-Smtp-Source: AGHT+IHzU5e3+BukHOvx+czHuPsxPzSVV3StE6Piq/rti0jxoP/U9Qsb4vkWD0Qj7gz+dT6vcb/MLbNN3LzHVVtpN64=
+X-Received: by 2002:a05:6102:32ce:b0:4e6:a33d:9925 with SMTP id
+ ada2fe7eead31-4e6ecd2e650mr3314960137.5.1748643067916; Fri, 30 May 2025
+ 15:11:07 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV3PR01MB8651:EE_
-X-MS-Office365-Filtering-Correlation-Id: d734021a-2fb1-48bc-7ae7-08dd9fc197d1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NnppSlJFWXhuaFZZK0VaY1VNbXduclVPVE10UFBib1FOVHByRk5WSUFpd3NK?=
- =?utf-8?B?Wjg0eWhBSXZRRzlDU1ZyV1lJY1RUbDdaSHZTdGZVUFVibGFGUDZPNTIzellS?=
- =?utf-8?B?bU40RGZrd2YxbnBGSnE0N09qNUs2QWhhRUdyVGRlQ041Ykk5UC9pSFFtQ2g3?=
- =?utf-8?B?bURZU0xGZ2R3VHpZSGZsUGlOL1ZUeEJLU0lTWXIrdXZZSElGTUR6aGJpN1Zv?=
- =?utf-8?B?UjlSbEg3WHRmaXAyb09YOTNGY1crdGVscWxKQ3lhaE1nbkl0T1YxdGxZQ2Fx?=
- =?utf-8?B?RVNtZzlWK3VpVHdFa1NuOEJCcGdyVm1uTnBaVU9kajlWL3c1VkpkSElLcWFJ?=
- =?utf-8?B?VGRkaFo3ZU9BV2x0cnNXRVNybE8zRWUyMzRaTkdna21xbnJQdjlMQjFjd0pD?=
- =?utf-8?B?S2w2VVlRU3o3K2NaaWVObWoxYTJJeWZRdmxWb3JZR0NOeFFxaDYrZHhKWDd2?=
- =?utf-8?B?UzlVNmU4OXVlQ2tsZnNkY1ZtaDVNeGRjSzh1bUxMNlJlbkNLNktGckgyc1Iw?=
- =?utf-8?B?QmhteUtybjJRTzJCTHVFM1dBbUhWc2d4bkJzS2wxWE1kdFJqM2cwQ0VBRG9C?=
- =?utf-8?B?a1hBZWZicmNSTGFwd2F2bHV3U2pjVjhIYzVPUElpZWIrZ2hnaTd4NDF6QzJv?=
- =?utf-8?B?ZmpONTdnVDg5aXF3YTU4aEZ3eU55OXUzeDhzRk4yemhvb2xYN0lCYis1VDY2?=
- =?utf-8?B?VzFXOERlOVAyNzdvcnBjVjZ3WS9VV0RBWW80c3BHZUVSdk1PMFRLQWF3c3NU?=
- =?utf-8?B?N2xnUnJpM01sNXFRVG5LNUhNRDRVSnMvUXFWY1BpWExkWHFkYnlzU2VMY1pQ?=
- =?utf-8?B?ZlBPR3U4akE1dzdCbVF1bkhrRTVrQUY3SVJWd2NGZDcxRnhSLzJGSjRYNCs4?=
- =?utf-8?B?d2MyWDlMUUo5YlVHa3BCZ09oTVM2RUVjOVFraE8rUHZNZWo5YjdobURqTk8y?=
- =?utf-8?B?Y3FOVkZnZkJKTFFva1FXZjVibXI1SXY2WnRDUVpTMjg4ZXZOcEdBY1ROZG4w?=
- =?utf-8?B?RWdkMlR4YzBjekNsVEp1MDNTalVVN3RhRFF1NXRmOWxTS1JMeWlhSExMbjdq?=
- =?utf-8?B?YkpETXp4TkVWQktWd2psMUQ0RTdVcjFjc1pmNExsNzArejgzSXVvSTJEQzJu?=
- =?utf-8?B?N2Z0cG5kSmJ0ZmpUOVowV0MxQW5Ea0xUbGdBVEgxK1F1amU1bXg5Y1FBR25U?=
- =?utf-8?B?WmdPRGp2dmxmcC9VWEZ3aHVSa2QrQVdkVlJOd0RQczRuKzRoRUFRV1lkRGpN?=
- =?utf-8?B?NVR4S2N2ZnZudm41VUwyT0psSytsRkZTZjlWeDIyQzVWRnJvV2lkdzBuNWN1?=
- =?utf-8?B?TmN3eVdickUxZjBMQ2ZNOHRMaVJhbzRaZFhWSnoyK01NN29sQng1OTlnNFd1?=
- =?utf-8?B?b3U1aHdhdlVqQ3g3S2tXRlBhbDIvL0dpQXlHWlJyQllQV3Q2RmZQTmNyMTAy?=
- =?utf-8?B?ZVVXeGYwRUdqZUF5TmxrWWNKNGJKbnRTazRUdk9TblpOM2pjL2dlVlJsUzUx?=
- =?utf-8?B?aG1tSFRtNkNlVzhkRXVsN1Y0b2dSamZTTUdLaEl5N2Nva3BCRUh6K3p5ODhy?=
- =?utf-8?B?YnRpMWJwWCs1WG0waEo0R3JhbWNUeXV6OHRWQnQwazRJeDV2dktPQjRleUYx?=
- =?utf-8?B?d0RuUWx1NncvQzdzSlR0ajdCOHZMZDJSMFdrZTcwMSsveXgvaHFwQm5jRXUr?=
- =?utf-8?B?WUxHd21QRGFXaDBOUmFteHRDR2FBZHFPQ1dpM1FRQytUdG1WTjB5SC81eDh3?=
- =?utf-8?B?YlBrcVBQYlk4Vi84dG9NOTRsbUhUb0RCMXF3MHVvS1lRTHltK3BEanF3ME56?=
- =?utf-8?B?R1B5VVdyVytra2x6a0tpSFJvTWhNWmxlOUxpUEJvWHN0dmpBRWNkUk5qVFhR?=
- =?utf-8?B?bjMxUnpNTHpvc0NZcFlkTmQ5QWxnMHczdU9SdzZJa1lVMjZKWnFyVUVYemgr?=
- =?utf-8?Q?r8F3Ht5QVIU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OC9nMk5EZnludFhRakVkcHhQZnBIaDdrNmo5WTlmVHVTSlh3UEFubHl4ODY2?=
- =?utf-8?B?bHJjWDloM3hnTVQ3bkZiTjdJU05DTlpGVlRrWVNTOStlUmZqV1R3Vnl2RVVz?=
- =?utf-8?B?eVBwQ29LZGZ3U0J3cGl5UzIzU3NjV28xSU5XL1hWQ3RPVmVrWVhzKzV0cmxM?=
- =?utf-8?B?TVdkaHd4MW11M2ttSkg5OGN3Q0xnTERwamdmbTgyZkhLSURCNXc1dXlXUHBH?=
- =?utf-8?B?TzhGanN4SElWTThhSUdUbXUyOHlFV3IvakdMSHR3ZXZqOU02QkpEV1kxbFlB?=
- =?utf-8?B?QTNWMVVxQ2tVWjVYUVN0ZWxLQnZPUlh1WkptRXpDaGd4NmlEaUVvK1dGZ0tH?=
- =?utf-8?B?cmNzS2VhUjBBN2trMUlMZWJrN2lCSGpBQmNsQ2tuN0hSQjRWdTZKdGltek15?=
- =?utf-8?B?ZmpGK1pLaVhrYTVOZ2t3QkJkWjIxNW5MS1liUHhFWGdoZ0FrWGw1RkYzc09R?=
- =?utf-8?B?eTlLU0VUTHA5eVJaM200dksvNVBwRkVBZXRFSlNQVW5qeCtyWVFEc0tWczkz?=
- =?utf-8?B?ZnIxa2FzUnlYbnNPd2NLTDdySWlteUtyNDg5alhIZkdWOHBuOHN4bUx2MUlV?=
- =?utf-8?B?TjJLS2w3bmdvLzcvTmZYcmEvUUZvYjBxMGJYaXNNUzFnVWxkTFVEdUlySHM4?=
- =?utf-8?B?bkNDaW1haWhNZm1icisxUWdlOGFyNEhLTlVHN3lPajk2Q0ZwZDRBdHloOGxm?=
- =?utf-8?B?K2M2M0Zha1R5NnNzd2NmQkhrNzZFdHVTYWQ1anFUN09kQWFuSkg5aEhCS3VZ?=
- =?utf-8?B?dm5zQ3A4TWlTU0JGTmFyWWlMS0IwczdsalV4UG9xdnpSckkwSTBEKzFSUmRG?=
- =?utf-8?B?MUYvTzk0ZEZhUFRxMS9UMDFLcm4wdjZsdEYzc2wxUU5nMWlwcHFhOVFTSmZm?=
- =?utf-8?B?VUlkaFNleWdxamlYdWlMbDVDcUJNOVZPMEF3TDVzcHZHMDUwQm44VjZ1YjJl?=
- =?utf-8?B?aElqMXVBcTJjczFDeWlFYWd5MDE4ZFVIOU0vTVZOWHRsb0Mvd0EvdVdDcTZD?=
- =?utf-8?B?QTVQTFREOHRXekhqTFBRZk9tajlQT3dyVlhCQmNydjY0RDJRNTlWU01qRS9J?=
- =?utf-8?B?QlMvRlpvU1ZFaVhsTFlMQkE0VzBBUEljWFo3ZWlSQzU2dzVaUytiNG5NYXMx?=
- =?utf-8?B?eGJyTzEwNUhuLzZ6NjhtYUs1ZFJIYS9KbUlhM3pwRWtja3hqY1FFb0Z3RXVq?=
- =?utf-8?B?dGJXcm5rVEo5dHpLMG0rbVZlRVhpb2dUdjkyMlZTdVdFOXRMcXl5NFF1dFo0?=
- =?utf-8?B?NWFoUFVycnhpU1g0d3hPNjNEOXFZaFo0WVFRT2lUcllGSFBUemxDd2VtZUxR?=
- =?utf-8?B?QkdqWGIyd3ZGZEY3d1VwQUVIWklBQnBRUUNTaVlQQTMzenYvWlk2VlVHNkhR?=
- =?utf-8?B?dmpFTWwzaWFoTkhZcVdlWHNOTXdPVjNMZzhjTy9oMW1ITmRHdjh2Y1VPc0Y3?=
- =?utf-8?B?L3BuSFNzR1JUMmNJUkROQnlGMUt4TEZyWE8vQ1ExR1JpV1l0ZThhVzMrUHB6?=
- =?utf-8?B?ZjFwTm5aQ2NVRkk5TlNmMS9GbXBGcUlZaTdNRUxrVmM2N3pKMzR6ZmhTVVFx?=
- =?utf-8?B?MTBwR1VsTVN0RUg1cktUbTFXandZNmdHd0tqTW1vNDljbnI2anBaL2FObkR0?=
- =?utf-8?B?V2FSQm9KRStOUXh2N2JYcmkyZGFDb0tNQ2x2N2d3a0RxMmZBYTduK09RYUxK?=
- =?utf-8?B?Uk5pU2ZIRVJuWDBjb0loLzFiYXlJTmMwTzhwbERoRGp0UkhYN29qZFNrZ2Ji?=
- =?utf-8?B?ZkJraWJ6UWdyMUdHTnIvbGMzb3dKOUkrekxFZFVGbnBKelBtelZSeUx1akVi?=
- =?utf-8?B?OVpnaUdFaUNCVjJPazFTT29XdmFPVXBrNHFiZTAzbXZtNTMrZTJvUFVJVit2?=
- =?utf-8?B?czdzeVpTU0F5ZVlnQjZMSGUzUjdVcnlRUy9QYnRmZ3VPdE52VWE2N3pRV2pF?=
- =?utf-8?B?b1BmM3UzOWRTQlJoaUJZN1lrQ2ZSNmZLTmhKNGpWSUZpOXBuOXYxZnByckhx?=
- =?utf-8?B?cHBib0E2eE1TMkFKdjhtWHJOdy9qcHNrcHZoMUZ4VXFWWFRrSlA1bjQ3dG1R?=
- =?utf-8?B?M1JINTlYTW5JMzkzbkN1ZlVpYk5vVzVkWWxqUDdWZTF5SlRsQWR1SHJ6ZFMy?=
- =?utf-8?B?SGJldjRvVWZNczFkN2dRRXVoOFBhUnozV0I5VCt3Q0Q4Q01WNGkxREVXKy9l?=
- =?utf-8?Q?GExsflX45gf7cIqqX/YzGN0=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d734021a-2fb1-48bc-7ae7-08dd9fc197d1
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2025 21:33:18.2210
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BqwfYTsMsxrLRCu3pFVsvr5CnBWoDHNY3eFlvAEi3y4MIDaP57rxSmR70IU/T9hmcp5JWUm0IDYRQHbmf0rQ4clx6w94Pe7YE68A/c1xhQQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR01MB8651
+References: <20250530152445.2430295-1-ryan.roberts@arm.com>
+In-Reply-To: <20250530152445.2430295-1-ryan.roberts@arm.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Sat, 31 May 2025 06:10:55 +0800
+X-Gm-Features: AX0GCFuerSCdleMd9iVUh5m59BRXLMYcUa_g0jM2554oQo_Ee5We9c3qLJaJPAw
+Message-ID: <CAGsJ_4wW2ABkeG_FNN-wvbkdg3fQY1MfkUrxX_57sUdLj=Y=rQ@mail.gmail.com>
+Subject: Re: [PATCH v1] arm64/mm: Close theoretical race where stale TLB entry
+ remains valid
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Yicong Yang <yangyicong@hisilicon.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_143325_611120_9360FE2C 
-X-CRM114-Status: GOOD (  31.34  )
+X-CRM114-CacheID: sfid-20250530_151109_489595_1B1F1CA9 
+X-CRM114-Status: GOOD (  33.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,106 +96,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/30/25 3:33 AM, Ryan Roberts wrote:
-> On 30/05/2025 10:04, Dev Jain wrote:
->> It is noted at [1] that KFENCE can manipulate kernel pgtable entries during
->> softirqs. It does this by calling set_memory_valid() -> __change_memory_common().
->> This being a non-sleepable context, we cannot take the init_mm mmap lock.
->> Therefore, add PGWALK_NOLOCK to enable walk_page_range_novma() usage without
->> locks.
-> It looks like riscv solved this problem by moving from walk_page_range_novma()
-> to apply_to_existing_page_range() in Commit fb1cf0878328 ("riscv: rewrite
-> __kernel_map_pages() to fix sleeping in invalid context"). That won't work for
-> us because the whole point is that we want to support changing permissions on
-> block mappings.
+On Fri, May 30, 2025 at 11:24=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com=
+> wrote:
 >
-> Yang:
+> Commit 3ea277194daa ("mm, mprotect: flush TLB if potentially racing with
+> a parallel reclaim leaving stale TLB entries") describes a race that,
+> prior to the commit, could occur between reclaim and operations such as
+> mprotect() when using reclaim's tlbbatch mechanism. See that commit for
+> details but the summary is:
 >
-> Not directly relavent to this patch, but I do worry about the potential need to
-> split the range here though once Yang's series comes in - we would need to
-> allocate memory for pgtables atomically in softirq context. KFENCE is intended
-> to be enabled in production IIRC, so we can't just not allow block mapping when
-> KFENCE is enabled and will likely need to think of a solution for this?
+> """
+> Nadav Amit identified a theoritical race between page reclaim and
+> mprotect due to TLB flushes being batched outside of the PTL being held.
+>
+> He described the race as follows:
+>
+>         CPU0                            CPU1
+>         ----                            ----
+>                                         user accesses memory using RW PTE
+>                                         [PTE now cached in TLB]
+>         try_to_unmap_one()
+>         =3D=3D> ptep_get_and_clear()
+>         =3D=3D> set_tlb_ubc_flush_pending()
+>                                         mprotect(addr, PROT_READ)
+>                                         =3D=3D> change_pte_range()
+>                                         =3D=3D> [ PTE non-present - no fl=
+ush ]
+>
+>                                         user writes using cached RW PTE
+>         ...
+>
+>         try_to_unmap_flush()
+> """
+>
+> The solution was to insert flush_tlb_batched_pending() in mprotect() and
+> friends to explcitly drain any pending reclaim TLB flushes. In the
+> modern version of this solution, arch_flush_tlb_batched_pending() is
+> called to do that synchronisation.
+>
+> arm64's tlbbatch implementation simply issues TLBIs at queue-time
+> (arch_tlbbatch_add_pending()), eliding the trailing dsb(ish). The
+> trailing dsb(ish) is finally issued in arch_tlbbatch_flush() at the end
+> of the batch to wait for all the issued TLBIs to complete.
+>
+> Now, the Arm ARM states:
+>
+> """
+> The completion of the TLB maintenance instruction is guaranteed only by
+> the execution of a DSB by the observer that performed the TLB
+> maintenance instruction. The execution of a DSB by a different observer
+> does not have this effect, even if the DSB is known to be executed after
+> the TLB maintenance instruction is observed by that different observer.
+> """
+>
+> arch_tlbbatch_add_pending() and arch_tlbbatch_flush() conform to this
+> requirement because they are called from the same task (either kswapd or
+> caller of madvise(MADV_PAGEOUT)), so either they are on the same CPU or
+> if the task was migrated, __switch_to() contains an extra dsb(ish).
+>
+> HOWEVER, arm64's arch_flush_tlb_batched_pending() is also implemented as
+> a dsb(ish). But this may be running on a CPU remote from the one that
+> issued the outstanding TLBIs. So there is no architectural gurantee of
+> synchonization. Therefore we are still vulnerable to the theoretical
+> race described in Commit 3ea277194daa ("mm, mprotect: flush TLB if
+> potentially racing with a parallel reclaim leaving stale TLB entries").
+>
+> Fix this by flushing the entire mm in arch_flush_tlb_batched_pending().
+> This aligns with what the other arches that implement the tlbbatch
+> feature do.
 
-IIRC kfence typically uses a dedicated pool by default (if sample 
-interval is not 0 on arm64), the pool is separate from linear mapping 
-and it is mapped at PTE level. This should be the preferred way for 
-production environment.
-
-But if the pool is not used, typically 0 sample interval, we have to 
-have the whole linear mapping mapped at PTE level always. I don't see a 
-simple solution for it.
-
-Thanks,
-Yang
+Thanks, Ryan. I=E2=80=99m not the ARM expert on this modification,
+but your explanation seems reasonable to me.
+I=E2=80=99ll leave the judgment to Catalin, Will, and Mark.
 
 >
+> Fixes: 43b3dfdd0455 ("arm64: support batched/deferred tlb shootdown durin=
+g page reclamation/migration")
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/include/asm/tlbflush.h | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
 >
->> [1] https://lore.kernel.org/linux-arm-kernel/89d0ad18-4772-4d8f-ae8a-7c48d26a927e@arm.com/
->>
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->>   include/linux/pagewalk.h |  2 ++
->>   mm/pagewalk.c            | 12 ++++++++----
->>   2 files changed, 10 insertions(+), 4 deletions(-)
->>
->> diff --git a/include/linux/pagewalk.h b/include/linux/pagewalk.h
->> index 9700a29f8afb..9bc8853ed3de 100644
->> --- a/include/linux/pagewalk.h
->> +++ b/include/linux/pagewalk.h
->> @@ -14,6 +14,8 @@ enum page_walk_lock {
->>   	PGWALK_WRLOCK = 1,
->>   	/* vma is expected to be already write-locked during the walk */
->>   	PGWALK_WRLOCK_VERIFY = 2,
->> +	/* no lock is needed */
->> +	PGWALK_NOLOCK = 3,
-> I'd imagine you either want to explicitly forbid this option for the other
-> entrypoints (i.e. the non- _novma variants) or you need to be able to handle
-> this option being passed in to the other functions, which you currently don't
-> do. I'd vote for explcitly disallowing (document it and return error if passed in).
+> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/t=
+lbflush.h
+> index eba1a98657f1..7d564c2a126f 100644
+> --- a/arch/arm64/include/asm/tlbflush.h
+> +++ b/arch/arm64/include/asm/tlbflush.h
+> @@ -323,13 +323,14 @@ static inline bool arch_tlbbatch_should_defer(struc=
+t mm_struct *mm)
+>  }
 >
->>   };
->>   
->>   /**
->> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
->> index e478777c86e1..9657cf4664b2 100644
->> --- a/mm/pagewalk.c
->> +++ b/mm/pagewalk.c
->> @@ -440,6 +440,8 @@ static inline void process_vma_walk_lock(struct vm_area_struct *vma,
->>   	case PGWALK_RDLOCK:
->>   		/* PGWALK_RDLOCK is handled by process_mm_walk_lock */
->>   		break;
->> +	default:
->> +		break;
->>   	}
->>   #endif
->>   }
->> @@ -640,10 +642,12 @@ int walk_page_range_novma(struct mm_struct *mm, unsigned long start,
->>   	 * specified address range from being freed. The caller should take
->>   	 * other actions to prevent this race.
->>   	 */
->> -	if (mm == &init_mm)
->> -		mmap_assert_locked(walk.mm);
-> Given apply_to_page_range() doesn't do any locking for kernel pgtable walking, I
-> can be convinced that it's also not required for our case using this framework.
-> But why does this framework believe it is necessary? Should the comment above
-> this at least be updated?
+>  /*
+> - * If mprotect/munmap/etc occurs during TLB batched flushing, we need to
+> - * synchronise all the TLBI issued with a DSB to avoid the race mentione=
+d in
+> - * flush_tlb_batched_pending().
+> + * If mprotect/munmap/etc occurs during TLB batched flushing, we need to=
+ ensure
+> + * all the previously issued TLBIs targeting mm have completed. But sinc=
+e we
+> + * can be executing on a remote CPU, a DSB cannot guarrantee this like i=
+t can
+> + * for arch_tlbbatch_flush(). Our only option is to flush the entire mm.
+>   */
+>  static inline void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+>  {
+> -       dsb(ish);
+> +       flush_tlb_mm(mm);
+>  }
 >
-> Thanks,
-> Ryan
+>  /*
+> --
+> 2.43.0
 >
->> -	else
->> -		mmap_assert_write_locked(walk.mm);
->> +	if (ops->walk_lock != PGWALK_NOLOCK) {
->> +		if (mm == &init_mm)
->> +			mmap_assert_locked(walk.mm);
->> +		else
->> +			mmap_assert_write_locked(walk.mm);
->> +	}
->>   
->>   	return walk_pgd_range(start, end, &walk);
->>   }
 
+Thanks
+Barry
 
