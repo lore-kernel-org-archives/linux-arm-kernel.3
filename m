@@ -4,54 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773E1C3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B9AC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aFvF+mtUiE+9ps3e/vI5zg3N3dw3jOUXPhsKcH7x38A=; b=rLs5XVcV42Y0EblO2dhFtwKEEF
-	8aw7UOU0tHDqVqgUIADY0eoEjfdkBLgmZWTQl52XgsJpEq1e4tBTf7DAHCs0/z3q0qr3gLry/MVPe
-	9dUyF1MooqG2hJcyTjVcNIXMB6BHwkCBU+0XKWJVmquvgAAbC+gAgu5rkmVteN4/HZPvf3J1uzCWz
-	jwEtHtjfp5cd+UHzDaaAaoVyb1JHqNZHgozONE48E5hz8Qt2EWKyj9qZCAZvuC+Vjk5geow2zYbeN
-	08eyRN+6x1T6AdG/NYWZDk2iVmzYi7cccRwlDsqhWWEMgkN2CVb361UssXJ9sJnI3h5Iq2lf3IOOe
-	CON1aXTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PMP7gSJSsWqHr1SBIYZPTVQ/6RbTbRWAcWpitNSmsIQ=; b=QZM2unT4/pxTdZkvp+sUnrSS/5
+	u6STrFxl1g+icdLJa69ASCVUimZgCoAsVz7oxiWUHzrW0rgeU6GtJCxUG8kWZ6I027UuLF+IpSfYo
+	5lUqobUcveE49wIKfC4tNGTeouVxi4/E9b6u/D/9wtBnat1s2dS6bIsgncgm5wjWylUxG/TFEvZSy
+	k+Hp1EnL6bZbNGNm8O5j5g9ZJ7DrHAkAB1DkZ/8mSKTmDxXa7K6cKpDTPYFkPHeUQjZu26WThWO8D
+	G6G2jNcLcgjXeac51HAFBB40+K+3d8ehqDrSZNk1TuwX+2Nx2MuDjetVcAzVwFsdikRji+AabLNkd
+	ueygXZJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKvKN-000000001yx-1mLN;
-	Fri, 30 May 2025 08:42:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKvIF-000000001pH-0ZpC
+	id 1uKvOs-000000002dF-2BNA;
+	Fri, 30 May 2025 08:47:38 +0000
+Received: from mail-mw2nam04on20611.outbound.protection.outlook.com ([2a01:111:f403:240a::611] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uKvMi-000000002JB-2qNn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 08:40:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EEFB21691;
-	Fri, 30 May 2025 01:40:29 -0700 (PDT)
-Received: from [10.57.95.14] (unknown [10.57.95.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ABF6D3F694;
-	Fri, 30 May 2025 01:40:44 -0700 (PDT)
-Message-ID: <d2b63b97-232e-4d2e-816b-71fd5b0ffcfa@arm.com>
-Date: Fri, 30 May 2025 09:40:42 +0100
-MIME-Version: 1.0
+	Fri, 30 May 2025 08:45:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G65CawLKlkmTAWs4ATPRuktivlLtj6UIXy7rGJ1eWNBfi1u7YPLZ6NpOBg7PtKjux095x/2w/6iQPoUwD8EDg1YXvjFK9eT3XctsyTeFPwctcSW8EsjFS0obPtYnDayHJZZIqMOJ5I7IgZ6BIlCPEmHTL4tAQlvozgMiMt6WHIdr5KJwjZ+efiaZmltoKVoyT96oSVBK2n10TGjxg1KmGpIeDcPKheMO2Y0Sn20LOSMzSpwsYdOvaXuswndTy85bfFiUPz+JwMVY7ogYMSdxnJ70eULgZoC5hYRwNVynoKvsfoWsgAIybSTfg8qWLsJsGAD2TqMQedzWwuYOHwU9vQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PMP7gSJSsWqHr1SBIYZPTVQ/6RbTbRWAcWpitNSmsIQ=;
+ b=uT1bg+cxOEadHOOonlS0Qgaqyn/atXL/rOez94sOiveCGx9K4Hb94JPJ2kRuZN0pxsrwDGzNLrCTsvIGZLrPbSPwRcqCfPLkrPcR1XMoX4F0uPFtBK8auIV8tiHffseylYqukwe+dLlURWmf2c5gbsv6piLmAFbVnO8LgZWvphjM6lZA8cy7VSz7zVEQNuMDZKoPMaYIgwCsv31+uT64SVbkKluPEdT4rCK6PmQTGhSAZCJxbw9iLC2+V3bd9QdUqsezf6aVIo4TPdCvT+FUwRMmuOpAsQ7GPeNdwdMmZYijE/QGx12G6Mdy2QNLgHZG8PIKe5GpJxZ2GNTZ7L3cpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PMP7gSJSsWqHr1SBIYZPTVQ/6RbTbRWAcWpitNSmsIQ=;
+ b=NUyr/C871gFE0aK10Di/yrataN5P3Al7IoZjBthOYP9ubgF+xcDExbTr/jgSdKC5N7fuxS9Nbe1vaMhq4RmDap2v7YxcH5Y/FDstnBX0pWsoyhaNjfsOB3m19c+uxb5bCiqL1w77gKvjRIQGo3vVSBqoaUYE7Vvi463ixUH/rxw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH3PR12MB8658.namprd12.prod.outlook.com (2603:10b6:610:175::8)
+ by SA3PR12MB9131.namprd12.prod.outlook.com (2603:10b6:806:395::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.31; Fri, 30 May
+ 2025 08:45:19 +0000
+Received: from CH3PR12MB8658.namprd12.prod.outlook.com
+ ([fe80::d5cc:cc84:5e00:2f42]) by CH3PR12MB8658.namprd12.prod.outlook.com
+ ([fe80::d5cc:cc84:5e00:2f42%7]) with mapi id 15.20.8769.022; Fri, 30 May 2025
+ 08:45:19 +0000
+Message-ID: <fbe816ac-8fe2-430e-aa68-15737da98ec5@amd.com>
+Date: Fri, 30 May 2025 14:15:08 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Enable vmalloc-huge with ptdump
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- david@redhat.com
-References: <20250530082021.18182-1-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250530082021.18182-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v3 08/13] sched/wait: Add a waitqueue helper for fully
+ exclusive priority waiters
+To: Sean Christopherson <seanjc@google.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Juergen Gross <jgross@suse.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>, Shuah Khan <shuah@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, David Matlack <dmatlack@google.com>
+References: <20250522235223.3178519-1-seanjc@google.com>
+ <20250522235223.3178519-9-seanjc@google.com>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <20250522235223.3178519-9-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BMXPR01CA0078.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:54::18) To CH3PR12MB8658.namprd12.prod.outlook.com
+ (2603:10b6:610:175::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8658:EE_|SA3PR12MB9131:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56852ec3-8af5-467f-d3cf-08dd9f564e76
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?czMzbnZMVzJMaW9pRHBmRUU0QnN5Nm5XcWFSS0pFeDVDcWZjbSsvbGhURUlO?=
+ =?utf-8?B?RWdySEI2UUpOMS92RzNRU1lVU1JxOW9GcDh2anZsUWo4SE0vQ3NUMWUwR0da?=
+ =?utf-8?B?dXRvYWFyZ1cvMDJ1VUpqR2NSSFd0TmlHZlA0TW5renhqUlU3Q1ZBb24raUQ2?=
+ =?utf-8?B?NnFBRWQ4cEFQYVFNdnp4STVBZ2Y0MnUyRVJCaG9zOFFPVlMrN3FhNjhZU2s4?=
+ =?utf-8?B?ZGpQdkFlRzhVdnY1R2poMlBqODR1Z0RxbXJrQjFvVUIrQXpPWDJTN3pUNVVv?=
+ =?utf-8?B?UjBNRXcrS0tXY2VDdS9GcnJxZGV5MExuS2RRT1ZCVHhPckkwT2QvRHlIalJ5?=
+ =?utf-8?B?SG1EdmFyUkNrT1FOMytmN1kyY3QwWXJvbXZ3cE5tYTNWWkY0dHdUc1dRaFRI?=
+ =?utf-8?B?VmlIZzZLRitCWFVOOXp3akIvd29CZnZHazFxMENOSm1yUWtsb1hIdWVKVjlo?=
+ =?utf-8?B?TFp5U0lMVFFsOXdVMWNHRDVlSkJxTFhRR2M4VUxzWjJXb3pvTkJmY2h5NFVl?=
+ =?utf-8?B?eUZtT2twaXhOVW5CeUpTT1pXbXo2dUFHa0VRcWxsc1RCSHlBYXcxWVh1QmtC?=
+ =?utf-8?B?blEvbVlrUjdRYWVsdnV1L3hWdzZ3bTJRdGgwYitwRHlQS2htK1hSK1BONFNm?=
+ =?utf-8?B?VEoxaXRmVFZBSEswdjJEYnppaS9hZFRnUFppU3lWMDNGRVB4TUE0N2dQMWVj?=
+ =?utf-8?B?NzJGaFpMaXAxWUVkL2p0a0NtLzFFc3o4SGFzK09vUlpVMElFUGx0eURUcjZW?=
+ =?utf-8?B?a0ZuMXRTRUJ0aEEvYUJhMnpld0xEbmZSdGpRQVZWR0JuNUZkUkUxUVRBWUhK?=
+ =?utf-8?B?NUtSMkdIV285OVdjMjAxUit1c2NydkJkcTlPUjBPYndZTkh1cHFMWjFRcFcr?=
+ =?utf-8?B?V1JmR2l1QWF0WGkva2U1K0ZLQlBpelpLYU1NYlBoVzJ1VERGbzhhOEpPTFVn?=
+ =?utf-8?B?ZFV5eDcwcWh2Y1VxRDZqc0ROZDEzWEJNWUREc3hSME5PMkdDRjVHdzdjZGRl?=
+ =?utf-8?B?Rk1TNGFhbm1BZGloK1FNbld3RUFBcHNjTjFEeXZhZithb1NxTlpxK1hCUTJR?=
+ =?utf-8?B?YUR3OXh6MHFjazZCZURoRzljNjliajBzQnpDL0NydFpVR2l4aS9VUmZGNEg4?=
+ =?utf-8?B?b3I0b1hWS3lSL0RYYUlVMHZHMERNbGl0VFNiVHhSSjFqVmtOMS9pbDI4TlpP?=
+ =?utf-8?B?YTJpQ2tlQVAxSlFGV2diYjVPQW5JK2JrNFlCQWQxa0VwMVZWOWtZT000TzBx?=
+ =?utf-8?B?YkYra0RiZndsTVVodWQyTjBrVFBxVUkwd016bVlUYzkxQ29RSW9mV3pTdDRX?=
+ =?utf-8?B?WVVnczJWRE96OU1XVW9tVzdVYTNuRDk4Tjc4eCt2emdVT2k0bkdzL3pwZisz?=
+ =?utf-8?B?MUhTeWdqYStqTERPaU1zaVI3ZXNLZEJHd05PSGtzZzllYnFqS2Z3QU5sMnBl?=
+ =?utf-8?B?ZEorSnpTbzVqaWVxSWM0bkQxSWRza1hvVWtuM04vUHlXNk81Szl4cFY3Y3lj?=
+ =?utf-8?B?RlhVNm9PNDZYSE5PMzJzMS96QXFKeXhrR3hNS3ltMHhIMi90eG9FTUVZUG5T?=
+ =?utf-8?B?VUNWRTVudlFZakJGOXRhdzIwYmw0ejVkTjN3NyttYS9Bc0hDMW5QU2x6VGQ3?=
+ =?utf-8?B?Zlc2TGtJdmVGK3VPYmJtc3N2Y2VXS3dFekJCd3hhK0JQQ05jS2hoL28vYU5i?=
+ =?utf-8?B?dVp6MUw1L3dwRDdQSlJmT3F2YzJ2STZZc05PaFNRYWV0WHEwOWNVSkRVWGdJ?=
+ =?utf-8?B?SmNERHhkdzlQQVZWQkVTaitYZmYzRFVkeE15ZWJOQWkyeHNSSDhCZGNCbHJr?=
+ =?utf-8?B?QmxhMHJVUnM2Tkx1bWtOWFBlcDdWMkYvTXZVTFZBZ2I0S0RPdlppSXlUR1d3?=
+ =?utf-8?B?VkFZZ2dVblk3cENHSFlMc21aWmEwSWJTTzZwbVFwS09yWEMwV3U2N1kxY3gv?=
+ =?utf-8?B?WFc4czJuT0hzaWswMWpTRkVWRFl5b01ZYUJOQTJvUDJOa1FPemsreXk2Zm5O?=
+ =?utf-8?B?aFJIQm5aVk1BPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8658.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OFFLTUJhT0ZBbWhyV1UwWHRPWTZMY0RIb0IveWlPR2hKWmxINDNtbCtoZk9t?=
+ =?utf-8?B?Wm91c280bTdtL2M2bnNtc1JhRURxd3FpSDVPU2ZuMUJPM254QlJxOUIwSEVj?=
+ =?utf-8?B?amlIRDhPWHlRUTJQSnRkOWZac2FqS3VXNGJuUE1tcXRHejk3MlUwUSttL1ZP?=
+ =?utf-8?B?a2FPbG9CZTRLaDFLUXNDN2FBNWk1UXdkbWZRUEdYenFYSnA1c0VQNkNTbllX?=
+ =?utf-8?B?SktldDdFeGc1QVdzeXA0TzZ6clI3L1VXSGpZdjZQVHdJTHpUQjNKMUhsRVRo?=
+ =?utf-8?B?SE54V0twRzRSOFJ1Z1VpVlYxdDI2L0FOcVFvMXVHbTlhK081MlVRenZkNFYy?=
+ =?utf-8?B?MHVuNWhzdzVPN0YrVERBMlFZUDErN2xoaGEzcGh3Uko5UGc0RUMreW1uN0F3?=
+ =?utf-8?B?MFdjR25adUt0R2U2OTJrM3ZtSVpNSzRTMWJCTzliazFtT0V0KzNXOWZkRHlz?=
+ =?utf-8?B?WTNjUlNqT2lsRGVwcEg5Q29MVDcxY3R4bFg3cG1ZZnI3VGNmeUI1WHd4Nk5F?=
+ =?utf-8?B?YWY0bWY3RndYMmw3SDFtbTJlbURhWU1aOEQ3eWpqM2VMVVExMEh1RmlHT0JH?=
+ =?utf-8?B?QlU3ekFhaHpxNm5RTkJmdDZVY1pUNTJDb3dZUkRvdkhpYnZzd0lmRE9Tc1ph?=
+ =?utf-8?B?VTJyUnE5YlcwTmVQM1l1L0NzUFU3aGd6R3N3Y1RiSGxKL0djVzVvT29pdVF5?=
+ =?utf-8?B?aFA1RldBMmdBUWg2MmVkdDN3aG0vN2Zzc1hMeWxJUlhWLzdCNlZGTTdmZWh0?=
+ =?utf-8?B?WnF4MmFXS0NyOUhtUWl1SUVySEdVWEZtZHUvOFcvMk9wSDV2UE9YYlJGWDFk?=
+ =?utf-8?B?Y29kaUtYVnlUSmd1NEF4KzZvbExRWU4ycUVDZXdMeWIvUTVKNE5QcXRwSUYv?=
+ =?utf-8?B?Z1hhTHV1eTB2Z0hHVlk4clgwYkwzR3RJL2xkdE1GQ1NMdTF1T011OTR2ekJT?=
+ =?utf-8?B?K0U3MEQwNWhIc0ZRdHhJT2dwMC9SdlpaV21zakpDU3lScmZJWWJYYTgwYWxY?=
+ =?utf-8?B?RmJXeHhHNXJCVWtyWW12UWswWW45VTVQSkRQTTBZV3ptTXlmMnc1SHNYOURv?=
+ =?utf-8?B?MjJrekFOT2pKSlZPK0h5d3F5Unh1aERrc1RIZzFzSVpDeWtTaGJxVGV4d2Ji?=
+ =?utf-8?B?MDVPbTVNTE5TUUFMSHlpaWtJdTdMMlRPQnNJMXA5VGJZVUlxRExCZmhCZGFU?=
+ =?utf-8?B?TDVVZncyWGlzVXlkbDJ4VUNMSUpBMTMva1BMTEdTOEgraWRLQ1lLcWpMb052?=
+ =?utf-8?B?MnNkUFRiU1BHOEoxU2FCendTMDFOcWVaemF5U2RoYjMwMThhUnZ1QjBIdUdC?=
+ =?utf-8?B?NE1yOHUzL2loVUpoN24zMjJyeDRwR0xWTisxaERrZHczak5Ja01lckRlUnFt?=
+ =?utf-8?B?Skh3OFM5ODRURWI4YlcvOXJjZy9oRjdFR1dxNmY3OHJSa05wUWhsRHJPQTZ6?=
+ =?utf-8?B?RXFRSHYzNGV6bW8vbFlaQlArS1pFenJUdWc4QmhlSllmdU50R2QvVDE2Mnl3?=
+ =?utf-8?B?RzR6ZDhLNXl6dXdkbWNGME9Sb0wvWE83LzlVRmRtRC85b1FQY2VKK29mWGFa?=
+ =?utf-8?B?SXQwSjNrZmVEbVpIS3F1T0pmYWNDbmJoNGUrQmZSbm5sMjEwU0crN24wQzBK?=
+ =?utf-8?B?TGxQWktGVTlOQURpdEh0Um5iWWJvUi9Ud2tYVEVmanc3KzJaVVhqMFBxTS9Q?=
+ =?utf-8?B?QW1RYlBvbk1lV1pzMEY2UHhnSlRrUUk3cklYNjBnUlFEZXNzUExwRXYwNGdB?=
+ =?utf-8?B?cy93QWYrdlBzd3VBZWJkUXBMcGhtS3d3c3kzYlRpZDVldytXNllMRkM3dngv?=
+ =?utf-8?B?bE5Hb0l5V3Q3S0pyLzNENnBqUkEyemlqLytUdjRDbWVYazQ2RlJlRmRYdlFi?=
+ =?utf-8?B?clFPMkNSbHNKbTVYNWZ0eTFkQ2htZEw5L1lmTURsNzhOVlJJMUdoT1pVcjB0?=
+ =?utf-8?B?cUFhTWtoUGcwY0FPZEQxT3F1ZWVCNnE5bHl6eXdQbHdtd2M3Ukx3YW9mNGZH?=
+ =?utf-8?B?d0tQU3RhZ3AycDRMRWp0cmFwK1JXWFpZUlhJSURBM0pEQTV2Q2JoKzRqYTdZ?=
+ =?utf-8?B?ZVdEM09yOVhHNnlaVEx4MjNkK0ZMM1pSdnRUVVNia0cyaW0vSVlLMVNia1dO?=
+ =?utf-8?Q?vH5FtqQfxQ9V8Ov0mSYkhqVy6?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56852ec3-8af5-467f-d3cf-08dd9f564e76
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8658.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2025 08:45:19.2735
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: N6n2535z9vp3dMWkFTucuYD+obMnbYTuQ9MZFLHZeIIwDp6qO9dfg2n0euE1pQuMpyqqdvIwY5EZpIJrUzT/2w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB9131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_014047_273163_40211CA6 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20250530_014524_752553_B33D7610 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,97 +187,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/05/2025 09:20, Dev Jain wrote:
-> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
-> because an intermediate table may be removed, potentially causing the
-> ptdump code to dereference an invalid address. We want to be able to
-> analyze block vs page mappings for kernel mappings with ptdump, so to
-> enable vmalloc-huge with ptdump, synchronize between page table removal in
-> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
-> use mmap_read_lock and not write lock because we don't need to synchronize
-> between two different vm_structs; two vmalloc objects running this same
-> code path will point to different page tables, hence there is no race. 
+Hello Sean,
+
+On 5/23/2025 5:22 AM, Sean Christopherson wrote:
+> Add a waitqueue helper to add a priority waiter that requires exclusive
+> wakeups, i.e. that requires that it be the _only_ priority waiter.  The
+> API will be used by KVM to ensure that at most one of KVM's irqfds is
+> bound to a single eventfd (across the entire kernel).
 > 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> Open code the helper instead of using __add_wait_queue() so that the
+> common path doesn't need to "handle" impossible failures.
+> 
+> Cc: K Prateek Nayak <kprateek.nayak@amd.com>
+
+Feel free to include:
+
+Reviewed-by: K Prateek Nayak <kprateek.nayak@amd.com>
+
+-- 
+Thanks and Regards,
+Prateek
+
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  arch/arm64/include/asm/vmalloc.h | 6 ++----
->  arch/arm64/mm/mmu.c              | 7 +++++++
->  2 files changed, 9 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
-> index 38fafffe699f..28b7173d8693 100644
-> --- a/arch/arm64/include/asm/vmalloc.h
-> +++ b/arch/arm64/include/asm/vmalloc.h
-> @@ -12,15 +12,13 @@ static inline bool arch_vmap_pud_supported(pgprot_t prot)
->  	/*
->  	 * SW table walks can't handle removal of intermediate entries.
->  	 */
-> -	return pud_sect_supported() &&
-> -	       !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
-> +	return pud_sect_supported();
->  }
->  
->  #define arch_vmap_pmd_supported arch_vmap_pmd_supported
->  static inline bool arch_vmap_pmd_supported(pgprot_t prot)
->  {
-> -	/* See arch_vmap_pud_supported() */
-> -	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
-> +	return true;
->  }
->  
->  #endif
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index ea6695d53fb9..798cebd9e147 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1261,7 +1261,11 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
->  	}
->  
->  	table = pte_offset_kernel(pmdp, addr);
-> +
-> +	/* Synchronize against ptdump_walk_pgd() */
-> +	mmap_read_lock(&init_mm);
->  	pmd_clear(pmdp);
-> +	mmap_read_unlock(&init_mm);
-
-So this works because ptdump_walk_pgd() takes the write_lock (which is mutually
-exclusive with any read_lock holders) for the duration of the table walk, so it
-will either consistently see the pgtables before or after this removal. It will
-never disappear during the walk, correct?
-
-I guess there is a risk of this showing up as contention with other init_mm
-write_lock holders. But I expect that pmd_free_pte_page()/pud_free_pmd_page()
-are called sufficiently rarely that the risk is very small. Let's fix any perf
-problem if/when we see it.
-
->  	__flush_tlb_kernel_pgtable(addr);
-
-And the tlbi doesn't need to be serialized because there is no security issue.
-The walker can be trusted to only dereference memory that it sees as it walks
-the pgtable (obviously).
-
->  	pte_free_kernel(NULL, table);
->  	return 1;
-> @@ -1289,7 +1293,10 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->  		pmd_free_pte_page(pmdp, next);
->  	} while (pmdp++, next += PMD_SIZE, next != end);
->  
-> +	/* Synchronize against ptdump_walk_pgd() */
-> +	mmap_read_lock(&init_mm);
->  	pud_clear(pudp);
-> +	mmap_read_unlock(&init_mm);
-
-Hmm, so pud_free_pmd_page() is now going to cause us to acquire and release the
-(upto) lock 513 times (for a 4K kernel). I wonder if there is an argument for
-clearing the pud first (under the lock), then the pmds can all be cleared
-without a lock, since the walker won't be able to see the pmds once the pud is
-cleared.
-
-Thanks,
-Ryan
-
->  	__flush_tlb_kernel_pgtable(addr);
->  	pmd_free(NULL, table);
->  	return 1;
+>   include/linux/wait.h |  2 ++
+>   kernel/sched/wait.c  | 18 ++++++++++++++++++
+>   2 files changed, 20 insertions(+)
+> [..snip..]
 
 
