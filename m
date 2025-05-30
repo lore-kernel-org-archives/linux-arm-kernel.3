@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D35CC3ABB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:18:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF5FBC3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 08:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2WzxSo6sYbiM6b0F2XSBjn+T4nA2ds5QVgGNEvrhj8=; b=F1mffX284MXtzNCtEFVBzjBOAD
-	twysbT1qnQB7CrBSKixoopPxpxLnzbnEHBwiZ9WU27XGSzM5zEpZOKhdIkS4cPHloxptlvTVI8ioc
-	MwhdES41cuCkKfvsv+i9X3VSS4nqocIMAeE4q+p8muJOzfjVr5DFH8nZgQVy4X9trr6e8bVU/zW60
-	/KA/FASPw9pJ1mSA9SgnShPXLlptg0YWRs5Jf9jniHTnxIWcS5ObgkXcD4Xq/xDJQhTro2poHuvEa
-	t+omNOjQNm4FocZkUW6RnYwnhe1okUYrWgBawDrR/8+a09/xm+pkmferYM9ZtK/osSkWEAtKCT1VW
-	31YoFf6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d5uXLy3aVascoGW7+x+sYRkxemKiyBvlPpkaZTuHscc=; b=dWjVkJIwx8w83WAm5ZQnuvCxw7
+	FAw2zCcO/GalZAR/R6ChxynE0UUI4RY4AUyn+5vFUKnpGo2UdQXMBIwR5hRNw2dbj9vVEGepAfuui
+	8nv7snKX2TcHTrzukFS9xlIjWixhY2tGE2o+ea8TZMRuMc+NeI1JlrjrtHP5W8Rd2IXTvsfbZ6PR2
+	FxNfuEZhP5tPHdK0RCm5Yt4+A4tfeWMgTrcjERqYDrY3TVImVU3D1nC6HZPz86LwaHq5p/LRJeAEx
+	L2kJ2SOFqEg2k0f96FFp8XRc4/pLzgGmjnAD0YZ0COrpl8OrAvbPvuLlXVpSsyUdCoKCSjhl9ZwI8
+	eEbSAmUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKuwb-0000000HaEQ-21ZT;
-	Fri, 30 May 2025 08:18:25 +0000
-Received: from mail-vs1-f52.google.com ([209.85.217.52])
+	id 1uKuyh-0000000HaSB-2QOU;
+	Fri, 30 May 2025 08:20:35 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKuWQ-0000000HW0k-2twq;
-	Fri, 30 May 2025 07:51:24 +0000
-Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-4e58a9bb8fcso597089137.2;
-        Fri, 30 May 2025 00:51:21 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748591479; x=1749196279;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=X2WzxSo6sYbiM6b0F2XSBjn+T4nA2ds5QVgGNEvrhj8=;
-        b=cScA9Qn0ZMIYsb7U5v6v/KcZksIxhgt/ve6U2VcQsII63+h7REFYTzJsOaYT8SzIw2
-         g78lemUA/WIYPEHUEJeHS+RIieURBKyk0fR0ADy1Akj0o/eLEPWCHO00nsEAqcnCvzgK
-         dr3uRsYbTGH6cXGh00XnYkAO0UxE8lp+7VFN2xbzbYBUYJy3d+R0N7KXOh0fzWxV6Y6u
-         FXW9r5AigyMPBUL3e7mvKEyo1hD7/hN9mKisiqaOuaca+X2+54q7Ej10J4qqhvXYr8u9
-         4zwxGzwbRQvxE5wO6qB/jTJI/aWqaSpLdrv6QlmFTS6MOEq5euu16zS0YRVM9KTuZesa
-         w8Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgFd+I05x2U/QnthNlV2ezKdCKUJFOMU4LuaOHdxjmgx3rWkRSeVk4V7KLqPNCvnqLSiBuidFbgJHHsi+b@lists.infradead.org, AJvYcCW5shm4ByMYGJObVx6SXi+2bpOSld8JLUankPsVZra2ZAPQeK05fWcQSrWgTQxjUSD5rUZHrRj52nf0AWOBicKv8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIKldY7f3gmHbT3AdwoXw4fxTXfrC/HLCxIkReSybTiOCdPgve
-	181jw1C8dJJOxPic5niu1oGpQxLMuHsqvj4LZY0DiY6heclwLn64wFqHyCWDztZB
-X-Gm-Gg: ASbGnctRYOfUX5Gaz3FN04jsFicCcKGUYyInqOLFtrNwsVn70DB9ykOC4EDm09fitFd
-	vnY860cZjWZ55uuEE/IK+r/NzYh7Xj+CHOYjV4kClepjXtgtWDrvgcSAxXvxr6EplV0YJCU4UYb
-	EehEtJjpKCHS5DPGKVjGOGXpMeP9vs/BnhxAOe03buV/SHILJDve76bJkpVax1+Wxinaz3/LUSJ
-	C98ceiIqeCyt3LpGimQq3h69C1i1/DpYqLpFtUGQYNLfQ9Gx5GLJJxIHvLtdWlNYzdo32v2Wf56
-	10dlJaXx6p0gDiocC/3b1wY0epNcGsJSCD4a4YbIQsGDJknERxRFjD1IM5BjkWTdEmBDM6tN5zv
-	w8yN9+C3+UsBXRqfnGQ==
-X-Google-Smtp-Source: AGHT+IE3kVp3TkE91A6iqaHGnAGlJhbp71DlWER6jWqvcu71Ho+O4I3v2gGDmO7fDcCIiXaJwxD1Fw==
-X-Received: by 2002:a05:6102:dd2:b0:4e2:a5b9:df1d with SMTP id ada2fe7eead31-4e6e40f5b8cmr2427879137.8.1748591479275;
-        Fri, 30 May 2025 00:51:19 -0700 (PDT)
-Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com. [209.85.221.180])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-87e2a27da43sm2356303241.5.2025.05.30.00.51.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 May 2025 00:51:18 -0700 (PDT)
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-52f036ef186so500333e0c.1;
-        Fri, 30 May 2025 00:51:18 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUxmq81yxrLofpYQy5tN/6q7BkDx7d3KyKegst4LIg5jg6ez2h55a5iwQWnCFB93jYX2vzrlccvfzbzWt35PZuUZg==@lists.infradead.org, AJvYcCVYaMzhrwX3TlFu6YApdGcD016UrOPsDUSCZRDNCgLvynZTndzJ8DhruEcT7nSJOCi/yomusWw1KHSdgXnM@lists.infradead.org
-X-Received: by 2002:a05:6122:2188:b0:52f:724a:c748 with SMTP id
- 71dfb90a1353d-53080f5955bmr1748247e0c.1.1748591478153; Fri, 30 May 2025
- 00:51:18 -0700 (PDT)
+	id 1uKub9-0000000HWo8-06dE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 30 May 2025 07:56:16 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4383543A63;
+	Fri, 30 May 2025 07:56:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1748591770;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d5uXLy3aVascoGW7+x+sYRkxemKiyBvlPpkaZTuHscc=;
+	b=j5BdfYpAd3WxUunXRmpE2ibM9G+KVDDhSfYDrSD1+PDUyzarJgvym3lOUXc72O4YUFn6hc
+	xtiF6q4PRjWDB4Ynzs5ip4KMmRnhYdWNJfqKcpglpe4CiCwTgndCnAFRO7b2gTl2unPo+f
+	bUqgleDvtC492VcnYkRX15i7xRzTNRoXi+JhRBpALr9TfOM9+n6euiYdParj1gbWj91gbi
+	51ZCpLIqtSjDSdBsmGlnLxdhcrd3PfQfqrJKwziiui2JNdbfJtxTV+ch/7RGBSB2yHbbof
+	aOvr3GZVFPMWbkQLJ6BqlCP9NpgrgBvw8vrsdUAnr2vPGEdaTBEmP3MUuW9pmg==
+Date: Fri, 30 May 2025 09:56:08 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Jijie Shao <shaojijie@huawei.com>
+Cc: <davem@davemloft.net>, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <thomas.petazzoni@bootlin.com>,
+ <linux-arm-kernel@lists.infradead.org>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>, "shenjian15@huawei.com"
+ <shenjian15@huawei.com>
+Subject: Re: [PATCH net-next v5 07/13] net: phy: phy_caps: Allow looking-up
+ link caps based on speed and duplex
+Message-ID: <20250530095608.63c42399@fedora.home>
+In-Reply-To: <5bbf1201-e803-40ea-a081-c25919f5e89d@huawei.com>
+References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
+	<20250307173611.129125-8-maxime.chevallier@bootlin.com>
+	<5bbf1201-e803-40ea-a081-c25919f5e89d@huawei.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250529112423.484232-1-j-choudhary@ti.com>
-In-Reply-To: <20250529112423.484232-1-j-choudhary@ti.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 30 May 2025 09:51:05 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVFrPanoO4CcRKVWhDsXCUm6ty3oayZ6yLs6AksZZJaBg@mail.gmail.com>
-X-Gm-Features: AX0GCFu5SrfJ6XEYDFBe1Hbl2dYZBDrGAQ09XF6wFfWGxGH0eSYgcybRaCFnqRc
-Message-ID: <CAMuHMdVFrPanoO4CcRKVWhDsXCUm6ty3oayZ6yLs6AksZZJaBg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: Add no-hpd property for all ti-sn65dsi86
- bridge consumers
-To: Jayesh Choudhary <j-choudhary@ti.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	neil.armstrong@linaro.org, khilman@baylibre.com, devicetree@vger.kernel.org, 
-	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	cros-qcom-dts-watchers@chromium.org, andersson@kernel.org, 
-	konradybcio@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	imx@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, dianders@chromium.org, 
-	linux-kernel@vger.kernel.org, max.krummenacher@toradex.com, 
-	ernestvanhoecke@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvkeegieculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeuhfefgffgtdfhgffhvdfhhffhteeutdektefghfetveehheejjefgudeiudehudenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvuddprhgtphhtthhopehshhgrohhjihhjihgvsehhuhgrfigvihdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehlu
+ hhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhm
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_005122_733796_7D9E9983 
-X-CRM114-Status: GOOD (  22.97  )
+X-CRM114-CacheID: sfid-20250530_005615_510224_F2053CEB 
+X-CRM114-Status: GOOD (  41.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,54 +91,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jayesh,
+On Thu, 29 May 2025 17:36:11 +0800
+Jijie Shao <shaojijie@huawei.com> wrote:
 
-Thanks for your patch!
+> on 2025/3/8 1:36, Maxime Chevallier wrote:
+> > As the link_caps array is efficient for <speed,duplex> lookups,
+> > implement a function for speed/duplex lookups that matches a given
+> > mask. This replicates to some extent the phy_lookup_settings()
+> > behaviour, matching full link_capabilities instead of a single linkmode.
+> >
+> > phy.c's phy_santize_settings() and phylink's
+> > phylink_ethtool_ksettings_set() performs such lookup using the
+> > phy_settings table, but are only interested in the actual speed/duplex
+> > that were matched, rathet than the individual linkmode.
+> >
+> > Similar to phy_lookup_settings(), the newly introduced phy_caps_lookup()
+> > will run through the link_caps[] array by descending speed/duplex order.
+> >
+> > If the link_capabilities for a given <speed/duplex> tuple intersects the
+> > passed linkmodes, we consider that a match.
+> >
+> > Similar to phy_lookup_settings(), we also allow passing an 'exact'
+> > boolean, allowing non-exact match. Here, we MUST always match the
+> > linkmodes mask, but we allow matching on lower speed settings.
+> >
+> > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> > ---
+> >   drivers/net/phy/phy-caps.h |  4 ++++
+> >   drivers/net/phy/phy.c      | 32 ++++++--------------------
+> >   drivers/net/phy/phy_caps.c | 47 ++++++++++++++++++++++++++++++++++++++
+> >   drivers/net/phy/phylink.c  | 17 +++++++-------
+> >   4 files changed, 67 insertions(+), 33 deletions(-)
+> >
+> > diff --git a/drivers/net/phy/phy-caps.h b/drivers/net/phy/phy-caps.h
+> > index 8833798f141f..aef4b54a8429 100644
+> > --- a/drivers/net/phy/phy-caps.h
+> > +++ b/drivers/net/phy/phy-caps.h
+> > @@ -51,4 +51,8 @@ phy_caps_lookup_by_linkmode(const unsigned long *link=
+modes);
+> >   const struct link_capabilities *
+> >   phy_caps_lookup_by_linkmode_rev(const unsigned long *linkmodes, bool =
+fdx_only);
+> >  =20
+> > +const struct link_capabilities *
+> > +phy_caps_lookup(int speed, unsigned int duplex, const unsigned long *s=
+upported,
+> > +		bool exact);
+> > +
+> >   #endif /* __PHY_CAPS_H */
+> > diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+> > index 8df37d221fba..562acde89224 100644
+> > --- a/drivers/net/phy/phy.c
+> > +++ b/drivers/net/phy/phy.c
+> > @@ -213,25 +213,6 @@ int phy_aneg_done(struct phy_device *phydev)
+> >   }
+> >   EXPORT_SYMBOL(phy_aneg_done);
+> >  =20
+> > -/**
+> > - * phy_find_valid - find a PHY setting that matches the requested para=
+meters
+> > - * @speed: desired speed
+> > - * @duplex: desired duplex
+> > - * @supported: mask of supported link modes
+> > - *
+> > - * Locate a supported phy setting that is, in priority order:
+> > - * - an exact match for the specified speed and duplex mode
+> > - * - a match for the specified speed, or slower speed
+> > - * - the slowest supported speed
+> > - * Returns the matched phy_setting entry, or %NULL if no supported phy
+> > - * settings were found.
+> > - */
+> > -static const struct phy_setting *
+> > -phy_find_valid(int speed, int duplex, unsigned long *supported)
+> > -{
+> > -	return phy_lookup_setting(speed, duplex, supported, false);
+> > -}
+> > -
+> >   /**
+> >    * phy_supported_speeds - return all speeds currently supported by a =
+phy device
+> >    * @phy: The phy device to return supported speeds of.
+> > @@ -274,13 +255,14 @@ EXPORT_SYMBOL(phy_check_valid);
+> >    */
+> >   static void phy_sanitize_settings(struct phy_device *phydev)
+> >   {
+> > -	const struct phy_setting *setting;
+> > +	const struct link_capabilities *c;
+> > +
+> > +	c =3D phy_caps_lookup(phydev->speed, phydev->duplex, phydev->supporte=
+d,
+> > +			    false);
+> >  =20
+> > -	setting =3D phy_find_valid(phydev->speed, phydev->duplex,
+> > -				 phydev->supported);
+> > -	if (setting) {
+> > -		phydev->speed =3D setting->speed;
+> > -		phydev->duplex =3D setting->duplex;
+> > +	if (c) {
+> > +		phydev->speed =3D c->speed;
+> > +		phydev->duplex =3D c->duplex;
+> >   	} else {
+> >   		/* We failed to find anything (no supported speeds?) */
+> >   		phydev->speed =3D SPEED_UNKNOWN;
+> > diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
+> > index c39f38c12ef2..0366feee2912 100644
+> > --- a/drivers/net/phy/phy_caps.c
+> > +++ b/drivers/net/phy/phy_caps.c
+> > @@ -170,6 +170,53 @@ phy_caps_lookup_by_linkmode_rev(const unsigned lon=
+g *linkmodes, bool fdx_only)
+> >   	return NULL;
+> >   }
+> >  =20
+> > +/**
+> > + * phy_caps_lookup() - Lookup capabilities by speed/duplex that matche=
+s a mask
+> > + * @speed: Speed to match
+> > + * @duplex: Duplex to match
+> > + * @supported: Mask of linkmodes to match
+> > + * @exact: Perform an exact match or not.
+> > + *
+> > + * Lookup a link_capabilities entry that intersect the supported linkm=
+odes mask,
+> > + * and that matches the passed speed and duplex.
+> > + *
+> > + * When @exact is set, an exact match is performed on speed and duplex=
+, meaning
+> > + * that if the linkmodes for the given speed and duplex intersect the =
+supported
+> > + * mask, this capability is returned, otherwise we don't have a match =
+and return
+> > + * NULL.
+> > + *
+> > + * When @exact is not set, we return either an exact match, or matchin=
+g capabilities
+> > + * at lower speed, or the lowest matching speed, or NULL.
+> > + *
+> > + * Returns: a matched link_capabilities according to the above process=
+, NULL
+> > + *	    otherwise.
+> > + */
+> > +const struct link_capabilities *
+> > +phy_caps_lookup(int speed, unsigned int duplex, const unsigned long *s=
+upported,
+> > +		bool exact)
+> > +{
+> > +	const struct link_capabilities *lcap, *last =3D NULL;
+> > +
+> > +	for_each_link_caps_desc_speed(lcap) {
+> > +		if (linkmode_intersects(lcap->linkmodes, supported)) {
+> > +			last =3D lcap;
+> > +			/* exact match on speed and duplex*/
+> > +			if (lcap->speed =3D=3D speed && lcap->duplex =3D=3D duplex) {
+> > +				return lcap;
+> > +			} else if (!exact) {
+> > +				if (lcap->speed <=3D speed)
+> > +					return lcap;
+> > +			}
+> > +		}
+> > +	}
+> > +
+> > +	if (!exact)
+> > +		return last;
+> > +
+> > +	return NULL;
+> > +}
+> > +EXPORT_SYMBOL_GPL(phy_caps_lookup);
+> > +
+> >   /**
+> >    * phy_caps_linkmode_max_speed() - Clamp a linkmodes set to a max spe=
+ed
+> >    * @max_speed: Speed limit for the linkmode set
+> > diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> > index a3f64b6d2d34..cf9f019382ad 100644
+> > --- a/drivers/net/phy/phylink.c
+> > +++ b/drivers/net/phy/phylink.c
+> > @@ -20,6 +20,7 @@
+> >   #include <linux/timer.h>
+> >   #include <linux/workqueue.h>
+> >  =20
+> > +#include "phy-caps.h"
+> >   #include "sfp.h"
+> >   #include "swphy.h"
+> >  =20
+> > @@ -2852,8 +2853,8 @@ int phylink_ethtool_ksettings_set(struct phylink =
+*pl,
+> >   				  const struct ethtool_link_ksettings *kset)
+> >   {
+> >   	__ETHTOOL_DECLARE_LINK_MODE_MASK(support);
+> > +	const struct link_capabilities *c;
+> >   	struct phylink_link_state config;
+> > -	const struct phy_setting *s;
+> >  =20
+> >   	ASSERT_RTNL();
+> >  =20
+> > @@ -2896,23 +2897,23 @@ int phylink_ethtool_ksettings_set(struct phylin=
+k *pl,
+> >   		/* Autonegotiation disabled, select a suitable speed and
+> >   		 * duplex.
+> >   		 */
+> > -		s =3D phy_lookup_setting(kset->base.speed, kset->base.duplex,
+> > -				       pl->supported, false);
+> > -		if (!s)
+> > +		c =3D phy_caps_lookup(kset->base.speed, kset->base.duplex,
+> > +				    pl->supported, false);
+> > +		if (!c)
+> >   			return -EINVAL; =20
+>=20
+>=20
+>=20
+> Hi Maxime,  fc81e257d19f ("net: phy: phy_caps: Allow looking-up link caps=
+ based on speed and duplex") might have different behavior than the modific=
+ation.
+> My case is set 10M Half with disable autoneg both sides and I expect it is
+> link in 10M Half. But now, it is link in 10M Full=EF=BC=8Cwhich is not wh=
+at I
+> expect.
+>=20
+> I used followed command and trace how phy worked.
+> 	ethtool -s eth1 autoneg off speed 10 duplex half
+> The log is showed as followed:
+> ethtool-13127	[067]	6164.771853: phy_ethtool_ksettings set: (phy_ethtool =
+ksettings set+0x0/0x200) duplex=3D0 speed=3D10
+> kworker/u322:2-11096	[070]	6164.771853:	_phy_start_aneq: ( _phy_start_ane=
+g+0x0/0xb8) duplex=3D0 speed=3D10
+> kworker/u322:2-11096	[070]	6164.771854:	phy_caps_lookup: (phy_caps_lookup=
++0x0/0xf0) duplex=3D0 speed=3D10
+> kworker/u322:2-11096	[070]	6164.771855:	phy_config_aneg: (phy_config_aneg=
++0x0/0x70) duplex=3D1 speed=3D10
+> kworker/u322:2-11096	[070]	6164.771856:	genphy_config_aneg:	(__genphy_con=
+fig_aneg+0X0/0X270) duplex=3D1 speed=3D10
+>=20
+> I also try to fixed it and it works. Do you have any idea about it.
 
-On Thu, 29 May 2025 at 13:24, Jayesh Choudhary <j-choudhary@ti.com> wrote:
-> In the SN65DSI86 DSI-2-eDP bridge, HPD is not supported as of now.
-> But DisplayPort connector_type usecases does need hpd to be enabled.
-> In order not to break any platform from those driver changes, add
-> "no-hpd" property to all the existing sn65dsi86 nodes (that don't
-> have it already) as hpd is not being used there anyways.
->
-> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+The !exact match logic in the rework is wrong indeed, sorry...
 
-DT bindings day:
+For non-exact matches we return a non-exact match too early without
+giving the chance for a potentially exact half-duplex match...
 
-  no-hpd:
-    type: boolean
-    description:
-      Set if the HPD line on the bridge isn't hooked up to anything or is
-      otherwise unusable.
+As for the fix, can you try this out :
 
-On all Renesas platforms listed below, the DP bridge's HPD pin is wired
-to the HPD pin on the mini-DP connector.  What am I missing?
-
-> Upcoming driver changes that will break platforms if we do not have this
-> property in all the existing sn65dsi86 nodes that assumes hpd is disabled:
-> <https://lore.kernel.org/all/20250529110418.481756-1-j-choudhary@ti.com/>
-
-Breaking backwards-compatibility with existing DTBs is definitely a no-go.
-I'll reply there, too...
-
->  .../boot/dts/amlogic/meson-g12b-bananapi-cm4-mnt-reform2.dts     | 1 +
->  arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts             | 1 +
->  arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts                 | 1 +
->  arch/arm64/boot/dts/renesas/r8a779a0-falcon-cpu.dtsi             | 1 +
->  arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts            | 1 +
->  arch/arm64/boot/dts/renesas/r8a779h0-gray-hawk-single.dts        | 1 +
->  arch/arm64/boot/dts/renesas/white-hawk-cpu-common.dtsi           | 1 +
->  7 files changed, 7 insertions(+)
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
+index 703321689726..d80f6a37edf1 100644
+--- a/drivers/net/phy/phy_caps.c
++++ b/drivers/net/phy/phy_caps.c
+@@ -195,7 +195,7 @@ const struct link_capabilities *
+ phy_caps_lookup(int speed, unsigned int duplex, const unsigned long *suppo=
+rted,
+ 		bool exact)
+ {
+-	const struct link_capabilities *lcap, *last =3D NULL;
++	const struct link_capabilities *lcap, *match =3D NULL, *last =3D NULL;
+=20
+ 	for_each_link_caps_desc_speed(lcap) {
+ 		if (linkmode_intersects(lcap->linkmodes, supported)) {
+@@ -204,16 +204,19 @@ phy_caps_lookup(int speed, unsigned int duplex, const=
+ unsigned long *supported,
+ 			if (lcap->speed =3D=3D speed && lcap->duplex =3D=3D duplex) {
+ 				return lcap;
+ 			} else if (!exact) {
+-				if (lcap->speed <=3D speed)
+-					return lcap;
++				if (!match && lcap->speed <=3D speed)
++					match =3D lcap;
++
++				if (lcap->speed < speed)
++					break;
+ 			}
+ 		}
+ 	}
+=20
+-	if (!exact)
+-		return last;
++	if (!match && !exact)
++		match =3D last;
+=20
+-	return NULL;
++	return match;
+ }
+ EXPORT_SYMBOL_GPL(phy_caps_lookup);
 
