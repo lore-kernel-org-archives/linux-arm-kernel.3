@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A071C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 14:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC19C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 14:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XyVAQX0joFIksCWFAdgdsELtQX8CthYuIl66NHCVL6U=; b=DW1iZwvMDNavntY3q8gPBlMWtO
-	Kb5ceJ9+jU7i9eaadFbYWGvHWkBUT/yWYFJIcjdBRD7IzBDa88h5ojsbioyLVlKmqAuYE/h2YWnf3
-	Ntr70AnWyxsOxe7g+7jSI1KJxn+H8DgqOqrPszOqtcFCoujpUoSCxrIZO0SRW0STFWLXHih9PIQDE
-	lWzBjVvWsdJjuYta3HXQr9Y8s//75JgbgJKViR2w22Dg5mC20Ig6MEprmPYU8xdRuFGh0m+aLCdZ8
-	5OLSCn+gt9iywNCBc409n6BqmqE8IBpWcAbcCnXQ2pGets+QU9j01E8/19l5yQ8gD8/BbU+cxtcPD
-	hjK557qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tkt6lqMerVtxJ85JGdrgiNvmzOncLEuXluT2uXMp+Bw=; b=U4fZWkpZ2gwmCFiG4kz3AFj2xQ
+	0WiI6fwB+rW47Qx3Fk385pUy6J0nKx4baGTKanWFRi2ElCTZCGmzV9cGwmTAxgdfHIymUrXXIv4mX
+	494SPX4TJ6/vT5TLJ03CeFy6M/zbL7Sy+aT/XjEhmBABRdCCUrjkXD5TEilcEY3UO2Ez6wb2J+b7M
+	xcE6dKZkkKa5yAyMi7V1fZuz8syNKkelGrMUo1m0CxHiB3P0lMfYTdpm/H+U1MFCTzIBdM26AWH9+
+	An9abGgOCQJZN6OVl1NjoSBjcnsYm9CpaLmK7GZEy3UCaiV+A5EzO40IYae/xJEvNAI+sLOw6fceA
+	Q2vMwONA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL0u3-00000000vD8-1NYS;
-	Fri, 30 May 2025 14:40:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uL0wz-00000000vVR-0Q4v;
+	Fri, 30 May 2025 14:43:13 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL0ru-00000000v4P-1ciE
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 14:37:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D45DB5C03BB;
-	Fri, 30 May 2025 14:35:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F35CC4CEE9;
-	Fri, 30 May 2025 14:37:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748615877;
-	bh=DcExpfUxA2y7MtLpRIkfyTCIoZyjbCW7UxtG5yfs9T0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tSFMWDrjZ2HR7LSMPSo57mUpYR2XxepzeXCA6iv+/09XCbAjBI3b4PHs9q8YbeOtu
-	 9nEwLWShgt77KCAV6ghfrs+XVUg8U9MFDRofWNciTyzq2N4IxdLk/4d2/oZOZ1zYUe
-	 a1Vxt0EWAtXOho32Iqoo1tFaBKPRsUC8eUCvmOPIvPaIeYRR4rybAdhfH0ceCTdut2
-	 nvBshykW/gRXjqow72O/J4KHPhEZytRmkTOGxgi4kQ1ITAuxpPYQCEPvsMDK/01B/e
-	 OTwJQ/OibnkIzMGd9H+cutIfjWGZqDGBLDLKXhnc7wbW63tiKTtsiTry6gEoiFj3w6
-	 INxsPugdbtRZA==
-Date: Fri, 30 May 2025 09:37:55 -0500
-From: Rob Herring <robh@kernel.org>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com,
-	michael@amarulasolutions.com,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/6] dt-bindings: mfd: convert mxs-lradc bindings to
- json-schema
-Message-ID: <20250530143755.GA1750861-robh@kernel.org>
-References: <20250529143544.2381031-1-dario.binacchi@amarulasolutions.com>
- <20250529143544.2381031-2-dario.binacchi@amarulasolutions.com>
+	id 1uL0up-00000000vHs-3WdO;
+	Fri, 30 May 2025 14:41:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1748616057;
+	bh=YuEWTcZ3+7dJ6CPGfVqw5uB5EKngIixvUdcQNCJDJUk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=d4TOFwsGMh/NAP5WONQXEaz+z/IkO7TpXa9X0Z39nSgp9R8C8lBcRLZD9KwrWvQMv
+	 P+oZKUNZoQelaZXC0oeC2pngBQusHVctcm2nc1Lu8Wd+ANaPnmYKxwH6GQaPNqu/ib
+	 uWfKdBS/x22mVh6AIMwsXWebYoa629xwJjnwjrjHhFc+dYc1qVIi1mkaq9x0wOZHoM
+	 P33WJYoGqiIi3Dg/Y5sN0+MeLjxYx+r+S42Ouu7sP06otHecvEOR/6mQqpp67bd68u
+	 /MAacM+SWSTT4fpOR0h8ssgL7qNj7aXITAchZfNiAhSH+n1id+HUr40xjFsk22Jn1A
+	 CzLi3CW/YF0yw==
+Received: from [IPv6:2606:6d00:10:5285::5ac] (unknown [IPv6:2606:6d00:10:5285::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CB37617E0C37;
+	Fri, 30 May 2025 16:40:55 +0200 (CEST)
+Message-ID: <7a372c544c370d64b916a7092aabac555710d7c5.camel@collabora.com>
+Subject: Re: [PATCH v2 0/6] Add support for MT8196 video encoder
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Irui Wang <irui.wang@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	angelogioacchino.delregno@collabora.com, wenst@chromium.org
+Cc: Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Yunfei Dong <yunfei.dong@mediatek.com>,
+  Longfei Wang <longfei.wang@mediatek.com>
+Date: Fri, 30 May 2025 10:40:54 -0400
+In-Reply-To: <20250528063633.14054-1-irui.wang@mediatek.com>
+References: <20250528063633.14054-1-irui.wang@mediatek.com>
+Organization: Collabora Canada
+Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250529143544.2381031-2-dario.binacchi@amarulasolutions.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_073758_513971_BA5F861B 
-X-CRM114-Status: GOOD (  29.29  )
+X-CRM114-CacheID: sfid-20250530_074100_031839_B4580D4D 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,247 +81,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:35:08PM +0200, Dario Binacchi wrote:
-> Convert the Freescale MXS Low-Resoulution ADC (LRADC) device tree
-> binding documentation to json-schema.
+Hi,
+
+Le mercredi 28 mai 2025 à 14:36 +0800, Irui Wang a écrit :
+> This patch series add support for MT8196 video encoder.
+> patch 1~3: Add a new encoder driver interface for new VCP firmware.
+> patch 4~6: Add MT8196 encoder driver platform data.
 > 
-> The clocks and #io-channel-cells properties have also been added; They
-> are present in the respective SoC DTSI files but were missing from the
-> old mxs-lradc.txt file.
+> About adding new driver support, the v4l2-compliance report shows:
+> "Total for mtk-vcodec-enc device /dev/video3: 47, Succeeded: 46, Failed: 1, Warnings: 0"
+> The 1 Failed case is not caused by current patch set.
+
+We really want to see the full report, simply reply to this cover letter with
+the entire report to fix it.
+
+Nicolas
+
 > 
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> This patch set depends on "media: mediatek: vcodec: support video decoder in mt8196"[1]
 > 
-> ---
+> [1] https://patchwork.linuxtv.org/project/linux-media/list/?series=15232
 > 
-> Changes in v4:
-> - Fix typo Low-Resoulution -> Low-Resolution'
-> - Wrap lines at 80 char.
-> - Drop '|' from the description
-> - Describe what each interrupt is for.
-> - Move touchscreen-wires constraint for imx28 to the top level
+> Change in v2:
+>  - Add support for VCP encode process.
+>  - Add MT8196 encoder driver platform data.
+>  - Rebase encoder patch onto decoder's patch set.
+>  - Fix some review comments in v1.
 > 
-> Changes in v3:
-> - Add Reviewed-by tag of Conor Dooley
+> Irui Wang (6):
+>   media: mediatek: encoder: Add a new encoder driver interface
+>   media: mediatek: encoder: Add support for common firmware interface
+>   media: mediatek: encoder: Add support for VCP encode process
+>   media: mediatek: encoder: Add a new platform data member
+>   dt-bindings: media: mediatek: encoder: Add encoder dt-bindings for
+>     MT8196
+>   media: mediatek: encoder: Add MT8196 encoder compatible data
 > 
->  .../devicetree/bindings/mfd/mxs-lradc.txt     |  45 ------
->  .../devicetree/bindings/mfd/mxs-lradc.yaml    | 131 ++++++++++++++++++
->  2 files changed, 131 insertions(+), 45 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.txt
->  create mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/mxs-lradc.txt b/Documentation/devicetree/bindings/mfd/mxs-lradc.txt
-> deleted file mode 100644
-> index 755cbef0647d..000000000000
-> --- a/Documentation/devicetree/bindings/mfd/mxs-lradc.txt
-> +++ /dev/null
-> @@ -1,45 +0,0 @@
-> -* Freescale MXS LRADC device driver
-> -
-> -Required properties:
-> -- compatible: Should be "fsl,imx23-lradc" for i.MX23 SoC and "fsl,imx28-lradc"
-> -              for i.MX28 SoC
-> -- reg: Address and length of the register set for the device
-> -- interrupts: Should contain the LRADC interrupts
-> -
-> -Optional properties:
-> -- fsl,lradc-touchscreen-wires: Number of wires used to connect the touchscreen
-> -                               to LRADC. Valid value is either 4 or 5. If this
-> -                               property is not present, then the touchscreen is
-> -                               disabled. 5 wires is valid for i.MX28 SoC only.
-> -- fsl,ave-ctrl: number of samples per direction to calculate an average value.
-> -                Allowed value is 1 ... 32, default is 4
-> -- fsl,ave-delay: delay between consecutive samples. Allowed value is
-> -                 2 ... 2048. It is used if 'fsl,ave-ctrl' > 1, counts at
-> -                 2 kHz and its default is 2 (= 1 ms)
-> -- fsl,settling: delay between plate switch to next sample. Allowed value is
-> -                1 ... 2047. It counts at 2 kHz and its default is
-> -                10 (= 5 ms)
-> -
-> -Example for i.MX23 SoC:
-> -
-> -	lradc@80050000 {
-> -		compatible = "fsl,imx23-lradc";
-> -		reg = <0x80050000 0x2000>;
-> -		interrupts = <36 37 38 39 40 41 42 43 44>;
-> -		fsl,lradc-touchscreen-wires = <4>;
-> -		fsl,ave-ctrl = <4>;
-> -		fsl,ave-delay = <2>;
-> -		fsl,settling = <10>;
-> -	};
-> -
-> -Example for i.MX28 SoC:
-> -
-> -	lradc@80050000 {
-> -		compatible = "fsl,imx28-lradc";
-> -		reg = <0x80050000 0x2000>;
-> -		interrupts = <10 14 15 16 17 18 19 20 21 22 23 24 25>;
-> -		fsl,lradc-touchscreen-wires = <5>;
-> -		fsl,ave-ctrl = <4>;
-> -		fsl,ave-delay = <2>;
-> -		fsl,settling = <10>;
-> -	};
-> diff --git a/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml b/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
-> new file mode 100644
-> index 000000000000..f90fdfbb74a8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
-> @@ -0,0 +1,131 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/mxs-lradc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Freescale MXS Low-Resolution ADC (LRADC)
-> +
-> +maintainers:
-> +  - Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> +
-> +description:
-> +  The LRADC provides 16 physical channels of 12-bit resolution for
-> +  analog-to-digital conversion and includes an integrated 4-wire/5-wire
-> +  touchscreen controller.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - fsl,imx23-lradc
-> +          - fsl,imx28-lradc
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 1
-> +
-> +  interrupts:
-> +    minItems: 9
-> +    maxItems: 13
-> +
-> +  fsl,lradc-touchscreen-wires:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [4, 5]
-> +    description:
-> +      Number of wires used to connect the touchscreen to LRADC.
-> +      If this property is not present, then the touchscreen is disabled.
-
-Is this 1 paragraph or 2? If 1, it is not wrapped properly.
-
-If 2, then it should have a blank line in between paragraphs and use 
-'>':
-
-    description: >
-      Number of wires used to connect the touchscreen to LRADC.
-
-      If this property is not present, then the touchscreen is disabled.
-
-
-See writing-schema.rst for more details.
-
-> +
-> +  fsl,ave-ctrl:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 1
-> +    maximum: 32
-> +    default: 4
-> +    description: |
-
-Don't need '|'.
-
-> +      Number of samples per direction to calculate an average value.
-> +
-> +  fsl,ave-delay:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 2
-> +    maximum: 2048
-> +    default: 2
-> +    description:
-> +      Delay between consecutive samples.
-> +      It is used if 'fsl,ave-ctrl' > 1, counts at 2 kHz and its
-> +      default value (i. e. 2) is 1 ms.
-
-1 paragraph or 2?
-
-> +
-> +  fsl,settling:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 1
-> +    maximum: 2047
-> +    default: 10
-> +    description:
-> +      Delay between plate switch to next sample.
-> +      It counts at 2 kHz and its default (i. e. 10) is 5 ms.
-
-1 paragraph or 2?
-
-> +
-> +  "#io-channel-cells":
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - interrupts
-> +
-> +if:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - fsl,imx23-lradc
-> +then:
-> +  properties:
-> +    interrupts:
-> +      items:
-> +        - description: channel 0
-> +        - description: channel 1
-> +        - description: channel 2
-> +        - description: channel 3
-> +        - description: channel 4
-> +        - description: channel 5
-> +        - description: touchscreen
-> +        - description: channel 6
-> +        - description: channel 7
-> +    fsl,lradc-touchscreen-wires:
-> +      const: 4
-> +else:
-> +  properties:
-> +    interrupts:
-> +      items:
-> +        - description: threshold 0
-> +        - description: threshold 1
-> +        - description: channel 0
-> +        - description: channel 1
-> +        - description: channel 2
-> +        - description: channel 3
-> +        - description: channel 4
-> +        - description: channel 5
-> +        - description: button 0
-> +        - description: button 1
-> +        - description: touchscreen
-> +        - description: channel 6
-> +        - description: channel 7
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    lradc@80050000 {
-> +        compatible = "fsl,imx23-lradc";
-> +        reg = <0x80050000 0x2000>;
-> +        interrupts = <36>, <37>, <38>, <39>, <40>,
-> +                     <41>, <42>, <43>, <44>;
-> +        clocks = <&clks 26>;
-> +        #io-channel-cells = <1>;
-> +        fsl,lradc-touchscreen-wires = <4>;
-> +        fsl,ave-ctrl = <4>;
-> +        fsl,ave-delay = <2>;
-> +        fsl,settling = <10>;
-> +    };
-> -- 
-> 2.43.0
-> 
+>  .../media/mediatek,vcodec-encoder.yaml        |  12 +
+>  .../mediatek/vcodec/common/mtk_vcodec_fw.c    |  19 +
+>  .../mediatek/vcodec/common/mtk_vcodec_fw.h    |   2 +
+>  .../vcodec/common/mtk_vcodec_fw_priv.h        |   1 +
+>  .../vcodec/common/mtk_vcodec_fw_vcp.c         |   6 +
+>  .../platform/mediatek/vcodec/encoder/Makefile |   1 +
+>  .../mediatek/vcodec/encoder/mtk_vcodec_enc.c  |  37 +-
+>  .../vcodec/encoder/mtk_vcodec_enc_drv.c       |  28 +
+>  .../vcodec/encoder/mtk_vcodec_enc_drv.h       |  15 +-
+>  .../vcodec/encoder/venc/venc_common_if.c      | 678 ++++++++++++++++++
+>  .../vcodec/encoder/venc/venc_h264_if.c        |   8 +-
+>  .../mediatek/vcodec/encoder/venc_drv_if.c     |   3 +-
+>  .../mediatek/vcodec/encoder/venc_drv_if.h     |  11 +-
+>  .../mediatek/vcodec/encoder/venc_ipi_msg.h    |  26 +
+>  .../mediatek/vcodec/encoder/venc_vpu_if.c     |  51 +-
+>  15 files changed, 843 insertions(+), 55 deletions(-)
+>  create mode 100644 drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
 
