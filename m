@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9581C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 12:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7B7C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 12:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oHagcnKKj/0Xwv5zmXu2LIIfVV1Vg6wOsrOEO4F++U=; b=ajzoCIWntg6rcZn9fi81oh3oGM
-	XTbq2W1NS5twA8Wod+vmi0+o3eGyTHy9JktcG0j2VyEFWd3lYSGzXVrvdKnV9v3eWj6B5pdaeaA0c
-	I/ukIokYXvIrslF/BtUlkk2srEoIagfXHoqWFTO5jaB6NetANrqESR7nCZBa/V4BeOpsxSrfCEB7H
-	IxEUhCVvp3eCpHjxIxfprUsY+lfSTiIIFJZNAoIfx3DtR27zRB+i8BFRj9qV5eGutbH2uY5K2rpSQ
-	QFazUu3cAzuxvSmDJd+UOyaoyGhhLdzNiYYQMU2Yg5WL1hJhBdIdeGk8uSHwUHpCFPc0SuD7YphT4
-	oI2cH9yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/vvNX8NjzI0PJT7/wSOBY9io9P9JAyk5m5FAc26kgyw=; b=vidkC5ihA2bRTcc8lm9m3GZL+S
+	ePeHqwNIVdWMXKT0aStEwOehz1Vviw/UvUXWpOrbnDAqNUxQjyJK5HKUhlklnWMS2NskDhcW0sOi7
+	2hmGDYyJEAFwq6YpcSRZiToFZcHOehyO5obawK10V+R9vPf21tHxhmQPXWzvGJdrkgDItIyjH519Q
+	WvXw27xyuYKw+AFLTvm0eEVu7N3VueTEqxlsn0PCVVgXJKL3dhvGkhdprA61cgnqndE/CgPd4nsyL
+	FWZEBO+PecrtmU28ZZnYylH9EMvLYhKaSl8hFd0MgtADoh1tQ0d8aT8YVi5Gb+/kgfTcI15VaY4lK
+	MedZgKFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKz9L-00000000aqx-49XC;
-	Fri, 30 May 2025 12:47:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uKzBS-00000000bL0-3ArV;
+	Fri, 30 May 2025 12:50:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKz2h-00000000Yrb-2eUN
+	id 1uKz8D-00000000aVS-1R2p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 12:41:00 +0000
+	Fri, 30 May 2025 12:46:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0C8E65C1394;
-	Fri, 30 May 2025 12:38:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE49FC4CEE9;
-	Fri, 30 May 2025 12:40:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 971B643DA1;
+	Fri, 30 May 2025 12:46:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44DC5C4CEE9;
+	Fri, 30 May 2025 12:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748608858;
-	bh=UD+5TLB2bz4d2xUkoAyU+8q0CipzLr4x2rwxkiGKeyk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qlLH3YOnKGEb1XBki6M+VUxudpjrHwBKbnjSyHsjxQOww6YVHwprMPM06CzIu2B1v
-	 yfHDRLcfjnWGT2ElwYBbLCS7i+VXjBgY5YnGvNK3/YrxjMLaUvHkRI9MUp97lDpGJt
-	 X03+3nsH6gGOFT28eZpTz34hx7Pa61xCWG6ieBOIUcXxc/LzkKeEaLfO6yPwggmkQB
-	 NoHTlJlqBUB6s2r4KgbOOyY+wl+AzHQprOhK8fqD5RViC27j7u78klf/dpG8i0djI2
-	 EajNBAdm7Aj5XuTdNdoTqSN3Bs2kzoXjNHJUroMHdaBYbjNIWgrfi+oWHgyWIqzddx
-	 KyoJpKp62Qneg==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Luke Wang <ziniu.wang_1@nxp.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Sasha Levin <sashal@kernel.org>,
-	shawnguo@kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.6 08/18] mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend
-Date: Fri, 30 May 2025 08:40:37 -0400
-Message-Id: <20250530124047.2575954-8-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250530124047.2575954-1-sashal@kernel.org>
-References: <20250530124047.2575954-1-sashal@kernel.org>
+	s=k20201202; t=1748609200;
+	bh=UouTRDZWRFQY12UDfa8B7SZK9YSVYXlijP3sPSFSC+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MNni6vbdljirgsw19cRPr/LTI1gGIqFyBhU5hTAX6drSdzIgelY/wzaMVGGnKuK/2
+	 q4tSylmvZzlahNC6V18L4AhLFdMctn/GwEdOk4W5T+vaNf3R4md03NFOfiE+mz/gZj
+	 TLB8X7PZZuEducywcluQojApbsdkN8NsOOM87oc13zRS9x4mb0Fr/31BUhcOOnIerM
+	 nG/ehVIpH79FwQMdzPk7MFyRA1D5zC6hP4tCPtNZABVQF6S8tTZq/6eGV9yq4I/MUq
+	 FcKzl6mKGfZzJdAIAgNs2tTNKPSltTNPfYoZLevM2pAyVA3BkM6dLa4+Sk3SzBGukw
+	 F8hBQumgXeQ5w==
+Date: Fri, 30 May 2025 13:46:35 +0100
+From: Will Deacon <will@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64/ptrace: Make user_hwdebug_state.dbg_regs[] array
+ size as ARM_MAX_BRP
+Message-ID: <20250530124635.GB30463@willie-the-truck>
+References: <20250421055212.123774-1-anshuman.khandual@arm.com>
+ <20250516135958.GA13612@willie-the-truck>
+ <8f6bba3a-4cf6-44c2-abeb-8d419ca5a6c3@arm.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.92
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8f6bba3a-4cf6-44c2-abeb-8d419ca5a6c3@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_054059_766423_6DDBB10E 
-X-CRM114-Status: GOOD (  28.16  )
+X-CRM114-CacheID: sfid-20250530_054641_422752_0D5C8D8B 
+X-CRM114-Status: GOOD (  36.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,250 +77,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+On Fri, May 30, 2025 at 09:19:53AM +0530, Anshuman Khandual wrote:
+> 
+> 
+> On 5/16/25 19:29, Will Deacon wrote:
+> > On Mon, Apr 21, 2025 at 11:22:12AM +0530, Anshuman Khandual wrote:
+> >> Array elements inside 'struct user_hwdebug_state.dbg_regs[]' are inherently
+> >> coupled with maximum breakpoints or watchpoints which could be present on a
+> >> platform and which are defined with macros ARM_MAX_[BRP|WRP].
+> >>
+> >> Rather than explicitly trying to keep the array elements in sync with these
+> >> macros and then adding a BUILD_BUG_ON() just to ensure continued compliance
+> >> , move these two macros into the uapi ptrace header itself thus making them
+> >> available both for user space and kernel.
+> >>
+> >> While here also ensure that ARM_MAX_BRP and ARM_MAX_WRP are always the same
+> >> via a new BUILD_BUG_ON(). This helps in making sure that user_hwdebug_state
+> >> structure remains usable both for breakpoint and watchpoint registers set
+> >> via ptrace() system call interface.
+> >>
+> >> Cc: Will Deacon <will@kernel.org>
+> >> Cc: Mark Rutland <mark.rutland@arm.com>
+> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> >> Cc: linux-arm-kernel@lists.infradead.org
+> >> Cc: linux-perf-users@vger.kernel.org
+> >> Cc: linux-kernel@vger.kernel.org
+> >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> >> ---
+> >> This patch applies on v6.15-rc3
+> >>
+> >>  arch/arm64/include/asm/hw_breakpoint.h |  7 -------
+> >>  arch/arm64/include/uapi/asm/ptrace.h   | 10 +++++++++-
+> >>  arch/arm64/kernel/hw_breakpoint.c      |  9 +++++++++
+> >>  3 files changed, 18 insertions(+), 8 deletions(-)
+> >>
+> >> diff --git a/arch/arm64/include/asm/hw_breakpoint.h b/arch/arm64/include/asm/hw_breakpoint.h
+> >> index bd81cf17744a..63c21b515647 100644
+> >> --- a/arch/arm64/include/asm/hw_breakpoint.h
+> >> +++ b/arch/arm64/include/asm/hw_breakpoint.h
+> >> @@ -75,13 +75,6 @@ static inline void decode_ctrl_reg(u32 reg,
+> >>  #define ARM_KERNEL_STEP_ACTIVE	1
+> >>  #define ARM_KERNEL_STEP_SUSPEND	2
+> >>  
+> >> -/*
+> >> - * Limits.
+> >> - * Changing these will require modifications to the register accessors.
+> >> - */
+> >> -#define ARM_MAX_BRP		16
+> >> -#define ARM_MAX_WRP		16
+> >> -
+> >>  /* Virtual debug register bases. */
+> >>  #define AARCH64_DBG_REG_BVR	0
+> >>  #define AARCH64_DBG_REG_BCR	(AARCH64_DBG_REG_BVR + ARM_MAX_BRP)
+> >> diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
+> >> index 0f39ba4f3efd..8683f541a467 100644
+> >> --- a/arch/arm64/include/uapi/asm/ptrace.h
+> >> +++ b/arch/arm64/include/uapi/asm/ptrace.h
+> >> @@ -99,6 +99,14 @@ struct user_fpsimd_state {
+> >>  	__u32		__reserved[2];
+> >>  };
+> >>  
+> >> +/*
+> >> + * Maximum number of breakpoint and watchpoint registers
+> >> + * on the platform. These macros get used both in kernel
+> >> + * and user space as well.
+> >> + */
+> >> +#define ARM_MAX_BRP		16
+> >> +#define ARM_MAX_WRP		16
+> >> +
+> >>  struct user_hwdebug_state {
+> >>  	__u32		dbg_info;
+> >>  	__u32		pad;
+> >> @@ -106,7 +114,7 @@ struct user_hwdebug_state {
+> >>  		__u64	addr;
+> >>  		__u32	ctrl;
+> >>  		__u32	pad;
+> >> -	}		dbg_regs[16];
+> >> +	}		dbg_regs[ARM_MAX_BRP];	/* Or ARM_MAX_WRP */
+> >>  };
+> >>  
+> >>  /* SVE/FP/SIMD state (NT_ARM_SVE & NT_ARM_SSVE) */
+> >> diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
+> >> index 722ac45f9f7b..9bc51682713d 100644
+> >> --- a/arch/arm64/kernel/hw_breakpoint.c
+> >> +++ b/arch/arm64/kernel/hw_breakpoint.c
+> >> @@ -981,6 +981,15 @@ static int __init arch_hw_breakpoint_init(void)
+> >>  {
+> >>  	int ret;
+> >>  
+> >> +	/*
+> >> +	 * Maximum supported breakpoint and watchpoint registers must
+> >> +	 * always be the same - regardless of actual register numbers
+> >> +	 * found on a given platform. This is because the user facing
+> >> +	 * ptrace structure 'user_hwdebug_state' actually depends on
+> >> +	 * these macros to be the same.
+> >> +	 */
+> >> +	BUILD_BUG_ON(ARM_MAX_BRP != ARM_MAX_WRP);
+> > 
+> > Sorry, but I don't understand why this patch is an improvement over what
+> > we have.
+> This is an improvement because
+> 
+> - user_hwdebug_state.dbg_regs[16] is hard coded for size without context
+>   requiring explicit sync up when ARM_MAX_WRP/BRP changes to 64 later on
+>   with FEAT_Debugv8p9. Defining the array size in terms of ARM_MAX_WRP/
+>   BRP provides required context and also avoids the need for an explicit
+>   hard coded sync up when those macros change.
+> 
+> - user_hwdebug_state.dbg_regs[16] gets used both for breakpoint registers
+>   and watchpoint registers. Hence there is an inherent assumption that
+>   ARM_MAX_BRP == ARM_MAX_WRP which should be ensured with a corresponding
+>   assert.
 
-[ Upstream commit c63d25cdc59ae2891b39ba2da950910291d9bcbf ]
+Sorry, but I still don't see it. Plus, this is a UAPI header so I think
+it's no bad thing to require an "explicit sync up", assuming we can
+actually change this structure at all.
 
-For SoCs like i.MX6UL(L/Z) and i.MX7D, USDHC powers off completely during
-system power management (PM), causing the internal tuning status to be
-lost. To address this, save the tuning value when system suspend and
-restore it for any command issued after system resume when re-tuning is
-held.
+Let's leave the code as it is, please.
 
-A typical case involves SDIO WiFi devices with the MMC_PM_KEEP_POWER and
-MMC_PM_WAKE_SDIO_IRQ flag, which retain power during system PM. To
-conserve power, WiFi switches to 1-bit mode and restores 4-bit mode upon
-resume. As per the specification, tuning commands are not supported in
-1-bit mode. When sending CMD52 to restore 4-bit mode, re-tuning must be
-held. However, CMD52 still requires a correct sample point to avoid CRC
-errors, necessitating preservation of the previous tuning value.
-
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-Link: https://lore.kernel.org/r/20250328112517.2624806-1-ziniu.wang_1@nxp.com
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-Based on my analysis of the commit message, code changes, and
-examination of the kernel repository, here is my assessment: **YES**
-This commit should be backported to stable kernel trees. **Extensive
-Analysis:** **1. Bug Fix Nature:** This commit fixes a specific bug
-affecting SDIO WiFi devices on i.MX6UL(L/Z) and i.MX7D SoCs during
-system suspend/resume cycles. The problem occurs when: - SDIO devices
-maintain power during suspend (MMC_PM_KEEP_POWER) - USDHC hardware
-completely loses power despite software flags - Tuning values are lost,
-causing CRC errors on resume - This affects real-world WiFi
-functionality **2. Code Analysis - Key Changes:** The commit adds three
-main components: a) **Data Structure Addition** (line ~241): ```c
-unsigned int saved_tuning_delay_cell; /bin /bin.usr-is-merged /boot /dev
-/etc /home /init /lib /lib.usr-is-merged /lib64 /lost+found /media /mnt
-/opt /proc /root /run /sbin /sbin.usr-is-merged /snap /srv /sys /tmp
-/usr /var save the value of tuning delay cell model/ prompt/ src/
-target/ ``` This adds storage for the tuning value in the platform data
-structure. b) **Tuning Save Function** (`sdhc_esdhc_tuning_save`): ```c
-if (host->timing == MMC_TIMING_UHS_SDR50 || host->timing ==
-MMC_TIMING_UHS_SDR104) { reg = readl(host->ioaddr +
-ESDHC_TUNE_CTRL_STATUS); reg =
-FIELD_GET(ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK, reg);
-imx_data->boarddata.saved_tuning_delay_cell = reg; } ``` This safely
-reads and stores the current tuning delay value for modes that require
-tuning. c) **Tuning Restore Function** (`sdhc_esdhc_tuning_restore`):
-```c reg = readl(host->ioaddr + ESDHC_TUNING_CTRL); reg &=
-~ESDHC_STD_TUNING_EN; writel(reg, host->ioaddr + ESDHC_TUNING_CTRL); reg
-= readl(host->ioaddr + ESDHC_MIX_CTRL); reg |= ESDHC_MIX_CTRL_SMPCLK_SEL
-| ESDHC_MIX_CTRL_FBCLK_SEL; writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
-writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK,
-imx_data->boarddata.saved_tuning_delay_cell), host->ioaddr +
-ESDHC_TUNE_CTRL_STATUS); ``` This carefully restores the tuning value by
-manually configuring the hardware registers. **3. Risk Assessment - Very
-Low Risk:** - **Conditional Execution**: Both save/restore functions
-only execute when specific conditions are met: -
-`mmc_card_keep_power(host->mmc)` AND `mmc_card_wake_sdio_irq(host->mmc)`
-AND `esdhc_is_usdhc(imx_data)` - Only affects SDR50/SDR104 timing modes
-- Only targets specific SoC families (i.MX6UL(L/Z), i.MX7D) - **Register
-Manipulation Safety**: The code uses proper field masking (`FIELD_GET`,
-`FIELD_PREP`) and follows existing patterns in the driver - **No
-Architectural Changes**: This is purely a state preservation mechanism,
-doesn't change driver architecture **4. Comparison with Similar
-Commits:** Looking at the reference commits: - **Similar Commit #4
-(YES)**: Also fixes SDIO suspend/resume tuning issues with
-`mmc_retune_hold_now()` - **Similar Commit #5 (YES)**: Also addresses
-tuning-related problems by disabling CMD CRC checks This new commit
-follows the same pattern of fixing specific SDIO tuning issues with
-targeted, low-risk changes. **5. Hardware-Specific Nature:** The fix
-targets specific hardware (i.MX SoCs) where USDHC loses power despite
-software flags. This hardware-specific bug affects real users with SDIO
-WiFi cards and has a clear, contained solution. **6. Clear Problem
-Statement:** The commit message clearly describes the problem: "CMD52
-still requires a correct sample point to avoid CRC errors, necessitating
-preservation of the previous tuning value." This is a well-defined
-technical issue with a specific solution. **Conclusion:** This is a
-contained, hardware-specific bug fix that addresses real-world WiFi
-functionality issues on specific i.MX SoCs. The changes are
-conservative, well-guarded by conditions, and follow established
-patterns in the subsystem. The risk of regression is very low while the
-benefit to affected users is significant.
-
- drivers/mmc/host/sdhci-esdhc-imx.c | 88 +++++++++++++++++++++++++++++-
- 1 file changed, 86 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index e4e9b84f210b2..28ece6839aead 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -80,6 +80,8 @@
- #define  ESDHC_TUNE_CTRL_STEP		1
- #define  ESDHC_TUNE_CTRL_MIN		0
- #define  ESDHC_TUNE_CTRL_MAX		((1 << 7) - 1)
-+#define  ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK	GENMASK(30, 24)
-+#define  ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK	GENMASK(14, 8)
- 
- /* strobe dll register */
- #define ESDHC_STROBE_DLL_CTRL		0x70
-@@ -231,6 +233,7 @@ struct esdhc_platform_data {
- 	unsigned int tuning_step;       /* The delay cell steps in tuning procedure */
- 	unsigned int tuning_start_tap;	/* The start delay cell point in tuning procedure */
- 	unsigned int strobe_dll_delay_target;	/* The delay cell for strobe pad (read clock) */
-+	unsigned int saved_tuning_delay_cell;	/* save the value of tuning delay cell */
- };
- 
- struct esdhc_soc_data {
-@@ -1052,7 +1055,7 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
- {
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
- 	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
--	u32 ctrl;
-+	u32 ctrl, tuning_ctrl;
- 	int ret;
- 
- 	/* Reset the tuning circuit */
-@@ -1066,6 +1069,16 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
- 			writel(0, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
- 		} else if (imx_data->socdata->flags & ESDHC_FLAG_STD_TUNING) {
- 			writel(ctrl, host->ioaddr + ESDHC_MIX_CTRL);
-+			/*
-+			 * enable the std tuning just in case it cleared in
-+			 * sdhc_esdhc_tuning_restore.
-+			 */
-+			tuning_ctrl = readl(host->ioaddr + ESDHC_TUNING_CTRL);
-+			if (!(tuning_ctrl & ESDHC_STD_TUNING_EN)) {
-+				tuning_ctrl |= ESDHC_STD_TUNING_EN;
-+				writel(tuning_ctrl, host->ioaddr + ESDHC_TUNING_CTRL);
-+			}
-+
- 			ctrl = readl(host->ioaddr + SDHCI_AUTO_CMD_STATUS);
- 			ctrl &= ~ESDHC_MIX_CTRL_SMPCLK_SEL;
- 			ctrl &= ~ESDHC_MIX_CTRL_EXE_TUNE;
-@@ -1144,7 +1157,8 @@ static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
- 	reg |= ESDHC_MIX_CTRL_EXE_TUNE | ESDHC_MIX_CTRL_SMPCLK_SEL |
- 			ESDHC_MIX_CTRL_FBCLK_SEL;
- 	writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
--	writel(val << 8, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+	writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK, val),
-+	       host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
- 	dev_dbg(mmc_dev(host->mmc),
- 		"tuning with delay 0x%x ESDHC_TUNE_CTRL_STATUS 0x%x\n",
- 			val, readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS));
-@@ -1532,6 +1546,57 @@ static void sdhci_esdhc_imx_hwinit(struct sdhci_host *host)
- 	}
- }
- 
-+static void sdhc_esdhc_tuning_save(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-+	u32 reg;
-+
-+	/*
-+	 * SD/eMMC do not need this tuning save because it will re-init
-+	 * after system resume back.
-+	 * Here save the tuning delay value for SDIO device since it may
-+	 * keep power during system PM. And for usdhc, only SDR50 and
-+	 * SDR104 mode for SDIO device need to do tuning, and need to
-+	 * save/restore.
-+	 */
-+	if (host->timing == MMC_TIMING_UHS_SDR50 ||
-+	    host->timing == MMC_TIMING_UHS_SDR104) {
-+		reg = readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+		reg = FIELD_GET(ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK, reg);
-+		imx_data->boarddata.saved_tuning_delay_cell = reg;
-+	}
-+}
-+
-+static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-+	u32 reg;
-+
-+	if (host->timing == MMC_TIMING_UHS_SDR50 ||
-+	    host->timing == MMC_TIMING_UHS_SDR104) {
-+		/*
-+		 * restore the tuning delay value actually is a
-+		 * manual tuning method, so clear the standard
-+		 * tuning enable bit here. Will set back this
-+		 * ESDHC_STD_TUNING_EN in esdhc_reset_tuning()
-+		 * when trigger re-tuning.
-+		 */
-+		reg = readl(host->ioaddr + ESDHC_TUNING_CTRL);
-+		reg &= ~ESDHC_STD_TUNING_EN;
-+		writel(reg, host->ioaddr + ESDHC_TUNING_CTRL);
-+
-+		reg = readl(host->ioaddr + ESDHC_MIX_CTRL);
-+		reg |= ESDHC_MIX_CTRL_SMPCLK_SEL | ESDHC_MIX_CTRL_FBCLK_SEL;
-+		writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
-+
-+		writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK,
-+				  imx_data->boarddata.saved_tuning_delay_cell),
-+		       host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+	}
-+}
-+
- static void esdhc_cqe_enable(struct mmc_host *mmc)
- {
- 	struct sdhci_host *host = mmc_priv(mmc);
-@@ -1856,6 +1921,15 @@ static int sdhci_esdhc_suspend(struct device *dev)
- 	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
- 		mmc_retune_needed(host->mmc);
- 
-+	/*
-+	 * For the device need to keep power during system PM, need
-+	 * to save the tuning delay value just in case the usdhc
-+	 * lost power during system PM.
-+	 */
-+	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-+	    esdhc_is_usdhc(imx_data))
-+		sdhc_esdhc_tuning_save(host);
-+
- 	ret = sdhci_suspend_host(host);
- 	if (ret)
- 		return ret;
-@@ -1872,6 +1946,8 @@ static int sdhci_esdhc_suspend(struct device *dev)
- static int sdhci_esdhc_resume(struct device *dev)
- {
- 	struct sdhci_host *host = dev_get_drvdata(dev);
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
- 	int ret;
- 
- 	ret = pinctrl_pm_select_default_state(dev);
-@@ -1885,6 +1961,14 @@ static int sdhci_esdhc_resume(struct device *dev)
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * restore the saved tuning delay value for the device which keep
-+	 * power during system PM.
-+	 */
-+	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-+	    esdhc_is_usdhc(imx_data))
-+		sdhc_esdhc_tuning_restore(host);
-+
- 	if (host->mmc->caps2 & MMC_CAP2_CQE)
- 		ret = cqhci_resume(host->mmc);
- 
--- 
-2.39.5
-
+Will
 
