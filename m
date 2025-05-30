@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC50FC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 16:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F50C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 30 May 2025 16:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77+FrcIpWSxgma5SjFDEMO5xH+4H9hBqTDfsgt+zhq4=; b=WPZJSufFD3Y/Aubo5C0FyHeTA8
-	jJp2KQqHBs52jL/pdJxFbIga+wJO4/jyOCZ7Sxgbi8lb01w8fPl5ONwkvdD+ZvhQhtZdEtm19beXR
-	cRIP7XvfY6bGsjGupapr51mZnIHEAx8turg58JTeS/7bErPR/LvEjFyrlQ2fREv9M+uly99c13GSN
-	BQs1JKrUhQj0J4fxoIhx/LYK2KRrfeJpG7oPFUoLY0BFoyxfNsjic11RepPcP1wo04ikKgWrrXJS8
-	Rr5fNOBvzexAohmYgIcjggpIIMN0Rkdl+e9qzFAzrupdFniCyYXFHrvFnkKmZFtlBzpBtjVlRoJa3
-	e0zUmcVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=koRnW66k+022ggfFoSoQrqqTLl823zuv/376lcTR9I8=; b=MazrS+Sdjt6pjH2DqduceuFFT5
+	Ktjq7g1kGfxc2BSb1txJPsErMPYOeaO6WLAJOmGqDreObyvVoZD9AdTCyOPcKAmfbvdAz+0HdhuIB
+	txR4YLjpIlU3bWHudDTaailart1pZN2AsikkUPqpjnqZwaS+COjV4kBSAiy5PAb8wRTucoCB+rnYV
+	7DGhEAmaPORQqtnm+gfM3pVZliQ4IDC1aHLGYMVv2swShBksifOjpgHLZd7PmlLQklan0nWBcFZgL
+	2EtkxDitR5pfFLN1g7Q+inVpkbgxA5MOPpkaKEZuD1RwpwwvxylJ3SuSoBm3AfsAvPS9BVe34c4Qi
+	pyOymAQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL2Bb-000000016HW-24Pt;
-	Fri, 30 May 2025 16:02:23 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uL2J6-000000017O4-1MJu;
+	Fri, 30 May 2025 16:10:08 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL29Q-000000015gy-3ORD
+	id 1uL2Gx-000000016wn-0RnA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 30 May 2025 16:00:10 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-742c5eb7d1cso2397634b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 09:00:08 -0700 (PDT)
+	Fri, 30 May 2025 16:07:56 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a3798794d3so1861499f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 09:07:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748620807; x=1749225607; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=77+FrcIpWSxgma5SjFDEMO5xH+4H9hBqTDfsgt+zhq4=;
-        b=Gw2YyRReZltXJcKALKiC+sFVT1bUhIuTokutVw+dd4UPI52zA3uctp+EIekBTIZlvj
-         5fwyDUIiDrK+v/z8mTc9viNh43+8kslU1RKEweZfwWf8d0rYeO2+HHDvRT7YjXBWiB1B
-         yC/VZk08MHn2NVK5vNyyIb8tR9N6r0yHgPJ+52CilhwLvYSAUgNMczfS100AKqNmB/uO
-         jcsNE6UkZcCUurf28p1yOVRxWX7xxjQ4t4gCRhG5wKjBawsRFSE0ChBvHjhd7OWpZN09
-         slCrf4MXRDlYVk79vCWfYpm486Y2kbKPLWqSDu34FyZBa+ivwke213l7Vf2ryEsF+g1k
-         SWxg==
+        d=amarulasolutions.com; s=google; t=1748621273; x=1749226073; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=koRnW66k+022ggfFoSoQrqqTLl823zuv/376lcTR9I8=;
+        b=aCBGihiA3j0a+Mvr0AuuA2/lQzlbmmyhq+QDzfIyAayGJLtcTX2U9Xk6sufuT6rxQN
+         PuKKeBHN+6yJv/v7I/QDiqGoLjHXRBUZnvefKi88+128MMLUgdVh+6zJZJKtEAeczsAv
+         jSVrI+XZsgS+okFyIFyHfLWu+bu09NKf7MEEw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748620807; x=1749225607;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=77+FrcIpWSxgma5SjFDEMO5xH+4H9hBqTDfsgt+zhq4=;
-        b=Paw/Cv+o2wFS+ESUEF+d7JVIamdK2Q1RPU/5jRAZcJUNTZuAp7Or0lynBUcqX+ujth
-         g+qKGvCTukVMAcAlkeA0tLTU62kzs4CgRIQhS9p4XqdKIG6ceJ0fR3bVlUbfUERhm22L
-         fLpOXzzTiFP/neqgS/q9UOui55qADwzMhlkms7BShV7G+w/ZkGKOyLlBjIFDB2EOfozH
-         M3KIEFr8OKLf6VQ0/bsliglbjeZDCEDT5NlZdv0h8ccY/QDyfA1iFXFSvPhh9DTssBV9
-         datwFjiXXjKBYFUFrleiTqxfs6N5YPhkE9N+yaGmm6oLz23Y/TgPnlWwpEf1HwfSOK+t
-         uQTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUjdNobg+dxeyxGfEZpijy8zV8wXiGoKwYM2gNxavQ8zjrlE/73Vy4SY+sbOiJGYWIdN2RZqcIjJhWxkNJ4kvt6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy12xI8rKXuK+WfGMYvGoAsa1BwVRoXI3oP0L6Fozcz6rxZb7+g
-	Judpve2mZ+Bv62M8qh4OjQ/4Jl+PkPdJ03PnOmhpESQD8uTfxM2jN8U2YynDXvczVw==
-X-Gm-Gg: ASbGnctNa1FsEJe8jtIi+eUpsE+DIrD5ZZ8t4uwS/p+BciiYpwLjNrIDsicZAVxKnY7
-	eFGbie4P0N7GmklDG2ksK2sZWbqktDCo+fgJE/+/KJeQsDrcBuyaswMg8L4M5e0a8mI9YS2ifKF
-	eFon9YLpa1R/k4R3pq2Mwa+bi/mcQPcd71IgBEdd4if29VTU5SodQrEZnYSAfvv+lJE56X8S+Nm
-	eWaxhBuyLesSC1o2vhtRrpFImBdoYTepgl/B1QgQHshgT637+hj/o8z6YmJx+hX1CP9bubTRmOR
-	TOxE1NAscsX/JKtLJKFSbJebcgrT3Bd3/lfZHLKYusnXcA+EvG0pyoefSzyGHBN1pcxeOPUL
-X-Google-Smtp-Source: AGHT+IF/8QTsNcVL/z+rQlAga/Geyj/2FCJ5vD5YDtu2ldaYPZerMoqgdp4D+2pixaewJCBXnV6XdQ==
-X-Received: by 2002:a05:6a00:1743:b0:736:43d6:f008 with SMTP id d2e1a72fcca58-747bd980d13mr5393036b3a.12.1748620804748;
-        Fri, 30 May 2025 09:00:04 -0700 (PDT)
-Received: from thinkpad ([120.60.139.33])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-747afed34fdsm3213450b3a.75.2025.05.30.09.00.00
+        d=1e100.net; s=20230601; t=1748621273; x=1749226073;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=koRnW66k+022ggfFoSoQrqqTLl823zuv/376lcTR9I8=;
+        b=PIqdmSP/KvWMkkv3NLy31JVI6NhEfLVtYIzUpXb9czqfFjFOwy3DpbTP7U8gSqkByD
+         Y2QiqVB1zl0j9vyzjShEudAy/KiJkOA/Si8kfI+wFYRx8D0w4a8U6iE8MaC1OzJJap5Q
+         TfiV2XsDE9BMV/rD0FYZ4b51rhVIkjMyX5i+DYbKxLs0b03Fp7MU/1U8kx+wlirI2hH/
+         JrgFmkK/FCnMZILjJzBPW7vj+vd8Nvf2JSrJ3HucPmx4RekhI4CYrzO3cm1R9S2l3ad/
+         7p+NwAuxV+Ya6cAA/sgIgawdOoAcLMr26wkgb6cdnlmg20Hv+ACR2dX/aq7oagWsNORT
+         UUcw==
+X-Forwarded-Encrypted: i=1; AJvYcCXmvzBAPRr9LS/GxeEBNzVz77/2bVmKeqmqBF/E+UAyUruvIchUHXWiVDu78POI20ggxuKGRy+iSqjWIkD8k7GY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBb39ydzqIwU8muatXbA4h8XICq6OeMCfCKBYjYKJKQnJliviS
+	aQye24SqPsTLFovj6B/qkkANrCq3X3yJSgKlS5eJl04Ji7pWlWL8j77vLooRic7AppA=
+X-Gm-Gg: ASbGncsVAnbNvLaPMmhWGr2466l+LkI5xp3d00m6B8IqDx4RxZk5r9qjp9JQe/0EuMX
+	zqNroEkKmihIxDHk3vtNbRIAww8TK6BdPo/LMFrxfjyeJQTUGCTeiL0kG0iRnsuM1C+38+MUMxN
+	gwFo06GKkAXVXQ+VK0eAyDkRzf3x+dk44O7M5LAhalAAfUY5WzO8b28TsijaHgPYOesTh3pc2fg
+	ohmF9f0AeJz5Nl9WYrnFcg1n1bPL6a7uviw2hgB5qo18OeT3RPQImMuWS05ZzjL2r8DFJQDsEJy
+	Yde2WUsrkQiSfvN0HhKI9ZvqB0XsWDyEsd6fHlPS7/hzBLxDCsVGXZZUEGP/9O72aVIAP+BlVyq
+	g1RPQLSzLy080aLHBlErkX3Qv/oFbZwZv/wJkSpVk
+X-Google-Smtp-Source: AGHT+IEgCfDLZvTgBMKT8zzGqvGoHF8+fTV9cPyrjWspDgJx5+AgYctVuJO1cy1dC+MaM92LcBU+ZQ==
+X-Received: by 2002:a05:6000:25c2:b0:3a4:f038:af87 with SMTP id ffacd0b85a97d-3a4f7a9d575mr3347648f8f.47.1748621272729;
+        Fri, 30 May 2025 09:07:52 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2.196.43.33])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450dcc18a80sm9716365e9.38.2025.05.30.09.07.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 May 2025 09:00:04 -0700 (PDT)
-Date: Fri, 30 May 2025 21:29:57 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Niklas Cassel <cassel@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>, 
-	Laszlo Fiat <laszlo.fiat@proton.me>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <fbvatgydh64wr2z2srivbuurjonxpq46xie3bq57grtosesfti@v6vplhyxc343>
-References: <20250506073934.433176-7-cassel@kernel.org>
- <20250528224251.GA58400@bhelgaas>
+        Fri, 30 May 2025 09:07:51 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: michael@amarulasolutions.com,
+	Frank Li <Frank.Li@nxp.com>,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Eric Biggers <ebiggers@google.com>,
+	Fabio Estevam <festevam@denx.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Heiko Schocher <hs@denx.de>,
+	=?UTF-8?q?Jo=C3=A3o=20Paulo=20Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v5 0/6] Support i.MX28 Amarula rmm board
+Date: Fri, 30 May 2025 18:07:31 +0200
+Message-ID: <20250530160748.2476088-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250528224251.GA58400@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_090008_860241_115EA46C 
-X-CRM114-Status: GOOD (  24.93  )
+X-CRM114-CacheID: sfid-20250530_090755_160638_43F890E9 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,58 +121,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 05:42:51PM -0500, Bjorn Helgaas wrote:
-> On Tue, May 06, 2025 at 09:39:36AM +0200, Niklas Cassel wrote:
-> > Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
-> > detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
-> > and instead enumerate the bus when receiving a Link Up IRQ.
-> > 
-> > Laszlo Fiat reported (off-list) that his PLEXTOR PX-256M8PeGN NVMe SSD is
-> > no longer functional, and simply reverting commit ec9fd499b9c6 ("PCI:
-> > dw-rockchip: Don't wait for link since we can detect Link Up") makes his
-> > SSD functional again.
-> > 
-> > It seems that we are enumerating the bus before the endpoint is ready.
-> > Adding a msleep(PCIE_T_RRS_READY_MS) before enumerating the bus in the
-> > threaded IRQ handler makes the SSD functional once again.
-> 
-> This sounds like a problem that could happen with any controller, not
-> just dw-rockchip?  Are we missing some required delay that should be
-> in generic code?  Or is this a PLEXTOR defect that everybody has to
-> pay the price for?
-> 
-> Delays like this are really hard to get rid of once we add them, so
-> I'm a little bit cautious.
-> 
+The series adds support for i.MX28 Amarula rmm board.
 
-Ok, I digged into the spec a little more and I could see below paragraph in
-r6.0, sec 6.6.1 for devices not supporting Device Readiness Status (DRS):
+The board includes the following resources:
+ - 256 Mbytes NAND Flash
+ - 128 Mbytes DRAM DDR2
+ - CAN
+ - USB 2.0 high-speed/full-speed
+ - Ethernet MAC
 
-"With a Downstream Port that does not support Link speeds greater than 5.0 GT/s,
-software must wait a minimum of 100 ms following exit from a Conventional Reset
-before sending a Configuration Request to the device immediately below that
-Port.
+Changes in v5:
+- In mxs-lradc.txt:
+  - Fix deacription formating
+- In imx28-amarula-rmm.dts:
+  - Drop #address-cells from gpmi node
 
-With a Downstream Port that supports Link speeds greater than 5.0 GT/s,
-software must wait a minimum of 100 ms after Link training completes before
-sending a Configuration Request to the device immediately below that Port.
-Software can determine when Link training completes by polling the Data Link
-Layer Link Active bit or by setting up an associated interrupt
-(see § Section 6.7.3.3 ). It is strongly recommended for software to use this
-mechanism whenever the Downstream Port supports it."
+Changes in v4:
+- In mxs-lradc.txt:
+  - Fix typo Low-Resoulution -> Low-Resolution'
+  - Wrap lines at 80 char.
+  - Drop '|' from the description
+  - Describe what each interrupt is for.
+  - Move touchscreen-wires constraint for imx28 to the top level
+- In imx28-amarula-rmm.dts:
+  - Drop label property (deprecated) under the leds sub-nodes.
+  - Add microSD comment above the ssp0 node.
+- Add patch 5/6 "ARM: mxs_defconfig: Cleanup mxs_defconfig"
+- Add patch 6/6 "ARM: mxs_defconfig: select new drivers used by
+  imx28-amarula-rmm"
 
-We are not checking for DRS after the PERST# deassert or after link is up, I
-think DRS check only applies to enumerated devices, but I'm not 100% sure. But
-if we assume that the devices doesn't support DRS, then we should make sure
-that all controller drivers wait for 100ms even after link up event before
-issuing the config request.
+Changes in v3:
+- In imx28-amarula-rmm.dts:
+  - Drop xceiver-supply property from can0 node.
+  - Rearrange the order of specific nodes and properties
+    alphabetically.
 
-So I don't think this is a device specific issue but rather controller specific.
-And this makes the Qcom patch that I dropped a valid one (ofc with change in
-description).
+Changes in v2:
+- In imx28-amarula-rmm.dts:
+  - Replace '-' with '@' for the pinctrl sub-nodes.
+  - Replace edt,edt-ft5x06 with edt,edt-ft5306.
+  - Drop LCD reset hog pin.
+  - Add correct #address-cells and #size-cells to gpmi node.
+  - Replace edt-ft5x06@38 with touchscreen@38.
+- Drop from commit messages all references to LCD display.
+- Add patch [1/4] "dt-bindings: mfd: convert mxs-lradc bindings to
+  json-schema".
 
-- Mani
+Dario Binacchi (6):
+  dt-bindings: mfd: convert mxs-lradc bindings to json-schema
+  ARM: dts: imx28: add pwm7 muxing options
+  dt-bindings: arm: fsl: add i.MX28 Amarula rmm board
+  ARM: dts: mxs: support i.MX28 Amarula rmm board
+  ARM: mxs_defconfig: Cleanup mxs_defconfig
+  ARM: mxs_defconfig: select new drivers used by imx28-amarula-rmm
+
+ .../devicetree/bindings/arm/fsl.yaml          |   1 +
+ .../devicetree/bindings/mfd/mxs-lradc.txt     |  45 ---
+ .../devicetree/bindings/mfd/mxs-lradc.yaml    | 134 ++++++++
+ arch/arm/boot/dts/nxp/mxs/Makefile            |   1 +
+ .../boot/dts/nxp/mxs/imx28-amarula-rmm.dts    | 300 ++++++++++++++++++
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |  10 +
+ arch/arm/configs/mxs_defconfig                |  14 +-
+ 7 files changed, 449 insertions(+), 56 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.txt
+ create mode 100644 Documentation/devicetree/bindings/mfd/mxs-lradc.yaml
+ create mode 100644 arch/arm/boot/dts/nxp/mxs/imx28-amarula-rmm.dts
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.43.0
+
+base-commit: 6100186e509525510e2b38d790338fae3fa463f3
+branch: imx28-amarula-rmm
 
