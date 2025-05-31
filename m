@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9791C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 15:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AEBC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 15:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=evD1btTV0/dSKeSdjD969Rzf+J9+DJnd4gJ08HsTC3E=; b=UKIBGrE5NcuNKkViMKlS0Y3WfM
-	56rDvN7JNDnfMaBvm3jFHg0+M/jDIIC5BjYjJ8nXBMHPq3S9W4YUkX6nlH19+Bfs7JbXsXAX9tJ8z
-	RCtHmJlW+Tha0znjdHNoS2uVZzCDk0sLtFRJgJhriXtyae/LJGBRRgNhOFqTJSoOUTy4iP+DHf9d9
-	RWVs+rLKIXvd7JflHI9JMPqcdXTxb+2dXQmEGTwAlF1Y9Lymfpuuf0m1ADuRroLulpCosRa1HmSI7
-	wNFO9w9ziKiAjaCHzy//Fu9CRoi59sd+zDlW7RuHLDoCkAqRRuPdPOEu5kypipgjTrfNKZg33JwsZ
-	ZP32hXPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pU6H/OdBGDlK0qj7JzU80PGILtqmXoZpaRcZeS2u3Bc=; b=prH+AU/h8+3kMJChjV7tv1os+r
+	T68Fcy3duux9qb+7ZQ8bMkUwF0m7yxG+nx0YvcmBmGy/9no5dOmomuNpvvhb0NJX8quufiOi2CaRR
+	C2F9yzgx6ibU8eYWte0Xz0ZWBJ3vWnWS3rx5p47ncQenApCaUAuxCq9MomMcQQWQNPXVfVfIU4GDT
+	kyj8lhD8qYqlU10J9B4QBIODv1IpRBFlqT9CARhoVteZvbP4PH1xunE9W0iHRaM/FNugIVQ6f7T4R
+	4QmisRgh5YdzdPkgDsO9GDdafLo7jWFNVkubMUVVYbrWe8jmGEP8gEDgtWEyHSv99HFVsipvEu61d
+	qLcgW5NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLOMN-0000000406T-1UI8;
-	Sat, 31 May 2025 15:42:59 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uLObq-000000040xb-3idG;
+	Sat, 31 May 2025 15:58:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLOAD-00000003xpN-1vhE
+	id 1uLOZi-000000040su-2qhy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 May 2025 15:30:26 +0000
+	Sat, 31 May 2025 15:56:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D0320A4F04B;
-	Sat, 31 May 2025 15:30:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EB99C4CEE3;
-	Sat, 31 May 2025 15:30:24 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C9BBAA4ED36;
+	Sat, 31 May 2025 15:56:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E90EBC4CEE3;
+	Sat, 31 May 2025 15:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748705424;
-	bh=iiL5VxW3Twj1IIHwwMPR65Wl/S/cUTQU/lOhciGZy9g=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=khq+2SyKs9dPTLUaY0jJZzmH8OgkAySXMuGx6bADtwkTT42aUJ45lNIUMS8N/jgGC
-	 sWHt0Hcel+D3jGA34xiAlh2jRJdZ3iiMai+5pSbkUKt/b4OQhligXaK+N0grYy0ZUm
-	 5JNcMxZdnxE2HX5vAm1DMUytk73mdRtZo3ebmcmc36bqDUH3YVD+MChBiG+Ey930O+
-	 xUmXq4frg1BsGB/jmM1nWNh22UvJL5SIh+R3kw/LRNGXIH49nJ5fhRItkIUgCsZYbW
-	 8oG110uWvjIHjSl9DwzZqxXe9vejnYnIFrHfZXUPzKU75XpVtrXdmeDhyeyo0lnwBf
-	 kmi9x5DQ3t5QQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAAE5380AA70;
-	Sat, 31 May 2025 15:30:58 +0000 (UTC)
-Subject: Re: [GIT PULL 5/5] soc: sophgo devicetree updates for 6.16
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <d98adabb-a26a-4962-af9d-5707e1cb3715@app.fastmail.com>
-References: <28a4c0cf-7978-4547-bf89-42804975c848@app.fastmail.com> <d98adabb-a26a-4962-af9d-5707e1cb3715@app.fastmail.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <d98adabb-a26a-4962-af9d-5707e1cb3715@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-newsoc-6.16
-X-PR-Tracked-Commit-Id: 9bba618694cc905b898661c18e3e40955573ef5e
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 31848987f177a6c0944fd0254a55ffd7c52a8c50
-Message-Id: <174870545744.163157.4670024390186583728.pr-tracker-bot@kernel.org>
-Date: Sat, 31 May 2025 15:30:57 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	s=k20201202; t=1748707004;
+	bh=Si0gaSTIfmA9UreI5SjdzlMFGHES65UvOtKJTsLJWeU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lWQZrisGAesr6zhFA4NExGYhOrZS8k5bUecjEphb+vIBGYHPwTBeqB50DJHsFf6g4
+	 wJxcUDzXyg1sxo6zg2VhlpzelUyteHsGQe+xpjCMwTNt6RAtOIMqj3U8BWjIr/DyUT
+	 IPhro+M4iwUH/6LIylWdCUwzGsn0F9dLfWkPG2TYSh7RTMG47E+L3rAByuJ0r4H2IF
+	 tDBBmefxYoGefboyx6ohp3VOOuFovzk7k2hrr1+Bv9p97h0Avkiix4mJTt/tQj0YUk
+	 Sz2d7f0wxpd54jYj04AszohRxesb3wcEnk1uA7PKDsRxNm57yZq/br3R+EVNXAH0ok
+	 sxQwY08AnAQkw==
+Date: Sat, 31 May 2025 16:56:35 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Nuno =?UTF-8?B?U8Oh?= <noname.nuno@gmail.com>, Chen Ni
+ <nichen@iscas.ac.cn>, <dlechner@baylibre.com>, <nuno.sa@analog.com>,
+ <andy@kernel.org>, <mcoquelin.stm32@gmail.com>,
+ <alexandre.torgue@foss.st.com>, <u.kleine-koenig@baylibre.com>,
+ <tglx@linutronix.de>, <robh@kernel.org>, <jirislaby@kernel.org>,
+ <linux-iio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ Olivier Moysan <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH v2] iio: adc: stm32-adc: Fix race in installing chained
+ IRQ handler
+Message-ID: <20250531165635.262839dc@jic23-huawei>
+In-Reply-To: <ab75c390-b172-4dbb-b46b-8cbf64d4600a@foss.st.com>
+References: <20250515083101.3811350-1-nichen@iscas.ac.cn>
+	<229cf78caaa7e9f2bb4cfa62c019acd51a1cd684.camel@gmail.com>
+	<20250525120703.5dd89fc2@jic23-huawei>
+	<ab75c390-b172-4dbb-b46b-8cbf64d4600a@foss.st.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250531_083025_558139_BE1555E3 
-X-CRM114-Status: UNSURE (   4.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250531_085646_861125_887836A0 
+X-CRM114-Status: GOOD (  23.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +82,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 31 May 2025 11:07:48 +0200:
+On Mon, 26 May 2025 17:48:31 +0200
+Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-newsoc-6.16
+> On 5/25/25 13:07, Jonathan Cameron wrote:
+> > On Thu, 15 May 2025 11:26:56 +0100
+> > Nuno S=C3=A1 <noname.nuno@gmail.com> wrote:
+> >  =20
+> >> On Thu, 2025-05-15 at 16:31 +0800, Chen Ni wrote: =20
+> >>> Fix a race where a pending interrupt could be received and the handler
+> >>> called before the handler's data has been setup, by converting to
+> >>> irq_set_chained_handler_and_data().
+> >>>
+> >>> Fixes: d58c67d1d851 ("iio: adc: stm32-adc: add support for STM32MP1")
+> >>> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+> >>> ---   =20
+> >>
+> >> Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com> =20
+> > Looks good to me and I've queued it up for after rc1.  If any
+> > ST folk have time to take a look that would be great. =20
+>=20
+> Hi Jonathan,
+>=20
+> One minor comment at my end, not sure if that changes a lot...
+> This could be a fix for the older commit:
+> 1add69880240 ("iio: adc: Add support for STM32 ADC core")
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/31848987f177a6c0944fd0254a55ffd7c52a8c50
+Agreed. I've tweaked the message.  It won't apply cleanly all that way
+but at least we flagged it for anyone who cares to backport past the code
+movement in the Fixes tag Chen used.
 
-Thank you!
+>=20
+> Apart from that, you can add my:
+> Tested-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Reviewed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Added.
+>=20
+> BR,
+> Fabrice
+>=20
+> >=20
+> > Jonathan
+> >  =20
+> >> =20
+> >>> Changelog:
+> >>>
+> >>> v1 -> v2:
+> >>>
+> >>> 1. Add Fixes tag.
+> >>> ---
+> >>> =C2=A0drivers/iio/adc/stm32-adc-core.c | 7 +++----
+> >>> =C2=A01 file changed, 3 insertions(+), 4 deletions(-)
+> >>>
+> >>> diff --git a/drivers/iio/adc/stm32-adc-core.c b/drivers/iio/adc/stm32=
+-adc-
+> >>> core.c
+> >>> index bd3458965bff..21c04a98b3b6 100644
+> >>> --- a/drivers/iio/adc/stm32-adc-core.c
+> >>> +++ b/drivers/iio/adc/stm32-adc-core.c
+> >>> @@ -430,10 +430,9 @@ static int stm32_adc_irq_probe(struct platform_d=
+evice
+> >>> *pdev,
+> >>> =C2=A0		return -ENOMEM;
+> >>> =C2=A0	}
+> >>> =C2=A0
+> >>> -	for (i =3D 0; i < priv->cfg->num_irqs; i++) {
+> >>> -		irq_set_chained_handler(priv->irq[i], stm32_adc_irq_handler);
+> >>> -		irq_set_handler_data(priv->irq[i], priv);
+> >>> -	}
+> >>> +	for (i =3D 0; i < priv->cfg->num_irqs; i++)
+> >>> +		irq_set_chained_handler_and_data(priv->irq[i],
+> >>> +						 stm32_adc_irq_handler,
+> >>> priv);
+> >>> =C2=A0
+> >>> =C2=A0	return 0;
+> >>> =C2=A0}   =20
+> >  =20
+>=20
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
 
