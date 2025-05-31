@@ -4,93 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE06C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 00:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0447C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 00:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=344ZXOydtru+LtTP4kRXS0HZ8/NsKlEl+mhmACEHqDs=; b=H3lyEEChesi3HC1tsrxwE4P1vU
-	DhedOc0TbCz98tpM6Qo8JhZuhyFWF67r0c3rQP3L7UdY6J/H1A6frMtXzQ/91B+6c9X+rdDf3tlEA
-	uw00VkfNIM7Qi0bc7ck5FaGfdh+MtpbLBYJGEa+giDiagUSvOYF100GR8tD+Drb7utgM9kXvGNHW6
-	ExofB3OpCrLUAYqlAbkjIYMwCtAbHBlfScf4sTNwtimjN6jQq3PtdZqyYM2dxjQEg73OAiC7INb7v
-	5id7ofQiIxyX0WYW5ZrNseAHFBCBkxriRsB8Nmayj5acByABMA9hMJR7m17E9+8sMY8Dzu9CK2NTQ
-	MhffwyOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TSkccxQJyPBTeulTuTiETCwXsKbLhBcWM3wPWtnLY8U=; b=ECzYebiezjtekuWoTimwqA0Dfl
+	SgE2qyN6j4ciVGwxIykdIMx1/mnUFC9Xx1zCq9JRzRxusBCCyC1HCm98G2dQIcIs8I4/66UjoX5nB
+	40svSZ6xcN9BWR8V1ky32ASbQ9VyZpTrjjV3Xcpb5ncjryV4EaM9M357TS0zE/G3hWQhUQ9gMeeOe
+	/idIBiZ0ieoO9gC+ia0rhRGyxj+6CD0tvhHlsaqPpNmDmjPJzGalT9HIWSN01U3Vj7g9kDRKpyAKU
+	SfhrMe0vPGkmreQL3eliGmZZy6XjuJlCPiQ6K510xc64SF8ALhedABd8d/rTUfQDJeg+Z3CelpmJp
+	sLa6KQcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLARk-00000002o6s-3Ya8;
-	Sat, 31 May 2025 00:51:36 +0000
-Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
+	id 1uLATr-00000002oUx-2Gkk;
+	Sat, 31 May 2025 00:53:47 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLAPa-00000002nOQ-4ApG
+	id 1uLAQw-00000002ntn-1q8i
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 May 2025 00:49:24 +0000
-Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-52eec011ff2so872599e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 17:49:22 -0700 (PDT)
+	Sat, 31 May 2025 00:50:47 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-747af0bf0ebso1884242b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 30 May 2025 17:50:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748652561; x=1749257361; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=344ZXOydtru+LtTP4kRXS0HZ8/NsKlEl+mhmACEHqDs=;
-        b=gxOPfYr5iaWpW68laYmiJu84/E0FGzQCi7lsyUct8ojdR7+nDN4trb/eUaHcPN/Nzo
-         N1NOmFjEsKx9VknyF2M/4xu5/M3mhv7SnRF47dPO4jV3phwUgJdmfPup7qQHgzetdvI7
-         vh/H6divwIqww+AMrO2rRpXgbmEwsflAe4t+lbBFHhds8kmpZpEtp/zTnWvc7j2PCXoL
-         oAxgrdqaN4xFP8dV7ScDzwkQlc/C7t0yaHvH5SojF6Y/yedR9UId4aaUQOTG9K40yI16
-         VKkMWM5GLvMDX29PfQWM6zAD1Fw0yPvooBwBlGUofDUsXnTo56J54oQiupkVifl9NYN/
-         lz3w==
+        d=google.com; s=20230601; t=1748652645; x=1749257445; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=TSkccxQJyPBTeulTuTiETCwXsKbLhBcWM3wPWtnLY8U=;
+        b=EPBZyHTKFSKHjpeVeW+VFgwypJiBxINEss1496QSpUmGewX3ChNDZVlfBhLsFpGBoY
+         WpLekyYVQOPadEDx0sDg97ShUJUYyqpsIAdZ9PaAozomHu7Fes4ChvW8UKbQQckqtiF5
+         wPcRihW9j1FwvlU5K0otQc3qC5O9XEi86Eph7KVHepye7n+EI5mFZbSwuSETT3gsHcwS
+         yYyKq+hFfnajmNBgkPwAzNf63H+/MtvUpIm41Tu7mT8a0icoF//oTZ5bLpVd9U1EppDr
+         QteQri3pyPJkCdGQeshQu9vcHx5Xdy2ka9BrZbkt67v10upnV9Wx9EGBLVWj8+SpSCHx
+         sVkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748652561; x=1749257361;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=344ZXOydtru+LtTP4kRXS0HZ8/NsKlEl+mhmACEHqDs=;
-        b=ljMp+T5o/0nWhkprTGdIuQ4kPlXT6XWsvapTIvvWDePqiHmPa0PSDaKYSB84b5BW1m
-         gpqqpWUTPIW39F3KoMBddysHVZ8BtDqJvQLN+VliJrbMWsYToRyB6q1o24TWMdguHSor
-         Pd1yNVsW21dpGQX86Dfz/8MYXPgIIlOlTMUN+DF9jZZSW95FrDpfHJQxqelkEuEkuRrR
-         yQQs6w6GQp/y/JUph8d8wI2u7SYpx29pQpq3QTSZor6RuSyR2gqmDICVOKgKIIVILABg
-         VU8/Po0k6y5TcKHhObLjFGmGDP7YaWldntR+bkwWvgqDSl6OOKCDVDBDKiWK0UVSRl2T
-         rQPw==
-X-Forwarded-Encrypted: i=1; AJvYcCV8vlrNMoTVqCejEWAZvxNlI2yuxpAlyTBYoUWeBTeFjrvpqINXBPTV1Ga06a+XpmGixBWoGw+Rg+1ojl+JEP8y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/m3F3Iss+G9Wh5vRnOBFH/EfCpfIQkHkDLIP5vHPMldlfUK+G
-	N38/43mejmZTgNBMITRtvNixlD5uzsjgAfMj3PdNTPWO4v2pRDuWw1RmD0BWD/lJsgbVrL7Jwvx
-	25YhGKp4JyFxG+9Ll0rZBRzFM/msp9RI=
-X-Gm-Gg: ASbGnctUMU5JDgPGS7ViE+A/WXyh6O9RaccwikI1p3LpCQkbKC0PVy8dc6zRhy+Yb5G
-	hg6I3feAsEVgaQH7zIrKuaVD9Klwy8sDrzsDLDLOP17a90Bb51OidSiV87bGhL6w8CIDb+Cdl0q
-	htnGlWQAJhDEW0m7xTDUXTGpLKJoBiWkQg3vsYxQ8KuWWE
-X-Google-Smtp-Source: AGHT+IGXJmVpo36K5gmhxZOj9Z0RnB1rGuSi9/anoCRMQ6XHT10/qBZWClCon53dYhxQ1OUjw4aaz69nJ9Y0sSEFAok=
-X-Received: by 2002:a05:6102:d8a:b0:4e6:245b:cf5e with SMTP id
- ada2fe7eead31-4e6ece4b027mr3457384137.17.1748652561434; Fri, 30 May 2025
- 17:49:21 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250527175558.2738342-1-james.hilliard1@gmail.com>
- <631ed4fe-f28a-443b-922b-7f41c20f31f3@lunn.ch> <CADvTj4rGdb_kHV_gjKTJNkzYEPMzqLcHY_1xw7wy5r-ryqDfNQ@mail.gmail.com>
- <fe8fb314-de99-45c2-b71e-5cedffe590b0@lunn.ch> <CADvTj4posNXP4FCXPqABtP0cMD1dPUH+hXcRQnetZ65ReKjOKQ@mail.gmail.com>
- <e1f4e2b7-edf9-444c-ad72-afae6e271e36@gmail.com> <CADvTj4oSbYLy3-w7m19DP-p0vwaJ8swNhoOFjOQiPFA24JKfMQ@mail.gmail.com>
- <f5461b58-79ad-40b0-becd-3af61658bf61@gmail.com>
-In-Reply-To: <f5461b58-79ad-40b0-becd-3af61658bf61@gmail.com>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 30 May 2025 18:49:09 -0600
-X-Gm-Features: AX0GCFupWsNFi2CuUY75nrFXpih2klRDW7O5Fm08l0tn6Tcu2AX3UTC3nexx8v4
-Message-ID: <CADvTj4pZrOo8O=kH_RzoTNMG3vHEzwy8KsgP9eWSic46o9cAdA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] net: stmmac: allow drivers to explicitly select
- PHY device
-To: Florian Fainelli <f.fainelli@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Russell King <linux@armlinux.org.uk>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Furong Xu <0x1207@gmail.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+        d=1e100.net; s=20230601; t=1748652645; x=1749257445;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TSkccxQJyPBTeulTuTiETCwXsKbLhBcWM3wPWtnLY8U=;
+        b=wSJN/g6TpAn6eqp+gUxgrejDOCVmOLcld1SodKfopKNXPwWZdNkd5+6xR3aD5jQQEE
+         dxo0J2/AhCLe2LbDFXa/8PLTzDAL9hMQHHaIYp36oJrP/vGyWYhUKpCKiFz5GmhjW7Rd
+         4YlMYeNaMGX92O5jICdq7RrCQU+uTruVkySdjmvW6BwFQfF9TLlX17ZspwBfEVuJhB4P
+         5qDfGuyXOgeScTGK90b1ruHHemgauFREs4O9j38s53KblefVQ8e2O8UKKIBtPnw4y4kv
+         8+hJuIrWNtpoW/X9klq+ZvwsJVy6NBhdaJtB4XAuTVyrY7+ZLlm/U0RwxRkB1IS6RFm7
+         m81A==
+X-Gm-Message-State: AOJu0Yy67c9dNeeDhj1R6N1Iu02MHUS5JnlYDlB9K/XNvkPISY0IMgcl
+	4dkP6aZaawJbWvdsmrKVfCWLhXd7QwJqCK71M5CC8iASQ4GWgSdNfMKC7UVyqj/7up8RRk1LGZP
+	Kkeif0Sl4/5H7T6jmMxUZqeJBNA==
+X-Google-Smtp-Source: AGHT+IE6IJa1RG94dsyK59ObFUYWG3ikzXtO5FeZ3ZagvGmSKHUDVu3iu1nBqkQJvGQX5Pvaf2CfmSWgk82ftyglOA==
+X-Received: from pfbgc4.prod.google.com ([2002:a05:6a00:62c4:b0:747:a8e8:603e])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:3c89:b0:740:afda:a742 with SMTP id d2e1a72fcca58-747d156608emr751484b3a.0.1748652644826;
+ Fri, 30 May 2025 17:50:44 -0700 (PDT)
+Date: Sat, 31 May 2025 00:50:38 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.1204.g71687c7c1d-goog
+Message-ID: <20250531005038.1118215-1-dylanbhatch@google.com>
+Subject: [PATCH v6] arm64/module: Use text-poke API for late relocations.
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Song Liu <song@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Dylan Hatch <dylanbhatch@google.com>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_174923_046128_989F6234 
-X-CRM114-Status: GOOD (  55.82  )
+X-CRM114-CacheID: sfid-20250530_175046_518708_80062EB3 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,146 +89,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 6:24=E2=80=AFPM Florian Fainelli <f.fainelli@gmail.=
-com> wrote:
->
-> On 5/30/25 17:02, James Hilliard wrote:
-> > On Fri, May 30, 2025 at 5:56=E2=80=AFPM Florian Fainelli <f.fainelli@gm=
-ail.com> wrote:
-> >>
-> >> On 5/30/25 16:46, James Hilliard wrote:
-> >>> On Tue, May 27, 2025 at 2:02=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> =
-wrote:
-> >>>>
-> >>>> On Tue, May 27, 2025 at 01:21:21PM -0600, James Hilliard wrote:
-> >>>>> On Tue, May 27, 2025 at 1:14=E2=80=AFPM Andrew Lunn <andrew@lunn.ch=
-> wrote:
-> >>>>>>
-> >>>>>> On Tue, May 27, 2025 at 11:55:54AM -0600, James Hilliard wrote:
-> >>>>>>> Some devices like the Allwinner H616 need the ability to select a=
- phy
-> >>>>>>> in cases where multiple PHY's may be present in a device tree due=
- to
-> >>>>>>> needing the ability to support multiple SoC variants with runtime
-> >>>>>>> PHY selection.
-> >>>>>>
-> >>>>>> I'm not convinced about this yet. As far as i see, it is different
-> >>>>>> variants of the H616. They should have different compatibles, sinc=
-e
-> >>>>>> they are not actually compatible, and you should have different DT
-> >>>>>> descriptions. So you don't need runtime PHY selection.
-> >>>>>
-> >>>>> Different compatibles for what specifically? I mean the PHY compati=
-bles
-> >>>>> are just the generic "ethernet-phy-ieee802.3-c22" compatibles.
-> >>>>
-> >>>> You at least have a different MTD devices, exporting different
-> >>>> clocks/PWM/Reset controllers. That should have different compatibles=
-,
-> >>>> since they are not compatible. You then need phandles to these
-> >>>> different clocks/PWM/Reset controllers, and for one of the PHYs you
-> >>>> need a phandle to the I2C bus, so the PHY driver can do the
-> >>>> initialisation. So i think in the end you know what PHY you have on
-> >>>> the board, so there is no need to do runtime detection.
-> >>>
-> >>> Hmm, thinking about this again, maybe it makes sense to just
-> >>> do the runtime detection in the MFD driver entirely, as it turns
-> >>> out the AC300 initialization sequence is largely a subset of the
-> >>> AC200 initialization sequence(AC300 would just not need any
-> >>> i2c part of the initialization sequence). So if we use the same
-> >>> MFD driver which internally does autodetection then we can
-> >>> avoid the need for selecting separate PHY's entirely. This at
-> >>> least is largely how the vendor BSP driver works at the moment.
-> >>>
-> >>> Would this approach make sense?
-> >>
-> >> This has likely been discussed, but cannot you move the guts of patch =
-#2
-> >> into u-boot or the boot loader being used and have it patch the PHY
-> >> Device Tree node's "reg" property accordingly before handing out the D=
-TB
-> >> to the kernel?
-> >
-> > No, that's not really the issue, the "reg" property can actually be
-> > the same for both the AC200 and AC300 phy's, both support using
-> > address 0, the AC200 additionally supports address 1. In my example
-> > they are different simply so that they don't conflict in the device tre=
-e.
-> >
-> > The actual issue is that they have differing initialization sequences a=
-nd
-> > won't appear in mdio bus scans until after the initialization is comple=
-te.
->  > >> Another way to address what you want to do is to remove the "reg"
-> >> property from the Ethernet PHY node and just let of_mdiobus_register()
-> >> automatically scan, you have the advantage of having the addresses
-> >> consecutive so this won't dramatically increase the boot time... I do
-> >> that on the boards I suppose that have a removable mezzanine card that
-> >> includes a PHY address whose address is dictated by straps so we don't
-> >> want to guess, we let the kernel auto detect instead.
-> >
-> > Yeah, I noticed this, but it doesn't really help since it's not the add=
-ress
-> > that's incompatible but the reset sequence, I'm having trouble finding
-> > examples for mdio based reset drivers in the kernel however.
->
-> Fair enough, but it seems like we need to dig up a bit more here on that
-> topic. There is an opportunity for a MDIO driver to implement a
-> "pre-scan" reset by filling in a mdio_bus::reset callback and there you
-> can do various things to ensure that your Ethernet PHY will be
-> responsive. You can see an example under
-> drivers/net/mdio/mdio-bcm-unimac.c to address a deficiency of certain
-> Ethernet PHYs.
+To enable late module patching, livepatch modules need to be able to
+apply some of their relocations well after being loaded. In this
+scenario however, the livepatch module text and data is already RX-only,
+so special treatment is needed to make the late relocations possible. To
+do this, use the text-poking API for these late relocations.
 
-So if I need to do custom stuff to make the generic PHY's addresses
-on the mdio bus live would I replace the generic "snps,dwmac-mdio"
-compatible with a custom compatible maybe?
+This patch is partially based off commit 88fc078a7a8f6 ("x86/module: Use
+text_poke() for late relocations").
 
-> Through Device Tree you can use the standard properties "reset-gpios",
-> "reset-assert-us", "reset-deassert-us" to implement a basic reset
-> sequence on a per-PHY basis, there are other properties that apply to
-> the MDIO bus/controller specifically that are also documented.
+Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+Acked-by: Song Liu <song@kernel.org>
+---
+ arch/arm64/kernel/module.c | 105 +++++++++++++++++++++----------------
+ 1 file changed, 61 insertions(+), 44 deletions(-)
 
-The mdio initialization sequence for both PHY's is custom from my
-understanding so presumably we can't use the generic "reset-gpios"
-and such.
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 06bb680bfe975..fdfb71c8fc929 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -23,6 +23,7 @@
+ #include <asm/insn.h>
+ #include <asm/scs.h>
+ #include <asm/sections.h>
++#include <asm/text-patching.h>
+ 
+ enum aarch64_reloc_op {
+ 	RELOC_OP_NONE,
+@@ -48,7 +49,15 @@ static u64 do_reloc(enum aarch64_reloc_op reloc_op, __le32 *place, u64 val)
+ 	return 0;
+ }
+ 
+-static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
++#define WRITE_PLACE(place, val, mod) do {				\
++	if (mod->state == MODULE_STATE_UNFORMED)			\
++		*(place) = val;						\
++	else								\
++		aarch64_insn_copy(place, &(val), sizeof(*place));	\
++} while (0)
++
++static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len,
++		      struct module *me)
+ {
+ 	s64 sval = do_reloc(op, place, val);
+ 
+@@ -66,7 +75,7 @@ static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
+ 
+ 	switch (len) {
+ 	case 16:
+-		*(s16 *)place = sval;
++		WRITE_PLACE((s16 *)place, sval, me);
+ 		switch (op) {
+ 		case RELOC_OP_ABS:
+ 			if (sval < 0 || sval > U16_MAX)
+@@ -82,7 +91,7 @@ static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
+ 		}
+ 		break;
+ 	case 32:
+-		*(s32 *)place = sval;
++		WRITE_PLACE((s32 *)place, sval, me);
+ 		switch (op) {
+ 		case RELOC_OP_ABS:
+ 			if (sval < 0 || sval > U32_MAX)
+@@ -98,7 +107,7 @@ static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len)
+ 		}
+ 		break;
+ 	case 64:
+-		*(s64 *)place = sval;
++		WRITE_PLACE((s64 *)place, sval, me);
+ 		break;
+ 	default:
+ 		pr_err("Invalid length (%d) for data relocation\n", len);
+@@ -113,11 +122,13 @@ enum aarch64_insn_movw_imm_type {
+ };
+ 
+ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+-			   int lsb, enum aarch64_insn_movw_imm_type imm_type)
++			   int lsb, enum aarch64_insn_movw_imm_type imm_type,
++			   struct module *me)
+ {
+ 	u64 imm;
+ 	s64 sval;
+ 	u32 insn = le32_to_cpu(*place);
++	__le32 le_insn;
+ 
+ 	sval = do_reloc(op, place, val);
+ 	imm = sval >> lsb;
+@@ -145,7 +156,8 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ 
+ 	/* Update the instruction with the new encoding. */
+ 	insn = aarch64_insn_encode_immediate(AARCH64_INSN_IMM_16, insn, imm);
+-	*place = cpu_to_le32(insn);
++	le_insn = cpu_to_le32(insn);
++	WRITE_PLACE(place, le_insn, me);
+ 
+ 	if (imm > U16_MAX)
+ 		return -ERANGE;
+@@ -154,11 +166,13 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ }
+ 
+ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
+-			  int lsb, int len, enum aarch64_insn_imm_type imm_type)
++			  int lsb, int len, enum aarch64_insn_imm_type imm_type,
++			  struct module *me)
+ {
+ 	u64 imm, imm_mask;
+ 	s64 sval;
+ 	u32 insn = le32_to_cpu(*place);
++	__le32 le_insn;
+ 
+ 	/* Calculate the relocation value. */
+ 	sval = do_reloc(op, place, val);
+@@ -170,7 +184,8 @@ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ 
+ 	/* Update the instruction's immediate field. */
+ 	insn = aarch64_insn_encode_immediate(imm_type, insn, imm);
+-	*place = cpu_to_le32(insn);
++	le_insn = cpu_to_le32(insn);
++	WRITE_PLACE(place, le_insn, me);
+ 
+ 	/*
+ 	 * Extract the upper value bits (including the sign bit) and
+@@ -189,17 +204,18 @@ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ }
+ 
+ static int reloc_insn_adrp(struct module *mod, Elf64_Shdr *sechdrs,
+-			   __le32 *place, u64 val)
++			   __le32 *place, u64 val, struct module *me)
+ {
+ 	u32 insn;
++	__le32 le_insn;
+ 
+ 	if (!is_forbidden_offset_for_adrp(place))
+ 		return reloc_insn_imm(RELOC_OP_PAGE, place, val, 12, 21,
+-				      AARCH64_INSN_IMM_ADR);
++				      AARCH64_INSN_IMM_ADR, me);
+ 
+ 	/* patch ADRP to ADR if it is in range */
+ 	if (!reloc_insn_imm(RELOC_OP_PREL, place, val & ~0xfff, 0, 21,
+-			    AARCH64_INSN_IMM_ADR)) {
++			    AARCH64_INSN_IMM_ADR, me)) {
+ 		insn = le32_to_cpu(*place);
+ 		insn &= ~BIT(31);
+ 	} else {
+@@ -211,7 +227,8 @@ static int reloc_insn_adrp(struct module *mod, Elf64_Shdr *sechdrs,
+ 						   AARCH64_INSN_BRANCH_NOLINK);
+ 	}
+ 
+-	*place = cpu_to_le32(insn);
++	le_insn = cpu_to_le32(insn);
++	WRITE_PLACE(place, le_insn, me);
+ 	return 0;
+ }
+ 
+@@ -255,23 +272,23 @@ int apply_relocate_add(Elf64_Shdr *sechdrs,
+ 		/* Data relocations. */
+ 		case R_AARCH64_ABS64:
+ 			overflow_check = false;
+-			ovf = reloc_data(RELOC_OP_ABS, loc, val, 64);
++			ovf = reloc_data(RELOC_OP_ABS, loc, val, 64, me);
+ 			break;
+ 		case R_AARCH64_ABS32:
+-			ovf = reloc_data(RELOC_OP_ABS, loc, val, 32);
++			ovf = reloc_data(RELOC_OP_ABS, loc, val, 32, me);
+ 			break;
+ 		case R_AARCH64_ABS16:
+-			ovf = reloc_data(RELOC_OP_ABS, loc, val, 16);
++			ovf = reloc_data(RELOC_OP_ABS, loc, val, 16, me);
+ 			break;
+ 		case R_AARCH64_PREL64:
+ 			overflow_check = false;
+-			ovf = reloc_data(RELOC_OP_PREL, loc, val, 64);
++			ovf = reloc_data(RELOC_OP_PREL, loc, val, 64, me);
+ 			break;
+ 		case R_AARCH64_PREL32:
+-			ovf = reloc_data(RELOC_OP_PREL, loc, val, 32);
++			ovf = reloc_data(RELOC_OP_PREL, loc, val, 32, me);
+ 			break;
+ 		case R_AARCH64_PREL16:
+-			ovf = reloc_data(RELOC_OP_PREL, loc, val, 16);
++			ovf = reloc_data(RELOC_OP_PREL, loc, val, 16, me);
+ 			break;
+ 
+ 		/* MOVW instruction relocations. */
+@@ -280,88 +297,88 @@ int apply_relocate_add(Elf64_Shdr *sechdrs,
+ 			fallthrough;
+ 		case R_AARCH64_MOVW_UABS_G0:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 0,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_UABS_G1_NC:
+ 			overflow_check = false;
+ 			fallthrough;
+ 		case R_AARCH64_MOVW_UABS_G1:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 16,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_UABS_G2_NC:
+ 			overflow_check = false;
+ 			fallthrough;
+ 		case R_AARCH64_MOVW_UABS_G2:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 32,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_UABS_G3:
+ 			/* We're using the top bits so we can't overflow. */
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 48,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_SABS_G0:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 0,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_SABS_G1:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 16,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_SABS_G2:
+ 			ovf = reloc_insn_movw(RELOC_OP_ABS, loc, val, 32,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G0_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 0,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G0:
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 0,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G1_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 16,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G1:
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 16,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G2_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 32,
+-					      AARCH64_INSN_IMM_MOVKZ);
++					      AARCH64_INSN_IMM_MOVKZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G2:
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 32,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 		case R_AARCH64_MOVW_PREL_G3:
+ 			/* We're using the top bits so we can't overflow. */
+ 			overflow_check = false;
+ 			ovf = reloc_insn_movw(RELOC_OP_PREL, loc, val, 48,
+-					      AARCH64_INSN_IMM_MOVNZ);
++					      AARCH64_INSN_IMM_MOVNZ, me);
+ 			break;
+ 
+ 		/* Immediate instruction relocations. */
+ 		case R_AARCH64_LD_PREL_LO19:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2, 19,
+-					     AARCH64_INSN_IMM_19);
++					     AARCH64_INSN_IMM_19, me);
+ 			break;
+ 		case R_AARCH64_ADR_PREL_LO21:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 0, 21,
+-					     AARCH64_INSN_IMM_ADR);
++					     AARCH64_INSN_IMM_ADR, me);
+ 			break;
+ 		case R_AARCH64_ADR_PREL_PG_HI21_NC:
+ 			overflow_check = false;
+ 			fallthrough;
+ 		case R_AARCH64_ADR_PREL_PG_HI21:
+-			ovf = reloc_insn_adrp(me, sechdrs, loc, val);
++			ovf = reloc_insn_adrp(me, sechdrs, loc, val, me);
+ 			if (ovf && ovf != -ERANGE)
+ 				return ovf;
+ 			break;
+@@ -369,46 +386,46 @@ int apply_relocate_add(Elf64_Shdr *sechdrs,
+ 		case R_AARCH64_LDST8_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 0, 12,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_LDST16_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 1, 11,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_LDST32_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 2, 10,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_LDST64_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 3, 9,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_LDST128_ABS_LO12_NC:
+ 			overflow_check = false;
+ 			ovf = reloc_insn_imm(RELOC_OP_ABS, loc, val, 4, 8,
+-					     AARCH64_INSN_IMM_12);
++					     AARCH64_INSN_IMM_12, me);
+ 			break;
+ 		case R_AARCH64_TSTBR14:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2, 14,
+-					     AARCH64_INSN_IMM_14);
++					     AARCH64_INSN_IMM_14, me);
+ 			break;
+ 		case R_AARCH64_CONDBR19:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2, 19,
+-					     AARCH64_INSN_IMM_19);
++					     AARCH64_INSN_IMM_19, me);
+ 			break;
+ 		case R_AARCH64_JUMP26:
+ 		case R_AARCH64_CALL26:
+ 			ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2, 26,
+-					     AARCH64_INSN_IMM_26);
++					     AARCH64_INSN_IMM_26, me);
+ 			if (ovf == -ERANGE) {
+ 				val = module_emit_plt_entry(me, sechdrs, loc, &rel[i], sym);
+ 				if (!val)
+ 					return -ENOEXEC;
+ 				ovf = reloc_insn_imm(RELOC_OP_PREL, loc, val, 2,
+-						     26, AARCH64_INSN_IMM_26);
++						     26, AARCH64_INSN_IMM_26, me);
+ 			}
+ 			break;
+ 
+-- 
+2.49.0.1204.g71687c7c1d-goog
 
-> How does it currently work given that your example Device Tree uses:
->
-> compatible =3D "ethernet-phy-ieee802.3-c22"
->
-> this will still require the OF MDIO bus layer to read the
-> PHYSID1/PHYSID2 registers in order to match your PHY device with its
-> driver. You indicated that the PHYs "won't appear in mdio bus scan"
-> unless that sequence is implemented. How would they currently respond
-> given the example?
-
-In my example it's not actually doing the initialization part yet, that's
-all being done in some super hacky u-boot code. My assumption was
-that we need different generic phy nodes to differentiate the resets
-but I suppose that could all be done elsewhere in whichever driver
-implements the initialization sequence.
-
-> If you can involve the boot loader, you can create a compatible string
-> for your PHY of the form:
->
-> compatible =3D "ethernet-phy-idae02.5090"
->
-> that includes the PHY OUI, and that will tell the OF MDIO bus code to
-> bind the PHY device with the driver specified in the compatible string
-> without reading the PHYSID1/PHYSID2 registers. Since you can detect the
-> boards variants, you could do that.
-
-The address 0 and 1 PHY OUI's are the same for the AC200/AC300,
-the AC300 PHY however has a different PHY OUI for address 0x10
-which is effectively used in place of the i2c initialization sequence in
-the AC200. Note this 0x10 address is not usable for normal operations,
-it's essentially only used to activate the main mdio address 0 used
-for normal operations.
-
-> It then becomes highly desirable to have a "dedicated" (as opposed to
-> using the "Generic PHY") driver that within the .probe function can take
-> care of putting the PHY in a working state.
-> --
-> Florian
 
