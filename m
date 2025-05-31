@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED42C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 21:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C09DC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 21:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6YH0fQxxO2LW9sC+HXt1EYIgfegg7zILcr6qRdDlAi8=; b=KyjOXfvLK+2B7N3b9yypxe4PZP
-	jFXHR+QWHZTj3mvxMN9e30Ill2FewtentKi0OQjS+saUkLY8LTHUfE0tKfySwHfGG9lY8BjobZZgW
-	jcnIlK9dTrg1vFCJn5W6w0MX91bGH5PtagAJfYyPIphh7MeeOuTrlKbbtsgrlO19n/s2L8kQAREtq
-	pzlIA0rlvX9+sNbN+FHi1Y/5nfo6nxgRV8pK/GoUlvElx/QKHjkJ3BCb2xzsF3GYHLQk+UgXwfcAQ
-	Ax65S43lAwTgbpSXDRWZoddnyghkx07y/fcLofN9gUP837POAMieV6JvPVgng8/cnZfPWpF6QXhI0
-	aJGetOAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7u2qauzFTP/rcfL2a+zDfaRZel9Pi3gl/2pshUKS3Yk=; b=uPHbzGc2eUE2Vmrn6iUFTy7r86
+	1j+8kKQVp1ZkQm1ojmthEouxdj4nxwC/ikgpUfGiKB5mC7iVpDKRcLUVTrW5WcQmexFo7Hjwmon9f
+	0y0XCNeySiJ4q2MYsJK7iqL2+YiVWUJwbbnep13FVj4SsWomOOS/piAWsWs9o8CdhgW1W+dvR67qy
+	k6gyTVCBA03OsguuXqZuatDyGnhO0PdWxeZOCj/jkPSu3kRDoSv7LUw570ijeLp7AjCYmtB9yub17
+	GNfCIH9xX0LtcywyBDbX03NsQp/OJllylNB7v2xrc14uLMiRocbnR9tDNDMWiKBi5LdfNdIeVYQw5
+	Vy9wP7Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLTmX-00000004V2K-30hY;
-	Sat, 31 May 2025 21:30:21 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1uLU8Y-00000004ZMi-3gjM;
+	Sat, 31 May 2025 21:53:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLTg9-00000004Sd0-207v
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 May 2025 21:23:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748726626; x=1780262626;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=409EzBnRZl7HCyBHlkiarMMZ5YH45JJDUcocJR01ODQ=;
-  b=l6151dgO+9KfQDtNTSTOIKs8Ut96C/HUzyYiEq+cwakbCqFQW5oRJi7J
-   Pe5rLCHNoTz9OYm/Sg19secHU7CBPd3OKl5F8mSjxFcjaKgRyThfRNjE0
-   0MMvoJIQAdfzy7F6ZaADfvhFp2T0dJFQQsm/Br7d8GynR60O0DD/jzm1n
-   4NSUUkbdIwgktBP0otThle0Awhr1ZQ6hbkgBiPyorD2cNfvrT1o57DEBb
-   21bcPdIx27pbTZ+adG4bRG8iuzoJn3hHJHT2fnpt8xBKIX1+mOQrw7QVV
-   LESyA05+2c3+Trqv5i35+6EsA6dr+rmYppaRRajamdhNr23XmXuLwWLiR
-   w==;
-X-CSE-ConnectionGUID: cChSse7ATwupSVADu0YaTg==
-X-CSE-MsgGUID: eSPMOyEWQMSM8yZlInfEwQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11450"; a="50941384"
-X-IronPort-AV: E=Sophos;i="6.16,199,1744095600"; 
-   d="scan'208";a="50941384"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 May 2025 14:23:42 -0700
-X-CSE-ConnectionGUID: btzh5O+XQRClxfZzyVkLNg==
-X-CSE-MsgGUID: SmPlBnKISje07NJUeixbHQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,199,1744095600"; 
-   d="scan'208";a="149465595"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by orviesa005.jf.intel.com with ESMTP; 31 May 2025 14:23:38 -0700
-Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id 5CA72202; Sun, 01 Jun 2025 00:23:35 +0300 (EEST)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: [PATCH v1 0/2] gpiolib: get rid of devm_gpio_request()
-Date: Sun,  1 Jun 2025 00:21:37 +0300
-Message-ID: <20250531212331.3635269-1-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.47.2
+	id 1uLU6Q-00000004Ynd-2HNz;
+	Sat, 31 May 2025 21:50:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=7u2qauzFTP/rcfL2a+zDfaRZel9Pi3gl/2pshUKS3Yk=; b=kymPPlJBkcnmuucB8OXSCyEip0
+	aad1ClhYKqwnzUFW62h8LMRUauI/0nUjuSO7vt6CFO4BBVWh246MjR/nHmcJptBrA0y/Eait7AF3M
+	SnUB7zFpIJqDKhjEkBp+je3wN9doOer9cGnwdB302NURH2n9ru6Hwt2xD4skQ5hrOSOQjXhj3Amq3
+	KlOOHlbpPWffBPj6GspiIN5JskZPUz/HfHT8LZ/kGLpgtmNQAPuV0jgO2NCWCiglfUjZiu7BDH1ep
+	QUpJ1wDCCW9MrR0vd8x4nxwPUUqDohT9qxufH3RBYn31GlfwcNohbldBfap/HNP6wTN1K537vKO2V
+	uhbw6GNQ==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uLU6N-00000000PF1-2TUl;
+	Sat, 31 May 2025 21:50:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=7u2qauzFTP/rcfL2a+zDfaRZel9Pi3gl/2pshUKS3Yk=; b=S/veJHBk4K4AhMATBTSQloGQ/s
+	SExGYxn3vLkx2Q5mkmsp0Kv0K+HTFKscAq30eVlszyNmHjpIMlxe/wFsDhlRhxi/yl2bItdRpd/c3
+	YP4DoEl8pZojG29DsB8iQbYu6yCJ0Id9+IuvCdPqOIV/cAMqalAKqDw6vmBtKD/L0UKJVIeHaLKg1
+	S1cNU9BLdN+/Nw1QA81Z2eyTzfCHis7/U5yc1Vh/VPMWkmL45r+AKeIdy/7b3dTX39inxEWjBsoMT
+	9Ij0k2rb6NW1oewrgOJadOIq1GjyOWNqT9uiD5ORDZ/YR9vh5FDP+HssP53zQGw5j8slLg9mO45xs
+	RNYOc6kg==;
+Received: from i53875a3e.versanet.de ([83.135.90.62] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uLU46-0001IH-Ji; Sat, 31 May 2025 23:48:30 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ William Breathitt Gray <wbg@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-iio@vger.kernel.org, kernel@collabora.com,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: Re: [PATCH 4/7] soc: rockchip: add mfpwm driver
+Date: Sat, 31 May 2025 23:48:29 +0200
+Message-ID: <2188729.OBFZWjSADL@diego>
+In-Reply-To: <20250408-rk3576-pwm-v1-4-a49286c2ca8e@collabora.com>
+References: <20250408-rk3576-pwm-v1-0-a49286c2ca8e@collabora.com>
+ <20250408-rk3576-pwm-v1-4-a49286c2ca8e@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250531_142345_557345_C0DF34F9 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250531_225051_727311_85415378 
+X-CRM114-Status: GOOD (  25.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,20 +97,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_gpio_request() is used by a single driver. Replace it there and
-kill the legacy API. Assumed to be routed via GPIO tree.
+Am Dienstag, 8. April 2025, 14:32:16 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Nicolas Frattaroli:
+> With the Rockchip RK3576, the PWM IP used by Rockchip has changed
+> substantially. Looking at both the downstream pwm-rockchip driver as
+> well as the mainline pwm-rockchip driver made it clear that with all its
+> additional features and its differences from previous IP revisions, it
+> is best supported in a new driver.
+>=20
+> This brings us to the question as to what such a new driver should be.
+> To me, it soon became clear that it should actually be several new
+> drivers, most prominently when Uwe Kleine-K=C3=B6nig let me know that I
+> should not implement the pwm subsystem's capture callback, but instead
+> write a counter driver for this functionality.
+>=20
+> Combined with the other as-of-yet unimplemented functionality of this
+> new IP, it became apparent that it needs to be spread across several
+> subsystems.
+>=20
+> For this reason, we add a new platform bus based driver, called mfpwm
+> (short for "Multi-function PWM"). This "parent" driver makes sure that
+> only one device function driver is using the device at a time, and is in
+> charge of registering the platform bus devices for the individual device
+> functions offered by the device.
+>=20
+> An acquire/release pattern is used to guarantee that device function
+> drivers don't step on each other's toes.
+>=20
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Andy Shevchenko (2):
-  usb: gadget: pxa25x_udc: Switch to use devm_gpio_request_one()
-  gpiolib: Remove unused devm_gpio_request()
+actually trying to compile this, led me to
 
- .../driver-api/driver-model/devres.rst        |  1 -
- drivers/gpio/gpiolib-legacy.c                 | 38 -------------------
- drivers/usb/gadget/udc/pxa25x_udc.c           |  5 +--
- include/linux/gpio.h                          |  8 ----
- 4 files changed, 2 insertions(+), 50 deletions(-)
+aarch64-linux-gnu-ld: drivers/soc/rockchip/mfpwm.o: in function `mfpwm_reg_=
+read':
+/home/devel/hstuebner/00_git-repos/linux-rockchip/_build-arm64/../include/s=
+oc/rockchip/mfpwm.h:423: multiple definition of `mfpwm_reg_read'; drivers/p=
+wm/pwm-rockchip-v4.o:/home/devel/hstuebner/00_git-repos/linux-rockchip/_bui=
+ld-arm64/../include/soc/rockchip/mfpwm.h:423: first defined here
+aarch64-linux-gnu-ld: drivers/soc/rockchip/mfpwm.o: in function `mfpwm_reg_=
+write':
+/home/devel/hstuebner/00_git-repos/linux-rockchip/_build-arm64/../include/s=
+oc/rockchip/mfpwm.h:428: multiple definition of `mfpwm_reg_write'; drivers/=
+pwm/pwm-rockchip-v4.o:/home/devel/hstuebner/00_git-repos/linux-rockchip/_bu=
+ild-arm64/../include/soc/rockchip/mfpwm.h:428: first defined here
+make[3]: *** [../scripts/Makefile.vmlinux_o:72: vmlinux.o] Fehler 1
 
--- 
-2.47.2
+
+during the linking stage - with the driver as builtin
+
+
+> +inline u32 mfpwm_reg_read(void __iomem *base, u32 reg)
+> +{
+> +	return readl(base + reg);
+> +}
+> +
+> +inline void mfpwm_reg_write(void __iomem *base, u32 reg, u32 val)
+> +{
+> +	writel(val, base + reg);
+> +}
+
+making that a "static inline ..." solves that.
+
+
+On a more general note, what is the differentiation to an MFD here?
+
+Like you can already bind dt-nodes to MFD subdevices, and can implement
+the exclusivity API thing on top of a general mfd device, to make sure only
+one mfd-cell gets activated at one time.
+
+Other than that, this looks like it reimplements MFDs?
+
+Also handing around a regmap might be nicer, compared to readl/writel.
+
+
+Heiko
+
+
 
 
