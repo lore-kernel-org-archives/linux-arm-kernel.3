@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5221C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 17:49:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84ACDC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 31 May 2025 17:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YBHGQdqSeWvGB9mY6qlXaI9AwWyEpcoU+ydjWvyeZw8=; b=DwzfJUNIVz1ozJh5k/2G5jRZPy
-	BMH1DyMLyBkFWiT8stApmVxMzLkgSwu8oeCMyCDkmt7UPJLhK++h4In7ynT3HhYK7TWW8FNK69lDy
-	yxUkjotP5ZJqsRxr9zrT9o4vXCSZJMvV4gOOh6xtp0Cz07jRUn1J+1Ok9z4GMQfHZJkZ5sE2vhblC
-	OY+nPra2Rf92XQzDBeia07YVPJsMbBXStpa3LimWEJqyURsHQJj9NLA9GMMaP7HqG8wNmyabxgPpI
-	h/HZCOEFMTWICB+d1uzOiM4uu76LWkuxSQRq7nb0F+KzSWUGcqbXKULA5I7afPLtwQtkOWi23YMKi
-	4s6NfA9w==;
+	bh=5AbNlKkJboN5wZoU7ozNTe8jKHTn2i9ktrC3fw6ibsc=; b=H9CXYIjGdOpSybOThSHmsgQRS+
+	0fMpPy4MKTNRmcnWILy3KHdZw8NyXPTpEhYGj74qmz/r3xot3Siv/Nb5EbzAboy2gdzuE+kYOxaOD
+	sMuB5cn8/zPgG1riIRrkfLhpwdojKmeWXH8iLG6cNijEdgRIL0ObOhm1MteYJAFjnzsvdzTQX68aq
+	NlzNogwjM3UgGalrDGorbM97TORYbBf7VD8tcWcueIIcirJa7UrGbMDINfGCjzK1+re7DjVihV0MV
+	DzjmYEMlvXYRvBOc7kTm+8+zJtiQx6eaF0JHo2uRWThu8vzu1RJjbyWYD/ET/jb0tDKFkwNcN/Fb5
+	aKdIJ2Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLQKu-000000047Jf-0IqR;
-	Sat, 31 May 2025 17:49:36 +0000
+	id 1uLQNo-000000047Tq-3R5V;
+	Sat, 31 May 2025 17:52:36 +0000
 Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLQIl-000000047FN-32Un
+	id 1uLQLf-000000047NF-24op
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 31 May 2025 17:47:25 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-74264d1832eso3318043b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 May 2025 10:47:23 -0700 (PDT)
+	Sat, 31 May 2025 17:50:24 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-742c27df0daso2450802b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 May 2025 10:50:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748713643; x=1749318443; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748713822; x=1749318622; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=YBHGQdqSeWvGB9mY6qlXaI9AwWyEpcoU+ydjWvyeZw8=;
-        b=pgJLwvPElaUr5Zj8IKDC3SEqKCZaQEphhSMcbpHbKHHIlNXEnImVJsLvjgoecDcFgd
-         IV+0+i5gn9kMVK0VmRwaKDei9SFJV8sgEGFD+xz2Met6hBUoOyFzbmYU8GTlW8A4iG9i
-         c0M9snBZpI90T9Ef1xD6QbwkoIkWztx7PC2YMCbe40OQQp1DK6MCR6WQTFUC28KhZL7i
-         rc3qJtSbE3k9GFP2DjuoKogYCnV5l5zg48Hm6NJh91QagptCDQJaul7Upl6XzJSnK/BA
-         2KUsMe6OslkaYtD1P0UByU31U8gJhLb+dkVYrd76lUI+jslivQBIYCZ/sTCwmM/x6smL
-         SvMg==
+        bh=5AbNlKkJboN5wZoU7ozNTe8jKHTn2i9ktrC3fw6ibsc=;
+        b=ku3tEMw/qPwVUKGtLfMhDgvXihX7ZuPhL1JHcQJ7N0dC3yELrB+ltVEOdQsiAS/x7n
+         jZhCjUQ3foayR9k+P2HllB8EcQGBaR/KV7HpseB9s0kJ9QqOEneJfbITfC14o133ifZX
+         h6YumMsThlk5TvgB8sG6atgYyoNF9OIDHeaxty4+dc6QpIITy7uAFkR5v9OlNoFIqZnf
+         TKNOOQj5NdYkblPyJ6JB1QkwQgG9UlVJP8/Hd9vpGdQocPKMO0u0aWH/rEgZ9sdoCyAB
+         tJ6xvIooPbcZt8U5ahDMIOM0IpwaWp5AvqkNC6oPidQb5nNbWijnuHjM5o5K3p49gS21
+         La9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748713643; x=1749318443;
+        d=1e100.net; s=20230601; t=1748713822; x=1749318622;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YBHGQdqSeWvGB9mY6qlXaI9AwWyEpcoU+ydjWvyeZw8=;
-        b=Hwd83aGKvnO7KJ9r4few2InUxfeBz1T12rS679TWv5et25mL4veUX5+oMXkdmXTGQt
-         NJGmHA7MxVHmh/MTrjUiyUzaP5TnPPo5fFdsCsnr8MImHTeY/ubwurCWKYNlFi9hjvaz
-         ACA6jEGmyQDA5VW+QgCeva6BVzRhoTm2WPSVB3+Kt4dOzoANy7KXODMM6Cg/7PABFGEL
-         1GYzYQxiFjy7+Z7hb//cgEZTtL+Oi6wA4jrMee85CAznC3lDnsAjPQQhW5CGiLAZFQZO
-         DJFxUqffNt8jw8s9bkl76lSIHaoeQb5PhdTA5mMUyLe4lqAwfN42ERPiB3Qp13dG+fSD
-         K2Fw==
-X-Forwarded-Encrypted: i=1; AJvYcCXW/496L/Ntjldd9AOhbYHazaLhV8lqeSs9F6K4ptKiTnd5hIf82pFO3pjiYxnc1kTdJmGjnYNIo2CG0Q7bPU+Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlZVr2ClqGq8AccpnXw3FqaiaER5SZJiC0/tDdcWW5wRKcBKpL
-	Dm41BLS0yqlGbC7knPNoOEH254UBYS4U8gfoCpBwiSsXpHR34OF3N3RJGqdcHp1lxw==
-X-Gm-Gg: ASbGncsZPNlA+zmqvlGkO290IN+lyshsx7QdTUa35xHNoO+1oZmpio10OzDX/1L7t9F
-	qwhTCAbSGrECrkBC0T0q0MtOf9EbIwBNORm2j2n2i43dI5zPzfQcJtFdjUXaMoZiGYHJdYLLiPZ
-	tx49XlO/Fx3BgWXCTZzdKmwlWhwcA5NK1SlKAIa7Dk35iTCLkmbPnm4mGpjuJJjmFbsBELExaTZ
-	dHRLR98KmRnWsWAaHuPTeXD5fwxhxCZHxqLcGUAorDtW1Ll6UR0qq6Xq0ATNyVbo+I4dipFTn9R
-	wxdhTBHT+Hss/tyJvJPW1VVEKQejqaMgJoMBb119L7NlFsIDF6PJIhgB3HzMgtiRJ3UzL/JMlAk
-	HXCQdSzI=
-X-Google-Smtp-Source: AGHT+IEQudPQU3BshE97L4wC1n51Mdqw3QLAzjvyvN2bu8Bm77uJvbC7suQxxrFON6iwO1js+sJc9Q==
-X-Received: by 2002:a05:6a00:8d0:b0:73e:970:731 with SMTP id d2e1a72fcca58-747d1ab6968mr3580149b3a.16.1748713642662;
-        Sat, 31 May 2025 10:47:22 -0700 (PDT)
+        bh=5AbNlKkJboN5wZoU7ozNTe8jKHTn2i9ktrC3fw6ibsc=;
+        b=lmkMx4r87yp6CkZ1V3tOAeiN2habMYa7Azwumsu01TsCBpMGgHqf3BD82+LKujAg4z
+         WDd2AoiSKjQS412+s9DhS2x/1f3QTEU1ZCReuAs8UQ62Shr6CGtTGJ7gdVmRcXgiagrK
+         8u+2ENaJjn6WCufd066cppbMknp0Zl+n+1r/6rSDjZIyDc7SGGvXVrQw/SlxBD8O6L1r
+         O9eGSSS77xw+Q3Ioth6PZKzHVD6ugfGqlq6+bP6GwVWoWf/H2T2QsmvVZ8bAvUnURrVb
+         opgDJDhKkmVtIPnKBN75nDe61tjEu4tUyec6+CgWUZFKFnkTqwmyJj68+frLUSUH2BtS
+         T0oQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVp+eWQzqzUiAr1deQqMYstYwu64e1VYvGazp1gKP4JgCLQrEve8pWfJycbIVr94mPlafpFdS7vkQfsnQYlA+nu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPYhULRKwnMu2c7odXmelSJCTawSx8mbSaoaauvejstGEp3uZM
+	F9VaFuX6sjBMg/YOfAsn6zMOzmA3E2afElBmpWgi8XYA6cNb5eu15vt50XeCOleplg==
+X-Gm-Gg: ASbGnctkGvg29LbiZIqNSKeSCWeKwrnw333f/9a4dFppXRF951iK8C0UThBu0JadQX4
+	IKBJfJxMHLL1ZwgwkMQiQ5iFKf5QvILiOPJr5kDXl0CDQFFJqoDrvDX/YTWbOuHmdg87QmDSjkG
+	SXE0SowF2nYCZvTfmxL8QXJlMWMIGMvYCkbSNWx9lJcDUsS7pT0gYMvFEVr40Oezdumg0b2bvLP
+	qH3AEBjhXBq9rUC5cR++byNJwfBiQwobMDPJZIG2Duulx4y3LWtP5x8U8iV2rlET5liNUJDMUFs
+	4caKs7BOOlaXSp/Yalw18lK7f/F2q+zP0n1jDui0reVqCyD9XSto3bbWsXAeaQ==
+X-Google-Smtp-Source: AGHT+IEdPK+JHZ+t44u8hV+Tuwo0Dn5k2WtHvYf+YRYNtFb+Y0T4pf/Gas2+IG+qUK9yX+xyBHPdxg==
+X-Received: by 2002:a05:6a20:1583:b0:218:76dd:a66 with SMTP id adf61e73a8af0-21ad95636d1mr11124498637.13.1748713822539;
+        Sat, 31 May 2025 10:50:22 -0700 (PDT)
 Received: from thinkpad ([120.56.204.95])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-747affcf6ebsm5018495b3a.141.2025.05.31.10.47.15
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2ecebb4834sm2748724a12.74.2025.05.31.10.50.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 31 May 2025 10:47:19 -0700 (PDT)
-Date: Sat, 31 May 2025 23:17:13 +0530
-From: "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	Krishna Chaitanya Chundru <quic_krichai@quicinc.com>, "jingoohan1@gmail.com" <jingoohan1@gmail.com>, 
-	Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>, 
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kw@linux.com" <kw@linux.com>, 
-	"robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 1/4] PCI: dwc: Add quirk to fix hang issue in L2 poll
- of suspend
-Message-ID: <tv67nul5owjqywhqmekb2cf5q2acyb3jpcfvz6k62jd6sxd5gv@izy7uomaakei>
-References: <20250408065221.1941928-2-hongxing.zhu@nxp.com>
- <20250408145840.GA231894@bhelgaas>
- <AS8PR04MB86766063C3A9E969234779EB8CB42@AS8PR04MB8676.eurprd04.prod.outlook.com>
+        Sat, 31 May 2025 10:50:20 -0700 (PDT)
+Date: Sat, 31 May 2025 23:20:15 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: jingoohan1@gmail.com, frank.li@nxp.com, l.stach@pengutronix.de, 
+	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, bhelgaas@google.com, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 2/4] PCI: dwc: Add quirk to fix hang issue when send
+ out PME_Turn_Off Msg TLP
+Message-ID: <xq6ojgyh5tpm4zbpymb2wvtf4at3xq7bai3ztuublgh63e7qdn@vfxan6mew3os>
+References: <20250408065221.1941928-1-hongxing.zhu@nxp.com>
+ <20250408065221.1941928-3-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <AS8PR04MB86766063C3A9E969234779EB8CB42@AS8PR04MB8676.eurprd04.prod.outlook.com>
+In-Reply-To: <20250408065221.1941928-3-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250531_104723_778422_38863141 
-X-CRM114-Status: GOOD (  38.20  )
+X-CRM114-CacheID: sfid-20250531_105023_538278_9D283461 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,126 +103,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 02:31:22AM +0000, Hongxing Zhu wrote:
-> > -----Original Message-----
-> > From: Bjorn Helgaas <helgaas@kernel.org>
-> > Sent: 2025年4月8日 22:59
-> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > Cc: jingoohan1@gmail.com; Frank Li <frank.li@nxp.com>;
-> > l.stach@pengutronix.de; lpieralisi@kernel.org; kw@linux.com;
-> > manivannan.sadhasivam@linaro.org; robh@kernel.org;
-> > bhelgaas@google.com; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> > kernel@pengutronix.de; festevam@gmail.com; linux-pci@vger.kernel.org;
-> > linux-arm-kernel@lists.infradead.org; imx@lists.linux.dev;
-> > linux-kernel@vger.kernel.org
-> > Subject: Re: [PATCH v1 1/4] PCI: dwc: Add quirk to fix hang issue in L2 poll of
-> > suspend
-> > 
-> > On Tue, Apr 08, 2025 at 02:52:18PM +0800, Richard Zhu wrote:
-> > > i.MX6QP PCIe is hang in L2 poll during suspend when one endpoint
-> > > device is connected, for example the Intel e1000e network card.
-> > >
-> > > Refer to Figure5-1 Link Power Management State Flow Diagram of PCI
-> > > Express Base Spec Rev6.0. L0 can be transferred to LDn directly.
-> > 
-> > Please include the section number.  Section numbers are easy to find
-> > because they're in the spec PDF contents, but figures are not.  E.g., "PCIe
-> > r6.0, sec 5.2, fig 5-1"
-> > 
-> Okay, would add them later.
+On Tue, Apr 08, 2025 at 02:52:19PM +0800, Richard Zhu wrote:
+> When no endpoint is connected on i.MX7D PCIe, chip would be freeze when do
+> the dummy write in dw_pcie_pme_turn_off() to issue a PME_Turn_Off Msg TLP.
 > 
-> > > It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
-> > > PME_Turn_Off is sent out, whatever the ltssm state is in L2 or L3 on
-> > > some PME_Turn_Off handshake broken platforms.
-> > 
-> > Maybe we don't need to poll for these LTSSM states on *any* platform, and
-> > we could just remove the poll and timeout completely?
-> > 
-> Yes, I used to suggest remove the L2 poll and timeout in the following
->  discussion.
-> https://lkml.org/lkml/2024/11/18/200
-> Hi Krishna:
-> Is it feasible to eliminate the L2 poll and timeout in this context?
+> Add one quirk to issue the PME_Turn_Off only when link is up to avoid
+> this problem on the PME_Turn_Off handshake broken platform, for example
+> the i.MX7D.
 > 
 
-Spec r6.0, sec 5.2 mandates L2/L3 Ready state:
-
-"L2/L3 Ready transition protocol support is required."
-
-Also in many places, it suggests waiting for L2/L3 Ready state before powering
-down the device. So I don't think we should just remove the poll for all
-platforms.
-
-> > If not, we need to explain why it is safe to skip the poll on some platforms.
-> > "Skipping the poll avoids a hang" is not a sufficient explanation.
-> > 
-
-So the issue is that the device doesn't transition to L2/L3 Ready state and the
-host platform just 'hangs'? Do we know why the hang happens?
-
-> > s/ltssm/LTSSM/
-> Okay.
-> > 
-> > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > @@ -947,7 +947,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)  {
-> > >  	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> > >  	u32 val;
-> > > -	int ret;
-> > > +	int ret = 0;
-> > >
-> > >  	/*
-> > >  	 * If L1SS is supported, then do not put the link into L2 as some @@
-> > > -964,15 +964,17 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
-> > >  			return ret;
-> > >  	}
-> > >
-> > > -	ret = read_poll_timeout(dw_pcie_get_ltssm, val,
-> > > -				val == DW_PCIE_LTSSM_L2_IDLE ||
-> > > -				val <= DW_PCIE_LTSSM_DETECT_WAIT,
-> > > -				PCIE_PME_TO_L2_TIMEOUT_US/10,
-> > > -				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-> > > -	if (ret) {
-> > > -		/* Only log message when LTSSM isn't in DETECT or POLL */
-> > > -		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n",
-> > val);
-> > > -		return ret;
-> > > +	if (!dwc_check_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
-> > > +		ret = read_poll_timeout(dw_pcie_get_ltssm, val,
-> > > +					val == DW_PCIE_LTSSM_L2_IDLE ||
-> > > +					val <= DW_PCIE_LTSSM_DETECT_WAIT,
-> > > +					PCIE_PME_TO_L2_TIMEOUT_US/10,
-> > > +					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-> > > +		if (ret) {
-> > > +			/* Only log message when LTSSM isn't in DETECT or POLL */
-> > > +			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM:
-> > 0x%x\n", val);
-> > > +			return ret;
-> > > +		}
-> > >  	}
-> > >
-> > >  	/*
-> > > diff --git a/drivers/pci/controller/dwc/pcie-designware.h
-> > > b/drivers/pci/controller/dwc/pcie-designware.h
-> > > index 56aafdbcdaca..05fe654d7761 100644
-> > > --- a/drivers/pci/controller/dwc/pcie-designware.h
-> > > +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> > > @@ -282,6 +282,9 @@
-> > >  /* Default eDMA LLP memory size */
-> > >  #define DMA_LLP_MEM_SIZE		PAGE_SIZE
-> > >
-> > > +#define QUIRK_NOL2POLL_IN_PM		BIT(0)
-> > > +#define dwc_check_quirk(pci, val)	(pci->quirk_flag & val)
-> > 
-> > Maybe just my personal preference, but I don't like things named "check"
-> > because that just means "look at"; it doesn't give any hint about how to
-> > interpret the result of looking at it.
-> > 
-> How about dwc_match_quirk(pci, val) (pci->quirk_flag & val)?
-> 
-
-Maybe just dwc_quirk()?
+Why do we need to send PME_Turn_Off if there is no endpoint connected? We should
+skip PME_Turn_Off and L2/L3 Ready transitions in that case.
 
 - Mani
+
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  .../pci/controller/dwc/pcie-designware-host.c    | 16 +++++++++++-----
+>  drivers/pci/controller/dwc/pcie-designware.h     |  1 +
+>  2 files changed, 12 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 0817df5b8a59..a62bf7e0ade8 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -956,12 +956,18 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
+>  		return 0;
+>  
+> -	if (pci->pp.ops->pme_turn_off) {
+> -		pci->pp.ops->pme_turn_off(&pci->pp);
+> +	if (dw_pcie_get_ltssm(pci) <= DW_PCIE_LTSSM_DETECT_WAIT &&
+> +	    dwc_check_quirk(pci, QUIRK_NOLINK_NOPME)) {
+> +		/* Don't send the PME_TURN_OFF when link is down. */
+> +		;
+>  	} else {
+> -		ret = dw_pcie_pme_turn_off(pci);
+> -		if (ret)
+> -			return ret;
+> +		if (pci->pp.ops->pme_turn_off) {
+> +			pci->pp.ops->pme_turn_off(&pci->pp);
+> +		} else {
+> +			ret = dw_pcie_pme_turn_off(pci);
+> +			if (ret)
+> +				return ret;
+> +		}
+>  	}
+>  
+>  	if (!dwc_check_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index 05fe654d7761..d752af660e95 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -283,6 +283,7 @@
+>  #define DMA_LLP_MEM_SIZE		PAGE_SIZE
+>  
+>  #define QUIRK_NOL2POLL_IN_PM		BIT(0)
+> +#define QUIRK_NOLINK_NOPME		BIT(1)
+>  #define dwc_check_quirk(pci, val)	(pci->quirk_flag & val)
+>  
+>  struct dw_pcie;
+> -- 
+> 2.37.1
+> 
 
 -- 
 மணிவண்ணன் சதாசிவம்
