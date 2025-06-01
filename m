@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE3DC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 23:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7951C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 23:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9D0B6f0igqikye6VdWEf1EaWtiZp5SjqsoI5m9pE/g0=; b=g8J2vXqPSkgCb+5Nck0h/3rziw
-	J0sLFufzEH2F/bsd0X7Rvkta4Oa41ziUwE9gogIJM78SiAbLBPWdvmLg+1N4w/ztXEQfJ7NqOXBPH
-	9z0wdAGTp9gHBMcwoSuqDfFWswDkac5qQHmZLb3ljj+3DkTFRQ6qD6IxvcUXp0EdURgEhKrvTMwa8
-	sHVh7v6zrYSVkr858n1QLLlrfYbZgwA3avdrLgSOlvNT3gNVx72xP0k9OLM6xrVZcyReTuvLnATtm
-	AEJnfROdZJS6LzUqYKUTe74oCVIMSzDQAc3w7irNNWo4l2++dHlkxuIn5MTKEJPbo6UTfGTBCaITJ
-	8dK8nsyg==;
+	bh=hfbKtZvV10LK5AgkFSeJ3qkCmuqnXUKfy3NxwTZXDdo=; b=i2PMRc7RWUh6h+I+jaJv3Fo9uO
+	LmC5VpY19eK+jcrh3g+3EhjWmi9axgc5xReROQPFI7WqV4VpoXrayfVCoMUPW/7Nz+W6J+OgP3S9I
+	OMmq1wWeC0GdCcWBttdfsz9g+7j+RLGKqJcFDJC1iVvJe/ljEPuyVUvCJO21xMxE3IwrMusqfFk3g
+	pzGrgtvoRQFjoNIzTKRaiRxiEPiwAeDgd2weYI3pnQC+1qk3ynDE9+QpVPM2MRs3jsgA95YxExEOm
+	MD3ZHtXIIwECf6SSRsOE1YdF9wOHGp7P0OFUmfRKa97tRnkPAXQk0UTmx8MdmepDcrpIY6Ll/XcSS
+	iv3ggO1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLrlJ-000000063f7-2H0m;
-	Sun, 01 Jun 2025 23:06:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uLrnP-000000063pP-3RUB;
+	Sun, 01 Jun 2025 23:08:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLrRH-0000000611D-2FRP;
-	Sun, 01 Jun 2025 22:45:59 +0000
+	id 1uLrRF-000000060yc-3VOx;
+	Sun, 01 Jun 2025 22:46:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD38A61165;
-	Sun,  1 Jun 2025 22:45:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E2A3C4CEE7;
-	Sun,  1 Jun 2025 22:45:58 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 28C35A4EF26;
+	Sun,  1 Jun 2025 22:45:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74559C4CEE7;
+	Sun,  1 Jun 2025 22:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748817958;
-	bh=bR2IghF04qIfhGMxr7Z+GJfdUQx5LDT1V3vKPSH6Ff4=;
+	s=k20201202; t=1748817956;
+	bh=yoI90iVlquVCitVGa7RjvDmSsdHmtg6em7U4Tn0qZw0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IBTRtWHjJ+jupFNO5g3cD6rMnOkFHFGZEMgzNOQ70Q8P8oHYwGGfZUtLjvyOYSiUH
-	 i7F2k/afwYgujvklX7H3sBOkqdbEigqlSrolUXN9v5cZ20fMYzKz+4BPXLJh05KOlv
-	 Lwl3NZBBcJArPhpitLTXLQcgY0kYIVL5vTxMKoHYr8gpH6ddjOA86+p2iaLEcVMNLu
-	 u4zEv21rLTdRnWQM9lijRqZ8BUfa+4S4kyFoIzQ5DqUWMOoqYptStpb+fJAzPqBJqU
-	 +yzl6RyX+gtETuNHxzn4wBaoVnvmKElnDhwDkePobv4PTgLbyjf+0m9A39mPF5QDMP
-	 zurRH1JGaUr4g==
+	b=X/+oa40fhs3WXlKJD4saBc72E23kv2NhgbcXplwEgCHTSx9q7IEqr1ccshOJ7tgnA
+	 1wvSNnBXanAW0tzJBW0i77u5/lfiDGRSmDSaAEtDLDXaFSfcXR7uEipZlWltGULHKG
+	 vmLfT92usKuxNR1te1C5Gj9xrmv8ttsPpoa7oOuSrgYSTO/zWghx+tMvMSyzzhyquP
+	 8bQkBn5G93f6oPP7ZVPETOrTsXb9Nx6g01+InRcz1r/Zt6Z2giIRsqn2+I5unoCbmU
+	 Vydkoc1ew8KwpGCw7V2LLbC2a6+CesUEmCU4a0ixOpuS42FGYNReQ3EqOsXAG3DoDU
+	 Qol9Wooapbftw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-crypto@vger.kernel.org,
@@ -56,14 +56,17 @@ Cc: linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 10/13] lib/crc/riscv: migrate riscv-optimized CRC code into lib/crc/
-Date: Sun,  1 Jun 2025 15:44:38 -0700
-Message-ID: <20250601224441.778374-11-ebiggers@kernel.org>
+Subject: [PATCH 07/13] lib/crc/loongarch: migrate loongarch-optimized CRC code into lib/crc/
+Date: Sun,  1 Jun 2025 15:44:35 -0700
+Message-ID: <20250601224441.778374-8-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250601224441.778374-1-ebiggers@kernel.org>
 References: <20250601224441.778374-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250601_154558_036158_8E689930 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,314 +83,157 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Move the riscv-optimized CRC code from arch/riscv/lib/crc* into its new
-location in lib/crc/riscv/, and wire it up in the new way.  For a
-detailed explanation of why this change is being made, see the commit
-that introduced the new way of integrating arch-specific code into
-lib/crc/.
+Move the loongarch-optimized CRC code from arch/loongarch/lib/crc* into
+its new location in lib/crc/loongarch/, and wire it up in the new way.
+For a detailed explanation of why this change is being made, see the
+commit that introduced the new way of integrating arch-specific code
+into lib/crc/.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/riscv/Kconfig                            |  3 ---
- arch/riscv/lib/Makefile                       |  6 ------
- lib/crc/Kconfig                               |  3 +++
- lib/crc/Makefile                              |  3 +++
- .../lib => lib/crc/riscv}/crc-clmul-consts.h  |  0
- .../crc/riscv}/crc-clmul-template.h           |  0
- {arch/riscv/lib => lib/crc/riscv}/crc-clmul.h |  0
- .../crc/riscv/crc-t10dif.h                    |  8 +-------
- {arch/riscv/lib => lib/crc/riscv}/crc16_msb.c |  0
- .../lib/crc32.c => lib/crc/riscv/crc32.h      | 20 +++++++------------
- {arch/riscv/lib => lib/crc/riscv}/crc32_lsb.c |  0
- {arch/riscv/lib => lib/crc/riscv}/crc32_msb.c |  0
- .../lib/crc64.c => lib/crc/riscv/crc64.h      | 11 ++--------
- {arch/riscv/lib => lib/crc/riscv}/crc64_lsb.c |  0
- {arch/riscv/lib => lib/crc/riscv}/crc64_msb.c |  0
- 15 files changed, 16 insertions(+), 38 deletions(-)
- rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul-consts.h (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul-template.h (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul.h (100%)
- rename arch/riscv/lib/crc-t10dif.c => lib/crc/riscv/crc-t10dif.h (62%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc16_msb.c (100%)
- rename arch/riscv/lib/crc32.c => lib/crc/riscv/crc32.h (66%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc32_lsb.c (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc32_msb.c (100%)
- rename arch/riscv/lib/crc64.c => lib/crc/riscv/crc64.h (65%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc64_lsb.c (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc64_msb.c (100%)
+ arch/loongarch/Kconfig                        |  1 -
+ arch/loongarch/lib/Makefile                   |  2 --
+ lib/crc/Kconfig                               |  1 +
+ .../crc/loongarch/crc32.h                     | 34 ++++---------------
+ 4 files changed, 8 insertions(+), 30 deletions(-)
+ rename arch/loongarch/lib/crc32-loongarch.c => lib/crc/loongarch/crc32.h (71%)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index bbec87b793099..b533d9e5086a9 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -22,13 +22,10 @@ config RISCV
- 	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM_VMEMMAP
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+index 1a2cf012b8f2f..1b19893a6bdf0 100644
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -13,11 +13,10 @@ config LOONGARCH
+ 	select ARCH_ENABLE_MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_MEMORY_HOTREMOVE
  	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
- 	select ARCH_HAS_BINFMT_FLAT
--	select ARCH_HAS_CRC32 if RISCV_ISA_ZBC
--	select ARCH_HAS_CRC64 if 64BIT && RISCV_ISA_ZBC
--	select ARCH_HAS_CRC_T10DIF if RISCV_ISA_ZBC
+ 	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
+ 	select ARCH_HAS_CPU_FINALIZE_INIT
+-	select ARCH_HAS_CRC32
  	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
  	select ARCH_HAS_DEBUG_VM_PGTABLE
- 	select ARCH_HAS_DEBUG_WX
  	select ARCH_HAS_FAST_MULTIPLIER
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 0baec92d2f55b..a4f4b48ed3a47 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -14,14 +14,8 @@ ifeq ($(CONFIG_MMU), y)
- lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
- endif
- lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
--obj-$(CONFIG_CRC32_ARCH)	+= crc32-riscv.o
--crc32-riscv-y := crc32.o crc32_msb.o crc32_lsb.o
--obj-$(CONFIG_CRC64_ARCH) += crc64-riscv.o
--crc64-riscv-y := crc64.o crc64_msb.o crc64_lsb.o
--obj-$(CONFIG_CRC_T10DIF_ARCH)	+= crc-t10dif-riscv.o
--crc-t10dif-riscv-y := crc-t10dif.o crc16_msb.o
+ 	select ARCH_HAS_FORTIFY_SOURCE
+ 	select ARCH_HAS_KCOV
+diff --git a/arch/loongarch/lib/Makefile b/arch/loongarch/lib/Makefile
+index fae77809048b8..ccea3bbd43531 100644
+--- a/arch/loongarch/lib/Makefile
++++ b/arch/loongarch/lib/Makefile
+@@ -9,7 +9,5 @@ lib-y	+= delay.o memset.o memcpy.o memmove.o \
+ obj-$(CONFIG_ARCH_SUPPORTS_INT128) += tishift.o
+ 
+ obj-$(CONFIG_CPU_HAS_LSX) += xor_simd.o xor_simd_glue.o
+ 
  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
- lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
- lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
+-
+-obj-$(CONFIG_CRC32_ARCH) += crc32-loongarch.o
 diff --git a/lib/crc/Kconfig b/lib/crc/Kconfig
-index 06611610e478f..4044e08cb9739 100644
+index 663f4dca2bda1..ee320ae19ca85 100644
 --- a/lib/crc/Kconfig
 +++ b/lib/crc/Kconfig
-@@ -51,10 +51,11 @@ config CRC_T10DIF_ARCH
+@@ -63,10 +63,11 @@ config CRC32
+ config CRC32_ARCH
  	bool
- 	depends on CRC_T10DIF && CRC_OPTIMIZATIONS
- 	default y if ARM && KERNEL_MODE_NEON
- 	default y if ARM64 && KERNEL_MODE_NEON
- 	default y if PPC64 && ALTIVEC
-+	default y if RISCV && RISCV_ISA_ZBC
- 
- config CRC32
- 	tristate
- 	select BITREVERSE
- 	help
-@@ -67,20 +68,22 @@ config CRC32_ARCH
+ 	depends on CRC32 && CRC_OPTIMIZATIONS
  	default y if ARM && KERNEL_MODE_NEON
  	default y if ARM64
- 	default y if LOONGARCH
- 	default y if MIPS && CPU_MIPSR6
- 	default y if PPC64 && ALTIVEC
-+	default y if RISCV && RISCV_ISA_ZBC
++	default y if LOONGARCH
  
  config CRC64
  	tristate
  	help
  	  The CRC64 library functions.  Select this if your module uses any of
- 	  the functions from <linux/crc64.h>.
- 
- config CRC64_ARCH
- 	bool
- 	depends on CRC64 && CRC_OPTIMIZATIONS
-+	default y if RISCV && RISCV_ISA_ZBC && 64BIT
- 
- config CRC_OPTIMIZATIONS
- 	bool "Enable optimized CRC implementations" if EXPERT
- 	default y
- 	help
-diff --git a/lib/crc/Makefile b/lib/crc/Makefile
-index f9109b71c1264..e46b35a2ffc04 100644
---- a/lib/crc/Makefile
-+++ b/lib/crc/Makefile
-@@ -15,23 +15,26 @@ obj-$(CONFIG_CRC_T10DIF) += crc-t10dif.o
- crc-t10dif-y := crc-t10dif-main.o
- ifeq ($(CONFIG_CRC_T10DIF_ARCH),y)
- crc-t10dif-$(CONFIG_ARM) += arm/crc-t10dif-core.o
- crc-t10dif-$(CONFIG_ARM64) += arm64/crc-t10dif-core.o
- crc-t10dif-$(CONFIG_PPC) += powerpc/crct10dif-vpmsum_asm.o
-+crc-t10dif-$(CONFIG_RISCV) += riscv/crc16_msb.o
- endif
- 
- obj-$(CONFIG_CRC32) += crc32.o
- crc32-y := crc32-main.o
- ifeq ($(CONFIG_CRC32_ARCH),y)
- crc32-$(CONFIG_ARM) += arm/crc32-core.o
- crc32-$(CONFIG_ARM64) += arm64/crc32-core.o
- crc32-$(CONFIG_PPC) += powerpc/crc32c-vpmsum_asm.o
-+crc32-$(CONFIG_RISCV) += riscv/crc32_lsb.o riscv/crc32_msb.o
- endif
- 
- obj-$(CONFIG_CRC64) += crc64.o
- crc64-y := crc64-main.o
- ifeq ($(CONFIG_CRC64_ARCH),y)
-+crc64-$(CONFIG_RISCV) += riscv/crc64_lsb.o riscv/crc64_msb.o
- endif
- 
- obj-y += tests/
- 
- hostprogs := gen_crc32table gen_crc64table
-diff --git a/arch/riscv/lib/crc-clmul-consts.h b/lib/crc/riscv/crc-clmul-consts.h
-similarity index 100%
-rename from arch/riscv/lib/crc-clmul-consts.h
-rename to lib/crc/riscv/crc-clmul-consts.h
-diff --git a/arch/riscv/lib/crc-clmul-template.h b/lib/crc/riscv/crc-clmul-template.h
-similarity index 100%
-rename from arch/riscv/lib/crc-clmul-template.h
-rename to lib/crc/riscv/crc-clmul-template.h
-diff --git a/arch/riscv/lib/crc-clmul.h b/lib/crc/riscv/crc-clmul.h
-similarity index 100%
-rename from arch/riscv/lib/crc-clmul.h
-rename to lib/crc/riscv/crc-clmul.h
-diff --git a/arch/riscv/lib/crc-t10dif.c b/lib/crc/riscv/crc-t10dif.h
-similarity index 62%
-rename from arch/riscv/lib/crc-t10dif.c
-rename to lib/crc/riscv/crc-t10dif.h
-index e6b0051ccd86c..cd6136cbfda1c 100644
---- a/arch/riscv/lib/crc-t10dif.c
-+++ b/lib/crc/riscv/crc-t10dif.h
-@@ -5,20 +5,14 @@
-  * Copyright 2025 Google LLC
+diff --git a/arch/loongarch/lib/crc32-loongarch.c b/lib/crc/loongarch/crc32.h
+similarity index 71%
+rename from arch/loongarch/lib/crc32-loongarch.c
+rename to lib/crc/loongarch/crc32.h
+index b37cd8537b459..d5aff7ca96ae9 100644
+--- a/arch/loongarch/lib/crc32-loongarch.c
++++ b/lib/crc/loongarch/crc32.h
+@@ -8,12 +8,10 @@
+  * Copyright (C) 2018 MIPS Tech, LLC
+  * Copyright (C) 2020-2023 Loongson Technology Corporation Limited
   */
  
- #include <asm/hwcap.h>
- #include <asm/alternative-macros.h>
--#include <linux/crc-t10dif.h>
--#include <linux/module.h>
- 
- #include "crc-clmul.h"
- 
--u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
-+static inline u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
- {
- 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
- 		return crc16_msb_clmul(crc, p, len, &crc16_msb_0x8bb7_consts);
- 	return crc_t10dif_generic(crc, p, len);
- }
--EXPORT_SYMBOL(crc_t10dif_arch);
--
--MODULE_DESCRIPTION("RISC-V optimized CRC-T10DIF function");
--MODULE_LICENSE("GPL");
-diff --git a/arch/riscv/lib/crc16_msb.c b/lib/crc/riscv/crc16_msb.c
-similarity index 100%
-rename from arch/riscv/lib/crc16_msb.c
-rename to lib/crc/riscv/crc16_msb.c
-diff --git a/arch/riscv/lib/crc32.c b/lib/crc/riscv/crc32.h
-similarity index 66%
-rename from arch/riscv/lib/crc32.c
-rename to lib/crc/riscv/crc32.h
-index a3188b7d9c403..08c33357d25cd 100644
---- a/arch/riscv/lib/crc32.c
-+++ b/lib/crc/riscv/crc32.h
-@@ -5,49 +5,43 @@
-  * Copyright 2025 Google LLC
-  */
- 
- #include <asm/hwcap.h>
- #include <asm/alternative-macros.h>
+ #include <asm/cpu-features.h>
 -#include <linux/crc32.h>
 -#include <linux/module.h>
+ #include <linux/unaligned.h>
  
- #include "crc-clmul.h"
+ #define _CRC32(crc, value, size, type)			\
+ do {							\
+ 	__asm__ __volatile__(				\
+@@ -26,11 +24,12 @@ do {							\
+ #define CRC32(crc, value, size)		_CRC32(crc, value, size, crc)
+ #define CRC32C(crc, value, size)	_CRC32(crc, value, size, crcc)
+ 
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_crc32);
  
 -u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
 +#define crc32_le_arch crc32_le_arch
 +static inline u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
  {
- 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
- 		return crc32_lsb_clmul(crc, p, len,
- 				       &crc32_lsb_0xedb88320_consts);
- 	return crc32_le_base(crc, p, len);
+ 	if (!static_branch_likely(&have_crc32))
+ 		return crc32_le_base(crc, p, len);
+ 
+ 	while (len >= sizeof(u64)) {
+@@ -61,13 +60,13 @@ u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
+ 		CRC32(crc, value, b);
+ 	}
+ 
+ 	return crc;
  }
 -EXPORT_SYMBOL(crc32_le_arch);
- 
--u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
-+#define crc32_be_arch crc32_be_arch
-+static inline u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
- {
- 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
- 		return crc32_msb_clmul(crc, p, len,
- 				       &crc32_msb_0x04c11db7_consts);
- 	return crc32_be_base(crc, p, len);
- }
--EXPORT_SYMBOL(crc32_be_arch);
  
 -u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
 +#define crc32c_arch crc32c_arch
 +static inline u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
  {
- 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
- 		return crc32_lsb_clmul(crc, p, len,
- 				       &crc32_lsb_0x82f63b78_consts);
- 	return crc32c_base(crc, p, len);
+ 	if (!static_branch_likely(&have_crc32))
+ 		return crc32c_base(crc, p, len);
+ 
+ 	while (len >= sizeof(u64)) {
+@@ -98,38 +97,19 @@ u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
+ 		CRC32C(crc, value, b);
+ 	}
+ 
+ 	return crc;
  }
 -EXPORT_SYMBOL(crc32c_arch);
  
+-u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
+-{
+-	return crc32_be_base(crc, p, len);
+-}
+-EXPORT_SYMBOL(crc32_be_arch);
+-
+-static int __init crc32_loongarch_init(void)
++#define crc32_mod_init_arch crc32_mod_init_arch
++static inline void crc32_mod_init_arch(void)
+ {
+ 	if (cpu_has_crc32)
+ 		static_branch_enable(&have_crc32);
+-	return 0;
+ }
+-subsys_initcall(crc32_loongarch_init);
+ 
+-static void __exit crc32_loongarch_exit(void)
+-{
+-}
+-module_exit(crc32_loongarch_exit);
+-
 -u32 crc32_optimizations(void)
 +static inline u32 crc32_optimizations_arch(void)
  {
- 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
- 		return CRC32_LE_OPTIMIZATION |
- 		       CRC32_BE_OPTIMIZATION |
- 		       CRC32C_OPTIMIZATION;
+ 	if (static_key_enabled(&have_crc32))
+ 		return CRC32_LE_OPTIMIZATION | CRC32C_OPTIMIZATION;
  	return 0;
  }
 -EXPORT_SYMBOL(crc32_optimizations);
 -
--MODULE_DESCRIPTION("RISC-V optimized CRC32 functions");
--MODULE_LICENSE("GPL");
-diff --git a/arch/riscv/lib/crc32_lsb.c b/lib/crc/riscv/crc32_lsb.c
-similarity index 100%
-rename from arch/riscv/lib/crc32_lsb.c
-rename to lib/crc/riscv/crc32_lsb.c
-diff --git a/arch/riscv/lib/crc32_msb.c b/lib/crc/riscv/crc32_msb.c
-similarity index 100%
-rename from arch/riscv/lib/crc32_msb.c
-rename to lib/crc/riscv/crc32_msb.c
-diff --git a/arch/riscv/lib/crc64.c b/lib/crc/riscv/crc64.h
-similarity index 65%
-rename from arch/riscv/lib/crc64.c
-rename to lib/crc/riscv/crc64.h
-index f0015a27836a4..a1b7873fde579 100644
---- a/arch/riscv/lib/crc64.c
-+++ b/lib/crc/riscv/crc64.h
-@@ -5,30 +5,23 @@
-  * Copyright 2025 Google LLC
-  */
- 
- #include <asm/hwcap.h>
- #include <asm/alternative-macros.h>
--#include <linux/crc64.h>
--#include <linux/module.h>
- 
- #include "crc-clmul.h"
- 
--u64 crc64_be_arch(u64 crc, const u8 *p, size_t len)
-+static inline u64 crc64_be_arch(u64 crc, const u8 *p, size_t len)
- {
- 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
- 		return crc64_msb_clmul(crc, p, len,
- 				       &crc64_msb_0x42f0e1eba9ea3693_consts);
- 	return crc64_be_generic(crc, p, len);
- }
--EXPORT_SYMBOL(crc64_be_arch);
- 
--u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
-+static inline u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
- {
- 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
- 		return crc64_lsb_clmul(crc, p, len,
- 				       &crc64_lsb_0x9a6c9329ac4bc9b5_consts);
- 	return crc64_nvme_generic(crc, p, len);
- }
--EXPORT_SYMBOL(crc64_nvme_arch);
--
--MODULE_DESCRIPTION("RISC-V optimized CRC64 functions");
--MODULE_LICENSE("GPL");
-diff --git a/arch/riscv/lib/crc64_lsb.c b/lib/crc/riscv/crc64_lsb.c
-similarity index 100%
-rename from arch/riscv/lib/crc64_lsb.c
-rename to lib/crc/riscv/crc64_lsb.c
-diff --git a/arch/riscv/lib/crc64_msb.c b/lib/crc/riscv/crc64_msb.c
-similarity index 100%
-rename from arch/riscv/lib/crc64_msb.c
-rename to lib/crc/riscv/crc64_msb.c
+-MODULE_AUTHOR("Min Zhou <zhoumin@loongson.cn>");
+-MODULE_AUTHOR("Huacai Chen <chenhuacai@loongson.cn>");
+-MODULE_DESCRIPTION("CRC32 and CRC32C using LoongArch crc* instructions");
+-MODULE_LICENSE("GPL v2");
 -- 
 2.49.0
 
