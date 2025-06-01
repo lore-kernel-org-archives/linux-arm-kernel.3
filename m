@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18283C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 19:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D6A8C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 22:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SzUZjAwq3wcaa6gOCgYbtiea0bHWX/xhcaUjwWwiDQo=; b=uGyqECeKZFnn9ZZusD8sw5mmk8
-	3jXgpXjRFn3ILK3R/jLyy0n/byUToa536sTxQP0IzMUPNW8sqD8smp3lgl3DTqPg/zrdHrrmeWVvf
-	nkxfTY5ijAQV9ot5BGtnzLBx2Y2UHY/cjJJmRA6Ndc9Mhxopmmd3/TgEqf9WI7vTPk2zsP19gAcEQ
-	GVBsppt9fsgNG00AVeDdZcIXysl4yMmD0cIOZ4e19k13/m8TCbg1pmQL4X/A3rdpHbo5Mi2vidtyi
-	sCkJz77h/g7ilkMMHv67EdFq97nTsKG9PKBhFFH/FsZ7cIbO0B17kUHeJpSJ2ZLTObkWcPCG5QxUR
-	bMbDVTSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bQBtyBckoPpDZJKoZg4EzGegksEO0utLn/9XYWq5qDM=; b=mkZc55hJq0cwn9drkOGJShMBAi
+	EBIJnbg+VbLGX0EAzxrZwCbElnXC3Fkfx6Zz3YfWoQM09OWl55IaUHXi3E3P5GPnuIhQ6JAI/RSW7
+	9zIsv3QKXEz/NpW4r96UKnwYFlck7k9MD3VVaVY95KyIWV8HzACemc8+Oe6KRsz4y6X8MoLm44DLi
+	yrP/1ntbtFJpZ/R4MzeQjiZrMOpRxUg+Kql7D4Dgn3KhP18uw6/QhvcZUjNft9X1xLKfXeX8M4qBw
+	o4fX+wtcu7bl1Fsjtygrr0dW7fwC+LUR9OkhzJQStlyVcAY/0yVuLViO6L8gNChTM8ZXSehm5i0Sp
+	PXjzXFTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLo0d-00000005rfc-465R;
-	Sun, 01 Jun 2025 19:06:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uLrBn-000000060LP-2fF1;
+	Sun, 01 Jun 2025 22:29:59 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLnwa-00000005rQe-22Mr
+	id 1uLr7I-000000060Be-4BEf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Jun 2025 19:02:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D564444BCD;
-	Sun,  1 Jun 2025 19:02:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F846C4CEE7;
-	Sun,  1 Jun 2025 19:02:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748804522;
-	bh=sWxU1QlXVVhFQA48Wl9f3uDE8KMVp5j9ljALXqPEPwM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X6rqvhEb84xqVSP9YClGm3bDf3fHFaA0eQjkDFsMRrxIhSaWAb+YwXxTFgcm+63K6
-	 qXSf57a5PT3QdibZe8zrAnQx9xf8X70tjFniLile4nc1MRUZSdxwDINTuDMM4fdVIW
-	 p3kBlm34WARxRa5Miu6yz5jW0n0WWttdpQGgjfElSnpugT6nyvrLEokeFVW2bWEe+R
-	 1/bmgYi7tk3pWF0l6zM4qud2xXUTLSygK/r9w2ws+Bdkb07U5f48njn4JjYScTxz+8
-	 1lVDe3LVikSDAkUi15hz94Rq2fIDXLO8HFGr3ci938971Ag2AtjylUaCZ8FcWx8jpw
-	 BIa8xZ0yzZjdQ==
-Date: Sun, 1 Jun 2025 12:01:44 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Fabien Dessenne <fabien.dessenne@foss.st.com>,
-	Lionel Debieve <lionel.debieve@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH] crypto: stm32 - remove crc32 and crc32c support
-Message-ID: <20250601190144.GA1228@sol>
-References: <20250531200047.16872-1-ebiggers@kernel.org>
- <CAMj1kXF87LNGXYkikjTHXnPinTXHc5KSZst=LDdDmMWXu4y3Wg@mail.gmail.com>
+	Sun, 01 Jun 2025 22:25:22 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-40337dd3847so2504201b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Jun 2025 15:25:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748816719; x=1749421519; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=bQBtyBckoPpDZJKoZg4EzGegksEO0utLn/9XYWq5qDM=;
+        b=JDW/X/ha4fOJ8rr+hYro1pWWdxLjV9tOErcNYLUCAVjwr7ryJnHCkyDNyOnIpTyHG/
+         h9yUpAXrj2L6VX/HgSEtcaLxO16giW+rdKBHngLR44a9XMolQ246aYIJ1Jyz96JbhJOO
+         P0ugBT1tI41hSPY/eg0PAFgsV6XqHWgEEBx+bEmd1qS+uGCDIx6kDjFv1dmp+AGedrvW
+         by35Eh14VFPdrzDwx3PCjdLSNkaIDKl6CjlKpOMJfrxMbm6Z9l1pJUJCqG+26mDSU178
+         7bs/zThHv7C2uf5Z1G57SsWkUlsn8LGi647XVkJdyZctpuJhkzrV7tWx/8AQ17grghUZ
+         DvjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748816719; x=1749421519;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bQBtyBckoPpDZJKoZg4EzGegksEO0utLn/9XYWq5qDM=;
+        b=VZ0atNvxuK+4TWTi7TLx8UpTK/BPD+Z/yIvIw68210lwjki0GVLE2ev49PfFTkcg1U
+         cy31QyxQ8kzuOoauTGphFhmOpE6PEsCU6Bv7v+/U8gzMppdgFZpj3uwaTZExY7ltOtnB
+         Y9wFdw6WFEHe44fJi0NGrKEymDo8O7FNl7utDI6rh17Bv1DmoX7213zc8EHgWwGyAwVD
+         wC4J1Vv8y7+JqUH990W3hbIixfnDtxYwfJ+tjBxxkAdri7SYlhRcQkQAy49bX/rN07II
+         VDm4pRveClwIklZQ9gVWk3XG/PiSYhVexAHqo8yT2R6Iw+J2Uv0FpPyKoPzTxVRpiOII
+         wn7w==
+X-Forwarded-Encrypted: i=1; AJvYcCWkdCbv8JwRygSRUndQw/1+EXxv1iDK+ZmF4K3vrK1FDDuwyBEGXLdsSjfnHsGqWzXuUwCkYToaTxqbWEw5fQ47@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQJoQ7mRCoz6IYuvQ9xqmhCBAdLPs+rIfLpX0o520rsIp4nb5/
+	4ITGNCucVdWOAtZL3kJ5d0pyyi+azoCU1PFxCiJfaWgZikkW0GkamAJ4uYyrv2foGUe2EPv9O4Z
+	EwEOk+8R24MTJb+JLmbBgw8E9CkYWJ9w=
+X-Gm-Gg: ASbGncudYpWP34WRANhuzmUeKzFibxI6vq8ur6xYXHG7eJO6AKPqujRLZK9QYQ13C+R
+	585eCD+SSk/ypNCuxUNkmEpeiXjChDBiIKMzpHfnVuxyOnZOXa7w7IdYe4xbk4bUTsCZJ1MO7wA
+	IEO46UPRLGObN4J+YAFPM3LA7t+fzFIPFQlw==
+X-Google-Smtp-Source: AGHT+IG8h84cnoDGmPM2wUQp8K6n6nIRYzYCfzkJFo5ukI7macMT7pJZL3QEYaCjlzX/N63TOTdFmooErb/s7w5n5MU=
+X-Received: by 2002:a05:6808:1d02:b0:406:7704:b2e9 with SMTP id
+ 5614622812f47-4067e550230mr5491095b6e.9.1748816718917; Sun, 01 Jun 2025
+ 15:25:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXF87LNGXYkikjTHXnPinTXHc5KSZst=LDdDmMWXu4y3Wg@mail.gmail.com>
+From: Jassi Brar <jassisinghbrar@gmail.com>
+Date: Sun, 1 Jun 2025 17:25:07 -0500
+X-Gm-Features: AX0GCFsDsAzayrx7tSJWlDUSaooEVCAH1bhCRroOmZTwTH6Zg-oJiU1qWyBmMac
+Message-ID: <CABb+yY0mDQrYH0Z6=kRyCft5DXgUmhT2X-trRfs+PPd8i8ppbg@mail.gmail.com>
+Subject: [GIT PULL] Mailbox changes for v6.16
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_120204_570866_D33545E4 
-X-CRM114-Status: GOOD (  51.68  )
+X-CRM114-CacheID: sfid-20250601_152521_040516_02F1D923 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,120 +89,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 01, 2025 at 11:00:31AM +0200, Ard Biesheuvel wrote:
-> (cc Arnd)
-> 
-> Hi Eric,
-> 
-> On Sat, 31 May 2025 at 22:02, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > From: Eric Biggers <ebiggers@google.com>
-> >
-> > Remove the crc32 and crc32c support from the stm32 driver, since there's
-> > very little chance that it still has any relevance:
-> >
-> > - Now that nearly all users of crc32 and crc32c in the kernel use the
-> >   library functions instead of the crypto interface, and this driver
-> >   only supports the crypto interface, there are very few cases in which
-> >   this driver could plausibly still be used.
-> >
-> > - While the commit that added this driver quoted up to a 900% speedup
-> >   over crc32c-generic, this was likely a best-case scenario with long
-> >   lengths.  Short lengths are commonly used, and this driver has a lot
-> >   of fixed overhead.  It likely performs poorly on short lengths.
-> >
-> > - At the time that microbenchmark was done, there were multiple generic
-> >   implementations of CRC32C, and it's unclear which was used.  It could
-> >   have been the bit-at-a-time one, which is really slow.
-> >
-> > - While the microbenchmark appears to have been done on an ARM Cortex-M7
-> >   CPU that doesn't support CRC or PMULL instructions, it's now 8 years
-> >   later and more CPUs have those instructions.
-> >
-> 
-> This IP appears to be used on two different SOCs:
-> - one based on Cortex-M7, which is based on the ARM M (embedded)
-> profile, whose ISA does not include CRC instructions, and does not
-> have SIMD at all
-> - one based on Cortex-A7, which does not implement CRC instructions
-> 
-> What other SOCs based on other architecture revisions may or may not
-> implement today is kind of irrelevant here: the question is whether we
-> need to keep supporting h/w accelerated CRC on these particular
-> platforms.
-> 
-> I'd say M7 is dead as a doornail, so we can disregard that one, along
-> with the speedup claim. The question is whether this IP is useful on
-> A7 to anyone still running recent kernels on them.
+Hi Linus,
 
-Sure, IPs get reused and can show up in newer SoCs though.  My observation was
-just meant to emphasize that that's unlikely here.
+The following changes since commit a5806cd506af5a7c19bcd596e4708b5c464bfd21:
 
-> As you say, there are very few users left, as they have all moved to
-> the library API. Combined with the fact that this is a unusual,
-> synchronous, MMIO based engine that needs to rely on spinlocks to
-> protect its critical sections, and fall back to the software
-> implementation if, e.g., crc32() is called from softirq context while
-> an operation is in progress in task context, I tend to agree that we'd
-> be better off just removing it.
-> 
-> (note that even with two available CRC engines that could
-> theoretically serve task context and softirq context in parallel, the
-> existing logic managing the linked list appears flawed and may result
-> in the driver grabbing the CRC engine that is locked and falling back
-> to software while an unlocked one might be available)
-> 
-> > - Originally this driver was completely broken: it calculated the wrong
-> >   CRC values, it wasn't thread-safe, it slept in atomic sections, and it
-> >   used the wrong context format.  Use with ext4 or f2fs immediately
-> >   crashed the kernel with a BUG_ON.  That strongly suggests that the
-> >   submission was based purely on the microbenchmark and not a real use
-> >   case.  Furthermore, the fixes for these issues added significant
-> >   additional overhead to the driver, such as a spinlock.  That calls
-> >   into question the possible performance benefit.
-> >
-> 
-> I wouldn't qualify an [uncontended] spinlock as 'significant
-> additional overhead', tbh.
+  Linux 6.15-rc7 (2025-05-18 13:57:29 -0700)
 
-It's significant on short lengths, which are common.  ext4 metadata_csum passes
-a lot of 4-byte lengths to crc32c(), for example.  Fiddling with a spin lock,
-linked list, runtime pm, and hardware registers to process 4 bytes is an awful
-lot of work for something that could have just been a few table lookups.
+are available in the Git repository at:
 
-> > - The driver may still be broken.  For example, its update function can
-> >   fail.  Many users are not prepared to handle errors.  Unlike the
-> >   software CRC code there are also different code paths for serial vs.
-> >   parallel usage, which are unlikely to be tested.  The software CRC
-> >   code is much less error-prone and much better tested.
-> >
-> 
-> The only failure mode appears to be that the devices may have been
-> removed while the shash tfm is still in use. In this case, the driver
-> should just use the existing software fallback rather than give up.
+  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
+tags/mailbox-v6.16
 
-Right, that specific bug might be harmless, but it's still an example of an
-issue that is not possible with software CRC code.
+for you to fetch changes up to d0b497df02e9b2ebcb5771c7b16e424c0614a366:
 
-> > Support for this hardware could be added to arch/arm/lib/crc32.c in the
-> > unlikely event that it would actually be useful.  But this would need to
-> > come with evidence that it's actually worthwhile, along with QEMU
-> > support so that the driver can be tested.
-> >
-> 
-> I think it is fine to remove this driver solely on the basis that the
-> crc32(c) shashes are no longer used (I could only find crc32c being
-> used in btrfs, but that doesn't seem like a use case worth caring
-> about on this hardware), and we can drop most of the motivation in the
-> commit log, and summarize it along the lines of 'driver needs work but
-> what's the point?'
-> 
-> 
-> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+  mailbox: qcom-apcs-ipc: Assign OF node to clock controller child
+device (2025-05-29 10:01:35 -0500)
 
-Sure, but an alternate approach would be to wire up this driver to
-arch/arm/lib/crc32.c.  I just wanted to elaborate on why this driver seems
-pretty useless, possibly even harmful, and is better off just removed for now.
+----------------------------------------------------------------
+sophgo: add driver for CV18XX series
+mailbox core: misc cleanup
+qcom: add SM7150 APCS compatible
+      apcs: added separate clock node
+imx: fix tx doorbell send
+microchip: misc compile option fix
+mediatek: Refine GCE_GCTL_VALUE setting
 
-- Eric
+----------------------------------------------------------------
+David Wronek (1):
+      dt-bindings: mailbox: qcom: Add the SM7150 APCS compatible
+
+Jason-JH Lin (1):
+      mailbox: mtk-cmdq: Refine GCE_GCTL_VALUE setting
+
+Peng Fan (7):
+      mailbox: imx: Fix TXDB_V2 sending
+      mailbox: Use dev_err when there is error
+      mailbox: Not protect module_put with spin_lock_irqsave
+      mailbox: Propagate correct error return value
+      mailbox: Remove devm_mbox_controller_unregister
+      mailbox: Use guard/scoped_guard for con_mutex
+      mailbox: Use guard/scoped_guard for spinlock
+
+Stephan Gerhold (2):
+      dt-bindings: mailbox: qcom,apcs: Add separate node for clock-controller
+      mailbox: qcom-apcs-ipc: Assign OF node to clock controller child device
+
+Yue Haibing (1):
+      mailbox: mchp-ipc-sbi: Fix COMPILE_TEST build error
+
+Yuntao Dai (2):
+      dt-bindings: mailbox: add Sophgo CV18XX series SoC
+      mailbox: sophgo: add mailbox driver for CV18XX series SoC
+
+ .../bindings/mailbox/qcom,apcs-kpss-global.yaml    | 170 +++++++++++-----
+ .../bindings/mailbox/sophgo,cv1800b-mailbox.yaml   |  60 ++++++
+ drivers/mailbox/Kconfig                            |  14 +-
+ drivers/mailbox/Makefile                           |   2 +
+ drivers/mailbox/cv1800-mailbox.c                   | 220 +++++++++++++++++++++
+ drivers/mailbox/imx-mailbox.c                      |  21 +-
+ drivers/mailbox/mailbox.c                          | 199 +++++++------------
+ drivers/mailbox/mtk-cmdq-mailbox.c                 |  51 +++--
+ drivers/mailbox/qcom-apcs-ipc-mailbox.c            |  16 +-
+ include/linux/mailbox_controller.h                 |   3 -
+ 10 files changed, 536 insertions(+), 220 deletions(-)
+ create mode 100644
+Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbox.yaml
+ create mode 100644 drivers/mailbox/cv1800-mailbox.c
 
