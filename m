@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5954C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE825C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9mKGq3bUhlqJ9ebckN7U3+ABCo12+xpomRbylLA7788=; b=ydJsGSVE04aIRwMQH2YzDcrR2E
-	6quzEisBQd8nNgrLT1/SrrnIWPZJJHN8UQA6kbkQfY9wxmfT8k4tv4Cam3ZztB5vBIS0kHfA8dZPq
-	hsBkMvpnassPWB1lnWcZZenbmKb82j4QQfoTP0Qp18fK1/uIuarfmCQjRxh7Kv+AESqhZHYCnjiY1
-	ctrWQhK9JZFb58p7GVW1Do8M5VqLnCcM+loiIj/khpaSLBAGEyTr4Bl6OeaeljaYXQMKSueTVNue+
-	HjUpkfZzRdFTE7vZKQMgH4e4y1RcSVJX5XaE5x2s+RRQdbWaRIBlXxFxDHe8+4GVi9pM3N1Th1zEg
-	GeKSAqkA==;
+	bh=EAASjPq1HVLCGcwM5cGOefHyRN3jgROYSfss99H0LjU=; b=AMTiOIZbiYtoBga57HbLNtK6si
+	N07RxeuA+mh8nF23o2iRxHu7kE4SmHW3Va1BKZegQVuEoI56i230baZYLHPYR4BB52Jr9mhnNWHQr
+	zK/dE5hpDg7wxOeIEKtzgdldmGhrvO1Et8CNMYi+4K3yAxeW1ayKBjq8cJh2bd4NvCexuxSG+tNrI
+	EbUvlduL8VwLBFDUOn/CGrPP/v1tfRAbDSF45v+XvhxjyhKOmiZOVHNlTCbL4nZVujassJ4vztG+n
+	U1UIpjGidGXteOi6Psm9x14y4Vjwn12/sMeKlf4YMl+f9F1v3O730udgfjtpVVRN5hngCE2Xh0uRj
+	o033dXyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLtCm-00000006Kw8-43H3;
-	Mon, 02 Jun 2025 00:39:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uLtEu-00000006LQv-3KE5;
+	Mon, 02 Jun 2025 00:41:20 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsEs-000000068E5-0DuE
+	id 1uLsFS-000000068KM-3ezK
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Jun 2025 23:37:15 +0000
+	Sun, 01 Jun 2025 23:37:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 839F05C593C;
-	Sun,  1 Jun 2025 23:34:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB8CFC4CEF1;
-	Sun,  1 Jun 2025 23:37:11 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2E7E7A4FC1A;
+	Sun,  1 Jun 2025 23:37:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56C97C4CEE7;
+	Sun,  1 Jun 2025 23:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748821033;
-	bh=G2vpagRVGkl/najawIImkIxKFD7i3wzoZ544Xn557kQ=;
+	s=k20201202; t=1748821069;
+	bh=zv8ZRgZq/0dbeugcXHWe2rbJBNGGL580SzsO5M2Zk1g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OPjg5g2N8fDeTGVK9eHxzUqck5dBdeMXVZ3MmSGyTQ/A5tbphCcuYgmLAAy8a5HjX
-	 8KOtQ7aqGTIqnt+OmiYEZMlWGE64ed94vd9F6Mm1pjr5udBQyY7oXK+YRcusGTCoR6
-	 2Rdtonfu3WLV4JJ3c3eOy6PIY4Crf8zRxPJnCBBLmdIiu5J+19+ORZDwLzYXw8hn7Q
-	 eAkxuRtaSHBcilxm6FiwiQaXnHDDPjelJeiR6KurBFF2pgJ7/M04AbXC+9uoSii4Qo
-	 OS4HxHEmg8xz8Np7QXa/W+uNXLSFoNs6V3LCMn5KuiOEP5+TVjTL5vEQvv9Q1cRMtS
-	 5ETeDt6kkpQew==
+	b=RZihP9FWUysey/C1EjoNNxvzzu3p7Btz9ZxoD0AWYmkqmG7RuZwhXiVlAnG3hr4og
+	 nTuFEmHc66t6/MyusFkgVmMhz1FEOxcJVYqgZ56glZV/IBWuxA9IM7mv30SPcbkLKl
+	 7/2QH37bk9A4N8JF/mgojZK699Zeh5EZM9RrbdkjdHUJ9NbDkHYqy2BVa0ORwcqcMB
+	 Lio+kbQS7AE4dhDBYuIk3arRNdprXr51owA/rTreqGfFIZ4hW+CQvbTubNmrxVGwNx
+	 FdEVd2PD2Axpal+A/ShAq7pFunl+HZ78WBfDZruEitv6nqsxfiGEi0VjrruEmnMrkI
+	 PlPK1AFZ4btZA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Luke Wang <ziniu.wang_1@nxp.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+Cc: Ming Qian <ming.qian@oss.nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
 	Sasha Levin <sashal@kernel.org>,
-	haibo.chen@nxp.com,
+	mirela.rabulea@nxp.com,
+	mchehab@kernel.org,
 	shawnguo@kernel.org,
-	linux-mmc@vger.kernel.org,
 	imx@lists.linux.dev,
-	s32@nxp.com,
+	linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.12 79/93] mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend
-Date: Sun,  1 Jun 2025 19:33:46 -0400
-Message-Id: <20250601233402.3512823-79-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 02/66] media: imx-jpeg: Check decoding is ongoing for motion-jpeg
+Date: Sun,  1 Jun 2025 19:36:39 -0400
+Message-Id: <20250601233744.3514795-2-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250601233402.3512823-1-sashal@kernel.org>
-References: <20250601233402.3512823-1-sashal@kernel.org>
+In-Reply-To: <20250601233744.3514795-1-sashal@kernel.org>
+References: <20250601233744.3514795-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.31
-Content-Type: text/plain; charset=UTF-8
+X-stable-base: Linux 6.6.92
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_163714_187271_29F92817 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20250601_163751_044841_16A65F83 
+X-CRM114-Status: GOOD (  28.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,241 +85,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-[ Upstream commit c63d25cdc59ae2891b39ba2da950910291d9bcbf ]
+[ Upstream commit fd5b6cd730676940df63b0970bb1ba30bca1aac3 ]
 
-For SoCs like i.MX6UL(L/Z) and i.MX7D, USDHC powers off completely during
-system power management (PM), causing the internal tuning status to be
-lost. To address this, save the tuning value when system suspend and
-restore it for any command issued after system resume when re-tuning is
-held.
+As the first frame in "repeat-mode" is the pattern, the pattern done
+interrupt is ignored by the driver. With small resolution bitstreams,
+the interrupts might fire too quickly and hardware combine two irqs to
+once because irq handle have latency. Thus the driver might miss the
+frame decode done interrupt from the first actual frame.
 
-A typical case involves SDIO WiFi devices with the MMC_PM_KEEP_POWER and
-MMC_PM_WAKE_SDIO_IRQ flag, which retain power during system PM. To
-conserve power, WiFi switches to 1-bit mode and restores 4-bit mode upon
-resume. As per the specification, tuning commands are not supported in
-1-bit mode. When sending CMD52 to restore 4-bit mode, re-tuning must be
-held. However, CMD52 still requires a correct sample point to avoid CRC
-errors, necessitating preservation of the previous tuning value.
+In order to avoid the driver wait for the frame done interrupt that has
+been combined to the pattern done interrupt and been ignored, driver
+will check the curr_desc and slot_status registers to figure out if the
+decoding of actual frame is finished or not.
 
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-Link: https://lore.kernel.org/r/20250328112517.2624806-1-ziniu.wang_1@nxp.com
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+Firstly we check the curr_desc register,
+- if it is still pointing to the pattern descriptor, the second actual
+frame is not started, we can wait for its frame-done interrupt.
+- if the curr_desc has pointed to the frame descriptor, then we check the
+ongoing bit of slot_status register.
+- if the ongoing bit is set to 1, the decoding of the actual frame is not
+finished, we can wait for its frame-done interrupt.
+- if the ongoing bit is set to 0, the decoding of the actual frame is
+finished, we can't wait for the second interrupt, but mark it as done.
+
+But there is still a small problem, that the curr_desc and slot_status
+registers are not synchronous. curr_desc is updated when the
+next_descpt_ptr is loaded, but the ongoing bit of slot_status is set
+after the 32 bytes descriptor is loaded, there will be a short time
+interval in between, which may cause fake false. Consider read register
+is quite slow compared with IP read 32byte from memory, read twice
+slot_status can avoid this situation.
+
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-**YES** This commit should be backported to stable kernel trees. Here's
-my extensive analysis: ## Why This Qualifies for Backporting ### 1.
-**Fixes a Real User-Facing Bug** The commit addresses a critical issue
-where SDIO WiFi devices lose tuning parameters during suspend/resume
-cycles on i.MX SoCs. The commit message clearly describes a specific
-scenario: - SDIO WiFi devices with MMC_PM_KEEP_POWER flag retain power
-during suspend - WiFi switches to 1-bit mode for power conservation and
-restores 4-bit mode on resume - CMD52 commands (needed for 4-bit mode
-restoration) require correct tuning values to avoid CRC errors - Without
-saved tuning values, these commands fail, breaking WiFi functionality
-### 2. **Hardware-Specific Critical Issue** The code changes target
-specific i.MX SoCs (i.MX6UL/ULL/ULZ and i.MX7D) where "USDHC powers off
-completely during system power management (PM), causing the internal
-tuning status to be lost." This is a documented hardware limitation, not
-a software design flaw. ### 3. **Well-Contained and Low-Risk Changes**
-**Code Analysis of Key Changes:** - **New tuning preservation fields**:
-Adds `saved_tuning_delay_cell` to platform data (line 239) - minimal
-risk, just data storage - **Save function (`sdhc_esdhc_tuning_save`)**:
-Only saves tuning values for SDR50/SDR104 modes when specific conditions
-are met (SDIO device keeping power) - very targeted scope - **Restore
-function (`sdhc_esdhc_tuning_restore`)**: Carefully restores saved
-values using existing register manipulation patterns already used
-throughout the driver - **Integration points**: Adds save/restore calls
-only in suspend/resume paths with proper conditional checks **Register
-manipulation uses established patterns:** ```c // Uses existing
-FIELD_PREP macro and register constants
-writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK,
-imx_data->boarddata.saved_tuning_delay_cell), host->ioaddr +
-ESDHC_TUNE_CTRL_STATUS); ``` ### 4. **Follows Stable Tree Criteria** **✓
-Important bugfix**: Fixes WiFi connectivity after suspend/resume **✓
-Minimal risk**: Changes are well-contained to specific code paths and
-hardware **✓ No architectural changes**: Uses existing driver
-infrastructure **✓ Confined to subsystem**: Only affects sdhci-esdhc-imx
-driver ### 5. **Similar Historical Precedent** Looking at the provided
-similar commits, this aligns with "Similar Commit #4" and "Similar
-Commit #5" which were both marked "Backport Status: YES". Both dealt
-with SDIO tuning issues and were considered appropriate for stable
-trees: - Commit #4: Fixed SDIO retuning in 1-bit mode (had `Fixes:` tag
-and `Cc: stable@vger.kernel.org`) - Commit #5: Disabled CMD CRC check
-for tuning to prevent timing issues ### 6. **No Alternative
-Workarounds** Users cannot work around this issue in userspace - it
-requires kernel-level preservation of hardware tuning state during
-suspend/resume cycles. ### 7. **Critical for Embedded Systems** i.MX
-SoCs are widely used in embedded systems where: - SDIO WiFi is common -
-Suspend/resume cycles are frequent (battery-powered devices) - WiFi
-connectivity after resume is essential for functionality ## Conclusion
-This commit fixes a legitimate hardware bug affecting real-world usage
-scenarios with minimal risk. The changes are well-engineered, follow
-existing code patterns, and address a problem that significantly impacts
-user experience on affected platforms. It meets all criteria for stable
-tree backporting.
+Based on my analysis of both the commit message and code changes, here
+is my determination: **YES** This commit should be backported to stable
+kernel trees for the following reasons: 1. **Fixes a real bug causing
+driver hangs**: The commit addresses a specific issue where the driver
+can wait indefinitely for an interrupt that has already been combined
+with a previous ignored interrupt. This causes the driver to hang,
+making the hardware unusable for motion-JPEG decoding with small
+resolution bitstreams. 2. **Clear bug fix with minimal changes**: The
+fix is targeted and minimal - it adds one new function
+(`mxc_dec_is_ongoing()`) and modifies one condition in the IRQ handler.
+The changes are well-contained within the imx-jpeg driver with no impact
+on other subsystems. 3. **Hardware-specific race condition**: The commit
+addresses a hardware behavior where interrupts can be combined when they
+fire too quickly. This is a real issue that affects users of the i.MX8
+JPEG hardware decoder, particularly when processing small resolution
+motion-JPEG streams. 4. **No architectural changes**: The fix doesn't
+introduce any new features or change the driver's architecture. It
+simply adds additional state checking to handle a specific hardware race
+condition. 5. **Low regression risk**: The changes are defensive - they
+add additional checks before proceeding rather than changing existing
+behavior. The worst case would be that the new checks might not catch
+all edge cases, but they won't break existing working scenarios. 6.
+**Similar to other backported commits**: Looking at the similar commits
+marked as "YES" for backporting (like "media: imx-jpeg: Disable slot
+interrupt when frame done"), this follows the same pattern of fixing
+specific hardware issues that cause system problems. The commit
+specifically fixes a condition where the driver becomes stuck waiting
+for an interrupt that will never come, which is exactly the kind of bug
+that stable kernels should fix to ensure reliable operation of hardware.
 
- drivers/mmc/host/sdhci-esdhc-imx.c | 88 +++++++++++++++++++++++++++++-
- 1 file changed, 86 insertions(+), 2 deletions(-)
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  1 +
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 31 ++++++++++++++++++-
+ 2 files changed, 31 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index d84aa20f03589..7a0b7bfa1bb69 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -80,6 +80,8 @@
- #define  ESDHC_TUNE_CTRL_STEP		1
- #define  ESDHC_TUNE_CTRL_MIN		0
- #define  ESDHC_TUNE_CTRL_MAX		((1 << 7) - 1)
-+#define  ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK	GENMASK(30, 24)
-+#define  ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK	GENMASK(14, 8)
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
+index a2b4fb9e29e7d..cbb2de369838c 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
+@@ -89,6 +89,7 @@
+ /* SLOT_STATUS fields for slots 0..3 */
+ #define SLOT_STATUS_FRMDONE			(0x1 << 3)
+ #define SLOT_STATUS_ENC_CONFIG_ERR		(0x1 << 8)
++#define SLOT_STATUS_ONGOING			(0x1 << 31)
  
- /* strobe dll register */
- #define ESDHC_STROBE_DLL_CTRL		0x70
-@@ -234,6 +236,7 @@ struct esdhc_platform_data {
- 	unsigned int tuning_step;       /* The delay cell steps in tuning procedure */
- 	unsigned int tuning_start_tap;	/* The start delay cell point in tuning procedure */
- 	unsigned int strobe_dll_delay_target;	/* The delay cell for strobe pad (read clock) */
-+	unsigned int saved_tuning_delay_cell;	/* save the value of tuning delay cell */
- };
+ /* SLOT_IRQ_EN fields TBD */
  
- struct esdhc_soc_data {
-@@ -1056,7 +1059,7 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
- {
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
- 	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
--	u32 ctrl;
-+	u32 ctrl, tuning_ctrl;
- 	int ret;
- 
- 	/* Reset the tuning circuit */
-@@ -1070,6 +1073,16 @@ static void esdhc_reset_tuning(struct sdhci_host *host)
- 			writel(0, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
- 		} else if (imx_data->socdata->flags & ESDHC_FLAG_STD_TUNING) {
- 			writel(ctrl, host->ioaddr + ESDHC_MIX_CTRL);
-+			/*
-+			 * enable the std tuning just in case it cleared in
-+			 * sdhc_esdhc_tuning_restore.
-+			 */
-+			tuning_ctrl = readl(host->ioaddr + ESDHC_TUNING_CTRL);
-+			if (!(tuning_ctrl & ESDHC_STD_TUNING_EN)) {
-+				tuning_ctrl |= ESDHC_STD_TUNING_EN;
-+				writel(tuning_ctrl, host->ioaddr + ESDHC_TUNING_CTRL);
-+			}
-+
- 			ctrl = readl(host->ioaddr + SDHCI_AUTO_CMD_STATUS);
- 			ctrl &= ~ESDHC_MIX_CTRL_SMPCLK_SEL;
- 			ctrl &= ~ESDHC_MIX_CTRL_EXE_TUNE;
-@@ -1148,7 +1161,8 @@ static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
- 	reg |= ESDHC_MIX_CTRL_EXE_TUNE | ESDHC_MIX_CTRL_SMPCLK_SEL |
- 			ESDHC_MIX_CTRL_FBCLK_SEL;
- 	writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
--	writel(val << 8, host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+	writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK, val),
-+	       host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
- 	dev_dbg(mmc_dev(host->mmc),
- 		"tuning with delay 0x%x ESDHC_TUNE_CTRL_STATUS 0x%x\n",
- 			val, readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS));
-@@ -1556,6 +1570,57 @@ static void sdhci_esdhc_imx_hwinit(struct sdhci_host *host)
- 	}
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+index 092d83b7e7954..3b789e0ebdf46 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+@@ -877,6 +877,34 @@ static u32 mxc_jpeg_get_plane_size(struct mxc_jpeg_q_data *q_data, u32 plane_no)
+ 	return size;
  }
  
-+static void sdhc_esdhc_tuning_save(struct sdhci_host *host)
++static bool mxc_dec_is_ongoing(struct mxc_jpeg_ctx *ctx)
 +{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-+	u32 reg;
++	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
++	u32 curr_desc;
++	u32 slot_status;
++
++	curr_desc = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_CUR_DESCPT_PTR));
++	if (curr_desc == jpeg->slot_data.cfg_desc_handle)
++		return true;
++
++	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
++	if (slot_status & SLOT_STATUS_ONGOING)
++		return true;
 +
 +	/*
-+	 * SD/eMMC do not need this tuning save because it will re-init
-+	 * after system resume back.
-+	 * Here save the tuning delay value for SDIO device since it may
-+	 * keep power during system PM. And for usdhc, only SDR50 and
-+	 * SDR104 mode for SDIO device need to do tuning, and need to
-+	 * save/restore.
++	 * The curr_desc register is updated when next_descpt_ptr is loaded,
++	 * the ongoing bit of slot_status is set when the 32 bytes descriptor is loaded.
++	 * So there will be a short time interval in between, which may cause fake false.
++	 * Consider read register is quite slow compared with IP read 32byte from memory,
++	 * read twice slot_status can avoid this situation.
 +	 */
-+	if (host->timing == MMC_TIMING_UHS_SDR50 ||
-+	    host->timing == MMC_TIMING_UHS_SDR104) {
-+		reg = readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+		reg = FIELD_GET(ESDHC_TUNE_CTRL_STATUS_TAP_SEL_PRE_MASK, reg);
-+		imx_data->boarddata.saved_tuning_delay_cell = reg;
-+	}
++	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
++	if (slot_status & SLOT_STATUS_ONGOING)
++		return true;
++
++	return false;
 +}
 +
-+static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-+	u32 reg;
-+
-+	if (host->timing == MMC_TIMING_UHS_SDR50 ||
-+	    host->timing == MMC_TIMING_UHS_SDR104) {
-+		/*
-+		 * restore the tuning delay value actually is a
-+		 * manual tuning method, so clear the standard
-+		 * tuning enable bit here. Will set back this
-+		 * ESDHC_STD_TUNING_EN in esdhc_reset_tuning()
-+		 * when trigger re-tuning.
-+		 */
-+		reg = readl(host->ioaddr + ESDHC_TUNING_CTRL);
-+		reg &= ~ESDHC_STD_TUNING_EN;
-+		writel(reg, host->ioaddr + ESDHC_TUNING_CTRL);
-+
-+		reg = readl(host->ioaddr + ESDHC_MIX_CTRL);
-+		reg |= ESDHC_MIX_CTRL_SMPCLK_SEL | ESDHC_MIX_CTRL_FBCLK_SEL;
-+		writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
-+
-+		writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK,
-+				  imx_data->boarddata.saved_tuning_delay_cell),
-+		       host->ioaddr + ESDHC_TUNE_CTRL_STATUS);
-+	}
-+}
-+
- static void esdhc_cqe_enable(struct mmc_host *mmc)
+ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
  {
- 	struct sdhci_host *host = mmc_priv(mmc);
-@@ -1887,6 +1952,15 @@ static int sdhci_esdhc_suspend(struct device *dev)
- 	if (host->tuning_mode != SDHCI_TUNING_MODE_3)
- 		mmc_retune_needed(host->mmc);
- 
-+	/*
-+	 * For the device need to keep power during system PM, need
-+	 * to save the tuning delay value just in case the usdhc
-+	 * lost power during system PM.
-+	 */
-+	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-+	    esdhc_is_usdhc(imx_data))
-+		sdhc_esdhc_tuning_save(host);
-+
- 	ret = sdhci_suspend_host(host);
- 	if (ret)
- 		return ret;
-@@ -1903,6 +1977,8 @@ static int sdhci_esdhc_suspend(struct device *dev)
- static int sdhci_esdhc_resume(struct device *dev)
- {
- 	struct sdhci_host *host = dev_get_drvdata(dev);
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
- 	int ret;
- 
- 	ret = pinctrl_pm_select_default_state(dev);
-@@ -1916,6 +1992,14 @@ static int sdhci_esdhc_resume(struct device *dev)
- 	if (ret)
- 		return ret;
- 
-+	/*
-+	 * restore the saved tuning delay value for the device which keep
-+	 * power during system PM.
-+	 */
-+	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-+	    esdhc_is_usdhc(imx_data))
-+		sdhc_esdhc_tuning_restore(host);
-+
- 	if (host->mmc->caps2 & MMC_CAP2_CQE)
- 		ret = cqhci_resume(host->mmc);
- 
+ 	struct mxc_jpeg_dev *jpeg = priv;
+@@ -946,7 +974,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
+ 		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
+ 		goto job_unlock;
+ 	}
+-	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed) {
++	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
++	    mxc_dec_is_ongoing(ctx)) {
+ 		jpeg_src_buf->dht_needed = false;
+ 		dev_dbg(dev, "Decoder DHT cfg finished. Start decoding...\n");
+ 		goto job_unlock;
 -- 
 2.39.5
 
