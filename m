@@ -4,59 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF8DC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 01:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56151C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 01:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fJntOgVILsIRw7ooq2RELczdEnB+OhL6drNsODye+ws=; b=BXET+SjxAMR8mwtY23Oa0OsQV/
-	zmjRgzMlHsw76lT/YmYapDcJiknfrrLyomHzaZTFuYyhk05geeYUD6jLIxAIBx7XCjhOkP1614r1d
-	0bEWX++g9vqE4WqM4nNacByTxFB/DHXcA2FQR5+tHmVJOHYYf533sLjaFRg9VxtBW/O0kp3nMwJNd
-	+7YGYaOAo8rKlbZwRPKrKm/+anWVTDL6CQG7XkZEpgMvRLv1vZ0mxn8rg2fa15OA6VjkwbAxEGvlg
-	1FGg+Mwu/vzkJMyoV+u2I+vwMlbLSkzqNLWp/5Eg6QCXyWckCOKvUdVx16ti08eob5TI7ICsYSlJ9
-	BnQTLg2Q==;
+	bh=fJntOgVILsIRw7ooq2RELczdEnB+OhL6drNsODye+ws=; b=JR1OZ8EuryObfyWFvlQUTl8RAS
+	9ey1o3czU2pCcKJTAodeTVmB7vOxOTuZaq+GzRf98yvHM47rSQuE56wz7P8gqqiirzcfRlJJApybJ
+	RWXou9bYYYyMLNf0HIR/sRDKm8oLvXaZSu2Gi5pxufXK/+OjAFJKeIxusg+CbYXpYnEbbgWLMoj/n
+	vVlMGKefUMC0TUhc1IZuaI6Mp0gAtkVUKJNXC6TSui86YDdY4o4lA+6N+hr1oXNnAzMSzR/GCFlNS
+	yVuMD6z248B/XzAEq/xK69fCoCwmv5xGxjwjY7a35DcVBxgrLqbQloiwmLK10dn0e2NztnEhz2BrM
+	AmOvqbiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLtr5-00000006TgK-1HJG;
-	Mon, 02 Jun 2025 01:20:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uLttC-00000006U6N-0CzT;
+	Mon, 02 Jun 2025 01:22:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsMQ-00000006AJ4-1d46
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 01 Jun 2025 23:45:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fJntOgVILsIRw7ooq2RELczdEnB+OhL6drNsODye+ws=; b=n2VD5tekSGyvncmE0UJr7NN6k6
-	J+bNiFC0wqHYMjLU7a/PRtau8rsLnFdR8SfeJ9Nax6D+OhIcDokGoI4i8K+EGU3SvnGDi/ODMRQF5
-	DIZUr00kFQ55/FqU3db8gS8YV3JslK4219TSzoP8CK8xHzen4454hcS9VEis7J4IXS23p2nGFJp5d
-	UNregyq/DVuX3QgBtvkLoFBCB6yT5qCocaGnVZfXPq9dJ4nG/HKNAvDNOG1tuN0rcWcmON68xPAIT
-	VC5ZwjkCS9n1fAb9+nBrghe4dNp0D92SlM6uw3+hMEO3UaSbe1CnxEfBGvW+F2KCcDnBBcx6ot3Yr
-	48hYirzw==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsMN-00000000Yq7-2cIb
+	id 1uLsNJ-00000006AYu-1hjB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Jun 2025 23:45:01 +0000
+	Sun, 01 Jun 2025 23:45:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 86621A4FD31;
-	Sun,  1 Jun 2025 23:44:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02A39C4CEF1;
-	Sun,  1 Jun 2025 23:44:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D3B646116F;
+	Sun,  1 Jun 2025 23:45:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FECFC4CEEE;
+	Sun,  1 Jun 2025 23:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748821498;
+	s=k20201202; t=1748821556;
 	bh=lz6HZW0YPk7zKbjNFmy7h+kpF5GL+p0B2ua3GPSZIrA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JQJLCavT4xDlijyST63HSPIOvN0Z3V+QV/EnzfhEZHhrczTIsxR8sj+7h1p4ZP7ce
-	 d1xoEAGcRqU4PdfYCUTwtkMbFrHf1xXxBZRweixXzRJoudHvJeDu/BMbFRBrxeKDcB
-	 W4B3SUpyCi+Rtpa9VY2IruNKI7KKeKYss/R2lFnkTLdD75U8+08Bz1ekrzw653HIlW
-	 Lor+3zL8xX81uh+lXNqe1EQp6AVlqcsoOvNAV702lEsHppRvO4HkijH4MHo+ETGo5i
-	 uMO8mRvZ6+HclsrtevqTtYI0zWM8wZRNO+V5wwA7VtO/Tj6hHRiMbDnHcyRWTc0nkS
-	 brGiaF7tDSkjw==
+	b=dUZZEZO328byVScU5w3nRGk0M6SuCJt/jO0D6UKF9/gKALH2zPv6AepgpKlte9qSi
+	 EpbhCdnkCH2lHxcxbL2OvGc9eAXMQL313Tex+xLlSezO5wVz4J+IW08R5WZtWeMAle
+	 wDQ9EktQghrRvo/NPh7LP90TMH1DCuJ2Uke5qROcnP4wTiUNPMHS1yRc0hFWuqqqHp
+	 KocQbXgdMCdzVYqEaDX3WpjLqVOXPWM+VTEqg17YAwqxYxI+6arAY6xTotP4/XKyhZ
+	 jtJbB59U0wnP8GQQYXyICCcX+Rpv9paFzy1aCM/9G+ltzBcHdbTHxqHSVAFsLCN4ov
+	 7kcMTIfrw5cEA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -69,21 +54,18 @@ Cc: Wentao Liang <vulab@iscas.ac.cn>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.10 25/34] media: platform: exynos4-is: Add hardware sync wait to fimc_is_hw_change_mode()
-Date: Sun,  1 Jun 2025 19:43:49 -0400
-Message-Id: <20250601234359.3518595-25-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 16/22] media: platform: exynos4-is: Add hardware sync wait to fimc_is_hw_change_mode()
+Date: Sun,  1 Jun 2025 19:45:07 -0400
+Message-Id: <20250601234515.3519309-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250601234359.3518595-1-sashal@kernel.org>
-References: <20250601234359.3518595-1-sashal@kernel.org>
+In-Reply-To: <20250601234515.3519309-1-sashal@kernel.org>
+References: <20250601234515.3519309-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.237
+X-stable-base: Linux 5.4.293
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_004459_861675_5AA7A392 
-X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
