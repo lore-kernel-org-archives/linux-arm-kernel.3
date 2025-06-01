@@ -4,74 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3123C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992ADC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wZIjv9O4Ukho7tneYprqbjgf5Xpf64seX7VCZYQ97eM=; b=cOxHgQeIhmqLrd3cq6TZD3Fo8I
-	gaGWSOAJzzYbjka9YbvKYWTZsxk3MpkVkLyFm6++BRdDIkV8Y2DFZ/yXaIgbYqK1a1cfkOD9x94Yk
-	h9eFyZCbsq5vB6nUvD+rX4ZX5XBsbKzBMRscDtWQp9TjI2ZQtifE0R7AUFnrZLL2Z0s41lGVS6fPD
-	NXuJR1sQkI6YtmzfmtvCoUCtT7rEL66wQOoZGJCIxfqH7MHO6FuDLLV8cVbsBN6rBapxLIGyeMDOh
-	k708uebhuAzj9p2DZdOQwh3ANH3KOND6DI9bhDM5R2JrQCMxGCDT5ogQ+LIJlUlhNs0Z7DjZOsMm4
-	QENU7sDA==;
+	bh=bE8F5qomAEC50Gd5DtkDPdE4VqA2JfwnVn2dG1QGCAQ=; b=ySLC8Cwf26ZdhMJedGmTDNJbvP
+	hd08rZPoiHx0mAEywMVusilqXoH9wjVlDSinLYCJFhI2wi0fWWc4RGHp4DjGlExpFtL/97Dr/GuBh
+	LU5iry1GujmIBuXjayQ0PLMTUiHSrfW7/QgBDKWMf03FjhBv48Ip2DSuU56pG4iHCDEIqqvaxG9Pz
+	DjYZ9tD2/bSFTHWlMgpMv/+/IysubsxvwSQ6ZJdvlrvZS0Xi13TfouNT/lOSCuFW74ZuxeYsfPoob
+	tmVgiSFr81wEQRF5PHUf5OWoKGMaeOvw2RRPIlNUQAoHjCRuWUTOd/iXZp/4xDdM7cvTdryU7dkXt
+	re7hBS8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLslG-00000006FBb-1JD3;
-	Mon, 02 Jun 2025 00:10:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uLsnO-00000006Fd3-0AIB;
+	Mon, 02 Jun 2025 00:12:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsB2-000000067FE-0uD8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 01 Jun 2025 23:33:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=wZIjv9O4Ukho7tneYprqbjgf5Xpf64seX7VCZYQ97eM=; b=KMV6AXxEc4yt2o9EU6FTbOar7T
-	vOsuWtIeUzwb6AvM3yxEFQoUAoKpPG8F0Hn2q1pjOEVCMmSc5W1RyAvmNvr4oK3zWPzgOVeYDJoky
-	DcDj9jYZ8EzBKXLHWoeulJvHuwAmDMpynCvXIFUQXpNNKD5g+TDpBgnEvmJJtA5mEl6b9SkCUAB38
-	G04uud+HXMoPvSPdC5NcPmvPQc7yT3jGXYFCfDyiGZbgbhgP7bvmgr5lrUY+gdJzCpCIVQl9msAE/
-	wNwD+oQJLjD1RHEGFtHmpjktdURXFIAdrjRg6SQ3nHF6s4AwqzkwI1Aud7GUWs6xDC7RjldJZRQsS
-	v9L3aYug==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsAx-00000000Xzo-3eoq
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Jun 2025 23:33:15 +0000
+	id 1uLsBB-000000067Gv-1DzA;
+	Sun, 01 Jun 2025 23:33:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8DE2D49EA9;
-	Sun,  1 Jun 2025 23:33:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D4C4C4CEE7;
-	Sun,  1 Jun 2025 23:33:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 484E76113B;
+	Sun,  1 Jun 2025 23:33:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D818AC4CEE7;
+	Sun,  1 Jun 2025 23:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748820790;
-	bh=97j1eesyWSLiG1J65Ipa109deUCiwJEXo8dBUoiz47o=;
+	s=k20201202; t=1748820804;
+	bh=1ROuwQC2Hyt7v3h4anzkD3O+wnXBM6CNhQofGqEExqg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jwjwJDdQpQceXOOsEVL+wNyPSv2WhZ6S1DSPpK533HTtb3G1SxzLnTuyqBGCXvRm+
-	 bzuxnL25XxWVUMo03HHFW6f/jZ37nVG9ypKTDLzqOlJ3WDBY67yb+JTA3ao/9/2ZE0
-	 6xIVR7J6TqcOc5I8pB2/9MoiyiSLjpOPRi5SGWxAeCAeBicZYAf7HMMUpSzsiW6PV6
-	 ni27TzPYccJ0hDXA13BwRQD7IHuhJnp9seriQwKActd4+VfSllBt/c6RCNj++NxYdE
-	 ZBdEW+PE8tDZVveEPQkUaXOqjwKu3Qyxflnt0gm9jsTvnymMKD0hgVGERxWEWYfnZl
-	 QVbIR2FDWfffQ==
+	b=b+ozN/GLUdGPcqvlIhaTgWZZKqhdV4jcimlwBNGgoAM+ECLeOXxLAdmZTRKVu7tIa
+	 URvPllshjj5FrZUasRDCS9Z1rR41V8sJBx6SWxZWtH6NlrMoCaOQAxh6C+f1WAnngU
+	 6MuxSm6q6N5XPeXKc8UaEc9hKvV5SDQBW0YhW8y8lqJivWaFWLQh1YMOe++vOMqzgy
+	 vVnrXVjzvQdT6UAeBZsnCXix6+xo+ER41Akp1dJkbxUMwF6UDS98O4lGydQ7saR4ew
+	 t2sILlN0P5Bucmu1mVsnxGpg6ajzbS5G7nPpdqeMavWLvmvimlDTJRli62BeEtC0Oo
+	 y6ywixRN2OWIw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Sukrut Bellary <sbellary@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Judith Mendez <jm@ti.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+Cc: Brian Norris <briannorris@chromium.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Sasha Levin <sashal@kernel.org>,
-	nm@ti.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.14 077/102] pmdomain: ti: Fix STANDBY handling of PER power domain
-Date: Sun,  1 Jun 2025 19:29:09 -0400
-Message-Id: <20250601232937.3510379-77-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 085/102] genirq: Retain disable depth for managed interrupts across CPU hotplug
+Date: Sun,  1 Jun 2025 19:29:17 -0400
+Message-Id: <20250601232937.3510379-85-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250601232937.3510379-1-sashal@kernel.org>
 References: <20250601232937.3510379-1-sashal@kernel.org>
@@ -81,9 +64,6 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.9
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_003312_329534_D3D6C25F 
-X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,96 +78,327 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sukrut Bellary <sbellary@baylibre.com>
+From: Brian Norris <briannorris@chromium.org>
 
-[ Upstream commit 36795548dcc841c73f03793ed6cf741a88130922 ]
+[ Upstream commit 788019eb559fd0b365f501467ceafce540e377cc ]
 
-Per AM335x TRM[1](section 8.1.4.3 Power mode), in case of STANDBY,
-PER domain should be ON. So, fix the PER power domain handling on standby.
+Affinity-managed interrupts can be shut down and restarted during CPU
+hotunplug/plug. Thereby the interrupt may be left in an unexpected state.
+Specifically:
 
-[1] https://www.ti.com/lit/ug/spruh73q/spruh73q.pdf
+ 1. Interrupt is affine to CPU N
+ 2. disable_irq() -> depth is 1
+ 3. CPU N goes offline
+ 4. irq_shutdown() -> depth is set to 1 (again)
+ 5. CPU N goes online
+ 6. irq_startup() -> depth is set to 0 (BUG! driver expects that the interrupt
+    		     	      	        still disabled)
+ 7. enable_irq() -> depth underflow / unbalanced enable_irq() warning
 
-Signed-off-by: Sukrut Bellary <sbellary@baylibre.com>
-Reviewed-by: Kevin Hilman <khilman@baylibre.com>
-Tested-by: Judith Mendez <jm@ti.com>
-Link: https://lore.kernel.org/r/20250318230042.3138542-3-sbellary@baylibre.com
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+This is only a problem for managed interrupts and CPU hotplug, all other
+cases like request()/free()/request() truly needs to reset a possibly stale
+disable depth value.
+
+Provide a startup function, which takes the disable depth into account, and
+invoked it for the managed interrupts in the CPU hotplug path.
+
+This requires to change irq_shutdown() to do a depth increment instead of
+setting it to 1, which allows to retain the disable depth, but is harmless
+for the other code paths using irq_startup(), which will still reset the
+disable depth unconditionally to keep the original correct behaviour.
+
+A kunit tests will be added separately to cover some of these aspects.
+
+[ tglx: Massaged changelog ]
+
+Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Brian Norris <briannorris@chromium.org>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Link: https://lore.kernel.org/all/20250514201353.3481400-2-briannorris@chromium.org
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-**YES** ## Backporting Analysis This commit should be backported to
-stable kernel trees. Here's my detailed analysis: ### Bug Fix Nature
-This commit fixes a clear hardware compliance issue. According to the
-AM335x Technical Reference Manual (TRM) section 8.1.4.3, the PER
-(peripheral) power domain must remain ON during STANDBY mode. The
-current implementation was violating this hardware requirement, which
-could lead to: - System instability during suspend/resume cycles -
-Peripheral devices losing power unexpectedly - Incorrect power
-management behavior on AM335x platforms ### Code Change Analysis The
-changes are minimal and highly targeted: 1. **New flag definition**:
-`#define OMAP_PRM_ON_WHEN_STANDBY BIT(4)` - adds a configuration flag 2.
-**Conditional include**: Adds `#include <linux/suspend.h>` under
-`CONFIG_SUSPEND` - proper header management 3. **Configuration update**:
-Updates AM335x PER domain flags from `OMAP_PRM_HAS_RSTCTRL` to
-`OMAP_PRM_HAS_RSTCTRL | OMAP_PRM_ON_WHEN_STANDBY` These changes are: -
-**Self-contained**: Only affect AM335x-specific code paths -
-**Additive**: Don't remove existing functionality, only add new behavior
-- **Low-risk**: Configuration-only changes with clear hardware
-documentation backing ### Stable Tree Criteria Compliance ✅ **Important
-bugfix**: Fixes documented hardware requirement violation ✅ **Minimal
-risk**: Platform-specific, additive changes only ✅ **Small and
-contained**: 8 lines across 1 file ✅ **No architectural changes**:
-Configuration update only ✅ **Clear side effects**: Well-defined scope
-limited to AM335x PER domain ✅ **Proper review**: Tested by platform
-maintainers (Kevin Hilman, Judith Mendez) ### Risk Assessment **LOW
-RISK** for backporting because: - Changes are isolated to AM335x
-platform-specific code - No cross-platform dependencies or shared data
-structures affected - Configuration-only modification with well-defined
-hardware backing - No API changes that could affect other subsystems ###
-Historical Context Similar TI power domain fixes have been successfully
-backported in the past. The TI OMAP/AM platform drivers have a good
-track record for stable backports due to their platform-specific nature
-and mature codebase. This is exactly the type of hardware compliance fix
-that stable trees are designed to include - it corrects platform
-behavior to match documented hardware requirements without introducing
-new features or architectural changes.
+Based on my analysis of the commit and the current kernel code, here is
+my assessment: **YES** This commit should be backported to stable kernel
+trees. Here's my extensive analysis: ## Bug Analysis The commit fixes a
+critical bug in the interrupt subsystem's CPU hotplug handling that
+affects affinity-managed interrupts. The bug manifests as follows: 1.
+**Problem Scenario**: When a managed interrupt is disabled (depth=1),
+then its CPU goes offline causing `irq_shutdown()`, and later the CPU
+comes back online triggering `irq_startup()`, the disable depth
+accounting becomes corrupted. 2. **Current Broken Behavior** (from
+existing kernel code): - `irq_shutdown()` sets `desc->depth = 1`
+unconditionally (line seen in grep output) - `irq_startup()` sets
+`desc->depth = 0` unconditionally - This overwrites any previous disable
+state, violating the disable/enable balance 3. **User-Visible Impact**:
+The bug causes: - Unbalanced `enable_irq()` warnings - Interrupts being
+unexpectedly enabled during CPU hotplug - Potential system instability
+or incorrect device behavior ## Code Changes Analysis The fix makes
+surgical changes to preserve disable depth: ### 1. **irq_shutdown()
+Change** (kernel/irq/chip.c): ```c - desc->depth = 1; + /bin /bin.usr-
+is-merged /boot /dev /etc /home /init /lib /lib.usr-is-merged /lib64
+/lost+found /media /mnt /opt /proc /root /run /sbin /sbin.usr-is-merged
+/snap /srv /sys /tmp /usr /var +
+amd_display_timing_generator_analysis.md
+amd_doorbell_analysis_framework.md
+amd_gpu_documentation_backport_analysis.md amd_si_chip_analysis.md
+amdgpu_csb_analysis.md amdgpu_mqd_prop_backport_analysis.md
+analogix_dp_backport_analysis.md cgroup_rstat_analysis.sh
+cgroup_rstat_analysis_guide.md cpuset_comment_fix_backport_analysis.md
+csiphy_x1e80100_backport_analysis.md
+dcn315_smu_indirect_register_access_analysis.md
+drm_dp_helper_dpcd_refactoring_backport_analysis.md
+drm_format_helper_generic_8bit_conversion_backport_analysis.md
+es8375_codec_driver_backport_analysis.md expected_findings_summary.md
+hdmi_read_request_analysis.md kernel_analysis_commands.sh
+kselftest_harness_teardown_metadata_backport_analysis.md linux-kernel
+mediatek_vcodec_h264_backport_analysis.md
+pidfd_open_kselftest_harness_compatibility_analysis.md
+qualcomm_camss_bus_type_backport_analysis.md
+selftests_harness_libatomic_backport_analysis.md
+sphinx_version_compatibility_backport_analysis.md
+spi_sh_msiof_grpmask_backport_analysis.md
+spi_sh_msiof_sitmdr2_sirmdr2_bitfield_conversion_backport_analysis.md
+sta2x11_removal_analysis.md test_unused_param.c test_unused_param.o
+ti_bridge_encoder_crtc_refactoring_backport_analysis.md
+xe_driver_flr_vf_restriction_analysis.md
+xe_firmware_per_gt_backport_analysis.md
+xe_sriov_logging_backport_analysis.md Increment disable depth, so that a
+managed shutdown on + amd_display_timing_generator_analysis.md
+amd_doorbell_analysis_framework.md
+amd_gpu_documentation_backport_analysis.md amd_si_chip_analysis.md
+amdgpu_csb_analysis.md amdgpu_mqd_prop_backport_analysis.md
+analogix_dp_backport_analysis.md cgroup_rstat_analysis.sh
+cgroup_rstat_analysis_guide.md cpuset_comment_fix_backport_analysis.md
+csiphy_x1e80100_backport_analysis.md
+dcn315_smu_indirect_register_access_analysis.md
+drm_dp_helper_dpcd_refactoring_backport_analysis.md
+drm_format_helper_generic_8bit_conversion_backport_analysis.md
+es8375_codec_driver_backport_analysis.md expected_findings_summary.md
+hdmi_read_request_analysis.md kernel_analysis_commands.sh
+kselftest_harness_teardown_metadata_backport_analysis.md linux-kernel
+mediatek_vcodec_h264_backport_analysis.md
+pidfd_open_kselftest_harness_compatibility_analysis.md
+qualcomm_camss_bus_type_backport_analysis.md
+selftests_harness_libatomic_backport_analysis.md
+sphinx_version_compatibility_backport_analysis.md
+spi_sh_msiof_grpmask_backport_analysis.md
+spi_sh_msiof_sitmdr2_sirmdr2_bitfield_conversion_backport_analysis.md
+sta2x11_removal_analysis.md test_unused_param.c test_unused_param.o
+ti_bridge_encoder_crtc_refactoring_backport_analysis.md
+xe_driver_flr_vf_restriction_analysis.md
+xe_firmware_per_gt_backport_analysis.md
+xe_sriov_logging_backport_analysis.md CPU hotunplug preserves the actual
+disabled state when the + amd_display_timing_generator_analysis.md
+amd_doorbell_analysis_framework.md
+amd_gpu_documentation_backport_analysis.md amd_si_chip_analysis.md
+amdgpu_csb_analysis.md amdgpu_mqd_prop_backport_analysis.md
+analogix_dp_backport_analysis.md cgroup_rstat_analysis.sh
+cgroup_rstat_analysis_guide.md cpuset_comment_fix_backport_analysis.md
+csiphy_x1e80100_backport_analysis.md
+dcn315_smu_indirect_register_access_analysis.md
+drm_dp_helper_dpcd_refactoring_backport_analysis.md
+drm_format_helper_generic_8bit_conversion_backport_analysis.md
+es8375_codec_driver_backport_analysis.md expected_findings_summary.md
+hdmi_read_request_analysis.md kernel_analysis_commands.sh
+kselftest_harness_teardown_metadata_backport_analysis.md linux-kernel
+mediatek_vcodec_h264_backport_analysis.md
+pidfd_open_kselftest_harness_compatibility_analysis.md
+qualcomm_camss_bus_type_backport_analysis.md
+selftests_harness_libatomic_backport_analysis.md
+sphinx_version_compatibility_backport_analysis.md
+spi_sh_msiof_grpmask_backport_analysis.md
+spi_sh_msiof_sitmdr2_sirmdr2_bitfield_conversion_backport_analysis.md
+sta2x11_removal_analysis.md test_unused_param.c test_unused_param.o
+ti_bridge_encoder_crtc_refactoring_backport_analysis.md
+xe_driver_flr_vf_restriction_analysis.md
+xe_firmware_per_gt_backport_analysis.md
+xe_sriov_logging_backport_analysis.md CPU comes back online. See
+irq_startup_managed(). + linux-kernel/ + desc->depth++; ``` This
+preserves the original disable state instead of overwriting it. ### 2.
+**New irq_startup_managed() Function**: ```c +void
+irq_startup_managed(struct irq_desc *desc) +{ + /bin /bin.usr-is-merged
+/boot /dev /etc /home /init /lib /lib.usr-is-merged /lib64 /lost+found
+/media /mnt /opt /proc /root /run /sbin /sbin.usr-is-merged /snap /srv
+/sys /tmp /usr /var + amd_display_timing_generator_analysis.md
+amd_doorbell_analysis_framework.md
+amd_gpu_documentation_backport_analysis.md amd_si_chip_analysis.md
+amdgpu_csb_analysis.md amdgpu_mqd_prop_backport_analysis.md
+analogix_dp_backport_analysis.md cgroup_rstat_analysis.sh
+cgroup_rstat_analysis_guide.md cpuset_comment_fix_backport_analysis.md
+csiphy_x1e80100_backport_analysis.md
+dcn315_smu_indirect_register_access_analysis.md
+drm_dp_helper_dpcd_refactoring_backport_analysis.md
+drm_format_helper_generic_8bit_conversion_backport_analysis.md
+es8375_codec_driver_backport_analysis.md expected_findings_summary.md
+hdmi_read_request_analysis.md kernel_analysis_commands.sh
+kselftest_harness_teardown_metadata_backport_analysis.md linux-kernel
+mediatek_vcodec_h264_backport_analysis.md
+pidfd_open_kselftest_harness_compatibility_analysis.md
+qualcomm_camss_bus_type_backport_analysis.md
+selftests_harness_libatomic_backport_analysis.md
+sphinx_version_compatibility_backport_analysis.md
+spi_sh_msiof_grpmask_backport_analysis.md
+spi_sh_msiof_sitmdr2_sirmdr2_bitfield_conversion_backport_analysis.md
+sta2x11_removal_analysis.md test_unused_param.c test_unused_param.o
+ti_bridge_encoder_crtc_refactoring_backport_analysis.md
+xe_driver_flr_vf_restriction_analysis.md
+xe_firmware_per_gt_backport_analysis.md
+xe_sriov_logging_backport_analysis.md Only start it up when the disable
+depth is 1, so that a disable, +
+amd_display_timing_generator_analysis.md
+amd_doorbell_analysis_framework.md
+amd_gpu_documentation_backport_analysis.md amd_si_chip_analysis.md
+amdgpu_csb_analysis.md amdgpu_mqd_prop_backport_analysis.md
+analogix_dp_backport_analysis.md cgroup_rstat_analysis.sh
+cgroup_rstat_analysis_guide.md cpuset_comment_fix_backport_analysis.md
+csiphy_x1e80100_backport_analysis.md
+dcn315_smu_indirect_register_access_analysis.md
+drm_dp_helper_dpcd_refactoring_backport_analysis.md
+drm_format_helper_generic_8bit_conversion_backport_analysis.md
+es8375_codec_driver_backport_analysis.md expected_findings_summary.md
+hdmi_read_request_analysis.md kernel_analysis_commands.sh
+kselftest_harness_teardown_metadata_backport_analysis.md linux-kernel
+mediatek_vcodec_h264_backport_analysis.md
+pidfd_open_kselftest_harness_compatibility_analysis.md
+qualcomm_camss_bus_type_backport_analysis.md
+selftests_harness_libatomic_backport_analysis.md
+sphinx_version_compatibility_backport_analysis.md
+spi_sh_msiof_grpmask_backport_analysis.md
+spi_sh_msiof_sitmdr2_sirmdr2_bitfield_conversion_backport_analysis.md
+sta2x11_removal_analysis.md test_unused_param.c test_unused_param.o
+ti_bridge_encoder_crtc_refactoring_backport_analysis.md
+xe_driver_flr_vf_restriction_analysis.md
+xe_firmware_per_gt_backport_analysis.md
+xe_sriov_logging_backport_analysis.md hotunplug, hotplug sequence does
+not end up enabling it during + amd_display_timing_generator_analysis.md
+amd_doorbell_analysis_framework.md
+amd_gpu_documentation_backport_analysis.md amd_si_chip_analysis.md
+amdgpu_csb_analysis.md amdgpu_mqd_prop_backport_analysis.md
+analogix_dp_backport_analysis.md cgroup_rstat_analysis.sh
+cgroup_rstat_analysis_guide.md cpuset_comment_fix_backport_analysis.md
+csiphy_x1e80100_backport_analysis.md
+dcn315_smu_indirect_register_access_analysis.md
+drm_dp_helper_dpcd_refactoring_backport_analysis.md
+drm_format_helper_generic_8bit_conversion_backport_analysis.md
+es8375_codec_driver_backport_analysis.md expected_findings_summary.md
+hdmi_read_request_analysis.md kernel_analysis_commands.sh
+kselftest_harness_teardown_metadata_backport_analysis.md linux-kernel
+mediatek_vcodec_h264_backport_analysis.md
+pidfd_open_kselftest_harness_compatibility_analysis.md
+qualcomm_camss_bus_type_backport_analysis.md
+selftests_harness_libatomic_backport_analysis.md
+sphinx_version_compatibility_backport_analysis.md
+spi_sh_msiof_grpmask_backport_analysis.md
+spi_sh_msiof_sitmdr2_sirmdr2_bitfield_conversion_backport_analysis.md
+sta2x11_removal_analysis.md test_unused_param.c test_unused_param.o
+ti_bridge_encoder_crtc_refactoring_backport_analysis.md
+xe_driver_flr_vf_restriction_analysis.md
+xe_firmware_per_gt_backport_analysis.md
+xe_sriov_logging_backport_analysis.md hotplug unconditionally. + linux-
+kernel/ + desc->depth--; + if (!desc->depth) + irq_startup(desc,
+IRQ_RESEND, IRQ_START_COND); +} ``` This provides proper depth-aware
+startup specifically for managed interrupts. ### 3. **IRQ_STARTUP_ABORT
+Case Update**: ```c case IRQ_STARTUP_ABORT: + desc->depth = 1;
+irqd_set_managed_shutdown(d); return 0; ``` Ensures consistent depth
+handling in abort cases. ### 4. **CPU Hotplug Integration**
+(kernel/irq/cpuhotplug.c): ```c - irq_startup(desc, IRQ_RESEND,
+IRQ_START_COND); + irq_startup_managed(desc); ``` Uses the new depth-
+aware function for managed interrupt restoration. ## Backport
+Suitability Assessment **Meets All Stable Criteria:** 1. **Fixes
+Important Bug**: ✅ Corrects interrupt enable/disable balance corruption
+2. **Small & Contained**: ✅ Minimal changes confined to IRQ subsystem 3.
+**Low Regression Risk**: ✅ Only affects managed interrupts during CPU
+hotplug 4. **No New Features**: ✅ Pure bug fix, no architectural changes
+5. **Critical Subsystem**: ✅ IRQ handling is fundamental to system
+stability **Similar Pattern Match**: This closely resembles Similar
+Commit #3 and #5 (both marked YES) which also fix managed interrupt CPU
+hotplug issues with surgical changes to preserve state across hotplug
+events. **Real-World Impact**: The bug can cause: - Server/datacenter
+systems using CPU hotplug for power management to experience interrupt
+handling issues - Multi-queue device drivers to malfunction after CPU
+hotplug cycles - Unbalanced IRQ state leading to system instability The
+fix is well-contained, addresses a clear functional bug with user-
+visible symptoms, and follows established patterns for stable backports
+in the IRQ subsystem.
 
- drivers/pmdomain/ti/omap_prm.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ kernel/irq/chip.c       | 22 +++++++++++++++++++++-
+ kernel/irq/cpuhotplug.c |  2 +-
+ kernel/irq/internals.h  |  1 +
+ 3 files changed, 23 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pmdomain/ti/omap_prm.c b/drivers/pmdomain/ti/omap_prm.c
-index b8ceb3c2b81c2..7e36e675a8c68 100644
---- a/drivers/pmdomain/ti/omap_prm.c
-+++ b/drivers/pmdomain/ti/omap_prm.c
-@@ -18,7 +18,9 @@
- #include <linux/pm_domain.h>
- #include <linux/reset-controller.h>
- #include <linux/delay.h>
--
-+#if IS_ENABLED(CONFIG_SUSPEND)
-+#include <linux/suspend.h>
-+#endif
- #include <linux/platform_data/ti-prm.h>
+diff --git a/kernel/irq/chip.c b/kernel/irq/chip.c
+index c901436ebd9f4..7abe050b7c656 100644
+--- a/kernel/irq/chip.c
++++ b/kernel/irq/chip.c
+@@ -223,6 +223,19 @@ __irq_startup_managed(struct irq_desc *desc, const struct cpumask *aff,
+ 		return IRQ_STARTUP_ABORT;
+ 	return IRQ_STARTUP_MANAGED;
+ }
++
++void irq_startup_managed(struct irq_desc *desc)
++{
++	/*
++	 * Only start it up when the disable depth is 1, so that a disable,
++	 * hotunplug, hotplug sequence does not end up enabling it during
++	 * hotplug unconditionally.
++	 */
++	desc->depth--;
++	if (!desc->depth)
++		irq_startup(desc, IRQ_RESEND, IRQ_START_COND);
++}
++
+ #else
+ static __always_inline int
+ __irq_startup_managed(struct irq_desc *desc, const struct cpumask *aff,
+@@ -275,6 +288,7 @@ int irq_startup(struct irq_desc *desc, bool resend, bool force)
+ 			ret = __irq_startup(desc);
+ 			break;
+ 		case IRQ_STARTUP_ABORT:
++			desc->depth = 1;
+ 			irqd_set_managed_shutdown(d);
+ 			return 0;
+ 		}
+@@ -307,7 +321,13 @@ void irq_shutdown(struct irq_desc *desc)
+ {
+ 	if (irqd_is_started(&desc->irq_data)) {
+ 		clear_irq_resend(desc);
+-		desc->depth = 1;
++		/*
++		 * Increment disable depth, so that a managed shutdown on
++		 * CPU hotunplug preserves the actual disabled state when the
++		 * CPU comes back online. See irq_startup_managed().
++		 */
++		desc->depth++;
++
+ 		if (desc->irq_data.chip->irq_shutdown) {
+ 			desc->irq_data.chip->irq_shutdown(&desc->irq_data);
+ 			irq_state_set_disabled(desc);
+diff --git a/kernel/irq/cpuhotplug.c b/kernel/irq/cpuhotplug.c
+index 15a7654eff684..3ed5b15927355 100644
+--- a/kernel/irq/cpuhotplug.c
++++ b/kernel/irq/cpuhotplug.c
+@@ -219,7 +219,7 @@ static void irq_restore_affinity_of_irq(struct irq_desc *desc, unsigned int cpu)
+ 		return;
  
- enum omap_prm_domain_mode {
-@@ -88,6 +90,7 @@ struct omap_reset_data {
- #define OMAP_PRM_HAS_RSTST	BIT(1)
- #define OMAP_PRM_HAS_NO_CLKDM	BIT(2)
- #define OMAP_PRM_RET_WHEN_IDLE	BIT(3)
-+#define OMAP_PRM_ON_WHEN_STANDBY	BIT(4)
+ 	if (irqd_is_managed_and_shutdown(data))
+-		irq_startup(desc, IRQ_RESEND, IRQ_START_COND);
++		irq_startup_managed(desc);
  
- #define OMAP_PRM_HAS_RESETS	(OMAP_PRM_HAS_RSTCTRL | OMAP_PRM_HAS_RSTST)
+ 	/*
+ 	 * If the interrupt can only be directed to a single target
+diff --git a/kernel/irq/internals.h b/kernel/irq/internals.h
+index a979523640d0a..9661527e81571 100644
+--- a/kernel/irq/internals.h
++++ b/kernel/irq/internals.h
+@@ -87,6 +87,7 @@ extern void __enable_irq(struct irq_desc *desc);
+ extern int irq_activate(struct irq_desc *desc);
+ extern int irq_activate_and_startup(struct irq_desc *desc, bool resend);
+ extern int irq_startup(struct irq_desc *desc, bool resend, bool force);
++extern void irq_startup_managed(struct irq_desc *desc);
  
-@@ -404,7 +407,8 @@ static const struct omap_prm_data am3_prm_data[] = {
- 		.name = "per", .base = 0x44e00c00,
- 		.pwrstctrl = 0xc, .pwrstst = 0x8, .dmap = &omap_prm_noinact,
- 		.rstctrl = 0x0, .rstmap = am3_per_rst_map,
--		.flags = OMAP_PRM_HAS_RSTCTRL, .clkdm_name = "pruss_ocp"
-+		.flags = OMAP_PRM_HAS_RSTCTRL | OMAP_PRM_ON_WHEN_STANDBY,
-+		.clkdm_name = "pruss_ocp",
- 	},
- 	{
- 		.name = "wkup", .base = 0x44e00d00,
+ extern void irq_shutdown(struct irq_desc *desc);
+ extern void irq_shutdown_and_deactivate(struct irq_desc *desc);
 -- 
 2.39.5
 
