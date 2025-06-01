@@ -4,67 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578F7C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 23:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03733C5B559
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 23:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JJyLztJDLe4C2ZDPENKbbNwdnt8dO4RcBKr9F5TymmA=; b=nM3RKNy8Lgn+iI/281A2qNTWCT
-	xtQUpxyrEH2cvDKzHqirML8a3A2hxV/QFx1cr9Mq3A+m1VPMZjSOEMyIcnQxEUS7ly5+vdKdVAHAk
-	QseoJ97bRiS+lf1qSGLlqyS5xJIEWi0CL+7sbvPDNYjD4UAicS+19GBpL0KxTc8Nf2LiNGHQfAbCT
-	Z8kfxmGwIo5gGLVTbYIFPKCoFcZ40Z2SK3ZV9csPE5Ece5n4ghNu1BN6N9Yl9S3p+7m1FJljuaqpU
-	QLCowtuT083RvO9DSzzGEYhoGUoSxzDuMu+14N530Go+gsWqAicnfHmw7ymjnl+FYVyho7YWsPliP
-	uVFJ0Wxg==;
+	bh=MgLOsQuL7RTyNsvlAux5+WjTu3KSg9+JtB3RHLk3F38=; b=BwI+E0kHyAq8Ai+UYaxD6IBuHv
+	WJCwKyJs2ucUPeGzK0N4GtYi5kDAqf47mdn8Gk9IIyW5n49UT/+BATNmNNKcZwgpsknqf0PKG6sx8
+	G1SJEBz9U4R4T6ZxYxQxdJsCg7O32FUnzNScKXesXzzp7JSafRZW8iMtjYeQ+v3piczeKb76HphRd
+	/EYtjL63xQijWe81rBr357eV0CZOy9N0UTCFFaepqxDdE2oBqk8PFGx6RphgZ4ms7hE8QW00mW1p8
+	WxrnCxRrTiLnhuo5h1Y8ldAJPUExrJR1LIZjQBOTYvfcQ2OCuYReu4LtQ+JiikaVZxvXAyZshb/XV
+	gI9gZroA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsDR-000000067jl-1OB4;
-	Sun, 01 Jun 2025 23:35:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uLsFY-000000068MK-3NQS;
+	Sun, 01 Jun 2025 23:37:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLs42-000000065kI-353c;
-	Sun, 01 Jun 2025 23:26:03 +0000
+	id 1uLs53-00000006604-2Su4;
+	Sun, 01 Jun 2025 23:27:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=MgLOsQuL7RTyNsvlAux5+WjTu3KSg9+JtB3RHLk3F38=; b=R25QoeMW7UPTd6MAauz9L0B3O5
+	KeX9e7Bo/mAx03a5KoSHiZEQVkA1X2IwDaYeOki5g1V5tPyMWt9ObxC5hz2FZhvDYUO7atmPVE47h
+	0qM9395PdCK2uc7db6KYdV6fKvMhQHcSVrdn6itGzBK484pXK4pCEQCZXtzFzLVuBvPIIx4HfrI34
+	jLrimSDqQ9m5EuTkjqQ/TIXeqrYExmedjsiFSZ1PloPeIgTyhARn9WNLWDfx+Spf5CoZ5uOqaNqL3
+	WENRCBT/KMCf3onMF5udmQ6kab2E7HV8sDS7ZEsee7iHPhqSqZNJroJB3l3SaYBqVR08eV0ImwlHI
+	jg3t+2QA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uLs50-00000000XKI-2PUZ;
+	Sun, 01 Jun 2025 23:27:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 413465C55E9;
-	Sun,  1 Jun 2025 23:23:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C88B5C4CEE7;
-	Sun,  1 Jun 2025 23:25:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7C41CA4F8E8;
+	Sun,  1 Jun 2025 23:27:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5424EC4CEF1;
+	Sun,  1 Jun 2025 23:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748820361;
-	bh=EEO5q/anlUp9Wf8k9dVDWiAKdrMGhZ2pHpowvmT+wOg=;
+	s=k20201202; t=1748820421;
+	bh=dt8kPgWDpFu2sSg07IECaKF33MJ/jwpv24xF5OlDrII=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GPf4QneHVad1LykXYma4p4uQHHkyc4yueXriwyJPD7WB9wdc+DyTId1j/wqMip+W5
-	 gK1VaVpGFLyX+WhDbueq+oRPMIiYPR+/b6rjibMs5PZMfMIn4n+xrqE1aN9FHmoFQ3
-	 u5Gk68zsYC8JJK9HaWRL7zv4ck9grvt9W5pEObfV2sjUrg+LZ1nf3TD4nmRgseMGTF
-	 SG0ZMxrdCZlHKg6cvPXkmBMnTifkpFK2hMhhWxYB3ctn6NP8fv+slSBpaWA/PCESLT
-	 dwRx+YfP6wCXWTEePBK+Gtey1KtV8b/VvvCNrAFEQDjiNyzlpeOtaO+NyQWhW1LBEx
-	 TIvLJmnYkCBmA==
+	b=WdIqWb8r4kt6iAIp6YlsqR9MdecVFUAQ8eMwaUmdTyRQnMOsbObHG6QOmgYKL7rfS
+	 intzkTDS2nZ0cSYR3AAYU8CLIdj+CNNal4/nDMvvO8TzcW+LwTEtuES+9uYDNT74Bj
+	 UJvNe4ywNdjBtbsIhhZ9jdmEbFeuj1NVgpKTdeMYj7s46soV0F+mnG/7+BV+fOyIbE
+	 Zr8ZOPc4+plT7HZU1Mx3ZJV7/oFi23qUbLE7KhYU4CYXflRAhijNSQI8mCrWbTItLx
+	 eDZfmvQgno/Ty1N4pyYW+KbZLvWcr3+ZtLi/a+ybPS7Lj4ln/CAPVZZFYjAJavS30h
+	 OWgAKT+QjMPyw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Lijo Lazar <lijo.lazar@amd.com>,
-	Hawking Zhang <Hawking.Zhang@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
+Cc: Jonas Karlman <jonas@kwiboo.se>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Christopher Obbard <chris.obbard@collabora.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
 	Sasha Levin <sashal@kernel.org>,
-	christian.koenig@amd.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
+	ezequiel@vanguardiasur.com.ar,
+	mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	tao.zhou1@amd.com,
-	ganglxie@amd.com,
-	candice.li@amd.com,
-	Stanley.Yang@amd.com,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-staging@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.15 032/110] drm/amdgpu: Add basic validation for RAS header
-Date: Sun,  1 Jun 2025 19:23:14 -0400
-Message-Id: <20250601232435.3507697-32-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.15 052/110] media: rkvdec: h264: Use bytesperline and buffer height as virstride
+Date: Sun,  1 Jun 2025 19:23:34 -0400
+Message-Id: <20250601232435.3507697-52-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250601232435.3507697-1-sashal@kernel.org>
 References: <20250601232435.3507697-1-sashal@kernel.org>
@@ -72,11 +84,10 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.15
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_162602_868670_26190770 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20250602_002702_911657_ACEC4D59 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,122 +102,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lijo Lazar <lijo.lazar@amd.com>
+From: Jonas Karlman <jonas@kwiboo.se>
 
-[ Upstream commit 5df0d6addb7e9b6f71f7162d1253762a5be9138e ]
+[ Upstream commit d5e0aa61470c48ddc04d433a00e79cef8716377a ]
 
-If RAS header read from EEPROM is corrupted, it could result in trying
-to allocate huge memory for reading the records. Add some validation to
-header fields.
+Use bytesperline and buffer height to calculate the strides configured.
 
-Signed-off-by: Lijo Lazar <lijo.lazar@amd.com>
-Reviewed-by: Hawking Zhang <Hawking.Zhang@amd.com>
-Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
+This does not really change anything other than ensuring the
+bytesperline that is signaled to userspace matches what is configured
+in HW.
+
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Tested-by: Christopher Obbard <chris.obbard@collabora.com>
+Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-Based on my analysis, here is my assessment: **YES** This commit should
-be backported to stable kernel trees. Here's my extensive analysis: ##
-Security Vulnerability Analysis **Critical Memory Allocation
-Vulnerability:** The commit fixes a serious security vulnerability where
-corrupted RAS (Reliability, Availability, and Serviceability) EEPROM
-header data could cause huge memory allocations. In
-`/home/sasha/linux/drivers/gpu/drm/amd/amdgpu/amdgpu_ras.c:3011`, the
-code performs: ```c bps = kcalloc(control->ras_num_recs, sizeof(*bps),
-GFP_KERNEL); ``` **Before the fix:** If `control->ras_num_recs` contains
-a corrupted large value (e.g., 0xFFFFFFFF), this would attempt to
-allocate `0xFFFFFFFF 0001-Fix-Clippy-warnings.patch 0002-Enhance-
-inference-prompt-to-utilize-CVEKERNELDIR-whe.patch 0003-Update-to-
-latest-version-of-clap.patch Cargo.lock Cargo.toml LICENSE README.md
+### Key Reasons for NO Backport: 1. **Not a Bug Fix**: The commit
+message explicitly states "This does not really change anything other
+than ensuring the bytesperline that is signaled to userspace matches
+what is configured in HW." This is not fixing a functional bug but
+rather improving consistency between userspace and hardware
+configuration. 2. **Code Quality/Consistency Improvement**: The changes
+are primarily about code correctness and consistency rather than fixing
+a critical issue that affects users. This aligns with similar commits
+#1, #2, and #4 which were marked as NO for backporting. 3. **Staging
+Driver**: The rkvdec driver is in `drivers/staging/media/`, which
+indicates it's still under development and not considered stable.
+Staging drivers typically have more relaxed backporting requirements. 4.
+**Specific Code Changes Analysis**: - **Before**: `hor_virstride =
+(sps->bit_depth_luma_minus8 + 8) 0001-Fix-Clippy-warnings.patch
+0002-Enhance-inference-prompt-to-utilize-CVEKERNELDIR-whe.patch
+0003-Update-to-latest-version-of-clap.patch Cargo.lock Cargo.toml
+LICENSE README.md adreno_acd_support_analysis.md
+amd_display_ips_sequential_ono_backport_analysis.md
 analyze_merge_commit.sh dpp_rcg_backport_analysis.md
-drm_bridge_analysis.txt drm_imagination_register_update_analysis.md
-drm_mediatek_mtk_dpi_refactoring_analysis.md io_uring_analysis.txt
-ksmbd_analysis.txt merge_commit_analysis.txt model prompt src target
-test_gpio_cleanup.txt test_patch.txt verisilicon_av1_4k_analysis.md 24
-bytes` = ~96GB of memory, likely causing: 1. System memory exhaustion 2.
-Denial of service 3. Potential system crash/instability ## Code Changes
-Analysis **1. Version Validation Enhancement:** The fix replaces a
-simple `if/else` with a robust `switch` statement: ```c // Before: Only
-checked for version >= V2_1 if (hdr->version >= RAS_TABLE_VER_V2_1) { //
-After: Explicit validation of known versions switch (hdr->version) {
-case RAS_TABLE_VER_V2_1: case RAS_TABLE_VER_V3: // Future-proofing //
-V2.1+ handling break; case RAS_TABLE_VER_V1: // V1 handling break;
-default: dev_err(adev->dev, "RAS header invalid, unsupported version:
-%u", hdr->version); return -EINVAL; } ``` **2. Record Count Bounds
-Checking:** Critical addition of bounds validation: ```c if
-(control->ras_num_recs > control->ras_max_record_count) {
-dev_err(adev->dev, "RAS header invalid, records in header: %u max
-allowed :%u", control->ras_num_recs, control->ras_max_record_count);
-return -EINVAL; } ``` This prevents the memory allocation attack by
-ensuring `ras_num_recs` cannot exceed reasonable bounds. ## Stable Tree
-Criteria Assessment ✅ **Fixes important security bug:** Prevents DoS via
-memory exhaustion ✅ **Small and contained:** Only adds validation logic,
-no functional changes ✅ **Clear side effects:** None - only adds error
-checking ✅ **No architectural changes:** Pure validation enhancement ✅
-**Touches critical subsystem:** Graphics driver reliability/security ✅
-**Minimal regression risk:** Only adds stricter validation ## Comparison
-with Historical Patterns Looking at the provided similar commits (all
-marked "NO"), they were architectural refactoring changes that: - Split
-functions (`ras_eeprom_init into init and check functions`) - Added new
-infrastructure (`Hook EEPROM table to RAS`) - Wrapped function calls
-(`RAS xfer to read/write`) - Added entirely new features (`Add RAS
-EEPROM table`) In contrast, this commit is a **security hardening fix**
-that adds essential input validation to prevent memory exhaustion
-attacks. ## Impact Assessment **Risk if NOT backported:** - Systems with
-AMD GPUs vulnerable to DoS attacks via corrupted EEPROM data - Potential
-for system instability when corrupted data triggers massive allocations
-- Security exposure in enterprise/server environments using AMD GPUs
-**Risk if backported:** - Minimal: Only adds validation, existing
-correct data will continue to work - Possible rejection of previously
-accepted (but actually corrupted) EEPROM data - this is desired behavior
-This fix addresses a clear security vulnerability with minimal code
-changes and should definitely be backported to stable trees to protect
-users from memory exhaustion attacks via corrupted RAS EEPROM headers.
+drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
+drm_bridge_analysis.txt drm_format_helper_24bit_analysis.md
+drm_imagination_register_update_analysis.md
+drm_mediatek_mtk_dpi_refactoring_analysis.md
+intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
+merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
+test_patch.txt verisilicon_av1_4k_analysis.md dst_fmt->width / 8;` -
+**After**: `hor_virstride = dst_fmt->plane_fmt[0].bytesperline;` -
+**Before**: `ver_virstride = round_up(dst_fmt->height, 16);` -
+**After**: `ver_virstride = dst_fmt->height;` 5. **No Risk Indication**:
+The changes don't indicate they're fixing crashes, data corruption,
+security issues, or other critical problems that would warrant stable
+backporting. 6. **Pattern Match with Similar Commits**: Looking at the
+provided examples: - Similar commits #1, #2, #4, and #5 that make
+stride/calculation improvements were marked as NO - Only commit #3 that
+increased max supported height (a clear functional limitation fix) was
+marked as YES 7. **No Stable Tree Mention**: The commit message contains
+no indication of stable tree inclusion via Fixes: tags or explicit
+stable tree requests. ### Conclusion: This commit improves code
+consistency by using the actual bytesperline values from userspace
+instead of calculating them from SPS parameters, but it doesn't fix a
+user-impacting bug. It's a code quality improvement that follows the
+pattern of other NO-backport commits in the provided examples.
 
- .../gpu/drm/amd/amdgpu/amdgpu_ras_eeprom.c    | 22 ++++++++++++++++---
- 1 file changed, 19 insertions(+), 3 deletions(-)
+ drivers/staging/media/rkvdec/rkvdec-h264.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_ras_eeprom.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_ras_eeprom.c
-index 0ea7cfaf3587d..e979a6086178c 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ras_eeprom.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ras_eeprom.c
-@@ -1392,17 +1392,33 @@ int amdgpu_ras_eeprom_init(struct amdgpu_ras_eeprom_control *control)
+diff --git a/drivers/staging/media/rkvdec/rkvdec-h264.c b/drivers/staging/media/rkvdec/rkvdec-h264.c
+index 4fc167b42cf0c..7a1e76d423df5 100644
+--- a/drivers/staging/media/rkvdec/rkvdec-h264.c
++++ b/drivers/staging/media/rkvdec/rkvdec-h264.c
+@@ -896,9 +896,9 @@ static void config_registers(struct rkvdec_ctx *ctx,
+ 	dma_addr_t rlc_addr;
+ 	dma_addr_t refer_addr;
+ 	u32 rlc_len;
+-	u32 hor_virstride = 0;
+-	u32 ver_virstride = 0;
+-	u32 y_virstride = 0;
++	u32 hor_virstride;
++	u32 ver_virstride;
++	u32 y_virstride;
+ 	u32 yuv_virstride = 0;
+ 	u32 offset;
+ 	dma_addr_t dst_addr;
+@@ -909,16 +909,16 @@ static void config_registers(struct rkvdec_ctx *ctx,
  
- 	__decode_table_header_from_buf(hdr, buf);
+ 	f = &ctx->decoded_fmt;
+ 	dst_fmt = &f->fmt.pix_mp;
+-	hor_virstride = (sps->bit_depth_luma_minus8 + 8) * dst_fmt->width / 8;
+-	ver_virstride = round_up(dst_fmt->height, 16);
++	hor_virstride = dst_fmt->plane_fmt[0].bytesperline;
++	ver_virstride = dst_fmt->height;
+ 	y_virstride = hor_virstride * ver_virstride;
  
--	if (hdr->version >= RAS_TABLE_VER_V2_1) {
-+	switch (hdr->version) {
-+	case RAS_TABLE_VER_V2_1:
-+	case RAS_TABLE_VER_V3:
- 		control->ras_num_recs = RAS_NUM_RECS_V2_1(hdr);
- 		control->ras_record_offset = RAS_RECORD_START_V2_1;
- 		control->ras_max_record_count = RAS_MAX_RECORD_COUNT_V2_1;
--	} else {
-+		break;
-+	case RAS_TABLE_VER_V1:
- 		control->ras_num_recs = RAS_NUM_RECS(hdr);
- 		control->ras_record_offset = RAS_RECORD_START;
- 		control->ras_max_record_count = RAS_MAX_RECORD_COUNT;
-+		break;
-+	default:
-+		dev_err(adev->dev,
-+			"RAS header invalid, unsupported version: %u",
-+			hdr->version);
-+		return -EINVAL;
- 	}
--	control->ras_fri = RAS_OFFSET_TO_INDEX(control, hdr->first_rec_offset);
+ 	if (sps->chroma_format_idc == 0)
+ 		yuv_virstride = y_virstride;
+ 	else if (sps->chroma_format_idc == 1)
+-		yuv_virstride += y_virstride + y_virstride / 2;
++		yuv_virstride = y_virstride + y_virstride / 2;
+ 	else if (sps->chroma_format_idc == 2)
+-		yuv_virstride += 2 * y_virstride;
++		yuv_virstride = 2 * y_virstride;
  
-+	if (control->ras_num_recs > control->ras_max_record_count) {
-+		dev_err(adev->dev,
-+			"RAS header invalid, records in header: %u max allowed :%u",
-+			control->ras_num_recs, control->ras_max_record_count);
-+		return -EINVAL;
-+	}
-+
-+	control->ras_fri = RAS_OFFSET_TO_INDEX(control, hdr->first_rec_offset);
- 	control->ras_num_mca_recs = 0;
- 	control->ras_num_pa_recs = 0;
- 	return 0;
+ 	reg = RKVDEC_Y_HOR_VIRSTRIDE(hor_virstride / 16) |
+ 	      RKVDEC_UV_HOR_VIRSTRIDE(hor_virstride / 16) |
 -- 
 2.39.5
 
