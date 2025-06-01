@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50ED7C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 22:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FE73C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 22:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SF7cA4E9BN3hkPat2YYsHMJ+T/3Iu8BTo2+5VoN0ds8=; b=UvslnhJmbBYS6XRq5n56Ijq+s8
-	/6vi2cfuUjtkaY45od2J8BSmFGhLXA9Jc02X1to6aA85stP/F5rscB8f4Ids/1CQ8PLVaKRwnMPtY
-	0m0ibVQvsncW7KE2r1D8VRvZ3VndjDcAv62z47IBIWJWHpWYZ9PabMr+B2gJHMRxyxZG4Mf2cMPR4
-	VdzVB4U3FgLYoYm+b1X1xnUqhq6pJ+0+yMDo1P51FHLkAPhNE8IWOXpO92+McJhYcW9DFTEj6m6y2
-	RP6mA50VeUeTqJl5DJLi51rWVKak0XRUiFdiq3ZvxMvApjQitZIGKKK5lBaOBQVVAe8WANEom9JZk
-	8SZcnW+w==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KLnY+e4DmR9UwbO0AVGv5r5TxRv2i22KZH8nci/gU7o=; b=lmFhN6BUmynzGW02AKklsy16Q+
+	8wKUglvLawh0AnY/7Dw4byNjRlsnT8LUBFUrjaW5VFinfgS+mbWCV4/q2lslMCnyXOaPZKKm8bI+M
+	llrFOloEgG3PqejL+xw479w2IEYkbml1A5AN00BPP3fGRj0vRKZTmpGjYawgfOA9ACSGyAm14LfoV
+	ldfOKkyiBKiOLius7UNpT2BvDI+psCpM5ZadzDCEQyoNuZLvR+NaMnSNj5fGdMgLnRxFd4W/YeAuj
+	Gl3kKe7DMx8ppkLJQ1XsvdubBKFEPOEv9VvEHGk7OP842AYXuvTKaEsA++9XzQ7sZ/ezFHJYxhzLE
+	jK3tIYVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLrQJ-000000060sP-0ERh;
-	Sun, 01 Jun 2025 22:44:59 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uLrSP-000000061WE-3A2j;
+	Sun, 01 Jun 2025 22:47:09 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLrOB-000000060iS-0Xb1
+	id 1uLrOJ-000000060iq-0wHW
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Jun 2025 22:42:48 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-450cf2291bbso13104035e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Jun 2025 15:42:46 -0700 (PDT)
+	Sun, 01 Jun 2025 22:42:56 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-451d6ade159so5655505e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 01 Jun 2025 15:42:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748817765; x=1749422565; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SF7cA4E9BN3hkPat2YYsHMJ+T/3Iu8BTo2+5VoN0ds8=;
-        b=gQ+H93qw64NaUlCqMDjfmB+xSg0uCzj2Hru2nQVCjLrwL+NfGv0BABSNtdNBGuZ8zb
-         pOylMgKK2sj0xvMsUjxIP92f/4RdewQuvAz7Y22b8Z0k3k3Xu2NB9KZdhYU9ss9KsNkW
-         Zlkm/o8+QV2LH3c87+Rz4POKEtonqcnhuQTWLAn7qUu5fg/HpJxN69uGdhGiQUP7fNL0
-         PRrd/TuW4qj8LfbUIjkYt3LVtmupAfqthnOfCmzIsMYbyuvllyvvgXnAkVjAJZDE2W8V
-         QRvqdKSZp/pulTSsDccSMSYghmAHuD9mto5WhjjwTJwCzPO5uCJRyJcP0CaLm6CL1LHs
-         EDBw==
+        d=gmail.com; s=20230601; t=1748817773; x=1749422573; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KLnY+e4DmR9UwbO0AVGv5r5TxRv2i22KZH8nci/gU7o=;
+        b=cZgMAOdM5wCSqyo/ZM59uayMUzr6X9HgS+iYoBDOt1qQmciXkJ4q2xD0MZr3CFB9x8
+         8WljGxBmcSfPIj6ws4fEsQ1mQdFRX+bEI9KZGaCdxfHrTilt0BDKOdJcSvMQWXyS81Hp
+         zUiPDn3oxE3HeBvGY67WJrBBnPXXdODCnzH1nXKvjw0/gGFz8MOA4NjuCwd/bA/y9gxr
+         0E83XYhtZhQmV7s/adPgvsQ+jci+jptE7TD9wGX+qs/HfbFdBstaF1dFNsZfnkMomGqw
+         jp6aDs+x5IhnkP+6W8CHAw2oscSdxq2keOEbmlMnjTpD15xvKqRSfw0hbPAWiOiudPTa
+         lt6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748817765; x=1749422565;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SF7cA4E9BN3hkPat2YYsHMJ+T/3Iu8BTo2+5VoN0ds8=;
-        b=oaS+txNr7CXce3zyM02KG4AaCeam3JPLqnIlS8F476zlV53H0JmacvKUt2LxSTBW6K
-         6RlZ08W34wNOXv04pOhb7ZsocG3JziWjnFI7CL2TY7oW3EVoEwrmR70vl54c+QDUqqO9
-         p8gRPkEKU7jee4kV+5TSptQeTTJ6JOSy35pCfeCNKPbyp2lX2A8brlP1EVFPswFPN8af
-         FigT4bF9S+PTvEGsGKZKuVvamctzRnk9mh8IAFxdMpTYcaE6uIVF0qP8tM+LkFWvkx7B
-         pH2MbMWEnzJ9m+i+LblOwKOu0roVFyU+52yoSJY10p32Ff9R96vs5vXBqFOd6Fm+YQwT
-         3wpw==
-X-Forwarded-Encrypted: i=1; AJvYcCV3x7vgrL6VSQRPW1Eu/K5SU0j2jE7KVL63UIOtn6DkjHsQknJWqfRLBoZGLq7Ir/J7MvuKIDkYoQYZYmcsWh3n@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4ll3+4kz+oo04SZf2UCJK0JCpstnk2BROYBk+RB4RHCQoH3NG
-	cZeH66dePogxfTA9QPxeMV28NVtx7ooZVBiuNWTQrsLQg/lKGpGduANg
-X-Gm-Gg: ASbGncuuAC2Ysf0OcLoJ+x4g/j1OzyUhjF0qIbxWbY+RDGgqMUSDq9pXqD0kdqjhJnC
-	mnXbhaPfr9izZWY29+8RxRW4fLeSwO1Rb85enuzqRt99DwqEgxxglFi7JrTPdFZaUwMwwQpu+pU
-	nwH8ogaZkoJmuyM5nNJAvHrFLY5qPPw6KrptJYVBqhaO1X93iyT0bn/OijRan0uudrRQ6+W9rAL
-	Y9p5BB3JsHwpzAqAM+/Pn8nQFZuG8mpwrkpRyj4dFX4gK9sANjlA6DDaeDSea+088dTcb6BvY83
-	zyE9As6x7+dYxlCmwdveTUMNrO2fT+IjTSb1RtKFLXDZ620zEZIm
-X-Google-Smtp-Source: AGHT+IG3zYFoACQN9M5H7HAo4tuvdifGw7budMeC1WAUHcB3EAdv/pcs7cNuCuhFCjbc82yl1vfYew==
-X-Received: by 2002:a05:600c:8207:b0:450:6b55:cf91 with SMTP id 5b1f17b1804b1-450d64c1bd9mr91267365e9.6.1748817764868;
-        Sun, 01 Jun 2025 15:42:44 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1748817773; x=1749422573;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KLnY+e4DmR9UwbO0AVGv5r5TxRv2i22KZH8nci/gU7o=;
+        b=jLWP79g0CsB9EoSpnEI5UOduoMcX1jgN7VGyAWIdSaN6w2fNICrH46/2FDnUjfr2YZ
+         JPLG4oJUuMFnTos8wwjfSByw7jSRLnYCCZjI7PPn1daWvujNTLDgiqgFtIBiO5QyweQV
+         3GOsgE0L221wzNAAqEa2LqnmsM6qqG5mt4WBz2G28OgBAKJpDay+OVvvLRJqQoGvFTEe
+         R88URlxqIHwAdFcKvPFnubVfnvnfsh4AoHYFM6CoLVjd7U7l7Pyz0wyvlualhjXkZxki
+         Y3CjuG2x5UqfBv8/kO2Ax1G7cBROC7bqFszp1lVeftrDJg1E2Zdmkou7GrVxGI9NTDHb
+         DFog==
+X-Forwarded-Encrypted: i=1; AJvYcCUNV0q3SBX+UTSX+2rGmRgIqspJQKW3A+u1kL8AIHMmw0Et+haErdRqKmKRHEP8d87FuplQBhDJ7fUzp+8ZzyWu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdveqHNxtTbYtS+qlcvJtCp4iKZifQfT2aulAufBPrbBJeLp2v
+	ahqWBeOhqYr/qhu2h0QL9mH+foYrEZb+qhMnqhBjivTR2VW/Tw/hMpp6
+X-Gm-Gg: ASbGncstLA+TZOaXnLMJAss7Gn+pwCkU68S8yBU2yvRbKMKN1Bemg1m1praDVpL+I2+
+	/IwAXMVkXa5+j8IMkQ32EocY/L9ewriSxOqcbyA7TKPQJRzDuFuB6MSGRQBJ1vNQa/W9b13JkHG
+	naw5hi4Tmn7SIiCTakz60ibJOqlzAyT6JG/wUiBfYrQyFqCeftWi8ke09L+H6ApBu5AgLfYQNU/
+	EXiDGPUwyEfvPk1yg3BMPMpDr294XKTL83/oi0cubUMQPiFToiGNBFs3OXsly3fL+sgkOuPG/wZ
+	KOHVtd7Z7uQjBJAyK5QY4wv5R1zVqCYw6JiXWsRdPHzRrO0zcHQB
+X-Google-Smtp-Source: AGHT+IHxEKNQmFH5Esn7+vrvKFhdlzvPKzJzwz+54lO3XiTb8Qi5En7rA6ezLo4Cpju1T9Y1p/Pn6Q==
+X-Received: by 2002:a05:600c:a53:b0:43d:fa59:cc8f with SMTP id 5b1f17b1804b1-4511ee1103fmr45441295e9.33.1748817773483;
+        Sun, 01 Jun 2025 15:42:53 -0700 (PDT)
 Received: from qasdev.Home ([2a02:c7c:6696:8300:4518:757b:6751:290f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4efe74165sm12916554f8f.53.2025.06.01.15.42.42
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4efe74165sm12916554f8f.53.2025.06.01.15.42.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 01 Jun 2025 15:42:43 -0700 (PDT)
+        Sun, 01 Jun 2025 15:42:52 -0700 (PDT)
 From: Qasim Ijaz <qasdev00@gmail.com>
 To: Sinan Kaya <okaya@kernel.org>,
 	Vinod Koul <vkoul@kernel.org>,
@@ -74,17 +75,19 @@ To: Sinan Kaya <okaya@kernel.org>,
 	linux-arm-msm@vger.kernel.org,
 	dmaengine@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Cc: Qasim Ijaz <qasdev00@gmail.com>
-Subject: [PATCH 0/2] dmaengine: qcom_hidma: fix memory leak issues
-Date: Sun,  1 Jun 2025 23:42:29 +0100
-Message-Id: <20250601224231.24317-1-qasdev00@gmail.com>
+Cc: Qasim Ijaz <qasdev00@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/2] dmaengine: qcom_hidma: fix memory leak on probe failure
+Date: Sun,  1 Jun 2025 23:42:30 +0100
+Message-Id: <20250601224231.24317-2-qasdev00@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250601224231.24317-1-qasdev00@gmail.com>
+References: <20250601224231.24317-1-qasdev00@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_154247_170192_B6A13E31 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250601_154255_262072_21F1C26E 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,15 +102,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-fix a few memory leak issues.
+hidma_ll_init() is invoked to create and initialise a struct hidma_lldev
+object during hidma probe. During this a FIFO buffer is allocated, but
+if some failure occurs after (like hidma_ll_setup failure) we should
+clean up the FIFO.
 
-Qasim Ijaz (2):
-  fix memory leak on probe failure
-  fix handoff FIFO memory leak on driver removal
+Fixes: d1615ca2e085 ("dmaengine: qcom_hidma: implement lower level hardware interface")
+Cc: stable@vger.kernel.org
+Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
+---
+ drivers/dma/qcom/hidma_ll.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
- drivers/dma/qcom/hidma_ll.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
+diff --git a/drivers/dma/qcom/hidma_ll.c b/drivers/dma/qcom/hidma_ll.c
+index 53244e0e34a3..fee448499777 100644
+--- a/drivers/dma/qcom/hidma_ll.c
++++ b/drivers/dma/qcom/hidma_ll.c
+@@ -788,8 +788,10 @@ struct hidma_lldev *hidma_ll_init(struct device *dev, u32 nr_tres,
+ 		return NULL;
+ 
+ 	rc = hidma_ll_setup(lldev);
+-	if (rc)
++	if (rc) {
++		kfifo_free(&lldev->handoff_fifo);
+ 		return NULL;
++	}
+ 
+ 	spin_lock_init(&lldev->lock);
+ 	tasklet_setup(&lldev->task, hidma_ll_tre_complete);
 -- 
 2.39.5
 
