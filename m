@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB053C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 22:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61026C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 22:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qCkmWEkVwz6dRrG3pC0j3IqxiYQTVTgt5n5ZYeRZ+OQ=; b=iyBqfUU7PJtSqPuDD7BUoDeb44
-	Ufh/yAutNzW/wq7Ji1Tx6O/sNHFiIwagoNWrQ8eLJNSSWTzY45cE+UVDLnUcpNpHpMj0T7JEFXjUG
-	C8xGbiS0iJT9CcVIuqUcfUoiNwTZWhjU1sBp81m5BhuHwOht9XxMoH8a6DuviT/Dg1TYPEwVf8fvt
-	jS9A3luf7DD/dWT2KUhzBhvemVY2WvvVGw0Xxvv8mARxBeHtpsUcvu6GT4fNstxm94siskuwObQbO
-	FQLvw7z+5HcYoUuLc64Z1wsOgJkRJxZFrmF+A2WR1MmDZ7DoUiBp04wZz38100XJ4YvN2piwnKmuU
-	CHhXseZQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V5ESLRL6fR7+APvNrlZo6GDGpx/aOoESnm6NPOR8BZQ=; b=nd9Pk6l0LFygnxSXcRegJFI4Ty
+	PyhWH+luhrycMxQFVkPE1DCGNfiRJKj6TIcA+gfrau8av/wJfmdlGuiAHbL0m9KgD8M78Kvm1PY+Y
+	99Xurb0veEGct5AVzhY9jvRPfZNeONV82QFDeqQ6IH1c3AYjibXvCth7PAQ/oHC4IBrONhgtduA8n
+	Bv+1Q5TzqSVBqishKHO3zhRKJ9+sT/0egM8EQ8Vd91kBy30Ss9iQE4rRTN8jlSzpXvvhJZdRjnYJ6
+	igOJ1HXeBaElNwGhNfhoq7eg9orzDJGLYyzbhXR4YADJYjrhZbb6JcftWIVSRQVK91qDz448dVIxF
+	Zdz1tQ7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLrWc-000000062Er-16rm;
-	Sun, 01 Jun 2025 22:51:30 +0000
+	id 1uLrYi-000000062RN-27zo;
+	Sun, 01 Jun 2025 22:53:40 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLrRE-000000060ws-1gjH;
+	id 1uLrRE-000000060xW-2azj;
 	Sun, 01 Jun 2025 22:45:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 863D160EDF;
-	Sun,  1 Jun 2025 22:45:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6902FC4CEE7;
-	Sun,  1 Jun 2025 22:45:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 10A3F6113B;
+	Sun,  1 Jun 2025 22:45:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 528E6C4CEF2;
+	Sun,  1 Jun 2025 22:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748817952;
-	bh=+Jr0DfYTtSLUgtIhUw1xndcaRDnhct6ml0L8zeKyV8I=;
-	h=From:To:Cc:Subject:Date:From;
-	b=D1vveVQOEOFlaQitpUnAPEJK5wovky/1hjK5K7Yr74MSwV0OMkXyUqCzcdWtVeYZC
-	 /Mr/WAD0ylD0RfhFxbDMAvn41iMg4hkgfRRS1YuuIph/cIitepltHPVQhW5eYbS9Dm
-	 SFQsbx9+aAHCCKkuo98OfLANfn8gTVaLvgzFSJeYQyGmfsiEJs+f9EpihVF5TXGVs0
-	 S1L8P1JIW6ElhBC4kDCQGkew6sOTbo62KYr88FToZQmbIuN2RX9cMJBf7TNrHOueJe
-	 uZHIeQppZaEmnIA4yU7gM7sfutEnJuWmQ6wSDU5DjCc7sYnXw+wKBfy92I5Sv6TDUK
-	 wu5Ge0GzbiZNw==
+	s=k20201202; t=1748817955;
+	bh=Ha9zZQj7Jf+ffkE3L33bjFk9KtVZ+B+rHBHCMXqGDMQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=rHB3tBZfPR0PjTAc5bEh8QvmRpTFmwcLsr5xvk1n2uvTx326V6vHeCrpZ/MFdMfEy
+	 /zcFJLTxddvTMQeRtAX9UoabfX1RmUPPO65iIVJ3kdVROHcmp+EEKa5FIHQbl4Ijk2
+	 EqeLs/1TUVUsTxZWWtda0IJjyaN2a8crCnQPzG0CKd7cbv3rk7tCWtRTR6mQEBJlyY
+	 Jq/ZBC38H2wbeNQsfSXOVopzeOz2AdR7YRJm5lf0fL2fc2CinDRR8OgtyovH4zNaa1
+	 YGj1BBNx8IDtrfIl0DKH/xjb7B/gY46bWJ8iCRJKwj+VZY05/kRiR81Gt+eXKqMJG+
+	 pYYt37HfRvjiA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-crypto@vger.kernel.org,
@@ -56,10 +56,12 @@ Cc: linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 00/13] lib/crc: improve how arch-optimized code is integrated
-Date: Sun,  1 Jun 2025 15:44:28 -0700
-Message-ID: <20250601224441.778374-1-ebiggers@kernel.org>
+Subject: [PATCH 05/13] lib/crc/arm: migrate arm-optimized CRC code into lib/crc/
+Date: Sun,  1 Jun 2025 15:44:33 -0700
+Message-ID: <20250601224441.778374-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250601224441.778374-1-ebiggers@kernel.org>
+References: <20250601224441.778374-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -76,204 +78,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series improves how lib/crc supports arch-optimized code.  First,
-instead of the arch-optimized CRC code being in arch/$(SRCARCH)/lib/, it
-will now be in lib/crc/$(SRCARCH)/.  Second, the API functions (e.g.
-crc32c()), arch-optimized functions (e.g. crc32c_arch()), and generic
-functions (e.g. crc32c_base()) will now be part of a single module for
-each CRC type, allowing better inlining and dead code elimination.  The
-second change is made possible by the first.
+From: Eric Biggers <ebiggers@google.com>
 
-As an example, consider CONFIG_CRC32=m on x86.  We'll now have just
-crc32.ko instead of both crc32-x86.ko and crc32.ko.  The two modules
-were already coupled together and always both got loaded together via
-direct symbol dependency, so the separation provided no benefit.
+Move the arm-optimized CRC code from arch/arm/lib/crc* into its new
+location in lib/crc/arm/, and wire it up in the new way.  For a detailed
+explanation of why this change is being made, see the commit that
+introduced the new way of integrating arch-specific code into lib/crc/.
 
-Note: later I'd like to apply the same design to lib/crypto/ too, where
-often the API functions are out-of-line so this will work even better.
-In those cases, for each algorithm we currently have 3 modules all
-coupled together, e.g. libsha256.ko, libsha256-generic.ko, and
-sha256-x86.ko.  We should have just one, inline things properly, and
-rely on the compiler's dead code elimination to decide the inclusion of
-the generic code instead of manually setting it via kconfig.
-
-Having arch-specific code outside arch/ was somewhat controversial when
-Zinc proposed it back in 2018.  But I don't think the concerns are
-warranted.  It's better from a technical perspective, as it enables the
-improvements mentioned above.  This model is already successfully used
-in other places in the kernel such as lib/raid6/.  The community of each
-architecture still remains free to work on the code, even if it's not in
-arch/.  At the time there was also a desire to put the library code in
-the same files as the old-school crypto API, but that was a mistake; now
-that the library is separate, that's no longer a constraint either.
-
-Patches 1 and 2, which I previously sent out by themselves, are
-prerequisites because they eliminate the need for the CRC32 library API
-to expose the generic functions.
-
-Eric Biggers (13):
-  crypto/crc32: register only one shash_alg
-  crypto/crc32c: register only one shash_alg
-  lib/crc: move files into lib/crc/
-  lib/crc: prepare for arch-optimized code in subdirs of lib/crc/
-  lib/crc/arm: migrate arm-optimized CRC code into lib/crc/
-  lib/crc/arm64: migrate arm64-optimized CRC code into lib/crc/
-  lib/crc/loongarch: migrate loongarch-optimized CRC code into lib/crc/
-  lib/crc/mips: migrate mips-optimized CRC code into lib/crc/
-  lib/crc/powerpc: migrate powerpc-optimized CRC code into lib/crc/
-  lib/crc/riscv: migrate riscv-optimized CRC code into lib/crc/
-  lib/crc/s390: migrate s390-optimized CRC code into lib/s390/
-  lib/crc/sparc: migrate sparc-optimized CRC code into lib/crc/
-  lib/crc/x86: migrate x86-optimized CRC code into lib/crc/
-
- Documentation/core-api/kernel-api.rst         |  14 +-
- MAINTAINERS                                   |   4 +-
- arch/arm/Kconfig                              |   2 -
- arch/arm/lib/Makefile                         |   6 -
- arch/arm64/Kconfig                            |   2 -
- arch/arm64/lib/Makefile                       |   6 -
- arch/loongarch/Kconfig                        |   1 -
- arch/loongarch/lib/Makefile                   |   2 -
- arch/mips/Kconfig                             |   1 -
- arch/mips/lib/Makefile                        |   2 -
- arch/powerpc/Kconfig                          |   2 -
- arch/powerpc/lib/Makefile                     |   6 -
- arch/riscv/Kconfig                            |   3 -
- arch/riscv/lib/Makefile                       |   6 -
- arch/s390/Kconfig                             |   1 -
- arch/s390/lib/Makefile                        |   3 -
- arch/sparc/Kconfig                            |   1 -
- arch/sparc/lib/Makefile                       |   2 -
- arch/x86/Kconfig                              |   3 -
- arch/x86/lib/Makefile                         |  10 --
- crypto/crc32.c                                |  69 ++--------
- crypto/crc32c.c                               |  70 ++--------
- include/linux/crc-t10dif.h                    |  10 +-
- include/linux/crc32.h                         |  30 +----
- include/linux/crc64.h                         |  22 +---
- lib/Kconfig                                   |  87 +------------
- lib/Kconfig.debug                             |  21 ---
- lib/Makefile                                  |  32 +----
- lib/crc/.gitignore                            |   5 +
- lib/crc/Kconfig                               | 121 ++++++++++++++++++
- lib/crc/Makefile                              |  62 +++++++++
- .../arm/lib => lib/crc/arm}/crc-t10dif-core.S |   0
- .../crc-t10dif.c => lib/crc/arm/crc-t10dif.h  |  23 +---
- {arch/arm/lib => lib/crc/arm}/crc32-core.S    |   0
- arch/arm/lib/crc32.c => lib/crc/arm/crc32.h   |  40 ++----
- .../lib => lib/crc/arm64}/crc-t10dif-core.S   |   0
- .../crc/arm64/crc-t10dif.h                    |  22 +---
- .../arm64/lib => lib/crc/arm64}/crc32-core.S  |   0
- .../lib/crc32.c => lib/crc/arm64/crc32.h      |  22 +---
- lib/{ => crc}/crc-ccitt.c                     |   3 -
- lib/{ => crc}/crc-itu-t.c                     |   0
- lib/{crc-t10dif.c => crc/crc-t10dif-main.c}   |  37 +++++-
- lib/{ => crc}/crc16.c                         |   0
- lib/{crc32.c => crc/crc32-main.c}             |  77 +++++++++--
- lib/{ => crc}/crc4.c                          |   0
- lib/{crc64.c => crc/crc64-main.c}             |  47 ++++++-
- lib/{ => crc}/crc7.c                          |   0
- lib/{ => crc}/crc8.c                          |   0
- lib/{ => crc}/gen_crc32table.c                |   4 +-
- lib/{ => crc}/gen_crc64table.c                |  11 +-
- .../crc/loongarch/crc32.h                     |  34 +----
- .../lib/crc32-mips.c => lib/crc/mips/crc32.h  |  35 +----
- .../crc/powerpc/crc-t10dif.h                  |  20 +--
- .../crc/powerpc}/crc-vpmsum-template.S        |   0
- .../lib/crc32.c => lib/crc/powerpc/crc32.h    |  36 +-----
- .../crc/powerpc}/crc32c-vpmsum_asm.S          |   0
- .../crc/powerpc}/crct10dif-vpmsum_asm.S       |   0
- .../lib => lib/crc/riscv}/crc-clmul-consts.h  |   0
- .../crc/riscv}/crc-clmul-template.h           |   0
- {arch/riscv/lib => lib/crc/riscv}/crc-clmul.h |   0
- .../crc/riscv/crc-t10dif.h                    |   8 +-
- {arch/riscv/lib => lib/crc/riscv}/crc16_msb.c |   0
- .../lib/crc32.c => lib/crc/riscv/crc32.h      |  20 +--
- {arch/riscv/lib => lib/crc/riscv}/crc32_lsb.c |   0
- {arch/riscv/lib => lib/crc/riscv}/crc32_msb.c |   0
- .../lib/crc64.c => lib/crc/riscv/crc64.h      |  11 +-
- {arch/riscv/lib => lib/crc/riscv}/crc64_lsb.c |   0
- {arch/riscv/lib => lib/crc/riscv}/crc64_msb.c |   0
- {arch/s390/lib => lib/crc/s390}/crc32-vx.h    |   0
- arch/s390/lib/crc32.c => lib/crc/s390/crc32.h |  19 +--
- {arch/s390/lib => lib/crc/s390}/crc32be-vx.c  |   0
- {arch/s390/lib => lib/crc/s390}/crc32le-vx.c  |   0
- .../lib/crc32.c => lib/crc/sparc/crc32.h      |  40 +-----
- .../sparc/lib => lib/crc/sparc}/crc32c_asm.S  |   0
- lib/crc/tests/Makefile                        |   2 +
- lib/{ => crc}/tests/crc_kunit.c               |   0
- .../lib => lib/crc/x86}/crc-pclmul-consts.h   |   0
- .../lib => lib/crc/x86}/crc-pclmul-template.S |   0
- .../lib => lib/crc/x86}/crc-pclmul-template.h |   0
- .../crc-t10dif.c => lib/crc/x86/crc-t10dif.h  |  18 +--
- .../lib => lib/crc/x86}/crc16-msb-pclmul.S    |   0
- {arch/x86/lib => lib/crc/x86}/crc32-pclmul.S  |   0
- arch/x86/lib/crc32.c => lib/crc/x86/crc32.h   |  32 +----
- {arch/x86/lib => lib/crc/x86}/crc32c-3way.S   |   0
- {arch/x86/lib => lib/crc/x86}/crc64-pclmul.S  |   0
- arch/x86/lib/crc64.c => lib/crc/x86/crc64.h   |  21 +--
- lib/tests/Makefile                            |   1 -
- 87 files changed, 446 insertions(+), 743 deletions(-)
- create mode 100644 lib/crc/.gitignore
- create mode 100644 lib/crc/Kconfig
- create mode 100644 lib/crc/Makefile
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/arm/Kconfig                              |  2 -
+ arch/arm/lib/Makefile                         |  6 ---
+ lib/crc/Kconfig                               |  2 +
+ lib/crc/Makefile                              |  2 +
+ .../arm/lib => lib/crc/arm}/crc-t10dif-core.S |  0
+ .../crc-t10dif.c => lib/crc/arm/crc-t10dif.h  | 23 ++---------
+ {arch/arm/lib => lib/crc/arm}/crc32-core.S    |  0
+ arch/arm/lib/crc32.c => lib/crc/arm/crc32.h   | 40 +++++--------------
+ 8 files changed, 16 insertions(+), 59 deletions(-)
  rename {arch/arm/lib => lib/crc/arm}/crc-t10dif-core.S (100%)
  rename arch/arm/lib/crc-t10dif.c => lib/crc/arm/crc-t10dif.h (70%)
  rename {arch/arm/lib => lib/crc/arm}/crc32-core.S (100%)
  rename arch/arm/lib/crc32.c => lib/crc/arm/crc32.h (69%)
- rename {arch/arm64/lib => lib/crc/arm64}/crc-t10dif-core.S (100%)
- rename arch/arm64/lib/crc-t10dif.c => lib/crc/arm64/crc-t10dif.h (70%)
- rename {arch/arm64/lib => lib/crc/arm64}/crc32-core.S (100%)
- rename arch/arm64/lib/crc32.c => lib/crc/arm64/crc32.h (81%)
- rename lib/{ => crc}/crc-ccitt.c (98%)
- rename lib/{ => crc}/crc-itu-t.c (100%)
- rename lib/{crc-t10dif.c => crc/crc-t10dif-main.c} (78%)
- rename lib/{ => crc}/crc16.c (100%)
- rename lib/{crc32.c => crc/crc32-main.c} (73%)
- rename lib/{ => crc}/crc4.c (100%)
- rename lib/{crc64.c => crc/crc64-main.c} (66%)
- rename lib/{ => crc}/crc7.c (100%)
- rename lib/{ => crc}/crc8.c (100%)
- rename lib/{ => crc}/gen_crc32table.c (95%)
- rename lib/{ => crc}/gen_crc64table.c (81%)
- rename arch/loongarch/lib/crc32-loongarch.c => lib/crc/loongarch/crc32.h (71%)
- rename arch/mips/lib/crc32-mips.c => lib/crc/mips/crc32.h (82%)
- rename arch/powerpc/lib/crc-t10dif.c => lib/crc/powerpc/crc-t10dif.h (75%)
- rename {arch/powerpc/lib => lib/crc/powerpc}/crc-vpmsum-template.S (100%)
- rename arch/powerpc/lib/crc32.c => lib/crc/powerpc/crc32.h (64%)
- rename {arch/powerpc/lib => lib/crc/powerpc}/crc32c-vpmsum_asm.S (100%)
- rename {arch/powerpc/lib => lib/crc/powerpc}/crct10dif-vpmsum_asm.S (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul-consts.h (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul-template.h (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul.h (100%)
- rename arch/riscv/lib/crc-t10dif.c => lib/crc/riscv/crc-t10dif.h (62%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc16_msb.c (100%)
- rename arch/riscv/lib/crc32.c => lib/crc/riscv/crc32.h (66%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc32_lsb.c (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc32_msb.c (100%)
- rename arch/riscv/lib/crc64.c => lib/crc/riscv/crc64.h (65%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc64_lsb.c (100%)
- rename {arch/riscv/lib => lib/crc/riscv}/crc64_msb.c (100%)
- rename {arch/s390/lib => lib/crc/s390}/crc32-vx.h (100%)
- rename arch/s390/lib/crc32.c => lib/crc/s390/crc32.h (81%)
- rename {arch/s390/lib => lib/crc/s390}/crc32be-vx.c (100%)
- rename {arch/s390/lib => lib/crc/s390}/crc32le-vx.c (100%)
- rename arch/sparc/lib/crc32.c => lib/crc/sparc/crc32.h (62%)
- rename {arch/sparc/lib => lib/crc/sparc}/crc32c_asm.S (100%)
- create mode 100644 lib/crc/tests/Makefile
- rename lib/{ => crc}/tests/crc_kunit.c (100%)
- rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-consts.h (100%)
- rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-template.S (100%)
- rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-template.h (100%)
- rename arch/x86/lib/crc-t10dif.c => lib/crc/x86/crc-t10dif.h (56%)
- rename {arch/x86/lib => lib/crc/x86}/crc16-msb-pclmul.S (100%)
- rename {arch/x86/lib => lib/crc/x86}/crc32-pclmul.S (100%)
- rename arch/x86/lib/crc32.c => lib/crc/x86/crc32.h (76%)
- rename {arch/x86/lib => lib/crc/x86}/crc32c-3way.S (100%)
- rename {arch/x86/lib => lib/crc/x86}/crc64-pclmul.S (100%)
- rename arch/x86/lib/crc64.c => lib/crc/x86/crc64.h (61%)
 
-base-commit: cd2e103d57e5615f9bb027d772f93b9efd567224
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 3072731fe09c5..c531b49aa98ea 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -6,12 +6,10 @@ config ARM
+ 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE if HAVE_KRETPROBES && FRAME_POINTER && !ARM_UNWIND
+ 	select ARCH_HAS_BINFMT_FLAT
+ 	select ARCH_HAS_CACHE_LINE_SIZE if OF
+ 	select ARCH_HAS_CPU_CACHE_ALIASING
+ 	select ARCH_HAS_CPU_FINALIZE_INIT if MMU
+-	select ARCH_HAS_CRC32 if KERNEL_MODE_NEON
+-	select ARCH_HAS_CRC_T10DIF if KERNEL_MODE_NEON
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+ 	select ARCH_HAS_DMA_ALLOC if MMU
+ 	select ARCH_HAS_DMA_OPS
+ 	select ARCH_HAS_DMA_WRITE_COMBINE if !ARM_DMA_MEM_BUFFERABLE
+diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
+index 91ea0e29107af..d1b9ea2023648 100644
+--- a/arch/arm/lib/Makefile
++++ b/arch/arm/lib/Makefile
+@@ -45,11 +45,5 @@ ifeq ($(CONFIG_KERNEL_MODE_NEON),y)
+   CFLAGS_xor-neon.o		+= $(CC_FLAGS_FPU)
+   obj-$(CONFIG_XOR_BLOCKS)	+= xor-neon.o
+ endif
+ 
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+-
+-obj-$(CONFIG_CRC32_ARCH) += crc32-arm.o
+-crc32-arm-y := crc32.o crc32-core.o
+-
+-obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-arm.o
+-crc-t10dif-arm-y := crc-t10dif.o crc-t10dif-core.o
+diff --git a/lib/crc/Kconfig b/lib/crc/Kconfig
+index 85b0dc774d722..b34a52cdba5d7 100644
+--- a/lib/crc/Kconfig
++++ b/lib/crc/Kconfig
+@@ -48,10 +48,11 @@ config ARCH_HAS_CRC_T10DIF
+ 	bool
+ 
+ config CRC_T10DIF_ARCH
+ 	bool
+ 	depends on CRC_T10DIF && CRC_OPTIMIZATIONS
++	default y if ARM && KERNEL_MODE_NEON
+ 
+ config CRC32
+ 	tristate
+ 	select BITREVERSE
+ 	help
+@@ -59,10 +60,11 @@ config CRC32
+ 	  the functions from <linux/crc32.h> or <linux/crc32c.h>.
+ 
+ config CRC32_ARCH
+ 	bool
+ 	depends on CRC32 && CRC_OPTIMIZATIONS
++	default y if ARM && KERNEL_MODE_NEON
+ 
+ config CRC64
+ 	tristate
+ 	help
+ 	  The CRC64 library functions.  Select this if your module uses any of
+diff --git a/lib/crc/Makefile b/lib/crc/Makefile
+index 2f39385f97a5c..1069edb81a481 100644
+--- a/lib/crc/Makefile
++++ b/lib/crc/Makefile
+@@ -12,15 +12,17 @@ obj-$(CONFIG_CRC_CCITT) += crc-ccitt.o
+ obj-$(CONFIG_CRC_ITU_T) += crc-itu-t.o
+ 
+ obj-$(CONFIG_CRC_T10DIF) += crc-t10dif.o
+ crc-t10dif-y := crc-t10dif-main.o
+ ifeq ($(CONFIG_CRC_T10DIF_ARCH),y)
++crc-t10dif-$(CONFIG_ARM) += arm/crc-t10dif-core.o
+ endif
+ 
+ obj-$(CONFIG_CRC32) += crc32.o
+ crc32-y := crc32-main.o
+ ifeq ($(CONFIG_CRC32_ARCH),y)
++crc32-$(CONFIG_ARM) += arm/crc32-core.o
+ endif
+ 
+ obj-$(CONFIG_CRC64) += crc64.o
+ crc64-y := crc64-main.o
+ ifeq ($(CONFIG_CRC64_ARCH),y)
+diff --git a/arch/arm/lib/crc-t10dif-core.S b/lib/crc/arm/crc-t10dif-core.S
+similarity index 100%
+rename from arch/arm/lib/crc-t10dif-core.S
+rename to lib/crc/arm/crc-t10dif-core.S
+diff --git a/arch/arm/lib/crc-t10dif.c b/lib/crc/arm/crc-t10dif.h
+similarity index 70%
+rename from arch/arm/lib/crc-t10dif.c
+rename to lib/crc/arm/crc-t10dif.h
+index 1093f8ec13b0b..2edf7e9681d05 100644
+--- a/arch/arm/lib/crc-t10dif.c
++++ b/lib/crc/arm/crc-t10dif.h
+@@ -3,16 +3,10 @@
+  * Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions instructions
+  *
+  * Copyright (C) 2016 Linaro Ltd <ard.biesheuvel@linaro.org>
+  */
+ 
+-#include <linux/crc-t10dif.h>
+-#include <linux/init.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
+-
+ #include <crypto/internal/simd.h>
+ 
+ #include <asm/neon.h>
+ #include <asm/simd.h>
+ 
+@@ -23,11 +17,11 @@ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pmull);
+ 
+ asmlinkage u16 crc_t10dif_pmull64(u16 init_crc, const u8 *buf, size_t len);
+ asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
+ 				  u8 out[16]);
+ 
+-u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
++static inline u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
+ {
+ 	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
+ 		if (static_branch_likely(&have_pmull)) {
+ 			if (crypto_simd_usable()) {
+ 				kernel_neon_begin();
+@@ -47,26 +41,15 @@ u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
+ 			return crc_t10dif_generic(0, buf, sizeof(buf));
+ 		}
+ 	}
+ 	return crc_t10dif_generic(crc, data, length);
+ }
+-EXPORT_SYMBOL(crc_t10dif_arch);
+ 
+-static int __init crc_t10dif_arm_init(void)
++#define crc_t10dif_mod_init_arch crc_t10dif_mod_init_arch
++static inline void crc_t10dif_mod_init_arch(void)
+ {
+ 	if (elf_hwcap & HWCAP_NEON) {
+ 		static_branch_enable(&have_neon);
+ 		if (elf_hwcap2 & HWCAP2_PMULL)
+ 			static_branch_enable(&have_pmull);
+ 	}
+-	return 0;
+ }
+-subsys_initcall(crc_t10dif_arm_init);
+-
+-static void __exit crc_t10dif_arm_exit(void)
+-{
+-}
+-module_exit(crc_t10dif_arm_exit);
+-
+-MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+-MODULE_DESCRIPTION("Accelerated CRC-T10DIF using ARM NEON and Crypto Extensions");
+-MODULE_LICENSE("GPL v2");
+diff --git a/arch/arm/lib/crc32-core.S b/lib/crc/arm/crc32-core.S
+similarity index 100%
+rename from arch/arm/lib/crc32-core.S
+rename to lib/crc/arm/crc32-core.S
+diff --git a/arch/arm/lib/crc32.c b/lib/crc/arm/crc32.h
+similarity index 69%
+rename from arch/arm/lib/crc32.c
+rename to lib/crc/arm/crc32.h
+index f2bef8849c7c3..19e6e35f6418f 100644
+--- a/arch/arm/lib/crc32.c
++++ b/lib/crc/arm/crc32.h
+@@ -4,15 +4,10 @@
+  *
+  * Copyright (C) 2016 Linaro Ltd <ard.biesheuvel@linaro.org>
+  */
+ 
+ #include <linux/cpufeature.h>
+-#include <linux/crc32.h>
+-#include <linux/init.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-#include <linux/string.h>
+ 
+ #include <crypto/internal/simd.h>
+ 
+ #include <asm/hwcap.h>
+ #include <asm/neon.h>
+@@ -27,18 +22,19 @@ asmlinkage u32 crc32_pmull_le(const u8 buf[], u32 len, u32 init_crc);
+ asmlinkage u32 crc32_armv8_le(u32 init_crc, const u8 buf[], u32 len);
+ 
+ asmlinkage u32 crc32c_pmull_le(const u8 buf[], u32 len, u32 init_crc);
+ asmlinkage u32 crc32c_armv8_le(u32 init_crc, const u8 buf[], u32 len);
+ 
+-static u32 crc32_le_scalar(u32 crc, const u8 *p, size_t len)
++static inline u32 crc32_le_scalar(u32 crc, const u8 *p, size_t len)
+ {
+ 	if (static_branch_likely(&have_crc32))
+ 		return crc32_armv8_le(crc, p, len);
+ 	return crc32_le_base(crc, p, len);
+ }
+ 
+-u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
++#define crc32_le_arch crc32_le_arch
++static inline u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	if (len >= PMULL_MIN_LEN + 15 &&
+ 	    static_branch_likely(&have_pmull) && crypto_simd_usable()) {
+ 		size_t n = -(uintptr_t)p & 15;
+ 
+@@ -55,20 +51,20 @@ u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
+ 		p += n;
+ 		len -= n;
+ 	}
+ 	return crc32_le_scalar(crc, p, len);
+ }
+-EXPORT_SYMBOL(crc32_le_arch);
+ 
+-static u32 crc32c_scalar(u32 crc, const u8 *p, size_t len)
++static inline u32 crc32c_scalar(u32 crc, const u8 *p, size_t len)
+ {
+ 	if (static_branch_likely(&have_crc32))
+ 		return crc32c_armv8_le(crc, p, len);
+ 	return crc32c_base(crc, p, len);
+ }
+ 
+-u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
++#define crc32c_arch crc32c_arch
++static inline u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	if (len >= PMULL_MIN_LEN + 15 &&
+ 	    static_branch_likely(&have_pmull) && crypto_simd_usable()) {
+ 		size_t n = -(uintptr_t)p & 15;
+ 
+@@ -85,39 +81,21 @@ u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
+ 		p += n;
+ 		len -= n;
+ 	}
+ 	return crc32c_scalar(crc, p, len);
+ }
+-EXPORT_SYMBOL(crc32c_arch);
+ 
+-u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
+-{
+-	return crc32_be_base(crc, p, len);
+-}
+-EXPORT_SYMBOL(crc32_be_arch);
+-
+-static int __init crc32_arm_init(void)
++#define crc32_mod_init_arch crc32_mod_init_arch
++static inline void crc32_mod_init_arch(void)
+ {
+ 	if (elf_hwcap2 & HWCAP2_CRC32)
+ 		static_branch_enable(&have_crc32);
+ 	if (elf_hwcap2 & HWCAP2_PMULL)
+ 		static_branch_enable(&have_pmull);
+-	return 0;
+ }
+-subsys_initcall(crc32_arm_init);
+ 
+-static void __exit crc32_arm_exit(void)
+-{
+-}
+-module_exit(crc32_arm_exit);
+-
+-u32 crc32_optimizations(void)
++static inline u32 crc32_optimizations_arch(void)
+ {
+ 	if (elf_hwcap2 & (HWCAP2_CRC32 | HWCAP2_PMULL))
+ 		return CRC32_LE_OPTIMIZATION | CRC32C_OPTIMIZATION;
+ 	return 0;
+ }
+-EXPORT_SYMBOL(crc32_optimizations);
+-
+-MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+-MODULE_DESCRIPTION("Accelerated CRC32(C) using ARM CRC, NEON and Crypto Extensions");
+-MODULE_LICENSE("GPL v2");
 -- 
 2.49.0
 
