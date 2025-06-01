@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03733C5B559
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 23:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D52DC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 23:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MgLOsQuL7RTyNsvlAux5+WjTu3KSg9+JtB3RHLk3F38=; b=BwI+E0kHyAq8Ai+UYaxD6IBuHv
-	WJCwKyJs2ucUPeGzK0N4GtYi5kDAqf47mdn8Gk9IIyW5n49UT/+BATNmNNKcZwgpsknqf0PKG6sx8
-	G1SJEBz9U4R4T6ZxYxQxdJsCg7O32FUnzNScKXesXzzp7JSafRZW8iMtjYeQ+v3piczeKb76HphRd
-	/EYtjL63xQijWe81rBr357eV0CZOy9N0UTCFFaepqxDdE2oBqk8PFGx6RphgZ4ms7hE8QW00mW1p8
-	WxrnCxRrTiLnhuo5h1Y8ldAJPUExrJR1LIZjQBOTYvfcQ2OCuYReu4LtQ+JiikaVZxvXAyZshb/XV
-	gI9gZroA==;
+	bh=cuSjtX7RqaQsP9IR8t8kf+jNZl5aY0Yd7DEgrOoMc/Y=; b=eVo7zJJ5zZ/iYmaVv2HpXH9O1e
+	c4pu25WcKzJci68nIvWq3PYmerSMpwkn8K3akYlGFTsYW9bCuB4oejHifE3LnSDTykn2MaQroUs8K
+	urUcQeyk/s7b6HKTR0JGXqrg9rmrCuPCQZiBnyUBYIN4ajL92HTP5M4etgKcYOL1l8HyltYrjHTLQ
+	lvCfxaALWePhHDcGNFwaMAMvmde6SLX2z24NVFC+UXWmY/iGRjXPsMbiFeeRvCUcStWk7vk6LDD1k
+	AAEzjyAklKOugVWg1JflMtYSVuDS4Zk2v2XIkuWKvuS4dojqptrIh1yTIZB/9JIejrsuWmVyDZ8NB
+	GEoSCW/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsFY-000000068MK-3NQS;
-	Sun, 01 Jun 2025 23:37:56 +0000
+	id 1uLsHg-000000068z9-1vdb;
+	Sun, 01 Jun 2025 23:40:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLs53-00000006604-2Su4;
-	Sun, 01 Jun 2025 23:27:05 +0000
+	id 1uLs58-0000000661E-2xvs;
+	Sun, 01 Jun 2025 23:27:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=MgLOsQuL7RTyNsvlAux5+WjTu3KSg9+JtB3RHLk3F38=; b=R25QoeMW7UPTd6MAauz9L0B3O5
-	KeX9e7Bo/mAx03a5KoSHiZEQVkA1X2IwDaYeOki5g1V5tPyMWt9ObxC5hz2FZhvDYUO7atmPVE47h
-	0qM9395PdCK2uc7db6KYdV6fKvMhQHcSVrdn6itGzBK484pXK4pCEQCZXtzFzLVuBvPIIx4HfrI34
-	jLrimSDqQ9m5EuTkjqQ/TIXeqrYExmedjsiFSZ1PloPeIgTyhARn9WNLWDfx+Spf5CoZ5uOqaNqL3
-	WENRCBT/KMCf3onMF5udmQ6kab2E7HV8sDS7ZEsee7iHPhqSqZNJroJB3l3SaYBqVR08eV0ImwlHI
-	jg3t+2QA==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=cuSjtX7RqaQsP9IR8t8kf+jNZl5aY0Yd7DEgrOoMc/Y=; b=ZAlq83xuqfcwwvt4cFmd3O7WdF
+	DTOaXECebGPRZHnx6Aiv/GGR4dItzvNN9XNzq0zrLU51RkMI1LThTRQ9HwFxZt3auFev0MVSUiRSM
+	YMU4XNxLvgh7EbBwV7ohtf1pmW2OSipGiG0iuBvtPGp40G4PSJ3rp+UDb7mOhoJVGB9SAAk2Kn/ct
+	plVXvhOXI6wVEkV9j23WFzx98Y9cRkojfVJ53EpMxW2V4t9v7X/pbQpzfwYBdvvvFtWJN5er7U2/m
+	macqIvE2PIdisJ+bWr5tU1Sx1GQuS38/xnVoBVNuiJJc6YYm7zjFQb0codRz+HsR8Iw+ZmKkxfM5H
+	xMDyJtwQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLs50-00000000XKI-2PUZ;
-	Sun, 01 Jun 2025 23:27:04 +0000
+	id 1uLs52-00000000XKp-2FKw;
+	Sun, 01 Jun 2025 23:27:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7C41CA4F8E8;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 47F925C4D46;
+	Sun,  1 Jun 2025 23:24:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FA53C4CEE7;
 	Sun,  1 Jun 2025 23:27:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5424EC4CEF1;
-	Sun,  1 Jun 2025 23:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748820421;
-	bh=dt8kPgWDpFu2sSg07IECaKF33MJ/jwpv24xF5OlDrII=;
+	s=k20201202; t=1748820422;
+	bh=XYrRtZuOVTeI0fAa5/NfJJQDvr7rpN7tbXz6hxJSzwI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WdIqWb8r4kt6iAIp6YlsqR9MdecVFUAQ8eMwaUmdTyRQnMOsbObHG6QOmgYKL7rfS
-	 intzkTDS2nZ0cSYR3AAYU8CLIdj+CNNal4/nDMvvO8TzcW+LwTEtuES+9uYDNT74Bj
-	 UJvNe4ywNdjBtbsIhhZ9jdmEbFeuj1NVgpKTdeMYj7s46soV0F+mnG/7+BV+fOyIbE
-	 Zr8ZOPc4+plT7HZU1Mx3ZJV7/oFi23qUbLE7KhYU4CYXflRAhijNSQI8mCrWbTItLx
-	 eDZfmvQgno/Ty1N4pyYW+KbZLvWcr3+ZtLi/a+ybPS7Lj4ln/CAPVZZFYjAJavS30h
-	 OWgAKT+QjMPyw==
+	b=fLtWAp+GzUKmCqwKUPel/MWvXfrGz/8HpR8rMlCvpMSKtfOrGGMn9p1COBr1JGdnK
+	 anznK1BQXrCUscJz7OK9UrKKeI+xDWpHrT3o8Glj6zLPIV8Tar+SVtUCm9uIKmKa9x
+	 pd4ktvqxTbtqyx6QSlgEUxAbiohruyuzB9qG4Mt7VXcK0xsdluQ49FI9YCIK1EZ0FE
+	 wvxMzq4jPUEXwFszXDzMqwM6DKw7f0p/YQDXiDhj1mFCFTlL9HxSC4T+PoJMBUfL5d
+	 Qo3fHXjgCGNFYPl1VSoRGP3FhPbQL0UtUOxUOyatHXIROX9mYixh/MsEPuqWPismkr
+	 uRMChrckUtfeA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Jonas Karlman <jonas@kwiboo.se>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Christopher Obbard <chris.obbard@collabora.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
+Cc: Hans Verkuil <hverkuil@xs4all.nl>,
+	Ricardo Ribalda <ribalda@chromium.org>,
 	Sasha Levin <sashal@kernel.org>,
-	ezequiel@vanguardiasur.com.ar,
 	mchehab@kernel.org,
-	gregkh@linuxfoundation.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
 	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-staging@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.15 052/110] media: rkvdec: h264: Use bytesperline and buffer height as virstride
-Date: Sun,  1 Jun 2025 19:23:34 -0400
-Message-Id: <20250601232435.3507697-52-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.15 053/110] media: cec: extron-da-hd-4k-plus: Fix Wformat-truncation
+Date: Sun,  1 Jun 2025 19:23:35 -0400
+Message-Id: <20250601232435.3507697-53-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250601232435.3507697-1-sashal@kernel.org>
 References: <20250601232435.3507697-1-sashal@kernel.org>
@@ -86,8 +80,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.15
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_002702_911657_ACEC4D59 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250602_002704_939973_C20E1FEE 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +96,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jonas Karlman <jonas@kwiboo.se>
+From: Hans Verkuil <hverkuil@xs4all.nl>
 
-[ Upstream commit d5e0aa61470c48ddc04d433a00e79cef8716377a ]
+[ Upstream commit 5edc9b560f60c40e658af0b8e98ae2dfadc438d8 ]
 
-Use bytesperline and buffer height to calculate the strides configured.
+Fix gcc8 warning:
 
-This does not really change anything other than ensuring the
-bytesperline that is signaled to userspace matches what is configured
-in HW.
+drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c:1014:44: warning: 'DCEC' directive output may be truncated writing 4 bytes into a region of size between 0 and 53 [-Wformat-truncation=]
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Tested-by: Christopher Obbard <chris.obbard@collabora.com>
-Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Resizing the 'buf' and 'cmd' arrays fixed the warning.
+
+Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
 Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-### Key Reasons for NO Backport: 1. **Not a Bug Fix**: The commit
-message explicitly states "This does not really change anything other
-than ensuring the bytesperline that is signaled to userspace matches
-what is configured in HW." This is not fixing a functional bug but
-rather improving consistency between userspace and hardware
-configuration. 2. **Code Quality/Consistency Improvement**: The changes
-are primarily about code correctness and consistency rather than fixing
-a critical issue that affects users. This aligns with similar commits
-#1, #2, and #4 which were marked as NO for backporting. 3. **Staging
-Driver**: The rkvdec driver is in `drivers/staging/media/`, which
-indicates it's still under development and not considered stable.
-Staging drivers typically have more relaxed backporting requirements. 4.
-**Specific Code Changes Analysis**: - **Before**: `hor_virstride =
-(sps->bit_depth_luma_minus8 + 8) 0001-Fix-Clippy-warnings.patch
-0002-Enhance-inference-prompt-to-utilize-CVEKERNELDIR-whe.patch
-0003-Update-to-latest-version-of-clap.patch Cargo.lock Cargo.toml
-LICENSE README.md adreno_acd_support_analysis.md
+NO This commit should not be backported to stable kernel trees for the
+following reasons: 1. **Non-critical compiler warning fix**: This commit
+addresses a `-Wformat-truncation` compiler warning, which is a build-
+time warning and not a runtime bug that affects users. The warning
+indicates potential string truncation, but looking at the code, there's
+no evidence this causes actual runtime failures or security
+vulnerabilities. 2. **Consistent with similar commit patterns**: Looking
+at the reference commits, all the similar format-truncation warning
+fixes (commits #1, #2, #3, and #5) were marked as "Backport Status: NO".
+Only commit #4 was marked "YES", but that one explicitly included "Cc:
+stable@vger.kernel.org" in the commit message and had a "Fixes:" tag,
+which this commit lacks. 3. **Missing stable tree indicators**: The
+commit message contains no "Cc: stable@vger.kernel.org" tag and no
+"Fixes:" tag pointing to a specific problematic commit that introduced a
+user-facing issue. 4. **Minor code quality improvement**: The changes
+are purely preventive: - `char buf[CEC_MAX_MSG_SIZE 0001-Fix-Clippy-
+warnings.patch 0002-Enhance-inference-prompt-to-utilize-CVEKERNELDIR-
+whe.patch 0003-Update-to-latest-version-of-clap.patch Cargo.lock
+Cargo.toml LICENSE README.md adreno_acd_support_analysis.md
 amd_display_ips_sequential_ono_backport_analysis.md
 analyze_merge_commit.sh dpp_rcg_backport_analysis.md
 drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
@@ -146,65 +138,64 @@ drm_imagination_register_update_analysis.md
 drm_mediatek_mtk_dpi_refactoring_analysis.md
 intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
 merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
-test_patch.txt verisilicon_av1_4k_analysis.md dst_fmt->width / 8;` -
-**After**: `hor_virstride = dst_fmt->plane_fmt[0].bytesperline;` -
-**Before**: `ver_virstride = round_up(dst_fmt->height, 16);` -
-**After**: `ver_virstride = dst_fmt->height;` 5. **No Risk Indication**:
-The changes don't indicate they're fixing crashes, data corruption,
-security issues, or other critical problems that would warrant stable
-backporting. 6. **Pattern Match with Similar Commits**: Looking at the
-provided examples: - Similar commits #1, #2, #4, and #5 that make
-stride/calculation improvements were marked as NO - Only commit #3 that
-increased max supported height (a clear functional limitation fix) was
-marked as YES 7. **No Stable Tree Mention**: The commit message contains
-no indication of stable tree inclusion via Fixes: tags or explicit
-stable tree requests. ### Conclusion: This commit improves code
-consistency by using the actual bytesperline values from userspace
-instead of calculating them from SPS parameters, but it doesn't fix a
-user-impacting bug. It's a code quality improvement that follows the
-pattern of other NO-backport commits in the provided examples.
+test_patch.txt verisilicon_av1_4k_analysis.md 3 + 1];` becomes `char
+buf[(CEC_MAX_MSG_SIZE - 1) 0001-Fix-Clippy-warnings.patch 0002-Enhance-
+inference-prompt-to-utilize-CVEKERNELDIR-whe.patch 0003-Update-to-
+latest-version-of-clap.patch Cargo.lock Cargo.toml LICENSE README.md
+adreno_acd_support_analysis.md
+amd_display_ips_sequential_ono_backport_analysis.md
+analyze_merge_commit.sh dpp_rcg_backport_analysis.md
+drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
+drm_bridge_analysis.txt drm_format_helper_24bit_analysis.md
+drm_imagination_register_update_analysis.md
+drm_mediatek_mtk_dpi_refactoring_analysis.md
+intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
+merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
+test_patch.txt verisilicon_av1_4k_analysis.md 3 + 1];` - `char
+cmd[CEC_MAX_MSG_SIZE 0001-Fix-Clippy-warnings.patch 0002-Enhance-
+inference-prompt-to-utilize-CVEKERNELDIR-whe.patch 0003-Update-to-
+latest-version-of-clap.patch Cargo.lock Cargo.toml LICENSE README.md
+adreno_acd_support_analysis.md
+amd_display_ips_sequential_ono_backport_analysis.md
+analyze_merge_commit.sh dpp_rcg_backport_analysis.md
+drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
+drm_bridge_analysis.txt drm_format_helper_24bit_analysis.md
+drm_imagination_register_update_analysis.md
+drm_mediatek_mtk_dpi_refactoring_analysis.md
+intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
+merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
+test_patch.txt verisilicon_av1_4k_analysis.md 3 + 13];` becomes `char
+cmd[sizeof(buf) + 14];` These changes slightly reduce buffer sizes to
+better match actual usage patterns, but there's no indication the
+original sizes caused buffer overflows or other runtime problems. 5.
+**Media subsystem and driver-specific**: This affects a specific USB CEC
+adapter driver (`extron-da-hd-4k-plus`), making it a relatively isolated
+change that doesn't impact core kernel functionality or multiple
+subsystems. 6. **No user-reported issues**: There's no mention of user
+reports, bug fixes, or functional improvements - only compiler warning
+suppression. The stable kernel tree rules prioritize important bug fixes
+with minimal regression risk. This commit, while technically correct,
+falls into the category of code quality improvements rather than
+critical fixes that users would benefit from in stable releases.
 
- drivers/staging/media/rkvdec/rkvdec-h264.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ .../media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/staging/media/rkvdec/rkvdec-h264.c b/drivers/staging/media/rkvdec/rkvdec-h264.c
-index 4fc167b42cf0c..7a1e76d423df5 100644
---- a/drivers/staging/media/rkvdec/rkvdec-h264.c
-+++ b/drivers/staging/media/rkvdec/rkvdec-h264.c
-@@ -896,9 +896,9 @@ static void config_registers(struct rkvdec_ctx *ctx,
- 	dma_addr_t rlc_addr;
- 	dma_addr_t refer_addr;
- 	u32 rlc_len;
--	u32 hor_virstride = 0;
--	u32 ver_virstride = 0;
--	u32 y_virstride = 0;
-+	u32 hor_virstride;
-+	u32 ver_virstride;
-+	u32 y_virstride;
- 	u32 yuv_virstride = 0;
- 	u32 offset;
- 	dma_addr_t dst_addr;
-@@ -909,16 +909,16 @@ static void config_registers(struct rkvdec_ctx *ctx,
+diff --git a/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c b/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
+index cfbfc4c1b2e67..41d019b01ec09 100644
+--- a/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
++++ b/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
+@@ -1002,8 +1002,8 @@ static int extron_cec_adap_transmit(struct cec_adapter *adap, u8 attempts,
+ 				    u32 signal_free_time, struct cec_msg *msg)
+ {
+ 	struct extron_port *port = cec_get_drvdata(adap);
+-	char buf[CEC_MAX_MSG_SIZE * 3 + 1];
+-	char cmd[CEC_MAX_MSG_SIZE * 3 + 13];
++	char buf[(CEC_MAX_MSG_SIZE - 1) * 3 + 1];
++	char cmd[sizeof(buf) + 14];
+ 	unsigned int i;
  
- 	f = &ctx->decoded_fmt;
- 	dst_fmt = &f->fmt.pix_mp;
--	hor_virstride = (sps->bit_depth_luma_minus8 + 8) * dst_fmt->width / 8;
--	ver_virstride = round_up(dst_fmt->height, 16);
-+	hor_virstride = dst_fmt->plane_fmt[0].bytesperline;
-+	ver_virstride = dst_fmt->height;
- 	y_virstride = hor_virstride * ver_virstride;
- 
- 	if (sps->chroma_format_idc == 0)
- 		yuv_virstride = y_virstride;
- 	else if (sps->chroma_format_idc == 1)
--		yuv_virstride += y_virstride + y_virstride / 2;
-+		yuv_virstride = y_virstride + y_virstride / 2;
- 	else if (sps->chroma_format_idc == 2)
--		yuv_virstride += 2 * y_virstride;
-+		yuv_virstride = 2 * y_virstride;
- 
- 	reg = RKVDEC_Y_HOR_VIRSTRIDE(hor_virstride / 16) |
- 	      RKVDEC_UV_HOR_VIRSTRIDE(hor_virstride / 16) |
+ 	if (port->disconnected)
 -- 
 2.39.5
 
