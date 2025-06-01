@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0D9C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF1BC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pdyokEWR+JKvtAqhk7C5TpZPt++MRj0cFNGyssh0M8o=; b=4I+OStdTlPLXHXA7KBACdB81aW
-	+mFRcMXWiv3QsZ4s3VWCe5tZ9xVMu6lWRJ08r/holjNK6MumOh3pT1xhkVq4F/L9eKJS4BOwqKjeC
-	OXTylKmDTXQfoaZJpM1iuQKr/S8z5QmejY92ZaMt2RnmDqZF3xG2Gz48dqAsKdqy1jcsvIp7No2Zw
-	PTohQAB4KeOEIK/hP3ZcAtlZEjZS2Mu5QJ6mjOSgP458d2k/WJWCY+OKCtuRqQEM3QNxg48NWNTK1
-	QVpXyYdb9WyPz/GSJ51dDGRCYWjG79JUZ/wqEsUEOV8QAzxKsEDsZUnFUCaERxgv3m4unqjJjiV9V
-	aRNaO0Gg==;
+	bh=MgLOsQuL7RTyNsvlAux5+WjTu3KSg9+JtB3RHLk3F38=; b=Z+M0NmHOLkXVoC8KXh3IKw/h4b
+	nBit9y+OPtateIqRbOUSLxrS/3wL7PYx9h7i0KrrnY2hm0M9oLXQpcNltD9Rhf1E/47oQuv+OQoEz
+	g7I8HEJRZA4nVfg2gdamCtXesAvp6SGgEIPJya99er7+6RsrlmoVetM3wZBRmqMQ0ThGoQMBChCwu
+	8r+dDovZ1oGRN1ajhp9drLEqbdWy/NHFQPN9fB+63aIt6aaxClHcdyUD+Dn/wzQyJzAxIWXGwxW24
+	8Nkb+YNpM50ZlcEAoJm6olcOpBIAsee6lQ3pxCmy7e5Cw3ugBPg5wStbDSllYCSROjTfI6IRAs/tu
+	OIX6ozLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLt2H-00000006IoQ-0HNP;
-	Mon, 02 Jun 2025 00:28:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uLt4J-00000006JGE-3Sn8;
+	Mon, 02 Jun 2025 00:30:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLs2q-000000065Kn-1Isb
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Jun 2025 23:24:49 +0000
+	id 1uLsDl-000000067rK-26Ua;
+	Sun, 01 Jun 2025 23:36:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=MgLOsQuL7RTyNsvlAux5+WjTu3KSg9+JtB3RHLk3F38=; b=bBiMeTxp0LzW/Yil81lX8L4nzS
+	cAI4W1XT0xhIx+dHPc/jdPDv9PX+w8rxnvR4nYbHJiOGmPSIxmHjsLqw8iE3AgFrjQ4vDsG3GFUti
+	tcoc/6v5bEFUhz9g4uBHO7exGiRnu0r/j8GCZ12YKAjWwkVw4tIBz5xJeGZCC/qAhPE/Ns1yx8EU6
+	2xI26GF3fpEZLUTOkCL+l9KtnABMEdQbobDcGa8M8eFRSy2HkQJLisS/DfN9yQiQ5rpM/ubv/sR3w
+	98O4mW8lWjEUTS1kTrt9yHSnhu4hzm6C+wMkE+S8ouNhBxwxBVBqWr6I0+XwIzFXhHnslGLYfaqYz
+	UsCa5vrA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uLsDh-00000000YH3-1bDx;
+	Sun, 01 Jun 2025 23:36:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CC9EFA4F60B;
-	Sun,  1 Jun 2025 23:24:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB959C4CEE7;
-	Sun,  1 Jun 2025 23:24:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 084905C580B;
+	Sun,  1 Jun 2025 23:33:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6B69C4CEE7;
+	Sun,  1 Jun 2025 23:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748820286;
-	bh=8QyiD0yzzTebBNaJACP7Wql11ENjw3aK7ZZo8jT71W8=;
+	s=k20201202; t=1748820959;
+	bh=dt8kPgWDpFu2sSg07IECaKF33MJ/jwpv24xF5OlDrII=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KyIFjNbptkIBrDxDeun/5vwm6KAV02JWJD/mZP2PEUnnm7Ejiq1abwBi2x4OhnGLJ
-	 kfAf6m+gL5zbBZbfAtynEj6QiNPLsxVl3gnCJLsvZQkqYv0mQoVj4JJIF4MdG1LXJl
-	 juSHeG6owYiLH1Enf2fCs8dRPCqp/9XTHUcd0vcuxAouKJwb9Us25dUQlAun/Uxm8O
-	 PHCtyapPd5jBpBtTNtOrsYcXrWjQhYvO3Wj9OW7UYzesjDIB6IpqGdhYKWj5PCvaAV
-	 ei3QbtLbE8P1ps/KBGcSbspSzVOYR/15IIO+WuTipe6mogzTAMCeKzFUvipaqCQ9qG
-	 0g3eKxlXrckXA==
+	b=epGJlrNtKhKIcSTtI8cqt8YALfJr5978EHciwqZYLULaGePSlYKqOSAgdCr6rljjd
+	 63ShEDibjhTHBRM+qKphYxB/96mmwJQtGKYAJAf39tZN/KyTjzwVU0wxRxEhOBrcYp
+	 INmbnSHdVsQK81XZd12bdBThxoPjYMeIJ+xUslZSOIOg3QJcjdKuSeCmIilDPaSwTz
+	 iTYIaSjIzWtMqjecag3ghbGUkqFLFF064WuON2K9dVWrRL9kdypjmAf+b6//dfEK9h
+	 PJYA8Y7hDP5YGb1wdjJF/arZRnExL/j8/wSO+SJnh5+yyVPrwplPzuEvVjQ7GX+6cK
+	 bTO5/DOnpzE6g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Ming Qian <ming.qian@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
+Cc: Jonas Karlman <jonas@kwiboo.se>,
 	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Christopher Obbard <chris.obbard@collabora.com>,
 	Hans Verkuil <hverkuil@xs4all.nl>,
 	Sasha Levin <sashal@kernel.org>,
-	mirela.rabulea@nxp.com,
+	ezequiel@vanguardiasur.com.ar,
 	mchehab@kernel.org,
-	shawnguo@kernel.org,
-	imx@lists.linux.dev,
+	gregkh@linuxfoundation.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
 	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.15 004/110] media: imx-jpeg: Check decoding is ongoing for motion-jpeg
-Date: Sun,  1 Jun 2025 19:22:46 -0400
-Message-Id: <20250601232435.3507697-4-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 45/93] media: rkvdec: h264: Use bytesperline and buffer height as virstride
+Date: Sun,  1 Jun 2025 19:33:12 -0400
+Message-Id: <20250601233402.3512823-45-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250601232435.3507697-1-sashal@kernel.org>
-References: <20250601232435.3507697-1-sashal@kernel.org>
+In-Reply-To: <20250601233402.3512823-1-sashal@kernel.org>
+References: <20250601233402.3512823-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.15
+X-stable-base: Linux 6.12.31
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_162448_496917_AC09C9B7 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20250602_003601_723785_4BEBD283 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,141 +102,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@oss.nxp.com>
+From: Jonas Karlman <jonas@kwiboo.se>
 
-[ Upstream commit fd5b6cd730676940df63b0970bb1ba30bca1aac3 ]
+[ Upstream commit d5e0aa61470c48ddc04d433a00e79cef8716377a ]
 
-As the first frame in "repeat-mode" is the pattern, the pattern done
-interrupt is ignored by the driver. With small resolution bitstreams,
-the interrupts might fire too quickly and hardware combine two irqs to
-once because irq handle have latency. Thus the driver might miss the
-frame decode done interrupt from the first actual frame.
+Use bytesperline and buffer height to calculate the strides configured.
 
-In order to avoid the driver wait for the frame done interrupt that has
-been combined to the pattern done interrupt and been ignored, driver
-will check the curr_desc and slot_status registers to figure out if the
-decoding of actual frame is finished or not.
+This does not really change anything other than ensuring the
+bytesperline that is signaled to userspace matches what is configured
+in HW.
 
-Firstly we check the curr_desc register,
-- if it is still pointing to the pattern descriptor, the second actual
-frame is not started, we can wait for its frame-done interrupt.
-- if the curr_desc has pointed to the frame descriptor, then we check the
-ongoing bit of slot_status register.
-- if the ongoing bit is set to 1, the decoding of the actual frame is not
-finished, we can wait for its frame-done interrupt.
-- if the ongoing bit is set to 0, the decoding of the actual frame is
-finished, we can't wait for the second interrupt, but mark it as done.
-
-But there is still a small problem, that the curr_desc and slot_status
-registers are not synchronous. curr_desc is updated when the
-next_descpt_ptr is loaded, but the ongoing bit of slot_status is set
-after the 32 bytes descriptor is loaded, there will be a short time
-interval in between, which may cause fake false. Consider read register
-is quite slow compared with IP read 32byte from memory, read twice
-slot_status can avoid this situation.
-
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Tested-by: Christopher Obbard <chris.obbard@collabora.com>
 Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-Based on my analysis of both the commit message and code changes, here
-is my determination: **YES** This commit should be backported to stable
-kernel trees for the following reasons: 1. **Fixes a real bug causing
-driver hangs**: The commit addresses a specific issue where the driver
-can wait indefinitely for an interrupt that has already been combined
-with a previous ignored interrupt. This causes the driver to hang,
-making the hardware unusable for motion-JPEG decoding with small
-resolution bitstreams. 2. **Clear bug fix with minimal changes**: The
-fix is targeted and minimal - it adds one new function
-(`mxc_dec_is_ongoing()`) and modifies one condition in the IRQ handler.
-The changes are well-contained within the imx-jpeg driver with no impact
-on other subsystems. 3. **Hardware-specific race condition**: The commit
-addresses a hardware behavior where interrupts can be combined when they
-fire too quickly. This is a real issue that affects users of the i.MX8
-JPEG hardware decoder, particularly when processing small resolution
-motion-JPEG streams. 4. **No architectural changes**: The fix doesn't
-introduce any new features or change the driver's architecture. It
-simply adds additional state checking to handle a specific hardware race
-condition. 5. **Low regression risk**: The changes are defensive - they
-add additional checks before proceeding rather than changing existing
-behavior. The worst case would be that the new checks might not catch
-all edge cases, but they won't break existing working scenarios. 6.
-**Similar to other backported commits**: Looking at the similar commits
-marked as "YES" for backporting (like "media: imx-jpeg: Disable slot
-interrupt when frame done"), this follows the same pattern of fixing
-specific hardware issues that cause system problems. The commit
-specifically fixes a condition where the driver becomes stuck waiting
-for an interrupt that will never come, which is exactly the kind of bug
-that stable kernels should fix to ensure reliable operation of hardware.
+### Key Reasons for NO Backport: 1. **Not a Bug Fix**: The commit
+message explicitly states "This does not really change anything other
+than ensuring the bytesperline that is signaled to userspace matches
+what is configured in HW." This is not fixing a functional bug but
+rather improving consistency between userspace and hardware
+configuration. 2. **Code Quality/Consistency Improvement**: The changes
+are primarily about code correctness and consistency rather than fixing
+a critical issue that affects users. This aligns with similar commits
+#1, #2, and #4 which were marked as NO for backporting. 3. **Staging
+Driver**: The rkvdec driver is in `drivers/staging/media/`, which
+indicates it's still under development and not considered stable.
+Staging drivers typically have more relaxed backporting requirements. 4.
+**Specific Code Changes Analysis**: - **Before**: `hor_virstride =
+(sps->bit_depth_luma_minus8 + 8) 0001-Fix-Clippy-warnings.patch
+0002-Enhance-inference-prompt-to-utilize-CVEKERNELDIR-whe.patch
+0003-Update-to-latest-version-of-clap.patch Cargo.lock Cargo.toml
+LICENSE README.md adreno_acd_support_analysis.md
+amd_display_ips_sequential_ono_backport_analysis.md
+analyze_merge_commit.sh dpp_rcg_backport_analysis.md
+drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
+drm_bridge_analysis.txt drm_format_helper_24bit_analysis.md
+drm_imagination_register_update_analysis.md
+drm_mediatek_mtk_dpi_refactoring_analysis.md
+intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
+merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
+test_patch.txt verisilicon_av1_4k_analysis.md dst_fmt->width / 8;` -
+**After**: `hor_virstride = dst_fmt->plane_fmt[0].bytesperline;` -
+**Before**: `ver_virstride = round_up(dst_fmt->height, 16);` -
+**After**: `ver_virstride = dst_fmt->height;` 5. **No Risk Indication**:
+The changes don't indicate they're fixing crashes, data corruption,
+security issues, or other critical problems that would warrant stable
+backporting. 6. **Pattern Match with Similar Commits**: Looking at the
+provided examples: - Similar commits #1, #2, #4, and #5 that make
+stride/calculation improvements were marked as NO - Only commit #3 that
+increased max supported height (a clear functional limitation fix) was
+marked as YES 7. **No Stable Tree Mention**: The commit message contains
+no indication of stable tree inclusion via Fixes: tags or explicit
+stable tree requests. ### Conclusion: This commit improves code
+consistency by using the actual bytesperline values from userspace
+instead of calculating them from SPS parameters, but it doesn't fix a
+user-impacting bug. It's a code quality improvement that follows the
+pattern of other NO-backport commits in the provided examples.
 
- .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  1 +
- .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 31 ++++++++++++++++++-
- 2 files changed, 31 insertions(+), 1 deletion(-)
+ drivers/staging/media/rkvdec/rkvdec-h264.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-index d579c804b0479..adb93e977be91 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
-@@ -89,6 +89,7 @@
- /* SLOT_STATUS fields for slots 0..3 */
- #define SLOT_STATUS_FRMDONE			(0x1 << 3)
- #define SLOT_STATUS_ENC_CONFIG_ERR		(0x1 << 8)
-+#define SLOT_STATUS_ONGOING			(0x1 << 31)
+diff --git a/drivers/staging/media/rkvdec/rkvdec-h264.c b/drivers/staging/media/rkvdec/rkvdec-h264.c
+index 4fc167b42cf0c..7a1e76d423df5 100644
+--- a/drivers/staging/media/rkvdec/rkvdec-h264.c
++++ b/drivers/staging/media/rkvdec/rkvdec-h264.c
+@@ -896,9 +896,9 @@ static void config_registers(struct rkvdec_ctx *ctx,
+ 	dma_addr_t rlc_addr;
+ 	dma_addr_t refer_addr;
+ 	u32 rlc_len;
+-	u32 hor_virstride = 0;
+-	u32 ver_virstride = 0;
+-	u32 y_virstride = 0;
++	u32 hor_virstride;
++	u32 ver_virstride;
++	u32 y_virstride;
+ 	u32 yuv_virstride = 0;
+ 	u32 offset;
+ 	dma_addr_t dst_addr;
+@@ -909,16 +909,16 @@ static void config_registers(struct rkvdec_ctx *ctx,
  
- /* SLOT_IRQ_EN fields TBD */
+ 	f = &ctx->decoded_fmt;
+ 	dst_fmt = &f->fmt.pix_mp;
+-	hor_virstride = (sps->bit_depth_luma_minus8 + 8) * dst_fmt->width / 8;
+-	ver_virstride = round_up(dst_fmt->height, 16);
++	hor_virstride = dst_fmt->plane_fmt[0].bytesperline;
++	ver_virstride = dst_fmt->height;
+ 	y_virstride = hor_virstride * ver_virstride;
  
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-index 1221b309a9163..72b43abfaf903 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-@@ -877,6 +877,34 @@ static u32 mxc_jpeg_get_plane_size(struct mxc_jpeg_q_data *q_data, u32 plane_no)
- 	return size;
- }
+ 	if (sps->chroma_format_idc == 0)
+ 		yuv_virstride = y_virstride;
+ 	else if (sps->chroma_format_idc == 1)
+-		yuv_virstride += y_virstride + y_virstride / 2;
++		yuv_virstride = y_virstride + y_virstride / 2;
+ 	else if (sps->chroma_format_idc == 2)
+-		yuv_virstride += 2 * y_virstride;
++		yuv_virstride = 2 * y_virstride;
  
-+static bool mxc_dec_is_ongoing(struct mxc_jpeg_ctx *ctx)
-+{
-+	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
-+	u32 curr_desc;
-+	u32 slot_status;
-+
-+	curr_desc = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_CUR_DESCPT_PTR));
-+	if (curr_desc == jpeg->slot_data.cfg_desc_handle)
-+		return true;
-+
-+	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
-+	if (slot_status & SLOT_STATUS_ONGOING)
-+		return true;
-+
-+	/*
-+	 * The curr_desc register is updated when next_descpt_ptr is loaded,
-+	 * the ongoing bit of slot_status is set when the 32 bytes descriptor is loaded.
-+	 * So there will be a short time interval in between, which may cause fake false.
-+	 * Consider read register is quite slow compared with IP read 32byte from memory,
-+	 * read twice slot_status can avoid this situation.
-+	 */
-+	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
-+	if (slot_status & SLOT_STATUS_ONGOING)
-+		return true;
-+
-+	return false;
-+}
-+
- static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
- {
- 	struct mxc_jpeg_dev *jpeg = priv;
-@@ -946,7 +974,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
- 		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
- 		goto job_unlock;
- 	}
--	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed) {
-+	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
-+	    mxc_dec_is_ongoing(ctx)) {
- 		jpeg_src_buf->dht_needed = false;
- 		dev_dbg(dev, "Decoder DHT cfg finished. Start decoding...\n");
- 		goto job_unlock;
+ 	reg = RKVDEC_Y_HOR_VIRSTRIDE(hor_virstride / 16) |
+ 	      RKVDEC_UV_HOR_VIRSTRIDE(hor_virstride / 16) |
 -- 
 2.39.5
 
