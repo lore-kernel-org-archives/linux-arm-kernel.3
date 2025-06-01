@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED76C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A856EC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yWOVgnhTaNz/iYoTJRYYSQ5WK32CwmSXUOPk0oso5EM=; b=3Pc/k9FztgOsv6iLS3ADmesNpR
-	9sWKPh3klshSKX4A4qkPhoKjF6UjpcY2XW5vVtcNl0BSwfcLgDz9TrWXGeRii+E8vbRa3lDrxHUMC
-	uSn3rB06EEgMu+kDeKqKIrCDzh/AFpRMUuHYtp4eG7HsZ0ZbqsZ8S0HmQgnYeLCCrqlDmrFfqKGkf
-	5qjLWJSX0S0cXIizz1bz1Ae7BO8AUX9CZ3Vt89U3kCYe0U59wKfUtnOO3wyAC1UrxvOmL0blKKiW+
-	JTOJkPzqDbbK5YYcOXRH0RsLSEfq/ZqwNwKo6LE2xfMUCmBDXYI1PSVw/1fj+dlpLvyLckRpT4PtR
-	lpzzrU9g==;
+	bh=MgLOsQuL7RTyNsvlAux5+WjTu3KSg9+JtB3RHLk3F38=; b=V6TWnuhMABW95At+ZlZT61bs0V
+	56jMNOaPu/238H4tdNnUtMwk+s+1yv1eJeb78eOBAlJdKTRvM9fgoQtLCkq8+GbNUDOmVsgG6ikLp
+	0AYBCpJkHBpO1N4gX8xFxCfDxIUhUDMiklIU6B/yjkLyQ1RsUHpSELNXBiSv0PrNRsnzxEhoiF1jQ
+	v8MTcY6h/ZVQo6xBsAAhjZnOtEai3s6NC17JgbBSQ/6MO4JYtOMMgTT3mRuxWWDWlehg8D3eeU750
+	l+MR65lA4X8TAVHCtd/hmKnzs2dvlRzcunMIgNsl14wQXBYQOUoQTzbNPIyFaqPOQs8+aAOjyHovO
+	fdnwChPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLtJA-00000006MVs-3mvd;
-	Mon, 02 Jun 2025 00:45:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uLtLI-00000006Mvc-0QW1;
+	Mon, 02 Jun 2025 00:47:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsG3-000000068XW-3g4H;
-	Sun, 01 Jun 2025 23:38:27 +0000
+	id 1uLsGV-000000068gC-3yDG;
+	Sun, 01 Jun 2025 23:38:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5273961127;
-	Sun,  1 Jun 2025 23:38:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F339C4CEE7;
-	Sun,  1 Jun 2025 23:38:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A9013446DE;
+	Sun,  1 Jun 2025 23:38:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6629C4CEEE;
+	Sun,  1 Jun 2025 23:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748821107;
-	bh=IwlitChP2HWTlFY+cygsLnX8/HcAX8WuOt8p7N80ETU=;
+	s=k20201202; t=1748821135;
+	bh=dt8kPgWDpFu2sSg07IECaKF33MJ/jwpv24xF5OlDrII=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BVcDuJC9Y1N7TX44MX0D6Rto95frbEceMQz83cSWFfEHaHHw2TNtfBTG5r/1eB34k
-	 BGF+a2jaOzOwCzUBe6p/DglVQ/kVlfPbobBceNzVJYy/ImxPIIGtepuFvayiN+UZR4
-	 zBD6uZiwqZ3uxScTG062rsYB4jIbi97xqsjt/nWO70pBWGFzYTk2FdwfPt2rng2oH/
-	 fZzo8KPKCeqmsEDUYe1WxF9+Q/4G7VLjeVOwHNiiTqBLUHGPESXj5adxT06hZXKx8l
-	 xhcKtcNaYATeH1Ym0uGmiIHkLpYPVOUoeeY+AOObeFgbTKvCRf5xZA706OKpYtfko6
-	 f0aBBpaA1EGWw==
+	b=FvUg2qKGC3r47pK+oWiehOBke1sJpb9N9D4jDGaIBLDZxTLLDdY7Or87YI7fE7z/j
+	 N8KB8Z4jUebfXPGt4z68XH8QXvBhs4XNH8p/hS65TaQhVs6lzUGsVDx9s1P1pvzy/L
+	 32H7gqNMtrnxyK2/RxNZlWuHCZ2mg0ziAeI9xy1WU7CWwXRhoBhsClOJP6y2NXKe5Z
+	 0qN2rCzl7HQRUghPFMXg2gZxYFuxNtzyuJSVMbo53Klz/0IyDvS1zlAwGYG6jTiech
+	 UvnnIuRlYPDF4KDKDbvlz0EUkQuqGq8onqKBkMEyjZlqQxQVyaVQ+qHXGQn5JqCTrf
+	 rtfJyblZyBm3g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+Cc: Jonas Karlman <jonas@kwiboo.se>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Christopher Obbard <chris.obbard@collabora.com>,
 	Hans Verkuil <hverkuil@xs4all.nl>,
 	Sasha Levin <sashal@kernel.org>,
-	p.zabel@pengutronix.de,
+	ezequiel@vanguardiasur.com.ar,
 	mchehab@kernel.org,
-	heiko@sntech.de,
+	gregkh@linuxfoundation.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
 	linux-media@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.6 16/66] media: verisilicon: Enable wide 4K in AV1 decoder
-Date: Sun,  1 Jun 2025 19:36:53 -0400
-Message-Id: <20250601233744.3514795-16-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.6 29/66] media: rkvdec: h264: Use bytesperline and buffer height as virstride
+Date: Sun,  1 Jun 2025 19:37:06 -0400
+Message-Id: <20250601233744.3514795-29-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250601233744.3514795-1-sashal@kernel.org>
 References: <20250601233744.3514795-1-sashal@kernel.org>
@@ -66,6 +71,9 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.92
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250601_163856_017586_C3E4AC97 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,127 +88,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+From: Jonas Karlman <jonas@kwiboo.se>
 
-[ Upstream commit 311e40e877bd980bc665e6c8d3b15d96f0ec2aa8 ]
+[ Upstream commit d5e0aa61470c48ddc04d433a00e79cef8716377a ]
 
-Tested on RK3588, this decoder is capable of handling WUHD, so bump the
-maximum width and height accordingly.
+Use bytesperline and buffer height to calculate the strides configured.
 
-Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+This does not really change anything other than ensuring the
+bytesperline that is signaled to userspace matches what is configured
+in HW.
+
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Tested-by: Christopher Obbard <chris.obbard@collabora.com>
 Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-**YES** This commit should be backported to stable kernel trees. ##
-Analysis This is a **bug fix** that corrects an artificial limitation in
-the AV1 decoder driver, not a new feature addition. Here's my detailed
-analysis: ### Nature of the Change The commit changes format capability
-declarations from `FMT_UHD_WIDTH/HEIGHT` (3840x2160) to
-`FMT_4K_WIDTH/HEIGHT` (4096x2304) for the RK3588 AV1 decoder. Looking at
-the constants in the codebase: - `FMT_UHD_WIDTH` = 3840,
-`FMT_UHD_HEIGHT` = 2160 (standard UHD) - `FMT_4K_WIDTH` = 4096,
-`FMT_4K_HEIGHT` = 2304 (Cinema 4K) ### Why This is a Bug Fix 1.
-**Hardware Capability vs Driver Limitation**: The commit message states
-this was "Tested on RK3588" and confirms the decoder is "capable of
-handling WUHD", indicating the hardware already supports these
-resolutions but the driver was artificially limiting them. 2. **User-
-Visible Problem**: Users with Cinema 4K content (4096x2160 or wider)
-would experience decode failures despite having capable hardware. 3.
-**No New Hardware Features**: This doesn't enable new hardware
-functionality - it simply removes an incorrect software limitation. ###
-Risk Assessment - Very Low 1. **Minimal Code Changes**: Only changes
-constant values in format capability arrays - no algorithmic logic
-changes. 2. **Backward Compatibility**: Existing UHD content (3840x2160)
-continues to work exactly as before. 3. **Self-Contained**: Changes are
-isolated to the verisilicon media driver, affecting only format
-capability declarations. 4. **No API Changes**: No changes to userspace
-interfaces or kernel APIs. ### Comparison to Similar Backported Commit
-This change is very similar to commit #5 in the reference examples
-(marked "Backport Status: YES"): - Both increase maximum supported
-resolution after hardware testing - Both are minimal, low-risk changes
-to capability declarations - Both fix user-visible decode failures for
-content the hardware can actually handle ### Stable Tree Benefits 1.
-**Fixes decode failures** for users with Cinema 4K AV1 content 2.
-**Improves hardware utilization** by removing artificial limitations 3.
-**Very low regression risk** due to minimal, well-contained changes 4.
-**Meets all stable tree criteria**: important fix, minimal risk, no new
-features This commit clearly qualifies for stable backporting as it
-fixes a user-visible bug with minimal risk and no architectural changes.
+### Key Reasons for NO Backport: 1. **Not a Bug Fix**: The commit
+message explicitly states "This does not really change anything other
+than ensuring the bytesperline that is signaled to userspace matches
+what is configured in HW." This is not fixing a functional bug but
+rather improving consistency between userspace and hardware
+configuration. 2. **Code Quality/Consistency Improvement**: The changes
+are primarily about code correctness and consistency rather than fixing
+a critical issue that affects users. This aligns with similar commits
+#1, #2, and #4 which were marked as NO for backporting. 3. **Staging
+Driver**: The rkvdec driver is in `drivers/staging/media/`, which
+indicates it's still under development and not considered stable.
+Staging drivers typically have more relaxed backporting requirements. 4.
+**Specific Code Changes Analysis**: - **Before**: `hor_virstride =
+(sps->bit_depth_luma_minus8 + 8) 0001-Fix-Clippy-warnings.patch
+0002-Enhance-inference-prompt-to-utilize-CVEKERNELDIR-whe.patch
+0003-Update-to-latest-version-of-clap.patch Cargo.lock Cargo.toml
+LICENSE README.md adreno_acd_support_analysis.md
+amd_display_ips_sequential_ono_backport_analysis.md
+analyze_merge_commit.sh dpp_rcg_backport_analysis.md
+drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
+drm_bridge_analysis.txt drm_format_helper_24bit_analysis.md
+drm_imagination_register_update_analysis.md
+drm_mediatek_mtk_dpi_refactoring_analysis.md
+intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
+merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
+test_patch.txt verisilicon_av1_4k_analysis.md dst_fmt->width / 8;` -
+**After**: `hor_virstride = dst_fmt->plane_fmt[0].bytesperline;` -
+**Before**: `ver_virstride = round_up(dst_fmt->height, 16);` -
+**After**: `ver_virstride = dst_fmt->height;` 5. **No Risk Indication**:
+The changes don't indicate they're fixing crashes, data corruption,
+security issues, or other critical problems that would warrant stable
+backporting. 6. **Pattern Match with Similar Commits**: Looking at the
+provided examples: - Similar commits #1, #2, #4, and #5 that make
+stride/calculation improvements were marked as NO - Only commit #3 that
+increased max supported height (a clear functional limitation fix) was
+marked as YES 7. **No Stable Tree Mention**: The commit message contains
+no indication of stable tree inclusion via Fixes: tags or explicit
+stable tree requests. ### Conclusion: This commit improves code
+consistency by using the actual bytesperline values from userspace
+instead of calculating them from SPS parameters, but it doesn't fix a
+user-impacting bug. It's a code quality improvement that follows the
+pattern of other NO-backport commits in the provided examples.
 
- .../platform/verisilicon/rockchip_vpu_hw.c    | 20 +++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+ drivers/staging/media/rkvdec/rkvdec-h264.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-index f975276707835..94fedb34f87ff 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-@@ -86,10 +86,10 @@ static const struct hantro_fmt rockchip_vpu981_postproc_fmts[] = {
- 		.postprocessed = true,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -100,10 +100,10 @@ static const struct hantro_fmt rockchip_vpu981_postproc_fmts[] = {
- 		.postprocessed = true,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -319,10 +319,10 @@ static const struct hantro_fmt rockchip_vpu981_dec_fmts[] = {
- 		.match_depth = true,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -332,10 +332,10 @@ static const struct hantro_fmt rockchip_vpu981_dec_fmts[] = {
- 		.match_depth = true,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -345,10 +345,10 @@ static const struct hantro_fmt rockchip_vpu981_dec_fmts[] = {
- 		.max_depth = 2,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
+diff --git a/drivers/staging/media/rkvdec/rkvdec-h264.c b/drivers/staging/media/rkvdec/rkvdec-h264.c
+index 4fc167b42cf0c..7a1e76d423df5 100644
+--- a/drivers/staging/media/rkvdec/rkvdec-h264.c
++++ b/drivers/staging/media/rkvdec/rkvdec-h264.c
+@@ -896,9 +896,9 @@ static void config_registers(struct rkvdec_ctx *ctx,
+ 	dma_addr_t rlc_addr;
+ 	dma_addr_t refer_addr;
+ 	u32 rlc_len;
+-	u32 hor_virstride = 0;
+-	u32 ver_virstride = 0;
+-	u32 y_virstride = 0;
++	u32 hor_virstride;
++	u32 ver_virstride;
++	u32 y_virstride;
+ 	u32 yuv_virstride = 0;
+ 	u32 offset;
+ 	dma_addr_t dst_addr;
+@@ -909,16 +909,16 @@ static void config_registers(struct rkvdec_ctx *ctx,
+ 
+ 	f = &ctx->decoded_fmt;
+ 	dst_fmt = &f->fmt.pix_mp;
+-	hor_virstride = (sps->bit_depth_luma_minus8 + 8) * dst_fmt->width / 8;
+-	ver_virstride = round_up(dst_fmt->height, 16);
++	hor_virstride = dst_fmt->plane_fmt[0].bytesperline;
++	ver_virstride = dst_fmt->height;
+ 	y_virstride = hor_virstride * ver_virstride;
+ 
+ 	if (sps->chroma_format_idc == 0)
+ 		yuv_virstride = y_virstride;
+ 	else if (sps->chroma_format_idc == 1)
+-		yuv_virstride += y_virstride + y_virstride / 2;
++		yuv_virstride = y_virstride + y_virstride / 2;
+ 	else if (sps->chroma_format_idc == 2)
+-		yuv_virstride += 2 * y_virstride;
++		yuv_virstride = 2 * y_virstride;
+ 
+ 	reg = RKVDEC_Y_HOR_VIRSTRIDE(hor_virstride / 16) |
+ 	      RKVDEC_UV_HOR_VIRSTRIDE(hor_virstride / 16) |
 -- 
 2.39.5
 
