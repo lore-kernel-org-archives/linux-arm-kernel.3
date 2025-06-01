@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D615DC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E99C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D2D1L58O+TEW8292vVqUUgqnJKYNKF0tdHRhotfyzg8=; b=BORLSsZDM47EF/WNrJ30hsiCGI
-	ey9Dcy3cbnfONzdFSzMuxgVGszR9Evr6otO5YoT5zmDVwFLyGCOVOYKov3+LQSXyxlKOq1dhIV36X
-	3FySXGlDef/9ld9vzVlE7cAbWo5ms3JXTu2gKjNldD/XH+4D49UiykpQ2se4WnoLnj0rIRrVdnuDL
-	NskC2DcKlGyQ8+lDti+cNJTKm9AFzg/FYKgEZSRvY6DzrKQiYuYsA3dm4MUezWQmjsIJADdIbmaS5
-	3MmHqfFFb99jwKrvEKJGOgy8JeAN1VTz7fGc+GXHpXuN7M3PQfV2nKi7VdaQJKqrTlmRh5IP4Ehja
-	s0x1qPSA==;
+	bh=cuSjtX7RqaQsP9IR8t8kf+jNZl5aY0Yd7DEgrOoMc/Y=; b=x7TqBl4AnFhet6JdfGgDVDwrCz
+	xstTdtii42LdF/aUsjR4BZgOVkN0mJxQPNbNdrQsoKo4MJd1Ze44bSNXPewqfEzhaQ9hipftFg8Ew
+	Lg/lZ8UM/zTcLfX/VPYg/t/jVQIGADBULW0Swsd0RHIZYPOhYTewrccxNdAj31njCPSfQ6VuiztkG
+	wGmqPBg0/YqFq7qfwWuZ1ziEcuh0rtgIKrEFEf//vPksxZr49TEGlf9oVLXNt7JSDoKvuIDzFqf3N
+	PEUVbAw6TLJv64KilDtiBie8nyUfirqznM0SlF37rXnh5VhTo6fp+/uOJJSg3sHRN+/zm9jHGehd2
+	v3ZcOsVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLt05-00000006IOK-0AvG;
-	Mon, 02 Jun 2025 00:26:01 +0000
+	id 1uLt2C-00000006Im9-0mvR;
+	Mon, 02 Jun 2025 00:28:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsCx-000000067ao-23qs;
-	Sun, 01 Jun 2025 23:35:16 +0000
+	id 1uLsDh-000000067pH-2tOy;
+	Sun, 01 Jun 2025 23:36:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3665B4A247;
-	Sun,  1 Jun 2025 23:35:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAEE1C4CEE7;
-	Sun,  1 Jun 2025 23:35:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 679A343524;
+	Sun,  1 Jun 2025 23:36:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01387C4CEF4;
+	Sun,  1 Jun 2025 23:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748820915;
-	bh=ttfOECRtD5PXtaIw69vMnoWuEDtkXJQhrGI743nHL1c=;
+	s=k20201202; t=1748820961;
+	bh=XYrRtZuOVTeI0fAa5/NfJJQDvr7rpN7tbXz6hxJSzwI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mQsZuMDVK7fPxtuTVBYO/eiMTw9f9wwcToivU4wO6D6KQdNNhjMKJSw1oVFLQk70f
-	 NEnWHGUuR9QgJBq2pqNdwqtPCRRofxG0xjcniTPXT3zod6CkrQ1r2ysCW07rDk3c+c
-	 bO7m1bzZ1Tkfru0MYr6e0H08Mq0eF7xCrI8T/7bRNYP+/Q8ME/9qPhg1CTFrYVAkBy
-	 r48BiVkwylI2PaNkdJUrsbUx15z5+B4wkpFRAfQYmlHe5ytsiN+VV+hrpKYnURuD6z
-	 Kq17j1d0746nJPoPJZUfKvd53vwPTRdVaUwiKij05He3DRJpg9+u0/6JDzZyEHslKF
-	 jCLd0dZ1LDljw==
+	b=FICE/BPii6hXIiTDLJiAu2U2SOdW81Zbm5xeN5b6Q4S/OrnP9XlEoejWfSCMdvIAD
+	 RxO9QvS23SwAeCnsnJiF1orRHteX5r/B2lge7U6AYib7Gu85auBFT7hNntnUuzViJw
+	 tZZaf24EfYNbMQFG71g1q3jC1qdhwv7IkgBWgAs7zX8iXU6aU+OsQ1Br96OTRLLUDT
+	 h47Ewjg0uNsz36jcmhqAc6u9c4xyII239QMCdPoBQmW53C5afIAOz7LyEQpUZdWrqS
+	 wayPIPhHDBbjwPDvZzsOUujPGgLpTkcgtkJwkqZzoe8ITweKC2WIRhJr1KrSGl3gfv
+	 UX5qjQgs0EoRA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
+Cc: Hans Verkuil <hverkuil@xs4all.nl>,
+	Ricardo Ribalda <ribalda@chromium.org>,
 	Sasha Levin <sashal@kernel.org>,
-	p.zabel@pengutronix.de,
 	mchehab@kernel.org,
-	heiko@sntech.de,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
 	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.12 28/93] media: verisilicon: Enable wide 4K in AV1 decoder
-Date: Sun,  1 Jun 2025 19:32:55 -0400
-Message-Id: <20250601233402.3512823-28-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 46/93] media: cec: extron-da-hd-4k-plus: Fix Wformat-truncation
+Date: Sun,  1 Jun 2025 19:33:13 -0400
+Message-Id: <20250601233402.3512823-46-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250601233402.3512823-1-sashal@kernel.org>
 References: <20250601233402.3512823-1-sashal@kernel.org>
@@ -67,8 +66,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.31
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_163515_568363_9FA77F8E 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250601_163601_762395_694397D2 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,127 +82,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+From: Hans Verkuil <hverkuil@xs4all.nl>
 
-[ Upstream commit 311e40e877bd980bc665e6c8d3b15d96f0ec2aa8 ]
+[ Upstream commit 5edc9b560f60c40e658af0b8e98ae2dfadc438d8 ]
 
-Tested on RK3588, this decoder is capable of handling WUHD, so bump the
-maximum width and height accordingly.
+Fix gcc8 warning:
 
-Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c:1014:44: warning: 'DCEC' directive output may be truncated writing 4 bytes into a region of size between 0 and 53 [-Wformat-truncation=]
+
+Resizing the 'buf' and 'cmd' arrays fixed the warning.
+
+Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
 Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-**YES** This commit should be backported to stable kernel trees. ##
-Analysis This is a **bug fix** that corrects an artificial limitation in
-the AV1 decoder driver, not a new feature addition. Here's my detailed
-analysis: ### Nature of the Change The commit changes format capability
-declarations from `FMT_UHD_WIDTH/HEIGHT` (3840x2160) to
-`FMT_4K_WIDTH/HEIGHT` (4096x2304) for the RK3588 AV1 decoder. Looking at
-the constants in the codebase: - `FMT_UHD_WIDTH` = 3840,
-`FMT_UHD_HEIGHT` = 2160 (standard UHD) - `FMT_4K_WIDTH` = 4096,
-`FMT_4K_HEIGHT` = 2304 (Cinema 4K) ### Why This is a Bug Fix 1.
-**Hardware Capability vs Driver Limitation**: The commit message states
-this was "Tested on RK3588" and confirms the decoder is "capable of
-handling WUHD", indicating the hardware already supports these
-resolutions but the driver was artificially limiting them. 2. **User-
-Visible Problem**: Users with Cinema 4K content (4096x2160 or wider)
-would experience decode failures despite having capable hardware. 3.
-**No New Hardware Features**: This doesn't enable new hardware
-functionality - it simply removes an incorrect software limitation. ###
-Risk Assessment - Very Low 1. **Minimal Code Changes**: Only changes
-constant values in format capability arrays - no algorithmic logic
-changes. 2. **Backward Compatibility**: Existing UHD content (3840x2160)
-continues to work exactly as before. 3. **Self-Contained**: Changes are
-isolated to the verisilicon media driver, affecting only format
-capability declarations. 4. **No API Changes**: No changes to userspace
-interfaces or kernel APIs. ### Comparison to Similar Backported Commit
-This change is very similar to commit #5 in the reference examples
-(marked "Backport Status: YES"): - Both increase maximum supported
-resolution after hardware testing - Both are minimal, low-risk changes
-to capability declarations - Both fix user-visible decode failures for
-content the hardware can actually handle ### Stable Tree Benefits 1.
-**Fixes decode failures** for users with Cinema 4K AV1 content 2.
-**Improves hardware utilization** by removing artificial limitations 3.
-**Very low regression risk** due to minimal, well-contained changes 4.
-**Meets all stable tree criteria**: important fix, minimal risk, no new
-features This commit clearly qualifies for stable backporting as it
-fixes a user-visible bug with minimal risk and no architectural changes.
+NO This commit should not be backported to stable kernel trees for the
+following reasons: 1. **Non-critical compiler warning fix**: This commit
+addresses a `-Wformat-truncation` compiler warning, which is a build-
+time warning and not a runtime bug that affects users. The warning
+indicates potential string truncation, but looking at the code, there's
+no evidence this causes actual runtime failures or security
+vulnerabilities. 2. **Consistent with similar commit patterns**: Looking
+at the reference commits, all the similar format-truncation warning
+fixes (commits #1, #2, #3, and #5) were marked as "Backport Status: NO".
+Only commit #4 was marked "YES", but that one explicitly included "Cc:
+stable@vger.kernel.org" in the commit message and had a "Fixes:" tag,
+which this commit lacks. 3. **Missing stable tree indicators**: The
+commit message contains no "Cc: stable@vger.kernel.org" tag and no
+"Fixes:" tag pointing to a specific problematic commit that introduced a
+user-facing issue. 4. **Minor code quality improvement**: The changes
+are purely preventive: - `char buf[CEC_MAX_MSG_SIZE 0001-Fix-Clippy-
+warnings.patch 0002-Enhance-inference-prompt-to-utilize-CVEKERNELDIR-
+whe.patch 0003-Update-to-latest-version-of-clap.patch Cargo.lock
+Cargo.toml LICENSE README.md adreno_acd_support_analysis.md
+amd_display_ips_sequential_ono_backport_analysis.md
+analyze_merge_commit.sh dpp_rcg_backport_analysis.md
+drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
+drm_bridge_analysis.txt drm_format_helper_24bit_analysis.md
+drm_imagination_register_update_analysis.md
+drm_mediatek_mtk_dpi_refactoring_analysis.md
+intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
+merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
+test_patch.txt verisilicon_av1_4k_analysis.md 3 + 1];` becomes `char
+buf[(CEC_MAX_MSG_SIZE - 1) 0001-Fix-Clippy-warnings.patch 0002-Enhance-
+inference-prompt-to-utilize-CVEKERNELDIR-whe.patch 0003-Update-to-
+latest-version-of-clap.patch Cargo.lock Cargo.toml LICENSE README.md
+adreno_acd_support_analysis.md
+amd_display_ips_sequential_ono_backport_analysis.md
+analyze_merge_commit.sh dpp_rcg_backport_analysis.md
+drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
+drm_bridge_analysis.txt drm_format_helper_24bit_analysis.md
+drm_imagination_register_update_analysis.md
+drm_mediatek_mtk_dpi_refactoring_analysis.md
+intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
+merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
+test_patch.txt verisilicon_av1_4k_analysis.md 3 + 1];` - `char
+cmd[CEC_MAX_MSG_SIZE 0001-Fix-Clippy-warnings.patch 0002-Enhance-
+inference-prompt-to-utilize-CVEKERNELDIR-whe.patch 0003-Update-to-
+latest-version-of-clap.patch Cargo.lock Cargo.toml LICENSE README.md
+adreno_acd_support_analysis.md
+amd_display_ips_sequential_ono_backport_analysis.md
+analyze_merge_commit.sh dpp_rcg_backport_analysis.md
+drm_amd_display_vertical_interrupt_dcn32_dcn401_backport_analysis.md
+drm_bridge_analysis.txt drm_format_helper_24bit_analysis.md
+drm_imagination_register_update_analysis.md
+drm_mediatek_mtk_dpi_refactoring_analysis.md
+intel_ipu6_constify_analysis.md io_uring_analysis.txt ksmbd_analysis.txt
+merge_commit_analysis.txt model prompt src target test_gpio_cleanup.txt
+test_patch.txt verisilicon_av1_4k_analysis.md 3 + 13];` becomes `char
+cmd[sizeof(buf) + 14];` These changes slightly reduce buffer sizes to
+better match actual usage patterns, but there's no indication the
+original sizes caused buffer overflows or other runtime problems. 5.
+**Media subsystem and driver-specific**: This affects a specific USB CEC
+adapter driver (`extron-da-hd-4k-plus`), making it a relatively isolated
+change that doesn't impact core kernel functionality or multiple
+subsystems. 6. **No user-reported issues**: There's no mention of user
+reports, bug fixes, or functional improvements - only compiler warning
+suppression. The stable kernel tree rules prioritize important bug fixes
+with minimal regression risk. This commit, while technically correct,
+falls into the category of code quality improvements rather than
+critical fixes that users would benefit from in stable releases.
 
- .../platform/verisilicon/rockchip_vpu_hw.c    | 20 +++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+ .../media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-index 964122e7c3559..b64f0658f7f1e 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-@@ -85,10 +85,10 @@ static const struct hantro_fmt rockchip_vpu981_postproc_fmts[] = {
- 		.postprocessed = true,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -99,10 +99,10 @@ static const struct hantro_fmt rockchip_vpu981_postproc_fmts[] = {
- 		.postprocessed = true,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -318,10 +318,10 @@ static const struct hantro_fmt rockchip_vpu981_dec_fmts[] = {
- 		.match_depth = true,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -331,10 +331,10 @@ static const struct hantro_fmt rockchip_vpu981_dec_fmts[] = {
- 		.match_depth = true,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
-@@ -344,10 +344,10 @@ static const struct hantro_fmt rockchip_vpu981_dec_fmts[] = {
- 		.max_depth = 2,
- 		.frmsize = {
- 			.min_width = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_width = FMT_UHD_WIDTH,
-+			.max_width = FMT_4K_WIDTH,
- 			.step_width = MB_DIM,
- 			.min_height = ROCKCHIP_VPU981_MIN_SIZE,
--			.max_height = FMT_UHD_HEIGHT,
-+			.max_height = FMT_4K_HEIGHT,
- 			.step_height = MB_DIM,
- 		},
- 	},
+diff --git a/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c b/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
+index cfbfc4c1b2e67..41d019b01ec09 100644
+--- a/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
++++ b/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
+@@ -1002,8 +1002,8 @@ static int extron_cec_adap_transmit(struct cec_adapter *adap, u8 attempts,
+ 				    u32 signal_free_time, struct cec_msg *msg)
+ {
+ 	struct extron_port *port = cec_get_drvdata(adap);
+-	char buf[CEC_MAX_MSG_SIZE * 3 + 1];
+-	char cmd[CEC_MAX_MSG_SIZE * 3 + 13];
++	char buf[(CEC_MAX_MSG_SIZE - 1) * 3 + 1];
++	char cmd[sizeof(buf) + 14];
+ 	unsigned int i;
+ 
+ 	if (port->disconnected)
 -- 
 2.39.5
 
