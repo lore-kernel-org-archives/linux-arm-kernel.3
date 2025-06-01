@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE9FCC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AC4C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 00:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DmBvtM9Etc5iI04jlFH2+CtWwddskVv++QujWKbTpQ0=; b=w1e97O5uqaLPCY9IVy7oEXDpmo
-	uswgXq66XLcNN5Odr3BuBEAK+rB/tf4h2AESp+nF0m9EXNBmgo4R4l/65zYZ07dtTUl3OFJkvDMrS
-	TVCOawNpMWkNKPNLSs714bmSfQeH4oU0AYAiS1p/Rn+qVLTu3TbeVhCIYSTMTnLiiv7xDllkoWbHt
-	/m05B2+KEolmBej5+6U0Jm8XY+Cv6kNM4QIs/516GAqY6eQymsLSTdDM4zAJzAqGZxH/OtlC/mMJE
-	iZgR9fBCb4hq4oREg2ns90UNu1AK2z8UfYKt4RjAYTR95bzQ+minWsmKXFmFYoUXKznlihKINtoFj
-	+NDIxNIA==;
+	bh=bhN03iVhWFjfPB8KiAN1lLe0RmLeMD+qvVun44CIq0w=; b=G9SBCBh4hXfYwsc3BkWCsIjnbY
+	10xDtFoL8bNGELHt4trftrLcyD4dJtvlIR4igJuQoN81GxK5U11yiEhLvxDoefN9HOcH8lngbSb4p
+	S18Mg08Xim9ECkMdAQ8fNGHV6PjlehMm4hJYjGIIszEgiPS1IXYrfabaVLMm+mLaXtI1JlguEyIHH
+	pPcOvTJSfM71i3QCJ2ghIJCW+WrzAodf8+arZeMZxIAw8aj0baevVqUdvfynzNAU5YzIPJJIQ3cRd
+	dF1GNAhTDBQhjeXFWIo/Qh5STkXUzzthxygbfHj+PzDa3c0vs90d7VRWahv2LnrbKjMZGJnzXJSkP
+	FLS1AT9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsrc-00000006GV8-02HD;
-	Mon, 02 Jun 2025 00:17:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uLstj-00000006Gw0-2xec;
+	Mon, 02 Jun 2025 00:19:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsBG-000000067Hr-3Uza
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 01 Jun 2025 23:33:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=DmBvtM9Etc5iI04jlFH2+CtWwddskVv++QujWKbTpQ0=; b=OSGIMt4pjlLPA1szEki9PgIvPi
-	Y6DzQ2Y5NncUmwY+KHf85mK46weVc6qEbJ9MUVEszjYv+06iG3IUH9JVsLBun3kqxMENupJ4FFg63
-	ks1lDsPWpyXbQadquwJrQZcjzae8iN9Lx6PuXPBzXeQ4bLIpNYVb0owoZd6H8/FfdIGosGP2Vo6dE
-	eQ43S+C+NaGbioBI/5Ebnm0TQEVgCu4HhLKTfOu/M9uprQ2NlsX8MONqk7gdNKNrL8eIPoXepZn6N
-	xji30iDgyuvnHaZYIrPAa/DrApGDE1kvJBhbMHlTuH5hztu6GPbgXtAnhaJ7uSGyJ/3LowqhyLhoe
-	OhZWbRLA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLsBD-00000000Y1g-1A5y
+	id 1uLsBz-000000067OA-25xl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Jun 2025 23:33:29 +0000
+	Sun, 01 Jun 2025 23:34:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E920C4A247;
-	Sun,  1 Jun 2025 23:33:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6604AC4CEF2;
-	Sun,  1 Jun 2025 23:33:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ED32F6116F;
+	Sun,  1 Jun 2025 23:34:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D99FC4CEE7;
+	Sun,  1 Jun 2025 23:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748820805;
-	bh=r56jaRVh5+tVoOwCGOt2VOS8fN5VtDk7gYOHfdoReT0=;
+	s=k20201202; t=1748820854;
+	bh=Dn2pn4NiS+BkWT1zOeO+GSzc0LYt7G/1bEh31uvW9XQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bEpNJKi7Cohhxb2DdgeoE39v9ssVysDn7Gjvzct4nCwwOGnMfRLvLiO0xwIo7NAWQ
-	 6qCQn/9RWVFA4tih9dtD1eVL49ggNgvF8hRsxeKDx5IrJojNf7GYEomqPH5mnQEg6e
-	 eWks5axcm4wJ3RC0Zx3eax60JnH2r17A/JxFoC4NB0by7GzgPqcVTwiTDTJc167ZSH
-	 /YlSpHJOpmHGmWxy2d/zqJJB/y0uEfbL96XbsNaMgRW8RqVISvW1sAdlcvfxhAlfK0
-	 W4AWfEdfCg573giRB/bpyJdsNZvaoWuU/dptqlDVq59PvHPNZEXawNAgG9XOq+LOrN
-	 avBFLjiiA33dg==
+	b=fRzGZsau9PZx0eKycxks5TmHg9crwzqqQ/6ZaBjqe3bV1ZHqMUx1B7qHyac4PBJAG
+	 NZt0r0kpGvAtxRktGDrTmgH4Ek/T699jTXark1+d0emI/6SgDdNAXQNSDMkhSWd5Px
+	 ZNvBPkTLbDyVKDRyKwLRkfUxO94VNHBCF0uqv1nqBDc56+zI4Sb66iOA95UfiJGADc
+	 Av9yttQgv7ASP9uGO05pz2o5BpCMXDweixf75D4rOJQJnZ6ikBkYADZWwrLH0fKwA8
+	 GuDtoHtqLbGSfzXoUSO9O5/V7nsthWr86ZMzYNUqQcJS59kedgkJIgPS/ewnuujuAx
+	 xxiVaeL3vsK2A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Haibo Chen <haibo.chen@nxp.com>,
-	Luke Wang <ziniu.wang_1@nxp.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+Cc: Ming Qian <ming.qian@oss.nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
 	Sasha Levin <sashal@kernel.org>,
+	mirela.rabulea@nxp.com,
+	mchehab@kernel.org,
 	shawnguo@kernel.org,
 	imx@lists.linux.dev,
-	linux-mmc@vger.kernel.org,
-	s32@nxp.com,
+	linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.14 086/102] mmc: sdhci-esdhc-imx: reset async FIFO before sending manual tuning command
-Date: Sun,  1 Jun 2025 19:29:18 -0400
-Message-Id: <20250601232937.3510379-86-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 04/93] media: imx-jpeg: Check decoding is ongoing for motion-jpeg
+Date: Sun,  1 Jun 2025 19:32:31 -0400
+Message-Id: <20250601233402.3512823-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250601232937.3510379-1-sashal@kernel.org>
-References: <20250601232937.3510379-1-sashal@kernel.org>
+In-Reply-To: <20250601233402.3512823-1-sashal@kernel.org>
+References: <20250601233402.3512823-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.14.9
+X-stable-base: Linux 6.12.31
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_003327_678157_25903BEC 
-X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,111 +82,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Haibo Chen <haibo.chen@nxp.com>
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-[ Upstream commit d0aac7d811775a2e98a02c7f172e0a9e97d9e004 ]
+[ Upstream commit fd5b6cd730676940df63b0970bb1ba30bca1aac3 ]
 
-During manual tuning, residual data in the async FIFO from previous
-commands may impact with the tuning process. To ensure a clean state:
+As the first frame in "repeat-mode" is the pattern, the pattern done
+interrupt is ignored by the driver. With small resolution bitstreams,
+the interrupts might fire too quickly and hardware combine two irqs to
+once because irq handle have latency. Thus the driver might miss the
+frame decode done interrupt from the first actual frame.
 
-1. Set the RST_FIFO bit (SYS_CTRL[22]) to reset the async FIFO.
-2. Poll the bit until self-cleared, confirming reset completion.
+In order to avoid the driver wait for the frame done interrupt that has
+been combined to the pattern done interrupt and been ignored, driver
+will check the curr_desc and slot_status registers to figure out if the
+decoding of actual frame is finished or not.
 
-This hardening ensures the tuning command starts with a clean FIFO state,
-improving the reliability of the manual tuning procedure.
+Firstly we check the curr_desc register,
+- if it is still pointing to the pattern descriptor, the second actual
+frame is not started, we can wait for its frame-done interrupt.
+- if the curr_desc has pointed to the frame descriptor, then we check the
+ongoing bit of slot_status register.
+- if the ongoing bit is set to 1, the decoding of the actual frame is not
+finished, we can wait for its frame-done interrupt.
+- if the ongoing bit is set to 0, the decoding of the actual frame is
+finished, we can't wait for the second interrupt, but mark it as done.
 
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-Link: https://lore.kernel.org/r/20250409075550.3413032-3-ziniu.wang_1@nxp.com
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+But there is still a small problem, that the curr_desc and slot_status
+registers are not synchronous. curr_desc is updated when the
+next_descpt_ptr is loaded, but the ongoing bit of slot_status is set
+after the 32 bytes descriptor is loaded, there will be a short time
+interval in between, which may cause fake false. Consider read register
+is quite slow compared with IP read 32byte from memory, read twice
+slot_status can avoid this situation.
+
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-**YES** This commit should be backported to stable kernel trees. Here's
-my comprehensive analysis: ## Backport Assessment: YES - High Priority
-### Key Factors Supporting Backport: **1. Bug Fix Nature - Critical
-Reliability Issue** The commit addresses a specific hardware reliability
-problem where residual data in the async FIFO interferes with manual
-tuning commands. This directly impacts the success rate of high-speed
-MMC/SD card initialization and operation. **2. Code Analysis - Low Risk,
-Targeted Fix** Looking at the actual changes in
-`esdhc_prepare_tuning()`: - **Minimal scope**: Only 8 lines of new code
-in a single function - **Hardware-safe operation**: Uses manufacturer-
-recommended `RST_FIFO` bit (BIT(22)) - **Proper error handling**:
-Includes timeout protection with `readl_poll_timeout()` - **Non-
-intrusive**: Only affects tuning preparation, not normal data operations
-**3. Hardware Context - Established Pattern** The fix follows
-established patterns seen in related drivers: - Similar
-`esdhc_flush_async_fifo()` functionality exists in `sdhci-of-esdhc.c` -
-The async FIFO is a known hardware component (debug register
-`ESDHC_DEBUG_SEL_ASYNC_FIFO_STATE`) - Hardware vendor (NXP/Freescale)
-recommendation as indicated by comments **4. Critical Functionality
-Impact** Manual tuning is essential for: - High-speed eMMC/SD operation
-(HS200, HS400, UHS-I modes) - Reliable card initialization in production
-systems - Storage performance optimization in embedded devices **5. Risk
-Assessment - Very Low** - **Regression risk**: Minimal - only affects
-tuning preparation phase - **Timeout protection**: Prevents infinite
-loops if hardware doesn't respond - **Warning mechanism**: Non-fatal
-error handling maintains system stability - **Isolated scope**: Changes
-are contained within a single function **6. Affected Hardware - Wide
-Impact** i.MX SoCs with ESDHC controllers are widely deployed in: -
-Embedded systems and IoT devices - Industrial automation systems -
-Consumer electronics - Automotive applications ### Comparison with
-Similar Commits: Unlike the provided examples (which were marked "NO"
-for being optimization/cleanup changes), this commit: - **Fixes a
-specific reliability issue** (not just optimization) - **Addresses
-hardware errata** (vendor-recommended workaround) - **Improves critical
-functionality** (storage device reliability) - **Has minimal regression
-risk** (targeted, well-contained change) ### Conclusion: This commit
-meets all criteria for stable tree backporting: it fixes an important
-bug affecting user-visible functionality (storage reliability), is low-
-risk and contained, and addresses a hardware-level issue that impacts
-production systems. The async FIFO reset ensures clean state for tuning
-commands, directly improving the reliability of high-speed storage
-operations on widely-deployed i.MX platforms.
+Based on my analysis of both the commit message and code changes, here
+is my determination: **YES** This commit should be backported to stable
+kernel trees for the following reasons: 1. **Fixes a real bug causing
+driver hangs**: The commit addresses a specific issue where the driver
+can wait indefinitely for an interrupt that has already been combined
+with a previous ignored interrupt. This causes the driver to hang,
+making the hardware unusable for motion-JPEG decoding with small
+resolution bitstreams. 2. **Clear bug fix with minimal changes**: The
+fix is targeted and minimal - it adds one new function
+(`mxc_dec_is_ongoing()`) and modifies one condition in the IRQ handler.
+The changes are well-contained within the imx-jpeg driver with no impact
+on other subsystems. 3. **Hardware-specific race condition**: The commit
+addresses a hardware behavior where interrupts can be combined when they
+fire too quickly. This is a real issue that affects users of the i.MX8
+JPEG hardware decoder, particularly when processing small resolution
+motion-JPEG streams. 4. **No architectural changes**: The fix doesn't
+introduce any new features or change the driver's architecture. It
+simply adds additional state checking to handle a specific hardware race
+condition. 5. **Low regression risk**: The changes are defensive - they
+add additional checks before proceeding rather than changing existing
+behavior. The worst case would be that the new checks might not catch
+all edge cases, but they won't break existing working scenarios. 6.
+**Similar to other backported commits**: Looking at the similar commits
+marked as "YES" for backporting (like "media: imx-jpeg: Disable slot
+interrupt when frame done"), this follows the same pattern of fixing
+specific hardware issues that cause system problems. The commit
+specifically fixes a condition where the driver becomes stuck waiting
+for an interrupt that will never come, which is exactly the kind of bug
+that stable kernels should fix to ensure reliable operation of hardware.
 
- drivers/mmc/host/sdhci-esdhc-imx.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h |  1 +
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 31 ++++++++++++++++++-
+ 2 files changed, 31 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index ff78a7c6a04c9..08336094e9b02 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -31,6 +31,7 @@
- #include "cqhci.h"
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
+index d579c804b0479..adb93e977be91 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg-hw.h
+@@ -89,6 +89,7 @@
+ /* SLOT_STATUS fields for slots 0..3 */
+ #define SLOT_STATUS_FRMDONE			(0x1 << 3)
+ #define SLOT_STATUS_ENC_CONFIG_ERR		(0x1 << 8)
++#define SLOT_STATUS_ONGOING			(0x1 << 31)
  
- #define ESDHC_SYS_CTRL_DTOCV_MASK	GENMASK(19, 16)
-+#define ESDHC_SYS_CTRL_RST_FIFO		BIT(22)
- #define ESDHC_SYS_CTRL_IPP_RST_N	BIT(23)
- #define	ESDHC_CTRL_D3CD			0x08
- #define ESDHC_BURST_LEN_EN_INCR		(1 << 27)
-@@ -1130,7 +1131,7 @@ static int usdhc_execute_tuning(struct mmc_host *mmc, u32 opcode)
+ /* SLOT_IRQ_EN fields TBD */
  
- static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
- {
--	u32 reg;
-+	u32 reg, sys_ctrl;
- 	u8 sw_rst;
- 	int ret;
- 
-@@ -1153,6 +1154,16 @@ static void esdhc_prepare_tuning(struct sdhci_host *host, u32 val)
- 	dev_dbg(mmc_dev(host->mmc),
- 		"tuning with delay 0x%x ESDHC_TUNE_CTRL_STATUS 0x%x\n",
- 			val, readl(host->ioaddr + ESDHC_TUNE_CTRL_STATUS));
-+
-+	/* set RST_FIFO to reset the async FIFO, and wat it to self-clear */
-+	sys_ctrl = readl(host->ioaddr + ESDHC_SYSTEM_CONTROL);
-+	sys_ctrl |= ESDHC_SYS_CTRL_RST_FIFO;
-+	writel(sys_ctrl, host->ioaddr + ESDHC_SYSTEM_CONTROL);
-+	ret = readl_poll_timeout(host->ioaddr + ESDHC_SYSTEM_CONTROL, sys_ctrl,
-+				 !(sys_ctrl & ESDHC_SYS_CTRL_RST_FIFO), 10, 100);
-+	if (ret == -ETIMEDOUT)
-+		dev_warn(mmc_dev(host->mmc),
-+			 "warning! RST_FIFO not clear in 100us\n");
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+index b8c9bb017fb5f..ec24a33d03aac 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+@@ -877,6 +877,34 @@ static u32 mxc_jpeg_get_plane_size(struct mxc_jpeg_q_data *q_data, u32 plane_no)
+ 	return size;
  }
  
- static void esdhc_post_tuning(struct sdhci_host *host)
++static bool mxc_dec_is_ongoing(struct mxc_jpeg_ctx *ctx)
++{
++	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
++	u32 curr_desc;
++	u32 slot_status;
++
++	curr_desc = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_CUR_DESCPT_PTR));
++	if (curr_desc == jpeg->slot_data.cfg_desc_handle)
++		return true;
++
++	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
++	if (slot_status & SLOT_STATUS_ONGOING)
++		return true;
++
++	/*
++	 * The curr_desc register is updated when next_descpt_ptr is loaded,
++	 * the ongoing bit of slot_status is set when the 32 bytes descriptor is loaded.
++	 * So there will be a short time interval in between, which may cause fake false.
++	 * Consider read register is quite slow compared with IP read 32byte from memory,
++	 * read twice slot_status can avoid this situation.
++	 */
++	slot_status = readl(jpeg->base_reg + MXC_SLOT_OFFSET(ctx->slot, SLOT_STATUS));
++	if (slot_status & SLOT_STATUS_ONGOING)
++		return true;
++
++	return false;
++}
++
+ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
+ {
+ 	struct mxc_jpeg_dev *jpeg = priv;
+@@ -946,7 +974,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
+ 		mxc_jpeg_enc_mode_go(dev, reg, mxc_jpeg_is_extended_sequential(q_data->fmt));
+ 		goto job_unlock;
+ 	}
+-	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed) {
++	if (jpeg->mode == MXC_JPEG_DECODE && jpeg_src_buf->dht_needed &&
++	    mxc_dec_is_ongoing(ctx)) {
+ 		jpeg_src_buf->dht_needed = false;
+ 		dev_dbg(dev, "Decoder DHT cfg finished. Start decoding...\n");
+ 		goto job_unlock;
 -- 
 2.39.5
 
