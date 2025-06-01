@@ -4,105 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AAFDC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 06:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F783C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  1 Jun 2025 06:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CDv2NwLqpacBBYcKaq5onzHq7Gle/gc1PiMFPCdKyB0=; b=un/tuctLqv84ETeLU/UzRXsV0H
-	6/5tm0Wlmmf+hgpNVM2jCFUOLxZqA5t2YX9wNTRfHhlsG1I79f2EuwQTC+HUgsZ1uyUyegZvqAzNE
-	OxB9vCO+SVtAe2f8D5pewDm5R5kUd/29wiMObe0UvVtb8N2UG7Jy/QjiU7wzgR5BkJuZqsTszHaj8
-	0e1UKfx7HCQLWdgG4dx/g5ucULbjIyklw774Wn4wUf0vBhwrvpdaBOTXsR3DyK62Fo1yyZbv9s6WG
-	RyemEaf0mtg/zdXchKh2fWx0ZqDJEnrdwCcdmC6ASy0PkNGcMoR/1Q/6U/INJcIfQ450UVppgW15p
-	jv+RoYzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7DKlrVYANPgvtmzF5RwgOcyXd7zEk3OYBSKMYwLf8is=; b=Oxo8y5fZDwCm3UoS+omo5Vj/JJ
+	m2xgpnwZ9rRzZgM94IS8HIVBAUqgcMdxJOTQz0kLAebSQ8LEy5QRN06JkrFEWCGUIyoS8vE8mISRk
+	XtqJOuDJ77Na74I7rjNl6efm1RgS8n1rGRxbzjtLhKbsvvqmHgYcOg51IXudhzziI/A9djXdXjVpg
+	QM/AffOsrdGRr1qw7ka06hWRGE0Jvv57RXNtYShFXhHU1fd+tGwVOO599vMwtXQv6D/Xj/wfVfalT
+	6cvmrEULMEWBtx9mfFkQ296s/LbsrZCVoWqUhYp++un6aPaEINfgZX3nTjSQ9uAulaSavG2XvzB12
+	GVrFVLxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLcPt-000000050GM-2Rs5;
-	Sun, 01 Jun 2025 06:43:33 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1uLccr-000000050xE-0SFf;
+	Sun, 01 Jun 2025 06:56:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLcNk-00000005082-44h1
+	id 1uLcai-000000050tH-3dOO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 01 Jun 2025 06:41:23 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-70f147b5a52so23601497b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 31 May 2025 23:41:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tomeuvizoso-net.20230601.gappssmtp.com; s=20230601; t=1748760079; x=1749364879; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CDv2NwLqpacBBYcKaq5onzHq7Gle/gc1PiMFPCdKyB0=;
-        b=DFDjNzmRLYLLUyluc/SJmcdgRdY/wPk5rPnMdWN4x6wNr46mfTCnxECypq0tTcEdSR
-         Mo5VOw6o+QL5E++amvMCwum4rGyDo3rzKnKh4RGZ2nT483R/ShKQDKq2HWxgyeK9pndt
-         DIKgxPW2gCwvbmWdV33fgn0YBJWs9muOda134rDw2fy9kLTvPoxXLSntsiytvlKMjLNF
-         5khmGKLKKoHs7j2TnBLIvZKDxXQY+pqyF0kUlUaEzqqjgcxoBf1B0lX/MoDsWtRFZSbv
-         I/hfftKLXFPIZUdTtIELy6duiOoJCJmrPzXfUQDX1qyqfM/Pkg2p74aH+cnx+zN5b4TD
-         kekw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748760079; x=1749364879;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CDv2NwLqpacBBYcKaq5onzHq7Gle/gc1PiMFPCdKyB0=;
-        b=X/MywN8OC1ibb+POUtP/a/5zfukQzdqiFRLmqEpJwtmbS9t6ZLg6/B9/YJfYWdBg8v
-         qWhE8gTBaqmMHE5wHxjuc+meHjDstMSUwGsh7ikeFls+MQD2/BiJraM+1AVm6ELE3RET
-         a1/LYwI6VegOqENB3U/MJgrcGSXONfv8zRnOUk4ZtUaSRtBp2eTtzDNWHhQacLDJwDxu
-         FlLavIybJXffg6fogOLO3x4ELiTlD3IeoAuPPdnsW/FJLEloOUOXXHZhYH0LJP1OjdNi
-         ojJN+BP747WIRUQHosoCMwHmSWRU2vHxXJbFmK1xd9iQzwkX1reiIQJ98gIZqT1MRBG/
-         U/lw==
-X-Forwarded-Encrypted: i=1; AJvYcCVhaxJEwJvfaijDBH3atUkhQ2J6/I6NtT3SH00MC3qj+gyIlyK5TbTAxOq9ckvi/7p5y19G7y5wmwtU/WdYqYrC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlFdGWBZaMV6Fu5meovQqXLbqKV7AWltFmM4Lr7xgLy9dxEZqa
-	b3iADNevy6KK7zcvD7W8PXQKN2Qoue8YwCIN3plOiWI6UmoGLE7LptrK6JqelHhvqyV797kuMEr
-	b3KhQ0kIOKA==
-X-Gm-Gg: ASbGncuRWYCSjL3ikYG6NBEDe7bi2mNUfjFKggvZFLgNV59RGFGG09YSUkCJ2xiZWHz
-	5UIvDjazggUp5E4SPXgJs2l567+Td/RStW+9leO9omaj8+P4oL6JNCgr3muXH0Oi7ulc+XBAbMh
-	dOHJeO98pJWvLlDJSLs8U1at7UJ3kf4do2s1oXyk5aSPNQ5uQCC7Jzfy2tJsTh7OR5wiNzg8NLw
-	mZqDo5FmrC2E74uLDMLM+ECsJ9uc8t0BqnAlyWNpqs7MZMiKRokjK5CPuBaxC/yts6DH/KBtVZZ
-	+hwJfW4xixKD5zExeEOxP+UeQFYlX1dcyerIL+fxLlA+l/l6J0Pk200pcW51Q4TVppYWIaZcneM
-	VcTH5UrcqTvbl8KkN+w1ga0SJACh08Q==
-X-Google-Smtp-Source: AGHT+IEpdTgVcfBaoEmCWcnRBwuce+Djw2pY8euGOoyl76C2+gYfNnzbCURCJhmeDtSCjcLozrM5tw==
-X-Received: by 2002:a05:690c:4989:b0:70f:6ec6:62b4 with SMTP id 00721157ae682-71057d02d51mr122876257b3.31.1748760078968;
-        Sat, 31 May 2025 23:41:18 -0700 (PDT)
-Received: from mail-yb1-f172.google.com (mail-yb1-f172.google.com. [209.85.219.172])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-70f8acd546fsm15543587b3.78.2025.05.31.23.41.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 31 May 2025 23:41:18 -0700 (PDT)
-Received: by mail-yb1-f172.google.com with SMTP id 3f1490d57ef6-e803de44766so1579391276.3;
-        Sat, 31 May 2025 23:41:17 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUMUhqfRhAV9Zs3Ti0FFxZP+aaTqWn3KAZ/F7hpJtUYs6mwGAycDS3t8kkQiGHOiKzWI2H210SNQj9oh5PPhY/q@lists.infradead.org, AJvYcCUnTZOxRjK/9G88PNn6RdoVmMc78+qE4VVaOT4Ki0ZAZbbtUQYzb+akTq9s6dgpTufmGuK7QGp7bmfCm6TzdaY=@lists.infradead.org
-X-Received: by 2002:a05:6902:1245:b0:e7d:c51d:4b17 with SMTP id
- 3f1490d57ef6-e7fec876436mr9326569276.8.1748760077303; Sat, 31 May 2025
- 23:41:17 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250519-6-10-rocket-v4-0-d6dff6b4c0ae@tomeuvizoso.net> <CA+VMnFzisyMFzze52RRf6=Gstq29jmukrPSfqXfBWrVw0a7k1Q@mail.gmail.com>
-In-Reply-To: <CA+VMnFzisyMFzze52RRf6=Gstq29jmukrPSfqXfBWrVw0a7k1Q@mail.gmail.com>
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Sun, 1 Jun 2025 08:41:06 +0200
-X-Gmail-Original-Message-ID: <CAAObsKDhjkQ_wVcOiVsGPB6QPuWkKPrWEGd-6Oq7BgjX9NhTJA@mail.gmail.com>
-X-Gm-Features: AX0GCFuCkivNAaBx7rL3ymXj2J3pJIXqNYSSzMxHaNqO3jwK8nThi-KXGe-k1Hs
-Message-ID: <CAAObsKDhjkQ_wVcOiVsGPB6QPuWkKPrWEGd-6Oq7BgjX9NhTJA@mail.gmail.com>
-Subject: Re: [PATCH v4 00/10] New DRM accel driver for Rockchip's RKNN NPU
-To: Jagan Teki <jagan@edgeble.ai>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Sun, 01 Jun 2025 06:54:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6FAFA5C0BDC;
+	Sun,  1 Jun 2025 06:52:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09D1DC4CEE7;
+	Sun,  1 Jun 2025 06:54:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748760884;
+	bh=4cZDxV9YnToAxPkxZDbpuJAsMb2NE5kLi9+nIVI2M6Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=BQWnwm+3phEsOwoh75X1EinpftlcCjKWrDz3NIltacgNGUAq5/GXhobJo08ZPIohZ
+	 tsf82Ww8JFWXzd3BE1UuZvoa5c0y7BZE91bMc1XGWMZofzKanJ+UVGiPrprqVW7UTp
+	 HuJ6+AfE3UL/TX2w2USpO90sck/ojjfYJ3hEzsovaEulUkoNlS46jzVT8tgTAyWnXy
+	 yk71jdN1v1MxSw0BepDJ+oGtF7A2bicEu5mfuw7+MtC49BXx426Ec0dSz7vm0k8u+U
+	 7Kt+pugFPt2SAw4u2cCTPkb3NLpYfEWA4cqTIJEisr6QtjtwEDwePnxSCOcFJUsD8T
+	 f0LX8PLEL7/4w==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uLcaf-002FI5-IS;
+	Sun, 01 Jun 2025 07:54:41 +0100
+Date: Sun, 01 Jun 2025 07:54:40 +0100
+Message-ID: <87plfodk9b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Add helper to identify a nested context
+In-Reply-To: <aDtBx7BXLeCzofPf@linux.dev>
+References: <20250531164901.1166892-1-maz@kernel.org>
+	<aDtBx7BXLeCzofPf@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250531_234121_245328_C3572C23 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20250531_235444_946133_CB1516B3 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,76 +87,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 8:50=E2=80=AFPM Jagan Teki <jagan@edgeble.ai> wrote=
-:
->
-> On Mon, 19 May 2025 at 19:14, Tomeu Vizoso <tomeu@tomeuvizoso.net> wrote:
-> >
-> > This series adds a new driver for the NPU that Rockchip includes in its
-> > newer SoCs, developed by them on the NVDLA base.
-> >
-> > In its current form, it supports the specific NPU in the RK3588 SoC.
-> >
-> > The userspace driver is part of Mesa and an initial draft can be found =
-at:
-> >
-> > https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
-> >
-> > Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> > ---
-> > Changes in v4:
-> > - Several fixes to DT bindings.
-> > - Link to v3: https://lore.kernel.org/r/20250516-6-10-rocket-v3-0-7051a=
-c9225db@tomeuvizoso.net
-> >
-> > Changes in v3:
-> > - Reference in the device tree only the register blocks that are
-> >   actually used.
-> > - Several style and robustness fixes suggested in the mailing list.
-> > - Added patches from Nicolas Frattaroli that add support to the NPU for
-> >   the Rock 5B board.
-> > - Link to v2: https://lore.kernel.org/r/20250225-6-10-rocket-v2-0-d4dbc=
-fafc141@tomeuvizoso.net
-> >
-> > Changes in v2:
-> > - Drop patch adding the rk3588 compatible to rockchip-iommu (Sebastian =
-Reichel)
-> > - Drop patch adding support for multiple power domains to rockchip-iomm=
-u (Sebastian Reichel)
-> > - Link to v1: https://lore.kernel.org/r/20240612-6-10-rocket-v1-0-060e4=
-8eea250@tomeuvizoso.net
-> >
-> > ---
-> > Nicolas Frattaroli (2):
-> >       arm64: dts: rockchip: add pd_npu label for RK3588 power domains
-> >       arm64: dts: rockchip: enable NPU on ROCK 5B
-> >
-> > Tomeu Vizoso (8):
-> >       dt-bindings: npu: rockchip,rknn: Add bindings
-> >       arm64: dts: rockchip: Add nodes for NPU and its MMU to rk3588s
-> >       arm64: dts: rockchip: Enable the NPU on quartzpro64
-> >       accel/rocket: Add registers header
-> >       accel/rocket: Add a new driver for Rockchip's NPU
-> >       accel/rocket: Add IOCTL for BO creation
-> >       accel/rocket: Add job submission IOCTL
-> >       accel/rocket: Add IOCTLs for synchronizing memory accesses
->
-> Can this be possible to infer yolov8/10? Do we need to convert PT/ONNX
-> to any other common format's unlike rknn?
+On Sat, 31 May 2025 18:52:07 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> On Sat, May 31, 2025 at 05:49:01PM +0100, Marc Zyngier wrote:
+> > A common idiom in the KVM code is to check if we are currently
+> > dealing with a "nested" context, defined as having NV enabled,
+> > but being in the EL1&0 translation regime.
+> > 
+> > This is usually expressed as:
+> > 
+> > 	if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu) ... )
+> > 
+> > which is a mouthful and a bit hard to read, specially when followed
+> > by additional conditions.
+> > 
+> > Introduce a new helper that encapsulate these two terms, allowing
+> > the above to be written as
+> > 
+> > 	if (is_nested_context(vcpu) ... )
+> > 
+> > which is both shorter and easier to read, and makes more obvious
+> > the potential for simplification on some code paths.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> 
+> Thanks! I'll probably pick this up as a prefix on my abort routing
+> series if that's OK with you.
 
-Both considerations are entirely dependent on the userspace driver.
-This kernel driver should be able to support a userspace driver that
-accelerates any YOLO version. Should also be able to support without
-changes a userspace driver that implements execution of ONNX, PyTorch
-models, etc. With or without conversion to an intermediate model
-format.
+Of course!
 
-Regarding the particular userspace driver that has been submitted for
-review to Mesa, you can put questions and comments at:
+	M.
 
-https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
-
-Thanks,
-
-Tomeu
+-- 
+Jazz isn't dead. It just smells funny.
 
