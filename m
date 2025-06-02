@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FDB9C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 22:18:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63FBC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 22:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JMZY2rnPLYUjm4Au9yd8KB0DTNWhfRQzCwBMACGnhms=; b=Euuhf7MvRnQIw20i9XC3r4rhRQ
-	lw17pVkIS1VRebnxUnp1mudbZOrKWju6Ek/i9pImAQQxfhbZvfOlcp43pjB5sek7E6PaKX2QwVh1k
-	+rk9W4C2Kh4cEA+wgP4dyjMgqbZwZMNdS4c0NR9a+6QQp2eVybH4UsstFShw1dYC9KxirTyyNG3R4
-	XqKV5GddJ3z0CN0k9nfH08bHLhJ27vy6X9jeVZdlv5gl9Trr8RHwMyBzDyOxgwBJcjpFsOOaKf2Lx
-	/XqbtmPadarTjD2aW3HmroIra1jT/LCCMgQS4sE2vBuXquRDw+B6hZ5dTI3YZejBpmfPTBu5VQeex
-	dTaNS2EA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=cvG5ebpKTZEmM8Z9VnrAL8jj9cDueMGGayXKA5dUonw=; b=3HrQA4WLj0bH14
+	PL5CBZHwZiselYcsljj9tsyQkleGb2yPuekDeCi2S9NslJbLjgfKO3IddNrqPpdcS26tDx56PvV9u
+	sli1LBXZdqBfXnIwDyL6cMGzdbkJlt9hkjGMozwWKcWZXEYSrF/PQv1qduIiRrivTUbaGq6saLvFt
+	HdMPyb1fHfeZMLwmPGLfQrLPy3sMaNFy1fSjtf5Y7JG8e2NpLZRocrgVIy0G7AIutXaH6WY3eyNhE
+	+0NT+AZJ0DVA+TgCxve/jw6xk4qE/mgvKbJYs+HiuVDfQ9mpyLg/z6iUAgYhWKPoisO+lY4Dhl2Qc
+	p1hVmVoVc9xhcDR+iPIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDU7-00000009BlY-1w9Z;
-	Mon, 02 Jun 2025 22:18:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uMDdo-00000009DAK-19wg;
+	Mon, 02 Jun 2025 22:28:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDRr-00000009BNL-2loe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 02 Jun 2025 22:16:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JMZY2rnPLYUjm4Au9yd8KB0DTNWhfRQzCwBMACGnhms=; b=mCADkBU304efHA+YSYWj97Hmjm
-	lhd1BtJVtnC2nvC5xhthySS2hGL5v5WHri0y80jh1qEYi2zVbx79F5tajETpFOC7jOhlWHMpwHedE
-	rc/neWhJo9PUzTu0BBHzM+o27bxmeDoSEBvmbXDjuBS+9eDHYsZ/+ppQJDcceDCEcJghQ/0ne84fG
-	eXQjfplbmtXSgr2b+hn99jQS35kRyviuR9d/kPSHu8NcJ7Q6hGh/Uw9kRfr7TEANjiW5PzurJ1Wqc
-	kVE7Og3j0B+vFoCG9H+e3lXyjS74KgpLEAbKa2kHQ27a9uyqtGtNPkJ0u/MlCRTAKUuRp411jZSU4
-	fn4fMOKg==;
-Received: from out-189.mta1.migadu.com ([95.215.58.189])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDRo-00000000gNM-0035
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 22:16:02 +0000
-Date: Mon, 2 Jun 2025 15:15:41 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748902554;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JMZY2rnPLYUjm4Au9yd8KB0DTNWhfRQzCwBMACGnhms=;
-	b=tTuEyZFtmo7HE+33x7wE6vP4kNqw4C28hL5Snm7XFixdKRD/GuN+jCSaDjmBjyhhfmyII/
-	t4WMbe8NVBAKCO3jEiazPalCWz0BPsPaffibJBYMKTax2sR+h7vP8iL3XXjwZcQynvUciS
-	IsFAYeIfl42ZZzeoAbwyCMO0XpbhIPk=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 01/17] arm64: cpufeature: Add cpucap for HPMN0
-Message-ID: <aD4ijUaSGm9b2g5H@linux.dev>
-References: <20250602192702.2125115-1-coltonlewis@google.com>
- <20250602192702.2125115-2-coltonlewis@google.com>
+	id 1uMCZP-00000008y1S-0vLP;
+	Mon, 02 Jun 2025 21:19:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 88DF243C9D;
+	Mon,  2 Jun 2025 21:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3319DC4CEEB;
+	Mon,  2 Jun 2025 21:19:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748899186;
+	bh=6mj/BlYXhWA2zqQmobSnww4HV6I3qNHM38OyJ0T6thY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=IfLj37KIEU0Jy+o62Y0/R/gpmCidEqsAZWzdxwnL5HG85g62rUbIrFSLo1ASjyW0E
+	 y087JbYvyqH6P0sxoL5Qky0xSKuJSHtn/j8nE76kFXO/pv8Yvty3tt8qc7yiB5Xyfw
+	 oR7816Es3kjDy+NpaxUuATsG/9yz3l6s0Mcf5TX3TWFDvUxPJHfYJve1DpFDrl5/TD
+	 aTidwE3xAY+YwOXO+C4kxAEjuR3zzU0LFIplBOpp/6XKnqvxU1wpzdPOrFATsTLkVs
+	 9KPt/oUZvn0rRo5D+EdjpdLuaozVtiIt7kB8psup46KAwCEAani/+R9Zz46DS9un6V
+	 bN+Em+YzTa7Vg==
+Date: Mon, 2 Jun 2025 16:19:44 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
+	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Marc Zyngier <maz@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>, dingwei@marvell.com,
+	cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 4/5] PCI: host-common: Add link down handling for host
+ bridges
+Message-ID: <20250602211944.GA150795@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250602192702.2125115-2-coltonlewis@google.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20250508-pcie-reset-slot-v4-4-7050093e2b50@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_231600_959295_413E0886 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20250602_141947_300635_78DDB566 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,44 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colton,
+On Thu, May 08, 2025 at 12:40:33PM +0530, Manivannan Sadhasivam wrote:
+> The PCI link, when down, needs to be recovered to bring it back. But that
+> cannot be done in a generic way as link recovery procedure is specific to
+> host bridges. So add a new API pci_host_handle_link_down() that could be
+> called by the host bridge drivers when the link goes down.
 
-On Mon, Jun 02, 2025 at 07:26:46PM +0000, Colton Lewis wrote:
-> Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
-> counters reserved for the guest.
-> 
-> This required changing HPMN0 to an UnsignedEnum in tools/sysreg
-> because otherwise not all the appropriate macros are generated to add
-> it to arm64_cpu_capabilities_arm64_features.
-> 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->  arch/arm64/kernel/cpufeature.c | 8 ++++++++
->  arch/arm64/tools/cpucaps       | 1 +
->  arch/arm64/tools/sysreg        | 6 +++---
->  3 files changed, 12 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index a3da020f1d1c..578eea321a60 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -541,6 +541,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
->  };
->  
->  static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
-> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
->  	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
-> @@ -2884,6 +2885,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->  		.matches = has_cpuid_feature,
->  		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
->  	},
-> +	{
-> +		.desc = "Hypervisor PMU Partitioning 0 Guest Counters",
+IIUC you plumbed this into the reset path so the standard entries
+(pci_reset_function() and the sysfs "reset" files) work can now work
+for Root Ports on DT systems just like they do for ACPI systems
+(assuming the ACPI systems supply an _RST method for the ports).  That
+all sounds good.
 
-nit: just use the the FEAT_xxx name for the description (i.e. "HPMN0").
+> The API will iterate through all the slots and calls the pcie_do_recovery()
+> function with 'pci_channel_io_frozen' as the state. This will result in the
+> execution of the AER Fatal error handling code. Since the link down
+> recovery is pretty much the same as AER Fatal error handling,
+> pcie_do_recovery() helper is reused here. First the AER error_detected
+> callback will be triggered for the bridge and the downstream devices. Then,
+> pci_host_reset_slot() will be called for the slot, which will reset the
+> slot using 'reset_slot' callback to recover the link. Once that's done,
+> resume message will be broadcasted to the bridge and the downstream devices
+> indicating successful link recovery.
 
-Thanks,
-Oliver
+We have standard PCIe mechanisms to learn about "link down" events,
+e.g., AER Surprise Down error reporting and the Data Link Layer State
+Changed events for hot-plug capable ports.
+
+How does this controller-specific "link down" notification relate to
+those?  Is this for controllers that don't support those AER or
+hotplug mechanisms?  Or is this a different scenario that wouldn't be
+covered by them?
+
+If AER is enabled, do we get both the AER interrupt and the controller
+"link down" interrupt?
+
+> In case if the AER support is not enabled in the kernel, only
+> pci_bus_error_reset() will be called for each slots as there is no way we
+> could inform the drivers about link recovery.
 
