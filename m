@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63FBC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 22:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8834C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 22:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=cvG5ebpKTZEmM8Z9VnrAL8jj9cDueMGGayXKA5dUonw=; b=3HrQA4WLj0bH14
-	PL5CBZHwZiselYcsljj9tsyQkleGb2yPuekDeCi2S9NslJbLjgfKO3IddNrqPpdcS26tDx56PvV9u
-	sli1LBXZdqBfXnIwDyL6cMGzdbkJlt9hkjGMozwWKcWZXEYSrF/PQv1qduIiRrivTUbaGq6saLvFt
-	HdMPyb1fHfeZMLwmPGLfQrLPy3sMaNFy1fSjtf5Y7JG8e2NpLZRocrgVIy0G7AIutXaH6WY3eyNhE
-	+0NT+AZJ0DVA+TgCxve/jw6xk4qE/mgvKbJYs+HiuVDfQ9mpyLg/z6iUAgYhWKPoisO+lY4Dhl2Qc
-	p1hVmVoVc9xhcDR+iPIQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JyAngPhIQbmFxpOkTVU6v6SdO9Gi9CMJI3HF9w1IXag=; b=gVLIT3TgXH9uMkUnsld1c13v8O
+	kHLKiNfsWSMV2IqMCVgEm8Dc4hcVpE3vrnKsmNkhnabj0La69J2iOw8I0ILKOtJFsoE6yfN4MEAa+
+	yrxB55WAZyWC30syEqxXJM/+jeQgkCrOzC1A8KESxPqm3alIIcEvEdp9UqCdyvoXVVAfGUAyUwUTL
+	7+SAz9ehysuIgt0NQxK6zo1wuxXFdsXNpLz078B+WkuAajDIv34ULv8dcipY+I6yEuUKpAH1N0pdN
+	bkqBpkPWue+0WKf9BMdi4mDQdGYH2k03qQi//EU7Le77R3TMWOxxQGeG1L3u5gEcPcooxQnYGb3k3
+	N+Ekwk+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDdo-00000009DAK-19wg;
-	Mon, 02 Jun 2025 22:28:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uMDgP-00000009Dbr-2WXq;
+	Mon, 02 Jun 2025 22:31:05 +0000
+Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMCZP-00000008y1S-0vLP;
-	Mon, 02 Jun 2025 21:19:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88DF243C9D;
-	Mon,  2 Jun 2025 21:19:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3319DC4CEEB;
-	Mon,  2 Jun 2025 21:19:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748899186;
-	bh=6mj/BlYXhWA2zqQmobSnww4HV6I3qNHM38OyJ0T6thY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=IfLj37KIEU0Jy+o62Y0/R/gpmCidEqsAZWzdxwnL5HG85g62rUbIrFSLo1ASjyW0E
-	 y087JbYvyqH6P0sxoL5Qky0xSKuJSHtn/j8nE76kFXO/pv8Yvty3tt8qc7yiB5Xyfw
-	 oR7816Es3kjDy+NpaxUuATsG/9yz3l6s0Mcf5TX3TWFDvUxPJHfYJve1DpFDrl5/TD
-	 aTidwE3xAY+YwOXO+C4kxAEjuR3zzU0LFIplBOpp/6XKnqvxU1wpzdPOrFATsTLkVs
-	 9KPt/oUZvn0rRo5D+EdjpdLuaozVtiIt7kB8psup46KAwCEAani/+R9Zz46DS9un6V
-	 bN+Em+YzTa7Vg==
-Date: Mon, 2 Jun 2025 16:19:44 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
-	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Marc Zyngier <maz@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>, dingwei@marvell.com,
-	cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 4/5] PCI: host-common: Add link down handling for host
- bridges
-Message-ID: <20250602211944.GA150795@bhelgaas>
+	id 1uMDeB-00000009DGa-1qO0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Jun 2025 22:28:48 +0000
+Date: Mon, 2 Jun 2025 15:28:36 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1748903323;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JyAngPhIQbmFxpOkTVU6v6SdO9Gi9CMJI3HF9w1IXag=;
+	b=dLkDnC/krH+92XTW3f77z4XEc02c1hJe+EH6+S9Z68FVr0z1NxsEAVDVlaC67uXYBNARf5
+	tCEutPsJK9/pSDzJbkCAypP2Z3TdXW7P4ubIClxG9UPWTzvQZlOid6b344V0BZ0Uk0J01N
+	GU5QSzmYCVMCnAdtrS7dnQRq/qWpdrU=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 06/17] KVM: arm64: Introduce method to partition the PMU
+Message-ID: <aD4llDZwb_sC_Ptj@linux.dev>
+References: <20250602192702.2125115-1-coltonlewis@google.com>
+ <20250602192702.2125115-7-coltonlewis@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250508-pcie-reset-slot-v4-4-7050093e2b50@linaro.org>
+In-Reply-To: <20250602192702.2125115-7-coltonlewis@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_141947_300635_78DDB566 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20250602_152847_690862_F38087FF 
+X-CRM114-Status: GOOD (  22.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +78,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 08, 2025 at 12:40:33PM +0530, Manivannan Sadhasivam wrote:
-> The PCI link, when down, needs to be recovered to bring it back. But that
-> cannot be done in a generic way as link recovery procedure is specific to
-> host bridges. So add a new API pci_host_handle_link_down() that could be
-> called by the host bridge drivers when the link goes down.
+On Mon, Jun 02, 2025 at 07:26:51PM +0000, Colton Lewis wrote:
+>  static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+>  {
+> +	u8 hpmn = vcpu->kvm->arch.arm_pmu->hpmn;
+> +
+>  	preempt_disable();
+>  
+>  	/*
+>  	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
+>  	 * to disable guest access to the profiling and trace buffers
+>  	 */
+> -	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
+> -					 *host_data_ptr(nr_event_counters));
+> -	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
+> +	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN, hpmn);
+> +	vcpu->arch.mdcr_el2 |= (MDCR_EL2_HPMD |
+> +				MDCR_EL2_TPM |
 
-IIUC you plumbed this into the reset path so the standard entries
-(pci_reset_function() and the sysfs "reset" files) work can now work
-for Root Ports on DT systems just like they do for ACPI systems
-(assuming the ACPI systems supply an _RST method for the ports).  That
-all sounds good.
+This isn't safe, as there's no guarantee that kvm_arch::arm_pmu is
+pointing that the PMU for this CPU. KVM needs to derive HPMN from some
+per-CPU state, not anything tied to the VM/vCPU.
 
-> The API will iterate through all the slots and calls the pcie_do_recovery()
-> function with 'pci_channel_io_frozen' as the state. This will result in the
-> execution of the AER Fatal error handling code. Since the link down
-> recovery is pretty much the same as AER Fatal error handling,
-> pcie_do_recovery() helper is reused here. First the AER error_detected
-> callback will be triggered for the bridge and the downstream devices. Then,
-> pci_host_reset_slot() will be called for the slot, which will reset the
-> slot using 'reset_slot' callback to recover the link. Once that's done,
-> resume message will be broadcasted to the bridge and the downstream devices
-> indicating successful link recovery.
+> +/**
+> + * kvm_pmu_partition() - Partition the PMU
+> + * @pmu: Pointer to pmu being partitioned
+> + * @host_counters: Number of host counters to reserve
+> + *
+> + * Partition the given PMU by taking a number of host counters to
+> + * reserve and, if it is a valid reservation, recording the
+> + * corresponding HPMN value in the hpmn field of the PMU and clearing
+> + * the guest-reserved counters from the counter mask.
+> + *
+> + * Passing 0 for @host_counters has the effect of disabling partitioning.
+> + *
+> + * Return: 0 on success, -ERROR otherwise
+> + */
+> +int kvm_pmu_partition(struct arm_pmu *pmu, u8 host_counters)
+> +{
+> +	u8 nr_counters;
+> +	u8 hpmn;
+> +
+> +	if (!kvm_pmu_reservation_is_valid(host_counters))
+> +		return -EINVAL;
+> +
+> +	nr_counters = *host_data_ptr(nr_event_counters);
+> +	hpmn = kvm_pmu_hpmn(host_counters);
+> +
+> +	if (hpmn < nr_counters) {
+> +		pmu->hpmn = hpmn;
+> +		/* Inform host driver of available counters */
+> +		bitmap_clear(pmu->cntr_mask, 0, hpmn);
+> +		bitmap_set(pmu->cntr_mask, hpmn, nr_counters);
+> +		clear_bit(ARMV8_PMU_CYCLE_IDX, pmu->cntr_mask);
+> +		if (pmuv3_has_icntr())
+> +			clear_bit(ARMV8_PMU_INSTR_IDX, pmu->cntr_mask);
+> +
+> +		kvm_debug("Partitioned PMU with HPMN %u", hpmn);
+> +	} else {
+> +		pmu->hpmn = nr_counters;
+> +		bitmap_set(pmu->cntr_mask, 0, nr_counters);
+> +		set_bit(ARMV8_PMU_CYCLE_IDX, pmu->cntr_mask);
+> +		if (pmuv3_has_icntr())
+> +			set_bit(ARMV8_PMU_INSTR_IDX, pmu->cntr_mask);
+> +
+> +		kvm_debug("Unpartitioned PMU");
+> +	}
+> +
+> +	return 0;
+> +}
 
-We have standard PCIe mechanisms to learn about "link down" events,
-e.g., AER Surprise Down error reporting and the Data Link Layer State
-Changed events for hot-plug capable ports.
+Hmm... Just in terms of code organization I'm not sure I like having KVM
+twiddling with *host* support for PMUv3. Feels like the ARM PMU driver
+should own partitioning and KVM just takes what it can get.
 
-How does this controller-specific "link down" notification relate to
-those?  Is this for controllers that don't support those AER or
-hotplug mechanisms?  Or is this a different scenario that wouldn't be
-covered by them?
+> @@ -239,6 +245,13 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
+>  	if (!pmuv3_implemented(kvm_arm_pmu_get_pmuver_limit()))
+>  		return;
+>  
+> +	if (reserved_host_counters) {
+> +		if (kvm_pmu_partition_supported())
+> +			WARN_ON(kvm_pmu_partition(pmu, reserved_host_counters));
+> +		else
+> +			kvm_err("PMU Partition is not supported");
+> +	}
+> +
 
-If AER is enabled, do we get both the AER interrupt and the controller
-"link down" interrupt?
+Hasn't the ARM PMU been registered with perf at this point? Surely the
+driver wouldn't be very pleased with us ripping counters out from under
+its feet.
 
-> In case if the AER support is not enabled in the kernel, only
-> pci_bus_error_reset() will be called for each slots as there is no way we
-> could inform the drivers about link recovery.
+Thanks,
+Oliver
 
