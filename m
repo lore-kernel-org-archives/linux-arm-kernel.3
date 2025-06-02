@@ -4,77 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8935C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 10:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706D5C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 10:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X8nQB15a8WgBRMQQ6eVxgiJ+trkid7b31GrIB+d4tbQ=; b=xhOmSZ5gfqmueqkF5McpYLiY0D
-	/NyKonf6pbUaa3XziWUxpFNUaH45hzf3VIViSyQhh4oRGGy1E+M/W5/5Dfhp4JDvhyMu8ytqEo9Sc
-	V/vQqo7pGvkw1wceJjaZUN40sm2QHh3IeygwL2TGl54kG1ySHq8oT8YGt4/oNAY3xaAhG7DBJk55N
-	B0Lzk09GozicyVOIQgiuJ7020rNvCScsOxwrkSpJ0luaDVnQzRjKEpdSmT6kkMhPOrUonMrTfT47Y
-	YkS+84eG+hsTNxD9ribNbnF3qKnmEdGnf2NX2cUY0hpH8RfVznwNSs2I+4Ut0ONQPoKMllkC2fIqp
-	/ceCqZbQ==;
+	bh=zNGcx2ArrxJr8cIK8d0qYe5Yw20pPHTlFAddIJE8YQE=; b=msnP4D0tyB/awcFzBziBcMjHka
+	qA+jN0NiXR5ilJzx8rMSUG5GaO8QjIZWrDgCiqNOBze1ZAP4W32AU5Gp5Y9s9QnsMjsL2F0dij9RB
+	iojjCQNmsrcqAQIuVe8mrvVQoTof5th0/ZwbOHZKl4Yja4RTohYaqBd0pTPNDKqIIZaT02YwVcSoO
+	SG8fhbu2XEYqcSONN7YVst2kVt+7aXU6tjARB70fh8lY/cMsyHKdMnuWzE5cVq/sCXfj5d/TTK/o9
+	vMmKU6PuHyqVDahgWPWA1KOMjWw+lCb1pGHHuCOg/1hcK5shIr+1QDLU+qeyA2lTMVS6X/OthBI9G
+	WStHMI6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM2Tx-00000007CHi-3tbd;
-	Mon, 02 Jun 2025 10:33:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM2Rm-00000007BzR-1J5E
+	id 1uM2W7-00000007CdP-2tHu;
+	Mon, 02 Jun 2025 10:35:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uM2SM-00000007C4G-1KW2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 10:31:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6EAD12FC;
-	Mon,  2 Jun 2025 03:30:56 -0700 (PDT)
-Received: from [10.57.95.206] (unknown [10.57.95.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C8B93F673;
-	Mon,  2 Jun 2025 03:31:07 -0700 (PDT)
-Message-ID: <23bd2cdf-768f-4053-9839-a0613a25de51@arm.com>
-Date: Mon, 2 Jun 2025 11:31:05 +0100
+	Mon, 02 Jun 2025 10:31:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1748860308;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=zNGcx2ArrxJr8cIK8d0qYe5Yw20pPHTlFAddIJE8YQE=;
+	b=BIqhjEgcyXhzr5YECzxep8f2NgNI8G81kTty+Kc/cu15MbXjk00H3FdW3F9zjm1Rip1Y1X
+	8teCHTL40WAdivR3ENG4a+fd1i+K4l/15xobcNpWvwx80tpFtbSQfKBiEExT+FxK7SN/8x
+	UzhdAGOzSx+Sa3aISKC+LRJcZSkSGe4=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-158-xDpYzb9NPnmXYvmiaggr8A-1; Mon, 02 Jun 2025 06:31:47 -0400
+X-MC-Unique: xDpYzb9NPnmXYvmiaggr8A-1
+X-Mimecast-MFC-AGG-ID: xDpYzb9NPnmXYvmiaggr8A_1748860306
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-450dada0f83so19483685e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Jun 2025 03:31:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748860306; x=1749465106;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=zNGcx2ArrxJr8cIK8d0qYe5Yw20pPHTlFAddIJE8YQE=;
+        b=asJ7a/Auo7hCahaPK6dzkMqRXft6PETsbWFojo4bR6Qhv9/Y8JSAmLuBUye31JXdiG
+         XMHGu0ltYGbF4eFZ9Th133wGEDMQ06+YiHD7ofFskhl73GbQ3HSAOQvZGPdJZOD65Lpn
+         HowW3/rbcBmPp7oe+9kMur2NgoVxSeUmegADAve/EHsKWI54cMKgiz/maAUkf1Rm4UCM
+         t4RD9suwh+nNfJJacLzAH/jAARtxtwiBrze+mS7R9e/IaoSBqic4lAfcwhBfke6u57Sg
+         7qmy6IzWc/4+EFBKYxk4CRbH3J6r9cV8D89vInXEggWMRzuiwVdU4J2bhDbJXF7icdMl
+         mmsw==
+X-Forwarded-Encrypted: i=1; AJvYcCUYwgnBWuA2FZuqKNNPCHVcYg+RYAUKN6IU27+C4Pvrw4oC/4S32vV2rwL77b26xH63DQcemoeAOKtZlL7e9Sz/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxO1lAFCL6ST1+p7r1oe/aZ6zJRK4sJ7HATRoXzIGOczJ0eHXhS
+	L765ZTA3tyYsPBoUVTl5uBpo43J2Fsh+mSyqitEOZXHYVsTWXXVIDKGlSzg/Eum+wcyS8d3lEwi
+	XIjipmm6xyyAZTXWdTRGx/3lOqPfk9fJDBNrp/p2mWl+dUUNIXmJX4KYlxIDB4P74O9ahOtOQm9
+	NO
+X-Gm-Gg: ASbGncvrBaTPXdepxpn1/BPThvz1WNZRisJlym4mchWlYaPsCnyjA0juKrBa7ZQ/gfy
+	X1W6KFcitpP3KiKu1vsaFKf+oxf7dRoKyCqyuATMu1FBzoCf6xrD8Yy1VnZU9LLK5Jt/gNPBCdH
+	/ZBYxn4xrcydDbTu+dk4PxD/M1kgqzzpPbaCtn3ObRMy7L9pq4bPFp4arySTpkDQr0ZmTD2FJCg
+	AQyjHH9q3fmsQNoUe1Dx7ozd5uGBqPmOvU9wl1VWWod7WfBjfeeUs7QOZrR443SFhPS1LLT0cu3
+	KNKKDUSJvsTFDBGB0F/jQ0fvSlA1NN95TqewhaiA746XjKpfecFS39eMcnWmsMBz/AkV4FDi7dW
+	NpjJNVGvYdGZDgc9iVpkMevBK6s4EAPovz4wWJ+s=
+X-Received: by 2002:a05:600c:4e48:b0:443:48:66d2 with SMTP id 5b1f17b1804b1-4511ee14c08mr77083135e9.16.1748860305789;
+        Mon, 02 Jun 2025 03:31:45 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG4lrvLwHaEWScY/8IOL/Tuots8CWM7YWfHJfcP7R1yvYuRofYdh+DhIzzTEbvoU5wPzbYr8A==
+X-Received: by 2002:a05:600c:4e48:b0:443:48:66d2 with SMTP id 5b1f17b1804b1-4511ee14c08mr77082755e9.16.1748860305291;
+        Mon, 02 Jun 2025 03:31:45 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f34:a300:1c2c:f35e:e8e5:488e? (p200300d82f34a3001c2cf35ee8e5488e.dip0.t-ipconnect.de. [2003:d8:2f34:a300:1c2c:f35e:e8e5:488e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d7f8f1e7sm118287075e9.1.2025.06.02.03.31.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Jun 2025 03:31:44 -0700 (PDT)
+Message-ID: <13ea6653-d33d-4f76-88c8-a17f9989d069@redhat.com>
+Date: Mon, 2 Jun 2025 12:31:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 0/6] Lazy mmu mode fixes and improvements
-Content-Language: en-GB
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, Juergen Gross <jgross@suse.com>,
- Ajay Kaher <ajay.kaher@broadcom.com>,
- Alexey Makhalov <alexey.makhalov@broadcom.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Peter Zijlstra <peterz@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
- David Hildenbrand <david@redhat.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
- <vbabka@suse.cz>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Alexei Starovoitov <ast@kernel.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- virtualization@lists.linux.dev, xen-devel@lists.xenproject.org,
- linux-mm@kvack.org, Jann Horn <jannh@google.com>
-References: <20250530140446.2387131-1-ryan.roberts@arm.com>
- <5b5d6352-9018-4658-b8fe-6eadaad46881@lucifer.local>
- <af9a96e1-064b-4627-bd34-e7e7e8a05452@arm.com> <aDqz7H-oBo35FRXe@kernel.org>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aDqz7H-oBo35FRXe@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 00/12] mm: Remove pXX_devmap page table bit and pfn_t type
+To: Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org
+Cc: gerald.schaefer@linux.ibm.com, dan.j.williams@intel.com, jgg@ziepe.ca,
+ willy@infradead.org, linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
+ balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: cRP54ldDzRSi0XCmVbivk5VyQ8fXXcpjILb72FuTdYw_1748860306
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_033114_448326_2725C738 
-X-CRM114-Status: GOOD (  30.68  )
+X-CRM114-CacheID: sfid-20250602_033150_438882_2773598E 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,118 +164,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/05/2025 08:46, Mike Rapoport wrote:
-> Hi Ryan,
+On 29.05.25 08:32, Alistair Popple wrote:
+> Changes from v2 of the RFC[1]:
 > 
-> On Fri, May 30, 2025 at 04:55:36PM +0100, Ryan Roberts wrote:
->> On 30/05/2025 15:47, Lorenzo Stoakes wrote:
->>> +cc Jann who is a specialist in all things page table-y and especially scary
->>> edge cases :)
->>>
->>> On Fri, May 30, 2025 at 03:04:38PM +0100, Ryan Roberts wrote:
->>>> Hi All,
->>>>
->>>> I recently added support for lazy mmu mode on arm64. The series is now in
->>>> Linus's tree so should be in v6.16-rc1. But during testing in linux-next we
->>>> found some ugly corners (unexpected nesting). I was able to fix those issues by
->>>> making the arm64 implementation more permissive (like the other arches). But
->>>> this is quite fragile IMHO. So I'd rather fix the root cause and ensure that
->>>> lazy mmu mode never nests, and more importantly, that code never makes pgtable
->>>> modifications expecting them to be immediate, not knowing that it's actually in
->>>> lazy mmu mode so the changes get deferred.
->>>
->>> When you say fragile, are you confident it _works_ but perhaps not quite as well
->>> as you want? Or are you concerned this might be broken upstream in any way?
->>
->> I'm confident that it _works_ for arm64 as it is, upstream. But if Dev's series
->> were to go in _without_ the lazy_mmu bracketting in some manner, then it would
->> be broken if the config includes CONFIG_DEBUG_PAGEALLOC.
->>
->> There's a lot more explanation in the later patches as to how it can be broken,
->> but for arm64, the situation is currently like this, because our implementation
->> of __change_memory_common() uses apply_to_page_range() which implicitly starts
->> an inner lazy_mmu_mode. We enter multiple times, but we exit one the first call
->> to exit. Everything works correctly but it's not optimal because C is no longer
->> deferred:
->>
->> arch_enter_lazy_mmu_mode()                        << outer lazy mmu region
->>   <do some pte changes (A)>
->>   alloc_pages()
->>     debug_pagealloc_map_pages()
->>       __kernel_map_pages()
->>         __change_memory_common()
->>           arch_enter_lazy_mmu_mode()              << inner lazy mmu region
->>             <change kernel pte to make valid (B)>
->>           arch_leave_lazy_mmu_mode()              << exit; complete A + B
->>     clear_page()
->>   <do some more pte changes (C)>                  << no longer in lazy mode
->> arch_leave_lazy_mmu_mode()                        << nop
->>
->> An alternative implementation would not add the nested lazy mmu mode, so we end
->> up with this:
->>
->> arch_enter_lazy_mmu_mode()                        << outer lazy mmu region
->>   <do some pte changes (A)>
->>   alloc_pages()
->>     debug_pagealloc_map_pages()
->>       __kernel_map_pages()
->>         __change_memory_common()
->>             <change kernel pte to make valid (B)> << deferred due to lazy mmu
->>     clear_page()                                  << BANG! B has not be actioned
->>   <do some more pte changes (C)>
->> arch_leave_lazy_mmu_mode()
->>
->> This is clearly a much worse outcome. It's not happening today but it could in
->> future. That's why I'm claiming it's fragile. It's much better (IMHO) to
->> disallow calling the page allocator when in lazy mmu mode.
+>   - My ZONE_DEVICE refcount series has been merged as commit 7851bf649d42 (Patch series
+>     "fs/dax: Fix ZONE_DEVICE page reference counts", v9.) which is included in
+>     v6.15 so have rebased on top of that.
 > 
-> First, I think it should be handled completely inside arch/arm64. Page
-> allocation worked on lazy mmu mode on other architectures, no reason it
-> should be changed because of the way arm64 implements lazy mmu.
+>   - No major changes required for the rebase other than fixing up a new user of
+>     the pfn_t type (intel_th).
 > 
-> Second, DEBUG_PAGEALLOC already implies that performance is bad, for it to
-> be useful the kernel should be mapped with base pages and there's map/unmap
-> for every page allocation so optimizing a few pte changes (C in your
-> example) won't matter much.
+>   - As a reminder the main benefit of this series is it frees up a PTE bit
+>     (pte_devmap).
 > 
-> If there's a potential correctness issue with Dev's patches, it should be
-> dealt with as a part of those patches with the necessary updates of how
-> lazy mmu is implemented on arm64 and used in pageattr.c.
+>   - This may be a bit late to consider for inclusion in v6.16 unless it can get
+>     some more reviews before the merge window closes. I don't think missing v6.16
+>     is a huge issue though.
 > 
-> And it seems to me that adding something along the lines below to
-> __kernel_map_pages() would solve DEBUG_PAGEALLOC issue:
+>   - This passed xfstests for a XFS filesystem with DAX enabled on my system and
+>     as many of the ndctl tests that pass on my system without it.
 > 
-> void __kernel_map_pages(struct page *page, int numpages, int enable)
-> {
-> 	unsigned long flags;
-> 	bool lazy_mmu = false;
+> Changes for v2:
 > 
-> 	if (!can_set_direct_map())
-> 		return;
+>   - This is an update to my previous RFC[2] removing just pfn_t rebased
+>     on today's mm-unstable which includes my ZONE_DEVICE refcounting
+>     clean-up.
 > 
-> 	flags = read_thread_flags();
-> 	if (flags & BIT(TIF_LAZY_MMU))
-> 		lazy_mmu = true;
+>   - The removal of the devmap PTE bit and associated infrastructure was
+>     dropped from that series so I have rolled it into this series.
 > 
-> 	set_memory_valid((unsigned long)page_address(page), numpages, enable);
+>   - Logically this series makes sense to me, but the dropping of devmap
+>     is wide ranging and touches some areas I'm less familiar with so
+>     would definitely appreciate any review comments there.
 > 
-> 	if (lazy_mmu)
-> 		set_thread_flag(TIF_LAZY_MMU);
-> }
+> [1] - https://lore.kernel.org/linux-mm/cover.95ff0627bc727f2bae44bea4c00ad7a83fbbcfac.1739941374.git-series.apopple@nvidia.com/
+> [2] - https://lore.kernel.org/linux-mm/cover.a7cdeffaaa366a10c65e2e7544285059cc5d55a4.1736299058.git-series.apopple@nvidia.com/
+> 
+> All users of dax now require a ZONE_DEVICE page which is properly
+> refcounted. This means there is no longer any need for the PFN_DEV, PFN_MAP
+> and PFN_SPECIAL flags. Furthermore the PFN_SG_CHAIN and PFN_SG_LAST flags
+> never appear to have been used. It is therefore possible to remove the
+> pfn_t type and replace any usage with raw pfns.
+> 
+> The remaining users of PFN_DEV have simply passed this to
+> vmf_insert_mixed() to create pte_devmap() mappings. It is unclear why this
+> was the case but presumably to ensure vm_normal_page() does not return
+> these pages. These users can be trivially converted to raw pfns and
+> creating a pXX_special() mapping to ensure vm_normal_page() still doesn't
+> return these pages.
+> 
+> Now that there are no users of PFN_DEV we can remove the devmap page table
+> bit and all associated functions and macros, freeing up a software page
+> table bit.
+> 
 
-Hi Mike,
+$ git grep FS_DAX_LIMITED
+fs/Kconfig:     depends on ZONE_DEVICE || FS_DAX_LIMITED
+fs/Kconfig:config FS_DAX_LIMITED
+fs/dax.c:       if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+fs/dax.c:       if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+fs/dax.c:       if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+include/linux/pfn_t.h: * PFN_SPECIAL - for CONFIG_FS_DAX_LIMITED builds 
+to allow XIP, but not
+mm/memremap.c:          if (IS_ENABLED(CONFIG_FS_DAX_LIMITED)) {
 
-I've thought about this for a bit, and concluded that you are totally right.
-This is a much smaller, arm64-contained patch. Sorry for the noise here, and
-thanks for the suggestion.
+Can we remove that? Especially the interaction with PFN_SPECIAL looks 
+concerning.
 
-Thanks,
-Ryan
+-- 
+Cheers,
 
-
-> 
->> Thanks,
->> Ryan
-> 
+David / dhildenb
 
 
