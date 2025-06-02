@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D75C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 09:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B720C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 09:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9VDVDdg3ufLGvG1O551NZ6T232itLlz+EkE7G4DZKI=; b=SVyZdUhM8Xk0mK9PGNBWmrEOim
-	T35puJTqYQlqEkEzVMhk0X9AxS+/6dAlXqMS2Yeya8JosLToOoPGoYsZv3a700f6wgNWkPcaVv4Tv
-	cNUhKVhYkbLKSJx2M6Gs/7589ki8kTWcumlgHpqxXkuZqUH9fKd/rejPeBqEc6ZjwIqrPQduNA5br
-	5uFCzdXsroGUzxJdXC7Mmz1AU00mtnHThgpdBRX4OxQVgBySBxsnvTi+Yc7M8po5BirzvXShQaE+b
-	G1rz6hrVPjVhq2epLxU3PPSv65N06DyPQtmejJmTaHsYQmmPl3LtlWlm8oqWLWSbjmTWXciTGBGE4
-	wvocczQQ==;
+	bh=HFGGV7ljIMDBdPtBTZsV79BF2k6SwLQv7Z7YD3lxAB8=; b=FKu0JFLj16D2dpLFPxMuTNkeZY
+	I26JyuoQEV6YcoLZhN27AKWRNUB/WW6gNWgXwWy74WeIqWKo8uK6oN6Cs5cIK5jPuY8+FNM3UMZ5v
+	li4EdU6ZIIAP7IVgntSwoxl96cYNBvXhAEaafjr9syCEsHei3x7/PiMM2e2LXZgXS9VjvBgp7iwGW
+	W+XT1Ebg2fwqNB43cz0knf/wnDtpbazQ8M2STplwVsL3FO57ADcLifo0Zl4BC4xwNsUVR6D2P9AIo
+	Yg3J/7DqU7IvIoX1pWKigOty4vIqCmAkkHMROFmFdbVfucfMNV5brYlK6Pn/CTeSEb5fJPKWxjP1/
+	85yRLbNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM1Ja-000000073ei-2gCf;
-	Mon, 02 Jun 2025 09:18:42 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uM1Lk-000000073p7-2fmv;
+	Mon, 02 Jun 2025 09:20:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM1HO-000000073RP-2TGS;
-	Mon, 02 Jun 2025 09:16:27 +0000
+	id 1uM1I9-000000073WR-1AJo;
+	Mon, 02 Jun 2025 09:17:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A9AEBA4FEF0;
-	Mon,  2 Jun 2025 09:16:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 248AFC4CEEB;
-	Mon,  2 Jun 2025 09:16:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DA09E5C106F;
+	Mon,  2 Jun 2025 09:14:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B9E6C4CEED;
+	Mon,  2 Jun 2025 09:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748855785;
-	bh=C1De+IOxAcDQvZAsEVV4bkESfkA1sLY6u15THMKu99E=;
+	s=k20201202; t=1748855832;
+	bh=dOuRTKmQlNshvgTsqcQocuGllITy9xMmbnYbxOpDspc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jHEc3E1oJ7/9XEzu+JsoTDOH5xVMcn/fP/A5jJUEuy+tl02dHstQU5qiCEQ7k22vH
-	 YPvW4Eo06B+L6lrc/gtocbzJs4F1h3i5cXOLwdDGPpPRbB2BUYzz2EGbLghrjiIEAN
-	 wDad7w8tSFobiy1axktSGLr/qTyQXjX1bPnovR63+I7395BS0vqR5te3jCArw1Gt8M
-	 bItsuS9D3+OTOc5rrvmmbSJ5u73eIUKiF33RYWcv4ZahYT70DHhTE8tNcqCOwaT1kf
-	 pVsWSSIsekxtiHhC9UxwFm0lA3Gw3+0mriORyHx5tCJpqamTXjpwD6TNNNtkcA6JRh
-	 /nKGXCwlDMPDA==
-Message-ID: <9b54c25e-27e9-4590-9ba4-030ba485abcc@kernel.org>
-Date: Mon, 2 Jun 2025 11:16:19 +0200
+	b=iCBp4yrMAOG0ewaoqFLuY+9XQdbsHptd+29QQutMBpoDqZyZTRXFrfkUSSKtgjcIY
+	 Q8UYO5nt2TyEvaFHqRtDoA0tpIlC8EA9BqKYd2mDkEojXjxeL3E1vX1sFKedjIIRlL
+	 YjFrX9CBHskvIKRN3VPA4LDenFNgrIP4iCpmc/XIMi1W316PsHVk3CysBtjN4v9bK4
+	 BmJnYz8MDYT4fXttE22192ZpUoZlKi1mkDZXp9kLhxRBo6vbVZh/ZlFwnC7HNRIxXR
+	 qh4VskCWZ6qn1GTReOxiL0YuBr304ZMHrJ8SveyA2NaLBwMl7utO4DyOWiDxToV2df
+	 0uCgtQ+NbuHTA==
+Message-ID: <34288beb-a00a-4b17-a893-87d569a440ef@kernel.org>
+Date: Mon, 2 Jun 2025 11:17:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: clk: mt8189: Porting driver for clk
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, nfraprado@collabora.com
-Cc: angelogioacchino.delregno@collabora.com,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-pm@vger.kernel.org, netdev@vger.kernel.org,
- linux-mediatek@lists.infradead.org,
- Irving lin <irving-ch.lin@mediatek.corp-partner.google.com>
-References: <20250602082610.1848291-1-irving-ch.lin@mediatek.com>
+Subject: Re: [PATCH v3 3/4] dt-bindings: mtd: atmel-nand: add legacy nand
+ controllers
+To: Balamanikandan.Gunasundar@microchip.com, miquel.raynal@bootlin.com,
+ richard@nod.at, vigneshr@ti.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, Nicolas.Ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+ krzysztof.kozlowski+dt@linaro.org
+Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250602053507.25864-1-balamanikandan.gunasundar@microchip.com>
+ <20250602053507.25864-4-balamanikandan.gunasundar@microchip.com>
+ <3825dcb6-00b1-4e03-ab1a-258bcd3265ba@kernel.org>
+ <e457c167-59d2-45c9-8da8-e9fbd1f5e17e@microchip.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250602082610.1848291-1-irving-ch.lin@mediatek.com>
+In-Reply-To: <e457c167-59d2-45c9-8da8-e9fbd1f5e17e@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_021626_768179_FA23D617 
-X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-CacheID: sfid-20250602_021713_412198_608650BB 
+X-CRM114-Status: UNSURE (   8.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,22 +124,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/06/2025 10:25, irving.ch.lin wrote:
-> From: Irving lin <irving-ch.lin@mediatek.corp-partner.google.com>
+On 02/06/2025 10:59, Balamanikandan.Gunasundar@microchip.com wrote:
+> On 02/06/25 12:53 pm, Krzysztof Kozlowski wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>
+>> On 02/06/2025 07:35, Balamanikandan Gunasundar wrote:
+>>> Add support for atmel legacy nand controllers. These bindings should not be
+>>
+>> No new support for legacy bindings. Both your commit msg and subject do
+>> not describe what you do here. I see you convert EXISTING bindings
+>> instead of adding support. But if you insist on adding, that would be
+>> NAKed because why would we want to accept new stuff which is already
+>> deprecated?
 > 
-> 1. Add mt8189 clk driver
-> 2. Fix mux failed
-> 3. Add apll12_div_tdmout_b
-> 4. Add disable-unused configs
-> 
-> BUG=b:387252012
-> TEST=emerge-skywalker chromeos-kernel-6_6
-
-6_6 feels like v6.6, so nope. You need to start working on mainline and
-TESTING on mainline.
-
-This also explains a bit all the issues which you copied from downstream
-drivers... although they were fixed in v6.6 as well, so maybe not. :/
+> Yes. I am just converting the exiting bindings. Hope rephrasing the 
+> commit message is sufficient enough.
+And you just ignored everything else? Please kindly trim the replies
+from unnecessary context. It makes it much easier to find new content.
 
 Best regards,
 Krzysztof
