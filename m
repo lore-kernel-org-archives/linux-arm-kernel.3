@@ -4,76 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C93C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 07:25:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F90C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 07:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x5kqMG56SWDQsrMynXSFFFcF3tBs6H1f9+/5qrqftM8=; b=W6YP1G8LNMQUspn9c1IWssJU8/
-	ohlZdrVNSYkmk1XpJcPXYRJb5p4IcWb4PcBBhBh3JUaH2GJhb6FGASM7+REUVVPrJZpJpzfOpw/1y
-	Njh/yjpYwihXtEjNKYHNcbOo5zGPXplYJfIttdq+36EA5yeyor7AtgR8EWJC1RTq48BhE9uNhiY79
-	Jj25nnuASF7xsnwajtkZGSRx1Un/yN5JE0nSy1lLd/ByxogcZYH3/8vU2FMBSD4oPlEAT3USiW+ik
-	5cyBDg5A1oI9o+SiDaOHEy8Om1rP4mvHoSry9A69U/CkgFJtpOIr1KyzbH7qHBS82MLCDxUsCY6Y6
-	VW0G/mbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BScimsTzEXidySSkCABoQEowgCdF5qq9GYrq0cHPT2Y=; b=aj0Fxr2vkfs/NfexqfbY2YYrOn
+	cGnW31wmR5/6pvv0Ry7YIFQ/44WlbmtLG36s2BZuwMnrVxyp0JsicN/AOaSo4VKK5eR+z5AYWhSEi
+	T9K1zorQ1k3v3Ndv3ozTy0kPex/MeRl/sLElQqcLWLrfq6kk0ZXjBKN7RvFz7pHGeZElTVR/bjEcm
+	9HjchvAiZjtlINi7W4rlblwsjNrV5PfinWQMEHmRi5EiS9iguKOzz2+2tFcg6ogIzp62FxRp35qdI
+	1qKuHW7GOx2Sjl8GwQzOKAxdDBSNaaz6hIU6nSoViszbyATj1+3gjJ2JtWt7cqq+o+U1jv7OpYsvr
+	nZ2nrlfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLzY7-00000006uRV-2awx;
-	Mon, 02 Jun 2025 07:25:35 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uLzaG-00000006uYE-1WnA;
+	Mon, 02 Jun 2025 07:27:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLzVW-00000006u1z-307t;
-	Mon, 02 Jun 2025 07:22:56 +0000
-X-UUID: 6367b3dc3f8211f0bed96b30c12bc3d6-20250602
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=x5kqMG56SWDQsrMynXSFFFcF3tBs6H1f9+/5qrqftM8=;
-	b=Nqrnfaz6e9bWE2zQTT4lWua5+fcRLyF5E3DVxC2MMYyPTdgjPiV8MhyocbeH9udWoSgKgmbPlQy+qPzMbfxq2ZD1uTZtyyTlpdsRA1V8REAIznSoi2xol8tm8KZOfg9wDVHQc6tqNBf3SeWiCyVh0FTUVrvwC/p/QJaMJwmIxPc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:13a267ff-66a7-47ab-be24-65dd6fd692fe,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:e337fa47-ee4f-4716-aedb-66601021a588,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 6367b3dc3f8211f0bed96b30c12bc3d6-20250602
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
-	(envelope-from <kuyo.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1646159747; Mon, 02 Jun 2025 00:22:49 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 2 Jun 2025 15:22:45 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 2 Jun 2025 15:22:45 +0800
-From: Kuyo Chang <kuyo.chang@mediatek.com>
-To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
-	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel
- Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: kuyo chang <kuyo.chang@mediatek.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-Subject: [PATCH 1/1] sched/core: Fix migrate_swap() vs. hotplug
-Date: Mon, 2 Jun 2025 15:22:13 +0800
-Message-ID: <20250602072242.1839605-1-kuyo.chang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1uLzWc-00000006uE4-31sj;
+	Mon, 02 Jun 2025 07:24:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A960B5C5A5A;
+	Mon,  2 Jun 2025 07:21:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3190C4CEEB;
+	Mon,  2 Jun 2025 07:23:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748849039;
+	bh=s9xNx+NS3r0HHm3PTq5Rn39oisNfhLK0A1fU5X4LW0s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OUcjO8bIwiyhtM98VJyCsdJ8wRM2aLytNR913o4tMLk9IKSwacD8Ru41v07BekA5X
+	 FLq8Zso71U/nWHXyk2ZFkAyi9Szp1r4ZmOpyKJD/IeOyXnd7LlZaZokxANsQvlQJJP
+	 mpuE10SumP3o3em4dAF335q4AoYg2NOJcTRoXkuwGkJwvCr7zrep7efStyXYiJwpxm
+	 Ap0Q5jGUQ8hGbwnIFsMmuGF7Yc+/k0+pAv45sI1i7JawJki0MuRpaOWZ6SEtcBfdJZ
+	 aq1JRNGwylRfPkZ5VJOu0EKzdIAlypbB3owL40gwcwl2GjU7zYHBnnX99nQ3QZjWCy
+	 k4KYesLwJIp9Q==
+Message-ID: <3825dcb6-00b1-4e03-ab1a-258bcd3265ba@kernel.org>
+Date: Mon, 2 Jun 2025 09:23:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] dt-bindings: mtd: atmel-nand: add legacy nand
+ controllers
+To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
+ miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+ krzysztof.kozlowski+dt@linaro.org
+Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250602053507.25864-1-balamanikandan.gunasundar@microchip.com>
+ <20250602053507.25864-4-balamanikandan.gunasundar@microchip.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250602053507.25864-4-balamanikandan.gunasundar@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_002254_769407_F302EF07 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250602_002402_852153_8A25C9B5 
+X-CRM114-Status: GOOD (  28.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,173 +121,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: kuyo chang <kuyo.chang@mediatek.com>
+On 02/06/2025 07:35, Balamanikandan Gunasundar wrote:
+> Add support for atmel legacy nand controllers. These bindings should not be
 
-It encounters sporadic failures during CPU hotplug stress test.
+No new support for legacy bindings. Both your commit msg and subject do
+not describe what you do here. I see you convert EXISTING bindings
+instead of adding support. But if you insist on adding, that would be
+NAKed because why would we want to accept new stuff which is already
+deprecated?
 
-[Syndrome]
-The kernel log shows list add fail as below.
+> used with the new device trees.
+> 
+> Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+> ---
+>  .../devicetree/bindings/mtd/atmel-nand.txt    | 116 ------------
+>  .../devicetree/bindings/mtd/atmel-nand.yaml   | 167 ++++++++++++++++++
 
-kmemleak: list_add corruption.
-prev->next should be next (ffffff82812c7a00),
-but was 0000000000000000. (prev=ffffff82812c3208).
+Filename matching compatible. Also look at your 4/4 patch and compare
+what is here and there.
 
-kmemleak: kernel BUG at lib/list_debug.c:34!
-kmemleak: Call trace:
-kmemleak:  __list_add_valid_or_report+0x11c/0x144
-kmemleak:  cpu_stop_queue_work+0x440/0x474
-kmemleak:  stop_one_cpu_nowait+0xe4/0x138
-kmemleak:  balance_push+0x1f4/0x3e4
-kmemleak:  __schedule+0x1adc/0x23bc
-kmemleak:  preempt_schedule_common+0x68/0xd0
-kmemleak:  preempt_schedule+0x60/0x80
-kmemleak:  _raw_spin_unlock_irqrestore+0x9c/0xa0
-kmemleak:  scan_gray_list+0x220/0x3e4
-kmemleak:  kmemleak_scan+0x410/0x740
-kmemleak:  kmemleak_scan_thread+0xb0/0xdc
-kmemleak:  kthread+0x2bc/0x494
-kmemleak:  ret_from_fork+0x10/0x20
+>  2 files changed, 167 insertions(+), 116 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/mtd/atmel-nand.txt
+>  create mode 100644 Documentation/devicetree/bindings/mtd/atmel-nand.yaml
+> 
 
-[Analysis]
-In the failure case, by memory dump, we find
-cpu_stopper.enabled = TRUE
-but the wakeq is empty(the migrate/1 is at another wakeq)
-static bool cpu_stop_queue_work(...)
-{
+
 ...
-..
-	enabled = stopper->enabled;
-	if (enabled)
-		__cpu_stop_queue_work(stopper, work, &wakeq);
-...
-...
-	wake_up_q(&wakeq);  -> wakeq is empty !!
-	preempt_enable();
-	return enabled;
-}
 
-Through analysis of the CPU0 call trace and memory dump
+> diff --git a/Documentation/devicetree/bindings/mtd/atmel-nand.yaml b/Documentation/devicetree/bindings/mtd/atmel-nand.yaml
+> new file mode 100644
+> index 000000000000..a437d40a523f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mtd/atmel-nand.yaml
+> @@ -0,0 +1,167 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mtd/atmel-nand.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Atmel NAND flash controller
+> +
+> +maintainers:
+> +  - Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+> +
+> +description:
+> +  Atmel nand flash controller. These are legacy bindings and
+> +  deprecated. Find the latest in microchip,nand-controller.yaml
+> +
 
-   CPU0: migration/0, pid: 43, priority: 99
-   Native callstack:
-	vmlinux  __kern_my_cpu_offset()           <arch/arm64/include/asm/percpu.h:40>
-	vmlinux  ct_state_inc(incby=8)            <include/linux/context_tracking.h:137>
-	vmlinux  rcu_momentary_eqs() + 72         <kernel/rcu/tree.c:375>
-	vmlinux  multi_cpu_stop() + 316           <kernel/stop_machine.c:278>
-	vmlinux  cpu_stopper_thread() + 676       <kernel/stop_machine.c:563>
-	vmlinux  smpboot_thread_fn(data=0) + 1188 <kernel/smpboot.c:164>
-	vmlinux  kthread() + 696                  <kernel/kthread.c:389>
-	vmlinux  0xFFFFFFC08005941C()             <arch/arm64/kernel/entry.S:845>
+Missing allOf/ref to nand-controller
 
-  (struct migration_swap_arg *)0xFFFFFFC08FF87A40 (
-    src_task = 0xFFFFFF80FF519740 ,
-    dst_task = 0xFFFFFF802A579740 ,
-    src_cpu = 0x0,
-    dst_cpu = 0x1)
+> +properties:
+> +  $nodename:
+> +    pattern: "^nand(@.*)?"
 
-  (struct multi_stop_data)*    0xFFFFFFC08FF87930 = (
-    fn = 0xFFFFFFC0802657F4 = migrate_swap_stop,
-    data = 0xFFFFFFC08FF87A40
-    num_threads = 0x2,
-    active_cpus = cpu_bit_bitmap[1] -> (
-      bits = (0x2)),
-    state = MULTI_STOP_PREPARE = 0x1,
-    thread_ack = (
-      counter = 0x1))
+Drop
 
-By cpu mask memory dump:
-  ((const struct cpumask *)&__cpu_online_mask) (
-    bits = (0xFF))
-  ((const struct cpumask *)&__cpu_dying_mask)  (
-    bits = (0x2))
-  ((const struct cpumask *)&__cpu_active_mask)(
-    bits = (0xFD))
-  ((const struct cpumask *)&__cpu_possible_mask) (
-    bits = (0xFF))
-->Imply cpu1 is dying & non-active
+> +
+> +  compatible:
+> +    enum:
+> +      - atmel,at91rm9200-nand
+> +      - atmel,sama5d2-nand
+> +      - atmel,sama5d4-nand
+> +
+> +  reg:
+> +    description:
+> +      The localbus address and size used for the chip, and hardware ECC
+> +      controller if available. If the hardware ECC is PMECC, it should
+> +      contain address and size for PMECC and PMECC Error Location
+> +      controller. The PMECC lookup table address and size in ROM is
+> +      optional. If not specified, driver will build it in runtime.
+> +
+> +  nand-on-flash-bbt:
+> +    description:
+> +      enable on flash bbt option if not present false
+> +    $ref: /schemas/types.yaml#/definitions/flag
+> +
+> +  nand-ecc-mode:
+> +    description:
+> +      operation mode of the NAND ecc
+> +    enum:
+> +      [none, soft, hw, hw_syndrome, hw_oob_first, soft_bch]
+> +    default: soft
+> +    $ref: /schemas/types.yaml#/definitions/string
+> +
+> +  nand-bus-width:
+> +    description:
+> +      nand bus width
+> +    enum:
+> +      [8, 16]
+> +    default: 8
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 1
 
-So, the potential race scenario is:
+You have several redundant properties. What's more, you are basically
+re-definingn them. Drop and keep only constraints. Look at other
+bindings and follow how they are doing this.
 
-	CPU0							CPU1
-	// doing migrate_swap(cpu0/cpu1)
-	stop_two_cpus()
-							  ...
-							 // doing _cpu_down()
-							      sched_cpu_deactivate()
-								set_cpu_active(cpu, false);
-								balance_push_set(cpu, true);
-	cpu_stop_queue_two_works
-	    __cpu_stop_queue_work(stopper1,...);
-	    __cpu_stop_queue_work(stopper2,..);
-	stop_cpus_in_progress -> true
-		preempt_enable();
-								...
-							1st balance_push
-							stop_one_cpu_nowait
-							cpu_stop_queue_work
-							__cpu_stop_queue_work
-							list_add_tail  -> 1st add push_work
-							wake_up_q(&wakeq);  -> "wakeq is empty.
-										This implies that the stopper is at wakeq@migrate_swap."
-	preempt_disable
-	wake_up_q(&wakeq);
-	        wake_up_process // wakeup migrate/0
-		    try_to_wake_up
-		        ttwu_queue
-		            ttwu_queue_cond ->meet below case
-		                if (cpu == smp_processor_id())
-			         return false;
-			ttwu_do_activate
-			//migrate/0 wakeup done
-		wake_up_process // wakeup migrate/1
-	           try_to_wake_up
-		    ttwu_queue
-			ttwu_queue_cond
-		        ttwu_queue_wakelist
-			__ttwu_queue_wakelist
-			__smp_call_single_queue
-	preempt_enable();
+> +
+> +  gpios:
+> +    minItems: 2
+> +    items:
+> +      - description: Ready/Busy
+> +      - description: Chip Enable
+> +      - description: Optional Card detect GPIO; can be 0 if unused
+> +
+> +  atmel,nand-addr-offset:
+> +    description:
+> +      offset for the address latch.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 31
+> +
+> +  atmel,nand-cmd-offset:
+> +    description:
+> +      offset for the command latch.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 31
+> +
+> +  atmel,nand-has-dma:
+> +    description:
+> +      support dma transfer for nand read/write.
+> +    $ref: /schemas/types.yaml#/definitions/flag
+> +
+> +  atmel,has-pmecc:
+> +    description:
+> +      enable Programmable Multibit ECC hardware, capable of BCH encoding
+> +      and decoding, on devices where it is present.
+> +    $ref: /schemas/types.yaml#/definitions/flag
+> +
+> +  atmel,pmecc-cap:
+> +    description:
+> +      error correct capability for Programmable Multibit ECC Controller.
+> +    enum:
+> +      [2, 4, 8, 12, 24, 32]
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +  atmel,pmecc-sector-size:
+> +    description:
+> +      sector size for ECC computation.
+> +    enum:
+> +      [512, 1024]
+> +    default: 512
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +
 
-							2nd balance_push
-							stop_one_cpu_nowait
-							cpu_stop_queue_work
-							__cpu_stop_queue_work
-							list_add_tail  -> 2nd add push_work, so the double list add is detected
-							...
-							...
-							cpu1 get ipi, do sched_ttwu_pending, wakeup migrate/1
+Just one blank line
 
-[Solution]
-Fix this race condition by adding cpus_read_lock/cpus_read_unlock around stop_two_cpus().
-This ensures that no CPUs can come up or go down during this operation.
+> +  atmel,pmecc-lookup-table-offset:
+> +    description:
+> +      Two offsets of lookup table in ROM for different sector size. First
+> +      one is for sector size 512, the next is for sector size 1024. If not
+> +      specified, driver will build the table in runtime.
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    default: 512
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - atmel,nand-addr-offset
+> +  - atmel,nand-cmd-offset
+> +  - "#address-cells"
+> +  - "#size-cells"
 
-Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
----
- kernel/sched/core.c | 3 +++
- 1 file changed, 3 insertions(+)
+Use consistent quotes, either ' or "
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 62b3416f5e43..1b371575206f 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -3441,6 +3441,8 @@ int migrate_swap(struct task_struct *cur, struct task_struct *p,
- 		.dst_cpu = target_cpu,
- 	};
- 
-+	/* Make sure no CPUs can come up or down */
-+	cpus_read_lock();
- 	if (arg.src_cpu == arg.dst_cpu)
- 		goto out;
- 
-@@ -3461,6 +3463,7 @@ int migrate_swap(struct task_struct *cur, struct task_struct *p,
- 	ret = stop_two_cpus(arg.dst_cpu, arg.src_cpu, migrate_swap_stop, &arg);
- 
- out:
-+	cpus_read_unlock();
- 	return ret;
- }
- #endif /* CONFIG_NUMA_BALANCING */
--- 
-2.45.2
+> +
+> +unevaluatedProperties: false
 
+Without $ref this makes no sense, so it clearly points you to missing ref.
+
+> +
+> +examples:
+> +  - |
+> +    nand@40000000 {
+> +        compatible = "atmel,at91rm9200-nand";
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+
+Follow DTS coding style.
+
+> +        reg = <0x40000000 0x10000000
+> +               0xffffe800 0x200>;
+
+These are two entries, not one.
+
+
+> +        atmel,nand-addr-offset = <21>;	/* ale */
+> +        atmel,nand-cmd-offset = <22>;	/* cle */
+> +        nand-on-flash-bbt;
+> +        nand-ecc-mode = "soft";
+> +        gpios = <&pioC 13 0	/* rdy */
+> +                 &pioC 14 0     /* nce */
+> +                 0		/* cd */
+
+All this is not following standard style. Two entries. Use proper
+defines for GPIO flags.
+
+> +                >;
+> +    };
+> +  - |
+> +    /* for PMECC supported chips */
+> +    nand@40000000 {
+> +        compatible = "atmel,at91rm9200-nand";
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +        reg = <0x40000000 0x10000000	/* bus addr & size */
+> +               0xffffe000 0x00000600	/* PMECC addr & size */
+> +               0xffffe600 0x00000200	/* PMECC ERRLOC addr & size */
+> +               0x00100000 0x00100000>;	/* ROM addr & size */
+
+Four entries, not one.
+
+> +
+> +        atmel,nand-addr-offset = <21>;	/* ale */
+> +        atmel,nand-cmd-offset = <22>;	/* cle */
+> +        nand-on-flash-bbt;
+> +        nand-ecc-mode = "hw";
+> +        atmel,has-pmecc;	/* enable PMECC */
+> +        atmel,pmecc-cap = <2>;
+> +        atmel,pmecc-sector-size = <512>;
+> +        atmel,pmecc-lookup-table-offset = <0x8000 0x10000>;
+> +        gpios = <&pioD 5 0	/* rdy */
+> +                 &pioD 4 0	/* nce */
+> +                 0		/* cd */
+> +                >;
+> +    };
+
+
+Best regards,
+Krzysztof
 
