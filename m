@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CE6C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 04:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA21C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 04:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FyI94pFb6BLEkoTZEquPEmfGVXYRKJvASIgguB4Xhu0=; b=WVBsjDxbsuGiAyXDZ/mmBU3oii
-	QNrF5tyHdsDs1HiVRue0EEk3H0Jrtequ/iQB5oSe9uFyJ6hQjaIOEMyBdXovK8mFeY6MCAXxKf4Ky
-	fo2zyJ5s+0qN3NWtMP6ZHPHyPrv5z4yTC4UC/94YLkYs83uy6LN+MX0QMIXThc3q4q0UAXI6HnsQ0
-	USyXwia2g/gdV1ulb4wZY489Haxh1XfXapis0ZQX/faSLdqA+d268bNYdxR9MU+Aq1Vjs/5EKTr7J
-	dsg/qVc+1Xg+LSC4CT3GZ6CYrhE1A5qHRHQLEHDR5ZQHBh97ICrFbSnBuNQx85uDNJWFsakCulICW
-	xBO4DOiw==;
+	bh=iuH08HhCzFKCMOC8/O0swKDH+rpWOadfk7Rm4fI946Q=; b=EGQDCEDF3YPztaskXoiL4muKPf
+	gQwAC71A6oyTEswNqlIZColHvWYG2ctvMGlaD/CGfJ2AB3ftioKlcbg4pczLtQzEeAcjLjiAOqeZ+
+	916Nvlw6wnje7zGWC2Xd8T2vhUwkOfQJrAf7Jcfr2bFsL97nqXQWttn8SOizhAae/86xBJE+Yvf8F
+	tQnd3kptM4YYSXZj3L2U+XYxRDHJrBEPaKnhpIydQeyZBy1aHJRHhONKuRpozMr2PVdUOLqUFTdHV
+	fkqrBJWQwXo4xyohc1fFIJlN3m3ZAGdNuJ2azOXVlqeGQSAbJnffD5Yus3xY32V8H7qP1moFBQuko
+	xPJRtgjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLwWd-00000006f6R-1UeB;
-	Mon, 02 Jun 2025 04:11:51 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1uLwYj-00000006fGC-0Aiu;
+	Mon, 02 Jun 2025 04:14:01 +0000
+Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLwUT-00000006ev2-2y4v
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 04:09:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=FyI94pFb6BLEkoTZEquPEmfGVXYRKJvASIgguB4Xhu0=;
-	b=OA/JTIcGI8uPdANyH9q/94ex8Q9Rt1o+M/hc2kvDsWsnrXg0ALJGWCXPWZUF1K
-	Jl1vgWFQJq/VvKd47/m4VnIoJAS1HznKfKRfw8jGRO9W1OEM0T4eIKvEz2gbJ//V
-	omPNAlc+8Q3kwZ0/RwmiEkc+wjXa/rWO8E7LQCYxkzCEQ=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgCnF_HeIz1odNx5Ag--.7355S3;
-	Mon, 02 Jun 2025 12:09:04 +0800 (CST)
-Date: Mon, 2 Jun 2025 12:09:02 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.li@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/6] bus: add driver for IMX AIPSTZ bridge
-Message-ID: <aD0j3gXeD6Nn6L60@dragon>
-References: <20250415171919.5623-1-laurentiumihalcea111@gmail.com>
- <20250415171919.5623-4-laurentiumihalcea111@gmail.com>
+	id 1uLwWK-00000006f1y-1M2J;
+	Mon, 02 Jun 2025 04:11:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=iuH08HhCzFKCMOC8/O0swKDH+rpWOadfk7Rm4fI946Q=; b=cDLc7AG1xVeGrDIh1peeN0IWEk
+	zSPl9poJhEGT0YoB/3XnvH6rSM6bY3xjL0IUqjUntiObN7RMhtlCPHuD3A62GgdK0UEACC5R8vd1k
+	nGJkZRQS6J7IpGD5Cac8ckt2eGuQw0ldn0T1SIMMph5HBpFztRTyZBhVmy8+xkbQoA7OwVtDKj3OZ
+	76BRcTLzVJZLqbCzOHiBTXoFLI5gsn+T2zZ4MU1RCovTNxA1K7wQ4w3A4hqY1qW3qspeqQLRXJ12A
+	qO/+nks1w4qOwDF7mdiodEdOvdFTMW5W0MgrK6eRVtCQ084Z11K100prR+Fy/v0Uyq+f2T84t8Tki
+	2y66Yf/A==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uLwW6-0000000BUl8-1UDJ;
+	Mon, 02 Jun 2025 04:11:18 +0000
+Date: Mon, 2 Jun 2025 05:11:18 +0100
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linmag7@gmail.com, Al Viro <viro@ftp.linux.org.uk>, arnd@arndb.de,
+	chris@zankel.net, dinguyen@kernel.org, glaubitz@physik.fu-berlin.de,
+	ink@unseen.parts, jcmvbkbc@gmail.com, kees@kernel.org,
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	mattst88@gmail.com, monstr@monstr.eu, richard.henderson@linaro.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Sam James <sam@gentoo.org>
+Subject: Re: [PATCH v2 1/1] mm: pgtable: fix pte_swp_exclusive
+Message-ID: <20250602041118.GA2675383@ZenIV>
+References: <87cyfejafj.fsf@gentoo.org>
+ <87v7rik020.fsf@gentoo.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250415171919.5623-4-laurentiumihalcea111@gmail.com>
-X-CM-TRANSID: Ms8vCgCnF_HeIz1odNx5Ag--.7355S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUnUUUUUUUU
-X-Originating-IP: [117.83.141.151]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNABqz2g9I+DgbwAA3I
+In-Reply-To: <87v7rik020.fsf@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_210938_113100_251BB1F5 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250601_211132_354271_52D395DA 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +81,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 01:19:16PM -0400, Laurentiu Mihalcea wrote:
-> Add driver for this IP. Since there's currently no framework for
-> access controllers (and since there's currently no need for having
-> flexibility w.r.t the configurations) all this driver does is it
-> applies a relaxed, "default" configuration, in which all masters
-> are trusted for R/W.
+On Sat, Apr 05, 2025 at 06:09:11PM +0100, Sam James wrote:
+> Sam James <sam@gentoo.org> writes:
+> 
+> > Lovely cleanup and a great suggestion from Al.
+> >
+> > Reviewed-by: Sam James <sam@gentoo.org>
+> >
+> > I'd suggest adding a:
+> > Suggested-by: Al Viro <viro@zeniv.linux.org.uk>
+> 
+> Al, were you planning on taking this through your tree?
 
-Just out of curiosity, is there any ongoing/planned effort about creating
-a framework for access controllers at all?
+FWIW, I expected it to get sent to Linus as "please, run this
+sed script before -rc1" kind of thing, script being something
+like
 
-Shawn
+sed -i -e 's/int pte_swp_exclusive/bool pte_swp_exclusive/' \
+	`git grep -l 'int pte_swp_exclusive'`
+
+with suggested commit message...  It's absolutely regular and
+that kind of tree-wide change is easier handled that way.
+
+	Oh, well...  To restore the context: Magnus had spotted a fun
+bug on Alpha back in February - pte_swp_exclusive() there returned
+pte_val(pte) & _PAGE_SWP_EXCLUSIVE as int.  The problem is that
+_PAGE_SWP_EXCLUSIVE is 1UL<<39 there, with obvious results...
+
+	I looked at the originally posted patch and suggested to
+make pte_swp_exclusive() return bool instead of int.  All users
+are in explicitly boolean contexts:
+
+include/linux/swapops.h:        if (pte_swp_exclusive(pte))
+mm/debug_vm_pgtable.c:  WARN_ON(pte_swp_exclusive(pte));
+mm/debug_vm_pgtable.c:  WARN_ON(!pte_swp_exclusive(pte));
+mm/debug_vm_pgtable.c:  WARN_ON(pte_swp_exclusive(pte));
+mm/internal.h:  if (pte_swp_exclusive(pte))
+mm/memory.c:            if (pte_swp_exclusive(orig_pte)) {
+mm/memory.c:            exclusive = pte_swp_exclusive(vmf->orig_pte);
+mm/swapfile.c:          if (pte_swp_exclusive(old_pte))
+mm/userfaultfd.c:               if (!pte_swp_exclusive(orig_src_pte)) {
+
+	Magnus posted patch of that form (see
+https://lore.kernel.org/all/20250218175735.19882-2-linmag7@gmail.com/),
+got no serious objections and then it went nowhere.
+
+	Bug is real and fairly obvious, fix is entirely mechanical and
+affects one line in each asm/pgtable.h out there.  Linus, could you
+run that sed script just before -rc1?  Commit message from the patch refered
+above looks sane:
+
+mm: pgtable: fix pte_swp_exclusive
+
+Make pte_swp_exclusive return bool instead of int. This will better reflect
+how pte_swp_exclusive is actually used in the code. This fixes swap/swapoff
+problems on Alpha due pte_swp_exclusive not returning correct values when
+_PAGE_SWP_EXCLUSIVE bit resides in upper 32-bits of PTE (like on alpha).
+
+Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
 
 
