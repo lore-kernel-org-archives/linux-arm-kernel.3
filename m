@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D99C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 16:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7788C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 16:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQE8+UUe2ZYnyEepFbx8v4Nmdf6XOz4R07wEwqI14eM=; b=CqBipwxnSHnZ4mx7TMLyzdWmRk
-	++qH9Dbq6xLMRmGCgSKhR+Tgt4Lw5AaYH+LUodkT7p961OEybhmETOyF7z2b3wIfksu8Xqmai/aH2
-	llhDiCplAIpmRkW62Uq6vrPK+gTlIrkh5WO7mAJaF7s1z65QowhRJfD9K7HaJ2yNYuCQ1cVxgVWPS
-	T9DegbUbuEQ0DHr5RU4swh8ms4EjrijISiRWzOfsRGQM+eeorih7Ay+6G6z9B+nF5cKQWEkZyNWkG
-	9TtjX2tlLGvAqcEvaLYhd+EzPbSQ7/ukxu3qhaEKV3GFNeRDVHlgdvaboI0G9F8ZFL8eiBcvgIm1F
-	8xkB+83g==;
+	bh=oWnIoYr2mih/zNXcMWddvVTOEpewsuPNZh9QPCO1TMg=; b=xULpfSsasmrCWpLoIJsvx6XJ4Z
+	+sagEgclv18I4B2fm0QvhGGUdF1UCotrCZexOWeGDxQdYZHWkSxhmk6stnF6Lbi4JvRTDzFCGxj+T
+	PHv081GCQsS6VQZ787NDzxIQrvFWJ87YyL+RBFboFH3VvsP8fwnzSCKHp1zgCnRuLslBrZq7nyy5J
+	jHkWr4ma4yhBPA2KnvNNCCZzzMSV/q7bK11FqC9CSdk8Hmk4wcm4j8XM3BurtJBComB4ob39ka50y
+	9VDBYZVPKzKFParu/mnGjcWGClYv6jVW6smGySEaXS6+r7FhFWhXOpotTEMUq4cLjQi9iyzzDIbbg
+	F1Kw5MJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM874-00000007uDb-0ZCf;
-	Mon, 02 Jun 2025 16:34:14 +0000
+	id 1uM89E-00000007uPB-22k2;
+	Mon, 02 Jun 2025 16:36:28 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM7tf-00000007sY9-179L;
-	Mon, 02 Jun 2025 16:20:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1748881210; cv=none; 
+	id 1uM7tp-00000007sb8-1r3b;
+	Mon, 02 Jun 2025 16:20:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1748881216; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=G6T0p2jDHJReVNNbbwnK7DVGNm2ZuIogFNfln3mUQHWbe6eG2+3fDWsPj9mXsrdj7d4erifrvl+U9AdKgfoHLrwZ4ZagdCx33wo6QO6hYCVkmFQlgsKVbFt1d8NHmMYhRKfbZutAiKUHTreQYrFIziXJod5J7yXkxHe3PHXjAcw=
+	b=W6l3S++w7vEUnCDwIz130jxNRRRiFp+AKBUJN1L3+eMEbjmUV0p/u4Tmk3wdEY8NcfgMtbIQSDr8v1JBJZXExEeGKtdD/tLMGQtOcspUxxlZNALgIai6RudRqLtk0FchPLuCqF5QqQnwKD2qPPSfJqICEUlBKdLJNG9BHBTNGcQ=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1748881210; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=JQE8+UUe2ZYnyEepFbx8v4Nmdf6XOz4R07wEwqI14eM=; 
-	b=XKMeF9vu0QBipKEg4RmiG6hkQVYyiYWQoA7S+YpFDvMoWzaBIyD4Ce0YAiJYhqaPlAdWVDeEAJg6t3/Xz2SYkJbPSp+/x3lfYeBlC4NOEpBOCPp4PdBy7rKCCLjZ8TuqfZhi7BF5Xw9wUyNeQnwjZZcFVzkiIEyGy3h8jVmttig=
+	t=1748881216; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=oWnIoYr2mih/zNXcMWddvVTOEpewsuPNZh9QPCO1TMg=; 
+	b=I/UY94b2FzxEFpjwk2+pBnJuVVluXH6SJxv+37hxZ1X7akl8IZaaZT3a1n5UEalWnCG5sFioOO7u/OiZ4c/lUh4wl8huaZZ48vIcmxDby8bJWt31KXxxf+d45Y4QmaEIpdth3HdnU7+ez3NyEQ3amWwY47pWiJHnUr+imwhH+wY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748881210;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748881216;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=JQE8+UUe2ZYnyEepFbx8v4Nmdf6XOz4R07wEwqI14eM=;
-	b=QzNozrQcLsrnSFqyINI80jNhWX0+r3dZlJ9kIpCq6RAl9osSA1S8yOb/Tme3AcPN
-	/TJeqM+g/q59nH4IL2K6yCslbT5Cm/Z7Fy11Mv4SGaUFS6atM/VhYE92nIBkw0SJvfx
-	+hLcgmoJmc9G6OZRVvMyTizEBEsMcvLfUnxE+DHY=
-Received: by mx.zohomail.com with SMTPS id 1748881208796587.1675568317672;
-	Mon, 2 Jun 2025 09:20:08 -0700 (PDT)
+	bh=oWnIoYr2mih/zNXcMWddvVTOEpewsuPNZh9QPCO1TMg=;
+	b=PK5903lB/eD6zlQC1KfkYx2QQNXgOmRWSXSgNIUIPHoQ6bHuU0mmgkOGhyHC4Luu
+	A6De/zjRd4Z7yT6Pct3j4Ic1cZoNl5gT3jtB3F/Nse3FG/joiXYzkKfP17ua/LV9XbR
+	ETkZ47gTSPyNHXBjM7ep8BBS6dwFA9+jA8aZ6fRI=
+Received: by mx.zohomail.com with SMTPS id 1748881215123789.3118220587755;
+	Mon, 2 Jun 2025 09:20:15 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 02 Jun 2025 18:19:16 +0200
-Subject: [PATCH v2 5/7] pwm: Add rockchip PWMv4 driver
+Date: Mon, 02 Jun 2025 18:19:17 +0200
+Subject: [PATCH v2 6/7] counter: Add rockchip-pwm-capture driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250602-rk3576-pwm-v2-5-a6434b0ce60c@collabora.com>
+Message-Id: <20250602-rk3576-pwm-v2-6-a6434b0ce60c@collabora.com>
 References: <20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com>
 In-Reply-To: <20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -75,8 +75,8 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_092023_381235_9F306F8B 
-X-CRM114-Status: GOOD (  33.61  )
+X-CRM114-CacheID: sfid-20250602_092033_558581_233BF64E 
+X-CRM114-Status: GOOD (  37.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,451 +91,444 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3576 brings with it a new PWM IP, in downstream code
-referred to as "v4". This new IP is different enough from the previous
-Rockchip IP that I felt it necessary to add a new driver for it, instead
-of shoehorning it in the old one.
+Among many other things, Rockchip's new PWMv4 IP in the RK3576 supports
+PWM capture functionality.
 
-Add this new driver, based on the PWM core's waveform APIs. Its platform
-device is registered by the parent mfpwm driver, from which it also
-receives a little platform data struct, so that mfpwm can guarantee that
-all the platform device drivers spread across different subsystems for
-this specific hardware IP do not interfere with each other.
+Add a basic driver for this that works to capture period and duty cycle
+values and return them as nanoseconds to the user. It's quite basic, but
+works well enough to demonstrate the device function exclusion stuff
+that mfpwm does, in order to eventually support all the functions of
+this device in drivers within their appropriate subsystems, without them
+interfering with each other.
+
+Once enabled, the counter driver waits for enough high-to-low and
+low-to-high interrupt signals to arrive, and then writes the cycle count
+register values into some atomic members of the driver instance's state
+struct. The read callback can then do the conversion from cycle count to
+the more useful period and duty cycle nanosecond values, which require
+knowledge of the clock rate, which requires a call that the interrupt
+handler cannot make itself because said call may sleep.
+
+To detect the condition of a PWM signal disappearing, i.e. turning off,
+we modify the delay value of a delayed worker whose job it is to simply
+set those atomic members to zero. Should the "timeout" so to speak be
+reached, we assume the PWM signal is off. This isn't perfect; it
+obviously introduces a latency between it being off and the counter
+reporting it as such. Because there isn't a way to reset the internal
+double-buffered cycle count in the hardware, we filter out unreliable
+periods above the timeout value in the counter read callback.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- MAINTAINERS                   |   1 +
- drivers/pwm/Kconfig           |  13 ++
- drivers/pwm/Makefile          |   1 +
- drivers/pwm/pwm-rockchip-v4.c | 372 ++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 387 insertions(+)
+ MAINTAINERS                            |   1 +
+ drivers/counter/Kconfig                |  13 ++
+ drivers/counter/Makefile               |   1 +
+ drivers/counter/rockchip-pwm-capture.c | 352 +++++++++++++++++++++++++++++++++
+ 4 files changed, 367 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 39177b52be34d48967075b4f5983365725e9c055..0014af1cbd3a7729a04bfdd0b0ed50e9df425693 100644
+index 0014af1cbd3a7729a04bfdd0b0ed50e9df425693..9690f00053df17f8459aa2c6c8f0c62c6a25107e 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
 @@ -21424,6 +21424,7 @@ L:	linux-rockchip@lists.infradead.org
  L:	linux-pwm@vger.kernel.org
  S:	Maintained
  F:	Documentation/devicetree/bindings/pwm/rockchip,rk3576-pwm.yaml
-+F:	drivers/pwm/pwm-rockchip-v4.c
++F:	drivers/counter/rockchip-pwm-capture.c
+ F:	drivers/pwm/pwm-rockchip-v4.c
  F:	drivers/soc/rockchip/mfpwm.c
  F:	include/soc/rockchip/mfpwm.h
+diff --git a/drivers/counter/Kconfig b/drivers/counter/Kconfig
+index d30d22dfe57741b145a45632b6325d5f9680590e..01b4f5c326478c73b518041830ee0d65b37f6833 100644
+--- a/drivers/counter/Kconfig
++++ b/drivers/counter/Kconfig
+@@ -90,6 +90,19 @@ config MICROCHIP_TCB_CAPTURE
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called microchip-tcb-capture.
  
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index d9bcd1e8413eaed1602d6686873e263767c58f5f..903138128bca910276fe16efc28f55d05657e385 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -586,6 +586,19 @@ config PWM_ROCKCHIP
- 	  Generic PWM framework driver for the PWM controller found on
- 	  Rockchip SoCs.
- 
-+config PWM_ROCKCHIP_V4
-+	tristate "Rockchip PWM v4 support"
++config ROCKCHIP_PWM_CAPTURE
++	tristate "Rockchip PWM Counter Capture driver"
 +	depends on ARCH_ROCKCHIP || COMPILE_TEST
 +	depends on ROCKCHIP_MFPWM
 +	depends on HAS_IOMEM
 +	help
-+	  Generic PWM framework driver for the PWM controller found on
-+	  later Rockchip SoCs such as the RK3576.
++	  Generic counter framework driver for the multi-function PWM on
++	  Rockchip SoCs such as the RK3576.
 +
 +	  Uses the Rockchip Multi-function PWM controller driver infrastructure
-+	  to guarantee fearlessly concurrent operation with other functions of
-+	  the same device implemented by drivers in other subsystems.
++	  to guarantee exclusive operation with other functions of the same
++	  device implemented by drivers in other subsystems.
 +
- config PWM_SAMSUNG
- 	tristate "Samsung PWM support"
- 	depends on PLAT_SAMSUNG || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 96160f4257fcb0e0951581af0090615c0edf5260..c03083de5dbf38d68caee6b7e089ddaa235b538b 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -53,6 +53,7 @@ obj-$(CONFIG_PWM_RENESAS_RZG2L_GPT)	+= pwm-rzg2l-gpt.o
- obj-$(CONFIG_PWM_RENESAS_RZ_MTU3)	+= pwm-rz-mtu3.o
- obj-$(CONFIG_PWM_RENESAS_TPU)	+= pwm-renesas-tpu.o
- obj-$(CONFIG_PWM_ROCKCHIP)	+= pwm-rockchip.o
-+obj-$(CONFIG_PWM_ROCKCHIP_V4)	+= pwm-rockchip-v4.o
- obj-$(CONFIG_PWM_SAMSUNG)	+= pwm-samsung.o
- obj-$(CONFIG_PWM_SIFIVE)	+= pwm-sifive.o
- obj-$(CONFIG_PWM_SL28CPLD)	+= pwm-sl28cpld.o
-diff --git a/drivers/pwm/pwm-rockchip-v4.c b/drivers/pwm/pwm-rockchip-v4.c
+ config RZ_MTU3_CNT
+ 	tristate "Renesas RZ/G2L MTU3a counter driver"
+ 	depends on RZ_MTU3
+diff --git a/drivers/counter/Makefile b/drivers/counter/Makefile
+index fa3c1d08f7068835aa912aa13bc92bcfd44d16fb..2bfcfc2c584bd174a9885064746a98f15b204aec 100644
+--- a/drivers/counter/Makefile
++++ b/drivers/counter/Makefile
+@@ -17,3 +17,4 @@ obj-$(CONFIG_FTM_QUADDEC)	+= ftm-quaddec.o
+ obj-$(CONFIG_MICROCHIP_TCB_CAPTURE)	+= microchip-tcb-capture.o
+ obj-$(CONFIG_INTEL_QEP)		+= intel-qep.o
+ obj-$(CONFIG_TI_ECAP_CAPTURE)	+= ti-ecap-capture.o
++obj-$(CONFIG_ROCKCHIP_PWM_CAPTURE)	+= rockchip-pwm-capture.o
+diff --git a/drivers/counter/rockchip-pwm-capture.c b/drivers/counter/rockchip-pwm-capture.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..9af71e79c2c7e006e805604fb66b4448ab5ecbc4
+index 0000000000000000000000000000000000000000..03fe9cf32e7f273c0091c4743642eda6bee76222
 --- /dev/null
-+++ b/drivers/pwm/pwm-rockchip-v4.c
-@@ -0,0 +1,372 @@
++++ b/drivers/counter/rockchip-pwm-capture.c
+@@ -0,0 +1,352 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
 + * Copyright (c) 2025 Collabora Ltd.
 + *
-+ * A Pulse-Width-Modulation (PWM) generator driver for the generators found in
-+ * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4". Uses
-+ * the MFPWM infrastructure to guarantee exclusive use over the device without
-+ * other functions of the device from different drivers interfering with its
-+ * operation while it's active.
++ * A counter driver for the Pulse-Width-Modulation (PWM) hardware found on
++ * Rockchip SoCs such as the RK3576, internally referred to as "PWM v4". It
++ * allows for measuring the period and duty cycle in nanoseconds through the
++ * generic counter framework, while guaranteeing exclusive use over the MFPWM
++ * device while the counter is enabled.
 + *
 + * Authors:
 + *     Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-+ *
-+ * Limitations:
-+ * - When the output is disabled, it will end abruptly without letting the
-+ *   current period complete.
-+ *   TODO: This can be fixed in the driver in the future by having the enable-
-+ *         to-disable transition switch to oneshot mode with one repetition,
-+ *         and then disable the pwmclk and release mfpwm when the oneshot
-+ *         complete interrupt fires.
-+ * - When the output is disabled, the pin will remain driven to whatever state
-+ *   it last had.
-+ * - Adjustments to the duty cycle will only take effect during the next period.
-+ * - Adjustments to the period length will only take effect during the next
-+ *   period.
 + */
 +
++#include <linux/cleanup.h>
++#include <linux/counter.h>
++#include <linux/devm-helpers.h>
++#include <linux/interrupt.h>
 +#include <linux/math64.h>
++#include <linux/mod_devicetable.h>
 +#include <linux/platform_device.h>
-+#include <linux/pwm.h>
++#include <linux/spinlock.h>
++#include <linux/workqueue.h>
 +#include <soc/rockchip/mfpwm.h>
 +
-+struct rockchip_pwm_v4 {
++#define RKPWMC_INT_MASK			(PWMV4_INT_LPC | PWMV4_INT_HPC)
++/*
++ * amount of jiffies between no PWM signal change and us deciding PWM is off.
++ * PWM signals with a period longer than this won't be detected by us, which is
++ * the trade-off we make to have a faster response time when a signal is turned
++ * off.
++ */
++#define RKPWMC_CLEAR_DELAY		(max(msecs_to_jiffies(100), 1))
++
++struct rockchip_pwm_capture {
 +	struct rockchip_mfpwm_func *pwmf;
-+	struct pwm_chip chip;
++	bool is_enabled;
++	spinlock_t enable_lock;
++	atomic_t lpc;
++	atomic_t hpc;
++	atomic_t captures_left;
++	struct delayed_work clear_capture;
 +};
 +
-+struct rockchip_pwm_v4_wf {
-+	u32 period;
-+	u32 duty;
-+	u32 offset;
-+	u8 enable;
++static struct counter_signal rkpwmc_signals[] = {
++	{
++		.id = 0,
++		.name = "Channel 1"
++	},
 +};
 +
-+static inline struct rockchip_pwm_v4 *to_rockchip_pwm_v4(struct pwm_chip *chip)
++static const enum counter_synapse_action rkpwmc_hpc_lpc_actions[] = {
++	COUNTER_SYNAPSE_ACTION_BOTH_EDGES,
++
++};
++
++static struct counter_synapse rkpwmc_pwm_synapses[] = {
++	{
++		.actions_list = rkpwmc_hpc_lpc_actions,
++		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
++		.signal = &rkpwmc_signals[0]
++	},
++};
++
++static const enum counter_function rkpwmc_functions[] = {
++	COUNTER_FUNCTION_INCREASE,
++};
++
++static int rkpwmc_enable_read(struct counter_device *counter,
++			       struct counter_count *count,
++			       u8 *enable)
 +{
-+	return pwmchip_get_drvdata(chip);
-+}
++	struct rockchip_pwm_capture *pc = counter_priv(counter);
 +
-+/**
-+ * rockchip_pwm_v4_round_single - convert a PWM parameter to hardware
-+ * @rate: clock rate of the PWM clock, as per clk_get_rate
-+ * @in_val: parameter in nanoseconds to convert
-+ * @out_val: pointer to location where converted result should be stored.
-+ *
-+ * Return:
-+ * * %0          - Success
-+ * * %-EOVERFLOW - Result too large for target type
-+ */
-+static int rockchip_pwm_v4_round_single(unsigned long rate, u64 in_val,
-+					u32 *out_val)
-+{
-+	u64 tmp;
++	guard(spinlock)(&pc->enable_lock);
 +
-+	tmp = mul_u64_u64_div_u64(rate, in_val, NSEC_PER_SEC);
-+	if (tmp > U32_MAX)
-+		return -EOVERFLOW;
-+
-+	*out_val = tmp;
++	*enable = pc->is_enabled;
 +
 +	return 0;
 +}
 +
-+/**
-+ * rockchip_pwm_v4_round_params - convert PWM parameters to hardware
-+ * @rate: PWM clock rate to do the calculations at
-+ * @duty: PWM duty cycle in nanoseconds
-+ * @period: PWM period in nanoseconds
-+ * @offset: PWM offset in nanoseconds
-+ * @out_duty: pointer to where the rounded duty value should be stored
-+ * @out_period: pointer to where the rounded period value should be stored
-+ * @out_offset: pointer to where the rounded offset value should be stored
-+ *
-+ * Convert nanosecond-based duty/period/offset parameters to the PWM hardware's
-+ * native rounded representation in number of cycles at clock rate @rate. Should
-+ * any of the input parameters be out of range for the hardware, the
-+ * corresponding output parameter is the maximum permissible value for said
-+ * parameter with considerations to the others.
-+ */
-+static void rockchip_pwm_v4_round_params(unsigned long rate, u64 duty,
-+					u64 period, u64 offset, u32 *out_duty,
-+					u32 *out_period, u32 *out_offset)
++static int rkpwmc_enable_write(struct counter_device *counter,
++			       struct counter_count *count,
++			       u8 enable)
 +{
++	struct rockchip_pwm_capture *pc = counter_priv(counter);
 +	int ret;
 +
-+	ret = rockchip_pwm_v4_round_single(rate, period, out_period);
-+	if (ret)
-+		*out_period = U32_MAX;
++	guard(spinlock)(&pc->enable_lock);
 +
-+	ret = rockchip_pwm_v4_round_single(rate, duty, out_duty);
-+	if (ret || *out_duty > *out_period)
-+		*out_duty = *out_period;
++	if (!!enable != pc->is_enabled) {
++		ret = mfpwm_acquire(pc->pwmf);
++		if (ret)
++			return ret;
 +
-+	ret = rockchip_pwm_v4_round_single(rate, offset, out_offset);
-+	if (ret || *out_offset > (*out_period - *out_duty))
-+		*out_offset = *out_period - *out_duty;
-+}
++		if (enable) {
++			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
++					 PWMV4_EN(false));
++			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_CTRL,
++					 PWMV4_CTRL_CAP_FLAGS);
++			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_INT_EN,
++					 PWMV4_INT_LPC_W(true) |
++					 PWMV4_INT_HPC_W(true));
++			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
++					 PWMV4_EN(true) | PWMV4_CLK_EN(true));
 +
-+static int rockchip_pwm_v4_round_wf_tohw(struct pwm_chip *chip,
-+					 struct pwm_device *pwm,
-+					 const struct pwm_waveform *wf,
-+					 void *_wfhw)
-+{
-+	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-+	struct rockchip_pwm_v4_wf *wfhw = _wfhw;
-+	unsigned long rate;
-+	int ret;
-+
-+	/* We do not want chosen_clk to change out from under us here */
-+	ret = mfpwm_acquire(pc->pwmf);
-+	if (ret)
-+		return ret;
-+
-+	rate = clk_get_rate(pc->pwmf->core);
-+
-+	rockchip_pwm_v4_round_params(rate, wf->duty_length_ns,
-+				     wf->period_length_ns, wf->duty_offset_ns,
-+				     &wfhw->duty, &wfhw->period, &wfhw->offset);
-+
-+	if (wf->period_length_ns > 0)
-+		wfhw->enable = PWMV4_EN_BOTH_MASK;
-+	else
-+		wfhw->enable = 0;
-+
-+	dev_dbg(&chip->dev, "tohw: duty = %u, period = %u, offset = %u, rate %lu\n",
-+		wfhw->duty, wfhw->period, wfhw->offset, rate);
-+
-+	mfpwm_release(pc->pwmf);
-+	return 0;
-+}
-+
-+static int rockchip_pwm_v4_round_wf_fromhw(struct pwm_chip *chip,
-+					   struct pwm_device *pwm,
-+					   const void *_wfhw,
-+					   struct pwm_waveform *wf)
-+{
-+	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-+	const struct rockchip_pwm_v4_wf *wfhw = _wfhw;
-+	unsigned long rate;
-+	int ret = 0;
-+
-+	/* We do not want chosen_clk to change out from under us here */
-+	ret = mfpwm_acquire(pc->pwmf);
-+	if (ret)
-+		return ret;
-+
-+	rate = clk_get_rate(pc->pwmf->core);
-+
-+	if (rockchip_pwm_v4_is_enabled(wfhw->enable)) {
-+		if (!rate) {
-+			ret = -EINVAL;
-+			goto out_mfpwm_release;
-+		}
-+		wf->period_length_ns = mul_u64_u64_div_u64(wfhw->period, NSEC_PER_SEC, rate);
-+		wf->duty_length_ns = mul_u64_u64_div_u64(wfhw->duty, NSEC_PER_SEC, rate);
-+		wf->duty_offset_ns = mul_u64_u64_div_u64(wfhw->offset, NSEC_PER_SEC, rate);
-+	} else {
-+		wf->period_length_ns = 0;
-+		wf->duty_length_ns = 0;
-+		wf->duty_offset_ns = 0;
-+	}
-+
-+	dev_dbg(&chip->dev, "fromhw: duty = %llu, period = %llu, offset = %llu, rate = %lu\n",
-+		wf->duty_length_ns, wf->period_length_ns, wf->duty_offset_ns, rate);
-+
-+out_mfpwm_release:
-+	mfpwm_release(pc->pwmf);
-+	return ret;
-+}
-+
-+static int rockchip_pwm_v4_read_wf(struct pwm_chip *chip, struct pwm_device *pwm,
-+				   void *_wfhw)
-+{
-+	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-+	struct rockchip_pwm_v4_wf *wfhw = _wfhw;
-+	int ret = 0;
-+
-+
-+	ret = mfpwm_acquire(pc->pwmf);
-+	if (ret)
-+		return ret;
-+
-+	wfhw->period = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_PERIOD);
-+	wfhw->duty = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_DUTY);
-+	wfhw->offset = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_OFFSET);
-+	wfhw->enable = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_ENABLE) & PWMV4_EN_BOTH_MASK;
-+
-+	mfpwm_release(pc->pwmf);
-+
-+	return 0;
-+}
-+
-+static int rockchip_pwm_v4_write_wf(struct pwm_chip *chip, struct pwm_device *pwm,
-+				    const void *_wfhw)
-+{
-+	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
-+	const struct rockchip_pwm_v4_wf *wfhw = _wfhw;
-+	bool was_enabled = false;
-+	int ret = 0;
-+
-+	ret = mfpwm_acquire(pc->pwmf);
-+	if (ret)
-+		return ret;
-+
-+	was_enabled = rockchip_pwm_v4_is_enabled(mfpwm_reg_read(pc->pwmf->base,
-+								PWMV4_REG_ENABLE));
-+
-+	/*
-+	 * "But Nicolas", you ask with valid concerns, "why would you enable the
-+	 * PWM before setting all the parameter registers?"
-+	 *
-+	 * Excellent question, Mr. Reader M. Strawman! The RK3576 TRM Part 1
-+	 * Section 34.6.3 specifies that this is the intended order of writes.
-+	 * Doing the PWM_EN and PWM_CLK_EN writes after the params but before
-+	 * the CTRL_UPDATE_EN, or even after the CTRL_UPDATE_EN, results in
-+	 * erratic behaviour where repeated turning on and off of the PWM may
-+	 * not turn it off under all circumstances. This is also why we don't
-+	 * use relaxed writes; it's not worth the footgun.
-+	 */
-+	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-+			FIELD_PREP_HI16_WE(PWMV4_EN_BOTH_MASK, wfhw->enable));
-+
-+	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_PERIOD, wfhw->period);
-+	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_DUTY, wfhw->duty);
-+	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_OFFSET, wfhw->offset);
-+
-+	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_CTRL, PWMV4_CTRL_CONT_FLAGS);
-+
-+	/* Commit new configuration to hardware output. */
-+	mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
-+			PWMV4_CTRL_UPDATE_EN);
-+
-+	if (rockchip_pwm_v4_is_enabled(wfhw->enable)) {
-+		if (!was_enabled) {
-+			dev_dbg(&chip->dev, "enabling PWM output\n");
 +			ret = clk_enable(pc->pwmf->core);
 +			if (ret)
-+				goto err_mfpwm_release;
-+			ret = clk_rate_exclusive_get(pc->pwmf->core);
-+			if (ret) {
-+				clk_disable(pc->pwmf->core);
-+				goto err_mfpwm_release;
-+			}
++				goto err_release;
 +
-+			/*
-+			 * Output should be on now, acquire device to guarantee
-+			 * exclusion with other device functions while it's on.
-+			 */
++			ret = clk_rate_exclusive_get(pc->pwmf->core);
++			if (ret)
++				goto err_disable_pwm_clk;
++
 +			ret = mfpwm_acquire(pc->pwmf);
 +			if (ret)
-+				goto err_mfpwm_release;
++				goto err_unprotect_pwm_clk;
++
++			atomic_set(&pc->captures_left, 4);
++			pc->is_enabled = true;
++		} else {
++			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_INT_EN,
++					 PWMV4_INT_LPC_W(false) |
++					 PWMV4_INT_HPC_W(false));
++			mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_ENABLE,
++					 PWMV4_EN(false) | PWMV4_CLK_EN(false));
++			/*
++			 * Do not use cancel_delayed_work here unless you want
++			 * to cause the interrupt handler, which may still be
++			 * running at this point, to stall. Similarly, don't do
++			 * flush_delayed_work since it may sleep.
++			 */
++			mod_delayed_work(system_bh_wq, &pc->clear_capture, 0);
++			clk_rate_exclusive_put(pc->pwmf->core);
++			clk_disable(pc->pwmf->core);
++			pc->is_enabled = false;
++			mfpwm_release(pc->pwmf);
 +		}
-+	} else if (was_enabled) {
-+		dev_dbg(&chip->dev, "disabling PWM output\n");
-+		clk_rate_exclusive_put(pc->pwmf->core);
-+		clk_disable(pc->pwmf->core);
-+		/* Output is off now, extra release to balance extra acquire */
++
 +		mfpwm_release(pc->pwmf);
 +	}
 +
-+err_mfpwm_release:
++	return 0;
++
++err_unprotect_pwm_clk:
++	clk_rate_exclusive_put(pc->pwmf->core);
++err_disable_pwm_clk:
++	clk_disable(pc->pwmf->core);
++err_release:
 +	mfpwm_release(pc->pwmf);
 +
 +	return ret;
 +}
 +
-+static const struct pwm_ops rockchip_pwm_v4_ops = {
-+	.sizeof_wfhw = sizeof(struct rockchip_pwm_v4_wf),
-+	.round_waveform_tohw = rockchip_pwm_v4_round_wf_tohw,
-+	.round_waveform_fromhw = rockchip_pwm_v4_round_wf_fromhw,
-+	.read_waveform = rockchip_pwm_v4_read_wf,
-+	.write_waveform = rockchip_pwm_v4_write_wf,
++static struct counter_comp rkpwmc_ext[] = {
++	COUNTER_COMP_ENABLE(rkpwmc_enable_read, rkpwmc_enable_write),
 +};
 +
-+static bool rockchip_pwm_v4_on_and_continuous(struct rockchip_pwm_v4 *pc)
++enum rkpwmc_count_id {
++	COUNT_PERIOD = 0,
++	COUNT_DUTY = 1,
++};
++
++static struct counter_count rkpwmc_counts[] = {
++	{
++		.id = COUNT_PERIOD,
++		.name = "Period in nanoseconds",
++		.functions_list = rkpwmc_functions,
++		.num_functions = ARRAY_SIZE(rkpwmc_functions),
++		.synapses = rkpwmc_pwm_synapses,
++		.num_synapses = ARRAY_SIZE(rkpwmc_pwm_synapses),
++		.ext = rkpwmc_ext,
++		.num_ext = ARRAY_SIZE(rkpwmc_ext),
++	},
++	{
++		.id = COUNT_DUTY,
++		.name = "Duty cycle in nanoseconds",
++		.functions_list = rkpwmc_functions,
++		.num_functions = ARRAY_SIZE(rkpwmc_functions),
++		.synapses = rkpwmc_pwm_synapses,
++		.num_synapses = ARRAY_SIZE(rkpwmc_pwm_synapses),
++		.ext = rkpwmc_ext,
++		.num_ext = ARRAY_SIZE(rkpwmc_ext),
++	},
++};
++
++static int rkpwmc_count_read(struct counter_device *counter,
++			     struct counter_count *count, u64 *value)
 +{
-+	bool en;
-+	u32 val;
++	struct rockchip_pwm_capture *pc = counter_priv(counter);
++	unsigned long rate;
++	u64 period;
++	u64 lpc;
++	u64 hpc;
++	int ret = 0;
 +
-+	en = rockchip_pwm_v4_is_enabled(mfpwm_reg_read(pc->pwmf->base,
-+						       PWMV4_REG_ENABLE));
-+	val = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_CTRL);
++	if (count->id != COUNT_PERIOD && count->id != COUNT_DUTY)
++		return -EINVAL;
 +
-+	return en && ((val & PWMV4_MODE_MASK) == PWMV4_MODE_CONT);
-+}
++	ret = mfpwm_acquire(pc->pwmf);
++	if (ret)
++		return ret;
 +
-+static int rockchip_pwm_v4_probe(struct platform_device *pdev)
-+{
-+	struct rockchip_mfpwm_func *pwmf = dev_get_platdata(&pdev->dev);
-+	struct rockchip_pwm_v4 *pc;
-+	struct pwm_chip *chip;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	chip = devm_pwmchip_alloc(dev, 1, sizeof(*pc));
-+	if (IS_ERR(chip))
-+		return PTR_ERR(chip);
-+
-+	pc = to_rockchip_pwm_v4(chip);
-+	pc->pwmf = pwmf;
-+
-+	ret = mfpwm_acquire(pwmf);
-+	if (ret == -EBUSY)
-+		dev_warn(dev, "pwm hardware already in use, can't check initial state\n");
-+	else if (ret < 0)
-+		return dev_err_probe(dev, ret, "couldn't acquire mfpwm in probe\n");
-+
-+	if (!rockchip_pwm_v4_on_and_continuous(pc))
-+		mfpwm_release(pwmf);
-+	else {
-+		dev_dbg(dev, "pwm was already on at probe time\n");
-+		ret = clk_enable(pwmf->core);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "enabling pwm clock failed\n");
-+		ret = clk_rate_exclusive_get(pc->pwmf->core);
-+		if (ret) {
-+			clk_disable(pwmf->core);
-+			return dev_err_probe(dev, ret, "protecting pwm clock failed\n");
-+		}
++	rate = clk_get_rate(pc->pwmf->core);
++	if (!rate) {
++		ret = -EINVAL;
++		goto out_release;
 +	}
 +
-+	platform_set_drvdata(pdev, chip);
++	hpc = (u32) atomic_read(&pc->hpc);
++	lpc = (u32) atomic_read(&pc->lpc);
++	period = mul_u64_u64_div_u64(hpc + lpc, NSEC_PER_SEC, rate);
 +
-+	chip->ops = &rockchip_pwm_v4_ops;
++	if (period > jiffies_to_msecs(RKPWMC_CLEAR_DELAY) * NSEC_PER_MSEC) {
++		*value = 0;
++		goto out_release;
++	}
 +
-+	ret = pwmchip_add(chip);
++	if (count->id == COUNT_PERIOD)
++		*value = period;
++	else
++		*value = mul_u64_u64_div_u64(hpc, NSEC_PER_SEC, rate);
++
++out_release:
++	mfpwm_release(pc->pwmf);
++
++	return ret;
++}
++
++static const struct counter_ops rkpwmc_ops = {
++	.count_read = rkpwmc_count_read,
++};
++
++static irqreturn_t rkpwmc_irq_handler(int irq, void *data)
++{
++	struct rockchip_pwm_capture *pc = data;
++	u32 intsts;
++	u32 clr = 0;
++	u32 lpc;
++	u32 hpc;
++
++	intsts = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_INTSTS);
++
++	if (!(intsts & RKPWMC_INT_MASK))
++		return IRQ_NONE;
++
++	if (intsts & PWMV4_INT_LPC) {
++		clr |= PWMV4_INT_LPC;
++		atomic_dec_if_positive(&pc->captures_left);
++	}
++
++	if (intsts & PWMV4_INT_HPC) {
++		clr |= PWMV4_INT_HPC;
++		atomic_dec_if_positive(&pc->captures_left);
++	}
++
++	/* After 4 interrupts, reset to 4 captures left and read the regs */
++	if (!atomic_cmpxchg(&pc->captures_left, 0, 4)) {
++		lpc = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_LPC);
++		hpc = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_HPC);
++
++		atomic_set(&pc->lpc, lpc);
++		atomic_set(&pc->hpc, hpc);
++		mod_delayed_work(system_bh_wq, &pc->clear_capture,
++				 RKPWMC_CLEAR_DELAY);
++	}
++
++	if (clr)
++		mfpwm_reg_write(pc->pwmf->base, PWMV4_REG_INTSTS, clr);
++
++	if (intsts ^ clr)
++		return IRQ_NONE;
++
++	return IRQ_HANDLED;
++}
++
++static void rkpwmc_clear_capture_worker(struct work_struct *work)
++{
++	struct rockchip_pwm_capture *pc = container_of(
++		work, struct rockchip_pwm_capture, clear_capture.work);
++
++	atomic_set(&pc->hpc, 0);
++	atomic_set(&pc->lpc, 0);
++}
++
++static int rockchip_pwm_capture_probe(struct platform_device *pdev)
++{
++	struct rockchip_mfpwm_func *pwmf = dev_get_platdata(&pdev->dev);
++	struct rockchip_pwm_capture *pc;
++	struct counter_device *counter;
++	int ret;
++
++	counter = devm_counter_alloc(&pdev->dev, sizeof(*pc));
++	if (IS_ERR(counter))
++		return PTR_ERR(counter);
++
++	pc = counter_priv(counter);
++	pc->pwmf = pwmf;
++	spin_lock_init(&pc->enable_lock);
++
++	platform_set_drvdata(pdev, pc);
++
++	ret = devm_request_irq(&pdev->dev, pwmf->irq, rkpwmc_irq_handler,
++			       IRQF_SHARED, pdev->name, pc);
 +	if (ret)
-+		return dev_err_probe(dev, ret, "failed to add PWM chip\n");
++		return dev_err_probe(&pdev->dev, ret, "Failed requesting IRQ\n");
++
++	ret = devm_delayed_work_autocancel(&pdev->dev, &pc->clear_capture,
++					   rkpwmc_clear_capture_worker);
++
++	counter->name = pdev->name;
++	counter->signals = rkpwmc_signals;
++	counter->num_signals = ARRAY_SIZE(rkpwmc_signals);
++	counter->ops = &rkpwmc_ops;
++	counter->counts = rkpwmc_counts;
++	counter->num_counts = ARRAY_SIZE(rkpwmc_counts);
++
++	ret = devm_counter_add(&pdev->dev, counter);
++	if (ret < 0)
++		return dev_err_probe(&pdev->dev, ret, "Failed to add counter\n");
 +
 +	return 0;
 +}
 +
-+static void rockchip_pwm_v4_remove(struct platform_device *pdev)
++static void rockchip_pwm_capture_remove(struct platform_device *pdev)
 +{
-+	struct pwm_chip *chip = platform_get_drvdata(pdev);
-+	struct rockchip_pwm_v4 *pc = to_rockchip_pwm_v4(chip);
++	struct rockchip_mfpwm_func *pwmf = dev_get_platdata(&pdev->dev);
 +
-+	mfpwm_remove_func(pc->pwmf);
-+
-+	pwmchip_remove(chip);
++	mfpwm_remove_func(pwmf);
 +}
 +
-+static const struct platform_device_id rockchip_pwm_v4_ids[] = {
-+	{ .name = "pwm-rockchip-v4", },
-+	{ /* sentinel */ }
++static const struct platform_device_id rockchip_pwm_capture_id_table[] = {
++	{ .name = "rockchip-pwm-capture", },
++	{ /* sentinel */ },
 +};
-+MODULE_DEVICE_TABLE(platform, rockchip_pwm_v4_ids);
++MODULE_DEVICE_TABLE(platform, rockchip_pwm_capture_id_table);
 +
-+static struct platform_driver rockchip_pwm_v4_driver = {
-+	.probe = rockchip_pwm_v4_probe,
-+	.remove = rockchip_pwm_v4_remove,
++static struct platform_driver rockchip_pwm_capture_driver = {
++	.probe = rockchip_pwm_capture_probe,
++	.remove = rockchip_pwm_capture_remove,
++	.id_table = rockchip_pwm_capture_id_table,
 +	.driver = {
-+		.name = "pwm-rockchip-v4",
++		.name = "rockchip-pwm-capture",
 +	},
-+	.id_table = rockchip_pwm_v4_ids,
 +};
-+module_platform_driver(rockchip_pwm_v4_driver);
++module_platform_driver(rockchip_pwm_capture_driver);
 +
 +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
-+MODULE_DESCRIPTION("Rockchip PWMv4 Driver");
++MODULE_DESCRIPTION("Rockchip PWM Counter Capture Driver");
 +MODULE_LICENSE("GPL");
 +MODULE_IMPORT_NS("ROCKCHIP_MFPWM");
++MODULE_IMPORT_NS("COUNTER");
 
 -- 
 2.49.0
