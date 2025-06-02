@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8836DC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 13:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C49CC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 13:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OeCptTjPKh8QeRV4pdJDx4/jefk8Ts/mxlP4WhX90Is=; b=kkaGl9jg6F8XtaAxGUaiYB6FIJ
-	xziCsd+1xGnvFYBECHw1+r2ANF7XKxLIxiY+x2QxbFP225SAmOCcXYLTnAB4Ioa1E0UIjm2TTzsgL
-	DExxwcxvDMLpMxNjvUF4t0BUncKDVEfDGwAcLeNb0WX63afVSfHGqigQlV5ls9lNR3BUhEoF4lz1w
-	gsHNqkjqeZJyQJ4xzAJljB2N1u4Ep0p6WdToPgHtHbXhSpv6Op8rcQ+rzlxyWRpi89ZLVjrE+bwe0
-	LnX1XxMvLKfbc1Nqa3yBQyOFKzWvTQ19BX3kHgAZPcc2H0EQDqiGEJW76bkozDC+lOJ/I/2FUvI37
-	CIrDZ7nw==;
+	bh=E1cuuSDD0L1AIZRN0fV0CPGwiXApLnZufFUbnx7EgrI=; b=zMm8AvGISPPaHMnjPsl+oYsIj3
+	CskurG4e/h5QsoRig4l05FlKGk0iE6/6D1Yu3Jf3yA6Djas3aWvzPA+puJryIzD9hrtFQy0Hmetle
+	zzMmjAEGT40zLsWOwHxGNKN1M4CXUEehwxPWotcgTpO1Sq+XcCbeXhV2fDj04BdWiVHdMNxQv3faQ
+	hZcme8j30SeV7BbGmklLlSpACgK4HxmAkxx4YH1aicDg75EC3NX9XNLcaMjdNvvN9wMBFNrLuVB37
+	bkYMFKJ3rmDKfuRx9qpXxWtAKhk1qLF5TtfgNgoBl/quUwvOs2gjAVbVvVefC5fS5tJ4ykpb72PQL
+	z8iwerZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM5Uu-00000007VaK-1M4j;
-	Mon, 02 Jun 2025 13:46:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uM5X4-00000007VqM-0T7d;
+	Mon, 02 Jun 2025 13:48:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM5Qa-00000007Uuc-3sgM
+	id 1uM5Qd-00000007UvM-1k6l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 13:42:14 +0000
+	Mon, 02 Jun 2025 13:42:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D0F243B68;
+	by nyc.source.kernel.org (Postfix) with ESMTP id C7D1FA50215;
+	Mon,  2 Jun 2025 13:42:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC62EC4CEF0;
 	Mon,  2 Jun 2025 13:42:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7BD9C4CEF0;
-	Mon,  2 Jun 2025 13:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748871732;
-	bh=9dG7tW+nx7BmDUM0spYhtFYg3g+1VMEPVP91RDY7/ZE=;
+	s=k20201202; t=1748871734;
+	bh=jkYyX5QrYNlPQg4LO+RDwsQSbIqgIsVYqXblJxyQ2+g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hWRAEI7zwHb2ZnqIQ7Gv7GEIlc9q9iw8PRkMqLnpoF7/EW5Y5mcZpWwSBehG1ro7O
-	 V68FvNs5AuiQu0W+YJMIHgm5OIXN0Q9HRuwXHl0jieeFyS3S/+ffsGPXnbDjf8OlH0
-	 K6rJKiuQuO03eeVcXsMoPcXs7JhJ9vo/A1zgT4mOifep1MesQfW3K4v2Gr4AiGDE42
-	 G+r6jAWiqmuUqnEnG4ZgmEetSPk4wzQ6JXkpFUVkfauYp4MRKkb4SAfPXqCL4wV/UJ
-	 QLeE6x3PJE2LTOFcHQchfiUaR/YtlJxDB7diYHO6uaTpemfQaXXuB9ulHZlIQfqhJg
-	 ogTfCg5FR+Ixg==
+	b=VKy5TlQtkXufd3uJ/05+eDCZ0R5k8Ou7xsC+/Pz653VI2YlS/tRp29CGnD80+w5hL
+	 wzYMXkmbBVRu2L1+ikUuYQcXWXjVr83HbEYUHW8N/wMVjOoffiFtRkKfGFFDnoQVZp
+	 3xWex2RIq5wqTP0mqMMkYyiyASfp9lzNE4XVLh/cRkOD7gbT1AAGYESmR5JvzexZTS
+	 4WRTel7zlNyaBJmPgDhh6i7CWkbVrXJ/6jl7L/Lf8r6TyQdbzQZj0QmZHvhmy+zmNz
+	 iNjctu1VWxaNkDHzoAS7ulFokO0JRu/qv8pV0VJrSyp8trW6o1fl/FSEfA3BCPS2WR
+	 9heaNnj8/j3eQ==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb+git@google.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Barry Song <baohua@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Ryan Roberts <ryan.roberts@arm.com>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	llvm@linux.lists.dev,
-	nathan@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH] arm64: Work around convergence issue with LLD linker
-Date: Mon,  2 Jun 2025 14:42:03 +0100
-Message-Id: <174886520058.2940056.14049740503782976267.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] arm64/mm: Close theoretical race where stale TLB entry remains valid
+Date: Mon,  2 Jun 2025 14:42:04 +0100
+Message-Id: <174886573625.2942690.14376639867334964612.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250531123005.3866382-2-ardb+git@google.com>
-References: <20250531123005.3866382-2-ardb+git@google.com>
+In-Reply-To: <20250530152445.2430295-1-ryan.roberts@arm.com>
+References: <20250530152445.2430295-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_064212_982958_5521F7EE 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250602_064215_515223_6D7A0DBE 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 31 May 2025 14:30:05 +0200, Ard Biesheuvel wrote:
-> LLD will occasionally error out with a '__init_end does not converge'
-> error if INIT_IDMAP_DIR_SIZE is defined in terms of _end, as this
-> results in a circular dependency.
+On Fri, 30 May 2025 16:23:47 +0100, Ryan Roberts wrote:
+> Commit 3ea277194daa ("mm, mprotect: flush TLB if potentially racing with
+> a parallel reclaim leaving stale TLB entries") describes a race that,
+> prior to the commit, could occur between reclaim and operations such as
+> mprotect() when using reclaim's tlbbatch mechanism. See that commit for
+> details but the summary is:
 > 
-> Counter this by dimensioning the initial IDMAP page tables based on a
-> new boundary marker 'kimage_limit', and define it such that its value
-> should not change as a result of the initdata segment being pushed over
-> a 64k segment boundary due to changes in INIT_IDMAP_DIR_SIZE, provided
-> that its value doesn't change by more than 2M between linker passes.
+> """
+> Nadav Amit identified a theoritical race between page reclaim and
+> mprotect due to TLB flushes being batched outside of the PTL being held.
 > 
 > [...]
 
 Applied to arm64 (for-next/core), thanks!
 
-[1/1] arm64: Work around convergence issue with LLD linker
-      https://git.kernel.org/arm64/c/dc0a08394804
+[1/1] arm64/mm: Close theoretical race where stale TLB entry remains valid
+      https://git.kernel.org/arm64/c/4b634918384c
 
 Cheers,
 -- 
