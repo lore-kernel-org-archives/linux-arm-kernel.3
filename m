@@ -4,101 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F08C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 15:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD26C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 15:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x1dHqucytNvJE5sOBJHQ1JgixIBWN/66qkZtbhARHsQ=; b=0j6srVkaM2hEjt52EpvhNKLRLa
-	2MNA9vJJU8pP6Sxep88RzUZFusGFa0UpRARMotN73QGW0hHpgbF+Lekf+YmKT+IUDxJJR9hA5SHrM
-	mMtGmtdcY8N0/Vobeh+RK9b0gQ4IVcGhJGtRxhmaQklDjIJa8CFGqV0eRBKEcNbdb+PArn4Qe8wBP
-	1HiW1FOIPNc+xg25bO1MfzpLtDGmL0DNhGAFp8xJyRZlIEysEdlqgKvLF78XQoABZyMZLTxqh5djt
-	hAnZVqepiJwFcT0TyGwue2d4su9aHYxb5fllBE8Oqv/OzySQ2YHOKHf4bgTUZu9ndfWPczXojVr90
-	+sDQYzDg==;
+	bh=wpcQQ15Y0k5oRUqvMRqTrVvm5zgSKMUkw5l0f5bthoQ=; b=f8+rOXoxoUxmhMKiV+wWJn92aD
+	g2+Jh6souyShqgBbzU9EqL+JsfwM0hjWSbOMsrnJY5xSwU4AqnaFWwDBo3ix0TBH8JV4ykD5L/BL/
+	m3WN0AXJm/tBnrbb5g7u7rWp8rF0PFtDkKda2AwMVfS6C5dKagshXHVGw4MeTeyIxTeq8mb/UQ7bx
+	hfA2gg8IhCpI2lUp950nboa79JCiFcwP07JRBIp2uKiG3aU2mgMqg/3zjfwzh8iuGdIDnyMsk4ZYB
+	5TAuL/5vIq0hRQuowyhYaCosaXfb7NbLtOzedw9uzNiSFm5H1ao20waObgs7gMq/WssXUX0744S0t
+	d2VV+0Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM7TD-00000007pI4-09lx;
-	Mon, 02 Jun 2025 15:53:03 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1uM7VM-00000007pbz-39Ay;
+	Mon, 02 Jun 2025 15:55:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM7Ee-00000007mij-0Uo3
+	id 1uM7FM-00000007msz-4BOj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 15:38:01 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-4a4323fe8caso29938421cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Jun 2025 08:37:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1748878678; x=1749483478; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=x1dHqucytNvJE5sOBJHQ1JgixIBWN/66qkZtbhARHsQ=;
-        b=aX0JS/0NtJOzW0yjmpZIFIfdW9q10WWFp037TDMkpZ8W65bEpF/1HdS+wea94Y7tvk
-         kkmHsaSP3FAFJ8BTmmspKhDWGwrVnrMoETCVSDCpLXE6x5e7Emul0kq4NhVor1q1e1Jy
-         ldVv507BW0mXdK548acDsE2TqlnFQy1TbgyYrmismQd/ooz2AraBF7MZZoJ6gz1IdEG5
-         chBICLEXjUo2roxxHlubst2/C/9MZE6q9i1UHG5Jm8gAl5JR37Ce0aZ8GtydlrzJaycb
-         Rnhzs9LLLVDKcFegb5Nl8QexspU+Axl7k+zNOIWFZzvPWnKrxh49gPYKBwGKQOVKNBVh
-         Q6Zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748878678; x=1749483478;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=x1dHqucytNvJE5sOBJHQ1JgixIBWN/66qkZtbhARHsQ=;
-        b=uZmL/pcQ1C4Lb0xjh+NqndsquThDAyhdnpgPNweW9PPcUdcWtArWlaui47lsfy7VoB
-         LyMZYE/m55bJtQSVQhEJLM2zo5Fmc+raWdgGDhxDpR2f5QhBVh22CTQQbrDDnusnWN8M
-         S1K12Sv69MvVfYNgc1EJZgcO2BFRgSni//K+FQcyt6W69rHbku6DwZREUqDF0/Rmbycj
-         uoshqHeYXHBF24wI3vY/47TZGO9P0jCOHpWsgmAjzGTNDaW8nvv8DQyUgmVAxkgGS3km
-         fQRFHqym7/044qoemKbyTCGuo4DC5J5ROiPl93sGJOzPDbbq1j+SU9fAVmk484OKVfF1
-         eE2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV5FAwCYYIS9WiFS4h635rWYpkTfY0/ftyVhoe6VmF12nAMsaImrINwtU0/iUfh65/62iuCmOSCafsgtkir03jN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMN0BDTWPy0kx68Xafx0vgnfEu5CZfLM90WryLMpEqoBqo+WPK
-	Xty4SN44JNZ2EhFGLiJgrGi0ROe4WQEJovb16wcMkCE86+oi6uXiBr0ijWWo5Pi7C1U=
-X-Gm-Gg: ASbGncuWv54+UgliJkRdO9wQn/Vi3scM0v8zdypsP45k3LUOjkdJvbPluTcr/b+zrv3
-	XlozG+fvs7EYeDZNxsRUAv6ySLFOlF6tJy9F7eBHPElhaUQESe3/lTPzrdgQ1fEkbiLJl/wRGWt
-	FNwuWsY2dIeNbDSSKikJw+qMjps95syjhyCE1fW9nb6poEuvq0ECvejRqqalKEYZGJob42uyC5e
-	NMxYCFwsa5jGGT83P9p2WmY5/Sb6E1X8sB4QzqDxNA6QE6Ql+zM2iOCsSIFqyBPwvzF8JaNhNaU
-	CqOfAHgeWCJwtdy5dT+OxC21FgeffP03xSA5SoSk2n7MrE457scLWUBs
-X-Google-Smtp-Source: AGHT+IFAxvbyts/4W1PU88jgJRJyPWsVyM/w1Qedjlhc5oIe8j+5+JXf7JzKMu2VMp0D7TLMJ22XCQ==
-X-Received: by 2002:a05:622a:5598:b0:4a4:3d27:77a0 with SMTP id d75a77b69052e-4a4a5ec583fmr144502391cf.2.1748878677932;
-        Mon, 02 Jun 2025 08:37:57 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:10:5285::5ac? ([2606:6d00:10:5285::5ac])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a435772fb1sm56762721cf.8.2025.06.02.08.37.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Jun 2025 08:37:57 -0700 (PDT)
-Message-ID: <01ee4dbe14917dff1e0d256dde6724f81a23ba4b.camel@ndufresne.ca>
-Subject: Re: [PATCH v6 17/20] media: platform: mtk-mdp3: Use
- cmdq_pkt_jump_rel() without shift_pa
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Jason-JH Lin <jason-jh.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jassi Brar	 <jassisinghbrar@gmail.com>, Chun-Kuang
- Hu <chunkuang.hu@kernel.org>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, Nancy Lin	
- <nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, Paul-PL
- Chen	 <paul-pl.chen@mediatek.com>, Moudy Ho <moudy.ho@mediatek.com>, Xavier
- Chang	 <xavier.chang@mediatek.com>, Xiandong Wang
- <xiandong.wang@mediatek.com>,  Sirius Wang <sirius.wang@mediatek.com>, Fei
- Shao <fshao@chromium.org>, Chen-yu Tsai <wenst@chromium.org>, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, 	linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, 	linux-media@vger.kernel.org
-Date: Mon, 02 Jun 2025 11:37:56 -0400
-In-Reply-To: <20250601173355.1731140-18-jason-jh.lin@mediatek.com>
-References: <20250601173355.1731140-1-jason-jh.lin@mediatek.com>
-	 <20250601173355.1731140-18-jason-jh.lin@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
-MIME-Version: 1.0
+	Mon, 02 Jun 2025 15:38:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 32E875C61BC;
+	Mon,  2 Jun 2025 15:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7FA0C4CEEB;
+	Mon,  2 Jun 2025 15:38:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748878723;
+	bh=IJDZ1hQCAOyA73sAOdBWo1+XIgrBqdEcKZf5fgDiopo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=d0faTVcyXEz4vhADLUaC8q8EBcHEKbkJYBvXw+PQPFVOKkkes3fH44eIk+v7sQ1v5
+	 zs0hTpfSD0eslB8w2jU5jZeR0bFsOHghqd0rhcyoZziF+T2mH4vejqwks8pKW+1FNu
+	 f4gHIRcpYrgQFme3Tk/3dFZ//1kCZILHRiJF4kuDzcJ3bflodWQihx7GxwMZg7Ry/f
+	 TWOYBDkSIVHOs4KNi91Bopy0Zw9aKSY1mF4GTRR9vHrVDfyl0PqT/a8Ghz9RQcG1xz
+	 Qd5BlQDWb6c8Q39xnO7ruR9YcY3oO9GaZCYxSWzz+keJyZkvl9Gr8FRYvN1Vd1Ms1t
+	 7iV0dXDl/kEQg==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uM7FI-002WrR-Vh;
+	Mon, 02 Jun 2025 16:38:41 +0100
+Date: Mon, 02 Jun 2025 16:38:38 +0100
+Message-ID: <87msaqdugx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Itaru Kitayama <itaru.kitayama@linux.dev>
+Cc: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	seanjc@google.com,
+	darren@os.amperecomputing.com
+Subject: Re: [RFC PATCH v2 8/9] KVM: selftests: arm64: Extend kvm_page_table_test to run guest code in vEL2
+In-Reply-To: <aD0+1+aVBrPEeYUl@vm4>
+References: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
+	<20250512105251.577874-9-gankulkarni@os.amperecomputing.com>
+	<aD0+1+aVBrPEeYUl@vm4>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: itaru.kitayama@linux.dev, gankulkarni@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seanjc@google.com, darren@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_083800_386763_BF154AA5 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20250602_083845_120978_791BCCD5 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,76 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, 02 Jun 2025 07:04:07 +0100,
+Itaru Kitayama <itaru.kitayama@linux.dev> wrote:
+> 
+> On Mon, May 12, 2025 at 03:52:50AM -0700, Ganapatrao Kulkarni wrote:
+> > Adding code to run guest_code in vEL2.
+> > NV is enabled using command line argument and it is disabled by default.
+> > 
+> > NV is only enabled on ARM64, for other architectures the test will exit
+> > with an ASSERT, if tried to run with NV enabled.
+> > 
+> 
+> I'm seeing this in QEMU TCG mode, does this mean the limitation of the
+> emulation?
+> 
+> $ sudo /mnt/projects/linux/tools/testing/selftests/kvm/arm64/page_fault_test -m 3 -s anonymous
+> Random seed: 0x6b8b4567
+> ==== Test Assertion Failure ====
+>   arm64/page_fault_test.c:632: test->expected_events.uffd_faults == events.uffd_faults
+>   pid=769 tid=769 errno=9 - Bad file descriptor
+>      1	0x000000000040325b: check_event_counts at page_fault_test.c:632
+>      2	 (inlined by) run_test at page_fault_test.c:739
+>      3	0x0000000000403cbf: for_each_guest_mode at guest_modes.c:96
+>      4	0x0000000000401cfb: for_each_test_and_guest_mode at page_fault_test.c:1107
+>      5	 (inlined by) main at page_fault_test.c:1133
+>      6	0x0000ffff848122db: ?? ??:0
+>      7	0x0000ffff848123bb: ?? ??:0
+>      8	0x0000000000401def: _start at ??:?
+>   0x2 != 0x1 (test->expected_events.uffd_faults != events.uffd_faults)
 
-Le lundi 02 juin 2025 =C3=A0 01:31 +0800, Jason-JH Lin a =C3=A9crit=C2=A0:
-> With the removal of the shift_pa parameter, cmdq_pkt_jump_rel_temp()
-> can be replaced by the new cmdq_pkt_jump_rel() without shift_pa.
->=20
-> Then, remove the cmdq_shift_pa variable in the mdp_dev structure for
-> each mbox client.
->=20
-> Fixes: ade176534112 ("soc: mediatek: cmdq: Add parameter shift_pa to cmdq=
-_pkt_jump()")
-> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
-> ---
-> =C2=A0drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c | 2 +-
-> =C2=A0drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c | 2 --
-> =C2=A0drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h | 1 -
-> =C2=A03 files changed, 1 insertion(+), 4 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c b/drive=
-rs/media/platform/mediatek/mdp3/mtk-mdp3-
-> cmdq.c
-> index 7575ec376367..c35fe0e3a4d5 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
-> @@ -638,7 +638,7 @@ static struct mdp_cmdq_cmd *mdp_cmdq_prepare(struct m=
-dp_dev *mdp,
-> =C2=A0		goto err_free_path;
-> =C2=A0	}
-> =C2=A0	cmdq_pkt_eoc(&cmd->pkt);
-> -	cmdq_pkt_jump_rel_temp(&cmd->pkt, CMDQ_INST_SIZE, mdp->cmdq_shift_pa[pp=
-_idx]);
-> +	cmdq_pkt_jump_rel(&cmd->pkt, CMDQ_INST_SIZE);
+Unlikely. This could be a bug in the test, in KVM, or most likely
+both.  You will have to investigate, I'm afraid.
 
-Did I miss something or this reverts the change made in 15/20 ? I'm also
-unsure if its correct to ask for backports of this with Fixes tag. Isn't th=
-is
-for MT8196, a new board ?
+	M.
 
-Nicolas
-
-> =C2=A0
-> =C2=A0	for (i =3D 0; i < num_comp; i++) {
-> =C2=A0		s32 inner_id =3D MDP_COMP_NONE;
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c b/drive=
-rs/media/platform/mediatek/mdp3/mtk-mdp3-
-> core.c
-> index 8de2c8e4d333..2f8147481bd6 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.c
-> @@ -293,8 +293,6 @@ static int mdp_probe(struct platform_device *pdev)
-> =C2=A0			ret =3D PTR_ERR(mdp->cmdq_clt[i]);
-> =C2=A0			goto err_mbox_destroy;
-> =C2=A0		}
-> -
-> -		mdp->cmdq_shift_pa[i] =3D cmdq_get_shift_pa(mdp->cmdq_clt[i]->chan);
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	init_waitqueue_head(&mdp->callback_wq);
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h b/drive=
-rs/media/platform/mediatek/mdp3/mtk-mdp3-
-> core.h
-> index 05cade1d098e..430251f63754 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-core.h
-> @@ -126,7 +126,6 @@ struct mdp_dev {
-> =C2=A0	u32					id_count;
-> =C2=A0	struct ida				mdp_ida;
-> =C2=A0	struct cmdq_client			*cmdq_clt[MDP_PP_MAX];
-> -	u8					cmdq_shift_pa[MDP_PP_MAX];
-> =C2=A0	wait_queue_head_t			callback_wq;
-> =C2=A0
-> =C2=A0	struct v4l2_device			v4l2_dev;
+-- 
+Jazz isn't dead. It just smells funny.
 
