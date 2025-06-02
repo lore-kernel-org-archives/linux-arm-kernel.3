@@ -4,106 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16D0C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 15:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F1B4C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 15:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S7FRnrLBkBYHmFUuH4KGx1nHshhZCeSgrXIZ5dzYfvU=; b=3CmWVeedXvc9qa1eS1C8HIQy8K
-	3owBpgedUH9LbjkJCKA2P47b+hoays1voJuIisY3PmClEVZIpdm1d9EWiw3F4i6PBHpUNvv3Jhyr8
-	hY+Cz4mZgCjFfjq+Eb0UFkYGhhnzvPlcciE+3GJ2eALPLj/94urrkxzsVFJxkSVC49+sFWxb3PWds
-	qqER5UZ/EdpaAtt2WVw8mJ9fSsg3hxxAudVd65yr+PhD1pM81gPiUV5a25ldkKJDmFjJSdycNBZeg
-	NS5u2HSYzUoVvpEYxOHb006WVkOa1UZVVRfobgCBHj+s70oYn0xTUJX5yG8qCZ+f09q3+AHQ0F0DY
-	OxsRwW/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VsmBZUh+vyXv4ku+fzDdFGhVlt45TaS4taDV3PYjBJs=; b=E5YgATpsUL98io/BP3kArqopSr
+	p24hAkgKiY60uCggA4UoPqP7btBYWhNWh41XY51DBUN3IamZqf172JbkXCK/TH0LZK2rlH6A9EJes
+	3Df1wymHdGTdKyGDSLKDVnx2GVw4rn3uIVg1zYcUN49sCA2t/K2njoOu3QT0duMBC+DYfWuR1l9f9
+	1cM+1L9pjjEarxnmOOJiVaCYYge107GkEfIPh+UVpfhhZ5Ne4ueVdX3WXyVp4r+m4f82nGooXUyQN
+	irssG2aqkIE5Q6aX6DUhbMTuC+fEe9GWk17LMZ+Pkr2cpOA7SpHs/5+8sLojBPNAPKPlsBBMM0NEw
+	9Y8pUGEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM7II-00000007nTW-33R8;
-	Mon, 02 Jun 2025 15:41:46 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1uM7KU-00000007nuj-0Xfq;
+	Mon, 02 Jun 2025 15:44:02 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM6wW-00000007k5U-1oQm
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 15:19:17 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-54acc0cd458so5607899e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Jun 2025 08:19:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748877554; x=1749482354; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S7FRnrLBkBYHmFUuH4KGx1nHshhZCeSgrXIZ5dzYfvU=;
-        b=GJW5l/o/7xlbk+vhmyU3xYqFA+CnCdM62s2lhdKT/rEjRkJs3T1GlXVAYAvNZF8D4h
-         pt65HZ6VCZvKca3osKPfI0PM5jRCHNhpoYPY4ZgDm7acA5uv5RrbqPG1lhOk/tWc6Zt+
-         0u41iBPtkcIfRGcHxJLVVpAs9/Tw5VWSjfXA6Q9i5UqUSgBPKeoEkXoKgeTJ2PfnYj2e
-         PzBUtLitRaAQtDPGqJ35y28py0UJY/BtS6y+xm7eWep2zF0ytvXjmWxgHvMC6p3hacJd
-         RwWmWykRXQkcgDgJizXgM+YrcfX8mf0mO3cPXUp2aLFoP3T1wSlpctwpvpQgEy3xNdKA
-         /WNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748877554; x=1749482354;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=S7FRnrLBkBYHmFUuH4KGx1nHshhZCeSgrXIZ5dzYfvU=;
-        b=BvDOYQJyRFZMNZBwFYx4RjxNuK4714d4VlOQVt9Mmg3kGGrZlqVBxmWM3CTtS/oCSb
-         C3lmWHn9ECaTvDWm1Iao/TOTJR08CPjybCorqTeNKWqDHXqh08GiDMp5JHDZuwGGCIpa
-         q8K3/B7NrCp1k76icN6kR3nbyWOpY7vS9bKPCwWrA8I9R/JIRks3aNEOKTH9TLVFr/rC
-         tPnOGDLoeTmZSxKFjDbBb/hWffdeE+kUlZd7ATLgA5mbFSN03UQFIs8RVNQJPBp51vHb
-         5f+mifWEvlLx+R55h3/hcUc2ppZAPLPOBCpV/fX1GrKzn4qIK2mjV8TxB22eMqCQ1wjG
-         xbhg==
-X-Forwarded-Encrypted: i=1; AJvYcCX3oEtFaH1EqyARGQrtei/PTM+ZrHZjCoTfAATAlX2rke1juc+9PG+s5TRgNVrN73fcHXD2dC5I9V1NVbYMHHz7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUL6M2EiTwbBZiSqQV+mM4eiYcdCI9yrrPYF45NsdIq19u92pf
-	Es9/2J0OgkvhQZfofovGLkIgX31BWRlJU48AlgPejVciSoRjgOQhX4KWl+6frLCVcrozPR322Gt
-	Ydo9R/1o=
-X-Gm-Gg: ASbGncuSY4zBgfjLHOauHtm+UgyX/77FjTOLNJR04PLm7A2U5SEtl995Un2/nRKc+qJ
-	c0b4JUlmkr9kdXmzGO6SetZhApKoVRcijbbXEI1p7ggPxQlzjupXlE0mkbUpBiJEVArPlDGCG7b
-	F8HLoFyEI3QTnhglyyYlXK988guDkwRMue/FqoobvPqgKLhZOlFSToTgN3CGUfSdBmwIJ12rOxF
-	6Me0R4tFMFCQvC+BWf21vIDqwL11wfWjDH7QqnCQ2c/t0/0vAKyV5yqqy06P2gUPgPJt6Abjj1C
-	eP/NTa1CSNhPo6KQNI2l7Riykd20XCMyab3zhTcxIMANWA9sDHtNsP2qogGRayH2SyCzcccNyRX
-	hSQ==
-X-Google-Smtp-Source: AGHT+IE+SpRjISuBJ+0qyPRe6UZcsVpz/N5qpzBFRSza5rkSFVM1NCoj9ElY/SVHO3bb6cTtRiaJ4w==
-X-Received: by 2002:a05:6000:26ca:b0:3a4:f787:9b58 with SMTP id ffacd0b85a97d-3a4f7ab515fmr11075338f8f.58.1748877543609;
-        Mon, 02 Jun 2025 08:19:03 -0700 (PDT)
-Received: from mai.. (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4efe74111sm15619844f8f.56.2025.06.02.08.19.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Jun 2025 08:19:03 -0700 (PDT)
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: daniel.lezcano@linaro.org,
-	tglx@linutronix.de
-Cc: Jim Cromie <jim.cromie@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Marco Elver <elver@google.com>,
-	Nam Cao <namcao@linutronix.de>,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1uM73I-00000007l2S-0t8l;
+	Mon, 02 Jun 2025 15:26:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=VsmBZUh+vyXv4ku+fzDdFGhVlt45TaS4taDV3PYjBJs=; b=nocTW5lJMQ/TMaA8qaPK4x9xGY
+	YHoLB6m1pNtMbB+bEbBT3ru7jVtGgwGZvuPuGgBT253G23p3UJ5WHYUwS26S9UmPa9E+uG8S65Lxp
+	GFCvWfH4t88+KK4RUBPL48KvgCAUHuXHoI6rfN4XYyHIAu63tdKU7phtVc8bOvBOsWMkJGxoRXWCs
+	jbqQ2DqHn9IRa8f2y8hTgjiqY3qQrA03xW/9y1g8BT5x+suXlKEihGY1Wec0H4D5q2afAdyT+XUuv
+	AYUOV3yQbBY+yxWNOC9lbQ8zTiB40WZ5nP2ReoIqYXljqYIhBiID+mpg1B3ma/Pe1QEpaghq6GeNh
+	ql3M45uA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55524)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uM72q-00051K-2g;
+	Mon, 02 Jun 2025 16:25:48 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uM72h-0007i6-0r;
+	Mon, 02 Jun 2025 16:25:39 +0100
+Date: Mon, 2 Jun 2025 16:25:39 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Ilya K <me@0upti.me>
+Cc: Eric Woudstra <ericwouds@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org, bridge@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	John Stulz <jstultz@google.com>,
-	Will McVicker <willmcvicker@google.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Saravan Kanna <saravanak@google.com>
-Subject: [PATCH v1 5/7] clocksource/drivers/stm: Add module owner
-Date: Mon,  2 Jun 2025 17:18:49 +0200
-Message-ID: <20250602151853.1942521-6-daniel.lezcano@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250602151853.1942521-1-daniel.lezcano@linaro.org>
-References: <20250602151853.1942521-1-daniel.lezcano@linaro.org>
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH RFC net-next] net: phylink: always config mac for
+ (delayed) phy
+Message-ID: <aD3Cc7gmB2Tev_ul@shell.armlinux.org.uk>
+References: <20250107123615.161095-1-ericwouds@gmail.com>
+ <Z30iUj6DE9-fRp0n@shell.armlinux.org.uk>
+ <4b9b2a9a-061b-43ad-b402-a49aee317f41@gmail.com>
+ <Z31CJS1YUvPGiEXs@shell.armlinux.org.uk>
+ <98234080-946e-4b36-832f-113b185e7bca@gmail.com>
+ <Z3-Tz5WdLCat91vm@shell.armlinux.org.uk>
+ <9cc913d7-7e5b-4b6c-886c-ca9778c3f970@0upti.me>
+ <aD1lRha-enQ9Pw0g@shell.armlinux.org.uk>
+ <2894a781-4d4b-4e3c-9f4e-7c1f04122f8a@0upti.me>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2894a781-4d4b-4e3c-9f4e-7c1f04122f8a@0upti.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_081916_472530_E4D67640 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250602_082616_250895_ECE4BCB2 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,44 +98,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The conversion to modules requires a correct handling of the module
-refcount in order to prevent to unload it if it is in use. That is
-especially true with the clockevents where there is no function to
-unregister them.
+On Mon, Jun 02, 2025 at 04:00:14PM +0300, Ilya K wrote:
+> That's weird, because I do have all the patches applied. I think this may have been broken by the pcs_inband_caps changes, because without the patch I'm just getting "autoneg setting not compatible with PCS", after which it bails, when it should really reconfigure the MAC instead.
 
-The core time framework correctly handles the module refcount with the
-different clocksource and clockevents if the module owner is set.
+Please enable phylink and sfp debug (adding #define DEBUG to the top of
+phylink.c and sfp.c, and then send the kernel messages after reproducing
+the issue.
 
-Add the module owner to make sure the core framework will prevent
-stupid things happening when the driver will be converted into a
-module.
+Thanks.
 
-Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
----
- drivers/clocksource/timer-nxp-stm.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/clocksource/timer-nxp-stm.c b/drivers/clocksource/timer-nxp-stm.c
-index d7ccf9001729..bbc40623728f 100644
---- a/drivers/clocksource/timer-nxp-stm.c
-+++ b/drivers/clocksource/timer-nxp-stm.c
-@@ -201,6 +201,7 @@ static int __init nxp_stm_clocksource_init(struct device *dev, struct stm_timer
- 	stm_timer->cs.resume = nxp_stm_clocksource_resume;
- 	stm_timer->cs.mask = CLOCKSOURCE_MASK(32);
- 	stm_timer->cs.flags = CLOCK_SOURCE_IS_CONTINUOUS;
-+	stm_timer->cs.owner = THIS_MODULE;
- 
- 	ret = clocksource_register_hz(&stm_timer->cs, stm_timer->rate);
- 	if (ret)
-@@ -314,6 +315,7 @@ static int __init nxp_stm_clockevent_per_cpu_init(struct device *dev, struct stm
- 	stm_timer->ced.cpumask = cpumask_of(cpu);
- 	stm_timer->ced.rating = 460;
- 	stm_timer->ced.irq = irq;
-+	stm_timer->ced.owner = THIS_MODULE;
- 
- 	per_cpu(stm_timers, cpu) = stm_timer;
- 
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
