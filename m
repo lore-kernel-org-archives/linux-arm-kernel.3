@@ -4,109 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22054C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 08:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1ABC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 08:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3rn+XNbGxel7JrLV410WFv3fMJNeyGMlIh5BTB4L4U4=; b=zzxKlVNT9hZnO2PvbGEjgvYfTo
-	vCphIo2Nx2mH708qRVNaZ2rqGA8RCwa37aVHmOcF1rj966qDqCpvVBGNTs9ZktBU71b8kZAxOhJjW
-	Dr7u/sdk5f7tsa4MeVSDS9ZuNlSO08mjzLSEkuvFv3YvB4rltdI4p36Ld+RIi5Chz+HbEKqwHKgWH
-	AtVps6yJDxfxqLIIOhD+AjssY5vS7dsBmbhduTolSoAjkrZVHohk2cbze+pyM5rmeswJjLR2sloD0
-	O0g3KZCcKGccc32XmHMg6kiG5oeHpVT2NBToEpoyEwchLkONNP3TTZm6wZ8tbqxB3W2mheFEJpoP2
-	JmV/lkVA==;
+	bh=iQnTD3sMOZ/Yz+cQ2+3tny2YWO4ikiRwRh+iaTvsl/I=; b=I7oZAQhxmyB5ar6Y3qeyPOrpiu
+	eKvut0C+VEMaHGwaIAkR0LOrknSPLgFlCB1e108rYshz651IpJtCMlwb+zpuGdIO6gNRvRF08f6x7
+	aYJOXU2I2hgKRsvlihB/GCObdV5rQpmsNVq8ASvxOtSlw62kwgMl0DH8qJwckkKfbs/AIy1/mYIYG
+	KuVC5QxLhF2LIi7KyBOif6HBy7L9Yw9xAfnpgsXnsrSKhFx7njBnBFdFgno7R3xL1YEFjdrdHsSw9
+	UE1ak3IyGduqOX8/MVc0hD4RSnNGAMc5sCyDpNcZKU+bkk7Og+UOz3cqQcIPj/FLg/iLY+7hi+I31
+	gFPh58jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM0dn-00000006zmn-1vRW;
-	Mon, 02 Jun 2025 08:35:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uM0fx-0000000700X-1wv7;
+	Mon, 02 Jun 2025 08:37:45 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM0bc-00000006zaO-2Oag;
-	Mon, 02 Jun 2025 08:33:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AEDFB6111C;
-	Mon,  2 Jun 2025 08:33:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84682C4CEEB;
-	Mon,  2 Jun 2025 08:33:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748853195;
-	bh=/wTafBF8qOuGiJ4CYA1MjNK4q44bceVQ223gTo0gXcw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NQPaEqKNG71yoJw1St3sTO8r2coKkuEhEiVv62Afug75/vwji95o6OaUMTXrR/XnZ
-	 2a/bLNrP9MUIJ1W0QndEk5LW6jL4AGtgs574AIy0JGIHYOvzGnRvV7qMmmE5LWHF0A
-	 USYwpem35iDohS6nI3oZq7IYPR9Q+bjbWbfPl+pe36kMxMavLUTXnndY/vshJK8H5Z
-	 f/WDV3oUFiHB4IzYZeEAuhs0wWfTdmcqon+W3ESiO182qwpctAbVokqdryOxtUpkyw
-	 qD0NYzWzx7/VX7v6rJMbPFSbQ074t7y3qbcGmwIbRvDq4eE5dbt/yI4QDXzA9V9HWY
-	 zeyZ1h4R5d9Bg==
-Message-ID: <ae1a799c-202e-4aab-8ed8-1be91c780f50@kernel.org>
-Date: Mon, 2 Jun 2025 10:33:09 +0200
+	id 1uM0bw-00000006zcY-2CiN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Jun 2025 08:33:38 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5524w7w7001961;
+	Mon, 2 Jun 2025 10:33:20 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	iQnTD3sMOZ/Yz+cQ2+3tny2YWO4ikiRwRh+iaTvsl/I=; b=Lr9kmC1BNlhNb1/Y
+	YnuRk7zmnmE65/CpO//gHEh9jy+8wQcYYtVsJD3O7OIPWRV9Oc1XYb2wkNd1Un+1
+	WuWOChvj7ULfWPBCnk+oqSVi4Vfg/TiXeY4bsNN/sYLBWjOwO+X+sDZsVhPJcOjx
+	NoDhU8va+k7rNdJ3YZ297H8oQ7+V2oLyzGGvXNSzaFNQhou700OSWi5hkrgGSGO5
+	1UdHae3Pyoi8nckhw+/pEa46IHwQbDmAasSo7GK8chWsqjfmVDYS85jtNLjgQB4m
+	f7QwnUczeem3HNAD6lS/AhK5wa0ckJFsr/FabtHDJGsNT4Mj0pQIdLfPS6DpSEJR
+	1hjHDQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46ys41x0w1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 02 Jun 2025 10:33:20 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 68E7840051;
+	Mon,  2 Jun 2025 10:32:41 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B9263AF26ED;
+	Mon,  2 Jun 2025 10:32:23 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 2 Jun
+ 2025 10:32:23 +0200
+Message-ID: <bfb42df1-6697-4da7-8efb-a891d0487766@foss.st.com>
+Date: Mon, 2 Jun 2025 10:32:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: clk: mt8189: Porting driver for clk
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, nfraprado@collabora.com
-Cc: angelogioacchino.delregno@collabora.com,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-pm@vger.kernel.org, netdev@vger.kernel.org,
- linux-mediatek@lists.infradead.org,
- Irving lin <irving-ch.lin@mediatek.corp-partner.google.com>
-References: <20250602082610.1848291-1-irving-ch.lin@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v10] arm64: defconfig: Enable STM32 Octo Memory Manager
+ and OcstoSPI driver
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250512-upstream_omm_ospi_defconfig-v10-1-4d9996911bd3@foss.st.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250602082610.1848291-1-irving-ch.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20250512-upstream_omm_ospi_defconfig-v10-1-4d9996911bd3@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-02_03,2025-05-30_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250602_013337_183635_E8CB52EC 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,82 +91,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/06/2025 10:25, irving.ch.lin wrote:
-> From: Irving lin <irving-ch.lin@mediatek.corp-partner.google.com>
+
+
+On 5/12/25 08:40, Patrice Chotard wrote:
+> Enable STM32 OctoSPI driver.
+> Enable STM32 Octo Memory Manager (OMM) driver which is needed
+> for OSPI usage on STM32MP257F-EV1 board.
 > 
-> 1. Add mt8189 clk driver
-> 2. Fix mux failed
-
-I don't understand this.
-
-
-> 3. Add apll12_div_tdmout_b
-> 4. Add disable-unused configs
-
-Neither this
-
-> 
-> BUG=b:387252012
-> TEST=emerge-skywalker chromeos-kernel-6_6
-
-Drop these
-
-> 
-> Signed-off-by: Irving lin <irving-ch.lin@mediatek.corp-partner.google.com>
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 > ---
+> Changes in v10:
+>   - rebase on top of next-20250509.
+>   - Link to v9: https://lore.kernel.org/r/20250428-upstream_omm_ospi_defconfig-v9-1-66c1bbac5461@foss.st.com
+> 
+> Changes in v9:
+>   - split patchset by susbsystem, current one include only defconfig related
+>     patch.
+>   - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
+> ---
+>  arch/arm64/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index d0768584647c3b0e062b2667bc43fd7839f84c3a..03ccb3cc907114f24650d7f7ee10b20be33aa7d0 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -581,6 +581,7 @@ CONFIG_SPI_QUP=y
+>  CONFIG_SPI_QCOM_GENI=m
+>  CONFIG_SPI_S3C64XX=y
+>  CONFIG_SPI_SH_MSIOF=m
+> +CONFIG_SPI_STM32_OSPI=m
+>  CONFIG_SPI_SUN6I=y
+>  CONFIG_SPI_TEGRA210_QUAD=m
+>  CONFIG_SPI_TEGRA114=m
+> @@ -1506,6 +1507,7 @@ CONFIG_EXTCON_USB_GPIO=y
+>  CONFIG_EXTCON_USBC_CROS_EC=y
+>  CONFIG_FSL_IFC=y
+>  CONFIG_RENESAS_RPCIF=m
+> +CONFIG_STM32_OMM=m
+>  CONFIG_IIO=y
+>  CONFIG_EXYNOS_ADC=y
+>  CONFIG_IMX8QXP_ADC=m
+> 
+> ---
+> base-commit: ed61cb3d78d585209ec775933078e268544fe9a4
+> change-id: 20250410-upstream_omm_ospi_defconfig-cbeda7cb302a
+> 
+> Best regards,
 
-Missing bindings / undocumented ABI
+Hi Catalin, Will
 
-There are also several other trivial issues, so this looks like you sent
-us old, straight downstream code. This won't work, you need to clean it
-up seriously or better start from scratch from recent drivers. Plus read
-carefully submitting patches. The way you organized it and sent makes
-review very difficult.
+Kind reminder to review this patch.
 
-Please run standard kernel tools for static analysis, like coccinelle,
-smatch and sparse, and fix reported warnings. Also please check for
-warnings when building with W=1 for gcc and clang. Most of these
-commands (checks or W=1 build) can build specific targets, like some
-directory, to narrow the scope to only your code. The code here looks
-like it needs a fix. Feel free to get in touch if the warning is not clear.
-
-
-...
-
-> +static int clk_dbg_mt8189_probe(struct platform_device *pdev)
-> +{
-> +	set_clkdbg_ops(&clkdbg_mt8189_ops);
-> +
-> +	return 0;
-> +}
-> +
-> +static struct platform_driver clk_dbg_mt8189_drv = {
-> +	.probe = clk_dbg_mt8189_probe,
-> +	.driver = {
-> +		.name = "clk-dbg-mt8189",
-> +		.owner = THIS_MODULE,
-
-10 year old downstream code. Use the tools please or better start from
-recent drivers, don't send us 10 year old vendor code.
-
-
-> +	},
-> +};
-> +
-> +/*
-> + * init functions
-> + */
-> +
-> +static int __init clkdbg_mt8189_init(void)
-> +{
-> +	scpsys_base = ioremap(0x1C001000, PAGE_SIZE);
-
-So on module load on Qcom platform you will map it? You just broke
-absolutely EVERY possible user, platform, machine,
-
-This is really, really terrible code.
-
-
-Best regards,
-Krzysztof
+Thanks
+Patrice
 
