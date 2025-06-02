@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7323FC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 14:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6ABC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 14:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g68OfFejarfr0c9W0HRhw2as8wfmhp7JXmbKNMip90I=; b=xPBmF88aKWzRczEQ7ZgBxxEA9H
-	tT4wTzq5jaAdCPFW0Y/qmRryU7PluBoR4qTPa0wYVH415mPoN8mojsfOZYqN4k8RqkoWYwgc1J/mh
-	DVIz5lWjxK3iWiH7Pg2kEfBE/py/eIl8Z9nP40NkpoHmMS9ouUOhU241Zuo2Jy10cg6j3WBfiQyPW
-	yXmVQOTDlcZygGF80MB/gSc/vS7oYiSZXlmezWsJAObX4GzLk3IKupONv/HuXmJuA23KXclgQwvrQ
-	tC5ze0X8kgDN3WbcUOYpKrnRAr8D6eFHd/xppRxsi6NBBFF+ibRrUea+XaD2LINLn3BZZgHGgj6wb
-	aA1UK4Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cg0dwJvYfbYUNtSY86lpjPZ26U71B5eHF51TBSSqPe4=; b=ZOlrK84RX5OS30Mi6DvL+vVkgk
+	S2vJqipsFLBUkJat0Ru9+5ooTZ/ZYQFK4NGOgmJ8kIx3tQPbBAlpA1/mbBmVORlist1IJ7AcAU3kD
+	w5WbICk7PZEbPAW2Ew4xRV/WZiaw8/nN7t+zVMML7GFcuDD3TGMa9ljPGBR/ZhMb3lmJqU/2+tUKY
+	AR60Zdw69MBJJLV9QwdCeXiMAbF0lbvnWg9mggKGEqYEXFdGEalDE8ci0PAZ0mixZFv50ZBuhZHW0
+	UdVh8R4Bt+XFqoC3qgl0weTn+kgRm9n5nUonfUk/4V4QrZWSw5x9MgTwR6q0QDCMDApq+y/HXUUoS
+	azuvwOXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM6RS-00000007fDh-0sY5;
-	Mon, 02 Jun 2025 14:47:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uM6Tc-00000007fWD-2I1J;
+	Mon, 02 Jun 2025 14:49:24 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM6PG-00000007exj-08pK
+	id 1uM6Qb-00000007f4o-3Ury
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 14:44:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6B7475C481B;
-	Mon,  2 Jun 2025 14:42:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C823C4CEEB;
-	Mon,  2 Jun 2025 14:44:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1748875493;
-	bh=2zfCz0bQ9ZyjWwzdJ2DPjgfxbQImJEtM69s+b1+tP3E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=j2g7X/wz2+JUaH9bBg69fkY895M5bfj5NdEwxYqsIoEBp/D1cKNc/1rcCs0NXO0jL
-	 3t2QRz9K+xMk1LLHKzbOysEUem+DVCxKsltKw77zNu0TvTwbeXA03hS5moadeB8Sz2
-	 TOb1sne6x6HfRSJ1vgMYr7zRvsoWBhbJrZePHwfM=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.10 151/270] arm64/mm: Check PUD_TYPE_TABLE in pud_bad()
-Date: Mon,  2 Jun 2025 15:47:16 +0200
-Message-ID: <20250602134313.390180682@linuxfoundation.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250602134307.195171844@linuxfoundation.org>
-References: <20250602134307.195171844@linuxfoundation.org>
-User-Agent: quilt/0.68
-X-stable: review
-X-Patchwork-Hint: ignore
+	Mon, 02 Jun 2025 14:46:19 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-606741e8e7cso1355743a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Jun 2025 07:46:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1748875576; x=1749480376; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Cg0dwJvYfbYUNtSY86lpjPZ26U71B5eHF51TBSSqPe4=;
+        b=REJLp6cVmf4iFzmKsV8HGYQEusOev8WKph4/PXrFfyzyZRaSTNOUW9eAJvt9J1AMqU
+         5P05vWgTU0PVVi6xhsYheZOtgeoSCG+0TQHd4R6hQloigxAgHZG/1OUGeC1u+inMBsq4
+         /tPVqEx0Ue7xD4nZmVOnH4CgdLxUIILhzHEdI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748875576; x=1749480376;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Cg0dwJvYfbYUNtSY86lpjPZ26U71B5eHF51TBSSqPe4=;
+        b=Ht2uc6CBhOuXAuqOoiSgcv1vCoR8rbLaZqnysDBCFyeH3smWSTJZVpihuqB8DSvlLn
+         uHAEvv7CVUiouFrHehH4omfcII2LgDkgbxtP9r1q8Qh4/J0nWdzFHBp4jgGH9DzaRFxx
+         uIJCnFb3k/MSbVjogGJG0ZPzl9UNUOrkFKFOTnHx1VwuxmviCbw0oIxOTx9Owe5VWNga
+         Ox7fViU8LIZwDaZfqgUheCgoq3Q1OiQFQCrgxmn6VnfgJZ+x0qk3TQId8NViMhg3hOZv
+         bLz6KqXAhbaxHUNsIyUTPj2198O8JExa7VRhwYrwUaFRFL8EyrvBvTmo96yaLPhlu0YY
+         8I4A==
+X-Forwarded-Encrypted: i=1; AJvYcCWOCUEoFUvuSyy8HRD8cE5ED+izFaDcw9EjLTcp6P0/HSwT4FzYaSHYJScuA/xwRjaLo9xSqsCII0f//4xWMpnA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza7dZqJ2cZcn/o0GIhvc8Ug+eVof2ge/Hc7fRhlfthwXKDuLAJ
+	E1EoCp6qhq1GWtgpQzWfVFMcVAXi/sKCY8BDgbCrgrCRaF0Fs8DXdSN52a9eR/7mL9ar5qvsLrz
+	y3Gjdi68=
+X-Gm-Gg: ASbGncuo3CsAHJtHZtVTYNwxL10XDITFY05f21YrzqT3Bxu09yrUKgpt4cPdhtJiu/Z
+	E18jPsCfbqOexyWFqloSxibsqFrQ0XZDvh9Wov/GeKBbLhgUoYX6BYn/J3vh1NIoGwWt/vM+Wlm
+	3zeNdlj5pXdwlNS3t/yQLCwMblbixxfoCRafZ6uBkVr/lz2D3L+49ntj4Nt49j1SO9opVsVVBQ5
+	RHKd6ioqgngCS7l7pEQzb1XjcmAgBY1sV445gVyxIGtU7Pu/p3uGgAOXtgxLs60G/noH0GYluP2
+	Lud3jNZhIxvAirtJf6w3Tyx/67Cl5HkwQAXwfvC5ldtdWWJhns2csQMEHmZ2S3Y2shfV8CZn/zn
+	w5BMg1q0mMFG2H50PiSBdcN5fEKlbdDMxiSOntIzGfjM/99w=
+X-Google-Smtp-Source: AGHT+IGkY9uz2bZWsFeuapJKswfsp7Yuxe2SQW3BAIwUeE/3t22oZ1RYpJY8Tjc8Srbms18LcCXc9A==
+X-Received: by 2002:a17:907:d7c2:b0:ad8:8efe:31fa with SMTP id a640c23a62f3a-adb32599e63mr1323957066b.58.1748875575952;
+        Mon, 02 Jun 2025 07:46:15 -0700 (PDT)
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com. [209.85.208.52])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada6ad3acf4sm805397566b.150.2025.06.02.07.46.13
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Jun 2025 07:46:13 -0700 (PDT)
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-606741e8e7cso1355623a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Jun 2025 07:46:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUOan2s3HjepoV9aNSv0n01EcBzAQfK0PmwRlbSY6cejSWqfJcdfwtr2PRDMhmuEWAG+dTqKUh3hWv/iGKOAvZi@lists.infradead.org
+X-Received: by 2002:a05:6402:5205:b0:606:3146:4e85 with SMTP id
+ 4fb4d7f45d1cf-60631464feemr3563572a12.4.1748875572780; Mon, 02 Jun 2025
+ 07:46:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250428170040.423825-1-ebiggers@kernel.org> <20250428170040.423825-9-ebiggers@kernel.org>
+ <20250529110526.6d2959a9.alex.williamson@redhat.com> <20250529173702.GA3840196@google.com>
+ <CAHk-=whCp-nMWyLxAot4e6yVMCGANTUCWErGfvmwqNkEfTQ=Sw@mail.gmail.com>
+ <20250529211639.GD23614@sol> <CAHk-=wh+H-9649NHK5cayNKn0pmReH41rvG6hWee+oposb3EUg@mail.gmail.com>
+ <20250530001858.GD3840196@google.com> <20250601230014.GB1228@sol>
+In-Reply-To: <20250601230014.GB1228@sol>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Mon, 2 Jun 2025 07:45:56 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wjO+t0FBrg=bHkbnXVsZ_U0TPgT9ZWUzu12-5NurCaWCA@mail.gmail.com>
+X-Gm-Features: AX0GCFuodXM8SKmhJCuuDQhW2iq8pjrSnsjy_QXiBCm4TA9D0azfhocKT2KWhmk
+Message-ID: <CAHk-=wjO+t0FBrg=bHkbnXVsZ_U0TPgT9ZWUzu12-5NurCaWCA@mail.gmail.com>
+Subject: Re: [PATCH v4 08/13] crypto: s390/sha256 - implement library instead
+ of shash
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Alex Williamson <alex.williamson@redhat.com>, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_074454_114852_D27B1243 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20250602_074617_864582_AE6F7540 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,54 +113,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.10-stable review patch.  If anyone has any objections, please let me know.
+On Sun, 1 Jun 2025 at 16:00, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> I implemented my proposal, for lib/crc first,
 
-------------------
+Ok, I scanned through that series, and it looks good to me. A clear improvement.
 
-From: Ryan Roberts <ryan.roberts@arm.com>
-
-[ Upstream commit bfb1d2b9021c21891427acc86eb848ccedeb274e ]
-
-pud_bad() is currently defined in terms of pud_table(). Although for some
-configs, pud_table() is hard-coded to true i.e. when using 64K base pages
-or when page table levels are less than 3.
-
-pud_bad() is intended to check that the pud is configured correctly. Hence
-let's open-code the same check that the full version of pud_table() uses
-into pud_bad(). Then it always performs the check regardless of the config.
-
-Cc: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Link: https://lore.kernel.org/r/20250221044227.1145393-7-anshuman.khandual@arm.com
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm64/include/asm/pgtable.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 7756a365d4c49..d92b5aed354e9 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -601,7 +601,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
- 	pr_err("%s:%d: bad pmd %016llx.\n", __FILE__, __LINE__, pmd_val(e))
- 
- #define pud_none(pud)		(!pud_val(pud))
--#define pud_bad(pud)		(!pud_table(pud))
-+#define pud_bad(pud)		((pud_val(pud) & PUD_TYPE_MASK) != \
-+				 PUD_TYPE_TABLE)
- #define pud_present(pud)	pte_present(pud_pte(pud))
- #define pud_leaf(pud)		(pud_present(pud) && !pud_table(pud))
- #define pud_valid(pud)		pte_valid(pud_pte(pud))
--- 
-2.39.5
-
-
-
+         Linus
 
