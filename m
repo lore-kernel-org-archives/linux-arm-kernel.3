@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D33DC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 07:08:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84962C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 07:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l2mqIXLJmktQ9Gn+drXuR3aq0NCyAYEUDfr+BRkgx/M=; b=FIAEIUJUQN0DL0/5s8G0N2Qrz+
-	4j3LYSNcGTsNkQPWaJNpFZwaHpKh2qN48eLNq7QvDCdyZ/+T2E117eSAMYwYks/y5bWN0LSK9e1vU
-	yZ4/hg+Gq9PyV+zs4j8hh16xwwfys7i5ZzBGXWyvhy7fkYZoKK8ahpFnGueucY09UMjh/NSlmkm2r
-	mLed4ut/OK2kcGWcarETwLdacpfF0tu1CyYQ76c2M7tpzSb6BtIl1wsH9XbxaFVTcYVBlCftUOsmn
-	74i1ZasGYyq3y6LTBEvSsmlTt3rspXbGWExizC/h22Q5N+Y8DGk7LXt+2MP0JVfxpQzGKL7t6o45a
-	cOHzN59A==;
+	bh=4ts3ILevWOPYqx+gXJKBFw80Ij8IEjysS1Tj+hCyd9E=; b=tRc1kRF5vwGLsyVsFZEpA2AlBx
+	GR1/RK8PWS9l+0qN9ETs+OHJxD/XmAg9RuKB4erMQ7btLE9I+wcX6A28Z4qZpIrvvPUkFbWZ+p6/E
+	P+ydumDHuK35REsoztPK9ttEvhQd3TCRyGXBuih55gUOHEsq99PX/FeUr4SbLBIqUESgij83N71O6
+	I0t7SQ5s82rGCr37I16adbprVmF1wMyqzJUTfPtqwN0OK3pJXRYHc3Kfo4VQBAGVj//YpJzwK26Sp
+	n+MFX91UtLlMP9WXjb7eXM8AvC6QosGrESgb+lhVvuUO8lBb5uBw5lnyfKXPm9MXIO2iVJE25YgnP
+	lJkE2eIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLzHG-00000006t6v-3TTu;
-	Mon, 02 Jun 2025 07:08:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uLzRa-00000006tfY-3uDd;
+	Mon, 02 Jun 2025 07:18:50 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLzF9-00000006szw-2v1o;
-	Mon, 02 Jun 2025 07:05:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4173E6111C;
-	Mon,  2 Jun 2025 07:05:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB657C4CEEB;
-	Mon,  2 Jun 2025 07:05:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748847958;
-	bh=3Zpf+Qil/YamO+qg691NiwhwZgCq5Dm12QIEOCFrJ6c=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=etUHg7kTonia1iJXlF47bA1+U3Jo/kbCY0MlSz+el5nFAhOkEFfmEm7b/imINjoVU
-	 DwsuDKEMWSga885lYX8J+HnjqXmV881U32GnZWArkfBnmjeoUxTBd+YdYRxN08wn1g
-	 /u2hj8bjAsPM8NsM2A1CRTS5Dam2Nf0LQ42GuZfVEAlMtFLbjtVmuhU++bfdPtUqmF
-	 Pkl3WPlSkpwXqYJawUaWwce8dVQAHOzdhGu6KD6uePzU4lveXH8RPj4veguo2pH8pm
-	 B4IUHgRcFTWHXbuku119cB0cjTEErAjMLTBG8h+35c+UewGdt1eK/TYia+bUvV+0Ql
-	 9frlkRJvZUEWw==
-Date: Mon, 02 Jun 2025 02:05:56 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uLzPM-00000006tWd-2LJ6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Jun 2025 07:16:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=4ts3
+	ILevWOPYqx+gXJKBFw80Ij8IEjysS1Tj+hCyd9E=; b=gKpj/VTDWEUb0RdiAHS/
+	ax63fKQeGg2XTYEIm1BeN1RwE1lI6Q587Mra4bC8y8vgIP/IRrQHmnaisEtkSqsl
+	tS+S3VLIkjcYapmcmYRoMSM5UCNJhl3X89Vpk007lmHUTi5a2EKgeMTtoVPvq4Bx
+	k4MjPWFpEVEzvySiQq7YSaTkHDtjs8Vib4HH0smMMYjYy6nRXA/uQC7LWzfEM5yH
+	6oN+zq4kqL5nszFnTlJRPdK/K+oxHhswwyva8xLvMRHcZ9R76KsPjNYQ/tnRJwBM
+	8cTyApmfsBvVlf6O3+SK4V0FTUabO+bo+0MdY1OtHp/IhHcypCeGlPE/K9EZ3f+h
+	Gg==
+Received: (qmail 3287185 invoked from network); 2 Jun 2025 09:16:24 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 2 Jun 2025 09:16:24 +0200
+X-UD-Smtp-Session: l3s3148p1@mkeYipE2bTltKPDF
+Date: Mon, 2 Jun 2025 09:16:23 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be,
+	magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org,
+	p.zabel@pengutronix.de, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, john.madieu.xa@bp.renesas.com,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH v2 0/8] PCI: rzg3s-host: Add PCIe driver for Renesas
+ RZ/G3S SoC
+Message-ID: <aD1Px6zvXnan3rq6@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Claudiu <claudiu.beznea@tuxon.dev>, bhelgaas@google.com,
+	lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be,
+	magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org,
+	p.zabel@pengutronix.de, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, john.madieu.xa@bp.renesas.com,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20250530111917.1495023-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: claudiu.beznea@tuxon.dev, vigneshr@ti.com, krzk+dt@kernel.org, 
- nicolas.ferre@microchip.com, krzysztof.kozlowski+dt@linaro.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- miquel.raynal@bootlin.com, alexandre.belloni@bootlin.com, richard@nod.at, 
- conor+dt@kernel.org, linux-mtd@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-In-Reply-To: <20250602053507.25864-2-balamanikandan.gunasundar@microchip.com>
-References: <20250602053507.25864-1-balamanikandan.gunasundar@microchip.com>
- <20250602053507.25864-2-balamanikandan.gunasundar@microchip.com>
-Message-Id: <174884795608.25189.1492407932074912521.robh@kernel.org>
-Subject: Re: [PATCH v3 1/4] dt-bindings: mtd: microchip-nand: convert txt
- to yaml
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="+ZEsolx7UMbGHb56"
+Content-Disposition: inline
+In-Reply-To: <20250530111917.1495023-1-claudiu.beznea.uj@bp.renesas.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250602_001633_456229_95143250 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,43 +91,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 02 Jun 2025 11:05:04 +0530, Balamanikandan Gunasundar wrote:
-> Convert text to yaml for microchip nand controller
-> 
-> Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> ---
->  .../devicetree/bindings/mtd/atmel-nand.txt    |  50 ------
->  .../mtd/microchip,nand-controller.yaml        | 169 ++++++++++++++++++
->  2 files changed, 169 insertions(+), 50 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/mtd/microchip,nand-controller.yaml
-> 
+--+ZEsolx7UMbGHb56
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-My bot found errors running 'make dt_binding_check' on your patch:
 
-yamllint warnings/errors:
+> Please provide your feedback.
 
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/mtd/microchip,nand-controller.example.dtb: /example-0/ebi@10000000: failed to match any schema with compatible: ['atmel,sama5d3-ebi']
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mtd/microchip,nand-controller.example.dtb: nand-controller (atmel,sama5d3-nand-controller): #address-cells: 1 was expected
-	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mtd/microchip,nand-controller.example.dtb: nand-controller (atmel,sama5d3-nand-controller): #size-cells: 0 was expected
-	from schema $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
+Don't have bandwidth for a review, but I did test this series on my
+G3S/SMARC with a x1 PCIe USB controller. Worked fine, I could access USB
+devices with it.
 
-doc reference errors (make refcheckdocs):
+Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250602053507.25864-2-balamanikandan.gunasundar@microchip.com
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+--+ZEsolx7UMbGHb56
+Content-Type: application/pgp-signature; name="signature.asc"
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+-----BEGIN PGP SIGNATURE-----
 
-pip3 install dtschema --upgrade
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmg9T8IACgkQFA3kzBSg
+KbYrDw//fVqzg9qvc/j2in3DmuPNolbFXSgSdXbnHeaP64s7ZMvP1VjP7lm2xRXV
+mnnKbzEvCpQqJusArmqUVao96p/Sr/PKfWLK5P+bVreIOp4JHL6B4/n3GGgWB4gY
+W+pXg2OSSLXUUn84eIfR9q4ExE5NJ67LH0FucGCE2MLf69mR8JemaIOzsjcArKme
+XWJwwlQ3O+VmBtOM3vbw8FPOOsh9lGyxS2Euc26Si36zsQGuKKNCAR+DumFKCTXm
+cJa9heoLi/Tse5sUAXVSn1fxLkyLx5NFJNY8NtIzO8AvP3ZymGZdEH3fLVc7e0T5
+CVGvrh39mKJFFWsTaEe2cazD910SmVIvHvAt7H9WOpkhxDk0Qn2Xx1KKyctO2Ktf
+qwa4liCYjx7aE+Kf2zoZTc+XaAUad/rG47vIZSb7dNThe/x31LOCStVXcwbFX53i
+zYGUGZ64uj4I8x7+Cv9Key/mPrwMOqtsKmc0p7jS72WrXzRpSIyMxFbYCthpEKBO
+ueJFNcA/xDkCsjTW1tY2+VitZe0OL4Zi3IGunkNk2X3VL931ONqNvFe84uBcOQ2q
+Ktm8IvF6zWCwBKGjuOe+DsrRA8DnSiScFvA3tlPOy0jkDFkNSL9aVrG0dH9+OLrK
+oApyRKwdLFyMjCyoKyV1WOjwOv8IE5WzXCpIOrWBjj189aJMp+0=
+=bmYM
+-----END PGP SIGNATURE-----
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+--+ZEsolx7UMbGHb56--
 
