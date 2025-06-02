@@ -4,111 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7716DC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 20:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9170DC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 20:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SgTlm3ZMGL6dC8XB4ryrz5XCs5DUrmAxkcSAJQ6NXEw=; b=BE0XpCh6QnU4k7RDziexSJ9YrL
-	2z6dkGKMVXW3rpJUiBezLU+N34Moe0E20+VwbSQS9890xElTw4HqVityNLS7udsLOfqxlPr3G9Vq1
-	ARxVbNjapURZc71wEBvGn1P8VqucxvG1k9werWhoZnkwfQBHN+HmlxZei7nBwYIpvs/zXN+k4SYsp
-	RcpuHLdAixUc5U4393zqxyql7ar3B56drl17Bh7rTXaVmXm7uc22Xk2k276p9wRTOeW1brqI63W1p
-	5b0Jx6BmS7GzWrsWGb+DH3Ef/bKLjL8WQHYxsGqJNDqANa9VdTwnNmqJKXl2ADvatAj0kOZvNvRmN
-	DLMrP6Dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cetel2XkJf6b8L4R8wRkZ3PGcpeSR5/nXVy8Zp5+eX8=; b=Mk6Ig0aD2KNo3zW5gRseTYxLkN
+	flyHN+0mUozLKAD+LoBLc+2hTVS2PpfGZ8pHcxlHcQe/IjEX+3mX27mBfjfQErK7xSrMboEP2JDIF
+	Oyy0z3nrD4M4KyXMgi4Q9GiTpIjfg5Yn+JhvZWXnAVG2StGr7ToXZo45vN5jrVaDkfZqNT1t+sAnl
+	vfejU87VoFCdgNLq1sfp8ot/mF57xKh2vBJoF2iUisBmzvUxwyxQ6FFxDo96x/KZm6c/KfuB6nmHh
+	T5Y1omISleH+eKgiBAgv+N22LMPh9Xe59Cdl8II1LxyhBApPU59o8hNN+vPzxo1wi4Go7Wqadg6k0
+	0B0FkGmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMBiX-00000008jmo-36BR;
-	Mon, 02 Jun 2025 20:25:09 +0000
-Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.54])
+	id 1uMCDw-00000008sXB-3nwx;
+	Mon, 02 Jun 2025 20:57:36 +0000
+Received: from mail-mw2nam10on20701.outbound.protection.outlook.com ([2a01:111:f403:2412::701] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMBgJ-00000008jPb-1Z70
+	id 1uMCBh-00000008rzq-16td
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 20:22:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1748895753; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=W3vN+4KLO8cK3qU5USVsvEUhYd19mZ4zndWa6enD87kQ8K9CyUsbCpJBBY2x765wHL
-    q1LTZaVy08DRO3Pwzjl0uJ10WkDib/MApCJtsNhofJW75wA+ul5UGHP4g1VAJTAE3hsC
-    ID2ww8BCfxe9iS4/RViuZZFuN2NKtbbhR71IUydDX7ZZ2yPB/rRFCZ8ZzIEW5JtN4q9b
-    vmZ9QQoTLgZR4ScHYAAO7tNSlKotP+SLpAeD529+i6hTNS1JrkoFS7wCxcTNGWDes8qd
-    n54DhdwdpDjdZ8dPP4/q0PIfedwBSGIyw0dFqVJuWHpHgodZ49LseMWGpFbgSqwR4rum
-    uUrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1748895753;
-    s=strato-dkim-0002; d=strato.com;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=SgTlm3ZMGL6dC8XB4ryrz5XCs5DUrmAxkcSAJQ6NXEw=;
-    b=S92goXEE/X9QhaSFvYqfG6b1iBEJB1++OS0yz79JaaxhjK5SLpdm6bseKctZ7HX3xC
-    u9EvgsJDEsYnkPwgUe0xd7eJQZr7imniFmHXFKnUiqMA/lpQTwN3VuDMJwDIM/kKo1QO
-    DJhyoXWwjUCqgH9nTWATL+V56uT2nbAwGpheHEdnflbcB81qR2dYGQRO7WfuL23pO9ma
-    rKT7rAa1lP8Wkxrnoe71Po5mCoxBEOtRUeduxjSbayF9ZzHHqzTKGfJYebyzaWDQe4SD
-    fZNR+pdWyKB8dOIA0PESumsceCKvY2vgCSJ3FRjHeqKpfGgMvCVVHthssvPKy+waTzVw
-    C1Sw==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1748895753;
-    s=strato-dkim-0002; d=fossekall.de;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=SgTlm3ZMGL6dC8XB4ryrz5XCs5DUrmAxkcSAJQ6NXEw=;
-    b=e3Id86jqlAGlf0QayOWpJZ5FGQMOhyUXErO+ZR81efZgDzBjpTYs7/3P5gS3ZX8yth
-    PvyET/TzrjUUZo3jlD2lCouQeXmTrUxXLV0DOSGFJ/+11v3C7mk60VlxlvEvt24oOi4S
-    YLHhNfROHbviby8s+0XoGSeHA6lhqyRv6scdU5qMPcr6kKB14FIAuGIgOCXKxvtlCJ7T
-    4L9LNHsaeHZmCk7oALllq0FDEozH3CMeXafyCiIcYLqqM/BsyayH25lI6kxMnpBbzRCL
-    eqBaK8zHfTVmXe94Ob+9m8GClmyvgxoVX6JeAl/cwwzhY/HbVh1yFNR6LKkYM2WzPEgh
-    PM+Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1748895753;
-    s=strato-dkim-0003; d=fossekall.de;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=SgTlm3ZMGL6dC8XB4ryrz5XCs5DUrmAxkcSAJQ6NXEw=;
-    b=LV6IAvB63t6pe14GWWzxv+D26ngS3FRo3lj/GNubUXfomHAv/8Qp/Oh2od6tYq6vqY
-    W+Ol4WReQyIRJZ328TCg==
-X-RZG-AUTH: ":O2kGeEG7b/pS1EzgE2y7nF0STYsSLflpbjNKxx7cGrBdao6FTL4AJcMdm+lap4JEHkzok9eyEg=="
-Received: from aerfugl
-    by smtp.strato.de (RZmta 51.3.0 AUTH)
-    with ESMTPSA id f28b35152KMWrD6
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Mon, 2 Jun 2025 22:22:32 +0200 (CEST)
-Received: from koltrast.home ([192.168.1.32] helo=a98shuttle.de)
-	by aerfugl with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <michael@fossekall.de>)
-	id 1uMBfz-00044L-1k;
-	Mon, 02 Jun 2025 22:22:31 +0200
-Date: Mon, 2 Jun 2025 22:22:30 +0200
-From: Michael Klein <michael@fossekall.de>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Chen-Yu Tsai <wens@csie.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, regressions@lists.linux.dev
-Subject: Re: [REGRESSION] [BISECTED] drm/sun4i: hdmi: No HDMI output with
- BananaPI M1 on 6.9
-Message-ID: <aD4IBoyGSJ5A5L-O@a98shuttle.de>
-References: <aCJZmm8rC0RwbcBX@a98shuttle.de>
- <20250526-refined-dog-of-blizzard-b48f11@houat>
- <aDTZXagQ28OdNtLh@a98shuttle.de>
- <20250602-psychedelic-purring-poodle-900a5b@houat>
- <aD3wE_mkfYA2XqA6@a98shuttle.de>
+	Mon, 02 Jun 2025 20:55:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jZVrw+AcK6JkZxGCaR14d2VnA+hvSv6xPyHAeJuPIe0DITrTzfXV56dftPPyaqB5Lon6G7COeE0amIgh4RcuiTjuG16LWFhv18NbDEstiqKpcTEntTuda9lCR6EPB/SjtyJvQ4wYTkpQZdjvGiJgWYqxukeAMl9EBLQQe50Yc+8GiTnDt1rqOD9SZP17oQ5pReP5SgK9Nl8FEpzXRjqZTLYJ/LixjKKscpb3qap+n/2TacTXTQQtJyKgics3YTFwa0nZBaGd2OHHUYu0S7UN1M5pJyEo7x4dWERzklKLy3hlIE3th26olGth0BqA8fAvkdpG4tdcIbzL7VWHJiE4PA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Cetel2XkJf6b8L4R8wRkZ3PGcpeSR5/nXVy8Zp5+eX8=;
+ b=f2gEmZ6kz6wntDLt2dRzGiXj7fFy2JvLQKYGKws7JNmUku86hYK8PjsXzQ1okZnHHumrCuLmJozBYI4wdnCXVmLLwx+9uKRKRs94QF/k57dA5WCDzVwkS69bqaVxSJEccvCAgYXNUEXmdO6BqpGhHpyzbYry9bVywJTqK4H5hcPykKpzZWAq6dHsd7rBUeJRntJdW6Nl1MVC8mKepyqx+ZupD0yqmJ5ySEzC0YXzSToArT/KvEckt+W8cqgqmV1o0k+7gtRUOtaR9sBJ5QM6TurbER+erFDPBwFoI8WwCLxcAu3bJSw+8trgOZJ6CfA3Dq6jjnE8gJUgwUS3PO1qvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Cetel2XkJf6b8L4R8wRkZ3PGcpeSR5/nXVy8Zp5+eX8=;
+ b=CydIbeuSr5VvJUR5nj5VkHzqaBkLlmefJqg0KTIaDy5/LL4DgML/cTpeRH2tgrvzMjR2K2XTrIJI6yCeQr0czUsvh7njRyi0RpBX2VaIcy2EBrBtSturKhtM3WvynRHjmR+CRAXdtTYZh0WuqFZ4A/Lg/kaWo7u19xijAlf32Bk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ SA1PR01MB8621.prod.exchangelabs.com (2603:10b6:806:375::16) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8792.33; Mon, 2 Jun 2025 20:55:06 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%6]) with mapi id 15.20.8769.029; Mon, 2 Jun 2025
+ 20:55:06 +0000
+Message-ID: <4a22af04-bb41-4c1f-b5d8-f53d19439599@os.amperecomputing.com>
+Date: Mon, 2 Jun 2025 13:55:02 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+To: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
+ catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Dev Jain <dev.jain@arm.com>
+References: <20250304222018.615808-1-yang@os.amperecomputing.com>
+ <912c3126-8ba7-4c3a-b168-438f92e89217@arm.com>
+ <2ab5f65c-b9dc-471c-9b61-70d765af285e@os.amperecomputing.com>
+ <239d4e93-7ab6-4fc9-b907-7ca9d71f81fd@arm.com>
+ <1141d96c-f785-48ee-a0f6-9ec658cc11c2@os.amperecomputing.com>
+ <9cdb027c-27db-4195-825d-1d63bec1b69b@os.amperecomputing.com>
+ <e3e6a3e0-3012-4d95-9236-4b4d57c7974c@arm.com>
+ <0769dbcb-bd9e-4c36-b2c1-a624abaeb5ce@os.amperecomputing.com>
+ <f31792bf-3b54-408c-9deb-7058a79c60d4@arm.com>
+ <a27776ed-4b45-4269-9e3c-5ca1463e4841@os.amperecomputing.com>
+ <bfae581e-3988-44b5-af5e-8e2de4db68ed@arm.com>
+ <cc1522f8-85b9-48e5-951f-9a1bb2075918@os.amperecomputing.com>
+ <e0960267-0dd5-412a-be54-1afaacc6bace@arm.com>
+ <4b2278d8-d627-47af-ae90-9d62ad249c88@os.amperecomputing.com>
+ <ca1673c4-1c8d-40d5-bc40-abc6489b2fdd@arm.com>
+ <ce0ae0fd-3a9e-4cc2-8a60-f4ff434f3872@os.amperecomputing.com>
+ <953c5369-ef91-4f86-924a-20f5788643fc@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <953c5369-ef91-4f86-924a-20f5788643fc@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SJ0PR03CA0093.namprd03.prod.outlook.com
+ (2603:10b6:a03:333::8) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <aD3wE_mkfYA2XqA6@a98shuttle.de>
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SA1PR01MB8621:EE_
+X-MS-Office365-Filtering-Correlation-Id: d30b913a-f690-478b-07ed-08dda217c0a4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M1M2ak8zQ3MxSW15bjNGWDVYOWVDUXdSNDlFZlJydFhIVGVubHZqaVRJWGtn?=
+ =?utf-8?B?MlV3UWZiNFV2eWhUVnBiSFdOR1NMdmljSURqSGlmWldtU0VMMExCcFdJdm5Y?=
+ =?utf-8?B?VSt4RzlGNk01S0lZcGd2azZ4VEdjSmQ4OFk5U0pjeW5hNlpVdGpxcHRSTmFu?=
+ =?utf-8?B?NjRXOGNyaUEzK1F1YnRrWEV1bU9OZXVIL1JuTDRYYWdseStmM1NwblVsbUNl?=
+ =?utf-8?B?RmpOblZWSGxDQk9XUDNQcElRN1QrQWRRdFZZWWoyM0RISWV2eU96dHl0MUFM?=
+ =?utf-8?B?U2w0Vi9peE5QbzIwZWo4QnIyd1Q5cjJZWkRSbW00TE9JdzJWZVJMcm1sZFB0?=
+ =?utf-8?B?ajBTamxoUFB2NGFiNVFjN0xTUjhFVHpQR2ZhR0txVDVGbGNhUFcwVUMxZjRK?=
+ =?utf-8?B?RGJxaG9vbHY4MW84NmFNL0c4VDJlRmRTdCtLUHBYVkRpaVpacEZ1aFVGMGc0?=
+ =?utf-8?B?a2JaTWZxcEFZdWJhbDVVYWpJQzZFYmxaa0hzRTBCbzBFL1J5ZGhWSWZEWDdS?=
+ =?utf-8?B?T3MxMkovaEZnTTFmaFJScjVCR3JWZkpuN2ZwVFpsVVBMTWlzSXpSc1h1THFT?=
+ =?utf-8?B?ck5qR1grQzNaYktDcGhrOWpkNEZtSnhmTmdRTllPcnpBTXNLZWc5MXBXdWI0?=
+ =?utf-8?B?R1NxenRuczJLTzFYaktaOGpqM2RPUlJhcVFKVXF1YUFJc0RsVmhNaEpuVUJi?=
+ =?utf-8?B?SnpINlBmNXlCVXdZaWsrZ1g1MmZOUXdDY3VaQzVHbzdIcE1xVm43V1pGWWJu?=
+ =?utf-8?B?VUlhZmZtV0xaaW04cXUra0ZOVmhjbERWbFE1UlhsNGloRCtuM3RRcWZtK0Ry?=
+ =?utf-8?B?Lzh2YWUxY0V6ZHlzdXpuZnhhZXltTDFZNDc0Q1IrWWpsN2hnUWtPSzRmR1Bx?=
+ =?utf-8?B?QTNnYjZrUllUby9Ec1VTUFFLNVdVN1NlbzlPSVUrekZBZlh2QUpUTHdMWTNm?=
+ =?utf-8?B?bldGSDRZckFwUzllUWwrMFNXMmFHRk80RWhpWmRFYVJtY0dHNExKN2llbTJh?=
+ =?utf-8?B?Ukd0OFBkUnRuUmhSR042NnRzSHJiMi81NGorMCs1d0RxZTFTN1NZaEtRU2to?=
+ =?utf-8?B?OGszUXdnSC9zaGhVM2xGUEZjcnB6Z3dmUlFaMTdmeVZ5UEtielNtSGt1L2FY?=
+ =?utf-8?B?ditEc3pHYkI5dzdjQkhXUkdWOUs3OGQyRVhxR0JFMzhJV0gwbGFsNkJxOVJU?=
+ =?utf-8?B?bm01MXpwcERYNS9WeU1EM0pBUVh6Y2d0WElMMmJCZzNuTUp1di9LZXUzd2k4?=
+ =?utf-8?B?OTJwY25xS1BFQ0x4SC92RVdTWkhwR0hsamRlWDBnVnJSbkluVU1lVCt6bjRL?=
+ =?utf-8?B?RFdrYUZRM2xlZmVBL0w1SFhMMWlhM1E5ZjlKd1p0dk9JMlpqT0tybnVjSjJh?=
+ =?utf-8?B?UlI3K0VHaEhYZURuMHRybkovRmtydWRYRDNKcnhrQS9mZjF4VEUyM0lWdXRr?=
+ =?utf-8?B?Y0Q2bWJnS0tpb2hEZjJsNkV5U1pEUk5lUmNVTzVjdko4QXpQUGdKeEZmaUhi?=
+ =?utf-8?B?RUlmSE9IbTdNK1NLc3owd3JZMVRnQlJkWlhEYlJrK0czOEhHMFhjMS85QlBz?=
+ =?utf-8?B?RVMvTHd6REhocXI1WjN4SWJqb1NaK0RhT1VtWEYrYktpOEhPT0ZlenE5Z0N6?=
+ =?utf-8?B?NEo5ckkvdnlEMGxOeG5YT0g5eFVDVzd5K1hSK2I2OTgyVlAzczV6d0Y1MTRl?=
+ =?utf-8?B?NzJqeVhxVjhyQWRZZU1WVnJnSDYrWTRuNXB1YVcrcUVPUXBSdGpwME15UjJi?=
+ =?utf-8?B?QzdVUXAxMkhDcnV5M2ppdVNBeDNVTndwQnJ1OTJlQzFFZ3hvOTFoZW5HYWNv?=
+ =?utf-8?B?emU2b3pUaC9MZlVnZVR3OU1yTjBaR25KZnY3dENBNnVBMWExWUZPS09qYVF3?=
+ =?utf-8?B?WGFvUHhNaUFnVURmaDd2MlRJSWQrTG1MTnJBTTF6bm00V2V5WEU4ZW15OVo1?=
+ =?utf-8?Q?PJ711EToviY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dXBQckdoZ3U5SGpueThkajkxYzF4WVpKQWhMNS9NMWY3Z2tlbE92R1Znc2ta?=
+ =?utf-8?B?aSt4Y3E3c1lzeUtFaWdwVHRGMGVobmhZWTcvOFBJeFlWUDZJWVBGQkhIdDZq?=
+ =?utf-8?B?Y29LZ21odktYQk1LUGV5WCtFYzlHYmE5TytVS3I3Mm92ZzlOUkkrV1dmbTZF?=
+ =?utf-8?B?OFA3SjNUbzJPU3VubnFaUWVFWjdHd3VCSEEyWUZzTUhiSnVHd05La2xFRDll?=
+ =?utf-8?B?ZFU1a3ZvQTBEQUZWL2UrNVNEVkVFdTZXVW5MaUtZR1NOZ1Jsa1hCaTZiTUFR?=
+ =?utf-8?B?bWd5K2crN0ozamsrLzRYdmEzZklVdkwrenMwZy9VYmNZKzdZZ0pWQjRnbnpR?=
+ =?utf-8?B?VEd0R256M0xoNnNjdVdEVHVBanMwWCtDN2psK0xMUWNrWWRBRTFJbXhnRThU?=
+ =?utf-8?B?M0hQdVl1UTM2SXowTmlGZTNJUG1mRCtDVkJxbzdKY0V5U09sdnh2dkRUZ212?=
+ =?utf-8?B?TWNFamk2bUhsZC9nS25YS3A1NTA2VFRwZkw3LzJJNDNKQmwzZ1d1K1M0SXhj?=
+ =?utf-8?B?ajZrZVUvZEdGb3lxdlAvMlg4R0VNNWxSYlpYd3pDRmw0aWNjRGFkbjRhWEhz?=
+ =?utf-8?B?d0ZQeGFDK1B4VjI0aUZUTjhtaFIva2RreW5SeEYvSW5sYTBYRndDZHZqenFK?=
+ =?utf-8?B?SGkya3JSNkZGTE0wZFhOY2RiaWljUGZqTUEzK0tVaTBQY1hLSUFzbHNBck14?=
+ =?utf-8?B?REhOZVhLQjRzT1p6SGVCS3FDaExIZmEyQTdkQkIwV2JsQm1IVi9IUWd3NkhJ?=
+ =?utf-8?B?VWROc0hTelkwTWVkUkpBL05PazJ4Zlp0aFNiUUswVnp6dHVnTmF0RXh2aHRw?=
+ =?utf-8?B?djhPdHZyQkNEdDJSU3I5b2sxTkV6VFoxVGx1YmFRS3VwSmFYckFIWGIycW5B?=
+ =?utf-8?B?RzJQSDZ5bSt1RUVnL3VWSHVzTEx6Y1VHNC9jNDBVZFhreWo4WWk5ZEJHSFFv?=
+ =?utf-8?B?KzhCWFFZa0pYMXZ5K0NmRTVCeVVwMndyNjNGYURsa0luZENjREo3RTNjL2cv?=
+ =?utf-8?B?SHNVMWJSaitJcEtVYS9ZVDlpUlpmR3d0dTZqTzNjOTBsQk1obTJXQVpVTkwv?=
+ =?utf-8?B?WjlTOW9lS2daYmp0SVFnNHZ4OGN6amFRcEo3bjlTQVpnNTVxVDFSRkE4UWNE?=
+ =?utf-8?B?dVdLbjdwWko0V1pjN2lCa2Q5RHI1bk9TbDlKc0VHeHpJNmQydDhocjl6dzU3?=
+ =?utf-8?B?RzJ6cFdialNJbmxsYVRqakc1ZEViSzFjL3dDQ0dVeWsrZkVYc3YyNHlwMnhM?=
+ =?utf-8?B?dUsydjFYeEN4U0t0UXF3Ry9KdGE0RFYvbXRQbU92dTA1dzJtZm94TXoya2hC?=
+ =?utf-8?B?Wjc4M3Q5TUNRYXoydVNuOVJ2MjVNeDE5QjRDeUtVWUNNVTIyRGdsVGxJMFBv?=
+ =?utf-8?B?K1krNzNzRjdEeEFTVUdUY1paelFNc2UvMFdmNk0zQVM0eEJSaEhvTnhWdjht?=
+ =?utf-8?B?QlEvQ3p5VlYzNUt1dy9qYUtNd1Byb1JhVmhrMm4rNS9FVWVvZEwxSDlwcVBZ?=
+ =?utf-8?B?b1BQaVJvNlc3OW9pM3BkaXdMTjF5T0VKLzdTNWJtaWVLY3F2WHBzSFRjWm5V?=
+ =?utf-8?B?REJxalRxOG11dGd5ekR3dXdST2JqV0kyUUJGUldVREVrM0xpRXBBQmV4VW1C?=
+ =?utf-8?B?c1NkU0N6amFyZ1A5RDFBMFJLZzdvL3plQmM1OUQ3TW5GZzFKay8wTHNDb1Bi?=
+ =?utf-8?B?NFVlVUlRb1Y4enpSRThtUStpRXpYVFV2OVRjcWJFL3U0T1lVQjdYd0VCcHEv?=
+ =?utf-8?B?NS8yMzF2R2F2ZkxsN01ReFRHOFZVVDdyTXR1NHJzMTRLeTlCaVJoQlJvSi9J?=
+ =?utf-8?B?VWtqQmhranlSRlNYL0RBZmM5cUN0YzFvMUFGVGFNeEsyd2ZVUGNjMHRiWDhB?=
+ =?utf-8?B?dFF2Wi8wbWlwM0tqd0c3NUZmQm0wSS9jNXRhcC9ZZFY2cFdZdzVWTkNla2JZ?=
+ =?utf-8?B?M1VBTDN4ZzZvTUJGUU1wRnM5bUladDVZWnhpMlkzR2ZnL2tHbHVtRk9iRTA5?=
+ =?utf-8?B?cXpWbUl3MjFzaUNKczJZSnk2dFlEVUlVYzFQV2hSczl2R2ZXMTRjdnhzSlZo?=
+ =?utf-8?B?emcxM0pGd0dhbnp3YndHbnVyR2xJUkgyMy82eC9UUnUwRHo5ektyL0x5cWd3?=
+ =?utf-8?B?VjF4UWxZZFJZV0FtVHVyc1lGdEd6M0xSdEljeGg4TU5RbWpPalhkOUZWS3VC?=
+ =?utf-8?Q?RBqTkZt89S4YlvDAK3Vv3Mw=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d30b913a-f690-478b-07ed-08dda217c0a4
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jun 2025 20:55:05.9292
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PRnD9NrFJFEk/pFDZVzcViOv3LVnWIY7NdV61pFO5+FVq5uBReYsizu3FNA+9+ieg2qQ427x1b0lJTywBwWDn/z1G8OZXVugUKq1PDz1DvM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB8621
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_132251_721927_60E7EFD2 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20250602_135517_352649_4B2F2786 
+X-CRM114-Status: GOOD (  27.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,139 +195,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 02, 2025 at 08:40:20PM +0200, Michael Klein wrote:
->On Mon, Jun 02, 2025 at 11:55:44AM +0200, Maxime Ripard wrote:
->>On Mon, May 26, 2025 at 11:13:01PM +0200, Michael wrote:
->>>On Mon, May 26, 2025 at 07:30:35PM +0200, Maxime Ripard wrote:
->>>> On Mon, May 12, 2025 at 10:27:06PM +0200, Michael wrote:
->>>> > with v6.9 and later there is no output on the BananaPI HDMI connector.
->>>> >
->>>> > I have bisected the issue to the following commit:
->>>> >
->>>> >   358e76fd613a ("drm/sun4i: hdmi: Consolidate atomic_check and mode_valid")
->>>> >
->>>> > With this patch, sun4i_hdmi_connector_clock_valid() is occasionally called
->>>> > with clock=0, causing the function to return MODE_NOCLOCK.
->>>> > In the old sun4i_hdmi_mode_valid() before the patch, mode->clock is
->>>> > always!=0, maybe that gives someone a hint.
->>>>
->>>> This doesn't make sense to me, if only because the two callers of
->>>> tmds_char_rate_valid (hdmi_compute_clock and
->>>> drm_hdmi_connector_mode_valid) have, right before calling it, checks to
->>>> make sure the clock rate isn't 0, and would return MODE_ERROR or EINVAL
->>>> in such a case.
->>>>
->>>> https://elixir.bootlin.com/linux/v6.15/source/drivers/gpu/drm/display/drm_hdmi_state_helper.c#L234
->>>> https://elixir.bootlin.com/linux/v6.15/source/drivers/gpu/drm/display/drm_hdmi_state_helper.c#L553
->>>
->>>Before 6.14, sun4i_hdmi_connector_clock_valid() was also called from
->>>sun4i_hdmi_connector_atomic_check()...
->>>
->>>> Do you have some logs (with dri.devel=0xff)? Does it happen with 6.15 as
->>>> well?
->>>
->>>It does not happen with 6.15, as it was fixed in 6.14 with 84e541b1e58e
->>>("drm/sun4i: use drm_atomic_helper_connector_hdmi_check()").
+
+
+On 6/2/25 3:47 AM, Ryan Roberts wrote:
+> On 30/05/2025 18:18, Yang Shi wrote:
 >>
->>Then we might still need to backport that patch.
+>> On 5/30/25 12:59 AM, Ryan Roberts wrote:
+>>> On 29/05/2025 21:52, Yang Shi wrote:
+>>>>>>>>>> The split_mapping() guarantees keep block mapping if it is fully
+>>>>>>>>>> contained in
+>>>>>>>>>> the range between start and end, this is my series's responsibility. I
+>>>>>>>>>> know
+>>>>>>>>>> the
+>>>>>>>>>> current code calls apply_to_page_range() to apply permission change and it
+>>>>>>>>>> just
+>>>>>>>>>> does it on PTE basis. So IIUC Dev's series will modify it or provide a new
+>>>>>>>>>> API,
+>>>>>>>>>> then __change_memory_common() will call it to change permission. There
+>>>>>>>>>> should be
+>>>>>>>>>> some overlap between mine and Dev's, but I don't see strong dependency.
+>>>>>>>>> But if you have a block mapping in the region you are calling
+>>>>>>>>> __change_memory_common() on, today that will fail because it can only
+>>>>>>>>> handle
+>>>>>>>>> page mappings.
+>>>>>>>> IMHO letting __change_memory_common() manipulate on contiguous address
+>>>>>>>> range is
+>>>>>>>> another story and should be not a part of the split primitive.
+>>>>>>> I 100% agree that it should not be part of the split primitive.
+>>>>>>>
+>>>>>>> But your series *depends* upon __change_memory_common() being able to change
+>>>>>>> permissions on block mappings. Today it can only change permissions on page
+>>>>>>> mappings.
+>>>>>> I don't think split primitive depends on it. Changing permission on block
+>>>>>> mappings is just the user of the new split primitive IMHO. We just have no
+>>>>>> real
+>>>>>> user right now.
+>>>>> But your series introduces a real user; after your series, the linear map is
+>>>>> block mapped.
+>>>> The users of the split primitive are the permission changers, for example,
+>>>> module, bpf, secret mem, etc.
+>>> Ahh, perhaps this is the crux of our misunderstanding... In my model, the split
+>>> primitive is called from __change_memory_common() (or from other appropriate
+>>> functions in pageattr.c). It's an implementation detail for arm64 and is not
+>>> exposed to common code. arm64 knows that it can split live mappings in a
+>>> transparent way so it uses huge pages eagerly and splits on demand.
+>>>
+>>> I personally wouldn't want to be relying on the memory user knowing it needs to
+>>> split the mappings...
+>> We are actually on the same page...
 >>
->>Does applying it to 6.9 alone makes it work, or do you need some additional ones (I'm thinking of
->>ae048fc4f96d in particular, which in turn would require 47368ab437fd)
+>> For example, when loading module, kernel currently does:
+>>
+>> vmalloc() // Allocate memory for module
+>> module_enable_text_rox() // change permission to ROX for text section
+>>      set_memory_x
+>>          change_memory_common
+>>              for every page in the vmalloc area
+>>                  __change_memory_common(addr, PAGE_SIZE, ...) // page basis
+>>                      split_mapping(addr, addr + PAGE_SIZE)
+>>                      apply_to_page_range() // apply the new permission
+>>
+>> __change_memory_common() has to be called on page basis because we don't know
+>> whether the pages for the vmalloc area are contiguous or not. So the split
+>> primitive is called on page basis.
+> Yes that makes sense for the case where we are setting permissions on a
+> virtually contiguous region of vmalloc space; in that case we must set
+> permissions on the linear map page-by-page. Agreed.
 >
->No way to apply this to anything 6.9. The closest I can get it into is 
->6.11, which requires both ae048fc4f96d and 47368ab437fd (with one 
->trivial conflict) to make it work. Anthing earlier lacks the entire 
->HDMI connector framework.
+> I was thinking of the cases where we are changing the permissions on a virtually
+> contiguous region of the *linear map*. Although looking again at the code, it
+> seems there aren't as many places as I thought that actually do this. I think
+> set_direct_map_valid_noflush() is the only one that will operate on multiple
+> pages of the linear map at a time. But this single case means that you could end
+> up wanting to change permissions on a large block mapping and therefore need
+> Dev's work, right?
 
-HDMI signal is fine, but panics when shutting down:
+Yes, set_direct_map_valid_noflush() may be called on multiple pages. But 
+this was introduced by Mike Rapport's "x86/module: use large ROX pages 
+for text allocations" series. So just x86 supports it right now. Large 
+execmem ROX cache is not supported on arm64 yet IIRC.
 
-[   80.182719] 8<--- cut here ---
-[   80.190019] Unable to handle kernel NULL pointer dereference at virtual address 00000000 when read
-[   80.203132] [00000000] *pgd=00000000
-[   80.210869] Internal error: Oops: 5 [#1] SMP THUMB2
-[   80.219762] Modules linked in: rfkill sunrpc sun4i_gpadc_iio axp20x_adc sunxi_cir sun4i_ts sunxi_cedrus(C) v4l2_mem2mem videobuf2_dma_contig videobuf2_memops videobuf2_v4l2 videodev videobuf2_common mc cpufreq_dt lz4hc evdev lz4 uio_pdrv_genirq uio zram zsmalloc binfmt_misc ledtrig_netdev dm_mod configfs autofs4 ext4 mbcache jbd2 axp20x_usb_power industrialio pinctrl_axp209 lima gpu_sched sun4i_gpadc sunxi phy_generic simpledrm drm_shmem_helper display_connector realtek
-[   80.278276] CPU: 0 UID: 0 PID: 1 Comm: systemd-shutdow Tainted: G         C         6.11.11-edge-sunxi #2
-[   80.292150] Tainted: [C]=CRAP
-[   80.299353] Hardware name: Allwinner sun7i (A20) Family
-[   80.308856] PC is at drm_match_cea_mode+0x1a/0x164
-[   80.317864] LR is at drm_default_rgb_quant_range+0xd/0x18
-[   80.327409] pc : [<c068be8a>]    lr : [<c068bfe1>]    psr: 80000033
-[   80.337879] sp : f0819be0  ip : 00000000  fp : c1d99400
-[   80.347275] r10: 00000000  r9 : c350e600  r8 : c350f400
-[   80.356623] r7 : 00000000  r6 : 00000043  r5 : c1de9840  r4 : c2f72200
-[   80.367251] r3 : c1a7b200  r2 : 00000000  r1 : 00000014  r0 : 00000000
-[   80.377866] Flags: Nzcv  IRQs on  FIQs on  Mode SVC_32  ISA Thumb  Segment none
-[   80.389216] Control: 50c5387d  Table: 4350406a  DAC: 00000051
-[   80.398974] Register r0 information: NULL pointer
-[   80.407594] Register r1 information: non-paged memory
-[   80.416432] Register r2 information: NULL pointer
-[   80.424851] Register r3 information: slab task_struct start c1a7b200 pointer offset 0 size 2560
-[   80.437302] Register r4 information: slab kmalloc-512 start c2f72200 pointer offset 0 size 512
-[   80.449595] Register r5 information: slab kmalloc-2k start c1de9800 pointer offset 64 size 2048
-[   80.461962] Register r6 information: non-paged memory
-[   80.470615] Register r7 information: NULL pointer
-[   80.478819] Register r8 information: slab kmalloc-512 start c350f400 pointer offset 0 size 512
-[   80.491012] Register r9 information: slab kmalloc-512 start c350e600 pointer offset 0 size 512
-[   80.503137] Register r10 information: NULL pointer
-[   80.511370] Register r11 information: slab kmalloc-1k start c1d99400 pointer offset 0 size 1024
-[   80.523615] Register r12 information: NULL pointer
-[   80.531889] Process systemd-shutdow (pid: 1, stack limit = 0x606ed489)
-[   80.541956] Stack: (0xf0819be0 to 0xf081a000)
-[   80.549838] 9be0: 00000000 7465f854 00000004 eff95f00 c1a7b480 00153997 00000012 00000000
-[   80.561631] 9c00: c16177c8 c16177c8 00000001 c15a0500 eff8b500 2e9eb000 00000014 c01631a9
-[   80.573432] 9c20: 00000012 00000000 f0819c38 eff95f00 00000000 c01531f3 00000000 c014fefb
-[   80.585202] 9c40: 00000000 ab217527 00000012 00000001 c16177c8 7465f854 00000000 c2f72200
-[   80.596929] 9c60: c1de9840 00000043 00000000 c350f400 c350e600 00000000 c1d99400 c068bfe1
-[   80.608686] 9c80: 00000000 c06c41e3 00000014 c06aa6b9 c1a7b200 2e9eb000 c160b100 c160b100
-[   80.620365] 9ca0: 2e9eb000 2e9eb000 f0819cd0 c350f400 c38c3ec0 c06aab2f c1a7b200 c38c3ec0
-[   80.631960] 9cc0: c1de9840 00000043 c2f72200 c350f400 c350e600 00000000 c1d99400 c06aa89f
-[   80.643459] 9ce0: 00000043 c29e4740 c15aaec0 00000000 c1a7b200 aa4033e7 00000001 00000000
-[   80.654883] 9d00: c0baeee4 c01a248d c1d99400 c0dbfbf0 c0dbfd3c 00000001 c0dbfcc4 00000000
-[   80.666249] 9d20: 00000002 c1d99400 c38c3ec0 00000001 c2f72200 00000000 c350e600 c1d99400
-[   80.677586] 9d40: c38c3ec0 c06c4c45 c06c4c35 00000014 c1de9840 c067ffc5 c38c3ec0 00000000
-[   80.688949] 9d60: 00000000 7465f854 c1de9840 c0698f71 c0698f71 c0dbcfb0 00000000 c069c493
-[   80.700343] 9d80: 00000000 7465f854 c3bc60c0 c1d99400 00000000 00000000 00000000 c38c3ec0
-[   80.711744] 9da0: c1d99400 00000000 c3bc66c0 00000000 c1c06c54 00000058 4321fedc c0680ca5
-[   80.723146] 9dc0: 00000000 7465f854 00000000 c0ab622b 00000000 c1c06c10 00000000 00000000
-[   80.734573] 9de0: 00000000 c0ab622b 00000000 c1c06c10 00000000 00000000 00000000 7465f854
-[   80.746010] 9e00: c1c466f0 c38c3ec0 00000008 c06ad727 c1d99400 00000000 c1c06c10 c17f01ac
-[   80.757468] 9e20: c17a0018 c06ad78d c1a7b200 00000017 0000000b 00000000 00000000 00000000
-[   80.768964] 9e40: c1dea868 c1d99504 00000000 7465f854 c1c06c14 c1c06c14 c172b6d0 c06d80cf
-[   80.780459] 9e60: c1a7b200 c17a0f4c 00000000 c161357c fee1dead 00000000 c1a7b200 c013e66f
-[   80.791939] 9e80: c1a7b200 c013e7fd 00000000 00000000 00000000 00000000 00000000 00000000
-[   80.803406] 9ea0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[   80.814873] 9ec0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[   80.826316] 9ee0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[   80.837678] 9f00: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[   80.849011] 9f20: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[   80.860286] 9f40: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[   80.871477] 9f60: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[   80.882646] 9f80: 00000000 00000000 00000000 7465f854 00000000 00000000 00000003 00000058
-[   80.893755] 9fa0: c01002a0 c0100061 00000000 00000000 fee1dead 28121969 4321fedc 00000000
-[   80.904935] 9fc0: 00000000 00000000 00000003 00000058 bef22d44 00000000 bef22a9c 4321fedc
-[   80.916090] 9fe0: 00000058 bef229ec b6c70c55 b6be0656 60000030 fee1dead 00000000 00000000
-[   80.927251] Call trace: 
-[   80.927270]  drm_match_cea_mode from drm_default_rgb_quant_range+0xd/0x18
-[   80.942505]  drm_default_rgb_quant_range from drm_atomic_helper_connector_hdmi_check+0x67/0x520
-[   80.954267]  drm_atomic_helper_connector_hdmi_check from drm_atomic_helper_check_modeset+0x363/0x974
-[   80.966483]  drm_atomic_helper_check_modeset from sun4i_de_atomic_check+0x11/0x2c
-[   80.977035]  sun4i_de_atomic_check from drm_atomic_check_only+0x471/0x730
-[   80.986897]  drm_atomic_check_only from drm_atomic_commit+0x61/0xac
-[   80.996205]  drm_atomic_commit from drm_atomic_helper_disable_all+0x127/0x130
-[   81.006385]  drm_atomic_helper_disable_all from drm_atomic_helper_shutdown+0x5d/0xd0
-[   81.017192]  drm_atomic_helper_shutdown from device_shutdown+0xcf/0x174
-[   81.026851]  device_shutdown from kernel_power_off+0x2f/0x60
-[   81.035541]  kernel_power_off from __do_sys_reboot+0x15d/0x18c
-[   81.044367]  __do_sys_reboot from ret_fast_syscall+0x1/0x5c
-[   81.052908] Exception stack(0xf0819fa8 to 0xf0819ff0)
-[   81.060899] 9fa0:                   00000000 00000000 fee1dead 28121969 4321fedc 00000000
-[   81.072085] 9fc0: 00000000 00000000 00000003 00000058 bef22d44 00000000 bef22a9c 4321fedc
-[   81.083257] 9fe0: 00000058 bef229ec b6c70c55 b6be0656
-[   81.091295] Code: 25a8 921d f04f 0200 (6803) 4605 
-[   81.099305] ---[ end trace 0000000000000000 ]---
-[   81.107011] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-[   81.117724] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+Thanks,
+Yang
 
--- 
-Michael
+
+>
+> Thanks,
+> Ryan
+>
+>>
+>> So we need do the below in order to keep large mapping:
+>> check whether the vmalloc area is huge mapped (PMD/CONT PMD/CONT PTE) or not
+>> if (it is huge mapped)
+>>      __change_memory_common(addr, HUGE_SIZE, ...)
+>>          split_mapping(addr, addr + HUGE_SIZE)
+>>          change permission on (addr, addr + HUGE_SIZE)
+>> else
+>>      fallback to page basis
+>>
+>>
+>> To have huge mapping for vmalloc, we need use vmalloc_huge() or the new
+>> implementation proposed by you to allocate memory for module in the first place.
+>> This is the "user" in my understanding.
+>>
+>> Thanks,
+>> Yang
+>>
+>>
+
 
