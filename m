@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313D5C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 10:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5440C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 10:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3NsCQnHXD2fj3xS0Y5zeZm7Ha0g1aROBQtCTtZ5MDmU=; b=Y+p37Mxdwgh91qsKA2731ruANH
-	CKCRfMFVmaHGz/VD9rZxF/c9gCqtBLXnSxKkz/IZYk8BXq4MrwYC0KEBDN1+Gb1wgQM9kmBEhcSCk
-	c0wIXvAanfdkXm52U3gJ3liLoD3FPi95+jpuEMr8s4Wf0CElI3JwcpnPEPBxZ5dDZJyJFEEEwlIas
-	YgVjjZwg8C89wQY5YoU2lzpxmj6/SiTwZQZKp12jHjlyuskmEVKW4tMAELgVHFOUGhsYarMFeHici
-	8qJXFNNYiqmaKDI+ImnMXMZNtUMctx+kvT47NL/MrBJBTuSQk7pRdc1NozZA5I2+IBFy4A21lGmGh
-	KHsZ25jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kDCAKzzp4kJ7326lYSzAlqb4H4Rzowzo8Ib7HjjuGOI=; b=gV4bxm50S7tsU0
+	loYc1hKl4u7Q7B/W6dlaRFwcMpVngLX8tAFUUqGy64sz/HkQ7/BxjMCEYR/WSjuqoYmonj2XBOY34
+	kbjuDexxWLWJTDanrPpJhFsYyhytTi2f0d6YKeG07rX0lcfYVigGd9WDzbXPBJ8bQqcSbcAMLc8KI
+	PuaUB3AA4MBZksQKzJ9QBPhzKE9pkS/MS5NUm9+X8rUuRaB41ICYFqDe8pD52bKxs8vuDk+2FwEyE
+	AJS3Ybdj8BY/Fx6Xla7rWm3TPOqfoGNWELfu74Fp1jNDzhrK+4qQivGB90bf9J5sft3dR9fV2vyFE
+	bOhq7r0QpEVSnpNKFWUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM2jV-00000007E1o-2ci0;
-	Mon, 02 Jun 2025 10:49:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM2hH-00000007DlE-2kKv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 10:47:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 684FB12FC;
-	Mon,  2 Jun 2025 03:46:58 -0700 (PDT)
-Received: from [10.57.95.206] (unknown [10.57.95.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 717153F673;
-	Mon,  2 Jun 2025 03:47:13 -0700 (PDT)
-Message-ID: <953c5369-ef91-4f86-924a-20f5788643fc@arm.com>
-Date: Mon, 2 Jun 2025 11:47:11 +0100
+	id 1uM2rr-00000007F6F-3n3X;
+	Mon, 02 Jun 2025 10:58:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uM2pg-00000007Elq-3UCf;
+	Mon, 02 Jun 2025 10:55:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3358C61154;
+	Mon,  2 Jun 2025 10:55:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A37ACC4CEF1;
+	Mon,  2 Jun 2025 10:55:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748861756;
+	bh=CNEuqINln8xoGOt137lfp3l1+JiSb5Impr5Rqb39m34=;
+	h=From:Subject:Date:To:Cc:From;
+	b=pPuWMH/ztPzZjmTHRmB9cntwUBLPXObLyPRCaE58XESTgG2SsVymcgOdcDVeqdvpI
+	 IH6KWlt8Z8mhBTzRdEM+dOseRpNfyB5RexRmwOxPdAnuSFXil2dgt/XTy9tWpcuUXm
+	 QFWg6/vI/MZSQTZNGf0npGy7ZKP1Z4J1yHm3gvOkn7U8NiTI0EjjdsUP9NcxKu+qx1
+	 f1jh4juiXrPZJ4NggIM32ttWIzauftSdi4E6mTpsNZuN1v9OWEux/ax77GemyD7Xyj
+	 uGMtR2OSH2gcWdzeY62XtFKi8Zqd5BhEG+T4iPoE4QWWN/UVaiys4acjHyl/ko+S19
+	 jQiERfNeivDqA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net v2 0/3] net: airoha: Fix IPv6 hw acceleration
+Date: Mon, 02 Jun 2025 12:55:36 +0200
+Message-Id: <20250602-airoha-flowtable-ipv6-fix-v2-0-3287f8b55214@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Dev Jain <dev.jain@arm.com>
-References: <20250304222018.615808-1-yang@os.amperecomputing.com>
- <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
- <912c3126-8ba7-4c3a-b168-438f92e89217@arm.com>
- <2ab5f65c-b9dc-471c-9b61-70d765af285e@os.amperecomputing.com>
- <239d4e93-7ab6-4fc9-b907-7ca9d71f81fd@arm.com>
- <1141d96c-f785-48ee-a0f6-9ec658cc11c2@os.amperecomputing.com>
- <9cdb027c-27db-4195-825d-1d63bec1b69b@os.amperecomputing.com>
- <e3e6a3e0-3012-4d95-9236-4b4d57c7974c@arm.com>
- <0769dbcb-bd9e-4c36-b2c1-a624abaeb5ce@os.amperecomputing.com>
- <f31792bf-3b54-408c-9deb-7058a79c60d4@arm.com>
- <a27776ed-4b45-4269-9e3c-5ca1463e4841@os.amperecomputing.com>
- <bfae581e-3988-44b5-af5e-8e2de4db68ed@arm.com>
- <cc1522f8-85b9-48e5-951f-9a1bb2075918@os.amperecomputing.com>
- <e0960267-0dd5-412a-be54-1afaacc6bace@arm.com>
- <4b2278d8-d627-47af-ae90-9d62ad249c88@os.amperecomputing.com>
- <ca1673c4-1c8d-40d5-bc40-abc6489b2fdd@arm.com>
- <ce0ae0fd-3a9e-4cc2-8a60-f4ff434f3872@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <ce0ae0fd-3a9e-4cc2-8a60-f4ff434f3872@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_034715_784586_AEA4AF10 
-X-CRM114-Status: GOOD (  27.75  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACiDPWgC/42NQQ6CMBBFr0Jm7ZhSLQVW3sOwqDDARELJlFQN4
+ e5WTuDyvZ///waBhClAnW0gFDmwnxPoUwbt6OaBkLvEoJU2yugKHYsfHfaTf63uMaV8iQX2/Mb
+ KFi5vqVRkO0j9RSjpY/veJB45rF4+x1XMf/af1ZijQttaMhdHqjTX25NkpunsZYBm3/cv6m3CK
+ 8MAAAA=
+X-Change-ID: 20250529-airoha-flowtable-ipv6-fix-976a1ce80e7d
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Michal Kubiak <michal.kubiak@intel.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,103 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/05/2025 18:18, Yang Shi wrote:
-> 
-> 
-> On 5/30/25 12:59 AM, Ryan Roberts wrote:
->> On 29/05/2025 21:52, Yang Shi wrote:
->>>>>>>>> The split_mapping() guarantees keep block mapping if it is fully
->>>>>>>>> contained in
->>>>>>>>> the range between start and end, this is my series's responsibility. I
->>>>>>>>> know
->>>>>>>>> the
->>>>>>>>> current code calls apply_to_page_range() to apply permission change and it
->>>>>>>>> just
->>>>>>>>> does it on PTE basis. So IIUC Dev's series will modify it or provide a new
->>>>>>>>> API,
->>>>>>>>> then __change_memory_common() will call it to change permission. There
->>>>>>>>> should be
->>>>>>>>> some overlap between mine and Dev's, but I don't see strong dependency.
->>>>>>>> But if you have a block mapping in the region you are calling
->>>>>>>> __change_memory_common() on, today that will fail because it can only
->>>>>>>> handle
->>>>>>>> page mappings.
->>>>>>> IMHO letting __change_memory_common() manipulate on contiguous address
->>>>>>> range is
->>>>>>> another story and should be not a part of the split primitive.
->>>>>> I 100% agree that it should not be part of the split primitive.
->>>>>>
->>>>>> But your series *depends* upon __change_memory_common() being able to change
->>>>>> permissions on block mappings. Today it can only change permissions on page
->>>>>> mappings.
->>>>> I don't think split primitive depends on it. Changing permission on block
->>>>> mappings is just the user of the new split primitive IMHO. We just have no
->>>>> real
->>>>> user right now.
->>>> But your series introduces a real user; after your series, the linear map is
->>>> block mapped.
->>> The users of the split primitive are the permission changers, for example,
->>> module, bpf, secret mem, etc.
->> Ahh, perhaps this is the crux of our misunderstanding... In my model, the split
->> primitive is called from __change_memory_common() (or from other appropriate
->> functions in pageattr.c). It's an implementation detail for arm64 and is not
->> exposed to common code. arm64 knows that it can split live mappings in a
->> transparent way so it uses huge pages eagerly and splits on demand.
->>
->> I personally wouldn't want to be relying on the memory user knowing it needs to
->> split the mappings...
-> 
-> We are actually on the same page...
-> 
-> For example, when loading module, kernel currently does:
-> 
-> vmalloc() // Allocate memory for module
-> module_enable_text_rox() // change permission to ROX for text section
->     set_memory_x
->         change_memory_common
->             for every page in the vmalloc area
->                 __change_memory_common(addr, PAGE_SIZE, ...) // page basis
->                     split_mapping(addr, addr + PAGE_SIZE)
->                     apply_to_page_range() // apply the new permission
-> 
-> __change_memory_common() has to be called on page basis because we don't know
-> whether the pages for the vmalloc area are contiguous or not. So the split
-> primitive is called on page basis.
+Fix IPv6 hw acceleration in bridge mode resolving ib2 and
+airoha_foe_mac_info_common overwrite in
+airoha_ppe_foe_commit_subflow_entry routine.
+Introduce UPDMEM source-mac table used to set source mac address for
+L3 IPv6 hw accelerated traffic.
 
-Yes that makes sense for the case where we are setting permissions on a
-virtually contiguous region of vmalloc space; in that case we must set
-permissions on the linear map page-by-page. Agreed.
+---
+Changes in v2:
+- improve commit logs
+- move smac_id configuration for L2 mode in a dedicated patch
+- Link to v1: https://lore.kernel.org/r/20250529-airoha-flowtable-ipv6-fix-v1-0-7c7e53ae0854@kernel.org
 
-I was thinking of the cases where we are changing the permissions on a virtually
-contiguous region of the *linear map*. Although looking again at the code, it
-seems there aren't as many places as I thought that actually do this. I think
-set_direct_map_valid_noflush() is the only one that will operate on multiple
-pages of the linear map at a time. But this single case means that you could end
-up wanting to change permissions on a large block mapping and therefore need
-Dev's work, right?
+---
+Lorenzo Bianconi (3):
+      net: airoha: Initialize PPE UPDMEM source-mac table
+      net: airoha: Fix IPv6 hw acceleration in bridge mode
+      net: airoha: Fix smac_id configuration in bridge mode
 
-Thanks,
-Ryan
+ drivers/net/ethernet/airoha/airoha_eth.c  |  2 ++
+ drivers/net/ethernet/airoha/airoha_eth.h  |  1 +
+ drivers/net/ethernet/airoha/airoha_ppe.c  | 54 ++++++++++++++++++++++++-------
+ drivers/net/ethernet/airoha/airoha_regs.h | 10 ++++++
+ 4 files changed, 55 insertions(+), 12 deletions(-)
+---
+base-commit: 558428921eddbd5083fe8116e31b8af460712f44
+change-id: 20250529-airoha-flowtable-ipv6-fix-976a1ce80e7d
 
-> 
-> 
-> So we need do the below in order to keep large mapping:
-> check whether the vmalloc area is huge mapped (PMD/CONT PMD/CONT PTE) or not
-> if (it is huge mapped)
->     __change_memory_common(addr, HUGE_SIZE, ...)
->         split_mapping(addr, addr + HUGE_SIZE)
->         change permission on (addr, addr + HUGE_SIZE)
-> else
->     fallback to page basis
-> 
-> 
-> To have huge mapping for vmalloc, we need use vmalloc_huge() or the new
-> implementation proposed by you to allocate memory for module in the first place.
-> This is the "user" in my understanding.
-> 
-> Thanks,
-> Yang
-> 
-> 
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
