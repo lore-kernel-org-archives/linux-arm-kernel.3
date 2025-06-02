@@ -4,113 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F61EC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 09:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4343CC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 09:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1kL4Sa/nUkoif7ssgzT0yKC1eN4l+RqW+mCMdQw4RfY=; b=n2GPx9Dmtaylt8IggIH+uXkfd+
-	BvYjbrpka8BYIO/uxaO0ao/mX/3XK3Qwzr1EHI2fuaj4QrL9me22g8tf2PdfLeW872qS65PjGWWVZ
-	EkBvYiogNch25/saqLaacl0AEO8BwdbIU3obs43NzVHyx7Ts7BVmigafqjtvV/bVDwQxJIuPCRYwR
-	OK9tw2I3P8Hk5SEIYCuohl0ULDPxczsEGLLzUSZsuIbkAqAjt3dacysFVqlHn7vUNwQ4zYk6Yt5Uh
-	LpKS4XGfnZzFRwzfTTvNDEr0pBQ4ftXmTQckVUhXZR+S6leIIBxTzrOi27CDsFt7jDZlbClyQhnt3
-	oJBJMCHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1+5K/3z8bHHDx4veFZVqR8dLIbT7Kl4Xgcjf72s2+S4=; b=ddnC9yVxglKHngxmAlhg8lfpLu
+	cvb0ia3ojem4eXDkOWOYOouXsS4oaZh+wGygaTUdomkesaKJlITvLE9NckyvEAD1D7g9UIpLMoESY
+	FN/5w6G6va7vl1kv2W9MSLolBw/KQ67EdWGrKCjP4s6426Vw8QGCnRrWRbJ3PJEBoJsYm9ERxlSx7
+	tER5fJygxA8ivuasb0MkTq7TVvdiJwQcNAUmNBJgxwQr9u24K6P96kJjeZmzFzsIH6K+bXa5JoLgx
+	PZHhUTyXK3/dlLK6V8Ftg5k/MqemE1CBBSN/lo+fgoeSMD8y6OjrG9sG8PLTAByXJ+Zy7XjjuQfP2
+	k5ofrYQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM1hJ-000000075pp-2ZFl;
-	Mon, 02 Jun 2025 09:43:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uM1vh-0000000787d-0iIr;
+	Mon, 02 Jun 2025 09:58:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM1dQ-000000075OZ-2v8x;
-	Mon, 02 Jun 2025 09:39:13 +0000
+	id 1uM1tX-000000077sH-03EM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Jun 2025 09:55:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F1D22A4FF0C;
-	Mon,  2 Jun 2025 09:39:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B45FCC4CEEB;
-	Mon,  2 Jun 2025 09:39:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 03E9C61154;
+	Mon,  2 Jun 2025 09:55:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AAD3C4CEEB;
+	Mon,  2 Jun 2025 09:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748857151;
-	bh=lyYNygr33eoeswlcOm02s4h7rjdaOk6qW/QLqNcdbDs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Lem9UO44d3wdJK+dKzy86mY8u5f1xJerl1sk7nPdArUDROi4WgdaAMQ/KB0MagqwC
-	 zV7g1erp56QqcEXXECMPBVQERHd5HAJHsoxtzFBLRwVkJ1MyHHHMMFfEa/GiK+63Mo
-	 ET2i4197y6XjyTQydTsKtYRTI8QWMSvGdfL7vXTtX0aE1VmwEU+RmDjhMcLod/xxo6
-	 NAX5d3asM47Oe5xoTTAR0iV3rxKlyS+M9a/GPCeEjjjkg5MmWJAoXUvORAELyd1uk2
-	 y25bLmJa1EL/wOKFL1vDqkVER0OXC2a+BrSTzaXtDNwEwQK96uGnf9oazKuOZUWeT8
-	 IyZNlowIzUXFQ==
-Message-ID: <cd28cf31-0b68-4e7a-8709-e29b177a3619@kernel.org>
-Date: Mon, 2 Jun 2025 11:39:05 +0200
+	s=k20201202; t=1748858146;
+	bh=f3PThskvyc3o1dRe3gR60NcQON7tJMiafQa3JgdKS4g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=owoclCnU402xj1tKfjG2V3nRezynaK54F0LeM1C7LfPj5B6kEEc+R6xwRDWTX9Izt
+	 fH4bF1SyqYcU4bzfflH7O+/vuVhM1ipyqI5itPn188lgbOxXSl16Vj9bbUSHwPJsAV
+	 8jvPUNNMaaTUaPhWg+kdP52Xd/CbCrw3Vxy0DF5tZ3R/Je8tIWBrTlHG3v5WFeRVJt
+	 yvNeq9RShmce2SQXZ+h+jwC5cyhw10/yBr8htEymYu0oSgwmd846TUElCHbXtoAysE
+	 4Rlp6tzntGAPZEJHasqpvFqUjN/otT7Elj1N1qpY5NxxEVSfyU/eHW+psb3/D8MBIn
+	 dRGSN1IypgS9A==
+Date: Mon, 2 Jun 2025 11:55:44 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Michael <michael@fossekall.de>
+Cc: Chen-Yu Tsai <wens@csie.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, regressions@lists.linux.dev
+Subject: Re: [REGRESSION] [BISECTED] drm/sun4i: hdmi: No HDMI output with
+ BananaPI M1 on 6.9
+Message-ID: <20250602-psychedelic-purring-poodle-900a5b@houat>
+References: <aCJZmm8rC0RwbcBX@a98shuttle.de>
+ <20250526-refined-dog-of-blizzard-b48f11@houat>
+ <aDTZXagQ28OdNtLh@a98shuttle.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [1/5] clk: mt8189: Porting driver for clk
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, nfraprado@collabora.com
-Cc: angelogioacchino.delregno@collabora.com,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-pm@vger.kernel.org, netdev@vger.kernel.org,
- linux-mediatek@lists.infradead.org,
- Irving lin <irving-ch.lin@mediatek.corp-partner.google.com>
-References: <20250602083624.1849719-1-irving-ch.lin@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250602083624.1849719-1-irving-ch.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_023912_879501_2ACF93FD 
-X-CRM114-Status: UNSURE (   6.77  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="bjexc5aylm7p2ugp"
+Content-Disposition: inline
+In-Reply-To: <aDTZXagQ28OdNtLh@a98shuttle.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,19 +76,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/06/2025 10:36, irving.ch.lin wrote:
-> From: Irving lin <irving-ch.lin@mediatek.corp-partner.google.com>
-> 
-> 1. Add mt8189 clk driver
-> 2. Fix mux failed
-> 3. Add apll12_div_tdmout_b
-> 4. Add disable-unused configs
 
+--bjexc5aylm7p2ugp
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [REGRESSION] [BISECTED] drm/sun4i: hdmi: No HDMI output with
+ BananaPI M1 on 6.9
+MIME-Version: 1.0
 
-Please do not send the same patch multiple times. This makes reviewing
-difficult and causes people to miss discussion. You received feedback
-already.
+On Mon, May 26, 2025 at 11:13:01PM +0200, Michael wrote:
+> On Mon, May 26, 2025 at 07:30:35PM +0200, Maxime Ripard wrote:
+> > On Mon, May 12, 2025 at 10:27:06PM +0200, Michael wrote:
+> > > with v6.9 and later there is no output on the BananaPI HDMI connector.
+> > >=20
+> > > I have bisected the issue to the following commit:
+> > >=20
+> > >   358e76fd613a ("drm/sun4i: hdmi: Consolidate atomic_check and mode_v=
+alid")
+> > >=20
+> > > With this patch, sun4i_hdmi_connector_clock_valid() is occasionally c=
+alled
+> > > with clock=3D0, causing the function to return MODE_NOCLOCK.
+> > > In the old sun4i_hdmi_mode_valid() before the patch, mode->clock is
+> > > always!=3D0, maybe that gives someone a hint.
+> >=20
+> > This doesn't make sense to me, if only because the two callers of
+> > tmds_char_rate_valid (hdmi_compute_clock and
+> > drm_hdmi_connector_mode_valid) have, right before calling it, checks to
+> > make sure the clock rate isn't 0, and would return MODE_ERROR or EINVAL
+> > in such a case.
+> >=20
+> > https://elixir.bootlin.com/linux/v6.15/source/drivers/gpu/drm/display/d=
+rm_hdmi_state_helper.c#L234
+> > https://elixir.bootlin.com/linux/v6.15/source/drivers/gpu/drm/display/d=
+rm_hdmi_state_helper.c#L553
+>=20
+> Before 6.14, sun4i_hdmi_connector_clock_valid() was also called from
+> sun4i_hdmi_connector_atomic_check()...
+>=20
+> > Do you have some logs (with dri.devel=3D0xff)? Does it happen with 6.15=
+ as
+> > well?
+>=20
+> It does not happen with 6.15, as it was fixed in 6.14 with 84e541b1e58e
+> ("drm/sun4i: use drm_atomic_helper_connector_hdmi_check()").
 
-Best regards,
-Krzysztof
+Then we might still need to backport that patch.
+
+Does applying it to 6.9 alone makes it work, or do you need some additional=
+ ones (I'm thinking of
+ae048fc4f96d in particular, which in turn would require 47368ab437fd)
+
+Maxime
+
+--bjexc5aylm7p2ugp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaD11GwAKCRAnX84Zoj2+
+drKQAYC96lg5+YW34Em5Duc/MTJOq0c14NGmAiHXTxuOqNkljUIBqho6t3MeKTO6
+M6+OuV0BfR7FKf+9atUl2aa7s8n1k/MKwABVR/aK6AWGsPaqvm4doIaoMO5ji47F
+Lsgy23oivw==
+=0IgN
+-----END PGP SIGNATURE-----
+
+--bjexc5aylm7p2ugp--
 
