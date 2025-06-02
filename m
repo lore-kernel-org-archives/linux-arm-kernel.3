@@ -4,109 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F90C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 07:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E1BC54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 07:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BScimsTzEXidySSkCABoQEowgCdF5qq9GYrq0cHPT2Y=; b=aj0Fxr2vkfs/NfexqfbY2YYrOn
-	cGnW31wmR5/6pvv0Ry7YIFQ/44WlbmtLG36s2BZuwMnrVxyp0JsicN/AOaSo4VKK5eR+z5AYWhSEi
-	T9K1zorQ1k3v3Ndv3ozTy0kPex/MeRl/sLElQqcLWLrfq6kk0ZXjBKN7RvFz7pHGeZElTVR/bjEcm
-	9HjchvAiZjtlINi7W4rlblwsjNrV5PfinWQMEHmRi5EiS9iguKOzz2+2tFcg6ogIzp62FxRp35qdI
-	1qKuHW7GOx2Sjl8GwQzOKAxdDBSNaaz6hIU6nSoViszbyATj1+3gjJ2JtWt7cqq+o+U1jv7OpYsvr
-	nZ2nrlfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pw+Y5BshWhNb94U5zV1jdIqM6Bb94uu0DoTvWRycrlQ=; b=jcg+ZdZjazpDxlZj6TeQEgriCY
+	/iRQR7XyVg8KnlOZBhA5fNOxwVBy7Do2iO05wD7WwQ43PtUkc+yxgvcFSQxNjxWN5ZvGdFrYXerfG
+	YL/5kc2gV3kwwWz6/bDjmb1G/zyJcl/B7WseshuLML9VcDxnBejbUccSQJTJysrKzRO+6wcYly8NS
+	WyMhvgwCiu/5K+cerWK1YNVyNvqeXRKuq2t+hjLEZ8XxIZ8VN9LK18TtxqZOgkec5aiZVmZeuwZAT
+	pqQ6HJbdo95J/s6rTGS1dYXW2GJ6BZE6s6fGMx5GEXOHwKNGcbw0M1X7oLr9CWP3k4P8afNYXFb03
+	jl3xzcDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLzaG-00000006uYE-1WnA;
-	Mon, 02 Jun 2025 07:27:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uM02q-00000006wwe-147U;
+	Mon, 02 Jun 2025 07:57:20 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLzWc-00000006uE4-31sj;
-	Mon, 02 Jun 2025 07:24:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A960B5C5A5A;
-	Mon,  2 Jun 2025 07:21:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3190C4CEEB;
-	Mon,  2 Jun 2025 07:23:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748849039;
-	bh=s9xNx+NS3r0HHm3PTq5Rn39oisNfhLK0A1fU5X4LW0s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OUcjO8bIwiyhtM98VJyCsdJ8wRM2aLytNR913o4tMLk9IKSwacD8Ru41v07BekA5X
-	 FLq8Zso71U/nWHXyk2ZFkAyi9Szp1r4ZmOpyKJD/IeOyXnd7LlZaZokxANsQvlQJJP
-	 mpuE10SumP3o3em4dAF335q4AoYg2NOJcTRoXkuwGkJwvCr7zrep7efStyXYiJwpxm
-	 Ap0Q5jGUQ8hGbwnIFsMmuGF7Yc+/k0+pAv45sI1i7JawJki0MuRpaOWZ6SEtcBfdJZ
-	 aq1JRNGwylRfPkZ5VJOu0EKzdIAlypbB3owL40gwcwl2GjU7zYHBnnX99nQ3QZjWCy
-	 k4KYesLwJIp9Q==
-Message-ID: <3825dcb6-00b1-4e03-ab1a-258bcd3265ba@kernel.org>
-Date: Mon, 2 Jun 2025 09:23:53 +0200
+	id 1uM00c-00000006wgN-3jhC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Jun 2025 07:55:04 +0000
+Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-5efe8d9ebdfso7893913a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Jun 2025 00:55:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1748850900; x=1749455700; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pw+Y5BshWhNb94U5zV1jdIqM6Bb94uu0DoTvWRycrlQ=;
+        b=PYbD6t4nGke1QuAkK9EQMvdbp1bR7jEaqHsA+64vwBh1nq6klCU199yNU8B7n+xpN0
+         2s+ps1hu43E+2Zh05eO2/V4apIVff4bDy0omYEAH/gcmx7l0X7Gu8Of0JBEiRDgTgb8V
+         2z0WEjFx72W046svhK4VDgp8sX2oKrTAoXaqm/zQtxDmqc55Pt/GPOEvrFD+koxB4MyG
+         n6ffeU091caxZWJHZ62u+uXwttRU0EYeZYqwV4knPCnDHRV31awg4/uTVM2y5Z3dK34r
+         YviTZwBIzwEZE/rsRjmChGCylMhlE/0jK50ysX02TMZhmJZqX2hIXsUwqbOalSlAmWHf
+         gtnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748850900; x=1749455700;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pw+Y5BshWhNb94U5zV1jdIqM6Bb94uu0DoTvWRycrlQ=;
+        b=O+QovXdXvj0qVhEVPkneJIb5wEWBy3bEgDy4LEO2XVooopB9VWAMv28Wd/CfUaUzOM
+         KoOa8aJg7K2SPYiNhvw/YywYf0G+IXjXI8xxnC0X7yOE/c1duzbguWrmEJFFIeKhsgmW
+         9LrtWWj9kdoJJ3sw5oKbI1R8N2QFNmzv84N9Fg+elMnWui7cLWZ+AvsT0IzZKc+/doKQ
+         DjXNEqN1wEPlBojf81sKrKiD0GKTYYF4kgwRfgEEydIcPtXczSci5GENhcojzs/Vk50R
+         JC1ahR385lXTPiZ65fL5uV8aKljKVvbTKufQnU02boetvog9DOyapPaKgWJs4rfhR/tW
+         5uzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUTBwR8ktLS/Mg6K6I2E1Vs0bgEYg+/xIt2h5vCjnc0PETPOi3MZ0oLeKEkc3l8y575wkyQp4KqKbSHLni2xFPT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVXH2XGr79gf0ij5hJvDFpU38C3x7dt2G0lsK1XhK8LL0XYuPH
+	I5dGavG8DyAZ0MTFqrYJeSHROFeD/kJ8MDu6nYvkHaBYugK7b7qv2AY77z7yQrXTRgE=
+X-Gm-Gg: ASbGncumnAC42q+k+i1tSFce9EDPZr72VBma8F+ctv0xI/H/JjxaMc2tQ3wNkrQnZ/F
+	yVZ1uwCs0TqPTPJeIG0ZF4gKKCW1TPDB+zEFsjN6e951wRlXAuI1pDFEORsFa93MmCuBmv5lk3D
+	TEe7HXDFocsy4BeU+oBEzX3kUvb9thEc8kepPRTteEYE8k32KtwAtP2+IqfiFKF8/aOV03oAq5t
+	TD8y83pdGUjN4pcNUW5CIb+kdym/VR6afd36DORZed+W7TVDHGJdj78vS+Kx3jMu41XglkW0ksk
+	CJFRan1bwIvNhPQxFenGZu1VEEg8WklmsaDtILvFYw35w5U2R/LAiL4tWZKB7X+JlneZe+Rzb/D
+	6MNWgVRxG9a2HdC76fHmoNg==
+X-Google-Smtp-Source: AGHT+IHF9M9iH6tYPPh5MIhkY3Ci/eDAulcraBxUrXh9olFXnZZZyiItNIM7oMxNMVOCoyclD4K34g==
+X-Received: by 2002:a17:907:d8f:b0:ad8:8eb7:1c7a with SMTP id a640c23a62f3a-adb36c0767emr1041585566b.52.1748850900474;
+        Mon, 02 Jun 2025 00:55:00 -0700 (PDT)
+Received: from localhost (host-87-21-228-106.retail.telecomitalia.it. [87.21.228.106])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5dd045bbsm749892766b.118.2025.06.02.00.54.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Jun 2025 00:55:00 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Mon, 2 Jun 2025 09:56:36 +0200
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	"derek.kiernan@amd.com" <derek.kiernan@amd.com>,
+	"dragan.cvetic@amd.com" <dragan.cvetic@amd.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>, Phil Elwell <phil@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
+Subject: Re: [PATCH v12 0/13] Add support for RaspberryPi RP1 PCI device
+ using a DT overlay
+Message-ID: <aD1ZNAeB4tpMNTGZ@apocalypse>
+References: <cover.1748526284.git.andrea.porta@suse.com>
+ <0580b026-5139-4079-b1a7-464224a7d239@kernel.org>
+ <aDholLnKwql-jHm1@apocalypse>
+ <7934ae2a-3fc5-4ea2-b79a-ecbe668fd032@app.fastmail.com>
+ <0e154ae3-e0ab-4a4e-aa39-999ea1c720ed@broadcom.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] dt-bindings: mtd: atmel-nand: add legacy nand
- controllers
-To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
- miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
- krzysztof.kozlowski+dt@linaro.org
-Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250602053507.25864-1-balamanikandan.gunasundar@microchip.com>
- <20250602053507.25864-4-balamanikandan.gunasundar@microchip.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250602053507.25864-4-balamanikandan.gunasundar@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0e154ae3-e0ab-4a4e-aa39-999ea1c720ed@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_002402_852153_8A25C9B5 
-X-CRM114-Status: GOOD (  28.19  )
+X-CRM114-CacheID: sfid-20250602_005502_936984_F6A09F4E 
+X-CRM114-Status: GOOD (  31.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,242 +131,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/06/2025 07:35, Balamanikandan Gunasundar wrote:
-> Add support for atmel legacy nand controllers. These bindings should not be
+Hi Florian,
 
-No new support for legacy bindings. Both your commit msg and subject do
-not describe what you do here. I see you convert EXISTING bindings
-instead of adding support. But if you insist on adding, that would be
-NAKed because why would we want to accept new stuff which is already
-deprecated?
-
-> used with the new device trees.
+On 16:46 Fri 30 May     , Florian Fainelli wrote:
+> On 5/29/25 23:03, Arnd Bergmann wrote:
+> > On Thu, May 29, 2025, at 16:00, Andrea della Porta wrote:
+> > > Hi Krzysztof,
+> > > 
+> > > On 15:50 Thu 29 May     , Krzysztof Kozlowski wrote:
+> > > > On 29/05/2025 15:50, Andrea della Porta wrote:
+> > > > > *** RESENDING PATCHSET AS V12 SINCE LAST ONE HAS CLOBBERED EMAIL Message-Id ***
+> > > > > 
+> > > > Can you slow down please? It's merge window and you keep sending the
+> > > > same big patchset third time today.
+> > > 
+> > > Sorry for that, I was sending it so Florian can pick it up for this
+> > > merge window, and I had some trouble with formatting. Hopefully
+> > > this was the last one.
+> > 
+> > That's not how the merge window works, you missed 6.16 long ago:
+> > 
+> > Florian sent his pull requests for 6.16 in early may, see
+> > https://lore.kernel.org/linux-arm-kernel/20250505165810.1948927-1-florian.fainelli@broadcom.com/
+> > 
+> > and he needed time to test the contents before sending them to me.
+> > 
+> > If the driver is ready to be merged now, Florian can pick it up
+> > after -rc1 is out, and then include it in the 6.17 pull requests
+> > so I can include them in the next merge window.
 > 
-> Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> ---
->  .../devicetree/bindings/mtd/atmel-nand.txt    | 116 ------------
->  .../devicetree/bindings/mtd/atmel-nand.yaml   | 167 ++++++++++++++++++
-
-Filename matching compatible. Also look at your 4/4 patch and compare
-what is here and there.
-
->  2 files changed, 167 insertions(+), 116 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/mtd/atmel-nand.txt
->  create mode 100644 Documentation/devicetree/bindings/mtd/atmel-nand.yaml
+> I have applied all of the patches in the respective branch as we had
+> discussed with Andrea and also merged all of the branches into my "next"
+> branch so we can give this some proper soak testing. Once 6.16-rc1 is
+> available, all those branches (devicetree/next, defconfig-arm64/next,
+> drivers/next, etc.) will be rebased against that tag such that the patches
+> that are already included will be dropped, and only this patch set plus what
+> I have accumulated will be applied on top (if that makes sense).
 > 
+> As Arnd says though, this is too late for 6.16 so this would be included in
+> 6.17. Andrea, thank you very much for your persistence working on this patch
+> series, and sorry that the request to merge those patches came in during a
+> time where I was away. The good news is that I am not doing that again
+> anytime soon.
 
+It was a pleasure, and many thanks for your patience too.
 
-...
+Andrea
 
-> diff --git a/Documentation/devicetree/bindings/mtd/atmel-nand.yaml b/Documentation/devicetree/bindings/mtd/atmel-nand.yaml
-> new file mode 100644
-> index 000000000000..a437d40a523f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mtd/atmel-nand.yaml
-> @@ -0,0 +1,167 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mtd/atmel-nand.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Atmel NAND flash controller
-> +
-> +maintainers:
-> +  - Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> +
-> +description:
-> +  Atmel nand flash controller. These are legacy bindings and
-> +  deprecated. Find the latest in microchip,nand-controller.yaml
-> +
-
-Missing allOf/ref to nand-controller
-
-> +properties:
-> +  $nodename:
-> +    pattern: "^nand(@.*)?"
-
-Drop
-
-> +
-> +  compatible:
-> +    enum:
-> +      - atmel,at91rm9200-nand
-> +      - atmel,sama5d2-nand
-> +      - atmel,sama5d4-nand
-> +
-> +  reg:
-> +    description:
-> +      The localbus address and size used for the chip, and hardware ECC
-> +      controller if available. If the hardware ECC is PMECC, it should
-> +      contain address and size for PMECC and PMECC Error Location
-> +      controller. The PMECC lookup table address and size in ROM is
-> +      optional. If not specified, driver will build it in runtime.
-> +
-> +  nand-on-flash-bbt:
-> +    description:
-> +      enable on flash bbt option if not present false
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +
-> +  nand-ecc-mode:
-> +    description:
-> +      operation mode of the NAND ecc
-> +    enum:
-> +      [none, soft, hw, hw_syndrome, hw_oob_first, soft_bch]
-> +    default: soft
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +
-> +  nand-bus-width:
-> +    description:
-> +      nand bus width
-> +    enum:
-> +      [8, 16]
-> +    default: 8
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 1
-
-You have several redundant properties. What's more, you are basically
-re-definingn them. Drop and keep only constraints. Look at other
-bindings and follow how they are doing this.
-
-> +
-> +  gpios:
-> +    minItems: 2
-> +    items:
-> +      - description: Ready/Busy
-> +      - description: Chip Enable
-> +      - description: Optional Card detect GPIO; can be 0 if unused
-> +
-> +  atmel,nand-addr-offset:
-> +    description:
-> +      offset for the address latch.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 31
-> +
-> +  atmel,nand-cmd-offset:
-> +    description:
-> +      offset for the command latch.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 31
-> +
-> +  atmel,nand-has-dma:
-> +    description:
-> +      support dma transfer for nand read/write.
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +
-> +  atmel,has-pmecc:
-> +    description:
-> +      enable Programmable Multibit ECC hardware, capable of BCH encoding
-> +      and decoding, on devices where it is present.
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +
-> +  atmel,pmecc-cap:
-> +    description:
-> +      error correct capability for Programmable Multibit ECC Controller.
-> +    enum:
-> +      [2, 4, 8, 12, 24, 32]
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +  atmel,pmecc-sector-size:
-> +    description:
-> +      sector size for ECC computation.
-> +    enum:
-> +      [512, 1024]
-> +    default: 512
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +
-
-Just one blank line
-
-> +  atmel,pmecc-lookup-table-offset:
-> +    description:
-> +      Two offsets of lookup table in ROM for different sector size. First
-> +      one is for sector size 512, the next is for sector size 1024. If not
-> +      specified, driver will build the table in runtime.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    default: 512
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - atmel,nand-addr-offset
-> +  - atmel,nand-cmd-offset
-> +  - "#address-cells"
-> +  - "#size-cells"
-
-Use consistent quotes, either ' or "
-
-> +
-> +unevaluatedProperties: false
-
-Without $ref this makes no sense, so it clearly points you to missing ref.
-
-> +
-> +examples:
-> +  - |
-> +    nand@40000000 {
-> +        compatible = "atmel,at91rm9200-nand";
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-
-Follow DTS coding style.
-
-> +        reg = <0x40000000 0x10000000
-> +               0xffffe800 0x200>;
-
-These are two entries, not one.
-
-
-> +        atmel,nand-addr-offset = <21>;	/* ale */
-> +        atmel,nand-cmd-offset = <22>;	/* cle */
-> +        nand-on-flash-bbt;
-> +        nand-ecc-mode = "soft";
-> +        gpios = <&pioC 13 0	/* rdy */
-> +                 &pioC 14 0     /* nce */
-> +                 0		/* cd */
-
-All this is not following standard style. Two entries. Use proper
-defines for GPIO flags.
-
-> +                >;
-> +    };
-> +  - |
-> +    /* for PMECC supported chips */
-> +    nand@40000000 {
-> +        compatible = "atmel,at91rm9200-nand";
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        reg = <0x40000000 0x10000000	/* bus addr & size */
-> +               0xffffe000 0x00000600	/* PMECC addr & size */
-> +               0xffffe600 0x00000200	/* PMECC ERRLOC addr & size */
-> +               0x00100000 0x00100000>;	/* ROM addr & size */
-
-Four entries, not one.
-
-> +
-> +        atmel,nand-addr-offset = <21>;	/* ale */
-> +        atmel,nand-cmd-offset = <22>;	/* cle */
-> +        nand-on-flash-bbt;
-> +        nand-ecc-mode = "hw";
-> +        atmel,has-pmecc;	/* enable PMECC */
-> +        atmel,pmecc-cap = <2>;
-> +        atmel,pmecc-sector-size = <512>;
-> +        atmel,pmecc-lookup-table-offset = <0x8000 0x10000>;
-> +        gpios = <&pioD 5 0	/* rdy */
-> +                 &pioD 4 0	/* nce */
-> +                 0		/* cd */
-> +                >;
-> +    };
-
-
-Best regards,
-Krzysztof
+> 
+> Thank you!
+> -- 
+> Florian
 
