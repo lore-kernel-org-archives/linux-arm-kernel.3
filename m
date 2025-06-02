@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D9DC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 05:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35F2C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 06:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3XEgq2gQhDwaCKa/k8Oy1LFoEGP3IEjzBpU7ZyyLIc=; b=dBTH694TH7QjmzFQE/AZ2wTHB+
-	bpR5Yp85fjoFRmNUX1pLedBosNQRFxZkGerVmGxrrzMqqb0fp34f52xp79g7sgngYLKlVZ8HAew4s
-	YWxja5j9qZtktzaprXE2cDyx+zoOJMA5p8ERNssTmM3DjaHVO/WEBzd8NQuddS8r1QNssSK1VLuSe
-	wDBZzg8bBelkeJqVbZa0/Ex0y2v0derVUk2qSvS2dCSvpSv9kMW2txBlNvkbt0WQQNGaH9Gd084gG
-	zC3pF35hap9Ly9FSsiA3uH2SCl+p8ttezNefnr0bdeMddEAxfGkx4+jIEE08JB+COQowiG0/JTRt/
-	JhFQ/qVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kDZYvC9XeIag8lTUBEjZZTxKQxiAmDzTNazF7dhxIRs=; b=Opv5AUm4qBGLeVfomDRSL5GrfZ
+	i9RX+xNddqPK8FNYlheIz4Xp72TRr4aVJfScUy5L4uwGHKZrdGJMezx0mAIxG7PDFTnZo8OKhb+Ny
+	zisyxESjW3haV9bjLkDTqD6T6J91b0Wchv/3CqBeEmCER+PAdwv+Om8QCzPEQ1zLt2O5MkqRrMv5b
+	KpMm2ySk7PBaZDTncTAXEOxuwCB1Li70IAxHyKwx8xZv7WLLeqfhHtmqecm87g536nAS5Jdtc09NT
+	+zRp39O9FPUp1Y+F5CGd9nA8D8RS9KfKuKH3lUOGLJ5SD9tApGijO66RDNbR5AYOZNbLQfVcPmRxt
+	ffjJwTuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLy0j-00000006mWU-3LP0;
-	Mon, 02 Jun 2025 05:47:01 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uLyDi-00000006nKw-1kNO;
+	Mon, 02 Jun 2025 06:00:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLxqO-00000006lEK-29bA;
-	Mon, 02 Jun 2025 05:36:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1748842580; x=1780378580;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=GhL0kNqcfcle3qIVF5sXJEBnV++w7E5fWBwfkhBS8f8=;
-  b=uwklVr5WUwJTH4KK51/qchUxvrSxlx5Q5LxSMt6mZYUkwL8uCr8noOCf
-   b/SKaNNlH9CRk2jyOMmVpJ6I7+mUB2DsmH6FPXw0tl8xc3ejMkF5CAmRl
-   LBOumJCYE3/ZVQFrPI073qlbWptyc/XNecUulNjcRoYOLqX+TsM6Yz/Df
-   0VQXqOvRJbwNTQNwqJ0DTQ77xDLEDvMLNzD3U/b4iTdHBAA8PUaTuBxIP
-   r/VWpdCOcf+Qsx/xPmF303MXjNsdObCZQQGbxXH6Ee83hxVhWrhRST9lQ
-   XO44S7phIX2I3xObZwMb3wScGPzIyB7JU8MfxGgl1rlgewqBcpZ8GtXaO
-   Q==;
-X-CSE-ConnectionGUID: eittDR1XTzS4g4o2E6Cy1A==
-X-CSE-MsgGUID: j/fk5qE3SA6Kqm/N9d3YUw==
-X-IronPort-AV: E=Sophos;i="6.16,202,1744095600"; 
-   d="scan'208";a="42865351"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 01 Jun 2025 22:36:18 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Sun, 1 Jun 2025 22:35:55 -0700
-Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Sun, 1 Jun 2025 22:35:47 -0700
-From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-To: <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <krzysztof.kozlowski+dt@linaro.org>
-CC: <linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-Subject: [PATCH v3 4/4] MAINTAINERS: add entry for microchip nand controller
-Date: Mon, 2 Jun 2025 11:05:07 +0530
-Message-ID: <20250602053507.25864-5-balamanikandan.gunasundar@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250602053507.25864-1-balamanikandan.gunasundar@microchip.com>
-References: <20250602053507.25864-1-balamanikandan.gunasundar@microchip.com>
+	id 1uLyBV-00000006nC4-3UE8
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Jun 2025 05:58:11 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uLyBT-0004cf-Q8; Mon, 02 Jun 2025 07:58:07 +0200
+Message-ID: <1214db7b-dc79-4a3a-a1cc-0b09b3216d30@pengutronix.de>
+Date: Mon, 2 Jun 2025 07:58:06 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: imx8mp-nominal: Explicitly configure
+ nominal VPU clocks
+To: Adam Ford <aford173@gmail.com>, linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ aford@beaconembedded.com, m.felsch@pengutronix.de, imx@lists.linux.dev,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org
+References: <20250530221713.54804-1-aford173@gmail.com>
+ <20250530221713.54804-4-aford173@gmail.com>
+Content-Language: en-US
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <20250530221713.54804-4-aford173@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_223620_644775_A0DA3349 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250601_225809_877640_42C7AD35 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +72,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer for microchip nand controller driver
+Hello Adam,
 
-Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
----
- MAINTAINERS | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+On 31.05.25 00:17, Adam Ford wrote:
+> In preparation for increasing the default VPU clocks to overdrive,
+> configure the nominal values first to avoid running the nominal
+> devices out of spec when imx8mp.dtsi is changed.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index dd844ac8d910..53cc327b8985 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16064,9 +16064,10 @@ S:	Maintained
- F:	drivers/mmc/host/atmel-mci.c
- 
- MICROCHIP NAND DRIVER
-+M:	Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
- L:	linux-mtd@lists.infradead.org
--S:	Orphan
--F:	Documentation/devicetree/bindings/mtd/atmel-nand.txt
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/mtd/microchip,*.yaml
- F:	drivers/mtd/nand/raw/atmel/*
- 
- MICROCHIP OTPC DRIVER
+Thanks for keeping imx8mp-nominal.dtsi users in mind.
+
+> 
+> Signed-off-by: Adam Ford <aford173@gmail.com>
+
+Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+
+Cheers,
+Ahmad
+
+> ---
+>  .../boot/dts/freescale/imx8mp-nominal.dtsi     | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+> index 2ce1860b244d..f269f7a004fc 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
+> @@ -89,4 +89,22 @@ &media_blk_ctrl {
+>  			       <1039500000>;
+>  };
+>  
+> +&vpu_g1 {
+> +	assigned-clocks = <&clk IMX8MP_CLK_VPU_G1>;
+> +	assigned-clock-parents = <&clk IMX8MP_VPU_PLL_OUT>;
+> +	assigned-clock-rates = <600000000>;
+> +};
+> +
+> +&vpu_g2 {
+> +	assigned-clocks = <&clk IMX8MP_CLK_VPU_G2>;
+> +	assigned-clock-parents = <&clk IMX8MP_SYS_PLL2_1000M>;
+> +	assigned-clock-rates = <500000000>;
+> +};
+> +
+> +&vpumix_blk_ctrl {
+> +	assigned-clocks = <&clk IMX8MP_VPU_PLL>, <&clk IMX8MP_CLK_VPU_BUS>;
+> +	assigned-clock-parents = <0>, <&clk IMX8MP_VPU_PLL_OUT>;
+> +	assigned-clock-rates = <600000000>, <600000000>;
+> +};
+> +
+>  /delete-node/ &{noc_opp_table/opp-1000000000};
+
+
 -- 
-2.34.1
-
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
