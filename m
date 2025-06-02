@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B8FBC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 11:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BD7C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 11:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hoerK/xmnoCBy1REctsz2X3Jy0xIXqQaEz84x7pRJ6Y=; b=DI6TyZoPHMpBNoEI+NyZGZKlye
-	yg6FC9LzPDysHxMJhUDWjIUipjS7g6RWpculKqIKlihzrD7Pj24st2u5DVXKUnTLLfORyBIIAc+oy
-	z7Wcz/H8zRcn7/vphQsV17BrE2Cy1QA/Q7mBBEubcx0Gm6vRflNh9bo+UNgWHab+N10HzcMucZxfn
-	+tHr92JazJalQobnoKBiXVceWgWyApPHAgemBvKMF14zvfePpYxF94nyUdrZywVa6zi4XzDZz/Ejw
-	OmlpMq3Xy4wUmtOjanG6ke5odZP2m5Dz//3ayV7nsErxI8Zfz6i5JFK6HhLk0AohpEnLuCgn9W0XD
-	wiH+n0/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NJxLFE43fLDnHJpY4wcuZz/ZhV9DcgjoBbL+2FZk/5o=; b=08PEoJlwE7R+bf9eA+0QFr4FpE
+	e+RHP1LFXypgI2R9dzg2lKr/+Tei/LoxuTN22PLqIdZk6LLG3IX38O0+JonBPlOxD1mVR+QduzXpa
+	vOQEoYBHhxUJBiJZvLD4Q0xpqbxsbDhNr5u1GsXlOLp/MfPa15BFRt7NauVBM5MkDUCt8J4SBIujJ
+	43A83q0KVKkSkpsQaqng4gzRKCEYnJijZTxssqkwIq7AwlPLt05YDGay9dK66ZAVuvcXuRfZuM5tY
+	xUoW4nCEk5b0wsbb46Ii+FMqAbNZSovhmUqqMh+f2eXJq54V4jX+eheVI9qptZo/rzC5aCg6HJAjp
+	Vr9+fcZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM2yJ-00000007Fnc-2Nhr;
-	Mon, 02 Jun 2025 11:04:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uM3cK-00000007IZF-3K4J;
+	Mon, 02 Jun 2025 11:46:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM2pp-00000007Eo5-10eP;
-	Mon, 02 Jun 2025 10:56:06 +0000
+	id 1uM3a7-00000007IAn-34sA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Jun 2025 11:43:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7E017A4FF82;
-	Mon,  2 Jun 2025 10:56:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE787C4CEEB;
-	Mon,  2 Jun 2025 10:56:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A61D4A4FFC0;
+	Mon,  2 Jun 2025 11:43:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD5A7C4CEEB;
+	Mon,  2 Jun 2025 11:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748861764;
-	bh=bir4tUxt7/G2lXTS4/G8XHslHlPXIFMwBBqhZnV0PaY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Kl2e5rlKCiNvhxnj0/N3KDau5K/WRaoMLPftTELQcULdgyJOpDJ+TWtu87d2glNCn
-	 D0kYOUIzpYIM7Ci9SFvaqdym0qGZaDBD7AcEIL8CirD+LUjy/hQDxatMDiM1L09j4x
-	 hcLmKcMSp0a82lViH8a9OjXfopPq2GnqOkiJlmhdv5papPqvwVgDpqgQqgkdzgt3An
-	 ZfORauwWGO1S6nzT132NPXNrJAubD2TlmqJr6HHlZA8eLnKngFSV6u5UQBZomEWF3u
-	 9RsQ5N/clnID10TDh8bt01O5QUXhcEzhdtDEqcHA1kwCcGHiLveHmLW6Xt54kdI7jD
-	 5SIoIPcE6AI0g==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 02 Jun 2025 12:55:39 +0200
-Subject: [PATCH net v2 3/3] net: airoha: Fix smac_id configuration in
- bridge mode
+	s=k20201202; t=1748864634;
+	bh=l3/2Fh7F1pQtWmjuYMcKP5otHEjexAq08ZOrM1rZRDg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CHpjELVjDRGvZAylEFZHufGSGD8PLh+PVGUgY6O+ym3daYnOZFHC3gglK0aRPjjaP
+	 cxJr3U2IAgtyQgOru8qQcjCh+nx6GRGegnpO38Ujg9VF8gyDVbBND8I1oQn7XajsqP
+	 +zkjAeUiRWkFZCkYGTNtIy2ADFd2mVs7ncT4XcQujMuDw+c+RiYQ8G5qjFrgXaqW0Q
+	 g9/YB3gbQFz9bibWoJTO/TrZT6ykxYGG/uz5b0Idbj9wSRh5lWiuGeyQTb4ysLlpdP
+	 HJHnxuvuGWkrX2jKsfFONN2rWHyUZg1GRqCzsIrLAyMC3TaIRR6N0fawRmq+6go3Iu
+	 PHTMIMoKo4q4A==
+Date: Mon, 2 Jun 2025 12:43:49 +0100
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb+git@google.com>,
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+	nathan@kernel.org
+Subject: Re: [PATCH] arm64: Disable LLD linker ASSERT()s for the time being
+Message-ID: <20250602114348.GA1227@willie-the-truck>
+References: <20250529073507.2984959-2-ardb+git@google.com>
+ <20250530133811.GB30622@willie-the-truck>
+ <CAMj1kXHypqdC9O+8WH7n1=aDOySMScZc2y526S3gc_-QNpqO=w@mail.gmail.com>
+ <20250602100932.GA919@willie-the-truck>
+ <CAMj1kXEKMyR0PoQnY2zvQ=BVPJfEb4EO9HCUWKURUW+_Dj5h4w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250602-airoha-flowtable-ipv6-fix-v2-3-3287f8b55214@kernel.org>
-References: <20250602-airoha-flowtable-ipv6-fix-v2-0-3287f8b55214@kernel.org>
-In-Reply-To: <20250602-airoha-flowtable-ipv6-fix-v2-0-3287f8b55214@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Michal Kubiak <michal.kubiak@intel.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXEKMyR0PoQnY2zvQ=BVPJfEb4EO9HCUWKURUW+_Dj5h4w@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_035605_349180_33013A01 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250602_044355_910399_08812D60 
+X-CRM114-Status: GOOD (  39.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +78,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set PPE entry smac_id field to 0xf in airoha_ppe_foe_commit_subflow_entry
-routine for IPv6 traffic in order to instruct the hw to keep original
-source mac address for IPv6 hw accelerated traffic in bridge mode.
+On Mon, Jun 02, 2025 at 12:18:33PM +0200, Ard Biesheuvel wrote:
+> On Mon, 2 Jun 2025 at 12:09, Will Deacon <will@kernel.org> wrote:
+> >
+> > On Fri, May 30, 2025 at 04:23:16PM +0200, Ard Biesheuvel wrote:
+> > > On Fri, 30 May 2025 at 15:38, Will Deacon <will@kernel.org> wrote:
+> > > >
+> > > > On Thu, May 29, 2025 at 09:35:08AM +0200, Ard Biesheuvel wrote:
+> > > > > From: Ard Biesheuvel <ardb@kernel.org>
+> > > > >
+> > > > > It turns out that the way LLD handles ASSERT()s in the linker script can
+> > > > > result in spurious failures, so disable them for the newly introduced
+> > > > > BSS symbol export checks.
+> > > > >
+> > > > > Link: https://github.com/ClangBuiltLinux/linux/issues/2094
+> > > > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > > > > ---
+> > > > >  arch/arm64/kernel/image-vars.h | 6 ++++++
+> > > > >  1 file changed, 6 insertions(+)
+> > > > >
+> > > > > diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+> > > > > index c5266430284b..86f088a16147 100644
+> > > > > --- a/arch/arm64/kernel/image-vars.h
+> > > > > +++ b/arch/arm64/kernel/image-vars.h
+> > > > > @@ -10,6 +10,10 @@
+> > > > >  #error This file should only be included in vmlinux.lds.S
+> > > > >  #endif
+> > > > >
+> > > > > +#if defined(CONFIG_LD_IS_LLD) && CONFIG_LLD_VERSION < 210000
+> > > > > +#define ASSERT(...)
+> > > > > +#endif
+> > > > > +
+> > > > >  #define PI_EXPORT_SYM(sym)           \
+> > > > >       __PI_EXPORT_SYM(sym, __pi_ ## sym, Cannot export BSS symbol sym to startup code)
+> > > > >  #define __PI_EXPORT_SYM(sym, pisym, msg)\
+> > > > > @@ -142,4 +146,6 @@ KVM_NVHE_ALIAS(kvm_protected_mode_initialized);
+> > > > >  _kernel_codesize = ABSOLUTE(__inittext_end - _text);
+> > > > >  #endif
+> > > > >
+> > > > > +#undef ASSERT
+> > > >
+> > > > What about the ASSERT()s at the end of vmlinux.lds.S? Are they not
+> > > > affected by the bug, for some reason?
+> > > >
+> > > > Also, even with this patch applied, I still see a link failure:
+> > > >
+> > > >   | ld.lld: error: assignment to symbol __init_end does not converge
+> > > >
+> > > > with the .config you sent me off-list.
+> > > >
+> > >
+> > > That is a different error that has been lurking for a while now; Arnd
+> > > occasionally hits it but I haven't seen any other reports of it. AIUI,
+> > > the issue is that INIT_IDMAP_DIR_PAGES and INIT_DIR_SIZE are defined
+> > > in terms of (_end - KIMAGE_VADDR), resulting in a circular dependency.
+> >
+> > Ok, I'll ignore that one for the moment, then...
+> >
+> > > The config in the kernel test robot's report [0] appears to build fine
+> > > with this patch applied.
+> > >
+> > >
+> > > [0] https://lore.kernel.org/all/202505261019.OUlitN6m-lkp@intel.com/T/#u
+> >
+> > ... but I'm still not sure why the ASSERT()s in vmlinux.lds.S are not
+> > affected. Is it just that we've not hit a .config which breaks with
+> > those yet, or is it something more fundamental than that?
+> 
+> The former, as far as I can tell. The BSS patch just adds a fair
+> amount of ASSERT()s so the attack surface has become larger. And
+> perhaps those checks are more susceptible due to the fact that they
+> compare symbols living in different sections? But that is just
+> conjecture.
+> 
+> > I'd have
+> > thought we'd need to so something like below (on top of your patch) to
+> > fix this issue properly.
+> >
+> 
+> Yes, it is the more thorough fix, but we'd lose coverage for those
+> ASSERT()s which are arguably more important than the ones I added.
 
-Fixes: cd53f622611f ("net: airoha: Add L2 hw acceleration support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_ppe.c | 5 +++++
- 1 file changed, 5 insertions(+)
+Alright, thanks. Let's go with what you have and I'll try to stick some
+of this rationale in the commit message.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 557779093a79a4b42a1dc49b8ba0dacbdc219385..9067d2fc7706ecf489bee9fc9b6425de18acb634 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -660,6 +660,11 @@ airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
- 	if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
- 		memcpy(&hwe.ipv6.l2, &e->data.bridge.l2, sizeof(hwe.ipv6.l2));
- 		hwe.ipv6.ib2 = e->data.bridge.ib2;
-+		/* setting smac_id to 0xf instruct the hw to keep original
-+		 * source mac address
-+		 */
-+		hwe.ipv6.l2.src_mac_hi = FIELD_PREP(AIROHA_FOE_MAC_SMAC_ID,
-+						    0xf);
- 	} else {
- 		memcpy(&hwe.bridge.l2, &e->data.bridge.l2,
- 		       sizeof(hwe.bridge.l2));
-
--- 
-2.49.0
-
+Will
 
