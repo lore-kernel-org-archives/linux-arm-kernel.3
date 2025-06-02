@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1755AC54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 12:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CD0C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 12:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rQmP7oOH/ZEi+n7REQXtxlejh1DkvxzXWm7tgiElqAo=; b=fVqy7o2KteqJ1q+5o9mPMhGOv9
-	ZD9Ofzo0D0EOUni0Nql/7P8N47QOwCchhmNyjlefyMHmOrZ9f+lAnt/UyO64LWZdOP4gxnvl6+LBD
-	o6Ba4DXjhXSlCosOA1+u1fWTXP7ZOcvm5/EncgFzqYcv6OjY4a7yGXz/AN7bFLNTAvhmX0R6mMBIX
-	K2Ofliesownt+W13ASvEqD6OO23yY9GjrPjoOVMvTKvZKJNsdTJmLaO6W96umQhqNwS/zRAQUK09y
-	IBTD4GRqQGujIW5FZPQXPs0gUu1DN2NESZPRR6npiEVgcawttkLKuhYp9enrdgIvcF4tGXI8FxVVn
-	K9kfRAng==;
+	bh=53Wlw+eTBxlCXmP6bibokB8myYtJTgOns4jsfc++01Q=; b=eICCizAW3FJjYauFJwjpwuXUsI
+	BdEpBn7D/PaH2uHvZ8whpxbQKxrtIyBI6/tSbLhtNCLlOWgwWLhwj82WK6c+8hLFclDEhzQQSUY2F
+	4/X2gjbeyqlvJzCJ/aH+3GZF0MQ1pqOBlH50hlZmOMBJPc4eJm09QVjKpvDOgRGeClL75C+nAQAkw
+	l7ylhxG7h3YnPfrX49Gerq7lAWW896quoIU0blOOPNHsJ/a8RxJFVk1cVcZ12Aj/afzuf/VZ7vM7c
+	Whkn1iUHLmXDXCIiz3udt3y1bMNxGOKEulrERVQGXDjOsygXk9Rc1q3Qe0JmDdpiIaEpG5Kdidsmq
+	RcOZDk5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM4X6-00000007OEr-358M;
-	Mon, 02 Jun 2025 12:44:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uM4c4-00000007ObU-3OJa;
+	Mon, 02 Jun 2025 12:50:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM4Uu-00000007O1h-2uvO;
-	Mon, 02 Jun 2025 12:42:38 +0000
+	id 1uM4Zu-00000007ORr-1YF0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 02 Jun 2025 12:47:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ABBFD4A52C;
-	Mon,  2 Jun 2025 12:42:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D069C4CEEB;
-	Mon,  2 Jun 2025 12:42:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B6C775C5787;
+	Mon,  2 Jun 2025 12:45:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B763C4CEEB;
+	Mon,  2 Jun 2025 12:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748868155;
-	bh=J8jwLwCGOlD4UX5mfWw+eqPyJEord+KPBbR+LYQWEs0=;
+	s=k20201202; t=1748868465;
+	bh=HW3Z90l7RNBksiCHnADYX0xsQ1oyiXxM4OgllXOR9NQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GSqO/LFXXTIKqwNn7Bwr5oX05wCy2BwopOyVreSbRdtz4Lz/NXozxsM6Cvbcd79QL
-	 hYLFS8aZXz4Xz2CELUsSs9PXAwsCnFT7ZNUOhENNv/FVpKS+VDdj32JkKLBlsIcsJR
-	 sZ9fuQZY8Mw0hoJ4FoviZ0hE+5LORbBhrgGlu7IDcqASt4UE6eivg/cdW2XJtMxCzA
-	 OsQ5/KWpn0ohL87BmonFjSyjbBXCax46yn/ndrL/scaXoeufeNZGfLi9t9C2eto8jv
-	 JGa+PptDSrfVc9RjNw+WFJ57MzKSod1jo77d6/p3Yxyj4gLvQfnOqnBIb9JSItSw2+
-	 kvYxRLIM5UJSw==
-Date: Mon, 2 Jun 2025 07:42:33 -0500
-From: Rob Herring <robh@kernel.org>
-To: Balamanikandan.Gunasundar@microchip.com
-Cc: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	Nicolas.Ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, krzysztof.kozlowski+dt@linaro.org,
-	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: mtd: microchip-nand: convert txt to
- yaml
-Message-ID: <20250602124233.GA715676-robh@kernel.org>
-References: <20250602053507.25864-1-balamanikandan.gunasundar@microchip.com>
- <20250602053507.25864-2-balamanikandan.gunasundar@microchip.com>
- <654d2653-9152-449c-b3ee-4a91c700045e@microchip.com>
+	b=NqZqdg19cTQfnr3uMJSzkWMJI11jMh9dsJ72dji6DqM43sBlwThnQuG9afVGw6mFq
+	 oDGJN2F2kJL9QibiX49oi7WfgDzBtizvE2MQCoXV9NTeYhhBcqvwfLuRceoft7dEn+
+	 auQmA3lF+wnjyK9uqJ60dfprBsEdpDbdbCLWwNTNs57GUtzwyVZkr4yodlKj/ksKxW
+	 WxvDspEtJXk1p3hktrgbJdrZjuQ+oBVmF1CTskUbngqJx2rMAUIHVMez/kQwXszSxN
+	 qJRI1pv0qTLoVQLDOAYE3UY4W6U2KBQyAhVO5FZ4gmV0fSCTU+J9YM2d97fnEX/zeG
+	 ZO1380svXV1LA==
+Date: Mon, 2 Jun 2025 13:47:39 +0100
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: Re: [PATCH] arm64/trap: fix broken ct->nmi_nesting when die() is
+ called in a kthread
+Message-ID: <20250602124738.GD1227@willie-the-truck>
+References: <20250530092723.3307630-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <654d2653-9152-449c-b3ee-4a91c700045e@microchip.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250530092723.3307630-1-yeoreum.yun@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_054236_778738_4F8EFD9B 
-X-CRM114-Status: GOOD (  38.46  )
+X-CRM114-CacheID: sfid-20250602_054746_497780_A41C3F73 
+X-CRM114-Status: GOOD (  28.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,304 +69,102 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, ptosi@google.com, catalin.marinas@arm.com, bigeasy@linutronix.de, linux-kernel@vger.kernel.org, kristina.martsenko@arm.com, mcgrof@kernel.org, broonie@kernel.org, geert@linux-m68k.org, joey.gouly@arm.com, james.morse@arm.com, pcc@google.com, rppt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 02, 2025 at 06:58:52AM +0000, Balamanikandan.Gunasundar@microchip.com wrote:
-> Hi,
+[+Ada]
+
+On Fri, May 30, 2025 at 10:27:23AM +0100, Yeoreum Yun wrote:
+> When a kernel thread hits BUG() outside of an interrupt handler and
+> panic_on_oops is not set, it exits via make_task_dead(), which is called by die().
+> In this case, the nmi_nesting value in context_tracking becomes
+> inconsistent because the proper context tracking exit functions are not reached.
 > 
-> On 02/06/25 11:05 am, Balamanikandan Gunasundar wrote:
-> > Convert text to yaml for microchip nand controller
-> > 
-> > Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> > ---
-> >   .../devicetree/bindings/mtd/atmel-nand.txt    |  50 ------
-> >   .../mtd/microchip,nand-controller.yaml        | 169 ++++++++++++++++++
-> >   2 files changed, 169 insertions(+), 50 deletions(-)
-> >   create mode 100644 Documentation/devicetree/bindings/mtd/microchip,nand-controller.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/mtd/atmel-nand.txt b/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-> > index e36c35b17873..dbbc17a866f2 100644
-> > --- a/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-> > +++ b/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-> > @@ -1,53 +1,3 @@
-> > -Atmel NAND flash controller bindings
-> > -
-> > -The NAND flash controller node should be defined under the EBI bus (see
-> > -Documentation/devicetree/bindings/memory-controllers/atmel,ebi.txt).
-> > -One or several NAND devices can be defined under this NAND controller.
-> > -The NAND controller might be connected to an ECC engine.
-> > -
-> > -* NAND controller bindings:
-> > -
-> > -Required properties:
-> > -- compatible: should be one of the following
-> > -	"atmel,at91rm9200-nand-controller"
-> > -	"atmel,at91sam9260-nand-controller"
-> > -	"atmel,at91sam9261-nand-controller"
-> > -	"atmel,at91sam9g45-nand-controller"
-> > -	"atmel,sama5d3-nand-controller"
-> > -	"microchip,sam9x60-nand-controller"
-> > -- ranges: empty ranges property to forward EBI ranges definitions.
-> > -- #address-cells: should be set to 2.
-> > -- #size-cells: should be set to 1.
-> > -- atmel,nfc-io: phandle to the NFC IO block. Only required for sama5d3
-> > -		controllers.
-> > -- atmel,nfc-sram: phandle to the NFC SRAM block. Only required for sama5d3
-> > -		  controllers.
-> > -
-> > -Optional properties:
-> > -- ecc-engine: phandle to the PMECC block. Only meaningful if the SoC embeds
-> > -	      a PMECC engine.
-> > -
-> > -* NAND device/chip bindings:
-> > -
-> > -Required properties:
-> > -- reg: describes the CS lines assigned to the NAND device. If the NAND device
-> > -       exposes multiple CS lines (multi-dies chips), your reg property will
-> > -       contain X tuples of 3 entries.
-> > -       1st entry: the CS line this NAND chip is connected to
-> > -       2nd entry: the base offset of the memory region assigned to this
-> > -		  device (always 0)
-> > -       3rd entry: the memory region size (always 0x800000)
-> > -
-> > -Optional properties:
-> > -- rb-gpios: the GPIO(s) used to check the Ready/Busy status of the NAND.
-> > -- cs-gpios: the GPIO(s) used to control the CS line.
-> > -- det-gpios: the GPIO used to detect if a Smartmedia Card is present.
-> > -- atmel,rb: an integer identifying the native Ready/Busy pin. Only meaningful
-> > -	    on sama5 SoCs.
-> > -
-> > -All generic properties are described in the generic yaml files under
-> > -Documentation/devicetree/bindings/mtd/.
-> > -
-> >   * ECC engine (PMECC) bindings:
-> >   
-> >   Required properties:
-> > diff --git a/Documentation/devicetree/bindings/mtd/microchip,nand-controller.yaml b/Documentation/devicetree/bindings/mtd/microchip,nand-controller.yaml
-> > new file mode 100644
-> > index 000000000000..2b0d03343611
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/mtd/microchip,nand-controller.yaml
-> > @@ -0,0 +1,169 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/mtd/microchip,nand-controller.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Microchip NAND flash controller
-> > +
-> > +maintainers:
-> > +  - Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> > +
-> > +description: |
-
-Don't need '|'
-
-> > +  The NAND flash controller node should be defined under the EBI bus (see
-> > +  Documentation/devicetree/bindings/memory-controllers/atmel,ebi.txt).
-
-Please don't keep references to old bindings. Really, you should convert 
-this binding first.
-
-> > +  One or several NAND devices can be defined under this NAND controller.
-> > +  The NAND controller might be connected to an ECC engine.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - atmel,at91rm9200-nand-controller
-> > +      - atmel,at91sam9260-nand-controller
-> > +      - atmel,at91sam9261-nand-controller
-> > +      - atmel,at91sam9g45-nand-controller
-> > +      - atmel,sama5d3-nand-controller
-> > +      - microchip,sam9x60-nand-controller
-> > +
-> > +  ranges:
-> > +    description: empty ranges property to forward EBI ranges definitions.
-> > +
-> > +  ecc-engine:
-> > +    description:
-> > +      phandle to the PMECC block. Only meaningful if the SoC embeds a PMECC
-> > +      engine. Refer microchip,pmecc.yaml
-> > +
-> > +  "#address-cells":
-> > +    const: 2
-> > +
-> > +  "#size-cells":
-> > +    const: 1
-> nand-controller.yaml has this values defined as
+> Here’s an example scenario on arm64:
+>   1. A kernel thread hits the BUG() macro outside an interrupt handler,
+>      and panic_on_oops is not set (ct->nmi_nesting == CT_NESTING_IRQ_NONIDLE).
 > 
->    "#address-cells":
->      const: 1
+>   2. The exception handler jumps to el1_dbg() and calls arm64_enter_el1_dbg(),
+>      which invokes ct_nmi_enter(). (ct->nmi_nesting == CT_NESTING_IRQ_NONIDLE + 2)
 > 
->    "#size-cells":
->      const: 0
+>   3. bug_handler() runs, and if the bug type is BUG_TRAP_TYPE_BUG, it calls die().
 > 
-> I am unable to overwrite this as they are const values. Microchip's 
-> nand_controller is a child node of ebi unlike other nand controllers 
-> where i need to overwrite this. I didn't inherit nand-controller.yaml to 
-> has this defined locally.
+>   4. die() then calls make_task_dead(), which terminates the kernel thread and
+>      schedules another task—assume this is the idle_task.
 
-It is matching on the node name. More below...
+This sounds like there is a genuine imbalance, then, as we're scheduling
+in the context of an exception taken from EL1.
 
+>   5. The idle_task attempts to enter the idle state by calling ct_idle_enter().
+>      However, since the current ct->nmi_nesting value is CT_NESTING_IRQ_NONIDLE + 2,
+>      ct_kernel_exit() triggers a WARN_ON_ONCE() warning.
 > 
-> I upgraded dtschema and ran dt_binding_check and dtb_check again for all 
-> the bindings in this series as recommended in v2 comments. But I don't 
-> get the error below
+> Because the kernel thread couldn’t call the appropriate context tracking exit
+> function in step 3, the ct->nmi_nesting value remains incorrect.
+> This leads to warnings like the following:
 > 
-> https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250311122847.90081-2-balamanikandan.gunasundar@microchip.com/
+> [    7.133093] ------------[ cut here ]------------
+> [    7.133129] WARNING: CPU: 2 PID: 0 at kernel/context_tracking.c:127 ct_kernel
+> [    7.134157] Modules linked in:
+> [    7.134158]     not ok 62 kasan_strings
+> [    7.134280]
+> [    7.134506] CPU: 2 UID: 0 PID: 0 Comm: swapper/2 Tainted: G    B D W        N
+> [    7.134930] Tainted: [B]=BAD_PAGE, [D]=DIE, [W]=WARN, [N]=TEST
+> [    7.135150] pstate: 204003c5 (nzCv DAIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [    7.135441] pc : ct_kernel_exit+0xa4/0xb0
+> [    7.135656] lr : ct_kernel_exit+0x1c/0xb0
+> [    7.135866] sp : ffff8000829bbd90
+> [    7.136011] x29: ffff8000829bbd90 x28: ffff80008224ecf0 x27: 0000000000000004
+> [    7.136379] x26: ffff80008228ed30 x25: ffff80008228e000 x24: 0000000000000000
+> [    7.137016] x23: f3ff000800a52280 x22: 0000000000000000 x21: ffff00087b6c7408
+> [    7.137380] x20: ffff80008224b408 x19: 0000000000000005 x18: 0000000000000000
+> [    7.137741] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> [    7.311316] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+> [    7.311673] x11: 0000000000000000 x10: 0000000000000000 x9 : 4000000000000000
+> [    7.312031] x8 : 4000000000000002 x7 : 0000000000000000 x6 : 0000000000000000
+> [    7.312387] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
+> [    7.312740] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff8007f947c000
+> [    7.313096] Call trace:
+> [    7.313210]  ct_kernel_exit+0xa4/0xb0 (P)
+> [    7.313445]  ct_idle_enter+0x14/0x28
+> [    7.313666]  default_idle_call+0x2c/0x60
+> [    7.313902]  do_idle+0xec/0x320
+> [    7.314104]  cpu_startup_entry+0x40/0x50
+> [    7.314331]  secondary_start_kernel+0x120/0x1a0
 > 
-> I am not sure what else I am missing. Your comments please?
+> This behavior is specific to the arm64 architecture, where ct_nmi_enter()
+> is called when handling a debug exception.
+> In contrast, on other architectures, ct_nmi_enter() is not called when
+> handling BUG().
+> (i.e) when handling X86_TRAP_UD via handle_invalid_op(), it doesn't call
+> ct_nmi_enter(). so it doesn’t cause any issues
+> (While irq_entry_enter() does call ct_nmi_enter() for idle tasks,
+> that doesn’t apply to debug exception handling).
+
+It sounds like you're suggesting that we don't update the
+context-tracking NMI state for BRK exceptions from EL1, to align
+with x86. I think Ada's pending series might make that easier, but then
+the patch you propose:
+
+> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+> index 529cff825531..9cf03b9ce691 100644
+> --- a/arch/arm64/kernel/traps.c
+> +++ b/arch/arm64/kernel/traps.c
+> @@ -227,8 +227,14 @@ void die(const char *str, struct pt_regs *regs, long err)
 > 
-> Bala.
+>  	raw_spin_unlock_irqrestore(&die_lock, flags);
 > 
-> 
-> > +
-> > +  atmel,nfc-io:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > +    description: phandle to the NFC IO block. Only applicable for atmel,sama5d3-nand-controller
-> > +
-> > +  atmel,nfc-sram:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > +    description: phandle to the NFC SRAM block. Only applicable for atmel,sama5d3-nand-controller
-> > +
-> > +required:
-> > +  - compatible
-> > +  - ranges
-> > +  - "#address-cells"
-> > +  - "#size-cells"
-> > +
-> > +patternProperties:
-> > +  "^nand@[a-f0-9]$":
-> > +    type: object
-> > +    $ref: raw-nand-chip.yaml#
-> > +    description:
-> > +      NAND chip bindings.
-> > +
-> > +    additionalProperties: false
-> > +
-> > +    properties:
-> > +      reg:
-> > +        items:
-> > +          - items:
-> > +              - description: describes the CS lines assigned to the NAND device.
-> > +              - description: the base offset of the memory region assigned to this device (always 0)
-> > +              - description: the memory region size (always 0x800000)
-> > +      rb-gpios:
-> > +        description:
-> > +          the GPIO(s) used to check the Ready/Busy status of the NAND.
-> > +
-> > +      cs-gpios:
-> > +        description:
-> > +          the GPIO(s) used to control the CS line.
-> > +
-> > +      det-gpios:
-> > +        description:
-> > +          the GPIO used to detect if a Smartmedia Card is present.
-> > +
-> > +      atmel,rb:
-> > +        description: |
+> -	if (ret != NOTIFY_STOP)
+> +	if (ret != NOTIFY_STOP) {
+> +#ifdef CONFIG_CONTEXT_TRACKING_IDLE
+> +		long nmi_nesting = ct_nmi_nesting();
+> +		if (nmi_nesting && nmi_nesting != CT_NESTING_IRQ_NONIDLE)
+> +			ct_nmi_exit();
+> +#endif
 
-Don't need '|'.
+tries to undo the context-tracking when we realise we're going to kill
+the task, which feels like a hack.
 
-> > +          an integer identifying the native Ready/Busy pin.
-> > +        $ref: /schemas/types.yaml#/definitions/uint32
-
-Constraints? I'd assume there's a limit much lower than 2^32.
-
-> > +
-> > +      nand-ecc-step-size:
-> > +        const: 512
-> > +
-> > +      nand-ecc-strength:
-> > +        enum: [2, 4, 8]
-> > +
-> > +      nand-ecc-mode:
-> > +        enum: [soft, hw]
-> > +
-> > +      nand-bus-width:
-> > +        const: 8
-> > +
-> > +      nand-on-flash-bbt: true
-> > +
-> > +      partitions:
-> > +        $ref: /schemas/mtd/partitions/partitions.yaml
-> > +
-> > +      label:
-> > +        description: Name or Label of the device
-> > +
-> > +    allOf:
-> > +      - if:
-> > +          properties:
-> > +            compatible:
-> > +              contains:
-> > +                const: atmel,sama5d3-nand-controller
-> > +        then:
-> > +          properties:
-> > +            "atmel,rb":
-> > +              description: an integer identifying the native Ready/Busy pin.
-
-This is wrong. This sub-schema applies to the 'nand' nodes, but 
-compatible is in the parent node for which the sub-schema has no 
-visibility. The 'if' is always true because 'compatible' is not present. 
-The 'then' is also always true. I would just drop the constraint.
-
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    nfc_io: nfc-io@70000000 {
-> > +        compatible = "atmel,sama5d3-nfc-io", "syscon";
-> > +        reg = <0x70000000 0x8000000>;
-> > +    };
-> > +
-> > +    nfc_sram: sram@200000 {
-> > +        compatible = "mmio-sram";
-> > +        no-memory-wc;
-> > +        reg = <0x200000 0x2400>;
-> > +        #address-cells = <1>;
-> > +        #size-cells = <1>;
-> > +        ranges = <0 0x200000 0x2400>;
-> > +    };
-> > +
-> > +    ebi@10000000 {
-> > +        compatible = "atmel,sama5d3-ebi";
-> > +        #address-cells = <2>;
-> > +        #size-cells = <1>;
-> > +        atmel,smc = <&hsmc>;
-> > +        reg = <0x10000000 0x10000000
-> > +               0x40000000 0x30000000>;
-> > +        ranges = <0x0 0x0 0x10000000 0x10000000
-> > +                  0x1 0x0 0x40000000 0x10000000
-> > +                  0x2 0x0 0x50000000 0x10000000
-> > +                  0x3 0x0 0x60000000 0x10000000>;
-> > +        clocks = <&mck>;
-> > +
-> > +        nand_controller: nand-controller {
-> > +            compatible = "atmel,sama5d3-nand-controller";
-> > +            atmel,nfc-sram = <&nfc_sram>;
-> > +            atmel,nfc-io = <&nfc_io>;
-> > +            ecc-engine = <&pmecc>;
-> > +            #address-cells = <2>;
-> > +            #size-cells = <1>;
-> > +            ranges;
-
-I think this should be '<0x3 0x3 0x0>' to translate this from a EBI 
-chipselect to the nand chip chipselect.
-
-> > +
-> > +            nand@3 {
-> > +                reg = <0x3 0x0 0x800000>;
-
-And then just 'reg = <3>;' here.
-
-That assumes changing this would work with the existing driver.
-
-Otherwise, we might need to add 'select: false' to nand-controller.yaml 
-and make sure all the controller schemas reference it (except this one).
-
-Rob
+Will
 
