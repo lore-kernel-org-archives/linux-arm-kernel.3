@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CD0C54FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 12:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D603C54FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  2 Jun 2025 12:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=53Wlw+eTBxlCXmP6bibokB8myYtJTgOns4jsfc++01Q=; b=eICCizAW3FJjYauFJwjpwuXUsI
-	BdEpBn7D/PaH2uHvZ8whpxbQKxrtIyBI6/tSbLhtNCLlOWgwWLhwj82WK6c+8hLFclDEhzQQSUY2F
-	4/X2gjbeyqlvJzCJ/aH+3GZF0MQ1pqOBlH50hlZmOMBJPc4eJm09QVjKpvDOgRGeClL75C+nAQAkw
-	l7ylhxG7h3YnPfrX49Gerq7lAWW896quoIU0blOOPNHsJ/a8RxJFVk1cVcZ12Aj/afzuf/VZ7vM7c
-	Whkn1iUHLmXDXCIiz3udt3y1bMNxGOKEulrERVQGXDjOsygXk9Rc1q3Qe0JmDdpiIaEpG5Kdidsmq
-	RcOZDk5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZxhTgCLygSpRzZ9PzHb6ECFgejGwUE72Etj5ELI2Wgw=; b=y3L1h0+2zG5VRNjUar+xNRIIOE
+	2lv9Nqc9lQiYILIWt+qHO45A0jSTDBkPbMEIUxrkHlJ87BTdjcvq63No82b9gqHNWsqOoijKvBCnu
+	C72HHzFjnk6ASKR8hsCl31VVo+FdK2WyST90FxYzYxcxIVV1McdMlerLhzhhmWPMzy/Ukug7lJXKO
+	Fdek6m9Wy32yEv5CGeKvIJuPyLPCi4uFIgC+hzAHnrFm1sys2tanVBD8ol91/wwUhKGEvQ0aVVCFO
+	Vx3WdFcY6w/109vuGSUTlWBbomoVgZU3TEVnTqS04yroXLk9NipBxiCjfy0s7e0W23V0OE7FSllFx
+	gzabs0Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM4c4-00000007ObU-3OJa;
-	Mon, 02 Jun 2025 12:50:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uM4gO-00000007Ou9-2jyO;
+	Mon, 02 Jun 2025 12:54:28 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM4Zu-00000007ORr-1YF0
+	id 1uM4eD-00000007Omt-0eMT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 02 Jun 2025 12:47:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B6C775C5787;
-	Mon,  2 Jun 2025 12:45:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B763C4CEEB;
-	Mon,  2 Jun 2025 12:47:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748868465;
-	bh=HW3Z90l7RNBksiCHnADYX0xsQ1oyiXxM4OgllXOR9NQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NqZqdg19cTQfnr3uMJSzkWMJI11jMh9dsJ72dji6DqM43sBlwThnQuG9afVGw6mFq
-	 oDGJN2F2kJL9QibiX49oi7WfgDzBtizvE2MQCoXV9NTeYhhBcqvwfLuRceoft7dEn+
-	 auQmA3lF+wnjyK9uqJ60dfprBsEdpDbdbCLWwNTNs57GUtzwyVZkr4yodlKj/ksKxW
-	 WxvDspEtJXk1p3hktrgbJdrZjuQ+oBVmF1CTskUbngqJx2rMAUIHVMez/kQwXszSxN
-	 qJRI1pv0qTLoVQLDOAYE3UY4W6U2KBQyAhVO5FZ4gmV0fSCTU+J9YM2d97fnEX/zeG
-	 ZO1380svXV1LA==
-Date: Mon, 2 Jun 2025 13:47:39 +0100
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH] arm64/trap: fix broken ct->nmi_nesting when die() is
- called in a kthread
-Message-ID: <20250602124738.GD1227@willie-the-truck>
-References: <20250530092723.3307630-1-yeoreum.yun@arm.com>
+	Mon, 02 Jun 2025 12:52:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=ZxhTgCLygSpRzZ9PzHb6ECFgejGwUE72Etj5ELI2Wgw=; b=cWqOLWptPRZS2apnyR7vYHWdOR
+	2s8bFDL8T/eRFZt8GpEJ7XYzh7n9b0DZfcBvXJ1oeFnwupUw1lE2wh11Lrs/lGvvdklnQ4+sGT/2b
+	skDo4BHK4n7cF129X0xlvBDh881I07pno4lsiefN7kUyinnV/hjBqZ+WEoHIkClcElMOzXgdVhq7L
+	QjwcRGB6NO/g+NZltYJJmfqUHpeWl/F2Myi1/J4N+3BiGYxorKLMfSGyGebeIB5E+YACumUNjp9mw
+	YJSbXAbxqA0jiYMmtw5bbdkMKKYdrruQxe8GEEl+5GVIE3WImlFkf6dW9cW+RUF1XbSOEYoK/gXBT
+	EshVYq/g==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:56998 helo=localhost.localdomain)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1uM4e8-007eqG-2L;
+	Mon, 02 Jun 2025 14:52:08 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH] arm64: dts: freescale: imx93-phyboard-nash: Move ADC vref to SoM
+Date: Mon,  2 Jun 2025 14:52:07 +0200
+Message-Id: <20250602125207.2265222-1-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250530092723.3307630-1-yeoreum.yun@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_054746_497780_A41C3F73 
-X-CRM114-Status: GOOD (  28.02  )
+X-CRM114-CacheID: sfid-20250602_055213_667318_0615251E 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,102 +89,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, ptosi@google.com, catalin.marinas@arm.com, bigeasy@linutronix.de, linux-kernel@vger.kernel.org, kristina.martsenko@arm.com, mcgrof@kernel.org, broonie@kernel.org, geert@linux-m68k.org, joey.gouly@arm.com, james.morse@arm.com, pcc@google.com, rppt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Ada]
+Move configuration for ADC voltage reference from board DTS to a SoM
+include file. The SoC ADC reference voltage is connected to a "VDDA_1V8"
+voltage node and supplied by the PMIC's BUCK5 regulator. The reference
+voltage is thus defined by the SoM and cannot be changed by the carrier
+board design and as such belongs into the SoM include file.
 
-On Fri, May 30, 2025 at 10:27:23AM +0100, Yeoreum Yun wrote:
-> When a kernel thread hits BUG() outside of an interrupt handler and
-> panic_on_oops is not set, it exits via make_task_dead(), which is called by die().
-> In this case, the nmi_nesting value in context_tracking becomes
-> inconsistent because the proper context tracking exit functions are not reached.
-> 
-> Here’s an example scenario on arm64:
->   1. A kernel thread hits the BUG() macro outside an interrupt handler,
->      and panic_on_oops is not set (ct->nmi_nesting == CT_NESTING_IRQ_NONIDLE).
-> 
->   2. The exception handler jumps to el1_dbg() and calls arm64_enter_el1_dbg(),
->      which invokes ct_nmi_enter(). (ct->nmi_nesting == CT_NESTING_IRQ_NONIDLE + 2)
-> 
->   3. bug_handler() runs, and if the bug type is BUG_TRAP_TYPE_BUG, it calls die().
-> 
->   4. die() then calls make_task_dead(), which terminates the kernel thread and
->      schedules another task—assume this is the idle_task.
+Moreover, with this in place, customers designing own carrier boards can
+simply include imx93-phycore-som.dtsi and enable adc1 in their own DTS
+without the need to define dummy ADC vref regulator themselves anymore.
 
-This sounds like there is a genuine imbalance, then, as we're scheduling
-in the context of an exception taken from EL1.
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ .../boot/dts/freescale/imx93-phyboard-nash.dts      |  8 --------
+ .../arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 13 +++++++++++++
+ 2 files changed, 13 insertions(+), 8 deletions(-)
 
->   5. The idle_task attempts to enter the idle state by calling ct_idle_enter().
->      However, since the current ct->nmi_nesting value is CT_NESTING_IRQ_NONIDLE + 2,
->      ct_kernel_exit() triggers a WARN_ON_ONCE() warning.
-> 
-> Because the kernel thread couldn’t call the appropriate context tracking exit
-> function in step 3, the ct->nmi_nesting value remains incorrect.
-> This leads to warnings like the following:
-> 
-> [    7.133093] ------------[ cut here ]------------
-> [    7.133129] WARNING: CPU: 2 PID: 0 at kernel/context_tracking.c:127 ct_kernel
-> [    7.134157] Modules linked in:
-> [    7.134158]     not ok 62 kasan_strings
-> [    7.134280]
-> [    7.134506] CPU: 2 UID: 0 PID: 0 Comm: swapper/2 Tainted: G    B D W        N
-> [    7.134930] Tainted: [B]=BAD_PAGE, [D]=DIE, [W]=WARN, [N]=TEST
-> [    7.135150] pstate: 204003c5 (nzCv DAIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    7.135441] pc : ct_kernel_exit+0xa4/0xb0
-> [    7.135656] lr : ct_kernel_exit+0x1c/0xb0
-> [    7.135866] sp : ffff8000829bbd90
-> [    7.136011] x29: ffff8000829bbd90 x28: ffff80008224ecf0 x27: 0000000000000004
-> [    7.136379] x26: ffff80008228ed30 x25: ffff80008228e000 x24: 0000000000000000
-> [    7.137016] x23: f3ff000800a52280 x22: 0000000000000000 x21: ffff00087b6c7408
-> [    7.137380] x20: ffff80008224b408 x19: 0000000000000005 x18: 0000000000000000
-> [    7.137741] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> [    7.311316] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-> [    7.311673] x11: 0000000000000000 x10: 0000000000000000 x9 : 4000000000000000
-> [    7.312031] x8 : 4000000000000002 x7 : 0000000000000000 x6 : 0000000000000000
-> [    7.312387] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
-> [    7.312740] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff8007f947c000
-> [    7.313096] Call trace:
-> [    7.313210]  ct_kernel_exit+0xa4/0xb0 (P)
-> [    7.313445]  ct_idle_enter+0x14/0x28
-> [    7.313666]  default_idle_call+0x2c/0x60
-> [    7.313902]  do_idle+0xec/0x320
-> [    7.314104]  cpu_startup_entry+0x40/0x50
-> [    7.314331]  secondary_start_kernel+0x120/0x1a0
-> 
-> This behavior is specific to the arm64 architecture, where ct_nmi_enter()
-> is called when handling a debug exception.
-> In contrast, on other architectures, ct_nmi_enter() is not called when
-> handling BUG().
-> (i.e) when handling X86_TRAP_UD via handle_invalid_op(), it doesn't call
-> ct_nmi_enter(). so it doesn’t cause any issues
-> (While irq_entry_enter() does call ct_nmi_enter() for idle tasks,
-> that doesn’t apply to debug exception handling).
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
+index e1c9aa77c000..475913cf0cb9 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
+@@ -53,18 +53,10 @@ reg_vcc_1v8: regulator-vcc-1v8 {
+ 		regulator-max-microvolt = <1800000>;
+ 		regulator-min-microvolt = <1800000>;
+ 	};
+-
+-	reg_vref_1v8: regulator-adc-vref {
+-		compatible = "regulator-fixed";
+-		regulator-name = "VREF_1V8";
+-		regulator-min-microvolt = <1800000>;
+-		regulator-max-microvolt = <1800000>;
+-	};
+ };
+ 
+ /* ADC */
+ &adc1 {
+-	vref-supply = <&reg_vref_1v8>;
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+index 0ea61841e591..26bd801a49bb 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+@@ -46,6 +46,19 @@ led-0 {
+ 			linux,default-trigger = "heartbeat";
+ 		};
+ 	};
++
++	reg_vdda_1v8: regulator-vdda-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "VDDA_1V8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&buck5>;
++	};
++};
++
++/* ADC */
++&adc1 {
++	vref-supply = <&reg_vdda_1v8>;
+ };
+ 
+ /* Ethernet */
+-- 
+2.34.1
 
-It sounds like you're suggesting that we don't update the
-context-tracking NMI state for BRK exceptions from EL1, to align
-with x86. I think Ada's pending series might make that easier, but then
-the patch you propose:
-
-> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-> index 529cff825531..9cf03b9ce691 100644
-> --- a/arch/arm64/kernel/traps.c
-> +++ b/arch/arm64/kernel/traps.c
-> @@ -227,8 +227,14 @@ void die(const char *str, struct pt_regs *regs, long err)
-> 
->  	raw_spin_unlock_irqrestore(&die_lock, flags);
-> 
-> -	if (ret != NOTIFY_STOP)
-> +	if (ret != NOTIFY_STOP) {
-> +#ifdef CONFIG_CONTEXT_TRACKING_IDLE
-> +		long nmi_nesting = ct_nmi_nesting();
-> +		if (nmi_nesting && nmi_nesting != CT_NESTING_IRQ_NONIDLE)
-> +			ct_nmi_exit();
-> +#endif
-
-tries to undo the context-tracking when we realise we're going to kill
-the task, which feels like a hack.
-
-Will
 
