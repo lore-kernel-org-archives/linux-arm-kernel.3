@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36906C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 08:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A16C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 08:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gw+TLIYWmzKK5f/8m74TbizuyuJeuyYUqbsja88P7BQ=; b=exTaoQ4dozIwhXFMlYaB6UiMNx
-	ANGN0QK/hS17JEl/KJlg4JIvH2iTcsKu4jdDZ9GdS9ky1VgtHy9t1q6UAFo0ZtbHRxjNeC2w3kFw+
-	IiD+1CWkq6VTa2m7BUaBRiCIPCeV2EfjhNldmDXqPVuLlHWAxH25gCfJfZbkR4BahqDazQwR26YW+
-	YOKbZ5IOlSsV0pQ8i0ZtZcH3Lp8oQcHPOPkOOWBUjnuTAcwHImH2vocS97K8UDF1SgHxGFr45M3cg
-	WWFpjHX+PJ9+/Ps6CN/z99Qx7SxovBHpWBsQvq/S4AqCsKO8DhALnRy51UAqZ3luzuQTW9hZSJLCN
-	6+f763iw==;
+	bh=jU949Yjzmup9pWrbnW8zZ5QB7r3zZXnxP+6dfTyVWWE=; b=XRuNqurp1p6zcSeWu49fKaG6ex
+	cafeaimtKkty31Tkbnqbt8qEChSOaMi+Ti4jMoVInmtNBFUGxKygDe+Ub2s2eV5ZG+0AVKqfem+jb
+	PBC5t6tUb21mewlM2JmqU1t2Im4zHKcN47oSL/ZwIdDGDtV6rrFy5CWp8iZ322ik5zF1t1g7JsV8g
+	iMaDufB2IFhBVrVRSa8j4XQ5M1CsHVlJdbRGb0EgAGotAmqoHEXfjpuSO2tVavQS/EFuDR4jVUYEo
+	bkHJ/3Dim5/Dn4WFIV8AWdky/X6YHHCD4nRDt5dKOw/3svxAKoFtLiEEs2rm3DDncO7/bmCHZIzgl
+	r4UcduQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMMev-0000000AFtk-3e2e;
-	Tue, 03 Jun 2025 08:06:09 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMMZi-0000000AElb-34Vp
+	id 1uMMxV-0000000AK9s-3ezj;
+	Tue, 03 Jun 2025 08:25:21 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMMvJ-0000000AJiz-1VOj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 08:00:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=Hg0yHiFRSaKRGcv918HNnfNzenkYYXz57h8+U4cPjrY=; b=W
-	NtJB9U1hmALTnz1zKuwrsJVygKd3ImPtG1slLgdRo8CP6hAduhUhxC57UjbO8DGL
-	0mCAGqk3a+uvAKMTR9MTHoqavbWgA5hIzTAa8mZad58EFOUsAYxz2paXlx92lG9P
-	/b7urC4Qo2z1+oBcASA7ITovh/myhRPL0Zb4BMOi0w=
-Received: from xavier_qy$163.com ( [103.126.24.24] ) by
- ajax-webmail-wmsvr-40-125 (Coremail) ; Tue, 3 Jun 2025 16:00:11 +0800 (CST)
-X-Originating-IP: [103.126.24.24]
-Date: Tue, 3 Jun 2025 16:00:11 +0800 (CST)
-From: Xavier  <xavier_qy@163.com>
-To: will@kernel.org, ryan.roberts@arm.com, 21cnbao@gmail.com,
-	dev.jain@arm.com, ioworker0@gmail.com
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, david@redhat.com,
-	gshan@redhat.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, willy@infradead.org, ziy@nvidia.com,
-	"Barry Song" <baohua@kernel.org>
-Subject: Re:[PATCH v6] arm64/mm: Optimize loop to reduce redundant
- operations of contpte_ptep_get
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <20250510125948.2383778-1-xavier_qy@163.com>
-References: <20250510125948.2383778-1-xavier_qy@163.com>
-X-NTES-SC: AL_Qu2fCvWYuE4q5yOdYekfmkgWgus/WcW2u/Qj3IRSO5FwjAzp4A8cXGVSInv77Ma0Kx6cmgmGbjNc8P9mRZFbY4QBoXQPiA+fbbqslzd1xa2ZSQ==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	Tue, 03 Jun 2025 08:23:07 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4bBNwN2qyLztRw8;
+	Tue,  3 Jun 2025 16:21:40 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8D564180B3F;
+	Tue,  3 Jun 2025 16:22:53 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 3 Jun 2025 16:22:52 +0800
+Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device
+ allocation
+To: Marc Zyngier <maz@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Sascha Bischoff <sascha.bischoff@arm.com>, Timothy
+ Hayes <timothy.hayes@arm.com>
+References: <20250513163144.2215824-1-maz@kernel.org>
+ <20250513163144.2215824-4-maz@kernel.org>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
+Date: Tue, 3 Jun 2025 16:22:47 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-Message-ID: <6f9842a2.7c3c.19734ce1860.Coremail.xavier_qy@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: fSgvCgD3XyeMqz5oEdwSAA--.16462W
-X-CM-SenderInfo: 50dyxvpubt5qqrwthudrp/1tbiVh9hEGg+pO3IUgACs-
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+In-Reply-To: <20250513163144.2215824-4-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_010047_090585_FA6ED61D 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250603_012305_716969_55DDBA86 
+X-CRM114-Status: GOOD (  28.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,146 +76,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpIEFsbCwKCkl0IGhhcyBiZWVuIHRocmVlIHdlZWtzIHNpbmNlIHRoZSBzdWJtaXNzaW9uIG9m
-IFBhdGNoIHY2LiBJIHRha2UgdGhlIGxpYmVydHkgb2YKYXNraW5nIHdoZXRoZXIgeW91IHN0aWxs
-IGhhdmUgYW55IGNvbW1lbnRzIG9yIHN1Z2dlc3Rpb25zIG9uIHRoaXMgdmVyc2lvbiwKYW5kIHdo
-ZXRoZXIgdGhlIHRlc3QgZGF0YSBpbmRpY2F0ZXMgdGhhdCBpdCBpcyByZWFkeSBmb3IgbWVyZ2lu
-Zy4gSSBzaW5jZXJlbHkKbG9vayBmb3J3YXJkIHRvIHlvdXIgdmFsdWFibGUgZmVlZGJhY2sgYW5k
-IGd1aWRhbmNlLgoKCi0tCgpUaGFua3MsClhhdmllcgoKQXQgMjAyNS0wNS0xMCAyMDo1OTo0OCwg
-IlhhdmllciBYaWEiIDx4YXZpZXJfcXlAMTYzLmNvbT4gd3JvdGU6Cj5UaGlzIGNvbW1pdCBvcHRp
-bWl6ZXMgdGhlIGNvbnRwdGVfcHRlcF9nZXQgYW5kIGNvbnRwdGVfcHRlcF9nZXRfbG9ja2xlc3MK
-PmZ1bmN0aW9uIGJ5IGFkZGluZyBlYXJseSB0ZXJtaW5hdGlvbiBsb2dpYy4gSXQgY2hlY2tzIGlm
-IHRoZSBkaXJ0eSBhbmQKPnlvdW5nIGJpdHMgb2Ygb3JpZ19wdGUgYXJlIGFscmVhZHkgc2V0IGFu
-ZCBza2lwcyByZWR1bmRhbnQgYml0LXNldHRpbmcKPm9wZXJhdGlvbnMgZHVyaW5nIHRoZSBsb29w
-LiBUaGlzIHJlZHVjZXMgdW5uZWNlc3NhcnkgaXRlcmF0aW9ucyBhbmQKPmltcHJvdmVzIHBlcmZv
-cm1hbmNlLgo+Cj5JbiBvcmRlciB0byB2ZXJpZnkgdGhlIG9wdGltaXphdGlvbiBwZXJmb3JtYW5j
-ZSwgYSB0ZXN0IGZ1bmN0aW9uIGhhcyBiZWVuCj5kZXNpZ25lZC4gVGhlIGZ1bmN0aW9uJ3MgZXhl
-Y3V0aW9uIHRpbWUgYW5kIGluc3RydWN0aW9uIHN0YXRpc3RpY3MgaGF2ZQo+YmVlbiB0cmFjZWQg
-dXNpbmcgcGVyZiwgYW5kIHRoZSBmb2xsb3dpbmcgYXJlIHRoZSBvcGVyYXRpb24gcmVzdWx0cyBv
-biBhCj5jZXJ0YWluIFF1YWxjb21tIG1vYmlsZSBwaG9uZSBjaGlwOgo+Cj5UZXN0IENvZGU6Cj4K
-PgkjZGVmaW5lIFBBR0VfU0laRSA0MDk2Cj4JI2RlZmluZSBDT05UX1BURVMgMTYKPgkjZGVmaW5l
-IFRFU1RfU0laRSAoNDA5NiogQ09OVF9QVEVTICogUEFHRV9TSVpFKQo+CSNkZWZpbmUgWU9VTkdf
-QklUIDgKPgl2b2lkIHJ3ZGF0YShjaGFyICpidWYpCj4Jewo+CQlmb3IgKHNpemVfdCBpID0gMDsg
-aSA8IFRFU1RfU0laRTsgaSArPSBQQUdFX1NJWkUpIHsKPgkJCWJ1ZltpXSA9ICdhJzsKPgkJCXZv
-bGF0aWxlIGNoYXIgYyA9IGJ1ZltpXTsKPgkJfQo+CX0KPgl2b2lkIGNsZWFyX3lvdW5nX2RpcnR5
-KGNoYXIgKmJ1ZikKPgl7Cj4JCWlmIChtYWR2aXNlKGJ1ZiwgVEVTVF9TSVpFLCBNQURWX0ZSRUUp
-ID09IC0xKSB7Cj4JCQlwZXJyb3IoIm1hZHZpc2UgZnJlZSBmYWlsZWQiKTsKPgkJCWZyZWUoYnVm
-KTsKPgkJCWV4aXQoRVhJVF9GQUlMVVJFKTsKPgkJfQo+CQlpZiAobWFkdmlzZShidWYsIFRFU1Rf
-U0laRSwgTUFEVl9DT0xEKSA9PSAtMSkgewo+CQkJcGVycm9yKCJtYWR2aXNlIGZyZWUgZmFpbGVk
-Iik7Cj4JCQlmcmVlKGJ1Zik7Cj4JCQlleGl0KEVYSVRfRkFJTFVSRSk7Cj4JCX0KPgl9Cj4Jdm9p
-ZCBzZXRfb25lX3lvdW5nKGNoYXIgKmJ1ZikKPgl7Cj4JCWZvciAoc2l6ZV90IGkgPSAwOyBpIDwg
-VEVTVF9TSVpFOyBpICs9IENPTlRfUFRFUyAqIFBBR0VfU0laRSkgewo+CQkJdm9sYXRpbGUgY2hh
-ciBjID0gYnVmW2kgKyBZT1VOR19CSVQgKiBQQUdFX1NJWkVdOwo+CQl9Cj4JfQo+Cj4Jdm9pZCB0
-ZXN0X2NvbnRwdGVfcGVyZigpIHsKPgkJY2hhciAqYnVmOwo+CQlpbnQgcmV0ID0gcG9zaXhfbWVt
-YWxpZ24oKHZvaWQgKiopJmJ1ZiwgQ09OVF9QVEVTICogUEFHRV9TSVpFLAo+CQkJCVRFU1RfU0la
-RSk7Cj4JCWlmICgocmV0ICE9IDApIHx8ICgodW5zaWduZWQgbG9uZylidWYgJSBDT05UX1BURVMg
-KiBQQUdFX1NJWkUpKSB7Cj4JCQlwZXJyb3IoInBvc2l4X21lbWFsaWduIGZhaWxlZCIpOwo+CQkJ
-ZXhpdChFWElUX0ZBSUxVUkUpOwo+CQl9Cj4KPgkJcndkYXRhKGJ1Zik7Cj4JI2lmIFRFU1RfQ0FT
-RTIgfHwgVEVTVF9DQVNFMwo+CQljbGVhcl95b3VuZ19kaXJ0eShidWYpOwo+CSNlbmRpZgo+CSNp
-ZiBURVNUX0NBU0UyCj4JCXNldF9vbmVfeW91bmcoYnVmKTsKPgkjZW5kaWYKPgo+CQlmb3IgKGlu
-dCBqID0gMDsgaiA8IDUwMDsgaisrKSB7Cj4JCQltbG9jayhidWYsIFRFU1RfU0laRSk7Cj4KPgkJ
-CW11bmxvY2soYnVmLCBURVNUX1NJWkUpOwo+CQl9Cj4JCWZyZWUoYnVmKTsKPgl9Cj4KPglEZXNj
-cmlwdGlvbnMgb2YgdGhyZWUgdGVzdCBzY2VuYXJpb3MKPgo+U2NlbmFyaW8gMQo+CVRoZSBkYXRh
-IG9mIGFsbCAxNiBQVEVzIGFyZSBib3RoIGRpcnR5IGFuZCB5b3VuZy4KPgkjZGVmaW5lIFRFU1Rf
-Q0FTRTIgMAo+CSNkZWZpbmUgVEVTVF9DQVNFMyAwCj4KPlNjZW5hcmlvIDIKPglBbW9uZyB0aGUg
-MTYgUFRFcywgb25seSB0aGUgOHRoIG9uZSBpcyB5b3VuZywgYW5kIHRoZXJlIGFyZSBubyBkaXJ0
-eSBvbmVzLgo+CSNkZWZpbmUgVEVTVF9DQVNFMiAxCj4JI2RlZmluZSBURVNUX0NBU0UzIDAKPgo+
-U2NlbmFyaW8gMwo+CUFtb25nIHRoZSAxNiBQVEVzLCB0aGVyZSBhcmUgbmVpdGhlciB5b3VuZyBu
-b3IgZGlydHkgb25lcy4KPgkjZGVmaW5lIFRFU1RfQ0FTRTIgMAo+CSNkZWZpbmUgVEVTVF9DQVNF
-MyAxCj4KPlRlc3QgcmVzdWx0cwo+Cj58U2NlbmFyaW8gMSAgICAgICAgIHwgICAgICAgT3JpZ2lu
-YWx8ICAgICAgIE9wdGltaXplZHwKPnwtLS0tLS0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tLS0t
-LXwtLS0tLS0tLS0tLS0tLS0tfAo+fGluc3RydWN0aW9ucyAgICAgICB8ICAgIDM3OTEyNDM2MTYw
-fCAgICAgMTg3MzE1ODAwMzF8Cj58dGVzdCB0aW1lICAgICAgICAgIHwgICAgICAgICA0LjI3OTd8
-ICAgICAgICAgIDIuMjk0OXwKPnxvdmVyaGVhZCBvZiAgICAgICAgfCAgICAgICAgICAgICAgIHwg
-ICAgICAgICAgICAgICAgfAo+fGNvbnRwdGVfcHRlcF9nZXQoKSB8ICAgICAgICAgMjEuMzElfCAg
-ICAgICAgICAgNC44MCV8Cj4KPnxTY2VuYXJpbyAyICAgICAgICAgfCAgICAgICBPcmlnaW5hbHwg
-ICAgICAgT3B0aW1pemVkfAo+fC0tLS0tLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS0tLS0tfC0t
-LS0tLS0tLS0tLS0tLS18Cj58aW5zdHJ1Y3Rpb25zICAgICAgIHwgICAgMzY3MDEyNzA4NjJ8ICAg
-ICAzNjExNTc5MDA4NnwKPnx0ZXN0IHRpbWUgICAgICAgICAgfCAgICAgICAgIDMuMjMzNXwgICAg
-ICAgICAgMy4wODc0fAo+fE92ZXJoZWFkIG9mICAgICAgICB8ICAgICAgICAgICAgICAgfCAgICAg
-ICAgICAgICAgICB8Cj58Y29udHB0ZV9wdGVwX2dldCgpIHwgICAgICAgICAzMi4yNiV8ICAgICAg
-ICAgIDMzLjU3JXwKPgo+fFNjZW5hcmlvIDMgICAgICAgICB8ICAgICAgIE9yaWdpbmFsfCAgICAg
-ICBPcHRpbWl6ZWR8Cj58LS0tLS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tLS0tLS0tLS18LS0tLS0t
-LS0tLS0tLS0tLXwKPnxpbnN0cnVjdGlvbnMgICAgICAgfCAgICAzNjcwNjI3OTczNXwgICAgIDM2
-NzUwODgxODc4fAo+fHRlc3QgdGltZSAgICAgICAgICB8ICAgICAgICAgMy4yMDA4fCAgICAgICAg
-ICAzLjEyNDl8Cj58T3ZlcmhlYWQgb2YgICAgICAgIHwgICAgICAgICAgICAgICB8ICAgICAgICAg
-ICAgICAgIHwKPnxjb250cHRlX3B0ZXBfZ2V0KCkgfCAgICAgICAgIDMxLjk0JXwgICAgICAgICAg
-MzQuNTklfAo+Cj5Gb3IgU2NlbmFyaW8gMSwgb3B0aW1pemVkIGNvZGUgY2FuIGFjaGlldmUgYW4g
-aW5zdHJ1Y3Rpb24gYmVuZWZpdCBvZiA1MC41OSUKPmFuZCBhIHRpbWUgYmVuZWZpdCBvZiA0Ni4z
-OCUuCj5Gb3IgU2NlbmFyaW8gMiwgb3B0aW1pemVkIGNvZGUgY2FuIGFjaGlldmUgYW4gaW5zdHJ1
-Y3Rpb24gY291bnQgYmVuZWZpdCBvZgo+MS42JSBhbmQgYSB0aW1lIGJlbmVmaXQgb2YgNC41JS4K
-PkZvciBTY2VuYXJpbyAzLCBzaW5jZSBhbGwgdGhlIFBURXMgaGF2ZSBuZWl0aGVyIHRoZSB5b3Vu
-ZyBub3IgdGhlIGRpcnR5Cj5mbGFnLCB0aGUgYnJhbmNoZXMgdGFrZW4gYnkgb3B0aW1pemVkIGNv
-ZGUgc2hvdWxkIGJlIHRoZSBzYW1lIGFzIHRob3NlIG9mCj50aGUgb3JpZ2luYWwgY29kZS4gSW4g
-ZmFjdCwgdGhlIHRlc3QgcmVzdWx0cyBvZiBvcHRpbWl6ZWQgY29kZSBzZWVtIHRvIGJlCj5jbG9z
-ZXIgdG8gdGhvc2Ugb2YgdGhlIG9yaWdpbmFsIGNvZGUuCj4KPkl0IGNhbiBiZSBwcm92ZW4gdGhy
-b3VnaCB0ZXN0IGZ1bmN0aW9uIHRoYXQgdGhlIG9wdGltaXphdGlvbiBmb3IKPmNvbnRwdGVfcHRl
-cF9nZXQgaXMgZWZmZWN0aXZlLiBTaW5jZSB0aGUgbG9naWMgb2YgY29udHB0ZV9wdGVwX2dldF9s
-b2NrbGVzcwo+aXMgc2ltaWxhciB0byB0aGF0IG9mIGNvbnRwdGVfcHRlcF9nZXQsIHRoZSBzYW1l
-IG9wdGltaXphdGlvbiBzY2hlbWUgaXMKPmFsc28gYWRvcHRlZCBmb3IgaXQuCj4KPlJldmlld2Vk
-LWJ5OiBCYXJyeSBTb25nIDxiYW9odWFAa2VybmVsLm9yZz4KPlNpZ25lZC1vZmYtYnk6IFhhdmll
-ciBYaWEgPHhhdmllcl9xeUAxNjMuY29tPgo+LS0tCj5DaGFuZ2VzIGluIHY2Ogo+LSBNb3ZlIHBy
-b3QgPSBwdGVfcGdwcm90KHB0ZV9ta29sZChwdGVfbWtjbGVhbihwdGUpKSkgaW50byB0aGUgY29u
-dHB0ZV9pc19jb25zaXN0ZW50KCksCj4gIGFzIHN1Z2dlc3RlZCBieSBCYXJyeS4KPi0gTGluayB0
-byB2NTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwNTA5MTIyNzI4LjIzNzk0NjYt
-MS14YXZpZXJfcXlAMTYzLmNvbS8KPgo+Q2hhbmdlcyBpbiB2NToKPi0gUmVwbGFjZSBtYWNybyBD
-SEVDS19DT05UUFRFX0NPTlNJU1RFTkNZIHdpdGggaW5saW5lIGZ1bmN0aW9uIGNvbnRwdGVfaXNf
-Y29uc2lzdGVudAo+ICBmb3IgaW1wcm92ZWQgcmVhZGFiaWxpdHkgYW5kIGNsYXJpdHksIGFzIHN1
-Z2dlc3RlZCBieSBCYXJyeS4KPi0gTGluayB0byB2NDogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
-YWxsLzIwMjUwNTA4MDcwMzUzLjIzNzA4MjYtMS14YXZpZXJfcXlAMTYzLmNvbS8KPgo+Q2hhbmdl
-cyBpbiB2NDoKPi0gQ29udmVydCBtYWNybyBDSEVDS19DT05UUFRFX0ZMQUcgdG8gYW4gaW50ZXJu
-YWwgbG9vcCBmb3IgYmV0dGVyIHJlYWRhYmlsaXR5Lgo+LSBSZWZhY3RvciBjb250cHRlX3B0ZXBf
-Z2V0X2xvY2tsZXNzIHVzaW5nIHRoZSBzYW1lIG9wdGltaXphdGlvbiBsb2dpYywgYXMgc3VnZ2Vz
-dGVkIGJ5IFJ5YW4uCj4tIExpbmsgdG8gdjM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8z
-ZDMzOGY5MS44YzcxLjE5NjVjZDhiMWI4LkNvcmVtYWlsLnhhdmllcl9xeUAxNjMuY29tLwo+LS0t
-Cj4gYXJjaC9hcm02NC9tbS9jb250cHRlLmMgfCA3NCArKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKy0tLS0tLQo+IDEgZmlsZSBjaGFuZ2VkLCA2NCBpbnNlcnRpb25zKCspLCAxMCBk
-ZWxldGlvbnMoLSkKPgo+ZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvbW0vY29udHB0ZS5jIGIvYXJj
-aC9hcm02NC9tbS9jb250cHRlLmMKPmluZGV4IGJjYWM0ZjU1ZjljMS4uNzFlZmU3ZGZmMGFkIDEw
-MDY0NAo+LS0tIGEvYXJjaC9hcm02NC9tbS9jb250cHRlLmMKPisrKyBiL2FyY2gvYXJtNjQvbW0v
-Y29udHB0ZS5jCj5AQCAtMTY5LDE3ICsxNjksNDYgQEAgcHRlX3QgY29udHB0ZV9wdGVwX2dldChw
-dGVfdCAqcHRlcCwgcHRlX3Qgb3JpZ19wdGUpCj4gCWZvciAoaSA9IDA7IGkgPCBDT05UX1BURVM7
-IGkrKywgcHRlcCsrKSB7Cj4gCQlwdGUgPSBfX3B0ZXBfZ2V0KHB0ZXApOwo+IAo+LQkJaWYgKHB0
-ZV9kaXJ0eShwdGUpKQo+KwkJaWYgKHB0ZV9kaXJ0eShwdGUpKSB7Cj4gCQkJb3JpZ19wdGUgPSBw
-dGVfbWtkaXJ0eShvcmlnX3B0ZSk7Cj4tCj4tCQlpZiAocHRlX3lvdW5nKHB0ZSkpCj4rCQkJZm9y
-ICg7IGkgPCBDT05UX1BURVM7IGkrKywgcHRlcCsrKSB7Cj4rCQkJCXB0ZSA9IF9fcHRlcF9nZXQo
-cHRlcCk7Cj4rCQkJCWlmIChwdGVfeW91bmcocHRlKSkgewo+KwkJCQkJb3JpZ19wdGUgPSBwdGVf
-bWt5b3VuZyhvcmlnX3B0ZSk7Cj4rCQkJCQlicmVhazsKPisJCQkJfQo+KwkJCX0KPisJCQlicmVh
-azsKPisJCX0KPisKPisJCWlmIChwdGVfeW91bmcocHRlKSkgewo+IAkJCW9yaWdfcHRlID0gcHRl
-X21reW91bmcob3JpZ19wdGUpOwo+KwkJCWkrKzsKPisJCQlwdGVwKys7Cj4rCQkJZm9yICg7IGkg
-PCBDT05UX1BURVM7IGkrKywgcHRlcCsrKSB7Cj4rCQkJCXB0ZSA9IF9fcHRlcF9nZXQocHRlcCk7
-Cj4rCQkJCWlmIChwdGVfZGlydHkocHRlKSkgewo+KwkJCQkJb3JpZ19wdGUgPSBwdGVfbWtkaXJ0
-eShvcmlnX3B0ZSk7Cj4rCQkJCQlicmVhazsKPisJCQkJfQo+KwkJCX0KPisJCQlicmVhazsKPisJ
-CX0KPiAJfQo+IAo+IAlyZXR1cm4gb3JpZ19wdGU7Cj4gfQo+IEVYUE9SVF9TWU1CT0xfR1BMKGNv
-bnRwdGVfcHRlcF9nZXQpOwo+IAo+K3N0YXRpYyBpbmxpbmUgYm9vbCBjb250cHRlX2lzX2NvbnNp
-c3RlbnQocHRlX3QgcHRlLCB1bnNpZ25lZCBsb25nIHBmbiwKPisJCQkJCXBncHJvdF90IG9yaWdf
-cHJvdCkKPit7Cj4rCXBncHJvdF90IHByb3QgPSBwdGVfcGdwcm90KHB0ZV9ta29sZChwdGVfbWtj
-bGVhbihwdGUpKSk7Cj4rCj4rCXJldHVybiBwdGVfdmFsaWRfY29udChwdGUpICYmIHB0ZV9wZm4o
-cHRlKSA9PSBwZm4gJiYKPisJCQlwZ3Byb3RfdmFsKHByb3QpID09IHBncHJvdF92YWwob3JpZ19w
-cm90KTsKPit9Cj4rCj4gcHRlX3QgY29udHB0ZV9wdGVwX2dldF9sb2NrbGVzcyhwdGVfdCAqb3Jp
-Z19wdGVwKQo+IHsKPiAJLyoKPkBAIC0yMDIsNyArMjMxLDYgQEAgcHRlX3QgY29udHB0ZV9wdGVw
-X2dldF9sb2NrbGVzcyhwdGVfdCAqb3JpZ19wdGVwKQo+IAlwZ3Byb3RfdCBvcmlnX3Byb3Q7Cj4g
-CXVuc2lnbmVkIGxvbmcgcGZuOwo+IAlwdGVfdCBvcmlnX3B0ZTsKPi0JcGdwcm90X3QgcHJvdDsK
-PiAJcHRlX3QgKnB0ZXA7Cj4gCXB0ZV90IHB0ZTsKPiAJaW50IGk7Cj5AQCAtMjE5LDE4ICsyNDcs
-NDQgQEAgcHRlX3QgY29udHB0ZV9wdGVwX2dldF9sb2NrbGVzcyhwdGVfdCAqb3JpZ19wdGVwKQo+
-IAo+IAlmb3IgKGkgPSAwOyBpIDwgQ09OVF9QVEVTOyBpKyssIHB0ZXArKywgcGZuKyspIHsKPiAJ
-CXB0ZSA9IF9fcHRlcF9nZXQocHRlcCk7Cj4tCQlwcm90ID0gcHRlX3BncHJvdChwdGVfbWtvbGQo
-cHRlX21rY2xlYW4ocHRlKSkpOwo+IAo+LQkJaWYgKCFwdGVfdmFsaWRfY29udChwdGUpIHx8Cj4t
-CQkgICBwdGVfcGZuKHB0ZSkgIT0gcGZuIHx8Cj4tCQkgICBwZ3Byb3RfdmFsKHByb3QpICE9IHBn
-cHJvdF92YWwob3JpZ19wcm90KSkKPisJCWlmICghY29udHB0ZV9pc19jb25zaXN0ZW50KHB0ZSwg
-cGZuLCBvcmlnX3Byb3QpKQo+IAkJCWdvdG8gcmV0cnk7Cj4gCj4tCQlpZiAocHRlX2RpcnR5KHB0
-ZSkpCj4rCQlpZiAocHRlX2RpcnR5KHB0ZSkpIHsKPiAJCQlvcmlnX3B0ZSA9IHB0ZV9ta2RpcnR5
-KG9yaWdfcHRlKTsKPisJCQlmb3IgKDsgaSA8IENPTlRfUFRFUzsgaSsrLCBwdGVwKyssIHBmbisr
-KSB7Cj4rCQkJCXB0ZSA9IF9fcHRlcF9nZXQocHRlcCk7Cj4rCj4rCQkJCWlmICghY29udHB0ZV9p
-c19jb25zaXN0ZW50KHB0ZSwgcGZuLCBvcmlnX3Byb3QpKQo+KwkJCQkJZ290byByZXRyeTsKPisK
-PisJCQkJaWYgKHB0ZV95b3VuZyhwdGUpKSB7Cj4rCQkJCQlvcmlnX3B0ZSA9IHB0ZV9ta3lvdW5n
-KG9yaWdfcHRlKTsKPisJCQkJCWJyZWFrOwo+KwkJCQl9Cj4rCQkJfQo+KwkJCWJyZWFrOwo+KwkJ
-fQo+IAo+LQkJaWYgKHB0ZV95b3VuZyhwdGUpKQo+KwkJaWYgKHB0ZV95b3VuZyhwdGUpKSB7Cj4g
-CQkJb3JpZ19wdGUgPSBwdGVfbWt5b3VuZyhvcmlnX3B0ZSk7Cj4rCQkJaSsrOwo+KwkJCXB0ZXAr
-KzsKPisJCQlwZm4rKzsKPisJCQlmb3IgKDsgaSA8IENPTlRfUFRFUzsgaSsrLCBwdGVwKyssIHBm
-bisrKSB7Cj4rCQkJCXB0ZSA9IF9fcHRlcF9nZXQocHRlcCk7Cj4rCj4rCQkJCWlmICghY29udHB0
-ZV9pc19jb25zaXN0ZW50KHB0ZSwgcGZuLCBvcmlnX3Byb3QpKQo+KwkJCQkJZ290byByZXRyeTsK
-PisKPisJCQkJaWYgKHB0ZV9kaXJ0eShwdGUpKSB7Cj4rCQkJCQlvcmlnX3B0ZSA9IHB0ZV9ta2Rp
-cnR5KG9yaWdfcHRlKTsKPisJCQkJCWJyZWFrOwo+KwkJCQl9Cj4rCQkJfQo+KwkJCWJyZWFrOwo+
-KwkJfQo+IAl9Cj4gCj4gCXJldHVybiBvcmlnX3B0ZTsKPi0tIAo+Mi4zNC4xCgoK
+Hi Marc,
+
+On 2025/5/14 0:31, Marc Zyngier wrote:
+> The current device MSI infrastructure is subtly broken, as it
+> will issue an .msi_prepare() callback into the MSI controller
+> driver every time it needs to allocate an MSI. That's pretty wrong,
+> as the contract (or unwarranted assumption, depending who you ask)
+> between the MSI controller and the core code is that .msi_prepare()
+> is called exactly once per device.
+> 
+> This leads to some subtle breakage in said MSI controller drivers,
+> as it gives the impression that there are multiple endpoints sharing
+> a bus identifier (RID in PCI parlance, DID for GICv3+). It implies
+> that whatever allocation the ITS driver (for example) has done on
+> behalf of these devices cannot be undone, as there is no way to
+> track the shared state. This is particularly bad for wire-MSI devices,
+> for which .msi_prepare() is called for. each. input. line.
+> 
+> To address this issue, move the call to .msi_prepare() to take place
+> at the point of irq domain allocation, which is the only place that
+> makes sense. The msi_alloc_info_t structure is made part of the
+> msi_domain_template, so that its life-cycle is that of the domain
+> as well.
+> 
+> Finally, the msi_info::alloc_data field is made to point at this
+> allocation tracking structure, ensuring that it is carried around
+> the block.
+> 
+> This is all pretty straightforward, except for the non-device-MSI
+> leftovers, which still have to call .msi_prepare() at the old
+> spot. One day...
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  include/linux/msi.h |  2 ++
+>  kernel/irq/msi.c    | 35 +++++++++++++++++++++++++++++++----
+>  2 files changed, 33 insertions(+), 4 deletions(-)
+> 
+> diff --git a/include/linux/msi.h b/include/linux/msi.h
+> index 63c23003ec9b7..ba1c77a829a1c 100644
+> --- a/include/linux/msi.h
+> +++ b/include/linux/msi.h
+> @@ -516,12 +516,14 @@ struct msi_domain_info {
+>   * @chip:	Interrupt chip for this domain
+>   * @ops:	MSI domain ops
+>   * @info:	MSI domain info data
+> + * @alloc_info:	MSI domain allocation data (arch specific)
+>   */
+>  struct msi_domain_template {
+>  	char			name[48];
+>  	struct irq_chip		chip;
+>  	struct msi_domain_ops	ops;
+>  	struct msi_domain_info	info;
+> +	msi_alloc_info_t	alloc_info;
+>  };
+>  
+>  /*
+> diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
+> index 31378a2535fb9..07eb857efd15e 100644
+> --- a/kernel/irq/msi.c
+> +++ b/kernel/irq/msi.c
+> @@ -59,7 +59,8 @@ struct msi_ctrl {
+>  static void msi_domain_free_locked(struct device *dev, struct msi_ctrl *ctrl);
+>  static unsigned int msi_domain_get_hwsize(struct device *dev, unsigned int domid);
+>  static inline int msi_sysfs_create_group(struct device *dev);
+> -
+> +static int msi_domain_prepare_irqs(struct irq_domain *domain, struct device *dev,
+> +				   int nvec, msi_alloc_info_t *arg);
+>  
+>  /**
+>   * msi_alloc_desc - Allocate an initialized msi_desc
+> @@ -1023,6 +1024,7 @@ bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
+>  	bundle->info.ops = &bundle->ops;
+>  	bundle->info.data = domain_data;
+>  	bundle->info.chip_data = chip_data;
+> +	bundle->info.alloc_data = &bundle->alloc_info;
+>  
+>  	pops = parent->msi_parent_ops;
+>  	snprintf(bundle->name, sizeof(bundle->name), "%s%s-%s",
+> @@ -1061,11 +1063,18 @@ bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
+>  	if (!domain)
+>  		return false;
+>  
+> +	domain->dev = dev;
+> +	dev->msi.data->__domains[domid].domain = domain;
+> +
+> +	if (msi_domain_prepare_irqs(domain, dev, hwsize, &bundle->alloc_info)) {
+
+Does it work for MSI? hwsize is 1 in the MSI case, without taking
+pci_msi_vec_count() into account.
+
+bool pci_setup_msi_device_domain(struct pci_dev *pdev)
+{
+	[...]
+
+	return pci_create_device_domain(pdev, &pci_msi_template, 1);
+
+Thanks,
+Zenghui
 
