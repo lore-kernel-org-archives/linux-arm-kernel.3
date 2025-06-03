@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D4FC5B555
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379BCC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1dxeNCnmjTauoiI6ZTbM5n8PM0YLSl4n6WB+BxZiv8=; b=zLsi7yS/5n0/xKTmSDhuSkgAiM
-	+70sA6s8KdQZCWm37BtKISyq7uwN2mE06hOugR7MblkqnpLTeFre6cMM+X2Ftb5Sfb4cJkHPvwTa9
-	u44klSK1T/ZbFmCh54D94z1j6lCqS+nrS7dWyKQND+p3M/8V5AetY6hLIjmsFN9Dn1aRfj7R+/B6Q
-	K2LB8heWTQweYT6zRVdJywaBFW9ErKgaDEhrmSyrq8ffNK0BHkK0i/AHuwJoLbTBPJqLJ79ouMwA2
-	x7QxJjVKYO08OBAyZvYm8n/5PRxqvtXje8rfo5u03xYCcbwz8F3T0t35CeNeZcopd690BWG/4D6J+
-	wl5r1hPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RUidHi7AUTKhMLQFlQC/0IQeKDmIs/tIHkWgH++nWfQ=; b=hgBiCUxTl4rxVE2rahaEvTVLlQ
+	P+m5KYO7sod0eR7P9ZG6f3N8C0Q6+Ac6QaqVqjHmrdKkKMyMTrQBbgLugMkrShESJPPfwT8kN4UPF
+	i1z8IAyL9x5U97HmxG1i9Kl2tyP57VNp/ZHLkjTWAeCfZpD58nOmuXZjaLFtbPYIZCLHyPOP6xxTs
+	YZoqHbK71b0vbjT7G9r9gKo10qaK0P5xohPJAV4gvBk14/cRAoKAtbr3K7FQbH+yq6oTbl8wj4D9t
+	mBaL8dH3TN6+thu+6HmSqx/3RGhgYnGCahZU0SIduV8f2n3sx1B6yBBmL49ua8WJtp7ll62EPPdYz
+	oULaMEuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTZ2-0000000BHV6-2FSW;
-	Tue, 03 Jun 2025 15:28:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uMTZ5-0000000BHXm-0QZB;
+	Tue, 03 Jun 2025 15:28:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSK3-0000000B8Vz-0Q8T
+	id 1uMSSv-0000000B9Jm-28ZE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 14:09:00 +0000
+	Tue, 03 Jun 2025 14:18:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE58944875;
-	Tue,  3 Jun 2025 14:08:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7E17C4CEED;
-	Tue,  3 Jun 2025 14:08:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DBF4E5C5790;
+	Tue,  3 Jun 2025 14:15:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62288C4CEED;
+	Tue,  3 Jun 2025 14:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748959738;
-	bh=OlwtmLY1WNbhrrXFyRfa7IAa9h6HaHr459rqJj8wtLk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=e9mXz4WfQJHliuVYxmJFfPPB/T39ya3TyRloaF7hBQ26SCILVz4H6Z9XY6hegwwcp
-	 V4ymDCr9RBza6v8mbG7uUFBfOpSR/xVnUdxVHbqE7kyUEFWk70OW+KyDXiq58FnK55
-	 LzvEE/EpF2/0ZO39svzhL8HwoEsZV3b/qM5Ock6DNhX5p3Zh84qADYS9vNxsYO/Vub
-	 euwo+WEtFMjtt4REvSUX6Duuy5a534vNBBYfPF2OMozlCmxgYvIBDEto2+MRhTum7n
-	 w7aYC1Jy47sC/V9gnBJ83+XGdYskPT0hnItTeZp9OtP01YJPrHBNfg9ztHUQSJ0VLG
-	 BSLbR6Yplp3jw==
-Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	s=k20201202; t=1748960288;
+	bh=lUFGuC5ycdcnI5caajtZ9t5Zj3/9mRBKp3NDiUwuLWI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sgipLgsomXQr5yJk2XUmUkEV51djBPrldROzvsO2rwa6QsBFE6sacVDIZF3IppF2v
+	 LKHaqseAjjKnwvNqsokboTlK3NgOc+IbLaeCFNrbq7u+yQTf/jcQ1PyXY3rNnIAYQb
+	 Aj6I2ONBI4KmVg+oxkV30PAIfs+zbDtTdzUq4fiH0+nUHeIjBl2FrbGcRs7vheQYVq
+	 STsip0Nsljjv7ru2iZiVkYv7SL6Hi7LeDhsBGhWYEzch+dv8vzQcMZy67OpxWMaWMp
+	 Ht1dOyY5zie3FXqktEPtZdb+BQsHyGgQL6Agxhe/fdxIIZ46pOPhAaE7dcDqLBAyG7
+	 sI4P0V7sOqsYQ==
+Received: from [149.88.19.236] (helo=localhost.localdomain)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uMSK0-002rHL-6y;
-	Tue, 03 Jun 2025 15:08:56 +0100
-Date: Tue, 03 Jun 2025 15:08:54 +0100
-Message-ID: <87frggex3d.wl-maz@kernel.org>
+	id 1uMSSs-002rPF-4s;
+	Tue, 03 Jun 2025 15:18:06 +0100
 From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Zenghui Yu <yuzenghui@huawei.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>
-Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device allocation
-In-Reply-To: <87h60wexch.wl-maz@kernel.org>
-References: <20250513163144.2215824-1-maz@kernel.org>
-	<20250513163144.2215824-4-maz@kernel.org>
-	<0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
-	<87ldq9dm54.wl-maz@kernel.org>
-	<aD741hI7MfTmi7Rl@lpieralisi>
-	<87h60wexch.wl-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH] PCI/MSI: Size device MSI domain with the maximum number of vectors
+Date: Tue,  3 Jun 2025 15:18:01 +0100
+Message-ID: <20250603141801.915305-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 149.88.19.236
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, sascha.bischoff@arm.com, timothy.hayes@arm.com
+X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, lpieralisi@kernel.org, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_070859_187333_87BB8D5D 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20250603_071809_633578_329A65E6 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,55 +81,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Jun 2025 15:03:26 +0100,
-Marc Zyngier <maz@kernel.org> wrote:
-> 
-> On Tue, 03 Jun 2025 14:29:58 +0100,
-> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> > 
-> > > +	if (!pci_setup_msi_device_domain(dev, nvec))
-> > 
-> > If pci_msi_vec_count(dev) > maxvec we would cap nvec and size the
-> > domain with the capped value.
-> > 
-> > In __pci_enable_msix_range() we are sizing the device according to
-> > pci_msix_vec_count(dev) regardless of maxvec, if I read the code correctly.
-> > 
-> > While fixing it it would be good to make them consistent unless there is
-> > a reason why they should not.
-> 
-> This is indeed odd, but that'd be a separate fix. Something like:
-> 
-> diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-> index 2090eef64b14..6ede55a7c5e6 100644
-> --- a/drivers/pci/msi/msi.c
-> +++ b/drivers/pci/msi/msi.c
-> @@ -439,9 +439,6 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
->  	if (nvec < minvec)
->  		return -ENOSPC;
->  
-> -	if (nvec > maxvec)
-> -		nvec = maxvec;
-> -
->  	rc = pci_setup_msi_context(dev);
->  	if (rc)
->  		return rc;
-> @@ -449,6 +446,9 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
->  	if (!pci_setup_msi_device_domain(dev, nvec))
->  		return -ENODEV;
->  
-> +	if (nvec > maxvec)
-> +		nvec = maxvec;
-> +
->  	for (;;) {
->  		if (affd) {
->  			nvec = irq_calc_affinity_vectors(minvec, nvec, affd);
-> 
+Zenghui reports that since 1396e89e09f0 ("genirq/msi: Move prepare()
+call to per-device allocation"), his Multi-MSI capable device isn't
+working anymore.
 
-Actually, let's lump the two together. There is no reason to wait.
+This is a consequence of 15c72f824b32 ("PCI/MSI: Add support for
+per device MSI[X] domains"), which always creates a MSI domain of
+size 1, even in the presence of Multi-MSI.
 
-	M.
+While this was somehow working until then, moving the .prepare()
+call ends up sizing the ITS table with a tiny value for this device,
+and making the endpoint driver unhappy.
 
+Instead, always create the domain (and call the .prepare() helper)
+with the maximum expected size.
+
+Fixes: 1396e89e09f0 ("genirq/msi: Move prepare() call to per-device allocation")
+Fixes: 15c72f824b32 ("PCI/MSI: Add support for per device MSI[X] domains")
+Link: https://lore.kernel.org/r/0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com
+Reported-by: Zenghui Yu <yuzenghui@huawei.com>
+Tested-by: Zenghui Yu <yuzenghui@huawei.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/pci/msi/irqdomain.c | 5 +++--
+ drivers/pci/msi/msi.c       | 8 ++++----
+ drivers/pci/msi/msi.h       | 2 +-
+ 3 files changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
+index d7ba8795d60f..c05152733993 100644
+--- a/drivers/pci/msi/irqdomain.c
++++ b/drivers/pci/msi/irqdomain.c
+@@ -271,6 +271,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
+ /**
+  * pci_setup_msi_device_domain - Setup a device MSI interrupt domain
+  * @pdev:	The PCI device to create the domain on
++ * @hwsize:	The maximum number of MSI vectors
+  *
+  * Return:
+  *  True when:
+@@ -287,7 +288,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
+  *	- The device is removed
+  *	- MSI is disabled and a MSI-X domain is created
+  */
+-bool pci_setup_msi_device_domain(struct pci_dev *pdev)
++bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize)
+ {
+ 	if (WARN_ON_ONCE(pdev->msix_enabled))
+ 		return false;
+@@ -297,7 +298,7 @@ bool pci_setup_msi_device_domain(struct pci_dev *pdev)
+ 	if (pci_match_device_domain(pdev, DOMAIN_BUS_PCI_DEVICE_MSIX))
+ 		msi_remove_device_irq_domain(&pdev->dev, MSI_DEFAULT_DOMAIN);
+ 
+-	return pci_create_device_domain(pdev, &pci_msi_template, 1);
++	return pci_create_device_domain(pdev, &pci_msi_template, hwsize);
+ }
+ 
+ /**
+diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
+index d6ce04054702..6ede55a7c5e6 100644
+--- a/drivers/pci/msi/msi.c
++++ b/drivers/pci/msi/msi.c
+@@ -439,16 +439,16 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
+ 	if (nvec < minvec)
+ 		return -ENOSPC;
+ 
+-	if (nvec > maxvec)
+-		nvec = maxvec;
+-
+ 	rc = pci_setup_msi_context(dev);
+ 	if (rc)
+ 		return rc;
+ 
+-	if (!pci_setup_msi_device_domain(dev))
++	if (!pci_setup_msi_device_domain(dev, nvec))
+ 		return -ENODEV;
+ 
++	if (nvec > maxvec)
++		nvec = maxvec;
++
+ 	for (;;) {
+ 		if (affd) {
+ 			nvec = irq_calc_affinity_vectors(minvec, nvec, affd);
+diff --git a/drivers/pci/msi/msi.h b/drivers/pci/msi/msi.h
+index fc70b601e942..0b420b319f50 100644
+--- a/drivers/pci/msi/msi.h
++++ b/drivers/pci/msi/msi.h
+@@ -107,7 +107,7 @@ enum support_mode {
+ };
+ 
+ bool pci_msi_domain_supports(struct pci_dev *dev, unsigned int feature_mask, enum support_mode mode);
+-bool pci_setup_msi_device_domain(struct pci_dev *pdev);
++bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize);
+ bool pci_setup_msix_device_domain(struct pci_dev *pdev, unsigned int hwsize);
+ 
+ /* Legacy (!IRQDOMAIN) fallbacks */
 -- 
-Jazz isn't dead. It just smells funny.
+2.47.2
+
 
