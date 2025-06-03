@@ -4,81 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C60C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 20:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D33C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 21:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=3lsZMwRkh1UP98Tqde8+akeySm6v1iX6h0YAqQdmB3c=; b=Q9QjtT5wYGr4YE
-	w9FVjkLCb+Mdei7Lmj+ZKKOMEdI6FrrEjYDXG+1EBrEnUVQsShNq5LQlTJz+1m2ABHcd5d9eK1f+n
-	xsZXkEZly1vNOq45TMnCyt9bgqw05qQDCIM7T1GsrR6VgZa/l/LujA22ebBXdcXnhx9UAc8bOSh6g
-	V6Eo/cdELPY7zUJjmfHiYeDN9hIzQv6aYAsiX1E2Q0UwZne7w29gx0niRkTt5RfX7YrRLDHj2T/rZ
-	p/ejBBXD61T+p15VKBfguJMGgXxKelIPx8bEpTEZPgprIFycVX4z93K7QECruv/8iqacZdQU1FL6j
-	Ci/pARjf8Mtkvy4Z3K1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xfzs1Ogf0DKZ/YULLmQfkygDrX6ZPmGjv16hUj4o9H0=; b=pONbLPBAzn+kvSQJ2L6n6eky9J
+	c7fl56FFskaQOm9Of/DCRla6Nc3BfL3ZWqPvFApCVhavY6FwyhdTkFCOy1KGolRwX5Gps9sdv3ul8
+	Fh5gtQsANZhaE80OhKkQk3mBoNdTzH8NXEZOzBg/yBE1Yqltsy5vq8CJEdQQ9oysQNhpCfpv4ytEd
+	n6ltMRQ1Yk2WJHHO6sF4/gmyXVpumz5ia+1ghHQryf7yOzuzlazwc+yFt2RXOubQed0yn2W26R2Z3
+	ssWuLIA5gGqqTtD7pY5R4e/ZawG71UPzPy/7DQq3DaLiK8/jZwnWxYMPiTYajCuLl6QiydIUGMjaP
+	kTit/u9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMYd5-0000000Bp48-04ps;
-	Tue, 03 Jun 2025 20:53:03 +0000
-Received: from mail-io1-xd49.google.com ([2607:f8b0:4864:20::d49])
+	id 1uMYkN-0000000Bpac-0aiW;
+	Tue, 03 Jun 2025 21:00:35 +0000
+Received: from mx-rz-2.rrze.uni-erlangen.de ([2001:638:a000:1025::15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMYad-0000000BoSv-1vmA
+	id 1uMYiC-0000000BpU7-3eRe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 20:50:32 +0000
-Received: by mail-io1-xd49.google.com with SMTP id ca18e2360f4ac-86d122107a9so343754639f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 13:50:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1748983829; x=1749588629; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=3lsZMwRkh1UP98Tqde8+akeySm6v1iX6h0YAqQdmB3c=;
-        b=4MPcrof6eiAhVQnKSkXD0Vda3vhUjR0kpV8R6i/lM10Z4riV2GAbCpWl/lTvP3pJaG
-         GBsY2UMW0t4i3cnYlVOk58XIjvEShiAL3u6O0OQunUpO/I9iYc2wqk/3EYYa9Arusojv
-         c4yxAwbAS3iDox1rLBr/exo7+xKfPEysukG3hsETVPIYcsv5wjiSDf8sQR0aD2+5lf7s
-         VuQp8xO0pHO3ad4Vl416Qkq/0jUKQD3fOmAZS52qaIs0pG46MRFXM26ry+B3vr+rRKVZ
-         VD3Kash2o18izfiuAbQgE+45HCLXag7s4ckzpCWriOpbA6sRE8/G/hFVYgaP6OMD3L1N
-         jw9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748983829; x=1749588629;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3lsZMwRkh1UP98Tqde8+akeySm6v1iX6h0YAqQdmB3c=;
-        b=iw2bKuyJPl5O0Askm7nvTBStpE/fzpeT0GhI2ELKbyKcJlkSLOkWGwIj1mvKpr+mAk
-         3VKOm2nW8UKHGg8XPuIUVVXuphKtyu3DmfxTd7EvkyS+pvPndOpVccaI/pK9geLDbLiP
-         kT+EKoIdRa0ap4B09AZOHAx7NK6M1dnSkLxVSMGS990h7rT+Y/1C36lpb29gkeeJ4zI+
-         1PhVTze3CI1NXUtKn5xhZ4cbki89Edr/IQZHLCGwzEIuJzE8Qu06HfR173kEJpPTva9l
-         K6iThH06SqF4tuMi6JtON4UWE66mpjRhB0ywvK6CkR5XfDDUYP9tEC3LLc7u+WUi6hDg
-         hyvw==
-X-Forwarded-Encrypted: i=1; AJvYcCUtHe90vz1vL7Q0GYZmROVWLRTLPIkps+T5bxwaa/97VX5P8wC6j7pCiMIjEsywiSUaTfcsoP1U6D8m5eKiwabZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YylkRF8Eo6ADYuKvu2ebEVsF2qBKGlf+ey6OCKnUYpK+l6e6r/X
-	275dBxLYHnMasODr9/s64V2yrdB+RCtt7C/1CkyVhaOwYQyhj9PQdfgmi4nvps3215b8eKGML0v
-	DNzefzcLnzZkSBC0GypmiY7HzEw==
-X-Google-Smtp-Source: AGHT+IE8lcweOrXzv1dJ7JnXQujzAi86ZbFeivqiLkC8HSJs78PXh7Mwa8lRBkCmnRTpW9aZv5V6w/tu2G1Ilng5MA==
-X-Received: from ilbbf2.prod.google.com ([2002:a05:6e02:3082:b0:3dd:a279:72c1])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:1807:b0:3dc:8b29:30bc with SMTP id e9e14a558f8ab-3ddbedbef4cmr5429525ab.21.1748983829547;
- Tue, 03 Jun 2025 13:50:29 -0700 (PDT)
-Date: Tue, 03 Jun 2025 20:50:28 +0000
-In-Reply-To: <aD4ijUaSGm9b2g5H@linux.dev> (message from Oliver Upton on Mon, 2
- Jun 2025 15:15:41 -0700)
-Mime-Version: 1.0
-Message-ID: <gsnt7c1s35yj.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH 01/17] arm64: cpufeature: Add cpucap for HPMN0
-From: Colton Lewis <coltonlewis@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	Tue, 03 Jun 2025 20:58:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
+	t=1748984285; bh=xfzs1Ogf0DKZ/YULLmQfkygDrX6ZPmGjv16hUj4o9H0=;
+	h=From:To:Subject:Date:From:To:CC:Subject;
+	b=SYBaqtRb39acS5t+QgIbA5sTlWkgJzSPyuQBg1BDigIHp16Q2J/creWnuLgUDMWZJ
+	 HM92g2qDmrsm9ijFygECQZpwQg4b9fHx5AKuv6kh2x7aDcuzebqcLZlnVvcr0wKrNV
+	 hSoY28zujYOOGh8snrGw3+Cxg7/FDQiImLPk/gCq4lw0rs9C1EUAej/4+//y8Uk1XF
+	 LyIDw5qlnWUEEayv4TalHGl8qToxaNA8suYioxYyqfmvdkkZJv6+9TGWWyJvKavuoc
+	 /eDRiOqrKMYivjN3ntSu8Gd2+miv7iE3ZU1TYst+lOHPTTzDVoVPRO1xHnkS3iH4ky
+	 OYT1MNbk3MiTw==
+Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-rz-2.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4bBjj90qyPzPjvv;
+	Tue,  3 Jun 2025 22:58:05 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
+X-RRZE-Flag: Not-Spam
+X-RRZE-Submit-IP: 2001:9e8:3639:fe00:a21f:4ce4:8495:5578
+Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3639:fe00:a21f:4ce4:8495:5578])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: U2FsdGVkX1+JbA/3lyDF+n/+UvApQhduk6C5CJwWwrU=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4bBjj46tHzzPkFW;
+	Tue,  3 Jun 2025 22:58:00 +0200 (CEST)
+From: Luis Gerhorst <luis.gerhorst@fau.de>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Luis Gerhorst <luis.gerhorst@fau.de>,
+	Henriette Herzog <henriette.herzog@rub.de>,
+	Saket Kumar Bhaskar <skb99@linux.ibm.com>,
+	Cupertino Miranda <cupertino.miranda@oracle.com>,
+	Jiayuan Chen <mrpre@163.com>,
+	Matan Shachnai <m.shachnai@gmail.com>,
+	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
+	Daniel Xu <dxu@dxuuu.xyz>,
+	bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH bpf-next v4 0/9] bpf: Mitigate Spectre v1 using barriers
+Date: Tue,  3 Jun 2025 22:57:51 +0200
+Message-ID: <20250603205800.334980-1-luis.gerhorst@fau.de>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_135031_498778_05023718 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20250603_135821_064584_084C9347 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +115,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver. Thanks for the speedy response.
+This improves the expressiveness of unprivileged BPF by inserting
+speculation barriers instead of rejecting the programs.
 
-Oliver Upton <oliver.upton@linux.dev> writes:
+The approach was previously presented at LPC'24 [1] and RAID'24 [2].
 
-> Hi Colton,
+To mitigate the Spectre v1 (PHT) vulnerability, the kernel rejects
+potentially-dangerous unprivileged BPF programs as of
+commit 9183671af6db ("bpf: Fix leakage under speculation on mispredicted
+branches"). In [2], we have analyzed 364 object files from open source
+projects (Linux Samples and Selftests, BCC, Loxilb, Cilium, libbpf
+Examples, Parca, and Prevail) and found that this affects 31% to 54% of
+programs.
 
-> On Mon, Jun 02, 2025 at 07:26:46PM +0000, Colton Lewis wrote:
->> Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
->> counters reserved for the guest.
+To resolve this in the majority of cases this patchset adds a fall-back
+for mitigating Spectre v1 using speculation barriers. The kernel still
+optimistically attempts to verify all speculative paths but uses
+speculation barriers against v1 when unsafe behavior is detected. This
+allows for more programs to be accepted without disabling the BPF
+Spectre mitigations (e.g., by setting cpu_mitigations_off()).
 
->> This required changing HPMN0 to an UnsignedEnum in tools/sysreg
->> because otherwise not all the appropriate macros are generated to add
->> it to arm64_cpu_capabilities_arm64_features.
+For this, it relies on the fact that speculation barriers generally
+prevent all later instructions from executing if the speculation was not
+correct (not only loads). See patch 7 ("bpf: Fall back to nospec for
+Spectre v1") for a detailed description and references to the relevant
+vendor documentation (AMD and Intel x86-64, ARM64, and PowerPC).
 
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
->> ---
->>   arch/arm64/kernel/cpufeature.c | 8 ++++++++
->>   arch/arm64/tools/cpucaps       | 1 +
->>   arch/arm64/tools/sysreg        | 6 +++---
->>   3 files changed, 12 insertions(+), 3 deletions(-)
+In [1] we have measured the overhead of this approach relative to having
+mitigations off and including the upstream Spectre v4 mitigations. For
+event tracing and stack-sampling profilers, we found that mitigations
+increase BPF program execution time by 0% to 62%. For the Loxilb network
+load balancer, we have measured a 14% slowdown in SCTP performance but
+no significant slowdown for TCP. This overhead only applies to programs
+that were previously rejected.
 
->> diff --git a/arch/arm64/kernel/cpufeature.c  
->> b/arch/arm64/kernel/cpufeature.c
->> index a3da020f1d1c..578eea321a60 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -541,6 +541,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
->>   };
+I reran the expressiveness-evaluation with v6.14 and made sure the main
+results still match those from [1] and [2] (which used v6.5).
 
->>   static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
->> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
->> ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
->>   	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
->> ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
->>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE,  
->> ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
->>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE,  
->> ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
->> @@ -2884,6 +2885,13 @@ static const struct arm64_cpu_capabilities  
->> arm64_features[] = {
->>   		.matches = has_cpuid_feature,
->>   		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
->>   	},
->> +	{
->> +		.desc = "Hypervisor PMU Partitioning 0 Guest Counters",
+Main design decisions are:
 
-> nit: just use the the FEAT_xxx name for the description (i.e. "HPMN0").
+* Do not use separate bytecode insns for v1 and v4 barriers (inspired by
+  Daniel Borkmann's question at LPC). This simplifies the verifier
+  significantly and has the only downside that performance on PowerPC is
+  not as high as it could be.
 
-Okay
+* Allow archs to still disable v1/v4 mitigations separately by setting
+  bpf_jit_bypass_spec_v1/v4(). This has the benefit that archs can
+  benefit from improved BPF expressiveness / performance if they are not
+  vulnerable (e.g., ARM64 for v4 in the kernel).
+
+* Do not remove the empty BPF_NOSPEC implementation for backends for
+  which it is unknown whether they are vulnerable to Spectre v1.
+
+[1] https://lpc.events/event/18/contributions/1954/ ("Mitigating
+    Spectre-PHT using Speculation Barriers in Linux eBPF")
+[2] https://arxiv.org/pdf/2405.00078 ("VeriFence: Lightweight and
+    Precise Spectre Defenses for Untrusted Linux Kernel Extensions")
+
+Changes:
+
+* v3 -> v4:
+  - Remove insn parameter from do_check_insn() and extract
+    process_bpf_exit_full as a function as requested by Eduard
+  - Investigate apparent sanitize_check_bounds() bug reported by
+    Kartikeya (does appear to not be a bug but only confusing code),
+    sent separate patch to document it and add an assert
+  - Remove already-merged commit 1 ("selftests/bpf: Fix caps for
+    __xlated/jited_unpriv")
+  - Drop former commit 10 ("bpf: Allow nospec-protected var-offset stack
+    access") as it did not include a test and there are other places
+    where var-off is rejected. Also, none of the tested real-world
+    programs used var-off in the paper. Therefore keep the old behavior
+    for now and potentially prepare a patch that converts all cases
+    later if required.
+  - Add link to AMD lfence and PowerPC speculation barrier (ori 31,31,0)
+    documentation
+  - Move detailed barrier documentation to commit 7 ("bpf: Fall back to
+    nospec for Spectre v1")
+  - Link to v3: https://lore.kernel.org/all/20250501073603.1402960-1-luis.gerhorst@fau.de/
+
+* v2 -> v3:
+  - Fix
+    https://lore.kernel.org/oe-kbuild-all/202504212030.IF1SLhz6-lkp@intel.com/
+    and similar by moving the bpf_jit_bypass_spec_v1/v4() prototypes out
+    of the #ifdef CONFIG_BPF_SYSCALL. Decided not to move them to
+    filter.h (where similar bpf_jit_*() prototypes live) as they would
+    still have to be duplicated in bpf.h to be usable to
+    bpf_bypass_spec_v1/v4() (unless including filter.h in bpf.h is an
+    option).
+  - Fix
+    https://lore.kernel.org/oe-kbuild-all/202504220035.SoGveGpj-lkp@intel.com/
+    by moving the variable declarations out of the switch-case.
+  - Build touched C files with W=2 and bpf config on x86 to check that
+    there are no other warnings introduced.
+  - Found 3 more checkpatch warnings that can be fixed without degrading
+    readability.
+  - Rebase to bpf-next 2025-05-01
+  - Link to v2: https://lore.kernel.org/bpf/20250421091802.3234859-1-luis.gerhorst@fau.de/
+
+* v1 -> v2:
+  - Drop former commits 9 ("bpf: Return PTR_ERR from push_stack()") and 11
+    ("bpf: Fall back to nospec for spec path verification") as suggested
+    by Alexei. This series therefore no longer changes push_stack() to
+    return PTR_ERR.
+  - Add detailed explanation of how lfence works internally and how it
+    affects the algorithm.
+  - Add tests checking that nospec instructions are inserted in expected
+    locations using __xlated_unpriv as suggested by Eduard (also,
+    include a fix for __xlated_unpriv)
+  - Add a test for the mitigations from the description of
+    commit 9183671af6db ("bpf: Fix leakage under speculation on
+    mispredicted branches")
+  - Remove unused variables from do_check[_insn]() as suggested by
+    Eduard.
+  - Remove INSN_IDX_MODIFIED to improve readability as suggested by
+    Eduard. This also causes the nospec_result-check to run (and fail)
+    for jumping-ops. Add a warning to assert that this check must never
+    succeed in that case.
+  - Add details on the safety of patch 10 ("bpf: Allow nospec-protected
+    var-offset stack access") based on the feedback on v1.
+  - Rebase to bpf-next-250420
+  - Link to v1: https://lore.kernel.org/all/20250313172127.1098195-1-luis.gerhorst@fau.de/
+
+* RFC -> v1:
+  - rebase to bpf-next-250313
+  - tests: mark expected successes/new errors
+  - add bpt_jit_bypass_spec_v1/v4() to avoid #ifdef in
+    bpf_bypass_spec_v1/v4()
+  - ensure that nospec with v1-support is implemented for archs for
+    which GCC supports speculation barriers, except for MIPS
+  - arm64: emit speculation barrier
+  - powerpc: change nospec to include v1 barrier
+  - discuss potential security (archs that do not impl. BPF nospec) and
+    performance (only PowerPC) regressions
+  - Link to RFC: https://lore.kernel.org/bpf/20250224203619.594724-1-luis.gerhorst@fau.de/
+
+Luis Gerhorst (9):
+  bpf: Move insn if/else into do_check_insn()
+  bpf: Return -EFAULT on misconfigurations
+  bpf: Return -EFAULT on internal errors
+  bpf, arm64, powerpc: Add bpf_jit_bypass_spec_v1/v4()
+  bpf, arm64, powerpc: Change nospec to include v1 barrier
+  bpf: Rename sanitize_stack_spill to nospec_result
+  bpf: Fall back to nospec for Spectre v1
+  selftests/bpf: Add test for Spectre v1 mitigation
+  bpf: Fall back to nospec for sanitization-failures
+
+ arch/arm64/net/bpf_jit.h                      |   5 +
+ arch/arm64/net/bpf_jit_comp.c                 |  28 +-
+ arch/powerpc/net/bpf_jit_comp64.c             |  80 ++-
+ include/linux/bpf.h                           |  11 +-
+ include/linux/bpf_verifier.h                  |   3 +-
+ include/linux/filter.h                        |   2 +-
+ kernel/bpf/core.c                             |  32 +-
+ kernel/bpf/verifier.c                         | 633 ++++++++++--------
+ tools/testing/selftests/bpf/progs/bpf_misc.h  |   4 +
+ .../selftests/bpf/progs/verifier_and.c        |   8 +-
+ .../selftests/bpf/progs/verifier_bounds.c     |  66 +-
+ .../bpf/progs/verifier_bounds_deduction.c     |  45 +-
+ .../selftests/bpf/progs/verifier_map_ptr.c    |  20 +-
+ .../selftests/bpf/progs/verifier_movsx.c      |  16 +-
+ .../selftests/bpf/progs/verifier_unpriv.c     |  65 +-
+ .../bpf/progs/verifier_value_ptr_arith.c      | 101 ++-
+ .../selftests/bpf/verifier/dead_code.c        |   3 +-
+ tools/testing/selftests/bpf/verifier/jmp32.c  |  33 +-
+ tools/testing/selftests/bpf/verifier/jset.c   |  10 +-
+ 19 files changed, 755 insertions(+), 410 deletions(-)
+
+
+base-commit: cd2e103d57e5615f9bb027d772f93b9efd567224
+-- 
+2.49.0
+
 
