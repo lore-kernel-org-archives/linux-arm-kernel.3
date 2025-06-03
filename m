@@ -4,101 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292C3C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98E2C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VzY+cZCL0448RY0GID08t4arF/zf+2+XaBNqbHYkIpY=; b=tdbIBNNrccCd4vRLPIlavnHpi8
-	GCJ/CrhzcoFTxzRzSf6uLzq+CGLf/zaI7zIqpQA4zz+5rD9Rq6JSxRALdwQq+Xg08RsBgV+5NFIwT
-	WhvTGo3tDuin81nscbXgFuydsVqUiw3umxBJfYil0sAcVLOJuEO5cfB3MVIECMBpTemzucnhajtOp
-	YrlIbrqBo9lxqWO3hcUjkGpv9iHcuCGkgLPf65gEZO+a0eBxpk/g6+7Rfd+hw5QyWjBJHyy4lXxjn
-	y8Tqze686XygtJ6rTrt7oRg84o2nW7nr6+AoJ+YQArmifdqlTiWeuY33EF7hetNyn109cugcGJ5QE
-	U3StaqUA==;
+	bh=Dx/bk9ru7EKbU1ykEfllBQeyaqERs6GMpKJf8LWkPkY=; b=Ntz4DKuTp4/8rrk1Nx4V6x+PBn
+	0i+dJx6kFPcUqjIRFzUUfOE6TukYvmV8dcPd1kBqRpwcZ1hsf6ccoHKPDKkiLu/4iC61BYc/aDP/2
+	SFNFxzO79kIXYD1HsJYLO+KoMMj90WZy5+3kuwATBZWloyr4lWaxyWIOrfg8vjSIvUS+pmNoWiaub
+	pXTZktnj8AqWwO4M9p3DuRWPa7FiHKt272JqXKqwR5Nl8TgO8QxbwdcR5J/QcGPqeZU1lKDc1J9mK
+	MEfNnV6AQFwlf1PcsPHOOvpY0bvxFv02o9zB2oR9BA6RdrKVB4/ycQDpFuPwey1iqq3PLPKohAvno
+	q2mZwLug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSNf-0000000B8y3-0VZZ;
-	Tue, 03 Jun 2025 14:12:43 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1uMSaa-0000000BA5u-3G2L;
+	Tue, 03 Jun 2025 14:26:04 +0000
+Received: from mail-vs1-xe2a.google.com ([2607:f8b0:4864:20::e2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMS32-0000000B62Z-2C7L
+	id 1uMSV9-0000000B9Z0-2HTT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 13:51:25 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4a58b120bedso26779211cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:51:24 -0700 (PDT)
+	Tue, 03 Jun 2025 14:20:28 +0000
+Received: by mail-vs1-xe2a.google.com with SMTP id ada2fe7eead31-4e58ef9cb69so1869023137.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 07:20:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748958683; x=1749563483; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1748960426; x=1749565226; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VzY+cZCL0448RY0GID08t4arF/zf+2+XaBNqbHYkIpY=;
-        b=krWoRxFmEiMHKW/MjxaH9TjDAoliwUNHUrrtDuSE4SUtnzTHF28AKoBE6nkl+IATK9
-         4XjvQVhYsB0UtkEfQGgUbMZr7TuDDFziAapm+372gA6iqR4FrVc5vmZymTWxUP91/18P
-         BIuSnJDia/7qxWoTfcKefhuPAh0OclC1yoz8o91w1wIJVxOoKL58Rvw7cfZoFKQAybuJ
-         NrreI7e6vpUvhgVNF2EvWSi1E3DTwf1Nno1RllULSFYJuGwEuR5dP4PGkNNHIrSEQTn3
-         awrFaPOaNIJInEEwvYheGiErA9vjMVrX3SsBaps1jHAzg2EHKS9zY+xCD/UNUslBeqbY
-         nrEQ==
+        bh=Dx/bk9ru7EKbU1ykEfllBQeyaqERs6GMpKJf8LWkPkY=;
+        b=DhVnJ39jUJo+HGzG1M0RzHxRo9aA7DeOuB2ZG3l6+Vx8ywEbfHv9rCJD/cagF7NuW9
+         ET7wdgBsA2pTq5fgP6+2hg6RG+vG2mUbelSEHEeNW5YYY86zOf9GshBsNP13+GWnUNE6
+         MlEyWIp5jQZ/Sfw/BZwoA+J7OivNyUFZagV2XgsDs6isN4Sp3ZbB2jAfzWnbipV4tHph
+         ahnH4kZwYqN05gT9sb32nKAy93imf2dSm20egqrS+AS6ZS/1Z9cgfGmOFLuCwVSpai4l
+         m5sxscNf3QQVWn/my4MJilYkPplPf1/u+Uqq+TmNaPX+OBZbMnEK5vxX73CQMBVzjoED
+         d2wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748958683; x=1749563483;
+        d=1e100.net; s=20230601; t=1748960426; x=1749565226;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VzY+cZCL0448RY0GID08t4arF/zf+2+XaBNqbHYkIpY=;
-        b=dSn0FkmzwiOnQZi+mt1eJzz8O0ou2ztInX6y7rwU9IXVUZKKrLv/MolzKMqMKsVRuV
-         gLCWmsgiBn/1s+7PmGICFrEkR5OICFrW7PA9o9mpcaptF+BRf7UN7T7QaxCblKe+ibwb
-         iYYdHNmOUbHzkC6TBgJkVTDlYz+E08Qk+r2hDyZQw40/NT/xqFr00On3PZgEvTuccHYe
-         i6mTazQz5x7IdWrGK5kP0UsvXUJYR+tPK8aoxObSVBqV2HLGse0Vj9H/8sarasaiu3hL
-         L/n4Im9C223ZOYrccw9XFdYmZ24PF+PJa+g5hglr0QP6IjaGf56Yb6iO15tBmyMgCjDV
-         XRUg==
-X-Forwarded-Encrypted: i=1; AJvYcCXFeyitMOy509jqT+Y0R0Y2+Qhv2OrKzcrUq673Y5+l9Oj+8KS+n4qj+TNIt+OEZKv9ltowklet0g9C8dXuKpjL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/WbYBFIpHY68OdAa0rzSocmDOZoPx9qJWpBUWMK77ADg7XdPN
-	yTD/bF0InsdMyXs/MT7gpRUXbcDitS7WaSdMka/V1CSwDcOsAefqWIiN/w2JnD4Dig8O5+NNcHa
-	Xxuza
-X-Gm-Gg: ASbGncvtTyOQN80EuCBgUZIrCj0T3Xjw1ya/YX3yYnTpQpBmJZXrNqDIG9dym1YHTqg
-	UZsTcSSSz3MBhc4iBC6yDsE03W7fQRvtRigWvijTb4Z1eZ4BtAG7ZGCQtKurmdiaFiQq1DDKbrd
-	cDcbcy7ghpMTetVdILkTqaQ1ZbzcLQjSUTdrXjUiIiZCpsM5qVT31noBrNThijXCUylKrentqwY
-	XnYOblHH1fzJ4iFAC/JcBUYWMZLMnk20JPlMTXWDacsZnGMVgT5B+Ko20zMHC2jgZyWK1Jgl83D
-	3NCtUBI8oql6xR7GPlcutwplvKP2t/+4i/+HfLyyx8enfxkXo9skZLJ1xXhVa47h5z8mMCoIvYO
-	hZsdf9bPwXt3opPGsUwS+Ndwacic=
-X-Google-Smtp-Source: AGHT+IFvqH9ubcC6dbv0UqQGW5DGDtp+BZ9QNaQHwHo+bs9Vg0oCfSh3AzQ5xeJI5fTattmwccxXPg==
-X-Received: by 2002:a05:6214:2aa3:b0:6fa:caa2:19bc with SMTP id 6a1803df08f44-6fad916605amr159392986d6.44.1748958672893;
-        Tue, 03 Jun 2025 06:51:12 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fad0495cf2sm68040826d6.39.2025.06.03.06.51.12
+        bh=Dx/bk9ru7EKbU1ykEfllBQeyaqERs6GMpKJf8LWkPkY=;
+        b=QkuiCPYFYoktdyhJLPq9B24+br8NAM9Qm/eAPxEo/nlIW/lywUxgpksxQFlf8eJRKq
+         iCid+H7zOpqG6gEczKOUER8ABCn3Tv903ekwv9k0Ps9KRzslikXQUAm2ueDgaoYytFB8
+         RoRWD5lq1gJosXYMl0jYT6BmSnrXHy28GA+i9JIpgQatT9RgFbQR1HZOsRzfsQU15pT7
+         aTMuHkm4ldqAhL0VGc2azVTrqda0ur/AgAxBlmCvJWPbE3rlC2cdQ3MCGXvLnti36JY7
+         EmmVEfcDY/xg6ysrOPHf70lsKGCp20dnj33nf2vsdpQiwGL1N2EYEC+gz7xhk2EfMmlr
+         7qvg==
+X-Forwarded-Encrypted: i=1; AJvYcCWsj7q82c36lNkAU2g3ne1sFfCpUsVjQCp7YPNbkxSPrY9POt2djfUTRk4A2ZhyhFdBbZ/2Om5QwrMiyBEUnIcl@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywwy/JzJsegNWuD1/brLAqnxxkqYVK4LT/39AkFAh6mcXFXSjez
+	DbkhfKX3rw+1SWZyH5pD0K7YoFUMRH2lbXMm5tmWYAkZ5h3hXIHESdTmBG6lXQkH
+X-Gm-Gg: ASbGncvtEZNsGiufBy3uZ8LA0fPtJVJ+JQi4xC0+4dpmwf1b7ojL2HqOCnpJGG1evEj
+	UPQLzjH5IAcUztMHTBvsNszCvNXszkPKEF9h2GlYbj6sgBaxtkwVPktoh6tB643N1eqYFAlDuMZ
+	4zTDMrTdfB+cqZfzc/jaPS6fl0YeZQzEUvxnQZtQH9oV41Wl2Wl0mHPhUQ5umUP2gWmQyn10wOS
+	aZYhvEubWVkVZ+eEVAVEQlybq66s3mPN5h74DTawpxa1sl9pWYZ+9QFWWukQ+ud/WQGz+yx4GHW
+	yjwxYuuK2chDqRMh3ViWS+CD+FM2FD89T/QK/RNI9d0aIUXOVw==
+X-Google-Smtp-Source: AGHT+IEKKHGgS071esTvwavLg6yebr4hxGtYaniLmSj088LELmB0xeGF4iugMnsLA9Zd/YeN/VvuJw==
+X-Received: by 2002:a05:6102:291f:b0:4e6:d911:dd89 with SMTP id ada2fe7eead31-4e6ece53479mr12894234137.21.1748960425449;
+        Tue, 03 Jun 2025 07:20:25 -0700 (PDT)
+Received: from hiago-nb ([67.159.246.222])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4e64e9f28a2sm8676818137.26.2025.06.03.07.20.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 06:51:12 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uMS2p-00000001hDX-3xh9;
-	Tue, 03 Jun 2025 10:51:11 -0300
-Date: Tue, 3 Jun 2025 10:51:11 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Alistair Popple <apopple@nvidia.com>
-Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
-	dan.j.williams@intel.com, willy@infradead.org, david@redhat.com,
-	linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
-	zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
-	balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	John@groves.net
-Subject: Re: [PATCH 12/12] mm/memremap: Remove unused devmap_managed_key
-Message-ID: <20250603135111.GM386142@ziepe.ca>
-References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <112f77932e2dc6927ee77017533bf8e0194c96da.1748500293.git-series.apopple@nvidia.com>
+        Tue, 03 Jun 2025 07:20:24 -0700 (PDT)
+Date: Tue, 3 Jun 2025 11:20:18 -0300
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>,
+	linux-pm@vger.kernel.org, "Rafael J . Wysocki" <rafael@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michael Grzeschik <m.grzeschik@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Johan Hovold <johan@kernel.org>,
+	Maulik Shah <maulik.shah@oss.qualcomm.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 00/21] pmdomain: Add generic ->sync_state() support to
+ genpd
+Message-ID: <20250603142018.zrb66ldkal5d5op7@hiago-nb>
+References: <20250523134025.75130-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <112f77932e2dc6927ee77017533bf8e0194c96da.1748500293.git-series.apopple@nvidia.com>
+In-Reply-To: <20250523134025.75130-1-ulf.hansson@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_065124_566914_FD03D6C0 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250603_072027_582660_E6ADCECD 
+X-CRM114-Status: GOOD (  25.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,15 +109,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:32:13PM +1000, Alistair Popple wrote:
-> It's no longer used so remove it.
+Hi Ulf,
+
+On Fri, May 23, 2025 at 03:39:57PM +0200, Ulf Hansson wrote:
+> Changes in v2:
+> 	- Well, quite a lot as I discovered various problems when doing
+> 	additional testing of corner-case. I suggest re-review from scratch,
+> 	even if I decided to keep some reviewed-by tags.
+> 	- Added patches to allow some drivers that needs to align or opt-out
+> 	from the new common behaviour in genpd.
 > 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> ---
->  mm/memremap.c | 27 ---------------------------
->  1 file changed, 27 deletions(-)
+> If a PM domain (genpd) is powered-on during boot, there is probably a good
+> reason for it. Therefore it's known to be a bad idea to allow such genpd to be
+> powered-off before all of its consumer devices have been probed. This series
+> intends to fix this problem.
+> 
+> We have been discussing these issues at LKML and at various Linux-conferences
+> in the past. I have therefore tried to include the people I can recall being
+> involved, but I may have forgotten some (my apologies), feel free to loop them
+> in.
+> 
+> I have tested this with QEMU with a bunch of local test-drivers and DT nodes.
+> Let me know if you want me to share this code too.
+> 
+> Please help review and test!
+> Finally, a big thanks to Saravana for all the support!
+> 
+> Kind regards
+> Ulf Hansson
+> 
+> 
+> Saravana Kannan (1):
+>   driver core: Add dev_set_drv_sync_state()
+> 
+> Ulf Hansson (20):
+>   pmdomain: core: Use of_fwnode_handle()
+>   pmdomain: core: Add a bus and a driver for genpd providers
+>   pmdomain: core: Add the genpd->dev to the genpd provider bus
+>   pmdomain: core: Export a common ->sync_state() helper for genpd
+>     providers
+>   pmdomain: core: Prepare to add the common ->sync_state() support
+>   soc/tegra: pmc: Opt-out from genpd's common ->sync_state() support
+>   cpuidle: psci: Opt-out from genpd's common ->sync_state() support
+>   cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
+>   pmdomain: qcom: rpmhpd: Use of_genpd_sync_state()
+>   pmdomain: qcom: rpmhpd: Use of_genpd_sync_state()
+>   firmware/pmdomain: xilinx: Move ->sync_state() support to firmware
+>     driver
+>   firmware: xilinx: Don't share zynqmp_pm_init_finalize()
+>   firmware: xilinx: Use of_genpd_sync_state()
+>   driver core: Export get_dev_from_fwnode()
+>   pmdomain: core: Add common ->sync_state() support for genpd providers
+>   pmdomain: core: Default to use of_genpd_sync_state() for genpd
+>     providers
+>   pmdomain: core: Leave powered-on genpds on until late_initcall_sync
+>   pmdomain: core: Leave powered-on genpds on until sync_state
+>   cpuidle: psci: Drop redundant sync_state support
+>   cpuidle: riscv-sbi: Drop redundant sync_state support
+> 
+>  drivers/base/core.c                         |   8 +-
+>  drivers/cpuidle/cpuidle-psci-domain.c       |  14 --
+>  drivers/cpuidle/cpuidle-riscv-sbi.c         |  14 --
+>  drivers/firmware/xilinx/zynqmp.c            |  18 +-
+>  drivers/pmdomain/core.c                     | 239 ++++++++++++++++++--
+>  drivers/pmdomain/qcom/rpmhpd.c              |   2 +
+>  drivers/pmdomain/qcom/rpmpd.c               |   2 +
+>  drivers/pmdomain/xilinx/zynqmp-pm-domains.c |  16 --
+>  drivers/soc/tegra/pmc.c                     |  26 ++-
+>  include/linux/device.h                      |  13 ++
+>  include/linux/firmware/xlnx-zynqmp.h        |   6 -
+>  include/linux/pm_domain.h                   |  17 ++
+>  12 files changed, 294 insertions(+), 81 deletions(-)
+> 
+> -- 
+> 2.43.0
+>
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
 
-Jason
+Best Regards,
+Hiago.
 
