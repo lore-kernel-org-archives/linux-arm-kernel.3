@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D2EC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 11:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FACC5B555
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 11:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bSILnF8ALIga7ol7KA0XLGa9sgrZiwLmZV6n0yOi3XI=; b=egrRasf/OunB7cmuykZ9xqbt23
-	oZpfD4h9K3KYj/DWAfRkdQFWvvtI29fRMFmQjD27xNqVuPj37WeqvllNf3++Oiuci2Dl8TlKoYLdM
-	yFZ1ztgzeRoUSB9W2PlOBn2USdOJJps2zl1N1GrF4P6l1OgaLfAYl5OlP1izocyROAblKsbsDdE2K
-	43YMBQn3anRgIgwFfpGl+3uZ8DLc1SBuv684bRyvw+9ZlTgSd/43NEimMJEhwW5ETzsLIfQN/6nTs
-	Fg2QJfcbgHJdbakRhAxCA6p4WQJ03iMUOtAVmR6C7si5pAlvk0YfTyCy0ouKWjOqxDWa6lylVeq42
-	+IwIPHjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ckJ4mHtJIMmGBE35V1AtBrC8Ak4AbFGvv92e3Dez+cw=; b=oJvokH0A+j4BIzz4zu5bHMgCcx
+	FXITOUYlnXv1a49n3Kdn5gTwk/PlYKYYSrhG/6xXZPF1wvPVs8cPIdoGFW8VX6sC18sFjngrl+mxt
+	7wj179lBE8voccUh+Nx6pZ+nefaAyjJPtKV5xxkdM1Sk0m5y8hrzUT3GmvmaQDRCRayWPDvmetAqN
+	SqVepBp+x9Lh8XUJix9w8X0hIydr5SSWnvuqF0aQAT+RWL1kfz2v0tAj+BUCTFYUj5b6WhAtd4IyW
+	LBmhN73lg6G8LocLM7Qmlh72TYzXrum+vYXxUfDFQnWG9AwHV6veMg6liRVgOhvwrKcnEwiC1aPeP
+	1VkZAREA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMPac-0000000AlkU-3YMO;
-	Tue, 03 Jun 2025 11:13:54 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uMPcm-0000000Am5D-2RXa;
+	Tue, 03 Jun 2025 11:16:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMPWW-0000000Akrw-3g6q
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 11:09:42 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1748948979;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bSILnF8ALIga7ol7KA0XLGa9sgrZiwLmZV6n0yOi3XI=;
-	b=yfTIZSBpy5wwH7vutk1qg0rFMVXceMLdecwvwpXNQJRcBoM+Yyy9ykNR98BVsj1TxMzMk2
-	g8+UvQHVCBiteNweMsZ8rEEHskOGiWxknuKEPxkctPjaiwan81mPCSLlb34Yu0fmmipY1P
-	taWiBXXsmXiC9pLqfPSeNCzR3iHsEVn8ee4zrdwGDt+8q6c+P5h8gkvaECqIoLO83DSNx9
-	tF5y5NszsmM8J+cwM3p+ip4rid589mD3wMlaJjm92AcQvEtLBvL8BSxG5kHeY2Fkto8sto
-	uvYDnZz+sD4TNf450kyWmzdZytVGD7gGYGIbt33o6NldOHWL3tWmzhdzyhcgmA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1748948979;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bSILnF8ALIga7ol7KA0XLGa9sgrZiwLmZV6n0yOi3XI=;
-	b=J4qg9UZ1ZUwWnm70gdWiEtdVO+Muyz5BT1zrP5oqHRzpEnmyYcZaFYNMwssNNEzDsz6X7/
-	0Bt2qYwxc8y5HwBA==
-To: pmladek@suse.com
-Cc: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>,
-	'Michael Kelley' <mhklinux@outlook.com>,
-	'Ryo Takakura' <ryotkkr98@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: Problem with nbcon console and amba-pl011 serial port
-In-Reply-To: <84y0u95e0j.fsf@jogness.linutronix.de>
-References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
- <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
- <84y0u95e0j.fsf@jogness.linutronix.de>
-Date: Tue, 03 Jun 2025 13:15:38 +0206
-Message-ID: <84plfl5bf1.fsf@jogness.linutronix.de>
+	id 1uMPWq-0000000AkyW-3TnR;
+	Tue, 03 Jun 2025 11:10:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DD387A4FEBD;
+	Tue,  3 Jun 2025 11:09:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86404C4CEF0;
+	Tue,  3 Jun 2025 11:09:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748948999;
+	bh=13JMKJlvXaJzjrdB79q+eXqwSefPGce7G8wAUQSTfDw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=min/+KWm96g96MYFDVZdeW6AbX3GtSGU/+0qPZA/4qwJW1YQv8/z51dTh7IAExuKm
+	 frdxlnBk+Ws0tW720L9ZB8Od2TstEU6CEFWEayq9ea8BhtCVdTA4Vamx6j346n6YuQ
+	 Ts6tp7DzCvjtofl2xdsg59pEtYeoUxhO6lNK+1lsjgMU+/Bl1MvDwGlST850yNEZ1N
+	 NHfMFeFnwa34/7VgWwiNT3bcrEKusA6sEbUKvhYVaqCZYxQvef83ieowxgTCuN4GOo
+	 kMF941e4doVJOMHPWGsCLDGchUmbbukI79mqn8QIYgJcadUeGuOcL85TW6cwMguyJ/
+	 ncCcDyAfSgjQQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C60380DBEC;
+	Tue,  3 Jun 2025 11:10:33 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2 0/3] net: airoha: Fix IPv6 hw acceleration
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174894903200.1469579.2031889211838000906.git-patchwork-notify@kernel.org>
+Date: Tue, 03 Jun 2025 11:10:32 +0000
+References: <20250602-airoha-flowtable-ipv6-fix-v2-0-3287f8b55214@kernel.org>
+In-Reply-To: <20250602-airoha-flowtable-ipv6-fix-v2-0-3287f8b55214@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, michal.kubiak@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_040941_061414_3390B6F1 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20250603_041000_955956_D1BC0CF2 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,67 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Petr,
+Hello:
 
-On 2025-06-03, John Ogness <john.ogness@linutronix.de> wrote:
-> On 2025-06-03, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com> wrote:
->>> 4. pr_emerg() has a high logging level, and it effectively steals the console
->>> from the "pr/ttyAMA0" task, which I believe is intentional in the nbcon design.
->>> Down in pl011_console_write_thread(), the "pr/ttyAMA0" task is doing
->>> nbcon_enter_unsafe() and nbcon_exit_unsafe() around each character
->>> that it outputs.  When pr_emerg() steals the console, nbcon_exit_unsafe()
->>> returns 0, so the "for" loop exits. pl011_console_write_thread() then
->>> enters a busy "while" loop waiting to reclaim the console. It's doing this
->>> busy "while" loop with interrupts disabled, and because of the panic,
->>> it never succeeds. Whatever CPU is running "pr/ttyAMA0" is effectively
->>> stuck at this point.
->>> 
->>> 5. Meanwhile panic() continues, calling panic_other_cpus_shutdown(). On
->>> ARM64, other CPUs are stopped by sending them an IPI. Each CPU receives
->>> the IPI and calls the PSCI function to stop itself. But the CPU running
->>> "pr/ttyAMA0" is looping forever with interrupts disabled, so it never
->>> processes the IPI and it never stops. ARM64 doesn't have a true NMI that
->>> can override the looping with interrupts disabled, so there's no way to
->>> stop that CPU.
->>> 
->>> 6. The failure to stop the "pr/ttyAMA0" CPU then causes downstream
->>> problems, such as when loading and running a kdump kernel.
->
+This series was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Mon, 02 Jun 2025 12:55:36 +0200 you wrote:
+> Fix IPv6 hw acceleration in bridge mode resolving ib2 and
+> airoha_foe_mac_info_common overwrite in
+> airoha_ppe_foe_commit_subflow_entry routine.
+> Introduce UPDMEM source-mac table used to set source mac address for
+> L3 IPv6 hw accelerated traffic.
+> 
+> 
 > [...]
->
->> After reproducing the issue, 
->> I plan to try a workaround that forcibly terminates the nbcon_reacquire_nobuf
->> loop in pl011_console_write_thread if other_cpu_in_panic is true.
->> Please comment if you have any other ideas.
->
-> For panic, if it is OK to leave uap->clk enabled and not restore REG_CR,
-> then it should be fine to just return. But only for panic.
->
-> So something like:
->
-> 	while (!nbcon_enter_unsafe(wctxt)) {
-> 		if (other_cpu_in_panic())
-> 			return;
-> 		nbcon_reacquire_nobuf(wctxt);
-> 	}
 
-Actually this is not enough because there is also a loop inside
-nbcon_reacquire_nobuf().
+Here is the summary with links:
+  - [net,v2,1/3] net: airoha: Initialize PPE UPDMEM source-mac table
+    https://git.kernel.org/netdev/net/c/a869d3a5eb01
+  - [net,v2,2/3] net: airoha: Fix IPv6 hw acceleration in bridge mode
+    https://git.kernel.org/netdev/net/c/504a577c9b00
+  - [net,v2,3/3] net: airoha: Fix smac_id configuration in bridge mode
+    https://git.kernel.org/netdev/net/c/c86fac5365d3
 
-nbcon_reacquire_nobuf() needs to return an error for the panic case
-because it will never succeed. This is the only case where it will never
-succeed. Should we use a bool? Or return some code like -EPERM?
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-So the above code becomes:
 
- 	while (!nbcon_enter_unsafe(wctxt)) {
- 		if (!nbcon_reacquire_nobuf(wctxt))
- 			return;
- 	}
-
-We should also add __must_check to the prototype.
-
-Thoughts?
-
-John
 
