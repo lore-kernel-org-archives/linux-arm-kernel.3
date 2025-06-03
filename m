@@ -4,137 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD745C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 21:32:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 595CFC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 21:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gy9dNaig71hrcxBXbrHTFcnl1mHgKYw+Bxh3hUPJVb4=; b=ay1LUUmmLb0PkJEB08CXPYZpvQ
-	ivBm/CvtYxz5AG/kfls7VR8hbBU2e/5mDHJJcR16UBn7ZupcPaZs3rscI/3mdaeg86ThGDGoJ3eed
-	wQQfdJwN+6h8N00gVYDmb0Vwv5m7JhqUAihnd1lQQ6rqLYmj1jumv73ZHkJCQMyeCc9wDghkOyujK
-	aDDz763vjOa37oUff+BCui9cC0oj8PMHlNbDi9lka0NUXqs+yvq3JNX8gPUFeg4H9dizxW4sMh9qR
-	YJQROFMPP5f+8AkKLxjk6AKu4/YkvURskc2Ogwe1TsQxq0clnE2iLiPHKx+zqCmUHOy8zWsWjWkdL
-	aCAeLVEg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r0ROO6JQw8k4B1xCpzchdZ8NB8JXx7aNds4odXlAKyg=; b=qsmoZz08UJRu24DVRBiRoJDB08
+	QKaSvxIB2lyOJcuDw/KlzTrfrfgm3Pi18uYIc3MEMX8rfAZz3WjzgO4eENqeR0SnQV8FrcGsC4g+m
+	r6mqE0jnEpnqDJs7kAi/Zvuc4Xm+NPcGtk8tuoH4SdaYFe0HAkK6cvXOfZlkn8YTfAPqamMwbIl9r
+	IYwjuU9metLmZ2JdliYajkMvjcHc/PAqKUHGfNp8vjefSJrtI0Lg+kT+Ktzjha/qOJr76SN2qXdcd
+	AYI4sb4FMIZtDuNXUoj13xfVjoWNARD38ScSLhLamMGPaKmPhh8E27pZC3XrUqbGcpi1gTgpvIVkQ
+	FUH+m9fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMZFd-0000000Bsuk-22w4;
-	Tue, 03 Jun 2025 21:32:53 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1uMZHl-0000000BtNU-3mnL;
+	Tue, 03 Jun 2025 21:35:05 +0000
+Received: from mx-rz-2.rrze.uni-erlangen.de ([2001:638:a000:1025::15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMZBX-0000000BsVG-0ul2
+	id 1uMZFT-0000000Bss8-1TcH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 21:28:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1748986096; x=1749590896; i=wahrenst@gmx.net;
-	bh=Gy9dNaig71hrcxBXbrHTFcnl1mHgKYw+Bxh3hUPJVb4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=AP3SrC7yoil0xp9VMDOry8/xRmaZJ1JbPWumFqw7RTVB/NkodljDcjYIo5asWiFQ
-	 YQZ9ngnKErej2Kt9TOvP8To7n2fJzIib5umO5Uf69pmlqtAEmgqZmCwzXTk5oaq/z
-	 nKu8UgHPQqcH3vgHUWeV7IxXh4VEpm43jqfxJxhro7wuJbMxarHoC1riTIRXMSXDI
-	 TFfSNcjNC1VZ3dQJ3h+FFu9EkvRYLrrP80UIcjGykES0RYK4+6S/tJd5Z6RxgQEob
-	 NA7r6j8U6MahtbJcmg/qIe74eCSUeVXvFQJya8JyP8hLxoVo6Xebtvx0hDYZlXi+k
-	 mOGcNJabNBhAPuEWRQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.103] ([91.41.216.208]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MHXBp-1u94lt27o9-0075NH; Tue, 03
- Jun 2025 23:28:16 +0200
-Message-ID: <9483df46-0c1d-4646-9ba1-c38014a22495@gmx.net>
-Date: Tue, 3 Jun 2025 23:28:15 +0200
+	Tue, 03 Jun 2025 21:32:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
+	t=1748986361; bh=r0ROO6JQw8k4B1xCpzchdZ8NB8JXx7aNds4odXlAKyg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From:To:CC:
+	 Subject;
+	b=EMFRlFeQdI9Emx7TLFKbg3oFiaFIZU7LOXY8tE4UtHQITvp2twd4qT9iL1zrbp38a
+	 Ip7kZcOtKwQrKTkC1hrLwPbwDHh3RzMCYR/j+LSKUVU+xACq7B77NIe99XTl8dt8wT
+	 ZKTUdx4y+4gkTYqMaXBZHoQbys5TQcBA8sYkbXLqG3H/EAEG9E9h5U+Rz7zEXTZ+kS
+	 Xe1GLpspBT75FME6dTJdi2LWcvilVYX1tbVYMNxao0e2IB5+t4bysLkVFDMo1QS2Hh
+	 25eiaj3/yz9nVpiHPZUSi+NdppQV1E3vw7L7UoeJLTH64dCfPk47Bf/1Im5tzDljpx
+	 pzRs+361SH/Ew==
+Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-rz-2.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4bBkT54FsyzPk0P;
+	Tue,  3 Jun 2025 23:32:41 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck5.rrze.uni-erlangen.de (RRZE)
+X-RRZE-Flag: Not-Spam
+X-RRZE-Submit-IP: 2001:9e8:3639:fe00:a21f:4ce4:8495:5578
+Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3639:fe00:a21f:4ce4:8495:5578])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: U2FsdGVkX19I3k1Uhpbt0kY6hKxDfPeI5WWla0ELut8=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4bBkT02bNTzPkZc;
+	Tue,  3 Jun 2025 23:32:36 +0200 (CEST)
+From: Luis Gerhorst <luis.gerhorst@fau.de>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Luis Gerhorst <luis.gerhorst@fau.de>,
+	Henriette Herzog <henriette.herzog@rub.de>,
+	Saket Kumar Bhaskar <skb99@linux.ibm.com>,
+	Cupertino Miranda <cupertino.miranda@oracle.com>,
+	Jiayuan Chen <mrpre@163.com>,
+	Matan Shachnai <m.shachnai@gmail.com>,
+	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
+	Daniel Xu <dxu@dxuuu.xyz>,
+	bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kselftest@vger.kernel.org
+Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Maximilian Ott <ott@cs.fau.de>,
+	Milan Stephan <milan.stephan@fau.de>
+Subject: [PATCH bpf-next v4 9/9] bpf: Fall back to nospec for sanitization-failures
+Date: Tue,  3 Jun 2025 23:32:32 +0200
+Message-ID: <20250603213232.339242-1-luis.gerhorst@fau.de>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250603205800.334980-1-luis.gerhorst@fau.de>
+References: <20250603205800.334980-1-luis.gerhorst@fau.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/1] dt-bindings: mmc: mxs-mmc: change ref to
- mmc-controller-common.yaml from mmc-controller.yaml
-To: Frank Li <Frank.Li@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:MULTIMEDIA CARD (MMC), SECURE DIGITAL (SD) AND..."
- <linux-mmc@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20250603152245.1068740-1-Frank.Li@nxp.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20250603152245.1068740-1-Frank.Li@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:9mJJ9KzYyiEND0uwEQ3VH0FpznhMWOfzChMkl4h0E9E6tUmuony
- c+SkdZQP/qOrV16VBQfeHB6kV8gE58rboMRp2PHw68Nxo4dRH7js6jt45IsLrBQzl9ZBR8R
- kfpJZ8FdMqNjCBWGGjnqkqF7Ka09QWEYiGz610GUKXXd/NG4tg8MIIevbxjZqayjspr8809
- QlwzTyFA1u7Hs4pYfXYLw==
-UI-OutboundReport: notjunk:1;M01:P0:wIwnshtLzdM=;E1dtyHGZzuFNMgvAxBEgUe5Ciqt
- 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
- z3wajrF2lunfBwSK
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_142839_594965_6C383D1E 
-X-CRM114-Status: UNSURE (   7.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250603_143243_695614_739FD17E 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,17 +120,589 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 03.06.25 um 17:22 schrieb Frank Li:
-> Change ref to mmc-controller-common.yaml from mmc-controller.yaml because
-> imx23/imx28 use dual mode controller (spi and mmc). So default dts node
-> name use spi instead of mmc. The legacy reason, it use difference
-> compatible string to distringuish work mode (spi / mmc).
->
-> Fix below CHECK_DTB warnings:
-> arch/arm/boot/dts/nxp/mxs/imx23-olinuxino.dtb: spi@80010000 (fsl,imx23-mmc): $nodename:0: 'spi@80010000' does not match '^mmc(@.*)?$'
->
-> Additional add clocks property.
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+ALU sanitization was introduced to ensure that a subsequent ptr access
+can never go OOB, even under speculation. This is required because we
+currently allow speculative scalar confusion. Spec. scalar confusion is
+possible because Spectre v4 sanitization only adds a nospec after
+critical stores (e.g., scalar overwritten with a pointer).
+
+If we add a nospec before the ALU op, none of the operands can be
+subject to scalar confusion. As an ADD/SUB can not introduce scalar
+confusion itself, the result will also not be subject to scalar
+confusion. Therefore, the subsequent ptr access is always safe.
+
+We directly fall back to nospec for the sanitization errors
+REASON_BOUNDS, _TYPE, _PATHS, and _LIMIT, even if we are not on a
+speculative path.
+
+For REASON_STACK, we return the error -ENOMEM directly now. Previously,
+sanitize_err() returned -EACCES for this case but we change it to
+-ENOMEM because doing so prevents do_check() from falling back to a
+nospec if we are on a speculative path. This would not be a serious
+issue (the verifier would probably run into the -ENOMEM again shortly on
+the next non-speculative path and still abort verification), but -ENOMEM
+is more fitting here anyway. An alternative would be -EFAULT, which is
+also returned for some of the other cases where push_stack() fails, but
+this is more frequently used for verifier-internal bugs.
+
+Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
+Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Acked-by: Henriette Herzog <henriette.herzog@rub.de>
+Cc: Maximilian Ott <ott@cs.fau.de>
+Cc: Milan Stephan <milan.stephan@fau.de>
+---
+ kernel/bpf/verifier.c                         | 89 ++++++-----------
+ .../selftests/bpf/progs/verifier_bounds.c     |  5 +-
+ .../bpf/progs/verifier_bounds_deduction.c     | 45 ++++++---
+ .../selftests/bpf/progs/verifier_map_ptr.c    | 20 +++-
+ .../bpf/progs/verifier_value_ptr_arith.c      | 97 ++++++++++++++++---
+ 5 files changed, 160 insertions(+), 96 deletions(-)
+
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index 2b887989f521..62c0fe3dfdd4 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -13984,14 +13984,6 @@ static bool check_reg_sane_offset(struct bpf_verifier_env *env,
+ 	return true;
+ }
+ 
+-enum {
+-	REASON_BOUNDS	= -1,
+-	REASON_TYPE	= -2,
+-	REASON_PATHS	= -3,
+-	REASON_LIMIT	= -4,
+-	REASON_STACK	= -5,
+-};
+-
+ static int retrieve_ptr_limit(const struct bpf_reg_state *ptr_reg,
+ 			      u32 *alu_limit, bool mask_to_left)
+ {
+@@ -14014,11 +14006,13 @@ static int retrieve_ptr_limit(const struct bpf_reg_state *ptr_reg,
+ 			     ptr_reg->umax_value) + ptr_reg->off;
+ 		break;
+ 	default:
+-		return REASON_TYPE;
++		/* Register has pointer with unsupported alu operation. */
++		return -EOPNOTSUPP;
+ 	}
+ 
++	/* Register tried access beyond pointer bounds. */
+ 	if (ptr_limit >= max)
+-		return REASON_LIMIT;
++		return -EOPNOTSUPP;
+ 	*alu_limit = ptr_limit;
+ 	return 0;
+ }
+@@ -14039,8 +14033,14 @@ static int update_alu_sanitation_state(struct bpf_insn_aux_data *aux,
+ 	 */
+ 	if (aux->alu_state &&
+ 	    (aux->alu_state != alu_state ||
+-	     aux->alu_limit != alu_limit))
+-		return REASON_PATHS;
++	     aux->alu_limit != alu_limit)) {
++		/* Tried to perform alu op from different maps, paths or
++		 * scalars.
++		 */
++		aux->nospec = true;
++		aux->alu_state = 0;
++		return 0;
++	}
+ 
+ 	/* Corresponding fixup done in do_misc_fixups(). */
+ 	aux->alu_state = alu_state;
+@@ -14121,16 +14121,26 @@ static int sanitize_ptr_alu(struct bpf_verifier_env *env,
+ 
+ 	if (!commit_window) {
+ 		if (!tnum_is_const(off_reg->var_off) &&
+-		    (off_reg->smin_value < 0) != (off_reg->smax_value < 0))
+-			return REASON_BOUNDS;
++		    (off_reg->smin_value < 0) != (off_reg->smax_value < 0)) {
++			/* Register has unknown scalar with mixed signed
++			 * bounds.
++			 */
++			aux->nospec = true;
++			aux->alu_state = 0;
++			return 0;
++		}
+ 
+ 		info->mask_to_left = (opcode == BPF_ADD &&  off_is_neg) ||
+ 				     (opcode == BPF_SUB && !off_is_neg);
+ 	}
+ 
+ 	err = retrieve_ptr_limit(ptr_reg, &alu_limit, info->mask_to_left);
+-	if (err < 0)
+-		return err;
++	if (err) {
++		WARN_ON_ONCE(err != -EOPNOTSUPP);
++		aux->nospec = true;
++		aux->alu_state = 0;
++		return 0;
++	}
+ 
+ 	if (commit_window) {
+ 		/* In commit phase we narrow the masking window based on
+@@ -14183,7 +14193,7 @@ static int sanitize_ptr_alu(struct bpf_verifier_env *env,
+ 					env->insn_idx);
+ 	if (!ptr_is_dst_reg && ret)
+ 		*dst_reg = tmp;
+-	return !ret ? REASON_STACK : 0;
++	return !ret ? -ENOMEM : 0;
+ }
+ 
+ static void sanitize_mark_insn_seen(struct bpf_verifier_env *env)
+@@ -14199,45 +14209,6 @@ static void sanitize_mark_insn_seen(struct bpf_verifier_env *env)
+ 		env->insn_aux_data[env->insn_idx].seen = env->pass_cnt;
+ }
+ 
+-static int sanitize_err(struct bpf_verifier_env *env,
+-			const struct bpf_insn *insn, int reason,
+-			const struct bpf_reg_state *off_reg,
+-			const struct bpf_reg_state *dst_reg)
+-{
+-	static const char *err = "pointer arithmetic with it prohibited for !root";
+-	const char *op = BPF_OP(insn->code) == BPF_ADD ? "add" : "sub";
+-	u32 dst = insn->dst_reg, src = insn->src_reg;
+-
+-	switch (reason) {
+-	case REASON_BOUNDS:
+-		verbose(env, "R%d has unknown scalar with mixed signed bounds, %s\n",
+-			off_reg == dst_reg ? dst : src, err);
+-		break;
+-	case REASON_TYPE:
+-		verbose(env, "R%d has pointer with unsupported alu operation, %s\n",
+-			off_reg == dst_reg ? src : dst, err);
+-		break;
+-	case REASON_PATHS:
+-		verbose(env, "R%d tried to %s from different maps, paths or scalars, %s\n",
+-			dst, op, err);
+-		break;
+-	case REASON_LIMIT:
+-		verbose(env, "R%d tried to %s beyond pointer bounds, %s\n",
+-			dst, op, err);
+-		break;
+-	case REASON_STACK:
+-		verbose(env, "R%d could not be pushed for speculative verification, %s\n",
+-			dst, err);
+-		break;
+-	default:
+-		verbose(env, "verifier internal error: unknown reason (%d)\n",
+-			reason);
+-		break;
+-	}
+-
+-	return -EACCES;
+-}
+-
+ /* check that stack access falls within stack limits and that 'reg' doesn't
+  * have a variable offset.
+  *
+@@ -14403,7 +14374,7 @@ static int adjust_ptr_min_max_vals(struct bpf_verifier_env *env,
+ 		ret = sanitize_ptr_alu(env, insn, ptr_reg, off_reg, dst_reg,
+ 				       &info, false);
+ 		if (ret < 0)
+-			return sanitize_err(env, insn, ret, off_reg, dst_reg);
++			return ret;
+ 	}
+ 
+ 	switch (opcode) {
+@@ -14531,7 +14502,7 @@ static int adjust_ptr_min_max_vals(struct bpf_verifier_env *env,
+ 		ret = sanitize_ptr_alu(env, insn, dst_reg, off_reg, dst_reg,
+ 				       &info, true);
+ 		if (ret < 0)
+-			return sanitize_err(env, insn, ret, off_reg, dst_reg);
++			return ret;
+ 	}
+ 
+ 	return 0;
+@@ -15125,7 +15096,7 @@ static int adjust_scalar_min_max_vals(struct bpf_verifier_env *env,
+ 	if (sanitize_needed(opcode)) {
+ 		ret = sanitize_val_alu(env, insn);
+ 		if (ret < 0)
+-			return sanitize_err(env, insn, ret, NULL, NULL);
++			return ret;
+ 	}
+ 
+ 	/* Calculate sign/unsigned bounds and tnum for alu32 and alu64 bit ops.
+diff --git a/tools/testing/selftests/bpf/progs/verifier_bounds.c b/tools/testing/selftests/bpf/progs/verifier_bounds.c
+index 30e16153fdf1..f2ee6d7febda 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_bounds.c
++++ b/tools/testing/selftests/bpf/progs/verifier_bounds.c
+@@ -47,9 +47,12 @@ SEC("socket")
+ __description("subtraction bounds (map value) variant 2")
+ __failure
+ __msg("R0 min value is negative, either use unsigned index or do a if (index >=0) check.")
+-__msg_unpriv("R1 has unknown scalar with mixed signed bounds")
++__msg_unpriv("R0 pointer arithmetic of map value goes out of range, prohibited for !root")
+ __naked void bounds_map_value_variant_2(void)
+ {
++	/* unpriv: nospec inserted to prevent "R1 has unknown scalar with mixed
++	 * signed bounds".
++	 */
+ 	asm volatile ("					\
+ 	r1 = 0;						\
+ 	*(u64*)(r10 - 8) = r1;				\
+diff --git a/tools/testing/selftests/bpf/progs/verifier_bounds_deduction.c b/tools/testing/selftests/bpf/progs/verifier_bounds_deduction.c
+index c506afbdd936..24ecaf89004e 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_bounds_deduction.c
++++ b/tools/testing/selftests/bpf/progs/verifier_bounds_deduction.c
+@@ -8,22 +8,26 @@
+ SEC("socket")
+ __description("check deducing bounds from const, 1")
+ __failure __msg("R0 tried to subtract pointer from scalar")
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__failure_unpriv
+ __naked void deducing_bounds_from_const_1(void)
+ {
+ 	asm volatile ("					\
+ 	r0 = 1;						\
+ 	if r0 s>= 1 goto l0_%=;				\
+-l0_%=:	r0 -= r1;					\
++l0_%=:	/* unpriv: nospec (inserted to prevent `R1 has pointer with unsupported alu operation`) */\
++	r0 -= r1;					\
+ 	exit;						\
+ "	::: __clobber_all);
+ }
+ 
+ SEC("socket")
+ __description("check deducing bounds from const, 2")
+-__success __failure_unpriv
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__success __success_unpriv
+ __retval(1)
++#ifdef SPEC_V1
++__xlated_unpriv("nospec") /* inserted to prevent `R1 has pointer with unsupported alu operation` */
++__xlated_unpriv("r1 -= r0")
++#endif
+ __naked void deducing_bounds_from_const_2(void)
+ {
+ 	asm volatile ("					\
+@@ -40,22 +44,26 @@ l1_%=:	r1 -= r0;					\
+ SEC("socket")
+ __description("check deducing bounds from const, 3")
+ __failure __msg("R0 tried to subtract pointer from scalar")
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__failure_unpriv
+ __naked void deducing_bounds_from_const_3(void)
+ {
+ 	asm volatile ("					\
+ 	r0 = 0;						\
+ 	if r0 s<= 0 goto l0_%=;				\
+-l0_%=:	r0 -= r1;					\
++l0_%=:	/* unpriv: nospec (inserted to prevent `R1 has pointer with unsupported alu operation`) */\
++	r0 -= r1;					\
+ 	exit;						\
+ "	::: __clobber_all);
+ }
+ 
+ SEC("socket")
+ __description("check deducing bounds from const, 4")
+-__success __failure_unpriv
+-__msg_unpriv("R6 has pointer with unsupported alu operation")
++__success __success_unpriv
+ __retval(0)
++#ifdef SPEC_V1
++__xlated_unpriv("nospec") /* inserted to prevent `R6 has pointer with unsupported alu operation` */
++__xlated_unpriv("r6 -= r0")
++#endif
+ __naked void deducing_bounds_from_const_4(void)
+ {
+ 	asm volatile ("					\
+@@ -73,12 +81,13 @@ l1_%=:	r6 -= r0;					\
+ SEC("socket")
+ __description("check deducing bounds from const, 5")
+ __failure __msg("R0 tried to subtract pointer from scalar")
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__failure_unpriv
+ __naked void deducing_bounds_from_const_5(void)
+ {
+ 	asm volatile ("					\
+ 	r0 = 0;						\
+ 	if r0 s>= 1 goto l0_%=;				\
++	/* unpriv: nospec (inserted to prevent `R1 has pointer with unsupported alu operation`) */\
+ 	r0 -= r1;					\
+ l0_%=:	exit;						\
+ "	::: __clobber_all);
+@@ -87,14 +96,15 @@ l0_%=:	exit;						\
+ SEC("socket")
+ __description("check deducing bounds from const, 6")
+ __failure __msg("R0 tried to subtract pointer from scalar")
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__failure_unpriv
+ __naked void deducing_bounds_from_const_6(void)
+ {
+ 	asm volatile ("					\
+ 	r0 = 0;						\
+ 	if r0 s>= 0 goto l0_%=;				\
+ 	exit;						\
+-l0_%=:	r0 -= r1;					\
++l0_%=:	/* unpriv: nospec (inserted to prevent `R1 has pointer with unsupported alu operation`) */\
++	r0 -= r1;					\
+ 	exit;						\
+ "	::: __clobber_all);
+ }
+@@ -102,14 +112,15 @@ l0_%=:	r0 -= r1;					\
+ SEC("socket")
+ __description("check deducing bounds from const, 7")
+ __failure __msg("dereference of modified ctx ptr")
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__failure_unpriv
+ __flag(BPF_F_ANY_ALIGNMENT)
+ __naked void deducing_bounds_from_const_7(void)
+ {
+ 	asm volatile ("					\
+ 	r0 = %[__imm_0];				\
+ 	if r0 s>= 0 goto l0_%=;				\
+-l0_%=:	r1 -= r0;					\
++l0_%=:	/* unpriv: nospec (inserted to prevent `R1 has pointer with unsupported alu operation`) */\
++	r1 -= r0;					\
+ 	r0 = *(u32*)(r1 + %[__sk_buff_mark]);		\
+ 	exit;						\
+ "	:
+@@ -121,13 +132,14 @@ l0_%=:	r1 -= r0;					\
+ SEC("socket")
+ __description("check deducing bounds from const, 8")
+ __failure __msg("negative offset ctx ptr R1 off=-1 disallowed")
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__failure_unpriv
+ __flag(BPF_F_ANY_ALIGNMENT)
+ __naked void deducing_bounds_from_const_8(void)
+ {
+ 	asm volatile ("					\
+ 	r0 = %[__imm_0];				\
+ 	if r0 s>= 0 goto l0_%=;				\
++	/* unpriv: nospec (inserted to prevent `R1 has pointer with unsupported alu operation`) */\
+ 	r1 += r0;					\
+ l0_%=:	r0 = *(u32*)(r1 + %[__sk_buff_mark]);		\
+ 	exit;						\
+@@ -140,13 +152,14 @@ l0_%=:	r0 = *(u32*)(r1 + %[__sk_buff_mark]);		\
+ SEC("socket")
+ __description("check deducing bounds from const, 9")
+ __failure __msg("R0 tried to subtract pointer from scalar")
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__failure_unpriv
+ __naked void deducing_bounds_from_const_9(void)
+ {
+ 	asm volatile ("					\
+ 	r0 = 0;						\
+ 	if r0 s>= 0 goto l0_%=;				\
+-l0_%=:	r0 -= r1;					\
++l0_%=:	/* unpriv: nospec (inserted to prevent `R1 has pointer with unsupported alu operation`) */\
++	r0 -= r1;					\
+ 	exit;						\
+ "	::: __clobber_all);
+ }
+diff --git a/tools/testing/selftests/bpf/progs/verifier_map_ptr.c b/tools/testing/selftests/bpf/progs/verifier_map_ptr.c
+index 11a079145966..a540f29b7532 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_map_ptr.c
++++ b/tools/testing/selftests/bpf/progs/verifier_map_ptr.c
+@@ -110,9 +110,17 @@ __naked void ptr_read_ops_field_accepted(void)
+ 
+ SEC("socket")
+ __description("bpf_map_ptr: r = 0, map_ptr = map_ptr + r")
+-__success __failure_unpriv
+-__msg_unpriv("R1 has pointer with unsupported alu operation")
++__success __success_unpriv
+ __retval(0)
++#ifdef SPEC_V1
++__xlated_unpriv("r1 = 0x") /* r0 = %[map_hash_16b] ll */
++/* This nospec is not really needed here, because there is no bypassable
++ * branch/store that could lead to r0 not containing 0 when `r1 += r0` executes.
++ * We still keep it like this to not complicate the verifier.
++ */
++__xlated_unpriv("nospec") /* inserted to prevent `R1 has pointer with unsupported alu operation` */
++__xlated_unpriv("r1 += r0")
++#endif
+ __naked void map_ptr_map_ptr_r(void)
+ {
+ 	asm volatile ("					\
+@@ -134,9 +142,13 @@ __naked void map_ptr_map_ptr_r(void)
+ 
+ SEC("socket")
+ __description("bpf_map_ptr: r = 0, r = r + map_ptr")
+-__success __failure_unpriv
+-__msg_unpriv("R0 has pointer with unsupported alu operation")
++__success __success_unpriv
+ __retval(0)
++#ifdef SPEC_V1
++__xlated_unpriv("r0 = 0x") /* r0 = %[map_hash_16b] ll */
++__xlated_unpriv("nospec") /* inserted to prevent `R0 has pointer with unsupported alu operation` */
++__xlated_unpriv("r1 += r0")
++#endif
+ __naked void _0_r_r_map_ptr(void)
+ {
+ 	asm volatile ("					\
+diff --git a/tools/testing/selftests/bpf/progs/verifier_value_ptr_arith.c b/tools/testing/selftests/bpf/progs/verifier_value_ptr_arith.c
+index fcea9819e359..a35090e3de2b 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_value_ptr_arith.c
++++ b/tools/testing/selftests/bpf/progs/verifier_value_ptr_arith.c
+@@ -41,9 +41,17 @@ struct {
+ 
+ SEC("socket")
+ __description("map access: known scalar += value_ptr unknown vs const")
+-__success __failure_unpriv
+-__msg_unpriv("R1 tried to add from different maps, paths or scalars")
++__success __success_unpriv
+ __retval(1)
++#ifdef SPEC_V1
++__xlated_unpriv("r1 &= 7")
++__xlated_unpriv("goto pc+1")
++/* l3_%=: */
++__xlated_unpriv("r1 = 3")
++/* l4_%=: */
++__xlated_unpriv("nospec") /* inserted to prevent `R1 tried to add from different maps, paths or scalars` */
++__xlated_unpriv("r1 += r0")
++#endif
+ __naked void value_ptr_unknown_vs_const(void)
+ {
+ 	asm volatile ("					\
+@@ -79,9 +87,14 @@ l2_%=:	r0 = 1;						\
+ 
+ SEC("socket")
+ __description("map access: known scalar += value_ptr const vs unknown")
+-__success __failure_unpriv
+-__msg_unpriv("R1 tried to add from different maps, paths or scalars")
++__success __success_unpriv
+ __retval(1)
++#ifdef SPEC_V1
++__xlated_unpriv("r1 &= 7")
++/* l4_%=: */
++__xlated_unpriv("nospec") /* inserted to prevent `R1 tried to add from different maps, paths or scalars` */
++__xlated_unpriv("r1 += r0")
++#endif
+ __naked void value_ptr_const_vs_unknown(void)
+ {
+ 	asm volatile ("					\
+@@ -117,9 +130,16 @@ l2_%=:	r0 = 1;						\
+ 
+ SEC("socket")
+ __description("map access: known scalar += value_ptr const vs const (ne)")
+-__success __failure_unpriv
+-__msg_unpriv("R1 tried to add from different maps, paths or scalars")
++__success __success_unpriv
+ __retval(1)
++#ifdef SPEC_V1
++__xlated_unpriv("goto pc+1") /* to l4, must not be pc+2 as this would skip nospec */
++/* l3_%=: */
++__xlated_unpriv("r1 = 5")
++/* l4_%=: */
++__xlated_unpriv("nospec") /* inserted to prevent `R1 tried to add from different maps, paths or scalars` */
++__xlated_unpriv("r1 += r0")
++#endif
+ __naked void ptr_const_vs_const_ne(void)
+ {
+ 	asm volatile ("					\
+@@ -225,9 +245,18 @@ l2_%=:	r0 = 1;						\
+ 
+ SEC("socket")
+ __description("map access: known scalar += value_ptr unknown vs unknown (lt)")
+-__success __failure_unpriv
+-__msg_unpriv("R1 tried to add from different maps, paths or scalars")
++__success __success_unpriv
+ __retval(1)
++#ifdef SPEC_V1
++__xlated_unpriv("r1 &= 3")
++__xlated_unpriv("goto pc+3") /* must go to l4 (nospec) */
++__xlated_unpriv("r1 = 6")
++__xlated_unpriv("r1 = -r1")
++__xlated_unpriv("r1 &= 7")
++/* l4_%=: */
++__xlated_unpriv("nospec") /* inserted to prevent `R1 tried to add from different maps, paths or scalars` */
++__xlated_unpriv("r1 += r0")
++#endif
+ __naked void ptr_unknown_vs_unknown_lt(void)
+ {
+ 	asm volatile ("					\
+@@ -265,9 +294,14 @@ l2_%=:	r0 = 1;						\
+ 
+ SEC("socket")
+ __description("map access: known scalar += value_ptr unknown vs unknown (gt)")
+-__success __failure_unpriv
+-__msg_unpriv("R1 tried to add from different maps, paths or scalars")
++__success __success_unpriv
+ __retval(1)
++#ifdef SPEC_V1
++__xlated_unpriv("r1 &= 3")
++/* l4_%=: */
++__xlated_unpriv("nospec") /* inserted to prevent `R1 tried to add from different maps, paths or scalars` */
++__xlated_unpriv("r1 += r0")
++#endif
+ __naked void ptr_unknown_vs_unknown_gt(void)
+ {
+ 	asm volatile ("					\
+@@ -398,9 +432,27 @@ l2_%=:	r0 = 1;						\
+ 
+ SEC("socket")
+ __description("map access: mixing value pointer and scalar, 1")
+-__success __failure_unpriv
+-__msg_unpriv("R2 tried to add from different maps, paths or scalars, pointer arithmetic with it prohibited for !root")
++__success __success_unpriv
+ __retval(0)
++#ifdef SPEC_V1
++__xlated_unpriv("goto pc+2") /* to l2, must not be pc+3 as this would skip nospec */
++__xlated_unpriv("r2 = 0")
++__xlated_unpriv("r3 = 1048576")
++/* l2_%=: */
++__xlated_unpriv("nospec") /* inserted to prevent `R2 tried to add from different maps, paths or scalars, pointer arithmetic with it prohibited for !root` */
++__xlated_unpriv("r2 += r3")
++__xlated_unpriv("if r1 != 0x0 goto pc+1")
++__xlated_unpriv("goto pc+5") /* to l4 */
++/* l3_%=: */
++__xlated_unpriv("r0 = 322376503")
++__xlated_unpriv("nospec") /* inserted to prevent `R2 pointer comparison prohibited` */
++__xlated_unpriv("if r2 != 0x100000 goto pc+2") /* to l4 */
++__xlated_unpriv("r0 = 0")
++__xlated_unpriv("exit")
++/* l4_%=: */
++__xlated_unpriv("nospec")
++__xlated_unpriv("r0 = *(u8 *)(r0 +0)")
++#endif
+ __naked void value_pointer_and_scalar_1(void)
+ {
+ 	asm volatile ("					\
+@@ -434,7 +486,6 @@ l2_%=:	/* common instruction */			\
+ l3_%=:	/* branch B */					\
+ 	r0 = 0x13371337;				\
+ 	/* verifier follows fall-through */		\
+-	/* unpriv: nospec (inserted to prevent `R2 pointer comparison prohibited`) */\
+ 	if r2 != 0x100000 goto l4_%=;			\
+ 	r0 = 0;						\
+ 	exit;						\
+@@ -452,9 +503,24 @@ l4_%=:	/* fake-dead code; targeted from branch A to	\
+ 
+ SEC("socket")
+ __description("map access: mixing value pointer and scalar, 2")
+-__success __failure_unpriv
+-__msg_unpriv("R2 tried to add from different maps, paths or scalars, pointer arithmetic with it prohibited for !root")
++__success __success_unpriv
+ __retval(0)
++#ifdef SPEC_V1
++__xlated_unpriv("goto pc+2")
++__xlated_unpriv("r2 = r0")
++__xlated_unpriv("r3 = 0")
++__xlated_unpriv("nospec")
++__xlated_unpriv("r2 += r3")
++__xlated_unpriv("if r1 != 0x0 goto pc+1")
++__xlated_unpriv("goto pc+5")
++__xlated_unpriv("r0 = 322376503")
++__xlated_unpriv("nospec")
++__xlated_unpriv("if r2 != 0x100000 goto pc+2")
++__xlated_unpriv("r0 = 0")
++__xlated_unpriv("exit")
++__xlated_unpriv("nospec") /* inserted to prevent `R0 invalid mem access 'scalar'` */
++__xlated_unpriv("r0 = *(u8 *)(r0 +0)")
++#endif
+ __naked void value_pointer_and_scalar_2(void)
+ {
+ 	asm volatile ("					\
+@@ -495,7 +561,6 @@ l4_%=:	/* fake-dead code; targeted from branch A to	\
+ 	 * prevent dead code sanitization, rejected	\
+ 	 * via branch B however				\
+ 	 */						\
+-	/* unpriv: nospec (inserted to prevent `R0 invalid mem access 'scalar'`) */\
+ 	r0 = *(u8*)(r0 + 0);				\
+ 	r0 = 0;						\
+ 	exit;						\
+-- 
+2.49.0
+
 
