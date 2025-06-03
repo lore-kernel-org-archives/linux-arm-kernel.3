@@ -4,105 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2186C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 11:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19340C5B555
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 11:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MqVabgXFstwYrAYyfsH8IvHqrVwku7JGFF8O9u+W/Po=; b=hH3GdMaTfb8VkrMaY1YEsfTsMk
-	jqwFf+InCE5wMoh6UaQ42H4udwZeoZdZVt9+Gie8u3brBw6e7SLClplQc4GfEDDiDXcy5sn3gVHM2
-	ysP/DlpjVAIZrFkfP+FcQ4hComIDMF89tVnNpulx0iAuxW4m+NxpActvanehTaekT1ctB9bg9IP+e
-	KR+BgVZC/fQd8XYQJllZ+gn78VrbfRlitSYk9uyeD3sb04fxr2I7h3J5rC0M+wW2yl1ou7Bn2WR2j
-	+xaqbbB034Mr7g0nIz1lnAFxRhzofJpeFZlYXtSKl8MIGuJMklnIYThKFlmcO8lkMlYHBcL1SCQZp
-	eJNJ2L/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1IBFWQj94F31lf6usd6PCcvd2+aXV7FOAOa4N/LRiuA=; b=d+CW3eTRaYtQ45
+	s9q3hWkdcHD4XOdFRWi2yJO6wiEpDuqSa510bFWpR4RfPjzwm3PpQ51cD5BuzcZRpwI9Xg0EkK1MJ
+	yPoD9BRHE/0evB2hrIpi7zFzR/NTs3vlXsI8pGKiGAAdR8pxo6ycd14pPeRFjGdaBmLyhsr5kkTtJ
+	Mngj2MnorWagAWtvBO9Pkte3Hb8y+Lo8lJNGLMHhjfyvI+bJEuESaAfOUXSg/dbBaviHT72NOf3Qz
+	bXPMmZu2rs2zEtWFb6w4ff0zq+79a2IGP3S9Qs7jqekf/JLw+QChnK1GB5YmUNUZHDgQy2ha/aXDD
+	3MWu3BhU4p2YOc2Ue91w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMQ2d-0000000Aou6-2ivW;
-	Tue, 03 Jun 2025 11:42:51 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1uMQIy-0000000ArqS-2sZu;
+	Tue, 03 Jun 2025 11:59:44 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMQ0P-0000000AoX0-3Ka4
+	id 1uMQGl-0000000ArSC-2a7L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 11:40:35 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3a4e575db1aso934011f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 04:40:32 -0700 (PDT)
+	Tue, 03 Jun 2025 11:57:28 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-450ca8e6d05so1738905e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 04:57:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1748950832; x=1749555632; darn=lists.infradead.org;
-        h=in-reply-to:references:to:cc:subject:from:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MqVabgXFstwYrAYyfsH8IvHqrVwku7JGFF8O9u+W/Po=;
-        b=jPzShYnA0DLbo53xM4ZskTOjSo3afdnzUTB+ihr/ZeyNLrdj81htO35pcUKpHjp89G
-         8b5rVvZTRHg67z43WAbrVwnR2ah5uaJccYyVfe672oJQVme2GIFwVN4jSItgi5Vet8UE
-         pOiY5bekaFGLv4Hdp/UxNXjzNZkM0kj6evPHCNcHCEmdJZ23NUObGJqtq3HdfcFGHMsC
-         NQDtDnt57iKKvE6aZ8uAsnJlezfwI6H+UHj8+r6sV7Vh97R8njJlwdJgn4uuFSit/Dn+
-         /EZeBlASmvmKXTRhmiPtVsMSEryNvUH8tAqGT2vNYL2vCyOnLbCeFMoRYepEUBP0DU4C
-         VWRg==
+        d=linaro.org; s=google; t=1748951845; x=1749556645; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1IBFWQj94F31lf6usd6PCcvd2+aXV7FOAOa4N/LRiuA=;
+        b=wCQspfgPRWZXIFiywjo18buvKQ0I9Th11aeQzoFc/TNHePSo02M/6KJW/TiskIJtlE
+         TlvDxCRhsJfAtviDdtmDCHhLvo0/xTKsh0IL705Ep7OChHZ9GAC6XisdZ1WAUXCxsEkq
+         Ta7/fHa+03Bu8zlWN/0HpSHTpYRl59GISl9YSzhFAktA2XF23gVUNhKyhbU9b/N8RlvA
+         xnhZuYiIr4i0p86KGCF17m9Gisivr233NoVGlfZTaJwlXS52A9mv+S0G07r2GpNRNROL
+         S0ou49JTcA+sObwNlFMjYSkiLw9uI86wqRJtB/hHkOniDZbllCGYbdW+dfVYFLvK/cQ8
+         AgXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748950832; x=1749555632;
-        h=in-reply-to:references:to:cc:subject:from:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=MqVabgXFstwYrAYyfsH8IvHqrVwku7JGFF8O9u+W/Po=;
-        b=pmU2JmGqUN109PD+nKebeKXk3B5BMuSB3qCmoLov0HFtHiYpPULUJP46QKl2dRUMTo
-         3bK1pcj9YH5uuWzTdI/vVObTd4gr7V+R4+oya6rOa4jCrwn0qbcfTrJznj1JjX6yQdQm
-         WYRENv18R5hw6/6fbglgpFiqiMd+Wxv+S8AMntodITrSO9hyr3j+J8wsvsl4pY4meuyT
-         kuWbCL8y0d53/awAhpmPeXaa2W4S4LlpPTcke7wkw9jBXVDEdxncipt/k9U+fOfwH9Zb
-         /4QrbfmaL5FYVbeAfh6kYZ5gKZ9LpMY3GaigIe4vYFAMBuSpvPZaamuBI73+3EFQ7AI4
-         5djA==
-X-Forwarded-Encrypted: i=1; AJvYcCUYY6gM5RGwtDSjPzL8vH4nhfAIUWfyHgH6e7xlvgGspqSnxq0PLhmOx+8S8zM5IxxohfEsnXW4cO91NCGDoAeh@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk4f1M7HDc0I/0N/jQX4boECheZ+SeHDhSSRM4pCFsKQQA2H8a
-	M0RQahAVyA6A987z3Axra6wB03Jl/dd5o1hUIRn48o+zdUNwJZCLD18ivyqjT6XGtMw=
-X-Gm-Gg: ASbGncuO+/phnBgAQFD1R/ELQzzoCTndBHNJcb1M+vvfsEDpNHxtERZaF1O0jOX57d6
-	j9aVPyyaCZbDDasCM5oPyW3ZaUFMulm2dPvx2OH6JKQzA1x75PD1HQp7pTpp6N7CKyBnfWo5LZ6
-	4wWPxq0HcII+2zKvfG2ULSVzouYiAMf3522a9Oc/T5PUcj4OueFB7Lh3tWN6GU0eMkS5MyEv9sD
-	Y9IJyXpPcLjCcF5IZj1+z3RYHaCLpgtFThK0WDxExKqWIlwO7jlciM4dbCVVUcA3D8UdoAWVKGA
-	oPlBKFg4JEIP0RFsy+WEGDd843+d/xC6u4U2dREXIn9IFtl3eNLO6JcvOpk=
-X-Google-Smtp-Source: AGHT+IGFDhiWKgjK9Y+TCcxKDa8nUqu/n2RN/MNtIHJIhQEdhoO4uixfNqx5KKNaUAuRzy9bZilwyQ==
-X-Received: by 2002:a05:6000:230d:b0:3a0:782e:9185 with SMTP id ffacd0b85a97d-3a4f895f857mr4292350f8f.2.1748950831495;
-        Tue, 03 Jun 2025 04:40:31 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200:37e0:4ec0:b6ec:ef2a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4f0097210sm17962177f8f.73.2025.06.03.04.40.30
+        d=1e100.net; s=20230601; t=1748951845; x=1749556645;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1IBFWQj94F31lf6usd6PCcvd2+aXV7FOAOa4N/LRiuA=;
+        b=aF6119nS8p/KiaJrDYVwmNM414Zk4ot5nuHwLTFvjbqoiKvdTVvJg/pY4M7hVY9Jc5
+         QrnQIEmo7KplJMKaVIABcwIO+Crll8yxe8iZr5PFSUqEP9ytYI7dkFEFeyDK3F4lpySs
+         mSl6Tkle1U1LeYFKQip6vNvolmfdej/7kFZHGt/15ZQFNzM+K3hGmZWG6iV+gUylJ8Fk
+         Xb54yZdtax/KYDyjjR4tC1mNSh8PRCKA2yKThPHLcG9/4cBVUviDe2phrWuPcz7DT6Ws
+         60bg9nf6K/mUyzfOfpb60OK6/t87vb2M0wTWFUZ82IwqA/O7BrjATEbCkJPX8lQ3Ba6P
+         SX8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWOgpZCwG0M74thC+gN8xu1rOEo+RoekRXTI95FwrRW+AapreRv2aZx3Dj0k5cXTXcORTBfpw+rXvyF8Q9cFjYk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzx75XBWex09mz65wNmsZU4T9CPRhQ2jzo9Vif+MR02lGdoKMtt
+	k33pydE52D+Xph/pZYJUxkqRCKOpJFubl1My3y1rDHdcoOzfE86MmYzr1or6SLwZhD8=
+X-Gm-Gg: ASbGncsF22G6oLpPm6kqBzaLOT4JtFT6ve6yTJ2xa5WWFMrt4nVsw6K1hBFzgAVHtTJ
+	7TH2jMgX83wgd+Or58Ku+RcVFfHqwfYqIBD8O2di/z0NVtd63uMXqHAN+U5+0k5Qua7mGhP4RQo
+	gI8X2u/9Tc51m97fu8s+lE2neCOo6QbQsyG4QWjKG2LHAttbutHV1wmvY9cnWvdhCan5GjmdvMU
+	Kplrl5iCoj6L1FM6beEODFkI4qyeVP8MHd0w5ldBjkkKOAIr5k428UGz2pac/n0+8FzJJiBEVUy
+	oYGGBKMm/4a4H0Y9FTmJgfWYjBN1qQC+NUnI6cKXSw6F7JGmXIXiauDDDkWAf3hDeisf5v6fp47
+	BV0IQbeA9WN7rOAtY6uc4Ng==
+X-Google-Smtp-Source: AGHT+IHcDKEnQI0iAe8KmJOAN+5AyRCThhejg+k63FaCsSnbGWGPgYCXX5i11cKOm0Js9aE/AZP8Og==
+X-Received: by 2002:a05:6000:2dc6:b0:3a4:e8c8:fb89 with SMTP id ffacd0b85a97d-3a4f892f306mr4455673f8f.0.1748951845084;
+        Tue, 03 Jun 2025 04:57:25 -0700 (PDT)
+Received: from [172.16.23.13] (adsl-84-227-104-5.adslplus.ch. [84.227.104.5])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4efe6c7adsm17671666f8f.26.2025.06.03.04.57.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 04:40:30 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 03 Jun 2025 13:40:30 +0200
-Message-Id: <DACVBRLJ5MMV.1COZ83HBMUD6A@ventanamicro.com>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version
- to 3.0
-Cc: "Anup Patel" <anup@brainfault.org>, "Will Deacon" <will@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>, "Paul Walmsley"
- <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Mayuresh Chitale" <mchitale@ventanamicro.com>,
- <linux-riscv@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>,
- <kvm-riscv@lists.infradead.org>, "linux-riscv"
- <linux-riscv-bounces@lists.infradead.org>
-To: "Atish Patra" <atish.patra@linux.dev>, "Andrew Jones"
- <ajones@ventanamicro.com>
-References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
- <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
- <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
- <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
- <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
- <20250526-224478e15ee50987124a47ac@orel>
- <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
- <20250528-ff9f6120de39c3e4eefc5365@orel>
- <1169138f-8445-4522-94dd-ad008524c600@linux.dev>
- <DA8KL716NTCA.2QJX4EW2OI6AL@ventanamicro.com>
- <2bac252c-883c-4f8a-9ae1-283660991520@linux.dev>
- <DA9G60UI0ZLC.1KIWBXCTX0427@ventanamicro.com>
- <0dcd01cd-419f-4225-b22c-cbaf82718235@linux.dev>
-In-Reply-To: <0dcd01cd-419f-4225-b22c-cbaf82718235@linux.dev>
+        Tue, 03 Jun 2025 04:57:24 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 0/5] dt-bindings: mailbox: Few cleanups
+Date: Tue, 03 Jun 2025 13:57:07 +0200
+Message-Id: <20250603-dt-bindings-mailbox-cleanup-v1-0-724407563997@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABPjPmgC/x3MSwqDMBAA0KvIrB1IU5OqV5Eu8hl1QEdJbBHEu
+ zd0+TbvgkyJKUNfXZDoy5k3KXjUFYTZyUTIsRi00kZZ9cR4oGeJLFPG1fHitxPDQk4+O4a2bUx
+ jtH1RB2XYE418/vfhfd8/Li2Ljm0AAAA=
+X-Change-ID: 20250603-dt-bindings-mailbox-cleanup-c884545267e9
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Nishanth Menon <nm@ti.com>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Sven Peter <sven@svenpeter.dev>, 
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, Suman Anna <s-anna@ti.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, asahi@lists.linux.dev, 
+ linux-tegra@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1218;
+ i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
+ bh=8VGdoBQnsW1Y8fk4p9+RrKW9XWt9gACX/CPbdQ0dOb8=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoPuMWnfe5utyaUx5gvALmsxmruk7JbV/krIhA4
+ j8qvLrJLFCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaD7jFgAKCRDBN2bmhouD
+ 15ILD/910b+r8xCBseUJF1YO+j/IHLYwnq2p99ZLKQrjJPODK2Hsa8PvABhsMOVX7NEhd45xauB
+ 1gokachMmddL3QTHvT2SwZxCkXOkbMCydACOrC/fTJt47ZMqSJVTQddnBcQSgLyjNGm4CeOEnp9
+ PNBoEYnzvybXEkQACPTe80hUYBPNMff0l9H1886se4gDoMTuKflotBkuNAKnzK+8kiDBgxNOH9h
+ bZsCvRJodQOSAPreMvq0IihcpWlEs34BWltovMVcvF9aAUp083WRW+KVQYmOhWlos+j/T4BRIbR
+ CwPlyHjcGOVLxKnlJKijLA9qGkIsezGqUQ2SPYxLPKlc2qzyajNrDlj84gdKweskDeOpiBvLN+B
+ KyqdmGfxbd7NpRwX3CTYh4w/0CtWItIAUr9Ys7jFtXr/VsuA0YOCgJjVX1uEFU1xkudoFs1rAth
+ RJ/8B3UMC55EENVrV4M2L4siLZlqy2RcczsoTJFZF2waT+o7rvR+fmeeJf0wybsj1f/u9znmagT
+ kQ8ZnJpha5iIwXpe+p1xsFf82A53nj0jMMo0yNx2V3WeXOWMo7LyjgxfIAQHTUVhIFc4TIZqJVB
+ +kMs1/3Ubq5gPtCQo6w7qymB7PfuxwdaWvtwnw2jPw7zgEtHYR+5EiDbtFhXsuuiB3VyuoxS3ez
+ N7pia2kgSwXPEsw==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_044033_841980_CF4DEEC9 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20250603_045727_666313_4D9EEF58 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,67 +133,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2025-05-30T12:29:30-07:00, Atish Patra <atish.patra@linux.dev>:
-> On 5/30/25 4:09 AM, Radim Kr=C4=8Dm=C3=A1=C5=99 wrote:
->> 2025-05-29T11:44:38-07:00, Atish Patra <atish.patra@linux.dev>:
->>> On 5/29/25 3:24 AM, Radim Kr=C4=8Dm=C3=A1=C5=99 wrote:
->>>> I originally gave up on the idea, but I feel kinda bad for Drew now, s=
-o
->>>> trying again:
->>> I am sorry if some of my replies came across in the wrong way. That was
->>> never
->>> the intention.
->> I didn't mean to accuse you, my apologies.  I agree with Drew's
->> positions, so to expand on a question that wasn't touched in his mail:
->>
->>>> Even if userspace wants SBI for the M-mode interface, security minded
->>> This is probably a 3rd one ? Why we want M-mode interface in the user
->>> space ?
->> It is about turning KVM into an ISA accelerator.
->>
->> A guest thinks it is running in S/HS-mode.
->> The ecall instruction traps to M-mode.  RISC-V H extension doesn't
->> accelerate M-mode, so we have to emulate the trap in software.
-> We don't need to accelerate M-mode. That's the beauty of the RISC-V H=20
-> extension.
+Few cleanups for Mailbox bindings.
 
-(It is a gap to me. :])
+Best regards,
+Krzysztof
 
-> The ISA is designed in such a way that the SBI is the interface between=
-=20
-> the supervisor environment (VS/HS)
-> and the supervisor execution environment (HS/M).
+---
+Krzysztof Kozlowski (5):
+      dt-bindings: mailbox: amlogic,meson-gxbb-mhu: Add missing interrupts maxItems
+      dt-bindings: mailbox: ti,secure-proxy: Add missing reg maxItems
+      dt-bindings: mailbox: Correct example indentation
+      dt-bindings: mailbox: nvidia,tegra186-hsp: Use generic node name
+      dt-bindings: mailbox: Drop consumers example DTS
 
-The ISA says nothing about the implementation of said interface.
+ .../bindings/mailbox/allwinner,sun6i-a31-msgbox.yaml   | 14 +++++++-------
+ .../bindings/mailbox/amlogic,meson-gxbb-mhu.yaml       | 10 +++++-----
+ .../devicetree/bindings/mailbox/apple,mailbox.yaml     | 16 ++++++++--------
+ .../bindings/mailbox/nvidia,tegra186-hsp.yaml          |  9 +--------
+ .../bindings/mailbox/qcom,apcs-kpss-global.yaml        |  9 +--------
+ .../devicetree/bindings/mailbox/ti,omap-mailbox.yaml   | 10 +++-------
+ .../devicetree/bindings/mailbox/ti,secure-proxy.yaml   | 18 +++++++++---------
+ 7 files changed, 34 insertions(+), 52 deletions(-)
+---
+base-commit: 3be1a7a31fbda82f3604b6c31e4f390110de1b46
+change-id: 20250603-dt-bindings-mailbox-cleanup-c884545267e9
 
-Returning 42 in x21 as a response to an ecall with 0x10 in a7 and 0x3 in
-a6 is perfectly valid RISC-V implementation that KVM currently cannot
-virtualize.
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
->> The ISA doesn't say that M-mode means SBI.  We try really hard to have
->> SBI on all RISC-V, but I think KVM is taking it a bit too far.
->>
->> We can discuss how best to describe SBI, so userspace can choose to
->> accelerate the M-mode in KVM, but I think that the ability to emulate
->> M-mode in userspace should be provided.
-> I am still trying to understand the advantages of emulating the M-mode=20
-> in the user space.
-> Can you please elaborate ?
-
-This thread already has a lot of them, so to avoid repeating them, I
-have to go into quite niche use-cases:
-When developing M-mode software on RISC-V (when RISC-V has more useful
-implementations than QEMU), a developer might want to accelerate the
-S/U-modes in KVM.
-It is also simpler to implement an old SBI interface (especially with
-bugs/quirks) if virtualization just executes the old M-mode binary.
-
-Why must KVM prevent userspace from virtualizing RISC-V?
-
-> I am assuming you are not hinting Nested virtualization which can be=20
-> achieved with existing
-> ISA provided mechanisms and accelerated by SBI NACL.
-
-Right, I am talking about virtualization of RISC-V, because I don't have
-a crystal ball to figure out what users will want.
 
