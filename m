@@ -4,149 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA2AC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 05:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C87C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 05:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aSeb71u7Rm1nsA4Y5jWWgVcHnIHOUuaTeIOiZirOzUk=; b=nqGQh7KK7an6LuaMAku9XcG1bp
-	f/lhs2unYgPA15NaIOlxLjny2Y8pnKtx3vHUvBEdTkeNRGWFevWPVwKt1ieFGTrJUjecliXf2LP0a
-	aQ7GDG063o3TRBDeDpLnRkg/jCf9D+gsiynS1HDm7oWCKfiADNvxgUgRyyqzSpsmoYcbNBIa58+Ms
-	Zp0Ewdv/j38sGTpFK6PWNvLG3S3A5cuhw3qccFQD5yED530trYCFLJN9VNqV3ZUiKoIjRl2QNWNqM
-	d3K135xixv/NpF3lZ/YGUKM+bTdB0hgcdwHCvIUbD4lz8PJ2R/oSJJuoIpO+M5XGJx3YYbzTuO8Mu
-	fPNParUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wjyJrRUuW1LpeCdpHQttH7ahDvI3cW9wjiYLJGOiDHE=; b=NG94FNtjSVW9so+h5nMa1ecay8
+	nSs95tSj0pUB/OhfjiDuMCYalRuZ49L53bXFtCjiCw7w6riIU0ULXAwWyFWnn63O8FEFDUtvhNEcj
+	8EA8KSUECNBLv7P6+0wumFTwbaUzbYHrS7CB56jdv67gyh1LqW38t9zbV+SpO4QiHt5sSLhtKdiir
+	qFyn4N8NemAyhV/fDhiWe5qTKK7do734BdTl0+B2z5Y6WF72svuJ3x4auWQDq/B0LCz09Evk4qWwg
+	NhSodW8mnX7vCRbikoGc1r3D3rxL2pRINZ6STQEsCkLaiwnabOvBDlzw7w1qBp0n9wFreWafwodJ+
+	xWCFEjwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMKR9-00000009qB7-3YVv;
-	Tue, 03 Jun 2025 05:43:47 +0000
-Received: from mail-dm6nam12on20624.outbound.protection.outlook.com ([2a01:111:f403:2417::624] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uMKar-00000009ruh-0ULW;
+	Tue, 03 Jun 2025 05:53:49 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMKOy-00000009prE-1yDN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 05:41:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p8g9AdseMXY0nyf+lILSeemJP8/XGkY1b4C3TrbvqX+WvN/qU4RP9wIRBcKpK/urTDPmGBbR8x32UY57liG93L+CjKOXwKsv4OuIse9t9ZhW8pf5YFv3959Onl8FrgSaCTmwzTAhFKS6rwSd809+M9gAJz+pl1OX3im+Uc0T0J2OIKD152MCSPVLX+0Rh2UgJZro46miCAXX/+IPwRnjleaKRLLUPeCAvsxqICW8fYbk/x3q8sEkoajN1+7TqTr3zlUL0h2zwQOM0jo7q8SaZ1UOoRh+OFv2SeGRQidzs7/woqAH9OnKfXaAsgi95+da9k/GywSXvIdk9IU3sa4X/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aSeb71u7Rm1nsA4Y5jWWgVcHnIHOUuaTeIOiZirOzUk=;
- b=HWAK9fpPBv6/MPdUctfgLAP0xri67TwO4DBYQ67gJjczW8KbuK0sFjxx9jMgJsMjSm7AkwukYF2no+ydPgIn4mRSIGcqPr0w/PYFPgAvfdORd0VhtABW0tlUPNzg/SlRwQOOgDKLu1FzcaRZN+bX4a+X9VQQB0JE8bfxgwXhiEVqCfj/GGQ1zIN8up0Abh5AnazmYgFWTFyf1HyaEPKktwSwnlVa0Z8d50e88/2NbRl26j4oZX7OyVmYQXzkZgjJ/rCi/UbAz89C7PCbdHRdBvLkdKxrAuXN1r2u8msJeyX8PkOvpEkC1MWH6EzqLUkJBtjgcOsuurydaVPM+y8dAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aSeb71u7Rm1nsA4Y5jWWgVcHnIHOUuaTeIOiZirOzUk=;
- b=Cxje8MgF2bskXF1P21dDp7HXny3d8DMFXf5CPS+rhesfgAIvFhZ6NUp3pGzq8/6nWRy7b9QR4TfqAhjm0hsSrjSkFxTUy+xtQKUtx7H7j2lmzFaOUnm8CKbdoRS2buq6qxDWkaQBPZTxoEAa3VI8T5itUdct9lejdmwrOyhVcM+l3WLFJx3S/zSwbdtvrJnYeDKkL5Z5byoqDU030XMa3kXOlyERG6JILYIvyEGkQnA+7KsIpxe/z9tmdtE+9GgK6GnDXoRiPMwhEp/l5+j028S0c8k/Bhrxr9aYhjg/nBEA05XiugU8l9mRLHyHtyUNvbxhBMqGyjfBn9djeEvLgg==
-Received: from BLAPR03CA0110.namprd03.prod.outlook.com (2603:10b6:208:32a::25)
- by DS0PR12MB8019.namprd12.prod.outlook.com (2603:10b6:8:14e::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.30; Tue, 3 Jun
- 2025 05:41:24 +0000
-Received: from BL6PEPF00020E61.namprd04.prod.outlook.com
- (2603:10b6:208:32a:cafe::c4) by BLAPR03CA0110.outlook.office365.com
- (2603:10b6:208:32a::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18 via Frontend Transport; Tue,
- 3 Jun 2025 05:41:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF00020E61.mail.protection.outlook.com (10.167.249.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8792.29 via Frontend Transport; Tue, 3 Jun 2025 05:41:23 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 2 Jun 2025
- 22:41:09 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 2 Jun
- 2025 22:41:08 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 2 Jun 2025 22:41:06 -0700
-Date: Mon, 2 Jun 2025 22:41:05 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v5 14/29] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
- ioctl
-Message-ID: <aD6K8ZuAH+zjXIx2@Asurada-Nvidia>
-References: <cover.1747537752.git.nicolinc@nvidia.com>
- <5c509f092ba61d4c0852ba57b530888ffb864ccb.1747537752.git.nicolinc@nvidia.com>
- <20250530161455.GE233377@nvidia.com>
+	id 1uMKYe-00000009rTU-3CWf;
+	Tue, 03 Jun 2025 05:51:34 +0000
+X-UUID: c44b1a9c403e11f0b29709d653e92f7d-20250603
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:36da481d-9628-499b-b408-b3ee3ad83ee2,IP:0,U
+	RL:0,TC:0,Content:32,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:32
+X-CID-META: VersionHash:6493067,CLOUDID:fc49a494d89cd9d5410e466ec1068e3b,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:4|50,EDM:-3,IP:nil,UR
+	L:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,S
+	PR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: c44b1a9c403e11f0b29709d653e92f7d-20250603
+Received: from node4.com.cn [(10.44.16.170)] by mailgw.kylinos.cn
+	(envelope-from <aichao@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 576421780; Tue, 03 Jun 2025 13:51:17 +0800
+Received: from node4.com.cn (localhost [127.0.0.1])
+	by node4.com.cn (NSMail) with SMTP id 0A62516001A03;
+	Tue,  3 Jun 2025 13:51:17 +0800 (CST)
+X-ns-mid: postfix-683E8D54-83035764
+Received: from kylin-pc.. (unknown [172.25.130.133])
+	by node4.com.cn (NSMail) with ESMTPA id 070CF16001CC7;
+	Tue,  3 Jun 2025 05:51:12 +0000 (UTC)
+From: Ai Chao <aichao@kylinos.cn>
+To: perex@perex.cz,
+	tiwai@suse.com,
+	kuninori.morimoto.gx@renesas.com,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	jbrunet@baylibre.com,
+	neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	shengjiu.wang@gmail.com,
+	Xiubo.Lee@gmail.com,
+	festevam@gmail.com,
+	nicoleotsuka@gmail.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de
+Cc: linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	Ai Chao <aichao@kylinos.cn>
+Subject: [PATCH v4 0/4] Use helper function for_each_child_of_node_scoped()
+Date: Tue,  3 Jun 2025 13:51:05 +0800
+Message-ID: <20250603055109.3154061-1-aichao@kylinos.cn>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250530161455.GE233377@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF00020E61:EE_|DS0PR12MB8019:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa3d182c-7bda-4590-1504-08dda26146e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JdF7qz4h0uLSjSVDDnx7RQvoWkNqOHSTQWiCtMdUKWLbyC9GoTjCwRn1PzSw?=
- =?us-ascii?Q?aSXo6hQSR9PWdYtO26yTp9RB2OkuNvVezWgDjrQGmzXRCT2d1TTROF0eoscM?=
- =?us-ascii?Q?EvHjN1Bx25V7Enua7logzDO+2NH6McQYLq74HKE1R9RMo72XoNYsCQWe37Km?=
- =?us-ascii?Q?rdkXqNxLGg87ALD+TGM6C5/5ZWkeY2AHANh6dd/04ZkFUaLv17HYD0NC8kFc?=
- =?us-ascii?Q?ntw2v0E93lw3kUgrMoC5gcUHkx5ibqxPbCb7ixgztHr1EJLNMDArMhutlRy3?=
- =?us-ascii?Q?TZ8ZhDL7qvOQgAgZVjzlSaMX1nDtluDr2uL0ow55yQHaemkpujaoOTKgSaWh?=
- =?us-ascii?Q?kM0lWuZdT435/u5TQx/szcQ+Mq0zxjxlDTgzPMe7fqA4KUH8s4EA+Jgy5Nmz?=
- =?us-ascii?Q?7tJm3UJpOnOvdAtkXZCJMHUBrABuJ/8u4uyDBEm1m3SCDJ17D14jGLApP1eY?=
- =?us-ascii?Q?lOFiwARn0eNJms1rMT8nNfbQQ1DrVT7Sb/JGyRtlfSQqQ+Vdq4uChE/CnETm?=
- =?us-ascii?Q?/M0QL+H4idctx/PStHkmabiVaF+tSRRTtixAfj9ppPJbhTA+hdFY+/7ZzvMA?=
- =?us-ascii?Q?s+fJP60m09gE8ezSET3ii6NWQrw8erd2GUIzimIgOTakbgc6SN7SeLhYc0PX?=
- =?us-ascii?Q?2j+VVpcrxRf6vtT0OD6iNr5a7w7Em/nztUcrNC61QJzZtG2GcCwmQgTYSuV8?=
- =?us-ascii?Q?ALGyCgeqZ8Y5PIvsFMdu3lXPcRasNSxPYgRhlHtXLjHlG6NBr/ABgq3RIjUf?=
- =?us-ascii?Q?3Gz/PqJ9ZRym6YGaXY//CVB5mM05joWCUHTSPDYDKnuTzbRb8lSvVtwes/hI?=
- =?us-ascii?Q?2Zdl9B2SNg/fsvCqsRUso6gKDAo5e8pslPnyTDNKQfWB6NJ1oj2MKAyWxVWP?=
- =?us-ascii?Q?9hAOxbya8s2OQ0XqFe1Sr5M6c8DnXMV67TL9yHxS+wrUCWfhrPe1d4jvQmC+?=
- =?us-ascii?Q?hODe8OY5mby0pHIFXo6f9Ou+7i9pIgi2v6wS0P9DoiO+PEfj/1EE1V1A0uGZ?=
- =?us-ascii?Q?F7MeawrPVruxpO7+mzJxjmpAuADdw4BHZreAyV/3IszFFmWpYwBznfBW3dCk?=
- =?us-ascii?Q?vO4t2PRUXUpETVJtrD60JCeIA5LX2PR76SOOem9RebyWI2iwVBEurZ9OkfPm?=
- =?us-ascii?Q?hLWeibqSX9dZGO3OQd4ojfLxHBb7RGoCXIXAIoRr4KafJ39t6PsadSo/dpcV?=
- =?us-ascii?Q?9oPUYVJsdFwJJwfASEw+r//VU9j4wueBEZWXhmqxGeqbfbQMTwT2NpuICBkv?=
- =?us-ascii?Q?9qzOuDyCN7FP1FtYxWhdCmwEfgBVT2uLrmWNCZM1C6kPLYFdMca05Wxa+6RW?=
- =?us-ascii?Q?96vMdt/PMiKOX7gE3yob/61xCe3KpWE1bNwU2+AbjQlN7HZhRFD0O5fGJVy2?=
- =?us-ascii?Q?itJXEfI6Ic/rC0Ax9oK/llYmrubfTsLV80Rz+NBcLmtpSxq+WLixcwyRmLoH?=
- =?us-ascii?Q?wkyM5+RVdjsGUG1iIUP04yHnO21bFEP+ecslosSUMEJc98hbYAkfIq1xFVQ+?=
- =?us-ascii?Q?JAL23pxXxbNNE+ussUjzKOy/uU3sYcil8oUG?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2025 05:41:23.9594
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa3d182c-7bda-4590-1504-08dda26146e8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E61.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8019
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_224132_697068_5F16D0BC 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250602_225133_144966_6FA70553 
+X-CRM114-Status: UNSURE (   6.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,62 +97,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 01:14:55PM -0300, Jason Gunthorpe wrote:
-> Put a size_t in the driver ops:
-> 
->  size_t size_viommu;
->  size_t size_hw_queue;
-> 
-> Have the driver set it via a macro like INIT_RDMA_OBJ_SIZE
-> 
-> #define INIT_RDMA_OBJ_SIZE(ib_struct, drv_struct, member)                      \
-> 	.size_##ib_struct =                                                    \
-> 		(sizeof(struct drv_struct) +                                   \
-> 		 BUILD_BUG_ON_ZERO(offsetof(struct drv_struct, member)) +      \
-> 		 BUILD_BUG_ON_ZERO(                                            \
-> 			 !__same_type(((struct drv_struct *)NULL)->member,     \
-> 				      struct ib_struct)))
-> 
-> Which proves the core structure is at the front.
-> 
-> Then the core code can allocate the object along with enough space for
-> the driver and call a driver function to init the driver portion of
-> the already allocated object.
+This patch series introduces wrapper functions for_each_child_of_node_sco=
+ped().
 
-I found that the size_viommu or size_hw_queue might not work using
-a static macro as that RDMA one does:
+The for_each_child_of_node_scoped() helper provides a scope-based clean-u=
+p
+functionality to put the device_node automatically, and as such, there is
+no need to call of_node_put() directly.
 
- - The size in vIOMMU case is type dependent. E.g. smmuv3 driver
-   uses one iommu_ops to support two types: vSMMU and vCMDQ
+Summary:
 
- - Changing to a type-indexed size array would eventually result
-   some driver having a big size array, as the type number grows
+ - Patch 1 ALSA: ppc: Use helper function for_each_child_of_node_scoped()
 
-I came up with two alternatives:
+ - Patch 2 ASoC: renesas: Use helper function for_each_child_of_node_scop=
+ed()
 
-1) Define a get_viommu_size(unsigned int type) op: use a similar
-   macro in the driver function to return with:
+ - Patch 3 ASoC: meson: Use helper function for_each_child_of_node_scoped=
+()
 
-#define VIOMMU_STRUCT_SIZE(ib_struct, drv_struct, member)                      \
-	    (sizeof(drv_struct) +                                              \
- 		 BUILD_BUG_ON_ZERO(offsetof(drv_struct, member)) +             \
- 		 BUILD_BUG_ON_ZERO(!__same_type(((drv_struct *)NULL)->member,  \
- 						ib_struct)))
+ - Patch 4 ASoC: imx-card: Use helper function for_each_child_of_node_sco=
+ped()
 
-	if (type == SMMU)
-		return VIOMMU_STRUCT_SIZE(
-			struct arm_vsmmu, struct iommufd_viommu, core);
-	return 0;
+---
+Changes in V4:
+ - Remove patch ALSA: aoa: Use helper function for_each_child_of_node_sco=
+ped()
+ - Remove Patch ASoC: qcom: Use helper function for_each_child_of_node_sc=
+oped()
 
-2) Let core allocate with sizeof(struct iommufd_viommu), then let
-   driver krealloc during the viommu_init op call:
+Changes in v3:
+ - Change Patch name ASoC to ALSA for patch 1,2.
+ - Change commit message information.
+ - for_each_child_of_node_scoped() instead of
+   for_each_child_of_node() in i2cbus_add_dev().
 
-	viommu = kzalloc(sizeof(struct iommufd_viommu), ...);
-	...
-	viommu = ops->viommu_init(viommu, dev, parent_dom, type);
+Changes in v2:
+ - Fix error reported by kernel test rebot
+ - Keep "node"
+---
 
-I am guessing that you may prefer 1 over 2? Or any better idea?
+ sound/ppc/tumbler.c                |  5 ++---
+ sound/soc/fsl/imx-card.c           | 13 +++++------
+ sound/soc/meson/axg-card.c         |  3 +--
+ sound/soc/meson/meson-card-utils.c | 16 +++++---------
+ sound/soc/renesas/rcar/core.c      | 35 ++++++++++--------------------
+ sound/soc/renesas/rcar/ctu.c       |  8 ++-----
+ sound/soc/renesas/rcar/dma.c       |  4 +---
+ sound/soc/renesas/rcar/dvc.c       |  8 ++-----
+ sound/soc/renesas/rcar/mix.c       |  8 ++-----
+ sound/soc/renesas/rcar/src.c       | 10 ++-------
+ sound/soc/renesas/rcar/ssi.c       | 18 +++++----------
+ sound/soc/renesas/rcar/ssiu.c      |  7 ++----
+ 12 files changed, 40 insertions(+), 95 deletions(-)
 
-Thanks
-Nicolin
+--=20
+2.47.1
+
 
