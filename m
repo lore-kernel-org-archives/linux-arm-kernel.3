@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB635C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 18:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C553C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 18:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=W7eB43MTeq7nWFW3XTR+enu6rx63bjAX+CaOgmEs9cw=; b=mTkBLCgTiQ2sCt
-	0empqW/vtuIfOEVAZiFr0xTR9n3VjLjpXzpKJ/HwyO2ITYZuF9SNnEDyQQqkDahX8NH5ax4UcoLW/
-	UV0N8P01KzOI3g4ShyrsbUj7ZsHy/TxH0zPBPEpGPNo4jgOwjkgjDOZdMbkJWxlEI5XxIGGss2Nj4
-	I0nz+/YlVfJOk1+oyVFNZukQqla21ev324WICn1aoQ01H6hIliAufyy1niQqo94lTwI3XrBWP2P3f
-	PBglIeXnHk1gMXSohmw8XoWfUEB3iK+RY0L+LEzXHQLOKiduynHGnyHY6YE4r/DszK3kxQf5TrKKu
-	km4NOby72utk7c/VHYKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=muedraecWG3k6sC4BkfWIIfP1Qhn6jm5riTVBMIqDbo=; b=R1R9SAcErVstS+
+	+bOi9XVoI8OZBiNRQEED2Q+aorsDCG31RN/MpBSpGBzLgJe1DDtT+0OLLddLpVJFRoigWKzuZh4Nn
+	X7s3HIEJukIaJUgtOVc/6MNkOxtm55tKCN2THxq7W460vkcwHon8m9Lpu/+tSeF98W4t7Mermol/c
+	UkhwAIXdZFnk4T9VSO4xe0opahJ7smMIvWZ4YHdw4lIpVeJWZl2iSB66esGC4h1QtU50bz7a98ZQ8
+	zJyrRwrgavmuMuthzBUXuQxC1jCC5ntj1trVVpAL5r1mvtyBhmG5QnomAhQF9D1E4r0pmvK79sc69
+	PpL6P2S37aAvh/WNL2gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMWAF-0000000BYzS-31tM;
-	Tue, 03 Jun 2025 18:15:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uMWE3-0000000BZO7-0At3;
+	Tue, 03 Jun 2025 18:19:03 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMW85-0000000BYpm-0Vk4;
-	Tue, 03 Jun 2025 18:12:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B72361127;
-	Tue,  3 Jun 2025 18:12:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7F5CC4CEED;
-	Tue,  3 Jun 2025 18:12:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748974371;
-	bh=l7hazKp9x8Xzw0tllu2vo2pbAlO+wqbtKbXlvyCvQbE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=lTRLQ9RAjg2032UQ3WcGEkJraC27pGea5D0O1+9saGh01CsKarRaOhO9GnaSzW7RP
-	 dBT90A1Stsb5fvRCythAVMy/raiTRdQYEYlTZJ7H+h/NaeO+R67lbnVxJ8JpWLz5dG
-	 /Mymjs1NOGHedhNSaGEWGa/C/gADuBZivMkFjPyts10XrpDw/q8Tvafx+xHWOpn9zQ
-	 PhAvcHi85CaYsiu8h2nt1/1VYHmf7f9AFoySdft6nwylSsvej1uO0WDsK9wtAqAIna
-	 Ve0W6oOVQLByKO22AfW6bq4bpJ9RkWkOQv/MGcWKQNTyhZVbV5iub6Md3L/Fw+HHx3
-	 H+nELnSQSBctQ==
-Date: Tue, 3 Jun 2025 13:12:50 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Hans Zhang <18255117159@163.com>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <20250603181250.GA473171@bhelgaas>
+	id 1uMWBr-0000000BZ95-3gFO;
+	Tue, 03 Jun 2025 18:16:48 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-234ade5a819so53527595ad.1;
+        Tue, 03 Jun 2025 11:16:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1748974606; x=1749579406; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=muedraecWG3k6sC4BkfWIIfP1Qhn6jm5riTVBMIqDbo=;
+        b=O9h207cVOTzYEAHc4l2UK9XmsbvGU4Oqpt7krxWa+9SzIs4dhYKK7o6ZnfBWVEh2G3
+         2AbRut3PA/Vr54tTCHmVHt8QIQfG0oBCSgLUgrvVyRc5C0TbFWtaYIcaLJwx/uN4l+Y0
+         HqPVnvTJR+YWRijnKLc1SaDRX6oN2EEHQ7ffHLiVqTWIy4hsMi/DFNBPChSXfNV+LpQG
+         zDYcf6Q4POSrYMjGTB/G91jIq2q1SWDGpS2FEEYJUdFOL75InZyb5/B/1bYgcGiGjGvs
+         o0oMFZwPqPdRfzOzD78/5RCJBOJdc9KHi522GSTvFnsO5SOqwu6+NcO7qGlazI6Tl5WS
+         6SVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748974606; x=1749579406;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=muedraecWG3k6sC4BkfWIIfP1Qhn6jm5riTVBMIqDbo=;
+        b=VY4DTqGWqxlUov1jTsZvZ88+PF0Ed/dmFk4cwkUGzWZur42bq/m8zpq84j2WzP8uub
+         Zb0Di21LGhG7gJnJZx6udJyuM+5Z2IvAi64ELnRkCc0lVZ9Ru+bkeTtw6MaKlLukV6iP
+         mavoZqHCp6llBGS57NSzuKcCmcmuxFXXdTlpvBoS45Gig0inBvcYrLZw9gjGbbuUTeL+
+         7j8DO/bAuDr5tCECHKZbUd/ohZQUZFEiKFCo3oVEbuVnVxr7kNQeZHxCM12L33UuD0Ih
+         FUeTWQZy9nvmHnNK+Sm4rWvzshT7pNVzjFgRJ5AkK3lT1okJdQGZhhBC152OXVRAFMMu
+         j6/A==
+X-Forwarded-Encrypted: i=1; AJvYcCUBzSUv7SCdJlEgIXUZNErNqGRm9B6z2zeXPfGslR9fuJjoL9IJBGw7GJ1We5gsEbZqv9yqwy9L6CKoftlzGOfbTQ==@lists.infradead.org, AJvYcCW7tH9EADZXMc3+a44jrpHh+erQZA5jO/q07S74dfM0x9x91NQXmgD65/39Cqr8Ca5xUvXgo13ynQ5hAC4N@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDiaCkAaXC0djhlexoluk7lv3aIS0FDDbsQv/UK0GDV+P/j/WS
+	KX0MIj2Vcv6bZXhUPYo1h7eGg8oDAq4M4Zzv0URYQeG4pWtC82SvEFUiWVAxyCJXtKbCFEJ6+CD
+	gfcs3aanA8yisrdE98SkTz04jLDVVKKQ=
+X-Gm-Gg: ASbGnct6rD+OQ8+FLBtIuOa9mSchpR9eMMfWBdcMjpU9iBzuuzIdGJPcRN4m2vBV8sj
+	zOsdfc5RfP9e2X+gHKAGzdp0/QMhxbASFT93b361oXrJVIicaMTmVQdB8fUP7ATreTFCgWbKP+q
+	Rh++TQC9o5pWi7aO+d4MC/lfcr0LKIvUOmnDvN+DWNJa5lHS3PckdUCJOXqhklx+hsEwM6qbwLV
+	HCV
+X-Google-Smtp-Source: AGHT+IHr9J8+h+AZ8STPC1y2/qEM2ZZcXzahpAeXjwcKczY154NqfHQ6m3ty2wKy8w/H9uZv/VxmB7VQvs3K1RzoMLk=
+X-Received: by 2002:a17:903:234c:b0:235:779:edfd with SMTP id
+ d9443c01a7336-2355f76c215mr179533115ad.39.1748974606365; Tue, 03 Jun 2025
+ 11:16:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aD8Bz4CkdnAd8Col@ryzen>
+References: <20250603-dt-bindings-mailbox-cleanup-v1-0-724407563997@linaro.org>
+ <20250603-dt-bindings-mailbox-cleanup-v1-1-724407563997@linaro.org>
+In-Reply-To: <20250603-dt-bindings-mailbox-cleanup-v1-1-724407563997@linaro.org>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Tue, 3 Jun 2025 20:16:35 +0200
+X-Gm-Features: AX0GCFsq34ioWPbcIqxTayHSRdJ5z4uSRbOfAewoz0GwtzdI-PxfH0Fpo31M6tA
+Message-ID: <CAFBinCBSyniWtR5T3XdgohG+n0Ae=6tgmdASSxsnsmoQV4yhQQ@mail.gmail.com>
+Subject: Re: [PATCH 1/5] dt-bindings: mailbox: amlogic,meson-gxbb-mhu: Add
+ missing interrupts maxItems
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250603_111647_931883_AF16E17D 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,82 +92,18 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Nishanth Menon <nm@ti.com>, Thierry Reding <thierry.reding@gmail.com>, Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Jerome Brunet <jbrunet@baylibre.com>, Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>, Jassi Brar <jassisinghbrar@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Chen-Yu Tsai <wens@csie.org>, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@svenpeter.dev>, linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Hector Martin <marcan@marcan.st>, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, Neal Gompa <neal@gompa.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 04:08:15PM +0200, Niklas Cassel wrote:
-> On Sat, May 31, 2025 at 12:17:43PM +0530, Manivannan Sadhasivam wrote:
-> > On Fri, May 30, 2025 at 02:43:47PM -0500, Bjorn Helgaas wrote:
-> > > On Fri, May 30, 2025 at 07:24:53PM +0200, Niklas Cassel wrote:
-> > > > On 30 May 2025 19:19:37 CEST, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> > > > >
-> > > > >I think all drivers should wait PCIE_T_RRS_READY_MS (100ms) after exit
-> > > > >from Conventional Reset (if port only supports <= 5.0 GT/s) or after
-> > > > >link training completes (if port supports > 5.0 GT/s).
-> > > > >
-> > > > >> So I don't think this is a device specific issue but rather
-> > > > >> controller specific.  And this makes the Qcom patch that I dropped a
-> > > > >> valid one (ofc with change in description).
-> > > > >
-> > > > >URL?
-> > > > 
-> > > > PATCH 4/4 of this series.
-> > > 
-> > > If you mean
-> > > https://lore.kernel.org/r/20250506073934.433176-10-cassel@kernel.org,
-> > > that patch merely replaces "100" with PCIE_T_PVPERL_MS, which doesn't
-> > > fix anything and is valid regardless of this Plextor-related patch
-> > > ("PCI: dw-rockchip: Do not enumerate bus before endpoint devices are
-> > > ready").
-> > 
-> > It is patch 2/4:
-> > https://lore.kernel.org/all/20250506073934.433176-8-cassel@kernel.org
-> 
-> Hello all,
-> 
-> I'm getting some mixed messages here.
-> 
-> If I understand Bjorn correctly, he would prefer a NVMe quirk, and looking
-> at pci/next, PATCH 1/4 has been dropped.
-
-Hmmm, sorry, I misinterpreted both 1/4 and 2/4.  I read them as "add
-this delay so the PLEXTOR device works", but in fact, I think in both
-cases, the delay is actually to enforce the PCIe r6.0, sec 6.6.1,
-requirement for software to wait 100ms before issuing a config
-request, and the fact that it makes PLEXTOR work is a side effect of
-that.
-
-The beginning of that 100ms delay is "exit from Conventional Reset"
-(ports that support <= 5.0 GT/s) or "link training completes" (ports
-that support > 5.0 GT/s).
-
-I think we lack that 100ms delay in dwc drivers in general.  The only
-generic dwc delay is in dw_pcie_host_init() via the LINK_WAIT_SLEEP_MS
-in dw_pcie_wait_for_link(), but that doesn't count because it's
-*before* the link comes up.  We have to wait 100ms *after* exiting
-Conventional Reset or completing link training.  
-
-We don't know when the exit from Conventional Reset was, but it was
-certainly before the link came up.  In the absence of a timestamp for
-exit from reset, starting the wait after link-up is probably the best
-we can do.  This could be either after dw_pcie_wait_for_link() finds
-the link up or when we handle the link-up interrupt.
-
-Patches 1 and 2 would fix the link-up interrupt case.  I think we need
-another patch for the dwc core for dw_pcie_wait_for_link().
-
-I wish I'd had time to spend on this and include patches 1 and 2, but
-we're up against the merge window wire and I'll be out the end of this
-week, so I think they'll have to wait.  It seems like something we can
-still justify for v6.16 though.
-
-This also means I don't think we should need an NVMe quirk.
-
-> If I understand Mani correctly, he thinks that we should queue up PATCH 1/4
-> and PATCH 2/4 (although with modified commit messages).
+On Tue, Jun 3, 2025 at 1:57=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 >
-> As you know, I do not have the (problematic) Plextor drive, so we go with
-> the quirk option, then we would need to ask Laszlo nicely to retest.
-> (And to provide the PCI device and PCI vendor ID of his NVMe device so we
-> can write a quirk.)
+> Lists should have fixed constraint, so add missing maxItems to the
+> "interrupts" property.  Since minItems=3DmaxItems, the minItems is implie=
+d
+> by dtschema so can be dropped.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
