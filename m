@@ -4,55 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE51C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 13:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7D8C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 13:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nspgpTKACwnJViil0+KY2bLyYPAuZdNAZfkrhD4X0fk=; b=OeODX99ZXYZrn/6WLqD2CcCcn6
-	j9eWpwDlnYMFiPmD6/YzH1e6AFPeQhBvm34g4sb2xhKOhMIE74HMlavMpQzoqetnoAh0fWiN79GkI
-	NIt2ebcuDCAOB3Ptd3OIaTqoOoIUYIbCjSNbcljUWSUl0lxmaCYhFpV/LEw6COv0gBVd93ohqDjuj
-	EkXfbM/ptVDzhnKlHvRUwnpJoIo7+OhdvC3oOTANyzQivE7exWosw9KwF4z9a5FAiwDjQLyfg4Cm/
-	PdavFHXBbgAy6MVglajTZTMJQoX9JyLJW7GiImCiPu7L9oQCGPq5V4zJmRnQIapS7oePax4LsfaGv
-	eiPIT5dw==;
+	bh=PcKTtdKPilwx5nzWIu3x8tr3E4CQQkFp+QVIsqBVgxQ=; b=N+jmeyQzsEwIBRKNPsqJLrJ6cK
+	s6rtdMctNPfki278i8ifGJfxTJ0IFV41alznwsVPkF5FCC/54Aazrg5nwCKnY2GU+wvbkQr2IlCSE
+	fabVNEls66isto47i/csHKKE8d2/DLGeBpCuJa50atkYfsWUmRkK3pHyntUJVZhTuiSWtl5R2v38E
+	SSzMpd4Tx78ye9bnFDys0D05wTC9XkLO22GeGzzkfLWGIbess9WZjWoWbDlL5o3A3Szk6WHA35DU+
+	BEBfbpQnLgZCDGf6PjR1f3Q6qdumiASPLYkUe0AI3b7DlKllkt2vIPPGjWu0F/l8+IcK50+tCYyRY
+	nkos5d+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMS6I-0000000B6fi-2Bim;
-	Tue, 03 Jun 2025 13:54:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMRy9-0000000B4nl-21Ep
+	id 1uMS8R-0000000B6pd-1FXV;
+	Tue, 03 Jun 2025 13:56:59 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMRyy-0000000B4tR-1hrP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 13:46:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43D0512FC;
-	Tue,  3 Jun 2025 06:46:00 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 078913F59E;
-	Tue,  3 Jun 2025 06:46:14 -0700 (PDT)
-Date: Tue, 3 Jun 2025 14:46:08 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH] arm64/trap: fix broken ct->nmi_nesting when die() is
- called in a kthread
-Message-ID: <aD78oNHA5SlaH50z@J2N7QTR9R3.cambridge.arm.com>
-References: <20250530092723.3307630-1-yeoreum.yun@arm.com>
- <20250602124738.GD1227@willie-the-truck>
- <aD27GxSWsFekORcy@e129823.arm.com>
- <aD2_Jp7CQgnp15Kx@J2N7QTR9R3>
- <aD3kfTx8sF8/Yar/@e129823.arm.com>
- <aD7EA2Bmp-mrWZaN@J2N7QTR9R3.cambridge.arm.com>
- <aD7ZCnNUqxb9XWNh@e129823.arm.com>
+	Tue, 03 Jun 2025 13:47:13 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 553Dl6ii532011;
+	Tue, 3 Jun 2025 08:47:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1748958426;
+	bh=PcKTtdKPilwx5nzWIu3x8tr3E4CQQkFp+QVIsqBVgxQ=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=s1ANwLzLJfUcQfC7M3OLEKN9tQ6LVDiBBwW9dozg4LvJD8Dy4Zhs2PKS201Iw2yVR
+	 OmWwPvgb64IZ2RFSc09gQaxIFUh/FEurCRMRv+q0448jNCVlxC0uA6+crCHpG+b37D
+	 fYq5X/JCdffY1wt7La2QbTi4weAUt6b5CRX3sAtQ=
+Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 553Dl62A1352764
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 3 Jun 2025 08:47:06 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
+ Jun 2025 08:47:06 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 3 Jun 2025 08:47:05 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 553Dl6nC426191;
+	Tue, 3 Jun 2025 08:47:06 -0500
+Date: Tue, 3 Jun 2025 08:47:05 -0500
+From: Bryan Brattlof <bb@ti.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/3] arm64: dts: ti: k3-am62l: add initial
+ infrastructure
+Message-ID: <20250603134705.wjfwrhph3z6xjgvy@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20250507-am62lx-v5-0-4b57ea878e62@ti.com>
+ <20250507-am62lx-v5-2-4b57ea878e62@ti.com>
+ <aD76wjgGqDSzinT5@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <aD7ZCnNUqxb9XWNh@e129823.arm.com>
+In-Reply-To: <aD76wjgGqDSzinT5@pengutronix.de>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_064621_563080_B8C7A53E 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20250603_064712_536196_74100EBE 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,33 +89,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, ptosi@google.com, pcc@google.com, catalin.marinas@arm.com, bigeasy@linutronix.de, linux-kernel@vger.kernel.org, joey.gouly@arm.com, mcgrof@kernel.org, broonie@kernel.org, geert@linux-m68k.org, kristina.martsenko@arm.com, james.morse@arm.com, Will Deacon <will@kernel.org>, rppt@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 12:14:18PM +0100, Yeoreum Yun wrote:
-> > On Mon, Jun 02, 2025 at 06:50:53PM +0100, Yeoreum Yun wrote:
-> > > So, what I think:
-> > >   1. arm64_enter_el1_dbg() should ct_nmi_enter() as it is.
-> > >   2. in bug_handler() while handling BUG_TYPE, add above ct_nmi_exit()
-> > >      conditional call.
-> > >   3. DAIF.D and DAIF.A handling.
-> >
-> > No, that is not safe. In step 2, calling ct_nmi_exit() would undo *all*
-> > of the ct_nmi_enter() logic, and may stop RCU from watching if the
-> > exception was entered from some intermediate/inconsistent state.
+On June  3, 2025 thus sayeth Sascha Hauer:
+> Hi Bryan,
 > 
-> Yes if call ct_nmi_enter() without condition.
-> But I imply with the condition check what I posted.
-> if CT_NESTING_IRQ_NONIDLE,
-> it wouldn't need call and that cpu can be watched by RCU.
+> On Wed, May 07, 2025 at 10:09:20PM -0500, Bryan Brattlof wrote:
+>  +
+> > +	usbss0: dwc3-usb@f900000 {
+> > +		compatible = "ti,am62-usb";
+> > +		reg = <0x00 0x0f900000 0x00 0x800>,
+> > +		      <0x00 0x0f908000 0x00 0x400>;
+> > +		clocks = <&scmi_clk 329>;
+> > +		clock-names = "ref";
+> > +		power-domains = <&scmi_pds 95>;
+> > +		#address-cells = <2>;
+> > +		#size-cells = <2>;
+> > +		ranges;
+> > +		ti,syscon-phy-pll-refclk = <&wkup_conf 0x45000>;
+> 
+> This doesn't fit together. The register referenced here...
+> 
+> > +		status = "disabled";
+> > +
+> > +		usb0: usb@31000000 {
+> > +			compatible = "snps,dwc3";
+> > +			reg = <0x00 0x31000000 0x00 0x50000>;
+> > +			interrupts = <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>, /* irq.0 */
+> > +				     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>; /* irq.0 */
+> > +			interrupt-names = "host", "peripheral";
+> > +			maximum-speed = "high-speed";
+> > +			dr_mode = "otg";
+> > +			snps,usb2-gadget-lpm-disable;
+> > +			snps,usb2-lpm-disable;
+> > +			bootph-all;
+> > +		};
+> > +	};
+> > +
+> > +	wkup_conf: syscon@43000000 {
+> > +		compatible = "syscon", "simple-mfd";
+> > +		reg = <0x00 0x43000000 0x00 0x20000>;
+> 
+> ...is outside the register range specified here. Consequently the DWC3
+> driver doesn't probe. Increasing the register range here fixes this.
+> 
 
-I am not keen on conditionally calling ct_nmi_exit(), and would strongly
-prefer to avoid that, regardless of where that lives in the flow.
+Oops yeah I really messed up on this. :/
 
-I suspect that it would be bettter to triage the interrupted context
-earlier, and rethink the way entry/exit works, but that's a much larger
-bit of work and will take more thinking.
-
-Mark.
+Thanks for double checking all of this
+~Bryan
 
