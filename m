@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43C3C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDD4C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3POtsu2QTuk96rdXvOOIqoNxfTKcBzVJQIfjLygPY+0=; b=d5xbiGy8ozpMcnYdWzIU4ooYvF
-	9SKIIAHQsG11RatJioo0m4ryPV6xyePk9onOvd5/VhRxmIA6nSwtgbnCMnhTpCrnwgyIRA/tdYhk6
-	wM2Sis9K9rzLj51ef/4UeJLfmtSUMDloARxiEbd/Nc6AeUHeq7vVO28RwTqocPkktU8kWWvhC4CDz
-	sta5Tw7xXqqhN2ubxDJreCbdgMDSwYjtxXoInEO4N4Dua/2NQyQ/v34sXlNZcyHIyfZkfjuUOSFEZ
-	zK1sDB0w1hac9cjTtIWf3u+jRa0YQcsvRpYFEUUCUkJj9MvHQSRltekHr32Jb4H09ee8GjnHZ0ao6
-	7uREO3gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GbmMDFKCp/i1Pcn4W1wCNl+zf9IfLbSUc2RL5G0OleY=; b=qvvJnWdHFdBMAw8JAgzRkEHy9m
+	oFQsQy2xgtZmYkOLnSjqkWis9rtTi7rEHycJ8mIPkpPYc2P9G8el7TwM0tvywG5zIjs3XHUW5bPfV
+	9dQiwBiKYxsvIpfWc1p/cdr4oW8aO/zhFHwrf32kFkEAvwa3fEWEb4k50F5vumvLFUSxTqGSskvFC
+	QLKmCa4J68ll6e3GiPvf2UGcxhJ8NJGEh4K1Ie+9jIt3JoVwAdVK+RnJ7iiT7n1c1oVzOfouebm5w
+	32NkJxJvv9v4vBMphF7Xj7NOFh0EjZAEFcPPiV7R0Y7wuDe5HTMSSyNLLHr2+cQfZN5lmly4hmXox
+	aT76isnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTMc-0000000BFmE-47Tn;
-	Tue, 03 Jun 2025 15:15:42 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uMTOm-0000000BG1z-2qs7;
+	Tue, 03 Jun 2025 15:17:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTKR-0000000BFSQ-1i4z
+	id 1uMTMZ-0000000BFm3-2cPM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 15:13:28 +0000
+	Tue, 03 Jun 2025 15:15:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 00B6DA50420;
-	Tue,  3 Jun 2025 15:13:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0EEC4CEEE;
-	Tue,  3 Jun 2025 15:13:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CF28D60010
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Jun 2025 15:15:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83D27C4CEEF
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Jun 2025 15:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748963605;
-	bh=SDrJA2heEfO3acGwN161/YSuu79b0rUMxQJRzB6X4nQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ncskI327tBVw4nf0zXtQLAE+PNC/Cxo1lYA5S65uqpL+VrN30Lf9u/ZuBXksazvo+
-	 BbI6p100RtCVDQCYfnNcNmpzc2ve589cY+xmAU9udFZK/SRPrBXlio5wGkGC3knXsI
-	 gK0gY5vuyNibdidJ543zYMSjglBuhjRstEp1ZBGpwbrE3tFQNr2mLCSkLcT98zK5it
-	 kkSyqD+8o8yBd/nuzN3LLPXev4KOOh2E2cbrGPP67im1mkGS7swpD0F+UY735yhJ6w
-	 eb9UMXdizDZVnrB3g/HnLRvI8GYL0UHhMWRvlAzZac3hJxSf4LPWyP+G5nRsSDgQIH
-	 1jlEh1p2aAaww==
-Date: Tue, 3 Jun 2025 16:13:20 +0100
-From: Will Deacon <will@kernel.org>
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Song Liu <song@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
-Subject: Re: [PATCH v5] arm64/module: Use text-poke API for late relocations.
-Message-ID: <20250603151319.GA2611@willie-the-truck>
-References: <20250530000044.341911-1-dylanbhatch@google.com>
- <20250530141325.GA30733@willie-the-truck>
- <CADBMgpx==FnFj4okXs1n3NPngh7Os1YpnGrDDe8z_t2X7bzOOQ@mail.gmail.com>
+	s=k20201202; t=1748963738;
+	bh=uPH1qCx8aCUcLC1E09n43osZKJyp2k4rUVT6oDBr33o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=PNs3TQc8gBw66VpmKxlLLhegoo6dmN9CYAQM2k3jiQ4S53yZ3iMlejdnSM/ACJ/Pb
+	 HwXILoulHvvKNIO/HQAQtQfbA3qtXHuedh7cYv8aersiEFNHuBSa0QLpHI8odrxnkE
+	 TIUBMZcag23heE1Cz2NlLqZOO61IgXh3V9Gbd62e35aji+OywQmP7vAIvKKG2XS8vo
+	 zmWAcz9JiShd3fxzYHziMme0uZxPUhwSUjTFL1/XGTDYGBvZoMiQeoU1/xBVMoiBvm
+	 dpBSgd9rLJkckFIyHozIsCubTtPLlK5Kn/TpMfuKHRfVpTkY2+Vi5PMGTXorUQcdjx
+	 ebrAFA+NSdBLw==
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-ad89d8a270fso1409232966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 08:15:38 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVKI9fWR+1shcDbs3ePuRnZWwvnzcUxDI1jONHuZjEfz00SyY59XJth1um9Odt8EXFIYiZi6Rrtxw0Lf3ZVxyfB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPUjw9QdojbmJwFVU4jDhGqeTahw9TqeL3/o6N6ZBmyOosII0r
+	exL+s6vMw/RXmHZiN5b+hS7OIXvbcnQz2pFK33omE1phWF8HEnBKPf3U3T2oBnMTDjE6FEfT9oK
+	IcN5SPYfQysyTbEzDYSw0ZjbedSyZEg==
+X-Google-Smtp-Source: AGHT+IHYuVkgYffZYwIk9zOx4O17w5xiyut7oVsDrPWVULDKwfy14qROoIZLMW73H+Zgzw3g7/yBgH6W/MtlT29QslI=
+X-Received: by 2002:a17:907:1c9f:b0:ad5:5a7e:bcd with SMTP id
+ a640c23a62f3a-adde5ec8284mr372128066b.8.1748963737020; Tue, 03 Jun 2025
+ 08:15:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADBMgpx==FnFj4okXs1n3NPngh7Os1YpnGrDDe8z_t2X7bzOOQ@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_081327_581103_82E7E27A 
-X-CRM114-Status: GOOD (  24.84  )
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org> <aDhWlytLCxONZdF9@lpieralisi>
+ <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com> <aD6ouVAXy5qcZtM/@lpieralisi>
+In-Reply-To: <aD6ouVAXy5qcZtM/@lpieralisi>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 3 Jun 2025 10:15:25 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
+X-Gm-Features: AX0GCFs8qXTII7-x8n1VBPezizNhamXTZTvAiFVag57Gde-h4t-14oUxQ682H78
+Message-ID: <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
+Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Peter Maydell <peter.maydell@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Conor Dooley <conor+dt@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, andre.przywara@arm.com, 
+	Arnd Bergmann <arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>, 
+	Timothy Hayes <timothy.hayes@arm.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, suzuki.poulose@arm.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,119 +88,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Dylan,
-
-On Fri, May 30, 2025 at 05:11:00PM -0700, Dylan Hatch wrote:
-> On Fri, May 30, 2025 at 7:13 AM Will Deacon <will@kernel.org> wrote:
+On Tue, Jun 3, 2025 at 2:48=E2=80=AFAM Lorenzo Pieralisi <lpieralisi@kernel=
+.org> wrote:
+>
+> On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
+> > On Thu, 29 May 2025 at 13:44, Lorenzo Pieralisi <lpieralisi@kernel.org>=
+ wrote:
+> > >
+> > > [+Andre, Peter]
+> > >
+> > > On Tue, May 13, 2025 at 07:47:54PM +0200, Lorenzo Pieralisi wrote:
+> > > > +      reg:
+> > > > +        minItems: 1
+> > > > +        items:
+> > > > +          - description: IRS control frame
+> > >
+> > > I came across it while testing EL3 firmware, raising the topic for
+> > > discussion.
+> > >
+> > > The IRS (and the ITS) has a config frame (need to patch the typo
+> > > s/control/config, already done) per interrupt domain supported, that =
+is,
+> > > it can have up to 4 config frames:
+> > >
+> > > - EL3
+> > > - Secure
+> > > - Realm
+> > > - Non-Secure
+> > >
+> > > The one described in this binding is the non-secure one.
+> > >
+> > > IIUC, everything described in the DT represents the non-secure addres=
+s
+> > > space.
 > >
-> > and this would be:
+> > The dt bindings do allow for describing Secure-world devices:
+> > Documentation/devicetree/bindings/arm/secure.txt has the
+> > details. We use this in QEMU so we can provide a DTB to
+> > guest EL3 firmware that tells it where the hardware is
+> > (and which EL3 can then pass on to an NS kernel). It would
+> > be helpful for the GICv5 binding to be defined in a way that
+> > we can do this for a GICv5 system too.
+>
+> It would be good to understand what DT {should/should not} describe and
+> whether this DT usage to configure firmware is under the DT maintainers
+> radar or it is an attempt at reusing it to avoid implementing a
+> configuration scheme.
+>
+> Rob, Krzysztof,
+>
+> Any thoughts on the matter please ?
+
+I'm all for firmware using DT, but using a single DT for all
+components with an ABI between all components is an impractical dream.
+You can take that a step further even with a single DT for all
+processors in a system (aka System DT). Ultimately, the DT is a view
+of the system for a client (OS). Different views may need different
+DTs.
+
+u-boot and Linux sharing a DT makes sense as they have the same world
+view. Secure and NS not so much.
+
+> [...]
+>
+> > The tempting thing to do is to have regs[] list the frames
+> > in some given order, but the spec makes them not simple
+> > supersets, allowing all of:
+> >  * NS
+> >  * S
+> >  * NS, S, EL3
+> >  * NS, Realm, EL3
+> >  * NS, Realm, S, EL3
+>
+> Maybe reg-names can help ? Even though first we need to understand
+> what resources should be described in DT.
+>
+> Current bindings are reviewed and I am not keen on dragging this
+> discussion on forever - the information the kernel requires is there,
+> I'd like to bring this to a close.
+>
+> Thanks,
+> Lorenzo
+>
 > >
-> >         WRITE_PLACE(place, cpu_to_le32(insn), me);
+> > secure.txt says:
+> > # The general principle of the naming scheme for Secure world bindings
+> > # is that any property that needs a different value in the Secure world
+> > # can be supported by prefixing the property name with "secure-". So fo=
+r
+> > # instance "secure-foo" would override "foo".
+
+Today I would say a 'secure-' prefix is a mistake. To my knowledge,
+it's never been used anyways. But I don't have much visibility into
+what secure world firmware is doing.
+
 > >
-> 
-> I'm seeing this part give a build error:
-> 
-> arch/arm64/kernel/module.c:158:2: error: cannot take the address of an
-> rvalue of type '__le32' (aka 'unsigned int')
->   158 |         WRITE_PLACE(place, cpu_to_le32(insn), me);
->       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> arch/arm64/kernel/module.c:56:28: note: expanded from macro 'WRITE_PLACE'
->    56 |                 aarch64_insn_copy(place, &(val),
-> sizeof(*place));       \
->       |                                          ^ ~~~
-> 
-> I can't think of a clean way to get around this and still keep a
-> combined write helper. Setting an intermediate __le32 in the
-> reloc_insn_* functions would work but we were trying to avoid that.
-> Setting an intermediate value inside WRITE_PLACE would also work but
-> then (I think) it won't work for the data relocations because we'd be
-> converting a signed into unsigned value. Making WRITE_PLACE a function
-> instead of a macro also fixes the rvalue problem but then the args
-> 'place' and 'val' have to be of a fixed type so we can't do the
-> typecasting on 'place' and 'val' has the same signed/unsigned value
-> problem.
-> 
-> Do you have a suggestion here? In the meantime I can send a v6 that
-> uses an intermediate __le32 for the instruction relocations.
+> > So maybe we could have
+> >  reg : the NS frame(s)
+> >  secure-reg : the S frame(s)
+> >  realm-reg : the Realm frame(s)
+> >  root-reg : the EL3 frame(s)
 
-Sorry for the slow reply -- I see you already sent a v6. I think we
-could add a temporary in the macro. Diff below (on top of your v6). WDYT?
+Here's why. It really doesn't scale.
 
-Will
-
---->8
-
-diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
-index 862f6d50ab00..40148d2725ce 100644
---- a/arch/arm64/kernel/module.c
-+++ b/arch/arm64/kernel/module.c
-@@ -50,10 +50,12 @@ static u64 do_reloc(enum aarch64_reloc_op reloc_op, __le32 *place, u64 val)
- }
- 
- #define WRITE_PLACE(place, val, mod) do {				\
-+	__typeof__(val) __val = (val);					\
-+									\
- 	if (mod->state == MODULE_STATE_UNFORMED)			\
--		*(place) = val;						\
-+		*(place) = __val;					\
- 	else								\
--		aarch64_insn_copy(place, &(val), sizeof(*place));	\
-+		aarch64_insn_copy(place, &(__val), sizeof(*place));	\
- } while (0)
- 
- static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len,
-@@ -128,7 +130,6 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
- 	u64 imm;
- 	s64 sval;
- 	u32 insn = le32_to_cpu(*place);
--	__le32 le_insn;
- 
- 	sval = do_reloc(op, place, val);
- 	imm = sval >> lsb;
-@@ -156,8 +157,7 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
- 
- 	/* Update the instruction with the new encoding. */
- 	insn = aarch64_insn_encode_immediate(AARCH64_INSN_IMM_16, insn, imm);
--	le_insn = cpu_to_le32(insn);
--	WRITE_PLACE(place, le_insn, me);
-+	WRITE_PLACE(place, cpu_to_le32(insn), me);
- 
- 	if (imm > U16_MAX)
- 		return -ERANGE;
-@@ -172,7 +172,6 @@ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
- 	u64 imm, imm_mask;
- 	s64 sval;
- 	u32 insn = le32_to_cpu(*place);
--	__le32 le_insn;
- 
- 	/* Calculate the relocation value. */
- 	sval = do_reloc(op, place, val);
-@@ -184,8 +183,7 @@ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
- 
- 	/* Update the instruction's immediate field. */
- 	insn = aarch64_insn_encode_immediate(imm_type, insn, imm);
--	le_insn = cpu_to_le32(insn);
--	WRITE_PLACE(place, le_insn, me);
-+	WRITE_PLACE(place, cpu_to_le32(insn), me);
- 
- 	/*
- 	 * Extract the upper value bits (including the sign bit) and
-@@ -207,7 +205,6 @@ static int reloc_insn_adrp(struct module *mod, Elf64_Shdr *sechdrs,
- 			   __le32 *place, u64 val, struct module *me)
- {
- 	u32 insn;
--	__le32 le_insn;
- 
- 	if (!is_forbidden_offset_for_adrp(place))
- 		return reloc_insn_imm(RELOC_OP_PAGE, place, val, 12, 21,
-@@ -227,8 +224,7 @@ static int reloc_insn_adrp(struct module *mod, Elf64_Shdr *sechdrs,
- 						   AARCH64_INSN_BRANCH_NOLINK);
- 	}
- 
--	le_insn = cpu_to_le32(insn);
--	WRITE_PLACE(place, le_insn, me);
-+	WRITE_PLACE(place, cpu_to_le32(insn), me);
- 	return 0;
- }
- 
+Rob
 
