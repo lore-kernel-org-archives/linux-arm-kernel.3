@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2019C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D4FC5B555
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mynEHgnS7hC52CJAueGRi2Svl+tr14mFbLyXmnmMFOI=; b=WoTl3RK6juNcyxtYb3af+zfpCt
-	cwqQIYT//0l+zARAfwOXHF04V46u+XU2gix7FNJAlslZzvdBSH3D7jeVoE33BXhyhy43NshwgChm0
-	de2Je5kmBg86yfeC0HXBFrNWRxfN13edQnWuNiSnKuNrRogp/BbLasg5NmHvIhKFjONeqB28/2+ps
-	OCounh8zwtWeQxcDMl5yFHybwQ01yhfT1JOkFvUjaTFedfeIqs18uOARXcIoRFMIg4lvBQbdk2/QO
-	4B3b+VzSNB48WhiBCd3irxx1E+c+b3UI+3zWmAfruESz/9TSEsgaE6v3a/B0JnIoeiI05nCfaR9tr
-	G8PCWkgw==;
+	bh=o1dxeNCnmjTauoiI6ZTbM5n8PM0YLSl4n6WB+BxZiv8=; b=zLsi7yS/5n0/xKTmSDhuSkgAiM
+	+70sA6s8KdQZCWm37BtKISyq7uwN2mE06hOugR7MblkqnpLTeFre6cMM+X2Ftb5Sfb4cJkHPvwTa9
+	u44klSK1T/ZbFmCh54D94z1j6lCqS+nrS7dWyKQND+p3M/8V5AetY6hLIjmsFN9Dn1aRfj7R+/B6Q
+	K2LB8heWTQweYT6zRVdJywaBFW9ErKgaDEhrmSyrq8ffNK0BHkK0i/AHuwJoLbTBPJqLJ79ouMwA2
+	x7QxJjVKYO08OBAyZvYm8n/5PRxqvtXje8rfo5u03xYCcbwz8F3T0t35CeNeZcopd690BWG/4D6J+
+	wl5r1hPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTZ1-0000000BHTx-0P3D;
-	Tue, 03 Jun 2025 15:28:31 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uMTZ2-0000000BHV6-2FSW;
+	Tue, 03 Jun 2025 15:28:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSEl-0000000B7cX-2vtt
+	id 1uMSK3-0000000B8Vz-0Q8T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 14:03:32 +0000
+	Tue, 03 Jun 2025 14:09:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B4028A5026E;
-	Tue,  3 Jun 2025 14:03:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A66C4CEED;
-	Tue,  3 Jun 2025 14:03:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CE58944875;
+	Tue,  3 Jun 2025 14:08:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7E17C4CEED;
+	Tue,  3 Jun 2025 14:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748959410;
-	bh=+k1KcLiR74h+DHCJUtU49fGLLq6L6csb6kt4etWsGGI=;
+	s=k20201202; t=1748959738;
+	bh=OlwtmLY1WNbhrrXFyRfa7IAa9h6HaHr459rqJj8wtLk=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=UiLDe3keWK8+XX8y4Hm1BolFib/py85LKE4DwKZ5s9cOj2U0+EbHmny5Qp1g69zix
-	 XSepvpSfC2u9L6JA5sT5kWFTzdntV37shF+QrDYe4Oln4Ot31pfI0bo3Qb+lcg7yMu
-	 rNg/QBR2hESihmbUuKkCISH48eEK2eAbv6d9Qr8AyZxPsUON3MYjZcKIxSBJOflMi9
-	 YX0sLC5qbffW5aAAzeuEpZDuYcXcB/zhBBqF1vpufGln7cocjErrJIU9kYF23SZWXr
-	 E+FbOS16LFDb2faBS6PYhHx/ZRnRS2ree/zdXwWtFZj/5jsoml9uVuL0rpEKpS7kB4
-	 HA94D1sa1GUVw==
+	b=e9mXz4WfQJHliuVYxmJFfPPB/T39ya3TyRloaF7hBQ26SCILVz4H6Z9XY6hegwwcp
+	 V4ymDCr9RBza6v8mbG7uUFBfOpSR/xVnUdxVHbqE7kyUEFWk70OW+KyDXiq58FnK55
+	 LzvEE/EpF2/0ZO39svzhL8HwoEsZV3b/qM5Ock6DNhX5p3Zh84qADYS9vNxsYO/Vub
+	 euwo+WEtFMjtt4REvSUX6Duuy5a534vNBBYfPF2OMozlCmxgYvIBDEto2+MRhTum7n
+	 w7aYC1Jy47sC/V9gnBJ83+XGdYskPT0hnItTeZp9OtP01YJPrHBNfg9ztHUQSJ0VLG
+	 BSLbR6Yplp3jw==
 Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uMSEh-002r8p-Sw;
-	Tue, 03 Jun 2025 15:03:28 +0100
-Date: Tue, 03 Jun 2025 15:03:26 +0100
-Message-ID: <87h60wexch.wl-maz@kernel.org>
+	id 1uMSK0-002rHL-6y;
+	Tue, 03 Jun 2025 15:08:56 +0100
+Date: Tue, 03 Jun 2025 15:08:54 +0100
+Message-ID: <87frggex3d.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Zenghui Yu <yuzenghui@huawei.com>,
@@ -59,12 +59,13 @@ Cc: Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Timothy Hayes <timothy.hayes@arm.com>
 Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device allocation
-In-Reply-To: <aD741hI7MfTmi7Rl@lpieralisi>
+In-Reply-To: <87h60wexch.wl-maz@kernel.org>
 References: <20250513163144.2215824-1-maz@kernel.org>
 	<20250513163144.2215824-4-maz@kernel.org>
 	<0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
 	<87ldq9dm54.wl-maz@kernel.org>
 	<aD741hI7MfTmi7Rl@lpieralisi>
+	<87h60wexch.wl-maz@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -75,8 +76,8 @@ X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, yuzenghui@huawei.com, linux-kernel@vge
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_070331_864706_A788B53A 
-X-CRM114-Status: GOOD (  32.11  )
+X-CRM114-CacheID: sfid-20250603_070859_187333_87BB8D5D 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +92,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Jun 2025 14:29:58 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+On Tue, 03 Jun 2025 15:03:26 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> On Tue, Jun 03, 2025 at 01:50:47PM +0100, Marc Zyngier wrote:
-> > Hi Zenghui,
+> On Tue, 03 Jun 2025 14:29:58 +0100,
+> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > > 
-> > On Tue, 03 Jun 2025 09:22:47 +0100,
-> > Zenghui Yu <yuzenghui@huawei.com> wrote:
-> > > 
-> > > > +	domain->dev = dev;
-> > > > +	dev->msi.data->__domains[domid].domain = domain;
-> > > > +
-> > > > +	if (msi_domain_prepare_irqs(domain, dev, hwsize, &bundle->alloc_info)) {
-> > > 
-> > > Does it work for MSI? hwsize is 1 in the MSI case, without taking
-> > > pci_msi_vec_count() into account.
-> > >
-> > > bool pci_setup_msi_device_domain(struct pci_dev *pdev)
-> > > {
-> > > 	[...]
-> > > 
-> > > 	return pci_create_device_domain(pdev, &pci_msi_template, 1);
+> > > +	if (!pci_setup_msi_device_domain(dev, nvec))
 > > 
-> > Well spotted.
+> > If pci_msi_vec_count(dev) > maxvec we would cap nvec and size the
+> > domain with the capped value.
 > > 
-> > This looks like a PCI bug ignoring Multi-MSI. Can you give the
-> > following a go and let people know whether that fixes your issue?
+> > In __pci_enable_msix_range() we are sizing the device according to
+> > pci_msix_vec_count(dev) regardless of maxvec, if I read the code correctly.
 > > 
-> > Thanks,
-> > 
-> > 	M.
-> > 
-> > diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
-> > index d7ba8795d60f..89677a21d525 100644
-> > --- a/drivers/pci/msi/irqdomain.c
-> > +++ b/drivers/pci/msi/irqdomain.c
-> > @@ -287,7 +287,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
-> >   *	- The device is removed
-> >   *	- MSI is disabled and a MSI-X domain is created
-> >   */
-> > -bool pci_setup_msi_device_domain(struct pci_dev *pdev)
-> > +bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize)
-> >  {
-> >  	if (WARN_ON_ONCE(pdev->msix_enabled))
-> >  		return false;
-> > @@ -297,7 +297,7 @@ bool pci_setup_msi_device_domain(struct pci_dev *pdev)
-> >  	if (pci_match_device_domain(pdev, DOMAIN_BUS_PCI_DEVICE_MSIX))
-> >  		msi_remove_device_irq_domain(&pdev->dev, MSI_DEFAULT_DOMAIN);
-> >  
-> > -	return pci_create_device_domain(pdev, &pci_msi_template, 1);
-> > +	return pci_create_device_domain(pdev, &pci_msi_template, hwsize);
-> >  }
-> >  
-> >  /**
-> > diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-> > index 8b8848788618..81891701840a 100644
-> > --- a/drivers/pci/msi/msi.c
-> > +++ b/drivers/pci/msi/msi.c
-> > @@ -449,7 +449,7 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
-> >  	if (rc)
-> >  		return rc;
-> >  
-> > -	if (!pci_setup_msi_device_domain(dev))
-> > +	if (!pci_setup_msi_device_domain(dev, nvec))
+> > While fixing it it would be good to make them consistent unless there is
+> > a reason why they should not.
 > 
-> If pci_msi_vec_count(dev) > maxvec we would cap nvec and size the
-> domain with the capped value.
+> This is indeed odd, but that'd be a separate fix. Something like:
 > 
-> In __pci_enable_msix_range() we are sizing the device according to
-> pci_msix_vec_count(dev) regardless of maxvec, if I read the code correctly.
+> diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
+> index 2090eef64b14..6ede55a7c5e6 100644
+> --- a/drivers/pci/msi/msi.c
+> +++ b/drivers/pci/msi/msi.c
+> @@ -439,9 +439,6 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
+>  	if (nvec < minvec)
+>  		return -ENOSPC;
+>  
+> -	if (nvec > maxvec)
+> -		nvec = maxvec;
+> -
+>  	rc = pci_setup_msi_context(dev);
+>  	if (rc)
+>  		return rc;
+> @@ -449,6 +446,9 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
+>  	if (!pci_setup_msi_device_domain(dev, nvec))
+>  		return -ENODEV;
+>  
+> +	if (nvec > maxvec)
+> +		nvec = maxvec;
+> +
+>  	for (;;) {
+>  		if (affd) {
+>  			nvec = irq_calc_affinity_vectors(minvec, nvec, affd);
 > 
-> While fixing it it would be good to make them consistent unless there is
-> a reason why they should not.
 
-This is indeed odd, but that'd be a separate fix. Something like:
+Actually, let's lump the two together. There is no reason to wait.
 
-diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-index 2090eef64b14..6ede55a7c5e6 100644
---- a/drivers/pci/msi/msi.c
-+++ b/drivers/pci/msi/msi.c
-@@ -439,9 +439,6 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
- 	if (nvec < minvec)
- 		return -ENOSPC;
- 
--	if (nvec > maxvec)
--		nvec = maxvec;
--
- 	rc = pci_setup_msi_context(dev);
- 	if (rc)
- 		return rc;
-@@ -449,6 +446,9 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
- 	if (!pci_setup_msi_device_domain(dev, nvec))
- 		return -ENODEV;
- 
-+	if (nvec > maxvec)
-+		nvec = maxvec;
-+
- 	for (;;) {
- 		if (affd) {
- 			nvec = irq_calc_affinity_vectors(minvec, nvec, affd);
+	M.
 
 -- 
 Jazz isn't dead. It just smells funny.
