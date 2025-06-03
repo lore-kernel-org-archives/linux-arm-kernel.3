@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F56CC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 16:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA27C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 16:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+8j0QbVPvAazw41RnGapY/bRkRu1YdVj+NJ6gNt84M=; b=t3NWlhzIbqA6BTLCnYzfJHb6Ne
-	4CAdedfC1GY2s7K3L+u/ZJiyK5p0jBoOa9M2gPyCLIQFebresyzifyG/+dTw/bVQVh0xKXqj5XDb+
-	ZZP40x1dxKzeDKgxfDA66KskgVEfAKltoDeGBncK+cmCPJF8UP9L5ILlKagHaU+2v1P9aYDNSrcK6
-	zW/5GAJrfcZ76JQh17PiwGJRrtTh27wWUEcLNmqAhNorF1A3O/3aBMD8XNq3YYW9IbNeEBlLXOTV4
-	XkcTsKLB0jD2YWXhc81o2jxjjyDBZtxmjewWpIu5wMfCD3zip9GslSbEDptSznoGbsUaYW47GmJDU
-	wSQAQvYg==;
+	bh=0lYSal3GcLPOQfw4qEh69xNQYPJhEpOr8ui06S4slnE=; b=vjMoYC2cSIf/6g81k8iz1mS0JL
+	VIgbqnyRGfn+nA/Trkfk7HQpnbSgM5FeSyPvEnlPv8IR26bUle7OOE4472MV3iXWZUUsidT0NyBPM
+	RO+PtN1W1lwOhNAjXaTGypiC71ZWO5CoV0UuQdeDzrHV9zQJwVXpMtm/FRUq8qbtI34kwZcQBf4u3
+	5XFzwwKmq1D9KNw1d636Z+ReO4jlD2Ap/yZKoHih7UtXpSa1/LUfISRNzuy9soL4gEAOpj0Ywj+zL
+	PawD/KMvDvTGsdvPUYJnDw5Rj1VXvyCFnIntPkksud61vvQZfI6rXkWPMtNS+YDKzfxNqBjpUjMtr
+	100lYr/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMU4n-0000000BMNv-47YR;
-	Tue, 03 Jun 2025 16:01:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uMU7U-0000000BMk9-3uRu;
+	Tue, 03 Jun 2025 16:04:08 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTxI-0000000BKs5-0lX3
+	id 1uMU5H-0000000BMVH-2eUv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 15:53:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2AF749C66;
-	Tue,  3 Jun 2025 15:53:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C608BC4CEED;
-	Tue,  3 Jun 2025 15:53:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748966015;
-	bh=ujm9MuI/e9VolCk4e0eb1/DBEfCNPcM/FoVXZk/NeXE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bUPrDeKN6S5ATwkVju4UuE4PGM3yT9mWmZc47U6x6ymNepe8Gv/IW133YFTeBEo/T
-	 mnbFsDX11nCCrBnr+7UZXR+8fDAiEeeDkOBC6Voi4Mr+t8pGTQemHkMHUQYu1HOHPV
-	 iSiMGus9LNTzHAQnu/Eq4CxyS8Cxd9WFY4k29P2UGrirQARIhAo6hXLRzZ5vyksPjD
-	 LRYWBBdAF2u64Nt+OvCOJEPXAI2wu1MpPPMHTNRPI8SZBa9N7eJqhZ/pXj5JuwcyLw
-	 wFSM/vfOvFIBFt229CJhraqS3Q0mpDEWujvVM3Y2J21iiiCQc9K6romdITw/Snp9Ez
-	 uP9JCowCZNdWA==
-Date: Tue, 3 Jun 2025 17:53:26 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Peter Maydell <peter.maydell@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, andre.przywara@arm.com,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
-Message-ID: <aD8adnQWcII5XO2J@lpieralisi>
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
- <aDhWlytLCxONZdF9@lpieralisi>
- <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
- <aD6ouVAXy5qcZtM/@lpieralisi>
- <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
+	Tue, 03 Jun 2025 16:01:52 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 553G1mhQ510791;
+	Tue, 3 Jun 2025 11:01:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1748966508;
+	bh=0lYSal3GcLPOQfw4qEh69xNQYPJhEpOr8ui06S4slnE=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=Avd+XDHTrY0/zOX1CeCoQt0XfNmtcLHzvHkPTR3CxII5xG4AJeVtqAP1az0K8c6wn
+	 ZwTjjluDv03dLCE069CMIGGnFF3VfIzr10swomSSwvbJW1twfeuuYDjwtaOIsV40qN
+	 ktLowLSeipC8ausfTp9cDy9na4xHaNjknVO1RXz8=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 553G1mh73862105
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 3 Jun 2025 11:01:48 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
+ Jun 2025 11:01:47 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 3 Jun 2025 11:01:47 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 553G1l0L667428;
+	Tue, 3 Jun 2025 11:01:47 -0500
+Date: Tue, 3 Jun 2025 11:01:47 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Udit Kumar <u-kumar1@ti.com>
+CC: <vigneshr@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-kernel@vger.kernel.org>, <b-padhi@ti.com>
+Subject: Re: [RESEND PATCH] arm64: dts: ti: k3-j784s4-mcu-wakeup: Configure
+ wkup_uart0 with clock settings
+Message-ID: <20250603160147.47orn74obh2lz3qm@rethink>
+References: <20250603042448.783956-1-u-kumar1@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
+In-Reply-To: <20250603042448.783956-1-u-kumar1@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_085336_268676_70C64089 
-X-CRM114-Status: GOOD (  44.66  )
+X-CRM114-CacheID: sfid-20250603_090151_764369_7E86785F 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,119 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 10:15:25AM -0500, Rob Herring wrote:
-> On Tue, Jun 3, 2025 at 2:48 AM Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> >
-> > On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
-> > > On Thu, 29 May 2025 at 13:44, Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> > > >
-> > > > [+Andre, Peter]
-> > > >
-> > > > On Tue, May 13, 2025 at 07:47:54PM +0200, Lorenzo Pieralisi wrote:
-> > > > > +      reg:
-> > > > > +        minItems: 1
-> > > > > +        items:
-> > > > > +          - description: IRS control frame
-> > > >
-> > > > I came across it while testing EL3 firmware, raising the topic for
-> > > > discussion.
-> > > >
-> > > > The IRS (and the ITS) has a config frame (need to patch the typo
-> > > > s/control/config, already done) per interrupt domain supported, that is,
-> > > > it can have up to 4 config frames:
-> > > >
-> > > > - EL3
-> > > > - Secure
-> > > > - Realm
-> > > > - Non-Secure
-> > > >
-> > > > The one described in this binding is the non-secure one.
-> > > >
-> > > > IIUC, everything described in the DT represents the non-secure address
-> > > > space.
-> > >
-> > > The dt bindings do allow for describing Secure-world devices:
-> > > Documentation/devicetree/bindings/arm/secure.txt has the
-> > > details. We use this in QEMU so we can provide a DTB to
-> > > guest EL3 firmware that tells it where the hardware is
-> > > (and which EL3 can then pass on to an NS kernel). It would
-> > > be helpful for the GICv5 binding to be defined in a way that
-> > > we can do this for a GICv5 system too.
-> >
-> > It would be good to understand what DT {should/should not} describe and
-> > whether this DT usage to configure firmware is under the DT maintainers
-> > radar or it is an attempt at reusing it to avoid implementing a
-> > configuration scheme.
-> >
-> > Rob, Krzysztof,
-> >
-> > Any thoughts on the matter please ?
+On 09:54-20250603, Udit Kumar wrote:
+> From: Bhavya Kapoor <b-kapoor@ti.com>
 > 
-> I'm all for firmware using DT, but using a single DT for all
-> components with an ABI between all components is an impractical dream.
-> You can take that a step further even with a single DT for all
-> processors in a system (aka System DT). Ultimately, the DT is a view
-> of the system for a client (OS). Different views may need different
-> DTs.
-
-Specifically, for IRS/ITS frames then - what the current schema does is
-correct, namely, it does _not_ spell out whether the IRS/ITS config
-frame is NS/S/Realm/Root interrupt domain, that's information that the
-client implicitly assumes.
-
-Are we OK with this approach ? This would leave open the possibility
-of having a DT per security-state.
-
-If in the DT schema I define eg reg -> "IRS NS config frame" by
-construction the binding can't be used for anything else.
-
-Please let me know if we are in agreement on this matter.
-
-Lorenzo
-
-> u-boot and Linux sharing a DT makes sense as they have the same world
-> view. Secure and NS not so much.
+> This commit adds the assigned-clocks and assigned-clock-parents
+> properties for wkup_uart0 in J784S4. Specifically, the assigned-clocks
+> property is set to reference the clock identified by
+> "wkup_usart_mcupll_bypass_out0", ensuring the UART operates with the
+> correct clock source.
 > 
-> > [...]
-> >
-> > > The tempting thing to do is to have regs[] list the frames
-> > > in some given order, but the spec makes them not simple
-> > > supersets, allowing all of:
-> > >  * NS
-> > >  * S
-> > >  * NS, S, EL3
-> > >  * NS, Realm, EL3
-> > >  * NS, Realm, S, EL3
-> >
-> > Maybe reg-names can help ? Even though first we need to understand
-> > what resources should be described in DT.
-> >
-> > Current bindings are reviewed and I am not keen on dragging this
-> > discussion on forever - the information the kernel requires is there,
-> > I'd like to bring this to a close.
-> >
-> > Thanks,
-> > Lorenzo
-> >
-> > >
-> > > secure.txt says:
-> > > # The general principle of the naming scheme for Secure world bindings
-> > > # is that any property that needs a different value in the Secure world
-> > > # can be supported by prefixing the property name with "secure-". So for
-> > > # instance "secure-foo" would override "foo".
+> The assigned-clock-parents property specifies "wkup_usart_clksel_out0"
+> as the parent clock. This configuration is critical for establishing
+> the proper clocking hierarchy, enabling the UART device to function
+> reliably across different baud rates.
+
+Please fix the commit message - not clear what specifically in the clock
+hierarchy does permit the multiple baud rates.
+
 > 
-> Today I would say a 'secure-' prefix is a mistake. To my knowledge,
-> it's never been used anyways. But I don't have much visibility into
-> what secure world firmware is doing.
+> Signed-off-by: Bhavya Kapoor <b-kapoor@ti.com>
+
+You need to add your SoB.
+> ---
+> Link to v1: https://lore.kernel.org/all/20241009072056.3511346-1-b-kapoor@ti.com/
+
+Also as Baleswar stated, the $subject needs to be fixed.
 > 
-> > >
-> > > So maybe we could have
-> > >  reg : the NS frame(s)
-> > >  secure-reg : the S frame(s)
-> > >  realm-reg : the Realm frame(s)
-> > >  root-reg : the EL3 frame(s)
+>  arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> Here's why. It really doesn't scale.
+> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
+> index 52e2965a3bf5..1146bc5990ea 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
+> @@ -310,6 +310,8 @@ wkup_uart0: serial@42300000 {
+>  		interrupts = <GIC_SPI 897 IRQ_TYPE_LEVEL_HIGH>;
+>  		clocks = <&k3_clks 397 0>;
+>  		clock-names = "fclk";
+> +		assigned-clocks = <&k3_clks 397 0>;
+> +		assigned-clock-parents = <&k3_clks 397 1>;
+>  		power-domains = <&k3_pds 397 TI_SCI_PD_EXCLUSIVE>;
+>  		status = "disabled";
+>  	};
+> -- 
+> 2.34.1
 > 
-> Rob
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
