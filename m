@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D91C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 10:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8E0C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 10:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYWtWFEmKq2Yx9UsNl2p+/Em17/141cqEXY03gfpnRY=; b=oBoWMj/4Qxy16NapjqV1JjO4eP
-	AVw/CmViT3eIagRSnGw8F3bklLXprNIu3TGOVrqYHiN/FPSCxZK1pumPW/VsWIoW+922Yp/YusHr2
-	F4LHziRaIiaxvhgljCU1eXp+kZdnV8RtGQOxMm5OccTdwK75+KVZqxobe6OeBxuhl+fVt0nkDhKHE
-	DY2DLZP5cODcjr6YPqVdZfPcvJ3e3oPApBsPglUgjJET51zTnKRzEcy92toMxK/VIZS9e6hyeSWem
-	cxE+75tRw+3gHx9zNhiBE6/fdVR+xN+6RGoOlUx/HgKioa33NCrVwb44KQXdXHPXdylXGIfdAv4UB
-	ra092Xyw==;
+	bh=62Ft/vImy5rBV/mUs3JnM8tBDMdOsWuSh6Qgln9xZFg=; b=eY/D6SH2xG19NKrDfCxDmb92Dz
+	UmN/e33NSqaE2iq7zM1L9EG5N89c+Um5paUqX7yJOQbs4uHZPtw5HzOHGja+0d52jSqV55Bq/Mnon
+	PVFJlEMX0g9S62agvkKnzq+yg4YovFJAH4aw0CaKSe5ZCa+/RqLjpBmwrhnAWtx1REzO3c5vsKu05
+	TRdoXubonDPmgHOrK5pQoHChHKgaOITwABsh0ZHKjd4i383Ptq3bleDKCaTv6UjbYzTnYsrxuYKMx
+	vy6lHPQcKmfQDFj39Nl2KSiqmYdriVt2bahR9AgLhDR9yppu7nr39oQSydR4GpAgEMcejGpZb4J5h
+	WTBpqAsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMPBF-0000000AhF4-3YXx;
-	Tue, 03 Jun 2025 10:47:41 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uMPBQ-0000000AhQR-2oRd;
+	Tue, 03 Jun 2025 10:47:52 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMONT-0000000Acxv-4ALm
+	id 1uMOdR-0000000Aefe-48U7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 09:56:17 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5539uCv7432800;
-	Tue, 3 Jun 2025 04:56:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748944572;
-	bh=jYWtWFEmKq2Yx9UsNl2p+/Em17/141cqEXY03gfpnRY=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=qyVdNFyYpJz2psiS+ZiHYSK4ZsvNpI5wSfT0DGHO80u7yF1fueX0/6/IyGk/3d7IG
-	 jxt4D73VZwdNsuALhTtLWzciYNs6DPKabJj7GMcaI+aze75mifQXWotmvVMDNMD4Ge
-	 nFni7S62XRCzxo1U7Fb2YVvlblo6mqjOyJnb63oY=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5539uCuU3447461
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 3 Jun 2025 04:56:12 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
- Jun 2025 04:56:12 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 3 Jun 2025 04:56:12 -0500
-Received: from localhost (jayesh-hp-z2-tower-g5-workstation.dhcp.ti.com [172.24.227.14])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5539uB4v254810;
-	Tue, 3 Jun 2025 04:56:11 -0500
-From: Jayesh Choudhary <j-choudhary@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <s-vadapalli@ti.com>, <rogerq@kernel.org>,
-        <afd@ti.com>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <j-choudhary@ti.com>
-Subject: [PATCH 1/4] arm64: dts: ti: k3-j721e-main: Make the "scm_conf" node a "simple-bus"
-Date: Tue, 3 Jun 2025 15:26:06 +0530
-Message-ID: <20250603095609.33569-2-j-choudhary@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250603095609.33569-1-j-choudhary@ti.com>
-References: <20250603095609.33569-1-j-choudhary@ti.com>
+	Tue, 03 Jun 2025 10:12:47 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5538FHZY021569;
+	Tue, 3 Jun 2025 12:12:36 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	62Ft/vImy5rBV/mUs3JnM8tBDMdOsWuSh6Qgln9xZFg=; b=k9+azea52CfTxm0d
+	cX2WDi4IEp+DlQLHan1cN1qO+INAZoosHrBW4Q9MhR/YnznpVFNECKa6nNZgwUHl
+	q0Cg2z72ouTJqooeTMZ3fMK4Xq7KVzeXtVysDvVAeeYHTTVSO1CD1aQF7cGV7wMs
+	M9fvgJF2JaaEnT3PQJTke/jE7yJy90l46iPWYBE8+xcCLQFvG0opArsFATqYCXsR
+	91I6SWhXMtsVLfRpjflQ6DszJxUZFUYHJ6Y0Zn3+rtZRNJ5c42YgKj2C7sOd69AW
+	N5cdPr4OGbJ5hZjO93cptW5wLYpZwSSP3yWcUwG0rRHMLxbBZ0br27OfxOtHpbxZ
+	SEqaFA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 471g90bced-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 03 Jun 2025 12:12:36 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 81EC740059;
+	Tue,  3 Jun 2025 12:11:19 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C1F62A8925E;
+	Tue,  3 Jun 2025 12:10:10 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 3 Jun
+ 2025 12:10:10 +0200
+Received: from localhost (10.252.31.160) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 3 Jun
+ 2025 12:10:10 +0200
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Jens Wiklander <jens.wiklander@linaro.org>,
+        "Rob Herring" <robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Conor Dooley" <conor+dt@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Subject: [RESEND PATCH v16 1/6] remoteproc: core: Introduce rproc_pa_to_va helper
+Date: Tue, 3 Jun 2025 12:08:03 +0200
+Message-ID: <20250603100808.1074812-2-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250603100808.1074812-1-arnaud.pouliquen@foss.st.com>
+References: <20250603100808.1074812-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Originating-IP: [10.252.31.160]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-03_01,2025-06-02_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_025616_076212_53022E6E 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250603_031246_338308_478A9749 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +103,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "scm_conf" bus need not be "syscon". Now that we have "pcie*_ctrl"
-child nodes for "ti,syscon-pcie-ctrl" property in "pcie" nodes, change
-"scm_conf" node to "simple-bus".
-Also remove "reg" property as it is not needed by "simple-bus".
+When a resource table is loaded by an external entity such as U-boot or
+OP-TEE, we do not necessarily get the device address(da) but the physical
+address(pa).
+This helper performs similar translation than the rproc_da_to_va()
+but based on a physical address.
 
-Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 ---
- arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/remoteproc/remoteproc_core.c | 46 ++++++++++++++++++++++++++++
+ include/linux/remoteproc.h           |  1 +
+ 2 files changed, 47 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-index 5bd0d36bf33e..4e01c1265ae9 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
-@@ -37,9 +37,8 @@ atf-sram@0 {
- 		};
- 	};
+diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+index b21eedefff87..79aded30fc87 100644
+--- a/drivers/remoteproc/remoteproc_core.c
++++ b/drivers/remoteproc/remoteproc_core.c
+@@ -230,6 +230,52 @@ void *rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem)
+ }
+ EXPORT_SYMBOL(rproc_da_to_va);
  
--	scm_conf: scm-conf@100000 {
--		compatible = "ti,j721e-system-controller", "syscon", "simple-mfd";
--		reg = <0 0x00100000 0 0x1c000>; /* excludes pinctrl region */
-+	scm_conf: bus@100000 {
-+		compatible = "simple-bus";
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 		ranges = <0x0 0x0 0x00100000 0x1c000>;
++/**
++ * rproc_pa_to_va() - lookup the kernel virtual address for a physical address of a remoteproc
++ * memory
++ *
++ * @rproc: handle of a remote processor
++ * @pa: remoteproc physical address
++ * @len: length of the memory region @pa is pointing to
++ * @is_iomem: optional pointer filled in to indicate if @da is iomapped memory
++ *
++ * This function is a helper function similar to rproc_da_to_va() but it deals with physical
++ * addresses instead of device addresses.
++ *
++ * Return: a valid kernel address on success or NULL on failure
++ */
++void *rproc_pa_to_va(struct rproc *rproc, phys_addr_t pa, size_t len, bool *is_iomem)
++{
++	struct rproc_mem_entry *carveout;
++	void *ptr = NULL;
++
++	list_for_each_entry(carveout, &rproc->carveouts, node) {
++		int offset = pa - carveout->dma;
++
++		/*  Verify that carveout is allocated */
++		if (!carveout->va)
++			continue;
++
++		/* try next carveout if da is too small */
++		if (offset < 0)
++			continue;
++
++		/* try next carveout if da is too large */
++		if (offset + len > carveout->len)
++			continue;
++
++		ptr = carveout->va + offset;
++
++		if (is_iomem)
++			*is_iomem = carveout->is_iomem;
++
++		break;
++	}
++
++	return ptr;
++}
++EXPORT_SYMBOL(rproc_pa_to_va);
++
+ /**
+  * rproc_find_carveout_by_name() - lookup the carveout region by a name
+  * @rproc: handle of a remote processor
+diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+index b4795698d8c2..8fd0d7f63c8e 100644
+--- a/include/linux/remoteproc.h
++++ b/include/linux/remoteproc.h
+@@ -690,6 +690,7 @@ int rproc_detach(struct rproc *rproc);
+ int rproc_set_firmware(struct rproc *rproc, const char *fw_name);
+ void rproc_report_crash(struct rproc *rproc, enum rproc_crash_type type);
+ void *rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem);
++void *rproc_pa_to_va(struct rproc *rproc, phys_addr_t pa, size_t len, bool *is_iomem);
+ 
+ /* from remoteproc_coredump.c */
+ void rproc_coredump_cleanup(struct rproc *rproc);
 -- 
-2.34.1
+2.25.1
 
 
