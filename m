@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DA46C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 12:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7339AC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 12:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YsyA7tNc0e94qj6qio3wOBZShN/xA7ABzjpd8r1yO1E=; b=1DWhknI6g0EBG2Aw3L8N5SJQWc
-	fnZy1iBQKJDbGCxJM2YEOUYS2QcNbRoI87LOigQBqjfUVrhtKpBIQBn6IM/OPBOS9fuN/5gGDPyeA
-	PLHvNWmFyWGGhhU0JHkWGMzxCXPcNZlrS03uAEXJK+dZofajnDSdgeb31LQqr8510B3NcsUZvy8rG
-	B3djWFHedXjmSdUgpXENIVG2N9LKlkEgGLvzjyDbo969iT6Wjz9U83sa7S9YtP4DvjHf4+H7VQPdW
-	y3JNJuQBGlY3bomzcaTvv5UJ7QKgFZZX7PoR6TlY4S/XLc7rjPMME2G1gIpz2qtvnRhM5wACE6O8t
-	5ojITM2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3x2BJVRo9MNnC4r9i3H/JeHovKkDhctghBqHffiq8uA=; b=JXfjrxFd0AnttPGXjpbbmMh+oT
+	hq44WrHIwhL1M5VkZwU+l2JceWvTF8tKyEq9Q+D04+3JJYvjsIPhI+Ad9utBhCSigH85EgYhH5uqN
+	snrD+shUc+LGK46tP/4EXSzpj5IsUIxZuyY8E2OjpVSwQljGb/4lqSHhufNyKVQV4s1sj70yEsQ2e
+	0/a+wpiLVVlPbtDiU0ic+dUsuwr8O49woiN6hyWhETFQMzOxg4iF7QvjxJ4jLRYeLIDP4oJswUdrX
+	E3ouV4z4RD9SQLWzmGIjndFrWl5Sk8IiANexM/RN95pjtlWLQhr9Aziqh4iUkiX9wZRkHpesKYJYw
+	QIrx90Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMQl2-0000000AvOk-1l8m;
-	Tue, 03 Jun 2025 12:28:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMQhb-0000000Auaw-1tro
+	id 1uMQtP-0000000AwCH-2iF5;
+	Tue, 03 Jun 2025 12:37:23 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMQrC-0000000Aw12-2nXz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 12:25:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F32812FC;
-	Tue,  3 Jun 2025 05:24:52 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 873033F59E;
-	Tue,  3 Jun 2025 05:25:08 -0700 (PDT)
-Date: Tue, 3 Jun 2025 13:25:04 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 2/2] coresight: add coresight Trace Network On Chip
- driver
-Message-ID: <20250603122504.GA8020@e132581.arm.com>
-References: <20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com>
- <20250522-trace-noc-v6-2-f5a9bcae90ee@quicinc.com>
- <3a19197d-b534-458c-b4d7-51fd9d2c954d@arm.com>
- <40599afc-4342-467c-87d8-3f53cbcfd242@quicinc.com>
- <20250523085655.GD2566836@e132581.arm.com>
- <4d54e620-abb9-4a36-bab0-3970c7e30a5f@arm.com>
- <62d1e4cb-cc13-4333-a160-66a280dca5f6@quicinc.com>
- <17abf8b5-8a2e-4573-a870-e2f98ad866a6@arm.com>
- <20250530125944.GB666854@e132581.arm.com>
- <eb7dbabf-d878-468b-9945-36d8b14a4e65@quicinc.com>
+	Tue, 03 Jun 2025 12:35:08 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bBVSK3nP7z1BFhD;
+	Tue,  3 Jun 2025 20:31:13 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id 78D9318007F;
+	Tue,  3 Jun 2025 20:35:01 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 3 Jun 2025 20:35:00 +0800
+Subject: Re: [PATCH v2 0/3] KVM: arm64: selftests: arch_timer_edge_cases fixes
+To: Sebastian Ott <sebott@redhat.com>
+CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Colton Lewis <coltonlewis@google.com>, Ricardo Koller <ricarkol@google.com>,
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+References: <20250527142434.25209-1-sebott@redhat.com>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <adf8b877-7ca2-f60b-fb59-578c70d0e3c0@huawei.com>
+Date: Tue, 3 Jun 2025 20:35:00 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <eb7dbabf-d878-468b-9945-36d8b14a4e65@quicinc.com>
+In-Reply-To: <20250527142434.25209-1-sebott@redhat.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_052511_537925_22E968AD 
-X-CRM114-Status: UNSURE (   7.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250603_053506_863988_F8E813C1 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 11:22:58AM +0800, Yuanfang Zhang wrote:
+Hi Sebastian,
 
-[...]
+On 2025/5/27 22:24, Sebastian Ott wrote:
+> Some small fixes for arch_timer_edge_cases that I stumbled upon
+> while debugging failures for this selftest on ampere-one.
+> 
+> Changes since v1: modified patch 3 based on suggestions from Marc.
+> 
+> I've done some tests with this on various machines - seems to be all
+> good, however on ampere-one I now hit this in 10% of the runs:
+> ==== Test Assertion Failure ====
+>   arm64/arch_timer_edge_cases.c:481: timer_get_cntct(timer) >= DEF_CNT + (timer_get_cntfrq() * (uint64_t)(delta_2_ms) / 1000)
+>   pid=166657 tid=166657 errno=4 - Interrupted system call
+>      1  0x0000000000404db3: test_run at arch_timer_edge_cases.c:933
+>      2  0x0000000000401f9f: main at arch_timer_edge_cases.c:1062
+>      3  0x0000ffffaedd625b: ?? ??:0
+>      4  0x0000ffffaedd633b: ?? ??:0
+>      5  0x00000000004020af: _start at ??:?
+>   timer_get_cntct(timer) >= DEF_CNT + msec_to_cycles(delta_2_ms)
+> 
+> This is not new, it was just hidden behind the other failure. I'll
+> try to figure out what this is about (seems to be independent of
+> the wait time)..
 
-> Using both dynamic and self-contained IDs within the same system can result in ID conflicts, which may cause decoding failures.
+Not sure if you have figured it out. I can easily reproduce it on my box
+and I *guess* it is that we have some random XVAL values when we enable
+the timer..
 
-If so, please follow up Suzuki's suggestion to expose Sysfs interface
-in TNOC device node.
+test_reprogramming_timer()
+{
+	local_irq_disable();
+	reset_timer_state(timer, DEF_CNT);
 
-Leo
+	/* Program the timer to DEF_CNT + delta_1_ms. */
+	set_tval_irq(timer, msec_to_cycles(delta_1_ms), CTL_ENABLE);
+
+	[...]
+}
+
+set_tval_irq()
+{
+	timer_set_ctl(timer, ctl);
+
+	// There is a window that we enable the timer with *random* XVAL
+	// values and we may get the unexpected interrupt.. And it's
+	// unlikely that KVM can be aware of TVAL's change (and
+	// re-evaluate the interrupt's pending state) before hitting the
+	// GUEST_ASSERT().
+
+	timer_set_tval(timer, tval_cycles);
+}
+
+I'm not familiar with the test so I'm not 100% sure that this is the
+root cause. But I hope this helps with your analysis ;-) .
+
+Thanks,
+Zenghui
 
