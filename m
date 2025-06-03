@@ -4,90 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE1CC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E995CC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DHNAlRur4Mzy55glFeFmX3daSkoJIVSbM9jw3Ca5CJo=; b=P5Y/VFTl4hoOUivgQ/uS5dnzbg
-	yXkjscPN3V8Dp7swmCTJFD1ABJdg3XSI7/HGMjH/Y6DNZl7U8Pv4FuuU1gy6gaS0OcRbYRfblfciQ
-	yEWYILnQYJ+zDKH7TnYH2IIOAOtQ+rx0ahleYcvTNzBcee8pqFYEoGlrg6K7G+AOrbJv0rC8pNKXH
-	hJzVRhfdJFrJABecNxjQ5imZGXJuPDU46LQDK1KiSiMr3AWes8aS/eYPTa5XjbhJbKqsXFFGwmohv
-	wCdpA98rKWPaqhzhqa6VMIHf1XIRINC42f5SUA5OLbQSS4XkqliPiaScXbcdkKTFEORpEEE9LBQYK
-	GCkEfY2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1o56m/f/CczpqNkoEOjwYkr+X6qyOA/Dxo/4e3Ca8fc=; b=bAtYWOrD3EH7bEws+a7lJ4JR6Y
+	p8KsnNgirq+wJI56/frrbBd1ZUghZ21jrcYx6PJGM1aGH9HpJM0fCRCXLjPFrjQSw+pcxUkaOtxh6
+	nv0/FKHIlS7PHYQ1499CFyQUWD2+kLpOtuY3chNPVWNxh13BQaMD9KKHsvCnT7YYWWYtvAPM9uOqy
+	WiZkJ9wOb3UOjW6dFLnVhSg1THfk/i7d+FD01FEmjTOCgdU2Z+/lURHb03VADVvRcE+Gla/E+UhRt
+	DgKTrDIRfQUus2A1gw74lyK59Oj6z1jO0k6Fgz/8PYRcGP6fu70VoXCKZiWDUPVzG0O3sF9mcDh1D
+	rWTxLQ6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMT1L-0000000BD79-1kyB;
-	Tue, 03 Jun 2025 14:53:43 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uMT5i-0000000BDUX-07ji;
+	Tue, 03 Jun 2025 14:58:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSxF-0000000BCcA-243u
+	id 1uMT2r-0000000BDGg-015n
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 03 Jun 2025 14:55:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1o56m/f/CczpqNkoEOjwYkr+X6qyOA/Dxo/4e3Ca8fc=; b=Zmqc+FiYy0jj+UoGyIgN1rLsxk
+	6j4bMsTHA23FSvfNQl+d0DJo6VclmyhDMz/irMVnF8SnQNn1FngNOI516cF2ujyITvnAVLdLE+RHa
+	KTrFcYmnrlaTtpgXH1DN8J9ITYdjNneSi6KbVx+w/hANvd/OQ0hIzzRu7sMTE5CLLs+0fvxMOP9RI
+	tpbIXMpRmTnbJ6OTeMLq0iMMhTLGikmElarZ+ccmGjQxH15AGCunyakXYr+KSa6YOnv1ymVvFtoAD
+	gDOKcWjByokTnRNTKJvTXl5wmqHyOxIApKMBRmZ+afwoxyFzEPdFIZWDL/Ssib0UDDpo1temJPQMn
+	W8QX/5Eg==;
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMT2o-00000000nKh-0PGs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 14:49:30 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-450caff6336so35150385e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 07:49:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748962168; x=1749566968; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=DHNAlRur4Mzy55glFeFmX3daSkoJIVSbM9jw3Ca5CJo=;
-        b=q1/0YioLY31+5LZ34v16aY+A/gJUuHuzA1DRRyzoK8Zqxd3E6mxK/J7k1Su1qGLYvp
-         tOBSqaeoIPgJHYlsVrG7f7m42Ua9cXx/lHFZ/tfj30AVU9PRUov9ZPESF4lwZxqNj3TE
-         b6Alcem1ugWHJ+Nmk5j+wWmXKW51gM0x+handfBo90Y9JkIv9g0ZhQGteZbxKawRJzYJ
-         mVaMgOymE8hmT9fmYPIQYoRTmnWn3umGJQ7daZArt3YaJVnLW26Q9QS17WqJ8ai/+EE0
-         JG9ffeftzIvOr1wXRcxJ/5mGThjVEhtjtJQvmi71RtJp8k/HbwKGvVDrkDB4UdyhbzY1
-         XlhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748962168; x=1749566968;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DHNAlRur4Mzy55glFeFmX3daSkoJIVSbM9jw3Ca5CJo=;
-        b=F5S5vFdZ5d/zWV5M3kxQHPJQeW0/+Avl1M7+xjgiGpzIINmVFgJRBDWdrTBXmasjgY
-         vElGeDEfvJzDE9KDfM1RmslYL7aJpEkeg+jPaD6KBwBgUDO8t8BcFtGZkPR2lnmBW6yQ
-         x1nNQqRvHYPDlnqwjUYHGHiCIhkoWwrjbhzS6yJ8EJhjbX9MUgDB/I5va0O2Emct+0n+
-         lQ3Ik5grKCY4oSdQyYV6bymhVS7NDQP9Kz2ziAS2Tg1KzjJuz5pUihlOOdeFwtB6jrTn
-         t9rfs9wRe8iHd3RI6TAcKtLtVOf8n/PVHCeN5dPVtwEbr1eCJ44VqtMfday4/wXstWz9
-         AElQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV6u4J/mMxN7oAYKQ2xoOQ+Y/+EAa+vkf79k9KpxCN1yHQjGCuRyzGK6q8By5chArB6aA9bjPXNn7j1xO2K82Ze@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywzjr9DS/qLoc6flQ4/bWdByhRBc8OUEtp1dcM1ZD18cO0Md87B
-	wwJ+fd8pZYvvTf0mRHrsXWUFU5x3VMyXwwjYZkoYpd9EgJ3nxXu58869Y54VWjzZfk8=
-X-Gm-Gg: ASbGncvcv7ixO5BK8G2ZN4unHNHBSf6Q2ftDxkrKOzlj5IrHVrsTfvfN7Ba4+IzJxxs
-	tFR4dr5aXIY4RAnDbOvv4O8iAQjHpViGEP7gmcZeK3BVTjaS73SP6ByLHZjgtEKQGkbatRU83G4
-	+1MQCD4MGs1gN3p3+IkQ7nf/SzqgLYkC24XLFXRZ/I4+XqrckPeFsuzLUm/djj08W8c56d4TE14
-	wRAAhv6mSzDw2UDIgVkAH17fjN0EaZXEJNINGw0uiEZOAvioRn9BS6a58LT9gqiY33l6lql9jU4
-	/WJ9t+9PLbz0834bM+UhS3/rGivuCBIrPl6PrzbGpbEAJXtNMxabxpTyq89810dVa0g=
-X-Google-Smtp-Source: AGHT+IECmBPCBSD7Uesgd5QQryXEzom9/UC61J2dkhS1V9fif6y3urAVFESoNt+7xicsEWyGs2yM7g==
-X-Received: by 2002:a05:600c:348c:b0:450:d07e:ee14 with SMTP id 5b1f17b1804b1-450d8874cecmr172725155e9.17.1748962167869;
-        Tue, 03 Jun 2025 07:49:27 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d7fc281csm172222795e9.40.2025.06.03.07.49.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Jun 2025 07:49:27 -0700 (PDT)
-Message-ID: <788e698d-aa1a-47ba-829f-aef9cd4b7417@linaro.org>
-Date: Tue, 3 Jun 2025 15:49:26 +0100
+	Tue, 03 Jun 2025 14:55:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Qlv3xwHGxI21zL3ISmGcpDkzTbIfOBy8rTDg68HCl/1kzZlHQWm1I9e2HYs/6/Y0QjecDEs8ldFnw1zqz0Vq+QcGtM4Tm1nxaxZM70g4vICIOTn2CtKhFwyqz2hUP2Oa/vhFdj2oPKtxb2TINtPaBNZtUOpXQG5Fjo4NPWdev5gVBzI2jGxw7PuxDYO4nTFy08tiZy1blSkSxazJJtcrXeL1MHtwi5o4lLIL3nU6xag1towUfXuiETbsnZ0P9Cp2npY5Xd72hULWWUCYW0tR5Xcz4tq0e3YsN8UJAfTUg3AimFd6lU3WhLv4G+Hm2vei1nf6E+z8vzeHRrCUlwZngQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1o56m/f/CczpqNkoEOjwYkr+X6qyOA/Dxo/4e3Ca8fc=;
+ b=r5CwDyQmNdXJ5eRlB3xqLwuAI2SMtIeq6I1Z/u9jP0Wi6icL2+QXJ72gTMzacXgKCoGI1D9TYCpANDafXFEe2fXbatRRzxohA4paLkd2p58E6ew7jpcXMua7TkJWJLGIUJWnsJGOCW5kqOzwj5I2uzpp/mDBOJ+BwuV36fusLpUvEZOFDNn21vLsbXqTzC8QN/ZHNzcb5lf9e4DcArhzZTEM+IRdW0y4ANMxmOtEJR0NmI8E6tVwtvGvJB6YNQANhlF06F4UsDAOCXHJc0NuuP4CipSX/IRJxBU04jwMZfmtCuCm5H9HFc+XPr014AEZu2UW/Nxkjt0canW7QJ+Z3Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1o56m/f/CczpqNkoEOjwYkr+X6qyOA/Dxo/4e3Ca8fc=;
+ b=mme0rYQzIDAQR/N4OXWrVertFfoN8dVCU0wpGUXVbCUJCk762/A1tEXAtsCfCpdJr/XNKdfDTq8bJoQ44PtSkwYxxITQ2J5Je09cFUoK2zU0zC1wQc4CWCfkMJ20kuBEqbxWPiru89gxDrmD6nZUtBYWZX2Ead/U71Y7tHbRnC8/XA0ZYWNp6V35Q1VGznSaUJSAGfeR04F5Ha53En6GWu5g8N5vmVnyDNaiQv2layY2hDJl0Y/SVI3ido4/4SCGtYyq7f9ex+J1/fWL3AVkas7ZC+kBEOVIWsOzktVw7DKqABHapplToW8cfbGUWp8RoVtuwokcirdgvBvJPr/6qA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM8PR04MB7891.eurprd04.prod.outlook.com (2603:10a6:20b:237::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Tue, 3 Jun
+ 2025 14:55:08 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8769.025; Tue, 3 Jun 2025
+ 14:55:08 +0000
+Date: Tue, 3 Jun 2025 10:55:01 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Meng Li <Meng.Li@windriver.com>
+Cc: linux@roeck-us.net, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	linux-watchdog@vger.kernel.org, imx@lists.linux.dev,
+	shawnguo@kernel.org, robh@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [v3 PATCH 2/2] arch: arm64: dts: add big-endian property back
+ into watchdog node
+Message-ID: <aD8MxZUCkzRR0IWt@lizhi-Precision-Tower-5810>
+References: <20250603040230.2012772-1-Meng.Li@windriver.com>
+ <20250603040230.2012772-3-Meng.Li@windriver.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250603040230.2012772-3-Meng.Li@windriver.com>
+X-ClientProxiedBy: PH8P221CA0063.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:349::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 05/11] coresight: Save activated path into source
- device
-To: Leo Yan <leo.yan@arm.com>
-References: <20250516160742.1200904-1-leo.yan@arm.com>
- <20250516160742.1200904-6-leo.yan@arm.com>
-Content-Language: en-US
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, Yabin Cui <yabinc@google.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250516160742.1200904-6-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM8PR04MB7891:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7aa7062c-46f0-42bf-5e94-08dda2aea23d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0eiAhbyXK6EKM6bRVwR1RMOPGSwcXFFDW6VM/6cy5Eu3inZCsTqC1jufkxEJ?=
+ =?us-ascii?Q?h/MqDoZ8zZraE/Qg67c09Bwlemjd+wQQXGSejPM7eFw9ZHzEZEgQqwYy6B0Q?=
+ =?us-ascii?Q?RjS5h4nsFyNCeNA+nEAXnoDx/4y/y7viHEo5ubws8P1WjeevNhcGkvdmCEvW?=
+ =?us-ascii?Q?Lw50i4tqeXjNtIpggy1yQFoBnQ99DWyk8RsDnmXk5HBPom1cLDVgyc3Wphiw?=
+ =?us-ascii?Q?GCJU+vlHP4vsaHGrB4XgirEMsUFgeqZZVgOGrZf/UqNwAd0SLjj4Bfmeaj2z?=
+ =?us-ascii?Q?3R0JKn6zHNM06Og/y2s+7C/FtJM8f44+dRiJnvhGNN+lq25Mp8M+Ip2b5D8F?=
+ =?us-ascii?Q?+bi5uixRLKJUEhzYMR+UU+QqqenTevwoVJN2H5lqQYdAYtXxtaoL/mlm5WvE?=
+ =?us-ascii?Q?85AUISFSEqiTvsmA8hVKnDDY/VYq1z8GwtOxEgFTYIhk64a6LelvT3b0X0l7?=
+ =?us-ascii?Q?AszS3H3raUT5nz4dWafNktyG4mXdru7yyd0V73ILw/6x7I7kgh7hKAy5BW46?=
+ =?us-ascii?Q?0H2A8RiYMgHKSWBtvcdYdXZyLfSce93IdBx0wL0uzjgTVYhffCJMoF3OUxCW?=
+ =?us-ascii?Q?eymC7YFXYMRoGy6qwwcT4V+JQ2EAWS6joBwU9wVxU9Isl2/KDj1RS9a+RTfc?=
+ =?us-ascii?Q?KDiuBp84uuRdUn9RrRyanWeNmmEEyP2oJhKAisEABpdBbSLLEVL7ix+kCKnX?=
+ =?us-ascii?Q?Lz2wCgkU/aNu5B2tudgGqmKMpi6qw/W85ECZjhj+Zk4jiNaL3484/HIDbKKT?=
+ =?us-ascii?Q?n20vqeaYeD5GfVuVI1s9y7reQosiH7eFoITAHGU1bicFzTI1GWHASqV+cnSy?=
+ =?us-ascii?Q?RvRCRF5qHtfwUsRLHL7CcbFNqJsKgJGGs0VdDHZjJpiTQbxIn9z6fqtMJ2FW?=
+ =?us-ascii?Q?KO97zRzlryDzQuipyBsePSsKVcgVNU19vmYZ0Y7t3GYRULbA1IoZ+Wt3WxAO?=
+ =?us-ascii?Q?tP6+/Z70roemto9701gFBJbgFp9dn8VetSkLdq6aYVWTb7FFJ1C3PjBE/3sm?=
+ =?us-ascii?Q?W6BvtjTPrVINwdE7y5TlV9Y8i1vGCVzQ3vo5uonlAhn8HzEoan/AnWpTTB/R?=
+ =?us-ascii?Q?MQKQpIHGCw9eRD0Um0BONbjGnfIjIieDmyRcqLqYHujeamIoQq4ZxSIoTOvd?=
+ =?us-ascii?Q?UFfEvUL+1lZfFlBdgZyiP9GfSnPKSqoAgGN8m5VoDvoeIRriXc/h6VNfqCot?=
+ =?us-ascii?Q?3sKdehCkLUfz6koaUa0XKAd8e6+hmtdfE/Swle2nnFOSYvflVTwoazul/fkO?=
+ =?us-ascii?Q?knsDWIgkdh8OrkfwjkrmB9AisGAja67LMqV8ch9FXfRX5srCPtdZZKKIbyaA?=
+ =?us-ascii?Q?ICvrqkqrtIGJH0K26HonbmA7smf0XGOb6FkpzxvzHjgH7HsMo9dBwNATlD5k?=
+ =?us-ascii?Q?duqD+CznaR8sTlKBP98vGDO3PvjWGi+Hn0JynDmJC80bZoBYk1kv0zE0bRcW?=
+ =?us-ascii?Q?5aZGza2Z4hT6ThyJqE28YWmJ6tCGNrENqgpyvpVhtJ9xiRqqgU2zwg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?15LCTuwKDSNSudgVkVEQzww9dDOSQT4g4Eh4eJgwMIzsVsmi/Ic5IWzuzNK4?=
+ =?us-ascii?Q?ngMsTPQYf9mmgFdiHnYhSFNPmA8K/v9JcaNoP6gSxN1jt2NK4POUOuZ5imEA?=
+ =?us-ascii?Q?IqCCMM7UCPoyyvHniCf5hYLZ7/8fJTF5bUEQUv0KxnVl5ni4p2WqxIUzQOWV?=
+ =?us-ascii?Q?yBv4K+WiNgiAZShUCF/ZnK5xWPpjN5ZrJB+5DAxw270FZZXTMrOiC//SX8FB?=
+ =?us-ascii?Q?tTF4WY1PXmJIzXmadoCqP6yS+tum49b0knOkaeDnAlxtMgTEkBWzy0mZIvMQ?=
+ =?us-ascii?Q?54JJKYhxf9B4A+K9aAh6fYPg3iY8WaZ6zWoor/bewYLRoXxJldFY0DuPRMYx?=
+ =?us-ascii?Q?+qV/rLUOyLbbX0eKsq6AJZGpAED49Kn4+dCYq5vkV5PKRPFEojPXLR7lOSxl?=
+ =?us-ascii?Q?0twQdim/ITpcw7RfD8QEHQhhMkywlnEothVIaIXqNDOR4X58/BMezggCKutl?=
+ =?us-ascii?Q?khCQgZTlEftIE+TgBWeSJZpUO2yDf3hi5DXXVqjJE9u3LUTAR6VowAQYfLE2?=
+ =?us-ascii?Q?jPT3kLDuCOVq7og2zscF1E9KPXTWyRq4/pMj1vd7a/Y4oEpm/m1mmdJHKZ76?=
+ =?us-ascii?Q?uQtqXFek/eL18T1nmgyVxWpTv0IraXKfcdFaU2n8eFsqI5HVkRyti1oCShRp?=
+ =?us-ascii?Q?hwggYfWMOT/Lk92CWZFIodi/jWDX1RUvtkTrqY2msEyN/b+2Kt4QoE+4l/fj?=
+ =?us-ascii?Q?KpmLge0eDUYZ8z6/A6K60jD2h6fwg7KiKqSnKBDfzxz29U9rzPr7Z+QBNqXk?=
+ =?us-ascii?Q?zkMf85EiAOL8wJSHXJIgAi9TJnQVgtsmN+5Z9pyaXuQoZtWAv+8cb0jE/I7b?=
+ =?us-ascii?Q?HtelstM7fodcSTUvMH7aeqoFklrtK1yor8SujVxQ5JPjk329S83itQMyTpsu?=
+ =?us-ascii?Q?PKaq5WkKlg5nKuX1F/VJN6YpLEzh9yhoLd0f2rebyYvhm7q/G/fRcmYtJt4m?=
+ =?us-ascii?Q?Cg28GzjS6J1ZHdrGrBX/sRPX8zO/N51uspUUVLC1ujFO187YQIMTfKf5tp7d?=
+ =?us-ascii?Q?qv0Id8WMewj/fTc57nu6MXFaE6yPi08ZdqS51D3EshTGtU2bdTQuHwIC0Cid?=
+ =?us-ascii?Q?529+EP5r/PN+TprKyrHClIvcanLWhZQyMgotaTWw9lPewf3aEz47pD2mtiQT?=
+ =?us-ascii?Q?HjUHJP1j3isRdkJYVLUejKqylTzd5lvkdjqfoRPKUD6Bff+vAtkViCe/Ux6J?=
+ =?us-ascii?Q?XPwkfQMVcf0ejUYWL7Ci4UJu061f4OGrYaUnWmNEQEI8Y5wIKhh/6MyZ4+N0?=
+ =?us-ascii?Q?T5Xrqrst9i8XtL3HGallfMO+O6h2RsimBOcYdGWutZz+efGak/WEXd7kbS00?=
+ =?us-ascii?Q?NEVQXakaLBItdxBQvRdNCrF0+y4WJqONQ3dU0gGTZtvYt6hcqSXm+OXWZWja?=
+ =?us-ascii?Q?XNz+QRS+wAkY1YT5dwDBkiRhh0LVCIlBXhMq2JXIRKX4+3PZ9D6YrPgMIJ97?=
+ =?us-ascii?Q?cNZEISFUeP1OS6D4p87m1KJNgzE0OOpYacGuUEMO5aCeYs9j4wG6xjhJQ9cg?=
+ =?us-ascii?Q?L7LRuMXK3hBPByjDSsq3SN25sXrh6U1OHqD/VOPPhdCpXbpBkZOYXRE4FdYe?=
+ =?us-ascii?Q?Kdc+Okfxe72RpP7A3ggepK5aNKSGM/dmSv+OOKSO?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7aa7062c-46f0-42bf-5e94-08dda2aea23d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2025 14:55:08.8143
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: a04Hf45z4n/eB++QO7axApIsXjPgmvKXaxX/UA4JkAOQmblZBvOraI28FawSOjLVhw5ALV2zb8WdsrFBa4yEoQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7891
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_074929_538292_4ED47056 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20250603_155514_290144_1CE4AEAF 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,75 +176,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 03, 2025 at 12:02:30PM +0800, Meng Li wrote:
+> When verifying watchdog feature on NXP ls1046ardb board,
+> it doesn't work. Because in commit 7c8ffc5555cb("arm64: dts: layerscape:
 
+Watchdog doesn't work on NXP ls1046ardb board because ...
 
-On 16/05/2025 5:07 pm, Leo Yan wrote:
-> For a source device, save activated path into the coresight_device
-> structure.
-> 
-> This will be used by sequential changes for controlling the path during
-> CPU idle.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+please wrap at 75 chas.
+> remove big-endian for mmc nodes"), it intented to remove the big-endian
+> from mmc node, but the big-endian of watchdog node is also removed by
+> accident. So, add watchdog big-endian property back.
+
+extra empty line here.
+
+> In addition, fsl,ls1046a-wdt allows big-endian property, so add it into
+> compatible property.
+
+In addition, add compatible string fsl,ls1046a-wdt, which allow big-endian
+property.
+
+>
+> Fixes: 7c8ffc5555cb ("arm64: dts: layerscape: remove big-endian for mmc nodes")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Meng Li <Meng.Li@windriver.com>
+
+after above small fix
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
->   drivers/hwtracing/coresight/coresight-core.c | 10 ++++++++++
->   include/linux/coresight.h                    |  3 +++
->   2 files changed, 13 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 7ab7321ca8d5..8f565bb3c535 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -495,6 +495,12 @@ static void coresight_disable_path_from(struct coresight_path *path,
->   
->   void coresight_disable_path(struct coresight_path *path)
->   {
-> +	struct coresight_device *source;
-> +
-> +	source = coresight_get_source(path);
-> +	if (coresight_is_percpu_source(source))
-> +		source->path = NULL;
-> +
->   	coresight_disable_path_from(path, NULL);
->   }
->   EXPORT_SYMBOL_GPL(coresight_disable_path);
-> @@ -577,6 +583,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
->   		}
->   	}
->   
-> +	source = coresight_get_source(path);
-> +	if (coresight_is_percpu_source(source))
-> +		source->path = path;
-> +
->   out:
->   	return ret;
->   err_disable_helpers:
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 64cee4040daa..cd9709a36b9c 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -265,6 +265,7 @@ struct coresight_trace_id_map {
->    *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
->    *		spinlock.
->    * @orphan:	true if the component has connections that haven't been linked.
-> + * @path:	activated path pointer (only used for source device).
->    * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
->    *		by writing a 1 to the 'enable_sink' file.  A sink can be
->    *		activated but not yet enabled.  Enabling for a _sink_ happens
-> @@ -291,6 +292,8 @@ struct coresight_device {
->   	local_t	mode;
->   	int refcnt;
->   	bool orphan;
-> +	/* activated path (for source only) */
-> +	struct coresight_path *path;
-
-This is probably cleaner if it's saved in the new global per-cpu you 
-added in patch 2. It's even more specific than "for source only", it's 
-actually only for per-cpu sources so it's not worth having it on every 
-device.
-
->   	/* sink specific fields */
->   	bool sysfs_sink_activated;
->   	struct dev_ext_attribute *ea;
-
+>  arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
+> index 0baf256b4400..983b2f0e8797 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
+> @@ -687,11 +687,12 @@ lpuart5: serial@29a0000 {
+>  		};
+>
+>  		wdog0: watchdog@2ad0000 {
+> -			compatible = "fsl,imx21-wdt";
+> +			compatible = "fsl,ls1046a-wdt", "fsl,imx21-wdt";
+>  			reg = <0x0 0x2ad0000 0x0 0x10000>;
+>  			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
+>  			clocks = <&clockgen QORIQ_CLK_PLATFORM_PLL
+>  					    QORIQ_CLK_PLL_DIV(2)>;
+> +			big-endian;
+>  		};
+>
+>  		edma0: dma-controller@2c00000 {
+> --
+> 2.34.1
+>
 
