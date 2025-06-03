@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F43C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 13:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B84DC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 13:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=csMjX6EgdDvsoUroDDkC2t6M2H8xOJU7irccfVA/OHY=; b=F0b7xWT48BByS3a9li//s4twgB
-	GCQHRzesf9oT4uh5QfA40hqlXpPJuid5Ii+h0ODepiYs5i7csyp3HE/9hny/Tnm+tbJdp3KOc75rQ
-	E5ETBgJH6zvbEAATEru6J8HI9qpnOTltIAALIHzTjVOgCaStM5c0xL2M8nhXUt2bMR1B14IJUsF7d
-	BDfCxJ28dFdT5iQMRH9IMCo8EmMYB3WYWPI1c2RH9Ed1JoC9PP0tklLNRkvnzsbmuhj1lPxEC8kiR
-	2p4kv/gVtQ3l9IQl4kDMwuRHd93XL9S4UodyGMLyITAmk4jqYTuLC3bHCAMSGmBuyBX/ae/BD5Fx5
-	FTTJ0Wtg==;
+	bh=UoX6ZYAbWcKDR6KFcgyyRoqI5kTXzqc7rOw8qvSUCMg=; b=kqeQgDyU5wCypnssViHNPAYJFy
+	ZnkczD5hnStSqDMsZbyyDRkpvfhO95No3VuYYc2D2sVof57pVog1GiGLPENJ/RU2VGwMd97CANBLt
+	GsWHmeGX8mp1hCLY2mT++pSLe69PDLVk++aZkR+zJivKVXzRFyW+B0JeOd9mP/6j+edVXZkHPDkN6
+	fLtyE1t3C8pA6QoyA/d75yD2nQTDyX4Qoqf/OLwDqs0aD0RbH6WGK5V6TzJT4MWQYtm0/65z2JB3f
+	kJHmkui4NdsWZU8QOViXddpnNprDChRkE90zO7JM95t1su7oHFTAMGFU3SZYhVtXMj2fBxgAb+weZ
+	wQpfPB0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMRr8-0000000B41W-22rr;
-	Tue, 03 Jun 2025 13:39:06 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1uMRvT-0000000B4bQ-3SN7;
+	Tue, 03 Jun 2025 13:43:35 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMRnL-0000000B3Bt-3weP
+	id 1uMRpm-0000000B3g2-3KhQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 13:35:13 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6f0c30a1cb6so36690626d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:35:11 -0700 (PDT)
+	Tue, 03 Jun 2025 13:37:44 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-4a5a196f057so5698471cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:37:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748957710; x=1749562510; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1748957861; x=1749562661; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=csMjX6EgdDvsoUroDDkC2t6M2H8xOJU7irccfVA/OHY=;
-        b=EaR91pv5tQfehrwZp58Y5pvW9h+o0tw+yqFmXEJrMTOrypoATw2Bn8Eq7Boet6TTM4
-         YTksCzVB57P/8VCzVEejx3YTR32jxTK31MgXuN9kb4XMJppOvuzn5+D9tgfoiifc4f8E
-         fk1WMPuI+bGnJtbmEDmLFudD7egLId2kRvuA1/7wde0ESk9TY07hiXVOBCJ2JraIlz2W
-         SleTggMiI4SDI5HNMh0dq8zpgBEBnmX0eVKerGeXS1nQCZiObYVv5vZvqZw1eL/ugrXZ
-         2ry0TV8rPYPlVcH7KLHUKiiiwPC5rs9AFfkg9T+rndODCgKw6TdsBflCOQcTqtHbMFaC
-         ZjQQ==
+        bh=UoX6ZYAbWcKDR6KFcgyyRoqI5kTXzqc7rOw8qvSUCMg=;
+        b=IOWkGIyApe4s8HuMFWOVTaqGO/1SHICkDPjfmBa0gYgJR1gdN4sg+62+7eBqtdtaXI
+         K+OeSjhVCYLmnnPPl2OcxKctIobxaDKsfpl5m6SG8nU1SPIKI2vwG8u41myq6F/uN145
+         NyPx7O/8ZjWUhbS1U8yu7+qyLE3W6FQ2dYoN87+3PE6+/6aikbm0a27c/6fM4Z+7ZK29
+         h5J8OsxBLb5k1frhDECsCt30E2fIFF8jaUlHVeNbYKVrrgs36wa47/SF1tkC9c4O8p6q
+         rYHeyqiZZb7PaBhR4bIL0w/J7b92C7KMEH/n0+Cont34ue8St5KnFLKyvcI5LP2Ej8P9
+         SBsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748957710; x=1749562510;
+        d=1e100.net; s=20230601; t=1748957861; x=1749562661;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=csMjX6EgdDvsoUroDDkC2t6M2H8xOJU7irccfVA/OHY=;
-        b=pfP4FZjs/A21ZOgRBwVIbs6KEl3sXqYXAf/eBoQAOJTN7qNB9gAp0nwiPrrcJ3XWjq
-         5+srYnpG/A3kvtAx+4ub6SsWF2J3u9JDP4V4ZnFd28MgHCGbwFKim87UHfDMAYQzzZDX
-         8Ezzn5s8boipebj0+SEQzjPep+XfLGqeiXzKV1pBUHU9l9b5YmJvEUG/gb3VNSDW/Qhz
-         wMB3pL4tLjuEGg/mxzY/Xd8w8eJ5tJiwUW44WpIEXLzwg5wGlO7hs7yKrnMor/wVlCiv
-         aJHvIdrtJRrdlfIWRta1OJB5w4BgnfZ0qcxq3/Z7ASx39EJowibmffA0QnNLTNkswhiu
-         udeA==
-X-Forwarded-Encrypted: i=1; AJvYcCVJKMn3zigPOB6kb8P+LU3JoHHZIAOMGZZ3ahrMEVEMErnEkqLDPol93cnxbWfvrI92/xB6vrSu/bucOh3uHXm2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2arN+8ggr6Dc0oC2JM2dqLLv/ujQTMRk6TQh1uTHcnVrqABUM
-	bafxTMnPst5sIakMAJQLZzdPSYHtWWFikfF0Jly03XVVuPnHGRk9evA70oMG+RT8vgQ=
-X-Gm-Gg: ASbGncu0yjzD/Dwx4ecycdmu4OFFaJVJPfZN5l6fMQzigVK5JeHzom6CWiUouk0y88k
-	oCYUrg6iwEyBVgw+7VO7eWk2TAfTEXiEa4k7ybeyMb7aWx7QapA6MKPPNrqDXIam/+FfoqHHiWt
-	YV4IpMRRm+VgHR2lsjyzlXWvs/3Qjr1GkYRZqf4hrX48cnPLcz58I7aJ4u/Lrl8e9hUBaRcmxBp
-	50jnQs19tnHALyYXbuRkiNtfKLZMJ/U+bqA83tVKiAADtvfOI5rdVu3FTlgtm9Dfm5H4tfkO5wO
-	DDSrGnpEDeTffFFEg5qfW5WyzodduAmqFnIav6dM1H4v3BZ9LWJsTVVRpz/7qdQYEsj6I84rkyF
-	lkSEKSFq+53WZLlNIUo/uZYJHXVH9mqDOfIETSg==
-X-Google-Smtp-Source: AGHT+IGTO1Uq6qWKkHjHjzXPtbeutCQLStskBTpgABiXf8IiWIF7+BRGzTPM/WsKdaJBbv1DscVTNw==
-X-Received: by 2002:a05:6214:d87:b0:6eb:1e80:19fa with SMTP id 6a1803df08f44-6fad9090760mr153489766d6.1.1748957710547;
-        Tue, 03 Jun 2025 06:35:10 -0700 (PDT)
+        bh=UoX6ZYAbWcKDR6KFcgyyRoqI5kTXzqc7rOw8qvSUCMg=;
+        b=bQ+Y/2UbmkFC7wE1zE6Wgf8tvLCwVgQRNuzqzATY21Nh4XJonsqDKwnQsRdXzWbSXN
+         VyNcC9/nKJsJkJC4dHlKf2JY2GboLF8Aq89C62nUJ/lrYD5TJtLTOGa7b3UgxRgylSIc
+         UwBEwor3T+jQS108z4XHIB1SCDdixCt+xJFnx9nTBnIS0Z7VTDxzXiKyB/huu8D3Vwf0
+         n1CcE3PRssSFBEoI6RaISr2zKF/Mem1VWFTM96JmQrzi9MmM7Di18k2geEcFWNz6ZhRm
+         O2nK1BPI15e7ut6xo6T0vXPEO8pudr0BEMt6hmpwDP4op4RhvB40kI/Ry+OZr8EpMZUd
+         zB1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVZ5nj73HZS5fWSJ3wSJonnTb7BQHFhiH6A6O4a3+Zy7WRtQM9KzBm4RZ4/WX7Yq3ah14IyGhHTuzcT7OcalPWN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIkODGT3MOr+6C5iHdvw/DslJBivfkvO79uF9aR3pyD2FjtMBK
+	c/HUyug6My0yDt4GzUiF5sSvXZXV26a1yyc2hD09//abNpEFLJGNlKZQgGYecalgC8Y=
+X-Gm-Gg: ASbGncuAmayhTIlK6na6ZHb2P02mOey5H5UFPQ8U5NKE5NRX8xUMwzGdK68YKXrHseE
+	+M1Ss97HuKkJmEiaRDIF7I4TYgjDCfPZuAlQUEHiSjCVY233yLb+Ey5z651fP5n3QNYTpiq9lDf
+	49eBD9V/Cn9wGwERC/P0iowUJOOBkxw/+bYpj/PYOEwAoYdDPosWIWaz1Lin4NjgRuiX9tl5VgV
+	i7lwf7yLfgMDel7YnyXzcUT/eMz9UrN427NXG7Pv7fwPvWVNf2JWPY9A91/fvG+C9hHVtJopSyw
+	REqGVXKCks91Y6nvzChYuVSBw0Sr/TtB4rd163Mgd09Q8fOA7Srxq1dRJJgv5nFh1Db0sNRp78s
+	iSAc6/IWGojSpBWtRslh28GZXlNXuGui1DUtIGw==
+X-Google-Smtp-Source: AGHT+IHIja21FGplZEuqybwyfzBxoI5k6ggct08qhelvg2n2Sr3vDQGi+qZrCCr84f/KmAHse8r0Yw==
+X-Received: by 2002:a05:622a:4c16:b0:4a4:2e99:3a92 with SMTP id d75a77b69052e-4a443f2d1a2mr265367291cf.38.1748957861491;
+        Tue, 03 Jun 2025 06:37:41 -0700 (PDT)
 Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fac6e2fc45sm80639296d6.122.2025.06.03.06.35.09
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a435a36e1bsm73924021cf.62.2025.06.03.06.37.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 06:35:10 -0700 (PDT)
+        Tue, 03 Jun 2025 06:37:40 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1uMRnJ-00000001h4R-2OPU;
-	Tue, 03 Jun 2025 10:35:09 -0300
-Date: Tue, 3 Jun 2025 10:35:09 -0300
+	id 1uMRpk-00000001h5v-1tYD;
+	Tue, 03 Jun 2025 10:37:40 -0300
+Date: Tue, 3 Jun 2025 10:37:40 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Alistair Popple <apopple@nvidia.com>
 Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
@@ -86,17 +86,18 @@ Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
 	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
 	linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	John@groves.net
-Subject: Re: [PATCH 02/12] mm: Convert pXd_devmap checks to vma_is_dax
-Message-ID: <20250603133509.GC386142@ziepe.ca>
+Subject: Re: [PATCH 04/12] mm: Convert vmf_insert_mixed() from using
+ pte_devmap to pte_special
+Message-ID: <20250603133740.GE386142@ziepe.ca>
 References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <224f0265027a9578534586fa1f6ed80270aa24d5.1748500293.git-series.apopple@nvidia.com>
+ <171c8ae407198160c434797a96fe56d837cdc1cd.1748500293.git-series.apopple@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <224f0265027a9578534586fa1f6ed80270aa24d5.1748500293.git-series.apopple@nvidia.com>
+In-Reply-To: <171c8ae407198160c434797a96fe56d837cdc1cd.1748500293.git-series.apopple@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_063511_985834_19586FA6 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250603_063742_835446_60CBA191 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,21 +112,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:32:03PM +1000, Alistair Popple wrote:
-> Currently dax is the only user of pmd and pud mapped ZONE_DEVICE
-> pages. Therefore page walkers that want to exclude DAX pages can check
-> pmd_devmap or pud_devmap. However soon dax will no longer set PFN_DEV,
-> meaning dax pages are mapped as normal pages.
+On Thu, May 29, 2025 at 04:32:05PM +1000, Alistair Popple wrote:
+> DAX no longer requires device PTEs as it always has a ZONE_DEVICE page
+> associated with the PTE that can be reference counted normally. Other users
+> of pte_devmap are drivers that set PFN_DEV when calling vmf_insert_mixed()
+> which ensures vm_normal_page() returns NULL for these entries.
 > 
-> Ensure page walkers that currently use pXd_devmap to skip DAX pages
-> continue to do so by adding explicit checks of the VMA instead.
+> There is no reason to distinguish these pte_devmap users so in order to
+> free up a PTE bit use pte_special instead for entries created with
+> vmf_insert_mixed(). This will ensure vm_normal_page() will continue to
+> return NULL for these pages.
+> 
+> Architectures that don't support pte_special also don't support pte_devmap
+> so those will continue to rely on pfn_valid() to determine if the page can
+> be mapped.
 > 
 > Signed-off-by: Alistair Popple <apopple@nvidia.com>
 > ---
->  fs/userfaultfd.c | 2 +-
->  mm/hmm.c         | 2 +-
->  mm/userfaultfd.c | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
+>  mm/hmm.c    |  3 ---
+>  mm/memory.c | 20 ++------------------
+>  mm/vmscan.c |  2 +-
+>  3 files changed, 3 insertions(+), 22 deletions(-)
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
