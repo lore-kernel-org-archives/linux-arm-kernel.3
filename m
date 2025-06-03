@@ -4,133 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 565C1C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 03:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99E0FC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 03:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K3gT9sDvvs1Okl0MK7pqAvNpdu+73lof8osC/vlrEOo=; b=qdcMwtzBvHvz5edqkjfrU74AN4
-	9D7xCWh1uAwLIMf9OvkZNarM/LMwM/2OiLXaQFfuyevolvjtK1hZAtnSTEIdcgE8YOh9AnyGJpWXj
-	mHboP8vul9LigrntzNBpMJRwMtJSuLyWKSTIKRtefAVGtXpTcgliFy046tIDL3VLkuoXl8Jo6rmW8
-	xHCPRPfEjs5kjrGEtfXpvU7ootYIebAbGHyNHbVMhnNz6TtG51nZgiUbgrKKiHdIhJJ421+zuTWQQ
-	AzQIGQ4oB5ElmsD+7Ia59j+6uMpploMOwD7fdjRBAokAQzSMH2REPTAm7uvnsWnjCtqOCSmgjS76F
-	BvQuIOpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B6I9aT70ThpCc4Zm1RlBMipp1lBbPvY+r5gRPRkVScQ=; b=GZ29qMdo/SLXrnGOvY739hdwyY
+	UxTDqN3+ToeCDMjJSfm6XNF/CMd32gatJXyM2gwcAX74hOfxD7YS8M4FA+zoEvRcvG94JDjRTQLPe
+	IMdBkKm8Q1efqMonQwCNCs/TlqPS31XK+pLMiK3QS6SPFq1bMeFyxbp1d07omPmuo7JY7kPnGNzuv
+	bMG2Q2DXTQREu4VhK8zh4Kz/cc28bnPMo//ok1kbk6FGYoW32XlygoPdZTsGHbGD4on41fxyEvGTg
+	pSpQVqkgKUhYVOPPLSJkwEewalwfxio3uIvSI1vsWFvXY2YLXU5FnvzjqEUenIU7MEXM5yHYCQPWP
+	cSt+LYOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMICk-00000009ZnA-0r2p;
-	Tue, 03 Jun 2025 03:20:46 +0000
-Received: from mail-northcentralusazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d111::2] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1uMIHK-00000009a7F-0OWk;
+	Tue, 03 Jun 2025 03:25:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMIAY-00000009ZRw-0s4s
+	id 1uMIF8-00000009Zz2-3REa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 03:18:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zk4fdBYSNd+qjg78txnuIVeADurdDb6sWL1sEBe2FTkRh7mLphcvMhyGgWIJIet2X00LvqJzewXu9r17SW/dPPSpUPM/SXTvj/ibrzGZTactMatlfi55hfpAz/gc7cCKqzHve6mWck3Zruv1MKOygmZoXXwk1FHPfUBcnajobu/4yOma3EWoq5ad9GTv17v1xHZGpMmRFs6pvwNlhcWg/Og0k+nbiVFLbWAUCFbhMu8FgMogvVGc1L2z+t55osmdA0oPPphAXNWI9zcjIV7ELiM6h0sXag+duUjIE2pHzJeK3JlnTRDXcMH1YOkw/pZ4+5Jl6NGqX6EG7HN7GBu1Ng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K3gT9sDvvs1Okl0MK7pqAvNpdu+73lof8osC/vlrEOo=;
- b=imzyiKhGJDOCn+ZPi8APSk1sBD477cPS2nwzCOageLi+5r9MrYefwkLRoLoPmMa/ADpiA5txBqPo71VUUaiGqQbeVT9457vTAldIOGNfs2LUX07gpzJNIMhzyPkhEhth2ZtNk6BQR8HcRq9nkMsLzbjkitKgTViuOJqkthlPagh52V+kKqSETWROesez2U2z9sKCWi5dlP7ZNR9Z3Bt3HRNTC5b1iAMrQ85NRgsp4wVKjSySyl67iCrx4lVePSF51R6buQybuF8i2eyKrMpD0AiN3hgBMglhqC/scOKSrONzK5mxvQvC7MMEOsHbNzVoDqncZAmb4yeAuVES+NYMcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K3gT9sDvvs1Okl0MK7pqAvNpdu+73lof8osC/vlrEOo=;
- b=mkt4CekpaciTkG5rO4KfIegi10WwCPLkIKto4yVwuMs6gw0AM8HgXs23N/IOcf3w0yMdeaK6hd3E6fw4apWIr9eGDqWxaqmR3GsxPDjrPBT7z5CmC24s1hzqScazMVuZYeA046Sju9Ze1PBwtFiSduC5Vz8bFLUNOWy7o+wohdyh9euh6Ezt/ZOzBgds+MAEHdFB7WtIf8wypIFQfsmixrUIpG3QksN9lMnHoM0+HoH8e5tQM66PrCoBgT7SiO4UfYZEIUgLnus0LM146SduMn6RQYFocIDy18gInXqZ/3KvY7RrJyqL/AN136ILWPEHrKSGzUh8a4DtUbRUbVg7bQ==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by CO6PR02MB8770.namprd02.prod.outlook.com (2603:10b6:303:141::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.27; Tue, 3 Jun
- 2025 03:18:23 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8813.016; Tue, 3 Jun 2025
- 03:18:23 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>, Russell King
-	<linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "fj6611ie@aa.jp.fujitsu.com"
-	<fj6611ie@aa.jp.fujitsu.com>
-Subject: Problem with nbcon console and amba-pl011 serial port
-Thread-Topic: Problem with nbcon console and amba-pl011 serial port
-Thread-Index: AdvULbS8DdGjT9TLS9OOSVhbv2AtDg==
-Date: Tue, 3 Jun 2025 03:18:23 +0000
-Message-ID: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CO6PR02MB8770:EE_
-x-ms-office365-filtering-correlation-id: d3dc964e-f50d-445d-9a69-08dda24d4c60
-x-microsoft-antispam: BCL:0;ARA:14566002|8060799009|19110799006|8062599006|15080799009|461199028|440099028|3412199025|102099032;
-x-microsoft-antispam-message-info: =?us-ascii?Q?nRV6KEw0wlO9nk7X4x0qXyip68go7MMH4IpNpEHKf4mdNKG1U+KsrqKZzJON?=
- =?us-ascii?Q?hxBfIXtgwYFn2K12SLAcSaoVYThmY88NkbjbVUOrl8a1fpW0Pw0XXuUtBH3k?=
- =?us-ascii?Q?h0DTpvF8XQ0tZBrnzhPlEmdqhqcf3MXsNwcQE0aZfCp04bkGJHNDmsXlWipg?=
- =?us-ascii?Q?2YcYEHyI5i01QYycK49PGGMiM0OsWJgI9KilqFz+uF0rQVIsCOr4MpQ+rURS?=
- =?us-ascii?Q?KabCUW6/7Oa/CrAe1G+p5Mjtj8u91amusieYdFCS6PR9hnLDdFSmqBLJshoe?=
- =?us-ascii?Q?mRSdtxvkoK9qHsaSYD42UqjgNuFO76eCTwCBjrlIFpTJKMbcArlipzlwcUU5?=
- =?us-ascii?Q?xmG2wBmFzuiyTKRyoGo1IPgmvzFS4I+XQmCKkPjdzHH+c0/6JE1JChCOmCWm?=
- =?us-ascii?Q?9KeEpZyN5i3O0rPfT8Y3vKwjezMmugYI6KnxeiBjsoyiYl7TsMXl97cuWIPo?=
- =?us-ascii?Q?dWjcReJKdft8pA02izOS7snr1LfE+cxeS29hTcRf9/EzLcGKFyrZ61sOdXDv?=
- =?us-ascii?Q?EOx2Vb1IiJR58QretIt5H3S13Rt1fjEt5+wlikvFTEDNO/VAta5768RBEUcb?=
- =?us-ascii?Q?EmQulGWRd3JdyD+DqK/rSfWMkE+4PbApvDbmCLhBxoi1OcqSqzNNzqawmPpN?=
- =?us-ascii?Q?L6843g1KtO+h37T38UDNK6RnF38blNcBEBgNJCkKzTm7R9CTJZLC/29bSm4V?=
- =?us-ascii?Q?pXj1uzU1CbY/wcJ7NGggDt1KWOjSAY9WuVuA29UvWGP0abC5PesK8tCQKei9?=
- =?us-ascii?Q?JaP8RnaooaNHcNNB9PSrlOT+7WjL3+39Y6CKZWViQpxQbh8mXscCKRay1Krg?=
- =?us-ascii?Q?OwPMmmlyVnanTUlz6U4D4ttkH7mWEbD8ZDLyaN2Z8D8Ibl4IFpysTxv1/obq?=
- =?us-ascii?Q?fvVA8FoY6S0uIxQwy9BC4wbZZM65//rHc9p8jsWBNdAX01UuaFPSaogdBtBr?=
- =?us-ascii?Q?dejbed27nqCIXF9P8JngQJWMLcqrEgSuppiFbRw+Ifj8gYtTQz8sOLTkDuMr?=
- =?us-ascii?Q?Kv08vyBuwhTPYgNKaakjE4vXgY/Iogzx2J/s7s8/MZJpsLamH6Fg7qHbcDSC?=
- =?us-ascii?Q?lKEa/jMy1V2JR6V0b+xrivxn7DqkUA=3D=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?1RkYlwI94KiaPgJUFVDic+nGLZhlcnSjT1zfnBPFMjgLfeJ5z8ndhifGbl2s?=
- =?us-ascii?Q?8TkHSE+VLbsfb+PRTaGG6Q14VfcnJcuSAfkyorWOKnHv8vZ5LglJCLWxp52e?=
- =?us-ascii?Q?8j7aANJvEUTfIjxL3rZ4Ss9G8hdyqOqbnNkhBXrY6bKk7PzkrJw+1f+eBTEr?=
- =?us-ascii?Q?K/WaShllQCarSPbMDCen1BBXHi5TtmsWKNVl4PhudQSwT9Ono0CGYTjC2bMq?=
- =?us-ascii?Q?sxyaf56bL7mBfBh/UnJQwUDOAdt0dUkTi1hgav39Hlq/37O7RL/hjrvbxiwK?=
- =?us-ascii?Q?MRmDrAnlyQcTM/VUCfXnV2M+xFftlxAH4nriyXv+mb+DQuZQM+lxNcMdN41f?=
- =?us-ascii?Q?Ys2IlIvfgGQ0orKptKtvLhPz0HkkwWoklHw9Rzu84kaXt+ras7TFlH0ML1Xm?=
- =?us-ascii?Q?xuh+YciUo3XyfjJqipMeDnt7nOhk8EvokvJJvDXn2EhZc1FgLVWdzejgrJNo?=
- =?us-ascii?Q?BcvRo6IVKCyFBVOCuyCXFBAawcPiOAOjpuD55ERRvXgeoA+ytOLaIU/MH2kT?=
- =?us-ascii?Q?2At6uxA2MWxarGEby7mFj1WDhZ+ImMOTjR4+2YOMcGk0eIEcAXc8+hwo8H5N?=
- =?us-ascii?Q?D1EXHj0HpTHueSdG0ai80+p6h++f1kH+sSeb3+y54eVItI8AKxlDN7UaanID?=
- =?us-ascii?Q?tZ+grpbQCJafyDrXXSAOvOBP1rbyGMcCvcY3QuwR0oc3qM+PYB+tBPC1YlI+?=
- =?us-ascii?Q?PKLBsPn8WutXuc7oPHduCHp5A2TbmXk1AXk+r79uzrQH6JzoUnRhKxD4Bp20?=
- =?us-ascii?Q?PHEBzgoXJTiLA3wkJjz+JcpefeqAtRbeYKZLqpAZS3cmZf6L32DqKI2vY1/B?=
- =?us-ascii?Q?tUd0Nzv+vZFjzzziapppognLVl6D4bE/HrKNvF/TvTd+60vmWItNFsv9TVGF?=
- =?us-ascii?Q?I1/QjcnEG25lMRRyc9t1nV20ptyJiGOnvhvZFi7uuSKOJoe0DikbreO7wTAK?=
- =?us-ascii?Q?QsSz3eEW2cftb6e/kst6Ae3ceFRyIIzMI7lqUrXeIJvdb+NRrsEsRzdYrI2M?=
- =?us-ascii?Q?fzwt7E/sAI9+szeyaoGyqgNWsy+JbgYzGGF7ls5YSNKmil8WaN81tVh2VEu8?=
- =?us-ascii?Q?TliodcTmJ1GsPd61fz1FAa4hXtafH7DHEMHVAW8hFqDC8IBmgGd2JV+Ua0xO?=
- =?us-ascii?Q?ZII/RSIn9ESjf+rk7KbCPEcw/dgIGj7VSR7CjTonIVq0VH0YuNsuMmGQQur7?=
- =?us-ascii?Q?0LslHJGZIrTCu0RscFNLS3QLsz4nqGfRKk9QxL9giW6bsCMn5KpE1k6mLgg?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 03 Jun 2025 03:23:16 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 552HJp0J030985;
+	Tue, 3 Jun 2025 03:23:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	B6I9aT70ThpCc4Zm1RlBMipp1lBbPvY+r5gRPRkVScQ=; b=B3hhedS/CcDX82iD
+	e2s36lpftIWnhrU1i8zqdexrzpdkRGoUiLrJ4Gz1OTNJodqoEF41SM6RQETSia1u
+	hJ5oMJi1lz/uODyY5Vw2eK27wanW0nr0ASonfWKBQ8UUpxXyjugz34Uq4zRkrvQS
+	UPJtbjVxa/L4U+7W7MvO2XMRI+pfbjRUseVeyPeLI73GMWl6KeOGXW3PfV83+8XB
+	IQ28tD0qCEEmBjcmnZwU+imWKu/nLNoYjAZhg7S437y2eSymSzTj+w9EbkyfvBz4
+	tZzSBsJQeCD/4kwtJ2B8FoORDamx2M9sihdq5aKa4UHiFO8oI55NY+VfDYpshPaL
+	OgERTw==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 471g8ts56v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 03 Jun 2025 03:23:05 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5533N4EI001090
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 3 Jun 2025 03:23:04 GMT
+Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 2 Jun 2025
+ 20:23:00 -0700
+Message-ID: <eb7dbabf-d878-468b-9945-36d8b14a4e65@quicinc.com>
+Date: Tue, 3 Jun 2025 11:22:58 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3dc964e-f50d-445d-9a69-08dda24d4c60
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Jun 2025 03:18:23.3598
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR02MB8770
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/2] coresight: add coresight Trace Network On Chip
+ driver
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+CC: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com>
+ <20250522-trace-noc-v6-2-f5a9bcae90ee@quicinc.com>
+ <3a19197d-b534-458c-b4d7-51fd9d2c954d@arm.com>
+ <40599afc-4342-467c-87d8-3f53cbcfd242@quicinc.com>
+ <20250523085655.GD2566836@e132581.arm.com>
+ <4d54e620-abb9-4a36-bab0-3970c7e30a5f@arm.com>
+ <62d1e4cb-cc13-4333-a160-66a280dca5f6@quicinc.com>
+ <17abf8b5-8a2e-4573-a870-e2f98ad866a6@arm.com>
+ <20250530125944.GB666854@e132581.arm.com>
+Content-Language: en-US
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <20250530125944.GB666854@e132581.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: zxbsBjZotBgpF1CDtEDMk5fOTP9tTSlt
+X-Authority-Analysis: v=2.4 cv=Qspe3Uyd c=1 sm=1 tr=0 ts=683e6a99 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8
+ a=COk6AnOGAAAA:8 a=roaXpTnMcXxoyfGzR8sA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjAzMDAyOCBTYWx0ZWRfXxwg1tayofc/q
+ 3S7cFoWgTyC39NeeXOlsLXf9mWyGBQyI6YyVe14X9Fr/+5/hqT9COz4ZinJ9VIiHVnyqfqtitQk
+ Z+udSGq2OIr19MRHXRm6IJL9V2f4nFDW6dnHZSwsVExW8yOpcV+ynL0YaF77/HhcIYfj17hkdtS
+ 7azvHwhWvBOnN9qUNRClLbEvZStx5ef7jTl0eEABNvE4clIAdovDNNB2VtW4qtQFkX/HacYxA8V
+ wrKc8x5+5LIIpyAkVsbwMAch29yJjcOJx0fSWuAAcmmmefniPTX6FLzcPAMPKZj+/EInWnqtqTo
+ 4OHvhcMZOxE5cZG/qaubsGPc7wEAmTgl/wAsMAvpBe8xNcz+XZftoUjtrA0ow+kDMnwxXwXQVY0
+ 2/ASQhbEaoPzxEBq5s+zrZwG5r9vYKDJxOuqmcIzgj8LUpslHheD/uLXLO4s5rkvS/PGkzK/
+X-Proofpoint-ORIG-GUID: zxbsBjZotBgpF1CDtEDMk5fOTP9tTSlt
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-02_08,2025-06-02_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 mlxscore=0 spamscore=0 priorityscore=1501 mlxlogscore=999
+ lowpriorityscore=0 suspectscore=0 impostorscore=0 malwarescore=0
+ clxscore=1015 adultscore=0 phishscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506030028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_201830_310983_0AACD1A6 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20250602_202315_078149_0A56715C 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,113 +127,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'm seeing a problem in the panic path of an ARM64 VM on Hyper-V
-in the Azure public cloud.  Here's the output from the VM's serial port:
 
-# taskset -c 4 /bin/echo c >/proc/sysrq-trigger
 
-[
-** replaying previous printk message **
-[   51.616656] sysrq: Trigger a crash
-[   51.616689] Kernel panic - not syncing: sysrq triggered crash
-[   51.624212] CPU: 4 UID: 0 PID: 2278 Comm: echo Tainted: G            E  =
-     6.15.0-rc7-next-20250521 #1 VOLUNTARY=20
-[   51.630165] Tainted: [E]=3DUNSIGNED_MODULE
-[   51.632331] Hardware name: Microsoft Corporation Virtual Machine/Virtual=
- Machine, BIOS Hyper-V UEFI Release v4.1 09/28/2024
-[   51.638771] Call trace:
-[   51.640179]  show_stack+0x20/0x38 (C)
-[   51.642488]  dump_stack_lvl+0xc8/0xf8
-[   51.644638]  dump_stack+0x18/0x28
-[   51.646654]  panic+0x384/0x478
-[   51.648371]  sysrq_handle_crash+0x20/0x28
-[   51.650815]  __handle_sysrq+0xdc/0x2b8
-[   51.653080]  write_sysrq_trigger+0x124/0x240
-[   51.655508]  proc_reg_write+0xa4/0x100
-[   51.657917]  vfs_write+0xd8/0x3e0
-[   51.659836]  ksys_write+0x74/0x110
-[   51.661735]  __arm64_sys_write+0x24/0x38
-[   51.663967]  invoke_syscall+0x6c/0xf8
-[   51.666025]  el0_svc_common.constprop.0+0xc8/0xf0
-[   51.668771]  do_el0_svc+0x24/0x38
-[   51.670713]  el0_svc+0x40/0x198
-[   51.672509]  el0t_64_sync_handler+0xc8/0xd0
-[   51.675170]  el0t_64_sync+0x1b0/0x1b8
-[   51.677351] SMP: stopping secondary CPUs
-[   52.728175] SMP: failed to stop secondary CPUs 2
-[   52.731229] Kernel Offset: 0x5706ebce0000 from 0xffff800080000000
-[   52.734528] PHYS_OFFSET: 0x0
-[   52.736115] CPU features: 0x2000,400007c0,02110ca1,5401faab
-[   52.739275] Memory Limit: none
-[   52.803615] ---[ end Kernel panic - not syncing: sysrq triggered crash ]=
----
+On 5/30/2025 8:59 PM, Leo Yan wrote:
+> On Fri, May 30, 2025 at 12:32:23PM +0100, Suzuki Kuruppassery Poulose wrote:
+> 
+> [...]
+> 
+>>>> 2) How does the source driver know the TraceID for exposing via sysfs ?
+>>>> Does it expose its own traceid ?
+>>> No, sources connecting to TNOC don't have their own traceid, it expose the ATID which allocated in TNOC.
+>>> TNOC will maintain the ID in coresight_path:: trace_id, when enable source, the source can get it from path.
+>>>
+>>> Here is the patch to expose id in source:
+>>> https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250530-showtraceid-v1-1-2761352cf7b4@quicinc.com/
+>>
+>> Please don't do that. We don't have to fake a traceid for all sources.
+>> It is only of use to the decoder, with manual input from the user. So,
+>> someone using the TNOC based system must be aware of how to collect the
+>> traceid and as such expose it from the TNOC and not all the other
+>> sources connected to it.
+>>
+>> Simply expose it on the TNOC device node
+> 
+> [...]
+> 
+>>>> Good question, since we have the "path" maintaining the TraceID, we
+>>>> should use that here for the TNOC. But the other question is, can there be multiple sources connected to a single TNOC ? (I am guessing, yes!. And thus it may not work with what you are proposing.
+>>>>
+>>> yes, there can be multiple sources connected to one TNOC, and these sources share one Trace ID which allocate in TNOC.
+>>> To decode the scenario relay on TraceID + Inport number, TraceID identifies the TNOC, the decoder maintains a table that maps each TNOC inport to its corresponding source.
+> 
+> If the Trace ID is only used to identify a TNOC, I am just wandering
+> if can use self-contained method.
+> 
+> For example, you can generate a ID number based on the register base
+> address, something like:
+> 
+>    /* TNOC physical address */
+>    drvdata->paddr = res->start;
+> 
+>    if (IS_ENABLED(CONFIG_PHYS_ADDR_T_64BIT))
+>        drvdata->atid = (drvdata->paddr >> 32) ^ (drvdata->paddr & 0xffffffffUL);
+>    else
+>        drvdata->atid = drvdata->paddr;
+> 
+> Then, you can get a unique ID for each TNOC in the system, and the
+> ID is determined by the pyshical address and can be calculated
+> directly by decoder.
+> 
+> Leo
 
-The problem is the failure to stop secondary CPU 2.  (The CPU # that fails
-to stop varies from run-to-run.) It is mostly reproducible, but not always.=
- I
-bisected to commit 2eb2608618ce ("serial: amba-pl011: Implement nbcon
-console") in the 6.15 kernel. Further custom logging shows the details of
-why the problem can happen. Here are the steps:
-
-1. The "echo" command ends up in __handle_sysrq(), which outputs the
-"sysrq: Trigger a crash" message using pr_info().  I always ran the "echo"
-command on CPU 4 just for consistency in my testing/debugging -- there's
-nothing special about CPU 4.
-
-2. The "pr/ttyAMA0" kernel thread handles the outputting of the message.
-nbcon_kthread_func() calls nbcon_emit_one() with the "use_atomic" parameter
-set to false. nbcon_emit_one() in turn calls nbcon_emit_next_record() with
-the console spin lock held and interrupts disabled. nbcon_emit_next_record(=
-)
-then calls pl011_console_write_thread(). The latter has a "for" loop to out=
-put
-each character of the message, and my custom logging shows that it is indee=
-d
-outputting the string "[   51.616656] sysrq: Trigger a crash".
-
-3. While "pr/ttyAMA0" is doing its thing, __handle_sysrq() calls
-sysrq_handle_crash(), which calls panic(). After some preliminaries, panic(=
-)
-outputs the message "Kernel panic - not syncing: sysrq triggered crash"
-using pr_emerg().
-
-4. pr_emerg() has a high logging level, and it effectively steals the conso=
-le
-from the "pr/ttyAMA0" task, which I believe is intentional in the nbcon des=
-ign.
-Down in pl011_console_write_thread(), the "pr/ttyAMA0" task is doing
-nbcon_enter_unsafe() and nbcon_exit_unsafe() around each character
-that it outputs.  When pr_emerg() steals the console, nbcon_exit_unsafe()
-returns 0, so the "for" loop exits. pl011_console_write_thread() then
-enters a busy "while" loop waiting to reclaim the console. It's doing this
-busy "while" loop with interrupts disabled, and because of the panic,
-it never succeeds. Whatever CPU is running "pr/ttyAMA0" is effectively
-stuck at this point.
-
-5. Meanwhile panic() continues, calling panic_other_cpus_shutdown(). On
-ARM64, other CPUs are stopped by sending them an IPI. Each CPU receives
-the IPI and calls the PSCI function to stop itself. But the CPU running
-"pr/ttyAMA0" is looping forever with interrupts disabled, so it never
-processes the IPI and it never stops. ARM64 doesn't have a true NMI that
-can override the looping with interrupts disabled, so there's no way to
-stop that CPU.
-
-6. The failure to stop the "pr/ttyAMA0" CPU then causes downstream
-problems, such as when loading and running a kdump kernel.
-
-The problem is timing dependent.  In some cases, the "pr/ttyAMA0"
-thread is evidently able to get the message out before panic() calls
-pr_emerg(). In my case running as a guest on Hyper-V, the pl011 device
-in the guest VM is emulated by Hyper-V. Each pl011 register access
-traps to the hypervisor, which slows things down and probably makes
-the problem more likely. But from what I can see, the underlying
-race condition exists regardless.
-
-At this point, I just wanted to surface the problem. I don't have any
-specific ideas on how to fix it, as my knowledge of nbcon is limited
-to what I've learned in figuring out the failure path.
-
-Toshiyuki -- what are your thoughts how to fix this?
-
-Michael Kelley
+Using both dynamic and self-contained IDs within the same system can result in ID conflicts, which may cause decoding failures.
 
