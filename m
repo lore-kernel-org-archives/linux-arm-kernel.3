@@ -4,92 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8C4C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 13:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35CBAC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 13:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oihVtB+1SEPxR6wMy6kxrIZOmkj3G4LorB9xvDbO3Qs=; b=jq+wzXFcgT71d0CHqqaG2vHROd
-	RSQK6S+bxmXZEtU9WaUwWZiDZ4gtN06L4iX7mKt/X7aeG8DZcTR/IB7/A8fqGfCGs54ISskcj5Sf7
-	KnYh7L70Oi4zfLbyr9yfGTxZaESXlRs9sPArJvIXLMbjytj0v1A0HFgvvBsZJGQsrsG0EBbjx5vrh
-	vLHQFVQk4zl8ciTsyculRy2v6u6iZLq5jcZ3B+H8Hy2Ujgg+4QxtOXYCPkBZwztNwL+6DAIITYW9M
-	jGcPbUZ4EfC3DhMIx93pV+a46IbyNdUCeReXpORYpM9zLdx0bkUvN4OIFWSgqf9ZMM/WXZdiDgiEj
-	NlBZ2AIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ihLjhIRb7codDqUVsIyHWU1VL/hLeD+bO1fsphayOMA=; b=EMkghh7QPUm1JeNdML3ZFU8f2o
+	Ky4g6dPqtl1X4FUiiuhIyyg9MwUvml/9Q4DOYMCxEkp3qj8yaOpxwksAuAuMDJzX8JMfiJYUEdjd/
+	kaxfLXIx/MmyOJhFhJ4qKPWkvuo8GzygM47iC2CD4a/u3JNd+z/lRJN7dAA64+SAjjNllP6m2z6nF
+	/nzqBTm+3AXudeUNTbRRaZY/qsAcnKVODpIZd/2RapK7Omg40PYo/Yl9uW9F05tBWhMLizkm11Giw
+	O+Xrz0EJsb+m3RkMzR82hzUOIAd4X5IJqZW2ZiY95IhpTquYXlTgXn7oSOr/STNT6/kguWUrKxzZe
+	0lUh5Qiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMRhi-0000000B2E9-0Pl6;
-	Tue, 03 Jun 2025 13:29:22 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1uMRjs-0000000B2XL-16D9;
+	Tue, 03 Jun 2025 13:31:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMRfV-0000000B1yu-3V0N
+	id 1uMRg8-0000000B24t-09KU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 13:27:07 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-450cf2291bbso21322435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:27:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748957224; x=1749562024; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oihVtB+1SEPxR6wMy6kxrIZOmkj3G4LorB9xvDbO3Qs=;
-        b=JB07zlmuI+Zrfsq1xEhmCkjdbQLjmC6WZ3+lYhlUeKwwGQs3OXseXB04cZ9YpkRg5z
-         Xp/d5gEWnrqbIHfoc4Z7fj8notY+jKt2yKltC0PKrsW0QcfURudy7hoOmOL/klNXTrSn
-         k0Taxgy8/0xEwjedVI8AN8f80j/gVBC9nkMLp4+qOMcM+TJIXRQYTs0p6X5YjIV2VbEL
-         CyTml7YAzxCmirn6nLXlVujUFMGbjZ+UtMxH38ybVzVGKtNo1aGO/DW0fHH5lLwCiAbd
-         M0CIapUDzQBpVJkEDtXcXb9ae7dCLzSMwVDvjtC4bc8QJUTCA2nm8ufcV8xr6pZ8gW3R
-         sF9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748957224; x=1749562024;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oihVtB+1SEPxR6wMy6kxrIZOmkj3G4LorB9xvDbO3Qs=;
-        b=bJNdvnhvgdWVJWU14gIoKKlzrZkso/sZWWwUwp8kG7aPFw3MJWFimXp8UBWuHgE+zT
-         1VKt0/WLKVULOafhBFrZbt3WMFIRFap2nclslhbuFyMvGjkfSxTG3s3yN2prRBfr+dXx
-         EkaHyKtBSL1nMeWB+aEJEjsF3EKA+T3WDS7Gm+W7tMoExRNGzRRkUkDGQudebTnC8tVj
-         fY4SgguBKQfYAgofEdPrdtKjbM/BrZLLlCvfIwSeqdTt184g7dE6ZNQQlMxSUTMELybh
-         Uxj6S05Xdsz0hySdV8jaFlsakygFFo+DmRl7kOG9qRDYP+QdaT2+xoeheqjm0jS2jrfr
-         YOrg==
-X-Forwarded-Encrypted: i=1; AJvYcCVJVwoulzWtFoxGNZouEHmRVMnm9AGCfzowX+9ef0rymiqQRDHuAaDUi+hSftuqvzhuB/8tZaK6Y3kkDXm8zqV2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymcm0/OmFp5e5s2jL8+DvRZuooHE98+tRhaC+ot3fPFIvvmpDp
-	4HehwENaFD0GaDBocDCJf32vKYozWmaavq1A6ETYfgLT7y9lb7VM9pumOSQwrKKIiS4=
-X-Gm-Gg: ASbGncuLOHSpxkZA5q5yN08CCohrvuojo5SfJfizBxebVod0FeqoTjB2joEGncD5Jxr
-	tMh4SKMMroNfCY2QYkUGWsS5jILd7IoxKdC7Q7jVojhbMo7PWg/kDed3hAW8owZyh6iiWulHWvp
-	SIAV9PDY1EJ3oCfJYXfG6d+Vw1ykuVK5s7AlPt5RelqGdHC30HzyUcM2IwhgWdy2+LFUk8pWAV8
-	A0v2V/kwu3A7CiZfwjFUUcGhaIQByPLuEz2MN01jN9ehV7GXZgKLji21Jvrx8qh+VszSmsVsJGl
-	OE9iAupfE2UBEtMKjGfCQHWN3OiMyxtFDk54OUswapTLPPgT2zSnopLfuF8/Z5XfsTTOWINjfHy
-	C3GGSMKI=
-X-Google-Smtp-Source: AGHT+IGa7mbwcZXtdjmxN4fEKLTzriqSJh2XpWZKE/sUSl2iqQEeeTppliDDInLxLyB5zAkgBnX6bQ==
-X-Received: by 2002:a05:600c:4e0b:b0:442:f4d4:53a with SMTP id 5b1f17b1804b1-450d64c322amr189283025e9.2.1748957224078;
-        Tue, 03 Jun 2025 06:27:04 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d8000d8csm161701305e9.24.2025.06.03.06.27.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 06:27:03 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250424084721.105113-1-krzysztof.kozlowski@linaro.org>
-References: <20250424084721.105113-1-krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] arm64: dts: amlogic: Align wifi node name with
- bindings
-Message-Id: <174895722336.2922018.7146209463305009352.b4-ty@linaro.org>
-Date: Tue, 03 Jun 2025 15:27:03 +0200
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+	Tue, 03 Jun 2025 13:27:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7083C5C488F;
+	Tue,  3 Jun 2025 13:25:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9239C4CEED;
+	Tue,  3 Jun 2025 13:27:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748957263;
+	bh=Xp5tz2MBWTFRNuYRCISAwmh9P/iygUJfc9k7rU5xBQw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Pvc19CznMU5E1OAFpXn3B8++W0mZpQpcdkXK0Q4pwHZg/5G3OtvqxyecS9ue6oi5O
+	 KhlD4LK1GwjSmGCF1/qGr1jcRRyt1H5ndOPTfrnoAqZEdH4lew91s5Oa0idcsNH1oH
+	 7fzhJnpMzzruywCFhZVUjBm3ZEpUZ4qv1J6PtpNBiT4+4+AEo4DDiS8EGKNetnQamj
+	 KotAjZOwzeoUshRucyqgkwKC3UauVGwBv1rJL2aK0RmmBewPK9Equpc5ddnu0ZKHEh
+	 /qAnYI+cfDhD8Wuu4SfAgHs2585wD1uCUWZm7Cdwj6WnWSYh4+AWN+PrnUZhEpCdBL
+	 xI5/wve4dO1Ng==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uMRg4-002qIm-DF;
+	Tue, 03 Jun 2025 14:27:40 +0100
+Date: Tue, 03 Jun 2025 14:27:38 +0100
+Message-ID: <87iklddkfp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Lorenzo Pieralisi
+	<lpieralisi@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy
+ Hayes <timothy.hayes@arm.com>
+Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device allocation
+In-Reply-To: <f0e9f15a-ade0-e79f-f26c-d9c9db42a0b4@huawei.com>
+References: <20250513163144.2215824-1-maz@kernel.org>
+	<20250513163144.2215824-4-maz@kernel.org>
+	<0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
+	<87ldq9dm54.wl-maz@kernel.org>
+	<f0e9f15a-ade0-e79f-f26c-d9c9db42a0b4@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: yuzenghui@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, lpieralisi@kernel.org, sascha.bischoff@arm.com, timothy.hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_062705_887205_A2BF6A64 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250603_062744_153459_5BD72F4B 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +93,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Thu, 24 Apr 2025 10:47:21 +0200, Krzysztof Kozlowski wrote:
-> Since commit 3c3606793f7e ("dt-bindings: wireless: bcm4329-fmac: Use
-> wireless-controller.yaml schema"), bindings expect 'wifi' as node name:
+On Tue, 03 Jun 2025 14:07:04 +0100,
+Zenghui Yu <yuzenghui@huawei.com> wrote:
 > 
->   meson-gxm-rbox-pro.dtb: brcmf@1: $nodename:0: 'brcmf@1' does not match '^wifi(@.*)?$'
+> Hi Marc,
 > 
+> On 2025/6/3 20:50, Marc Zyngier wrote:
+> > Hi Zenghui,
+> > 
+> > On Tue, 03 Jun 2025 09:22:47 +0100,
+> > Zenghui Yu <yuzenghui@huawei.com> wrote:
+> > >
+> > > > +	domain->dev = dev;
+> > > > +	dev->msi.data->__domains[domid].domain = domain;
+> > > > +
+> > > > +	if (msi_domain_prepare_irqs(domain, dev, hwsize, &bundle->alloc_info)) {
+> > >
+> > > Does it work for MSI? hwsize is 1 in the MSI case, without taking
+> > > pci_msi_vec_count() into account.
+> > >
+> > > bool pci_setup_msi_device_domain(struct pci_dev *pdev)
+> > > {
+> > > 	[...]
+> > >
+> > > 	return pci_create_device_domain(pdev, &pci_msi_template, 1);
+> > 
+> > Well spotted.
+> > 
+> > This looks like a PCI bug ignoring Multi-MSI. Can you give the
+> > following a go and let people know whether that fixes your issue?
 > 
+> I hit this problem on Kunpeng920 with some HiSilicon SAS (Serial
+> Attached SCSI controller) on it. These controllers are MSI-capable and
+> didn't work after this commit.
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.17/arm64-dt)
+That's interesting. It means that the sizing of the irqdomain to 1
+wasn't getting in the way, even if that was obviously wrong. The funny
+thing is that the msi_desc would still be OK, as we only have one for
+MSI, no matter how many vectors are used.
 
-[1/1] arm64: dts: amlogic: Align wifi node name with bindings
-      https://git.kernel.org/amlogic/c/117993fc40d96ee3a7697d916a2a0424467e9dcf
+>
+> I have the exact same diff to get my box to work again ;-)
 
-These changes has been applied on the intermediate git tree [1].
+Ah ;-)
 
-The v6.17/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
+>
+> Tested-by: Zenghui Yu <yuzenghui@huawei.com>
+> 
+> Thanks for your fix!
 
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
+Thank you!
 
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
-
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+	M.
 
 -- 
-Neil
-
+Jazz isn't dead. It just smells funny.
 
