@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00CDC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 09:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77692C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 09:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R24fAEQ8DJV1Bu/Lk3GrR0V4p4KbCamwGPTjxJWhJ70=; b=K4EbGZ0R7G8xEJLdyhJBnCVp6s
-	Su+Sl0Q5inwrhX3nAbybdKG2xYv3hxqEDoNLZrknB9CdxoM82CZdddTiupniwrBBBwPccv7MXVJmN
-	pabHURRTLJddFHrn+CrpI/b+vI8ba9IfjeG4Tgfp+IoVb9hPI8dO2lpkAHCsdiSpGA7NrdQ4VjdFe
-	RNEn/KTeZePE8xiTWoqB7FK7J1fMlQ43+SESgy/3TnP566ynf2mFwVBBe5+0X00i+BIGjq+LjseRw
-	i7QO4uYO65reoiHeyjtf6LadEOrSG81PC0PaWRLQx4okv3iyv/wkR8CmbgBCu5rqyYpaCBN06qI7J
-	Cig4rbwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ar3GGAb+/pAvjf2tv2l9yKeAgpPBlAH6wYuKkop+dTc=; b=qmWcGgwRbj9dheHbaCLTLBbtPK
+	NDwQ5+mrar1jhyX7S8cI9VYd0hRmBVgvAm0d1GDeL7XZ9SABl/yPJoLzr0NXlaTydwTkGcuwQ1cz8
+	gyQ5m7yoYNb1WMrauNNg1cEvFj/BcLgFlBy7gTqSoRgVECyXVxjSYCcyWQvqWm60FY8jqojpwovPl
+	EWpJDQXdtt2a7bArbpLu3+9/mjRKfvNCPR8kY/V1717shELOWJzy+FwMaEdevMy3Sb/NEWSPlwUQ7
+	OfMJjtkLnBoboiz2gUUuiK0meVhWCdLuS6QaXid5ezswt+dWHlsW+jGxaG1bNRYdZmD9ga48SPw07
+	KHtpHYuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMO0M-0000000AXE8-1MSM;
-	Tue, 03 Jun 2025 09:32:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMNuB-0000000AVi2-1WAq
+	id 1uMO2W-0000000AXkj-0BNx;
+	Tue, 03 Jun 2025 09:34:36 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMNuk-0000000AVyf-0aNE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 09:26:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00B6812FC;
-	Tue,  3 Jun 2025 02:25:42 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E2D23F5A1;
-	Tue,  3 Jun 2025 02:25:56 -0700 (PDT)
-Date: Tue, 3 Jun 2025 10:25:54 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Qu Wenruo <wqu@suse.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	LKML <linux-kernel@vger.kernel.org>, devicetree@vger.kernel.org,
-	rafael.j.wysocki@intel.com, jonathanh@nvidia.com,
-	ulf.hansson@linaro.org
-Subject: Re: Kernel crash on boot, arm64 VM
-Message-ID: <20250603-athletic-catfish-of-reading-65ef17@sudeepholla>
-References: <17fc594b-b80b-4918-8945-4aef35dc9c94@suse.com>
- <20250602103521.GA1134@willie-the-truck>
- <20250602-solid-coot-of-karma-cfea5e@sudeepholla>
- <d7383d29-516d-4643-aaac-dfd930ec896e@suse.com>
+	Tue, 03 Jun 2025 09:26:35 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5539QUqM479564;
+	Tue, 3 Jun 2025 04:26:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1748942790;
+	bh=Ar3GGAb+/pAvjf2tv2l9yKeAgpPBlAH6wYuKkop+dTc=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=c6fYdD2Cmg3lp7IfgHeapSSfZ/o9v7TnEqybHqLSreuxzk7dhZJJxNpLsM/jGx+7I
+	 6uJJPNybqPuCTx9euftMDYW5ezkSN53LpgNoEoQr8J0T2NeTAKvKyhj6XPqtq2pJGw
+	 kdMwUs1EAMtDDXhgkdTCwwjcbOU0amOqE7zVsQTg=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5539QUmK1226445
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 3 Jun 2025 04:26:30 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
+ Jun 2025 04:26:30 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 3 Jun 2025 04:26:30 -0500
+Received: from [172.24.227.151] (uda0510294.dhcp.ti.com [172.24.227.151])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5539QQrT222532;
+	Tue, 3 Jun 2025 04:26:27 -0500
+Message-ID: <b6b752c8-020b-47be-a77a-84161f8e7267@ti.com>
+Date: Tue, 3 Jun 2025 14:56:26 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d7383d29-516d-4643-aaac-dfd930ec896e@suse.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH] arm64: dts: ti: k3-j784s4-mcu-wakeup: Configure
+ wkup_uart0 with clock settings
+To: Udit Kumar <u-kumar1@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-kernel@vger.kernel.org>
+References: <20250603042448.783956-1-u-kumar1@ti.com>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <20250603042448.783956-1-u-kumar1@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_022559_446397_90D912F7 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250603_022634_274628_B67032BB 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,37 +86,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 08:40:25AM +0930, Qu Wenruo wrote:
-> 
-> 在 2025/6/2 21:42, Sudeep Holla 写道:
-> > On Mon, Jun 02, 2025 at 11:35:22AM +0100, Will Deacon wrote:
-> > > [+Sudeep]
-> > > 
 
-[...]
+On 03/06/25 09:54, Udit Kumar wrote:
+> From: Bhavya Kapoor <b-kapoor@ti.com>
+>
+> This commit adds the assigned-clocks and assigned-clock-parents
+> properties for wkup_uart0 in J784S4. Specifically, the assigned-clocks
+> property is set to reference the clock identified by
+> "wkup_usart_mcupll_bypass_out0", ensuring the UART operates with the
+> correct clock source.
+>
+> The assigned-clock-parents property specifies "wkup_usart_clksel_out0"
+> as the parent clock. This configuration is critical for establishing
+> the proper clocking hierarchy, enabling the UART device to function
+> reliably across different baud rates.
+>
+> Signed-off-by: Bhavya Kapoor <b-kapoor@ti.com>
+> ---
+> Link to v1: https://lore.kernel.org/all/20241009072056.3511346-1-b-kapoor@ti.com/
+>
+>  arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
 
-> > > I've kept the crash log below, but I suspect this is due to the __free()
-> > > cleanup path in dt_idle_state_present(), introduced recently by
-> > > 5836ebeb4a2b ("cpuidle: psci: Avoid initializing faux device if no DT
-> > > idle states are present").
-> 
-> Reverting works, thanks a lot!
-> 
-> > Do you also have this commit ?
-> > 
-> > 39cdf87a97fd ("cpuidle: psci: Fix uninitialized variable in dt_idle_state_present()")
-> 
-> Not yet, the branch I'm using is from btrfs' development branch, which is
-> slightly older than the upstream.
-> (The base commit is a56baa225308 ("Merge tag 'for-6.16-tag' of
-> git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux"))
-> 
-> Just tried upstream, which also fixed the problem.
-> 
 
-Glad that helped. Thanks for the clarification.
+Also $Subject line needs to be correct for k3-j784s4-j742s2-mcu-wakeup-common.dtsi file.
 
--- 
-Regards,
-Sudeep
+Thanks,
+Beleswar
+
+> index 52e2965a3bf5..1146bc5990ea 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
+> @@ -310,6 +310,8 @@ wkup_uart0: serial@42300000 {
+>  		interrupts = <GIC_SPI 897 IRQ_TYPE_LEVEL_HIGH>;
+>  		clocks = <&k3_clks 397 0>;
+>  		clock-names = "fclk";
+> +		assigned-clocks = <&k3_clks 397 0>;
+> +		assigned-clock-parents = <&k3_clks 397 1>;
+>  		power-domains = <&k3_pds 397 TI_SCI_PD_EXCLUSIVE>;
+>  		status = "disabled";
+>  	};
 
