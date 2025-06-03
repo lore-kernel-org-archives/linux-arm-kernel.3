@@ -4,67 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66B0C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 17:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F18C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 17:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MCO2JfgA6MZjGeikR+UYa6kqv35vCusCT+lHwuEV5jw=; b=XrVs/cEZS2vUkCYrHBL9xEQaa1
-	6w+48QcJ42woyoBsrQhSfUWq51BRolWW0WG5GBMRnVK0r7taKGw1/8HXsp2VOofQOmz44/YhARdd0
-	npJ9mYGlh4bRBHzWwtUn9jTYfqSawKXuZ3292V3UaCbmAsel8VSQe9VaqcVhnNNEkuDqmj5n5F2+e
-	lUnugGBka3+ihNWG2/qT1cS7W2XUJ7zXkH/YSCSanEFHrziErsb7tmlYpcrXYa3XTKM+p7nT3KcUR
-	AD2qmCCJWhhIGTY6KfZSPinmdgKOmqmYhtO/3r7hG9tbwVIsVBKhkeeYO5i5EzGFmZ/wlu5TfkSGx
-	1SY0TQPw==;
+	bh=R/7/m0D4YkX+17TK5YiYf5mx7eZJqJi8ta4T/kaVg1c=; b=xNSbProFXRxtVnmk2dR9clmm0O
+	B2fM8MKtpDWdJeSRMZDZ8OCGbusP/U3BGhqqiLIjgB4XwNiN5lB3ekDZBktAZ+90TF1CgdQlVgpKx
+	yIxFqdRBXeiLbzqBAcQJt+YC3hbZ6up81907ucWiWsoerb5nfnU92rtcr/2mopfXCizScaxo1G1No
+	PpzNOMiYAPwl4ax0RtspKOSmhhLihVmvnPLsvapBVJIcwFa3VR58WalG38u5qmiLFwjv2ncYsiAwW
+	kuztNBUmj7sKTk1hoerlM65xDmtI3IM7kj4cb3sWE4Y65HIrwrqW4b3O5EDUOfqajnxwVerbRAtee
+	+eWVn0OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMVpq-0000000BWy2-3PyW;
-	Tue, 03 Jun 2025 17:54:02 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uMVsd-0000000BXLM-2m7p;
+	Tue, 03 Jun 2025 17:56:55 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMVne-0000000BWp2-38nC;
-	Tue, 03 Jun 2025 17:51:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1748973101; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cwppZ0xPjdeZLGuqauc+f+pjWK4k3RTNFCFmtM8ColWmVvEGdhCQQvUEB+L9q9pGYACt39z/7j6KirtpCROy7Gw87M9YMk0Sox3i3rxMScCng9BW8lvCdrjUTCytS3ZH7Dggp3WEbQ3UATGf+ozzL5WfaNdFp7S8GncFtWcHYXM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1748973101; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=MCO2JfgA6MZjGeikR+UYa6kqv35vCusCT+lHwuEV5jw=; 
-	b=UB1PaqFqtqLLdCbyptmnXfnKr7J5lesbIGpid7SsaiLOvRkUTFTQpvAcbIHZyQyHCiJkdf6Tjnn8EDWgNOyXS2ro4rk5/ascQUZrV5rJ7t523kGy4Ztdl5OT1pugR9Bw8F1X2h0qNM0z5nwfsQMbkLiqa8fAsw4XcwUG+hZownk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1748973101;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=MCO2JfgA6MZjGeikR+UYa6kqv35vCusCT+lHwuEV5jw=;
-	b=kCjJlCR/uH3QHQmfL0xEKGOiZYIf9B4JnUaQMlGMczeNLZ3us1+y8N8VQOtZGwGn
-	ukvU1orFjkKnd0Vl3ORTXUYfP5gAx0nfr66sqMrvcR9Fya465K6aA9ntPK/7erpq2H5
-	dyI1wvBL4O1cA7naGi3UBo+RxthfH52U+Da66KSU=
-Received: by mx.zohomail.com with SMTPS id 1748973100013134.58818864329407;
-	Tue, 3 Jun 2025 10:51:40 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- linux-rockchip@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexey Charkov <alchark@gmail.com>
-Subject: Re: [PATCH 2/4] arm64: dts: rockchip: enable USB A ports on ArmSoM Sige5
-Date: Tue, 03 Jun 2025 19:51:35 +0200
-Message-ID: <5590100.Sb9uPGUboI@workhorse>
-In-Reply-To: <20250603-sige5-updates-v1-2-717e8ce4ab77@gmail.com>
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <20250603-sige5-updates-v1-2-717e8ce4ab77@gmail.com>
+	id 1uMVqR-0000000BX3T-3YPZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Jun 2025 17:54:40 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3122a63201bso4568887a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 10:54:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1748973279; x=1749578079; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=R/7/m0D4YkX+17TK5YiYf5mx7eZJqJi8ta4T/kaVg1c=;
+        b=w8jQMwqff4q4Gqubt0KVAwV5trPAxQTtBadDYKEwF43kgXKqbOzyXLS6fDQ5/eHJEb
+         VSPT4agIYtgt12SmDMc9gjNKR7HxLURsbnW6pgXugIFOibJt4DWHqKRfUwWz8k6AN5ZQ
+         W0cRsgceBGAbpaAaNYY8Krt+BGk7BLTiIwZHyCAlzOA1cE2jRJtTI9BH4WILigYOtKNt
+         Zv8Ij480ettZG4uF3/5gXlgPwwhAJ2+eNSMSDfoBH4qotBqtWRorq1G2STcRAUmXaeXw
+         Lq6Tsu9J8wGE5CGvwDAR5g28a7Aj0avnQGcQBKY8ezDiv6x/tVkMzLz58YV+ST0VzMvK
+         NUYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748973279; x=1749578079;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R/7/m0D4YkX+17TK5YiYf5mx7eZJqJi8ta4T/kaVg1c=;
+        b=Lo2loMrZJPsxryvHx2mcfa3TLD6JeG00x1JTBMBThA6L7K2J2glDaN6whi5uyLx8cC
+         UHNBmbW65iXMRajbY3pLoMCZ2k/FafmZgCoKu21mQ9vtA3jC+Cu4vc35YPTNcnTYIlrD
+         UfuJVOp0A/IKJQ77Ksi7o6xiBaiKOH2DggPAozyz2vnV+nL1SN63zt3W9Rs48hQMWEC2
+         HKL2CazC72db46Uid25J5801eFieOvJfEteRNOOx3tbtsRpqa78NsTVRx26xcUxI43/0
+         phMyvfArjnnkc5XiWnZciMlQaGYveYh2ApEtmIUlLLMwsb4bwfcS+MIrgDwuJp/ge2lr
+         5Jew==
+X-Forwarded-Encrypted: i=1; AJvYcCUmu4LuW9tQZ0D368YrZPmj8ZmRX7LH/NzD5uWWHt6hTUpVXJ/N9HQolF6SrEy/9Kr1cWtwtxH4bbSa3BK+ubrC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZrPEMf6q+foGphqsY6+qr44KRZx3pNBou0gyxEdxvAeZU8NGT
+	Ph2ARS3zZkzw3K72LBiHHfNlYMqvwAPa/onCSJKK5Ynhy1ZdqP0zkLUamLzoOgHtFA==
+X-Gm-Gg: ASbGncvHtHEyTs3NZd75kP3d8RXYCRnPAmsV779zg9VtOSN22h/FentaaPBdwk2DlWk
+	DKnqG5W0e01YaOcBg2NO+L50qCcDMuCKEQYODbuMVRY0RSZlXxQ29jsU/XXPwFImesRPKSMSY0t
+	PcMqXBLD04TkE3ystXLUQoeoiHdUwY3m/0pyL61Xq2kFVfY65mX0qSRQU9Fqztni7MY/USUVdcv
+	y541VWmpdonML4cpx7mljjDoY25rPpt4lso5wSqSt1Gy+Xr0owMceVm6Rb1H7bWgrg5jntBgs4k
+	iT4vRwgkPQo+BNesf4bbh3hWFpXeGTn9EEXy4WfnA8hGTH2iIBg+0Ix8zCL83hlz/1nZIbTNIJO
+	AIQ7Zpbug38ld2oGc6oJt1YwaOdI=
+X-Google-Smtp-Source: AGHT+IFTvlmrdVshd5QxHXcEQ6MKKQjAV8TvJ2nBjRVCK5/HXrreUCJZBUa7P7G7vUU+2pvwwgQ3Ww==
+X-Received: by 2002:a17:90b:55cf:b0:311:df4b:4b8a with SMTP id 98e67ed59e1d1-3130ccf69ffmr22034a91.3.1748973278786;
+        Tue, 03 Jun 2025 10:54:38 -0700 (PDT)
+Received: from google.com (128.65.83.34.bc.googleusercontent.com. [34.83.65.128])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e2e9474sm7517618a91.29.2025.06.03.10.54.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Jun 2025 10:54:38 -0700 (PDT)
+Date: Tue, 3 Jun 2025 10:54:34 -0700
+From: William McVicker <willmcvicker@google.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: tglx@linutronix.de, Jim Cromie <jim.cromie@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Marco Elver <elver@google.com>, Nam Cao <namcao@linutronix.de>,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org, John Stulz <jstultz@google.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Saravan Kanna <saravanak@google.com>
+Subject: Re: [PATCH v1 2/7] clocksource/drivers/stm32-lp: Add module owner
+Message-ID: <aD822umlHEamq_bA@google.com>
+References: <20250602151853.1942521-1-daniel.lezcano@linaro.org>
+ <20250602151853.1942521-3-daniel.lezcano@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250602151853.1942521-3-daniel.lezcano@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_105146_861638_4084641C 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20250603_105439_885184_C2489F2A 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,97 +112,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 3 June 2025 19:01:14 Central European Summer Time Alexey Charkov wrote:
-> Enable the two USB type A ports (USB2 and USB3) present on the ArmSoM
-> Sige5 board.
+On 06/02/2025, Daniel Lezcano wrote:
+> The conversion to modules requires a correct handling of the module
+> refcount in order to prevent to unload it if it is in use. That is
+> especially true with the clockevents where there is no function to
+> unregister them.
 > 
-> Both ports use just one xHCI controller, with the USB 2.0 signals fed
-> off the same USB OTG PHY through an onboard hub. VBUS of both ports is
-> controlled by the same GPIO regulator (VCC_USBHOST in the schematics,
-> toggled by GPIO4 RK_PA6).
+> The core time framework correctly handles the module refcount with the
+> different clocksource and clockevents if the module owner is set.
 > 
-> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> Add the module owner to make sure the core framework will prevent
+> stupid things happening when the driver will be converted into a
+> module.
+> 
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+
+Reviewed-by: Will McVicker <willmcvicker@google.com>
+
+Thanks,
+Will
+
 > ---
->  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 38 ++++++++++++++++++++++
->  1 file changed, 38 insertions(+)
+>  drivers/clocksource/timer-stm32-lp.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-
-This is already done here:
-
-https://lore.kernel.org/linux-rockchip/20250507-rk3576-sige5-usb-v3-4-89bf5a614ccf@collabora.com/
-
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> index d9c129be55a0d997e04e6d677cdc98fb50353418..7ce1fb1380b0863c902fdd9cbc7454ee6011cf92 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> @@ -205,6 +205,24 @@ vcc_3v3_ufs_s0: regulator-vcc-ufs-s0 {
->  		regulator-max-microvolt = <3300000>;
->  		vin-supply = <&vcc_5v0_sys>;
->  	};
-> +
-> +	vcc_5v0_host: regulator-vcc-5v0-host {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc_5v0_host";
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		enable-active-high;
-> +		gpio = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
-> +		vin-supply = <&vcc_5v0_device>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&usb_host_pwren>;
-> +	};
-> +};
-> +
-> +&combphy1_psu {
-> +	status = "okay";
->  };
+> diff --git a/drivers/clocksource/timer-stm32-lp.c b/drivers/clocksource/timer-stm32-lp.c
+> index 928da2f6de69..cf1423ca00d0 100644
+> --- a/drivers/clocksource/timer-stm32-lp.c
+> +++ b/drivers/clocksource/timer-stm32-lp.c
+> @@ -159,6 +159,7 @@ static void stm32_clkevent_lp_init(struct stm32_lp_private *priv,
+>  	priv->clkevt.rating = STM32_LP_RATING;
+>  	priv->clkevt.suspend = stm32_clkevent_lp_suspend;
+>  	priv->clkevt.resume = stm32_clkevent_lp_resume;
+> +	priv->clkevt.owner = THIS_MODULE;
 >  
->  &cpu_b0 {
-> @@ -757,6 +775,12 @@ pcie_reset: pcie-reset {
->  			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
->  		};
->  	};
-> +
-> +	usb {
-> +		usb_host_pwren: usb-host-pwren {
-> +			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
->  };
->  
->  &sai1 {
-> @@ -798,11 +822,25 @@ &sdmmc {
->  	status = "okay";
->  };
->  
-> +&u2phy1 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1_otg {
-> +	phy-supply = <&vcc_5v0_host>;
-> +	status = "okay";
-> +};
-> +
->  &uart0 {
->  	pinctrl-0 = <&uart0m0_xfer>;
->  	status = "okay";
->  };
->  
-> +&usb_drd1_dwc3 {
-> +	dr_mode = "host";
-> +	status = "okay";
-> +};
-> +
->  &vop {
->  	status = "okay";
->  };
+>  	clockevents_config_and_register(&priv->clkevt, rate, 0x1,
+>  					STM32_LPTIM_MAX_ARR);
+> -- 
+> 2.43.0
 > 
-> 
-
-
-
-
 
