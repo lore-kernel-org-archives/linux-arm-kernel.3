@@ -4,63 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0A2C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 09:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE24CC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 09:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zEodPovTTAvnmzNUTxzbBUHYxKJDkUSLU0GlJpaXIFM=; b=GVHFpJ0eLaUxC6YFxahJRSEUGL
-	9ea1Z5bP7qAYcDrt+E8VezAhcllPfPOR0/97ep0Lkw6Xv/dA8IbsIw1Eujk+J2NsvpCxJyRxscF+N
-	8NLgiCek03oXNoZHvnLl6+uwvUOzGV+4FJUbQQeLuU3xtNpMnVpF/xwS74Osx7qgSCp8hxbtOq/Ju
-	tB4UqD6OlMJx6UtQjGtn2MyaJIUmBqWHZ5Uv9zPfKe0Cb+a9P6TAqSeL2jJ5vybJt2aLrU+/S+ACf
-	z3Sz3Q9fId+AxU2QI0ix3C+BZQcPSwLhTtBtIV9eEk6K9Mi+nGv/nqSEw2KtfmGmdjM5OTyRKhVk3
-	Gp55/w2Q==;
+	bh=B+ao5jQJ1R7PTJfrrw1EpttxvTi/GDyKDdBxqcsCbU8=; b=HU6vbueZBU9h8AWCzx+SQAk76B
+	4ef/NA462xlObBYN2hDEX8m2zFVyTMKpOJ6uDDNimhRiR1Fdqk/rn4sYklbRtbBc01PpVcFVFN2xU
+	BoLm9rcNPRe/OqA2YS5HPCIfsa9b6cA7oK1lyJDvssV4XSvPlQV8DnZICUuB0uvvtvD7ck1O+tY4p
+	OmRsxKGkqsSmgpv4ivs3ATD8nGghh4ZJBib7JcMhpSNb2ePtIOZQPfVxKD8+Gs+th5PbgczkGK1RT
+	Z+gH/Ivbooqkm/N0YwW0F4BmQWm75+Lg3+4pcs2J0jE/NIlN/bUrgoyRvc77GhQGOiMrJfoNbX8X5
+	c8JL2rdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMOCR-0000000Aa9G-15nl;
-	Tue, 03 Jun 2025 09:44:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMOAF-0000000AZc6-0u25
+	id 1uMOEa-0000000Aaht-46gK;
+	Tue, 03 Jun 2025 09:47:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMOCI-0000000Aa8I-3JXt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 09:42:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B57F65C54F3;
-	Tue,  3 Jun 2025 09:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DCF6C4CEED;
-	Tue,  3 Jun 2025 09:42:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748943754;
-	bh=dbV/utlJZsAmXKza9Scy8Pvl3ynRvyPanNSPnq6zrJg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Hkite6jMMxAGOm50Ea2u62+Aep6JFDMPsX1jjU94Oe8lbTEiQTz9l5H137JrOLWBa
-	 5fYPC67RSKTfte0X06ogcsaKBQ4iPotQCQMbY14IOv87Tp69e0Hgp7ecAlVZR77qEO
-	 XOne9yF+muIfRfuHG/LxGd+GiBC221jT6MHtyf9CwOFd6ju9pbeVGL5xRWrK4SmzE4
-	 Dm9pifWH9JD6cg7H9y3xl/zZcGvHalV/hWiuo6M3MjjPEF8E1p3HdIjAHHuMSGtSPG
-	 tP98ZDF1uXOaaIS928Q+u+Gvym9V1Z1Stdb7anXKpHMM9t/mBSkH4OMGTjoXwBGB0u
-	 fxlFJ4rNI0TDg==
-Date: Tue, 03 Jun 2025 04:42:32 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 03 Jun 2025 09:44:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BA5312FC;
+	Tue,  3 Jun 2025 02:44:25 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 013613F5A1;
+	Tue,  3 Jun 2025 02:44:39 -0700 (PDT)
+Date: Tue, 3 Jun 2025 10:44:35 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: Re: [PATCH] arm64/trap: fix broken ct->nmi_nesting when die() is
+ called in a kthread
+Message-ID: <aD7EA2Bmp-mrWZaN@J2N7QTR9R3.cambridge.arm.com>
+References: <20250530092723.3307630-1-yeoreum.yun@arm.com>
+ <20250602124738.GD1227@willie-the-truck>
+ <aD27GxSWsFekORcy@e129823.arm.com>
+ <aD2_Jp7CQgnp15Kx@J2N7QTR9R3>
+ <aD3kfTx8sF8/Yar/@e129823.arm.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, devicetree@vger.kernel.org, 
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- joel@jms.id.au, linux-kernel@vger.kernel.org, jassisinghbrar@gmail.com, 
- conor+dt@kernel.org, andrew@codeconstruct.com.au
-To: Jammy Huang <jammy_huang@aspeedtech.com>
-In-Reply-To: <20250603075450.133604-2-jammy_huang@aspeedtech.com>
-References: <20250603075450.133604-1-jammy_huang@aspeedtech.com>
- <20250603075450.133604-2-jammy_huang@aspeedtech.com>
-Message-Id: <174894375223.360822.13996455735829436919.robh@kernel.org>
-Subject: Re: [PATCH v1 1/2] dt-bindings: mailbox: Add ASPEED AST2700 series
- SoC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aD3kfTx8sF8/Yar/@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_024235_299406_265088A9 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250603_024442_915290_F1DD6A3A 
+X-CRM114-Status: GOOD (  28.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,48 +62,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: linux-arm-kernel@lists.infradead.org, ptosi@google.com, pcc@google.com, catalin.marinas@arm.com, bigeasy@linutronix.de, linux-kernel@vger.kernel.org, joey.gouly@arm.com, mcgrof@kernel.org, broonie@kernel.org, geert@linux-m68k.org, kristina.martsenko@arm.com, james.morse@arm.com, Will Deacon <will@kernel.org>, rppt@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 03 Jun 2025 15:54:49 +0800, Jammy Huang wrote:
-> Introduce the mailbox module for AST27XX series SoC, which is responsible
-> for interchanging messages between asymmetric processors.
+On Mon, Jun 02, 2025 at 06:50:53PM +0100, Yeoreum Yun wrote:
+> > One of the reasons we treak BRK as an NMI is that exception entry for
+> > BRK will leave all DAIF bits set, whereas schedule() should be called
+> > with debug and SError unmasked (but IRQ+FIQ masked). Generally, calling
+> > ct_nmi_enter() prevents preemption (and hence calls to schedule()).
 > 
-> Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
-> ---
->  .../mailbox/aspeed,ast2700-mailbox.yaml       | 61 +++++++++++++++++++
->  1 file changed, 61 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml
+> I think ct_nmi_enter() doesn't prevents preemption but
+> debug_exception_enter() disables preemption.
+
+Yep, sorry for the confusion there. I had erroneously pattern-matched on
+the nmi_nesting values and I had confused that with the similar
+manipulation of the preempt count.
+
+> > Another is that we may have a BUG() or WARN() in entry code where the
+> > task could be in an inconsistent state, and we need to treat the
+> > exception like an NMI to avoid consuming that inconsistent state.
 > 
+> So, let's think the "inconsistent" state like:
+>   -> el0_enter()
+> 	  -> enter_from_user_mode()
+> 		  -> before update ct_state (context_tracking.state), call BUG()/WARN()
+> 			  -> el1_dbg()
+> 
+> It need to call ct_nmi_enter() in el1_dbg() right?
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Yes. The critical things are that RCU may not be watching, and all other
+entry accounting may be in an intermediate/inconsistent state, since the
+BUG()/WARN() could be anywhere in that C code. Currently that means we
+must call ct_nmi_enter().
 
-yamllint warnings/errors:
+The other problem to bear in mind is that we don't have a way to
+distinguish these BUG()/WARN() cases from others throughout the kernel,
+which is why we currently unconditionally treat this as an NMI entry.
 
-dtschema/dtc warnings/errors:
-Error: Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.example.dts:29.27-28 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1519: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+> > To handle that properly, we need to:
+> >
+> > (a) Figure out what to do with entry code. Last I looked I was under the
+> >     impression that x86 either didn't have a problem here, or simply
+> >     ignored it.
+> 
+> TBH, in above case, x86 seems context_traking.state will be broken...
 
-doc reference errors (make refcheckdocs):
+That's certainly possible, that was the impression I had last time I
+looked, but I haven't looked at this in detail for a short while, and I
+may have missed something.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250603075450.133604-2-jammy_huang@aspeedtech.com
+> > (b) Handle BUG/WARN traps separately from other BRKs, such that we can
+> >     use local_daif_inherit(), and treat this as a special function call
+> >     rather than an NMI.
+> >
+> > (c) Somehow teach make_task_dead() to handle the case where DAIF.D
+> >     and/or DAIF.A are set. Most likely we simply have to panic() here,
+> >     as with BUG() in interrupt context.
+> 
+> Right... It should handle for DAIF.D and DAIF.A bits...
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+Yes.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+[...]
 
-pip3 install dtschema --upgrade
+> > As-is, I think an extra warning in the case of a BUG() is fine given
+> > the larger functional issues.
+> >
+> > I do not think this patch is correct as-is.
+> 
+> So, what I think:
+>   1. arm64_enter_el1_dbg() should ct_nmi_enter() as it is.
+>   2. in bug_handler() while handling BUG_TYPE, add above ct_nmi_exit()
+>      conditional call.
+>   3. DAIF.D and DAIF.A handling.
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+No, that is not safe. In step 2, calling ct_nmi_exit() would undo *all*
+of the ct_nmi_enter() logic, and may stop RCU from watching if the
+exception was entered from some intermediate/inconsistent state.
 
+If we want to change anything now, it should be the DAIF.DA handling,
+but even for that I'm not sure what the best approach is, and that'll
+require some changes to core code.
+
+Please leave this as-if for now.
+
+Mark.
 
