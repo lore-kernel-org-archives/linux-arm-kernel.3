@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B230C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 07:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE85DC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 07:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASPiUwzN5kjU3W6WOJLbXZXMVfwQVHXCJcUJ2aI/sZE=; b=z3FSsrR/UIFIvzLHBi+vtvqSOk
-	6AJ9hK6KB3PMJKH0rOXVaJ3swEosYI9OEu07EEuIhTKljUaAJr8v8rsdAUtYZw/K0CJ/9rhoWl4t1
-	P/vUF7MBGydwW7hu7nXXz+HTpRH4kO25tmKh4YU8K/Gz9dMlpEFYikb4QWXFq1Py3Ew9qf5zHtI4Z
-	NGgsOKXyCvW8nY2XhU5/RQkZoK0WA4HhKTqORLEk+LtzT/8BSHtpE4vQp96N1Cdo7vipf9g4UvVre
-	Nt+OOQJOOZnMLqqpeOS/ooHRItoZW2+rUILtvcDt/nJ6dxpjY82WFckxIYz+f42G79j+8Sx8F/Yc2
-	al4xvQpw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CIhLP8VNx9+hB6Na6gfMqJ8p5nvcqzIVDkp68cI4vX0=; b=m9Up9Q0jkqwjkFJtfMhGdjVk/s
+	XOihPp00jiG5Rp6p49FeAkPm2olx1jbvPIOEKKhKaDgUS9LwBRSHaklbJRS5O54/yeXrQ+JM0pNs3
+	HJgH0ljFcYTRMj7IbovUokDn57g/rbrFjHR+brq9sWr2vS6ymkgsDhOIUdpnKj8YgwenjPf8AOCc/
+	M47RgoTd/9zmgRarA8bgWM/4CEouNQhxHFzhwCgzwrtpC4iP8X2vyVxh6n0Qxer4FGDKvN+Ad/NaL
+	u8XLQ4BGM/5qdr5O9oxTynya/QQO0BSQEv6ZGAj7Sio7/2FQtcCRpwbQeDuEgBXjJbAFnQd21iBA5
+	gBGvxHsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMLnZ-0000000A4gp-1YQM;
-	Tue, 03 Jun 2025 07:11:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uMLpk-0000000A5SU-0M8a;
+	Tue, 03 Jun 2025 07:13:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMLlM-0000000A4G5-1oEs
+	id 1uMLlN-0000000A4HG-1yEO
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Jun 2025 07:08:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D26E344F40;
+	by tor.source.kernel.org (Postfix) with ESMTP id F02CA614AE;
 	Tue,  3 Jun 2025 07:08:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEC85C4CEF2;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4F0FC4CEF1;
 	Tue,  3 Jun 2025 07:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1748934523;
-	bh=XSlrAD6eyPaKQGafnPNm8VS+FmjidUjCnfXdHTIONEM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AG+D50/e3WXsN6isYoc9HVo3lceMSpHFdH7bqwhbPokZqDOQXiXblLeUz0eIgixv1
-	 zvUVvXo5ppBaZ/iTswyz4Kbse10q3HtnDLGYBjP0lHGuUSL5mEEqP+KuIbAUe65O69
-	 rBk9mE5Vy/yxbvfsWXSIdbUqOHzHm5SmykCxMmhN05gRaIYgcHj1qCKwDvirAgVBRI
-	 XZrZfu+KkLN0jJPgMRBkxhRjWwlmNcKEfsA0BSRwKoWl+baDlY2iSUWMafv+HTj/b9
-	 j+kXdRAexgvYWtRk97Y8HWDHczKT4EjIOg7B+N2qlDcv2tqdhKfmeSsMniFmL7VXOr
-	 g7FVvjrdvOOWQ==
+	bh=vDjDeOJoD8W/7MpPea4jV/CiHifHXJQj4nT62rmfbH0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=cKOgFFTOxm8K5q4Z9XUBlLZENU8u+clbftsXWTA2SRMZ5qpixPO98LIjPCTEISm2v
+	 yqc2WP3xOgY2KdSf5gLRD2W0htHctVFyrrZ6ODHtwO5aLlaBL1lo6/HVR4bRLyyBul
+	 HfzQoQgGmNgKCc3CR3PJxzgOFvfW11xHcBYzsGwmTVVcxjQuiVYDkkpZ6fHFd9o8+b
+	 uQC48btiW4xZS7l9CfbxwQAeV1W/rJfAY21LXJuY+np0zaGKUzCFoERza+yjLCGZsX
+	 IsGYd6yYUj2bEgwwqnFLypHb50hcpUqCUv1H5IJGHa/qxxI4JYNmVLruqoL90RHA/9
+	 B2sbqRuEfyciA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uMLlJ-002isr-OB;
+	id 1uMLlJ-002isr-5r;
 	Tue, 03 Jun 2025 08:08:41 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -55,21 +55,16 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 3/4] KVM: arm64: Don't use __vcpu_sys_reg() to get the address of a sysreg
-Date: Tue,  3 Jun 2025 08:08:23 +0100
-Message-Id: <20250603070824.1192795-4-maz@kernel.org>
+Subject: [PATCH v2 0/4] KVM: arm64: vcpu sysreg accessor rework
+Date: Tue,  3 Jun 2025 08:08:20 +0100
+Message-Id: <20250603070824.1192795-1-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250603070824.1192795-1-maz@kernel.org>
-References: <20250603070824.1192795-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_000844_498363_5A4775E3 
-X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We are about to prevent the use of __vcpu_sys_reg() as a lvalue,
-and getting the address of a rvalue is not a thing.
+This series tries to bring some sanity to the way the RESx masks
+are applied when accessing the in-memory view of the guest's
+system registers.
 
-Update the couple of places where we do this to use the __ctxt_sys_reg()
-accessor, which return the address of a register.
+Currently, we have *one* accessor (__vcpu_sys_reg()) that can either
+be used as a rvalue or lvalue while that applies the RESx masks behind
+the scenes. This works fine when used as a rvalue.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/arch_timer.c | 2 +-
- arch/arm64/kvm/fpsimd.c     | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+However, when used as a lvalue, it does the wrong thing, as it only
+sanitises the value we're about to overwrite. This is pointless work
+and potentially hides bugs.
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 5a67a6d4d95b7..c6b4fb4c8e08f 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -1036,7 +1036,7 @@ void kvm_timer_vcpu_reset(struct kvm_vcpu *vcpu)
- 	if (vcpu_has_nv(vcpu)) {
- 		struct arch_timer_offset *offs = &vcpu_vtimer(vcpu)->offset;
- 
--		offs->vcpu_offset = &__vcpu_sys_reg(vcpu, CNTVOFF_EL2);
-+		offs->vcpu_offset = __ctxt_sys_reg(&vcpu->arch.ctxt, CNTVOFF_EL2);
- 		offs->vm_offset = &vcpu->kvm->arch.timer_data.poffset;
- 	}
- 
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index 7f6e43d256915..8f6c8f57c6b9c 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -103,8 +103,8 @@ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu)
- 		fp_state.sve_state = vcpu->arch.sve_state;
- 		fp_state.sve_vl = vcpu->arch.sve_max_vl;
- 		fp_state.sme_state = NULL;
--		fp_state.svcr = &__vcpu_sys_reg(vcpu, SVCR);
--		fp_state.fpmr = &__vcpu_sys_reg(vcpu, FPMR);
-+		fp_state.svcr = __ctxt_sys_reg(&vcpu->arch.ctxt, SVCR);
-+		fp_state.fpmr = __ctxt_sys_reg(&vcpu->arch.ctxt, FPMR);
- 		fp_state.fp_type = &vcpu->arch.fp_type;
- 
- 		if (vcpu_has_sve(vcpu))
+I propose that we move to a set of store-specific accessors (for
+assignments and RMW) instead of the lvalue hack, ensuring that the
+assigned value is the one that gets sanitised. This then allows the 
+legacy accessor to be converted to rvalue-only.
+
+Given the level of churn this introduces, I'd like this to land very
+early in the cycle. Either before 6.16-rc2, or early in 6.17.
+
+* From v1 [1]
+
+  - rebased to kvmarm-fixes-6.16-1
+
+[1] https://lore.kernel.org/all/20250113183524.1378778-1-maz@kernel.org/
+
+Marc Zyngier (4):
+  KVM: arm64: Add assignment-specific sysreg accessor
+  KVM: arm64: Add RMW specific sysreg accessor
+  KVM: arm64: Don't use __vcpu_sys_reg() to get the address of a sysreg
+  KVM: arm64: Make __vcpu_sys_reg() a pure rvalue operand
+
+ arch/arm64/include/asm/kvm_host.h          | 31 +++++++++--
+ arch/arm64/kvm/arch_timer.c                | 18 +++----
+ arch/arm64/kvm/debug.c                     |  4 +-
+ arch/arm64/kvm/fpsimd.c                    |  4 +-
+ arch/arm64/kvm/hyp/exception.c             |  4 +-
+ arch/arm64/kvm/hyp/include/hyp/switch.h    |  4 +-
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h |  6 +--
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c         |  4 +-
+ arch/arm64/kvm/hyp/vhe/switch.c            |  4 +-
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c         | 48 ++++++++---------
+ arch/arm64/kvm/nested.c                    |  2 +-
+ arch/arm64/kvm/pmu-emul.c                  | 24 ++++-----
+ arch/arm64/kvm/sys_regs.c                  | 60 +++++++++++-----------
+ arch/arm64/kvm/sys_regs.h                  |  4 +-
+ arch/arm64/kvm/vgic/vgic-v3-nested.c       | 10 ++--
+ 15 files changed, 125 insertions(+), 102 deletions(-)
+
 -- 
 2.39.2
 
