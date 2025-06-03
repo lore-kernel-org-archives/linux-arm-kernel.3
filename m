@@ -4,69 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379BCC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0755C61CE5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RUidHi7AUTKhMLQFlQC/0IQeKDmIs/tIHkWgH++nWfQ=; b=hgBiCUxTl4rxVE2rahaEvTVLlQ
-	P+m5KYO7sod0eR7P9ZG6f3N8C0Q6+Ac6QaqVqjHmrdKkKMyMTrQBbgLugMkrShESJPPfwT8kN4UPF
-	i1z8IAyL9x5U97HmxG1i9Kl2tyP57VNp/ZHLkjTWAeCfZpD58nOmuXZjaLFtbPYIZCLHyPOP6xxTs
-	YZoqHbK71b0vbjT7G9r9gKo10qaK0P5xohPJAV4gvBk14/cRAoKAtbr3K7FQbH+yq6oTbl8wj4D9t
-	mBaL8dH3TN6+thu+6HmSqx/3RGhgYnGCahZU0SIduV8f2n3sx1B6yBBmL49ua8WJtp7ll62EPPdYz
-	oULaMEuQ==;
+	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6wJLeaP03mtDtOblkkOxViMj58IHsgZlwwzUdCNwkkI=; b=BR37tUP2iF14KnoaWfF3W/j7pp
+	kPXTFwDJ08F6Y1+vOE2S3bXtcOw1XbGA6qwV/TzrAEL4xx5pHqFDBeUMDLnyPzZa25zKrEtr3fa4F
+	ntluV6YQM2WI0+dHUMx6lSv8GRnKYqfqCfd+aueYaO1aa1K5XuXg7/qMGkMsWV1Pw8SmqlywVO4p7
+	T2KIUSOztIv9n7k7GDgdf7ThmGdb7hcUZpC28dbntmUhKv4mVMejvSPPg9Zs6IFMnyXtWkDb0t2zG
+	05/L5O+Yj7pO2zOxRi7G4HA/M8O0yg2cfyn1l9lZRt1Nw66anStlo4RKdcmvSGf7lxhVsYix/OWup
+	jbLqiOgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTZ5-0000000BHXm-0QZB;
-	Tue, 03 Jun 2025 15:28:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uMTZ4-0000000BHXA-21ig;
+	Tue, 03 Jun 2025 15:28:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSSv-0000000B9Jm-28ZE
+	id 1uMSNP-0000000B8xo-3HLl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 03 Jun 2025 14:12:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6wJLeaP03mtDtOblkkOxViMj58IHsgZlwwzUdCNwkkI=; b=mo8pZS8MCgo/ZJQ/oR8/r8ZbGx
+	yTsZHd1o7BmR5skagdUvHTCxdKL0bDYs/VdtQqNs7pWzESXnyOnSYUnEMa6/v+CQ++6rfL3sOoxik
+	gSl5gKjkojLEp6ykf6vgAm55N7SkJAE652Vuz3HGPcIAUQowMs6wqkJSIycFMBSuISLfH85f4ZkYn
+	98IOiJZG+Mj1mnj1fYrxHDyFvJU/caQSjyDYQFXhpD2WlKLpryPG06pglbEKWxCUBfkD1r6kcDMjP
+	6WR/i4PxPLMmnG+3SiMf8nMi/Vp/FEIIv1H4ogX410O6BwBZpjnTcuGqSku3BaRbasu4OCRD3/2a5
+	+K72uwgg==;
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMSNM-00000000mO9-2VoC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 14:18:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DBF4E5C5790;
-	Tue,  3 Jun 2025 14:15:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62288C4CEED;
-	Tue,  3 Jun 2025 14:18:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748960288;
-	bh=lUFGuC5ycdcnI5caajtZ9t5Zj3/9mRBKp3NDiUwuLWI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=sgipLgsomXQr5yJk2XUmUkEV51djBPrldROzvsO2rwa6QsBFE6sacVDIZF3IppF2v
-	 LKHaqseAjjKnwvNqsokboTlK3NgOc+IbLaeCFNrbq7u+yQTf/jcQ1PyXY3rNnIAYQb
-	 Aj6I2ONBI4KmVg+oxkV30PAIfs+zbDtTdzUq4fiH0+nUHeIjBl2FrbGcRs7vheQYVq
-	 STsip0Nsljjv7ru2iZiVkYv7SL6Hi7LeDhsBGhWYEzch+dv8vzQcMZy67OpxWMaWMp
-	 Ht1dOyY5zie3FXqktEPtZdb+BQsHyGgQL6Agxhe/fdxIIZ46pOPhAaE7dcDqLBAyG7
-	 sI4P0V7sOqsYQ==
-Received: from [149.88.19.236] (helo=localhost.localdomain)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uMSSs-002rPF-4s;
-	Tue, 03 Jun 2025 15:18:06 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH] PCI/MSI: Size device MSI domain with the maximum number of vectors
-Date: Tue,  3 Jun 2025 15:18:01 +0100
-Message-ID: <20250603141801.915305-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.2
+	Tue, 03 Jun 2025 14:12:26 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-450cb2ddd46so36552875e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 07:12:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748959941; x=1749564741; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:cc:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=6wJLeaP03mtDtOblkkOxViMj58IHsgZlwwzUdCNwkkI=;
+        b=nuzgVDCsXbk1KvRxyhk14tfkNp0xDx3hTbtoa2eXQAPvRWn5l52idWDIo1+eb4pdLb
+         XjhlEZaUG0fz7is+GzSrdLcyRoR2emvrAeE+rgIu/66j2QJtKTUU+/3GeZs7ZUZJmj4O
+         QoE+KhpJdN3UkIuwQL7SAu6863t4Wl08CTR3lfzTqti8y2SLpB9ialVhcP5R6OKepYPG
+         zfynaWly7jPO7mTVsswlzjpOGKusHm2+G49H5BvRHgVxRg7bF2I/uPL0nSvgJVwYlgp/
+         L/Mcr1uMcGT7wuti2F2oacGImAhSeN3rR6YZASYKER05huE9WcRaYNYQ6BROmHZGeSt9
+         TFsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748959941; x=1749564741;
+        h=content-transfer-encoding:in-reply-to:cc:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6wJLeaP03mtDtOblkkOxViMj58IHsgZlwwzUdCNwkkI=;
+        b=o+GONRnyoSF04g7aIkPlPZmHl6aLVxUcP+eYR/e78It9gvYrsfvXbOjZ2k0HjA5i7k
+         VqEcomhQpF+RiKXQhXp68PLCWwwunEU/6g2TooTCAs9NE+NmoNMuS4H8c+lIaSM43kde
+         uTqbXPolFdVeQM0047Rab0UQZI6dVUAnLeR+DHmMd2m81qC/H82m/AVz3vuCvck41W83
+         a2vfM3CQcA3o4pXSGNVVhwlR2Xh/RsqKbToFjVkm9D4ztGrYQ70C9KcKp/M6Q8KkzVDE
+         Iu92UYfsNNGuoMdUppRRQKHQkDPpEZTl2kLV36X9jmeW4XGRgxj5ABBJH+Ms8QU0e7TH
+         aEVA==
+X-Forwarded-Encrypted: i=1; AJvYcCXjb77SIiV1q6JZ4qHb2n/3yWBFXy7RaVapodcNJ6ornVigEyvoeqAOTE8o8gqyEwv0KBKZZCCal0iu4GnFPyJN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAr8JH2HmZadBq4q/D+yUCQHm+ac6nfcJPxpvdZ/SI6N3a5roD
+	Xt+JvUkpeAwxH2dwcvg4XdPz8KAAsWoRU4qBGCfMW3SKkMOARSns8vNLPfMl3IePTrQ=
+X-Gm-Gg: ASbGnct0/LzxKx4rpFI6eEBRXaTxUXXVBno2g4hNqnovDXKesyS8Fc7iWJ0JyE1pB8P
+	V6CoBN93zDSH2FqU2CSvLt+5DRq1ZKgryQm1qt429DT/K8PEUfac3QWpYpjJkV/TFIPDJuY1ggf
+	RhdjTb3p8xeqUNVQILPBl92plj/lxCL3qm1gLE6iakyiBExqzR/fhf70LmsLYGHpn5GwqoEGbiA
+	gaeCSrtsoP//MMn8BC4ImhPY4fhIiohC8cQrsD8hkMhy93ZKk1iEPCO935tycrybG0DrNeLxny7
+	DKBHmppO1owrAwBWFPSlQ/ed57SRY+/tkESVb0c6hQEcEQUMpVtT6inF
+X-Google-Smtp-Source: AGHT+IGOABL0A6s8/Ut0eSuBhoQegZYqQ3rJDBlLOJLzhyugXv/RwodNod3mhDofSSo5Nx2xBcS3Rw==
+X-Received: by 2002:a05:600c:1c96:b0:43d:42b:e186 with SMTP id 5b1f17b1804b1-450d64d5fedmr157189435e9.8.1748959941283;
+        Tue, 03 Jun 2025 07:12:21 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4efe74072sm18831982f8f.52.2025.06.03.07.12.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Jun 2025 07:12:20 -0700 (PDT)
+Message-ID: <f50facc1-6872-4c6e-a44a-cf5f76b23208@linaro.org>
+Date: Tue, 3 Jun 2025 15:12:20 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 149.88.19.236
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, lpieralisi@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 02/11] coresight: Set per CPU source pointer
+To: Leo Yan <leo.yan@arm.com>
+References: <20250516160742.1200904-1-leo.yan@arm.com>
+ <20250516160742.1200904-3-leo.yan@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, Yabin Cui <yabinc@google.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250516160742.1200904-3-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_071809_633578_329A65E6 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20250603_151224_781020_FD62F8E0 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,102 +116,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Zenghui reports that since 1396e89e09f0 ("genirq/msi: Move prepare()
-call to per-device allocation"), his Multi-MSI capable device isn't
-working anymore.
 
-This is a consequence of 15c72f824b32 ("PCI/MSI: Add support for
-per device MSI[X] domains"), which always creates a MSI domain of
-size 1, even in the presence of Multi-MSI.
 
-While this was somehow working until then, moving the .prepare()
-call ends up sizing the ITS table with a tiny value for this device,
-and making the endpoint driver unhappy.
+On 16/05/2025 5:07 pm, Leo Yan wrote:
+> Introduce coresight_set_percpu_source() for setting CPU source device. The
+> sources are maintained in a per CPU structure 'csdev_source'.
+> 
+> The coresight_register() function cannot be used for setting CPU source
+> device as it is absent info for CPU ID.  So this commit uses the ETM3 and
+> ETM4 drivers to set and clear CPU sources in probing and removal,
+> respectively.
+> 
 
-Instead, always create the domain (and call the .prepare() helper)
-with the maximum expected size.
+I agree that doing it in coresight_register() would be better and 
+slightly less fragile.
 
-Fixes: 1396e89e09f0 ("genirq/msi: Move prepare() call to per-device allocation")
-Fixes: 15c72f824b32 ("PCI/MSI: Add support for per device MSI[X] domains")
-Link: https://lore.kernel.org/r/0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com
-Reported-by: Zenghui Yu <yuzenghui@huawei.com>
-Tested-by: Zenghui Yu <yuzenghui@huawei.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/pci/msi/irqdomain.c | 5 +++--
- drivers/pci/msi/msi.c       | 8 ++++----
- drivers/pci/msi/msi.h       | 2 +-
- 3 files changed, 8 insertions(+), 7 deletions(-)
+You could add 'cpu' to 'struct coresight_desc' and then do the 
+assignment to 'csdev_source' in coresight_register() if 
+coresight_is_percpu_source() == true.
 
-diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
-index d7ba8795d60f..c05152733993 100644
---- a/drivers/pci/msi/irqdomain.c
-+++ b/drivers/pci/msi/irqdomain.c
-@@ -271,6 +271,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
- /**
-  * pci_setup_msi_device_domain - Setup a device MSI interrupt domain
-  * @pdev:	The PCI device to create the domain on
-+ * @hwsize:	The maximum number of MSI vectors
-  *
-  * Return:
-  *  True when:
-@@ -287,7 +288,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
-  *	- The device is removed
-  *	- MSI is disabled and a MSI-X domain is created
-  */
--bool pci_setup_msi_device_domain(struct pci_dev *pdev)
-+bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize)
- {
- 	if (WARN_ON_ONCE(pdev->msix_enabled))
- 		return false;
-@@ -297,7 +298,7 @@ bool pci_setup_msi_device_domain(struct pci_dev *pdev)
- 	if (pci_match_device_domain(pdev, DOMAIN_BUS_PCI_DEVICE_MSIX))
- 		msi_remove_device_irq_domain(&pdev->dev, MSI_DEFAULT_DOMAIN);
- 
--	return pci_create_device_domain(pdev, &pci_msi_template, 1);
-+	return pci_create_device_domain(pdev, &pci_msi_template, hwsize);
- }
- 
- /**
-diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-index d6ce04054702..6ede55a7c5e6 100644
---- a/drivers/pci/msi/msi.c
-+++ b/drivers/pci/msi/msi.c
-@@ -439,16 +439,16 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
- 	if (nvec < minvec)
- 		return -ENOSPC;
- 
--	if (nvec > maxvec)
--		nvec = maxvec;
--
- 	rc = pci_setup_msi_context(dev);
- 	if (rc)
- 		return rc;
- 
--	if (!pci_setup_msi_device_domain(dev))
-+	if (!pci_setup_msi_device_domain(dev, nvec))
- 		return -ENODEV;
- 
-+	if (nvec > maxvec)
-+		nvec = maxvec;
-+
- 	for (;;) {
- 		if (affd) {
- 			nvec = irq_calc_affinity_vectors(minvec, nvec, affd);
-diff --git a/drivers/pci/msi/msi.h b/drivers/pci/msi/msi.h
-index fc70b601e942..0b420b319f50 100644
---- a/drivers/pci/msi/msi.h
-+++ b/drivers/pci/msi/msi.h
-@@ -107,7 +107,7 @@ enum support_mode {
- };
- 
- bool pci_msi_domain_supports(struct pci_dev *dev, unsigned int feature_mask, enum support_mode mode);
--bool pci_setup_msi_device_domain(struct pci_dev *pdev);
-+bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize);
- bool pci_setup_msix_device_domain(struct pci_dev *pdev, unsigned int hwsize);
- 
- /* Legacy (!IRQDOMAIN) fallbacks */
--- 
-2.47.2
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c       | 7 +++++++
+>   drivers/hwtracing/coresight/coresight-etm3x-core.c | 2 ++
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 ++
+>   drivers/hwtracing/coresight/coresight-priv.h       | 1 +
+>   4 files changed, 12 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index fa758cc21827..1503037662f2 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -32,6 +32,7 @@
+>    */
+>   DEFINE_MUTEX(coresight_mutex);
+>   static DEFINE_PER_CPU(struct coresight_device *, csdev_sink);
+> +static DEFINE_PER_CPU(struct coresight_device *, csdev_source);
+>   
+>   /**
+>    * struct coresight_node - elements of a path, from source to sink
+> @@ -77,6 +78,12 @@ struct coresight_device *coresight_get_percpu_sink(int cpu)
+>   }
+>   EXPORT_SYMBOL_GPL(coresight_get_percpu_sink);
+>   
+> +void coresight_set_percpu_source(int cpu, struct coresight_device *csdev)
+> +{
+> +	per_cpu(csdev_source, cpu) = csdev;
+> +}
+> +EXPORT_SYMBOL_GPL(coresight_set_percpu_source);
+> +
+>   static struct coresight_device *coresight_get_source(struct coresight_path *path)
+>   {
+>   	struct coresight_device *csdev;
+> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> index 1c6204e14422..de62a0bb7faf 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> @@ -879,6 +879,7 @@ static int etm_probe(struct amba_device *adev, const struct amba_id *id)
+>   	}
+>   
+>   	etmdrvdata[drvdata->cpu] = drvdata;
+> +	coresight_set_percpu_source(drvdata->cpu, drvdata->csdev);
+
+Doesn't this need to be done before coresight_register()? Once 
+coresight_mutex is unlocked the device can be used. So you could end up 
+with an enabled device hitting the PM notifier with the per-cpu variable 
+still NULL and not disabling the device. Then the state would be messed up.
+
+Probably another reason to put the assignment in coresight_register().
+
+>   
+>   	pm_runtime_put(&adev->dev);
+>   	dev_info(&drvdata->csdev->dev,
+> @@ -902,6 +903,7 @@ static void etm_remove(struct amba_device *adev)
+>   {
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+>   
+> +	coresight_set_percpu_source(drvdata->cpu, NULL);
+>   	etm_perf_symlink(drvdata->csdev, false);
+>   
+>   	/*
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index b12d59b89a49..fede0be5cd43 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -2203,6 +2203,7 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+>   	}
+>   
+>   	etmdrvdata[drvdata->cpu] = drvdata;
+> +	coresight_set_percpu_source(drvdata->cpu, drvdata->csdev);
+>   
+>   	dev_info(&drvdata->csdev->dev, "CPU%d: %s v%d.%d initialized\n",
+>   		 drvdata->cpu, type_name, major, minor);
+> @@ -2402,6 +2403,7 @@ static void etm4_remove_dev(struct etmv4_drvdata *drvdata)
+>   	cpus_read_unlock();
+>   
+>   	if (!had_delayed_probe) {
+> +		coresight_set_percpu_source(drvdata->cpu, NULL);
+>   		etm_perf_symlink(drvdata->csdev, false);
+>   		cscfg_unregister_csdev(drvdata->csdev);
+>   		coresight_unregister(drvdata->csdev);
+> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> index 33e22b1ba043..59f9ec9cc260 100644
+> --- a/drivers/hwtracing/coresight/coresight-priv.h
+> +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> @@ -250,6 +250,7 @@ void coresight_add_helper(struct coresight_device *csdev,
+>   
+>   void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
+>   struct coresight_device *coresight_get_percpu_sink(int cpu);
+> +void coresight_set_percpu_source(int cpu, struct coresight_device *csdev);
+>   void coresight_disable_source(struct coresight_device *csdev, void *data);
+>   void coresight_pause_source(struct coresight_device *csdev);
+>   int coresight_resume_source(struct coresight_device *csdev);
 
 
