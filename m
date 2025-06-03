@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA27C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 16:04:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E54FC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 16:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0lYSal3GcLPOQfw4qEh69xNQYPJhEpOr8ui06S4slnE=; b=vjMoYC2cSIf/6g81k8iz1mS0JL
-	VIgbqnyRGfn+nA/Trkfk7HQpnbSgM5FeSyPvEnlPv8IR26bUle7OOE4472MV3iXWZUUsidT0NyBPM
-	RO+PtN1W1lwOhNAjXaTGypiC71ZWO5CoV0UuQdeDzrHV9zQJwVXpMtm/FRUq8qbtI34kwZcQBf4u3
-	5XFzwwKmq1D9KNw1d636Z+ReO4jlD2Ap/yZKoHih7UtXpSa1/LUfISRNzuy9soL4gEAOpj0Ywj+zL
-	PawD/KMvDvTGsdvPUYJnDw5Rj1VXvyCFnIntPkksud61vvQZfI6rXkWPMtNS+YDKzfxNqBjpUjMtr
-	100lYr/A==;
+	bh=r0THOM9Tz5cCxzIN1XwnlflZSYvRYNrRsuYDsh6RLVs=; b=aYlHb/+qrgk/KwZb3n/kJdfkwO
+	DsKveFnpmb0Wtw8EAEE0+565cuAbHfI+6F7x5Ssic/h1/z3bZSK/qLyM3PboWFK1kQtaxP86GswZg
+	c/BHOpkNNAF3JBrMvu+i0YtipHSSgeWQxcBAYsOS9ZNZJU/nxwX+kZS4MTsLnGEU7ob0yChTy+EUk
+	NS44UAjkD0XdkoWwxSnDdU2kuez/zcF8V1Q5YAKTbRiQfUxzYzthxMAQScvQMb//So8MBlsVr7uDS
+	ht+MInvQVogPtfLP7C1mYou/12VOI57n4td87p1yWfH67ZUVIwfN0ukqKQ9fx+X+yLWeaUN+sgVOA
+	3OQwOxsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMU7U-0000000BMk9-3uRu;
-	Tue, 03 Jun 2025 16:04:08 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uMUAI-0000000BMvg-2xst;
+	Tue, 03 Jun 2025 16:07:02 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMU5H-0000000BMVH-2eUv
+	id 1uMU88-0000000BMnY-12gS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 16:01:52 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 553G1mhQ510791;
-	Tue, 3 Jun 2025 11:01:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748966508;
-	bh=0lYSal3GcLPOQfw4qEh69xNQYPJhEpOr8ui06S4slnE=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=Avd+XDHTrY0/zOX1CeCoQt0XfNmtcLHzvHkPTR3CxII5xG4AJeVtqAP1az0K8c6wn
-	 ZwTjjluDv03dLCE069CMIGGnFF3VfIzr10swomSSwvbJW1twfeuuYDjwtaOIsV40qN
-	 ktLowLSeipC8ausfTp9cDy9na4xHaNjknVO1RXz8=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 553G1mh73862105
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 3 Jun 2025 11:01:48 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
- Jun 2025 11:01:47 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 3 Jun 2025 11:01:47 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 553G1l0L667428;
-	Tue, 3 Jun 2025 11:01:47 -0500
-Date: Tue, 3 Jun 2025 11:01:47 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Udit Kumar <u-kumar1@ti.com>
-CC: <vigneshr@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-kernel@vger.kernel.org>, <b-padhi@ti.com>
-Subject: Re: [RESEND PATCH] arm64: dts: ti: k3-j784s4-mcu-wakeup: Configure
- wkup_uart0 with clock settings
-Message-ID: <20250603160147.47orn74obh2lz3qm@rethink>
-References: <20250603042448.783956-1-u-kumar1@ti.com>
+	Tue, 03 Jun 2025 16:04:49 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-70e2b601a6bso54150287b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 09:04:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748966687; x=1749571487; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=r0THOM9Tz5cCxzIN1XwnlflZSYvRYNrRsuYDsh6RLVs=;
+        b=ro32E7VaLSAylkgMo0TwpX9v8ZyTNJDq2xStsKUb6QJWCS+eN4aCbyBko4i/rZHiFr
+         qLkXecfEadfu1c59YbstUazdOfIl38BV+RboPxRQLwC+po81GWM4PzAfpHfKvkm9dBw6
+         BGHWujNi1442qIRJ/CVGCP5EQ93SwP1yYdqsHrJVVby7SL6TG3pF2AJrkfavbAIvMNiI
+         Ax3GBUnTbzwlJznMnMCvjOleD0U0055Zz/P1RdIcbn6Nz2ToAAcUD4YfQ1Rm5PT1oU+q
+         +q2gQLwX/Gy4qxrfxhJIeXk/GRYasvokJ0vFSgEpkXlptwIbDiCoku3GiTsVHQz0kQ8F
+         GbgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748966687; x=1749571487;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=r0THOM9Tz5cCxzIN1XwnlflZSYvRYNrRsuYDsh6RLVs=;
+        b=JnGH1IDa2l1bM0BqsjcmGSkid9bd/BZKogpe7a+uANt66ETdoFL6fDX5qp3Y8QERpG
+         /G2xtjNJKbMly/4E38QNW9EJkHKAOTJt2cMmGJs+gDQIbz7AgtzryKSsf0Lz7c2f+HtE
+         BPvejmfuQHhHuCLnHLjKwG87yHcTO54KdwNgCyHoV5TrGWKdac8Kt5Gq4XD4rtEks04Y
+         kX1k/RuzQPoLpv3MyXGsBUZTyuZh5RjpZup/xRykmijqPdosgSWnUKPQIjcIdsNHEEN9
+         L03EjgdDFGODFicOABYFA+Hdxoh0M4gwoyPzFoQnZ3vVzLhlsZGnjZU7eBXthFTZ7e3r
+         ZYAg==
+X-Forwarded-Encrypted: i=1; AJvYcCXkASfnmwFeULWbjT+k2kTEoXlWXXpwrWvJW9GYvLZ1qgP9dHDQdqsyeM8pFexOeJwcjp0NkkM8qC2MZk5hmess@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdW+mUAOWFgfpdta8Mwd8P7F++2sjloZMLG8w36eicx/ht+yTl
+	LJ3wmOUAVZHjYH2K2pKHehD7OeYCElAUoNtZIbrCxdzn5nttHBTbsQwjdoeG28m4foPAnUpPpn9
+	to+SXoKsZWAz8Rc1rsXmmyT+jW+wRkvkl5YwQHd64jw==
+X-Gm-Gg: ASbGncvOK4yytrqc8o8dm2AgNAWw+cDM9chY6BFY7klyiciVM7qlkLckOkBHbUhMIh+
+	SCUwqJebVyklG6J/7P7BbzryFh1f+ihwl00CkQC5EvM86ztv/cBuX7lJl6ewuQ2BdPDEdEWYcty
+	wzNa3TUELWltV0L/ifqfoOOI8MS9KKCuWM5g==
+X-Google-Smtp-Source: AGHT+IGGBjij3QIsy1jCA5j8zhjft+IKrsaACySUg+k62APod+FXdi6qj6xIeTrUNlmOm0U7JH6MVf56Z9FJvtNzNHY=
+X-Received: by 2002:a05:690c:3705:b0:70f:83ef:de26 with SMTP id
+ 00721157ae682-70f97e7a4aemr301883097b3.11.1748966686958; Tue, 03 Jun 2025
+ 09:04:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250603042448.783956-1-u-kumar1@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org> <aDhWlytLCxONZdF9@lpieralisi>
+ <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
+ <aD6ouVAXy5qcZtM/@lpieralisi> <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
+ <aD8adnQWcII5XO2J@lpieralisi>
+In-Reply-To: <aD8adnQWcII5XO2J@lpieralisi>
+From: Peter Maydell <peter.maydell@linaro.org>
+Date: Tue, 3 Jun 2025 17:04:33 +0100
+X-Gm-Features: AX0GCFs3bGWxJOOMb_L3bfbyIBUrkcS_9aOXC3iJXsU9QwpmVE1adonerRAeDig
+Message-ID: <CAFEAcA9sdrykbVLntW35fo0MgV2VNXnLUFa4AM=Aw34bOBprYQ@mail.gmail.com>
+Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Conor Dooley <conor+dt@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, andre.przywara@arm.com, 
+	Arnd Bergmann <arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>, 
+	Timothy Hayes <timothy.hayes@arm.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, suzuki.poulose@arm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_090151_764369_7E86785F 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20250603_090448_297839_3C69200A 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +102,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09:54-20250603, Udit Kumar wrote:
-> From: Bhavya Kapoor <b-kapoor@ti.com>
-> 
-> This commit adds the assigned-clocks and assigned-clock-parents
-> properties for wkup_uart0 in J784S4. Specifically, the assigned-clocks
-> property is set to reference the clock identified by
-> "wkup_usart_mcupll_bypass_out0", ensuring the UART operates with the
-> correct clock source.
-> 
-> The assigned-clock-parents property specifies "wkup_usart_clksel_out0"
-> as the parent clock. This configuration is critical for establishing
-> the proper clocking hierarchy, enabling the UART device to function
-> reliably across different baud rates.
+On Tue, 3 Jun 2025 at 16:53, Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> Specifically, for IRS/ITS frames then - what the current schema does is
+> correct, namely, it does _not_ spell out whether the IRS/ITS config
+> frame is NS/S/Realm/Root interrupt domain, that's information that the
+> client implicitly assumes.
+>
+> Are we OK with this approach ? This would leave open the possibility
+> of having a DT per security-state.
+>
+> If in the DT schema I define eg reg -> "IRS NS config frame" by
+> construction the binding can't be used for anything else.
+>
+> Please let me know if we are in agreement on this matter.
 
-Please fix the commit message - not clear what specifically in the clock
-hierarchy does permit the multiple baud rates.
+This would break the QEMU virt board -> EL3 guest firmware ->
+EL1 Linux flow. We need a binding which lets us optionally
+specify "oh by the way here is where the other non-NS frames are".
+I don't have a strong view on the specific syntax.
 
-> 
-> Signed-off-by: Bhavya Kapoor <b-kapoor@ti.com>
-
-You need to add your SoB.
-> ---
-> Link to v1: https://lore.kernel.org/all/20241009072056.3511346-1-b-kapoor@ti.com/
-
-Also as Baleswar stated, the $subject needs to be fixed.
-> 
->  arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
-> index 52e2965a3bf5..1146bc5990ea 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-mcu-wakeup-common.dtsi
-> @@ -310,6 +310,8 @@ wkup_uart0: serial@42300000 {
->  		interrupts = <GIC_SPI 897 IRQ_TYPE_LEVEL_HIGH>;
->  		clocks = <&k3_clks 397 0>;
->  		clock-names = "fclk";
-> +		assigned-clocks = <&k3_clks 397 0>;
-> +		assigned-clock-parents = <&k3_clks 397 1>;
->  		power-domains = <&k3_pds 397 TI_SCI_PD_EXCLUSIVE>;
->  		status = "disabled";
->  	};
-> -- 
-> 2.34.1
-> 
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+-- PMM
 
