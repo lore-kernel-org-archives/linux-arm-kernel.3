@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2ACAC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 09:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52FE6C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 09:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edqc53WVwam8+kme4BDmyEiA4jyp5xhT2nRH1AvpxAY=; b=rPTECrfNHjkt97ajL7I/FQ0u7+
-	2fMzRapLo8ey5f+HL8UxoeiX9v2U0axQH2oLV2PlGiYA2t7EYxRjR2TD00Cf2L+L+egwh0LBGVWQ3
-	rMOxX8VLI4ZJQZCqG5QG3ekaopxm2Lv34eHrRHFsF+FsqqS8S+poYvb0kKlPLObsNu3UXoTnS3ow7
-	5KRHimFRswd/jGI7GL2pXj3B4M2MywHQinvzP8C/yXPlxZkaEIGTBU6swGjP1yxm80UerRrJ2gEcN
-	Hc9zNT5bjsyEud98wGIx1W3Qiom1JLbW345RMxXFxNZ5GaRpMo3521toVBohSgCI05d2jipk5fGlu
-	aXvc1yCQ==;
+	bh=xzfpWiiOdOJHKBYFuiykWUHiGsTQOXtq5xjJlt+HUXo=; b=iSffN2bE9sZ2Ba3cdQoaRCUeGW
+	aFG3b1zS0Sl3bMLeUEYFNH9OqT3fZbvzRcdSaYID24V6oiKKLYTt/+5xKuErSXrqFJDmoOy9+zyFX
+	9Ytgk/G7/BWezIniXN8PhxH7x/loEbzACl3DG2X6afDUK1mppMpW0echhirKrJURCO20bvQqt7EO5
+	zt2l7d9mGRgMxFiIWxmfwBElK2VlzfSs+Pb6W5yuYKrG0Obzc5gdielODC4pjvHyLrJ+gqshbByRQ
+	xKdlQaQ62aOQmsvuYS+Vq5+mesWGflsut7NNmyotzyyPEURbsS0Oys477EU3EOUKWRrBOGB6o4IAE
+	CF316w+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMNaS-0000000ARKL-3WYz;
-	Tue, 03 Jun 2025 09:05:36 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1uMNcc-0000000ARpl-2XJD;
+	Tue, 03 Jun 2025 09:07:50 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMNYH-0000000AQkO-2eLI
+	id 1uMNZN-0000000AQuT-3ewE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 09:03:22 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7390d21bb1cso3726810b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 02:03:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748941400; x=1749546200; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=edqc53WVwam8+kme4BDmyEiA4jyp5xhT2nRH1AvpxAY=;
-        b=hFHHyVv3/wdszKim0H2gKLRsHu1DMIAvmaDCd/8Wz+y5YbT0eh+T48mdPjFt7laX3O
-         BsCHFcFdSxdB+MaomMN47maLSEvgZ4F1PZQ0DdgOojX6ovTJTJl5wmdSjk6QBRZuKJbF
-         5DhaNJZN/6bA6I7zdUPC52RVRtckMFbi1rs54NjUqdLqAkYEJeZ5Mfj8D4W1oqLX3mN9
-         OP8dW9kxMr6hV+hzgS8zh15UewIwFQfdPXMDCrI3iUAMP+zxnjIKHLRfdYLebVu6+WQq
-         99ox1JZU0puz93UhHAJ9+RiK9830zJr+/5N+i15IVIjShZCLasRyzsCmxK2i0+7yjXpO
-         cBkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748941400; x=1749546200;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=edqc53WVwam8+kme4BDmyEiA4jyp5xhT2nRH1AvpxAY=;
-        b=MteeIbrymZCZtpkGByACssQYTL2f8y1rXqmHIBWr3kvYIEylDw/hjtDw7CvfQFd6bF
-         cUUhK24b+o44UBw8MsW4GEmq8MGJSZtgPJvRiBPOLWZlvUie7Qz2jlzNuL2s81POEr8d
-         DYcGg9SMzhSzjAK0RztMCUOBy9eiv1vbgzQO0/TREiBSy6p5Glepj7Kxd5cC0lN6/LxX
-         gi373jr3XA1aAEZWGUl4pb4T8tk7ouXsMZyVDUbtcifz7wuMfhPYa9XQsFPJiOm7pc04
-         kksz/9cS+vHvAhPNC2IwW9fClH3r/29cT9BN1KHo/NVUa1uqHAVoQAPQSZItHkrctPxV
-         RQiA==
-X-Forwarded-Encrypted: i=1; AJvYcCV4idUCUYJECwU88IcVLlMxtG2YEsSx5/zimy50hwndkbVJ2tXtUIwslk27heO/2ShuW/+JpemCtDDr2wO+EZmr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUzsqX1xIC/kchGjdU/yn8n64Ks37tYIohPZnEhLTCVJ8Rxf7u
-	luntyTiUjfgHJRprPOmDSQmTvtFkNXJQw6vPSBQvoeXP3S8PsenTaCJ5+Ew4Xw==
-X-Gm-Gg: ASbGncv1a9EXyqE/7F2RqV3TDcl+F/ityR0164DkfOyjrS0AhSGu0f/0dkFNzuEZ8Xk
-	lB+jYFdS//vRzAUjGIhWGJvhcwO2zGm1RprMabQoAo3wM9qAN177EwkRPtE6JwKNnRfmBU97SPq
-	8u3G//qOqmD+e0HrzlK6l5e6JNZmLXwAHNALZgwZ2oepEvxNB8Ttra4NR6jn9qnlYGK2k9vxc6X
-	eJXqw7Ig6cBWnZIh8jNQ96CASB9HD0/xl47oBSIpD82pwB8xB6bSVfD816VfBNc9U1jOIT5+w78
-	eabvY/7C3kztoovLg75uHwS/9P39nLZRdhVEJyjjIUrvp+LqTQjDHCeaSsPDJLokgbbjSo4n0qN
-	6cgb6/WvTrEdJ23pSiknbVc2ts96T6jT0
-X-Google-Smtp-Source: AGHT+IFA1Q2lNH+gmspD70SzLf3+pSWEj4qJ8Zsz7JMouVmhAnXVdN1MwMEGMK80uGskc8co5Y4iUw==
-X-Received: by 2002:a05:6a20:93a1:b0:1ee:dcd3:80d7 with SMTP id adf61e73a8af0-21ad92b8f6dmr24111773637.0.1748941400229;
-        Tue, 03 Jun 2025 02:03:20 -0700 (PDT)
-Received: from DESKTOP-NBGHJ1C.local.valinux.co.jp (vagw.valinux.co.jp. [210.128.90.14])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-747afed4399sm8963618b3a.77.2025.06.03.02.03.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 02:03:19 -0700 (PDT)
-From: Ryo Takakura <ryotkkr98@gmail.com>
-To: mhklinux@outlook.com
-Cc: fj6611ie@aa.jp.fujitsu.com,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	john.ogness@linutronix.de,
-	pmladek@suse.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux@armlinux.org.uk
-Subject: Re: Problem with nbcon console and amba-pl011 serial port
-Date: Tue,  3 Jun 2025 18:03:13 +0900
-Message-Id: <20250603090313.126850-1-ryotkkr98@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
+	Tue, 03 Jun 2025 09:04:31 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55391A10026370;
+	Tue, 3 Jun 2025 11:04:09 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	xzfpWiiOdOJHKBYFuiykWUHiGsTQOXtq5xjJlt+HUXo=; b=EBOTaBcLeSJxZCU1
+	28PcgxMHwyOnXFdGxSfcqMVQLjHfJG/6NTo1w3uNmc07qAguGaFreqibYtrbCN0a
+	rtXqnST/bLyjwNyOzWYsnpIe0rzFK/jkdoeFQ1pRy9kS4Y7eJJTrX02XMlOMWJUF
+	VQzt/Wx1w3O4XlhAvmzCayW+GzJNIy+2RDf7hc74ks+sB7NzgLqt23NVpQFw63Kf
+	LYh7dqwKCmzFuruqqD8rY8Pytki1U7Tw0cgIyCSRok+TaK8jcpv/YMf+KfbEXoFA
+	akyi//3e7y7dj+AG2zNaX2Y+1rEn5YWo+Z3uqVdf6hk6zFcVNAGopKTC19vF4yxy
+	gFzcLg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 471g8stuu1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 03 Jun 2025 11:04:09 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B5C6A4006D;
+	Tue,  3 Jun 2025 11:02:59 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1DA675C79C0;
+	Tue,  3 Jun 2025 11:02:35 +0200 (CEST)
+Received: from localhost (10.48.87.237) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 3 Jun
+ 2025 11:02:34 +0200
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Date: Tue, 3 Jun 2025 11:02:11 +0200
+Subject: [PATCH v2 5/7] ARM: dts: stm32: optee async notif interrupt for
+ MP15 scmi variants
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250603-stm32mp157f-dk2-v2-5-5be0854a9299@foss.st.com>
+References: <20250603-stm32mp157f-dk2-v2-0-5be0854a9299@foss.st.com>
+In-Reply-To: <20250603-stm32mp157f-dk2-v2-0-5be0854a9299@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Amelie Delaunay <amelie.delaunay@foss.st.com>,
+        Himanshu Bhavani
+	<himanshu.bhavani@siliconsignals.io>,
+        Etienne Carriere
+	<etienne.carriere@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.237]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-03_01,2025-06-02_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_020321_668760_327134B2 
-X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-CacheID: sfid-20250603_020430_515835_CC105273 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,20 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+From: Etienne Carriere <etienne.carriere@foss.st.com>
 
-On Tue, 3 Jun 2025 03:18:23 +0000, Michael Kelley wrote:
->The problem is timing dependent.  In some cases, the "pr/ttyAMA0"
->thread is evidently able to get the message out before panic() calls
->pr_emerg(). In my case running as a guest on Hyper-V, the pl011 device
->in the guest VM is emulated by Hyper-V. Each pl011 register access
->traps to the hypervisor, which slows things down and probably makes
->the problem more likely. But from what I can see, the underlying
->race condition exists regardless.
+Define the interrupt used by OP-TEE async notif on stm32mp15 scmi based
+platforms.
 
-I believe the issue is not amba-pl011 specific, so maybe John and Petr
-better be Cced as well.
+Signed-off-by: Etienne Carriere <etienne.carriere@foss.st.com>
+---
+ arch/arm/boot/dts/st/stm32mp15-scmi.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Sincerely,
-Ryo Takakura
+diff --git a/arch/arm/boot/dts/st/stm32mp15-scmi.dtsi b/arch/arm/boot/dts/st/stm32mp15-scmi.dtsi
+index 2f3c42a11379655a97393d91cbf28c22c5bdf539..98552fe45d4e088f749275cf35278de7b45b6c86 100644
+--- a/arch/arm/boot/dts/st/stm32mp15-scmi.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15-scmi.dtsi
+@@ -11,6 +11,8 @@ firmware {
+ 		optee: optee {
+ 			compatible = "linaro,optee-tz";
+ 			method = "smc";
++			interrupt-parent = <&intc>;
++			interrupts = <GIC_PPI 15 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
+ 		};
+ 
+ 		scmi: scmi {
+
+-- 
+2.25.1
+
 
