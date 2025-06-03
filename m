@@ -4,152 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31EBC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43C3C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:15:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ipGZ4icafR69h4+TEVJ7FyDt4dNtiqgVjhECasxU9aA=; b=U5PX248N9Pap6LQrmDHumiScS1
-	8gc2pVbKTwOdGJXnJMJ/0yQ6XXD5vTJ7xCKg7q0R9V//ZfRdUtvvut4hCa1IiTIYXSjGOxYKVydnM
-	M8hRWbo+AV7V0H+izjEoWXcf/IdZxC9swrIVtn/JcvzqGpbuCKrFXtJGhySBtLhsKs+9Tzdtyfk2J
-	oXxmdVIgdMzJGt7D5oXqo3fBM9/NQj0Gga2bGBBicIzqFeJIcm1ep8QEajX/0mXddpB48zxRtcuQN
-	FcnNAWHuI1xXaFoFGFUgpvJtFV3BRS+YtmaKw0YBRdlpJSlwZ12yHoO8H6HJPEwKTn3f79m7sHIhG
-	peCAz08w==;
+	bh=3POtsu2QTuk96rdXvOOIqoNxfTKcBzVJQIfjLygPY+0=; b=d5xbiGy8ozpMcnYdWzIU4ooYvF
+	9SKIIAHQsG11RatJioo0m4ryPV6xyePk9onOvd5/VhRxmIA6nSwtgbnCMnhTpCrnwgyIRA/tdYhk6
+	wM2Sis9K9rzLj51ef/4UeJLfmtSUMDloARxiEbd/Nc6AeUHeq7vVO28RwTqocPkktU8kWWvhC4CDz
+	sta5Tw7xXqqhN2ubxDJreCbdgMDSwYjtxXoInEO4N4Dua/2NQyQ/v34sXlNZcyHIyfZkfjuUOSFEZ
+	zK1sDB0w1hac9cjTtIWf3u+jRa0YQcsvRpYFEUUCUkJj9MvHQSRltekHr32Jb4H09ee8GjnHZ0ao6
+	7uREO3gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMT97-0000000BDpm-2coh;
-	Tue, 03 Jun 2025 15:01:45 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uMTMc-0000000BFmE-47Tn;
+	Tue, 03 Jun 2025 15:15:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMT6u-0000000BDbd-0TRA
+	id 1uMTKR-0000000BFSQ-1i4z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 14:59:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iWF9ytieQQhrL0dlANE0UWAX0F5gL6x/zGUdeHqhnkYP+CXP4DIJjaBJFDR8Peq4Fh8eDbVqElZ9OFiPc4Z5hoDCX2hq81H5E2jMRK3oe6u1GbFFq+KqPmgCCOLqTAq0ROrjdBOqeXOkcrNtaQTd8J0+jWgxoX6s91HgFWa2uSP9HOat4O8cALgSDPGA2F90kJQMvdgh08hInhsLlD3Ez8Iy5bwoz3pEm07tjYS6iJAzdaws7tmg7oCSVozmKxyNAEUbtJ20RHHEAmYhf3UaV5R6Ayk43GQY/BHoiEKAN4y0CIEXZF5ycTW/j2t3x2gifKmGJmDa0ESSnPY9VW1aUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ipGZ4icafR69h4+TEVJ7FyDt4dNtiqgVjhECasxU9aA=;
- b=x1XvPh5+55LbaJ8MAudyQi6/Elf9yPzMxRZ6fw2Pve+q1IQ4MLSEgItbjEysmxFOKp338YRT11ZKyD+6kWb0JMFMbSiRbeVsM06AuLoPWOTVLYzIyGYIy0edlFi78jUSVguy0wO1tU/i5VLEbtuhBhxVe1QegCREEBp5bKeyqEe0MEC34WuovM2RloeVRWgocH1CeeZSaVrI/29+EeFpb+tAMVgB2Y1Ks+PJVe90Vh0C45yJe5VcKraYMnys/DBxpSSipC3YEisrMbA31gXUa/4u3pKkONa9tgrdyH/yGZOsMReT67EFBk2lEVZAwZ1yfCDXPaNxNEz+qCpbZwXL+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ipGZ4icafR69h4+TEVJ7FyDt4dNtiqgVjhECasxU9aA=;
- b=naSpZpPprES4yNCn2ID8wT9ZFlVwG6fFPR9/VeEZjk3p14JkDFqE+9L7AUJrSK50xzWzg+Wk83V3QK9YNZlxM2JlR0lnoFADtzUxQgmrCC2AA1s+A37l9T3SJucucKK6vY3oWfSuoGIEqpuQQch9XhfGxDRDc66+Tgoax9HoVa7en08zGC9C2szDmRfC/sMySKZMsIwIiV85b53Ga2wPiyrSoZKX1GDOSevk36oSqScT0sjT2AYBaY5NnoD/spiVW2aGMSnM9C/64/EdWKobne4Cxaha3YlrW+m+ByR89+XLZLbuKV3MXvqaOMQhAftrLOBSbzcy+CuWfXLWB033yQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB8PR04MB7194.eurprd04.prod.outlook.com (2603:10a6:10:127::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.36; Tue, 3 Jun
- 2025 14:59:24 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8769.025; Tue, 3 Jun 2025
- 14:59:23 +0000
-Date: Tue, 3 Jun 2025 10:59:17 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"bjorn.andersson@oss.qualcomm.com" <bjorn.andersson@oss.qualcomm.com>
-Subject: Re: [PATCH 2/3] usb: dwc3: add layerscape dwc3 support
-Message-ID: <aD8NxfmJjSMeQKOu@lizhi-Precision-Tower-5810>
-References: <20250602-ls_dma_coherence-v1-0-c67484d6ab64@nxp.com>
- <20250602-ls_dma_coherence-v1-2-c67484d6ab64@nxp.com>
- <20250603012259.gyat6ungxyufhhbe@synopsys.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250603012259.gyat6ungxyufhhbe@synopsys.com>
-X-ClientProxiedBy: PH7P221CA0049.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Tue, 03 Jun 2025 15:13:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 00B6DA50420;
+	Tue,  3 Jun 2025 15:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0EEC4CEEE;
+	Tue,  3 Jun 2025 15:13:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748963605;
+	bh=SDrJA2heEfO3acGwN161/YSuu79b0rUMxQJRzB6X4nQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ncskI327tBVw4nf0zXtQLAE+PNC/Cxo1lYA5S65uqpL+VrN30Lf9u/ZuBXksazvo+
+	 BbI6p100RtCVDQCYfnNcNmpzc2ve589cY+xmAU9udFZK/SRPrBXlio5wGkGC3knXsI
+	 gK0gY5vuyNibdidJ543zYMSjglBuhjRstEp1ZBGpwbrE3tFQNr2mLCSkLcT98zK5it
+	 kkSyqD+8o8yBd/nuzN3LLPXev4KOOh2E2cbrGPP67im1mkGS7swpD0F+UY735yhJ6w
+	 eb9UMXdizDZVnrB3g/HnLRvI8GYL0UHhMWRvlAzZac3hJxSf4LPWyP+G5nRsSDgQIH
+	 1jlEh1p2aAaww==
+Date: Tue, 3 Jun 2025 16:13:20 +0100
+From: Will Deacon <will@kernel.org>
+To: Dylan Hatch <dylanbhatch@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Song Liu <song@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
+Subject: Re: [PATCH v5] arm64/module: Use text-poke API for late relocations.
+Message-ID: <20250603151319.GA2611@willie-the-truck>
+References: <20250530000044.341911-1-dylanbhatch@google.com>
+ <20250530141325.GA30733@willie-the-truck>
+ <CADBMgpx==FnFj4okXs1n3NPngh7Os1YpnGrDDe8z_t2X7bzOOQ@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB7194:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f93af23-3b19-488e-de86-08dda2af3a47
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mj2LiIrQBh0MYOqM/vFMqoQrprvt1ansIjGKNY0x+Nqb5X64235K5XF2pVpE?=
- =?us-ascii?Q?gzijXjmBUlE/WFXTdcFaQuWDcKCYn8dGGDuK5WXZyA/OQ0UWeDnhz7VFdfwj?=
- =?us-ascii?Q?BZh2PD0/rd5Q4hE889JEf7BTKos3uNjQVLUlIHMdhibYsbh6UThlSX/CUaQQ?=
- =?us-ascii?Q?ktaW6ulEYL7NywztKrzv/wv0UtOcVTtenwMPLtpfv7M/UvO+p0uuDkZenbE0?=
- =?us-ascii?Q?vvKthiPvawKXjC3zGEtLZa5KCslvfvRN4r8JJjxXKbYPhC6rgiEzqKYo/aZ2?=
- =?us-ascii?Q?F1uxX4B2f4+7k1s5jlGZPIzxsZAvFqb8VWNqoiWtUFVZfW9P4o3aLKmW4BY/?=
- =?us-ascii?Q?7z1pTWJJKPEOg6xRxS0IvXejtvQUFQto7D31HEKk5c9CMLSW7SaubXIMX4eE?=
- =?us-ascii?Q?UVVLSeyc1bvmk8fE7WB0VzTkhoWs8De2e0JvCe12ejirFSLWH+YJOveI6O7R?=
- =?us-ascii?Q?clYWBhpY3QQHubfsYo238D88Ox2f2RxOqgFRXSVRvc+YHCA2ZViIBrw09GDU?=
- =?us-ascii?Q?zKHyKt7zPMgtmudyPZNC5fIDg+Eyx4MXflKkY1AZiKqq3icsxeMzsf3xjInh?=
- =?us-ascii?Q?qqTlCR0bqZ1Aec7aYANXwRgKrgKKTXs670gkUQ6stCo50mJ9ji0Wkp2BlGiE?=
- =?us-ascii?Q?nEOJq6EPiBoYmhVVJaemsOx5bXdDN8mij+OLOXAezvUK8cnnpphVb1erkTWF?=
- =?us-ascii?Q?z8jUui1NnYd2YosMJVhk/Zh4QoyEtBvLglzAeRbdlZl/wPCkGNTQ+rzBKFtt?=
- =?us-ascii?Q?q1PaTEIriVSZXqT7MKqk57hynYDv/0Fz5eYcFUIObPf3h24J+9SfPh7y3v8Y?=
- =?us-ascii?Q?rAtDG8U8jIkw+3lBDyEcRXQRTDjnGa/TUHdAR1wZDbrNBd7Jsj+H38R5RYUi?=
- =?us-ascii?Q?jq7rtBThJlC3R8O3yB71Fq0snCig/6AptHxPIpq53f6baWgW3k2ncU5AVNkS?=
- =?us-ascii?Q?sxk/Bhsd21Unwuqb8jfxZPpGynxD6sYTM/6OGq1mqqeq9pz9lx31ibU/rP4O?=
- =?us-ascii?Q?0F+oCyH9ybRxJHTs+cKQdLe3BLfJSXCy5LPm1wv5oyUYlMTKVOZxN75M1rjC?=
- =?us-ascii?Q?1QZtmp2Xpux5szxaZiwJl2m876BJgqD/xeLQxpH7D7lYUhuS1lkQA2muRQ1G?=
- =?us-ascii?Q?quTCnbYwoNf4KwHBM+aQiJeP75Ts1FzEJCBlk5pstqrnb+SMoYMrd9YrRozy?=
- =?us-ascii?Q?lEzFpQO9o5AXGgxhuoxK25yxUEvM+EHCqv4brCqKk4Z3AF52/HE6Ri7qUL1O?=
- =?us-ascii?Q?mGzDslKl5ehwQWL9CRUE5kURiygXuhoEcubTFql0EChl30Fmjrf193LHyA3N?=
- =?us-ascii?Q?9dRWZpedzYc5nUf6zGgd7S9Y213v6NI+QEbYdJ1tnToWGbaEAN8UVwDAV0xa?=
- =?us-ascii?Q?WHxzHnROyO5DRMmAXWf7XCnQgIgbTPjHKkGi+Cpo72KlRme5unX6cny3DaQM?=
- =?us-ascii?Q?ApV534zP4Y8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DyJsy0wWBAkTkrjVFLiuiIUr+KMs6yo0a9d7oj4V9hzKyt8F2/oMoXHQo2/i?=
- =?us-ascii?Q?/LBEKqkWwiBULD2Oec8NHuOT0oNrt/mIKkyDRerO0A0RMXTL2incnQ+ccUcq?=
- =?us-ascii?Q?Oi8NmYiIAaosp3mPihuZSfMp7cVVhKbRsC574lcNVugwaatsmVPwsEBihMj2?=
- =?us-ascii?Q?Ey4tlyXGmJ9/32RA2ExXI8ZXqctGc3VyiSVvNWjE/rT9G94irlz0lzSR77NA?=
- =?us-ascii?Q?NR/+fo+17/cU27ZqlSwSESlzwOJXLoRibxN4Wqb1mh93eLJxOr1S6VudkyB6?=
- =?us-ascii?Q?ODYYLh5GKUH5gYDldrFS3K9AhwjwXe5hrK8zBNPYsaVXkdF/795+Y4BPXL/N?=
- =?us-ascii?Q?QXZmTpA+ir3sjfLXqDa2bjXPB3mU4o87pDSWcyHkmuGrcfNZKVt2DzI9GxpL?=
- =?us-ascii?Q?62HyUvClefpOB9CfbvmRs8PNMsFHw90rxmocWQWKaxn8X1Edb4MqlZsPbI/F?=
- =?us-ascii?Q?5Gf2K9N90yUzgu2MmRosZ9VBsQ2NOBxwtcdb6gqrtjqESiwbjoVLzmJxgeD0?=
- =?us-ascii?Q?YjFrm8TPZqpOjr7Of5KM2koSYpAWqkcuN7q0KU+76whOx35EALyKS598K5Nd?=
- =?us-ascii?Q?RJdRvutsAK8i4pQ7UTjQ+cTFMS9kzpg48JA4OLPnICqCU95S+CWiqVKiqO0K?=
- =?us-ascii?Q?sItFHnJ4NlhciJYj+sLbB5c6KDN6Hf/eqaAE01WVaQdqULw8oicnZqxdLziK?=
- =?us-ascii?Q?boN+G/U+TVkLqDTshgaaBzWAP0EYyhQYkQbKnUgYSI1d/wKNP4trMwlZ+ZeY?=
- =?us-ascii?Q?VZtROqwv3Vfsy4c1a/T8IBeuuIFioodi12KUMfijl2I3qrQCwNADcMKY/N8T?=
- =?us-ascii?Q?t1EPSM9BgQFDAhT3ArXHTHoifLIOmm5XU491CYdmtY2uIT8VjNK2tROzOwaC?=
- =?us-ascii?Q?mzSZx6ELH6K1jcoYe2vhMv5Kn2iLBOPLXQbIWgVGw+ybgJYI/BD3wQE59Djy?=
- =?us-ascii?Q?keWzbB3f90fTrScgyZFKA0Yvoat4Ktf+VPT92OykV7KzL7LRG3ydkJG2Daws?=
- =?us-ascii?Q?PklI6UUg44n/6c8BTVewv6TyGJ0AArbm1PRCS7saKCEzLXX6izVoO3lb04rX?=
- =?us-ascii?Q?RgFJ5fs7eFC/tLe8TDwbdJTwkbN5RL43C+0caas6faZ8g1SNpNx1XCMp+XP+?=
- =?us-ascii?Q?bLBgjdiSeBH+g6xrSltg1oRfENKKyanNbwXyWm9VnFiVSge32/PUna0xIwxT?=
- =?us-ascii?Q?DFkb763EiJDFWwXuJ/pqCJOmFVIbUiQPi4NXQ3djYwXByTuUoO4Y5O2F6W5i?=
- =?us-ascii?Q?43Qgp+h62PC/VfbDPAwhDnGc0QpdzRSTkpQPe1FaHdTDazpLkTUpDfzXjhfw?=
- =?us-ascii?Q?FwZooAD01Q9l3VUxtbyE9FVvWifsCZMWvRHj8aadB15jU6BSsfEpqDdQDm0K?=
- =?us-ascii?Q?06S0hSSdAkgbHEjpV/wedOBJytwLa/QUH/V0PQBaOEPsQSUTMOCWrRRKw2KO?=
- =?us-ascii?Q?FOKPfwoUIl8PnBxGoVaQ4EFjn0FHkf3ubN+sQnrMC9LRX2jg5I6zuuqncSxt?=
- =?us-ascii?Q?EcPbc4OsmlLFAEODsp4GIiHxjuugEk/CbOsD6klo28Cq+ACFrNttnUCsRtpW?=
- =?us-ascii?Q?0hRT5G6HqFZbkwIh6wqSzCJgc1m5ZJMKZYJ+llZJ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f93af23-3b19-488e-de86-08dda2af3a47
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2025 14:59:23.8938
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: spLnKiKMhqxDGIlxos4Pb1AyOerwamf0LBpCkCL1HZkTZ3s0YaymkNDZXvv8RYPtWUoOJtSokSwObsfl8DSL7Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7194
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADBMgpx==FnFj4okXs1n3NPngh7Os1YpnGrDDe8z_t2X7bzOOQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_075928_156941_7082DB49 
-X-CRM114-Status: GOOD (  31.27  )
+X-CRM114-CacheID: sfid-20250603_081327_581103_82E7E27A 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,164 +81,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 01:23:03AM +0000, Thinh Nguyen wrote:
-> Hi,
->
-> On Mon, Jun 02, 2025, Frank Li wrote:
-> > Add layerscape dwc3 support by using flatten dwc3 core library. Layerscape
-> > dwc3 need set software managed property snps,gsbuscfg0-reqinfo as 0x2222
-> > when dma-coherence set.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> >  drivers/usb/dwc3/Kconfig           | 10 +++++
-> >  drivers/usb/dwc3/Makefile          |  1 +
-> >  drivers/usb/dwc3/dwc3-layerscape.c | 88 ++++++++++++++++++++++++++++++++++++++
-> >  3 files changed, 99 insertions(+)
-> >
-> > diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> > index 310d182e10b50..13a86cf03b94b 100644
-> > --- a/drivers/usb/dwc3/Kconfig
-> > +++ b/drivers/usb/dwc3/Kconfig
-> > @@ -150,6 +150,16 @@ config USB_DWC3_IMX8MP
-> >  	  functionality.
-> >  	  Say 'Y' or 'M' if you have one such device.
-> >
-> > +config USB_DWC3_LAYERSCAPE
-> > +	tristate "NXP Layerscape Platform"
-> > +	depends on OF && COMMON_CLK
-> > +	depends on ARCH_LAYERSCAPE || COMPILE_TEST
-> > +	default USB_DWC3
-> > +	help
-> > +	  NXP LAYERSCAPE SoC use DesignWare Core IP for USB2/3
-> > +	  functionality.
-> > +	  Say 'Y' or 'M' if you have one such device.
-> > +
-> >  config USB_DWC3_XILINX
-> >  	tristate "Xilinx Platforms"
-> >  	depends on (ARCH_ZYNQMP || COMPILE_TEST) && OF
-> > diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-> > index 830e6c9e5fe07..cd635b77902fb 100644
-> > --- a/drivers/usb/dwc3/Makefile
-> > +++ b/drivers/usb/dwc3/Makefile
-> > @@ -54,6 +54,7 @@ obj-$(CONFIG_USB_DWC3_ST)		+= dwc3-st.o
-> >  obj-$(CONFIG_USB_DWC3_QCOM)		+= dwc3-qcom.o
-> >  obj-$(CONFIG_USB_DWC3_QCOM)		+= dwc3-qcom-legacy.o
-> >  obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
-> > +obj-$(CONFIG_USB_DWC3_LAYERSCAPE)	+= dwc3-layerscape.o
-> >  obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
-> >  obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
-> >  obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
-> > diff --git a/drivers/usb/dwc3/dwc3-layerscape.c b/drivers/usb/dwc3/dwc3-layerscape.c
-> > new file mode 100644
-> > index 0000000000000..d093f178e1e35
-> > --- /dev/null
-> > +++ b/drivers/usb/dwc3/dwc3-layerscape.c
-> > @@ -0,0 +1,88 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (c) 2020 NXP
-> > + */
-> > +
-> > +#include <linux/of.h>
-> > +#include <linux/of_address.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/usb/of.h>
-> > +
-> > +#include "core.h"
-> > +#include "glue.h"
-> > +
-> > +struct dwc3_ls {
-> > +	struct device *dev;
-> > +	struct dwc3 dwc;
-> > +};
-> > +
-> > +static int dwc3_ls_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device_node *np = pdev->dev.of_node;
-> > +	struct dwc3_probe_data probe_data = {};
-> > +	struct property_entry props[2] = {};
-> > +	struct device *dev = &pdev->dev;
-> > +	struct resource *res;
-> > +	struct dwc3_ls *ls;
-> > +	int prop_idx = 0;
-> > +	int ret = 0;
-> > +
-> > +	ls = devm_kzalloc(&pdev->dev, sizeof(*ls), GFP_KERNEL);
-> > +	if (!ls)
-> > +		return -ENOMEM;
-> > +
-> > +	ls->dev = &pdev->dev;
-> > +
-> > +	ls->dwc.dev = dev;
-> > +
-> > +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > +	if (!res)
-> > +		dev_err_probe(&pdev->dev, -ENODEV, "missing memory resource\n");
-> > +
-> > +	if (of_dma_is_coherent(np))
-> > +		props[prop_idx++] = PROPERTY_ENTRY_U16("snps,gsbuscfg0-reqinfo", 0x2222);
-> > +
-> > +	if (prop_idx)
-> > +		ret = device_create_managed_software_node(dev, props, NULL);
-> > +
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "fail create software managed property node\n");
-> > +
-> > +	probe_data.dwc = &ls->dwc;
-> > +	probe_data.res = res;
-> > +	ret = dwc3_core_probe(&probe_data);
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to register DWC3 Core\n");
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void dwc3_ls_remove(struct platform_device *pdev)
-> > +{
-> > +	struct dwc3 *dwc = platform_get_drvdata(pdev);
-> > +
-> > +	dwc3_core_remove(dwc);
-> > +}
-> > +
-> > +static const struct of_device_id of_dwc3_ls_match[] = {
-> > +	{
-> > +		.compatible = "fsl,ls1028a-dwc3"
-> > +	},
-> > +	{},
-> > +};
-> > +MODULE_DEVICE_TABLE(of, of_dwc3_ls_match);
-> > +
-> > +static struct platform_driver dwc3_ls_driver = {
-> > +	.probe	  = dwc3_ls_probe,
-> > +	.remove	 = dwc3_ls_remove,
-> > +	.driver	 = {
-> > +		.name   = "ls-dwc3",
-> > +		.of_match_table = of_dwc3_ls_match,
-> > +	},
-> > +};
-> > +
-> > +module_platform_driver(dwc3_ls_driver);
-> > +
-> > +MODULE_AUTHOR("Frank Li <frank.li@nxp.com>");
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_DESCRIPTION("Freescale Layerscape USB3 Controller Driver");
-> >
-> > --
-> > 2.34.1
-> >
->
-> Is this something that can be enhanced in dwc3-generic-plat glue from Ze
-> Huang:
+Hey Dylan,
 
-Yes, I can base on Zehuang's work with little modify. Please let me know
-when his patch merged.
+On Fri, May 30, 2025 at 05:11:00PM -0700, Dylan Hatch wrote:
+> On Fri, May 30, 2025 at 7:13 AM Will Deacon <will@kernel.org> wrote:
+> >
+> > and this would be:
+> >
+> >         WRITE_PLACE(place, cpu_to_le32(insn), me);
+> >
+> 
+> I'm seeing this part give a build error:
+> 
+> arch/arm64/kernel/module.c:158:2: error: cannot take the address of an
+> rvalue of type '__le32' (aka 'unsigned int')
+>   158 |         WRITE_PLACE(place, cpu_to_le32(insn), me);
+>       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> arch/arm64/kernel/module.c:56:28: note: expanded from macro 'WRITE_PLACE'
+>    56 |                 aarch64_insn_copy(place, &(val),
+> sizeof(*place));       \
+>       |                                          ^ ~~~
+> 
+> I can't think of a clean way to get around this and still keep a
+> combined write helper. Setting an intermediate __le32 in the
+> reloc_insn_* functions would work but we were trying to avoid that.
+> Setting an intermediate value inside WRITE_PLACE would also work but
+> then (I think) it won't work for the data relocations because we'd be
+> converting a signed into unsigned value. Making WRITE_PLACE a function
+> instead of a macro also fixes the rvalue problem but then the args
+> 'place' and 'val' have to be of a fixed type so we can't do the
+> typecasting on 'place' and 'val' has the same signed/unsigned value
+> problem.
+> 
+> Do you have a suggestion here? In the meantime I can send a v6 that
+> uses an intermediate __le32 for the instruction relocations.
 
-Frank
+Sorry for the slow reply -- I see you already sent a v6. I think we
+could add a temporary in the macro. Diff below (on top of your v6). WDYT?
 
->
-> https://lore.kernel.org/linux-usb/20250526-b4-k1-dwc3-v3-v4-3-63e4e525e5cb@whut.edu.cn/T/#u
->
-> Thanks,
-> Thinh
+Will
+
+--->8
+
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 862f6d50ab00..40148d2725ce 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -50,10 +50,12 @@ static u64 do_reloc(enum aarch64_reloc_op reloc_op, __le32 *place, u64 val)
+ }
+ 
+ #define WRITE_PLACE(place, val, mod) do {				\
++	__typeof__(val) __val = (val);					\
++									\
+ 	if (mod->state == MODULE_STATE_UNFORMED)			\
+-		*(place) = val;						\
++		*(place) = __val;					\
+ 	else								\
+-		aarch64_insn_copy(place, &(val), sizeof(*place));	\
++		aarch64_insn_copy(place, &(__val), sizeof(*place));	\
+ } while (0)
+ 
+ static int reloc_data(enum aarch64_reloc_op op, void *place, u64 val, int len,
+@@ -128,7 +130,6 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ 	u64 imm;
+ 	s64 sval;
+ 	u32 insn = le32_to_cpu(*place);
+-	__le32 le_insn;
+ 
+ 	sval = do_reloc(op, place, val);
+ 	imm = sval >> lsb;
+@@ -156,8 +157,7 @@ static int reloc_insn_movw(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ 
+ 	/* Update the instruction with the new encoding. */
+ 	insn = aarch64_insn_encode_immediate(AARCH64_INSN_IMM_16, insn, imm);
+-	le_insn = cpu_to_le32(insn);
+-	WRITE_PLACE(place, le_insn, me);
++	WRITE_PLACE(place, cpu_to_le32(insn), me);
+ 
+ 	if (imm > U16_MAX)
+ 		return -ERANGE;
+@@ -172,7 +172,6 @@ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ 	u64 imm, imm_mask;
+ 	s64 sval;
+ 	u32 insn = le32_to_cpu(*place);
+-	__le32 le_insn;
+ 
+ 	/* Calculate the relocation value. */
+ 	sval = do_reloc(op, place, val);
+@@ -184,8 +183,7 @@ static int reloc_insn_imm(enum aarch64_reloc_op op, __le32 *place, u64 val,
+ 
+ 	/* Update the instruction's immediate field. */
+ 	insn = aarch64_insn_encode_immediate(imm_type, insn, imm);
+-	le_insn = cpu_to_le32(insn);
+-	WRITE_PLACE(place, le_insn, me);
++	WRITE_PLACE(place, cpu_to_le32(insn), me);
+ 
+ 	/*
+ 	 * Extract the upper value bits (including the sign bit) and
+@@ -207,7 +205,6 @@ static int reloc_insn_adrp(struct module *mod, Elf64_Shdr *sechdrs,
+ 			   __le32 *place, u64 val, struct module *me)
+ {
+ 	u32 insn;
+-	__le32 le_insn;
+ 
+ 	if (!is_forbidden_offset_for_adrp(place))
+ 		return reloc_insn_imm(RELOC_OP_PAGE, place, val, 12, 21,
+@@ -227,8 +224,7 @@ static int reloc_insn_adrp(struct module *mod, Elf64_Shdr *sechdrs,
+ 						   AARCH64_INSN_BRANCH_NOLINK);
+ 	}
+ 
+-	le_insn = cpu_to_le32(insn);
+-	WRITE_PLACE(place, le_insn, me);
++	WRITE_PLACE(place, cpu_to_le32(insn), me);
+ 	return 0;
+ }
+ 
 
