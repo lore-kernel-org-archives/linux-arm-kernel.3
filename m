@@ -4,86 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C25C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 01:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 565C1C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 03:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjwz7K+3C5Y9HHx06yESpqFLa2bL0hzbV0H1wyWAxzY=; b=ePJXrZGV/b71wzbx6DWM+cGkwl
-	ll3a0Tv6NeeRmLbIFKmSjkZU/XpS9p4DnFB+cCijRahsdhAPkc+NSPLf9i9nxrStXDRyykAo6Ehwb
-	MrAugWVTbtu9py47DTIKrgt/PprlkwSzdyWFHupnjwD90HPn2diMmyYKmEdb5EaaGtWCbTdQ8rbIM
-	VzEEHus/yw3ZsoXfyzvYVn4Kd6qW/YWrEcAYhA7rP27wcjxpftfXcsZXHxwGOtFC3yQZakXBoNsHD
-	WEP1hctMWgFC8Cw2H85b4Wy084qJBd+kZSbZitJqvQ+RDyNGJFTzxTjqlGAy8yHxmcvWl2J+cgr36
-	9Zg76Ikg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K3gT9sDvvs1Okl0MK7pqAvNpdu+73lof8osC/vlrEOo=; b=qdcMwtzBvHvz5edqkjfrU74AN4
+	9D7xCWh1uAwLIMf9OvkZNarM/LMwM/2OiLXaQFfuyevolvjtK1hZAtnSTEIdcgE8YOh9AnyGJpWXj
+	mHboP8vul9LigrntzNBpMJRwMtJSuLyWKSTIKRtefAVGtXpTcgliFy046tIDL3VLkuoXl8Jo6rmW8
+	xHCPRPfEjs5kjrGEtfXpvU7ootYIebAbGHyNHbVMhnNz6TtG51nZgiUbgrKKiHdIhJJ421+zuTWQQ
+	AzQIGQ4oB5ElmsD+7Ia59j+6uMpploMOwD7fdjRBAokAQzSMH2REPTAm7uvnsWnjCtqOCSmgjS76F
+	BvQuIOpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMGuy-00000009W6q-2T6L;
-	Tue, 03 Jun 2025 01:58:20 +0000
-Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
+	id 1uMICk-00000009ZnA-0r2p;
+	Tue, 03 Jun 2025 03:20:46 +0000
+Received: from mail-northcentralusazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d111::2] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMGsi-00000009Vwn-3Lnr
+	id 1uMIAY-00000009ZRw-0s4s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 01:56:02 +0000
-Received: by mail-ua1-x929.google.com with SMTP id a1e0cc1a2514c-87dfd390745so2686140241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 02 Jun 2025 18:56:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748915759; x=1749520559; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yjwz7K+3C5Y9HHx06yESpqFLa2bL0hzbV0H1wyWAxzY=;
-        b=S3ANV+ezgOditFTqoLpdC6klfrgQ/C8pejNjL5u8tPUc3n+LPMPdaA6XUEoMnGieGG
-         NYD+FXqn29hxH2FworljRJ4FMVaoysm3NdM1kCoqme3qNULEdYkognfG2j5/L/7Psmmw
-         G/YUBtaP/mRvvigZQUOqqo/gLysHb8kIlXTaF274L2yA1BulIY4Kiiqf3rRJxpLnMye6
-         AiSg/I6QrxmHN5N7BXC1ys7RhyTKQSDAD0EpqBQeh9ynhdf7CEF3S6JUdUXdEN77DpPe
-         dQZWigV/vgEi6DCuUTwdswJUq4eQV8cdgM8HgLHX+H2IfLer8GLIpoUn6xjUFI0RbE3N
-         reTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748915759; x=1749520559;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yjwz7K+3C5Y9HHx06yESpqFLa2bL0hzbV0H1wyWAxzY=;
-        b=Du/kY4VxeiylLqy3Grox+BFbQI/obZSpKUbLcnINvGJDsYnqMV8GOTTxD+IacSJFqf
-         PzyduAi3aC+vsoZxL6wV1ltOnnl9FH1PuqvxC4pBq7SSfXNOYS99t9HZerVKWW77aUwn
-         nk5YtJgDebaVx94T57AzoxFiNBq0dx3zLsTmYUYoBDRzDcp3YFzfJjs3YznIaX4rixBZ
-         Vt0QSnosEeWO+Xe3HAbAYOupUt+F9sTsfTiOvRYoHsOGZLXl+8Ir5xAq4IwINRMOJJHq
-         B8TYL5m6uAPRhAY+U0xMBXHObxU1NNCqwNlDxg5IIrJNn5ozyq7kPO7sAx9+/JhCb76n
-         sa1w==
-X-Forwarded-Encrypted: i=1; AJvYcCW6uV7h3YHWXvpbwaUgJyzYhoSRtpwpx09aPyFVZ3/fm0PyJH/TwFNGznf/Bb/u2dtALFaWnEEA2Pc6hwDhav+S@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO13tl5nku3bRlMNAGuyMcZ47mpEhFI7BUmBoGAO/qGs5MbeIm
-	7360bdl+2DJx6bGp4OpyDQD6SWVEqG03R/BkrQ7RsBzGpoS1/ukHLIWGlIRRweOpRG2a6UQnhRv
-	+iLcAvu81M+ZzMqn8Rl8Qfcg8oaXhcA5kWISX
-X-Gm-Gg: ASbGnctwlUL/wvQmfpayjgYTT0XAd8i3O25DOP/vJQORofhtAQVbW5wA9OjYbcXLpnj
-	vbGbq2Uc2zt/m07sDXNUC+AucMUstl3LY3WB+uPwni1HnvTZDTauBrGFDEXqccL1C2Q9IyEiRMs
-	R1nqd6gva/FUh4nPaNGh41emVRH9Ie7xzqbQ==
-X-Google-Smtp-Source: AGHT+IE0T9BO6q1wzLTJ95JtVQFrX3//75v+ctXp12UmlWdewLG/VBORVzYwyBSCoOuDuKGPa7/9WY/NaGFUHwwFnzk=
-X-Received: by 2002:a05:6102:cd3:b0:4e5:a837:b0d2 with SMTP id
- ada2fe7eead31-4e701a2842emr8699909137.3.1748915742691; Mon, 02 Jun 2025
- 18:55:42 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250530152445.2430295-1-ryan.roberts@arm.com>
- <20250602120042.GB1227@willie-the-truck> <8ef5cadd-2f9b-4a19-a85c-18e17d7edfbc@arm.com>
-In-Reply-To: <8ef5cadd-2f9b-4a19-a85c-18e17d7edfbc@arm.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Tue, 3 Jun 2025 13:55:31 +1200
-X-Gm-Features: AX0GCFuxwlQ8o1crYF9fsectv4nxVSCChPH3dMA3wh1aXX5xOBowo2lsIa0tFBM
-Message-ID: <CAGsJ_4zZdfgiy0k+kK3Gqg5KvuFs8Rx3zQXLhkLk-K-+Hf0grw@mail.gmail.com>
-Subject: Re: [PATCH v1] arm64/mm: Close theoretical race where stale TLB entry
- remains valid
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Yicong Yang <yangyicong@hisilicon.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Mel Gorman <mgorman@suse.de>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 03 Jun 2025 03:18:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zk4fdBYSNd+qjg78txnuIVeADurdDb6sWL1sEBe2FTkRh7mLphcvMhyGgWIJIet2X00LvqJzewXu9r17SW/dPPSpUPM/SXTvj/ibrzGZTactMatlfi55hfpAz/gc7cCKqzHve6mWck3Zruv1MKOygmZoXXwk1FHPfUBcnajobu/4yOma3EWoq5ad9GTv17v1xHZGpMmRFs6pvwNlhcWg/Og0k+nbiVFLbWAUCFbhMu8FgMogvVGc1L2z+t55osmdA0oPPphAXNWI9zcjIV7ELiM6h0sXag+duUjIE2pHzJeK3JlnTRDXcMH1YOkw/pZ4+5Jl6NGqX6EG7HN7GBu1Ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K3gT9sDvvs1Okl0MK7pqAvNpdu+73lof8osC/vlrEOo=;
+ b=imzyiKhGJDOCn+ZPi8APSk1sBD477cPS2nwzCOageLi+5r9MrYefwkLRoLoPmMa/ADpiA5txBqPo71VUUaiGqQbeVT9457vTAldIOGNfs2LUX07gpzJNIMhzyPkhEhth2ZtNk6BQR8HcRq9nkMsLzbjkitKgTViuOJqkthlPagh52V+kKqSETWROesez2U2z9sKCWi5dlP7ZNR9Z3Bt3HRNTC5b1iAMrQ85NRgsp4wVKjSySyl67iCrx4lVePSF51R6buQybuF8i2eyKrMpD0AiN3hgBMglhqC/scOKSrONzK5mxvQvC7MMEOsHbNzVoDqncZAmb4yeAuVES+NYMcg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K3gT9sDvvs1Okl0MK7pqAvNpdu+73lof8osC/vlrEOo=;
+ b=mkt4CekpaciTkG5rO4KfIegi10WwCPLkIKto4yVwuMs6gw0AM8HgXs23N/IOcf3w0yMdeaK6hd3E6fw4apWIr9eGDqWxaqmR3GsxPDjrPBT7z5CmC24s1hzqScazMVuZYeA046Sju9Ze1PBwtFiSduC5Vz8bFLUNOWy7o+wohdyh9euh6Ezt/ZOzBgds+MAEHdFB7WtIf8wypIFQfsmixrUIpG3QksN9lMnHoM0+HoH8e5tQM66PrCoBgT7SiO4UfYZEIUgLnus0LM146SduMn6RQYFocIDy18gInXqZ/3KvY7RrJyqL/AN136ILWPEHrKSGzUh8a4DtUbRUbVg7bQ==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by CO6PR02MB8770.namprd02.prod.outlook.com (2603:10b6:303:141::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.27; Tue, 3 Jun
+ 2025 03:18:23 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8813.016; Tue, 3 Jun 2025
+ 03:18:23 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>, Russell King
+	<linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "fj6611ie@aa.jp.fujitsu.com"
+	<fj6611ie@aa.jp.fujitsu.com>
+Subject: Problem with nbcon console and amba-pl011 serial port
+Thread-Topic: Problem with nbcon console and amba-pl011 serial port
+Thread-Index: AdvULbS8DdGjT9TLS9OOSVhbv2AtDg==
+Date: Tue, 3 Jun 2025 03:18:23 +0000
+Message-ID: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CO6PR02MB8770:EE_
+x-ms-office365-filtering-correlation-id: d3dc964e-f50d-445d-9a69-08dda24d4c60
+x-microsoft-antispam: BCL:0;ARA:14566002|8060799009|19110799006|8062599006|15080799009|461199028|440099028|3412199025|102099032;
+x-microsoft-antispam-message-info: =?us-ascii?Q?nRV6KEw0wlO9nk7X4x0qXyip68go7MMH4IpNpEHKf4mdNKG1U+KsrqKZzJON?=
+ =?us-ascii?Q?hxBfIXtgwYFn2K12SLAcSaoVYThmY88NkbjbVUOrl8a1fpW0Pw0XXuUtBH3k?=
+ =?us-ascii?Q?h0DTpvF8XQ0tZBrnzhPlEmdqhqcf3MXsNwcQE0aZfCp04bkGJHNDmsXlWipg?=
+ =?us-ascii?Q?2YcYEHyI5i01QYycK49PGGMiM0OsWJgI9KilqFz+uF0rQVIsCOr4MpQ+rURS?=
+ =?us-ascii?Q?KabCUW6/7Oa/CrAe1G+p5Mjtj8u91amusieYdFCS6PR9hnLDdFSmqBLJshoe?=
+ =?us-ascii?Q?mRSdtxvkoK9qHsaSYD42UqjgNuFO76eCTwCBjrlIFpTJKMbcArlipzlwcUU5?=
+ =?us-ascii?Q?xmG2wBmFzuiyTKRyoGo1IPgmvzFS4I+XQmCKkPjdzHH+c0/6JE1JChCOmCWm?=
+ =?us-ascii?Q?9KeEpZyN5i3O0rPfT8Y3vKwjezMmugYI6KnxeiBjsoyiYl7TsMXl97cuWIPo?=
+ =?us-ascii?Q?dWjcReJKdft8pA02izOS7snr1LfE+cxeS29hTcRf9/EzLcGKFyrZ61sOdXDv?=
+ =?us-ascii?Q?EOx2Vb1IiJR58QretIt5H3S13Rt1fjEt5+wlikvFTEDNO/VAta5768RBEUcb?=
+ =?us-ascii?Q?EmQulGWRd3JdyD+DqK/rSfWMkE+4PbApvDbmCLhBxoi1OcqSqzNNzqawmPpN?=
+ =?us-ascii?Q?L6843g1KtO+h37T38UDNK6RnF38blNcBEBgNJCkKzTm7R9CTJZLC/29bSm4V?=
+ =?us-ascii?Q?pXj1uzU1CbY/wcJ7NGggDt1KWOjSAY9WuVuA29UvWGP0abC5PesK8tCQKei9?=
+ =?us-ascii?Q?JaP8RnaooaNHcNNB9PSrlOT+7WjL3+39Y6CKZWViQpxQbh8mXscCKRay1Krg?=
+ =?us-ascii?Q?OwPMmmlyVnanTUlz6U4D4ttkH7mWEbD8ZDLyaN2Z8D8Ibl4IFpysTxv1/obq?=
+ =?us-ascii?Q?fvVA8FoY6S0uIxQwy9BC4wbZZM65//rHc9p8jsWBNdAX01UuaFPSaogdBtBr?=
+ =?us-ascii?Q?dejbed27nqCIXF9P8JngQJWMLcqrEgSuppiFbRw+Ifj8gYtTQz8sOLTkDuMr?=
+ =?us-ascii?Q?Kv08vyBuwhTPYgNKaakjE4vXgY/Iogzx2J/s7s8/MZJpsLamH6Fg7qHbcDSC?=
+ =?us-ascii?Q?lKEa/jMy1V2JR6V0b+xrivxn7DqkUA=3D=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?1RkYlwI94KiaPgJUFVDic+nGLZhlcnSjT1zfnBPFMjgLfeJ5z8ndhifGbl2s?=
+ =?us-ascii?Q?8TkHSE+VLbsfb+PRTaGG6Q14VfcnJcuSAfkyorWOKnHv8vZ5LglJCLWxp52e?=
+ =?us-ascii?Q?8j7aANJvEUTfIjxL3rZ4Ss9G8hdyqOqbnNkhBXrY6bKk7PzkrJw+1f+eBTEr?=
+ =?us-ascii?Q?K/WaShllQCarSPbMDCen1BBXHi5TtmsWKNVl4PhudQSwT9Ono0CGYTjC2bMq?=
+ =?us-ascii?Q?sxyaf56bL7mBfBh/UnJQwUDOAdt0dUkTi1hgav39Hlq/37O7RL/hjrvbxiwK?=
+ =?us-ascii?Q?MRmDrAnlyQcTM/VUCfXnV2M+xFftlxAH4nriyXv+mb+DQuZQM+lxNcMdN41f?=
+ =?us-ascii?Q?Ys2IlIvfgGQ0orKptKtvLhPz0HkkwWoklHw9Rzu84kaXt+ras7TFlH0ML1Xm?=
+ =?us-ascii?Q?xuh+YciUo3XyfjJqipMeDnt7nOhk8EvokvJJvDXn2EhZc1FgLVWdzejgrJNo?=
+ =?us-ascii?Q?BcvRo6IVKCyFBVOCuyCXFBAawcPiOAOjpuD55ERRvXgeoA+ytOLaIU/MH2kT?=
+ =?us-ascii?Q?2At6uxA2MWxarGEby7mFj1WDhZ+ImMOTjR4+2YOMcGk0eIEcAXc8+hwo8H5N?=
+ =?us-ascii?Q?D1EXHj0HpTHueSdG0ai80+p6h++f1kH+sSeb3+y54eVItI8AKxlDN7UaanID?=
+ =?us-ascii?Q?tZ+grpbQCJafyDrXXSAOvOBP1rbyGMcCvcY3QuwR0oc3qM+PYB+tBPC1YlI+?=
+ =?us-ascii?Q?PKLBsPn8WutXuc7oPHduCHp5A2TbmXk1AXk+r79uzrQH6JzoUnRhKxD4Bp20?=
+ =?us-ascii?Q?PHEBzgoXJTiLA3wkJjz+JcpefeqAtRbeYKZLqpAZS3cmZf6L32DqKI2vY1/B?=
+ =?us-ascii?Q?tUd0Nzv+vZFjzzziapppognLVl6D4bE/HrKNvF/TvTd+60vmWItNFsv9TVGF?=
+ =?us-ascii?Q?I1/QjcnEG25lMRRyc9t1nV20ptyJiGOnvhvZFi7uuSKOJoe0DikbreO7wTAK?=
+ =?us-ascii?Q?QsSz3eEW2cftb6e/kst6Ae3ceFRyIIzMI7lqUrXeIJvdb+NRrsEsRzdYrI2M?=
+ =?us-ascii?Q?fzwt7E/sAI9+szeyaoGyqgNWsy+JbgYzGGF7ls5YSNKmil8WaN81tVh2VEu8?=
+ =?us-ascii?Q?TliodcTmJ1GsPd61fz1FAa4hXtafH7DHEMHVAW8hFqDC8IBmgGd2JV+Ua0xO?=
+ =?us-ascii?Q?ZII/RSIn9ESjf+rk7KbCPEcw/dgIGj7VSR7CjTonIVq0VH0YuNsuMmGQQur7?=
+ =?us-ascii?Q?0LslHJGZIrTCu0RscFNLS3QLsz4nqGfRKk9QxL9giW6bsCMn5KpE1k6mLgg?=
+ =?us-ascii?Q?=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3dc964e-f50d-445d-9a69-08dda24d4c60
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Jun 2025 03:18:23.3598
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR02MB8770
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_185601_229198_2BE84EC6 
-X-CRM114-Status: GOOD (  44.79  )
+X-CRM114-CacheID: sfid-20250602_201830_310983_0AACD1A6 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,178 +145,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 3, 2025 at 2:00=E2=80=AFAM Ryan Roberts <ryan.roberts@arm.com> =
-wrote:
->
-> On 02/06/2025 13:00, Will Deacon wrote:
-> > On Fri, May 30, 2025 at 04:23:47PM +0100, Ryan Roberts wrote:
-> >> Commit 3ea277194daa ("mm, mprotect: flush TLB if potentially racing wi=
-th
-> >> a parallel reclaim leaving stale TLB entries") describes a race that,
-> >> prior to the commit, could occur between reclaim and operations such a=
-s
-> >> mprotect() when using reclaim's tlbbatch mechanism. See that commit fo=
-r
-> >> details but the summary is:
-> >>
-> >> """
-> >> Nadav Amit identified a theoritical race between page reclaim and
-> >> mprotect due to TLB flushes being batched outside of the PTL being hel=
-d.
-> >>
-> >> He described the race as follows:
-> >>
-> >>      CPU0                            CPU1
-> >>      ----                            ----
-> >>                                      user accesses memory using RW PTE
-> >>                                      [PTE now cached in TLB]
-> >>      try_to_unmap_one()
-> >>      =3D=3D> ptep_get_and_clear()
-> >>      =3D=3D> set_tlb_ubc_flush_pending()
-> >>                                      mprotect(addr, PROT_READ)
-> >>                                      =3D=3D> change_pte_range()
-> >>                                      =3D=3D> [ PTE non-present - no fl=
-ush ]
-> >>
-> >>                                      user writes using cached RW PTE
-> >>      ...
-> >>
-> >>      try_to_unmap_flush()
-> >> """
-> >>
-> >> The solution was to insert flush_tlb_batched_pending() in mprotect() a=
-nd
-> >> friends to explcitly drain any pending reclaim TLB flushes. In the
-> >> modern version of this solution, arch_flush_tlb_batched_pending() is
-> >> called to do that synchronisation.
-> >>
-> >> arm64's tlbbatch implementation simply issues TLBIs at queue-time
-> >> (arch_tlbbatch_add_pending()), eliding the trailing dsb(ish). The
-> >> trailing dsb(ish) is finally issued in arch_tlbbatch_flush() at the en=
+I'm seeing a problem in the panic path of an ARM64 VM on Hyper-V
+in the Azure public cloud.  Here's the output from the VM's serial port:
+
+# taskset -c 4 /bin/echo c >/proc/sysrq-trigger
+
+[
+** replaying previous printk message **
+[   51.616656] sysrq: Trigger a crash
+[   51.616689] Kernel panic - not syncing: sysrq triggered crash
+[   51.624212] CPU: 4 UID: 0 PID: 2278 Comm: echo Tainted: G            E  =
+     6.15.0-rc7-next-20250521 #1 VOLUNTARY=20
+[   51.630165] Tainted: [E]=3DUNSIGNED_MODULE
+[   51.632331] Hardware name: Microsoft Corporation Virtual Machine/Virtual=
+ Machine, BIOS Hyper-V UEFI Release v4.1 09/28/2024
+[   51.638771] Call trace:
+[   51.640179]  show_stack+0x20/0x38 (C)
+[   51.642488]  dump_stack_lvl+0xc8/0xf8
+[   51.644638]  dump_stack+0x18/0x28
+[   51.646654]  panic+0x384/0x478
+[   51.648371]  sysrq_handle_crash+0x20/0x28
+[   51.650815]  __handle_sysrq+0xdc/0x2b8
+[   51.653080]  write_sysrq_trigger+0x124/0x240
+[   51.655508]  proc_reg_write+0xa4/0x100
+[   51.657917]  vfs_write+0xd8/0x3e0
+[   51.659836]  ksys_write+0x74/0x110
+[   51.661735]  __arm64_sys_write+0x24/0x38
+[   51.663967]  invoke_syscall+0x6c/0xf8
+[   51.666025]  el0_svc_common.constprop.0+0xc8/0xf0
+[   51.668771]  do_el0_svc+0x24/0x38
+[   51.670713]  el0_svc+0x40/0x198
+[   51.672509]  el0t_64_sync_handler+0xc8/0xd0
+[   51.675170]  el0t_64_sync+0x1b0/0x1b8
+[   51.677351] SMP: stopping secondary CPUs
+[   52.728175] SMP: failed to stop secondary CPUs 2
+[   52.731229] Kernel Offset: 0x5706ebce0000 from 0xffff800080000000
+[   52.734528] PHYS_OFFSET: 0x0
+[   52.736115] CPU features: 0x2000,400007c0,02110ca1,5401faab
+[   52.739275] Memory Limit: none
+[   52.803615] ---[ end Kernel panic - not syncing: sysrq triggered crash ]=
+---
+
+The problem is the failure to stop secondary CPU 2.  (The CPU # that fails
+to stop varies from run-to-run.) It is mostly reproducible, but not always.=
+ I
+bisected to commit 2eb2608618ce ("serial: amba-pl011: Implement nbcon
+console") in the 6.15 kernel. Further custom logging shows the details of
+why the problem can happen. Here are the steps:
+
+1. The "echo" command ends up in __handle_sysrq(), which outputs the
+"sysrq: Trigger a crash" message using pr_info().  I always ran the "echo"
+command on CPU 4 just for consistency in my testing/debugging -- there's
+nothing special about CPU 4.
+
+2. The "pr/ttyAMA0" kernel thread handles the outputting of the message.
+nbcon_kthread_func() calls nbcon_emit_one() with the "use_atomic" parameter
+set to false. nbcon_emit_one() in turn calls nbcon_emit_next_record() with
+the console spin lock held and interrupts disabled. nbcon_emit_next_record(=
+)
+then calls pl011_console_write_thread(). The latter has a "for" loop to out=
+put
+each character of the message, and my custom logging shows that it is indee=
 d
-> >> of the batch to wait for all the issued TLBIs to complete.
-> >>
-> >> Now, the Arm ARM states:
-> >>
-> >> """
-> >> The completion of the TLB maintenance instruction is guaranteed only b=
-y
-> >> the execution of a DSB by the observer that performed the TLB
-> >> maintenance instruction. The execution of a DSB by a different observe=
-r
-> >> does not have this effect, even if the DSB is known to be executed aft=
-er
-> >> the TLB maintenance instruction is observed by that different observer=
-.
-> >> """
-> >>
-> >> arch_tlbbatch_add_pending() and arch_tlbbatch_flush() conform to this
-> >> requirement because they are called from the same task (either kswapd =
-or
-> >> caller of madvise(MADV_PAGEOUT)), so either they are on the same CPU o=
-r
-> >> if the task was migrated, __switch_to() contains an extra dsb(ish).
-> >>
-> >> HOWEVER, arm64's arch_flush_tlb_batched_pending() is also implemented =
-as
-> >> a dsb(ish). But this may be running on a CPU remote from the one that
-> >> issued the outstanding TLBIs. So there is no architectural gurantee of
-> >> synchonization. Therefore we are still vulnerable to the theoretical
-> >> race described in Commit 3ea277194daa ("mm, mprotect: flush TLB if
-> >> potentially racing with a parallel reclaim leaving stale TLB entries")=
-.
-> >>
-> >> Fix this by flushing the entire mm in arch_flush_tlb_batched_pending()=
-.
-> >> This aligns with what the other arches that implement the tlbbatch
-> >> feature do.
-> >>
-> >> Fixes: 43b3dfdd0455 ("arm64: support batched/deferred tlb shootdown du=
-ring page reclamation/migration")
-> >
-> > Barry -- it would be great if you could re-run some of the benchmarks
-> > from that commit with this fix applied.
->
-> Worth rerunning if possible, but I would guess that those benchmarks will=
- still
-> show the similar improvement because they are measuring the cost of doing=
- the
-> TLB flushing. But with the fix, there is an extra cost that those benchma=
-rks
-> probably won't measure; subsequent work within the target mm will have no=
- VAs
-> cached in the TLB so the miss rate will be much higher.
+outputting the string "[   51.616656] sysrq: Trigger a crash".
 
-Right, not sure if we have a suitable benchmark to measure the
-side effect, but I assume reclamation speed is more important
-when we're reclaiming memory.
+3. While "pr/ttyAMA0" is doing its thing, __handle_sysrq() calls
+sysrq_handle_crash(), which calls panic(). After some preliminaries, panic(=
+)
+outputs the message "Kernel panic - not syncing: sysrq triggered crash"
+using pr_emerg().
 
-This was originally introduced in commit 3ea277194daae
-("mm, mprotect: flush TLB if potentially racing with a parallel
-reclaim leaving stale TLB entries").
+4. pr_emerg() has a high logging level, and it effectively steals the conso=
+le
+from the "pr/ttyAMA0" task, which I believe is intentional in the nbcon des=
+ign.
+Down in pl011_console_write_thread(), the "pr/ttyAMA0" task is doing
+nbcon_enter_unsafe() and nbcon_exit_unsafe() around each character
+that it outputs.  When pr_emerg() steals the console, nbcon_exit_unsafe()
+returns 0, so the "for" loop exits. pl011_console_write_thread() then
+enters a busy "while" loop waiting to reclaim the console. It's doing this
+busy "while" loop with interrupts disabled, and because of the panic,
+it never succeeds. Whatever CPU is running "pr/ttyAMA0" is effectively
+stuck at this point.
 
-Cc'ing Mel to see if he has any comments.
+5. Meanwhile panic() continues, calling panic_other_cpus_shutdown(). On
+ARM64, other CPUs are stopped by sending them an IPI. Each CPU receives
+the IPI and calls the PSCI function to stop itself. But the CPU running
+"pr/ttyAMA0" is looping forever with interrupts disabled, so it never
+processes the IPI and it never stops. ARM64 doesn't have a true NMI that
+can override the looping with interrupts disabled, so there's no way to
+stop that CPU.
 
->
-> >
-> >> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> >> ---
-> >>  arch/arm64/include/asm/tlbflush.h | 9 +++++----
-> >>  1 file changed, 5 insertions(+), 4 deletions(-)
-> >>
-> >> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/as=
-m/tlbflush.h
-> >> index eba1a98657f1..7d564c2a126f 100644
-> >> --- a/arch/arm64/include/asm/tlbflush.h
-> >> +++ b/arch/arm64/include/asm/tlbflush.h
-> >> @@ -323,13 +323,14 @@ static inline bool arch_tlbbatch_should_defer(st=
-ruct mm_struct *mm)
-> >>  }
-> >>
-> >>  /*
-> >> - * If mprotect/munmap/etc occurs during TLB batched flushing, we need=
- to
-> >> - * synchronise all the TLBI issued with a DSB to avoid the race menti=
-oned in
-> >> - * flush_tlb_batched_pending().
-> >> + * If mprotect/munmap/etc occurs during TLB batched flushing, we need=
- to ensure
-> >> + * all the previously issued TLBIs targeting mm have completed. But s=
-ince we
-> >> + * can be executing on a remote CPU, a DSB cannot guarrantee this lik=
-e it can
-> >> + * for arch_tlbbatch_flush(). Our only option is to flush the entire =
-mm.
-> >>   */
-> >>  static inline void arch_flush_tlb_batched_pending(struct mm_struct *m=
-m)
-> >>  {
-> >> -    dsb(ish);
-> >> +    flush_tlb_mm(mm);
-> >>  }
-> >
-> > Thanks, Ryan. I'll pick this as a fix, but perhaps the core code should
-> > do this given that all the architectures selecting
-> > ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH now have an identical implementation
-> > of arch_flush_tlb_batched_pending()?
->
-> Ha, yes... infact it looks like that's what it did prior to commit db6c1f=
-6f236d
-> ("mm/tlbbatch: introduce arch_flush_tlb_batched_pending()").
+6. The failure to stop the "pr/ttyAMA0" CPU then causes downstream
+problems, such as when loading and running a kdump kernel.
 
-Yep, it was just a flush_tlb_mm(mm) inside flush_tlb_batched_pending().
+The problem is timing dependent.  In some cases, the "pr/ttyAMA0"
+thread is evidently able to get the message out before panic() calls
+pr_emerg(). In my case running as a guest on Hyper-V, the pl011 device
+in the guest VM is emulated by Hyper-V. Each pl011 register access
+traps to the hypervisor, which slows things down and probably makes
+the problem more likely. But from what I can see, the underlying
+race condition exists regardless.
 
->
-> I'll do that tidy up once this fix appears in mm-unstable.
->
-> Thanks,
-> Ryan
->
->
-> >
-> > Will
->
+At this point, I just wanted to surface the problem. I don't have any
+specific ideas on how to fix it, as my knowledge of nbcon is limited
+to what I've learned in figuring out the failure path.
 
-Thanks
-Barry
+Toshiyuki -- what are your thoughts how to fix this?
+
+Michael Kelley
 
