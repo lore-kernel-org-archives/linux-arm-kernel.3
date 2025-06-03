@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7339AC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 12:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5274AC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 12:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3x2BJVRo9MNnC4r9i3H/JeHovKkDhctghBqHffiq8uA=; b=JXfjrxFd0AnttPGXjpbbmMh+oT
-	hq44WrHIwhL1M5VkZwU+l2JceWvTF8tKyEq9Q+D04+3JJYvjsIPhI+Ad9utBhCSigH85EgYhH5uqN
-	snrD+shUc+LGK46tP/4EXSzpj5IsUIxZuyY8E2OjpVSwQljGb/4lqSHhufNyKVQV4s1sj70yEsQ2e
-	0/a+wpiLVVlPbtDiU0ic+dUsuwr8O49woiN6hyWhETFQMzOxg4iF7QvjxJ4jLRYeLIDP4oJswUdrX
-	E3ouV4z4RD9SQLWzmGIjndFrWl5Sk8IiANexM/RN95pjtlWLQhr9Aziqh4iUkiX9wZRkHpesKYJYw
-	QIrx90Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SYqZQG5I/vp1fWhpO72cTKEeUIZPfDXS4RqKyLDgcgo=; b=VhpedAfKM3Iy4UoEdN7CePnTUz
+	c6IRmaTyKv7o5CtLdayQspdJE7C3aA5XjNcLK2d5Itvq0IlRtJaACZobI7UTRZwl6h3uuCMKVro+K
+	Yx36PnEcPNuV+ZbYbogjJkW7HlI89xmIdATAkpZkxjcLQ2CNNR7oa6+3Tj3stiHwd7SJADn0CTDcg
+	uFKqRhYRgqApc9xTLr85E80qth0FjO2F7nV5VayV/vm4KNEMbVXfinlxg0wI6fuolUHdeF2UXwDxS
+	Oscigsiqe/3JbSaBswf+Jwfxi7aqJnIIwwBpIgD/hFquNnY1PXL33ZU6a6J7VFyPoNAB3VauMugUN
+	tOy7K4Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMQtP-0000000AwCH-2iF5;
-	Tue, 03 Jun 2025 12:37:23 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1uMR8d-0000000Axoo-3oJk;
+	Tue, 03 Jun 2025 12:53:07 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMQrC-0000000Aw12-2nXz
+	id 1uMR6T-0000000AxXx-0WL5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 12:35:08 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bBVSK3nP7z1BFhD;
-	Tue,  3 Jun 2025 20:31:13 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 78D9318007F;
-	Tue,  3 Jun 2025 20:35:01 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 3 Jun 2025 20:35:00 +0800
-Subject: Re: [PATCH v2 0/3] KVM: arm64: selftests: arch_timer_edge_cases fixes
-To: Sebastian Ott <sebott@redhat.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Colton Lewis <coltonlewis@google.com>, Ricardo Koller <ricarkol@google.com>,
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20250527142434.25209-1-sebott@redhat.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <adf8b877-7ca2-f60b-fb59-578c70d0e3c0@huawei.com>
-Date: Tue, 3 Jun 2025 20:35:00 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
-MIME-Version: 1.0
-In-Reply-To: <20250527142434.25209-1-sebott@redhat.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+	Tue, 03 Jun 2025 12:50:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 61F3BA501CD;
+	Tue,  3 Jun 2025 12:50:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A51FC4CEED;
+	Tue,  3 Jun 2025 12:50:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748955052;
+	bh=obmWgo5IbP5r+MBsvL6ZnYbtDpu9BYwK9noBJQMsAFA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DBCZ7hII0FYbzBURCHDIlDFLdjaGqNLLb1P1OkPY3u1nj5Ur1LG+qPHOYtFxMq8Xu
+	 6iwtsVdRJdKzjqMfFeOW0tb8UMAjA8fwlAziFmMu38eiN1b4ht9Cn7Bej5yvIIbUIl
+	 SwlYT86MRqJP21sbEYanrY2i0i9iphayDE7nWxFeka1nkovGOeP4WfsP9hnog7fCNU
+	 A9adNbPphh58Z97tV7f9geyRK6hjbPjJlQXQAEK6JHHgArX5EqIGQF7YPvwVn5lzPW
+	 qtSA/lASvNT5na7ZljNv3gWNiof8sPXe7c6MFvk/JJ9p7t4yw9zipj/DVS0z7apmLX
+	 eh5VwnH57Rrqg==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uMR6P-002pft-JI;
+	Tue, 03 Jun 2025 13:50:49 +0100
+Date: Tue, 03 Jun 2025 13:50:47 +0100
+Message-ID: <87ldq9dm54.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Lorenzo Pieralisi
+	<lpieralisi@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy
+ Hayes <timothy.hayes@arm.com>
+Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device allocation
+In-Reply-To: <0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
+References: <20250513163144.2215824-1-maz@kernel.org>
+	<20250513163144.2215824-4-maz@kernel.org>
+	<0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: yuzenghui@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, lpieralisi@kernel.org, sascha.bischoff@arm.com, timothy.hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_053506_863988_F8E813C1 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20250603_055053_296684_07A7D1E1 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +91,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+Hi Zenghui,
 
-On 2025/5/27 22:24, Sebastian Ott wrote:
-> Some small fixes for arch_timer_edge_cases that I stumbled upon
-> while debugging failures for this selftest on ampere-one.
+On Tue, 03 Jun 2025 09:22:47 +0100,
+Zenghui Yu <yuzenghui@huawei.com> wrote:
 > 
-> Changes since v1: modified patch 3 based on suggestions from Marc.
+> > +	domain->dev = dev;
+> > +	dev->msi.data->__domains[domid].domain = domain;
+> > +
+> > +	if (msi_domain_prepare_irqs(domain, dev, hwsize, &bundle->alloc_info)) {
 > 
-> I've done some tests with this on various machines - seems to be all
-> good, however on ampere-one I now hit this in 10% of the runs:
-> ==== Test Assertion Failure ====
->   arm64/arch_timer_edge_cases.c:481: timer_get_cntct(timer) >= DEF_CNT + (timer_get_cntfrq() * (uint64_t)(delta_2_ms) / 1000)
->   pid=166657 tid=166657 errno=4 - Interrupted system call
->      1  0x0000000000404db3: test_run at arch_timer_edge_cases.c:933
->      2  0x0000000000401f9f: main at arch_timer_edge_cases.c:1062
->      3  0x0000ffffaedd625b: ?? ??:0
->      4  0x0000ffffaedd633b: ?? ??:0
->      5  0x00000000004020af: _start at ??:?
->   timer_get_cntct(timer) >= DEF_CNT + msec_to_cycles(delta_2_ms)
+> Does it work for MSI? hwsize is 1 in the MSI case, without taking
+> pci_msi_vec_count() into account.
+>
+> bool pci_setup_msi_device_domain(struct pci_dev *pdev)
+> {
+> 	[...]
 > 
-> This is not new, it was just hidden behind the other failure. I'll
-> try to figure out what this is about (seems to be independent of
-> the wait time)..
+> 	return pci_create_device_domain(pdev, &pci_msi_template, 1);
 
-Not sure if you have figured it out. I can easily reproduce it on my box
-and I *guess* it is that we have some random XVAL values when we enable
-the timer..
+Well spotted.
 
-test_reprogramming_timer()
-{
-	local_irq_disable();
-	reset_timer_state(timer, DEF_CNT);
-
-	/* Program the timer to DEF_CNT + delta_1_ms. */
-	set_tval_irq(timer, msec_to_cycles(delta_1_ms), CTL_ENABLE);
-
-	[...]
-}
-
-set_tval_irq()
-{
-	timer_set_ctl(timer, ctl);
-
-	// There is a window that we enable the timer with *random* XVAL
-	// values and we may get the unexpected interrupt.. And it's
-	// unlikely that KVM can be aware of TVAL's change (and
-	// re-evaluate the interrupt's pending state) before hitting the
-	// GUEST_ASSERT().
-
-	timer_set_tval(timer, tval_cycles);
-}
-
-I'm not familiar with the test so I'm not 100% sure that this is the
-root cause. But I hope this helps with your analysis ;-) .
+This looks like a PCI bug ignoring Multi-MSI. Can you give the
+following a go and let people know whether that fixes your issue?
 
 Thanks,
-Zenghui
+
+	M.
+
+diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
+index d7ba8795d60f..89677a21d525 100644
+--- a/drivers/pci/msi/irqdomain.c
++++ b/drivers/pci/msi/irqdomain.c
+@@ -287,7 +287,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
+  *	- The device is removed
+  *	- MSI is disabled and a MSI-X domain is created
+  */
+-bool pci_setup_msi_device_domain(struct pci_dev *pdev)
++bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize)
+ {
+ 	if (WARN_ON_ONCE(pdev->msix_enabled))
+ 		return false;
+@@ -297,7 +297,7 @@ bool pci_setup_msi_device_domain(struct pci_dev *pdev)
+ 	if (pci_match_device_domain(pdev, DOMAIN_BUS_PCI_DEVICE_MSIX))
+ 		msi_remove_device_irq_domain(&pdev->dev, MSI_DEFAULT_DOMAIN);
+ 
+-	return pci_create_device_domain(pdev, &pci_msi_template, 1);
++	return pci_create_device_domain(pdev, &pci_msi_template, hwsize);
+ }
+ 
+ /**
+diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
+index 8b8848788618..81891701840a 100644
+--- a/drivers/pci/msi/msi.c
++++ b/drivers/pci/msi/msi.c
+@@ -449,7 +449,7 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
+ 	if (rc)
+ 		return rc;
+ 
+-	if (!pci_setup_msi_device_domain(dev))
++	if (!pci_setup_msi_device_domain(dev, nvec))
+ 		return -ENODEV;
+ 
+ 	for (;;) {
+diff --git a/drivers/pci/msi/msi.h b/drivers/pci/msi/msi.h
+index ee53cf079f4e..3ab898af88a7 100644
+--- a/drivers/pci/msi/msi.h
++++ b/drivers/pci/msi/msi.h
+@@ -107,7 +107,7 @@ enum support_mode {
+ };
+ 
+ bool pci_msi_domain_supports(struct pci_dev *dev, unsigned int feature_mask, enum support_mode mode);
+-bool pci_setup_msi_device_domain(struct pci_dev *pdev);
++bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize);
+ bool pci_setup_msix_device_domain(struct pci_dev *pdev, unsigned int hwsize);
+ 
+ /* Legacy (!IRQDOMAIN) fallbacks */
+
+-- 
+Jazz isn't dead. It just smells funny.
 
