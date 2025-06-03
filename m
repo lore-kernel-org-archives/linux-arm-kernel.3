@@ -4,91 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D36C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CB8C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N+pMCHYIBKQlPeyxJ/f+uTZ5/U92w6mRcGd7hTstQlk=; b=DRDLKeZ6lIXziGyI1ZRc2K7B3l
-	OhTm98+jHyExyCdYWL2vtmHgQwUGZPUIrn/D4GtJtm+HZ8WvcMlkfOjl/d5400GqipHdVY1iz61ad
-	GYIYsnkJEU2QcEzcjs5pR+7cujwg38TZEW9K6wLtOUmUl7M7ZJONkQaImX++VblPNMhbvpm/giANT
-	CI+TvtLYY7vmWG09QIg4JVZ1Iq0/wq8Z46kjm3PjSUnEg6lkazLsPK5wFszlx70A1tlJULbufvifE
-	HE0MjcPK9mTQOThVxl3LYdCmLK7rcMoxnl4RxKtRCqwQNG4VPo9rPgoaWUobXCeJdhRt6u5CINNr+
-	pHpvWlTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6df5g93jndy+Z/1SCw4lW9zw+FLEwYaFqskZYcgfBOM=; b=yL99Iu13pBzkgbiIEqSniEHztt
+	tqxydphnjYTCD8EHuYfZf0NYYXIDzUPyfy2+tBIowcDnxxIgKUnFY4QnPIk+UbhksQcsKhDaQi+gV
+	E52rcGyoxf2yaiwJinolwgwmnRlq+9HM93h485a92jSD3uvakFDNNOpR3rZ11IogxIy1gxnA/T7pY
+	5uf+lux+XMFoU2RwnIen4wVISO7HhqKrCS0/QOoTm16EOHIfHPSXZk87UlCLJx5YCqH5XrUt+Tfw5
+	YNsBsCmuan+J1qc8b2s3Ljv4S2I+hD1qK62KI0b8Q7mSoNat0Fn/6u9Cni1gpjbpfDW7eo99g/mTA
+	FRUeRw1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTja-0000000BIyp-0Y40;
-	Tue, 03 Jun 2025 15:39:26 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1uMTnW-0000000BJUY-1ngG;
+	Tue, 03 Jun 2025 15:43:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMThP-0000000BIop-0qOs
+	id 1uMSZK-0000000B9uz-2jce
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 15:37:12 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-70e3980757bso48381237b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 08:37:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748965030; x=1749569830; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=N+pMCHYIBKQlPeyxJ/f+uTZ5/U92w6mRcGd7hTstQlk=;
-        b=WG6eKajMxHdYhV8nO3el1NH/IPy8Wwu8CtQBpdqGsiM0sxrCinu0iwJrJn0/sad0DJ
-         BhGxvzQCA7SC3+oTdIWzw6rXX8HupwHVIRdqMCnFhaZDuxelYHz0jrNORSuqKZTKchvX
-         GkV3O7oOc6sEbzaX4FeUve1BTYmI9jxK02GWGL0PNSMqQDl3kx1oVWYmClw8BiIRBZG3
-         fWxkTrqP1wa2Y++xbibPLXQgKADySSRXFtRLI/lVqE00IH+aDZwWrbbtDh6mOLppCuKW
-         CxcSWpPB+6rO5ZUnHJmFh5b7C4wpsEWxVy9XLYkkmXeY5LzrHA4dPs2oOBSANJq4FtRS
-         7AiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748965030; x=1749569830;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=N+pMCHYIBKQlPeyxJ/f+uTZ5/U92w6mRcGd7hTstQlk=;
-        b=jqeDqRdKpR02d/vNTxPbfyQV7d9BCFFJZgBDRghLGU2wBd6U21KjL4wUqUSxidtO0f
-         nPIs4En/U2DRopgTg6wOo3ceMycNh6SKK4LWAKiZHah4vLUorJf5/mrDSnCFCzKvK0M9
-         h4Jcahw3lnRsTjsKo35yL+tqe6SrCMWptjHwLpWpLA0tJEGW+/MvHKasaSnc38DiYb5N
-         6b4dqcJkmZI42otp1TMYvAawwoL30n4GlA61twFkPFQA7mia3jwMMEhTizVzWnE8jGTq
-         C7JYMah7i8IeSNNd5MmKHXecV1CazxkcYWzJgnJE/WpWP8a/E2ZKQ2bopXJSitjK4w9W
-         Tb9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUkx5Z0d6B6F/1ozbaTmkQleba01XzCXC7HfS1LqHfmKEP9Z4Mryv0NKPEGtpuZHjsqf8eSK9qjZEQ6glq+DMIb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlOD1vvHcEllWHgvdDiGE4m53GyAeVlaEBm5ja11xiNUgHj0Yc
-	VjIRhX0mceF3TlcfL4ZtQq9+Zi25jNYXIjj4RKwS0M3JL0FMLUUg+K6h0jVsrqSygTc++KiZ6JH
-	n9i7B2DXAozT/c6J/WROWczh3HFZHkot/jnPo99Eq4w==
-X-Gm-Gg: ASbGncsyItWx/CczOvvs9YgFmuyRwPxgScbQEGdlUY1I6K3apMSJnWjzFcVCQM1g8xy
-	MH3fqo+p+Vdn7KFOJfBPoAWCuin6XiClFJAP+u6crWRPKVvciYlplmIB7o83kXwlPEaYcOuP92Z
-	Gy+1MG7ybxyXNlZp64BOVoE/nQTf+ULD9IfpR2Cew60lTF
-X-Google-Smtp-Source: AGHT+IHpl+65a6HRSkGvLRf1r7jeLyLNnGo4sF7oK21xHyQD9U7Bn8mpXIZIDnMPRBSl5Rocwg7he9JmFD+OdOd/90s=
-X-Received: by 2002:a05:690c:67c4:b0:70e:3e3d:cfe5 with SMTP id
- 00721157ae682-710c9c93987mr35904557b3.4.1748965030033; Tue, 03 Jun 2025
- 08:37:10 -0700 (PDT)
+	Tue, 03 Jun 2025 14:24:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ECDEB49BC6;
+	Tue,  3 Jun 2025 14:24:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F937C4CEED;
+	Tue,  3 Jun 2025 14:24:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748960685;
+	bh=8P8VpDyERLX0d7YNci0mUwMHPwaKMA33bffoWYiDOoQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tcZZUlY4T6EfydwCQ090MG6vqI7M4UU9SIKhGZRzBEnWbgz/cP1Uy/djS+adVoJNQ
+	 NwWME4e3vLT/EELNQnDkSgIN0y1aNf4ZGKWCDPo5D/xAPt+q4hyNS6UnuXOlGufVCl
+	 aSfrdoWeAuHab//2ghDX/LhcrAp3UOwKdAf3lstikV4Pwg0tWWdtTEHK0Wlkc2A2J9
+	 0E8lWXJQ7ZH959nry1KBohTeWMB1TgLyBaAE0YS174Cyqn+Qc2mHz4wROWHJwkjj/F
+	 IroNYxEkovS4Ok4uCF7bLQH9LS2TKBRRB9hAYYB6BvLia1enGpH7axLzxTsG99QxfF
+	 VSXmpo7Rrykwg==
+Date: Tue, 3 Jun 2025 16:24:40 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] PCI/MSI: Size device MSI domain with the maximum number
+ of vectors
+Message-ID: <aD8FqJvZWaZR7J9m@lpieralisi>
+References: <20250603141801.915305-1-maz@kernel.org>
 MIME-Version: 1.0
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org> <aDhWlytLCxONZdF9@lpieralisi>
- <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
- <aD6ouVAXy5qcZtM/@lpieralisi> <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
-In-Reply-To: <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
-From: Peter Maydell <peter.maydell@linaro.org>
-Date: Tue, 3 Jun 2025 16:36:58 +0100
-X-Gm-Features: AX0GCFvwPjD5ocl7QOfNaTZVaVH9zG-qYJmIWZHqE7gqRYhb1E9PXLq0OwGv4Ko
-Message-ID: <CAFEAcA-JrS0BiT66iin-pRVFadrY-pnJZ8TkDNxcjErknSCnUA@mail.gmail.com>
-Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
-To: Rob Herring <robh@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, andre.przywara@arm.com, 
-	Arnd Bergmann <arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>, 
-	Timothy Hayes <timothy.hayes@arm.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, suzuki.poulose@arm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250603141801.915305-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_083711_244415_ECC56C74 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20250603_072446_732044_A975C67B 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +73,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 3 Jun 2025 at 16:15, Rob Herring <robh@kernel.org> wrote:
->
-> On Tue, Jun 3, 2025 at 2:48=E2=80=AFAM Lorenzo Pieralisi <lpieralisi@kern=
-el.org> wrote:
-> >
-> > On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
-> > > secure.txt says:
-> > > # The general principle of the naming scheme for Secure world binding=
-s
-> > > # is that any property that needs a different value in the Secure wor=
-ld
-> > > # can be supported by prefixing the property name with "secure-". So =
-for
-> > > # instance "secure-foo" would override "foo".
->
-> Today I would say a 'secure-' prefix is a mistake. To my knowledge,
-> it's never been used anyways. But I don't have much visibility into
-> what secure world firmware is doing.
+On Tue, Jun 03, 2025 at 03:18:01PM +0100, Marc Zyngier wrote:
+> Zenghui reports that since 1396e89e09f0 ("genirq/msi: Move prepare()
+> call to per-device allocation"), his Multi-MSI capable device isn't
+> working anymore.
+> 
+> This is a consequence of 15c72f824b32 ("PCI/MSI: Add support for
+> per device MSI[X] domains"), which always creates a MSI domain of
+> size 1, even in the presence of Multi-MSI.
+> 
+> While this was somehow working until then, moving the .prepare()
+> call ends up sizing the ITS table with a tiny value for this device,
+> and making the endpoint driver unhappy.
+> 
+> Instead, always create the domain (and call the .prepare() helper)
+> with the maximum expected size.
+> 
+> Fixes: 1396e89e09f0 ("genirq/msi: Move prepare() call to per-device allocation")
+> Fixes: 15c72f824b32 ("PCI/MSI: Add support for per device MSI[X] domains")
+> Link: https://lore.kernel.org/r/0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com
+> Reported-by: Zenghui Yu <yuzenghui@huawei.com>
+> Tested-by: Zenghui Yu <yuzenghui@huawei.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  drivers/pci/msi/irqdomain.c | 5 +++--
+>  drivers/pci/msi/msi.c       | 8 ++++----
+>  drivers/pci/msi/msi.h       | 2 +-
+>  3 files changed, 8 insertions(+), 7 deletions(-)
 
-QEMU uses it for communicating with the secure firmware if
-you run secure firmware on the virt board. It's done that
-since we introduced that binding. Indeed that use case is *why*
-the binding is there. It works fine for the intended purpose,
-which is "most devices are visible in both S and NS, but a few
-things are S only (UART, a bit of RAM, secure-only flash").
+Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 
--- PMM
+> diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
+> index d7ba8795d60f..c05152733993 100644
+> --- a/drivers/pci/msi/irqdomain.c
+> +++ b/drivers/pci/msi/irqdomain.c
+> @@ -271,6 +271,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
+>  /**
+>   * pci_setup_msi_device_domain - Setup a device MSI interrupt domain
+>   * @pdev:	The PCI device to create the domain on
+> + * @hwsize:	The maximum number of MSI vectors
+>   *
+>   * Return:
+>   *  True when:
+> @@ -287,7 +288,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
+>   *	- The device is removed
+>   *	- MSI is disabled and a MSI-X domain is created
+>   */
+> -bool pci_setup_msi_device_domain(struct pci_dev *pdev)
+> +bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize)
+>  {
+>  	if (WARN_ON_ONCE(pdev->msix_enabled))
+>  		return false;
+> @@ -297,7 +298,7 @@ bool pci_setup_msi_device_domain(struct pci_dev *pdev)
+>  	if (pci_match_device_domain(pdev, DOMAIN_BUS_PCI_DEVICE_MSIX))
+>  		msi_remove_device_irq_domain(&pdev->dev, MSI_DEFAULT_DOMAIN);
+>  
+> -	return pci_create_device_domain(pdev, &pci_msi_template, 1);
+> +	return pci_create_device_domain(pdev, &pci_msi_template, hwsize);
+>  }
+>  
+>  /**
+> diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
+> index d6ce04054702..6ede55a7c5e6 100644
+> --- a/drivers/pci/msi/msi.c
+> +++ b/drivers/pci/msi/msi.c
+> @@ -439,16 +439,16 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
+>  	if (nvec < minvec)
+>  		return -ENOSPC;
+>  
+> -	if (nvec > maxvec)
+> -		nvec = maxvec;
+> -
+>  	rc = pci_setup_msi_context(dev);
+>  	if (rc)
+>  		return rc;
+>  
+> -	if (!pci_setup_msi_device_domain(dev))
+> +	if (!pci_setup_msi_device_domain(dev, nvec))
+>  		return -ENODEV;
+>  
+> +	if (nvec > maxvec)
+> +		nvec = maxvec;
+> +
+>  	for (;;) {
+>  		if (affd) {
+>  			nvec = irq_calc_affinity_vectors(minvec, nvec, affd);
+> diff --git a/drivers/pci/msi/msi.h b/drivers/pci/msi/msi.h
+> index fc70b601e942..0b420b319f50 100644
+> --- a/drivers/pci/msi/msi.h
+> +++ b/drivers/pci/msi/msi.h
+> @@ -107,7 +107,7 @@ enum support_mode {
+>  };
+>  
+>  bool pci_msi_domain_supports(struct pci_dev *dev, unsigned int feature_mask, enum support_mode mode);
+> -bool pci_setup_msi_device_domain(struct pci_dev *pdev);
+> +bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize);
+>  bool pci_setup_msix_device_domain(struct pci_dev *pdev, unsigned int hwsize);
+>  
+>  /* Legacy (!IRQDOMAIN) fallbacks */
+> -- 
+> 2.47.2
+> 
 
