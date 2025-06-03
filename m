@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20DBC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:59:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F56CC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 16:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ar5D4zBSs/YUAUx/REy11enEaNMluqXtZe67Zl84UoY=; b=yKlINa1vb87gYreirlqJRe3sS8
-	En7m3HAO7/OIZTjH1EB/YxizYOWWRu3ZUTBpiN8l+rx5hK59DxW7N25owHnqbLXTP4vuYi92dPheJ
-	Z082MTQe4JqvZLUu/fK7Q4yFLV/rdnfzq2Xp5aDJeGJJ0Y80xe8++3OSObpxAjjsL+1BD12FjR1JH
-	PFSWZGfUdiJ4F2p5Xv3THpdXmDppTi1NmPOxcDP5mYrgY90lyeocKpDHowk48vdJNncwQ/pfYICvJ
-	qIFBLBKhAsH1hTBNSQTRhkhNlHs7cAOfP73mdvhBbWlMMGj+FFGUBt9d7RzurmiGJrTqqL46HwYbl
-	SFZqWq4A==;
+	bh=/+8j0QbVPvAazw41RnGapY/bRkRu1YdVj+NJ6gNt84M=; b=t3NWlhzIbqA6BTLCnYzfJHb6Ne
+	4CAdedfC1GY2s7K3L+u/ZJiyK5p0jBoOa9M2gPyCLIQFebresyzifyG/+dTw/bVQVh0xKXqj5XDb+
+	ZZP40x1dxKzeDKgxfDA66KskgVEfAKltoDeGBncK+cmCPJF8UP9L5ILlKagHaU+2v1P9aYDNSrcK6
+	zW/5GAJrfcZ76JQh17PiwGJRrtTh27wWUEcLNmqAhNorF1A3O/3aBMD8XNq3YYW9IbNeEBlLXOTV4
+	XkcTsKLB0jD2YWXhc81o2jxjjyDBZtxmjewWpIu5wMfCD3zip9GslSbEDptSznoGbsUaYW47GmJDU
+	wSQAQvYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMU2c-0000000BLyy-3YGR;
-	Tue, 03 Jun 2025 15:59:06 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uMU4n-0000000BMNv-47YR;
+	Tue, 03 Jun 2025 16:01:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTtA-0000000BKKS-0hnD;
-	Tue, 03 Jun 2025 15:49:21 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 553Fn5bq556677;
-	Tue, 3 Jun 2025 10:49:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748965745;
-	bh=Ar5D4zBSs/YUAUx/REy11enEaNMluqXtZe67Zl84UoY=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=FPVbgXwMAZE/ZsvtLocKXO3Y3kWf4ta5LsqRBF84wWrOSiq7MrQaGxAofMCJRvFag
-	 q534Ov6HTadamlsWXy5sNeqsNM2W3mbasRZBdG90ky87j88oF60ugwyhXorSRgw568
-	 YTexki4PRPNXAJAAw5YEFaaAC6IIdx3BF+R+Qp4E=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 553Fn4O53854379
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 3 Jun 2025 10:49:04 -0500
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
- Jun 2025 10:49:04 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 3 Jun 2025 10:49:04 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 553Fn4is569045;
-	Tue, 3 Jun 2025 10:49:04 -0500
-Date: Tue, 3 Jun 2025 10:49:04 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 5/5] dt-bindings: mailbox: Drop consumers example DTS
-Message-ID: <20250603154904.oa5lx5loywmzoqhr@varmint>
-References: <20250603-dt-bindings-mailbox-cleanup-v1-0-724407563997@linaro.org>
- <20250603-dt-bindings-mailbox-cleanup-v1-5-724407563997@linaro.org>
+	id 1uMTxI-0000000BKs5-0lX3
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Jun 2025 15:53:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E2AF749C66;
+	Tue,  3 Jun 2025 15:53:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C608BC4CEED;
+	Tue,  3 Jun 2025 15:53:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748966015;
+	bh=ujm9MuI/e9VolCk4e0eb1/DBEfCNPcM/FoVXZk/NeXE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bUPrDeKN6S5ATwkVju4UuE4PGM3yT9mWmZc47U6x6ymNepe8Gv/IW133YFTeBEo/T
+	 mnbFsDX11nCCrBnr+7UZXR+8fDAiEeeDkOBC6Voi4Mr+t8pGTQemHkMHUQYu1HOHPV
+	 iSiMGus9LNTzHAQnu/Eq4CxyS8Cxd9WFY4k29P2UGrirQARIhAo6hXLRzZ5vyksPjD
+	 LRYWBBdAF2u64Nt+OvCOJEPXAI2wu1MpPPMHTNRPI8SZBa9N7eJqhZ/pXj5JuwcyLw
+	 wFSM/vfOvFIBFt229CJhraqS3Q0mpDEWujvVM3Y2J21iiiCQc9K6romdITw/Snp9Ez
+	 uP9JCowCZNdWA==
+Date: Tue, 3 Jun 2025 17:53:26 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Peter Maydell <peter.maydell@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, andre.przywara@arm.com,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, suzuki.poulose@arm.com
+Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
+Message-ID: <aD8adnQWcII5XO2J@lpieralisi>
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
+ <aDhWlytLCxONZdF9@lpieralisi>
+ <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
+ <aD6ouVAXy5qcZtM/@lpieralisi>
+ <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250603-dt-bindings-mailbox-cleanup-v1-5-724407563997@linaro.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_084920_298237_574172CE 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20250603_085336_268676_70C64089 
+X-CRM114-Status: GOOD (  44.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,67 +86,122 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Thierry Reding <thierry.reding@gmail.com>, Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Jerome Brunet <jbrunet@baylibre.com>, Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>, Jassi Brar <jassisinghbrar@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Chen-Yu Tsai <wens@csie.org>, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@svenpeter.dev>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Hector Martin <marcan@marcan.st>, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, Neal Gompa <neal@gompa.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:57-20250603, Krzysztof Kozlowski wrote:
-> Providers DTS examples should not contain consumer nodes, because they
-> are completely redundant, obvious (defined in common schema) and add
-> unnecessary bloat.  Drop consumer examples and unneeded node labels.
+On Tue, Jun 03, 2025 at 10:15:25AM -0500, Rob Herring wrote:
+> On Tue, Jun 3, 2025 at 2:48 AM Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> >
+> > On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
+> > > On Thu, 29 May 2025 at 13:44, Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > > >
+> > > > [+Andre, Peter]
+> > > >
+> > > > On Tue, May 13, 2025 at 07:47:54PM +0200, Lorenzo Pieralisi wrote:
+> > > > > +      reg:
+> > > > > +        minItems: 1
+> > > > > +        items:
+> > > > > +          - description: IRS control frame
+> > > >
+> > > > I came across it while testing EL3 firmware, raising the topic for
+> > > > discussion.
+> > > >
+> > > > The IRS (and the ITS) has a config frame (need to patch the typo
+> > > > s/control/config, already done) per interrupt domain supported, that is,
+> > > > it can have up to 4 config frames:
+> > > >
+> > > > - EL3
+> > > > - Secure
+> > > > - Realm
+> > > > - Non-Secure
+> > > >
+> > > > The one described in this binding is the non-secure one.
+> > > >
+> > > > IIUC, everything described in the DT represents the non-secure address
+> > > > space.
+> > >
+> > > The dt bindings do allow for describing Secure-world devices:
+> > > Documentation/devicetree/bindings/arm/secure.txt has the
+> > > details. We use this in QEMU so we can provide a DTB to
+> > > guest EL3 firmware that tells it where the hardware is
+> > > (and which EL3 can then pass on to an NS kernel). It would
+> > > be helpful for the GICv5 binding to be defined in a way that
+> > > we can do this for a GICv5 system too.
+> >
+> > It would be good to understand what DT {should/should not} describe and
+> > whether this DT usage to configure firmware is under the DT maintainers
+> > radar or it is an attempt at reusing it to avoid implementing a
+> > configuration scheme.
+> >
+> > Rob, Krzysztof,
+> >
+> > Any thoughts on the matter please ?
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
+> I'm all for firmware using DT, but using a single DT for all
+> components with an ABI between all components is an impractical dream.
+> You can take that a step further even with a single DT for all
+> processors in a system (aka System DT). Ultimately, the DT is a view
+> of the system for a client (OS). Different views may need different
+> DTs.
 
-[...]
+Specifically, for IRS/ITS frames then - what the current schema does is
+correct, namely, it does _not_ spell out whether the IRS/ITS config
+frame is NS/S/Realm/Root interrupt domain, that's information that the
+client implicitly assumes.
 
-> diff --git a/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
-> index 1a2001e58880d2fc26954b26cff8ed53e7667f33..8504ceb64806bc7e25468597acdff99624571e9f 100644
-> --- a/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
-> +++ b/Documentation/devicetree/bindings/mailbox/ti,omap-mailbox.yaml
-> @@ -242,7 +242,7 @@ examples:
->    - |
->      /* OMAP4 */
->      #include <dt-bindings/interrupt-controller/arm-gic.h>
-> -    mailbox: mailbox@4a0f4000 {
-> +    mailbox@4a0f4000 {
->          compatible = "ti,omap4-mailbox";
->          reg = <0x4a0f4000 0x200>;
->          interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
-> @@ -260,13 +260,9 @@ examples:
->          };
->      };
->  
-> -    dsp {
-> -        mboxes = <&mailbox &mbox_dsp>;
-> -    };
-> -
->    - |
->      /* AM33xx */
-> -    mailbox1: mailbox@480c8000 {
-> +    mailbox@480c8000 {
->          compatible = "ti,omap4-mailbox";
->          reg = <0x480c8000 0x200>;
->          interrupts = <77>;
-> @@ -283,7 +279,7 @@ examples:
->  
->    - |
->      /* AM65x */
-> -    mailbox0_cluster0: mailbox@31f80000 {
-> +    mailbox@31f80000 {
->          compatible = "ti,am654-mailbox";
->          reg = <0x31f80000 0x200>;
->          #mbox-cells = <1>;
+Are we OK with this approach ? This would leave open the possibility
+of having a DT per security-state.
+
+If in the DT schema I define eg reg -> "IRS NS config frame" by
+construction the binding can't be used for anything else.
+
+Please let me know if we are in agreement on this matter.
+
+Lorenzo
+
+> u-boot and Linux sharing a DT makes sense as they have the same world
+> view. Secure and NS not so much.
 > 
-
-Reviewed-by: Nishanth Menon <nm@ti.com>
-
-> -- 
-> 2.45.2
+> > [...]
+> >
+> > > The tempting thing to do is to have regs[] list the frames
+> > > in some given order, but the spec makes them not simple
+> > > supersets, allowing all of:
+> > >  * NS
+> > >  * S
+> > >  * NS, S, EL3
+> > >  * NS, Realm, EL3
+> > >  * NS, Realm, S, EL3
+> >
+> > Maybe reg-names can help ? Even though first we need to understand
+> > what resources should be described in DT.
+> >
+> > Current bindings are reviewed and I am not keen on dragging this
+> > discussion on forever - the information the kernel requires is there,
+> > I'd like to bring this to a close.
+> >
+> > Thanks,
+> > Lorenzo
+> >
+> > >
+> > > secure.txt says:
+> > > # The general principle of the naming scheme for Secure world bindings
+> > > # is that any property that needs a different value in the Secure world
+> > > # can be supported by prefixing the property name with "secure-". So for
+> > > # instance "secure-foo" would override "foo".
 > 
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+> Today I would say a 'secure-' prefix is a mistake. To my knowledge,
+> it's never been used anyways. But I don't have much visibility into
+> what secure world firmware is doing.
+> 
+> > >
+> > > So maybe we could have
+> > >  reg : the NS frame(s)
+> > >  secure-reg : the S frame(s)
+> > >  realm-reg : the Realm frame(s)
+> > >  root-reg : the EL3 frame(s)
+> 
+> Here's why. It really doesn't scale.
+> 
+> Rob
 
