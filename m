@@ -4,61 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CB8C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0175EC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6df5g93jndy+Z/1SCw4lW9zw+FLEwYaFqskZYcgfBOM=; b=yL99Iu13pBzkgbiIEqSniEHztt
-	tqxydphnjYTCD8EHuYfZf0NYYXIDzUPyfy2+tBIowcDnxxIgKUnFY4QnPIk+UbhksQcsKhDaQi+gV
-	E52rcGyoxf2yaiwJinolwgwmnRlq+9HM93h485a92jSD3uvakFDNNOpR3rZ11IogxIy1gxnA/T7pY
-	5uf+lux+XMFoU2RwnIen4wVISO7HhqKrCS0/QOoTm16EOHIfHPSXZk87UlCLJx5YCqH5XrUt+Tfw5
-	YNsBsCmuan+J1qc8b2s3Ljv4S2I+hD1qK62KI0b8Q7mSoNat0Fn/6u9Cni1gpjbpfDW7eo99g/mTA
-	FRUeRw1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FhF2cjF5zAzV18nEabakJ1UzQ/GrNdWmpvarqiPCL7M=; b=WUGHTGk3s6nx4zgvOLyu0cQxk0
+	29FG2R5ngOK7fpf0CbXb7DZUwQqTCD5/ZhahX+Q8cANWL6/lB+7wYi9D62rFzOkRJ10zjPPFsA6Dx
+	QcvVaoCF6/mUNQolwoDPRIdLzwjMwpthIULd4Y8BnATHRdF22w4sbgruvhTuG857LAdSJdGtrYzyj
+	lH+vc7hxqfu1F/odpE7mJ++wSrn46DL/NmLVMlUkbjVx/xmm/Y4iTWKFdoBn9MGP7U0btoFjEnI3P
+	lWe41ZjEte28SD4XNioorGRFFp+AyEgp9pOJvNdwVjE71nsBfvl0BJ9leQJer4ToycGmRsIkJd9PT
+	mEfLz3gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTnW-0000000BJUY-1ngG;
-	Tue, 03 Jun 2025 15:43:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uMTpc-0000000BJrU-3tfD;
+	Tue, 03 Jun 2025 15:45:40 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSZK-0000000B9uz-2jce
+	id 1uMTnP-0000000BJSJ-1h6j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 14:24:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ECDEB49BC6;
-	Tue,  3 Jun 2025 14:24:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F937C4CEED;
-	Tue,  3 Jun 2025 14:24:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748960685;
-	bh=8P8VpDyERLX0d7YNci0mUwMHPwaKMA33bffoWYiDOoQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tcZZUlY4T6EfydwCQ090MG6vqI7M4UU9SIKhGZRzBEnWbgz/cP1Uy/djS+adVoJNQ
-	 NwWME4e3vLT/EELNQnDkSgIN0y1aNf4ZGKWCDPo5D/xAPt+q4hyNS6UnuXOlGufVCl
-	 aSfrdoWeAuHab//2ghDX/LhcrAp3UOwKdAf3lstikV4Pwg0tWWdtTEHK0Wlkc2A2J9
-	 0E8lWXJQ7ZH959nry1KBohTeWMB1TgLyBaAE0YS174Cyqn+Qc2mHz4wROWHJwkjj/F
-	 IroNYxEkovS4Ok4uCF7bLQH9LS2TKBRRB9hAYYB6BvLia1enGpH7axLzxTsG99QxfF
-	 VSXmpo7Rrykwg==
-Date: Tue, 3 Jun 2025 16:24:40 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH] PCI/MSI: Size device MSI domain with the maximum number
- of vectors
-Message-ID: <aD8FqJvZWaZR7J9m@lpieralisi>
-References: <20250603141801.915305-1-maz@kernel.org>
+	Tue, 03 Jun 2025 15:43:24 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-60462e180e2so653638a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 08:43:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1748965402; x=1749570202; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FhF2cjF5zAzV18nEabakJ1UzQ/GrNdWmpvarqiPCL7M=;
+        b=rSRebq6NRKp3K5EGnJiYy0ISbKE0AgENI12CGSS4C9tL+yCVy6U8YtpMqVNStJ3prz
+         AH24RLS+0Y1VblFCsKtvkOhrtSJhnSbRoAw9tBv/8u7moaNn976D8kMkalnE9JxG+QvH
+         15l5Pxkqfngg+RKZ1N8y29WbHcpY7XO3lrb86a5iJcu2gy7rP0hm4ZJIqt8JI2qsuBOo
+         mXL7Gv/MHcwlKVr2DNSraa1IFzbvONfX/FQpQxqc8tFr4c0eEluuhP5rPME9545u4sP5
+         Fbr9H8nKRU/AVWsWtCpCo6DThumv2YJmOw02iCP0CPmd2J7ypboMT69OQERK/AjWr6xd
+         I0nA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748965402; x=1749570202;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FhF2cjF5zAzV18nEabakJ1UzQ/GrNdWmpvarqiPCL7M=;
+        b=NhBwYRHFd00csd00fqXFK3HYlzHv04VuSuSBJ7iz+grKhoE+eH0U/lZnFCZk71SyIL
+         qPpqUK5LqBewiExfsTu2HOzFGbFqHpFEaogEy52njVh4SBBJGmzYV9Oc8wJqzhqL+H1g
+         SxxY+xZq/sW4fGVNlt4++W/YMboT54TDw0pcBVTMoS/HEo100DD7a4M3o2M/t5FKPW3J
+         eSed918Xd/ZsPMXlZ+FxGLUj61K12AX9UmmAvTkbGGiPf4XTZKy1t8NslnTNV26cBel6
+         vCoR4tISziVePAmfh0I/gjtrQ+BO/LZ1zJx8WTOcBKzf5JBZ+25n5D8iAYb2PtwjnMlD
+         ThKA==
+X-Forwarded-Encrypted: i=1; AJvYcCVxTTy1OmH3bl2eD1Ohcdo7S//NWqDQn3p7CJXiiBnrjNQ89JElq8549RpJ2YqNSLAa1pUJJQqPOQN9H8zClP5c@lists.infradead.org
+X-Gm-Message-State: AOJu0YywAoctePNVBf8WXjD7vJ+mHxsveOEMKZJ/FAliTWA1CH2KWmXd
+	tnUkmmRo5mUgHKwLoATiF6NB7dTkTOikAiXkTCiBbaUne+pnQVSQNJiY3XVwMU5ud9Q=
+X-Gm-Gg: ASbGncsout6zM7ZQUMOr0RfWuNynnERvG5WUXHTvHCjsMBD0L2BFfRLeeecflFsA0RZ
+	2zJhUdJl6h50VBMKLF+xuOfoc4sdGa45l2ZrwvuTboZdRuaQjGnIeYlzlvMnQOj6fzSjKbNHxm9
+	UpJRPHnnKmz3T72O5q7jixMapv96s4lcraVdJIYQzyQ4jHFlTbEgKyWl5M3eQM+xWiGfpNF75Yh
+	dKsDnI52CVfvOlaDaxqfS3uyMwnma2BcuGX5UusQGlqdFpzm5gTDf94JDx9TmNzAiiHGOxQV55E
+	cD95H7TnHu6Oz5W7w3fZgOaObf0vsVZOiYnU99rcLNrKLP6ceeoI3JBgnVe3hfFUasccFR+2ZYV
+	AMEfL5LmZzTbfY1vtojl7E5MxO8nf0JlvV3M=
+X-Google-Smtp-Source: AGHT+IHdbH5nQxzalWh/NsDVZb6FCYdDH3rQaVkOJ6uhuni+aK7sz1J/yFbrtIh3WrzPAg01pUI1GQ==
+X-Received: by 2002:a17:907:971c:b0:adb:2ef9:db38 with SMTP id a640c23a62f3a-adb36be2060mr1662069466b.36.1748965401532;
+        Tue, 03 Jun 2025 08:43:21 -0700 (PDT)
+Received: from puffmais.c.googlers.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada5d82de9bsm959277166b.47.2025.06.03.08.43.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Jun 2025 08:43:21 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Date: Tue, 03 Jun 2025 16:43:19 +0100
+Subject: [PATCH 1/3] clk: samsung: gs101: fix CLK_DOUT_CMU_G3D_BUSD
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250603141801.915305-1-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250603-samsung-clk-fixes-v1-1-49daf1ff4592@linaro.org>
+References: <20250603-samsung-clk-fixes-v1-0-49daf1ff4592@linaro.org>
+In-Reply-To: <20250603-samsung-clk-fixes-v1-0-49daf1ff4592@linaro.org>
+To: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_072446_732044_A975C67B 
-X-CRM114-Status: GOOD (  24.60  )
+X-CRM114-CacheID: sfid-20250603_084323_441143_60727D08 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,105 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 03:18:01PM +0100, Marc Zyngier wrote:
-> Zenghui reports that since 1396e89e09f0 ("genirq/msi: Move prepare()
-> call to per-device allocation"), his Multi-MSI capable device isn't
-> working anymore.
-> 
-> This is a consequence of 15c72f824b32 ("PCI/MSI: Add support for
-> per device MSI[X] domains"), which always creates a MSI domain of
-> size 1, even in the presence of Multi-MSI.
-> 
-> While this was somehow working until then, moving the .prepare()
-> call ends up sizing the ITS table with a tiny value for this device,
-> and making the endpoint driver unhappy.
-> 
-> Instead, always create the domain (and call the .prepare() helper)
-> with the maximum expected size.
-> 
-> Fixes: 1396e89e09f0 ("genirq/msi: Move prepare() call to per-device allocation")
-> Fixes: 15c72f824b32 ("PCI/MSI: Add support for per device MSI[X] domains")
-> Link: https://lore.kernel.org/r/0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com
-> Reported-by: Zenghui Yu <yuzenghui@huawei.com>
-> Tested-by: Zenghui Yu <yuzenghui@huawei.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/pci/msi/irqdomain.c | 5 +++--
->  drivers/pci/msi/msi.c       | 8 ++++----
->  drivers/pci/msi/msi.h       | 2 +-
->  3 files changed, 8 insertions(+), 7 deletions(-)
+Use the correct Linux clock ID when instantiating the G3D_BUSD
+div_clock.
 
-Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Fixes: 2c597bb7d66a ("clk: samsung: clk-gs101: Add cmu_top, cmu_misc and cmu_apm support")
+Cc: stable@vger.kernel.org
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+ drivers/clk/samsung/clk-gs101.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
-> index d7ba8795d60f..c05152733993 100644
-> --- a/drivers/pci/msi/irqdomain.c
-> +++ b/drivers/pci/msi/irqdomain.c
-> @@ -271,6 +271,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
->  /**
->   * pci_setup_msi_device_domain - Setup a device MSI interrupt domain
->   * @pdev:	The PCI device to create the domain on
-> + * @hwsize:	The maximum number of MSI vectors
->   *
->   * Return:
->   *  True when:
-> @@ -287,7 +288,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
->   *	- The device is removed
->   *	- MSI is disabled and a MSI-X domain is created
->   */
-> -bool pci_setup_msi_device_domain(struct pci_dev *pdev)
-> +bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize)
->  {
->  	if (WARN_ON_ONCE(pdev->msix_enabled))
->  		return false;
-> @@ -297,7 +298,7 @@ bool pci_setup_msi_device_domain(struct pci_dev *pdev)
->  	if (pci_match_device_domain(pdev, DOMAIN_BUS_PCI_DEVICE_MSIX))
->  		msi_remove_device_irq_domain(&pdev->dev, MSI_DEFAULT_DOMAIN);
->  
-> -	return pci_create_device_domain(pdev, &pci_msi_template, 1);
-> +	return pci_create_device_domain(pdev, &pci_msi_template, hwsize);
->  }
->  
->  /**
-> diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-> index d6ce04054702..6ede55a7c5e6 100644
-> --- a/drivers/pci/msi/msi.c
-> +++ b/drivers/pci/msi/msi.c
-> @@ -439,16 +439,16 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
->  	if (nvec < minvec)
->  		return -ENOSPC;
->  
-> -	if (nvec > maxvec)
-> -		nvec = maxvec;
-> -
->  	rc = pci_setup_msi_context(dev);
->  	if (rc)
->  		return rc;
->  
-> -	if (!pci_setup_msi_device_domain(dev))
-> +	if (!pci_setup_msi_device_domain(dev, nvec))
->  		return -ENODEV;
->  
-> +	if (nvec > maxvec)
-> +		nvec = maxvec;
-> +
->  	for (;;) {
->  		if (affd) {
->  			nvec = irq_calc_affinity_vectors(minvec, nvec, affd);
-> diff --git a/drivers/pci/msi/msi.h b/drivers/pci/msi/msi.h
-> index fc70b601e942..0b420b319f50 100644
-> --- a/drivers/pci/msi/msi.h
-> +++ b/drivers/pci/msi/msi.h
-> @@ -107,7 +107,7 @@ enum support_mode {
->  };
->  
->  bool pci_msi_domain_supports(struct pci_dev *dev, unsigned int feature_mask, enum support_mode mode);
-> -bool pci_setup_msi_device_domain(struct pci_dev *pdev);
-> +bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize);
->  bool pci_setup_msix_device_domain(struct pci_dev *pdev, unsigned int hwsize);
->  
->  /* Legacy (!IRQDOMAIN) fallbacks */
-> -- 
-> 2.47.2
-> 
+diff --git a/drivers/clk/samsung/clk-gs101.c b/drivers/clk/samsung/clk-gs101.c
+index f9c3d68d449c356019aee569fbe289259624da70..12ee416375ef31deed5f45ea6aaec05fde260dc5 100644
+--- a/drivers/clk/samsung/clk-gs101.c
++++ b/drivers/clk/samsung/clk-gs101.c
+@@ -1154,7 +1154,7 @@ static const struct samsung_div_clock cmu_top_div_clks[] __initconst = {
+ 	    CLK_CON_DIV_CLKCMU_G2D_MSCL, 0, 4),
+ 	DIV(CLK_DOUT_CMU_G3AA_G3AA, "dout_cmu_g3aa_g3aa", "gout_cmu_g3aa_g3aa",
+ 	    CLK_CON_DIV_CLKCMU_G3AA_G3AA, 0, 4),
+-	DIV(CLK_DOUT_CMU_G3D_SWITCH, "dout_cmu_g3d_busd", "gout_cmu_g3d_busd",
++	DIV(CLK_DOUT_CMU_G3D_BUSD, "dout_cmu_g3d_busd", "gout_cmu_g3d_busd",
+ 	    CLK_CON_DIV_CLKCMU_G3D_BUSD, 0, 4),
+ 	DIV(CLK_DOUT_CMU_G3D_GLB, "dout_cmu_g3d_glb", "gout_cmu_g3d_glb",
+ 	    CLK_CON_DIV_CLKCMU_G3D_GLB, 0, 4),
+
+-- 
+2.49.0.1204.g71687c7c1d-goog
+
 
