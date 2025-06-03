@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98299C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 13:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFF0C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 13:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UtMuekYkbDUAbV7cQc7dtTW16jtfqNZYO6dnbo+XM7M=; b=ZPFQ3eiqX7sUZ58kOLCXhUZQ1J
-	F1CQySy06ZQ5tAXqOwPcaNv1wnSseE/SWcpRQVpP2y//2IUef/d/KHzfU5N8iKIDmnzCaZimIYuwC
-	G7BzLyD/9AqLHLBjowsONe8AkC94d355gIgfPDW8zmL78ikQ0/wVa0DiYlRyjojcSFLJYXR46eGI+
-	vWTmcNsOYIfvTFCYDLt9j6RYM2SFWDCbYvO8lnk6KgROLKNESTJ47LEmFLLgoBt2QA6y6H5iSVjXt
-	rk8wV+O44i3Uxui4RsexaqvqYI78ItbTP8fYSSWEcodlGv1+B4YSNJRNbAovNPCJVStevxidHWGJk
-	3e+lzOSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mzHqN99MVP5AlrQFhWMGPcXTaoLJOLbPL559pIxGMdg=; b=Uq1Oq5TMCKfLVcYuKHywQva6FJ
+	llqiq2ityJAwUJRsG/jCK1sztfsqfoWrGGn4CUwhViae2Xg8PBVUKUUfZ+8WJt88D88omPJ2D5ESQ
+	QmUHqaJM+Yuv61wjC+V2s5vq+zPu309cymtVeupjs3slUQpr3BHO0rjUV+fpkL589FjHkLw4xlFd7
+	P58z3HwlIUVGIdXsA9CbHmaTmXmzw4Z+Ow0CVfxvV5r+tgS639oBFw6jlNSgjlZ5XhbO2gAP8tKfs
+	OxQt6yxUY9A9DOKXhqbsZsKdKFD5fRx54Kd3CF5DzsqCLeWtshi8+Zx1b6nBrc8FJ9M0viVl99b40
+	uumQsCmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMRP4-0000000Azrh-3DNG;
-	Tue, 03 Jun 2025 13:10:06 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1uMRRE-0000000B092-2FnP;
+	Tue, 03 Jun 2025 13:12:20 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMRMI-0000000AzdM-0ovj
+	id 1uMROu-0000000Azpm-2AGe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 13:07:15 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bBWCY1lSnz13Lvw;
-	Tue,  3 Jun 2025 21:05:13 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 85BA0140158;
-	Tue,  3 Jun 2025 21:07:05 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 3 Jun 2025 21:07:04 +0800
-Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device
- allocation
-To: Marc Zyngier <maz@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Sascha Bischoff <sascha.bischoff@arm.com>, Timothy
- Hayes <timothy.hayes@arm.com>
+	Tue, 03 Jun 2025 13:09:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A5C90A501DD;
+	Tue,  3 Jun 2025 13:09:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33BFBC4CEED;
+	Tue,  3 Jun 2025 13:09:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748956195;
+	bh=DBBMIB+VBNSUpO1HBxx4zBoXHC/lBKzUW68TvT1jqI4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=N7HmvFVYBZUZpodbeHL4UVhC8DdlipjBw2j67GZbjNtSriSzatuh6k9K1AAilqKec
+	 pvcR9IuZZcSE+V9m6km7k31zAerzxT/9Lwl2yiAk1ctIWuK+V0GnDg/gwgaIukgN71
+	 dKwaKOJs3A43Y3s3b+fvnHVDfzNc8exkq/7VgYNGhZFp78G2jMSF6ixfp7eWcAV6qD
+	 r++ib98UBlRQPcuZgOODgwmfAHgjW4w+EBwCmxL54RHusu/fI6WwHi82cdtir6jznG
+	 XwjFxlLjN7dsKOHtsIVTwGFcXkdPEkvX2v7ZgK4QzB7BhBhAl6VG8Eve2x+U8upNf5
+	 fTTPdEM3/PJ6A==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uMROq-002q2M-J2;
+	Tue, 03 Jun 2025 14:09:52 +0100
+Date: Tue, 03 Jun 2025 14:09:50 +0100
+Message-ID: <87jz5tdl9d.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Zenghui Yu <yuzenghui@huawei.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>
+Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device allocation
+In-Reply-To: <aD7B96BiSb6mK9Bj@lpieralisi>
 References: <20250513163144.2215824-1-maz@kernel.org>
- <20250513163144.2215824-4-maz@kernel.org>
- <0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
- <87ldq9dm54.wl-maz@kernel.org>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <f0e9f15a-ade0-e79f-f26c-d9c9db42a0b4@huawei.com>
-Date: Tue, 3 Jun 2025 21:07:04 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
-MIME-Version: 1.0
-In-Reply-To: <87ldq9dm54.wl-maz@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+	<20250513163144.2215824-4-maz@kernel.org>
+	<0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
+	<aD7B96BiSb6mK9Bj@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, tglx@linutronix.de, sascha.bischoff@arm.com, timothy.hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_060714_554633_1944CC1E 
-X-CRM114-Status: GOOD (  22.60  )
+X-CRM114-CacheID: sfid-20250603_060956_699102_5C8ABF5C 
+X-CRM114-Status: GOOD (  27.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,102 +90,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-On 2025/6/3 20:50, Marc Zyngier wrote:
-> Hi Zenghui,
+On Tue, 03 Jun 2025 10:35:51 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> On Tue, 03 Jun 2025 09:22:47 +0100,
-> Zenghui Yu <yuzenghui@huawei.com> wrote:
-> >
+> On Tue, Jun 03, 2025 at 04:22:47PM +0800, Zenghui Yu wrote:
 > > > +	domain->dev = dev;
 > > > +	dev->msi.data->__domains[domid].domain = domain;
 > > > +
 > > > +	if (msi_domain_prepare_irqs(domain, dev, hwsize, &bundle->alloc_info)) {
-> >
-> > Does it work for MSI? hwsize is 1 in the MSI case, without taking
-> > pci_msi_vec_count() into account.
-> >
+> > 
+> > Does it work for MSI?
+> 
+> This means that it does not work for MSI for you as it stands, right ?
+> 
+> If you spotted an issue, thanks for that, report it fully please.
+
+Honestly, you're barking up the wrong tree. Zenghui points us to a
+glaring bug in the core code, with detailed information on what could
+go wrong, as well as what is wrong in the code. It doesn't get better
+than that.
+
+The usual level of bug reports is "its b0rken", sometimes followed by
+a trace with lots of hex and no information. Spot the difference?
+
+> 
+> > hwsize is 1 in the MSI case, without taking pci_msi_vec_count() into account.
+> > 
 > > bool pci_setup_msi_device_domain(struct pci_dev *pdev)
 > > {
 > > 	[...]
-> >
+> > 
 > > 	return pci_create_device_domain(pdev, &pci_msi_template, 1);
 > 
-> Well spotted.
+> I had a stab at it with GICv5 models and an MSI capable device and this indeed
+> calls the ITS msi_prepare() callback with 1 as vector count, so we size
+> the device tables wrongly.
+
+Not wrongly. Exactly as instructed.
+
 > 
-> This looks like a PCI bug ignoring Multi-MSI. Can you give the
-> following a go and let people know whether that fixes your issue?
+> The question is why pci_create_device_domain() is called here with
+> hwsize == 1. Probably, before this series, the ITS MSI parent code was
+> fixing the size up so we did not notice, I need to check.
 
-I hit this problem on Kunpeng920 with some HiSilicon SAS (Serial
-Attached SCSI controller) on it. These controllers are MSI-capable and
-didn't work after this commit.
+The GICv3 ITS code would upgrade the vector count to the next power of
+two (one bit of EID space -> 2 MSIs), but with the device domain
+squarely set to 1, the endpoint driver would never get more. It is
+prepared to fail gracefully though, hence nothing really breaks.
 
-# lspci -v -s 74:02.0
-74:02.0 Serial Attached SCSI controller: Huawei Technologies Co., Ltd.
-HiSilicon SAS 3.0 HBA (rev 21)
-	Flags: bus master, fast devsel, latency 0, IRQ 42, NUMA node 0, IOMMU
-group 27
-	Memory at a2000000 (32-bit, non-prefetchable) [size=32K]
-	Capabilities: [40] Express Root Complex Integrated Endpoint, MSI 00
-	Capabilities: [80] MSI: Enable+ Count=32/32 Maskable+ 64bit+
-	Capabilities: [b0] Power Management version 3
-	Kernel driver in use: hisi_sas_v3_hw
+I don't think this patch makes anything regress though. Commit
+15c72f824b327 seems to be the offending one. If Zenghui confirms that
+the hack I posted separately works for him, I'll follow up with a
+"real" patch.
 
-> diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
-> index d7ba8795d60f..89677a21d525 100644
-> --- a/drivers/pci/msi/irqdomain.c
-> +++ b/drivers/pci/msi/irqdomain.c
-> @@ -287,7 +287,7 @@ static bool pci_create_device_domain(struct pci_dev *pdev, const struct msi_doma
->   *	- The device is removed
->   *	- MSI is disabled and a MSI-X domain is created
->   */
-> -bool pci_setup_msi_device_domain(struct pci_dev *pdev)
-> +bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize)
->  {
->  	if (WARN_ON_ONCE(pdev->msix_enabled))
->  		return false;
-> @@ -297,7 +297,7 @@ bool pci_setup_msi_device_domain(struct pci_dev *pdev)
->  	if (pci_match_device_domain(pdev, DOMAIN_BUS_PCI_DEVICE_MSIX))
->  		msi_remove_device_irq_domain(&pdev->dev, MSI_DEFAULT_DOMAIN);
->  
-> -	return pci_create_device_domain(pdev, &pci_msi_template, 1);
-> +	return pci_create_device_domain(pdev, &pci_msi_template, hwsize);
->  }
->  
->  /**
-> diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-> index 8b8848788618..81891701840a 100644
-> --- a/drivers/pci/msi/msi.c
-> +++ b/drivers/pci/msi/msi.c
-> @@ -449,7 +449,7 @@ int __pci_enable_msi_range(struct pci_dev *dev, int minvec, int maxvec,
->  	if (rc)
->  		return rc;
->  
-> -	if (!pci_setup_msi_device_domain(dev))
-> +	if (!pci_setup_msi_device_domain(dev, nvec))
->  		return -ENODEV;
->  
->  	for (;;) {
-> diff --git a/drivers/pci/msi/msi.h b/drivers/pci/msi/msi.h
-> index ee53cf079f4e..3ab898af88a7 100644
-> --- a/drivers/pci/msi/msi.h
-> +++ b/drivers/pci/msi/msi.h
-> @@ -107,7 +107,7 @@ enum support_mode {
->  };
->  
->  bool pci_msi_domain_supports(struct pci_dev *dev, unsigned int feature_mask, enum support_mode mode);
-> -bool pci_setup_msi_device_domain(struct pci_dev *pdev);
-> +bool pci_setup_msi_device_domain(struct pci_dev *pdev, unsigned int hwsize);
->  bool pci_setup_msix_device_domain(struct pci_dev *pdev, unsigned int hwsize);
->  
->  /* Legacy (!IRQDOMAIN) fallbacks */
+	M.
 
-I have the exact same diff to get my box to work again ;-)
-
-Tested-by: Zenghui Yu <yuzenghui@huawei.com>
-
-Thanks for your fix!
-
-Zenghui
+-- 
+Jazz isn't dead. It just smells funny.
 
