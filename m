@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2415C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292C3C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YjoJn2Zm/22QHFjhWW1StoVgQrArf1QtKVAZNo0G9LI=; b=a5alYLt3WnT09zrF8S6l+v2dxy
-	ufJRqAsH4TrJnyAHiPDWXK+FY1328+KMgtd4TzAtwRMrVWWnUMf9SjE0cF/NzftxsbnSmVbXO/lt/
-	ZWPIbP2z08AbaSLbH93Wd0MHOG4aC24Xgo8lVkashFx/MiGojU6OIvXz0j6Fm8LMchc3DeNV5Nw55
-	s1BFlaeLLDgXKb5Qi2qonWb/B37J5NNta4tDVzmaHr9wmI7mn6RfXkKmjbBAE7UX8j3yMkT+MFQtM
-	zrOhS2xvBy2zbVTQT+sONBrc16M0oYPHoN3LVIEfkykLJbidTM7KehLJhNXncfU81mlfrFmRgxXha
-	vyDk91bw==;
+	bh=VzY+cZCL0448RY0GID08t4arF/zf+2+XaBNqbHYkIpY=; b=tdbIBNNrccCd4vRLPIlavnHpi8
+	GCJ/CrhzcoFTxzRzSf6uLzq+CGLf/zaI7zIqpQA4zz+5rD9Rq6JSxRALdwQq+Xg08RsBgV+5NFIwT
+	WhvTGo3tDuin81nscbXgFuydsVqUiw3umxBJfYil0sAcVLOJuEO5cfB3MVIECMBpTemzucnhajtOp
+	YrlIbrqBo9lxqWO3hcUjkGpv9iHcuCGkgLPf65gEZO+a0eBxpk/g6+7Rfd+hw5QyWjBJHyy4lXxjn
+	y8Tqze686XygtJ6rTrt7oRg84o2nW7nr6+AoJ+YQArmifdqlTiWeuY33EF7hetNyn109cugcGJ5QE
+	U3StaqUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSLV-0000000B8nw-1oxd;
-	Tue, 03 Jun 2025 14:10:29 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1uMSNf-0000000B8y3-0VZZ;
+	Tue, 03 Jun 2025 14:12:43 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMS2g-0000000B5vV-2Lpj
+	id 1uMS32-0000000B62Z-2C7L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 13:51:04 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-48d71b77cc0so65876201cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:51:02 -0700 (PDT)
+	Tue, 03 Jun 2025 13:51:25 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4a58b120bedso26779211cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:51:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748958661; x=1749563461; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1748958683; x=1749563483; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YjoJn2Zm/22QHFjhWW1StoVgQrArf1QtKVAZNo0G9LI=;
-        b=maKSJTgAb45dTnuTUo3DH3X0uuFMonoRcna612QMCN0Gb42B40SaBPz8J6ipVINXZR
-         cHHJhaUQqUWSXdShptKxYBtRgHpJxbbJm8tFN7ip6D2skcGGHrVcvn2j3EymXPkKjknY
-         FXWfXp1vMU24AV3Ga3gaH0j0WztKfGUuQAxEZyR06/SMH64a150bOvX4P7JCsplQzccT
-         ug7J5ZFS7D/oystMLJ0pgUdSzbkr0OQ1FFRVdB5iG+MqvlYkEgy6ISwi8/ow6Mjx4QJE
-         gODTEeckOAU3gsq1PObR1S27T3Pmf+CqSoYpWyk09eKbhgviYsJoin2LmLx8G7U2idYG
-         2baQ==
+        bh=VzY+cZCL0448RY0GID08t4arF/zf+2+XaBNqbHYkIpY=;
+        b=krWoRxFmEiMHKW/MjxaH9TjDAoliwUNHUrrtDuSE4SUtnzTHF28AKoBE6nkl+IATK9
+         4XjvQVhYsB0UtkEfQGgUbMZr7TuDDFziAapm+372gA6iqR4FrVc5vmZymTWxUP91/18P
+         BIuSnJDia/7qxWoTfcKefhuPAh0OclC1yoz8o91w1wIJVxOoKL58Rvw7cfZoFKQAybuJ
+         NrreI7e6vpUvhgVNF2EvWSi1E3DTwf1Nno1RllULSFYJuGwEuR5dP4PGkNNHIrSEQTn3
+         awrFaPOaNIJInEEwvYheGiErA9vjMVrX3SsBaps1jHAzg2EHKS9zY+xCD/UNUslBeqbY
+         nrEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748958661; x=1749563461;
+        d=1e100.net; s=20230601; t=1748958683; x=1749563483;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YjoJn2Zm/22QHFjhWW1StoVgQrArf1QtKVAZNo0G9LI=;
-        b=RnjtkNGsEYBfaOEZ/o91M7OuD/6tDlfWOzJEOLxrU9l3pAdWRbCTQR+2HKE8aLaYS9
-         ri8akrKfAEStOhme3uBepMbtyhQGvBoOElXjT3WDtq570MJmoq97xzOrwC9YCWZ09/5x
-         LAbJm/qMHMasfGSfokVXpNOQoMdW3ZULzvmyRQI9mGXbUSxV/7m1us4amjxC+L8vV8Dn
-         L0nbPoWb7FzaVPEP7PljyU4OzZzWztgJTW0TkWElKhs0NFrByQZ90Y6ZWajWKwkRbBXB
-         /pp7OqEoe6TFkDHBnBCLcH8FuepO+YIIXayEXM/kD1TSeJrh8cLPqeUeO60yIm/AQ9T4
-         /L0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWKgnE0DlXv7yEQ+i6Z6h/Eqt8BXN0Pkj8aGucrej+0KVc40sw1+4z2Y511FuUj7BiHBkP4cEyR9dqg9OPXB/S6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5NS5/RL5ydNcPzE1e4wvCaNQL324QZ7KejvABr9tDqnRUj31G
-	cs2UC1aiBevtIy7wRj1pMHkcYupIFuOosFr5xL2SJWRlCjDMtdpxK0OpROoiULecoRiaDQ4OWzY
-	C4e3K
-X-Gm-Gg: ASbGncueU+lF8KdAek5A+B8sQXdHnVqQ+xpE178fNFiU3b3BxfaiWmTHVYKrQDpzw83
-	xqhGNpnt4ZUbBro107bcJulC3Z5i/VLuZo2bPPzmXmKS4ym98Y7oZfZJpsMuDJS190fvZhX2V3E
-	ywQEz0fhocyMO05Rbc/Qjwt7dAiLaNa0oIGY+1mZCV9gZs7r68/wzXtiPxgg77DEThiMVyJEJgd
-	iz6j2ugB75t6/4QTFXC1/5DpN19F494cNa3ncQPowhUkUWq5Jeb0YwhlKAqklUg+7ko0nQjESq9
-	SnfRY4aXxaHQG0ui+7Ddqln44xWuCejGzLigWfNxlcL/3epRM9GJLE63jOUkh/CzTjOAK7tCVNX
-	uHm4cNT4d1ixkGcPvhWup7V1SCdk=
-X-Google-Smtp-Source: AGHT+IEFP32FP1kWWCcJZHDROTyLVsjrCtV3bR6kiIwGVnTYe5RPt72l9Jyf9JX2LfFifGppycDP9g==
-X-Received: by 2002:a05:620a:4629:b0:7c5:3c0a:ab78 with SMTP id af79cd13be357-7d0eac62c8fmr1708400485a.14.1748958650816;
-        Tue, 03 Jun 2025 06:50:50 -0700 (PDT)
+        bh=VzY+cZCL0448RY0GID08t4arF/zf+2+XaBNqbHYkIpY=;
+        b=dSn0FkmzwiOnQZi+mt1eJzz8O0ou2ztInX6y7rwU9IXVUZKKrLv/MolzKMqMKsVRuV
+         gLCWmsgiBn/1s+7PmGICFrEkR5OICFrW7PA9o9mpcaptF+BRf7UN7T7QaxCblKe+ibwb
+         iYYdHNmOUbHzkC6TBgJkVTDlYz+E08Qk+r2hDyZQw40/NT/xqFr00On3PZgEvTuccHYe
+         i6mTazQz5x7IdWrGK5kP0UsvXUJYR+tPK8aoxObSVBqV2HLGse0Vj9H/8sarasaiu3hL
+         L/n4Im9C223ZOYrccw9XFdYmZ24PF+PJa+g5hglr0QP6IjaGf56Yb6iO15tBmyMgCjDV
+         XRUg==
+X-Forwarded-Encrypted: i=1; AJvYcCXFeyitMOy509jqT+Y0R0Y2+Qhv2OrKzcrUq673Y5+l9Oj+8KS+n4qj+TNIt+OEZKv9ltowklet0g9C8dXuKpjL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/WbYBFIpHY68OdAa0rzSocmDOZoPx9qJWpBUWMK77ADg7XdPN
+	yTD/bF0InsdMyXs/MT7gpRUXbcDitS7WaSdMka/V1CSwDcOsAefqWIiN/w2JnD4Dig8O5+NNcHa
+	Xxuza
+X-Gm-Gg: ASbGncvtTyOQN80EuCBgUZIrCj0T3Xjw1ya/YX3yYnTpQpBmJZXrNqDIG9dym1YHTqg
+	UZsTcSSSz3MBhc4iBC6yDsE03W7fQRvtRigWvijTb4Z1eZ4BtAG7ZGCQtKurmdiaFiQq1DDKbrd
+	cDcbcy7ghpMTetVdILkTqaQ1ZbzcLQjSUTdrXjUiIiZCpsM5qVT31noBrNThijXCUylKrentqwY
+	XnYOblHH1fzJ4iFAC/JcBUYWMZLMnk20JPlMTXWDacsZnGMVgT5B+Ko20zMHC2jgZyWK1Jgl83D
+	3NCtUBI8oql6xR7GPlcutwplvKP2t/+4i/+HfLyyx8enfxkXo9skZLJ1xXhVa47h5z8mMCoIvYO
+	hZsdf9bPwXt3opPGsUwS+Ndwacic=
+X-Google-Smtp-Source: AGHT+IFvqH9ubcC6dbv0UqQGW5DGDtp+BZ9QNaQHwHo+bs9Vg0oCfSh3AzQ5xeJI5fTattmwccxXPg==
+X-Received: by 2002:a05:6214:2aa3:b0:6fa:caa2:19bc with SMTP id 6a1803df08f44-6fad916605amr159392986d6.44.1748958672893;
+        Tue, 03 Jun 2025 06:51:12 -0700 (PDT)
 Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d09a0f9925sm841658185a.41.2025.06.03.06.50.50
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fad0495cf2sm68040826d6.39.2025.06.03.06.51.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 06:50:50 -0700 (PDT)
+        Tue, 03 Jun 2025 06:51:12 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1uMS2T-00000001hDC-3YG8;
-	Tue, 03 Jun 2025 10:50:49 -0300
-Date: Tue, 3 Jun 2025 10:50:49 -0300
+	id 1uMS2p-00000001hDX-3xh9;
+	Tue, 03 Jun 2025 10:51:11 -0300
+Date: Tue, 3 Jun 2025 10:51:11 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Alistair Popple <apopple@nvidia.com>
 Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
@@ -87,17 +87,17 @@ Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
 	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
 	linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	John@groves.net
-Subject: Re: [PATCH 11/12] mm: Remove callers of pfn_t functionality
-Message-ID: <20250603135049.GL386142@ziepe.ca>
+Subject: Re: [PATCH 12/12] mm/memremap: Remove unused devmap_managed_key
+Message-ID: <20250603135111.GM386142@ziepe.ca>
 References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <4b644a3562d1b4679f5c4a042d8b7d565e24c470.1748500293.git-series.apopple@nvidia.com>
+ <112f77932e2dc6927ee77017533bf8e0194c96da.1748500293.git-series.apopple@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4b644a3562d1b4679f5c4a042d8b7d565e24c470.1748500293.git-series.apopple@nvidia.com>
+In-Reply-To: <112f77932e2dc6927ee77017533bf8e0194c96da.1748500293.git-series.apopple@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_065102_599733_C83522CD 
-X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-CacheID: sfid-20250603_065124_566914_FD03D6C0 
+X-CRM114-Status: UNSURE (   9.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,15 +113,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:32:12PM +1000, Alistair Popple wrote:
-> All PFN_* pfn_t flags have been removed. Therefore there is no longer
-> a need for the pfn_t type and all uses can be replaced with normal
-> pfns.
+On Thu, May 29, 2025 at 04:32:13PM +1000, Alistair Popple wrote:
+> It's no longer used so remove it.
 > 
 > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
-
-Yay!
+> ---
+>  mm/memremap.c | 27 ---------------------------
+>  1 file changed, 27 deletions(-)
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
