@@ -4,54 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31FDC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 16:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36B8AC5B555
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 16:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YXip+8EHh2ypNOoBorunFDEUw5MyrFtxt+U05eKFX+s=; b=EEzUBrkQXD5a/u
-	ekt6l5cRQqCHu/xxiyMpf6UTurcpIg1IDqA4Qq4J+y3BQRvBmrEdDNMZHwVI/WAmmoA15wEsDI9yL
-	dswnw3MSVzPTfsGojm7a7z3klxjqNnUnFW2ZkKGHFYZEZROnc3MPJgwSGb3/y8ydH25ye38hkkxa+
-	jUTVNpepLj73SpvBhOvs64EWa/WNf3qsML6TXdpMki76hTKMtNo/bW+A3pl0m2cplZ3GL9yfKM97K
-	tVhvELHK2kComwQ8k2hHNstPBDqVCzkOW4mOjZQNJrzLyFbFTErCw/QjYixyHfcCPNpV+0wlU6oZm
-	8koqNn078BHBNRAa1CcA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TyM97ZqplBFeYxTzqGSXBQxiPc6c/u7cZVlPywBv4fY=; b=qycBBNuA67jYnQ7FpahN6P+T9Z
+	zzUwGBr2krDInY2VxJmhuL2Tahz7eLR8HDk85L36umJxlsnp2/PZ9/nIP8ahSxyU2viH1ynz8QNhI
+	6CRse+6tLcy+YNdlDjRGJnQfx2tKZi9Ll/dL02teMLHSf+m2eZjUmxaWnPmpd15aGKhqBJz7MmVoA
+	8/qTSt14eqY56CpkoRVo4LvkHqqMsywA8rys2HGszPkTTYxExOCFDH5dEyLEGGJvtFUsDXp3LtEry
+	exgnG/QrJAr1xTDJWB2bsj0jtxhF3KoXzFpYmfxSFIvuEAIJKrR7aZy6GXpoD83Z1Ftmt8jPoaOVH
+	HzkZNwww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMUFz-0000000BNOy-3AQF;
-	Tue, 03 Jun 2025 16:12:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMUDn-0000000BNFu-1Vkx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 16:10:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E8F112FC;
-	Tue,  3 Jun 2025 09:10:21 -0700 (PDT)
-Received: from [10.1.39.137] (e137867.arm.com [10.1.39.137])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 094F13F59E;
-	Tue,  3 Jun 2025 09:10:36 -0700 (PDT)
-Message-ID: <e86c5c3a-6666-46a7-b7ec-e803212a81a1@arm.com>
-Date: Tue, 3 Jun 2025 17:10:31 +0100
+	id 1uMUQV-0000000BOA9-0IzX;
+	Tue, 03 Jun 2025 16:23:47 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMUOI-0000000BNqd-47hR;
+	Tue, 03 Jun 2025 16:21:32 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2301ac32320so54608845ad.1;
+        Tue, 03 Jun 2025 09:21:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748967690; x=1749572490; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TyM97ZqplBFeYxTzqGSXBQxiPc6c/u7cZVlPywBv4fY=;
+        b=O411IwHnsychzBmHj8LCTiySHSZ3ZNCHFTZJa4/3TI95Hw+O6BpQFn6ES4oiT0+cmt
+         zDW1SGqWcWp0xL1VSrFQczizaV26ldq+sriCOo9T/caAZq9F0ipU5xfZnc9PzkcHrJaW
+         ImCFVt3e5ii68jNXnCcQlo3AEAuwN/Z/Cp8TL6BFdFtDSozPVg4Iv7iv4HCnbuQCInXV
+         xR7alwY8ZBJO528A7KELaIH+YaCpW9giPeyFlBR/p5tnmvxiBmOh4yZ4SgvQUBFF475d
+         /k69qlfVvt//4EaeYninhGdG+VaL7Udce9dRE3y7RrcfbON2JrDQUKpyIfJ/gpFnLfNs
+         E6wA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748967690; x=1749572490;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TyM97ZqplBFeYxTzqGSXBQxiPc6c/u7cZVlPywBv4fY=;
+        b=tfWFzvRpMN/+Ag/M12ULjljOMiZ9Rdzui1fIvUCUxV3vVXlFwoa/uav7V/0XBvlVrs
+         aMHm5s7A8yhRHN6kUjZLsakxuSf+3+I8AkGa1PNP9NqRwURiZwqaPJmQsYf5nh86Qhzk
+         X9qYEu/8Cg6UmvIVONI8uF1LXqTatXlrOp604afiml33xOu6nP1HiZ155NdzyCcA9sxg
+         41Zgz1DEMG16PAdeK3KQvelxGgVi6lCp3+gOhJMQFNeOFDXY6ZPHiT5yrP7GFmR9xYDS
+         0pjdh5EAyNAC08vRVEhUUA9NF0cOM0QWXd2npG8xMEx6aksMfNUxpe722yc/IZ261vXX
+         UUKA==
+X-Forwarded-Encrypted: i=1; AJvYcCUnPg3QSsQUEACZ5lRnvjOaZhTxC6wn86yadXRI9hBOAyC9TFv28mQfkLfsbonl8mqreVzKVYDyLxbbmODwZI8=@lists.infradead.org, AJvYcCXh2GzWcE4DjhHkq2VipshqWfg0nMWJDUlC6lw8JQV+SxpkgrlZZQUGmYA8k8rnz21NmWTUKQBgE0xJ+vioyfqr@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywi5dw6M+3Je32qtIvBnAyJtuOHpOlKP2rk9NmSR/5IDYgZGStz
+	U1SGx2Y1Uq+l2HaKCAoJMm64SOlsikXkZClKvw3oxccxh1HNpVejSK4p
+X-Gm-Gg: ASbGncshkE+lUPGOvHCNEdTnt6K0TZ4WFOaeifQkN5R3t7aAePdHdppCkU716FRZsAS
+	vT9ZgUN2EM4HN1jQdILPxSB22mE6Mw/F6VerImjhBw9jTW+ny6DUuATaofC8lcPOwzlR11XZhx2
+	64VfgmEp9wqHTsY2GBzQWfr9tvKhA6SqmabBJ/ihG4BI39Gf73C8e9XvIDY+ZkEXyJhkv174Dcl
+	ACBNr0qpFuMlyvR/YKeBtoxy2vsNWFF0kJgN6YPzJTPW04LQLLfm8o+65Sk2Oi+CU3FXhozvpSy
+	49K1eMQ7P9J/5ms+llFIFS9wQYhstYNp3mTGHsSedbahY0gH65M=
+X-Google-Smtp-Source: AGHT+IHL/yQEZQ8M/N4GhQRHikLMeXiY0d5QIcz0Hymi30PtwkzByDtwLbrV2LTGw1hKZHdR4DW3Cg==
+X-Received: by 2002:a17:902:ec84:b0:234:9fed:ccb7 with SMTP id d9443c01a7336-23529904f37mr258003925ad.33.1748967689830;
+        Tue, 03 Jun 2025 09:21:29 -0700 (PDT)
+Received: from localhost ([216.228.127.128])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506cd3513sm90018585ad.108.2025.06.03.09.21.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Jun 2025 09:21:29 -0700 (PDT)
+Date: Tue, 3 Jun 2025 12:21:27 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	William Breathitt Gray <wbg@kernel.org>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>, Leon Romanovsky <leon@kernel.org>,
+	Lee Jones <lee@kernel.org>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, linux-iio@vger.kernel.org,
+	kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>,
+	Detlev Casanova <detlev.casanova@collabora.com>
+Subject: Re: [PATCH v2 3/7] bitfield: introduce HI16_WE bitfield prep macros
+Message-ID: <aD8hB-qJ4Qm6IFuS@yury>
+References: <20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com>
+ <20250602-rk3576-pwm-v2-3-a6434b0ce60c@collabora.com>
+ <aD4DSz3vs41yMQSv@yury>
+ <2525788.jE0xQCEvom@workhorse>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/11] arm64: debug: remove hook registration, split
- exception entry
-To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-References: <20250512174326.133905-1-ada.coupriediaz@arm.com>
- <aCM6KOHu2i0NqaBC@uudg.org> <068c3ea3-2de3-4e5e-99c1-09a9668b80da@arm.com>
- <aCcoEc-URtvk5w7P@uudg.org> <c3a88ec3-623b-420b-9087-8ad124d1b0f7@arm.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US
-Organization: Arm Ltd.
-In-Reply-To: <c3a88ec3-623b-420b-9087-8ad124d1b0f7@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2525788.jE0xQCEvom@workhorse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_091039_492128_9C1F1B25 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20250603_092131_024693_17FF2A82 
+X-CRM114-Status: GOOD (  49.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,107 +111,133 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/05/2025 11:38, Ada Couprie Diaz wrote:
+On Tue, Jun 03, 2025 at 02:55:40PM +0200, Nicolas Frattaroli wrote:
+> On Monday, 2 June 2025 22:02:19 Central European Summer Time Yury Norov wrote:
+> > On Mon, Jun 02, 2025 at 06:19:14PM +0200, Nicolas Frattaroli wrote:
+> > > Hardware of various vendors, but very notably Rockchip, often uses
+> > > 32-bit registers where the upper 16-bit half of the register is a
+> > > write-enable mask for the lower half.
+> > 
+> > Can you list them all explicitly please? I grepped myself for the
+> > 'HIGHWORD_UPDATE' and 'FIELD_PREP_HIGWORD', and found just 4 or 5 in
+> > addition to the rockchip.
+> 
+> Most of the ones Heiko brought up[1] just appear to be the clock stuff,
+> I'm only aware of the drivers/mmc/host/sdhci-of-arasan.c one outside of
+> Rockchip. For a complete listing I'd have to do a semantic search with
+> e.g. Coccinelle, which I've never used before and would need to wrap
+> my head around first. grep is a bad fit for catching them all as some
+> macros are split across lines, or reverse the operators of the OR.
+> Weggli[2] is another possibility but it's abandoned and undocumented, and
+> I've ran into its limitations before fairly quickly.
 
-> On 16/05/2025 12:57, Luis Claudio R. Goncalves wrote:
->> On Tue, May 13, 2025 at 04:19:26PM +0100, Ada Couprie Diaz wrote:
->>
->> This is the only test where I (consistently) hit backtraces. If I run 
->> the
->> test with "gdb -x ${COMMAND_LIST_FILE} ..." I get a single backtrace, 
->> every
->> time:
->>
->> [  263.890424] BUG: sleeping function called from invalid context at 
->> kernel/locking/spinlock_rt.c:48
->> [  263.890444] in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 
->> 5744, name: gdb_prog1
->> [  263.890445] preempt_count: 1, expected: 0
->> [  263.890446] RCU nest depth: 0, expected: 0
->> [  263.890447] 1 lock held by gdb_prog1/5744:
->> [  263.890448]  #0: ffff100028496f58 (&sighand->siglock){+.+.}-{3:3}, 
->> at: force_sig_info_to_task+0x30/0x150
->> [  263.890468] Preemption disabled at:
->> [  263.890469] [<ffff8000800391a8>] debug_exception_enter+0x18/0x78
->> [  263.890484] CPU: 114 UID: 0 PID: 5744 Comm: gdb_prog1 Tainted: 
->> G        W           6.15.0-rc6-rt1__dbg #2 PREEMPT_{RT,(lazy)}
->> [  263.890487] Tainted: [W]=WARN
->> [  263.890488] Hardware name: Supermicro ARS-221GL-NR-01/G1SMH, BIOS 
->> 2.0 07/12/2024
->> [  263.890490] Call trace:
->> [  263.890492]  show_stack+0x30/0x88 (C)
->> [  263.890495]  dump_stack_lvl+0xa0/0xe0
->> [  263.890498]  dump_stack+0x14/0x2c
->> [  263.890499]  __might_resched+0x170/0x240
->> [  263.890506]  rt_spin_lock+0x6c/0x1a0
->> [  263.890512]  force_sig_info_to_task+0x30/0x150
->> [  263.890513]  force_sig_fault+0x68/0xa0
->> [  263.890515]  arm64_force_sig_fault+0x44/0x80
->> [  263.890518]  send_user_sigtrap+0x60/0xa8
->> [  263.890520]  do_brk64+0x40/0x88
->> [  263.890522]  el0_brk64+0x50/0x1c0
->> [  263.890526]  el0t_64_sync_handler+0x60/0xe0
->> [  263.890528]  el0t_64_sync+0x184/0x188
->>
->> Quite similar to the problem originally reported, where sending signals
->> with preemption disabled could trigger the "rtlock_might_resched();" 
->> check
->> if CONFIG_DEBUG_ATOMIC_SLEEP is enabled.
->
-> Oh, indeed : I can confirm that this happens both with my series and 
-> on mainline tags v6.15-rc6, v6.15.
->
-> I didn't see it originally, but as you point out it shows up 
-> consistently with CONFIG_DEBUG_ATOMIC_SLEEP enabled.
->
-> [...]
->
-> I am looking into fixing this in v3, I feel this series is a good 
-> opportunity to do it.
->
-As you mentioned the issue is very similar to the single-step one,
-and we already have done most of the work for the fix.
-Indeed, the handling of the software breakpoint instruction
-from EL0 is very similar to the single step exception.
-In fact : the exact same logic applies and we can safely
-enable preemption before calling `do_brk64()`, given that the only
-possible path from EL0 is the uprobe handler, which sets a TIF
-to be handled on exit, as with the single step.
+Going Coccinelle way is fine, but I think it's an endless route. :)
 
-So this is fixed in v3.
+What I meant is: you caught this HIWORD_UPDATE() duplication, and it's
+great. When people copy-paste a macro implementation and even a name,
+their intention is clear: they need this functionality, but the core
+headers lack it, so: I'll make another small copy in my small driver,
+and nobody cares.
 
+I think your consolidation should at first target the above users.
 
-However, as the other traces you hit suggested : there is also an issue
-with the hardware breakpoint and watchpoint handlers.
-Here it is much more painful though.
-Indeed : the signal is sent from within the ptrace handler
-`ptrace_hbptriggered()`, itself called from the `perf_bp_event()`, called
-in a loop in the handlers to find matching {break,watch}points.
-This makes it *very* impractical to enable preemption at any point
-for those debug exceptions.
+Those having different names or substantially different implementation,
+may also be a target. But they are:
+ 1. Obviously a minority in terms of LOCs, and
+ 2. More likely have their reasons to have custom flavors of the same.
 
-Looking into how x86 handles it, they do not seem to have the issue
-as they do not send a signal in their hardware breakpoint handler,
-rather they set a "virtual register" that should be seen by userspace.
-(If my understanding is correct !)
+...
 
-However, they use a `notify_die()` callback to call their hardware
-breakpoint handler : `hw_breakpoint_exceptions_notify()`.
-We do have it for arm64, but it is a stub.
-We might be able to use this callback to delay the signal until we
-are done operating on the hardware registers, which definitely needs
-preemption disabled.
+> > Can you please prepare a series that introduces the new macro and
+> > wires all arch duplications to it?
+> 
+> Okay, I will do that after I learn Coccinelle. Though I suspect the reason
+> why I'm the first person to address this is because it's much easier to
+> hide duplicated macros away in drivers than go the long route of fixing up
+> every single other user. I'm not too miffed about it though, it's cleanup
+> of technical debt that's long overdue.
+ 
+I just fired 
 
+        $ git grep "define HIWORD"
 
-However, this is becoming a much larger change whose scope I am
-not sure of yet, so I will not be looking into fixing it in this series.
-Hopefully it can be done at a later date !
+and found 27 matches. The relevant 'hiwords' have the following
+semantics:
 
-Best,
-Ada
+ - HIWORD_UPDATE(val, mask, shift)
+ - HIWORD_UPDATE(val, mask)
+ - HIWORD_UPDATE(mask, val)
+ - HIWORD_UPDATE(v, h, l)
+ - HIWORD_UPDATE_BIT(val)
+ - HIWORD_DISABLE_BIT(val)
 
+Most of them don't bother doing any static checks at all.
+
+If you will just consolidate the above, and wire those drivers
+to generic version with all that checks - it would be a decent
+consolidation by any measure.
+
+Something like this:
+
+diff --git a/drivers/devfreq/event/rockchip-dfi.c b/drivers/devfreq/event/rockchip-dfi.c
+index 0470d7c175f4..d5e74d555a3d 100644
+--- a/drivers/devfreq/event/rockchip-dfi.c
++++ b/drivers/devfreq/event/rockchip-dfi.c
+@@ -30,7 +30,7 @@
+
+ #define DMC_MAX_CHANNELS       4
+
+-#define HIWORD_UPDATE(val, mask)       ((val) | (mask) << 16)
++#define HIWORD_UPDATE(val, mask)       HWORD_UPDATE(mask, val)
+
+ /* DDRMON_CTRL */
+ #define DDRMON_CTRL    0x04
+
+...
+
+> > Regarding the name... I can't invent a good one as well, so the best
+> > thing I can suggest is not to invent something that can mislead. The
+> > HWM_FIELD_PREP() is not bad because it tells almost nothing and
+> > encourages one to refer to the documentation. If you want something
+> > self-explaining, maybe MASK_HI_FIELD_LO_PREP_U16(), or something?
+> 
+> This seems a bit unwieldy, at 25 characters. "FIELD32_HIMASK_LOPREP"
+> (or FIELD16, depending on which end of the cornet to eat) would be 21
+> characters but I'm also not in love with it.
+> 
+> I think the name should include the following parts:
+> 1. it's a field
+> 2. the field is halved into two halves of 16 bits
+> 3. the mask is copied into the upper 16 bits
+
+Or just keep the HIWORD_UPDATE name as it already has over 300 users.
+If it's commented well, and has an implementation based on FIELD_PREP,
+I don't think users will struggle to understand what is actually
+happening there.
+ 
+> Since we're on the subject of bit widths, I have a somewhat sacrilegious
+> point to raise: should this be a function-like macro at all, as opposed
+> to a static __pure inline function? It's not generic with regards to the
+> data types, as we're always assuming a u16 value and mask input and a
+> u32 output. The __pure inline definition should let the compiler treat it
+> essentially similar to what the pre-processor expanded macro does, which
+> is as not a function call at all but a bunch of code to constant fold away
+> if possible. What we get in return is type checking and less awful syntax.
+> Then we could call it something like `himask_field_prep_u32`, which is
+> also 21 characters but the ambiguity of whether the u32 refers to the mask
+> or the whole register width is cleared up by the types of the function
+> arguments.
+> 
+> The const version of the macro may still need to remain though because I'm
+> not sure C11 can do that for us. With C23 maybe there's a way with
+> constexpr but I've never used it before.
+
+Inline function will disable parameters compile checks, and will be
+too diverged from _CONST counterpart.
+
+Thanks,
+Yury
 
