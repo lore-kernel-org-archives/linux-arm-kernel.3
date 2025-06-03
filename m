@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B56C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 17:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC57C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 17:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L2WNeHWGKI9roALR2lWxhNA2hHvIsfJxDyoD0/1ONqw=; b=Lv+tEHYEiRWGCqpuCWD2Meplkg
-	SSDkp4BO8OMOHQs5sGIeZCbw8udYzBn666JOe3yelp7k4f3fGuazyjkHxaiIXbYMgMG7HOj1h4SXi
-	h0yI95FLQeBgZ8nrdrH7WKoNkvCulRniiJUetWzfuLfJ3CbPFPPpdhkrkABFc8bOZBV9NQ2miRrRj
-	gvX1mNTqt5SLBLeYw++ElrjmvxCk3eaSz/Br8y6A06lNN7vaMK8wWGNbkVDZsGp6gO2B989/kZnh6
-	aEto6IMMHc1xOrIdNy3BiO0zJy3Im2vFr3RGf9WVqS7wEOxJQNgQyE58cPmnsnMTAt5b+uv8Z0LKq
-	l/wBmqrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UDp1NsAj0Eycdt+PEDaOJLzOxNbf2ZF+t+s3UEPcjIo=; b=fce2k/NrMtf4+5OR8y4yAXO6ck
+	F1c2fDO+sscNf5JXzpzaMRiV6YvZZ66lchqwqamYlX5G3xk8ZXAPDirdlYF8IhhBZTe9Pt3x0fNSW
+	Pwsu8irNNSy47MSf/K1Y3ktT1S3qGZx5r+UxTUZ1oIYD75JoolvIr+1ji9Ws5cs7lDwyctqHpJ+6L
+	OX52Os83iaDf/3HTm0hJYsKaBrcvLrO08fePA/b6+buhRR0LQK72dDELdZLzkqIi1kKnCJxYpp+IL
+	6wNfKT3JrnkZYUr3fQpkoT9QHNbjjM5IwPppnw4aQuVDWmPIQZzt+2R6STY5tC8ZVEdADwYl6kl1x
+	DuxEvUAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMVBj-0000000BSTB-1jMm;
-	Tue, 03 Jun 2025 17:12:35 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1uMVHU-0000000BT6g-3Os6;
+	Tue, 03 Jun 2025 17:18:32 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMV11-0000000BR2Q-3xts;
-	Tue, 03 Jun 2025 17:01:33 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a50fc819f2so1466471f8f.2;
-        Tue, 03 Jun 2025 10:01:31 -0700 (PDT)
+	id 1uMVFJ-0000000BSp6-2hAV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Jun 2025 17:16:19 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-32a61af11ffso855441fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 10:16:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748970090; x=1749574890; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L2WNeHWGKI9roALR2lWxhNA2hHvIsfJxDyoD0/1ONqw=;
-        b=HsM1Zquo8cSTcoJBu4F4AoTDfabY891YEzYKWXRRb3xn6mOUZTG74Bo6gIRkloDVYD
-         JP/bd0VGhPJLRlU+eGSivV1NzwytYSAJOj88oYh3vXzzhVRqL8T28jABFnDCOi+UuNnS
-         kH6VdElCVobI78Q1MBMQG05V/qG/1v/X7KmkDF3+gs4++Y7byKY3H8/oGdFFcGThmjDT
-         ksnT5YjB/le67J4N6tMol4DGcLGYp1VnlZYN1J3kz/Oq0vUG3n17xjI5wsNxomj7ZZI+
-         oH568zhOCOKj8gX5VjgjsXBBwMXtj6oiGcmh8UqQO+LXCk23KaRz0+6qS8CvO1vhUQBR
-         J1Pw==
+        d=broadcom.com; s=google; t=1748970975; x=1749575775; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UDp1NsAj0Eycdt+PEDaOJLzOxNbf2ZF+t+s3UEPcjIo=;
+        b=TL9rK14dr95ERkrcOV/mY0LMiUany42K9jCN/ewQhMaHyRYdqKz8UUaOTIc9I/bcR0
+         sm+hJQFUm3Pv/90X7jkQlayFyZC2lPIa56E/tJJ+cPlG24JUewp4emeCfd7GJopd3f5k
+         raIgpNVOzEkRzBp7/PB1TlK57BRZi6YIa/H4Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748970090; x=1749574890;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=L2WNeHWGKI9roALR2lWxhNA2hHvIsfJxDyoD0/1ONqw=;
-        b=VBLPbtla8RUk+WRF/l7h12t/loDdN3A8D5iHTkUQBtHnEmffrv1P0EO6YXvynFY3md
-         NRFAHuUFjJmWSi3zZXSPgQ0UsEX+22UWInj3CDIRccnTU65P725ykjxEg0oeYGvkCJ+E
-         q9tB2H5K/8FB8Es7l4Y59S9Qm7XU/8y4G1GVPxxulyf1KjG1zOGgpCPRj2pF171jICs/
-         mB2WtvwMTX4frCvWM907DmaVC7sdJRIPr9+gwQQHeuCR3E6xtCuVJBBh9LLNyn/lWqoV
-         lfHbkObskgevnD02ic2hxyPohgLGcgPMy5+nwLOTZI/VceXrLHySPhTfgIx+AaZQsjHg
-         TuWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUpmxD9EVnAnLGlzIc0puFDQCFDcV59tX2+pa43IXbBYyArUmLTXE6cKE7/U+fLXiguFQlzIiGD07O9sopOTY4=@lists.infradead.org, AJvYcCXMHupZcaho/7BmB4qjH+UcRR0qXoJwkD9VWCsOyLhw8JUXNLCpln8CJRackeypSFGWfRcjiEXM2NpGLheLoKt5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBE4Y/ptkYVxpsXaxBtnLF6Zf/L4ws3F5rc7/s/EOT4B3k23on
-	LA3rPjzNcgqafxUDxUl4p5pLKbcdmDQ9ZrzOsXbxDtKtWlOJwn1D1qqZ
-X-Gm-Gg: ASbGnctdgX9GxDCSqqKEKjXfaWaRhb1VKBde9HBURj8s5sH2OtTdgWFtHxqutY1WMfq
-	b+1Iv0imwpbVxm2kP0AMBT3otU3MMbvjVQW8e7WNFw1/4d4a+Q/+0+JeoYRPgNHn4s8ntQtb53D
-	/JMjYAQoajxrY1fbFgwM0WgDdcqlCZj4sNdxiabgSwNrsnR94wNyp+VegpYjp2nximzYjIIbFX8
-	6JZr1R5Y9L1J6nGbrUkLBaH8y0dcW0T9K6IO8npPmyR37crSz+xlNoJQApYr74inxvQxxKJZ/Q0
-	emQ0oIrrXvaK3lEV5G2jJNZPGHeHtXFaAZgDJCUUHmOLrhH5P3AqvdlUCFvCT4mGTATqzgidm+u
-	0ihmAhUt+ndSIZYkC51R9TzjHHtpEKRIQkd+B
-X-Google-Smtp-Source: AGHT+IE6GEEXLj+uCTG7+WFHFtMo05gc7+06c+MEmNE8u8Ku+jPfH+KoYhCAkxPaUNl4r/V43bwYZg==
-X-Received: by 2002:a05:6000:4023:b0:3a4:edce:b2a6 with SMTP id ffacd0b85a97d-3a4f7aafdd0mr15910447f8f.53.1748970089947;
-        Tue, 03 Jun 2025 10:01:29 -0700 (PDT)
-Received: from alchark-surface.localdomain (bba-92-99-174-93.alshamil.net.ae. [92.99.174.93])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4efe5b92bsm18574640f8f.9.2025.06.03.10.01.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 10:01:29 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Tue, 03 Jun 2025 21:01:16 +0400
-Subject: [PATCH 4/4] arm64: dts: rockchip: enable bluetooth on ArmSoM Sige5
+        d=1e100.net; s=20230601; t=1748970975; x=1749575775;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UDp1NsAj0Eycdt+PEDaOJLzOxNbf2ZF+t+s3UEPcjIo=;
+        b=h/7PeStKCoKoqXfkWEoaijGEm8kjD/xsrzBblXW3DFIXdUtZeW5c6OLFDCjap/TtIz
+         hTo1bdpAKwAQ1ynhZxXR+muqEFwZ9Pk5bQBObGtpe0tWL+mp6s4fgYNH5oOIVDd+DCic
+         f6ZC52MGi1Beq07b8cihzsp2HQdLsLwApgoqeL3E/N9N7H2mRZgpwKroe1EuNS8TFViB
+         pQA/pThn9jeADB8zc+s+/9OC/+4SPOVrxkXe2WGVnY34k5r0xQB5X9ABCfQAVPhcAaV4
+         8468cmQFNGLYIOYV2TgzbjTTrvhBdD/M8u6WYnoMy7H/HU4CX7KyBJB5djFO+3QmSRIv
+         t6zw==
+X-Forwarded-Encrypted: i=1; AJvYcCXfLsUL4/tjpOxxLjB2PHFdztCyyQCk6rugO1sXFkHG53m/N5yfRgZeHifdtwvdpS3xde1JvXPG9Ss64uCe/oQK@lists.infradead.org
+X-Gm-Message-State: AOJu0YycABDlOQ44MZLdeGwcpNRrjguXkcHV7o4fiNFqSuzvP3xpPUKs
+	5Urz8vmDsXCUdWfe7egFFO+8L7p6NgOfBPKL3ndfgU5iK6XmVOldlUXKX0Oomllmu4X2glGOUsi
+	4Gvwc8V4Byd//pbVk3s00rYToVbmqYtDUtw4DnG7m
+X-Gm-Gg: ASbGnctVKkneUcP9NNLrJnK6Z++J7X96MojZUHQ0zntlWJ+IfMkqcRhcCeEsSKGgQu1
+	Hb2nBvmfAW/zP1ElOJSoGrmcHaGapvVeRrD/eVxCg5/VZMvUdShL26sG+cf34UiRJN58aKYzKer
+	pQmDxdg7YhThoORxd+bENvwim1p6i7LAAFng==
+X-Google-Smtp-Source: AGHT+IHC5MaJhuUr9dZqasvsj+fh2q185qHbCW+3JZRLncO7qv1RlkyM+Lq2FRBLKOWAHt1twqmBnEzlgGBMAofZkiw=
+X-Received: by 2002:a2e:b889:0:b0:329:1916:967f with SMTP id
+ 38308e7fff4ca-32abf222922mr12806311fa.3.1748970974998; Tue, 03 Jun 2025
+ 10:16:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250603-sige5-updates-v1-4-717e8ce4ab77@gmail.com>
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
-In-Reply-To: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748970076; l=1967;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=MRpcTnOmrGZKKzMf/zKdzcRdfMSKeKmyduo0AYU5qjI=;
- b=smst/OKPkZEHmFa2lIItgsGCj0ToD3bQtjChD6j/TxtKlzH7pmVS/qHpQJMmNH4dOT3XXqCu+
- GBz4ySF7afoAA32zIGNcWjDPMygusyjS9VBK4SMPL9H0LMXQyONjVPu
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+References: <20250530224035.41886-1-james.quinlan@broadcom.com>
+ <20250530224035.41886-2-james.quinlan@broadcom.com> <6c3ec1c3-8f62-4d76-86d3-c1bbe3e1418f@broadcom.com>
+ <2f79ae4e-6349-472c-b0cc-ea774b8ac7cf@broadcom.com>
+In-Reply-To: <2f79ae4e-6349-472c-b0cc-ea774b8ac7cf@broadcom.com>
+From: Jim Quinlan <james.quinlan@broadcom.com>
+Date: Tue, 3 Jun 2025 13:16:02 -0400
+X-Gm-Features: AX0GCFsDcLbPD2iXqutq-Yok2XwwAq3uTg8lwBkeVKPuzyjEX1Iy3qoGqUHjKtA
+Message-ID: <CA+-6iNz48EFUGUOiHCSaqgsU_tKGV1=Xvw4fjoUS_AMhUHAi6w@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: PCI: brcm,stb-pcie: Add num-lanes property
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="000000000000b5d41c0636ae09cb"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_100131_991048_C87C0540 
-X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-CacheID: sfid-20250603_101617_718539_BF2579C9 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,70 +100,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ArmSoM Sige5 uses a soldered-on UART connected Bluetooth controller.
-Namely, board v1.1 uses a Realtek based BL-M8852BS2, while v1.2 uses a
-Broadcom based BW3752-50B1.
+--000000000000b5d41c0636ae09cb
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add required device tree nodes to enable the Broadcom based module.
+On Tue, Jun 3, 2025 at 12:24=E2=80=AFPM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+>
+> On 5/30/25 16:32, Florian Fainelli wrote:
+> > On 5/30/25 15:40, Jim Quinlan wrote:
+> >> Add optional num-lanes property Broadcom STB PCIe host controllers.
+> >>
+> >> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> >
+> > Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>
+> Sorry I take that back, I think this should be:
+>
+> num-lanes:
+>    enum: [ 1, 2, 4 ]
+>
+> We are basically documenting the allowed values, not specifying that we
+> can repeat the num-lames property between 1 and 4 times.
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 33 ++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+num-lanes is already defined as
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index dcd033859398312f7693bebb7f080ee4f2ecaa32..46e5d6e30898a0f937283e986f188947e10250ec 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-@@ -791,6 +791,20 @@ usb_host_pwren: usb-host-pwren {
- 		};
- 	};
- 
-+	wireless-bluetooth {
-+		bt_reg_on: bt-reg-on {
-+			rockchip,pins = <1 RK_PC7 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
-+		host_wake_bt: host-wake-bt {
-+			rockchip,pins = <1 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
-+		bt_wake_host: bt-wake-host {
-+			rockchip,pins = <0 RK_PB1 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+
- 	wireless-wlan {
- 		wifi_wake_host: wifi-wake-host {
- 			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_down>;
-@@ -872,6 +886,25 @@ &uart0 {
- 	status = "okay";
- };
- 
-+&uart4 {
-+	pinctrl-0 = <&uart4m1_xfer &uart4m1_ctsn &uart4m1_rtsn>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm43438-bt";
-+		clocks = <&hym8563>;
-+		clock-names = "lpo";
-+		device-wakeup-gpios = <&gpio1 RK_PD7 GPIO_ACTIVE_HIGH>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PB1 IRQ_TYPE_EDGE_FALLING>;
-+		pinctrl-0 = <&bt_reg_on>, <&bt_wake_host>, <&host_wake_bt>;
-+		pinctrl-names = "default";
-+		shutdown-gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
- &usb_drd1_dwc3 {
- 	dr_mode = "host";
- 	status = "okay";
+    enum: [ 1, 2, 4, 8, 16, 32 ]
 
--- 
-2.49.0
+> --
+> Florian
 
+--000000000000b5d41c0636ae09cb
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+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
+mOAplh6h3nMZUZxBguxG3g2p3iD4EgibUYneEzqOQafIQB/naf2uetKb8y9jKgWJxq2Y4y8Jqg2u
+uVIO1AyOJjWwqdgN+QhuIlat+qZd03P48Gim9ZPEMDUCAwEAAaOCAdswggHXMA4GA1UdDwEB/wQE
+AwIFoDCBowYIKwYBBQUHAQEEgZYwgZMwTgYIKwYBBQUHMAKGQmh0dHA6Ly9zZWN1cmUuZ2xvYmFs
+c2lnbi5jb20vY2FjZXJ0L2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwLmNydDBBBggrBgEFBQcw
+AYY1aHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAw
+TQYDVR0gBEYwRDBCBgorBgEEAaAyASgKMDQwMgYIKwYBBQUHAgEWJmh0dHBzOi8vd3d3Lmdsb2Jh
+bHNpZ24uY29tL3JlcG9zaXRvcnkvMAkGA1UdEwQCMAAwSQYDVR0fBEIwQDA+oDygOoY4aHR0cDov
+L2NybC5nbG9iYWxzaWduLmNvbS9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcmwwJQYDVR0R
+BB4wHIEaamFtZXMucXVpbmxhbkBicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQwHwYD
+VR0jBBgwFoAUljPR5lgXWzR1ioFWZNW+SN6hj88wHQYDVR0OBBYEFGx/E27aeGBP2eJktrILxlhK
+z8f6MA0GCSqGSIb3DQEBCwUAA4IBAQBdQQukiELsPfse49X4QNy/UN43dPUw0I1asiQ8wye3nAuD
+b3GFmf3SZKlgxBTdWJoaNmmUFW2H3HWOoQBnTeedLtV9M2Tb9vOKMncQD1f9hvWZR6LnZpjBIlKe
++R+v6CLF07qYmBI6olvOY/Rsv9QpW9W8qZYk+2RkWHz/fR5N5YldKlJHP0NDT4Wjc5fEzV+mZC8A
+AlT80qiuCVv+IQP08ovEVSLPhUp8i1pwsHT9atbWOfXQjbq1B/ditFIbPzwmwJPuGUc7n7vpmtxB
+75sSFMj27j4JXl5W9vORgHR2YzuPBzfzDJU1ul0DIofSWVF6E1dx4tZohRED1Yl/T/ZGMYICYDCC
+AlwCAQEwazBbMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UE
+AxMoR2xvYmFsU2lnbiBHQ0MgUjMgUGVyc29uYWxTaWduIDIgQ0EgMjAyMAIMSO43VW7D5NP1X/KD
+MA0GCWCGSAFlAwQCAQUAoIHHMC8GCSqGSIb3DQEJBDEiBCDMCgZL1v+zG1QwtENyEYyScz+zjqGC
+m9F0BtC8jHRsZzAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNTA2
+MDMxNzE2MTVaMFwGCSqGSIb3DQEJDzFPME0wCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjALBglg
+hkgBZQMEAQIwCgYIKoZIhvcNAwcwCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATANBgkqhkiG9w0B
+AQEFAASCAQB+4v8i4s4Xx8AxsTwdjEtW95PZ/uUMuMSPzLvBDNr6K/dRB7/0AvmYTlNcV/Oc469y
+pMDk+QbZBCBxY6OhlT7gF6d8WFA/9i6SaEFIBFt2v2H19AGV9izV9u2iGCdA+uO3tH1bhwIfE9sA
+RSnrFRwVkKuCp91lFNZhj+hkJCiuCIPNrZIiwWqNK8ijEgAEMk5AtkDwpbphSMRuWfTV9tm50VAR
+sesXhkaurFbxu4sD9JzJKMno9euP9QnJXddvUfg7BSHQPU0wsXNOjPTaaddbAVy2wbhYGAGCvFHH
+6pBdAeVJjiH9wBMKlstOX8ajSugFRtZG/pCRAnx6um1Cw4eS
+--000000000000b5d41c0636ae09cb--
 
