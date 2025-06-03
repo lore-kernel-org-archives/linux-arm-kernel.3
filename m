@@ -4,75 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB75C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB982C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ag2KSfmpizoceiuoj+cZXZUUA1usyi82jYygfJs/Bg=; b=FYDypdtu0qfU7XhDQM4LgxwzAT
-	7OnFH7N2jYcQ4vUlkBepz7OafJVsQUUIOS+YcmM8gFCN6RlbQ9SQE2QY2zuVbADP7sgr5Ah41ty8F
-	1coLUT5/mSUoPe6Yqx8DZD3O165w+CYyh55SvIbfAy/SXOnGQscgVdotK2SYvCsq/yZHjXZEuzQNp
-	ti13xgHOLTipq4Me9h0rLTC1sv6tQ2NWNta+t0kKeDg3pbezho92n/ehoLwVDjaJKeP+aujM/1mTi
-	QXw/xVkFfRgrj80qGJxC5dMjibRByINAqCkNW8uNV+u1U6YuOs+AnceXNM1M7QfPr5o5N8KsYWoxP
-	xJ/CY7lw==;
+	bh=ZSTZfPDDH1MLe7AQH4Yed2Uaqt/hLn+gokhyp0JhueY=; b=Dhb3WREyK5KVkoYM45KSV58nvN
+	Z86hoYmDtaTT7b/cyg4xcntM2pBwit6V3Aakizb45lPzKiux5vFjFPZ9cnFpquG6H7zORQIjymKBo
+	6LnW9HgyA7tjtluf7VFgvE8QXZzn56FBDK8PSC5/6IYbHsSQRzgNpqd4Ek5lGIneJcvPxIHjKk02k
+	Gnzq+t8KTVA83kvAJoDmBs8YOTzDvEmwZEMKtAkpblKdCYBZwa34KBsZGX+NghpyzCuk9D6Jk6VtO
+	0erqjKlz5+D2XuubusBKUCUCl/is9es+83fqBnPuAuTBcDAn3QORpxYtAeEWiNFB5WhX60DL/g2dS
+	QZhPhFLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSCm-0000000B7Sg-3xvH;
-	Tue, 03 Jun 2025 14:01:28 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1uMSEw-0000000B7eH-39f2;
+	Tue, 03 Jun 2025 14:03:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMS01-0000000B56f-16ZE
+	id 1uMS0a-0000000B5JK-1lFG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 03 Jun 2025 13:48:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ZSTZfPDDH1MLe7AQH4Yed2Uaqt/hLn+gokhyp0JhueY=; b=pbO+qoMuFoB20sMbrFR4LpAapC
+	4hBaUDWZX1flQHIBnmFP2NUth5rGF3MPCgieN5OsT46DV67odi9CB9Yx4YPcw+vQw8/zhHc8YqZNM
+	Eb3CfJnlRK4+ItKYg2bdSNS53pkvs4wdrVDZKovw9ANBiBq5oB+HIsEssW7e3Bk1bQsxF5Idg3ESR
+	fzB1wGddcOPsNShPRdYFUcrrP555012WiRJnHo1BGOl5w7nVVDsEzp1hT9Joy1jmKE6y5wvXXFbbV
+	vnUjsJ7U3deVUt4lRg3wTDxtTtkBxb/ikLnpky8x3xVUh3Rr2q8/una5jYJF5adGkgHI5NmB9Mt/t
+	Mulha+CQ==;
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMS0X-00000000lZu-1cYx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 13:48:18 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7d20f79a00dso160561485a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:48:16 -0700 (PDT)
+	Tue, 03 Jun 2025 13:48:51 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6facf4d8ea8so47150316d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:48:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748958496; x=1749563296; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1748958525; x=1749563325; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0ag2KSfmpizoceiuoj+cZXZUUA1usyi82jYygfJs/Bg=;
-        b=NHi1pblxXy3kcy0t0jhDGz2VFfbRkR4YB7ORUS21bKhHlnbL7A1pPRjl5nGeJiNm5T
-         oVlRRCSlRZ7ouS1iTWZe8E6Z4KdwgdhLfcsqO1mJ15llHrXbOIWtHNRQMjMBtHsECbSS
-         uv2UkcTwvQkzJEL+mQOwHJF6mm/h1adrDGcp5l5BUDzRwCCyBz+T8sfr99R0sR8ucDTZ
-         N7oa4r8FMtEGYMF6bZhSj+EHe65YvoMIK5MSbmzROHZjPL/40UqeDQzyKcCgoDiQpHCc
-         e8YGQgJa9MZZyXr/GDXLrrvy5m2tZ9mm9Jye0RlhQpdmDoavVV/C81Of6vpAnP5IOokR
-         XAxg==
+        bh=ZSTZfPDDH1MLe7AQH4Yed2Uaqt/hLn+gokhyp0JhueY=;
+        b=aQBA1l0pR0YWIQXZWttLaAJCMmPZZLr+4zJBGF0AmHv+P7MSfmJA52FGl29Neib4Vp
+         bY5sl3kt4n+YjAYp4bzVvIjD5M0gs2PKhmsLzqCPSoFmf6mq9K3KhEyr1mTgEDM1sQPP
+         ag7DANIA7miFGBgY4mgJDErzQzhJCJnvUui2kYxIzSQZJzCAi12Aaw0+98sNhK59puaU
+         sh8RSd3CfCEsPn/kHUS68ibBQgams1cEwqb8gdxD0wmvLvg1Bl9cE3ZJCByI7Bc4jYzH
+         Vy58bZirD7FhiNdzouxOVutqNquVzDBchVHby86edLvhtQlGXldEIwV23CxF4Q94GCpo
+         usfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748958496; x=1749563296;
+        d=1e100.net; s=20230601; t=1748958525; x=1749563325;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0ag2KSfmpizoceiuoj+cZXZUUA1usyi82jYygfJs/Bg=;
-        b=wnUkLsVAJRy6X7XWV+galeJwW5UcUxwFV+ZSrAk3od/nEO2VvVy7Jv4A01zywIcZ4Z
-         05n/JbMzkyUiS4vCVzkFUZs86WjsIBITJNsBkRBBI8LN37s0BGbVoJLKfJUWAgLBX9FY
-         v7qpO/XycRbBkOmOmxZmer0S1RgBEET9V2TcfnqHPVocJggxDpKK5t/tVYpwXdEwqhew
-         BZ5EoChkAZc8zkhjezSJH/f+AA2c9YWVtSrIuTy3OvmF/TQfZm5mpmqKTvRkn/kIF8ss
-         NWWPx3JeXSLOeMkW9ctf05C6SVdcZAp6SgdNLP7jlP2pMTZtobTy7rk/a+4QKzHZe9rb
-         gx/g==
-X-Forwarded-Encrypted: i=1; AJvYcCXudz74fzSxhFXfuVca+AJz95PoOuSSUAaoaGs1V8Ayu9f8qgJcJcqb96JmyPlzxdQWTrFAHgkX+rfj7eWQ+QU5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwahVNr2DRKr5fnbJnhLKLKeNDAHHQh6HCDEbaomhNW6O+fjXt5
-	Ntyc+y8FVZqsHUJCpEI2JskVkMOBSSHGP3o+t3fqRHnamN1AzzFkQpm4LgHuqe0a5oA=
-X-Gm-Gg: ASbGncsuROjgbwTb3Ml/fXj8DOTsKTpuqTtqtIPg8ejNylrJ08wj6s1POf9/YMy+bXs
-	XX4z+QGo/oA0J238YAW6ywPHOHT3Vt59TxGjSxKoqkLoww3f7me74TK7+n+engSy9zuOpgu7mxm
-	19Tmwsk1QwgZwQpoUkP7uBEwahGSGd0M4TEqrHx8kgDGeY9i9HKR3hFpAPNPEiiWEoF4jslk3Nk
-	NGUFtuJe9oFuMIChWPRULrQ+XOQmRmv5farpBVFPaXN1qX2+4Nl+54CdMOpMNNmA0G2mbUlxfTt
-	tdUpnERZ0SZTeHSjhTO3SjAdtYSwYAffQja8WMCBOa8eiqdGE2Ym50d5wPFVwkqlzvjuDoLepQh
-	tsKahnST06cPEjYWkEzbjvpgDYN0=
-X-Google-Smtp-Source: AGHT+IEC7tetoyd4MWB27Cys7lEZRwLgg/tDNDKGL2nO8t1WlsQDGW4e4zhoToAJp9Wky9F+fr/2kQ==
-X-Received: by 2002:a05:620a:290a:b0:7c5:544e:2ccf with SMTP id af79cd13be357-7d0a4e57644mr2655730585a.57.1748958495697;
-        Tue, 03 Jun 2025 06:48:15 -0700 (PDT)
+        bh=ZSTZfPDDH1MLe7AQH4Yed2Uaqt/hLn+gokhyp0JhueY=;
+        b=Ga0EP0dWIJKF3fbWlbX70WSMXqdGwkgFRbbQurpTvkQbdiuoMeqVq1ywzneUuJGarB
+         vlaAhFzkTjtf4KNqhhwlYGhuK2VcWB5nst/x/1/Wt6A0kJmEiiAFOvBRqdgSvDHIwuZ5
+         UTQk0EZPzFZFOsnyresqQA3T7+e19pyBVORdlDAOimI0l95e8ciY3Jl/JKLbC0bq7OIY
+         FBxZCAGt3HuNgdUehNNraiQHIy9ZhmGRHYAE2U/4TKjou+X5ZoM2isQohL/2R9o5b1rr
+         mtrfHCSkhlL7oJwomdlvRdL8E9nzsdoe2T4hoLi0LQTX6VWk2cBTQ1HsiAMZcrPKLIaK
+         DoeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWsduFS5VMazjN8bjbVgc+MVGolobYfBVpFkYE8ammpsrwVb8fWc0sI0eprj/KS1sgDzNc8HD0eZ+oLG5BuEbJY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQTC9buiNZjxzi+RimdzheWs8F3ta5VDRDbWHhAOKGQyo51mOe
+	46SKO50HuhUlnuELV+Ou1B5b3gBCzGYXMfNiVwzgMR7PkqfNhEz4RB9JHzw+ayfXhc4=
+X-Gm-Gg: ASbGnctHiz1X6YGIP9iN9kNu1jFUAj+qDVTfi42ZNTC1JkLkgmR77wSS0X643bcpOmb
+	Dv/87HIMt6IfL/25d2tyNLewyfp5JQgSM4AiQuiZlBegbVCCVhTkK+w3fETAs3Hqi8ORnkXke6Y
+	Z3Vbj0dtne75ysWo3JU24G+jyYeg/IQ7FBrwrTmMrStAl49fqM4Yx+cr8oSLTkzDyS93tqrE1mu
+	ep8du27ZLFHxlbKpdn+J4gxzp5GC2ishGDeaNymQiYkFgWJqJPFwmr93rLhkDa5qYXPfznlTDAC
+	SK8q5kHePtC9hd6XOKBLeGs5NgpMWJP4aWNovMHr/TYz9eCU6VkjL1FEN3cIJ6My8KfIq/dhnuo
+	vTtZoBSYAG15cx9OdTdUYoHNPLok=
+X-Google-Smtp-Source: AGHT+IH3Vn4y24ccOnNjvyrMKRdXMvoXmINXxWtKUHHRDjsnlypx2qCEJce143rhCfMATkU1PKi1PQ==
+X-Received: by 2002:a05:6214:27cb:b0:6fa:acc1:f077 with SMTP id 6a1803df08f44-6facebef794mr265266426d6.35.1748958525108;
+        Tue, 03 Jun 2025 06:48:45 -0700 (PDT)
 Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d09a0e3fa9sm838696585a.24.2025.06.03.06.48.15
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d09a10e844sm842209085a.49.2025.06.03.06.48.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 06:48:15 -0700 (PDT)
+        Tue, 03 Jun 2025 06:48:44 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1uMRzy-00000001hBT-2tOq;
-	Tue, 03 Jun 2025 10:48:14 -0300
-Date: Tue, 3 Jun 2025 10:48:14 -0300
+	id 1uMS0S-00000001hBt-0o7d;
+	Tue, 03 Jun 2025 10:48:44 -0300
+Date: Tue, 3 Jun 2025 10:48:44 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Alistair Popple <apopple@nvidia.com>
 Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
@@ -86,17 +101,17 @@ Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
 	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
 	linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	John@groves.net
-Subject: Re: [PATCH 07/12] mm: Remove redundant pXd_devmap calls
-Message-ID: <20250603134814.GH386142@ziepe.ca>
+Subject: Re: [PATCH 08/12] mm/khugepaged: Remove redundant pmd_devmap() check
+Message-ID: <20250603134844.GI386142@ziepe.ca>
 References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <2ee5a64581d2c78445e5c4180d7eceed085825ca.1748500293.git-series.apopple@nvidia.com>
+ <2093b864560884a2a525d951a7cc20007da6b9b6.1748500293.git-series.apopple@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2ee5a64581d2c78445e5c4180d7eceed085825ca.1748500293.git-series.apopple@nvidia.com>
+In-Reply-To: <2093b864560884a2a525d951a7cc20007da6b9b6.1748500293.git-series.apopple@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_064817_314081_28B641AF 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250603_144849_567530_3018B700 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,31 +126,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:32:08PM +1000, Alistair Popple wrote:
-> DAX was the only thing that created pmd_devmap and pud_devmap entries
-> however it no longer does as DAX pages are now refcounted normally and
-> pXd_trans_huge() returns true for those. Therefore checking both pXd_devmap
-> and pXd_trans_huge() is redundant and the former can be removed without
-> changing behaviour as it will always be false.
+On Thu, May 29, 2025 at 04:32:09PM +1000, Alistair Popple wrote:
+> The only users of pmd_devmap were device dax and fs dax. The check for
+> pmd_devmap() in check_pmd_state() is therefore redundant as callers
+> explicitly check for is_zone_device_page(), so this check can be dropped.
 > 
 > Signed-off-by: Alistair Popple <apopple@nvidia.com>
 > ---
->  fs/dax.c                   |  5 ++---
->  include/linux/huge_mm.h    | 10 ++++------
->  include/linux/pgtable.h    |  2 +-
->  mm/hmm.c                   |  4 ++--
->  mm/huge_memory.c           | 30 +++++++++---------------------
->  mm/mapping_dirty_helpers.c |  4 ++--
->  mm/memory.c                | 15 ++++++---------
->  mm/migrate_device.c        |  2 +-
->  mm/mprotect.c              |  2 +-
->  mm/mremap.c                |  5 ++---
->  mm/page_vma_mapped.c       |  5 ++---
->  mm/pagewalk.c              |  8 +++-----
->  mm/pgtable-generic.c       |  7 +++----
->  mm/userfaultfd.c           |  4 ++--
->  mm/vmscan.c                |  3 ---
->  15 files changed, 40 insertions(+), 66 deletions(-)
+>  mm/khugepaged.c | 2 --
+>  1 file changed, 2 deletions(-)
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
