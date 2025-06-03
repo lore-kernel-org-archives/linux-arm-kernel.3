@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3DA0C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 19:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9131C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 20:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtbIHNXJCE6HdiAWFAi8T2FRZkuH6G7Wy6EuLQ2JEc8=; b=xAitl2Ro2AZIkzTGvhdzkylCUD
-	aY9HLD2ht7bgJs3V97p42R7kITPuLlpxaCpaIy+3pAw5X+WUbzlZNrI5aTx3yJO3/RWS7Sh8cJLGZ
-	rbYq7FJrWPzAa9GA9kmD5ER1MDUZ4tbQar8lVvrKqNTRgsqEcd+bErg9XzAl7Pmf823lFp1wUG3km
-	p+80xIIOKldpdVV181v8Zh5RrafkbbteG0r8MsEA5+D8ldW5aHM+4nWj03RGHcn28ojjgOJDQOE04
-	XXmqMCXba4GjiM9gD+DWhVAQfPxpC1An6tKdLyohjgkiczPzbeETwRRAo+5RgnFUM3uKFLKgz0h1D
-	SNIJzgRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C5XjWlbfsfbedAGp1/mzasFXw6pYZ2EXsAySZsa85HA=; b=eI/obhj7ZBSRPDg3c7rm36GsLY
+	S2GKJYnK8PPCowAwcrUtgzuEjbzXZ7qOC/NnmoOElW9UEbMku9/5QBva6wuwr6ldbqkTLIUx/RuAO
+	wc86DDLBdBKqGFLM+6CcJACFje96BrZInKlbUnku7rCmwzd/2p7ATebHA9WuQ0h01IOhaoqBjamWH
+	TepEwInMvJjMzTUbQtcSj9KFwA2owGphQd8UPyJYtMNAvwluLXFQQiVRktcLIT/snxwbg5c4sKrXD
+	eLa6Ngs1mnfYMDLrBXrfvCVyzkf0uT9p+/RLl3F5IVyJsGXlWFhqugAL9Sh+ydz1yxAnhyYUL4WQu
+	g6tGWAXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMX5a-0000000Bh4A-09Ux;
-	Tue, 03 Jun 2025 19:14:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uMY6k-0000000BmGv-0qnm;
+	Tue, 03 Jun 2025 20:19:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMX37-0000000Bgn8-2GBL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 19:11:50 +0000
+	id 1uMY4a-0000000Bm17-2DPA;
+	Tue, 03 Jun 2025 20:17:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5207149F6B
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Jun 2025 19:11:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C451C4CEEE
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  3 Jun 2025 19:11:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DC02F60008;
+	Tue,  3 Jun 2025 20:17:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5E28C4CEED;
+	Tue,  3 Jun 2025 20:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748977908;
-	bh=NtbIHNXJCE6HdiAWFAi8T2FRZkuH6G7Wy6EuLQ2JEc8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LvwUxNiVPwYp6mLEbWdTUoZoKksGLZKw7wQxDV1vwfc7hUdUdatMQUbC0aAoB88oO
-	 /HWvYGTOo5Nvo7pmnDs07DEJ9ORh3PdFhrUw2LNNA2AFYj8KUbIqA62zmSQwBd7ynR
-	 uiIRh5hYPhouGrxol2KhLlL2eBRe/U4Ei6xeV4ffAegT/TTraI9HpY7FUSd0pHNB11
-	 2Z4iRhDaz3MawoC+fGhfCgbUoAy7n3RrHdQiBJ0ONBgF8EMYY8NNVrBSotxpq0ykVu
-	 QYdwQtbKs4NSQrjMZHxKGwk45psiyr6jU4CyiUW8h2dGxleO6jsyp2JyMVgKHBLLmR
-	 9BKjQLxkLdlVw==
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-604bff84741so11781240a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 12:11:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUyiNxTFZ4irvUBfCEJBmgfXraF0g222B/r5flOE4fFH6WJYfmoZCkBFx8ch6ysoRgNQB417MJkeDNzlGDlFjAP@lists.infradead.org
-X-Gm-Message-State: AOJu0YysASiREXIKcD2PuwpD53DrFyCISLlNhbTEXRo6XlvG8c7pQRkP
-	NVoAQRc3BCBGg07EWFEkVTnhAf9go9HJ7VL4rf+t7Ewy6iNclpivglnmQqepoDU63tXuFD8Pg2J
-	JM6P1aecL31P9CppxHwW2uJHX5xvQqg==
-X-Google-Smtp-Source: AGHT+IGDlt4OCveynhrCFXx4DgX8xfm85z6UL0bsAuJVVSY62Mr48Abx9k4B0J9Pz7qcBz3dXFPCas/vNXZvDftBXQw=
-X-Received: by 2002:a17:907:d649:b0:ad8:96d2:f38 with SMTP id
- a640c23a62f3a-adb36b23626mr1719607566b.18.1748977906740; Tue, 03 Jun 2025
- 12:11:46 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org> <aDhWlytLCxONZdF9@lpieralisi>
- <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
- <aD6ouVAXy5qcZtM/@lpieralisi> <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
- <CAFEAcA-JrS0BiT66iin-pRVFadrY-pnJZ8TkDNxcjErknSCnUA@mail.gmail.com>
-In-Reply-To: <CAFEAcA-JrS0BiT66iin-pRVFadrY-pnJZ8TkDNxcjErknSCnUA@mail.gmail.com>
+	s=k20201202; t=1748981843;
+	bh=yV4ekByytzguS9M+Qf6n8nfcrxTdF0tMI0CZ/FW+ZhI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=COHJ4WCl7wgYi/p077xcxhMr+c0ECulzW+gv4fS4wPm2p4q7u4MZnD98iq1rKD+em
+	 WFFr3W/IsOPLbgashjQK3TtL/CaAUWHvYgvItY+J0Nk/9UQOw1zIdDuasY65jYDvBD
+	 xuQG9QjyHYQ/fycBwT9/n72StDDKeNnuBpuLd6JA9lu4ibSfRyQ5STGHCdTVu5uoFp
+	 rLOnLO2zdlz9l//CCQTnruR35L602rP83EgxTdgpLBIh3La6ojwmvQ7VS1XmZr7Hdy
+	 vsjNh0XF/J/ZOxRGGONIIdFYW4QI2FYApB//Hvt+YHkuO3id79x08lA7lOBc/Qipct
+	 g+maGoP328NCg==
+Date: Tue, 3 Jun 2025 15:17:20 -0500
 From: Rob Herring <robh@kernel.org>
-Date: Tue, 3 Jun 2025 14:11:34 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqL7x53an2-MaLHP5tfVXb4JxT8ORUMaA8pL-gMsWLJqkA@mail.gmail.com>
-X-Gm-Features: AX0GCFvn1r9Jc_cN-EiFTkdAeiyJWM3OfHLrf6lkihvKvJSq8fFGzvhI_2zyfik
-Message-ID: <CAL_JsqL7x53an2-MaLHP5tfVXb4JxT8ORUMaA8pL-gMsWLJqkA@mail.gmail.com>
-Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
-To: Peter Maydell <peter.maydell@linaro.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, andre.przywara@arm.com, 
-	Arnd Bergmann <arnd@arndb.de>, Sascha Bischoff <sascha.bischoff@arm.com>, 
-	Timothy Hayes <timothy.hayes@arm.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, suzuki.poulose@arm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_121149_618545_1545AA4C 
-X-CRM114-Status: GOOD (  21.01  )
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Jeff Hugo <jeff.hugo@oss.qualcomm.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
+Subject: Re: [PATCH v5 07/10] accel/rocket: Add job submission IOCTL
+Message-ID: <20250603201720.GA2119676-robh@kernel.org>
+References: <20250520-6-10-rocket-v5-0-18c9ca0fcb3c@tomeuvizoso.net>
+ <20250520-6-10-rocket-v5-7-18c9ca0fcb3c@tomeuvizoso.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250520-6-10-rocket-v5-7-18c9ca0fcb3c@tomeuvizoso.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,39 +83,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 3, 2025 at 10:37=E2=80=AFAM Peter Maydell <peter.maydell@linaro=
-.org> wrote:
->
-> On Tue, 3 Jun 2025 at 16:15, Rob Herring <robh@kernel.org> wrote:
-> >
-> > On Tue, Jun 3, 2025 at 2:48=E2=80=AFAM Lorenzo Pieralisi <lpieralisi@ke=
-rnel.org> wrote:
-> > >
-> > > On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
-> > > > secure.txt says:
-> > > > # The general principle of the naming scheme for Secure world bindi=
-ngs
-> > > > # is that any property that needs a different value in the Secure w=
-orld
-> > > > # can be supported by prefixing the property name with "secure-". S=
-o for
-> > > > # instance "secure-foo" would override "foo".
-> >
-> > Today I would say a 'secure-' prefix is a mistake. To my knowledge,
-> > it's never been used anyways. But I don't have much visibility into
-> > what secure world firmware is doing.
->
-> QEMU uses it for communicating with the secure firmware if
-> you run secure firmware on the virt board. It's done that
-> since we introduced that binding. Indeed that use case is *why*
-> the binding is there. It works fine for the intended purpose,
-> which is "most devices are visible in both S and NS, but a few
-> things are S only (UART, a bit of RAM, secure-only flash").
+On Tue, May 20, 2025 at 12:27:00PM +0200, Tomeu Vizoso wrote:
+> Using the DRM GPU scheduler infrastructure, with a scheduler for each
+> core.
+> 
+> Userspace can decide for a series of tasks to be executed sequentially
+> in the same core, so SRAM locality can be taken advantage of.
+> 
+> The job submission code was initially based on Panfrost.
+> 
+> v2:
+> - Remove hardcoded number of cores
+> - Misc. style fixes (Jeffrey Hugo)
+> - Repack IOCTL struct (Jeffrey Hugo)
+> 
+> v3:
+> - Adapt to a split of the register block in the DT bindings (Nicolas
+>   Frattaroli)
+> - Make use of GPL-2.0-only for the copyright notice (Jeff Hugo)
+> - Use drm_* logging functions (Thomas Zimmermann)
+> - Rename reg i/o macros (Thomas Zimmermann)
+> - Add padding to ioctls and check for zero (Jeff Hugo)
+> - Improve error handling (Nicolas Frattaroli)
+> 
+> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
 
-I meant "secure-" as a prefix allowed on *any* property, not
-"secure-status" specifically, which is the only thing QEMU uses
-AFAICT. IOW, I don't think we should be creating secure-reg,
-secure-interrupts, secure-clocks, etc.
+
+> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..aee6ebdb2bd227439449fdfcab3ce7d1e39cd4c4
+> --- /dev/null
+> +++ b/drivers/accel/rocket/rocket_job.c
+> @@ -0,0 +1,723 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/* Copyright 2019 Linaro, Ltd, Rob Herring <robh@kernel.org> */
+> +/* Copyright 2019 Collabora ltd. */
+> +/* Copyright 2024-2025 Tomeu Vizoso <tomeu@tomeuvizoso.net> */
+> +
+> +#include <drm/drm_print.h>
+> +#include <drm/drm_file.h>
+> +#include <drm/drm_gem.h>
+> +#include <drm/rocket_accel.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +
+> +#include "rocket_core.h"
+> +#include "rocket_device.h"
+> +#include "rocket_drv.h"
+> +#include "rocket_job.h"
+> +#include "rocket_registers.h"
+> +
+> +#define JOB_TIMEOUT_MS 500
+> +
+> +static struct rocket_job *
+> +to_rocket_job(struct drm_sched_job *sched_job)
+> +{
+> +	return container_of(sched_job, struct rocket_job, base);
+> +}
+> +
+> +struct rocket_fence {
+> +	struct dma_fence base;
+> +	struct drm_device *dev;
+> +	/* rocket seqno for signaled() test */
+> +	u64 seqno;
+> +	int queue;
+
+AFAICT, you are not using any of the elements here. So you can just drop 
+rocket_fence and use dma_fence.
 
 Rob
 
