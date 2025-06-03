@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 834AFC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 22:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B179C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 22:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MYBLN18ggSpU1/ZnBt64YliW65vABIyi5xIBnaUOp24=; b=yrgXDMQ9jT1NgqlgpjjqfT9Xxw
-	iWMDrQgdV6mN4h6OXY6SoAd+ArAPEDD/8qUP30mcwpBp35UlnB3MxkGzTW2q4I0lwUKluDP67UZqp
-	2lGzA1vvio96kd31X5d5SfTnRqvHes5nf8SuzGQWT0kXzwTy74fsna5eEF1WJsfKpzlnMk/EUJdLY
-	nOIAd9NH0I84K5aQUgYiBtmkeT4FcDPh04ldLZDX6xXQ2rNsooNmlnlI4t65SdKGELzaRrdQ2Tb8m
-	ibVYG6XFn7+5GM2tLaTACaLJAx2ys2OyO3dasRqCmiFvAAdpfOaRJVZsf+PYB4YB/2SpUHUOZ9trC
-	sfWQbiEw==;
+	bh=8B3otlpWtIrCMotPSzvWNK8DK1Jj0yOZGMpx7SqqNNY=; b=422ehYbwv9k6SjVP4McYRRgzcG
+	Dbr55UmTtrEIARZ/KDkd74h/WG+O6+V107WuPxkMQS+jhKdzFx2o5PHRTYqwFTOLosz8052gN/WER
+	tTHK50ewClyRwP4vOvtuPxKRWaIE6FqQbAjW3acS4gi1rwGhRtlyZEGkkMVGsw12qqQ+DYmaMjxWv
+	q3OAZRu01BcZWRckJqy3Btl1RZVkZOK7j3mHEKKa/P3vQlht9FQJDQdNeOPAJmmhNBwfQBTBjLdRF
+	SpXxo0GqF/hMFmniX4YK4kaH0ZfAL2kd6bXsLCMtq2m9MiUEwYt1ovma7n/lifboCDcXOSasceKAd
+	qpt/twCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMZkL-0000000Bvec-1EjC;
-	Tue, 03 Jun 2025 22:04:37 +0000
-Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
+	id 1uMZrZ-0000000BwFQ-1kDH;
+	Tue, 03 Jun 2025 22:12:05 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMZiA-0000000BvRS-43O9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 22:02:24 +0000
-Date: Tue, 3 Jun 2025 15:02:04 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1748988138;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MYBLN18ggSpU1/ZnBt64YliW65vABIyi5xIBnaUOp24=;
-	b=dk4b4e0rO/wW9aCyG+NXQO6YRkCVUwQVLI4dYbglDpsOngGTqtDeLAsdEzAtU+ic9J/Mvb
-	/2ypH0EAxpXsVG6x9gO1djeyijHbtjQcP+aDQutvZ22djAlBhSfTubZLHVBjvyEHNpOhKt
-	lxfK2PTtvCJu2SG/k6dddNR+CoTrIfY=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net,
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-	maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 06/17] KVM: arm64: Introduce method to partition the PMU
-Message-ID: <aD9w3Kj4-YoizKv5@linux.dev>
-References: <aD4llDZwb_sC_Ptj@linux.dev>
- <gsnt4iww3406.fsf@coltonlewis-kvm.c.googlers.com>
+	id 1uMZpP-0000000Bvvm-2R3h;
+	Tue, 03 Jun 2025 22:09:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748988592; x=1780524592;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=S0c47ppm0drVdO4jAjCQHwJvNJsQNG50GQKepxniEQo=;
+  b=RbjoMTCaMe0G4Qv+1L+j3wNSJQf3/AYqTjhhHAu/p2Vw6JfLXfbFWbTM
+   bLMyb8ojt0Jg89GqzjqOs6p2oyETqkO0rLND4/kcODf6UGVO1KW7Ez7qi
+   LUPWtld5QGaiEJNTL/Ku6PXKQ41bMfcH1G5YPTafhKbcDjTVFJ8eYP+8J
+   svk0e3sdvINgw6Up9139KVo7OCmgv58Smky42EtXBfttD5Q8Zdhb99oT/
+   SFofL53OkPR+JSWCJTsRP2fAzma5Qs/bG1soGkh9D4tFdf26v/9Wqokdv
+   nbZr9lG2q0g9OZ4uqacBGNG7iKVDKF3YibfTb4dS3Yi8JYRW4uzH5Gz46
+   A==;
+X-CSE-ConnectionGUID: 0SXM0J6iSLGP5XkKZxvj6A==
+X-CSE-MsgGUID: WqMREC1nSdCV+4NGqk0ZLw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11453"; a="54840723"
+X-IronPort-AV: E=Sophos;i="6.16,207,1744095600"; 
+   d="scan'208";a="54840723"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2025 15:09:51 -0700
+X-CSE-ConnectionGUID: uXDwbOKqSaqNgJYSUub+BQ==
+X-CSE-MsgGUID: pmasmQ4sQfmqqaQU15SoOg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,207,1744095600"; 
+   d="scan'208";a="168152739"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 03 Jun 2025 15:09:46 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uMZpH-0002kP-3D;
+	Tue, 03 Jun 2025 22:09:43 +0000
+Date: Wed, 4 Jun 2025 06:08:53 +0800
+From: kernel test robot <lkp@intel.com>
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, nfraprado@collabora.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	angelogioacchino.delregno@collabora.com,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org, netdev@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	Irving lin <irving-ch.lin@mediatek.corp-partner.google.com>
+Subject: Re: [1/5] clk: mt8189: Porting driver for clk
+Message-ID: <202506040506.Hrl72R0Q-lkp@intel.com>
+References: <20250602083624.1849719-1-irving-ch.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <gsnt4iww3406.fsf@coltonlewis-kvm.c.googlers.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20250602083624.1849719-1-irving-ch.lin@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_150223_594390_FEA09F4F 
-X-CRM114-Status: GOOD (  39.60  )
+X-CRM114-CacheID: sfid-20250603_150951_661663_EC6A02B8 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,148 +98,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 09:32:41PM +0000, Colton Lewis wrote:
-> Oliver Upton <oliver.upton@linux.dev> writes:
-> 
-> > On Mon, Jun 02, 2025 at 07:26:51PM +0000, Colton Lewis wrote:
-> > >   static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
-> > >   {
-> > > +	u8 hpmn = vcpu->kvm->arch.arm_pmu->hpmn;
-> > > +
-> > >   	preempt_disable();
-> 
-> > >   	/*
-> > >   	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
-> > >   	 * to disable guest access to the profiling and trace buffers
-> > >   	 */
-> > > -	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
-> > > -					 *host_data_ptr(nr_event_counters));
-> > > -	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
-> > > +	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN, hpmn);
-> > > +	vcpu->arch.mdcr_el2 |= (MDCR_EL2_HPMD |
-> > > +				MDCR_EL2_TPM |
-> 
-> > This isn't safe, as there's no guarantee that kvm_arch::arm_pmu is
-> > pointing that the PMU for this CPU. KVM needs to derive HPMN from some
-> > per-CPU state, not anything tied to the VM/vCPU.
-> 
-> I'm confused. Isn't this function preparing to run the vCPU on this
-> CPU? Why would it be pointing at a different PMU?
+Hi irving.ch.lin,
 
-Because arm64 is a silly ecosystem and system designers can glue
-together heterogenous CPU implementations. The arm_pmu that KVM is
-pointing at might only match a subset of CPUs, but vCPUs migrate at the
-whim of the scheduler (and userspace).
+kernel test robot noticed the following build errors:
 
-> And HPMN is something that we only want set when running a vCPU, so
-> there isn't any per-CPU state saying it should be anything but the
-> default value (number of counters) outside that context.
-> 
-> Unless you just mean I should check the number of counters again and
-> make sure HPMN is not an invalid value.
+[auto build test ERROR on clk/clk-next]
+[also build test ERROR on linus/master v6.15 next-20250530]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-As you've implemented it the host cannot schedule events in the guest
-range of counters regardless of context. You need to reconcile that
-global limit with the desires of the VMM on how many counters it wants
-presented to this particular guest.
+url:    https://github.com/intel-lab-lkp/linux/commits/irving-ch-lin/clk-mt8189-Porting-driver-for-clk/20250603-105623
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20250602083624.1849719-1-irving-ch.lin%40mediatek.com
+patch subject: [1/5] clk: mt8189: Porting driver for clk
+config: x86_64-allyesconfig (https://download.01.org/0day-ci/archive/20250604/202506040506.Hrl72R0Q-lkp@intel.com/config)
+compiler: clang version 20.1.2 (https://github.com/llvm/llvm-project 58df0ef89dd64126512e4ee27b4ac3fd8ddf6247)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250604/202506040506.Hrl72R0Q-lkp@intel.com/reproduce)
 
-> > > +/**
-> > > + * kvm_pmu_partition() - Partition the PMU
-> > > + * @pmu: Pointer to pmu being partitioned
-> > > + * @host_counters: Number of host counters to reserve
-> > > + *
-> > > + * Partition the given PMU by taking a number of host counters to
-> > > + * reserve and, if it is a valid reservation, recording the
-> > > + * corresponding HPMN value in the hpmn field of the PMU and clearing
-> > > + * the guest-reserved counters from the counter mask.
-> > > + *
-> > > + * Passing 0 for @host_counters has the effect of disabling
-> > > partitioning.
-> > > + *
-> > > + * Return: 0 on success, -ERROR otherwise
-> > > + */
-> > > +int kvm_pmu_partition(struct arm_pmu *pmu, u8 host_counters)
-> > > +{
-> > > +	u8 nr_counters;
-> > > +	u8 hpmn;
-> > > +
-> > > +	if (!kvm_pmu_reservation_is_valid(host_counters))
-> > > +		return -EINVAL;
-> > > +
-> > > +	nr_counters = *host_data_ptr(nr_event_counters);
-> > > +	hpmn = kvm_pmu_hpmn(host_counters);
-> > > +
-> > > +	if (hpmn < nr_counters) {
-> > > +		pmu->hpmn = hpmn;
-> > > +		/* Inform host driver of available counters */
-> > > +		bitmap_clear(pmu->cntr_mask, 0, hpmn);
-> > > +		bitmap_set(pmu->cntr_mask, hpmn, nr_counters);
-> > > +		clear_bit(ARMV8_PMU_CYCLE_IDX, pmu->cntr_mask);
-> > > +		if (pmuv3_has_icntr())
-> > > +			clear_bit(ARMV8_PMU_INSTR_IDX, pmu->cntr_mask);
-> > > +
-> > > +		kvm_debug("Partitioned PMU with HPMN %u", hpmn);
-> > > +	} else {
-> > > +		pmu->hpmn = nr_counters;
-> > > +		bitmap_set(pmu->cntr_mask, 0, nr_counters);
-> > > +		set_bit(ARMV8_PMU_CYCLE_IDX, pmu->cntr_mask);
-> > > +		if (pmuv3_has_icntr())
-> > > +			set_bit(ARMV8_PMU_INSTR_IDX, pmu->cntr_mask);
-> > > +
-> > > +		kvm_debug("Unpartitioned PMU");
-> > > +	}
-> > > +
-> > > +	return 0;
-> > > +}
-> 
-> > Hmm... Just in terms of code organization I'm not sure I like having KVM
-> > twiddling with *host* support for PMUv3. Feels like the ARM PMU driver
-> > should own partitioning and KVM just takes what it can get.
-> 
-> Okay. I can move the code.
-> 
-> > > @@ -239,6 +245,13 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
-> > >   	if (!pmuv3_implemented(kvm_arm_pmu_get_pmuver_limit()))
-> > >   		return;
-> 
-> > > +	if (reserved_host_counters) {
-> > > +		if (kvm_pmu_partition_supported())
-> > > +			WARN_ON(kvm_pmu_partition(pmu, reserved_host_counters));
-> > > +		else
-> > > +			kvm_err("PMU Partition is not supported");
-> > > +	}
-> > > +
-> 
-> > Hasn't the ARM PMU been registered with perf at this point? Surely the
-> > driver wouldn't be very pleased with us ripping counters out from under
-> > its feet.
-> 
-> AFAICT nothing in perf registration cares about the number of counters
-> the PMU has. The PMUv3 driver tracks its own available counters through
-> cntr_mask and I modify that during partition.
-> 
-> Since this is still initialization of the PMU, I don't believe anything
-> has had a chance to use a counter yet that will be ripped away.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506040506.Hrl72R0Q-lkp@intel.com/
 
-Given that kvm_pmu_partition() is called from an ioctl, it is entirely
-possible that events have been scheduled prior to applying the
-partition.
+All errors (new ones prefixed by >>):
 
-> Aesthetically It makes since to change this if I move the partitioning
-> code to the PMUv3 driver, but I think it's inconsequential to the
-> function.
+>> drivers/clk/mediatek/clk-mt8189.c:22:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      22 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-bringup.c:18:43: error: incomplete definition of type 'struct platform_device'
+      18 |         clk_con = of_count_phandle_with_args(pdev->dev.of_node, "clocks",
+         |                                              ~~~~^
+   include/linux/of_platform.h:14:8: note: forward declaration of 'struct platform_device'
+      14 | struct platform_device;
+         |        ^
+   drivers/clk/mediatek/clk-bringup.c:22:24: error: incomplete definition of type 'struct platform_device'
+      22 |                 clk = of_clk_get(pdev->dev.of_node, i);
+         |                                  ~~~~^
+   include/linux/of_platform.h:14:8: note: forward declaration of 'struct platform_device'
+      14 | struct platform_device;
+         |        ^
+   drivers/clk/mediatek/clk-bringup.c:48:33: error: incomplete definition of type 'struct platform_device'
+      48 |         struct device_node *node = pdev->dev.of_node;
+         |                                    ~~~~^
+   include/linux/of_platform.h:14:8: note: forward declaration of 'struct platform_device'
+      14 | struct platform_device;
+         |        ^
+   drivers/clk/mediatek/clk-bringup.c:78:44: error: incomplete definition of type 'struct platform_device'
+      78 |         clk_probe = of_device_get_match_data(&pdev->dev);
+         |                                               ~~~~^
+   include/linux/of_platform.h:14:8: note: forward declaration of 'struct platform_device'
+      14 | struct platform_device;
+         |        ^
+>> drivers/clk/mediatek/clk-bringup.c:84:3: error: call to undeclared function 'dev_err'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      84 |                 dev_err(&pdev->dev,
+         |                 ^
+   drivers/clk/mediatek/clk-bringup.c:84:16: error: incomplete definition of type 'struct platform_device'
+      84 |                 dev_err(&pdev->dev,
+         |                          ~~~~^
+   include/linux/of_platform.h:14:8: note: forward declaration of 'struct platform_device'
+      14 | struct platform_device;
+         |        ^
+   drivers/clk/mediatek/clk-bringup.c:86:8: error: incomplete definition of type 'struct platform_device'
+      86 |                         pdev->name, r);
+         |                         ~~~~^
+   include/linux/of_platform.h:14:8: note: forward declaration of 'struct platform_device'
+      14 | struct platform_device;
+         |        ^
+>> drivers/clk/mediatek/clk-bringup.c:96:31: error: variable has incomplete type 'struct platform_driver'
+      96 | static struct platform_driver bring_up = {
+         |                               ^
+   drivers/clk/mediatek/clk-bringup.c:96:15: note: forward declaration of 'struct platform_driver'
+      96 | static struct platform_driver bring_up = {
+         |               ^
+>> drivers/clk/mediatek/clk-bringup.c:106:1: error: type specifier missing, defaults to 'int'; ISO C99 and later do not support implicit int [-Wimplicit-int]
+     106 | module_platform_driver(bring_up);
+         | ^
+         | int
+>> drivers/clk/mediatek/clk-bringup.c:106:24: error: a parameter list without types is only allowed in a function definition
+     106 | module_platform_driver(bring_up);
+         |                        ^
+   10 errors generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-adsp.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-cam.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-mmsys.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-img.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-iic.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-bus.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-mdpsys.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-mfg.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/clk/mediatek/clk-mt8189-scp.c:15:10: fatal error: 'dt-bindings/clock/mt8189-clk.h' file not found
+      15 | #include <dt-bindings/clock/mt8189-clk.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+..
 
-There are two *very* distinct functions w.r.t. partitioning:
 
- 1) Partitioning of a particular arm_pmu that says how many counters the
- host can use
+vim +22 drivers/clk/mediatek/clk-mt8189.c
 
- 2) VMM intentions to present a subset of the KVM-owned counter
- partition to its guest
+    21	
+  > 22	#include <dt-bindings/clock/mt8189-clk.h>
+    23	
 
-#1 is modifying *global* state, we really can't mess with that in the
-context of a single VM...
-
-Thanks,
-Oliver
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
