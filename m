@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70B7C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 10:47:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD02CC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 10:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u8eWYW+JB7Fntoyb1VkX6Cjz9AH9R5g7j1aOysg21G4=; b=l2Qg1bK8NZq0BohyX0G7wWXJnA
-	GH/bq+45ZJubsultEmw6ZJx42k/IGdcECGunF/Bb2Ut7SKu5wz4uF/y184jpkpEUFWjQNAykh7hcx
-	TuBo+B11ZAXS/DE6M/onDYYusbhuxlb7SFRelhDNyx8O8MXD1ZwUJJLhwQhvzBij0yZaOe8jTZ1mC
-	gPeiZt8A9Od2MFG2h1F9mkqVv/hOaERi6j8IlZ2uIzpBsa8WxyBGARuM7uV33+XCIm3jZrBrsyBF+
-	OaQAtcG7Rf4Ex+CQpM93aI059ofmkFcOu2qboovcTUouGIRBh6ZUyKRSrCakKJITVcZxl4BYqoNJx
-	FnzBH9gw==;
+	bh=9envwYzZ92clWlakOTwEB8OwjhYiaIjEdDGYyGrbM9I=; b=XANUQ1hmGv2/BX9r1ZAMFJCvV/
+	lU+SHk4pFJo3kMAlMrOtHRVatGUcsv7hTqOR+OlaECbjDm/pnHgfCQpoFz9fOgMaMepZoWNPExo1B
+	P4wNOhm4CyZdFhz6kOcNCwLGS7UpOZqZ7FNic7v3wFLdW8qJc9v/gEBwMH60HvZAkt41CqHTJAJeO
+	KbwP2CjPJu/Y+v2/bee25c2gGZMHz5R/EFzL3TgjbAwx/X/c9OXXzaK3gnea3zhiYAFGzWd2sjp9k
+	pXigJ49seQKLS02ObN+Y387dbBWTE9w+hnq/LaClA3n5E66TZ0eSN8htvrp+P4SszbaNimO4ihSl7
+	zkV7eKoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMPBI-0000000AhHA-2hS9;
-	Tue, 03 Jun 2025 10:47:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uMPBJ-0000000AhHo-3Taf;
+	Tue, 03 Jun 2025 10:47:45 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMOXE-0000000Ae0H-3NS3
+	id 1uMOYM-0000000Ae6R-14t7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 10:06:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1098DA4FB9D;
-	Tue,  3 Jun 2025 10:06:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0064C4CEED;
-	Tue,  3 Jun 2025 10:06:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748945179;
-	bh=gi3oft0WXr5q3unDMkBIoaq0APtn0DLl7D3nsEpEc84=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Cki1LqXLNSaVM17Fheel8BhlA2LKQfwpzuEihn19HWH5/oI3cAjk/TyxkHG2xLtk5
-	 T86Hr0V+OGRmjOKIPOFe+/LCfFafydPPZttwDg4Gu+8LBdiQhWVkNUaQqLFRQRtq0F
-	 DSNJlOvstEBfy+f9Nfbnsv1UXmD/uG2QGiBv9/CxM1E9NeSZIrAWdulWi61uNpZuBC
-	 Zs+yn1d7DoTcfl0Akt8zRAv7Yc+pFNN+2h1qLMqw6rsz8svATxk0XrWuC1aBnYd6Dl
-	 DVdVILU0WCYwte8lrFswLQ/Zr3HQ6VoW2wZpd/MYUn9Woi8bSdtoidIJyzVO4M8aBm
-	 eWhSC9lmGjdkQ==
-Date: Tue, 3 Jun 2025 11:06:15 +0100
-From: Lee Jones <lee@kernel.org>
-To: George Moussalem <george.moussalem@outlook.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, arm@kernel.org, soc@kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Juerg Haefliger <juerg.haefliger@canonical.com>,
-	Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
-Subject: Re: [GIT PULL] More Qualcomm driver updates for v6.16
-Message-ID: <20250603100615.GF7758@google.com>
-References: <20250520024916.39712-1-andersson@kernel.org>
- <20250603084615.GA1728274@google.com>
- <DS7PR19MB8883BFF2E80F50F4F6CCC5E09D6DA@DS7PR19MB8883.namprd19.prod.outlook.com>
+	Tue, 03 Jun 2025 10:07:31 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 553A7RYU434801;
+	Tue, 3 Jun 2025 05:07:27 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1748945247;
+	bh=9envwYzZ92clWlakOTwEB8OwjhYiaIjEdDGYyGrbM9I=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=uc9ZcM797rALfcu0pPISYFmZytwxqQlE2KwzzfUqTNUgiSkCBtCP5Zo74i2mAoVZo
+	 hyLpyo/bd//gNNDXeD8peqymFytRcuiYxu7Q4MP6MuiF4rN1QdwLsF8+H4iJ6Mwk55
+	 MEm+O+HqhPCWWn9hWwb0LDrxoIt3e4FgT8PU69YA=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 553A7RPW3669887
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 3 Jun 2025 05:07:27 -0500
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
+ Jun 2025 05:07:26 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 3 Jun 2025 05:07:26 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.227.169])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 553A7QFm270530;
+	Tue, 3 Jun 2025 05:07:26 -0500
+Date: Tue, 3 Jun 2025 15:37:25 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Jayesh Choudhary <j-choudhary@ti.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <s-vadapalli@ti.com>, <rogerq@kernel.org>,
+        <afd@ti.com>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 2/4] arm64: dts: ti: k3-j7200-main: Make the "scm_conf"
+ node a "simple-bus"
+Message-ID: <953c4aae-9010-488b-aa11-4cc540cef127@ti.com>
+References: <20250603095609.33569-1-j-choudhary@ti.com>
+ <20250603095609.33569-3-j-choudhary@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DS7PR19MB8883BFF2E80F50F4F6CCC5E09D6DA@DS7PR19MB8883.namprd19.prod.outlook.com>
+In-Reply-To: <20250603095609.33569-3-j-choudhary@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_030620_906799_D78C2654 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250603_030730_387703_80D429B0 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +88,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Jun 2025, George Moussalem wrote:
-
-> Hi Lee, please see inline.
+On Tue, Jun 03, 2025 at 03:26:07PM +0530, Jayesh Choudhary wrote:
+> The "scm_conf" bus need not be "syscon". Now that we have "pcie*_ctrl"
+> child nodes for "ti,syscon-pcie-ctrl" property in "pcie" nodes, change
+> "scm_conf" node to "simple-bus".
+> Also remove "reg" property as it is not needed by "simple-bus".
 > 
-> On 6/3/25 12:46, Lee Jones wrote:
-> > On Mon, 19 May 2025, Bjorn Andersson wrote:
-> > 
-> > > 
-> > > The following changes since commit 2c04e58e30ce858cc2be531298312c67c7d55fc3:
-> > > 
-> > >    soc: qcom: llcc-qcom: Add support for SM8750 (2025-05-12 22:26:21 +0100)
-> > > 
-> > > are available in the Git repository at:
-> > > 
-> > >    https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.16-2
-> > > 
-> > > for you to fetch changes up to 936badf282388be78094e55bd5e2c96f86635e48:
-> > > 
-> > >    docs: firmware: qcom_scm: Fix kernel-doc warning (2025-05-19 18:04:28 -0500)
-> > > 
-> > > ----------------------------------------------------------------
-> > > More Qualcomm driver updates for v6.16
-> > > 
-> > > Allow HP EliteBook Ultra G1q to use QSSECOM for UEFI variable acecss.
-> > > Add missing compatible for IPQ5018 TCSR block. Fix a kernel-doc warning
-> > > in SCM driver.
-> > > 
-> > > ----------------------------------------------------------------
-> > > George Moussalem (1):
-> > >        dt-bindings: mfd: qcom,tcsr: Add compatible for ipq5018
-> > 
-> > Why is this commit in here?
-> > 
-> > Where and when did you pick this up?  I don't see anything in LORE.
-> 
-> https://lore.kernel.org/all/20250512-ipq5018-syscon-v1-1-eb1ad2414c3c@outlook.com/
+> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
 
-This is the thread confirming that I had accepted this into the mfd tree.
+Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 
-I'm asking how / why this was applied to arm-soc via the qcom tree.
-
--- 
-Lee Jones [李琼斯]
+Regards,
+Siddharth.
 
