@@ -4,99 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C53DC5B555
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8D6C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 14:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M2tOvYIRYhJ3zgazeT9iy9SxHIfkqCxujQJZWAlLZ4g=; b=G8cu6ARl4B8/y1srb+BjjUB2iQ
-	QhgTi2o8A2k2IEBKarnwoWLHC9FCanUfZseqEOMoxmmfzN8nZEJZOritqSSyZNJsjCKuON7hcZEm9
-	AkSP/BPF7ycNscSEsqnQUScCnAxs/CdmEv3ezkUXnWi8gyfRPaE6WFE+irvUaeW0hS+oTHaigykzW
-	AXLrlmbUuwTjwsBGSpwdMhK3olSk9tf7qXWTasy1mQ2t0nSaSDUIZiXOzh+xfIbwVgcAo92QNNJ9E
-	kyc9H/jSq97xxDjYTda7wOSjP19LoEL+nL0JNoU8QMb4eE4Q+MLV5auJnQJEl8kdP/Qh7MmC+kvzl
-	pIlFxXvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TvTLKvSQpuCiDdffaS3I8x/SM0bH9fBSa3d9YrdgdKc=; b=E1Fjj3XXS94QumGhwQ44JAkkN1
+	AtMc1gq0gbPNiWCn+4zpGG5mNWfEAMg9HEMr1AJDXmmwVw56Vgz78vCb2CM4sRDEWlImP4Ttea2U3
+	vyWsT/uhnvR9ydBppm0/0WDN4uUdoLKT2jcAO7J47f7FNiBJj13dnf0Tk3xJqIUH7oldrTsgXifxb
+	o8VclMsjy9f+GAbx1QI8AUb6S+G88cUn2fQV9C3qvH4QWhndbGRUbjhTIbtCaKJbw0KyAzbbIrNHE
+	FDLxY/KYExu3faO+BlCbhIMrcSBtZz9+GTnCQTrtIQKLIVfjj5MCP00R2Jww0Efr/Ao1WzGeZf6mk
+	TX30Tcgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSrS-0000000BBXe-3WKC;
-	Tue, 03 Jun 2025 14:43:30 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1uMSzB-0000000BCsv-2UNp;
+	Tue, 03 Jun 2025 14:51:29 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMRp8-0000000B3Tn-0jtQ
+	id 1uMSwy-0000000BCbP-2Xmq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 13:37:03 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7d0a47f6692so416882285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 06:37:01 -0700 (PDT)
+	Tue, 03 Jun 2025 14:49:13 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-442e9c00bf4so38198545e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 07:49:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748957821; x=1749562621; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=M2tOvYIRYhJ3zgazeT9iy9SxHIfkqCxujQJZWAlLZ4g=;
-        b=Dfc6GmWeVqUzMUenKrxDoOheptcWrT5Fa4zfwXVK6FcaTCGvNWlCuQ7OwCKk4f2lch
-         jo3mcPypzBEetBifwg/ABFWmp2dRpYOH8pltTQWG3dF/pJ5gH8LUgMhz1PjKS98POvq8
-         CRK1mmZ1068vQ2pNEwlFW9IKv2btUVCH1l+7je8mKM7oWGAZtYklZ0/WDsnxTvAM7Lrf
-         gpVMqEvscM7LcCs3zvpKSNM++YyQvmP1sDK9BLibmIUvzntbyHHdzAloV5gIrdNL8un8
-         QNAXJqbvU4lp05GaAYh44l032HjHYZE/4Eu5DCN2OO/vIV68emyt69gX5NE1OOuepw1G
-         o/rg==
+        d=linaro.org; s=google; t=1748962151; x=1749566951; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=TvTLKvSQpuCiDdffaS3I8x/SM0bH9fBSa3d9YrdgdKc=;
+        b=PuYqM+WKcAPny1+EA+wKqExUw5Q/fy8/ryRXpMZjpU0Ij0VtQhzWS8CEPtv7qly1LY
+         547U4rDnctm8LPN9+q4UCy4K2q6kw/GjXYtzFWwZeRMzxRM133nINfMauC8AWBBiJoqE
+         ShzEgNIXw/F4dpyOVLN7isnPU38hHoU5Tj0Y8kw/uydk2Y3ZkRRmBfBkLgEHPuhZFLRu
+         jSvaJXBBdUhoYqFS1UkxWRnHmjGKsjFZWsjvVB2N010CHwJdY+u0fyROPAvFPkXpFFSm
+         NQKUDOUiz1QiaizAlCzYphnVRp62BPx9jDjoCPfUxBhOnuDJpbZTdfRxL/gMezNP/Rz5
+         /PxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748957821; x=1749562621;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M2tOvYIRYhJ3zgazeT9iy9SxHIfkqCxujQJZWAlLZ4g=;
-        b=pXeyUo1kqXpy5zVLZ2HtpJMWMirXqF8yIczUjsXbrTSi1r1n8p5JC3DWgZXUmVXhE5
-         itcURSgnMzWAiVQCt3n/gsrmJQRmQ/IyEJ0pK5uMkeW6pI0owfX2r9pviy+SX17LZIQa
-         6BeShXCvNuxVG/DKBpebYCFJxCx+GktgXiplPjUmCw0Xwb2iX6eMKZcw+lxhnFHyUBxM
-         htFxe2wLMjfXSjJWrenYt7jFyRw/1qHcYc5HfHgH/b3IkAN2At7I+fR4qSm7vBXM8lus
-         RM0qyXc/ErkdTVvFj8e5qRTXAyLinnPff0+cDqf234w2noCSYFNue3wX1Xv7by8avNnh
-         JtQA==
-X-Forwarded-Encrypted: i=1; AJvYcCXBw7yro8zeKJkewVRvMUJ2i/NV7UwA+NoOgCabS0hEdvn876/3qZgL6h2WzxnOWx8mPwuU1IYnKFxx9oPrXnA8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVI3FtjAFaFm+pDcqMXEJ8mfIT732eLcPcOIyPzzXGXGEKlR7p
-	EDiRamr2JFXGuVMhDXfIdxyzjdfLd19EWI4RJOS4asiNmPIdKMHpK9q0B7qx8lyHq0A=
-X-Gm-Gg: ASbGncsABk0Q6vwOLuv+wtck+5qLo6CVIlATELbeIia+ZNeWTRs3oyN+QALw47c6t02
-	CFIzBrUkQCGJ/KZnGq2hFYvex8ygdLI618EPMlW9Iruje5PZKvIVzx4v3oxVG2KbUor32FXEzwq
-	Iu5bKWF52a95M1cq1n2X+RqLJ8J5bY2vMFJJ/SMYDaHIhK7IWKFaVs6mgwwWNchXPaSRm9g6dGw
-	jdVu9aTacQWgiYzK60PalLOiczGI2lXVupTmDCa7RlVuR0GTgJ4VfJENeird/KSW9Vh89dAhN+u
-	KYBQiLg4nvA+GTHgdF5o2FalLfwX++jluA8vIQYC8dipXRMCS6wTa4vw/13G7qhufHdOZLqh0U9
-	De3iMu1pLfiZ7lYdt0SrfHo4VE+g=
-X-Google-Smtp-Source: AGHT+IF/1nQKKWghBymIv6kapapYp3T/T+mDb2uBcjAQYD1rkFwd/p2CMx7wy82AG8RXeUKzw729SQ==
-X-Received: by 2002:a05:620a:4408:b0:7c5:3d60:7f8d with SMTP id af79cd13be357-7d0a1fb91a0mr2626422385a.19.1748957820692;
-        Tue, 03 Jun 2025 06:37:00 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d09a0fa38fsm842635185a.35.2025.06.03.06.37.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 06:37:00 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uMRp5-00000001h5Y-2rWO;
-	Tue, 03 Jun 2025 10:36:59 -0300
-Date: Tue, 3 Jun 2025 10:36:59 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Alistair Popple <apopple@nvidia.com>
-Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
-	dan.j.williams@intel.com, willy@infradead.org, david@redhat.com,
-	linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
-	zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
-	balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	John@groves.net
-Subject: Re: [PATCH 03/12] mm/pagewalk: Skip dax pages in pagewalk
-Message-ID: <20250603133659.GD386142@ziepe.ca>
-References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
+        d=1e100.net; s=20230601; t=1748962151; x=1749566951;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TvTLKvSQpuCiDdffaS3I8x/SM0bH9fBSa3d9YrdgdKc=;
+        b=Mgr+wlmjmfNjsT7TbAKzU0s63URzuXE93fxzz9jZe2JyqtG3OaJ0BxXcTFkgMQju5D
+         YiCrYWoORGuPX99X5Ryvx4+rnmS7MlSrSEEZ6JUvp1Hc230P+Sx0v6ulpoJt57m/j/QZ
+         qhYARpGKUWLrUESTwYQrUmNtHNEsHNfdSot8fpEURTzczaV+VW6D9Y4mNJnLIPD/R3fT
+         WvRo7MF/mgQPEVgW0x0eGXUwNCjIUJakI3Y8uRDL9tNk8dVZUGEeMBna02dnDEknaMFW
+         Vmjo9R9K6Xoz5HAfnU1ajhk4gGlLxAKh6rWOfywgvCddQUB0FXWZ+KtZl8Baw5ptf3Tu
+         /XTA==
+X-Forwarded-Encrypted: i=1; AJvYcCX/u34O2UWoYwK1fzzcG45oRZiKUhjEMP+6jq70NuPtCZni2UThiPM/Etj5JDHrgMYc7d5tFbAfWA2U4l5l0wG1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzj4DELO9l1SR/UUnoigtq8m+1ZB5LMk0cKKVBGH7T+hIXm/HzY
+	DYOSG4RihKL+RCg8ACqlE23AjXVaswHitvqC/icvCs2IvIXf7qhyFPslMlnRPO28CxE=
+X-Gm-Gg: ASbGncuzef4y0Nu5VIlVjuc/ToWQJ6WosoQlmEl1PsXk6g6IHu4MbO1USP+k+davuCm
+	2RJAz0fTpheIqtp3l7HfyRzKukg1QCrPhl/wfGBQHwuUFCrzVxLmJ4AE7VYKB6Y2e1KlMx5gkqU
+	kq/viKlpJ9jJtScpsBI6MNMOXL3leli8nPhpC6pRRZdSDptUd2y7yCjagl8KEgRyhFwGoOCwPso
+	vyyEIwxOoSdo4zt24HeGHcNvTcTzAXKLbRRAIujjXal6s7ys3lB0lZtQkz2duBDMsBB8kqPVVhy
+	P5LFkgvbyGtTyjYMrk0L74L16bqNIzjFZ/cv2KcxPmpvssN5C4tKTyHr
+X-Google-Smtp-Source: AGHT+IGM1w69XaPnMZ5l/p3c3JHC4HJog7OJudCJs8q/Ej/AjRQlWLqiM4/E7z8dnl7nT/42D+ZMBw==
+X-Received: by 2002:a05:600c:681b:b0:43d:fa5d:9314 with SMTP id 5b1f17b1804b1-450d887f9ecmr126931655e9.32.1748962150772;
+        Tue, 03 Jun 2025 07:49:10 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d8000e3esm164104105e9.22.2025.06.03.07.49.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Jun 2025 07:49:10 -0700 (PDT)
+Message-ID: <fd3a797f-3912-45e3-9af8-c978e25e60dd@linaro.org>
+Date: Tue, 3 Jun 2025 15:49:09 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 06/11] coresight: Control path during CPU PM
+To: Leo Yan <leo.yan@arm.com>
+References: <20250516160742.1200904-1-leo.yan@arm.com>
+ <20250516160742.1200904-7-leo.yan@arm.com>
+Content-Language: en-US
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, Yabin Cui <yabinc@google.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250516160742.1200904-7-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_063702_219019_E370DBED 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20250603_074912_658382_EF57625D 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,25 +101,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:32:04PM +1000, Alistair Popple wrote:
-> Previously dax pages were skipped by the pagewalk code as pud_special() or
-> vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
-> refcounted normally that is no longer the case, so add explicit checks to
-> skip them.
+
+
+On 16/05/2025 5:07 pm, Leo Yan wrote:
+> This commit extends control over CoreSight components on an activated path
+> during CPU PM.
 > 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> An activated path is recorded in the 'path' field of coresight_device
+> structure.  The patch pointer is cleared when the path is disabled.
+
+patch -> path
+
+> Traverses the links on the path to disable and re-enable components during
+> CPU low-power modes.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->  include/linux/memremap.h | 11 +++++++++++
->  mm/pagewalk.c            | 12 ++++++++++--
->  2 files changed, 21 insertions(+), 2 deletions(-)
+>   drivers/hwtracing/coresight/coresight-core.c | 94 ++++++++++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 94 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 8f565bb3c535..075d485dcea5 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -596,6 +596,94 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>   	goto out;
+>   }
+>   
+> +static int coresight_save_path(struct coresight_path *path)
+ > +{> +	u32 type;
+> +	struct coresight_node *nd;
+> +	struct coresight_device *source, *sink;
+> +
+> +	if (!path)
+> +		return 0;
+> +
+> +	source = coresight_get_source(path);
+> +
+> +	/*
+> +	 * Do a sanity check as the source device must have been enabled when
+> +	 * run at here.
+> +	 */
+> +	if (coresight_get_mode(source) == CS_MODE_DISABLED)
+> +		return -EINVAL;
+> +
+> +	sink = coresight_get_sink(path);
+> +
+> +	/*
+> +	 * Disable links. Deliberately to skip disabling the sink to avoid
+> +	 * latency.
+> +	 */
+> +	nd = list_first_entry(&path->path_list, struct coresight_node, link);
+> +	list_for_each_entry_continue(nd, &path->path_list, link) {
+> +		struct coresight_device *csdev, *parent, *child;
+> +
+> +		csdev = nd->csdev;
+> +		type = csdev->type;
+> +
+> +		/* Adjust type for LINKSINK */
+> +		if (type == CORESIGHT_DEV_TYPE_LINKSINK)
+> +			type = (csdev == sink) ? CORESIGHT_DEV_TYPE_SINK :
+> +						 CORESIGHT_DEV_TYPE_LINK;
+> +
 
-But why do we want to skip them?
+Not sure if we want to disable helper devices too?
 
-Like hmm uses pagewalk and it would like to see DAX pages?
+> +		if (type != CORESIGHT_DEV_TYPE_LINK)
+> +			continue;
+> +
+> +		parent = list_prev_entry(nd, link)->csdev;
+> +		child = list_next_entry(nd, link)->csdev;
+> +		coresight_disable_link(csdev, parent, child, source);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void coresight_restore_path(struct coresight_path *path)
+> +{
+> +	int ret;
+> +	u32 type;
+> +	struct coresight_device *source, *sink;
+> +	struct coresight_node *nd;
+> +
+> +	if (!path)
+> +		return;
+> +
+> +	source = coresight_get_source(path);
+> +	if (coresight_get_mode(source) == CS_MODE_DISABLED)
+> +		return;
+> +
+> +	sink = coresight_get_sink(path);
+> +
+> +	list_for_each_entry_reverse(nd, &path->path_list, link) {
+> +		struct coresight_device *csdev, *parent, *child;
+> +
+> +		csdev = nd->csdev;
+> +		type = csdev->type;
+> +
+> +		if (type == CORESIGHT_DEV_TYPE_LINKSINK)
+> +			type = (csdev == sink) ? CORESIGHT_DEV_TYPE_SINK :
+> +						 CORESIGHT_DEV_TYPE_LINK;
+> +
+> +		if (type != CORESIGHT_DEV_TYPE_LINK)
+> +			continue;
+> +
+> +		parent = list_prev_entry(nd, link)->csdev;
+> +		child = list_next_entry(nd, link)->csdev;
+> +		ret = coresight_enable_link(csdev, parent, child,
+> +					    coresight_get_source(path));
+> +		if (ret) {
+> +			dev_err(&csdev->dev, "Failed to restore\n");
+> +			coresight_disable_path_from(path, nd);
+> +			return;
+> +		}
+> +	}
+> +}
+> +
+>   struct coresight_device *coresight_get_sink(struct coresight_path *path)
+>   {
+>   	struct coresight_device *csdev;
+> @@ -1605,9 +1693,15 @@ static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
+>   	case CPU_PM_ENTER:
+>   		if (coresight_save_source(source))
+>   			return NOTIFY_BAD;
+> +
+> +		if (coresight_save_path(source->path)) {
+> +			coresight_restore_source(source);
+> +			return NOTIFY_BAD;
+> +		}
+>   		break;
+>   	case CPU_PM_EXIT:
+>   	case CPU_PM_ENTER_FAILED:
+> +		coresight_restore_path(source->path);
+>   		coresight_restore_source(source);
+>   		break;
+>   	default:
 
-I guess it makes sense from the perspective of not changing things,
-but it seems like a comment should be left behind explaining that this
-is just for legacy reasons until someone audits the callers.
-
-Jason
 
