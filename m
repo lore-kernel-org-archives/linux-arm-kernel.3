@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45155C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 07:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C6EC5B559
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 07:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Ta7LfnKu0JVMCRvQ13ydQKE08jzT9C56DwSedw5ZmA=; b=z8GQzI+fTha6bTFEDi5JQ1MlMG
-	y4Xp6yvCfzbmJnf4JPsRzS6C89ZZjPpK02Vpu6qEpN0ctGhBr5JpRUlznN3mv2pyYEmPohMkmKF7b
-	IfL1e8YadrSagNpBlpEy5Mgof/Vy/1NeKjnr2SmLAPma7upq4MaCgP2qn3iN06WKuSlCEgPGos9Tg
-	jx3rgAyxGz52MEokSv69mzRujO0x8tSFwVo4gxyofSY3BuepZkyTSqAprFgT61EHcnkEAlnWVXlZW
-	d8zph2tERKGEK0fkEfNRhDOp0syNDE8V1kE1UD+OrSlnz9VJ2oShViYMC8U3el5ANi/QGphUtKE14
-	38MG0mog==;
+	bh=d3bp1/h4aTkMYDAWov0o+JjoeHD9wxmbI6JbSH5wvCI=; b=ZEaA3DBSBg0+hCekkyE/VcK6J3
+	zwhy2+JX4ayEuxlcUrrEfnXaAINFkgjwEyiELXaWFoGgs1+qZn40xTSKgSootadZVHirjqZOD1tPD
+	cSFRqreyyPzrpxMQiK3huIKxF+L7k45Bbj0tHMUgkeKrDQkV0m7b7uks3hjCThdTCcF5wHXxSdzK8
+	httiiGujpkwgRzJahDjLc5CULA2EtKjNgU1Obp9gNhs1UtVxsqlU+lrl7EvrmI36f3xj9S9c4YO28
+	cEuMvGhjaXiOQg97TwUkbJMUrmAfrT9hyh3FZ/GHCQTTg/BOckZfu3ye9blpDbPL0Fsqo9lYxKfV1
+	vtZgfXlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMLru-0000000A60u-3RqK;
-	Tue, 03 Jun 2025 07:15:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uMLu5-0000000A6Qk-2YX7;
+	Tue, 03 Jun 2025 07:17:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMLlM-0000000A4G7-1oAH
+	id 1uMLlM-0000000A4G4-1tYQ
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 03 Jun 2025 07:08:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F19054A643;
+	by sea.source.kernel.org (Postfix) with ESMTP id BB93844D1A;
 	Tue,  3 Jun 2025 07:08:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE42FC4CEF3;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79168C4CEED;
 	Tue,  3 Jun 2025 07:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1748934523;
-	bh=K/RtzbQ+b7dH8ZrEJdeD2NQuerIL9r6Cxc/FT5nhyEQ=;
+	bh=4EpU7DjGd7XLWK7BiqyBzX+vCZ8rizhlDzgNbdOBBTc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZHeMJ/WQsfvNjiBObMaqQKbveVze3OVotUDM2xxNQ605ImX/SjtN+cMCZwDmRGRpg
-	 VYF3I4Q9Dby8zBTB364ppewvAWhmaXGp0BhBhRrXaQFx20ltvq+ttSdQWnbGeLlk3R
-	 3hNhlAobqz+FgtxKUGTw23YQq3p5HR0rzaedOznouE3hFzCXM1H2szRF0c0d1ii4RI
-	 Z+ZqhrStoNlErca/lTUr0ME1aD1JTNyMCxzmWqm8S58GZhF992PI8jKieQNC8CNE/c
-	 VeaXKjtSoXDIF2BlzCbD1e6si5uGGvYW+tmhUz1dTqwyHpyIbm0tbdOGT0e/JJ9PE9
-	 /l/3oRo8qP3Ow==
+	b=by/kAzviBMonMfF4KxbYH8iBCN5eBahZUSK89pDRQHJBhQWB4gNfGZBnrSkIaag4y
+	 qoR4TRj6HY3ZAB7nMwVr+BnX2JFyEJI9p42EnovUQtHvnosi8XbxpAjH+ZDTin9hQx
+	 CJeHh0uqrMWYHqMp6bnzN//YCLEtaQk527ymYEWO+I5i4CThOnQk3Mr3B8wpSaR8LY
+	 eT4Rr3QpqomzK/LPgez2JZLg5QQjVC7g/8b3WJGN67mirjbkXlRhLLVMWoIGKjjYin
+	 UKvnzXge5gM6cZlN8eGvA+oOQAWnVzNP/1e4x2Oc7cozZ09uzEjVeSporzjjXbPgVZ
+	 w2Rt9fuH4iKwA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uMLlJ-002isr-TL;
+	id 1uMLlJ-002isr-IX;
 	Tue, 03 Jun 2025 08:08:41 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -55,9 +55,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 4/4] KVM: arm64: Make __vcpu_sys_reg() a pure rvalue operand
-Date: Tue,  3 Jun 2025 08:08:24 +0100
-Message-Id: <20250603070824.1192795-5-maz@kernel.org>
+Subject: [PATCH v2 2/4] KVM: arm64: Add RMW specific sysreg accessor
+Date: Tue,  3 Jun 2025 08:08:22 +0100
+Message-Id: <20250603070824.1192795-3-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250603070824.1192795-1-maz@kernel.org>
 References: <20250603070824.1192795-1-maz@kernel.org>
@@ -68,8 +68,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_000844_493213_18D315F9 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250603_000844_542849_091892FA 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +84,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we don't have any use of __vcpu_sys_reg() as a lvalue,
-remove the in-place update, and directly return the sanitised
-value.
+In a number of cases, we perform a Read-Modify-Write operation on
+a system register, meaning that we would apply the RESx masks twice.
+
+Instead, provide a new accessor that performs this RMW operation,
+allowing the masks to be applied exactly once per operation.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/kvm_host.h  | 10 ++++++++++
+ arch/arm64/kvm/debug.c             |  4 ++--
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c |  4 ++--
+ arch/arm64/kvm/nested.c            |  2 +-
+ arch/arm64/kvm/pmu-emul.c          | 10 +++++-----
+ arch/arm64/kvm/sys_regs.c          | 22 +++++++++++-----------
+ 6 files changed, 31 insertions(+), 21 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index c361f8aa16c90..b4ac2f515f94f 100644
+index 3b84ad91116b4..c361f8aa16c90 100644
 --- a/arch/arm64/include/asm/kvm_host.h
 +++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1129,13 +1129,13 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+@@ -1118,6 +1118,16 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+ 		ctxt_sys_reg(ctxt, (r)) = __v;				\
  	} while (0)
  
- #define __vcpu_sys_reg(v,r)						\
--	(*({								\
-+	({								\
- 		const struct kvm_cpu_context *ctxt = &(v)->arch.ctxt;	\
--		u64 *__r = __ctxt_sys_reg(ctxt, (r));			\
-+		u64 __v = ctxt_sys_reg(ctxt, (r));			\
- 		if (vcpu_has_nv((v)) && (r) >= __SANITISED_REG_START__)	\
--			*__r = kvm_vcpu_apply_reg_masks((v), (r), *__r);\
--		__r;							\
--	}))
++#define __vcpu_rmw_sys_reg(v, r, op, val)				\
++	do {								\
++		const struct kvm_cpu_context *ctxt = &(v)->arch.ctxt;	\
++		u64 __v = ctxt_sys_reg(ctxt, (r)) op (val);		\
++		if (vcpu_has_nv((v)) && (r) >= __SANITISED_REG_START__)	\
 +			__v = kvm_vcpu_apply_reg_masks((v), (r), __v);	\
-+		__v;							\
-+	})
++									\
++		ctxt_sys_reg(ctxt, (r)) = __v;				\
++	} while (0)
++
+ #define __vcpu_sys_reg(v,r)						\
+ 	(*({								\
+ 		const struct kvm_cpu_context *ctxt = &(v)->arch.ctxt;	\
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 0e4c805e7e891..1a7dab333f557 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -216,9 +216,9 @@ void kvm_debug_set_guest_ownership(struct kvm_vcpu *vcpu)
+ void kvm_debug_handle_oslar(struct kvm_vcpu *vcpu, u64 val)
+ {
+ 	if (val & OSLAR_EL1_OSLK)
+-		__vcpu_sys_reg(vcpu, OSLSR_EL1) |= OSLSR_EL1_OSLK;
++		__vcpu_rmw_sys_reg(vcpu, OSLSR_EL1, |=, OSLSR_EL1_OSLK);
+ 	else
+-		__vcpu_sys_reg(vcpu, OSLSR_EL1) &= ~OSLSR_EL1_OSLK;
++		__vcpu_rmw_sys_reg(vcpu, OSLSR_EL1, &=, ~OSLSR_EL1_OSLK);
  
- u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg);
- void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg);
+ 	preempt_disable();
+ 	kvm_arch_vcpu_put(vcpu);
+diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+index 34c7bf7fe9def..73e4bc7fde9e4 100644
+--- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
++++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+@@ -70,8 +70,8 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu *vcpu)
+ 		 */
+ 		val = read_sysreg_el1(SYS_CNTKCTL);
+ 		val &= CNTKCTL_VALID_BITS;
+-		__vcpu_sys_reg(vcpu, CNTHCTL_EL2) &= ~CNTKCTL_VALID_BITS;
+-		__vcpu_sys_reg(vcpu, CNTHCTL_EL2) |= val;
++		__vcpu_rmw_sys_reg(vcpu, CNTHCTL_EL2, &=, ~CNTKCTL_VALID_BITS);
++		__vcpu_rmw_sys_reg(vcpu, CNTHCTL_EL2, |=, val);
+ 	}
+ 
+ 	__vcpu_assign_sys_reg(vcpu, SP_EL2,	 read_sysreg(sp_el1));
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 4a53e4147fb01..5b191f4dc5668 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1757,7 +1757,7 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+ 
+ out:
+ 	for (enum vcpu_sysreg sr = __SANITISED_REG_START__; sr < NR_SYS_REGS; sr++)
+-		(void)__vcpu_sys_reg(vcpu, sr);
++		__vcpu_rmw_sys_reg(vcpu, sr, |=, 0);
+ 
+ 	return 0;
+ }
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 4f0ae8073f788..b03dbda7f1ab9 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -510,7 +510,7 @@ static void kvm_pmu_counter_increment(struct kvm_vcpu *vcpu,
+ 			continue;
+ 
+ 		/* Mark overflow */
+-		__vcpu_sys_reg(vcpu, PMOVSSET_EL0) |= BIT(i);
++		__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, |=, BIT(i));
+ 
+ 		if (kvm_pmu_counter_can_chain(pmc))
+ 			kvm_pmu_counter_increment(vcpu, BIT(i + 1),
+@@ -556,7 +556,7 @@ static void kvm_pmu_perf_overflow(struct perf_event *perf_event,
+ 	perf_event->attr.sample_period = period;
+ 	perf_event->hw.sample_period = period;
+ 
+-	__vcpu_sys_reg(vcpu, PMOVSSET_EL0) |= BIT(idx);
++	__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, |=, BIT(idx));
+ 
+ 	if (kvm_pmu_counter_can_chain(pmc))
+ 		kvm_pmu_counter_increment(vcpu, BIT(idx + 1),
+@@ -914,9 +914,9 @@ void kvm_vcpu_reload_pmu(struct kvm_vcpu *vcpu)
+ {
+ 	u64 mask = kvm_pmu_implemented_counter_mask(vcpu);
+ 
+-	__vcpu_sys_reg(vcpu, PMOVSSET_EL0) &= mask;
+-	__vcpu_sys_reg(vcpu, PMINTENSET_EL1) &= mask;
+-	__vcpu_sys_reg(vcpu, PMCNTENSET_EL0) &= mask;
++	__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, &=, mask);
++	__vcpu_rmw_sys_reg(vcpu, PMINTENSET_EL1, &=, mask);
++	__vcpu_rmw_sys_reg(vcpu, PMCNTENSET_EL0, &=, mask);
+ 
+ 	kvm_pmu_reprogram_counter_mask(vcpu, mask);
+ }
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 93d0ca7ed9365..e89d345e42d09 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -791,7 +791,7 @@ static u64 reset_pmu_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ 		mask |= GENMASK(n - 1, 0);
+ 
+ 	reset_unknown(vcpu, r);
+-	__vcpu_sys_reg(vcpu, r->reg) &= mask;
++	__vcpu_rmw_sys_reg(vcpu, r->reg, &=, mask);
+ 
+ 	return __vcpu_sys_reg(vcpu, r->reg);
+ }
+@@ -799,7 +799,7 @@ static u64 reset_pmu_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ static u64 reset_pmevcntr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ {
+ 	reset_unknown(vcpu, r);
+-	__vcpu_sys_reg(vcpu, r->reg) &= GENMASK(31, 0);
++	__vcpu_rmw_sys_reg(vcpu, r->reg, &=, GENMASK(31, 0));
+ 
+ 	return __vcpu_sys_reg(vcpu, r->reg);
+ }
+@@ -811,7 +811,7 @@ static u64 reset_pmevtyper(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ 		return 0;
+ 
+ 	reset_unknown(vcpu, r);
+-	__vcpu_sys_reg(vcpu, r->reg) &= kvm_pmu_evtyper_mask(vcpu->kvm);
++	__vcpu_rmw_sys_reg(vcpu, r->reg, &=, kvm_pmu_evtyper_mask(vcpu->kvm));
+ 
+ 	return __vcpu_sys_reg(vcpu, r->reg);
+ }
+@@ -819,7 +819,7 @@ static u64 reset_pmevtyper(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ static u64 reset_pmselr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ {
+ 	reset_unknown(vcpu, r);
+-	__vcpu_sys_reg(vcpu, r->reg) &= PMSELR_EL0_SEL_MASK;
++	__vcpu_rmw_sys_reg(vcpu, r->reg, &=, PMSELR_EL0_SEL_MASK);
+ 
+ 	return __vcpu_sys_reg(vcpu, r->reg);
+ }
+@@ -1103,10 +1103,10 @@ static bool access_pmcnten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 		val = p->regval & mask;
+ 		if (r->Op2 & 0x1)
+ 			/* accessing PMCNTENSET_EL0 */
+-			__vcpu_sys_reg(vcpu, PMCNTENSET_EL0) |= val;
++			__vcpu_rmw_sys_reg(vcpu, PMCNTENSET_EL0, |=, val);
+ 		else
+ 			/* accessing PMCNTENCLR_EL0 */
+-			__vcpu_sys_reg(vcpu, PMCNTENSET_EL0) &= ~val;
++			__vcpu_rmw_sys_reg(vcpu, PMCNTENSET_EL0, &=, ~val);
+ 
+ 		kvm_pmu_reprogram_counter_mask(vcpu, val);
+ 	} else {
+@@ -1129,10 +1129,10 @@ static bool access_pminten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 
+ 		if (r->Op2 & 0x1)
+ 			/* accessing PMINTENSET_EL1 */
+-			__vcpu_sys_reg(vcpu, PMINTENSET_EL1) |= val;
++			__vcpu_rmw_sys_reg(vcpu, PMINTENSET_EL1, |=, val);
+ 		else
+ 			/* accessing PMINTENCLR_EL1 */
+-			__vcpu_sys_reg(vcpu, PMINTENSET_EL1) &= ~val;
++			__vcpu_rmw_sys_reg(vcpu, PMINTENSET_EL1, &=, ~val);
+ 	} else {
+ 		p->regval = __vcpu_sys_reg(vcpu, PMINTENSET_EL1);
+ 	}
+@@ -1151,10 +1151,10 @@ static bool access_pmovs(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	if (p->is_write) {
+ 		if (r->CRm & 0x2)
+ 			/* accessing PMOVSSET_EL0 */
+-			__vcpu_sys_reg(vcpu, PMOVSSET_EL0) |= (p->regval & mask);
++			__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, |=, (p->regval & mask));
+ 		else
+ 			/* accessing PMOVSCLR_EL0 */
+-			__vcpu_sys_reg(vcpu, PMOVSSET_EL0) &= ~(p->regval & mask);
++			__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, &=, ~(p->regval & mask));
+ 	} else {
+ 		p->regval = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
+ 	}
+@@ -4786,7 +4786,7 @@ void kvm_reset_sys_regs(struct kvm_vcpu *vcpu)
+ 			r->reset(vcpu, r);
+ 
+ 		if (r->reg >= __SANITISED_REG_START__ && r->reg < NR_SYS_REGS)
+-			(void)__vcpu_sys_reg(vcpu, r->reg);
++			__vcpu_rmw_sys_reg(vcpu, r->reg, |=, 0);
+ 	}
+ 
+ 	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
 -- 
 2.39.2
 
