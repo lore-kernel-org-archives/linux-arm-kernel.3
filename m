@@ -4,189 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ADF7C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 09:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48615C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 09:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GM742b0q5QSASKXaDs+ReLU19wmUAKuFxDoKhJnUZR4=; b=TzccvQJ7x2j1GWkKEEPDONejM5
-	HUZ3mvddTUo20ZvIJlgG+EMvATAM3inVtlx22bToHD7ART6B0Ll56ZM3ZQmHTj4b/NTS8Tl4CTuWh
-	bWzCU6QN7YEh2WNsZx2dlbxgZQQVr5b90cTq8ynGUtJdhIkhYWRH3fqyS4hEB1IsWlX9nlOfSKsbw
-	BtZzr23+aKqtnPc4SD+H/Z80DRfOWCz3puh2HJX5O82O0AixRNpfM+2TJN0J6lDMUEfRTRSYel1tp
-	KBCU5SYY30zNtkiQ1W7dQ5XxGiJibXKH6ihtmnywdw74NBeYOLsEx8TS4+4T36Gb9aRA+3Q/h05vQ
-	a/d8rEEA==;
+	bh=FYHolb8g3aB2NB/sFlx0gnVaZzsHJJi5m++84HYa+lA=; b=zkTyacMFqMOR2Vp1pTZ9ZKDSCL
+	6BNvlzYxqBEydSxUEUSkVLhXasqdn/26gnwQKtH+xpDzo5G2fMfRdIRVzD6otaJFoDJIBWxoE2RgW
+	0NUh29wRn9teXZio+zL4lJEVXD5DUWkyauRYshP/di2Pv5VDmrmuIiBk/grxfLwTmNqFL381FqhyO
+	Iyz20LhylT4J+yCSYy/I1uYdKtLbH50Sbb/iIMadTB2O6CcHuuU9wfB/wU1A2fSfO6UZsYg5BaLmT
+	yVkafiVlU7HtUMphZjW0eXhU1jGX6afs13YRdV3RygLglNDH7yf8ewhaetYiC1+P04vr5Wcv4X9Vb
+	itHzpeHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMO5B-0000000AYMU-1vpF;
-	Tue, 03 Jun 2025 09:37:21 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1uMO7K-0000000AYnO-0ust;
+	Tue, 03 Jun 2025 09:39:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMO2z-0000000AXpL-0BGG;
-	Tue, 03 Jun 2025 09:35:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748943305; x=1780479305;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=lcTN9u6U4wPusoDgHmbxmQS3Vq4FBbZ7GEpU0JUTJOk=;
-  b=P2SYJIrhr/cRjlvAP9YsDd+q5gSA8paslBUeZiK6WzBvejrnUuIru4t9
-   MTqa1iiTQBSPGB1EBWCRZJaQQiOfPuZb3y6nWPe8BndW95ZN/f3mwyCf0
-   s/v5CeCfKJO6cz4gPqPC1m40gu9VTfIVSM4ews0+1sqMD/RMev3Zj5WJ7
-   qFG4XIijIsX9Y4ylH6dyI89fZi/C40QQX5OBXY1pcIiVosTZsmud9gi3H
-   g4PDgJexDAKp34FlXGWBi40H/R2a2XtDX+JkD1DBa8J7XUHzWLn0NJwA2
-   lb8lzaAryEy2xdAEsASAJ5pLCyCFIPVDiT31POiqQzTOggv0Sr0f/8a/9
-   w==;
-X-CSE-ConnectionGUID: WZN5VJOfRUKZO8OhO5vqSg==
-X-CSE-MsgGUID: yJzmezYlSEWJaNSYTjqqQg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11451"; a="68528282"
-X-IronPort-AV: E=Sophos;i="6.16,205,1744095600"; 
-   d="scan'208";a="68528282"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2025 02:35:02 -0700
-X-CSE-ConnectionGUID: tFM9qJzDSLCz97Rq+DolFQ==
-X-CSE-MsgGUID: wRGssukAQnigw9ZAJBibIA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,205,1744095600"; 
-   d="scan'208";a="149854668"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jun 2025 02:35:02 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Tue, 3 Jun 2025 02:35:01 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25 via Frontend Transport; Tue, 3 Jun 2025 02:35:01 -0700
-Received: from NAM11-DM6-obe.outbound.protection.outlook.com (40.107.223.42)
- by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Tue, 3 Jun 2025 02:35:01 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mOuSg3k1Q+GbskNsou52p7F+WOVje4YztdmCFFBo9MsMSzwAfIfJpxVYLJkkF9fSQtk8NQuzXBsp1r87Ycn/I1EgOCeWda2XDnX1/NnbC9ytMlqB0/Wigs9x8AorimIYkKuLtQC9vFSg6DhjQ5CpXPhRYhB3RT0bJHRIgCy1q4CuRUivVW6KiHzMlXPB7t9o8W4wbqaC7xJYqmPilW0sNEg22Ja/OJrhGzj0TSkYg5SWXEKpLMSuCx90WJpRnhxgyVLjm2INMV5cgGcqqY2M70nDfW6Elvzh4mHA1AM6yAuToiLKAS1IBNY4uZXsusA2X0kgi8wypuxCmg851vGguQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GM742b0q5QSASKXaDs+ReLU19wmUAKuFxDoKhJnUZR4=;
- b=v9JKd/U0Fx4VTAKnVGcAafGqWbztD3yic85kepOTAMJtkGYq6mG+d4MMM38QZu8Z7p8rmBqXOh+fjhPkV9QcrpoVng1XHdVoIQBblRNUXaZ+XmEkGNowic1GvcEKAp+rqjeRXsyq6ZhiPeiVkWpycnFf80I7/4iFuhCtodLCI+cP7qqke3jzLiBrbJqOT1L+ttKCN2TsYLp0RSTR4B1G7vhjP2Td6a/XUn0t5uN6oDBlGYkn0Ao7NWGP6fGQ+BH73yUyt9IJx7ccrtmaZIsW1IlQ1EnRGQN3xgLKIYUuVPmVhsMeNgGyHM6J1mzlaFb+fEHCdht965K5IIimi52t7Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SN7PR11MB7540.namprd11.prod.outlook.com (2603:10b6:806:340::7)
- by CY8PR11MB6964.namprd11.prod.outlook.com (2603:10b6:930:57::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.29; Tue, 3 Jun
- 2025 09:34:52 +0000
-Received: from SN7PR11MB7540.namprd11.prod.outlook.com
- ([fe80::399f:ff7c:adb2:8d29]) by SN7PR11MB7540.namprd11.prod.outlook.com
- ([fe80::399f:ff7c:adb2:8d29%6]) with mapi id 15.20.8792.033; Tue, 3 Jun 2025
- 09:34:52 +0000
-Date: Tue, 3 Jun 2025 11:34:40 +0200
-From: Larysa Zaremba <larysa.zaremba@intel.com>
-To: Jinjian Song <jinjian.song@fibocom.com>
-CC: <chandrashekar.devegowda@intel.com>, <chiranjeevi.rapolu@linux.intel.com>,
-	<haijun.liu@mediatek.com>, <m.chetan.kumar@linux.intel.com>,
-	<ricardo.martinez@linux.intel.com>, <loic.poulain@linaro.org>,
-	<ryazanov.s.a@gmail.com>, <johannes@sipsolutions.net>, <davem@davemloft.net>,
-	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <angelogioacchino.delregno@collabora.com>,
-	<linux-arm-kernel@lists.infradead.org>, <matthias.bgg@gmail.com>,
-	<corbet@lwn.net>, <linux-mediatek@lists.infradead.org>, <helgaas@kernel.org>,
-	<danielwinkler@google.com>, <andrew+netdev@lunn.ch>, <horms@kernel.org>,
-	<sreehari.kancharla@linux.intel.com>, <ilpo.jarvinen@linux.intel.com>
-Subject: Re: [net v3] net: wwan: t7xx: Fix napi rx poll issue
-Message-ID: <aD7BsIXPxYtZYBH_@soc-5CG4396X81.clients.intel.com>
-References: <20250530031648.5592-1-jinjian.song@fibocom.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250530031648.5592-1-jinjian.song@fibocom.com>
-X-ClientProxiedBy: VI1PR06CA0174.eurprd06.prod.outlook.com
- (2603:10a6:803:c8::31) To SN7PR11MB7540.namprd11.prod.outlook.com
- (2603:10b6:806:340::7)
+	id 1uMO3q-0000000AY6W-0Fh5
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Jun 2025 09:35:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4674EA4FD8B;
+	Tue,  3 Jun 2025 09:35:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 687BEC4CEEF;
+	Tue,  3 Jun 2025 09:35:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748943356;
+	bh=KpRxVXq9z9pj1izRGg15ByyMBBPEY2dZxPTHXE+8dg8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FYRjX0jw0MB9HHfTfzm5EVGq8w699ism5RlT1dxhGjb6WvLvEQJ8MXTI8UZDnbgX4
+	 4xpIE8VuHt3L2KpatZ1hSoPicrshhe5V8uyxn7sp6DBNvgH2JKMBZtnZLCCN3YRce9
+	 glo4NhFhk8BWqtR+Qkcpt9GReOAi20JscwCMp0Nvh8ytpkxY/o/D3UAaO/JqFfOCGo
+	 QEX3p3eC/NfZpKlS2nZPff28t8TVUqDfdx8Tex131nAtk9WH0DlaZ3LCWA8my5cavv
+	 hnmts1HtCnDWIQ4xDln8RzTlQ+LKrgEwGaISHcb5jKsb8VKJkhXPjphBT34ALUchGl
+	 5owQF3BcR/aWw==
+Date: Tue, 3 Jun 2025 11:35:51 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>
+Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device
+ allocation
+Message-ID: <aD7B96BiSb6mK9Bj@lpieralisi>
+References: <20250513163144.2215824-1-maz@kernel.org>
+ <20250513163144.2215824-4-maz@kernel.org>
+ <0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN7PR11MB7540:EE_|CY8PR11MB6964:EE_
-X-MS-Office365-Filtering-Correlation-Id: 72c705f7-f499-49a4-0bbe-08dda281e43b
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|10070799003|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WPyRM8yfbwiNeCBehKeqDyXD2RVD61bHtFFR3KhWtYLFFuxW54FAz/RIVjul?=
- =?us-ascii?Q?jdPcll14m7uziGDmXm9vZoS1MS3FeQX5aciS9sf4GPkBO8HJgqqeuLpOQ1dm?=
- =?us-ascii?Q?LNtZLDII/6ACTyOXws27VXefGlR69LaquvnU5ikxUMwpaKdGRIL2SNbgo4cA?=
- =?us-ascii?Q?JUpf9j9GZYV2ZV+BkDQ8tvoJdmi6vtVt85zvYT+vGetDWmH/H2zH6mCsa8Jq?=
- =?us-ascii?Q?ooKDWOUmhvy9Y44Oq8qj9UzCHFNhKkk2PXUFFwdwWqgf3nHl5SjRnM5O/Adj?=
- =?us-ascii?Q?RFdHsZg3dI7RewuuYZZl/P5eus8MGOYJffZSFRt4Gyg+sdUkR+sFKCygGULG?=
- =?us-ascii?Q?M3SQ1w9sLQ8M9fuwyS2eN9MHyY7kTA/aM5ruv6/Uo+XY0Rf3w29S5mNRKqOk?=
- =?us-ascii?Q?SSvvugLkFqUFBwadkW7rXPtevc4Nes9i6Fg3qz26ntYxJtt7ayFPWVnOEbQE?=
- =?us-ascii?Q?ioaYmTqEBrWU+7+G5bhrElxeM4kV5wFErXkarkuMNA8U41mLAmAz1/cphz9R?=
- =?us-ascii?Q?5OYwE4lNUhZZEcPgs1mjc1acVWaxoBcuClK0FZIdhO0EYqcxkUv+5Ptm2dmh?=
- =?us-ascii?Q?0E1F1rcEax9EbWTbDq3y73GHg/p/bmubNdkVvFOSnWoEIyjdEa9QZUN0zX5j?=
- =?us-ascii?Q?/Ug6+i+qFmT3gk7xhQ4fwNVju81V/XtPzL8GyyfuFBHzl2eN12hje0jr6IdD?=
- =?us-ascii?Q?B/SdIkCBgd/5JePBHtwjffJ19KDztOGcXmUZxPtYFFIjlBWAJtKtjZVPrjAZ?=
- =?us-ascii?Q?R9F6UG7Ir7e3q1UjBAStTIkX9XTLRe5np8kRqDOFavoSkc6opDeZ+b5kyxa+?=
- =?us-ascii?Q?mAzWOTzAC2mizn/8CUQs/tOVZ4cL9AFYMIx65q9s9JTK56cx2uNIxMHo6ldf?=
- =?us-ascii?Q?aFmlULnL119ee/slbGgXTrh4fQ6GFr4izaGXN/sq2cRaQET54c+EDyTi7yD/?=
- =?us-ascii?Q?EShl/y1rgEsrtIuMLxdK7eWFM4gF7iwi2F/N/6l3P+oeymo5uehy/PAEjuaQ?=
- =?us-ascii?Q?cj8Q06iawqddQV/BHSeyfq7ZDSPV5D4wpDWyaINKPTOg4P+NBKCTNzToHj6Q?=
- =?us-ascii?Q?m18J//gQZ470EIjXCFaXCzCcFGcjbYx31Hwc5mkstdzEK9O8lg538XB2eXGW?=
- =?us-ascii?Q?CKgO+SM8mMa+cEBiicvUelljOg4d+sua++/3zeF9DsJ6kqD8iY7fL7ywY2KQ?=
- =?us-ascii?Q?Z44Di4AX3FD6DLqEAr1EQ/p3oUThtMLbUskpd0ycGbR598l3//3NcxfDbytU?=
- =?us-ascii?Q?L8VjDMTvtWA4D2cLWVSENZMRmovgD2mhh4Kd/TuYBmjKuPzYz1rLxi4hYu7J?=
- =?us-ascii?Q?lMXiIi40f9QPoVQsaX/gT1wnXP6p0RuiotRgPx95/+a+03iSQ8cGtm3bHq4X?=
- =?us-ascii?Q?MRRABySFj0E+Og0y+cijoVnk5AfRSF+ltJqH0mV46U0XvHCPbxxVgrsy5PTL?=
- =?us-ascii?Q?RNliCONNTSg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR11MB7540.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(10070799003)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nfmQLVVNk8M0xsiaJ1RG41CvqZnMykgv5pFw568l7lbNJ4MAVTRIvw8H0NJ2?=
- =?us-ascii?Q?srGBd4OkVfC2igyYSS4atfOMgYhXsdg/dyD+4kZmJE68SGegn7rGilw2xltI?=
- =?us-ascii?Q?Peq/u73MeVJQUPXWjtObReRKdDHhkdsQz9bGOrZdN7wtsNq5OQkE8SX2JLlF?=
- =?us-ascii?Q?GNWl0Mv23/PBGhg18irEJZb8Y863w4lz2LC3sPD/NnBS1PzffKTn+5oa1iVR?=
- =?us-ascii?Q?gT79X6PSu6NOaqGyJ+i6/l8O/9XuDr6jvGNRB8TfH8mUVyLL7/BNYNxq6ZOK?=
- =?us-ascii?Q?YtkxKzAsdvxAPlcbKL0foya6+SaR9ax06ujsRcB4gAV+GKc69I8e+aXkO0ER?=
- =?us-ascii?Q?2l+0dK8H3spIZBUXmwkslfIzEu1KscNR2OVIPS9ov0+Dtzn1CSJHEWvxO2oW?=
- =?us-ascii?Q?a2hAMscOP4VGS5U1uqYTXYQpb8iZVyATcZVgmJQfiSqrW28XwPbQYmY9p+wD?=
- =?us-ascii?Q?A8/bYZFk/x2SxQLgMnLZpwyP8AkRqYLl/sWqKooDmQQXEYjVDVhE/LcUOFZ2?=
- =?us-ascii?Q?1KZuPcEDIpqXKv6b6LjGe8zZ8gwci3JbUIH/D8nB2qCLe09DVwYEzGr9tHiA?=
- =?us-ascii?Q?1HAz/rfGfu6SsufMWSuUf2aO7BC+nAcnd8MzoOMoEYYRFSOC9qffWbuzhoy9?=
- =?us-ascii?Q?/oCzGQp/lMWlJ3Mk9m38wXw0jPvV2056zWiG9ogzwDExIiHVJN0iKBbzph3s?=
- =?us-ascii?Q?crlAnt060hhkh2AI+AfdClOOl5OEgtpC0XUczpDLUwZ2Wldc/m2rdoZr/HQb?=
- =?us-ascii?Q?AXYtFuswVftKDuTPQ7aed2v8ycDUGLEWG9JLD5TgK2mf0Zskjw63caxbFGF2?=
- =?us-ascii?Q?c+FhcNZ4qWM5vLuHqZm2vNSJf64AbHAd+05IPQG+QF+CiVhoKRvk2VFYUm4B?=
- =?us-ascii?Q?WNpVKNzfhDJC5CAeE4gkBL3JvPfuyMdccRCF+IcoAqvdDWNw4IR720XWKpGE?=
- =?us-ascii?Q?Xdk5AL0mNh79TLinJXsi4Mh5/qaBcZeyW0vuG1Z/ojeb6hIRKR67+D6GkwoN?=
- =?us-ascii?Q?V14JPDaz+fG60Xzn9x0I4vMSCEQr/g4fuXzvymCisaxyI3LH4lT0Kkjz2UH7?=
- =?us-ascii?Q?54myjFOgzWLXWvcWvPcSMDvgtGx5p/5p8JUoHTi3hyFOWF8k7CcC6mbwwyOb?=
- =?us-ascii?Q?NNyuXRBe8BXibk/cNJ8QtyODKgzTiBcivxxjW7F7jzB+Pv4V32qpwlz/py+T?=
- =?us-ascii?Q?qnS2rJr7CKTBrksDGaxrf6xJpTyMIF8AfHQdShuV9WbY0BleaP7jnE6tAj/B?=
- =?us-ascii?Q?ZcGOWZ4ssAj0n7TWNHNfBSrEMTJMnaF3NQU6Jjd1lap+xOP/pohqkpxkKc8C?=
- =?us-ascii?Q?LTLxh37BSLs/508jq8WaGzLY7yb0F/YrnniGPQewIM1Jzptk/3zpDBd9ikVg?=
- =?us-ascii?Q?yJvzOD8DBIqloTyp/r0jcehMkBv4Vb3AI643w0PhnO8OhXXUu/NV3vy24YCC?=
- =?us-ascii?Q?MrdMwzH4HTnDoSCaAtIiOADJub4bHanE2Ct33bjgsOZ23TWVZiZ8jmxsULAN?=
- =?us-ascii?Q?bI7sYGpW+v6uPVEEW54JZyYqfJi5le3LVQVSmWFPY/70DTjX40mZtakx+5Pw?=
- =?us-ascii?Q?VNeTCdCmbwzdw9Vxt/iKIqTVTUXydVU4560sRK0DnR0yJu3DORGb6LdpLx9d?=
- =?us-ascii?Q?KItHsPn9T1eIFOBsKuKXj9hiJTHja9xzIjnrB6+VuQQBGpZCU4U/lx8QIl/V?=
- =?us-ascii?Q?zz8kSg=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 72c705f7-f499-49a4-0bbe-08dda281e43b
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR11MB7540.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2025 09:34:52.1544
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +su0xe2hDkaNazl8MzwzZK5L421ZduOkGJVZu/OTbqxkfWlDwcqhVn5JMxjCY/WoqzzCpzjYthMfkznZpOBirYLIMkRkhIcJ3rb8sBPSUYo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB6964
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_023505_135859_27035552 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20250603_023558_237349_BA5C192B 
+X-CRM114-Status: GOOD (  36.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,112 +77,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 30, 2025 at 11:16:48AM +0800, Jinjian Song wrote:
-> When driver handles the napi rx polling requests, the netdev might
-> have been released by the dellink logic triggered by the disconnect
-> operation on user plane. However, in the logic of processing skb in
-> polling, an invalid netdev is still being used, which causes a panic.
+On Tue, Jun 03, 2025 at 04:22:47PM +0800, Zenghui Yu wrote:
+> Hi Marc,
 > 
-> BUG: kernel NULL pointer dereference, address: 00000000000000f1
-> Oops: 0000 [#1] PREEMPT SMP NOPTI
-> RIP: 0010:dev_gro_receive+0x3a/0x620
-> [...]
-> Call Trace:
->  <IRQ>
->  ? __die_body+0x68/0xb0
->  ? page_fault_oops+0x379/0x3e0
->  ? exc_page_fault+0x4f/0xa0
->  ? asm_exc_page_fault+0x22/0x30
->  ? __pfx_t7xx_ccmni_recv_skb+0x10/0x10 [mtk_t7xx (HASH:1400 7)]
->  ? dev_gro_receive+0x3a/0x620
->  napi_gro_receive+0xad/0x170
->  t7xx_ccmni_recv_skb+0x48/0x70 [mtk_t7xx (HASH:1400 7)]
->  t7xx_dpmaif_napi_rx_poll+0x590/0x800 [mtk_t7xx (HASH:1400 7)]
->  net_rx_action+0x103/0x470
->  irq_exit_rcu+0x13a/0x310
->  sysvec_apic_timer_interrupt+0x56/0x90
->  </IRQ>
+> On 2025/5/14 0:31, Marc Zyngier wrote:
+> > The current device MSI infrastructure is subtly broken, as it
+> > will issue an .msi_prepare() callback into the MSI controller
+> > driver every time it needs to allocate an MSI. That's pretty wrong,
+> > as the contract (or unwarranted assumption, depending who you ask)
+> > between the MSI controller and the core code is that .msi_prepare()
+> > is called exactly once per device.
+> > 
+> > This leads to some subtle breakage in said MSI controller drivers,
+> > as it gives the impression that there are multiple endpoints sharing
+> > a bus identifier (RID in PCI parlance, DID for GICv3+). It implies
+> > that whatever allocation the ITS driver (for example) has done on
+> > behalf of these devices cannot be undone, as there is no way to
+> > track the shared state. This is particularly bad for wire-MSI devices,
+> > for which .msi_prepare() is called for. each. input. line.
+> > 
+> > To address this issue, move the call to .msi_prepare() to take place
+> > at the point of irq domain allocation, which is the only place that
+> > makes sense. The msi_alloc_info_t structure is made part of the
+> > msi_domain_template, so that its life-cycle is that of the domain
+> > as well.
+> > 
+> > Finally, the msi_info::alloc_data field is made to point at this
+> > allocation tracking structure, ensuring that it is carried around
+> > the block.
+> > 
+> > This is all pretty straightforward, except for the non-device-MSI
+> > leftovers, which still have to call .msi_prepare() at the old
+> > spot. One day...
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  include/linux/msi.h |  2 ++
+> >  kernel/irq/msi.c    | 35 +++++++++++++++++++++++++++++++----
+> >  2 files changed, 33 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/include/linux/msi.h b/include/linux/msi.h
+> > index 63c23003ec9b7..ba1c77a829a1c 100644
+> > --- a/include/linux/msi.h
+> > +++ b/include/linux/msi.h
+> > @@ -516,12 +516,14 @@ struct msi_domain_info {
+> >   * @chip:	Interrupt chip for this domain
+> >   * @ops:	MSI domain ops
+> >   * @info:	MSI domain info data
+> > + * @alloc_info:	MSI domain allocation data (arch specific)
+> >   */
+> >  struct msi_domain_template {
+> >  	char			name[48];
+> >  	struct irq_chip		chip;
+> >  	struct msi_domain_ops	ops;
+> >  	struct msi_domain_info	info;
+> > +	msi_alloc_info_t	alloc_info;
+> >  };
+> >  
+> >  /*
+> > diff --git a/kernel/irq/msi.c b/kernel/irq/msi.c
+> > index 31378a2535fb9..07eb857efd15e 100644
+> > --- a/kernel/irq/msi.c
+> > +++ b/kernel/irq/msi.c
+> > @@ -59,7 +59,8 @@ struct msi_ctrl {
+> >  static void msi_domain_free_locked(struct device *dev, struct msi_ctrl *ctrl);
+> >  static unsigned int msi_domain_get_hwsize(struct device *dev, unsigned int domid);
+> >  static inline int msi_sysfs_create_group(struct device *dev);
+> > -
+> > +static int msi_domain_prepare_irqs(struct irq_domain *domain, struct device *dev,
+> > +				   int nvec, msi_alloc_info_t *arg);
+> >  
+> >  /**
+> >   * msi_alloc_desc - Allocate an initialized msi_desc
+> > @@ -1023,6 +1024,7 @@ bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
+> >  	bundle->info.ops = &bundle->ops;
+> >  	bundle->info.data = domain_data;
+> >  	bundle->info.chip_data = chip_data;
+> > +	bundle->info.alloc_data = &bundle->alloc_info;
+> >  
+> >  	pops = parent->msi_parent_ops;
+> >  	snprintf(bundle->name, sizeof(bundle->name), "%s%s-%s",
+> > @@ -1061,11 +1063,18 @@ bool msi_create_device_irq_domain(struct device *dev, unsigned int domid,
+> >  	if (!domain)
+> >  		return false;
+> >  
+> > +	domain->dev = dev;
+> > +	dev->msi.data->__domains[domid].domain = domain;
+> > +
+> > +	if (msi_domain_prepare_irqs(domain, dev, hwsize, &bundle->alloc_info)) {
 > 
-> Fixes: 5545b7b9f294 ("net: wwan: t7xx: Add NAPI support")
-> Signed-off-by: Jinjian Song <jinjian.song@fibocom.com>
-> ---
-> v3:
->  * Only Use READ_ONCE/WRITE_ONCE when the lock protecting ctlb->ccmni_inst
->    is not held.
+> Does it work for MSI?
 
-What do you mean by "lock protecting ctlb->ccmni_inst"? Please specify.
+This means that it does not work for MSI for you as it stands, right ?
 
-> ---
->  drivers/net/wwan/t7xx/t7xx_netdev.c | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
+If you spotted an issue, thanks for that, report it fully please.
+
+> hwsize is 1 in the MSI case, without taking pci_msi_vec_count() into account.
 > 
-> diff --git a/drivers/net/wwan/t7xx/t7xx_netdev.c b/drivers/net/wwan/t7xx/t7xx_netdev.c
-> index 91fa082e9cab..fc0a7cb181df 100644
-> --- a/drivers/net/wwan/t7xx/t7xx_netdev.c
-> +++ b/drivers/net/wwan/t7xx/t7xx_netdev.c
-> @@ -302,7 +302,7 @@ static int t7xx_ccmni_wwan_newlink(void *ctxt, struct net_device *dev, u32 if_id
->  	ccmni->ctlb = ctlb;
->  	ccmni->dev = dev;
->  	atomic_set(&ccmni->usage, 0);
-> -	ctlb->ccmni_inst[if_id] = ccmni;
-> +	WRITE_ONCE(ctlb->ccmni_inst[if_id], ccmni);
->  
->  	ret = register_netdevice(dev);
->  	if (ret)
-> @@ -324,6 +324,7 @@ static void t7xx_ccmni_wwan_dellink(void *ctxt, struct net_device *dev, struct l
->  	if (WARN_ON(ctlb->ccmni_inst[if_id] != ccmni))
->  		return;
->  
-> +	WRITE_ONCE(ctlb->ccmni_inst[if_id], NULL);
->  	unregister_netdevice(dev);
->  }
->  
-> @@ -419,7 +420,7 @@ static void t7xx_ccmni_recv_skb(struct t7xx_ccmni_ctrl *ccmni_ctlb, struct sk_bu
->  
->  	skb_cb = T7XX_SKB_CB(skb);
->  	netif_id = skb_cb->netif_idx;
-> -	ccmni = ccmni_ctlb->ccmni_inst[netif_id];
-> +	ccmni = READ_ONCE(ccmni_ctlb->ccmni_inst[netif_id]);
->  	if (!ccmni) {
->  		dev_kfree_skb(skb);
->  		return;
-> @@ -441,7 +442,7 @@ static void t7xx_ccmni_recv_skb(struct t7xx_ccmni_ctrl *ccmni_ctlb, struct sk_bu
->  
->  static void t7xx_ccmni_queue_tx_irq_notify(struct t7xx_ccmni_ctrl *ctlb, int qno)
->  {
-> -	struct t7xx_ccmni *ccmni = ctlb->ccmni_inst[0];
-> +	struct t7xx_ccmni *ccmni = READ_ONCE(ctlb->ccmni_inst[0]);
->  	struct netdev_queue *net_queue;
+> bool pci_setup_msi_device_domain(struct pci_dev *pdev)
+> {
+> 	[...]
 > 
+> 	return pci_create_device_domain(pdev, &pci_msi_template, 1);
 
-You do not seem to check if ccmni is NULL here, so given ctlb->ccmni_inst[0] is 
-not being hot-swapped, I guess that there are some guarantees of it not being 
-NULL at this moment, so I would drop READ_ONCE here.
+I had a stab at it with GICv5 models and an MSI capable device and this indeed
+calls the ITS msi_prepare() callback with 1 as vector count, so we size
+the device tables wrongly.
 
->  	if (netif_running(ccmni->dev) && atomic_read(&ccmni->usage) > 0) {
-> @@ -453,7 +454,7 @@ static void t7xx_ccmni_queue_tx_irq_notify(struct t7xx_ccmni_ctrl *ctlb, int qno
->  
->  static void t7xx_ccmni_queue_tx_full_notify(struct t7xx_ccmni_ctrl *ctlb, int qno)
->  {
-> -	struct t7xx_ccmni *ccmni = ctlb->ccmni_inst[0];
-> +	struct t7xx_ccmni *ccmni = READ_ONCE(ctlb->ccmni_inst[0]);
->  	struct netdev_queue *net_queue;
->
+The question is why pci_create_device_domain() is called here with
+hwsize == 1. Probably, before this series, the ITS MSI parent code was
+fixing the size up so we did not notice, I need to check.
 
-Same as above, either READ_ONCE is not needed or NULL check is required.
-
->  	if (atomic_read(&ccmni->usage) > 0) {
-> @@ -471,7 +472,7 @@ static void t7xx_ccmni_queue_state_notify(struct t7xx_pci_dev *t7xx_dev,
->  	if (ctlb->md_sta != MD_STATE_READY)
->  		return;
->  
-> -	if (!ctlb->ccmni_inst[0]) {
-> +	if (!READ_ONCE(ctlb->ccmni_inst[0])) {
->  		dev_warn(&t7xx_dev->pdev->dev, "No netdev registered yet\n");
->  		return;
->  	}
-> -- 
-> 2.34.1
-> 
-> 
+Lorenzo
 
