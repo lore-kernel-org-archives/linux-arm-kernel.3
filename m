@@ -4,68 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 099ABC5B555
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9C4C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 15:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zFZ6YwHvgSl9V9Kq7xYCisv6g+dcYL2KAPMk93hOPSQ=; b=X3C+PaVOHxYzBqc6DZK5gy77rg
-	L0kwB5eO0EEXe1SUj3jfOja9zHEXKWQAWpIvX2CWb/kLHKs0LXS/48NvLDZAzpKQbjzP88oTm4szs
-	5d/55HjDm0arArdsy3CgjtA54Skc3BSQpvfOCMKROWP9mFhRm/vY77nh3jGMfcA8SghACgJD6Emax
-	7J5hLThtdaqtndmXSG1FgSIUXEEfW4JPog7fSntTj32P3QTLL1knGF0y26ra0rH9sqP1MfM9ZwXEu
-	UQcOw2TkvzBUtgYQvyIiWZnK6oUPxS+D33yuBfQPnoZjur8cL78Y8sqYffms6Te4D3JKOmfvC316n
-	lERk9DVA==;
+	bh=Kll+Nx9B4YkVFlWatnKEXqD86tPOInlKo1AzX+5Twko=; b=ojgW5YT8Z4+7VpYJWVPZTbQNIz
+	pzX0vKDozAbFz3+qD23KBA5uu/6Al53UHu3rVU+Kep3zwGVGWcucE4KIbjEFqBZdu+nu3fnWo0UY1
+	zYDJ+uBvbtSnAqvT8P9lSXt3Gr31rlVZuujThRL3vgZktIsjChb+UDZBPbvfFXqDdUpzmhuyTNdV8
+	aWiSYE30GHzINBWGz4OHJLY+PP/yIco1KJCaFbhAjI/+viyo22+bWNMKVQpFhgVdqMnp3HB448vUo
+	EvA2bijSOuhZGlY2gYDqx5vSu7MdR9Rjgj0VZquz+UgGXIhB4zfWx5sRZ8dBeSzoSgUTQ45mD8akO
+	J+SnS/mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMU0Q-0000000BLWE-3i5g;
-	Tue, 03 Jun 2025 15:56:50 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uMU22-0000000BLsl-2xsJ;
+	Tue, 03 Jun 2025 15:58:30 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMTqM-0000000BJyo-0I04;
-	Tue, 03 Jun 2025 15:46:27 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 553FkCqT3554911;
-	Tue, 3 Jun 2025 10:46:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1748965572;
-	bh=zFZ6YwHvgSl9V9Kq7xYCisv6g+dcYL2KAPMk93hOPSQ=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=x9DStk0B/Xr4bClFB1xeGxAnulnzCKY/VfdSQUMrAR1wRYGfZ+/x1Oxg3zd665GLX
-	 vJJiVawJI2CJtPXonTu7obh4+Rcc6kSsWbMWiZU6QzUit7jkg5tUW/Lnh48mfE8Izw
-	 hP2vUYebW5iTPRvd7EaWoQlPphzUnHNVwbMyv8NY=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 553FkCPo1411998
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 3 Jun 2025 10:46:12 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 3
- Jun 2025 10:46:12 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 3 Jun 2025 10:46:12 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 553FkC0i566876;
-	Tue, 3 Jun 2025 10:46:12 -0500
-Date: Tue, 3 Jun 2025 10:46:12 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 3/5] dt-bindings: mailbox: Correct example indentation
-Message-ID: <20250603154612.ksi2jq5dqhc4wkhu@despise>
-References: <20250603-dt-bindings-mailbox-cleanup-v1-0-724407563997@linaro.org>
- <20250603-dt-bindings-mailbox-cleanup-v1-3-724407563997@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+	id 1uMSyJ-0000000BCjq-2r9t
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 03 Jun 2025 14:50:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wkc/4qmjexDkqzBtx9C46s1UhUPP02pOL5wYTv1Lz9cR16GQ5C4LDARjXBESl8DJrbwBV6Z+koZjQyqiy1836KLkj/FhVYMZbGu4KH6EzlOdaPf3Tsny4CkSHfGa80AZWwSSaJ9Xp1+7WQlnM3XUkikn1+g7fwWVDP09naIQunsF0bm2t7G02DEkxA6OKzyKPgzj+cN2gtwAInLmYHG72jI2P9g4kIiN1W+mxwdGDpVbvtfQyI2ifP2elejnwwxWG8vUH0gFgIIAo6Q+9emdqTaVybMwogkWMRuShiU8AOIj8m80AjeK+64i1nR5LUNBFteHqEFUfR789zHaO0klCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kll+Nx9B4YkVFlWatnKEXqD86tPOInlKo1AzX+5Twko=;
+ b=A9GMRS1xXT4HPmAl4XLeMUHjw1UAh0MrXqxaMHadb4h4Cg/TPR0mEAiPLQkO0ObkXP1Yclf9ath3arxtaBCm/zsMlSxay0aG9Mfb+/FNjt9To8h7Y6p9REVuYF2+EuJX6A5u3A9ihc+8IF1kmp+c+sUzngHaFSso9Cxy0XG2D5m2ccd3KeFZY4dHvGBQLdotH3YrEqS8mFZU21/6ZGm6TELhpcXULijcaJXTauzXe5dA/43WyyB+ByT8kn4kj087apErNflKTBs3NJbpZGuZBOuQW84+Hduv46YzsfY4vKySJeC7Pu8+9TSvUiW9UFmqh3c84hsURuhL/yrLOrlyJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kll+Nx9B4YkVFlWatnKEXqD86tPOInlKo1AzX+5Twko=;
+ b=DiakGqOliOB1PODacaOcn1j/NgeldtwPZU5g2v0nMHKDGOGpy05MWBeIzf4HFGsrPHkAFufnrfdCL8qJOLfCZGA+Tnq4NJEz8twSQCXTHKnYbKT1D7eWHrbBROgafoGk6ZnS2cP+OlZHc4q/pxdDl59s+hbWmMWXzKFMVS53uV7dgUqxP/Xw+rQuToBktOtVu4/io3IvMhyLEcVcn2bFB87fNMVxuee7u1jFJ6JYO7F8HI4tz/nE9LcdpOY+IDi22ISJdaTuqs9o+7GW3jJ1KIag60HtOCO6WTqJMNoXsmGjSfJxxLl/SyWluodO70ypxvoelh3XsH57ihYpiITcGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by VI0PR04MB10616.eurprd04.prod.outlook.com (2603:10a6:800:263::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.37; Tue, 3 Jun
+ 2025 14:50:27 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8769.025; Tue, 3 Jun 2025
+ 14:50:27 +0000
+Date: Tue, 3 Jun 2025 10:50:18 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Meng Li <Meng.Li@windriver.com>
+Cc: linux@roeck-us.net, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	linux-watchdog@vger.kernel.org, imx@lists.linux.dev,
+	shawnguo@kernel.org, robh@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [v3 PATCH 1/2] dt-bindings: watchdog: fsl-imx-wdt: add
+ compatible string fsl,ls1046a-wdt
+Message-ID: <aD8LqjMrzFF+di6d@lizhi-Precision-Tower-5810>
+References: <20250603040230.2012772-1-Meng.Li@windriver.com>
+ <20250603040230.2012772-2-Meng.Li@windriver.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250603-dt-bindings-mailbox-cleanup-v1-3-724407563997@linaro.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250603040230.2012772-2-Meng.Li@windriver.com>
+X-ClientProxiedBy: SJ0PR13CA0209.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c3::34) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI0PR04MB10616:EE_
+X-MS-Office365-Filtering-Correlation-Id: cdaee69a-6062-40f6-ab9b-08dda2adfa7e
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RfM+h9CQ3+/fkTgQ+7hlVeQceLiGBc81JmxxLsG0xaaD7RZpvVwcldBxVo8m?=
+ =?us-ascii?Q?Mx6+OV8gOl5rUihPzL92UCXrsDTOJ+KOUzbEpwOVT8qcxFA6UD7pkABYaYJl?=
+ =?us-ascii?Q?QIhsLS+yXM05pA+ySU0zMQzDwlnvzA3K6UAiJGk5B9BDvlstYCQ4ZV+Pw87F?=
+ =?us-ascii?Q?SYSItRv/eQI6sK/UJgiBq6sXWoVxHxw67I0wYTbgl/sX75n0EBwTWWpRBVx/?=
+ =?us-ascii?Q?PdoIgOHS4qUF6BlFUiU92z/MPlMT3nFkjCw9rdqEKkpJIRR22D3kiixEYFyo?=
+ =?us-ascii?Q?XQuzVpMD4Z1iUKTVYggI9MDbc5kdJQfX31Ub//xAf/ziJ9tOgpzkUTGL5NJ6?=
+ =?us-ascii?Q?wE+j44Qut2ETWgiBoVofnl8H5+BnfWupPDe2vIhwDTi4HWNtXmGBww6Hm9kk?=
+ =?us-ascii?Q?udI6gMPpp0wM/DNbkKo2ZniNRG1eU80L4emsksCslclGXHuVWDlkMSKrjKKH?=
+ =?us-ascii?Q?GkzpPCIPVmL0MrzLEY7LLm8itIP4Ues/i8zupWjXDFE7ACUe7HJ2SEdHhMZR?=
+ =?us-ascii?Q?2A6zBx8SkGuXhmg3QQ7AM4JMbLF3QeaQFwtC8mvzgwVKyCX/Q+xnAWb3aHUI?=
+ =?us-ascii?Q?crGevHDvr6FqLTDT5o9u5LkZoUOLZVhd3TQMeVo5m6pFXWjtbdgWbYCn64+E?=
+ =?us-ascii?Q?VagFRK4yXUPKY7MYXfcauYoRRbS7c6sGbJWSslfoWhaVpnJ6sgGYdGahqEW2?=
+ =?us-ascii?Q?LgTnNELgh/pfguwUZOgPpDkFU/wUY/nrcZR7v/85MzUvTTZVhWYtjjwAxF1Y?=
+ =?us-ascii?Q?Ca1MayUbh1GsrSjvbqOi5OUR12026+nTooOUePqETuTGEIGZfBhri/rY+qzN?=
+ =?us-ascii?Q?a3r+YWCB6sX2QGjNzbA4MolSf1icwJ/lZ3AYjog2dhTH+m+iZy8y/91PyN0S?=
+ =?us-ascii?Q?MQEsBkJsAIQ/UISidShD3RaNZeIrzcwbaYGaKMu/L03n5r9tCFqfXhPNI8rL?=
+ =?us-ascii?Q?N18QeSZhg7tYHjGZVaLpfzCPFejfGlUjpOsUipky7Dd4eG/yKLSGZv+Uhvf5?=
+ =?us-ascii?Q?oK5EXqyf03cu05fSQPTg/6EYnd8k/6uJK543GRTZfZF2Rop6/PwzvtDZ7Fc4?=
+ =?us-ascii?Q?xkpo7O0ioZZ2Xf/6rV/+wUxs505I3ZA2gCsWg6bD/AO/WeyGgE24oi+FeSsI?=
+ =?us-ascii?Q?NWsn6EXDDFiOU3nxeBzvicVXXgV8TgW75clljMd4OL5rO/rrwUl5uFolv1EU?=
+ =?us-ascii?Q?F1FUFuPrZfRdBikrBTGRNiOXbOzvkfxHltJ1yLPM2Cs3gHzlJ0Joz6vsfaSE?=
+ =?us-ascii?Q?TH9QLLzIk0k/tU1hmybTsDZ9rd2TjfBiJm48/YTN7HA1RnCD7vY3WcTC89eY?=
+ =?us-ascii?Q?O8caBBzuJ1RUjIcT5eBW3kB2lR/hOlmuCXi2Dqou9bGgqrZwqGiF8LgWvvSB?=
+ =?us-ascii?Q?5pjfoGbTJhwy/y1iVKaHnZ6VkPUvJPBlYG5bS5efBhIAdwCTVbcqPtVvW78G?=
+ =?us-ascii?Q?wesU2qLptHrXpDyGG+eo8CHZMsllT/ZZ4Cg4RpRjfQtu5lx0mosJNUKDNqzA?=
+ =?us-ascii?Q?sX3M4DfFU/013EM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0+tRbYekZQAkLI5QQ03+wMaZBacS/RO3LYSFEz+WSuhAPEcXWFlrwteLXt3S?=
+ =?us-ascii?Q?2PIkWsLLMxnpicU0qnh06t9FESZxTRxW6QeUrA+tTVquFSuoh69p/6TflVWn?=
+ =?us-ascii?Q?hgkWrdGNq+57CbWYeYoVrSBeWIHXvvKOHwDX7eAMt8yqix3Yd72hrUIlMY85?=
+ =?us-ascii?Q?gQhJ6p/XgaeVGvP8Bvl8VIrkW30dI/c6FypWo/XfyPao7RsPL/bpVXlnRrjA?=
+ =?us-ascii?Q?yA9jgwDr+xBZSGZsZhl0qWbXYC5r+rBtMyoRadABlNb/dDHAsBOxo1b4B7AA?=
+ =?us-ascii?Q?x7JkmL1fpJvFf7isUPM5VBj8IGiCBCKtUh9VgiIIWQp+y6xqugdPMNmX1zar?=
+ =?us-ascii?Q?JOiqN02GhjH1rVSfr65SDgKd+YyCwasELaEPHt8JxN5LXjSScw8YmAMiy9pr?=
+ =?us-ascii?Q?6wmjNUIjwiX917hqPKop17A+ByRQWa1EeWzv1uxVJ6Xyljf8v/Qhem7DG6KC?=
+ =?us-ascii?Q?14s8uxxIOQkg7TM697HPkBpusMSN+8daLqjzZFMBH9XZZPWNADF9YWAaB7Eg?=
+ =?us-ascii?Q?qZzby0ZGudIvtwtWExtCL2V7UVVDZFTYa0vvKYTN2VAMlPyWLkevN7gwDcy5?=
+ =?us-ascii?Q?tuG1fTJF5B0ItnZqcxmQBKPuTlb63YIsajmrnnq1QaZ+F0Ub0qKtokE8Hmww?=
+ =?us-ascii?Q?X+7X1oekRVodoUjRd4oYBl1HYBf1Q9h2Co4rd4yqOts78GgN0ljzlH10J/6V?=
+ =?us-ascii?Q?yJfxcONG9pqTzYrjG6Cdp0WD59Q3oBjJFhFJYZRjhjkoa9y09i/7cUGTSEfb?=
+ =?us-ascii?Q?lVRRaeHwV6cM8w2kp9nPYfMAjEsslHO3kCM75ltlUU0+gFkR1AHQW0WhJGjJ?=
+ =?us-ascii?Q?4+7STrcnZbC5tWKK8u0s63Qdx8GK6IIygKtANR+q8qlJbGbomJUPyejuw41q?=
+ =?us-ascii?Q?ns18iK9irukZVJ5m9RQw/wI3BlOB0ewgdxoU+BSKN8lzdiXT4LJ1k9JxGEPN?=
+ =?us-ascii?Q?WZ5EHE/xH7ZGKjT2w54rGEhTb+dh6/OpWnbGtoIASkGHaIovr4/TLRYUXlMa?=
+ =?us-ascii?Q?ZID91hy2TyU2hghJlAfRFgfp7CrkC+hoJMgjqV4uRjr3YJq+zZjBeccovat/?=
+ =?us-ascii?Q?wP+qIbCuUz04jmk8J7D4RXzVIHYFLy/DNPAHjE0WUU547M84Qb+tb1lY8E2T?=
+ =?us-ascii?Q?CfWEnN7JUbbuTeYUB0f5B5UOG0boKmO0FMYER3+H8vBZGI2jRHfAO2bV0tGT?=
+ =?us-ascii?Q?muxbUVr9j8d2b3rsv4O6wA22RBBFEU7uLfJnJ1vzAK0Yosqv3Y9CgrCX2ZtF?=
+ =?us-ascii?Q?S/tvIksjhYNKQjUFeUnnCtYewz0e5/ycI77aKmjB3GxIOzMG03ocDufSQppO?=
+ =?us-ascii?Q?zA54HjvRKcQTJsp3kSUdbsSgkv4mG2++SwCFhWLQqS7nESrd7UPEPAipBqwJ?=
+ =?us-ascii?Q?jS4eTJiAOyr3zFuS+nmEVb4xakI8pLy6MCS1JUVtjogt6n4qevRZzkkeYoTt?=
+ =?us-ascii?Q?G4637S48TYVkogoCLYJ1PWJy4oRr68Z8Fr23mS2AdbyEePd91ebeFst0KH2s?=
+ =?us-ascii?Q?mg2v9pw+l3dY8LF/0bypIEa3cxdaKk+jNqhEkmrbiYPncNWBljshN7BkjSni?=
+ =?us-ascii?Q?O4ZnstjRBDYQKdoId/d0EURw2nVWDPDHKAOnvJIs?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cdaee69a-6062-40f6-ab9b-08dda2adfa7e
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2025 14:50:27.3958
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aLR/9y41dcoSQoDDj3VhmPqdAa+OXoLoSE3DGDJ02hNgYuLXLPfz+l2UK7f1LS7KlFAcmEYX3PxSeDqqOyjj8g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10616
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_084626_196150_58DF5043 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20250603_075035_737837_0CB75C96 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,48 +159,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Thierry Reding <thierry.reding@gmail.com>, Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Jerome Brunet <jbrunet@baylibre.com>, Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>, Jassi Brar <jassisinghbrar@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Chen-Yu Tsai <wens@csie.org>, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@svenpeter.dev>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Hector Martin <marcan@marcan.st>, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, Neal Gompa <neal@gompa.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:57-20250603, Krzysztof Kozlowski wrote:
-> DTS example in the bindings should be indented with 2- or 4-spaces, so
-> correct a mixture of different styles to keep consistent 4-spaces.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Tue, Jun 03, 2025 at 12:02:29PM +0800, Meng Li wrote:
+> Add compatible string fsl,ls1046a-wdt for ls1046a SoC. fsl,ls1046a-wdt
+> allows big-endian property.
+>
+> Signed-off-by: Meng Li <Meng.Li@windriver.com>
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
-[...]
-
-> diff --git a/Documentation/devicetree/bindings/mailbox/ti,secure-proxy.yaml b/Documentation/devicetree/bindings/mailbox/ti,secure-proxy.yaml
-> index 682ccd76f5c25fc13bb3375007d39e6208cdddc0..c321b69f0ccd3cdc7cedefadf46982b42cce915e 100644
-> --- a/Documentation/devicetree/bindings/mailbox/ti,secure-proxy.yaml
-> +++ b/Documentation/devicetree/bindings/mailbox/ti,secure-proxy.yaml
-> @@ -68,12 +68,12 @@ examples:
->    - |
->      #include <dt-bindings/interrupt-controller/arm-gic.h>
->      secure_proxy: mailbox@32c00000 {
-> -          compatible = "ti,am654-secure-proxy";
-> -          #mbox-cells = <1>;
-> -          reg-names = "target_data", "rt", "scfg";
-> -          reg = <0x32c00000 0x100000>,
-> -                <0x32400000 0x100000>,
-> -                <0x32800000 0x100000>;
-> -          interrupt-names = "rx_011";
-> -          interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-> +        compatible = "ti,am654-secure-proxy";
-> +        #mbox-cells = <1>;
-> +        reg-names = "target_data", "rt", "scfg";
-> +        reg = <0x32c00000 0x100000>,
-> +              <0x32400000 0x100000>,
-> +              <0x32800000 0x100000>;
-> +        interrupt-names = "rx_011";
-> +        interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
->      };
-
-Reviewed-by: Nishanth Menon <nm@ti.com>
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+>  Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
+> index 8a6c3a75a547..34951783a633 100644
+> --- a/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
+> +++ b/Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml
+> @@ -37,6 +37,7 @@ properties:
+>                - fsl,ls1012a-wdt
+>                - fsl,ls1021a-wdt
+>                - fsl,ls1043a-wdt
+> +              - fsl,ls1046a-wdt
+>                - fsl,vf610-wdt
+>            - const: fsl,imx21-wdt
+>
+> @@ -105,6 +106,7 @@ allOf:
+>                  - fsl,ls1012a-wdt
+>                  - fsl,ls1021a-wdt
+>                  - fsl,ls1043a-wdt
+> +                - fsl,ls1046a-wdt
+>      then:
+>        properties:
+>          big-endian: false
+> --
+> 2.34.1
+>
 
